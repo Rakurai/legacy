@@ -353,7 +353,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 		OBJ_DATA *obj, *obj_next;
 
 		/* chance of blindness */
-		if (!affect_flag_on_char(victim, AFF_BLIND)
+		if (!is_affected(victim, gsn_blindness)
 		    &&  !saves_spell(level / 4 + dam / 20, victim, DAM_FIRE)) {
 			AFFECT_DATA af = (AFFECT_DATA){0};
 			act("$n is blinded by smoke!", victim, NULL, NULL, TO_ROOM);
@@ -367,7 +367,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			af.modifier     = -4;
 			af.bitvector    = AFF_BLIND;
 			af.evolution    = URANGE(1, evolution - 1, 4);
-			affect_copy_to_char(victim, &af);
+			affect_join_to_char(victim, &af);
 		}
 
 		/* getting thirsty */

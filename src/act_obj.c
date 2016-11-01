@@ -551,7 +551,7 @@ void do_get(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
-			if (IS_SET(ch->in_room->room_flags, ROOM_LOCKER)) {
+			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				if (IS_SET(ch->act, PLR_CLOSED)) {
 					int number = get_locker_number(ch);
 
@@ -798,7 +798,7 @@ void do_put(CHAR_DATA *ch, const char *argument)
 
 	/* locker stuff */
 	if (!IS_NPC(ch) && !str_prefix1(arg2, "locker")) {
-		if (!IS_SET(ch->in_room->room_flags, ROOM_LOCKER)) {
+		if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 			stc("You do not see a locker in this room.\n", ch);
 			return;
 		}
@@ -1545,7 +1545,6 @@ void do_give(CHAR_DATA *ch, const char *argument)
 void do_envenom(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 	int percent, skill;
 
 	/* find out what */
@@ -1625,6 +1624,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 		percent = number_percent();
 
 		if (percent < skill) {
+			AFFECT_DATA af = (AFFECT_DATA){0};
 			af.where     = TO_WEAPON;
 			af.type      = gsn_poison;
 			af.level     = ch->level;
@@ -3798,6 +3798,15 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	return cost;
 } /* end get_cost() */
 
+void make_pet(CHAR_DATA *ch, CHAR_DATA *pet) {
+	SET_BIT(pet->act, ACT_PET);
+	affect_add_perm_to_char(pet, gsn_charm_person);
+	pet->comm = COMM_NOCHANNELS;
+	add_follower(pet, ch);
+	pet->leader = ch;
+	ch->pet = pet;
+}
+
 void do_buy(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -3816,7 +3825,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
 		/* PETS */
 		char arg[MAX_INPUT_LENGTH];
 		char buf[MAX_STRING_LENGTH];
@@ -3935,9 +3944,6 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 			ch->silver += cost;
 		}
 
-		SET_BIT(pet->act, ACT_PET);
-		affect_flag_add_to_char(pet, AFF_CHARM);
-		pet->comm = COMM_NOCHANNELS;
 		argument = one_argument(argument, arg);
 
 		if (arg[0] != '\0') {
@@ -3955,9 +3961,9 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		free_string(pet->description);
 		pet->description = str_dup(buf);
 		char_to_room(pet, ch->in_room);
-		add_follower(pet, ch);
-		pet->leader = ch;
-		ch->pet = pet;
+
+		make_pet(ch, pet);
+
 		stc("Enjoy your pet.  Watch out, they bite!\n", ch);
 		act("$n purchased $N as a pet.", ch, NULL, pet, TO_ROOM);
 		return;
@@ -4193,7 +4199,7 @@ void do_list(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
 		ROOM_INDEX_DATA *pRoomIndexNext;
 		CHAR_DATA *pet;
 		bool found;

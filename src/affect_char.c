@@ -120,15 +120,83 @@ void affect_sort_char(CHAR_DATA *ch, affect_comparator comp) {
 
 // utility
 
+// for splay tree below
+// equal numbers still returns 1, so we can store duplicates.  bug with splaytree
+// implementation, disregards multiple values flag
+int gsn_compare(void *lhs, void *rhs) {
+	int ilhs = *(int *)lhs, irhs = *(int *)rhs;
+	return irhs == ilhs ? 1 : irhs - ilhs;
+}
+
+int *copy_int(int *key) {
+	int *new_key = malloc(sizeof(int));
+	*new_key = *key;
+	return new_key;
+}
+
+void update_affect_cache(CHAR_DATA *ch, int sn, bool fAdd) {
+	if (fAdd) {
+		if (ch->affect_cache == NULL) {
+			ch->affect_cache = cp_splaytree_create_by_option(
+				COLLECTION_MODE_NOSYNC | COLLECTION_MODE_COPY | COLLECTION_MODE_DEEP | COLLECTION_MODE_MULTIPLE_VALUES,
+				(cp_compare_fn) gsn_compare,
+				(cp_copy_fn) copy_int,
+				(cp_destructor_fn) free,
+				(cp_copy_fn) copy_int,
+				(cp_destructor_fn) free);
+		}
+
+		// insert copies for both key and value, it makes our print work later
+		cp_splaytree_insert(ch->affect_cache, &sn, &sn);
+	}
+	else {
+		cp_splaytree_delete(ch->affect_cache, &sn);
+
+		if (cp_splaytree_count(ch->affect_cache) == 0) {
+			cp_splaytree_destroy(ch->affect_cache);
+			ch->affect_cache = NULL;
+		}
+	}
+}
+
+int affect_print_cache_callback(void *entry, void *prm) {
+	static int last_sn = 0;
+	int sn = *(int *)entry;
+	char *str = (char *)prm;
+
+	if (sn != last_sn) {
+		if (str[0] != '\0')
+			strcat(str, " ");
+
+		strcat(str, skill_table[sn].name);
+		last_sn = sn;
+	}
+
+	return 0;
+}
+
 char *affect_print_cache(CHAR_DATA *ch) {
 	static char buf[MSL];
 	buf[0] = '\0';
 
-//	if (ch->affect_cache != NULL)
-//		cp_splaytree_callback(ch->affect_cache, affect_print_cache_callback, buf);
+	if (ch->affect_cache != NULL)
+		cp_splaytree_callback(ch->affect_cache, affect_print_cache_callback, buf);
 
 	return buf;
 }
+
+bool is_affected(CHAR_DATA *ch, int sn) {
+	return ch->affect_cache && cp_splaytree_contains(ch->affect_cache, &sn);
+}
+
+#define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
+#define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
+/* hinges on af.where:
+	where        type       location  modifier
+	TO_OBJECT    ignore     attrmod   amount
+    TO_AFFECTS   sn,cache   attrmod   amount
+    TO_DEFENSE   ignore     defmod    amount
+*/
 
 // the modify function is called any time there is a potential change to the list of
 // affects, and here we update any caches or entities that depend on the affect list.
@@ -179,7 +247,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 			return;
 		}
 
-//		update_affect_cache(ch, paf->type, fAdd);
+		update_affect_cache(ch, paf->type, fAdd);
 	}
 
 	// both TO_OBJECT and TO_AFFECTS can set attribute mods

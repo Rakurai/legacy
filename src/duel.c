@@ -381,8 +381,8 @@ void view_room_hpbar(CHAR_DATA *ch)
 
 	chal = duel->challenger;
 	def  = duel->defender;
-	chalpct = URANGE(1, 10 * chal->hit / chal->max_hit, 10);
-	defpct  = URANGE(1, 10 * def->hit  / def->max_hit,  10);
+	chalpct = URANGE(1, 10 * chal->hit / GET_ATTR(chal, APPLY_HIT), 10);
+	defpct  = URANGE(1, 10 * def->hit  / GET_ATTR(def, APPLY_HIT),  10);
 	sprintf(chalblock, "{C%s{C [", chal->name);
 
 	if (chalpct <= 3)       strcat(chalblock, "{P");
@@ -533,9 +533,9 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 
 	// TODO: add back eq affects/flags
 
-	ch->hit  = ch->max_hit;
-	ch->mana = ch->max_mana;
-	ch->stam = ch->max_stam;
+	ch->hit  = ATTR_BASE(ch, APPLY_HIT);
+	ch->mana = ATTR_BASE(ch, APPLY_MANA);
+	ch->stam = ATTR_BASE(ch, APPLY_STAM);
 	do_look(ch, "auto");
 }
 

@@ -482,18 +482,18 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect_flag_on_char(mob, AFF_CHARM) ? 1 : 0;
+		case 'i': return is_affected(mob, gsn_charm_person) ? 1 : 0;
 
 		case 'n': if (actor)
-				return affect_flag_on_char(actor, AFF_CHARM) ? 1 : 0;
+				return is_affected(actor, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return affect_flag_on_char(vict, AFF_CHARM) ? 1 : 0;
+				return is_affected(vict, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return affect_flag_on_char(rndm, AFF_CHARM) ? 1 : 0;
+				return is_affected(rndm, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		default:
@@ -580,8 +580,13 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 			return -1;
 		}
 	}
-
+#if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
 	if (!str_cmp(buf, "isaffected")) {
+		int sn = skill_lookup(arg);
+
+		if (sn <= 0) {
+			bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
+		}
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': return affect_flag_on_char(mob, atoi(arg));
 
@@ -598,20 +603,20 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 			else return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isaffected'",
-			    mob->pIndexData->vnum);
+			bug("Mob: %d bad argument '%s' to 'isaffected'",
+			    mob->pIndexData->vnum, );
 			return -1;
 		}
 	}
-
+#endif // ifdef 0
 	if (!str_cmp(buf, "hitprcnt")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->hit / mob->max_hit;
+		case 'i': lhsvl = mob->hit / GET_ATTR(mob, APPLY_HIT);
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = actor->hit / actor->max_hit;
+				lhsvl = actor->hit / GET_ATTR(actor, APPLY_HIT);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -619,7 +624,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = vict->hit / vict->max_hit;
+				lhsvl = vict->hit / GET_ATTR(vict, APPLY_HIT);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -627,7 +632,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = rndm->hit / rndm->max_hit;
+				lhsvl = rndm->hit / GET_ATTR(rndm, APPLY_HIT);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -1582,7 +1587,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	CHAR_DATA *vch   = NULL;
 	int        count = 0;
 
-	/*    if affect_flag_on_char( mob, AFF_CHARM )
+	/*    if is_affected( mob, gsn_charm_person )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */
@@ -1855,7 +1860,7 @@ void mprog_hitprcnt_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 	    && (mob->pIndexData->progtypes & HITPRCNT_PROG))
 		for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 			if ((mprg->type & HITPRCNT_PROG)
-			    && ((100 * mob->hit / mob->max_hit) < atoi(mprg->arglist))) {
+			    && ((100 * mob->hit / GET_ATTR(mob, APPLY_HIT)) < atoi(mprg->arglist))) {
 				mprog_driver(mprg->comlist, mob, ch, NULL, NULL);
 				break;
 			}

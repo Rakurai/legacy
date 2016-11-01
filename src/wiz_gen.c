@@ -474,10 +474,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			sprintf(buf,
 			        "{W[%12s] {P%5d{RHP {P%5d{RMP{c/{G%2d %2d %2d %2d %2d %2d{c/{Y%8ld {bWorth{c/{Y%4d {bQpts{c/{Y%4d {b Spts{x\n",
 			        victim->name,
-			        victim->max_hit, victim->max_mana, victim->perm_stat[STAT_STR],
-			        victim->perm_stat[STAT_INT], victim->perm_stat[STAT_WIS],
-			        victim->perm_stat[STAT_DEX], victim->perm_stat[STAT_CON],
-			        victim->perm_stat[STAT_CHR],
+			        ATTR_BASE(victim, APPLY_HIT), ATTR_BASE(victim, APPLY_MANA), ATTR_BASE(victim, APPLY_STR),
+			        ATTR_BASE(victim, APPLY_INT), ATTR_BASE(victim, APPLY_WIS),
+			        ATTR_BASE(victim, APPLY_DEX), ATTR_BASE(victim, APPLY_CON),
+			        ATTR_BASE(victim, APPLY_CHR),
 			        victim->gold + victim->silver / 100,
 			        victim->questpoints,
 			        !IS_NPC(victim) ? victim->pcdata->skillpoints : 0);
@@ -503,7 +503,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			sprintf(buf,
 			        "{W[%12s] {b%4d Items (W:%5d){c/{PH:%4d D:%4d{c/{GS:%-4d{c/{CAC:%-5d %-5d %-5d %-5d{x\n",
 			        victim->name, get_carry_number(victim), get_carry_weight(victim),
-			        victim->hitroll, victim->damroll, victim->saving_throw,
+			        GET_HITROLL(victim), GET_DAMROLL(victim), GET_ATTR(victim, APPLY_SAVES),
 			        GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 			        GET_AC(victim, AC_SLASH), GET_AC(victim, AC_EXOTIC));
 			add_buf(buffer, buf);
@@ -524,7 +524,8 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->absorb_flags;
+			flags = GET_FLAGS(victim, TO_ABSORB);
+
 			sprintf(buf,
 			        "{W[%12s] {RABS: {P[%-25s]{x",
 			        victim->name,
@@ -547,8 +548,8 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->imm_flags;
-			flags -= race_table[victim->race].imm & victim->imm_flags;
+			flags = GET_FLAGS(victim, TO_IMMUNE);
+			flags -= race_table[victim->race].imm & GET_FLAGS(victim, TO_IMMUNE);
 			sprintf(buf,
 			        "{W[%12s] {RIMM: {P[%-25s]{x",
 			        victim->name,
@@ -573,8 +574,8 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->res_flags;
-			flags -= race_table[victim->race].res & victim->res_flags;
+			flags = GET_FLAGS(victim, TO_RESIST);
+			flags -= race_table[victim->race].res & GET_FLAGS(victim, TO_RESIST);
 			sprintf(buf,
 			        "{W[%12s] {HRES: {G[%-25s]{x",
 			        victim->name,
@@ -599,8 +600,8 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->vuln_flags;
-			flags -= race_table[victim->race].vuln & victim->vuln_flags;
+			flags = GET_FLAGS(victim, TO_VULN);
+			flags -= race_table[victim->race].vuln & GET_FLAGS(victim, TO_VULN);
 			sprintf(buf,
 			        "{W[%12s] {TVUL: {C[%-25s]{x",
 			        victim->name,
@@ -2277,6 +2278,7 @@ void do_master(CHAR_DATA *ch, const char *argument)
 
 	SET_BIT(pet->act, ACT_PET);
 	affect_flag_add_to_char(pet, AFF_CHARM);
+
 	pet->comm = COMM_NOCHANNELS;
 	add_follower(pet, victim);
 	pet->leader = victim;
@@ -3329,9 +3331,9 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	affect_remove_sn_from_char(victim, gsn_sleep);
 	affect_remove_sn_from_char(victim, gsn_curse);
 	affect_remove_sn_from_char(victim, gsn_fear);
-	victim->hit     = victim->max_hit;
-	victim->mana    = victim->max_mana;
-	victim->stam    = victim->max_stam;
+	victim->hit     = GET_ATTR(victim, APPLY_HIT);
+	victim->mana    = GET_ATTR(victim, APPLY_MANA);
+	victim->stam    = GET_ATTR(victim, APPLY_STAM);
 	update_pos(victim);
 	act_new("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 }
@@ -4019,18 +4021,12 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 	}
 
 	victim->level                   = MAX_LEVEL;
-	victim->max_hit                 = 30000;
-	victim->max_mana                = 30000;
-	victim->max_stam                = 30000;
-	victim->pcdata->perm_hit        = 30000;
-	victim->pcdata->perm_mana       = 30000;
-	victim->pcdata->perm_stam       = 30000;
-	victim->hit                     = victim->max_hit;
-	victim->mana                    = victim->max_mana;
-	victim->stam                    = victim->max_stam;
+	victim->hit  = ATTR_BASE(victim, APPLY_HIT)        = 30000;
+	victim->mana = ATTR_BASE(victim, APPLY_MANA)       = 30000;
+	victim->stam = ATTR_BASE(victim, APPLY_STAM)       = 30000;
 
-	for (stat = 0; stat < MAX_STATS; stat++)
-		victim->perm_stat[stat] = 25;
+	for (int stat = 0; stat < MAX_STATS; stat++)
+		ATTR_BASE(victim, stat_to_attr(stat)) = 25;
 
 	for (sn = 0; sn < MAX_SKILL; sn++)
 		if (skill_table[sn].name != NULL)

@@ -268,7 +268,7 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp)
 	fprintf(fp, "Plr  %s\n", print_flags(ch->pcdata->plr));
 	fprintf(fp, "Video %s\n", print_flags(ch->pcdata->video));
 	fprintf(fp, "Act  %s\n", print_flags(ch->act));
-	fprintf(fp, "AfBy %s\n", print_flags(ch->affected_by));
+	fprintf(fp, "AfBy %s\n", print_flags(ch->affect_bits));
 	fprintf(fp, "Comm %s\n", print_flags(ch->comm));
 	fprintf(fp, "Revk %s\n", print_flags(ch->revoke));              /* Xenith */
 	fprintf(fp, "Cgrp %s\n", print_flags(ch->pcdata->cgroup));      /* Xenith */
@@ -512,8 +512,8 @@ void fwrite_pet(CHAR_DATA *pet, FILE *fp)
 	if (pet->act != pet->pIndexData->act)
 		fprintf(fp, "Act  %s\n", print_flags(pet->act));
 
-	if (pet->affected_by != pet->pIndexData->affected_by)
-		fprintf(fp, "AfBy %s\n", print_flags(pet->affected_by));
+	if (pet->affect_bits != pet->pIndexData->affect_bits)
+		fprintf(fp, "AfBy %s\n", print_flags(pet->affect_bits));
 
 	if (pet->comm != 0)
 		fprintf(fp, "Comm %s\n", print_flags(pet->comm));
@@ -877,7 +877,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 			group_add(ch, pc_race_table[ch->race].skills[i], FALSE);
 		}
 
-		ch->affected_by = ch->affected_by | race_table[ch->race].aff;
+		ch->affect_bits = ch->affect_bits | race_table[ch->race].aff;
 		ch->imm_flags   = ch->imm_flags | race_table[ch->race].imm;
 		ch->res_flags   = ch->res_flags | race_table[ch->race].res;
 		ch->vuln_flags  = ch->vuln_flags | race_table[ch->race].vuln;
@@ -992,7 +992,7 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 				break;
 			}
 
-			KEY("AfBy",        ch->affected_by,        fread_flag(fp));
+			KEY("AfBy",        ch->affect_bits,        fread_flag(fp));
 			KEY("Alig",        ch->alignment,          fread_number(fp));
 			FKY("Afk",         ch->pcdata->afk);
 			KEY("Afk",         ch->pcdata->afk,        fread_string(fp));
@@ -1051,7 +1051,7 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 
 					if (!IS_IMMORTAL(ch)) {
 						/* make sure stats aren't above race max, for possible changes to race maximums */
-						if (stat == class_table[ch->class].attr_prime) {
+						if (stat == class_table[ch->class].stat_prime) {
 							if (ch->race == 1) { /* humans */
 								if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 3))
 									ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 3);
@@ -1571,7 +1571,7 @@ void fread_pet(CHAR_DATA *ch, FILE *fp)
 
 		case 'A':
 			KEY("Act",         pet->act,               fread_flag(fp));
-			KEY("AfBy",        pet->affected_by,       fread_flag(fp));
+			KEY("AfBy",        pet->affect_bits,       fread_flag(fp));
 			KEY("Alig",        pet->alignment,         fread_number(fp));
 
 			if (!str_cmp(word, "AffD") || !str_cmp(word, "Affc")) {

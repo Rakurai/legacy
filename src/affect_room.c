@@ -113,6 +113,7 @@ void affect_modify_flag_cache_room(ROOM_INDEX_DATA *room, sh_int where, unsigned
 // the affect has already been inserted or removed, and paf is not a member of the set.
 void affect_modify_room(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *)owner;
+
 	switch (paf->where) {
 	case TO_ROOMFLAGS:
 		affect_modify_flag_cache_room(room, paf->where, paf->bitvector, fAdd);

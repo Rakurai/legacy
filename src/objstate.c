@@ -228,15 +228,13 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 		switch (fread_letter(fp)) {
 		case 'A': {
 				AFFECT_DATA af;
-				int sn;
-				sn = skill_lookup(fread_word(fp));
 
-				if (sn < 0) {
+				af.type = skill_lookup(fread_word(fp));
+
+				if (af.type < 0) {
 					fread_to_eol(fp);
 					continue;
 				}
-				else
-					af.type = sn;
 
 				af.where      = fread_number(fp);
 				af.level      = fread_number(fp);

@@ -9,13 +9,13 @@ STD     = -std=gnu99
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
 DEFINE  = -Dunix -DSQL -DDEBUG -DIPV6
-INCLUDE = -I$(INCDIR) -I/usr/include
+INCLUDE = -I$(INCDIR) -I/usr/include -I/usr/local/include
 C_FLAGS = ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
 L_FLAGS = -lsqlite3 -lm
 
 DATE=`date +%Y-%m-%d`
 
-_H_DEPS = cJSON/cJSON.h
+_H_DEPS = cJSON/cJSON.h cprops/splay.h
 H_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_H_DEPS))
 _O_DEPS = cJSON/cJSON.o
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
@@ -33,6 +33,7 @@ _O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
 	nanny.o note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
 	set-stat.o skills.o social.o special.o storage.o string.o tables.o update.o war.o	\
 	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o
+
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 
 $(OBJDIR)/%.o: %.c $(H_DEPS) $(H_FILES)

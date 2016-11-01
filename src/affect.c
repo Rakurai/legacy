@@ -203,4 +203,3 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 
 	return TRUE;
 }
-

@@ -123,15 +123,15 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		strcat(buf, "{W(Invis) ");
 
-	if (affect_flag_on_char(ch, AFF_DETECT_EVIL)
+	if (is_affected(ch, gsn_detect_evil)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
 		strcat(buf, "{R(Red Aura) ");
 
-	if (affect_flag_on_char(ch, AFF_DETECT_GOOD)
+	if (is_affected(ch, gsn_detect_good)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
 		strcat(buf, "{B(Blue Aura) ");
 
-	if (affect_flag_on_char(ch, AFF_DETECT_MAGIC)
+	if (is_affected(ch, gsn_detect_magic)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		strcat(buf, "{G(Magical) ");
 
@@ -198,48 +198,37 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 {
-	if (IS_IMMORTAL(ch))
-		ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
-	else
-		ptc(ch, "Affects %s by %d\n", affect_loc_name(paf->location), paf->modifier);
+	if (paf->where == TO_DEFENSE) {
+		if (IS_IMMORTAL(ch))
+			ptc(ch, "Affects defense against %s by %d, level %d", imm_flags[paf->location].name, paf->modifier, paf->level);
+		else
+			ptc(ch, "Affects defense against %s by %d\n", imm_flags[paf->location].name, paf->modifier);
+
+	}
+	else {
+		if (IS_IMMORTAL(ch))
+			ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
+		else
+			ptc(ch, "Affects %s by %d\n", affect_loc_name(paf->location), paf->modifier);
+	}
 
 	if (paf->duration > -1)
 		ptc(ch, ", %d hours.\n", paf->duration);
 	else
 		ptc(ch, ".\n");
 
+	if (paf->where == TO_AFFECTS && paf->type > 0) {
+		ptc(ch, "Adds %s affect.\n", skill_table[paf->type].name);
+	}
+
 	if (paf->bitvector) {
 		switch (paf->where) {
-		case TO_AFFECTS:
-			ptc(ch, "Adds %s affect.\n", affect_bit_name(paf->bitvector));
-			break;
-
 		case TO_OBJECT:
 			ptc(ch, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
 			break;
 
 		case TO_WEAPON:
 			ptc(ch, "Adds %s weapon flags.\n", weapon_bit_name(paf->bitvector));
-			break;
-
-		case TO_ABSORB:
-			ptc(ch, "Absorbs %s.\n", imm_bit_name(paf->bitvector));
-			break;
-
-		case TO_IMMUNE:
-			ptc(ch, "Adds immunity to %s.\n", imm_bit_name(paf->bitvector));
-			break;
-
-		case TO_RESIST:
-			ptc(ch, "Adds resistance to %s.\n", imm_bit_name(paf->bitvector));
-			break;
-
-		case TO_VULN:
-			ptc(ch, "Adds vulnerability to %s.\n", imm_bit_name(paf->bitvector));
-			break;
-
-		default:
-			ptc(ch, "Unknown bit %d: %d\n", paf->where, paf->bitvector);
 			break;
 		}
 	}
@@ -461,13 +450,13 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_SET(victim->comm, COMM_AFK))
 		strcat(buf, "{b[AFK] ");
 
-	if (affect_flag_on_char(victim, AFF_INVISIBLE))
+	if (is_affected(victim, gsn_invis))
 		strcat(buf, "{C(Invis) ");
 
-	if (affect_find_in_char(victim, gsn_midnight))
+	if (is_affected(victim, gsn_midnight))
 		strcat(buf, "{c(Shadowy) ");
 
-	if (affect_find_in_char(victim, gsn_hex))
+	if (is_affected(victim, gsn_hex))
 		strcat(buf, "{c(Dark Aura) ");
 
 	if (victim->invis_level)
@@ -482,28 +471,28 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strcat(buf, string);
 	}
 
-	if (affect_flag_on_char(victim, AFF_HIDE)) strcat(buf,
+	if (is_affected(victim, gsn_hide)) strcat(buf,
 		                "{B(Hide) ");
 
-	if (affect_flag_on_char(victim, AFF_CHARM)) strcat(buf,
+	if (is_affected(victim, gsn_charm_person)) strcat(buf,
 		                "{M(Charmed) ");
 
-	if (affect_flag_on_char(victim, AFF_PASS_DOOR)) strcat(buf,
+	if (is_affected(victim, gsn_pass_door)) strcat(buf,
 		                "{c(Translucent) ");
 
-	if (affect_flag_on_char(victim, AFF_FAERIE_FIRE)) strcat(buf,
+	if (is_affected(victim, gsn_faerie_fire)) strcat(buf,
 		                "{P(Pink Aura) ");
 
-	if (affect_flag_on_char(victim, AFF_FLAMESHIELD)) strcat(buf,
+	if (is_affected(victim, gsn_flameshield)) strcat(buf,
 		                "{b(Flaming Aura) ");
 
-	if (IS_EVIL(victim) && affect_flag_on_char(ch, AFF_DETECT_EVIL)) strcat(buf,
+	if (IS_EVIL(victim) && is_affected(ch, gsn_detect_evil)) strcat(buf,
 		                "{R(Red Aura) ");
 
-	if (IS_GOOD(victim) && affect_flag_on_char(ch, AFF_DETECT_GOOD)) strcat(buf,
+	if (IS_GOOD(victim) && is_affected(ch, gsn_detect_good)) strcat(buf,
 		                "{Y(Golden Aura) ");
 
-	if (affect_flag_on_char(victim, AFF_SANCTUARY)) strcat(buf,
+	if (is_affected(victim, gsn_sanctuary)) strcat(buf,
 		                "{W(White Aura) ");
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER))
@@ -692,8 +681,8 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		set_color(ch, WHITE, NOBOLD);
 	}
 
-	if (victim->max_hit > 0)
-		percent = (100 * victim->hit) / victim->max_hit;
+	if (ATTR_BASE(victim, APPLY_HIT) > 0)
+		percent = (100 * victim->hit) / ATTR_BASE(victim, APPLY_HIT);
 	else
 		percent = -1;
 
@@ -810,7 +799,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && affect_flag_on_char(rch, AFF_INFRARED))
+		         && is_affected(rch, gsn_infravision))
 			stc("You see glowing red eyes watching YOU!\n", ch);
 	}
 }
@@ -820,7 +809,7 @@ bool check_blind(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (affect_flag_on_char(ch, AFF_BLIND)) {
+	if (is_affected(ch, gsn_blindness)) {
 		stc("You can't see a thing!\n", ch);
 		return FALSE;
 	}
@@ -1491,9 +1480,8 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "Imm  : %s\n", print_damage_modifiers(victim, TO_IMMUNE));
 	ptc(ch, "Res  : %s\n", print_damage_modifiers(victim, TO_RESIST));
 	ptc(ch, "Vuln : %s\n", print_damage_modifiers(victim, TO_VULN));
-	sprintf(buf, "Form : %s\nParts: %s\n",
-	        form_bit_name(victim->form), part_bit_name(victim->parts));
-	stc(buf, ch);
+	ptc(ch, "Form : %s\n", form_bit_name(victim->form));
+	ptc(ch, "Parts: %s\n", part_bit_name(victim->parts));
 	set_color(ch, WHITE, NOBOLD);
 	return;
 }
@@ -1726,7 +1714,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		    && ch != duel->challenger
 		    && ch != duel->defender) {
 			if (can_see(ch, duel->challenger)
-			    && !IS_SET(duel->challenger->in_room->room_flags, ROOM_NOWHERE)
+			    && !IS_SET(GET_ROOM_FLAGS(duel->challenger->in_room), ROOM_NOWHERE)
 			    && !str_prefix1(arg1, duel->challenger->name)) {
 				char_from_room(ch);
 				char_to_room(ch, duel->challenger->in_room);
@@ -1737,7 +1725,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			}
 
 			if (can_see(ch, duel->defender)
-			    && !IS_SET(duel->defender->in_room->room_flags, ROOM_NOWHERE)
+			    && !IS_SET(GET_ROOM_FLAGS(duel->defender->in_room), ROOM_NOWHERE)
 			    && !str_prefix1(arg1, duel->defender->name)) {
 				char_from_room(ch);
 				char_to_room(ch, duel->defender->in_room);
@@ -1760,7 +1748,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 		/* Stuff for Lockers */
 		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
-			if (IS_SET(ch->in_room->room_flags, ROOM_LOCKER)) {
+			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				stc("Your locker contains:\n", ch);
 				show_list_to_char(ch->pcdata->locker, ch, TRUE, TRUE, FALSE);
 			}
@@ -3077,7 +3065,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			if (victim->in_room != NULL
 			    && victim->in_room->vnum >= arena->minvnum
 			    && victim->in_room->vnum <= arena->maxvnum
-			    && !IS_SET(victim->in_room->room_flags, ROOM_NOWHERE)
+			    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOWHERE)
 			    && can_see(ch, victim)) {
 				found = TRUE;
 				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name);
@@ -3098,7 +3086,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 
 			if (IS_PLAYING(d)
 			    && victim->in_room != NULL
-			    && !IS_SET(victim->in_room->room_flags, ROOM_NOWHERE)
+			    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOWHERE)
 			    && victim->in_room->area == ch->in_room->area
 			    && can_see(ch, victim)) {
 				found = TRUE;
@@ -3113,7 +3101,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (victim->in_room != NULL
 			    && victim->in_room->area == ch->in_room->area
-			    && !affect_flag_on_char(victim, AFF_HIDE)
+			    && !is_affected(victim, gsn_hide)
 			    && can_see(ch, victim)
 			    && is_name(arg, victim->name)) {
 				found = TRUE;
@@ -3148,9 +3136,9 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "{GN{H[{G%s{H] {CL{T[{C%d{T]\n"
 	    "{CHp{T[{C%d{T/{C%d{T] {GMa{H[{G%d{H/{G%d{H] {BSt{N[{B%d{N/{B%d{N]{x\n",
 	    victim->name, victim->level,
-	    victim->hit, victim->max_hit,
-	    victim->mana, victim->max_mana,
-	    victim->stam, victim->max_stam);
+	    victim->hit, ATTR_BASE(victim, APPLY_HIT),
+	    victim->mana, ATTR_BASE(victim, APPLY_MANA),
+	    victim->stam, ATTR_BASE(victim, APPLY_STAM));
 
 	if (!strcmp(argument, "more")) {
 		set_color(ch, WHITE, BOLD);
@@ -3201,23 +3189,23 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
-		    victim->perm_stat[STAT_STR], get_curr_stat(victim, STAT_STR),
-		    GET_AC(victim, AC_PIERCE), victim->hit, victim->max_hit);
+		    ATTR_BASE(victim, APPLY_STR), get_curr_stat(victim, STAT_STR),
+		    GET_AC(victim, AC_PIERCE), victim->hit, ATTR_BASE(victim, APPLY_HIT));
 		ptc(ch, "{PInt: %-2d(%-2d)\t{BAC Bash   : %-10d{YMana      : %d/%d\n",
-		    victim->perm_stat[STAT_INT], get_curr_stat(victim, STAT_INT),
-		    GET_AC(victim, AC_BASH), victim->mana, victim->max_mana);
+		    ATTR_BASE(victim, APPLY_INT), get_curr_stat(victim, STAT_INT),
+		    GET_AC(victim, AC_BASH), victim->mana, ATTR_BASE(victim, APPLY_MANA));
 		ptc(ch, "{PWis: %-2d(%-2d)\t{BAC Slash  : %-10d{YStamina   : %d/%d\n",
-		    victim->perm_stat[STAT_WIS], get_curr_stat(victim, STAT_WIS),
-		    GET_AC(victim, AC_SLASH), victim->stam, victim->max_stam);
+		    ATTR_BASE(victim, APPLY_WIS), get_curr_stat(victim, STAT_WIS),
+		    GET_AC(victim, AC_SLASH), victim->stam, ATTR_BASE(victim, APPLY_STAM));
 		ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{GHit Roll  : %d\n",
-		    victim->perm_stat[STAT_DEX], get_curr_stat(victim, STAT_DEX),
+		    ATTR_BASE(victim, APPLY_DEX), get_curr_stat(victim, STAT_DEX),
 		    GET_AC(victim, AC_EXOTIC), GET_HITROLL(victim));
 		ptc(ch, "{PCon: %-2d(%-2d)\t\t\t      {GDam Roll  : %d\n",
-		    victim->perm_stat[STAT_CON], get_curr_stat(victim, STAT_CON),
+		    ATTR_BASE(victim, APPLY_CON), get_curr_stat(victim, STAT_CON),
 		    GET_DAMROLL(victim));
 		ptc(ch, "{PChr: %-2d(%-2d)\t{WSaves     : %-10dAlignment : %d\n",
-		    victim->perm_stat[STAT_CHR], get_curr_stat(victim, STAT_CHR),
-		    victim->saving_throw, victim->alignment);
+		    ATTR_BASE(victim, APPLY_CHR), get_curr_stat(victim, STAT_CHR),
+		    GET_ATTR(victim, APPLY_SAVES), victim->alignment);
 
 		if (IS_NPC(victim)) {
 			ptc(ch, "\t\t{WDamage    : %2dd%-2d     Message   : %s\n",
@@ -3278,8 +3266,8 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	act(buf, ch, NULL, victim, TO_CHAR);
 	set_color(ch, WHITE, NOBOLD);
 
-	if (victim->max_hit > 0)
-		percent = (100 * victim->hit) / victim->max_hit;
+	if (ATTR_BASE(victim, APPLY_HIT) > 0)
+		percent = (100 * victim->hit) / ATTR_BASE(victim, APPLY_HIT);
 	else
 		percent = -1;
 
@@ -3536,20 +3524,20 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 void do_report(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	char buf2[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
+
 	one_argument(argument, arg);
-	sprintf(buf,
+
+	ptc(ch,
 	        "You say 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'\n",
-	        ch->hit,  ch->max_hit,
-	        ch->mana, ch->max_mana,
-	        ch->stam, ch->max_stam,
+	        ch->hit,  ATTR_BASE(ch, APPLY_HIT),
+	        ch->mana, ATTR_BASE(ch, APPLY_MANA),
+	        ch->stam, ATTR_BASE(ch, APPLY_STAM),
 	        ch->exp);
-	stc(buf, ch);
 	sprintf(buf, "$n says 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'",
-	        ch->hit,  ch->max_hit,
-	        ch->mana, ch->max_mana,
-	        ch->stam, ch->max_stam,
+	        ch->hit,  ATTR_BASE(ch, APPLY_HIT),
+	        ch->mana, ATTR_BASE(ch, APPLY_MANA),
+	        ch->stam, ATTR_BASE(ch, APPLY_STAM),
 	        ch->exp);
 	act(buf, ch, NULL, NULL, TO_ROOM);
 
@@ -3562,15 +3550,10 @@ void do_report(CHAR_DATA *ch, const char *argument)
 			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 				if (paf_last != NULL && paf->type == paf_last->type)
 					continue;
-				else {
-					sprintf(buf, "You say 'Spell: %-15s'", skill_table[paf->type].name);
-					sprintf(buf2, "$n says 'Spell: %-15s'", skill_table[paf->type].name);
-				}
 
-				stc(buf, ch);
-				act(buf2, ch, NULL, NULL, TO_ROOM);
-				stc("\n", ch);
-				paf_last = paf;
+				ptc(ch, "You say 'Spell: %-15s'\n", skill_table[paf->type].name);
+				sprintf(buf, "$n says 'Spell: %-15s'", skill_table[paf->type].name);
+				act(buf, ch, NULL, NULL, TO_ROOM);
 			}
 		}
 		else {
@@ -3864,105 +3847,6 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_practice() */
 
-#if 0
-void do_old_practice(CHAR_DATA *ch, const char *argument)
-{
-	char buf[MAX_STRING_LENGTH];
-	int sn;
-
-	if (IS_NPC(ch))
-		return;
-
-	if (argument[0] == '\0') {
-		int col;
-		col    = 0;
-
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name == NULL)
-				break;
-
-			if (ch->level < skill_table[sn].skill_level[ch->class]
-			    || ch->pcdata->learned[sn] < 1 /* skill is not known */)
-				continue;
-
-			sprintf(buf, "%-18s %3d%%  ",
-			        skill_table[sn].name, ch->pcdata->learned[sn]);
-			stc(buf, ch);
-
-			if (++col % 3 == 0)
-				stc("\n", ch);
-		}
-
-		if (col % 3 != 0)
-			stc("\n", ch);
-
-		sprintf(buf, "You have %d practice sessions left.\n",
-		        ch->practice);
-		stc(buf, ch);
-	}
-	else {
-		CHAR_DATA *mob;
-		int adept;
-
-		if (!IS_AWAKE(ch)) {
-			stc("In your dreams, or what?\n", ch);
-			return;
-		}
-
-		for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-			if (IS_NPC(mob) && IS_SET(mob->act, ACT_PRACTICE))
-				break;
-		}
-
-		if (mob == NULL) {
-			stc("You can't do that here.\n", ch);
-			return;
-		}
-
-		if (ch->practice <= 0) {
-			stc("You have no practice sessions left.\n", ch);
-			return;
-		}
-
-		if ((sn = find_spell(ch, argument)) < 0
-		    || (!IS_NPC(ch)
-		        && (ch->level < skill_table[sn].skill_level[ch->class]
-		            ||    ch->pcdata->learned[sn] < 1 /* skill is not known */
-		            ||    skill_table[sn].rating[ch->class] == 0))) {
-			stc("You can't practice that.\n", ch);
-			return;
-		}
-
-		adept = IS_NPC(ch) ? 100 : class_table[ch->class].skill_adept;
-
-		if (ch->pcdata->learned[sn] >= adept) {
-			sprintf(buf, "You are already learned at %s.\n",
-			        skill_table[sn].name);
-			stc(buf, ch);
-		}
-		else {
-			ch->practice--;
-			ch->pcdata->learned[sn] +=
-			        int_app[get_curr_stat(ch, STAT_INT)].learn /
-			        skill_table[sn].rating[ch->class];
-
-			if (ch->pcdata->learned[sn] < adept) {
-				act("You practice $T.",
-				    ch, NULL, skill_table[sn].name, TO_CHAR);
-				act("$n practices $T.",
-				    ch, NULL, skill_table[sn].name, TO_ROOM);
-			}
-			else {
-				ch->pcdata->learned[sn] = adept;
-				act("You are now learned at $T.",
-				    ch, NULL, skill_table[sn].name, TO_CHAR);
-				act("$n is now learned at $T.",
-				    ch, NULL, skill_table[sn].name, TO_ROOM);
-			}
-		}
-	}
-}
-#endif
 
 /*
  * 'Wimpy' originally by Dionysos.
@@ -3975,7 +3859,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0')
-		wimpy = ch->max_hit / 5;
+		wimpy = ATTR_BASE(ch, APPLY_HIT) / 5;
 	else
 		wimpy = atoi(arg);
 
@@ -3984,7 +3868,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (wimpy > ch->max_hit / 2) {
+	if (wimpy > ATTR_BASE(ch, APPLY_HIT) / 2) {
 		stc("CHICKEN!!!!!\n", ch);
 		return;
 	}
@@ -5026,13 +4910,11 @@ void print_new_affects(CHAR_DATA *ch)
 	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL], *p;
 	BUFFER *buffer;
 	OBJ_DATA *obj;
-	long cheat = 0;
 	bool found = FALSE;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
 	buffer = new_buf();
-	cheat = affect_flag_get_char(ch);
 
 	if (affect_list_char(ch) != NULL) {
 		ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
@@ -5075,95 +4957,54 @@ void print_new_affects(CHAR_DATA *ch)
 			ptb(buffer, " %s %-19s %s| %-42s %s\n", torch, buf, border, buf2, torch);
 			paf_last = paf;
 
-			REMOVE_BIT(cheat, paf->bitvector);
 		}
 
 		found = TRUE;
 	}
 
-	if (race_table[ch->race].aff != 0
-	    && affect_flag_on_char(ch, race_table[ch->race].aff)) {
-		if (found)
-			add_buf(buffer, breakline);
+	char objbuf[MSL];
+	bool print = FALSE;
+	int iWear, len;
 
-		ptb(buffer, " %s {bYou are affected by the following racial abilities:            %s\n",
-		    torch, torch);
-		add_buf(buffer, breakline);
+	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
+		if ((obj = get_eq_char(ch, iWear)) != NULL) {
+			// loop through *compiled* affects here, don't care where the spells come from
+			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
+				if (paf->where != TO_AFFECTS)
+					continue;
 
-		REMOVE_BIT(cheat, race_table[ch->race].aff);
-
-		strcpy(buf, affect_bit_name(race_table[ch->race].aff));
-		const char *words = buf;
-
-		while (*words) {
-			words = one_argument(words, buf2);
-			ptb(buffer, " %s {b%-19s                                            %s\n",
-			    torch, buf2, torch);
-		}
-
-		found = TRUE;
-	}
-
-	if (affect_flag_get_char(ch) != 0  && (affect_flag_get_char(ch) != race_table[ch->race].aff)) {
-		char objbuf[MSL];
-		bool print = FALSE;
-		long filter, printme;
-		int iWear, len;
-
-		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-			if ((obj = get_eq_char(ch, iWear)) != NULL) {
-				for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
-					if (paf->where != TO_AFFECTS
-					    || !IS_SET(affect_flag_get_char(ch), paf->bitvector))
-						continue;
-
-					filter = paf->bitvector;
-					filter &= affect_flag_get_char(ch);
-					printme = filter;
-					filter &= cheat;
-
-					REMOVE_BIT(cheat, filter);
-
-					if (!print) {
-						if (found)
-							add_buf(buffer, breakline);
-
-						ptb(buffer, " %s {bYou are affected by the following equipment spells:            %s\n",
-						    torch, torch);
+				if (!print) {
+					if (found)
 						add_buf(buffer, breakline);
-						print = TRUE;
+
+					ptb(buffer, " %s {bYou are affected by the following equipment spells:            %s\n",
+					    torch, torch);
+					add_buf(buffer, breakline);
+					print = TRUE;
+				}
+
+				strcpy(objbuf, smash_bracket(obj->short_descr));
+
+				for (p = objbuf, len = 0; *p; p++)
+					if (++len > 38) {
+						*p = '\0';
+						break;
 					}
 
-					strcpy(objbuf, smash_bracket(obj->short_descr));
+				strcpy(buf, affect_bit_name(paf->bitvector));
+				const char *words = buf;
 
-					for (p = objbuf, len = 0; *p; p++)
-						if (++len > 38) {
-							*p = '\0';
-							break;
-						}
-
-					strcpy(buf, affect_bit_name(printme));
-					const char *words = buf;
-
-					while (*words) {
-						words = one_argument(words, buf2);
-						ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
-						    torch, buf2, border, objbuf, torch);
-					}
+				while (*words) {
+					words = one_argument(words, buf2);
+					ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
+					    torch, buf2, border, objbuf, torch);
 				}
 			}
 		}
-
-		if (print)
-			found = TRUE;
 	}
 
-	if (cheat != 0 && !IS_NPC(ch)) {
-		sprintf(buf, "%s has invalid affect(s) of %s.",
-		        ch->name, affect_bit_name(cheat));
-		wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
-		log_string(buf);
-	}
+	if (print)
+		found = TRUE;
 
 	if (!IS_NPC(ch)
 	    && ch->pcdata->remort_count
@@ -5238,40 +5079,40 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_STAT);
 	ptc(ch, " %s|#|{x     Strength %2d/", torch, get_curr_stat(ch, STAT_STR));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
-	ptc(ch, "%2d %s|{x", ch->perm_stat[STAT_STR], border);
+	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_STR), border);
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
 	stc("      Hp ", ch);
 	new_color(ch, CSLOT_SCORE_HEALTHNUM);
-	ptc(ch, "%5d/%5d  %s|{x", ch->hit, ch->max_hit, border);
+	ptc(ch, "%5d/%5d  %s|{x", ch->hit, ATTR_BASE(ch, APPLY_HIT), border);
 	new_color(ch, CSLOT_SCORE_WEALTH);
 	ptc(ch, "     Gold %9ld %s|#|{x\n", ch->gold, torch);
 //	line  8:  |#| Intelligence 25/25 |    Mana 30000/30000  |   Silver       958 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
 	ptc(ch, " %s|#|{x Intelligence %2d/", torch, get_curr_stat(ch, STAT_INT));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
-	ptc(ch, "%2d %s|{x", ch->perm_stat[STAT_INT], border);
+	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_INT), border);
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
 	stc("    Mana ", ch);
 	new_color(ch, CSLOT_SCORE_HEALTHNUM);
-	ptc(ch, "%5d/%5d  %s|{x", ch->mana, ch->max_mana, border);
+	ptc(ch, "%5d/%5d  %s|{x", ch->mana, ATTR_BASE(ch, APPLY_MANA), border);
 	new_color(ch, CSLOT_SCORE_WEALTH);
 	ptc(ch, "   Silver %9ld %s|#|{x\n", ch->silver, torch);
 //	line  9:  |#| Wisdom       25/25 | Stamina 30000/30000  |    Items   22/1000 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
 	ptc(ch, " %s|#|{x       Wisdom %2d/", torch, get_curr_stat(ch, STAT_WIS));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
-	ptc(ch, "%2d %s|{x", ch->perm_stat[STAT_WIS], border);
+	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_WIS), border);
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
 	stc(" Stamina ", ch);
 	new_color(ch, CSLOT_SCORE_HEALTHNUM);
-	ptc(ch, "%5d/%5d  %s|{x", ch->stam, ch->max_stam, border);
+	ptc(ch, "%5d/%5d  %s|{x", ch->stam, ATTR_BASE(ch, APPLY_STAM), border);
 	new_color(ch, CSLOT_SCORE_ENCUMB);
 	ptc(ch, "    Items %4d/%4d %s|#|{x\n", get_carry_number(ch), can_carry_n(ch), torch);
 //	line 10:  |#| Dexterity    25/25 |                      |   Weight   53/1000 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
 	ptc(ch, " %s|#|{x    Dexterity %2d/", torch, get_curr_stat(ch, STAT_DEX));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
-	ptc(ch, "%2d %s|                      |{x", ch->perm_stat[STAT_DEX], border);
+	ptc(ch, "%2d %s|                      |{x", ATTR_BASE(ch, APPLY_DEX), border);
 	new_color(ch, CSLOT_SCORE_ENCUMB);
 	ptc(ch, "   Weight %4d/%4d %s|#|{x\n",
 	    get_carry_weight(ch),
@@ -5281,14 +5122,14 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_STAT);
 	ptc(ch, " %s|#|{x Constitution %2d/", torch, get_curr_stat(ch, STAT_CON));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
-	ptc(ch, "%2d %s|{x", ch->perm_stat[STAT_CON], border);
+	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_CON), border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "  Armor vs            %s|                    %s|#|{x\n", border, torch);
 //	line 12:  |#| Charisma     25/25 |    Pierce      -600  |  Hitroll       312 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
 	ptc(ch, " %s|#|{x     Charisma %2d/", torch, get_curr_stat(ch, STAT_CHR));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
-	ptc(ch, "%2d %s|{x", ch->perm_stat[STAT_CHR], border);
+	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_CHR), border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "    Pierce    %6d  %s|{x", GET_AC(ch, AC_PIERCE), border);
 	new_color(ch, CSLOT_SCORE_DICENAME);
@@ -5313,7 +5154,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_DICENAME);
 	stc("    Saves     ", ch);
 	new_color(ch, CSLOT_SCORE_DICENUM);
-	ptc(ch, "%5d %s|#|{x\n", ch->saving_throw, torch);
+	ptc(ch, "%5d %s|#|{x\n", GET_ATTR(ch, APPLY_SAVES), torch);
 //	line 15:  |#| SkillPoints      0 |     Magic      -601  |    Wimpy       200 |#|
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x SkillPoints  ", torch);

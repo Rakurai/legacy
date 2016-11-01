@@ -1121,7 +1121,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)) {
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SILENT)) {
 		stc("A heavy mist dampens all sound in the room.\n", ch);
 		return;
 	}

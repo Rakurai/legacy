@@ -99,16 +99,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	af.modifier   = affect_modify;
 	af.bitvector  = 0;
 	af.evolution  = 1;
-
-	// modify existing value?  special case for accessor, remove this if possible
-	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
-		if (paf->location == enchant_type) {
-			affect_remove_from_obj(obj, paf);
-			break;
-		}
-
-	// add a new one
-	affect_copy_to_obj(obj, &af);
+	affect_join_to_obj(obj, &af);
 }
 
 /* Morph Command by Lotus */
@@ -279,7 +270,7 @@ ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 		    || !str_cmp(room->area->name, "Torayna Cri")
 		    || !str_cmp(room->area->name, "Battle Arenas")
 		    || room->sector_type == SECT_ARENA
-		    || IS_SET(room->room_flags,
+		    || IS_SET(GET_ROOM_FLAGS(room),
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE

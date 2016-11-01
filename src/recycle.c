@@ -250,6 +250,7 @@ void free_affect(AFFECT_DATA *af)
 	affect_free = af;
 }
 
+
 /* stuff for recycling objects */
 OBJ_DATA *obj_free;
 
@@ -291,6 +292,9 @@ void free_obj(OBJ_DATA *obj)
 		free_extra_descr(ed);
 	}
 
+	if (obj->bonus_stats)
+		free_stats(bonus_stats);
+
 	free_string(obj->name);
 	free_string(obj->description);
 	free_string(obj->short_descr);
@@ -331,16 +335,12 @@ CHAR_DATA *new_char(void)
 		ch->armor_a[i]            = 100;
 
 	ch->position                = POS_STANDING;
-	ch->hit                     = 20;
-	ch->max_hit                 = 20;
-	ch->mana                    = 100;
-	ch->max_mana                = 100;
-	ch->stam                    = 100;
-	ch->max_stam                = 100;
+	ch->hit  = ATTR_BASE(ch, APPLY_HIT)                 = 20;
+	ch->mana = ATTR_BASE(ch, APPLY_MANA)                = 100;
+	ch->mana = ATTR_BASE(ch, APPLY_STAM)                = 100;
 
-	for (int i = 0; i < MAX_STATS; i ++) {
-		ch->perm_stat[i] = 13;
-	}
+	for (int stat = 0; stat < MAX_STATS; stat++)
+		ATTR_BASE(ch, stat_to_attr(stat)) = 13;
 
 	VALIDATE(ch);
 	return ch;
@@ -396,6 +396,13 @@ void free_char(CHAR_DATA *ch)
 
 	if (ch->pcdata != NULL)
 		free_pcdata(ch->pcdata);
+
+	if (ch->apply_cache)
+		free_mem(ch->apply_cache);
+	if (ch->defense_mod)
+		free_mem(ch->defense_mod);
+	if (ch->affect_cache)
+		cp_splaytree_destroy(ch->affect_cache);
 
 	free_string(ch->name);
 	free_string(ch->short_descr);

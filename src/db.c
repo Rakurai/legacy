@@ -34,6 +34,7 @@
 #include "affect_list.h"
 
 extern  int     _filbuf         args((FILE *));
+extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head, const AFFECT_DATA *paf ));
 
 /*
  * Globals.
@@ -76,7 +77,7 @@ sh_int  gsn_animate_gargoyle;
 sh_int  gsn_animate_zombie;
 sh_int  gsn_armor;
 sh_int  gsn_bless;
-sh_int  gsn_blindness;
+sh_int  gsn_blindnessness;
 sh_int  gsn_blizzard;
 sh_int  gsn_blood_blade;
 sh_int  gsn_blood_moon;
@@ -281,7 +282,7 @@ sh_int  gsn_hone;
 sh_int  gsn_riposte;
 sh_int  gsn_fourth_attack;
 sh_int  gsn_rage;
-sh_int   gsn_blind_fight;
+sh_int   gsn_blindness_fight;
 sh_int  gsn_sap;
 sh_int  gsn_pain;
 sh_int  gsn_hex;
@@ -296,6 +297,7 @@ sh_int  gsn_quick;
 sh_int  gsn_standfast;
 sh_int  gsn_mark;
 sh_int  gsn_critical_blow;
+sh_int  gsn_night_vision;
 
 /*
  * Locals.
@@ -932,9 +934,8 @@ void load_mobiles(FILE *fp)
 		pMobIndex->race                 = race_lookup(fread_string(fp));
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
-		pMobIndex->act                  = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].act;
-		pMobIndex->affect_flags         = fread_flag(fp)
+		pMobIndex->act                  = fread_flag(fp) | race_table[pMobIndex->race].act;
+		pMobIndex->affect_bits          = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].aff;
 		pMobIndex->pShop                = NULL;
 		pMobIndex->alignment            = fread_number(fp);
@@ -972,6 +973,12 @@ void load_mobiles(FILE *fp)
 		pMobIndex->absorb_flags          = 0; /* fix when we change the area versions */
 		pMobIndex->imm_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].imm;
+
+		if (IS_SET(pMobIndex->imm_flags, A)) {
+			REMOVE_BIT(pMobIndex->imm_flags, A); // old imm_summon bit
+			SET_BIT(pMobIndex->act, ACT_NOSUMMON);
+		}
+
 		pMobIndex->res_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].res;
 		pMobIndex->vuln_flags           = fread_flag(fp)
@@ -1337,7 +1344,6 @@ void load_rooms(FILE *fp)
 		pRoomIndex->description         = fread_string(fp);
 		pRoomIndex->tele_dest           = fread_number(fp);
 		pRoomIndex->room_flags          = fread_flag(fp);
-		pRoomIndex->original_flags      = pRoomIndex->room_flags;
 
 		/* horrible hack */
 		if (3000 <= vnum && vnum < 3400)
@@ -1349,17 +1355,17 @@ void load_rooms(FILE *fp)
 		for (door = 0; door <= 5; door++)
 			pRoomIndex->exit[door] = NULL;
 
-		if (IS_SET(pRoomIndex->room_flags, ROOM_FEMALE_ONLY)) {
+		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY)) {
 			sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
-		if (IS_SET(pRoomIndex->room_flags, ROOM_MALE_ONLY)) {
+		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY)) {
 			sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
-		if (IS_SET(pRoomIndex->room_flags, ROOM_LOCKER)) {
+		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_LOCKER)) {
 			sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
 			log_string(log_buf);
 		}

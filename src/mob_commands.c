@@ -121,9 +121,9 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	        victim->long_descr : "(none).\n");
 	stc(buf, ch);
 	sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",
-	        victim->hit,         victim->max_hit,
-	        victim->mana,        victim->max_mana,
-	        victim->stam,        victim->max_stam);
+	        victim->hit,         ATTR_BASE(victim, APPLY_HIT),
+	        victim->mana,        ATTR_BASE(victim, APPLY_MANA),
+	        victim->stam,        ATTR_BASE(victim, APPLY_STAM));
 	stc(buf, ch);
 	sprintf(buf,
 	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",
@@ -213,7 +213,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim) {
+	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
 		bug("MpKill - Charmed mob attacking master: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;

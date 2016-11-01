@@ -78,27 +78,27 @@ void demote_level(CHAR_DATA *ch)
 	if (chr_app[get_curr_stat(ch, STAT_CHR)].chance >= number_percent())
 		sub_train = 2;
 
-	ch->max_hit             -= sub_hp;
-	ch->max_mana            -= sub_mana;
-	ch->max_stam            -= sub_stam;
+	ATTR_BASE(ch, APPLY_HIT)             -= sub_hp;
+	ATTR_BASE(ch, APPLY_MANA)            -= sub_mana;
+	ATTR_BASE(ch, APPLY_STAM)            -= sub_stam;
 	ch->practice            -= sub_prac;
 	ch->train               -= sub_train;
-	ch->pcdata->perm_hit    -= sub_hp;
-	ch->pcdata->perm_mana   -= sub_mana;
-	ch->pcdata->perm_stam   -= sub_stam;
+	ATTR_BASE(ch, APPLY_HIT)    -= sub_hp;
+	ATTR_BASE(ch, APPLY_MANA)   -= sub_mana;
+	ATTR_BASE(ch, APPLY_STAM)   -= sub_stam;
 	ptc(ch, "{RYour loss is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.{x\n",
-	    sub_hp,         ch->max_hit,
-	    sub_mana,       ch->max_mana,
-	    sub_stam,       ch->max_stam,
+	    sub_hp,         ATTR_BASE(ch, APPLY_HIT),
+	    sub_mana,       ATTR_BASE(ch, APPLY_MANA),
+	    sub_stam,       ATTR_BASE(ch, APPLY_STAM),
 	    sub_prac,       ch->practice,
 	    sub_train,      ch->train);
 
 	/* don't let stats go below 20/100/100 */
-	if (ch->max_hit < 20)                   ch->max_hit = 20;
+	if (ATTR_BASE(ch, APPLY_HIT) < 20)                   ATTR_BASE(ch, APPLY_HIT) = 20;
 
-	if (ch->max_mana < 100)                 ch->max_mana = 100;
+	if (ATTR_BASE(ch, APPLY_MANA) < 100)                 ATTR_BASE(ch, APPLY_MANA) = 100;
 
-	if (ch->max_stam < 100)                 ch->max_stam = 100;
+	if (ATTR_BASE(ch, APPLY_STAM) < 100)                 ATTR_BASE(ch, APPLY_STAM) = 100;
 
 	if (ch->pcdata->perm_hit < 20)          ch->pcdata->perm_hit = 20;
 
@@ -126,18 +126,18 @@ void advance_level(CHAR_DATA *ch)
 	   add_mana    = (2*get_curr_stat(ch,STAT_INT) + get_curr_stat(ch,STAT_WIS)) / 5;
 	   add_move    = number_range(1, (get_curr_stat(ch,STAT_CON) + get_curr_stat(ch,STAT_DEX))/6 );
 	*/
-	ch->max_hit             += add_hp;
-	ch->max_mana            += add_mana;
-	ch->max_stam            += add_stam;
+	ATTR_BASE(ch, APPLY_HIT)             += add_hp;
+	ATTR_BASE(ch, APPLY_MANA)            += add_mana;
+	ATTR_BASE(ch, APPLY_STAM)            += add_stam;
 	ch->practice            += add_prac;
 	ch->train               += add_train;
 	ch->pcdata->perm_hit    += add_hp;
 	ch->pcdata->perm_mana   += add_mana;
 	ch->pcdata->perm_stam   += add_stam;
 	ptc(ch, "Your gain is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.\n",
-	    add_hp,         ch->max_hit,
-	    add_mana,       ch->max_mana,
-	    add_stam,       ch->max_stam,
+	    add_hp,         ATTR_BASE(ch, APPLY_HIT),
+	    add_mana,       ATTR_BASE(ch, APPLY_MANA),
+	    add_stam,       ATTR_BASE(ch, APPLY_STAM),
 	    add_prac,       ch->practice,
 	    add_train,      ch->train);
 }
@@ -157,9 +157,9 @@ void npc_advance_level(CHAR_DATA *ch)
 	add_hit = get_curr_stat(ch, STAT_CON);
 	add_mana = get_curr_stat(ch, STAT_INT);
 	add_stam = get_curr_stat(ch, STAT_STR);
-	ch->max_hit += add_hit;
-	ch->max_mana += add_mana;
-	ch->max_stam += add_stam;
+	ATTR_BASE(ch, APPLY_HIT) += add_hit;
+	ATTR_BASE(ch, APPLY_MANA) += add_mana;
+	ATTR_BASE(ch, APPLY_STAM) += add_stam;
 }
 
 void gain_exp(CHAR_DATA *ch, int gain)
@@ -245,7 +245,7 @@ int hit_gain(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
 
-		if (affect_flag_on_char(ch, AFF_REGENERATION))
+		if (is_affected(ch, gsn_regeneration))
 			gain *= 2;
 
 		switch (get_position(ch)) {
@@ -266,7 +266,7 @@ int hit_gain(CHAR_DATA *ch)
 		if (number < get_skill(ch, gsn_fast_healing)) {
 			gain += number * gain / 100;
 
-			if (ch->hit < ch->max_hit)
+			if (ch->hit < ATTR_BASE(ch, APPLY_HIT))
 				check_improve(ch, gsn_fast_healing, TRUE, 8);
 		}
 
@@ -292,25 +292,25 @@ int hit_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (affect_flag_on_char(ch, AFF_POISON))
+	if (is_affected(ch, gsn_poison))
 		gain /= 4;
 
-	if (affect_flag_on_char(ch, AFF_PLAGUE))
+	if (is_affected(ch, gsn_plague))
 		gain /= 8;
 
-	if (affect_flag_on_char(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (is_affected(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2 ;
 
-	if (affect_flag_on_char(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		gain *= 2 ;
 
-	if (affect_flag_on_char(ch, AFF_REGENERATION))
+	if (is_affected(ch, gsn_regeneration))
 		gain *= 2;
 
-	if (affect_flag_on_char(ch, AFF_DIVINEREGEN))
+	if (is_affected(ch, gsn_divine_regeneration))
 		gain *= 4;
 
-	return UMIN(gain, ch->max_hit - ch->hit);
+	return UMIN(gain, ATTR_BASE(ch, APPLY_HIT) - ch->hit);
 }
 
 int mana_gain(CHAR_DATA *ch)
@@ -340,7 +340,7 @@ int mana_gain(CHAR_DATA *ch)
 		if (number < get_skill(ch, gsn_meditation)) {
 			gain += number * gain / 100;
 
-			if (ch->mana < ch->max_mana)
+			if (ch->mana < ATTR_BASE(ch, APPLY_MANA))
 				check_improve(ch, gsn_meditation, TRUE, 8);
 		}
 
@@ -370,22 +370,22 @@ int mana_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
-	if (affect_flag_on_char(ch, AFF_POISON))
+	if (is_affected(ch, gsn_poison))
 		gain /= 4;
 
-	if (affect_flag_on_char(ch, AFF_PLAGUE))
+	if (is_affected(ch, gsn_plague))
 		gain /= 8;
 
-	if (affect_flag_on_char(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (is_affected(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
-	if (affect_flag_on_char(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		gain *= 2;
 
-	if (affect_flag_on_char(ch, AFF_DIVINEREGEN))
+	if (is_affected(ch, gsn_divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, ch->max_mana - ch->mana);
+	return UMIN(gain, ATTR_BASE(ch, APPLY_MANA) - ch->mana);
 }
 
 int stam_gain(CHAR_DATA *ch)
@@ -436,25 +436,25 @@ int stam_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (affect_flag_on_char(ch, AFF_POISON))
+	if (is_affected(ch, gsn_poison))
 		gain /= 4;
 
-	if (affect_flag_on_char(ch, AFF_PLAGUE))
+	if (is_affected(ch, gsn_plague))
 		gain /= 8;
 
-	if (affect_flag_on_char(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (is_affected(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
-	if (affect_flag_on_char(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		gain *= 2;
 
-	if (affect_flag_on_char(ch, AFF_REGENERATION))
+	if (is_affected(ch, gsn_regeneration))
 		gain *= 2;
 
-	if (affect_flag_on_char(ch, AFF_DIVINEREGEN))
+	if (is_affected(ch, gsn_divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, ch->max_stam - ch->stam);
+	return UMIN(gain, ATTR_BASE(ch, APPLY_STAM) - ch->stam);
 }
 
 void gain_condition(CHAR_DATA *ch, int iCond, int value)
@@ -516,7 +516,7 @@ void mobile_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) || ch->in_room == NULL || affect_flag_on_char(ch, AFF_CHARM))
+		if (!IS_NPC(ch) || ch->in_room == NULL || is_affected(ch, gsn_charm_person))
 			continue;
 
 		if (get_position(ch) <= POS_SITTING)
@@ -592,13 +592,13 @@ void mobile_update(void)
 		    && (pexit = ch->in_room->exit[door]) != NULL
 		    &&   pexit->u1.to_room != NULL
 		    &&   !IS_SET(pexit->exit_info, EX_CLOSED)
-		    &&   !IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)
+		    &&   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)
 		    && (!IS_SET(ch->act, ACT_STAY_AREA)
 		        ||   pexit->u1.to_room->area == ch->in_room->area)
 		    && (!IS_SET(ch->act, ACT_OUTDOORS)
-		        ||   !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS))
+		        ||   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))
 		    && (!IS_SET(ch->act, ACT_INDOORS)
-		        ||   IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS))) {
+		        ||   IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))) {
 			move_char(ch, door, FALSE);
 
 			/* If ch changes position due
@@ -849,19 +849,7 @@ void char_update(void)
 			*/
 			if (!IS_NPC(ch) && ch->pcdata->familiar) {
 				if (! ch->pet) {
-					ch->pcdata->familiar -= 1;   /* remove +1 to stat position */
-					ch->mod_stat[ch->pcdata->familiar] -= 1;
-
-					/* make sure we don't go below the min ability score */
-					if ((ch->perm_stat[ch->pcdata->familiar] + ch->mod_stat[ch->pcdata->familiar]) < 3)
-						ch->mod_stat[ch->pcdata->familiar] += 1;
-
-					/* make sure we don't go above the max ability score */
-					if ((ch->perm_stat[ch->pcdata->familiar] + ch->mod_stat[ch->pcdata->familiar]) > 25)
-						ch->mod_stat[ch->pcdata->familiar] -= 1;
-
-					/* remove familiar */
-					ch->pcdata->familiar = 0;
+					ch->pcdata->familiar = FALSE;
 				}
 			}    /* end of removed familiar */
 
@@ -884,20 +872,20 @@ void char_update(void)
 				}
 			}
 
-			if (ch->hit  < ch->max_hit)
+			if (ch->hit  < ATTR_BASE(ch, APPLY_HIT))
 				ch->hit  += hit_gain(ch);
 			else
-				ch->hit = ch->max_hit;
+				ch->hit = ATTR_BASE(ch, APPLY_HIT);
 
-			if (ch->mana < ch->max_mana)
+			if (ch->mana < ATTR_BASE(ch, APPLY_MANA))
 				ch->mana += mana_gain(ch);
 			else
-				ch->mana = ch->max_mana;
+				ch->mana = ATTR_BASE(ch, APPLY_MANA);
 
-			if (ch->stam < ch->max_stam)
+			if (ch->stam < ATTR_BASE(ch, APPLY_STAM))
 				ch->stam += stam_gain(ch);
 			else
-				ch->stam = ch->max_stam;
+				ch->stam = ATTR_BASE(ch, APPLY_STAM);
 		}
 
 		if (get_position(ch) == POS_STUNNED)
@@ -1036,7 +1024,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != NULL && affect_flag_on_char(ch, AFF_PLAGUE)) {
+		if (ch != NULL && is_affected(ch, gsn_plague)) {
 		 	const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
@@ -1051,10 +1039,9 @@ void char_update(void)
 			ch->stam -= dam;
 			damage(ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
 		}
-		else if (affect_flag_on_char(ch, AFF_POISON) && ch != NULL
-		         &&   !affect_flag_on_char(ch, AFF_SLOW)) {
-			const AFFECT_DATA *poison;
-			poison = affect_find_in_char(ch, gsn_poison);
+
+		if (ch != NULL && is_affected(ch, gsn_poison) && !is_affected(ch, gsn_slow)) {
+			const AFFECT_DATA *poison = affect_find_in_char(ch, gsn_poison);
 
 			if (poison != NULL) {
 				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
@@ -1063,9 +1050,22 @@ void char_update(void)
 				       DAM_POISON, FALSE, TRUE);
 			}
 		}
-		else if (get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
+		
+		/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
+		OBJ_DATA *obj;
+		if (ch != NULL
+		 && ch->in_room != NULL
+		 && (obj = get_eq_char(ch, WEAR_WIELD)) != NULL
+		 && get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 10)) {
+			act("You drop $p.", ch, obj, NULL, TO_CHAR);
+			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
+			obj_from_char(obj);
+			obj_to_room(obj, ch->in_room);
+		}
+
+		if (ch != NULL && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
-		else if (get_position(ch) == POS_MORTAL)
+		else if (ch != NULL && get_position(ch) == POS_MORTAL)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
 	}
 
@@ -1160,9 +1160,17 @@ void obj_update(void)
 		if (obj == auction->item)
 			continue;
 
-		if (obj->timer <= 0 || --obj->timer > 0)
-			if (obj->clean_timer <= 0 || --obj->clean_timer > 0)
-				continue;
+		if (obj->timer <= 0
+		 || --obj->timer > 0
+		 || obj->clean_timer <= 0
+		 || --obj->clean_timer > 0) {
+//			if (obj->affects_modified)
+//				affects_compile_obj(obj);
+
+		 	continue;
+		 }
+
+		// past this point the object is going away
 
 		switch (obj->item_type) {
 		default:                message = "$p crumbles into ashes.";                            break;
@@ -1311,7 +1319,8 @@ bool eligible_aggressor(CHAR_DATA *ch)
 	        && IS_AWAKE(ch)
 	        && IS_SET(ch->act, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == NULL
-	        && !affect_flag_on_char(ch, AFF_CALM | AFF_CHARM)
+	        && !is_affected(ch, gsn_calm)
+	        && !is_affected(ch, gsn_charm_person)
 	       );
 }
 
@@ -1425,7 +1434,8 @@ void aggr_update(void)
 		}
 
 		/* no aggression in safe rooms */
-		if (IS_SET(room->room_flags, ROOM_SAFE) || IS_SET(room->room_flags, ROOM_LAW))
+		if (IS_SET(GET_ROOM_FLAGS(room), ROOM_SAFE)
+		 || IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW))
 			continue;
 
 		/* only aggression below this point */
@@ -1510,7 +1520,7 @@ void tele_update(void)
 		if (ch->in_room == NULL)
 			continue;
 
-		if (IS_SET(ch->in_room->room_flags, ROOM_TELEPORT)) {
+		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_TELEPORT)) {
 			do_look(ch, "tele");
 
 			if (ch->in_room->tele_dest == 0)
@@ -1787,7 +1797,7 @@ void underwater_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) && IS_SET(ch->in_room->room_flags, ROOM_UNDER_WATER)) {
+		if (!IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)) {
 			skill = get_skill(ch, gsn_swimming);
 
 			if (skill == 100)

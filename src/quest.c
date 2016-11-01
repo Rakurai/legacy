@@ -283,7 +283,7 @@ void squest_info(CHAR_DATA *ch)
 		ptc(ch, "You are on a quest to learn from the legendary %s!\n",
 		    ch->pcdata->squestmob->short_descr);
 		ptc(ch, "%s can usually be found in %s{x,\n",
-		    ch->pcdata->squestmob->sex == 1 ? "He" : "She", questroom_mob->name);
+		    GET_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
 		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 		return;
 	}
@@ -328,7 +328,7 @@ void squest_info(CHAR_DATA *ch)
 			ptc(ch, "You must return the %s to %s.\n",
 			    ch->pcdata->squestobj->short_descr, ch->pcdata->squestmob->short_descr);
 			ptc(ch, "%s can usually be found in %s{x,\n",
-			    ch->pcdata->squestmob->sex == 1 ? "He" : "She", questroom_mob->name);
+			    GET_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
 			ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 			return;
 		}
@@ -337,7 +337,7 @@ void squest_info(CHAR_DATA *ch)
 		ptc(ch, "from %s{x, in the area known as %s{x,\n", questroom_obj->name, questroom_obj->area->name);
 		ptc(ch, "and return it to it's rightful owner, %s.\n", ch->pcdata->squestmob->short_descr);
 		ptc(ch, "%s can usually be found in %s{x,\n",
-		    ch->pcdata->squestmob->sex == 1 ? "He" : "She", questroom_mob->name);
+		    GET_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
 		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 	}
 }
@@ -667,7 +667,7 @@ ROOM_INDEX_DATA *generate_skillquest_room(CHAR_DATA *ch, int level)
 		    || !str_cmp(room->area->name, "Torayna Cri")
 		    || !str_cmp(room->area->name, "Battle Arenas")
 		    || room->sector_type == SECT_ARENA
-		    || IS_SET(room->room_flags,
+		    || IS_SET(GET_ROOM_FLAGS(room),
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE
@@ -677,7 +677,7 @@ ROOM_INDEX_DATA *generate_skillquest_room(CHAR_DATA *ch, int level)
 
 		/* no pet shops */
 		if ((prev = get_room_index(room->vnum - 1)) != NULL)
-			if (IS_SET(prev->room_flags, ROOM_PET_SHOP))
+			if (IS_SET(GET_ROOM_FLAGS(prev), ROOM_PET_SHOP))
 				continue;
 
 		return room;
@@ -706,7 +706,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 	questmob->level = ch->level;
 
 	/* generate name */
-	if (questmob->sex == 1)
+	if (GET_SEX(questmob) == 1)
 		sprintf(shortdesc, "%s%s%s",
 		        Msyl1[number_range(0, (MAXMSYL1 - 1))],
 		        Msyl2[number_range(0, (MAXMSYL2 - 1))],
@@ -729,7 +729,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; MagT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(questmob->sex == 1 ? MagT_table[x].male : MagT_table[x].female);
+		title = str_dup(GET_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female);
 		quest = "the powers of magic";
 		SET_BIT(questmob->act, ACT_MAGE);
 		break;
@@ -738,7 +738,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; CleT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(questmob->sex == 1 ? CleT_table[x].male : CleT_table[x].female);
+		title = str_dup(GET_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female);
 		quest = "the wisdom of holiness";
 		SET_BIT(questmob->act, ACT_CLERIC);
 		break;
@@ -747,7 +747,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; ThiT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(questmob->sex == 1 ? ThiT_table[x].male : ThiT_table[x].female);
+		title = str_dup(GET_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female);
 		quest = "the art of thievery";
 		SET_BIT(questmob->act, ACT_THIEF);
 		break;
@@ -756,7 +756,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; WarT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(questmob->sex == 1 ? WarT_table[x].male : WarT_table[x].female);
+		title = str_dup(GET_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female);
 		quest = "the ways of weaponcraft";
 		SET_BIT(questmob->act, ACT_WARRIOR);
 		break;
@@ -809,10 +809,10 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
 		do_say(questman, buf);
 		sprintf(buf, "%s last recalls travelling through %s{x, in the",
-		        questmob->sex == 1 ? "He" : "She", questobj->in_room->name);
+		        GET_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name);
 		do_say(questman, buf);
 		sprintf(buf, "area of %s{x, when %s lost the treasure.",
-		        questobj->in_room->area->name, questmob->sex == 1 ? "he" : "she");
+		        questobj->in_room->area->name, GET_SEX(questmob) == 1 ? "he" : "she");
 		do_say(questman, buf);
 	}
 }
@@ -903,16 +903,16 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (!IS_NPC(victim)
-			    || (victim->pIndexData == NULL
-			        || victim->in_room == NULL
-			        || victim->pIndexData->pShop != NULL)
+			    || victim->pIndexData == NULL
+			    || victim->in_room == NULL
+			    || victim->pIndexData->pShop != NULL
 			    || IS_SET(victim->act, ACT_NOSUMMON)
 			    || IS_SET(victim->act, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
-			    || affect_flag_on_char(victim, AFF_CHARM)
-			    || IS_SET(victim->in_room->room_flags, ROOM_PRIVATE | ROOM_SOLITARY)
-			    || IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
+			    || is_affected(victim, gsn_charm_person)
+			    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_PRIVATE | ROOM_SOLITARY)
+			    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
 				continue;
 
@@ -1058,7 +1058,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 /* The main quest function */
 void do_quest(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *questman;
+	CHAR_DATA *questman, *questmob, *squestmob;
 	char buf [MAX_STRING_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
 
@@ -1564,12 +1564,12 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)) {
+		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL)) {
 			stc("You cannot join the quest from this location.\n", ch);
 			return;
 		}
 
-		if (affect_flag_on_char(ch, AFF_CURSE)) {
+		if (is_affected(ch, gsn_curse)) {
 			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}
@@ -1810,7 +1810,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 					check_social(questman, "rofl", ch->name);
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
-				        ch->sex == 2 ? "mistress" : "master");
+				        GET_SEX(questmob) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != NULL && ch->leader->name != NULL)
@@ -1853,7 +1853,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 					check_social(questman, "rofl", ch->name);
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
-				        ch->sex == 2 ? "mistress" : "master");
+				        GET_SEX(questmob) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != NULL && ch->leader->name != NULL)

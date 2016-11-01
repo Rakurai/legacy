@@ -155,16 +155,16 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	}
 
 	/* basic chances, works better on mobs than normal saves */
-	chance = 70 - (victim->level - level) * 2 + victim->saving_throw;
+	chance = 70 - (victim->level - level) * 2 + GET_ATTR(victim, APPLY_SAVES);
 
 	/* berserking isn't as good as normal saves */
-	if (affect_flag_on_char(victim, AFF_BERSERK))
+	if (is_affected(victim, gsn_berserk))
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */
 	if (ch->in_room->sector_type != SECT_INSIDE
 	    && ch->in_room->sector_type != SECT_CITY) {
-		if (IS_SET(ch->in_room->room_flags, ROOM_DARK))
+		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_DARK))
 			chance += 25;
 		else if (weather_info.sunlight == SUN_DARK)
 			chance += 20;
@@ -214,7 +214,7 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int mana, mana_cost;
 	mana = get_skill_cost(ch, sn);
-	mana_cost = (ch->max_hit / 4) - mana;
+	mana_cost = (ATTR_BASE(ch, APPLY_HIT) / 4) - mana;
 
 	if (HAS_RAFF(ch, RAFF_COSTLYSPELLS))
 		mana_cost += mana_cost / 5;
@@ -243,7 +243,7 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 			return;
 		}
 
-	victim->hit = victim->max_hit;
+	victim->hit = ATTR_BASE(victim, APPLY_HIT);
 	ch->mana -= mana_cost;
 	act("$n looks revived as $s wounds vanish completely.", victim, NULL, NULL, TO_ROOM);
 	stc("Your wounds vanish completely.\n", victim);
@@ -281,7 +281,7 @@ void spell_sap(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam, mult;
 	dam = dice(level, 22);
-	mult = ((100 - (((ch->hit * 100) / ch->max_hit) * 2)) * 2);
+	mult = ((100 - (((ch->hit * 100) / ATTR_BASE(ch, APPLY_HIT)) * 2)) * 2);
 	dam = UMAX(dam, dam + ((dam * mult) / 100));
 
 	if (ch->hit < 31000)

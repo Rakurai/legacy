@@ -565,13 +565,6 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	}
 
 	/*
-	 * No hiding.
-	 */
-	/* Get rid of this...been causing me problems
-	    affect_flag_remove_from_char( ch, AFF_HIDE );
-	*/
-
-	/*
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
@@ -814,7 +807,7 @@ bool check_social(CHAR_DATA *ch, const char *command, const char *argument)
 		act(iterator->vict_found,    ch, NULL, victim, TO_VICT);
 
 		if (!IS_NPC(ch) && IS_NPC(victim)
-		    &&   !affect_flag_on_char(victim, AFF_CHARM)
+		    &&   !is_affected(victim, gsn_charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == NULL
 		    && (!IS_SET(victim->pIndexData->progtypes, ACT_PROG))) {
