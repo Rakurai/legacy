@@ -1157,6 +1157,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	        }
 	} */
 
+	if (spell)
+		dam += get_true_damroll(ch);
+
 	/* moved here from magic.c */
 	if (spell && focus)
 		if (get_affect(ch->affected, gsn_focus))
