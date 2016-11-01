@@ -556,7 +556,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	        : ch->in_room == NULL
 	        ? 3001
 	        : ch->in_room->vnum);
-	cJSON_AddNumberToObject(o,		"Scro",			ch->level);
+	cJSON_AddNumberToObject(o,		"Scro",			ch->lines);
 	cJSON_AddNumberToObject(o,		"Silv",			ch->silver);
 
 	if (ch->silver_in_bank > 0)
