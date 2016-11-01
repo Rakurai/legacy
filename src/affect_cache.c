@@ -67,7 +67,9 @@ void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 
 int affect_print_cache_callback(void *entry, void *prm) {
 	static int last_sn = 0;
-	int sn = *(int *)entry;
+	cp_splaynode *node = entry;
+	int sn = *(int *)(node->key);
+//	int count = (int)(node->value);
 	char *str = (char *)prm;
 
 	if (sn != last_sn) {
