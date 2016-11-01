@@ -4917,9 +4917,6 @@ void print_new_affects(CHAR_DATA *ch)
 	buffer = new_buf();
 
 	if (affect_list_char(ch) != NULL) {
-		ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
-		    torch, torch);
-		add_buf(buffer, breakline);
 
 		/* Someone suggested putting affects in order of duration.
 		   To try this, I am going to bubble sort the linked
@@ -4928,38 +4925,53 @@ void print_new_affects(CHAR_DATA *ch)
 		*/
 		affect_sort_char(ch, affect_comparator_duration);
 
-		const AFFECT_DATA *paf_last = NULL;
-		for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
-			if (paf_last != NULL && paf->type == paf_last->type) {
-				if (ch->level >= 20)
-					strcpy(buf, "                   ");
-				else
+		int affcount = 0;
+
+		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next)
+			switch (paf->where) {
+				case TO_AFFECTS: affcount++;
+			}
+
+		if (affcount > 0) {
+			ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
+			    torch, torch);
+			add_buf(buffer, breakline);
+
+			const AFFECT_DATA *paf_last = NULL;
+			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+				if (paf->where != TO_AFFECTS)
 					continue;
-			}
-			else
-				sprintf(buf, "{b%-19s", skill_table[paf->type].name);
 
-			if (ch->level >= 20) {
-				sprintf(buf2, "{b%s by %d ",
-				        affect_loc_name(paf->location), paf->modifier);
-
-				if (paf->duration == -1)
-					strcat(buf2, "permanently");
-				else {
-					char tbuf[MSL];
-					sprintf(tbuf, "for %d hours", paf->duration + 1);
-					strcat(buf2, tbuf);
+				if (paf_last != NULL && paf->type == paf_last->type) {
+					if (ch->level >= 20)
+						strcpy(buf, "                   ");
+					else
+						continue;
 				}
+				else
+					sprintf(buf, "{b%-19s", skill_table[paf->type].name);
+
+				if (ch->level >= 20) {
+					sprintf(buf2, "{b%s by %d ",
+					        affect_loc_name(paf->location), paf->modifier);
+
+					if (paf->duration == -1)
+						strcat(buf2, "permanently");
+					else {
+						char tbuf[MSL];
+						sprintf(tbuf, "for %d hours", paf->duration + 1);
+						strcat(buf2, tbuf);
+					}
+				}
+				else
+					strcpy(buf2, " ");
+
+				ptb(buffer, " %s %-19s %s| %-42s %s\n", torch, buf, border, buf2, torch);
+				paf_last = paf;
 			}
-			else
-				strcpy(buf2, " ");
 
-			ptb(buffer, " %s %-19s %s| %-42s %s\n", torch, buf, border, buf2, torch);
-			paf_last = paf;
-
+			found = TRUE;
 		}
-
-		found = TRUE;
 	}
 
 	char objbuf[MSL];
