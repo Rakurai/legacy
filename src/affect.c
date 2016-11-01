@@ -196,7 +196,9 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 		// drop down to applies
 	}
 
-	if (paf->location < 1 || paf->location > 32) {
+	if (paf->location == 0)
+		paf->modifier = 0; // ensure, so we don't mess up the counter
+	else if (paf->location < 1 || paf->location > 32) {
 		bugf("affect_parse_prototype: bad location %d", paf->location);
 		return FALSE;
 	}
