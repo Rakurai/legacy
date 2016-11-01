@@ -2528,6 +2528,7 @@ extern sh_int	gsn_animate_gargoyle;
 extern sh_int	gsn_animate_zombie;
 extern sh_int	gsn_armor;
 extern sh_int	gsn_bless;
+extern sh_int   gsn_blind_fight;
 extern sh_int	gsn_blindness;
 extern sh_int	gsn_blizzard;
 extern sh_int	gsn_blood_blade;
@@ -2804,6 +2805,7 @@ extern sh_int   gsn_night_vision;
 #define ATTR_BASE(ch, where) ((ch)->attr_base[where]) // intentionally settable
 #define GET_ATTR_MOD(ch, where)  ((ch)->apply_cache ? (ch)->apply_cache[where] : 0) // intentionally not settable
 #define GET_ATTR(ch, where) (ATTR_BASE(ch, where) + GET_ATTR_MOD(ch, where)) // intentionally not settable
+#define GET_DEFENSE_MOD(ch, where) ((ch)->defense_mod ? (ch)->defense_mod[where] : 0)
 
 #define IS_AFFECTED(ch, sn)     (ch->aff_cache ? cp_splaytree_contains(ch->affect_cache, &sn) : FALSE)
 
@@ -2832,6 +2834,8 @@ extern sh_int   gsn_night_vision;
 #define IS_GOOD(ch)             (ch->alignment >= 350)
 #define IS_EVIL(ch)             (ch->alignment <= -350)
 #define IS_NEUTRAL(ch)          (!IS_GOOD(ch) && !IS_EVIL(ch))
+
+#define ATTR_BASE(ch, where) ((ch)->attr_base[where])
 
 #define IS_AWAKE(ch)            (ch->position > POS_SLEEPING)
 #define GET_AC(ch,type)         ((ch)->armor_a[type] + (ch)->armor_m[type]    \
@@ -3585,7 +3589,7 @@ void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
 
 
 // attribute.c
-int flag_to_index(int flag);
+int flag_to_index args((unsigned long flag));
 int affect_bit_to_sn args((int bit));
 int stat_to_attr args((int stat));
 int     get_curr_stat   args(( CHAR_DATA *ch, int stat ) );
@@ -3593,13 +3597,12 @@ int get_age         args((CHAR_DATA *ch));
 int get_max_hit args((CHAR_DATA *ch));
 int get_max_mana args((CHAR_DATA *ch));
 int get_max_stam args((CHAR_DATA *ch));
-char *print_damage_modifiers args((CHAR_DATA *ch, int where));
+int     check_immune    args( (CHAR_DATA *ch, int dam_type) );
+char *print_defense_modifiers args((CHAR_DATA *ch, int where));
 
 /* handler.c */
-char *print_damage_modifiers args((CHAR_DATA *ch, char type));
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
-int     check_immune    args( (CHAR_DATA *ch, int dam_type) );
 int     liq_lookup      args( ( const char *name) );
 int     weapon_lookup   args( ( const char *name) );
 int     weapon_type     args( ( const char *name) );

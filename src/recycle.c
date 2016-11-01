@@ -292,9 +292,6 @@ void free_obj(OBJ_DATA *obj)
 		free_extra_descr(ed);
 	}
 
-	if (obj->bonus_stats)
-		free_stats(bonus_stats);
-
 	free_string(obj->name);
 	free_string(obj->description);
 	free_string(obj->short_descr);
@@ -398,9 +395,9 @@ void free_char(CHAR_DATA *ch)
 		free_pcdata(ch->pcdata);
 
 	if (ch->apply_cache)
-		free_mem(ch->apply_cache);
+		free_mem(ch->apply_cache, APPLY_CACHE_MEM_SIZE);
 	if (ch->defense_mod)
-		free_mem(ch->defense_mod);
+		free_mem(ch->defense_mod, DEFENSE_MOD_MEM_SIZE);
 	if (ch->affect_cache)
 		cp_splaytree_destroy(ch->affect_cache);
 

@@ -433,7 +433,6 @@ void do_check(CHAR_DATA *ch, const char *argument)
 	bool SHOWIMM = FALSE;
 	BUFFER *buffer;
 	CHAR_DATA *victim;
-	long flags;
 	argument = one_argument(argument, arg);
 
 	if (!str_cmp(arg, "gods") || !str_cmp(argument, "gods"))
@@ -524,12 +523,9 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = GET_FLAGS(victim, TO_ABSORB);
-
 			sprintf(buf,
-			        "{W[%12s] {RABS: {P[%-25s]{x",
-			        victim->name,
-			        imm_bit_name(flags));
+			        "{W[%12s] {RABS: {P%s{x\n",
+			        victim->name, print_defense_modifiers(victim, TO_ABSORB));
 			add_buf(buffer, buf);
 		}
 
@@ -548,14 +544,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = GET_FLAGS(victim, TO_IMMUNE);
-			flags -= race_table[victim->race].imm & GET_FLAGS(victim, TO_IMMUNE);
 			sprintf(buf,
-			        "{W[%12s] {RIMM: {P[%-25s]{x",
+			        "{W[%12s] {RIMM: {P%s{x\n",
 			        victim->name,
-			        imm_bit_name(race_table[victim->race].imm));
-			add_buf(buffer, buf);
-			sprintf(buf, " %s\n", imm_bit_name(flags));
+			        print_defense_modifiers(victim, TO_IMMUNE));
 			add_buf(buffer, buf);
 		}
 
@@ -574,14 +566,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = GET_FLAGS(victim, TO_RESIST);
-			flags -= race_table[victim->race].res & GET_FLAGS(victim, TO_RESIST);
 			sprintf(buf,
-			        "{W[%12s] {HRES: {G[%-25s]{x",
+			        "{W[%12s] {HRES: {G%s{x\n",
 			        victim->name,
-			        imm_bit_name(race_table[victim->race].res));
-			add_buf(buffer, buf);
-			sprintf(buf, " %s\n", imm_bit_name(flags));
+			        print_defense_modifiers(victim, TO_RESIST));
 			add_buf(buffer, buf);
 		}
 
@@ -600,14 +588,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = GET_FLAGS(victim, TO_VULN);
-			flags -= race_table[victim->race].vuln & GET_FLAGS(victim, TO_VULN);
 			sprintf(buf,
-			        "{W[%12s] {TVUL: {C[%-25s]{x",
+			        "{W[%12s] {TVUL: {C%s{x\n",
 			        victim->name,
-			        imm_bit_name(race_table[victim->race].vuln));
-			add_buf(buffer, buf);
-			sprintf(buf, " %s\n", imm_bit_name(flags));
+			        print_defense_modifiers(victim, TO_VULN));
 			add_buf(buffer, buf);
 		}
 
@@ -3984,7 +3968,7 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 	char strsave[MAX_INPUT_LENGTH];
 	FILE *fp;
 	CHAR_DATA *victim;
-	int stat, sn;
+	int sn;
 	one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {

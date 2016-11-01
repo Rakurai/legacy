@@ -123,15 +123,15 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		strcat(buf, "{W(Invis) ");
 
-	if (is_affected(ch, gsn_detect_evil)
+	if (affect_find_in_char(ch, gsn_detect_evil)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
 		strcat(buf, "{R(Red Aura) ");
 
-	if (is_affected(ch, gsn_detect_good)
+	if (affect_find_in_char(ch, gsn_detect_good)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
 		strcat(buf, "{B(Blue Aura) ");
 
-	if (is_affected(ch, gsn_detect_magic)
+	if (affect_find_in_char(ch, gsn_detect_magic)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		strcat(buf, "{G(Magical) ");
 
@@ -450,13 +450,13 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_SET(victim->comm, COMM_AFK))
 		strcat(buf, "{b[AFK] ");
 
-	if (is_affected(victim, gsn_invis))
+	if (affect_find_in_char(victim, gsn_invis))
 		strcat(buf, "{C(Invis) ");
 
-	if (is_affected(victim, gsn_midnight))
+	if (affect_find_in_char(victim, gsn_midnight))
 		strcat(buf, "{c(Shadowy) ");
 
-	if (is_affected(victim, gsn_hex))
+	if (affect_find_in_char(victim, gsn_hex))
 		strcat(buf, "{c(Dark Aura) ");
 
 	if (victim->invis_level)
@@ -471,28 +471,28 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strcat(buf, string);
 	}
 
-	if (is_affected(victim, gsn_hide)) strcat(buf,
+	if (affect_find_in_char(victim, gsn_hide)) strcat(buf,
 		                "{B(Hide) ");
 
-	if (is_affected(victim, gsn_charm_person)) strcat(buf,
+	if (affect_find_in_char(victim, gsn_charm_person)) strcat(buf,
 		                "{M(Charmed) ");
 
-	if (is_affected(victim, gsn_pass_door)) strcat(buf,
+	if (affect_find_in_char(victim, gsn_pass_door)) strcat(buf,
 		                "{c(Translucent) ");
 
-	if (is_affected(victim, gsn_faerie_fire)) strcat(buf,
+	if (affect_find_in_char(victim, gsn_faerie_fire)) strcat(buf,
 		                "{P(Pink Aura) ");
 
-	if (is_affected(victim, gsn_flameshield)) strcat(buf,
+	if (affect_find_in_char(victim, gsn_flameshield)) strcat(buf,
 		                "{b(Flaming Aura) ");
 
-	if (IS_EVIL(victim) && is_affected(ch, gsn_detect_evil)) strcat(buf,
+	if (IS_EVIL(victim) && affect_find_in_char(ch, gsn_detect_evil)) strcat(buf,
 		                "{R(Red Aura) ");
 
-	if (IS_GOOD(victim) && is_affected(ch, gsn_detect_good)) strcat(buf,
+	if (IS_GOOD(victim) && affect_find_in_char(ch, gsn_detect_good)) strcat(buf,
 		                "{Y(Golden Aura) ");
 
-	if (is_affected(victim, gsn_sanctuary)) strcat(buf,
+	if (affect_find_in_char(victim, gsn_sanctuary)) strcat(buf,
 		                "{W(White Aura) ");
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER))
@@ -799,7 +799,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && is_affected(rch, gsn_infravision))
+		         && affect_find_in_char(rch, gsn_infravision))
 			stc("You see glowing red eyes watching YOU!\n", ch);
 	}
 }
@@ -809,7 +809,7 @@ bool check_blind(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (is_affected(ch, gsn_blindness)) {
+	if (affect_find_in_char(ch, gsn_blindness)) {
 		stc("You can't see a thing!\n", ch);
 		return FALSE;
 	}
@@ -1476,10 +1476,10 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 	}
 
 	ptc(ch, "Aff  : %s\n", affect_print_cache(victim));
-	ptc(ch, "Drn  : %s\n", print_damage_modifiers(victim, TO_ABSORB));
-	ptc(ch, "Imm  : %s\n", print_damage_modifiers(victim, TO_IMMUNE));
-	ptc(ch, "Res  : %s\n", print_damage_modifiers(victim, TO_RESIST));
-	ptc(ch, "Vuln : %s\n", print_damage_modifiers(victim, TO_VULN));
+	ptc(ch, "Drn  : %s\n", print_defense_modifiers(victim, TO_ABSORB));
+	ptc(ch, "Imm  : %s\n", print_defense_modifiers(victim, TO_IMMUNE));
+	ptc(ch, "Res  : %s\n", print_defense_modifiers(victim, TO_RESIST));
+	ptc(ch, "Vuln : %s\n", print_defense_modifiers(victim, TO_VULN));
 	ptc(ch, "Form : %s\n", form_bit_name(victim->form));
 	ptc(ch, "Parts: %s\n", part_bit_name(victim->parts));
 	set_color(ch, WHITE, NOBOLD);
@@ -3101,7 +3101,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (victim->in_room != NULL
 			    && victim->in_room->area == ch->in_room->area
-			    && !is_affected(victim, gsn_hide)
+			    && !affect_find_in_char(victim, gsn_hide)
 			    && can_see(ch, victim)
 			    && is_name(arg, victim->name)) {
 				found = TRUE;
@@ -3148,13 +3148,13 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 		    GET_AC(victim, AC_SLASH),  GET_AC(victim, AC_EXOTIC));
 
 		char buf[MSL];
-		strcpy(buf, print_damage_modifiers(victim, TO_ABSORB));
+		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
 		if (buf[0]) ptc(ch, " Drain:  %s\n", buf);
-		strcpy(buf, print_damage_modifiers(victim, TO_IMMUNE));
+		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
 		if (buf[0]) ptc(ch, " Immune: %s\n", buf);
-		strcpy(buf, print_damage_modifiers(victim, TO_RESIST));
+		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
 		if (buf[0]) ptc(ch, " Resist: %s\n", buf);
-		strcpy(buf, print_damage_modifiers(victim, TO_VULN));
+		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
 		if (buf[0]) ptc(ch, " Vuln:   %s\n", buf);
 		strcpy(buf, affect_print_cache(victim));
 		if (buf[0]) ptc(ch, " Affect:  %s\n", buf);
@@ -3223,13 +3223,13 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim) && victim->off_flags)
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
-		strcpy(buf, print_damage_modifiers(victim, TO_ABSORB));
+		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
 		if (buf[0]) ptc(ch, " Drain:  %s\n", buf);
-		strcpy(buf, print_damage_modifiers(victim, TO_IMMUNE));
+		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
 		if (buf[0]) ptc(ch, " Immune: %s\n", buf);
-		strcpy(buf, print_damage_modifiers(victim, TO_RESIST));
+		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
 		if (buf[0]) ptc(ch, " Resist: %s\n", buf);
-		strcpy(buf, print_damage_modifiers(victim, TO_VULN));
+		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
 		if (buf[0]) ptc(ch, " Vuln:   %s\n", buf);
 		strcpy(buf, affect_print_cache(victim));
 		if (buf[0]) ptc(ch, " Affect:  %s\n", buf);

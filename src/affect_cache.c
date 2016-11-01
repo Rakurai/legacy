@@ -1,6 +1,6 @@
 #include "merc.h"
 #include "affect.h"
-#include "splay.h"
+#include "deps/cprops/splay.h"
 
 #define get_affect_cache(ch) ((cp_splaytree *)(ch)->affect_cache)
 

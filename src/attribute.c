@@ -1,4 +1,5 @@
 #include "merc.h"
+#include "tables.h"
 
 // temporary file to hold attribute accessors
 
@@ -32,53 +33,13 @@ int stat_to_attr(int stat) {
 	return APPLY_STR;
 }
 
-int affect_bit_to_sn(int bit) {
-	switch (bit) {
-		case AFF_BLIND: return gsn_blindness;
-		case AFF_INVISIBLE: return gsn_invis;
-		case AFF_DETECT_EVIL: return gsn_detect_evil;
-		case AFF_DETECT_GOOD: return gsn_detect_good;
-		case AFF_DETECT_INVIS: return gsn_detect_invis;
-		case AFF_DETECT_MAGIC: return gsn_detect_magic;
-		case AFF_DETECT_HIDDEN: return gsn_detect_hidden;
-		case AFF_SANCTUARY: return gsn_sanctuary;
-		case AFF_FAERIE_FIRE: return gsn_faerie_fire;
-		case AFF_INFRARED: return gsn_infravision;
-		case AFF_CURSE: return gsn_curse;
-		case AFF_FEAR: return gsn_fear;
-		case AFF_POISON: return gsn_poison;
-		case AFF_PROTECT_EVIL: return gsn_prot_evil;
-		case AFF_PROTECT_GOOD: return gsn_prot_good;
-		case AFF_NIGHT_VISION: return gsn_night_vision;
-		case AFF_SNEAK: return gsn_sneak;
-		case AFF_HIDE: return gsn_hide;
-		case AFF_CHARM: return gsn_charm;
-		case AFF_FLYING: return gsn_flying;
-		case AFF_PASS_DOOR: return gsn_pass_door;
-		case AFF_BERSERK: return gsn_berserk;
-		case AFF_CALM: return gsn_calm;
-		case AFF_HASTE: return gsn_haste;
-		case AFF_SLOW: return gsn_slow;
-		case AFF_PLAGUE: return gsn_plague;
-		case AFF_DIVINEREGEN: return gsn_divreg;
-		case AFF_FLAMESHIELD: return gsn_flameshield;
-		case AFF_REGENERATION: return gsn_regen;
-		case AFF_TALON: return gsn_talon;
-		case AFF_STEEL: return gsn_steel_mist;
-		default:
-			bugf("affect_bit_to_sn: wierd bit %d", paf->bitvector);
-	}
-
-	return -1;
-}
-
 /* command for retrieving stats */
 int get_curr_stat(CHAR_DATA *ch, int stat)
 {
 	int max = 25;
 
 	if (IS_NPC(ch))
-		max = GET_ATTR_BASE(ch, stat_to_attr(stat)) + 4;
+		max = ATTR_BASE(ch, stat_to_attr(stat)) + 4;
 	else if (!IS_IMMORTAL(ch)) {
 		max = pc_race_table[ch->race].max_stats[stat] + 4;
 
@@ -90,8 +51,8 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 	if (!IS_NPC(ch) && ch->pcdata->familiar && ch->pet) {
 		int max_slot = 0;
 
-		for (int i = 1; i < MAX_STAT; i++)
-			if (ch->pet->perm_stat[i] > ch->pet->perm_stat[max_slot])
+		for (int i = 0; i < MAX_STATS; i++)
+			if (ATTR_BASE(ch->pet, stat_to_attr(i)) > ATTR_BASE(ch->pet, stat_to_attr(max_slot)))
 				max_slot = i;
 
 		if (max_slot == stat)
@@ -128,23 +89,73 @@ int get_max_stam(CHAR_DATA *ch) {
 	return URANGE(1, ATTR_BASE(ch, APPLY_STAM) + GET_ATTR_MOD(ch, APPLY_STAM), 30000);
 }
 
-char *print_damage_modifiers(CHAR_DATA *ch, char type) {
+/* for immunity, vulnerabiltiy, and resistant
+   the 'globals' (magic and weapons) may be overriden
+   three other cases -- wood, silver, and iron -- are checked in fight.c */
+
+int check_immune(CHAR_DATA *ch, int dam_type)
+{
+	int def = 0;
+	int bit;
+
+	if (dam_type == DAM_NONE)
+		return 0;
+
+	if (ch->defense_mod == NULL) // no modifiers
+		return 0;
+
+	if (dam_type <= 3) // weapon attack
+		def = ch->defense_mod[flag_to_index(IMM_WEAPON)];
+	else if (dam_type != DAM_WEAPON) /* magical attack */
+		def = ch->defense_mod[flag_to_index(IMM_MAGIC)];
+
+	// stop here for simple types
+	if (dam_type == DAM_WEAPON || dam_type == DAM_MAGIC)
+		return def;
+
+	/* set bits to check -- VULN etc. must ALL be the same or this will fail */
+	switch (dam_type) {
+	case (DAM_BASH):         bit = IMM_BASH;         break;
+	case (DAM_PIERCE):       bit = IMM_PIERCE;       break;
+	case (DAM_SLASH):        bit = IMM_SLASH;        break;
+	case (DAM_FIRE):         bit = IMM_FIRE;         break;
+	case (DAM_COLD):         bit = IMM_COLD;         break;
+	case (DAM_ELECTRICITY):  bit = IMM_ELECTRICITY;  break;
+	case (DAM_ACID):         bit = IMM_ACID;         break;
+	case (DAM_POISON):       bit = IMM_POISON;       break;
+	case (DAM_NEGATIVE):     bit = IMM_NEGATIVE;     break;
+	case (DAM_HOLY):         bit = IMM_HOLY;         break;
+	case (DAM_ENERGY):       bit = IMM_ENERGY;       break;
+	case (DAM_MENTAL):       bit = IMM_MENTAL;       break;
+	case (DAM_DISEASE):      bit = IMM_DISEASE;      break;
+	case (DAM_DROWNING):     bit = IMM_DROWNING;     break;
+	case (DAM_LIGHT):        bit = IMM_LIGHT;        break;
+	case (DAM_CHARM):        bit = IMM_CHARM;        break;
+	case (DAM_SOUND):        bit = IMM_SOUND;        break;
+	default:                return def;
+	}
+
+	def += ch->defense_mod[flag_to_index(bit)];
+	return def;
+}
+
+char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 	static char buf[MSL];
 	buf[0] = '\0';
 
-	if (ch->damage_mod == NULL)
+	if (ch->defense_mod == NULL)
 		return buf;
 
 	for (int i = 1; i < 32; i++) {
 		bool print = FALSE;
 
-		switch (type) {
-			case TO_ABSORB:  if (ch->damage_mod[i] > 100)  print = TRUE; break;
-			case TO_IMMUNE:  if (ch->damage_mod[i] == 100) print = TRUE; break;
-			case TO_RESIST:  if (ch->damage_mod[i] > 0)    print = TRUE; break;
-			case TO_VULN:    if (ch->damage_mod[i] < 0)    print = TRUE; break;
+		switch (where) {
+			case TO_ABSORB:  if (ch->defense_mod[i] > 100)  print = TRUE; break;
+			case TO_IMMUNE:  if (ch->defense_mod[i] == 100) print = TRUE; break;
+			case TO_RESIST:  if (ch->defense_mod[i] > 0)    print = TRUE; break;
+			case TO_VULN:    if (ch->defense_mod[i] < 0)    print = TRUE; break;
 			default:
-				bugf("print_damage_modifiers: unknown type %d", type);
+				bugf("print_defense_modifiers: unknown where %d", where);
 		}
 
 		if (print) {
@@ -153,12 +164,12 @@ char *print_damage_modifiers(CHAR_DATA *ch, char type) {
 
 			strcat(buf, imm_flags[i].name);
 
-			if (type != TO_IMMUNE) {
+			if (where != TO_IMMUNE) {
 				char mbuf[100];
 				sprintf(mbuf, "(%+d%%)",
-					type == TO_ABSORB ?  ch->damage_mod[i]-100 : // percent beyond immune
-					type == TO_RESIST ? -ch->damage_mod[i] : // prints resist as a negative
-					                    -ch->damage_mod[i] : // prints vuln as a positive
+					where == TO_ABSORB ?  ch->defense_mod[i]-100 : // percent beyond immune
+					where == TO_RESIST ? -ch->defense_mod[i] : // prints resist as a negative
+					                    -ch->defense_mod[i] // prints vuln as a positive
 				);
 				strcat(buf, mbuf);
 			}

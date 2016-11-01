@@ -539,39 +539,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		for (int stat = 0; stat < MAX_STATS; stat++)
 			ATTR_BASE(ch, stat_to_attr(stat)) = pc_race_table[race].stats[stat];
 
-		AFFECT_DATA af;
-		af.where = TO_AFFECTS;
-		af.level = -1;
-		af.duration = -1;
-		af.evolution = 1;
-
-		unsigned int bitvector = race_table[race].aff;
-
-		while (bitvector != 0) {
-			af.type = -1; // reset every time
-			if (affect_parse_prototype('A', &af, &bitvector))
-				affect_add_perm_to_char(ch, af.type); // special, handle racial correctness elsewhere
-		}
-
-		// damage mod affects
-		af.type               = 0;
-		bitvector = race_table[race].imm;
-
-		while (bitvector != 0)
-			if (affect_parse_bits('I', &af, &bitvector))
-				affect_copy_to_char(ch, &af); 
-
-		bitvector = race_table[race].res;
-
-		while (bitvector != 0)
-			if (affect_parse_bits('R', &af, &bitvector))
-				affect_copy_to_char(ch, &af); 
-
-		bitvector = race_table[race].vuln;
-
-		while (bitvector != 0)
-			if (affect_parse_bits('V', &af, &bitvector))
-				affect_copy_to_char(ch, &af); 
+		affect_copy_flags_to_char(ch, 'A', race_table[race].aff);
+		affect_copy_flags_to_char(ch, 'I', race_table[race].imm);
+		affect_copy_flags_to_char(ch, 'R', race_table[race].res);
+		affect_copy_flags_to_char(ch, 'V', race_table[race].vuln);
 
 		ch->form                = race_table[race].form;
 		ch->parts               = race_table[race].parts;

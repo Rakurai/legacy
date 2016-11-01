@@ -94,7 +94,7 @@ bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
-	if (is_affected(ch, gsn_charm_person))
+	if (affect_find_in_char(ch, gsn_charm_person))
 		return FALSE;
 
 	if (IS_SET(ch->off_flags, ASSIST_ALL))
@@ -248,56 +248,6 @@ int class_lookup(const char *name)
 	}
 
 	return -1;
-}
-
-/* for immunity, vulnerabiltiy, and resistant
-   the 'globals' (magic and weapons) may be overriden
-   three other cases -- wood, silver, and iron -- are checked in fight.c */
-
-int check_immune(CHAR_DATA *ch, int dam_type)
-{
-	int def = 0;
-	int bit;
-
-	if (dam_type == DAM_NONE)
-		return 0;
-
-	if (ch->defense_mod == NULL) // no modifiers
-		return 0;
-
-	if (dam_type <= 3) // weapon attack
-		def = ch->defense_mod[flag_to_index(IMM_WEAPON)];
-	else if (dam_type != DAM_WEAPON) /* magical attack */
-		def = ch->defense_mod[flag_to_index(IMM_MAGIC)];
-
-	// stop here for simple types
-	if (dam_type == DAM_WEAPON || dam_type == DAM_MAGIC)
-		return def;
-
-	/* set bits to check -- VULN etc. must ALL be the same or this will fail */
-	switch (dam_type) {
-	case (DAM_BASH):         bit = IMM_BASH;         break;
-	case (DAM_PIERCE):       bit = IMM_PIERCE;       break;
-	case (DAM_SLASH):        bit = IMM_SLASH;        break;
-	case (DAM_FIRE):         bit = IMM_FIRE;         break;
-	case (DAM_COLD):         bit = IMM_COLD;         break;
-	case (DAM_ELECTRICITY):  bit = IMM_ELECTRICITY;  break;
-	case (DAM_ACID):         bit = IMM_ACID;         break;
-	case (DAM_POISON):       bit = IMM_POISON;       break;
-	case (DAM_NEGATIVE):     bit = IMM_NEGATIVE;     break;
-	case (DAM_HOLY):         bit = IMM_HOLY;         break;
-	case (DAM_ENERGY):       bit = IMM_ENERGY;       break;
-	case (DAM_MENTAL):       bit = IMM_MENTAL;       break;
-	case (DAM_DISEASE):      bit = IMM_DISEASE;      break;
-	case (DAM_DROWNING):     bit = IMM_DROWNING;     break;
-	case (DAM_LIGHT):        bit = IMM_LIGHT;        break;
-	case (DAM_CHARM):        bit = IMM_CHARM;        break;
-	case (DAM_SOUND):        bit = IMM_SOUND;        break;
-	default:                return def;
-	}
-
-	def += ch->defense_mod[flag_to_index(bit)];
-	return def;
 }
 
 bool is_clan(CHAR_DATA *ch)
@@ -1721,22 +1671,22 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->invis_level)
 		return FALSE;
 
-	if (is_affected(ch, gsn_blindness))
+	if (affect_find_in_char(ch, gsn_blindness))
 		return FALSE;
 
-	if (!is_affected(ch, gsn_infravision))
+	if (!affect_find_in_char(ch, gsn_infravision))
 		if ((room_is_dark(ch->in_room)
-		     && !is_affected(ch, gsn_night_vision))
+		     && !affect_find_in_char(ch, gsn_night_vision))
 		    || room_is_very_dark(ch->in_room))
 			return FALSE;
 
-	if (is_affected(victim, gsn_invis)
-	    &&   !is_affected(ch, gsn_detect_invis))
+	if (affect_find_in_char(victim, gsn_invis)
+	    &&   !affect_find_in_char(ch, gsn_detect_invis))
 		return FALSE;
 
 	/* sneaking */
-	if (is_affected(victim, gsn_sneak)
-	    &&   !is_affected(ch, gsn_detect_hidden)
+	if (affect_find_in_char(victim, gsn_sneak)
+	    &&   !affect_find_in_char(ch, gsn_detect_hidden)
 	    &&   victim->fighting == NULL) {
 		int chance;
 		chance = get_skill(victim, gsn_sneak);
@@ -1748,8 +1698,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
-	if (is_affected(victim, gsn_hide)
-	    &&   !is_affected(ch, gsn_detect_hidden)
+	if (affect_find_in_char(victim, gsn_hide)
+	    &&   !affect_find_in_char(ch, gsn_detect_hidden)
 	    &&   victim->fighting == NULL)
 		return FALSE;
 
@@ -1789,7 +1739,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (room_is_very_dark(ch->in_room))
 		return FALSE;
 
-	if (is_affected(ch, gsn_blindness))
+	if (affect_find_in_char(ch, gsn_blindness))
 		return FALSE;
 
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH) && obj->carried_by != ch)
@@ -1808,7 +1758,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	if (IS_SET(obj->extra_flags, ITEM_INVIS)
-	    && !is_affected(ch, gsn_detect_invis))
+	    && !affect_find_in_char(ch, gsn_detect_invis))
 		return FALSE;
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
@@ -1817,7 +1767,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !is_affected(ch, gsn_infravision))
+	if (room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_infravision))
 		return FALSE;
 
 	return TRUE;
@@ -1835,46 +1785,6 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 		return TRUE;
 
 	return FALSE;
-}
-
-char *print_damage_modifiers(CHAR_DATA *ch, char type) {
-	static char buf[MSL];
-	buf[0] = '\0';
-
-	if (ch->damage_mod == NULL)
-		return buf;
-
-	for (int i = 1; i < 32; i++) {
-		bool print = FALSE;
-
-		switch (type) {
-			case TO_ABSORB:  if (ch->damage_mod[i] > 100)  print = TRUE; break;
-			case TO_IMMUNE:  if (ch->damage_mod[i] == 100) print = TRUE; break;
-			case TO_RESIST:  if (ch->damage_mod[i] > 0)    print = TRUE; break;
-			case TO_VULN:    if (ch->damage_mod[i] < 0)    print = TRUE; break;
-			default:
-				bugf("print_damage_modifiers: unknown type %d", type);
-		}
-
-		if (print) {
-			if (buf[0] != '\0')
-				strcat(buf, " ");
-
-			strcat(buf, imm_flags[i].name);
-
-			if (type != TO_IMMUNE) {
-				char mbuf[100];
-				sprintf(mbuf, "(%+d%%)",
-					type == TO_ABSORB ?  ch->damage_mod[i]-100 : // percent beyond immune
-					type == TO_RESIST ? -ch->damage_mod[i] : // prints resist as a negative
-					                    -ch->damage_mod[i] : // prints vuln as a positive
-				);
-				strcat(buf, mbuf);
-			}
-		}
-	}
-
-	return buf;
 }
 
 /*
@@ -3083,7 +2993,7 @@ int get_play_seconds(CHAR_DATA *ch)
 	return (IS_NPC(ch) ? 0 : ch->pcdata->played);
 }
 
-/* used with is_affected, checks to see if the affect has an evolution rating, returns 1 if not */
+/* used with affect_find_in_char, checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
 {
 	int evo = 1;

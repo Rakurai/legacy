@@ -482,18 +482,18 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return is_affected(mob, gsn_charm_person) ? 1 : 0;
+		case 'i': return affect_find_in_char(mob, gsn_charm_person) ? 1 : 0;
 
 		case 'n': if (actor)
-				return is_affected(actor, gsn_charm_person) ? 1 : 0;
+				return affect_find_in_char(actor, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return is_affected(vict, gsn_charm_person) ? 1 : 0;
+				return affect_find_in_char(vict, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return is_affected(rndm, gsn_charm_person) ? 1 : 0;
+				return affect_find_in_char(rndm, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		default:
@@ -1587,7 +1587,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	CHAR_DATA *vch   = NULL;
 	int        count = 0;
 
-	/*    if is_affected( mob, gsn_charm_person )
+	/*    if affect_find_in_char( mob, gsn_charm_person )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */

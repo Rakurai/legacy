@@ -158,7 +158,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	chance = 70 - (victim->level - level) * 2 + GET_ATTR(victim, APPLY_SAVES);
 
 	/* berserking isn't as good as normal saves */
-	if (is_affected(victim, gsn_berserk))
+	if (affect_find_in_char(victim, gsn_berserk))
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */

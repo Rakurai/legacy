@@ -77,7 +77,8 @@ sh_int  gsn_animate_gargoyle;
 sh_int  gsn_animate_zombie;
 sh_int  gsn_armor;
 sh_int  gsn_bless;
-sh_int  gsn_blindnessness;
+sh_int  gsn_blind_fight;
+sh_int  gsn_blindness;
 sh_int  gsn_blizzard;
 sh_int  gsn_blood_blade;
 sh_int  gsn_blood_moon;
@@ -935,7 +936,7 @@ void load_mobiles(FILE *fp)
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
 		pMobIndex->act                  = fread_flag(fp) | race_table[pMobIndex->race].act;
-		pMobIndex->affect_bits          = fread_flag(fp)
+		pMobIndex->affect_flags         = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].aff;
 		pMobIndex->pShop                = NULL;
 		pMobIndex->alignment            = fread_number(fp);

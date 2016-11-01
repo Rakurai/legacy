@@ -30,6 +30,7 @@ void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b 
 unsigned long affect_checksum             args(( const AFFECT_DATA *paf ));
 bool          affect_parse_prototype      args(( char letter, AFFECT_DATA *paf, unsigned int *bitvector ));
 char *        affect_print_cache          args(( CHAR_DATA *ch ));
+void          update_affect_cache         args(( CHAR_DATA *ch, sh_int sn, bool fAdd ));
 
 // outward facing interface, all calls to obj/char/room affects should be through
 // these procedures.  attempt to force some accessor safety on this crap -- Montrey
@@ -60,6 +61,8 @@ void                affect_copy_to_room              args(( ROOM_INDEX_DATA *roo
 void                affect_join_to_obj               args(( OBJ_DATA *obj, AFFECT_DATA *paf ));
 void                affect_join_to_char              args(( CHAR_DATA *ch, AFFECT_DATA *paf ));
 void                affect_join_to_room              args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ));
+void                affect_add_perm_to_char          args(( CHAR_DATA *ch, int sn ));
+void                affect_copy_flags_to_char        args(( CHAR_DATA *ch, char letter, unsigned int bitvector ));
 
 // removing
 void                affect_remove_from_obj           args(( OBJ_DATA *obj, AFFECT_DATA *paf ));
@@ -85,5 +88,7 @@ void                affect_iterate_over_room         args(( ROOM_INDEX_DATA *roo
 void                affect_sort_obj                  args(( OBJ_DATA *ch, affect_comparator comp ));
 void                affect_sort_char                 args(( CHAR_DATA *ch, affect_comparator comp ));
 void                affect_sort_room                 args(( ROOM_INDEX_DATA *ch, affect_comparator comp ));
+
+void                remort_affect_modify_char        args(( CHAR_DATA *ch, int where, unsigned int bitvector, bool fAdd ));
 
 #endif // _AFFECT_H

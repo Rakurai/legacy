@@ -213,7 +213,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
 		bug("MpKill - Charmed mob attacking master: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;

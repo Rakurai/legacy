@@ -10,3 +10,9 @@ need to test imm/res/vuln mods
 equip/unequip char calling mods?
 need to replace old imm_shadow bit
 fix fly/land thing
+look at how familiar stat bonus is handled
+make sure imm/res/vuln is handled right with calls to check_immune
+there are a few things that strip all from char, make sure they add back appropriate affects
+defense_mod needs to save to pfile, but maybe not racial bits, and use a dict rather than array.  taken out for now
+do we need affect_add_perm_to_char?
+remort affects can be regular affects, but probably need a TO_REMORT where type (to identify them for removal)

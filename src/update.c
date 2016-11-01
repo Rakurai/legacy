@@ -95,16 +95,8 @@ void demote_level(CHAR_DATA *ch)
 
 	/* don't let stats go below 20/100/100 */
 	if (ATTR_BASE(ch, APPLY_HIT) < 20)                   ATTR_BASE(ch, APPLY_HIT) = 20;
-
 	if (ATTR_BASE(ch, APPLY_MANA) < 100)                 ATTR_BASE(ch, APPLY_MANA) = 100;
-
 	if (ATTR_BASE(ch, APPLY_STAM) < 100)                 ATTR_BASE(ch, APPLY_STAM) = 100;
-
-	if (ch->pcdata->perm_hit < 20)          ch->pcdata->perm_hit = 20;
-
-	if (ch->pcdata->perm_mana < 100)        ch->pcdata->perm_mana = 100;
-
-	if (ch->pcdata->perm_stam < 100)        ch->pcdata->perm_stam = 100;
 }
 
 void advance_level(CHAR_DATA *ch)
@@ -131,9 +123,6 @@ void advance_level(CHAR_DATA *ch)
 	ATTR_BASE(ch, APPLY_STAM)            += add_stam;
 	ch->practice            += add_prac;
 	ch->train               += add_train;
-	ch->pcdata->perm_hit    += add_hp;
-	ch->pcdata->perm_mana   += add_mana;
-	ch->pcdata->perm_stam   += add_stam;
 	ptc(ch, "Your gain is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.\n",
 	    add_hp,         ATTR_BASE(ch, APPLY_HIT),
 	    add_mana,       ATTR_BASE(ch, APPLY_MANA),
@@ -245,7 +234,7 @@ int hit_gain(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
 
-		if (is_affected(ch, gsn_regeneration))
+		if (affect_find_in_char(ch, gsn_regeneration))
 			gain *= 2;
 
 		switch (get_position(ch)) {
@@ -292,22 +281,22 @@ int hit_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (is_affected(ch, gsn_poison))
+	if (affect_find_in_char(ch, gsn_poison))
 		gain /= 4;
 
-	if (is_affected(ch, gsn_plague))
+	if (affect_find_in_char(ch, gsn_plague))
 		gain /= 8;
 
-	if (is_affected(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_find_in_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2 ;
 
-	if (is_affected(ch, gsn_slow))
+	if (affect_find_in_char(ch, gsn_slow))
 		gain *= 2 ;
 
-	if (is_affected(ch, gsn_regeneration))
+	if (affect_find_in_char(ch, gsn_regeneration))
 		gain *= 2;
 
-	if (is_affected(ch, gsn_divine_regeneration))
+	if (affect_find_in_char(ch, gsn_divine_regeneration))
 		gain *= 4;
 
 	return UMIN(gain, ATTR_BASE(ch, APPLY_HIT) - ch->hit);
@@ -370,19 +359,19 @@ int mana_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
-	if (is_affected(ch, gsn_poison))
+	if (affect_find_in_char(ch, gsn_poison))
 		gain /= 4;
 
-	if (is_affected(ch, gsn_plague))
+	if (affect_find_in_char(ch, gsn_plague))
 		gain /= 8;
 
-	if (is_affected(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_find_in_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
-	if (is_affected(ch, gsn_slow))
+	if (affect_find_in_char(ch, gsn_slow))
 		gain *= 2;
 
-	if (is_affected(ch, gsn_divine_regeneration))
+	if (affect_find_in_char(ch, gsn_divine_regeneration))
 		gain *= 2;
 
 	return UMIN(gain, ATTR_BASE(ch, APPLY_MANA) - ch->mana);
@@ -436,22 +425,22 @@ int stam_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (is_affected(ch, gsn_poison))
+	if (affect_find_in_char(ch, gsn_poison))
 		gain /= 4;
 
-	if (is_affected(ch, gsn_plague))
+	if (affect_find_in_char(ch, gsn_plague))
 		gain /= 8;
 
-	if (is_affected(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_find_in_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
-	if (is_affected(ch, gsn_slow))
+	if (affect_find_in_char(ch, gsn_slow))
 		gain *= 2;
 
-	if (is_affected(ch, gsn_regeneration))
+	if (affect_find_in_char(ch, gsn_regeneration))
 		gain *= 2;
 
-	if (is_affected(ch, gsn_divine_regeneration))
+	if (affect_find_in_char(ch, gsn_divine_regeneration))
 		gain *= 2;
 
 	return UMIN(gain, ATTR_BASE(ch, APPLY_STAM) - ch->stam);
@@ -516,7 +505,7 @@ void mobile_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) || ch->in_room == NULL || is_affected(ch, gsn_charm_person))
+		if (!IS_NPC(ch) || ch->in_room == NULL || affect_find_in_char(ch, gsn_charm_person))
 			continue;
 
 		if (get_position(ch) <= POS_SITTING)
@@ -1024,7 +1013,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != NULL && is_affected(ch, gsn_plague)) {
+		if (ch != NULL && affect_find_in_char(ch, gsn_plague)) {
 		 	const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
@@ -1040,7 +1029,7 @@ void char_update(void)
 			damage(ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
 		}
 
-		if (ch != NULL && is_affected(ch, gsn_poison) && !is_affected(ch, gsn_slow)) {
+		if (ch != NULL && affect_find_in_char(ch, gsn_poison) && !affect_find_in_char(ch, gsn_slow)) {
 			const AFFECT_DATA *poison = affect_find_in_char(ch, gsn_poison);
 
 			if (poison != NULL) {
@@ -1319,8 +1308,8 @@ bool eligible_aggressor(CHAR_DATA *ch)
 	        && IS_AWAKE(ch)
 	        && IS_SET(ch->act, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == NULL
-	        && !is_affected(ch, gsn_calm)
-	        && !is_affected(ch, gsn_charm_person)
+	        && !affect_find_in_char(ch, gsn_calm)
+	        && !affect_find_in_char(ch, gsn_charm_person)
 	       );
 }
 

@@ -910,7 +910,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 			    || IS_SET(victim->act, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
-			    || is_affected(victim, gsn_charm_person)
+			    || affect_find_in_char(victim, gsn_charm_person)
 			    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_PRIVATE | ROOM_SOLITARY)
 			    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
@@ -1058,7 +1058,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 /* The main quest function */
 void do_quest(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *questman, *questmob, *squestmob;
+	CHAR_DATA *questman;
 	char buf [MAX_STRING_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
 
@@ -1569,7 +1569,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (is_affected(ch, gsn_curse)) {
+		if (affect_find_in_char(ch, gsn_curse)) {
 			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}
@@ -1810,7 +1810,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 					check_social(questman, "rofl", ch->name);
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
-				        GET_SEX(questmob) == 2 ? "mistress" : "master");
+				        GET_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != NULL && ch->leader->name != NULL)
@@ -1853,7 +1853,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 					check_social(questman, "rofl", ch->name);
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
-				        GET_SEX(questmob) == 2 ? "mistress" : "master");
+				        GET_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != NULL && ch->leader->name != NULL)

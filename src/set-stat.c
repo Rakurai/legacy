@@ -444,25 +444,6 @@ void do_raffset(CHAR_DATA *ch, const char *argument)
 				}
 			}
 
-			if (raffects[index].add) {
-				if ((raffects[index].id >= 900) && (raffects[index].id <= 949)) {
-					if (IS_SET(GET_FLAGS(victim, TO_VULN), raffects[index].add)) {
-						stc("They have that vulnerability already.\n", ch);
-						return;
-					}
-					else
-						SET_BIT(GET_FLAGS(victim, TO_VULN), raffects[index].add);
-				}
-				else if ((raffects[index].id >= 950) && (raffects[index].id <= 999)) {
-					if (IS_SET(GET_FLAGS(victim, TO_RESIST), raffects[index].add)) {
-						stc("They have that resistance already.\n", ch);
-						return;
-					}
-					else
-						SET_BIT(GET_FLAGS(victim, TO_RESIST), raffects[index].add);
-				}
-			}
-
 			victim->pcdata->raffect[i] = atoi(arg2);
 			stc("Remort affect added.\n", ch);
 			return;
@@ -1596,17 +1577,11 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim) && victim->off_flags)
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
-	if (GET_FLAGS(victim, TO_ABSORB))
-		ptc(ch, "{YAbsorb: %s\n", imm_bit_name(GET_FLAGS(victim, TO_ABSORB)));
-
-	if (GET_FLAGS(victim, TO_IMMUNE))
-		ptc(ch, "{YImmune: %s\n", imm_bit_name(GET_FLAGS(victim, TO_IMMUNE)));
-
-	if (GET_FLAGS(victim, TO_RESIST))
-		ptc(ch, "{YResist: %s\n", imm_bit_name(GET_FLAGS(victim, TO_RESIST)));
-
-	if (GET_FLAGS(victim, TO_VULN))
-		ptc(ch, "{YVulnerable: %s\n", imm_bit_name(GET_FLAGS(victim, TO_VULN)));
+	ptc(ch, "Aff  : %s\n", affect_print_cache(victim));
+	ptc(ch, "Abs  : %s\n", print_defense_modifiers(victim, TO_ABSORB));
+	ptc(ch, "Imm  : %s\n", print_defense_modifiers(victim, TO_IMMUNE));
+	ptc(ch, "Res  : %s\n", print_defense_modifiers(victim, TO_RESIST));
+	ptc(ch, "Vuln : %s\n", print_defense_modifiers(victim, TO_VULN));
 
 	ptc(ch, "{xForm: %s\nParts: %s\n", form_bit_name(victim->form), part_bit_name(victim->parts));
 	ptc(ch, "Master: %s  Leader: %s  Pet: %s\n",
@@ -1645,9 +1620,6 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		strcat(buf, "\n");
 		stc(buf, ch);
 	}
-
-	if (affect_flag_get_char(victim))
-		ptc(ch, "{bAffected by %s{x\n", affect_bit_name(affect_flag_get_char(victim)));
 
 	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
 		ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
@@ -2135,12 +2107,12 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "%s%s%s%s%s%s%s%s%s%s{x\n",
 	    IS_SET(victim->pcdata->plr,     PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
 	    IS_SET(victim->comm,            COMM_AFK) ?             "{b[AFK] "      : "",
-	    is_affected(victim, gsn_invis) ?        "{C(Invis) "    : "",
-	    is_affected(victim, gsn_hide) ?             "{B(Hide) "     : "",
-	    is_affected(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
+	    affect_find_in_char(victim, gsn_invis) ?        "{C(Invis) "    : "",
+	    affect_find_in_char(victim, gsn_hide) ?             "{B(Hide) "     : "",
+	    affect_find_in_char(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
-	    is_affected(victim, gsn_charm_person) ?                        "{M(Charmed) "  : "",
+	    affect_find_in_char(victim, gsn_charm_person) ?                        "{M(Charmed) "  : "",
 	    IS_SET(victim->act, PLR_KILLER) ?                       "{R(KILLER) "   : "",
 	    IS_SET(victim->act, PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */

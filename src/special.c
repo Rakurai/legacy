@@ -142,8 +142,8 @@ bool spec_troll_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || is_affected(ch, gsn_calm) || ch->in_room == NULL
-	    || is_affected(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_find_in_char(ch, gsn_calm) || ch->in_room == NULL
+	    || affect_find_in_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an ogre to beat up */
@@ -200,8 +200,8 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || is_affected(ch, gsn_calm) || ch->in_room == NULL
-	    ||  is_affected(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_find_in_char(ch, gsn_calm) || ch->in_room == NULL
+	    ||  affect_find_in_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an troll to beat up */
@@ -259,8 +259,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	char *message;
 	int count = 0;
 
-	if (!IS_AWAKE(ch) || is_affected(ch, gsn_calm) || ch->in_room == NULL
-	    ||  is_affected(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_find_in_char(ch, gsn_calm) || ch->in_room == NULL
+	    ||  affect_find_in_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* look for a fight in the room */
@@ -602,7 +602,7 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 			return FALSE;
 
 		switch (number_bits(4)) {
-		case  0:        sn = gsn_blindnessness;     break;
+		case  0:        sn = gsn_blindness;     break;
 
 		case  1:        sn = gsn_cause_serious; break;
 
@@ -658,7 +658,7 @@ bool spec_cast_mage(CHAR_DATA *ch)
 			return FALSE;
 
 		switch (number_bits(4)) {
-		case  0:        sn = gsn_blindnessness;     break;
+		case  0:        sn = gsn_blindness;     break;
 
 		case  1:        sn = gsn_chill_touch;   break;
 
@@ -718,7 +718,7 @@ bool spec_cast_undead(CHAR_DATA *ch)
 		case  1:
 		case  2:        sn = gsn_chill_touch;   break;
 
-		case  3:        sn = gsn_blindnessness;     break;
+		case  3:        sn = gsn_blindness;     break;
 
 		case  4:        sn = gsn_energy_drain;  break;
 
@@ -1127,7 +1127,7 @@ bool spec_charm(CHAR_DATA *ch)
 	spell_charm_person(gsn_charm_person, ch->level, ch, victim,
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, gsn_charm_person));
 
-	if (is_affected(victim, gsn_charm_person))
+	if (affect_find_in_char(victim, gsn_charm_person))
 		stop_fighting(victim, TRUE);
 
 	return TRUE;
@@ -1270,8 +1270,8 @@ bool spec_clanguard(CHAR_DATA *ch)
 
 	if (!IS_NPC(ch)
 	    || !IS_AWAKE(ch)
-	    || is_affected(ch, gsn_calm)
-	    || is_affected(ch, gsn_charm_person)
+	    || affect_find_in_char(ch, gsn_calm)
+	    || affect_find_in_char(ch, gsn_charm_person)
 	    || ch->in_room == NULL)
 		return FALSE;
 

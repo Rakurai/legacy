@@ -1312,7 +1312,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, gsn_charm_person) && ch->master != NULL) {
+	if (affect_find_in_char(ch, gsn_charm_person) && ch->master != NULL) {
 		act("But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
@@ -1366,7 +1366,7 @@ void stop_follower(CHAR_DATA *ch)
 		return;
 	}
 
-	if (is_affected(ch, gsn_charm_person)) {
+	if (affect_find_in_char(ch, gsn_charm_person)) {
 		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
 
@@ -1463,7 +1463,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, gsn_charm_person)) {
+	if (affect_find_in_char(ch, gsn_charm_person)) {
 		stc("You feel like taking, not giving, orders.\n", ch);
 		return;
 	}
@@ -1523,7 +1523,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!is_affected(victim, gsn_charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
+		if (!affect_find_in_char(victim, gsn_charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
 			stc("Do it yourself!\n", ch);
 			return;
 		}
@@ -1534,7 +1534,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	for (och = ch->in_room->people; och != NULL; och = och_next) {
 		och_next = och->next_in_room;
 
-		if (is_affected(och, gsn_charm_person) &&
+		if (affect_find_in_char(och, gsn_charm_person) &&
 		    och->master == ch &&
 		    (fAll || och == victim)) {
 			if (! found) {
@@ -1663,12 +1663,12 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(victim, gsn_charm_person)) {
+	if (affect_find_in_char(victim, gsn_charm_person)) {
 		stc("You can't remove charmed mobs from your group.\n", ch);
 		return;
 	}
 
-	if (is_affected(ch, gsn_charm_person)) {
+	if (affect_find_in_char(ch, gsn_charm_person)) {
 		act("You like your master too much to leave $m!", ch, NULL, victim, TO_VICT);
 		return;
 	}
@@ -1735,7 +1735,7 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	members = 0;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (is_same_group(gch, ch) && !is_affected(gch, gsn_charm_person))
+		if (is_same_group(gch, ch) && !affect_find_in_char(gch, gsn_charm_person))
 			members++;
 	}
 

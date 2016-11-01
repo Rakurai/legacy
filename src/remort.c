@@ -34,26 +34,6 @@
 /*****
  Remort Affects Stuff
  *****/
-void compile_raffect_mod(CHAR_DATA *ch) {
-	if (IS_NPC(ch) || ch->pcdata->remort_count <= 0)
-		return;
-
-	if (ch->pcdata->raffect_mod)
-		free_stats(ch->pcdata->raffect_mod)
-
-	ch->pcdata->raffect_mod = new_stats();
-
-	for (int i = 0; i < ch->pcdata->remort_count / 10 + 1; i++) {
-		struct raffects r = raffects[ch->pcdata->raffect[i]];
-
-		if (r.id >= 900 && r.id <= 949)
-			SET_BIT(ch->pcdata->raffect_mod->flags[TO_VULN], r.add);
-		else if (r.id >= 950 && r.id <= 999)
-			SET_BIT(ch->pcdata->raffect_mod->flags[TO_RESIST], r.add);
-	}
-
-	
-}
 
 /* take a raff id and return the index number, 0 if a null raff */
 int raff_lookup(int index)
@@ -98,9 +78,9 @@ void rem_raff_affect(CHAR_DATA *ch, int index)
 {
 	if (raffects[index].add) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			REMOVE_BIT(GET_FLAGS(ch, TO_VULN), raffects[index].add);
+			remort_affect_modify_char(ch, TO_VULN, raffects[index].add, FALSE);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			REMOVE_BIT(GET_FLAGS(ch, TO_RESIST), raffects[index].add);
+			remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, FALSE);
 	}
 
 	return;
@@ -163,15 +143,12 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 			can_add = TRUE;
 		else if ((raffects[test].id >= 900)
 		         && (raffects[test].id <= 949) /* if it's a vuln... */
-		         && (number_percent() <= (raffects[test].chance - (victim->pcdata->remort_count / 10)))
-		         && (!IS_SET(GET_FLAGS(victim, TO_VULN), raffects[test].add)) /* checks current vulns */
-		         && (!IS_SET(GET_FLAGS(victim, TO_RESIST), raffects[test].add))) /* checks for opposite */
+		         && (number_percent() <= (raffects[test].chance - (victim->pcdata->remort_count / 10))))
 			can_add = TRUE;
 		else if ((raffects[test].id >= 950)
 		         && (raffects[test].id <= 999) /* if it's a res... */
 		         && (number_percent() <= (raffects[test].chance + (victim->pcdata->remort_count / 10)))
-		         && (!IS_SET(GET_FLAGS(victim, TO_RESIST), raffects[test].add)) /* checks current res's */
-		         && (!IS_SET(GET_FLAGS(victim, TO_VULN), raffects[test].add))) /* checks for opposite */
+		         && (GET_DEFENSE_MOD(victim, raffects[test].add) < 20)) // don't increase a resistance to immunity
 			can_add = TRUE;
 
 		if (HAS_RAFF(victim, raffects[test].id))
@@ -188,9 +165,9 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 
 	if (raffects[test].add != 0) {
 		if ((raffects[test].id >= 900) && (raffects[test].id <= 949))
-			SET_BIT(GET_FLAGS(victim, TO_VULN), raffects[test].add);
+			remort_affect_modify_char(victim, TO_VULN, raffects[test].add, TRUE);
 		else if ((raffects[test].id >= 950) && (raffects[test].id <= 999))
-			SET_BIT(GET_FLAGS(victim, TO_RESIST), raffects[test].add);
+			remort_affect_modify_char(victim, TO_RESIST, raffects[test].add, TRUE);
 	}
 
 	if (ch != victim)
@@ -207,8 +184,6 @@ void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	for (c = 0; c < victim->pcdata->remort_count / 10 + 1; c++)
 		roll_one_raff(ch, victim, c);
-
-	compile_raffect_mod(victim);
 }
 
 /*****
@@ -520,19 +495,16 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	if (victim->pet != NULL) {
 		/* About the same stats as a Kitten */
 		victim->pet->level                      = 1;
-		victim->pet->max_hit                    = 20;
-		victim->pet->max_mana                   = 100;
-		victim->pet->max_stam                   = 100;
-		victim->pet->hit                        = victim->pet->max_hit;
-		victim->pet->mana                       = victim->pet->max_mana;
-		victim->pet->stam                       = victim->pet->max_stam;
+		victim->pet->hit = ATTR_BASE(victim->pet, APPLY_HIT) = 20;
+		victim->pet->mana = ATTR_BASE(victim->pet, APPLY_MANA) = 100;
+		victim->pet->stam = ATTR_BASE(victim->pet, APPLY_STAM) = 100;
 		ATTR_BASE(victim->pet, APPLY_HITROLL) = 2;
 		ATTR_BASE(victim->pet, APPLY_DAMROLL) = 0;
 		victim->pet->damage[DICE_NUMBER]        = 1;
 		victim->pet->damage[DICE_TYPE]          = 4;
 		for (int stat = 0; stat < MAX_STATS; stat++)
 			ATTR_BASE(victim->pet, stat_to_attr(stat)) = 12;
-		victim->pet->saving_throw               = 0;
+		ATTR_BASE(victim->pet, APPLY_SAVES) = 0;
 
 		for (c = 0; c < 4; c++)
 			victim->pet->armor_a[c] = 100;

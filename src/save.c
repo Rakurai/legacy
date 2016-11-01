@@ -454,7 +454,6 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON *o = cJSON_CreateObject(); // object to return
 
 	cJSON_AddStringToObject(o,		"Act",			print_flags(ch->act));
-	cJSON_AddStringToObject(o,		"AfBy",			print_flags(affect_flag_get_char(ch)));
 
 	item = NULL;
 	for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
@@ -501,9 +500,6 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 		cJSON_AddStringToObject(o,	"Desc",			ch->description);
 
 	cJSON_AddNumberToObject(o,		"Exp",			ch->exp);
-	cJSON_AddStringToObject(o,		"FImm",			print_flags(GET_FLAGS(ch, TO_IMMUNE)));
-	cJSON_AddStringToObject(o,		"FRes",			print_flags(GET_FLAGS(ch, TO_RESIST)));
-	cJSON_AddStringToObject(o,		"FVul",			print_flags(GET_FLAGS(ch, TO_VULN)));
 
 	if (ch->gold_donated)
 		cJSON_AddNumberToObject(o,	"GlDonated",	ch->gold_donated);
@@ -583,13 +579,12 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 /* write a pet */
 cJSON *fwrite_pet(CHAR_DATA *pet)
 {
-	cJSON *item;
 	cJSON *o = fwrite_char(pet);
 
 	cJSON_AddNumberToObject(o, "Vnum", pet->pIndexData->vnum);
 
-	if (pet->saving_throw != 0)
-		cJSON_AddNumberToObject(o, "Save", pet->saving_throw);
+	if (ATTR_BASE(pet, APPLY_SAVES) != 0)
+		cJSON_AddNumberToObject(o, "Save", ATTR_BASE(pet, APPLY_SAVES));
 
 	if (ATTR_BASE(pet, APPLY_HITROLL) != pet->pIndexData->hitroll)
 		cJSON_AddNumberToObject(o, "Hit", ATTR_BASE(pet, APPLY_HITROLL));
@@ -727,7 +722,6 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	CHAR_DATA *ch;
 	FILE *fp;
 	bool found;
-	int stat;
 	ch = new_char();
 	ch->pcdata = new_pcdata();
 	d->character                        = ch;
@@ -839,7 +833,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 
 		// removed act_is_npc bit and moved plr_nosummon to A, used to be Q -- Montrey
 		if (version < 16 && IS_SET(ch->act, Q)) {
-			REMOVE_BIT(ch->act, Q)
+			REMOVE_BIT(ch->act, Q);
 			SET_BIT(ch->act, PLR_NOSUMMON);
 		}
 
@@ -897,12 +891,12 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 				if (IS_SET(ch->wiznet, wiznet_table[i].flag) && GET_RANK(ch) < wiznet_table[i].level)
 					REMOVE_BIT(ch->wiznet, wiznet_table[i].flag);
 
-		reset_char(ch);
+//		reset_char(ch);
 		/* adjust hp mana stamina up  -- here for speed's sake */
 		percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 		percent = UMIN(percent, 100);
 
-		if (percent > 0 && !is_affected(ch, gsn_poison) && !is_affected(ch, gsn_plague)) {
+		if (percent > 0 && !affect_find_in_char(ch, gsn_poison) && !affect_find_in_char(ch, gsn_plague)) {
 			ch->hit         += (ATTR_BASE(ch, APPLY_HIT) - ch->hit) * percent / 100;
 			ch->mana        += (ATTR_BASE(ch, APPLY_MANA) - ch->mana) * percent / 100;
 			ch->stam        += (ATTR_BASE(ch, APPLY_STAM) - ch->stam) * percent / 100;
@@ -1114,9 +1108,9 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'H':
 				if (!str_cmp(key, "HMSP")) { // removed in version 16, moved to fread_char
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
 					fMatch = TRUE; break;
 				}
 
@@ -1288,19 +1282,19 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				}
 
 				if (!str_cmp(key, "Atrib")) {
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_STR), "str");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_INT), "int");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_WIS), "wis");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_DEX), "dex");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_CON), "con");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_CHR), "chr");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_STR), "str");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_INT), "int");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_WIS), "wis");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_DEX), "dex");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_CON), "con");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_CHR), "chr");
 					fMatch = TRUE; break;
 				}
 
 				INTKEY("Act",           ch->act,                    read_flags(o->valuestring));
 
 				if (!str_cmp(key, "AfBy")) {
-					affect_flag_add_to_char(ch, read_flags(o->valuestring));
+					affect_copy_flags_to_char(ch, 'A', read_flags(o->valuestring));
 					fMatch = TRUE; break;
 				}
 
@@ -1320,9 +1314,20 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				INTKEY("Exp",			ch->exp,					o->valueint);
 				break;
 			case 'F':
-				INTKEY("Fimm",			GET_FLAGS(ch, TO_IMMUNE),				read_flags(o->valuestring));
-				INTKEY("FRes",			GET_FLAGS(ch, TO_RESIST),				read_flags(o->valuestring));
-				INTKEY("FVul",			GET_FLAGS(ch, TO_VULN),				read_flags(o->valuestring));
+				// old style affect flags
+				if (!str_cmp(key, "FImm")) {
+					affect_copy_flags_to_char(ch, 'I', read_flags(o->valuestring));
+					fMatch = TRUE; break;
+				}
+				if (!str_cmp(key, "FRes")) {
+					affect_copy_flags_to_char(ch, 'R', read_flags(o->valuestring));
+					fMatch = TRUE; break;
+				}
+				if (!str_cmp(key, "FVul")) {
+					affect_copy_flags_to_char(ch, 'V', read_flags(o->valuestring));
+					fMatch = TRUE; break;
+				}
+
 				break;
 			case 'G':
 				INTKEY("Gold_in_bank",	ch->gold_in_bank,			o->valueint);
@@ -1338,9 +1343,9 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				}
 
 				if (!str_cmp(key, "HMSP")) {
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
-					get_JSON_short(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
+					get_JSON_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
 					fMatch = TRUE; break;
 				}
 
@@ -1374,7 +1379,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				INTKEY("Revk",			ch->revoke,					read_flags(o->valuestring));
 				break;
 			case 'S':
-				INTKEY("Save",			ch->saving_throw,			o->valueint); // NPC
+				INTKEY("Save",			ATTR_BASE(ch, APPLY_SAVES),	o->valueint); // NPC
 				INTKEY("Scro",			ch->lines,					o->valueint);
 				INTKEY("Secu",			ch->secure_level,			o->valueint);
 				INTKEY("Sex",			ch->sex,					o->valueint);
@@ -1400,13 +1405,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 		if (!fMatch)
 			bugf("fread_char: unknown key %s", key);
 	}
-
-	// fix old IMM_SUMMON flag, it is repurposed
-	if (IS_SET(ch->imm_flags, A))
-		SET_BIT(ch->act, ACT_NOSUMMON);
-	REMOVE_BIT(ch->imm_flags, A);
-	REMOVE_BIT(ch->res_flags, A);
-	REMOVE_BIT(ch->vuln_flags, A);
 }
 
 // read a single item including its contents
@@ -1639,14 +1637,12 @@ void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 	percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 	percent = UMIN(percent, 100);
 
-	if (percent > 0 && !is_affected(ch, gsn_poison)
-	    &&  !is_affected(ch, gsn_plague)) {
-		pet->hit    += (pet->max_hit - pet->hit) * percent / 100;
-		pet->mana   += (pet->max_mana - pet->mana) * percent / 100;
-		pet->stam   += (pet->max_stam - pet->stam) * percent / 100;
+	if (percent > 0 && !affect_find_in_char(ch, gsn_poison)
+	    &&  !affect_find_in_char(ch, gsn_plague)) {
+		pet->hit    += (GET_ATTR(pet, APPLY_HIT) - pet->hit) * percent / 100;
+		pet->mana   += (GET_ATTR(pet, APPLY_MANA) - pet->mana) * percent / 100;
+		pet->stam   += (GET_ATTR(pet, APPLY_STAM) - pet->stam) * percent / 100;
 	}
-
-	reset_char(pet);
 }
 
 

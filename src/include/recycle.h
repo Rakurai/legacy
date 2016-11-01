@@ -40,6 +40,10 @@ extern int mobile_count;
 #define BUFFER_OVERFLOW	1
 #define BUFFER_FREED 	2
 
+// for character stats
+#define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
+#define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
+
 /* semiperm recycling */
 SEMIPERM *new_semiperm args((void));
 void free_semiperm args((SEMIPERM *semiperm));

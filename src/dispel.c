@@ -65,21 +65,19 @@ bool level_save(int dis_level, int save_level)
 bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 {
 	int save;
-	save = (victim->level - level) * 3 - (victim->saving_throw * 4 / 3);
+	save = (victim->level - level) * 3 - (GET_ATTR(victim, APPLY_SAVES) * 4 / 3);
 
 	if (affect_flag_on_char(victim, AFF_BERSERK))
 		save += victim->level / 4;
 
-	switch (check_immune(victim, dam_type)) {
-	case IS_DRAINING:
-	case IS_IMMUNE:         return TRUE;
+	int def = check_immune(victim, dam_type);
 
-	case IS_RESISTANT:      save += 20;      break;
+	if (def >= 100)
+		return TRUE;
 
-	case IS_VULNERABLE:     save -= 20;      break;
-	}
-
+	save += 20 * def / 100; // could be negative, if vuln
 	save = URANGE(5, save, 95);
+
 	return chance(save);
 } /* end saves_spell */
 

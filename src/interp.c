@@ -807,7 +807,7 @@ bool check_social(CHAR_DATA *ch, const char *command, const char *argument)
 		act(iterator->vict_found,    ch, NULL, victim, TO_VICT);
 
 		if (!IS_NPC(ch) && IS_NPC(victim)
-		    &&   !is_affected(victim, gsn_charm_person)
+		    &&   !affect_find_in_char(victim, gsn_charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == NULL
 		    && (!IS_SET(victim->pIndexData->progtypes, ACT_PROG))) {

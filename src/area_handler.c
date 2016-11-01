@@ -1143,7 +1143,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	}
 
 	obj->pIndexData     = pObjIndex;
-\	obj->level          = pObjIndex->level;
+	obj->level          = pObjIndex->level;
 	obj->wear_loc       = -1;
 	obj->name           = str_dup(pObjIndex->name);
 	obj->short_descr    = str_dup(pObjIndex->short_descr);
