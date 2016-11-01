@@ -202,14 +202,14 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 		if (IS_IMMORTAL(ch))
 			ptc(ch, "Affects defense against %s by %d, level %d", imm_flags[paf->location].name, paf->modifier, paf->level);
 		else
-			ptc(ch, "Affects defense against %s by %d\n", imm_flags[paf->location].name, paf->modifier);
+			ptc(ch, "Affects defense against %s by %d", imm_flags[paf->location].name, paf->modifier);
 
 	}
 	else {
 		if (IS_IMMORTAL(ch))
 			ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
 		else
-			ptc(ch, "Affects %s by %d\n", affect_loc_name(paf->location), paf->modifier);
+			ptc(ch, "Affects %s by %d", affect_loc_name(paf->location), paf->modifier);
 	}
 
 	if (paf->duration > -1)

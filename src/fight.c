@@ -117,7 +117,7 @@ void violence_update(void)
 				 && affect_find_in_char(ch, gsn_shadow_form))
 					affect_remove_sn_from_char(ch, gsn_shadow_form);
 
-				if (ch->pcdata->combattimer)
+				if (ch->pcdata->combattimer > 0)
 					ch->pcdata->combattimer--;
 				else
 					noncombat_regen(ch);
@@ -126,8 +126,9 @@ void violence_update(void)
 			continue;
 		}
 
-		if (!IS_NPC(ch))
-			ch->pcdata->combattimer = 5;
+		// this is also set in multi_hit, to get the one-shot kills
+                if (!IS_NPC(ch))
+                        ch->pcdata->combattimer = 5;
 
 		combat_regen(ch);
 
@@ -227,7 +228,14 @@ void noncombat_regen(CHAR_DATA *ch) {
 	    ch->hit = UMIN(GET_ATTR(ch, APPLY_HIT), ch->hit + hitgain);
 		ch->mana = UMIN(GET_ATTR(ch, APPLY_MANA), ch->mana + managain);
 		ch->stam = UMIN(GET_ATTR(ch, APPLY_STAM), ch->stam + stamgain);
+	}
+
+	if (ch->hit == GET_ATTR(ch, APPLY_HIT)
+	 && ch->mana == GET_ATTR(ch, APPLY_MANA)
+	 && ch->stam == GET_ATTR(ch, APPLY_STAM)
+	 && ch->pcdata->combattimer == 0) {
 		stc("You have fully recovered from combat.\n", ch);
+		ch->pcdata->combattimer = -1; // start again next combat
 	}
 }
 
@@ -484,6 +492,12 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
 	OBJ_DATA *obj;
 	int chance;
+
+	// is this the best place to reset combat timer?  hanging it on the violence
+	// update alone sometimes didn't work for one-shot kills.  multi-hit appears to be
+	// called everywhere that initiates violence
+	if (!IS_NPC(ch))
+		ch->pcdata->combattimer = 5;
 
 	/* no attacks for stunnies -- just a check */
 	if (get_position(ch) < POS_RESTING)
@@ -1144,6 +1158,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	                        extract_obj(obj);
 	        }
 	} */
+
+	if (spell)
+		dam += get_true_damroll(ch);
 
 	/* moved here from magic.c */
 	if (spell && focus)
@@ -2230,16 +2247,16 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	// speed and spells
 	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
-		chance += 10;
+		chance += 15;
 
 	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
-		chance -= 10;
+		chance -= 15;
 
 	if (affect_find_in_char(victim, gsn_slow))
-		chance -= 10;
+		chance -= 15;
 
 	if (affect_find_in_char(ch, gsn_slow))
-		chance += 10;
+		chance += 15;
 
 	if (!can_see(victim, ch))
 		chance -= 20;

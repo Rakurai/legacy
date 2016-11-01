@@ -553,7 +553,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	        : ch->in_room == NULL
 	        ? 3001
 	        : ch->in_room->vnum);
-	cJSON_AddNumberToObject(o,		"Scro",			ch->level);
+
 	cJSON_AddNumberToObject(o,		"Sex",			ch->sex);
 	cJSON_AddNumberToObject(o,		"Silv",			ch->silver);
 
@@ -744,6 +744,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(ch, stat_to_attr(stat)) = 3;
 
+	ch->pcdata->combattimer             = -1; // 0 means just came out of combat
 	ch->pcdata->condition[COND_THIRST]  = 48;
 	ch->pcdata->condition[COND_FULL]    = 48;
 	ch->pcdata->condition[COND_HUNGER]  = 48;

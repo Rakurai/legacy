@@ -862,6 +862,9 @@ bool is_number(const char *arg)
 
 /*
  * Given a string like 14.foo, return 14 and 'foo'
+ *
+ * It is most certainly NOT ok for argument to be identical to arg!
+ * The strcpy at the end sometimes throws a SIGABRT on overlap! -- Montrey
  */
 int number_argument(const char *argument, char *arg)
 {
@@ -902,6 +905,9 @@ int number_argument(const char *argument, char *arg)
  * - It's OK for argument to be identical to arg, but arg MUST be a
  * character array rather than a str_dup()'d buffer, as its length
  * may change!
+ *
+ * It is most certainly NOT ok for argument to be identical to arg!
+ * The strcpy at the end sometimes throws a SIGABRT on overlap! -- Montrey
  */
 int entity_argument(const char *argument, char *arg)
 {

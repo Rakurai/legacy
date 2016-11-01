@@ -442,7 +442,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (str_cmp(skill_table[sn].name, "ventriloquate"))
+	if (sn != gsn_ventriloquate)
 		say_spell(ch, sn);
 
 	wait = skill_table[sn].beats;
@@ -626,7 +626,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 	if (ch->mana < mana)
 		return;
 
-	if (str_cmp(skill_table[sn].name, "ventriloquate"))
+	if (sn != gsn_ventriloquate)
 		say_spell(ch, sn);
 
 	ch->mana -= mana;
@@ -1390,7 +1390,6 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		stc("The light must be in your inventory.\n", ch);
 		return;
 	}
-
 
 	if (affect_find_in_obj(obj, sn)) {
 		stc("That light is already somewhat enhanced.\n", ch);
