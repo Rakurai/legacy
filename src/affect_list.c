@@ -40,7 +40,7 @@ void affect_copy_to_list(AFFECT_DATA **list_head, const AFFECT_DATA *template)
 }
 
 // remove all affects in list with same type and where, accumulating effects into paf for re-adding
-void affect_dedup_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf)
+void affect_dedup_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf, affect_fn_params *params)
 {
 	AFFECT_DATA *paf_old, *paf_next;
 
@@ -59,7 +59,9 @@ void affect_dedup_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf)
 		paf->modifier  += paf_old->modifier;
 		paf->bitvector |= paf_old->bitvector;
 		paf->evolution = UMAX(paf->evolution, paf_old->evolution);
+
 		affect_remove_from_list(list_head, paf_old);
+		(params->modifier)(params->owner, paf_old, FALSE);
 		free_affect(paf_old);
 	}
 }

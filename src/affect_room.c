@@ -25,8 +25,13 @@ void affect_copy_to_room(ROOM_INDEX_DATA *room, const AFFECT_DATA *template)
 }
 
 void affect_join_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf) {
-	affect_dedup_in_list(&room->affected, paf); // remove
-	affect_modify_room(room, paf, FALSE); // modify holder
+	affect_fn_params params;
+
+	params.owner = room;
+	params.modifier = affect_modify_room;
+	params.data = NULL;
+
+	affect_dedup_in_list(&room->affected, paf, &params); // remove
 	affect_copy_to_room(room, paf); // add and modify holder
 }
 

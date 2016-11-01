@@ -49,8 +49,13 @@ void affect_copy_to_char(CHAR_DATA *ch, const AFFECT_DATA *template)
 
 void affect_join_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
-	affect_dedup_in_list(&ch->affected, paf);
-	affect_modify_char(ch, paf, FALSE);
+	affect_fn_params params;
+
+	params.owner = ch;
+	params.modifier = affect_modify_char;
+	params.data = NULL;
+
+	affect_dedup_in_list(&ch->affected, paf, &params);
 	affect_copy_to_char(ch, paf);
 }
 

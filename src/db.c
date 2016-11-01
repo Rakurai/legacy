@@ -1249,7 +1249,7 @@ void load_objects(FILE *fp)
 
 				// do at least once even if no bitvector
 				do {
-					af.type = -1; // reset every time
+					af.type = 0; // reset every time
 
 					if (affect_parse_prototype(letter, &af, &bitvector)) {
 						affect_copy_to_list(&pObjIndex->affected, &af); 

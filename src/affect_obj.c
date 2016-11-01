@@ -29,8 +29,13 @@ void affect_copy_to_obj(OBJ_DATA *obj, const AFFECT_DATA *template)
 }
 
 void affect_join_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf) {
-	affect_dedup_in_list(&obj->affected, paf); // remove
-	affect_modify_obj(obj, paf, FALSE); // modify holder
+	affect_fn_params params;
+
+	params.owner = obj;
+	params.modifier = affect_modify_obj;
+	params.data = NULL;
+
+	affect_dedup_in_list(&obj->affected, paf, &params); // remove
 	affect_copy_to_obj(obj, paf); // add and modify holder
 }
 
