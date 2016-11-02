@@ -896,9 +896,11 @@ void game_loop_unix(int control)
 				stall_time.tv_sec  = secDelta;
 
 				if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
-					perror("Game_loop: select: stall");
-					EXIT_REASON(979, "game_loop select() stall");
-					exit(1);
+					if (port == DIZZYPORT) { // don't count a stall on the debugger -- Montrey
+						perror("Game_loop: select: stall");
+						EXIT_REASON(979, "game_loop select() stall");
+						exit(1);
+					}
 				}
 			}
 		}
