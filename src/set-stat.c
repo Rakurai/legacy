@@ -1793,9 +1793,9 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
-//		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
-//			paf->where, paf->type, paf->level, paf->duration, paf->location,
-//			paf->modifier, paf->evolution, paf->bitvector, affect_checksum(paf));
+		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
+			paf->where, paf->type, paf->level, paf->duration, paf->location,
+			paf->modifier, paf->evolution, paf->bitvector, affect_checksum(paf));
 		show_affect_to_char(paf, ch);
 	}
 

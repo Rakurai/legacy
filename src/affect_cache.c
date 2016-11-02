@@ -71,22 +71,19 @@ void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 }
 
 int affect_print_cache_callback(void *entry, void *prm) {
-	static int last_sn = 0;
 	cp_splaynode *node = entry;
-	int sn = *(int *)(node->key);
+	const int *sn = (int *)(node->key);
 	int *count = (int *)(node->value);
 	char *str = (char *)prm;
 
-	if (sn < 0 || sn > MAX_SKILL)
+	if (*sn < 0 || *sn > MAX_SKILL)
 		return 0;
 
-	if (sn != last_sn) {
-		if (str[0] != '\0')
-			strcat(str, " ");
+	if (str[0] != '\0')
+		strcat(str, " ");
 
-		strcat(str, skill_table[sn].name);
-		last_sn = sn;
-	}
+	sprintf(str, "%s%s(%d)", str, skill_table[*sn].name, *count);
+//	strcat(str, skill_table[sn].name);
 
 	return 0;
 }
