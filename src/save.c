@@ -35,7 +35,6 @@
 extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((CHAR_DATA *ch, int row, int column));
 extern void     set_window      args((CHAR_DATA *ch, int top, int bottom));
-extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head, const AFFECT_DATA *paf ));
 
 #define CURRENT_VERSION         16   /* version number for pfiles */
 
@@ -460,6 +459,10 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 		if (paf->type < 0 || paf->type >= MAX_SKILL)
 			continue;
 
+		// don't write permanent affects, rebuild them from race and raffects on load
+		if (paf->level == -1)
+			continue;
+
 		if (item == NULL)
 			item = cJSON_CreateArray();
 
@@ -870,6 +873,18 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 
 		if (ch->race == 0)
 			ch->race = race_lookup("human");
+
+		// permanent affects from race and raffects aren't saved (in case of changes),
+		// rebuild them now
+		affect_copy_flags_to_char(ch, 'A', race_table[ch->race].aff);
+		affect_copy_flags_to_char(ch, 'I', race_table[ch->race].imm);
+		affect_copy_flags_to_char(ch, 'R', race_table[ch->race].res);
+		affect_copy_flags_to_char(ch, 'V', race_table[ch->race].vuln);
+
+		extern void raff_add_to_char(CHAR_DATA *ch, int raff);
+		if (ch->pcdata->remort_count > 0)
+			for (int c = 0; c < ch->pcdata->remort_count / 10 + 1; c++)
+				raff_add_to_char(ch, ch->pcdata->raffect[c]);
 
 		ch->size = pc_race_table[ch->race].size;
 		ch->dam_type = 17; /*punch */
@@ -1293,12 +1308,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				}
 
 				INTKEY("Act",           ch->act,                    read_flags(o->valuestring));
-
-				if (!str_cmp(key, "AfBy")) {
-					affect_copy_flags_to_char(ch, 'A', read_flags(o->valuestring));
-					fMatch = TRUE; break;
-				}
-
 				INTKEY("Alig",			ch->alignment,				o->valueint);
 				break;
 			case 'C':
@@ -1315,20 +1324,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				INTKEY("Exp",			ch->exp,					o->valueint);
 				break;
 			case 'F':
-				// old style affect flags
-				if (!str_cmp(key, "FImm")) {
-					affect_copy_flags_to_char(ch, 'I', read_flags(o->valuestring));
-					fMatch = TRUE; break;
-				}
-				if (!str_cmp(key, "FRes")) {
-					affect_copy_flags_to_char(ch, 'R', read_flags(o->valuestring));
-					fMatch = TRUE; break;
-				}
-				if (!str_cmp(key, "FVul")) {
-					affect_copy_flags_to_char(ch, 'V', read_flags(o->valuestring));
-					fMatch = TRUE; break;
-				}
-
 				break;
 			case 'G':
 				INTKEY("Gold_in_bank",	ch->gold_in_bank,			o->valueint);
@@ -1623,9 +1618,6 @@ void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 		bug("Memory error creating mob in fread_pet().", 0);
 		return;
 	}
-
-	// get rid of any affects from the index, we'll write them to file always
-	affect_remove_all_from_char(pet);
 
 	fread_char(pet, json, version);
 

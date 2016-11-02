@@ -119,6 +119,15 @@ bool HAS_RAFF_GROUP(CHAR_DATA *ch, int flag)
 	return FALSE;
 }
 
+void raff_add_to_char(CHAR_DATA *ch, int raff) {
+	if (raffects[raff].add != 0) {
+		if ((raffects[raff].id >= 900) && (raffects[raff].id <= 949))
+			remort_affect_modify_char(ch, TO_VULN, raffects[raff].add, TRUE);
+		else if ((raffects[raff].id >= 950) && (raffects[raff].id <= 999))
+			remort_affect_modify_char(ch, TO_RESIST, raffects[raff].add, TRUE);
+	}
+}
+
 void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 {
 	int test;
@@ -163,12 +172,7 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 
 	victim->pcdata->raffect[place] = raffects[test].id;
 
-	if (raffects[test].add != 0) {
-		if ((raffects[test].id >= 900) && (raffects[test].id <= 949))
-			remort_affect_modify_char(victim, TO_VULN, raffects[test].add, TRUE);
-		else if ((raffects[test].id >= 950) && (raffects[test].id <= 999))
-			remort_affect_modify_char(victim, TO_RESIST, raffects[test].add, TRUE);
-	}
+	raff_add_to_char(victim, test);
 
 	if (ch != victim)
 		ptc(ch, "({C%3d{x) {W%s{x added.\n", raffects[test].id, str_dup(raffects[test].description));
