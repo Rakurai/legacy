@@ -894,16 +894,6 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return;
 	}
 
-	if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch))
-	    || (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch))
-	    || (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
-		act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
-		act("$n is zapped by $p and drops it.",  ch, obj, NULL, TO_ROOM);
-		obj_from_char(obj);
-		obj_to_room(obj, ch->in_room);
-		return;
-	}
-
 	for (int i = 0; i < 4; i++)
 		ch->armor_a[i] -= apply_ac(obj, iWear, i);
 
