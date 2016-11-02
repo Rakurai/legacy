@@ -910,10 +910,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	obj->wear_loc = iWear;
 
 	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
-		if (paf->location == APPLY_SPELL_AFFECT)
-			affect_copy_to_char(ch, paf);
-		else
-			affect_modify_char(ch, paf, TRUE);
+		affect_modify_char(ch, paf, TRUE);
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0 && ch->in_room != NULL)
 		++ch->in_room->light;
