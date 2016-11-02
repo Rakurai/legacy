@@ -1621,15 +1621,25 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		stc(buf, ch);
 	}
 
-	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
-		ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
-		    skill_table[(int) paf->type].name,
-		    affect_loc_name(paf->location),
-		    paf->modifier,
+	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+		ptc(ch, "{bSpell: '%s'", skill_table[(int) paf->type].name);
+
+		if (paf->where == TO_AFFECTS)
+			ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
+		else if (paf->where == TO_DEFENSE)
+			ptc(ch, " %s damage from %s by %d%%",
+				paf->modifier > 0 ? "reduces" : "increases",
+				defense_loc_name(paf->location),
+				paf->modifier > 0 ? paf->modifier : -paf->modifier);
+		else
+			ptc(ch, " does something weird");
+
+		ptc(ch, " for %d hours with bits %s, level %d, evolve %d.{x\n",
 		    paf->duration + 1,
 		    affect_bit_name(paf->bitvector),
 		    paf->level,
 		    paf->evolution);
+	}
 }
 
 void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)

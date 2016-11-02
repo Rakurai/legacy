@@ -1471,6 +1471,33 @@ struct  kill_data
 #define PUT_IN                  (O)
 #define PUT_INSIDE              (P)
 
+#define DEF_NONE                0 // don't use, counter for cache
+#define DEF_CHARM               1
+#define DEF_MAGIC               2
+#define DEF_WEAPON              3
+#define DEF_BASH                4
+#define DEF_PIERCE              5
+#define DEF_SLASH               6
+#define DEF_FIRE                7
+#define DEF_COLD                8
+#define DEF_ELECTRICITY         9
+#define DEF_ACID                10
+#define DEF_POISON              11
+#define DEF_NEGATIVE            12
+#define DEF_HOLY                13
+#define DEF_ENERGY              14
+#define DEF_MENTAL              15
+#define DEF_DISEASE             16
+#define DEF_DROWNING            17
+#define DEF_LIGHT               18
+#define DEF_SOUND               19
+#define DEF_SHADOW              20
+// unused
+// unused
+#define DEF_WOOD                23
+#define DEF_SILVER              24
+#define DEF_IRON                25
+
 /*
  * Apply types (for affects).
  * Used in #OBJECTS.
@@ -3660,6 +3687,7 @@ bool    can_see_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 const char *  item_type_name  args(( OBJ_DATA *obj ) );
 const char *  affect_loc_name args(( int location ) );
+const char *  defense_loc_name args(( int location ) );
 const char *  affect_bit_name args(( int vector ) );
 const char *  extra_bit_name  args(( int extra_flags ) );
 const char *  wiz_bit_name    args(( int wiz_flags ) );

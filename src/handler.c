@@ -1869,6 +1869,43 @@ const char *item_type_name(OBJ_DATA *obj)
 /*
  * Return ascii name of an affect location.
  */
+const char *defense_loc_name(int location)
+{
+	switch (location) {
+		case DEF_NONE        : return "(none)"; // old imm_summon bit
+		case DEF_CHARM       : return "charm";
+		case DEF_MAGIC       : return "magic";
+		case DEF_WEAPON      : return "weapon";
+		case DEF_BASH        : return "bash";
+		case DEF_PIERCE      : return "pierce";
+		case DEF_SLASH       : return "slash";
+		case DEF_FIRE        : return "fire";
+		case DEF_COLD        : return "cold";
+		case DEF_ELECTRICITY : return "electricity";
+		case DEF_ACID        : return "acid";
+		case DEF_POISON      : return "poison";
+		case DEF_NEGATIVE    : return "negative";
+		case DEF_HOLY        : return "holy";
+		case DEF_ENERGY      : return "energy";
+		case DEF_MENTAL      : return "mental";
+		case DEF_DISEASE     : return "disease";
+		case DEF_DROWNING    : return "drowning";
+		case DEF_LIGHT       : return "light";
+		case DEF_SOUND       : return "sound";
+		case DEF_SHADOW      : return "shadowform";
+		case DEF_WOOD        : return "wood";
+		case DEF_SILVER      : return "silver";
+		case DEF_IRON        : return "iron";
+	}
+
+	bug("defense_loc_name: unknown location %d.", location);
+	return "(unknown)";
+}
+
+
+/*
+ * Return ascii name of an affect location.
+ */
 const char *affect_loc_name(int location)
 {
 	switch (location) {
