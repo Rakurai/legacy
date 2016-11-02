@@ -119,12 +119,23 @@ bool HAS_RAFF_GROUP(CHAR_DATA *ch, int flag)
 	return FALSE;
 }
 
-void raff_add_to_char(CHAR_DATA *ch, int raff) {
-	if (raffects[raff].add != 0) {
-		if ((raffects[raff].id >= 900) && (raffects[raff].id <= 949))
-			remort_affect_modify_char(ch, TO_VULN, raffects[raff].add, TRUE);
-		else if ((raffects[raff].id >= 950) && (raffects[raff].id <= 999))
-			remort_affect_modify_char(ch, TO_RESIST, raffects[raff].add, TRUE);
+void raff_add_to_char(CHAR_DATA *ch, int raff_id) {
+	int index;
+
+	for (index = 1; index < MAX_RAFFECTS; index++)
+		if (raffects[index].id == raff_id)
+			break;
+
+	if (index == MAX_RAFFECTS) {
+		bugf("raff_add_to_char: invalid raffect ID %d", raff_id);
+		return;
+	}
+
+	if (raffects[index].add != 0) {
+		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
+			remort_affect_modify_char(ch, TO_VULN, raffects[index].add, TRUE);
+		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
+			remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, TRUE);
 	}
 }
 
