@@ -796,6 +796,11 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		fread_player(ch, cJSON_GetObjectItem(root, "player"), version);
 
 		fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char, version);
+
+		for (OBJ_DATA *obj = ch->carrying; obj; obj = obj->next_content)
+			if (obj->wear_loc != WEAR_NONE)
+				equip_char(ch, obj, obj->wear_loc);
+
 		fread_objects(ch, cJSON_GetObjectItem(root, "locker"), &obj_to_locker, version);
 		fread_objects(ch, cJSON_GetObjectItem(root, "strongbox"), &obj_to_strongbox, version);
 

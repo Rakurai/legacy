@@ -889,7 +889,11 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
  */
 void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
-	if (get_eq_char(ch, iWear) != NULL) {
+	// see if some *other* object is equipped here.  allow equipping the object even
+	// if get_eq_char (dumbly) says its already equipped, because of how load_char_obj
+	// loads the whole list and then equips it all based on the object's wear location
+	OBJ_DATA *equipped = get_eq_char(ch, iWear);
+	if (equipped != NULL && equipped != obj) {
 		bug("Equip_char: already equipped (%d).", iWear);
 		return;
 	}

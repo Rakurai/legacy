@@ -1,4 +1,3 @@
-replace is_affected with affect_find_on_*
 replace affect_flag_on_* with appropriate bit conversion
 grep for affects again, see if any old functions re-added by merge
 remove bitvector completely (light of truth)
@@ -18,3 +17,4 @@ do we need affect_add_perm_to_char?
 remort affects can be regular affects, but probably need a TO_REMORT where type (to identify them for removal)
 get the rest of the attribute types using the new form (sex, etc)
 get rid of extra attribute types (sheen, focus, saving_spell, etc)
+con and stat need to be consistent with showing aff/vuln, and not show blanks
