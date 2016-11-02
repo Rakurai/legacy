@@ -17,6 +17,11 @@ int *copy_int(int *key) {
 }
 
 void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
+	if (sn < 0 || sn > MAX_SKILL) {
+		bug("update_affect_cache: called with sn = %d", sn);
+		return;
+	}
+
 	if (fAdd) {
 		if (get_affect_cache(ch) == NULL) {
 			ch->affect_cache = cp_splaytree_create_by_option(
@@ -69,8 +74,11 @@ int affect_print_cache_callback(void *entry, void *prm) {
 	static int last_sn = 0;
 	cp_splaynode *node = entry;
 	int sn = *(int *)(node->key);
-//	int count = (int)(node->value);
+	int *count = (int *)(node->value);
 	char *str = (char *)prm;
+
+	if (sn < 0 || sn > MAX_SKILL)
+		return 0;
 
 	if (sn != last_sn) {
 		if (str[0] != '\0')

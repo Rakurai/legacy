@@ -192,6 +192,11 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 			ch->defense_mod[paf->location] += paf->modifier;
 		}
 		else {
+			if (ch->defense_mod == NULL) {
+				bug("affect_modify_char: attempt to remove from NULL defense_mod", 0);
+				return;
+			}
+
 			ch->defense_mod[0]--;
 			ch->defense_mod[paf->location] -= paf->modifier;
 
@@ -235,6 +240,11 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 			ch->apply_cache[paf->location] += paf->modifier;
 		}
 		else {
+			if (ch->apply_cache == NULL) {
+				bug("affect_modify_char: attempt to remove from NULL apply_cache", 0);
+				return;
+			}
+
 			ch->apply_cache[paf->location] -= paf->modifier;
 
 			if (--ch->apply_cache[0] <= 0) {
