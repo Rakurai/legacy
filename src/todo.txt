@@ -17,3 +17,4 @@ defense_mod needs to save to pfile, but maybe not racial bits, and use a dict ra
 do we need affect_add_perm_to_char?
 remort affects can be regular affects, but probably need a TO_REMORT where type (to identify them for removal)
 get the rest of the attribute types using the new form (sex, etc)
+get rid of extra attribute types (sheen, focus, saving_spell, etc)
