@@ -385,8 +385,8 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 	if (container != NULL) {
 		if (container == donation_pit
 		    && !IS_HEROIC(ch)
-		    && ((obj->level > LEVEL_HERO && obj->level > get_holdable_level(ch))
-		        || (obj->level <= LEVEL_HERO && obj->level > get_usable_level(ch)))) {
+		    && ((obj->level >= LEVEL_IMMORTAL && obj->level > get_holdable_level(ch))
+		        || (obj->level < LEVEL_IMMORTAL && obj->level > get_usable_level(ch)))) {
 			stc("You are not powerful enough to use it.\n", ch);
 			return;
 		}
@@ -5110,7 +5110,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	        "named %s.  Legend holds that this %s was a great weaponsmith.\n",
 	        weapon_table[weapon_lookup(type)].name, obj->material,
 	        month_name[time_info.month],
-	        (ch->level > 91) ? "an immortal" : (ch->level > 75) ? "a master" :
+	        (ch->level > LEVEL_HERO) ? "an immortal" : (ch->level > 75) ? "a master" :
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
 	        "a newbie", class_table[ch->class].name, ch->name,
 	        race_table[ch->race].name);

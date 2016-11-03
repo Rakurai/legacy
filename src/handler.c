@@ -693,7 +693,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
 {
 	int max;
 
-	if (IS_NPC(ch) || ch->level > LEVEL_IMMORTAL)
+	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return 25;
 
 	max = pc_race_table[ch->race].max_stats[stat];
@@ -713,7 +713,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
  */
 int can_carry_n(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return 9999;
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
@@ -727,7 +727,7 @@ int can_carry_n(CHAR_DATA *ch)
  */
 int can_carry_w(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return 10000000;
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
@@ -2518,7 +2518,7 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (!IS_SET(obj->extra_flags, ITEM_NODROP))
 		return TRUE;
 
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return TRUE;
 
 	return FALSE;
@@ -3584,7 +3584,7 @@ int get_usable_level(CHAR_DATA *ch)
 	else
 		level = ch->level + 5;
 
-	return UMIN(level, 91);
+	return UMIN(level, LEVEL_HERO);
 }
 
 int get_holdable_level(CHAR_DATA *ch)

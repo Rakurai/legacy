@@ -1918,7 +1918,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		title = str_dup(buf);
 	}
 
-	if (level >= LEVEL_IMMORTAL)
+	if (RANK(cgroup) >= RANK_IMM)
 		sprintf(buf, "{W[{CIMM{W] %s%s{x\n", name, title);
 	else if (rmct == 0)
 		sprintf(buf, "{W[{B%2d{W] %s%s{x\n", level, name, title);

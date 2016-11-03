@@ -1165,14 +1165,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		if (get_affect(ch->affected, gsn_focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
 
-	if (ch->level < LEVEL_IMMORTAL) {
-		/* damage reduction */
-		if (dam > 35)
-			dam = (dam - 35) / 2 + 35;
+	/* damage reduction */
+	if (dam > 35)
+		dam = (dam - 35) / 2 + 35;
 
-		if (dam > 80)
-			dam = (dam - 80) / 2 + 80;
-	}
+	if (dam > 80)
+		dam = (dam - 80) / 2 + 80;
 
 	if (victim != ch) {
 		/* Certain attacks are forbidden.  Most other attacks are returned. */
@@ -1447,7 +1445,7 @@ bool check_pulse(CHAR_DATA *victim)
 	sh_int die_hard_skill;
 	sh_int con_score;
 
-	if (!IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL && victim->hit < 1)
+	if (IS_IMMORTAL(victim) && victim->hit < 1)
 		victim->hit = 1;
 
 	/* If the character has the Die Hard skill, then give them
@@ -1602,7 +1600,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		    || (ch->in_room->area == quest_area && quest_upk)) {
 			ch->pcdata->arenakills++;
 
-			if (ch->level < LEVEL_IMMORTAL)
+			if (!IS_IMMORTAL(ch))
 				victim->pcdata->arenakilled++;
 		}
 		else {
@@ -1624,24 +1622,12 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 		}
 	}
-
-	/* Level 80s and above don't need (mortal) help to cheat -- Elrac */
-	/* This should lead to fewer senseless cheat messages.   -- Elrac */
-	/*      if (!IS_NPC(ch)
-	         && (ch->level < (LEVEL_HERO - 10))
-	         && (ch->level <= (victim->level - 25)))
-	        {
-	                sprintf( log_buf, "%s [%s] is possibly cheating at room %d",ch->name,
-	                        (IS_NPC(victim) ? victim->short_descr : victim->name),ch->in_room->vnum);
-	                wiznet(log_buf,NULL,NULL,WIZ_CHEAT,0,0);
-	                log_string( log_buf );
-	        } */
 } /* end kill_off */
 
 /* character only safety, rooms are not accounted for */
 bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 {
-	if (IS_IMMORTAL(ch) && ch->level > LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return FALSE;
 
 	if (victim->fighting == ch || victim == ch)
@@ -1783,7 +1769,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 //	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_COACH)
 //		return TRUE;
 
-	if (IS_IMMORTAL(ch) && ch->level >= LEVEL_IMMORTAL && !area)
+	if (IS_IMMORTAL(ch) && !area)
 		return FALSE;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE))
@@ -1795,7 +1781,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	if (victim->fighting == ch || victim == ch)
 		return FALSE;
 
-	if (!IS_IMMORTAL(ch) && !IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL)
+	if (!IS_IMMORTAL(ch) && IS_IMMORTAL(victim))
 		return TRUE;
 
 	if (!IS_IMMORTAL(ch) && victim->invis_level > ch->level)
@@ -1850,7 +1836,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	}
 	/* killing players */
 	else {
-		if (area && IS_IMMORTAL(victim) && victim->level > LEVEL_IMMORTAL)
+		if (area && IS_IMMORTAL(victim))
 			return TRUE;
 
 		/* NPC doing the killing */
@@ -1947,7 +1933,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 	   And current killers stay as they are. */
 	if (IS_NPC(ch)
 	    || ch == victim
-	    || ch->level >= LEVEL_IMMORTAL
+	    || IS_IMMORTAL(ch)
 	    || IS_SET(ch->act, PLR_KILLER)
 	    || ch->fighting  == victim)
 		return;

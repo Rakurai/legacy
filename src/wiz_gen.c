@@ -54,7 +54,7 @@ void do_adjust(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_IMMORTAL(victim) || victim->level >= LEVEL_IMMORTAL) {
+	if (IS_IMMORTAL(victim)) {
 		stc("You can't adjust immortals.\n", ch);
 		return;
 	}
@@ -2141,9 +2141,9 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 		int  level;
 		int  cost;
 	} quest[] = {
-		{ 94, 175 },
-		{ 93, 150 },
-		{ 92, 125 },
+		{ LEVEL_IMMORTAL+2, 175 },
+		{ LEVEL_IMMORTAL+1, 150 },
+		{ LEVEL_IMMORTAL, 125 },
 		{ 0, 0 }
 	};
 	extern void do_quest(CHAR_DATA * ch, const char *argument);
@@ -2222,7 +2222,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 		do_quest(ch, buf);
 	}
 
-	obj->level = 91;
+	obj->level = LEVEL_HERO;
 	act_new("$t has been successfully lowered to level 91.", ch,
 	        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 }

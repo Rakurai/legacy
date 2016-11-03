@@ -904,7 +904,7 @@ void char_update(void)
 		if (get_position(ch) == POS_STUNNED)
 			update_pos(ch);
 
-		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL) {
+		if (!IS_NPC(ch) && !IS_IMMORTAL(ch)) {
 			OBJ_DATA *obj;
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
@@ -1329,7 +1329,7 @@ bool eligible_victim(CHAR_DATA *ch)
 	if (IS_NPC(ch))
 		return FALSE;
 
-	if (ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return FALSE;
 
 //	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)

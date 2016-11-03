@@ -371,18 +371,18 @@ void unique_item(OBJ_DATA *item)
 	/* lower level item */
 	else { /* 10% */
 		/* not going to put in a higher level detriment, to simplify eq loading on mobs */
-		if (item->level > 92) { /* lower it by one, maybe 2 levels, but not below 92 */
+		if (item->level > LEVEL_IMMORTAL) { /* lower it by one, maybe 2 levels, but not below 92 */
 			if (chance(75))
 				item->level--;
 			else
 				item->level -= 2;
 
-			if (item->level < 92)
-				item->level = 92;
+			if (item->level < LEVEL_IMMORTAL)
+				item->level = LEVEL_IMMORTAL;
 
 			added = TRUE;
 		}
-		else if (item->level <= 91 && item->level > 0) {
+		else if (item->level < LEVEL_IMMORTAL && item->level > 0) {
 			if (chance(50))
 				item->level --;
 			else if (chance(60))
