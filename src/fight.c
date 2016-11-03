@@ -4845,7 +4845,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_IMMORTAL(ch)) {
+	if (IS_IMMORTAL(victim)) {
 		act("Forgetting that $E is immortal, you foolishly attempt to slay $N.", ch, NULL, victim, TO_CHAR);
 		act("$n attempts to slay you in cold blood!", ch, NULL, victim, TO_VICT);
 		act("$n foolishly attempts to slay the immortal, $N.", ch, NULL, victim, TO_NOTVICT);
