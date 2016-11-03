@@ -319,7 +319,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
-	int level, iLevel, max = 99;
+	int level, iLevel;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -334,10 +334,10 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	max = IS_IMP(ch) ? 100 : 99;
+	level = atoi(arg2);
 
-	if ((level = atoi(arg2)) < 1 || level > max) {
-		ptc(ch, "Level must be 1 to %d.\n", max);
+	if (level < 1 || level > MAX_LEVEL) {
+		ptc(ch, "Level must be 1 to %d.\n", MAX_LEVEL);
 		return;
 	}
 
@@ -347,7 +347,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (victim != ch) {
-		if (victim->level >= max && max < 100) {
+		if (IS_IMMORTAL(victim) && !IS_IMP(ch)) {
 			stc("You must be an implementor to do that to a fellow immortal.\n", ch);
 			return;
 		}

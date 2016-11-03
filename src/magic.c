@@ -374,7 +374,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-	if ((IS_NPC(ch) || ch->level < LEVEL_IMMORTAL)
+	if (!IS_IMMORTAL(ch)
 	    && (get_position(ch) < skill_table[sn].minimum_position)) {
 		stc("You can't concentrate enough.\n", ch);
 		return;
@@ -1108,7 +1108,7 @@ void spell_blood_moon(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		return;
 	}
 
-	if (victim->alignment > -500  && (ch->level < LEVEL_IMMORTAL)) {
+	if (victim->alignment > -500  && !IS_IMMORTAL(ch)) {
 		if (victim != ch)
 			stc("This spell is much too evil for them.\n", ch);
 		else
@@ -1196,7 +1196,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (victim->alignment < 500 && (ch->level < LEVEL_IMMORTAL)) {
+	if (victim->alignment < 500 && !IS_IMMORTAL(ch)) {
 		if (victim != ch)
 			stc("This spell is much too good for them.\n", ch);
 		else
@@ -3007,7 +3007,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	fail = URANGE(5, fail, 85);
 	result = number_percent();
 
-	if (level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		result = 100;
 
 	/* the moment of truth */
@@ -3167,7 +3167,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	fail = URANGE(5, fail, 95);
 	result = number_percent();
 
-	if (level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		result = 100;
 
 	/* the moment of truth */
@@ -5541,7 +5541,7 @@ void spell_divine_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int t
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if ((ch->level < LEVEL_IMMORTAL) && (victim != ch)) {
+	if (!IS_IMMORTAL(ch) && (victim != ch)) {
 		stc("This spell cannot be cast on others", ch);
 		return;
 	}
@@ -5714,7 +5714,7 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 		return;
 	}
 
-	if (ch->level < LEVEL_IMMORTAL && result <= fail) {  /* failed, no bad result */
+	if (!IS_IMMORTAL(ch) && result <= fail) {  /* failed, no bad result */
 		stc("Nothing seemed to happen.\n", ch);
 		return;
 	}
@@ -6205,7 +6205,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	    ||   IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL)
 	    || (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE))
 	    ||   victim->level >= level + 3
-	    || (!IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL)
+	    || IS_IMMORTAL(victim)
 	    ||   victim->fighting != NULL
 	    || (IS_NPC(victim) && IS_SET(victim->imm_flags, IMM_SUMMON))
 	    || (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
@@ -6685,7 +6685,7 @@ void spell_vision(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	    ||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
 	    ||   IS_SET(victim->in_room->room_flags, ROOM_NOVISION)
 	    ||   victim->level >= level + 3
-	    || (!IS_NPC(victim) && victim->level >= LEVEL_HERO)
+	    || IS_IMMORTAL(victim)
 	    || (IS_NPC(victim) && saves_spell(level, victim, DAM_OTHER))) {
 		stc("You failed.\n", ch);
 		return;

@@ -1023,7 +1023,7 @@ bool spec_thief(CHAR_DATA *ch)
 		v_next = victim->next_in_room;
 
 		if (IS_NPC(victim)
-		    ||   victim->level >= LEVEL_IMMORTAL
+		    ||   IS_IMMORTAL(victim)
 		    ||   number_bits(5) != 0
 		    ||   !can_see(ch, victim))
 			continue;
