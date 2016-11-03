@@ -70,9 +70,6 @@ ED	*new_extra_descr args( (void) );
 void	free_extra_descr args( (EXTRA_DESCR_DATA *ed) );
 #undef ED
 
-AFFECT_CACHE_DATA *new_affect_cache args( (void) );
-void	free_affect_cache args( (AFFECT_CACHE_DATA *cache) );
-
 /* affect recycling */
 #define AD AFFECT_DATA
 AD	*new_affect args( (void) );

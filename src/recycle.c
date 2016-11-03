@@ -399,7 +399,7 @@ void free_char(CHAR_DATA *ch)
 	if (ch->defense_mod)
 		free_mem(ch->defense_mod, DEFENSE_MOD_MEM_SIZE);
 	if (ch->affect_cache)
-		cp_splaytree_destroy(ch->affect_cache);
+		free_affect_cache(ch);
 
 	free_string(ch->name);
 	free_string(ch->short_descr);

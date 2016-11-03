@@ -16,8 +16,12 @@ int *copy_int(int *key) {
 	return new_key;
 }
 
+void free_affect_cache(CHAR_DATA *ch) {
+	cp_splaytree_destroy(get_affect_cache(ch));
+}
+
 void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
-	if (sn < 0 || sn > MAX_SKILL) {
+	if (sn < 1 || sn >= MAX_SKILL) {
 		bug("update_affect_cache: called with sn = %d", sn);
 		return;
 	}
