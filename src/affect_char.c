@@ -41,18 +41,20 @@ void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
 	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.type = sn;
 	af.where = TO_AFFECTS;
-	af.level = -1;
+	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
+	af.permanent = TRUE;
 
 	affect_copy_to_char(ch, &af);
 }
 
 void affect_copy_flags_to_char(CHAR_DATA *ch, char letter, unsigned int bitvector) {
 	AFFECT_DATA af;
-	af.level = -1; // permanent
+	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
+	af.permanent = TRUE;
 
 	while (bitvector != 0) {
 		af.type = 0; // reset every time
@@ -119,9 +121,10 @@ void affect_sort_char(CHAR_DATA *ch, affect_comparator comp) {
 void remort_affect_modify_char(CHAR_DATA *ch, int where, unsigned int bits, bool fAdd) {
 	AFFECT_DATA af;
 	af.type = 0;
-	af.level = -1;
+	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
+	af.permanent = TRUE;
 	// where, location and modifier will be filled by parse
 
 	char letter = 

@@ -95,7 +95,7 @@ int affect_fn_dispel_obj(AFFECT_DATA *node, void *data) {
 	if (node->type != params->sn)
 		return 0;
 
-	if (node->level == -1) // permanent
+	if (node->permanent)
 		return 0;
 
 	int dis_level = params->level;
@@ -121,7 +121,7 @@ int affect_fn_dispel_char(AFFECT_DATA *node, void *data) {
 	if (node->type != params->sn)
 		return 0;
 
-	if (node->level == -1) // permanent
+	if (node->permanent)
 		return 0;
 
 	int dis_level = params->level;

@@ -4955,7 +4955,7 @@ void print_new_affects(CHAR_DATA *ch)
 					        affect_loc_name(paf->location), paf->modifier);
 
 					if (paf->duration == -1)
-						strcat(buf2, "permanently");
+						strcat(buf2, "indefinitely");
 					else {
 						char tbuf[MSL];
 						sprintf(tbuf, "for %d hours", paf->duration + 1);

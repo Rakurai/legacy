@@ -775,6 +775,7 @@ struct  affect_data
     sh_int              modifier;
     int                 bitvector; // only for weapon flags now
     sh_int              evolution;
+    bool                permanent;
 
 } __attribute__((packed, aligned(1))); // no alignment padding, for checksums
 

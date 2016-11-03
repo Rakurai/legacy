@@ -460,7 +460,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 			continue;
 
 		// don't write permanent affects, rebuild them from race and raffects on load
-		if (paf->level == -1)
+		if (paf->permanent)
 			continue;
 
 		if (item == NULL)
