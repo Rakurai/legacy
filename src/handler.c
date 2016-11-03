@@ -321,7 +321,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		         && (IS_SET(ch->off_flags, OFF_DISARM)
 		             ||       IS_SET(ch->act, ACT_WARRIOR)
 		             ||       IS_SET(ch->act, ACT_THIEF)))
-			skill = 20 + (ch->level * 3);
+			skill = 20 + (ch->level * 2 / 3);
 		else if (sn == gsn_berserk && IS_SET(ch->off_flags, OFF_BERSERK))
 			skill = 3 * ch->level;
 		else if (sn == gsn_backstab && IS_SET(ch->act, ACT_THIEF))
@@ -434,7 +434,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
 {
 	int max;
 
-	if (IS_NPC(ch) || ch->level > LEVEL_IMMORTAL)
+	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return 25;
 
 	max = pc_race_table[ch->race].max_stats[stat];
@@ -454,7 +454,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
  */
 int can_carry_n(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return 9999;
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
@@ -468,7 +468,7 @@ int can_carry_n(CHAR_DATA *ch)
  */
 int can_carry_w(CHAR_DATA *ch)
 {
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return 10000000;
 
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
@@ -1772,7 +1772,7 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (!IS_OBJ_STAT(obj, ITEM_NODROP))
 		return TRUE;
 
-	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return TRUE;
 
 	return FALSE;
@@ -2873,7 +2873,7 @@ int get_usable_level(CHAR_DATA *ch)
 	else
 		level = ch->level + 5;
 
-	return UMIN(level, 91);
+	return UMIN(level, LEVEL_HERO);
 }
 
 int get_holdable_level(CHAR_DATA *ch)

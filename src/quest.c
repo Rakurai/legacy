@@ -822,14 +822,8 @@ void generate_skillquest(CHAR_DATA *ch, CHAR_DATA *questman)
 	OBJ_DATA *questobj;
 	ROOM_INDEX_DATA *questroom;
 	char buf[MAX_STRING_LENGTH];
-	int level;
-	level = ch->level;
 
-	if (level > 91)
-		level = 91;
-	else if (level < 1)
-		level = 1;
-
+	int level = URANGE(1, ch->level, LEVEL_HERO);
 	ch->pcdata->sqcountdown = number_range(15, 30);
 	ch->pcdata->squest_giver = questman->pIndexData->vnum;
 

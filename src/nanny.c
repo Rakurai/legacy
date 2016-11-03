@@ -235,7 +235,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (fOld) { /* old player */
 			if (logon_lurk && IS_IMMORTAL(ch))
-				ch->lurk_level = 92;
+				ch->lurk_level = LEVEL_IMMORTAL;
 
 			write_to_buffer(d, "What is your password? ", 0);
 			write_to_buffer(d, echo_off_str, 0);

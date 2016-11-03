@@ -2591,7 +2591,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (wch->level < iLevelLower
 		    || wch->level > iLevelUpper
-		    || (fImmortalOnly && wch->level < LEVEL_IMMORTAL)
+		    || (fImmortalOnly && !IS_IMMORTAL(wch))
 		    || (fPK && !IS_SET(wch->pcdata->plr, PLR_PK))
 		    || (fClassRestrict && !rgfClass[wch->class])
 		    || (fRaceRestrict && !rgfRace[wch->race])
@@ -2602,12 +2602,12 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		charitems[nMatch].pch = wch;
 
 		/* add in a fudge factor to force sort order for major groups */
-		if (wch->level >= LEVEL_IMMORTAL) {
-			charitems[nMatch].levelkey = 99000 + wch->level;
+		if (IS_IMMORTAL(wch)) {
+			charitems[nMatch].levelkey = 99000;
 
-			if (IS_SET(wch->pcdata->cgroup, GROUP_LEADER))
+			if (IS_IMP(wch))
 				charitems[nMatch].levelkey += 2000;
-			else if (IS_SET(wch->pcdata->cgroup, GROUP_DEPUTY))
+			else if (IS_HEAD(wch))
 				charitems[nMatch].levelkey += 1000;
 		}
 		else
@@ -2642,7 +2642,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		else
 			remort = "  ";
 
-		if (wch->level >= LEVEL_IMMORTAL && wch->pcdata->immname[0]) {
+		if (IS_IMMORTAL(wch) && wch->pcdata->immname[0]) {
 			/* copy immname without the brackets */
 			for (q = block1, *q++ = ' ', p = wch->pcdata->immname; *p; p++)
 				if (*p != '[' && *p != ']')
@@ -2676,12 +2676,12 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		/* Leader:    [clanname *rank*]  */
 		/* Other:     [clanname rank]  */
 
-		if (wch->clan || wch->level >= LEVEL_IMMORTAL) {
+		if (wch->clan || IS_IMMORTAL(wch)) {
 			sprintf(rbuf, "%s{x%3s{x",
 			        IS_SET(wch->pcdata->cgroup, GROUP_LEADER) ? "{Y~" :
 			        IS_SET(wch->pcdata->cgroup, GROUP_DEPUTY) ? "{B~" : " ",
 			        wch->pcdata->rank[0] ? wch->pcdata->rank :
-			        wch->level >= LEVEL_IMMORTAL ? "{WIMM" : "   ");
+			        IS_IMMORTAL(wch) ? "{WIMM" : "   ");
 			rank = rbuf;
 		}
 		else

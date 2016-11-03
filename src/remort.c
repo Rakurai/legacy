@@ -268,7 +268,7 @@ void list_extraskill(CHAR_DATA *ch)
 			if (!IS_IMMORTAL(ch)
 			    && (skill_table[sn].remort_class == ch->class + 1
 			        || skill_table[sn].skill_level[ch->class] <= 0
-			        || skill_table[sn].skill_level[ch->class] > 91))
+			        || skill_table[sn].skill_level[ch->class] > LEVEL_HERO))
 				continue;
 
 			ptb(output, "%-15s %s%-8d{x",
@@ -362,7 +362,7 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 
 	/* is it barred from that class? */
 	if (skill_table[sn].skill_level[ch->class] <= 0
-	    || skill_table[sn].skill_level[ch->class] > 91) {
+	    || skill_table[sn].skill_level[ch->class] > LEVEL_HERO) {
 		stc("Your class cannot gain that skill.\n", ch);
 		return;
 	}

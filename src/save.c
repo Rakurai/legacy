@@ -1800,6 +1800,9 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	get_JSON_int(section, &level, "Levl");
 	get_JSON_int(section, &class, "Cla");
 
+	if ((item = cJSON_GetObjectItem(section, "Clan")) != NULL)
+		clan = clan_lookup(item->valuestring);
+
 	section = cJSON_GetObjectItem(root, "player");
 	get_JSON_string(section, &email, "Email");
 	get_JSON_string(section, &fingerinfo, "Finf");
@@ -1820,8 +1823,6 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		last_ltime = dizzy_scantime(item->valuestring);
 	if ((item = cJSON_GetObjectItem(section, "LSav")) != NULL)
 		last_saved = dizzy_scantime(item->valuestring);
-	if ((item = cJSON_GetObjectItem(section, "Clan")) != NULL)
-		clan = clan_lookup(item->valuestring);
 
 	cJSON_Delete(root); // finished with it
 
@@ -1834,7 +1835,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		title = str_dup(buf);
 	}
 
-	if (level >= LEVEL_IMMORTAL)
+	if (RANK(cgroup) >= RANK_IMM)
 		sprintf(buf, "{W[{CIMM{W] %s%s{x\n", name, title);
 	else if (rmct == 0)
 		sprintf(buf, "{W[{B%2d{W] %s%s{x\n", level, name, title);

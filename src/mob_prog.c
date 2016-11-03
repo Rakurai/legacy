@@ -385,15 +385,15 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "isimmort")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                       return (mob->level   > LEVEL_IMMORTAL);
+//		case 'i':                       return IS_IMMORTAL(mob);  impossible
 
-		case 'n': if (actor)            return (actor->level > LEVEL_IMMORTAL);
+		case 'n': if (actor)            return IS_IMMORTAL(actor);
 			else                  return -1;
 
-		case 't': if (vict)             return (vict->level  > LEVEL_IMMORTAL);
+		case 't': if (vict)             return IS_IMMORTAL(vict);
 			else                  return -1;
 
-		case 'r': if (rndm)             return (rndm->level  > LEVEL_IMMORTAL);
+		case 'r': if (rndm)             return IS_IMMORTAL(rndm);
 			else                  return -1;
 
 		default:
@@ -1593,7 +1593,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	/* get a random visable mortal player who is in the room with the mob */
 	for (vch = mob->in_room->people; vch; vch = vch->next_in_room) {
 		if (!IS_NPC(vch)
-		    &&  vch->level < MAX_LEVEL - 3
+		    &&  !IS_IMMORTAL(vch)
 		    &&  can_see(mob, vch)) {
 			if (number_range(0, count) == 0)
 				rndm = vch;

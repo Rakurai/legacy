@@ -1167,14 +1167,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		if (affect_find_in_char(ch, gsn_focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
 
-	if (ch->level < LEVEL_IMMORTAL) {
-		/* damage reduction */
-		if (dam > 35)
-			dam = (dam - 35) / 2 + 35;
+	/* damage reduction */
+	if (dam > 35)
+		dam = (dam - 35) / 2 + 35;
 
-		if (dam > 80)
-			dam = (dam - 80) / 2 + 80;
-	}
+	if (dam > 80)
+		dam = (dam - 80) / 2 + 80;
 
 	if (victim != ch) {
 		/* Certain attacks are forbidden.  Most other attacks are returned. */
@@ -1439,7 +1437,7 @@ bool check_pulse(CHAR_DATA *victim)
 	sh_int die_hard_skill;
 	sh_int con_score;
 
-	if (!IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL && victim->hit < 1)
+	if (IS_IMMORTAL(victim) && victim->hit < 1)
 		victim->hit = 1;
 
 	/* If the character has the Die Hard skill, then give them
@@ -1594,7 +1592,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		    || (ch->in_room->area == quest_area && quest_upk)) {
 			ch->pcdata->arenakills++;
 
-			if (ch->level < LEVEL_IMMORTAL)
+			if (!IS_IMMORTAL(ch))
 				victim->pcdata->arenakilled++;
 		}
 		else {
@@ -1616,24 +1614,12 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 		}
 	}
-
-	/* Level 80s and above don't need (mortal) help to cheat -- Elrac */
-	/* This should lead to fewer senseless cheat messages.   -- Elrac */
-	/*      if (!IS_NPC(ch)
-	         && (ch->level < (LEVEL_HERO - 10))
-	         && (ch->level <= (victim->level - 25)))
-	        {
-	                sprintf( log_buf, "%s [%s] is possibly cheating at room %d",ch->name,
-	                        (IS_NPC(victim) ? victim->short_descr : victim->name),ch->in_room->vnum);
-	                wiznet(log_buf,NULL,NULL,WIZ_CHEAT,0,0);
-	                log_string( log_buf );
-	        } */
 } /* end kill_off */
 
 /* character only safety, rooms are not accounted for */
 bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 {
-	if (IS_IMMORTAL(ch) && ch->level > LEVEL_IMMORTAL)
+	if (IS_IMMORTAL(ch))
 		return FALSE;
 
 	if (victim->fighting == ch || victim == ch)
@@ -1775,7 +1761,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 //	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_COACH)
 //		return TRUE;
 
-	if (IS_IMMORTAL(ch) && ch->level >= LEVEL_IMMORTAL && !area)
+	if (IS_IMMORTAL(ch) && !area)
 		return FALSE;
 
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE))
@@ -1787,7 +1773,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	if (victim->fighting == ch || victim == ch)
 		return FALSE;
 
-	if (!IS_IMMORTAL(ch) && !IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL)
+	if (!IS_IMMORTAL(ch) && IS_IMMORTAL(victim))
 		return TRUE;
 
 	if (!IS_IMMORTAL(ch) && victim->invis_level > ch->level)
@@ -1842,7 +1828,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	}
 	/* killing players */
 	else {
-		if (area && IS_IMMORTAL(victim) && victim->level > LEVEL_IMMORTAL)
+		if (area && IS_IMMORTAL(victim))
 			return TRUE;
 
 		/* NPC doing the killing */
@@ -1938,7 +1924,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 	   And current killers stay as they are. */
 	if (IS_NPC(ch)
 	    || ch == victim
-	    || ch->level >= LEVEL_IMMORTAL
+	    || IS_IMMORTAL(ch)
 	    || IS_SET(ch->act, PLR_KILLER)
 	    || ch->fighting  == victim)
 		return;
@@ -4537,17 +4523,8 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 void do_disarm(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	OBJ_DATA *weapon;
-	int chance, hth, ch_weapon, vict_weapon, ch_vict_weapon, evo, modifier;
-	sh_int blind_fight_skill = 0;
 
-	/* check to see if we can fight blind */
-	if (CAN_USE_RSKILL(ch, gsn_blind_fight))
-		blind_fight_skill = get_skill(ch, gsn_blind_fight);
-
-	hth = modifier = 0;
-
-	if ((chance = get_skill(ch, gsn_disarm)) <= 0) {
+	if (get_skill(ch, gsn_disarm) <= 0) {
 		stc("You don't know how to disarm opponents.\n", ch);
 		return;
 	}
@@ -4573,7 +4550,11 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	evo = get_evolution(ch, gsn_disarm);
+	int evo = get_evolution(ch, gsn_disarm);
+
+	/* check to see if we can fight blind */
+	int blind_fight_skill = CAN_USE_RSKILL(ch, gsn_blind_fight) ? get_skill(ch, gsn_blind_fight) : 0;
+	int sight_modifier = 0;
 
 	/* if they're not facing you, can't disarm, unless evo 3 or higher.  evo 4 has no penalty */
 	if (victim->fighting && victim->fighting != ch) {
@@ -4593,34 +4574,36 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* additional -20% if you're blind */
-		if ((affect_find_in_char(ch, gsn_blindness)) && (blind_fight_skill < 50))
-			modifier -= 20;
+		if (!can_see(ch, victim))
+			sight_modifier -= 20 * (100 - blind_fight_skill) / 100;
 	}
 
 	/* if you're blind, can't disarm, unless you're evo 2 or higher */
-	if ((affect_find_in_char(ch, gsn_blindness)) && (blind_fight_skill < 50)) {
+	if (!can_see(ch, victim)) {
 		switch (evo) {
-		case 1: stc("You can't see your opponent's weapon to disarm them!\n", ch);
-			return;
-
-		case 2: modifier -= 60; break;
-
-		case 3: modifier -= 30; break;
-
+		case 1: sight_modifier -= 100 * (100 - blind_fight_skill) / 100; break;
+		case 2: sight_modifier -= 60 * (100 - blind_fight_skill) / 100; break;
+		case 3: sight_modifier -= 30 * (100 - blind_fight_skill) / 100; break;
 		case 4:                 break;
 		}
 	}
 
-	/* need a weapon to disarm, unless you're npc or you have skill in hand to hand */
-	if (get_eq_char(ch, WEAR_WIELD) == NULL
-	    && (((hth = get_skill(ch, gsn_hand_to_hand)) == 0)
-	        || (IS_NPC(ch) && !IS_SET(ch->off_flags, OFF_DISARM)))) {
-		stc("You must wield a weapon to disarm.\n", ch);
+	if (sight_modifier <= -100) {
+		stc("You can't see their weapon well enough to disarm them.\n", ch);
 		return;
 	}
 
-	if ((weapon = get_eq_char(victim, WEAR_WIELD)) == NULL) {
+	OBJ_DATA *weapon = get_eq_char(victim, WEAR_WIELD);
+
+	if (weapon == NULL) {
 		stc("Your opponent is not wielding a weapon.\n", ch);
+		return;
+	}
+
+	/* need a weapon to disarm, unless you're npc or you have skill in hand to hand */
+	if (get_eq_char(ch, WEAR_WIELD) == NULL
+	 && get_skill(ch, gsn_hand_to_hand) == 0) { // note: not the same as get_weapon_skill
+		stc("You must wield a weapon to disarm.\n", ch);
 		return;
 	}
 
@@ -4653,7 +4636,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 
 	/* noremove saves 100% at evo 1, 90% at 2, 80% at 3, 70% at 4 */
 	if (IS_OBJ_STAT(weapon, ITEM_NOREMOVE)) {
-		if (!chance(-10 + (10 * evo))) {
+		if (!chance(10 * (evo - 1))) {
 			act("$S weapon won't budge!", ch, NULL, victim, TO_CHAR);
 			act("$n tries to disarm you, but your weapon won't budge!", ch, NULL, victim, TO_VICT);
 			act("$n tries to disarm $N, but fails.", ch, NULL, victim, TO_NOTVICT);
@@ -4662,25 +4645,34 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
+	// base disarm chance of 70% of disarm skill
+	int chance = get_skill(ch, gsn_disarm) * 7 / 10;
+
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch, get_weapon_sn(ch, FALSE));
-	vict_weapon = get_weapon_skill(victim, get_weapon_sn(victim, FALSE));
-	ch_vict_weapon = get_weapon_skill(ch, get_weapon_sn(victim, FALSE));
+	int ch_weapon_skill = get_weapon_skill(ch, get_weapon_sn(ch, FALSE)); // your skill with your weapon
+	int vict_weapon_skill = get_weapon_skill(victim, get_weapon_sn(victim, FALSE)); // victim's skill
+	int ch_vict_weapon_skill = get_weapon_skill(ch, get_weapon_sn(victim, FALSE)); // your skill with victim's weapon
 
 	/* skill */
 	if (get_eq_char(ch, WEAR_WIELD) == NULL)
-		chance = chance * hth / 150;
+		chance = chance * ch_weapon_skill / 150; // harder to disarm without a weapon
 	else
-		chance = chance * ch_weapon / 100;
+		chance = chance * ch_weapon_skill / 100;
 
-	chance += (ch_vict_weapon / 2 - vict_weapon) / 2;
+	// up to 15% mod for higher weapon skill
+	chance += (ch_weapon_skill - vict_weapon_skill) / 7;
+
+	// up to 10% mod for being more skilled with their weapon than they are
+	chance += (ch_vict_weapon_skill - vict_weapon_skill) / 10;
+
 	/* dex + str vs. 2 x str */
 	chance += get_curr_stat(ch, STAT_DEX);
 	chance += get_curr_stat(ch, STAT_STR);
 	chance -= 2 * get_curr_stat(victim, STAT_STR);
+
 	/* level */
-	chance += (ch->level - victim->level) * 2;
-	chance += modifier;
+	chance += (ch->level - victim->level);
+	chance += sight_modifier / 5; // already passed vis check for connecting, only up to 20% penalty here
 
 	/* and now the attack */
 	if (chance(chance)) {
@@ -4834,7 +4826,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_IMMORTAL(ch)) {
+	if (IS_IMMORTAL(victim)) {
 		act("Forgetting that $E is immortal, you foolishly attempt to slay $N.", ch, NULL, victim, TO_CHAR);
 		act("$n attempts to slay you in cold blood!", ch, NULL, victim, TO_VICT);
 		act("$n foolishly attempts to slay the immortal, $N.", ch, NULL, victim, TO_NOTVICT);
