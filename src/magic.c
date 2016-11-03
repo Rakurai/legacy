@@ -3483,6 +3483,19 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		char buf[MSL], fb_buf[MSL];
 		CHAR_DATA *victim_next;
 		int newdam;
+		int count = 0;
+
+		// count targets
+		for (victim = ch->in_room->people; victim; victim = victim->next)
+			if (ch != victim
+			 && !is_same_group(victim, ch)
+			 && !is_safe_spell(ch, victim, TRUE))
+				count++;
+
+		if (count == 0) {
+			stc("There are no enemies here, what purpose would it serve?\n", ch);
+			return;
+		}
 
 		if (evolution == 2)
 			sprintf(fb_buf, "{Hf{Gir{Web{Gal{Hl{x");
