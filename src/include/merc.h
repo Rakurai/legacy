@@ -3442,6 +3442,7 @@ void    do_land         args( ( CHAR_DATA *ch, const char *argument ) );
 void    do_fly          args( ( CHAR_DATA *ch, const char *argument ) );
 
 /* act_obj.c */
+void    make_pet        args((CHAR_DATA *ch, CHAR_DATA *pet));
 bool can_loot           args( (CHAR_DATA *ch, OBJ_DATA *obj) );
 void    get_obj         args( ( CHAR_DATA *ch, OBJ_DATA *obj,
                             OBJ_DATA *container ) );

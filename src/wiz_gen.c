@@ -2260,13 +2260,8 @@ void do_master(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	SET_BIT(pet->act, ACT_PET);
-	affect_flag_add_to_char(pet, AFF_CHARM);
+	make_pet(ch, pet);
 
-	pet->comm = COMM_NOCHANNELS;
-	add_follower(pet, victim);
-	pet->leader = victim;
-	victim->pet = pet;
 	stc("You have set the player with a pet.\n", ch);
 	stc("You have been set with a new pet.\n", victim);
 	stc("You have been turned into a pet!\n", pet);

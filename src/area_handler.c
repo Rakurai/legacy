@@ -852,7 +852,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	/* read from prototype */
 	mob->group              = pMobIndex->group;
 	mob->act                = pMobIndex->act;
-	affect_flag_add_to_char(mob, pMobIndex->affect_flags);
 	mob->comm               = COMM_NOCHANNELS;
 	mob->alignment          = pMobIndex->alignment;
 	mob->level              = pMobIndex->level;

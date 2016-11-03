@@ -478,6 +478,7 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	}
 
 	affect_remove_all_from_char(victim);
+	// TODO: ensure reset to racial minimum
 
 	victim->level                   = 1;
 	victim->race                    = race;
@@ -485,9 +486,6 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	victim->hit = ATTR_BASE(victim, APPLY_HIT)   = 20;
 	victim->mana = ATTR_BASE(victim, APPLY_MANA) = 100;
 	victim->stam = ATTR_BASE(victim, APPLY_STAM) = 100;
-
-	affect_flag_clear_char(victim);
-	affect_flag_add_to_char(victim, race_table[race].aff);
 
 	victim->form                    = race_table[race].form;
 	victim->parts                   = race_table[race].parts;

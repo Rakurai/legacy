@@ -2738,8 +2738,6 @@ void raw_kill(CHAR_DATA *victim)
 	}
 
 //	REMOVE_BIT(victim->imm_flags, IMM_SHADOW);
-	affect_flag_clear_char(victim);
-	affect_flag_add_to_char(victim, race_table[victim->race].aff);
 	// TODO: reset affects to racial? or maybe a debugging message if they didn't come off right
 
 	victim->position    = POS_RESTING;
@@ -3336,7 +3334,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	        chance += ((GET_HITROLL(ch) - 120) / 16);
 	}*/
 	/* less bashable if translucent -- Elrac */
-//	if ( affect_flag_on_char(victim,AFF_PASS_DOOR) )
+//	if ( affect_find_in_char(victim, gsn_pass_door) )
 //		chance -= chance / 3;
 	/*Change in chance based on STR and score and stamina*/
 	chance += 3 * (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR));

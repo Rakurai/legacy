@@ -18,3 +18,6 @@ remort affects can be regular affects, but probably need a TO_REMORT where type 
 get the rest of the attribute types using the new form (sex, etc)
 get rid of extra attribute types (sheen, focus, saving_spell, etc)
 con and stat need to be consistent with showing aff/vuln, and not show blanks
+in mob loading, have it go through the table and add all affects for the bit, not just one
+go through calls to check_immune, a lot of them should be handled by saves vs damage type instead
+look at affects that add bits (like dazzle), need to be reworked.

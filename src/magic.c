@@ -42,8 +42,6 @@ DECLARE_DO_FUN(do_scan);
 /* global focus variable */
 extern bool     focus;
 
-extern void make_pet args((CHAR_DATA *ch, CHAR_DATA *pet));
-
 void            raw_kill        args((CHAR_DATA *victim));
 
 /* Local functions. */
@@ -4790,8 +4788,9 @@ void spread_plague(ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance)
 		af.duration     = number_range(1, 2 * af.level);
 
 		if (!saves_spell(af.level - 2, vch, DAM_DISEASE)
-		    &&  !IS_IMMORTAL(vch)
-		    &&  !affect_flag_on_char(vch, AFF_PLAGUE) && number_bits(chance) == 0) {
+		 && !IS_IMMORTAL(vch)
+		 && !affect_find_in_char(vch, gsn_plague)
+		 && number_bits(chance) == 0) {
 			stc("You feel hot and feverish.\n", vch);
 			act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
 			affect_join_to_char(vch, &af);

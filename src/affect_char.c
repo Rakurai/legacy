@@ -7,28 +7,6 @@
 // local declarations
 void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
-// flags
-
-void affect_flag_add_to_char(CHAR_DATA *ch, unsigned int flag) {
-//	SET_BIT(ch->affected_by, flag);
-}
-
-void affect_flag_remove_from_char(CHAR_DATA *ch, unsigned int flag) {
-//	REMOVE_BIT(ch->affected_by, flag);
-}
-
-unsigned int affect_flag_get_char(CHAR_DATA *ch) {
-//	return ch->affected_by;
-}
-
-void affect_flag_clear_char(CHAR_DATA *ch) {
-//	ch->affected_by = 0;
-}
-
-bool affect_flag_on_char(CHAR_DATA *ch, unsigned int flag) {
-//	return IS_SET(ch->affected_by, flag);
-}
-
 // searching
 
 const AFFECT_DATA *affect_list_char(CHAR_DATA *ch) {

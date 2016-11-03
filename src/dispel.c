@@ -67,7 +67,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	int save;
 	save = (victim->level - level) * 3 - (GET_ATTR(victim, APPLY_SAVES) * 4 / 3);
 
-	if (affect_flag_on_char(victim, AFF_BERSERK))
+	if (affect_find_in_char(victim, gsn_berserk))
 		save += victim->level / 4;
 
 	int def = check_immune(victim, dam_type);

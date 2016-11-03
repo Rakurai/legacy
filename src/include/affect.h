@@ -40,12 +40,6 @@ void          free_affect_cache           args(( CHAR_DATA *ch ));
 
 // flags
 
-bool                affect_flag_on_char              args(( CHAR_DATA *ch, unsigned int flag ));
-void                affect_flag_add_to_char          args(( CHAR_DATA *ch, unsigned int flag ));
-void                affect_flag_remove_from_char     args(( CHAR_DATA *ch, unsigned int flag ));
-unsigned int        affect_flag_get_char             args(( CHAR_DATA *ch ));
-void                affect_flag_clear_char           args(( CHAR_DATA *ch ));
-
 // searching
 bool                affect_enchanted_obj             args(( OBJ_DATA *obj ));
 const AFFECT_DATA * affect_list_obj                  args(( OBJ_DATA *obj ));
