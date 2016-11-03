@@ -168,10 +168,8 @@ void remort_affect_modify_char(CHAR_DATA *ch, int where, unsigned int bits, bool
 void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	CHAR_DATA *ch = (CHAR_DATA *)owner;
 
-	if (paf->where != TO_DEFENSE && paf->where != TO_AFFECTS && paf->where != TO_OBJECT) {
-		bugf("affect_modify_char: bad where %d", paf->where);
+	if (paf->where != TO_DEFENSE && paf->where != TO_AFFECTS && paf->where != TO_OBJECT)
 		return;
-	}
 
 	if (paf->where == TO_DEFENSE) {
 		if (paf->location < 1 || paf->location > 32) {
@@ -210,7 +208,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	}
 
 	if (paf->where == TO_AFFECTS) {
-		if (paf->type < 1 || paf->type > MAX_SKILL) {
+		if (paf->type < 1 || paf->type >= MAX_SKILL) {
 			bugf("affect_modify_char: bad type %d in TO_AFFECTS", paf->type);
 			return;
 		}

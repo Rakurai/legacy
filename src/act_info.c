@@ -4909,7 +4909,6 @@ void print_new_affects(CHAR_DATA *ch)
 {
 	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL], *p;
 	BUFFER *buffer;
-	OBJ_DATA *obj;
 	bool found = FALSE;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
@@ -4979,8 +4978,9 @@ void print_new_affects(CHAR_DATA *ch)
 	int iWear, len;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
+		OBJ_DATA *obj;
+
 		if ((obj = get_eq_char(ch, iWear)) != NULL) {
-			// loop through *compiled* affects here, don't care where the spells come from
 			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 				if (paf->where != TO_AFFECTS)
 					continue;
@@ -5003,7 +5003,7 @@ void print_new_affects(CHAR_DATA *ch)
 						break;
 					}
 
-				strcpy(buf, affect_bit_name(paf->bitvector));
+				strcpy(buf, skill_table[paf->type].name);
 				const char *words = buf;
 
 				while (*words) {

@@ -141,13 +141,6 @@ void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	OBJ_DATA *obj = (OBJ_DATA *)owner;
 	extern void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
-	switch (paf->where) {
-	case TO_OBJECT:
-	case TO_WEAPON:
-		affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, fAdd);
-		break;
-	default:
-		if (obj->carried_by && obj->wear_loc != WEAR_NONE)
-			affect_modify_char(obj->carried_by, paf, fAdd);
-	}
+	affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, fAdd);
+	affect_modify_char(obj->carried_by, paf, fAdd);
 }
