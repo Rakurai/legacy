@@ -2814,9 +2814,9 @@ extern sh_int	gsn_critical_blow;
                 ((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam)
 #define IS_OUTSIDE(ch)          (!IS_SET((ch)->in_room->room_flags, ROOM_INDOORS))
 
-#define WAIT_STATE(ch, npulse)  (IS_IMMORTAL(ch) ? \
+#define WAIT_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
     (ch->wait = UMAX(ch->wait, npulse)) : (ch->wait = 0))
-#define DAZE_STATE(ch, npulse)  (IS_IMMORTAL(ch) ? \
+#define DAZE_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
     (ch->daze = UMAX(ch->daze, npulse)) : (ch->daze = 0))
 #define gold_weight(amount)  ((amount) * 2 / 5)
 #define silver_weight(amount) ((amount)/ 10)
