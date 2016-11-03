@@ -399,7 +399,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		         && (IS_SET(ch->off_flags, OFF_DISARM)
 		             ||       IS_SET(ch->act, ACT_WARRIOR)
 		             ||       IS_SET(ch->act, ACT_THIEF)))
-			skill = 20 + (ch->level * 3);
+			skill = 20 + (ch->level * 2 / 3);
 		else if (sn == gsn_berserk && IS_SET(ch->off_flags, OFF_BERSERK))
 			skill = 3 * ch->level;
 		else if (sn == gsn_backstab && IS_SET(ch->act, ACT_THIEF))
