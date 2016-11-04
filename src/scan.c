@@ -57,7 +57,8 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 		for (door = 0; door < 6; door++) {
 			if ((pExit = ch->in_room->exit[door]) == NULL
 			    || (pExit->u1.to_room) == NULL
-			    || !can_see_room(ch, pExit->u1.to_room))
+			    || !can_see_room(ch, pExit->u1.to_room)
+			    || !can_see_in_room(ch, pExit->u1.to_room))
 				continue;
 
 			scan_room(pExit->u1.to_room, ch, 1, door, pExit);
@@ -98,6 +99,11 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 		    || !can_see_room(ch, pExit->u1.to_room))
 			continue;
 
+		if (!can_see_in_room(ch, pExit->u1.to_room)) {
+			stc("It is too dark to see any farther in that direction.\n", ch);
+			break;
+		}
+
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
 			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 			break;
@@ -125,7 +131,8 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		for (door = 0; door < 6; door++) {
 			if ((pExit = ch->in_room->exit[door]) == NULL
 			    || (pExit->u1.to_room) == NULL
-			    || !can_see_room(ch, pExit->u1.to_room))
+			    || !can_see_room(ch, pExit->u1.to_room)
+			    || !can_see_in_room(ch, pExit->u1.to_room))
 				continue;
 
 			if (IS_SET(pExit->exit_info, EX_CLOSED)) {
@@ -159,6 +166,11 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 		    || (pExit->u1.to_room) == NULL
 		    || !can_see_room(ch, pExit->u1.to_room))
 			continue;
+
+		if (!can_see_in_room(ch, pExit->u1.to_room)) {
+			stc("It is too dark to see any farther in that direction.\n", ch);
+			break;
+		}
 
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
 			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);

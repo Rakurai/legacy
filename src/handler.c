@@ -1665,11 +1665,9 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (affect_find_in_char(ch, gsn_blindness))
 		return FALSE;
 
-	if (!affect_find_in_char(ch, gsn_infravision))
-		if ((room_is_dark(ch->in_room)
-		     && !affect_find_in_char(ch, gsn_night_vision))
-		    || room_is_very_dark(ch->in_room))
-			return FALSE;
+	if ((room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_infravision))
+	 || room_is_very_dark(ch->in_room))
+		return FALSE;
 
 	if (affect_find_in_char(victim, gsn_invis)
 	    &&   !affect_find_in_char(ch, gsn_detect_invis))
@@ -1716,6 +1714,27 @@ bool can_see_who(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	/* Otherwise, I guess WHO should see them. */
+	return TRUE;
+}
+
+/*
+ * True if char can see characters and objects inside a room.  Not a permission thing,
+ * but for darkness and vision.
+ */
+bool can_see_in_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	if (IS_IMMORTAL(ch))
+		return TRUE;
+
+	if (room_is_very_dark(room))
+		return FALSE;
+
+	if (affect_find_in_char(ch, gsn_blindness))
+		return FALSE;
+
+	if (room_is_dark(room) && !affect_find_in_char(ch, gsn_night_vision))
+		return FALSE;
+
 	return TRUE;
 }
 

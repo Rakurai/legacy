@@ -2141,13 +2141,13 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		return TRUE; /* for dual parry */
 
 	/* gonna riposte, last check for dodging/blurring/shield blocking it */
-	if (check_dodge(ch, victim, TYPE_HIT + 40))
+	if (check_dodge(victim, ch, TYPE_HIT + 40))
 		return TRUE;
 
-	if (check_blur(ch, victim, TYPE_HIT + 40))
+	if (check_blur(victim, ch, TYPE_HIT + 40))
 		return TRUE;
 
-	if (check_shblock(ch, victim, TYPE_HIT + 40))
+	if (check_shblock(victim, ch, TYPE_HIT + 40))
 		return TRUE;
 
 	damage(victim, ch, (number_range(1, victim->level) + GET_DAMROLL(victim)) / 2,

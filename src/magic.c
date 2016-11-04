@@ -4184,11 +4184,11 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_infravision)) {
+	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
 			stc("You can already see in the dark.\n", ch);
 		else
-			act("$N already has infravision.\n", ch, NULL, victim, TO_CHAR);
+			act("$N already has enhanced vision.\n", ch, NULL, victim, TO_CHAR);
 
 		return;
 	}

@@ -414,14 +414,20 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
 
-		item = cJSON_CreateArray();
-
+		item = NULL;
 		for (int i = 0; i < (ch->pcdata->remort_count / 20) + 1; i++) {
-			int slot = skill_table[ch->pcdata->extraclass[i]].slot;
-			cJSON_AddItemToArray(item, cJSON_CreateNumber(slot));
+			if (ch->pcdata->extraclass[i] == 0)
+				break;
+
+			if (item == NULL)
+				item = cJSON_CreateArray();
+
+			cJSON_AddItemToArray(item,
+				cJSON_CreateString(skill_table[ch->pcdata->extraclass[i]].name));
 		}
 
-		cJSON_AddItemToObject(o, "ExSk", item);
+		if (item != NULL)
+			cJSON_AddItemToObject(o, "ExSk", item);
 
 		item = cJSON_CreateIntArray(ch->pcdata->raffect, ch->pcdata->remort_count / 10 + 1);
 		cJSON_AddItemToObject(o, "Raff", item);
@@ -1073,20 +1079,16 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'E':
 				if (!str_cmp(key, "ExSk")) {
+					count = 0;
 					for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
-						bool found = FALSE;
+						int sn = skill_lookup(item->valuestring);
 
-						for (int i = 1; i < MAX_SKILL; i++) {
-							if (skill_table[i].slot == item->valueint) {
-								ch->pcdata->extraclass[count++] = i;
-								found = TRUE;
-								break;
-							}
+						if (sn <= 0) {
+							bugf("unknown extraclass skill '%s'", item->valuestring);
+							continue;
 						}
 
-						if (!found) {
-							bug("Unknown extraclass skill.", 0);
-						}
+						ch->pcdata->extraclass[count++] = sn;
 					}
 					fMatch = TRUE; break;
 				}

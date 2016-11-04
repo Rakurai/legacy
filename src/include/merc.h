@@ -2777,7 +2777,6 @@ extern sh_int	gsn_quick;
 extern sh_int	gsn_standfast;
 extern sh_int	gsn_mark;
 extern sh_int	gsn_critical_blow;
-extern sh_int   gsn_night_vision;
 
 /* general ranks, for imm comparisons */
 #define	RANK_MOBILE		0
@@ -2834,8 +2833,6 @@ extern sh_int   gsn_night_vision;
 #define GET_ATTR_MOD(ch, where)  ((ch)->apply_cache ? (ch)->apply_cache[where] : 0) // intentionally not settable
 #define GET_ATTR(ch, where) (ATTR_BASE(ch, where) + GET_ATTR_MOD(ch, where)) // intentionally not settable
 #define GET_DEFENSE_MOD(ch, where) ((ch)->defense_mod ? (ch)->defense_mod[where] : 0)
-
-#define IS_AFFECTED(ch, sn)     (ch->aff_cache ? cp_splaytree_contains(ch->affect_cache, &sn) : FALSE)
 
 #define GET_SEX(ch)     (URANGE(0, (ch)->sex + GET_ATTR_MOD((ch), APPLY_SEX), 2))
 
@@ -3682,6 +3679,7 @@ bool    can_see         args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_who     args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_obj     args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 bool    can_see_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
+bool    can_see_in_room args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room));
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 const char *  item_type_name  args(( OBJ_DATA *obj ) );
 const char *  affect_loc_name args(( int location ) );
