@@ -2411,11 +2411,10 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
 
-	if (!IS_AFFECTED(ch, AFF_INFRARED))
-		if ((room_is_dark(ch->in_room)
-		     && !IS_AFFECTED(ch, AFF_NIGHT_VISION))
-		    || room_is_very_dark(ch->in_room))
-			return FALSE;
+	if ((room_is_dark(ch->in_room)
+	     && !IS_AFFECTED(ch, AFF_NIGHT_VISION))
+	    || room_is_very_dark(ch->in_room))
+		return FALSE;
 
 	if (IS_AFFECTED(victim, AFF_INVISIBLE)
 	    &&   !IS_AFFECTED(ch, AFF_DETECT_INVIS))
@@ -2466,6 +2465,27 @@ bool can_see_who(CHAR_DATA *ch, CHAR_DATA *victim)
 }
 
 /*
+ * True if char can see characters and objects inside a room.  Not a permission thing,
+ * but for darkness and vision.
+ */
+bool can_see_in_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	if (IS_IMMORTAL(ch))
+		return TRUE;
+
+	if (room_is_very_dark(room))
+		return FALSE;
+
+	if (IS_AFFECTED(ch, AFF_BLIND))
+		return FALSE;
+
+	if (room_is_dark(room) && !IS_AFFECTED(ch, AFF_NIGHT_VISION))
+		return FALSE;
+
+	return TRUE;
+}
+
+/*
  * True if char can see obj.
  */
 bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
@@ -2504,7 +2524,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !IS_AFFECTED(ch, AFF_INFRARED))
+	if (room_is_dark(ch->in_room) && !IS_AFFECTED(ch, AFF_NIGHT_VISION))
 		return FALSE;
 
 	return TRUE;
@@ -2695,8 +2715,6 @@ const char *affect_bit_name(int vector)
 	if (vector & AFF_SANCTUARY) strcat(buf, " sanctuary");
 
 	if (vector & AFF_FAERIE_FIRE) strcat(buf, " faerie_fire");
-
-	if (vector & AFF_INFRARED) strcat(buf, " infrared");
 
 	if (vector & AFF_CURSE) strcat(buf, " curse");
 

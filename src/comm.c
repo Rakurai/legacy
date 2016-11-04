@@ -1568,10 +1568,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 			for (door = 0; door < 6; door++) {
 				if ((pexit = ch->in_room->exit[door]) != NULL
-				    &&  pexit ->u1.to_room != NULL
-				    && (can_see_room(ch, pexit->u1.to_room)
-				        || (IS_AFFECTED(ch, AFF_INFRARED)))
-				    &&   !IS_AFFECTED(ch, AFF_BLIND)) {
+				    && pexit ->u1.to_room != NULL
+				    && can_see_room(ch, pexit->u1.to_room)
+				    && can_see_in_room(ch, pexit->u1.to_room)) {
 					found = TRUE;
 
 					if (!IS_SET(pexit->exit_info, EX_CLOSED))

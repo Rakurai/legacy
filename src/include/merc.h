@@ -1192,7 +1192,7 @@ struct  kill_data
 #define AFF_DETECT_GOOD         (G)
 #define AFF_SANCTUARY           (H)
 #define AFF_FAERIE_FIRE         (I)
-#define AFF_INFRARED            (J)
+//#define AFF_INFRARED            (J)
 #define AFF_CURSE               (K)
 #define AFF_FEAR                (L)
 #define AFF_POISON              (M)
@@ -3609,6 +3609,7 @@ bool    can_see         args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_who     args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_obj     args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 bool    can_see_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
+bool    can_see_in_room args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room));
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 const char *  item_type_name  args(( OBJ_DATA *obj ) );
 const char *  affect_loc_name args(( int location ) );

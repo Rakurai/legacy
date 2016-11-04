@@ -4499,11 +4499,11 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_INFRARED)) {
+	if (IS_AFFECTED(victim, AFF_NIGHT_VISION)) {
 		if (victim == ch)
 			stc("You can already see in the dark.\n", ch);
 		else
-			act("$N already has infravision.\n", ch, NULL, victim, TO_CHAR);
+			act("$N already has enhanced vision.\n", ch, NULL, victim, TO_CHAR);
 
 		return;
 	}
@@ -4514,7 +4514,7 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	af.duration  = 2 * level;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_INFRARED;
+	af.bitvector = AFF_NIGHT_VISION;
 	af.evolution = evolution;
 	copy_affect_to_char(victim, &af);
 	stc("Your eyes glow red.\n", victim);

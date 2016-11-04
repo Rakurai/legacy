@@ -158,7 +158,7 @@ const struct race_type race_table[] = {
 	},
 	{
 		"dwarf",        TRUE,
-		0,              AFF_INFRARED | AFF_NIGHT_VISION,  0,
+		0,              AFF_NIGHT_VISION,  0,
 		0,              RES_POISON | RES_DISEASE, VULN_DROWNING,
 		A | H | M | V,        A | B | C | D | E | F | G | H | I | J | K
 	},
@@ -313,7 +313,7 @@ const struct race_type race_table[] = {
 	},
 	{
 		"modron",       FALSE,
-		0,              AFF_INFRARED,   ASSIST_RACE | ASSIST_ALIGN,
+		0,              AFF_NIGHT_VISION,   ASSIST_RACE | ASSIST_ALIGN,
 		IMM_CHARM | IMM_DISEASE | IMM_MENTAL | IMM_HOLY | IMM_NEGATIVE, RES_FIRE | RES_COLD | RES_ACID,     0,
 		H,              A | B | C | G | H | J | K
 	},
