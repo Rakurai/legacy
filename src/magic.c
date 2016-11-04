@@ -1102,6 +1102,8 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
+	// intentionally allow blindness even in addition to other (dirt kicking etc)
+
 	if (affect_find_in_char(victim, gsn_blindness)) {
 		stc("Your victim doesn't have any sight to lose.\n", ch);
 		return;
@@ -1386,34 +1388,36 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	af.duration  = level;
 	af.location  = 0;
 	af.modifier  = 0;
+	af.bitvector = 0;
 	af.evolution = evolution;
+	affect_copy_to_obj(obj, &af); // add gsn_light_of_truth, add the others below
 
 	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
-		af.bitvector = AFF_DETECT_EVIL;
+		af.type = gsn_detect_evil;
 		affect_copy_to_obj(obj, &af);
 		act("$p throws a red aura around your evil surroundings.", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
-		af.bitvector = AFF_DETECT_GOOD;
+		af.type = gsn_detect_good;
 		affect_copy_to_obj(obj, &af);
 		act("$p shows you good things with a golden aura.", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 15) < ch->pcdata->learned[sn]) {
-		af.bitvector = AFF_DETECT_INVIS;
+		af.type = gsn_detect_invis;
 		affect_copy_to_obj(obj, &af);
 		act("$p suddenly reveals invisible objects!", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 15) < ch->pcdata->learned[sn]) {
-		af.bitvector = AFF_DETECT_HIDDEN;
+		af.type = gsn_detect_hidden;
 		affect_copy_to_obj(obj, &af);
 		act("$p shines into every nook and cranny about you.", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 25) < ch->pcdata->learned[sn]) {
-		af.bitvector = AFF_DETECT_MAGIC;
+		af.type = gsn_detect_magic;
 		affect_copy_to_obj(obj, &af);
 		act("$p reflects strangely off some of your better equipment.", ch, obj, NULL, TO_CHAR);
 	}
@@ -3470,7 +3474,7 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 void spell_farsight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
-	if (affect_find_in_char(ch, gsn_blindness)) {
+	if (is_blinded(ch)) {
 		stc("Maybe it would help if you could see?\n", ch);
 		return;
 	}
@@ -5774,13 +5778,18 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		return;
 	}
 
+	// TODO: should this be a room affect, and not on the characters?
+
 	for (vch = to_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (is_safe_spell(ch, vch, TRUE)
-		    || (affect_find_in_char(vch, gsn_blindness)))
+		bool already_blinded = is_blinded(vch);
+
+		if (is_safe_spell(ch, vch, TRUE))
 			continue;
 
-		if (saves_spell(level, vch, DAM_OTHER))
-			stc("Smoke momentarily clouds your vision.\n", vch);
+		if (saves_spell(level, vch, DAM_OTHER)) {
+			if (!already_blinded)
+				stc("Smoke momentarily clouds your vision.\n", vch);
+		}
 		else {
 			affect_add_sn_to_char(vch,
 				sn,
@@ -5791,7 +5800,9 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 			);
 
 			act("$n's vision is obscured by a strange cloud of smoke.", vch, NULL, NULL, TO_ROOM);
-			stc("Smoke clouds your vision.\n", vch);
+
+			if (!already_blinded)
+				stc("Smoke clouds your vision.\n", vch);
 		}
 	}
 

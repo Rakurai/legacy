@@ -133,7 +133,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	if (ch == victim && ch->fighting != NULL)
 		victim = ch->fighting;
 
-	if (affect_find_in_char(victim, gsn_blindness)) {
+	if (is_blinded(victim)) {
 		stc("They can't see, what good would it do?\n", ch);
 		return;
 	}

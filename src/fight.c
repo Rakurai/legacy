@@ -1905,7 +1905,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (affect_find_in_char(ch, gsn_charm_person)) {
 		if (ch->master == NULL) {
 			char buf[MAX_STRING_LENGTH];
-			sprintf(buf, "Check_killer: %s bad AFF_CHARM", IS_NPC(ch) ? ch->short_descr : ch->name);
+			sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
 			bug(buf, 0);
 			affect_remove_sn_from_char(ch, gsn_charm_person);
 			return;
@@ -3390,7 +3390,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(victim, gsn_blindness)) {
+	if (is_blinded(victim)) {
 		act("$E has already been blinded.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -4775,7 +4775,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_disarm, FALSE, 1);
 	}
 
-	if ((affect_find_in_char(ch, gsn_blindness)) && (blind_fight_skill > 0))
+	if (is_blinded(ch) && (blind_fight_skill > 0))
 		check_improve(ch, gsn_blind_fight, FALSE, 1);
 }
 

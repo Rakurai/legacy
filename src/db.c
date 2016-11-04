@@ -157,7 +157,7 @@ sh_int  gsn_heat_metal;
 sh_int  gsn_high_explosive;
 sh_int  gsn_holy_word;
 sh_int  gsn_identify;
-sh_int  gsn_infravision;
+sh_int  gsn_night_vision;
 sh_int  gsn_invis;
 //sh_int  gsn_ironskin;
 sh_int  gsn_know_alignment;
@@ -170,7 +170,6 @@ sh_int  gsn_magic_missile;
 sh_int  gsn_mass_healing;
 sh_int  gsn_mass_invis;
 sh_int  gsn_nexus;
-sh_int  gsn_night_vision;
 sh_int  gsn_pass_door;
 sh_int  gsn_plague;
 sh_int  gsn_poison;
@@ -284,7 +283,7 @@ sh_int  gsn_hone;
 sh_int  gsn_riposte;
 sh_int  gsn_fourth_attack;
 sh_int  gsn_rage;
-sh_int   gsn_blindness_fight;
+sh_int   gsn_blind_fight;
 sh_int  gsn_sap;
 sh_int  gsn_pain;
 sh_int  gsn_hex;
@@ -299,7 +298,6 @@ sh_int  gsn_quick;
 sh_int  gsn_standfast;
 sh_int  gsn_mark;
 sh_int  gsn_critical_blow;
-sh_int  gsn_night_vision;
 
 /*
  * Locals.

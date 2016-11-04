@@ -115,13 +115,13 @@ int affect_bit_to_sn(int bit) {
 		case AFF_DETECT_HIDDEN: return gsn_detect_hidden;
 		case AFF_SANCTUARY: return gsn_sanctuary;
 		case AFF_FAERIE_FIRE: return gsn_faerie_fire;
-		case AFF_INFRARED: return gsn_infravision;
+		case AFF_INFRARED: return gsn_night_vision;
 		case AFF_CURSE: return gsn_curse;
 		case AFF_FEAR: return gsn_fear;
 		case AFF_POISON: return gsn_poison;
 		case AFF_PROTECT_EVIL: return gsn_protection_evil;
 		case AFF_PROTECT_GOOD: return gsn_protection_good;
-		case AFF_NIGHT_VISION: return gsn_infravision;
+		case AFF_NIGHT_VISION: return gsn_night_vision;
 		case AFF_SNEAK: return gsn_sneak;
 		case AFF_HIDE: return gsn_hide;
 		case AFF_CHARM: return gsn_charm_person;

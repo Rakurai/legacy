@@ -24,3 +24,6 @@ look at affects that add bits (like dazzle), need to be reworked.
 change GET_SEX to just do sex % 3, it'll make change sex work right
 blind: dazzle, smokescreen, blind, dirt kick, fire breath
 right now dispel/cancel/undo, each affect of a composite like 'frenzy' saves vs spell individually, fix?
+
+to WBI:
+make cure blindness able to cure other forms (dirt kicking, etc) since they can't be undone now

@@ -1633,6 +1633,20 @@ bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	return TRUE;
 }
 
+bool is_blinded(CHAR_DATA *ch) {
+	if (IS_IMMORTAL(ch))
+		return FALSE;
+
+	if (affect_find_in_char(ch, gsn_blindness)
+	 || affect_find_in_char(ch, gsn_dirt_kicking)
+	 || affect_find_in_char(ch, gsn_fire_breath)
+	 || affect_find_in_char(ch, gsn_smokescreen)
+	 || affect_find_in_char(ch, gsn_dazzle))
+		return TRUE;
+
+	return FALSE;
+}
+
 /*
  * True if char can see victim.
  */
@@ -1662,10 +1676,10 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->invis_level)
 		return FALSE;
 
-	if (affect_find_in_char(ch, gsn_blindness))
+	if (is_blinded(ch))
 		return FALSE;
 
-	if ((room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_infravision))
+	if ((room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_night_vision))
 	 || room_is_very_dark(ch->in_room))
 		return FALSE;
 
@@ -1729,7 +1743,7 @@ bool can_see_in_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	if (room_is_very_dark(room))
 		return FALSE;
 
-	if (affect_find_in_char(ch, gsn_blindness))
+	if (is_blinded(ch))
 		return FALSE;
 
 	if (room_is_dark(room) && !affect_find_in_char(ch, gsn_night_vision))
@@ -1749,7 +1763,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (room_is_very_dark(ch->in_room))
 		return FALSE;
 
-	if (affect_find_in_char(ch, gsn_blindness))
+	if (is_blinded(ch))
 		return FALSE;
 
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH) && obj->carried_by != ch)
@@ -1777,7 +1791,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_infravision))
+	if (room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_night_vision))
 		return FALSE;
 
 	return TRUE;

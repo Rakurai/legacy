@@ -3307,6 +3307,8 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	affect_remove_sn_from_char(victim, gsn_plague);
 	affect_remove_sn_from_char(victim, gsn_poison);
 	affect_remove_sn_from_char(victim, gsn_blindness);
+	affect_remove_sn_from_char(victim, gsn_dirt_kicking);
+	affect_remove_sn_from_char(victim, gsn_fire_breath);
 	affect_remove_sn_from_char(victim, gsn_sleep);
 	affect_remove_sn_from_char(victim, gsn_curse);
 	affect_remove_sn_from_char(victim, gsn_fear);

@@ -799,7 +799,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && affect_find_in_char(rch, gsn_infravision))
+		         && affect_find_in_char(rch, gsn_night_vision))
 			stc("You see glowing eyes watching YOU!\n", ch);
 	}
 }
@@ -809,7 +809,7 @@ bool check_blind(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (affect_find_in_char(ch, gsn_blindness)) {
+	if (is_blinded(ch)) {
 		stc("You can't see a thing!\n", ch);
 		return FALSE;
 	}
@@ -2204,7 +2204,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 			else {
 				sprintf(buf + strlen(buf), "%-5s - %s",
 				        capitalize(dir_name[door]),
-				        (room_is_dark(pexit->u1.to_room) && !affect_find_in_char(ch, gsn_infravision)) || room_is_very_dark(pexit->u1.to_room)
+				        (room_is_dark(pexit->u1.to_room) && !affect_find_in_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
 				        : pexit->u1.to_room->name
 				       );

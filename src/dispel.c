@@ -48,7 +48,7 @@ const struct dispel_type dispel_table[] = {
 	{ &gsn_giant_strength,      TRUE,  TRUE,  TRUE,  "$n no longer looks so mighty."                 },
 	{ &gsn_haste,               TRUE,  TRUE,  TRUE,  "$n is no longer moving so quickly."            },
 	{ &gsn_hex,                 TRUE,  FALSE, FALSE, NULL                                            },
-	{ &gsn_infravision,         TRUE,  TRUE,  TRUE,  NULL                                            },
+	{ &gsn_night_vision,         TRUE,  TRUE,  TRUE,  NULL                                            },
 	{ &gsn_invis,               TRUE,  TRUE,  TRUE,  "$n fades into existance."                      },
 //	{ &gsn_ironskin,            TRUE,  FALSE, FALSE, NULL                                            },
 	{ &gsn_mass_invis,          TRUE,  TRUE,  TRUE,  "$n fades into existance."                      },

@@ -1658,10 +1658,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'r':
 			if (ch->in_room != NULL)
 				sprintf(buf2, "%s",
-				        (IS_IMMORTAL(ch) ||
-				         (!affect_find_in_char(ch, gsn_blindness) &&
-				          !room_is_dark(ch->in_room)))
-				        ? ch->in_room->name : "darkness");
+				        can_see_in_room(ch, ch->in_room) ? ch->in_room->name : "darkness");
 			else
 				sprintf(buf2, " ");
 

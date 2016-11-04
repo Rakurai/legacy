@@ -1537,7 +1537,7 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"infravision",          {  9, 13, 10, 16,  9, 13, 10, 16 },
 		{  1,  1,  2,  2,  1,  1,  2,  2 },
 		spell_infravision,      TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_infravision,       SLOT(77),       5,      18,
+		&gsn_night_vision,       SLOT(77),       5,      18,
 		"",                     "You no longer see in the dark.",       "",     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
@@ -2438,14 +2438,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		&gsn_die_hard, SLOT(0), 0, 4,
 		"", "", "", 0,
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
-	},
-	{  // TODO: need to have a way to add gsns with no attached skill
-		"night vision",                { -1, -1, -1, -1, -1, -1, -1, -1 },
-		{ -1, -1, -1, -1, -1, -1, -1, -1 },
-		spell_null,            TAR_IGNORE,     POS_RESTING,
-		&gsn_night_vision,             SLOT(0),        15,     12,
-		"",        "You can no longer see in the dark.",      "",     -1,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
 	/* Remort spells and skills, originally by Elrac */
