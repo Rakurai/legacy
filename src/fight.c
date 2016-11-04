@@ -1216,10 +1216,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	/* Inviso attacks ... not. */
 	if (affect_find_in_char(ch, gsn_invis)
-	 || affect_find_in_char(ch, gsn_midnight)
-	 || affect_find_in_char(ch, gsn_mass_invis)) {
+	 || affect_find_in_char(ch, gsn_midnight)) {
 		affect_remove_sn_from_char(ch, gsn_invis);
-		affect_remove_sn_from_char(ch, gsn_mass_invis);
 		affect_remove_sn_from_char(ch, gsn_midnight);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}

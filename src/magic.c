@@ -3458,12 +3458,10 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		if (!affect_find_in_char(ich, gsn_hide)
 		    && !affect_find_in_char(ich, gsn_sneak)
 		    && !affect_find_in_char(ich, gsn_invis)
-		    && !affect_find_in_char(ich, gsn_mass_invis)
 		    && !affect_find_in_char(ich, gsn_midnight))
 			continue;
 
 		affect_remove_sn_from_char(ich, gsn_invis);
-		affect_remove_sn_from_char(ich, gsn_mass_invis);
 		affect_remove_sn_from_char(ich, gsn_sneak);
 		affect_remove_sn_from_char(ich, gsn_hide);
 		affect_remove_sn_from_char(ich, gsn_midnight);
@@ -4469,7 +4467,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		stc("You slowly fade out of existence.\n", gch);
 
 		affect_add_sn_to_char(gch,
-			sn,
+			gsn_invis,
 			level/2,
 			24,
 			evolution,

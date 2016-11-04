@@ -186,7 +186,6 @@ void affect_add_sn_to_char(CHAR_DATA *ch, sh_int sn, sh_int level, sh_int durati
 		{ gsn_night_vision,         APPLY_NONE,    0,               1 },
 		{ gsn_invis,               APPLY_NONE,    0,               1 },
 //		{ gsn_ironskin,            APPLY_AC,      -100,            1 },
-		{ gsn_mass_invis,          APPLY_NONE,    0,               1 },
 		{ gsn_midnight,            APPLY_NONE,    0,               1 },
 		{ gsn_paralyze,            APPLY_NONE,    0,               1 },
 		{ gsn_pass_door,           APPLY_NONE,    0,               1 },

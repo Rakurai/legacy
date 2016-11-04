@@ -1490,7 +1490,6 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 void do_visible(CHAR_DATA *ch, const char *argument)
 {
 	affect_remove_sn_from_char(ch, gsn_invis);
-	affect_remove_sn_from_char(ch, gsn_mass_invis);
 	affect_remove_sn_from_char(ch, gsn_sneak);
 	affect_remove_sn_from_char(ch, gsn_hide);
 	affect_remove_sn_from_char(ch, gsn_midnight);
