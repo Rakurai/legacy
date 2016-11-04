@@ -524,10 +524,7 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 		char_to_room(ch, duel->arena->defprep);
 
 	// strip spells
-	for (int sn = 0; sn < MAX_SKILL; sn++)
-		affect_remove_sn_from_char(ch, sn);
-
-	// TODO: add back eq affects/flags
+	affect_remove_all_from_char(ch, FALSE);
 
 	ch->hit  = ATTR_BASE(ch, APPLY_HIT);
 	ch->mana = ATTR_BASE(ch, APPLY_MANA);

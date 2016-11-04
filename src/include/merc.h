@@ -3686,7 +3686,6 @@ bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 const char *  item_type_name  args(( OBJ_DATA *obj ) );
 const char *  affect_loc_name args(( int location ) );
 const char *  defense_loc_name args(( int location ) );
-const char *  affect_bit_name args(( int vector ) );
 const char *  extra_bit_name  args(( int extra_flags ) );
 const char *  wiz_bit_name    args(( int wiz_flags ) );
 const char *  wear_bit_name   args(( int wear_flags ) );
@@ -3788,6 +3787,7 @@ void spell_imprint      args( ( int sn, int level, CHAR_DATA *ch, void *vo ));
 bool    saves_spell       args(( int level, CHAR_DATA *victim, int dam_type ) );
 bool    check_dispel_char args(( int dis_level, CHAR_DATA *victim, int sn, bool save ));
 bool    check_dispel_obj  args(( int dis_level, OBJ_DATA *obj, int sn, bool save ));
+bool    undo_spell        args(( int dis_level, CHAR_DATA *victim, int sn, bool save ));
 bool    dispel_char       args(( CHAR_DATA *victim, int level, bool cancellation ));
 bool    level_save        args(( int dis_level, int save_level));
 

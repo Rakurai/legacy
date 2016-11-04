@@ -1991,18 +1991,16 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 
 	if (obj->value[3] != 0) {
 		/* The drink was poisoned! */
-		AFFECT_DATA af = (AFFECT_DATA){0};
 		act("$n turns six shades of green and collapses.", ch, NULL, NULL, TO_ROOM);
 		stc("You turn six shades of green and collapse.\n", ch);
-		af.where        = TO_AFFECTS;
-		af.type         = gsn_poison;
-		af.level        = number_fuzzy(amount);
-		af.duration     = 3 * amount;
-		af.location     = APPLY_NONE;
-		af.modifier     = 0;
-		af.bitvector    = AFF_POISON;
-		af.evolution    = 1;
-		affect_join_to_char(ch, &af);
+
+		affect_add_sn_to_char(ch,
+			gsn_poison,
+			number_fuzzy(amount),
+			amount * 3,
+			1,
+			FALSE
+		);
 	}
 
 	if (obj->value[0] > 0) {
@@ -2121,16 +2119,14 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 
 			if (op->value[3] != 0) {
 				/* The food was poisoned! */
-				AFFECT_DATA af = (AFFECT_DATA){0};
-				af.where     = TO_AFFECTS;
-				af.type      = gsn_poison;
-				af.level     = number_fuzzy(op->level);
-				af.duration  = op->level;
-				af.location  = APPLY_STR;
-				af.modifier  = -1;
-				af.bitvector = AFF_POISON;
-				af.evolution = 1;
-				affect_join_to_char(ch, &af);
+				affect_add_sn_to_char(ch,
+					gsn_poison,
+					number_fuzzy(op->level),
+					op->level,
+					1,
+					FALSE
+				);
+
 				fPoisoned    = TRUE;
 			}
 		}

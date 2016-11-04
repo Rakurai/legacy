@@ -14,51 +14,46 @@ extern bool     global_quick;
 void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("Your armor is already coated with magical steel.\n", ch);
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	af.modifier  = 0;
-	af.bitvector = 0;
-	af.location  = APPLY_SHEEN;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level,
+		evolution,
+		FALSE
+	);
+
 	stc("A protective sheen covers your armor.\n", victim);
 }
 
 void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("Your spells are already focused.\n", ch);
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 3;
-	af.modifier  = 0;
-	af.location  = APPLY_FOCUS;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level / 3,
+		evolution,
+		FALSE
+	);
+
 	stc("You focus on your magic -- you feel more deadly!\n", victim);
 }
 
 void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (ch == victim) {
 		stc("That wouldn't be very smart now, would it?\n", ch);
@@ -75,15 +70,14 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = ch->level;
-	af.duration  = level / 20;
-	af.modifier  = 0;
-	af.location  = APPLY_NONE;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level / 20,
+		evolution,
+		FALSE
+	);
+
 	stc("You can't move anymore!\n", victim);
 	act("$n seems paralyzed!", victim, NULL, NULL, TO_ROOM);
 }
@@ -91,22 +85,20 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("Your skin is already hard as iron.\n", ch);
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	af.modifier  = -100;
-	af.location  = APPLY_AC;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level,
+		evolution,
+		FALSE
+	);
+
 	stc("Your skin takes on the consistency of iron.\n", victim);
 }
 
@@ -115,22 +107,20 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("You are already surrounded by a barrier.\n", ch);
 		return;
 	}
 
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 5;
-	af.modifier  = 0;
-	af.location  = APPLY_BARRIER;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level / 5,
+		evolution,
+		FALSE
+	);
+
 	stc("You are surrounded by a protective barrier.\n", victim);
 }
 
@@ -138,7 +128,6 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 	int chance;
 
 	if (ch == victim && ch->fighting != NULL)
@@ -187,15 +176,15 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		act("Your flash dazzles $N's eyes, and the fight stops.", ch, NULL, victim, TO_CHAR);
 		act("A brilliant flash of light dazzles your eyes, and the fighting stops.",
 		    ch, NULL, victim, TO_VICT);
-		af.where        = TO_AFFECTS;
-		af.type         = gsn_dazzle;
-		af.level        = ch->level;
-		af.duration     = 0;
-		af.location     = APPLY_HITROLL;
-		af.modifier     = 0;
-		af.bitvector    = AFF_BLIND;
-		af.evolution = evolution;
-		affect_copy_to_char(victim, &af);
+
+		affect_add_sn_to_char(victim,
+			sn,
+			level,
+			0,
+			evolution,
+			FALSE
+		);
+
 		stop_fighting(ch, TRUE);
 		return;
 	}
@@ -254,7 +243,6 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn) && (victim == ch)) {
 		stc("You fail to invade the shadows further.\n", ch);
@@ -263,15 +251,14 @@ void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 
 	stc("You blend into the night.\n", victim);
 	act("$n vanishes into the shadows.", victim, NULL, NULL, TO_ROOM);
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 2;
-	af.modifier  = 0;
-	af.location  = APPLY_NONE;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		2,
+		evolution,
+		FALSE
+	);
 }
 
 /*** NECRO ***/
@@ -325,7 +312,6 @@ void spell_pain(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (ch == victim) {
 		stc("Mortal fear of the dark gods prevents you from hexing yourself.\n", ch);
@@ -340,30 +326,29 @@ void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	act("Unholy darkness surrounds $N, guiding your attacks.", ch, NULL, victim, TO_CHAR);
 	act("$N is surrounded by a dark mist.", ch, NULL, victim, TO_NOTVICT);
 	act("An unholy mist surrounds you.", ch, NULL, victim, TO_VICT);
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level / 30;
-	af.location  = APPLY_AC;
-	af.modifier  = 3 * level;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level / 30,
+		evolution,
+		FALSE
+	);
 }
 
 /* Bone Wall */
 void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
-	AFFECT_DATA af = (AFFECT_DATA){0};
-	af.where        = TO_AFFECTS;
-	af.type         = sn;
-	af.level        = level;
-	af.duration     = level;
-	af.location     = APPLY_NONE;
-	af.modifier     = 0;
-	af.bitvector    = 0;
-	af.evolution    = evolution;
-	affect_copy_to_char(ch, &af);
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		level,
+		evolution,
+		FALSE
+	);
+
 	stc("Bones lift from the ground and begin to swirl around you.\n", ch);
 	act("Bones lift from the ground and begin to swirl around $n.", ch, NULL, NULL, TO_ROOM);
 }
@@ -373,7 +358,6 @@ void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("You are already protected by the force.\n", ch);
@@ -382,15 +366,14 @@ void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 
 	act("$n is surrounded by a mystical aura.", victim, NULL, NULL, TO_ROOM);
 	stc("You are surrounded by a mystical aura.\n", victim);
-	af.where     = TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = 2;
-	af.modifier  = 0;
-	af.location  = APPLY_AC;
-	af.bitvector = 0;
-	af.evolution = evolution;
-	affect_copy_to_char(victim, &af);
+
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		2,
+		evolution,
+		FALSE
+	);
 }
 
 /* Holy Sword by Montrey */

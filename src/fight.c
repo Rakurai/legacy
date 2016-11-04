@@ -1010,16 +1010,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 				stc("You feel poison coursing through your veins.\n", victim);
 				act("$n is poisoned by the venom on $p.", victim, wield, NULL, TO_ROOM);
 
-				AFFECT_DATA af = (AFFECT_DATA){0};
-				af.where     = TO_AFFECTS;
-				af.type      = gsn_poison;
-				af.level     = level;
-				af.duration  = level / 2;
-				af.location  = APPLY_STR;
-				af.modifier  = -1;
-				af.bitvector = AFF_POISON;
-				af.evolution = evolution;
-				affect_join_to_char(victim, &af);
+				affect_add_sn_to_char(victim,
+					gsn_poison,
+					level,
+					level / 2,
+					evolution,
+					FALSE
+				);
 			}
 
 			/* weaken the poison if it's temporary */
@@ -2699,7 +2696,7 @@ void raw_kill(CHAR_DATA *victim)
 		return;
 	}
 
-	affect_remove_all_from_char(victim);
+	affect_remove_all_from_char(victim, FALSE);
 
 	if (victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
@@ -3181,24 +3178,13 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		act("$n gets a wild look in $s eyes.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_berserk, TRUE, 2);
 
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where        = TO_AFFECTS;
-		af.type         = gsn_berserk;
-		af.level        = ch->level;
-		af.duration     = number_fuzzy(ch->level / 8);
-		af.bitvector    = AFF_BERSERK;
-		af.evolution    = get_evolution(ch, gsn_berserk);
-		af.modifier     = IS_NPC(ch) ? ch->level / 8 : GET_HITROLL(ch) / 5;
-		af.location     = APPLY_HITROLL;
-		affect_copy_to_char(ch, &af);
-
-		af.modifier     = IS_NPC(ch) ? ch->level / 8 : GET_HITROLL(ch) / 5;
-		af.location     = APPLY_DAMROLL;
-		affect_copy_to_char(ch, &af);
-
-		af.modifier     = UMAX(10, 10 * (ch->level / 5));
-		af.location     = APPLY_AC;
-		affect_copy_to_char(ch, &af);
+		affect_add_sn_to_char(ch,
+			gsn_berserk,
+			ch->level,
+			number_fuzzy(ch->level / 8),
+			get_evolution(ch, gsn_berserk),
+			FALSE
+		);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -3498,16 +3484,13 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_dirt_kicking, TRUE, 2);
 		WAIT_STATE(ch, skill_table[gsn_dirt_kicking].beats);
 
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where        = TO_AFFECTS;
-		af.type         = gsn_dirt_kicking;
-		af.level        = ch->level;
-		af.duration     = 0;
-		af.location     = APPLY_HITROLL;
-		af.modifier     = -4;
-		af.bitvector    = AFF_BLIND;
-		af.evolution    = get_evolution(ch, gsn_dirt_kicking);
-		affect_copy_to_char(victim, &af);
+		affect_add_sn_to_char(victim,
+			gsn_dirt_kicking,
+			ch->level,
+			0,
+			get_evolution(ch, gsn_dirt_kicking),
+			FALSE
+		);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, NULL, victim, TO_CHAR);
@@ -3992,16 +3975,13 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	add_follower(victim, ch);
 	victim->leader = ch;
 
-	AFFECT_DATA af = (AFFECT_DATA){0};
-	af.where     = TO_AFFECTS;
-	af.type      = gsn_charm_person;
-	af.level     = ch->level;
-	af.duration  = number_fuzzy(ch->level / 4);
-	af.location  = 0;
-	af.modifier  = 0;
-	af.bitvector = AFF_CHARM;
-	af.evolution = get_evolution(ch, gsn_sing);
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		gsn_charm_person,
+		ch->level,
+		number_fuzzy(ch->level/4),
+		get_evolution(ch, gsn_charm_person),
+		FALSE
+	);
 
 	act("Isn't $n's music beautiful?", ch, NULL, victim, TO_VICT);
 
@@ -4157,13 +4137,13 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_shadow_form, DAM_NONE, TRUE, FALSE);
 	}
 
-	AFFECT_DATA af;
-	af.where = TO_AFFECTS;
-	af.type = gsn_shadow_form;
-	af.level = ch->level;
-	af.duration = -1; // will be removed other ways
-	af.evolution = get_evolution(ch, gsn_shadow_form);
-	affect_copy_to_char(victim, &af);
+	affect_add_sn_to_char(victim,
+		gsn_shadow_form,
+		ch->level,
+		-1,
+		get_evolution(ch, gsn_shadow_form),
+		FALSE // TODO: is this right?
+	);
 } /* end do_shadow */
 
 void do_circle(CHAR_DATA *ch, const char *argument)
@@ -4919,20 +4899,13 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 		act("$n is lit on fire by a blue bolt of godly power.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_hammerstrike, TRUE, 2);
 
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where        = TO_AFFECTS;
-		af.type         = gsn_hammerstrike;
-		af.level        = ch->level;
-		af.duration     = number_fuzzy(ch->level / 15);
-		af.bitvector    = 0;
-		af.evolution    = get_evolution(ch, gsn_hammerstrike);
-		af.modifier     = get_true_hitroll(ch) / 4;
-		af.location     = APPLY_HITROLL;
-		affect_copy_to_char(ch, &af);
-
-		af.modifier     = get_true_damroll(ch) / 4;
-		af.location     = APPLY_DAMROLL;
-		affect_copy_to_char(ch, &af);
+		affect_add_sn_to_char(ch,
+			gsn_hammerstrike,
+			ch->level,
+			number_fuzzy(ch->level/15),
+			get_evolution(ch, gsn_hammerstrike),
+			FALSE
+		);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);

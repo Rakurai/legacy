@@ -159,6 +159,7 @@ sh_int  gsn_holy_word;
 sh_int  gsn_identify;
 sh_int  gsn_infravision;
 sh_int  gsn_invis;
+//sh_int  gsn_ironskin;
 sh_int  gsn_know_alignment;
 sh_int  gsn_light_of_truth;
 sh_int  gsn_lightning_bolt;
@@ -936,8 +937,10 @@ void load_mobiles(FILE *fp)
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
 		pMobIndex->act                  = fread_flag(fp) | race_table[pMobIndex->race].act;
-		pMobIndex->affect_flags         = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].aff;
+
+		// affect flags no longer includes flags already on the race affect bitvector
+		pMobIndex->affect_flags         = fread_flag(fp) & ~race_table[pMobIndex->race].aff;
+
 		pMobIndex->pShop                = NULL;
 		pMobIndex->alignment            = fread_number(fp);
 		pMobIndex->group                = fread_flag(fp);
@@ -971,19 +974,11 @@ void load_mobiles(FILE *fp)
 		pMobIndex->off_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].off;
 
-		pMobIndex->absorb_flags          = 0; /* fix when we change the area versions */
-		pMobIndex->imm_flags            = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].imm;
-
-		if (IS_SET(pMobIndex->imm_flags, A)) {
-			REMOVE_BIT(pMobIndex->imm_flags, A); // old imm_summon bit
-			SET_BIT(pMobIndex->act, ACT_NOSUMMON);
-		}
-
-		pMobIndex->res_flags            = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].res;
-		pMobIndex->vuln_flags           = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].vuln;
+		// defense flags no longer includes flags already on the race bitvector
+		pMobIndex->absorb_flags         = 0; /* fix when we change the area versions */
+		pMobIndex->imm_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].imm;
+		pMobIndex->res_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].res;
+		pMobIndex->vuln_flags           = fread_flag(fp) & ~race_table[pMobIndex->race].vuln;
 
 		// fix old style IMM_SUMMON flag, changed to ACT_NOSUMMON
 		if (IS_SET(pMobIndex->imm_flags, A))

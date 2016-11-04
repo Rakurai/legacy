@@ -477,11 +477,14 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	affect_remove_all_from_char(victim);
-	// TODO: ensure reset to racial minimum
+	affect_remove_all_from_char(victim, TRUE); // racial and remort affect
+	affect_remove_all_from_char(victim, FALSE); // everything else
+
+	victim->race                    = race;
+
+	affect_add_racial_to_char(victim);
 
 	victim->level                   = 1;
-	victim->race                    = race;
 
 	victim->hit = ATTR_BASE(victim, APPLY_HIT)   = 20;
 	victim->mana = ATTR_BASE(victim, APPLY_MANA) = 100;
@@ -506,6 +509,8 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	victim->exp = exp_per_level(victim, victim->pcdata->points);
 
 	if (victim->pet != NULL) {
+		affect_remove_all_from_char(victim->pet, FALSE);
+
 		/* About the same stats as a Kitten */
 		victim->pet->level                      = 1;
 		victim->pet->hit = ATTR_BASE(victim->pet, APPLY_HIT) = 20;

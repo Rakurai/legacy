@@ -20,6 +20,7 @@ typedef int (*affect_comparator)(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs)
 int           affect_comparator_mark      args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
 int           affect_comparator_duration  args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
 int           affect_comparator_type      args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
+int           affect_comparator_permanent args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
 
 // callbacks (reusable ones, it's ok to create one within a compilation unit)
 int           affect_fn_fade_spell        args(( AFFECT_DATA *node, void *data ));
@@ -57,7 +58,9 @@ void                affect_join_to_obj               args(( OBJ_DATA *obj, AFFEC
 void                affect_join_to_char              args(( CHAR_DATA *ch, AFFECT_DATA *paf ));
 void                affect_join_to_room              args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ));
 void                affect_add_perm_to_char          args(( CHAR_DATA *ch, int sn ));
-void                affect_copy_flags_to_char        args(( CHAR_DATA *ch, char letter, unsigned int bitvector ));
+void                affect_copy_flags_to_char        args(( CHAR_DATA *ch, char letter, unsigned int bitvector, bool permanent ));
+void                affect_add_sn_to_char            args(( CHAR_DATA *ch, sh_int sn, sh_int level, sh_int duration, sh_int evolution, bool permanent ));
+void                affect_add_racial_to_char        args(( CHAR_DATA *ch ));
 
 // removing
 void                affect_remove_from_obj           args(( OBJ_DATA *obj, AFFECT_DATA *paf ));
@@ -73,7 +76,7 @@ void	            affect_remove_sn_from_obj        args(( OBJ_DATA *obj, int sn )
 void	            affect_remove_sn_from_char       args(( CHAR_DATA *ch, int sn ));
 void	            affect_remove_sn_from_room       args(( ROOM_INDEX_DATA *room, int sn ));
 void                affect_remove_all_from_obj       args(( OBJ_DATA *obj ));
-void                affect_remove_all_from_char      args(( CHAR_DATA *ch ));
+void                affect_remove_all_from_char      args(( CHAR_DATA *ch, bool permanent ));
 void                affect_remove_all_from_room      args(( ROOM_INDEX_DATA *room ));
 
 // modifying

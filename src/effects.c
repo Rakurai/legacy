@@ -213,18 +213,16 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* chill touch effect */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_COLD)) {
-			AFFECT_DATA af = (AFFECT_DATA){0};
 			act("$n turns blue and shivers.", victim, NULL, NULL, TO_ROOM);
 			act("A chill sinks deep into your bones.", victim, NULL, NULL, TO_CHAR);
-			af.where     = TO_AFFECTS;
-			af.type      = gsn_chill_touch;
-			af.level     = level;
-			af.duration  = 6;
-			af.location  = APPLY_STR;
-			af.modifier  = -1;
-			af.bitvector = 0;
-			af.evolution = URANGE(1, evolution - 1, 4);
-			affect_join_to_char(victim, &af);
+
+			affect_add_sn_to_char(victim,
+				gsn_chill_touch,
+				level,
+				6,
+				URANGE(1, evolution - 1, 4),
+				FALSE
+			);
 		}
 
 		/* hunger! (warmth sucked out) */
@@ -354,20 +352,18 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* chance of blindness */
 		if (!affect_find_in_char(victim, gsn_blindness)
-		    &&  !saves_spell(level / 4 + dam / 20, victim, DAM_FIRE)) {
-			AFFECT_DATA af = (AFFECT_DATA){0};
+		 && !saves_spell(level / 4 + dam / 20, victim, DAM_FIRE)) {
 			act("$n is blinded by smoke!", victim, NULL, NULL, TO_ROOM);
 			act("Your eyes tear up from smoke...you can't see a thing!",
 			    victim, NULL, NULL, TO_CHAR);
-			af.where        = TO_AFFECTS;
-			af.type         = gsn_fire_breath;
-			af.level        = level;
-			af.duration     = number_range(0, 2);
-			af.location     = APPLY_HITROLL;
-			af.modifier     = -4;
-			af.bitvector    = AFF_BLIND;
-			af.evolution    = URANGE(1, evolution - 1, 4);
-			affect_join_to_char(victim, &af);
+
+			affect_add_sn_to_char(victim,
+				gsn_fire_breath,
+				level,
+				number_range(0, 2),
+				URANGE(1, evolution - 1, 4),
+				FALSE
+			);
 		}
 
 		/* getting thirsty */
@@ -518,19 +514,17 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* chance of poisoning */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_POISON)) {
-			AFFECT_DATA af = (AFFECT_DATA){0};
 			stc("You feel poison coursing through your veins.\n",
 			    victim);
 			act("$n looks very ill.", victim, NULL, NULL, TO_ROOM);
-			af.where     = TO_AFFECTS;
-			af.type      = gsn_poison;
-			af.level     = level;
-			af.duration  = level / 2;
-			af.location  = APPLY_STR;
-			af.modifier  = -1;
-			af.bitvector = AFF_POISON;
-			af.evolution = URANGE(1, evolution - 1, 4);
-			affect_join_to_char(victim, &af);
+
+			affect_add_sn_to_char(victim,
+				gsn_poison,
+				level,
+				level / 2,
+				URANGE(1, evolution - 1, 4),
+				FALSE
+			);
 		}
 
 		/* equipment */

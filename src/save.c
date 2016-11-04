@@ -881,10 +881,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 
 		// permanent affects from race and raffects aren't saved (in case of changes),
 		// rebuild them now
-		affect_copy_flags_to_char(ch, 'A', race_table[ch->race].aff);
-		affect_copy_flags_to_char(ch, 'I', race_table[ch->race].imm);
-		affect_copy_flags_to_char(ch, 'R', race_table[ch->race].res);
-		affect_copy_flags_to_char(ch, 'V', race_table[ch->race].vuln);
+		affect_add_racial_to_char(ch);
 
 		extern void raff_add_to_char(CHAR_DATA *ch, int raff);
 		if (ch->pcdata->remort_count > 0)
@@ -1279,6 +1276,8 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Affc")) {
+					// these are the non-permanent affects (not racial or remort affect),
+					// those are added after the character is loaded
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
@@ -1296,6 +1295,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 						get_JSON_short(item, &af.location, "loc");
 						get_JSON_int(item, &af.bitvector, "bitv");
 						get_JSON_short(item, &af.evolution, "evo");
+						af.permanent = FALSE;
 
 						affect_copy_to_char(ch, &af);
 					}
@@ -1623,6 +1623,9 @@ void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 		bug("Memory error creating mob in fread_pet().", 0);
 		return;
 	}
+
+	// blow away any affects that are not permanent, from non-racial affect flags
+	affect_remove_all_from_char(pet, FALSE);
 
 	fread_char(pet, json, version);
 

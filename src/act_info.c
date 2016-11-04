@@ -3245,10 +3245,9 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
 		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
-			ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.\n",
+			ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours, level %d, evolve %d.\n",
 			    skill_table[(int) paf->type].name, affect_loc_name(paf->location),
-			    paf->modifier, paf->duration, affect_bit_name(paf->bitvector),
-			    paf->level, paf->evolution);
+			    paf->modifier, paf->duration, paf->level, paf->evolution);
 	}
 
 	diff = victim->level - ch->level;

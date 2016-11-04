@@ -1634,9 +1634,8 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		else
 			ptc(ch, " does something weird");
 
-		ptc(ch, " for %d hours with bits %s, level %d, evolve %d.{x\n",
+		ptc(ch, " for %d hours, level %d, evolve %d.{x\n",
 		    paf->duration + 1,
-		    affect_bit_name(paf->bitvector),
 		    paf->level,
 		    paf->evolution);
 	}

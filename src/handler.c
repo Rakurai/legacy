@@ -1958,79 +1958,6 @@ const char *affect_loc_name(int location)
 }
 
 /*
- * Return ascii name of an affect bit vector.
- */
-const char *affect_bit_name(int vector)
-{
-	static char buf[512];
-	buf[0] = '\0';
-
-	if (vector & AFF_BLIND) strcat(buf, " blind");
-
-	if (vector & AFF_INVISIBLE) strcat(buf, " invisible");
-
-	if (vector & AFF_DETECT_EVIL) strcat(buf, " detect_evil");
-
-	if (vector & AFF_DETECT_GOOD) strcat(buf, " detect_good");
-
-	if (vector & AFF_DETECT_INVIS) strcat(buf, " detect_invis");
-
-	if (vector & AFF_DETECT_MAGIC) strcat(buf, " detect_magic");
-
-	if (vector & AFF_DETECT_HIDDEN) strcat(buf, " detect_hidden");
-
-	if (vector & AFF_SANCTUARY) strcat(buf, " sanctuary");
-
-	if (vector & AFF_FAERIE_FIRE) strcat(buf, " faerie_fire");
-
-	if (vector & AFF_INFRARED) strcat(buf, " infrared");
-
-	if (vector & AFF_CURSE) strcat(buf, " curse");
-
-	if (vector & AFF_FEAR) strcat(buf, " fear");
-
-	if (vector & AFF_POISON) strcat(buf, " poison");
-
-	if (vector & AFF_PROTECT_EVIL) strcat(buf, " prot_evil");
-
-	if (vector & AFF_PROTECT_GOOD) strcat(buf, " prot_good");
-
-	if (vector & AFF_NIGHT_VISION) strcat(buf, " night_vision");
-
-	if (vector & AFF_SNEAK) strcat(buf, " sneak");
-
-	if (vector & AFF_HIDE) strcat(buf, " hide");
-
-	if (vector & AFF_CHARM) strcat(buf, " charm");
-
-	if (vector & AFF_FLYING) strcat(buf, " flying");
-
-	if (vector & AFF_PASS_DOOR) strcat(buf, " pass_door");
-
-	if (vector & AFF_BERSERK) strcat(buf, " berserk");
-
-	if (vector & AFF_CALM) strcat(buf, " calm");
-
-	if (vector & AFF_HASTE) strcat(buf, " haste");
-
-	if (vector & AFF_SLOW) strcat(buf, " slow");
-
-	if (vector & AFF_PLAGUE) strcat(buf, " plague");
-
-	if (vector & AFF_DIVINEREGEN) strcat(buf, " divreg");
-
-	if (vector & AFF_FLAMESHIELD) strcat(buf, " flameshield");
-
-	if (vector & AFF_REGENERATION) strcat(buf, " regen");
-
-	if (vector & AFF_TALON) strcat(buf, " talon");
-
-	if (vector & AFF_STEEL) strcat(buf, " steel_mist");
-
-	return (buf[0] != '\0') ? buf + 1 : "none";
-}
-
-/*
  * Return ascii name of extra flags vector.
  */
 const char *extra_bit_name(int extra_flags)
@@ -3021,6 +2948,7 @@ int get_play_seconds(CHAR_DATA *ch)
 	return (IS_NPC(ch) ? 0 : ch->pcdata->played);
 }
 
+// TODO: this doesn't take eq affects into account, but short of looping through those...
 /* used with affect_find_in_char, checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
 {

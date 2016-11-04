@@ -51,7 +51,8 @@ void affect_dedup_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf, affect_fn_p
 		 || paf_old->where != paf->where
 		 || paf_old->location != paf->location
 		 || (paf_old->duration == -1 && paf->duration != -1)
-		 || (paf_old->duration != -1 && paf->duration == -1))
+		 || (paf_old->duration != -1 && paf->duration == -1)
+		 || paf_old->permanent != paf->permanent)
 	 		continue;
 
 		paf->level     = UMAX(paf->level, paf_old->level);
@@ -88,6 +89,11 @@ void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator
 
 	for (paf = *list_head; paf; paf = paf_next) {
 		paf_next = paf->next;
+
+		// never remove permanent affects unless explicitly instructed
+		// removing nonpermanent affects is done with a permanent comparator below
+		if (paf->permanent && (pattern == NULL || !pattern->permanent))
+			continue;
 
 		if (comp == NULL || (*comp)(paf, pattern) == 0) {
 			affect_remove_from_list(list_head, paf);

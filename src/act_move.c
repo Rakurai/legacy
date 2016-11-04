@@ -1434,16 +1434,13 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (number_percent() < get_skill(ch, gsn_sneak)) {
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where     = TO_AFFECTS;
-		af.type      = gsn_sneak;
-		af.level     = ch->level;
-		af.duration  = ch->level;
-		af.location  = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = AFF_SNEAK;
-		af.evolution = get_evolution(ch, gsn_sneak);
-		affect_copy_to_char(ch, &af);
+		affect_add_sn_to_char(ch,
+			gsn_sneak,
+			ch->level,
+			ch->level,
+			get_evolution(ch, gsn_sneak),
+			FALSE
+		);
 		stc("You feel more stealthy.\n", ch);
 		check_improve(ch, gsn_sneak, TRUE, 3);
 	}
@@ -1471,16 +1468,13 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (number_percent() < get_skill(ch, gsn_hide)) {
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where     = TO_AFFECTS;
-		af.type      = gsn_hide;
-		af.level     = ch->level;
-		af.duration  = ch->level;
-		af.location  = APPLY_NONE;
-		af.modifier  = 0;
-		af.bitvector = AFF_HIDE;
-		af.evolution = get_evolution(ch, gsn_hide);
-		affect_copy_to_char(ch, &af);
+		affect_add_sn_to_char(ch,
+			gsn_hide,
+			ch->level,
+			ch->level,
+			get_evolution(ch, gsn_hide),
+			FALSE
+		);
 		stc("You blend into the surroundings.\n", ch);
 		check_improve(ch, gsn_hide, TRUE, 3);
 	}
@@ -3077,7 +3071,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 
 	/* check if we can fly naturally */
 	if (IS_SET(AFF_FLYING, race_table[ch->race].aff)) {
-		affect_add_perm_to_char(ch, AFF_FLYING);
+		affect_add_perm_to_char(ch, gsn_fly);
 		stc("You gracefully take to the air.\n", ch);
 		act("$n takes to the air.", ch, NULL, NULL, TO_ROOM);
 	}

@@ -539,10 +539,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		for (int stat = 0; stat < MAX_STATS; stat++)
 			ATTR_BASE(ch, stat_to_attr(stat)) = pc_race_table[race].stats[stat];
 
-		affect_copy_flags_to_char(ch, 'A', race_table[race].aff);
-		affect_copy_flags_to_char(ch, 'I', race_table[race].imm);
-		affect_copy_flags_to_char(ch, 'R', race_table[race].res);
-		affect_copy_flags_to_char(ch, 'V', race_table[race].vuln);
+		affect_add_racial_to_char(ch);
 
 		ch->form                = race_table[race].form;
 		ch->parts               = race_table[race].parts;

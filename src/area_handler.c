@@ -934,87 +934,14 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 
 	ATTR_BASE(mob, APPLY_STR) += mob->size - SIZE_MEDIUM;
 	ATTR_BASE(mob, APPLY_CON) += (mob->size - SIZE_MEDIUM) / 2;
-	/* let's get some spell action */
-	{
-		struct maff {
-			sh_int  sn;
-			sh_int  loc;
-			sh_int  mod;
-			unsigned int    bit;
-		};
-		const struct maff maff_table[] = {
-			{       gsn_blindness,          APPLY_HITROLL,  -4,             AFF_BLIND       },
-			{       gsn_invis,              APPLY_NONE,     0,              AFF_INVISIBLE   },
-			{       gsn_sanctuary,          APPLY_NONE,     0,              AFF_SANCTUARY   },
-			{       gsn_faerie_fire,        APPLY_AC,       mob->level * 2,   AFF_FAERIE_FIRE },
-			{       gsn_curse,              APPLY_HITROLL,  -mob->level / 8,  AFF_CURSE       },
-			{       gsn_curse,              APPLY_SAVES,    mob->level / 8,   AFF_CURSE       },
-			{       gsn_fear,               APPLY_HITROLL,  -mob->level / 10, AFF_FEAR        },
-			{       gsn_fear,               APPLY_DAMROLL,  -mob->level / 14, AFF_FEAR        },
-			{       gsn_fear,               APPLY_SAVES,    -mob->level / 16, AFF_FEAR        },
-			{       gsn_poison,             APPLY_STR,      -2,             AFF_POISON      },
-			{       gsn_protection_evil,    APPLY_SAVES,    -1,             AFF_PROTECT_EVIL},
-			{       gsn_protection_good,    APPLY_SAVES,    -1,             AFF_PROTECT_GOOD},
-			{       gsn_charm_person,       APPLY_NONE,     0,              AFF_CHARM       },
-			{       gsn_fly,                APPLY_NONE,     0,              AFF_FLYING      },
-			{       gsn_pass_door,          APPLY_NONE,     0,              AFF_PASS_DOOR   },
-//	{    gsn_haste,              APPLY_DEX,      mob->level/25+2,AFF_HASTE       },
-			{       gsn_haste,              APPLY_DEX,      0,              AFF_HASTE       },
-			{       gsn_calm,               APPLY_HITROLL,  -2,             AFF_CALM        },
-			{       gsn_calm,               APPLY_DAMROLL,  -2,             AFF_CALM        },
-			{       gsn_plague,             APPLY_STR,      -mob->level / 20 - 1, AFF_PLAGUE     },
-			{       gsn_steel_mist,         APPLY_AC,       -mob->level / 10, AFF_STEEL       },
-			{       gsn_divine_regeneration, APPLY_NONE,     0,              AFF_DIVINEREGEN },
-			{       gsn_berserk,            APPLY_HITROLL,  mob->level / 8,   AFF_BERSERK     },
-			{       gsn_berserk,            APPLY_DAMROLL,  mob->level / 8,   AFF_BERSERK     },
-			{       gsn_berserk,            APPLY_AC,       mob->level * 2,   AFF_BERSERK     },
-			{       gsn_flameshield,        APPLY_AC,       -20,            AFF_FLAMESHIELD },
-			{       gsn_regeneration,       APPLY_NONE,     0,              AFF_REGENERATION},
-//	{    gsn_slow,               APPLY_DEX,      -mob->level/25-2,AFF_SLOW       },
-			{       gsn_slow,               APPLY_DEX,      0,              AFF_SLOW        },
-			{       gsn_talon,              APPLY_NONE,     0,              AFF_TALON       },
-			{       0,                     0,              0,              0               }
-		};
 
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where = TO_AFFECTS;
-		af.level = mob->level;
-		af.duration = -1;
-		af.evolution = 1;
+	affect_add_racial_to_char(mob);
 
-		unsigned int bitvector = pMobIndex->affect_flags;
+	affect_copy_flags_to_char(mob, 'A', pMobIndex->affect_flags, FALSE); // dispellable
+	affect_copy_flags_to_char(mob, 'I', pMobIndex->imm_flags, TRUE);
+	affect_copy_flags_to_char(mob, 'R', pMobIndex->res_flags, TRUE);
+	affect_copy_flags_to_char(mob, 'V', pMobIndex->vuln_flags, TRUE);
 
-		for (i = 0; maff_table[i].sn > 0; i++) {
-			unsigned int bit = maff_table[i].bit;
-			if (IS_SET(bitvector, bit)) {
-				af.type      = maff_table[i].sn;
-				af.location  = maff_table[i].loc;
-				af.modifier  = maff_table[i].mod;
-				if (affect_parse_prototype('A', &af, &bit))
-					affect_copy_to_char(mob, &af);
-			}
-		}
-
-		// damage mod affects
-		af.type               = 0;
-		bitvector = pMobIndex->imm_flags;
-
-		while (bitvector != 0)
-			if (affect_parse_prototype('I', &af, &bitvector))
-				affect_copy_to_char(mob, &af); 
-
-		bitvector = pMobIndex->res_flags;
-
-		while (bitvector != 0)
-			if (affect_parse_prototype('R', &af, &bitvector))
-				affect_copy_to_char(mob, &af); 
-
-		bitvector = pMobIndex->vuln_flags;
-
-		while (bitvector != 0)
-			if (affect_parse_prototype('V', &af, &bitvector))
-				affect_copy_to_char(mob, &af); 
-	}
 	/* give em some stamina -- Montrey */
 	ATTR_BASE(mob, APPLY_STAM) = 100;
 
@@ -1110,7 +1037,8 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	for (int i = 0; i < 3; i++)
 		clone->damage[i]        = parent->damage[i];
 
-	affect_remove_all_from_char(clone);
+	affect_remove_all_from_char(clone, TRUE);
+	affect_remove_all_from_char(clone, FALSE);
 
 	for (const AFFECT_DATA *paf = affect_list_char(parent); paf != NULL; paf = paf->next)
 		affect_copy_to_char(clone, paf);

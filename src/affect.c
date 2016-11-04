@@ -31,7 +31,7 @@ int affect_fn_fade_spell(AFFECT_DATA *node, void *data) {
 }
 
 
-// comparators
+// comparators (remember equality returns 0, like strcmp)
 
 int affect_comparator_mark(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
 	return lhs->mark - rhs->mark;
@@ -45,6 +45,9 @@ int affect_comparator_type(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
 	return lhs->type - rhs->type;
 }
 
+int affect_comparator_permanent(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
+	return (lhs->permanent == rhs->permanent) ? 0 : 1;
+}
 
 // affect utilities
 
@@ -57,6 +60,7 @@ void affect_update(AFFECT_DATA *paf, const AFFECT_DATA *template) {
 	paf->modifier = template->modifier;
 	paf->bitvector = template->bitvector;
 	paf->evolution = template->evolution;
+	paf->permanent = template->permanent;
 }
 
 // calculate a checksum over the important parts of the AFFECT_DATA structure, for
