@@ -2421,7 +2421,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	ch->fighting = victim;
 
-	if (ch->wait == 0)
+	if (ch->wait == 0 && ch->position < POS_STANDING)
 		ch->position = POS_STANDING;
 } /* end set_fighting */
 
@@ -3416,12 +3416,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_FLYING))
-		/*
-		gsn_fly isn't used anywhere else, so I don't think we need it.
-		-- Outsider
-		|| get_affect(ch->affected, gsn_fly))
-		*/
+	if (IS_FLYING(ch))
 	{
 		stc("How do you expect to kick dirt while flying?\n", ch);
 		return;
@@ -3617,7 +3612,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_FLYING)) {
+	if (IS_FLYING(victim)) {
 		act("$S feet aren't on the ground.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -4482,7 +4477,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 
 		if (evo >= 3) {
 			if (get_position(victim) == POS_FIGHTING
-			    && !IS_AFFECTED(victim, AFF_FLYING)
+			    && !IS_FLYING(victim)
 			    && chance(30)) {
 				if (trip(ch, victim, skill, gsn_footsweep)) {
 					act("$n sweeps your feet out from under you!", ch, NULL, victim, TO_VICT);

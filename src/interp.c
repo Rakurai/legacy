@@ -715,6 +715,10 @@ void interpret(CHAR_DATA *ch, const char *argument)
 		case POS_FIGHTING:
 			stc("No way!  You are still fighting!\n", ch);
 			break;
+
+		case POS_STANDING:
+			stc("You can't do that from the ground.\n", ch);
+			break;
 		}
 
 		return;

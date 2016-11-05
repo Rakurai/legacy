@@ -125,31 +125,43 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			stc("{CYou begin to hold your breath.{x\n", ch);
 	}
 
-	if (in_room->sector_type == SECT_AIR
-	    || to_room->sector_type == SECT_AIR) {
-		if (!IS_AFFECTED(ch, AFF_FLYING) && !IS_IMMORTAL(ch)) {
+	if ((in_room->sector_type == SECT_AIR
+	  || to_room->sector_type == SECT_AIR)
+	 && !IS_FLYING(ch) 
+	 && !IS_IMMORTAL(ch)) {
+		if (CAN_FLY(ch))
+			do_fly(ch, ""); // try to take off
+		else
 			stc("You cannot fly!\n", ch);
+
+		if (!IS_FLYING(ch)) // still not flying?
 			return;
-		}
 	}
 
 	if ((in_room->sector_type == SECT_WATER_NOSWIM
-	     || to_room->sector_type == SECT_WATER_NOSWIM)
-	    && !IS_AFFECTED(ch, AFF_FLYING) && !IS_IMMORTAL(ch) && !get_skill(ch, gsn_swimming)) {
-		OBJ_DATA *obj;
+	  || to_room->sector_type == SECT_WATER_NOSWIM)
+	 && !IS_FLYING(ch)
+	 && !IS_IMMORTAL(ch)
+	 && !get_skill(ch, gsn_swimming)) {
+		// try to find a boat first
 		bool found = FALSE;
 
-		/* Look for a boat. */
-
-		for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
+		for (OBJ_DATA *obj = ch->carrying; obj != NULL; obj = obj->next_content)
 			if (obj->item_type == ITEM_BOAT) {
 				found = TRUE;
 				break;
 			}
 
 		if (!found) {
-			stc("You don't float well enough to walk on water.\n", ch);
-			return;
+			// no boat?  try to fly then
+			if (CAN_FLY(ch))
+				do_fly(ch, "");
+
+			// flying now?
+			if (!IS_FLYING(ch)) {
+				stc("You don't float well enough to walk on water.\n", ch);
+				return;
+			}
 		}
 	}
 
@@ -157,7 +169,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]) / 2;
 
 	/* conditional effects */
-	if (IS_AFFECTED(ch, AFF_FLYING) || IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_FLYING(ch) || IS_AFFECTED(ch, AFF_HASTE))
 		cost /= 2;
 
 	if (IS_AFFECTED(ch, AFF_SLOW))
@@ -220,7 +232,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
 			do_stand(fch, "");
 
-		if (fch->master == ch && get_position(fch) == POS_STANDING && can_see_room(fch, to_room)) {
+		if (fch->master == ch && get_position(fch) >= POS_STANDING && can_see_room(fch, to_room)) {
 			if (IS_NPC(fch) && IS_SET(fch->act, ACT_STAY))
 				continue;
 
@@ -1044,6 +1056,10 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		ch->position = POS_STANDING;
 		break;
 
+	case POS_FLYING:
+		do_land(ch, "");
+		break;
+
 	case POS_STANDING:
 		stc("You are already standing.\n", ch);
 		break;
@@ -1172,11 +1188,13 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 
 		ch->position = POS_RESTING;
 		break;
-	}
 
-	/* if we were flying, stop flying */
-	if (IS_AFFECTED(ch, AFF_FLYING))
-		do_land(ch, NULL);
+	case POS_FLYING:
+		do_land(ch, "");
+		if (get_position(ch) != POS_FLYING) // don't recurse if it fails
+			do_rest(ch, argument);
+		break;
+	}
 
 	return;
 }
@@ -1288,11 +1306,13 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 		ch->position = POS_SITTING;
 		break;
-	}
 
-	/* if we were flying, land */
-	if (IS_AFFECTED(ch, AFF_FLYING))
-		do_land(ch, NULL);
+	case POS_FLYING:
+		do_land(ch, "");
+		if (get_position(ch) != POS_FLYING) // don't recurse if it fails
+			do_sit(ch, argument);
+		break;
+	}
 
 	return;
 }
@@ -1371,11 +1391,13 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 	case POS_FIGHTING:
 		stc("I doubt this fight is THAT boring!\n", ch);
 		break;
-	}
 
-	/* don't sleep while flying */
-	if (IS_AFFECTED(ch, AFF_FLYING))
-		do_land(ch, NULL);
+	case POS_FLYING:
+		do_land(ch, "");
+		if (get_position(ch) != POS_FLYING) // don't recurse if it fails
+			do_sleep(ch, argument);
+		break;
+	}
 
 	return;
 }
@@ -1409,8 +1431,11 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 
 	act_new("$n rudely awakes you from your peaceful slumber.",
 	        ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
-	do_stand(victim, "");
-	return;
+
+	if (CAN_FLY(victim))
+		do_fly(victim, "");
+	else
+		do_stand(victim, "");
 }
 
 void do_sneak(CHAR_DATA *ch, const char *argument)
@@ -2085,67 +2110,75 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if (victim->in_room->sector_type == SECT_AIR) {
-		if (!IS_AFFECTED(victim, AFF_FLYING)
+		if (!IS_FLYING(victim)
 		    && victim->in_room->exit[DIR_DOWN]) {
-			int count = 0;  /* just to prevent an infinite loop */
-			long brief = IS_SET(victim->comm, COMM_BRIEF);
+
 			sprintf(buf, "$n stumbles into the emptiness from %s.", dir_buf);
 			act(buf, victim, NULL, NULL, TO_ROOM);
-			SET_BIT(victim->comm, COMM_BRIEF);
 
-			while (victim->in_room->sector_type == SECT_AIR
-			       && !IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)
-			       && victim->in_room->exit[DIR_DOWN]
-			       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
-			       && count++ < 10) {
-				ROOM_INDEX_DATA *around, *old = victim->in_room;
-				act("$n screams and falls down...", victim, NULL, NULL, TO_ROOM);
-				do_look(victim, "auto");
-				char_from_room(victim);
+			// try to fly
+			if (CAN_FLY(victim))
+				do_fly(victim, "");
 
-				/* echo in the cardinal directions */
-				for (dir = 0; dir < 4; dir++) {
-					if (old->exit[dir] == NULL
-					    || (around = old->exit[dir]->u1.to_room) == NULL
-					    || around->exit[rev_dir[dir]] == NULL
-					    || around->exit[rev_dir[dir]]->u1.to_room != old)
-						continue;
+			if (!IS_FLYING(victim)) {
+				int count = 0;  /* just to prevent an infinite loop */
+				long brief = IS_SET(victim->comm, COMM_BRIEF);
+				SET_BIT(victim->comm, COMM_BRIEF);
 
-					char_to_room(victim, old->exit[dir]->u1.to_room);
-					sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
-					        dir_name[rev_dir[dir]]);
-					act(buf, victim, NULL, NULL, TO_ROOM);
+				while (victim->in_room->sector_type == SECT_AIR
+				       && !IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)
+				       && victim->in_room->exit[DIR_DOWN]
+				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
+				       && count++ < 10) {
+					ROOM_INDEX_DATA *around, *old = victim->in_room;
+					act("$n screams and falls down...", victim, NULL, NULL, TO_ROOM);
+					do_look(victim, "auto");
 					char_from_room(victim);
+
+					/* echo in the cardinal directions */
+					for (dir = 0; dir < 4; dir++) {
+						if (old->exit[dir] == NULL
+						    || (around = old->exit[dir]->u1.to_room) == NULL
+						    || around->exit[rev_dir[dir]] == NULL
+						    || around->exit[rev_dir[dir]]->u1.to_room != old)
+							continue;
+
+						char_to_room(victim, old->exit[dir]->u1.to_room);
+						sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
+						        dir_name[rev_dir[dir]]);
+						act(buf, victim, NULL, NULL, TO_ROOM);
+						char_from_room(victim);
+					}
+
+					char_to_room(victim, old);
+
+					if (count == 1)
+						stc("\nYou scream as you realize there is air under your feet, and fall down!\n\n", victim);
+					else
+						stc("\nYou keep falling....\n\n", victim);
+
+					char_from_room(victim);
+					char_to_room(victim, to_room);
+					act("You hear a scream, and look up to see $n hurtling in from above!",
+					    victim, NULL, NULL, TO_ROOM);
 				}
 
-				char_to_room(victim, old);
+				if (!brief)
+					REMOVE_BIT(victim->comm, COMM_BRIEF);
 
-				if (count == 1)
-					stc("\nYou scream as you realize there is air under your feet, and fall down!\n\n", victim);
-				else
-					stc("\nYou keep falling....\n\n", victim);
+				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
+				    || victim->in_room->sector_type == SECT_WATER_SWIM
+				    || IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)) {
+					stc("You spash down HARD in the water.  OW!!\n\n", victim);
+					act("$n spashes down HARD in the water.", victim, NULL, NULL, TO_ROOM);
 
-				char_from_room(victim);
-				char_to_room(victim, to_room);
-				act("You hear a scream, and look up to see $n hurtling in from above!",
-				    victim, NULL, NULL, TO_ROOM);
-			}
-
-			if (!brief)
-				REMOVE_BIT(victim->comm, COMM_BRIEF);
-
-			if (victim->in_room->sector_type == SECT_WATER_NOSWIM
-			    || victim->in_room->sector_type == SECT_WATER_SWIM
-			    || IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)) {
-				stc("You spash down HARD in the water.  OW!!\n\n", victim);
-				act("$n spashes down HARD in the water.", victim, NULL, NULL, TO_ROOM);
-
-				if (IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER))
-					stc("{CYou begin to hold your breath.{x\n", victim);
-			}
-			else {
-				stc("The ground finally breaks your fall.  OW!!\n\n", victim);
-				act("$n crash lands HARD on the ground.", victim, NULL, NULL, TO_ROOM);
+					if (IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER))
+						stc("{CYou begin to hold your breath.{x\n", victim);
+				}
+				else {
+					stc("The ground finally breaks your fall.  OW!!\n\n", victim);
+					act("$n crash lands HARD on the ground.", victim, NULL, NULL, TO_ROOM);
+				}
 			}
 		}
 		else {
@@ -2258,10 +2291,15 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (to_room->sector_type == SECT_AIR
-	    && !IS_AFFECTED(ch, AFF_FLYING)
-	    && !IS_IMMORTAL(ch)) {
-		stc("You cannot fly!\n", ch);
-		return;
+	 && !IS_FLYING(ch)
+	 && !IS_IMMORTAL(ch)) {
+		if (CAN_FLY(ch))
+			do_fly(ch, "");
+		else
+			stc("You cannot fly!\n", ch);
+
+		if (!IS_FLYING(ch))
+			return;
 	}
 
 	if (IS_SET(to_room->room_flags, ROOM_LAW)) {
@@ -2281,7 +2319,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]);
 
 	/* conditional effects */
-	if (IS_AFFECTED(ch, AFF_FLYING) || IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_FLYING(ch) || IS_AFFECTED(ch, AFF_HASTE))
 		cost /= 2;
 
 	if (IS_AFFECTED(ch, AFF_SLOW))
@@ -2396,89 +2434,97 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if (victim->in_room->sector_type == SECT_AIR) {
-		if (!IS_AFFECTED(victim, AFF_FLYING)
-		    && victim->in_room->exit[DIR_DOWN]) {
-			int count = 0;  /* just to prevent an infinite loop */
-			long brief = IS_SET(victim->comm, COMM_BRIEF);
+		if (!IS_FLYING(victim)
+		 && victim->in_room->exit[DIR_DOWN]) {
+
 			sprintf(buf, "$n drags $N into the emptiness from %s.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
-			SET_BIT(victim->comm, COMM_BRIEF);
 
-			while (victim->in_room->sector_type == SECT_AIR
-			       && !IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)
-			       && victim->in_room->exit[DIR_DOWN]
-			       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
-			       && count++ < 10) {
-				if (IS_AWAKE(victim)) {
-					ROOM_INDEX_DATA *around, *old = victim->in_room;
-					act("$n screams and falls down...", victim, NULL, NULL, TO_ROOM);
-					do_look(victim, "auto");
-					char_from_room(victim);
+			if (CAN_FLY(victim)
+			 && IS_AWAKE(victim))
+				do_fly(victim, "");
 
-					/* echo in the cardinal directions */
-					for (dir = 0; dir < 4; dir++) {
-						if (old->exit[dir] == NULL
-						    || (around = old->exit[dir]->u1.to_room) == NULL
-						    || around->exit[rev_dir[dir]] == NULL
-						    || around->exit[rev_dir[dir]]->u1.to_room != old)
-							continue;
+			if (!IS_FLYING(victim)) {
+				int count = 0;  /* just to prevent an infinite loop */
+				long brief = IS_SET(victim->comm, COMM_BRIEF);
+				SET_BIT(victim->comm, COMM_BRIEF);
 
-						char_to_room(victim, old->exit[dir]->u1.to_room);
-						sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
-						        dir_name[rev_dir[dir]]);
-						act(buf, victim, NULL, NULL, TO_ROOM);
+				while (victim->in_room->sector_type == SECT_AIR
+				       && !IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)
+				       && victim->in_room->exit[DIR_DOWN]
+				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
+				       && count++ < 10) {
+					if (IS_AWAKE(victim)) {
+						ROOM_INDEX_DATA *around, *old = victim->in_room;
+						act("$n screams and falls down...", victim, NULL, NULL, TO_ROOM);
+						do_look(victim, "auto");
 						char_from_room(victim);
+
+						/* echo in the cardinal directions */
+						for (dir = 0; dir < 4; dir++) {
+							if (old->exit[dir] == NULL
+							    || (around = old->exit[dir]->u1.to_room) == NULL
+							    || around->exit[rev_dir[dir]] == NULL
+							    || around->exit[rev_dir[dir]]->u1.to_room != old)
+								continue;
+
+							char_to_room(victim, old->exit[dir]->u1.to_room);
+							sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
+							        dir_name[rev_dir[dir]]);
+							act(buf, victim, NULL, NULL, TO_ROOM);
+							char_from_room(victim);
+						}
+
+						char_to_room(victim, old);
+
+						if (count == 1)
+							stc("\nYou scream as you realize there is air under your feet, and fall down!\n\n", victim);
+						else
+							stc("\nYou keep falling....\n\n", victim);
+					}
+					else {
+						act("$N falls down...", ch, NULL, victim, TO_NOTVICT);
+
+						if (count == 1)
+							stc("You have an unsettling dream about falling...\n", victim);
 					}
 
-					char_to_room(victim, old);
+					to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room;
+					char_from_room(victim);
+					char_to_room(victim, to_room);
 
-					if (count == 1)
-						stc("\nYou scream as you realize there is air under your feet, and fall down!\n\n", victim);
+					if (IS_AWAKE(victim))
+						act("You hear a scream, and look up to see $n hurtling in from above!",
+						    victim, NULL, NULL, TO_ROOM);
 					else
-						stc("\nYou keep falling....\n\n", victim);
+						act("$n falls in from above.", victim, NULL, NULL, TO_ROOM);
+				}
+
+				if (!brief)
+					REMOVE_BIT(victim->comm, COMM_BRIEF);
+
+				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
+				    || victim->in_room->sector_type == SECT_WATER_SWIM
+				    || IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)) {
+					if (IS_AWAKE(victim))
+						stc("You spash down HARD in the water.  OW!!\n\n", victim);
+					else
+						stc("You are awakened by a mind numbing slap of water as you splash down!\n\n", victim);
+
+					act("$n spashes down HARD in the water.", victim, NULL, NULL, TO_ROOM);
 				}
 				else {
-					act("$N falls down...", ch, NULL, victim, TO_NOTVICT);
+					if (IS_AWAKE(victim))
+						stc("The ground finally breaks your fall.  OW!!\n\n", victim);
+					else
+						stc("You are awakened as you crash HARD into the ground!\n\n", victim);
 
-					if (count == 1)
-						stc("You have an unsettling dream about falling...\n", victim);
+					act("$n crash lands HARD on the ground.", victim, NULL, NULL, TO_ROOM);
 				}
 
-				to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room;
-				char_from_room(victim);
-				char_to_room(victim, to_room);
-
-				if (IS_AWAKE(victim))
-					act("You hear a scream, and look up to see $n hurtling in from above!",
-					    victim, NULL, NULL, TO_ROOM);
-				else
-					act("$n falls in from above.", victim, NULL, NULL, TO_ROOM);
+				affect_strip(victim, gsn_sleep);
+				victim->position = POS_STANDING;
 			}
-
-			if (!brief)
-				REMOVE_BIT(victim->comm, COMM_BRIEF);
-
-			if (victim->in_room->sector_type == SECT_WATER_NOSWIM
-			    || victim->in_room->sector_type == SECT_WATER_SWIM
-			    || IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)) {
-				if (IS_AWAKE(victim))
-					stc("You spash down HARD in the water.  OW!!\n\n", victim);
-				else
-					stc("You are awakened by a mind numbing slap of water as you splash down!\n\n", victim);
-
-				act("$n spashes down HARD in the water.", victim, NULL, NULL, TO_ROOM);
-			}
-			else {
-				if (IS_AWAKE(victim))
-					stc("The ground finally breaks your fall.  OW!!\n\n", victim);
-				else
-					stc("You are awakened as you crash HARD into the ground!\n\n", victim);
-
-				act("$n crash lands HARD on the ground.", victim, NULL, NULL, TO_ROOM);
-			}
-
-			affect_strip(victim, gsn_sleep);
-			victim->position = POS_STANDING;
 		}
 		else {
 			sprintf(buf, "$n flies in from %s, dragging $N behind.", dir_buf);
@@ -3024,66 +3070,51 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	stc("Nope, can't do it.\n", ch);
 }
 
-/* This function allows a flying character to land.
-This is useful for both roleplaying (sleeping/sitting characters
-shouldn't fly) and for dirt kicking.
-This function removes the flying affect, but does not
-remove the spell "fly". Thus, a player that has landed should
-be able to takeoff again.
--- Outsider
-*/
 void do_land(CHAR_DATA *ch, const char *argument)
 {
-	/* first check to see if we are flying */
-	if (! IS_AFFECTED(ch, AFF_FLYING)) {
-		stc("You are not flying.\n", ch);
+	if (!IS_FLYING(ch)) {
+		stc("You are already on the ground.\n", ch);
 		return;
 	}
 
-	/* we are flying, time to stop */
-	REMOVE_BIT(ch->affected_by, AFF_FLYING);
-	affect_strip(ch, gsn_fly);
-	stc("You settle to the ground.\n", ch);
-	act("$n settles to the ground.", ch, NULL, NULL, TO_ROOM);
-	return;
+	if (ch->in_room->sector_type == SECT_WATER_SWIM
+	 || ch->in_room->sector_type == SECT_WATER_NOSWIM) {
+		stc("You land in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n\r", ch);
+		act("$n lands in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n\r",
+			ch, NULL, NULL, TO_ROOM);
+	} else {
+		stc("You land gracefully on both feet.\n\r", ch);
+		act("$n gracefully lands on both feet.", ch, NULL, NULL, TO_ROOM);
+	}
+
+	ch->position = POS_STANDING;
 }
 
-/* This function causes a character to try to fly. A PC may
-fly if they are standing (and not fighting)
-This only works if their race can fly naturally. Fly spells
-are cancelled upon landing.
--- Outsider
-*/
 void do_fly(CHAR_DATA *ch, const char *argument)
 {
-	/* no takeoffs in combat */
-	// why not? -- Montrey (2014)
-	/*  if (ch->fighting)
-	  {
-	     stc("You have other things to worry about now!\n", ch);
-	     return;
-	  }
-	*/
-	/* we must be standing to fly */
-	/*
-	This is covered in interperet()
-	if (ch->position < POS_STANDING)
-	{
-	   stc("You must stand up first.\n", ch);
-	   return;
+	if (IS_FLYING(ch)) {
+		stc("You are already flying!\n", ch);
+		return;
 	}
-	*/
 
-	/* check if we can fly naturally */
-	if (IS_SET(AFF_FLYING, race_table[ch->race].aff)) {
-		SET_BIT(ch->affected_by, AFF_FLYING);
-		stc("You gracefully take to the air.\n", ch);
-		act("$n takes to the air.", ch, NULL, NULL, TO_ROOM);
-	}
-	else
+	if (!CAN_FLY(ch)) {
 		stc("You attempt to grow some wings, but fail.\n", ch);
+		return;
+	}
 
-	return;
+	// if sitting/sleeping/whatever, stand/wake first.  defer checks to there
+	if (ch->position <= POS_SITTING)
+		do_stand(ch, "");
+
+	// if still not standing, must have failed
+	if (ch->position <= POS_SITTING)
+		return;
+
+	ch->position = POS_FLYING;
+	ch->on = NULL;
+
+	stc("You take to the air.\n", ch);
+	act("$n takes to the air.", ch, NULL, NULL, TO_ROOM);
 }
 
 /*

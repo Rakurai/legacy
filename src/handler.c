@@ -919,7 +919,11 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		/* if we found it, don't remove the bit, but continue on to remove modifiers */
 		if (!found_dup)
 			switch (paf->where) {
-			case TO_AFFECTS: REMOVE_BIT(ch->affected_by, paf->bitvector);   break;
+			case TO_AFFECTS:
+				REMOVE_BIT(ch->affected_by, paf->bitvector);
+				if (paf->bitvector & AFF_FLYING)
+					ch->position = UMIN(ch->position, POS_STANDING);
+				break;
 
 			case TO_DRAIN:   REMOVE_BIT(ch->drain_flags, paf->bitvector);   break;
 
@@ -2734,7 +2738,7 @@ const char *affect_bit_name(int vector)
 
 	if (vector & AFF_CHARM) strcat(buf, " charm");
 
-	if (vector & AFF_FLYING) strcat(buf, " flying");
+	if (vector & AFF_FLYING) strcat(buf, " can_fly");
 
 	if (vector & AFF_PASS_DOOR) strcat(buf, " pass_door");
 
@@ -3734,7 +3738,8 @@ int get_position(CHAR_DATA *ch)
 	if (ch == NULL)
 		return -1;
 
-	if (ch->position == POS_STANDING && ch->fighting)
+	if (ch->fighting
+	 && ch->position >= POS_STANDING) // includes POS_FLYING
 		return POS_FIGHTING;
 
 	return ch->position;
