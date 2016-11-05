@@ -1007,8 +1007,6 @@ struct  kill_data
 #define DAM_CHARM               18
 #define DAM_SOUND               19
 #define DAM_WATER               20
-#define DAM_WEAPON              100 // these are just for calls to check_immune
-#define DAM_MAGIC               101
 
 /* OFF bits for mobiles */
 #define OFF_AREA_ATTACK         (A)
@@ -1040,32 +1038,6 @@ struct  kill_data
 #define IS_IMMUNE               3
 #define IS_ABSORBING		4
 
-/* ABSORB bits */
-//#define ABSORB_SUMMON              (A)
-#define ABSORB_CHARM               (B)
-#define ABSORB_MAGIC               (C)
-#define ABSORB_WEAPON              (D)
-#define ABSORB_BASH                (E)
-#define ABSORB_PIERCE              (F)
-#define ABSORB_SLASH               (G)
-#define ABSORB_FIRE                (H)
-#define ABSORB_COLD                (I)
-#define ABSORB_ELECTRICITY         (J)
-#define ABSORB_ACID                (K)
-#define ABSORB_POISON              (L)
-#define ABSORB_NEGATIVE            (M)
-#define ABSORB_HOLY                (N)
-#define ABSORB_ENERGY              (O)
-#define ABSORB_MENTAL              (P)
-#define ABSORB_DISEASE             (Q)
-#define ABSORB_DROWNING            (R)
-#define ABSORB_LIGHT               (S)
-#define ABSORB_SOUND               (T)
-#define ABSORB_SHADOW              (U)             /* Immune to Shadow Form */
-#define ABSORB_WOOD                (X)
-#define ABSORB_SILVER              (Y)
-#define ABSORB_IRON                (Z)
-
 /* IMM bits for mobs */
 //#define IMM_SUMMON              (A)
 #define IMM_CHARM               (B)
@@ -1087,7 +1059,6 @@ struct  kill_data
 #define IMM_DROWNING            (R)
 #define IMM_LIGHT               (S)
 #define IMM_SOUND               (T)
-#define IMM_SHADOW              (U)             /* Immune to Shadow Form */
 #define IMM_WOOD                (X)
 #define IMM_SILVER              (Y)
 #define IMM_IRON                (Z)
@@ -1471,33 +1442,6 @@ struct  kill_data
 #define PUT_ON                  (N)
 #define PUT_IN                  (O)
 #define PUT_INSIDE              (P)
-
-#define DEF_NONE                0 // don't use, counter for cache
-#define DEF_CHARM               1
-#define DEF_MAGIC               2
-#define DEF_WEAPON              3
-#define DEF_BASH                4
-#define DEF_PIERCE              5
-#define DEF_SLASH               6
-#define DEF_FIRE                7
-#define DEF_COLD                8
-#define DEF_ELECTRICITY         9
-#define DEF_ACID                10
-#define DEF_POISON              11
-#define DEF_NEGATIVE            12
-#define DEF_HOLY                13
-#define DEF_ENERGY              14
-#define DEF_MENTAL              15
-#define DEF_DISEASE             16
-#define DEF_DROWNING            17
-#define DEF_LIGHT               18
-#define DEF_SOUND               19
-#define DEF_SHADOW              20
-// unused
-// unused
-#define DEF_WOOD                23
-#define DEF_SILVER              24
-#define DEF_IRON                25
 
 /*
  * Apply types (for affects).
@@ -3683,7 +3627,7 @@ bool    can_see_in_room args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room));
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 const char *  item_type_name  args(( OBJ_DATA *obj ) );
 const char *  affect_loc_name args(( int location ) );
-const char *  defense_loc_name args(( int location ) );
+const char *  dam_type_name   args(( int type ) );
 const char *  extra_bit_name  args(( int extra_flags ) );
 const char *  wiz_bit_name    args(( int wiz_flags ) );
 const char *  wear_bit_name   args(( int wear_flags ) );

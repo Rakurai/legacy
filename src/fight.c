@@ -2718,9 +2718,6 @@ void raw_kill(CHAR_DATA *victim)
 		realdeath = FALSE;
 	}
 
-//	REMOVE_BIT(victim->imm_flags, IMM_SHADOW);
-	// TODO: reset affects to racial? or maybe a debugging message if they didn't come off right
-
 	victim->position    = POS_RESTING;
 	victim->hit         = UMAX(1, victim->hit);
 	victim->mana        = UMAX(1, victim->mana);
@@ -4140,7 +4137,7 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 		ch->level,
 		-1,
 		get_evolution(ch, gsn_shadow_form),
-		FALSE // TODO: is this right?
+		FALSE
 	);
 } /* end do_shadow */
 

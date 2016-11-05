@@ -1629,7 +1629,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		else if (paf->where == TO_DEFENSE)
 			ptc(ch, " %s damage from %s by %d%%",
 				paf->modifier > 0 ? "reduces" : "increases",
-				defense_loc_name(paf->location),
+				dam_type_name(paf->location),
 				paf->modifier > 0 ? paf->modifier : -paf->modifier);
 		else
 			ptc(ch, " does something weird");

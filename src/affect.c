@@ -196,10 +196,23 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 		return FALSE;
 	}
 
-	// weird case, defense flag A used to be *_SUMMON, changed to a ACT_NOSUMMON.
-	// wouldn't be a concern except the index is repurposed to a cache counter.
-	if (paf->where == TO_DEFENSE)
+	if (paf->where == TO_DEFENSE) {
+		// weird case, defense flag A used to be *_SUMMON, changed to a ACT_NOSUMMON.
+		// wouldn't be a concern except the index is repurposed to a cache counter.
 		REMOVE_BIT(*bitvector, A);
+
+		if (IS_SET(*bitvector, IMM_WEAPON)) {
+			SET_BIT(*bitvector, IMM_SLASH|IMM_BASH|IMM_PIERCE);
+			REMOVE_BIT(*bitvector, IMM_WEAPON);
+		}
+
+		if (IS_SET(*bitvector, IMM_MAGIC)) {
+			SET_BIT(*bitvector, IMM_FIRE|IMM_COLD|IMM_ELECTRICITY
+				|IMM_ACID|IMM_POISON|IMM_NEGATIVE|IMM_HOLY|IMM_ENERGY
+				|IMM_MENTAL|IMM_DISEASE|IMM_DROWNING|IMM_LIGHT|IMM_SOUND);
+			REMOVE_BIT(*bitvector, IMM_MAGIC);
+		}
+	}
 
 	// treat the bitvector as an array, find the lowest index with a set bit, remove it from
 	// the vector, and use the index to match against new constants
@@ -221,7 +234,26 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 		if (index < 1 || index >= 32) // no bits, not an error, just skip it
 			return FALSE;
 
-		paf->location = index;
+		switch (bit) {
+			case IMM_CHARM       : paf->location = DAM_CHARM; break;
+			case IMM_BASH        : paf->location = DAM_BASH; break;
+			case IMM_PIERCE      : paf->location = DAM_PIERCE; break;
+			case IMM_SLASH       : paf->location = DAM_SLASH; break;
+			case IMM_FIRE        : paf->location = DAM_FIRE; break;
+			case IMM_COLD        : paf->location = DAM_COLD; break;
+			case IMM_ELECTRICITY : paf->location = DAM_ELECTRICITY; break;
+			case IMM_ACID        : paf->location = DAM_ACID; break;
+			case IMM_POISON      : paf->location = DAM_POISON; break;
+			case IMM_NEGATIVE    : paf->location = DAM_NEGATIVE; break;
+			case IMM_HOLY        : paf->location = DAM_HOLY; break;
+			case IMM_ENERGY      : paf->location = DAM_ENERGY; break;
+			case IMM_MENTAL      : paf->location = DAM_MENTAL; break;
+			case IMM_DISEASE     : paf->location = DAM_DISEASE; break;
+			case IMM_DROWNING    : paf->location = DAM_DROWNING; break;
+			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
+			case IMM_SOUND       : paf->location = DAM_SOUND; break;
+		}
+
 		// modifier was already set or done above
 		paf->bitvector = 0;
 		return TRUE;

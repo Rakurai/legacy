@@ -1891,38 +1891,32 @@ const char *item_type_name(OBJ_DATA *obj)
 }
 
 /*
- * Return ascii name of an affect location.
+ * Return ascii name of a damage type.
  */
-const char *defense_loc_name(int location)
+const char *dam_type_name(int type)
 {
-	switch (location) {
-		case DEF_NONE        : return "(none)"; // old imm_summon bit
-		case DEF_CHARM       : return "charm";
-		case DEF_MAGIC       : return "magic";
-		case DEF_WEAPON      : return "weapon";
-		case DEF_BASH        : return "bash";
-		case DEF_PIERCE      : return "pierce";
-		case DEF_SLASH       : return "slash";
-		case DEF_FIRE        : return "fire";
-		case DEF_COLD        : return "cold";
-		case DEF_ELECTRICITY : return "electricity";
-		case DEF_ACID        : return "acid";
-		case DEF_POISON      : return "poison";
-		case DEF_NEGATIVE    : return "negative";
-		case DEF_HOLY        : return "holy";
-		case DEF_ENERGY      : return "energy";
-		case DEF_MENTAL      : return "mental";
-		case DEF_DISEASE     : return "disease";
-		case DEF_DROWNING    : return "drowning";
-		case DEF_LIGHT       : return "light";
-		case DEF_SOUND       : return "sound";
-		case DEF_SHADOW      : return "shadowform";
-		case DEF_WOOD        : return "wood";
-		case DEF_SILVER      : return "silver";
-		case DEF_IRON        : return "iron";
+	switch (type) {
+		case DAM_NONE        : return "(none)";
+		case DAM_CHARM       : return "charm";
+		case DAM_BASH        : return "bash";
+		case DAM_PIERCE      : return "pierce";
+		case DAM_SLASH       : return "slash";
+		case DAM_FIRE        : return "fire";
+		case DAM_COLD        : return "cold";
+		case DAM_ELECTRICITY : return "electricity";
+		case DAM_ACID        : return "acid";
+		case DAM_POISON      : return "poison";
+		case DAM_NEGATIVE    : return "negative";
+		case DAM_HOLY        : return "holy";
+		case DAM_ENERGY      : return "energy";
+		case DAM_MENTAL      : return "mental";
+		case DAM_DISEASE     : return "disease";
+		case DAM_DROWNING    : return "drowning";
+		case DAM_LIGHT       : return "light";
+		case DAM_SOUND       : return "sound";
 	}
 
-	bug("defense_loc_name: unknown location %d.", location);
+	bug("dam_type_name: unknown type %d.", type);
 	return "(unknown)";
 }
 

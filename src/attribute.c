@@ -95,48 +95,13 @@ int get_max_stam(CHAR_DATA *ch) {
 
 int check_immune(CHAR_DATA *ch, int dam_type)
 {
-	int def = 0;
-	int bit;
-
 	if (dam_type == DAM_NONE)
 		return 0;
 
 	if (ch->defense_mod == NULL) // no modifiers
 		return 0;
 
-	if (dam_type <= 3) // weapon attack
-		def = ch->defense_mod[flag_to_index(IMM_WEAPON)];
-	else if (dam_type != DAM_WEAPON) /* magical attack */
-		def = ch->defense_mod[flag_to_index(IMM_MAGIC)];
-
-	// stop here for simple types
-	if (dam_type == DAM_WEAPON || dam_type == DAM_MAGIC)
-		return def;
-
-	/* set bits to check -- VULN etc. must ALL be the same or this will fail */
-	switch (dam_type) {
-	case (DAM_BASH):         bit = IMM_BASH;         break;
-	case (DAM_PIERCE):       bit = IMM_PIERCE;       break;
-	case (DAM_SLASH):        bit = IMM_SLASH;        break;
-	case (DAM_FIRE):         bit = IMM_FIRE;         break;
-	case (DAM_COLD):         bit = IMM_COLD;         break;
-	case (DAM_ELECTRICITY):  bit = IMM_ELECTRICITY;  break;
-	case (DAM_ACID):         bit = IMM_ACID;         break;
-	case (DAM_POISON):       bit = IMM_POISON;       break;
-	case (DAM_NEGATIVE):     bit = IMM_NEGATIVE;     break;
-	case (DAM_HOLY):         bit = IMM_HOLY;         break;
-	case (DAM_ENERGY):       bit = IMM_ENERGY;       break;
-	case (DAM_MENTAL):       bit = IMM_MENTAL;       break;
-	case (DAM_DISEASE):      bit = IMM_DISEASE;      break;
-	case (DAM_DROWNING):     bit = IMM_DROWNING;     break;
-	case (DAM_LIGHT):        bit = IMM_LIGHT;        break;
-	case (DAM_CHARM):        bit = IMM_CHARM;        break;
-	case (DAM_SOUND):        bit = IMM_SOUND;        break;
-	default:                return def;
-	}
-
-	def += ch->defense_mod[flag_to_index(bit)];
-	return def;
+	return ch->defense_mod[dam_type];
 }
 
 char *print_defense_modifiers(CHAR_DATA *ch, int where) {

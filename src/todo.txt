@@ -1,5 +1,3 @@
-replace affect_flag_on_* with appropriate bit conversion
-grep for affects again, see if any old functions re-added by merge
 remove bitvector completely (light of truth)
 remove imm/res/vuln flags (even temporarily)
 get rid of affect_modify_char in handler.c
@@ -7,7 +5,6 @@ missed some things that should go in extra flag cache
 get_true_hitroll/damroll still used?  what about GET_HITROLL?
 need to test imm/res/vuln mods
 equip/unequip char calling mods?
-need to replace old imm_shadow bit
 fix fly/land thing
 look at how familiar stat bonus is handled
 make sure imm/res/vuln is handled right with calls to check_immune

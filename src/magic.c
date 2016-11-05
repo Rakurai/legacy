@@ -4637,10 +4637,16 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	}
 
 	/* don't let em switch into mobs with the stronger immunities -- Montrey */
-	// TODO: readd this, but have it check over all immunities
-	if (IS_SET(victim->act, ACT_NOMORPH)) {
-//	    || IS_SET(GET_FLAGS(victim, TO_IMMUNE), IMM_MAGIC | IMM_WEAPON | IMM_BASH | IMM_PIERCE | IMM_SLASH | IMM_FIRE |
-//	              IMM_COLD | IMM_ELECTRICITY | IMM_ACID | IMM_NEGATIVE | IMM_HOLY)) {
+	if (IS_SET(victim->act, ACT_NOMORPH)
+	 || check_immune(victim, DAM_BASH) >= 100
+	 || check_immune(victim, DAM_PIERCE) >= 100
+	 || check_immune(victim, DAM_SLASH) >= 100
+	 || check_immune(victim, DAM_FIRE) >= 100
+	 || check_immune(victim, DAM_COLD) >= 100
+	 || check_immune(victim, DAM_ELECTRICITY) >= 100
+	 || check_immune(victim, DAM_ACID) >= 100
+	 || check_immune(victim, DAM_NEGATIVE) >= 100
+	 || check_immune(victim, DAM_HOLY) >= 100) {
 		stc("The gods have restricted the use of this creature for morphing.\n", ch);
 		return;
 	}
