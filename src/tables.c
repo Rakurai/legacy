@@ -905,34 +905,6 @@ const struct flag_type off_flags[] = {
 	{   NULL,                   0,      0       }
 };
 
-const struct flag_type imm_flags[] = {
-//	{       "summon",       IMM_SUMMON,     TRUE    },
-	{		"(none)",		A,				FALSE	},
-	{       "charm",        IMM_CHARM,      TRUE    },
-	{       "magic",        IMM_MAGIC,      TRUE    },
-	{       "weapon",       IMM_WEAPON,     TRUE    },
-	{       "bash",         IMM_BASH,       TRUE    },
-	{       "pierce",       IMM_PIERCE,     TRUE    },
-	{       "slash",        IMM_SLASH,      TRUE    },
-	{       "fire",         IMM_FIRE,       TRUE    },
-	{       "cold",         IMM_COLD,       TRUE    },
-	{       "electricity",  IMM_ELECTRICITY,TRUE    },
-	{       "acid",         IMM_ACID,       TRUE    },
-	{       "poison",       IMM_POISON,     TRUE    },
-	{       "negative",     IMM_NEGATIVE,   TRUE    },
-	{       "holy",         IMM_HOLY,       TRUE    },
-	{       "energy",       IMM_ENERGY,     TRUE    },
-	{       "mental",       IMM_MENTAL,     TRUE    },
-	{       "disease",      IMM_DISEASE,    TRUE    },
-	{       "drowning",     IMM_DROWNING,   TRUE    },
-	{       "light",        IMM_LIGHT,      TRUE    },
-	{       "sound",        IMM_SOUND,      TRUE    },
-	{       "wood",         IMM_WOOD,       TRUE    },
-	{       "silver",       IMM_SILVER,     TRUE    },
-	{       "iron",         IMM_IRON,       TRUE    },
-	{       NULL,           0,              0       }
-};
-
 const struct flag_type form_flags[] = {
 	{   "edible",               FORM_EDIBLE,            TRUE    },
 	{   "poison",               FORM_POISON,            TRUE    },

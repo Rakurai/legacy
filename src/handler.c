@@ -2398,21 +2398,6 @@ const char *room_bit_name(int flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-const char *imm_bit_name(int flags)
-{
-	static char buf[512];
-	int i;
-	buf[0] = '\0';
-
-	for (i = 0; imm_flags[i].name != NULL; i++)
-		if (flags & imm_flags[i].bit) {
-			strcat(buf, " ");
-			strcat(buf, imm_flags[i].name);
-		}
-
-	return (buf[0] != '\0') ? buf + 1 : "none";
-}
-
 const char *wear_bit_name(int wear_flags)
 {
 	static char buf[512];

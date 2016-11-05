@@ -127,7 +127,7 @@ char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 			if (buf[0] != '\0')
 				strcat(buf, " ");
 
-			strcat(buf, imm_flags[i].name);
+			strcat(buf, dam_type_name(i));
 
 			if (where != TO_IMMUNE) {
 				char mbuf[100];
