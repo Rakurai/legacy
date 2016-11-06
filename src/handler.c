@@ -1781,7 +1781,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			return FALSE;
 	}
 
-	if (IS_SET(obj->extra_flags, ITEM_INVIS)
+	if (IS_OBJ_STAT(obj, ITEM_INVIS)
 	    && !affect_exists_on_char(ch, gsn_detect_invis))
 		return FALSE;
 

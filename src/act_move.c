@@ -2136,7 +2136,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 				SET_BIT(victim->comm, COMM_BRIEF);
 
 				while (victim->in_room->sector_type == SECT_AIR
-				       && !IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)
+				       && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
 				       && count++ < 10) {
@@ -2178,11 +2178,11 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
 				    || victim->in_room->sector_type == SECT_WATER_SWIM
-				    || IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)) {
+				    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
 					stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					act("$n spashes down HARD in the water.", victim, NULL, NULL, TO_ROOM);
 
-					if (IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER))
+					if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER))
 						stc("{CYou begin to hold your breath.{x\n", victim);
 				}
 				else {
@@ -2460,7 +2460,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 				SET_BIT(victim->comm, COMM_BRIEF);
 
 				while (victim->in_room->sector_type == SECT_AIR
-				       && !IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)
+				       && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
 				       && count++ < 10) {
@@ -2515,7 +2515,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 
 				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
 				    || victim->in_room->sector_type == SECT_WATER_SWIM
-				    || IS_SET(victim->in_room->room_flags, ROOM_UNDER_WATER)) {
+				    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
 					if (IS_AWAKE(victim))
 						stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					else
