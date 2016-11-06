@@ -974,7 +974,15 @@ void load_mobiles(FILE *fp)
 		                                  | race_table[pMobIndex->race].vuln;
 		/* vital statistics */
 		pMobIndex->start_pos        = position_lookup(fread_word(fp));
+
+		if (pMobIndex->start_pos == POS_STANDING && IS_SET(pMobIndex->affected_by, AFF_FLYING))
+			pMobIndex->start_pos = POS_FLYING;
+
 		pMobIndex->default_pos      = position_lookup(fread_word(fp));
+
+		if (pMobIndex->default_pos == POS_STANDING && IS_SET(pMobIndex->affected_by, AFF_FLYING))
+			pMobIndex->default_pos = POS_FLYING;
+
 		pMobIndex->sex              = sex_lookup(fread_word(fp));
 
 		if (pMobIndex->sex < 0) {

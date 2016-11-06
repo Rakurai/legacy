@@ -151,6 +151,9 @@ void violence_update(void)
 			}
 
 			ch->position = POS_STANDING;
+
+			if (ch->start_pos == POS_FLYING && CAN_FLY(ch))
+				do_fly(ch, "");
 		}
 
 		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
@@ -1194,13 +1197,14 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 				ch->pcdata->pktimer = PKTIME;
 			}
 
-			if (victim->wait == 0) {
-				if (get_position(victim) < POS_FIGHTING) {
-					act("You clamber to your feet.", victim, NULL, NULL, TO_CHAR);
-					act("$n clambers to $s feet.", victim, NULL, NULL, TO_ROOM);
-				}
+			if (victim->wait == 0 && get_position(victim) < POS_FIGHTING) {
+				act("You clamber to your feet.", victim, NULL, NULL, TO_CHAR);
+				act("$n clambers to $s feet.", victim, NULL, NULL, TO_ROOM);
 
 				victim->position = POS_STANDING;
+
+				if (victim->start_pos == POS_FLYING && CAN_FLY(victim))
+					do_fly(victim, "");
 			}
 
 			if (victim->fighting == NULL)
@@ -2421,8 +2425,12 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	ch->fighting = victim;
 
-	if (ch->wait == 0 && ch->position < POS_STANDING)
+	if (ch->wait == 0 && ch->position < POS_STANDING) {
 		ch->position = POS_STANDING;
+
+		if (ch->start_pos == POS_FLYING && CAN_FLY(ch))
+			ch->position = POS_FLYING;
+	}
 } /* end set_fighting */
 
 /* Stop fights. */
@@ -2433,7 +2441,7 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 	for (fch = char_list; fch != NULL; fch = fch->next) {
 		if (fch == ch || (fBoth && fch->fighting == ch)) {
 			fch->fighting = NULL;
-			fch->position = IS_NPC(fch) ? fch->default_pos : POS_STANDING;
+			fch->position = IS_NPC(fch) ? fch->default_pos : fch->start_pos;
 			update_pos(fch);
 		}
 	}

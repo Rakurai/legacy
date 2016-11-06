@@ -538,6 +538,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 
 	cJSON_AddStringToObject(o,		"Name",			ch->name);
 	cJSON_AddNumberToObject(o,		"Pos",			ch->position);
+	cJSON_AddNumberToObject(o,              "PosP",                 ch->start_pos);
 	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);
 
 	if (ch->prompt[0])
@@ -1435,6 +1436,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				break;
 			case 'P':
 				INTKEY("Pos",			ch->position,				o->valueint);
+				INTKEY("PosP",			ch->start_pos,				o->valueint);
 				INTKEY("Prac",			ch->practice,				o->valueint);
 				STRKEY("Prom",			ch->prompt,					o->valuestring);
 				break;

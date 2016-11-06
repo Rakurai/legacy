@@ -229,8 +229,12 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	for (fch = in_room->people; fch != NULL; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
-		if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
-			do_stand(fch, "");
+		if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING) {
+			if (fch->start_pos == POS_FLYING && CAN_FLY(fch))
+				do_fly(fch, "");
+			else
+				do_stand(fch, "");
+		}
 
 		if (fch->master == ch && get_position(fch) >= POS_STANDING && can_see_room(fch, to_room)) {
 			if (IS_NPC(fch) && IS_SET(fch->act, ACT_STAY))
@@ -1058,7 +1062,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 
 	case POS_FLYING:
 		do_land(ch, "");
-		break;
+		return; // landing will set POS_STANDING (or not)
 
 	case POS_STANDING:
 		stc("You are already standing.\n", ch);
@@ -1069,6 +1073,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
+	ch->start_pos = POS_STANDING;
 	return;
 }
 
@@ -1191,8 +1196,12 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 
 	case POS_FLYING:
 		do_land(ch, "");
-		if (get_position(ch) != POS_FLYING) // don't recurse if it fails
-			do_rest(ch, argument);
+
+		if (ch->position == POS_FLYING)
+			return; // land failed
+
+		ch->start_pos = POS_FLYING;
+		do_rest(ch, argument);
 		break;
 	}
 
@@ -1309,8 +1318,12 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 	case POS_FLYING:
 		do_land(ch, "");
-		if (get_position(ch) != POS_FLYING) // don't recurse if it fails
-			do_sit(ch, argument);
+
+		if (ch->position == POS_FLYING)
+			return; // land failed
+
+		do_sit(ch, argument);
+		ch->start_pos = POS_FLYING;
 		break;
 	}
 
@@ -1394,8 +1407,12 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 
 	case POS_FLYING:
 		do_land(ch, "");
-		if (get_position(ch) != POS_FLYING) // don't recurse if it fails
-			do_sleep(ch, argument);
+
+		if (ch->position == POS_FLYING)
+			return; // land failed
+
+		do_sleep(ch, argument);
+		ch->start_pos = POS_FLYING;
 		break;
 	}
 
@@ -1412,6 +1429,10 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 //		if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
 //			do_sit(ch, "");
 //		else
+
+		if (ch->start_pos == POS_FLYING && CAN_FLY(ch))
+			do_fly(ch, "");
+		else
 			do_stand(ch, "");
 
 		return;
@@ -1432,7 +1453,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	act_new("$n rudely awakes you from your peaceful slumber.",
 	        ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 
-	if (CAN_FLY(victim))
+	if (victim->start_pos == POS_FLYING && CAN_FLY(victim))
 		do_fly(victim, "");
 	else
 		do_stand(victim, "");
@@ -3033,8 +3054,12 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 			if (portal == NULL || portal->value[0] == -1)
 				continue;
 
-			if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
-				do_stand(fch, "");
+			if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING) {
+				if (fch->start_pos == POS_FLYING && CAN_FLY(fch))
+					do_fly(fch, "");
+				else
+					do_stand(fch, "");
+			}
 
 			if (fch->master == ch && get_position(fch) == POS_STANDING) {
 				if (IS_SET(ch->in_room->room_flags, ROOM_LAW)
@@ -3072,6 +3097,11 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 void do_land(CHAR_DATA *ch, const char *argument)
 {
+	if (ch->in_room->sector_type == SECT_AIR) {
+		stc("There is nowhere to put your feet!\n", ch);
+		return;
+	}
+
 	if (!IS_FLYING(ch)) {
 		stc("You are already on the ground.\n", ch);
 		return;
@@ -3088,6 +3118,7 @@ void do_land(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->position = POS_STANDING;
+	ch->start_pos = POS_STANDING; // preferred position after bash, rest, sleep, etc
 }
 
 void do_fly(CHAR_DATA *ch, const char *argument)
@@ -3111,6 +3142,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 		return;
 
 	ch->position = POS_FLYING;
+	ch->start_pos = POS_FLYING; // preferred position after bash, rest, sleep, etc
 	ch->on = NULL;
 
 	stc("You take to the air.\n", ch);
