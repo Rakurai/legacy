@@ -747,7 +747,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		set_color(ch, BLUE, BOLD);
 		sprintf(buf, "%s is about %d years old.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
-		        , get_age(victim));
+		        , GET_ATTR_AGE(victim));
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
 	}
@@ -5081,7 +5081,7 @@ void score_new(CHAR_DATA *ch)
 	sprintf(buf, "Level{B:{x %d {B({xRemort %d{B){x     Age{B:{x %d {B({x%d Hours{B){x",
 	        ch->level,
 	        IS_NPC(ch) ? 0 : ch->pcdata->remort_count,
-	        get_age(ch),
+	        GET_ATTR_AGE(ch),
 	        get_play_hours(ch));
 	stc(strcenter(buf, 62), ch);
 	ptc(ch, " %s)X({x\n", torch);

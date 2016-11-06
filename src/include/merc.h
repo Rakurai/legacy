@@ -2786,6 +2786,7 @@ extern sh_int	gsn_critical_blow;
 #define GET_ATTR_CON(ch) (UMIN(GET_ATTR(ch, APPLY_CON), get_max_stat(ch, APPLY_CON)))
 #define GET_ATTR_CHR(ch) (UMIN(GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, APPLY_CHR)))
 #define GET_ATTR_SEX(ch) (GET_ATTR((ch), APPLY_SEX) % 3) // gives range of 0-2
+#define GET_ATTR_AGE(ch) (get_age(ch))
 #define GET_HITROLL(ch) \
                 (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR((ch), APPLY_STR)].tohit)
 #define GET_DAMROLL(ch) \

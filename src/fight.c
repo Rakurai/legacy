@@ -2979,12 +2979,9 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_cla
 	        xp = xp * time_per_level / 12;
 	} */
 	/* new to replace above, reduce by up to 1/3 if you're young -- Montrey */
-	xp = xp - (xp / 3)
-	     + ((xp / 3)
-	        * (100 * URANGE(1,
-	                        (get_play_seconds(gch) / (MUD_YEAR * MUD_MONTH * MUD_DAY * MUD_HOUR))
-	                        + GET_ATTR_MOD(gch, APPLY_AGE),
-	                        50) / 50) / 100);
+	int years = get_play_seconds(gch) / (MUD_YEAR * MUD_MONTH * MUD_DAY * MUD_HOUR)
+	                        + GET_ATTR_MOD(gch, APPLY_AGE);
+	xp = xp - (xp / 3) + ((xp / 3) * (URANGE(1, years, 50) / 50));
 
 	/* remort affect - favor of the gods */
 	if (HAS_RAFF(gch, RAFF_FAVORGOD) && chance(10)) {
