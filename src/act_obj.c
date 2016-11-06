@@ -5109,7 +5109,8 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 
 	obj->extra_flags = material->extra_flags;
 
-	// TODO: should this copy object affects?
+	for (const AFFECT_DATA *paf = affect_list_obj(material); paf; paf = paf->next)
+		affect_copy_to_obj(obj, paf);
 
 	obj->value[0] = weapon_type(type);
 	free_string(obj->name);
