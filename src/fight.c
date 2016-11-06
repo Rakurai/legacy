@@ -879,7 +879,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 	if (thac0 < -5)
 		thac0 = -5 + (thac0 + 5) / 2;
 
-	thac0 -= (GET_HITROLL(ch) * skill) / 100;
+	thac0 -= (GET_ATTR_HITROLL(ch) * skill) / 100;
 	thac0 += (5 * (100 - skill)) / 100;
 
 	if (dt == gsn_backstab)
@@ -986,7 +986,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			dam *= 2 + ((ch->level - 30) / 24);   /* swords and axes do more */
 	}
 
-	dam += GET_DAMROLL(ch) * UMIN(100, skill) / 100;
+	dam += GET_ATTR_DAMROLL(ch) * UMIN(100, skill) / 100;
 
 	if (dam <= 0)
 		dam = 1;
@@ -1160,7 +1160,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	} */
 
 	if (spell)
-		dam += get_true_damroll(ch);
+		dam += get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
 
 	/* moved here from magic.c */
 	if (spell && focus)
@@ -2152,7 +2152,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (check_shblock(victim, ch, TYPE_HIT + 40))
 		return TRUE;
 
-	damage(victim, ch, (number_range(1, victim->level) + GET_DAMROLL(victim)) / 2,
+	damage(victim, ch, (number_range(1, victim->level) + GET_ATTR_DAMROLL(victim)) / 2,
 	       TYPE_HIT + 40, DAM_BASH, TRUE, FALSE);
 	check_improve(victim, gsn_hand_to_hand, TRUE, 8);
 	return TRUE;
@@ -2711,8 +2711,8 @@ void raw_kill(CHAR_DATA *victim)
 		extract_char(victim, FALSE);
 
 		for (i = 0; i < 4; i++) {
-			victim->armor_a[i] = 100;
-			victim->armor_m[i] = 0;
+			victim->armor_base[i] = 100;
+			victim->armor_mod[i] = 0;
 		}
 	}
 	else {
@@ -3296,14 +3296,14 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	/* this is intentional!  AC_BASH is armor class vs blunt weapons, gained through
 	   thick armors and stuff.  the penalty for it is not a typo, it is supposed to
 	   count against you -- Montrey */
-	chance -= get_armor_ac(victim, AC_BASH) / 50; // get_armor_ac is negative for better armor
+	chance -= get_unspelled_ac(victim, AC_BASH) / 50; // armor is negative for better armor
 	/* Hitroll matters, maybe in the future */
-	/*if (GET_HITROLL(ch) <120)
-	        chance += (GET_HITROLL(ch) / 8);
+	/*if (GET_ATTR_HITROLL(ch) <120)
+	        chance += (GET_ATTR_HITROLL(ch) / 8);
 	else
 	{
 	        chance += 15;
-	        chance += ((GET_HITROLL(ch) - 120) / 16);
+	        chance += ((GET_ATTR_HITROLL(ch) - 120) / 16);
 	}*/
 	/* less bashable if translucent -- Elrac */
 //	if ( affect_find_in_char(victim, gsn_pass_door) )
@@ -4431,7 +4431,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 
 	if (skill >= number_percent()) {
 		amount = number_range((ch->level / 3), ch->level);
-		amount += GET_DAMROLL(ch);
+		amount += GET_ATTR_DAMROLL(ch);
 
 		if (get_position(victim) < POS_FIGHTING)
 			amount = amount * 5 / 4;

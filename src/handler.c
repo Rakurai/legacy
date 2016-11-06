@@ -899,7 +899,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	}
 
 	for (int i = 0; i < 4; i++)
-		ch->armor_a[i] -= apply_ac(obj, iWear, i);
+		ch->armor_base[i] -= apply_ac(obj, iWear, i);
 
 	obj->wear_loc = iWear;
 
@@ -921,7 +921,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	for (int i = 0; i < 4; i++)
-		ch->armor_a[i]    += apply_ac(obj, obj->wear_loc, i);
+		ch->armor_base[i]    += apply_ac(obj, obj->wear_loc, i);
 
 	obj->wear_loc        = -1;
 
@@ -1928,55 +1928,30 @@ const char *affect_loc_name(int location)
 {
 	switch (location) {
 	case APPLY_NONE:            return "none";
-
 	case APPLY_STR:             return "strength";
-
 	case APPLY_DEX:             return "dexterity";
-
 	case APPLY_INT:             return "intelligence";
-
 	case APPLY_WIS:             return "wisdom";
-
 	case APPLY_CON:             return "constitution";
-
 	case APPLY_CHR:             return "charisma";
-
 	case APPLY_SEX:             return "sex";
-
 	case APPLY_AGE:             return "age";
-
 	case APPLY_MANA:            return "mana";
-
 	case APPLY_HIT:             return "hp";
-
 	case APPLY_STAM:            return "stamina";
-
 	case APPLY_GOLD:            return "gold";
-
 	case APPLY_EXP:             return "experience";
-
 	case APPLY_AC:              return "armor class";
-
 	case APPLY_HITROLL:         return "hit roll";
-
 	case APPLY_DAMROLL:         return "damage roll";
-
 	case APPLY_SAVES:           return "saves";
-
 	case APPLY_SAVING_ROD:      return "save vs rod";
-
 	case APPLY_SAVING_PETRI:    return "save vs petrification";
-
 	case APPLY_SAVING_BREATH:   return "save vs breath";
-
 	case APPLY_SAVING_SPELL:    return "save vs spell";
-
 	case APPLY_SPELL_AFFECT:    return "none";
-
 	case APPLY_SHEEN:           return "armor";
-
 	case APPLY_BARRIER:         return "none";
-
 	case APPLY_FOCUS:           return "offensive spells";
 	}
 
@@ -2870,67 +2845,6 @@ CHAR_DATA *get_obj_carrier(OBJ_DATA *obj)
 		;
 
 	return in_obj->carried_by;
-}
-
-/* below two functions recalculate a character's hitroll and damroll
-   based solely on their strength and equipment, and not spells.
-   used when finding adjustment for hammerstrike and berserk
-                                                -- Montrey */
-int get_true_hitroll(CHAR_DATA *ch)
-{
-	int loc, hitroll;
-	OBJ_DATA *obj;
-
-	if (IS_NPC(ch))
-		return GET_HITROLL(ch);
-
-	hitroll = str_app[GET_ATTR_STR(ch)].tohit;
-
-	for (loc = 0; loc < MAX_WEAR; loc++) {
-		if ((obj = get_eq_char(ch, loc)) == NULL)
-			continue;
-
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
-			if (paf->location == APPLY_HITROLL)
-				hitroll += paf->modifier;
-	}
-
-	return hitroll;
-}
-
-int get_true_damroll(CHAR_DATA *ch)
-{
-	int loc, damroll;
-	OBJ_DATA *obj;
-
-	if (IS_NPC(ch))
-		return GET_DAMROLL(ch);
-
-	damroll = str_app[GET_ATTR_STR(ch)].todam;
-
-	for (loc = 0; loc < MAX_WEAR; loc++) {
-		if ((obj = get_eq_char(ch, loc)) == NULL)
-			continue;
-
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
-			if (paf->location == APPLY_DAMROLL)
-				damroll += paf->modifier;
-	}
-
-	return damroll;
-}
-
-/* return ac value of a the character's armor only, no dex, no spells */
-int get_armor_ac(CHAR_DATA *ch, int type)
-{
-	OBJ_DATA *obj;
-	int ac = 100, loc;
-
-	for (loc = 0; loc < MAX_WEAR; loc++)
-		if ((obj = get_eq_char(ch, loc)) != NULL)
-			ac -= apply_ac(obj, loc, type);
-
-	return ac;
 }
 
 /* Return what position a character is in.  This replaces all direct

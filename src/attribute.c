@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "tables.h"
+#include "affect.h"
 
 // temporary file to hold attribute accessors
 
@@ -102,6 +103,50 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 		return 0;
 
 	return ch->defense_mod[dam_type];
+}
+
+/* below two functions recalculate a character's hitroll and damroll
+   based solely on their strength and equipment, and not spells.
+   used when finding adjustment for hammerstrike and berserk
+   TODO: these may need fixing for gem affects
+                                                -- Montrey */
+int get_unspelled_hitroll(CHAR_DATA *ch)
+{
+	int sum = GET_ATTR_HITROLL(ch) - GET_ATTR_MOD(ch, APPLY_HITROLL);
+
+	for (OBJ_DATA *obj = ch->carrying; obj; obj = obj->next_content)
+		if (obj->wear_loc != WEAR_NONE)
+			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next)
+				if (paf->location == APPLY_HITROLL)
+					sum += paf->modifier;
+
+	return sum;
+}
+
+int get_unspelled_damroll(CHAR_DATA *ch)
+{
+	int sum = GET_ATTR_DAMROLL(ch) - GET_ATTR_MOD(ch, APPLY_DAMROLL);
+
+	for (OBJ_DATA *obj = ch->carrying; obj; obj = obj->next_content)
+		if (obj->wear_loc != WEAR_NONE)
+			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next)
+				if (paf->location == APPLY_DAMROLL)
+					sum += paf->modifier;
+
+	return sum;
+}
+
+/* return ac value of a the character's armor only, no dex, no spells */
+int get_unspelled_ac(CHAR_DATA *ch, int type)
+{
+	OBJ_DATA *obj;
+	int ac = 100, loc;
+
+	for (loc = 0; loc < MAX_WEAR; loc++)
+		if ((obj = get_eq_char(ch, loc)) != NULL)
+			ac -= apply_ac(obj, loc, type);
+
+	return ac;
 }
 
 char *print_defense_modifiers(CHAR_DATA *ch, int where) {

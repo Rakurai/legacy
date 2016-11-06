@@ -3147,7 +3147,7 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 	if (!strcmp(argument, "more")) {
 		set_color(ch, WHITE, BOLD);
 		ptc(ch, "Align[%d] Hit[%d] Dam[%d] AC[%d %d %d %d]\n",
-		    victim->alignment, GET_HITROLL(victim), GET_DAMROLL(victim),
+		    victim->alignment, GET_ATTR_HITROLL(victim), GET_ATTR_DAMROLL(victim),
 		    GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 		    GET_AC(victim, AC_SLASH),  GET_AC(victim, AC_EXOTIC));
 
@@ -3203,10 +3203,10 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		    GET_AC(victim, AC_SLASH), victim->stam, ATTR_BASE(victim, APPLY_STAM));
 		ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{GHit Roll  : %d\n",
 		    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim),
-		    GET_AC(victim, AC_EXOTIC), GET_HITROLL(victim));
+		    GET_AC(victim, AC_EXOTIC), GET_ATTR_HITROLL(victim));
 		ptc(ch, "{PCon: %-2d(%-2d)\t\t\t      {GDam Roll  : %d\n",
 		    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim),
-		    GET_DAMROLL(victim));
+		    GET_ATTR_DAMROLL(victim));
 		ptc(ch, "{PChr: %-2d(%-2d)\t{WSaves     : %-10dAlignment : %d\n",
 		    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
 		    GET_ATTR(victim, APPLY_SAVES), victim->alignment);
@@ -5150,7 +5150,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_DICENAME);
 	stc("  Hitroll     ", ch);
 	new_color(ch, CSLOT_SCORE_DICENUM);
-	ptc(ch, "%5d %s|#|{x\n", GET_HITROLL(ch), torch);
+	ptc(ch, "%5d %s|#|{x\n", GET_ATTR_HITROLL(ch), torch);
 //	line 13:  |#|                    |      Bash      -603  |  Damroll       334 |#|
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, " %s|#|{x                    %s|{x      Bash    %6d  %s|{x",
@@ -5158,7 +5158,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_DICENAME);
 	stc("  Damroll     ", ch);
 	new_color(ch, CSLOT_SCORE_DICENUM);
-	ptc(ch, "%5d %s|#|{x\n", GET_DAMROLL(ch), torch);
+	ptc(ch, "%5d %s|#|{x\n", GET_ATTR_DAMROLL(ch), torch);
 //	line 14:  |#| QuestPoints   4012 |     Slash      -596  |    Saves       -23 |#|
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x QuestPoints  ", torch);

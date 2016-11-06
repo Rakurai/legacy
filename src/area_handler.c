@@ -877,7 +877,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		}
 
 	for (i = 0; i < 4; i++)
-		mob->armor_a[i]       = pMobIndex->ac[i];
+		mob->armor_base[i]       = pMobIndex->ac[i];
 
 	mob->off_flags          = pMobIndex->off_flags;
 	mob->start_pos          = pMobIndex->start_pos;
@@ -1027,9 +1027,9 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->spec_fun     = parent->spec_fun;
 
 	for (int i = 0; i < 4; i++)
-		clone->armor_a[i] = parent->armor_a[i];
+		clone->armor_base[i] = parent->armor_base[i];
 
-	/* don't clone armor_m, it's magical eq and spell ac */
+	/* don't clone armor_mod, it's magical eq and spell ac */
 
 //	for (int i = 0; i < MAX_STATS; i++) {
 //		clone->base_stat[i]     = parent->base_stat[i];

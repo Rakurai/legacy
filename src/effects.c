@@ -145,7 +145,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 				obj->value[place] -= amount;
 
 				if (obj->carried_by != NULL && obj->wear_loc != WEAR_NONE)
-					obj->carried_by->armor_a[place] += amount;
+					obj->carried_by->armor_base[place] += amount;
 
 				return;
 			}

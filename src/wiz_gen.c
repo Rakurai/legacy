@@ -502,7 +502,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			sprintf(buf,
 			        "{W[%12s] {b%4d Items (W:%5d){c/{PH:%4d D:%4d{c/{GS:%-4d{c/{CAC:%-5d %-5d %-5d %-5d{x\n",
 			        victim->name, get_carry_number(victim), get_carry_weight(victim),
-			        GET_HITROLL(victim), GET_DAMROLL(victim), GET_ATTR(victim, APPLY_SAVES),
+			        GET_ATTR_HITROLL(victim), GET_ATTR_DAMROLL(victim), GET_ATTR(victim, APPLY_SAVES),
 			        GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 			        GET_AC(victim, AC_SLASH), GET_AC(victim, AC_EXOTIC));
 			add_buf(buffer, buf);

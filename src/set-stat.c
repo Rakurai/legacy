@@ -1522,9 +1522,9 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	    IS_NPC(victim) ? 0 : victim->practice, get_carry_weight(victim) / 10);
 	ptc(ch, "{PChr: %-2d(%-2d)\t{bTrain     : %-10d{GHit Roll  : %d\n",
 	    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
-	    IS_NPC(victim) ? 0 : victim->train , GET_HITROLL(victim));
+	    IS_NPC(victim) ? 0 : victim->train , GET_ATTR_HITROLL(victim));
 	ptc(ch, "\t\t{YGold      : %-10ld{GDam Roll  : %d\n",
-	    victim->gold, GET_DAMROLL(victim));
+	    victim->gold, GET_ATTR_DAMROLL(victim));
 	ptc(ch, "{CThirst: %-8d{YSilver    : %-10ld{WAlignment : %d\n",
 	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_THIRST] : -1),
 	    victim->silver, victim->alignment);

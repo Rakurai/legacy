@@ -5091,9 +5091,9 @@ void spell_resurrect(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	mob->stam = ATTR_BASE(mob, APPLY_STAM) = 100 + dice(mob->level, 10);
 
 	for (i = 0; i < 3; i++)
-		mob->armor_a[i]         = interpolate(mob->level, 50, -50);
+		mob->armor_base[i]         = interpolate(mob->level, 50, -50);
 
-	mob->armor_a[3]                 = interpolate(mob->level, 40, 0);
+	mob->armor_base[3]                 = interpolate(mob->level, 40, 0);
 
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(mob, stat_to_attr(stat)) = 11 + mob->level / 5;

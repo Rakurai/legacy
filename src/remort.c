@@ -525,7 +525,7 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 		ATTR_BASE(victim->pet, APPLY_SAVES) = 0;
 
 		for (c = 0; c < 4; c++)
-			victim->pet->armor_a[c] = 100;
+			victim->pet->armor_base[c] = 100;
 	}
 
 	victim->pcdata->trains_to_hit = 0;

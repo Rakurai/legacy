@@ -329,7 +329,7 @@ CHAR_DATA *new_char(void)
 	ch->lines                   = PAGELEN;
 
 	for (int i = 0; i < 4; i++)
-		ch->armor_a[i]            = 100;
+		ch->armor_base[i]            = 100;
 
 	ch->position                = POS_STANDING;
 	ch->hit  = ATTR_BASE(ch, APPLY_HIT)                 = 20;
