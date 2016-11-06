@@ -2712,7 +2712,6 @@ void raw_kill(CHAR_DATA *victim)
 
 		for (i = 0; i < 4; i++) {
 			victim->armor_base[i] = 100;
-			victim->armor_mod[i] = 0;
 		}
 	}
 	else {

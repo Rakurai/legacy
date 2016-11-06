@@ -1,13 +1,9 @@
-remove bitvector completely (light of truth)
-get rid of affect_modify_char in handler.c
-missed some things that should go in extra flag cache
 need to test imm/res/vuln mods
-equip/unequip char calling mods?
 do we need affect_add_perm_to_char?
 con and stat need to be consistent with showing aff/vuln, and not show blanks
-go through calls to check_immune, a lot of them should be handled by saves vs damage type instead
-right now dispel/cancel/undo, each affect of a composite like 'frenzy' saves vs spell individually, fix?
 
 
 to WBI:
 make cure blindness able to cure other forms (dirt kicking, etc) since they can't be undone now
+right now dispel/cancel/undo, each affect of a composite like 'frenzy' saves vs spell individually, fix?
+go through calls to check_immune, a lot of them should be handled by saves vs damage type instead

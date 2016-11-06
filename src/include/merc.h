@@ -2029,7 +2029,6 @@ struct  char_data
     sh_int              train;
     sh_int              alignment;
 	sh_int		armor_base[4];
-	sh_int		armor_mod[4];
     sh_int              wimpy;
     /* parts stuff */
     unsigned long       form;
@@ -2796,7 +2795,7 @@ extern sh_int	gsn_critical_blow;
                 (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR((ch), APPLY_STR)].todam)
 #define GET_ATTR_SAVES(ch) (GET_ATTR((ch), APPLY_SAVES))
 #define GET_DEFENSE_MOD(ch, where) ((ch)->defense_mod ? (ch)->defense_mod[where] : 0)
-#define GET_AC(ch, type) ((ch)->armor_base[type] + (ch)->armor_mod[type] + GET_ATTR_AC((ch)))
+#define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
 
 
 /* permission checking stuff */
