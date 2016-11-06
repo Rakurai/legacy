@@ -16,7 +16,11 @@ const AFFECT_DATA *affect_list_obj(OBJ_DATA *obj) {
 	return obj->affected;
 }
 
-const AFFECT_DATA *affect_find_in_obj(OBJ_DATA *obj, int sn) {
+bool affect_exists_on_obj(OBJ_DATA *obj, int sn) {
+	return affect_find_on_obj(obj, sn) ? TRUE : FALSE;
+}
+
+const AFFECT_DATA *affect_find_on_obj(OBJ_DATA *obj, int sn) {
 	return affect_find_in_list(&obj->affected, sn);
 }
 

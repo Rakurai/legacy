@@ -2837,7 +2837,7 @@ extern sh_int	gsn_critical_blow;
 #define IS_SQUESTOR(ch)    (!IS_NPC(ch) && IS_SET((ch)->pcdata->plr, PLR_SQUESTOR))
 #define IS_KILLER(ch)		(IS_SET((ch)->act, PLR_KILLER))
 #define IS_THIEF(ch)		(IS_SET((ch)->act, PLR_THIEF))
-#define CAN_FLY(ch)         (affect_find_in_char((ch), gsn_fly))
+#define CAN_FLY(ch)         (affect_exists_on_char((ch), gsn_fly))
 #define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
 
 /*

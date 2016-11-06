@@ -123,15 +123,15 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		strcat(buf, "{W(Invis) ");
 
-	if (affect_find_in_char(ch, gsn_detect_evil)
+	if (affect_exists_on_char(ch, gsn_detect_evil)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
 		strcat(buf, "{R(Red Aura) ");
 
-	if (affect_find_in_char(ch, gsn_detect_good)
+	if (affect_exists_on_char(ch, gsn_detect_good)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
 		strcat(buf, "{B(Blue Aura) ");
 
-	if (affect_find_in_char(ch, gsn_detect_magic)
+	if (affect_exists_on_char(ch, gsn_detect_magic)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		strcat(buf, "{G(Magical) ");
 
@@ -157,7 +157,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
-	if (affect_find_in_obj(obj, gsn_dazzling_light))
+	if (affect_exists_on_obj(obj, gsn_dazzling_light))
 		strcat(buf, "{W{f(Dazzling){x ");
 
 	if (obj->condition <= 9 && obj->condition >= 0)         strcat(buf, "{b(Ruined) ");
@@ -450,13 +450,13 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_SET(victim->comm, COMM_AFK))
 		strcat(buf, "{b[AFK] ");
 
-	if (affect_find_in_char(victim, gsn_invis))
+	if (affect_exists_on_char(victim, gsn_invis))
 		strcat(buf, "{C(Invis) ");
 
-	if (affect_find_in_char(victim, gsn_midnight))
+	if (affect_exists_on_char(victim, gsn_midnight))
 		strcat(buf, "{c(Shadowy) ");
 
-	if (affect_find_in_char(victim, gsn_hex))
+	if (affect_exists_on_char(victim, gsn_hex))
 		strcat(buf, "{c(Dark Aura) ");
 
 	if (victim->invis_level)
@@ -471,28 +471,28 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strcat(buf, string);
 	}
 
-	if (affect_find_in_char(victim, gsn_hide)) strcat(buf,
+	if (affect_exists_on_char(victim, gsn_hide)) strcat(buf,
 		                "{B(Hide) ");
 
-	if (affect_find_in_char(victim, gsn_charm_person)) strcat(buf,
+	if (affect_exists_on_char(victim, gsn_charm_person)) strcat(buf,
 		                "{M(Charmed) ");
 
-	if (affect_find_in_char(victim, gsn_pass_door)) strcat(buf,
+	if (affect_exists_on_char(victim, gsn_pass_door)) strcat(buf,
 		                "{c(Translucent) ");
 
-	if (affect_find_in_char(victim, gsn_faerie_fire)) strcat(buf,
+	if (affect_exists_on_char(victim, gsn_faerie_fire)) strcat(buf,
 		                "{P(Pink Aura) ");
 
-	if (affect_find_in_char(victim, gsn_flameshield)) strcat(buf,
+	if (affect_exists_on_char(victim, gsn_flameshield)) strcat(buf,
 		                "{b(Flaming Aura) ");
 
-	if (IS_EVIL(victim) && affect_find_in_char(ch, gsn_detect_evil)) strcat(buf,
+	if (IS_EVIL(victim) && affect_exists_on_char(ch, gsn_detect_evil)) strcat(buf,
 		                "{R(Red Aura) ");
 
-	if (IS_GOOD(victim) && affect_find_in_char(ch, gsn_detect_good)) strcat(buf,
+	if (IS_GOOD(victim) && affect_exists_on_char(ch, gsn_detect_good)) strcat(buf,
 		                "{Y(Golden Aura) ");
 
-	if (affect_find_in_char(victim, gsn_sanctuary)) strcat(buf,
+	if (affect_exists_on_char(victim, gsn_sanctuary)) strcat(buf,
 		                "{W(White Aura) ");
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER))
@@ -803,7 +803,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && affect_find_in_char(rch, gsn_night_vision))
+		         && affect_exists_on_char(rch, gsn_night_vision))
 			stc("You see glowing eyes watching YOU!\n", ch);
 	}
 }
@@ -2208,7 +2208,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 			else {
 				sprintf(buf + strlen(buf), "%-5s - %s",
 				        capitalize(dir_name[door]),
-				        (room_is_dark(pexit->u1.to_room) && !affect_find_in_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
+				        (room_is_dark(pexit->u1.to_room) && !affect_exists_on_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
 				        : pexit->u1.to_room->name
 				       );
@@ -3105,7 +3105,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (victim->in_room != NULL
 			    && victim->in_room->area == ch->in_room->area
-			    && !affect_find_in_char(victim, gsn_hide)
+			    && !affect_exists_on_char(victim, gsn_hide)
 			    && can_see(ch, victim)
 			    && is_name(arg, victim->name)) {
 				found = TRUE;

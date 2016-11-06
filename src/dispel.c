@@ -85,7 +85,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	int save;
 	save = (victim->level - level) * 3 - (GET_ATTR_SAVES(victim) * 4 / 3);
 
-	if (affect_find_in_char(victim, gsn_berserk))
+	if (affect_exists_on_char(victim, gsn_berserk))
 		save += victim->level / 4;
 
 	int def = check_immune(victim, dam_type);
@@ -200,7 +200,7 @@ bool check_dispel_char(int dis_level, CHAR_DATA *victim, int sn, bool save)
 
 	affect_remove_marked_from_char(victim);
 
-	if (!affect_find_in_char(victim, sn)) {
+	if (!affect_exists_on_char(victim, sn)) {
 		for (int i = 0; dispel_table[i].sn != NULL; i++) {
 			if (*dispel_table[i].sn == sn) {
 				if (dispel_table[i].msg_to_room != NULL)

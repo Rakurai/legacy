@@ -31,6 +31,7 @@ void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b 
 unsigned long affect_checksum             args(( const AFFECT_DATA *paf ));
 bool          affect_parse_prototype      args(( char letter, AFFECT_DATA *paf, unsigned int *bitvector ));
 char *        affect_print_cache          args(( CHAR_DATA *ch ));
+bool          affect_in_cache             args(( CHAR_DATA *ch, sh_int sn ));
 void          update_affect_cache         args(( CHAR_DATA *ch, sh_int sn, bool fAdd ));
 void          free_affect_cache           args(( CHAR_DATA *ch ));
 
@@ -46,9 +47,12 @@ bool                affect_enchanted_obj             args(( OBJ_DATA *obj ));
 const AFFECT_DATA * affect_list_obj                  args(( OBJ_DATA *obj ));
 const AFFECT_DATA * affect_list_char                 args(( CHAR_DATA *ch ));
 const AFFECT_DATA * affect_list_room                 args(( ROOM_INDEX_DATA *room ));
-const AFFECT_DATA * affect_find_in_obj               args(( OBJ_DATA *obj, int sn ));
-const AFFECT_DATA * affect_find_in_char              args(( CHAR_DATA *ch, int sn ));
-const AFFECT_DATA * affect_find_in_room              args(( ROOM_INDEX_DATA *room, int sn ));
+bool                affect_exists_on_obj             args(( OBJ_DATA *obj, int sn ));
+bool                affect_exists_on_char            args(( CHAR_DATA *ch, int sn ));
+bool                affect_exists_on_room            args(( ROOM_INDEX_DATA *room, int sn ));
+const AFFECT_DATA * affect_find_on_obj               args(( OBJ_DATA *obj, int sn ));
+const AFFECT_DATA * affect_find_on_char              args(( CHAR_DATA *ch, int sn ));
+const AFFECT_DATA * affect_find_on_room              args(( ROOM_INDEX_DATA *room, int sn ));
 
 // adding
 void                affect_copy_to_obj               args(( OBJ_DATA *obj, const AFFECT_DATA *paf ));

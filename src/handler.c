@@ -94,7 +94,7 @@ bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person))
+	if (affect_exists_on_char(ch, gsn_charm_person))
 		return FALSE;
 
 	if (IS_SET(ch->off_flags, ASSIST_ALL))
@@ -664,7 +664,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	    &&   obj->value[2] != 0)
 		++ch->in_room->light;
 
-	const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
+	const AFFECT_DATA *plague = affect_find_on_char(ch, gsn_plague);
 	if (plague)
 		spread_plague(ch->in_room, plague, 6);
 }
@@ -1637,11 +1637,11 @@ bool is_blinded(CHAR_DATA *ch) {
 	if (IS_IMMORTAL(ch))
 		return FALSE;
 
-	if (affect_find_in_char(ch, gsn_blindness)
-	 || affect_find_in_char(ch, gsn_dirt_kicking)
-	 || affect_find_in_char(ch, gsn_fire_breath)
-	 || affect_find_in_char(ch, gsn_smokescreen)
-	 || affect_find_in_char(ch, gsn_dazzle))
+	if (affect_exists_on_char(ch, gsn_blindness)
+	 || affect_exists_on_char(ch, gsn_dirt_kicking)
+	 || affect_exists_on_char(ch, gsn_fire_breath)
+	 || affect_exists_on_char(ch, gsn_smokescreen)
+	 || affect_exists_on_char(ch, gsn_dazzle))
 		return TRUE;
 
 	return FALSE;
@@ -1667,7 +1667,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim) && IS_SET(victim->act, ACT_SUPERMOB))
 		return FALSE;
 
-	if (affect_find_in_char(victim, gsn_midnight))
+	if (affect_exists_on_char(victim, gsn_midnight))
 		return FALSE;
 
 	if (!IS_IMMORTAL(ch) && victim->lurk_level && ch->in_room != victim->in_room)
@@ -1679,17 +1679,17 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (is_blinded(ch))
 		return FALSE;
 
-	if ((room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_night_vision))
+	if ((room_is_dark(ch->in_room) && !affect_exists_on_char(ch, gsn_night_vision))
 	 || room_is_very_dark(ch->in_room))
 		return FALSE;
 
-	if (affect_find_in_char(victim, gsn_invis)
-	    &&   !affect_find_in_char(ch, gsn_detect_invis))
+	if (affect_exists_on_char(victim, gsn_invis)
+	    &&   !affect_exists_on_char(ch, gsn_detect_invis))
 		return FALSE;
 
 	/* sneaking */
-	if (affect_find_in_char(victim, gsn_sneak)
-	    &&   !affect_find_in_char(ch, gsn_detect_hidden)
+	if (affect_exists_on_char(victim, gsn_sneak)
+	    &&   !affect_exists_on_char(ch, gsn_detect_hidden)
 	    &&   victim->fighting == NULL) {
 		int chance;
 		chance = get_skill(victim, gsn_sneak);
@@ -1701,8 +1701,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
-	if (affect_find_in_char(victim, gsn_hide)
-	    &&   !affect_find_in_char(ch, gsn_detect_hidden)
+	if (affect_exists_on_char(victim, gsn_hide)
+	    &&   !affect_exists_on_char(ch, gsn_detect_hidden)
 	    &&   victim->fighting == NULL)
 		return FALSE;
 
@@ -1746,7 +1746,7 @@ bool can_see_in_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	if (is_blinded(ch))
 		return FALSE;
 
-	if (room_is_dark(room) && !affect_find_in_char(ch, gsn_night_vision))
+	if (room_is_dark(room) && !affect_exists_on_char(ch, gsn_night_vision))
 		return FALSE;
 
 	return TRUE;
@@ -1782,7 +1782,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	if (IS_SET(obj->extra_flags, ITEM_INVIS)
-	    && !affect_find_in_char(ch, gsn_detect_invis))
+	    && !affect_exists_on_char(ch, gsn_detect_invis))
 		return FALSE;
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
@@ -1791,7 +1791,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !affect_find_in_char(ch, gsn_night_vision))
+	if (room_is_dark(ch->in_room) && !affect_exists_on_char(ch, gsn_night_vision))
 		return FALSE;
 
 	return TRUE;
@@ -2873,7 +2873,7 @@ int get_play_seconds(CHAR_DATA *ch)
 }
 
 // TODO: this doesn't take eq affects into account, but short of looping through those...
-/* used with affect_find_in_char, checks to see if the affect has an evolution rating, returns 1 if not */
+/* used with affect_exists_on_char, checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
 {
 	int evo = 1;

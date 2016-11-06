@@ -904,7 +904,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 			    || IS_SET(victim->act, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
-			    || affect_find_in_char(victim, gsn_charm_person)
+			    || affect_exists_on_char(victim, gsn_charm_person)
 			    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_PRIVATE | ROOM_SOLITARY)
 			    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
@@ -1563,7 +1563,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (affect_find_in_char(ch, gsn_curse)) {
+		if (affect_exists_on_char(ch, gsn_curse)) {
 			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}

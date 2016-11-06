@@ -317,7 +317,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+		if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 			stc("You can't do that on your own follower.\n", ch);
 			return;
 		}
@@ -389,7 +389,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				if (help_mob(ch, victim))
 					return;
 
-			if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+			if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 				stc("You can't do that on your own follower.\n", ch);
 				return;
 			}
@@ -543,7 +543,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_OFFENSIVE:
 		if ((arg2[0] == '\0' && ch->fighting == NULL)
 		    || (victim = get_char_here(ch, target_name, VIS_CHAR)) == NULL
-		    || (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim))
+		    || (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
 			return;
 
 		vo = (void *) victim;
@@ -588,7 +588,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 
 		if (target == TARGET_CHAR) { /* check the sanity of the attack */
 			if ((is_safe_spell(ch, victim, FALSE) && victim != ch)
-			    || (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim))
+			    || (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
 				return;
 
 			vo = (void *) victim;
@@ -921,7 +921,7 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You are already armored.\n", ch);
 		else
@@ -948,7 +948,7 @@ void spell_steel_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("Your armor is already coated with magical steel.\n", ch);
 		else
@@ -976,7 +976,7 @@ void spell_blood_moon(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You are already bloodthirsty.\n", ch);
 		else
@@ -1028,7 +1028,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 
 		if (IS_OBJ_STAT(obj, ITEM_EVIL)) {
 			// is it cursed or just evil?
-			if (affect_find_in_obj(obj, gsn_curse))
+			if (affect_exists_on_obj(obj, gsn_curse))
 				check_dispel_obj(level, obj, gsn_curse, TRUE);
 			else if (!level_save(level, obj->level))
 				REMOVE_BIT(obj->extra_flags, ITEM_EVIL);
@@ -1075,7 +1075,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You are already blessed.\n", ch);
 		else
@@ -1104,7 +1104,7 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 
 	// intentionally allow blindness even in addition to other (dirt kicking etc)
 
-	if (affect_find_in_char(victim, gsn_blindness)) {
+	if (affect_exists_on_char(victim, gsn_blindness)) {
 		stc("Your victim doesn't have any sight to lose.\n", ch);
 		return;
 	}
@@ -1327,7 +1327,7 @@ void spell_dazzling_light(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	if (affect_find_in_obj(obj, sn)) {
+	if (affect_exists_on_obj(obj, sn)) {
 		stc("That light is already quite dazzling.\n", ch);
 		return;
 	}
@@ -1376,7 +1376,7 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	if (affect_find_in_obj(obj, sn)) {
+	if (affect_exists_on_obj(obj, sn)) {
 		stc("That light is already somewhat enhanced.\n", ch);
 		return;
 	}
@@ -1497,9 +1497,9 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 				    && (check_immune(vch, DAM_CHARM) >= 100 // TODO: this should check chance individually?
 				        || IS_SET(vch->act, ACT_UNDEAD)))
 					failure = TRUE;
-				else if (affect_find_in_char(vch, gsn_calm)
-				         || affect_find_in_char(vch, gsn_berserk)
-				         || affect_find_in_char(vch, gsn_frenzy))
+				else if (affect_exists_on_char(vch, gsn_calm)
+				         || affect_exists_on_char(vch, gsn_berserk)
+				         || affect_exists_on_char(vch, gsn_frenzy))
 					failure = TRUE;
 			}
 		}
@@ -1535,7 +1535,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	level += 2;
 
-	if ((!IS_NPC(ch) && IS_NPC(victim) && !(affect_find_in_char(ch, gsn_charm_person) && ch->master == victim))
+	if ((!IS_NPC(ch) && IS_NPC(victim) && !(affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
 	    || (!IS_NPC(victim) && ch != victim)) {
 		stc("You failed, try dispel magic.\n", ch);
 		return;
@@ -1566,7 +1566,7 @@ void spell_change_sex(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You've already been changed.\n", ch);
 		else
@@ -1655,12 +1655,12 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person)) {
+	if (affect_exists_on_char(ch, gsn_charm_person)) {
 		stc("You are charmed yourself, and thus unable to charm others.\n", ch);
 		return;
 	}
 
-	if (affect_find_in_char(victim, gsn_charm_person)) {
+	if (affect_exists_on_char(victim, gsn_charm_person)) {
 		act("$E is already charmed, there is nothing more you can do!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -2103,7 +2103,7 @@ void spell_cure_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!affect_find_in_char(victim, gsn_blindness)) {
+	if (!affect_exists_on_char(victim, gsn_blindness)) {
 		if (victim == ch)
 			stc("You aren't blind.\n", ch);
 		else
@@ -2207,7 +2207,7 @@ void spell_cure_disease(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!affect_find_in_char(victim, gsn_plague)) {
+	if (!affect_exists_on_char(victim, gsn_plague)) {
 		if (victim == ch)
 			stc("You aren't ill.\n", ch);
 		else
@@ -2224,7 +2224,7 @@ void spell_cure_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (!affect_find_in_char(victim, gsn_poison)) {
+	if (!affect_exists_on_char(victim, gsn_poison)) {
 		if (victim == ch)
 			stc("You aren't poisoned.\n", ch);
 		else
@@ -2257,7 +2257,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)) {
 			// is it cursed or just evil?
-			if (affect_find_in_obj(obj, gsn_bless))
+			if (affect_exists_on_obj(obj, gsn_bless))
 				check_dispel_obj(level, obj, gsn_bless, TRUE);
 			else if (!level_save(level, obj->level))
 				REMOVE_BIT(obj->extra_flags, ITEM_BLESS);
@@ -2286,7 +2286,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	/* character curses */
 	victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_curse)) {
+	if (affect_exists_on_char(victim, gsn_curse)) {
 		if (ch == victim)
 			stc("You are already cursed. You don't need a double whammy.\n", ch);
 		else
@@ -2356,7 +2356,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_detect_evil)) {
+	if (affect_exists_on_char(victim, gsn_detect_evil)) {
 		if (victim == ch)
 			stc("You can already sense evil.\n", ch);
 		else
@@ -2383,7 +2383,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_detect_good)) {
+	if (affect_exists_on_char(victim, gsn_detect_good)) {
 		if (victim == ch)
 			stc("You can already sense good.\n", ch);
 		else
@@ -2410,7 +2410,7 @@ void spell_detect_hidden(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_detect_hidden)) {
+	if (affect_exists_on_char(victim, gsn_detect_hidden)) {
 		if (victim == ch)
 			stc("You are already as alert as you can be. \n", ch);
 		else
@@ -2437,7 +2437,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_detect_invis)) {
+	if (affect_exists_on_char(victim, gsn_detect_invis)) {
 		if (victim == ch)
 			stc("You can already see invisible.\n", ch);
 		else
@@ -2464,7 +2464,7 @@ void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_detect_magic)) {
+	if (affect_exists_on_char(victim, gsn_detect_magic)) {
 		if (victim == ch)
 			stc("You can already sense magical auras.\n", ch);
 		else
@@ -3068,7 +3068,7 @@ void spell_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_fear)) {
+	if (affect_exists_on_char(victim, gsn_fear)) {
 		act("Your attack is senseless, $N is already shaking in $S boots!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3102,7 +3102,7 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	chance += (level - victim->level) / 2;
 	chance += (evolution - 1) * 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
+	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 15;
 
 	chance -= ((victim->stam * 20) / ATTR_BASE(victim, APPLY_STAM));
@@ -3114,7 +3114,7 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	if (!can_see(ch, victim))
 		chance -= 20;
 
-	if (affect_find_in_char(victim, gsn_pass_door))
+	if (affect_exists_on_char(victim, gsn_pass_door))
 		chance -= chance / 4;
 
 	if (spread)
@@ -3269,7 +3269,7 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 				return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 		stc("You can't do that on your own follower.\n", ch);
 		return;
 	}
@@ -3425,7 +3425,7 @@ void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_faerie_fire)) {
+	if (affect_exists_on_char(victim, gsn_faerie_fire)) {
 		act("$N is already glowing pink!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3455,10 +3455,10 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
 			continue;
 
-		if (!affect_find_in_char(ich, gsn_hide)
-		    && !affect_find_in_char(ich, gsn_sneak)
-		    && !affect_find_in_char(ich, gsn_invis)
-		    && !affect_find_in_char(ich, gsn_midnight))
+		if (!affect_exists_on_char(ich, gsn_hide)
+		    && !affect_exists_on_char(ich, gsn_sneak)
+		    && !affect_exists_on_char(ich, gsn_invis)
+		    && !affect_exists_on_char(ich, gsn_midnight))
 			continue;
 
 		affect_remove_sn_from_char(ich, gsn_invis);
@@ -3535,7 +3535,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn) || affect_find_in_char(victim, gsn_berserk)) {
+	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_berserk)) {
 		if (victim == ch)
 			stc("You are already in a frenzy.\n", ch);
 		else
@@ -3544,7 +3544,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		return;
 	}
 
-	if (affect_find_in_char(victim, gsn_calm)) {
+	if (affect_exists_on_char(victim, gsn_calm)) {
 		if (victim == ch)
 			stc("Why don't you just relax for a while?\n", ch);
 		else
@@ -3636,7 +3636,7 @@ void spell_giant_strength(int sn, int level, CHAR_DATA *ch, void *vo, int target
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You are already as strong as you can get!\n", ch);
 		else
@@ -3680,7 +3680,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn) || affect_find_in_char(victim, gsn_haste) || IS_SET(victim->off_flags, OFF_FAST)) {
+	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_haste) || IS_SET(victim->off_flags, OFF_FAST)) {
 		if (victim == ch)
 			stc("You can't move any faster!\n", ch);
 		else
@@ -3689,7 +3689,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (affect_find_in_char(victim, gsn_slow)) {
+	if (affect_exists_on_char(victim, gsn_slow)) {
 		if (!check_dispel_char(level, victim, gsn_slow, FALSE)) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
@@ -4185,7 +4185,7 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You can already see in the dark.\n", ch);
 		else
@@ -4237,7 +4237,7 @@ void spell_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	/* character invisibility */
 	victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_invis)) {
+	if (affect_exists_on_char(victim, gsn_invis)) {
 		if (victim == ch)
 			stc("You are already invisible!\n", ch);
 		else
@@ -4459,7 +4459,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (!is_same_group(gch, ch) || affect_find_in_char(gch, gsn_invis))
+		if (!is_same_group(gch, ch) || affect_exists_on_char(gch, gsn_invis))
 			continue;
 
 		act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
@@ -4686,7 +4686,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_pass_door)) {
+	if (affect_exists_on_char(victim, gsn_pass_door)) {
 		if (victim == ch)
 			stc("You are already out of phase.\n", ch);
 		else
@@ -4717,7 +4717,7 @@ void spread_plague(ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance)
 	for (CHAR_DATA *vch = room->people; vch; vch = vch->next_in_room) {
 		if (!saves_spell(plague->level - 2, vch, DAM_DISEASE)
 		 && !IS_IMMORTAL(vch)
-		 && !affect_find_in_char(vch, gsn_plague)
+		 && !affect_exists_on_char(vch, gsn_plague)
 		 && number_bits(chance) == 0) {
 			stc("You feel hot and feverish.\n", vch);
 			act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
@@ -4995,7 +4995,7 @@ void spell_protection_evil(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_protection_evil)) {
+	if (affect_exists_on_char(victim, gsn_protection_evil)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5022,7 +5022,7 @@ void spell_protection_good(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_protection_good)) {
+	if (affect_exists_on_char(victim, gsn_protection_good)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5248,9 +5248,9 @@ void spell_divine_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int t
 		return;
 	}
 
-	if ((affect_find_in_char(victim, sn))
-	    || (affect_find_in_char(victim, gsn_regeneration))
-	    || (affect_find_in_char(victim, gsn_divine_regeneration))) {
+	if ((affect_exists_on_char(victim, sn))
+	    || (affect_exists_on_char(victim, gsn_regeneration))
+	    || (affect_exists_on_char(victim, gsn_divine_regeneration))) {
 		if (victim == ch)
 			stc("You can't possibly feel any more vibrant!\n", ch);
 		else
@@ -5294,9 +5294,9 @@ void spell_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)
-	    || affect_find_in_char(victim, gsn_regeneration)
-	    || affect_find_in_char(victim, gsn_divine_regeneration)) {
+	if (affect_exists_on_char(victim, sn)
+	    || affect_exists_on_char(victim, gsn_regeneration)
+	    || affect_exists_on_char(victim, gsn_divine_regeneration)) {
 		if (victim == ch)
 			stc("You can't possibly feel any more vibrant!\n", ch);
 		else
@@ -5477,7 +5477,7 @@ void spell_remove_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	/* characters */
 	victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_curse)) {
+	if (affect_exists_on_char(victim, gsn_curse)) {
 		affected = TRUE;
 
 		if (check_dispel_char(level, victim, gsn_curse, FALSE)) {
@@ -5522,7 +5522,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_sanctuary)) {
+	if (affect_exists_on_char(victim, gsn_sanctuary)) {
 		if (victim == ch)
 			stc("You are already in sanctuary.\n", ch);
 		else
@@ -5567,7 +5567,7 @@ void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You are already shielded from harm.\n", ch);
 		else
@@ -5607,7 +5607,7 @@ void spell_flameshield(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		if (victim == ch)
 			stc("You are already circled by flames.\n", ch);
 		else
@@ -5660,7 +5660,7 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 5;
 
-	if (affect_find_in_char(victim, gsn_sleep)) {
+	if (affect_exists_on_char(victim, gsn_sleep)) {
 		act("$E isn't awake enough to be affected by your spell.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -5698,7 +5698,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn) || affect_find_in_char(victim, gsn_slow)) {
+	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_slow)) {
 		if (victim == ch)
 			stc("You can't move any slower!\n", ch);
 		else
@@ -5708,7 +5708,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 		return;
 	}
 
-	if (affect_find_in_char(victim, gsn_haste)) {
+	if (affect_exists_on_char(victim, gsn_haste)) {
 		if (!check_dispel_char(level, victim, gsn_haste, (ch != victim))) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
@@ -5817,7 +5817,7 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(ch, sn)) {
+	if (affect_exists_on_char(ch, sn)) {
 		if (victim == ch)
 			stc("Your skin is already as hard as a rock.\n", ch);
 		else
@@ -6127,7 +6127,7 @@ void spell_talon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_talon)) {
+	if (affect_exists_on_char(victim, gsn_talon)) {
 		if (victim == ch)
 			stc("If you hold your weapon any tighter people will start to wonder...\n"
 			    , ch);
@@ -6327,7 +6327,7 @@ void spell_undo_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	}
 
 	if ((!IS_NPC(ch) && IS_NPC(victim)
-	     && !(affect_find_in_char(ch, gsn_charm_person) && ch->master == victim))
+	     && !(affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
 	    || (IS_NPC(ch) && !IS_NPC(victim))) {
 		stc("You failed, try dispel magic.\n", ch);
 		return;
@@ -6400,7 +6400,7 @@ void spell_weaken(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		act("Your spell comes too late. $N is already weak.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -6453,7 +6453,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 
 	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL) ||
-	    affect_find_in_char(victim, gsn_curse) || char_in_duel_room(ch)) {
+	    affect_exists_on_char(victim, gsn_curse) || char_in_duel_room(ch)) {
 		stc("Spell failed.\n", victim);
 		return;
 	}
@@ -6750,7 +6750,7 @@ void spell_age(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, sn)) {
+	if (affect_exists_on_char(victim, sn)) {
 		act("$N is already aged beyond $S years.", ch, NULL, vo, TO_CHAR);
 		return;
 	}

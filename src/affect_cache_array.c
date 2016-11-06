@@ -8,6 +8,14 @@ void free_affect_cache(CHAR_DATA *ch) {
 	ch->affect_cache = NULL;
 }
 
+bool affect_in_cache(CHAR_DATA *ch, sh_int sn) {
+	return (
+		sn > 1
+	 && sn < MAX_SKILL
+	 && ch->affect_cache
+	 && get_affect_cache(ch)[sn] > 0);
+}
+
 void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 	if (sn < 1 || sn >= MAX_SKILL) {
 		bug("update_affect_cache: called with sn = %d", sn);

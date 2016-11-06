@@ -114,7 +114,7 @@ void violence_update(void)
 			if (!IS_NPC(ch)) {
 				if (ch->pcdata->pktimer
 				 && --ch->pcdata->pktimer == 0
-				 && affect_find_in_char(ch, gsn_shadow_form))
+				 && affect_exists_on_char(ch, gsn_shadow_form))
 					affect_remove_sn_from_char(ch, gsn_shadow_form);
 
 				if (ch->pcdata->combattimer > 0)
@@ -175,7 +175,7 @@ void violence_update(void)
 			if ((IS_SET(ch->act, ACT_WIMPY)
 			     && number_bits(2) == 0
 			     && ch->hit < ATTR_BASE(ch, APPLY_HIT) / 5)
-			    || (affect_find_in_char(ch, gsn_charm_person)
+			    || (affect_exists_on_char(ch, gsn_charm_person)
 			        && ch->master != NULL
 			        && ch->master->in_room != ch->in_room))
 				do_flee(ch, "");
@@ -186,7 +186,7 @@ void violence_update(void)
 		if (ch->fighting == NULL)
 			continue;
 
-		if (affect_find_in_char(ch, gsn_fear))
+		if (affect_exists_on_char(ch, gsn_fear))
 			do_flee(ch, "");
 
 		if ((victim = ch->fighting) == NULL)
@@ -195,7 +195,7 @@ void violence_update(void)
 		/* Mobs switch to master, no longer do multihits every round :P -- Montrey */
 		if (IS_NPC(ch)
 		    && IS_NPC(victim)
-		    && affect_find_in_char(victim, gsn_charm_person)
+		    && affect_exists_on_char(victim, gsn_charm_person)
 		    && victim->master != NULL
 		    && victim->master->in_room == ch->in_room
 		    && chance(15)) {
@@ -290,7 +290,7 @@ void combat_regen(CHAR_DATA *ch)
 	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < ATTR_BASE(ch, APPLY_HIT))
 		hitgain += (ch->level / 20) + 1;
 
-	if (affect_find_in_char(ch, gsn_regeneration) && ch->stam < ATTR_BASE(ch, APPLY_STAM))
+	if (affect_exists_on_char(ch, gsn_regeneration) && ch->stam < ATTR_BASE(ch, APPLY_STAM))
 		switch (get_affect_evolution(ch, gsn_regeneration)) {
 		case 2: stamgain += ch->level / 30 + 2;   break;
 
@@ -323,7 +323,7 @@ void combat_regen(CHAR_DATA *ch)
 		default:                                break;
 		}
 
-	if (affect_find_in_char(ch, gsn_divine_regeneration)) {
+	if (affect_exists_on_char(ch, gsn_divine_regeneration)) {
 		int gain = 0;
 
 		switch (get_affect_evolution(ch, gsn_divine_regeneration)) {
@@ -356,7 +356,7 @@ void check_all_cond(CHAR_DATA *ch)
 	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return;
 
-	if (affect_find_in_char(ch, gsn_sheen))
+	if (affect_exists_on_char(ch, gsn_sheen))
 		return;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
@@ -376,13 +376,13 @@ void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 
 	/* sheen protects absolutely */
-	if (affect_find_in_char(ch, gsn_sheen))
+	if (affect_exists_on_char(ch, gsn_sheen))
 		return;
 
 	if ((number_range(0, 500)) != 100)
 		return;
 
-	if (affect_find_in_char(ch, gsn_steel_mist))
+	if (affect_exists_on_char(ch, gsn_steel_mist))
 		obj->condition -= number_range(1, 4);
 	else
 		obj->condition -= number_range(1, 8);
@@ -439,10 +439,10 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 
 			/* PCs next */
-			if (!IS_NPC(ch) || affect_find_in_char(ch, gsn_charm_person)) {
+			if (!IS_NPC(ch) || affect_exists_on_char(ch, gsn_charm_person)) {
 				if (((!IS_NPC(rch)
 				      && IS_SET(rch->act, PLR_AUTOASSIST))
-				     || affect_find_in_char(rch, gsn_charm_person))
+				     || affect_exists_on_char(rch, gsn_charm_person))
 				    && (rch->level != 0)
 				    && is_same_group(ch, rch)
 				    && !is_safe(rch, victim, TRUE))
@@ -452,7 +452,7 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 
 			/* now check the NPC cases */
-			if (IS_NPC(ch) && !affect_find_in_char(ch, gsn_charm_person)) {
+			if (IS_NPC(ch) && !affect_exists_on_char(ch, gsn_charm_person)) {
 				if ((IS_NPC(rch) && IS_SET(rch->off_flags, ASSIST_ALL))
 				    || (IS_NPC(rch) && rch->group && rch->group == ch->group)
 				    || (IS_NPC(rch) && rch->race == ch->race
@@ -535,7 +535,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 			check_improve(ch, gsn_dual_wield, FALSE, 6);
 	}
 
-	if (affect_find_in_char(ch, gsn_haste))
+	if (affect_exists_on_char(ch, gsn_haste))
 		one_hit(ch, victim, dt, FALSE);
 
 	if (!ch->fighting || dt == gsn_backstab)
@@ -546,7 +546,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (CAN_USE_RSKILL(ch, gsn_fourth_attack))
 		chance += get_skill(ch, gsn_fourth_attack) / 10;
 
-	if (affect_find_in_char(ch, gsn_slow))
+	if (affect_exists_on_char(ch, gsn_slow))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -562,7 +562,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (CAN_USE_RSKILL(ch, gsn_fourth_attack))
 		chance += get_skill(ch, gsn_fourth_attack) / 10;
 
-	if (affect_find_in_char(ch, gsn_slow))
+	if (affect_exists_on_char(ch, gsn_slow))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -575,7 +575,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_fourth_attack) / 2;
 
-	if (affect_find_in_char(ch, gsn_slow) || !CAN_USE_RSKILL(ch, gsn_fourth_attack))
+	if (affect_exists_on_char(ch, gsn_slow) || !CAN_USE_RSKILL(ch, gsn_fourth_attack))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -589,7 +589,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (get_eq_char(ch, WEAR_SECONDARY)) {
 		chance = get_skill(ch, gsn_dual_second) / 2;
 
-		if (affect_find_in_char(ch, gsn_slow) || !CAN_USE_RSKILL(ch, gsn_dual_second))
+		if (affect_exists_on_char(ch, gsn_slow) || !CAN_USE_RSKILL(ch, gsn_dual_second))
 			chance = 0;
 
 		chance += ((get_evolution(ch, gsn_dual_wield) - 1) * 5);
@@ -621,7 +621,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	/* remort affect - weak grip */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) != NULL
-	    && !affect_find_in_char(ch, gsn_talon)
+	    && !affect_exists_on_char(ch, gsn_talon)
 	    && !IS_OBJ_STAT(obj, ITEM_NOREMOVE)
 	    && HAS_RAFF(ch, RAFF_WEAKGRIP)) {
 		if (number_range(1, 100) == 1) {
@@ -678,8 +678,8 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		}
 	}
 
-	if (affect_find_in_char(ch, gsn_haste)
-	    || (IS_SET(ch->off_flags, OFF_FAST) && !affect_find_in_char(ch, gsn_slow)))
+	if (affect_exists_on_char(ch, gsn_haste)
+	    || (IS_SET(ch->off_flags, OFF_FAST) && !affect_exists_on_char(ch, gsn_slow)))
 		one_hit(ch, victim, dt, FALSE);
 
 	if (!ch->fighting || dt == gsn_backstab)
@@ -687,7 +687,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_second_attack) / 2;
 
-	if (affect_find_in_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (affect_exists_on_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -699,7 +699,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_third_attack) / 4;
 
-	if (affect_find_in_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (affect_exists_on_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -711,7 +711,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_fourth_attack) / 6;
 
-	if (affect_find_in_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (affect_exists_on_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -735,7 +735,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		break;
 
 	case (1) :
-		if (IS_SET(ch->off_flags, OFF_BERSERK) && !affect_find_in_char(ch, gsn_berserk))
+		if (IS_SET(ch->off_flags, OFF_BERSERK) && !affect_exists_on_char(ch, gsn_berserk))
 			do_berserk(ch, "");
 
 		break;
@@ -1000,7 +1000,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		int dam, level, evolution;
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
-			if ((weaponaff = affect_find_in_obj(wield, gsn_poison)) == NULL) {
+			if ((weaponaff = affect_find_on_obj(wield, gsn_poison)) == NULL) {
 				level = wield->level;
 				evolution = 1;
 			}
@@ -1032,7 +1032,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_VAMPIRIC)) {
-			if ((weaponaff = affect_find_in_obj(wield, gsn_blood_blade)) == NULL)
+			if ((weaponaff = affect_find_on_obj(wield, gsn_blood_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1064,7 +1064,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FLAMING)) {
-			if ((weaponaff = affect_find_in_obj(wield, gsn_flame_blade)) == NULL)
+			if ((weaponaff = affect_find_on_obj(wield, gsn_flame_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1082,7 +1082,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FROST)) {
-			if ((weaponaff = affect_find_in_obj(wield, gsn_frost_blade)) == NULL)
+			if ((weaponaff = affect_find_on_obj(wield, gsn_frost_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1100,7 +1100,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_SHOCKING)) {
-			if ((weaponaff = affect_find_in_obj(wield, gsn_shock_blade)) == NULL)
+			if ((weaponaff = affect_find_on_obj(wield, gsn_shock_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1164,7 +1164,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	/* moved here from magic.c */
 	if (spell && focus)
-		if (affect_find_in_char(ch, gsn_focus))
+		if (affect_exists_on_char(ch, gsn_focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
 
 	/* damage reduction */
@@ -1219,8 +1219,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* Inviso attacks ... not. */
-	if (affect_find_in_char(ch, gsn_invis)
-	 || affect_find_in_char(ch, gsn_midnight)) {
+	if (affect_exists_on_char(ch, gsn_invis)
+	 || affect_exists_on_char(ch, gsn_midnight)) {
 		affect_remove_sn_from_char(ch, gsn_invis);
 		affect_remove_sn_from_char(ch, gsn_midnight);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
@@ -1238,19 +1238,19 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* BARRIER reduces damage by (currently) 25% -- Elrac */
-	if (dam > 1 && affect_find_in_char(victim, gsn_barrier))
+	if (dam > 1 && affect_exists_on_char(victim, gsn_barrier))
 		dam -= dam / 4;
 
 	sanc_immune = FALSE;
 
-	if (dam > 1 && affect_find_in_char(victim, gsn_sanctuary)) {
+	if (dam > 1 && affect_exists_on_char(victim, gsn_sanctuary)) {
 		switch (get_affect_evolution(victim, gsn_sanctuary)) {
 		case 1:
 			dam = (dam * 60) / 100;
 			break;
 
 		case 2:
-			if (affect_find_in_char(ch, gsn_curse))
+			if (affect_exists_on_char(ch, gsn_curse))
 				dam = (dam * 45) / 100;
 			else
 				dam = (dam * 55) / 100;
@@ -1258,7 +1258,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			break;
 
 		case 3:
-			if (affect_find_in_char(ch, gsn_curse))
+			if (affect_exists_on_char(ch, gsn_curse))
 				dam = (dam * 40) / 100;
 			else
 				dam = (dam * 50) / 100;
@@ -1266,7 +1266,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			break;
 
 		case 4:
-			if (affect_find_in_char(ch, gsn_curse)) {
+			if (affect_exists_on_char(ch, gsn_curse)) {
 				dam = (dam * 35) / 100;
 
 				if (dam % 10 == 0) {
@@ -1281,8 +1281,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		}
 	}
 
-	if ((affect_find_in_char(victim, gsn_protection_evil) && IS_EVIL(ch))
-	    || (affect_find_in_char(victim, gsn_protection_good) && IS_GOOD(ch)))
+	if ((affect_exists_on_char(victim, gsn_protection_evil) && IS_EVIL(ch))
+	    || (affect_exists_on_char(victim, gsn_protection_good) && IS_GOOD(ch)))
 		dam -= dam / 4;
 
 	/* remort affect - more damage */
@@ -1295,7 +1295,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	immune = FALSE;
 
-	if (affect_find_in_char(victim, gsn_force_shield) && (dam % 4 == 0) && !sanc_immune) {
+	if (affect_exists_on_char(victim, gsn_force_shield) && (dam % 4 == 0) && !sanc_immune) {
 		immune = TRUE;
 		dam = 0;
 	}
@@ -1323,17 +1323,17 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			if (get_eq_char(ch, WEAR_WIELD) != NULL)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
-			if (affect_find_in_char(victim, gsn_flameshield) && !saves_spell(victim->level, ch, DAM_FIRE))
+			if (affect_exists_on_char(victim, gsn_flameshield) && !saves_spell(victim->level, ch, DAM_FIRE))
 				damage(victim, ch, 5, find_spell(victim, "flameshield"),
 				       DAM_FIRE, TRUE, TRUE);
 
-			if (affect_find_in_char(victim, gsn_sanctuary)
+			if (affect_exists_on_char(victim, gsn_sanctuary)
 			    && get_affect_evolution(victim, gsn_sanctuary) >= 3
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, gsn_sanctuary, DAM_HOLY, TRUE, TRUE);
 
 			const AFFECT_DATA *paf;
-			if ((paf = affect_find_in_char(victim, gsn_bone_wall)) != NULL
+			if ((paf = affect_find_on_char(victim, gsn_bone_wall)) != NULL
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
 				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
@@ -1646,7 +1646,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (IS_SET(victim->act, ACT_PET) && affect_find_in_char(victim, gsn_charm_person)) {
+			if (IS_SET(victim->act, ACT_PET) && affect_exists_on_char(victim, gsn_charm_person)) {
 				if (showmsg)
 					act("But $N looks so cute and cuddly.", ch, NULL, victim, TO_CHAR);
 
@@ -1654,7 +1654,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 			}
 
 			/* no charmed creatures unless owner */
-			if (affect_find_in_char(victim, gsn_charm_person) && ch != victim->master) {
+			if (affect_exists_on_char(victim, gsn_charm_person) && ch != victim->master) {
 				if (showmsg)
 					stc("That is not your charmed creature!\n", ch);
 
@@ -1663,7 +1663,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 		}
 		else {
 			/* mob killing mob */
-			if (affect_find_in_char(victim, gsn_charm_person)
+			if (affect_exists_on_char(victim, gsn_charm_person)
 			    && ch->master != NULL && victim->master != NULL
 			    && !IS_NPC(ch->master) && !IS_NPC(victim->master)
 			    && ch->master != victim->master
@@ -1680,7 +1680,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 		/* NPC doing the killing */
 		if (IS_NPC(ch)) {
 			/* charmed mobs and pets cannot attack players while owned */
-			if (affect_find_in_char(ch, gsn_charm_person) && ch->master != NULL
+			if (affect_exists_on_char(ch, gsn_charm_person) && ch->master != NULL
 			    && ch->master->fighting != victim) {
 				if (showmsg)
 					stc("Players are your friends!\n", ch);
@@ -1789,7 +1789,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim))
 		return TRUE;
 
-	if (affect_find_in_char(ch, gsn_fear))
+	if (affect_exists_on_char(ch, gsn_fear))
 		return TRUE;
 
 	/* killing mobiles */
@@ -1814,7 +1814,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 				return TRUE;
 
 			/* no charmed creatures unless owner */
-			if (affect_find_in_char(victim, gsn_charm_person) && (area || ch != victim->master))
+			if (affect_exists_on_char(victim, gsn_charm_person) && (area || ch != victim->master))
 				return TRUE;
 
 			/* legal kill? -- cannot hit mob fighting non-group member */
@@ -1833,7 +1833,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 		/* NPC doing the killing */
 		if (IS_NPC(ch)) {
 			/* charmed mobs and pets cannot attack players while owned */
-			if (affect_find_in_char(ch, gsn_charm_person) && ch->master != NULL
+			if (affect_exists_on_char(ch, gsn_charm_person) && ch->master != NULL
 			    && ch->master->fighting != victim)
 				return TRUE;
 
@@ -1879,7 +1879,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	/* Follow charm thread to responsible character.  Attacking someone's charmed char is hostile!
 	   Beware, this will cause a loop if master->pet->master - Lotus */
-	while (affect_find_in_char(victim, gsn_charm_person) && victim->master != NULL)
+	while (affect_exists_on_char(victim, gsn_charm_person) && victim->master != NULL)
 		victim = victim->master;
 
 	/* NPC's are fair game.  So are killers and thieves. */
@@ -1904,7 +1904,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Charm-o-rama, you can attack your charmed player */
-	if (affect_find_in_char(ch, gsn_charm_person)) {
+	if (affect_exists_on_char(ch, gsn_charm_person)) {
 		if (ch->master == NULL) {
 			char buf[MAX_STRING_LENGTH];
 			sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
@@ -1933,7 +1933,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* It's okay unless they were sleeping and haven't been attacked recently */
-	if ((get_position(victim) >= POS_RESTING) || (affect_find_in_char(ch, gsn_sleep)))
+	if ((get_position(victim) >= POS_RESTING) || (affect_exists_on_char(ch, gsn_sleep)))
 		return;
 
 	stc("{P*** You are now a KILLER!! ***{x\n", ch);
@@ -1995,7 +1995,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (!can_see(victim, ch))
 		chance /= 2;
 
-	if (affect_find_in_char(victim, gsn_paralyze))
+	if (affect_exists_on_char(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2091,7 +2091,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (!can_see(victim, ch))
 		chance /= 2;
 
-	if (affect_find_in_char(victim, gsn_paralyze))
+	if (affect_exists_on_char(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2173,7 +2173,7 @@ bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(victim, gsn_shield_block) * 2 / 5;
 
-	if (affect_find_in_char(victim, gsn_paralyze))
+	if (affect_exists_on_char(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += (victim->level - ch->level);
@@ -2231,16 +2231,16 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
+	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance += 15;
 
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
+	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance -= 15;
 
-	if (affect_find_in_char(victim, gsn_slow))
+	if (affect_exists_on_char(victim, gsn_slow))
 		chance -= 15;
 
-	if (affect_find_in_char(ch, gsn_slow))
+	if (affect_exists_on_char(ch, gsn_slow))
 		chance += 15;
 
 	if (!can_see(victim, ch))
@@ -2253,7 +2253,7 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (affect_find_in_char(victim, gsn_paralyze))
+	if (affect_exists_on_char(victim, gsn_paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2316,16 +2316,16 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
+	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
+	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance -= 10;
 
-	if (affect_find_in_char(victim, gsn_slow))
+	if (affect_exists_on_char(victim, gsn_slow))
 		chance -= 10;
 
-	if (affect_find_in_char(ch, gsn_slow))
+	if (affect_exists_on_char(ch, gsn_slow))
 		chance += 10;
 
 	if (!can_see(victim, ch))
@@ -2338,7 +2338,7 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (affect_find_in_char(victim, gsn_paralyze))
+	if (affect_exists_on_char(victim, gsn_paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2406,7 +2406,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_sleep))
+	if (affect_exists_on_char(ch, gsn_sleep))
 		affect_remove_sn_from_char(ch, gsn_sleep);
 
 	ch->fighting = victim;
@@ -3146,12 +3146,12 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_berserk) || affect_find_in_char(ch, gsn_berserk) || affect_find_in_char(ch, gsn_frenzy)) {
+	if (affect_exists_on_char(ch, gsn_berserk) || affect_exists_on_char(ch, gsn_berserk) || affect_exists_on_char(ch, gsn_frenzy)) {
 		stc("You get a little madder.\n", ch);
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_calm)) {
+	if (affect_exists_on_char(ch, gsn_calm)) {
 		stc("You're feeling to mellow to berserk.\n", ch);
 		return;
 	}
@@ -3247,7 +3247,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 		act("But $N is your friend!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3306,7 +3306,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	        chance += ((GET_ATTR_HITROLL(ch) - 120) / 16);
 	}*/
 	/* less bashable if translucent -- Elrac */
-//	if ( affect_find_in_char(victim, gsn_pass_door) )
+//	if ( affect_exists_on_char(victim, gsn_pass_door) )
 //		chance -= chance / 3;
 	/*Change in chance based on STR and score and stamina*/
 	chance += 3 * (GET_ATTR_STR(ch) - GET_ATTR_STR(victim));
@@ -3418,7 +3418,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 		act("But $N is such a good friend!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3432,10 +3432,10 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	chance -= 2 * GET_ATTR_DEX(victim);
 
 	/* speed  */
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
+	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
+	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 25;
 
 	/* level */
@@ -3512,10 +3512,10 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 	chance -= GET_ATTR_DEX(victim) * 3 / 2;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
+	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
+	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 20;
 
 	/* level */
@@ -3599,7 +3599,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3671,7 +3671,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_fear)) {
+	if (affect_exists_on_char(ch, gsn_fear)) {
 		stc("But they would beat the stuffing out of you!!\n", ch);
 		return;
 	}
@@ -3690,7 +3690,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3933,8 +3933,8 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, skill_table[gsn_sing].beats);
 
-	if (affect_find_in_char(victim, gsn_charm_person)
-	    || affect_find_in_char(ch, gsn_charm_person))
+	if (affect_exists_on_char(victim, gsn_charm_person)
+	    || affect_exists_on_char(ch, gsn_charm_person))
 		return;
 
 	singchance = get_skill(ch, gsn_sing) / 2;
@@ -4110,7 +4110,7 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (affect_find_in_char(victim, gsn_shadow_form)) {
+	if (affect_exists_on_char(victim, gsn_shadow_form)) {
 		act("$N has seen shadow form before and could easily avoid the attack.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -4266,7 +4266,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		    || pexit->u1.to_room == NULL
 		    || !can_see_room(ch, pexit->u1.to_room)
 		    || (IS_SET(pexit->exit_info, EX_CLOSED)
-		        && (!affect_find_in_char(ch, gsn_pass_door)
+		        && (!affect_exists_on_char(ch, gsn_pass_door)
 		            || IS_SET(pexit->exit_info, EX_NOPASS)))
 		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)))
 			continue;
@@ -4289,7 +4289,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		    || pexit->u1.to_room == NULL
 		    || !can_see_room(ch, pexit->u1.to_room)
 		    || (IS_SET(pexit->exit_info, EX_CLOSED)
-		        && (!affect_find_in_char(ch, gsn_pass_door)
+		        && (!affect_exists_on_char(ch, gsn_pass_door)
 		            || IS_SET(pexit->exit_info, EX_NOPASS)))
 		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)))
 			continue;
@@ -4594,7 +4594,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_table[gsn_disarm].beats);
 
 	/* evo 1 talon give 60% save, 70% at 2, 80% at 3, 90% at 4 */
-	if (affect_find_in_char(victim, gsn_talon)) {
+	if (affect_exists_on_char(victim, gsn_talon)) {
 		int talonchance = 65;
 
 		switch (get_affect_evolution(victim, gsn_talon)) {
@@ -4887,7 +4887,7 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 
 	chance = get_skill(ch, gsn_hammerstrike);
 
-	if (affect_find_in_char(ch, gsn_hammerstrike)) {
+	if (affect_exists_on_char(ch, gsn_hammerstrike)) {
 		stc("Are you insane?!?\n", ch);
 		return;
 	}
@@ -5275,7 +5275,7 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_fear)) {
+	if (affect_exists_on_char(ch, gsn_fear)) {
 		stc("But they would beat the stuffing out of you!!\n", ch);
 		return;
 	}
@@ -5294,7 +5294,7 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}

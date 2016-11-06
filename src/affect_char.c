@@ -13,7 +13,11 @@ const AFFECT_DATA *affect_list_char(CHAR_DATA *ch) {
 	return ch->affected;
 }
 
-const AFFECT_DATA *affect_find_in_char(CHAR_DATA *ch, int sn) {
+bool affect_exists_on_char(CHAR_DATA *ch, int sn) {
+	return affect_in_cache(ch, sn);
+}
+
+const AFFECT_DATA *affect_find_on_char(CHAR_DATA *ch, int sn) {
 	return affect_find_in_list(&ch->affected, sn);
 }
 

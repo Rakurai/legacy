@@ -921,7 +921,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 		percent = UMIN(percent, 100);
 
-		if (percent > 0 && !affect_find_in_char(ch, gsn_poison) && !affect_find_in_char(ch, gsn_plague)) {
+		if (percent > 0 && !affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_plague)) {
 			ch->hit         += (ATTR_BASE(ch, APPLY_HIT) - ch->hit) * percent / 100;
 			ch->mana        += (ATTR_BASE(ch, APPLY_MANA) - ch->mana) * percent / 100;
 			ch->stam        += (ATTR_BASE(ch, APPLY_STAM) - ch->stam) * percent / 100;
@@ -1642,8 +1642,8 @@ void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 	percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 	percent = UMIN(percent, 100);
 
-	if (percent > 0 && !affect_find_in_char(ch, gsn_poison)
-	    &&  !affect_find_in_char(ch, gsn_plague)) {
+	if (percent > 0 && !affect_exists_on_char(ch, gsn_poison)
+	    &&  !affect_exists_on_char(ch, gsn_plague)) {
 		pet->hit    += (GET_ATTR(pet, APPLY_HIT) - pet->hit) * percent / 100;
 		pet->mana   += (GET_ATTR(pet, APPLY_MANA) - pet->mana) * percent / 100;
 		pet->stam   += (GET_ATTR(pet, APPLY_STAM) - pet->stam) * percent / 100;

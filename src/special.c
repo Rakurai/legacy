@@ -142,8 +142,8 @@ bool spec_troll_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || affect_find_in_char(ch, gsn_calm) || ch->in_room == NULL
-	    || affect_find_in_char(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
+	    || affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an ogre to beat up */
@@ -200,8 +200,8 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || affect_find_in_char(ch, gsn_calm) || ch->in_room == NULL
-	    ||  affect_find_in_char(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
+	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an troll to beat up */
@@ -259,8 +259,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	char *message;
 	int count = 0;
 
-	if (!IS_AWAKE(ch) || affect_find_in_char(ch, gsn_calm) || ch->in_room == NULL
-	    ||  affect_find_in_char(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
+	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* look for a fight in the room */
@@ -1127,7 +1127,7 @@ bool spec_charm(CHAR_DATA *ch)
 	spell_charm_person(gsn_charm_person, ch->level, ch, victim,
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, gsn_charm_person));
 
-	if (affect_find_in_char(victim, gsn_charm_person))
+	if (affect_exists_on_char(victim, gsn_charm_person))
 		stop_fighting(victim, TRUE);
 
 	return TRUE;
@@ -1146,7 +1146,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 			if ((obj = get_eq_char(ch, iWear)) == NULL)
 				continue;
 
-			etched = affect_find_in_obj(obj, gsn_acid_breath) ? TRUE : FALSE;
+			etched = affect_exists_on_obj(obj, gsn_acid_breath) ? TRUE : FALSE;
 
 			sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
 			        , condition_lookup(obj->condition),
@@ -1193,7 +1193,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	const AFFECT_DATA *paf;
-	if ((paf = affect_find_in_obj(obj, gsn_acid_breath)) != NULL)
+	if ((paf = affect_find_on_obj(obj, gsn_acid_breath)) != NULL)
 		max = 100 - (5 * paf->modifier);
 
 	if (obj->condition >= max) {
@@ -1270,8 +1270,8 @@ bool spec_clanguard(CHAR_DATA *ch)
 
 	if (!IS_NPC(ch)
 	    || !IS_AWAKE(ch)
-	    || affect_find_in_char(ch, gsn_calm)
-	    || affect_find_in_char(ch, gsn_charm_person)
+	    || affect_exists_on_char(ch, gsn_calm)
+	    || affect_exists_on_char(ch, gsn_charm_person)
 	    || ch->in_room == NULL)
 		return FALSE;
 

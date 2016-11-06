@@ -65,7 +65,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
-		    && affect_find_in_char(owner, gsn_sheen))
+		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -248,7 +248,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
-		    && affect_find_in_char(owner, gsn_sheen))
+		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -389,7 +389,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
-		    && affect_find_in_char(owner, gsn_sheen))
+		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -624,7 +624,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
-		    && affect_find_in_char(owner, gsn_sheen))
+		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
