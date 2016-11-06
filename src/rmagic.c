@@ -144,7 +144,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	}
 
 	/* basic chances, works better on mobs than normal saves */
-	chance = 70 - (victim->level - level) * 2 + GET_ATTR(victim, APPLY_SAVES);
+	chance = 70 - (victim->level - level) * 2 + GET_ATTR_SAVES(victim);
 
 	/* berserking isn't as good as normal saves */
 	if (affect_find_in_char(victim, gsn_berserk))

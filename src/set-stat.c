@@ -1530,7 +1530,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	    victim->silver, victim->alignment);
 	ptc(ch, "{CHunger: %-8d{WSaves     : %-10dWimpy     : %d\n",
 	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_HUNGER] : -1),
-	    GET_ATTR(victim, APPLY_SAVES), victim->wimpy);
+	    GET_ATTR_SAVES(victim), victim->wimpy);
 	ptc(ch, "{CFull  : %-8d{cLast Level: %-10dMobTimer  : %d\n",
 	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_FULL] : -1),
 	    (!IS_NPC(victim) ? victim->pcdata->last_level : -1),

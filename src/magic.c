@@ -3034,7 +3034,7 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		gain_exp(victim, 0 - number_range(10 + level / 2, 10 + (3 * level / 2)));
 
 	if (victim->mana > 0) {
-		manadrain = victim->mana / UMAX(4, (GET_ATTR(victim, APPLY_SAVES) / -5));
+		manadrain = victim->mana / UMAX(4, (GET_ATTR_SAVES(victim) / -5));
 		manadrain += ch->level;
 		manadrain = UMIN(victim->mana, manadrain);
 		victim->mana -= manadrain;
@@ -3044,7 +3044,7 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	}
 
 	if (victim->stam > 0) {
-		stamdrain = victim->stam / UMAX(4, (GET_ATTR(victim, APPLY_SAVES) / -5));
+		stamdrain = victim->stam / UMAX(4, (GET_ATTR_SAVES(victim) / -5));
 		stamdrain += ch->level;
 		stamdrain = UMIN(victim->stam, stamdrain);
 		victim->stam -= stamdrain;

@@ -83,7 +83,7 @@ bool level_save(int dis_level, int save_level)
 bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 {
 	int save;
-	save = (victim->level - level) * 3 - (GET_ATTR(victim, APPLY_SAVES) * 4 / 3);
+	save = (victim->level - level) * 3 - (GET_ATTR_SAVES(victim) * 4 / 3);
 
 	if (affect_find_in_char(victim, gsn_berserk))
 		save += victim->level / 4;

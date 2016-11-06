@@ -3209,7 +3209,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		    GET_ATTR_DAMROLL(victim));
 		ptc(ch, "{PChr: %-2d(%-2d)\t{WSaves     : %-10dAlignment : %d\n",
 		    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
-		    GET_ATTR(victim, APPLY_SAVES), victim->alignment);
+		    GET_ATTR_SAVES(victim), victim->alignment);
 
 		if (IS_NPC(victim)) {
 			ptc(ch, "\t\t{WDamage    : %2dd%-2d     Message   : %s\n",
@@ -5169,7 +5169,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_DICENAME);
 	stc("    Saves     ", ch);
 	new_color(ch, CSLOT_SCORE_DICENUM);
-	ptc(ch, "%5d %s|#|{x\n", GET_ATTR(ch, APPLY_SAVES), torch);
+	ptc(ch, "%5d %s|#|{x\n", GET_ATTR_SAVES(ch), torch);
 //	line 15:  |#| SkillPoints      0 |     Magic      -601  |    Wimpy       200 |#|
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x SkillPoints  ", torch);
