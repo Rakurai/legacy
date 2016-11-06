@@ -520,7 +520,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	strcat(buf, (IS_NPC(victim) ? victim->short_descr : victim->name));
 
 	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
-	    &&   get_position(victim) == POS_STANDING && ch->on == NULL) {
+	    &&   get_position(victim) >= POS_STANDING && ch->on == NULL) {
 		new_color(ch, CSLOT_MISC_PLAYERS);
 		strcat(buf, victim->pcdata->title);
 		stc("{x{a", ch);
@@ -626,6 +626,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			strcat(buf, " is here.");
 
+		break;
+
+	case POS_FLYING:
+		strcat(buf, " is flying here.");
 		break;
 
 	case POS_FIGHTING:
@@ -2789,6 +2793,7 @@ void do_swho(CHAR_DATA *ch, const char *argument)
 		case POS_FIGHTING: position = "{WFight";              break;
 
 		case POS_STANDING: position = "Stand";                break;
+		case POS_FLYING:   position = "Fly  ";                break;
 		}
 
 		/* Imms can now see rooms of privated mortals -- Elrac */
@@ -5220,6 +5225,7 @@ void score_new(CHAR_DATA *ch)
 	case POS_FIGHTING:      strcat(buf, "fighting");        break;
 
 	case POS_SITTING:       strcat(buf, "sitting");         break;
+	case POS_FLYING:        strcat(buf, "flying");          break;
 	}
 
 	ptc(ch, " %s|#|                    %s|{x", torch, border);

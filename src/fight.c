@@ -152,6 +152,9 @@ void violence_update(void)
 			}
 
 			ch->position = POS_STANDING;
+
+			if (ch->start_pos == POS_FLYING && CAN_FLY(ch))
+				do_fly(ch, "");
 		}
 
 		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
@@ -1193,13 +1196,14 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 				ch->pcdata->pktimer = PKTIME;
 			}
 
-			if (victim->wait == 0) {
-				if (get_position(victim) < POS_FIGHTING) {
-					act("You clamber to your feet.", victim, NULL, NULL, TO_CHAR);
-					act("$n clambers to $s feet.", victim, NULL, NULL, TO_ROOM);
-				}
+			if (victim->wait == 0 && get_position(victim) < POS_FIGHTING) {
+				act("You clamber to your feet.", victim, NULL, NULL, TO_CHAR);
+				act("$n clambers to $s feet.", victim, NULL, NULL, TO_ROOM);
 
 				victim->position = POS_STANDING;
+
+				if (victim->start_pos == POS_FLYING && CAN_FLY(victim))
+					do_fly(victim, "");
 			}
 
 			if (victim->fighting == NULL)
@@ -2407,8 +2411,12 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	ch->fighting = victim;
 
-	if (ch->wait == 0)
+	if (ch->wait == 0 && ch->position < POS_STANDING) {
 		ch->position = POS_STANDING;
+
+		if (ch->start_pos == POS_FLYING && CAN_FLY(ch))
+			ch->position = POS_FLYING;
+	}
 } /* end set_fighting */
 
 /* Stop fights. */
@@ -2419,7 +2427,7 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 	for (fch = char_list; fch != NULL; fch = fch->next) {
 		if (fch == ch || (fBoth && fch->fighting == ch)) {
 			fch->fighting = NULL;
-			fch->position = IS_NPC(fch) ? fch->default_pos : POS_STANDING;
+			fch->position = IS_NPC(fch) ? fch->default_pos : fch->start_pos;
 			update_pos(fch);
 		}
 	}
@@ -3390,7 +3398,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(ch, gsn_fly))
+	if (IS_FLYING(ch))
 	{
 		stc("How do you expect to kick dirt while flying?\n", ch);
 		return;
@@ -3584,7 +3592,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (affect_find_in_char(victim, gsn_fly)) {
+	if (IS_FLYING(victim)) {
 		act("$S feet aren't on the ground.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -4446,7 +4454,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 
 		if (evo >= 3) {
 			if (get_position(victim) == POS_FIGHTING
-			    && !affect_find_in_char(victim, gsn_fly)
+			    && !IS_FLYING(victim)
 			    && chance(30)) {
 				if (trip(ch, victim, skill, gsn_footsweep)) {
 					act("$n sweeps your feet out from under you!", ch, NULL, victim, TO_VICT);

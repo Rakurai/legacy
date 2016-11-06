@@ -1663,7 +1663,9 @@ struct  kill_data
 #define POS_SITTING                   6
 #define POS_FIGHTING                  7		/* used only on the interp table */
 #define POS_STANDING                  8
-#define POS_SNEAK                     9		/* used only for movement act messages */
+#define POS_FLYING                    9
+
+#define POS_SNEAK                    19		/* used only for movement act messages */
 
 
 
@@ -2830,6 +2832,8 @@ extern sh_int	gsn_critical_blow;
 #define IS_SQUESTOR(ch)    (!IS_NPC(ch) && IS_SET((ch)->pcdata->plr, PLR_SQUESTOR))
 #define IS_KILLER(ch)		(IS_SET((ch)->act, PLR_KILLER))
 #define IS_THIEF(ch)		(IS_SET((ch)->act, PLR_THIEF))
+#define CAN_FLY(ch)         (affect_find_in_char((ch), gsn_fly))
+#define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
 
 /*
  * Object macros.

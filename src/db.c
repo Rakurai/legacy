@@ -987,7 +987,15 @@ void load_mobiles(FILE *fp)
 
 		/* vital statistics */
 		pMobIndex->start_pos        = position_lookup(fread_word(fp));
+
+		if (pMobIndex->start_pos == POS_STANDING && IS_SET(pMobIndex->affect_flags, AFF_FLYING))
+			pMobIndex->start_pos = POS_FLYING;
+
 		pMobIndex->default_pos      = position_lookup(fread_word(fp));
+
+		if (pMobIndex->default_pos == POS_STANDING && IS_SET(pMobIndex->affect_flags, AFF_FLYING))
+			pMobIndex->default_pos = POS_FLYING;
+
 		pMobIndex->sex              = sex_lookup(fread_word(fp));
 
 		if (pMobIndex->sex < 0) {

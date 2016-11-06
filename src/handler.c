@@ -2942,7 +2942,8 @@ int get_position(CHAR_DATA *ch)
 	if (ch == NULL)
 		return -1;
 
-	if (ch->position == POS_STANDING && ch->fighting)
+	if (ch->fighting
+	 && ch->position >= POS_STANDING) // includes POS_FLYING
 		return POS_FIGHTING;
 
 	return ch->position;

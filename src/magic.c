@@ -2607,7 +2607,7 @@ void spell_earthquake(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 		if (vch->in_room == ch->in_room) {
 			if (vch != ch && !is_safe_spell(ch, vch, TRUE)) {
-				if (affect_find_in_char(vch, gsn_fly))
+				if (IS_FLYING(vch))
 					damage(ch, vch, 0, sn, DAM_BASH, TRUE, TRUE);
 				else
 					damage(ch, vch, level + dice(2, 8), sn, DAM_BASH, TRUE, TRUE);
@@ -3511,9 +3511,9 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (affect_find_in_char(victim, gsn_fly)) {
+	if (CAN_FLY(victim)) {
 		if (victim == ch)
-			stc("You are already airborne.\n", ch);
+			stc("You already have the ability to fly.\n", ch);
 		else
 			act("$N doesn't need your help to fly.", ch, NULL, victim, TO_CHAR);
 
@@ -3528,8 +3528,7 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 		FALSE
 	);
 
-	stc("Your feet rise off the ground.\n", victim);
-	act("$n's feet rise off the ground.", victim, NULL, NULL, TO_ROOM);
+	do_fly(victim, "");
 }
 
 void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
