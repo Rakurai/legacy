@@ -527,13 +527,16 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 
+	if ((obj = get_obj_list(ch, argument, ch->in_room->contents)) != NULL)
+		return obj;
+
 	if ((obj = get_obj_carry(ch, argument)) != NULL)
 		return obj;
 
 	if ((obj = get_obj_wear(ch, argument)) != NULL)
 		return obj;
 
-	return get_obj_list(ch, argument, ch->in_room->contents);
+	return NULL;
 }
 
 /* Find an obj in the world. */
