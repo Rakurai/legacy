@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#include "../deps/cprops/splay.h"
-
-
 /*
  * Accommodate old non-Ansi compilers.
  */
@@ -1993,7 +1990,7 @@ struct  char_data
 
     int                 attr_base[MAX_ATTR];
     int *               apply_cache; // maximum stat without eq/affects
-    cp_splaytree *      affect_cache;
+    void *              affect_cache;
     sh_int *            defense_mod;
 //    long                affect_bits;
 //    long      drain_flags;

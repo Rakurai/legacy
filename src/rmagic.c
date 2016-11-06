@@ -161,13 +161,12 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 			chance += 15;
 	}
 
-	switch (check_immune(victim, DAM_LIGHT)) {
-	case IS_IMMUNE:         chance = 0;        break;
+	int def = check_immune(victim, DAM_LIGHT);
 
-	case IS_RESISTANT:      chance -= 25;      break;
-
-	case IS_VULNERABLE:     chance += 25;      break;
-	}
+	if (def >= 100)
+		chance = 0;
+	else
+		chance -= 25 * def / 100; // negative def is vuln
 
 	/* Oh god, my eyes!! */
 	if (number_percent() < chance) {

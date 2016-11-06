@@ -1,31 +1,13 @@
 remove bitvector completely (light of truth)
 get rid of affect_modify_char in handler.c
 missed some things that should go in extra flag cache
-get_true_hitroll/damroll still used?  what about GET_HITROLL?
 need to test imm/res/vuln mods
 equip/unequip char calling mods?
-look at how familiar stat bonus is handled
-defense_mod needs to save to pfile, but maybe not racial bits, and use a dict rather than array.  taken out for now
 do we need affect_add_perm_to_char?
-remort affects can be regular affects, but probably need a TO_REMORT where type (to identify them for removal)
-get the rest of the attribute types using the new form (sex, etc)
-get rid of extra attribute types (sheen, focus, saving_spell, etc)
 con and stat need to be consistent with showing aff/vuln, and not show blanks
 go through calls to check_immune, a lot of them should be handled by saves vs damage type instead
-change GET_SEX to just do sex % 3, it'll make change sex work right
 right now dispel/cancel/undo, each affect of a composite like 'frenzy' saves vs spell individually, fix?
-go through and check for do_* with NULL argument
 
-for flying:
-	take care of the 'on' case for furniture
-	show_char_to_char
-	fix fly/land thing
-	swho
-	stand, rest, sit, sleep, wake (sneak and hide?)
-	check on start_pos, flying chars should start life flying
-	also adding gsn_fly should move to flying (unless already exists)
-	check for gsn_fly everywhere
-	make sure do_land *never* fails to change position from flying, lots of things rely on it with pos checks
 
 to WBI:
 make cure blindness able to cure other forms (dirt kicking, etc) since they can't be undone now
