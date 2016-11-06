@@ -2774,9 +2774,31 @@ extern sh_int	gsn_critical_blow;
 #define IS_NPC(ch)              ((ch)->pcdata == NULL ? TRUE : FALSE)
 #define IS_PLAYING(d)		(d && d->connected == CON_PLAYING && d->character)
 
+// Character attribute accessors (see attribute.c for explanations)
+
 #define ATTR_BASE(ch, where) ((ch)->attr_base[where]) // intentionally settable
 #define GET_ATTR_MOD(ch, where)  ((ch)->apply_cache ? (ch)->apply_cache[where] : 0) // intentionally not settable
 #define GET_ATTR(ch, where) (ATTR_BASE(ch, where) + GET_ATTR_MOD(ch, where)) // intentionally not settable
+
+#define GET_ATTR_STR(ch) (UMIN(GET_ATTR(ch, APPLY_STR), get_max_stat(ch, APPLY_STR)))
+#define GET_ATTR_INT(ch) (UMIN(GET_ATTR(ch, APPLY_INT), get_max_stat(ch, APPLY_INT)))
+#define GET_ATTR_WIS(ch) (UMIN(GET_ATTR(ch, APPLY_WIS), get_max_stat(ch, APPLY_WIS)))
+#define GET_ATTR_DEX(ch) (UMIN(GET_ATTR(ch, APPLY_DEX), get_max_stat(ch, APPLY_DEX)))
+#define GET_ATTR_CON(ch) (UMIN(GET_ATTR(ch, APPLY_CON), get_max_stat(ch, APPLY_CON)))
+#define GET_ATTR_CHR(ch) (UMIN(GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, APPLY_CHR)))
+#define GET_HITROLL(ch) \
+                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR((ch), APPLY_STR)].tohit)
+#define GET_DAMROLL(ch) \
+                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR((ch), APPLY_STR)].todam)
+
+#define GET_AC(ch,type)         ((ch)->armor_a[type] + (ch)->armor_m[type]    \
+                        + GET_ATTR((ch), APPLY_AC) \
+                        + ( IS_AWAKE(ch)                                      \
+                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 ) \
+                        - (( !IS_NPC(ch) && ch->pcdata->remort_count > 0 )    \
+                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
+                                                                                   -1 per 5 remorts -- Montrey */
+
 #define GET_DEFENSE_MOD(ch, where) ((ch)->defense_mod ? (ch)->defense_mod[where] : 0)
 
 #define GET_SEX(ch)     (URANGE(0, (ch)->sex + GET_ATTR_MOD((ch), APPLY_SEX), 2))
@@ -2805,20 +2827,7 @@ extern sh_int	gsn_critical_blow;
 #define IS_EVIL(ch)             (ch->alignment <= -350)
 #define IS_NEUTRAL(ch)          (!IS_GOOD(ch) && !IS_EVIL(ch))
 
-#define ATTR_BASE(ch, where) ((ch)->attr_base[where])
-
 #define IS_AWAKE(ch)            (ch->position > POS_SLEEPING)
-#define GET_AC(ch,type)         ((ch)->armor_a[type] + (ch)->armor_m[type]    \
-                        + GET_ATTR((ch), APPLY_AC) \
-                        + ( IS_AWAKE(ch)                                      \
-                        ? dex_app[get_curr_stat(ch,STAT_DEX)].defensive : 0 ) \
-                        - (( !IS_NPC(ch) && ch->pcdata->remort_count > 0 )    \
-                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
-                                                                                   -1 per 5 remorts -- Montrey */
-#define GET_HITROLL(ch) \
-                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR((ch), APPLY_STR)].tohit)
-#define GET_DAMROLL(ch) \
-                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR((ch), APPLY_STR)].todam)
 #define GET_ROOM_FLAGS(room)    ((room)->room_flags | (room)->room_flag_cache)
 #define IS_OUTSIDE(ch)          (!IS_SET(GET_ROOM_FLAGS((ch)->in_room), ROOM_INDOORS))
 
@@ -3561,7 +3570,7 @@ void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
 int flag_to_index args((unsigned long flag));
 int affect_bit_to_sn args((int bit));
 int stat_to_attr args((int stat));
-int     get_curr_stat   args(( CHAR_DATA *ch, int stat ) );
+int     get_max_stat   args(( CHAR_DATA *ch, int stat ) );
 int get_age         args((CHAR_DATA *ch));
 int get_max_hit args((CHAR_DATA *ch));
 int get_max_mana args((CHAR_DATA *ch));

@@ -460,7 +460,7 @@ int can_carry_n(CHAR_DATA *ch)
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
 		return 0;
 
-	return MAX_WEAR +  2 * get_curr_stat(ch, STAT_DEX) + ch->level;
+	return MAX_WEAR +  2 * GET_ATTR_DEX(ch) + ch->level;
 }
 
 /*
@@ -474,7 +474,7 @@ int can_carry_w(CHAR_DATA *ch)
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
 		return 0;
 
-	return str_app[get_curr_stat(ch, STAT_STR)].carry * 10 + ch->level * 25;
+	return str_app[GET_ATTR_STR(ch)].carry * 10 + ch->level * 25;
 }
 
 /* Is Exact Name by Lotus */
@@ -1693,8 +1693,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	    &&   victim->fighting == NULL) {
 		int chance;
 		chance = get_skill(victim, gsn_sneak);
-		chance += get_curr_stat(ch, STAT_DEX) * 3 / 2;
-		chance -= get_curr_stat(ch, STAT_INT) * 2;
+		chance += GET_ATTR_DEX(ch) * 3 / 2;
+		chance -= GET_ATTR_INT(ch) * 2;
 		chance += ch->level - victim->level * 3 / 2;
 
 		if (number_percent() < chance)
@@ -2872,7 +2872,8 @@ CHAR_DATA *get_obj_carrier(OBJ_DATA *obj)
 	return in_obj->carried_by;
 }
 
-/* below two functions recalculate a character's hitroll and damroll,
+/* below two functions recalculate a character's hitroll and damroll
+   based solely on their strength and equipment, and not spells.
    used when finding adjustment for hammerstrike and berserk
                                                 -- Montrey */
 int get_true_hitroll(CHAR_DATA *ch)
@@ -2883,7 +2884,7 @@ int get_true_hitroll(CHAR_DATA *ch)
 	if (IS_NPC(ch))
 		return GET_HITROLL(ch);
 
-	hitroll = str_app[get_curr_stat(ch, STAT_STR)].tohit;
+	hitroll = str_app[GET_ATTR_STR(ch)].tohit;
 
 	for (loc = 0; loc < MAX_WEAR; loc++) {
 		if ((obj = get_eq_char(ch, loc)) == NULL)
@@ -2905,7 +2906,7 @@ int get_true_damroll(CHAR_DATA *ch)
 	if (IS_NPC(ch))
 		return GET_DAMROLL(ch);
 
-	damroll = str_app[get_curr_stat(ch, STAT_STR)].todam;
+	damroll = str_app[GET_ATTR_STR(ch)].todam;
 
 	for (loc = 0; loc < MAX_WEAR; loc++) {
 		if ((obj = get_eq_char(ch, loc)) == NULL)

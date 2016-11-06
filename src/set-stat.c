@@ -1506,22 +1506,22 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	    victim->short_descr, victim->long_descr[0] != '\0' ? victim->long_descr : "(none)\n");
 	stc("\n", ch);
 	ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{RHit Points: %d/%d\n",
-	    ATTR_BASE(victim, APPLY_STR), get_curr_stat(victim, STAT_STR),
+	    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
 	    GET_AC(victim, AC_PIERCE), victim->hit, ATTR_BASE(victim, APPLY_HIT));
 	ptc(ch, "{PInt: %-2d(%-2d)\t{BAC Bash   : %-10d{RMana      : %d/%d\n",
-	    ATTR_BASE(victim, APPLY_INT), get_curr_stat(victim, STAT_INT),
+	    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim),
 	    GET_AC(victim, AC_BASH), victim->mana, ATTR_BASE(victim, APPLY_MANA));
 	ptc(ch, "{PWis: %-2d(%-2d)\t{BAC Slash  : %-10d{RStamina   : %d/%d\n",
-	    ATTR_BASE(victim, APPLY_WIS), get_curr_stat(victim, STAT_WIS),
+	    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim),
 	    GET_AC(victim, AC_SLASH), victim->stam, ATTR_BASE(victim, APPLY_STAM));
 	ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{HItems     : %d\n",
-	    ATTR_BASE(victim, APPLY_DEX), get_curr_stat(victim, STAT_DEX),
+	    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim),
 	    GET_AC(victim, AC_EXOTIC), get_carry_number(victim));
 	ptc(ch, "{PCon: %-2d(%-2d)\t{bPrac      : %-10d{HWeight    : %d\n",
-	    ATTR_BASE(victim, APPLY_CON), get_curr_stat(victim, STAT_CON),
+	    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim),
 	    IS_NPC(victim) ? 0 : victim->practice, get_carry_weight(victim) / 10);
 	ptc(ch, "{PChr: %-2d(%-2d)\t{bTrain     : %-10d{GHit Roll  : %d\n",
-	    ATTR_BASE(victim, APPLY_CHR), get_curr_stat(victim, STAT_CHR),
+	    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
 	    IS_NPC(victim) ? 0 : victim->train , GET_HITROLL(victim));
 	ptc(ch, "\t\t{YGold      : %-10ld{GDam Roll  : %d\n",
 	    victim->gold, GET_DAMROLL(victim));
@@ -2057,7 +2057,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Str 25(25)    Align -1000   Hp 31418/31418 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Str %-2d(%-2d)",
-	    ATTR_BASE(victim, APPLY_STR), get_curr_stat(victim, STAT_STR));
+	    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim));
 	new_color(ch, CSLOT_OLDSCORE_ALIGN);
 	ptc(ch, "      Align %s%-7d",
 	    victim->alignment < 0 ? "{R" : "{Y", victim->alignment);
@@ -2067,7 +2067,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Int 25(25)    Train 2       Ma 31573/31573 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Int %-2d(%-2d)",
-	    ATTR_BASE(victim, APPLY_INT), get_curr_stat(victim, STAT_INT));
+	    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim));
 	new_color(ch, CSLOT_OLDSCORE_GAIN);
 	ptc(ch, "      Train %-7d", victim->train);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
@@ -2076,7 +2076,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Wis 25(25)    Pracs 129     Stm 30603/30603 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Wis %-2d(%-2d)",
-	    ATTR_BASE(victim, APPLY_WIS), get_curr_stat(victim, STAT_WIS));
+	    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim));
 	new_color(ch, CSLOT_OLDSCORE_GAIN);
 	ptc(ch, "      Pracs %-7d",
 	    victim->practice);
@@ -2086,13 +2086,13 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Dex 25(25)                  QP:  12345      */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Dex %-2d(%-2d)",
-	    ATTR_BASE(victim, APPLY_DEX), get_curr_stat(victim, STAT_DEX));
+	    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim));
 	new_color(ch, CSLOT_OLDSCORE_QP);
 	ptc(ch, "                         QP:  %-5d\n", victim->questpoints);
 	/* Con 25(25)   Gold 7481204   SP:  12345 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Con %-2d(%-2d)",
-	    ATTR_BASE(victim, APPLY_CON), get_curr_stat(victim, STAT_CON));
+	    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim));
 	new_color(ch, CSLOT_OLDSCORE_MONEY);
 	ptc(ch, "      Gold  %-7ld",
 	    victim->gold);
@@ -2101,7 +2101,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Chr 25(25)   Silv 2768604   RPP: 12345 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Chr %-2d(%-2d)",
-	    ATTR_BASE(victim, APPLY_CHR), get_curr_stat(victim, STAT_CHR));
+	    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim));
 	new_color(ch, CSLOT_OLDSCORE_MONEY);
 	ptc(ch, "      Silv  %-7ld", victim->silver);
 	new_color(ch, CSLOT_OLDSCORE_RPP);

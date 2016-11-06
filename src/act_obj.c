@@ -310,7 +310,7 @@ void do_second(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 5)) {
+		if (get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield * 5)) {
 			stc("This weapon is too heavy to be used in your off-hand.\n", ch);
 			return;
 		}
@@ -2458,7 +2458,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 
 		if (!IS_NPC(ch)
-		    && get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield
+		    && get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield
 		                              * 10)) {
 			stc("It's too heavy for you to pick up.\n", ch);
 			return;
@@ -3246,8 +3246,8 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 	/* Check the skill percentage, fcn(wis,int,skill) */
 	if (!IS_NPC(ch)
 	    && (number_percent() > ch->pcdata->learned[gsn_brew] ||
-	        number_percent() > ((get_curr_stat(ch, STAT_INT) - 13) * 5 +
-	                            (get_curr_stat(ch, STAT_WIS) - 13) * 3))) {
+	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
+	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p explodes violently!", ch, obj, NULL, TO_CHAR);
 		act("$p explodes violently!", ch, obj, NULL, TO_ROOM);
 		check_improve(ch, gsn_brew, FALSE, 2);
@@ -3356,8 +3356,8 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 	/* Check the skill percentage, fcn(int,wis,skill) */
 	if (!IS_NPC(ch)
 	    && (number_percent() > ch->pcdata->learned[gsn_scribe] ||
-	        number_percent() > ((get_curr_stat(ch, STAT_INT) - 13) * 5 +
-	                            (get_curr_stat(ch, STAT_WIS) - 13) * 3))) {
+	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
+	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p bursts in flames!", ch, obj, NULL, TO_CHAR);
 		act("$p bursts in flames!", ch, obj, NULL, TO_ROOM);
 		check_improve(ch, gsn_scribe, FALSE, 2);
@@ -3911,7 +3911,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		/* haggle */
 		roll = number_percent();
 
-		if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+		if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 			roll -= 15;
 
 		if (roll < 1) roll = 1;
@@ -4077,7 +4077,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		if (!IS_QUESTSHOPKEEPER(keeper)) {
 			roll = number_percent();
 
-			if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+			if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 				roll -= 15;
 
 			if (roll < 1) roll = 1;
@@ -4359,7 +4359,7 @@ void do_sell(CHAR_DATA *ch, const char *argument)
 		/* haggle */
 		roll = number_percent();
 
-		if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+		if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 			roll -= 15;
 
 		if (roll < 1) roll = 1;

@@ -3193,22 +3193,22 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
-		    ATTR_BASE(victim, APPLY_STR), get_curr_stat(victim, STAT_STR),
+		    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
 		    GET_AC(victim, AC_PIERCE), victim->hit, ATTR_BASE(victim, APPLY_HIT));
 		ptc(ch, "{PInt: %-2d(%-2d)\t{BAC Bash   : %-10d{YMana      : %d/%d\n",
-		    ATTR_BASE(victim, APPLY_INT), get_curr_stat(victim, STAT_INT),
+		    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim),
 		    GET_AC(victim, AC_BASH), victim->mana, ATTR_BASE(victim, APPLY_MANA));
 		ptc(ch, "{PWis: %-2d(%-2d)\t{BAC Slash  : %-10d{YStamina   : %d/%d\n",
-		    ATTR_BASE(victim, APPLY_WIS), get_curr_stat(victim, STAT_WIS),
+		    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim),
 		    GET_AC(victim, AC_SLASH), victim->stam, ATTR_BASE(victim, APPLY_STAM));
 		ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{GHit Roll  : %d\n",
-		    ATTR_BASE(victim, APPLY_DEX), get_curr_stat(victim, STAT_DEX),
+		    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim),
 		    GET_AC(victim, AC_EXOTIC), GET_HITROLL(victim));
 		ptc(ch, "{PCon: %-2d(%-2d)\t\t\t      {GDam Roll  : %d\n",
-		    ATTR_BASE(victim, APPLY_CON), get_curr_stat(victim, STAT_CON),
+		    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim),
 		    GET_DAMROLL(victim));
 		ptc(ch, "{PChr: %-2d(%-2d)\t{WSaves     : %-10dAlignment : %d\n",
-		    ATTR_BASE(victim, APPLY_CHR), get_curr_stat(victim, STAT_CHR),
+		    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
 		    GET_ATTR(victim, APPLY_SAVES), victim->alignment);
 
 		if (IS_NPC(victim)) {
@@ -3828,7 +3828,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->practice--;
-	increase = (int_app[get_curr_stat(ch, STAT_INT)].learn / skill_table[sn].rating[ch->class]);
+	increase = (int_app[GET_ATTR_INT(ch)].learn / skill_table[sn].rating[ch->class]);
 
 	if (increase < 1)
 		increase = 1;
@@ -5092,7 +5092,7 @@ void score_new(CHAR_DATA *ch)
 	stc("[%%%]{x\n", ch);
 //	line  7:  |#| Strength     25/25 |      Hp 30000/30000  |     Gold     17001 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
-	ptc(ch, " %s|#|{x     Strength %2d/", torch, get_curr_stat(ch, STAT_STR));
+	ptc(ch, " %s|#|{x     Strength %2d/", torch, GET_ATTR_STR(ch));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
 	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_STR), border);
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
@@ -5103,7 +5103,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "     Gold %9ld %s|#|{x\n", ch->gold, torch);
 //	line  8:  |#| Intelligence 25/25 |    Mana 30000/30000  |   Silver       958 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
-	ptc(ch, " %s|#|{x Intelligence %2d/", torch, get_curr_stat(ch, STAT_INT));
+	ptc(ch, " %s|#|{x Intelligence %2d/", torch, GET_ATTR_INT(ch));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
 	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_INT), border);
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
@@ -5114,7 +5114,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "   Silver %9ld %s|#|{x\n", ch->silver, torch);
 //	line  9:  |#| Wisdom       25/25 | Stamina 30000/30000  |    Items   22/1000 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
-	ptc(ch, " %s|#|{x       Wisdom %2d/", torch, get_curr_stat(ch, STAT_WIS));
+	ptc(ch, " %s|#|{x       Wisdom %2d/", torch, GET_ATTR_WIS(ch));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
 	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_WIS), border);
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
@@ -5125,7 +5125,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "    Items %4d/%4d %s|#|{x\n", get_carry_number(ch), can_carry_n(ch), torch);
 //	line 10:  |#| Dexterity    25/25 |                      |   Weight   53/1000 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
-	ptc(ch, " %s|#|{x    Dexterity %2d/", torch, get_curr_stat(ch, STAT_DEX));
+	ptc(ch, " %s|#|{x    Dexterity %2d/", torch, GET_ATTR_DEX(ch));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
 	ptc(ch, "%2d %s|                      |{x", ATTR_BASE(ch, APPLY_DEX), border);
 	new_color(ch, CSLOT_SCORE_ENCUMB);
@@ -5135,14 +5135,14 @@ void score_new(CHAR_DATA *ch)
 	    torch);
 //	line 11:  |#| Constitution 25/25 |  Armor vs            |                    |#|
 	new_color(ch, CSLOT_SCORE_STAT);
-	ptc(ch, " %s|#|{x Constitution %2d/", torch, get_curr_stat(ch, STAT_CON));
+	ptc(ch, " %s|#|{x Constitution %2d/", torch, GET_ATTR_CON(ch));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
 	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_CON), border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "  Armor vs            %s|                    %s|#|{x\n", border, torch);
 //	line 12:  |#| Charisma     25/25 |    Pierce      -600  |  Hitroll       312 |#|
 	new_color(ch, CSLOT_SCORE_STAT);
-	ptc(ch, " %s|#|{x     Charisma %2d/", torch, get_curr_stat(ch, STAT_CHR));
+	ptc(ch, " %s|#|{x     Charisma %2d/", torch, GET_ATTR_CHR(ch));
 	new_color(ch, CSLOT_SCORE_MAXSTAT);
 	ptc(ch, "%2d %s|{x", ATTR_BASE(ch, APPLY_CHR), border);
 	new_color(ch, CSLOT_SCORE_ARMOR);

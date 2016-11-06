@@ -1444,7 +1444,7 @@ bool check_pulse(CHAR_DATA *victim)
 	   -- Outsider
 	*/
 	die_hard_skill = get_skill(victim, gsn_die_hard);
-	con_score = get_curr_stat(victim, STAT_CON);
+	con_score = GET_ATTR_CON(victim);
 
 	if ((die_hard_skill >= 10) && (con_score > 12)) {
 		/* they have to be dying for this to kick in */
@@ -2228,7 +2228,7 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance -= (victim->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 	// evasion checks moved to general dodge/blur - Montrey (2014)
 	// stats
-	chance += 3 * ((get_curr_stat(victim, STAT_DEX)) - (get_curr_stat(ch, STAT_DEX)));
+	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
 	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
@@ -2313,7 +2313,7 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance -= (victim->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 	// evasion checks moved to general dodge/blur - Montrey (2014)
 	// stats
-	chance += 3 * ((get_curr_stat(victim, STAT_DEX)) - (get_curr_stat(ch, STAT_DEX)));
+	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
 	if (IS_SET(victim->off_flags, OFF_FAST) || affect_find_in_char(victim, gsn_haste))
@@ -3312,7 +3312,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 //	if ( affect_find_in_char(victim, gsn_pass_door) )
 //		chance -= chance / 3;
 	/*Change in chance based on STR and score and stamina*/
-	chance += 3 * (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR));
+	chance += 3 * (GET_ATTR_STR(ch) - GET_ATTR_STR(victim));
 	// stamina mod, scale by their remaining stamina
 	chance = chance * ATTR_BASE(victim, APPLY_STAM) / UMAX(victim->stam, 1);
 	/*Change in chance based on carried weight of both involved*/
@@ -3431,8 +3431,8 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 
 	/* modifiers */
 	/* dexterity */
-	chance += get_curr_stat(ch, STAT_DEX);
-	chance -= 2 * get_curr_stat(victim, STAT_DEX);
+	chance += GET_ATTR_DEX(ch);
+	chance -= 2 * GET_ATTR_DEX(victim);
 
 	/* speed  */
 	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
@@ -3511,8 +3511,8 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 		chance += (ch->size - victim->size) * 10;  /* bigger = harder to trip */
 
 	/* dex */
-	chance += get_curr_stat(ch, STAT_DEX);
-	chance -= get_curr_stat(victim, STAT_DEX) * 3 / 2;
+	chance += GET_ATTR_DEX(ch);
+	chance -= GET_ATTR_DEX(victim) * 3 / 2;
 
 	/* speed */
 	if (IS_SET(ch->off_flags, OFF_FAST) || affect_find_in_char(ch, gsn_haste))
@@ -3951,8 +3951,8 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	/*bonus for remorts*/
 	singchance += ch->pcdata->remort_count / 2;
 	/*Apply stat bonuses*/
-	singchance += (get_curr_stat(ch, STAT_CHR));
-	singchance -= (get_curr_stat(victim, STAT_INT) + get_curr_stat(victim, STAT_WIS)) / 2;
+	singchance += (GET_ATTR_CHR(ch));
+	singchance -= (GET_ATTR_INT(victim) + GET_ATTR_WIS(victim)) / 2;
 
 	if (!IS_NPC(ch) && ch->class == 6)      /* bards */
 		singchance += singchance / 3;
@@ -4232,8 +4232,8 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 
 	/* figure out our chance to flee */
 	/* added weight and wisdom -- Outsider */
-	dex = get_curr_stat(ch, STAT_DEX);
-	wis = get_curr_stat(ch, STAT_WIS);
+	dex = GET_ATTR_DEX(ch);
+	wis = GET_ATTR_WIS(ch);
 	weight = get_carry_weight(ch);
 	/* Get the weight factor and store it in weight again */
 	weight = weight / 1000;
@@ -4250,8 +4250,8 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		/* average dex and wis to chance -- Outsider */
-		chance += ((dex - get_curr_stat(vch, STAT_DEX)) * 5) +
-		          ((wis - get_curr_stat(vch, STAT_WIS)) * 5) /
+		chance += ((dex - GET_ATTR_DEX(vch)) * 5) +
+		          ((wis - GET_ATTR_WIS(vch)) * 5) /
 		          2;
 
 		if (topp)
@@ -4649,9 +4649,9 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	chance += (ch_vict_weapon_skill - vict_weapon_skill) / 10;
 
 	/* dex + str vs. 2 x str */
-	chance += get_curr_stat(ch, STAT_DEX);
-	chance += get_curr_stat(ch, STAT_STR);
-	chance -= 2 * get_curr_stat(victim, STAT_STR);
+	chance += GET_ATTR_DEX(ch);
+	chance += GET_ATTR_STR(ch);
+	chance -= 2 * GET_ATTR_STR(victim);
 
 	/* level */
 	chance += (ch->level - victim->level);

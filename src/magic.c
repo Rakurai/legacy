@@ -1611,7 +1611,7 @@ void spell_channel(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 	}
 
 	amount = atoi(camount);
-	max = ((get_curr_stat(ch, STAT_STR) + get_curr_stat(ch, STAT_CON)) * 5);
+	max = ((GET_ATTR_STR(ch) + GET_ATTR_CON(ch)) * 5);
 
 	if ((amount <= 0) || (ch == victim)) {
 		stc("But the feedback would kill you!!\n", ch);
@@ -1684,7 +1684,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		}
 	}
 
-	if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 3;
 
 	if (level < victim->level || saves_spell(level, victim, DAM_CHARM)) {
@@ -3098,7 +3098,7 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	int chance = 100;
 	bool standfast = FALSE;
 	chance += (SIZE_MEDIUM - victim->size) * 15;
-	chance -= 2 * (get_curr_stat(victim, STAT_STR) - 10);
+	chance -= 2 * (GET_ATTR_STR(victim) - 10);
 	chance += (level - victim->level) / 2;
 	chance += (evolution - 1) * 10;
 
@@ -3752,7 +3752,7 @@ void spell_heat_metal(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		case ITEM_ARMOR:
 			if (obj_lose->wear_loc != -1) { /* remove the item */
 				if (can_drop_obj(victim, obj_lose)
-				    && (obj_lose->weight / 10) < number_range(1, 2 * get_curr_stat(victim, STAT_DEX))
+				    && (obj_lose->weight / 10) < number_range(1, 2 * GET_ATTR_DEX(victim))
 				    && remove_obj(victim, obj_lose->wear_loc, TRUE)) {
 					act("$n yelps and throws $p to the ground!", victim, obj_lose, NULL, TO_ROOM);
 					act("You remove and drop $p before it burns you.", victim, obj_lose, NULL, TO_CHAR);
@@ -4906,7 +4906,7 @@ void spell_power_word(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 5;
 
 	if ((IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD))
@@ -5657,7 +5657,7 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 5;
 
 	if (affect_find_in_char(victim, gsn_sleep)) {

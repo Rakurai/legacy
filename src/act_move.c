@@ -2030,7 +2030,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	/* here's the chance of failure */
 	if (!IS_IMMORTAL(ch)) {
 		int chance = 75;
-		chance += (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR)) * 5;
+		chance += (GET_ATTR_STR(ch) - GET_ATTR_STR(victim)) * 5;
 		chance = URANGE(5, chance, 95);
 
 		if (!chance(chance)) {
@@ -2254,7 +2254,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 
 	/* here's the chance of failure */
 	if (!IS_IMMORTAL(ch)) {
-		int chance = get_curr_stat(ch, STAT_STR) * 4;
+		int chance = GET_ATTR_STR(ch) * 4;
 		chance -= (victim->size - ch->size) * 30;
 		chance -= get_carry_weight(victim) / 60;
 		/* unlike push, it is possible for there to be *no* chance of dragging */
@@ -2945,14 +2945,14 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 			}
 
 			/* figure out our chance to flee */
-			dex = get_curr_stat(ch, STAT_DEX);
+			dex = GET_ATTR_DEX(ch);
 			chance = (dex - 9) * 6;
 
 			for (fch = ch->in_room->people; fch != NULL; fch = fch->next_in_room) {
 				if (fch->fighting != ch)
 					continue;
 
-				chance += (dex - get_curr_stat(fch, STAT_DEX)) * 5;
+				chance += (dex - GET_ATTR_DEX(fch)) * 5;
 
 				if (topp)
 					chance -= 10; /* -15% per opponent after the first */

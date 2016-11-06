@@ -34,7 +34,7 @@ int stat_to_attr(int stat) {
 }
 
 /* command for retrieving stats */
-int get_curr_stat(CHAR_DATA *ch, int stat)
+int get_max_stat(CHAR_DATA *ch, int stat)
 {
 	int max = 25;
 
@@ -62,7 +62,7 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 	if (ch->race == race_lookup("human"))
 		max++;
 
-	return URANGE(3, GET_ATTR(ch, stat_to_attr(stat)), UMIN(max, 25));
+	return URANGE(3, max, 25);
 }
 
 /* Retrieve a character's age in mud years.

@@ -67,15 +67,15 @@ void demote_level(CHAR_DATA *ch)
 {
 	int sub_hp, sub_mana, sub_stam, sub_prac, sub_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
-	sub_hp          = UMAX(1, con_app[get_curr_stat(ch, STAT_CON)].hitp + number_range(
+	sub_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
 	                               class_table[ch->class].hp_min, class_table[ch->class].hp_max));
-	sub_mana        = UMAX(1, int_app[get_curr_stat(ch, STAT_INT)].manap + number_range(
+	sub_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
 	                               class_table[ch->class].mana_min, class_table[ch->class].mana_max));
-	sub_stam        = UMAX(1, str_app[get_curr_stat(ch, STAT_STR)].stp + number_range(
+	sub_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
 	                               class_table[ch->class].stam_min, class_table[ch->class].stam_max));
-	sub_prac        = wis_app[get_curr_stat(ch, STAT_WIS)].practice;
+	sub_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
-	if (chr_app[get_curr_stat(ch, STAT_CHR)].chance >= number_percent())
+	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
 		sub_train = 2;
 
 	ATTR_BASE(ch, APPLY_HIT)             -= sub_hp;
@@ -103,15 +103,15 @@ void advance_level(CHAR_DATA *ch)
 {
 	int add_hp, add_mana, add_stam, add_prac, add_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
-	add_hp          = UMAX(1, con_app[get_curr_stat(ch, STAT_CON)].hitp + number_range(
+	add_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
 	                               class_table[ch->class].hp_min, class_table[ch->class].hp_max));
-	add_mana        = UMAX(1, int_app[get_curr_stat(ch, STAT_INT)].manap + number_range(
+	add_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
 	                               class_table[ch->class].mana_min, class_table[ch->class].mana_max));
-	add_stam        = UMAX(1, str_app[get_curr_stat(ch, STAT_STR)].stp + number_range(
+	add_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
 	                               class_table[ch->class].stam_min, class_table[ch->class].stam_max));
-	add_prac        = wis_app[get_curr_stat(ch, STAT_WIS)].practice;
+	add_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
-	if (chr_app[get_curr_stat(ch, STAT_CHR)].chance >= number_percent())
+	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
 		add_train = 2;
 
 	/* old calculations:
@@ -143,9 +143,9 @@ void npc_advance_level(CHAR_DATA *ch)
 	if (! IS_NPC(ch))
 		return;
 
-	add_hit = get_curr_stat(ch, STAT_CON);
-	add_mana = get_curr_stat(ch, STAT_INT);
-	add_stam = get_curr_stat(ch, STAT_STR);
+	add_hit = GET_ATTR_CON(ch);
+	add_mana = GET_ATTR_INT(ch);
+	add_stam = GET_ATTR_STR(ch);
 	ATTR_BASE(ch, APPLY_HIT) += add_hit;
 	ATTR_BASE(ch, APPLY_MANA) += add_mana;
 	ATTR_BASE(ch, APPLY_STAM) += add_stam;
@@ -248,7 +248,7 @@ int hit_gain(CHAR_DATA *ch)
 		}
 	}
 	else {
-		gain = UMAX(3, get_curr_stat(ch, STAT_CON) - 3 + ch->level / 2);
+		gain = UMAX(3, GET_ATTR_CON(ch) - 3 + ch->level / 2);
 		gain += class_table[ch->class].hp_max - 10;
 		number = number_percent();
 
@@ -323,7 +323,7 @@ int mana_gain(CHAR_DATA *ch)
 		}
 	}
 	else {
-		gain = (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) + ch->level) / 2;
+		gain = (GET_ATTR_WIS(ch) + GET_ATTR_INT(ch) + ch->level) / 2;
 		number = number_percent();
 
 		if (number < get_skill(ch, gsn_meditation)) {
@@ -398,7 +398,7 @@ int stam_gain(CHAR_DATA *ch)
 		}
 	}
 	else {
-		gain = get_curr_stat(ch, STAT_CON) + get_curr_stat(ch, STAT_DEX) + (ch->level / 2);
+		gain = GET_ATTR_CON(ch) + GET_ATTR_DEX(ch) + (ch->level / 2);
 		/* compare to warrior stamina regen, warriors get full (class 3) */
 		gain -= gain * (class_table[3].stam_max - class_table[ch->class].stam_max)
 		        / class_table[3].stam_max;
@@ -1045,7 +1045,7 @@ void char_update(void)
 		if (ch != NULL
 		 && ch->in_room != NULL
 		 && (obj = get_eq_char(ch, WEAR_WIELD)) != NULL
-		 && get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 10)) {
+		 && get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield * 10)) {
 			act("You drop $p.", ch, obj, NULL, TO_CHAR);
 			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
 			obj_from_char(obj);
@@ -1486,8 +1486,8 @@ void aggr_update(void)
 				continue;
 		}
 
-		if ((get_curr_stat(victim, STAT_CHR) + number_range(0, 1))
-		    > (get_curr_stat(mob, STAT_CHR) + number_range(0, 3)))
+		if ((GET_ATTR_CHR(victim) + number_range(0, 1))
+		    > (GET_ATTR_CHR(mob) + number_range(0, 3)))
 			continue;
 
 		/* rumble! */
