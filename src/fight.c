@@ -95,6 +95,11 @@ void violence_update(void)
 	CHAR_DATA *ch;
 	CHAR_DATA *victim;
 
+	// go through first and make sure everybody is fighting who should be fighting
+	for (ch = char_list; ch != NULL; ch = ch->next)
+		if (ch->fighting)
+			check_assist(ch, ch->fighting);
+
 	for (ch = char_list; ch != NULL; ch = ch->next) {
 		if (ch->in_room == NULL)
 			continue;
@@ -215,7 +220,6 @@ void violence_update(void)
 
 		mprog_hitprcnt_trigger(ch, victim);
 		mprog_fight_trigger(ch, victim);
-		check_assist(ch, victim);
 	}
 } /* end violence_update */
 
