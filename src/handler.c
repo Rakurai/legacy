@@ -1624,10 +1624,10 @@ bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	    && !HAS_CGROUP(ch, GROUP_LEADER))
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY) && GET_SEX(ch) != SEX_MALE)
+	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY) && GET_SEX(ch) != SEX_FEMALE)
+	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY) && GET_ATTR_SEX(ch) != SEX_FEMALE)
 		return FALSE;
 
 	return TRUE;

@@ -683,12 +683,12 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "sex")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = GET_SEX(mob);
+		case 'i': lhsvl = GET_ATTR_SEX(mob);
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = GET_SEX(actor);
+				lhsvl = GET_ATTR_SEX(actor);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -696,7 +696,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = GET_SEX(vict);
+				lhsvl = GET_ATTR_SEX(vict);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -704,7 +704,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = GET_SEX(rndm);
+				lhsvl = GET_ATTR_SEX(rndm);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -1398,75 +1398,75 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'e':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, he_she[GET_SEX(actor)])
+			can_see(mob, actor) ? strcpy(t, he_she[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'm':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, him_her[GET_SEX(actor)])
+			can_see(mob, actor) ? strcpy(t, him_her[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 's':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, his_her[GET_SEX(actor)])
+			can_see(mob, actor) ? strcpy(t, his_her[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone's");
 
 		break;
 
 	case 'E':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, he_she[GET_SEX(vict)])
+			can_see(mob, vict) ? strcpy(t, he_she[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'M':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, him_her[GET_SEX(vict)])
+			can_see(mob, vict) ? strcpy(t, him_her[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'S':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, his_her[GET_SEX(vict)])
+			can_see(mob, vict) ? strcpy(t, his_her[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone's");
 
 		break;
 
 	case 'j':
-		strcpy(t, he_she[GET_SEX(mob)]);
+		strcpy(t, he_she[GET_ATTR_SEX(mob)]);
 		break;
 
 	case 'k':
-		strcpy(t, him_her[GET_SEX(mob)]);
+		strcpy(t, him_her[GET_ATTR_SEX(mob)]);
 		break;
 
 	case 'l':
-		strcpy(t, his_her[GET_SEX(mob)]);
+		strcpy(t, his_her[GET_ATTR_SEX(mob)]);
 		break;
 
 	case 'J':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, he_she[GET_SEX(rndm)])
+			can_see(mob, rndm) ? strcpy(t, he_she[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'K':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, him_her[GET_SEX(rndm)])
+			can_see(mob, rndm) ? strcpy(t, him_her[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'L':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, his_her[GET_SEX(rndm)])
+			can_see(mob, rndm) ? strcpy(t, his_her[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone's");
 
 		break;

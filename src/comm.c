@@ -1081,8 +1081,8 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 				if (!IS_IMMORTAL(ch) || can_see(rch, ch))
 					ptc(rch, "%s has lost %s link.\n",
 					    PERS(ch, rch, VIS_CHAR),
-					    GET_SEX(ch) == SEX_FEMALE ? "her" :
-					    GET_SEX(ch) == SEX_MALE   ? "his" : "its");
+					    GET_ATTR_SEX(ch) == SEX_FEMALE ? "her" :
+					    GET_ATTR_SEX(ch) == SEX_MALE   ? "his" : "its");
 
 			wiznet("$N has lost link.", ch, NULL, WIZ_LINKS, 0, 0);
 
@@ -2648,11 +2648,11 @@ void act_format(const char *format, CHAR_DATA *ch,
 
 		case 'n': i = PERS(ch, to, vis);            break;
 
-		case 'e': i = he_she  [GET_SEX(ch)];        break;
+		case 'e': i = he_she  [GET_ATTR_SEX(ch)];        break;
 
-		case 'm': i = him_her [GET_SEX(ch)];        break;
+		case 'm': i = him_her [GET_ATTR_SEX(ch)];        break;
 
-		case 's': i = his_her [GET_SEX(ch)];        break;
+		case 's': i = his_her [GET_ATTR_SEX(ch)];        break;
 
 		/* The following codes need 'vch' */
 
@@ -2670,7 +2670,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 			if (vch == NULL || !valid_character(vch))
 				bug("Missing vch for '$$E'", 0);
 			else
-				i = he_she[GET_SEX(vch)];
+				i = he_she[GET_ATTR_SEX(vch)];
 
 			break;
 
@@ -2678,7 +2678,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 			if (vch == NULL || !valid_character(vch))
 				bug("Missing vch for '$$M'", 0);
 			else
-				i = him_her[GET_SEX(vch)];
+				i = him_her[GET_ATTR_SEX(vch)];
 
 			break;
 
@@ -2686,7 +2686,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 			if (vch == NULL || !valid_character(vch))
 				bug("Missing vch for '$$S'", 0);
 			else
-				i = his_her[GET_SEX(vch)];
+				i = his_her[GET_ATTR_SEX(vch)];
 
 			break;
 

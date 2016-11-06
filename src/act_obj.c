@@ -3482,7 +3482,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 
 		case 1 :
 			sprintf(buf, "%s couldn't rob %s way out of a paper bag!",
-			        ch->name, GET_SEX(ch) == SEX_NEUTRAL ? "its" : GET_SEX(ch) == SEX_MALE ? "his" : "her");
+			        ch->name, GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "its" : GET_ATTR_SEX(ch) == SEX_MALE ? "his" : "her");
 			break;
 
 		case 2 :

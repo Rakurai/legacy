@@ -595,12 +595,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (argument[0]) {
 		case 'm':
 		case 'M':
-			ch->sex = SEX_MALE;
+			ATTR_BASE(ch, APPLY_SEX) = SEX_MALE;
 			break;
 
 		case 'f':
 		case 'F':
-			ch->sex = SEX_FEMALE;
+			ATTR_BASE(ch, APPLY_SEX) = SEX_FEMALE;
 			break;
 
 		default:

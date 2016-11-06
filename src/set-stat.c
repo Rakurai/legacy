@@ -750,7 +750,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->sex = value;
+		ATTR_BASE(victim, APPLY_SEX) = value;
 		ptc(ch, "%s is now %s.\n", victim->name, buf);
 		return;
 	}
@@ -1494,7 +1494,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	stc("\n", ch);
 	ptc(ch, "{MRace: %s  Sex: %s  Class: %s  Size: %s{x\n",
-	    race_table[victim->race].name, sex_table[GET_SEX(victim)].name,
+	    race_table[victim->race].name, sex_table[GET_ATTR_SEX(victim)].name,
 	    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
 	    size_table[victim->size].name);
 
@@ -2033,7 +2033,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 
 	ptc(ch, " %s %s %s",
 	    race_table[victim->race].name,
-	    GET_SEX(victim) == SEX_NEUTRAL ? "sexless" : GET_SEX(victim) == SEX_MALE ? "male" : "female",
+	    GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "sexless" : GET_ATTR_SEX(victim) == SEX_MALE ? "male" : "female",
 	    class_table[victim->class].name);
 
 	if (victim->clan) {

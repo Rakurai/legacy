@@ -882,10 +882,11 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	mob->off_flags          = pMobIndex->off_flags;
 	mob->start_pos          = pMobIndex->start_pos;
 	mob->default_pos        = pMobIndex->default_pos;
-	mob->sex                = pMobIndex->sex;
 
-	if (mob->sex == 3) /* random sex */
-		mob->sex = number_range(1, 2);
+	if (pMobIndex->sex == 3)
+		ATTR_BASE(mob, APPLY_SEX) = number_range(1, 2);
+	else
+		ATTR_BASE(mob, APPLY_SEX) = pMobIndex->sex;
 
 	mob->race               = pMobIndex->race;
 	mob->form               = pMobIndex->form;

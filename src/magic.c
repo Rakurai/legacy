@@ -5891,8 +5891,8 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	    ||   victim->fighting != NULL
 	    || IS_SET(victim->act, ACT_NOSUMMON)
 	    || (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
-	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_MALE_ONLY) && GET_SEX(victim) != SEX_MALE)
-	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_FEMALE_ONLY) && GET_SEX(victim) != SEX_FEMALE)
+	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_MALE_ONLY) && GET_ATTR_SEX(victim) != SEX_MALE)
+	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_FEMALE_ONLY) && GET_ATTR_SEX(victim) != SEX_FEMALE)
 	   ) {
 		stc("You failed.\n", ch);
 		return;

@@ -564,7 +564,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	        ? 3001
 	        : ch->in_room->vnum);
 
-	cJSON_AddNumberToObject(o,		"Sex",			ch->sex);
+	cJSON_AddNumberToObject(o,		"Sex",			ATTR_BASE(ch, APPLY_SEX));
 	cJSON_AddNumberToObject(o,		"Silv",			ch->silver);
 
 	if (ch->silver_in_bank > 0)
@@ -1237,7 +1237,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("TSex",			ch->sex,					o->valueint); // removed in version 16
+				INTKEY("TSex",			ATTR_BASE(ch, APPLY_SEX),	o->valueint); // removed in version 16
 				break;
 			case 'V':
 				INTKEY("Video",			ch->pcdata->video,			read_flags(o->valuestring));
@@ -1387,7 +1387,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				INTKEY("Save",			ATTR_BASE(ch, APPLY_SAVES),	o->valueint); // NPC
 				INTKEY("Scro",			ch->lines,					o->valueint);
 				INTKEY("Secu",			ch->secure_level,			o->valueint);
-				INTKEY("Sex",			ch->sex,					o->valueint);
+				INTKEY("Sex",			ATTR_BASE(ch, APPLY_SEX),	o->valueint);
 				STRKEY("ShD",			ch->short_descr,			o->valuestring);
 				INTKEY("Silver_in_bank",ch->silver_in_bank,			o->valueint);
 				INTKEY("Silv",			ch->silver,					o->valueint);

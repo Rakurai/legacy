@@ -720,7 +720,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_NPC(victim)) {
 		set_color(ch, RED, BOLD);
 		sprintf(buf, "%s has killed %d players and has been killed by %d players.\n",
-		        GET_SEX(victim) == SEX_NEUTRAL ? "It" : GET_SEX(victim) == SEX_MALE ? "He" : "She"
+		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
 		        , victim->pcdata->pckills, victim->pcdata->pckilled);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -729,7 +729,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_NPC(victim)) {
 		set_color(ch, PURPLE, BOLD);
 		sprintf(buf, "%s has killed %d players in the arena and has been defeated by %d players in the arena.\n",
-		        GET_SEX(victim) == SEX_NEUTRAL ? "It" : GET_SEX(victim) == SEX_MALE ? "He" : "She"
+		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
 		        , victim->pcdata->arenakills, victim->pcdata->arenakilled);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -746,7 +746,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (!IS_NPC(victim)) {
 		set_color(ch, BLUE, BOLD);
 		sprintf(buf, "%s is about %d years old.\n",
-		        GET_SEX(victim) == SEX_NEUTRAL ? "It" : GET_SEX(victim) == SEX_MALE ? "He" : "She"
+		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
 		        , get_age(victim));
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -3189,7 +3189,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		ptc(ch, "{CYou see %s (level %d)\n", victim->name, victim->level);
 		ptc(ch, "{TRace: %s  Sex: %s  Class: %s  Size: %s\n",
 		    race_table[victim->race].name,
-		    sex_table[GET_SEX(victim)].name,
+		    sex_table[GET_ATTR_SEX(victim)].name,
 		    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
@@ -5069,7 +5069,7 @@ void score_new(CHAR_DATA *ch)
 //	line  3:  `,                                                                 `,
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
 //	line  4:  .:.                        Male Dragon Mage                        .:.
-	sprintf(buf, "%s ", GET_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_SEX(ch) == SEX_MALE ? "Male" : "Female");
+	sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
 	strcat(buf, capitalize(race_table[ch->race].name));
 	strcat(buf, " ");
 	strcat(buf, capitalize(class_table[ch->class].name));

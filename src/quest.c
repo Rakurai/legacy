@@ -283,7 +283,7 @@ void squest_info(CHAR_DATA *ch)
 		ptc(ch, "You are on a quest to learn from the legendary %s!\n",
 		    ch->pcdata->squestmob->short_descr);
 		ptc(ch, "%s can usually be found in %s{x,\n",
-		    GET_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
+		    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
 		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 		return;
 	}
@@ -328,7 +328,7 @@ void squest_info(CHAR_DATA *ch)
 			ptc(ch, "You must return the %s to %s.\n",
 			    ch->pcdata->squestobj->short_descr, ch->pcdata->squestmob->short_descr);
 			ptc(ch, "%s can usually be found in %s{x,\n",
-			    GET_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
+			    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
 			ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 			return;
 		}
@@ -337,7 +337,7 @@ void squest_info(CHAR_DATA *ch)
 		ptc(ch, "from %s{x, in the area known as %s{x,\n", questroom_obj->name, questroom_obj->area->name);
 		ptc(ch, "and return it to it's rightful owner, %s.\n", ch->pcdata->squestmob->short_descr);
 		ptc(ch, "%s can usually be found in %s{x,\n",
-		    GET_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
+		    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
 		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 	}
 }
@@ -702,11 +702,11 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		return;
 	}
 
-	questmob->sex = number_range(1, 2);
+	ATTR_BASE(ch, APPLY_SEX) = number_range(1, 2);
 	questmob->level = ch->level;
 
 	/* generate name */
-	if (GET_SEX(questmob) == 1)
+	if (GET_ATTR_SEX(questmob) == 1)
 		sprintf(shortdesc, "%s%s%s",
 		        Msyl1[number_range(0, (MAXMSYL1 - 1))],
 		        Msyl2[number_range(0, (MAXMSYL2 - 1))],
@@ -729,7 +729,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; MagT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female);
+		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female);
 		quest = "the powers of magic";
 		SET_BIT(questmob->act, ACT_MAGE);
 		break;
@@ -738,7 +738,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; CleT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female);
+		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female);
 		quest = "the wisdom of holiness";
 		SET_BIT(questmob->act, ACT_CLERIC);
 		break;
@@ -747,7 +747,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; ThiT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female);
+		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female);
 		quest = "the art of thievery";
 		SET_BIT(questmob->act, ACT_THIEF);
 		break;
@@ -756,7 +756,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; WarT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female);
+		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female);
 		quest = "the ways of weaponcraft";
 		SET_BIT(questmob->act, ACT_WARRIOR);
 		break;
@@ -809,10 +809,10 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
 		do_say(questman, buf);
 		sprintf(buf, "%s last recalls travelling through %s{x, in the",
-		        GET_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name);
+		        GET_ATTR_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name);
 		do_say(questman, buf);
 		sprintf(buf, "area of %s{x, when %s lost the treasure.",
-		        questobj->in_room->area->name, GET_SEX(questmob) == 1 ? "he" : "she");
+		        questobj->in_room->area->name, GET_ATTR_SEX(questmob) == 1 ? "he" : "she");
 		do_say(questman, buf);
 	}
 }
@@ -1804,7 +1804,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 					check_social(questman, "rofl", ch->name);
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
-				        GET_SEX(ch) == 2 ? "mistress" : "master");
+				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != NULL && ch->leader->name != NULL)
@@ -1847,7 +1847,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 					check_social(questman, "rofl", ch->name);
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
-				        GET_SEX(ch) == 2 ? "mistress" : "master");
+				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != NULL && ch->leader->name != NULL)
