@@ -64,7 +64,7 @@ void unique_item(OBJ_DATA *item)
 	if (chance(40)) { /* 40% */
 		int loc = 0, mod = 0;
 
-		switch (number_range(1, 18)) {
+		switch (number_range(1, 14)) {
 		case 1: /* STR */
 			loc = APPLY_STR;
 			mod = number_range(-1 * ((item->level / 50) + 1), ((item->level / 50) + 1));
@@ -131,27 +131,7 @@ void unique_item(OBJ_DATA *item)
 			break;
 
 		case 14: /* Saves vs paralysis */
-			loc = APPLY_SAVING_PARA;
-			mod = number_range(-1 * ((item->level / 30) + 1), ((item->level / 30) + 1));
-			break;
-
-		case 15: /* Saves vs rod */
-			loc = APPLY_SAVING_ROD;
-			mod = number_range(-1 * ((item->level / 30) + 1), ((item->level / 30) + 1));
-			break;
-
-		case 16: /* Saves vs petrification */
-			loc = APPLY_SAVING_PETRI;
-			mod = number_range(-1 * ((item->level / 30) + 1), ((item->level / 30) + 1));
-			break;
-
-		case 17: /* Saves vs breath */
-			loc = APPLY_SAVING_BREATH;
-			mod = number_range(-1 * ((item->level / 30) + 1), ((item->level / 30) + 1));
-			break;
-
-		case 18: /* Saves vs spell */
-			loc = APPLY_SAVING_SPELL;
+			loc = APPLY_SAVES;
 			mod = number_range(-1 * ((item->level / 30) + 1), ((item->level / 30) + 1));
 			break;
 		}
@@ -1147,8 +1127,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	}
 
 	for (const AFFECT_DATA *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
-//		if (paf->location == APPLY_SPELL_AFFECT)  now all affects are copied -- Montrey
-			affect_copy_to_obj(obj, paf);
+		affect_copy_to_obj(obj, paf);
 
 	obj->next           = object_list;
 	object_list         = obj;

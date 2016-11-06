@@ -162,16 +162,13 @@ int affect_attr_location_check(int location) {
 		case APPLY_AC            : return APPLY_AC;
 		case APPLY_HITROLL       : return APPLY_HITROLL;
 		case APPLY_DAMROLL       : return APPLY_DAMROLL;
+//		case APPLY_SAVES         : duplicate with an older one
 		case APPLY_SAVING_PARA   :
 		case APPLY_SAVING_ROD    :
 		case APPLY_SAVING_PETRI  :
-		case APPLY_SAVING_BREATH : return APPLY_SAVES;
-		case APPLY_SAVING_SPELL  : return APPLY_SAVING_SPELL;
-		case APPLY_SPELL_AFFECT  : return APPLY_SPELL_AFFECT;
+		case APPLY_SAVING_BREATH :
+		case APPLY_SAVING_SPELL  : return APPLY_SAVES;
 		case APPLY_CHR           : return APPLY_CHR;
-		case APPLY_SHEEN         : return APPLY_SHEEN;
-		case APPLY_BARRIER       : return APPLY_BARRIER;
-		case APPLY_FOCUS         : return APPLY_FOCUS;
 	}
 
 	bugf("affect_attr_location_check: bad location %d", location);

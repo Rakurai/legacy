@@ -1949,10 +1949,6 @@ const char *affect_loc_name(int location)
 	case APPLY_SAVING_PETRI:    return "save vs petrification";
 	case APPLY_SAVING_BREATH:   return "save vs breath";
 	case APPLY_SAVING_SPELL:    return "save vs spell";
-	case APPLY_SPELL_AFFECT:    return "none";
-	case APPLY_SHEEN:           return "armor";
-	case APPLY_BARRIER:         return "none";
-	case APPLY_FOCUS:           return "offensive spells";
 	}
 
 	bug("Affect_location_name: unknown location %d.", location);

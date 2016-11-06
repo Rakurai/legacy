@@ -1477,11 +1477,11 @@ struct  kill_data
 #define APPLY_SAVING_PETRI           22
 #define APPLY_SAVING_BREATH          23
 #define APPLY_SAVING_SPELL           24
-#define APPLY_SPELL_AFFECT           25
+//#define APPLY_SPELL_AFFECT           25
 #define APPLY_CHR                    26
-#define APPLY_SHEEN                  27
-#define APPLY_BARRIER                28
-#define APPLY_FOCUS                  29
+//#define APPLY_SHEEN                  27
+//#define APPLY_BARRIER                28
+//#define APPLY_FOCUS                  29
 
 
 /*
