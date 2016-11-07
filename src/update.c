@@ -1496,8 +1496,17 @@ void aggr_update(void)
 				continue;
 		}
 
+		/* I like the idea of charisma coming into play here, but we did a mud-wide
+		   lowering of mob stats, and nothing aggresses on players anymore because
+		   their charisma is so high compared to mobs.  Removing this and changing
+		   to a random chance of aggressing based on victim charisma, but keep in mind
+		   this is called once every pulse.  -- Montrey
 		if ((get_curr_stat(victim, STAT_CHR) + number_range(0, 1))
 		    > (get_curr_stat(mob, STAT_CHR) + number_range(0, 3)))
+			continue;
+		*/
+
+		if (number_range(0, 29 - get_curr_stat(victim, STAT_CHR)) > 3) // 20% for 25 chr
 			continue;
 
 		/* rumble! */
