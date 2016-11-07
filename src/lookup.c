@@ -41,6 +41,17 @@ int flag_lookup(const char *name, const struct flag_type *flag_table)
 	return -1;
 }
 
+CLAN_DATA *clan_vnum_lookup(int vnum)
+{
+	CLAN_DATA *c;
+
+	for (c = clan_table_head->next; c != clan_table_tail; c = c->next)
+		if (vnum >= c->area_minvnum && vnum <= c->area_maxvnum)
+			return c;
+
+	return NULL;
+}
+
 CLAN_DATA *clan_lookup(const char *name)
 {
 	CLAN_DATA *iterator;

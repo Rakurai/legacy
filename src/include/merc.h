@@ -3665,7 +3665,6 @@ bool    valid_object    args(( OBJ_DATA *od ) );
 int	parse_deity		args((const char *dstring));		/* hacks!  Beware! :) */
 int	get_usable_level	args((CHAR_DATA *ch));
 int	get_holdable_level	args((CHAR_DATA *ch));
-CLAN_DATA *clan_vnum_lookup	args((int vnum));
 const char *	strins			args((const char *string, const char *ins, int place));
 const char *	get_owner		args((CHAR_DATA *ch, OBJ_DATA *obj));
 CD *	get_obj_carrier		args((OBJ_DATA *obj));
