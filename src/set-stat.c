@@ -1577,11 +1577,19 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim) && victim->off_flags)
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
-	ptc(ch, "Aff  : %s\n", affect_print_cache(victim));
-	ptc(ch, "Abs  : %s\n", print_defense_modifiers(victim, TO_ABSORB));
-	ptc(ch, "Imm  : %s\n", print_defense_modifiers(victim, TO_IMMUNE));
-	ptc(ch, "Res  : %s\n", print_defense_modifiers(victim, TO_RESIST));
-	ptc(ch, "Vuln : %s\n", print_defense_modifiers(victim, TO_VULN));
+	{
+		char buf[MSL];
+		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
+		if (buf[0]) ptc(ch, "Abs : %s\n", buf);
+		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
+		if (buf[0]) ptc(ch, "Imm : %s\n", buf);
+		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
+		if (buf[0]) ptc(ch, "Res : %s\n", buf);
+		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
+		if (buf[0]) ptc(ch, "Vuln: %s\n", buf);
+		strcpy(buf, affect_print_cache(victim));
+		if (buf[0]) ptc(ch, "Aff : %s\n", buf);
+	}
 
 	ptc(ch, "{xForm: %s\nParts: %s\n", form_bit_name(victim->form), part_bit_name(victim->parts));
 	ptc(ch, "Master: %s  Leader: %s  Pet: %s\n",
@@ -1622,10 +1630,15 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+		if (paf->permanent)
+			continue;
+
 		ptc(ch, "{bSpell: '%s'", skill_table[(int) paf->type].name);
 
-		if (paf->where == TO_AFFECTS)
-			ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
+		if (paf->where == TO_AFFECTS) {
+			if (paf->location != APPLY_NONE && paf->modifier != 0)
+				ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
+		}
 		else if (paf->where == TO_DEFENSE)
 			ptc(ch, " %s damage from %s by %d%%",
 				paf->modifier > 0 ? "reduces" : "increases",
@@ -1634,10 +1647,15 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		else
 			ptc(ch, " does something weird");
 
-		ptc(ch, " for %d hours, level %d, evolve %d.{x\n",
-		    paf->duration + 1,
-		    paf->level,
-		    paf->evolution);
+		if (paf->duration >= 0)
+			ptc(ch, " for %d hours", paf->duration);
+
+		ptc(ch, ", level %d", paf->level);
+
+		if (paf->evolution > 1)
+			ptc(ch, ", evolve %d", paf->evolution);
+
+		ptc(ch, ".\n");
 	}
 }
 

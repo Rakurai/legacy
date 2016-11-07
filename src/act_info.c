@@ -3228,15 +3228,15 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
 		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
-		if (buf[0]) ptc(ch, " Drain:  %s\n", buf);
+		if (buf[0]) ptc(ch, "Drain:  %s\n", buf);
 		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
-		if (buf[0]) ptc(ch, " Immune: %s\n", buf);
+		if (buf[0]) ptc(ch, "Immune: %s\n", buf);
 		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
-		if (buf[0]) ptc(ch, " Resist: %s\n", buf);
+		if (buf[0]) ptc(ch, "Resist: %s\n", buf);
 		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
-		if (buf[0]) ptc(ch, " Vuln:   %s\n", buf);
+		if (buf[0]) ptc(ch, "Vuln:   %s\n", buf);
 		strcpy(buf, affect_print_cache(victim));
-		if (buf[0]) ptc(ch, " Affect:  %s\n", buf);
+		if (buf[0]) ptc(ch, "Affect: %s\n", buf);
 
 		ptc(ch, "{gForm: %s\n{gParts: %s\n",
 		    form_bit_name(victim->form), part_bit_name(victim->parts));
@@ -3248,11 +3248,34 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim) && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
-		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
-			if (paf->where == TO_AFFECTS)
-				ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours, level %d, evolve %d.\n",
-				    skill_table[(int) paf->type].name, affect_loc_name(paf->location),
-				    paf->modifier, paf->duration, paf->level, paf->evolution);
+		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+			if (paf->permanent)
+				continue;
+
+			ptc(ch, "{bSpell: '%s'", skill_table[(int) paf->type].name);
+
+			if (paf->where == TO_AFFECTS) {
+				if (paf->location != APPLY_NONE && paf->modifier != 0)
+					ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
+			}
+			else if (paf->where == TO_DEFENSE)
+				ptc(ch, " %s damage from %s by %d%%",
+					paf->modifier > 0 ? "reduces" : "increases",
+					dam_type_name(paf->location),
+					paf->modifier > 0 ? paf->modifier : -paf->modifier);
+			else
+				ptc(ch, " does something weird");
+
+			if (paf->duration >= 0)
+				ptc(ch, " for %d hours", paf->duration);
+
+			ptc(ch, ", level %d", paf->level);
+
+			if (paf->evolution > 1)
+				ptc(ch, ", evolve %d", paf->evolution);
+
+			ptc(ch, ".\n");
+		}
 	}
 
 	diff = victim->level - ch->level;
