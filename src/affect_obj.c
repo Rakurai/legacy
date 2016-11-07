@@ -146,5 +146,7 @@ void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	extern void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 	affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, fAdd);
-	affect_modify_char(obj->carried_by, paf, fAdd);
+
+	if (obj->carried_by && obj->wear_loc != WEAR_NONE)
+		affect_modify_char(obj->carried_by, paf, fAdd);
 }

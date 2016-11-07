@@ -249,6 +249,10 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 			case IMM_DROWNING    : paf->location = DAM_DROWNING; break;
 			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
 			case IMM_SOUND       : paf->location = DAM_SOUND; break;
+			default: {
+//				bugf("affect_parse_prototype: unknown defense bit %d", bit);
+				return FALSE;
+			}
 		}
 
 		// modifier was already set or done above

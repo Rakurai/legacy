@@ -2775,12 +2775,12 @@ extern sh_int	gsn_critical_blow;
 #define GET_ATTR_MOD(ch, where)  ((ch)->apply_cache ? (ch)->apply_cache[where] : 0) // intentionally not settable
 #define GET_ATTR(ch, where) (ATTR_BASE(ch, where) + GET_ATTR_MOD(ch, where)) // intentionally not settable
 
-#define GET_ATTR_STR(ch) (UMIN(GET_ATTR(ch, APPLY_STR), get_max_stat(ch, APPLY_STR)))
-#define GET_ATTR_INT(ch) (UMIN(GET_ATTR(ch, APPLY_INT), get_max_stat(ch, APPLY_INT)))
-#define GET_ATTR_WIS(ch) (UMIN(GET_ATTR(ch, APPLY_WIS), get_max_stat(ch, APPLY_WIS)))
-#define GET_ATTR_DEX(ch) (UMIN(GET_ATTR(ch, APPLY_DEX), get_max_stat(ch, APPLY_DEX)))
-#define GET_ATTR_CON(ch) (UMIN(GET_ATTR(ch, APPLY_CON), get_max_stat(ch, APPLY_CON)))
-#define GET_ATTR_CHR(ch) (UMIN(GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, APPLY_CHR)))
+#define GET_ATTR_STR(ch) (URANGE(3, GET_ATTR(ch, APPLY_STR), get_max_stat(ch, STAT_STR)))
+#define GET_ATTR_INT(ch) (URANGE(3, GET_ATTR(ch, APPLY_INT), get_max_stat(ch, STAT_INT)))
+#define GET_ATTR_WIS(ch) (URANGE(3, GET_ATTR(ch, APPLY_WIS), get_max_stat(ch, STAT_WIS)))
+#define GET_ATTR_DEX(ch) (URANGE(3, GET_ATTR(ch, APPLY_DEX), get_max_stat(ch, STAT_DEX)))
+#define GET_ATTR_CON(ch) (URANGE(3, GET_ATTR(ch, APPLY_CON), get_max_stat(ch, STAT_CON)))
+#define GET_ATTR_CHR(ch) (URANGE(3, GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, STAT_CHR)))
 #define GET_ATTR_SEX(ch) (GET_ATTR((ch), APPLY_SEX) % 3) // gives range of 0-2
 #define GET_ATTR_AGE(ch) (get_age(ch))
 #define GET_ATTR_AC(ch)  (GET_ATTR(ch, APPLY_AC)                              \

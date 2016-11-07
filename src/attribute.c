@@ -149,6 +149,32 @@ int get_unspelled_ac(CHAR_DATA *ch, int type)
 	return ac;
 }
 
+void attribute_check(CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd) {
+	/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
+	OBJ_DATA *weapon;
+
+	if (ch != NULL
+	 && ch->in_room != NULL
+	 && (weapon = get_eq_char(ch, WEAR_WIELD)) != NULL
+	 && get_obj_weight(weapon) > (str_app[GET_ATTR_STR(ch)].wield * 10)) {
+
+		// only do this if they have a strength reducing spell affect (not from EQ)
+		bool found = FALSE;
+		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next)
+			if (paf->where == TO_AFFECTS && paf->location == APPLY_STR && paf->modifier < 0) {
+				found = TRUE;
+				break;
+			}
+
+		if (found) {
+			act("You drop $p.", ch, weapon, NULL, TO_CHAR);
+			act("$n drops $p.", ch, weapon, NULL, TO_ROOM);
+			obj_from_char(weapon);
+			obj_to_room(weapon, ch->in_room);
+		}
+	}
+}
+
 char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 	static char buf[MSL];
 	buf[0] = '\0';
@@ -162,7 +188,8 @@ char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 		switch (where) {
 			case TO_ABSORB:  if (ch->defense_mod[i] > 100)  print = TRUE; break;
 			case TO_IMMUNE:  if (ch->defense_mod[i] == 100) print = TRUE; break;
-			case TO_RESIST:  if (ch->defense_mod[i] > 0)    print = TRUE; break;
+			case TO_RESIST:  if (ch->defense_mod[i] > 0 && ch->defense_mod[i] < 100)
+			    print = TRUE; break;
 			case TO_VULN:    if (ch->defense_mod[i] < 0)    print = TRUE; break;
 			default:
 				bugf("print_defense_modifiers: unknown where %d", where);

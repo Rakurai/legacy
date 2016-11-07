@@ -45,8 +45,9 @@ void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
 	affect_add_sn_to_char(ch, sn, ch->level, -1, 1, TRUE);
 }
 
+// transform a bitvector into a set of affects or defense mods
 void affect_copy_flags_to_char(CHAR_DATA *ch, char letter, unsigned int bitvector, bool permanent) {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
@@ -329,7 +330,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	if (paf->modifier == 0)
 		return;
 
-	if (paf->location != APPLY_NONE && paf->modifier != 0) {
+	if (paf->location != APPLY_NONE) {
 		if (paf->location < 1 || paf->location > 32) {
 			bugf("affect_modify_char: bad location %d when modifier is %d", paf->location, paf->modifier);
 			return;

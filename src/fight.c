@@ -104,6 +104,14 @@ void violence_update(void)
 		if (ch->in_room == NULL)
 			continue;
 
+		// see if anything needs to change because attributes modified
+		// this is just a convenient place to do this with the appropriate
+		// timing frequency.  can't go in the affect modifiers, because
+		// we don't want them to drop a weapon when only half of the affects
+		// have been loaded on the character
+		extern void attribute_check(CHAR_DATA *ch);
+		attribute_check(ch);
+
 		/* Hunting mobs */
 		if (IS_NPC(ch)
 		    && ch->fighting == NULL

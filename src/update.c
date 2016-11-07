@@ -1040,18 +1040,6 @@ void char_update(void)
 			}
 		}
 		
-		/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
-		OBJ_DATA *obj;
-		if (ch != NULL
-		 && ch->in_room != NULL
-		 && (obj = get_eq_char(ch, WEAR_WIELD)) != NULL
-		 && get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield * 10)) {
-			act("You drop $p.", ch, obj, NULL, TO_CHAR);
-			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
-			obj_from_char(obj);
-			obj_to_room(obj, ch->in_room);
-		}
-
 		if (ch != NULL && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
 		else if (ch != NULL && get_position(ch) == POS_MORTAL)
