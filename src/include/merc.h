@@ -2790,11 +2790,15 @@ extern sh_int	gsn_critical_blow;
                         ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
                                                                                    -1 per 5 remorts -- Montrey */
 #define GET_ATTR_HITROLL(ch) \
-                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR((ch), APPLY_STR)].tohit)
+                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
 #define GET_ATTR_DAMROLL(ch) \
-                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR((ch), APPLY_STR)].todam)
+                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR_STR((ch))].todam)
 #define GET_ATTR_SAVES(ch) (GET_ATTR((ch), APPLY_SAVES))
-#define GET_DEFENSE_MOD(ch, where) ((ch)->defense_mod ? (ch)->defense_mod[where] : 0)
+#define GET_MAX_HIT(ch)    (URANGE(1, GET_ATTR((ch), APPLY_HIT), 30000))
+#define GET_MAX_MANA(ch)   (URANGE(1, GET_ATTR((ch), APPLY_MANA), 30000))
+#define GET_MAX_STAM(ch)   (URANGE(1, GET_ATTR((ch), APPLY_STAM), 30000))
+#define GET_DEFENSE_MOD(ch, dam_type) (dam_type == DAM_NONE ? 0 :             \
+                          (ch)->defense_mod ? (ch)->defense_mod[dam_type] : 0)
 #define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
 
 
@@ -3570,7 +3574,6 @@ int get_age         args((CHAR_DATA *ch));
 int get_max_hit args((CHAR_DATA *ch));
 int get_max_mana args((CHAR_DATA *ch));
 int get_max_stam args((CHAR_DATA *ch));
-int     check_immune    args( (CHAR_DATA *ch, int dam_type) );
 char *print_defense_modifiers args((CHAR_DATA *ch, int where));
 int get_unspelled_hitroll    args((CHAR_DATA *ch));
 int get_unspelled_damroll    args((CHAR_DATA *ch));

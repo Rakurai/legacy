@@ -940,9 +940,9 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	for (i = 0; i < mob->level; i++)
 		ATTR_BASE(mob, APPLY_STAM) += number_fuzzy(stambase);
 
-	mob->hit = GET_ATTR(mob, APPLY_HIT);
-	mob->mana = GET_ATTR(mob, APPLY_MANA);
-	mob->stam = GET_ATTR(mob, APPLY_STAM);
+	mob->hit = GET_MAX_HIT(mob);
+	mob->mana = GET_MAX_MANA(mob);
+	mob->stam = GET_MAX_STAM(mob);
 
 	mob->position = mob->start_pos;
 	/* link the mob to the world list */

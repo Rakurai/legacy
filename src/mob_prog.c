@@ -611,12 +611,12 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 #endif // ifdef 0
 	if (!str_cmp(buf, "hitprcnt")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->hit / GET_ATTR(mob, APPLY_HIT);
+		case 'i': lhsvl = mob->hit / GET_MAX_HIT(mob);
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = actor->hit / GET_ATTR(actor, APPLY_HIT);
+				lhsvl = actor->hit / GET_MAX_HIT(actor);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -624,7 +624,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = vict->hit / GET_ATTR(vict, APPLY_HIT);
+				lhsvl = vict->hit / GET_MAX_HIT(vict);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -632,7 +632,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = rndm->hit / GET_ATTR(rndm, APPLY_HIT);
+				lhsvl = rndm->hit / GET_MAX_HIT(rndm);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -1860,7 +1860,7 @@ void mprog_hitprcnt_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 	    && (mob->pIndexData->progtypes & HITPRCNT_PROG))
 		for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 			if ((mprg->type & HITPRCNT_PROG)
-			    && ((100 * mob->hit / GET_ATTR(mob, APPLY_HIT)) < atoi(mprg->arglist))) {
+			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
 				mprog_driver(mprg->comlist, mob, ch, NULL, NULL);
 				break;
 			}

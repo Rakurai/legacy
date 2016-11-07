@@ -233,21 +233,21 @@ void violence_update(void)
 } /* end violence_update */
 
 void noncombat_regen(CHAR_DATA *ch) {
-	int hitgain = GET_ATTR(ch, APPLY_HIT)/10;
-	int managain = GET_ATTR(ch, APPLY_MANA)/10;
-	int stamgain = GET_ATTR(ch, APPLY_STAM)/10;
+	int hitgain = GET_MAX_HIT(ch)/10;
+	int managain = GET_MAX_MANA(ch)/10;
+	int stamgain = GET_MAX_STAM(ch)/10;
 
-	if (ch->hit < GET_ATTR(ch, APPLY_HIT)
-	 || ch->mana < GET_ATTR(ch, APPLY_MANA)
-	 || ch->stam < GET_ATTR(ch, APPLY_STAM)) {
-	    ch->hit = UMIN(GET_ATTR(ch, APPLY_HIT), ch->hit + hitgain);
-		ch->mana = UMIN(GET_ATTR(ch, APPLY_MANA), ch->mana + managain);
-		ch->stam = UMIN(GET_ATTR(ch, APPLY_STAM), ch->stam + stamgain);
+	if (ch->hit < GET_MAX_HIT(ch)
+	 || ch->mana < GET_MAX_MANA(ch)
+	 || ch->stam < GET_MAX_STAM(ch)) {
+	    ch->hit = UMIN(GET_MAX_HIT(ch), ch->hit + hitgain);
+		ch->mana = UMIN(GET_MAX_MANA(ch), ch->mana + managain);
+		ch->stam = UMIN(GET_MAX_STAM(ch), ch->stam + stamgain);
 	}
 
-	if (ch->hit == GET_ATTR(ch, APPLY_HIT)
-	 && ch->mana == GET_ATTR(ch, APPLY_MANA)
-	 && ch->stam == GET_ATTR(ch, APPLY_STAM)
+	if (ch->hit == GET_MAX_HIT(ch)
+	 && ch->mana == GET_MAX_MANA(ch)
+	 && ch->stam == GET_MAX_STAM(ch)
 	 && ch->pcdata->combattimer == 0) {
 		stc("You have fully recovered from combat.\n", ch);
 		ch->pcdata->combattimer = -1; // start again next combat
@@ -283,7 +283,7 @@ void combat_regen(CHAR_DATA *ch)
 			if (sun_damage < 0)
 				sun_damage = 1;
 
-			sun_damage -= sun_damage * check_immune(ch, DAM_LIGHT) / 100;
+			sun_damage -= sun_damage * GET_DEFENSE_MOD(ch, DAM_LIGHT) / 100;
 
 			if (sun_damage > 0) {
 				damage(ch->fighting, ch, sun_damage, 0, DAM_NONE, FALSE, TRUE);
@@ -1356,7 +1356,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		}
 	}
 
-	int def_mod = check_immune(victim, dam_type);
+	int def_mod = GET_DEFENSE_MOD(victim, dam_type);
 
 	if (def_mod >= 100)
 		immune = TRUE;
@@ -3965,7 +3965,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch) && ch->class == 6)      /* bards */
 		singchance += singchance / 3;
 
-	singchance -= singchance * check_immune(victim, DAM_CHARM) / 100;
+	singchance -= singchance * GET_DEFENSE_MOD(victim, DAM_CHARM) / 100;
 
 	/*Moderate the final chance*/
 	singchance = URANGE(0, singchance, (101 - (victim->level / 2)));
@@ -4963,7 +4963,7 @@ void do_critical_blow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	chance = 100 - (((ch->fighting->hit * 100) / GET_ATTR(ch->fighting, APPLY_HIT)) * 3);
+	chance = 100 - (((ch->fighting->hit * 100) / GET_MAX_HIT(ch->fighting)) * 3);
 
 	if (!chance)
 		chance = 1;

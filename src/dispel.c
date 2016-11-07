@@ -88,7 +88,7 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	if (affect_exists_on_char(victim, gsn_berserk))
 		save += victim->level / 4;
 
-	int def = check_immune(victim, dam_type);
+	int def = GET_DEFENSE_MOD(victim, dam_type);
 
 	if (def >= 100)
 		return TRUE;

@@ -90,21 +90,6 @@ int get_max_stam(CHAR_DATA *ch) {
 	return URANGE(1, ATTR_BASE(ch, APPLY_STAM) + GET_ATTR_MOD(ch, APPLY_STAM), 30000);
 }
 
-/* for immunity, vulnerabiltiy, and resistant
-   the 'globals' (magic and weapons) may be overriden
-   three other cases -- wood, silver, and iron -- are checked in fight.c */
-
-int check_immune(CHAR_DATA *ch, int dam_type)
-{
-	if (dam_type == DAM_NONE)
-		return 0;
-
-	if (ch->defense_mod == NULL) // no modifiers
-		return 0;
-
-	return ch->defense_mod[dam_type];
-}
-
 /* below two functions recalculate a character's hitroll and damroll
    based solely on their strength and equipment, and not spells.
    used when finding adjustment for hammerstrike and berserk

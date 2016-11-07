@@ -161,7 +161,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 			chance += 15;
 	}
 
-	int def = check_immune(victim, DAM_LIGHT);
+	int def = GET_DEFENSE_MOD(victim, DAM_LIGHT);
 
 	if (def >= 100)
 		chance = 0;

@@ -3312,9 +3312,9 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	affect_remove_sn_from_char(victim, gsn_sleep);
 	affect_remove_sn_from_char(victim, gsn_curse);
 	affect_remove_sn_from_char(victim, gsn_fear);
-	victim->hit     = GET_ATTR(victim, APPLY_HIT);
-	victim->mana    = GET_ATTR(victim, APPLY_MANA);
-	victim->stam    = GET_ATTR(victim, APPLY_STAM);
+	victim->hit     = GET_MAX_HIT(victim);
+	victim->mana    = GET_MAX_MANA(victim);
+	victim->stam    = GET_MAX_STAM(victim);
 	update_pos(victim);
 	act_new("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 }

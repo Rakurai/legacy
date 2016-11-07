@@ -1494,7 +1494,7 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 		else {
 			for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 				if (IS_NPC(vch)
-				    && (check_immune(vch, DAM_CHARM) >= 100 // TODO: this should check chance individually?
+				    && (GET_DEFENSE_MOD(vch, DAM_CHARM) >= 100 // TODO: this should check chance individually?
 				        || IS_SET(vch->act, ACT_UNDEAD)))
 					failure = TRUE;
 				else if (affect_exists_on_char(vch, gsn_calm)
@@ -1665,7 +1665,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		return;
 	}
 
-	int def = check_immune(victim, DAM_CHARM);
+	int def = GET_DEFENSE_MOD(victim, DAM_CHARM);
 
 	if (!IS_IMMORTAL(ch)) {
 		if (!IS_NPC(victim)) {
@@ -4637,15 +4637,15 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 
 	/* don't let em switch into mobs with the stronger immunities -- Montrey */
 	if (IS_SET(victim->act, ACT_NOMORPH)
-	 || check_immune(victim, DAM_BASH) >= 100
-	 || check_immune(victim, DAM_PIERCE) >= 100
-	 || check_immune(victim, DAM_SLASH) >= 100
-	 || check_immune(victim, DAM_FIRE) >= 100
-	 || check_immune(victim, DAM_COLD) >= 100
-	 || check_immune(victim, DAM_ELECTRICITY) >= 100
-	 || check_immune(victim, DAM_ACID) >= 100
-	 || check_immune(victim, DAM_NEGATIVE) >= 100
-	 || check_immune(victim, DAM_HOLY) >= 100) {
+	 || GET_DEFENSE_MOD(victim, DAM_BASH) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_PIERCE) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_SLASH) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_FIRE) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_COLD) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_ELECTRICITY) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_ACID) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_NEGATIVE) >= 100
+	 || GET_DEFENSE_MOD(victim, DAM_HOLY) >= 100) {
 		stc("The gods have restricted the use of this creature for morphing.\n", ch);
 		return;
 	}

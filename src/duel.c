@@ -381,8 +381,8 @@ void view_room_hpbar(CHAR_DATA *ch)
 
 	chal = duel->challenger;
 	def  = duel->defender;
-	chalpct = URANGE(1, 10 * chal->hit / GET_ATTR(chal, APPLY_HIT), 10);
-	defpct  = URANGE(1, 10 * def->hit  / GET_ATTR(def, APPLY_HIT),  10);
+	chalpct = URANGE(1, 10 * chal->hit / GET_MAX_HIT(chal), 10);
+	defpct  = URANGE(1, 10 * def->hit  / GET_MAX_HIT(def),  10);
 	sprintf(chalblock, "{C%s{C [", chal->name);
 
 	if (chalpct <= 3)       strcat(chalblock, "{P");

@@ -1644,9 +1644,9 @@ void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 
 	if (percent > 0 && !affect_exists_on_char(ch, gsn_poison)
 	    &&  !affect_exists_on_char(ch, gsn_plague)) {
-		pet->hit    += (GET_ATTR(pet, APPLY_HIT) - pet->hit) * percent / 100;
-		pet->mana   += (GET_ATTR(pet, APPLY_MANA) - pet->mana) * percent / 100;
-		pet->stam   += (GET_ATTR(pet, APPLY_STAM) - pet->stam) * percent / 100;
+		pet->hit    += (GET_MAX_HIT(pet) - pet->hit) * percent / 100;
+		pet->mana   += (GET_MAX_MANA(pet) - pet->mana) * percent / 100;
+		pet->stam   += (GET_MAX_STAM(pet) - pet->stam) * percent / 100;
 	}
 }
 
