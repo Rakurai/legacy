@@ -333,17 +333,6 @@ bool is_clan(CHAR_DATA *ch)
 	return (ch->clan != NULL);
 }
 
-CLAN_DATA *clan_vnum_lookup(int vnum)
-{
-	CLAN_DATA *c;
-
-	for (c = clan_table_head->next; c != clan_table_tail; c = c->next)
-		if (vnum >= c->area_minvnum && vnum <= c->area_maxvnum)
-			return c;
-
-	return NULL;
-}
-
 bool is_same_clan(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (ch == NULL || victim == NULL || ch->clan == NULL || victim->clan == NULL)

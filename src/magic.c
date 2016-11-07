@@ -4370,6 +4370,10 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	ptc(ch, "The object's condition is %s [%d]%s\n",
 	    condition_lookup(obj->condition), obj->condition, buf);
 
+	CLAN_DATA *clan;
+	if ((clan = clan_vnum_lookup(obj->pIndexData->vnum)) != NULL)
+		ptc(ch, "{YThis item belongs to %s{Y.{x\n", clan->clanname);
+
 	if (obj->extra_descr != NULL) {
 		EXTRA_DESCR_DATA *ed_next;
 		EXTRA_DESCR_DATA *ed;
@@ -4378,7 +4382,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 			ed_next = ed->next;
 
 			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
-				ptc(ch, "{YThis item is owned by %s.{x\n", ed->description);
+				ptc(ch, "{CThis item is owned by %s.{x\n", ed->description);
 				break;
 			}
 		}

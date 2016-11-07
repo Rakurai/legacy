@@ -93,84 +93,34 @@ char *ordinal_string(int n)
 */
 bool clan_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 {
-	int vnum;
-	CLAN_DATA *clan = NULL, *jclan = NULL;
-	char buf[MAX_INPUT_LENGTH];
-
-	if (ch == NULL) {
-		bug("clan_eq_ok: NULL character", 0);
-		return TRUE;
-	}
-
-	if (obj == NULL) {
-		bug("clan_eq_ok: NULL object", 0);
-		return TRUE;
-	}
-
-	if (obj->pIndexData == NULL) {
-		bug("clan_eq_ok: NULL object->pIndexData", 0);
-		return TRUE;
-	}
-
-	vnum = obj->pIndexData->vnum;
-
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	clan = clan_table_head->next;
-
-	while (clan != clan_table_tail) {
-		if (vnum >= clan->area_minvnum && vnum <= clan->area_maxvnum) {
-			jclan = clan;
-			break;
-		}
-
-		clan = clan->next;
-	}
-
-	if (jclan == NULL)
+	CLAN_DATA *jclan;
+	if ((jclan = clan_vnum_lookup(obj->pIndexData->vnum)) == NULL)
 		return TRUE;
 
 	if (ch->clan != jclan) {
-		if (obj->short_descr == NULL || obj->short_descr[0] == '\0') {
-			bug("clan_eq_ok: object %d has no short_descr", vnum);
-			obj->short_descr = str_dup("something");
-		}
-
 		if (action != NULL && *action != '\0') {
-			sprintf(buf, "You attempt to %s %s, which belongs to %s.\n",
+			ptc(ch, "You attempt to %s %s, which belongs to %s.\n",
 			        action, obj->short_descr, jclan->clanname);
-			stc(buf, ch);
 		}
 
-		sprintf(buf, "%s {Yexplodes violently{x, leaving only a cloud of {gsmoke{x.\n",
+		ptc(ch, "%s {Yexplodes violently{x, leaving only a cloud of {gsmoke{x.\n",
 		        obj->short_descr);
-		stc(buf, ch);
 		stc("You are lucky you weren't {Phurt!{x\n", ch);
 		extract_obj(obj);
 		return FALSE;
 	}
 
-	if (obj->name == NULL) {
-		bug("clan_eq_ok: Object %s has NULL name", vnum);
-		return TRUE;
-	}
-
 	if (is_name("leadereq", obj->name) && !HAS_CGROUP(ch, GROUP_LEADER)) {
-		if (obj->short_descr == NULL || obj->short_descr[0] == '\0') {
-			bug("clan_eq_ok: object %d has no short_descr", vnum);
-			obj->short_descr = str_dup("something");
-		}
-
 		if (action != NULL && *action != '\0') {
-			sprintf(buf, "You attempt to %s your Leader's %s.\n",
+			ptc(ch, "You attempt to %s your Leader's %s.\n",
 			        action, obj->short_descr);
-			stc(buf, ch);
 		}
 
-		sprintf(buf, "%s flies from your grasp, presumably into your Clan's coffers.\n",
+		ptc(ch, "%s flies from your grasp, presumably into your Clan's coffers.\n",
 		        obj->short_descr);
-		stc(buf, ch);
 		stc("Wait until the Leaders hear of this!\n", ch);
 		extract_obj(obj);
 		return FALSE;
