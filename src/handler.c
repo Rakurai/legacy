@@ -1042,14 +1042,33 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
  */
 void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 {
+	if (obj_to == donation_pit) {
+		obj->cost = 0;
+
+		// don't *always* set, because do_pit temporarily removes items
+		if (obj->donated == 0) { // new object going in
+			obj->donated = current_time;
+
+			// count items in the pit, if there are too many, remove the oldest
+			OBJ_DATA *oldest = NULL;
+			int count = 0;
+
+			for (OBJ_DATA *c = donation_pit->contains; c; c = c->next) {
+				count++;
+				if (oldest == NULL || oldest->donated > c->donated)
+					oldest = c;
+			}
+
+			if (count >= MAX_DONATED && oldest != NULL)
+				extract_obj(oldest); // will remove from the pit
+		}
+	}
+
 	obj->next_content       = obj_to->contains;
 	obj_to->contains        = obj;
 	obj->in_obj             = obj_to;
 	obj->in_room            = NULL;
 	obj->carried_by         = NULL;
-
-	if (obj_to == donation_pit)
-		obj->cost = 0;
 }
 
 /*

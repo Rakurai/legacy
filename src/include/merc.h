@@ -188,6 +188,8 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 #define MAX_PC_RACE                14
 #define MAX_CLAN                   13
 #define MAX_LEVEL                 100
+// max items in show_list_to_char is 8000
+#define MAX_DONATED              8000 // max number of items in the pit, affects do_pit performance
 #define MAX_EVOLUTION		    3
 #define LEVEL_AVATAR				(MAX_LEVEL - 30)	/* 80 */
 #define LEVEL_HERO                 (MAX_LEVEL - 9)  /*  91 */
@@ -2273,6 +2275,7 @@ struct obj_data
 	CHAR_DATA *		in_locker;
 	CHAR_DATA *		in_strongbox;
 	OBJ_DATA *		contains;
+    long            donated; // timestamp when an obj was donated, for pit cleanup
 
 	char *			name;
 	char *			short_descr;
