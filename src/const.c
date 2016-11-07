@@ -917,19 +917,19 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 	{
-		"blood blade",          { 30, 58, 60, 78, 35, 70, 63, 70 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
-		spell_blood_blade,      TAR_OBJ_INV,            POS_STANDING,
-		&gsn_blood_blade,       SLOT(802),      100,    12,
-		"",                     "!Blood Blade!",        "$p is no longer a bloodthirsty weapon.",       0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
 		"blood moon",           { 33, 38, 68, 68, 12, 75, 68, 68 },
 		{  1,  1,  2,  2,  1,  1,  2,  2 },
 		spell_blood_moon,       TAR_CHAR_DEFENSIVE,     POS_STANDING,
 		&gsn_blood_moon,        SLOT(913),      5,      12,
 		"",                     "You feel less bloodthirsty.",  "$p's evil aura fades.",        0,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	},
+	{
+		"blood blade",          { 30, 58, 60, 78, 35, 70, 63, 70 },
+		{  1,  1,  2,  2,  1,  1,  2,  2 },
+		spell_blood_blade,      TAR_OBJ_INV,            POS_STANDING,
+		&gsn_blood_blade,       SLOT(802),      100,    12,
+		"",                     "!Blood Blade!",        "$p is no longer a bloodthirsty weapon.",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 	{
