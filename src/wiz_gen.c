@@ -3094,20 +3094,16 @@ void do_owner(CHAR_DATA *ch, const char *argument)
 			ed_next = ed->next;
 
 			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
-				char strip[MSL];
-				strcpy(strip, ed->description);
-				strip[strlen(strip) - 2] = '\0';
-				ptc(ch, "This item is already owned by %s.\n", strip);
+				ptc(ch, "This item is already owned by %s.\n", ed->description);
 				return;
 			}
 		}
 	}
 
 	act_new("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, FALSE);
-	sprintf(whom, "%s\n", player->name);
 	ed                      = new_extra_descr();
 	ed->keyword             = str_dup(KEYWD_OWNER);
-	ed->description         = str_dup(whom);
+	ed->description         = str_dup(player->name);
 	ed->next                = item->extra_descr;
 	item->extra_descr       = ed;
 }
