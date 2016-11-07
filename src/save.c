@@ -525,9 +525,9 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON_AddItemToObject(o, 		"HMS",	 		item);
 
 	item = cJSON_CreateObject();
-	cJSON_AddNumberToObject(item,	"hit",			ATTR_BASE(ch, APPLY_HIT));
-	cJSON_AddNumberToObject(item,	"mana",			ATTR_BASE(ch, APPLY_MANA));
-	cJSON_AddNumberToObject(item,	"stam",			ATTR_BASE(ch, APPLY_STAM));
+	cJSON_AddNumberToObject(item,	"hit",			GET_MAX_HIT(ch));
+	cJSON_AddNumberToObject(item,	"mana",			GET_MAX_MANA(ch));
+	cJSON_AddNumberToObject(item,	"stam",			GET_MAX_STAM(ch));
 	cJSON_AddItemToObject(o, 		"HMSP",	 		item);
 
 	cJSON_AddNumberToObject(o,		"Id",			ch->id);
@@ -922,9 +922,9 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		percent = UMIN(percent, 100);
 
 		if (percent > 0 && !affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_plague)) {
-			ch->hit         += (ATTR_BASE(ch, APPLY_HIT) - ch->hit) * percent / 100;
-			ch->mana        += (ATTR_BASE(ch, APPLY_MANA) - ch->mana) * percent / 100;
-			ch->stam        += (ATTR_BASE(ch, APPLY_STAM) - ch->stam) * percent / 100;
+			ch->hit         += (GET_MAX_HIT(ch) - ch->hit) * percent / 100;
+			ch->mana        += (GET_MAX_MANA(ch) - ch->mana) * percent / 100;
+			ch->stam        += (GET_MAX_STAM(ch) - ch->stam) * percent / 100;
 		}
 	}
 

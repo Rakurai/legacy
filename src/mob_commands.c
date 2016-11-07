@@ -121,9 +121,9 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	        victim->long_descr : "(none).\n");
 	stc(buf, ch);
 	sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",
-	        victim->hit,         ATTR_BASE(victim, APPLY_HIT),
-	        victim->mana,        ATTR_BASE(victim, APPLY_MANA),
-	        victim->stam,        ATTR_BASE(victim, APPLY_STAM));
+	        victim->hit,         GET_MAX_HIT(victim),
+	        victim->mana,        GET_MAX_MANA(victim),
+	        victim->stam,        GET_MAX_STAM(victim));
 	stc(buf, ch);
 	sprintf(buf,
 	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",

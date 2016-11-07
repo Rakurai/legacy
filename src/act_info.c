@@ -685,8 +685,8 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		set_color(ch, WHITE, NOBOLD);
 	}
 
-	if (ATTR_BASE(victim, APPLY_HIT) > 0)
-		percent = (100 * victim->hit) / ATTR_BASE(victim, APPLY_HIT);
+	if (GET_MAX_HIT(victim) > 0)
+		percent = (100 * victim->hit) / GET_MAX_HIT(victim);
 	else
 		percent = -1;
 
@@ -3140,9 +3140,9 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "{GN{H[{G%s{H] {CL{T[{C%d{T]\n"
 	    "{CHp{T[{C%d{T/{C%d{T] {GMa{H[{G%d{H/{G%d{H] {BSt{N[{B%d{N/{B%d{N]{x\n",
 	    victim->name, victim->level,
-	    victim->hit, ATTR_BASE(victim, APPLY_HIT),
-	    victim->mana, ATTR_BASE(victim, APPLY_MANA),
-	    victim->stam, ATTR_BASE(victim, APPLY_STAM));
+	    victim->hit, GET_MAX_HIT(victim),
+	    victim->mana, GET_MAX_MANA(victim),
+	    victim->stam, GET_MAX_STAM(victim));
 
 	if (!strcmp(argument, "more")) {
 		set_color(ch, WHITE, BOLD);
@@ -3194,13 +3194,13 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
 		    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
-		    GET_AC(victim, AC_PIERCE), victim->hit, ATTR_BASE(victim, APPLY_HIT));
+		    GET_AC(victim, AC_PIERCE), victim->hit, GET_MAX_HIT(victim));
 		ptc(ch, "{PInt: %-2d(%-2d)\t{BAC Bash   : %-10d{YMana      : %d/%d\n",
 		    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim),
-		    GET_AC(victim, AC_BASH), victim->mana, ATTR_BASE(victim, APPLY_MANA));
+		    GET_AC(victim, AC_BASH), victim->mana, GET_MAX_MANA(victim));
 		ptc(ch, "{PWis: %-2d(%-2d)\t{BAC Slash  : %-10d{YStamina   : %d/%d\n",
 		    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim),
-		    GET_AC(victim, AC_SLASH), victim->stam, ATTR_BASE(victim, APPLY_STAM));
+		    GET_AC(victim, AC_SLASH), victim->stam, GET_MAX_STAM(victim));
 		ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{GHit Roll  : %d\n",
 		    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim),
 		    GET_AC(victim, AC_EXOTIC), GET_ATTR_HITROLL(victim));
@@ -3293,8 +3293,8 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	act(buf, ch, NULL, victim, TO_CHAR);
 	set_color(ch, WHITE, NOBOLD);
 
-	if (ATTR_BASE(victim, APPLY_HIT) > 0)
-		percent = (100 * victim->hit) / ATTR_BASE(victim, APPLY_HIT);
+	if (GET_MAX_HIT(victim) > 0)
+		percent = (100 * victim->hit) / GET_MAX_HIT(victim);
 	else
 		percent = -1;
 
@@ -3557,14 +3557,14 @@ void do_report(CHAR_DATA *ch, const char *argument)
 
 	ptc(ch,
 	        "You say 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'\n",
-	        ch->hit,  ATTR_BASE(ch, APPLY_HIT),
-	        ch->mana, ATTR_BASE(ch, APPLY_MANA),
-	        ch->stam, ATTR_BASE(ch, APPLY_STAM),
+	        ch->hit,  GET_MAX_HIT(ch),
+	        ch->mana, GET_MAX_MANA(ch),
+	        ch->stam, GET_MAX_STAM(ch),
 	        ch->exp);
 	sprintf(buf, "$n says 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'",
-	        ch->hit,  ATTR_BASE(ch, APPLY_HIT),
-	        ch->mana, ATTR_BASE(ch, APPLY_MANA),
-	        ch->stam, ATTR_BASE(ch, APPLY_STAM),
+	        ch->hit,  GET_MAX_HIT(ch),
+	        ch->mana, GET_MAX_MANA(ch),
+	        ch->stam, GET_MAX_STAM(ch),
 	        ch->exp);
 	act(buf, ch, NULL, NULL, TO_ROOM);
 
@@ -3886,7 +3886,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0')
-		wimpy = ATTR_BASE(ch, APPLY_HIT) / 5;
+		wimpy = GET_MAX_HIT(ch) / 5;
 	else
 		wimpy = atoi(arg);
 
@@ -3895,7 +3895,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (wimpy > ATTR_BASE(ch, APPLY_HIT) / 2) {
+	if (wimpy > GET_MAX_HIT(ch) / 2) {
 		stc("CHICKEN!!!!!\n", ch);
 		return;
 	}
@@ -5122,7 +5122,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
 	stc("      Hp ", ch);
 	new_color(ch, CSLOT_SCORE_HEALTHNUM);
-	ptc(ch, "%5d/%5d  %s|{x", ch->hit, ATTR_BASE(ch, APPLY_HIT), border);
+	ptc(ch, "%5d/%5d  %s|{x", ch->hit, GET_MAX_HIT(ch), border);
 	new_color(ch, CSLOT_SCORE_WEALTH);
 	ptc(ch, "     Gold %9ld %s|#|{x\n", ch->gold, torch);
 //	line  8:  |#| Intelligence 25/25 |    Mana 30000/30000  |   Silver       958 |#|
@@ -5133,7 +5133,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
 	stc("    Mana ", ch);
 	new_color(ch, CSLOT_SCORE_HEALTHNUM);
-	ptc(ch, "%5d/%5d  %s|{x", ch->mana, ATTR_BASE(ch, APPLY_MANA), border);
+	ptc(ch, "%5d/%5d  %s|{x", ch->mana, GET_MAX_MANA(ch), border);
 	new_color(ch, CSLOT_SCORE_WEALTH);
 	ptc(ch, "   Silver %9ld %s|#|{x\n", ch->silver, torch);
 //	line  9:  |#| Wisdom       25/25 | Stamina 30000/30000  |    Items   22/1000 |#|
@@ -5144,7 +5144,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_HEALTHNAME);
 	stc(" Stamina ", ch);
 	new_color(ch, CSLOT_SCORE_HEALTHNUM);
-	ptc(ch, "%5d/%5d  %s|{x", ch->stam, ATTR_BASE(ch, APPLY_STAM), border);
+	ptc(ch, "%5d/%5d  %s|{x", ch->stam, GET_MAX_STAM(ch), border);
 	new_color(ch, CSLOT_SCORE_ENCUMB);
 	ptc(ch, "    Items %4d/%4d %s|#|{x\n", get_carry_number(ch), can_carry_n(ch), torch);
 //	line 10:  |#| Dexterity    25/25 |                      |   Weight   53/1000 |#|

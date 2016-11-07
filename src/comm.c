@@ -1387,8 +1387,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				else
 					strcat(atb, victim->name);
 
-				if (ATTR_BASE(victim, APPLY_HIT) > 0)
-					percent = victim->hit * 100 / ATTR_BASE(victim, APPLY_HIT);
+				if (GET_MAX_HIT(victim) > 0)
+					percent = victim->hit * 100 / GET_MAX_HIT(victim);
 				else
 					percent = -1;
 
@@ -1599,7 +1599,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'H':
-			sprintf(buf2, "%d", ATTR_BASE(ch, APPLY_HIT));
+			sprintf(buf2, "%d", GET_MAX_HIT(ch));
 			i = buf2;
 			break;
 
@@ -1609,7 +1609,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'M':
-			sprintf(buf2, "%d", ATTR_BASE(ch, APPLY_MANA));
+			sprintf(buf2, "%d", GET_MAX_MANA(ch));
 			i = buf2;
 			break;
 
@@ -1619,7 +1619,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'V':
-			sprintf(buf2, "%d", ATTR_BASE(ch, APPLY_STAM));
+			sprintf(buf2, "%d", GET_MAX_STAM(ch));
 			i = buf2;
 			break;
 

@@ -1860,7 +1860,6 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		ch->train -= cost;
 		ch->pcdata->trains_to_hit += 1;
 		ATTR_BASE(ch, APPLY_HIT) += add;
-		ATTR_BASE(ch, APPLY_HIT) += add;
 		ch->hit += add;
 		act("Your durability increases!", ch, NULL, NULL, TO_CHAR);
 		act("$n's durability increases!", ch, NULL, NULL, TO_ROOM);
@@ -1887,7 +1886,6 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		ch->train -= cost;
 		ch->pcdata->trains_to_mana += 1;
 		ATTR_BASE(ch, APPLY_MANA) += add;
-		ATTR_BASE(ch, APPLY_MANA) += add;
 		ch->mana += add;
 		act("Your power increases!", ch, NULL, NULL, TO_CHAR);
 		act("$n's power increases!", ch, NULL, NULL, TO_ROOM);
@@ -1913,7 +1911,6 @@ void do_train(CHAR_DATA *ch, const char *argument)
 
 		ch->train -= cost;
 		ch->pcdata->trains_to_stam += 1;
-		ATTR_BASE(ch, APPLY_STAM) += add;
 		ATTR_BASE(ch, APPLY_STAM) += add;
 		ch->stam += add;
 		act("Your energy increases!", ch, NULL, NULL, TO_CHAR);

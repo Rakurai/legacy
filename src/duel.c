@@ -526,9 +526,9 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	// strip spells
 	affect_remove_all_from_char(ch, FALSE);
 
-	ch->hit  = ATTR_BASE(ch, APPLY_HIT);
-	ch->mana = ATTR_BASE(ch, APPLY_MANA);
-	ch->stam = ATTR_BASE(ch, APPLY_STAM);
+	ch->hit  = GET_MAX_HIT(ch);
+	ch->mana = GET_MAX_MANA(ch);
+	ch->stam = GET_MAX_STAM(ch);
 	do_look(ch, "auto");
 }
 

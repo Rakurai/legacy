@@ -78,25 +78,18 @@ void demote_level(CHAR_DATA *ch)
 	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
 		sub_train = 2;
 
-	ATTR_BASE(ch, APPLY_HIT)             -= sub_hp;
-	ATTR_BASE(ch, APPLY_MANA)            -= sub_mana;
-	ATTR_BASE(ch, APPLY_STAM)            -= sub_stam;
 	ch->practice            -= sub_prac;
 	ch->train               -= sub_train;
-	ATTR_BASE(ch, APPLY_HIT)    -= sub_hp;
-	ATTR_BASE(ch, APPLY_MANA)   -= sub_mana;
-	ATTR_BASE(ch, APPLY_STAM)   -= sub_stam;
+	ATTR_BASE(ch, APPLY_HIT)    = UMAX(20, ATTR_BASE(ch, APPLY_HIT) - sub_hp);
+	ATTR_BASE(ch, APPLY_MANA)   = UMAX(100, ATTR_BASE(ch, APPLY_MANA) - sub_mana);
+	ATTR_BASE(ch, APPLY_STAM)   = UMAX(100, ATTR_BASE(ch, APPLY_STAM) - sub_stam);
+
 	ptc(ch, "{RYour loss is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.{x\n",
-	    sub_hp,         ATTR_BASE(ch, APPLY_HIT),
-	    sub_mana,       ATTR_BASE(ch, APPLY_MANA),
-	    sub_stam,       ATTR_BASE(ch, APPLY_STAM),
+	    sub_hp,         GET_MAX_HIT(ch),
+	    sub_mana,       GET_MAX_MANA(ch),
+	    sub_stam,       GET_MAX_STAM(ch),
 	    sub_prac,       ch->practice,
 	    sub_train,      ch->train);
-
-	/* don't let stats go below 20/100/100 */
-	if (ATTR_BASE(ch, APPLY_HIT) < 20)                   ATTR_BASE(ch, APPLY_HIT) = 20;
-	if (ATTR_BASE(ch, APPLY_MANA) < 100)                 ATTR_BASE(ch, APPLY_MANA) = 100;
-	if (ATTR_BASE(ch, APPLY_STAM) < 100)                 ATTR_BASE(ch, APPLY_STAM) = 100;
 }
 
 void advance_level(CHAR_DATA *ch)
@@ -124,9 +117,9 @@ void advance_level(CHAR_DATA *ch)
 	ch->practice            += add_prac;
 	ch->train               += add_train;
 	ptc(ch, "Your gain is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.\n",
-	    add_hp,         ATTR_BASE(ch, APPLY_HIT),
-	    add_mana,       ATTR_BASE(ch, APPLY_MANA),
-	    add_stam,       ATTR_BASE(ch, APPLY_STAM),
+	    add_hp,         GET_MAX_HIT(ch),
+	    add_mana,       GET_MAX_MANA(ch),
+	    add_stam,       GET_MAX_STAM(ch),
 	    add_prac,       ch->practice,
 	    add_train,      ch->train);
 }
@@ -146,7 +139,7 @@ void npc_advance_level(CHAR_DATA *ch)
 	add_hit = GET_ATTR_CON(ch);
 	add_mana = GET_ATTR_INT(ch);
 	add_stam = GET_ATTR_STR(ch);
-	ATTR_BASE(ch, APPLY_HIT) += add_hit;
+	ATTR_BASE(ch, APPLY_HIT)  += add_hit;
 	ATTR_BASE(ch, APPLY_MANA) += add_mana;
 	ATTR_BASE(ch, APPLY_STAM) += add_stam;
 }
@@ -255,7 +248,7 @@ int hit_gain(CHAR_DATA *ch)
 		if (number < get_skill(ch, gsn_fast_healing)) {
 			gain += number * gain / 100;
 
-			if (ch->hit < ATTR_BASE(ch, APPLY_HIT))
+			if (ch->hit < GET_MAX_HIT(ch))
 				check_improve(ch, gsn_fast_healing, TRUE, 8);
 		}
 
@@ -299,7 +292,7 @@ int hit_gain(CHAR_DATA *ch)
 	if (affect_exists_on_char(ch, gsn_divine_regeneration))
 		gain *= 4;
 
-	return UMIN(gain, ATTR_BASE(ch, APPLY_HIT) - ch->hit);
+	return UMIN(gain, GET_MAX_HIT(ch) - ch->hit);
 }
 
 int mana_gain(CHAR_DATA *ch)
@@ -329,7 +322,7 @@ int mana_gain(CHAR_DATA *ch)
 		if (number < get_skill(ch, gsn_meditation)) {
 			gain += number * gain / 100;
 
-			if (ch->mana < ATTR_BASE(ch, APPLY_MANA))
+			if (ch->mana < GET_MAX_MANA(ch))
 				check_improve(ch, gsn_meditation, TRUE, 8);
 		}
 
@@ -374,7 +367,7 @@ int mana_gain(CHAR_DATA *ch)
 	if (affect_exists_on_char(ch, gsn_divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, ATTR_BASE(ch, APPLY_MANA) - ch->mana);
+	return UMIN(gain, GET_MAX_MANA(ch) - ch->mana);
 }
 
 int stam_gain(CHAR_DATA *ch)
@@ -443,7 +436,7 @@ int stam_gain(CHAR_DATA *ch)
 	if (affect_exists_on_char(ch, gsn_divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, ATTR_BASE(ch, APPLY_STAM) - ch->stam);
+	return UMIN(gain, GET_MAX_STAM(ch) - ch->stam);
 }
 
 void gain_condition(CHAR_DATA *ch, int iCond, int value)
@@ -861,20 +854,20 @@ void char_update(void)
 				}
 			}
 
-			if (ch->hit  < ATTR_BASE(ch, APPLY_HIT))
+			if (ch->hit  < GET_MAX_HIT(ch))
 				ch->hit  += hit_gain(ch);
 			else
-				ch->hit = ATTR_BASE(ch, APPLY_HIT);
+				ch->hit = GET_MAX_HIT(ch);
 
-			if (ch->mana < ATTR_BASE(ch, APPLY_MANA))
+			if (ch->mana < GET_MAX_MANA(ch))
 				ch->mana += mana_gain(ch);
 			else
-				ch->mana = ATTR_BASE(ch, APPLY_MANA);
+				ch->mana = GET_MAX_MANA(ch);
 
-			if (ch->stam < ATTR_BASE(ch, APPLY_STAM))
+			if (ch->stam < GET_MAX_STAM(ch))
 				ch->stam += stam_gain(ch);
 			else
-				ch->stam = ATTR_BASE(ch, APPLY_STAM);
+				ch->stam = GET_MAX_STAM(ch);
 		}
 
 		if (get_position(ch) == POS_STUNNED)

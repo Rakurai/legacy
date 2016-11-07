@@ -187,7 +187,7 @@ void violence_update(void)
 		if (IS_NPC(ch)) {
 			if ((IS_SET(ch->act, ACT_WIMPY)
 			     && number_bits(2) == 0
-			     && ch->hit < ATTR_BASE(ch, APPLY_HIT) / 5)
+			     && ch->hit < GET_MAX_HIT(ch) / 5)
 			    || (affect_exists_on_char(ch, gsn_charm_person)
 			        && ch->master != NULL
 			        && ch->master->in_room != ch->in_room))
@@ -295,14 +295,14 @@ void combat_regen(CHAR_DATA *ch)
 	}
 
 	/* remort affect - mage regen */
-	if (HAS_RAFF(ch, RAFF_MAGEREGEN) && ch->mana < ATTR_BASE(ch, APPLY_MANA))
+	if (HAS_RAFF(ch, RAFF_MAGEREGEN) && ch->mana < GET_MAX_MANA(ch))
 		managain += (ch->level / 20) + 1;
 
 	/* remort affect - vampire regen */
-	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < ATTR_BASE(ch, APPLY_HIT))
+	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < GET_MAX_HIT(ch))
 		hitgain += (ch->level / 20) + 1;
 
-	if (affect_exists_on_char(ch, gsn_regeneration) && ch->stam < ATTR_BASE(ch, APPLY_STAM))
+	if (affect_exists_on_char(ch, gsn_regeneration) && ch->stam < GET_MAX_STAM(ch))
 		switch (get_affect_evolution(ch, gsn_regeneration)) {
 		case 2: stamgain += ch->level / 30 + 2;   break;
 
@@ -313,7 +313,7 @@ void combat_regen(CHAR_DATA *ch)
 		default:                                break;
 		}
 
-	if (get_skill(ch, gsn_meditation) && ch->mana < ATTR_BASE(ch, APPLY_MANA))
+	if (get_skill(ch, gsn_meditation) && ch->mana < GET_MAX_MANA(ch))
 		switch (get_evolution(ch, gsn_meditation)) {
 		case 2: managain += ch->level / 30 + 2;   break;
 
@@ -324,7 +324,7 @@ void combat_regen(CHAR_DATA *ch)
 		default:                                break;
 		}
 
-	if (get_skill(ch, gsn_fast_healing) && ch->hit < ATTR_BASE(ch, APPLY_HIT))
+	if (get_skill(ch, gsn_fast_healing) && ch->hit < GET_MAX_HIT(ch))
 		switch (get_evolution(ch, gsn_fast_healing)) {
 		case 2: hitgain += ch->level / 30 + 2;    break;
 
@@ -353,11 +353,11 @@ void combat_regen(CHAR_DATA *ch)
 		stamgain += gain;
 	}
 
-	if (ch->hit < ATTR_BASE(ch, APPLY_HIT))      ch->hit = UMIN(ATTR_BASE(ch, APPLY_HIT), ch->hit + hitgain);
+	if (ch->hit < GET_MAX_HIT(ch))      ch->hit = UMIN(GET_MAX_HIT(ch), ch->hit + hitgain);
 
-	if (ch->mana < ATTR_BASE(ch, APPLY_MANA))    ch->mana = UMIN(ATTR_BASE(ch, APPLY_MANA), ch->mana + managain);
+	if (ch->mana < GET_MAX_MANA(ch))    ch->mana = UMIN(GET_MAX_MANA(ch), ch->mana + managain);
 
-	if (ch->stam < ATTR_BASE(ch, APPLY_STAM))    ch->stam = UMIN(ATTR_BASE(ch, APPLY_STAM), ch->stam + stamgain);
+	if (ch->stam < GET_MAX_STAM(ch))    ch->stam = UMIN(GET_MAX_STAM(ch), ch->stam + stamgain);
 }
 
 void check_all_cond(CHAR_DATA *ch)
@@ -660,7 +660,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	int chance, number;
 
 	if (ch->fighting == NULL
-	    && victim->hit == ATTR_BASE(victim, APPLY_HIT)
+	    && victim->hit == GET_MAX_HIT(victim)
 	    && (get_eq_char(ch, WEAR_WIELD) != NULL)
 	    && IS_SET(ch->off_flags, OFF_BACKSTAB)
 	    && get_skill(ch, gsn_backstab)) {
@@ -1412,10 +1412,10 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	/* Hurt the victim.  Inform the victim of his new state. */
 	victim->hit -= dam;
 
-	if (dam > ATTR_BASE(victim, APPLY_HIT) / 4)
+	if (dam > GET_MAX_HIT(victim) / 4)
 		stc("{PThat really did HURT!{x\n", victim);
 
-	if (victim->hit < ATTR_BASE(victim, APPLY_HIT) / 4)
+	if (victim->hit < GET_MAX_HIT(victim) / 4)
 		stc("{PYou sure are BLEEDING!{x\n", victim);
 
 	/* are they dead yet? */
@@ -1463,8 +1463,8 @@ bool check_pulse(CHAR_DATA *victim)
 		if ((victim->hit > -11) && (victim->hit < 1)) {
 			victim->hit += (con_score / 10) * (die_hard_skill / 10);
 
-			if (victim->hit > ATTR_BASE(victim, APPLY_HIT))
-				victim->hit = ATTR_BASE(victim, APPLY_HIT);
+			if (victim->hit > GET_MAX_HIT(victim))
+				victim->hit = GET_MAX_HIT(victim);
 
 			stc("You make an effort to pull yourself together!\n", victim);
 			act("$n pulls themselves together!\n", victim, NULL, NULL, TO_ROOM);
@@ -3173,14 +3173,14 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		chance += 10;
 
 	/* damage -- below 50% of hp helps, above hurts */
-	hp_percent = 100 * ch->hit / ATTR_BASE(ch, APPLY_HIT);
+	hp_percent = 100 * ch->hit / GET_MAX_HIT(ch);
 	chance += 25 - hp_percent / 2;
 
 	if (number_percent() < chance) {
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		/* heal a little damage */
 		ch->hit += ch->level * 2;
-		ch->hit = UMIN(ch->hit, ATTR_BASE(ch, APPLY_HIT));
+		ch->hit = UMIN(ch->hit, GET_MAX_HIT(ch));
 		stc("Your pulse races as you are consumed by rage!\n", ch);
 		act("$n gets a wild look in $s eyes.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_berserk, TRUE, 2);
@@ -3318,7 +3318,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	/*Change in chance based on STR and score and stamina*/
 	chance += 3 * (GET_ATTR_STR(ch) - GET_ATTR_STR(victim));
 	// stamina mod, scale by their remaining stamina
-	chance = chance * ATTR_BASE(victim, APPLY_STAM) / UMAX(victim->stam, 1);
+	chance = chance * GET_MAX_STAM(victim) / UMAX(victim->stam, 1);
 	/*Change in chance based on carried weight of both involved*/
 	// hard to balance this for mobs -- Montrey (2014)
 //	chance += (get_carry_weight(ch) - get_carry_weight(victim)) / 300;
@@ -4045,7 +4045,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->hit < ATTR_BASE(victim, APPLY_HIT)) {
+	if (victim->hit < GET_MAX_HIT(victim)) {
 		act("$N is hurt and suspicious ... you can't sneak up.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -5149,7 +5149,7 @@ void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_table[gsn_lay_on_hands].beats);
 	heal = ch->level;
 	heal = (heal * skill) / 100;
-	victim->hit = UMIN(victim->hit + heal, ATTR_BASE(victim, APPLY_HIT));
+	victim->hit = UMIN(victim->hit + heal, GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel better.\n", victim);
 	stc("Your hands glow softly as a sense of divine power travels through you.\n", ch);

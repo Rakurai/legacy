@@ -792,9 +792,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		ATTR_BASE(victim, APPLY_HIT) = value;
 
-		if (!IS_NPC(victim))
-			ATTR_BASE(victim, APPLY_HIT) = value;
-
 		ptc(ch, "%s now has %d hit points.\n", victim->name, value);
 		return;
 	}
@@ -807,9 +804,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		ATTR_BASE(victim, APPLY_MANA) = value;
 
-		if (!IS_NPC(victim))
-			ATTR_BASE(victim, APPLY_MANA) = value;
-
 		ptc(ch, "%s now has %d mana.\n", victim->name, value);
 		return;
 	}
@@ -821,9 +815,6 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		ATTR_BASE(victim, APPLY_STAM) = value;
-
-		if (!IS_NPC(victim))
-			ATTR_BASE(victim, APPLY_STAM) = value;
 
 		ptc(ch, "%s now has %d stamina points.\n", victim->name, value);
 		return;
@@ -1507,13 +1498,13 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	stc("\n", ch);
 	ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{RHit Points: %d/%d\n",
 	    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
-	    GET_AC(victim, AC_PIERCE), victim->hit, ATTR_BASE(victim, APPLY_HIT));
+	    GET_AC(victim, AC_PIERCE), victim->hit, GET_MAX_HIT(victim));
 	ptc(ch, "{PInt: %-2d(%-2d)\t{BAC Bash   : %-10d{RMana      : %d/%d\n",
 	    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim),
-	    GET_AC(victim, AC_BASH), victim->mana, ATTR_BASE(victim, APPLY_MANA));
+	    GET_AC(victim, AC_BASH), victim->mana, GET_MAX_MANA(victim));
 	ptc(ch, "{PWis: %-2d(%-2d)\t{BAC Slash  : %-10d{RStamina   : %d/%d\n",
 	    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim),
-	    GET_AC(victim, AC_SLASH), victim->stam, ATTR_BASE(victim, APPLY_STAM));
+	    GET_AC(victim, AC_SLASH), victim->stam, GET_MAX_STAM(victim));
 	ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{HItems     : %d\n",
 	    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim),
 	    GET_AC(victim, AC_EXOTIC), get_carry_number(victim));
@@ -2081,7 +2072,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	    victim->alignment < 0 ? "{R" : "{Y", victim->alignment);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
 	ptc(ch, "      HP   %-5d/%-5d\n",
-	    victim->hit, ATTR_BASE(victim, APPLY_HIT));
+	    victim->hit, GET_MAX_HIT(victim));
 	/* Int 25(25)    Train 2       Ma 31573/31573 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Int %-2d(%-2d)",
@@ -2090,7 +2081,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "      Train %-7d", victim->train);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
 	ptc(ch, "      Mana %-5d/%-5d\n",
-	    victim->mana, ATTR_BASE(victim, APPLY_MANA));
+	    victim->mana, GET_MAX_MANA(victim));
 	/* Wis 25(25)    Pracs 129     Stm 30603/30603 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Wis %-2d(%-2d)",
@@ -2100,7 +2091,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	    victim->practice);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
 	ptc(ch, "      Stm  %-5d/%-5d\n",
-	    victim->stam, ATTR_BASE(victim, APPLY_STAM));
+	    victim->stam, GET_MAX_STAM(victim));
 	/* Dex 25(25)                  QP:  12345      */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Dex %-2d(%-2d)",

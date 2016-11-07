@@ -2119,7 +2119,7 @@ void spell_cure_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target
 void spell_cure_light(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->hit = UMIN(victim->hit + (dice(1, 8) + level / 3), ATTR_BASE(victim, APPLY_HIT));
+	victim->hit = UMIN(victim->hit + (dice(1, 8) + level / 3), GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel better!\n", victim);
 
@@ -2130,7 +2130,7 @@ void spell_cure_light(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 void spell_cure_serious(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->hit = UMIN(victim->hit + (dice(2, 8) + level / 2), ATTR_BASE(victim, APPLY_HIT));
+	victim->hit = UMIN(victim->hit + (dice(2, 8) + level / 2), GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel better!\n", victim);
 
@@ -2141,7 +2141,7 @@ void spell_cure_serious(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 void spell_cure_critical(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->hit = UMIN(victim->hit + (dice(3, 8) + level - 6), ATTR_BASE(victim, APPLY_HIT));
+	victim->hit = UMIN(victim->hit + (dice(3, 8) + level - 6), GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel better!\n", victim);
 
@@ -2195,7 +2195,7 @@ void spell_darkness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_divine_healing(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->hit = UMIN(victim->hit + (dice(15, 15) + (level * 2)), ATTR_BASE(victim, APPLY_HIT));
+	victim->hit = UMIN(victim->hit + (dice(15, 15) + (level * 2)), GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel much better!\n", victim);
 
@@ -3100,7 +3100,7 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 15;
 
-	chance -= ((victim->stam * 20) / ATTR_BASE(victim, APPLY_STAM));
+	chance -= ((victim->stam * 20) / GET_MAX_STAM(victim));
 	chance -= get_skill(victim, gsn_dodge) / 7;
 
 	if (!can_see(victim, ch))
@@ -3242,8 +3242,8 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 			*/
 			ch->mana += get_skill_cost(ch, gsn_fireball);
 
-			if (ch->mana > ATTR_BASE(ch, APPLY_MANA))
-				ch->mana = ATTR_BASE(ch, APPLY_MANA);
+			if (ch->mana > GET_MAX_MANA(ch))
+				ch->mana = GET_MAX_MANA(ch);
 
 			return;
 		}
@@ -3714,7 +3714,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->hit = UMIN(victim->hit + 100, ATTR_BASE(victim, APPLY_HIT));
+	victim->hit = UMIN(victim->hit + 100, GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("A warm feeling fills your body.\n", victim);
 
@@ -5222,9 +5222,9 @@ void spell_recharge(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_refresh(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	victim->stam = UMIN(victim->stam + level, ATTR_BASE(victim, APPLY_STAM));
+	victim->stam = UMIN(victim->stam + level, GET_MAX_STAM(victim));
 
-	if (ATTR_BASE(victim, APPLY_STAM) == victim->stam)
+	if (GET_MAX_STAM(victim) == victim->stam)
 		stc("You feel fully refreshed!\n", victim);
 	else
 		stc("You feel less tired.\n", victim);

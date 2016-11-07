@@ -81,13 +81,13 @@ int get_age(CHAR_DATA *ch)
 }
 
 int get_max_hit(CHAR_DATA *ch) {
-	return URANGE(1, ATTR_BASE(ch, APPLY_HIT) + GET_ATTR_MOD(ch, APPLY_HIT), 30000);
+	return URANGE(1, GET_MAX_HIT(ch) + GET_ATTR_MOD(ch, APPLY_HIT), 30000);
 }
 int get_max_mana(CHAR_DATA *ch) {
-	return URANGE(1, ATTR_BASE(ch, APPLY_MANA) + GET_ATTR_MOD(ch, APPLY_MANA), 30000);
+	return URANGE(1, GET_MAX_MANA(ch) + GET_ATTR_MOD(ch, APPLY_MANA), 30000);
 }
 int get_max_stam(CHAR_DATA *ch) {
-	return URANGE(1, ATTR_BASE(ch, APPLY_STAM) + GET_ATTR_MOD(ch, APPLY_STAM), 30000);
+	return URANGE(1, GET_MAX_STAM(ch) + GET_ATTR_MOD(ch, APPLY_STAM), 30000);
 }
 
 /* below two functions recalculate a character's hitroll and damroll

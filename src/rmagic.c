@@ -202,7 +202,7 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int mana, mana_cost;
 	mana = get_skill_cost(ch, sn);
-	mana_cost = (ATTR_BASE(ch, APPLY_HIT) / 4) - mana;
+	mana_cost = (GET_MAX_HIT(ch) / 4) - mana;
 
 	if (HAS_RAFF(ch, RAFF_COSTLYSPELLS))
 		mana_cost += mana_cost / 5;
@@ -231,7 +231,7 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 			return;
 		}
 
-	victim->hit = ATTR_BASE(victim, APPLY_HIT);
+	victim->hit = GET_MAX_HIT(victim);
 	ch->mana -= mana_cost;
 	act("$n looks revived as $s wounds vanish completely.", victim, NULL, NULL, TO_ROOM);
 	stc("Your wounds vanish completely.\n", victim);
@@ -267,7 +267,7 @@ void spell_sap(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam, mult;
 	dam = dice(level, 22);
-	mult = ((100 - (((ch->hit * 100) / ATTR_BASE(ch, APPLY_HIT)) * 2)) * 2);
+	mult = ((100 - (((ch->hit * 100) / GET_MAX_HIT(ch)) * 2)) * 2);
 	dam = UMAX(dam, dam + ((dam * mult) / 100));
 
 	if (ch->hit < 31000)

@@ -418,12 +418,9 @@ void do_relevel(CHAR_DATA *ch, const char *argument)
 	ch->pcdata->cgroup = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO | GROUP_LEADER
 	                     | GROUP_GEN | GROUP_QUEST | GROUP_BUILD | GROUP_CODE | GROUP_SECURE;
 	ch->level       = MAX_LEVEL;
-	ch->hit         = 30000;
-	ATTR_BASE(ch, APPLY_HIT)     = 30000;
-	ch->mana        = 30000;
-	ATTR_BASE(ch, APPLY_MANA)    = 30000;
-	ch->stam        = 30000;
-	ATTR_BASE(ch, APPLY_STAM)    = 30000;
+	ch->hit =  ATTR_BASE(ch, APPLY_HIT)     = 30000;
+	ch->mana = ATTR_BASE(ch, APPLY_MANA)    = 30000;
+	ch->stam = ATTR_BASE(ch, APPLY_STAM)    = 30000;
 	stc("Done.\n", ch);
 }
 

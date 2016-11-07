@@ -158,7 +158,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
 	if (spell == NULL) { /* restore mana trap...kinda hackish */
 		ch->mana += dice(9, 10) + mob->level / 2;
-		ch->mana = UMIN(ch->mana, ATTR_BASE(ch, APPLY_MANA));
+		ch->mana = UMIN(ch->mana, GET_MAX_MANA(ch));
 		stc("A warm glow passes through you.\n", ch);
 		return;
 	}

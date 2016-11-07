@@ -473,7 +473,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			sprintf(buf,
 			        "{W[%12s] {P%5d{RHP {P%5d{RMP{c/{G%2d %2d %2d %2d %2d %2d{c/{Y%8ld {bWorth{c/{Y%4d {bQpts{c/{Y%4d {b Spts{x\n",
 			        victim->name,
-			        ATTR_BASE(victim, APPLY_HIT), ATTR_BASE(victim, APPLY_MANA), ATTR_BASE(victim, APPLY_STR),
+			        GET_MAX_HIT(victim), GET_MAX_MANA(victim), ATTR_BASE(victim, APPLY_STR),
 			        ATTR_BASE(victim, APPLY_INT), ATTR_BASE(victim, APPLY_WIS),
 			        ATTR_BASE(victim, APPLY_DEX), ATTR_BASE(victim, APPLY_CON),
 			        ATTR_BASE(victim, APPLY_CHR),

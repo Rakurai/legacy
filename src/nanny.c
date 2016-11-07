@@ -887,9 +887,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ATTR_BASE(ch, stat_to_attr(class_table[ch->class].stat_prime)) += 3;
 			ch->level       = 1;
 			ch->exp         = exp_per_level(ch, ch->pcdata->points);
-			ch->hit         = ATTR_BASE(ch, APPLY_HIT);
-			ch->mana        = ATTR_BASE(ch, APPLY_MANA);
-			ch->stam        = ATTR_BASE(ch, APPLY_STAM);
+			ch->hit         = GET_MAX_HIT(ch);
+			ch->mana        = GET_MAX_MANA(ch);
+			ch->stam        = GET_MAX_STAM(ch);
 			ch->train       = 3;
 			ch->practice    = 5;
 			sprintf(buf, "({VNewbie Aura{x)");
