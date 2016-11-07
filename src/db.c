@@ -1280,6 +1280,9 @@ void load_objects(FILE *fp)
 			}
 		}
 
+		// affects are immutable, compute the checksum now
+		pObjIndex->affect_checksum = affect_checksum_list(&pObjIndex->affected);
+
 		iHash                   = vnum % MAX_KEY_HASH;
 		pObjIndex->next         = obj_index_hash[iHash];
 		obj_index_hash[iHash]   = pObjIndex;

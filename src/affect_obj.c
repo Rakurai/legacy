@@ -9,7 +9,7 @@ void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd);
 // searching
 
 bool affect_enchanted_obj(OBJ_DATA *obj) {
-	return affect_checksum_list(&obj->affected) != affect_checksum_list(&obj->pIndexData->affected);
+	return affect_checksum_list(&obj->affected) != obj->pIndexData->affect_checksum;
 }
 
 const AFFECT_DATA *affect_list_obj(OBJ_DATA *obj) {
