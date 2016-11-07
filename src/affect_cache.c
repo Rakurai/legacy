@@ -20,6 +20,14 @@ void free_affect_cache(CHAR_DATA *ch) {
 	cp_splaytree_destroy(get_affect_cache(ch));
 }
 
+bool affect_in_cache(CHAR_DATA *ch, sh_int sn) {
+	int *count = cp_splaytree_get(get_affect_cache(ch), &sn);
+
+	return
+		count != NULL
+	 && *count > 0;
+}
+
 void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 	if (sn < 1 || sn >= MAX_SKILL) {
 		bug("update_affect_cache: called with sn = %d", sn);
