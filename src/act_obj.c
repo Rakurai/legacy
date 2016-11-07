@@ -383,12 +383,15 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 	}
 
 	if (container != NULL) {
-		if (container == donation_pit
-		    && !IS_HEROIC(ch)
+		if (container == donation_pit) {
+			if (!IS_HEROIC(ch)
 		    && ((obj->level >= LEVEL_IMMORTAL && obj->level > get_holdable_level(ch))
 		        || (obj->level < LEVEL_IMMORTAL && obj->level > get_usable_level(ch)))) {
-			stc("You are not powerful enough to use it.\n", ch);
-			return;
+				stc("You are not powerful enough to use it.\n", ch);
+				return;
+			}
+
+			obj->donated = 0;
 		}
 
 		act("You get $p from $P.", ch, obj, container, TO_CHAR);
