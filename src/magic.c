@@ -2724,7 +2724,6 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int result, fail;
 	int ac_bonus, added;
-	bool ac_found = FALSE;
 
 	/* Avoid memory error is the target is a character. -- Outsider */
 	if (ch == vo)
@@ -2753,7 +2752,6 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_AC) {
 			ac_bonus = paf->modifier;
-			ac_found = TRUE;
 			fail += 5 * (ac_bonus * ac_bonus);
 		}
 		else /* things get a little harder */
@@ -2854,7 +2852,6 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int result, fail;
 	int hit_bonus, dam_bonus, added;
-	bool hit_found = FALSE, dam_found = FALSE;
 
 	/* Avoid memory issue when the target may be a character. -- Outsider */
 	if (ch == vo)
@@ -2883,7 +2880,6 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_HITROLL) {
 			hit_bonus = paf->modifier;
-			hit_found = TRUE;
 			fail += 2 * (hit_bonus * hit_bonus);
 
 			if (obj->item_type != ITEM_WEAPON)
@@ -2891,7 +2887,6 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 		else if (paf->location == APPLY_DAMROLL) {
 			dam_bonus = paf->modifier;
-			dam_found = TRUE;
 			fail += 2 * (dam_bonus * dam_bonus);
 
 			if (obj->item_type != ITEM_WEAPON)

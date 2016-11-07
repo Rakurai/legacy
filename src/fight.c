@@ -2696,8 +2696,6 @@ void death_cry(CHAR_DATA *ch)
 
 void raw_kill(CHAR_DATA *victim)
 {
-	bool realdeath = TRUE;
-	int i;
 	stop_fighting(victim, TRUE);
 	mprog_death_trigger(victim);
 
@@ -2722,7 +2720,7 @@ void raw_kill(CHAR_DATA *victim)
 	    && !char_in_duel_room(victim)) {
 		extract_char(victim, FALSE);
 
-		for (i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) {
 			victim->armor_base[i] = 100;
 		}
 	}
@@ -2733,8 +2731,6 @@ void raw_kill(CHAR_DATA *victim)
 			char_from_room(victim);
 			char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
 		}
-
-		realdeath = FALSE;
 	}
 
 	victim->position    = POS_RESTING;
