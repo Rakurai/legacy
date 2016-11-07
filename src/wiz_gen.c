@@ -655,8 +655,8 @@ void do_chown(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(victim, arg1)) == NULL
-	    && (obj = get_obj_wear(victim, arg1)) == NULL) {
+	// don't use get_obj_carry/wear, the visibility check shouldn't fall to the victim
+	if ((obj = get_obj_list(ch, arg1, victim->carrying)) == NULL) {
 		stc("They do not have that item.\n", ch);
 		return;
 	}
@@ -848,8 +848,8 @@ void do_oclone(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(victim, arg1)) == NULL
-	    && (obj = get_obj_wear(victim, arg1)) == NULL) {
+	// don't use get_obj_carry/wear, the visibility check shouldn't fall to the victim
+	if ((obj = get_obj_list(ch, arg1, victim->carrying)) == NULL) {
 		sprintf(buf, "%s doesn't seem to have a %s.\n", victim->name, arg1);
 		stc(buf, ch);
 		return;
