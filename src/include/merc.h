@@ -3359,14 +3359,6 @@ void remove_departed(const char *);
 void insert_departed(const char *);
 bool has_departed(const char *);
 
-// affect_cache.c
-sh_int inline get_curr_attr args((const CHAR_DATA *ch, sh_int location));
-int inline get_curr_flags args((const CHAR_DATA *ch, sh_int where));
-void inline add_stats args((const AFFECT_CACHE_DATA *from, AFFECT_CACHE_DATA *to));
-void inline add_flags args((const AFFECT_CACHE_DATA *from, AFFECT_CACHE_DATA *to));
-void char_build_composite_cache args((CHAR_DATA *ch));
-
-
 /* act_info.c */
 void    set_title       args( ( CHAR_DATA *ch, const char *title ) );
 void    do_at           args( ( CHAR_DATA *ch, const char *argument ) );

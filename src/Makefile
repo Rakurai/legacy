@@ -15,9 +15,9 @@ L_FLAGS = -lsqlite3 -lm
 
 DATE=`date +%Y-%m-%d`
 
-_H_DEPS = cJSON/cJSON.h cprops/splay.h
+_H_DEPS = cJSON/cJSON.h # cprops/splay.h
 H_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_H_DEPS))
-_O_DEPS = cJSON/cJSON.o cprops/splay.o cprops/mempool.o cprops/rb.o cprops/vector.o
+_O_DEPS = cJSON/cJSON.o # cprops/splay.o cprops/mempool.o cprops/rb.o cprops/vector.o
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
 _H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.h tables.h	\
