@@ -4378,10 +4378,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 			ed_next = ed->next;
 
 			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
-				char strip[MAX_STRING_LENGTH];
-				strcpy(strip, ed->description);
-				strip[strlen(strip) - 2] = '\0';
-				ptc(ch, "This item is owned by %s.\n", strip);
+				ptc(ch, "{YThis item is owned by %s.{x\n", ed->description);
 				break;
 			}
 		}
