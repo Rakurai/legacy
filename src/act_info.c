@@ -4934,7 +4934,7 @@ void do_clanpower(CHAR_DATA *ch, const char *argument)
 
 void print_new_affects(CHAR_DATA *ch)
 {
-	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL];
+	char torch[8], border[4], breakline[MSL];
 	BUFFER *buffer;
 	bool found = FALSE;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
@@ -4963,31 +4963,37 @@ void print_new_affects(CHAR_DATA *ch)
 				if (paf->where != TO_AFFECTS || paf->permanent)
 					continue;
 
+				char namebuf[100], modbuf[100], timebuf[100];
+				namebuf[0] = modbuf[0] = timebuf[0] = '\0';
+
 				if (paf_last != NULL && paf->type == paf_last->type) {
 					if (ch->level >= 20)
-						strcpy(buf, "                   ");
+						strcpy(namebuf, "                   ");
 					else
 						continue;
 				}
 				else
-					sprintf(buf, "{b%-19s", skill_table[paf->type].name);
+					sprintf(namebuf, "%-19s", skill_table[paf->type].name);
 
 				if (ch->level >= 20) {
-					sprintf(buf2, "{b%s by %d ",
+					if (paf->location != APPLY_NONE && paf->modifier != 0)
+						sprintf(modbuf, "%s by %d",
 					        affect_loc_name(paf->location), paf->modifier);
 
-					if (paf->duration == -1)
-						strcat(buf2, "indefinitely");
-					else {
-						char tbuf[MSL];
-						sprintf(tbuf, "for %d hours", paf->duration + 1);
-						strcat(buf2, tbuf);
-					}
+					if (paf->duration != -1)
+						sprintf(timebuf, "%3d hrs", paf->duration + 1);
 				}
-				else
-					strcpy(buf2, " ");
 
-				ptb(buffer, " %s %-19s %s| %-42s %s\n", torch, buf, border, buf2, torch);
+				ptb(buffer, " %s {b%-19s %s| {b%-30s %s| {b%7s %s\n",
+					torch,
+					namebuf,
+					border,
+					modbuf,
+					border,
+					timebuf,
+					torch
+				);
+
 				paf_last = paf;
 			}
 
@@ -5016,12 +5022,24 @@ void print_new_affects(CHAR_DATA *ch)
 					found = TRUE;
 				}
 
-				char objbuf[MSL];
-				strncpy(objbuf, smash_bracket(obj->short_descr), 38);
+				char namebuf[100], eqbuf[100], timebuf[100];
+				namebuf[0] = eqbuf[0] = timebuf[0] = '\0';
 
-				strcpy(buf, skill_table[paf->type].name);
-				ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
-					    torch, buf, border, objbuf, torch);
+				strcpy(namebuf, skill_table[paf->type].name);
+				strncpy(eqbuf, smash_bracket(obj->short_descr), 38);
+
+				if (paf->duration != -1)
+					sprintf(timebuf, "%3d hrs", paf->duration + 1);
+
+				ptb(buffer, " %s {b%-19s %s| {g%-30s %s| {b%7s %s\n",
+					torch,
+					namebuf,
+					border,
+					eqbuf,
+					border,
+					timebuf,
+					torch
+				);
 			}
 		}
 	}
@@ -5046,31 +5064,32 @@ void print_new_affects(CHAR_DATA *ch)
 				if (paf->where != TO_AFFECTS || !paf->permanent)
 					continue;
 
+				char namebuf[100], modbuf[100];
+				namebuf[0] = modbuf[0] = '\0';
+
 				if (paf_last != NULL && paf->type == paf_last->type) {
 					if (ch->level >= 20)
-						strcpy(buf, "                   ");
+						strcpy(namebuf, "                   ");
 					else
 						continue;
 				}
 				else
-					sprintf(buf, "{b%-19s", skill_table[paf->type].name);
+					sprintf(namebuf, "%-19s", skill_table[paf->type].name);
 
 				if (ch->level >= 20) {
-					sprintf(buf2, "{b%s by %d ",
+					if (paf->location != APPLY_NONE && paf->modifier != 0)
+						sprintf(modbuf, "%s by %d",
 					        affect_loc_name(paf->location), paf->modifier);
-
-					if (paf->duration == -1)
-						strcat(buf2, "indefinitely");
-					else {
-						char tbuf[MSL];
-						sprintf(tbuf, "for %d hours", paf->duration + 1);
-						strcat(buf2, tbuf);
-					}
 				}
-				else
-					strcpy(buf2, " ");
 
-				ptb(buffer, " %s %-19s %s| %-42s %s\n", torch, buf, border, buf2, torch);
+				ptb(buffer, " %s {b%-19s %s| {b%-40s %s\n",
+					torch,
+					namebuf,
+					border,
+					modbuf,
+					torch
+				);
+
 				paf_last = paf;
 			}
 
