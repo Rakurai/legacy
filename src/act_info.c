@@ -222,13 +222,21 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 	strcat(buf, ".");
 
 	if (paf->bitvector) {
+		int num_flags = 0;
+
+		for (int i = 0; i < 32; i++)
+			if (IS_SET(paf->bitvector, 1 << i))
+				num_flags++;
+
 		switch (paf->where) {
 		case TO_OBJECT:
-			sprintf(buf, "%s Adds %s object flag.", buf, extra_bit_name(paf->bitvector));
+			sprintf(buf, "%s Adds %s object flag%s.",
+				buf, extra_bit_name(paf->bitvector), num_flags > 1 ? "s" : "");
 			break;
 
 		case TO_WEAPON:
-			sprintf(buf, "%s Adds %s weapon flags.", buf, weapon_bit_name(paf->bitvector));
+			sprintf(buf, "%s Adds %s weapon flag%s.",
+				buf, weapon_bit_name(paf->bitvector), num_flags > 1 ? "s" : "");
 			break;
 		}
 	}
