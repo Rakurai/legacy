@@ -199,10 +199,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			// TODO: fix this, i'm sure this is dangerous
-//			flag = (unsigned long *) & (object->value[4]);            break;
-			stc("Weapon flagging has been temporarily disabled.\n", ch);
-			return;
+			flag = (unsigned long *) & (object->value[4]);            break;
 		default:
 			stc("That's not an acceptable object flag.\n", ch);
 			return;
