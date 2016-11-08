@@ -90,20 +90,15 @@ struct revoke_type
 #define FIELD_WIZNET	3
 #define FIELD_REVOKE	4
 #define	FIELD_CENSOR	5
-#define	FIELD_AFFECT	6
-#define	FIELD_DRAIN	7
-#define FIELD_IMMUNE	8
-#define FIELD_RESIST	9
-#define	FIELD_VULN	10
-#define	FIELD_COMM	11
-#define	FIELD_ACT	12
-#define	FIELD_OFF	13
-#define	FIELD_FORM	14
-#define	FIELD_PART	15
-#define	FIELD_EXTRA	16
-#define	FIELD_WEAR	17
-#define	FIELD_WEAPON	18
-#define	FIELD_ROOM	19
+#define	FIELD_COMM	6
+#define	FIELD_ACT	7
+#define	FIELD_OFF	8
+#define	FIELD_FORM	9
+#define	FIELD_PART	10
+#define	FIELD_EXTRA	11
+#define	FIELD_WEAR	12
+#define	FIELD_WEAPON	13
+#define	FIELD_ROOM	14
 
 struct field_type
 {

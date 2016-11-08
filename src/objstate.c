@@ -6,6 +6,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */
@@ -63,16 +64,16 @@ bool is_worth_saving(OBJ_DATA *obj)
 void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 {
 	OBJ_DATA *cobj;
-	AFFECT_DATA *paf;
 	EXTRA_DESCR_DATA *ed;
 	int i = 0;
+	bool enchanted = affect_enchanted_obj(obj); // whether to write affects or not
 
 	(*count)++;
 
 	fprintf(fp, "OBJ\n%d %d %d %d ",
 	        obj->pIndexData->vnum,
 	        obj->in_room ? obj->in_room->vnum : 0,
-	        obj->enchanted ? 1 : 0,
+	        enchanted ? 1 : 0,
 	        obj->cost);
 
 	/* write how many objects are contained inside */
@@ -120,8 +121,8 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 		fprintf(fp, "V %d %d %d %d %d\n",
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
-	if (obj->enchanted) {
-		for (paf = obj->affected; paf; paf = paf->next) {
+	if (enchanted) {
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
 
@@ -178,7 +179,7 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj, *cobj;
 	bool extract = FALSE, done = FALSE;
-	int rvnum, nests, ovnum;
+	int rvnum, nests, ovnum, enchanted;
 
 	if (feof(fp))
 		return NULL;
@@ -211,9 +212,12 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 
 	(*count)++;
 	rvnum           = fread_number(fp);
-	obj->enchanted  = fread_number(fp);
+	enchanted       = fread_number(fp);
 	obj->cost       = fread_number(fp);
 	nests           = fread_number(fp);
+
+	if (enchanted)
+		affect_remove_all_from_obj(obj); // read them from the file
 
 	if (ovnum == OBJ_VNUM_PIT && donation_pit == NULL) {
 		donation_pit = obj;
@@ -223,28 +227,23 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
 		case 'A': {
-				AFFECT_DATA *paf;
-				int sn;
-				paf = new_affect();
-				sn = skill_lookup(fread_word(fp));
+				AFFECT_DATA af;
 
-				if (sn < 0) {
-					free_affect(paf);
+				af.type = skill_lookup(fread_word(fp));
+
+				if (af.type < 0) {
 					fread_to_eol(fp);
 					continue;
 				}
-				else
-					paf->type = sn;
 
-				paf->where      = fread_number(fp);
-				paf->level      = fread_number(fp);
-				paf->duration   = fread_number(fp);
-				paf->modifier   = fread_number(fp);
-				paf->location   = fread_number(fp);
-				paf->bitvector  = fread_number(fp);
-				paf->evolution  = fread_number(fp);
-				paf->next       = obj->affected;
-				obj->affected   = paf;
+				af.where      = fread_number(fp);
+				af.level      = fread_number(fp);
+				af.duration   = fread_number(fp);
+				af.modifier   = fread_number(fp);
+				af.location   = fread_number(fp);
+				af.bitvector  = fread_number(fp);
+				af.evolution  = fread_number(fp);
+				affect_copy_to_obj(obj, &af);
 				break;
 			}
 

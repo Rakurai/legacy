@@ -23,7 +23,7 @@ void do_deposit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
+	if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_BANK)) {
 		stc("Funny, this doesn't look like a bank...\n", ch);
 		return;
 	}
@@ -102,7 +102,7 @@ void do_clandeposit(CHAR_DATA *ch, const char *argument)
 
 	/* Take care of mortals first */
 	if (!IS_IMMORTAL(ch)) {
-		if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
+		if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_BANK)) {
 			stc("Funny, this doesn't look like a bank...\n", ch);
 			return;
 		}
@@ -225,7 +225,7 @@ void do_balance(CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
+	if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_BANK)) {
 		stc("There is no bank here.\n", ch);
 		return;
 	}
@@ -250,7 +250,7 @@ void do_withdraw(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
+	if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_BANK)) {
 		stc("Funny, this doesn't look like a bank...\n", ch);
 		return;
 	}
@@ -323,7 +323,7 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 
 	/* do the mortal case first */
 	if (!IS_IMMORTAL(ch)) {
-		if (!IS_SET(ch->in_room->room_flags, ROOM_BANK)) {
+		if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_BANK)) {
 			stc("Funny, this doesn't look like a bank...\n", ch);
 			return;
 		}

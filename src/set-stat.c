@@ -30,6 +30,7 @@
 #include "tables.h"
 #include "magic.h"
 #include "gem.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_rset);
 DECLARE_DO_FUN(do_mset);
@@ -443,25 +444,6 @@ void do_raffset(CHAR_DATA *ch, const char *argument)
 				}
 			}
 
-			if (raffects[index].add) {
-				if ((raffects[index].id >= 900) && (raffects[index].id <= 949)) {
-					if (IS_SET(victim->vuln_flags, raffects[index].add)) {
-						stc("They have that vulnerability already.\n", ch);
-						return;
-					}
-					else
-						SET_BIT(victim->vuln_flags, raffects[index].add);
-				}
-				else if ((raffects[index].id >= 950) && (raffects[index].id <= 999)) {
-					if (IS_SET(victim->res_flags, raffects[index].add)) {
-						stc("They have that resistance already.\n", ch);
-						return;
-					}
-					else
-						SET_BIT(victim->res_flags, raffects[index].add);
-				}
-			}
-
 			victim->pcdata->raffect[i] = atoi(arg2);
 			stc("Remort affect added.\n", ch);
 			return;
@@ -695,7 +677,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->perm_stat[STAT_STR] = value;
+		ATTR_BASE(victim, APPLY_STR) = value;
 		ptc(ch, "%s's strength set to %d.\n", victim->name, value);
 		return;
 	}
@@ -706,7 +688,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->perm_stat[STAT_INT] = value;
+		ATTR_BASE(victim, APPLY_INT) = value;
 		ptc(ch, "%s's intelligence set to %d.\n", victim->name, value);
 		return;
 	}
@@ -717,7 +699,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->perm_stat[STAT_WIS] = value;
+		ATTR_BASE(victim, APPLY_WIS) = value;
 		ptc(ch, "%s's wisdom set to %d.\n", victim->name, value);
 		return;
 	}
@@ -728,7 +710,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->perm_stat[STAT_DEX] = value;
+		ATTR_BASE(victim, APPLY_DEX) = value;
 		ptc(ch, "%s's dexterity set to %d.\n", victim->name, value);
 		return;
 	}
@@ -739,7 +721,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->perm_stat[STAT_CON] = value;
+		ATTR_BASE(victim, APPLY_CON) = value;
 		ptc(ch, "%s's constitution set to %d.\n", victim->name, value);
 		return;
 	}
@@ -750,7 +732,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->perm_stat[STAT_CHR] = value;
+		ATTR_BASE(victim, APPLY_CHR) = value;
 		ptc(ch, "%s's charisma set to %d.\n", victim->name, value);
 		return;
 	}
@@ -768,11 +750,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->sex = value;
-
-		if (!IS_NPC(victim))
-			victim->pcdata->true_sex = value;
-
+		ATTR_BASE(victim, APPLY_SEX) = value;
 		ptc(ch, "%s is now %s.\n", victim->name, buf);
 		return;
 	}
@@ -812,10 +790,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->max_hit = value;
-
-		if (!IS_NPC(victim))
-			victim->pcdata->perm_hit = value;
+		ATTR_BASE(victim, APPLY_HIT) = value;
 
 		ptc(ch, "%s now has %d hit points.\n", victim->name, value);
 		return;
@@ -827,10 +802,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->max_mana = value;
-
-		if (!IS_NPC(victim))
-			victim->pcdata->perm_mana = value;
+		ATTR_BASE(victim, APPLY_MANA) = value;
 
 		ptc(ch, "%s now has %d mana.\n", victim->name, value);
 		return;
@@ -842,10 +814,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->max_stam = value;
-
-		if (!IS_NPC(victim))
-			victim->pcdata->perm_stam = value;
+		ATTR_BASE(victim, APPLY_STAM) = value;
 
 		ptc(ch, "%s now has %d stamina points.\n", victim->name, value);
 		return;
@@ -1497,8 +1466,6 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 /***** STAT COMMANDS *****/
 void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	AFFECT_DATA *paf;
-
 	if (IS_NPC(victim))
 		ptc(ch, "Vnum: %d  Group: %d  Count: %d  Killed: %d\n",
 		    victim->pIndexData->vnum,
@@ -1518,7 +1485,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	stc("\n", ch);
 	ptc(ch, "{MRace: %s  Sex: %s  Class: %s  Size: %s{x\n",
-	    race_table[victim->race].name, sex_table[GET_SEX(victim)].name,
+	    race_table[victim->race].name, sex_table[GET_ATTR_SEX(victim)].name,
 	    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
 	    size_table[victim->size].name);
 
@@ -1530,31 +1497,31 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	    victim->short_descr, victim->long_descr[0] != '\0' ? victim->long_descr : "(none)\n");
 	stc("\n", ch);
 	ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{RHit Points: %d/%d\n",
-	    victim->perm_stat[STAT_STR], get_curr_stat(victim, STAT_STR),
-	    GET_AC(victim, AC_PIERCE), victim->hit, victim->max_hit);
+	    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
+	    GET_AC(victim, AC_PIERCE), victim->hit, GET_MAX_HIT(victim));
 	ptc(ch, "{PInt: %-2d(%-2d)\t{BAC Bash   : %-10d{RMana      : %d/%d\n",
-	    victim->perm_stat[STAT_INT], get_curr_stat(victim, STAT_INT),
-	    GET_AC(victim, AC_BASH), victim->mana, victim->max_mana);
+	    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim),
+	    GET_AC(victim, AC_BASH), victim->mana, GET_MAX_MANA(victim));
 	ptc(ch, "{PWis: %-2d(%-2d)\t{BAC Slash  : %-10d{RStamina   : %d/%d\n",
-	    victim->perm_stat[STAT_WIS], get_curr_stat(victim, STAT_WIS),
-	    GET_AC(victim, AC_SLASH), victim->stam, victim->max_stam);
+	    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim),
+	    GET_AC(victim, AC_SLASH), victim->stam, GET_MAX_STAM(victim));
 	ptc(ch, "{PDex: %-2d(%-2d)\t{BAC Magic  : %-10d{HItems     : %d\n",
-	    victim->perm_stat[STAT_DEX], get_curr_stat(victim, STAT_DEX),
+	    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim),
 	    GET_AC(victim, AC_EXOTIC), get_carry_number(victim));
 	ptc(ch, "{PCon: %-2d(%-2d)\t{bPrac      : %-10d{HWeight    : %d\n",
-	    victim->perm_stat[STAT_CON], get_curr_stat(victim, STAT_CON),
+	    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim),
 	    IS_NPC(victim) ? 0 : victim->practice, get_carry_weight(victim) / 10);
 	ptc(ch, "{PChr: %-2d(%-2d)\t{bTrain     : %-10d{GHit Roll  : %d\n",
-	    victim->perm_stat[STAT_CHR], get_curr_stat(victim, STAT_CHR),
-	    IS_NPC(victim) ? 0 : victim->train , GET_HITROLL(victim));
+	    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
+	    IS_NPC(victim) ? 0 : victim->train , GET_ATTR_HITROLL(victim));
 	ptc(ch, "\t\t{YGold      : %-10ld{GDam Roll  : %d\n",
-	    victim->gold, GET_DAMROLL(victim));
+	    victim->gold, GET_ATTR_DAMROLL(victim));
 	ptc(ch, "{CThirst: %-8d{YSilver    : %-10ld{WAlignment : %d\n",
 	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_THIRST] : -1),
 	    victim->silver, victim->alignment);
 	ptc(ch, "{CHunger: %-8d{WSaves     : %-10dWimpy     : %d\n",
 	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_HUNGER] : -1),
-	    victim->saving_throw, victim->wimpy);
+	    GET_ATTR_SAVES(victim), victim->wimpy);
 	ptc(ch, "{CFull  : %-8d{cLast Level: %-10dMobTimer  : %d\n",
 	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_FULL] : -1),
 	    (!IS_NPC(victim) ? victim->pcdata->last_level : -1),
@@ -1580,7 +1547,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (victim->pcdata->email[0] != '\0')
 			ptc(ch, "Email: %s\n", victim->pcdata->email);
 
-	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act));
+	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act, IS_NPC(victim)));
 
 	if (!IS_NPC(victim)) {
 		ptc(ch, "{WPlr: %s\n", plr_bit_name(victim->pcdata->plr));
@@ -1601,17 +1568,19 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim) && victim->off_flags)
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
-	if (victim->drain_flags)
-		ptc(ch, "{YDrain: %s\n", imm_bit_name(victim->drain_flags));
-
-	if (victim->imm_flags)
-		ptc(ch, "{YImmune: %s\n", imm_bit_name(victim->imm_flags));
-
-	if (victim->res_flags)
-		ptc(ch, "{YResist: %s\n", imm_bit_name(victim->res_flags));
-
-	if (victim->vuln_flags)
-		ptc(ch, "{YVulnerable: %s\n", imm_bit_name(victim->vuln_flags));
+	{
+		char buf[MSL];
+		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
+		if (buf[0]) ptc(ch, "Abs : %s\n", buf);
+		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
+		if (buf[0]) ptc(ch, "Imm : %s\n", buf);
+		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
+		if (buf[0]) ptc(ch, "Res : %s\n", buf);
+		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
+		if (buf[0]) ptc(ch, "Vuln: %s\n", buf);
+		strcpy(buf, affect_print_cache(victim));
+		if (buf[0]) ptc(ch, "Aff : %s\n", buf);
+	}
 
 	ptc(ch, "{xForm: %s\nParts: %s\n", form_bit_name(victim->form), part_bit_name(victim->parts));
 	ptc(ch, "Master: %s  Leader: %s  Pet: %s\n",
@@ -1651,24 +1620,38 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		stc(buf, ch);
 	}
 
-	if (victim->affected_by)
-		ptc(ch, "{bAffected by %s{x\n", affect_bit_name(victim->affected_by));
+	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+		if (paf->permanent)
+			continue;
 
-	for (paf = victim->affected; paf != NULL; paf = paf->next)
-		ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
-		    skill_table[(int) paf->type].name,
-		    affect_loc_name(paf->location),
-		    paf->modifier,
-		    paf->duration + 1,
-		    affect_bit_name(paf->bitvector),
-		    paf->level,
-		    paf->evolution);
+		ptc(ch, "{bSpell: '%s'", skill_table[(int) paf->type].name);
+
+		if (paf->where == TO_AFFECTS) {
+			if (paf->location != APPLY_NONE && paf->modifier != 0)
+				ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
+		}
+		else if (paf->where == TO_DEFENSE)
+			ptc(ch, " %s damage from %s by %d%%",
+				paf->modifier > 0 ? "reduces" : "increases",
+				dam_type_name(paf->location),
+				paf->modifier > 0 ? paf->modifier : -paf->modifier);
+		else
+			ptc(ch, " does something weird");
+
+		if (paf->duration >= 0)
+			ptc(ch, " for %d hours", paf->duration);
+
+		ptc(ch, ", level %d", paf->level);
+
+		if (paf->evolution > 1)
+			ptc(ch, ", evolve %d", paf->evolution);
+
+		ptc(ch, ".\n");
+	}
 }
 
 void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf;
-	int i;
 	ptc(ch, "{CVnum: %d   Level: %d\n", obj->pIndexData->vnum, obj->level);
 	ptc(ch, "{CName(s):{x %s{x\n", obj->name);
 	ptc(ch, "Short description: %s{x\nLong  description: %s{x\n",
@@ -1716,7 +1699,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	ptc(ch, "\t\t{BWeight   : %d/%d/%d (10th pounds){x\n",
 	    obj->weight, get_obj_weight(obj), get_true_weight(obj));
 	ptc(ch, "{W\nWear bits : %s\nExtra bits: %s{b\n\n",
-	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags));
+	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags|obj->extra_flag_cache));
 
 	/* now give out vital statistics as per identify */
 	switch (obj->item_type) {
@@ -1792,8 +1775,8 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
 
-		if (obj->value[4])  /* weapon flags */
-			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]));
+		if (obj->value[4] || obj->weapon_flag_cache)  /* weapon flags */
+			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]|obj->weapon_flag_cache));
 
 		break;
 
@@ -1817,13 +1800,12 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		break;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
+			paf->where, paf->type, paf->level, paf->duration, paf->location,
+			paf->modifier, paf->evolution, paf->bitvector, affect_checksum(paf));
 		show_affect_to_char(paf, ch);
-
-	for (i = 1; i < MAX_SPELL; i++)
-		if (obj->spell[i] != 0)
-			ptc(ch, "Spelled with '%s' at level %d.\n",
-			    skill_table[obj->spell[i]].name, obj->spell_lev[i]);
+	}
 
 	if (obj->num_settings > 0) {
 		ptc(ch, "Has %d settings.\n", obj->num_settings);
@@ -1835,7 +1817,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (obj->gems) {
 		ptc(ch, "Gems are adding:");
 
-		for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
+		for (const AFFECT_DATA *paf = obj->gem_affected; paf != NULL; paf = paf->next)
 			show_affect_to_char(paf, ch);
 	}
 
@@ -1844,7 +1826,6 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
 	char buf[MSL];
-	AFFECT_DATA *paf = NULL;
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
 	int door;
@@ -1868,8 +1849,8 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 			ptc(ch, "%s{x%s", ed->keyword, ed->next == NULL ? "{B.{x\n" : " ");
 	}
 
-	if (location->room_flags)
-		ptc(ch, "{CRoom flags: %s{x\n", room_bit_name(location->room_flags));
+	if (GET_ROOM_FLAGS(location))
+		ptc(ch, "{CRoom flags: %s{x\n", room_bit_name(GET_ROOM_FLAGS(location)));
 
 	if (location->people) {
 		stc("{GCharacters:{x ", ch);
@@ -1903,7 +1884,7 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 		}
 	}
 
-	for (paf = location->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_room(location); paf != NULL; paf = paf->next)
 		ptc(ch, "{bAffect: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
 		    skill_table[(int) paf->type].name,
 		    affect_loc_name(paf->location),
@@ -2061,7 +2042,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 
 	ptc(ch, " %s %s %s",
 	    race_table[victim->race].name,
-	    GET_SEX(victim) == SEX_NEUTRAL ? "sexless" : GET_SEX(victim) == SEX_MALE ? "male" : "female",
+	    GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "sexless" : GET_ATTR_SEX(victim) == SEX_MALE ? "male" : "female",
 	    class_table[victim->class].name);
 
 	if (victim->clan) {
@@ -2085,42 +2066,42 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Str 25(25)    Align -1000   Hp 31418/31418 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Str %-2d(%-2d)",
-	    victim->perm_stat[STAT_STR], get_curr_stat(victim, STAT_STR));
+	    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim));
 	new_color(ch, CSLOT_OLDSCORE_ALIGN);
 	ptc(ch, "      Align %s%-7d",
 	    victim->alignment < 0 ? "{R" : "{Y", victim->alignment);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
 	ptc(ch, "      HP   %-5d/%-5d\n",
-	    victim->hit, victim->max_hit);
+	    victim->hit, GET_MAX_HIT(victim));
 	/* Int 25(25)    Train 2       Ma 31573/31573 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Int %-2d(%-2d)",
-	    victim->perm_stat[STAT_INT], get_curr_stat(victim, STAT_INT));
+	    ATTR_BASE(victim, APPLY_INT), GET_ATTR_INT(victim));
 	new_color(ch, CSLOT_OLDSCORE_GAIN);
 	ptc(ch, "      Train %-7d", victim->train);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
 	ptc(ch, "      Mana %-5d/%-5d\n",
-	    victim->mana, victim->max_mana);
+	    victim->mana, GET_MAX_MANA(victim));
 	/* Wis 25(25)    Pracs 129     Stm 30603/30603 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Wis %-2d(%-2d)",
-	    victim->perm_stat[STAT_WIS], get_curr_stat(victim, STAT_WIS));
+	    ATTR_BASE(victim, APPLY_WIS), GET_ATTR_WIS(victim));
 	new_color(ch, CSLOT_OLDSCORE_GAIN);
 	ptc(ch, "      Pracs %-7d",
 	    victim->practice);
 	new_color(ch, CSLOT_OLDSCORE_POINTS);
 	ptc(ch, "      Stm  %-5d/%-5d\n",
-	    victim->stam, victim->max_stam);
+	    victim->stam, GET_MAX_STAM(victim));
 	/* Dex 25(25)                  QP:  12345      */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Dex %-2d(%-2d)",
-	    victim->perm_stat[STAT_DEX], get_curr_stat(victim, STAT_DEX));
+	    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim));
 	new_color(ch, CSLOT_OLDSCORE_QP);
 	ptc(ch, "                         QP:  %-5d\n", victim->questpoints);
 	/* Con 25(25)   Gold 7481204   SP:  12345 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Con %-2d(%-2d)",
-	    victim->perm_stat[STAT_CON], get_curr_stat(victim, STAT_CON));
+	    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim));
 	new_color(ch, CSLOT_OLDSCORE_MONEY);
 	ptc(ch, "      Gold  %-7ld",
 	    victim->gold);
@@ -2129,7 +2110,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	/* Chr 25(25)   Silv 2768604   RPP: 12345 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Chr %-2d(%-2d)",
-	    victim->perm_stat[STAT_CHR], get_curr_stat(victim, STAT_CHR));
+	    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim));
 	new_color(ch, CSLOT_OLDSCORE_MONEY);
 	ptc(ch, "      Silv  %-7ld", victim->silver);
 	new_color(ch, CSLOT_OLDSCORE_RPP);
@@ -2144,12 +2125,12 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "%s%s%s%s%s%s%s%s%s%s{x\n",
 	    IS_SET(victim->pcdata->plr,     PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
 	    IS_SET(victim->comm,            COMM_AFK) ?             "{b[AFK] "      : "",
-	    IS_AFFECTED(victim,             AFF_INVISIBLE) ?        "{C(Invis) "    : "",
-	    IS_AFFECTED(victim,             AFF_HIDE) ?             "{B(Hide) "     : "",
-	    get_affect(victim->affected, gsn_midnight) ?            "{c(Shadowy) "  : "",
+	    affect_exists_on_char(victim, gsn_invis) ?        "{C(Invis) "    : "",
+	    affect_exists_on_char(victim, gsn_hide) ?             "{B(Hide) "     : "",
+	    affect_exists_on_char(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
-	    IS_AFFECTED(victim, AFF_CHARM) ?                        "{M(Charmed) "  : "",
+	    affect_exists_on_char(victim, gsn_charm_person) ?                        "{M(Charmed) "  : "",
 	    IS_SET(victim->act, PLR_KILLER) ?                       "{R(KILLER) "   : "",
 	    IS_SET(victim->act, PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */

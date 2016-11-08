@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "sql.h"
 #include "recycle.h"
+#include "affect.h"
 
 extern AREA_DATA *area_first;
 
@@ -48,7 +49,8 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 		    "  newflag  - finds all objects flagged compartment (formerly dark) or lock (nonexistant)\n"
 		    "  aversion - lists all areas and their versions\n"
 		    "  define   - lists all defines that the preprocessor checks for\n"
-		    "  objstate - save all objects lying on the ground\n", ch);
+		    "  objstate - save all objects lying on the ground\n"
+		    "  affcall  - iterate through affects\n", ch);
 		return;
 	}
 
@@ -301,6 +303,14 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!strcmp(subfunc, "affcall")) {
+		int count = 0;
+		extern int affect_fn_debug(AFFECT_DATA *node, void *data);
+		affect_iterate_over_char(ch, affect_fn_debug, &count);
+		ptc(ch, "count: %d", count);
+		return;
+	}
+
 	if (!strcmp(subfunc, "compart")) {
 		OBJ_DATA *container, *obj;
 
@@ -334,7 +344,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 			if ((room = get_room_index(vnum)) == NULL)
 				continue;
 
-			if (!IS_SET(room->room_flags, ROOM_NO_RECALL))
+			if (!IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_RECALL))
 				continue;
 
 			for (x = 0; x <= 5; x++)
@@ -356,7 +366,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 			if ((room = get_room_index(vnum)) == NULL)
 				continue;
 
-			if (IS_SET(room->room_flags, ROOM_NOLIGHT))
+			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NOLIGHT))
 				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
 		}
 

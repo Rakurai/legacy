@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "sql.h"
 #include "music.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit);
@@ -66,77 +67,59 @@ void demote_level(CHAR_DATA *ch)
 {
 	int sub_hp, sub_mana, sub_stam, sub_prac, sub_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
-	sub_hp          = UMAX(1, con_app[get_curr_stat(ch, STAT_CON)].hitp + number_range(
+	sub_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
 	                               class_table[ch->class].hp_min, class_table[ch->class].hp_max));
-	sub_mana        = UMAX(1, int_app[get_curr_stat(ch, STAT_INT)].manap + number_range(
+	sub_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
 	                               class_table[ch->class].mana_min, class_table[ch->class].mana_max));
-	sub_stam        = UMAX(1, str_app[get_curr_stat(ch, STAT_STR)].stp + number_range(
+	sub_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
 	                               class_table[ch->class].stam_min, class_table[ch->class].stam_max));
-	sub_prac        = wis_app[get_curr_stat(ch, STAT_WIS)].practice;
+	sub_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
-	if (chr_app[get_curr_stat(ch, STAT_CHR)].chance >= number_percent())
+	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
 		sub_train = 2;
 
-	ch->max_hit             -= sub_hp;
-	ch->max_mana            -= sub_mana;
-	ch->max_stam            -= sub_stam;
 	ch->practice            -= sub_prac;
 	ch->train               -= sub_train;
-	ch->pcdata->perm_hit    -= sub_hp;
-	ch->pcdata->perm_mana   -= sub_mana;
-	ch->pcdata->perm_stam   -= sub_stam;
+	ATTR_BASE(ch, APPLY_HIT)    = UMAX(20, ATTR_BASE(ch, APPLY_HIT) - sub_hp);
+	ATTR_BASE(ch, APPLY_MANA)   = UMAX(100, ATTR_BASE(ch, APPLY_MANA) - sub_mana);
+	ATTR_BASE(ch, APPLY_STAM)   = UMAX(100, ATTR_BASE(ch, APPLY_STAM) - sub_stam);
+
 	ptc(ch, "{RYour loss is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.{x\n",
-	    sub_hp,         ch->max_hit,
-	    sub_mana,       ch->max_mana,
-	    sub_stam,       ch->max_stam,
+	    sub_hp,         GET_MAX_HIT(ch),
+	    sub_mana,       GET_MAX_MANA(ch),
+	    sub_stam,       GET_MAX_STAM(ch),
 	    sub_prac,       ch->practice,
 	    sub_train,      ch->train);
-
-	/* don't let stats go below 20/100/100 */
-	if (ch->max_hit < 20)                   ch->max_hit = 20;
-
-	if (ch->max_mana < 100)                 ch->max_mana = 100;
-
-	if (ch->max_stam < 100)                 ch->max_stam = 100;
-
-	if (ch->pcdata->perm_hit < 20)          ch->pcdata->perm_hit = 20;
-
-	if (ch->pcdata->perm_mana < 100)        ch->pcdata->perm_mana = 100;
-
-	if (ch->pcdata->perm_stam < 100)        ch->pcdata->perm_stam = 100;
 }
 
 void advance_level(CHAR_DATA *ch)
 {
 	int add_hp, add_mana, add_stam, add_prac, add_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
-	add_hp          = UMAX(1, con_app[get_curr_stat(ch, STAT_CON)].hitp + number_range(
+	add_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
 	                               class_table[ch->class].hp_min, class_table[ch->class].hp_max));
-	add_mana        = UMAX(1, int_app[get_curr_stat(ch, STAT_INT)].manap + number_range(
+	add_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
 	                               class_table[ch->class].mana_min, class_table[ch->class].mana_max));
-	add_stam        = UMAX(1, str_app[get_curr_stat(ch, STAT_STR)].stp + number_range(
+	add_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
 	                               class_table[ch->class].stam_min, class_table[ch->class].stam_max));
-	add_prac        = wis_app[get_curr_stat(ch, STAT_WIS)].practice;
+	add_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
-	if (chr_app[get_curr_stat(ch, STAT_CHR)].chance >= number_percent())
+	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
 		add_train = 2;
 
 	/* old calculations:
 	   add_mana    = (2*get_curr_stat(ch,STAT_INT) + get_curr_stat(ch,STAT_WIS)) / 5;
 	   add_move    = number_range(1, (get_curr_stat(ch,STAT_CON) + get_curr_stat(ch,STAT_DEX))/6 );
 	*/
-	ch->max_hit             += add_hp;
-	ch->max_mana            += add_mana;
-	ch->max_stam            += add_stam;
+	ATTR_BASE(ch, APPLY_HIT)             += add_hp;
+	ATTR_BASE(ch, APPLY_MANA)            += add_mana;
+	ATTR_BASE(ch, APPLY_STAM)            += add_stam;
 	ch->practice            += add_prac;
 	ch->train               += add_train;
-	ch->pcdata->perm_hit    += add_hp;
-	ch->pcdata->perm_mana   += add_mana;
-	ch->pcdata->perm_stam   += add_stam;
 	ptc(ch, "Your gain is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.\n",
-	    add_hp,         ch->max_hit,
-	    add_mana,       ch->max_mana,
-	    add_stam,       ch->max_stam,
+	    add_hp,         GET_MAX_HIT(ch),
+	    add_mana,       GET_MAX_MANA(ch),
+	    add_stam,       GET_MAX_STAM(ch),
 	    add_prac,       ch->practice,
 	    add_train,      ch->train);
 }
@@ -153,12 +136,12 @@ void npc_advance_level(CHAR_DATA *ch)
 	if (! IS_NPC(ch))
 		return;
 
-	add_hit = get_curr_stat(ch, STAT_CON);
-	add_mana = get_curr_stat(ch, STAT_INT);
-	add_stam = get_curr_stat(ch, STAT_STR);
-	ch->max_hit += add_hit;
-	ch->max_mana += add_mana;
-	ch->max_stam += add_stam;
+	add_hit = GET_ATTR_CON(ch);
+	add_mana = GET_ATTR_INT(ch);
+	add_stam = GET_ATTR_STR(ch);
+	ATTR_BASE(ch, APPLY_HIT)  += add_hit;
+	ATTR_BASE(ch, APPLY_MANA) += add_mana;
+	ATTR_BASE(ch, APPLY_STAM) += add_stam;
 }
 
 void gain_exp(CHAR_DATA *ch, int gain)
@@ -244,7 +227,7 @@ int hit_gain(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
 
-		if (IS_AFFECTED(ch, AFF_REGENERATION))
+		if (affect_exists_on_char(ch, gsn_regeneration))
 			gain *= 2;
 
 		switch (get_position(ch)) {
@@ -258,14 +241,14 @@ int hit_gain(CHAR_DATA *ch)
 		}
 	}
 	else {
-		gain = UMAX(3, get_curr_stat(ch, STAT_CON) - 3 + ch->level / 2);
+		gain = UMAX(3, GET_ATTR_CON(ch) - 3 + ch->level / 2);
 		gain += class_table[ch->class].hp_max - 10;
 		number = number_percent();
 
 		if (number < get_skill(ch, gsn_fast_healing)) {
 			gain += number * gain / 100;
 
-			if (ch->hit < ch->max_hit)
+			if (ch->hit < GET_MAX_HIT(ch))
 				check_improve(ch, gsn_fast_healing, TRUE, 8);
 		}
 
@@ -291,25 +274,25 @@ int hit_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (IS_AFFECTED(ch, AFF_POISON))
+	if (affect_exists_on_char(ch, gsn_poison))
 		gain /= 4;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE))
+	if (affect_exists_on_char(ch, gsn_plague))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_exists_on_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2 ;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_exists_on_char(ch, gsn_slow))
 		gain *= 2 ;
 
-	if (IS_AFFECTED(ch, AFF_REGENERATION))
+	if (affect_exists_on_char(ch, gsn_regeneration))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN))
+	if (affect_exists_on_char(ch, gsn_divine_regeneration))
 		gain *= 4;
 
-	return UMIN(gain, ch->max_hit - ch->hit);
+	return UMIN(gain, GET_MAX_HIT(ch) - ch->hit);
 }
 
 int mana_gain(CHAR_DATA *ch)
@@ -333,13 +316,13 @@ int mana_gain(CHAR_DATA *ch)
 		}
 	}
 	else {
-		gain = (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) + ch->level) / 2;
+		gain = (GET_ATTR_WIS(ch) + GET_ATTR_INT(ch) + ch->level) / 2;
 		number = number_percent();
 
 		if (number < get_skill(ch, gsn_meditation)) {
 			gain += number * gain / 100;
 
-			if (ch->mana < ch->max_mana)
+			if (ch->mana < GET_MAX_MANA(ch))
 				check_improve(ch, gsn_meditation, TRUE, 8);
 		}
 
@@ -369,22 +352,22 @@ int mana_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
-	if (IS_AFFECTED(ch, AFF_POISON))
+	if (affect_exists_on_char(ch, gsn_poison))
 		gain /= 4;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE))
+	if (affect_exists_on_char(ch, gsn_plague))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_exists_on_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_exists_on_char(ch, gsn_slow))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN))
+	if (affect_exists_on_char(ch, gsn_divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, ch->max_mana - ch->mana);
+	return UMIN(gain, GET_MAX_MANA(ch) - ch->mana);
 }
 
 int stam_gain(CHAR_DATA *ch)
@@ -408,7 +391,7 @@ int stam_gain(CHAR_DATA *ch)
 		}
 	}
 	else {
-		gain = get_curr_stat(ch, STAT_CON) + get_curr_stat(ch, STAT_DEX) + (ch->level / 2);
+		gain = GET_ATTR_CON(ch) + GET_ATTR_DEX(ch) + (ch->level / 2);
 		/* compare to warrior stamina regen, warriors get full (class 3) */
 		gain -= gain * (class_table[3].stam_max - class_table[ch->class].stam_max)
 		        / class_table[3].stam_max;
@@ -435,25 +418,25 @@ int stam_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (IS_AFFECTED(ch, AFF_POISON))
+	if (affect_exists_on_char(ch, gsn_poison))
 		gain /= 4;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE))
+	if (affect_exists_on_char(ch, gsn_plague))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_exists_on_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_exists_on_char(ch, gsn_slow))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_REGENERATION))
+	if (affect_exists_on_char(ch, gsn_regeneration))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN))
+	if (affect_exists_on_char(ch, gsn_divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, ch->max_stam - ch->stam);
+	return UMIN(gain, GET_MAX_STAM(ch) - ch->stam);
 }
 
 void gain_condition(CHAR_DATA *ch, int iCond, int value)
@@ -515,7 +498,7 @@ void mobile_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) || ch->in_room == NULL || IS_AFFECTED(ch, AFF_CHARM))
+		if (!IS_NPC(ch) || ch->in_room == NULL || affect_exists_on_char(ch, gsn_charm_person))
 			continue;
 
 		if (get_position(ch) <= POS_SITTING)
@@ -591,13 +574,13 @@ void mobile_update(void)
 		    && (pexit = ch->in_room->exit[door]) != NULL
 		    &&   pexit->u1.to_room != NULL
 		    &&   !IS_SET(pexit->exit_info, EX_CLOSED)
-		    &&   !IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)
+		    &&   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)
 		    && (!IS_SET(ch->act, ACT_STAY_AREA)
 		        ||   pexit->u1.to_room->area == ch->in_room->area)
 		    && (!IS_SET(ch->act, ACT_OUTDOORS)
-		        ||   !IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS))
+		        ||   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))
 		    && (!IS_SET(ch->act, ACT_INDOORS)
-		        ||   IS_SET(pexit->u1.to_room->room_flags, ROOM_INDOORS))) {
+		        ||   IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))) {
 			move_char(ch, door, FALSE);
 
 			/* If ch changes position due
@@ -814,8 +797,6 @@ void char_update(void)
 		save_number = 0;
 
 	for (ch = char_list; ch != NULL; ch = ch_next) {
-		AFFECT_DATA *paf;
-		AFFECT_DATA *paf_next;
 		ch_next = ch->next;
 
 		if (!IS_IMMORTAL(ch) && !char_in_duel_room(ch)) {
@@ -850,19 +831,7 @@ void char_update(void)
 			*/
 			if (!IS_NPC(ch) && ch->pcdata->familiar) {
 				if (! ch->pet) {
-					ch->pcdata->familiar -= 1;   /* remove +1 to stat position */
-					ch->mod_stat[ch->pcdata->familiar] -= 1;
-
-					/* make sure we don't go below the min ability score */
-					if ((ch->perm_stat[ch->pcdata->familiar] + ch->mod_stat[ch->pcdata->familiar]) < 3)
-						ch->mod_stat[ch->pcdata->familiar] += 1;
-
-					/* make sure we don't go above the max ability score */
-					if ((ch->perm_stat[ch->pcdata->familiar] + ch->mod_stat[ch->pcdata->familiar]) > 25)
-						ch->mod_stat[ch->pcdata->familiar] -= 1;
-
-					/* remove familiar */
-					ch->pcdata->familiar = 0;
+					ch->pcdata->familiar = FALSE;
 				}
 			}    /* end of removed familiar */
 
@@ -885,20 +854,20 @@ void char_update(void)
 				}
 			}
 
-			if (ch->hit  < ch->max_hit)
+			if (ch->hit  < GET_MAX_HIT(ch))
 				ch->hit  += hit_gain(ch);
 			else
-				ch->hit = ch->max_hit;
+				ch->hit = GET_MAX_HIT(ch);
 
-			if (ch->mana < ch->max_mana)
+			if (ch->mana < GET_MAX_MANA(ch))
 				ch->mana += mana_gain(ch);
 			else
-				ch->mana = ch->max_mana;
+				ch->mana = GET_MAX_MANA(ch);
 
-			if (ch->stam < ch->max_stam)
+			if (ch->stam < GET_MAX_STAM(ch))
 				ch->stam += stam_gain(ch);
 			else
-				ch->stam = ch->max_stam;
+				ch->stam = GET_MAX_STAM(ch);
 		}
 
 		if (get_position(ch) == POS_STUNNED)
@@ -988,28 +957,38 @@ void char_update(void)
 				ch->pcdata->flag_thief--;
 		}
 
-		for (paf = ch->affected; paf; paf = paf_next) {
-			paf_next = paf->next;
+		// print the affects that are wearing off.  this is complicated because
+		// we may have more than one affect that is part of the same group, and
+		// we also don't want to print a 'wearing off' message for affects that
+		// are duplicated (for some reason).  so, the hackish solution is to sort
+		// the list twice: once by duration, and then by skill number.  this
+		// should get all the grouped spells together.
+		// this will usually already be sorted this way, unless it was sorted by
+		// duration for the show_affects player command, so only O(n) hit here.
+		affect_sort_char(ch, affect_comparator_duration);
+		affect_sort_char(ch, affect_comparator_type);
 
-			if (paf->duration > 0) {
-				paf->duration--;
-
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;  /* spell strength fades with time */
-			}
-			else if (paf->duration < 0)
-				;
-			else {
-				if (paf_next == NULL
-				    || paf_next->type != paf->type
-				    || paf_next->duration > 0) {
+		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next) {
+			if (paf->duration == 0) {
+				if (paf->next == NULL
+				 || paf->next->type != paf->type
+				 || paf->next->duration > 0) {
 					if (paf->type > 0 && skill_table[paf->type].msg_off)
 						ptc(ch, "%s\n", skill_table[paf->type].msg_off);
 				}
-
-				affect_remove(ch, paf);
 			}
 		}
+
+		// now remove spells with duration 0
+		AFFECT_DATA pattern;
+		pattern.duration = 0;
+		affect_remove_matching_from_char(ch, affect_comparator_duration, &pattern);
+
+		// decrement duration and sometimes decrement level.  this is done after
+		// the wearing off of spells with duration 0, because we use -1 to mean
+		// indefinite and players are used to having spell counters go down to 0
+		// before they wear off.
+		affect_iterate_over_char(ch, affect_fn_fade_spell, NULL);
 
 		/* MOBprogram tick trigger -- Montrey */
 		if (IS_NPC(ch)) {
@@ -1027,63 +1006,24 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (get_affect(ch->affected, gsn_plague) && ch != NULL) {
-			AFFECT_DATA *af, plague;
-			CHAR_DATA *vch;
-			int dam;
-
-			if (ch->in_room == NULL)
-				return;
+		if (ch != NULL && affect_exists_on_char(ch, gsn_plague)) {
+		 	const AFFECT_DATA *plague = affect_find_on_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
 			    ch, NULL, NULL, TO_ROOM);
 			stc("You writhe in agony from the plague.\n", ch);
 
-			for (af = ch->affected; af != NULL; af = af->next) {
-				if (af->type == gsn_plague)
-					break;
-			}
+			spread_plague(ch->in_room, plague, 4);
 
-			if (af == NULL) {
-				REMOVE_BIT(ch->affected_by, AFF_PLAGUE);
-				return;
-			}
-
-			if (af->level == 1)
-				return;
-
-			plague.where                = TO_AFFECTS;
-			plague.type                 = gsn_plague;
-			plague.level                = af->level - 1;
-			plague.duration     = number_range(1, 2 * plague.level);
-			plague.location             = APPLY_STR;
-			plague.modifier     = -5;
-			plague.bitvector    = AFF_PLAGUE;
-
-			if (af->evolution > 1)
-				plague.evolution = af->evolution - 1;
-			else
-				plague.evolution = 1;
-
-			for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-				if (!saves_spell(plague.level - 2, vch, DAM_DISEASE)
-				    &&  !IS_IMMORTAL(vch)
-				    &&  !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(4) == 0) {
-					stc("You feel hot and feverish.\n", vch);
-					act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
-					affect_join(vch, &plague);
-				}
-			}
-
-			dam = UMIN(ch->level, af->level / 5 + 1);
+			// TODO: check for plague being NULL only applies as long as plague bit exists
+			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
 			damage(ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
 		}
-		else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
-		         &&   !IS_AFFECTED(ch, AFF_SLOW)) {
-			AFFECT_DATA *poison;
-			poison = get_affect(ch->affected, gsn_poison);
+
+		if (ch != NULL && affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_slow)) {
+			const AFFECT_DATA *poison = affect_find_on_char(ch, gsn_poison);
 
 			if (poison != NULL) {
 				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
@@ -1092,9 +1032,10 @@ void char_update(void)
 				       DAM_POISON, FALSE, TRUE);
 			}
 		}
-		else if (get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
+		
+		if (ch != NULL && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
-		else if (get_position(ch) == POS_MORTAL)
+		else if (ch != NULL && get_position(ch) == POS_MORTAL)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
 	}
 
@@ -1123,27 +1064,29 @@ void obj_update(void)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	AFFECT_DATA *paf, *paf_next;
 
 	for (obj = object_list; obj != NULL; obj = obj_next) {
 		CHAR_DATA *rch;
 		char *message;
 		obj_next = obj->next;
 
-		/* go through affects and decrement */
-		for (paf = obj->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
+		// TODO: this sorting could be eliminated or reduced if we just keep a
+		// boolean value that is set true when affects are added or resorted.
 
-			if (paf->duration > 0) {
-				paf->duration--;
+		// print the affects that are wearing off.  this is complicated because
+		// we may have more than one affect that is part of the same group, and
+		// we also don't want to print a 'wearing off' message for affects that
+		// are duplicated (for some reason).  so, the hackish solution is to sort
+		// the list twice: once by duration, and then by skill number.  this
+		// should get all the grouped spells together.
+		affect_sort_obj(obj, affect_comparator_duration);
+		affect_sort_obj(obj, affect_comparator_type);
 
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;  /* spell strength fades with time */
-			}
-			else if (paf->duration < 0)
-				;
-			else {
-				if (paf_next == NULL || paf_next->type != paf->type || paf_next->duration > 0) {
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
+			if (paf->duration == 0) {
+				if (paf->next == NULL
+				 || paf->next->type != paf->type
+				 || paf->next->duration > 0) {
 					/* for addapplied objects with a duration */
 					if (paf->type == 0) {
 						if (obj->carried_by != NULL) {
@@ -1169,18 +1112,35 @@ void obj_update(void)
 						}
 					}
 				}
-
-				affect_remove_obj(obj, paf);
 			}
 		}
+
+		// now remove spells with duration 0
+		AFFECT_DATA pattern;
+		pattern.duration = 0;
+		affect_remove_matching_from_obj(obj, affect_comparator_duration, &pattern);
+
+		// decrement duration and sometimes decrement level.  this is done after
+		// the wearing off of spells with duration 0, because we use -1 to mean
+		// indefinite and players are used to having spell counters go down to 0
+		// before they wear off.
+		affect_iterate_over_obj(obj, affect_fn_fade_spell, NULL);
 
 		/* do not decay items being auctioned -- Elrac */
 		if (obj == auction->item)
 			continue;
 
-		if (obj->timer <= 0 || --obj->timer > 0)
-			if (obj->clean_timer <= 0 || --obj->clean_timer > 0)
-				continue;
+		if (obj->timer <= 0
+		 || --obj->timer > 0
+		 || obj->clean_timer <= 0
+		 || --obj->clean_timer > 0) {
+//			if (obj->affects_modified)
+//				affects_compile_obj(obj);
+
+		 	continue;
+		 }
+
+		// past this point the object is going away
 
 		switch (obj->item_type) {
 		default:                message = "$p crumbles into ashes.";                            break;
@@ -1265,37 +1225,46 @@ void obj_update(void)
 void room_update(void)
 {
 	ROOM_INDEX_DATA *room;
-	AFFECT_DATA *paf, *paf_next;
 	int x;
 
 	for (x = 1; x < 32600; x++) {
 		if ((room = get_room_index(x)) == NULL)
 			continue;
 
-		/* go through affects and decrement */
-		for (paf = room->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
+		// print the affects that are wearing off.  this is complicated because
+		// we may have more than one affect that is part of the same group, and
+		// we also don't want to print a 'wearing off' message for affects that
+		// are duplicated (for some reason).  so, the hackish solution is to sort
+		// the list twice: once by duration, and then by skill number.  this
+		// should get all the grouped spells together.
+		affect_sort_room(room, affect_comparator_duration);
+		affect_sort_room(room, affect_comparator_type);
 
-			if (paf->duration > 0) {
-				paf->duration--;
-
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;  /* spell strength fades with time */
-			}
-			else if (paf->duration < 0)
-				;
-			else {
-				/* there is no msg_room for spells, so we'll use msg_obj for
-				   room affect spells.  might change this later, but i really
-				   don't feel like adding another ,"" to all those entries
-				   right now :P -- Montrey */
-				if (paf_next == NULL || paf_next->type != paf->type || paf_next->duration > 0)
+		for (const AFFECT_DATA *paf = affect_list_room(room); paf; paf = paf->next) {
+			if (paf->duration == 0) {
+				if (paf->next == NULL
+				 || paf->next->type != paf->type
+				 || paf->next->duration > 0) {
+					/* there is no msg_room for spells, so we'll use msg_obj for
+					   room affect spells.  might change this later, but i really
+					   don't feel like adding another ,"" to all those entries
+					   right now :P -- Montrey */
 					if (paf->type > 0 && skill_table[paf->type].msg_obj && room->people)
 						act(skill_table[paf->type].msg_obj, NULL, NULL, NULL, TO_ALL);
-
-				affect_remove_room(room, paf);
+				}
 			}
 		}
+
+		// now remove spells with duration 0
+		AFFECT_DATA pattern;
+		pattern.duration = 0;
+		affect_remove_matching_from_room(room, affect_comparator_duration, &pattern);
+
+		// decrement duration and sometimes decrement level.  this is done after
+		// the wearing off of spells with duration 0, because we use -1 to mean
+		// indefinite and players are used to having spell counters go down to 0
+		// before they wear off.
+		affect_iterate_over_room(room, affect_fn_fade_spell, NULL);
 	}
 }
 
@@ -1320,7 +1289,8 @@ bool eligible_aggressor(CHAR_DATA *ch)
 	        && IS_AWAKE(ch)
 	        && IS_SET(ch->act, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == NULL
-	        && !IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
+	        && !affect_exists_on_char(ch, gsn_calm)
+	        && !affect_exists_on_char(ch, gsn_charm_person)
 	       );
 }
 
@@ -1434,7 +1404,8 @@ void aggr_update(void)
 		}
 
 		/* no aggression in safe rooms */
-		if (IS_SET(room->room_flags, ROOM_SAFE) || IS_SET(room->room_flags, ROOM_LAW))
+		if (IS_SET(GET_ROOM_FLAGS(room), ROOM_SAFE)
+		 || IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW))
 			continue;
 
 		/* only aggression below this point */
@@ -1501,12 +1472,12 @@ void aggr_update(void)
 		   their charisma is so high compared to mobs.  Removing this and changing
 		   to a random chance of aggressing based on victim charisma, but keep in mind
 		   this is called once every pulse.  -- Montrey
-		if ((get_curr_stat(victim, STAT_CHR) + number_range(0, 1))
-		    > (get_curr_stat(mob, STAT_CHR) + number_range(0, 3)))
+		if ((GET_ATTR_CHR(victim) + number_range(0, 1))
+		    > (GET_ATTR_CHR(mob) + number_range(0, 3)))
 			continue;
 		*/
 
-		if (number_range(0, 29 - get_curr_stat(victim, STAT_CHR)) > 3) // 20% for 25 chr
+		if (number_range(0, 29 - GET_ATTR_CHR(victim)) > 3) // 20% for 25 chr
 			continue;
 
 		/* rumble! */
@@ -1528,7 +1499,7 @@ void tele_update(void)
 		if (ch->in_room == NULL)
 			continue;
 
-		if (IS_SET(ch->in_room->room_flags, ROOM_TELEPORT)) {
+		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_TELEPORT)) {
 			do_look(ch, "tele");
 
 			if (ch->in_room->tele_dest == 0)
@@ -1805,7 +1776,7 @@ void underwater_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) && IS_SET(ch->in_room->room_flags, ROOM_UNDER_WATER)) {
+		if (!IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)) {
 			skill = get_skill(ch, gsn_swimming);
 
 			if (skill == 100)

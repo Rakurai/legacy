@@ -34,6 +34,7 @@
 #include "tables.h"
 #include "magic.h"
 #include "lookup.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -259,7 +260,7 @@ void do_second(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 5)) {
+		if (get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield * 5)) {
 			stc("This weapon is too heavy to be used in your off-hand.\n", ch);
 			return;
 		}
@@ -503,7 +504,7 @@ void do_get(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
-			if (IS_SET(ch->in_room->room_flags, ROOM_LOCKER)) {
+			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				if (IS_SET(ch->act, PLR_CLOSED)) {
 					int number = get_locker_number(ch);
 
@@ -750,7 +751,7 @@ void do_put(CHAR_DATA *ch, const char *argument)
 
 	/* locker stuff */
 	if (!IS_NPC(ch) && !str_prefix1(arg2, "locker")) {
-		if (!IS_SET(ch->in_room->room_flags, ROOM_LOCKER)) {
+		if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 			stc("You do not see a locker in this room.\n", ch);
 			return;
 		}
@@ -1497,7 +1498,6 @@ void do_give(CHAR_DATA *ch, const char *argument)
 void do_envenom(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	AFFECT_DATA af;
 	int percent, skill;
 
 	/* find out what */
@@ -1577,6 +1577,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 		percent = number_percent();
 
 		if (percent < skill) {
+			AFFECT_DATA af = (AFFECT_DATA){0};
 			af.where     = TO_WEAPON;
 			af.type      = gsn_poison;
 			af.level     = ch->level;
@@ -1585,7 +1586,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 			af.modifier  = 0;
 			af.bitvector = WEAPON_POISON;
 			af.evolution = get_evolution(ch, gsn_envenom);
-			copy_affect_to_obj(obj, &af);
+			affect_copy_to_obj(obj, &af);
 			act("$n coats $p with deadly venom.", ch, obj, NULL, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, gsn_envenom, TRUE, 3);
@@ -1943,18 +1944,16 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 
 	if (obj->value[3] != 0) {
 		/* The drink was poisoned! */
-		AFFECT_DATA af;
 		act("$n turns six shades of green and collapses.", ch, NULL, NULL, TO_ROOM);
 		stc("You turn six shades of green and collapse.\n", ch);
-		af.where        = TO_AFFECTS;
-		af.type         = gsn_poison;
-		af.level        = number_fuzzy(amount);
-		af.duration     = 3 * amount;
-		af.location     = APPLY_NONE;
-		af.modifier     = 0;
-		af.bitvector    = AFF_POISON;
-		af.evolution    = 1;
-		affect_join(ch, &af);
+
+		affect_add_sn_to_char(ch,
+			gsn_poison,
+			number_fuzzy(amount),
+			amount * 3,
+			1,
+			FALSE
+		);
 	}
 
 	if (obj->value[0] > 0) {
@@ -2073,16 +2072,14 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 
 			if (op->value[3] != 0) {
 				/* The food was poisoned! */
-				AFFECT_DATA af;
-				af.where     = TO_AFFECTS;
-				af.type      = gsn_poison;
-				af.level     = number_fuzzy(op->level);
-				af.duration  = op->level;
-				af.location  = APPLY_STR;
-				af.modifier  = -1;
-				af.bitvector = AFF_POISON;
-				af.evolution = 1;
-				affect_join(ch, &af);
+				affect_add_sn_to_char(ch,
+					gsn_poison,
+					number_fuzzy(op->level),
+					op->level,
+					1,
+					FALSE
+				);
+
 				fPoisoned    = TRUE;
 			}
 		}
@@ -2148,7 +2145,7 @@ bool remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 	if (!fReplace)
 		return FALSE;
 
-	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
+	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act("You can't seem to remove $p.", ch, obj, NULL, TO_CHAR);
 		return FALSE;
 	}
@@ -2188,6 +2185,16 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 				return;
 			}
 		}
+	}
+
+	if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch))
+	    || (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch))
+	    || (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
+		act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
+		act("$n is zapped by $p and drops it.",  ch, obj, NULL, TO_ROOM);
+		obj_from_char(obj);
+		obj_to_room(obj, ch->in_room);
+		return;
 	}
 
 	if (obj->item_type == ITEM_WEDDINGRING) {
@@ -2404,7 +2411,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 
 		if (!IS_NPC(ch)
-		    && get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield
+		    && get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield
 		                              * 10)) {
 			stc("It's too heavy for you to pick up.\n", ch);
 			return;
@@ -3192,8 +3199,8 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 	/* Check the skill percentage, fcn(wis,int,skill) */
 	if (!IS_NPC(ch)
 	    && (number_percent() > ch->pcdata->learned[gsn_brew] ||
-	        number_percent() > ((get_curr_stat(ch, STAT_INT) - 13) * 5 +
-	                            (get_curr_stat(ch, STAT_WIS) - 13) * 3))) {
+	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
+	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p explodes violently!", ch, obj, NULL, TO_CHAR);
 		act("$p explodes violently!", ch, obj, NULL, TO_ROOM);
 		check_improve(ch, gsn_brew, FALSE, 2);
@@ -3302,8 +3309,8 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 	/* Check the skill percentage, fcn(int,wis,skill) */
 	if (!IS_NPC(ch)
 	    && (number_percent() > ch->pcdata->learned[gsn_scribe] ||
-	        number_percent() > ((get_curr_stat(ch, STAT_INT) - 13) * 5 +
-	                            (get_curr_stat(ch, STAT_WIS) - 13) * 3))) {
+	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
+	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p bursts in flames!", ch, obj, NULL, TO_CHAR);
 		act("$p bursts in flames!", ch, obj, NULL, TO_ROOM);
 		check_improve(ch, gsn_scribe, FALSE, 2);
@@ -3428,7 +3435,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 
 		case 1 :
 			sprintf(buf, "%s couldn't rob %s way out of a paper bag!",
-			        ch->name, GET_SEX(ch) == SEX_NEUTRAL ? "its" : GET_SEX(ch) == SEX_MALE ? "his" : "her");
+			        ch->name, GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "its" : GET_ATTR_SEX(ch) == SEX_MALE ? "his" : "her");
 			break;
 
 		case 2 :
@@ -3512,7 +3519,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!can_drop_obj(ch, obj)
-	    ||   IS_SET(obj->extra_flags, ITEM_INVENTORY)
+	    ||   IS_OBJ_STAT(obj, ITEM_INVENTORY)
 	    ||   obj->level > ch->level) {
 		stc("You can't pry it away.\n", ch);
 		return;
@@ -3750,6 +3757,15 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	return cost;
 } /* end get_cost() */
 
+void make_pet(CHAR_DATA *ch, CHAR_DATA *pet) {
+	SET_BIT(pet->act, ACT_PET);
+	affect_add_perm_to_char(pet, gsn_charm_person);
+	pet->comm = COMM_NOCHANNELS;
+	add_follower(pet, ch);
+	pet->leader = ch;
+	ch->pet = pet;
+}
+
 void do_buy(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -3768,7 +3784,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
 		/* PETS */
 		char arg[MAX_INPUT_LENGTH];
 		char buf[MAX_STRING_LENGTH];
@@ -3848,7 +3864,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		/* haggle */
 		roll = number_percent();
 
-		if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+		if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 			roll -= 15;
 
 		if (roll < 1) roll = 1;
@@ -3887,9 +3903,6 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 			ch->silver += cost;
 		}
 
-		SET_BIT(pet->act, ACT_PET);
-		SET_BIT(pet->affected_by, AFF_CHARM);
-		pet->comm = COMM_NOCHANNELS;
 		argument = one_argument(argument, arg);
 
 		if (arg[0] != '\0') {
@@ -3907,9 +3920,9 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		free_string(pet->description);
 		pet->description = str_dup(buf);
 		char_to_room(pet, ch->in_room);
-		add_follower(pet, ch);
-		pet->leader = ch;
-		ch->pet = pet;
+
+		make_pet(ch, pet);
+
 		stc("Enjoy your pet.  Watch out, they bite!\n", ch);
 		act("$n purchased $N as a pet.", ch, NULL, pet, TO_ROOM);
 		return;
@@ -4017,7 +4030,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		if (!IS_QUESTSHOPKEEPER(keeper)) {
 			roll = number_percent();
 
-			if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+			if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 				roll -= 15;
 
 			if (roll < 1) roll = 1;
@@ -4090,7 +4103,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		mprog_buy_trigger(keeper, ch);
 
 		for (count = 0; count < number; count++) {
-			if (IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
+			if (IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 				t_obj = create_object(obj->pIndexData, obj->level);
 
 				if (! t_obj) {
@@ -4145,7 +4158,7 @@ void do_list(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_PET_SHOP)) {
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
 		ROOM_INDEX_DATA *pRoomIndexNext;
 		CHAR_DATA *pet;
 		bool found;
@@ -4299,7 +4312,7 @@ void do_sell(CHAR_DATA *ch, const char *argument)
 		/* haggle */
 		roll = number_percent();
 
-		if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
+		if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 			roll -= 15;
 
 		if (roll < 1) roll = 1;
@@ -4924,7 +4937,7 @@ void do_hone(CHAR_DATA *ch)
 	sprintf(buf, "You skillfully hone %s to a razor edge.\n", weapon->short_descr);
 	act("$n skillfully sharpens $p to a razor edge.", ch, weapon, NULL, TO_ROOM);
 	stc(buf, ch);
-	weapon->value[4] |= WEAPON_SHARP;
+	SET_BIT(weapon->value[4], WEAPON_SHARP);
 	return;
 }
 
@@ -5046,7 +5059,12 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	free_string(obj->material);
 	obj->material = str_dup(material->material);
 	obj->condition = material->condition;
+
 	obj->extra_flags = material->extra_flags;
+
+	for (const AFFECT_DATA *paf = affect_list_obj(material); paf; paf = paf->next)
+		affect_copy_to_obj(obj, paf);
+
 	obj->value[0] = weapon_type(type);
 	free_string(obj->name);
 	sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));

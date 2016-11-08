@@ -18,6 +18,7 @@
 #include "recycle.h"
 #include "memory.h"
 #include "sql.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_echo);
 
@@ -417,12 +418,9 @@ void do_relevel(CHAR_DATA *ch, const char *argument)
 	ch->pcdata->cgroup = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO | GROUP_LEADER
 	                     | GROUP_GEN | GROUP_QUEST | GROUP_BUILD | GROUP_CODE | GROUP_SECURE;
 	ch->level       = MAX_LEVEL;
-	ch->hit         = 30000;
-	ch->max_hit     = 30000;
-	ch->mana        = 30000;
-	ch->max_mana    = 30000;
-	ch->stam        = 30000;
-	ch->max_stam    = 30000;
+	ch->hit =  ATTR_BASE(ch, APPLY_HIT)     = 30000;
+	ch->mana = ATTR_BASE(ch, APPLY_MANA)    = 30000;
+	ch->stam = ATTR_BASE(ch, APPLY_STAM)    = 30000;
 	stc("Done.\n", ch);
 }
 
@@ -602,7 +600,6 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *room;
 	EXIT_DATA *exit;
 	DESCRIPTOR_DATA *d;
-	AFFECT_DATA *af;
 	FILE *fp;
 	int vnum, nMatch = 0;
 	/* open file */
@@ -622,7 +619,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		if (fch->pcdata != NULL)
 			num_pcs++;
 
-		for (af = fch->affected; af != NULL; af = af->next)
+		for (const AFFECT_DATA *af = affect_list_char(fch); af != NULL; af = af->next)
 			aff_count++;
 	}
 
@@ -654,7 +651,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	/* object prototypes */
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
 		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
-			for (af = pObjIndex->affected; af != NULL; af = af->next)
+			for (const AFFECT_DATA *af = pObjIndex->affected; af != NULL; af = af->next)
 				aff_count++;
 
 			nMatch++;
@@ -668,7 +665,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		count++;
 
-		for (af = obj->affected; af != NULL; af = af->next)
+		for (const AFFECT_DATA *af = affect_list_obj(obj); af != NULL; af = af->next)
 			aff_count++;
 	}
 
@@ -680,11 +677,11 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	/* affects */
 	count = 0;
 
-	for (af = affect_free; af != NULL; af = af->next)
+	for (const AFFECT_DATA *af = affect_free; af != NULL; af = af->next)
 		count++;
 
 	fprintf(fp, "Affects %4d (%8ld bytes), %2d free (%ld bytes)\n",
-	        aff_count, aff_count * (sizeof(*af)), count, count * (sizeof(*af)));
+	        aff_count, aff_count * (sizeof(AFFECT_DATA)), count, count * (sizeof(AFFECT_DATA)));
 	/* rooms */
 	fprintf(fp, "Rooms   %4d (%8ld bytes)\n",
 	        top_room, top_room * (sizeof(*room)));

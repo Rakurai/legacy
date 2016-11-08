@@ -19,6 +19,7 @@
 #include "lookup.h"
 #include "tables.h"
 #include "sql.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_slookup);
 DECLARE_DO_FUN(do_claninfo);
@@ -432,7 +433,6 @@ void do_check(CHAR_DATA *ch, const char *argument)
 	bool SHOWIMM = FALSE;
 	BUFFER *buffer;
 	CHAR_DATA *victim;
-	long flags;
 	argument = one_argument(argument, arg);
 
 	if (!str_cmp(arg, "gods") || !str_cmp(argument, "gods"))
@@ -473,10 +473,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			sprintf(buf,
 			        "{W[%12s] {P%5d{RHP {P%5d{RMP{c/{G%2d %2d %2d %2d %2d %2d{c/{Y%8ld {bWorth{c/{Y%4d {bQpts{c/{Y%4d {b Spts{x\n",
 			        victim->name,
-			        victim->max_hit, victim->max_mana, victim->perm_stat[STAT_STR],
-			        victim->perm_stat[STAT_INT], victim->perm_stat[STAT_WIS],
-			        victim->perm_stat[STAT_DEX], victim->perm_stat[STAT_CON],
-			        victim->perm_stat[STAT_CHR],
+			        GET_MAX_HIT(victim), GET_MAX_MANA(victim), ATTR_BASE(victim, APPLY_STR),
+			        ATTR_BASE(victim, APPLY_INT), ATTR_BASE(victim, APPLY_WIS),
+			        ATTR_BASE(victim, APPLY_DEX), ATTR_BASE(victim, APPLY_CON),
+			        ATTR_BASE(victim, APPLY_CHR),
 			        victim->gold + victim->silver / 100,
 			        victim->questpoints,
 			        !IS_NPC(victim) ? victim->pcdata->skillpoints : 0);
@@ -502,7 +502,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			sprintf(buf,
 			        "{W[%12s] {b%4d Items (W:%5d){c/{PH:%4d D:%4d{c/{GS:%-4d{c/{CAC:%-5d %-5d %-5d %-5d{x\n",
 			        victim->name, get_carry_number(victim), get_carry_weight(victim),
-			        victim->hitroll, victim->damroll, victim->saving_throw,
+			        GET_ATTR_HITROLL(victim), GET_ATTR_DAMROLL(victim), GET_ATTR_SAVES(victim),
 			        GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 			        GET_AC(victim, AC_SLASH), GET_AC(victim, AC_EXOTIC));
 			add_buf(buffer, buf);
@@ -513,7 +513,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "drain")) {
+	if (!str_prefix1(arg, "absorb")) {
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
@@ -523,11 +523,9 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->drain_flags;
 			sprintf(buf,
-			        "{W[%12s] {RDRN: {P[%-25s]{x",
-			        victim->name,
-			        imm_bit_name(flags));
+			        "{W[%12s] {RABS: {P%s{x\n",
+			        victim->name, print_defense_modifiers(victim, TO_ABSORB));
 			add_buf(buffer, buf);
 		}
 
@@ -546,14 +544,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->imm_flags;
-			flags -= race_table[victim->race].imm & victim->imm_flags;
 			sprintf(buf,
-			        "{W[%12s] {RIMM: {P[%-25s]{x",
+			        "{W[%12s] {RIMM: {P%s{x\n",
 			        victim->name,
-			        imm_bit_name(race_table[victim->race].imm));
-			add_buf(buffer, buf);
-			sprintf(buf, " %s\n", imm_bit_name(flags));
+			        print_defense_modifiers(victim, TO_IMMUNE));
 			add_buf(buffer, buf);
 		}
 
@@ -572,14 +566,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->res_flags;
-			flags -= race_table[victim->race].res & victim->res_flags;
 			sprintf(buf,
-			        "{W[%12s] {HRES: {G[%-25s]{x",
+			        "{W[%12s] {HRES: {G%s{x\n",
 			        victim->name,
-			        imm_bit_name(race_table[victim->race].res));
-			add_buf(buffer, buf);
-			sprintf(buf, " %s\n", imm_bit_name(flags));
+			        print_defense_modifiers(victim, TO_RESIST));
 			add_buf(buffer, buf);
 		}
 
@@ -598,14 +588,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->vuln_flags;
-			flags -= race_table[victim->race].vuln & victim->vuln_flags;
 			sprintf(buf,
-			        "{W[%12s] {TVUL: {C[%-25s]{x",
+			        "{W[%12s] {TVUL: {C%s{x\n",
 			        victim->name,
-			        imm_bit_name(race_table[victim->race].vuln));
-			add_buf(buffer, buf);
-			sprintf(buf, " %s\n", imm_bit_name(flags));
+			        print_defense_modifiers(victim, TO_VULN));
 			add_buf(buffer, buf);
 		}
 
@@ -709,7 +695,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	const char *rest;
 	CHAR_DATA *mob;
 	OBJ_DATA  *obj;
-	int i, j;
+	int j;
 	int number;
 	rest = one_argument(argument, arg);
 
@@ -772,11 +758,6 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 			}
 
 			clone_object(obj, clone);
-
-			for (i = 1; i < MAX_SPELL; i++) {
-				clone->spell[i] = obj->spell[i];
-				clone->spell_lev[i] = obj->spell_lev[i];
-			}
 
 			if (obj->carried_by != NULL)
 				obj_to_char(clone, ch);
@@ -1108,7 +1089,6 @@ void do_deputize(CHAR_DATA *ch, const char *argument)
 void do_despell(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	int i;
 	char arg[MAX_INPUT_LENGTH];
 	argument = one_argument(argument, arg);
 
@@ -1121,11 +1101,6 @@ void do_despell(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		stc("No such item.\n", ch);
 		return;
-	}
-
-	for (i = 1; i < MAX_SPELL; i++) {
-		obj->spell[i] = 0;
-		obj->spell_lev[i] = 0;
 	}
 
 	stc("Item cleared of all spells.\n", ch);
@@ -2285,12 +2260,8 @@ void do_master(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	SET_BIT(pet->act, ACT_PET);
-	SET_BIT(pet->affected_by, AFF_CHARM);
-	pet->comm = COMM_NOCHANNELS;
-	add_follower(pet, victim);
-	pet->leader = victim;
-	victim->pet = pet;
+	make_pet(ch, pet);
+
 	stc("You have set the player with a pet.\n", ch);
 	stc("You have been set with a new pet.\n", victim);
 	stc("You have been turned into a pet!\n", pet);
@@ -3329,15 +3300,17 @@ void do_qpconv(CHAR_DATA *ch, const char *argument)
 
 void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	affect_strip(victim, gsn_plague);
-	affect_strip(victim, gsn_poison);
-	affect_strip(victim, gsn_blindness);
-	affect_strip(victim, gsn_sleep);
-	affect_strip(victim, gsn_curse);
-	affect_strip(victim, gsn_fear);
-	victim->hit     = victim->max_hit;
-	victim->mana    = victim->max_mana;
-	victim->stam    = victim->max_stam;
+	affect_remove_sn_from_char(victim, gsn_plague);
+	affect_remove_sn_from_char(victim, gsn_poison);
+	affect_remove_sn_from_char(victim, gsn_blindness);
+	affect_remove_sn_from_char(victim, gsn_dirt_kicking);
+	affect_remove_sn_from_char(victim, gsn_fire_breath);
+	affect_remove_sn_from_char(victim, gsn_sleep);
+	affect_remove_sn_from_char(victim, gsn_curse);
+	affect_remove_sn_from_char(victim, gsn_fear);
+	victim->hit     = GET_MAX_HIT(victim);
+	victim->mana    = GET_MAX_MANA(victim);
+	victim->stam    = GET_MAX_STAM(victim);
 	update_pos(victim);
 	act_new("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 }
@@ -3988,7 +3961,7 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 	char strsave[MAX_INPUT_LENGTH];
 	FILE *fp;
 	CHAR_DATA *victim;
-	int stat, sn;
+	int sn;
 	one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {
@@ -4025,18 +3998,12 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 	}
 
 	victim->level                   = MAX_LEVEL;
-	victim->max_hit                 = 30000;
-	victim->max_mana                = 30000;
-	victim->max_stam                = 30000;
-	victim->pcdata->perm_hit        = 30000;
-	victim->pcdata->perm_mana       = 30000;
-	victim->pcdata->perm_stam       = 30000;
-	victim->hit                     = victim->max_hit;
-	victim->mana                    = victim->max_mana;
-	victim->stam                    = victim->max_stam;
+	victim->hit  = ATTR_BASE(victim, APPLY_HIT)        = 30000;
+	victim->mana = ATTR_BASE(victim, APPLY_MANA)       = 30000;
+	victim->stam = ATTR_BASE(victim, APPLY_STAM)       = 30000;
 
-	for (stat = 0; stat < MAX_STATS; stat++)
-		victim->perm_stat[stat] = 25;
+	for (int stat = 0; stat < MAX_STATS; stat++)
+		ATTR_BASE(victim, stat_to_attr(stat)) = 25;
 
 	for (sn = 0; sn < MAX_SKILL; sn++)
 		if (skill_table[sn].name != NULL)

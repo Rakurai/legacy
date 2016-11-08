@@ -39,7 +39,8 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim = NULL;
 	OBJ_DATA *object;
 	ROOM_INDEX_DATA *room;
-	long *flag, old = 0, new = 0, marked = 0, pos, fieldptr, length;
+	unsigned long *flag;
+	int old = 0, new = 0, marked = 0, pos, fieldptr, length;
 	char type;
 	const struct flag_type *flag_table;
 	argument = one_argument(argument, arg1);
@@ -123,27 +124,11 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 
 			switch (fieldptr) {
 			case FIELD_ACT:         flag = &victim->act;            break;
-
 			case FIELD_OFF:         flag = &victim->off_flags;      break;
-
 			case FIELD_FORM:        flag = &victim->form;           break;
-
 			case FIELD_PART:        flag = &victim->parts;          break;
-
-			case FIELD_AFFECT:      flag = &victim->affected_by;    break;
-
-			case FIELD_DRAIN:       flag = &victim->drain_flags;    break;
-
-			case FIELD_IMMUNE:      flag = &victim->imm_flags;      break;
-
-			case FIELD_RESIST:      flag = &victim->res_flags;      break;
-
-			case FIELD_VULN:        flag = &victim->vuln_flags;     break;
-
 			case FIELD_COMM:        flag = &victim->comm;           break;
-
 			case FIELD_CENSOR:      flag = &victim->censor;         break;
-
 			case FIELD_REVOKE:      flag = &victim->revoke;         break;
 
 			default:
@@ -170,16 +155,6 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 			case FIELD_WIZNET:      flag = &victim->wiznet;         break;
 
 			case FIELD_CGROUP:      flag = &victim->pcdata->cgroup; break;
-
-			case FIELD_AFFECT:      flag = &victim->affected_by;    break;
-
-			case FIELD_DRAIN:       flag = &victim->drain_flags;    break;
-
-			case FIELD_IMMUNE:      flag = &victim->imm_flags;      break;
-
-			case FIELD_RESIST:      flag = &victim->res_flags;      break;
-
-			case FIELD_VULN:        flag = &victim->vuln_flags;     break;
 
 			case FIELD_COMM:        flag = &victim->comm;           break;
 
@@ -224,8 +199,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			flag = (long *) & (object->value[4]);            break;
-
+			flag = (unsigned long *) & (object->value[4]);            break;
 		default:
 			stc("That's not an acceptable object flag.\n", ch);
 			return;
@@ -449,16 +423,6 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 
 		case FIELD_CGROUP:      flag = victim->pcdata->cgroup;  break;
 
-		case FIELD_AFFECT:      flag = victim->affected_by;     break;
-
-		case FIELD_DRAIN:       flag = victim->drain_flags;     break;
-
-		case FIELD_IMMUNE:      flag = victim->imm_flags;       break;
-
-		case FIELD_RESIST:      flag = victim->res_flags;       break;
-
-		case FIELD_VULN:        flag = victim->vuln_flags;      break;
-
 		case FIELD_COMM:        flag = victim->comm;            break;
 
 		case FIELD_CENSOR:      flag = victim->censor;          break;
@@ -514,16 +478,6 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 		case FIELD_FORM:        flag = victim->form;            break;
 
 		case FIELD_PART:        flag = victim->parts;           break;
-
-		case FIELD_AFFECT:      flag = victim->affected_by;     break;
-
-		case FIELD_DRAIN:       flag = victim->drain_flags;     break;
-
-		case FIELD_IMMUNE:      flag = victim->imm_flags;       break;
-
-		case FIELD_RESIST:      flag = victim->res_flags;       break;
-
-		case FIELD_VULN:        flag = victim->vuln_flags;      break;
 
 		case FIELD_COMM:        flag = victim->comm;            break;
 
@@ -613,7 +567,7 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 				continue;
 
 			switch (fieldptr) {
-			case FIELD_ROOM:        flag = room->room_flags;        break;
+			case FIELD_ROOM:        flag = GET_ROOM_FLAGS(room);        break;
 
 			default:                                                return;
 			}
@@ -857,11 +811,6 @@ void do_flagsearch(CHAR_DATA *ch, const char *argument)
 
 		case FIELD_REVOKE:
 		case FIELD_CENSOR:
-		case FIELD_AFFECT:
-		case FIELD_DRAIN:
-		case FIELD_IMMUNE:
-		case FIELD_RESIST:
-		case FIELD_VULN:
 		case FIELD_COMM:                                break;
 
 		default:        /* just in case */

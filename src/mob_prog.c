@@ -27,6 +27,7 @@
  ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 /*
  * Local function prototypes
@@ -481,18 +482,18 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return IS_AFFECTED(mob, AFF_CHARM) ? 1 : 0;
+		case 'i': return affect_exists_on_char(mob, gsn_charm_person) ? 1 : 0;
 
 		case 'n': if (actor)
-				return IS_AFFECTED(actor, AFF_CHARM) ? 1 : 0;
+				return affect_exists_on_char(actor, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return IS_AFFECTED(vict, AFF_CHARM) ? 1 : 0;
+				return affect_exists_on_char(vict, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return IS_AFFECTED(rndm, AFF_CHARM) ? 1 : 0;
+				return affect_exists_on_char(rndm, gsn_charm_person) ? 1 : 0;
 			else return -1;
 
 		default:
@@ -579,38 +580,43 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 			return -1;
 		}
 	}
-
+#if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
 	if (!str_cmp(buf, "isaffected")) {
+		int sn = skill_lookup(arg);
+
+		if (sn <= 0) {
+			bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
+		}
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return (mob->affected_by & atoi(arg));
+		case 'i': return affect_flag_on_char(mob, atoi(arg));
 
 		case 'n': if (actor)
-				return (actor->affected_by & atoi(arg));
+				return affect_flag_on_char(actor, atoi(arg));
 			else return -1;
 
 		case 't': if (vict)
-				return (vict->affected_by & atoi(arg));
+				return affect_flag_on_char(vict, atoi(arg));
 			else return -1;
 
 		case 'r': if (rndm)
-				return (rndm->affected_by & atoi(arg));
+				return affect_flag_on_char(rndm, atoi(arg));
 			else return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isaffected'",
-			    mob->pIndexData->vnum);
+			bug("Mob: %d bad argument '%s' to 'isaffected'",
+			    mob->pIndexData->vnum, );
 			return -1;
 		}
 	}
-
+#endif // ifdef 0
 	if (!str_cmp(buf, "hitprcnt")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->hit / mob->max_hit;
+		case 'i': lhsvl = mob->hit / GET_MAX_HIT(mob);
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = actor->hit / actor->max_hit;
+				lhsvl = actor->hit / GET_MAX_HIT(actor);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -618,7 +624,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = vict->hit / vict->max_hit;
+				lhsvl = vict->hit / GET_MAX_HIT(vict);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -626,7 +632,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = rndm->hit / rndm->max_hit;
+				lhsvl = rndm->hit / GET_MAX_HIT(rndm);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -677,12 +683,12 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "sex")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = GET_SEX(mob);
+		case 'i': lhsvl = GET_ATTR_SEX(mob);
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = GET_SEX(actor);
+				lhsvl = GET_ATTR_SEX(actor);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -690,7 +696,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = GET_SEX(vict);
+				lhsvl = GET_ATTR_SEX(vict);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -698,7 +704,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = GET_SEX(rndm);
+				lhsvl = GET_ATTR_SEX(rndm);
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -1392,75 +1398,75 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'e':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, he_she[GET_SEX(actor)])
+			can_see(mob, actor) ? strcpy(t, he_she[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'm':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, him_her[GET_SEX(actor)])
+			can_see(mob, actor) ? strcpy(t, him_her[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 's':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, his_her[GET_SEX(actor)])
+			can_see(mob, actor) ? strcpy(t, his_her[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone's");
 
 		break;
 
 	case 'E':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, he_she[GET_SEX(vict)])
+			can_see(mob, vict) ? strcpy(t, he_she[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'M':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, him_her[GET_SEX(vict)])
+			can_see(mob, vict) ? strcpy(t, him_her[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'S':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, his_her[GET_SEX(vict)])
+			can_see(mob, vict) ? strcpy(t, his_her[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone's");
 
 		break;
 
 	case 'j':
-		strcpy(t, he_she[GET_SEX(mob)]);
+		strcpy(t, he_she[GET_ATTR_SEX(mob)]);
 		break;
 
 	case 'k':
-		strcpy(t, him_her[GET_SEX(mob)]);
+		strcpy(t, him_her[GET_ATTR_SEX(mob)]);
 		break;
 
 	case 'l':
-		strcpy(t, his_her[GET_SEX(mob)]);
+		strcpy(t, his_her[GET_ATTR_SEX(mob)]);
 		break;
 
 	case 'J':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, he_she[GET_SEX(rndm)])
+			can_see(mob, rndm) ? strcpy(t, he_she[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'K':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, him_her[GET_SEX(rndm)])
+			can_see(mob, rndm) ? strcpy(t, him_her[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'L':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, his_her[GET_SEX(rndm)])
+			can_see(mob, rndm) ? strcpy(t, his_her[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone's");
 
 		break;
@@ -1581,7 +1587,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	CHAR_DATA *vch   = NULL;
 	int        count = 0;
 
-	/*    if IS_AFFECTED( mob, AFF_CHARM )
+	/*    if affect_exists_on_char( mob, gsn_charm_person )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */
@@ -1854,7 +1860,7 @@ void mprog_hitprcnt_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 	    && (mob->pIndexData->progtypes & HITPRCNT_PROG))
 		for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 			if ((mprg->type & HITPRCNT_PROG)
-			    && ((100 * mob->hit / mob->max_hit) < atoi(mprg->arglist))) {
+			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
 				mprog_driver(mprg->comlist, mob, ch, NULL, NULL);
 				break;
 			}

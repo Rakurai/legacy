@@ -27,6 +27,8 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
+#include "affect_list.h"
 
 extern CHAR_DATA *dv_char;
 extern char dv_command[];
@@ -248,6 +250,7 @@ void free_affect(AFFECT_DATA *af)
 	affect_free = af;
 }
 
+
 /* stuff for recycling objects */
 OBJ_DATA *obj_free;
 
@@ -275,22 +278,14 @@ OBJ_DATA *new_obj(void)
 
 void free_obj(OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf, *paf_next;
 	EXTRA_DESCR_DATA *ed, *ed_next;
 
 	if (!IS_VALID(obj))
 		return;
 
 	// data wholly owned by this obj
-	for (paf = obj->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
-	}
-
-	for (paf = obj->gem_affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
-	}
+	affect_clear_list(&obj->affected);
+	affect_clear_list(&obj->gem_affected);
 
 	for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 		ed_next = ed->next;
@@ -334,19 +329,15 @@ CHAR_DATA *new_char(void)
 	ch->lines                   = PAGELEN;
 
 	for (int i = 0; i < 4; i++)
-		ch->armor_a[i]            = 100;
+		ch->armor_base[i]            = 100;
 
 	ch->position                = POS_STANDING;
-	ch->hit                     = 20;
-	ch->max_hit                 = 20;
-	ch->mana                    = 100;
-	ch->max_mana                = 100;
-	ch->stam                    = 100;
-	ch->max_stam                = 100;
+	ch->hit  = ATTR_BASE(ch, APPLY_HIT)                 = 20;
+	ch->mana = ATTR_BASE(ch, APPLY_MANA)                = 100;
+	ch->mana = ATTR_BASE(ch, APPLY_STAM)                = 100;
 
-	for (int i = 0; i < MAX_STATS; i ++) {
-		ch->perm_stat[i] = 13;
-	}
+	for (int stat = 0; stat < MAX_STATS; stat++)
+		ATTR_BASE(ch, stat_to_attr(stat)) = 13;
 
 	VALIDATE(ch);
 	return ch;
@@ -355,7 +346,6 @@ CHAR_DATA *new_char(void)
 void free_char(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj, *obj_next;
-	AFFECT_DATA *paf, *paf_next;
 	TAIL_DATA *td;
 
 	if (!IS_VALID(ch))
@@ -381,10 +371,7 @@ void free_char(CHAR_DATA *ch)
 		}
 	}
 
-	for (paf = ch->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
-	}
+	affect_clear_list(&ch->affected);
 
 	/* stop active TAILs, if any -- Elrac */
 	if (!IS_NPC(ch) && ch->pcdata && ch->pcdata->tailing)
@@ -406,6 +393,13 @@ void free_char(CHAR_DATA *ch)
 
 	if (ch->pcdata != NULL)
 		free_pcdata(ch->pcdata);
+
+	if (ch->apply_cache)
+		free_mem(ch->apply_cache, APPLY_CACHE_MEM_SIZE);
+	if (ch->defense_mod)
+		free_mem(ch->defense_mod, DEFENSE_MOD_MEM_SIZE);
+	if (ch->affect_cache)
+		free_affect_cache(ch);
 
 	free_string(ch->name);
 	free_string(ch->short_descr);

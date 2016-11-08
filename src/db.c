@@ -30,8 +30,11 @@
 #include "sql.h"
 #include "lookup.h"
 #include "music.h"
+#include "affect.h"
+#include "affect_list.h"
 
 extern  int     _filbuf         args((FILE *));
+extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head, const AFFECT_DATA *paf ));
 
 /*
  * Globals.
@@ -74,6 +77,7 @@ sh_int  gsn_animate_gargoyle;
 sh_int  gsn_animate_zombie;
 sh_int  gsn_armor;
 sh_int  gsn_bless;
+sh_int  gsn_blind_fight;
 sh_int  gsn_blindness;
 sh_int  gsn_blizzard;
 sh_int  gsn_blood_blade;
@@ -153,8 +157,9 @@ sh_int  gsn_heat_metal;
 sh_int  gsn_high_explosive;
 sh_int  gsn_holy_word;
 sh_int  gsn_identify;
-sh_int  gsn_infravision;
+sh_int  gsn_night_vision;
 sh_int  gsn_invis;
+//sh_int  gsn_ironskin;
 sh_int  gsn_know_alignment;
 sh_int  gsn_light_of_truth;
 sh_int  gsn_lightning_bolt;
@@ -929,10 +934,11 @@ void load_mobiles(FILE *fp)
 		pMobIndex->race                 = race_lookup(fread_string(fp));
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
-		pMobIndex->act                  = fread_flag(fp) | ACT_IS_NPC
-		                                  | race_table[pMobIndex->race].act;
-		pMobIndex->affected_by          = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].aff;
+		pMobIndex->act                  = fread_flag(fp) | race_table[pMobIndex->race].act;
+
+		// affect flags no longer includes flags already on the race affect bitvector
+		pMobIndex->affect_flags         = fread_flag(fp) & ~race_table[pMobIndex->race].aff;
+
 		pMobIndex->pShop                = NULL;
 		pMobIndex->alignment            = fread_number(fp);
 		pMobIndex->group                = fread_flag(fp);
@@ -965,22 +971,32 @@ void load_mobiles(FILE *fp)
 		/* read flags and add in data from the race table */
 		pMobIndex->off_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].off;
-		pMobIndex->drain_flags          = 0; /* fix when we change the area versions */
-		pMobIndex->imm_flags            = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].imm;
-		pMobIndex->res_flags            = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].res;
-		pMobIndex->vuln_flags           = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].vuln;
+
+		// defense flags no longer includes flags already on the race bitvector
+		pMobIndex->absorb_flags         = 0; /* fix when we change the area versions */
+		pMobIndex->imm_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].imm;
+		pMobIndex->res_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].res;
+		pMobIndex->vuln_flags           = fread_flag(fp) & ~race_table[pMobIndex->race].vuln;
+
+		// fix old style ACT_IS_NPC (A) flag, changed to ACT_NOSUMMON (A)
+		REMOVE_BIT(pMobIndex->act, A);
+
+		// fix old style IMM_SUMMON (A) flag, changed to ACT_NOSUMMON (A)
+		if (IS_SET(pMobIndex->imm_flags, A))
+			SET_BIT(pMobIndex->act, ACT_NOSUMMON);
+		REMOVE_BIT(pMobIndex->imm_flags, A);
+		REMOVE_BIT(pMobIndex->res_flags, A);
+		REMOVE_BIT(pMobIndex->vuln_flags, A);
+
 		/* vital statistics */
 		pMobIndex->start_pos        = position_lookup(fread_word(fp));
 
-		if (pMobIndex->start_pos == POS_STANDING && IS_SET(pMobIndex->affected_by, AFF_FLYING))
+		if (pMobIndex->start_pos == POS_STANDING && IS_SET(pMobIndex->affect_flags, AFF_FLYING))
 			pMobIndex->start_pos = POS_FLYING;
 
 		pMobIndex->default_pos      = position_lookup(fread_word(fp));
 
-		if (pMobIndex->default_pos == POS_STANDING && IS_SET(pMobIndex->affected_by, AFF_FLYING))
+		if (pMobIndex->default_pos == POS_STANDING && IS_SET(pMobIndex->affect_flags, AFF_FLYING))
 			pMobIndex->default_pos = POS_FLYING;
 
 		pMobIndex->sex              = sex_lookup(fread_word(fp));
@@ -1017,11 +1033,11 @@ void load_mobiles(FILE *fp)
 				if (!str_prefix1(word, "act"))
 					REMOVE_BIT(pMobIndex->act, vector);
 				else if (!str_prefix1(word, "aff"))
-					REMOVE_BIT(pMobIndex->affected_by, vector);
+					REMOVE_BIT(pMobIndex->affect_flags, vector);
 				else if (!str_prefix1(word, "off"))
 					REMOVE_BIT(pMobIndex->off_flags, vector);
 				else if (!str_prefix1(word, "drn"))
-					REMOVE_BIT(pMobIndex->drain_flags, vector);
+					REMOVE_BIT(pMobIndex->absorb_flags, vector);
 				else if (!str_prefix1(word, "imm"))
 					REMOVE_BIT(pMobIndex->imm_flags, vector);
 				else if (!str_prefix1(word, "res"))
@@ -1208,61 +1224,46 @@ void load_objects(FILE *fp)
 			letter = fread_letter(fp);
 
 			if (letter == 'A') {
-				AFFECT_DATA *paf;
-				paf                     = alloc_perm(sizeof(*paf));
-				paf->where              = TO_OBJECT;
-				paf->type               = -1;
-				paf->level              = pObjIndex->level;
-				paf->duration           = -1;
-				paf->location           = fread_number(fp);
-				paf->modifier           = fread_number(fp);
-				paf->bitvector          = 0;
-				paf->evolution          = 1;
-				paf->next               = pObjIndex->affected;
-				pObjIndex->affected     = paf;
-				top_affect++;
+				AFFECT_DATA af;
+				af.type               = 0;
+				af.level              = pObjIndex->level;
+				af.duration           = -1;
+				af.location           = fread_number(fp);
+				af.modifier           = fread_number(fp);
+				af.evolution          = 1;
+
+				unsigned int bitvector = 0;
+				if (affect_parse_prototype('O', &af, &bitvector)) {
+					affect_copy_to_list(&pObjIndex->affected, &af);
+					top_affect++;
+				}
 			}
 			else if (letter == 'F') {
-				AFFECT_DATA *paf;
-				paf                     = alloc_perm(sizeof(*paf));
-				letter                  = fread_letter(fp);
+				AFFECT_DATA af;
+				af.type               = 0;
+				af.level              = pObjIndex->level;
+				af.duration           = -1;
+				af.evolution          = 1;
 
-				switch (letter) {
-				case 'A':
-					paf->where          = TO_AFFECTS;
-					break;
+				letter          = fread_letter(fp);
+				af.location     = fread_number(fp); // for TO_AFFECTS
+				af.modifier     = fread_number(fp); // for TO_AFFECTS
 
-				case 'D':
-					paf->where          = TO_DRAIN;
-					break;
+				unsigned int bitvector    = fread_flag(fp);
 
-				case 'I':
-					paf->where          = TO_IMMUNE;
-					break;
+				// do at least once even if no bitvector
+				do {
+					af.type = 0; // reset every time
 
-				case 'R':
-					paf->where          = TO_RESIST;
-					break;
+					if (affect_parse_prototype(letter, &af, &bitvector)) {
+						affect_copy_to_list(&pObjIndex->affected, &af); 
+						top_affect++;
 
-				case 'V':
-					paf->where          = TO_VULN;
-					break;
-
-				default:
-					bug("Load_objects: Bad where on flag set.", 0);
-					exit(1);
-				}
-
-				paf->type               = -1;
-				paf->level              = pObjIndex->level;
-				paf->duration           = -1;
-				paf->location           = fread_number(fp);
-				paf->modifier           = fread_number(fp);
-				paf->bitvector          = fread_flag(fp);
-				paf->evolution          = 1;
-				paf->next               = pObjIndex->affected;
-				pObjIndex->affected     = paf;
-				top_affect++;
+						// don't multiply the modifier, just apply to the first bit
+						af.location = 0;
+						af.modifier = 0;
+					}
+				} while (bitvector != 0);
 			}
 			else if (letter == 'E') {
 				EXTRA_DESCR_DATA *ed;
@@ -1281,6 +1282,9 @@ void load_objects(FILE *fp)
 				break;
 			}
 		}
+
+		// affects are immutable, compute the checksum now
+		pObjIndex->affect_checksum = affect_checksum_list(&pObjIndex->affected);
 
 		iHash                   = vnum % MAX_KEY_HASH;
 		pObjIndex->next         = obj_index_hash[iHash];
@@ -1348,7 +1352,6 @@ void load_rooms(FILE *fp)
 		pRoomIndex->description         = fread_string(fp);
 		pRoomIndex->tele_dest           = fread_number(fp);
 		pRoomIndex->room_flags          = fread_flag(fp);
-		pRoomIndex->original_flags      = pRoomIndex->room_flags;
 
 		/* horrible hack */
 		if (3000 <= vnum && vnum < 3400)
@@ -1360,17 +1363,17 @@ void load_rooms(FILE *fp)
 		for (door = 0; door <= 5; door++)
 			pRoomIndex->exit[door] = NULL;
 
-		if (IS_SET(pRoomIndex->room_flags, ROOM_FEMALE_ONLY)) {
+		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY)) {
 			sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
-		if (IS_SET(pRoomIndex->room_flags, ROOM_MALE_ONLY)) {
+		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY)) {
 			sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
-		if (IS_SET(pRoomIndex->room_flags, ROOM_LOCKER)) {
+		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_LOCKER)) {
 			sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
 			log_string(log_buf);
 		}

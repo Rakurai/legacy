@@ -5,6 +5,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"
@@ -380,8 +381,8 @@ void view_room_hpbar(CHAR_DATA *ch)
 
 	chal = duel->challenger;
 	def  = duel->defender;
-	chalpct = URANGE(1, 10 * chal->hit / chal->max_hit, 10);
-	defpct  = URANGE(1, 10 * def->hit  / def->max_hit,  10);
+	chalpct = URANGE(1, 10 * chal->hit / GET_MAX_HIT(chal), 10);
+	defpct  = URANGE(1, 10 * def->hit  / GET_MAX_HIT(def),  10);
 	sprintf(chalblock, "{C%s{C [", chal->name);
 
 	if (chalpct <= 3)       strcat(chalblock, "{P");
@@ -515,10 +516,6 @@ void duel_kill(CHAR_DATA *victim)
 
 void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 {
-	AFFECT_DATA *paf;
-	OBJ_DATA *obj;
-	int loc;
-	extern void affect_modify args((CHAR_DATA *, AFFECT_DATA *, bool));
 	char_from_room(ch);
 
 	if (duel->challenger == ch)
@@ -526,23 +523,12 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	else
 		char_to_room(ch, duel->arena->defprep);
 
-	while (ch->affected)
-		affect_remove(ch, ch->affected);
+	// strip spells
+	affect_remove_all_from_char(ch, FALSE);
 
-	ch->affected_by = race_table[ch->race].aff;
-
-	for (loc = 0; loc < MAX_WEAR; loc++) {
-		if ((obj = get_eq_char(ch, loc)) == NULL)
-			continue;
-
-		for (paf = obj->affected; paf != NULL; paf = paf->next)
-			if (paf->where == TO_AFFECTS)
-				affect_modify(ch, paf, TRUE);
-	}
-
-	ch->hit  = ch->max_hit;
-	ch->mana = ch->max_mana;
-	ch->stam = ch->max_stam;
+	ch->hit  = GET_MAX_HIT(ch);
+	ch->mana = GET_MAX_MANA(ch);
+	ch->stam = GET_MAX_STAM(ch);
 	do_look(ch, "auto");
 }
 

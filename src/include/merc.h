@@ -104,7 +104,10 @@ extern int port;
 /*
  * Structure types.
  */
+typedef struct  stat_mod_data           STAT_MOD_DATA;
+typedef struct  flag_mod_data           FLAG_MOD_DATA;
 typedef struct  affect_data             AFFECT_DATA;
+typedef struct  affect_cache_data       AFFECT_CACHE_DATA;
 typedef struct  area_data               AREA_DATA;
 typedef struct  buf_type                BUFFER;
 typedef struct  char_data               CHAR_DATA;
@@ -166,12 +169,16 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
  * Increase the max'es if you add more of something.
  * Adjust the pulse numbers to suit yourself.
  */
+#define MAX_STATS                   6
+#define MAX_ATTR                     30 // last apply (that we want to have bonus modifiers for) + 1
+#define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
+#define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 #define MAX_RAFFECTS	           54
 #define MAX_RAFFECT_SLOTS          10
 #define MAX_EXTRACLASS_SLOTS        5
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
-#define MAX_SKILL                 233   /* added critical blow */
+#define MAX_SKILL                 234
 #define MAX_GROUP                  39
 #define MAX_IN_GROUP               15
 #define MAX_ALIAS                  30
@@ -587,7 +594,6 @@ struct  shop_data
  * Per-class stuff.
  */
 
-#define MAX_STATS       6
 #define STAT_STR        0
 #define STAT_INT        1
 #define STAT_WIS        2
@@ -606,7 +612,7 @@ struct  class_type
 {
     char *      name;                   /* the full name of the class */
     char        who_name        [4];    /* Three-letter name for 'who'  */
-    sh_int      attr_prime;             /* Prime attribute              */
+    sh_int      stat_prime;             /* Prime attribute              */
     sh_int      weapon;                 /* First weapon                 */
     sh_int      skill_adept;            /* Maximum skill level          */
     sh_int      thac0_00;               /* Thac0 for level  0           */
@@ -747,37 +753,46 @@ struct edit_data
     int edit_id;
 };
 
-
 /*
  * An affect.
  */
 struct  affect_data
 {
+    // note: the grouping of these fields is important for computing checksums.
+    // if any of these change (especially these first 4) the checksum function will need updating.
     AFFECT_DATA *       next;
+    AFFECT_DATA *       prev; // now a doubly liked list -- Montrey
     bool                valid;
+    bool                mark; // mark for deletion from list, other uses
+
+    // fields included in checksum
     sh_int              where;
     sh_int              type;
     sh_int              level;
     sh_int              duration;
     sh_int              location;
     sh_int              modifier;
-    int                 bitvector;
-    sh_int		evolution;
-};
+    int                 bitvector; // only for weapon flags now
+    sh_int              evolution;
+    bool                permanent;
+
+} __attribute__((packed, aligned(1))); // no alignment padding, for checksums
 
 /* where definitions */
 #define TO_AFFECTS      0
-#define TO_OBJECT       1
-#define TO_IMMUNE       2
-#define TO_RESIST       3
-#define TO_VULN         4
+#define TO_OBJECT       1 // obj->extra_flags
+#define TO_DEFENSE      2
 #define TO_WEAPON       5
 /* new definitions for room affects -- Montrey */
 #define TO_ROOMFLAGS	6
 #define TO_HPREGEN	7
 #define TO_MPREGEN	8
-/* blah, hate adding something out of order */
-#define TO_DRAIN	9
+
+// these aren't used by affects, just to communicate what kind of defense for printing things
+#define TO_ABSORB  20
+#define TO_IMMUNE  21
+#define TO_RESIST  22
+#define TO_VULN    23
 
 
 /*
@@ -937,7 +952,8 @@ struct  kill_data
  * ACT bits for mobs.
  * Used in #MOBILES.
  */
-#define ACT_IS_NPC              (A)             /* Auto set for mobs    */
+//#define ACT_IS_NPC              (A)             /* Auto set for mobs    */
+#define ACT_NOSUMMON            (A)             // now matches plr_nosummon
 #define ACT_SENTINEL            (B)             /* Stays in one room    */
 #define ACT_SCAVENGER           (C)             /* Picks up objects     */
 #define ACT_WHOKNOWS1           (D)             /* Unknown flag         */
@@ -1019,36 +1035,10 @@ struct  kill_data
 #define IS_NORMAL               1
 #define IS_RESISTANT            2
 #define IS_IMMUNE               3
-#define IS_DRAINING		4
-
-/* DRAIN bits */
-#define DRAIN_SUMMON              (A)
-#define DRAIN_CHARM               (B)
-#define DRAIN_MAGIC               (C)
-#define DRAIN_WEAPON              (D)
-#define DRAIN_BASH                (E)
-#define DRAIN_PIERCE              (F)
-#define DRAIN_SLASH               (G)
-#define DRAIN_FIRE                (H)
-#define DRAIN_COLD                (I)
-#define DRAIN_ELECTRICITY         (J)
-#define DRAIN_ACID                (K)
-#define DRAIN_POISON              (L)
-#define DRAIN_NEGATIVE            (M)
-#define DRAIN_HOLY                (N)
-#define DRAIN_ENERGY              (O)
-#define DRAIN_MENTAL              (P)
-#define DRAIN_DISEASE             (Q)
-#define DRAIN_DROWNING            (R)
-#define DRAIN_LIGHT               (S)
-#define DRAIN_SOUND               (T)
-#define DRAIN_SHADOW              (U)             /* Immune to Shadow Form */
-#define DRAIN_WOOD                (X)
-#define DRAIN_SILVER              (Y)
-#define DRAIN_IRON                (Z)
+#define IS_ABSORBING		4
 
 /* IMM bits for mobs */
-#define IMM_SUMMON              (A)
+//#define IMM_SUMMON              (A)
 #define IMM_CHARM               (B)
 #define IMM_MAGIC               (C)
 #define IMM_WEAPON              (D)
@@ -1068,13 +1058,11 @@ struct  kill_data
 #define IMM_DROWNING            (R)
 #define IMM_LIGHT               (S)
 #define IMM_SOUND               (T)
-#define IMM_SHADOW              (U)             /* Immune to Shadow Form */
 #define IMM_WOOD                (X)
 #define IMM_SILVER              (Y)
 #define IMM_IRON                (Z)
 
 /* RES bits for mobs */
-#define RES_SUMMON              (A)
 #define RES_CHARM               (B)
 #define RES_MAGIC               (C)
 #define RES_WEAPON              (D)
@@ -1099,7 +1087,6 @@ struct  kill_data
 #define RES_IRON                (Z)
 
 /* VULN bits for mobs */
-#define VULN_SUMMON             (A)
 #define VULN_CHARM              (B)
 #define VULN_MAGIC              (C)
 #define VULN_WEAPON             (D)
@@ -1182,7 +1169,7 @@ struct  kill_data
 
 
 /*
- * Bits for 'affected_by'.
+ * Bits for 'affect_bits'.
  * Used in #MOBILES.
  */
 #define AFF_BLIND               (A)
@@ -1194,7 +1181,7 @@ struct  kill_data
 #define AFF_DETECT_GOOD         (G)
 #define AFF_SANCTUARY           (H)
 #define AFF_FAERIE_FIRE         (I)
-//#define AFF_INFRARED            (J)
+#define AFF_INFRARED            (J)
 #define AFF_CURSE               (K)
 #define AFF_FEAR                (L)
 #define AFF_POISON              (M)
@@ -1459,18 +1446,22 @@ struct  kill_data
  * Apply types (for affects).
  * Used in #OBJECTS.
  */
-#define APPLY_NONE                    0
+/* 2016 revamp of stats.  These values are now used as the things that affects
+   can modify, and make up the bonus vectors that determine bonuses to hp, mana,
+   hitroll, etc.  Changing these numbers can have drastic affects on both player
+   files and area files. -- Montrey */
+#define APPLY_NONE                    0 // wasted in bonus vector, but oh well
 #define APPLY_STR                     1
 #define APPLY_DEX                     2
 #define APPLY_INT                     3
 #define APPLY_WIS                     4
 #define APPLY_CON                     5
 #define APPLY_SEX                     6
-#define APPLY_CLASS                   7
-#define APPLY_LEVEL                   8
+//#define APPLY_CLASS                   7
+//#define APPLY_LEVEL                   8
 #define APPLY_AGE                     9
-#define APPLY_HEIGHT                 10
-#define APPLY_WEIGHT                 11
+//#define APPLY_HEIGHT                 10
+//#define APPLY_WEIGHT                 11
 #define APPLY_MANA                   12
 #define APPLY_HIT                    13
 #define APPLY_STAM                   14
@@ -1485,11 +1476,11 @@ struct  kill_data
 #define APPLY_SAVING_PETRI           22
 #define APPLY_SAVING_BREATH          23
 #define APPLY_SAVING_SPELL           24
-#define APPLY_SPELL_AFFECT           25
+//#define APPLY_SPELL_AFFECT           25
 #define APPLY_CHR                    26
-#define APPLY_SHEEN                  27
-#define APPLY_BARRIER                28
-#define APPLY_FOCUS                  29
+//#define APPLY_SHEEN                  27
+//#define APPLY_BARRIER                28
+//#define APPLY_FOCUS                  29
 
 
 /*
@@ -1680,9 +1671,10 @@ struct  kill_data
 /*
  * ACT bits for players.
  */
-#define PLR_IS_NPC              (A)             /* Don't EVER set.      */
+//#define PLR_IS_NPC              (A)             /* Don't EVER set.      */
 
 /* RT auto flags */
+#define PLR_NOSUMMON            (A)
 #define PLR_LOOKINPIT           (B)
 #define PLR_AUTOASSIST          (C)
 #define PLR_AUTOEXIT            (D)
@@ -1699,7 +1691,7 @@ struct  kill_data
 #define PLR_VT100               (M)
 #define PLR_MAKEBAG             (O)
 #define PLR_CANLOOT             (P)
-#define PLR_NOSUMMON            (Q)
+//#define PLR_NOSUMMON            (Q)  moved to A to match NPC flag
 #define PLR_NOFOLLOW            (R)
 #define PLR_COLOR               (S)
 
@@ -1871,7 +1863,7 @@ struct  mob_index_data
     char *              long_descr;
     char *              description;
     long                act;
-    long                affected_by;
+    long                affect_flags;
     sh_int              alignment;
     sh_int              level;
     sh_int              hitroll;
@@ -1881,7 +1873,7 @@ struct  mob_index_data
     sh_int              ac[4];
     sh_int              dam_type;
     long                off_flags;
-    long		drain_flags;
+    long		        absorb_flags;
     long                imm_flags;
     long                res_flags;
     long                vuln_flags;
@@ -1993,7 +1985,25 @@ struct  char_data
     CLAN_DATA *         clan;
     CLAN_DATA *		inviters;
     bool		invitation_accepted;
-    sh_int              sex;
+
+    /* stats */
+//    sh_int              base_stat[MAX_STATS];
+//    sh_int              mod_stat[MAX_STATS];
+
+    int                 attr_base[MAX_ATTR];
+    int *               apply_cache; // maximum stat without eq/affects
+    void *              affect_cache;
+    sh_int *            defense_mod;
+//    long                affect_bits;
+//    long      drain_flags;
+//    long                imm_flags;
+//    long                res_flags;
+//    long                vuln_flags;
+
+    sh_int              hit;
+    sh_int              mana;
+    sh_int              stam;
+
     sh_int              class;
     sh_int              race;
     sh_int              level;
@@ -2004,49 +2014,31 @@ struct  char_data
     sh_int              wait;
     sh_int              daze;
     sh_int              fightpulse;
-    sh_int              hit;
-    sh_int              max_hit;
-    sh_int              mana;
-    sh_int              max_mana;
-    sh_int              stam;
-    sh_int              max_stam;
     long                gold;
     long                silver;
     long                gold_in_bank;
     long                silver_in_bank;
     int                 exp;
-    long                act;
-    long                comm;   /* RT added to pad the vector */
-    long                revoke;  /* New Revoke stuff */
-    long                wiznet; /* wiz stuff */
-    long		censor;			/* New censor flags -- Montrey */
-    long		drain_flags;
-    long                imm_flags;
-    long                res_flags;
-    long                vuln_flags;
+    unsigned long       act;
+    unsigned long       comm;   /* RT added to pad the vector */
+    unsigned long       revoke;  /* New Revoke stuff */
+    unsigned long       wiznet; /* wiz stuff */
+    unsigned long       censor;			/* New censor flags -- Montrey */
     sh_int              invis_level;
     sh_int              lurk_level;
-    long                affected_by;
     sh_int              position;
     sh_int              practice;
     sh_int              train;
-    sh_int              saving_throw;
     sh_int              alignment;
-    sh_int              hitroll;
-    sh_int              damroll;
-	sh_int		armor_a[4];
-	sh_int		armor_m[4];
+	sh_int		armor_base[4];
     sh_int              wimpy;
-    /* stats */
-    sh_int              perm_stat[MAX_STATS];
-    sh_int              mod_stat[MAX_STATS];
     /* parts stuff */
-    long                form;
-    long                parts;
+    unsigned long       form;
+    unsigned long       parts;
     sh_int              size;
     char*               material;
     /* mobile stuff */
-    long                off_flags;
+    unsigned long       off_flags;
     sh_int              damage[3];
     sh_int              dam_type;
     sh_int              start_pos;
@@ -2117,14 +2109,10 @@ struct  pc_data
 	time_t			last_changes;
 	time_t			last_personal;
 	time_t			last_trade;
-	sh_int			perm_hit;
-	sh_int			perm_mana;
-	sh_int			perm_stam;
 	sh_int			trains_to_hit;			/* Montrey */
 	sh_int			trains_to_mana;			/* Montrey */
 	sh_int			trains_to_stam;			/* Montrey */
 	sh_int			mud_exp;			/* Montrey */
-	sh_int              true_sex;
 	int                 pckills;
 	int                 pckilled;
 	sh_int                 arenakills;			/* Tarrant */
@@ -2159,8 +2147,8 @@ struct  pc_data
 	CHAR_DATA *         gargoyle;			/* Lotus */
 	sh_int              color         [MAX_COLORS];
 	sh_int              bold          [MAX_COLORS];
-	long                  cgroup;  /* Command Groups - Xenith */
-   long                plr; /* Extra PLR flags */
+	unsigned long       cgroup;  /* Command Groups - Xenith */
+    unsigned long       plr; /* Extra PLR flags */
    char *              rank;
    sh_int              lastcolor     [2];
    sh_int              pktimer;
@@ -2191,7 +2179,7 @@ struct  pc_data
    DUEL_DATA *	duel;				/* Montrey */
    sh_int      lays;     /* times we can lay on hands */
    sh_int      next_lay_countdown;   /* time before we get power back */
-   sh_int      familiar;          /* PCs can have a familiar -- Outsider */
+   bool      familiar;          /* PCs can have a familiar -- Outsider */
    char        granted_commands[MAX_GRANT][32];    /* granted commands */
 };
 
@@ -2248,6 +2236,7 @@ struct  obj_index_data
     OBJ_INDEX_DATA *    next;
     EXTRA_DESCR_DATA *  extra_descr;
     AFFECT_DATA *       affected;
+    unsigned long       affect_checksum; // for comparing to instances on saving
     char *              name;
     char *              short_descr;
     char *              description;
@@ -2256,8 +2245,8 @@ struct  obj_index_data
     sh_int		version;	/* Object versioning -- Montrey */
     char *              material;
     sh_int              item_type;
-    long                extra_flags; /* Formerly INT */
-    long                wear_flags;  /* Formerly INT */
+    unsigned long       extra_flags; /* Formerly INT */
+    unsigned long       wear_flags;  /* Formerly INT */
     sh_int              level;
     sh_int              condition;
     sh_int              count;
@@ -2295,8 +2284,8 @@ struct obj_data
 	char *			owner;
 	EXTRA_DESCR_DATA *	extra_descr;
 	sh_int			item_type;
-	long			extra_flags;
-	long			wear_flags;
+	unsigned long	extra_flags;
+	unsigned long   wear_flags;
 	int			value[5];
 	sh_int			weight;
 	int			cost;
@@ -2305,16 +2294,17 @@ struct obj_data
 	sh_int			wear_loc;
 	sh_int			timer;
 	sh_int			clean_timer;		/* Montrey */
-	sh_int			spell[MAX_SPELL];
-	sh_int			spell_lev[MAX_SPELL];
 	bool			valid;
+
+    unsigned long   extra_flag_cache;
+    unsigned long   weapon_flag_cache;
 
     /* ugly way to do this: rather than everywhere cycling through the affects given by
        the object's index data separately from the affects given by inset gems, we
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
-    bool            enchanted; // have the affects for this object been modified from the index?  only for saving to file
-    AFFECT_DATA *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
+ //   AFFECT_DATA *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
     AFFECT_DATA *   affected; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
+    bool            affects_modified; // set TRUE if an affect changes, so they can be recompiled in the update loop
 
     char            num_settings;
     OBJ_DATA *      gems; // gems in settings
@@ -2421,8 +2411,10 @@ struct room_index_data
 	sh_int			vnum;
 	sh_int			version;	/* Room versioning -- Montrey */
 	AFFECT_DATA *		affected;		/* Montrey */
-	long			original_flags;		/* Montrey */
-	long			room_flags;
+
+	unsigned long   room_flags;
+    unsigned long   room_flag_cache;
+
 	sh_int			light;
 	sh_int			sector_type;
 	sh_int			heal_rate;
@@ -2509,6 +2501,7 @@ extern sh_int	gsn_animate_gargoyle;
 extern sh_int	gsn_animate_zombie;
 extern sh_int	gsn_armor;
 extern sh_int	gsn_bless;
+extern sh_int   gsn_blind_fight;
 extern sh_int	gsn_blindness;
 extern sh_int	gsn_blizzard;
 extern sh_int	gsn_blood_blade;
@@ -2588,7 +2581,6 @@ extern sh_int	gsn_heat_metal;
 extern sh_int	gsn_high_explosive;
 extern sh_int	gsn_holy_word;
 extern sh_int	gsn_identify;
-extern sh_int	gsn_infravision;
 extern sh_int	gsn_invis;
 extern sh_int	gsn_know_alignment;
 extern sh_int	gsn_light_of_truth;
@@ -2600,6 +2592,7 @@ extern sh_int	gsn_magic_missile;
 extern sh_int	gsn_mass_healing;
 extern sh_int	gsn_mass_invis;
 extern sh_int	gsn_nexus;
+extern sh_int   gsn_night_vision;
 extern sh_int	gsn_pass_door;
 extern sh_int	gsn_plague;
 extern sh_int	gsn_poison;
@@ -2777,9 +2770,41 @@ extern sh_int	gsn_critical_blow;
 /*
  * Character macros.
  */
-#define IS_NPC(ch)              (IS_SET((ch)->act, ACT_IS_NPC))
+#define IS_NPC(ch)              ((ch)->pcdata == NULL ? TRUE : FALSE)
 #define IS_PLAYING(d)		(d && d->connected == CON_PLAYING && d->character)
-#define IS_AFFECTED(ch, sn)     (IS_SET((ch)->affected_by, (sn)))
+
+// Character attribute accessors (see attribute.c for explanations)
+
+#define ATTR_BASE(ch, where) ((ch)->attr_base[where]) // intentionally settable
+#define GET_ATTR_MOD(ch, where)  ((ch)->apply_cache ? (ch)->apply_cache[where] : 0) // intentionally not settable
+#define GET_ATTR(ch, where) (ATTR_BASE(ch, where) + GET_ATTR_MOD(ch, where)) // intentionally not settable
+
+#define GET_ATTR_STR(ch) (URANGE(3, GET_ATTR(ch, APPLY_STR), get_max_stat(ch, STAT_STR)))
+#define GET_ATTR_INT(ch) (URANGE(3, GET_ATTR(ch, APPLY_INT), get_max_stat(ch, STAT_INT)))
+#define GET_ATTR_WIS(ch) (URANGE(3, GET_ATTR(ch, APPLY_WIS), get_max_stat(ch, STAT_WIS)))
+#define GET_ATTR_DEX(ch) (URANGE(3, GET_ATTR(ch, APPLY_DEX), get_max_stat(ch, STAT_DEX)))
+#define GET_ATTR_CON(ch) (URANGE(3, GET_ATTR(ch, APPLY_CON), get_max_stat(ch, STAT_CON)))
+#define GET_ATTR_CHR(ch) (URANGE(3, GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, STAT_CHR)))
+#define GET_ATTR_SEX(ch) (GET_ATTR((ch), APPLY_SEX) % 3) // gives range of 0-2
+#define GET_ATTR_AGE(ch) (get_age(ch))
+#define GET_ATTR_AC(ch)  (GET_ATTR(ch, APPLY_AC)                              \
+                        + ( IS_AWAKE(ch)                                      \
+                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           \
+                        - (( !IS_NPC(ch) && ch->pcdata->remort_count > 0 )    \
+                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
+                                                                                   -1 per 5 remorts -- Montrey */
+#define GET_ATTR_HITROLL(ch) \
+                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
+#define GET_ATTR_DAMROLL(ch) \
+                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR_STR((ch))].todam)
+#define GET_ATTR_SAVES(ch) (GET_ATTR((ch), APPLY_SAVES))
+#define GET_MAX_HIT(ch)    (URANGE(1, GET_ATTR((ch), APPLY_HIT), 30000))
+#define GET_MAX_MANA(ch)   (URANGE(1, GET_ATTR((ch), APPLY_MANA), 30000))
+#define GET_MAX_STAM(ch)   (URANGE(1, GET_ATTR((ch), APPLY_STAM), 30000))
+#define GET_DEFENSE_MOD(ch, dam_type) (dam_type == DAM_NONE ? 0 :             \
+                          (ch)->defense_mod ? (ch)->defense_mod[dam_type] : 0)
+#define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
+
 
 /* permission checking stuff */
 #define IS_HERO(ch)         (!IS_NPC(ch) && ch->level >= LEVEL_HERO)
@@ -2806,18 +2831,8 @@ extern sh_int	gsn_critical_blow;
 #define IS_NEUTRAL(ch)          (!IS_GOOD(ch) && !IS_EVIL(ch))
 
 #define IS_AWAKE(ch)            (ch->position > POS_SLEEPING)
-#define GET_AC(ch,type)         ((ch)->armor_a[type] + (ch)->armor_m[type]    \
-                        + ( IS_AWAKE(ch)                                      \
-                        ? dex_app[get_curr_stat(ch,STAT_DEX)].defensive : 0 ) \
-                        - (( !IS_NPC(ch) && ch->pcdata->remort_count > 0 )    \
-                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
-                                                                                   -1 per 5 remorts -- Montrey */
-#define GET_SEX(ch)		(URANGE(0, ch->sex, 2))
-#define GET_HITROLL(ch) \
-                ((ch)->hitroll+str_app[get_curr_stat(ch,STAT_STR)].tohit)
-#define GET_DAMROLL(ch) \
-                ((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam)
-#define IS_OUTSIDE(ch)          (!IS_SET((ch)->in_room->room_flags, ROOM_INDOORS))
+#define GET_ROOM_FLAGS(room)    ((room)->room_flags | (room)->room_flag_cache)
+#define IS_OUTSIDE(ch)          (!IS_SET(GET_ROOM_FLAGS((ch)->in_room), ROOM_INDOORS))
 
 #define WAIT_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
     (ch->wait = UMAX(ch->wait, npulse)) : (ch->wait = 0))
@@ -2829,15 +2844,15 @@ extern sh_int	gsn_critical_blow;
 #define IS_SQUESTOR(ch)    (!IS_NPC(ch) && IS_SET((ch)->pcdata->plr, PLR_SQUESTOR))
 #define IS_KILLER(ch)		(IS_SET((ch)->act, PLR_KILLER))
 #define IS_THIEF(ch)		(IS_SET((ch)->act, PLR_THIEF))
-#define CAN_FLY(ch)         (IS_AFFECTED((ch), AFF_FLYING))
+#define CAN_FLY(ch)         (affect_exists_on_char((ch), gsn_fly))
 #define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
 
 /*
  * Object macros.
  */
 #define CAN_WEAR(obj, part)     (IS_SET((obj)->wear_flags,  (part)))
-#define IS_OBJ_STAT(obj, stat)  (IS_SET((obj)->extra_flags, (stat)))
-#define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4],(stat)))
+#define IS_OBJ_STAT(obj, stat)  (IS_SET((obj)->extra_flags | (obj)->extra_flag_cache, (stat)))
+#define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4] | (obj)->weapon_flag_cache,(stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
         (obj)->value[4] : 100)
 
@@ -3277,7 +3292,6 @@ char *  crypt           args( ( const char *key, const char *salt ) );
 #define MIL MAX_INPUT_LENGTH
 
 /* act_comm.c */
-//void    check_sex       args( ( CHAR_DATA *ch) );
 void    add_follower    args( ( CHAR_DATA *ch, CHAR_DATA *master ) );
 void    stop_follower   args( ( CHAR_DATA *ch ) );
 void    nuke_pets       args( ( CHAR_DATA *ch ) );
@@ -3349,8 +3363,6 @@ void remove_departed(const char *);
 void insert_departed(const char *);
 bool has_departed(const char *);
 
-
-
 /* act_info.c */
 void    set_title       args( ( CHAR_DATA *ch, const char *title ) );
 void    do_at           args( ( CHAR_DATA *ch, const char *argument ) );
@@ -3363,7 +3375,7 @@ void    do_gameout      args( ( CHAR_DATA *ch, const char *argument ) );
 void    do_pit          args( ( CHAR_DATA *ch, const char *argument ) );
 void	set_color	args((CHAR_DATA *ch, int color, int bold));
 void	new_color	args((CHAR_DATA *ch, int custom));
-void    show_affect_to_char  args((AFFECT_DATA *paf, CHAR_DATA *ch));
+void    show_affect_to_char  args((const AFFECT_DATA *paf, CHAR_DATA *ch));
 
 /* act_move.c */
 void    move_char       args( ( CHAR_DATA *ch, int door, bool follow ) );
@@ -3375,6 +3387,7 @@ void    do_land         args( ( CHAR_DATA *ch, const char *argument ) );
 void    do_fly          args( ( CHAR_DATA *ch, const char *argument ) );
 
 /* act_obj.c */
+void    make_pet        args((CHAR_DATA *ch, CHAR_DATA *pet));
 bool can_loot           args( (CHAR_DATA *ch, OBJ_DATA *obj) );
 void    get_obj         args( ( CHAR_DATA *ch, OBJ_DATA *obj,
                             OBJ_DATA *container ) );
@@ -3548,10 +3561,23 @@ void 	mprog_boot_trigger	args ( ( CHAR_DATA* mob	) );
 void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
 
 
+// attribute.c
+int flag_to_index args((unsigned long flag));
+int affect_bit_to_sn args((int bit));
+int stat_to_attr args((int stat));
+int     get_max_stat   args(( CHAR_DATA *ch, int stat ) );
+int get_age         args((CHAR_DATA *ch));
+int get_max_hit args((CHAR_DATA *ch));
+int get_max_mana args((CHAR_DATA *ch));
+int get_max_stam args((CHAR_DATA *ch));
+char *print_defense_modifiers args((CHAR_DATA *ch, int where));
+int get_unspelled_hitroll    args((CHAR_DATA *ch));
+int get_unspelled_damroll    args((CHAR_DATA *ch));
+int get_unspelled_ac        args((CHAR_DATA *ch, int type));
+
 /* handler.c */
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
-int     check_immune    args( (CHAR_DATA *ch, int dam_type) );
 int     liq_lookup      args( ( const char *name) );
 int     weapon_lookup   args( ( const char *name) );
 int     weapon_type     args( ( const char *name) );
@@ -3568,22 +3594,12 @@ int     get_skill       args(( CHAR_DATA *ch, int sn ) );
 int     get_weapon_sn   args(( CHAR_DATA *ch, bool secondary ) );
 int     get_weapon_skill args(( CHAR_DATA *ch, int sn ) );
 void    reset_char      args(( CHAR_DATA *ch )  );
-int     get_curr_stat   args(( CHAR_DATA *ch, int stat ) );
 int     get_max_train   args(( CHAR_DATA *ch, int stat ) );
 int     can_carry_n     args(( CHAR_DATA *ch ) );
 int     can_carry_w     args(( CHAR_DATA *ch ) );
 bool    is_name         args(( const char *str, const char *namelist ) );
 bool    is_exact_name   args(( const char *str, const char *namelist ) );
 bool    is_exact_name_color   args(( const char *str, const char *namelist ) );
-void    copy_affect_to_char  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
-void    copy_affect_to_obj   args(( OBJ_DATA *obj, AFFECT_DATA *paf ) );
-void    copy_affect_to_room  args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ) );
-void    affect_remove   args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
-void    affect_remove_obj args((OBJ_DATA *obj, AFFECT_DATA *paf ) );
-void    affect_remove_room args((ROOM_INDEX_DATA *obj, AFFECT_DATA *paf ) );
-void    affect_strip    args(( CHAR_DATA *ch, int sn ) );
-void    affect_join     args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
-void    affect_combine  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void    char_from_room  args(( CHAR_DATA *ch ) );
 void    char_to_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex ) );
 void    obj_to_char     args(( OBJ_DATA *obj, CHAR_DATA *ch ) );
@@ -3612,6 +3628,7 @@ bool    room_is_dark    args(( ROOM_INDEX_DATA *room));
 bool    room_is_very_dark args((ROOM_INDEX_DATA *room));
 bool    is_room_owner   args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room) );
 bool    room_is_private args(( ROOM_INDEX_DATA *pRoomIndex ) );
+bool    is_blinded      args(( CHAR_DATA *ch ));
 bool    can_see         args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_who     args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_obj     args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
@@ -3620,11 +3637,11 @@ bool    can_see_in_room args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room));
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 const char *  item_type_name  args(( OBJ_DATA *obj ) );
 const char *  affect_loc_name args(( int location ) );
-const char *  affect_bit_name args(( int vector ) );
+const char *  dam_type_name   args(( int type ) );
 const char *  extra_bit_name  args(( int extra_flags ) );
 const char *  wiz_bit_name    args(( int wiz_flags ) );
 const char *  wear_bit_name   args(( int wear_flags ) );
-const char *  act_bit_name    args(( int act_flags ) );
+const char *  act_bit_name    args(( int act_flags, bool npc ) );
 const char *  room_bit_name   args(( int room_flags ));
 const char *  plr_bit_name    args(( int plr_flags ) );
 const char *  off_bit_name    args(( int off_flags ) );
@@ -3651,9 +3668,6 @@ int	get_holdable_level	args((CHAR_DATA *ch));
 const char *	strins			args((const char *string, const char *ins, int place));
 const char *	get_owner		args((CHAR_DATA *ch, OBJ_DATA *obj));
 CD *	get_obj_carrier		args((OBJ_DATA *obj));
-int	get_true_hitroll	args((CHAR_DATA *ch));
-int	get_true_damroll	args((CHAR_DATA *ch));
-int	get_armor_ac		args((CHAR_DATA *ch, int type));
 int	get_locker_number	args((CHAR_DATA *ch));
 int	get_locker_weight	args((CHAR_DATA *ch));
 int	get_strongbox_number	args((CHAR_DATA *ch));
@@ -3662,9 +3676,6 @@ int	get_carry_weight	args((CHAR_DATA *ch));
 int	get_position		args((CHAR_DATA *ch));
 int	get_play_hours		args((CHAR_DATA *ch));
 int	get_play_seconds	args((CHAR_DATA *ch));
-int	get_age			args((CHAR_DATA *ch));
-int	get_age_mod		args((CHAR_DATA *ch));
-AD *	get_affect		args((AFFECT_DATA *af, int sn));
 int	get_affect_evolution	args((CHAR_DATA *ch, int sn));
 const char *	get_color_name		args((int color, int bold));
 const char *	get_color_code		args((int color, int bold));
@@ -3712,13 +3723,21 @@ bool    Is_Granted      args( (CHAR_DATA *ch, const char *argument) );
 
 
 /* magic.c */
+void    spread_plague   args(( ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance));
 int     find_spell      args( ( CHAR_DATA *ch, const char *name) );
 int     skill_lookup    args( ( const char *name ) );
 int     slot_lookup     args( ( int slot ) );
-bool    saves_spell     args( ( int level, CHAR_DATA *victim, int dam_type ) );
 void    obj_cast_spell  args( ( int sn, int level, CHAR_DATA *ch,
                                     CHAR_DATA *victim, OBJ_DATA *obj ) );
 void spell_imprint      args( ( int sn, int level, CHAR_DATA *ch, void *vo ));
+
+// dispel.c
+bool    saves_spell       args(( int level, CHAR_DATA *victim, int dam_type ) );
+bool    check_dispel_char args(( int dis_level, CHAR_DATA *victim, int sn, bool save ));
+bool    check_dispel_obj  args(( int dis_level, OBJ_DATA *obj, int sn, bool save ));
+bool    undo_spell        args(( int dis_level, CHAR_DATA *victim, int sn, bool save ));
+bool    dispel_char       args(( CHAR_DATA *victim, int level, bool cancellation ));
+bool    level_save        args(( int dis_level, int save_level));
 
 /* note.c */
 const char *format_string( const char *oldstring );

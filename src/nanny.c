@@ -2,6 +2,7 @@
 #include "vt100.h"
 #include "sql.h"
 #include "recycle.h"
+#include "affect.h"
 
 //For the hack fix
 
@@ -535,14 +536,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		ch->race = race;
 
 		/* initialize stats */
-		for (i = 0; i < MAX_STATS; i++)
-			ch->perm_stat[i] = pc_race_table[race].stats[i];
+		for (int stat = 0; stat < MAX_STATS; stat++)
+			ATTR_BASE(ch, stat_to_attr(stat)) = pc_race_table[race].stats[stat];
 
-		ch->affected_by         = ch->affected_by | race_table[race].aff;
-		ch->drain_flags         = 0;
-		ch->imm_flags           = ch->imm_flags | race_table[race].imm;
-		ch->res_flags           = ch->res_flags | race_table[race].res;
-		ch->vuln_flags          = ch->vuln_flags | race_table[race].vuln;
+		affect_add_racial_to_char(ch);
+
 		ch->form                = race_table[race].form;
 		ch->parts               = race_table[race].parts;
 		ch->pcdata->points      = pc_race_table[race].points;
@@ -555,9 +553,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		write_to_buffer(d, "\n", 2);
 		write_to_buffer(d, "Here are your default stats:\n", 0);
 		sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
-		        ch->perm_stat[STAT_STR], ch->perm_stat[STAT_INT],
-		        ch->perm_stat[STAT_WIS], ch->perm_stat[STAT_DEX],
-		        ch->perm_stat[STAT_CON], ch->perm_stat[STAT_CHR]);
+		        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
+		        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
+		        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
 		write_to_buffer(d, buf, 0);
 		write_to_buffer(d, "Would you like to roll for new stats? [Y/N] ", 0);
 		d->connected = CON_ROLL_STATS;
@@ -574,13 +572,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		case 'y':
 		case 'Y':
-			for (i = 0; i < 6; i++)
-				ch->perm_stat[i] = roll_stat(ch, i);
+			for (int stat = 0; stat < MAX_STATS; stat++)
+				ATTR_BASE(ch, stat_to_attr(stat)) = roll_stat(ch, stat);
 
 			sprintf(buf, "\nStr: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
-			        ch->perm_stat[STAT_STR], ch->perm_stat[STAT_INT],
-			        ch->perm_stat[STAT_WIS], ch->perm_stat[STAT_DEX],
-			        ch->perm_stat[STAT_CON], ch->perm_stat[STAT_CHR]);
+			        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
+			        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
+			        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
 			write_to_buffer(d, buf, 0);
 			write_to_buffer(d, "Would you like to roll for new stats? [Y/N] ", 0);
 			d->connected = CON_ROLL_STATS;
@@ -597,12 +595,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (argument[0]) {
 		case 'm':
 		case 'M':
-			ch->sex = ch->pcdata->true_sex = SEX_MALE;
+			ATTR_BASE(ch, APPLY_SEX) = SEX_MALE;
 			break;
 
 		case 'f':
 		case 'F':
-			ch->sex = ch->pcdata->true_sex = SEX_FEMALE;
+			ATTR_BASE(ch, APPLY_SEX) = SEX_FEMALE;
 			break;
 
 		default:
@@ -886,12 +884,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (ch->level == 0) {
 			OBJ_DATA *obj;   /* a generic object variable */
-			ch->perm_stat[class_table[ch->class].attr_prime] += 3;
+			ATTR_BASE(ch, stat_to_attr(class_table[ch->class].stat_prime)) += 3;
 			ch->level       = 1;
 			ch->exp         = exp_per_level(ch, ch->pcdata->points);
-			ch->hit         = ch->max_hit;
-			ch->mana        = ch->max_mana;
-			ch->stam        = ch->max_stam;
+			ch->hit         = GET_MAX_HIT(ch);
+			ch->mana        = GET_MAX_MANA(ch);
+			ch->stam        = GET_MAX_STAM(ch);
 			ch->train       = 3;
 			ch->practice    = 5;
 			sprintf(buf, "({VNewbie Aura{x)");

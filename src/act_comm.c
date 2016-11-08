@@ -26,6 +26,7 @@
 
 #include "merc.h"
 #include "vt100.h"
+#include "affect.h"
 
 extern void     do_file(CHAR_DATA *, const char *);
 
@@ -1311,7 +1312,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL) {
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master != NULL) {
 		act("But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
@@ -1365,9 +1366,8 @@ void stop_follower(CHAR_DATA *ch)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		REMOVE_BIT(ch->affected_by, AFF_CHARM);
-		affect_strip(ch, gsn_charm_person);
+	if (affect_exists_on_char(ch, gsn_charm_person)) {
+		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
 
 	if (can_see(ch->master, ch) && ch->in_room != NULL) {
@@ -1463,7 +1463,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
+	if (affect_exists_on_char(ch, gsn_charm_person)) {
 		stc("You feel like taking, not giving, orders.\n", ch);
 		return;
 	}
@@ -1523,7 +1523,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch ||  IS_IMMORTAL(victim)) {
+		if (!affect_exists_on_char(victim, gsn_charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
 			stc("Do it yourself!\n", ch);
 			return;
 		}
@@ -1534,7 +1534,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	for (och = ch->in_room->people; och != NULL; och = och_next) {
 		och_next = och->next_in_room;
 
-		if (IS_AFFECTED(och, AFF_CHARM) &&
+		if (affect_exists_on_char(och, gsn_charm_person) &&
 		    och->master == ch &&
 		    (fAll || och == victim)) {
 			if (! found) {
@@ -1629,9 +1629,9 @@ void do_group(CHAR_DATA *ch, const char *argument)
 				        gch->level,
 				        IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
 				        PERS(gch, ch, VIS_PLR),
-				        gch->hit,   gch->max_hit,
-				        gch->mana,  gch->max_mana,
-				        gch->stam,  gch->max_stam,
+				        gch->hit,   get_max_hit(gch),
+				        gch->mana,  get_max_mana(gch),
+				        gch->stam,  get_max_stam(gch),
 				        ((gch->level >= LEVEL_HERO) || IS_NPC(gch)) ? 0 : (gch->level + 1) *
 				        exp_per_level(gch, gch->pcdata->points) - gch->exp);
 				set_color(ch, PURPLE, BOLD);
@@ -1663,12 +1663,12 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_CHARM)) {
+	if (affect_exists_on_char(victim, gsn_charm_person)) {
 		stc("You can't remove charmed mobs from your group.\n", ch);
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
+	if (affect_exists_on_char(ch, gsn_charm_person)) {
 		act("You like your master too much to leave $m!", ch, NULL, victim, TO_VICT);
 		return;
 	}
@@ -1735,7 +1735,7 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	members = 0;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (is_same_group(gch, ch) && !IS_AFFECTED(gch, AFF_CHARM))
+		if (is_same_group(gch, ch) && !affect_exists_on_char(gch, gsn_charm_person))
 			members++;
 	}
 

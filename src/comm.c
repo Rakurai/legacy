@@ -52,6 +52,7 @@
 #include "lookup.h"
 #include "recycle.h"
 #include "sql.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_color);
@@ -1080,8 +1081,8 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 				if (!IS_IMMORTAL(ch) || can_see(rch, ch))
 					ptc(rch, "%s has lost %s link.\n",
 					    PERS(ch, rch, VIS_CHAR),
-					    GET_SEX(ch) == SEX_FEMALE ? "her" :
-					    GET_SEX(ch) == SEX_MALE   ? "his" : "its");
+					    GET_ATTR_SEX(ch) == SEX_FEMALE ? "her" :
+					    GET_ATTR_SEX(ch) == SEX_MALE   ? "his" : "its");
 
 			wiznet("$N has lost link.", ch, NULL, WIZ_LINKS, 0, 0);
 
@@ -1386,8 +1387,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				else
 					strcat(atb, victim->name);
 
-				if (victim->max_hit > 0)
-					percent = victim->hit * 100 / victim->max_hit;
+				if (GET_MAX_HIT(victim) > 0)
+					percent = victim->hit * 100 / GET_MAX_HIT(victim);
 				else
 					percent = -1;
 
@@ -1598,7 +1599,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'H':
-			sprintf(buf2, "%d", ch->max_hit);
+			sprintf(buf2, "%d", GET_MAX_HIT(ch));
 			i = buf2;
 			break;
 
@@ -1608,7 +1609,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'M':
-			sprintf(buf2, "%d", ch->max_mana);
+			sprintf(buf2, "%d", GET_MAX_MANA(ch));
 			i = buf2;
 			break;
 
@@ -1618,7 +1619,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'V':
-			sprintf(buf2, "%d", ch->max_stam);
+			sprintf(buf2, "%d", GET_MAX_STAM(ch));
 			i = buf2;
 			break;
 
@@ -1657,10 +1658,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'r':
 			if (ch->in_room != NULL)
 				sprintf(buf2, "%s",
-				        (IS_IMMORTAL(ch) ||
-				         (!IS_AFFECTED(ch, AFF_BLIND) &&
-				          !room_is_dark(ch->in_room)))
-				        ? ch->in_room->name : "darkness");
+				        can_see_in_room(ch, ch->in_room) ? ch->in_room->name : "darkness");
 			else
 				sprintf(buf2, " ");
 
@@ -2650,11 +2648,11 @@ void act_format(const char *format, CHAR_DATA *ch,
 
 		case 'n': i = PERS(ch, to, vis);            break;
 
-		case 'e': i = he_she  [GET_SEX(ch)];        break;
+		case 'e': i = he_she  [GET_ATTR_SEX(ch)];        break;
 
-		case 'm': i = him_her [GET_SEX(ch)];        break;
+		case 'm': i = him_her [GET_ATTR_SEX(ch)];        break;
 
-		case 's': i = his_her [GET_SEX(ch)];        break;
+		case 's': i = his_her [GET_ATTR_SEX(ch)];        break;
 
 		/* The following codes need 'vch' */
 
@@ -2672,7 +2670,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 			if (vch == NULL || !valid_character(vch))
 				bug("Missing vch for '$$E'", 0);
 			else
-				i = he_she[GET_SEX(vch)];
+				i = he_she[GET_ATTR_SEX(vch)];
 
 			break;
 
@@ -2680,7 +2678,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 			if (vch == NULL || !valid_character(vch))
 				bug("Missing vch for '$$M'", 0);
 			else
-				i = him_her[GET_SEX(vch)];
+				i = him_her[GET_ATTR_SEX(vch)];
 
 			break;
 
@@ -2688,7 +2686,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 			if (vch == NULL || !valid_character(vch))
 				bug("Missing vch for '$$S'", 0);
 			else
-				i = his_her[GET_SEX(vch)];
+				i = his_her[GET_ATTR_SEX(vch)];
 
 			break;
 

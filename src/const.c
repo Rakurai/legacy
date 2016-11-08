@@ -337,8 +337,8 @@ const struct race_type race_table[] = {
 	},
 	{
 		"school monster",       FALSE,
-		ACT_NOALIGN,            0,      0,
-		IMM_CHARM | IMM_SUMMON,   0,      VULN_MAGIC,
+		ACT_NOALIGN|ACT_NOSUMMON,            0,      0,
+		IMM_CHARM,   0,      VULN_MAGIC,
 		A | M | V,          A | B | C | D | E | F | H | J | K | Q | U
 	},
 	{
@@ -1537,7 +1537,7 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"infravision",          {  9, 13, 10, 16,  9, 13, 10, 16 },
 		{  1,  1,  2,  2,  1,  1,  2,  2 },
 		spell_infravision,      TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_infravision,       SLOT(77),       5,      18,
+		&gsn_night_vision,       SLOT(77),       5,      18,
 		"",                     "You no longer see in the dark.",       "",     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
@@ -2691,6 +2691,19 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"critical blow",        "!Critical Blow!",      "",     8,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
+
+	/*
+	 * Things that aren't spells, but we need the gsn to be populated.
+	 */
+	{
+		"night vision",          {  -1,-1,-1,-1,-1,-1,-1,-1 },
+		{  -1,-1,-1,-1,-1,-1,-1,-1 },
+		spell_null,      0,     0,
+		&gsn_night_vision,       0,       0,      0,
+		"",                     "!Night Vision!",       "",     0,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	},
+
 
 	/* End Remort Skills/Spells */
 

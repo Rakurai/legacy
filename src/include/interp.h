@@ -53,7 +53,6 @@ extern  const   struct  cmd_type        cmd_table       [];
 
 DECLARE_DO_FUN( do_accept	);
 DECLARE_DO_FUN( do_addapply	);
-DECLARE_DO_FUN( do_addspell     );
 DECLARE_DO_FUN( do_addexit	);
 DECLARE_DO_FUN( do_adjust       );
 DECLARE_DO_FUN( do_advance      );

@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "magic.h"
 #include "lookup.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_yell);
@@ -141,8 +142,8 @@ bool spec_troll_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || IS_AFFECTED(ch, AFF_CALM) || ch->in_room == NULL
-	    || IS_AFFECTED(ch, AFF_CHARM) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
+	    || affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an ogre to beat up */
@@ -199,8 +200,8 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || IS_AFFECTED(ch, AFF_CALM) || ch->in_room == NULL
-	    ||  IS_AFFECTED(ch, AFF_CHARM) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
+	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an troll to beat up */
@@ -258,8 +259,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	char *message;
 	int count = 0;
 
-	if (!IS_AWAKE(ch) || IS_AFFECTED(ch, AFF_CALM) || ch->in_room == NULL
-	    ||  IS_AFFECTED(ch, AFF_CHARM) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
+	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
 		return FALSE;
 
 	/* look for a fight in the room */
@@ -1126,7 +1127,7 @@ bool spec_charm(CHAR_DATA *ch)
 	spell_charm_person(gsn_charm_person, ch->level, ch, victim,
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, gsn_charm_person));
 
-	if (IS_AFFECTED(victim, AFF_CHARM))
+	if (affect_exists_on_char(victim, gsn_charm_person))
 		stop_fighting(victim, TRUE);
 
 	return TRUE;
@@ -1139,16 +1140,13 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] == '\0') {
 		bool etched = FALSE;
-		AFFECT_DATA *paf;
 		stc("{WItems you are wearing:\n", ch);
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 			if ((obj = get_eq_char(ch, iWear)) == NULL)
 				continue;
 
-			for (paf = obj->affected; paf != NULL; paf = paf->next)
-				if (paf->type == gsn_acid_breath)
-					etched = TRUE;
+			etched = affect_exists_on_obj(obj, gsn_acid_breath) ? TRUE : FALSE;
 
 			sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
 			        , condition_lookup(obj->condition),
@@ -1182,7 +1180,6 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	CHAR_DATA *rch;
-	AFFECT_DATA *paf;
 	char buf[MAX_STRING_LENGTH];
 	int max = 100;
 
@@ -1195,9 +1192,9 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
-		if (paf->type == gsn_acid_breath)
-			max = 100 - (5 * paf->modifier);
+	const AFFECT_DATA *paf;
+	if ((paf = affect_find_on_obj(obj, gsn_acid_breath)) != NULL)
+		max = 100 - (5 * paf->modifier);
 
 	if (obj->condition >= max) {
 		stc("That object cannot be repaired further.\n", ch);
@@ -1273,7 +1270,8 @@ bool spec_clanguard(CHAR_DATA *ch)
 
 	if (!IS_NPC(ch)
 	    || !IS_AWAKE(ch)
-	    || IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
+	    || affect_exists_on_char(ch, gsn_calm)
+	    || affect_exists_on_char(ch, gsn_charm_person)
 	    || ch->in_room == NULL)
 		return FALSE;
 
@@ -1345,9 +1343,6 @@ highest in the pet.
 */
 void do_familiar(CHAR_DATA *ch, const char *argument)
 {
-	sh_int max_stat, max_position;
-	sh_int current_stat, current_position;
-
 	/* first check to make sure this is a character */
 	if (IS_NPC(ch))
 		return;
@@ -1370,29 +1365,7 @@ void do_familiar(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	/* give the player the max stat of the pet */
-	max_stat = 0; max_position = 0;
-	current_position = 0;
-
-	while (current_position < MAX_STATS) {
-		current_stat = ch->pet->perm_stat[current_position];
-
-		if (current_stat > max_stat) {
-			max_stat = current_stat;
-			max_position = current_position;
-		}
-
-		current_position++;
-	}
-
-	ch->mod_stat[max_position] += 1;
-
-	/* make sure stats don't get too high */
-	if ((ch->perm_stat[max_position] + ch->mod_stat[max_position]) > 25)
-		ch->mod_stat[max_position] -= 1;
-
-	/* keep track of which stat we received + 1 */
-	ch->pcdata->familiar = max_position + 1;
+	ch->pcdata->familiar = TRUE;
 	stc("You feel at one with your pet.\n", ch);
 	check_improve(ch, gsn_familiar, TRUE, 1);
 	return;

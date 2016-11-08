@@ -30,6 +30,7 @@
 #include "tables.h"
 #include "vt100.h" /* VT100 Stuff */
 #include "sql.h"
+#include "affect.h"
 
 extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
 extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
@@ -93,7 +94,6 @@ const   struct  cmd_type        cmd_table       [] = {
 
 	{ "accept",                     do_accept,              POS_RESTING,    LOG_NORMAL,     8,      0                       },
 	{ "addapply",           do_addapply,    POS_DEAD,               LOG_ALWAYS,     5,      GD | GWQ        },
-	{ "addspell",           do_addspell,    POS_DEAD,               LOG_ALWAYS,     5,      GD | GWQ        },
 	{ "addexit",            do_addexit,             POS_DEAD,               LOG_ALWAYS,     5,      GWC                     },
 	{ "adjust",                     do_adjust,              POS_DEAD,               LOG_ALWAYS,     5,      GD | GWC        },
 	{ "advance",            do_advance,             POS_DEAD,               LOG_ALWAYS,     5,      GL | GWC        },
@@ -565,13 +565,6 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	}
 
 	/*
-	 * No hiding.
-	 */
-	/* Get rid of this...been causing me problems
-	    REMOVE_BIT( ch->affected_by, AFF_HIDE );
-	*/
-
-	/*
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
@@ -818,7 +811,7 @@ bool check_social(CHAR_DATA *ch, const char *command, const char *argument)
 		act(iterator->vict_found,    ch, NULL, victim, TO_VICT);
 
 		if (!IS_NPC(ch) && IS_NPC(victim)
-		    &&   !IS_AFFECTED(victim, AFF_CHARM)
+		    &&   !affect_exists_on_char(victim, gsn_charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == NULL
 		    && (!IS_SET(victim->pIndexData->progtypes, ACT_PROG))) {
