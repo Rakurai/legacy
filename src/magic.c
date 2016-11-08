@@ -1376,21 +1376,30 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	if (affect_exists_on_obj(obj, sn)) {
-		stc("That light is already somewhat enhanced.\n", ch);
-		return;
+	// having gsn_light_of_truth in the affects list is annoyingly redundant, so rather than
+	// adding that affect and checking for it here, just check for temporary detects
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
+		if (paf->permanent || paf->duration == -1)
+			continue;
+
+		if (paf->type == gsn_detect_magic
+		 || paf->type == gsn_detect_evil
+		 || paf->type == gsn_detect_good
+		 || paf->type == gsn_detect_invis
+		 || paf->type == gsn_detect_hidden) {
+			stc("That light is already somewhat enhanced.\n", ch);
+			return;
+		}
 	}
 
 	AFFECT_DATA af;
 	af.where     = TO_AFFECTS;
-	af.type      = sn;
 	af.level     = level;
 	af.duration  = level;
 	af.location  = 0;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_copy_to_obj(obj, &af); // add gsn_light_of_truth, add the others below
 
 	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
 		af.type = gsn_detect_evil;
