@@ -198,40 +198,43 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 {
-	if (paf->where == TO_DEFENSE) {
-		if (IS_IMMORTAL(ch))
-			ptc(ch, "Affects defense against %s by %d, level %d", dam_type_name(paf->location), paf->modifier, paf->level);
-		else
-			ptc(ch, "Affects defense against %s by %d", dam_type_name(paf->location), paf->modifier);
+	char buf[MSL];
+	buf[0] = '\0';
 
-	}
-	else {
-		if (IS_IMMORTAL(ch))
-			ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
+	if (paf->type > 0)
+		sprintf(buf, "Spell '%s'", skill_table[paf->type].name);
+
+	if (paf->location != 0 && paf->modifier != 0) {
+		if (paf->where == TO_DEFENSE)
+			sprintf(buf, "%s%sodifies defense against %s by %d",
+				buf, buf[0] == '\0' ? "M" : " m", dam_type_name(paf->location), paf->modifier);
 		else
-			ptc(ch, "Affects %s by %d", affect_loc_name(paf->location), paf->modifier);
+			sprintf(buf, "%s%sffects %s by %d",
+				buf, buf[0] == '\0' ? "A" : " a", affect_loc_name(paf->location), paf->modifier);
 	}
+
+	if (IS_IMMORTAL(ch))
+		sprintf(buf, "%s, level %d", buf, paf->level);
 
 	if (paf->duration > -1)
-		ptc(ch, ", %d hours.\n", paf->duration);
-	else
-		ptc(ch, ".\n");
+		sprintf(buf, "%s, %d hours", buf, paf->duration);
 
-	if (paf->where == TO_AFFECTS && paf->type > 0) {
-		ptc(ch, "Adds %s affect.\n", skill_table[paf->type].name);
-	}
+	strcat(buf, ".");
 
 	if (paf->bitvector) {
 		switch (paf->where) {
 		case TO_OBJECT:
-			ptc(ch, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
+			sprintf(buf, "%s Adds %s object flag.", buf, extra_bit_name(paf->bitvector));
 			break;
 
 		case TO_WEAPON:
-			ptc(ch, "Adds %s weapon flags.\n", weapon_bit_name(paf->bitvector));
+			sprintf(buf, "%s Adds %s weapon flags.", buf, weapon_bit_name(paf->bitvector));
 			break;
 		}
 	}
+
+	strcat(buf, "\n");
+	stc(buf, ch);
 }
 
 /*
