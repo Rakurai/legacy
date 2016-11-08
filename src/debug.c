@@ -240,6 +240,58 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 */
+	if (!strcmp(subfunc, "rng")) {
+		long iterations = atol(argument);
+
+		long nums[100];
+
+		for (int i = 0; i < 100; i++)
+			nums[i] = 0;
+
+		for (long i = 0; i < iterations; i++)
+			nums[number_range(1,100)-1]++;
+
+		long sum = 0;
+
+		for (int i = 0; i < 100; i++) {
+			sum += nums[i];
+			ptc(ch, "[%3d] %.4f %.4f (%ld)\n",
+				i + 1,
+				100 * nums[i] / (float)iterations,
+				100 * sum / (float)iterations,
+				nums[i]
+			);
+		}
+
+		return;
+	}
+
+	if (!strcmp(subfunc, "rng2")) {
+		long iterations = atol(argument);
+
+		long nums[100];
+
+		for (int i = 0; i < 100; i++)
+			nums[i] = 0;
+
+		for (long i = 0; i < iterations; i++)
+			nums[number_percent()-1]++;
+
+		long sum = 0;
+
+		for (int i = 0; i < 100; i++) {
+			sum += nums[i];
+			ptc(ch, "[%3d] %.4f %.4f (%ld)\n",
+				i + 1,
+				100 * nums[i] / (float)iterations,
+				100 * sum / (float)iterations,
+				nums[i]
+			);
+		}
+
+		return;
+	}
+
 	if (!strcmp(subfunc, "aversion")) {
 		AREA_DATA *area;
 
