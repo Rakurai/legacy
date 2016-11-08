@@ -4934,7 +4934,7 @@ void do_clanpower(CHAR_DATA *ch, const char *argument)
 
 void print_new_affects(CHAR_DATA *ch)
 {
-	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL], *p;
+	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL];
 	BUFFER *buffer;
 	bool found = FALSE;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
@@ -4942,16 +4942,10 @@ void print_new_affects(CHAR_DATA *ch)
 	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
 	buffer = new_buf();
 
-	if (affect_list_char(ch) != NULL) {
-
-		/* Someone suggested putting affects in order of duration.
-		   To try this, I am going to bubble sort the linked
-		   list of affects before we print them.
-		   -- Outsider
-		*/
+	if (affect_list_char(ch) != NULL)
 		affect_sort_char(ch, affect_comparator_duration);
-	}
 
+	// spells
 	if (affect_list_char(ch) != NULL) {
 		int affcount = 0;
 
@@ -5001,11 +4995,9 @@ void print_new_affects(CHAR_DATA *ch)
 		}
 	}
 
-	char objbuf[MSL];
 	bool print = FALSE;
-	int iWear, len;
 
-	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
+	for (int iWear = 0; iWear < MAX_WEAR; iWear++) {
 		OBJ_DATA *obj;
 
 		if ((obj = get_eq_char(ch, iWear)) != NULL) {
@@ -5021,24 +5013,15 @@ void print_new_affects(CHAR_DATA *ch)
 					    torch, torch);
 					add_buf(buffer, breakline);
 					print = TRUE;
+					found = TRUE;
 				}
 
-				strcpy(objbuf, smash_bracket(obj->short_descr));
-
-				for (p = objbuf, len = 0; *p; p++)
-					if (++len > 38) {
-						*p = '\0';
-						break;
-					}
+				char objbuf[MSL];
+				strncpy(objbuf, smash_bracket(obj->short_descr), 38);
 
 				strcpy(buf, skill_table[paf->type].name);
-				const char *words = buf;
-
-				while (*words) {
-					words = one_argument(words, buf2);
-					ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
-					    torch, buf2, border, objbuf, torch);
-				}
+				ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
+					    torch, buf, border, objbuf, torch);
 			}
 		}
 	}
@@ -5051,6 +5034,9 @@ void print_new_affects(CHAR_DATA *ch)
 				affcount++;
 
 		if (affcount > 0) {
+			if (found)
+				add_buf(buffer, breakline);
+
 			ptb(buffer, " %s {bYou are affected by the following racial abilities:            %s\n",
 			    torch, torch);
 			add_buf(buffer, breakline);
@@ -5092,14 +5078,10 @@ void print_new_affects(CHAR_DATA *ch)
 		}
 	}
 
-	if (print)
-		found = TRUE;
-
 	if (!IS_NPC(ch)
 	    && ch->pcdata->remort_count
 	    && ch->pcdata->raffect[0]
 	    && IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
-		int raff, i;
 
 		if (found)
 			add_buf(buffer, breakline);
@@ -5108,8 +5090,8 @@ void print_new_affects(CHAR_DATA *ch)
 		    torch, torch);
 		add_buf(buffer, breakline);
 
-		for (raff = 0; raff < ch->pcdata->remort_count / 10 + 1; raff++)
-			for (i = 0; i < MAX_RAFFECTS; i++)
+		for (int raff = 0; raff < ch->pcdata->remort_count / 10 + 1; raff++)
+			for (int i = 0; i < MAX_RAFFECTS; i++)
 				if (raffects[i].id == ch->pcdata->raffect[raff])
 					ptb(buffer, " %s {b%-62s %s\n",
 					    torch, raffects[i].description, torch);
