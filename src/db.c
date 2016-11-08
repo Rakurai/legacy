@@ -978,7 +978,10 @@ void load_mobiles(FILE *fp)
 		pMobIndex->res_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].res;
 		pMobIndex->vuln_flags           = fread_flag(fp) & ~race_table[pMobIndex->race].vuln;
 
-		// fix old style IMM_SUMMON flag, changed to ACT_NOSUMMON
+		// fix old style ACT_IS_NPC (A) flag, changed to ACT_NOSUMMON (A)
+		REMOVE_BIT(pMobIndex->act, A);
+
+		// fix old style IMM_SUMMON (A) flag, changed to ACT_NOSUMMON (A)
 		if (IS_SET(pMobIndex->imm_flags, A))
 			SET_BIT(pMobIndex->act, ACT_NOSUMMON);
 		REMOVE_BIT(pMobIndex->imm_flags, A);
