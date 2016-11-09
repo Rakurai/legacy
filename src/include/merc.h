@@ -104,8 +104,6 @@ extern int port;
 /*
  * Structure types.
  */
-typedef struct  stat_mod_data           STAT_MOD_DATA;
-typedef struct  flag_mod_data           FLAG_MOD_DATA;
 typedef struct  affect_data             AFFECT_DATA;
 typedef struct  affect_cache_data       AFFECT_CACHE_DATA;
 typedef struct  area_data               AREA_DATA;

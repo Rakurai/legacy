@@ -1629,9 +1629,9 @@ void do_group(CHAR_DATA *ch, const char *argument)
 				        gch->level,
 				        IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
 				        PERS(gch, ch, VIS_PLR),
-				        gch->hit,   get_max_hit(gch),
-				        gch->mana,  get_max_mana(gch),
-				        gch->stam,  get_max_stam(gch),
+				        gch->hit,   GET_MAX_HIT(gch),
+				        gch->mana,  GET_MAX_MANA(gch),
+				        gch->stam,  GET_MAX_STAM(gch),
 				        ((gch->level >= LEVEL_HERO) || IS_NPC(gch)) ? 0 : (gch->level + 1) *
 				        exp_per_level(gch, gch->pcdata->points) - gch->exp);
 				set_color(ch, PURPLE, BOLD);

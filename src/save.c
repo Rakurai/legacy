@@ -525,9 +525,9 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON_AddItemToObject(o, 		"HMS",	 		item);
 
 	item = cJSON_CreateObject();
-	cJSON_AddNumberToObject(item,	"hit",			GET_MAX_HIT(ch));
-	cJSON_AddNumberToObject(item,	"mana",			GET_MAX_MANA(ch));
-	cJSON_AddNumberToObject(item,	"stam",			GET_MAX_STAM(ch));
+	cJSON_AddNumberToObject(item,	"hit",			ATTR_BASE(ch, APPLY_HIT));
+	cJSON_AddNumberToObject(item,	"mana",			ATTR_BASE(ch, APPLY_MANA));
+	cJSON_AddNumberToObject(item,	"stam",			ATTR_BASE(ch, APPLY_STAM));
 	cJSON_AddItemToObject(o, 		"HMSP",	 		item);
 
 	cJSON_AddNumberToObject(o,		"Id",			ch->id);
