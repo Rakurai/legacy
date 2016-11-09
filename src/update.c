@@ -1472,12 +1472,12 @@ void aggr_update(void)
 		   their charisma is so high compared to mobs.  Removing this and changing
 		   to a random chance of aggressing based on victim charisma, but keep in mind
 		   this is called once every pulse.  -- Montrey
-		if ((get_curr_stat(victim, STAT_CHR) + number_range(0, 1))
-		    > (get_curr_stat(mob, STAT_CHR) + number_range(0, 3)))
+		if ((GET_ATTR_CHR(victim) + number_range(0, 1))
+		    > (GET_ATTR_CHR(mob) + number_range(0, 3)))
 			continue;
 		*/
 
-		if (number_range(0, 29 - get_curr_stat(victim, STAT_CHR)) > 3) // 20% for 25 chr
+		if (number_range(0, 29 - GET_ATTR_CHR(victim)) > 3) // 20% for 25 chr
 			continue;
 
 		/* rumble! */
