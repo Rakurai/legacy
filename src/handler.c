@@ -1042,7 +1042,7 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 			OBJ_DATA *oldest = NULL;
 			int count = 0;
 
-			for (OBJ_DATA *c = donation_pit->contains; c; c = c->next) {
+			for (OBJ_DATA *c = donation_pit->contains; c; c = c->next_content) {
 				count++;
 				if (oldest == NULL || oldest->donated > c->donated)
 					oldest = c;
