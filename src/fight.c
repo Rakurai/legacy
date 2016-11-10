@@ -1171,13 +1171,26 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	        }
 	} */
 
-	if (spell)
-		dam += get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
+	if (spell) {
+		int damroll = get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
 
-	/* moved here from magic.c */
-	if (spell && focus)
-		if (affect_exists_on_char(ch, gsn_focus))
+		if (dt == gsn_magic_missile) {
+			dam += damroll/3;
+		}
+		else if (
+			dt == gsn_chain_lightning
+		 || dt == gsn_blizzard
+		 || dt == gsn_acid_rain
+		 || dt == gsn_firestorm) {
+			dam += damroll/5;
+		}
+		else {
+				dam += damroll;
+		}
+
+		if (focus && affect_exists_on_char(ch, gsn_focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
+	}
 
 	/* damage reduction */
 	if (dam > 35)
