@@ -1223,7 +1223,7 @@ void load_objects(FILE *fp)
 			char letter;
 			letter = fread_letter(fp);
 
-			if (letter == 'A') {
+			if (letter == 'A') { // apply
 				AFFECT_DATA af;
 				af.type               = 0;
 				af.level              = pObjIndex->level;
@@ -1231,31 +1231,32 @@ void load_objects(FILE *fp)
 				af.location           = fread_number(fp);
 				af.modifier           = fread_number(fp);
 				af.evolution          = 1;
+				af.bitvector          = 0;
+				af.permanent          = TRUE;
 
 				unsigned int bitvector = 0;
-				if (affect_parse_prototype('O', &af, &bitvector)) {
+				if (affect_parse_flags('O', &af, &bitvector)) {
 					affect_copy_to_list(&pObjIndex->affected, &af);
 					top_affect++;
 				}
 			}
-			else if (letter == 'F') {
+			else if (letter == 'F') { // flag, can add bits or do other ->where types
 				AFFECT_DATA af;
 				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.evolution          = 1;
+				af.permanent          = TRUE;
 
 				letter          = fread_letter(fp);
-				af.location     = fread_number(fp); // for TO_AFFECTS
-				af.modifier     = fread_number(fp); // for TO_AFFECTS
+				af.location     = fread_number(fp);
+				af.modifier     = fread_number(fp);
 
 				unsigned int bitvector    = fread_flag(fp);
 
 				// do at least once even if no bitvector
 				do {
-					af.type = 0; // reset every time
-
-					if (affect_parse_prototype(letter, &af, &bitvector)) {
+					if (affect_parse_flags(letter, &af, &bitvector)) {
 						affect_copy_to_list(&pObjIndex->affected, &af); 
 						top_affect++;
 
@@ -1263,6 +1264,8 @@ void load_objects(FILE *fp)
 						af.location = 0;
 						af.modifier = 0;
 					}
+
+					af.type = 0; // reset every time
 				} while (bitvector != 0);
 			}
 			else if (letter == 'E') {

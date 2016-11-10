@@ -180,16 +180,18 @@ int affect_attr_location_check(int location) {
 // the vector.  return value indicates whether the struct is valid to insert.
 // assumes type, level, duration, evolution, location and modifier already filled,
 // but alters if appropriate
-bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvector) {
+bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) {
 	switch (letter) {
+	case  0 : break; // use the where that is set
 	case 'O': paf->where = TO_OBJECT; break; // location and modifier already set
+	case 'W': paf->where = TO_WEAPON; break; // location and modifier already set
 	case 'A': paf->where = TO_AFFECTS; break; // location and modifier already set
 	case 'D': paf->where = TO_DEFENSE; break; // modifier already set
 	case 'I': paf->where = TO_DEFENSE; paf->modifier = 100; break;
 	case 'R': paf->where = TO_DEFENSE; paf->modifier = 50; break;
 	case 'V': paf->where = TO_DEFENSE; paf->modifier = -50; break;
 	default:
-		bugf("affect_parse_prototype: bad letter %c", letter);
+		bugf("affect_parse_flags: bad letter %c", letter);
 		return FALSE;
 	}
 
@@ -211,25 +213,52 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 		}
 	}
 
+	// if we're dealing with TO_OBJECT or TO_WEAPON, we leave the bitvector alone and return
+	// the whole original affect, after passing through sanity checks.  set local bitvector = 0
+	// to fall through the bit conversions
+
+	if (paf->where == TO_AFFECTS && paf->type != 0) {
+		// if we passed an sn in, don't parse bits
+		bitvector = 0;
+		paf->bitvector = 0;
+	}
+	else if (paf->where == TO_OBJECT || paf->where == TO_WEAPON) {
+	 	// or, just quit the outside loop and leave paf->bitvector alone
+	 	bitvector = 0;
+	}
+
+	// others, parse and remove one bit, and let the outside loop call again
+	// if bitvector is 0 here, we'll just fall through
+
 	// treat the bitvector as an array, find the lowest index with a set bit, remove it from
 	// the vector, and use the index to match against new constants
 	unsigned int bit = 1;
 	int index = 0;
+	bool found_bit = FALSE; // for simplicity
 
 	while (index < 32 && !IS_SET(bit, *bitvector)) {
 		bit <<= 1;
 		index++;
 	}
 
-	if (index < 32)
+	if (index < 32) {
+		found_bit = TRUE;
 		REMOVE_BIT(*bitvector, bit);
+	}
 
 	// if the bit wasn't found, still continue for the TO_OBJECT.  the loop will
 	// stop when bitvector is 0
 
 	if (paf->where == TO_DEFENSE) {
-		if (index < 1 || index >= 32) // no bits, not an error, just skip it
+		if (index == 0) { // skip, that field is reserved
+			bugf("affect_parse_flags: TO_DEFENSE with bit A");
 			return FALSE;
+		}
+
+		if (!found_bit) { // no bits, maybe defunct flag?
+			bugf("affect_parse_flags: TO_DEFENSE with no bit");
+			return FALSE;
+		}
 
 		switch (bit) {
 			case IMM_CHARM       : paf->location = DAM_CHARM; break;
@@ -250,7 +279,7 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
 			case IMM_SOUND       : paf->location = DAM_SOUND; break;
 			default: {
-//				bugf("affect_parse_prototype: unknown defense bit %d", bit);
+				bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
 				return FALSE;
 			}
 		}
@@ -258,12 +287,18 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 		// modifier was already set or done above
 		paf->bitvector = 0;
 		return TRUE;
-	}
+	} // done with TO_DEFENSE
 
-	if (paf->where == TO_AFFECTS) {
+	if (paf->where == TO_AFFECTS && paf->type <= 0) {
+		if (!found_bit) {
+			bugf("affect_parse_flags: TO_AFFECTS with no sn and no bit");
+			return FALSE;
+		}
+
 		int sn = affect_bit_to_sn(bit);
+
 		if (sn <= 0) {
-			bugf("affect_parse_prototype: sn not found for bit %d in TO_AFFECTS", bit);
+			bugf("affect_parse_flags: TO_AFFECTS: sn not found for bit %d", bit);
 			return FALSE;
 		}
 
@@ -272,17 +307,24 @@ bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvect
 		// drop down to applies for possible location and modifier
 	}
 
-	// 'O' apply could theoretically be used to add extra bits to an object,
-	// but for now we'll just zero it to make sure weird stuff doesn't happen
-	paf->bitvector = 0;
+	// from here, we leave bitvector alone: TO_OBJECT and TO_WEAPON can
+	// add flags to the object's extra bits
 
 	paf->location = affect_attr_location_check(paf->location);
 
-	if (paf->location == -1)
+	if (paf->location == -1) {
+		bugf("affect_parse_flags: affect where=%d with bad location %d", paf->where, paf->location);
 		return FALSE;
+	}
 
 	if (paf->location == 0)
 		paf->modifier = 0; // ensure, so we don't mess up the counter
+
+	// does nothing?
+	if (paf->where == TO_OBJECT && paf->bitvector == 0 && paf->location == 0) {
+		bugf("affect_parse_flags: TO_OBJECT with no modifiers");
+		return FALSE;
+	}
 
 	return TRUE;
 }

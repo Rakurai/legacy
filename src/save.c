@@ -1471,7 +1471,32 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 						get_JSON_short(item, &af.location, "loc");
 						get_JSON_int(item, &af.bitvector, "bitv");
 						get_JSON_short(item, &af.evolution, "evo");
-						affect_copy_to_obj(obj, &af);
+
+						// some old objects made with 'addapply' have things affects without an sn,
+						// or modifies nothing with no bits.  also, some items that were enchanted
+						// under the old system could have bitvectors storing affects. clean up here,
+						// hopefully remove someday.
+						// obj name might not be read yet, use vnum
+						if (af.where == TO_AFFECTS && af.type == 0 && af.bitvector == 0)
+							af.where = TO_OBJECT; // try making it an object apply
+
+						// let the parsing handle TO_OBJECT with no modifiers
+
+						unsigned int bitvector = af.bitvector;
+
+						// run bitvector down to 0 (unless certain cases)
+						// do at least once even if no bitvector
+						do {
+							if (affect_parse_flags(0, &af, &bitvector)) {
+								affect_copy_to_obj(obj, &af);
+								
+								// don't multiply the modifier, just apply to the first bit
+								af.location = 0;
+								af.modifier = 0;
+							}
+
+							af.type = 0; // reset, in case we're parsing multiple TO_AFFECTS bits
+						} while (bitvector != 0);
 					}
 					fMatch = TRUE; break;
 				}

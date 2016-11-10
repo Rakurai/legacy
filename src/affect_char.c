@@ -55,7 +55,7 @@ void affect_copy_flags_to_char(CHAR_DATA *ch, char letter, unsigned int bitvecto
 
 	while (bitvector != 0) {
 		af.type = 0; // reset every time
-		if (affect_parse_prototype(letter, &af, &bitvector)) {
+		if (affect_parse_flags(letter, &af, &bitvector)) {
 			if (letter == 'A') // special to come up with modifiers
 				affect_add_sn_to_char(ch, af.type, ch->level, -1, 1, permanent);
 			else
@@ -258,7 +258,7 @@ void remort_affect_modify_char(CHAR_DATA *ch, int where, unsigned int bits, bool
 		where == TO_RESIST ? 'R' : 
 		where == TO_VULN ? 'V' : '?'; // let parse handle error
 
-	while (affect_parse_prototype(letter, &af, &bits))
+	while (affect_parse_flags(letter, &af, &bits))
 		affect_modify_char(ch, &af, fAdd);
 }
 
