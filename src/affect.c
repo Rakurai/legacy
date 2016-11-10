@@ -219,12 +219,12 @@ bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) 
 
 	if (paf->where == TO_AFFECTS && paf->type != 0) {
 		// if we passed an sn in, don't parse bits
-		bitvector = 0;
+		*bitvector = 0;
 		paf->bitvector = 0;
 	}
 	else if (paf->where == TO_OBJECT || paf->where == TO_WEAPON) {
 	 	// or, just quit the outside loop and leave paf->bitvector alone
-	 	bitvector = 0;
+	 	*bitvector = 0;
 	}
 
 	// others, parse and remove one bit, and let the outside loop call again
@@ -256,7 +256,7 @@ bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) 
 		}
 
 		if (!found_bit) { // no bits, maybe defunct flag?
-			bugf("affect_parse_flags: TO_DEFENSE with no bit");
+//			bugf("affect_parse_flags: TO_DEFENSE with no bit");
 			return FALSE;
 		}
 
@@ -279,7 +279,7 @@ bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) 
 			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
 			case IMM_SOUND       : paf->location = DAM_SOUND; break;
 			default: {
-				bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
+//				bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
 				return FALSE;
 			}
 		}
