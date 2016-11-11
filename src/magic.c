@@ -458,7 +458,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, wait);
 
-	if (number_percent() > get_skill(ch, sn)) {
+	// use probability random distribution here, for limiting fail streaks
+	if (!prd_chance(&ch->skill_fails, get_skill(ch, sn))) {
 		stc("You lost your concentration.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;

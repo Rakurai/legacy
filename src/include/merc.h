@@ -1984,6 +1984,8 @@ struct  char_data
     CLAN_DATA *		inviters;
     bool		invitation_accepted;
 
+    int                 skill_fails; // number of times they have failed a skill in a row
+
     /* stats */
 //    sh_int              base_stat[MAX_STATS];
 //    sh_int              mod_stat[MAX_STATS];
@@ -3480,6 +3482,7 @@ int	number_door		args((void));
 int	number_bits		args((int width));
 long	number_mm		args((void));
 int	dice			args((int number, int size));
+bool prd_chance      args(( int *prev_fails, int percent ));
 
 /* load_config.c */
 int     load_config     args((const char *filename));

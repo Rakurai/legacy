@@ -5479,7 +5479,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (number_percent() > get_skill(ch, gsn_lore)) {
+	if (!prd_chance(&ch->skill_fails, get_skill(ch, gsn_lore))) {
 		act("You look at $p, but you can't find out any additional information.", ch, obj, NULL, TO_CHAR);
 		act("$n looks at $p but cannot find out anything.", ch, obj, NULL, TO_ROOM);
 		return;
