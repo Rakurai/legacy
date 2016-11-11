@@ -2692,19 +2692,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-	/*
-	 * Things that aren't spells, but we need the gsn to be populated.
-	 */
-	{
-		"night vision",          {  -1,-1,-1,-1,-1,-1,-1,-1 },
-		{  -1,-1,-1,-1,-1,-1,-1,-1 },
-		spell_null,      0,     0,
-		&gsn_night_vision,       0,       0,      0,
-		"",                     "!Night Vision!",       "",     0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-
-
 	/* End Remort Skills/Spells */
 
 	{
