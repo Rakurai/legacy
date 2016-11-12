@@ -889,7 +889,7 @@ S
 #0
 
 #RESETS
-M 0 351 1 356 1   * Reset Librarian into Entrance room
+M 0 351 1 356 1   * Reset Librarian into Entrance room
 O 0 351 1 351     * Reset table into Drama room
 O 0 351 1 352     * Reset table into Horror room
 O 0 351 1 353     * Reset table into Fantasy room

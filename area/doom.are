@@ -66,7 +66,7 @@ is now trained squarely at you. The zombie presses the trigger ...
 ~
 giant~
 AGFCT Zc -1000 S
-40 1 1d1+1499 1d1 +100 4d8+15 blast
+40 1 1d1+1499 1d1+100 4d8+15 blast
 -8 -8 -8 -3
 ACDEFKIQ 0 0 0
 stand stand male 1000
@@ -269,7 +269,7 @@ exploding around you, and it seems that fleeing is the only option...
 ~
 giant~
 ABFT DHZ -1000 S
-110 5 1d1+ 15999 1d1+500 8d8+60 blast
+110 5 1d1+15999 1d1+500 8d8+60 blast
 -50 -50 -50 -45
 ACDEFKQ AHI M 0
 stand stand none 10000
