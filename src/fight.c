@@ -1173,9 +1173,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	if (spell) {
 		int damroll = get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
-
+		
 		if (dt == gsn_magic_missile) {
-			dam += damroll/3;
+			dam += damroll;
 		}
 		else if (
 			dt == gsn_chain_lightning

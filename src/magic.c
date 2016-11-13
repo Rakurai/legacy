@@ -4396,10 +4396,11 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 }
 
 /* New magic missile -- Montrey */
+/* evolved version -- Vegita */
 void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam, i;
+	int dam, i, count, swarm, chance;
 	int clevel = ((level / 10) + 1);
 	static const sh_int dam_each[] = {
 		0,
@@ -4432,16 +4433,52 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		break;
 	}
 
-	for (i = 0; i < clevel; i++) {
+	switch (evolution){
+		case 3:
+			if (level <= 19) count = 1;
+			else if (level >= 19 && level <= 29) count = 2;
+			else if (level >= 29 && level <= 49) count = 3;
+			else if (level >= 49 && level <= 59) count = 4;
+			else count = 5;
+			swarm = 1;
+			break;
+		
+		case 2:
+			if (level <= 29) count = 1;
+			else if (level >= 29 && level <= 49) count = 2;
+			else if (level >= 49 && level <= 60) count = 3;
+			else count = 4;
+			break;
+		
+		case 1:
+			if (level <= 29) count = 1;
+			else if (level >= 29 && level <= 59) count = 2;
+			else count = 3;
+			break;
+		
+		default:
+			wiznet("evolution switch failed, evo mmissile.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
+			break;
+	}
+			
+	if (count > 5)
+		count = 5;
+	for (i = 0; i < count; i++) {
 		level = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
 		level = UMAX(0, level);
 		dam   = number_range(dam_each[level] / 2, dam_each[level] * 2);
 
 		if (saves_spell(level, victim, DAM_ENERGY))
 			dam /= 2;
-
+		
 		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
-
+		if (swarm = 1) /*swarm chance figuring*/
+			if (number_percent() > 83){
+				stc("Your magic missile swarms it's target!!!!\n", ch);
+				act("$n magic missile swarms the target!", ch, NULL, NULL, TO_ROOM);
+				dam /= 2;
+				damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
+			}
 		if (ch->fighting == NULL)
 			return;
 	}

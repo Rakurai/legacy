@@ -1598,13 +1598,13 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"",                     "!Locate Object!",      "",     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
-	{
+	{ /*mod vegita*/
 		"magic missile",        {  1,  3,  2,  2,  1,  3,  2,  2 },
 		{  1,  1,  2,  2,  1,  1,  2,  2 },
 		spell_magic_missile,    TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
 		&gsn_magic_missile,     SLOT(32),       5,      12,
 		"magic missile",        "!Magic Missile!",      "",     0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+		{ 220, 220, 0, 0, 220, 220, 0, 0 },     { 440, 0, 0, 0, 440, 0, 0, 0 }
 	},
 	{
 		"mass healing",         { 38, 32, 60, 46, 60, 32, 60, 46 },
