@@ -17,42 +17,39 @@
 for adding text content to the help.  See {Phelp edit{x for details.
 ~
 
-0 newgreeting~
-{x                           db       .g8"""bgd `7MM"""YMM  
-{x                          ;MM:    .dP'     `M   MM    `7  
-{x                         ,V^MM.   dM'       `   MM   d    
-{x                        ,M  `MM   MM            MMmmMM    
-{x                        AbmmmqMA  MM.    `7MMF' MM   Y  , 
-{x                       A'     VML `Mb.     MM   MM     ,M 
-{x                     .AMA.   .AMMA. `"bmmmdPY .JMMmmmmMMM 
+0 GREETING~
+{T                           {Td{Cb       {C.{Tg{T8{T"{T"{C"{Cb{Tg{Cd {T`{C7{CM{TM{T"{T"{T"{CY{TM{TM  {C
+{C                          {C;{gM{CM{g:    {C.{gd{CP{C'     {C`{gM   {CM{gM    {g`{g7  {C
+{W                         {g,{gV{g^{gM{gM{g.   {Wd{gM{g'       {W`   {gM{WM   {gd    {g
+{W                        ,M  `MM   MM            MMmmMM    
+{W                        {gA{gb{gm{gm{gm{gq{gM{WA  {WM{gM{W.    {W`{g7{gM{gM{gF{g' {WM{WM   {WY  {g, {W
+{g                       {CA{C'     {CV{gM{CL {C`{CM{gb{C.     {CM{gM   {CM{CM     {C,{gM {C
+{C                     {C.{TA{TM{CA{C.   {T.{TA{TM{CM{CA{C. {T`{T"{Cb{Tm{Cm{Tm{Td{CP{CY {T.{CJ{TM{CM{Cm{Cm{Tm{Cm{CM{TM{CM {T
 {x  
-{x           />
-{x          /<                       ,peq.`I""Y  
-{x O[\\\\\\(O):::<=================  I   I I=i   ================================-
-{x          \<                       `bod'.IL.   
-{x           \>
+{W           {g/>
+{W          {g/<                       {W,p{ge{Wq{g.`{WI{g""{WY  
+{W O[{c\\\\\\{g(O):::<{W=================  {gI   I {WI={gi   {W================================-
+{W          {g\<                       {W`{gbo{Wd'.{gI{WL{g.   
+{W           {g\>
 {x  
-{x    `7MMF'      `7MM"""YMM    .g8"""bgd       db       .g8"""bgd `YMM'   `MM'
-{x      MM          MM    `7  .dP'     `M      ;MM:    .dP'     `M   VMA   ,V  
-{x      MM          MM   d    dM'       `     ,V^MM.   dM'       `    VMA ,V   
-{x      MM          MMmmMM    MM             ,M  `MM   MM              VMMP    
-{x      MM      ,   MM   Y  , MM.    `7MMF'  AbmmmqMA  MM.              MM     
-{x      MM     ,M   MM     ,M `Mb.     MM   A'     VML `Mb.     ,'      MM     
-{x    .JMMmmmmMMM .JMMmmmmMMM   `"bmmmdPY .AMA.   .AMMA. `"bmmmd'     .JMML.   
-{x  
-{x                            legacy.xenith.org:3000
-
+{T    {T`{T7{TM{CM{CF{C'      {T`{T7{CM{TM{T"{T"{T"{CY{TM{CM    {T.{Cg{C8{T"{T"{T"{Cb{Tg{Cd       {Cd{Tb       {T.{Cg{T8{T"{C"{C"{Cb{Cg{Td {C`{TY{TM{CM{C'   {C`{TM{TM{C'{C
+{C      {CM{gM          {gM{gM    {C`{C7  {C.{gd{gP{g'     {C`{CM      {g;{CM{gM{g:    {g.{gd{CP{g'     {C`{gM   {CV{CM{gA   {g,{CV  {g
+{W      {gM{WM          {gM{WM   {Wd    {Wd{gM{W'       {W`     {W,{WV{W^{gM{WM{W.   {gd{gM{g'       {g`    {WV{WM{gA {W,{WV   {W
+{W      MM          MMmmMM    MM             ,M  `MM   MM              VMMP    
+{W      {gM{gM      {W,   {gM{gM   {gY  {W, {gM{WM{g.    {W`{g7{WM{WM{gF{W'  {WA{gb{Wm{Wm{Wm{gq{WM{gA  {gM{WM{W.              {gM{WM     {W
+{C      {CM{gM     {g,{CM   {CM{gM     {g,{CM {g`{CM{gb{C.     {CM{CM   {gA{C'     {gV{gM{gL {C`{gM{Cb{g.     {g,{g'      {gM{gM     {g
+{T    {T.{TJ{CM{CM{Tm{Cm{Tm{Tm{CM{TM{TM {T.{TJ{TM{TM{Cm{Tm{Cmm{CM{TM{CM   {C`{C"{Cb{Cm{Tm{Cm{Cd{CP{TY {C.{TA{TM{CA{T.   {C.{TA{TM{CM{TA{C. {C`{C"{Tb{Tm{Cm{Cm{Cd{T'     {C.{CJ{TM{CM{CL{T.   {C
 {x
+{x  
+{x                            {Yl{We{gga{Wc{gy{c.{Yx{Wen{gi{Wt{Wh{c.{Yo{gr{Wg{c:{Y3{W0{g0{W0
+{x
+{x
+{T                                   Based on:
+{T                        ROM 2.4 (c)1993-1995 Russ Taylor
+{T                   Based on Merc 2.1 by Hatchet, Furey, Kahn     
+{T                Diku: Staerfeldt, Madsen, Nyboe, Seifert, Hammer 
 
-
-{x                                   Based on:
-{x {x
-
-{x                        ROM 2.4 (c)1993-1995 Russ Taylor
-{x                   Based on Merc 2.1 by Hatchet, Furey, Kahn     
-{x                Diku: Staerfeldt, Madsen, Nyboe, Seifert, Hammer 
-
-{x By what name do you wish to be known? 
+{W By what name do you wish to be known? 
 ~
 
 0 VERSION~
@@ -184,7 +181,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
    {b)X({x                                                           {b)X({x
   {b[{Y%%%{b]{x                                                         {b[{Y%%%{b]{x
    {b|#|{N-----------------------------------------------------------{b|#|{x
-   {b|#|                                                           {b|#|{x
+   {b|#|                             .                             {b|#|{x
    {b|#|                     {W Montrey      {YAdmin/Coder             {b|#|{x
    {b|#|                     {W Xenith{x       {YServer Admin/Coder{x      {b|#|{x
    {b|#|                     {W Vegita       {YThat Guy                {b|#|{x
@@ -209,7 +206,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
   {b[[|]]{x                                                         {b[[|]]{x
 ~
 
--1 GREETING~
+-1 oldgreeting~
 .
 {N         ____                                                    ____
 {N        (____)                 {gAge {Wof {BL{Ce{gg{Wa{Cc{By                    {N(____)
@@ -263,7 +260,8 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
 ~
 
 92 IMOTD~
-Welcome Immortal!
+{C--------------------------------------------------------------------------------{x
+Welcome Immortal!
 
 You are responsible for following the laws of immortal behavior. These can
 be found by typing 'help laws' or 'help commandments'.
@@ -276,7 +274,7 @@ Welcome Immortal!
 
 {WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
 {WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
-
+{C--------------------------------------------------------------------------------{x
 [Hit Return to Continue]
 ~
 
@@ -726,7 +724,7 @@ Syntax: {Cclear{x
 0 MULTIPLAY MULTIPLAYING MULTIPLAYERS MULTI~
 The act of simultaneously playing more than one character at the same time
 is called multiplaying.  We understand that many people share an IP address
-~
+~
 
 0 SUMMARY~
 MOVEMENT                            GROUP
