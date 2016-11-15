@@ -1229,7 +1229,12 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			}
 
 			reward = number_range(ch->level / 4, ch->level * 3 / 2) + 1;
-			pointreward = number_range(1, 10);
+			
+			if (quest_double)
+				pointreward = number_range(1, 20);
+			else
+				pointreward = number_range(1, 10);
+			
 			/* Awards ceremony */
 			do_say(questman, "Congratulations on completing your skill quest!");
 			sprintf(buf, "As a reward, I am giving you %d skill point%s and %d gold.",

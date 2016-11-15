@@ -2650,7 +2650,7 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		stc("But, the item is already weightless.\n", ch);
 		return;
 	}
-
+	
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses, only in perm affects */
@@ -2672,14 +2672,15 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	fail = URANGE(5, fail, 85);
 	result = number_percent();
 
-	if (result < (fail / 5)) { /* Item Destroyed */
+	/*fixed so IMMS cannot dis-enchant or impode mortal items -- Vegita*/
+	if (result < (fail / 5) && !IS_IMMORTAL(ch)) { /* Item Destroyed */
 		act("$p implodes into nothingness!", ch, obj, NULL, TO_CHAR);
 		act("$p implodes into nothingness!", ch, obj, NULL, TO_ROOM);
 		extract_obj(obj);
 		return;
 	}
-
-	if (result < (fail / 3)) { /* item disenchanted */
+	
+	if (result < (fail / 3) && !IS_IMMORTAL(ch)) { /* item disenchanted */
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_CHAR);
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_ROOM);
 

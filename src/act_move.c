@@ -1674,7 +1674,7 @@ void recall(CHAR_DATA *ch, bool clan)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL) || affect_exists_on_char(ch, gsn_curse)) {
+	if ((!IS_IMMORTAL(ch) && IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL)) || affect_exists_on_char(ch, gsn_curse)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
