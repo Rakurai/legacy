@@ -1130,15 +1130,9 @@ void obj_update(void)
 		if (obj == auction->item)
 			continue;
 
-		if (obj->timer <= 0
-		 || --obj->timer > 0
-		 || obj->clean_timer <= 0
-		 || --obj->clean_timer > 0) {
-//			if (obj->affects_modified)
-//				affects_compile_obj(obj);
-
-		 	continue;
-		 }
+		if (obj->timer <= 0 || --obj->timer > 0)
+			if (obj->clean_timer <= 0 || --obj->clean_timer > 0)
+			 	continue;
 
 		// past this point the object is going away
 
