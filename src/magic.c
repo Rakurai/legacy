@@ -2650,7 +2650,7 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		stc("But, the item is already weightless.\n", ch);
 		return;
 	}
-
+	
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses, only in perm affects */
@@ -2672,14 +2672,15 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	fail = URANGE(5, fail, 85);
 	result = number_percent();
 
-	if (result < (fail / 5)) { /* Item Destroyed */
+	/*fixed so IMMS cannot dis-enchant or impode mortal items -- Vegita*/
+	if (result < (fail / 5) && !IS_IMMORTAL(ch)) { /* Item Destroyed */
 		act("$p implodes into nothingness!", ch, obj, NULL, TO_CHAR);
 		act("$p implodes into nothingness!", ch, obj, NULL, TO_ROOM);
 		extract_obj(obj);
 		return;
 	}
-
-	if (result < (fail / 3)) { /* item disenchanted */
+	
+	if (result < (fail / 3) && !IS_IMMORTAL(ch)) { /* item disenchanted */
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_CHAR);
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_ROOM);
 
@@ -4400,7 +4401,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam, i, count, swarm, chance;
+	int dam, i, count, swarm;
 	int clevel = ((level / 10) + 1);
 	static const sh_int dam_each[] = {
 		0,
@@ -4472,7 +4473,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 			dam /= 2;
 		
 		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
-		if (swarm = 1) /*swarm chance figuring*/
+		if (swarm == 1) /*swarm chance figuring*/
 			if (number_percent() > 83){
 				stc("Your magic missile swarms it's target!!!!\n", ch);
 				act("$n magic missile swarms the target!", ch, NULL, NULL, TO_ROOM);

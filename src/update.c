@@ -754,20 +754,22 @@ void descrip_update(void)
 
 					if (ch->fighting != NULL)
 						stop_fighting(ch, TRUE);
+					
+					if (!IS_NPC(ch)){
+						act("$n disappears into the void...", ch, NULL, NULL, TO_ROOM);
+						stc("You disappear into the void.\n", ch);
 
-					act("$n disappears into the void...", ch, NULL, NULL, TO_ROOM);
-					stc("You disappear into the void.\n", ch);
+						if (ch->level > 1)
+							save_char_obj(ch);
 
-					if (ch->level > 1)
-						save_char_obj(ch);
-
-					char_from_room(ch);
-					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+						char_from_room(ch);
+						char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+					}
 				}
 			}
 
 			if (d->timer == 7) {
-				if (!IS_SET(ch->comm, COMM_AFK)) {
+				if (!IS_SET(ch->comm, COMM_AFK) && !IS_NPC(ch)) {
 					act("$n is set to auto-afk...", ch, NULL, NULL, TO_ROOM);
 					do_afk(ch, "{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x");
 				}
