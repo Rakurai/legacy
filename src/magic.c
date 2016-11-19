@@ -2685,7 +2685,7 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_ROOM);
 
 		/* remove all affects */
-		affect_remove_all_from_obj(obj);
+		affect_remove_all_from_obj(obj, TRUE);
 		obj->extra_flags = 0;
 		return;
 	}
@@ -2800,7 +2800,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		act("$p glows brightly, then fades.", ch, obj, NULL, TO_ROOM);
 
 		/* remove all affects */
-		affect_remove_all_from_obj(obj);
+		affect_remove_all_from_obj(obj, TRUE);
 		obj->extra_flags = 0;
 		return;
 	}
@@ -2938,7 +2938,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		act("$p glows brightly, then fades.", ch, obj, NULL, TO_ROOM);
 
 		/* remove all affects */
-		affect_remove_all_from_obj(obj);
+		affect_remove_all_from_obj(obj, TRUE);
 
 		if (obj->item_type == ITEM_WEAPON) {
 			if (IS_SET(obj->value[4], WEAPON_TWO_HANDS))

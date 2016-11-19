@@ -1162,7 +1162,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 		clone->value[i] = parent->value[i];
 
 	/* affects */
-	affect_remove_all_from_obj(clone);
+	affect_remove_all_from_obj(clone, TRUE);
 
 	for (const AFFECT_DATA *paf = affect_list_obj(parent); paf; paf = paf->next)
 		affect_copy_to_obj(clone, paf);

@@ -76,9 +76,12 @@ void affect_remove_sn_from_obj(OBJ_DATA *obj, int sn) {
 	affect_remove_matching_from_obj(obj, affect_comparator_type, &pattern);
 }
 
-void affect_remove_all_from_obj(OBJ_DATA *obj)
+void affect_remove_all_from_obj(OBJ_DATA *obj, bool permanent)
 {
-	affect_remove_matching_from_obj(obj, NULL, NULL);
+	AFFECT_DATA pattern;
+	pattern.permanent = permanent;
+
+	affect_remove_matching_from_obj(obj, affect_comparator_permanent, &pattern);
 }
 
 // modifying

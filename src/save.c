@@ -36,7 +36,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((CHAR_DATA *ch, int row, int column));
 extern void     set_window      args((CHAR_DATA *ch, int top, int bottom));
 
-#define CURRENT_VERSION         16   /* version number for pfiles */
+#define CURRENT_VERSION         17   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -1450,8 +1450,18 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Affc")) {
+					// ugh.  when I put this in, it took a while for a bug to show up where
+					// the object's affects were not in fact being cleared before the saved
+					// affects were applied, so any enchanted gear was having affects multiplied.
+					// the easiest way to fix this is just to reset enchantments back to stock.
+					// i'm fixing gear for anyone who complains, but we only have like 4 players,
+					// so hopefully we can just get past this.
+					if (version > 15 && version < 17) {
+						fMatch = TRUE; break;
+					}
+
 					// this object has different affects than the index, free the old ones
-					affect_remove_all_from_obj(obj);
+					affect_remove_all_from_obj(obj, TRUE);
 
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);

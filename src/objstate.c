@@ -217,7 +217,7 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 	nests           = fread_number(fp);
 
 	if (enchanted)
-		affect_remove_all_from_obj(obj); // read them from the file
+		affect_remove_all_from_obj(obj, TRUE); // read them from the file
 
 	if (ovnum == OBJ_VNUM_PIT && donation_pit == NULL) {
 		donation_pit = obj;

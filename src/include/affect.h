@@ -79,9 +79,9 @@ void                affect_remove_marked_from_room   args(( ROOM_INDEX_DATA *roo
 void	            affect_remove_sn_from_obj        args(( OBJ_DATA *obj, int sn ));
 void	            affect_remove_sn_from_char       args(( CHAR_DATA *ch, int sn ));
 void	            affect_remove_sn_from_room       args(( ROOM_INDEX_DATA *room, int sn ));
-void                affect_remove_all_from_obj       args(( OBJ_DATA *obj ));
+void                affect_remove_all_from_obj       args(( OBJ_DATA *obj, bool permanent ));
 void                affect_remove_all_from_char      args(( CHAR_DATA *ch, bool permanent ));
-void                affect_remove_all_from_room      args(( ROOM_INDEX_DATA *room ));
+void                affect_remove_all_from_room      args(( ROOM_INDEX_DATA *room, bool permanent ));
 
 // modifying
 void                affect_iterate_over_obj          args(( OBJ_DATA *obj, affect_fn fn, void *data ));
