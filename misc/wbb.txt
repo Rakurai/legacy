@@ -1,26 +1,11 @@
 WBB (Will Be Built) file, ask an Imp to clear when done.
 [16536] Montrey: energy garr in portals has an mprog to purge soulgate as a greeting, generates a bug message when there's no soulgate i guess
-[ 1223] Montrey: bug in resets, says null mob for vnum 4154, E or G, check it out later
 {Y[{x10/01{Y]{x {C[{x 1223{C]{x Liriel: Hbb and WBB helpfiles, as well as noemote, notell, string, copyover, fry, and departedlist to go (personal read 17 by Alisa)
-{Y[{x10/06{Y]{x {C[{x 1270{C]{x Montrey: 5700 to 5999 reserved
-{Y[{x10/06{Y]{x {C[{x 1270{C]{x Montrey: 6300 6399 reserved
-{Y[{x11/24{Y]{x {C[{x25822{C]{x Montrey: limbo vnums 100-150 are reserved
-{Y[{x01/31{Y]{x {C[{x 8549{C]{x Vegita: errrr 29300-29499 reserved for my Mists of Time
 {Y[{x04/01{Y]{x {C[{x 1298{C]{x Liriel: rewrite the remort helpfile to include raffs
 {Y[{x04/17{Y]{x {C[{x 3700{C]{x Liriel: vnum 29188 the arioch horns from ancient high tower has positive AC ... (well negative)?!?  it's weird, check it out ... not sure if it's supposed to be amistake or not
-{Y[{x05/14{Y]{x {C[{x 1266{C]{x Alara: someone remind me to provide Sivat with text for the webpage in July (yes, July)
 {Y[{x06/23{Y]{x {C[{x 1201{C]{x Liriel: People are sick of getting teleported into Battle Arena's when they tp, is there a way to make it unteleportedinto ?
-{Y[{x06/24{Y]{x {C[{x 1266{C]{x Vegita: 7900 - 7999 reserved for Town Of NorthWind
-{Y[{x07/20{Y]{x {C[{x 1225{C]{x Vegita: 24350-24399 temp used for midgaard rp stuff
-{Y[{x08/17{Y]{x {C[{x20000{C]{x Teotwawki: guildmasters will be fixed to sell
-{Y[{x08/17{Y]{x {C[{x20000{C]{x Teotwawki: blessed stake will be balanced
-{Y[{x08/21{Y]{x {C[{x 3001{C]{x Teotwawki: I am adding a spam room to immortal.are
 {Y[{x08/29{Y]{x {C[{x 5281{C]{x Teotwawki: I am removing old imm rooms from immortal area specifically Sturm, alisa, and sorsha
 {Y[{x10/05{Y]{x {C[{x 1225{C]{x Teotwawki: change Conan the Librarian's name
-{Y[{x11/22{Y]{x {C[{x 1225{C]{x Teotwawki: I am reserving vnum 300 to 350 for Leighs area
-{Y[{x12/11{Y]{x {C[{x 1288{C]{x Vegita: 24350-24399 commandeered by me for misc mud stuff
-{Y[{x12/26{Y]{x {C[{x26004{C]{x Teotwawki: Necro project by Lidda coding part is Vegita GO TEAM
 {Y[{x07/28/14{Y]{x {C[{x 9556{C]{x Montrey: chessboard should be linked from here, not from 9555
 {Y[{x07/30/14{Y]{x {C[{x 3001{C]{x Montrey: help swho isn't very helpful
 {Y[{x07/31/14{Y]{x {C[{x 7643{C]{x Montrey: update maps of thera and midgaard
-{Y[{x08/11/14{Y]{x {C[{x14122{C]{x BlackMage: 9556

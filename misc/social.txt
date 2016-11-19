@@ -1,4 +1,4 @@
-326
+324
 1337~
 Someone is celebrating $s 1337th hour here~
 $n counts 1337 sheep before falling asleep.~
@@ -70,15 +70,6 @@ $n feels so alone without $N.~
 $n seems to feel alone without you.~
 You talk with yourself because everyone else has left you.~
 $n talks with $mself, how odd.~
-
-anticipate~
-You murmur '{YSssssoonnn, {Pmy {Ypresssssciousssss...{x'~
-$n murmurs '{YSsssssooonnnn, {Pmy {Ypressssscioussss...{x'~
-You murmur 'Soon, my precious' in $S ear...~
-$n murmurs 'Soon, my precious' in $N's ear...~
-$n murmurs 'Soon, my precious' in your ear...~
-You start murmuring to yourself again...~
-$n is murmuring to $mself again...~
 
 anvil~
 You lift an anvil above your head looking for a victim, it slips from your grasp and crashes down on you. Ooh that's going to leave a bump.~
@@ -484,15 +475,6 @@ $n chuckles at $N's joke.~
 $n chuckles at your joke.~
 You chuckle at your own joke, since no one else would.~
 $n chuckles at $s own joke, since none of you would.~
-
-cig~
-You break out a cigarette and light it with a {cZ{gi{Wp{gp{c0 ({WtM{c){x.~
-$n pulls out a cigarette and lights it with a {cZ{gi{Wp{gp{c0 ({WtM{c){x.~
-You take a deep drag off your cigarette and blow the smoke in $N's face.~
-$n takes a deep drag off $s cigarette and blows the smoke in your face!~
-$n takes a deep drag off $s cigarette and blows the smoke in your face!~
-You take a deep, long drag... Aaaaaaah.~
-$n takes a deep, long drag from a cigarette. Aaaaaaah.~
 
 clap~
 You clap your hands together.~
