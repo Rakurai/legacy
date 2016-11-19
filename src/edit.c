@@ -78,7 +78,7 @@ static char *next_line(char *current_line)
 		return current_line;
 
 	for (pl = current_line; pl < limit; pl++) {
-		if (*pl == '\r')
+		if (*pl == '\n')
 			return ++pl;
 	}
 
@@ -142,11 +142,8 @@ static void listline(BUFFER *dbuf, int lineno, char *line)
 	else if (lineno == ed->edit_nlines + 1)
 		add_buf(dbuf, "~~~END~~~");
 	else {
-		while (*line != '\r' && *line != '\0') {
-			if (*line != '\n')
-				*bp++ = *line;
-
-			line++;
+		while (*line != '\n' && *line != '\0') {
+			*bp++ = *line++;
 		}
 	}
 
@@ -339,7 +336,7 @@ static void edit_goto1(CHAR_DATA *ch, int lineno)
 
 static bool is_blank_line(char *line)
 {
-	while (*line != 0 && *line != '\r') {
+	while (*line != 0 && *line != '\n') {
 		if (*line > ' ')
 			return FALSE;
 
@@ -818,7 +815,7 @@ static void edit_wrap(CHAR_DATA *ch, const char *argument)
 			in_word = TRUE;
 		}
 		else {
-			if (*cp == '\r')
+			if (*cp == '\n')
 				lineno++;
 
 			if (in_word) {
