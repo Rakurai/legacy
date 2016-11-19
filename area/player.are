@@ -455,8 +455,8 @@ a fig~
 A large fig rests on the ground.~
 fig~
 pill A A
-1 'giant strength' 'haste' 'fly' 'sanctuary'
-15 0 10 P
+15 'giant strength' 'haste' 'fly' 'sanctuary'
+1 0 10 P
 E
 fig~
 Looks exactly like every other fig.
