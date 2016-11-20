@@ -501,6 +501,10 @@ void boot_db()
 
 		fclose(fpList);
 	}
+
+	extern void load_mob_attrs();
+	load_mob_attrs();
+
 	/* initialize quest stuff after areas loaded, maybe areas are needed */
 	quest_init();
 
@@ -927,6 +931,7 @@ void load_mobiles(FILE *fp)
 		pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
 		pMobIndex->vnum                 = vnum;
 		pMobIndex->version              = aVersion;
+		pMobIndex->area                 = area_last;
 		pMobIndex->player_name          = fread_string(fp);
 		pMobIndex->short_descr          = fread_string(fp);
 		pMobIndex->long_descr           = fread_string(fp);
@@ -1114,6 +1119,7 @@ void load_objects(FILE *fp)
 		fBootDb = TRUE;
 		pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
 		pObjIndex->vnum                 = vnum;
+		pObjIndex->area                 = area_last;
 		pObjIndex->reset_num            = 0;
 		pObjIndex->version              = aVersion;
 		pObjIndex->name                 = fread_string(fp);

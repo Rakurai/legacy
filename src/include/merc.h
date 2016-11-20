@@ -1852,6 +1852,7 @@ struct  mob_index_data
     SPEC_FUN *          spec_fun;
     SHOP_DATA *         pShop;
     sh_int              vnum;
+    AREA_DATA *         area;
     sh_int              group;
     sh_int		version;	/* Mob versioning -- Montrey */
     sh_int              count;
@@ -2234,13 +2235,14 @@ typedef struct eqsocket_data {
 struct  obj_index_data
 {
     OBJ_INDEX_DATA *    next;
+    sh_int              vnum;
+    AREA_DATA *         area;
     EXTRA_DESCR_DATA *  extra_descr;
     AFFECT_DATA *       affected;
     unsigned long       affect_checksum; // for comparing to instances on saving
     char *              name;
     char *              short_descr;
     char *              description;
-    sh_int              vnum;
     sh_int              reset_num;
     sh_int		version;	/* Object versioning -- Montrey */
     char *              material;
@@ -2367,6 +2369,11 @@ struct  reset_data
 #define AREA_TYPE_XXX   'X'
 #define AREA_TYPE_NORM  ' '
 
+#define MOB_ATTR_HP       0
+#define MOB_ATTR_MANA     1
+#define MOB_ATTR_AC       2
+#define MOB_ATTR_HITROLL  3
+#define MOB_ATTR_DAMROLL  4
 
 /*
  * Area definition.
@@ -2391,6 +2398,13 @@ struct  area_data
     char *              author;     /* -- Elrac */
     char *              title;      /* -- Elrac */
     char *              keywords;   /* -- Elrac */
+
+    float               inside_m2[5]; // coeff for mobs inside area
+    float               inside_m1[5];
+    float               inside_m0[5];
+    float               outside_m2[5]; // coeff for mobs outside area
+    float               outside_m1[5];
+    float               outside_m0[5];
 };
 
 

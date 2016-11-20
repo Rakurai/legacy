@@ -1466,11 +1466,15 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 /***** STAT COMMANDS *****/
 void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	if (IS_NPC(victim))
+	if (IS_NPC(victim)) {
 		ptc(ch, "Vnum: %d  Group: %d  Count: %d  Killed: %d\n",
 		    victim->pIndexData->vnum,
 		    victim->group,
 		    victim->pIndexData->count, victim->pIndexData->killed);
+
+		extern char *print_mob_multipliers(CHAR_DATA *mob);
+		stc(print_mob_multipliers(victim), ch);
+	}
 
 	ptc(ch, "{WRoom: %d {CName: %s{x\n",
 	    victim->in_room == NULL ? 0 : victim->in_room->vnum, victim->name);
