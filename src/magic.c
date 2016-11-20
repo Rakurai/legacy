@@ -4436,7 +4436,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 
 	switch (evolution){
 		case 3:
-			if (level <= 19) count = 1;
+			if (level <= 9) count = 1;
 			else if (level >= 19 && level <= 29) count = 2;
 			else if (level >= 29 && level <= 49) count = 3;
 			else if (level >= 49 && level <= 59) count = 4;
@@ -4445,15 +4445,15 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 			break;
 		
 		case 2:
-			if (level <= 29) count = 1;
-			else if (level >= 29 && level <= 49) count = 2;
+			if (level <= 9) count = 1;
+			else if (level >= 19 && level <= 39) count = 2;
 			else if (level >= 49 && level <= 60) count = 3;
 			else count = 4;
 			break;
 		
 		case 1:
-			if (level <= 29) count = 1;
-			else if (level >= 29 && level <= 59) count = 2;
+			if (level <= 9) count = 1;
+			else if (level >= 19 && level <= 49) count = 2;
 			else count = 3;
 			break;
 		
@@ -4473,13 +4473,15 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 			dam /= 2;
 		
 		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
-		if (swarm == 1) /*swarm chance figuring*/
-			if (number_percent() > 83){
-				stc("Your magic missile swarms it's target!!!!\n", ch);
-				act("$n magic missile swarms the target!", ch, NULL, NULL, TO_ROOM);
-				dam /= 2;
-				damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
-			}
+		if (ch->fighting != NULL) { /*don't display message if mob dead/no fight*/
+			if (swarm == 1) /*swarm chance figuring*/
+					if (number_percent() > 85) {
+						stc("Your magic missile swarms it's target!!!!\n", ch);
+						act("$n magic missile swarms the target!", ch, NULL, NULL, TO_ROOM);
+						dam /= 2;
+						damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
+					}
+		}
 		if (ch->fighting == NULL)
 			return;
 	}

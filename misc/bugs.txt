@@ -1,24 +1,12 @@
 Bug File, clear when fixed.
 
-{Y[{x12/05{Y]{x {C[{x 1298{C]{x Montrey: stormscry said something about a mysql error with update godlog?  might check the logs for that
 {Y[{x12/09{Y]{x {C[{x 1298{C]{x Montrey: remote needs robust messages
 {Y[{x12/09{Y]{x {C[{x 1298{C]{x Montrey: sac all has reversed colors?
-{Y[{x12/10{Y]{x {C[{x 1298{C]{x Montrey: shouldn't save objects lying around on the ground in spawn
-{Y[{x12/10{Y]{x {C[{x 1225{C]{x Teotwawki: update_pc_index: Commands out of sync; You can't run this command now
-{Y[{x12/10{Y]{x {C[{x 1288{C]{x Vegita: do_clanlist: Commands out of sync; You can't run this command now
-{Y[{x12/10{Y]{x {C[{x 1288{C]{x Vegita: count_clan_members: Commands out of sync; You can't run this command now.
-{Y[{x12/11{Y]{x {C[{x 1224{C]{x Teotwawki: save_clan_table: Comands out of synct; You can't run this
 {Y[{x12/12{Y]{x {C[{x 3001{C]{x Montrey: ranged can't find a target in the next room
 {Y[{x12/12{Y]{x {C[{x 3001{C]{x Montrey: i'm betting that the room next to you has no light in it :)
-{Y[{x12/13{Y]{x {C[{x25000{C]{x Rakurai: i can use 2 weapons, a shield, and a held item
 {Y[{x12/13{Y]{x {C[{x10168{C]{x Rakurai: make 'evo' pos_sleeping
 {Y[{x12/14{Y]{x {C[{x25000{C]{x Celes: make body parts dropped in arena fights go to the winner :)
-{Y[{x12/16{Y]{x {C[{x 8543{C]{x Sturm: no lag on slow
 {Y[{x12/16{Y]{x {C[{x 1288{C]{x Vegita: <WizNet> [*****] BUG: do_alternate: WARNING: maximum site structure size reached
-{Y[{x12/18{Y]{x {C[{x10152{C]{x Jasper: You dodge Ambrose Spike's hilt strike.
-{Y[{x12/19{Y]{x {C[{x 3370{C]{x Sturm: last night I was fighting Jasper and I wasnt dodging any of his attacks..and my dex is higher than his
-{Y[{x12/22{Y]{x {C[{x 3001{C]{x Teotwawki: Missing vch for $N
-{Y[{x01/10{Y]{x {C[{x 1202{C]{x Xenith: <WizNet> [*****] BUG: Error in getting object index in do_vlist().
 {Y[{x01/12{Y]{x {C[{x 1290{C]{x Montrey: fry needs to update pc_index
 {Y[{x07/26/14{Y]{x {C[{x 3721{C]{x Arcannos: outdated tutorial
 {Y[{x07/26/14{Y]{x {C[{x 1298{C]{x Montrey: misspelling something in newbie creation gives a wiznet bug 'no helps with keywords'
@@ -26,7 +14,6 @@ Bug File, clear when fixed.
 {Y[{x07/26/14{Y]{x {C[{x 3001{C]{x Montrey: strike the above thing about wiznet showing missing helps, log those to a file
 {Y[{x07/26/14{Y]{x {C[{x 3365{C]{x Montrey: newbies should get some kind of warning if they finish customization without using up 40 CP
 {Y[{x07/28/14{Y]{x {C[{x 7606{C]{x Montrey: somebody change houses from dodge to shield block or something, it's just stupid
-{Y[{x07/28/14{Y]{x {C[{x 1298{C]{x Montrey: should be able to fly/land while fighting
 {Y[{x07/28/14{Y]{x {C[{x 7643{C]{x Celes: fireball casting without an argument when not in combat shows cast message, lags
 {Y[{x07/29/14{Y]{x {C[{x 1200{C]{x Montrey: divorce doesn't remove the engagement flag, can't seem to unengage
 {Y[{x07/29/14{Y]{x {C[{x17317{C]{x Celes: i think the exits (up and down) in this room are messed up, should be north/south?
@@ -36,10 +23,61 @@ Bug File, clear when fixed.
 {Y[{x08/01/14{Y]{x {C[{x 1298{C]{x Montrey: copyover only seems to care about the bin directory, it should relaunch from whatever directory it started in
 {Y[{x08/01/14{Y]{x {C[{x 1298{C]{x Montrey: make it so notes in progress save through copyover/crash, jeez
 {Y[{x08/05/14{Y]{x {C[{x 1290{C]{x Montrey: edit isn't showing multiple blank lines correctly
-{Y[{x09/28/16{Y]{x {C[{x 3001{C]{x Montrey: why can't i slay helga?
 {Y[{x09/28/16{Y]{x {C[{x 1290{C]{x Montrey: that 'really nasty axe' line in wbi, where is it getting year?
 {Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: using phudbase web client, there's a difference between the dark black background and a lighter (dark grey) background, i see it in sscore
 {Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: and in who, it seems to be repeatable, and might have to do with the way color codes are used
 {Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: same thing happens in ctest, the white/grey/grey line is dark black bg, the ones under it are dark grey (except red), and charcoal is just weird (dark blue background)
 {Y[{x10/10/16{Y]{x {C[{x 1290{C]{x Montrey: in character creation, 'help lay' brings up the help for slay, but not repeatable in game
 {Y[{x10/10/16{Y]{x {C[{x 3014{C]{x Celes: auto afk is too auto
+{Y[{x10/11/16{Y]{x {C[{x10292{C]{x Montrey: editing a help seems to have some garbage left over in a buffer, it had another help file appended to my text
+{Y[{x10/13/16{Y]{x {C[{x10292{C]{x Montrey: move order above oclone in the interp list
+{Y[{x10/15/16{Y]{x {C[{x 1290{C]{x Montrey: "change -" cleared my whole note?
+{Y[{x10/16/16{Y]{x {C[{x 3743{C]{x Fiddle: can't see exp to level at level 1?  is it the color?
+{Y[{x10/17/16{Y]{x {C[{x 1290{C]{x Montrey: still weird with helps.  i'm trying to edit 'help multi', and line 3 exists (shows in edit) but after saving, not in help.  is it getting sent to the database right away?
+{Y[{x10/21/16{Y]{x {C[{x 1290{C]{x Montrey: loadhelps is really really slow, even on one file
+{Y[{x10/21/16{Y]{x {C[{x 1290{C]{x Montrey: if i switch to a mob, it can auto-afk
+{Y[{x10/24/16{Y]{x {C[{x14200{C]{x Lidda: make room non-quest. 
+{Y[{x10/25/16{Y]{x {C[{x 1290{C]{x Lidda: typed owhere a and crashed mud.
+{Y[{x10/26/16{Y]{x {C[{x 1290{C]{x Montrey: check into vape_ceq, tempest said vaping her clanbag destroyed non-clan stuff inside it
+{Y[{x10/27/16{Y]{x {C[{x 3019{C]{x Montrey: alt site without a star inserts (null) where instead, and also it shouldn't bug when there are no sites like that
+{Y[{x10/30/16{Y]{x {C[{x 3001{C]{x Rakurai: drowning doens't kill you
+{Y[{x10/30/16{Y]{x {C[{x 4577{C]{x Rakurai: things dying of poison don't give exp
+{Y[{x10/31/16{Y]{x {C[{x 8919{C]{x Arcannos: affects mess up the alignment of affect screen
+{Y[{x10/31/16{Y]{x {C[{x29952{C]{x Montrey: owhere, vlist, etc should show object/mob level
+{Y[{x11/01/16{Y]{x {C[{x 1290{C]{x Lidda: need to add help faerie
+{Y[{x11/03/16{Y]{x {C[{x 1290{C]{x Montrey: "change -" removes the whole note, god damn it
+{Y[{x11/04/16{Y]{x {C[{x 1290{C]{x Montrey: need to fix do_cast do it doesn't even consider skills as possible things you're trying to cast
+{Y[{x11/05/16{Y]{x {C[{x24600{C]{x Error: hilt strike and parry with off hand rate is REALLY low and the hilt strike damage is way low
+{Y[{x11/06/16{Y]{x {C[{x10151{C]{x Celes: weird follow shit
+{Y[{x11/06/16{Y]{x {C[{x 4431{C]{x Celes: mobs aren't aggressing
+{Y[{x11/06/16{Y]{x {C[{x 4436{C]{x Celes: level_save is too hard to pull off, especially poison and curse
+{Y[{x11/06/16{Y]{x {C[{x 1251{C]{x Celes: i was able to get everything from tempest's corpse
+{Y[{x11/06/16{Y]{x {C[{x 1251{C]{x Montrey: give all.something should work
+{Y[{x11/06/16{Y]{x {C[{x24600{C]{x Sariah: you cannot search for a helpfile with part of the word (ie help truth will not show light of truth spell helpfile)
+{Y[{x11/06/16{Y]{x {C[{x 3365{C]{x Tempest: Double qp does not give double sp
+{Y[{x11/07/16{Y]{x {C[{x16250{C]{x Montrey: look still checks inventory before room extra descriptions
+{Y[{x11/07/16{Y]{x {C[{x16250{C]{x Montrey: why does rebel have a cape with +8/8 hit/dam?
+{Y[{x11/07/16{Y]{x {C[{x 5382{C]{x Montrey: move order before oclone on interp, jeez
+{Y[{x11/07/16{Y]{x {C[{x 5382{C]{x Montrey: flying mobs don't show as flying in look
+{Y[{x11/07/16{Y]{x {C[{x 5382{C]{x Montrey: can't undo spells on your charmed mob? is that a bug or a feature?
+{Y[{x11/07/16{Y]{x {C[{x 3031{C]{x Montrey: or your pet
+{Y[{x11/07/16{Y]{x {C[{x 3031{C]{x Montrey: or canel
+{Y[{x11/07/16{Y]{x {C[{x 3031{C]{x Montrey: make sure that fly wearing off will force the player to land (or fall, whatever)
+{Y[{x11/07/16{Y]{x {C[{x 3031{C]{x Montrey: mobs are saving vs things way too much, lidda can't summon allah or gate to him
+{Y[{x11/07/16{Y]{x {C[{x 1290{C]{x Lidda: fix command 'show' for adding affects into score. Should be showaff like showraff
+{Y[{x11/08/16{Y]{x {C[{x 1290{C]{x Montrey: dyne says exits are showing None when there are exits
+{Y[{x11/08/16{Y]{x {C[{x 3001{C]{x Lidda: Imms should be able to recall out of no-recall rooms, FFS.
+{Y[{x11/08/16{Y]{x {C[{x 3001{C]{x Lidda: imms should be able to wear equipment with alignments.
+{Y[{x11/09/16{Y]{x {C[{x10173{C]{x Vegita: 10173 should link west to 10171 in Inside the Abbey currently one way from 10171 to 10173
+{Y[{x11/09/16{Y]{x {C[{x 3001{C]{x Lidda: Vegita pretty PLEASE make scan2 pretty
+{Y[{x11/09/16{Y]{x {C[{x 7339{C]{x Montrey: exits in prompt are weird, not showing exits that obviously exist, and infravision/imm vision is still showing rooms as too dark with 'exits'
+{Y[{x11/09/16{Y]{x {C[{x 7339{C]{x Montrey: 'exits' also isn't showing closed doors, but scan does
+{Y[{x11/11/16{Y]{x {C[{x 3001{C]{x Lidda: imm shrink should not destroy objects.
+{Y[{x11/11/16{Y]{x {C[{x 3001{C]{x Lidda: imm shrink should not destroy objects.
+{Y[{x11/11/16{Y]{x {C[{x 4574{C]{x Arcannos: cure can cure woy above max hp
+{Y[{x11/12/16{Y]{x {C[{x 1288{C]{x Vegita: for some reason some helpfiles do not show up when player is customizing character
+{Y[{x11/14/16{Y]{x {C[{x 1290{C]{x Lidda: Mob body parts seem to no longer be timed and aren't disappearing. 
+{Y[{x11/15/16{Y]{x {C[{x 1290{C]{x Lidda: Everyone appears to be the wrong sex. 
+{Y[{x11/15/16{Y]{x {C[{x 1290{C]{x Lidda: quest mox gems are also no longer timed and are just sitting around the mud.
+{Y[{x11/17/16{Y]{x {C[{x 3001{C]{x Lidda: NOTE - STILL CLEARS THE WHOLE MOTHER FUCKING NOTE, GODDAMNIT.
+{Y[{x11/17/16{Y]{x {C[{x 5577{C]{x Lidda: No quests should be sent to this room - player room, no exits.

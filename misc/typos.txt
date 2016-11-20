@@ -6,3 +6,4 @@ Typo File (ask an imp to delete when fixed)
 {Y[{x07/28/14{Y]{x {C[{x 1298{C]{x Montrey: missing newline after trying to give someone gold that can't carry the weight
 {Y[{x07/29/14{Y]{x {C[{x16286{C]{x Montrey: missing punctuation here
 {Y[{x07/29/14{Y]{x {C[{x16281{C]{x Montrey: and here
+{Y[{x10/21/16{Y]{x {C[{x10422{C]{x Celes: "a few shards or bone and flash"
