@@ -1173,6 +1173,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		if (nRead > 0) {
 			iStart += nRead;
 
+			// retain compatibility with \r line endings
 			if (d->inbuf[iStart - 1] == '\n' || d->inbuf[iStart - 1] == '\r')
 				break;
 		}
@@ -1409,7 +1410,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		ch = d->original ? d->original : d->character;
 
 		if (!IS_SET(ch->comm, COMM_COMPACT))
-			write_to_buffer(d, "\n", 2);
+			write_to_buffer(d, "\n", 1);
 
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
 			set_color(ch, CYAN, NOBOLD);
@@ -1884,6 +1885,10 @@ void bust_a_prompt(CHAR_DATA *ch)
 			++point, ++i;
 	}
 
+//	*point = '\0';
+//	strcat(buf, "\n");
+//	bugf("Sending prompt: '%s', len %d", buf, point - buf+1);
+//	write_to_buffer(ch->desc, "testing", 7);
 	write_to_buffer(ch->desc, buf, point - buf);
 
 	if (ch->prefix[0] != '\0')
@@ -2763,7 +2768,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 	}
 
 	*point++ = '\n';
-	*point++ = '\r';
+//	*point++ = '\r';
 	*point   = 0;
 	buf[0]   = UPPER(buf[0]);
 

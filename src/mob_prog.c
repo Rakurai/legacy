@@ -88,9 +88,6 @@ char *mprog_next_command(char *clist)
 	if (*pointer == '\n')
 		*pointer++ = '\0';
 
-	if (*pointer == '\r')
-		*pointer++ = '\0';
-
 	return (pointer);
 }
 

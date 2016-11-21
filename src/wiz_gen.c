@@ -2508,7 +2508,7 @@ void do_motd(CHAR_DATA *ch, const char *argument)
 			strcpy(buf, time_info.motd);
 
 			for (len = strlen(buf); len > 0; len--) {
-				if (buf[len] == '\r') {
+				if (buf[len] == '\n') {
 					if (!found) { /* back it up */
 						if (len > 0)
 							len--;

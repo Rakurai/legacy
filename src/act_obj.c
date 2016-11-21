@@ -5307,16 +5307,7 @@ void do_engrave(CHAR_DATA *ch, const char *argument)
 	pb = buf;
 
 	for (pd = eng_desc->description; *pd;) {
-		if ((pd[0] == '\n' && pd[1] == '\r') ||
-		    (pd[0] == '\r' && pd[1] == '\n')) {
-			*pb++ = *pd++;
-			*pb++ = *pd++;
-			*pb = '\0';
-
-			if (++lines == 2 && *pd != '\0')
-				l2 = pd;
-		}
-		else if (pd[0] == '\r' || pd[0] == '\n') {
+		if (pd[0] == '\n') {
 			*pb++ = *pd++;
 			*pb = '\0';
 

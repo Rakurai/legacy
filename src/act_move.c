@@ -3095,11 +3095,11 @@ void do_land(CHAR_DATA *ch, const char *argument)
 
 	if (ch->in_room->sector_type == SECT_WATER_SWIM
 	 || ch->in_room->sector_type == SECT_WATER_NOSWIM) {
-		stc("You land in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n\r", ch);
-		act("$n lands in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n\r",
+		stc("You land in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n", ch);
+		act("$n lands in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n",
 			ch, NULL, NULL, TO_ROOM);
 	} else {
-		stc("You land gracefully on both feet.\n\r", ch);
+		stc("You land gracefully on both feet.\n", ch);
 		act("$n gracefully lands on both feet.", ch, NULL, NULL, TO_ROOM);
 	}
 

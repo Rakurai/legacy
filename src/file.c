@@ -149,7 +149,6 @@ char *fread_string(FILE *fp)
 
 		case '\n':
 			plast++;
-			*plast++ = '\r';
 			break;
 
 		case '\r':

@@ -962,17 +962,17 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 
 		switch (event->type) {
 		case EVENT_WAR_START:
-			sprintf(buf, "War started on %s\r", dizzy_ctime(&event->time));
+			sprintf(buf, "War started on %s\n", dizzy_ctime(&event->time));
 			break;
 
 		case EVENT_WAR_STOP_WIN:
-			sprintf(buf, "The %s won the war on %s\r",
+			sprintf(buf, "The %s won the war on %s\n",
 			        event->number ? "challengers" : "defenders",
 			        dizzy_ctime(&event->time));
 			break;
 
 		case EVENT_WAR_STOP_IMM:
-			sprintf(buf, "War was stopped by the Immortals on %s\r",
+			sprintf(buf, "War was stopped by the Immortals on %s\n",
 			        dizzy_ctime(&event->time));
 			break;
 

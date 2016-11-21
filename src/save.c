@@ -1929,12 +1929,12 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	if (IS_IMMORTAL(ch) || !IS_SET(plr, PLR_NOSHOWLAST)) {
 		if (last_ltime) {
-			sprintf(buf, "{HLast Login : %s\r{x", dizzy_ctime(&last_ltime));
+			sprintf(buf, "{HLast Login : %s\n{x", dizzy_ctime(&last_ltime));
 			add_buf(dbuf, buf);
 		}
 
 		if (last_saved) {
-			sprintf(buf, "{HLast Saved : %s\r{x", dizzy_ctime(&last_saved));
+			sprintf(buf, "{HLast Saved : %s\n{x", dizzy_ctime(&last_saved));
 			add_buf(dbuf, buf);
 		}
 	}

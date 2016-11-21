@@ -2341,7 +2341,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		stc("{x\n", ch);
 	}
 
-	sprintf(buf, "{gLegacy started up %s\rThe system time is: %s{x\r",
+	sprintf(buf, "{gLegacy started up %s\nThe system time is: %s{x\n",
 	        str_boot_time,
 	        (char *) ctime(&current_time)
 	       );
@@ -3408,7 +3408,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 			strcpy(buf, ch->description);
 
 			for (len = strlen(buf); len > 0; len--) {
-				if (buf[len] == '\r') {
+				if (buf[len] == '\n') {
 					if (!found) { /* back it up */
 						if (len > 0)
 							len--;
@@ -3493,7 +3493,7 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 			strcpy(buf, ch->pcdata->fingerinfo);
 
 			for (len = strlen(buf); len > 0; len--) {
-				if (buf[len] == '\r') {
+				if (buf[len] == '\n') {
 					if (!found) { /* back it up */
 						if (len > 0)
 							len--;

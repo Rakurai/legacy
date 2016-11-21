@@ -269,7 +269,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_GET_OLD_PASSWORD:
 #if defined(unix)
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 #endif
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
@@ -443,7 +443,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_GET_NEW_PASSWORD:
 #if defined(unix)
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 #endif
 
 		if (strlen(argument) < 5) {
@@ -476,7 +476,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_CONFIRM_NEW_PASSWORD:
 #if defined(unix)
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 #endif
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
@@ -550,7 +550,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		for (i = 0; i < 5 && pc_race_table[race].skills[i]; i++)
 			group_add(ch, pc_race_table[race].skills[i], FALSE);
 
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 		write_to_buffer(d, "Here are your default stats:\n", 0);
 		sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
 		        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
@@ -565,7 +565,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (argument[0]) {
 		case 'n':
 		case 'N':
-			write_to_buffer(d, "\n", 2);
+			write_to_buffer(d, "\n", 1);
 			write_to_buffer(d, "What is your sex (M/F)? ", 0);
 			d->connected = CON_GET_NEW_SEX;
 			break;
@@ -608,7 +608,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 		strcpy(buf, "Select a class [");
 
 		for (iClass = 0; iClass < MAX_CLASS; iClass++) {
@@ -649,7 +649,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		log_string(log_buf);
 		sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
 		wiznet(log_buf, ch, NULL, WIZ_NEWBIE, 0, 0);
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 		/* paladins can't be neutral */
 		sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
 		        ch->class == PALADIN_CLASS ? "" : ", neutral,",
@@ -772,7 +772,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		case 'n':
 		case 'N':
 			group_add(ch, class_table[ch->class].default_group, TRUE);
-			write_to_buffer(d, "\n", 2);
+			write_to_buffer(d, "\n", 1);
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
 
@@ -795,7 +795,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_PICK_WEAPON:
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 		weapon = weapon_lookup(argument);
 
 		if (weapon == -1 || ch->pcdata->learned[*weapon_table[weapon].gsn] <= 0) {
@@ -804,7 +804,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->pcdata->learned[*weapon_table[weapon].gsn] = 40;
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 		set_color(ch, CYAN, BOLD);
 		help(ch, "automotd");
 		d->connected = CON_READ_MOTD;
@@ -826,7 +826,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			free_gen_data(ch->gen_data);
 			ch->gen_data = NULL;
-			write_to_buffer(d, "\n", 2);
+			write_to_buffer(d, "\n", 1);
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
 
@@ -849,7 +849,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_READ_IMOTD:
-		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "\n", 1);
 		set_color(ch, CYAN, NOBOLD);
 		help(ch, "automotd");
 		d->connected = CON_READ_MOTD;
