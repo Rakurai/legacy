@@ -752,7 +752,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 //		write_to_buffer(d, "\nDo you wish to customize this character?\n", 0);
 //		write_to_buffer(d, "Customization takes time, but allows a wider range of skills"
 //		                " and abilities.\nCustomize (Y/N)? ", 0);
-
 		d->connected = CON_DEFAULT_CHOICE;
 //		break;
 
