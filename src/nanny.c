@@ -749,14 +749,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		free_string(ch->pcdata->deity);
 		ch->pcdata->deity = str_dup(deity_table[deity].name);
-		write_to_buffer(d, "\nDo you wish to customize this character?\n", 0);
-		write_to_buffer(d, "Customization takes time, but allows a wider range of skills"
-		                " and abilities.\nCustomize (Y/N)? ", 0);
+//		write_to_buffer(d, "\nDo you wish to customize this character?\n", 0);
+//		write_to_buffer(d, "Customization takes time, but allows a wider range of skills"
+//		                " and abilities.\nCustomize (Y/N)? ", 0);
 		d->connected = CON_DEFAULT_CHOICE;
 		break;
 
 	case CON_DEFAULT_CHOICE:
-		switch (argument[0]) {
+/*		switch (argument[0]) {
 		case 'y':
 		case 'Y':
 			ch->gen_data = new_gen_data();
@@ -771,7 +771,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		case 'n':
 		case 'N':
-			group_add(ch, class_table[ch->class].default_group, TRUE);
+*/
+//			group_add(ch, class_table[ch->class].default_group, TRUE);
+
+			if (ch->pcdata->points < 40)
+				ch->train = 40 - ch->pcdata->points;
+
 			write_to_buffer(d, "\n", 1);
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
@@ -785,13 +790,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			strcat(buf, "\nYour choice? ");
 			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
-			break;
+/*			break;
 
 		default:
 			write_to_buffer(d, "Please answer (Y/N)? ", 0);
 			return;
 		}
-
+*/
 		break;
 
 	case CON_PICK_WEAPON:
@@ -890,8 +895,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->hit         = GET_MAX_HIT(ch);
 			ch->mana        = GET_MAX_MANA(ch);
 			ch->stam        = GET_MAX_STAM(ch);
-			ch->train       = 3;
-			ch->practice    = 5;
+			ch->train       += 3;
+			ch->practice    += 5;
 			sprintf(buf, "({VNewbie Aura{x)");
 			set_title(ch, buf);
 			do_outfit(ch, "");
