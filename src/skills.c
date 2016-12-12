@@ -1809,13 +1809,18 @@ void do_convert(CHAR_DATA *ch, const char *argument)
 	use_points = atoi(argument);
 
 	if ((use_points < 10) || (use_points > 1000)) {
-		stc("Please use a number in the range of 10-1000.\n", ch);
+		stc("Please use a number in the range of 10-1000. Only multiples of 10 are accepted, rounded down.\n", ch);
 		return;
 	}
 
 	/* round off to the nearest multiple of 10 */
 	while (use_points % 10)
 		use_points--;
+
+    if (ch->pcdata->skillpoints < use_points) {
+        stc("You have insufficient skill points.\n", ch);
+        return;
+    }
 
 	/* convert skill points into practices */
 	ch->pcdata->skillpoints -= use_points;
