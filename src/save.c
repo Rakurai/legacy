@@ -555,7 +555,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	else if (ch->countdown)
 		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
-	cJSON_AddStringToObject(o,		"Race",			pc_race_table[ch->race].name);
+	cJSON_AddStringToObject(o,		"Race",			race_table[ch->race].name);
 	cJSON_AddStringToObject(o,		"Revk",			print_flags(ch->revoke));
 	cJSON_AddNumberToObject(o,		"Room",			
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != NULL)
