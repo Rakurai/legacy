@@ -833,12 +833,12 @@ void do_put(CHAR_DATA *ch, const char *argument)
 				stc("You can't let go of it.\n", ch);
 				return;
 			}
-
+/*
 			if (get_obj_number(obj) + get_strongbox_number(ch) > 45 + ch->pcdata->remort_count) {
 				stc("It won't fit.\n", ch);
 				return;
 			}
-
+*/
 			obj_from_char(obj);
 			obj_to_strongbox(obj, ch);
 			act("$n puts $p in $s strongbox.", ch, obj, NULL, TO_ROOM);
@@ -853,8 +853,8 @@ void do_put(CHAR_DATA *ch, const char *argument)
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
 			    && can_see_obj(ch, obj)
 			    && obj->wear_loc == WEAR_NONE
-			    && can_drop_obj(ch, obj)
-			    && get_obj_number(obj) + get_strongbox_number(ch) <= 45 + ch->pcdata->remort_count) {
+			    && can_drop_obj(ch, obj)) {
+//			    && get_obj_number(obj) + get_strongbox_number(ch) <= 45 + ch->pcdata->remort_count) {
 				obj_from_char(obj);
 				obj_to_strongbox(obj, ch);
 				act("$n puts $p in $s strongbox.", ch, obj, NULL, TO_ROOM);
