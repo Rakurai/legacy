@@ -1363,6 +1363,56 @@ void evolve_list(CHAR_DATA *ch)
 	free_buf(buffer);
 }
 
+void evolve_info(CHAR_DATA *ch)
+{
+	BUFFER *buffer = new_buf();
+
+	add_buf(buffer, "Currently evolvable skills and spells:\n\n");
+	add_buf(buffer, "{GSkill or spell      {C|{G");
+
+	for (int class = 0; class < 8; class++) {
+		add_buf(buffer, class_table[class].who_name);
+		add_buf(buffer, "{C|{G");
+	}
+
+	add_buf(buffer, "\n");
+
+	add_buf(buffer, "{C--------------------+---+---+---+---+---+---+---+---+{x\n");
+
+	for (int sn = 0; sn < MAX_SKILL; sn++) {
+		if (skill_table[sn].name == NULL)
+			break;
+
+		int max_evo[8] = {0};
+		bool should_show = FALSE;
+
+		for (int class = 0; class < 8; class++) {
+			if (skill_table[sn].evocost_sec[class] > 0) {
+				max_evo[class]++;
+				should_show = TRUE;
+			}
+
+			if (skill_table[sn].evocost_pri[class] > 0)
+				max_evo[class]++;
+		}
+
+		if (!should_show)
+			continue;
+
+		ptb(buffer, "{H%-20s{C|", skill_table[sn].name);
+
+		for (int class = 0; class < 8; class++)
+			ptb(buffer, "{G %d {C|", max_evo[class]);
+
+		add_buf(buffer, "\n");
+
+	}
+
+	add_buf(buffer, "{C--------------------+---+---+---+---+---+---+---+---+{x\n");
+	page_to_char(buf_string(buffer), ch);
+	free_buf(buffer);
+}
+
 void do_evolve(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1379,6 +1429,11 @@ void do_evolve(CHAR_DATA *ch, const char *argument)
 
 	if (arg[0] == '\0') {
 		evolve_list(ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(ch) && !str_cmp(arg, "info")) {
+		evolve_info(ch);
 		return;
 	}
 
