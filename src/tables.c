@@ -11,6 +11,15 @@
 #include "merc.h"
 #include "tables.h"
 
+const struct flag_type area_flags[] =
+{
+    {	"none",			AREA_NONE,		FALSE	},
+    {	"changed",		AREA_CHANGED,		TRUE	},
+    {	"added",		AREA_ADDED,		TRUE	},
+    {	"loading",		AREA_LOADING,		FALSE	},
+    {	"",			0,			0	}
+};
+
 const struct helpfile_table_type helpfile_table[] = {
 	{       "wizhelp",      HELP_WIZHELP    },
 	{       "wizquest",     HELP_WIZQUEST   },

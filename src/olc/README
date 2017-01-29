@@ -1,0 +1,52 @@
+
+	To make this thing work :
+
+	1) Get Rom24b6.tar.gz from Russ Taylor's homepage...this won't
+	   work on any other version.
+
+	2) Uncompress it, and copy patch.olc into Rom24/src .
+
+	3) cd to Rom24/src, and do a 'patch < patch.olc' .
+
+	4) Copy all the .c and .h files from this distribution to
+	   Rom24/src .
+
+	4) Now do a 'make' and pray :)
+
+	5) Copy olc.hlp to the Rom24/area directory and add the dummy
+	   object that's in the file limbo.are in this distribution
+	   to the limbo.are that comes with Rom24.
+
+	6) Add this line to your pfile :
+
+	   Sec 9
+
+	   This will set your security to the highest possible.
+
+	   Add this in top of the 'area.lst' file found in the areas dir:
+
+	   olc.hlp
+
+	7) Run the mud, log in and do an 'asave world', and shutdown.
+
+        8) Now, just run the mud and enjoy a not-so-buggy OLC :)
+
+
+	This works almost perfectly in my linux box at home so you
+	should not have any problems compiling it. Sorry for the
+	(nonexistant) helpfiles but I hate writing in english.
+	If you have any problems, comments, advise, cool
+	games/apps/mp3s or any stuff you can give me, just mail me :)
+	Don't mail the ROM list with any problems related with
+	compiling this, mail me instead. I'll try to help.
+	Don't ask me for english translations of some of the messages
+	that you'll find in the code, ask anyone else (learn spanish!).
+	And, of course, read the ROM FAQ!
+
+							Ivan
+
+	e-mail :  itoledo@ramses.centic.utem.cl  /* down */
+		  itoledo@ctcreuna.cl
+		  itoledo@geocities.com
+
+RTFM, RTFM...

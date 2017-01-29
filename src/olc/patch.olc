@@ -1,0 +1,3924 @@
+diff -ur old/Makefile new/Makefile
+--- old/Makefile	Mon Sep 14 17:46:16 1998
++++ new/Makefile	Mon Sep 14 17:46:53 1998
+@@ -1,5 +1,5 @@
+ CC      = gcc
+-PROF    = -O -g
++PROF    = -O -ggdb
+ NOCRYPT =
+ C_FLAGS =  -Wall $(PROF) $(NOCRYPT)
+ L_FLAGS =  $(PROF)
+@@ -8,7 +8,8 @@
+           alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o flags.o \
+ 	  handler.o healer.o interp.o note.o lookup.o magic.o magic2.o \
+ 	  music.o recycle.o save.o scan.o skills.o special.o tables.o \
+-	  update.o
++ 	  update.o mob_cmds.o mob_prog.o olc.o olc_act.o olc_save.o bit.o \
++	  mem.o string.o olc_mpcode.o hedit.o
+ 
+ rom: $(O_FILES)
+ 	rm -f rom
+diff -ur old/Makefile.linux new/Makefile.linux
+--- old/Makefile.linux	Mon Sep 14 17:46:16 1998
++++ new/Makefile.linux	Mon Sep 14 17:46:53 1998
+@@ -9,7 +9,8 @@
+           alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o flags.o \
+ 	  handler.o healer.o interp.o note.o lookup.o magic.o magic2.o \
+ 	  music.o recycle.o save.o scan.o skills.o special.o tables.o \
+-	  update.o
++ 	  update.o mob_cmds.o mob_prog.o olc.o olc_act.o olc_save.o bit.o \
++	  mem.o string.o olc_mpcode.o hedit.o
+ 
+ rom: $(O_FILES)
+ 	rm -f rom
+diff -ur old/Makefile.normal new/Makefile.normal
+--- old/Makefile.normal	Mon Sep 14 17:46:16 1998
++++ new/Makefile.normal	Mon Sep 14 17:46:53 1998
+@@ -8,7 +8,8 @@
+           alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o flags.o \
+ 	  handler.o healer.o interp.o note.o lookup.o magic.o magic2.o \
+ 	  music.o recycle.o save.o scan.o skills.o special.o tables.o \
+-	  update.o
++ 	  update.o mob_cmds.o mob_prog.o olc.o olc_act.o olc_save.o bit.o \
++	  mem.o string.o olc_mpcode.o hedit.o
+ 
+ rom: $(O_FILES)
+ 	rm -f rom
+diff -ur old/Makefile.solaris new/Makefile.solaris
+--- old/Makefile.solaris	Mon Sep 14 17:46:16 1998
++++ new/Makefile.solaris	Mon Sep 14 17:46:53 1998
+@@ -9,7 +9,8 @@
+           alias.o ban.o comm.o const.o db.o db2.o effects.o fight.o flags.o \
+ 	  handler.o healer.o interp.o note.o lookup.o magic.o magic2.o \
+ 	  music.o recycle.o save.o scan.o skills.o special.o tables.o \
+-	  update.o
++ 	  update.o mob_cmds.o mob_prog.o olc.o olc_act.o olc_save.o bit.o \
++	  mem.o string.o olc_mpcode.o hedit.o
+ 
+ rom: $(O_FILES)
+ 	rm -f rom
+diff -ur old/act_comm.c new/act_comm.c
+--- old/act_comm.c	Mon Sep 14 17:46:16 1998
++++ new/act_comm.c	Mon Sep 14 17:46:53 1998
+@@ -753,6 +753,18 @@
+ 
+     act( "$n says '$T'", ch, NULL, argument, TO_ROOM );
+     act( "You say '$T'", ch, NULL, argument, TO_CHAR );
++
++    if ( !IS_NPC(ch) )
++    {
++	CHAR_DATA *mob, *mob_next;
++	for ( mob = ch->in_room->people; mob != NULL; mob = mob_next )
++	{
++	    mob_next = mob->next_in_room;
++	    if ( IS_NPC(mob) && HAS_TRIGGER( mob, TRIG_SPEECH )
++	    &&   mob->position == mob->pIndexData->default_pos )
++		mp_act_trigger( argument, mob, ch, NULL, NULL, TRIG_SPEECH );
++	}
++    }
+     return;
+ }
+ 
+@@ -893,6 +905,9 @@
+     act_new("$n tells you '$t'",ch,argument,victim,TO_VICT,POS_DEAD);
+     victim->reply	= ch;
+ 
++    if ( !IS_NPC(ch) && IS_NPC(victim) && HAS_TRIGGER(victim,TRIG_SPEECH) )
++	mp_act_trigger( argument, victim, ch, NULL, NULL, TRIG_SPEECH );
++
+     return;
+ }
+ 
+@@ -1018,8 +1033,10 @@
+         return;
+     }
+  
++    MOBtrigger = FALSE;
+     act( "$n $T", ch, NULL, argument, TO_ROOM );
+     act( "$n $T", ch, NULL, argument, TO_CHAR );
++    MOBtrigger = TRUE;
+     return;
+ }
+ 
+@@ -1052,7 +1069,9 @@
+ 
+ 	if ((letter = strstr(argument,vch->name)) == NULL)
+ 	{
++	    MOBtrigger = FALSE;
+ 	    act("$N $t",vch,argument,ch,TO_CHAR);
++	    MOBtrigger = TRUE;
+ 	    continue;
+ 	}
+ 
+@@ -1102,7 +1121,9 @@
+ 	    name = vch->name;
+ 	}
+ 
++	MOBtrigger = FALSE;
+ 	act("$N $t",vch,temp,ch,TO_CHAR);
++	MOBtrigger = TRUE;
+     }
+ 	
+     return;
+@@ -1619,7 +1640,7 @@
+     argument = one_argument( argument, arg );
+     one_argument(argument,arg2);
+ 
+-    if (!str_cmp(arg2,"delete"))
++    if (!str_cmp(arg2,"delete") || !str_cmp(arg2,"mob"))
+     {
+         send_to_char("That will NOT be done.\n\r",ch);
+         return;
+diff -ur old/act_enter.c new/act_enter.c
+--- old/act_enter.c	Mon Sep 14 17:46:16 1998
++++ new/act_enter.c	Mon Sep 14 17:46:53 1998
+@@ -206,6 +206,16 @@
+ 	    }
+ 	    extract_obj(portal);
+ 	}
++
++	/* 
++	 * If someone is following the char, these triggers get activated
++	 * for the followers before the char, but it's safer this way...
++	 */
++	if ( IS_NPC( ch ) && HAS_TRIGGER( ch, TRIG_ENTRY ) )
++	    mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_ENTRY );
++	if ( !IS_NPC( ch ) )
++	    mp_greet_trigger( ch );
++
+ 	return;
+     }
+ 
+diff -ur old/act_info.c new/act_info.c
+--- old/act_info.c	Mon Sep 14 17:46:16 1998
++++ new/act_info.c	Mon Sep 14 17:46:53 1998
+@@ -1027,7 +1027,8 @@
+ 	/* 'look' or 'look auto' */
+ 	send_to_char( ch->in_room->name, ch );
+ 
+-	if (IS_IMMORTAL(ch) && (IS_NPC(ch) || IS_SET(ch->act,PLR_HOLYLIGHT)))
++	if ( (IS_IMMORTAL(ch) && (IS_NPC(ch) || IS_SET(ch->act,PLR_HOLYLIGHT)))
++	||   IS_BUILDER(ch, ch->in_room->area) )
+ 	{
+ 	    sprintf(buf," [Room %d]",ch->in_room->vnum);
+ 	    send_to_char(buf,ch);
+diff -ur old/act_move.c new/act_move.c
+--- old/act_move.c	Mon Sep 14 17:46:16 1998
++++ new/act_move.c	Mon Sep 14 17:46:53 1998
+@@ -76,6 +76,12 @@
+ 	return;
+     }
+ 
++    /*
++     * Exit trigger, if activated, bail out. Only PCs are triggered.
++     */
++    if ( !IS_NPC(ch) && mp_exit_trigger( ch, door ) )
++	return;
++
+     in_room = ch->in_room;
+     if ( ( pexit   = in_room->exit[door] ) == NULL
+     ||   ( to_room = pexit->u1.to_room   ) == NULL 
+@@ -230,6 +236,15 @@
+ 	    move_char( fch, door, TRUE );
+ 	}
+     }
++
++    /* 
++     * If someone is following the char, these triggers get activated
++     * for the followers before the char, but it's safer this way...
++     */
++    if ( IS_NPC( ch ) && HAS_TRIGGER( ch, TRIG_ENTRY ) )
++	mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_ENTRY );
++    if ( !IS_NPC( ch ) )
++    	mp_greet_trigger( ch );
+ 
+     return;
+ }
+diff -ur old/act_obj.c new/act_obj.c
+--- old/act_obj.c	Mon Sep 14 17:46:16 1998
++++ new/act_obj.c	Mon Sep 14 17:46:53 1998
+@@ -720,6 +720,12 @@
+ 	sprintf(buf,"You give $N %d %s.",amount, silver ? "silver" : "gold");
+ 	act( buf, ch, NULL, victim, TO_CHAR    );
+ 
++	/*
++	 * Bribe trigger
++	 */
++	if ( IS_NPC(victim) && HAS_TRIGGER( victim, TRIG_BRIBE ) )
++	    mp_bribe_trigger( victim, ch, silver ? amount : amount * 100 );
++
+ 	if (IS_NPC(victim) && IS_SET(victim->act,ACT_IS_CHANGER))
+ 	{
+ 	    int change;
+@@ -815,9 +821,18 @@
+ 
+     obj_from_char( obj );
+     obj_to_char( obj, victim );
++    MOBtrigger = FALSE;
+     act( "$n gives $p to $N.", ch, obj, victim, TO_NOTVICT );
+     act( "$n gives you $p.",   ch, obj, victim, TO_VICT    );
+     act( "You give $p to $N.", ch, obj, victim, TO_CHAR    );
++    MOBtrigger = TRUE;
++
++    /*
++     * Give trigger
++     */
++    if ( IS_NPC(victim) && HAS_TRIGGER( victim, TRIG_GIVE ) )
++	mp_give_trigger( victim, ch, obj );
++
+     return;
+ }
+ 
+diff -ur old/act_wiz.c new/act_wiz.c
+--- old/act_wiz.c	Mon Sep 14 17:46:16 1998
++++ new/act_wiz.c	Mon Sep 14 17:46:53 1998
+@@ -1692,6 +1692,12 @@
+ 	victim->pet 	    ? victim->pet->name	     : "(none)");
+     send_to_char( buf, ch );
+ 
++    if (!IS_NPC(victim))
++    {
++	sprintf( buf, "Security: %d.\n\r", victim->pcdata->security );	/* OLC */
++	send_to_char( buf, ch );					/* OLC */
++    }
++
+     sprintf( buf, "Short description: %s\n\rLong  description: %s",
+ 	victim->short_descr,
+ 	victim->long_descr[0] != '\0' ? victim->long_descr : "(none)\n\r" );
+@@ -3343,6 +3349,7 @@
+ 	send_to_char( "    str int wis dex con sex class level\n\r",	ch );
+ 	send_to_char( "    race group gold silver hp mana move prac\n\r",ch);
+ 	send_to_char( "    align train thirst hunger drunk full\n\r",	ch );
++	send_to_char( "    security\n\r",				ch );
+ 	return;
+     }
+ 
+@@ -3378,6 +3385,38 @@
+ 	return;
+     }
+ 
++    if ( !str_cmp( arg2, "security" ) )	/* OLC */
++    {
++	if ( IS_NPC(ch) )
++	{
++		send_to_char( "Si, claro.\n\r", ch );
++		return;
++	}
++
++        if ( IS_NPC( victim ) )
++        {
++            send_to_char( "Not on NPC's.\n\r", ch );
++            return;
++        }
++
++	if ( value > ch->pcdata->security || value < 0 )
++	{
++	    if ( ch->pcdata->security != 0 )
++	    {
++		sprintf( buf, "Valid security is 0-%d.\n\r",
++		    ch->pcdata->security );
++		send_to_char( buf, ch );
++	    }
++	    else
++	    {
++		send_to_char( "Valid security is 0 only.\n\r", ch );
++	    }
++	    return;
++	}
++	victim->pcdata->security = value;
++	return;
++    }
++
+     if ( !str_cmp( arg2, "int" ) )
+     {
+         if ( value < 3 || value > get_max_train(victim,STAT_INT) )
+@@ -4103,7 +4142,7 @@
+ 
+     one_argument(argument,arg2);
+   
+-    if (!str_cmp(arg2,"delete"))
++    if (!str_cmp(arg2,"delete") || !str_prefix(arg2,"mob"))
+     {
+ 	send_to_char("That will NOT be done.\n\r",ch);
+ 	return;
+Only in new: bit.c
+diff -ur old/comm.c new/comm.c
+--- old/comm.c	Mon Sep 14 17:46:16 1998
++++ new/comm.c	Mon Sep 14 17:46:53 1998
+@@ -56,6 +56,8 @@
+ #include <string.h>
+ #include <stdlib.h>
+ #include <time.h>
++#include <unistd.h> /* OLC -- for close read write etc */
++#include <stdarg.h> /* printf_to_char */
+ 
+ #include "merc.h"
+ #include "interp.h"
+@@ -173,11 +175,11 @@
+ 
+ int	close		args( ( int fd ) );
+ int	gettimeofday	args( ( struct timeval *tp, struct timezone *tzp ) );
+-int	read		args( ( int fd, char *buf, int nbyte ) );
++/* int	read		args( ( int fd, char *buf, int nbyte ) ); */
+ int	select		args( ( int width, fd_set *readfds, fd_set *writefds,
+ 			    fd_set *exceptfds, struct timeval *timeout ) );
+ int	socket		args( ( int domain, int type, int protocol ) );
+-int	write		args( ( int fd, char *buf, int nbyte ) );
++/* int	write		args( ( int fd, char *buf, int nbyte ) ); */ /* read,write in unistd.h */
+ #endif
+ 
+ #if	defined(macintosh)
+@@ -305,7 +307,7 @@
+ bool		    newlock;		/* Game is newlocked		*/
+ char		    str_boot_time[MAX_INPUT_LENGTH];
+ time_t		    current_time;	/* time of this pulse */	
+-
++bool		    MOBtrigger = TRUE;  /* act() switch                 */
+ 
+ 
+ /*
+@@ -516,6 +518,9 @@
+     dcon.next		= descriptor_list;
+     dcon.showstr_head	= NULL;
+     dcon.showstr_point	= NULL;
++    dcon.pEdit		= NULL;			/* OLC */
++    dcon.pString	= NULL;			/* OLC */
++    dcon.editor		= 0;			/* OLC */
+     descriptor_list	= &dcon;
+ 
+     /*
+@@ -573,10 +578,23 @@
+ 		d->fcommand	= TRUE;
+ 		stop_idling( d->character );
+ 
+-		if ( d->connected == CON_PLAYING )
+-		    substitute_alias( d, d->incomm );
+-		else
+-		    nanny( d, d->incomm );
++	        /* OLC */
++	        if ( d->showstr_point )
++	            show_string( d, d->incomm );
++	        else
++	        if ( d->pString )
++	            string_add( d->character, d->incomm );
++	        else
++	            switch ( d->connected )
++	            {
++	                case CON_PLAYING:
++			    if ( !run_olc_editor( d ) )
++				substitute_alias( d, d->incomm );
++			    break;
++	                default:
++			    nanny( d, d->incomm );
++			    break;
++	            }
+ 
+ 		d->incomm[0]	= '\0';
+ 	    }
+@@ -762,12 +780,23 @@
+ 		d->fcommand	= TRUE;
+ 		stop_idling( d->character );
+ 
+-		if (d->showstr_point)
+-		    show_string(d,d->incomm);
+-		else if ( d->connected == CON_PLAYING )
+-		    substitute_alias( d, d->incomm );
+-		else
++	/* OLC */
++	if ( d->showstr_point )
++	    show_string( d, d->incomm );
++	else
++	if ( d->pString )
++	    string_add( d->character, d->incomm );
++	else
++	    switch ( d->connected )
++	    {
++	        case CON_PLAYING:
++		    if ( !run_olc_editor( d ) )
++    		        substitute_alias( d, d->incomm );
++		    break;
++	        default:
+ 		    nanny( d, d->incomm );
++		    break;
++	    }
+ 
+ 		d->incomm[0]	= '\0';
+ 	    }
+@@ -892,6 +921,9 @@
+     dnew->showstr_head	= NULL;
+     dnew->showstr_point = NULL;
+     dnew->outsize	= 2000;
++    dnew->pEdit		= NULL;			/* OLC */
++    dnew->pString	= NULL;			/* OLC */
++    dnew->editor	= 0;			/* OLC */
+     dnew->outbuf	= alloc_mem( dnew->outsize );
+ 
+     size = sizeof(sock);
+@@ -1221,11 +1253,14 @@
+     /*
+      * Bust a prompt.
+      */
+-    if (!merc_down && d->showstr_point)
+-	write_to_buffer(d,"[Hit Return to continue]\n\r",0);
+-    else if (fPrompt && !merc_down && d->connected == CON_PLAYING)
+-    {
+-   	CHAR_DATA *ch;
++    if ( !merc_down )
++	if ( d->showstr_point )
++	    write_to_buffer( d, "[Hit Return to continue]\n\r", 0 );
++	else if ( fPrompt && d->pString && d->connected == CON_PLAYING )
++	    write_to_buffer( d, "> ", 2 );
++	else if ( fPrompt && d->connected == CON_PLAYING )
++	{
++	    CHAR_DATA *ch;
+ 	CHAR_DATA *victim;
+ 
+ 	ch = d->character;
+@@ -1440,6 +1475,12 @@
+          case '%' :
+             sprintf( buf2, "%%" );
+             i = buf2; break;
++         case 'o' :
++            sprintf( buf2, "%s", olc_ed_name(ch) );
++            i = buf2; break;
++	 case 'O' :
++	    sprintf( buf2, "%s", olc_ed_vnum(ch) );
++	    i = buf2; break;
+       }
+       ++str;
+       while( (*point = *i) != '\0' )
+@@ -2146,7 +2187,7 @@
+      * Reserved words.
+      */
+     if (is_exact_name(name,
+-	"all auto immortal self someone something the you loner"))
++	"all auto immortal self someone something the you loner none"))
+     {
+ 	return FALSE;
+     }
+@@ -2472,7 +2513,9 @@
+  
+     for ( ; to != NULL; to = to->next_in_room )
+     {
+-        if ( to->desc == NULL || to->position < min_pos )
++	if ( (!IS_NPC(to) && to->desc == NULL )
++	||   ( IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT) )
++	||    to->position < min_pos )
+             continue;
+  
+         if ( (type == TO_CHAR) && to != ch )
+@@ -2551,10 +2594,14 @@
+  
+         *point++ = '\n';
+         *point++ = '\r';
++	*point   = '\0';
+         buf[0]   = UPPER(buf[0]);
++	if ( to->desc != NULL )
+         write_to_buffer( to->desc, buf, point - buf );
++	else
++	if ( MOBtrigger )
++	    mp_act_trigger( buf, to, ch, arg1, arg2, TRIG_ACT );
+     }
+- 
+     return;
+ }
+ 
+@@ -2570,3 +2617,27 @@
+     tp->tv_usec = 0;
+ }
+ #endif
++
++/* source: EOD, by John Booth <???> */
++
++void printf_to_char (CHAR_DATA *ch, char *fmt, ...)
++{
++	char buf [MAX_STRING_LENGTH];
++	va_list args;
++	va_start (args, fmt);
++	vsprintf (buf, fmt, args);
++	va_end (args);
++	
++	send_to_char (buf, ch);
++}
++
++void bugf (char * fmt, ...)
++{
++	char buf [2*MSL];
++	va_list args;
++	va_start (args, fmt);
++	vsprintf (buf, fmt, args);
++	va_end (args);
++
++	bug (buf, 0);
++}
+diff -ur old/db.c new/db.c
+--- old/db.c	Mon Sep 14 17:46:16 1998
++++ new/db.c	Mon Sep 14 19:20:47 1998
+@@ -42,8 +42,9 @@
+ #include "db.h"
+ #include "recycle.h"
+ #include "music.h"
++#include "tables.h"
+ #include "lookup.h"
+-
++#include "olc.h"
+ 
+ #if !defined(macintosh)
+ extern	int	_filbuf		args( (FILE *) );
+@@ -72,11 +73,15 @@
+ HELP_DATA *		help_first;
+ HELP_DATA *		help_last;
+ 
++HELP_AREA *		had_list;
++
+ SHOP_DATA *		shop_first;
+ SHOP_DATA *		shop_last;
+ 
+ NOTE_DATA *		note_free;
+ 
++MPROG_CODE *		mprog_list;
++
+ char			bug_buf		[2*MAX_INPUT_LENGTH];
+ CHAR_DATA *		char_list;
+ char *			help_greeting;
+@@ -154,6 +159,7 @@
+ 
+ AREA_DATA *		area_first;
+ AREA_DATA *		area_last;
++AREA_DATA *		current_area;
+ 
+ char *			string_space;
+ char *			top_string;
+@@ -169,6 +175,10 @@
+ int			top_reset;
+ int			top_room;
+ int			top_shop;
++int                     top_vnum_room;		/* OLC */
++int                     top_vnum_mob;		/* OLC */
++int                     top_vnum_obj;		/* OLC */
++int			top_mprog_index;	/* OLC */
+ int 			mobile_count = 0;
+ int			newmobs = 0;
+ int			newobjs = 0;
+@@ -210,7 +220,8 @@
+ */
+ void    init_mm         args( ( void ) );
+ void	load_area	args( ( FILE *fp ) );
+-void	load_helps	args( ( FILE *fp ) );
++void    new_load_area   args( ( FILE *fp ) );   /* OLC */
++void	load_helps	args( ( FILE *fp, char *fname ) );
+ void	load_old_mob	args( ( FILE *fp ) );
+ void 	load_mobiles	args( ( FILE *fp ) );
+ void	load_old_obj	args( ( FILE *fp ) );
+@@ -222,8 +233,10 @@
+ void	load_specials	args( ( FILE *fp ) );
+ void	load_notes	args( ( void ) );
+ void	load_bans	args( ( void ) );
++void	load_mobprogs	args( ( FILE *fp ) );
+ 
+ void	fix_exits	args( ( void ) );
++void    fix_mobprogs	args( ( void ) );
+ 
+ void	reset_area	args( ( AREA_DATA * pArea ) );
+ 
+@@ -332,6 +345,8 @@
+ 		}
+ 	    }
+ 
++	    current_area = NULL;
++
+ 	    for ( ; ; )
+ 	    {
+ 		char *word;
+@@ -346,9 +361,11 @@
+ 
+ 		     if ( word[0] == '$'               )                 break;
+ 		else if ( !str_cmp( word, "AREA"     ) ) load_area    (fpArea);
+-		else if ( !str_cmp( word, "HELPS"    ) ) load_helps   (fpArea);
++  /* OLC */     else if ( !str_cmp( word, "AREADATA" ) ) new_load_area(fpArea);
++		else if ( !str_cmp( word, "HELPS"    ) ) load_helps   (fpArea, strArea);
+ 		else if ( !str_cmp( word, "MOBOLD"   ) ) load_old_mob (fpArea);
+ 		else if ( !str_cmp( word, "MOBILES"  ) ) load_mobiles (fpArea);
++		else if ( !str_cmp( word, "MOBPROGS" ) ) load_mobprogs(fpArea);
+ 		else if ( !str_cmp( word, "OBJOLD"   ) ) load_old_obj (fpArea);
+ 	  	else if ( !str_cmp( word, "OBJECTS"  ) ) load_objects (fpArea);
+ 		else if ( !str_cmp( word, "RESETS"   ) ) load_resets  (fpArea);
+@@ -378,7 +395,9 @@
+      */
+     {
+ 	fix_exits( );
++	fix_mobprogs( );
+ 	fBootDb	= FALSE;
++        convert_objects( );           /* ROM OLC */
+ 	area_update( );
+ 	load_notes( );
+ 	load_bans();
+@@ -398,9 +417,13 @@
+     AREA_DATA *pArea;
+ 
+     pArea		= alloc_perm( sizeof(*pArea) );
+-    pArea->reset_first	= NULL;
+-    pArea->reset_last	= NULL;
+     pArea->file_name	= fread_string(fp);
++
++    pArea->area_flags   = AREA_LOADING;         /* OLC */
++    pArea->security     = 9;                    /* OLC */ /* 9 -- Hugin */
++    pArea->builders     = str_dup( "None" );    /* OLC */
++    pArea->vnum         = top_area;             /* OLC */
++
+     pArea->name		= fread_string( fp );
+     pArea->credits	= fread_string( fp );
+     pArea->min_vnum	= fread_number(fp);
+@@ -409,33 +432,185 @@
+     pArea->nplayer	= 0;
+     pArea->empty	= FALSE;
+ 
+-    if ( area_first == NULL )
++    if ( !area_first )
+ 	area_first = pArea;
+-    if ( area_last  != NULL )
++    if ( area_last )
++    {
+ 	area_last->next = pArea;
+-    area_last	= pArea;
+-    pArea->next	= NULL;
++        REMOVE_BIT(area_last->area_flags, AREA_LOADING);        /* OLC */
++    }
++    area_last		= pArea;
++    pArea->next		= NULL;
++    current_area	= pArea;
+ 
+     top_area++;
+     return;
+ }
+ 
++/*
++ * OLC
++ * Use these macros to load any new area formats that you choose to
++ * support on your MUD.  See the new_load_area format below for
++ * a short example.
++ */
++#if defined(KEY)
++#undef KEY
++#endif
+ 
++#define KEY( literal, field, value )                \
++                if ( !str_cmp( word, literal ) )    \
++                {                                   \
++                    field  = value;                 \
++                    fMatch = TRUE;                  \
++                    break;                          \
++                                }
++
++#define SKEY( string, field )                       \
++                if ( !str_cmp( word, string ) )     \
++                {                                   \
++                    free_string( field );           \
++                    field = fread_string( fp );     \
++                    fMatch = TRUE;                  \
++                    break;                          \
++                                }
++
++
++
++/* OLC
++ * Snarf an 'area' header line.   Check this format.  MUCH better.  Add fields
++ * too.
++ *
++ * #AREAFILE
++ * Name   { All } Locke    Newbie School~
++ * Repop  A teacher pops in the room and says, 'Repop coming!'~
++ * Recall 3001
++ * End
++ */
++void new_load_area( FILE *fp )
++{
++    AREA_DATA *pArea;
++    char      *word;
++    bool      fMatch;
++
++    pArea               = alloc_perm( sizeof(*pArea) );
++    pArea->age          = 15;
++    pArea->nplayer      = 0;
++    pArea->file_name     = str_dup( strArea );
++    pArea->vnum         = top_area;
++    pArea->name         = str_dup( "New Area" );
++    pArea->builders     = str_dup( "" );
++    pArea->security     = 9;                    /* 9 -- Hugin */
++    pArea->min_vnum        = 0;
++    pArea->max_vnum        = 0;
++    pArea->area_flags   = 0;
++/*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
++
++    for ( ; ; )
++    {
++       word   = feof( fp ) ? "End" : fread_word( fp );
++       fMatch = FALSE;
++
++       switch ( UPPER(word[0]) )
++       {
++           case 'N':
++            SKEY( "Name", pArea->name );
++            break;
++           case 'S':
++             KEY( "Security", pArea->security, fread_number( fp ) );
++            break;
++           case 'V':
++            if ( !str_cmp( word, "VNUMs" ) )
++            {
++                pArea->min_vnum = fread_number( fp );
++                pArea->max_vnum = fread_number( fp );
++            }
++            break;
++           case 'E':
++             if ( !str_cmp( word, "End" ) )
++             {
++                 fMatch = TRUE;
++                 if ( area_first == NULL )
++                    area_first = pArea;
++                 if ( area_last  != NULL )
++                    area_last->next = pArea;
++                 area_last	= pArea;
++                 pArea->next	= NULL;
++		 current_area	= pArea;
++                 top_area++;
++
++                 return;
++            }
++            break;
++           case 'B':
++            SKEY( "Builders", pArea->builders );
++            break;
++	   case 'C':
++	    SKEY( "Credits", pArea->credits );
++	    break;
++        }
++    }
++}
++
++/*
++ * Sets vnum range for area using OLC protection features.
++ */
++void assign_area_vnum( int vnum )
++{
++    if ( area_last->min_vnum == 0 || area_last->max_vnum == 0 )
++        area_last->min_vnum = area_last->max_vnum = vnum;
++    if ( vnum != URANGE( area_last->min_vnum, vnum, area_last->max_vnum ) )
++        if ( vnum < area_last->min_vnum )
++            area_last->min_vnum = vnum;
++        else
++            area_last->max_vnum = vnum;
++    return;
++}
+ 
+ /*
+  * Snarf a help section.
+  */
+-void load_helps( FILE *fp )
++void load_helps( FILE *fp, char *fname )
+ {
+     HELP_DATA *pHelp;
++    int level;
++    char *keyword;
+ 
+     for ( ; ; )
+     {
+-	pHelp		= alloc_perm( sizeof(*pHelp) );
+-	pHelp->level	= fread_number( fp );
+-	pHelp->keyword	= fread_string( fp );
+-	if ( pHelp->keyword[0] == '$' )
+-	    break;
++	HELP_AREA * had;
++
++	level		= fread_number( fp );
++	keyword		= fread_string( fp );
++
++	if ( keyword[0] == '$' )
++		break;
++
++	if ( !had_list )
++	{
++		had			= new_had ();
++		had->filename		= str_dup( fname );
++		had->area		= current_area;
++		if ( current_area )
++			current_area->helps	= had;
++		had_list		= had;
++	}
++	else
++	if ( str_cmp( fname, had_list->filename ) )
++	{
++		had			= new_had ();
++		had->filename		= str_dup( fname );
++		had->area		= current_area;
++		if ( current_area )
++			current_area->helps	= had;
++		had->next		= had_list;
++		had_list		= had;
++	}
++	else
++		had			= had_list;
++
++	pHelp		= new_help( );
++	pHelp->level	= level;
++	pHelp->keyword	= keyword;
+ 	pHelp->text	= fread_string( fp );
+ 
+ 	if ( !str_cmp( pHelp->keyword, "greeting" ) )
+@@ -446,8 +621,18 @@
+ 	if ( help_last  != NULL )
+ 	    help_last->next = pHelp;
+ 
+-	help_last	= pHelp;
+-	pHelp->next	= NULL;
++	help_last		= pHelp;
++	pHelp->next		= NULL;
++
++	if ( !had->first )
++		had->first	= pHelp;
++	if ( !had->last )
++		had->last	= pHelp;
++
++	had->last->next_area	= pHelp;
++	had->last		= pHelp;
++	pHelp->next_area	= NULL;
++
+ 	top_help++;
+     }
+ 
+@@ -466,6 +651,12 @@
+     int race;
+     char name[MAX_STRING_LENGTH];
+ 
++    if ( !area_last )   /* OLC */
++    {
++        bug( "Load_mobiles: no #AREA seen yet.", 0 );
++        exit( 1 );
++    }
++
+     for ( ; ; )
+     {
+ 	sh_int vnum;
+@@ -493,6 +684,7 @@
+ 
+ 	pMobIndex			= alloc_perm( sizeof(*pMobIndex) );
+ 	pMobIndex->vnum			= vnum;
++        pMobIndex->area                 = area_last;               /* OLC */
+ 	pMobIndex->new_format		= FALSE;
+ 	pMobIndex->player_name		= fread_string( fp );
+ 	pMobIndex->short_descr		= fread_string( fp );
+@@ -573,10 +765,14 @@
+ 	    exit( 1 );
+ 	}
+ 
++	convert_mobile( pMobIndex );                           /* ROM OLC */
++
+ 	iHash			= vnum % MAX_KEY_HASH;
+ 	pMobIndex->next		= mob_index_hash[iHash];
+ 	mob_index_hash[iHash]	= pMobIndex;
+ 	top_mob_index++;
++        top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
++        assign_area_vnum( vnum );                                  /* OLC */
+ 	kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
+     }
+ 
+@@ -590,6 +786,12 @@
+ {
+     OBJ_INDEX_DATA *pObjIndex;
+ 
++    if ( !area_last )   /* OLC */
++    {
++        bug( "Load_objects: no #AREA seen yet.", 0 );
++        exit( 1 );
++    }
++
+     for ( ; ; )
+     {
+ 	sh_int vnum;
+@@ -617,6 +819,7 @@
+ 
+ 	pObjIndex			= alloc_perm( sizeof(*pObjIndex) );
+ 	pObjIndex->vnum			= vnum;
++        pObjIndex->area                 = area_last;            /* OLC */
+ 	pObjIndex->new_format		= FALSE;
+ 	pObjIndex->reset_num	 	= 0;
+ 	pObjIndex->name			= fread_string( fp );
+@@ -724,14 +927,42 @@
+ 	pObjIndex->next		= obj_index_hash[iHash];
+ 	obj_index_hash[iHash]	= pObjIndex;
+ 	top_obj_index++;
++        top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;   /* OLC */
++        assign_area_vnum( vnum );                                   /* OLC */
+     }
+ 
+     return;
+ }
+ 
++/*
++ * Adds a reset to a room.  OLC
++ * Similar to add_reset in olc.c
++ */
++void new_reset( ROOM_INDEX_DATA *pR, RESET_DATA *pReset )
++{
++    RESET_DATA *pr;
++
++    if ( !pR )
++       return;
++
++    pr = pR->reset_last;
+ 
++    if ( !pr )
++    {
++        pR->reset_first = pReset;
++        pR->reset_last  = pReset;
++    }
++    else
++    {
++        pR->reset_last->next = pReset;
++        pR->reset_last       = pReset;
++        pR->reset_last->next = NULL;
++    }
+ 
++/*    top_reset++; no estamos asignando memoria!!!! */
+ 
++    return;
++}
+ 
+ /*
+  * Snarf a reset section.
+@@ -739,8 +970,11 @@
+ void load_resets( FILE *fp )
+ {
+     RESET_DATA *pReset;
++    EXIT_DATA *pexit;
++    ROOM_INDEX_DATA *pRoomIndex;
++    int rVnum = -1;
+ 
+-    if ( area_last == NULL )
++    if ( !area_last )
+     {
+ 	bug( "Load_resets: no #AREA seen yet.", 0 );
+ 	exit( 1 );
+@@ -748,10 +982,7 @@
+ 
+     for ( ; ; )
+     {
+-	ROOM_INDEX_DATA *pRoomIndex;
+-	EXIT_DATA *pexit;
+ 	char letter;
+-	OBJ_INDEX_DATA *temp_index;
+ 
+ 	if ( ( letter = fread_letter( fp ) ) == 'S' )
+ 	    break;
+@@ -762,7 +993,7 @@
+ 	    continue;
+ 	}
+ 
+-	pReset		= alloc_perm( sizeof(*pReset) );
++	pReset		= new_reset_data();
+ 	pReset->command	= letter;
+ 	/* if_flag */	  fread_number( fp );
+ 	pReset->arg1	= fread_number( fp );
+@@ -773,87 +1004,61 @@
+ 			    ? fread_number(fp) : 0;
+ 			  fread_to_eol( fp );
+ 
+-	/*
+-	 * Validate parameters.
+-	 * We're calling the index functions for the side effect.
+-	 */
+-	switch ( letter )
++	switch( pReset->command )
+ 	{
+-	default:
+-	    bug( "Load_resets: bad command '%c'.", letter );
+-	    exit( 1 );
+-	    break;
+-
+-	case 'M':
+-	    get_mob_index  ( pReset->arg1 );
+-	    get_room_index ( pReset->arg3 );
+-	    break;
+-
+-	case 'O':
+-	    temp_index = get_obj_index  ( pReset->arg1 );
+-	    temp_index->reset_num++;
+-	    get_room_index ( pReset->arg3 );
+-	    break;
+-
+-	case 'P':
+-	    temp_index = get_obj_index  ( pReset->arg1 );
+-	    temp_index->reset_num++;
+-	    get_obj_index  ( pReset->arg3 );
+-	    break;
+-
+-	case 'G':
+-	case 'E':
+-	    temp_index = get_obj_index  ( pReset->arg1 );
+-	    temp_index->reset_num++;
+-	    break;
+-
+-	case 'D':
+-	    pRoomIndex = get_room_index( pReset->arg1 );
+-
+-	    if ( pReset->arg2 < 0
+-	    ||   pReset->arg2 > 5
+-	    || ( pexit = pRoomIndex->exit[pReset->arg2] ) == NULL
+-	    || !IS_SET( pexit->exit_info, EX_ISDOOR ) )
+-	    {
+-		bug( "Load_resets: 'D': exit %d not door.", pReset->arg2 );
+-		exit( 1 );
+-	    }
+-
+-	    if ( pReset->arg3 < 0 || pReset->arg3 > 2 )
+-	    {
+-		bug( "Load_resets: 'D': bad 'locks': %d.", pReset->arg3 );
+-		exit( 1 );
+-	    }
++		case 'M':
++		case 'O':
++		rVnum = pReset->arg3;
++		break;
+ 
+-	    break;
++		case 'P':
++		case 'G':
++		case 'E':
++		break;
+ 
+-	case 'R':
+-	    pRoomIndex		= get_room_index( pReset->arg1 );
++		case 'D':
++		pRoomIndex = get_room_index( (rVnum = pReset->arg1) );
++		if ( pReset->arg2 < 0
++		||   pReset->arg2 >= MAX_DIR
++		|| !pRoomIndex
++		|| !( pexit = pRoomIndex->exit[pReset->arg2] )
++		|| !IS_SET( pexit->rs_flags, EX_ISDOOR ) )
++		{
++			bugf( "Load_resets: 'D': exit %d, room %d not door.", pReset->arg2, pReset->arg1 );
++			exit( 1 );
++		}
+ 
+-	    if ( pReset->arg2 < 0 || pReset->arg2 > 6 )
+-	    {
+-		bug( "Load_resets: 'R': bad exit %d.", pReset->arg2 );
+-		exit( 1 );
+-	    }
++		switch ( pReset->arg3 )
++		{
++			default: bug( "Load_resets: 'D': bad 'locks': %d." , pReset->arg3); break;
++			case 0: break;
++			case 1: SET_BIT( pexit->rs_flags, EX_CLOSED );
++				SET_BIT( pexit->exit_info, EX_CLOSED ); break;
++			case 2: SET_BIT( pexit->rs_flags, EX_CLOSED | EX_LOCKED );
++				SET_BIT( pexit->exit_info, EX_CLOSED | EX_LOCKED ); break;
++		}
++		break;
+ 
+-	    break;
++		case 'R':
++		rVnum = pReset->arg1;
++		break;
+ 	}
+ 
+-	if ( area_last->reset_first == NULL )
+-	    area_last->reset_first	= pReset;
+-	if ( area_last->reset_last  != NULL )
+-	    area_last->reset_last->next	= pReset;
+-	    
+-	area_last->reset_last	= pReset;
+-	pReset->next		= NULL;
+-	top_reset++;
++	if ( rVnum == -1 )
++	{
++ 		bugf( "load_resets : rVnum == -1" );
++ 		exit(1);
++ 	}
++
++	if ( pReset->command != 'D' )
++		new_reset( get_room_index(rVnum), pReset );
++	else
++		free_reset_data( pReset );
+     }
+ 
+     return;
+ }
+ 
+-
+-
+ /*
+  * Snarf a room section.
+  */
+@@ -956,21 +1161,26 @@
+ 		pexit->description	= fread_string( fp );
+ 		pexit->keyword		= fread_string( fp );
+ 		pexit->exit_info	= 0;
++                pexit->rs_flags         = 0;                    /* OLC */
+ 		locks			= fread_number( fp );
+ 		pexit->key		= fread_number( fp );
+ 		pexit->u1.vnum		= fread_number( fp );
++		pexit->orig_door	= door;			/* OLC */
+ 
+ 		switch ( locks )
+ 		{
+-		case 1: pexit->exit_info = EX_ISDOOR;                break;
+-		case 2: pexit->exit_info = EX_ISDOOR | EX_PICKPROOF; break;
+-		case 3: pexit->exit_info = EX_ISDOOR | EX_NOPASS;    break;
++		case 1: pexit->exit_info = EX_ISDOOR;               
++			pexit->rs_flags  = EX_ISDOOR;		     break;
++		case 2: pexit->exit_info = EX_ISDOOR | EX_PICKPROOF;
++			pexit->rs_flags  = EX_ISDOOR | EX_PICKPROOF; break;
++		case 3: pexit->exit_info = EX_ISDOOR | EX_NOPASS;    
++			pexit->rs_flags  = EX_ISDOOR | EX_NOPASS;    break;
+ 		case 4: pexit->exit_info = EX_ISDOOR|EX_NOPASS|EX_PICKPROOF;
++			pexit->rs_flags  = EX_ISDOOR|EX_NOPASS|EX_PICKPROOF;
+ 			break;
+ 		}
+ 
+ 		pRoomIndex->exit[door]	= pexit;
+-		pRoomIndex->old_exit[door] = pexit;
+ 		top_exit++;
+ 	    }
+ 	    else if ( letter == 'E' )
+@@ -1007,6 +1217,8 @@
+ 	pRoomIndex->next	= room_index_hash[iHash];
+ 	room_index_hash[iHash]	= pRoomIndex;
+ 	top_room++;
++        top_vnum_room = top_vnum_room < vnum ? vnum : top_vnum_room; /* OLC */
++        assign_area_vnum( vnum );                                    /* OLC */
+     }
+ 
+     return;
+@@ -1105,6 +1317,8 @@
+     ROOM_INDEX_DATA *to_room;
+     EXIT_DATA *pexit;
+     EXIT_DATA *pexit_rev;
++    RESET_DATA *pReset;
++    ROOM_INDEX_DATA *iLastRoom, *iLastObj;
+     int iHash;
+     int door;
+ 
+@@ -1116,6 +1330,64 @@
+ 	{
+ 	    bool fexit;
+ 
++	    iLastRoom = iLastObj = NULL;
++
++	    /* OLC : nuevo chequeo de resets */
++	    for ( pReset = pRoomIndex->reset_first; pReset; pReset = pReset->next )
++	    {
++	    	switch( pReset->command )
++	    	{
++	    		default:
++	    		bugf( "fix_exits : cuarto %d con reset cmd %c", pRoomIndex->vnum, pReset->command );
++	    		exit(1);
++	    		break;
++
++			case 'M':
++			get_mob_index( pReset->arg1 );
++			iLastRoom = get_room_index( pReset->arg3 );
++			break;
++
++			case 'O':
++			get_obj_index( pReset->arg1 );
++			iLastObj = get_room_index( pReset->arg3 );
++			break;
++
++			case 'P':
++			get_obj_index( pReset->arg1 );
++			if (iLastObj == NULL)
++			{
++				bugf( "fix_exits : reset en cuarto %d con iLastObj NULL", pRoomIndex->vnum );
++				exit(1);
++			}
++			break;
++
++			case 'G':
++			case 'E':
++			get_obj_index( pReset->arg1 );
++			if (iLastRoom == NULL)
++			{
++				bugf( "fix_exits : reset en cuarto %d con iLastRoom NULL", pRoomIndex->vnum );
++				exit(1);
++			}
++			iLastObj = iLastRoom;
++			break;
++
++			case 'D':
++			bugf( "???" );
++			break;
++
++			case 'R':
++			get_room_index( pReset->arg1 );
++			if ( pReset->arg2 < 0 || pReset->arg2 > MAX_DIR )
++			{
++				bugf( "fix_exits : reset en cuarto %d con arg2 %d >= MAX_DIR",
++					pRoomIndex->vnum, pReset->arg2 );
++				exit(1);
++			}
++			break;
++		} /* switch */
++	    } /* for */
++
+ 	    fexit = FALSE;
+ 	    for ( door = 0; door <= 5; door++ )
+ 	    {
+@@ -1164,6 +1436,87 @@
+     return;
+ }
+ 
++/*
++ * Load mobprogs section
++ */
++void load_mobprogs( FILE *fp )
++{
++    MPROG_CODE *pMprog;
++
++    if ( area_last == NULL )
++    {
++	bug( "Load_mobprogs: no #AREA seen yet.", 0 );
++	exit( 1 );
++    }
++
++    for ( ; ; )
++    {
++	sh_int vnum;
++	char letter;
++
++	letter		  = fread_letter( fp );
++	if ( letter != '#' )
++	{
++	    bug( "Load_mobprogs: # not found.", 0 );
++	    exit( 1 );
++	}
++
++	vnum		 = fread_number( fp );
++	if ( vnum == 0 )
++	    break;
++
++	fBootDb = FALSE;
++	if ( get_mprog_index( vnum ) != NULL )
++	{
++	    bug( "Load_mobprogs: vnum %d duplicated.", vnum );
++	    exit( 1 );
++	}
++	fBootDb = TRUE;
++
++	pMprog		= alloc_perm( sizeof(*pMprog) );
++	pMprog->vnum  	= vnum;
++	pMprog->code  	= fread_string( fp );
++	if ( mprog_list == NULL )
++	    mprog_list = pMprog;
++	else
++	{
++	    pMprog->next = mprog_list;
++	    mprog_list 	= pMprog;
++	}
++	top_mprog_index++;
++    }
++    return;
++}
++
++/*
++ *  Translate mobprog vnums pointers to real code
++ */
++void fix_mobprogs( void )
++{
++    MOB_INDEX_DATA *pMobIndex;
++    MPROG_LIST        *list;
++    MPROG_CODE        *prog;
++    int iHash;
++
++    for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
++    {
++	for ( pMobIndex   = mob_index_hash[iHash];
++	      pMobIndex   != NULL;
++	      pMobIndex   = pMobIndex->next )
++	{
++	    for( list = pMobIndex->mprogs; list != NULL; list = list->next )
++	    {
++		if ( ( prog = get_mprog_index( list->vnum ) ) != NULL )
++		    list->code = prog->code;
++		else
++		{
++		    bug( "Fix_mobprogs: code vnum %d not found.", list->vnum );
++		    exit( 1 );
++		}
++	    }
++	}
++    }
++}
+ 
+ 
+ /*
+@@ -1205,57 +1558,76 @@
+     return;
+ }
+ 
+-
+-
+-/*
+- * Reset one area.
++/* OLC
++ * Reset one room.  Called by reset_area and olc.
+  */
+-void reset_area( AREA_DATA *pArea )
++void reset_room( ROOM_INDEX_DATA *pRoom )
+ {
+-    RESET_DATA *pReset;
+-    CHAR_DATA *mob;
++    RESET_DATA  *pReset;
++    CHAR_DATA   *pMob;
++    CHAR_DATA	*mob;
++    OBJ_DATA    *pObj;
++    CHAR_DATA   *LastMob = NULL;
++    OBJ_DATA    *LastObj = NULL;
++    int iExit;
++    int level = 0;
+     bool last;
+-    int level;
+ 
+-    mob 	= NULL;
+-    last	= TRUE;
+-    level	= 0;
+-    for ( pReset = pArea->reset_first; pReset != NULL; pReset = pReset->next )
++    if ( !pRoom )
++        return;
++
++    pMob        = NULL;
++    last        = FALSE;
++    
++    for ( iExit = 0;  iExit < MAX_DIR;  iExit++ )
+     {
+-	ROOM_INDEX_DATA *pRoomIndex;
+-	MOB_INDEX_DATA *pMobIndex;
+-	OBJ_INDEX_DATA *pObjIndex;
+-	OBJ_INDEX_DATA *pObjToIndex;
+-	EXIT_DATA *pexit;
+-	OBJ_DATA *obj;
+-	OBJ_DATA *obj_to;
+-	int count, limit;
++        EXIT_DATA *pExit;
++        if ( ( pExit = pRoom->exit[iExit] )
++	  /*  && !IS_SET( pExit->exit_info, EX_BASHED )   ROM OLC */ )  
++        {
++            pExit->exit_info = pExit->rs_flags;
++            if ( ( pExit->u1.to_room != NULL )
++              && ( ( pExit = pExit->u1.to_room->exit[rev_dir[iExit]] ) ) )
++            {
++                /* nail the other side */
++                pExit->exit_info = pExit->rs_flags;
++            }
++        }
++    }
+ 
+-	switch ( pReset->command )
+-	{
+-	default:
+-	    bug( "Reset_area: bad command %c.", pReset->command );
+-	    break;
++    for ( pReset = pRoom->reset_first; pReset != NULL; pReset = pReset->next )
++    {
++        MOB_INDEX_DATA  *pMobIndex;
++        OBJ_INDEX_DATA  *pObjIndex;
++        OBJ_INDEX_DATA  *pObjToIndex;
++        ROOM_INDEX_DATA *pRoomIndex;
++	char buf[MAX_STRING_LENGTH];
++	int count,limit=0;
+ 
+-	case 'M':
+-	    if ( ( pMobIndex = get_mob_index( pReset->arg1 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'M': bad vnum %d.", pReset->arg1 );
+-		continue;
+-	    }
++        switch ( pReset->command )
++        {
++        default:
++                bug( "Reset_room: bad command %c.", pReset->command );
++                break;
++
++        case 'M':
++            if ( !( pMobIndex = get_mob_index( pReset->arg1 ) ) )
++            {
++                bug( "Reset_room: 'M': bad vnum %d.", pReset->arg1 );
++                continue;
++            }
+ 
+ 	    if ( ( pRoomIndex = get_room_index( pReset->arg3 ) ) == NULL )
+ 	    {
+ 		bug( "Reset_area: 'R': bad vnum %d.", pReset->arg3 );
+ 		continue;
+ 	    }
+-
+-	    if ( pMobIndex->count >= pReset->arg2 )
+-	    {
+-		last = FALSE;
+-		break;
+-	    }
+-
++            if ( pMobIndex->count >= pReset->arg2 )
++            {
++                last = FALSE;
++                break;
++            }
++/* */
+ 	    count = 0;
+ 	    for (mob = pRoomIndex->people; mob != NULL; mob = mob->next_in_room)
+ 		if (mob->pIndexData == pMobIndex)
+@@ -1271,66 +1643,80 @@
+ 	    if (count >= pReset->arg4)
+ 		break;
+ 
+-	    mob = create_mobile( pMobIndex );
++/* */
+ 
+-	    /*
+-	     * Check for pet shop.
+-	     */
+-	    {
+-		ROOM_INDEX_DATA *pRoomIndexPrev;
+-		pRoomIndexPrev = get_room_index( pRoomIndex->vnum - 1 );
+-		if ( pRoomIndexPrev != NULL
+-		&&   IS_SET(pRoomIndexPrev->room_flags, ROOM_PET_SHOP) )
+-		    SET_BIT(mob->act, ACT_PET);
+-	    }
++            pMob = create_mobile( pMobIndex );
+ 
+-	    /* set area */
+-	    mob->zone = pRoomIndex->area;
++            /*
++             * Some more hard coding.
++             */
++            if ( room_is_dark( pRoom ) )
++                SET_BIT(pMob->affected_by, AFF_INFRARED);
++
++            /*
++             * Pet shop mobiles get ACT_PET set.
++             */
++            {
++                ROOM_INDEX_DATA *pRoomIndexPrev;
+ 
+-	    char_to_room( mob, pRoomIndex );
+-	    level = URANGE( 0, mob->level - 2, LEVEL_HERO - 1 );
+-	    last  = TRUE;
+-	    break;
++                pRoomIndexPrev = get_room_index( pRoom->vnum - 1 );
++                if ( pRoomIndexPrev
++                    && IS_SET( pRoomIndexPrev->room_flags, ROOM_PET_SHOP ) )
++                    SET_BIT( pMob->act, ACT_PET);
++            }
+ 
+-	case 'O':
+-	    if ( ( pObjIndex = get_obj_index( pReset->arg1 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'O': bad vnum %d.", pReset->arg1 );
+-		continue;
+-	    }
++            char_to_room( pMob, pRoom );
+ 
+-	    if ( ( pRoomIndex = get_room_index( pReset->arg3 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'R': bad vnum %d.", pReset->arg3 );
+-		continue;
+-	    }
++            LastMob = pMob;
++            level  = URANGE( 0, pMob->level - 2, LEVEL_HERO - 1 ); /* -1 ROM */
++            last = TRUE;
++            break;
++
++        case 'O':
++            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
++            {
++                bug( "Reset_room: 'O' 1 : bad vnum %d", pReset->arg1 );
++                sprintf (buf,"%d %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3,
++                pReset->arg4 );
++		bug(buf,1);
++                continue;
++            }
++
++            if ( !( pRoomIndex = get_room_index( pReset->arg3 ) ) )
++            {
++                bug( "Reset_room: 'O' 2 : bad vnum %d.", pReset->arg3 );
++                sprintf (buf,"%d %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3,
++                pReset->arg4 );
++		bug(buf,1);
++                continue;
++            }
+ 
+-	    if ( pArea->nplayer > 0
+-	    ||   count_obj_list( pObjIndex, pRoomIndex->contents ) > 0 )
++            if ( pRoom->area->nplayer > 0
++              || count_obj_list( pObjIndex, pRoom->contents ) > 0 )
+ 	    {
+ 		last = FALSE;
+ 		break;
+ 	    }
+ 
+-	    obj       = create_object( pObjIndex, UMIN(number_fuzzy(level),
+-						       LEVEL_HERO - 1) );
+-	    obj->cost = 0;
+-	    obj_to_room( obj, pRoomIndex );
++            pObj = create_object( pObjIndex,              /* UMIN - ROM OLC */
++				  UMIN(number_fuzzy( level ), LEVEL_HERO -1) );
++            pObj->cost = 0;
++            obj_to_room( pObj, pRoom );
+ 	    last = TRUE;
+-	    break;
++            break;
+ 
+-	case 'P':
+-	    if ( ( pObjIndex = get_obj_index( pReset->arg1 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'P': bad vnum %d.", pReset->arg1 );
+-		continue;
+-	    }
++        case 'P':
++            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
++            {
++                bug( "Reset_room: 'P': bad vnum %d.", pReset->arg1 );
++                continue;
++            }
+ 
+-	    if ( ( pObjToIndex = get_obj_index( pReset->arg3 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'P': bad vnum %d.", pReset->arg3 );
+-		continue;
+-	    }
++            if ( !( pObjToIndex = get_obj_index( pReset->arg3 ) ) )
++            {
++                bug( "Reset_room: 'P': bad vnum %d.", pReset->arg3 );
++                continue;
++            }
+ 
+             if (pReset->arg2 > 50) /* old format */
+                 limit = 6;
+@@ -1339,60 +1725,62 @@
+             else
+                 limit = pReset->arg2;
+ 
+-	    if (pArea->nplayer > 0
+-	    || (obj_to = get_obj_type( pObjToIndex ) ) == NULL
+-	    || (obj_to->in_room == NULL && !last)
+-	    || ( pObjIndex->count >= limit && number_range(0,4) != 0)
+-	    || (count = count_obj_list(pObjIndex,obj_to->contains)) 
+-		> pReset->arg4 )
++            if ( pRoom->area->nplayer > 0
++              || ( LastObj = get_obj_type( pObjToIndex ) ) == NULL
++              || ( LastObj->in_room == NULL && !last)
++              || ( pObjIndex->count >= limit /* && number_range(0,4) != 0 */ )
++              || ( count = count_obj_list( pObjIndex, LastObj->contains ) ) > pReset->arg4  )
+ 	    {
+ 		last = FALSE;
+ 		break;
+ 	    }
++				                /* lastObj->level  -  ROM */
+ 
+ 	    while (count < pReset->arg4)
+ 	    {
+-	        obj = create_object( pObjIndex, number_fuzzy(obj_to->level) );
+-	    	obj_to_obj( obj, obj_to );
++            pObj = create_object( pObjIndex, number_fuzzy( LastObj->level ) );
++            obj_to_obj( pObj, LastObj );
+ 		count++;
+ 		if (pObjIndex->count >= limit)
+ 		    break;
+ 	    }
++
+ 	    /* fix object lock state! */
+-	    obj_to->value[1] = obj_to->pIndexData->value[1];
++	    LastObj->value[1] = LastObj->pIndexData->value[1];
+ 	    last = TRUE;
+-	    break;
++            break;
+ 
+-	case 'G':
+-	case 'E':
+-	    if ( ( pObjIndex = get_obj_index( pReset->arg1 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'E' or 'G': bad vnum %d.", pReset->arg1 );
+-		continue;
+-	    }
++        case 'G':
++        case 'E':
++            if ( !( pObjIndex = get_obj_index( pReset->arg1 ) ) )
++            {
++                bug( "Reset_room: 'E' or 'G': bad vnum %d.", pReset->arg1 );
++                continue;
++            }
+ 
+-	    if ( !last )
+-		break;
++            if ( !last )
++                break;
+ 
+-	    if ( mob == NULL )
+-	    {
+-		bug( "Reset_area: 'E' or 'G': null mob for vnum %d.",
+-		    pReset->arg1 );
+-		last = FALSE;
+-		break;
+-	    }
++            if ( !LastMob )
++            {
++                bug( "Reset_room: 'E' or 'G': null mob for vnum %d.",
++                    pReset->arg1 );
++                last = FALSE;
++                break;
++            }
+ 
+-	    if ( mob->pIndexData->pShop != NULL )
+-	    {
+-		int olevel = 0,i,j;
++            if ( LastMob->pIndexData->pShop )   /* Shop-keeper? */
++            {
++                int olevel=0,i,j;
+ 
+ 		if (!pObjIndex->new_format)
+-		    switch ( pObjIndex->item_type )
+-		{
+-		case ITEM_PILL:
+-		case ITEM_POTION:
+-		case ITEM_SCROLL:
+-		    olevel = 53;
++                 switch ( pObjIndex->item_type )
++                {
++                default:                olevel = 0;                      break;
++                case ITEM_PILL:
++                case ITEM_POTION:
++                case ITEM_SCROLL:
++ 		    olevel = 53;
+ 		    for (i = 1; i < 5; i++)
+ 		    {
+ 			if (pObjIndex->value[i] > 0)
+@@ -1408,108 +1796,121 @@
+ 		   
+ 		    olevel = UMAX(0,(olevel * 3 / 4) - 2);
+ 		    break;
+-		case ITEM_WAND:		olevel = number_range( 10, 20 ); break;
+-		case ITEM_STAFF:	olevel = number_range( 15, 25 ); break;
+-		case ITEM_ARMOR:	olevel = number_range(  5, 15 ); break;
+-		case ITEM_WEAPON:	olevel = number_range(  5, 15 ); break;
+-		case ITEM_TREASURE:	olevel = number_range( 10, 20 ); break;
+-		}
+-
+-		obj = create_object( pObjIndex, olevel );
+-		SET_BIT( obj->extra_flags, ITEM_INVENTORY );
+-	    }
++		    
++               case ITEM_WAND:         olevel = number_range( 10, 20 ); break;
++                case ITEM_STAFF:        olevel = number_range( 15, 25 ); break;
++                case ITEM_ARMOR:        olevel = number_range(  5, 15 ); break;
++                /* ROM patch weapon, treasure */
++		case ITEM_WEAPON:       olevel = number_range(  5, 15 ); break;
++		case ITEM_TREASURE:     olevel = number_range( 10, 20 ); break;
++
++#if 0 /* envy version */
++                case ITEM_WEAPON:       if ( pReset->command == 'G' )
++                                            olevel = number_range( 5, 15 );
++                                        else
++                                            olevel = number_fuzzy( level );
++#endif /* envy version */
++
++                  break;
++                }
++
++                pObj = create_object( pObjIndex, olevel );
++		SET_BIT( pObj->extra_flags, ITEM_INVENTORY );  /* ROM OLC */
++
++#if 0 /* envy version */
++                if ( pReset->command == 'G' )
++                    SET_BIT( pObj->extra_flags, ITEM_INVENTORY );
++#endif /* envy version */
+ 
+-	    else
++            }
++	    else   /* ROM OLC else version */
+ 	    {
+-		if (pReset->arg2 > 50) /* old format */
++		int limit;
++		if (pReset->arg2 > 50 )  /* old format */
+ 		    limit = 6;
+-		else if (pReset->arg2 == -1) /* no limit */
++		else if ( pReset->arg2 == -1 || pReset->arg2 == 0 )  /* no limit */
+ 		    limit = 999;
+ 		else
+ 		    limit = pReset->arg2;
+ 
+-		if (pObjIndex->count < limit || number_range(0,4) == 0)
++		if ( pObjIndex->count < limit || number_range(0,4) == 0 )
+ 		{
+-		    obj=create_object(pObjIndex,UMIN(number_fuzzy(level),
+-		    LEVEL_HERO - 1));
++		    pObj = create_object( pObjIndex, 
++			   UMIN( number_fuzzy( level ), LEVEL_HERO - 1 ) );
+ 		    /* error message if it is too high */
+-		    if (obj->level > mob->level + 3
+-		    ||  (obj->item_type == ITEM_WEAPON 
++		    if (pObj->level > LastMob->level + 3
++		    ||  (pObj->item_type == ITEM_WEAPON 
+ 		    &&   pReset->command == 'E' 
+-		    &&   obj->level < mob->level -5 && obj->level < 45))
++		    &&   pObj->level < LastMob->level -5 && pObj->level < 45))
+ 			fprintf(stderr,
+ 			    "Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
+-			    obj->short_descr,obj->pIndexData->vnum,obj->level,
+-			    mob->short_descr,mob->pIndexData->vnum,mob->level);
++			    pObj->short_descr,pObj->pIndexData->vnum,pObj->level,
++			    LastMob->short_descr,LastMob->pIndexData->vnum,LastMob->level);
+ 		}
+ 		else
+ 		    break;
+ 	    }
+-	    obj_to_char( obj, mob );
+-	    if ( pReset->command == 'E' )
+-		equip_char( mob, obj, pReset->arg3 );
+-	    last = TRUE;
+-	    break;
+-
+-	case 'D':
+-	    if ( ( pRoomIndex = get_room_index( pReset->arg1 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'D': bad vnum %d.", pReset->arg1 );
+-		continue;
+-	    }
+-
+-	    if ( ( pexit = pRoomIndex->exit[pReset->arg2] ) == NULL )
+-		break;
++									 
++#if 0 /* envy else version */
++            else
++            {
++                pObj = create_object( pObjIndex, number_fuzzy( level ) );
++            }
++#endif /* envy else version */
+ 
+-	    switch ( pReset->arg3 )
+-	    {
+-	    case 0:
+-		REMOVE_BIT( pexit->exit_info, EX_CLOSED );
+-		REMOVE_BIT( pexit->exit_info, EX_LOCKED );
+-		break;
++            obj_to_char( pObj, LastMob );
++            if ( pReset->command == 'E' )
++                equip_char( LastMob, pObj, pReset->arg3 );
++            last = TRUE;
++            break;
+ 
+-	    case 1:
+-		SET_BIT(    pexit->exit_info, EX_CLOSED );
+-		REMOVE_BIT( pexit->exit_info, EX_LOCKED );
+-		break;
++        case 'D':
++            break;
+ 
+-	    case 2:
+-		SET_BIT(    pexit->exit_info, EX_CLOSED );
+-		SET_BIT(    pexit->exit_info, EX_LOCKED );
+-		break;
+-	    }
++        case 'R':
++            if ( !( pRoomIndex = get_room_index( pReset->arg1 ) ) )
++            {
++                bug( "Reset_room: 'R': bad vnum %d.", pReset->arg1 );
++                continue;
++            }
+ 
+-	    last = TRUE;
+-	    break;
++            {
++                EXIT_DATA *pExit;
++                int d0;
++                int d1;
++
++                for ( d0 = 0; d0 < pReset->arg2 - 1; d0++ )
++                {
++                    d1                   = number_range( d0, pReset->arg2-1 );
++                    pExit                = pRoomIndex->exit[d0];
++                    pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
++                    pRoomIndex->exit[d1] = pExit;
++                }
++            }
++            break;
++        }
++    }
+ 
+-	case 'R':
+-	    if ( ( pRoomIndex = get_room_index( pReset->arg1 ) ) == NULL )
+-	    {
+-		bug( "Reset_area: 'R': bad vnum %d.", pReset->arg1 );
+-		continue;
+-	    }
++    return;
++}
+ 
+-	    {
+-		int d0;
+-		int d1;
++/* OLC
++ * Reset one area.
++ */
++void reset_area( AREA_DATA *pArea )
++{
++    ROOM_INDEX_DATA *pRoom;
++    int  vnum;
+ 
+-		for ( d0 = 0; d0 < pReset->arg2 - 1; d0++ )
+-		{
+-		    d1                   = number_range( d0, pReset->arg2-1 );
+-		    pexit                = pRoomIndex->exit[d0];
+-		    pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
+-		    pRoomIndex->exit[d1] = pexit;
+-		}
+-	    }
+-	    break;
+-	}
++    for ( vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++ )
++    {
++        if ( ( pRoom = get_room_index(vnum) ) )
++            reset_room(pRoom);
+     }
+ 
+     return;
+ }
+ 
+-
+-
+ /*
+  * Create an instance of a mobile.
+  */
+@@ -1531,13 +1932,14 @@
+ 
+     mob->pIndexData	= pMobIndex;
+ 
+-    mob->name		= pMobIndex->player_name;
++    mob->name		= str_dup( pMobIndex->player_name );    /* OLC */
++    mob->short_descr	= str_dup( pMobIndex->short_descr );    /* OLC */
++    mob->long_descr	= str_dup( pMobIndex->long_descr );     /* OLC */
++    mob->description	= str_dup( pMobIndex->description );    /* OLC */
+     mob->id		= get_mob_id();
+-    mob->short_descr	= pMobIndex->short_descr;
+-    mob->long_descr	= pMobIndex->long_descr;
+-    mob->description	= pMobIndex->description;
+     mob->spec_fun	= pMobIndex->spec_fun;
+     mob->prompt		= NULL;
++    mob->mprog_target   = NULL;
+ 
+     if (pMobIndex->wealth == 0)
+     {
+@@ -1845,9 +2247,9 @@
+ 	obj->level		= UMAX(0,level);
+     obj->wear_loc	= -1;
+ 
+-    obj->name		= pObjIndex->name;
+-    obj->short_descr	= pObjIndex->short_descr;
+-    obj->description	= pObjIndex->description;
++    obj->name		= str_dup( pObjIndex->name );           /* OLC */
++    obj->short_descr	= str_dup( pObjIndex->short_descr );    /* OLC */
++    obj->description	= str_dup( pObjIndex->description );    /* OLC */
+     obj->material	= str_dup(pObjIndex->material);
+     obj->item_type	= pObjIndex->item_type;
+     obj->extra_flags	= pObjIndex->extra_flags;
+@@ -2139,6 +2541,17 @@
+ 
+     return NULL;
+ }
++
++MPROG_CODE *get_mprog_index( int vnum )
++{
++    MPROG_CODE *prg;
++    for( prg = mprog_list; prg; prg = prg->next )
++    {
++    	if ( prg->vnum == vnum )
++            return( prg );
++    }
++    return NULL;
++}    
+ 
+ 
+ 
+diff -ur old/db.h new/db.h
+--- old/db.h	Mon Sep 14 17:46:16 1998
++++ new/db.h	Mon Sep 14 17:46:53 1998
+@@ -50,3 +50,12 @@
+ 
+ /* Magic number for memory allocation */
+ #define MAGIC_NUM 52571214
++
++/* func from db.c */
++extern void assign_area_vnum( int vnum );                    /* OLC */
++
++/* from db2.c */
++ 
++void convert_mobile( MOB_INDEX_DATA *pMobIndex );            /* OLC ROM */
++void convert_objects( void );                                /* OLC ROM */
++void convert_object( OBJ_INDEX_DATA *pObjIndex );            /* OLC ROM */
+diff -ur old/db2.c new/db2.c
+--- old/db2.c	Mon Sep 14 17:46:16 1998
++++ new/db2.c	Mon Sep 14 17:46:53 1998
+@@ -39,8 +39,10 @@
+ 
+ #include "merc.h"
+ #include "db.h"
++#include "tables.h"
+ #include "lookup.h"
+ 
++extern int flag_lookup args((const char *name, const struct flag_type *flag_table));
+ 
+ /* values for db2.c */
+ struct		social_type	social_table		[MAX_SOCIALS];
+@@ -188,6 +190,12 @@
+ {
+     MOB_INDEX_DATA *pMobIndex;
+  
++    if ( !area_last )   /* OLC */
++    {
++        bug( "Load_mobiles: no #AREA seen yet.", 0 );
++        exit( 1 );
++    }
++
+     for ( ; ; )
+     {
+         sh_int vnum;
+@@ -215,6 +223,7 @@
+  
+         pMobIndex                       = alloc_perm( sizeof(*pMobIndex) );
+         pMobIndex->vnum                 = vnum;
++        pMobIndex->area                 = area_last;               /* OLC */
+ 	pMobIndex->new_format		= TRUE;
+ 	newmobs++;
+         pMobIndex->player_name          = fread_string( fp );
+@@ -287,7 +296,8 @@
+ 	pMobIndex->parts		= fread_flag( fp )
+ 					| race_table[pMobIndex->race].parts;
+ 	/* size */
+-	pMobIndex->size			= size_lookup(fread_word(fp));
++	CHECK_POS( pMobIndex->size, size_lookup(fread_word(fp)), "size" );
++/*	pMobIndex->size			= size_lookup(fread_word(fp)); */
+ 	pMobIndex->material		= str_dup(fread_word( fp ));
+  
+ 	for ( ; ; )
+@@ -324,6 +334,26 @@
+ 		    exit(1);
+ 		}
+ 	     }
++	     else if ( letter == 'M' )
++	     {
++		MPROG_LIST *pMprog;
++		char *word;
++		int trigger = 0;
++		
++		pMprog              = alloc_perm(sizeof(*pMprog));
++		word   		    = fread_word( fp );
++		if ( (trigger = flag_lookup( word, mprog_flags )) == NO_FLAG )
++		{
++		    bug("MOBprogs: invalid trigger.",0);
++		    exit(1);
++		}
++		SET_BIT( pMobIndex->mprog_flags, trigger );
++		pMprog->trig_type   = trigger;
++		pMprog->vnum        = fread_number( fp );
++		pMprog->trig_phrase = fread_string( fp );
++		pMprog->next        = pMobIndex->mprogs;
++		pMobIndex->mprogs   = pMprog;
++	     }
+ 	     else
+ 	     {
+ 		ungetc(letter,fp);
+@@ -335,6 +365,8 @@
+         pMobIndex->next         = mob_index_hash[iHash];
+         mob_index_hash[iHash]   = pMobIndex;
+         top_mob_index++;
++        top_vnum_mob = top_vnum_mob < vnum ? vnum : top_vnum_mob;  /* OLC */
++        assign_area_vnum( vnum );                                  /* OLC */
+         kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL-1)].number++;
+     }
+  
+@@ -348,6 +380,12 @@
+ {
+     OBJ_INDEX_DATA *pObjIndex;
+  
++    if ( !area_last )   /* OLC */
++    {
++        bug( "Load_objects: no #AREA seen yet.", 0 );
++        exit( 1 );
++    }
++
+     for ( ; ; )
+     {
+         sh_int vnum;
+@@ -375,6 +413,7 @@
+  
+         pObjIndex                       = alloc_perm( sizeof(*pObjIndex) );
+         pObjIndex->vnum                 = vnum;
++        pObjIndex->area                 = area_last;            /* OLC */
+         pObjIndex->new_format           = TRUE;
+ 	pObjIndex->reset_num		= 0;
+ 	newobjs++;
+@@ -382,8 +421,8 @@
+         pObjIndex->short_descr          = fread_string( fp );
+         pObjIndex->description          = fread_string( fp );
+         pObjIndex->material		= fread_string( fp );
+- 
+-        pObjIndex->item_type            = item_lookup(fread_word( fp ));
++
++	CHECK_POS(pObjIndex->item_type, item_lookup(fread_word( fp )), "item_type" );
+         pObjIndex->extra_flags          = fread_flag( fp );
+         pObjIndex->wear_flags           = fread_flag( fp );
+ 	switch(pObjIndex->item_type)
+@@ -406,7 +445,7 @@
+ 	case ITEM_FOUNTAIN:
+             pObjIndex->value[0]         = fread_number(fp);
+             pObjIndex->value[1]         = fread_number(fp);
+-            pObjIndex->value[2]         = liq_lookup(fread_word(fp));
++	    CHECK_POS(pObjIndex->value[2], liq_lookup(fread_word(fp)), "liq_lookup" );
+             pObjIndex->value[3]         = fread_number(fp);
+             pObjIndex->value[4]         = fread_number(fp);
+             break;
+@@ -534,8 +573,351 @@
+         pObjIndex->next         = obj_index_hash[iHash];
+         obj_index_hash[iHash]   = pObjIndex;
+         top_obj_index++;
++        top_vnum_obj = top_vnum_obj < vnum ? vnum : top_vnum_obj;   /* OLC */
++        assign_area_vnum( vnum );                                   /* OLC */
+     }
+  
+     return;
+ }
+ 
++/*****************************************************************************
++ Name:	        convert_objects
++ Purpose:	Converts all old format objects to new format
++ Called by:	boot_db (db.c).
++ Note:          Loops over all resets to find the level of the mob
++                loaded before the object to determine the level of
++                the object.
++		It might be better to update the levels in load_resets().
++		This function is not pretty.. Sorry about that :)
++ Author:        Hugin
++ ****************************************************************************/
++void convert_objects( void )
++{
++    int vnum;
++    AREA_DATA  *pArea;
++    RESET_DATA *pReset;
++    MOB_INDEX_DATA *pMob = NULL;
++    OBJ_INDEX_DATA *pObj;
++    ROOM_INDEX_DATA *pRoom;
++
++    if ( newobjs == top_obj_index ) return; /* all objects in new format */
++
++    for ( pArea = area_first; pArea; pArea = pArea->next )
++    {
++        for ( vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++ )
++	{
++	    if ( !( pRoom = get_room_index( vnum ) ) ) continue;
++
++	    for ( pReset = pRoom->reset_first; pReset; pReset = pReset->next )
++	    {
++		switch ( pReset->command )
++		{
++		case 'M':
++		    if ( !( pMob = get_mob_index( pReset->arg1 ) ) )
++			bug( "Convert_objects: 'M': bad vnum %d.", pReset->arg1 );
++		    break;
++
++		case 'O':
++		    if ( !( pObj = get_obj_index( pReset->arg1 ) ) )
++		    {
++			bug( "Convert_objects: 'O': bad vnum %d.", pReset->arg1 );
++			break;
++		    }
++
++		    if ( pObj->new_format )
++			continue;
++
++		    if ( !pMob )
++		    {
++			bug( "Convert_objects: 'O': No mob reset yet.", 0 );
++			break;
++		    }
++
++		    pObj->level = pObj->level < 1 ? pMob->level - 2
++			: UMIN(pObj->level, pMob->level - 2);
++		    break;
++
++		case 'P':
++		    {
++			OBJ_INDEX_DATA *pObj, *pObjTo;
++
++			if ( !( pObj = get_obj_index( pReset->arg1 ) ) )
++			{
++			    bug( "Convert_objects: 'P': bad vnum %d.", pReset->arg1 );
++			    break;
++			}
++
++			if ( pObj->new_format )
++			    continue;
++
++			if ( !( pObjTo = get_obj_index( pReset->arg3 ) ) )
++			{
++			    bug( "Convert_objects: 'P': bad vnum %d.", pReset->arg3 );
++			    break;
++			}
++
++			pObj->level = pObj->level < 1 ? pObjTo->level
++			    : UMIN(pObj->level, pObjTo->level);
++		    }
++		    break;
++
++		case 'G':
++		case 'E':
++		    if ( !( pObj = get_obj_index( pReset->arg1 ) ) )
++		    {
++			bug( "Convert_objects: 'E' or 'G': bad vnum %d.", pReset->arg1 );
++			break;
++		    }
++
++		    if ( !pMob )
++		    {
++			bug( "Convert_objects: 'E' or 'G': null mob for vnum %d.",
++			     pReset->arg1 );
++			break;
++		    }
++
++		    if ( pObj->new_format )
++			continue;
++
++		    if ( pMob->pShop )
++		    {
++			switch ( pObj->item_type )
++			{
++			default:
++			    pObj->level = UMAX(0, pObj->level);
++			    break;
++			case ITEM_PILL:
++			case ITEM_POTION:
++			    pObj->level = UMAX(5, pObj->level);
++			    break;
++			case ITEM_SCROLL:
++			case ITEM_ARMOR:
++			case ITEM_WEAPON:
++			    pObj->level = UMAX(10, pObj->level);
++			    break;
++			case ITEM_WAND:
++			case ITEM_TREASURE:
++			    pObj->level = UMAX(15, pObj->level);
++			    break;
++			case ITEM_STAFF:
++			    pObj->level = UMAX(20, pObj->level);
++			    break;
++			}
++		    }
++		    else
++			pObj->level = pObj->level < 1 ? pMob->level
++			    : UMIN( pObj->level, pMob->level );
++		    break;
++		} /* switch ( pReset->command ) */
++	    }
++	}
++    }
++
++    /* do the conversion: */
++
++    for ( pArea = area_first; pArea ; pArea = pArea->next )
++	for ( vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++ )
++	    if ( (pObj = get_obj_index( vnum )) )
++ 		if ( !pObj->new_format )
++		    convert_object( pObj );
++
++    return;
++}
++
++
++
++/*****************************************************************************
++ Name:		convert_object
++ Purpose:	Converts an old_format obj to new_format
++ Called by:	convert_objects (db2.c).
++ Note:          Dug out of create_obj (db.c)
++ Author:        Hugin
++ ****************************************************************************/
++void convert_object( OBJ_INDEX_DATA *pObjIndex )
++{
++    int level;
++    int number, type;  /* for dice-conversion */
++
++    if ( !pObjIndex || pObjIndex->new_format ) return;
++
++    level = pObjIndex->level;
++
++    pObjIndex->level    = UMAX( 0, pObjIndex->level ); /* just to be sure */
++    pObjIndex->cost     = 10*level;
++
++    switch ( pObjIndex->item_type )
++    {
++        default:
++            bug( "Obj_convert: vnum %d bad type.", pObjIndex->item_type );
++            break;
++
++        case ITEM_LIGHT:
++        case ITEM_TREASURE:
++        case ITEM_FURNITURE:
++        case ITEM_TRASH:
++        case ITEM_CONTAINER:
++        case ITEM_DRINK_CON:
++        case ITEM_KEY:
++        case ITEM_FOOD:
++        case ITEM_BOAT:
++        case ITEM_CORPSE_NPC:
++        case ITEM_CORPSE_PC:
++        case ITEM_FOUNTAIN:
++        case ITEM_MAP:
++        case ITEM_CLOTHING:
++        case ITEM_SCROLL:
++	    break;
++
++        case ITEM_WAND:
++        case ITEM_STAFF:
++            pObjIndex->value[2] = pObjIndex->value[1];
++	    break;
++
++        case ITEM_WEAPON:
++
++	    /*
++	     * The conversion below is based on the values generated
++	     * in one_hit() (fight.c).  Since I don't want a lvl 50 
++	     * weapon to do 15d3 damage, the min value will be below
++	     * the one in one_hit, and to make up for it, I've made 
++	     * the max value higher.
++	     * (I don't want 15d2 because this will hardly ever roll
++	     * 15 or 30, it will only roll damage close to 23.
++	     * I can't do 4d8+11, because one_hit there is no dice-
++	     * bounus value to set...)
++	     *
++	     * The conversion below gives:
++
++	     level:   dice      min      max      mean
++	       1:     1d8      1( 2)    8( 7)     5( 5)
++	       2:     2d5      2( 3)   10( 8)     6( 6)
++	       3:     2d5      2( 3)   10( 8)     6( 6)
++	       5:     2d6      2( 3)   12(10)     7( 7)
++	      10:     4d5      4( 5)   20(14)    12(10)
++	      20:     5d5      5( 7)   25(21)    15(14)
++	      30:     5d7      5(10)   35(29)    20(20)
++	      50:     5d11     5(15)   55(44)    30(30)
++
++	     */
++
++	    number = UMIN(level/4 + 1, 5);
++	    type   = (level + 7)/number;
++
++            pObjIndex->value[1] = number;
++            pObjIndex->value[2] = type;
++	    break;
++
++        case ITEM_ARMOR:
++            pObjIndex->value[0] = level / 5 + 3;
++            pObjIndex->value[1] = pObjIndex->value[0];
++            pObjIndex->value[2] = pObjIndex->value[0];
++	    break;
++
++        case ITEM_POTION:
++        case ITEM_PILL:
++            break;
++
++        case ITEM_MONEY:
++	    pObjIndex->value[0] = pObjIndex->cost;
++	    break;
++    }
++
++    pObjIndex->new_format = TRUE;
++    ++newobjs;
++
++    return;
++}
++
++
++
++
++/*****************************************************************************
++ Name:		convert_mobile
++ Purpose:	Converts an old_format mob into new_format
++ Called by:	load_old_mob (db.c).
++ Note:          Dug out of create_mobile (db.c)
++ Author:        Hugin
++ ****************************************************************************/
++void convert_mobile( MOB_INDEX_DATA *pMobIndex )
++{
++    int i;
++    int type, number, bonus;
++    int level;
++
++    if ( !pMobIndex || pMobIndex->new_format ) return;
++
++    level = pMobIndex->level;
++
++    pMobIndex->act              |= ACT_WARRIOR;
++
++    /*
++     * Calculate hit dice.  Gives close to the hitpoints
++     * of old format mobs created with create_mobile()  (db.c)
++     * A high number of dice makes for less variance in mobiles
++     * hitpoints.
++     * (might be a good idea to reduce the max number of dice)
++     *
++     * The conversion below gives:
++
++       level:     dice         min         max        diff       mean
++         1:       1d2+6       7(  7)     8(   8)     1(   1)     8(   8)
++	 2:       1d3+15     16( 15)    18(  18)     2(   3)    17(  17)
++	 3:       1d6+24     25( 24)    30(  30)     5(   6)    27(  27)
++	 5:      1d17+42     43( 42)    59(  59)    16(  17)    51(  51)
++	10:      3d22+96     99( 95)   162( 162)    63(  67)   131(    )
++	15:     5d30+161    166(159)   311( 311)   145( 150)   239(    )
++	30:    10d61+416    426(419)  1026(1026)   600( 607)   726(    )
++	50:    10d169+920   930(923)  2610(2610)  1680(1688)  1770(    )
++
++	The values in parenthesis give the values generated in create_mobile.
++        Diff = max - min.  Mean is the arithmetic mean.
++	(hmm.. must be some roundoff error in my calculations.. smurfette got
++	 1d6+23 hp at level 3 ? -- anyway.. the values above should be
++	 approximately right..)
++     */
++    type   = level*level*27/40;
++    number = UMIN(type/40 + 1, 10); /* how do they get 11 ??? */
++    type   = UMAX(2, type/number);
++    bonus  = UMAX(0, level*(8 + level)*.9 - number*type);
++
++    pMobIndex->hit[DICE_NUMBER]    = number;
++    pMobIndex->hit[DICE_TYPE]      = type;
++    pMobIndex->hit[DICE_BONUS]     = bonus;
++
++    pMobIndex->mana[DICE_NUMBER]   = level;
++    pMobIndex->mana[DICE_TYPE]     = 10;
++    pMobIndex->mana[DICE_BONUS]    = 100;
++
++    /*
++     * Calculate dam dice.  Gives close to the damage
++     * of old format mobs in damage()  (fight.c)
++     */
++    type   = level*7/4;
++    number = UMIN(type/8 + 1, 5);
++    type   = UMAX(2, type/number);
++    bonus  = UMAX(0, level*9/4 - number*type);
++
++    pMobIndex->damage[DICE_NUMBER] = number;
++    pMobIndex->damage[DICE_TYPE]   = type;
++    pMobIndex->damage[DICE_BONUS]  = bonus;
++
++    switch ( number_range( 1, 3 ) )
++    {
++        case (1): pMobIndex->dam_type =  3;       break;  /* slash  */
++        case (2): pMobIndex->dam_type =  7;       break;  /* pound  */
++        case (3): pMobIndex->dam_type = 11;       break;  /* pierce */
++    }
++
++    for (i = 0; i < 3; i++)
++        pMobIndex->ac[i]         = interpolate( level, 100, -100);
++    pMobIndex->ac[3]             = interpolate( level, 100, 0);    /* exotic */
++
++    pMobIndex->wealth           /= 100;
++    pMobIndex->size              = SIZE_MEDIUM;
++    pMobIndex->material          = str_dup("none");
++
++    pMobIndex->new_format        = TRUE;
++    ++newmobs;
++
++    return;
++}
+diff -ur old/fight.c new/fight.c
+--- old/fight.c	Mon Sep 14 17:46:16 1998
++++ new/fight.c	Mon Sep 14 17:46:53 1998
+@@ -70,7 +70,7 @@
+     CHAR_DATA *ch_next;
+     CHAR_DATA *victim;
+ 
+-    for ( ch = char_list; ch != NULL; ch = ch->next )
++    for ( ch = char_list; ch != NULL; ch = ch_next )
+     {
+ 	ch_next	= ch->next;
+ 
+@@ -89,6 +89,14 @@
+ 	 * Fun for the whole family!
+ 	 */
+ 	check_assist(ch,victim);
++
++	if ( IS_NPC( ch ) )
++	{
++	    if ( HAS_TRIGGER( ch, TRIG_FIGHT ) )
++		mp_percent_trigger( ch, victim, NULL, NULL, TRIG_FIGHT );
++	    if ( HAS_TRIGGER( ch, TRIG_HPCNT ) )
++		mp_hprct_trigger( ch, victim );
++	}
+     }
+ 
+     return;
+@@ -722,7 +730,11 @@
+ 	if ( victim->position > POS_STUNNED )
+ 	{
+ 	    if ( victim->fighting == NULL )
++	    {
+ 		set_fighting( victim, ch );
++		if ( IS_NPC( victim ) && HAS_TRIGGER( victim, TRIG_KILL ) )
++		    mp_percent_trigger( victim, ch, NULL, NULL, TRIG_KILL );
++	    }
+ 	    if (victim->timer <= 4)
+ 	    	victim->position = POS_FIGHTING;
+ 	}
+@@ -893,6 +905,15 @@
+         else
+             wiznet(log_buf,NULL,NULL,WIZ_DEATHS,0,0);
+ 
++	/*
++	 * Death trigger
++	 */
++	if ( IS_NPC( victim ) && HAS_TRIGGER( victim, TRIG_DEATH) )
++	{
++	    victim->position = POS_STANDING;
++	    mp_percent_trigger( victim, ch, NULL, NULL, TRIG_DEATH );
++	}
++
+ 	raw_kill( victim );
+         /* dump the flags */
+         if (ch != victim && !IS_NPC(ch) && !is_same_clan(ch,victim))
+@@ -3047,7 +3068,27 @@
+     return;
+ }
+ 
++void do_surrender( CHAR_DATA *ch, char *argument )
++{
++    CHAR_DATA *mob;
++    if ( (mob = ch->fighting) == NULL )
++    {
++	send_to_char( "But you're not fighting!\n\r", ch );
++	return;
++    }
++    act( "You surrender to $N!", ch, NULL, mob, TO_CHAR );
++    act( "$n surrenders to you!", ch, NULL, mob, TO_VICT );
++    act( "$n tries to surrender to $N!", ch, NULL, mob, TO_NOTVICT );
++    stop_fighting( ch, TRUE );
+ 
++    if ( !IS_NPC( ch ) && IS_NPC( mob ) 
++    &&   ( !HAS_TRIGGER( mob, TRIG_SURR ) 
++        || !mp_percent_trigger( mob, ch, NULL, NULL, TRIG_SURR ) ) )
++    {
++	act( "$N seems to ignore your cowardly act!", ch, NULL, mob, TO_CHAR );
++	multi_hit( mob, ch, TYPE_UNDEFINED );
++    }
++}
+ 
+ void do_sla( CHAR_DATA *ch, char *argument )
+ {
+diff -ur old/flags.c new/flags.c
+--- old/flags.c	Mon Sep 14 17:46:16 1998
++++ new/flags.c	Mon Sep 14 17:46:53 1998
+@@ -203,7 +203,8 @@
+ 		break;
+ 
+ 	    pos = flag_lookup(word,flag_table);
+-	    if (pos == 0)
++
++	    if (pos == NO_FLAG)
+ 	    {
+ 		send_to_char("That flag doesn't exist!\n\r",ch);
+ 		return;
+diff -ur old/handler.c new/handler.c
+--- old/handler.c	Mon Sep 14 17:46:16 1998
++++ new/handler.c	Mon Sep 14 17:46:53 1998
+@@ -112,35 +112,6 @@
+     return 0;
+ }
+ 
+-/* returns race number */
+-int race_lookup (const char *name)
+-{
+-   int race;
+-
+-   for ( race = 0; race_table[race].name != NULL; race++)
+-   {
+-	if (LOWER(name[0]) == LOWER(race_table[race].name[0])
+-	&&  !str_prefix( name,race_table[race].name))
+-	    return race;
+-   }
+-
+-   return 0;
+-} 
+-
+-int liq_lookup (const char *name)
+-{
+-    int liq;
+-
+-    for ( liq = 0; liq_table[liq].liq_name != NULL; liq++)
+-    {
+-	if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
+-	&& !str_prefix(name,liq_table[liq].liq_name))
+-	    return liq;
+-    }
+-
+-    return -1;
+-}
+-
+ int weapon_lookup (const char *name)
+ {
+     int type;
+@@ -169,21 +140,6 @@
+     return WEAPON_EXOTIC;
+ }
+ 
+-
+-int item_lookup(const char *name)
+-{
+-    int type;
+-
+-    for (type = 0; item_table[type].name != NULL; type++)
+-    {
+-        if (LOWER(name[0]) == LOWER(item_table[type].name[0])
+-        &&  !str_prefix(name,item_table[type].name))
+-            return item_table[type].type;
+-    }
+- 
+-    return -1;
+-}
+-
+ char *item_name(int item_type)
+ {
+     int type;
+@@ -1972,6 +1928,8 @@
+     {
+ 	if ( wch->reply == ch )
+ 	    wch->reply = NULL;
++	if ( ch->mprog_target == wch )
++	    wch->mprog_target = NULL;
+     }
+ 
+     if ( ch == char_list )
+diff -ur old/interp.c new/interp.c
+--- old/interp.c	Mon Sep 14 17:46:16 1998
++++ new/interp.c	Mon Sep 14 17:46:53 1998
+@@ -246,9 +246,15 @@
+     { "murde",		do_murde,	POS_FIGHTING,	 0,  LOG_NORMAL, 0 },
+     { "murder",		do_murder,	POS_FIGHTING,	 5,  LOG_ALWAYS, 1 },
+     { "rescue",		do_rescue,	POS_FIGHTING,	 0,  LOG_NORMAL, 0 },
++    { "surrender",	do_surrender,	POS_FIGHTING,    0,  LOG_NORMAL, 1 },
+     { "trip",		do_trip,	POS_FIGHTING,    0,  LOG_NORMAL, 1 },
+ 
+     /*
++     * Mob command interpreter (placed here for faster scan...)
++     */
++    { "mob",		do_mob,		POS_DEAD,	 0,  LOG_NEVER,  0 },
++
++    /*
+      * Miscellaneous commands.
+      */
+     { "enter", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL, 1 },
+@@ -350,6 +356,22 @@
+     { "smote",		do_smote,	POS_DEAD,	IM,  LOG_NORMAL, 1 },
+     { "prefi",		do_prefi,	POS_DEAD,	IM,  LOG_NORMAL, 0 },
+     { "prefix",		do_prefix,	POS_DEAD,	IM,  LOG_NORMAL, 1 },
++    { "mpdump",		do_mpdump,	POS_DEAD,	IM,  LOG_NEVER,  1 },
++    { "mpstat",		do_mpstat,	POS_DEAD,	IM,  LOG_NEVER,  1 },
++
++    /*
++     * OLC
++     */
++    { "edit",		do_olc,		POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "asave",          do_asave,	POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "alist",		do_alist,	POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "resets",		do_resets,	POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "redit",		do_redit,	POS_DEAD,    0,	 LOG_NORMAL, 1 },
++    { "medit",		do_medit,	POS_DEAD,    0,	 LOG_NORMAL, 1 },
++    { "aedit",		do_aedit,	POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "oedit",		do_oedit,	POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "mpedit",		do_mpedit,	POS_DEAD,    0,  LOG_NORMAL, 1 },
++    { "hedit",		do_hedit,	POS_DEAD,    0,  LOG_NORMAL, 1 },
+ 
+     /*
+      * End of list.
+diff -ur old/interp.h new/interp.h
+--- old/interp.h	Mon Sep 14 17:46:16 1998
++++ new/interp.h	Mon Sep 14 17:46:53 1998
+@@ -166,7 +166,10 @@
+ DECLARE_DO_FUN(	do_mset		);
+ DECLARE_DO_FUN(	do_mstat	);
+ DECLARE_DO_FUN(	do_mwhere	);
++DECLARE_DO_FUN( do_mob		);
+ DECLARE_DO_FUN( do_motd		);
++DECLARE_DO_FUN( do_mpstat	);
++DECLARE_DO_FUN( do_mpdump	);
+ DECLARE_DO_FUN(	do_murde	);
+ DECLARE_DO_FUN(	do_murder	);
+ DECLARE_DO_FUN( do_music	);
+@@ -263,6 +266,7 @@
+ DECLARE_DO_FUN(	do_steal	);
+ DECLARE_DO_FUN( do_story	);
+ DECLARE_DO_FUN( do_string	);
++DECLARE_DO_FUN(	do_surrender	);
+ DECLARE_DO_FUN(	do_switch	);
+ DECLARE_DO_FUN(	do_tell		);
+ DECLARE_DO_FUN(	do_time		);
+@@ -296,3 +300,13 @@
+ DECLARE_DO_FUN(	do_yell		);
+ DECLARE_DO_FUN(	do_zap		);
+ DECLARE_DO_FUN( do_zecho	);
++DECLARE_DO_FUN( do_olc		);
++DECLARE_DO_FUN( do_asave	);
++DECLARE_DO_FUN( do_alist	);
++DECLARE_DO_FUN( do_resets	);
++DECLARE_DO_FUN( do_redit	);
++DECLARE_DO_FUN( do_aedit	);
++DECLARE_DO_FUN( do_medit	);
++DECLARE_DO_FUN( do_oedit	);
++DECLARE_DO_FUN( do_mpedit	);
++DECLARE_DO_FUN( do_hedit	);
+diff -ur old/lookup.c new/lookup.c
+--- old/lookup.c	Mon Sep 14 17:46:16 1998
++++ new/lookup.c	Mon Sep 14 17:46:53 1998
+@@ -32,6 +32,7 @@
+ #endif
+ #include <stdio.h>
+ #include <time.h>
++#include <string.h>
+ #include "merc.h"
+ #include "tables.h"
+ 
+@@ -46,7 +47,7 @@
+ 	    return flag_table[flag].bit;
+     }
+ 
+-    return 0;
++    return NO_FLAG;
+ }
+ 
+ int clan_lookup(const char *name)
+@@ -103,4 +104,81 @@
+    }
+  
+    return -1;
++}
++
++/* returns race number */
++int race_lookup (const char *name)
++{
++   int race;
++
++   for ( race = 0; race_table[race].name != NULL; race++)
++   {
++	if (LOWER(name[0]) == LOWER(race_table[race].name[0])
++	&&  !str_prefix( name,race_table[race].name))
++	    return race;
++   }
++
++   return 0;
++} 
++
++int item_lookup(const char *name)
++{
++    int type;
++
++    for (type = 0; item_table[type].name != NULL; type++)
++    {
++        if (LOWER(name[0]) == LOWER(item_table[type].name[0])
++        &&  !str_prefix(name,item_table[type].name))
++            return item_table[type].type;
++    }
++ 
++    return -1;
++}
++
++int liq_lookup (const char *name)
++{
++    int liq;
++
++    for ( liq = 0; liq_table[liq].liq_name != NULL; liq++)
++    {
++	if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
++	&& !str_prefix(name,liq_table[liq].liq_name))
++	    return liq;
++    }
++
++    return -1;
++}
++
++HELP_DATA * help_lookup( char *keyword )
++{
++	HELP_DATA *pHelp;
++	char temp[MIL], argall[MIL];
++
++	argall[0] = '\0';
++
++	while (keyword[0] != '\0' )
++	{
++		keyword = one_argument(keyword, temp);
++		if (argall[0] != '\0')
++			strcat(argall," ");
++		strcat(argall, temp);
++	}
++
++	for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next )
++		if ( is_name( argall, pHelp->keyword ) )
++			return pHelp;
++
++	return NULL;
++}
++
++HELP_AREA * had_lookup( char *arg )
++{
++	HELP_AREA * temp;
++	extern HELP_AREA * had_list;
++
++	for ( temp = had_list; temp; temp = temp->next )
++		if ( !str_cmp( arg, temp->filename ) )
++			return temp;
++
++	return NULL;
+ }
+diff -ur old/lookup.h new/lookup.h
+--- old/lookup.h	Mon Sep 14 17:46:16 1998
++++ new/lookup.h	Mon Sep 14 17:46:53 1998
+@@ -30,3 +30,6 @@
+ int	position_lookup	args( (const char *name) );
+ int 	sex_lookup	args( (const char *name) );
+ int 	size_lookup	args( (const char *name) );
++int	flag_lookup	args( (const char *, const struct flag_type *) );
++HELP_DATA * help_lookup	args( (char *) );
++HELP_AREA * had_lookup	args( (char *) );
+Only in new: mem.c
+diff -ur old/merc.h new/merc.h
+--- old/merc.h	Mon Sep 14 17:46:16 1998
++++ new/merc.h	Mon Sep 14 19:23:08 1998
+@@ -72,7 +72,9 @@
+ typedef unsigned char			bool;
+ #endif
+ 
+-
++/* ea */
++#define MSL MAX_STRING_LENGTH
++#define MIL MAX_INPUT_LENGTH
+ 
+ /*
+  * Structure types.
+@@ -86,6 +88,7 @@
+ typedef struct	exit_data		EXIT_DATA;
+ typedef struct	extra_descr_data	EXTRA_DESCR_DATA;
+ typedef struct	help_data		HELP_DATA;
++typedef struct	help_area_data		HELP_AREA;
+ typedef struct	kill_data		KILL_DATA;
+ typedef struct	mem_data		MEM_DATA;
+ typedef struct	mob_index_data		MOB_INDEX_DATA;
+@@ -99,7 +102,8 @@
+ typedef struct	shop_data		SHOP_DATA;
+ typedef struct	time_info_data		TIME_INFO_DATA;
+ typedef struct	weather_data		WEATHER_DATA;
+-
++typedef struct  mprog_list		MPROG_LIST;
++typedef struct  mprog_code		MPROG_CODE;
+ 
+ 
+ /*
+@@ -267,6 +271,9 @@
+     int			outtop;
+     char *		showstr_head;
+     char *		showstr_point;
++    void *              pEdit;		/* OLC */
++    char **             pString;	/* OLC */
++    int			editor;		/* OLC */
+ };
+ 
+ 
+@@ -322,11 +329,21 @@
+ struct	help_data
+ {
+     HELP_DATA *	next;
++    HELP_DATA * next_area;
+     sh_int	level;
+     char *	keyword;
+     char *	text;
+ };
+ 
++struct help_area_data
++{
++	HELP_AREA *	next;
++	HELP_DATA *	first;
++	HELP_DATA *	last;
++	AREA_DATA *	area;
++	char *		filename;
++	bool		changed;
++};
+ 
+ 
+ /*
+@@ -1300,6 +1317,8 @@
+     MOB_INDEX_DATA *	next;
+     SPEC_FUN *		spec_fun;
+     SHOP_DATA *		pShop;
++    MPROG_LIST *        mprogs;
++    AREA_DATA *		area;		/* OLC */
+     sh_int		vnum;
+     sh_int		group;
+     bool		new_format;
+@@ -1332,6 +1351,7 @@
+     long		parts;
+     sh_int		size;
+     char *		material;
++    long		mprog_flags;
+ };
+ 
+ 
+@@ -1365,6 +1385,7 @@
+     CHAR_DATA *		fighting;
+     CHAR_DATA *		reply;
+     CHAR_DATA *		pet;
++    CHAR_DATA *		mprog_target;
+     MEM_DATA *		memory;
+     SPEC_FUN *		spec_fun;
+     MOB_INDEX_DATA *	pIndexData;
+@@ -1443,6 +1464,8 @@
+     sh_int		dam_type;
+     sh_int		start_pos;
+     sh_int		default_pos;
++
++    sh_int		mprog_delay;
+ };
+ 
+ 
+@@ -1476,6 +1499,7 @@
+     bool              	confirm_delete;
+     char *		alias[MAX_ALIAS];
+     char * 		alias_sub[MAX_ALIAS];
++    int 		security;	/* OLC */ /* Builder security */
+ };
+ 
+ /* Data for generating characters -- only used during generation */
+@@ -1525,6 +1549,7 @@
+     OBJ_INDEX_DATA *	next;
+     EXTRA_DESCR_DATA *	extra_descr;
+     AFFECT_DATA *	affected;
++    AREA_DATA *		area;		/* OLC */
+     bool		new_format;
+     char *		name;
+     char *		short_descr;
+@@ -1595,6 +1620,9 @@
+     sh_int		key;
+     char *		keyword;
+     char *		description;
++    EXIT_DATA *		next;		/* OLC */
++    int			rs_flags;	/* OLC */
++    int			orig_door;	/* OLC */
+ };
+ 
+ 
+@@ -1633,8 +1661,7 @@
+ struct	area_data
+ {
+     AREA_DATA *		next;
+-    RESET_DATA *	reset_first;
+-    RESET_DATA *	reset_last;
++    HELP_AREA *		helps;
+     char *		file_name;
+     char *		name;
+     char *		credits;
+@@ -1645,6 +1672,10 @@
+     sh_int 		min_vnum;
+     sh_int		max_vnum;
+     bool		empty;
++    char *		builders;	/* OLC */ /* Listing of */
++    int			vnum;		/* OLC */ /* Area vnum  */
++    int			area_flags;	/* OLC */
++    int			security;	/* OLC */ /* Value 1-9  */
+ };
+ 
+ 
+@@ -1660,7 +1691,8 @@
+     EXTRA_DESCR_DATA *	extra_descr;
+     AREA_DATA *		area;
+     EXIT_DATA *		exit	[6];
+-    EXIT_DATA * 	old_exit[6];
++    RESET_DATA *	reset_first;	/* OLC */
++    RESET_DATA *	reset_last;	/* OLC */
+     char *		name;
+     char *		description;
+     char *		owner;
+@@ -1730,7 +1762,42 @@
+     char *	spells[MAX_IN_GROUP];
+ };
+ 
++/*
++ * MOBprog definitions
++ */                   
++#define TRIG_ACT	(A)
++#define TRIG_BRIBE	(B)
++#define TRIG_DEATH	(C)
++#define TRIG_ENTRY	(D)
++#define TRIG_FIGHT	(E)
++#define TRIG_GIVE	(F)
++#define TRIG_GREET	(G)
++#define TRIG_GRALL	(H)
++#define TRIG_KILL	(I)
++#define TRIG_HPCNT	(J)
++#define TRIG_RANDOM	(K)
++#define TRIG_SPEECH	(L)
++#define TRIG_EXIT	(M)
++#define TRIG_EXALL	(N)
++#define TRIG_DELAY	(O)
++#define TRIG_SURR	(P)
++
++struct mprog_list
++{
++    int			trig_type;
++    char *		trig_phrase;
++    sh_int		vnum;
++    char *  		code;
++    MPROG_LIST * 	next;
++    bool		valid;
++};
+ 
++struct mprog_code
++{
++    sh_int		vnum;
++    char *		code;
++    MPROG_CODE *	next;
++};
+ 
+ /*
+  * These are skill_lookup return values for common skills and spells.
+@@ -1806,8 +1873,13 @@
+ #define IS_SET(flag, bit)	((flag) & (bit))
+ #define SET_BIT(var, bit)	((var) |= (bit))
+ #define REMOVE_BIT(var, bit)	((var) &= ~(bit))
+-
+-
++#define IS_NULLSTR(str)		((str) == NULL || (str)[0] == '\0')
++#define ENTRE(min,num,max)	( ((min) < (num)) && ((num) < (max)) )
++#define CHECK_POS(a, b, c)	{							\
++					(a) = (b);					\
++					if ( (a) < 0 )					\
++					bug( "CHECK_POS : " c " == %d < 0", a );	\
++				}							\
+ 
+ /*
+  * Character macros.
+@@ -1846,6 +1918,13 @@
+ #define act(format,ch,arg1,arg2,type)\
+ 	act_new((format),(ch),(arg1),(arg2),(type),POS_RESTING)
+ 
++#define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pIndexData->mprog_flags,(trig)))
++#define IS_SWITCHED( ch )       ( ch->desc && ch->desc->original )
++#define IS_BUILDER(ch, Area)	( !IS_NPC(ch) && !IS_SWITCHED( ch ) &&	  \
++				( ch->pcdata->security >= Area->security  \
++				|| strstr( Area->builders, ch->name )	  \
++				|| strstr( Area->builders, "All" ) ) )
++
+ /*
+  * Object macros.
+  */
+@@ -1919,6 +1998,8 @@
+ extern		DESCRIPTOR_DATA   *	descriptor_list;
+ extern		OBJ_DATA	  *	object_list;
+ 
++extern		MPROG_CODE	  *	mprog_list;
++
+ extern		char			bug_buf		[];
+ extern		time_t			current_time;
+ extern		bool			fLogAll;
+@@ -1927,6 +2008,7 @@
+ extern		char			log_buf		[];
+ extern		TIME_INFO_DATA		time_info;
+ extern		WEATHER_DATA		weather_info;
++extern		bool			MOBtrigger;
+ 
+ /*
+  * OS-dependent declarations.
+@@ -2071,6 +2153,7 @@
+ #define RID	ROOM_INDEX_DATA
+ #define SF	SPEC_FUN
+ #define AD	AFFECT_DATA
++#define MPC	MPROG_CODE
+ 
+ /* act_comm.c */
+ void  	check_sex	args( ( CHAR_DATA *ch) );
+@@ -2091,6 +2174,7 @@
+ 
+ /* act_obj.c */
+ bool can_loot		args( (CHAR_DATA *ch, OBJ_DATA *obj) );
++void	wear_obj	args( (CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace) );
+ void    get_obj         args( ( CHAR_DATA *ch, OBJ_DATA *obj,
+                             OBJ_DATA *container ) );
+ 
+@@ -2116,8 +2200,12 @@
+ void	act_new		args( ( const char *format, CHAR_DATA *ch, 
+ 			    const void *arg1, const void *arg2, int type,
+ 			    int min_pos) );
++void	printf_to_char	args( ( CHAR_DATA *, char *, ... ) );
++void	bugf		args( ( char *, ... ) );
+ 
+ /* db.c */
++void	reset_area      args( ( AREA_DATA * pArea ) );		/* OLC */
++void	reset_room	args( ( ROOM_INDEX_DATA *pRoom ) );	/* OLC */
+ char *	print_flags	args( ( int flag ));
+ void	boot_db		args( ( void ) );
+ void	area_update	args( ( void ) );
+@@ -2130,6 +2218,7 @@
+ MID *	get_mob_index	args( ( int vnum ) );
+ OID *	get_obj_index	args( ( int vnum ) );
+ RID *	get_room_index	args( ( int vnum ) );
++MPC *	get_mprog_index args( ( int vnum ) );
+ char	fread_letter	args( ( FILE *fp ) );
+ int	fread_number	args( ( FILE *fp ) );
+ long 	fread_flag	args( ( FILE *fp ) );
+@@ -2190,15 +2279,12 @@
+ void 	deduct_cost	args( (CHAR_DATA *ch, int cost) );
+ void	affect_enchant	args( (OBJ_DATA *obj) );
+ int 	check_immune	args( (CHAR_DATA *ch, int dam_type) );
+-int	liq_lookup	args( ( const char *name) );
+ int 	material_lookup args( ( const char *name) );
+ int	weapon_lookup	args( ( const char *name) );
+ int	weapon_type	args( ( const char *name) );
+ char 	*weapon_name	args( ( int weapon_Type) );
+-int	item_lookup	args( ( const char *name) );
+ char	*item_name	args( ( int item_type) ); 
+ int	attack_lookup	args( ( const char *name) );
+-int	race_lookup	args( ( const char *name) );
+ long	wiznet_lookup	args( ( const char *name) );
+ int	class_lookup	args( ( const char *name) );
+ bool	is_clan		args( (CHAR_DATA *ch) );
+@@ -2272,7 +2358,6 @@
+ char *  comm_bit_name	args( ( int comm_flags ) );
+ char *	cont_bit_name	args( ( int cont_flags) );
+ 
+-
+ /* interp.c */
+ void	interpret	args( ( CHAR_DATA *ch, char *argument ) );
+ bool	is_number	args( ( char *arg ) );
+@@ -2288,6 +2373,23 @@
+ bool	saves_spell	args( ( int level, CHAR_DATA *victim, int dam_type ) );
+ void	obj_cast_spell	args( ( int sn, int level, CHAR_DATA *ch,
+ 				    CHAR_DATA *victim, OBJ_DATA *obj ) );
++
++/* mob_prog.c */
++void	program_flow	args( ( sh_int vnum, char *source, CHAR_DATA *mob, CHAR_DATA *ch,
++				const void *arg1, const void *arg2 ) );
++void	mp_act_trigger	args( ( char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
++				const void *arg1, const void *arg2, int type ) );
++bool	mp_percent_trigger args( ( CHAR_DATA *mob, CHAR_DATA *ch, 				
++				const void *arg1, const void *arg2, int type ) );
++void	mp_bribe_trigger  args( ( CHAR_DATA *mob, CHAR_DATA *ch, int amount ) );
++bool	mp_exit_trigger   args( ( CHAR_DATA *ch, int dir ) );
++void	mp_give_trigger   args( ( CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj ) );
++void 	mp_greet_trigger  args( ( CHAR_DATA *ch ) );
++void	mp_hprct_trigger  args( ( CHAR_DATA *mob, CHAR_DATA *ch ) );
++
++/* mob_cmds.c */
++void	mob_interpret	args( ( CHAR_DATA *ch, char *argument ) );
++
+ /* save.c */
+ void	save_char_obj	args( ( CHAR_DATA *ch ) );
+ bool	load_char_obj	args( ( DESCRIPTOR_DATA *d, char *name ) );
+@@ -2318,6 +2420,26 @@
+ void	gain_condition	args( ( CHAR_DATA *ch, int iCond, int value ) );
+ void	update_handler	args( ( void ) );
+ 
++/* string.c */
++void	string_edit	args( ( CHAR_DATA *ch, char **pString ) );
++void    string_append   args( ( CHAR_DATA *ch, char **pString ) );
++char *	string_replace	args( ( char * orig, char * old, char * new ) );
++void    string_add      args( ( CHAR_DATA *ch, char *argument ) );
++char *  format_string   args( ( char *oldstring /*, bool fSpace */ ) );
++char *  first_arg       args( ( char *argument, char *arg_first, bool fCase ) );
++char *	string_unpad	args( ( char * argument ) );
++char *	string_proper	args( ( char * argument ) );
++
++/* olc.c */
++bool	run_olc_editor	args( ( DESCRIPTOR_DATA *d ) );
++char	*olc_ed_name	args( ( CHAR_DATA *ch ) );
++char	*olc_ed_vnum	args( ( CHAR_DATA *ch ) );
++
++/* lookup.c */
++int	race_lookup	args( ( const char *name) );
++int	item_lookup	args( ( const char *name) );
++int	liq_lookup	args( ( const char *name) );
++
+ #undef	CD
+ #undef	MID
+ #undef	OD
+@@ -2325,3 +2447,59 @@
+ #undef	RID
+ #undef	SF
+ #undef AD
++
++/*****************************************************************************
++ *                                    OLC                                    *
++ *****************************************************************************/
++
++/*
++ * Object defined in limbo.are
++ * Used in save.c to load objects that don't exist.
++ */
++#define OBJ_VNUM_DUMMY	30
++
++/*
++ * Area flags.
++ */
++#define         AREA_NONE       0
++#define         AREA_CHANGED    1	/* Area has been modified. */
++#define         AREA_ADDED      2	/* Area has been added to. */
++#define         AREA_LOADING    4	/* Used for counting in db.c */
++
++#define MAX_DIR	6
++#define NO_FLAG -99	/* Must not be used in flags or stats. */
++
++/*
++ * Global Constants
++ */
++extern	char *	const	dir_name        [];
++extern	const	sh_int	rev_dir         [];          /* sh_int - ROM OLC */
++extern	const	struct	spec_type	spec_table	[];
++
++/*
++ * Global variables
++ */
++extern		AREA_DATA *		area_first;
++extern		AREA_DATA *		area_last;
++extern		SHOP_DATA *		shop_last;
++
++extern		int			top_affect;
++extern		int			top_area;
++extern		int			top_ed;
++extern		int			top_exit;
++extern		int			top_help;
++extern		int			top_mob_index;
++extern		int			top_obj_index;
++extern		int			top_reset;
++extern		int			top_room;
++extern		int			top_shop;
++
++extern		int			top_vnum_mob;
++extern		int			top_vnum_obj;
++extern		int			top_vnum_room;
++
++extern		char			str_empty       [1];
++
++extern		MOB_INDEX_DATA *	mob_index_hash  [MAX_KEY_HASH];
++extern		OBJ_INDEX_DATA *	obj_index_hash  [MAX_KEY_HASH];
++extern		ROOM_INDEX_DATA *	room_index_hash [MAX_KEY_HASH];
+diff -ur old/recycle.c new/recycle.c
+--- old/recycle.c	Mon Sep 14 17:46:16 1998
++++ new/recycle.c	Mon Sep 14 19:23:44 1998
+@@ -639,14 +639,81 @@
+     return buffer->string;
+ }
+ 
+-    
+-
+-	
+-
+-
+-
+-
+-
+-
+-
++/* stuff for recycling mobprograms */
++MPROG_LIST *mprog_free;
+ 
++MPROG_LIST *new_mprog(void)
++{
++   static MPROG_LIST mp_zero;
++   MPROG_LIST *mp;
++
++   if (mprog_free == NULL)
++       mp = alloc_perm(sizeof(*mp));
++   else
++   {
++       mp = mprog_free;
++       mprog_free=mprog_free->next;
++   }
++
++   *mp = mp_zero;
++   mp->vnum             = 0;
++   mp->trig_type        = 0;
++   mp->code             = str_dup("");
++   VALIDATE(mp);
++   return mp;
++}
++
++void free_mprog(MPROG_LIST *mp)
++{
++   if (!IS_VALID(mp))
++      return;
++
++   INVALIDATE(mp);
++   mp->next = mprog_free;
++   mprog_free = mp;
++}
++
++HELP_AREA * had_free;
++
++HELP_AREA * new_had ( void )
++{
++	HELP_AREA * had;
++static	HELP_AREA   zHad;
++
++	if ( had_free )
++	{
++		had		= had_free;
++		had_free	= had_free->next;
++	}
++	else
++		had		= alloc_perm( sizeof( *had ) );
++
++	*had = zHad;
++
++	return had;
++}
++
++HELP_DATA * help_free;
++
++HELP_DATA * new_help ( void )
++{
++	HELP_DATA * help;
++
++	if ( help_free )
++	{
++		help		= help_free;
++		help_free	= help_free->next;
++	}
++	else
++		help		= alloc_perm( sizeof( *help ) );
++
++	return help;
++}
++
++void free_help(HELP_DATA *help)
++{
++	free_string(help->keyword);
++	free_string(help->text);
++	help->next = help_free;
++	help_free = help;
++}
+diff -ur old/recycle.h new/recycle.h
+--- old/recycle.h	Mon Sep 14 17:46:16 1998
++++ new/recycle.h	Mon Sep 14 17:46:53 1998
+@@ -103,10 +103,13 @@
+ #undef MD
+ 
+ /* buffer procedures */
+-
+ BUFFER	*new_buf args( (void) );
+ BUFFER  *new_buf_size args( (int size) );
+ void	free_buf args( (BUFFER *buffer) );
+ bool	add_buf args( (BUFFER *buffer, char *string) );
+ void	clear_buf args( (BUFFER *buffer) );
+ char	*buf_string args( (BUFFER *buffer) );
++
++HELP_AREA *	new_had		args( ( void ) );
++HELP_DATA *	new_help	args( ( void ) );
++void		free_help	args( ( HELP_DATA * ) );
+diff -ur old/save.c new/save.c
+--- old/save.c	Mon Sep 14 17:46:16 1998
++++ new/save.c	Mon Sep 14 17:47:06 1998
+@@ -37,15 +37,15 @@
+ #include <malloc.h>
+ #include "merc.h"
+ #include "recycle.h"
+-#include "lookup.h"
+ #include "tables.h"
++#include "lookup.h"
+  
+ #if !defined(macintosh)
+ extern  int     _filbuf         args( (FILE *) );
+ #endif
+ 
+ 
+-int rename(const char *oldfname, const char *newfname);
++/* int rename(const char *oldfname, const char *newfname); viene en stdio.h */
+ 
+ char *print_flags(int flag)
+ {
+@@ -188,6 +188,7 @@
+     fprintf( fp, "Levl %d\n",	ch->level		);
+     if (ch->trust != 0)
+ 	fprintf( fp, "Tru  %d\n",	ch->trust	);
++    fprintf( fp, "Sec  %d\n",    ch->pcdata->security	);	/* OLC */
+     fprintf( fp, "Plyd %d\n",
+ 	ch->played + (int) (current_time - ch->logon)	);
+     fprintf( fp, "Not  %ld %ld %ld %ld %ld\n",		
+@@ -567,6 +568,7 @@
+     ch->pcdata->condition[COND_THIRST]	= 48; 
+     ch->pcdata->condition[COND_FULL]	= 48;
+     ch->pcdata->condition[COND_HUNGER]	= 48;
++    ch->pcdata->security		= 0;	/* OLC */
+ 
+     found = FALSE;
+     fclose( fpReserve );
+@@ -1051,6 +1053,7 @@
+ 	    KEY( "Sex",		ch->sex,		fread_number( fp ) );
+ 	    KEY( "ShortDescr",	ch->short_descr,	fread_string( fp ) );
+ 	    KEY( "ShD",		ch->short_descr,	fread_string( fp ) );
++	    KEY( "Sec",         ch->pcdata->security,	fread_number( fp ) );	/* OLC */
+             KEY( "Silv",        ch->silver,             fread_number( fp ) );
+ 
+ 
+@@ -1339,7 +1342,7 @@
+     }
+ }
+ 
+-
++extern	OBJ_DATA	*obj_free;
+ 
+ void fread_obj( CHAR_DATA *ch, FILE *fp )
+ {
+@@ -1492,14 +1495,20 @@
+ 
+ 	    if ( !str_cmp( word, "End" ) )
+ 	    {
+-		if ( !fNest || !fVnum || obj->pIndexData == NULL)
++		if ( !fNest || ( fVnum && obj->pIndexData == NULL ) )
+ 		{
+ 		    bug( "Fread_obj: incomplete object.", 0 );
+ 		    free_obj(obj);
+ 		    return;
+ 		}
+ 		else
+-		{
++	        {
++		    if ( !fVnum )
++		    {
++			free_obj( obj );
++			obj = create_object( get_obj_index( OBJ_VNUM_DUMMY ), 0 );
++		    }
++
+ 		    if (!new_format)
+ 		    {
+ 		    	obj->next	= object_list;
+diff -ur old/tables.c new/tables.c
+--- old/tables.c	Mon Sep 14 17:46:16 1998
++++ new/tables.c	Mon Sep 14 17:46:53 1998
+@@ -306,17 +306,481 @@
+     {	NULL,			0,			0	}
+ };
+ 
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
++const struct flag_type mprog_flags[] =
++{
++    {	"act",			TRIG_ACT,		TRUE	},
++    {	"bribe",		TRIG_BRIBE,		TRUE 	},
++    {	"death",		TRIG_DEATH,		TRUE    },
++    {	"entry",		TRIG_ENTRY,		TRUE	},
++    {	"fight",		TRIG_FIGHT,		TRUE	},
++    {	"give",			TRIG_GIVE,		TRUE	},
++    {	"greet",		TRIG_GREET,		TRUE    },
++    {	"grall",		TRIG_GRALL,		TRUE	},
++    {	"kill",			TRIG_KILL,		TRUE	},
++    {	"hpcnt",		TRIG_HPCNT,		TRUE    },
++    {	"random",		TRIG_RANDOM,		TRUE	},
++    {	"speech",		TRIG_SPEECH,		TRUE	},
++    {	"exit",			TRIG_EXIT,		TRUE    },
++    {	"exall",		TRIG_EXALL,		TRUE    },
++    {	"delay",		TRIG_DELAY,		TRUE    },
++    {	"surr",			TRIG_SURR,		TRUE    },
++    {	NULL,			0,			TRUE	}
++};
++
++const struct flag_type area_flags[] =
++{
++    {	"none",			AREA_NONE,		FALSE	},
++    {	"changed",		AREA_CHANGED,		TRUE	},
++    {	"added",		AREA_ADDED,		TRUE	},
++    {	"loading",		AREA_LOADING,		FALSE	},
++    {	NULL,			0,			0	}
++};
++
++
++
++const struct flag_type sex_flags[] =
++{
++    {	"male",			SEX_MALE,		TRUE	},
++    {	"female",		SEX_FEMALE,		TRUE	},
++    {	"neutral",		SEX_NEUTRAL,		TRUE	},
++    {   "random",               3,                      TRUE    },   /* ROM */
++    {	"none",			SEX_NEUTRAL,		TRUE	},
++    {	NULL,			0,			0	}
++};
++
++
++
++const struct flag_type exit_flags[] =
++{
++    {   "door",			EX_ISDOOR,		TRUE    },
++    {	"closed",		EX_CLOSED,		TRUE	},
++    {	"locked",		EX_LOCKED,		TRUE	},
++    {	"pickproof",		EX_PICKPROOF,		TRUE	},
++    {   "nopass",		EX_NOPASS,		TRUE	},
++    {   "easy",			EX_EASY,		TRUE	},
++    {   "hard",			EX_HARD,		TRUE	},
++    {	"infuriating",		EX_INFURIATING,		TRUE	},
++    {	"noclose",		EX_NOCLOSE,		TRUE	},
++    {	"nolock",		EX_NOLOCK,		TRUE	},
++    {	NULL,			0,			0	}
++};
++
++
++
++const struct flag_type door_resets[] =
++{
++    {	"open and unlocked",	0,		TRUE	},
++    {	"closed and unlocked",	1,		TRUE	},
++    {	"closed and locked",	2,		TRUE	},
++    {	NULL,			0,		0	}
++};
++
++
++
++const struct flag_type room_flags[] =
++{
++    {	"dark",			ROOM_DARK,		TRUE	},
++    {	"no_mob",		ROOM_NO_MOB,		TRUE	},
++    {	"indoors",		ROOM_INDOORS,		TRUE	},
++    {	"private",		ROOM_PRIVATE,		TRUE    },
++    {	"safe",			ROOM_SAFE,		TRUE	},
++    {	"solitary",		ROOM_SOLITARY,		TRUE	},
++    {	"pet_shop",		ROOM_PET_SHOP,		TRUE	},
++    {	"no_recall",		ROOM_NO_RECALL,		TRUE	},
++    {	"imp_only",		ROOM_IMP_ONLY,		TRUE    },
++    {	"gods_only",	        ROOM_GODS_ONLY,		TRUE    },
++    {	"heroes_only",		ROOM_HEROES_ONLY,	TRUE	},
++    {	"newbies_only",		ROOM_NEWBIES_ONLY,	TRUE	},
++    {	"law",			ROOM_LAW,		TRUE	},
++    {   "nowhere",		ROOM_NOWHERE,		TRUE	},
++    {	NULL,			0,			0	}
++};
++
++
++
++const struct flag_type sector_flags[] =
++{
++    {	"inside",	SECT_INSIDE,		TRUE	},
++    {	"city",		SECT_CITY,		TRUE	},
++    {	"field",	SECT_FIELD,		TRUE	},
++    {	"forest",	SECT_FOREST,		TRUE	},
++    {	"hills",	SECT_HILLS,		TRUE	},
++    {	"mountain",	SECT_MOUNTAIN,		TRUE	},
++    {	"swim",		SECT_WATER_SWIM,	TRUE	},
++    {	"noswim",	SECT_WATER_NOSWIM,	TRUE	},
++    {   "unused",	SECT_UNUSED,		TRUE	},
++    {	"air",		SECT_AIR,		TRUE	},
++    {	"desert",	SECT_DESERT,		TRUE	},
++    {	NULL,		0,			0	}
++};
++
++
++
++const struct flag_type type_flags[] =
++{
++    {	"light",		ITEM_LIGHT,		TRUE	},
++    {	"scroll",		ITEM_SCROLL,		TRUE	},
++    {	"wand",			ITEM_WAND,		TRUE	},
++    {	"staff",		ITEM_STAFF,		TRUE	},
++    {	"weapon",		ITEM_WEAPON,		TRUE	},
++    {	"treasure",		ITEM_TREASURE,		TRUE	},
++    {	"armor",		ITEM_ARMOR,		TRUE	},
++    {	"potion",		ITEM_POTION,		TRUE	},
++    {	"furniture",		ITEM_FURNITURE,		TRUE	},
++    {	"trash",		ITEM_TRASH,		TRUE	},
++    {	"container",		ITEM_CONTAINER,		TRUE	},
++    {	"drinkcontainer",	ITEM_DRINK_CON,		TRUE	},
++    {	"key",			ITEM_KEY,		TRUE	},
++    {	"food",			ITEM_FOOD,		TRUE	},
++    {	"money",		ITEM_MONEY,		TRUE	},
++    {	"boat",			ITEM_BOAT,		TRUE	},
++    {	"npccorpse",		ITEM_CORPSE_NPC,	TRUE	},
++    {	"pc corpse",		ITEM_CORPSE_PC,		FALSE	},
++    {	"fountain",		ITEM_FOUNTAIN,		TRUE	},
++    {	"pill",			ITEM_PILL,		TRUE	},
++    {	"protect",		ITEM_PROTECT,		TRUE	},
++    {	"map",			ITEM_MAP,		TRUE	},
++    {   "portal",		ITEM_PORTAL,		TRUE	},
++    {   "warpstone",		ITEM_WARP_STONE,	TRUE	},
++    {	"roomkey",		ITEM_ROOM_KEY,		TRUE	},
++    { 	"gem",			ITEM_GEM,		TRUE	},
++    {	"jewelry",		ITEM_JEWELRY,		TRUE	},
++    {	"jukebox",		ITEM_JUKEBOX,		TRUE	},
++    {	NULL,			0,			0	}
++};
++
++
++const struct flag_type extra_flags[] =
++{
++    {	"glow",			ITEM_GLOW,		TRUE	},
++    {	"hum",			ITEM_HUM,		TRUE	},
++    {	"dark",			ITEM_DARK,		TRUE	},
++    {	"lock",			ITEM_LOCK,		TRUE	},
++    {	"evil",			ITEM_EVIL,		TRUE	},
++    {	"invis",		ITEM_INVIS,		TRUE	},
++    {	"magic",		ITEM_MAGIC,		TRUE	},
++    {	"nodrop",		ITEM_NODROP,		TRUE	},
++    {	"bless",		ITEM_BLESS,		TRUE	},
++    {	"antigood",		ITEM_ANTI_GOOD,		TRUE	},
++    {	"antievil",		ITEM_ANTI_EVIL,		TRUE	},
++    {	"antineutral",		ITEM_ANTI_NEUTRAL,	TRUE	},
++    {	"noremove",		ITEM_NOREMOVE,		TRUE	},
++    {	"inventory",		ITEM_INVENTORY,		TRUE	},
++    {	"nopurge",		ITEM_NOPURGE,		TRUE	},
++    {	"rotdeath",		ITEM_ROT_DEATH,		TRUE	},
++    {	"visdeath",		ITEM_VIS_DEATH,		TRUE	},
++    {   "nonmetal",		ITEM_NONMETAL,		TRUE	},
++    {	"meltdrop",		ITEM_MELT_DROP,		TRUE	},
++    {	"hadtimer",		ITEM_HAD_TIMER,		TRUE	},
++    {	"sellextract",		ITEM_SELL_EXTRACT,	TRUE	},
++    {	"burnproof",		ITEM_BURN_PROOF,	TRUE	},
++    {	"nouncurse",		ITEM_NOUNCURSE,		TRUE	},
++    {	NULL,			0,			0	}
++};
++
++
++
++const struct flag_type wear_flags[] =
++{
++    {	"take",			ITEM_TAKE,		TRUE	},
++    {	"finger",		ITEM_WEAR_FINGER,	TRUE	},
++    {	"neck",			ITEM_WEAR_NECK,		TRUE	},
++    {	"body",			ITEM_WEAR_BODY,		TRUE	},
++    {	"head",			ITEM_WEAR_HEAD,		TRUE	},
++    {	"legs",			ITEM_WEAR_LEGS,		TRUE	},
++    {	"feet",			ITEM_WEAR_FEET,		TRUE	},
++    {	"hands",		ITEM_WEAR_HANDS,	TRUE	},
++    {	"arms",			ITEM_WEAR_ARMS,		TRUE	},
++    {	"shield",		ITEM_WEAR_SHIELD,	TRUE	},
++    {	"about",		ITEM_WEAR_ABOUT,	TRUE	},
++    {	"waist",		ITEM_WEAR_WAIST,	TRUE	},
++    {	"wrist",		ITEM_WEAR_WRIST,	TRUE	},
++    {	"wield",		ITEM_WIELD,		TRUE	},
++    {	"hold",			ITEM_HOLD,		TRUE	},
++    {   "nosac",		ITEM_NO_SAC,		TRUE	},
++    {	"wearfloat",		ITEM_WEAR_FLOAT,	TRUE	},
++/*    {   "twohands",            ITEM_TWO_HANDS,         TRUE    }, */
++    {	NULL,			0,			0	}
++};
++
++/*
++ * Used when adding an affect to tell where it goes.
++ * See addaffect and delaffect in act_olc.c
++ */
++const struct flag_type apply_flags[] =
++{
++    {	"none",			APPLY_NONE,		TRUE	},
++    {	"strength",		APPLY_STR,		TRUE	},
++    {	"dexterity",		APPLY_DEX,		TRUE	},
++    {	"intelligence",		APPLY_INT,		TRUE	},
++    {	"wisdom",		APPLY_WIS,		TRUE	},
++    {	"constitution",		APPLY_CON,		TRUE	},
++    {	"sex",			APPLY_SEX,		TRUE	},
++    {	"class",		APPLY_CLASS,		TRUE	},
++    {	"level",		APPLY_LEVEL,		TRUE	},
++    {	"age",			APPLY_AGE,		TRUE	},
++    {	"height",		APPLY_HEIGHT,		TRUE	},
++    {	"weight",		APPLY_WEIGHT,		TRUE	},
++    {	"mana",			APPLY_MANA,		TRUE	},
++    {	"hp",			APPLY_HIT,		TRUE	},
++    {	"move",			APPLY_MOVE,		TRUE	},
++    {	"gold",			APPLY_GOLD,		TRUE	},
++    {	"experience",		APPLY_EXP,		TRUE	},
++    {	"ac",			APPLY_AC,		TRUE	},
++    {	"hitroll",		APPLY_HITROLL,		TRUE	},
++    {	"damroll",		APPLY_DAMROLL,		TRUE	},
++    {	"saves",		APPLY_SAVES,		TRUE	},
++    {	"savingpara",		APPLY_SAVING_PARA,	TRUE	},
++    {	"savingrod",		APPLY_SAVING_ROD,	TRUE	},
++    {	"savingpetri",		APPLY_SAVING_PETRI,	TRUE	},
++    {	"savingbreath",		APPLY_SAVING_BREATH,	TRUE	},
++    {	"savingspell",		APPLY_SAVING_SPELL,	TRUE	},
++    {	"spellaffect",		APPLY_SPELL_AFFECT,	FALSE	},
++    {	NULL,			0,			0	}
++};
++
++
++
++/*
++ * What is seen.
++ */
++const struct flag_type wear_loc_strings[] =
++{
++    {	"in the inventory",	WEAR_NONE,	TRUE	},
++    {	"as a light",		WEAR_LIGHT,	TRUE	},
++    {	"on the left finger",	WEAR_FINGER_L,	TRUE	},
++    {	"on the right finger",	WEAR_FINGER_R,	TRUE	},
++    {	"around the neck (1)",	WEAR_NECK_1,	TRUE	},
++    {	"around the neck (2)",	WEAR_NECK_2,	TRUE	},
++    {	"on the body",		WEAR_BODY,	TRUE	},
++    {	"over the head",	WEAR_HEAD,	TRUE	},
++    {	"on the legs",		WEAR_LEGS,	TRUE	},
++    {	"on the feet",		WEAR_FEET,	TRUE	},
++    {	"on the hands",		WEAR_HANDS,	TRUE	},
++    {	"on the arms",		WEAR_ARMS,	TRUE	},
++    {	"as a shield",		WEAR_SHIELD,	TRUE	},
++    {	"about the shoulders",	WEAR_ABOUT,	TRUE	},
++    {	"around the waist",	WEAR_WAIST,	TRUE	},
++    {	"on the left wrist",	WEAR_WRIST_L,	TRUE	},
++    {	"on the right wrist",	WEAR_WRIST_R,	TRUE	},
++    {	"wielded",		WEAR_WIELD,	TRUE	},
++    {	"held in the hands",	WEAR_HOLD,	TRUE	},
++    {	"floating nearby",	WEAR_FLOAT,	TRUE	},
++    {	NULL,			0	      , 0	}
++};
++
++
++const struct flag_type wear_loc_flags[] =
++{
++    {	"none",		WEAR_NONE,	TRUE	},
++    {	"light",	WEAR_LIGHT,	TRUE	},
++    {	"lfinger",	WEAR_FINGER_L,	TRUE	},
++    {	"rfinger",	WEAR_FINGER_R,	TRUE	},
++    {	"neck1",	WEAR_NECK_1,	TRUE	},
++    {	"neck2",	WEAR_NECK_2,	TRUE	},
++    {	"body",		WEAR_BODY,	TRUE	},
++    {	"head",		WEAR_HEAD,	TRUE	},
++    {	"legs",		WEAR_LEGS,	TRUE	},
++    {	"feet",		WEAR_FEET,	TRUE	},
++    {	"hands",	WEAR_HANDS,	TRUE	},
++    {	"arms",		WEAR_ARMS,	TRUE	},
++    {	"shield",	WEAR_SHIELD,	TRUE	},
++    {	"about",	WEAR_ABOUT,	TRUE	},
++    {	"waist",	WEAR_WAIST,	TRUE	},
++    {	"lwrist",	WEAR_WRIST_L,	TRUE	},
++    {	"rwrist",	WEAR_WRIST_R,	TRUE	},
++    {	"wielded",	WEAR_WIELD,	TRUE	},
++    {	"hold",		WEAR_HOLD,	TRUE	},
++    {	"floating",	WEAR_FLOAT,	TRUE	},
++    {	NULL,		0,		0	}
++};
++
++const struct flag_type container_flags[] =
++{
++    {	"closeable",		1,		TRUE	},
++    {	"pickproof",		2,		TRUE	},
++    {	"closed",		4,		TRUE	},
++    {	"locked",		8,		TRUE	},
++    {	"puton",		16,		TRUE	},
++    {	NULL,			0,		0	}
++};
++
++/*****************************************************************************
++                      ROM - specific tables:
++ ****************************************************************************/
++
++
++
++
++const struct flag_type ac_type[] =
++{
++    {   "pierce",        AC_PIERCE,            TRUE    },
++    {   "bash",          AC_BASH,              TRUE    },
++    {   "slash",         AC_SLASH,             TRUE    },
++    {   "exotic",        AC_EXOTIC,            TRUE    },
++    {   NULL,              0,                    0       }
++};
++
++
++const struct flag_type size_flags[] =
++{
++    {   "tiny",          SIZE_TINY,            TRUE    },
++    {   "small",         SIZE_SMALL,           TRUE    },
++    {   "medium",        SIZE_MEDIUM,          TRUE    },
++    {   "large",         SIZE_LARGE,           TRUE    },
++    {   "huge",          SIZE_HUGE,            TRUE    },
++    {   "giant",         SIZE_GIANT,           TRUE    },
++    {   NULL,              0,                    0       },
++};
++
++
++const struct flag_type weapon_class[] =
++{
++    {   "exotic",	WEAPON_EXOTIC,		TRUE    },
++    {   "sword",	WEAPON_SWORD,		TRUE    },
++    {   "dagger",	WEAPON_DAGGER,		TRUE    },
++    {   "spear",	WEAPON_SPEAR,		TRUE    },
++    {   "mace",		WEAPON_MACE,		TRUE    },
++    {   "axe",		WEAPON_AXE,		TRUE    },
++    {   "flail",	WEAPON_FLAIL,		TRUE    },
++    {   "whip",		WEAPON_WHIP,		TRUE    },
++    {   "polearm",	WEAPON_POLEARM,		TRUE    },
++    {   NULL,		0,			0       }
++};
++
++
++const struct flag_type weapon_type2[] =
++{
++    {   "flaming",       WEAPON_FLAMING,       TRUE    },
++    {   "frost",         WEAPON_FROST,         TRUE    },
++    {   "vampiric",      WEAPON_VAMPIRIC,      TRUE    },
++    {   "sharp",         WEAPON_SHARP,         TRUE    },
++    {   "vorpal",        WEAPON_VORPAL,        TRUE    },
++    {   "twohands",     WEAPON_TWO_HANDS,     TRUE    },
++    {	"shocking",	 WEAPON_SHOCKING,      TRUE    },
++    {	"poison",	WEAPON_POISON,		TRUE	},
++    {   NULL,              0,                    0       }
++};
++
++const struct flag_type res_flags[] =
++{
++    {	"summon",	 RES_SUMMON,		TRUE	},
++    {   "charm",         RES_CHARM,            TRUE    },
++    {   "magic",         RES_MAGIC,            TRUE    },
++    {   "weapon",        RES_WEAPON,           TRUE    },
++    {   "bash",          RES_BASH,             TRUE    },
++    {   "pierce",        RES_PIERCE,           TRUE    },
++    {   "slash",         RES_SLASH,            TRUE    },
++    {   "fire",          RES_FIRE,             TRUE    },
++    {   "cold",          RES_COLD,             TRUE    },
++    {   "lightning",     RES_LIGHTNING,        TRUE    },
++    {   "acid",          RES_ACID,             TRUE    },
++    {   "poison",        RES_POISON,           TRUE    },
++    {   "negative",      RES_NEGATIVE,         TRUE    },
++    {   "holy",          RES_HOLY,             TRUE    },
++    {   "energy",        RES_ENERGY,           TRUE    },
++    {   "mental",        RES_MENTAL,           TRUE    },
++    {   "disease",       RES_DISEASE,          TRUE    },
++    {   "drowning",      RES_DROWNING,         TRUE    },
++    {   "light",         RES_LIGHT,            TRUE    },
++    {	"sound",	RES_SOUND,		TRUE	},
++    {	"wood",		RES_WOOD,		TRUE	},
++    {	"silver",	RES_SILVER,		TRUE	},
++    {	"iron",		RES_IRON,		TRUE	},
++    {   NULL,          0,            0    }
++};
++
++
++const struct flag_type vuln_flags[] =
++{
++    {	"summon",	 VULN_SUMMON,		TRUE	},
++    {	"charm",	VULN_CHARM,		TRUE	},
++    {   "magic",         VULN_MAGIC,           TRUE    },
++    {   "weapon",        VULN_WEAPON,          TRUE    },
++    {   "bash",          VULN_BASH,            TRUE    },
++    {   "pierce",        VULN_PIERCE,          TRUE    },
++    {   "slash",         VULN_SLASH,           TRUE    },
++    {   "fire",          VULN_FIRE,            TRUE    },
++    {   "cold",          VULN_COLD,            TRUE    },
++    {   "lightning",     VULN_LIGHTNING,       TRUE    },
++    {   "acid",          VULN_ACID,            TRUE    },
++    {   "poison",        VULN_POISON,          TRUE    },
++    {   "negative",      VULN_NEGATIVE,        TRUE    },
++    {   "holy",          VULN_HOLY,            TRUE    },
++    {   "energy",        VULN_ENERGY,          TRUE    },
++    {   "mental",        VULN_MENTAL,          TRUE    },
++    {   "disease",       VULN_DISEASE,         TRUE    },
++    {   "drowning",      VULN_DROWNING,        TRUE    },
++    {   "light",         VULN_LIGHT,           TRUE    },
++    {	"sound",	 VULN_SOUND,		TRUE	},
++    {   "wood",          VULN_WOOD,            TRUE    },
++    {   "silver",        VULN_SILVER,          TRUE    },
++    {   "iron",          VULN_IRON,            TRUE    },
++    {   NULL,              0,                    0       }
++};
++
++const struct flag_type position_flags[] =
++{
++    {   "dead",           POS_DEAD,            FALSE   },
++    {   "mortal",         POS_MORTAL,          FALSE   },
++    {   "incap",          POS_INCAP,           FALSE   },
++    {   "stunned",        POS_STUNNED,         FALSE   },
++    {   "sleeping",       POS_SLEEPING,        TRUE    },
++    {   "resting",        POS_RESTING,         TRUE    },
++    {   "sitting",        POS_SITTING,         TRUE    },
++    {   "fighting",       POS_FIGHTING,        FALSE   },
++    {   "standing",       POS_STANDING,        TRUE    },
++    {   NULL,              0,                    0       }
++};
++
++const struct flag_type portal_flags[]=
++{
++    {   "normal_exit",	  GATE_NORMAL_EXIT,	TRUE	},
++    {	"no_curse",	  GATE_NOCURSE,		TRUE	},
++    {   "go_with",	  GATE_GOWITH,		TRUE	},
++    {   "buggy",	  GATE_BUGGY,		TRUE	},
++    {	"random",	  GATE_RANDOM,		TRUE	},
++    {   NULL,		  0,			0	}
++};
++
++const struct flag_type furniture_flags[]=
++{
++    {   "stand_at",	  STAND_AT,		TRUE	},
++    {	"stand_on",	  STAND_ON,		TRUE	},
++    {	"stand_in",	  STAND_IN,		TRUE	},
++    {	"sit_at",	  SIT_AT,		TRUE	},
++    {	"sit_on",	  SIT_ON,		TRUE	},
++    {	"sit_in",	  SIT_IN,		TRUE	},
++    {	"rest_at",	  REST_AT,		TRUE	},
++    {	"rest_on",	  REST_ON,		TRUE	},
++    {	"rest_in",	  REST_IN,		TRUE	},
++    {	"sleep_at",	  SLEEP_AT,		TRUE	},
++    {	"sleep_on",	  SLEEP_ON,		TRUE	},
++    {	"sleep_in",	  SLEEP_IN,		TRUE	},
++    {	"put_at",	  PUT_AT,		TRUE	},
++    {	"put_on",	  PUT_ON,		TRUE	},
++    {	"put_in",	  PUT_IN,		TRUE	},
++    {	"put_inside",	  PUT_INSIDE,		TRUE	},
++    {	NULL,		  0,			0	}
++};
++
++const	struct	flag_type	apply_types	[]	=
++{
++	{	"affects",	TO_AFFECTS,	TRUE	},
++	{	"object",	TO_OBJECT,	TRUE	},
++	{	"immune",	TO_IMMUNE,	TRUE	},
++	{	"resist",	TO_RESIST,	TRUE	},
++	{	"vuln",		TO_VULN,	TRUE	},
++	{	"weapon",	TO_WEAPON,	TRUE	},
++	{	NULL,		0,		TRUE	}
++};
++
++const	struct	bit_type	bitvector_type	[]	=
++{
++	{	affect_flags,	"affect"	},
++	{	apply_flags,	"apply"		},
++	{	imm_flags,	"imm"		},
++	{	res_flags,	"res"		},
++	{	vuln_flags,	"vuln"		},
++	{	weapon_type2,	"weapon"	}
++};
+diff -ur old/tables.h new/tables.h
+--- old/tables.h	Mon Sep 14 17:46:16 1998
++++ new/tables.h	Mon Sep 14 17:46:53 1998
+@@ -47,6 +47,27 @@
+ extern	const	struct	flag_type	portal_flags[];
+ extern	const	struct	flag_type	room_flags[];
+ extern	const	struct	flag_type	exit_flags[];
++extern 	const	struct  flag_type	mprog_flags[];
++extern	const	struct	flag_type	area_flags[];
++extern	const	struct	flag_type	sector_flags[];
++extern	const	struct	flag_type	door_resets[];
++extern	const	struct	flag_type	wear_loc_strings[];
++extern	const	struct	flag_type	wear_loc_flags[];
++extern	const	struct	flag_type	res_flags[];
++extern	const	struct	flag_type	imm_flags[];
++extern	const	struct	flag_type	vuln_flags[];
++extern	const	struct	flag_type	type_flags[];
++extern	const	struct	flag_type	apply_flags[];
++extern	const	struct	flag_type	sex_flags[];
++extern	const	struct	flag_type	furniture_flags[];
++extern	const	struct	flag_type	weapon_class[];
++extern	const	struct	flag_type	apply_types[];
++extern	const	struct	flag_type	weapon_type2[];
++extern	const	struct	flag_type	apply_types[];
++extern	const	struct	flag_type	size_flags[];
++extern	const	struct	flag_type	position_flags[];
++extern	const	struct	flag_type	ac_type[];
++extern	const	struct	bit_type	bitvector_type[];
+ 
+ struct flag_type
+ {
+@@ -79,3 +100,8 @@
+     char *name;
+ };
+ 
++struct	bit_type
++{
++	const	struct	flag_type *	table;
++	char *				help;
++};
+diff -ur old/update.c new/update.c
+--- old/update.c	Mon Sep 14 17:46:16 1998
++++ new/update.c	Mon Sep 14 17:46:53 1998
+@@ -403,6 +403,27 @@
+ 		ch->silver += ch->pIndexData->wealth * number_range(1,20)/50000;
+ 	    }
+ 	 
++	/*
++	 * Check triggers only if mobile still in default position
++	 */
++	if ( ch->position == ch->pIndexData->default_pos )
++	{
++	    /* Delay */
++	    if ( HAS_TRIGGER( ch, TRIG_DELAY) 
++	    &&   ch->mprog_delay > 0 )
++	    {
++		if ( --ch->mprog_delay <= 0 )
++		{
++		    mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_DELAY );
++		    continue;
++		}
++	    } 
++	    if ( HAS_TRIGGER( ch, TRIG_RANDOM) )
++	    {
++		if( mp_percent_trigger( ch, NULL, NULL, NULL, TRIG_RANDOM ) )
++		continue;
++	    }
++	}
+ 
+ 	/* That's all for sleeping / busy monster, and empty zones */
+ 	if ( ch->position != POS_STANDING )

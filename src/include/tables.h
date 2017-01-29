@@ -183,6 +183,7 @@ extern	const	struct  sector_type sector_table[];
 /* flag tables */
 extern	const	char			*field_cand[];
 extern	const	struct	field_type	flag_fields[];
+extern  const   struct  flag_type       area_flags[];
 extern  const   struct  flag_type       plr_flags[];
 extern  const   struct  flag_type       act_flags[];
 extern  const   struct  flag_type       pcdata_flags[];

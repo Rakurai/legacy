@@ -512,6 +512,10 @@ struct  descriptor_data
     char *              showstr_head;
     char *              showstr_point;
     sh_int              timer;
+
+    void *              pEdit;      /* OLC */
+    char **             pString;    /* OLC */
+    int         editor;     /* OLC */
 };
 
 
@@ -1849,6 +1853,7 @@ struct  kill_data
 struct  mob_index_data
 {
     MOB_INDEX_DATA *    next;
+    AREA_DATA *         area;
     SPEC_FUN *          spec_fun;
     SHOP_DATA *         pShop;
     sh_int              vnum;
@@ -2254,6 +2259,8 @@ struct  obj_index_data
     int                 cost;
     int                 value[5];
 
+    AREA_DATA *area; // olc
+
     int                 num_settings; // for socketed gems
 };
 
@@ -2391,6 +2398,9 @@ struct  area_data
     char *              author;     /* -- Elrac */
     char *              title;      /* -- Elrac */
     char *              keywords;   /* -- Elrac */
+
+    sh_int vnum; // olc
+    int area_flags; // olc
 };
 
 
@@ -3893,6 +3903,17 @@ struct raffects
 #define  RAFF_RES_DROWNING		963
 #define  RAFF_RES_LIGHT			964
 #define  RAFF_RES_SOUND			965
+
+/*
+ * Area flags.
+ */
+#define         AREA_NONE       0
+#define         AREA_CHANGED    1   /* Area has been modified. */
+#define         AREA_ADDED      2   /* Area has been added to. */
+#define         AREA_LOADING    4   /* Used for counting in db.c */
+
+#define NO_FLAG -99 /* Must not be used in flags or stats. */
+
 
 #endif
 

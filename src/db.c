@@ -925,6 +925,7 @@ void load_mobiles(FILE *fp)
 
 		fBootDb = TRUE;
 		pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
+		pMobIndex->area                 = area_last;
 		pMobIndex->vnum                 = vnum;
 		pMobIndex->version              = aVersion;
 		pMobIndex->player_name          = fread_string(fp);
@@ -1113,6 +1114,7 @@ void load_objects(FILE *fp)
 
 		fBootDb = TRUE;
 		pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
+		pObjIndex->area                 = area_last;
 		pObjIndex->vnum                 = vnum;
 		pObjIndex->reset_num            = 0;
 		pObjIndex->version              = aVersion;

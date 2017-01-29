@@ -1,0 +1,517 @@
+diff -ur src/db.c new/db.c
+--- src/db.c	Mon Sep 14 17:46:38 1998
++++ new/db.c	Mon Sep 14 19:20:47 1998
+@@ -44,7 +44,7 @@
+ #include "music.h"
+ #include "tables.h"
+ #include "lookup.h"
+-
++#include "olc.h"
+ 
+ #if !defined(macintosh)
+ extern	int	_filbuf		args( (FILE *) );
+@@ -417,8 +417,6 @@
+     AREA_DATA *pArea;
+ 
+     pArea		= alloc_perm( sizeof(*pArea) );
+-/*  pArea->reset_first	= NULL;
+-    pArea->reset_last	= NULL; */
+     pArea->file_name	= fread_string(fp);
+ 
+     pArea->area_flags   = AREA_LOADING;         /* OLC */
+@@ -961,7 +959,8 @@
+         pR->reset_last->next = NULL;
+     }
+ 
+-    top_reset++;
++/*    top_reset++; no estamos asignando memoria!!!! */
++
+     return;
+ }
+ 
+@@ -971,8 +970,9 @@
+ void load_resets( FILE *fp )
+ {
+     RESET_DATA *pReset;
+-    int         iLastRoom = 0;
+-    int         iLastObj  = 0;
++    EXIT_DATA *pexit;
++    ROOM_INDEX_DATA *pRoomIndex;
++    int rVnum = -1;
+ 
+     if ( !area_last )
+     {
+@@ -982,10 +982,7 @@
+ 
+     for ( ; ; )
+     {
+-	ROOM_INDEX_DATA *pRoomIndex;
+-	EXIT_DATA *pexit;
+ 	char letter;
+-	OBJ_INDEX_DATA *temp_index;
+ 
+ 	if ( ( letter = fread_letter( fp ) ) == 'S' )
+ 	    break;
+@@ -996,7 +993,7 @@
+ 	    continue;
+ 	}
+ 
+-	pReset		= alloc_perm( sizeof(*pReset) );
++	pReset		= new_reset_data();
+ 	pReset->command	= letter;
+ 	/* if_flag */	  fread_number( fp );
+ 	pReset->arg1	= fread_number( fp );
+@@ -1007,97 +1004,56 @@
+ 			    ? fread_number(fp) : 0;
+ 			  fread_to_eol( fp );
+ 
+-	/*
+-	 * Validate parameters.
+-	 * We're calling the index functions for the side effect.
+-	 */
+-	switch ( letter )
++	switch( pReset->command )
+ 	{
+-	default:
+-	    bug( "Load_resets: bad command '%c'.", letter );
+-	    exit( 1 );
+-	    break;
+-
+-	case 'M':
+-	    get_mob_index  ( pReset->arg1 );
+-            if ( ( pRoomIndex = get_room_index ( pReset->arg3 ) ) )
+-            {
+-                new_reset( pRoomIndex, pReset );
+-                iLastRoom = pReset->arg3;
+-            }
+-	    break;
+-
+-	case 'O':
+-	    temp_index = get_obj_index  ( pReset->arg1 );
+-	    temp_index->reset_num++;
+-            if ( ( pRoomIndex = get_room_index ( pReset->arg3 ) ) )
+-            {
+-                new_reset( pRoomIndex, pReset );
+-                iLastObj = pReset->arg3;
+-            }
+-	    break;
+-
+-	case 'P':
+-	    temp_index = get_obj_index  ( pReset->arg1 );
+-	    temp_index->reset_num++;
+-            if ( ( pRoomIndex = get_room_index ( iLastObj ) ) )
+-            {
+-                new_reset( pRoomIndex, pReset );
+-            }
+-	    break;
+-
+-	case 'G':
+-	case 'E':
+-	    temp_index = get_obj_index  ( pReset->arg1 );
+-	    temp_index->reset_num++;
+-            if ( ( pRoomIndex = get_room_index ( iLastRoom ) ) )
+-            {
+-                new_reset( pRoomIndex, pReset );
+-                iLastObj = iLastRoom;
+-            }
+-	    break;
+-
+-	case 'D':
+-	    pRoomIndex = get_room_index( pReset->arg1 );
+-
+-	    if ( pReset->arg2 < 0
+-	    ||   pReset->arg2 > (MAX_DIR - 1)
+-            || !pRoomIndex
+-	    || !( pexit = pRoomIndex->exit[pReset->arg2] )
+-	    || !IS_SET( pexit->rs_flags, EX_ISDOOR ) )
+-	    {
+-		bug( "Load_resets: 'D': exit %d not door.", pReset->arg2 );
+-		exit( 1 );
+-	    }
+-
+-            switch ( pReset->arg3 )
+-            {
+-                default:
+-                    bug( "Load_resets: 'D': bad 'locks': %d." , pReset->arg3);
+-                case 0: break;
+-                case 1: SET_BIT( pexit->rs_flags, EX_CLOSED );
+-			SET_BIT( pexit->exit_info, EX_CLOSED ); break;
+-                case 2: SET_BIT( pexit->rs_flags, EX_CLOSED | EX_LOCKED );
+-                	SET_BIT( pexit->exit_info, EX_CLOSED | EX_LOCKED ); break;
+-            }
+-
+-	    break;
++		case 'M':
++		case 'O':
++		rVnum = pReset->arg3;
++		break;
+ 
+-	case 'R':
+-	    pRoomIndex		= get_room_index( pReset->arg1 );
++		case 'P':
++		case 'G':
++		case 'E':
++		break;
+ 
+-	    if ( pReset->arg2 < 0 || pReset->arg2 > MAX_DIR )
+-	    {
+-		bug( "Load_resets: 'R': bad exit %d.", pReset->arg2 );
+-		exit( 1 );
+-	    }
++		case 'D':
++		pRoomIndex = get_room_index( (rVnum = pReset->arg1) );
++		if ( pReset->arg2 < 0
++		||   pReset->arg2 >= MAX_DIR
++		|| !pRoomIndex
++		|| !( pexit = pRoomIndex->exit[pReset->arg2] )
++		|| !IS_SET( pexit->rs_flags, EX_ISDOOR ) )
++		{
++			bugf( "Load_resets: 'D': exit %d, room %d not door.", pReset->arg2, pReset->arg1 );
++			exit( 1 );
++		}
+ 
+-            if ( pRoomIndex )
+-                new_reset( pRoomIndex, pReset );
++		switch ( pReset->arg3 )
++		{
++			default: bug( "Load_resets: 'D': bad 'locks': %d." , pReset->arg3); break;
++			case 0: break;
++			case 1: SET_BIT( pexit->rs_flags, EX_CLOSED );
++				SET_BIT( pexit->exit_info, EX_CLOSED ); break;
++			case 2: SET_BIT( pexit->rs_flags, EX_CLOSED | EX_LOCKED );
++				SET_BIT( pexit->exit_info, EX_CLOSED | EX_LOCKED ); break;
++		}
++		break;
+ 
+-	    break;
++		case 'R':
++		rVnum = pReset->arg1;
++		break;
+ 	}
+ 
++	if ( rVnum == -1 )
++	{
++ 		bugf( "load_resets : rVnum == -1" );
++ 		exit(1);
++ 	}
++
++	if ( pReset->command != 'D' )
++		new_reset( get_room_index(rVnum), pReset );
++	else
++		free_reset_data( pReset );
+     }
+ 
+     return;
+@@ -1361,6 +1317,8 @@
+     ROOM_INDEX_DATA *to_room;
+     EXIT_DATA *pexit;
+     EXIT_DATA *pexit_rev;
++    RESET_DATA *pReset;
++    ROOM_INDEX_DATA *iLastRoom, *iLastObj;
+     int iHash;
+     int door;
+ 
+@@ -1371,6 +1329,64 @@
+ 	      pRoomIndex  = pRoomIndex->next )
+ 	{
+ 	    bool fexit;
++
++	    iLastRoom = iLastObj = NULL;
++
++	    /* OLC : nuevo chequeo de resets */
++	    for ( pReset = pRoomIndex->reset_first; pReset; pReset = pReset->next )
++	    {
++	    	switch( pReset->command )
++	    	{
++	    		default:
++	    		bugf( "fix_exits : cuarto %d con reset cmd %c", pRoomIndex->vnum, pReset->command );
++	    		exit(1);
++	    		break;
++
++			case 'M':
++			get_mob_index( pReset->arg1 );
++			iLastRoom = get_room_index( pReset->arg3 );
++			break;
++
++			case 'O':
++			get_obj_index( pReset->arg1 );
++			iLastObj = get_room_index( pReset->arg3 );
++			break;
++
++			case 'P':
++			get_obj_index( pReset->arg1 );
++			if (iLastObj == NULL)
++			{
++				bugf( "fix_exits : reset en cuarto %d con iLastObj NULL", pRoomIndex->vnum );
++				exit(1);
++			}
++			break;
++
++			case 'G':
++			case 'E':
++			get_obj_index( pReset->arg1 );
++			if (iLastRoom == NULL)
++			{
++				bugf( "fix_exits : reset en cuarto %d con iLastRoom NULL", pRoomIndex->vnum );
++				exit(1);
++			}
++			iLastObj = iLastRoom;
++			break;
++
++			case 'D':
++			bugf( "???" );
++			break;
++
++			case 'R':
++			get_room_index( pReset->arg1 );
++			if ( pReset->arg2 < 0 || pReset->arg2 > MAX_DIR )
++			{
++				bugf( "fix_exits : reset en cuarto %d con arg2 %d >= MAX_DIR",
++					pRoomIndex->vnum, pReset->arg2 );
++				exit(1);
++			}
++			break;
++		} /* switch */
++	    } /* for */
+ 
+ 	    fexit = FALSE;
+ 	    for ( door = 0; door <= 5; door++ )
+diff -ur src/hedit.c new/hedit.c
+--- src/hedit.c	Mon Sep 14 17:46:43 1998
++++ new/hedit.c	Mon Sep 14 19:29:18 1998
+@@ -151,6 +151,7 @@
+ 		had->area	= ch->in_room->area;
+ 		had->first	= NULL;
+ 		had->last	= NULL;
++		had->changed	= TRUE;
+ 		had->next	= had_list;
+ 		had_list	= had;
+ 		ch->in_room->area->helps = had;
+@@ -207,6 +208,7 @@
+ void hedit( CHAR_DATA *ch, char *argument)
+ {
+     HELP_DATA * pHelp;
++    HELP_AREA *had;
+     char arg[MAX_INPUT_LENGTH];
+     char command[MAX_INPUT_LENGTH];
+     int cmd;
+@@ -217,6 +219,15 @@
+ 
+     EDIT_HELP(ch, pHelp);
+ 
++    had = get_help_area(pHelp);
++
++    if (had == NULL)
++    {
++    	bugf( "hedit : had para help %s NULL", pHelp->keyword );
++    	edit_done(ch);
++    	return;
++    }
++
+     if (ch->pcdata->security < 9)
+     {
+         send_to_char("HEdit: Insuficiente seguridad para editar help.\n\r",ch);
+@@ -241,19 +252,7 @@
+ 	if (!str_prefix(command, hedit_table[cmd].name) )
+ 	{
+ 		if ((*hedit_table[cmd].olc_fun) (ch, argument))
+-		{
+-			HELP_DATA * pHelp;
+-			HELP_AREA * hArea;
+-			AREA_DATA * area;
+-
+-			EDIT_HELP(ch, pHelp);
+-
+-			if (pHelp
+-			&& (hArea = get_help_area(pHelp))
+-			&& (area = hArea->area) )
+-				SET_BIT(area->area_flags, AREA_CHANGED);
+-		}
+-
++			had->changed = TRUE;
+ 		return;
+ 	}
+     }
+diff -ur src/merc.h new/merc.h
+--- src/merc.h	Mon Sep 14 17:46:39 1998
++++ new/merc.h	Mon Sep 14 19:23:08 1998
+@@ -342,6 +342,7 @@
+ 	HELP_DATA *	last;
+ 	AREA_DATA *	area;
+ 	char *		filename;
++	bool		changed;
+ };
+ 
+ 
+@@ -1660,8 +1661,6 @@
+ struct	area_data
+ {
+     AREA_DATA *		next;
+-    RESET_DATA *	reset_first;
+-    RESET_DATA *	reset_last;
+     HELP_AREA *		helps;
+     char *		file_name;
+     char *		name;
+diff -ur src/olc_act.c new/olc_act.c
+--- src/olc_act.c	Mon Sep 14 17:46:44 1998
++++ new/olc_act.c	Mon Sep 14 17:56:48 1998
+@@ -31,6 +31,18 @@
+ 
+ char * mprog_type_to_name ( int type );
+ 
++#define ALT_FLAGVALUE_SET( _blargh, _table, _arg )		\
++	{							\
++		int blah = flag_value( _table, _arg );		\
++		_blargh = (blah == NO_FLAG) ? 0 : blah;		\
++	}
++
++#define ALT_FLAGVALUE_TOGGLE( _blargh, _table, _arg )		\
++	{							\
++		int blah = flag_value( _table, _arg );		\
++		_blargh ^= (blah == NO_FLAG) ? 0 : blah;	\
++	}
++
+ /* Return TRUE if area changed, FALSE if not. */
+ #define REDIT( fun )		bool fun( CHAR_DATA *ch, char *argument )
+ #define OEDIT( fun )		bool fun( CHAR_DATA *ch, char *argument )
+@@ -2477,7 +2489,7 @@
+ 	            return FALSE;
+ 	        case 0:
+ 		    send_to_char( "WEAPON CLASS SET.\n\r\n\r", ch );
+-		    pObj->value[0] = flag_value( weapon_class, argument );
++		    ALT_FLAGVALUE_SET( pObj->value[0], weapon_class, argument );
+ 		    break;
+ 	        case 1:
+ 	            send_to_char( "NUMBER OF DICE SET.\n\r\n\r", ch );
+@@ -2493,8 +2505,7 @@
+ 	            break;
+ 	        case 4:
+                     send_to_char( "SPECIAL WEAPON TYPE TOGGLED.\n\r\n\r", ch );
+-		    pObj->value[4] ^= (flag_value( weapon_type2, argument ) != NO_FLAG
+-		    ? flag_value( weapon_type2, argument ) : 0 );
++		    ALT_FLAGVALUE_TOGGLE( pObj->value[4], weapon_type2, argument );
+ 		    break;
+ 	    }
+             break;
+@@ -2512,11 +2523,11 @@
+ 	    	    break;
+ 	    	case 1:
+ 	    	    send_to_char( "EXIT FLAGS SET.\n\r\n\r", ch);
+-	    	    pObj->value[1] = flag_value( exit_flags, argument );
++		    ALT_FLAGVALUE_SET( pObj->value[1], exit_flags, argument );
+ 	    	    break;
+ 	    	case 2:
+ 	    	    send_to_char( "PORTAL FLAGS SET.\n\r\n\r", ch);
+-	    	    pObj->value[2] = flag_value( portal_flags, argument );
++		    ALT_FLAGVALUE_SET( pObj->value[2], portal_flags, argument );
+ 	    	    break;
+ 	    	case 3:
+ 	    	    send_to_char( "EXIT VNUM SET.\n\r\n\r", ch);
+@@ -2542,8 +2553,7 @@
+ 	            break;
+ 	        case 2:
+ 	            send_to_char( "FURNITURE FLAGS TOGGLED.\n\r\n\r", ch);
+-	            pObj->value[2] ^= (flag_value( furniture_flags, argument ) != NO_FLAG
+-	            ? flag_value( furniture_flags, argument ) : 0);
++		    ALT_FLAGVALUE_TOGGLE( pObj->value[2], furniture_flags, argument );
+ 	            break;
+ 	        case 3:
+ 	            send_to_char( "HEAL BONUS SET.\n\r\n\r", ch);
+@@ -2569,9 +2579,8 @@
+ 	            pObj->value[0] = atoi( argument );
+ 	            break;
+ 		case 1:
+-	            if ( ( value = flag_value( container_flags, argument ) )
+-	              != NO_FLAG )
+-	        	TOGGLE_BIT(pObj->value[1], value);
++	            if ( ( value = flag_value( container_flags, argument ) ) != NO_FLAG )
++			TOGGLE_BIT(pObj->value[1], value);
+ 		    else
+ 		    {
+ 			do_help ( ch, "ITEM_CONTAINER" );
+diff -ur src/olc_save.c new/olc_save.c
+--- src/olc_save.c	Mon Sep 14 17:46:44 1998
++++ new/olc_save.c	Mon Sep 14 19:33:14 1998
+@@ -884,17 +884,19 @@
+ 
+ 	fprintf( fp, "-1 $~\n\n" );
+ 
++	ha->changed = FALSE;
++
+ 	return;
+ }
+ 
+-void save_other_helps( void )
++void save_other_helps( CHAR_DATA *ch )
+ {
+ 	extern HELP_AREA * had_list;
+ 	HELP_AREA *ha;
+ 	FILE *fp;
+ 
+ 	for ( ha = had_list; ha; ha = ha->next )
+-		if ( ha->area == NULL )
++		if ( ha->changed == TRUE )
+ 		{
+ 			fp = fopen( ha->filename, "w" );
+ 
+@@ -905,6 +907,10 @@
+ 			}
+ 
+ 			save_helps( fp, ha );
++
++			if (ch)
++				printf_to_char( ch, "%s\n\r", ha->filename );
++
+ 			fprintf( fp, "#$\n" );
+ 			fclose( fp );
+ 		}
+@@ -1048,8 +1054,7 @@
+ 	if ( ch )
+ 		send_to_char( "You saved the world.\n\r", ch );
+ 
+-	if ( sec == 9 )
+-		save_other_helps( );
++	save_other_helps( NULL );
+ 
+ 	return;
+     }
+@@ -1091,6 +1096,8 @@
+ 	    }
+ 	}
+ 
++	save_other_helps( ch );
++
+ 	if ( !str_cmp( buf, "None.\n\r" ) )
+ 		if ( ch )
+ 			send_to_char( buf, ch );
+@@ -1138,6 +1145,10 @@
+ 	    case ED_MOBILE:
+ 		pArea = ( (MOB_INDEX_DATA *)ch->desc->pEdit )->area;
+ 		break;
++	    case ED_HELP:
++		send_to_char( "Grabando area : ", ch );
++	    	save_other_helps( ch );
++	    	return;
+ 	    default:
+ 		pArea = ch->in_room->area;
+ 		break;
+diff -ur src/recycle.c new/recycle.c
+--- src/recycle.c	Mon Sep 14 17:46:39 1998
++++ new/recycle.c	Mon Sep 14 19:23:44 1998
+@@ -678,6 +678,7 @@
+ HELP_AREA * new_had ( void )
+ {
+ 	HELP_AREA * had;
++static	HELP_AREA   zHad;
+ 
+ 	if ( had_free )
+ 	{
+@@ -686,6 +687,8 @@
+ 	}
+ 	else
+ 		had		= alloc_perm( sizeof( *had ) );
++
++	*had = zHad;
+ 
+ 	return had;
+ }

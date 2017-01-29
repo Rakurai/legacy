@@ -32,7 +32,8 @@ _O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
 	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o sqlite.o	\
 	nanny.o note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
 	set-stat.o skills.o social.o special.o storage.o string.o tables.o update.o war.o	\
-	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o
+	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o	\
+	olc.o
 
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 
