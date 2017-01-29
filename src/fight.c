@@ -4615,7 +4615,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 
 	/* evo 1 talon give 60% save, 70% at 2, 80% at 3, 90% at 4 */
 	if (affect_exists_on_char(victim, gsn_talon)) {
-		int talonchance = 65;
+		int talonchance = 75;
 
 		switch (get_affect_evolution(victim, gsn_talon)) {
 		case 2: talonchance += 10;      break;
