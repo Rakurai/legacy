@@ -1366,6 +1366,7 @@ void evolve_list(CHAR_DATA *ch)
 void evolve_info(CHAR_DATA *ch)
 {
 	BUFFER *buffer = new_buf();
+	int evo_sum[8] = {0};
 
 	add_buf(buffer, "Currently evolvable skills and spells:\n\n");
 	add_buf(buffer, "{GSkill or spell      {C|{G");
@@ -1401,14 +1402,30 @@ void evolve_info(CHAR_DATA *ch)
 
 		ptb(buffer, "{H%-20s{C|", skill_table[sn].name);
 
-		for (int class = 0; class < 8; class++)
-			ptb(buffer, "{G %d {C|", max_evo[class]);
+		for (int class = 0; class < 8; class++) {
+			if (max_evo[class] == 0)
+				add_buf(buffer, "   |");
+			else {
+				ptb(buffer, "{%s %d {C|",
+					max_evo[class] > 1 ? "Y" : "G",
+					max_evo[class]+1);
+
+				evo_sum[class] += max_evo[class]+1;
+			}
+		}
 
 		add_buf(buffer, "\n");
 
 	}
 
 	add_buf(buffer, "{C--------------------+---+---+---+---+---+---+---+---+{x\n");
+
+	ptb(buffer, "{H%-20s{C|", "sum");
+
+	for (int class = 0; class < 8; class++)
+		ptb(buffer, "{G%3d{C|", evo_sum[class]);
+
+	add_buf(buffer, "\n");
 	page_to_char(buf_string(buffer), ch);
 	free_buf(buffer);
 }
