@@ -4401,8 +4401,9 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	int dam, i, count, swarm;
-	int clevel = ((level / 10) + 1);
+
+/*
+	// replaced this with simple dam = level / 5 + 4
 	static const sh_int dam_each[] = {
 		0,
 		3,  3,  4,  4,  5,      6,  6,  6,  6,  6,
@@ -4412,7 +4413,30 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		13, 13, 13, 13, 13,     14, 14, 14, 14, 14
 	};
 
-	switch (clevel) {
+	level = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
+	level = UMAX(0, level);
+*/
+
+	int count = 1;
+
+	switch (evolution){
+		case 3:
+			count += level / 15; // up to 7
+			break;
+		
+		case 2:
+			count += level / 22; // up to 5
+			break;
+		
+		case 1:
+			count += level / 45; // up to 3
+			break;
+		
+		default:
+			break;
+	}
+
+	switch (count) {
 	case 1:
 		stc("You extend your palm and let fly a magic missile!\n", ch);
 		act("$n extends $s palm and lets fly a magic missile!", ch, NULL, NULL, TO_ROOM);
@@ -4433,55 +4457,25 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		act("$n extends $s palm and unleashes a devastating hail of magic missiles!", ch, NULL, NULL, TO_ROOM);
 		break;
 	}
-
-	switch (evolution){
-		case 3:
-			if (level <= 9) count = 1;
-			else if (level >= 19 && level <= 29) count = 2;
-			else if (level >= 29 && level <= 49) count = 3;
-			else if (level >= 49 && level <= 59) count = 4;
-			else count = 5;
-			swarm = 1;
-			break;
-		
-		case 2:
-			if (level <= 9) count = 1;
-			else if (level >= 19 && level <= 39) count = 2;
-			else if (level >= 49 && level <= 60) count = 3;
-			else count = 4;
-			break;
-		
-		case 1:
-			if (level <= 9) count = 1;
-			else if (level >= 19 && level <= 49) count = 2;
-			else count = 3;
-			break;
-		
-		default:
-			wiznet("evolution switch failed, evo mmissile.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-			break;
-	}
 			
-	if (count > 5)
-		count = 5;
-	for (i = 0; i < count; i++) {
-		level = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
-		level = UMAX(0, level);
-		dam   = number_range(dam_each[level] / 2, dam_each[level] * 2);
+	for (int i = 0; i < count; i++) {
+//		int dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
+		int dam = 4 + level / 5;
+		dam = number_range(dam / 2, dam * 2);
 
 		if (saves_spell(level, victim, DAM_ENERGY))
 			dam /= 2;
 		
 		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
+
 		if (ch->fighting != NULL) { /*don't display message if mob dead/no fight*/
-			if (swarm == 1) /*swarm chance figuring*/
-					if (number_percent() > 85) {
-						stc("Your magic missile swarms it's target!!!!\n", ch);
-						act("$n magic missile swarms the target!", ch, NULL, NULL, TO_ROOM);
-						dam /= 2;
-						damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
-					}
+			if (evolution >= 3 && number_percent() > 85) {
+				stc("Your magic missile swarms its target!!!!\n", ch);
+				act("$n magic missile swarms the target!", ch, NULL, NULL, TO_ROOM);
+				damage(ch, victim, dam / 2, sn, DAM_ENERGY, TRUE, TRUE);
+			}
 		}
+
 		if (ch->fighting == NULL)
 			return;
 	}
