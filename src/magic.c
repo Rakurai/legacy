@@ -42,7 +42,7 @@ DECLARE_DO_FUN(do_scan);
 /* global focus variable */
 extern bool     focus;
 
-void            raw_kill        args((CHAR_DATA *victim));
+void    kill_off        args((CHAR_DATA *ch, CHAR_DATA *victim));
 
 /* Local functions. */
 void    say_spell       args((CHAR_DATA *ch, int sn));
@@ -4960,8 +4960,7 @@ void spell_power_word(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	act("$n points $s finger at $N and says, 'DIE!'", ch, NULL, victim, TO_ROOM);
 	act("You point your finger at $N and say, 'DIE!'", ch, NULL, victim, TO_CHAR);
 	act("$n points $s finger at you and says, 'DIE!!'", ch, NULL, victim, TO_VICT);
-	raw_kill(victim); /* temp until i can modify merc.h */
-	/*      kill_off(ch, victim); */
+	kill_off(ch, victim);
 }
 
 void spell_protect_container(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
