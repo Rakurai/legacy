@@ -1560,6 +1560,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 	}
 
+	// make them die
 	raw_kill(victim);
 
 	if (ch == victim)
@@ -1567,14 +1568,6 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if ((ch->in_room->sector_type == SECT_ARENA) && !IS_NPC(victim) && (battle.start))
 		deduct_cost(ch, -battle.fee);
-
-	if (!IS_NPC(victim))
-		victim->pcdata->pktimer = 0;
-
-	/* force a save of items on the ground, should fix it
-	   for crashes after a player dies -- Montrey */
-	if (!IS_NPC(victim))
-		objstate_save_items();
 
 	if (!IS_NPC(ch) && IS_NPC(victim)) {
 		OBJ_DATA *corpse, *obj, *obj_next;
@@ -2725,6 +2718,10 @@ void raw_kill(CHAR_DATA *victim)
 		return;
 	}
 
+	// only PCs from here down
+
+	victim->pcdata->pktimer = 0;
+
 	affect_remove_all_from_char(victim, FALSE);
 
 	if (victim->in_room->sector_type != SECT_ARENA
@@ -2752,6 +2749,11 @@ void raw_kill(CHAR_DATA *victim)
 	victim->stam        = UMAX(1, victim->stam);
 
 	save_char_obj(victim);
+
+	/* force a save of items on the ground, should fix it
+	   for crashes after a player dies -- Montrey */
+	objstate_save_items();
+
 } /* end raw_kill */
 
 void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -4836,7 +4838,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	act("You slay $M in cold blood!",  ch, NULL, victim, TO_CHAR);
 	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT);
 	act("$n slays $N in cold blood!",  ch, NULL, victim, TO_NOTVICT);
-	raw_kill(victim);
+	raw_kill(victim); // not kill_off, don't want to update arena kills and such
 
 	/* Add this so it will announce it - Lotus */
 	if (!IS_NPC(victim)) {
