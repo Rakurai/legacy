@@ -1458,9 +1458,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 bool check_pulse(CHAR_DATA *victim)
 {
-	sh_int die_hard_skill;
-	sh_int con_score;
-
 	if (IS_IMMORTAL(victim) && victim->hit < 1)
 		victim->hit = 1;
 
@@ -1468,21 +1465,22 @@ bool check_pulse(CHAR_DATA *victim)
 	   a chance to recover a little.
 	   -- Outsider
 	*/
-	die_hard_skill = get_skill(victim, gsn_die_hard);
-	con_score = GET_ATTR_CON(victim);
+	int die_hard_skill = get_skill(victim, gsn_die_hard);
 
-	if ((die_hard_skill >= 10) && (con_score > 12)) {
-		/* they have to be dying for this to kick in */
-		if ((victim->hit > -11) && (victim->hit < 1)) {
-			victim->hit += (con_score / 10) * (die_hard_skill / 10);
+	if (die_hard_skill >= 1 && victim->hit < 1) {
+		if (chance(die_hard_skill)) {
+			/* they have to be dying for this to kick in */
+			victim->hit += (GET_ATTR_CON(victim) / 10) * (die_hard_skill / 10);
 
 			if (victim->hit > GET_MAX_HIT(victim))
 				victim->hit = GET_MAX_HIT(victim);
 
 			stc("You make an effort to pull yourself together!\n", victim);
-			act("$n pulls themselves together!\n", victim, NULL, NULL, TO_ROOM);
+			act("$n pulls themself together!\n", victim, NULL, NULL, TO_ROOM);
 			check_improve(victim, gsn_die_hard, TRUE, 2);
-		}   /* end of if dying */
+		}
+		else
+			check_improve(victim, gsn_die_hard, FALSE, 2);
 	}  /* end of die hard */
 
 	update_pos(victim);
@@ -4838,7 +4836,8 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	act("You slay $M in cold blood!",  ch, NULL, victim, TO_CHAR);
 	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT);
 	act("$n slays $N in cold blood!",  ch, NULL, victim, TO_NOTVICT);
-	raw_kill(victim); // not kill_off, don't want to update arena kills and such
+
+	raw_kill(victim); // not kill_off, don't want to gain exp, update arena kills and such
 
 	/* Add this so it will announce it - Lotus */
 	if (!IS_NPC(victim)) {
