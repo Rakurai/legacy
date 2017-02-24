@@ -1407,6 +1407,11 @@ void do_give(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (victim == ch) {
+		stc("Indignant, you tell yourself that you don't need any help.\n", ch);
+		return;
+	}
+
 	if (!IS_NPC(victim) && !IS_IMMORTAL(ch) && IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
 		sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
