@@ -1176,13 +1176,10 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_cmp(arg, "-")) {
-		int len;
-		bool found = FALSE;
 		note_attach(ch, type);
 
 		if (ch->pnote->type != type) {
-			stc(
-			        "You already have a different note in progress.\n", ch);
+			stc("You already have a different note in progress.\n", ch);
 			return;
 		}
 
@@ -1198,21 +1195,20 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		strcpy(buf, ch->pnote->text);
+		bool found = FALSE;
 
-		for (len = strlen(buf); len > 0; len--) {
+		// find the last and second to last newlines, remove all after second to last
+		for (int len = strlen(buf); len > 0; len--) {
 			if (buf[len] == '\n') {
-				if (!found) { /* back it up */
-					if (len > 0)
-						len--;
-
-					found = TRUE;
-				}
-				else { /* found the second one */
+				if (found) { /* found the second one */
 					buf[len + 1] = '\0';
 					free_string(ch->pnote->text);
 					ch->pnote->text = str_dup(buf);
+					stc("Line removed.\n", ch);
 					return;
 				}
+				else
+					found = TRUE;
 			}
 		}
 
