@@ -1021,7 +1021,7 @@ void char_update(void)
 			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
-			damage(ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
+			damage(ch->fighting ? ch->fighting : ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
 		}
 
 		if (ch != NULL && affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_slow)) {
@@ -1030,7 +1030,7 @@ void char_update(void)
 			if (poison != NULL) {
 				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
 				stc("You shiver and suffer.\n", ch);
-				damage(ch, ch, poison->level / 10 + 1, gsn_poison,
+				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, gsn_poison,
 				       DAM_POISON, FALSE, TRUE);
 			}
 		}
