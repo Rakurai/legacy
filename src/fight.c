@@ -1519,11 +1519,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (get_position(victim) != POS_DEAD)
-		return;
-
-	group_gain(ch, victim);
-
+	// announcements
 	if (!IS_NPC(victim)) {
 		sprintf(log_buf, "%s killed by %s at %d", victim->name,
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->vnum);
@@ -1534,14 +1530,6 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		wiznet(log_buf, NULL, NULL, WIZ_DEATHS, 0, 0);
 		sprintf(buf, "%s has been slain by %s.",  victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
-
-		/* 2/3 of the way back to previous level */
-		if (victim->exp > exp_per_level(victim, victim->pcdata->points) * victim->level
-		    && victim->in_room->sector_type != SECT_ARENA
-		    && victim->in_room->sector_type != SECT_CLANARENA
-		    && (ch->in_room->area != quest_area || !quest_upk))
-			gain_exp(victim,
-			         (2 * (exp_per_level(victim, victim->pcdata->points)*victim->level - victim->exp) / 3));
 	}
 	else {
 		sprintf(log_buf, "%s got ToAsTeD by %s at [{W%d{x] [{W%d Exp{x]",
@@ -1550,23 +1538,20 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		wiznet(log_buf, NULL, NULL, WIZ_MOBDEATHS, 0, 0);
 	}
 
-	/* Make sure victim PK flag is dropped when char dies. -- Outsider */
-	if ((! IS_NPC(victim)) && (! IS_NPC(ch))) {
-		if ((victim->pcdata->flag_killer) && (IS_SET(victim->act, PLR_KILLER))) {
-			REMOVE_BIT(victim->act, PLR_KILLER);
-			REMOVE_BIT(victim->act, PLR_NOPK);
-		}
-	}
-
 	// make them die
 	raw_kill(victim);
 
+	// suicides?
 	if (ch == victim)
 		return;
+
+	// award exp
+	group_gain(ch, victim);
 
 	if ((ch->in_room->sector_type == SECT_ARENA) && !IS_NPC(victim) && (battle.start))
 		deduct_cost(ch, -battle.fee);
 
+	// looting NPC corpse that was just made in raw_kill
 	if (!IS_NPC(ch) && IS_NPC(victim)) {
 		OBJ_DATA *corpse, *obj, *obj_next;
 
@@ -1579,10 +1564,9 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 			for (obj = corpse->contains; obj; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if (is_name("gcash", obj->name)) {
-					if (!IS_SET(ch->act, PLR_AUTOGOLD))
-						continue;
-				}
+				if (is_name("gcash", obj->name)
+				 && !IS_SET(ch->act, PLR_AUTOGOLD))
+					continue;
 				else if (!IS_SET(ch->act, PLR_AUTOLOOT))
 					continue;
 
@@ -1597,11 +1581,23 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 			else
 				do_sacrifice(ch, "corpse");   /* leave if corpse has treasure */
 		}
-
-		return; /* done with mob victims */
 	}
 
-	if (!IS_NPC(ch) && !IS_NPC(victim)) {
+	if (IS_NPC(victim))
+		return;
+
+	// PC victims only from here
+
+	/* 2/3 of the way back to previous level */
+	if (victim->exp > exp_per_level(victim, victim->pcdata->points) * victim->level
+	    && victim->in_room->sector_type != SECT_ARENA
+	    && victim->in_room->sector_type != SECT_CLANARENA
+	    && (ch->in_room->area != quest_area || !quest_upk))
+		gain_exp(victim,
+		         (2 * (exp_per_level(victim, victim->pcdata->points)*victim->level - victim->exp) / 3));
+
+	if (!IS_NPC(ch)) {
+
 		if (ch->in_room->sector_type == SECT_ARENA
 		    || ch->in_room->sector_type == SECT_CLANARENA
 		    || (ch->in_room->area == quest_area && quest_upk)) {
@@ -1611,6 +1607,13 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 				victim->pcdata->arenakilled++;
 		}
 		else {
+			/* Make sure victim PK flag is dropped when char dies. -- Outsider 
+			if ((victim->pcdata->flag_killer) && (IS_SET(victim->act, PLR_KILLER))) {
+				REMOVE_BIT(victim->act, PLR_KILLER);
+				REMOVE_BIT(victim->act, PLR_NOPK);
+			}
+			what? why? not the point of killer flags -- Montrey */
+
 			if (char_opponents(ch, victim))
 				war_kill(ch, victim);
 
