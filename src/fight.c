@@ -440,66 +440,85 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 	for (rch = ch->in_room->people; rch != NULL; rch = rch_next) {
 		rch_next = rch->next_in_room;
 
-		if (IS_AWAKE(rch) && rch->fighting == NULL) {
-			/* quick check for ASSIST_PLAYER */
-			if (!IS_NPC(ch) && IS_NPC(rch)
-			    && IS_SET(rch->off_flags, ASSIST_PLAYERS)
-			    && rch->level + 6 > victim->level) {
-				do_emote(rch, "screams and attacks!");
-				multi_hit(rch, victim, TYPE_UNDEFINED);
-				continue;
-			}
+		if (!IS_AWAKE(rch))
+			continue;
 
-			/* PCs next */
-			if (!IS_NPC(ch) || affect_exists_on_char(ch, gsn_charm_person)) {
-				if (((!IS_NPC(rch)
-				      && IS_SET(rch->act, PLR_AUTOASSIST))
-				     || affect_exists_on_char(rch, gsn_charm_person))
-				    && (rch->level != 0)
-				    && is_same_group(ch, rch)
-				    && !is_safe(rch, victim, TRUE))
-					multi_hit(rch, victim, TYPE_UNDEFINED);
+		if (rch->fighting != NULL)
+			continue;
 
-				continue;
-			}
+		CHAR_DATA *target = NULL;
 
-			/* now check the NPC cases */
-			if (IS_NPC(ch) && !affect_exists_on_char(ch, gsn_charm_person)) {
-				if ((IS_NPC(rch) && IS_SET(rch->off_flags, ASSIST_ALL))
-				    || (IS_NPC(rch) && rch->group && rch->group == ch->group)
-				    || (IS_NPC(rch) && rch->race == ch->race
-				        && IS_SET(rch->off_flags, ASSIST_RACE))
-				    || (IS_NPC(rch) && IS_SET(rch->off_flags, ASSIST_ALIGN)
-				        && ((IS_GOOD(rch) && IS_GOOD(ch))
-				            || (IS_EVIL(rch) && IS_EVIL(ch))
-				            || (IS_NEUTRAL(rch) && IS_NEUTRAL(ch))))
-				    || (rch->pIndexData == ch->pIndexData
-				        && IS_SET(rch->off_flags, ASSIST_VNUM))) {
-					CHAR_DATA *vch;
-					CHAR_DATA *target;
-					int number = 0;
+		if (IS_NPC(ch)) {
+			if (IS_NPC(rch)) {
+				// BOTH NPC
 
-					if (number_bits(1) == 0)
-						continue;
+				// NPC assisting NPC is ok if all are charmed (is this necessary?)
+				if (affect_exists_on_char(ch, gsn_charm_person)) {
+					if (affect_exists_on_char(rch, gsn_charm_person)
+					 && is_same_group(ch, rch))
+						target = victim;
+				}
+				else {
+					if (IS_SET(rch->off_flags, ASSIST_ALL)
+					 || is_same_group(ch, rch)
+					 || (IS_SET(rch->off_flags, ASSIST_RACE) && rch->race == ch->race)
+					 || (IS_SET(rch->off_flags, ASSIST_ALIGN)
+					  && ((IS_GOOD(rch) && IS_GOOD(ch))
+					   || (IS_EVIL(rch) && IS_EVIL(ch))
+					   || (IS_NEUTRAL(rch) && IS_NEUTRAL(ch))))
+					  || (IS_SET(rch->off_flags, ASSIST_VNUM) && rch->pIndexData == ch->pIndexData)) {
+						int number = 0;
 
-					target = NULL;
+						if (number_bits(1) == 0)
+							continue;
 
-					for (vch = ch->in_room->people; vch; vch = vch->next) {
-						if (can_see(rch, vch)
-						    && is_same_group(vch, victim)
-						    && number_range(0, number) == 0) {
-							target = vch;
-							number++;
+						for (CHAR_DATA *vch = ch->in_room->people; vch; vch = vch->next) {
+							if (can_see(rch, vch)
+							    && is_same_group(vch, victim)
+							    && number_range(0, number) == 0) {
+								target = vch;
+								number++;
+							}
 						}
-					}
-
-					if (target != NULL) {
-						do_emote(rch, "screams and attacks!");
-						multi_hit(rch, target, TYPE_UNDEFINED);
 					}
 				}
 			}
+			else { // ch is a PC
+				if (IS_SET(rch->act, PLR_AUTOASSIST)
+				 && affect_exists_on_char(ch, gsn_charm_person)
+				 && is_same_group(ch, rch))
+					target = victim;
+			}
 		}
+		else { // rch is a PC
+			if (IS_NPC(rch)) {
+				if (IS_SET(rch->off_flags, ASSIST_PLAYERS)
+				 && rch->level + 6 > victim->level) {
+					target = victim;
+				}
+				else if (affect_exists_on_char(rch, gsn_charm_person)
+				 && is_same_group(ch, rch))
+					target = victim;
+			}
+			else { // ch is a PC
+				// BOTH PC
+
+				if (IS_SET(rch->act, PLR_AUTOASSIST)
+				 && is_same_group(ch, rch))
+					target = victim;
+			}
+		}
+
+		if (target == NULL)
+			continue;
+
+		if (is_safe(rch, target, FALSE))
+			continue;
+
+		if (IS_NPC(rch))
+			do_emote(rch, "screams and attacks!");
+
+		multi_hit(rch, target, TYPE_UNDEFINED);
 	}
 } /* end check_assist */
 
