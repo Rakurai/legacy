@@ -4793,6 +4793,11 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
+	if (affect_exists_on_char(victim, gsn_plague)) {
+		act("$N is already diseased.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
 	if (saves_spell(level, victim, DAM_DISEASE)
 	    || (IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD))) {
 		if (ch == victim)
