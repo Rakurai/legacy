@@ -1528,7 +1528,7 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 	{
 		"identify",             { 15, 16, 18, 58, 15, 16, 18, 58 },
 		{  1,  1,  2,  2,  1,  1,  2,  2 },
-		spell_identify,         TAR_OBJ_INV,            POS_STANDING,
+		spell_identify,         TAR_OBJ_HERE,            POS_STANDING,
 		&gsn_identify,          SLOT(53),       12,     12,
 		"",                     "!Identify!",           "",     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }

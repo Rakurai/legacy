@@ -2447,6 +2447,7 @@ struct room_index_data
 #define TAR_OBJ_INV                 4
 #define TAR_OBJ_CHAR_DEF            5
 #define TAR_OBJ_CHAR_OFF            6
+#define TAR_OBJ_HERE                7 // new, in inventory or room
 
 #define TARGET_CHAR                 0
 #define TARGET_OBJ                  1

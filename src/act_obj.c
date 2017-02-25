@@ -5472,7 +5472,8 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, arg)) == NULL
+	 && (obj = get_obj_here(ch, arg)) == NULL) {
 		stc("You do not have that item.\n", ch);
 		return;
 	}

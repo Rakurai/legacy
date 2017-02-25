@@ -367,6 +367,22 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		target = TARGET_OBJ;
 		break;
 
+	case TAR_OBJ_HERE:
+		if (arg2[0] == '\0') {
+			stc("What should the spell be cast upon?\n", ch);
+			return;
+		}
+
+		if ((obj = get_obj_carry(ch, target_name)) == NULL
+		 && (obj = get_obj_here(ch, target_name)) == NULL) {
+			stc("You don't see that here.\n", ch);
+			return;
+		}
+
+		vo = (void *) obj;
+		target = TARGET_OBJ;
+		break;
+
 	case TAR_OBJ_CHAR_OFF:
 		if (arg2[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
