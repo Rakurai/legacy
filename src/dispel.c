@@ -128,7 +128,7 @@ int affect_fn_dispel_obj(AFFECT_DATA *node, void *data) {
 		params->count++;
 	}
 	else
-		node->level--;
+		node->level -= number_range(1,3);
 
 	return 0;
 }
@@ -155,7 +155,7 @@ int affect_fn_dispel_char(AFFECT_DATA *node, void *data) {
 		params->count++;
 	}
 	else
-		node->level--;
+		node->level -= number_range(1,3);
 
 	return 0;
 }
