@@ -270,8 +270,15 @@ void spell_sap(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	mult = ((100 - (((ch->hit * 100) / GET_MAX_HIT(ch)) * 2)) * 2);
 	dam = UMAX(dam, dam + ((dam * mult) / 100));
 
-	if (ch->hit < 31000)
-		ch->hit += (dam / 10);
+	if (ch->hit < 31000) {
+		int def_mod = GET_DEFENSE_MOD(victim, DAM_NEGATIVE);
+
+		if (def_mod < 100) {
+			int gain = dam;
+			gain -= gain * def_mod / 100;
+			ch->hit += (gain / 10);
+		}
+	}
 
 	if (dam != 0) {
 		stc("You feel frail and weak.\n", victim);
