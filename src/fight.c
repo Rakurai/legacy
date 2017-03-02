@@ -1557,21 +1557,25 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		wiznet(log_buf, NULL, NULL, WIZ_MOBDEATHS, 0, 0);
 	}
 
+	// award exp
+	group_gain(ch, victim);
+
+	// raw_kill will extract an NPC, so don't refer to NPC victims after this point
+	bool was_NPC = IS_NPC(victim);
+	bool is_suicide = (ch == victim);
+
 	// make them die
 	raw_kill(victim);
 
 	// suicides?
-	if (ch == victim)
+	if (is_suicide)
 		return;
 
-	// award exp
-	group_gain(ch, victim);
-
-	if ((ch->in_room->sector_type == SECT_ARENA) && !IS_NPC(victim) && (battle.start))
+	if ((ch->in_room->sector_type == SECT_ARENA) && !was_NPC && (battle.start))
 		deduct_cost(ch, -battle.fee);
 
 	// looting NPC corpse that was just made in raw_kill
-	if (!IS_NPC(ch) && IS_NPC(victim)) {
+	if (!IS_NPC(ch) && was_NPC) {
 		OBJ_DATA *corpse, *obj, *obj_next;
 
 		if ((corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) == NULL
@@ -1602,10 +1606,10 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 	}
 
-	if (IS_NPC(victim))
+	if (was_NPC)
 		return;
 
-	// PC victims only from here
+	// PC victims only from here, safe to use pointer
 
 	/* 2/3 of the way back to previous level */
 	if (victim->exp > exp_per_level(victim, victim->pcdata->points) * victim->level
@@ -4859,13 +4863,14 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 	act("$n slays you in cold blood!", ch, NULL, victim, TO_VICT);
 	act("$n slays $N in cold blood!",  ch, NULL, victim, TO_NOTVICT);
 
-	raw_kill(victim); // not kill_off, don't want to gain exp, update arena kills and such
-
 	/* Add this so it will announce it - Lotus */
 	if (!IS_NPC(victim)) {
 		sprintf(buf, "%s has been slain by %s.", victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
 	}
+
+	raw_kill(victim); // not kill_off, don't want to gain exp, update arena kills and such
+
 } /* end do_slay */
 
 void do_rotate(CHAR_DATA *ch, const char *argument)
