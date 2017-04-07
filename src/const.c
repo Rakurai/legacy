@@ -1692,7 +1692,7 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		spell_protection_evil,  TAR_CHAR_SELF,          POS_STANDING,
 		&gsn_protection_evil,   SLOT(34),       5,      12,
 		"",                     "You feel less protected from evil.",   "",     0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+		{ 0, 220, 0, 0, 0, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
 	},
 	{
 		"protection good",      { 12,  9, 17, 11, 12,  9, 17, 11 },
@@ -1700,7 +1700,7 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		spell_protection_good,  TAR_CHAR_SELF,          POS_STANDING,
 		&gsn_protection_good,   SLOT(514),      5,      12,
 		"",                     "You feel less protected from good.",   "",     0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+		{ 0, 220, 0, 0, 240, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
 	},
 	{
 		"ray of truth",         { 40, 35, 60, 47, 33, 35, 60, 47 },

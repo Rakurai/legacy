@@ -522,6 +522,54 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 } /* end check_assist */
 
+void check_protection_aura(CHAR_DATA *ch, CHAR_DATA *victim) {
+
+	if ((IS_EVIL(ch)
+	  && affect_exists_on_char(victim, gsn_protection_evil))
+	 || (IS_GOOD(ch)
+	  && affect_exists_on_char(victim, gsn_protection_good))) {
+		const AFFECT_DATA *paf = IS_EVIL(ch) ?
+			affect_find_on_char(victim, gsn_protection_evil) :
+			affect_find_on_char(victim, gsn_protection_good);
+
+		if (paf != NULL) {
+			if (paf->evolution >= 2) {
+				if (number_range(1,100) <= paf->evolution * 3) {
+					char buf[MSL];
+					DAZE_STATE(ch, 2 * PULSE_VIOLENCE);
+
+					sprintf(buf, "The impact with $N's %s aura sends a numbing shock through your arm!",
+						IS_EVIL(ch) ? "holy" : "unholy");
+					act(buf, ch, NULL, victim, TO_CHAR);
+					sprintf(buf, "Your %s aura shocks $n's arm!",
+						IS_EVIL(ch) ? "holy" : "unholy");
+					act(buf, ch, NULL, victim, TO_VICT);
+					sprintf(buf, "$N's %s aura shocks $n's arm!",
+						IS_EVIL(ch) ? "holy" : "unholy");
+					act(buf, ch, NULL, victim, TO_NOTVICT);
+				}
+			}
+
+			if (paf->evolution >= 3) {
+				if (number_range(1,100) <= paf->evolution) {
+					char buf[MSL];
+					WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+					sprintf(buf, "$N's %s aura knocks you back, momentarily stunning you!",
+						IS_EVIL(ch) ? "holy" : "unholy");
+					act(buf, ch, NULL, victim, TO_CHAR);
+					sprintf(buf, "Your %s aura knocks $n back, momentarily stunning $s!",
+						IS_EVIL(ch) ? "holy" : "unholy");
+					act(buf, ch, NULL, victim, TO_VICT);
+					sprintf(buf, "$N's %s aura knocks $n back, momentarily stunning $n!",
+						IS_EVIL(ch) ? "holy" : "unholy");
+					act(buf, ch, NULL, victim, TO_NOTVICT);
+				}
+			}
+		}
+	}
+}
+
 void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
 	OBJ_DATA *obj;
@@ -635,6 +683,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		else
 			check_improve(ch, gsn_dual_second, FALSE, 6);
 	}
+
+	check_protection_aura(ch, victim);
 
 	if (dt == gsn_shadow_form || dt == gsn_circle)
 		return;
@@ -751,6 +801,8 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		if (!ch->fighting)
 			return;
 	}
+
+	check_protection_aura(ch, victim);
 
 	if (ch->wait > 0 || get_position(ch) < POS_FIGHTING)
 		return;
