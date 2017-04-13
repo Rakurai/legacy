@@ -42,7 +42,6 @@ DECLARE_DO_FUN(do_yell);
 DECLARE_DO_FUN(do_say);
 DECLARE_DO_FUN(talk_auction);
 
-int flag_lookup args((const char *name, const struct flag_type *flag_table));
 extern  void    channel_who     args((CHAR_DATA *ch, const char *channelname, int channel, int custom));
 
 /*
