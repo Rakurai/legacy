@@ -4652,7 +4652,9 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 	const char *keywords;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
-	bool flevel = FALSE, fexplevel = FALSE, fname = FALSE;
+	bool flevel = FALSE, fexplevel = FALSE, fname = FALSE, fwear = FALSE, fweapon = FALSE;
+	long wear_flag = 0;
+	int weapon_type = -1;
 
 	if (!check_blind(ch))
 		return;
@@ -4728,6 +4730,56 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 		level2 = UMAX(num2, level1);
 	}
 
+	if (!str_prefix1("wear", keywords)) {
+	 	fwear = TRUE;
+	 	fname = FALSE;
+		keywords = one_argument(keywords, arg); // strip off the "wear "
+		keywords = one_argument(keywords, arg); // get the wear slot name
+
+		if (arg[0] != '\0') {
+			int index = flag_lookup(arg, wear_flags); // gets the index
+
+			if (index == -1) {
+				stc("That is not a wear location you can search for in the pit.\n", ch);
+				ptc(ch, "Searchable wear locations are:\n  %s", wear_bit_name(-1));
+				return;
+			}
+
+			wear_flag = wear_flags[index].bit; // gets the bit
+			keywords = "items that can be worn there";
+		}
+		else {
+			wear_flag = ~(ITEM_TAKE | ITEM_NO_SAC | ITEM_WEAR_WEDDINGRING); // everything except
+			keywords = "wearable items";
+		}
+	}
+	else if (!str_prefix1("weapon", keywords)) {
+		fweapon = TRUE;
+	 	fname = FALSE;
+		keywords = one_argument(keywords, arg); // strip off the "weapon "
+		keywords = one_argument(keywords, arg); // get the weapon type name
+
+		if (arg[0] != '\0') {
+			int index = weapon_lookup(arg); // gets the index
+
+			if (index == -1) {
+				stc("That is not a weapon type you can search for in the pit.\n", ch);
+				stc("Searchable weapon types are:\n  ", ch);
+				for (int i = 0; weapon_table[i].name != NULL; i++)
+					ptc(ch, "%s ", weapon_table[i].name);
+				stc("\n", ch);
+				return;
+			}
+
+			weapon_type = weapon_table[index].type; // gets the bit
+			keywords = "weapons of that type";
+		}
+		else {
+			// otherwise weapon_type == -1, we'll list all weapons
+			keywords = "weapons";
+		}
+	}
+
 	/* hastily dummy up an empty clone of the pit */
 	/* not a bona fide object, it is on local stack and not in obj list */
 	memset(&sel_pit, 0, sizeof(sel_pit));
@@ -4746,26 +4798,24 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 		if (fname && !is_name(keywords, obj->name))
 			continue;
 
+		if (fwear && !(obj->wear_flags & wear_flag)) {
+			bugf("%ld, %ld, %ld", obj->wear_flags, wear_flag, obj->wear_flags & wear_flag);
+			continue;
+		}
+
+		if (fweapon
+		 && (obj->item_type != ITEM_WEAPON 
+		  || (weapon_type != -1 && obj->value[0] != weapon_type)))
+			continue;
+
 		obj_from_obj(obj);
 		obj_to_obj(obj, &sel_pit);
 	}
 
 	if (sel_pit.contains == NULL) {
-		char buf[MAX_INPUT_LENGTH];
-
-		if (flevel && fname)
-			sprintf(buf, "You see no '%s' around that level in the pit.\n",
-			        keywords);
-		else if (flevel) {
-			if (fexplevel)
-				sprintf(buf, "You see nothing around that level in the pit.\n");
-			else
-				sprintf(buf, "You see nothing around your level in the pit.\n");
-		}
-		else
-			sprintf(buf, "You see no '%s' in the pit.\n", keywords);
-
-		stc(buf, ch);
+		ptc(ch, "You see no %s%s in the pit.\n",
+			keywords,
+			flevel ? fexplevel ? "around that level" : "around your level" : "");
 	}
 	else {
 		/* code copied from do_look(), so should be convincing. */

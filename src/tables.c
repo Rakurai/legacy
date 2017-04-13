@@ -683,7 +683,7 @@ const struct flag_type wear_flags[] = {
 	{   "take",                 A,      TRUE    },
 	{   "finger",               B,      TRUE    },
 	{   "neck",                 C,      TRUE    },
-	{   "body",                 D,      TRUE    },
+	{   "torso",                D,      TRUE    },
 	{   "head",                 E,      TRUE    },
 	{   "legs",                 F,      TRUE    },
 	{   "feet",                 G,      TRUE    },
