@@ -4798,10 +4798,8 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 		if (fname && !is_name(keywords, obj->name))
 			continue;
 
-		if (fwear && !(obj->wear_flags & wear_flag)) {
-			bugf("%ld, %ld, %ld", obj->wear_flags, wear_flag, obj->wear_flags & wear_flag);
+		if (fwear && !(obj->wear_flags & wear_flag))
 			continue;
-		}
 
 		if (fweapon
 		 && (obj->item_type != ITEM_WEAPON 
