@@ -28,19 +28,6 @@
 #include "merc.h"
 #include "tables.h"
 
-int flag_lookup(const char *name, const struct flag_type *flag_table)
-{
-	int flag;
-
-	for (flag = 0; flag_table[flag].name != NULL; flag++) {
-		if (LOWER(name[0]) == LOWER(flag_table[flag].name[0])
-		    &&  !str_prefix1(name, flag_table[flag].name))
-			return flag;
-	}
-
-	return -1;
-}
-
 CLAN_DATA *clan_vnum_lookup(int vnum)
 {
 	CLAN_DATA *c;

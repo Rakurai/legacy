@@ -203,3 +203,5 @@ extern  const   struct  flag_type       portal_flags[];
 extern  const   struct  flag_type       room_flags[];
 extern  const   struct  flag_type       exit_flags[];
 extern  const   struct  flag_type       cgroup_flags[];
+
+long flag_lookup(const char *name, const struct flag_type *flag_table);
