@@ -127,6 +127,7 @@ const struct attack_type attack_table[] = {
 	{   "flame",        "flame",        DAM_FIRE        },
 	{   "chill",        "chill",        DAM_COLD        },
 	{   "hstrike",      "hilt strike",  DAM_BASH        },  /* 40 */ /* no skill for hilt strike */
+	{   "arrow",        "arrow",        DAM_PIERCE      },
 	{   NULL,           NULL,           0               }   /* 41 */
 };
 

@@ -28,7 +28,7 @@
 #include "merc.h"
 #include "affect.h"
 
-#define MAX_DAMAGE_MESSAGE 40
+#define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
 
 /* command procedures needed */
@@ -3725,6 +3725,51 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_trip */
 
+bool check_attack_ok(CHAR_DATA *ch, CHAR_DATA *victim) {
+	if ((ch->in_room->sector_type == SECT_ARENA) && (!battle.start)) {
+		stc("Hold your horses, the battle hasn't begun yet!\n", ch);
+		return FALSE;
+	}
+
+	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim)) {
+		stc("Morphed players cannot attack PC's.\n", ch);
+		wiznet("$N is attempting PK while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
+		return FALSE;
+	}
+
+	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && IS_SET(victim->act, ACT_PET)) {
+		stc("Morphed players cannot attack pets.\n", ch);
+		wiznet("$N is attempting to kill a pet while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
+		return FALSE;
+	}
+
+	if (affect_exists_on_char(ch, gsn_fear)) {
+		stc("But they would beat the stuffing out of you!!\n", ch);
+		return FALSE;
+	}
+
+	if (victim == ch) {
+		stc("I believe you are suffering from a mild case of schizophrenia.\n", ch);
+		return FALSE;
+	}
+
+	if (is_safe(ch, victim, TRUE))
+		return FALSE;
+
+	if (victim->fighting != NULL
+	    && !is_same_group(ch, victim->fighting)) {
+		stc("Kill stealing is not permitted.\n", ch);
+		return FALSE;
+	}
+
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
+		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+
 void do_kill(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -3752,46 +3797,8 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if ((ch->in_room->sector_type == SECT_ARENA) && (!battle.start)) {
-		stc("Hold your horses, the battle hasn't begun yet!\n", ch);
+	if (!check_attack_ok(ch, victim))
 		return;
-	}
-
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim)) {
-		stc("Morphed players cannot attack PC's.\n", ch);
-		wiznet("$N is attempting PK while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-		return;
-	}
-
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && IS_SET(victim->act, ACT_PET)) {
-		stc("Morphed players cannot attack pets.\n", ch);
-		wiznet("$N is attempting to kill a pet while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-		return;
-	}
-
-	if (affect_exists_on_char(ch, gsn_fear)) {
-		stc("But they would beat the stuffing out of you!!\n", ch);
-		return;
-	}
-
-	if (victim == ch) {
-		stc("I believe you are suffering from a mild case of schizophrenia.\n", ch);
-		return;
-	}
-
-	if (is_safe(ch, victim, TRUE))
-		return;
-
-	if (victim->fighting != NULL
-	    && !is_same_group(ch, victim->fighting)) {
-		stc("Kill stealing is not permitted.\n", ch);
-		return;
-	}
-
-	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
-		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
-		return;
-	}
 
 	if (ch->fighting) {
 		stc("You do the best you can!\n", ch);
@@ -5265,19 +5272,14 @@ the next room over.
 void do_bow(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = NULL;
-	sh_int direction_number;
-	char victim_name[256];
-	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit = NULL;
-	OBJ_DATA *wield;
 
 	if (IS_NPC(ch))
 		return;
 
 	/* make sure we are holding a bow */
-	wield = get_eq_char(ch, WEAR_WIELD);
+	OBJ_DATA *wield = get_eq_char(ch, WEAR_WIELD);
 
-	if (! wield) {
+	if (wield == NULL) {
 		stc("You are not wielding anything.\n", ch);
 		return;
 	}
@@ -5287,122 +5289,89 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, victim_name);
+	if (argument[0] == '\0') { // no arguments, can only target current opponent
+		victim = ch->fighting; // could be NULL
 
-	if (! victim_name[0]) {
-		stc("Whom would you like to shoot?\n", ch);
-		return;
-	}
-
-	/* check to see if we are shooting into another room */
-	switch (argument[0]) {
-	case 'n': direction_number = DIR_NORTH; break;
-
-	case 's': direction_number = DIR_SOUTH; break;
-
-	case 'e': direction_number = DIR_EAST; break;
-
-	case 'w': direction_number = DIR_WEST; break;
-
-	case 'u': direction_number = DIR_UP; break;
-
-	case 'd': direction_number = DIR_DOWN; break;
-
-	default: direction_number = -1; break;   /* for same room */
-	}
-
-	/* now we get which room we are aiming at */
-	if (direction_number >= 0) {
-		if ((pexit = ch->in_room->exit[direction_number]) == NULL
-		    || (to_room = pexit->u1.to_room) == NULL
-		    || !can_see_room(ch, to_room)) {
-			stc("Alas, you cannot shoot in that direction.\n", ch);
-			return;
-		}
-
-		/* check for a door in the way */
-		if (IS_SET(pexit->exit_info, EX_ISDOOR)
-		    && IS_SET(pexit->exit_info, EX_CLOSED)) {
-			stc("A door blocks the path of the arrow.\n", ch);
+		if (victim == NULL) {
+			stc("Whom do you want to shoot?\n", ch);
 			return;
 		}
 	}
-	else
-		to_room = ch->in_room;
+	else { // if any arguments, try parsing the first one for a direction
+		char dir_str[MIL], dir_arg[MIL];
+		const char *target_str = one_argument(argument, dir_arg);
+		ROOM_INDEX_DATA *target_room = NULL;
 
-	/*
-	Taking thi sout and using a new way of finding the target. Rather
-	than find the mob and then check the right room. We shall get
-	the room (to_room) and search for the target in that room only.
-	-- Outsider
-	victim = get_char_area( ch, victim_name, VIS_CHAR );
-	if (! victim)
-	{
-	   stc("You do not see your target.\n", ch);
-	   return;
+		// north = 1, north; 1.north = 1, north; 2.north = 2, north; etc
+		int distance = number_argument(dir_arg, dir_str);
+		int dir = -1;
+
+		     if (!str_prefix1(dir_str, "north")) dir = DIR_NORTH;
+		else if (!str_prefix1(dir_str, "east"))  dir = DIR_EAST;
+		else if (!str_prefix1(dir_str, "south")) dir = DIR_SOUTH;
+		else if (!str_prefix1(dir_str, "west"))  dir = DIR_WEST;
+		else if (!str_prefix1(dir_str, "up"))    dir = DIR_UP;
+		else if (!str_prefix1(dir_str, "down"))  dir = DIR_DOWN;
+
+		if (dir == -1) {
+			target_str = argument; // revert, search here
+			target_room = ch->in_room;
+		}
+		else {
+			ROOM_INDEX_DATA *room = ch->in_room;
+
+			for (int i = 0; i < distance; i++) {
+				ROOM_INDEX_DATA *to_room;
+				EXIT_DATA *pexit;
+
+				if ((pexit = room->exit[dir]) == NULL
+		         || (to_room = pexit->u1.to_room) == NULL
+		         || !can_see_room(ch, to_room)) {
+					ptc(ch, "Alas, you cannot shoot%s in that direction.\n", i == 0 ? "" : " that far");
+					return;
+				}
+
+				/* check for a door in the way */
+				if (IS_SET(pexit->exit_info, EX_ISDOOR)
+			     && IS_SET(pexit->exit_info, EX_CLOSED)) {
+					stc("A door blocks the path of the arrow.\n", ch);
+					return;
+				}
+
+				room = to_room;
+			}
+
+			target_room = room;
+		}
+
+		if (target_str[0] == '\0') {
+			stc("Whom do you want to shoot?\n", ch);
+			return;
+		}
+
+		victim = get_char_room(ch, target_room, target_str, VIS_CHAR);
 	}
 
-	if ( victim->in_room != to_room )
-	{
-	  stc("You do not see your target there.\n", ch);
-	  return;
-	}
-	*/
-	victim = get_char_room(ch, to_room, victim_name, VIS_CHAR);
-
-	if (! victim) {
+	if (victim == NULL) {
 		stc("You do not see your target.\n", ch);
 		return;
 	}
 
-	/* Go through all the same checks as in do_kill() to make sure
-	   we are allowed to shoot our target. -- Outsider
-	*/
-	if ((ch->in_room->sector_type == SECT_ARENA) && (!battle.start)) {
-		stc("Hold your horses, the battle hasn't begun yet!\n", ch);
+	if (!check_attack_ok(ch, victim))
 		return;
-	}
-
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim)) {
-		stc("Morphed players cannot attack PC's.\n", ch);
-		wiznet("$N is attempting PK while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-		return;
-	}
-
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && IS_SET(victim->act, ACT_PET)) {
-		stc("Morphed players cannot attack pets.\n", ch);
-		wiznet("$N is attempting to kill a pet while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-		return;
-	}
-
-	if (affect_exists_on_char(ch, gsn_fear)) {
-		stc("But they would beat the stuffing out of you!!\n", ch);
-		return;
-	}
-
-	if (victim == ch) {
-		stc("I believe you are suffering from a mild case of schizophrenia.\n", ch);
-		return;
-	}
-
-	if (is_safe(ch, victim, TRUE))
-		return;
-
-	if (victim->fighting != NULL
-	    && !is_same_group(ch, victim->fighting)) {
-		stc("Kill stealing is not permitted.\n", ch);
-		return;
-	}
-
-	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
-		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
-		return;
-	}
 
 	/* shoot! */
 	stc("You shoot at your target!\n", ch);
 	stc("Someone is shooting at you!\n", victim);
-	one_hit(ch, victim, wield->value[0], FALSE);
+
+	// temporarily move the shooter to the victim, makes damage messages easier
+	ROOM_INDEX_DATA *old_room = ch->in_room;
+	char_from_room(ch);
+	char_to_room(ch, victim->in_room);
+	one_hit(ch, victim, TYPE_UNDEFINED, FALSE);
+	char_from_room(ch);
+	char_to_room(ch, old_room);
+
 	WAIT_STATE(ch, skill_table[gsn_backstab].beats);
 	check_improve(ch, gsn_bow, TRUE, 5); /* change added for gains on shooting now damnit leave it*/
 

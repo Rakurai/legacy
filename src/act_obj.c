@@ -5123,6 +5123,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	case WEAPON_WHIP   : obj->value[3] = attack_lookup("whip");    break;
 
 	case WEAPON_POLEARM: obj->value[3] = attack_lookup("beating"); break;
+	case WEAPON_BOW    : obj->value[3] = attack_lookup("arrow"); break;
 	}
 
 	obj->weight = number_fuzzy(number_range(ch->level / 10, ch->level / 15) * 10);
