@@ -546,7 +546,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 				add_buf(output, buf);
 			}
 
-			for (x = 1; x < victim->pcdata->remort_count / 20 + 1; x++) {
+			for (x = 1; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 				if (victim->pcdata->extraclass[x]) {
 					sprintf(buf, ", %s", skill_table[victim->pcdata->extraclass[x]].name);
 					add_buf(output, buf);
@@ -580,7 +580,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 
 	/* if they have it, loop through and set it to 0 */
 	if (HAS_EXTRACLASS(victim, sn)) {
-		for (x = 0; x < victim->pcdata->remort_count / 20 + 1; x++) {
+		for (x = 0; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 			if (victim->pcdata->extraclass[x] == sn) {
 				victim->pcdata->extraclass[x] = 0;
 				stc("Extraclass skill removed.\n", ch);
@@ -612,7 +612,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* they don't have it, let's put it in the first blank spot */
-	for (x = 0; x < victim->pcdata->remort_count / 20 + 1; x++) {
+	for (x = 0; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 		if (victim->pcdata->extraclass[x] <= 0) {
 			victim->pcdata->extraclass[x] = sn;
 

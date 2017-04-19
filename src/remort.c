@@ -215,7 +215,7 @@ bool HAS_EXTRACLASS(CHAR_DATA *ch, int sn)
 	if (IS_NPC(ch))
 		return FALSE;
 
-	for (i = 0; i < ((ch->pcdata->remort_count / 20) + 1); i++) {
+	for (i = 0; i < ((ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS) + 1); i++) {
 		if (ch->pcdata->extraclass[i] == sn)
 			return TRUE;
 	}
@@ -329,7 +329,7 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 				ptb(output, " %s",
 				    skill_table[ch->pcdata->extraclass[0]].name);
 
-			for (x = 1; x < ch->pcdata->remort_count / 20 + 1; x++)
+			for (x = 1; x < ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++)
 				if (ch->pcdata->extraclass[x])
 					ptb(output, ", %s",
 					    skill_table[ch->pcdata->extraclass[x]].name);
@@ -379,7 +379,7 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* find the first blank spot, and add the skill */
-	for (x = 0; x < ch->pcdata->remort_count / 20 + 1; x++) {
+	for (x = 0; x < ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 		if (!ch->pcdata->extraclass[x]) {
 			ch->pcdata->extraclass[x] = sn;
 

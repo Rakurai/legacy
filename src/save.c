@@ -415,7 +415,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
 
 		item = NULL;
-		for (int i = 0; i < (ch->pcdata->remort_count / 20) + 1; i++) {
+		for (int i = 0; i < (ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS) + 1; i++) {
 			if (ch->pcdata->extraclass[i] == 0)
 				break;
 

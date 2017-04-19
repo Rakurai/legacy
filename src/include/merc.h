@@ -174,6 +174,7 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 #define MAX_RAFFECTS	           54
 #define MAX_RAFFECT_SLOTS          10
 #define MAX_EXTRACLASS_SLOTS        5
+#define EXTRACLASS_SLOT_LEVELS     10 // number of remorts per extra extraclass slot
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
 #define MAX_SKILL                 234
