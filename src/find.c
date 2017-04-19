@@ -60,7 +60,7 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, rch))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -104,7 +104,7 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, ach))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, ach))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -156,7 +156,7 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, wch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, wch))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -204,7 +204,7 @@ CHAR_DATA *get_char_here(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, rch))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -256,7 +256,7 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argum
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, rch))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -297,7 +297,7 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, ach))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, ach))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -346,7 +346,7 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, wch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, wch))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -374,7 +374,7 @@ CHAR_DATA *get_player_here(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, rch))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -415,7 +415,7 @@ CHAR_DATA *get_player_area(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, ach))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, ach))      continue;       break;
 
 		default:                                                        break;
 		}
@@ -457,7 +457,7 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, const char *argument, int vis)
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;
 
-		case VIS_CHAR:  if (!can_see(ch, wch))      continue;       break;
+		case VIS_CHAR:  if (!can_see_char(ch, wch))      continue;       break;
 
 		default:                                                        break;
 		}

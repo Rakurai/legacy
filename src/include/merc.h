@@ -2875,7 +2875,7 @@ extern sh_int	gsn_critical_blow;
  * Description macros.
  */
 #define PERS(ch, looker, vis)   (  (vis == VIS_ALL					\
-				|| (vis == VIS_CHAR && can_see(looker, ch))		\
+				|| (vis == VIS_CHAR && can_see_char(looker, ch))		\
 				|| (vis == VIS_PLR && can_see_who(looker, ch))) ?	\
 				IS_NPC(ch) ? ch->short_descr : ch->name : "someone")
 
@@ -3634,7 +3634,7 @@ bool    room_is_very_dark args((ROOM_INDEX_DATA *room));
 bool    is_room_owner   args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room) );
 bool    room_is_private args(( ROOM_INDEX_DATA *pRoomIndex ) );
 bool    is_blinded      args(( CHAR_DATA *ch ));
-bool    can_see         args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
+bool    can_see_char    args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_who     args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    can_see_obj     args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 bool    can_see_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );

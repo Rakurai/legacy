@@ -408,7 +408,7 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 		if ((victim = vpc->ch) == NULL
 		    || IS_NPC(victim)
 		    || victim->in_room == NULL
-		    || !can_see(ch, victim)
+		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))
 			continue;
 
@@ -464,7 +464,7 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 	for (victim = char_list; victim != NULL; victim = victim->next) {
 		if (!IS_NPC(victim)
 		    || victim->in_room == NULL
-		    || !can_see(ch, victim)
+		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))
 			continue;
 
@@ -631,7 +631,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 		if (in_obj->carried_by) {
 			if (in_obj->carried_by->in_room == NULL
 			    || !can_see_room(ch, in_obj->carried_by->in_room)
-			    || !can_see(ch, in_obj->carried_by))
+			    || !can_see_char(ch, in_obj->carried_by))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
@@ -644,7 +644,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 		else if (in_obj->in_locker) {
 			if (in_obj->in_locker->in_room == NULL
 			    || !can_see_room(ch, in_obj->in_locker->in_room)
-			    || !can_see(ch, in_obj->in_locker))
+			    || !can_see_char(ch, in_obj->in_locker))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
@@ -657,7 +657,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 		else if (in_obj->in_strongbox) {
 			if (in_obj->in_strongbox->in_room == NULL
 			    || !can_see_room(ch, in_obj->in_strongbox->in_room)
-			    || !can_see(ch, in_obj->in_strongbox))
+			    || !can_see_char(ch, in_obj->in_strongbox))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",

@@ -442,7 +442,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see(ch, victim))
+			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -464,7 +464,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see(ch, victim))
+			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -493,7 +493,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim)
-			    || !can_see(ch, victim))
+			    || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -517,7 +517,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see(ch, victim))
+			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -538,7 +538,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see(ch, victim))
+			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -560,7 +560,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see(ch, victim))
+			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -582,7 +582,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see(ch, victim))
+			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -1652,7 +1652,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		stop_fighting(ch, TRUE);
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (can_see(rch, ch)) {
+		if (can_see_char(rch, ch)) {
 			if (ch->pcdata != NULL && ch->pcdata->bamfout[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfout, rch, TO_VICT);
 			else
@@ -1667,7 +1667,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	char_to_room(ch, location);
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (can_see(rch, ch)) {
+		if (can_see_char(rch, ch)) {
 			if (ch->pcdata != NULL && ch->pcdata->bamfin[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
 			else
@@ -2618,7 +2618,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		if (in_obj->carried_by) {
 			if (in_obj->carried_by->in_room == NULL
 			    || !can_see_room(ch, in_obj->carried_by->in_room)
-			    || !can_see(ch, in_obj->carried_by))
+			    || !can_see_char(ch, in_obj->carried_by))
 				continue;
 
 			/* keep multiple hits on the same person from being displayed
@@ -2641,7 +2641,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		else if (in_obj->in_locker) {
 			if (in_obj->in_locker->in_room == NULL
 			    || !can_see_room(ch, in_obj->in_locker->in_room)
-			    || !can_see(ch, in_obj->in_locker))
+			    || !can_see_char(ch, in_obj->in_locker))
 				continue;
 
 			/* keep multiple hits on the same locker from being displayed
@@ -2664,7 +2664,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		else if (in_obj->in_strongbox) {
 			if (in_obj->in_strongbox->in_room == NULL
 			    || !can_see_room(ch, in_obj->in_strongbox->in_room)
-			    || !can_see(ch, in_obj->in_strongbox))
+			    || !can_see_char(ch, in_obj->in_strongbox))
 				continue;
 
 			/* try not to get same items in the same place multiple times
@@ -3514,7 +3514,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 			    d->character ? d->character->name : "(none)",
 			    d->host);
 		}
-		else if (can_see(ch, d->character)
+		else if (can_see_char(ch, d->character)
 		         && (arg[0] == '\0'
 		             || is_name(arg, d->character->name)
 		             || (d->original && is_name(arg, d->original->name)))) {
@@ -3554,7 +3554,7 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 
 		if (vpc->ch != ch
 		    && IS_SET(vpc->plr, PLR_LINK_DEAD)
-		    && can_see(ch, vpc->ch)
+		    && can_see_char(ch, vpc->ch)
 		    && (arg[0] == '\0'
 		        || is_name(arg, vpc->ch->name))) {
 			strftime(s, 100, "%I:%M%p", localtime(&vpc->ch->logon));
@@ -3767,7 +3767,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 			if (IS_PLAYING(d)
 			    &&   d->character != ch
 			    &&   d->character->in_room != NULL
-			    &&   can_see(ch, d->character)) {
+			    &&   can_see_char(ch, d->character)) {
 				char buf[MAX_STRING_LENGTH];
 				sprintf(buf, "%s %s", d->character->name, arg2);
 				do_transfer(ch, buf);
@@ -3868,7 +3868,7 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 		stop_fighting(ch, TRUE);
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (can_see(rch, ch)) {
+		if (can_see_char(rch, ch)) {
 			if (ch->pcdata != NULL && ch->pcdata->bamfout[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfout, rch, TO_VICT);
 			else
@@ -3880,7 +3880,7 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 	char_to_room(ch, location);
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (can_see(rch, ch)) {
+		if (can_see_char(rch, ch)) {
 			if (ch->pcdata != NULL && ch->pcdata->bamfin[0] != '\0')
 				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
 			else

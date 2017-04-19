@@ -292,7 +292,7 @@ void hunt_victim(CHAR_DATA *ch)
 		}
 	}
 
-	if (!found || !can_see(ch, ch->hunting)) {
+	if (!found || !can_see_char(ch, ch->hunting)) {
 		do_say(ch, "Damn!  My prey is gone!!");
 		ch->hunting = NULL;
 		return;

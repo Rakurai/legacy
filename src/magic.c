@@ -3130,10 +3130,10 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	chance -= ((victim->stam * 20) / GET_MAX_STAM(victim));
 	chance -= get_skill(victim, gsn_dodge) / 7;
 
-	if (!can_see(victim, ch))
+	if (!can_see_char(victim, ch))
 		chance += 20;
 
-	if (!can_see(ch, victim))
+	if (!can_see_char(ch, victim))
 		chance -= 20;
 
 	if (affect_exists_on_char(victim, gsn_pass_door))
@@ -4331,7 +4331,7 @@ void spell_locate_life(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	buffer = new_buf();
 
 	for (victim = char_list; victim != NULL; victim = victim->next) {
-		if (!can_see(ch , victim)        /* NOT can_see_who */
+		if (!can_see_char(ch , victim)        /* NOT can_see_who */
 		    || !is_name(target_name, victim->name)
 		    || victim->in_room == NULL
 		    || number_percent() > 2 * level
@@ -4384,7 +4384,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
 			;
 
-		if (in_obj->carried_by != NULL && can_see(ch, in_obj->carried_by))
+		if (in_obj->carried_by != NULL && can_see_char(ch, in_obj->carried_by))
 			sprintf(buf, "%s is carried by %s\n", obj->short_descr, PERS(in_obj->carried_by, ch, VIS_CHAR));
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)

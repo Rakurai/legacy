@@ -212,7 +212,7 @@ void violence_update(void)
 		    && victim->master != NULL
 		    && victim->master->in_room == ch->in_room
 		    && chance(15)) {
-			if (!can_see(ch, victim->master)) {
+			if (!can_see_char(ch, victim->master)) {
 				if (chance(50))
 					do_flee(ch, "");
 			}
@@ -473,7 +473,7 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 							continue;
 
 						for (CHAR_DATA *vch = ch->in_room->people; vch; vch = vch->next) {
-							if (can_see(rch, vch)
+							if (can_see_char(rch, vch)
 							    && is_same_group(vch, victim)
 							    && number_range(0, number) == 0) {
 								target = vch;
@@ -987,7 +987,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 	if (victim_ac < -15)
 		victim_ac = (victim_ac + 15) / 5 - 15;
 
-	if (!can_see(ch, victim))
+	if (!can_see_char(ch, victim))
 		victim_ac -= 4;
 
 	if (get_position(victim) < POS_FIGHTING)
@@ -2086,7 +2086,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		chance -= (100 - skill) / 4;
 	}
 
-	if (!can_see(victim, ch))
+	if (!can_see_char(victim, ch))
 		chance /= 2;
 
 	if (affect_exists_on_char(victim, gsn_paralyze))
@@ -2182,7 +2182,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		chance -= (100 - skill) / 5;
 	}
 
-	if (!can_see(victim, ch))
+	if (!can_see_char(victim, ch))
 		chance /= 2;
 
 	if (affect_exists_on_char(victim, gsn_paralyze))
@@ -2230,7 +2230,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = ((get_skill(victim, gsn_dual_wield) + get_skill(victim, gsn_hand_to_hand)) / 3);
 
-	if (!can_see(victim, ch))
+	if (!can_see_char(victim, ch))
 		chance /= 2;
 
 	if (!chance(chance + victim->level - ch->level))
@@ -2337,13 +2337,13 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (affect_exists_on_char(ch, gsn_slow))
 		chance += 15;
 
-	if (!can_see(victim, ch))
+	if (!can_see_char(victim, ch))
 		chance -= 20;
 
-	if (!can_see(ch, victim))
+	if (!can_see_char(ch, victim))
 		chance += 20;
 
-//	if (!can_see(victim,ch))
+//	if (!can_see_char(victim,ch))
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
@@ -2422,13 +2422,13 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (affect_exists_on_char(ch, gsn_slow))
 		chance += 10;
 
-	if (!can_see(victim, ch))
+	if (!can_see_char(victim, ch))
 		chance -= 20;
 
-	if (!can_see(ch, victim))
+	if (!can_see_char(ch, victim))
 		chance += 20;
 
-//	if (!can_see(victim,ch))
+//	if (!can_see_char(victim,ch))
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
@@ -3882,7 +3882,7 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 				    && !IS_NPC(ach)
 				    && ach->in_room != NULL
 				    && ach->in_room->sector_type == SECT_ARENA
-				    && can_see(ch, ach))
+				    && can_see_char(ch, ach))
 					ptc(ch, "{G[%3d] {P%s{x\n", ach->level, ach->name);
 			}
 
@@ -4659,12 +4659,12 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* additional -20% if you're blind */
-		if (!can_see(ch, victim))
+		if (!can_see_char(ch, victim))
 			sight_modifier -= 20 * (100 - blind_fight_skill) / 100;
 	}
 
 	/* if you're blind, can't disarm, unless you're evo 2 or higher */
-	if (!can_see(ch, victim)) {
+	if (!can_see_char(ch, victim)) {
 		switch (evo) {
 		case 1: sight_modifier -= 100 * (100 - blind_fight_skill) / 100; break;
 		case 2: sight_modifier -= 60 * (100 - blind_fight_skill) / 100; break;

@@ -676,7 +676,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	int percent;
 	bool found;
 
-	if (can_see(victim, ch)) {
+	if (can_see_char(victim, ch)) {
 		if (ch == victim)
 			act("$n looks at $mself.", ch, NULL, NULL, TO_ROOM);
 		else {
@@ -810,7 +810,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		if (rch == ch)
 			continue;
 
-		if (can_see(ch, rch))
+		if (can_see_char(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
@@ -1727,7 +1727,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		    && duel->defender != NULL
 		    && ch != duel->challenger
 		    && ch != duel->defender) {
-			if (can_see(ch, duel->challenger)
+			if (can_see_char(ch, duel->challenger)
 			    && !IS_SET(GET_ROOM_FLAGS(duel->challenger->in_room), ROOM_NOWHERE)
 			    && !str_prefix1(arg1, duel->challenger->name)) {
 				char_from_room(ch);
@@ -1738,7 +1738,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			if (can_see(ch, duel->defender)
+			if (can_see_char(ch, duel->defender)
 			    && !IS_SET(GET_ROOM_FLAGS(duel->defender->in_room), ROOM_NOWHERE)
 			    && !str_prefix1(arg1, duel->defender->name)) {
 				char_from_room(ch);
@@ -3081,7 +3081,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			    && victim->in_room->vnum >= arena->minvnum
 			    && victim->in_room->vnum <= arena->maxvnum
 			    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOWHERE)
-			    && can_see(ch, victim)) {
+			    && can_see_char(ch, victim)) {
 				found = TRUE;
 				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name);
 			}
@@ -3103,7 +3103,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			    && victim->in_room != NULL
 			    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOWHERE)
 			    && victim->in_room->area == ch->in_room->area
-			    && can_see(ch, victim)) {
+			    && can_see_char(ch, victim)) {
 				found = TRUE;
 				ptc(ch, "%-28s{x %s{x\n", victim->name, victim->in_room->name);
 			}
@@ -3117,7 +3117,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			if (victim->in_room != NULL
 			    && victim->in_room->area == ch->in_room->area
 			    && !affect_exists_on_char(victim, gsn_hide)
-			    && can_see(ch, victim)
+			    && can_see_char(ch, victim)
 			    && is_name(arg, victim->name)) {
 				found = TRUE;
 				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name);

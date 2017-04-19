@@ -1078,7 +1078,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 			CHAR_DATA *rch;
 
 			for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
-				if (!IS_IMMORTAL(ch) || can_see(rch, ch))
+				if (!IS_IMMORTAL(ch) || can_see_char(rch, ch))
 					ptc(rch, "%s has lost %s link.\n",
 					    PERS(ch, rch, VIS_CHAR),
 					    GET_ATTR_SEX(ch) == SEX_FEMALE ? "her" :
@@ -1380,7 +1380,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			else
 				sprintf(atb, "{x");
 
-			if (can_see(ch, victim)) {
+			if (can_see_char(ch, victim)) {
 				int percent;
 
 				if (IS_NPC(victim))
@@ -2200,7 +2200,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
 						stc("You have messages: Type 'replay'\n", ch);
 
 				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
-					if (ch != rch && can_see(rch, ch))
+					if (ch != rch && can_see_char(rch, ch))
 						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
 
 				sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);

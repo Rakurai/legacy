@@ -1322,7 +1322,7 @@ void do_give(CHAR_DATA *ch, const char *argument)
 			if (silver && change > victim->gold)
 				victim->gold += change;
 
-			if (!can_see(victim, ch)) {
+			if (!can_see_char(victim, ch)) {
 				act("$n looks around for whoever could be so generous.", victim, NULL, NULL, TO_ROOM);
 				return;
 			}
@@ -3638,7 +3638,7 @@ CHAR_DATA *find_keeper(CHAR_DATA *ch)
 	/*
 	 * Invisible or hidden people.
 	 */
-	if (!can_see(keeper, ch)) {
+	if (!can_see_char(keeper, ch)) {
 		do_say(keeper, "Umm, Sorry, If I could see you, we could trade!");
 		return NULL;
 	}

@@ -1310,7 +1310,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'n':
 		if (actor)
-			if (can_see(mob, actor))
+			if (can_see_char(mob, actor))
 				one_argument(actor->name, t);
 
 		if (!IS_NPC(actor))
@@ -1320,7 +1320,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'N':
 		if (actor) {
-			if (can_see(mob, actor)) {
+			if (can_see_char(mob, actor)) {
 				if (IS_NPC(actor))
 					strcpy(t, actor->short_descr);
 				else {
@@ -1337,7 +1337,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 't':
 		if (vict) {
-			if (can_see(mob, vict))
+			if (can_see_char(mob, vict))
 				one_argument(vict->name, t);
 		}
 
@@ -1348,7 +1348,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'T':
 		if (vict) {
-			if (can_see(mob, vict)) {
+			if (can_see_char(mob, vict)) {
 				if (IS_NPC(vict))
 					strcpy(t, vict->short_descr);
 				else {
@@ -1365,7 +1365,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'r':
 		if (rndm) {
-			if (can_see(mob, rndm))
+			if (can_see_char(mob, rndm))
 				one_argument(rndm->name, t);
 			else
 				strcpy(t, "someone");
@@ -1378,7 +1378,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'R':
 		if (rndm) {
-			if (can_see(mob, rndm)) {
+			if (can_see_char(mob, rndm)) {
 				if (IS_NPC(rndm))
 					strcpy(t, rndm->short_descr);
 				else {
@@ -1395,42 +1395,42 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'e':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, he_she[GET_ATTR_SEX(actor)])
+			can_see_char(mob, actor) ? strcpy(t, he_she[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'm':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, him_her[GET_ATTR_SEX(actor)])
+			can_see_char(mob, actor) ? strcpy(t, him_her[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 's':
 		if (actor)
-			can_see(mob, actor) ? strcpy(t, his_her[GET_ATTR_SEX(actor)])
+			can_see_char(mob, actor) ? strcpy(t, his_her[GET_ATTR_SEX(actor)])
 			: strcpy(t, "someone's");
 
 		break;
 
 	case 'E':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, he_she[GET_ATTR_SEX(vict)])
+			can_see_char(mob, vict) ? strcpy(t, he_she[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'M':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, him_her[GET_ATTR_SEX(vict)])
+			can_see_char(mob, vict) ? strcpy(t, him_her[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'S':
 		if (vict)
-			can_see(mob, vict) ? strcpy(t, his_her[GET_ATTR_SEX(vict)])
+			can_see_char(mob, vict) ? strcpy(t, his_her[GET_ATTR_SEX(vict)])
 			: strcpy(t, "someone's");
 
 		break;
@@ -1449,21 +1449,21 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	case 'J':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, he_she[GET_ATTR_SEX(rndm)])
+			can_see_char(mob, rndm) ? strcpy(t, he_she[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'K':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, him_her[GET_ATTR_SEX(rndm)])
+			can_see_char(mob, rndm) ? strcpy(t, him_her[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone");
 
 		break;
 
 	case 'L':
 		if (rndm)
-			can_see(mob, rndm) ? strcpy(t, his_her[GET_ATTR_SEX(rndm)])
+			can_see_char(mob, rndm) ? strcpy(t, his_her[GET_ATTR_SEX(rndm)])
 			: strcpy(t, "someone's");
 
 		break;
@@ -1591,7 +1591,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	for (vch = mob->in_room->people; vch; vch = vch->next_in_room) {
 		if (!IS_NPC(vch)
 		    &&  !IS_IMMORTAL(vch)
-		    &&  can_see(mob, vch)) {
+		    &&  can_see_char(mob, vch)) {
 			if (number_range(0, count) == 0)
 				rndm = vch;
 
@@ -1833,14 +1833,14 @@ void mprog_greet_trigger(CHAR_DATA *ch)
 	for (vmob = ch->in_room->people; vmob != NULL; vmob = vmob->next_in_room)
 		if (IS_NPC(vmob)
 		    && ch != vmob
-		    && can_see(vmob, ch)
+		    && can_see_char(vmob, ch)
 		    && (vmob->fighting == NULL)
 		    && IS_AWAKE(vmob)
 		    && (vmob->pIndexData->progtypes & GREET_PROG))
 			mprog_percent_check(vmob, ch, NULL, NULL, GREET_PROG);
 		else if (IS_NPC(vmob)
 		         && ch != vmob
-		         && can_see(vmob, ch)
+		         && can_see_char(vmob, ch)
 		         && (vmob->fighting == NULL)
 		         && IS_AWAKE(vmob)
 		         && (vmob->pIndexData->progtypes & ALL_GREET_PROG))

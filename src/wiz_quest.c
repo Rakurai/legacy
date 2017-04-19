@@ -177,12 +177,12 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 		stc("--------------------\n", ch);
 
 		for (d = descriptor_list; d != NULL; d = d->next) {
-			if (!IS_PLAYING(d) || !can_see(ch, d->character))
+			if (!IS_PLAYING(d) || !can_see_char(ch, d->character))
 				continue;
 
 			victim = (d->original != NULL) ? d->original : d->character;
 
-			if (!can_see(ch, victim))
+			if (!can_see_char(ch, victim))
 				continue;
 
 			sprintf(buf, "%-14s {V%5d{x\n", victim->name, victim->pcdata->rolepoints);

@@ -1352,7 +1352,7 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 	ch->master        = master;
 	ch->leader        = NULL;
 
-	if (can_see(master, ch))
+	if (can_see_char(master, ch))
 		act("$n now follows you.", ch, NULL, master, TO_VICT);
 
 	act("You now follow $N.",  ch, NULL, master, TO_CHAR);
@@ -1370,7 +1370,7 @@ void stop_follower(CHAR_DATA *ch)
 		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
 
-	if (can_see(ch->master, ch) && ch->in_room != NULL) {
+	if (can_see_char(ch->master, ch) && ch->in_room != NULL) {
 		act("$n stops following you.",     ch, NULL, ch->master, TO_VICT);
 		act("You stop following $N.",      ch, NULL, ch->master, TO_CHAR);
 	}

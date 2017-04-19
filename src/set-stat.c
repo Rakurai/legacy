@@ -1856,7 +1856,7 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 		stc("{GCharacters:{x ", ch);
 
 		for (rch = location->people; rch; rch = rch->next_in_room)
-			if (can_see(ch, rch)) {
+			if (can_see_char(ch, rch)) {
 				one_argument(rch->name, buf);
 				ptc(ch, "%s{x%s", buf, rch->next_in_room ? " " : "\n");
 			}

@@ -211,7 +211,7 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int depth, sh_int d
 		if (rch == ch)
 			continue;
 
-		if (can_see(ch, rch)) {
+		if (can_see_char(ch, rch)) {
 			if (IS_NPC(rch))
 				new_color(ch, CSLOT_MISC_MOBILES);
 			else

@@ -609,7 +609,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	                        if (IS_PLAYING(d)
 	                         && d->character != ch
 	                         && d->character->in_room != NULL
-	                         && can_see(ch, d->character))
+	                         && can_see_char(ch, d->character))
 	                        {
 	                                char buf[MSL];
 
@@ -683,7 +683,7 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
 
 			if (vch->in_room == ch->in_room
 			    && !IS_IMMORTAL(vch))
-//			 && can_see(ch, vch))  who cares about whether the mob can see? -- Montrey
+//			 && can_see_char(ch, vch))  who cares about whether the mob can see? -- Montrey
 				interpret(vch, argument);
 		}
 	}

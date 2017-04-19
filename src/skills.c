@@ -1590,7 +1590,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	/* find a trainer */
 	for (trainer = ch->in_room->people; trainer; trainer = trainer->next_in_room)
-		if (IS_NPC(trainer) && IS_SET(trainer->act, ACT_GAIN) && can_see(ch, trainer))
+		if (IS_NPC(trainer) && IS_SET(trainer->act, ACT_GAIN) && can_see_char(ch, trainer))
 			break;
 
 	if (trainer == NULL) {

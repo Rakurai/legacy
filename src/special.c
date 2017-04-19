@@ -420,7 +420,7 @@ bool dragon(CHAR_DATA *ch, int sn)
 
 	for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
 		if (victim->fighting == ch
-		    && can_see(ch, victim)
+		    && can_see_char(ch, victim)
 		    && number_bits(3) == 0)
 			break;
 
@@ -493,7 +493,7 @@ bool spec_cast_adept(CHAR_DATA *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (victim != ch && can_see(ch, victim) && number_bits(1) == 0
+		if (victim != ch && can_see_char(ch, victim) && number_bits(1) == 0
 		    && !IS_NPC(victim) && victim->level < 11)
 			break;
 	}
@@ -764,11 +764,11 @@ bool spec_executioner(CHAR_DATA *ch)
 		v_next = victim->next_in_room;
 
 		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)
-		    &&   can_see(ch, victim))
+		    &&   can_see_char(ch, victim))
 		{ crime = "KILLER"; break; }
 
 		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)
-		    &&   can_see(ch, victim))
+		    &&   can_see_char(ch, victim))
 		{ crime = "THIEF"; break; }
 	}
 
@@ -835,11 +835,11 @@ bool spec_guard(CHAR_DATA *ch)
 
 		/* REWORK PK - Lotus
 		        if ( !IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)
-		        &&   can_see(ch,victim))
+		        &&   can_see_char(ch,victim))
 		            { crime = "KILLER"; break; }
 
 		        if ( !IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)
-		        &&   can_see(ch,victim))
+		        &&   can_see_char(ch,victim))
 		            { crime = "THIEF"; break; }
 		*/
 
@@ -1026,7 +1026,7 @@ bool spec_thief(CHAR_DATA *ch)
 		if (IS_NPC(victim)
 		    ||   IS_IMMORTAL(victim)
 		    ||   number_bits(5) != 0
-		    ||   !can_see(ch, victim))
+		    ||   !can_see_char(ch, victim))
 			continue;
 
 		if (IS_AWAKE(victim) && number_range(0, ch->level) == 0) {

@@ -1658,7 +1658,7 @@ bool is_blinded(CHAR_DATA *ch) {
 /*
  * True if char can see victim.
  */
-bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
+bool can_see_char(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (ch == victim)
 		return TRUE;
@@ -1715,7 +1715,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	return TRUE;
-} /* end can_see() */
+} /* end can_see_char() */
 
 /*
  * True if char can see victim in WHO -- Elrac

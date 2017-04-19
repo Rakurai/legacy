@@ -1367,7 +1367,7 @@ void aggr_update(void)
 			    && ch->pcdata->squestobj == NULL) {
 				/* look for quest mob */
 				for (mob = room->people; mob != NULL; mob = mob->next_in_room) {
-					if (IS_NPC(mob) && mob == ch->pcdata->squestmob && can_see(mob, ch)) {
+					if (IS_NPC(mob) && mob == ch->pcdata->squestmob && can_see_char(mob, ch)) {
 						squestmob_found(ch, mob);
 						break;
 					}
@@ -1446,7 +1446,7 @@ void aggr_update(void)
 
 		/* final checks before the fight starts */
 		if ((IS_SET(mob->act, ACT_WIMPY) && IS_AWAKE(victim))
-		    || !can_see(mob, victim))
+		    || !can_see_char(mob, victim))
 			continue;
 
 		if (mob->level < victim->level - 5)
