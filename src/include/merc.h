@@ -196,6 +196,8 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 #define MAX_GRANT                  32   /* number of granted commands a player can have */
 #define QPS_PER_PRAC		   20
 #define QPS_PER_TRAIN	           200
+#define MAX_BOW_DISTANCE 3
+
 
 #define SILVER_PER_PLAYER	500000
 
