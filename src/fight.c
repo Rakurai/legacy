@@ -5332,7 +5332,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 				      && IS_SET(pexit->exit_info, EX_CLOSED)))
 						break; // target room is NULL
 
-					if (get_char_room(ch, room, target_str, VIS_CHAR)) {
+					if (get_char_room(ch, to_room, target_str, VIS_CHAR)) {
 						target_room = to_room;
 						break;
 					}
