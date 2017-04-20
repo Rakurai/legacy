@@ -2078,7 +2078,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 		case WEAPON_POLEARM:    skill = get_skill(victim, gsn_polearm); break;
 
-		case WEAPON_BOW:        skill = get_skill(victim, gsn_bow);     break;
+		case WEAPON_BOW:        skill = get_skill(victim, gsn_archery);     break;
 
 		default:                skill = UMIN(100, victim->level * 3);   break;
 		}
@@ -2174,7 +2174,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 		case WEAPON_POLEARM:    skill = get_skill(victim, gsn_polearm); break;
 
-		case WEAPON_BOW:        skill = get_skill(victim, gsn_bow);     break;
+		case WEAPON_BOW:        skill = get_skill(victim, gsn_archery);     break;
 
 		default:                skill = UMIN(100, victim->level * 3);   break;
 		}
@@ -5257,19 +5257,7 @@ void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-/*
-This function tries to shoot a bow/arrow at a target
-either in the same room, or another room.
-Agruments are passed in as so:
-bow <target> [direction]
-
-Where "bow" is the command. Target is the required target
-to shoot. Direction attempts to shoot a target in
-the next room over.
-( directions can be (n)orth, (s)outh, (e)ast, (w)est, (u)p or (d)own )
--- Outsider
-*/
-void do_bow(CHAR_DATA *ch, const char *argument)
+void do_shoot(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = NULL;
 
@@ -5278,6 +5266,7 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 
 	/* make sure we are holding a bow */
 	OBJ_DATA *wield = get_eq_char(ch, WEAR_WIELD);
+	int dir = -1;
 
 	if (wield == NULL) {
 		stc("You are not wielding anything.\n", ch);
@@ -5301,10 +5290,14 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		char dir_str[MIL], dir_arg[MIL];
 		const char *target_str = one_argument(argument, dir_arg);
 		ROOM_INDEX_DATA *target_room = NULL;
+		int distance = MAX_BOW_DISTANCE;
+		bool nearest = FALSE;
 
 		// north = 1, north; 1.north = 1, north; 2.north = 2, north; etc
-		int distance = number_argument(dir_arg, dir_str);
-		int dir = -1;
+		if (isdigit(dir_arg[0]))
+			distance = UMIN(number_argument(dir_arg, dir_str), MAX_BOW_DISTANCE);
+		else
+			nearest = TRUE;
 
 		     if (!str_prefix1(dir_str, "north")) dir = DIR_NORTH;
 		else if (!str_prefix1(dir_str, "east"))  dir = DIR_EAST;
@@ -5313,47 +5306,69 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		else if (!str_prefix1(dir_str, "up"))    dir = DIR_UP;
 		else if (!str_prefix1(dir_str, "down"))  dir = DIR_DOWN;
 
+		// find the target room
 		if (dir == -1) {
 			target_str = argument; // revert, search here
 			target_room = ch->in_room;
 		}
 		else {
-			ROOM_INDEX_DATA *room = ch->in_room;
-
-			for (int i = 0; i < distance; i++) {
-				ROOM_INDEX_DATA *to_room;
-				EXIT_DATA *pexit;
-
-				if ((pexit = room->exit[dir]) == NULL
-		         || (to_room = pexit->u1.to_room) == NULL
-		         || !can_see_room(ch, to_room)) {
-					ptc(ch, "Alas, you cannot shoot%s in that direction.\n", i == 0 ? "" : " that far");
-					return;
-				}
-
-				/* check for a door in the way */
-				if (IS_SET(pexit->exit_info, EX_ISDOOR)
-			     && IS_SET(pexit->exit_info, EX_CLOSED)) {
-					stc("A door blocks the path of the arrow.\n", ch);
-					return;
-				}
-
-				room = to_room;
+			if (target_str[0] == '\0') {
+				stc("Whom do you want to shoot?\n", ch);
+				return;
 			}
 
-			target_room = room;
+			ROOM_INDEX_DATA *room = ch->in_room;
+			ROOM_INDEX_DATA *to_room;
+			EXIT_DATA *pexit;
+
+			if (nearest) {
+				// find the nearest room with that target.  separated from below search code
+				// because of different messages to the archer
+				for (int i = 0; i < MAX_BOW_DISTANCE; i++) {
+					if ((pexit = room->exit[dir]) == NULL
+			         || (to_room = pexit->u1.to_room) == NULL
+			         || !can_see_room(ch, to_room)
+					 || (IS_SET(pexit->exit_info, EX_ISDOOR)
+				      && IS_SET(pexit->exit_info, EX_CLOSED)))
+						break; // target room is NULL
+
+					if (get_char_room(ch, room, target_str, VIS_CHAR)) {
+						target_room = to_room;
+						break;
+					}
+
+					room = to_room;
+				} // not found?  fall through with target_room is NULL
+			}
+			else {
+				for (int i = 0; i < distance; i++) {
+					if ((pexit = room->exit[dir]) == NULL
+			         || (to_room = pexit->u1.to_room) == NULL
+			         || !can_see_room(ch, to_room)) {
+						ptc(ch, "Alas, you cannot shoot%s in that direction.\n", i == 0 ? "" : " that far");
+						return;
+					}
+
+					/* check for a door in the way */
+					if (IS_SET(pexit->exit_info, EX_ISDOOR)
+				     && IS_SET(pexit->exit_info, EX_CLOSED)) {
+						stc("A door blocks the path of the arrow.\n", ch);
+						return;
+					}
+
+					room = to_room;
+				}
+
+				target_room = room;
+			}
 		}
 
-		if (target_str[0] == '\0') {
-			stc("Whom do you want to shoot?\n", ch);
-			return;
-		}
-
-		victim = get_char_room(ch, target_room, target_str, VIS_CHAR);
+		if (target_room != NULL)
+			victim = get_char_room(ch, target_room, target_str, VIS_CHAR);
 	}
 
 	if (victim == NULL) {
-		stc("You do not see your target.\n", ch);
+		stc("You do not see your target in that direction.\n", ch);
 		return;
 	}
 
@@ -5361,30 +5376,53 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		return;
 
 	/* shoot! */
-	stc("You shoot at your target!\n", ch);
-	stc("Someone is shooting at you!\n", victim);
+	stc("You let your arrow fly!\n", ch);
+
+	if (can_see_in_room(victim, victim->in_room)) {
+		if (victim->in_room == ch->in_room)
+			act("$n shoots an arrow at you!", ch, NULL, victim, TO_VICT);
+		else {
+			char *const dir_name [] =
+			{       "the north", "the east", "the south", "the west", "above", "below"      };
+			const sh_int rev_dir [] =
+			{       2, 3, 0, 1, 5, 4        };
+
+			ptc(victim, "An arrow flies at you from %s!", dir_name[rev_dir[dir]]);
+		}
+	}
+	else
+		stc("Someone is shooting at you!\n", victim);
 
 	// temporarily move the shooter to the victim, makes damage messages easier
+	// don't give away the shooter to the victim, make them temp superwiz
 	ROOM_INDEX_DATA *old_room = ch->in_room;
-	char_from_room(ch);
-	char_to_room(ch, victim->in_room);
+	bool was_superwiz = IS_SET(ch->act, PLR_SUPERWIZ);
+
+	if (old_room != victim->in_room) {
+		char_from_room(ch);
+		char_to_room(ch, victim->in_room);
+		SET_BIT(ch->act, PLR_SUPERWIZ);
+	}
+
+	// do the hit
 	one_hit(ch, victim, TYPE_UNDEFINED, FALSE);
-	char_from_room(ch);
-	char_to_room(ch, old_room);
+
+	// move them back
+	if (old_room != victim->in_room) {
+		char_from_room(ch);
+		char_to_room(ch, old_room);
+
+		if (!was_superwiz)
+			REMOVE_BIT(ch->act, PLR_SUPERWIZ);
+
+		/* if the target is NPC, then make it hunt the shooter */
+		if (IS_NPC(victim)) {
+			victim->hunting = ch;
+			hunt_victim(victim);
+		}
+	}
 
 	WAIT_STATE(ch, skill_table[gsn_backstab].beats);
-	check_improve(ch, gsn_bow, TRUE, 5); /* change added for gains on shooting now damnit leave it*/
-
-	/* make bees fight */
-	/*
-	if ( ch->in_room == victim->in_room )
-	  set_fighting( victim, ch);
-	*/
-
-	/* if the target is NPC, then make it hunt the shooter */
-	if (IS_NPC(victim)) {
-		victim->hunting = ch;
-		hunt_victim(victim);
-	}
+	check_improve(ch, gsn_archery, TRUE, 5); /* change added for gains on shooting now damnit leave it*/
 }   /* end of do bow */
 

@@ -88,7 +88,7 @@ DECLARE_DO_FUN( do_ban          );
 DECLARE_DO_FUN( do_bash         );
 DECLARE_DO_FUN( do_battle       );
 DECLARE_DO_FUN( do_berserk      );
-DECLARE_DO_FUN( do_bow          );
+DECLARE_DO_FUN( do_shoot          );
 DECLARE_DO_FUN( do_brandish     );
 DECLARE_DO_FUN( do_breakup	);
 DECLARE_DO_FUN( do_brew         );

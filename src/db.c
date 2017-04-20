@@ -219,7 +219,7 @@ sh_int  gsn_polearm;
 sh_int  gsn_spear;
 sh_int  gsn_sword;
 sh_int  gsn_whip;
-sh_int  gsn_bow;
+sh_int  gsn_archery;
 sh_int  gsn_shield_block;
 sh_int  gsn_brew;
 sh_int  gsn_scribe;

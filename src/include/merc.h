@@ -2646,7 +2646,7 @@ extern sh_int	gsn_polearm;
 extern sh_int	gsn_spear;
 extern sh_int	gsn_sword;
 extern sh_int	gsn_whip;
-extern sh_int   gsn_bow;
+extern sh_int   gsn_archery;
 extern sh_int	gsn_shield_block;
 extern sh_int	gsn_brew;
 extern sh_int	gsn_scribe;

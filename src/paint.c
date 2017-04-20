@@ -60,7 +60,7 @@ void do_reload(CHAR_DATA *ch)
 	stc(buf, ch);
 } /* end do_reload() */
 
-void do_shoot(CHAR_DATA *ch, const char *argument)
+void do_splat(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *gun;
 	ROOM_INDEX_DATA *location;

@@ -70,7 +70,6 @@ const struct item_type item_table[] = {
 
 /* weapon selection table */
 
-/* I am adding a bow here. Let's see if I can make a ranged weapon. -- Outsider */
 const struct weapon_type weapon_table[] = {
 	{       "sword",        OBJ_VNUM_SCHOOL_SWORD,  WEAPON_SWORD,   &gsn_sword      },
 	{       "mace",         OBJ_VNUM_SCHOOL_MACE,   WEAPON_MACE,    &gsn_mace       },
@@ -80,7 +79,7 @@ const struct weapon_type weapon_table[] = {
 	{       "flail",        OBJ_VNUM_SCHOOL_FLAIL,  WEAPON_FLAIL,   &gsn_flail      },
 	{       "whip",         OBJ_VNUM_SCHOOL_WHIP,   WEAPON_WHIP,    &gsn_whip       },
 	{       "polearm",      OBJ_VNUM_SCHOOL_POLEARM, WEAPON_POLEARM, &gsn_polearm    },
-	{       "bow",          OBJ_VNUM_SCHOOL_BOW,    WEAPON_BOW,     &gsn_bow        },
+	{       "bow",          OBJ_VNUM_SCHOOL_BOW,    WEAPON_BOW,     &gsn_archery     },
 	{       NULL,           0,                      0,              NULL            }
 };
 
@@ -2027,11 +2026,11 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 	{
-		"bow",                     { 61, 41, 35, 5, 61, 25, 1, 1 },
+		"archery",                     { 61, 41, 35, 5, 61, 25, 1, 1 },
 		{ 6, 5, 5, 4, 6, 5, 5, 4 },
 		spell_null,                TAR_IGNORE,            POS_STANDING,
-		&gsn_bow,                  SLOT(0),       0,      0,
-		"shot",                        "!Bow!",               "",     0,
+		&gsn_archery,                  SLOT(0),       0,      0,
+		"",                        "!Bow!",               "",     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },       { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 	{
