@@ -1764,7 +1764,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
 			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				stc("Your locker contains:\n", ch);
+				SET_BIT(ch->act, PLR_LOOKINPIT);
 				show_list_to_char(ch->pcdata->locker, ch, TRUE, TRUE, FALSE);
+				REMOVE_BIT(ch->act, PLR_LOOKINPIT);
 			}
 			else
 				stc("You do not see that here.\n", ch);
@@ -1781,7 +1783,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (ch->in_room && ch->in_room->vnum == ROOM_VNUM_STRONGBOX) {
 				stc("Your strongbox contains:\n", ch);
+				SET_BIT(ch->act, PLR_LOOKINPIT);
 				show_list_to_char(ch->pcdata->strongbox, ch, TRUE, TRUE, FALSE);
+				REMOVE_BIT(ch->act, PLR_LOOKINPIT);
 			}
 			else
 				stc("You do not see that here.\n", ch);
