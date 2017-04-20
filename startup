@@ -12,6 +12,7 @@ if ( "$1" != "" ) set port="$1"
 cd area
 ../bin/sand_server &
 # Set limits.
+ulimit -c unlimited
 if ( -e ../misc/shutdown.txt ) rm -f ../misc/shutdown.txt
 
 while ( 1 )

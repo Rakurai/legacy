@@ -27,3 +27,5 @@
 {Y[{x10/25/16{Y]{x {C[{x 1290{C]{x Montrey: work on dodge vs bash some more, not quite right yet
 {Y[{x11/03/16{Y]{x {C[{x 3001{C]{x Xenith: Add a command to force a reset of a room/zone/all zones
 {Y[{x11/04/16{Y]{x {C[{x 1202{C]{x Xenith: Fix wiznet/command log to log the full command, not the short version the player typed.
+{Y[{x12/06/16{Y]{x {C[{x 3370{C]{x Vegita: need to reference what skill points are used for (no helpfile for skillpoints)
+{Y[{x12/14/16{Y]{x {C[{x 1288{C]{x Vegita: work on exp computations, killing a mob 20 levels above you doesn't award good exp unless you are in certain levelling areas

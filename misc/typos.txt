@@ -7,3 +7,5 @@ Typo File (ask an imp to delete when fixed)
 {Y[{x07/29/14{Y]{x {C[{x16286{C]{x Montrey: missing punctuation here
 {Y[{x07/29/14{Y]{x {C[{x16281{C]{x Montrey: and here
 {Y[{x10/21/16{Y]{x {C[{x10422{C]{x Celes: "a few shards or bone and flash"
+{Y[{x12/07/16{Y]{x {C[{x 3001{C]{x Gowen: Speedwalk for Moria on website is wrong : it leads to mob factory
+{Y[{x12/07/16{Y]{x {C[{x10415{C]{x Vegita: from gowen: walking directions to descent into hell has random maze rooms in it
