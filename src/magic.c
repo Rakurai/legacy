@@ -4174,15 +4174,6 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		    obj->value[0], obj->value[1], obj->value[2], obj->value[3]);
 		break;
 
-	case ITEM_PBTUBE:
-		ptc(ch, "It contains %d paintballs.\n", obj->value[0]);
-		break;
-
-	case ITEM_PBGUN:
-		ptc(ch, "It is holding %d/%d paintballs.  It's rating is %d/%d/%d\n",
-		    obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
-		break;
-
 	case ITEM_MATERIAL:
 		ptc(ch, "Skill modifier: %d, Dice Bonus %d, Sides Bonus %d\n",
 		    obj->value[0], obj->value[1], obj->value[2]);

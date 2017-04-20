@@ -1879,10 +1879,6 @@ const char *item_type_name(OBJ_DATA *obj)
 
 	case ITEM_JUKEBOX:          return "juke box";
 
-	case ITEM_PBTUBE:           return "paint tube";
-
-	case ITEM_PBGUN:            return "paint gun";
-
 	case ITEM_MATERIAL:         return "material";
 
 	case ITEM_ANVIL:            return "anvil";
@@ -2291,7 +2287,7 @@ const char *plr_bit_name(int plr_flags)
 
 	if (plr_flags & PLR_LINK_DEAD) strcat(buf, " linkdead");
 
-	if (plr_flags & PLR_PAINT) strcat(buf, " paintball");
+	if (plr_flags & PLR_PAINT) strcat(buf, " paintbow");
 
 	if (plr_flags & PLR_SNOOP_PROOF) strcat(buf, " snoopproof");
 

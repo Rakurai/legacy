@@ -742,7 +742,7 @@ const struct flag_type pcdata_flags[] = {
 	{   "remort",               F,      TRUE    },
 	{   "showemail",            G,      TRUE    },
 	{   "linkdead",             H,      TRUE    },
-	{   "paintball",            I,      TRUE    },
+	{   "paintbow",             I,      TRUE    },
 	{   "snoopproof",           J,      TRUE    },
 	{   "showlogin",            K,      TRUE    },
 	{   "autopeek",             M,      TRUE    },
