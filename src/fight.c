@@ -5296,8 +5296,10 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		// north = 1, north; 1.north = 1, north; 2.north = 2, north; etc
 		if (isdigit(dir_arg[0]))
 			distance = UMIN(number_argument(dir_arg, dir_str), MAX_BOW_DISTANCE);
-		else
+		else {
 			nearest = TRUE;
+			strcpy(dir_str, dir_arg);
+		}
 
 		     if (!str_prefix1(dir_str, "north")) dir = DIR_NORTH;
 		else if (!str_prefix1(dir_str, "east"))  dir = DIR_EAST;
