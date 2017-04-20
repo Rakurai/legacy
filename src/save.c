@@ -613,12 +613,12 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	/*
 	 * Castrate storage characters.
 	 */
-	if (!IS_IMMORTAL(ch))
+/*	if (!IS_IMMORTAL(ch))
 		if ((!strongbox && (obj->level > get_holdable_level(ch)))
 		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
 		    || (obj->item_type == ITEM_MAP && !obj->value[0]))
 			return NULL;
-
+*/
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject();
 

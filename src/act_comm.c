@@ -1079,6 +1079,7 @@ void do_qui(CHAR_DATA *ch, const char *argument)
 }
 
 /* recursive showlost -- Montrey */
+// this code is inactive, leaving it in case we decide otherwise
 bool showlost(CHAR_DATA *ch, OBJ_DATA *obj, bool found, bool locker)
 {
 	for (; obj != NULL; obj = obj->next_content) {
@@ -1157,7 +1158,7 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 		stc("Wait till you have sold/bought the item on auction.\n", ch);
 		return;
 	}
-
+/*
 	if (IS_SET(ch->pcdata->plr, PLR_SHOWLOST) && !argument[0] && !IS_IMMORTAL(ch)) {
 		bool found_inv, found_loc;
 		found_inv = showlost(ch, ch->carrying, FALSE, FALSE);
@@ -1166,7 +1167,7 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 		if (found_inv || found_loc)
 			return;
 	}
-
+*/
 	lnum = get_locker_number(ch);
 
 	if (lnum > 0 && !IS_IMMORTAL(ch)) {
