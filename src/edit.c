@@ -72,15 +72,10 @@ static EDIT_DATA *ed;
 static char *next_line(char *current_line)
 {
 	char *limit = &ed->edit_string[MAX_STRING_LENGTH - 1];
-	char *pl;
 
-	if (*current_line == '\0')
-		return current_line;
-
-	for (pl = current_line; pl < limit; pl++) {
+	for (char *pl = current_line; pl < limit && *pl != '\0'; pl++)
 		if (*pl == '\n')
 			return ++pl;
-	}
 
 	return current_line;
 } /* end next_line() */
