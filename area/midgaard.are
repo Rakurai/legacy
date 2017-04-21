@@ -438,7 +438,7 @@ stand stand female 0
 0 0 medium 0
 >all_greet_prog 99~
 if ispc($n)
-   if level($n)=1
+   if level($n)==1
       say Greetings adventurer!  Tell me, are you new to our fair city?
    endif
 endif

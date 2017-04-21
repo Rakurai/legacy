@@ -75,3 +75,4 @@ RIDEA file: Random Ideas waiting for consideration.  DO NOT DELETE unless implem
 {Y[{x10/01{Y]{x {C[{x 1288{C]{x Alara: Marx had this idea of letting players open up shops.  It's not practicable considering our staff and our pbase, but if we get more of each, it's a really good idea.
 {Y[{x12/08{Y]{x {C[{x 1288{C]{x Vegita: from elli and myself: mining for ore for forging
 {Y[{x01/03{Y]{x {C[{x  351{C]{x Vegita: corpses inherit owners name, submitted by fedora
+{Y[{x02/08/17{Y]{x {C[{x24601{C]{x Montrey: idea: evolved hunt shows how many rooms away the thing you're hunting is

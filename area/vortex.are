@@ -1,0 +1,2076 @@
+#AREA
+vortex.are~
+The Vortex~
+{H{{75 91} {MNylan {TThe Vortex~
+32000 32099
+
+#MOBILES
+#32000
+gatekeeper keeper figure~
+the gatekeeper~
+A figure seems to materialize out of the mist, standing before the gate.
+~
+A stern figure stands here, guarding the grand gate.  He seems to
+materialize from the mist before you, the gate a vague shape behind him.
+As he sees you approaching, a smirk appears on his face.  He looks you
+over and apparently dismisses you a threat as his eyes return to yours and
+he flashes you a mocking grin.
+~
+human~
+BGTZ DFHJOZ -1000 S
+75 25 100d9+4000 1d100+100 8d7+40 crush
+-45 -48 -47 -25
+CEFK 0 0 0
+stand stand male 7000
+0 0 huge 0
+>death_prog 100~
+MPGOTO 32007
+MPECHO A portal fades into existance before you as the gatekeeper dies.
+MPOLOAD 32006
+~
+|
+
+#32001
+elemental master~
+{PE{Bl{Ge{Wm{Re{Nn{Ht{ga{bl{x master~
+An ageless figure is here, power seeming to radiate from him.
+~
+As you look at this man you are amazed at the feeling of intelligence and
+power that seems to flow from him.  Perhaps you should listen to him?
+~
+human~
+BGRZ DFHJOVZ -1000 S
+250 250 1d1+29999 1d1+29999 30d25+250 wrath
+-2059 -2082 -2074 -1950
+FK 0 0 0
+stand stand either 30000
+0 0 huge 0
+>greet_prog 100~
+say Find my pendant and I'll help you in your quest.
+~
+>give_prog pendent elemental mastery~
+smile $n
+mpjunk pendent
+say Very well done!  Here... I will give you entrance to the keep.
+say Good luck!
+emote utters the words, 'portal'.
+MPECHO A portal fades into existance before you.
+mpoload 32007
+~
+|
+
+#32002
+living flame~
+{Pl{Ri{Yv{Pi{Rn{Yg {Pf{Rl{Ya{Pm{Re{x~
+The flames seem to take living shape here.
+~
+Looking into the flickering flames you are mesmerized by their beauty even
+as you feel their immense heat against your face.
+~
+unique~
+CT DFZb -1000 S
+103 25 33d62+8000 33d62+8000 9d8+25 flame
+-106 -104 -106 -96
+CEFJN H 0 I
+stand stand none 3500
+0 0 large 0
+
+#32003
+strong current~
+{Bs{Nt{Cr{To{Bn{Ng {Cc{Tu{Br{Nr{Ce{Tn{Bt{x~
+The water seems to coallesce here, it's power pushing at you.
+~
+As you scan the water around you you notice a strange bulk passing nearby,
+easily brushing you aside.  You'd better think twice before attacking!
+~
+unique~
+CT DFZb -1000 S
+105 25 33d62+8000 33d62+8000 9d8+25 charge
+-106 -104 -106 -96
+CEFJN 0 H J
+stand stand none 3500
+0 0 large 0
+
+#32004
+rolling stone~
+{Gr{Ho{bl{Gl{Hi{bn{Gg {Hs{bt{Go{Hn{be{x~
+A stone comes bouncing down the hill headed RIGHT for you!
+~
+A rather large stone bounces by you.  Wait a second, did that stone just
+MOVE to avoid you?
+~
+unique~
+CT DFZb -1000 S
+103 25 33d62+8000 33d62+8000 9d8+25 charge
+-106 -104 -106 -96
+CEFJN 0 FG EK
+stand stand none 3500
+0 0 large 0
+>fight_prog 10~
+land
+dirt
+disarm
+~
+|
+
+#32005
+whirlwind wind gust~
+{Ww{gh{ci{Wr{gl{cw{Wi{gn{cd{x~
+A gust of wind swirls around nearby.
+~
+When the wind first brushes past you, you dismiss it.  As it nearly
+knocks you over because you didn't move fast enough, you decide that
+maybe something is a little strange after all.
+~
+unique~
+CT DFZb -1000 S
+103 25 33d62+8000 33d62+8000 9d8+25 charge
+-106 -104 -106 -96
+CEFJN 0 D C
+stand stand none 3500
+0 0 large 0
+#32006
+fire master~
+master of {Pf{Ri{Yr{Pe{x~
+A figure stands here, surrounded with a faint {Pr{Re{Pd{x glow.
+~
+This figure seems to glow faintly red, perhaps because of his mastery
+of the element of fire.  He is obviously not a person to be trifled
+with.
+~
+human~
+BGRZ DFHJOVZ -1000 S
+250 250 1d1+29999 1d1+29999 30d25+250 wrath
+-2059 -2082 -2074 -1950
+FK H 0 I
+stand stand either 30000
+0 0 huge 0
+>greet_prog 100~
+say Good luck mastering the scorching heat of the {PF{RI{YR{PE{R!{x
+MPECHO Your world suddenly dissolves.
+MPTRANSFER $n 32042
+~
+|
+
+#32007
+air master~
+master of {Wa{gi{cr{x~
+A figure stands here, surrounded with a faint {Ww{gh{Wi{gt{We{x glow.
+~
+This figure seems to glow faintly white, perhaps because of his mastery
+of the element of air.  He is obviously not a person to be trifled
+with.
+~
+human~
+BGRZ DFHJOVZ -1000 S
+250 250 1d1+29999 1d1+29999 30d25+250 wrath
+-2059 -2082 -2074 -1950
+FK D 0 C
+stand stand either 30000
+0 0 huge 0
+>greet_prog 100~
+say Good luck mastering the shifting gusts of the {WA{gI{cR{W!{x
+MPECHO Your world suddenly dissolves.
+MPTRANSFER $n 32051
+~
+|
+
+#32008
+water master~
+master of {Bw{Na{Ct{Te{Br{x~
+A figure stands here, surrounded with a faint {Bb{Nl{Bu{Ne{x glow.
+~
+This figure seems to glow faintly blue, perhaps because of his mastery
+of the element of water.  He is obviously not a person to be trifled
+with.
+~
+human~
+BGRZ DFHJOVZ -1000 S
+250 250 1d1+29999 1d1+29999 30d25+250 wrath
+-2059 -2082 -2074 -1950
+FK H 0 J
+stand stand either 30000
+0 0 huge 0
+>greet_prog 100~
+say Good luck mastering the swirling currents of the {BW{NA{CT{TE{BR{N!{x
+MPECHO Your world dissolves.
+MPTRANSFER $n 32033
+~
+|
+
+#32009
+earth master~
+master of {Ge{Ha{br{Gt{Hh{x~
+A figure stands here, surrounded with a faint {Gg{Hr{Ge{He{Gn{x glow.
+~
+This figure seems to glow faintly green, perhaps because of his mastery
+of the element of earth.  He is obviously not a person to be trifled
+with.
+~
+human~
+BGRZ DFHJOVZ -1000 S
+250 250 1d1+29999 1d1+29999 30d25+250 wrath
+-2059 -2082 -2074 -1950
+FK FG 0 E
+stand stand either 30000
+0 0 huge 0
+>greet_prog 100~
+say Good luck mastering the swirling currents of the {GE{HA{bR{GT{HH{b!{x
+MPECHO Your world dissolves.
+MPTRANSFER $n 32024
+~
+|
+
+#32010
+Vyrlx Avatar Archmage~
+Vyrlx, Avatar of the {CA{Br{Cc{Bh{Cm{Ba{Cg{Be{x~
+Vyrlx is here, in prayer to his deity.
+~
+Vyrlx seems to be very powerful.  While at the moment he is distracted by
+his prayers, if he were to turn his attention to you, you have little
+doubt that if he did, it would be a very... interesting... experience.
+And one you're not likely to survive.
+~
+superhuman~
+BCG BDFHJOTYZ -1000 S
+135 50 31d3+31900 31d3+14900 12d11+70 magic
+-1139 -1147 -1163 -1154
+HF 0 0 0
+stand stand male 25000
+0 0 medium 0
+>fight_prog 50~
+if rand(33)
+   MPCAST 'demonfire'
+else
+   MPCAST 'cure critical'
+endif
+~
+>hitprcnt_prog 3~
+   emote calls forth aid from his deity!
+   MPCAST 'blind'
+   MPCAST 'curse'
+~
+|
+
+#32011
+living flame~
+{Pl{Ri{Yv{Pi{Rn{Yg {Pf{Rl{Ya{Pm{Re{x~
+The flames seem to take living shape here.
+~
+Looking into the flickering flames you are mesmerized by their beauty even
+as you feel their immense heat against your face.
+~
+unique~
+CT DFZb -1000 S
+103 25 33d62+8000 33d62+8000 9d8+25 flame
+-106 -104 -106 -96
+CEFJN H 0 I
+stand stand none 3500
+0 0 large 0
+>fight_prog 50~
+ca 'fireball'
+~
+>death_prog 100~
+emote utters the words, 'portal'.
+MPECHO A portal fades into existance before you.
+MPOLOAD 32006
+~
+|
+
+#32012
+strong current~
+{Bs{Nt{Cr{To{Bn{Ng {Cc{Tu{Br{Br{Ce{Tn{Bt{x~
+The water seems to coallesce here, it's power pushing at you.
+~
+As you scan the water around you you notice a strange bulk passing nearby,
+easily brushing you aside.  You'd better think twice before attacking!
+~
+unique~
+CT DFZb -1000 S
+105 25 33d62+8000 33d62+8000 9d8+25 charge
+-106 -104 -106 -96
+CEFJN 0 H J
+stand stand none 3500
+0 0 large 0
+>death_prog 100~
+emote utters the words, 'portal'.
+MPECHO A portal fades into existance before you.
+MPOLOAD 32006
+MPECHO A strange pendant appears.
+MPOLOAD 32000
+~
+|
+
+#32013
+rolling stone~
+{Gr{Ho{bl{Gl{Hi{bn{Gg {Hs{bt{Go{Hn{be{x~
+A stone comes bouncing down the hill headed RIGHT for you!
+~
+A rather large stone bounces by you.  Wait a second, did that stone just
+MOVE to avoid you?
+~
+unique~
+CT DFZb -1000 S
+103 25 33d62+8000 33d62+8000 9d8+25 charge
+-106 -104 -106 -96
+CEFJN 0 FG EK
+stand stand none 3500
+0 0 large 0
+>fight_prog 10~
+land
+dirt
+disarm
+~
+
+>death_prog 100~
+emote utters the words, 'portal'.
+MPECHO A portal fades into existance before you.
+MPOLOAD 32006
+~
+|
+
+#32014
+whirlwind wind gust~
+{Ww{gh{ci{Wr{gl{cw{Wi{gn{cd{x~
+A gust of wind swirls around nearby.
+~
+When the wind first brushes past you, you dismiss it.  As it nearly
+knocks you over because you didn't move fast enough, you decide that
+maybe something is a little strange after all.
+~
+unique~
+CT DFZb -1000 S
+103 25 33d62+8000 33d62+8000 9d8+25 charge
+-106 -104 -106 -96
+CEFJN 0 D C
+stand stand none 3500
+0 0 large 0
+>death_prog 100~
+emote utters the words, 'portal'.
+MPECHO A portal fades into existance before you.
+MPOLOAD 32006
+~
+|
+
+#0
+
+#OBJECTS
+
+#32000
+pendent elemental mastery~
+pendent of elemental mastery~
+A small pendent lies here, seeming quite ancient.~
+skill~
+treasure T AO
+0 0 0 0 0
+0 0 0 I
+
+#32001
+sign archmage~
+sign of the {CA{Br{Cc{Bh{Cm{Ba{Cg{Be{x~
+A small object radiating magical power lies here.~
+faith~
+armor ABOY AQ
+25 25 25 25 0
+95 0 20000 I
+A
+12 125
+A
+13 75
+A
+18 20
+A
+19 20
+A
+20 -15
+F
+A 0 0 DF
+
+#32002
+token lowering archmage~
+token for a free lowering from the {CA{Br{Cc{Bh{Cm{Ba{Cg{Be{x~
+A small token lies here.~
+reward~
+treasure T AO
+0 0 0 0 0
+0 0 0 I
+
+#32003
+token enchant archmage~
+token for a free enchant from the {CA{Br{Cc{Bh{Cm{Ba{Cg{Be{x~
+A small token lies here.~
+reward~
+treasure T AO
+0 0 0 0 0
+0 0 0 I
+
+#32004
+token restring archmage~
+token for a free restring from the {CA{Br{Cc{Bh{Cm{Ba{Cg{Be{x~
+A small token lies here.~
+reward~
+treasure T AO
+0 0 0 0 0
+0 0 0 I
+
+#32005
+token 25 qp~
+token for 25 qp~
+A small token lies here.~
+reward~
+treasure T AO
+0 0 0 0 0
+0 0 0 I
+
+#32006
+portal~
+a portal~
+A portal floats here before you.~
+energy~
+portal T 0
+5 0 A 32056 0
+0 0 0 I
+
+#32007
+portal~
+a portal~
+A portal floats here before you.~
+energy~
+portal T 0
+5 0 A 32008 0
+0 0 0 I
+
+#32008
+vortex black passage~
+a pitch black passage~
+Mist swirls into a pitch black passage here.~
+energy~
+portal ORTY 0
+0 0 A 32000 0
+0 0 0 I
+
+
+#0
+
+#ROOMS
+#32099
+Inside the Cave~
+You step into the cave and the sound of rushing water diminishes.
+The damp walls reflect the last bits of sunlight from outside, and
+you blink to adjust to the darkness as you move farther inside.
+You notice mist from outside moving along the floor, making a vortex
+as it swirls into a pitch black passage.
+~
+0 AC 0
+D3
+The cave opens on the river to the west.
+~
+~
+0 -1 9205
+S
+
+#32000
+Entering the mist~
+You're standing at the edge of a vast misty area. You hesitate for a
+moment before plunging in, knowing that you'll have trouble finding
+your way, then take a deep breath and step into the mist.  Good luck!
+~
+0 AC 0
+D0
+{YThere seems to be a path northward.{x
+~
+~
+0 -1 32001
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32010
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32001
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32010
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32010
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+{YThere seems to be a path westward.{x
+~
+~
+0 -1 32002
+S
+
+#32002
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+{YThere seems to be a path northward.{x
+~
+~
+0 -1 32003
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32010
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32003
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+{YThere seems to be a path northward.{x
+~
+~
+0 -1 32004
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32010
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32004
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32010
+D1
+{YThere seems to be a path eastward.{x
+~
+~
+0 -1 32005
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32005
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32010
+D1
+{YThere seems to be a path eastward.{x
+~
+~
+0 -1 32006
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32006
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+{YThere seems to be a path northward.{x
+~
+~
+0 -1 32007
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32010
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32007
+Before the gate~
+As you tread through the mist, you begin to make out a shape before
+you.  As you near it, you can see it forming into a gate.  Wonder
+what's beyond.
+~
+0 AC 0
+D0
+There is a gate to the north.
+~
+gate~
+4 -1 32008
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+S
+
+#32008
+Beyond the gate~
+You are in a large hall.  The walls seem to be made of a reddish
+marble which seems to glow as though filled with some power.  As
+you study the pulsing light of the marble you realize that it looks
+like blood.  As you realize this you begin to see the pulsing as a
+steady heartbeat.  What is this place?!
+~
+0 CD 0
+D2
+There is a gate to the south.
+~
+gate~
+4 -1 32007
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32009
+S
+
+#32009
+At the altar~
+As you proceed further in the hall, the pulsing seems to get stronger,
+until you enter a large domed room.  In the center is what appears to
+be an altar which glows brighter than the rest of the room.
+~
+0 ACD 0
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32008
+S
+
+#32010
+Within the mist~
+You're standing inside of the mist, unable to discern anything very
+far away from you.  Maybe this wasn't such a good idea after all?
+~
+32000 ACW 0
+E
+tele~
+You slip through the mist, back to where you started.
+~
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32010
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32010
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32010
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32010
+S
+
+#32011
+Room of {GE{Ha{br{Gt{Hh{x~
+This room seems to be a glowing a bright green, and you can barely
+make out a bright green light throbbing against the far wall.  It
+seems to radiate so much power that you wonder if it is perhaps the
+power of earth, distilled.
+~
+0 DK 0
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32012
+S
+
+#32012
+Hallway of {GE{Ha{br{Gt{Hh{x~
+You're passing through a large hallway that seems lit with a strange
+green light.  Wonder where it leads to.
+~
+0 DK 0
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32015
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32011
+S
+
+#32013
+Room of {PF{Ri{Yr{Pe{x~
+This room seems to be a glowing a bright red, and you can barely
+make out a bright red light throbbing against the far wall.  It
+seems to radiate so much power that you wonder if it is perhaps the
+power of fire, distilled.
+~
+0 DK 0
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32014
+S
+
+#32014
+Hallway of {PF{Ri{Yr{Pe{x~
+You're passing through a large hallway that seems lit with a strange
+red light.  Wonder where it leads to.
+~
+0 DK 0
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32013
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32015
+S
+
+#32015
+Master's Chamber~
+You are standing in the middle of an immense chamber with four halls
+leading off in each direction.
+~
+0 DK 0
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32014
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32016
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32018
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32012
+S
+
+#32016
+Hallway of {WA{gi{cr{x~
+You're passing through a large hallway that seems lit with a strange
+white light.  Wonder where it leads to.
+~
+0 DK 0
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32017
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32015
+S
+
+#32017
+Room of {WA{gi{cr{x~
+This room seems to be a glowing a bright white, and you can barely
+make out a bright white light throbbing against the far wall.  It
+seems to radiate so much power that you wonder if it is perhaps the
+power of air, distilled.
+~
+0 DK 0
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32016
+S
+
+#32018
+Hallway of {BW{Na{Ct{Te{Br{x~
+You're passing through a large hallway that seems lit with a strange
+blue light.  Wonder where it leads to.
+~
+0 DK 0
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32015
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32019
+S
+
+#32019
+Room of {BW{Na{Ct{Te{Br{x~
+This room seems to be a glowing a bright blue, and you can barely
+make out a bright blue light throbbing against the far wall.  It
+seems to radiate so much power that you wonder if it is perhaps the
+power of water, distilled.
+~
+0 DK 0
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32018
+S
+
+#32020
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32026
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32021
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32023
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32022
+S
+
+#32021
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32027
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32022
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32024
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32020
+S
+
+#32022
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32028
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32020
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32025
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32021
+S
+
+#32023
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32020
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32024
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32026
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32025
+S
+
+#32024
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32021
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32025
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32027
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32023
+S
+
+#32025
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32022
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32023
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32028
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32024
+S
+
+#32026
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32023
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32027
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32020
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32028
+S
+
+#32027
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32024
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32028
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32021
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32026
+S
+
+#32028
+{GR{Ho{bc{Gk{Hy {GP{Hl{ba{Gi{Hn{x~
+You stand in a rocky plain, devoid of all life.  While it seems
+barren to you, there is a something reassuring in the quiet
+strength of what you see.  Now just to find a way OUT.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32025
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32026
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32022
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32027
+S
+
+#32029
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32035
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32030
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32032
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32031
+S
+
+#32030
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32036
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32031
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32033
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32029
+S
+
+#32031
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32037
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32029
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32034
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32030
+S
+
+#32032
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32029
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32033
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32035
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32034
+S
+
+#32033
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32030
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32034
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32036
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32032
+S
+
+#32034
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32031
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32032
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32037
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32033
+S
+
+#32035
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32032
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32036
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32029
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32037
+S
+
+#32036
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32033
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32037
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32030
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32035
+S
+
+#32037
+{BM{Nu{Cr{Tk{By {ND{Ce{Tp{Bt{Nh{Cs{x~
+You swin deeper into the depths, amazed at the strange sensation
+of being immersed completely in water, unable to breath the air
+you're so used to.  Which way now?
+~
+0 X 6
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32034
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32035
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32031
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32036
+S
+
+#32038
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32044
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32039
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32041
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32040
+S
+
+#32039
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32045
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32040
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32042
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32038
+S
+
+#32040
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32046
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32038
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32043
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32039
+S
+
+#32041
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32038
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32042
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32044
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32043
+S
+
+#32042
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32039
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32043
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32045
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32041
+S
+
+#32043
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32040
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32041
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32046
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32042
+S
+
+#32044
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32041
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32045
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32038
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32046
+S
+
+#32045
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32042
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32046
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32039
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32044
+S
+
+#32046
+{PR{Ra{Yg{Pi{Rn{Yg {PI{Rn{Yf{Pe{Rr{Yn{Po{x~
+You stand amidst a raging inferno, the flames throwing off a heat
+so immense you can barely stand it.  The flames flicker and swirl
+forming patterns as beautiful and colorful as they are deadly.
+You don't see any way out.
+~
+0 0 10
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32043
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32044
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32040
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32045
+S
+
+#32047
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32053
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32048
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32050
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32049
+S
+
+#32048
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32054
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32049
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32051
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32047
+S
+
+#32049
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32055
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32047
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32052
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32048
+S
+
+#32050
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32047
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32051
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32053
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32052
+S
+
+#32051
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32048
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32052
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32054
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32050
+S
+
+#32052
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32049
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32050
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32055
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32051
+S
+
+#32053
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32050
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32054
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32047
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32055
+S
+
+#32054
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32051
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32055
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32048
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32053
+S
+
+#32055
+{WM{gi{cd{W-{ga{ci{Wr{x~
+You float here in midair, feeling a gentle breeze brush over your
+face... and gasp as a vicious wind catches you and spins you for
+a moment before moving on, leaving you reeling and struggling to
+regain your bearings.  Maybe you'd better be careful?
+~
+0 0 9
+D0
+There seems to be a path northward.
+~
+~
+0 -1 32052
+D1
+There seems to be a path eastward.
+~
+~
+0 -1 32053
+D2
+There seems to be a path southward.
+~
+~
+0 -1 32049
+D3
+There seems to be a path westward.
+~
+~
+0 -1 32054
+S
+
+#32056
+Drifting~
+You feel yourself leaving behind the reality you were just in and
+drifting towards something... else.
+~
+0 DK 0
+D5
+There seems to be a path downward.
+~
+~
+0 -1 32015
+S
+
+#0
+
+#RESETS
+M 0 32000 1 32007 1 * Gatekeeper before the gate
+M 0 32001 1 32015 1 * master Master's chamber
+M 0 32002 12 32038 2 * Living flame to fire room
+M 0 32002 12 32039 2 * Living flame to fire room
+M 0 32002 12 32040 2 * Living flame to fire room
+M 0 32002 12 32041 2 * Living flame to fire room
+M 0 32002 12 32042 2 * Living flame to fire room
+M 0 32002 12 32043 2 * Living flame to fire room
+M 0 32002 12 32044 2 * Living flame to fire room
+M 0 32002 12 32045 2 * Living flame to fire room
+M 0 32011 1 32046 1 * Living flame (portal) to fire room
+M 0 32003 12 32029 2 * current to water room
+M 0 32003 12 32030 2 * current to water room
+M 0 32003 12 32031 2 * current to water room
+M 0 32003 12 32032 2 * current to water room
+M 0 32003 12 32033 2 * current to water room
+M 0 32003 12 32034 2 * current to water room
+M 0 32003 12 32035 2 * current to water room
+M 0 32003 12 32036 2 * current to water room
+M 0 32012 1 32037 1 * current (portal) to water room
+M 0 32004 12 32020 2 * stone to earth room
+M 0 32004 12 32021 2 * stone to earth room
+M 0 32004 12 32022 2 * stone to earth room
+M 0 32004 12 32023 2 * stone to earth room
+M 0 32004 12 32024 2 * stone to earth room
+M 0 32004 12 32025 2 * stone to earth room
+M 0 32004 12 32026 2 * stone to earth room
+M 0 32004 12 32027 2 * stone to earth room
+M 0 32013 1 32028 1 * stone (portal) to earth room
+M 0 32005 12 32047 2 * wind to air room
+M 0 32005 12 32048 2 * wind to air room
+M 0 32005 12 32049 2 * wind to air room
+M 0 32005 12 32050 2 * wind to air room
+M 0 32005 12 32051 2 * wind to air room
+M 0 32005 12 32052 2 * wind to air room
+M 0 32005 12 32053 2 * wind to air room
+M 0 32005 12 32054 2 * wind to air room
+M 0 32014 1 32055 1 * wind (portal) to air room
+M 0 32006 1 32013 1 * fire master to fire room
+M 0 32007 1 32017 1 * air master to air room
+M 0 32008 1 32019 1 * water master to water room
+M 0 32009 1 32011 1 * earth master to earth room
+M 0 32010 1 32009 1 * Vyrlx to altar
+E 0 32001 20 18     * equip Vyrlx with sign
+D 0 32007 0 2 * gate locked
+D 0 32008 2 2 * gate locked
+O 0 32008 1 32099 * portal from elemental canyon
+S
+
+#SPECIALS
+M 32002 spec_breath_fire    * the Flame
+M 32011 spec_breath_fire    * the Flame
+M 32003 spec_breath_lightning    * the Current
+M 32012 spec_breath_lightning    * the Current
+M 32005 spec_breath_gas    * the Whirlwinds
+M 32014 spec_breath_gas    * the Whirlwinds
+
+S
+#$
+

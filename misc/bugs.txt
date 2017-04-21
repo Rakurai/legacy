@@ -72,12 +72,41 @@ Bug File, clear when fixed.
 {Y[{x11/09/16{Y]{x {C[{x 3001{C]{x Lidda: Vegita pretty PLEASE make scan2 pretty
 {Y[{x11/09/16{Y]{x {C[{x 7339{C]{x Montrey: exits in prompt are weird, not showing exits that obviously exist, and infravision/imm vision is still showing rooms as too dark with 'exits'
 {Y[{x11/09/16{Y]{x {C[{x 7339{C]{x Montrey: 'exits' also isn't showing closed doors, but scan does
-{Y[{x11/11/16{Y]{x {C[{x 3001{C]{x Lidda: imm shrink should not destroy objects.
-{Y[{x11/11/16{Y]{x {C[{x 3001{C]{x Lidda: imm shrink should not destroy objects.
 {Y[{x11/11/16{Y]{x {C[{x 4574{C]{x Arcannos: cure can cure woy above max hp
 {Y[{x11/12/16{Y]{x {C[{x 1288{C]{x Vegita: for some reason some helpfiles do not show up when player is customizing character
-{Y[{x11/14/16{Y]{x {C[{x 1290{C]{x Lidda: Mob body parts seem to no longer be timed and aren't disappearing. 
-{Y[{x11/15/16{Y]{x {C[{x 1290{C]{x Lidda: Everyone appears to be the wrong sex. 
-{Y[{x11/15/16{Y]{x {C[{x 1290{C]{x Lidda: quest mox gems are also no longer timed and are just sitting around the mud.
-{Y[{x11/17/16{Y]{x {C[{x 3001{C]{x Lidda: NOTE - STILL CLEARS THE WHOLE MOTHER FUCKING NOTE, GODDAMNIT.
 {Y[{x11/17/16{Y]{x {C[{x 5577{C]{x Lidda: No quests should be sent to this room - player room, no exits.
+{Y[{x11/20/16{Y]{x {C[{x 1290{C]{x Lidda: mud school should be safe rooms
+{Y[{x11/23/16{Y]{x {C[{x 3001{C]{x Lidda: Favor of the Heavens doesn't appear to apply to SP or QP. 
+{Y[{x12/11/16{Y]{x {C[{x 9246{C]{x Zyloch: Lowbie quest find small imp, quest mob is hidden and there's no reliable source of detect hidden.
+{Y[{x01/15/17{Y]{x {C[{x 7636{C]{x Rakurai: death by sanc doesn't trigger autoloot
+{Y[{x01/16/17{Y]{x {C[{x 7641{C]{x Rakurai: trying to rescue when you don't have the skill just gives a failure message
+{Y[{x01/17/17{Y]{x {C[{x 1290{C]{x Montrey: roomexits shows nothing when there are no exits
+{Y[{x01/17/17{Y]{x {C[{x32007{C]{x Montrey: dispel magic should come before dispel good and evil on magic list
+{Y[{x01/18/17{Y]{x {C[{x32024{C]{x Rakurai: master of earth (vortex), transports you, says "Your world dissolves" for you and your party members
+{Y[{x01/18/17{Y]{x {C[{x32015{C]{x Rakurai: grouped people should follow through portals
+{Y[{x01/24/17{Y]{x {C[{x 5219{C]{x Celes: a penguin teleported me and still let my last set of magic missiles hit it, seems like a crash bug waiting to happen
+{Y[{x01/24/17{Y]{x {C[{x 3370{C]{x Celes: shouldn't "tell" not mask names for invis/hidden players?
+{Y[{x01/27/17{Y]{x {C[{x 3365{C]{x Celes: when you can't undo something, the message should be clear
+{Y[{x02/07/17{Y]{x {C[{x 3370{C]{x Celes: remort skills aren't improving very quickly
+{Y[{x02/14/17{Y]{x {C[{x 3365{C]{x Celes: still weird visibility shit with some channels, like social.  Tempest was invis and it said 'someone'
+{Y[{x02/16/17{Y]{x {C[{x32009{C]{x Celes: make undo spell, remove curse, cure disease, etc take off a random number of levels on failure, maybe 1-4, not just 1 level at a time
+{Y[{x02/16/17{Y]{x {C[{x 3365{C]{x Celes: the wedding ring slot shouldn't show up if you're not married, unless there's a ring there
+{Y[{x02/16/17{Y]{x {C[{x14005{C]{x Celes: make sure that the effect caching stores the highest evolution of the effect?
+{Y[{x02/16/17{Y]{x {C[{x 3365{C]{x Celes: undo spell should work on mobs for targetted dismantling of spells.  nongrouped victims should still get a save vs spell and level save, but better chance than dispel magic
+{Y[{x02/16/17{Y]{x {C[{x 3365{C]{x Celes: when you are fighting multiple things, killing one will set your fighting to none.  it should check if something is fighting you and set fighting again immediately
+{Y[{x02/17/17{Y]{x {C[{x 7635{C]{x Celes: make faerie fire and hex do something on mobs
+{Y[{x02/20/17{Y]{x {C[{x32041{C]{x Tempest: why the fuck is there a limit on aliases?
+{Y[{x02/24/17{Y]{x {C[{x 1290{C]{x Montrey: imms shouldn't prevent zones from repop
+{Y[{x02/24/17{Y]{x {C[{x 1290{C]{x Montrey: <WizNet> Log Tempest: remort tempest
+{Y[{x02/24/17{Y]{x {C[{x 1290{C]{x Montrey: <WizNet> [*****] BUG: raff_add_to_char: invalid raffect ID 16
+{Y[{x02/25/17{Y]{x {C[{x 1290{C]{x Lidda: Why are we limiting the amount of aliases people can have?
+{Y[{x02/26/17{Y]{x {C[{x 3054{C]{x Asgoth: Hello, i have been dissconnected several times in a row, happens every time i try to kill a mob. When i get the mob to awfull condition i get dissconected and when i connect again i am at my last save. //Asgoth
+{Y[{x03/01/17{Y]{x {C[{x 3001{C]{x Tempest: twice in a row I've crashed the mud by almost killing a mob. Crashes right before it dies.
+{Y[{x03/17/17{Y]{x {C[{x 3054{C]{x Noctuar: In the Legion area there is a no exit room with Icewing the dragon?  You have to kill him to get a key to escape (I'm guessing, he whooped me).  The bug here is that your corpse does not go the corpse area (2d).  Not sure if that is intentional.  Tha
+{Y[{x03/17/17{Y]{x {C[{x 3054{C]{x Noctuar: In the Legion area there is a no exit room with Icewing the dragon?
+{Y[{x03/17/17{Y]{x {C[{x 3054{C]{x Noctuar: The bug here is that your corpse does not go the corpse area (2d).  Not sure if that is intentional.  Thank you.
+{Y[{x03/20/17{Y]{x {C[{x 1290{C]{x Lidda: re-entering a room with your skill quest target gives a weird bug and spams the player again. 
+{Y[{x04/03/17{Y]{x {C[{x 1290{C]{x Lidda: list
+{Y[{x04/17/17{Y]{x {C[{x 1290{C]{x Lidda: bows don't show weapon damage
+{Y[{x04/17/17{Y]{x {C[{x 3054{C]{x Tempest: showlost doens't come on automatically
+{Y[{x04/19/17{Y]{x {C[{x 3033{C]{x Lidda: Reciting identify scrolls does not work.

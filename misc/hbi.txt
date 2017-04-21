@@ -17,3 +17,4 @@
 {Y[{x11/16/16{Y]{x {C[{x 3001{C]{x Vegita: imms cannot destroy equipment with shrink anymore, are not bound by norecall areas, or equipment alignments
 {Y[{x11/16/16{Y]{x {C[{x 3001{C]{x Vegita: switched mobs cannot auto-afk or disappear into the void
 {Y[{x11/16/16{Y]{x {C[{x 3001{C]{x Vegita: quest double affects skill quests 
+{Y[{x12/11/16{Y]{x {C[{x 9908{C]{x Xenith: Fixed a bug in convert where it didn't check if the player had enough skillpoints to convert.
