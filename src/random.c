@@ -8,6 +8,7 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
+#include <unistd.h>
 #include "merc.h"
 
 #if !defined(OLD_RAND)

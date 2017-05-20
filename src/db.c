@@ -42,7 +42,6 @@ extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head,
 SHOP_DATA              *shop_first;
 SHOP_DATA              *shop_last;
 
-NOTE_DATA              *note_free;
 
 char                    bug_buf         [2 * MAX_INPUT_LENGTH];
 CHAR_DATA              *char_list;
@@ -50,7 +49,6 @@ PC_DATA                *pc_list;        /* should probably go somewhere else *sh
 char                   *help_greeting;
 char                    log_buf         [2 * MAX_INPUT_LENGTH];
 KILL_DATA               kill_table      [MAX_LEVEL];
-NOTE_DATA              *note_list;
 OBJ_DATA               *object_list;
 TIME_INFO_DATA          time_info;
 WEATHER_DATA            weather_info;
@@ -283,7 +281,6 @@ sh_int  gsn_hone;
 sh_int  gsn_riposte;
 sh_int  gsn_fourth_attack;
 sh_int  gsn_rage;
-sh_int   gsn_blind_fight;
 sh_int  gsn_sap;
 sh_int  gsn_pain;
 sh_int  gsn_hex;
@@ -365,7 +362,7 @@ void boot_db()
 {
 	/* Init some data space stuff */
 	{
-		if ((string_space = calloc(1, MAX_STRING)) == NULL) {
+		if ((string_space = (char *)calloc(1, MAX_STRING)) == NULL) {
 			bug("Boot_db: can't alloc %d string space.", MAX_STRING);
 			exit(1);
 		}
@@ -729,7 +726,7 @@ void load_area(FILE *fp)
 {
 	const char *line;
 	char num[50];
-	AREA_DATA *pArea = alloc_perm(sizeof(*pArea));
+	AREA_DATA *pArea = (AREA_DATA *)alloc_perm(sizeof(*pArea));
 	pArea->reset_first      = NULL;
 	pArea->reset_last       = NULL;
 	pArea->file_name        = fread_string(fp);
@@ -791,7 +788,7 @@ void load_resets(FILE *fp)
 			continue;
 		}
 
-		pReset          = alloc_perm(sizeof(*pReset));
+		pReset          = (RESET_DATA *)alloc_perm(sizeof(*pReset));
 		pReset->version = aVersion;
 		pReset->command = letter;
 		/* if_flag */     fread_number(fp);
@@ -924,7 +921,7 @@ void load_mobiles(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pMobIndex                       = alloc_perm(sizeof(*pMobIndex));
+		pMobIndex                       = (MOB_INDEX_DATA *)alloc_perm(sizeof(*pMobIndex));
 		pMobIndex->vnum                 = vnum;
 		pMobIndex->version              = aVersion;
 		pMobIndex->player_name          = fread_string(fp);
@@ -1112,7 +1109,7 @@ void load_objects(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pObjIndex                       = alloc_perm(sizeof(*pObjIndex));
+		pObjIndex                       = (OBJ_INDEX_DATA *)alloc_perm(sizeof(*pObjIndex));
 		pObjIndex->vnum                 = vnum;
 		pObjIndex->reset_num            = 0;
 		pObjIndex->version              = aVersion;
@@ -1269,8 +1266,7 @@ void load_objects(FILE *fp)
 				} while (bitvector != 0);
 			}
 			else if (letter == 'E') {
-				EXTRA_DESCR_DATA *ed;
-				ed                      = alloc_perm(sizeof(*ed));
+				EXTRA_DESCR_DATA *ed    = (EXTRA_DESCR_DATA *)alloc_perm(sizeof(*ed));
 				ed->keyword             = fread_string(fp);
 				ed->description         = fread_string(fp);
 				ed->next                = pObjIndex->extra_descr;
@@ -1343,7 +1339,7 @@ void load_rooms(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pRoomIndex                      = alloc_perm(sizeof(*pRoomIndex));
+		pRoomIndex                      = (ROOM_INDEX_DATA *)alloc_perm(sizeof(*pRoomIndex));
 		pRoomIndex->version             = aVersion;
 		pRoomIndex->owner               = str_dup("");
 		pRoomIndex->people              = NULL;
@@ -1421,7 +1417,7 @@ void load_rooms(FILE *fp)
 					exit(1);
 				}
 
-				pexit                   = alloc_perm(sizeof(*pexit));
+				pexit                   = (EXIT_DATA *)alloc_perm(sizeof(*pexit));
 				pexit->description      = fread_string(fp);
 				pexit->keyword          = fread_string(fp);
 				pexit->exit_info        = 0;
@@ -1445,7 +1441,7 @@ void load_rooms(FILE *fp)
 				break;
 
 			case 'E':       /* extended desc */
-				ed                      = alloc_perm(sizeof(*ed));
+				ed                      = (EXTRA_DESCR_DATA *)alloc_perm(sizeof(*ed));
 				ed->keyword             = fread_string(fp);
 				ed->description         = fread_string(fp);
 				ed->next                = pRoomIndex->extra_descr;
@@ -1486,7 +1482,7 @@ void load_shops(FILE *fp)
 		if ((shopkeeper = fread_number(fp)) == 0)
 			break;
 
-		pShop                   = alloc_perm(sizeof(*pShop));
+		pShop                   = (SHOP_DATA *)alloc_perm(sizeof(*pShop));
 		pShop->next             = NULL;
 		pShop->version          = aVersion;
 		pShop->keeper           = shopkeeper;

@@ -39,7 +39,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *object;
 	ROOM_INDEX_DATA *room;
 	unsigned long *flag;
-	int old = 0, new = 0, marked = 0, pos, fieldptr, length;
+	int old = 0, nw = 0, marked = 0, pos, fieldptr, length;
 	char type;
 	const struct flag_type *flag_table;
 	argument = one_argument(argument, arg1);
@@ -242,7 +242,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 	flag_table = flag_fields[fieldptr].flag_table;
 
 	if (type != '=')
-		new = old;
+		nw = old;
 
 	/* mark the words */
 	for (; ;) {
@@ -285,7 +285,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 
 	for (pos = 0; flag_table[pos].name != NULL; pos++) {
 		if (!flag_table[pos].settable && IS_SET(old, flag_table[pos].bit)) {
-			SET_BIT(new, flag_table[pos].bit);
+			SET_BIT(nw, flag_table[pos].bit);
 			continue;
 		}
 
@@ -293,25 +293,25 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 			switch (type) {
 			case '=':
 			case '+':
-				SET_BIT(new, flag_table[pos].bit);
+				SET_BIT(nw, flag_table[pos].bit);
 				ptc(ch, "%s %s bit set on %s.\n",
 				    flag_table[pos].name, arg3, what);
 				break;
 
 			case '-':
-				REMOVE_BIT(new, flag_table[pos].bit);
+				REMOVE_BIT(nw, flag_table[pos].bit);
 				ptc(ch, "%s %s bit removed from %s.\n",
 				    flag_table[pos].name, arg3, what);
 				break;
 
 			default:
-				if (IS_SET(new, flag_table[pos].bit)) {
-					REMOVE_BIT(new, flag_table[pos].bit);
+				if (IS_SET(nw, flag_table[pos].bit)) {
+					REMOVE_BIT(nw, flag_table[pos].bit);
 					ptc(ch, "%s %s bit removed from %s.\n",
 					    flag_table[pos].name, arg3, what);
 				}
 				else {
-					SET_BIT(new, flag_table[pos].bit);
+					SET_BIT(nw, flag_table[pos].bit);
 					ptc(ch, "%s %s bit set on %s.\n",
 					    flag_table[pos].name, arg3, what);
 				}
@@ -321,7 +321,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	*flag = new;
+	*flag = nw;
 }
 
 void do_typelist(CHAR_DATA *ch, const char *argument)

@@ -37,7 +37,7 @@ char *str_dup(const char *str)
 	if (str >= string_space && str < top_string)
 		return (char *) str;
 
-	str_new = alloc_mem(strlen(str) + 1);
+	str_new = (char *)alloc_mem(strlen(str) + 1);
 	strcpy(str_new, str);
 	return str_new;
 }

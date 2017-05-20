@@ -47,6 +47,8 @@ void remove_social(char *);
 void clear_social(struct social_type *);
 int count_socials();
 
+int maxSocial;
+
 #ifndef CONST_SOCIAL
 struct social_type *social_table_head;     /* and social table */
 struct social_type *social_table_tail;     /* and social table */
@@ -76,13 +78,13 @@ void load_social_table()
 	}
 
 	fscanf(fp, "%d\n", &maxSocial);
-	social_table_head = alloc_mem(sizeof(struct social_type));
-	social_table_tail = alloc_mem(sizeof(struct social_type));
+	social_table_head = (struct social_type *)alloc_mem(sizeof(struct social_type));
+	social_table_tail = (struct social_type *)alloc_mem(sizeof(struct social_type));
 	social_table_head->next = social_table_tail;
 	social_table_tail->previous = social_table_head;
 
 	for (i = 0; i < maxSocial; i++) {
-		new_social = alloc_mem(sizeof(struct social_type));
+		new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
 		load_social(fp, new_social);
 		insert_social(new_social);
 	}
@@ -277,7 +279,7 @@ void do_sedit(CHAR_DATA *ch, const char *argument)
 		stc("That social is history now.\n", ch);
 	}
 	else if (!str_cmp(cmd, "new")) { /* Create a new social */
-		struct social_type *new_social = alloc_mem(sizeof(struct social_type));
+		struct social_type *new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
 		int x;
 
 		if (iSocial != NULL) {
@@ -304,7 +306,7 @@ void do_sedit(CHAR_DATA *ch, const char *argument)
 		stc("New social added.\n", ch);
 	}
 	else if (!str_cmp(cmd, "rename")) { /* Rename a social */
-		struct social_type *new_social = alloc_mem(sizeof(struct social_type));
+		struct social_type *new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
 		int x;
 
 		if (argument[0] == '\0') {

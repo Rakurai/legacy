@@ -316,7 +316,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (ch->pcdata->immprefix[0])
 		cJSON_AddStringToObject(o,	"Immp",			ch->pcdata->immprefix);
 
-	if (ch->class == PALADIN_CLASS) {
+	if (ch->cls == PALADIN_CLASS) {
 		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
 		cJSON_AddNumberToObject(o,	"Lay_Next",		ch->pcdata->next_lay_countdown);
 	}
@@ -501,7 +501,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	if (ch->clan)
 		cJSON_AddStringToObject(o,	"Clan",			ch->clan->name);
 
-	cJSON_AddNumberToObject(o,		"Cla",			ch->class);
+	cJSON_AddNumberToObject(o,		"Cla",			ch->cls);
 	cJSON_AddStringToObject(o,		"Cnsr",			print_flags(ch->censor));
 	cJSON_AddStringToObject(o,		"Comm",			print_flags(ch->comm));
 
@@ -785,7 +785,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		fseek (fp, 0, SEEK_END);
 		length = ftell (fp);
 		fseek (fp, 0, SEEK_SET);
-		buffer = malloc (length);
+		buffer = (char *)malloc (length);
 
 		fread (buffer, 1, length, fp);
 		fclose (fp);
@@ -1320,7 +1320,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				break;
 			case 'C':
 				INTKEY("Clan",			ch->clan,					clan_lookup(o->valuestring));
-				INTKEY("Cla",			ch->class,					o->valueint);
+				INTKEY("Cla",			ch->cls,					o->valueint);
 				INTKEY("Comm",			ch->comm,					read_flags(o->valuestring));
 				INTKEY("Cnsr",			ch->censor,					read_flags(o->valuestring));
 				break;
@@ -1773,7 +1773,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	/* the following vars are read from the player file */
 	char *email, *fingerinfo, *last_lsite, *name, *title, *spouse, *race, *deity;
-	int class, pks, pkd, pkr, aks, akd, level, rmct;
+	int cls, pks, pkd, pkr, aks, akd, level, rmct;
 	long cgroup = 0L, plr = 0L;
 	time_t last_ltime, last_saved;
 	CLAN_DATA *clan = NULL;
@@ -1817,7 +1817,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		fseek (fp, 0, SEEK_END);
 		length = ftell (fp);
 		fseek (fp, 0, SEEK_SET);
-		buffer = malloc (length);
+		buffer = (char *)malloc (length);
 
 		fread (buffer, 1, length, fp);
 		fclose (fp);
@@ -1833,14 +1833,14 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	/* initialize variables */
 	email = fingerinfo = last_lsite = name = title = spouse = race = deity = str_empty;
-	class = pks = pkd = pkr = aks = akd = level = rmct = 0;
+	cls = pks = pkd = pkr = aks = akd = level = rmct = 0;
 
 	cJSON *section, *item;
 	section = cJSON_GetObjectItem(root, "character");
 	get_JSON_string(section, &name, "Name");
 	get_JSON_string(section, &race, "Race");
 	get_JSON_int(section, &level, "Levl");
-	get_JSON_int(section, &class, "Cla");
+	get_JSON_int(section, &cls, "Cla");
 
 	if ((item = cJSON_GetObjectItem(section, "Clan")) != NULL)
 		clan = clan_lookup(item->valuestring);
@@ -1901,7 +1901,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	sprintf(buf, "{C%s ", capitalize(race));
 	add_buf(dbuf, buf);
-	sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[class].name), deity);
+	sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[cls].name), deity);
 	add_buf(dbuf, buf);
 	sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
 	add_buf(dbuf, buf);

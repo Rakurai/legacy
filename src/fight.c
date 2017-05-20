@@ -178,7 +178,7 @@ void violence_update(void)
 		if (ch == NULL || ch->fighting == NULL)
 			continue;
 
-		view_room_hpbar(ch);
+//		view_room_hpbar(ch);
 
 		if (ch->wait > 0)
 			continue;
@@ -950,8 +950,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			thac0_32 = 6;
 	}
 	else {
-		thac0_00 = class_table[ch->class].thac0_00;
-		thac0_32 = class_table[ch->class].thac0_32;
+		thac0_00 = class_table[ch->cls].thac0_00;
+		thac0_32 = class_table[ch->cls].thac0_32;
 	}
 
 	thac0 = interpolate(ch->level, thac0_00, thac0_32);
@@ -1130,7 +1130,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			if (ch->in_room->sector_type != SECT_ARENA
 			    && ch->in_room->sector_type != SECT_CLANARENA
 			    && (ch->in_room->area != quest_area || !quest_upk)
-			    && ch->class != PALADIN_CLASS) /* Paladins */
+			    && ch->cls != PALADIN_CLASS) /* Paladins */
 				ch->alignment = UMAX(-1000, ch->alignment - 1);
 
 			act("$p draws life from $n.", victim, wield, NULL, TO_ROOM);
@@ -1327,7 +1327,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		if (dam > 1 && victim->pcdata->condition[COND_DRUNK] > 10)
 			dam = 9 * dam / 10;
 
-		if (dam > 1 && victim->class == 5) /* enhanced protection for paladins */
+		if (dam > 1 && victim->cls == 5) /* enhanced protection for paladins */
 			if ((IS_GOOD(victim) && IS_EVIL(ch))
 			    || (IS_EVIL(victim) && IS_GOOD(ch)))
 				dam -= dam / 4;
@@ -2853,7 +2853,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim == ch)
 		return;
 
-	SET_BIT(vary_int, vary_bit[ch->class]);
+	SET_BIT(vary_int, vary_bit[ch->cls]);
 
 	/* calculate number of group members present and the sum of their levels */
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
@@ -2862,8 +2862,8 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 			group_levels += IS_NPC(gch) ? gch->level / 2 : gch->level;
 
 			/* figure out how varied the group is -- Montrey */
-			if (!IS_SET(vary_int, vary_bit[gch->class])) {
-				SET_BIT(vary_int, vary_bit[gch->class]);
+			if (!IS_SET(vary_int, vary_bit[gch->cls])) {
+				SET_BIT(vary_int, vary_bit[gch->cls]);
 				diff_classes++;
 			}
 		}
@@ -2999,7 +2999,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_cla
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
 	    || (victim->in_room->area == quest_area && quest_upk)
-	    || gch->class == 5) /* Paladins */
+	    || gch->cls == 5) /* Paladins */
 	{/* no change */}
 	else if (align > 500) { /* monster is more good than slayer */
 		change = (align - 500) * base_exp / 500 * gch->level / total_levels;
@@ -4056,7 +4056,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	singchance += (GET_ATTR_CHR(ch));
 	singchance -= (GET_ATTR_INT(victim) + GET_ATTR_WIS(victim)) / 2;
 
-	if (!IS_NPC(ch) && ch->class == 6)      /* bards */
+	if (!IS_NPC(ch) && ch->cls == 6)      /* bards */
 		singchance += singchance / 3;
 
 	singchance -= singchance * GET_DEFENSE_MOD(victim, DAM_CHARM) / 100;
@@ -4415,10 +4415,10 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		if (!IS_NPC(ch)) {
 			act("You flee $T from combat!", ch, NULL, dir_name[dir], TO_CHAR);
 
-			if (ch->class == THIEF_CLASS)
+			if (ch->cls == THIEF_CLASS)
 				stc("You snuck away safely.\n", ch);
 			else {
-				if (ch->class == PALADIN_CLASS) { /* Paladins */
+				if (ch->cls == PALADIN_CLASS) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);
 				}

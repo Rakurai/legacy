@@ -240,11 +240,11 @@ int attack_lookup(const char *name)
 /* returns class number */
 int class_lookup(const char *name)
 {
-	int class;
+	int cls;
 
-	for (class = 0; class < MAX_CLASS; class++) {
-		if (!str_prefix1(name, class_table[class].name))
-			return class;
+	for (cls = 0; cls < MAX_CLASS; cls++) {
+		if (!str_prefix1(name, class_table[cls].name))
+			return cls;
 	}
 
 	return -1;
@@ -278,7 +278,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		skill = 0;
 	}
 	else if (!IS_NPC(ch)) {
-		if (ch->level < skill_table[sn].skill_level[ch->class])
+		if (ch->level < skill_table[sn].skill_level[ch->cls])
 			skill = 0;
 		else
 			skill = ch->pcdata->learned[sn];
@@ -428,7 +428,7 @@ int get_max_train(CHAR_DATA *ch, int stat)
 
 	max = pc_race_table[ch->race].max_stats[stat];
 
-	if (class_table[ch->class].stat_prime == stat) {
+	if (class_table[ch->cls].stat_prime == stat) {
 		if (ch->race == race_lookup("human"))
 			max += 3;
 		else

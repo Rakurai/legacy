@@ -58,7 +58,7 @@
 #endif
 
 /* system calls */
-int unlink();
+//int unlink();
 int system();
 
 
@@ -76,15 +76,17 @@ int system();
 #endif
 
 #if     defined(_AIX)
-#if     !defined(const)
-#define const
-#endif
-typedef int                             sh_int;
-typedef int                             bool;
-#define unix
+ #if     !defined(const)
+  #define const
+ #endif
+ typedef int                             sh_int;
+ typedef int                             bool;
+ #define unix
 #else
-typedef short   int                     sh_int;
-typedef unsigned char                   bool;
+ typedef short   int                     sh_int;
+ #ifndef __cplusplus
+  typedef unsigned char                   bool;
+ #endif
 #endif
 
 #define DIZZYPORT 3000
@@ -1908,7 +1910,7 @@ struct  mob_prog_data
     char *      comlist;
 };
 
-bool    MOBtrigger;
+extern bool    MOBtrigger;
 
 #define ERROR_PROG        -1
 #define IN_FILE_PROG       0
@@ -2007,7 +2009,7 @@ struct  char_data
     sh_int              mana;
     sh_int              stam;
 
-    sh_int              class;
+    sh_int              cls; // was 'class'
     sh_int              race;
     sh_int              level;
     int                 lines;  /* for the pager */
@@ -3343,7 +3345,7 @@ bool	clan_opponents		args((CLAN_DATA *clanA, CLAN_DATA *clanB));
 /* duel.c */
 void	duel_update();
 void	load_arena_table();
-void	view_room_hpbar();
+//void	view_room_hpbar();
 void	duel_kill		args((CHAR_DATA *victim));
 bool	char_in_darena_room	args((CHAR_DATA *ch));
 bool	char_in_duel_room	args((CHAR_DATA *ch));
@@ -3525,7 +3527,7 @@ void    shock_effect    args( (void *vo, int level, int dam, int target, int evo
 /* fight.c */
 void    check_killer    args( ( CHAR_DATA *ch, CHAR_DATA *victim) );
 bool    damage          args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-                                int dt, int class, bool show, bool spell ) );
+                                int dt, int cls, bool show, bool spell ) );
 void    death_cry       args( ( CHAR_DATA *ch ) );
 bool    is_safe         args( (CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg ) );
 bool    is_safe_spell   args( (CHAR_DATA *ch, CHAR_DATA *victim, bool area ) );
@@ -3746,7 +3748,8 @@ bool    level_save        args(( int dis_level, int save_level));
 
 /* note.c */
 const char *format_string( const char *oldstring );
-const char * string_replace( const char * orig, const char * old, const char * new );
+const char * string_replace( const char * orig, const char * old_str, const char * 
+new_str);
 
 /* quest.c */
 void    quest_init       args( (void) );

@@ -84,7 +84,7 @@ int find_spell(CHAR_DATA *ch, const char *name)
 			if (found == -1)
 				found = sn;
 
-			if (ch->level >= skill_table[sn].skill_level[ch->class] && ch->pcdata->learned[sn] > 0)
+			if (ch->level >= skill_table[sn].skill_level[ch->cls] && ch->pcdata->learned[sn] > 0)
 				return sn;
 		}
 	}
@@ -122,7 +122,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 	int iSyl, length;
 	struct syl_type {
 		char   *old;
-		char   *new;
+		char   *nw;
 	};
 	static const struct syl_type syl_table[] = {
 		{ " ",          " "             },
@@ -162,7 +162,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 	for (pName = skill_table[sn].name; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++) {
 			if (!str_prefix1(syl_table[iSyl].old, pName)) {
-				strcat(buf, syl_table[iSyl].new);
+				strcat(buf, syl_table[iSyl].nw);
 				break;
 			}
 		}
@@ -179,7 +179,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if (rch != ch) {
-			if (ch->class == rch->class) {
+			if (ch->cls == rch->cls) {
 				act(buf, ch, NULL, rch, TO_VICT);
 				continue;
 			}
@@ -240,7 +240,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((sn = find_spell(ch, arg1)) < 0
-	    || (!IS_NPC(ch) && (ch->level < skill_table[sn].skill_level[ch->class]
+	    || (!IS_NPC(ch) && (ch->level < skill_table[sn].skill_level[ch->cls]
 	                        || ch->pcdata->learned[sn] == 0))) {
 		stc("You don't know any spells of that name.\n", ch);
 		return;
@@ -461,7 +461,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	wait = skill_table[sn].beats;
 
-	if ((ch->class == 0) || (ch->class == 1) || (ch->class == 4))
+	if ((ch->cls == 0) || (ch->cls == 1) || (ch->cls == 4))
 		wait -= wait / 4;
 
 	/* remort affect - fast casting */
@@ -2356,7 +2356,7 @@ void spell_demonfire(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 		stc("The demons turn upon you!\n", ch);
 	}
 
-	if (ch->class != 5) /* Paladins */
+	if (ch->cls != 5) /* Paladins */
 		ch->alignment = UMAX(-1000, ch->alignment - 50);
 
 	if (victim != ch) {
@@ -3043,7 +3043,7 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam, manadrain, stamdrain;
 
-	if (victim != ch && ch->class != 5) /*Paladin*/
+	if (victim != ch && ch->cls != 5) /*Paladin*/
 		ch->alignment = UMAX(-1000, ch->alignment - 50);
 
 	if (saves_spell(level, victim, DAM_NEGATIVE)) {
@@ -5411,7 +5411,7 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	}
 
 	/* remove some of the character's alignment, if not a Paladin */
-	if (ch->class != 5) { /* Paladins */
+	if (ch->cls != 5) { /* Paladins */
 		align = 25 * ch->alignment / 1000;
 		ch->alignment = URANGE(-1000, (ch->alignment - align), 1000);
 		stc("The powerful nature of the spell removes some of your alignment!\n", ch);
@@ -5448,7 +5448,7 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 
 	/* Removes more of the caster's alignment, if not a Paladin */
 	if (result < (fail / 3)) {
-		if (ch->class != 5) {
+		if (ch->cls != 5) {
 			align = 25 * ch->alignment / 1000;
 			ch->alignment = URANGE(-1000, (ch->alignment - align), 1000);
 			stc("The spell backfires and removes some of YOUR alignment!\n", ch);

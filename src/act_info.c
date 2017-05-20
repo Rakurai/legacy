@@ -69,7 +69,7 @@ char   *const   where_name      [] = {
 	"<wedding ring>      ",
 };
 
-char   *const   day_name        [] = {
+const char   *   day_name        [] = {
 	"Regeneration",
 	"Endeavor",
 	"The Sun",
@@ -79,7 +79,7 @@ char   *const   day_name        [] = {
 	"Omens"
 };
 
-char   *const   month_name      [] = {
+const char   * month_name      [] = {
 	"Abundance", "Perseverance", "Challenge",
 	"Sacrifice", "Continuity", "Reverence",
 	"Harmony", "Strife", "Peace",
@@ -272,8 +272,8 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 		return;
 	}
 
-	prgpstrShow = alloc_mem(count * sizeof(char *));
-	prgnShow    = alloc_mem(count * sizeof(int));
+	prgpstrShow = (char **)alloc_mem(count * sizeof(char *));
+	prgnShow    = (int *)alloc_mem(count * sizeof(int));
 
 	/* Format the list of objects */
 	for (obj = list; obj != NULL; obj = obj->next_content) {
@@ -2183,7 +2183,7 @@ void exits_in(CHAR_DATA *ch)
  */
 void do_exits(CHAR_DATA *ch, const char *argument)
 {
-	extern char *const dir_name[];
+	extern const char* dir_name[];
 	char buf[MAX_STRING_LENGTH];
 	EXIT_DATA *pexit;
 	bool found;
@@ -2433,7 +2433,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	        remort,
 	        victim->level,
 	        pc_race_table[victim->race].who_name,
-	        class_table[victim->class].who_name,
+	        class_table[victim->cls].who_name,
 	        (IS_SET(victim->pcdata->plr, PLR_PK)) ? "{P]{x" : "{g]{x");
 	add_buf(output, block);
 	/* third block "name title" */
@@ -2524,7 +2524,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	bool fPK = FALSE;
 	CHAR_DATA *wch;
 	CLAN_DATA *cch = NULL;
-	const char *class;
+	const char *cls;
 	char *rank, *p, *q, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
@@ -2592,7 +2592,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d != NULL; d = d->next)
 		ndesc++;
 
-	charitems = alloc_mem(ndesc * sizeof(struct s_charitem));
+	charitems = (struct s_charitem *)alloc_mem(ndesc * sizeof(struct s_charitem));
 	/* Now show matching chars. */
 	buf[0] = '\0';
 	output = new_buf();
@@ -2611,7 +2611,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		    || wch->level > iLevelUpper
 		    || (fImmortalOnly && !IS_IMMORTAL(wch))
 		    || (fPK && !IS_SET(wch->pcdata->plr, PLR_PK))
-		    || (fClassRestrict && !rgfClass[wch->class])
+		    || (fClassRestrict && !rgfClass[wch->cls])
 		    || (fRaceRestrict && !rgfRace[wch->race])
 		    || (fClan && wch->clan != cch)
 		    || (fClanRestrict && !wch->clan))
@@ -2651,7 +2651,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		/*** Block 1 stuff ***/
 		/* Imm:    Immname */
 		/* Mortal: [lvl race class] */
-		class = class_table[wch->class].who_name;
+		cls = class_table[wch->cls].who_name;
 
 		if (IS_REMORT(wch)) {
 			sprintf(rbuf, "{G%2d{x", wch->pcdata->remort_count);
@@ -2684,7 +2684,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			        remort,
 			        wch->level,
 			        pc_race_table[wch->race].who_name,
-			        class,
+			        cls,
 			        IS_SET(wch->pcdata->plr, PLR_PK) ? "{P" : "{W",
 			        rbrk);
 		}
@@ -3205,7 +3205,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		ptc(ch, "{TRace: %s  Sex: %s  Class: %s  Size: %s\n",
 		    race_table[victim->race].name,
 		    sex_table[GET_ATTR_SEX(victim)].name,
-		    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
+		    IS_NPC(victim) ? "mobile" : class_table[victim->cls].name,
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
 		    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
@@ -3627,7 +3627,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 
 		gp = &group_table[gt];
 
-		if (gp->rating[ch->class] < 0)      /* ignore things not in class */
+		if (gp->rating[ch->cls] < 0)      /* ignore things not in class */
 			continue;
 
 		if (argument && argument[0] && str_prefix1(argument, gp->name))
@@ -3644,7 +3644,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 			if (sn == -1)
 				continue;
 
-			if (skill_table[sn].skill_level[ch->class] > ch->level)
+			if (skill_table[sn].skill_level[ch->cls] > ch->level)
 				continue; /* skill beyond player's level */
 
 			if (ch->pcdata->learned[sn] <= 0)
@@ -3711,7 +3711,7 @@ void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
 			if (!CAN_USE_RSKILL(ch, sn))
 				continue;
 
-		if (skill_table[sn].skill_level[ch->class] > ch->level)
+		if (skill_table[sn].skill_level[ch->cls] > ch->level)
 			continue; /* skill beyond player's level */
 
 		if (ch->pcdata->learned[sn] <= 0)
@@ -3752,13 +3752,13 @@ void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
 
 	for (js = 0; js < nskills; js++) {
 		if (skill_table[slist[js]].remort_class > 0) {
-			if (skill_table[slist[js]].remort_class == ch->class + 1)
+			if (skill_table[slist[js]].remort_class == ch->cls + 1)
 				adept = 65;
 			else
 				adept = 50;
 		}
 		else
-			adept = class_table[ch->class].skill_adept;
+			adept = class_table[ch->cls].skill_adept;
 
 		ptb(output, "%s%3d%% %-20.20s{x ",
 		    ch->pcdata->learned[slist[js]] >= adept ? "{g" : "{C",
@@ -3835,9 +3835,9 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 
 	if ((sn = find_spell(ch, argument)) < 0
 	    || (!IS_NPC(ch)
-	        && (ch->level < skill_table[sn].skill_level[ch->class]
+	        && (ch->level < skill_table[sn].skill_level[ch->cls]
 	            ||    ch->pcdata->learned[sn] < 1 /* skill is not known */
-	            ||    skill_table[sn].rating[ch->class] == 0))) {
+	            ||    skill_table[sn].rating[ch->cls] == 0))) {
 		stc("You can't practice that.\n", ch);
 		return;
 	}
@@ -3851,13 +3851,13 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	adept = 0;
 
 	if (skill_table[sn].remort_class > 0) {
-		if (skill_table[sn].remort_class == ch->class + 1)
+		if (skill_table[sn].remort_class == ch->cls + 1)
 			adept = 65;
 		else if (HAS_EXTRACLASS(ch, sn))
 			adept = 50;
 	}
 	else
-		adept = IS_NPC(ch) ? 100 : class_table[ch->class].skill_adept;
+		adept = IS_NPC(ch) ? 100 : class_table[ch->cls].skill_adept;
 
 	if (ch->pcdata->learned[sn] >= adept) {
 		sprintf(buf, "You are already learned at %s.\n",
@@ -3867,7 +3867,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->practice--;
-	increase = (int_app[GET_ATTR_INT(ch)].learn / skill_table[sn].rating[ch->class]);
+	increase = (int_app[GET_ATTR_INT(ch)].learn / skill_table[sn].rating[ch->cls]);
 
 	if (increase < 1)
 		increase = 1;
@@ -5210,7 +5210,7 @@ void score_new(CHAR_DATA *ch)
 	sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
 	strcat(buf, capitalize(race_table[ch->race].name));
 	strcat(buf, " ");
-	strcat(buf, capitalize(class_table[ch->class].name));
+	strcat(buf, capitalize(class_table[ch->cls].name));
 	new_color(ch, CSLOT_SCORE_CLASS);
 	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", strcenter(buf, 62));
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(

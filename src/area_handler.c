@@ -972,7 +972,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 
 	clone->group        = parent->group;
 //	clone->sex          = parent->sex;
-	clone->class        = parent->class;
+	clone->cls        = parent->cls;
 	clone->race         = parent->race;
 	clone->level        = parent->level;
 	clone->timer        = parent->timer;
@@ -1315,7 +1315,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 
 	/* Allocate space for pointers to all areas. */
 	ptrs_size = (top_area + 1) * sizeof(ap);
-	ptrs = alloc_mem(ptrs_size);
+	ptrs = (AREA_DATA **)alloc_mem(ptrs_size);
 
 	/* Gather pointers to all areas of interest */
 	for (ap = area_first; ap; ap = ap->next) {

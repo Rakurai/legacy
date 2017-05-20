@@ -38,10 +38,5 @@ extern AREA_DATA 	* area_first;
 extern sh_int		aVersion;
 
 
-/* Values from social-edit.c */
-int                             maxSocial; /* Max number of socials */
-int				maxXSocial; /* Max number of Xsocials */
-
-
 /* macro for flag swapping */
 #define GET_UNSET(flag1,flag2)	(~(flag1)&((flag1)|(flag2)))

@@ -88,7 +88,7 @@ void free_mem(void *pMemV, long sMem)
 {
 	int iList;
 	long *magic;
-	char *pMem = pMemV;
+	char *pMem = (char *)pMemV;
 	pMem -= sizeof(*magic);
 	magic = (long *) pMem;
 
@@ -136,7 +136,7 @@ void *alloc_perm(long sMem)
 	if (pMemPerm == NULL || iMemPerm + sMem > MAX_PERM_BLOCK) {
 		iMemPerm = 0;
 
-		if ((pMemPerm = calloc(1, MAX_PERM_BLOCK)) == NULL) {
+		if ((pMemPerm = (char *)calloc(1, MAX_PERM_BLOCK)) == NULL) {
 			perror("Alloc_perm");
 			exit(1);
 		}
@@ -168,7 +168,7 @@ void *alloc_perm2(long sMem, const char *message)
 	if (pMemPerm == NULL || iMemPerm + sMem > MAX_PERM_BLOCK) {
 		iMemPerm = 0;
 
-		if ((pMemPerm = calloc(1, MAX_PERM_BLOCK)) == NULL) {
+		if ((pMemPerm = (char *)calloc(1, MAX_PERM_BLOCK)) == NULL) {
 			perror("Alloc_perm");
 			exit(1);
 		}

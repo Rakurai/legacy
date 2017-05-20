@@ -281,8 +281,6 @@ DESCRIPTOR_DATA    *descriptor_list;    /* All open descriptors         */
 DESCRIPTOR_DATA    *d_next;             /* Next descriptor in loop      */
 bool                god;                /* All new chars are gods!      */
 bool            merc_down;              /* shutdown */
-bool                wizlock;            /* Game is wizlocked            */
-bool                newlock;            /* Game is newlocked            */
 char                str_boot_time[MAX_INPUT_LENGTH];
 time_t              reboot_time = 0;
 time_t              current_time;       /* time of this pulse */
@@ -2032,7 +2030,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 			return;
 		}
 
-		outbuf      = alloc_mem(2 * d->outsize);
+		outbuf      = (char *)alloc_mem(2 * d->outsize);
 		strncpy(outbuf, d->outbuf, d->outtop);
 		free_mem(d->outbuf, d->outsize);
 		d->outbuf   = outbuf;
@@ -2521,7 +2519,8 @@ void page_to_char(char *txt, CHAR_DATA *ch)
 	*/
 	if (ch->desc->showstr_head &&
 	    (strlen(txt) + strlen(ch->desc->showstr_head) + 1) < 32000) {
-		char *temp = alloc_mem(strlen(txt) + strlen(ch->desc->showstr_head) + 1);
+		char *temp = (char *)alloc_mem(strlen(txt) + strlen(ch->desc->showstr_head) 
++ 1);
 		strcpy(temp, ch->desc->showstr_head);
 		strcat(temp, txt);
 		ch->desc->showstr_point = temp +
@@ -2533,7 +2532,7 @@ void page_to_char(char *txt, CHAR_DATA *ch)
 		if (ch->desc->showstr_head)
 			free_mem(ch->desc->showstr_head, strlen(ch->desc->showstr_head) + 1);
 
-		ch->desc->showstr_head = alloc_mem(strlen(txt) + 1);
+		ch->desc->showstr_head = (char *)alloc_mem(strlen(txt) + 1);
 		strcpy(ch->desc->showstr_head, txt);
 		ch->desc->showstr_point = ch->desc->showstr_head;
 		show_string(ch->desc, "");

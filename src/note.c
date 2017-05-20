@@ -73,7 +73,7 @@ int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
 }
 
 /* display the numbers of unread messages of each type, visible to 'ch' */
-void do_unread(CHAR_DATA *ch)
+void do_unread(CHAR_DATA *ch, const char *argument)
 {
 	int count;
 	bool found = FALSE;
@@ -482,7 +482,7 @@ void note_attach(CHAR_DATA *ch, int type)
 	return;
 }
 
-void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
+void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 {
 	char to_new[MAX_INPUT_LENGTH];
 	char to_one[MAX_INPUT_LENGTH];
@@ -490,7 +490,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
 	NOTE_DATA **list;
 	const char *to_list;
 
-	if (!delete) {
+	if (!del) {
 		/* make a new list */
 		to_new[0]       = '\0';
 		to_list = pnote->to_list;
@@ -780,7 +780,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_prefix1(arg, "list")) {
-		bool search = FALSE, new = FALSE, found = FALSE, all = FALSE;
+		bool search = FALSE, nw = FALSE, found = FALSE, all = FALSE;
 
 		if (IS_NPC(ch)) {
 			stc("Sorry, mobiles can't read notes.\n", ch);
@@ -788,7 +788,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		if (!str_cmp(argument, "new"))
-			new = TRUE;
+			nw = TRUE;
 		else if (!str_cmp(argument, "all"))
 			all = TRUE;
 		else if (argument[0] != '\0')
@@ -803,7 +803,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				if ((search) && str_prefix1(argument, pnote->sender))
 					continue;
 
-				if ((new) && hide_note(ch, pnote))
+				if ((nw) && hide_note(ch, pnote))
 					continue;
 
 				sprintf(buf, "{W[{x%3d%s{W][{x%12s{W]{x %s{x\n",
@@ -1139,11 +1139,11 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if (!str_cmp(arg, "replace")) {
 		char old[MAX_INPUT_LENGTH];
-		char new[MAX_INPUT_LENGTH];
+		char nw[MAX_INPUT_LENGTH];
 		argument = one_argument(argument, old);
-		argument = one_argument(argument, new);
+		argument = one_argument(argument, nw);
 
-		if ((old[0] == '\0') || (new[0] == '\0')) {
+		if ((old[0] == '\0') || (nw[0] == '\0')) {
 			stc("Usage: note replace 'old string' 'new string'\n",
 			    ch);
 			return;
@@ -1155,9 +1155,9 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		char *temp = ch->pnote->text;
-		ch->pnote->text = str_dup(string_replace(temp, old, new));
+		ch->pnote->text = str_dup(string_replace(temp, old, nw));
 		free_string(temp);
-		sprintf(buf, "'%s' replaced with '%s'.\n", old, new);
+		sprintf(buf, "'%s' replaced with '%s'.\n", old, nw);
 		stc(buf, ch);
 		return;
 	}
@@ -1855,7 +1855,7 @@ const char *format_string(const char *oldstring)
 	return xbuf;
 }
 
-const char *string_replace(const char *orig, const char *old, const char *new)
+const char *string_replace(const char *orig, const char *old, const char *nw)
 {
 	static char xbuf[MAX_STRING_LENGTH];
 	int i;
@@ -1865,7 +1865,7 @@ const char *string_replace(const char *orig, const char *old, const char *new)
 	if (strstr(orig, old) != NULL) {
 		i = strlen(orig) - strlen(strstr(orig, old));
 		xbuf[i] = '\0';
-		strcat(xbuf, new);
+		strcat(xbuf, nw);
 		strcat(xbuf, &orig[i + strlen(old)]);
 //		free_string(orig);
 	}

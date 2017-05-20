@@ -29,6 +29,8 @@
 #include "merc.h"
 #include "affect.h"
 
+bool MOBtrigger;
+
 /*
  * Local function prototypes
  */
@@ -788,12 +790,12 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "class")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->class;
+		case 'i': lhsvl = mob->cls;
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = actor->class;
+				lhsvl = actor->cls;
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -801,7 +803,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = vict->class;
+				lhsvl = vict->cls;
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -809,7 +811,7 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = rndm->class;
+				lhsvl = rndm->cls;
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -1725,7 +1727,7 @@ void mprog_act_trigger(const char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & ACT_PROG)) {
-		tmp_act = alloc_mem(sizeof(MPROG_ACT_LIST));
+		tmp_act = (MPROG_ACT_LIST *)alloc_mem(sizeof(MPROG_ACT_LIST));
 
 		if (mob->mpactnum > 0)
 			tmp_act->next = mob->mpact->next;

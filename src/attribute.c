@@ -44,7 +44,7 @@ int get_max_stat(CHAR_DATA *ch, int stat)
 	else if (!IS_IMMORTAL(ch)) {
 		max = pc_race_table[ch->race].max_stats[stat] + 4;
 
-		if (class_table[ch->class].stat_prime == stat)
+		if (class_table[ch->cls].stat_prime == stat)
 			max += 2;
 	}
 
@@ -124,7 +124,7 @@ int get_unspelled_ac(CHAR_DATA *ch, int type)
 	return ac;
 }
 
-void attribute_check(CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd) {
+void attribute_check(CHAR_DATA *ch) {
 	/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
 	OBJ_DATA *weapon;
 

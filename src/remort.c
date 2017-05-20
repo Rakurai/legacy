@@ -241,7 +241,7 @@ bool CAN_USE_RSKILL(CHAR_DATA *ch, int sn)
 	if (!get_skill(ch, sn))
 		return FALSE;
 
-	if ((ch->class + 1 != skill_table[sn].remort_class) && (!HAS_EXTRACLASS(ch, sn)))
+	if ((ch->cls + 1 != skill_table[sn].remort_class) && (!HAS_EXTRACLASS(ch, sn)))
 		return FALSE;
 
 	return TRUE;
@@ -256,7 +256,7 @@ void list_extraskill(CHAR_DATA *ch)
 
 	for (cn = 0; cn < MAX_CLASS; cn++) {
 		if (!IS_IMMORTAL(ch))
-			if (cn == ch->class)
+			if (cn == ch->cls)
 				continue;
 
 		ptb(output, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
@@ -266,15 +266,15 @@ void list_extraskill(CHAR_DATA *ch)
 				continue;
 
 			if (!IS_IMMORTAL(ch)
-			    && (skill_table[sn].remort_class == ch->class + 1
-			        || skill_table[sn].skill_level[ch->class] <= 0
-			        || skill_table[sn].skill_level[ch->class] > LEVEL_HERO))
+			    && (skill_table[sn].remort_class == ch->cls + 1
+			        || skill_table[sn].skill_level[ch->cls] <= 0
+			        || skill_table[sn].skill_level[ch->cls] > LEVEL_HERO))
 				continue;
 
 			ptb(output, "%-15s %s%-8d{x",
 			    skill_table[sn].name,
-			    ch->train >= skill_table[sn].rating[ch->class] ? "{C" : "{T",
-			    skill_table[sn].rating[ch->class]);
+			    ch->train >= skill_table[sn].rating[ch->cls] ? "{C" : "{T",
+			    skill_table[sn].rating[ch->cls]);
 
 			if (++col % 3 == 0)
 				add_buf(output, "\n");
@@ -355,14 +355,14 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill_table[sn].remort_class == ch->class + 1) {
+	if (skill_table[sn].remort_class == ch->cls + 1) {
 		stc("You have knowledge of this skill already, pick one outside your class.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
-	if (skill_table[sn].skill_level[ch->class] <= 0
-	    || skill_table[sn].skill_level[ch->class] > LEVEL_HERO) {
+	if (skill_table[sn].skill_level[ch->cls] <= 0
+	    || skill_table[sn].skill_level[ch->cls] > LEVEL_HERO) {
 		stc("Your class cannot gain that skill.\n", ch);
 		return;
 	}
@@ -373,7 +373,7 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->train < skill_table[sn].rating[ch->class]) {
+	if (ch->train < skill_table[sn].rating[ch->cls]) {
 		stc("You do not have enough training to master this skill.\n", ch);
 		return;
 	}
@@ -386,7 +386,7 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 			if (!ch->pcdata->learned[sn])
 				ch->pcdata->learned[sn] = 1;
 
-			ch->train -= skill_table[sn].rating[ch->class];
+			ch->train -= skill_table[sn].rating[ch->cls];
 			ptc(ch, "You have gained %s as an extraclass remort skill.\n",
 			    skill_table[sn].name);
 			return;

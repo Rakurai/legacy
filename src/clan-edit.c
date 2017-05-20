@@ -61,8 +61,8 @@ void load_clan_table()
 {
 	CLAN_DATA *clan;
 	int count = 0;
-	clan_table_head                 = alloc_mem(sizeof(CLAN_DATA));
-	clan_table_tail                 = alloc_mem(sizeof(CLAN_DATA));
+	clan_table_head                 = (CLAN_DATA *)alloc_mem(sizeof(CLAN_DATA));
+	clan_table_tail                 = (CLAN_DATA *)alloc_mem(sizeof(CLAN_DATA));
 
 	/* Watch out for memory errors -- Outsider */
 	if ((!clan_table_head) || (!clan_table_tail)) {
@@ -86,7 +86,7 @@ void load_clan_table()
 		  if (atoi(row[0]) == 0)
 		          continue;
 		*/
-		if ((clan = alloc_mem(sizeof(CLAN_DATA))) == NULL) {
+		if ((clan = (CLAN_DATA *)alloc_mem(sizeof(CLAN_DATA))) == NULL) {
 			bug("load_clan_table: unable to allocate memory for new clan", 0);
 			return;
 		}
@@ -267,7 +267,7 @@ void do_cedit(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(cmd, "new")) {
-		CLAN_DATA *new_clan = alloc_mem(sizeof(CLAN_DATA));
+		CLAN_DATA *new_clan = (CLAN_DATA *)alloc_mem(sizeof(CLAN_DATA));
 
 		if (new_clan == NULL) {
 			bug("Unable to allocate memory for new clan!", 0);

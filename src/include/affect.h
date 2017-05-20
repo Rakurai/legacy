@@ -26,7 +26,8 @@ int           affect_comparator_permanent args(( const AFFECT_DATA *lhs, const A
 int           affect_fn_fade_spell        args(( AFFECT_DATA *node, void *data ));
 
 // single affect operations
-void          affect_update               args(( AFFECT_DATA *paf, const AFFECT_DATA *template ));
+void          affect_update               args(( AFFECT_DATA *paf, const AFFECT_DATA 
+*aff_template ));
 void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b ));
 unsigned long affect_checksum             args(( const AFFECT_DATA *paf ));
 bool          affect_parse_flags      args(( char letter, AFFECT_DATA *paf, unsigned int *bitvector ));

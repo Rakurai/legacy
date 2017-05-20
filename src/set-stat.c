@@ -246,8 +246,8 @@ void do_evoset(CHAR_DATA *ch, const char *argument)
 			if (can == 1)
 				sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
 				        victim->pcdata->evolution[x] == 1 ?
-				        skill_table[x].evocost_sec[victim->class] :
-				        skill_table[x].evocost_pri[victim->class],
+				        skill_table[x].evocost_sec[victim->cls] :
+				        skill_table[x].evocost_pri[victim->cls],
 				        skill_table[x].name,
 				        victim->pcdata->evolution[x] + 1);
 
@@ -270,9 +270,9 @@ void do_evoset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (skill_table[sn].evocost_sec[victim->class] <= 0 && !IS_IMMORTAL(victim)) {
+	if (skill_table[sn].evocost_sec[victim->cls] <= 0 && !IS_IMMORTAL(victim)) {
 		ptc(ch, "%ss cannot evolve %s.\n",
-		    capitalize(class_table[victim->class].name), skill_table[sn].name);
+		    capitalize(class_table[victim->cls].name), skill_table[sn].name);
 		return;
 	}
 
@@ -283,7 +283,7 @@ void do_evoset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (skill_table[sn].evocost_pri[victim->class] <= 0 && value > 2 && !IS_IMMORTAL(victim)) {
+	if (skill_table[sn].evocost_pri[victim->cls] <= 0 && value > 2 && !IS_IMMORTAL(victim)) {
 		stc("Secondary classes cannot evolve a skill or spell past 2.\n", ch);
 		return;
 	}
@@ -493,7 +493,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 					break;
 
 				if (skill_table[gn].remort_class > 0 && skill_table[gn].remort_class == cn + 1) {
-					sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->class]);
+					sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->cls]);
 					add_buf(output, buf);
 				}
 			}
@@ -599,14 +599,14 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill_table[sn].remort_class == victim->class + 1) {
+	if (skill_table[sn].remort_class == victim->cls + 1) {
 		stc("They cannot have an extraclass skill within their class.  Pick another.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
-	if ((skill_table[sn].skill_level[victim->class] < 0)
-	    || (skill_table[sn].rating[victim->class] < 0)) {
+	if ((skill_table[sn].skill_level[victim->cls] < 0)
+	    || (skill_table[sn].rating[victim->cls] < 0)) {
 		stc("Their class cannot gain that skill.\n", ch);
 		return;
 	}
@@ -974,16 +974,16 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	 *********************************************************/
 
 	if (!str_prefix1(arg2, "class")) {
-		int class = class_lookup(arg3);
+		int cls = class_lookup(arg3);
 
-		if (class == -1) {
+		if (cls == -1) {
 			sprintf(buf, "Possible classes are: ");
 
-			for (class = 0; class < MAX_CLASS; class++) {
-				if (class > 0)
+			for (cls = 0; cls < MAX_CLASS; cls++) {
+				if (cls > 0)
 					strcat(buf, " ");
 
-				strcat(buf, class_table[class].name);
+				strcat(buf, class_table[cls].name);
 			}
 
 			strcat(buf, ".\n");
@@ -991,8 +991,8 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->class = class;
-		ptc(ch, "%s is now a %s.\n", victim->name, class_table[class].name);
+		victim->cls = cls;
+		ptc(ch, "%s is now a %s.\n", victim->name, class_table[cls].name);
 		return;
 	}
 
@@ -1486,7 +1486,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	stc("\n", ch);
 	ptc(ch, "{MRace: %s  Sex: %s  Class: %s  Size: %s{x\n",
 	    race_table[victim->race].name, sex_table[GET_ATTR_SEX(victim)].name,
-	    IS_NPC(victim) ? "mobile" : class_table[victim->class].name,
+	    IS_NPC(victim) ? "mobile" : class_table[victim->cls].name,
 	    size_table[victim->size].name);
 
 	if (!IS_NPC(victim))
@@ -2034,7 +2034,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	ptc(ch, " %s %s %s",
 	    race_table[victim->race].name,
 	    GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "sexless" : GET_ATTR_SEX(victim) == SEX_MALE ? "male" : "female",
-	    class_table[victim->class].name);
+	    class_table[victim->cls].name);
 
 	if (victim->clan) {
 		stc(", ", ch);

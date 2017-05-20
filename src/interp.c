@@ -128,7 +128,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "buy",                        do_buy,                 POS_RESTING,    LOG_NORMAL,     9,      0                       },
 	{ "backstab",           do_backstab,    POS_FIGHTING,   LOG_NORMAL,     2,      0                       },
 	{ "backup",                     do_backup,              POS_DEAD,               LOG_NORMAL,     8,      0                       },
-	{ "balance",            do_balance,             POS_STANDING,   LOG_NORMAL,     3,      0                       },
+//	{ "balance",            do_balance,             POS_STANDING,   LOG_NORMAL,     3,      0                       },
 	{ "ban",                        do_ban,                 POS_DEAD,               LOG_ALWAYS,     5,      GWS                     },
 	{ "bash",                       do_bash,                POS_FIGHTING,   LOG_NORMAL,     2,      0                       },
 	{ "battle",                     do_battle,              POS_FIGHTING,   LOG_NORMAL,     2,      0                       },
@@ -164,7 +164,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "commands",           do_commands,    POS_DEAD,               LOG_NORMAL,     3,      0                       },
 	{ "compare",            do_compare,             POS_RESTING,    LOG_NORMAL,     3,      0                       },
 	{ "compact",            do_compact,             POS_DEAD,               LOG_NORMAL,     6,      0                       },
-	{ "copyove",            do_copyove,             POS_DEAD,               LOG_ALWAYS,     5,      0                       },
+//	{ "copyove",            do_copyove,             POS_DEAD,               LOG_ALWAYS,     5,      0                       },
 	{ "copyover",           do_copyover,    POS_DEAD,               LOG_ALWAYS,     5,      GL | GWC        },
 	{ "consider",           do_consider,    POS_RESTING,    LOG_NORMAL,     3,      0                       },
 	{ "config",                     do_config,              POS_SLEEPING,   LOG_NORMAL,     6,      0                       },
@@ -1239,7 +1239,7 @@ void load_disabled()
 			continue;
 		}
 
-		p = alloc_mem(sizeof(DISABLED_DATA));
+		p = (DISABLED_DATA *)alloc_mem(sizeof(DISABLED_DATA));
 		p->command = &cmd_table[i];
 		p->disabled_by = str_dup(db_get_column_str(1));
 		p->reason = str_dup(db_get_column_str(2));
@@ -1321,7 +1321,7 @@ void do_disable(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* maybe a command group check here? thinking about it */
-	p = alloc_mem(sizeof(DISABLED_DATA));
+	p = (DISABLED_DATA *)alloc_mem(sizeof(DISABLED_DATA));
 	p->command      = &cmd_table[i];
 	p->disabled_by  = str_dup(ch->name);
 	p->reason       = str_dup(argument);

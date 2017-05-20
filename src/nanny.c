@@ -643,7 +643,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		ch->class = iClass;
+		ch->cls = iClass;
 		sprintf(log_buf, "%s@%s new player.", ch->name, d->host);
 		wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, GET_RANK(ch));
 		log_string(log_buf);
@@ -652,8 +652,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		write_to_buffer(d, "\n", 1);
 		/* paladins can't be neutral */
 		sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
-		        ch->class == PALADIN_CLASS ? "" : ", neutral,",
-		        ch->class == PALADIN_CLASS ? "" : "/N");
+		        ch->cls == PALADIN_CLASS ? "" : ", neutral,",
+		        ch->cls == PALADIN_CLASS ? "" : "/N");
 		write_to_buffer(d, buf, 0);
 		d->connected = CON_GET_ALIGNMENT;
 		break;
@@ -662,7 +662,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (argument[0]) {
 		case 'g':
 		case 'G':
-			if (ch->class == PALADIN_CLASS)
+			if (ch->cls == PALADIN_CLASS)
 				ch->alignment = 1000;
 			else
 				ch->alignment = 750;
@@ -671,7 +671,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		case 'e':
 		case 'E':
-			if (ch->class == PALADIN_CLASS)
+			if (ch->cls == PALADIN_CLASS)
 				ch->alignment = -1000;
 			else
 				ch->alignment = -750;
@@ -682,27 +682,27 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		case 'N':
 
 			/* paladins drop through to default */
-			if (ch->class != PALADIN_CLASS) {
+			if (ch->cls != PALADIN_CLASS) {
 				ch->alignment = 0;
 				break;
 			}
 
 		default:
 			sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
-			        ch->class == PALADIN_CLASS ? "" : "/N");
+			        ch->cls == PALADIN_CLASS ? "" : "/N");
 			write_to_buffer(d, buf, 0);
 			return;
 		}
 
 		write_to_buffer(d, "\n", 0);
 		group_add(ch, "rom basics", FALSE);
-		group_add(ch, class_table[ch->class].base_group, FALSE);
+		group_add(ch, class_table[ch->cls].base_group, FALSE);
 		ch->pcdata->learned[gsn_recall] = 50;
 		ch->pcdata->learned[gsn_scan]   = 100;
 		strcpy(buf, "Select a deity:\n");
 
 		for (deity = 0; deity_table[deity].name != NULL; deity++) {
-			if (ch->class == PALADIN_CLASS) { /* Paladins */
+			if (ch->cls == PALADIN_CLASS) { /* Paladins */
 				if (deity_table[deity].value > 0 && ch->alignment > 0) {
 					strcat(buf, deity_table[deity].align);
 					strcat(buf, deity_table[deity].name);
@@ -772,7 +772,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		case 'n':
 		case 'N':
 */
-//			group_add(ch, class_table[ch->class].default_group, TRUE);
+//			group_add(ch, class_table[ch->cls].default_group, TRUE);
 
 			if (ch->pcdata->points < 40)
 				ch->train = 40 - ch->pcdata->points;
@@ -889,7 +889,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (ch->level == 0) {
 			OBJ_DATA *obj;   /* a generic object variable */
-			ATTR_BASE(ch, stat_to_attr(class_table[ch->class].stat_prime)) += 3;
+			ATTR_BASE(ch, stat_to_attr(class_table[ch->cls].stat_prime)) += 3;
 			ch->level       = 1;
 			ch->exp         = exp_per_level(ch, ch->pcdata->points);
 			ch->hit         = GET_MAX_HIT(ch);

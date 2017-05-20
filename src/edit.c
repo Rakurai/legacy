@@ -361,7 +361,7 @@ static void edit_change(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	int this_line = ed->edit_line;
-	char *this, *next;
+	char *here, *next;
 	char *where;
 	char *end_pos;
 	char end_char;
@@ -390,14 +390,14 @@ static void edit_change(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	this = find_line(this_line);
-	next = next_line(this);
+	here = find_line(this_line);
+	next = next_line(here);
 	/* terminate current line so search will not run over */
 	end_pos = next - 1;
 	end_char = *end_pos;
 	*end_pos = '\0';
 	/* look for search string */
-	where = strstr(this, arg1);
+	where = strstr(here, arg1);
 	*end_pos = end_char;
 
 	if (where == NULL) {
@@ -455,7 +455,7 @@ static void edit_desc(CHAR_DATA *ch, const char *argument)
 	if (!str)
 		str = "";
 
-	ed = alloc_mem(sizeof(EDIT_DATA));
+	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_DESC;
 	strcpy(ed->edit_string, str);
@@ -598,7 +598,7 @@ static void edit_note(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	ed = alloc_mem(sizeof(EDIT_DATA));
+	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_NOTE;
 	strcpy(ed->edit_string, ch->pnote->text);
@@ -626,7 +626,7 @@ static void edit_room(CHAR_DATA *ch, const char *argument)
 	if (!str)
 		str = "";
 
-	ed = alloc_mem(sizeof(EDIT_DATA));
+	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_ROOM;
 	strcpy(ed->edit_string, str);
@@ -657,7 +657,7 @@ static void edit_help(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (db_next_row() == SQL_OK) {
-		ed = alloc_mem(sizeof(EDIT_DATA));
+		ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
 		ch->edit = ed;
 		ed->edit_type = EDIT_TYPE_HELP;
 		strcpy(ed->edit_string, db_get_column_str(0));
@@ -678,7 +678,7 @@ static void edit_split(CHAR_DATA *ch, const char *argument)
 	char token[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	int this_line = ed->edit_line;
-	char *this, *next;
+	char *here, *next;
 	char *where;
 	char *end_pos;
 	char end_char;
@@ -699,13 +699,13 @@ static void edit_split(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	this = find_line(ed->edit_line);
-	next = next_line(this);
+	here = find_line(ed->edit_line);
+	next = next_line(here);
 	/* terminate current line so search will not overrun */
 	end_pos = next - 1;
 	end_char = *end_pos;
 	*end_pos = '\0';
-	where = strstr(this, token);
+	where = strstr(here, token);
 	*end_pos = end_char;
 
 	if (where == NULL) {

@@ -2911,7 +2911,7 @@ void do_recite(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* delay on scrolls -- Elrac */
-	WAIT_STATE(ch, (ch->class == 0 || ch->class == 1 || ch->class == 4)
+	WAIT_STATE(ch, (ch->cls == 0 || ch->cls == 1 || ch->cls == 4)
 	           ? (skill_table[gsn_scrolls].beats * 4) / 5
 	           : skill_table[gsn_scrolls].beats);
 	extract_obj(scroll);
@@ -3107,7 +3107,7 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 	int target_level = 0;    /* what level should we brew at? */
 
 	if (!IS_NPC(ch)
-	    && ch->level < skill_table[gsn_brew].skill_level[ch->class]) {
+	    && ch->level < skill_table[gsn_brew].skill_level[ch->cls]) {
 		stc("You do not know how to brew potions.\n", ch);
 		return;
 	}
@@ -3183,7 +3183,7 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 		target_level = atoi(arg);
 
 		/* make sure the new level is high enough */
-		if (target_level < skill_table[sn].skill_level[ch->class]) {
+		if (target_level < skill_table[sn].skill_level[ch->cls]) {
 			stc("You cannot brew the spell at that low a level.\n", ch);
 			return;
 		}
@@ -3237,7 +3237,7 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 	int target_level = 0;   /* let caster make items of lower level */
 
 	if (!IS_NPC(ch)
-	    && ch->level < skill_table[gsn_scribe].skill_level[ch->class]) {
+	    && ch->level < skill_table[gsn_scribe].skill_level[ch->cls]) {
 		stc("You do not know how to scribe scrolls.\n", ch);
 		return;
 	}
@@ -3293,7 +3293,7 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 		target_level = atoi(arg);
 
 		/* Keep the spell level from dropping too low. */
-		if (target_level < skill_table[sn].skill_level[ch->class]) {
+		if (target_level < skill_table[sn].skill_level[ch->cls]) {
 			stc("You cannot scribe that spell at that level.", ch);
 			return;
 		}
@@ -3820,7 +3820,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		pet         = get_char_here(ch, arg, VIS_CHAR);
 		ch->in_room = in_room;
 
-		if (ch->in_room->guild && ch->in_room->guild != ch->class + 1 && !IS_IMMORTAL(ch)) {
+		if (ch->in_room->guild && ch->in_room->guild != ch->cls + 1 && !IS_IMMORTAL(ch)) {
 			stc("Sorry, members only.\n", ch);
 			return;
 		}
@@ -3943,7 +3943,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		if ((keeper = find_keeper(ch)) == NULL)
 			return;
 
-		if (keeper->in_room->guild && keeper->in_room->guild != ch->class + 1 && !IS_IMMORTAL(ch)) {
+		if (keeper->in_room->guild && keeper->in_room->guild != ch->cls + 1 && !IS_IMMORTAL(ch)) {
 			act("$n tells you 'Sorry, members only.'", keeper, NULL, ch, TO_VICT);
 			return;
 		}
@@ -4892,7 +4892,7 @@ void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 }
 
 /* Hone by Montrey */
-void do_hone(CHAR_DATA *ch)
+void do_hone(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *weapon;
@@ -5089,7 +5089,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	        month_name[time_info.month],
 	        (ch->level > LEVEL_HERO) ? "an immortal" : (ch->level > 75) ? "a master" :
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
-	        "a newbie", class_table[ch->class].name, ch->name,
+	        "a newbie", class_table[ch->cls].name, ch->name,
 	        race_table[ch->race].name);
 	ed->keyword        = str_dup(obj->name);
 	ed->description    = str_dup(buf);

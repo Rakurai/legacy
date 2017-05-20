@@ -34,7 +34,7 @@ DECLARE_DO_FUN(do_force);
 DECLARE_DO_FUN(do_stand);
 DECLARE_SPEC_FUN(spec_clanguard);
 
-char   *const   dir_name        []              = {
+const   char *  dir_name        []              = {
 	"north", "east", "south", "west", "up", "down"
 };
 
@@ -110,7 +110,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	}
 
 	if (!IS_NPC(ch)) {
-		if (to_room->guild && to_room->guild != ch->class + 1 && !IS_IMMORTAL(ch)) {
+		if (to_room->guild && to_room->guild != ch->cls + 1 && !IS_IMMORTAL(ch)) {
 			stc("You must be a guild member to enter.\n", ch);
 			return;
 		}
@@ -1767,42 +1767,42 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	cost = 1;
 
 	if (!str_cmp(argument, "str")) {
-		if (class_table[ch->class].stat_prime == STAT_STR)
+		if (class_table[ch->cls].stat_prime == STAT_STR)
 			cost    = 1;
 
 		stat        = STAT_STR;
 		pOutput     = "strength";
 	}
 	else if (!str_cmp(argument, "int")) {
-		if (class_table[ch->class].stat_prime == STAT_INT)
+		if (class_table[ch->cls].stat_prime == STAT_INT)
 			cost    = 1;
 
 		stat        = STAT_INT;
 		pOutput     = "intelligence";
 	}
 	else if (!str_cmp(argument, "wis")) {
-		if (class_table[ch->class].stat_prime == STAT_WIS)
+		if (class_table[ch->cls].stat_prime == STAT_WIS)
 			cost    = 1;
 
 		stat        = STAT_WIS;
 		pOutput     = "wisdom";
 	}
 	else if (!str_cmp(argument, "dex")) {
-		if (class_table[ch->class].stat_prime == STAT_DEX)
+		if (class_table[ch->cls].stat_prime == STAT_DEX)
 			cost    = 1;
 
 		stat        = STAT_DEX;
 		pOutput     = "dexterity";
 	}
 	else if (!str_cmp(argument, "con")) {
-		if (class_table[ch->class].stat_prime == STAT_CON)
+		if (class_table[ch->cls].stat_prime == STAT_CON)
 			cost    = 1;
 
 		stat        = STAT_CON;
 		pOutput     = "constitution";
 	}
 	else if (!str_cmp(argument, "chr")) {
-		if (class_table[ch->class].stat_prime == STAT_CHR)
+		if (class_table[ch->cls].stat_prime == STAT_CHR)
 			cost    = 1;
 
 		stat        = STAT_CHR;
@@ -2060,7 +2060,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_NPC(ch)
 	    && to_room->guild
-	    && to_room->guild != victim->class + 1) {
+	    && to_room->guild != victim->cls + 1) {
 		stc("They are not a member, they cannot enter.\n", ch);
 		return;
 	}
@@ -2838,8 +2838,8 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		do_look(ch, "auto");
 
 		if (!IS_NPC(ch) && fighting) {
-			if (ch->class != 2) {
-				if (ch->class == PALADIN_CLASS) { /* Paladins */
+			if (ch->cls != 2) {
+				if (ch->cls == PALADIN_CLASS) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);
 				}

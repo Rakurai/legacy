@@ -22,10 +22,10 @@ const AFFECT_DATA *affect_find_on_room(ROOM_INDEX_DATA *room, int sn) {
 
 // adding
 
-void affect_copy_to_room(ROOM_INDEX_DATA *room, const AFFECT_DATA *template)
+void affect_copy_to_room(ROOM_INDEX_DATA *room, const AFFECT_DATA *aff_template)
 {
-	affect_copy_to_list(&room->affected, template);
-	affect_modify_room(room, template, TRUE);
+	affect_copy_to_list(&room->affected, aff_template);
+	affect_modify_room(room, aff_template, TRUE);
 }
 
 void affect_join_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf) {
@@ -132,11 +132,11 @@ void affect_modify_room(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 		break;
 
 	case TO_HPREGEN:
-		room->heal_rate += paf->modifier * fAdd ? 1 : -1;
+		room->heal_rate += paf->modifier * (fAdd ? 1 : -1);
 		break;
 
 	case TO_MPREGEN:
-		room->mana_rate += paf->modifier * fAdd ? 1 : -1;
+		room->mana_rate += paf->modifier * (fAdd ? 1 : -1);
 		break;
 	}
 }

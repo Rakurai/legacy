@@ -13,6 +13,7 @@
 * Most of these are in the secure command group. *
 *************************************************/
 
+#include <unistd.h>
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
@@ -658,7 +659,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 
 		/* if none, build and link a new tail data item */
 		if (!td) {
-			td = alloc_mem(sizeof(struct tail_data));
+			td = (struct tail_data *)alloc_mem(sizeof(struct tail_data));
 			td->tailed_by = ch;
 			td->tailer_name = str_dup(ch->name);
 			td->flags = 0;

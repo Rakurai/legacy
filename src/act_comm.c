@@ -24,6 +24,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <unistd.h>
 #include "merc.h"
 #include "vt100.h"
 #include "affect.h"
@@ -427,12 +428,12 @@ int select_pose(CHAR_DATA *ch)
 		return -1;
 	}
 
-	if (ch->class + 1 > MAX_CLASS) {
+	if (ch->cls + 1 > MAX_CLASS) {
 		bug("do_new_pose: Player has invalid class!", 0);
 		return -1;
 	}
 
-	maxpose = new_pose_table[ch->class].posecount;
+	maxpose = new_pose_table[ch->cls].posecount;
 
 	if (maxpose <= 0) {
 		stc("No poses implemented for your class, sorry!\n", ch);
@@ -453,8 +454,8 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 	if (pose == -1)
 		return;
 
-	act(new_pose_table[ch->class].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
-	act(new_pose_table[ch->class].poses[pose].room_msg, ch, NULL, NULL, TO_ROOM);
+	act(new_pose_table[ch->cls].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[ch->cls].poses[pose].room_msg, ch, NULL, NULL, TO_ROOM);
 	return;
 }
 
@@ -462,8 +463,6 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 void do_testpose(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	int class;
-	int pose;
 
 	if (!argument[0]) {
 		stc("Syntax: testpose [class [number]]\n", ch);
@@ -471,16 +470,16 @@ void do_testpose(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = one_argument(argument, arg);
-	class = class_lookup(arg);
+	int cls = class_lookup(arg);
 
-	if (class == -1) {
+	if (cls == -1) {
 		stc("That's not a valid class\n", ch);
 		return;
 	}
 
 	if (!argument[0]) {
 		sprintf(arg, "%d poses defined for class '%s'\n",
-		        new_pose_table[class].posecount, class_table[class].name);
+		        new_pose_table[cls].posecount, class_table[cls].name);
 		stc(arg, ch);
 		return;
 	}
@@ -492,18 +491,18 @@ void do_testpose(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	pose = atoi(arg);
+	int pose = atoi(arg);
 
-	if (pose < 1 || pose > new_pose_table[class].posecount) {
+	if (pose < 1 || pose > new_pose_table[cls].posecount) {
 		stc("Pose number out of range!\n", ch);
 		return;
 	}
 
 	pose--;
 	stc("{Yto {Cyourself{x:\n", ch);
-	act(new_pose_table[class].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[cls].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
 	stc("{Yto {Cothers{x:\n", ch);
-	act(new_pose_table[class].poses[pose].room_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[cls].poses[pose].room_msg, ch, NULL, NULL, TO_CHAR);
 } /* end do_testpose() */
 
 /* RT code to delete yourself */
@@ -1628,7 +1627,7 @@ void do_group(CHAR_DATA *ch, const char *argument)
 				sprintf(buf,
 				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",
 				        gch->level,
-				        IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
+				        IS_NPC(gch) ? "Mob" : class_table[gch->cls].who_name,
 				        PERS(gch, ch, VIS_PLR),
 				        gch->hit,   GET_MAX_HIT(gch),
 				        gch->mana,  GET_MAX_MANA(gch),

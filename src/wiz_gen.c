@@ -1727,7 +1727,7 @@ void do_grouplist(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!dupe) {
-			newnode = alloc_mem(sizeof(GROUP_DATA));
+			newnode = (GROUP_DATA *)alloc_mem(sizeof(GROUP_DATA));
 			newnode->leader = victim->leader;
 			newnode->next = leaders;
 			leaders = newnode;
@@ -3656,7 +3656,7 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		newdata = alloc_mem(sizeof(STORAGE_DATA));
+		newdata = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
 		newdata->name = str_dup(capitalize(argument));
 		newdata->by_who = str_dup(ch->name);
 		newdata->date = str_dup(ctime(&current_time));

@@ -432,7 +432,7 @@ int get_random_skill(CHAR_DATA *ch)
 				if (skill_table[sn].remort_class > 0 && !CAN_USE_RSKILL(ch, sn))
 					continue;
 
-				if (skill_table[sn].skill_level[ch->class] > ch->level)
+				if (skill_table[sn].skill_level[ch->cls] > ch->level)
 					continue;
 
 				if (pass == 2 && count == target) {

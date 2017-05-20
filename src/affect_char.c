@@ -23,10 +23,10 @@ const AFFECT_DATA *affect_find_on_char(CHAR_DATA *ch, int sn) {
 
 // adding
 
-void affect_copy_to_char(CHAR_DATA *ch, const AFFECT_DATA *template)
+void affect_copy_to_char(CHAR_DATA *ch, const AFFECT_DATA *aff_template)
 {
-	affect_copy_to_list(&ch->affected, template);
-	affect_modify_char(ch, template, TRUE);
+	affect_copy_to_list(&ch->affected, aff_template);
+	affect_modify_char(ch, aff_template, TRUE);
 }
 
 void affect_join_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
@@ -290,7 +290,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 
 		if (fAdd) {
 			if (ch->defense_mod == NULL) {
-				ch->defense_mod = alloc_mem(DEFENSE_MOD_MEM_SIZE);
+				ch->defense_mod = (sh_int *)alloc_mem(DEFENSE_MOD_MEM_SIZE);
 				memset(ch->defense_mod, 0, DEFENSE_MOD_MEM_SIZE);
 			}
 
@@ -338,7 +338,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 
 		if (fAdd) {
 			if (ch->apply_cache == NULL) {
-				ch->apply_cache = alloc_mem(APPLY_CACHE_MEM_SIZE);
+				ch->apply_cache = (int *)alloc_mem(APPLY_CACHE_MEM_SIZE);
 				memset(ch->apply_cache, 0, APPLY_CACHE_MEM_SIZE);
 			}
 

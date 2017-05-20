@@ -127,7 +127,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	stc(buf, ch);
 	sprintf(buf,
 	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",
-	        victim->level,       victim->class,        victim->alignment,
+	        victim->level,       victim->cls,        victim->alignment,
 	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
 	stc(buf, ch);
 

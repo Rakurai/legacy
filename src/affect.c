@@ -51,16 +51,16 @@ int affect_comparator_permanent(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) 
 
 // affect utilities
 
-void affect_update(AFFECT_DATA *paf, const AFFECT_DATA *template) {
-	paf->type = template->type;
-	paf->where = template->where;
-	paf->location = template->location;
-	paf->duration = template->duration;
-	paf->level = template->level;
-	paf->modifier = template->modifier;
-	paf->bitvector = template->bitvector;
-	paf->evolution = template->evolution;
-	paf->permanent = template->permanent;
+void affect_update(AFFECT_DATA *paf, const AFFECT_DATA *aff_template) {
+	paf->type = aff_template->type;
+	paf->where = aff_template->where;
+	paf->location = aff_template->location;
+	paf->duration = aff_template->duration;
+	paf->level = aff_template->level;
+	paf->modifier = aff_template->modifier;
+	paf->bitvector = aff_template->bitvector;
+	paf->evolution = aff_template->evolution;
+	paf->permanent = aff_template->permanent;
 }
 
 // calculate a checksum over the important parts of the AFFECT_DATA structure, for

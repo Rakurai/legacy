@@ -26,10 +26,10 @@ const AFFECT_DATA *affect_find_on_obj(OBJ_DATA *obj, int sn) {
 
 // adding
 
-void affect_copy_to_obj(OBJ_DATA *obj, const AFFECT_DATA *template)
+void affect_copy_to_obj(OBJ_DATA *obj, const AFFECT_DATA *aff_template)
 {
-	affect_copy_to_list(&obj->affected, template);
-	affect_modify_obj(obj, template, TRUE);
+	affect_copy_to_list(&obj->affected, aff_template);
+	affect_modify_obj(obj, aff_template, TRUE);
 }
 
 void affect_join_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf) {

@@ -16,8 +16,8 @@ void load_departed_list()
 {
 	char *buf;
 	FILE *fp;
-	departed_list_head = alloc_mem(sizeof(DEPARTED_DATA));
-	departed_list_tail = alloc_mem(sizeof(DEPARTED_DATA));
+	departed_list_head = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
+	departed_list_tail = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
 	departed_list_head->next = departed_list_tail;
 	departed_list_tail->previous = departed_list_head;
 
@@ -67,7 +67,7 @@ void insert_departed(const char *name)
 {
 	DEPARTED_DATA *iterator, *newDeparted;
 	iterator = departed_list_head->next;
-	newDeparted = alloc_mem(sizeof(DEPARTED_DATA));
+	newDeparted = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
 	newDeparted->name = str_dup(name);
 
 	while (iterator != departed_list_tail) {

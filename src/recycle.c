@@ -53,7 +53,7 @@ SEMIPERM *new_semiperm()
 	SEMIPERM *semiperm;
 
 	if (semiperm_free == NULL)
-		semiperm = alloc_perm2(sizeof(*semiperm), "Semiperm");
+		semiperm = (SEMIPERM *)alloc_perm2(sizeof(*semiperm), "Semiperm");
 	else {
 		semiperm = semiperm_free;
 		semiperm_free = semiperm_free->next;
@@ -86,7 +86,7 @@ NOTE_DATA *new_note()
 	NOTE_DATA *note;
 
 	if (note_free == NULL)
-		note = alloc_perm2(sizeof(*note), "Note");
+		note = (NOTE_DATA *)alloc_perm2(sizeof(*note), "Note");
 	else {
 		note = note_free;
 		note_free = note_free->next;
@@ -127,7 +127,7 @@ DESCRIPTOR_DATA *new_descriptor(void)
 	DESCRIPTOR_DATA *d;
 
 	if (descriptor_free == NULL)
-		d = alloc_perm2(sizeof(*d), "Descriptor");
+		d = (DESCRIPTOR_DATA *)alloc_perm2(sizeof(*d), "Descriptor");
 	else {
 		d = descriptor_free;
 		descriptor_free = descriptor_free->next;
@@ -136,7 +136,7 @@ DESCRIPTOR_DATA *new_descriptor(void)
 	*d = (DESCRIPTOR_DATA){0};
 	d->connected     = CON_GET_NAME;
 	d->outsize       = 2000;
-	d->outbuf        = alloc_mem(d->outsize);
+	d->outbuf        = (char *)alloc_mem(d->outsize);
 	d->host = str_empty;
 
 	VALIDATE(d);
@@ -164,7 +164,7 @@ GEN_DATA *new_gen_data(void)
 	GEN_DATA *gen;
 
 	if (gen_data_free == NULL)
-		gen = alloc_perm2(sizeof(*gen), "General");
+		gen = (GEN_DATA *)alloc_perm2(sizeof(*gen), "General");
 	else {
 		gen = gen_data_free;
 		gen_data_free = gen_data_free->next;
@@ -194,7 +194,7 @@ EXTRA_DESCR_DATA *new_extra_descr(void)
 	EXTRA_DESCR_DATA *ed;
 
 	if (extra_descr_free == NULL)
-		ed = alloc_perm2(sizeof(*ed), "Extra Description");
+		ed = (EXTRA_DESCR_DATA *)alloc_perm2(sizeof(*ed), "Extra Description");
 	else {
 		ed = extra_descr_free;
 		extra_descr_free = extra_descr_free->next;
@@ -229,7 +229,7 @@ AFFECT_DATA *new_affect(void)
 	AFFECT_DATA *af;
 
 	if (affect_free == NULL)
-		af = alloc_perm2(sizeof(*af), "Affect");
+		af = (AFFECT_DATA *)alloc_perm2(sizeof(*af), "Affect");
 	else {
 		af = affect_free;
 		affect_free = affect_free->next;
@@ -259,7 +259,7 @@ OBJ_DATA *new_obj(void)
 	OBJ_DATA *obj;
 
 	if (obj_free == NULL)
-		obj = alloc_perm2(sizeof(*obj), "Object");
+		obj = (OBJ_DATA *)alloc_perm2(sizeof(*obj), "Object");
 	else {
 		obj = obj_free;
 		obj_free = obj_free->next;
@@ -311,7 +311,7 @@ CHAR_DATA *new_char(void)
 	CHAR_DATA *ch;
 
 	if (char_free == NULL)
-		ch = alloc_perm2(sizeof(*ch), "Character");
+		ch = (CHAR_DATA *)alloc_perm2(sizeof(*ch), "Character");
 	else {
 		ch = char_free;
 		char_free = char_free->next;
@@ -423,7 +423,7 @@ PC_DATA *new_pcdata(void)
 	PC_DATA *pcdata;
 
 	if (pcdata_free == NULL)
-		pcdata = alloc_perm2(sizeof(*pcdata), "PC Data");
+		pcdata = (PC_DATA *)alloc_perm2(sizeof(*pcdata), "PC Data");
 	else {
 		pcdata = pcdata_free;
 		pcdata_free = pcdata_free->next;
@@ -540,7 +540,7 @@ MEM_DATA *new_mem_data(void)
 	MEM_DATA *memory;
 
 	if (mem_data_free == NULL)
-		memory = alloc_mem(sizeof(*memory));
+		memory = (MEM_DATA *)alloc_mem(sizeof(*memory));
 	else {
 		memory = mem_data_free;
 		mem_data_free = mem_data_free->next;
@@ -570,7 +570,7 @@ WAR_DATA *new_war(void)
 	WAR_DATA *war;
 
 	if (war_free == NULL)
-		war = alloc_perm2(sizeof(*war), "War");
+		war = (WAR_DATA *)alloc_perm2(sizeof(*war), "War");
 	else {
 		war = war_free;
 		war_free = war_free->next;
@@ -619,7 +619,7 @@ OPP_DATA *new_opp(void)
 	OPP_DATA *opp;
 
 	if (opp_free == NULL)
-		opp = alloc_perm2(sizeof(*opp), "War Opponent");
+		opp = (OPP_DATA *)alloc_perm2(sizeof(*opp), "War Opponent");
 	else {
 		opp = opp_free;
 		opp_free = opp_free->next;
@@ -654,7 +654,7 @@ EVENT_DATA *new_event(void)
 	EVENT_DATA *event;
 
 	if (event_free == NULL)
-		event = alloc_perm2(sizeof(*event), "War Event");
+		event = (EVENT_DATA *)alloc_perm2(sizeof(*event), "War Event");
 	else {
 		event = event_free;
 		event_free = event_free->next;
@@ -689,7 +689,7 @@ MERC_DATA *new_merc(void)
 	MERC_DATA *merc;
 
 	if (merc_free == NULL)
-		merc = alloc_perm2(sizeof(*merc), "Merc");
+		merc = (MERC_DATA *)alloc_perm2(sizeof(*merc), "Merc");
 	else {
 		merc = merc_free;
 		merc_free = merc_free->next;
@@ -732,7 +732,7 @@ OFFER_DATA *new_offer(void)
 	OFFER_DATA *offer;
 
 	if (offer_free == NULL)
-		offer = alloc_perm2(sizeof(*offer), "Merc Offer");
+		offer = (OFFER_DATA *)alloc_perm2(sizeof(*offer), "Merc Offer");
 	else {
 		offer = offer_free;
 		offer_free = offer_free->next;
@@ -765,7 +765,7 @@ DUEL_DATA *new_duel(void)
 	DUEL_DATA *duel;
 
 	if (duel_free == NULL)
-		duel = alloc_perm2(sizeof(*duel), "Duel");
+		duel = (DUEL_DATA *)alloc_perm2(sizeof(*duel), "Duel");
 	else {
 		duel = duel_free;
 		duel_free = duel_free->next;
@@ -843,7 +843,7 @@ BUFFER *new_buf_size(long size)
 	BUFFER *buffer;
 
 	if (buf_free == NULL)
-		buffer = alloc_perm2(sizeof(*buffer), "Buffer");
+		buffer = (BUFFER *)alloc_perm2(sizeof(*buffer), "Buffer");
 	else {
 		buffer = buf_free;
 		buf_free = buf_free->next;
@@ -858,7 +858,7 @@ BUFFER *new_buf_size(long size)
 		exit(1);
 	}
 
-	buffer->string      = alloc_mem(buffer->size);
+	buffer->string      = (char *)alloc_mem(buffer->size);
 	buffer->string[0]   = '\0';
 	VALIDATE(buffer);
 	return buffer;
@@ -916,7 +916,7 @@ bool add_buf(BUFFER *buffer, const char *string)
 	}
 
 	if (buffer->size != oldsize) {
-		buffer->string  = alloc_mem(buffer->size);
+		buffer->string  = (char *)alloc_mem(buffer->size);
 		strcpy(buffer->string, oldstr);
 		free_mem(oldstr, oldsize);
 	}

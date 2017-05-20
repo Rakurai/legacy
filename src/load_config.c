@@ -24,7 +24,7 @@ int load_config(const char *filename) {
 	rewind(cf);
 
 	// alloc mem
-	if ((str = malloc(fsize + 1)) == NULL) {
+	if ((str = (char *)malloc(fsize + 1)) == NULL) {
 		bug("Could not allocate memory for configuration parsing.", 0);
 		fclose(cf);
 		return -1;

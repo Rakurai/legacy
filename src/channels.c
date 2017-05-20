@@ -1028,7 +1028,7 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 	    pose = select_pose( ch );
 	    if ( pose < 0 ) return;
 	    sprintf( buf, "[P] %s\n",
-	        new_pose_table[ch->class].poses[pose].self_msg );
+	        new_pose_table[ch->cls].poses[pose].self_msg );
 	}
 	else
 	*****/
@@ -1046,7 +1046,7 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 	/* no channel poses */
 	/*    if ( pose != -1 )
 	        sprintf( buf, "[P] %s\n",
-	            new_pose_table[ch->class].poses[pose].room_msg );
+	            new_pose_table[ch->cls].poses[pose].room_msg );
 	*/
 
 	if (!str_prefix1(arg, "emote") && (arg2[0] != '\0'))

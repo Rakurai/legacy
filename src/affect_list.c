@@ -30,10 +30,10 @@ void affect_insert_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf) {
 	*list_head = paf;
 }
 
-void affect_copy_to_list(AFFECT_DATA **list_head, const AFFECT_DATA *template)
+void affect_copy_to_list(AFFECT_DATA **list_head, const AFFECT_DATA *aff_template)
 {
 	AFFECT_DATA *paf_new = new_affect();
-	*paf_new            = *template;
+	*paf_new            = *aff_template;
 	paf_new->next = NULL;
 	paf_new->prev = NULL;
 	affect_insert_in_list(list_head, paf_new);

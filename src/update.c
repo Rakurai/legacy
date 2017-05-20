@@ -68,11 +68,11 @@ void demote_level(CHAR_DATA *ch)
 	int sub_hp, sub_mana, sub_stam, sub_prac, sub_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
 	sub_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
-	                               class_table[ch->class].hp_min, class_table[ch->class].hp_max));
+	                               class_table[ch->cls].hp_min, class_table[ch->cls].hp_max));
 	sub_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
-	                               class_table[ch->class].mana_min, class_table[ch->class].mana_max));
+	                               class_table[ch->cls].mana_min, class_table[ch->cls].mana_max));
 	sub_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
-	                               class_table[ch->class].stam_min, class_table[ch->class].stam_max));
+	                               class_table[ch->cls].stam_min, class_table[ch->cls].stam_max));
 	sub_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
 	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
@@ -97,11 +97,11 @@ void advance_level(CHAR_DATA *ch)
 	int add_hp, add_mana, add_stam, add_prac, add_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
 	add_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
-	                               class_table[ch->class].hp_min, class_table[ch->class].hp_max));
+	                               class_table[ch->cls].hp_min, class_table[ch->cls].hp_max));
 	add_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
-	                               class_table[ch->class].mana_min, class_table[ch->class].mana_max));
+	                               class_table[ch->cls].mana_min, class_table[ch->cls].mana_max));
 	add_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
-	                               class_table[ch->class].stam_min, class_table[ch->class].stam_max));
+	                               class_table[ch->cls].stam_min, class_table[ch->cls].stam_max));
 	add_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
 	if (chr_app[GET_ATTR_CHR(ch)].chance >= number_percent())
@@ -242,7 +242,7 @@ int hit_gain(CHAR_DATA *ch)
 	}
 	else {
 		gain = UMAX(3, GET_ATTR_CON(ch) - 3 + ch->level / 2);
-		gain += class_table[ch->class].hp_max - 10;
+		gain += class_table[ch->cls].hp_max - 10;
 		number = number_percent();
 
 		if (number < get_skill(ch, gsn_fast_healing)) {
@@ -327,7 +327,7 @@ int mana_gain(CHAR_DATA *ch)
 		}
 
 		/* compare to mages mana regen, mages get full (class 0) */
-		gain -= gain * (class_table[0].mana_max - class_table[ch->class].mana_max)
+		gain -= gain * (class_table[0].mana_max - class_table[ch->cls].mana_max)
 		        / class_table[0].mana_max;
 
 		switch (get_position(ch)) {
@@ -393,7 +393,7 @@ int stam_gain(CHAR_DATA *ch)
 	else {
 		gain = GET_ATTR_CON(ch) + GET_ATTR_DEX(ch) + (ch->level / 2);
 		/* compare to warrior stamina regen, warriors get full (class 3) */
-		gain -= gain * (class_table[3].stam_max - class_table[ch->class].stam_max)
+		gain -= gain * (class_table[3].stam_max - class_table[ch->cls].stam_max)
 		        / class_table[3].stam_max;
 
 		switch (get_position(ch)) {
@@ -839,7 +839,7 @@ void char_update(void)
 
 			/* If the character is a Paladin and not an NPC
 			   then check their Lay on Hands status. -- Outsider */
-			if (!IS_NPC(ch) && ch->class == PALADIN_CLASS) {
+			if (!IS_NPC(ch) && ch->cls == PALADIN_CLASS) {
 				/* keep it in the limits */
 				if (ch->pcdata->lays > 10) ch->pcdata->lays = 10;
 
@@ -1323,7 +1323,7 @@ void aggr_update(void)
 		player_count++;
 
 	/* allocate memory for pointers to <player_count> rooms */
-	room_list = alloc_mem(player_count * sizeof(ROOM_INDEX_DATA *));
+	room_list = (ROOM_INDEX_DATA **)alloc_mem(player_count * sizeof(ROOM_INDEX_DATA *));
 
 	for (jroom = 0; jroom < player_count; jroom++)
 		room_list[jroom] = NULL;
