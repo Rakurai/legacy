@@ -194,21 +194,19 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON *o = cJSON_CreateObject(); // object to return
 
 	item = NULL;
-	for (int pos = 0; pos < MAX_ALIAS; pos++) {
-		if (!ch->pcdata->alias[pos][0]
-		 || !ch->pcdata->alias_sub[pos][0])
-			break;
 
-		if (item == NULL)
-			item = cJSON_CreateArray();
+	if (!ch->pcdata->alias.empty()) {
+		item = cJSON_CreateArray();
 
-		cJSON *alias = cJSON_CreateArray();
-		cJSON_AddItemToArray(alias, cJSON_CreateString(ch->pcdata->alias[pos]));
-		cJSON_AddItemToArray(alias, cJSON_CreateString(ch->pcdata->alias_sub[pos]));
-		cJSON_AddItemToArray(item, alias);
-	}
-	if (item != NULL)
+		for (auto it = ch->pcdata->alias.begin(); it != ch->pcdata->alias.end(); it++) {
+			cJSON *alias = cJSON_CreateArray();
+			cJSON_AddItemToArray(alias, cJSON_CreateString((*it).first.c_str()));
+			cJSON_AddItemToArray(alias, cJSON_CreateString((*it).second.c_str()));
+			cJSON_AddItemToArray(item, alias);
+		}
+
 		cJSON_AddItemToObject(o,	"Alias",		item);
+	}
 
 	if (ch->pcdata->afk[0] != '\0')
 		cJSON_AddStringToObject(o,	"Afk",			ch->pcdata->afk);
@@ -1038,10 +1036,9 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 			case 'A':
 				if (!str_cmp(key, "Alias")) { // array of 2-tuples
 					// each alias is a 2-tuple (a list)
-					for (cJSON *item = o->child; item != NULL; item = item->next, count++) {
-						ch->pcdata->alias[count] = str_dup(item->child->valuestring);
-						ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
-					}
+					for (cJSON *item = o->child; item != NULL; item = item->next, count++)
+						ch->pcdata->alias[item->child->valuestring] = item->child->next->valuestring;
+
 					fMatch = TRUE; break;
 				}
 

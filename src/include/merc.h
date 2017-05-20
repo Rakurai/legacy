@@ -41,6 +41,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+#include <string>
+#include <iostream>
+#include <map>
+
 /*
  * Accommodate old non-Ansi compilers.
  */
@@ -2144,8 +2148,9 @@ struct  pc_data
 	int			rolepoints;			/* Montrey */
 	sh_int              points;
 	sh_int              confirm_delete;
-	char *              alias[MAX_ALIAS];
-	char *              alias_sub[MAX_ALIAS];
+  std::map<std::string, std::string> alias;
+//	char *              alias[MAX_ALIAS];
+//	char *              alias_sub[MAX_ALIAS];
 	CHAR_DATA *         skeleton;			/* Lotus */
 	CHAR_DATA *         zombie;				/* Lotus */
 	CHAR_DATA *         wraith;				/* Lotus */

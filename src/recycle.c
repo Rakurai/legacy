@@ -452,9 +452,6 @@ PC_DATA *new_pcdata(void)
 	pcdata->fingerinfo =
 	pcdata->email = str_empty;
 
-	for (int i = 0; i < MAX_ALIAS; i++)
-		pcdata->alias[i] = pcdata->alias_sub[i] = str_empty;
-
 	for (int i = 0; i < MAX_QUERY; i++)
 		pcdata->query[i] = str_empty;
 
@@ -491,11 +488,6 @@ void free_pcdata(PC_DATA *pcdata)
 	free_string(pcdata->whisper);
 	free_string(pcdata->fingerinfo);
 	free_string(pcdata->email);
-
-	for (int i = 0; i < MAX_ALIAS; i++) {
-		free_string(pcdata->alias[i]);
-		free_string(pcdata->alias_sub[i]);
-	}
 
 	for (int i = 0; i < MAX_QUERY; i++)
 		free_string(pcdata->query[i]);

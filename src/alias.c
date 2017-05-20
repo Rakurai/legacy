@@ -29,15 +29,20 @@
 
 char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 
+void add_alias(PC_DATA *pch, const char *text, const char *sub) {
+	pch->alias[std::string(text)] = std::string(sub);
+}
+
+void remove_alias(PC_DATA *pch, const char *text) {
+	pch->alias.erase(std::string(text));
+}
+
 /* does aliasing and other fun stuff */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
 	CHAR_DATA *ch;
 	char buf[MAX_STRING_LENGTH];
 	char prefix[2 * MAX_INPUT_LENGTH];
-	char name[MAX_INPUT_LENGTH];
-	const char *point;
-	int alias;
 	ch = d->original ? d->original : d->character;
 
 	if (!ch) {
@@ -60,34 +65,30 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 		argument = prefix;
 	}
 
-	if (IS_NPC(ch) || ch->pcdata->alias[0][0] == '\0'
+	if (IS_NPC(ch)
 	    ||  !str_prefix1("alias", argument) || !str_prefix1("una", argument)
 	    ||  !str_prefix1("prefix", argument)) {
 		interpret(d->character, argument);
 		return;
 	}
 
-	strcpy(buf, argument);
+	strcpy(buf, argument); // the default, in case we don't find an alias
 
-	for (alias = 0; alias < MAX_ALIAS; alias++) { /* go through the aliases */
-		if (ch->pcdata->alias[alias][0] == '\0')
-			break;
+	std::string input = argument;
+	char word[MAX_INPUT_LENGTH];
+	const char *remainder = one_argument(argument, word);
+	auto search = ch->pcdata->alias.find(word);
 
-		if (!str_prefix1(ch->pcdata->alias[alias], argument)) {
-			point = one_argument(argument, name);
+	if (search != ch->pcdata->alias.end()) {
+		strcpy(buf, (*search).second.c_str());
+		strcat(buf, " ");
+		strcat(buf, remainder);
 
-			if (!strcmp(ch->pcdata->alias[alias], name)) {
-				strcpy(buf, ch->pcdata->alias_sub[alias]);
-				strcat(buf, " ");
-				strcat(buf, point);
-				strcpy(buf, get_multi_command(d, buf));
-				break;
-			}
+		strcpy(buf, get_multi_command(d, buf));
 
-			if (strlen(buf) > MAX_INPUT_LENGTH) {
-				stc("Alias substitution too long. Truncated.\n", ch);
-				buf[MAX_INPUT_LENGTH - 1] = '\0';
-			}
+		if (strlen(buf) > MAX_INPUT_LENGTH) {
+			stc("Alias substitution too long. Truncated.\n", ch);
+			buf[MAX_INPUT_LENGTH - 1] = '\0';
 		}
 	}
 
@@ -103,8 +104,7 @@ void do_alia(CHAR_DATA *ch, const char *argument)
 void do_alias(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
-	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
-	int pos;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -126,22 +126,15 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		if (rch->pcdata->alias[0][0] == '\0') {
+		if (rch->pcdata->alias.empty()) {
 			stc("You have no aliases defined.\n", ch);
 			return;
 		}
 
 		stc("Your current aliases are:\n", ch);
 
-		for (pos = 0; pos < MAX_ALIAS; pos++) {
-			if (!rch->pcdata->alias[pos][0]
-			 || !rch->pcdata->alias_sub[pos][0])
-				break;
-
-			sprintf(buf, "    %s:  %s\n", rch->pcdata->alias[pos],
-			        rch->pcdata->alias_sub[pos]);
-			stc(buf, ch);
-		}
+		for (auto it = rch->pcdata->alias.begin(); it != rch->pcdata->alias.end(); it++)
+			ptc(ch, "    %s:  %s\n", (*it).first.c_str(), (*it).second.c_str());
 
 		return;
 	}
@@ -152,20 +145,13 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		for (pos = 0; pos < MAX_ALIAS; pos++) {
-			if (!rch->pcdata->alias[pos][0]
-			 || !rch->pcdata->alias_sub[pos][0])
-				break;
+		auto search = rch->pcdata->alias.find(std::string(arg));
 
-			if (!str_cmp(arg, rch->pcdata->alias[pos])) {
-				sprintf(buf, "%s aliases to '%s'.\n", rch->pcdata->alias[pos],
-				        rch->pcdata->alias_sub[pos]);
-				stc(buf, ch);
-				return;
-			}
-		}
+		if (search == rch->pcdata->alias.end())
+			stc("That alias is not defined.\n", ch);
+		else
+			ptc(ch, "%s aliases to '%s'.\n", (*search).first.c_str(), (*search).second.c_str());
 
-		stc("That alias is not defined.\n", ch);
 		return;
 	}
 
@@ -174,37 +160,20 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (pos = 0; pos < MAX_ALIAS; pos++) {
-		if (!rch->pcdata->alias[pos][0])
-			break;
+	auto search = rch->pcdata->alias.find(std::string(arg));
 
-		if (!str_cmp(arg, rch->pcdata->alias[pos])) { /* redefine an alias */
-			free_string(rch->pcdata->alias_sub[pos]);
-			rch->pcdata->alias_sub[pos] = str_dup(argument);
-			sprintf(buf, "%s is now realiased to '%s'.\n", arg, argument);
-			stc(buf, ch);
-			return;
-		}
-	}
+	ptc(ch, "%s is now %saliased to '%s'.\n",
+		arg,
+		search == rch->pcdata->alias.end() ? "" : "re",
+		argument);
 
-	if (pos >= MAX_ALIAS) {
-		stc("Sorry, you have reached the alias limit.\n", ch);
-		return;
-	}
-
-	/* make a new alias */
-	rch->pcdata->alias[pos]            = str_dup(arg);
-	rch->pcdata->alias_sub[pos]        = str_dup(argument);
-	sprintf(buf, "%s is now aliased to '%s'.\n", arg, argument);
-	stc(buf, ch);
+	add_alias(rch->pcdata, arg, argument);
 }
 
 void do_unalias(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
 	char arg[MAX_INPUT_LENGTH];
-	int pos;
-	bool found = FALSE;
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -221,35 +190,13 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (pos = 0; pos < MAX_ALIAS; pos++) {
-		if (!rch->pcdata->alias[pos][0])
-			break;
+	auto search = rch->pcdata->alias.find(std::string(arg));
 
-		if (found) {
-			// swap with the previous
-			char *temp;
-
-			temp = rch->pcdata->alias[pos - 1];
-			rch->pcdata->alias[pos - 1] = rch->pcdata->alias[pos];
-			rch->pcdata->alias[pos] = temp;
-
-			temp = rch->pcdata->alias_sub[pos - 1];
-			rch->pcdata->alias_sub[pos - 1] = rch->pcdata->alias_sub[pos];
-			rch->pcdata->alias_sub[pos] = temp;
-			continue;
-		}
-
-		if (!strcmp(arg, rch->pcdata->alias[pos])) {
-			stc("Alias removed.\n", ch);
-			free_string(rch->pcdata->alias[pos]);
-			free_string(rch->pcdata->alias_sub[pos]);
-			rch->pcdata->alias[pos] = str_dup("");
-			rch->pcdata->alias_sub[pos] = str_dup("");
-			found = TRUE;
-		}
-	}
-
-	if (!found)
+	if (search == rch->pcdata->alias.end())
 		stc("No alias of that name to remove.\n", ch);
+	else
+		stc("Alias removed.\n", ch);
+
+	remove_alias(rch->pcdata, arg);
 }
 
