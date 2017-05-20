@@ -133,7 +133,7 @@ void affect_add_sn_to_char(CHAR_DATA *ch, sh_int sn, sh_int level, sh_int durati
 	struct aff {
 		sh_int  sn;
 		sh_int  location;
-		sh_int  modifier;
+		int  modifier;
 		sh_int  evolution;
 	};
 

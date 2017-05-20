@@ -33,9 +33,9 @@ bool                newlock;            /* Game is newlocked            */
 #if !defined( STDOUT_FILENO )
 #define STDOUT_FILENO 1
 #endif
-const   char    echo_off_str    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
-const   char    echo_on_str     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
-const   char    go_ahead_str    [] = { IAC, GA, '\0' };
+const   unsigned char    echo_off_str    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
+const   unsigned char    echo_on_str     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
+const   unsigned char    go_ahead_str    [] = { IAC, GA, '\0' };
 /* Overflow messages are due to fact this is not declared as unsigned...however, declaring
 as unsigned causes errors in write_to_buf.  Therefore, ignore the warning - Lotus */
 #endif
@@ -238,7 +238,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				ch->lurk_level = LEVEL_IMMORTAL;
 
 			write_to_buffer(d, "What is your password? ", 0);
-			write_to_buffer(d, echo_off_str, 0);
+			write_to_buffer(d, (const char *)echo_off_str, 0);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
 		}
@@ -278,7 +278,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		write_to_buffer(d, echo_on_str, 0);
+		write_to_buffer(d, (const char *)echo_on_str, 0);
 
 		if (check_playing(d, ch->name))
 			return;

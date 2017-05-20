@@ -1994,7 +1994,7 @@ void spell_create_sign(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	obj_to_room(sign, ch->in_room);
 	sign->timer = level * 2;
 
-	if (target_name == '\0') {
+	if (target_name[0] == '\0') {
 		stc("You failed to include words to write on the sign.\n", ch);
 		return;
 	}

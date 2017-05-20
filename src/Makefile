@@ -4,9 +4,10 @@ BINDIR  = ../bin
 DEPDIR  = deps
 EXEFILE = legacy
 
-CC      = gcc
-STD     = -std=gnu99
-WARNING = -Wall -Winline
+CC      = g++
+#STD     = -std=gnu99
+STD     = -std=c++11
+WARNING = -Wall -Winline -Wno-write-strings
 DEBUG   = -ggdb
 DEFINE  = -Dunix -DSQL -DDEBUG -DIPV6
 INCLUDE = -I$(INCDIR) -I/usr/include -I/usr/local/include

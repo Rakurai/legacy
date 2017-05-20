@@ -161,7 +161,7 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 		help_greeting = str_dup(text);
 	}
 
-	sprintf(query, "INSERT INTO " HTABLE " ("HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
+	sprintf(query, "INSERT INTO " HTABLE " (" HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
 	        "VALUES(%d,%d,%d,'", group, order, level
 	       );
 	strcat(query, db_esc(keywords));

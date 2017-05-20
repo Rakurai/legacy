@@ -87,8 +87,8 @@ void do_autoboot(CHAR_DATA *ch, const char *argument)
 
 char *fgetf(char *s, int n, register FILE *iop)
 {
-	register int c;
-	register char *cs;
+	int c;
+	char *cs;
 	c = '\0';
 	cs = s;
 

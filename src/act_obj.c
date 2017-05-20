@@ -1505,7 +1505,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 	int percent, skill;
 
 	/* find out what */
-	if (argument == '\0') {
+	if (argument[0] == '\0') {
 		stc("Envenom what item?\n", ch);
 		return;
 	}

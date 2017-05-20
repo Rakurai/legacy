@@ -72,12 +72,12 @@ extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
  * Malloc debugging stuff.
  */
 #if defined(sun)
-#undef MALLOC_DEBUG
+  #undef MALLOC_DEBUG
 #endif
 
 #if defined(MALLOC_DEBUG)
-extern  int     malloc_debug    args((int));
-extern  int     malloc_verify   args((void));
+  extern  int     malloc_debug    args((int));
+  extern  int     malloc_verify   args((void));
 #endif
 
 /*
@@ -86,34 +86,37 @@ extern  int     malloc_verify   args((void));
  *   I dance around it.
  */
 #if defined(apollo)
-#define __attribute(x)
+  #define __attribute(x)
 #endif
 
 #if defined(unix)
-#include <signal.h>
+  #include <signal.h>
 #endif
 
 #if defined(apollo)
-#undef __attribute
+  #undef __attribute
 #endif
 
 #if     defined(unix)
-#include <fcntl.h>
-#include <netdb.h>
-#include "telnet.h"
-#if defined(SAND)
-#endif
-#if !defined( STDOUT_FILENO )
-#define STDOUT_FILENO 1
-#endif
 
-const   char    echo_off_comm    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
-const   char    echo_on_comm     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
-const   char    go_ahead_comm    [] = { IAC, GA, '\0' };
-/*
-Overflow messages are due to fact this is not declared as unsigned...however, declaring
-as unsigned causes errors in write_to_buff.  Therefore, ignore the warning - Lotus
-*/
+  #include <fcntl.h>
+  #include <netdb.h>
+  #include "telnet.h"
+
+  #if defined(SAND)
+  #endif
+
+  #if !defined( STDOUT_FILENO )
+    #define STDOUT_FILENO 1
+  #endif
+
+  const   unsigned char    echo_off_comm    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
+  const   unsigned char    echo_on_comm     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
+  const   unsigned char    go_ahead_comm    [] = { IAC, GA, '\0' };
+  /*
+  Overflow messages are due to fact this is not declared as unsigned...however, declaring
+  as unsigned causes errors in write_to_buff.  Therefore, ignore the warning - Lotus
+  */
 
 #endif
 
@@ -2066,13 +2069,13 @@ bool write_to_descriptor(int desc, char *txt, int length)
 
 		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
 			perror("Write_to_descriptor");
-
+/* I don't know what this does exactly, but C++11 doesn't like it -- Montrey
 			if (errno == EBADF) {
 				char *nullptr = NULL;
 
 				if (*nullptr != '\0') abort();
 			}
-
+*/
 			return FALSE;
 		}
 	}
@@ -2544,7 +2547,7 @@ void show_string(struct descriptor_data *d, const char *input)
 {
 	char buffer[4 * MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
-	register char *scan, *chk;
+	char *scan, *chk;
 	int lines = 0, toggle = 1;
 	int show_lines;
 
