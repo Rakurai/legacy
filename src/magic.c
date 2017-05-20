@@ -729,6 +729,7 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DAT
 		target = TARGET_CHAR;
 		break;
 
+	case TAR_OBJ_HERE:
 	case TAR_OBJ_INV:
 		if (obj == NULL) {
 			stc("You can't do that.\n", ch);
