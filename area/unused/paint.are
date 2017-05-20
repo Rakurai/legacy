@@ -1,0 +1,126 @@
+#AREA
+
+paint.are~
+Paintball~
+{H{{ All } {MDiku {TPaintball!~
+3000 3399
+
+#ROOMS
+
+#3364
+The {YPaint{bball{x Shop~
+   The walls of this small store are plastered with various weapons,
+masks, equipment, and clothing suitable for a game of paintball.  There
+are posters of tanks, jets, and military vehicles scattered throughout
+the store.  You wonder what kind of a sick person would dedicate their
+life to this kind of business.
+~
+0 S 0
+D0
+To the north is Clan Road~
+~
+0 -1 3316
+S
+
+#0
+
+#MOBILES
+
+#3168
+joe bob~
+Joe Bob~
+Joe Bob is standing here, loading his paintball gun.
+~
+He looks like a master marksman.  You'd hate to meet up with him on
+the paintball field.
+~
+human~
+ABKTVb DF 1000 0
+36 0 1d1+1999 1d1+199 3d8+24 beating
+-20 -20 -20 -20
+ACDEIK ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#3382
+large tube~
+a large tube of paintballs~
+A large tube of paintballs is here...Wonder who owns them?~
+plastic~
+paint_tube 0 A
+100 0 0 0 0
+0 4 2000 P
+#3383
+medium tube~
+a medium tube of paintballs~
+A medium tube of paintballs is here...Wonder who owns them?~
+plastic~
+paint_tube 0 A
+50 0 0 0 0
+0 2 1200 P
+#3384
+small tube~
+a small tube of paintballs~
+A small tube of paintballs is here...Wonder who owns them?~
+plastic~
+paint_tube 0 A
+25 0 0 0 0
+0 1 750 P
+#3385
+toy gun~
+A toy paintball gun~
+A paintball gun is here.~
+plastic~
+paint_gun 0 AO
+0 50 24 10 0
+0 2 5000 P
+#3386
+amature gun~
+An amature paintball gun~
+A paintball gun is here.~
+plastic~
+paint_gun 0 AO
+0 100 16 5 5
+0 5 10000 P
+#3387
+professional gun~
+A professional paintball gun~
+A paintball gun is here.~
+plastic~
+paint_gun 0 AO
+0 200 12 0 10
+0 7 20000 P
+#3388
+BFPG9000 gun~
+A BFPG9000 paintball gun~
+A paintball gun is here.~
+plastic~
+paint_gun 0 AO
+0 500 8 0 15
+0 10 50000 P
+
+#0
+
+#RESETS
+
+M 0 3168 1 3364 1       * Load Joe Bob
+G 0 3382 -1              * Give him his stuff
+G 0 3383 -1
+G 0 3384 -1
+G 0 3385 -1
+G 0 3386 -1
+G 0 3387 -1
+G 0 3388 -1
+S
+
+#SHOPS
+
+3168  0  0  0  0  0      100 100         0 23   * Joe Bob
+0
+
+#$
+
