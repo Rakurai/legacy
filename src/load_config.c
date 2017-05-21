@@ -4,7 +4,7 @@
 
 int load_config(const char *filename) {
 	FILE *cf;
-	unsigned long fsize;
+	long fsize;
 	char *str;
 	cJSON *json;
 	int items = 0;
@@ -31,7 +31,7 @@ int load_config(const char *filename) {
 	}
 
 	// read the file
-	if (fread(str, 1, fsize, cf) != fsize) {
+	if (fread(str, 1, fsize, cf) != (unsigned long)fsize) {
 		bug("Error in reading config file.", 0);
 		fclose(cf);
 		free(str);
