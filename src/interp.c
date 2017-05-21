@@ -874,20 +874,19 @@ int number_argument(const char *argument, char *arg)
 {
 	/* Check for leading digit. Saves time */
 	if (*argument >= '0' && *argument <= '9') {
-		char *pdot;
 		/* Check for dot */
-		pdot = strstr(argument, ".");
+		const char *pdot = strstr(argument, ".");
 
 		if (pdot != NULL) {
 			char tmp_buf[MAX_INPUT_LENGTH];
 			strcpy(tmp_buf, argument);
-			pdot = &tmp_buf[pdot - argument];
-			*pdot = '\0';
+			char *tdot = &tmp_buf[pdot - argument];
+			*tdot = '\0';
 
 			/* Check for good numeric */
 			if (is_number(tmp_buf)) {
 				/* strip out number, return numeric value */
-				strcpy(arg, pdot + 1);
+				strcpy(arg, tdot + 1);
 				return atoi(tmp_buf);
 			}
 		}
@@ -972,9 +971,11 @@ int entity_argument(const char *argument, char *arg)
 */
 int mult_argument(const char *argument, char *arg)
 {
-	char *pstar;
 	int number;
-	pstar = strchr(argument, '*');
+	char buf[MSL];
+
+	strcpy(buf, argument);
+	char *pstar = strchr(buf, '*');
 
 	if (pstar == NULL) {
 		/* no star: return 1 */

@@ -161,13 +161,13 @@ char *fread_string(FILE *fp)
 					char *pc;
 					char rgc[sizeof(char *)];
 				} u1;
-				int ic, iHash;
+				int iHash;
 				char *pHash, *pHashPrev, *pString;
 				plast[-1] = '\0';
 				iHash = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
 
 				for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev) {
-					for (ic = 0; ic < sizeof(char *); ic++)
+					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
 						u1.rgc[ic] = pHash[ic];
 
 					pHashPrev = u1.pc;
@@ -183,7 +183,7 @@ char *fread_string(FILE *fp)
 					top_string      = plast;
 					u1.pc           = string_hash[iHash];
 
-					for (ic = 0; ic < sizeof(char *); ic++)
+					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
 						pString[ic] = u1.rgc[ic];
 
 					string_hash[iHash] = pString;
@@ -248,7 +248,6 @@ char *fread_string_eol(FILE *fp)
 					char       *pc;
 					char        rgc[sizeof(char *)];
 				} u1;
-				int ic;
 				int iHash;
 				char *pHash;
 				char *pHashPrev;
@@ -257,7 +256,7 @@ char *fread_string_eol(FILE *fp)
 				iHash     = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
 
 				for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev) {
-					for (ic = 0; ic < sizeof(char *); ic++)
+					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
 						u1.rgc[ic] = pHash[ic];
 
 					pHashPrev = u1.pc;
@@ -273,7 +272,7 @@ char *fread_string_eol(FILE *fp)
 					top_string          = plast;
 					u1.pc               = string_hash[iHash];
 
-					for (ic = 0; ic < sizeof(char *); ic++)
+					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
 						pString[ic] = u1.rgc[ic];
 
 					string_hash[iHash]  = pString;

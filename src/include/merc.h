@@ -3515,7 +3515,7 @@ const char *  capitalize      args( ( const char *str ) );
 const char *  smash_bracket   args( ( const char *str ) );
 const char *  smash_tilde     args( ( const char *str ) );
 const char *	ignore_apostrophe args((const char *str));
-void	strcut		args((char *str, int length));
+void	strcut		args((char *str, unsigned int length));
 const char *	strcenter	args((const char *string, int space));
 const char *	strrpc		args((const char *replace, const char *with, const char *in));
 const char *    strins          args((const char *string, const char *ins, int place));

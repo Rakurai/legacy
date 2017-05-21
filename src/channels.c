@@ -1443,9 +1443,9 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 void do_pmote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
-	char *letter, *name;
+	const char *letter, *name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
-	int matches = 0;
+	unsigned int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
 		stc("You're not feeling very emotional right now.\n", ch);
@@ -1518,9 +1518,9 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 void do_smote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
-	char *letter, *name;
+	const char *letter, *name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
-	int matches = 0;
+	unsigned int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOCHANNELS)) {
 		stc("You cannot show your emotions.\n", ch);

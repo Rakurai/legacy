@@ -4,7 +4,7 @@
 
 int load_config(const char *filename) {
 	FILE *cf;
-	long fsize;
+	unsigned long fsize;
 	char *str;
 	cJSON *json;
 	int items = 0;

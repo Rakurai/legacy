@@ -1146,7 +1146,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 
 bool read_from_descriptor(DESCRIPTOR_DATA *d)
 {
-	int iStart;
+	unsigned int iStart;
 
 	/* Hold horses if pending command already. */
 	if (d->incomm[0] != '\0')
@@ -2120,7 +2120,7 @@ bool check_parse_name(char *name)
 	{
 		char *pc;
 		bool fIll, adjcaps = FALSE, cleancaps = FALSE;
-		int total_caps = 0;
+		unsigned int total_caps = 0;
 		fIll = TRUE;
 
 		for (pc = name; *pc != '\0'; pc++) {

@@ -1644,20 +1644,19 @@ void mprog_wordlist_check(const char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
 	char       *start;
 	char       *dupl;
 	char       *end;
-	int         i;
 
 	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 		if (mprg->type & type) {
 			strcpy(temp1, mprg->arglist);
 
-			for (i = 0; i < strlen(temp1); i++)
+			for (unsigned int i = 0; i < strlen(temp1); i++)
 				temp1[i] = LOWER(temp1[i]);
 
 			list = temp1;
 			strcpy(temp2, arg);
 			dupl = temp2;
 
-			for (i = 0; i < strlen(dupl); i++)
+			for (unsigned int i = 0; i < strlen(dupl); i++)
 				dupl[i] = LOWER(dupl[i]);
 
 			if ((list[0] == 'p') && (list[1] == ' ')) {
