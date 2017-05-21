@@ -40,7 +40,7 @@ struct  cmd_type
     sh_int              position;
     sh_int              log;
     sh_int              show;
-    int			group;
+    unsigned int	group;
 };
 
 /* the command table itself */

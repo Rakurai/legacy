@@ -1314,7 +1314,7 @@ void spell_burning_hands(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		39, 39, 40, 40, 41,     41, 42, 42, 43, 43,
 		44, 44, 45, 45, 46,     46, 47, 47, 48, 48
 	};
-	level       = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
+	level       = UMIN(level, (int)(sizeof(dam_each) / sizeof(dam_each[0])) - 1);
 	level       = UMAX(0, level);
 	dam         = number_range(dam_each[level] / 2, dam_each[level] * 2);
 
@@ -1750,7 +1750,7 @@ void spell_chill_touch(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		24, 24, 24, 25, 25,     25, 26, 26, 26, 27
 	};
 
-	level       = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
+	level       = UMIN(level, (int)(sizeof(dam_each) / sizeof(dam_each[0])) - 1);
 	level       = UMAX(0, level);
 	int dam     = number_range(dam_each[level] / 2, dam_each[level] * 2);
 
@@ -1783,7 +1783,7 @@ void spell_colour_spray(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		65, 66, 67, 67, 68,     69, 70, 70, 71, 72,
 		73, 73, 74, 75, 76,     76, 77, 78, 79, 79
 	};
-	level       = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
+	level       = UMIN(level, (int)(sizeof(dam_each) / sizeof(dam_each[0])) - 1);
 	level       = UMAX(0, level);
 	dam         = number_range(dam_each[level] / 2,  dam_each[level] * 2);
 
@@ -4302,7 +4302,7 @@ void spell_lightning_bolt(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		51, 52, 52, 53, 54,     54, 55, 56, 56, 57,
 		58, 58, 59, 60, 60,     61, 62, 62, 63, 64
 	};
-	level       = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
+	level       = UMIN(level, (int)(sizeof(dam_each) / sizeof(dam_each[0])) - 1);
 	level       = UMAX(0, level);
 	dam         = number_range(dam_each[level] / 2, dam_each[level] * 2);
 
@@ -5694,7 +5694,7 @@ void spell_shocking_grasp(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		53, 53, 54, 54, 55,     55, 56, 56, 57, 57
 	};
 	int dam;
-	level       = UMIN(level, sizeof(dam_each) / sizeof(dam_each[0]) - 1);
+	level       = UMIN(level, (int)(sizeof(dam_each) / sizeof(dam_each[0])) - 1);
 	level       = UMAX(0, level);
 	dam         = number_range(dam_each[level] / 2, dam_each[level] * 2);
 

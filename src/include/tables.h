@@ -114,7 +114,7 @@ struct field_type
 struct flag_type
 {
     char *name;
-    int bit;
+    unsigned int bit;
     bool settable;
 };
 

@@ -235,7 +235,7 @@ const char *capitalize(const char *str)
 	return strcap;
 }
 
-void strcut(char *str, int length)
+void strcut(char *str, unsigned int length)
 {
 	if (strlen(str) > length)
 		str[length] = '\0';
@@ -269,7 +269,7 @@ const char *strcenter(const char *string, int space)
 
 const char *strrpc(const char *replace, const char *with, const char *in)
 {
-	int replacelen = strlen(replace), i;
+	unsigned int replacelen = strlen(replace), i;
 	static char out[MSL * 2];
 	const char *replaceptr, *withptr = with, *inptr = in;
 	char *outptr = out;

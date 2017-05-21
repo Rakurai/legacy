@@ -2280,7 +2280,7 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 	OBJ_INDEX_DATA *pObjIndex;
 	int vnum, blevel, elevel;
 	int nMatch, matches;
-	long wear_loc;
+	unsigned long wear_loc;
 	bool found, with_wear;
 	/* Check 1st argument - required begin level */
 	argument = one_argument(argument, arg1);
@@ -2319,6 +2319,8 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 		strcpy(arg3, arg2);
 	else
 		argument = one_argument(argument, arg3);
+
+	bool specified_wear_loc = FALSE;
 
 	if (arg3[0] != '\0') {
 		if (!str_prefix1(arg3, "take"))
@@ -2359,9 +2361,9 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 			stc("That is not a suitable wear location.\n", ch);
 			return;
 		}
+
+		specified_wear_loc = TRUE;
 	}
-	else
-		wear_loc = -1;
 
 	buffer = new_buf();
 	found = FALSE;
@@ -2374,7 +2376,7 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 			found = FALSE;
 
 			if ((blevel <= pObjIndex->level) && (elevel >= pObjIndex->level)) {
-				if (wear_loc == -1)
+				if (!specified_wear_loc)
 					found = TRUE;
 				else {
 					if (IS_SET(pObjIndex->wear_flags, wear_loc) > 0)
