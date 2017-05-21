@@ -30,11 +30,11 @@
 char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 
 void add_alias(PC_DATA *pch, const char *text, const char *sub) {
-	pch->alias[std::string(text)] = std::string(sub);
+	pch->alias[text] = String(sub);
 }
 
 void remove_alias(PC_DATA *pch, const char *text) {
-	pch->alias.erase(std::string(text));
+	pch->alias.erase(text);
 }
 
 /* does aliasing and other fun stuff */
@@ -145,7 +145,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		auto search = rch->pcdata->alias.find(std::string(arg));
+		auto search = rch->pcdata->alias.find(arg);
 
 		if (search == rch->pcdata->alias.end())
 			stc("That alias is not defined.\n", ch);
@@ -160,7 +160,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	auto search = rch->pcdata->alias.find(std::string(arg));
+	auto search = rch->pcdata->alias.find(arg);
 
 	ptc(ch, "%s is now %saliased to '%s'.\n",
 		arg,
@@ -190,7 +190,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	auto search = rch->pcdata->alias.find(std::string(arg));
+	auto search = rch->pcdata->alias.find(arg);
 
 	if (search == rch->pcdata->alias.end())
 		stc("No alias of that name to remove.\n", ch);

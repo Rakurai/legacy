@@ -41,11 +41,14 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-#include <string>
+// hopefully temporary mud-wide includes, this can change as things get consolidated into class files
+
 #include <iostream>
 #include <vector>
 #include <map>
 #include <algorithm>
+
+#include "String.hpp"
 
 /*
  * Accommodate old non-Ansi compilers.
@@ -2148,9 +2151,9 @@ struct  pc_data
 	int			rolepoints;			/* Montrey */
 	sh_int              points;
 	sh_int              confirm_delete;
-  std::map<std::string, std::string> alias;
-  std::vector<std::string> query;
-  std::vector<std::string> ignore;
+  std::map<String, String> alias;
+  std::vector<String> query;
+  std::vector<String> ignore;
 	CHAR_DATA *         skeleton;			/* Lotus */
 	CHAR_DATA *         zombie;				/* Lotus */
 	CHAR_DATA *         wraith;				/* Lotus */

@@ -1128,7 +1128,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 			case 'I':
 				if (!str_cmp(key, "Ignore")) {
 					for (cJSON *item = o->child; item != NULL; item = item->next)
-						ch->pcdata->ignore.push_back(std::string(item->valuestring));
+						ch->pcdata->ignore.push_back(item->valuestring);
 					fMatch = TRUE; break;
 				}
 

@@ -1867,7 +1867,7 @@ void do_query(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		rch->pcdata->query.push_back(std::string(arg2));
+		rch->pcdata->query.push_back(arg2);
 		ptc(ch, "%s has been added to the query list.\n", arg2);
 		return;
 	}
