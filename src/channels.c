@@ -558,26 +558,19 @@ void channel_who(CHAR_DATA *ch, const char *channelname, int channel, int custom
 the query list are on, and then sends the mesg to them */
 void send_to_query(CHAR_DATA *ch, const char *string)
 {
-	PC_DATA *pc;
-	int i;
-
-	/* Didn't use get_char_world because I didn't want a "vis" check */
-	for (pc = pc_list; pc; pc = pc->next) {
+	// really hate directly accessing the pc_list, but I don't want multiple
+	// calls to get_player_world.
+	for (PC_DATA *pc = pc_list; pc; pc = pc->next) {
 		if (!pc->ch
 		    || IS_NPC(pc->ch)
 		    || IS_SET(pc->ch->comm, COMM_NOQUERY)
 		    || is_ignoring(pc->ch, ch))
 			continue;
 
-		for (i = 0; i < MAX_QUERY; i++) {
-			if (!ch->pcdata->query[i][0]
-			    || !is_name(ch->pcdata->query[i], pc->ch->name))
-				continue;
-
+		if (std::find(ch->pcdata->query.cbegin(), ch->pcdata->query.cend(), pc->ch->name) != ch->pcdata->query.cend()) {
 			new_color(pc->ch, CSLOT_CHAN_QTELL);
 			stc(string, pc->ch);
 			set_color(pc->ch, WHITE, NOBOLD);
-			break;
 		}
 	}
 }
@@ -1814,8 +1807,6 @@ void do_query(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *rch;
 	char arg[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
-	bool found = FALSE;
-	int pos;
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -1841,32 +1832,21 @@ void do_query(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix1(arg, "list")) {
-		if (!rch->pcdata->query[0][0]) {
+		if (rch->pcdata->query.empty()) {
 			stc("You have no one in your query.\n", ch);
 			return;
 		}
 
 		stc("People in your query:\n", ch);
 
-		for (pos = 0; pos < MAX_QUERY; pos++) {
-			if (rch->pcdata->query[pos][0] == '\0')
-				break;
-
-			ptc(ch, "[%d] %s\n", pos, rch->pcdata->query[pos]);
-		}
+		for (auto it = rch->pcdata->query.cbegin(); it != rch->pcdata->query.end(); it++)
+			ptc(ch, " %s\n", (*it).c_str());
 
 		return;
 	}
 
 	if (!str_prefix1(arg, "clear")) {
-		for (pos = 0; pos < MAX_QUERY; pos++) {
-			if (rch->pcdata->query[pos][0] == '\0')
-				break;
-
-			free_string(rch->pcdata->query[pos]);
-			rch->pcdata->query[pos] = str_dup("");
-		}
-
+		rch->pcdata->query.clear();
 		stc("Query cleared.\n", ch);
 		return;
 	}
@@ -1877,25 +1857,18 @@ void do_query(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		for (pos = 0; pos < MAX_QUERY; pos++) {
-			if (rch->pcdata->query[pos] == NULL)
-				break;
-
-			if (!str_prefix1(arg2, rch->pcdata->query[pos])) {
-				stc("That name is already in the query.\n", ch);
-				return;
-			}
+		if (std::find(rch->pcdata->query.cbegin(), rch->pcdata->query.cend(), arg2) != rch->pcdata->query.cend()) {
+			stc("That name is already in the query.\n", ch);
+			return;
 		}
 
-		if (pos >= MAX_QUERY) {
+		if (rch->pcdata->query.size() >= MAX_QUERY) {
 			stc("Too many users in query, remove a name.\n", ch);
 			return;
 		}
 
-		free_string(rch->pcdata->query[pos]);
-		rch->pcdata->query[pos]            = str_dup(arg2);
-		ptc(ch, "%s has been added to the query list.\n",
-		    rch->pcdata->query[pos]);
+		rch->pcdata->query.push_back(std::string(arg2));
+		ptc(ch, "%s has been added to the query list.\n", arg2);
 		return;
 	}
 
@@ -1905,26 +1878,13 @@ void do_query(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		for (pos = 0; pos < MAX_QUERY; pos++) {
-			if (rch->pcdata->query[pos] == NULL)
-				break;
+		auto search = std::find(rch->pcdata->query.begin(), rch->pcdata->query.end(), arg2);
 
-			if (found) {
-				char *temp = rch->pcdata->query[pos - 1];
-				rch->pcdata->query[pos - 1] = rch->pcdata->query[pos];
-				rch->pcdata->query[pos] = temp;
-				continue;
-			}
-
-			if (!strcmp(arg2, rch->pcdata->query[pos])) {
-				stc("Name removed from the query.\n", ch);
-				free_string(rch->pcdata->query[pos]);
-				rch->pcdata->query[pos] = str_dup("");
-				found = TRUE;
-			}
+		if (search != rch->pcdata->query.end()) {
+			stc("Name removed from the query.\n", ch);
+			rch->pcdata->query.erase(search);
 		}
-
-		if (!found)
+		else
 			stc("That name was not found in the query list.\n", ch);
 	}
 }

@@ -61,6 +61,7 @@ void    mprog_driver            args((const char *com_list, CHAR_DATA *mob,
 
 /* if you dont have these functions, you damn well should... */
 
+/*
 #ifdef DUNNO_STRSTR
 char *strstr(s1, s2) const char *s1; const char *s2;
 {
@@ -75,7 +76,7 @@ char *strstr(s1, s2) const char *s1; const char *s2;
 	return (i > j) ? NULL : (s1 - 1);
 }
 #endif
-
+*/
 /* Used to get sequential lines of a multi line string (separated by "\n")
  * Thus its like one_argument(), but a trifle different. It is destructive
  * to the multi line string argument, and thus clist must not be shared.

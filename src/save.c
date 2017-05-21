@@ -198,7 +198,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (!ch->pcdata->alias.empty()) {
 		item = cJSON_CreateArray();
 
-		for (auto it = ch->pcdata->alias.begin(); it != ch->pcdata->alias.end(); it++) {
+		for (auto it = ch->pcdata->alias.cbegin(); it != ch->pcdata->alias.cend(); it++) {
 			cJSON *alias = cJSON_CreateArray();
 			cJSON_AddItemToArray(alias, cJSON_CreateString((*it).first.c_str()));
 			cJSON_AddItemToArray(alias, cJSON_CreateString((*it).second.c_str()));
@@ -296,18 +296,14 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (item != NULL)
 		cJSON_AddItemToObject(o,	"Grant",		item);
 
-	item = NULL;
-	for (int pos = 0; pos < MAX_IGNORE; pos++) {
-		if (ch->pcdata->ignore[pos][0] == '\0')
-			break;
+	if (!ch->pcdata->ignore.empty()) {
+		item = cJSON_CreateArray();
 
-		if (item == NULL)
-			item = cJSON_CreateArray();
+		for (auto it = ch->pcdata->ignore.cbegin(); it != ch->pcdata->ignore.cend(); it++)
+			cJSON_AddItemToArray(item, cJSON_CreateString((*it).c_str()));
 
-		cJSON_AddItemToArray(item, cJSON_CreateString(ch->pcdata->ignore[pos]));
+		cJSON_AddItemToObject(o,	"Ignore",		item);
 	}
-	if (item != NULL)
-		cJSON_AddItemToObject(o,	"Ingore",		item);
 
 	if (ch->pcdata->immname[0])
 		cJSON_AddStringToObject(o,	"Immn",			ch->pcdata->immname);
@@ -351,18 +347,14 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(o,		"Plyd",			ch->pcdata->played);
 	cJSON_AddNumberToObject(o,		"Pnts",			ch->pcdata->points);
 
-	item = NULL;
-	for (int pos = 0; pos < MAX_QUERY; pos++) {
-		if (ch->pcdata->query[pos][0] == '\0')
-			break;
+	if (!ch->pcdata->query.empty()) {
+		item = cJSON_CreateArray();
 
-		if (item == NULL)
-			item = cJSON_CreateArray();
+		for (auto it = ch->pcdata->query.cbegin(); it != ch->pcdata->query.cend(); it++)
+			cJSON_AddItemToArray(item, cJSON_CreateString((*it).c_str()));
 
-		cJSON_AddItemToArray(item, cJSON_CreateString(ch->pcdata->query[pos]));
-	}
-	if (item != NULL)
 		cJSON_AddItemToObject(o,	"Query",		item);
+	}
 
 	if (ch->pcdata->rank[0])
 		cJSON_AddStringToObject(o,	"Rank",			ch->pcdata->rank);
@@ -1135,8 +1127,8 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'I':
 				if (!str_cmp(key, "Ignore")) {
-					for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
-						ch->pcdata->ignore[count++] = str_dup(item->valuestring);
+					for (cJSON *item = o->child; item != NULL; item = item->next)
+						ch->pcdata->ignore.push_back(std::string(item->valuestring));
 					fMatch = TRUE; break;
 				}
 
@@ -1180,9 +1172,8 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'Q':
 				if (!str_cmp(key, "Query")) {
-					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next) {
-						ch->pcdata->query[count++] = str_dup(item->valuestring);
-					}
+					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
+						ch->pcdata->query.push_back(item->valuestring);
 					fMatch = TRUE; break;
 				}
 

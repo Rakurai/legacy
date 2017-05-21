@@ -452,12 +452,6 @@ PC_DATA *new_pcdata(void)
 	pcdata->fingerinfo =
 	pcdata->email = str_empty;
 
-	for (int i = 0; i < MAX_QUERY; i++)
-		pcdata->query[i] = str_empty;
-
-	for (int i = 0; i < MAX_IGNORE; i++)
-		pcdata->ignore[i] = str_empty;
-
 	pcdata->buffer = new_buf();
 
 	VALIDATE(pcdata);
@@ -488,12 +482,6 @@ void free_pcdata(PC_DATA *pcdata)
 	free_string(pcdata->whisper);
 	free_string(pcdata->fingerinfo);
 	free_string(pcdata->email);
-
-	for (int i = 0; i < MAX_QUERY; i++)
-		free_string(pcdata->query[i]);
-
-	for (int i = 0; i < MAX_IGNORE; i++)
-		free_string(pcdata->ignore[i]);
 
 	free_buf(pcdata->buffer);
 

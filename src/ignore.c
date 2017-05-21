@@ -33,7 +33,6 @@ void ignore_offline(CHAR_DATA *, const char *);
 bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *rch;
-	int pos;
 
 	if (ch == NULL || victim == NULL)
 		return FALSE;
@@ -49,13 +48,8 @@ bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(rch))
 		return FALSE;
 
-	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (rch->pcdata->ignore[pos][0] == '\0')
-			break;
-
-		if (!str_cmp(rch->pcdata->ignore[pos], victim->name))
-			return TRUE;
-	}
+	if (std::find(rch->pcdata->ignore.cbegin(), rch->pcdata->ignore.cend(), victim->name) != rch->pcdata->ignore.cend())
+		return TRUE;
 
 	return FALSE;
 }
@@ -65,7 +59,6 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim, *rch;
 	char arg[MIL];
-	int pos;
 	one_argument(argument, arg);
 
 	if (ch->desc == NULL)
@@ -82,19 +75,15 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (arg[0] == '\0') {
-		if (rch->pcdata->ignore[0][0] == '\0') {
+		if (rch->pcdata->ignore.empty()) {
 			stc("You are ignoring nobody.\n", ch);
 			return;
 		}
 
 		stc("People you are ignoring:\n", ch);
 
-		for (pos = 0; pos < MAX_IGNORE; pos++) {
-			if (rch->pcdata->ignore[pos][0] == '\0')
-				break;
-
-			ptc(ch, "[%d] %s\n", pos, rch->pcdata->ignore[pos]);
-		}
+		for (auto it = rch->pcdata->ignore.cbegin(); it != rch->pcdata->ignore.end(); it++)
+			ptc(ch, "  %s\n", (*it).c_str());
 
 		return;
 	}
@@ -126,46 +115,25 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	bool found = FALSE;
-	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (rch->pcdata->ignore[pos][0] == '\0')
-			break;
+	auto search = std::find(rch->pcdata->ignore.begin(), rch->pcdata->ignore.end(), victim->name);
 
-		if (found) {
-			// swap the entries back
-			char *temp = rch->pcdata->ignore[pos - 1];
-			rch->pcdata->ignore[pos - 1] = rch->pcdata->ignore[pos];
-			rch->pcdata->ignore[pos] = temp;
-		}
-
-		if (!str_cmp(arg, rch->pcdata->ignore[pos])) {
-			free_string(rch->pcdata->ignore[pos]);
-			rch->pcdata->ignore[pos] = str_dup("");
-			found = TRUE;
-		}
+	if (search == rch->pcdata->ignore.end()) {
+		// add
+		ptc(ch, "You now ignore %s.\n", victim->name);
+		ptc(victim, "%s ignores you.\n", ch->name);
+		rch->pcdata->ignore.push_back(victim->name);
 	}
-
-	if (found) {
+	else {
+		// remove
 		ptc(ch, "You stop ignoring %s.\n", victim->name);
 		ptc(victim, "%s stops ignoring you.\n", ch->name);
-		return;
+		rch->pcdata->ignore.erase(search);
 	}
-
-	if (pos >= MAX_IGNORE) {
-		stc("You can't ignore any more people.\n", ch);
-		return;
-	}
-
-	free_string(rch->pcdata->ignore[pos]);
-	rch->pcdata->ignore[pos] = str_dup(arg);
-	ptc(ch, "You now ignore %s.\n", victim->name);
-	ptc(victim, "%s ignores you.\n", ch->name);
 }
 
 void ignore_offline(CHAR_DATA *ch, const char *arg)
 {
-	char *name = NULL;
-	int pos;
+	char name[MIL];
 
 	if (db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name LIKE '%s'", db_esc(arg)) != SQL_OK) {
 		if (db_next_row() != SQL_OK) {
@@ -186,37 +154,17 @@ void ignore_offline(CHAR_DATA *ch, const char *arg)
 		return;
 	}
 
-	bool found = FALSE;
-	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (ch->pcdata->ignore[pos][0] == '\0')
-			break;
+	auto search = std::find(ch->pcdata->ignore.begin(), ch->pcdata->ignore.end(), name);
 
-		if (found) {
-			// swap the entries back
-			char *temp = ch->pcdata->ignore[pos - 1];
-			ch->pcdata->ignore[pos - 1] = ch->pcdata->ignore[pos];
-			ch->pcdata->ignore[pos] = temp;
-		}
-
-		if (!str_cmp(arg, ch->pcdata->ignore[pos])) {
-			free_string(ch->pcdata->ignore[pos]);
-			ch->pcdata->ignore[pos] = str_dup("");
-			found = TRUE;
-		}
+	if (search == ch->pcdata->ignore.end()) {
+		// add
+		ptc(ch, "You now ignore %s.\n", name);
+		ch->pcdata->ignore.push_back(name);
 	}
-
-	if (found) {
+	else {
+		// remove
 		ptc(ch, "You stop ignoring %s.\n", name);
-		return;
+		ch->pcdata->ignore.erase(search);
 	}
-
-	if (pos >= MAX_IGNORE) {
-		stc("You can't ignore any more people.\n", ch);
-		return;
-	}
-
-	free_string(ch->pcdata->ignore[pos]);
-	ch->pcdata->ignore[pos] = str_dup(name);
-	ptc(ch, "You now ignore %s.\n", name);
 }
 

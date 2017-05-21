@@ -43,7 +43,9 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 #include <map>
+#include <algorithm>
 
 /*
  * Accommodate old non-Ansi compilers.
@@ -186,9 +188,7 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 #define MAX_SKILL                 234
 #define MAX_GROUP                  39
 #define MAX_IN_GROUP               15
-#define MAX_ALIAS                  30
 #define MAX_QUERY                  20
-#define MAX_IGNORE                 10
 #define MAX_CLASS                   8
 #define MAX_PC_RACE                14
 #define MAX_CLAN                   13
@@ -2149,8 +2149,8 @@ struct  pc_data
 	sh_int              points;
 	sh_int              confirm_delete;
   std::map<std::string, std::string> alias;
-//	char *              alias[MAX_ALIAS];
-//	char *              alias_sub[MAX_ALIAS];
+  std::vector<std::string> query;
+  std::vector<std::string> ignore;
 	CHAR_DATA *         skeleton;			/* Lotus */
 	CHAR_DATA *         zombie;				/* Lotus */
 	CHAR_DATA *         wraith;				/* Lotus */
@@ -2177,14 +2177,12 @@ struct  pc_data
    sh_int			flag_killer;
    char *              last_lsite;
    char *              fingerinfo;
-   char *              query[MAX_QUERY];
    char *              spouse;
    char *              propose;
    char *              whisper;			/* Montrey */
    long              video;				/* Elrac */
    sh_int              tailing;			/* Elrac */
    int                 mark_room;			/* Elrac */
-   char *	        ignore[MAX_IGNORE];
    char *              aura;   /* For Gimic Aura Command */
    DUEL_DATA *	duel;				/* Montrey */
    sh_int      lays;     /* times we can lay on hands */
