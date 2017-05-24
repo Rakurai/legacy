@@ -11,6 +11,11 @@ public:
 
 	virtual ~String() {}
 
+	String& operator=(char ch) {
+		std::string::operator=(ch);
+		return *this;
+	}
+
 	String& operator=(const String& name) {
 		std::string::operator=(name);
 		return *this;
@@ -26,4 +31,5 @@ public:
 	String lstrip() const;
 	String rstrip() const;
 	String strip() const;
+	String lsplit() const;
 };

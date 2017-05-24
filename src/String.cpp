@@ -15,7 +15,10 @@ bool operator== (const String &lhs, const String &rhs) {
 
 bool operator== (const String &lhs, const char *rhs) {
 //	return boost.iequals(lhs, rhs);
-	return strcasecmp(lhs.c_str(), rhs) == 0;
+	if (rhs)
+		return strcasecmp(lhs.c_str(), rhs) == 0;
+
+	return false;
 }
 
 String String::
@@ -53,4 +56,9 @@ capitalize() const {
 	String tail = this->substr(pos);
 	tail[0] = toupper(tail[0]);
 	return this->substr(0, pos) + tail;
+}
+
+String String::
+lsplit() const {
+	return this->substr(0, this->find(' '));
 }
