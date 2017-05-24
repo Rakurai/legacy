@@ -38,6 +38,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "Format.hpp"
 
 void do_marry(CHAR_DATA *ch, const char *argument)
 {

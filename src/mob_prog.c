@@ -36,22 +36,22 @@ bool MOBtrigger;
  */
 
 char *mprog_next_command  args((char *clist));
-bool    mprog_seval             args((const char *lhs, const char *opr, const char *rhs));
-bool    mprog_veval             args((int lhs, const char *opr, int rhs));
-bool    mprog_do_ifchck         args((const char *ifchck, CHAR_DATA *mob,
+bool    mprog_seval             args((const String& lhs, const String& opr, const String& rhs));
+bool    mprog_veval             args((int lhs, const String& opr, int rhs));
+bool    mprog_do_ifchck         args((const String& ifchck, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
-char *mprog_process_if  args((const char *ifchck, char *com_list,
+char *mprog_process_if  args((const String& ifchck, char *com_list,
                                       CHAR_DATA *mob, CHAR_DATA *actor,
                                       OBJ_DATA *obj, void *vo,
                                       CHAR_DATA *rndm));
 void    mprog_translate         args((char ch, char *t, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
-void    mprog_process_cmnd      args((const char *cmnd, CHAR_DATA *mob,
+void    mprog_process_cmnd      args((const String& cmnd, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
-void    mprog_driver            args((const char *com_list, CHAR_DATA *mob,
+void    mprog_driver            args((const String& com_list, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo));
 
@@ -59,24 +59,6 @@ void    mprog_driver            args((const char *com_list, CHAR_DATA *mob,
  * Local function code and brief comments.
  */
 
-/* if you dont have these functions, you damn well should... */
-
-/*
-#ifdef DUNNO_STRSTR
-char *strstr(s1, s2) const char *s1; const char *s2;
-{
-	char *cp;
-	int i, j = strlen(s1) - strlen(s2), k = strlen(s2);
-
-	if (j < 0)
-		return NULL;
-
-	for (i = 0; i <= j && strncmp(s1++, s2, k) != 0; i++);
-
-	return (i > j) ? NULL : (s1 - 1);
-}
-#endif
-*/
 /* Used to get sequential lines of a multi line string (separated by "\n")
  * Thus its like one_argument(), but a trifle different. It is destructive
  * to the multi line string argument, and thus clist must not be shared.
@@ -101,7 +83,7 @@ char *mprog_next_command(char *clist)
  *  still have trailing spaces so be careful when editing since:
  *  "guard" and "guard " are not equal.
  */
-bool mprog_seval(const char *lhs, const char *opr, const char *rhs)
+bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
 {
 	if (!str_cmp(opr, "=="))
 		return (bool)(!str_cmp(lhs, rhs));
@@ -1539,7 +1521,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
  * any variables by calling the translate procedure.  The observant
  * code scrutinizer will notice that this is taken from act()
  */
-void mprog_process_cmnd(const char *cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
+void mprog_process_cmnd(const String& cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
                         OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
 {
 	char buf[ MAX_INPUT_LENGTH ];
@@ -1548,7 +1530,7 @@ void mprog_process_cmnd(const char *cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
 	char *i;
 	char *point;
 	point   = buf;
-	str     = cmnd;
+	str     = cmnd.c_str();
 
 	while (*str != '\0') {
 		if (*str != '$') {

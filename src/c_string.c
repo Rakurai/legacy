@@ -1,6 +1,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "memory.h"
+#include "Format.hpp"
 
 extern char *string_space;
 extern char *top_string;
@@ -9,10 +10,10 @@ extern char *top_string;
    the next one.  at the end of each game_loop, we free the entire list.  these are used
    more as a shortcut than anything, so we can have multiple string function calls that
    would normally return static chars in the same sprintf type call. -- Montrey */
-char *str_dup_semiperm(const char *string)
+char *str_dup_semiperm(const String& string)
 {
 	SEMIPERM *semiperm = new_semiperm();
-	semiperm->string = str_dup(string);
+	semiperm->string = str_dup(string.c_str());
 	semiperm->next = semiperm_list;
 	semiperm_list = semiperm;
 	return semiperm->string;
@@ -42,6 +43,10 @@ char *str_dup(const char *str)
 	return str_new;
 }
 
+char *str_dup(const String& str) {
+	return str_dup(str.data());
+}
+
 /*
  * Free a string.
  * Null is legal here to simplify callers.
@@ -60,8 +65,9 @@ void free_string(char *pstr)
 
 /* Removes the tildes from a string.
    Used for player-entered strings that go into disk files. */
-const char *smash_tilde(const char *str)
+const char *smash_tilde(const String& s)
 {
+	const char *str = s.c_str();
 	static char buf[MSL];
 	char *pbuf;
 
@@ -77,8 +83,9 @@ const char *smash_tilde(const char *str)
 
 /* Removes the brackets from a string.  Used to convert a color coded
    string to normal. */
-const char *smash_bracket(const char *str)
+const char *smash_bracket(const String& s)
 {
+	const char *str = s.c_str();
 	static char retstr[MSL];
 	const char *p;
 	char *q;
@@ -113,8 +120,9 @@ const char *smash_bracket(const char *str)
  * Return TRUE if different
  *   (compatibility with historical functions).
  */
-bool str_cmp(const char *astr, const char *bstr)
+bool str_cmp(const String& a, const String& b)
 {
+	const char *astr = a.c_str(), *bstr = b.c_str();
 	if (!astr || !bstr) {
 		bugf("str_cmp: null %sstr", astr ? "b" : "a");
 		return TRUE;
@@ -129,18 +137,16 @@ bool str_cmp(const char *astr, const char *bstr)
 
 /*
  * Compare strings, case insensitive, for prefix matching.
- * Return TRUE if astr not a prefix of bstr
+ * Return TRUE if astr NOT a prefix of bstr
  *   (compatibility with historical functions).
  */
-bool str_prefix(const char *astr, const char *bstr)
+bool str_prefix(const String& astr, const String& bstr)
 {
-	if (!astr || !bstr) {
-		bugf("str_prefix: null %sstr", astr ? "b" : "a");
-		return TRUE;
-	}
+	if (astr.empty() || bstr.empty())
+		return FALSE;
 
-	for (; *astr; astr++, bstr++)
-		if (LOWER(*astr) != LOWER(*bstr))
+	for (const char *a = astr.c_str(), *b = bstr.c_str(); *a && *b; a++, b++)
+		if (LOWER(*a) != LOWER(*b))
 			return TRUE;
 
 	return FALSE;
@@ -152,31 +158,12 @@ bool str_prefix(const char *astr, const char *bstr)
  *   (compatibility with historical functions).
  * like str_prefix, but insists on at least 1 matching char.
  */
-bool str_prefix1(const char *astr, const char *bstr)
+bool str_prefix1(const String& astr, const String& bstr)
 {
-	/* I feel stupid even doing this...We have a bug
-	   somewhere that calls with function with an
-	   invalid "astr" value. (astr == 1)
-	   I'm hoping this check will help us out until
-	   I can track it down.
-	   -- Outsider
-	*/
-	if (astr == (char *) 1) return TRUE;
-
-	if (!astr || !bstr) {
-		bugf("str_prefix1: null %sstr", astr ? "b" : "a");
-		return TRUE;
-	}
-
-	/* I think this should be "*bstr" not "bstr". -- Outsider */
-	if (*astr == '\0' || *bstr == '\0')
+	if (astr.empty() || bstr.empty())
 		return TRUE;
 
-	for (; *astr; astr++, bstr++)
-		if (LOWER(*astr) != LOWER(*bstr))
-			return TRUE;
-
-	return FALSE;
+	return str_prefix(astr, bstr);
 }
 
 /*
@@ -184,8 +171,9 @@ bool str_prefix1(const char *astr, const char *bstr)
  * Returns TRUE if astr not part of bstr.
  *   (compatibility with historical functions).
  */
-bool str_infix(const char *astr, const char *bstr)
+bool str_infix(const String& a, const String& b)
 {
+	const char *astr = a.c_str(), *bstr = b.c_str();
 	int sstr1, sstr2, ichar;
 	char c0;
 
@@ -207,8 +195,9 @@ bool str_infix(const char *astr, const char *bstr)
  * Return TRUE if astr not a suffix of bstr
  *   (compatibility with historical functions).
  */
-bool str_suffix(const char *astr, const char *bstr)
+bool str_suffix(const String& a, const String& b)
 {
+	const char *astr = a.c_str(), *bstr = b.c_str();
 	int sstr1, sstr2;
 	sstr1 = strlen(astr);
 	sstr2 = strlen(bstr);
@@ -241,14 +230,15 @@ void strcut(char *str, unsigned int length)
 		str[length] = '\0';
 }
 
-const char *strcenter(const char *string, int space)
+const char *strcenter(const String& s, int space)
 {
+	const char* str = s.c_str();
 	static char output[MSL];
 	int length;
 
 	/* if string is longer than the space, just cut it off and return it */
-	if ((length = color_strlen(string)) > space) {
-		sprintf(output, "%s", string);
+	if ((length = color_strlen(str)) > space) {
+		sprintf(output, "%s", str);
 		output[space] = '\0';
 	}
 	else {
@@ -259,7 +249,7 @@ const char *strcenter(const char *string, int space)
 
 		while (--lspace > 0)    strcat(output, " ");
 
-		strcat(output, string);
+		strcat(output, str);
 
 		while (rspace-- > 0)    strcat(output, " ");
 	}
@@ -267,8 +257,11 @@ const char *strcenter(const char *string, int space)
 	return output;
 }
 
-const char *strrpc(const char *replace, const char *with, const char *in)
+const char *strrpc(const String& replace_, const String& with_, const String& in_)
 {
+	const char *replace = replace_.c_str();
+	const char *with = with_.c_str();
+	const char *in = in_.c_str();
 	unsigned int replacelen = strlen(replace), i;
 	static char out[MSL * 2];
 	const char *replaceptr, *withptr = with, *inptr = in;
@@ -315,12 +308,13 @@ const char *strins(const char *string, const char *ins, int place)
 	return output;
 }
 
-const char *center_string_in_whitespace(const char *string, int length)
+const char *center_string_in_whitespace(const String& s, int length)
 {
+	const char* str = s.c_str();
 	char spacebuf[MAX_STRING_LENGTH];
 	static char buf[MAX_STRING_LENGTH];
 	int x, spaces;
-	spaces = (((length - color_strlen(string)) / 2));
+	spaces = (((length - color_strlen(str)) / 2));
 	buf[0] = '\0';
 	spacebuf[0] = '\0';
 
@@ -329,11 +323,156 @@ const char *center_string_in_whitespace(const char *string, int length)
 
 	spacebuf[x] =  '\0';
 	strcat(buf, spacebuf);
-	strcat(buf, string);
+	strcat(buf, str);
 	strcat(buf, spacebuf);
 
 	if (color_strlen(buf) == (length - 1))
 		strcat(buf, " ");
 
 	return buf;
+}
+
+/* Note name match exact */
+bool note_is_name(const String& s, const String& nl)
+{
+	const char *str = s.c_str(), *namelist = nl.c_str();
+	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
+	const char *list, *string;
+
+	/* fix crash on NULL namelist */
+	if (namelist == NULL || namelist[0] == '\0')
+		return FALSE;
+
+	/* fixed to prevent is_name on "" returning TRUE */
+	if (str[0] == '\0')
+		return FALSE;
+
+	string = str;
+
+	/* we need ALL parts of string to match part of namelist */
+	for (; ;) {  /* start parsing string */
+		str = one_argument(str, part);
+
+		if (part[0] == '\0')
+			return TRUE;
+
+		/* check to see if this is part of namelist */
+		list = namelist;
+
+		for (; ;) {  /* start parsing namelist */
+			list = one_argument(list, name);
+
+			if (name[0] == '\0')  /* this name was not found */
+				return FALSE;
+
+			if (!str_prefix1(string, name))
+				return TRUE; /* full pattern match */
+
+			if (!str_prefix1(part, name))
+				break;
+		}
+	}
+}
+
+/* Is Exact Name by Lotus */
+bool is_exact_name(const String& s, const String& nl)
+{
+	const char *str = s.c_str(), *namelist = nl.c_str();
+	char name[MIL], part[MIL];
+	const char *list, *string;
+	string = str;
+
+	/* we need ALL parts of string to match part of namelist */
+	for (; ;) {  /* start parsing string */
+		str = one_argument(str, part);
+
+		if (part[0] == '\0')
+			return TRUE;
+
+		/* check to see if this is part of namelist */
+		list = namelist;
+
+		for (; ;) {  /* start parsing namelist */
+			list = one_argument(list, name);
+
+			if (name[0] == '\0')  /* this name was not found */
+				return FALSE;
+
+			if (!str_cmp(string, name))
+				return TRUE; /* full pattern match */
+
+			if (!str_cmp(part, name))
+				break;
+		}
+	}
+}
+
+/*
+ * See if a string is one of the names of an object.
+ */
+bool is_name(const String& s, const String& nl)
+{
+	const char *str = s.c_str(), *namelist = nl.c_str();
+	char name[MIL], part[MIL];
+	const char *list, *string;
+	string = str;
+
+	/* we need ALL parts of string to match part of namelist */
+	for (; ;) {  /* start parsing string */
+		str = one_argument(str, part);
+
+		if (part[0] == '\0')
+			return TRUE;
+
+		/* check to see if this is part of namelist */
+		list = namelist;
+
+		for (; ;) {  /* start parsing namelist */
+			list = one_argument(list, name);
+
+			if (name[0] == '\0')  /* this name was not found */
+				return FALSE;
+
+			if (!str_prefix1(string, name))
+				return TRUE; /* full pattern match */
+
+			if (!str_prefix1(part, name))
+				break;
+		}
+	}
+}
+
+bool is_exact_name_color(const String& s, const String& nl)
+{
+	const char *str = s.c_str(), *namelist = nl.c_str();
+	char name[MIL], part[MIL];
+	const char *list, *string;
+	/* strip the color codes */
+	str = smash_bracket(str);
+	namelist = smash_bracket(namelist);
+	string = str;
+
+	/* we need ALL parts of string to match part of namelist */
+	for (; ;) {  /* start parsing string */
+		str = one_argument(str, part);
+
+		if (part[0] == '\0')
+			return TRUE;
+
+		/* check to see if this is part of namelist */
+		list = namelist;
+
+		for (; ;) {  /* start parsing namelist */
+			list = one_argument(list, name);
+
+			if (name[0] == '\0')  /* this name was not found */
+				return FALSE;
+
+			if (!str_cmp(string, name))
+				return TRUE; /* full pattern match */
+
+			if (!str_cmp(part, name))
+				break;
+		}
+	}
 }

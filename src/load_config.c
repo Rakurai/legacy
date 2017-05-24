@@ -1,6 +1,7 @@
 #include "merc.h"
 #include "sql.h"
 #include "deps/cJSON/cJSON.h"
+#include "Format.hpp"
 
 int load_config(const char *filename) {
 	FILE *cf;

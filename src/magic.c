@@ -30,6 +30,7 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look);
@@ -4189,7 +4190,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
             ptc(ch, "Has a gem %s of type %d with quality %d.\n",
                             gem->short_descr, gem->value[0], gem->value[1]);
 
-        ptc(ch, "Gems are adding:");
+        stc("Gems are adding:", ch);
 
         for (const AFFECT_DATA *paf = obj->gem_affected; paf != NULL; paf = paf->next)
                 show_affect_to_char(paf, ch);
@@ -4725,7 +4726,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	mobile->gold = 0;
 	mobile->silver = 0;
 	char_to_room(mobile, ch->in_room);
-	do_switch(ch, mobile->name);
+	do_switch(ch, mobile->name.c_str());
 	char_from_room(ch);
 	char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
 }

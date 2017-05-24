@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "tables.h"
+#include "Format.hpp"
 
 /* TEMPLATE
 void config_wiznet(CHAR_DATA *ch, const char *argument)

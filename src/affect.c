@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "affect.h"
+#include "Format.hpp"
 
 
 // reusable callback functions
@@ -251,7 +252,7 @@ bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) 
 
 	if (paf->where == TO_DEFENSE) {
 		if (index == 0) { // skip, that field is reserved
-			bugf("affect_parse_flags: TO_DEFENSE with bit A");
+			bug("affect_parse_flags: TO_DEFENSE with bit A", 0);
 			return FALSE;
 		}
 
@@ -291,7 +292,7 @@ bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) 
 
 	if (paf->where == TO_AFFECTS && paf->type <= 0) {
 		if (!found_bit) {
-			bugf("affect_parse_flags: TO_AFFECTS with no sn and no bit");
+			bug("affect_parse_flags: TO_AFFECTS with no sn and no bit", 0);
 			return FALSE;
 		}
 
@@ -322,7 +323,7 @@ bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) 
 
 	// does nothing?
 	if (paf->where == TO_OBJECT && paf->bitvector == 0 && paf->location == 0) {
-		bugf("affect_parse_flags: TO_OBJECT with no modifiers");
+		bug("affect_parse_flags: TO_OBJECT with no modifiers", 0);
 		return FALSE;
 	}
 

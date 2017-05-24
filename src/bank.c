@@ -7,6 +7,7 @@
 
 #include "merc.h"
 #include "lookup.h"
+#include "Format.hpp"
 
 void do_deposit(CHAR_DATA *ch, const char *argument)
 {

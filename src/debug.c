@@ -29,6 +29,7 @@
 #include "sql.h"
 #include "recycle.h"
 #include "affect.h"
+#include "Format.hpp"
 
 extern AREA_DATA *area_first;
 

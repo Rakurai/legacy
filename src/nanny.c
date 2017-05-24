@@ -3,6 +3,8 @@
 #include "sql.h"
 #include "recycle.h"
 #include "affect.h"
+#include "lookup.h"
+#include "Format.hpp"
 
 //For the hack fix
 
@@ -10,10 +12,7 @@ DECLARE_DO_FUN(do_skills);
 DECLARE_DO_FUN(do_outfit);
 DECLARE_DO_FUN(do_unread);
 
-bool    check_parse_name        args((char *name));
-bool    check_player_exist      args((DESCRIPTOR_DATA *d, char *name));
-bool    check_reconnect         args((DESCRIPTOR_DATA *d, char *name, bool fConn));
-bool    check_playing           args((DESCRIPTOR_DATA *d, char *name));
+extern bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
 int     roll_stat               args((CHAR_DATA *ch, int stat));
 
 extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
@@ -44,7 +43,7 @@ as unsigned causes errors in write_to_buf.  Therefore, ignore the warning - Lotu
  * check_ban
  * Run from nanny() to check if a site is banned.
  */
-bool check_ban(char *site, int type)
+bool check_ban(const String& site, int type)
 {
 	bool ban = FALSE;
 
@@ -67,12 +66,61 @@ bool check_ban(char *site, int type)
 	return ban;
 }
 
-bool check_deny(char *name)
+bool check_deny(const String& name)
 {
 	if (db_countf("check_deny", "SELECT COUNT(*) FROM denies WHERE name='%s'", name) <= 0)
 		return FALSE;
 
 	return TRUE;
+}
+
+bool check_player_exist(DESCRIPTOR_DATA *d, const String& name)
+{
+	DESCRIPTOR_DATA *dold;
+	STORAGE_DATA *exist = NULL;    /* is character in storage */
+
+	for (dold = descriptor_list; dold; dold = dold->next) {
+		if (dold != d
+		    &&   dold->character != NULL
+		    &&   dold->character->level < 1
+		    &&   dold->connected != CON_PLAYING
+		    &&   !str_cmp(name, dold->original
+		                  ? dold->original->name : dold->character->name)) {
+			write_to_buffer(d,
+			                "A character by that name is currently being created.\n"
+			                "You cannot access that character.\n"
+			                "Please create a character with a different name, and\n"
+			                "ask an Immortal for help if you need it.\n"
+			                "\n"
+			                "Name: ", 0);
+			d->connected = CON_GET_NAME;
+			return TRUE;
+		}
+	}
+
+	/* make sure that we do not re-create a character currently
+	   in storage -- Outsider <slicer69@hotmail.com>
+	*/
+	/* first make sure we have the list of stored characters */
+	if (! storage_list_head)
+		load_storage_list();
+
+	/* search storage for character name */
+	exist = lookup_storage_data(name);
+
+	if (exist) {
+		write_to_buffer(d,
+		                "A character by that name is currently in storage.\n"
+		                "You cannot create a character by this name.\n"
+		                "Please create a character with a different name, and\n"
+		                "ask an Immortal for help if you need it.\n"
+		                "\n"
+		                "Name: ", 0);
+		d->connected = CON_GET_NAME;
+		return TRUE;
+	}
+
+	return FALSE;
 }
 
 void update_site(CHAR_DATA *ch)
@@ -130,6 +178,147 @@ void update_pc_index(CHAR_DATA *ch, bool remove)
 		            ch->pcdata->remort_count,
 		            ch->clan ? db_esc(ch->clan->name) : "",
 		            ch->clan && ch->pcdata->rank[0] ? db_esc(ch->pcdata->rank) : "");
+}
+
+/*
+ * Parse a name for acceptability.
+ */
+bool check_parse_name(const String& name)
+{
+	CLAN_DATA *clan;
+
+	/*
+	 * Reserved words.
+	 */
+	if (is_name(name,
+	            "all auto immortal self remort imms private someone something the you"))
+		return FALSE;
+
+	if ((clan = clan_lookup(name)) != NULL)
+		return FALSE;
+
+	/*
+	 * Length restrictions.
+	 */
+
+	if (strlen(name) <  2)
+		return FALSE;
+
+#if defined(unix)
+
+	if (strlen(name) > 12)
+		return FALSE;
+
+#endif
+	/*
+	 * Alphanumerics only.
+	 * Lock out IllIll twits.
+	 */
+	{
+		bool fIll, adjcaps = FALSE, cleancaps = FALSE;
+		unsigned int total_caps = 0;
+		fIll = TRUE;
+
+		for (const char *pc = name.c_str(); *pc != '\0'; pc++) {
+			if (!isalpha(*pc))
+				return FALSE;
+
+			if (isupper(*pc)) { /* ugly anti-caps hack */
+				if (adjcaps)
+					cleancaps = TRUE;
+
+				total_caps++;
+				adjcaps = TRUE;
+			}
+			else
+				adjcaps = FALSE;
+
+			if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
+				fIll = FALSE;
+		}
+
+		if (fIll)
+			return FALSE;
+
+		if (cleancaps || (total_caps > (strlen(name)) / 2 && strlen(name) < 3))
+			return FALSE;
+	}
+	/*
+	 * Prevent players from naming themselves after mobs.
+	 */
+	/* Yeah, but do it somewhere else -- Elrac
+	{
+	    extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
+	    MOB_INDEX_DATA *pMobIndex;
+	    int iHash;
+
+	    for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
+	    {
+	        for ( pMobIndex  = mob_index_hash[iHash];
+	              pMobIndex != NULL;
+	              pMobIndex  = pMobIndex->next )
+	        {
+	            if ( is_name( name, pMobIndex->player_name ) )
+	                return FALSE;
+	        }
+	    }
+	}
+	*/
+	return TRUE;
+}
+
+/*
+ * Look for link-dead player to reconnect.
+ */
+bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
+{
+	CHAR_DATA *ch;
+	ROOM_INDEX_DATA *room;
+
+	for (ch = char_list; ch != NULL; ch = ch->next) {
+		if (!IS_NPC(ch)
+		    && d->character != ch
+		    && (!fConn || ch->desc == NULL)
+		    &&   !str_cmp(d->character->name, ch->name)) {
+			if (fConn == FALSE) {
+				free_string(d->character->pcdata->pwd);
+				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
+			}
+			else {
+				CHAR_DATA *rch;
+				free_char(d->character);
+				d->character = ch;
+				ch->desc         = d;
+				ch->desc->timer  = 0;
+				stc("Reconnecting...\n", ch);
+
+				if (!IS_NPC(ch))
+					if (ch->pcdata->buffer->string[0] != '\0')
+						stc("You have messages: Type 'replay'\n", ch);
+
+				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
+					if (ch != rch && can_see_char(rch, ch))
+						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
+
+				sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
+				log_string(log_buf);
+				wiznet("$N reclaims the fullness of $S link.",
+				       ch, NULL, WIZ_LINKS, 0, 0);
+
+				if ((room = ch->in_room) != NULL) {
+					char_from_room(ch);
+					char_to_room(ch, room);
+				}
+
+				REMOVE_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
+				d->connected = CON_PLAYING;
+			}
+
+			return TRUE;
+		}
+	}
+
+	return FALSE;
 }
 
 /*

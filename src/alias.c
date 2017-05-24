@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "Format.hpp"
 
 char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 

@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "magic.h"
+#include "Format.hpp"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_groups);

@@ -34,6 +34,7 @@
 #include "affect.h"
 #include "gem.h"
 #include "affect.h"
+#include "Format.hpp"
 
 extern AREA_DATA *area_first;
 
@@ -3279,7 +3280,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 					dam_type_name(paf->location),
 					paf->modifier > 0 ? paf->modifier : -paf->modifier);
 			else
-				ptc(ch, " does something weird");
+				stc(" does something weird", ch);
 
 			if (paf->duration >= 0)
 				ptc(ch, " for %d hours", paf->duration);
@@ -3289,7 +3290,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 			if (paf->evolution > 1)
 				ptc(ch, ", evolve %d", paf->evolution);
 
-			ptc(ch, ".\n");
+			stc(".\n", ch);
 		}
 	}
 

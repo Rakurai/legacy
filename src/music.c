@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "music.h"
 #include "recycle.h"
+#include "Format.hpp"
 
 int channel_songs[MAX_GLOBAL + 1];
 struct song_data song_table[MAX_SONGS];

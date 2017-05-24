@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "sql.h"
+#include "Format.hpp"
 
 void ignore_offline(CHAR_DATA *, const char *);
 

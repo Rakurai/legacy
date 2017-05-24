@@ -32,6 +32,7 @@
 #include "music.h"
 #include "affect.h"
 #include "affect_list.h"
+#include "Format.hpp"
 
 extern  int     _filbuf         args((FILE *));
 extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head, const AFFECT_DATA *paf ));
@@ -1620,7 +1621,7 @@ void fix_exits(void)
 /*
  * Reports a bug.
  */
-void bug(const char *str, int param)
+void bug(const String& str, int param)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -1654,7 +1655,7 @@ void bug(const char *str, int param)
 	}
 
 	strcpy(buf, "[*****] BUG: ");
-	sprintf(buf + strlen(buf), str, param);
+	sprintf(buf + strlen(buf), str.c_str(), param);
 	log_string(buf);
 	/* RT removed due to bug-file spamming
 	    if ( ( fp = fopen( BUG_FILE, "a" ) ) != NULL )
@@ -1670,7 +1671,7 @@ void bug(const char *str, int param)
 /*
  * Writes a string to the log.
  */
-void log_string(const char *str)
+void log_string(const String& str)
 {
 	char *strtime;
 	strtime                    = ctime(&current_time);

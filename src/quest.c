@@ -14,6 +14,7 @@
 #include "tables.h"
 #include "recycle.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -461,7 +462,7 @@ int get_random_skill(CHAR_DATA *ch)
 void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
 {
 	char buf[MAX_STRING_LENGTH];
-	check_social(mob, "beam", ch->name);
+	check_social(mob, "beam", ch->name.c_str());
 	sprintf(buf, "Thank you, %s, for returning my lost %s!", ch->name, obj->short_descr);
 	do_say(mob, buf);
 	extract_obj(obj);
@@ -718,9 +719,8 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		        Fsyl3[number_range(0, (MAXFSYL3 - 1))]);
 
 	sprintf(name, "squestmob %s", shortdesc);
-	free_string(questmob->name);
+	questmob->name = name;
 	free_string(questmob->short_descr);
-	questmob->name = str_dup(name);
 	questmob->short_descr = str_dup(shortdesc);
 
 	/* generate title */
@@ -1805,15 +1805,14 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			act("You ask $N for a skill quest.", ch, NULL, questman, TO_CHAR);
 
 			if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET)) {
-				if (ch->name != NULL)
-					check_social(questman, "rofl", ch->name);
+				check_social(questman, "rofl", ch->name.c_str());
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
-				if (ch->leader != NULL && ch->leader->name != NULL)
-					check_social(questman, "laugh", ch->leader->name);
+				if (ch->leader != NULL)
+					check_social(questman, "laugh", ch->leader->name.c_str());
 
 				return;
 			}
@@ -1848,15 +1847,14 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			act("You ask $N for a quest.", ch, NULL, questman, TO_CHAR);
 
 			if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET)) {
-				if (ch->name != NULL)
-					check_social(questman, "rofl", ch->name);
+				check_social(questman, "rofl", ch->name.c_str());
 
 				sprintf(buf, "Who ever heard of a pet questing for its %s?",
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
-				if (ch->leader != NULL && ch->leader->name != NULL)
-					check_social(questman, "laugh", ch->leader->name);
+				if (ch->leader != NULL)
+					check_social(questman, "laugh", ch->leader->name.c_str());
 
 				return;
 			}

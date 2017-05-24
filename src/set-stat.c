@@ -31,6 +31,7 @@
 #include "magic.h"
 #include "gem.h"
 #include "affect.h"
+#include "Format.hpp"
 
 DECLARE_DO_FUN(do_rset);
 DECLARE_DO_FUN(do_mset);
@@ -860,7 +861,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		if (race == 0 || (!IS_NPC(victim) && !race_table[race].pc_race)) {
 			ptc(ch, "%s is not a valid %s race.\n", arg3, !IS_NPC(victim) ? "PC" : "NPC");
-			ptc(ch, "Valid races are :\n\n");
+			stc("Valid races are :\n\n", ch);
 
 			while (race_table[loop].name != NULL) {
 				loop++;
@@ -1636,7 +1637,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 				dam_type_name(paf->location),
 				paf->modifier > 0 ? paf->modifier : -paf->modifier);
 		else
-			ptc(ch, " does something weird");
+			stc(" does something weird", ch);
 
 		if (paf->duration >= 0)
 			ptc(ch, " for %d hours", paf->duration);
@@ -1646,7 +1647,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (paf->evolution > 1)
 			ptc(ch, ", evolve %d", paf->evolution);
 
-		ptc(ch, ".\n");
+		stc(".\n", ch);
 	}
 }
 
@@ -1806,7 +1807,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		ptc(ch, "Has a gem %s of type %d with quality %d.\n",
 				gem->short_descr, gem->value[0], gem->value[1]);
 	if (obj->gems) {
-		ptc(ch, "Gems are adding:");
+		stc("Gems are adding:", ch);
 
 		for (const AFFECT_DATA *paf = obj->gem_affected; paf != NULL; paf = paf->next)
 			show_affect_to_char(paf, ch);

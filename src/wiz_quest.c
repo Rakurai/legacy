@@ -16,6 +16,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "affect.h"
+#include "Format.hpp"
 
 DECLARE_DO_FUN(do_switch);
 
@@ -156,7 +157,7 @@ void do_morph(CHAR_DATA *ch, const char *argument)
 	SET_BIT(mobile->act, PLR_COLOR);
 	SET_BIT(mobile->act, ACT_MORPH);
 	char_to_room(mobile, victim->in_room);
-	do_switch(victim, mobile->name);
+	do_switch(victim, mobile->name.c_str());
 	char_from_room(victim);
 	char_to_room(victim, get_room_index(ROOM_VNUM_LIMBO));
 	stc("Successful Morph!\n", ch);
@@ -379,8 +380,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			}
 
 			sprintf(buf, "%s's name has been changed to %s.\n", victim->name, arg3);
-			free_string(victim->name);
-			victim->name = str_dup(arg3);
+			victim->name = arg3;
 			stc(buf, ch);
 			return;
 		}

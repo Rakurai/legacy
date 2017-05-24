@@ -26,7 +26,7 @@
 ***************************************************************************/
 
 CLAN_DATA *clan_vnum_lookup	args((int vnum));
-CLAN_DATA *	clan_lookup		args((const char *name));
+CLAN_DATA *	clan_lookup		args((const String& name));
 int		position_lookup		args((const char *name));
 int 		sex_lookup		args((const char *name));
 int 		size_lookup		args((const char *name));

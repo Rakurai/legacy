@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "lookup.h"
+#include "Format.hpp"
 
 char *const distance[4] = {
 	"right here",

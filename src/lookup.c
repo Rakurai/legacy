@@ -39,7 +39,7 @@ CLAN_DATA *clan_vnum_lookup(int vnum)
 	return NULL;
 }
 
-CLAN_DATA *clan_lookup(const char *name)
+CLAN_DATA *clan_lookup(const String& name)
 {
 	CLAN_DATA *iterator;
 

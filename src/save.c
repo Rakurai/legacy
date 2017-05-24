@@ -31,6 +31,7 @@
 #include "lookup.h"
 #include "deps/cJSON/cJSON.h"
 #include "affect.h"
+#include "Format.hpp"
 
 extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((CHAR_DATA *ch, int row, int column));
@@ -526,7 +527,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	if (ch->long_descr[0])
 		cJSON_AddStringToObject(o,	"LnD",			ch->long_descr);
 
-	cJSON_AddStringToObject(o,		"Name",			ch->name);
+	cJSON_AddStringToObject(o,		"Name",			ch->name.c_str());
 	cJSON_AddNumberToObject(o,		"Pos",			ch->position);
 	cJSON_AddNumberToObject(o,              "PosP",                 ch->start_pos);
 	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);
@@ -929,14 +930,24 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 #undef STRKEY
 #endif
 
+void setstr(String *field, const char* value) {
+	*field = value;
+}
+
+void setstr(char **field, const char* value) {
+	free_string(*field);
+	*field = str_dup(value);
+}
+
 #define STRKEY( literal, field, value )                                    \
 	if ( !str_cmp( key, literal ) )        \
 	{                                       \
-		free_string(field);					\
-		field = str_dup(value);	\
+		setstr(&field, value);               \
 		fMatch = TRUE;						\
 		break;                              \
 	}
+//		free_string(field);					
+//		field = str_dup(value);	
 
 
 #if defined(INTKEY)

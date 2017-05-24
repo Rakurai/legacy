@@ -35,6 +35,7 @@
 #include "merc.h"
 #include "db.h"
 #include "interp.h"
+#include "Format.hpp"
 
 #ifdef CONST_SOCIAL
 #define SOCIAL_FILE "../misc/social.are"

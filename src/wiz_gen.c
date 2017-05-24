@@ -20,6 +20,7 @@
 #include "tables.h"
 #include "sql.h"
 #include "affect.h"
+#include "Format.hpp"
 
 DECLARE_DO_FUN(do_slookup);
 DECLARE_DO_FUN(do_claninfo);
@@ -1442,7 +1443,7 @@ const char *name_expand(CHAR_DATA *ch)
 	static char outbuf[MAX_INPUT_LENGTH];
 
 	if (!IS_NPC(ch))
-		return ch->name;
+		return ch->name.c_str();
 
 	one_argument(ch->name, name);  /* copy the first word into name */
 
@@ -1842,7 +1843,6 @@ void do_heed(CHAR_DATA *ch, const char *argument)
 	char arg1[MIL], buf[100 + MIL]; /* enough for pompous intro + text */
 	CHAR_DATA *victim, *truevictim;
 	PC_DATA *tpc;
-	char *wizname;
 	DESCRIPTOR_DATA *d;
 	argument = one_argument(argument, arg1);
 
@@ -1906,10 +1906,8 @@ void do_heed(CHAR_DATA *ch, const char *argument)
 	    IS_SET(ch->pcdata->plr, PLR_HEEDNAME) ? ch->name : "An Immortal", argument);
 	set_color(victim, WHITE, NOBOLD);
 	/* build a message for the other imms */
-	wizname = ch->name;
 
-	if (ch->desc && ch->desc->original)
-		wizname = ch->desc->original->name;
+	const String& wizname = ch->desc && ch->desc->original ? ch->desc->original->name : ch->name;
 
 	if (victim != truevictim)
 		sprintf(buf, "%s HEEDs %s (%s): %s\n", wizname, truevictim->name, victim->name, argument);
@@ -2149,7 +2147,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 
 	if (victim->level < LEVEL_HERO) {
 		act_new("Sorry, $t must be level 91 to have an item lowered.", ch,
-		        victim->name, NULL, TO_CHAR, POS_DEAD, FALSE);
+		        victim->name.c_str(), NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
 
@@ -3821,7 +3819,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	act("$n breaks through the clouds and crash lands at your feet.", victim, NULL, NULL, TO_ROOM);
 
 	if (ch != victim)
-		ptc(victim, "%s has transported you.\n", capitalize(PERS(ch, victim, VIS_CHAR)));
+		ptc(victim, "%s has transported you.\n", PERS(ch, victim, VIS_CHAR).capitalize());
 
 	do_look(victim, "auto");
 	stc("Transfer Successful.\n", ch);
@@ -3987,15 +3985,16 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* Backup their pfile to BACKUP_DIR/pfileGOD.gz */
-	sprintf(strsave, "%s%s%s", BACKUP_DIR, capitalize(victim->name), "GOD.gz");
+	sprintf(strsave, "%s%s%s", BACKUP_DIR, victim->name.capitalize(), "GOD.gz");
 
 	if ((fp = fopen(strsave, "r")) != NULL)
 		fclose(fp);
 	else {
 		backup_char_obj(ch);
 		stc("Your pfile has been backed up.\n", victim);
+		String capname = victim->name.capitalize();
 		sprintf(strsave, "mv %s%s.gz %s%sGOD.gz",
-		        BACKUP_DIR, capitalize(victim->name), BACKUP_DIR, capitalize(victim->name));
+		        BACKUP_DIR, capname, BACKUP_DIR, capname);
 		system(strsave);
 	}
 

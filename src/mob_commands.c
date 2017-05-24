@@ -28,6 +28,7 @@
 
 #include "merc.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /*
  * Local functions.

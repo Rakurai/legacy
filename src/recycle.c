@@ -401,7 +401,6 @@ void free_char(CHAR_DATA *ch)
 	if (ch->affect_cache)
 		free_affect_cache(ch);
 
-	free_string(ch->name);
 	free_string(ch->short_descr);
 	free_string(ch->long_descr);
 	free_string(ch->description);
@@ -881,7 +880,7 @@ bool add_buf(BUFFER *buffer, const char *string)
 				log_string("where: ");
 				log_string(dv_where);
 
-				if (dv_char != NULL && dv_char->name != NULL) {
+				if (dv_char != NULL) {
 					log_string("char: ");
 					log_string(dv_char->name);
 				}

@@ -6,6 +6,7 @@
 #include "merc.h"
 #include "lookup.h"
 #include "recycle.h"
+#include "Format.hpp"
 
 #define WAR_DIR         "../war/"
 #define EVENT_DIR       "../war/events/"
@@ -15,7 +16,7 @@
 WAR_DATA *get_same_war(CLAN_DATA *clanA, CLAN_DATA *clanB);
 void war_win(WAR_DATA *war, CHAR_DATA *ch);
 int get_war_index(WAR_DATA *war);
-void rec_event(WAR_DATA *war, int type, char *astr, char *bstr, int number);
+void rec_event(WAR_DATA *war, int type, const String& astr, const String& bstr, int number);
 
 struct war_data *war_table_head;
 struct war_data *war_table_tail;
@@ -669,17 +670,15 @@ void war_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	war_score_adjust(war, ch, victim, points);
 }
 
-void rec_event(WAR_DATA *war, int type, char *astr, char *bstr, int number)
+void rec_event(WAR_DATA *war, int type, const String& astr, const String& bstr, int number)
 {
 	EVENT_DATA *event, *n_event;
 	n_event = new_event();
 	n_event->type   = type;
 
-	if (astr != NULL)
-		n_event->astr = str_dup(astr);
+	n_event->astr = str_dup(astr);
 
-	if (bstr != NULL)
-		n_event->bstr = str_dup(bstr);
+	n_event->bstr = str_dup(bstr);
 
 	n_event->number = number;
 	n_event->time   = current_time;

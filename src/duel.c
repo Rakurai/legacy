@@ -6,6 +6,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "affect.h"
+#include "Format.hpp"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"

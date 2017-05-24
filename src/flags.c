@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
+#include "Format.hpp"
 
 extern AREA_DATA *area_first;
 

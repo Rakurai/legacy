@@ -53,6 +53,7 @@
 #include "recycle.h"
 #include "sql.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_color);
@@ -314,17 +315,14 @@ bool    write_to_descriptor     args((int desc, char *txt, int length));
 /*
  * Other local functions (OS-independent).
  */
-bool    check_parse_name        args((char *name));
-bool    check_reconnect         args((DESCRIPTOR_DATA *d, char *name,
-                                      bool fConn));
-bool    check_playing           args((DESCRIPTOR_DATA *d, char *name));
+extern bool    check_parse_name        args((const String& name));
+bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
 int     main                    args((int argc, char **argv));
 void    nanny                   args((DESCRIPTOR_DATA *d, const char *argument));
 bool    process_output          args((DESCRIPTOR_DATA *d, bool fPrompt));
 void    read_from_buffer        args((DESCRIPTOR_DATA *d));
 void    stop_idling             args((CHAR_DATA *ch));
 void    bust_a_prompt           args((CHAR_DATA *ch));
-bool    check_player_exist      args((DESCRIPTOR_DATA *d, char *name));
 int     roll_stat               args((CHAR_DATA *ch, int stat));
 char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 
@@ -1996,7 +1994,7 @@ void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
+void write_to_buffer(DESCRIPTOR_DATA *d, const String& txt, int length)
 {
 	if (d == NULL)
 		return;
@@ -2023,13 +2021,9 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 		char *outbuf;
 
 		if (d->outsize >= 64000) {
-			char *culprit;
-			char buf[MAX_INPUT_LENGTH];
-			culprit = d->original ? d->original->name : d->character->name;
-			sprintf(buf, "Buffer overflow. Closing connection to %s.\n",
-			        culprit ? culprit : "culprit");
+			String culprit = d->original ? d->original->name : d->character->name;
+			bugf("Buffer overflow. Closing connection to %s.\n", culprit.empty() ? culprit : "culprit");
 			close_socket(d);
-			bug(buf, 0);
 			return;
 		}
 
@@ -2083,152 +2077,11 @@ bool write_to_descriptor(int desc, char *txt, int length)
 	return TRUE;
 }
 
-/*
- * Parse a name for acceptability.
- */
-bool check_parse_name(char *name)
-{
-	CLAN_DATA *clan;
-
-	/*
-	 * Reserved words.
-	 */
-	if (is_name(name,
-	            "all auto immortal self remort imms private someone something the you"))
-		return FALSE;
-
-	if ((clan = clan_lookup(name)) != NULL)
-		return FALSE;
-
-	/*
-	 * Length restrictions.
-	 */
-
-	if (strlen(name) <  2)
-		return FALSE;
-
-#if defined(unix)
-
-	if (strlen(name) > 12)
-		return FALSE;
-
-#endif
-	/*
-	 * Alphanumerics only.
-	 * Lock out IllIll twits.
-	 */
-	{
-		char *pc;
-		bool fIll, adjcaps = FALSE, cleancaps = FALSE;
-		unsigned int total_caps = 0;
-		fIll = TRUE;
-
-		for (pc = name; *pc != '\0'; pc++) {
-			if (!isalpha(*pc))
-				return FALSE;
-
-			if (isupper(*pc)) { /* ugly anti-caps hack */
-				if (adjcaps)
-					cleancaps = TRUE;
-
-				total_caps++;
-				adjcaps = TRUE;
-			}
-			else
-				adjcaps = FALSE;
-
-			if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
-				fIll = FALSE;
-		}
-
-		if (fIll)
-			return FALSE;
-
-		if (cleancaps || (total_caps > (strlen(name)) / 2 && strlen(name) < 3))
-			return FALSE;
-	}
-	/*
-	 * Prevent players from naming themselves after mobs.
-	 */
-	/* Yeah, but do it somewhere else -- Elrac
-	{
-	    extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
-	    MOB_INDEX_DATA *pMobIndex;
-	    int iHash;
-
-	    for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
-	    {
-	        for ( pMobIndex  = mob_index_hash[iHash];
-	              pMobIndex != NULL;
-	              pMobIndex  = pMobIndex->next )
-	        {
-	            if ( is_name( name, pMobIndex->player_name ) )
-	                return FALSE;
-	        }
-	    }
-	}
-	*/
-	return TRUE;
-}
-
-/*
- * Look for link-dead player to reconnect.
- */
-bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
-{
-	CHAR_DATA *ch;
-	ROOM_INDEX_DATA *room;
-
-	for (ch = char_list; ch != NULL; ch = ch->next) {
-		if (!IS_NPC(ch)
-		    && d->character != ch
-		    && (!fConn || ch->desc == NULL)
-		    &&   !str_cmp(d->character->name, ch->name)) {
-			if (fConn == FALSE) {
-				free_string(d->character->pcdata->pwd);
-				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
-			}
-			else {
-				CHAR_DATA *rch;
-				free_char(d->character);
-				d->character = ch;
-				ch->desc         = d;
-				ch->desc->timer  = 0;
-				stc("Reconnecting...\n", ch);
-
-				if (!IS_NPC(ch))
-					if (ch->pcdata->buffer->string[0] != '\0')
-						stc("You have messages: Type 'replay'\n", ch);
-
-				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
-					if (ch != rch && can_see_char(rch, ch))
-						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
-
-				sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
-				log_string(log_buf);
-				wiznet("$N reclaims the fullness of $S link.",
-				       ch, NULL, WIZ_LINKS, 0, 0);
-
-				if ((room = ch->in_room) != NULL) {
-					char_from_room(ch);
-					char_to_room(ch, room);
-				}
-
-				REMOVE_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
-				d->connected = CON_PLAYING;
-			}
-
-			return TRUE;
-		}
-	}
-
-	return FALSE;
-}
 
 /*
  * Check if already playing.
  */
-bool check_playing(DESCRIPTOR_DATA *d, char *name)
+bool check_playing(DESCRIPTOR_DATA *d, const String& name)
 {
 	DESCRIPTOR_DATA *dold;
 
@@ -2244,54 +2097,6 @@ bool check_playing(DESCRIPTOR_DATA *d, char *name)
 			d->connected = CON_BREAK_CONNECT;
 			return TRUE;
 		}
-	}
-
-	return FALSE;
-}
-bool check_player_exist(DESCRIPTOR_DATA *d, char *name)
-{
-	DESCRIPTOR_DATA *dold;
-	STORAGE_DATA *exist = NULL;    /* is character in storage */
-
-	for (dold = descriptor_list; dold; dold = dold->next) {
-		if (dold != d
-		    &&   dold->character != NULL
-		    &&   dold->character->level < 1
-		    &&   dold->connected != CON_PLAYING
-		    &&   !str_cmp(name, dold->original
-		                  ? dold->original->name : dold->character->name)) {
-			write_to_buffer(d,
-			                "A character by that name is currently being created.\n"
-			                "You cannot access that character.\n"
-			                "Please create a character with a different name, and\n"
-			                "ask an Immortal for help if you need it.\n"
-			                "\n"
-			                "Name: ", 0);
-			d->connected = CON_GET_NAME;
-			return TRUE;
-		}
-	}
-
-	/* make sure that we do not re-create a character currently
-	   in storage -- Outsider <slicer69@hotmail.com>
-	*/
-	/* first make sure we have the list of stored characters */
-	if (! storage_list_head)
-		load_storage_list();
-
-	/* search storage for character name */
-	exist = lookup_storage_data(name);
-
-	if (exist) {
-		write_to_buffer(d,
-		                "A character by that name is currently in storage.\n"
-		                "You cannot create a character by this name.\n"
-		                "Please create a character with a different name, and\n"
-		                "ask an Immortal for help if you need it.\n"
-		                "\n"
-		                "Name: ", 0);
-		d->connected = CON_GET_NAME;
-		return TRUE;
 	}
 
 	return FALSE;
@@ -2463,14 +2268,14 @@ void process_color(CHAR_DATA *ch, char a)
 /*
  * Write to one char.
  */
-void stc(const char *txt, CHAR_DATA *ch)
+void stc(const String& txt, CHAR_DATA *ch)
 {
 	const char *a, *b;
 	int length, l, curlen = 0;
-	a = txt;
-	length = strlen(txt);
+	a = txt.c_str();
+	length = strlen(a);
 
-	if (txt != NULL && ch->desc != NULL) {
+	if (!txt.empty() && ch->desc != NULL) {
 		while (curlen < length) {
 			b = a;
 			l = 0;
@@ -2653,7 +2458,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 
 		/* The following codes need 'ch', which should always be OK */
 
-		case 'n': i = PERS(ch, to, vis);            break;
+		case 'n': i = PERS(ch, to, vis).c_str();            break;
 
 		case 'e': i = he_she  [GET_ATTR_SEX(ch)];        break;
 
@@ -2669,7 +2474,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 				/*   bug( format, 0);  This will cause an endless loop */
 			}
 			else
-				i = PERS(vch, to, vis);
+				i = PERS(vch, to, vis).c_str();
 
 			break;
 

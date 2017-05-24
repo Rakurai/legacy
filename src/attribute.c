@@ -1,6 +1,7 @@
 #include "merc.h"
 #include "tables.h"
 #include "affect.h"
+#include "Format.hpp"
 
 // temporary file to hold attribute accessors
 

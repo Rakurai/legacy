@@ -11,6 +11,7 @@
 #include "merc.h"
 #include "memory.h"
 #include "db.h"
+#include "Format.hpp"
 
 /* Read a letter from a file. */
 char fread_letter(FILE *fp)

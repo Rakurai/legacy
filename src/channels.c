@@ -29,6 +29,7 @@
 #include "tables.h"
 #include "lookup.h"
 #include "recycle.h"
+#include "Format.hpp"
 
 extern void     channel_who     args((CHAR_DATA *ch, const char *channelname, int
                                       channel, int custom));
@@ -1471,7 +1472,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 		strcpy(temp, argument);
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
-		name = vch->name;
+		name = vch->name.c_str();
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
@@ -1494,7 +1495,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 				if (matches == strlen(vch->name)) {
 					strcat(temp, "you");
 					last[0] = '\0';
-					name = vch->name;
+					name = vch->name.c_str();
 					continue;
 				}
 
@@ -1506,7 +1507,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 			strcat(temp, last);
 			strncat(temp, letter, 1);
 			last[0] = '\0';
-			name = vch->name;
+			name = vch->name.c_str();
 		}
 
 		act("$N $t{x", vch, temp, ch, TO_CHAR);
@@ -1553,7 +1554,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 		strcpy(temp, argument);
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
-		name = vch->name;
+		name = vch->name.c_str();
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
@@ -1576,7 +1577,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 				if (matches == strlen(vch->name)) {
 					strcat(temp, "you");
 					last[0] = '\0';
-					name = vch->name;
+					name = vch->name.c_str();
 					continue;
 				}
 
@@ -1588,7 +1589,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 			strcat(temp, last);
 			strncat(temp, letter, 1);
 			last[0] = '\0';
-			name = vch->name;
+			name = vch->name.c_str();
 		}
 
 		stc(temp, vch);

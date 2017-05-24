@@ -29,6 +29,7 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_yell);
@@ -374,10 +375,10 @@ bool spec_nasty(CHAR_DATA *ch)
 			if (!IS_NPC(victim)
 			    && (victim->level > ch->level)
 			    && (victim->level < ch->level + 10)) {
-				do_backstab(ch, victim->name);
+				do_backstab(ch, victim->name.c_str());
 
 				if (!ch->fighting)
-					do_kill(ch, victim->name);
+					do_kill(ch, victim->name.c_str());
 
 				/* should steal some coins right away? :) */
 				return TRUE;

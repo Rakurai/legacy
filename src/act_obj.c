@@ -35,6 +35,8 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
+#include "Format.hpp"
+#include "c_string.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -3917,8 +3919,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 				       ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 
 			sprintf(buf, "%s %s", pet->name, smash_tilde(arg));
-			free_string(pet->name);
-			pet->name = str_dup(buf);
+			pet->name = buf;
 		}
 
 		sprintf(buf, "%sA collar around its neck says 'I belong to %s'.\n",
@@ -4724,22 +4725,9 @@ char *anvil_owner_name(OBJ_DATA *anvil)
 }
 
 /* is named player the anvil's owner? -- Elrac */
-int is_anvil_owner(char *name, OBJ_DATA *anvil)
+int is_anvil_owner(CHAR_DATA *ch, OBJ_DATA *anvil)
 {
-	char buf[MAX_STRING_LENGTH];
-	char *name_ptr;
-	name_ptr = anvil_owner_name(anvil);
-
-	if (name_ptr == NULL) return FALSE;
-
-	/* strip trailing blanks/tabs in anvil name, if present */
-	strcpy(buf, name_ptr);
-
-	for (name_ptr = buf; *name_ptr; name_ptr++)
-		if (*name_ptr == ' ' || *name_ptr == '\t') *name_ptr = '\0';
-
-	/* name after "anvil private " must match player name perfectly */
-	return (!str_cmp(name, buf));
+	return is_exact_name(ch->name, anvil_owner_name(anvil));
 }
 
 /*
@@ -4841,7 +4829,7 @@ void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 	if (!IS_IMMORTAL(ch)) {
 		qpcost = anvil->value[1];   /* default to public cost */
 
-		if (is_anvil_owner(ch->name, anvil))
+		if (is_anvil_owner(ch, anvil))
 			qpcost = anvil->value[4];
 
 		if (flag_count > 0)
@@ -5012,7 +5000,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 		cost = 0;
 	}
 	else {
-		is_owner = is_anvil_owner(ch->name, anvil);
+		is_owner = is_anvil_owner(ch, anvil);
 		cost = is_owner ? anvil->value[3] : anvil->value[0];
 
 		if (cost > 0) {
@@ -5548,8 +5536,7 @@ void do_rename(CHAR_DATA *ch, const char *argument)
 	}
 
 	sprintf(new_name, "%s %s", pet->name, argument);
-	free_string(pet->name);
-	pet->name = str_dup(new_name);
+	pet->name = new_name;
 	stc("Your pet has now been named ", ch);
 	stc(argument, ch);
 	stc(".\n", ch);

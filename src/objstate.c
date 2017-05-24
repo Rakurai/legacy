@@ -7,6 +7,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */

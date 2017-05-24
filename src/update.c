@@ -29,6 +29,7 @@
 #include "sql.h"
 #include "music.h"
 #include "affect.h"
+#include "Format.hpp"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit);

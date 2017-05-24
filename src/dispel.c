@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "affect.h"
+#include "Format.hpp"
 
 struct dispel_type {
 	sh_int *sn;

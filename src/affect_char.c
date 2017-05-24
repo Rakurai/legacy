@@ -3,6 +3,7 @@
 #include "affect_list.h"
 #include "recycle.h"
 #include "tables.h"
+#include "Format.hpp"
 
 // local declarations
 void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);

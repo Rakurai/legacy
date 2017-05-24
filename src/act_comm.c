@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "vt100.h"
 #include "affect.h"
+#include "Format.hpp"
 
 extern void     do_file(CHAR_DATA *, const char *);
 
@@ -576,7 +577,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(ch->name));
+		sprintf(strsave, "%s%s", PLAYER_DIR, ch->name.capitalize());
 		wiznet("$N has wiped $Mself from these realms.", ch, NULL, 0, 0, 0);
 		update_pc_index(ch, TRUE);
 		id = ch->id;

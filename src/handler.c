@@ -37,47 +37,6 @@ extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool f
 /* command procedures needed */
 DECLARE_DO_FUN(do_return);
 
-/* Note name match exact */
-bool note_is_name(const char *str, const char *namelist)
-{
-	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
-	const char *list, *string;
-
-	/* fix crash on NULL namelist */
-	if (namelist == NULL || namelist[0] == '\0')
-		return FALSE;
-
-	/* fixed to prevent is_name on "" returning TRUE */
-	if (str[0] == '\0')
-		return FALSE;
-
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_prefix1(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_prefix1(part, name))
-				break;
-		}
-	}
-}
-
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -466,105 +425,6 @@ int can_carry_w(CHAR_DATA *ch)
 	return str_app[GET_ATTR_STR(ch)].carry * 10 + ch->level * 25;
 }
 
-/* Is Exact Name by Lotus */
-bool is_exact_name(const char *str, const char *namelist)
-{
-	char name[MIL], part[MIL];
-	const char *list, *string;
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_cmp(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_cmp(part, name))
-				break;
-		}
-	}
-}
-
-/*
- * See if a string is one of the names of an object.
- */
-bool is_name(const char *str, const char *namelist)
-{
-	char name[MIL], part[MIL];
-	const char *list, *string;
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_prefix1(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_prefix1(part, name))
-				break;
-		}
-	}
-}
-
-bool is_exact_name_color(const char *str, const char *namelist)
-{
-	char name[MIL], part[MIL];
-	const char *list, *string;
-	/* strip the color codes */
-	str = smash_bracket(str);
-	namelist = smash_bracket(namelist);
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_cmp(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_cmp(part, name))
-				break;
-		}
-	}
-}
 
 /*
  * Move a char out of a room.
@@ -1144,16 +1004,9 @@ void extract_char(CHAR_DATA *ch, bool fPull)
 	CHAR_DATA *wch;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	char temp_buffer[256];   /* buffer for debug info */
 
 	if (ch->in_room == NULL) {
-		if (ch->name) {
-			sprintf(temp_buffer, "extract_char: ch->in_room == NULL for %s", ch->name);
-			bug(temp_buffer, 0);
-		}
-		else
-			bug("extract_char: ch->in_room == NULL", 0);
-
+//		bugf("extract_char: ch->in_room == NULL for %s", ch->name);
 		return;
 	}
 
@@ -2654,57 +2507,50 @@ int color_strlen(const char *argument)
 	return length;
 }
 
-void ptc(CHAR_DATA *ch, const char *fmt, ...)
+
+template<class... Params>
+void ptc(CHAR_DATA *ch, const char *fmt, Params&&... params)
 {
-	char buf [MAX_STRING_LENGTH];
-	va_list args;
-	va_start(args, fmt);
-	vsnprintf(buf, MSL, fmt, args);
-	va_end(args);
-	stc(buf, ch);
+  char buf [MAX_STRING_LENGTH];
+//  va_list params;
+//  va_start(params, fmt);
+  vsnprintf(buf, MSL, fmt, params...);
+//  va_end(params);
+  stc(buf, ch);
 }
 
-/* print stuff, append to buffer. safe. */
-int ptb(BUFFER *buffer, const char *fmt, ...)
+// print stuff, append to buffer. safe.
+template<class... Params>
+int ptb(BUFFER *buffer, const char *fmt, Params&&... params)
 {
-	char buf[MSL];
-	va_list args;
-	int res;
-	va_start(args, fmt);
-	res = vsnprintf(buf, MSL, fmt, args);
-	va_end(args);
+  char buf[MSL];
+//  va_list params;
+  int res;
+//  va_start(params, fmt);
+  res = vsnprintf(buf, MSL, fmt, params...);
+//  va_end(params);
 
-	if (res >= MSL - 1) {
-		buf[0] = '\0';
-		bug("print_to_buffer: overflow to buffer, aborting", 0);
-	}
-	else
-		add_buf(buffer, buf);
+  if (res >= MSL - 1) {
+    buf[0] = '\0';
+    bug("print_to_buffer: overflow to buffer, aborting", 0);
+  }
+  else
+    add_buf(buffer, buf);
 
-	return res;
+  return res;
 }
 
-void bugf(const char *fmt, ...)
+template<class... Params>
+void bugf(const char *fmt, Params&&... params)
 {
-	char buf [MAX_STRING_LENGTH];
-	va_list args;
-	va_start(args, fmt);
-	vsnprintf(buf, MSL, fmt, args);
-	va_end(args);
-	bug(buf, 0);
-}
-/*
-void logf(char *fmt, ...)
-{
-	char buf [2 * MSL];
-	va_list args;
-	va_start(args, fmt);
-	vsnprintf(buf, 2 * MSL, fmt, args);
-	va_end(args);
-	log_string(buf);
+  char buf [MAX_STRING_LENGTH];
+//  va_list params;
+//  va_start(params, fmt);
+  vsnprintf(buf, MSL, fmt, params...);
+//  va_end(params);
+  bug(buf, 0);
 }
 
-*/
 /* Tell if a given string has a slash in it.
    This is useful for making sure a given name is not a directory name. */
 bool has_slash(const char *str)

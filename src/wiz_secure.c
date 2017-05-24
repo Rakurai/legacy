@@ -18,6 +18,7 @@
 #include "tables.h"
 #include "recycle.h"
 #include "sql.h"
+#include "Format.hpp"
 
 DECLARE_DO_FUN(do_quit);                /* do_deny */
 DECLARE_DO_FUN(do_echo);
@@ -272,7 +273,7 @@ void do_fry(CHAR_DATA *ch, const char *argument)
 	act("A huge bolt of {Wlightning{x strikes $N, utterly {Pdestroying{x $M.", ch, NULL, victim, TO_NOTVICT);
 	act("You look up, just in time to see the {Pflaming{x {Wlightning{x bolt strike your head. C-ya!", ch, NULL, victim,
 	    TO_VICT);
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(victim->name));
+	sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.capitalize());
 	do_echo(ch, "You hear the rumble of thunder in the distance.");
 	update_pc_index(victim, TRUE);
 	do_fuckoff(victim, "");

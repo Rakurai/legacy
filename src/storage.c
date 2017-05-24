@@ -121,7 +121,7 @@ void remove_storagedata(STORAGE_DATA *olddata)
 	}
 }
 
-STORAGE_DATA *lookup_storage_data(const char *name)
+STORAGE_DATA *lookup_storage_data(const String& name)
 {
 	STORAGE_DATA *i;
 	i = storage_list_head->next;

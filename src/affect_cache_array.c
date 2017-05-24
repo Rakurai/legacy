@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "affect.h"
+#include "Format.hpp"
 
 #define get_affect_cache(ch) ((ch)->affect_cache == NULL ? NULL : (sh_int *)(ch)->affect_cache)
 

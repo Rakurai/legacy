@@ -9,6 +9,7 @@
 #include "merc.h"
 #include "db.h"
 #include "sql.h"
+#include "Format.hpp"
 
 sqlite3* _db = NULL;
 sqlite3_stmt* _result = NULL;
@@ -18,7 +19,7 @@ void db_open()
 	int error;
 
 	if (_db)
-		bugf("db_open: db is not NULL, opening anyway");
+		bug("db_open: db is not NULL, opening anyway", 0);
 
 	error = sqlite3_open_v2(DB_FILE, &_db, SQLITE_OPEN_READWRITE, NULL);
 
@@ -34,7 +35,7 @@ void db_close()
 	}
 }
 
-void db_error(const char *func)
+void db_error(const String& func)
 {
 	bugf("%s: %s", func, sqlite3_errmsg(_db));
 
@@ -90,17 +91,6 @@ int db_query(const char *func, const char *query)
 	return SQL_OK;
 }
 
-/* format the args, send the query to db_query() */
-int db_queryf(const char *func, const char *query, ...)
-{
-	char buf[MSL * 3];
-	va_list args;
-	va_start(args, query);
-	vsnprintf(buf, MSL, query, args);
-	va_end(args);
-	return db_query(func, buf);
-}
-
 /* perform a query, no result, return success or not */
 int db_command(const char *func, const char *query)
 {
@@ -110,17 +100,6 @@ int db_command(const char *func, const char *query)
 		error = db_next_row();
 
 	return error;
-}
-
-/* format the args, perform a query, no result, return success or not */
-int db_commandf(const char *func, const char *query, ...)
-{
-	char buf[MSL * 3];
-	va_list args;
-	va_start(args, query);
-	vsnprintf(buf, MSL, query, args);
-	va_end(args);
-	return db_command(func, buf);
 }
 
 /* return a count.  note that this function takes a full query, including
@@ -137,22 +116,12 @@ int db_count(const char *func, const char *query)
 	return 0;
 }
 
-int db_countf(const char *func, const char *query, ...)
-{
-	char buf[MSL * 3];
-	va_list args;
-	va_start(args, query);
-	vsnprintf(buf, MSL, query, args);
-	va_end(args);
-	return db_count(func, buf);
-}
-
 int db_rows_affected() {
 	return sqlite3_changes(_db);
 }
 
 /* escapes a string for a mysql query, using the semiperm string list */
-char *db_esc(const char *string)
+char *db_esc(const String& string)
 {
 	char buf[3*MSL];
 	int i = 0, j = 0;

@@ -22,6 +22,7 @@
 #include "merc.h"
 #include "lookup.h"
 #include "sql.h"
+#include "Format.hpp"
 
 #define CLAN_DIR        "../misc/"
 #define CLAN_FILE       "clans.txt"

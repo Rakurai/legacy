@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "affect.h"
+#include "Format.hpp"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
@@ -733,7 +734,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	    && (get_eq_char(ch, WEAR_WIELD) != NULL)
 	    && IS_SET(ch->off_flags, OFF_BACKSTAB)
 	    && get_skill(ch, gsn_backstab)) {
-		do_backstab(ch, victim->name);
+		do_backstab(ch, victim->name.c_str());
 		return;
 	}
 
@@ -2534,7 +2535,7 @@ void make_corpse(CHAR_DATA *ch)
 	OBJ_DATA *corpse;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	char *name;
+	const char *name;
 
 	if (IS_NPC(ch)) {
 		name          = ch->short_descr;
@@ -2556,7 +2557,7 @@ void make_corpse(CHAR_DATA *ch)
 		corpse->cost = UMAX(1, (ch->level * 3));
 	}
 	else {
-		name            = ch->name;
+		name            = ch->name.c_str();
 		corpse          = create_object(get_obj_index(OBJ_VNUM_CORPSE_PC), 0);
 
 		if (! corpse) {
@@ -2728,8 +2729,8 @@ void death_cry(CHAR_DATA *ch)
 	if (vnum != 0) {
 		char buf[MAX_STRING_LENGTH];
 		OBJ_DATA *obj;
-		char *name;
-		name       = IS_NPC(ch) ? ch->short_descr : ch->name;
+		const char *name;
+		name       = IS_NPC(ch) ? ch->short_descr : ch->name.c_str();
 		obj        = create_object(get_obj_index(vnum), 0);
 
 		if (! obj) {
