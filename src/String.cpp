@@ -21,44 +21,70 @@ bool operator== (const String &lhs, const char *rhs) {
 	return false;
 }
 
+/*
+ * String transformations.  The paradigm here is IMMUTABLE - never modify the string
+ * in place.  This allows syntax like print(str.capitalize()), without unexpected side effects.
+ */
+
 String String::
-lstrip() const {
-	String s(*this);
-	s.erase(
-		s.begin(),
-		std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<int, int>(std::isspace)))
-	);
-	return s;
+lstrip(const char *chars) const {
+	return substr(find_first_not_of(chars));
 }
 
 String String::
-rstrip() const {
-	String s(*this);
-	s.erase(
-		std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(),
-		s.end()
-	);
-	return s;
+rstrip(const char *chars) const {
+	return substr(0, find_last_not_of(chars));
 }
 
 String String::
-strip() const {
-	return (*this).lstrip().rstrip();
+strip(const char *chars) const {
+	return substr(find_first_not_of(chars), find_last_not_of(chars));
 }
 
 String String::
 capitalize() const {
-	int pos = this->find_first_not_of(" \t\r\n");
+	String str(*this);
+	size_t pos = str.find_first_not_of(" \t\r\n");
 
-	if (pos == npos)
-		return *this;
+	if (pos != npos)
+		str[pos] = toupper(str[pos]);
 
-	String tail = this->substr(pos);
-	tail[0] = toupper(tail[0]);
-	return this->substr(0, pos) + tail;
+	return str;
 }
 
 String String::
-lsplit() const {
-	return this->substr(0, this->find(' '));
+lsplit(const char *chars) const {
+	return substr(0, find_first_of(chars));
+}
+
+String String::
+rsplit(const char *chars) const {
+	int pos = find_last_of(chars);
+	return substr(pos == npos ? 0 : pos);
+}
+
+String String::
+lsplit(String& word, const char *chars) const {
+	size_t pos = find_first_of(chars);
+	word.assign(substr(0, pos));
+	return substr(pos);
+}
+
+String String::
+rsplit(String& word, const char *chars) const {
+	int pos = find_last_of(chars);
+	word.assign(substr(pos));
+	return substr(0, pos);
+}
+
+String String::
+replace(const String& what, const String& with, int times) const {
+	size_t pos;
+	String str;
+
+	// if -1 specified, replace all (will never be 0)
+	while (times-- != 0 && (pos = str.find(what)) != npos)
+		str.std::string::replace(pos, with.size(), with);
+
+	return str;
 }

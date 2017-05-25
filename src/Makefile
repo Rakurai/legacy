@@ -22,7 +22,7 @@ _O_DEPS = cJSON/cJSON.o # cprops/splay.o cprops/mempool.o cprops/rb.o cprops/vec
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
 _H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.h tables.h	\
-	telnet.h vt100.h affect.h affect_list.h
+	telnet.h vt100.h affect.h affect_list.h String.hpp Format.hpp
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
