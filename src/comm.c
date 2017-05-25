@@ -294,14 +294,6 @@ char                command[MAX_STRING_LENGTH];
 int                                     last_signal = -1;
 
 /*
- * Debug vars.
- */
-char *dv_where = "";
-CHAR_DATA *dv_char = NULL;
-DESCRIPTOR_DATA *dv_desc = NULL;
-extern char dv_command[];
-
-/*
  * OS-dependent local functions.
  */
 #if defined(unix)
@@ -736,26 +728,22 @@ void game_loop_unix(int control)
 
 		/* New connection? */
 		if (FD_ISSET(control, &in_set)) {
-			dv_where = "init_descriptor()";
 			init_descriptor(control);
 		}
 
 		/* Kick out the freaky folks. */
-		dv_where = "kickout loop";
-
 		for (d = descriptor_list; d != NULL; d = d_next) {
 			d_next = d->next;
-			dv_desc = d;
 
 			if (FD_ISSET(d->descriptor, &exc_set)) {
 				FD_CLR(d->descriptor, &in_set);
 				FD_CLR(d->descriptor, &out_set);
-				dv_char = d->character;
-//				dv_char = d->original ? d->original : d->character;
+				CHAR_DATA *ch = d->character;
+//				CHAR_DATA *ch = d->original ? d->original : d->character;
 
-				if (dv_char && dv_char->level > 1) {
-					save_char_obj(dv_char);
-					sprintf(log_buf, "Kicking out char %s", dv_char->name);
+				if (ch && ch->level > 1) {
+					save_char_obj(ch);
+					sprintf(log_buf, "Kicking out char %s", ch->name);
 				}
 				else
 					strcpy(log_buf, "Kicking out unknown char");
@@ -768,12 +756,8 @@ void game_loop_unix(int control)
 		}
 
 		/* Process input. */
-		dv_where = "input loop";
-
 		for (d = descriptor_list; d != NULL; d = d_next) {
 			d_next = d->next;
-			dv_desc = d;
-			dv_char = d->original ? d->original : d->character;
 			d->fcommand = FALSE;
 
 			if (FD_ISSET(d->descriptor, &in_set)) {
@@ -816,7 +800,6 @@ void game_loop_unix(int control)
 				stop_idling(d->character);
 				tempbuf = str_dup(d->incomm);
 				command2 = get_multi_command(d, d->incomm);
-				strcpy(dv_command, command2);
 
 				if (d->showstr_point)
 					show_string(d, tempbuf);
@@ -827,14 +810,10 @@ void game_loop_unix(int control)
 						continue;
 					}
 
-					dv_where = "before substitute_alias()";
 					substitute_alias(d, command2);
-					dv_where = "after substitute_alias()";
 				}
 				else {
-					dv_where = "before nanny()";
 					nanny(d, command2);
-					dv_where = "after  nanny()";
 					d->incomm[0] = '\0';
 				}
 
@@ -844,16 +823,11 @@ void game_loop_unix(int control)
 			}    /* end of have input */
 		} /* end of input loop */
 
-		dv_where = "before update_handler()";
 		update_handler();
-		dv_where = "after  update_handler()";
-		/* Output. */
-		dv_where = "output loop";
 
+		/* Output. */
 		for (d = descriptor_list; d != NULL; d = d_next) {
 			d_next = d->next;
-			dv_desc = d;
-			dv_char = d->character;
 
 			if ((d->fcommand || d->outtop > 0)
 			    && FD_ISSET(d->descriptor, &out_set)) {

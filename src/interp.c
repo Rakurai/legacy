@@ -37,10 +37,7 @@ extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
 extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
 extern void     slog_file    args((CHAR_DATA *ch, char *file, char *str));
 
-extern char *dv_where;
-char dv_command[MAX_INPUT_LENGTH];
 char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
-char dv_guard[] = "55555";             /* check this to see if logline overwritten */
 
 /* Disabled Commands Stuff */
 bool    check_disabled(const struct cmd_type *command);
@@ -622,7 +619,6 @@ void interpret(CHAR_DATA *ch, const char *argument)
 
 		if (!str_prefix1(command, cmd_table[cmd].name)) {
 			found = TRUE;
-			strcpy(dv_command, command);
 			break;
 		}
 	}

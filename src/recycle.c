@@ -31,10 +31,6 @@
 #include "affect_list.h"
 #include "buffer.h"
 
-extern CHAR_DATA *dv_char;
-extern char dv_command[];
-extern char *dv_where;
-
 /* CHANGES
    We keep having problems with assumptions about whether data needs to be zeroed or set
    to some default value before it is used, resulting in a lot of crashes or accessing
