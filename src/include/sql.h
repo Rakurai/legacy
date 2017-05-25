@@ -24,23 +24,17 @@ String      db_esc				(const String& string);
 // variadic functions expanded at runtime, must be in header
 template<class... Params>
 int			db_queryf			(const String& func, const String& query, Params... params) {
-	char buf[MAX_STRING_LENGTH*3];
-	Format::sprintf(buf, query, params...);
-	return db_query(func, buf);
+	return db_query(func, Format::format(query, params...));
 }
 
 template<class... Params>
 int			db_commandf			(const String& func, const String& query, Params... params) {
-	char buf[MAX_STRING_LENGTH*3];
-	Format::sprintf(buf, query, params...);
-	return db_command(func, buf);
+	return db_command(func, Format::format(query, params...));
 }
 
 template<class... Params>
 int			db_countf			(const String& func, const String& query, Params... params) {
-	char buf[MAX_STRING_LENGTH*3];
-	Format::sprintf(buf, query, params...);
-	return db_count(func, buf);
+	return db_count(func, Format::format(query, params...));
 }
 
 #endif /* __SQL_H */

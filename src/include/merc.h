@@ -3747,17 +3747,13 @@ void    list_extraskill args( ( CHAR_DATA *ch ) );
 template<class... Params>
 void ptc(CHAR_DATA *ch, const String& fmt, Params&&... params)
 {
-  char buf[MAX_STRING_LENGTH];
-  Format::snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
-  stc(buf, ch);
+	stc(Format::format(fmt, params...), ch);
 }
 
 template<class... Params>
 void bugf(const String& fmt, Params&&... params)
 {
-  char buf[MAX_STRING_LENGTH];
-  Format::snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
-  bug(buf, 0);
+	bug(Format::format(fmt, params...), 0);
 }
 
 struct raffects

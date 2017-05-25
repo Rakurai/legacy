@@ -4,8 +4,11 @@
 #include <string>
 #include <cstdio>
 
-#include "String.hpp"
 #include "memory.h"
+
+// need to include whole String class declaration because variadic templates can't
+// be in the .cpp file, and we access the String members here.
+#include "String.h" 
 
 /* Variadic template for overloading the *printf functions to use C++ strings.
  * Lets us keep our old C-style printfs and get nice modern strings. */
@@ -17,10 +20,10 @@ inline auto to_c(TMP&& param) -> decltype(std::forward<TMP>(param)) {
     return std::forward<TMP>(param);
 }
 
-inline char const* to_c(String const& s) { return s.c_str(); }
-inline char const* to_c(String& s) { return s.c_str(); }
+inline const char *to_c(const String& s) { return s.c_str(); }
+inline const char *to_c(String& s) { return s.c_str(); }
 
-// basic functions that accept the above to_c functions
+// wrappers around standard functions that accept objects with to_c functions (above)
 template<class... Params>
 int printf(const String& fmt, Params&&... params) {
     return std::printf(fmt.c_str(), to_c(params)...);
@@ -41,9 +44,8 @@ int fprintf(FILE *fp, const String& fmt, Params&&... params) {
     return std::fprintf(fp, fmt.c_str(), to_c(params)...);
 }
 
-// specialized functions
+// versions of sprintf that replace the contents of a String
 
-// reinitialize a mutable String object
 template<class... Params>
 int snprintf(String& str, unsigned int len, const String& fmt, Params&&... params) {
 	char buf[len+1];
@@ -54,7 +56,16 @@ int snprintf(String& str, unsigned int len, const String& fmt, Params&&... param
 
 template<class... Params>
 int sprintf(String& str, const String& fmt, Params&&... params) {
-	return snprintf(str, MAX_STRING_LENGTH, fmt, params...);
+	return snprintf(str, MAX_STRING_LENGTH*4, fmt, params...);
+}
+
+// string builder.  Can't be in String class because of circular dependency
+
+template<class... Params>
+String format(const String& fmt, Params&&... params) {
+	String str;
+	sprintf(str, fmt, params...);
+	return str;
 }
 
 } // namespace Format
