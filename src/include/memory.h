@@ -40,3 +40,8 @@ extern	int	top_reset;
 extern	int	top_room;
 extern	int	top_shop;
 extern	int	mobile_count;
+
+void *	alloc_mem    args((long sMem));
+void *	alloc_perm   args((long sMem));
+void *	alloc_perm2  args((long sMem, const char *message));
+void	free_mem     args((void *pMem, long sMem));

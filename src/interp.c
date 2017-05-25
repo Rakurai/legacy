@@ -31,6 +31,7 @@
 #include "vt100.h" /* VT100 Stuff */
 #include "sql.h"
 #include "affect.h"
+#include "memory.h"
 #include "Format.hpp"
 
 extern void     goto_line    args((CHAR_DATA *ch, int row, int column));

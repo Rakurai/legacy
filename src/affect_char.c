@@ -3,6 +3,7 @@
 #include "affect_list.h"
 #include "recycle.h"
 #include "tables.h"
+#include "memory.h"
 #include "Format.hpp"
 
 // local declarations

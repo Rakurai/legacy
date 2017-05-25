@@ -1,4 +1,5 @@
 #include "merc.h"
+#include "memory.h"
 
 void read_line(FILE *, STORAGE_DATA *);
 void save_line(FILE *, STORAGE_DATA *);

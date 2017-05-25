@@ -21,6 +21,7 @@
 #include "sql.h"
 #include "affect.h"
 #include "buffer.h"
+#include "memory.h"
 #include "Format.hpp"
 
 DECLARE_DO_FUN(do_slookup);

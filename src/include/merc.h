@@ -3462,13 +3462,6 @@ char *	fread_word		args((FILE *fp));
 void	fappend			args((const char *file, const char *str));
 
 
-/* memory.c */
-void *	alloc_mem		args((long sMem));
-void *	alloc_perm		args((long sMem));
-void *	alloc_perm2		args((long sMem, const char *message));
-void	free_mem        	args((void *pMem, long sMem));
-
-
 /* random.c */
 int	number_fuzzy		args((int number));
 int	number_range		args((int from, int to));

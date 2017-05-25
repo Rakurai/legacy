@@ -6,6 +6,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "affect.h"
+#include "memory.h"
 #include "Format.hpp"
 
 #define ARENA_DIR       "../misc/"

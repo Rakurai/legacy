@@ -30,6 +30,7 @@
 #include "affect.h"
 #include "affect_list.h"
 #include "buffer.h"
+#include "memory.h"
 
 /* CHANGES
    We keep having problems with assumptions about whether data needs to be zeroed or set

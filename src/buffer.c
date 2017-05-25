@@ -1,6 +1,7 @@
 /* procedures and constants needed for buffering */
 
 #include "buffer.h"
+#include "memory.h"
 
 BUFFER *buf_free;
 

@@ -29,6 +29,7 @@
 #include "sql.h"
 #include "music.h"
 #include "affect.h"
+#include "memory.h"
 #include "Format.hpp"
 
 /* command procedures needed */

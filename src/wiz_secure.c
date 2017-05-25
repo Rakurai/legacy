@@ -19,6 +19,7 @@
 #include "recycle.h"
 #include "sql.h"
 #include "buffer.h"
+#include "memory.h"
 #include "Format.hpp"
 
 DECLARE_DO_FUN(do_quit);                /* do_deny */

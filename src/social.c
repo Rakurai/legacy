@@ -35,6 +35,7 @@
 #include "merc.h"
 #include "db.h"
 #include "interp.h"
+#include "memory.h"
 #include "Format.hpp"
 
 #ifdef CONST_SOCIAL

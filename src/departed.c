@@ -6,6 +6,7 @@
  */
 
 #include "merc.h"
+#include "memory.h"
 
 DEPARTED_DATA *departed_list_head;
 DEPARTED_DATA *departed_list_tail;

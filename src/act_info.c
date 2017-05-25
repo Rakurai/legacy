@@ -35,6 +35,7 @@
 #include "gem.h"
 #include "affect.h"
 #include "buffer.h"
+#include "memory.h"
 #include "Format.hpp"
 
 extern AREA_DATA *area_first;
