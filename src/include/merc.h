@@ -48,6 +48,7 @@
 #include <map>
 #include <algorithm>
 
+#include "memory.h"
 #include "String.hpp"
 
 /*
@@ -103,14 +104,6 @@ int system();
 /* global access to our port number, set in comm.c */
 extern int port;
 
-
-/*
- * String and memory management parameters.
- */
-#define MAX_KEY_HASH             1024
-#define MAX_STRING_LENGTH        4608
-#define MAX_INPUT_LENGTH          256
-#define PAGELEN                    22
 
 /*
  * Structure types.

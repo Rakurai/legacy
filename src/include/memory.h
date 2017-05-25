@@ -21,6 +21,16 @@
 /* Magic number for memory allocation */
 #define MAGIC_NUM 52571214
 
+/*
+ * String and memory management parameters.
+ */
+#define MAX_KEY_HASH             1024
+#define MAX_STRING_LENGTH        4608
+#define MAX_INPUT_LENGTH          256
+#define PAGELEN                    22
+
+typedef struct semiperm_data SEMIPERM; // external
+
 extern	int	nAllocString;
 extern	int	sAllocString;
 extern	int	nAllocPerm;
@@ -41,7 +51,7 @@ extern	int	top_room;
 extern	int	top_shop;
 extern	int	mobile_count;
 
-void *	alloc_mem    args((long sMem));
-void *	alloc_perm   args((long sMem));
-void *	alloc_perm2  args((long sMem, const char *message));
-void	free_mem     args((void *pMem, long sMem));
+void *	alloc_mem    (long sMem);
+void *	alloc_perm   (long sMem);
+void *	alloc_perm2  (long sMem, const char *message);
+void	free_mem     (void *pMem, long sMem);
