@@ -18,7 +18,6 @@ int     nAllocPerm;
 int     sAllocPerm;
 char    *string_space;
 char    *top_string;
-SEMIPERM *semiperm_list;
 char    str_empty[1];
 char    *string_hash[MAX_KEY_HASH];
 int     top_affect;

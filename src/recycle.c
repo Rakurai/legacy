@@ -43,39 +43,6 @@
    forgot to zero an array before using it.  -- Montrey 2016
 */
 
-/* semiperm string recycling */
-SEMIPERM *semiperm_free;
-
-SEMIPERM *new_semiperm()
-{
-	SEMIPERM *semiperm;
-
-	if (semiperm_free == NULL)
-		semiperm = (SEMIPERM *)alloc_perm2(sizeof(*semiperm), "Semiperm");
-	else {
-		semiperm = semiperm_free;
-		semiperm_free = semiperm_free->next;
-	}
-
-	*semiperm = (SEMIPERM){0};
-	semiperm->string = str_empty;
-
-	VALIDATE(semiperm);
-	return semiperm;
-}
-
-void free_semiperm(SEMIPERM *semiperm)
-{
-	if (!IS_VALID(semiperm))
-		return;
-
-	free_string(semiperm->string);
-
-	INVALIDATE(semiperm);
-	semiperm->next = semiperm_free;
-	semiperm_free = semiperm;
-}
-
 /* stuff for recyling notes */
 NOTE_DATA *note_free;
 

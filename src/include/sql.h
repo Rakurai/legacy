@@ -19,7 +19,7 @@ int			db_query			(const char *func, const char *query);
 int			db_command			(const char *func, const char *query);
 int			db_count			(const char *func, const char *query);
 int			db_rows_affected	();
-char		*db_esc				(const String& string);
+String      db_esc				(const String& string);
 
 // variadic functions expanded at runtime, must be in header
 template<class... Params>

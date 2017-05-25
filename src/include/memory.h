@@ -29,15 +29,12 @@
 #define MAX_INPUT_LENGTH          256
 #define PAGELEN                    22
 
-typedef struct semiperm_data SEMIPERM; // external
-
 extern	int	nAllocString;
 extern	int	sAllocString;
 extern	int	nAllocPerm;
 extern	int	sAllocPerm;
 extern	char	*string_space;
 extern	char	*top_string;
-extern	SEMIPERM *semiperm_list;
 extern	char	str_empty[1];
 extern	char	*string_hash[MAX_KEY_HASH];
 extern	int	top_affect;

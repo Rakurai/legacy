@@ -120,23 +120,22 @@ int db_rows_affected() {
 	return sqlite3_changes(_db);
 }
 
-/* escapes a string for a mysql query, using the semiperm string list */
-char *db_esc(const String& string)
+/* escapes a string for a mysql query */
+String db_esc(const String& string)
 {
-	char buf[3*MSL];
+	String buf;
 	int i = 0, j = 0;
 
 	while (string[i] != '\0') {
 		if (string[i] == '\'')
-			buf[j++] = '\'';
+			buf += '\'';
 // only for mysql compatibility?  don't use double quotes in queries,
 // and don't double them here
 //		else if (string[i] == '\"') 
 //			buf[j++] = '\"';
 
-		buf[j++] = string[i++];
+		buf += string[i++];
 	}
 
-	buf[j] = '\0';
-	return str_dup_semiperm(buf);
+	return buf;
 }

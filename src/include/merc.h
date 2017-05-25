@@ -119,7 +119,6 @@ typedef struct  extra_descr_data        EXTRA_DESCR_DATA;
 typedef struct  kill_data               KILL_DATA;
 typedef struct  mem_data                MEM_DATA;
 typedef struct  mob_index_data          MOB_INDEX_DATA;
-typedef struct	semiperm_data			SEMIPERM;
 typedef struct  note_data               NOTE_DATA;
 typedef struct  obj_data                OBJ_DATA;
 typedef struct  obj_index_data          OBJ_INDEX_DATA;
@@ -676,13 +675,6 @@ struct spec_type
 {
     char *      name;                   /* special function name */
     SPEC_FUN *  function;               /* the function */
-};
-
-struct semiperm_data
-{
-	SEMIPERM	*next;
-	bool		valid;
-	char		*string;
 };
 
 /*

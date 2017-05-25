@@ -33,10 +33,6 @@ extern int mobile_count;
 #define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
 
-/* semiperm recycling */
-SEMIPERM *new_semiperm args((void));
-void free_semiperm args((SEMIPERM *semiperm));
-
 /* note recycling */
 #define ND NOTE_DATA
 ND	*new_note args( (void) );

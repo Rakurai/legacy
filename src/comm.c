@@ -674,7 +674,6 @@ void game_loop_unix(int control)
 {
 	static struct timeval null_time;
 	struct timeval last_time;
-	SEMIPERM *semiperm;
 	gettimeofday(&last_time, NULL);
 	current_time = (time_t) last_time.tv_sec;
 
@@ -879,10 +878,6 @@ void game_loop_unix(int control)
 		}
 		gettimeofday(&last_time, NULL);
 		current_time = (time_t) last_time.tv_sec;
-
-		/* free our semiperm list */
-		for (semiperm = semiperm_list; semiperm; semiperm = semiperm->next)
-			free_semiperm(semiperm);
 	}
 
 	return;

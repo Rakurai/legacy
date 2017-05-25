@@ -6,19 +6,6 @@
 extern char *string_space;
 extern char *top_string;
 
-/* semiperm strings:  a linked list of structures containing a string and a pointer to
-   the next one.  at the end of each game_loop, we free the entire list.  these are used
-   more as a shortcut than anything, so we can have multiple string function calls that
-   would normally return static chars in the same sprintf type call. -- Montrey */
-char *str_dup_semiperm(const String& string)
-{
-	SEMIPERM *semiperm = new_semiperm();
-	semiperm->string = str_dup(string.c_str());
-	semiperm->next = semiperm_list;
-	semiperm_list = semiperm;
-	return semiperm->string;
-}
-
 /*
  * Duplicate a string into dynamic memory.
  * Fread_strings are read-only and shared.

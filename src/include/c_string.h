@@ -1,6 +1,5 @@
 #pragma once
 
-char *	str_dup_semiperm	(const String& string);
 char *  str_dup         ( const char *str) ;
 char *  str_dup         ( const String& str) ;
 void    free_string     ( char *pstr ) ;
