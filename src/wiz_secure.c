@@ -75,7 +75,7 @@ void do_fod(CHAR_DATA *ch, const char *argument)
 	act("You strike $N down with your {YFinger of {RDeath{x!", ch, NULL, victim, TO_CHAR);
 	act("$n strikes $N down with a {YFinger of {RDeath{x!", ch, NULL, victim, TO_NOTVICT);
 	act("$n strikes you down with a {YFinger of {RDeath{x!", ch, NULL, victim, TO_VICT);
-	sprintf(buf, "$n has struck down %s!", victim->name);
+	Format::sprintf(buf, "$n has struck down %s!", victim->name);
 	global_act(ch, buf, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
 	act("You fall to the ground, dazed.", ch, NULL, victim, TO_VICT);
 	victim->position = POS_RESTING;
@@ -116,7 +116,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	}
 
 	one_argument(argument, arg3);
-	sprintf(buf, "$n forces you to %s.", argument);
+	Format::sprintf(buf, "$n forces you to %s.", argument);
 
 	if (IS_IMP(ch)) {
 		bool found = FALSE;
@@ -234,14 +234,14 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(victim->act, PLR_FREEZE);
 		stc("Heat envelops your blood.\n", victim);
 		stc("FREEZE removed.\n", ch);
-		sprintf(buf, "$N has unfrozen: %s.", victim->name);
+		Format::sprintf(buf, "$N has unfrozen: %s.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
 		SET_BIT(victim->act, PLR_FREEZE);
 		stc("A crystal blue sheet of ice immobilizes your body!\n", victim);
 		stc("FREEZE set.\n", ch);
-		sprintf(buf, "$N puts %s in the deep freeze.", victim->name);
+		Format::sprintf(buf, "$N puts %s in the deep freeze.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 
@@ -275,7 +275,7 @@ void do_fry(CHAR_DATA *ch, const char *argument)
 	act("A huge bolt of {Wlightning{x strikes $N, utterly {Pdestroying{x $M.", ch, NULL, victim, TO_NOTVICT);
 	act("You look up, just in time to see the {Pflaming{x {Wlightning{x bolt strike your head. C-ya!", ch, NULL, victim,
 	    TO_VICT);
-	sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.capitalize());
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.capitalize());
 	do_echo(ch, "You hear the rumble of thunder in the distance.");
 	update_pc_index(victim, TRUE);
 	do_fuckoff(victim, "");
@@ -500,7 +500,7 @@ void do_newpasswd(CHAR_DATA *ch, const char *argument)
 	free_string(pwdnew);
 	ptc(ch, "%s's new password is: %s\n", victim->name, argument);
 	save_char_obj(victim);
-	sprintf(buf, "$N has changed %s's password.", victim->name);
+	Format::sprintf(buf, "$N has changed %s's password.", victim->name);
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
 }
 
@@ -619,16 +619,16 @@ void do_revoke(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(victim->revoke, revoke_table[i].bit)) {
 			REMOVE_BIT(victim->revoke, revoke_table[i].bit);
-			sprintf(buf1, "restore");
+			Format::sprintf(buf1, "restore");
 		}
 		else {
 			SET_BIT(victim->revoke, revoke_table[i].bit);
-			sprintf(buf1, "revoke");
+			Format::sprintf(buf1, "revoke");
 		}
 
 		ptc(victim, "The Gods have %sd your %s.\n", buf1, revoke_table[i].message);
 		ptc(ch, "You %s their %s.\n", buf1, revoke_table[i].message);
-		sprintf(buf2, "$N has %sd %s's %s", buf1, victim->name, revoke_table[i].message);
+		Format::sprintf(buf2, "$N has %sd %s's %s", buf1, victim->name, revoke_table[i].message);
 		wiznet(buf2, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 		return;
 	}
@@ -764,7 +764,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	else if (!str_prefix1(arg, "actions")) {
 		set_tail(ch, victim, TAIL_ACT);
 		ch->pcdata->tailing = TRUE;
-		sprintf(buf, "$N has begun tailing %s.", PERS(victim, ch, VIS_PLR));
+		Format::sprintf(buf, "$N has begun tailing %s.", PERS(victim, ch, VIS_PLR));
 		wiznet(buf, ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 	}
 	else
@@ -841,7 +841,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	}
 
 	victim->desc->snoop_by = ch->desc;
-	sprintf(buf, "$N has begun a snoop on %s.", victim->name);
+	Format::sprintf(buf, "$N has begun a snoop on %s.", victim->name);
 	wiznet(buf, ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 	stc("You now view the world through the players eyes.\n", ch);
 }
@@ -866,7 +866,7 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 		while (db_next_row() == SQL_OK) {
 			found = TRUE;
 			flags = db_get_column_int(2);
-			sprintf(site, "%s%s%s",
+			Format::sprintf(site, "%s%s%s",
 			        IS_SET(flags, BAN_PREFIX) ? "*" : "",
 			        db_get_column_str(0),
 			        IS_SET(flags, BAN_SUFFIX) ? "*" : "");
@@ -889,9 +889,9 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* arg1 needs to not have apostrophes, as does argument after all this.
-	   reason is that we need to sprintf both arg1 and argument into the
+	   reason is that we need to Format::sprintf both arg1 and argument into the
 	   query, and a char function using a static char can't do it twice in
-	   the same sprintf */
+	   the same Format::sprintf */
 	argument = one_argument(db_esc(argument), arg1);
 	argument = one_argument(argument, arg2);
 
@@ -1140,7 +1140,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 		db_commandf("do_deny", "INSERT INTO denies VALUES('%s','%s','%s')",
 		            db_esc(victim->name), db_esc(ch->name), db_esc(argument));
 		stc("You have been denied access!\n", victim);
-		sprintf(buf, "$N has denied access to %s", victim->name);
+		Format::sprintf(buf, "$N has denied access to %s", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 		ptc(ch, "%s has been denied access.\n", arg1);
 		save_char_obj(victim);
@@ -1164,7 +1164,7 @@ void do_undeny(CHAR_DATA *ch, const char *argument)
 	if (db_rows_affected() > 0) {
 		char buf[MSL];
 		ptc(ch, "%s has been granted access to Legacy.\n", arg);
-		sprintf(buf, "$N has undenied %s", arg);
+		Format::sprintf(buf, "$N has undenied %s", arg);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else

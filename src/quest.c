@@ -464,14 +464,14 @@ void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
 {
 	char buf[MAX_STRING_LENGTH];
 	check_social(mob, "beam", ch->name.c_str());
-	sprintf(buf, "Thank you, %s, for returning my lost %s!", ch->name, obj->short_descr);
+	Format::sprintf(buf, "Thank you, %s, for returning my lost %s!", ch->name, obj->short_descr);
 	do_say(mob, buf);
 	extract_obj(obj);
 	do_say(mob, "I left the gold reward with the Questmistress.  Farewell, and thank you!");
 	act("$n turns and walks away.", mob, NULL, NULL, TO_ROOM);
 	stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
 	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-	sprintf(buf, "{Y:SKILL QUEST: {x$N has returned %s to %s", obj->short_descr, mob->short_descr);
+	Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has returned %s to %s", obj->short_descr, mob->short_descr);
 	wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 	extract_char(mob, TRUE);
 	ch->pcdata->squestmobf = TRUE;
@@ -570,7 +570,7 @@ void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
 	act("$n turns and walks away.", mob, NULL, NULL, TO_ROOM);
 	stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
 	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-	sprintf(buf, "{Y:SKILL QUEST: {x$N has spoken with %s", mob->short_descr);
+	Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has spoken with %s", mob->short_descr);
 	wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 	extract_char(mob, TRUE);
 	ch->pcdata->squestmobf = TRUE;
@@ -632,7 +632,7 @@ OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
 	free_string(questobj->name);
 	free_string(questobj->short_descr);
 	free_string(questobj->description);
-	sprintf(buf, "%s %s", sq_item_table[descnum].name, ch->name);
+	Format::sprintf(buf, "%s %s", sq_item_table[descnum].name, ch->name);
 	questobj->name        = str_dup(buf);
 	questobj->short_descr = str_dup(sq_item_table[descnum].shortdesc);
 	questobj->description = str_dup(sq_item_table[descnum].longdesc);
@@ -709,17 +709,17 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 
 	/* generate name */
 	if (GET_ATTR_SEX(questmob) == 1)
-		sprintf(shortdesc, "%s%s%s",
+		Format::sprintf(shortdesc, "%s%s%s",
 		        Msyl1[number_range(0, (MAXMSYL1 - 1))],
 		        Msyl2[number_range(0, (MAXMSYL2 - 1))],
 		        Msyl3[number_range(0, (MAXMSYL3 - 1))]);
 	else
-		sprintf(shortdesc, "%s%s%s",
+		Format::sprintf(shortdesc, "%s%s%s",
 		        Fsyl1[number_range(0, (MAXFSYL1 - 1))],
 		        Fsyl2[number_range(0, (MAXFSYL2 - 1))],
 		        Fsyl3[number_range(0, (MAXFSYL3 - 1))]);
 
-	sprintf(name, "squestmob %s", shortdesc);
+	Format::sprintf(name, "squestmob %s", shortdesc);
 	questmob->name = name;
 	free_string(questmob->short_descr);
 	questmob->short_descr = str_dup(shortdesc);
@@ -763,7 +763,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		break;
 	}
 
-	sprintf(longdesc, "The %s, %s, stands here.\n", title, questmob->short_descr);
+	Format::sprintf(longdesc, "The %s, %s, stands here.\n", title, questmob->short_descr);
 	questmob->long_descr = str_dup(longdesc);
 
 	if ((questroom = generate_skillquest_room(ch, level)) == NULL) {
@@ -775,11 +775,11 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 	ch->pcdata->squestmob = questmob;
 
 	if (type == 1) { /* mob quest */
-		sprintf(buf, "Seek out the %s, %s, for teachings in %s!", title, questmob->short_descr, quest);
+		Format::sprintf(buf, "Seek out the %s, %s, for teachings in %s!", title, questmob->short_descr, quest);
 		do_say(questman, buf);
-		sprintf(buf, "%s resides somewhere in the area of %s{x,", questmob->short_descr, questmob->in_room->area->name);
+		Format::sprintf(buf, "%s resides somewhere in the area of %s{x,", questmob->short_descr, questmob->in_room->area->name);
 		do_say(questman, buf);
-		sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
+		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
 		do_say(questman, buf);
 	}
 	else if (type == 2) {   /* obj to mob quest */
@@ -801,18 +801,18 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 			break;
 		}
 
-		sprintf(buf, "The %s %s{x has reported missing the legendary artifact,",
+		Format::sprintf(buf, "The %s %s{x has reported missing the legendary artifact,",
 		        title, questmob->short_descr);
 		do_say(questman, buf);
-		sprintf(buf, "the %s{x!  %s{x resides somewhere in %s{x,",
+		Format::sprintf(buf, "the %s{x!  %s{x resides somewhere in %s{x,",
 		        questobj->short_descr, questmob->short_descr, questmob->in_room->area->name);
 		do_say(questman, buf);
-		sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
+		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
 		do_say(questman, buf);
-		sprintf(buf, "%s last recalls travelling through %s{x, in the",
+		Format::sprintf(buf, "%s last recalls travelling through %s{x, in the",
 		        GET_ATTR_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name);
 		do_say(questman, buf);
-		sprintf(buf, "area of %s{x, when %s lost the treasure.",
+		Format::sprintf(buf, "area of %s{x, when %s lost the treasure.",
 		        questobj->in_room->area->name, GET_ATTR_SEX(questmob) == 1 ? "he" : "she");
 		do_say(questman, buf);
 	}
@@ -843,12 +843,12 @@ void generate_skillquest(CHAR_DATA *ch, CHAR_DATA *questman)
 		obj_to_room(questobj, questroom);
 		ch->pcdata->squestloc1 = questroom->vnum;
 		ch->pcdata->squestobj = questobj;
-		sprintf(buf, "The legendary artifact, the %s{x, has been reported stolen!", questobj->short_descr);
+		Format::sprintf(buf, "The legendary artifact, the %s{x, has been reported stolen!", questobj->short_descr);
 		do_say(questman, buf);
-		sprintf(buf, "The thieves were seen heading in the direction of %s{x,", questroom->area->name);
+		Format::sprintf(buf, "The thieves were seen heading in the direction of %s{x,", questroom->area->name);
 		do_say(questman, buf);
 		do_say(questman, "and witnesses in that area say that they travelled");
-		sprintf(buf, "through %s{x.", questroom->name);
+		Format::sprintf(buf, "through %s{x.", questroom->name);
 		do_say(questman, buf);
 		return;
 	}
@@ -980,7 +980,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		}
 
 		/* Add player's name to mox name to prevent visibility by others */
-		sprintf(buf, "%s %s", questitem->name, ch->name);
+		Format::sprintf(buf, "%s %s", questitem->name, ch->name);
 		free_string(questitem->name);
 		questitem->name = str_dup(buf);
 		/* Mox timer added by Demonfire as a preventative measure against cheating.
@@ -991,10 +991,10 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		questitem->timer = (4 * ch->countdown + 10) / 3;
 		obj_to_room(questitem, room);
 		ch->questobj = questitem->pIndexData->vnum;
-		sprintf(buf, "Vile pilferers have stolen %s from the royal treasury!", questitem->short_descr);
+		Format::sprintf(buf, "Vile pilferers have stolen %s from the royal treasury!", questitem->short_descr);
 		do_say(questman, buf);
 		do_say(questman, "My court wizardess, with her magic mirror, has pinpointed its location.");
-		sprintf(buf, "Look in the general area of %s for %s!", room->area->name, room->name);
+		Format::sprintf(buf, "Look in the general area of %s for %s!", room->area->name, room->name);
 		do_say(questman, buf);
 		return;
 	}
@@ -1002,46 +1002,46 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		/* Quest to kill a mob */
 		switch (number_range(0, 3)) {
 		case 0:
-			sprintf(buf, "An enemy of mine, %s, is making vile threats against the crown.",
+			Format::sprintf(buf, "An enemy of mine, %s, is making vile threats against the crown.",
 			        victim->short_descr);
 			do_say(questman, buf);
 			do_say(questman, "This threat must be eliminated!");
 			break;
 
 		case 1:
-			sprintf(buf, "Thera's most heinous criminal, %s, has escaped from the dungeon!",
+			Format::sprintf(buf, "Thera's most heinous criminal, %s, has escaped from the dungeon!",
 			        victim->short_descr);
 			do_say(questman, buf);
-			sprintf(buf, "Since the escape, %s has murdered %d civilians!",
+			Format::sprintf(buf, "Since the escape, %s has murdered %d civilians!",
 			        victim->short_descr, number_range(2, 20));
 			do_say(questman, buf);
 			do_say(questman, "The penalty for this crime is death, and you are to deliver the sentence!");
 			break;
 
 		case 2:
-			sprintf(buf, "The Mayor of Midgaard has recently been attacked by %s.  This is an act of war!",
+			Format::sprintf(buf, "The Mayor of Midgaard has recently been attacked by %s.  This is an act of war!",
 			        victim->short_descr);
 			do_say(questman, buf);
-			sprintf(buf, "%s must be severly dealt with for this injustice.",
+			Format::sprintf(buf, "%s must be severly dealt with for this injustice.",
 			        victim->short_descr);
 			do_say(questman, buf);
 			break;
 
 		case 3:
-			sprintf(buf, "%s has been stealing valuables from the citizens of Solace.",
+			Format::sprintf(buf, "%s has been stealing valuables from the citizens of Solace.",
 			        victim->short_descr);
 			do_say(questman, buf);
-			sprintf(buf, "Make sure that %s never has the chance to steal again.",
+			Format::sprintf(buf, "Make sure that %s never has the chance to steal again.",
 			        victim->short_descr);
 			do_say(questman, buf);
 			break;
 		}
 
 		if (room->name != NULL) {
-			sprintf(buf, "Seek %s out somewhere in the vicinity of %s!",
+			Format::sprintf(buf, "Seek %s out somewhere in the vicinity of %s!",
 			        victim->short_descr, room->name);
 			do_say(questman, buf);
-			sprintf(buf, "That location is in the general area of %s.", room->area->name);
+			Format::sprintf(buf, "That location is in the general area of %s.", room->area->name);
 			do_say(questman, buf);
 		}
 
@@ -1111,7 +1111,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 				}
 			}
 
-			sprintf(buf, "Log %s: QUEST AWARD allchars %d", ch->name, number);
+			Format::sprintf(buf, "Log %s: QUEST AWARD allchars %d", ch->name, number);
 			wiznet(buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
 			log_string(buf);
 			return;
@@ -1120,7 +1120,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 		wch->questpoints += number;
 		ptc(ch, "You award %d quest points to %s.\n", number, wch->name);
 		ptc(wch, "%s awards %d quest points to you.\n", ch->name, number);
-		sprintf(buf, "Log %s: QUEST AWARD %d to %s", ch->name, number, player);
+		Format::sprintf(buf, "Log %s: QUEST AWARD %d to %s", ch->name, number, player);
 		wiznet(buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
 		log_string(buf);
 		return;
@@ -1150,7 +1150,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 			if (!IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
 				do_say(questman, "But you aren't on a skill quest at the moment!");
-				sprintf(buf, "You have to REQUEST a skill quest first, %s.", ch->name);
+				Format::sprintf(buf, "You have to REQUEST a skill quest first, %s.", ch->name);
 				do_say(questman, buf);
 				/* clean up, just in case */
 				sq_cleanup(ch);
@@ -1196,7 +1196,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			/* if they're looking for a mob, and not an item */
 			else if (ch->pcdata->squestmob && !ch->pcdata->squestobj) {
 				if (!ch->pcdata->squestmobf) {
-					sprintf(buf, "You haven't spoken with %s yet!  Come back when you have.",
+					Format::sprintf(buf, "You haven't spoken with %s yet!  Come back when you have.",
 					        ch->pcdata->squestmob->short_descr);
 					do_say(questman, buf);
 					return;
@@ -1205,7 +1205,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			/* if they're looking for both a mob and an object */
 			else if (ch->pcdata->squestmob && ch->pcdata->squestobj) {
 				if (ch->pcdata->squestobjf && !ch->pcdata->squestmobf) {
-					sprintf(buf, "You must return the %s to %s before you return here.",
+					Format::sprintf(buf, "You must return the %s to %s before you return here.",
 					        ch->pcdata->squestobj->short_descr, ch->pcdata->squestmob->short_descr);
 					do_say(questman, buf);
 					return;
@@ -1238,7 +1238,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			
 			/* Awards ceremony */
 			do_say(questman, "Congratulations on completing your skill quest!");
-			sprintf(buf, "As a reward, I am giving you %d skill point%s and %d gold.",
+			Format::sprintf(buf, "As a reward, I am giving you %d skill point%s and %d gold.",
 			        pointreward, (pointreward == 1 ? "" : "s"), reward);
 			do_say(questman, buf);
 
@@ -1251,7 +1251,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			sn = get_random_skill(ch);
 
 			if (chance(20) && sn != -1) {
-				sprintf(buf, "I will also teach you some of the finer points of %s.", skill_table[sn].name);
+				Format::sprintf(buf, "I will also teach you some of the finer points of %s.", skill_table[sn].name);
 				do_say(questman, buf);
 				ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill_table[sn].name);
 				check_improve(ch, sn, TRUE, -1); /* always improve */
@@ -1275,7 +1275,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 			if (!IS_SET(ch->act, PLR_QUESTOR)) {
 				do_say(questman, "But you aren't on a quest at the moment!");
-				sprintf(buf, "You have to REQUEST a quest first, %s.", ch->name);
+				Format::sprintf(buf, "You have to REQUEST a quest first, %s.", ch->name);
 				do_say(questman, buf);
 				/* clean up, just in case */
 				ch->questmob = 0;
@@ -1349,7 +1349,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 			/* Awards ceremony */
 			do_say(questman, "Congratulations on completing your quest!");
-			sprintf(buf, "As a reward, I am giving you %d quest point%s and %d gold.",
+			Format::sprintf(buf, "As a reward, I am giving you %d quest point%s and %d gold.",
 			        pointreward, (pointreward == 1 ? "" : "s"), reward);
 			do_say(questman, buf);
 
@@ -1434,7 +1434,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 		}
 
 		stc("*** You have closed the quest area ***\n", ch);
-		sprintf(buf, "%s has closed the quest area.\n", ch->name);
+		Format::sprintf(buf, "%s has closed the quest area.\n", ch->name);
 		do_send_announce(ch, buf);
 		quest_open = FALSE;
 		return;
@@ -1470,10 +1470,10 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->questpoints -= qpoint;
-		sprintf(buf, "%d questpoints have been deducted, %d remaining.\n", qpoint, victim->questpoints);
+		Format::sprintf(buf, "%d questpoints have been deducted, %d remaining.\n", qpoint, victim->questpoints);
 		stc(buf, ch);
 		stc(buf, victim);
-		sprintf(buf, "%s deducted %d qp from %s [%d remaining].", ch->name, qpoint, victim->name, victim->questpoints);
+		Format::sprintf(buf, "%s deducted %d qp from %s [%d remaining].", ch->name, qpoint, victim->name, victim->questpoints);
 		wiznet(buf, ch, NULL, WIZ_SECURE, WIZ_QUEST, GET_RANK(ch));
 		return;
 	}
@@ -1612,81 +1612,81 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 			if (IS_QUESTOR(wch)) {
 				if (wch->questobj > 0) {                /* an item quest */
-					sprintf(mblock, "{Y<%5d>{x", 0);
+					Format::sprintf(mblock, "{Y<%5d>{x", 0);
 
 					if (wch->questobf < 0) {        /* item has been found */
-						sprintf(oblock, "{C<{Yfound{C>{x");
-						sprintf(lblock, "{C<{Yfound{C>{x");
+						Format::sprintf(oblock, "{C<{Yfound{C>{x");
+						Format::sprintf(lblock, "{C<{Yfound{C>{x");
 					}
 					else {                          /* item has not been found */
-						sprintf(oblock, "{T<{Y%5d{T>{x", wch->questobj);
-						sprintf(lblock, "{T<{Y%5d{T>{x", wch->questloc);
+						Format::sprintf(oblock, "{T<{Y%5d{T>{x", wch->questobj);
+						Format::sprintf(lblock, "{T<{Y%5d{T>{x", wch->questloc);
 					}
 				}
 				else {                                  /* a mob quest */
-					sprintf(oblock, "{Y<%5d>{x", 0);
+					Format::sprintf(oblock, "{Y<%5d>{x", 0);
 
 					if (wch->questmob == -1) {      /* mob has been killed */
-						sprintf(mblock, "{C<{Y dead{C>{x");
-						sprintf(lblock, "{C<{Yfound{C>{x");
+						Format::sprintf(mblock, "{C<{Y dead{C>{x");
+						Format::sprintf(lblock, "{C<{Yfound{C>{x");
 					}
 					else {                          /* mob has not been killed */
-						sprintf(mblock, "{T<{Y%5d{T>{x", wch->questmob);
-						sprintf(lblock, "{T<{Y%5d{T>{x", wch->questloc);
+						Format::sprintf(mblock, "{T<{Y%5d{T>{x", wch->questmob);
+						Format::sprintf(lblock, "{T<{Y%5d{T>{x", wch->questloc);
 					}
 				}
 
-				sprintf(qblock, "%s%s%s {Y[%2d][%4d]{x",
+				Format::sprintf(qblock, "%s%s%s {Y[%2d][%4d]{x",
 				        mblock, oblock, lblock, wch->countdown, wch->questpoints);
 			}
 			else
-				sprintf(qblock, "<%5d><%5d><%5d> [%2d][%4d]",
+				Format::sprintf(qblock, "<%5d><%5d><%5d> [%2d][%4d]",
 				        0, 0, 0, wch->nextquest, wch->questpoints);
 
 			if (IS_SQUESTOR(wch)) {
 				if (wch->pcdata->squestmob == NULL      /* item quest */
 				    && wch->pcdata->squestobj != NULL) {
-					sprintf(mblock, "{G<%5d>{x", 0);
+					Format::sprintf(mblock, "{G<%5d>{x", 0);
 
 					if (wch->pcdata->squestobjf)    /* item has been found */
-						sprintf(oblock, "{C<{Gfound{C>{x");
+						Format::sprintf(oblock, "{C<{Gfound{C>{x");
 					else
-						sprintf(oblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc1);
+						Format::sprintf(oblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc1);
 				}
 				else if (wch->pcdata->squestobj == NULL /* mob quest */
 				         && wch->pcdata->squestmob != NULL) {
-					sprintf(oblock, "{G<%5d>{x", 0);
+					Format::sprintf(oblock, "{G<%5d>{x", 0);
 
 					if (wch->pcdata->squestmobf)    /* mob has been found */
-						sprintf(mblock, "{C<{Gfound{C>{x");
+						Format::sprintf(mblock, "{C<{Gfound{C>{x");
 					else
-						sprintf(mblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc2);
+						Format::sprintf(mblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc2);
 				}
 				else if (wch->pcdata->squestobj != NULL /* item to mob quest */
 				         && wch->pcdata->squestmob != NULL) {
 					if (wch->pcdata->squestobjf)    /* item has been found */
-						sprintf(oblock, "{C<{Gfound{C>{x");
+						Format::sprintf(oblock, "{C<{Gfound{C>{x");
 					else
-						sprintf(oblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc1);
+						Format::sprintf(oblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc1);
 
 					if (wch->pcdata->squestmobf)    /* mob has been found */
-						sprintf(mblock, "{C<{Gfound{C>{x");
+						Format::sprintf(mblock, "{C<{Gfound{C>{x");
 					else
-						sprintf(mblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc2);
+						Format::sprintf(mblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc2);
 				}
 				else {                                  /* shouldn't be here */
-					sprintf(oblock, "{P<? ? ? ? ?>{x");
-					sprintf(mblock, "{P<? ? ? ? ?>{x");
+					Format::sprintf(oblock, "{P<? ? ? ? ?>{x");
+					Format::sprintf(mblock, "{P<? ? ? ? ?>{x");
 				}
 
-				sprintf(sqblock, "%s%s {G[%2d][%4d]{x",
+				Format::sprintf(sqblock, "%s%s {G[%2d][%4d]{x",
 				        mblock, oblock, wch->pcdata->sqcountdown, wch->pcdata->skillpoints);
 			}
 			else
-				sprintf(sqblock, "<%5d><%5d> [%2d][%4d]",
+				Format::sprintf(sqblock, "<%5d><%5d> [%2d][%4d]",
 				        0, 0, wch->pcdata->nextsquest, wch->pcdata->skillpoints);
 
-			sprintf(buf, "%-14s %s     %s{x\n", wch->name, qblock, sqblock);
+			Format::sprintf(buf, "%-14s %s     %s{x\n", wch->name, qblock, sqblock);
 			add_buf(output, buf);
 		}
 
@@ -1732,7 +1732,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(buf, "%s has opened the quest area to levels %d through %d!\n", ch->name, quest_min, quest_max);
+		Format::sprintf(buf, "%s has opened the quest area to levels %d through %d!\n", ch->name, quest_min, quest_max);
 		do_send_announce(ch, buf);
 		ptc(ch, "You open the quest area to levels %d through %d.\n", quest_min, quest_max);
 		quest_open = TRUE;
@@ -1808,7 +1808,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET)) {
 				check_social(questman, "rofl", ch->name.c_str());
 
-				sprintf(buf, "Who ever heard of a pet questing for its %s?",
+				Format::sprintf(buf, "Who ever heard of a pet questing for its %s?",
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
@@ -1836,7 +1836,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			sq_cleanup(ch);
 			generate_skillquest(ch, questman);
 			SET_BIT(ch->pcdata->plr, PLR_SQUESTOR);
-			sprintf(buf, "You have %d minutes to complete this quest.", ch->pcdata->sqcountdown);
+			Format::sprintf(buf, "You have %d minutes to complete this quest.", ch->pcdata->sqcountdown);
 			do_say(questman, buf);
 			do_say(questman, "May the gods go with you!");
 			wiznet("{Y:SKILL QUEST:{x $N has begun a skill quest", ch, NULL, WIZ_QUEST, 0, 0);
@@ -1850,7 +1850,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET)) {
 				check_social(questman, "rofl", ch->name.c_str());
 
-				sprintf(buf, "Who ever heard of a pet questing for its %s?",
+				Format::sprintf(buf, "Who ever heard of a pet questing for its %s?",
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
@@ -1881,7 +1881,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 			if (ch->questmob > 0 || ch->questobj > 0) {
 				SET_BIT(ch->act, PLR_QUESTOR);
-				sprintf(buf, "You have %d minutes to complete this quest.", ch->countdown);
+				Format::sprintf(buf, "You have %d minutes to complete this quest.", ch->countdown);
 				do_say(questman, buf);
 				do_say(questman, "May the gods go with you!");
 			}

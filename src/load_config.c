@@ -71,6 +71,6 @@ int load_config(const char *filename) {
 */
 	// free the structure
 	cJSON_Delete(json);
-	printf("loaded %d items from config file\n", items);
+	Format::printf("loaded %d items from config file\n", items);
 	return 0;
 }

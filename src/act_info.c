@@ -205,22 +205,22 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 	buf[0] = '\0';
 
 	if (paf->type > 0)
-		sprintf(buf, "Spell '%s'", skill_table[paf->type].name);
+		Format::sprintf(buf, "Spell '%s'", skill_table[paf->type].name);
 
 	if (paf->location != 0 && paf->modifier != 0) {
 		if (paf->where == TO_DEFENSE)
-			sprintf(buf, "%s%sodifies defense against %s by %d",
+			Format::sprintf(buf, "%s%sodifies defense against %s by %d",
 				buf, buf[0] == '\0' ? "M" : " m", dam_type_name(paf->location), paf->modifier);
 		else
-			sprintf(buf, "%s%sffects %s by %d",
+			Format::sprintf(buf, "%s%sffects %s by %d",
 				buf, buf[0] == '\0' ? "A" : " a", affect_loc_name(paf->location), paf->modifier);
 	}
 
 	if (IS_IMMORTAL(ch))
-		sprintf(buf, "%s, level %d", buf, paf->level);
+		Format::sprintf(buf, "%s, level %d", buf, paf->level);
 
 	if (paf->duration > -1)
-		sprintf(buf, "%s, %d hours", buf, paf->duration);
+		Format::sprintf(buf, "%s, %d hours", buf, paf->duration);
 
 	strcat(buf, ".");
 
@@ -233,12 +233,12 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 
 		switch (paf->where) {
 		case TO_OBJECT:
-			sprintf(buf, "%s Adds %s object flag%s.",
+			Format::sprintf(buf, "%s Adds %s object flag%s.",
 				buf, extra_bit_name(paf->bitvector), num_flags > 1 ? "s" : "");
 			break;
 
 		case TO_WEAPON:
-			sprintf(buf, "%s Adds %s weapon flag%s.",
+			Format::sprintf(buf, "%s Adds %s weapon flag%s.",
 				buf, weapon_bit_name(paf->bitvector), num_flags > 1 ? "s" : "");
 			break;
 		}
@@ -319,7 +319,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
 			if (prgnShow[iShow] != 1) {
-				sprintf(buf, "(%2d) ", prgnShow[iShow]);
+				Format::sprintf(buf, "(%2d) ", prgnShow[iShow]);
 				add_buf(output, buf);
 			}
 			else
@@ -481,7 +481,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(victim) && (victim->pcdata->aura[0] != '\0')) {
 		char string[MAX_INPUT_LENGTH];
-		sprintf(string, "{W(%s{W) ", victim->pcdata->aura);
+		Format::sprintf(string, "{W(%s{W) ", victim->pcdata->aura);
 		strcat(buf, string);
 	}
 
@@ -553,17 +553,17 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_SLEEPING:
 		if (victim->on != NULL) {
 			if (IS_SET(victim->on->value[2], SLEEP_AT)) {
-				sprintf(message, " is sleeping at %s.",
+				Format::sprintf(message, " is sleeping at %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else if (IS_SET(victim->on->value[2], SLEEP_ON)) {
-				sprintf(message, " is sleeping on %s.",
+				Format::sprintf(message, " is sleeping on %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else {
-				sprintf(message, " is sleeping in %s.",
+				Format::sprintf(message, " is sleeping in %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
@@ -576,17 +576,17 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_RESTING:
 		if (victim->on != NULL) {
 			if (IS_SET(victim->on->value[2], REST_AT)) {
-				sprintf(message, " is resting at %s.",
+				Format::sprintf(message, " is resting at %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else if (IS_SET(victim->on->value[2], REST_ON)) {
-				sprintf(message, " is resting on %s.",
+				Format::sprintf(message, " is resting on %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else {
-				sprintf(message, " is resting in %s.",
+				Format::sprintf(message, " is resting in %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
@@ -599,17 +599,17 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_SITTING:
 		if (victim->on != NULL) {
 			if (IS_SET(victim->on->value[2], SIT_AT)) {
-				sprintf(message, " is sitting at %s.",
+				Format::sprintf(message, " is sitting at %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else if (IS_SET(victim->on->value[2], SIT_ON)) {
-				sprintf(message, " is sitting on %s.",
+				Format::sprintf(message, " is sitting on %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else {
-				sprintf(message, " is sitting in %s.",
+				Format::sprintf(message, " is sitting in %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
@@ -622,17 +622,17 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_STANDING:
 		if (victim->on != NULL) {
 			if (IS_SET(victim->on->value[2], STAND_AT)) {
-				sprintf(message, " is standing at %s.",
+				Format::sprintf(message, " is standing at %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else if (IS_SET(victim->on->value[2], STAND_ON)) {
-				sprintf(message, " is standing on %s.",
+				Format::sprintf(message, " is standing on %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
 			else {
-				sprintf(message, " is standing in %s.",
+				Format::sprintf(message, " is standing in %s.",
 				        victim->on->short_descr);
 				strcat(buf, message);
 			}
@@ -733,7 +733,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(victim)) {
 		set_color(ch, RED, BOLD);
-		sprintf(buf, "%s has killed %d players and has been killed by %d players.\n",
+		Format::sprintf(buf, "%s has killed %d players and has been killed by %d players.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
 		        , victim->pcdata->pckills, victim->pcdata->pckilled);
 		stc(buf, ch);
@@ -742,7 +742,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(victim)) {
 		set_color(ch, PURPLE, BOLD);
-		sprintf(buf, "%s has killed %d players in the arena and has been defeated by %d players in the arena.\n",
+		Format::sprintf(buf, "%s has killed %d players in the arena and has been defeated by %d players in the arena.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
 		        , victim->pcdata->arenakills, victim->pcdata->arenakilled);
 		stc(buf, ch);
@@ -750,7 +750,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (!IS_NPC(victim) && !IS_IMMORTAL(victim)) {
-		sprintf(buf, "%s is a devout follower of %s.\n", victim->name,
+		Format::sprintf(buf, "%s is a devout follower of %s.\n", victim->name,
 		        victim->pcdata->deity[0] ? victim->pcdata->deity : "no one");
 		set_color(ch, CYAN, BOLD);
 		stc(buf, ch);
@@ -759,7 +759,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(victim)) {
 		set_color(ch, BLUE, BOLD);
-		sprintf(buf, "%s is about %d years old.\n",
+		Format::sprintf(buf, "%s is about %d years old.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
 		        , GET_ATTR_AGE(victim));
 		stc(buf, ch);
@@ -848,7 +848,7 @@ void set_color(CHAR_DATA *ch, int color, int bold)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (IS_SET(ch->act, PLR_COLOR)) {
-		sprintf(buf, "\033[%d;%dm", bold, color);
+		Format::sprintf(buf, "\033[%d;%dm", bold, color);
 		stc(buf, ch);
 	}
 
@@ -869,14 +869,14 @@ void new_color(CHAR_DATA *ch, int slot)
 void goto_line(CHAR_DATA *ch, int row, int column)
 {
 	char buf[MAX_INPUT_LENGTH];
-	sprintf(buf, "\033[%d;%dH", row, column);
+	Format::sprintf(buf, "\033[%d;%dH", row, column);
 	stc(buf, ch);
 }
 
 void set_window(CHAR_DATA *ch, int top, int bottom)
 {
 	char buf[MAX_INPUT_LENGTH];
-	sprintf(buf, "\033[%d;%dr", top, bottom);
+	Format::sprintf(buf, "\033[%d;%dr", top, bottom);
 	stc(buf, ch);
 }
 
@@ -889,7 +889,7 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		sprintf(buf, "You currently display %d lines per page.\n",
+		Format::sprintf(buf, "You currently display %d lines per page.\n",
 		        ch->lines);
 		stc(buf, ch);
 		return;
@@ -907,7 +907,7 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "Scroll set to %d lines.\n", lines);
+	Format::sprintf(buf, "Scroll set to %d lines.\n", lines);
 	stc(buf, ch);
 	ch->lines = lines;
 } /* end set_scroll() */
@@ -922,7 +922,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	dbuf = new_buf();
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
-		sprintf(buf, "%-12s", iterator->name);
+		Format::sprintf(buf, "%-12s", iterator->name);
 		add_buf(dbuf, buf);
 
 		if (++col % 6 == 0)
@@ -961,7 +961,7 @@ void do_departed(CHAR_DATA *ch, const char *argument)
 	stc(departed_list_line, ch);
 
 	for (iterator = departed_list_head->next; iterator != departed_list_tail; iterator = iterator->next) {
-		sprintf(name_buf, "%-18s", iterator->name);
+		Format::sprintf(name_buf, "%-18s", iterator->name);
 		stc(name_buf, ch);
 		i++;
 
@@ -1089,8 +1089,8 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 	buffer = new_buf();
 	ptb(buffer, "{VMembers of %s:\n\n", clan->clanname);
-	sprintf(rblock, "{x");
-	sprintf(lblock, "{x");
+	Format::sprintf(rblock, "{x");
+	Format::sprintf(lblock, "{x");
 
 	if (clan->independent)  /* we sort the imm clan by leader-deputy-imm ranks, not level */
 		for (r = 2; r > -1; r--) {
@@ -1119,14 +1119,14 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 
 					if (l < LEVEL_IMMORTAL) {
 						if (r)
-							sprintf(rblock, "{G%2d{c/", r);
+							Format::sprintf(rblock, "{G%2d{c/", r);
 						else
-							sprintf(rblock, "   ");
+							Format::sprintf(rblock, "   ");
 
-						sprintf(lblock, "{W[%s{B%2d{W]", rblock, l);
+						Format::sprintf(lblock, "{W[%s{B%2d{W]", rblock, l);
 					}
 					else
-						sprintf(lblock, "{W[ {CIMM {W]");
+						Format::sprintf(lblock, "{W[ {CIMM {W]");
 
 					ptb(buffer, "%s[{G%3s%s] %s %s%s{x\n",
 					    clan_list[i].status == 2 ? "{Y" :
@@ -1475,21 +1475,21 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_color(ch, YELLOW, NOBOLD);
-	sprintf(buf, "Act  : %s\n", act_bit_name(victim->act, IS_NPC(victim)));
+	Format::sprintf(buf, "Act  : %s\n", act_bit_name(victim->act, IS_NPC(victim)));
 	stc(buf, ch);
 
 	if (!IS_NPC(victim)) {
-		sprintf(buf, "Plr  : %s\n", plr_bit_name(victim->pcdata->plr));
+		Format::sprintf(buf, "Plr  : %s\n", plr_bit_name(victim->pcdata->plr));
 		stc(buf, ch);
 	}
 
 	if (IS_NPC(victim)) {
-		sprintf(buf, "Off  : %s\n", off_bit_name(victim->off_flags));
+		Format::sprintf(buf, "Off  : %s\n", off_bit_name(victim->off_flags));
 		stc(buf, ch);
 	}
 
 	if (!IS_NPC(victim)) {
-		sprintf(buf, "Wiz  : %s\n", wiz_bit_name(victim->wiznet));
+		Format::sprintf(buf, "Wiz  : %s\n", wiz_bit_name(victim->wiznet));
 		stc(buf, ch);
 	}
 
@@ -1561,7 +1561,7 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 
 	free_string(ch->prompt);
 	ch->prompt = str_dup(buf);
-	sprintf(buf, "Prompt set to %s\n", ch->prompt);
+	Format::sprintf(buf, "Prompt set to %s\n", ch->prompt);
 	stc(buf, ch);
 }
 
@@ -1685,7 +1685,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		set_color(ch, WHITE, NOBOLD);
 
 		if (IS_IMMORTAL(ch)) {
-			sprintf(buf, " [%d] (%s) (%d)",
+			Format::sprintf(buf, " [%d] (%s) (%d)",
 			        ch->in_room->vnum,
 			        ch->in_room->area->name,
 			        ch->in_room->area->nplayer);
@@ -1865,7 +1865,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			set_color(ch, WHITE, NOBOLD);
 
 			if (IS_IMMORTAL(ch)) {
-				sprintf(buf, " [Room %d]", location->vnum);
+				Format::sprintf(buf, " [Room %d]", location->vnum);
 				set_color(ch, RED, NOBOLD);
 				stc(buf, ch);
 				set_color(ch, WHITE, NOBOLD);
@@ -1882,7 +1882,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
 				char showexit[100];
-				sprintf(showexit, "%d exits auto", location->vnum);
+				Format::sprintf(showexit, "%d exits auto", location->vnum);
 				do_at(ch, showexit);
 			}
 
@@ -1992,9 +1992,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			sprintf(buf, "You only see one %s here.\n", arg3);
+			Format::sprintf(buf, "You only see one %s here.\n", arg3);
 		else
-			sprintf(buf, "You only see %d of those here.\n", count);
+			Format::sprintf(buf, "You only see %d of those here.\n", count);
 
 		stc(buf, ch);
 		return;
@@ -2059,7 +2059,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		switch (obj->item_type) {
 		default:
 			if (IS_OBJ_STAT(obj, ITEM_COMPARTMENT) || obj->contains) {
-				sprintf(buf, "in %s", argument);
+				Format::sprintf(buf, "in %s", argument);
 				do_look(ch, buf);
 			}
 
@@ -2072,20 +2072,20 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
-					sprintf(buf, "Odd...there's no coins in the pile.\n");
+					Format::sprintf(buf, "Odd...there's no coins in the pile.\n");
 				else if (obj->value[1] == 1)
-					sprintf(buf, "Wow. One gold coin.\n");
+					Format::sprintf(buf, "Wow. One gold coin.\n");
 				else
-					sprintf(buf, "There are %d gold coins in the pile.\n", obj->value[1]);
+					Format::sprintf(buf, "There are %d gold coins in the pile.\n", obj->value[1]);
 			}
 			else if (obj->value[1] == 0) {
 				if (obj->value[0] == 1)
-					sprintf(buf, "Wow. One silver coin.\n");
+					Format::sprintf(buf, "Wow. One silver coin.\n");
 				else
-					sprintf(buf, "There are %d silver coins in the pile.\n", obj->value[0]);
+					Format::sprintf(buf, "There are %d silver coins in the pile.\n", obj->value[0]);
 			}
 			else
-				sprintf(buf, "There are %d gold and %d silver coins in the pile.\n",
+				Format::sprintf(buf, "There are %d gold and %d silver coins in the pile.\n",
 				        obj->value[1], obj->value[0]);
 
 			stc(buf, ch);
@@ -2096,7 +2096,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 		case ITEM_CONTAINER:
 		case ITEM_CORPSE_NPC:
 		case ITEM_CORPSE_PC:
-			sprintf(buf, "in %s", argument);
+			Format::sprintf(buf, "in %s", argument);
 			do_look(ch, buf);
 			break;
 		}
@@ -2139,7 +2139,7 @@ void exits_in(CHAR_DATA *ch)
 
 						if (exit->u1.to_room->vnum == in_room_vnum) {   /* Does the exit lead to our room? */
 							found = TRUE;
-							sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
+							Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
 							        dir_name[i],
 							        room->name,
 							        room->vnum,
@@ -2164,7 +2164,7 @@ void exits_in(CHAR_DATA *ch)
 
 			if (obj->value[3] == in_room_vnum) {
 				found = TRUE;
-				sprintf(buf, "( Portal ) %s in %s (%d) in (%s)\n",
+				Format::sprintf(buf, "( Portal ) %s in %s (%d) in (%s)\n",
 				        obj->name,
 				        obj->in_room->name,
 				        obj->in_room->vnum,
@@ -2204,11 +2204,11 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	fAuto  = !str_cmp(argument, "auto");
 
 	if (fAuto)
-		sprintf(buf, "[Exits:");
+		Format::sprintf(buf, "[Exits:");
 	else if (IS_IMMORTAL(ch))
-		sprintf(buf, "Obvious exits from room %d:\n", ch->in_room->vnum);
+		Format::sprintf(buf, "Obvious exits from room %d:\n", ch->in_room->vnum);
 	else
-		sprintf(buf, "Obvious exits:\n");
+		Format::sprintf(buf, "Obvious exits:\n");
 
 	found = FALSE;
 
@@ -2224,7 +2224,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				strcat(buf, dir_name[door]);
 			}
 			else {
-				sprintf(buf + strlen(buf), "%-5s - %s",
+				Format::sprintf(buf + strlen(buf), "%-5s - %s",
 				        capitalize(dir_name[door]),
 				        (room_is_dark(pexit->u1.to_room) && !affect_exists_on_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
@@ -2232,10 +2232,10 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				       );
 
 				if (IS_IMMORTAL(ch))
-					sprintf(buf + strlen(buf),
+					Format::sprintf(buf + strlen(buf),
 					        " (room %d)\n", pexit->u1.to_room->vnum);
 				else
-					sprintf(buf + strlen(buf), "\n");
+					Format::sprintf(buf + strlen(buf), "\n");
 			}
 		}
 	}
@@ -2311,7 +2311,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	int day;
 	day     = time_info.day + 1;
 	suf = day_number_suffix(day);
-	sprintf(buf,
+	Format::sprintf(buf,
 	        "{WIt is %d o'clock %s, Day of %s, %d%s of the Month of %s.{x\n",
 	        (time_info.hour % 12 == 0) ? 12 : time_info.hour % 12,
 	        time_info.hour >= 12 ? "pm" : "am",
@@ -2348,7 +2348,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 		stc("{x\n", ch);
 	}
 
-	sprintf(buf, "{gLegacy started up %s\nThe system time is: %s{x\n",
+	Format::sprintf(buf, "{gLegacy started up %s\nThe system time is: %s{x\n",
 	        str_boot_time,
 	        (char *) ctime(&current_time)
 	       );
@@ -2375,7 +2375,7 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "The sky is %s and %s.\n",
+	Format::sprintf(buf, "The sky is %s and %s.\n",
 	        sky_look[weather_info.sky],
 	        weather_info.change >= 0
 #ifdef SEASON_CHRISTMAS
@@ -2414,7 +2414,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 	output = new_buf();
 	/* first block "(RP)(PB)(NH) " */
-	sprintf(block, "%s%s%s",
+	Format::sprintf(block, "%s%s%s",
 	        IS_SET(victim->pcdata->plr, PLR_OOC) ? "{W({YRP{W){x" : "",
 	        IS_SET(victim->pcdata->plr, PLR_PAINT) ? "{W({VPB{W){x" : "",
 	        IS_SET(victim->act, PLR_MAKEBAG) ? "{W({CNH{W){x" : "");
@@ -2425,13 +2425,13 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 	/* second block "[99 100 Sup Pdn]"*/
 	if (IS_REMORT(victim)) {
-		sprintf(buf, "{G%2d{x", victim->pcdata->remort_count);
+		Format::sprintf(buf, "{G%2d{x", victim->pcdata->remort_count);
 		remort = buf;
 	}
 	else
 		remort = "  ";
 
-	sprintf(block, "%s%s {B%d {P%3s {C%3s%s ",
+	Format::sprintf(block, "%s%s {B%d {P%3s {C%3s%s ",
 	        (IS_SET(victim->pcdata->plr, PLR_PK)) ? "{P[{x" : "{g[{x",
 	        remort,
 	        victim->level,
@@ -2440,7 +2440,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	        (IS_SET(victim->pcdata->plr, PLR_PK)) ? "{P]{x" : "{g]{x");
 	add_buf(output, block);
 	/* third block "name title" */
-	sprintf(block, "%s%s%s{W%s{x %s{x\n",
+	Format::sprintf(block, "%s%s%s{W%s{x %s{x\n",
 	        (IS_SET(victim->comm, COMM_AFK)) ? "{b[AFK]{x " : "",
 	        (IS_SET(victim->act, PLR_KILLER)) ? "{R(KILLER){x " : "",
 	        (IS_SET(victim->act, PLR_THIEF)) ? "{B(THIEF){x " : "",
@@ -2448,7 +2448,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	        victim->pcdata->title);
 	add_buf(output, block);
 	/* second line */
-	sprintf(clan, "{x"); /* ugly, do something better someday */
+	Format::sprintf(clan, "{x"); /* ugly, do something better someday */
 
 	if (victim->clan != NULL) {
 		if (victim->pcdata->rank[0] != '\0')
@@ -2460,15 +2460,15 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 		else
 			rank = "Member";
 
-		sprintf(clan, "%s{x of %s{x, ", rank, victim->clan->clanname);
+		Format::sprintf(clan, "%s{x of %s{x, ", rank, victim->clan->clanname);
 	}
 
 	if (IS_REMORT(victim)&& victim->pcdata->status[0] != '\0')
-		sprintf(remort, "%s{x, ", victim->pcdata->status);
+		Format::sprintf(remort, "%s{x, ", victim->pcdata->status);
 	else
 		remort = "";
 
-	sprintf(block, "%s%s{PRating: %d{x\n", clan, remort, victim->pcdata->pkrank);
+	Format::sprintf(block, "%s%s{PRating: %d{x\n", clan, remort, victim->pcdata->pkrank);
 	add_buf(output, block);
 
 	if (IS_SET(victim->comm, COMM_AFK))
@@ -2489,9 +2489,9 @@ char *count_players(CHAR_DATA *ch)
 			count++;
 
 	if (record_players_since_boot == count)
-		sprintf(buf, "There are %d characters on, the most since last reboot.\n", count);
+		Format::sprintf(buf, "There are %d characters on, the most since last reboot.\n", count);
 	else
-		sprintf(buf, "There are %d characters on, the most since last reboot is %d.\n",
+		Format::sprintf(buf, "There are %d characters on, the most since last reboot is %d.\n",
 		        count, record_players_since_boot);
 
 	return buf;
@@ -2657,7 +2657,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		cls = class_table[wch->cls].who_name;
 
 		if (IS_REMORT(wch)) {
-			sprintf(rbuf, "{G%2d{x", wch->pcdata->remort_count);
+			Format::sprintf(rbuf, "{G%2d{x", wch->pcdata->remort_count);
 			remort = rbuf;
 		}
 		else
@@ -2681,7 +2681,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 				rbrk = "]";
 			}
 
-			sprintf(block1, "%s%s%s {B%2d {P%3s {C%3s%s%s{x",
+			Format::sprintf(block1, "%s%s%s {B%2d {P%3s {C%3s%s%s{x",
 			        IS_SET(wch->pcdata->plr, PLR_PK) ? "{P" : "{W",
 			        lbrk,
 			        remort,
@@ -2698,7 +2698,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		/* Other:     [clanname rank]  */
 
 		if (wch->clan || IS_IMMORTAL(wch)) {
-			sprintf(rbuf, "%s{x%3s{x",
+			Format::sprintf(rbuf, "%s{x%3s{x",
 			        IS_SET(wch->pcdata->cgroup, GROUP_LEADER) ? "{Y~" :
 			        IS_SET(wch->pcdata->cgroup, GROUP_DEPUTY) ? "{B~" : " ",
 			        wch->pcdata->rank[0] ? wch->pcdata->rank :
@@ -2708,7 +2708,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		else
 			rank = "    ";
 
-		sprintf(block2, "%s %s{a{x %s%s%s",
+		Format::sprintf(block2, "%s %s{a{x %s%s%s",
 		        rank,
 		        wch->clan ? wch->clan->who_name : "       ",
 		        IS_SET(wch->act, PLR_MAKEBAG)       ? "{CH{x" : "{T-{x",
@@ -2738,7 +2738,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			rbrk = "";
 		}
 
-		sprintf(buf, "%s %s ", block1, block2);
+		Format::sprintf(buf, "%s %s ", block1, block2);
 
 		if (IS_SET(wch->comm, COMM_AFK))        strcat(buf, "{b[AFK]{x ");
 
@@ -2757,7 +2757,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 	free_mem(charitems, ndesc * sizeof(struct s_charitem));
 	stc("\n                             {C*{W*{C* {BL{Ce{gg{Wa{Cc{By {C*{W*{C*{x\n\n", ch);
-	sprintf(buf2, "\n");
+	Format::sprintf(buf2, "\n");
 	add_buf(output, buf2);
 	add_buf(output, count_players(ch));
 	add_buf(output, "\n");
@@ -2824,7 +2824,7 @@ void do_swho(CHAR_DATA *ch, const char *argument)
 				roombuf[--l] = '\0';
 		}
 		else if (!IS_IMMORTAL(ch) || IS_IMMORTAL(wch))
-			sprintf(roombuf, "Private");
+			Format::sprintf(roombuf, "Private");
 		else {
 			int l;
 			strcpy(roombuf + 1, wch->in_room->name);
@@ -2837,7 +2837,7 @@ void do_swho(CHAR_DATA *ch, const char *argument)
 			strcpy(roombuf + l, "{V~");
 		}
 
-		sprintf(buf, "{b[%s][%s][%s][%s][%s][%s][%s{b] {W%-12s {R({P%s{R) {M<{V%s{M>\n",
+		Format::sprintf(buf, "{b[%s][%s][%s][%s][%s][%s][%s{b] {W%-12s {R({P%s{R) {M<{V%s{M>\n",
 		        IS_SET(wch->pcdata->plr, PLR_OOC) ? "{Y*{b" : " ",
 		        IS_SET(wch->pcdata->plr, PLR_PK) ? "{G*{b" : " ",
 		        IS_SET(wch->act, PLR_MAKEBAG) ? "{T*{b" : " ",
@@ -3392,7 +3392,7 @@ void do_immname(CHAR_DATA *ch, const char *argument)
 		return;
 
 	char buf[MIL];
-	sprintf(buf, "immortal immname %s", argument);
+	Format::sprintf(buf, "immortal immname %s", argument);
 	do_config(ch, buf);
 }
 
@@ -3579,7 +3579,7 @@ void do_report(CHAR_DATA *ch, const char *argument)
 	        ch->mana, GET_MAX_MANA(ch),
 	        ch->stam, GET_MAX_STAM(ch),
 	        ch->exp);
-	sprintf(buf, "$n says 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'",
+	Format::sprintf(buf, "$n says 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'",
 	        ch->hit,  GET_MAX_HIT(ch),
 	        ch->mana, GET_MAX_MANA(ch),
 	        ch->stam, GET_MAX_STAM(ch),
@@ -3597,7 +3597,7 @@ void do_report(CHAR_DATA *ch, const char *argument)
 					continue;
 
 				ptc(ch, "You say 'Spell: %-15s'\n", skill_table[paf->type].name);
-				sprintf(buf, "$n says 'Spell: %-15s'", skill_table[paf->type].name);
+				Format::sprintf(buf, "$n says 'Spell: %-15s'", skill_table[paf->type].name);
 				act(buf, ch, NULL, NULL, TO_ROOM);
 			}
 		}
@@ -3655,9 +3655,9 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 
 			/* finally, a skill he knows. */
 			if (group_first) {  /* first in group get a new header */
-				sprintf(buf, "%s:", gp->name);
+				Format::sprintf(buf, "%s:", gp->name);
 				/* Header, like all columns, formatted as 25 char + 1 sp */
-				sprintf(line, "{G%-25.25s{x ", buf);
+				Format::sprintf(line, "{G%-25.25s{x ", buf);
 				add_buf(output, line);
 				add_buf(output, "\n");
 				strcpy(line, "");
@@ -3672,7 +3672,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 				line_cols = 0;
 			}
 
-			sprintf(buf, "%3d%% %-20.20s ", ch->pcdata->learned[sn],
+			Format::sprintf(buf, "%3d%% %-20.20s ", ch->pcdata->learned[sn],
 			        gp->spells[js]);
 			strcat(line, buf);
 			line_cols++;
@@ -3686,7 +3686,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 		}
 	} /* end for groups */
 
-	sprintf(buf, "You have %d practice sessions left.\n", ch->practice);
+	Format::sprintf(buf, "You have %d practice sessions left.\n", ch->practice);
 	add_buf(output, buf);
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
@@ -3778,7 +3778,7 @@ void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
 	if (line_cols > 0)
 		add_buf(output, "\n");
 
-	sprintf(buf, "You have %d practice sessions left.\n", ch->practice);
+	Format::sprintf(buf, "You have %d practice sessions left.\n", ch->practice);
 	add_buf(output, buf);
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
@@ -3863,7 +3863,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		adept = IS_NPC(ch) ? 100 : class_table[ch->cls].skill_adept;
 
 	if (ch->pcdata->learned[sn] >= adept) {
-		sprintf(buf, "You are already learned at %s.\n",
+		Format::sprintf(buf, "You are already learned at %s.\n",
 		        skill_table[sn].name);
 		stc(buf, ch);
 		return;
@@ -3919,7 +3919,7 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 	}
 
 	ch->wimpy   = wimpy;
-	sprintf(buf, "Wimpy set to %d hit points.\n", wimpy);
+	Format::sprintf(buf, "Wimpy set to %d hit points.\n", wimpy);
 	stc(buf, ch);
 	return;
 }
@@ -4044,7 +4044,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 						stc("--------------------------------------------------------{x\n", ch);
 					}
 
-					sprintf(buf, "{M[{Y%-12s{M][{Y%-30s{M][{Y%-8s{M]{x\n", victim->name,
+					Format::sprintf(buf, "{M[{Y%-12s{M][{Y%-30s{M][{Y%-8s{M]{x\n", victim->name,
 					        victim->inviters->clanname,
 					        (victim->invitation_accepted == TRUE) ? "accepted" : "invited");
 					stc(buf, ch);
@@ -4096,7 +4096,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 		if (victim->inviters != NULL) {
 			if (victim->inviters == ch->clan) {
 				stc("You have terminated their invitation.\n", ch);
-				sprintf(buf, "%s has terminated your invitation.\n", ch->name);
+				Format::sprintf(buf, "%s has terminated your invitation.\n", ch->name);
 				victim->inviters = NULL;
 				victim->invitation_accepted = FALSE;
 				stc(buf, victim);
@@ -4144,12 +4144,12 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 				new_color(d->character, CSLOT_CHAN_CLAN);
 
 				if (IS_IMMORTAL(d->character)) {
-					sprintf(buf, "%s",
+					Format::sprintf(buf, "%s",
 					        smash_bracket(ch->inviters->who_name));
 					stc(buf, d->character);
 				}
 
-				sprintf(buf, "%s has accepted an invitation to enter the clan hall",
+				Format::sprintf(buf, "%s has accepted an invitation to enter the clan hall",
 				        ch->name);
 				act_new("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
 				set_color(d->character, WHITE, NOBOLD);
@@ -4184,12 +4184,12 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 				new_color(d->character, CSLOT_CHAN_CLAN);
 
 				if (IS_IMMORTAL(d->character)) {
-					sprintf(buf, "%s",
+					Format::sprintf(buf, "%s",
 					        smash_bracket(ch->inviters->who_name));
 					stc(buf, d->character);
 				}
 
-				sprintf(buf, "%s has declined an invitation to enter the clan hall",
+				Format::sprintf(buf, "%s has declined an invitation to enter the clan hall",
 				        ch->name);
 				act_new("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
 				set_color(d->character, WHITE, NOBOLD);
@@ -4237,9 +4237,9 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 
 	victim->inviters = ch->clan;
 	victim->invitation_accepted = FALSE;
-	sprintf(buf, "You have invited %s to enter your clan hall.\n", victim->name);
+	Format::sprintf(buf, "You have invited %s to enter your clan hall.\n", victim->name);
 	stc(buf, ch);
-	sprintf(buf, "%s has invited you to enter the clan hall of %s.\n", ch->name,
+	Format::sprintf(buf, "%s has invited you to enter the clan hall of %s.\n", ch->name,
 	        ch->clan->clanname);
 	stc(buf, victim);
 } /* do_invite */
@@ -4481,7 +4481,7 @@ void do_rank(CHAR_DATA *ch, const char *argument)
 
 	free_string(victim->pcdata->rank);
 	victim->pcdata->rank = str_dup(center_string_in_whitespace(argument, 3));
-	sprintf(test, "Your new rank is {W[%s{W]{x.\n",
+	Format::sprintf(test, "Your new rank is {W[%s{W]{x.\n",
 	        victim->pcdata->rank);
 	stc(test, victim);
 	stc("Clan rank changed.\n", ch);
@@ -4512,11 +4512,11 @@ void do_prefix(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (ch->prefix[0] != '\0') {
-		sprintf(buf, "Prefix changed to: %s.\n", argument);
+		Format::sprintf(buf, "Prefix changed to: %s.\n", argument);
 		free_string(ch->prefix);
 	}
 	else
-		sprintf(buf, "Prefix set to: %s.\n", argument);
+		Format::sprintf(buf, "Prefix set to: %s.\n", argument);
 
 	ch->prefix = str_dup(argument);
 } /* end do_prefix() */
@@ -4533,7 +4533,7 @@ void email_file(CHAR_DATA *ch, const char *file, const char *str)
 		stc("Could not open the file!\n", ch);
 	}
 	else {
-		fprintf(fp, "%s", str);
+		Format::fprintf(fp, "%s", str);
 		fclose(fp);
 	}
 
@@ -4559,9 +4559,9 @@ void do_email(CHAR_DATA *ch, const char *argument)
 	ch->pcdata->email = str_dup(buf);
 
 	ptc(ch, "Your email has been changed to: %s\n", buf);
-	sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);
+	Format::sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);
 	email_file(ch, EMAIL_FILE, buf);
-	sprintf(buf, "$N has changed their email to '%s'\n", ch->pcdata->email);
+	Format::sprintf(buf, "$N has changed their email to '%s'\n", ch->pcdata->email);
 	wiznet(buf, ch, NULL, WIZ_MAIL, 0, GET_RANK(ch));
 }
 
@@ -4856,16 +4856,16 @@ void do_claninfo(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(buf, "You are a member of %s, created by %s.\n",
+		Format::sprintf(buf, "You are a member of %s, created by %s.\n",
 		        ch->clan->clanname, ch->clan->creator);
 		stc(buf, ch);
-		sprintf(buf, "To send a note to your clan, send a note to '%s'.\n",
+		Format::sprintf(buf, "To send a note to your clan, send a note to '%s'.\n",
 		        ch->clan->name);
 		stc(buf, ch);
-		sprintf(buf, "The clan has %ld questpoints, of which %d came from you.\n",
+		Format::sprintf(buf, "The clan has %ld questpoints, of which %d came from you.\n",
 		        ch->clan->clanqp, ch->questpoints_donated);
 		stc(buf, ch);
-		sprintf(buf, "The clan has %ld gold coins, of which %ld came from you.\n",
+		Format::sprintf(buf, "The clan has %ld gold coins, of which %ld came from you.\n",
 		        ch->clan->gold_balance, ch->gold_donated);
 		stc(buf, ch);
 	}
@@ -4878,7 +4878,7 @@ void do_claninfo(CHAR_DATA *ch, const char *argument)
 			if (iterator->independent)
 				continue;
 
-			sprintf(buf, "%-20s|%-7ld|%ld\n", iterator->name, iterator->clanqp, iterator->gold_balance);
+			Format::sprintf(buf, "%-20s|%-7ld|%ld\n", iterator->name, iterator->clanqp, iterator->gold_balance);
 			stc(buf, ch);
 		}
 
@@ -4893,11 +4893,11 @@ char *make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
 	char output[MSL], buf[MSL];
 
 	if (imm)
-		sprintf(output, "{%s{%s%-10ld{x", bgcolor, fgcolor, info);
+		Format::sprintf(output, "{%s{%s%-10ld{x", bgcolor, fgcolor, info);
 	else
-		sprintf(output, "{%s{%s          {x", bgcolor, fgcolor);
+		Format::sprintf(output, "{%s{%s          {x", bgcolor, fgcolor);
 
-	sprintf(buf, "{x{%s", fgcolor);
+	Format::sprintf(buf, "{x{%s", fgcolor);
 	return str_dup(strins(output, buf, numbg + 4));
 }
 
@@ -5004,8 +5004,8 @@ void print_new_affects(CHAR_DATA *ch)
 	BUFFER *buffer;
 	bool found = FALSE;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
-	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
-	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
+	Format::sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
+	Format::sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
 	buffer = new_buf();
 
 	if (affect_list_char(ch) != NULL)
@@ -5039,15 +5039,15 @@ void print_new_affects(CHAR_DATA *ch)
 						continue;
 				}
 				else
-					sprintf(namebuf, "%-19s", skill_table[paf->type].name);
+					Format::sprintf(namebuf, "%-19s", skill_table[paf->type].name);
 
 				if (ch->level >= 20) {
 					if (paf->location != APPLY_NONE && paf->modifier != 0)
-						sprintf(modbuf, "%s by %d",
+						Format::sprintf(modbuf, "%s by %d",
 					        affect_loc_name(paf->location), paf->modifier);
 
 					if (paf->duration != -1)
-						sprintf(timebuf, "%3d hrs", paf->duration + 1);
+						Format::sprintf(timebuf, "%3d hrs", paf->duration + 1);
 				}
 
 				ptb(buffer, " %s {b%-19s %s| {b%-30s %s| {b%7s %s\n",
@@ -5095,7 +5095,7 @@ void print_new_affects(CHAR_DATA *ch)
 				strncpy(eqbuf, smash_bracket(obj->short_descr), 38);
 
 				if (paf->duration != -1)
-					sprintf(timebuf, "%3d hrs", paf->duration + 1);
+					Format::sprintf(timebuf, "%3d hrs", paf->duration + 1);
 
 				ptb(buffer, " %s {b%-19s %s| {g%-30s %s| {b%7s %s\n",
 					torch,
@@ -5140,11 +5140,11 @@ void print_new_affects(CHAR_DATA *ch)
 						continue;
 				}
 				else
-					sprintf(namebuf, "%-19s", skill_table[paf->type].name);
+					Format::sprintf(namebuf, "%-19s", skill_table[paf->type].name);
 
 				if (ch->level >= 20) {
 					if (paf->location != APPLY_NONE && paf->modifier != 0)
-						sprintf(modbuf, "%s by %d",
+						Format::sprintf(modbuf, "%s by %d",
 					        affect_loc_name(paf->location), paf->modifier);
 				}
 
@@ -5205,12 +5205,12 @@ void score_new(CHAR_DATA *ch)
 //	line  2:  '`,                Kazander, Lover of Freyja's Soul                '`,
 	/* center the name and title */
 	new_color(ch, CSLOT_SCORE_TITLE);
-	sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), IS_NPC(ch) ? ch->short_descr : ch->name, IS_NPC(ch) ? "" : ch->pcdata->title);
+	Format::sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), IS_NPC(ch) ? ch->short_descr : ch->name, IS_NPC(ch) ? "" : ch->pcdata->title);
 	ptc(ch, " %s'`,{x %s %s'`,{x\n", flame, strcenter(buf, 62), flame);
 //	line  3:  `,                                                                 `,
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
 //	line  4:  .:.                        Male Dragon Mage                        .:.
-	sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
+	Format::sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
 	strcat(buf, capitalize(race_table[ch->race].name));
 	strcat(buf, " ");
 	strcat(buf, capitalize(class_table[ch->cls].name));
@@ -5219,7 +5219,7 @@ void score_new(CHAR_DATA *ch)
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(
 	ptc(ch, " %s)X({x ", torch);
 	new_color(ch, CSLOT_SCORE_LEVEL);
-	sprintf(buf, "Level{B:{x %d {B({xRemort %d{B){x     Age{B:{x %d {B({x%d Hours{B){x",
+	Format::sprintf(buf, "Level{B:{x %d {B({xRemort %d{B){x     Age{B:{x %d {B({x%d Hours{B){x",
 	        ch->level,
 	        IS_NPC(ch) ? 0 : ch->pcdata->remort_count,
 	        GET_ATTR_AGE(ch),
@@ -5347,7 +5347,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "    To Level %6ld %s|#|{x\n",
 	    IS_NPC(ch) ? 0 : UMIN((ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp, 999999), torch);
 //	line 19:  |#|                    |   You are standing   |       Total  42055 |#|
-	sprintf(buf, "You are ");
+	Format::sprintf(buf, "You are ");
 
 	switch (get_position(ch)) {
 	case POS_DEAD:          strcat(buf, "DEAD!!");          break;
@@ -5381,7 +5381,7 @@ void score_new(CHAR_DATA *ch)
 
 	if (!IS_NPC(ch)) {
 		new_color(ch, CSLOT_SCORE_PKRECORD);
-		sprintf(buf, "PK: %d Wins, %d Losses  %sRank: %d{x  Arena: %d Wins, %d Losses",
+		Format::sprintf(buf, "PK: %d Wins, %d Losses  %sRank: %d{x  Arena: %d Wins, %d Losses",
 		        ch->pcdata->pckills, ch->pcdata->pckilled,
 		        get_custom_color_code(ch, CSLOT_SCORE_PKRANK), ch->pcdata->pkrank,
 		        ch->pcdata->arenakills, ch->pcdata->arenakilled);

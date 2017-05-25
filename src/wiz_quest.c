@@ -187,7 +187,7 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 			if (!can_see_char(ch, victim))
 				continue;
 
-			sprintf(buf, "%-14s {V%5d{x\n", victim->name, victim->pcdata->rolepoints);
+			Format::sprintf(buf, "%-14s {V%5d{x\n", victim->name, victim->pcdata->rolepoints);
 			add_buf(output, buf);
 		}
 
@@ -226,7 +226,7 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 		victim->pcdata->rolepoints += rppoint;
 		ptc(ch, "You have awarded them %d role playing points.\n", rppoint);
 		ptc(victim, "You have been awarded %d role playing points.\n", rppoint);
-		sprintf(buf, "%s awarded %d rpp to %s.", ch->name, rppoint, victim->name);
+		Format::sprintf(buf, "%s awarded %d rpp to %s.", ch->name, rppoint, victim->name);
 		wiznet(buf, ch, NULL, 0, 0, 0);
 		return;
 	}
@@ -238,11 +238,11 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->pcdata->rolepoints -= rppoint;
-		sprintf(buf, "%d role playing points have been deducted, %d remaining.\n",
+		Format::sprintf(buf, "%d role playing points have been deducted, %d remaining.\n",
 		        rppoint, victim->pcdata->rolepoints);
 		stc(buf, ch);
 		stc(buf, victim);
-		sprintf(buf, "%s deducted %d rpp from %s [%d remaining].",
+		Format::sprintf(buf, "%s deducted %d rpp from %s [%d remaining].",
 		        ch->name, rppoint, victim->name, victim->pcdata->rolepoints);
 		wiznet(buf, ch, NULL, WIZ_SECURE, WIZ_QUEST, GET_RANK(ch));
 		return;
@@ -369,7 +369,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				victim->pcdata->spouse = str_dup(arg3);
 			}
 
-			sprintf(buf, "%s's spouse has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's spouse has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -380,7 +380,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			sprintf(buf, "%s's name has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's name has been changed to %s.\n", victim->name, arg3);
 			victim->name = arg3;
 			stc(buf, ch);
 			return;
@@ -389,7 +389,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		if (!str_prefix1(arg2, "description")) {
 			free_string(victim->description);
 			victim->description = str_dup(arg3);
-			sprintf(buf, "%s's description has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -397,7 +397,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		if (!str_prefix1(arg2, "short")) {
 			free_string(victim->short_descr);
 			victim->short_descr = str_dup(arg3);
-			sprintf(buf, "%s's short description has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's short description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -406,7 +406,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			free_string(victim->long_descr);
 			strcat(arg3, "\n");
 			victim->long_descr = str_dup(arg3);
-			sprintf(buf, "%s's long description has been changed to %s", victim->name, arg3);
+			Format::sprintf(buf, "%s's long description has been changed to %s", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -418,7 +418,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			}
 
 			set_title(victim, arg3);
-			sprintf(buf, "%s's title has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's title has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -430,12 +430,12 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			}
 
 			if ((victim->spec_fun = spec_lookup(arg3)) == 0) {
-				sprintf(buf, "%s is not a valid spec fun.\n", arg3);
+				Format::sprintf(buf, "%s is not a valid spec fun.\n", arg3);
 				stc(buf, ch);
 				return;
 			}
 
-			sprintf(buf, "%s's spec fun value set to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's spec fun value set to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -448,7 +448,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			free_string(victim->pcdata->deity);
 			victim->pcdata->deity = str_dup(arg3);
-			sprintf(buf, "%s's deity string has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's deity string has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -461,7 +461,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			free_string(victim->pcdata->status);
 			victim->pcdata->status = str_dup(arg3);
-			sprintf(buf, "%s's status string has been changed to %s.\n", victim->name, arg3);
+			Format::sprintf(buf, "%s's status string has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -472,13 +472,13 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		if ((obj = get_obj_carry(ch, arg1)) == NULL
 		    && (obj = get_obj_wear(ch, arg1)) == NULL
 		    && (obj = get_obj_list(ch, arg1, ch->in_room->contents)) == NULL) {
-			sprintf(buf, "After searching the whole mud, you could not find %s.\n", arg1);
+			Format::sprintf(buf, "After searching the whole mud, you could not find %s.\n", arg1);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "name")) {
-			sprintf(buf, "%s is now known as %s.\n", obj->name, arg3);
+			Format::sprintf(buf, "%s is now known as %s.\n", obj->name, arg3);
 			free_string(obj->name);
 			obj->name = str_dup(arg3);
 			stc(buf, ch);
@@ -486,7 +486,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix1(arg2, "short")) {
-			sprintf(buf, "%s's short description has been changed to %s.\n", obj->short_descr, arg3);
+			Format::sprintf(buf, "%s's short description has been changed to %s.\n", obj->short_descr, arg3);
 			free_string(obj->short_descr);
 			obj->short_descr = str_dup(arg3);
 			stc(buf, ch);
@@ -494,7 +494,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix1(arg2, "long")) {
-			sprintf(buf, "%s's long description has been changed to %s.\n", obj->short_descr, arg3);
+			Format::sprintf(buf, "%s's long description has been changed to %s.\n", obj->short_descr, arg3);
 			free_string(obj->description);
 			obj->description = str_dup(arg3);
 			stc(buf, ch);
@@ -502,7 +502,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix1(arg2, "material")) {
-			sprintf(buf, "%s suddenly warps into %s as %s glows brightly.\n",
+			Format::sprintf(buf, "%s suddenly warps into %s as %s glows brightly.\n",
 			        obj->material, arg3, obj->short_descr);
 			free_string(obj->material);
 			obj->material = str_dup(arg3);
@@ -543,7 +543,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 				return;
 
 			char desc[MIL];
-			sprintf(desc, "%s\n", argument);
+			Format::sprintf(desc, "%s\n", argument);
 
 			ed = new_extra_descr();
 			ed->keyword         = str_dup(arg3);
@@ -602,7 +602,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	/* Room Strings by Lotus */
 	if (!str_prefix1(type, "room")) {
 		if ((room = get_room_index(atoi(arg1))) == NULL) {
-			sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
+			Format::sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
 			stc(buf, ch);
 			return;
 		}
@@ -610,7 +610,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		if (!str_prefix1(arg2, "name")) {
 			free_string(room->name);
 			room->name = str_dup(arg3);
-			sprintf(buf, "Room %d's name has been changed to %s.\n",
+			Format::sprintf(buf, "Room %d's name has been changed to %s.\n",
 			        atoi(arg1), arg3);
 			stc(buf, ch);
 			return;
@@ -664,7 +664,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "$N has switched into: %s", victim->short_descr);
+	Format::sprintf(buf, "$N has switched into: %s", victim->short_descr);
 	/* 0 so it shows spell casters */
 	wiznet(buf, ch, NULL, WIZ_SWITCHES, 0, 0);
 	ch->desc->character = victim;
@@ -701,7 +701,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 	free_string(ch->prompt);
 	ch->prompt = str_dup("");
 
-	sprintf(buf, "$N has returned from: %s.", ch->short_descr);
+	Format::sprintf(buf, "$N has returned from: %s.", ch->short_descr);
 	wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, GET_RANK(ch));
 
 	if (IS_SET(ch->desc->character->act, ACT_MORPH)) {
@@ -873,7 +873,7 @@ void do_create(CHAR_DATA *ch, const char *argument)
 		for (x = 0; item_table[x].name != NULL; x++) {
 			if (!str_cmp(arg2, item_table[x].name)) {
 				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == NULL) {
-					sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);
+					Format::sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);
 					bug(buf, 0);
 					stc("That item seems to be missing.\n", ch);
 					return;
@@ -954,7 +954,7 @@ void do_skillpoint(CHAR_DATA *ch, const char *argument)
 	/* First check for adding skill points. */
 	if (!strcmp(give_or_take, "award")) {
 		victim->pcdata->skillpoints += new_points;
-		sprintf(buffer, "%d skill points awarded to %s. Total: %d.\n",
+		Format::sprintf(buffer, "%d skill points awarded to %s. Total: %d.\n",
 		        new_points, victim->name, victim->pcdata->skillpoints);
 		stc(buffer, ch);
 		stc(buffer, victim);
@@ -967,7 +967,7 @@ void do_skillpoint(CHAR_DATA *ch, const char *argument)
 		}
 		else {
 			victim->pcdata->skillpoints -= new_points;
-			sprintf(buffer, "%d skill points deducted from %s. %d remaining.\n",
+			Format::sprintf(buffer, "%d skill points deducted from %s. %d remaining.\n",
 			        new_points, victim->name, victim->pcdata->skillpoints);
 			stc(buffer, ch);
 			stc(buffer, victim);

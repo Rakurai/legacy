@@ -49,7 +49,6 @@ CLAN_DATA *clan_lookup(const String& name)
 	iterator = clan_table_head->next;
 
 	while (iterator != clan_table_tail) {
-		//printf("%s\n",iterator->name);
 		if (!str_prefix1(name, iterator->name))
 			return iterator;
 

@@ -321,7 +321,7 @@ char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 /* Desparate debugging measure: A function to print a reason for exiting. */
 void exit_reason(const char *module, int line, const char *reason)
 {
-	printf("exiting %s at line %d because: %s\n", module, line, reason);
+	Format::printf("exiting %s at line %d because: %s\n", module, line, reason);
 	fflush(stdout);
 }
 
@@ -360,36 +360,36 @@ void copyover_recover()
 
 	/* starting recovery message, do NOT use standard color codes here, it's a wtd */
 	if (!str_cmp(logname, "Liriel"))
-		sprintf(msg1, "\nYou blink, and all of a sudden, you are back where you were before,\n"
+		Format::sprintf(msg1, "\nYou blink, and all of a sudden, you are back where you were before,\n"
 		        "the world refreshed and born anew.\n");
 	else if (!str_cmp(logname, "Outsider"))
-		sprintf(msg1, "\nDispite all of the confusion, you feel no danger in the soft hug.\n");
+		Format::sprintf(msg1, "\nDispite all of the confusion, you feel no danger in the soft hug.\n");
 	else if (!str_cmp(logname, "Kenneth"))
-		sprintf(msg1, "\nThe hand is cold, but seems to exert no pressure at all on your face.\n");
+		Format::sprintf(msg1, "\nThe hand is cold, but seems to exert no pressure at all on your face.\n");
 	else if (!str_cmp(logname, "Montrey"))
-		sprintf(msg1, "\nThe world begins to take shape before your eyes.\n");
+		Format::sprintf(msg1, "\nThe world begins to take shape before your eyes.\n");
 	else if (!str_cmp(logname, "Xenith"))
-		sprintf(msg1, "\nYour vision returns, as your body forms again.\n");
+		Format::sprintf(msg1, "\nYour vision returns, as your body forms again.\n");
 	else
-		sprintf(msg1, "\nRestoring from copyover...\n");
+		Format::sprintf(msg1, "\nRestoring from copyover...\n");
 
 	/* finished recovery message, it's a stc so colors are ok */
 	if (!str_cmp(logname, "Xenith"))
-		sprintf(msg2, "\nThe world begins anew, better from the destruction.\n");
+		Format::sprintf(msg2, "\nThe world begins anew, better from the destruction.\n");
 	else if (!str_cmp(logname, "Outsider"))
-		sprintf(msg2, "\nThe angel steps back from you, revealing a cleaner, newer world. You\n"
+		Format::sprintf(msg2, "\nThe angel steps back from you, revealing a cleaner, newer world. You\n"
 		        "rub your eyes and when you open them again, the angel is gone.\n");
 	else if (!str_cmp(logname, "Montrey"))
-		sprintf(msg2, "\nYou blink, and see the world complete once again.\n"
+		Format::sprintf(msg2, "\nYou blink, and see the world complete once again.\n"
 		        "Yet, something seems somehow... different.\n");
 	else if (!str_cmp(logname, "Liriel"))
-		sprintf(msg2, "\nThe only trace of the faerie is a little blue glimmer that quickly winks\n"
+		Format::sprintf(msg2, "\nThe only trace of the faerie is a little blue glimmer that quickly winks\n"
 		        "and vanishes.\n");
 	else if (!str_cmp(logname, "Kenneth"))
-		sprintf(msg2, "\nHalf a second later your sight is returned, the man is gone, and the\n"
+		Format::sprintf(msg2, "\nHalf a second later your sight is returned, the man is gone, and the\n"
 		        "world is changed.\n");
 	else
-		sprintf(msg2, "\nCopyover recovery complete.\n");
+		Format::sprintf(msg2, "\nCopyover recovery complete.\n");
 
 	for (; ;) {
 		fscanf(fp, "%d %s %s\n", &desc, name, host);
@@ -484,12 +484,12 @@ int main(int argc, char **argv)
 
 	if (argc > 1) {
 		if (!is_number(argv[1])) {
-			fprintf(stderr, "Usage: %s [port #]\n", argv[0]);
+			Format::fprintf(stderr, "Usage: %s [port #]\n", argv[0]);
 			EXIT_REASON(433, "bad Legacy port arg");
 			exit(1);
 		}
 		else if ((port = atoi(argv[1])) <= 1024) {
-			fprintf(stderr, "Port number must be above 1024.\n");
+			Format::fprintf(stderr, "Port number must be above 1024.\n");
 			EXIT_REASON(439, "bad Legacy port number");
 			exit(1);
 		}
@@ -511,13 +511,13 @@ int main(int argc, char **argv)
 		/* Are we recovering from a copyover? */
 		if (argv[3] && argv[3][0]) {
 			if (argc <= 4) {
-				fprintf(stderr, "Not enough args for COPYOVER\n");
+				Format::fprintf(stderr, "Not enough args for COPYOVER\n");
 				EXIT_REASON(480, "not enough args for COPYOVER");
 				exit(1);
 			}
 
 			if (!is_number(argv[4])) {
-				fprintf(stderr, "Bad 'control' value '%s'\n", argv[4]);
+				Format::fprintf(stderr, "Bad 'control' value '%s'\n", argv[4]);
 				EXIT_REASON(486, "bad control value for COPYOVER");
 				exit(1);
 			}
@@ -547,7 +547,7 @@ int main(int argc, char **argv)
 	/* this must come before boot_db() */
 	db_open();
 	boot_db();
-	sprintf(log_buf, "Legacy is ready to rock on port %d.", port);
+	Format::sprintf(log_buf, "Legacy is ready to rock on port %d.", port);
 	log_string(log_buf);
 
 	if (fCopyOver)
@@ -571,7 +571,7 @@ int main(int argc, char **argv)
 			exit(1);
 		}
 
-		fprintf(pidfile, "%d", pid);
+		Format::fprintf(pidfile, "%d", pid);
 		fflush(pidfile);
 		fclose(pidfile);
 	}
@@ -742,7 +742,7 @@ void game_loop_unix(int control)
 
 				if (ch && ch->level > 1) {
 					save_char_obj(ch);
-					sprintf(log_buf, "Kicking out char %s", ch->name);
+					Format::sprintf(log_buf, "Kicking out char %s", ch->name);
 				}
 				else
 					strcpy(log_buf, "Kicking out unknown char");
@@ -775,7 +775,7 @@ void game_loop_unix(int control)
 
 					if (d->character != NULL && d->character->level > 1) {
 						save_char_obj(d->character);
-						sprintf(log_buf, "Char %s disconnected", d->character->name);
+						Format::sprintf(log_buf, "Char %s disconnected", d->character->name);
 						log_string(log_buf);
 						wiznet(log_buf, NULL, NULL, WIZ_MALLOC, 0, 0);
 					}
@@ -925,7 +925,7 @@ void init_descriptor(int control)
 	 */
 	dnew = new_descriptor();
 	dnew->descriptor = desc;
-	/* printf( "new descriptor at socket %d\n", desc ); */
+	/* Format::printf( "new descriptor at socket %d\n", desc ); */
 	size = sizeof(sock);
 
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
@@ -945,14 +945,14 @@ void init_descriptor(int control)
 #else
 		char buf[INET_ADDRSTRLEN];
 		int addr = ntohl(sock.sin_addr.s_addr);
-		sprintf(buf, "%d.%d.%d.%d",
+		Format::sprintf(buf, "%d.%d.%d.%d",
 		        (addr >> 24) & 0xFF, (addr >> 16) & 0xFF,
 		        (addr >>  8) & 0xFF, (addr) & 0xFF
 		       );
 #endif
 //        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 		{
-			sprintf(log_buf, "init_descriptor: sock.sinaddr  = %s", buf);
+			Format::sprintf(log_buf, "init_descriptor: sock.sinaddr  = %s", buf);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_MALLOC, 0, 0);
 		}
@@ -963,7 +963,7 @@ void init_descriptor(int control)
 		tmp_name = sand_query(addr);
 
 		if (tmp_name == NULL) {
-			sprintf(log_buf, "name not available");
+			Format::sprintf(log_buf, "name not available");
 			log_string(log_buf);
 			dnew->host = str_dup(buf);
 		}
@@ -972,7 +972,7 @@ void init_descriptor(int control)
 //                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
-					sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
+					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
 					log_string(log_buf);
 					wiznet(log_buf, NULL, NULL, WIZ_SITES, 0, 0);
 				}
@@ -987,7 +987,7 @@ void init_descriptor(int control)
 #endif
 
 		if (from == NULL || from->h_name == NULL) {
-			sprintf(log_buf, "name not available");
+			Format::sprintf(log_buf, "name not available");
 			log_string(log_buf);
 			dnew->host = str_dup(buf);
 		}
@@ -996,7 +996,7 @@ void init_descriptor(int control)
 //                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
-					sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
+					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
 					log_string(log_buf);
 					wiznet(log_buf, NULL, NULL, WIZ_SITES, 0, 0);
 				}
@@ -1035,11 +1035,11 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 			d->snoop_by = NULL;
 
 	if ((ch = dclose->character) == NULL) {
-		sprintf(log_buf, "Closing link to phantom at socket %d.", dclose->descriptor);
+		Format::sprintf(log_buf, "Closing link to phantom at socket %d.", dclose->descriptor);
 		/* log_string( log_buf ); */
 	}
 	else {
-		sprintf(log_buf, "Closing link to %s.", ch->name);
+		Format::sprintf(log_buf, "Closing link to %s.", ch->name);
 		log_string(log_buf);
 
 		if (dclose->connected == CON_PLAYING) {
@@ -1105,7 +1105,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 			bug("Close_socket: dclose not found.", 0);
 	}
 
-	printf("Closing socket %d\n", dclose->descriptor);
+	Format::printf("Closing socket %d\n", dclose->descriptor);
 	close(dclose->descriptor);
 	free_descriptor(dclose);
 	return;
@@ -1123,7 +1123,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	iStart = strlen(d->inbuf);
 
 	if (iStart >= sizeof(d->inbuf) - 10) {
-		sprintf(log_buf, "%s input overflow!", d->host);
+		Format::sprintf(log_buf, "%s input overflow!", d->host);
 		log_string(log_buf);
 		write_to_descriptor(d->descriptor,
 		                    "\n*** PUT A LID ON IT!!! ***\n", 0);
@@ -1147,11 +1147,11 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		}
 		else if (nRead == 0) {
 			if (d->character && d->character->level > 0)
-				sprintf(log_buf, "EOF on read from char %s", d->character->name);
+				Format::sprintf(log_buf, "EOF on read from char %s", d->character->name);
 			else if (!strcmp(d->host, "localhost"))
 				return FALSE;
 			else
-				sprintf(log_buf, "EOF on read from host %s", d->host);
+				Format::sprintf(log_buf, "EOF on read from host %s", d->host);
 
 			log_string(log_buf);
 			return FALSE;
@@ -1231,7 +1231,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 			d->repeat = 0;
 		else {
 			if (++d->repeat >= 25) {
-				sprintf(log_buf, "%s: input spamming!", d->host);
+				Format::sprintf(log_buf, "%s: input spamming!", d->host);
 				log_string(log_buf);
 				wiznet("And the spammer of the year is:  $N!!!",
 				       d->character, NULL, WIZ_SPAM, 0, GET_RANK(d->character));
@@ -1264,7 +1264,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 		if ((strlen(d->incomm) + strlen(d->inlast) + 16) < MAX_INPUT_LENGTH) {
 			char temp_buffer[MAX_INPUT_LENGTH];
 			/* new command will be old command + everything after the "!" */
-			sprintf(temp_buffer, "%s%s", d->inlast, & (d->incomm[1]));
+			Format::sprintf(temp_buffer, "%s%s", d->inlast, & (d->incomm[1]));
 			strcpy(d->incomm, temp_buffer);
 		}
 		else   /* message was too long, use last command */
@@ -1315,38 +1315,38 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			char atb[MSL];
 
 			if (IS_SET(ch->comm, COMM_ATBPROMPT)) {
-				if (ch->wait > 40)      sprintf(atb, "{B[{C*{T*********{B]{x ");
-				else if (ch->wait > 36) sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
-				else if (ch->wait > 32) sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
-				else if (ch->wait > 28) sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
-				else if (ch->wait > 24) sprintf(atb, "{B[{T**{C*{Y*{C*{T*****{B]{x ");
-				else if (ch->wait > 20) sprintf(atb, "{B[{T***{C*{Y*{C*{T****{B]{x ");
-				else if (ch->wait > 16) sprintf(atb, "{B[{T****{C*{Y*{C*{T***{B]{x ");
-				else if (ch->wait > 12) sprintf(atb, "{B[{T*****{C*{Y*{C*{T**{B]{x ");
-				else if (ch->wait > 8)  sprintf(atb, "{B[{T******{C*{Y*{C*{T*{B]{x ");
-				else if (ch->wait > 4)  sprintf(atb, "{B[{T*******{C*{Y*{C*{B]{x ");
-				else if (ch->wait > 0)  sprintf(atb, "{B[{T********{C*{Y*{B]{x ");
-				else                    sprintf(atb, "{B[{C**{YREADY!{C**{B]{x ");
+				if (ch->wait > 40)      Format::sprintf(atb, "{B[{C*{T*********{B]{x ");
+				else if (ch->wait > 36) Format::sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
+				else if (ch->wait > 32) Format::sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
+				else if (ch->wait > 28) Format::sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
+				else if (ch->wait > 24) Format::sprintf(atb, "{B[{T**{C*{Y*{C*{T*****{B]{x ");
+				else if (ch->wait > 20) Format::sprintf(atb, "{B[{T***{C*{Y*{C*{T****{B]{x ");
+				else if (ch->wait > 16) Format::sprintf(atb, "{B[{T****{C*{Y*{C*{T***{B]{x ");
+				else if (ch->wait > 12) Format::sprintf(atb, "{B[{T*****{C*{Y*{C*{T**{B]{x ");
+				else if (ch->wait > 8)  Format::sprintf(atb, "{B[{T******{C*{Y*{C*{T*{B]{x ");
+				else if (ch->wait > 4)  Format::sprintf(atb, "{B[{T*******{C*{Y*{C*{B]{x ");
+				else if (ch->wait > 0)  Format::sprintf(atb, "{B[{T********{C*{Y*{B]{x ");
+				else                    Format::sprintf(atb, "{B[{C**{YREADY!{C**{B]{x ");
 			}/*
 
-                                if (ch->wait > 40)      sprintf(atb, "{P[{P*{R*********{P]{x ");
-                                else if (ch->wait > 36) sprintf(atb, "{P[{Y*{P*{R********{P]{x ");
-                                else if (ch->wait > 32) sprintf(atb, "{P[{P*{Y*{P*{R*******{P]{x ");
-                                else if (ch->wait > 28) sprintf(atb, "{P[{R*{P*{Y*{P*{R******{P]{x ");
-                                else if (ch->wait > 24) sprintf(atb, "{P[{R**{P*{Y*{P*{R*****{P]{x ");
-                                else if (ch->wait > 20) sprintf(atb, "{P[{R***{P*{Y*{P*{R****{P]{x ");
-                                else if (ch->wait > 16) sprintf(atb, "{P[{R****{P*{Y*{P*{R***{P]{x ");
-                                else if (ch->wait > 12) sprintf(atb, "{P[{R*****{P*{Y*{P*{R**{P]{x ");
-                                else if (ch->wait > 8)  sprintf(atb, "{P[{R******{P*{Y*{P*{R*{P]{x ");
-                                else if (ch->wait > 4)  sprintf(atb, "{P[{R*******{P*{Y*{P*{P]{x ");
-                                else if (ch->wait > 0)  sprintf(atb, "{P[{R********{P*{Y*{P]{x ");
-                                else                    sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
+                                if (ch->wait > 40)      Format::sprintf(atb, "{P[{P*{R*********{P]{x ");
+                                else if (ch->wait > 36) Format::sprintf(atb, "{P[{Y*{P*{R********{P]{x ");
+                                else if (ch->wait > 32) Format::sprintf(atb, "{P[{P*{Y*{P*{R*******{P]{x ");
+                                else if (ch->wait > 28) Format::sprintf(atb, "{P[{R*{P*{Y*{P*{R******{P]{x ");
+                                else if (ch->wait > 24) Format::sprintf(atb, "{P[{R**{P*{Y*{P*{R*****{P]{x ");
+                                else if (ch->wait > 20) Format::sprintf(atb, "{P[{R***{P*{Y*{P*{R****{P]{x ");
+                                else if (ch->wait > 16) Format::sprintf(atb, "{P[{R****{P*{Y*{P*{R***{P]{x ");
+                                else if (ch->wait > 12) Format::sprintf(atb, "{P[{R*****{P*{Y*{P*{R**{P]{x ");
+                                else if (ch->wait > 8)  Format::sprintf(atb, "{P[{R******{P*{Y*{P*{R*{P]{x ");
+                                else if (ch->wait > 4)  Format::sprintf(atb, "{P[{R*******{P*{Y*{P*{P]{x ");
+                                else if (ch->wait > 0)  Format::sprintf(atb, "{P[{R********{P*{Y*{P]{x ");
+                                else                    Format::sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
 
-                                sprintf(buf, "({G%d{x) ", ch->fightpulse);
+                                Format::sprintf(buf, "({G%d{x) ", ch->fightpulse);
                                 strcat(atb, buf);
                         } */
 			else
-				sprintf(atb, "{x");
+				Format::sprintf(atb, "{x");
 
 			if (can_see_char(ch, victim)) {
 				int percent;
@@ -1460,7 +1460,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			++str;
 
 			if (*str == '{') {
-				sprintf(buf2, "{");
+				Format::sprintf(buf2, "{");
 				i = buf2;
 				++str;
 
@@ -1507,9 +1507,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 			}
 
 			if (IS_SET(ch->act, PLR_COLOR))
-				sprintf(buf2, "\033[%d;%dm", bold, color);
+				Format::sprintf(buf2, "\033[%d;%dm", bold, color);
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = buf2;
 			++str;
@@ -1553,119 +1553,119 @@ void bust_a_prompt(CHAR_DATA *ch)
 			if (!found)
 				strcat(doors, "none");
 
-			sprintf(buf2, "%s", doors);
+			Format::sprintf(buf2, "%s", doors);
 			i = buf2;
 			break;
 
 		case 'c':
-			sprintf(buf2, "%s", "\n");
+			Format::sprintf(buf2, "%s", "\n");
 			i = buf2;
 			break;
 
 		case 'h':
-			sprintf(buf2, "%d", ch->hit);
+			Format::sprintf(buf2, "%d", ch->hit);
 			i = buf2;
 			break;
 
 		case 'H':
-			sprintf(buf2, "%d", GET_MAX_HIT(ch));
+			Format::sprintf(buf2, "%d", GET_MAX_HIT(ch));
 			i = buf2;
 			break;
 
 		case 'm':
-			sprintf(buf2, "%d", ch->mana);
+			Format::sprintf(buf2, "%d", ch->mana);
 			i = buf2;
 			break;
 
 		case 'M':
-			sprintf(buf2, "%d", GET_MAX_MANA(ch));
+			Format::sprintf(buf2, "%d", GET_MAX_MANA(ch));
 			i = buf2;
 			break;
 
 		case 'v':
-			sprintf(buf2, "%d", ch->stam);
+			Format::sprintf(buf2, "%d", ch->stam);
 			i = buf2;
 			break;
 
 		case 'V':
-			sprintf(buf2, "%d", GET_MAX_STAM(ch));
+			Format::sprintf(buf2, "%d", GET_MAX_STAM(ch));
 			i = buf2;
 			break;
 
 		case 'x':
-			sprintf(buf2, "%d", ch->exp);
+			Format::sprintf(buf2, "%d", ch->exp);
 			i = buf2;
 			break;
 
 		case 'X':
 			if (!IS_NPC(ch))
-				sprintf(buf2, "%ld",
+				Format::sprintf(buf2, "%ld",
 				        (ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp);
 
 			i = buf2;
 			break;
 
 		case 'g':
-			sprintf(buf2, "%ld", ch->gold);
+			Format::sprintf(buf2, "%ld", ch->gold);
 			i = buf2;
 			break;
 
 		case 's':
-			sprintf(buf2, "%ld", ch->silver);
+			Format::sprintf(buf2, "%ld", ch->silver);
 			i = buf2;
 			break;
 
 		case 'a':
 			if (ch->level > 9)
-				sprintf(buf2, "%d", ch->alignment);
+				Format::sprintf(buf2, "%d", ch->alignment);
 			else
-				sprintf(buf2, "%s", IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
+				Format::sprintf(buf2, "%s", IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
 
 			i = buf2;
 			break;
 
 		case 'r':
 			if (ch->in_room != NULL)
-				sprintf(buf2, "%s",
+				Format::sprintf(buf2, "%s",
 				        can_see_in_room(ch, ch->in_room) ? ch->in_room->name : "darkness");
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = smash_bracket(buf2);
 			break;
 
 		case 'R':
 			if (IS_IMMORTAL(ch) && ch->in_room != NULL)
-				sprintf(buf2, "%d", ch->in_room->vnum);
+				Format::sprintf(buf2, "%d", ch->in_room->vnum);
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = buf2;
 			break;
 
 		case 'z':
 			if (ch->in_room != NULL)
-				sprintf(buf2, "%s", ch->in_room->area->name);
+				Format::sprintf(buf2, "%s", ch->in_room->area->name);
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = buf2;
 			break;
 
 		case 't':
 			if (ch->in_room != NULL)
-				sprintf(buf2, "%s", sector_lookup(ch->in_room->sector_type));
+				Format::sprintf(buf2, "%s", sector_lookup(ch->in_room->sector_type));
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = buf2;
 			break;
 
 		case 'q':
 			if (!IS_QUESTOR(ch))
-				sprintf(buf2, "%d", ch->nextquest);
+				Format::sprintf(buf2, "%d", ch->nextquest);
 			else
-				sprintf(buf2, "%d", ch->countdown);
+				Format::sprintf(buf2, "%d", ch->countdown);
 
 			i = buf2;
 			break;
@@ -1676,26 +1676,26 @@ void bust_a_prompt(CHAR_DATA *ch)
 				MOB_INDEX_DATA *questinfo;
 
 				if (ch->questmob == -1 || ch->questobf == -1)
-					sprintf(buf2, "*report!*");
+					Format::sprintf(buf2, "*report!*");
 				else if (ch->questobj > 0) {
 //					if ((questinfoobj = get_obj_index(ch->questobj)) != NULL)
-//						sprintf(buf2, "%s", questinfoobj->name);
+//						Format::sprintf(buf2, "%s", questinfoobj->name);
 					if (ch->questloc)
-						sprintf(buf2, "%s", get_room_index(ch->questloc)->name);
+						Format::sprintf(buf2, "%s", get_room_index(ch->questloc)->name);
 					else
-						sprintf(buf2, "Unknown");
+						Format::sprintf(buf2, "Unknown");
 				}
 				else if (ch->questmob > 0) {
 					if ((questinfo = get_mob_index(ch->questmob)) != NULL)
-						sprintf(buf2, "%s", questinfo->short_descr);
+						Format::sprintf(buf2, "%s", questinfo->short_descr);
 					else
-						sprintf(buf2, "Unknown");
+						Format::sprintf(buf2, "Unknown");
 				}
 				else
-					sprintf(buf2, "Unknown");
+					Format::sprintf(buf2, "Unknown");
 			}
 			else
-//				sprintf(buf2, "None");
+//				Format::sprintf(buf2, "None");
 				buf2[0] = '\0';
 
 			i = smash_bracket(buf2);
@@ -1703,7 +1703,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 		case 'p':
 			if (!IS_NPC(ch))
-				sprintf(buf2, "%d", ch->questpoints);
+				Format::sprintf(buf2, "%d", ch->questpoints);
 
 			i = buf2;
 			break;
@@ -1711,12 +1711,12 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'j':
 			if (!IS_NPC(ch)) {
 				if (!IS_SQUESTOR(ch))
-					sprintf(buf2, "%d", ch->pcdata->nextsquest);
+					Format::sprintf(buf2, "%d", ch->pcdata->nextsquest);
 				else
-					sprintf(buf2, "%d", ch->pcdata->sqcountdown);
+					Format::sprintf(buf2, "%d", ch->pcdata->sqcountdown);
 			}
 			else
-				sprintf(buf2, "0");
+				Format::sprintf(buf2, "0");
 
 			i = buf2;
 			break;
@@ -1725,33 +1725,33 @@ void bust_a_prompt(CHAR_DATA *ch)
 			if (IS_SQUESTOR(ch)) {
 				if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) {
 					if (!ch->pcdata->squestobjf)
-//						sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
-						sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
+//						Format::sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
+						Format::sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
 					else
-						sprintf(buf2, "*report!*");
+						Format::sprintf(buf2, "*report!*");
 				}
 				else if (ch->pcdata->squestmob != NULL && ch->pcdata->squestobj == NULL) {
 					if (!ch->pcdata->squestmobf)
-						sprintf(buf2, "%s", ch->pcdata->squestmob->short_descr);
+						Format::sprintf(buf2, "%s", ch->pcdata->squestmob->short_descr);
 					else
-						sprintf(buf2, "*report!*");
+						Format::sprintf(buf2, "*report!*");
 				}
 				else if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob != NULL) {
 					if (ch->pcdata->squestobjf) {
 						if (!ch->pcdata->squestmobf)
-							sprintf(buf2, "%s", ch->pcdata->squestmob->short_descr);
+							Format::sprintf(buf2, "%s", ch->pcdata->squestmob->short_descr);
 						else
-							sprintf(buf2, "*report!*");
+							Format::sprintf(buf2, "*report!*");
 					}
 					else
-//						sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
-						sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
+//						Format::sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
+						Format::sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
 				}
 				else
-					sprintf(buf2, "Unknown");
+					Format::sprintf(buf2, "Unknown");
 			}
 			else
-//				sprintf(buf2, "None");
+//				Format::sprintf(buf2, "None");
 				buf2[0] = '\0';
 
 			i = smash_bracket(buf2);
@@ -1759,14 +1759,14 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 		case 'k':
 			if (!IS_NPC(ch))
-				sprintf(buf2, "%d", ch->pcdata->skillpoints);
+				Format::sprintf(buf2, "%d", ch->pcdata->skillpoints);
 
 			i = buf2;
 			break;
 
 		case 'K':
 			if (!IS_NPC(ch))
-				sprintf(buf2, "%d", ch->pcdata->rolepoints);
+				Format::sprintf(buf2, "%d", ch->pcdata->rolepoints);
 
 			i = buf2;
 			break;
@@ -1774,15 +1774,15 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'w':
 			if (IS_IMMORTAL(ch)) {
 				if (!ch->invis_level && !ch->lurk_level)
-					sprintf(buf2, "VIS");
+					Format::sprintf(buf2, "VIS");
 				else
-					sprintf(buf2, "%d/%d", ch->invis_level, ch->lurk_level);
+					Format::sprintf(buf2, "%d/%d", ch->invis_level, ch->lurk_level);
 
 				if (IS_SET(ch->act, PLR_SUPERWIZ))
-					sprintf(buf2, "WIZ");
+					Format::sprintf(buf2, "WIZ");
 			}
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = buf2;
 			break;
@@ -1827,9 +1827,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 			}
 
 			if (IS_SET(ch->act, PLR_COLOR))
-				sprintf(buf2, "\033[%d;%dm", bold, color);
+				Format::sprintf(buf2, "\033[%d;%dm", bold, color);
 			else
-				sprintf(buf2, " ");
+				Format::sprintf(buf2, " ");
 
 			i = buf2;
 			break;
@@ -1837,12 +1837,12 @@ void bust_a_prompt(CHAR_DATA *ch)
 		/* added by Outsider to allow a character to see
 		   his/her level in the prompt */
 		case 'l':
-			sprintf(buf2, "%d", ch->level);
+			Format::sprintf(buf2, "%d", ch->level);
 			i = buf2;
 			break;
 
 		case '%':
-			sprintf(buf2, "%%");
+			Format::sprintf(buf2, "%%");
 			i = buf2;
 			break;
 		}
@@ -1888,58 +1888,58 @@ void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 					bool found = TRUE;
 
 					switch (*a++) {
-					case 'x': sprintf(code, "%s%s",
+					case 'x': Format::sprintf(code, "%s%s",
 						                  CLEAR, B_BLACK);        break;
 
-					case 'N': sprintf(code, C_BLUE);        break;
+					case 'N': Format::sprintf(code, C_BLUE);        break;
 
-					case 'T': sprintf(code, C_CYAN);        break;
+					case 'T': Format::sprintf(code, C_CYAN);        break;
 
-					case 'H': sprintf(code, C_GREEN);       break;
+					case 'H': Format::sprintf(code, C_GREEN);       break;
 
-					case 'k': sprintf(code, C_BLACK);       break;
+					case 'k': Format::sprintf(code, C_BLACK);       break;
 
-					case 'M': sprintf(code, C_MAGENTA);     break;
+					case 'M': Format::sprintf(code, C_MAGENTA);     break;
 
-					case 'R': sprintf(code, C_RED);         break;
+					case 'R': Format::sprintf(code, C_RED);         break;
 
-					case 'g': sprintf(code, C_WHITE);       break;
+					case 'g': Format::sprintf(code, C_WHITE);       break;
 
-					case 'b': sprintf(code, C_YELLOW);      break;
+					case 'b': Format::sprintf(code, C_YELLOW);      break;
 
-					case 'B': sprintf(code, C_B_BLUE);      break;
+					case 'B': Format::sprintf(code, C_B_BLUE);      break;
 
-					case 'C': sprintf(code, C_B_CYAN);      break;
+					case 'C': Format::sprintf(code, C_B_CYAN);      break;
 
-					case 'G': sprintf(code, C_B_GREEN);     break;
+					case 'G': Format::sprintf(code, C_B_GREEN);     break;
 
-					case 'V': sprintf(code, C_B_MAGENTA);   break;
+					case 'V': Format::sprintf(code, C_B_MAGENTA);   break;
 
-					case 'P': sprintf(code, C_B_RED);       break;
+					case 'P': Format::sprintf(code, C_B_RED);       break;
 
-					case 'W': sprintf(code, C_B_WHITE);     break;
+					case 'W': Format::sprintf(code, C_B_WHITE);     break;
 
-					case 'Y': sprintf(code, C_B_YELLOW);    break;
+					case 'Y': Format::sprintf(code, C_B_YELLOW);    break;
 
-					case 'c': sprintf(code, C_B_GREY);      break;
+					case 'c': Format::sprintf(code, C_B_GREY);      break;
 
-					case 's': sprintf(code, C_REVERSE);     break;
+					case 's': Format::sprintf(code, C_REVERSE);     break;
 
-					case 'e': sprintf(code, B_GREY);        break;
+					case 'e': Format::sprintf(code, B_GREY);        break;
 
-					case 'r': sprintf(code, B_RED);         break;
+					case 'r': Format::sprintf(code, B_RED);         break;
 
-					case 'y': sprintf(code, B_YELLOW);      break;
+					case 'y': Format::sprintf(code, B_YELLOW);      break;
 
-					case 'h': sprintf(code, B_GREEN);       break;
+					case 'h': Format::sprintf(code, B_GREEN);       break;
 
-					case 't': sprintf(code, B_CYAN);        break;
+					case 't': Format::sprintf(code, B_CYAN);        break;
 
-					case 'n': sprintf(code, B_BLUE);        break;
+					case 'n': Format::sprintf(code, B_BLUE);        break;
 
-					case 'm': sprintf(code, B_MAGENTA);     break;
+					case 'm': Format::sprintf(code, B_MAGENTA);     break;
 
-					case 'a': sprintf(code, B_BLACK);       break;
+					case 'a': Format::sprintf(code, B_BLACK);       break;
 
 					case '{': strcpy(code, "{");            break;
 
@@ -2096,21 +2096,21 @@ void process_color(CHAR_DATA *ch, char a)
 
 	switch (a) {
 	case 'x':
-		sprintf(code, "%s%s\033[%d;%dm", CLEAR, B_BLACK,
+		Format::sprintf(code, "%s%s\033[%d;%dm", CLEAR, B_BLACK,
 		        ch->pcdata->lastcolor[1],
 		        ch->pcdata->lastcolor[0]);
 		break;
 
 	case 'N':
-		sprintf(code, C_BLUE);
+		Format::sprintf(code, C_BLUE);
 		break;
 
 	case 'T':
-		sprintf(code, C_CYAN);
+		Format::sprintf(code, C_CYAN);
 		break;
 
 	case 'H':
-		sprintf(code, C_GREEN);
+		Format::sprintf(code, C_GREEN);
 		break;
 
 	case 'k':
@@ -2122,47 +2122,47 @@ void process_color(CHAR_DATA *ch, char a)
 		break;
 
 	case 'M':
-		sprintf(code, C_MAGENTA);
+		Format::sprintf(code, C_MAGENTA);
 		break;
 
 	case 'R':
-		sprintf(code, C_RED);
+		Format::sprintf(code, C_RED);
 		break;
 
 	case 'g':
-		sprintf(code, C_WHITE);
+		Format::sprintf(code, C_WHITE);
 		break;
 
 	case 'b':
-		sprintf(code, C_YELLOW);
+		Format::sprintf(code, C_YELLOW);
 		break;
 
 	case 'B':
-		sprintf(code, C_B_BLUE);
+		Format::sprintf(code, C_B_BLUE);
 		break;
 
 	case 'C':
-		sprintf(code, C_B_CYAN);
+		Format::sprintf(code, C_B_CYAN);
 		break;
 
 	case 'G':
-		sprintf(code, C_B_GREEN);
+		Format::sprintf(code, C_B_GREEN);
 		break;
 
 	case 'V':
-		sprintf(code, C_B_MAGENTA);
+		Format::sprintf(code, C_B_MAGENTA);
 		break;
 
 	case 'P':
-		sprintf(code, C_B_RED);
+		Format::sprintf(code, C_B_RED);
 		break;
 
 	case 'W':
-		sprintf(code, C_B_WHITE);
+		Format::sprintf(code, C_B_WHITE);
 		break;
 
 	case 'Y':
-		sprintf(code, C_B_YELLOW);
+		Format::sprintf(code, C_B_YELLOW);
 		break;
 
 	case 'c':
@@ -2175,7 +2175,7 @@ void process_color(CHAR_DATA *ch, char a)
 
 	case 'f':
 		strcpy(code, "");
-		sprintf(code, C_FLASH);
+		Format::sprintf(code, C_FLASH);
 
 		if (ch->pcdata) {
 			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_OFF))
@@ -2188,39 +2188,39 @@ void process_color(CHAR_DATA *ch, char a)
 		break;
 
 	case 's':
-		sprintf(code, C_REVERSE);
+		Format::sprintf(code, C_REVERSE);
 		break;
 
 	case 'e':
-		sprintf(code, B_GREY);
+		Format::sprintf(code, B_GREY);
 		break;
 
 	case 'r':
-		sprintf(code, B_RED);
+		Format::sprintf(code, B_RED);
 		break;
 
 	case 'y':
-		sprintf(code, B_YELLOW);
+		Format::sprintf(code, B_YELLOW);
 		break;
 
 	case 'h':
-		sprintf(code, B_GREEN);
+		Format::sprintf(code, B_GREEN);
 		break;
 
 	case 't':
-		sprintf(code, B_CYAN);
+		Format::sprintf(code, B_CYAN);
 		break;
 
 	case 'n':
-		sprintf(code, B_BLUE);
+		Format::sprintf(code, B_BLUE);
 		break;
 
 	case 'm':
-		sprintf(code, B_MAGENTA);
+		Format::sprintf(code, B_MAGENTA);
 		break;
 
 	case 'a':
-		sprintf(code, B_BLACK);
+		Format::sprintf(code, B_BLACK);
 		break;
 
 	case '{':
@@ -2419,7 +2419,7 @@ void act_format(const char *format, CHAR_DATA *ch,
 
 		/* '$' sign after this point */
 		++str;
-		sprintf(dollarmsg, "$%c", *str);
+		Format::sprintf(dollarmsg, "$%c", *str);
 		i = dollarmsg;
 
 		switch (*str) {
@@ -2670,7 +2670,7 @@ void act_new(const char *format, CHAR_DATA *ch, const void *arg1,
 		}
 
 		if (arena != arena_table_tail && arena->viewroom->people != NULL) {
-			sprintf(fake_message, "{Y[V]{x %s", format);
+			Format::sprintf(fake_message, "{Y[V]{x %s", format);
 			format = fake_message;
 
 			for (to = arena->viewroom->people; to != NULL; to = to->next_in_room) {
@@ -2696,7 +2696,7 @@ void act_new(const char *format, CHAR_DATA *ch, const void *arg1,
 		return;
 
 	if (!str_prefix1("$n has arrived.", format)) {
-		sprintf(fake_message, "$n has arrived at %s (%s).",
+		Format::sprintf(fake_message, "$n has arrived at %s (%s).",
 		        ch->in_room->name, ch->in_room->area->file_name);
 		format = fake_message;
 	}
@@ -2800,7 +2800,7 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 
 	if ((fp = fopen(COPYOVER_FILE, "w")) == NULL) {
 		stc("Copyover file not writeable, aborted.\n", ch);
-		sprintf(buf, "Could not write to copyover file: %s", COPYOVER_FILE);
+		Format::sprintf(buf, "Could not write to copyover file: %s", COPYOVER_FILE);
 		log_string(buf);
 		perror("do_copyover:fopen");
 		return;
@@ -2808,27 +2808,27 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 
 	/* save the socket state of all active players, only */
 	for (d = descriptor_list; d; d = d->next) {
-		printf("found socket %d, host %s, conn %d\n", d->descriptor, d->host, d->connected);
+		Format::printf("found socket %d, host %s, conn %d\n", d->descriptor, d->host, d->connected);
 
 		if (IS_PLAYING(d)) {
 			CHAR_DATA *och = CH(d);
 			one_argument(och->name, buf);
-			fprintf(fp, "%d %s %s\n", d->descriptor, buf, d->host);
+			Format::fprintf(fp, "%d %s %s\n", d->descriptor, buf, d->host);
 		}
 	}
 
-	fprintf(fp, "-1\n");
+	Format::fprintf(fp, "-1\n");
 	fclose(fp);
 
 	if ((fp = fopen(COPYOVER_LOG, "w")) == NULL) {
 		stc("Copyover file not writeable, aborted.\n", ch);
-		sprintf(buf, "Could not write to copyover file: %s", COPYOVER_LOG);
+		Format::sprintf(buf, "Could not write to copyover file: %s", COPYOVER_LOG);
 		log_string(buf);
 		perror("do_copyover:fopen");
 		return;
 	}
 
-	fprintf(fp, "%s~\n", ch->name);
+	Format::fprintf(fp, "%s~\n", ch->name);
 	fclose(fp);
 
 	/*****/
@@ -2838,33 +2838,33 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 
 	/* yes, this is ugly, but i don't think it warrants a place in pcdata */
 	if (!str_cmp(ch->name, "Montrey")) {
-		sprintf(buf, "\nA beam of pure white light arcs down from the heavens, striking\n"
+		Format::sprintf(buf, "\nA beam of pure white light arcs down from the heavens, striking\n"
 		        "the earth just beyond the horizon.  The ground starts to shake,\n"
 		        "and a curtain of fiery destruction sweeps over the land, clearing\n"
 		        "away the old in preparation for the new.\n");
 	}
 	else if (!str_cmp(ch->name, "Outsider")) {
-		sprintf(buf, "\nAn angel, clothed in white light, lands before you. He stands\n"
+		Format::sprintf(buf, "\nAn angel, clothed in white light, lands before you. He stands\n"
 		        "before you, blocking your view of the rest of the world. His wings\n"
 		        "wrap about you in a soft, feathery embrace. All around you hear screams\n"
 		        "and loud cracking sounds, as if the world is turning inside out.\n");
 	}
 	else if (!str_cmp(ch->name, "Xenith")) {
-		sprintf(buf, "\nThe winds suddenly spring up, as the storm destroys the world.\n"
+		Format::sprintf(buf, "\nThe winds suddenly spring up, as the storm destroys the world.\n"
 		        "Your body becomes dust before the maelstrom.\n"
 		        "Your vision dissapates as the universe vanishes in a flash.\n");
 	}
 	else if (!str_cmp(ch->name, "Liriel")) {
-		sprintf(buf, "\nA tiny faerie shimmers into existence in front of you, it's magics quickly\n"
+		Format::sprintf(buf, "\nA tiny faerie shimmers into existence in front of you, it's magics quickly\n"
 		        "wrapping around you to form a protective barrier ... You watch in awe as the\n"
 		        "world around you blurs and distorts, reality as you know it washing away.\n");
 	}
 	else if (!str_cmp(ch->name, "Kenneth")) {
-		sprintf(buf, "\nA casual tap on the shoulder causes you to spin around.  Directly in front\n"
+		Format::sprintf(buf, "\nA casual tap on the shoulder causes you to spin around.  Directly in front\n"
 		        "of you is a plain, unassuming man who gently covers your eyes.\n");
 	}
 	else
-		sprintf(buf, "\n*** COPYOVER by %s - please remain seated!\n", ch->name);
+		Format::sprintf(buf, "\n*** COPYOVER by %s - please remain seated!\n", ch->name);
 
 	/* For each playing descriptor, save its state */
 	for (d = descriptor_list; d ; d = d_next) {
@@ -2873,13 +2873,13 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 
 		if (d->connected < 0) {
 			/* we don't know what this descriptor is, just close it */
-			printf("closing descriptor %d, conn stat %d\n",
+			Format::printf("closing descriptor %d, conn stat %d\n",
 			       d->descriptor, d->connected);
 			close(d->descriptor);
 		}
 		else if (d->connected != CON_PLAYING) {
 			/* drop those logging on */
-			printf("closing socket %d from host %s\n",
+			Format::printf("closing socket %d from host %s\n",
 			       d->descriptor, d->host);
 			write_to_descriptor(d->descriptor,
 			                    "\nSorry, we are rebooting. Come back in a minute.\n",
@@ -2889,7 +2889,7 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 		else {
 			/* regular character -- save and notify */
 			och =  CH(d);
-			printf("closing socket %d from char %s\n",
+			Format::printf("closing socket %d from char %s\n",
 			       d->descriptor, och->name);
 			save_char_obj(och);
 			write_to_descriptor(d->descriptor, buf, 0);
@@ -2906,8 +2906,8 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 
 	/* exec - descriptors are inherited */
 	char portbuf[MSL], controlbuf[MSL];
-	sprintf(portbuf,  "%d", port);
-	sprintf(controlbuf, "%d", control);
+	Format::sprintf(portbuf,  "%d", port);
+	Format::sprintf(controlbuf, "%d", control);
 	execl(EXE_FILE, "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");

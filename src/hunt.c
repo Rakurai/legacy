@@ -240,7 +240,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 
 	if (direction < 0 || direction > 5) {
 		stc("Hmm... Something seems to be wrong.\n", ch);
-		sprintf(buffer, "Please report error code %d from HUNT.\n",
+		Format::sprintf(buffer, "Please report error code %d from HUNT.\n",
 		        -direction);
 		stc(buffer, ch);
 		return;
@@ -260,7 +260,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		if (IS_IMMORTAL(ch)) {
-			sprintf(buffer, "[%d steps] ", cond.steps);
+			Format::sprintf(buffer, "[%d steps] ", cond.steps);
 			stc(buffer, ch);
 		}
 

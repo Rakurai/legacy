@@ -69,7 +69,7 @@ char *affect_print_cache(CHAR_DATA *ch) {
 			if (buf[0] != '\0')
 				strcat(buf, " ");
 
-			sprintf(buf, "%s%s(%d)", buf, skill_table[sn].name, count);
+			Format::sprintf(buf, "%s%s(%d)", buf, skill_table[sn].name, count);
 //			strcat(str, skill_table[sn].name);
 		}
 	}

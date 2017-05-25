@@ -33,7 +33,7 @@ void duel_update()
 	while (c != duel_table_tail) {
 		if (c->accept_timer > 0) {
 			if (--c->accept_timer == 0) {
-				sprintf(buf, "%s seems to have fallen asleep, %s had better find somebody awake to duel!",
+				Format::sprintf(buf, "%s seems to have fallen asleep, %s had better find somebody awake to duel!",
 				        c->defender->name, c->challenger->name);
 				duel_announce(buf, c);
 				ptc(c->defender, "{P[{RDUEL{P] {WYou didn't respond to %s's challenge, it has been withdrawn.{x\n",
@@ -102,7 +102,7 @@ void load_arena_table()
 			if (new_arena->chalprep == NULL
 			    || new_arena->defprep  == NULL
 			    || new_arena->viewroom == NULL) {
-				printf("Bad arena room!");
+				Format::printf("Bad arena room!");
 				exit(1);
 			}
 
@@ -146,7 +146,7 @@ void duel_announce(char *buf, DUEL_DATA *duel)
 {
 	char buffer[MSL];
 	DESCRIPTOR_DATA *d;
-	sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n", buf);
+	Format::sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n", buf);
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (IS_PLAYING(d)
@@ -385,7 +385,7 @@ void view_room_hpbar(CHAR_DATA *ch)
 	def  = duel->defender;
 	chalpct = URANGE(1, 10 * chal->hit / GET_MAX_HIT(chal), 10);
 	defpct  = URANGE(1, 10 * def->hit  / GET_MAX_HIT(def),  10);
-	sprintf(chalblock, "{C%s{C [", chal->name);
+	Format::sprintf(chalblock, "{C%s{C [", chal->name);
 
 	if (chalpct <= 3)       strcat(chalblock, "{P");
 	else                    strcat(chalblock, "{G");
@@ -404,7 +404,7 @@ void view_room_hpbar(CHAR_DATA *ch)
 	}
 
 	strcat(chalblock, "{C]");
-	sprintf(defblock, "{C[");
+	Format::sprintf(defblock, "{C[");
 
 	if (defpct <= 3)        strcat(defblock, "{P");
 	else                    strcat(defblock, "{G");
@@ -424,7 +424,7 @@ void view_room_hpbar(CHAR_DATA *ch)
 
 	strcat(defblock, "{C] ");
 	strcat(defblock, def->name);
-	sprintf(line, "%30s %-30s{x\n", chalblock, defblock);
+	Format::sprintf(line, "%30s %-30s{x\n", chalblock, defblock);
 
 	for (vch = duel->arena->viewroom->people; vch != NULL; vch = vch->next_in_room)
 		stc(line, vch);
@@ -504,10 +504,10 @@ void duel_kill(CHAR_DATA *victim)
 	}
 
 	if (char_opponents(ch, victim))
-		sprintf(buf, "%s {Whas won this victory, may %s {Wlead them to another.",
+		Format::sprintf(buf, "%s {Whas won this victory, may %s {Wlead them to another.",
 		        ch->clan->clanname, ch->name);
 	else
-		sprintf(buf, "%s {Whas emerged victorious!  Better luck next time, %s{W.",
+		Format::sprintf(buf, "%s {Whas emerged victorious!  Better luck next time, %s{W.",
 		        ch->name, victim->name);
 
 	duel_announce(buf, duel);
@@ -586,10 +586,10 @@ void do_duel(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (char_opponents(ch, duel->challenger))
-			sprintf(buf, "%s {Whas declined %s{W's challenge, %s {Whad better find another fighter!",
+			Format::sprintf(buf, "%s {Whas declined %s{W's challenge, %s {Whad better find another fighter!",
 			        ch->name, duel->challenger->name, ch->clan->clanname);
 		else
-			sprintf(buf, "%s {Whas declined %s{W's challenge, what a wuss!",
+			Format::sprintf(buf, "%s {Whas declined %s{W's challenge, what a wuss!",
 			        ch->name, duel->challenger->name);
 
 		duel_announce(buf, duel);
@@ -719,10 +719,10 @@ void do_duel(CHAR_DATA *ch, const char *argument)
 		ptc(victim, "{P[{RDUEL{P] {W%s {Whas challenged you to a duel!{x\n", ch->name);
 
 		if (char_opponents(ch, victim))
-			sprintf(buf, "%s {Whas challenged %s {Wto a duel for the honor of %s!",
+			Format::sprintf(buf, "%s {Whas challenged %s {Wto a duel for the honor of %s!",
 			        ch->name, victim->name, victim->clan->clanname);
 		else
-			sprintf(buf, "%s {Whas challenged %s {Wto a duel!\n",
+			Format::sprintf(buf, "%s {Whas challenged %s {Wto a duel!\n",
 			        ch->name, victim->name);
 
 		duel_announce(buf, duel);
@@ -763,7 +763,7 @@ void do_duel(CHAR_DATA *ch, const char *argument)
 		duel->prep_timer = 60;
 		stc("{P[{RDUEL{P] {WYou accept the challenge, prepare for combat!{x\n", ch);
 		ptc(victim, "{P[{RDUEL{P] {W%s {Waccepts your challenge, prepare for combat!{x\n", ch->name);
-		sprintf(buf, "%s {Whas accepted %s{W's challenge, the duel is going to start!",
+		Format::sprintf(buf, "%s {Whas accepted %s{W's challenge, the duel is going to start!",
 		        ch->name, victim->name);
 		duel_announce(buf, duel);
 		return;

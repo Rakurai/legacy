@@ -138,7 +138,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
-		sprintf(buf, "After searching all over the mud, player %s could not be found.\n",
+		Format::sprintf(buf, "After searching all over the mud, player %s could not be found.\n",
 		        arg1);
 		stc(buf, ch);
 		return;
@@ -153,7 +153,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	sn   = 0;
 
 	if (!fAll && (sn = skill_lookup(arg2)) < 0) {
-		sprintf(buf, "%s is not a valid skill or spell.\n", arg2);
+		Format::sprintf(buf, "%s is not a valid skill or spell.\n", arg2);
 		stc(buf, ch);
 		return;
 	}
@@ -162,7 +162,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	 * Snarf the value.
 	 */
 	if (!is_number(arg3)) {
-		sprintf(buf, "The third argument given, '%s', is not numeric.\n", arg3);
+		Format::sprintf(buf, "The third argument given, '%s', is not numeric.\n", arg3);
 		stc(buf, ch);
 		return;
 	}
@@ -170,7 +170,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	value = atoi(arg3);
 
 	if (value < 0 || value > 100) {
-		sprintf(buf, "You entered %s, the valid range is between 0 and 100.\n", arg3);
+		Format::sprintf(buf, "You entered %s, the valid range is between 0 and 100.\n", arg3);
 		stc(buf, ch);
 		return;
 	}
@@ -181,11 +181,11 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 				victim->pcdata->learned[sn]     = value;
 		}
 
-		sprintf(buf, "All of %s's skills and spells set to %d.\n", victim->name, value);
+		Format::sprintf(buf, "All of %s's skills and spells set to %d.\n", victim->name, value);
 	}
 	else {
 		victim->pcdata->learned[sn] = value;
-		sprintf(buf, "%s's %s %s set to %d.\n",
+		Format::sprintf(buf, "%s's %s %s set to %d.\n",
 		        victim->name,
 		        skill_table[sn].name,
 		        skill_table[sn].spell_fun != spell_null ? "Spell" : "Skill",
@@ -239,14 +239,14 @@ void do_evoset(CHAR_DATA *ch, const char *argument)
 			if ((can = can_evolve(victim, x)) == -1)
 				continue;
 
-			sprintf(buf, "They have %s at %d%%, evolution %d.\n",
+			Format::sprintf(buf, "They have %s at %d%%, evolution %d.\n",
 			        skill_table[x].name,
 			        victim->pcdata->learned[x],
 			        victim->pcdata->evolution[x]);
 			add_buf(buffer, buf);
 
 			if (can == 1)
-				sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
+				Format::sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
 				        victim->pcdata->evolution[x] == 1 ?
 				        skill_table[x].evocost_sec[victim->cls] :
 				        skill_table[x].evocost_pri[victim->cls],
@@ -486,7 +486,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 		add_buf(output, "\n                      {BExtraclass Remort Skills{x\n");
 
 		for (cn = 0; cn < MAX_CLASS; cn++) {
-			sprintf(buf, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
+			Format::sprintf(buf, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
 			add_buf(output, buf);
 			col = 0;
 
@@ -495,7 +495,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 					break;
 
 				if (skill_table[gn].remort_class > 0 && skill_table[gn].remort_class == cn + 1) {
-					sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->cls]);
+					Format::sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->cls]);
 					add_buf(output, buf);
 				}
 			}
@@ -540,17 +540,17 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 		     victim->pcdata->extraclass[2] +
 		     victim->pcdata->extraclass[3] +
 		     victim->pcdata->extraclass[4]) > 0) {
-			sprintf(buf, "Their current extraclass skill%s", victim->pcdata->extraclass[1] ? "s are" : " is");
+			Format::sprintf(buf, "Their current extraclass skill%s", victim->pcdata->extraclass[1] ? "s are" : " is");
 			add_buf(output, buf);
 
 			if (victim->pcdata->extraclass[0]) {
-				sprintf(buf, " %s", skill_table[victim->pcdata->extraclass[0]].name);
+				Format::sprintf(buf, " %s", skill_table[victim->pcdata->extraclass[0]].name);
 				add_buf(output, buf);
 			}
 
 			for (x = 1; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 				if (victim->pcdata->extraclass[x]) {
-					sprintf(buf, ", %s", skill_table[victim->pcdata->extraclass[x]].name);
+					Format::sprintf(buf, ", %s", skill_table[victim->pcdata->extraclass[x]].name);
 					add_buf(output, buf);
 				}
 			}
@@ -741,11 +741,11 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix1(arg2, "sex")) {
 		switch (value) {
-		case 0: sprintf(buf, "%s", "an it");            break;
+		case 0: Format::sprintf(buf, "%s", "an it");            break;
 
-		case 1: sprintf(buf, "%s", "a male");           break;
+		case 1: Format::sprintf(buf, "%s", "a male");           break;
 
-		case 2: sprintf(buf, "%s", "a female");         break;
+		case 2: Format::sprintf(buf, "%s", "a female");         break;
 
 		default:
 			stc("Sex range is 0 to 2.\n", ch);
@@ -979,7 +979,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		int cls = class_lookup(arg3);
 
 		if (cls == -1) {
-			sprintf(buf, "Possible classes are: ");
+			Format::sprintf(buf, "Possible classes are: ");
 
 			for (cls = 0; cls < MAX_CLASS; cls++) {
 				if (cls > 0)
@@ -1274,7 +1274,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((obj = get_obj_world(ch, arg1)) == NULL) {
-		sprintf(buf, "After searching all over the mud, %s could not be found.\n", arg1);
+		Format::sprintf(buf, "After searching all over the mud, %s could not be found.\n", arg1);
 		stc(buf, ch);
 		return;
 	}
@@ -1351,35 +1351,35 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		}
 
 		obj->condition = value;
-		sprintf(buf, "%s's condition value has been changed to %d.\n", obj->short_descr, value);
+		Format::sprintf(buf, "%s's condition value has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "level")) {
 		obj->level = value;
-		sprintf(buf, "%s's level has been changed to %d.\n", obj->short_descr, value);
+		Format::sprintf(buf, "%s's level has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "weight")) {
 		obj->weight = value;
-		sprintf(buf, "%s's weight has been changed to %d.\n", obj->short_descr, value);
+		Format::sprintf(buf, "%s's weight has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "cost")) {
 		obj->cost = value;
-		sprintf(buf, "%s's cost has been changed to %d.\n", obj->short_descr, value);
+		Format::sprintf(buf, "%s's cost has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "timer")) {
 		obj->timer = value;
-		sprintf(buf, "%s's timer value has been changed to %d.\n", obj->short_descr, value);
+		Format::sprintf(buf, "%s's timer value has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
@@ -1391,7 +1391,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		}
 
 		obj->num_settings = value;
-		sprintf(buf, "%s's number of settings has been changed to %d.\n", obj->short_descr, value);
+		Format::sprintf(buf, "%s's number of settings has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
@@ -1425,14 +1425,14 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((location = find_location(ch, arg1)) == NULL) {
-		sprintf(buf, "No such location, %s.\n", arg1);
+		Format::sprintf(buf, "No such location, %s.\n", arg1);
 		stc(buf, ch);
 		return;
 	}
 
 	if (!is_room_owner(ch, location) && ch->in_room != location
 	    &&  room_is_private(location) && !IS_IMP(ch)) {
-		sprintf(buf, "I'm sorry, but %s is a private room.\n", location->name);
+		Format::sprintf(buf, "I'm sorry, but %s is a private room.\n", location->name);
 		stc(buf, ch);
 		return;
 	}
@@ -1441,7 +1441,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	 * Snarf the value.
 	 */
 	if (!is_number(arg3)) {
-		sprintf(buf, "The value entered, %s, is not numeric.\n", arg3);
+		Format::sprintf(buf, "The value entered, %s, is not numeric.\n", arg3);
 		stc(buf, ch);
 		return;
 	}
@@ -1454,7 +1454,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix1(arg2, "sector")) {
 		location->sector_type   = value;
-		sprintf(buf, "%s's sector type has been changed to %d.\n", location->name, value);
+		Format::sprintf(buf, "%s's sector type has been changed to %d.\n", location->name, value);
 		stc(buf, ch);
 		return;
 	}
@@ -1603,9 +1603,9 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		id = (raff_lookup(victim->pcdata->raffect[0]));
 
 		if (id == -1)
-			sprintf(buf, "Unknown");
+			Format::sprintf(buf, "Unknown");
 		else
-			sprintf(buf, "%s", raffects[id].shortname);
+			Format::sprintf(buf, "%s", raffects[id].shortname);
 
 		for (raff = 1; raff < ((victim->pcdata->remort_count / 10) + 1); raff++) {
 			id = (raff_lookup(victim->pcdata->raffect[raff]));

@@ -53,7 +53,7 @@ void do_deposit(CHAR_DATA *ch, const char *argument)
 
 		ch->gold -= atoi(arg1);
 		ch->gold_in_bank += atoi(arg1);
-		sprintf(buf, "Your balance is %ld gold and %ld silver.\n",
+		Format::sprintf(buf, "Your balance is %ld gold and %ld silver.\n",
 		        ch->gold_in_bank, ch->silver_in_bank);
 		stc(buf, ch);
 	}
@@ -73,7 +73,7 @@ void do_deposit(CHAR_DATA *ch, const char *argument)
 
 		ch->silver -= atoi(arg1);
 		ch->silver_in_bank += atoi(arg1);
-		sprintf(buf, "Your balance is %ld gold and %ld silver.\n",
+		Format::sprintf(buf, "Your balance is %ld gold and %ld silver.\n",
 		        ch->gold_in_bank, ch->silver_in_bank);
 		stc(buf, ch);
 	}
@@ -139,7 +139,7 @@ void do_clandeposit(CHAR_DATA *ch, const char *argument)
 		ch->clan->gold_balance += atoi(arg1);
 		save_clan_table();
 		save_char_obj(ch);
-		sprintf(buf, "{W[ %s just deposited %d gold coin%s in the clan's bank account! ]{x\n",
+		Format::sprintf(buf, "{W[ %s just deposited %d gold coin%s in the clan's bank account! ]{x\n",
 		        ch->name, atoi(arg1), (atoi(arg1) > 1) ? "s" : "");
 		send_to_clan(ch, ch->clan, buf);
 		ptc(ch, "Your clan's balance is now %ld gold.\n", ch->clan->gold_balance);
@@ -182,7 +182,7 @@ void do_clandeposit(CHAR_DATA *ch, const char *argument)
 	}
 
 	target->gold_balance += atoi(arg2);
-	sprintf(buf, "{W[ %s just deposited %d gold coin%s in the clan's bank account! ]{x\n",
+	Format::sprintf(buf, "{W[ %s just deposited %d gold coin%s in the clan's bank account! ]{x\n",
 	        ch->name, atoi(arg2), (atoi(arg2) > 1) ? "s" : "");
 	send_to_clan(ch, target, buf);
 	ptc(ch, "That clan's balance is now %ld gold.\n", target->gold_balance);
@@ -232,7 +232,7 @@ void do_balance(CHAR_DATA *ch, void *vo)
 	}
 
 	find_money(ch);
-	sprintf(buf, "You have %ld gold and %ld silver pieces in the bank.\n",
+	Format::sprintf(buf, "You have %ld gold and %ld silver pieces in the bank.\n",
 	        ch->gold_in_bank, ch->silver_in_bank);
 	stc(buf, ch);
 }
@@ -280,7 +280,7 @@ void do_withdraw(CHAR_DATA *ch, const char *argument)
 		ch->gold_in_bank -= atoi(arg1);
 		ch->gold += atoi(arg1);
 		find_money(ch);
-		sprintf(buf, "You now have %ld gold and %ld silver in the bank.\n",
+		Format::sprintf(buf, "You now have %ld gold and %ld silver in the bank.\n",
 		        ch->gold_in_bank, ch->silver_in_bank);
 		stc(buf, ch);
 	}
@@ -300,7 +300,7 @@ void do_withdraw(CHAR_DATA *ch, const char *argument)
 		ch->silver_in_bank -= atoi(arg1);
 		ch->silver += atoi(arg1);
 		find_money(ch);
-		sprintf(buf, "You now have %ld gold and %ld silver in the bank.\n",
+		Format::sprintf(buf, "You now have %ld gold and %ld silver in the bank.\n",
 		        ch->gold_in_bank, ch->silver_in_bank);
 		stc(buf, ch);
 	}
@@ -367,10 +367,10 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 
 		ch->clan->gold_balance -= atoi(arg1);
 		ch->gold += atoi(arg1);
-		sprintf(buf, "{W[ %s has withdrawn %d gold coin%s for %s. ]{x\n",
+		Format::sprintf(buf, "{W[ %s has withdrawn %d gold coin%s for %s. ]{x\n",
 		        ch->name, atoi(arg1), (atoi(arg1) > 1) ? "s" : "", argument);
 		send_to_clan(ch, ch->clan, buf);
-		sprintf(buf, "{WYour clan's balance is now %ld gold.{x\n", ch->clan->gold_balance);
+		Format::sprintf(buf, "{WYour clan's balance is now %ld gold.{x\n", ch->clan->gold_balance);
 		send_to_clan(ch, ch->clan, buf);
 		save_clan_table();
 		save_char_obj(ch);
@@ -419,10 +419,10 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 	}
 
 	target->gold_balance -= atoi(arg2);
-	sprintf(buf, "{W[ %s has deducted %d gold coin%s for %s. ]\n",
+	Format::sprintf(buf, "{W[ %s has deducted %d gold coin%s for %s. ]\n",
 	        ch->name, atoi(arg2), (atoi(arg2) > 1) ? "s" : "", argument);
 	send_to_clan(ch, target, buf);
-	sprintf(buf, "{WYour clan's balance is now %ld gold.{x\n", target->gold_balance);
+	Format::sprintf(buf, "{WYour clan's balance is now %ld gold.{x\n", target->gold_balance);
 	send_to_clan(ch, target, buf);
 	ptc(ch, "Their clan's balance is now %ld gold.\n", target->gold_balance);
 	save_clan_table();

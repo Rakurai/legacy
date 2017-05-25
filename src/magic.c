@@ -173,8 +173,8 @@ void say_spell(CHAR_DATA *ch, int sn)
 			length = 1;
 	}
 
-	sprintf(buf2, "$n utters the words, '%s'.", buf);
-	sprintf(buf,  "$n utters the words, '%s'.", skill_table[sn].name);
+	Format::sprintf(buf2, "$n utters the words, '%s'.", buf);
+	Format::sprintf(buf,  "$n utters the words, '%s'.", skill_table[sn].name);
 
 	if (char_in_darena_room(ch))
 		act(buf, ch, NULL, NULL, TO_VIEW);      /* for viewing rooms */
@@ -901,7 +901,7 @@ void animate_mob(CHAR_DATA *ch, int level, const char *name, long vnum)
 
 	make_pet(ch, mob);
 
-	sprintf(buf, "%sSummoned from the darkside, this %s serves '%s'.\n",
+	Format::sprintf(buf, "%sSummoned from the darkside, this %s serves '%s'.\n",
 	        mob->description, name, ch->name);
 	free_string(mob->description);
 	mob->description = str_dup(buf);
@@ -1875,15 +1875,15 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	free_string(food->short_descr);
 	food->short_descr = str_dup(type);
 	free_string(food->name);
-	sprintf(buf, "food %s", smash_bracket(food->short_descr));
+	Format::sprintf(buf, "food %s", smash_bracket(food->short_descr));
 	food->name = str_dup(buf);
-	sprintf(buf, "%s{x is lying on the ground.", type);
+	Format::sprintf(buf, "%s{x is lying on the ground.", type);
 	buf[0] = UPPER(buf[0]);
 	free_string(food->description);
 	food->description = str_dup(buf);
 	free_string(food->material);
 	food->material = str_dup("food");
-	sprintf(buf, "This food was created by %s.\n", ch->name);
+	Format::sprintf(buf, "This food was created by %s.\n", ch->name);
 	ed = new_extra_descr();
 	ed->keyword             = str_dup("chef");
 	ed->description         = str_dup(buf);
@@ -1932,19 +1932,19 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	}
 
 	ptc(ch, "You have created a beautiful %s{x rose.\n", color);
-	sprintf(buf, "%s has created a beautiful %s{x rose.", ch->name, color);
+	Format::sprintf(buf, "%s has created a beautiful %s{x rose.", ch->name, color);
 	act(buf, ch, rose, NULL, TO_ROOM);
-	sprintf(buf, "a %s{x rose", color);
+	Format::sprintf(buf, "a %s{x rose", color);
 	free_string(rose->short_descr);
 	rose->short_descr = str_dup(buf);
-	sprintf(buf, "A %s{x rose is lying on the ground.", color);
+	Format::sprintf(buf, "A %s{x rose is lying on the ground.", color);
 	free_string(rose->description);
 	rose->description = str_dup(buf);
 	free_string(rose->material);
 	rose->material = str_dup("silk");
 	free_string(rose->name);
 	rose->name = str_dup("rose");
-	sprintf(buf, "This rose was created by %s.\n", ch->name);
+	Format::sprintf(buf, "This rose was created by %s.\n", ch->name);
 	ed = new_extra_descr();
 	ed->keyword             = str_dup("florist");
 	ed->description         = str_dup(buf);
@@ -2001,13 +2001,13 @@ void spell_create_sign(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		return;
 	}
 
-	sprintf(buf, "%s\n", target_name);
+	Format::sprintf(buf, "%s\n", target_name);
 	ed = new_extra_descr();
 	ed->keyword         = str_dup("sign");
 	ed->description     = str_dup(buf);
 	ed->next            = sign->extra_descr;
 	sign->extra_descr   = ed;
-	sprintf(buf, "This road sign was created by %s.\n", ch->name);
+	Format::sprintf(buf, "This road sign was created by %s.\n", ch->name);
 	owner = new_extra_descr();
 	owner->keyword        = str_dup("carpenter");
 	owner->description    = str_dup(buf);
@@ -2119,7 +2119,7 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 
 		if (!is_name("water", obj->name)) {
 			char buf[MAX_STRING_LENGTH];
-			sprintf(buf, "%s water", obj->name);
+			Format::sprintf(buf, "%s water", obj->name);
 			free_string(obj->name);
 			obj->name = str_dup(buf);
 		}
@@ -2548,7 +2548,7 @@ void spell_dispel_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	if (IS_GOOD(victim)) {
 		if (!IS_NPC(victim)) {
 			ptc(victim, "%s protects you.\n", victim->pcdata->deity);
-			sprintf(buf, "%s protects $n.", victim->pcdata->deity);
+			Format::sprintf(buf, "%s protects $n.", victim->pcdata->deity);
 			act(buf, victim, NULL, NULL, TO_ROOM);
 		}
 		else {
@@ -3162,15 +3162,15 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 		int wait = number_range(1, 3) * PULSE_VIOLENCE;
 
 		if (evolution == 2)
-			sprintf(fb_buf, "{Hf{Gir{Web{Gal{Hl{x");
+			Format::sprintf(fb_buf, "{Hf{Gir{Web{Gal{Hl{x");
 		else
-			sprintf(fb_buf, "{Bf{Cir{Web{Cal{Bl{x");
+			Format::sprintf(fb_buf, "{Bf{Cir{Web{Cal{Bl{x");
 
-		sprintf(buf, "The concussive force of $n's %s knocks you to the ground!", fb_buf);
+		Format::sprintf(buf, "The concussive force of $n's %s knocks you to the ground!", fb_buf);
 		act(buf, ch, NULL, victim, TO_VICT);
-		sprintf(buf, "The concussive force of your %s knocks $N to the ground!", fb_buf);
+		Format::sprintf(buf, "The concussive force of your %s knocks $N to the ground!", fb_buf);
 		act(buf, ch, NULL, victim, TO_CHAR);
-		sprintf(buf, "The concussive force of $n's %s knocks $N to the ground!", fb_buf);
+		Format::sprintf(buf, "The concussive force of $n's %s knocks $N to the ground!", fb_buf);
 		act(buf, ch, NULL, victim, TO_NOTVICT);
 		DAZE_STATE(victim, wait);
 		WAIT_STATE(victim, wait);
@@ -3229,13 +3229,13 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		}
 
 		if (evolution == 2)
-			sprintf(fb_buf, "{Hf{Gir{Web{Gal{Hl{x");
+			Format::sprintf(fb_buf, "{Hf{Gir{Web{Gal{Hl{x");
 		else
-			sprintf(fb_buf, "{Bf{Cir{Web{Cal{Bl{x");
+			Format::sprintf(fb_buf, "{Bf{Cir{Web{Cal{Bl{x");
 
 		dam -= dam / 4;
 		ptc(ch, "You blast the room with a powerful %s!\n", fb_buf);
-		sprintf(buf, "$n blasts the room with a powerful %s!", fb_buf);
+		Format::sprintf(buf, "$n blasts the room with a powerful %s!", fb_buf);
 		act(buf, ch, NULL, NULL, TO_ROOM);
 
 		for (victim = ch->in_room->people; victim; victim = victim_next) {
@@ -3994,7 +3994,7 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	/* labeling the item */
 	free_string(obj->short_descr);
-	sprintf(buf, "a %s of ", item_type_name(obj));
+	Format::sprintf(buf, "a %s of ", item_type_name(obj));
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
@@ -4004,7 +4004,7 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	obj->short_descr = str_dup(buf);
 	free_string(obj->description);
-	sprintf(buf, "A %s of ", item_type_name(obj));
+	Format::sprintf(buf, "A %s of ", item_type_name(obj));
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
@@ -4013,7 +4013,7 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 		}
 
 	obj->description = str_dup(buf);
-	sprintf(buf, "%s", item_type_name(obj));
+	Format::sprintf(buf, "%s", item_type_name(obj));
 	free_string(obj->name);
 
 	for (i = 1; i <= sp_slot ; i++)
@@ -4063,11 +4063,11 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	    obj->name, item_type_name(obj), extra_bit_name(obj->extra_flags|obj->extra_flag_cache));
 	ptc(ch, "Weight is %d, value is %d, level is %d, and material is %s.\n",
 	    obj->weight / 10, obj->cost, obj->level, obj->material);
-	sprintf(buf, ".");
+	Format::sprintf(buf, ".");
 
 	for (i = 0; wearloc_table[i].loc != NULL; i++)
 		if (CAN_WEAR(obj, wearloc_table[i].bit)) {
-			sprintf(buf, ", and can %s.", wearloc_table[i].loc);
+			Format::sprintf(buf, ", and can %s.", wearloc_table[i].loc);
 			break;
 		}
 
@@ -4337,7 +4337,7 @@ void spell_locate_life(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 
 		found = TRUE;
 		number++;
-		sprintf(buf, "[%d] %s is located at %s\n",
+		Format::sprintf(buf, "[%d] %s is located at %s\n",
 		        number, IS_NPC(victim) ? victim->short_descr : victim->name, victim->in_room->name);
 		buf[0] = UPPER(buf[0]);
 		add_buf(buffer, buf);
@@ -4379,13 +4379,13 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 			;
 
 		if (in_obj->carried_by != NULL && can_see_char(ch, in_obj->carried_by))
-			sprintf(buf, "%s is carried by %s\n", obj->short_descr, PERS(in_obj->carried_by, ch, VIS_CHAR));
+			Format::sprintf(buf, "%s is carried by %s\n", obj->short_descr, PERS(in_obj->carried_by, ch, VIS_CHAR));
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
-				sprintf(buf, "%s is in %s [Room %d]\n",
+				Format::sprintf(buf, "%s is in %s [Room %d]\n",
 				        obj->short_descr, in_obj->in_room->name, in_obj->in_room->vnum);
 			else
-				sprintf(buf, "%s is in %s\n",
+				Format::sprintf(buf, "%s is in %s\n",
 				        obj->short_descr, in_obj->in_room == NULL ? "somewhere" : in_obj->in_room->name);
 		}
 
@@ -5157,7 +5157,7 @@ void spell_resurrect(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	mob->damage[DICE_NUMBER]        = mob->level / 4;
 	mob->damage[DICE_TYPE]          = 2;
 	free_string(mob->long_descr);
-	sprintf(buf, "A zombie made from %s is here.\n", obj->short_descr);
+	Format::sprintf(buf, "A zombie made from %s is here.\n", obj->short_descr);
 	mob->long_descr = str_dup(buf);
 	char_to_room(mob, ch->in_room);
 	act("$p springs to life as a hideous zombie!", ch, obj, NULL, TO_ROOM);
@@ -6265,7 +6265,7 @@ void spell_teleport_object(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 
 	if (!IS_NPC(victim)) {
 		if (IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
-			sprintf(buf, "$N is trying to teleport an object to the linkdead character %s.", victim->name);
+			Format::sprintf(buf, "$N is trying to teleport an object to the linkdead character %s.", victim->name);
 			wiznet(buf, ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 			stc("Your recipient cannot receive teleported objects in their current state.\n", ch);
 			return;
@@ -6431,8 +6431,8 @@ void spell_ventriloquate(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	char speaker[MAX_INPUT_LENGTH];
 	CHAR_DATA *vch;
 	target_name = one_argument(target_name, speaker);
-	sprintf(buf1, "%s says '%s'.\n",              speaker, target_name);
-	sprintf(buf2, "Someone makes %s say '%s'.\n", speaker, target_name);
+	Format::sprintf(buf1, "%s says '%s'.\n",              speaker, target_name);
+	Format::sprintf(buf2, "Someone makes %s say '%s'.\n", speaker, target_name);
 	buf1[0] = UPPER(buf1[0]);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {

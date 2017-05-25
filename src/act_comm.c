@@ -480,7 +480,7 @@ void do_testpose(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!argument[0]) {
-		sprintf(arg, "%d poses defined for class '%s'\n",
+		Format::sprintf(arg, "%d poses defined for class '%s'\n",
 		        new_pose_table[cls].posecount, class_table[cls].name);
 		stc(arg, ch);
 		return;
@@ -578,7 +578,7 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(strsave, "%s%s", PLAYER_DIR, ch->name.capitalize());
+		Format::sprintf(strsave, "%s%s", PLAYER_DIR, ch->name.capitalize());
 		wiznet("$N has wiped $Mself from these realms.", ch, NULL, 0, 0, 0);
 		update_pc_index(ch, TRUE);
 		id = ch->id;
@@ -904,10 +904,10 @@ void do_afk(CHAR_DATA *ch, const char *argument)
 			char buf[MAX_STRING_LENGTH];
 
 			if (argument[0] != '\0')
-				sprintf(buf, "{B[{C%s{B] {C%s\n", strtime,
+				Format::sprintf(buf, "{B[{C%s{B] {C%s\n", strtime,
 				        argument);
 			else
-				sprintf(buf, "{B[{C%s{B] {CUnknown Departure.{x\n",
+				Format::sprintf(buf, "{B[{C%s{B] {CUnknown Departure.{x\n",
 				        strtime);
 
 			free_string(ch->pcdata->afk);
@@ -947,7 +947,7 @@ void update_text_file(CHAR_DATA *ch, const char *file, const char *str)
 		gettimeofday(&now_time, NULL);
 		current_time = (time_t) now_time.tv_sec;
 		strftime(buf, 9, "%m/%d/%y", localtime(&current_time));
-		fprintf(fp, "{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
+		Format::fprintf(fp, "{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
 		        buf, ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
 		fclose(fp);
 	}
@@ -1245,7 +1245,7 @@ void do_fuckoff(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	sprintf(log_buf, "%s has been fried.", ch->name);
+	Format::sprintf(log_buf, "%s has been fried.", ch->name);
 	do_send_announce(ch, log_buf);
 	log_string(log_buf);
 	wiznet("$N has been terminated.", ch, NULL, WIZ_LOGINS, 0, GET_RANK(ch));
@@ -1544,14 +1544,14 @@ void do_order(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 			}
 
-			sprintf(buf, "$n orders you to '%s{x'.", argument);
+			Format::sprintf(buf, "$n orders you to '%s{x'.", argument);
 			act(buf, ch, NULL, och, TO_VICT);
 			interpret(och, argument);
 		}
 	}
 
 	if ((! found) && (remote_familiar)) {
-		sprintf(buf, "$n orders you to '%s{x'.", argument);
+		Format::sprintf(buf, "$n orders you to '%s{x'.", argument);
 		act(buf, ch, NULL, ch->pet, TO_VICT);
 		interpret(ch->pet, argument);
 		found = TRUE;
@@ -1619,14 +1619,14 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		CHAR_DATA *gch;
 		CHAR_DATA *leader;
 		leader = (ch->leader != NULL) ? ch->leader : ch;
-		sprintf(buf, "%s's group:\n", PERS(leader, ch, VIS_PLR));
+		Format::sprintf(buf, "%s's group:\n", PERS(leader, ch, VIS_PLR));
 		set_color(ch, PURPLE, BOLD);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
 
 		for (gch = char_list; gch != NULL; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",
 				        gch->level,
 				        IS_NPC(gch) ? "Mob" : class_table[gch->cls].who_name,
@@ -1770,15 +1770,15 @@ void do_split(CHAR_DATA *ch, const char *argument)
 		    amount_gold, amount_gold > 1 ? "s" : "", share_gold + extra_gold);
 
 	if (share_gold == 0) {
-		sprintf(buf, "$n splits %d silver coin%s. Your share is %d silver.",
+		Format::sprintf(buf, "$n splits %d silver coin%s. Your share is %d silver.",
 		        amount_silver, amount_silver > 1 ? "s" : "", share_silver);
 	}
 	else if (share_silver == 0) {
-		sprintf(buf, "$n splits %d gold coin%s. Your share is %d gold.",
+		Format::sprintf(buf, "$n splits %d gold coin%s. Your share is %d gold.",
 		        amount_gold, amount_gold > 1 ? "s" : "", share_gold);
 	}
 	else {
-		sprintf(buf,
+		Format::sprintf(buf,
 		        "$n splits %d silver and %d gold coin%s, giving you %d silver and %d gold.\n",
 		        amount_silver, amount_gold, amount_gold > 1 ? "s" : "", share_silver, share_gold);
 	}
@@ -1825,7 +1825,7 @@ void align(CHAR_DATA *ch, int new_align, char *align_str)
 	}
 	else {
 		ch->alignment = new_align;
-		sprintf(buf, "You are now %s.\n", align_str);
+		Format::sprintf(buf, "You are now %s.\n", align_str);
 		stc(buf, ch);
 		check_improve(ch, gsn_align, TRUE, 20);
 	}

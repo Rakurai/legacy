@@ -45,11 +45,11 @@ int count_clan_members(CLAN_DATA *clan, int bit)
 	if (bit != 0 && bit != GROUP_LEADER && bit != GROUP_DEPUTY)
 		return 0;
 
-	sprintf(query, "SELECT COUNT(*) FROM pc_index WHERE clan LIKE '%s'", db_esc(clan->name));
+	Format::sprintf(query, "SELECT COUNT(*) FROM pc_index WHERE clan LIKE '%s'", db_esc(clan->name));
 
 	if (bit != 0) {
 		char buf[MSL];
-		sprintf(buf, " AND cgroup&%d", bit);
+		Format::sprintf(buf, " AND cgroup&%d", bit);
 		strcat(query, buf);
 	}
 
@@ -68,7 +68,7 @@ void load_clan_table()
 
 	/* Watch out for memory errors -- Outsider */
 	if ((!clan_table_head) || (!clan_table_tail)) {
-		printf("load_clan_table: Error on memory alloc.\n");
+		Format::printf("load_clan_table: Error on memory alloc.\n");
 		return;
 	}
 
@@ -106,11 +106,11 @@ void load_clan_table()
 		clan->score             = db_get_column_int(11);
 		clan->warcpmod          = db_get_column_int(12);
 		append_clan(clan);
-		printf("Loaded clan '%s'\n", clan->name);
+		Format::printf("Loaded clan '%s'\n", clan->name);
 		count++;
 	}
 
-	printf("Total of %d clans loaded.\n", count);
+	Format::printf("Total of %d clans loaded.\n", count);
 }
 
 void save_clan_table()

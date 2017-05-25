@@ -169,7 +169,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		sprintf(what, "%s", PERS(victim, ch, VIS_PLR));
+		Format::sprintf(what, "%s", PERS(victim, ch, VIS_PLR));
 	}
 	else if (!str_prefix1(arg1, "obj")) {
 		if (flag_fields[fieldptr].cand != CAND_OBJ) {
@@ -187,7 +187,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(what, "%s", object->name);
+		Format::sprintf(what, "%s", object->name);
 
 		switch (fieldptr) {
 		case FIELD_EXTRA:       flag = &object->extra_flags;    break;
@@ -227,7 +227,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(what, "%s", room->name);
+		Format::sprintf(what, "%s", room->name);
 
 		if (fieldptr == FIELD_ROOM)     flag = &room->room_flags;
 		else {
@@ -439,7 +439,7 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 		if (++count > 500)
 			continue;
 
-		sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{x %s{x.\n",
+		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{x %s{x.\n",
 		        count,
 		        victim->in_room->vnum,
 		        victim->short_descr);
@@ -495,7 +495,7 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 		if (++count > 500)
 			continue;
 
-		sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x.\n",
+		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x.\n",
 		        count,
 		        victim->in_room->vnum,
 		        victim->pIndexData->vnum,
@@ -524,9 +524,9 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 
 	if (mobile) {
 		if (mobilecount == 0)
-			sprintf(buf, "You found no mobiles matching your search criteria.\n");
+			Format::sprintf(buf, "You found no mobiles matching your search criteria.\n");
 		else
-			sprintf(buf, "You found %d matching mobile%s%s.\n",
+			Format::sprintf(buf, "You found %d matching mobile%s%s.\n",
 			        mobilecount,
 			        mobilecount > 1 ? "s" : "",
 			        mobilecount > 500 ? ", of which 500 are shown" : "");
@@ -536,9 +536,9 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 
 	if (player) {
 		if (playercount == 0)
-			sprintf(buf, "You found no players matching your search criteria.\n");
+			Format::sprintf(buf, "You found no players matching your search criteria.\n");
 		else
-			sprintf(buf, "You found %d matching player%s%s.\n",
+			Format::sprintf(buf, "You found %d matching player%s%s.\n",
 			        playercount,
 			        playercount > 1 ? "s" : "",
 			        playercount > 500 ? ", of which 500 are shown" : "");
@@ -579,7 +579,7 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 			if (++count > 500)
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{H[{G%5d{H]{x %s{x.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{H[{G%5d{H]{x %s{x.\n",
 			        count,
 			        vnum,
 			        room->name);
@@ -590,7 +590,7 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 	if (count == 0)
 		stc("You found no rooms matching your search criteria.\n", ch);
 	else {
-		sprintf(buf, "You found %d matching room%s%s.\n",
+		Format::sprintf(buf, "You found %d matching room%s%s.\n",
 		        count,
 		        count > 1 ? "s" : "",
 		        count > 500 ? ", of which 500 are shown" : "");
@@ -636,7 +636,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 			    || !can_see_char(ch, in_obj->carried_by))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
 			        count,
 			        in_obj->carried_by->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -649,7 +649,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 			    || !can_see_char(ch, in_obj->in_locker))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
 			        count,
 			        in_obj->in_locker->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -662,7 +662,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 			    || !can_see_char(ch, in_obj->in_strongbox))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
 			        count,
 			        in_obj->in_strongbox->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -673,7 +673,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 			if (!can_see_room(ch, in_obj->in_room))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
 			        count,
 			        in_obj->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -690,7 +690,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 	if (--count == 0)
 		stc("You found no items matching your search criteria.\n", ch);
 	else {
-		sprintf(buf, "You found %d matching item%s%s.\n",
+		Format::sprintf(buf, "You found %d matching item%s%s.\n",
 		        count,
 		        count > 1 ? "s" : "",
 		        count > 500 ? ", of which 500 are shown" : "");

@@ -225,14 +225,14 @@ const char *strcenter(const String& s, int space)
 
 	/* if string is longer than the space, just cut it off and return it */
 	if ((length = color_strlen(str)) > space) {
-		sprintf(output, "%s", str);
+		Format::sprintf(output, "%s", str);
 		output[space] = '\0';
 	}
 	else {
 		int extraspace = space - length, lspace, rspace;
 		lspace = extraspace / 2;
 		rspace = extraspace - lspace;
-		sprintf(output, " ");
+		Format::sprintf(output, " ");
 
 		while (--lspace > 0)    strcat(output, " ");
 

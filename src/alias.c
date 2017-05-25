@@ -61,7 +61,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 		if (strlen(ch->prefix) + 1 + strlen(argument) + 1 > MAX_INPUT_LENGTH)
 			stc("{PLine too long, truncated!{x\n", ch);
 
-		sprintf(prefix, "%s %s", ch->prefix, argument);
+		Format::sprintf(prefix, "%s %s", ch->prefix, argument);
 		prefix[MAX_INPUT_LENGTH - 1] = '\0';
 		argument = prefix;
 	}

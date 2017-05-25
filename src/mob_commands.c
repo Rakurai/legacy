@@ -113,20 +113,20 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "Name: %s.  Vnum: %d.\n",
+	Format::sprintf(buf, "Name: %s.  Vnum: %d.\n",
 	        victim->name, victim->pIndexData->vnum);
 	stc(buf, ch);
-	sprintf(buf, "Short description: %s.\nLong  description: %s",
+	Format::sprintf(buf, "Short description: %s.\nLong  description: %s",
 	        victim->short_descr,
 	        victim->long_descr[0] != '\0' ?
 	        victim->long_descr : "(none).\n");
 	stc(buf, ch);
-	sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",
+	Format::sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",
 	        victim->hit,         GET_MAX_HIT(victim),
 	        victim->mana,        GET_MAX_MANA(victim),
 	        victim->stam,        GET_MAX_STAM(victim));
 	stc(buf, ch);
-	sprintf(buf,
+	Format::sprintf(buf,
 	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",
 	        victim->level,       victim->cls,        victim->alignment,
 	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
@@ -134,7 +134,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 
 	for (mprg = victim->pIndexData->mobprogs; mprg != NULL;
 	     mprg = mprg->next) {
-		sprintf(buf, ">%s %s\n%s\n",
+		Format::sprintf(buf, ">%s %s\n%s\n",
 		        mprog_type_to_name(mprg->type),
 		        mprg->arglist,
 		        mprg->comlist);
@@ -614,7 +614,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	                        {
 	                                char buf[MSL];
 
-	                                sprintf(buf, "%s %s", d->character->name, arg2);
+	                                Format::sprintf(buf, "%s %s", d->character->name, arg2);
 	                                do_transfer(ch, buf);
 	                        }
 	                }

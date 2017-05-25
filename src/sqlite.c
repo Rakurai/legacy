@@ -71,7 +71,7 @@ const char * db_get_column_str(int index) {
 }
 
 /* perform a query, store and return a result */
-int db_query(const char *func, const char *query)
+int db_query(const String& func, const String& query)
 {
 	int error;
 
@@ -81,7 +81,7 @@ int db_query(const char *func, const char *query)
 		_result = NULL;
 	}
 
-	error = sqlite3_prepare_v2(_db, query, -1, &_result, NULL);
+	error = sqlite3_prepare_v2(_db, query.c_str(), -1, &_result, NULL);
 
 	if (error != SQLITE_OK) {
 		db_error("db_query");
@@ -92,7 +92,7 @@ int db_query(const char *func, const char *query)
 }
 
 /* perform a query, no result, return success or not */
-int db_command(const char *func, const char *query)
+int db_command(const String& func, const String& query)
 {
 	int error = db_query(func, query);
 
@@ -106,7 +106,7 @@ int db_command(const char *func, const char *query)
    the SELECT COUNT(*) or COUNT(expr).  The only difference is that it
    does not return a result, just an integer.  Returns are 0 on no rows
    matching, a positive number for rows found, or -1 on error. */
-int db_count(const char *func, const char *query)
+int db_count(const String& func, const String& query)
 {
 	int error = db_command(func, query);
 
@@ -124,7 +124,7 @@ int db_rows_affected() {
 String db_esc(const String& string)
 {
 	String buf;
-	int i = 0, j = 0;
+	int i = 0;
 
 	while (string[i] != '\0') {
 		if (string[i] == '\'')

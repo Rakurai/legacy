@@ -38,7 +38,7 @@ template<class... Params>
 int ptb(BUFFER *buffer, const String& fmt, Params&&... params)
 {
 	char buf[MAX_BUF];
-	int res = snprintf(buf, MAX_BUF, fmt.c_str(), params...);
+	int res = Format::snprintf(buf, MAX_BUF, fmt.c_str(), params...);
 
 	if (res >= MAX_BUF - 1) {
 		buf[0] = '\0';

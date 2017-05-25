@@ -69,7 +69,7 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 	char buf[MSL] = "\0", query[MSL], *text;
 	BUFFER *output;
 	int i = 0, count = 0;
-	sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
+	Format::sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
 	        "AND " HCOL_KEYS " LIKE '%% %s%%' "
 	        "OR " HCOL_KEYS " LIKE '%s%%' "
 	        "OR " HCOL_KEYS " LIKE '%%\\'%s%%' "
@@ -117,7 +117,7 @@ void help(CHAR_DATA *ch, const char *argument)
 	char query[MSL];
 	const char *p;
 	BUFFER *output;
-	sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
+	Format::sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
 	p = argument;
 
 	while (*p != '\0') {
@@ -163,7 +163,7 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 		help_greeting = str_dup(text);
 	}
 
-	sprintf(query, "INSERT INTO " HTABLE " (" HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
+	Format::sprintf(query, "INSERT INTO " HTABLE " (" HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
 	        "VALUES(%d,%d,%d,'", group, order, level
 	       );
 	strcat(query, db_esc(keywords));
@@ -229,7 +229,7 @@ void do_loadhelps(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
+	Format::sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 
 	if ((fp = fopen(buf, "r")) == NULL) {
 		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n", ch);
@@ -383,9 +383,9 @@ void do_printhelps(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	fprintf(fp, "-2\n");
+	Format::fprintf(fp, "-2\n");
 	fclose(fp);
-	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
+	Format::sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 	rename(TEMP_FILE, buf);
 	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
 }
@@ -426,7 +426,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* poll the database for all helps containing the arguments */
-	sprintf(query, "SELECT " HCOL_GROUP "," HCOL_KEYS "," HCOL_TEXT "," HCOL_ID
+	Format::sprintf(query, "SELECT " HCOL_GROUP "," HCOL_KEYS "," HCOL_TEXT "," HCOL_ID
 	        " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d AND ",
 	        ch->level
 	       );
@@ -503,7 +503,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 			char immbuf[MSL] = "";
 
 			if (IS_IMMORTAL(ch))
-				sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
+				Format::sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
 			ptb(output, "%s\n{W%s%s{x\n\n",
 			    stupidassline,
@@ -522,7 +522,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 		char immbuf[MSL] = "";
 
 		if (IS_IMMORTAL(ch))
-			sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
+			Format::sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
 		ptb(output, "%s\n{W%s%s{x\n\n",
 		    stupidassline,

@@ -82,7 +82,7 @@ void do_autoboot(CHAR_DATA *ch, const char *argument)
 	reboot_time = reboot_time + ((hours - tm->tm_hour) * 3600);
 	reboot_time = reboot_time + ((minutes - tm->tm_min) * 60);
 	ptc(ch, "Legacy is now scheduled to reboot at %s\n", (char *)ctime(&reboot_time));
-	sprintf(buf, "%s called for auto-reboot at %s\n", ch->name, (char *)ctime(&reboot_time));
+	Format::sprintf(buf, "%s called for auto-reboot at %s\n", ch->name, (char *)ctime(&reboot_time));
 	fappend(SHUTDOWN_FILE, buf);
 }
 
@@ -226,7 +226,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_color(ch, YELLOW, BOLD);
-	sprintf(buf, "%s has called for a REBOOT.  Back in 60 seconds or less!\n", ch->name);
+	Format::sprintf(buf, "%s has called for a REBOOT.  Back in 60 seconds or less!\n", ch->name);
 	do_echo(ch, buf);
 	set_color(ch, WHITE, NOBOLD);
 	do_allsave(ch, "");
@@ -261,13 +261,13 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "%s has SHUTDOWN the system.  Back after these messages!\n", ch->name);
+	Format::sprintf(buf, "%s has SHUTDOWN the system.  Back after these messages!\n", ch->name);
 	do_echo(ch, buf);
 
 	if (port == DIZZYPORT) {
 		strtime                    = ctime(&current_time);
 		strtime[strlen(strtime) - 1] = '\0';
-		sprintf(buf2, "%s :SHUTDOWN", strtime);
+		Format::sprintf(buf2, "%s :SHUTDOWN", strtime);
 		fappend(SHUTDOWN_FILE, buf2);
 		fappend(SHUTDOWN_FILE, argument);
 	}
@@ -555,36 +555,36 @@ void do_sectchange(CHAR_DATA *ch, const char *argument)
 void do_memory(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	sprintf(buf, "Affects %5d\n", top_affect);
+	Format::sprintf(buf, "Affects %5d\n", top_affect);
 	stc(buf, ch);
-	sprintf(buf, "Areas   %5d\n", top_area);
+	Format::sprintf(buf, "Areas   %5d\n", top_area);
 	stc(buf, ch);
-	sprintf(buf, "ExDes   %5d\n", top_ed);
+	Format::sprintf(buf, "ExDes   %5d\n", top_ed);
 	stc(buf, ch);
-	sprintf(buf, "Exits   %5d\n", top_exit);
+	Format::sprintf(buf, "Exits   %5d\n", top_exit);
 	stc(buf, ch);
-	sprintf(buf, "Socials %5d\n", count_socials());
+	Format::sprintf(buf, "Socials %5d\n", count_socials());
 	stc(buf, ch);
-	sprintf(buf, "Mobs    %5d\n", top_mob_index);
+	Format::sprintf(buf, "Mobs    %5d\n", top_mob_index);
 	stc(buf, ch);
-	sprintf(buf, "(in use)%5d\n", mobile_count);
+	Format::sprintf(buf, "(in use)%5d\n", mobile_count);
 	stc(buf, ch);
-	sprintf(buf, "Objs    %5d\n", top_obj_index);
+	Format::sprintf(buf, "Objs    %5d\n", top_obj_index);
 	stc(buf, ch);
-	sprintf(buf, "Resets  %5d\n", top_reset);
+	Format::sprintf(buf, "Resets  %5d\n", top_reset);
 	stc(buf, ch);
-	sprintf(buf, "Rooms   %5d\n", top_room);
+	Format::sprintf(buf, "Rooms   %5d\n", top_room);
 	stc(buf, ch);
-	sprintf(buf, "Shops   %5d\n", top_shop);
+	Format::sprintf(buf, "Shops   %5d\n", top_shop);
 	stc(buf, ch);
-	sprintf(buf, "Clans   %5d\n", count_clans());
+	Format::sprintf(buf, "Clans   %5d\n", count_clans());
 	stc(buf, ch);
-	sprintf(buf, "Characters in storage  %5d\n", count_stored_characters());
+	Format::sprintf(buf, "Characters in storage  %5d\n", count_stored_characters());
 	stc(buf, ch);
-	sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n",
+	Format::sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n",
 	        nAllocString, sAllocString, MAX_STRING);
 	stc(buf, ch);
-	sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n",
+	Format::sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n",
 	        nAllocPerm, sAllocPerm);
 	stc(buf, ch);
 	return;
@@ -609,7 +609,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	num_pcs = 0;
 	aff_count = 0;
 	/* mobile prototypes */
-	fprintf(fp, "MobProt %4d (%8ld bytes)\n",
+	Format::fprintf(fp, "MobProt %4d (%8ld bytes)\n",
 	        top_mob_index, top_mob_index * (sizeof(*pMobIndex)));
 	/* mobs */
 	count = 0;  count2 = 0;
@@ -627,7 +627,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (fch = char_free; fch != NULL; fch = fch->next)
 		count2++;
 
-	fprintf(fp, "Mobs    %4d (%8ld bytes), %2d free (%ld bytes)\n",
+	Format::fprintf(fp, "Mobs    %4d (%8ld bytes), %2d free (%ld bytes)\n",
 	        count, count * (sizeof(*fch)), count2, count2 * (sizeof(*fch)));
 	/* pcdata */
 	count = 0;
@@ -635,7 +635,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (pc = pcdata_free; pc != NULL; pc = pc->next)
 		count++;
 
-	fprintf(fp, "Pcdata  %4d (%8ld bytes), %2d free (%ld bytes)\n",
+	Format::fprintf(fp, "Pcdata  %4d (%8ld bytes), %2d free (%ld bytes)\n",
 	        num_pcs, num_pcs * (sizeof(*pc)), count, count * (sizeof(*pc)));
 	/* descriptors */
 	count = 0; count2 = 0;
@@ -646,7 +646,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_free; d != NULL; d = d->next)
 		count2++;
 
-	fprintf(fp, "Descs  %4d (%8ld bytes), %2d free (%ld bytes)\n",
+	Format::fprintf(fp, "Descs  %4d (%8ld bytes), %2d free (%ld bytes)\n",
 	        count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
 
 	/* object prototypes */
@@ -658,7 +658,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 			nMatch++;
 		}
 
-	fprintf(fp, "ObjProt %4d (%8ld bytes)\n",
+	Format::fprintf(fp, "ObjProt %4d (%8ld bytes)\n",
 	        top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
 	/* objects */
 	count = 0;  count2 = 0;
@@ -673,7 +673,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (obj = obj_free; obj != NULL; obj = obj->next)
 		count2++;
 
-	fprintf(fp, "Objs    %4d (%8ld bytes), %2d free (%ld bytes)\n",
+	Format::fprintf(fp, "Objs    %4d (%8ld bytes), %2d free (%ld bytes)\n",
 	        count, count * (sizeof(*obj)), count2, count2 * (sizeof(*obj)));
 	/* affects */
 	count = 0;
@@ -681,25 +681,25 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (const AFFECT_DATA *af = affect_free; af != NULL; af = af->next)
 		count++;
 
-	fprintf(fp, "Affects %4d (%8ld bytes), %2d free (%ld bytes)\n",
+	Format::fprintf(fp, "Affects %4d (%8ld bytes), %2d free (%ld bytes)\n",
 	        aff_count, aff_count * (sizeof(AFFECT_DATA)), count, count * (sizeof(AFFECT_DATA)));
 	/* rooms */
-	fprintf(fp, "Rooms   %4d (%8ld bytes)\n",
+	Format::fprintf(fp, "Rooms   %4d (%8ld bytes)\n",
 	        top_room, top_room * (sizeof(*room)));
 	/* exits */
-	fprintf(fp, "Exits   %4d (%8ld bytes)\n",
+	Format::fprintf(fp, "Exits   %4d (%8ld bytes)\n",
 	        top_exit, top_exit * (sizeof(*exit)));
 	fclose(fp);
 	/* start printing out mobile data */
 	fp = fopen("mob.dmp", "w");
-	fprintf(fp, "\nMobile Analysis\n");
-	fprintf(fp,  "---------------\n");
+	Format::fprintf(fp, "\nMobile Analysis\n");
+	Format::fprintf(fp,  "---------------\n");
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_mob_index; vnum++)
 		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
 			nMatch++;
-			fprintf(fp, "#%-4d %3d active %3d killed     %s\n",
+			Format::fprintf(fp, "#%-4d %3d active %3d killed     %s\n",
 			        pMobIndex->vnum, pMobIndex->count,
 			        pMobIndex->killed, pMobIndex->short_descr);
 		}
@@ -707,14 +707,14 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fclose(fp);
 	/* start printing out object data */
 	fp = fopen("obj.dmp", "w");
-	fprintf(fp, "\nObject Analysis\n");
-	fprintf(fp,  "---------------\n");
+	Format::fprintf(fp, "\nObject Analysis\n");
+	Format::fprintf(fp,  "---------------\n");
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
 		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
 			nMatch++;
-			fprintf(fp, "#%-4d %3d active %3d reset      %s\n",
+			Format::fprintf(fp, "#%-4d %3d active %3d reset      %s\n",
 			        pObjIndex->vnum, pObjIndex->count,
 			        pObjIndex->reset_num, pObjIndex->short_descr);
 		}

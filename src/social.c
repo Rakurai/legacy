@@ -186,14 +186,14 @@ int count_socials()
 void save_social(const struct social_type *s, FILE *fp)
 {
 	/* get rid of (null) */
-	fprintf(fp, "%s~\n", smash_tilde(s->name));
-	fprintf(fp, "%s~\n", s->char_no_arg    ? smash_tilde(s->char_no_arg)   : "");
-	fprintf(fp, "%s~\n", s->others_no_arg  ? smash_tilde(s->others_no_arg) : "");
-	fprintf(fp, "%s~\n", s->char_found     ? smash_tilde(s->char_found)    : "");
-	fprintf(fp, "%s~\n", s->others_found   ? smash_tilde(s->others_found)  : "");
-	fprintf(fp, "%s~\n", s->vict_found     ? smash_tilde(s->vict_found)    : "");
-	fprintf(fp, "%s~\n", s->char_auto      ? smash_tilde(s->char_auto)     : "");
-	fprintf(fp, "%s~\n\n", s->others_auto  ? smash_tilde(s->others_auto)   : "");
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->name));
+	Format::fprintf(fp, "%s~\n", s->char_no_arg    ? smash_tilde(s->char_no_arg)   : "");
+	Format::fprintf(fp, "%s~\n", s->others_no_arg  ? smash_tilde(s->others_no_arg) : "");
+	Format::fprintf(fp, "%s~\n", s->char_found     ? smash_tilde(s->char_found)    : "");
+	Format::fprintf(fp, "%s~\n", s->others_found   ? smash_tilde(s->others_found)  : "");
+	Format::fprintf(fp, "%s~\n", s->vict_found     ? smash_tilde(s->vict_found)    : "");
+	Format::fprintf(fp, "%s~\n", s->char_auto      ? smash_tilde(s->char_auto)     : "");
+	Format::fprintf(fp, "%s~\n\n", s->others_auto  ? smash_tilde(s->others_auto)   : "");
 }
 
 void save_social_table()
@@ -213,7 +213,7 @@ void save_social_table()
 		; /* empty */
 
 #endif
-	fprintf(fp, "%d\n", count_socials());
+	Format::fprintf(fp, "%d\n", count_socials());
 	/* set to first social */
 	iterator = social_table_head->next;
 
@@ -341,7 +341,7 @@ void do_sedit(CHAR_DATA *ch, const char *argument)
 		stc("Social renamed.\n", ch);
 	}
 	else if (!str_cmp(cmd, "show")) { /* Show a certain social */
-		sprintf(buf, "{HSocial: %s{x\n"
+		Format::sprintf(buf, "{HSocial: %s{x\n"
 		        "{G[cnoarg]{c No argument given, character sees:\n"
 		        "{Y         %s\n"
 		        "{G[onoarg]{c No argument given, others see:\n"

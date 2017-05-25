@@ -143,12 +143,12 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if (number_percent() < get_skill(rch, gsn_languages)) {
-			sprintf(buf, "$n utters the words '%s'.", arg);
+			Format::sprintf(buf, "$n utters the words '%s'.", arg);
 			act(buf, mob, NULL, rch, TO_VICT);
 			check_improve(rch, gsn_languages, TRUE, 8);
 		}
 		else {
-			sprintf(buf, "$n utters the words '%s'.", words);
+			Format::sprintf(buf, "$n utters the words '%s'.", words);
 			act(buf, mob, NULL, rch, TO_VICT);
 
 			if (get_skill(rch, gsn_languages))

@@ -67,9 +67,9 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 	int low, high, mod, slot, i;
 
 	switch (type) {
-	case 3: sprintf(typestr, "channel");            low = 0; high = 29; mod = 1;    break;
-	case 4: sprintf(typestr, "score");              low = 50; high = 79; mod = -49;	break;
-	case 5: sprintf(typestr, "miscellaneous");      low = 80; high = 99; mod = -79; break;
+	case 3: Format::sprintf(typestr, "channel");            low = 0; high = 29; mod = 1;    break;
+	case 4: Format::sprintf(typestr, "score");              low = 50; high = 79; mod = -49;	break;
+	case 5: Format::sprintf(typestr, "miscellaneous");      low = 80; high = 99; mod = -79; break;
 	default:
 		bug("config_color_func: bad type %d", type);
 		return;
@@ -757,7 +757,7 @@ void do_color(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0')
 		do_config(ch, "color color");
 	else {
-		sprintf(buf, "color %s", argument);
+		Format::sprintf(buf, "color %s", argument);
 		do_config(ch, buf);
 	}
 }
@@ -771,14 +771,14 @@ void do_video(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "video %s", argument);
+	Format::sprintf(buf, "video %s", argument);
 	do_config(ch, buf);
 }
 
 void do_censor(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MIL];
-	sprintf(buf, "censor %s", argument);
+	Format::sprintf(buf, "censor %s", argument);
 	do_config(ch, buf);
 }
 
@@ -794,7 +794,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0')
 		do_config(ch, "wiznet wiznet");
 	else {
-		sprintf(buf, "wiznet %s", argument);
+		Format::sprintf(buf, "wiznet %s", argument);
 		do_config(ch, buf);
 	}
 }

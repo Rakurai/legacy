@@ -185,9 +185,9 @@ void do_spousetalk(CHAR_DATA *ch, const char *argument)
 		if (victim != NULL) {
 			new_color(ch, CSLOT_CHAN_SPOUSE);
 			new_color(victim, CSLOT_CHAN_SPOUSE);
-			sprintf(buf, "%s says to you, '%s'\n" , ch->name, argument);
+			Format::sprintf(buf, "%s says to you, '%s'\n" , ch->name, argument);
 			stc(buf, victim);
-			sprintf(buf, "You say to %s, '%s'\n", ch->pcdata->spouse, argument);
+			Format::sprintf(buf, "You say to %s, '%s'\n", ch->pcdata->spouse, argument);
 			stc(buf, ch);
 			set_color(ch, WHITE, NOBOLD);
 			set_color(victim, WHITE, NOBOLD);
@@ -316,7 +316,7 @@ void do_accept(CHAR_DATA *ch, const char *argument)
 	act("You accept $S offer of marriage.  Woohoo!", ch, NULL, victim, TO_CHAR);
 	act("$n accepts $N's offer of marriage.  Woohoo!", ch, NULL, victim, TO_NOTVICT);
 	act("$n accepts your offer of marriage.  Woohoo!", ch, NULL, victim, TO_VICT);
-	sprintf(buf, "{W[FYI] %s and %s are now engaged!  Congratulations!{x\n", ch->name, victim->name);
+	Format::sprintf(buf, "{W[FYI] %s and %s are now engaged!  Congratulations!{x\n", ch->name, victim->name);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *msgvict;
@@ -444,7 +444,7 @@ void do_breakup(CHAR_DATA *ch, const char *argument)
 	act("You break off your engagement with $M.", ch, NULL, victim, TO_CHAR);
 	act("$n breaks off $s engagement with $N.", ch, NULL, victim, TO_NOTVICT);
 	act("$n breaks off $s engagement with you.", ch, NULL, victim, TO_VICT);
-	sprintf(buf, "{W[FYI] %s and %s have broken off their engagement.{x\n", ch->name, victim->name);
+	Format::sprintf(buf, "{W[FYI] %s and %s have broken off their engagement.{x\n", ch->name, victim->name);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *msgvict;

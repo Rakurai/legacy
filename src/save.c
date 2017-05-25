@@ -159,7 +159,7 @@ void save_char_obj(CHAR_DATA *ch)
 
 	// added if to avoid closing invalid file
 	one_argument(ch->name, buf);
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
 
 	if ((fp = fopen(TEMP_FILE, "w")) != NULL) {
 		fputs(JSONstring, fp);
@@ -181,12 +181,12 @@ void backup_char_obj(CHAR_DATA *ch)
 	char strsave[MIL], strback[MIL], buf[MIL];
 	one_argument(ch->name, buf);
 
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
-	sprintf(strback, "%s%s", BACKUP_DIR, capitalize(buf));
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
+	Format::sprintf(strback, "%s%s", BACKUP_DIR, capitalize(buf));
 
-	sprintf(buf, "cp %s %s", strsave, strback);
+	Format::sprintf(buf, "cp %s %s", strsave, strback);
 	system(buf);
-	sprintf(buf, "gzip -fq %s", strback);
+	Format::sprintf(buf, "gzip -fq %s", strback);
 	system(buf);
 } /* end backup_char_obj() */
 
@@ -758,15 +758,15 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	// added if here
 	/* decompress if .gz file exists */
 	/*    #if defined(unix)
-	    sprintf( strsave, "%s%s%s", PLAYER_DIR, capitalize(name),".gz");
+	    Format::sprintf( strsave, "%s%s%s", PLAYER_DIR, capitalize(name),".gz");
 	    if ( ( fp = fopen( strsave, "r" ) ) != NULL )
 	    {
 	        fclose(fp);
-	        sprintf(buf,"gzip -dfq %s",strsave);
+	        Format::sprintf(buf,"gzip -dfq %s",strsave);
 	        system(buf);
 	    }
 	    #endif */
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
 
 	cJSON *root = NULL;
 
@@ -1115,7 +1115,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 						int gn = group_lookup(item->valuestring);
 
 						if (gn < 0) {
-							fprintf(stderr, "%s", item->valuestring);
+							Format::fprintf(stderr, "%s", item->valuestring);
 							bug("Unknown group. ", 0);
 							continue;
 						}
@@ -1208,7 +1208,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 						int sn = skill_lookup(temp);
 
 						if (sn < 0) {
-							fprintf(stderr, "%s", temp);
+							Format::fprintf(stderr, "%s", temp);
 							bug("Fread_char: unknown skill. ", 0);
 							continue;
 						}
@@ -1264,7 +1264,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 		return;
 
 	char buf[MSL];
-	sprintf(buf, "Loading %s.", ch->name);
+	Format::sprintf(buf, "Loading %s.", ch->name);
 	log_string(buf);
 
 	// unlike old pfiles, the order of calls is important here, because we can't
@@ -1713,7 +1713,7 @@ const char *dizzy_ctime(time_t *timep)
 	static char ctime_buf[40];
 	struct tm loc_tm;
 	loc_tm = *localtime(timep);
-	sprintf(ctime_buf, "%s %s %02d %02d:%02d:%02d %04d\n",
+	Format::sprintf(ctime_buf, "%s %s %02d %02d:%02d:%02d %04d\n",
 	        day_names[loc_tm.tm_wday],
 	        month_names[loc_tm.tm_mon],
 	        loc_tm.tm_mday,
@@ -1725,7 +1725,7 @@ const char *dizzy_ctime(time_t *timep)
 /*
  * decode a time string as produced by dizzy_ctime()
  * Day of week is scanned in spite of not being needed so that the
- * return value from sprintf() will be significant.
+ * return value from Format::sprintf() will be significant.
  */
 time_t dizzy_scantime(const char *ctime)
 {
@@ -1738,7 +1738,7 @@ time_t dizzy_scantime(const char *ctime)
 
 	if (sscanf(ctime, " %3s %3s %d %d:%d:%d %d",
 	           cdow, cmon, &day, &hour, &minute, &second, &year) < 7) {
-		sprintf(msg, "dizzy_scantime(): Error scanning date/time: '%s'", ctime);
+		Format::sprintf(msg, "dizzy_scantime(): Error scanning date/time: '%s'", ctime);
 		bug(msg, 0);
 		goto endoftime;
 	}
@@ -1749,7 +1749,7 @@ time_t dizzy_scantime(const char *ctime)
 	}
 
 	if (month >= 12) {
-		sprintf(msg, "dizzy_scantime(): Bad month in %s", ctime);
+		Format::sprintf(msg, "dizzy_scantime(): Bad month in %s", ctime);
 		bug(msg, 0);
 		goto endoftime;
 	}
@@ -1808,7 +1808,7 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	}
 
 	cJSON *root = NULL;
-	sprintf(filename, "%s%s", PLAYER_DIR, capitalize(arg));
+	Format::sprintf(filename, "%s%s", PLAYER_DIR, capitalize(arg));
 
 	if ((fp = fopen(filename, "rb")) != NULL) {
 		int length;
@@ -1872,75 +1872,75 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	dbuf = new_buf();
 
 	if (title[0] != '.' && title[0] != ',' &&  title[0] != '!' && title[0] != '?') {
-		sprintf(buf, " %s{x", title);
+		Format::sprintf(buf, " %s{x", title);
 		free_string(title);
 		title = str_dup(buf);
 	}
 
 	if (RANK(cgroup) >= RANK_IMM)
-		sprintf(buf, "{W[{CIMM{W] %s%s{x\n", name, title);
+		Format::sprintf(buf, "{W[{CIMM{W] %s%s{x\n", name, title);
 	else if (rmct == 0)
-		sprintf(buf, "{W[{B%2d{W] %s%s{x\n", level, name, title);
+		Format::sprintf(buf, "{W[{B%2d{W] %s%s{x\n", level, name, title);
 	else
-		sprintf(buf, "{W[{GR%d{T/{B%2d{W] %s%s{x\n", rmct, level, name, title);
+		Format::sprintf(buf, "{W[{GR%d{T/{B%2d{W] %s%s{x\n", rmct, level, name, title);
 
 	add_buf(dbuf, buf);
 
 	if (clan) {
 		if (IS_SET(cgroup, GROUP_LEADER))
-			sprintf(buf, "{BLeader of ");
+			Format::sprintf(buf, "{BLeader of ");
 		else if (IS_SET(cgroup, GROUP_DEPUTY))
-			sprintf(buf, "{BDeputy of ");
+			Format::sprintf(buf, "{BDeputy of ");
 		else
-			sprintf(buf, "{BMember of ");
+			Format::sprintf(buf, "{BMember of ");
 
 		add_buf(dbuf, buf);
-		sprintf(buf, "%s{x\n", clan->clanname);
+		Format::sprintf(buf, "%s{x\n", clan->clanname);
 		add_buf(dbuf, buf);
 	}
 
-	sprintf(buf, "{C%s ", capitalize(race));
+	Format::sprintf(buf, "{C%s ", capitalize(race));
 	add_buf(dbuf, buf);
-	sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[cls].name), deity);
+	Format::sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[cls].name), deity);
 	add_buf(dbuf, buf);
-	sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
+	Format::sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
 	add_buf(dbuf, buf);
-	sprintf(buf, "{PBlood Trail (%d): %d kills, %d deaths{x\n\n", pkr, pks, pkd);
+	Format::sprintf(buf, "{PBlood Trail (%d): %d kills, %d deaths{x\n\n", pkr, pks, pkd);
 	add_buf(dbuf, buf);
 
 	if (fingerinfo[0]) {
-		sprintf(buf, "{CAdditional Info:{x\n%s{x\n", fingerinfo);
+		Format::sprintf(buf, "{CAdditional Info:{x\n%s{x\n", fingerinfo);
 		add_buf(dbuf, buf);
 	}
 
 	if (spouse[0]) {
 		if (!IS_SET(plr, PLR_MARRIED))
-			sprintf(buf, "{Y%s is engaged to %s.{x\n", name, spouse);
+			Format::sprintf(buf, "{Y%s is engaged to %s.{x\n", name, spouse);
 		else
-			sprintf(buf, "{Y%s is happily married to %s.{x\n", name, spouse);
+			Format::sprintf(buf, "{Y%s is happily married to %s.{x\n", name, spouse);
 
 		add_buf(dbuf, buf);
 	}
 
 	if (email[0] && (IS_IMMORTAL(ch) || IS_SET(plr, PLR_SHOWEMAIL))) {
-		sprintf(buf, "{GEmail: %s{x\n", email);
+		Format::sprintf(buf, "{GEmail: %s{x\n", email);
 		add_buf(dbuf, buf);
 	}
 
 	if (IS_IMMORTAL(ch) || !IS_SET(plr, PLR_NOSHOWLAST)) {
 		if (last_ltime) {
-			sprintf(buf, "{HLast Login : %s\n{x", dizzy_ctime(&last_ltime));
+			Format::sprintf(buf, "{HLast Login : %s\n{x", dizzy_ctime(&last_ltime));
 			add_buf(dbuf, buf);
 		}
 
 		if (last_saved) {
-			sprintf(buf, "{HLast Saved : %s\n{x", dizzy_ctime(&last_saved));
+			Format::sprintf(buf, "{HLast Saved : %s\n{x", dizzy_ctime(&last_saved));
 			add_buf(dbuf, buf);
 		}
 	}
 
 	if (IS_IMP(ch)) {
-		sprintf(buf, "{HLast Site  : %s{x\n", last_lsite);
+		Format::sprintf(buf, "{HLast Site  : %s{x\n", last_lsite);
 		add_buf(dbuf, buf);
 	}
 

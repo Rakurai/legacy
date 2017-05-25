@@ -50,6 +50,7 @@
 
 #include "memory.h"
 #include "String.hpp"
+#include "Format.hpp"
 
 /*
  * Accommodate old non-Ansi compilers.
@@ -3744,18 +3745,18 @@ void    list_extraskill args( ( CHAR_DATA *ch ) );
 
 // printf to a character
 template<class... Params>
-void ptc(CHAR_DATA *ch, const char *fmt, Params&&... params)
+void ptc(CHAR_DATA *ch, const String& fmt, Params&&... params)
 {
   char buf[MAX_STRING_LENGTH];
-  snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
+  Format::snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
   stc(buf, ch);
 }
 
 template<class... Params>
-void bugf(const char *fmt, Params&&... params)
+void bugf(const String& fmt, Params&&... params)
 {
   char buf[MAX_STRING_LENGTH];
-  snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
+  Format::snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
   bug(buf, 0);
 }
 

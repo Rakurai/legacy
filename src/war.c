@@ -40,7 +40,7 @@ void load_war_events()
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
-		sprintf(strsave, "%sWarEvents%d", EVENT_DIR, get_war_index(war));
+		Format::sprintf(strsave, "%sWarEvents%d", EVENT_DIR, get_war_index(war));
 
 		if ((fp = fopen(strsave, "r")) != NULL) {
 			for (; ;) {
@@ -84,22 +84,22 @@ void save_war_events()
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
-		sprintf(strsave, "%sWarEvents%d", EVENT_DIR, get_war_index(war));
+		Format::sprintf(strsave, "%sWarEvents%d", EVENT_DIR, get_war_index(war));
 
 		if ((fp = fopen(EVENT_TMP, "w")) != NULL) {
 			event = war->events;
 
 			while (event != NULL) {
-				fprintf(fp, "NOTEND\n");
-				fprintf(fp, "%d~\n", event->type);
-				fprintf(fp, "%s~\n", event->astr);
-				fprintf(fp, "%s~\n", event->bstr);
-				fprintf(fp, "%d~\n", event->number);
-				fprintf(fp, "%s~\n", dizzy_ctime(&event->time));
+				Format::fprintf(fp, "NOTEND\n");
+				Format::fprintf(fp, "%d~\n", event->type);
+				Format::fprintf(fp, "%s~\n", event->astr);
+				Format::fprintf(fp, "%s~\n", event->bstr);
+				Format::fprintf(fp, "%d~\n", event->number);
+				Format::fprintf(fp, "%s~\n", dizzy_ctime(&event->time));
 				event = event->next;
 			}
 
-			fprintf(fp, "END\n");
+			Format::fprintf(fp, "END\n");
 			fclose(fp);
 			rename(EVENT_TMP, strsave);
 		}
@@ -164,29 +164,29 @@ void save_war_table()
 		war = war_table_head->next;
 
 		while (war != war_table_tail) {
-			fprintf(fp, "NOTEND\n");
+			Format::fprintf(fp, "NOTEND\n");
 
 			for (i = 0; i < 4; i++) {
-				fprintf(fp, "%s~\n", war->chal[i]->name);
-				fprintf(fp, "%s~\n", war->chal[i]->clanname);
-				fprintf(fp, "%d~\n", war->chal[i]->inwar);
-				fprintf(fp, "%d~\n", war->chal[i]->start_score);
-				fprintf(fp, "%d~\n", war->chal[i]->final_score);
+				Format::fprintf(fp, "%s~\n", war->chal[i]->name);
+				Format::fprintf(fp, "%s~\n", war->chal[i]->clanname);
+				Format::fprintf(fp, "%d~\n", war->chal[i]->inwar);
+				Format::fprintf(fp, "%d~\n", war->chal[i]->start_score);
+				Format::fprintf(fp, "%d~\n", war->chal[i]->final_score);
 			}
 
 			for (i = 0; i < 4; i++) {
-				fprintf(fp, "%s~\n", war->def[i]->name);
-				fprintf(fp, "%s~\n", war->def[i]->clanname);
-				fprintf(fp, "%d~\n", war->def[i]->inwar);
-				fprintf(fp, "%d~\n", war->def[i]->start_score);
-				fprintf(fp, "%d~\n", war->def[i]->final_score);
+				Format::fprintf(fp, "%s~\n", war->def[i]->name);
+				Format::fprintf(fp, "%s~\n", war->def[i]->clanname);
+				Format::fprintf(fp, "%d~\n", war->def[i]->inwar);
+				Format::fprintf(fp, "%d~\n", war->def[i]->start_score);
+				Format::fprintf(fp, "%d~\n", war->def[i]->final_score);
 			}
 
-			fprintf(fp, "%d~\n", war->ongoing);
+			Format::fprintf(fp, "%d~\n", war->ongoing);
 			war = war->next;
 		}
 
-		fprintf(fp, "END\n");
+		Format::fprintf(fp, "END\n");
 		fclose(fp);
 	}
 	else
@@ -544,7 +544,7 @@ void war_power_adjust(CLAN_DATA *vclan, bool surrender)
 			if (war->ongoing && clan_in_war(vclan, war, TRUE))
 				rec_event(war, EVENT_CLAN_WIPEOUT, vclan->clanname, NULL, 0);
 
-		sprintf(buf, "[FYI] %s has been wiped out!", vclan->clanname);
+		Format::sprintf(buf, "[FYI] %s has been wiped out!", vclan->clanname);
 
 		for (d = descriptor_list; d != NULL; d = d->next) {
 			victim = d->original ? d->original : d->character;
@@ -635,7 +635,7 @@ void war_score_adjust(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim, int amoun
 	rec_event(war, EVENT_ADJUST_SCORE, ch->clan->clanname, victim->clan->clanname, amount);
 
 	if (victim->clan->score < 1) {
-		sprintf(buf, "%s has defeated %s!",
+		Format::sprintf(buf, "%s has defeated %s!",
 		        ch->clan->clanname, victim->clan->clanname);
 		do_send_announce(ch, buf);
 		ptc(ch, "You have defeated %s!\n", victim->clan->clanname);
@@ -887,8 +887,8 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 		return;
 	}
 
-	sprintf(chblock, " ");
-	sprintf(defblock, " ");
+	Format::sprintf(chblock, " ");
+	Format::sprintf(defblock, " ");
 	vsblock = "";
 	output = new_buf();
 	chlead = (chcount - defcount);
@@ -898,9 +898,9 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 
 	for (x = 1; x < (lines + 1); x++) {
 		if ((deflead > 1 && x == 1) || c >= chcount)
-			sprintf(chblock, "                                      ");
+			Format::sprintf(chblock, "                                      ");
 		else if (c < chcount) {
-			sprintf(chblock, "%s%30s %s(%s%2d{c/%s%2d%s)",
+			Format::sprintf(chblock, "%s%30s %s(%s%2d{c/%s%2d%s)",
 			        chal_list[c].inwar ? "" : "{c",
 			        chal_list[c].inwar ? chal_list[c].name : smash_bracket(chal_list[c].name),
 			        chal_list[c].inwar ? "{g" : "{c",
@@ -926,9 +926,9 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 		}
 
 		if ((chlead > 1 && x == 1) || d >= defcount)
-			sprintf(defblock, "                                      ");
+			Format::sprintf(defblock, "                                      ");
 		else if (d < defcount) {
-			sprintf(defblock, "%s(%s%2d{c/%s%2d%s) %s%-30s",
+			Format::sprintf(defblock, "%s(%s%2d{c/%s%2d%s) %s%-30s",
 			        def_list[d].inwar ? "{g" : "{c",
 			        def_list[d].inwar ? "{G" : "{P",
 			        def_list[d].score,
@@ -940,7 +940,7 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 			d++;
 		}
 
-		sprintf(buf, "%s{x    %s{x    %s{x\n", chblock, vsblock, defblock);
+		Format::sprintf(buf, "%s{x    %s{x    %s{x\n", chblock, vsblock, defblock);
 		add_buf(output, buf);
 	}
 
@@ -958,65 +958,65 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 	output = new_buf();
 
 	for (event = war->events; event != NULL; event = event->next) {
-		sprintf(buf, "{Punknown event type{x");
+		Format::sprintf(buf, "{Punknown event type{x");
 
 		switch (event->type) {
 		case EVENT_WAR_START:
-			sprintf(buf, "War started on %s\n", dizzy_ctime(&event->time));
+			Format::sprintf(buf, "War started on %s\n", dizzy_ctime(&event->time));
 			break;
 
 		case EVENT_WAR_STOP_WIN:
-			sprintf(buf, "The %s won the war on %s\n",
+			Format::sprintf(buf, "The %s won the war on %s\n",
 			        event->number ? "challengers" : "defenders",
 			        dizzy_ctime(&event->time));
 			break;
 
 		case EVENT_WAR_STOP_IMM:
-			sprintf(buf, "War was stopped by the Immortals on %s\n",
+			Format::sprintf(buf, "War was stopped by the Immortals on %s\n",
 			        dizzy_ctime(&event->time));
 			break;
 
 		case EVENT_WAR_DECLARE:
-			sprintf(buf, "%s has declared war on %s!\n",
+			Format::sprintf(buf, "%s has declared war on %s!\n",
 			        event->astr, event->bstr);
 			break;
 
 		case EVENT_WAR_JOIN:
-			sprintf(buf, "%s has joined the war on the %s side!\n",
+			Format::sprintf(buf, "%s has joined the war on the %s side!\n",
 			        event->astr, event->number ? "challenging" : "defending");
 			break;
 
 		case EVENT_KILL:
-			sprintf(buf, "%s has been killed by %s!\n", event->bstr, event->astr);
+			Format::sprintf(buf, "%s has been killed by %s!\n", event->bstr, event->astr);
 			break;
 
 		case EVENT_CLAN_DEFEAT:
-			sprintf(buf, "%s has been defeated by %s!\n", event->astr, event->bstr);
+			Format::sprintf(buf, "%s has been defeated by %s!\n", event->astr, event->bstr);
 			break;
 
 		case EVENT_CLAN_WIPEOUT:
-			sprintf(buf, "%s has been wiped out in war!\n", event->astr);
+			Format::sprintf(buf, "%s has been wiped out in war!\n", event->astr);
 			break;
 
 		case EVENT_CLAN_SURRENDER:
-			sprintf(buf, "%s has surrendered.\n", event->astr);
+			Format::sprintf(buf, "%s has surrendered.\n", event->astr);
 			break;
 
 		case EVENT_CLAN_INVADE:
 			break;
 
 		case EVENT_ADJUST_SCORE:
-			sprintf(buf, "%s has lost %d points at the hands of %s!\n",
+			Format::sprintf(buf, "%s has lost %d points at the hands of %s!\n",
 			        event->bstr, event->number, event->astr);
 			break;
 
 		case EVENT_ADJUST_POWER:
-			sprintf(buf, "%s lost %d clanpower to %s.\n",
+			Format::sprintf(buf, "%s lost %d clanpower to %s.\n",
 			        event->astr, event->number, event->bstr);
 			break;
 
 		case EVENT_ADJUST_CLANQP:
-			sprintf(buf, "%s turned over %d questpoints to %s.\n",
+			Format::sprintf(buf, "%s turned over %d questpoints to %s.\n",
 			        event->astr, event->number, event->bstr);
 			break;
 
@@ -1203,7 +1203,7 @@ void do_war(CHAR_DATA *ch, const char *argument)
 		save_war_table();
 		ptc(ch, "%s is now at war with %s.\n",
 		    clanA->clanname, clanB->clanname);
-		sprintf(buf, "%s has declared war on %s!",
+		Format::sprintf(buf, "%s has declared war on %s!",
 		        clanA->clanname, clanB->clanname);
 		do_send_announce(ch, buf);
 		return;
@@ -1268,7 +1268,7 @@ void do_war(CHAR_DATA *ch, const char *argument)
 		save_war_table();
 		ptc(ch, "%s is now a %s in War %d.\n",
 		    clanA->clanname, challenger ? "challenger" : "defender", number);
-		sprintf(buf, "%s has joined war %d!",
+		Format::sprintf(buf, "%s has joined war %d!",
 		        clanA->clanname, number);
 		do_send_announce(ch, buf);
 		return;
@@ -1353,7 +1353,7 @@ void do_war(CHAR_DATA *ch, const char *argument)
 	                save_war_table();
 
 	                stc("They pull out the white flag.\n", ch);
-	                sprintf(buf, "%s has surrendered!", clanA->clanname);
+	                Format::sprintf(buf, "%s has surrendered!", clanA->clanname);
 	                do_send_announce(ch, buf);
 	                return;
 	        } */

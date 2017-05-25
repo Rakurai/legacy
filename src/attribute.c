@@ -179,7 +179,7 @@ char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 
 			if (where != TO_IMMUNE) {
 				char mbuf[100];
-				sprintf(mbuf, "(%+d%%)",
+				Format::sprintf(mbuf, "(%+d%%)",
 					where == TO_ABSORB ?  ch->defense_mod[i]-100 : // percent beyond immune
 					where == TO_RESIST ? -ch->defense_mod[i] : // prints resist as a negative
 					                    -ch->defense_mod[i] // prints vuln as a positive

@@ -191,7 +191,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		if (ch->level == LEVEL_AVATAR)
 			SET_CGROUP(ch, GROUP_AVATAR);
 
-		sprintf(buf, "%s has attained level %d!", ch->name, ch->level);
+		Format::sprintf(buf, "%s has attained level %d!", ch->name, ch->level);
 		wiznet(buf, ch, NULL, WIZ_LEVELS, 0, 0);
 		do_send_announce(ch, buf);
 		advance_level(ch);
@@ -1529,11 +1529,11 @@ void auction_update(void)
 		case 1 : /* going once */
 		case 2 : /* going twice */
 			if (auction->bet > 0)
-				sprintf(buf, "%s: going %s for %d gold.\n",
+				Format::sprintf(buf, "%s: going %s for %d gold.\n",
 				        auction->item->short_descr,
 				        ((auction->going == 1) ? "once" : "twice"), auction->bet);
 			else
-				sprintf(buf, "%s: going %s (no bet received yet).\n",
+				Format::sprintf(buf, "%s: going %s (no bet received yet).\n",
 				        auction->item->short_descr,
 				        ((auction->going == 1) ? "once" : "twice"));
 
@@ -1542,11 +1542,11 @@ void auction_update(void)
 
 		case 3 : /* SOLD! */
 			if (auction->bet > 0) {
-				sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n",
+				Format::sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n",
 				        auction->item->short_descr, auction->bet);
 				global_act(auction->buyer, buf, TRUE,
 				           YELLOW, COMM_NOAUCTION | COMM_QUIET);
-				sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
+				Format::sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
 				        auction->item->short_descr, auction->bet);
 				wiznet(buf, auction->buyer, NULL, WIZ_AUCTION, 0,
 				       GET_RANK(auction->buyer));
@@ -1560,7 +1560,7 @@ void auction_update(void)
 				auction->item = NULL; /* reset item */
 			}
 			else { /* not sold */
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "No bets received for %s - object has been removed.\n",
 				        auction->item->short_descr);
 				talk_auction(NULL, buf);

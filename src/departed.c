@@ -54,11 +54,11 @@ void save_departed_list()
 	iterator = departed_list_head->next;
 
 	while (iterator != departed_list_tail) {
-		fprintf(fp, "%s\n", iterator->name);
+		Format::fprintf(fp, "%s\n", iterator->name);
 		iterator = iterator->next;
 	}
 
-	fprintf(fp, "#\n");
+	Format::fprintf(fp, "#\n");
 	fclose(fp);
 bailout:
 	return;

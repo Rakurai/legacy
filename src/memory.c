@@ -173,7 +173,7 @@ void *alloc_perm2(long sMem, const char *message)
 		}
 	}
 
-	sprintf(buf, "{PMALLOC{x [%s] Size: %ld", message, sMem);
+	Format::sprintf(buf, "{PMALLOC{x [%s] Size: %ld", message, sMem);
 	wiznet(buf, NULL, NULL, WIZ_MALLOC, 0, 0);
 	pMem        = pMemPerm + iMemPerm;
 	iMemPerm   += sMem;

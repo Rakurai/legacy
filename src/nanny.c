@@ -301,7 +301,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 					if (ch != rch && can_see_char(rch, ch))
 						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
 
-				sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
+				Format::sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
 				log_string(log_buf);
 				wiznet("$N reclaims the fullness of $S link.",
 				       ch, NULL, WIZ_LINKS, 0, 0);
@@ -396,7 +396,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (check_deny(ch->name)) {
-			sprintf(log_buf, "Denying access to %s@%s.", ch->name, d->host);
+			Format::sprintf(log_buf, "Denying access to %s@%s.", ch->name, d->host);
 			log_string(log_buf);
 			write_to_descriptor(d, "You are denied access to Legacy.\n", 0);
 			close_socket(d);
@@ -404,7 +404,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (check_ban(d->host, BAN_ALL) && !IS_SET(ch->act, PLR_PERMIT)) {
-			sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
+			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
 			write_to_descriptor(d, "Your site has been banned from this mud.\n"
@@ -441,7 +441,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (check_ban(d->host, BAN_NEWBIES)) {
-			sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
+			Format::sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
 			write_to_descriptor(d, "New players are not allowed from your site.\n"
@@ -452,7 +452,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		sprintf(buf, "You wish for history to remember you as %s (Y/N)? ", name);
+		Format::sprintf(buf, "You wish for history to remember you as %s (Y/N)? ", name);
 		write_to_descriptor(d, buf, 0);
 		d->connected = CON_CONFIRM_NEW_NAME;
 		return;
@@ -479,10 +479,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		REMOVE_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 		REMOVE_BIT(ch->act, PLR_QUESTOR);
-		sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
+		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
 		log_string(log_buf);
 		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
-		sprintf(log_buf, "Last Site: %s",
+		Format::sprintf(log_buf, "Last Site: %s",
 		        ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available");
 		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		update_site(ch);
@@ -742,7 +742,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		write_to_descriptor(d, "\n", 1);
 		write_to_descriptor(d, "Here are your default stats:\n", 0);
-		sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
+		Format::sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
 		        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
 		        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
 		        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
@@ -765,7 +765,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			for (int stat = 0; stat < MAX_STATS; stat++)
 				ATTR_BASE(ch, stat_to_attr(stat)) = roll_stat(ch, stat);
 
-			sprintf(buf, "\nStr: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
+			Format::sprintf(buf, "\nStr: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
 			        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
 			        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
 			        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
@@ -834,14 +834,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ch->cls = iClass;
-		sprintf(log_buf, "%s@%s new player.", ch->name, d->host);
+		Format::sprintf(log_buf, "%s@%s new player.", ch->name, d->host);
 		wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, GET_RANK(ch));
 		log_string(log_buf);
-		sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
+		Format::sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
 		wiznet(log_buf, ch, NULL, WIZ_NEWBIE, 0, 0);
 		write_to_descriptor(d, "\n", 1);
 		/* paladins can't be neutral */
-		sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
+		Format::sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
 		        ch->cls == PALADIN_CLASS ? "" : ", neutral,",
 		        ch->cls == PALADIN_CLASS ? "" : "/N");
 		write_to_descriptor(d, buf, 0);
@@ -878,7 +878,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			}
 
 		default:
-			sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
+			Format::sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
 			        ch->cls == PALADIN_CLASS ? "" : "/N");
 			write_to_descriptor(d, buf, 0);
 			return;
@@ -1087,7 +1087,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->stam        = GET_MAX_STAM(ch);
 			ch->train       += 3;
 			ch->practice    += 5;
-			sprintf(buf, "({VNewbie Aura{x)");
+			Format::sprintf(buf, "({VNewbie Aura{x)");
 			set_title(ch, buf);
 			do_outfit(ch, "");
 			/* This is ugly and doesn't error check. -- Outsider

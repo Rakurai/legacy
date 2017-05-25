@@ -7,7 +7,7 @@ EXEFILE = legacy
 CC      = g++
 #STD     = -std=gnu99
 STD     = -std=c++11
-WARNING = -Wall -Winline -Wno-write-strings
+WARNING = -Wall -Winline -Wno-write-strings -Wno-format-security
 DEBUG   = -ggdb
 DEFINE  = -Dunix -DSQL -DDEBUG -DIPV6
 INCLUDE = -I$(INCDIR) -I/usr/include -I/usr/local/include

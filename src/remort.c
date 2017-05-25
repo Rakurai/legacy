@@ -548,7 +548,7 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	if (victim->pcdata->remort_count == 1)
 		SET_BIT(victim->pcdata->plr, PLR_SHOWRAFF);
 
-	sprintf(buf, "%s has been reborn!", victim->name);
+	Format::sprintf(buf, "%s has been reborn!", victim->name);
 	do_send_announce(victim, buf);
 	stc("You suddenly feel like a newbie!! Do'h!!!\n", victim);
 	stc("Successful Remort.\n", ch);

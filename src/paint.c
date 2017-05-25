@@ -48,7 +48,7 @@ void do_reload(CHAR_DATA *ch)
 	}
 
 	if ((gun->value[0] + tube->value[0]) > gun->value[1]) {
-		sprintf(buf, "Your paint gun can only hold %d paintballs.\n",
+		Format::sprintf(buf, "Your paint gun can only hold %d paintballs.\n",
 		        gun->value[1]);
 		stc(buf, ch);
 		return;
@@ -56,7 +56,7 @@ void do_reload(CHAR_DATA *ch)
 
 	extract_obj(tube);
 	gun->value[0] += tube->value[0];
-	sprintf(buf, "{VYou now have {W[{V%d{W]{V paintballs!{x\n", gun->value[0]);
+	Format::sprintf(buf, "{VYou now have {W[{V%d{W]{V paintballs!{x\n", gun->value[0]);
 	stc(buf, ch);
 } /* end do_reload() */
 

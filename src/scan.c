@@ -91,7 +91,7 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 
 	act("{PYou peer intently $T.{x", ch, NULL, dir_name[door], TO_CHAR);
 	act("$n peers intently $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
-	sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
+	Format::sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
 	room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
@@ -159,7 +159,7 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 
 	act("{PYou peer intently $T.{x", ch, NULL, dir_name[door], TO_CHAR);
 	act("$n peers intently $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
-	sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
+	Format::sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
 	scan_room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
@@ -231,7 +231,7 @@ void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door)
 	/*      buf[0] = '\0';
 	        strcat(buf, PERS(victim, ch));
 	        strcat(buf, ", ");
-	        sprintf(buf2, distance[depth], dir_name[door]);
+	        Format::sprintf(buf2, distance[depth], dir_name[door]);
 	        strcat(buf, buf2);
 	        strcat(buf, "\n");
 	        stc(buf, ch); */

@@ -567,7 +567,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
-		sprintf(command, "You try to {G%-100.100s{x\n", argument);
+		Format::sprintf(command, "You try to {G%-100.100s{x\n", argument);
 		stc(command, ch);
 		stc("A powerful force slams you up against the nearest object. YOU'RE FROZEN!\n", ch);
 		return;
@@ -637,7 +637,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	if ((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
 	    ||   fLogAll
 	    ||   cmd_table[cmd].log == LOG_ALWAYS) {
-		sprintf(log_buf, "Log %s: %s", ch->name, logline);
+		Format::sprintf(log_buf, "Log %s: %s", ch->name, logline);
 
 		if (cmd_table[cmd].log == LOG_ALWAYS)
 			wiznet(log_buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
@@ -647,7 +647,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 			char tmp[MAX_STRING_LENGTH];
 			strtime = ctime(&current_time);
 			strtime[strlen(strtime) - 1] = '\0';
-			sprintf(tmp, "%s :: %s\n", strtime, log_buf);
+			Format::sprintf(tmp, "%s :: %s\n", strtime, log_buf);
 			slog_file(ch, SLOG_FILE, tmp);
 		}
 		else
@@ -727,13 +727,13 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (string_count < nAllocString) {
-		sprintf(buf,
+		Format::sprintf(buf,
 		        "{PMALLOC{x Increase in strings :: %s : %s", ch->name, cmd_copy) ;
 		wiznet(buf, NULL, NULL, WIZ_MALLOC, 0, 0) ;
 	}
 
 	if (perm_count < nAllocPerm) {
-		sprintf(buf,
+		Format::sprintf(buf,
 		        "{PMALLOC{x Increase in perms :: %s : %s", ch->name, cmd_copy) ;
 		wiznet(buf, NULL, NULL, WIZ_MALLOC, 0, 0) ;
 	}
@@ -959,7 +959,7 @@ int entity_argument(const char *argument, char *arg)
 	if (number == 1)
 		strcpy(arg, ap);
 	else
-		sprintf(arg, "%d.%s", number, ap);
+		Format::sprintf(arg, "%d.%s", number, ap);
 
 	return etype;
 }
@@ -1055,7 +1055,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		stc("Command Structure:\n\n", ch);
 
 		for (x = 1, counter = 1; fields[x].number; x++) {
-			sprintf(buf, "[%d] %s\n", counter, fields[x].name);
+			Format::sprintf(buf, "[%d] %s\n", counter, fields[x].name);
 			stc(buf, ch);
 			counter++;
 		}
@@ -1104,7 +1104,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (cmd_table[cmd].show == fields[x].number) {
-			sprintf(buf, "[%2d] %-14s", counter, cmd_table[cmd].name);
+			Format::sprintf(buf, "[%2d] %-14s", counter, cmd_table[cmd].name);
 			stc(buf, ch);
 
 			if (++col % 4 == 0)
@@ -1197,7 +1197,7 @@ void slog_file(CHAR_DATA *ch, char *file, char *str)
 		stc("Could not open the file!\n", ch);
 	}
 	else {
-		fprintf(fp, "%s\n", str);
+		Format::fprintf(fp, "%s\n", str);
 		fclose(fp);
 	}
 

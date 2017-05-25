@@ -1208,38 +1208,38 @@ OBJ_DATA *create_money(int gold, int silver)
 	}
 
 	if (gold + silver == 1) {
-		sprintf(name, "coin %s gcash", silver == 1 ? "silver" : "gold");
-		sprintf(short_descr, "a %s coin", silver == 1 ? "silver" : "gold");
-		sprintf(description, "One %s coin.", silver == 1 ? "miserable silver" : "valuable gold");
-		sprintf(material, silver == 1 ? "silver" : "gold");
+		Format::sprintf(name, "coin %s gcash", silver == 1 ? "silver" : "gold");
+		Format::sprintf(short_descr, "a %s coin", silver == 1 ? "silver" : "gold");
+		Format::sprintf(description, "One %s coin.", silver == 1 ? "miserable silver" : "valuable gold");
+		Format::sprintf(material, silver == 1 ? "silver" : "gold");
 	}
 	else {
 		char silver_desc[MSL], gold_desc[MSL];
 		/* name */
-		sprintf(name, "coins %s%sgcash",
+		Format::sprintf(name, "coins %s%sgcash",
 		        silver > 0 ? "silver " : "",
 		        gold > 0 ? "gold " : "");
 
 		/* short description */
 		if (silver == 1)
-			sprintf(silver_desc, "one silver coin");
+			Format::sprintf(silver_desc, "one silver coin");
 		else
-			sprintf(silver_desc, "%d silver coins", silver);
+			Format::sprintf(silver_desc, "%d silver coins", silver);
 
 		if (gold == 1)
-			sprintf(gold_desc, "%sone gold coin", silver == 0 ? "" : " and ");
+			Format::sprintf(gold_desc, "%sone gold coin", silver == 0 ? "" : " and ");
 		else
-			sprintf(gold_desc, "%s%d gold coins", silver == 0 ? "" : " and ", gold);
+			Format::sprintf(gold_desc, "%s%d gold coins", silver == 0 ? "" : " and ", gold);
 
-		sprintf(short_descr, "%s%s",
+		Format::sprintf(short_descr, "%s%s",
 		        silver > 0 ? silver_desc : "",
 		        gold > 0 ? gold_desc : "");
 		/* long description */
-		sprintf(description, "%s pile of %scoins.",
+		Format::sprintf(description, "%s pile of %scoins.",
 		        amount[amt],
 		        silver == 0 ? "gold " : gold == 0 ? "silver " : "");
 		/* material */
-		sprintf(material, "%s%s",
+		Format::sprintf(material, "%s%s",
 		        silver > 0 ? "silver" : "",
 		        gold > 0 ? silver > 0 ? " and gold" : "gold" : "");
 	}
@@ -2099,7 +2099,7 @@ const char *cgroup_bit_name(int flags)
 
 	while (cgroup_flags[i].name != NULL) {
 		if (flags & cgroup_flags[i].bit) {
-			sprintf(buf2, " %s", cgroup_flags[i].name);
+			Format::sprintf(buf2, " %s", cgroup_flags[i].name);
 			strcat(buf, buf2);
 		}
 
@@ -2386,7 +2386,7 @@ const char *wiz_bit_name(int wiz_flags)
 
 	for (flag = 0; wiznet_table[flag].name != NULL; flag++)
 		if (wiz_flags & wiznet_table[flag].flag) {
-			sprintf(buf2, " %s", wiznet_table[flag].name);
+			Format::sprintf(buf2, " %s", wiznet_table[flag].name);
 			strcat(buf, buf2);
 		}
 

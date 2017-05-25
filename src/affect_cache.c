@@ -94,7 +94,7 @@ int affect_print_cache_callback(void *entry, void *prm) {
 	if (str[0] != '\0')
 		strcat(str, " ");
 
-	sprintf(str, "%s%s(%d)", str, skill_table[*sn].name, *count);
+	Format::sprintf(str, "%s%s(%d)", str, skill_table[*sn].name, *count);
 //	strcat(str, skill_table[sn].name);
 
 	return 0;

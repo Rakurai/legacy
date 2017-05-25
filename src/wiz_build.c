@@ -49,9 +49,9 @@ void room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex, ch
 		sExit = "<>"; break;
 	}
 
-	sprintf(leftname, "%s", smash_bracket(left->name));
-	sprintf(rightname, "%s", smash_bracket(right->name));
-	sprintf(buffer, "%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
+	Format::sprintf(leftname, "%s", smash_bracket(left->name));
+	Format::sprintf(rightname, "%s", smash_bracket(right->name));
+	Format::sprintf(buffer, "%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
 	        left->vnum, leftname,
 	        sExit,
 	        right->vnum, rightname,
@@ -249,7 +249,7 @@ void do_roomlist(CHAR_DATA *ch, const char *argument)
 
 	for (counter = first; counter <= last; counter++) {
 		if ((room = get_room_index(counter)) != NULL) {
-			sprintf(arg, "[%5d] (%s{x) %s{X\n",
+			Format::sprintf(arg, "[%5d] (%s{x) %s{X\n",
 			        room->vnum, room->area->name,
 			        room->name);
 			add_buf(buffer, arg);
@@ -316,15 +316,15 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 		found = FALSE;
 		foundmobile = FALSE;
 		totalbuf[0] = '\0';
-		sprintf(totalbuf, "[%5d] ", vnum);
+		Format::sprintf(totalbuf, "[%5d] ", vnum);
 
 		if ((mobile = get_mob_index(vnum)) != NULL) {
 			if (!printed)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 
-			sprintf(buf, "%s%*s", mobile->short_descr,
+			Format::sprintf(buf, "%s%*s", mobile->short_descr,
 			        30 - color_strlen(mobile->short_descr), " ");
-			/* sprintf(buf, "%-30s ",mobile->short_descr); Color corrected -- Elrac */
+			/* Format::sprintf(buf, "%-30s ",mobile->short_descr); Color corrected -- Elrac */
 			strcat(totalbuf, buf);
 			found = TRUE;
 			foundmobile = TRUE;
@@ -337,9 +337,9 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 
 			if (foundmobile)
-				sprintf(buf, "%-30s ", object->short_descr);
+				Format::sprintf(buf, "%-30s ", object->short_descr);
 			else
-				sprintf(buf, "NONE                          %s", object->short_descr);
+				Format::sprintf(buf, "NONE                          %s", object->short_descr);
 
 			strcat(totalbuf, buf);
 			found = TRUE;
@@ -347,7 +347,7 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 			founddata = TRUE;
 		}
 		else if (foundmobile) {
-			sprintf(buf, "NONE");
+			Format::sprintf(buf, "NONE");
 			strcat(totalbuf, buf);
 		}
 		/* error check */

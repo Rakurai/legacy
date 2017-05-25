@@ -229,12 +229,12 @@ void save_notes(int type)
 		perror(name);
 	else {
 		for (; pnote != NULL; pnote = pnote->next) {
-			fprintf(fp, "Sender  %s~\n", pnote->sender);
-			fprintf(fp, "Date    %s~\n", pnote->date);
-			fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-			fprintf(fp, "To      %s~\n", pnote->to_list);
-			fprintf(fp, "Subject %s~\n", pnote->subject);
-			fprintf(fp, "Text\n%s~\n",   pnote->text);
+			Format::fprintf(fp, "Sender  %s~\n", pnote->sender);
+			Format::fprintf(fp, "Date    %s~\n", pnote->date);
+			Format::fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
+			Format::fprintf(fp, "To      %s~\n", pnote->to_list);
+			Format::fprintf(fp, "Subject %s~\n", pnote->subject);
+			Format::fprintf(fp, "Text\n%s~\n",   pnote->text);
 		}
 
 		fclose(fp);
@@ -395,12 +395,12 @@ void append_note(NOTE_DATA *pnote)
 	if ((fp = fopen(name, "a")) == NULL)
 		perror(name);
 	else {
-		fprintf(fp, "Sender  %s~\n", smash_tilde(pnote->sender));
-		fprintf(fp, "Date    %s~\n", pnote->date);
-		fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-		fprintf(fp, "To      %s~\n", smash_tilde(pnote->to_list));
-		fprintf(fp, "Subject %s~\n", smash_tilde(pnote->subject));
-		fprintf(fp, "Text\n%s~\n", smash_tilde(pnote->text));
+		Format::fprintf(fp, "Sender  %s~\n", smash_tilde(pnote->sender));
+		Format::fprintf(fp, "Date    %s~\n", pnote->date);
+		Format::fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
+		Format::fprintf(fp, "To      %s~\n", smash_tilde(pnote->to_list));
+		Format::fprintf(fp, "Subject %s~\n", smash_tilde(pnote->subject));
+		Format::fprintf(fp, "Text\n%s~\n", smash_tilde(pnote->text));
 		fclose(fp);
 		/* Mud has crashed on above line before */
 	}
@@ -410,7 +410,7 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 {
 	char buf[MSL];
 	/* don't show notes to the forwarding person *mutter*  -- Montrey */
-	sprintf(buf, "FORWARD(%s)", ch->name);
+	Format::sprintf(buf, "FORWARD(%s)", ch->name);
 
 	if (strstr(buf, smash_bracket(pnote->subject)))
 		return FALSE;
@@ -681,7 +681,7 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 			continue;
 
 		if (is_note_to(ch, pnote)) {
-			sprintf(buf, "{W[FYI] New %s from %s. Subject: [%s]. ",
+			Format::sprintf(buf, "{W[FYI] New %s from %s. Subject: [%s]. ",
 			        list_name, pnote->sender, pnote->subject);
 
 			if (ch->clan && is_name(ch->clan->name, pnote->to_list))
@@ -808,7 +808,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				if ((nw) && hide_note(ch, pnote))
 					continue;
 
-				sprintf(buf, "{W[{x%3d%s{W][{x%12s{W]{x %s{x\n",
+				Format::sprintf(buf, "{W[{x%3d%s{W][{x%12s{W]{x %s{x\n",
 				        vnum,
 				        hide_note(ch, pnote) ? " " : "N",
 				        pnote->sender,
@@ -850,7 +850,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
 
-		sprintf(buf, "There aren't that many %s.", list_name);
+		Format::sprintf(buf, "There aren't that many %s.", list_name);
 		stc(buf, ch);
 		return;
 	}
@@ -872,7 +872,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
 
-		sprintf(buf, "There aren't that many %s.\n", list_name);
+		Format::sprintf(buf, "There aren't that many %s.\n", list_name);
 		stc(buf, ch);
 		return;
 	}
@@ -912,7 +912,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				   to be 14 characters, including color codes.  change it if you
 				   change this!  the smash_bracket is to assure there's no color
 				   codes in their name, even though mobs can't forward -- Montrey */
-				sprintf(buf, "{VFORWARD{W({V%s{W){x: %s", smash_bracket(ch->name), pnote->subject);
+				Format::sprintf(buf, "{VFORWARD{W({V%s{W){x: %s", smash_bracket(ch->name), pnote->subject);
 				newnote->subject  = str_dup(buf);
 				newnote->text     = str_dup(pnote->text);
 				newnote->type     = pnote->type;
@@ -923,7 +923,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
 
-		sprintf(buf, "There aren't that many %s.", list_name);
+		Format::sprintf(buf, "There aren't that many %s.", list_name);
 		stc(buf, ch);
 		return;
 	}
@@ -946,7 +946,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 				newnote->date     = str_dup(pnote->date);
 				newnote->date_stamp           = current_time;
 				newnote->to_list  = str_dup("Immortal");
-				sprintf(buf, "{PIMM REPOST{W({P%s{W){x: %s", ch->name,
+				Format::sprintf(buf, "{PIMM REPOST{W({P%s{W){x: %s", ch->name,
 				        pnote->subject);
 				newnote->subject  = str_dup(buf);
 				newnote->text     = str_dup(pnote->text);
@@ -959,7 +959,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
 
-		sprintf(buf, "There aren't that many %s.", list_name);
+		Format::sprintf(buf, "There aren't that many %s.", list_name);
 		stc(buf, ch);
 		return;
 	}
@@ -1159,7 +1159,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		char *temp = ch->pnote->text;
 		ch->pnote->text = str_dup(string_replace(temp, old, nw));
 		free_string(temp);
-		sprintf(buf, "'%s' replaced with '%s'.\n", old, nw);
+		Format::sprintf(buf, "'%s' replaced with '%s'.\n", old, nw);
 		stc(buf, ch);
 		return;
 	}
@@ -1271,7 +1271,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 			*p = '\0';
 			p += 4;
-			sprintf(buf, "%s%s%s", line, capitalize(ch->clan->name), p);
+			Format::sprintf(buf, "%s%s%s", line, capitalize(ch->clan->name), p);
 			ch->pnote->to_list = str_dup(buf);
 		}
 		else
@@ -1305,7 +1305,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		sprintf(buf, "   {WFrom: {x%s\n     {WTo: {x%s\n{WSubject: {x%s\n",
+		Format::sprintf(buf, "   {WFrom: {x%s\n     {WTo: {x%s\n{WSubject: {x%s\n",
 		        ch->pnote->sender,
 		        ch->pnote->to_list,
 		        ch->pnote->subject
@@ -1363,13 +1363,13 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		strtime[strlen(strtime) - 1]      = '\0';
 		ch->pnote->date                 = str_dup(strtime);
 		ch->pnote->date_stamp           = current_time;
-		sprintf(buf2, "%s has just posted a %s to: %s", ch->name,
+		Format::sprintf(buf2, "%s has just posted a %s to: %s", ch->name,
 		        board_index[type].board_long, ch->pnote->to_list);
 		wiznet(buf2, ch, NULL, WIZ_MAIL, 0, GET_RANK(ch));
 		append_note(ch->pnote);
 		notify_note_post(ch->pnote, ch, type);
 		ch->pnote = NULL;
-		sprintf(buf2, "Your %s has been posted.\n", board_index[type].board_long);
+		Format::sprintf(buf2, "Your %s has been posted.\n", board_index[type].board_long);
 		stc(buf2, ch);
 
 		if (!IS_NPC(ch)) REMOVE_BIT(ch->pcdata->plr, PLR_STOPCRASH);
@@ -1401,7 +1401,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{PN{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
@@ -1427,7 +1427,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{YI{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
@@ -1453,7 +1453,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{GC{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
@@ -1479,7 +1479,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{BQ{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
@@ -1505,7 +1505,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{VR{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
@@ -1531,7 +1531,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{CP{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
@@ -1557,7 +1557,7 @@ void do_old_next(CHAR_DATA *ch)
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "{W[{bT{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,

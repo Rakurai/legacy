@@ -61,13 +61,13 @@ void song_update(void)
 		}
 		else {
 			if (channel_songs[0] < 0) {
-				sprintf(buf, "Music: %s, %s",
+				Format::sprintf(buf, "Music: %s, %s",
 				        song_table[channel_songs[1]].group,
 				        song_table[channel_songs[1]].name);
 				channel_songs[0] = 0;
 			}
 			else {
-				sprintf(buf, "Music: '%s'",
+				Format::sprintf(buf, "Music: '%s'",
 				        song_table[channel_songs[1]].lyrics[channel_songs[0]]);
 				channel_songs[0]++;
 			}
@@ -105,7 +105,7 @@ void song_update(void)
 		}
 
 		if (obj->value[0] < 0) {
-			sprintf(buf, "$p starts playing %s, %s.",
+			Format::sprintf(buf, "$p starts playing %s, %s.",
 			        song_table[obj->value[1]].group, song_table[obj->value[1]].name);
 
 			if (room->people != NULL)
@@ -130,7 +130,7 @@ void song_update(void)
 			obj->value[0]++;
 		}
 
-		sprintf(buf, "$p bops: '%s'", line);
+		Format::sprintf(buf, "$p bops: '%s'", line);
 
 		if (room->people != NULL)
 			act(buf, room->people, obj, NULL, TO_ALL);
@@ -239,7 +239,7 @@ void do_play(CHAR_DATA *ch, const char *argument)
 		if (argument[0] != '\0')
 			match = TRUE;
 
-		sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
+		Format::sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
 		add_buf(buffer, capitalize(buf));
 
 		for (i = 0; i < MAX_SONGS; i++) {
@@ -248,11 +248,11 @@ void do_play(CHAR_DATA *ch, const char *argument)
 
 			if (artist && (!match
 			               ||             !str_prefix1(argument, song_table[i].group)))
-				sprintf(buf, "%-39s %-39s\n",
+				Format::sprintf(buf, "%-39s %-39s\n",
 				        song_table[i].group, song_table[i].name);
 			else if (!artist && (!match
 			                     ||                   !str_prefix1(argument, song_table[i].name)))
-				sprintf(buf, "%-35s ", song_table[i].name);
+				Format::sprintf(buf, "%-35s ", song_table[i].name);
 			else
 				continue;
 

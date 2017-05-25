@@ -71,7 +71,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 
 	(*count)++;
 
-	fprintf(fp, "OBJ\n%d %d %d %d ",
+	Format::fprintf(fp, "OBJ\n%d %d %d %d ",
 	        obj->pIndexData->vnum,
 	        obj->in_room ? obj->in_room->vnum : 0,
 	        enchanted ? 1 : 0,
@@ -81,45 +81,45 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 	for (cobj = obj->contains; cobj; cobj = cobj->next_content)
 		i++;
 
-	fprintf(fp, "%d\n", i);
+	Format::fprintf(fp, "%d\n", i);
 
 	/* these data are only used if they do not match the defaults */
 	if (obj->name != obj->pIndexData->name)
-		fprintf(fp, "N %s~\n", obj->name);
+		Format::fprintf(fp, "N %s~\n", obj->name);
 
 	if (obj->short_descr != obj->pIndexData->short_descr)
-		fprintf(fp, "S %s~\n", obj->short_descr);
+		Format::fprintf(fp, "S %s~\n", obj->short_descr);
 
 	if (obj->description != obj->pIndexData->description)
-		fprintf(fp, "D %s~\n", obj->description);
+		Format::fprintf(fp, "D %s~\n", obj->description);
 
 	if (obj->material != obj->pIndexData->material)
-		fprintf(fp, "M %s~\n", obj->material);
+		Format::fprintf(fp, "M %s~\n", obj->material);
 
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
-		fprintf(fp, "E %ld\n", obj->extra_flags);
+		Format::fprintf(fp, "E %ld\n", obj->extra_flags);
 
 	if (obj->wear_flags != obj->pIndexData->wear_flags)
-		fprintf(fp, "W %ld\n", obj->wear_flags);
+		Format::fprintf(fp, "W %ld\n", obj->wear_flags);
 
 	if (obj->item_type != obj->pIndexData->item_type)
-		fprintf(fp, "T %d\n",  obj->item_type);
+		Format::fprintf(fp, "T %d\n",  obj->item_type);
 
 	if (obj->weight != obj->pIndexData->weight)
-		fprintf(fp, "G %d\n",  obj->weight);
+		Format::fprintf(fp, "G %d\n",  obj->weight);
 
 	if (obj->condition != obj->pIndexData->condition)
-		fprintf(fp, "C %d\n",  obj->condition);
+		Format::fprintf(fp, "C %d\n",  obj->condition);
 
 	if (obj->level != obj->pIndexData->level)
-		fprintf(fp, "L %d\n",  obj->level);
+		Format::fprintf(fp, "L %d\n",  obj->level);
 
 	if (obj->value[0] != obj->pIndexData->value[0]
 	    || obj->value[1] != obj->pIndexData->value[1]
 	    || obj->value[2] != obj->pIndexData->value[2]
 	    || obj->value[3] != obj->pIndexData->value[3]
 	    || obj->value[4] != obj->pIndexData->value[4])
-		fprintf(fp, "V %d %d %d %d %d\n",
+		Format::fprintf(fp, "V %d %d %d %d %d\n",
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
 	if (enchanted) {
@@ -127,7 +127,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
 
-			fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %10d %d\n",
+			Format::fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %10d %d\n",
 			        skill_table[paf->type].name,
 			        paf->where,
 			        paf->level,
@@ -140,9 +140,9 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 	}
 
 	for (ed = obj->extra_descr; ed; ed = ed->next)
-		fprintf(fp, "X %s~ %s~\n", ed->keyword, ed->description);
+		Format::fprintf(fp, "X %s~ %s~\n", ed->keyword, ed->description);
 
-	fprintf(fp, "Z\n\n");
+	Format::fprintf(fp, "Z\n\n");
 
 	/* recursively write it's contents */
 	for (cobj = obj->contains; cobj; cobj = cobj->next_content)
@@ -170,7 +170,7 @@ int objstate_save_items()
 		if (is_worth_saving(obj))
 			fwrite_objstate(obj, fp, &count);
 
-	fprintf(fp, "END\n");
+	Format::fprintf(fp, "END\n");
 	fclose(fp);
 	return count;
 }
@@ -222,7 +222,7 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 
 	if (ovnum == OBJ_VNUM_PIT && donation_pit == NULL) {
 		donation_pit = obj;
-		printf("Loading donation pit with %d items.\n", nests);
+		Format::printf("Loading donation pit with %d items.\n", nests);
 	}
 
 	while (!done) { /* loop over all lines of obj desc */

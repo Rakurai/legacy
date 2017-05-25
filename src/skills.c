@@ -280,7 +280,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	buffer = new_buf();
 
 	if (group != -1) {
-		sprintf(buf, "Spells in group '%s':\n\n", group_table[group].name);
+		Format::sprintf(buf, "Spells in group '%s':\n\n", group_table[group].name);
 		add_buf(buffer, buf);
 	}
 
@@ -302,7 +302,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 			}
 
 			if (level > ch->level && !reached_player_level) {
-				sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
+				Format::sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
 				add_buf(buffer, buf);
 				reached_player_level = TRUE;
@@ -310,16 +310,16 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (cols == 0) {
-			sprintf(buf, "Level %3d: ", level);
+			Format::sprintf(buf, "Level %3d: ", level);
 
 			if (!new_level)
-				sprintf(buf, "%*s", (int)strlen(buf), " ");
+				Format::sprintf(buf, "%*s", (int)strlen(buf), " ");
 
 			new_level = FALSE;
 			add_buf(buffer, buf);
 		}
 		else {
-			sprintf(buf, "%*s", 24 - pos, " ");
+			Format::sprintf(buf, "%*s", 24 - pos, " ");
 			add_buf(buffer, buf);
 		}
 
@@ -328,13 +328,13 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		if (ch->pcdata->learned[sn] <= 0
 		    || (skill_table[sn].remort_class != 0 && !IS_IMMORTAL(ch)
 		        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
-			sprintf(buf, "[not  gained] ");
+			Format::sprintf(buf, "[not  gained] ");
 		else if (ch->level < level)
-			sprintf(buf, "[           ] ");
+			Format::sprintf(buf, "[           ] ");
 		else
-			sprintf(buf, "[{V%3d%% %3d Ma{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
+			Format::sprintf(buf, "[{V%3d%% %3d Ma{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
 
-		sprintf(arg, "{C%-1.20s{x", skill_table[sn].name);
+		Format::sprintf(arg, "{C%-1.20s{x", skill_table[sn].name);
 		strcat(buf, arg);
 
 		if (++cols < 2)
@@ -482,7 +482,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 			}
 
 			if (level > ch->level && !reached_player_level) {
-				sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
+				Format::sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
 				add_buf(buffer, buf);
 				reached_player_level = TRUE;
@@ -490,16 +490,16 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (cols == 0) {
-			sprintf(buf, "Level %3d: ", level);
+			Format::sprintf(buf, "Level %3d: ", level);
 
 			if (!new_level)
-				sprintf(buf, "%*s", (int)strlen(buf), " ");
+				Format::sprintf(buf, "%*s", (int)strlen(buf), " ");
 
 			new_level = FALSE;
 			add_buf(buffer, buf);
 		}
 		else {
-			sprintf(buf, "%*s", 24 - pos, " ");
+			Format::sprintf(buf, "%*s", 24 - pos, " ");
 			add_buf(buffer, buf);
 		}
 
@@ -508,13 +508,13 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		if (ch->pcdata->learned[sn] <= 0
 		    || (skill_table[sn].remort_class != 0 && !IS_IMMORTAL(ch)
 		        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
-			sprintf(buf, "[not  gained] ");
+			Format::sprintf(buf, "[not  gained] ");
 		else if (ch->level < level)
-			sprintf(buf, "[           ] ");
+			Format::sprintf(buf, "[           ] ");
 		else
-			sprintf(buf, "[{G%3d%% %3d St{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
+			Format::sprintf(buf, "[{G%3d%% %3d St{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
 
-		sprintf(arg, "{H%-1.20s{x", skill_table[sn].name);
+		Format::sprintf(arg, "{H%-1.20s{x", skill_table[sn].name);
 		strcat(buf, arg);
 
 		if (++cols < 2)
@@ -571,19 +571,19 @@ void do_levels(CHAR_DATA *ch, const char *argument)
 				if (skill_table[sn].remort_class > 0) /* list of remort skills is through 'levels remort' */
 					continue;
 
-				sprintf(buf, "%-21s", skill_table[sn].name);
+				Format::sprintf(buf, "%-21s", skill_table[sn].name);
 				add_buf(buffer, buf);
 
 				for (x = 0; x < MAX_CLASS; x++) {
 					if (skill_table[sn].skill_level[x] < 0 || skill_table[sn].skill_level[x] > LEVEL_HERO)
-						sprintf(buf, "{c  NA{x");
+						Format::sprintf(buf, "{c  NA{x");
 					else
-						sprintf(buf, "%4d", skill_table[sn].skill_level[x]);
+						Format::sprintf(buf, "%4d", skill_table[sn].skill_level[x]);
 
 					add_buf(buffer, buf);
 				}
 
-				sprintf(buf, "\n");
+				Format::sprintf(buf, "\n");
 				add_buf(buffer, buf);
 			}
 
@@ -599,7 +599,7 @@ void do_levels(CHAR_DATA *ch, const char *argument)
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
 		for (x = 0; x < MAX_CLASS; x++) {
-			sprintf(buf, "{W%s Skills:{x\n", capitalize(class_table[x].name));
+			Format::sprintf(buf, "{W%s Skills:{x\n", capitalize(class_table[x].name));
 			add_buf(buffer, buf);
 
 			for (sn = 0; sn < MAX_SKILL; sn++) {
@@ -609,19 +609,19 @@ void do_levels(CHAR_DATA *ch, const char *argument)
 				if (skill_table[sn].remort_class != x + 1)
 					continue;
 
-				sprintf(buf, "  {g%-19s{x", skill_table[sn].name);
+				Format::sprintf(buf, "  {g%-19s{x", skill_table[sn].name);
 				add_buf(buffer, buf);
 
 				for (y = 0; y < MAX_CLASS; y++) {
 					if (skill_table[sn].skill_level[y] < 0 || skill_table[sn].skill_level[y] > LEVEL_HERO)
-						sprintf(buf, " {TNA{c/{HNA {x");
+						Format::sprintf(buf, " {TNA{c/{HNA {x");
 					else
-						sprintf(buf, "{C%3d{c/{G%-3d{x", skill_table[sn].skill_level[y], skill_table[sn].rating[y]);
+						Format::sprintf(buf, "{C%3d{c/{G%-3d{x", skill_table[sn].skill_level[y], skill_table[sn].rating[y]);
 
 					add_buf(buffer, buf);
 				}
 
-				sprintf(buf, "\n");
+				Format::sprintf(buf, "\n");
 				add_buf(buffer, buf);
 			}
 		}
@@ -662,11 +662,11 @@ void do_levels(CHAR_DATA *ch, const char *argument)
 		if (skill_table[sn].skill_level[cls] < LEVEL_HERO &&
 		    skill_table[sn].spell_fun != spell_null) {
 			lev = skill_table[sn].skill_level[cls];
-			sprintf(buf, "{G%-20s  {C%3d{x {Tmana{x  ", skill_table[sn].name,
+			Format::sprintf(buf, "{G%-20s  {C%3d{x {Tmana{x  ", skill_table[sn].name,
 			        skill_table[sn].min_mana);
 
 			if (list[lev][0] == '\0')
-				sprintf(list[lev], "\n{HLevel %2d: %s", lev, buf);
+				Format::sprintf(list[lev], "\n{HLevel %2d: %s", lev, buf);
 			else { /* append */
 				if (++columns[lev] % 2 == 0)
 					strcat(list[lev], "\n          ");
@@ -698,10 +698,10 @@ void do_levels(CHAR_DATA *ch, const char *argument)
 		if (skill_table[sn].skill_level[cls] < LEVEL_HERO &&
 		    skill_table[sn].spell_fun == spell_null) {
 			lev = skill_table[sn].skill_level[cls];
-			sprintf(buf, "{G%-20s   {x        ", skill_table[sn].name);
+			Format::sprintf(buf, "{G%-20s   {x        ", skill_table[sn].name);
 
 			if (list[lev][0] == '\0')
-				sprintf(list[lev], "\n{HLevel %2d: %s{x", lev, buf);
+				Format::sprintf(list[lev], "\n{HLevel %2d: %s{x", lev, buf);
 			else { /* append */
 				if (++columns[lev] % 2 == 0)
 					strcat(list[lev], "\n          ");
@@ -784,7 +784,7 @@ void list_group_chosen(CHAR_DATA *ch)
 		return;
 
 	col = 0;
-	sprintf(buf, "%-18s %-5s %-18s %-5s %-18s %-5s", "group", "cp", "group", "cp", "group", "cp\n");
+	Format::sprintf(buf, "%-18s %-5s %-18s %-5s %-18s %-5s", "group", "cp", "group", "cp", "group", "cp\n");
 	stc(buf, ch);
 
 	for (gn = 0; gn < MAX_GROUP; gn++) {
@@ -793,7 +793,7 @@ void list_group_chosen(CHAR_DATA *ch)
 
 		if (ch->gen_data->group_chosen[gn]
 		    &&  group_table[gn].rating[ch->cls] > 0) {
-			sprintf(buf, "%-18s %-5d ", group_table[gn].name,
+			Format::sprintf(buf, "%-18s %-5d ", group_table[gn].name,
 			        group_table[gn].rating[ch->cls]);
 			stc(buf, ch);
 
@@ -807,7 +807,7 @@ void list_group_chosen(CHAR_DATA *ch)
 
 	stc("\n", ch);
 	col = 0;
-	sprintf(buf, "%-18s %-5s %-18s %-5s %-18s %-5s", "skill", "cp", "skill", "cp", "skill", "cp\n");
+	Format::sprintf(buf, "%-18s %-5s %-18s %-5s %-18s %-5s", "skill", "cp", "skill", "cp", "skill", "cp\n");
 	stc(buf, ch);
 
 	for (sn = 0; sn < MAX_SKILL; sn++) {
@@ -816,7 +816,7 @@ void list_group_chosen(CHAR_DATA *ch)
 
 		if (ch->gen_data->skill_chosen[sn]
 		    &&  skill_table[sn].rating[ch->cls] > 0) {
-			sprintf(buf, "%-18s %-5d ", skill_table[sn].name,
+			Format::sprintf(buf, "%-18s %-5d ", skill_table[sn].name,
 			        skill_table[sn].rating[ch->cls]);
 			stc(buf, ch);
 
@@ -829,9 +829,9 @@ void list_group_chosen(CHAR_DATA *ch)
 		stc("\n", ch);
 
 	stc("\n", ch);
-	sprintf(buf, "Creation points: %d\n", ch->gen_data->points_chosen);
+	Format::sprintf(buf, "Creation points: %d\n", ch->gen_data->points_chosen);
 	stc(buf, ch);
-	sprintf(buf, "Experience per level: %ld\n",
+	Format::sprintf(buf, "Experience per level: %ld\n",
 	        exp_per_level(ch, ch->gen_data->points_chosen));
 	stc(buf, ch);
 	return;
@@ -920,7 +920,7 @@ bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 				return TRUE;
 			}
 
-			sprintf(buf, "%s group added\n", group_table[gn].name);
+			Format::sprintf(buf, "%s group added\n", group_table[gn].name);
 			stc(buf, ch);
 			ch->gen_data->group_chosen[gn] = TRUE;
 			ch->gen_data->points_chosen += group_table[gn].rating[ch->cls];
@@ -945,7 +945,7 @@ bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 				return TRUE;
 			}
 
-			sprintf(buf, "%s skill added\n", skill_table[sn].name);
+			Format::sprintf(buf, "%s skill added\n", skill_table[sn].name);
 			stc(buf, ch);
 			ch->gen_data->skill_chosen[sn] = TRUE;
 			ch->gen_data->points_chosen += skill_table[sn].rating[ch->cls];
@@ -1046,7 +1046,7 @@ void do_groups(CHAR_DATA *ch, const char *argument)
 				break;
 
 			if (ch->pcdata->group_known[gn]) {
-				sprintf(buf, "%-18s ", group_table[gn].name);
+				Format::sprintf(buf, "%-18s ", group_table[gn].name);
 				stc(buf, ch);
 
 				if (++col % 3 == 0)
@@ -1057,7 +1057,7 @@ void do_groups(CHAR_DATA *ch, const char *argument)
 		if (col % 3 != 0)
 			stc("\n", ch);
 
-		sprintf(buf, "Creation points: %d\n", ch->pcdata->points);
+		Format::sprintf(buf, "Creation points: %d\n", ch->pcdata->points);
 		stc(buf, ch);
 		return;
 	}
@@ -1067,7 +1067,7 @@ void do_groups(CHAR_DATA *ch, const char *argument)
 			if (group_table[gn].name == NULL)
 				break;
 
-			sprintf(buf, "%-18s ", group_table[gn].name);
+			Format::sprintf(buf, "%-18s ", group_table[gn].name);
 			stc(buf, ch);
 
 			if (++col % 3 == 0)
@@ -1094,7 +1094,7 @@ void do_groups(CHAR_DATA *ch, const char *argument)
 		if (group_table[gn].spells[sn] == NULL)
 			break;
 
-		sprintf(buf, "%-18s ", group_table[gn].spells[sn]);
+		Format::sprintf(buf, "%-18s ", group_table[gn].spells[sn]);
 		stc(buf, ch);
 
 		if (++col % 3 == 0)
@@ -1148,7 +1148,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 		chance = URANGE(5, 100 - ch->pcdata->learned[sn], 95);
 
 		if (number_percent() < chance || multiplier == -1) {
-			sprintf(buf, "{GYou have become better at {H%s{G!{x\n",
+			Format::sprintf(buf, "{GYou have become better at {H%s{G!{x\n",
 			        skill_table[sn].name);
 			stc(buf, ch);
 			ch->pcdata->learned[sn]++;
@@ -1159,7 +1159,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 		chance = URANGE(5, ch->pcdata->learned[sn] / 2, 30);
 
 		if (number_percent() < chance || multiplier == -1) {
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{GYou learn from your mistakes, and your {H%s {Gskill improves.{x\n",
 			        skill_table[sn].name);
 			stc(buf, ch);
@@ -1899,7 +1899,7 @@ void do_convert(CHAR_DATA *ch, const char *argument)
 	/* convert skill points into practices */
 	ch->pcdata->skillpoints -= use_points;
 	ch->practice += use_points / 10;
-	sprintf(buffer, "You now have %d skill points and %d practice sessions.\n",
+	Format::sprintf(buffer, "You now have %d skill points and %d practice sessions.\n",
 	        ch->pcdata->skillpoints, ch->practice);
 	stc(buffer, ch);
 }

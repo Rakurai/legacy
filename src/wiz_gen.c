@@ -71,16 +71,16 @@ void do_adjust(CHAR_DATA *ch, const char *argument)
 	}
 
 	gain_exp(victim, value);
-	sprintf(buf, "You have adjusted the exp of %s by %d experience points.\n",
+	Format::sprintf(buf, "You have adjusted the exp of %s by %d experience points.\n",
 	        victim->name, value);
 	stc(buf, ch);
 
 	if (value > 0) {
-		sprintf(buf, "You have been bonused %d experience points.\n", value);
+		Format::sprintf(buf, "You have been bonused %d experience points.\n", value);
 		stc(buf, victim);
 	}
 	else {
-		sprintf(buf, "You have been penalized %d experience points.\n", value);
+		Format::sprintf(buf, "You have been penalized %d experience points.\n", value);
 		stc(buf, victim);
 	}
 
@@ -212,7 +212,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 			*q = '\0';
 		}
 
-		sprintf(colorsite, "{Y%s{W", p);
+		Format::sprintf(colorsite, "{Y%s{W", p);
 
 		if (prefix)
 			strcat(query, "\%");
@@ -292,7 +292,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 		for (i = 0; i < sitecount; i++) {
 			/* don't get *any* results more than a year old, unless all
 			   of the results previously were from an old character */
-			sprintf(query, "SELECT name, site FROM sites WHERE ");
+			Format::sprintf(query, "SELECT name, site FROM sites WHERE ");
 
 			if (!old_char)
 				strcat(query, "lastlog >= DATE('now', '-1 year') AND ");
@@ -302,7 +302,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 			if (db_queryf("do_alternate", query, db_esc(sitelist[i].ssite)) != SQL_OK)
 				return;
 
-			sprintf(colorsite, "{Y%s{W", sitelist[i].ssite);
+			Format::sprintf(colorsite, "{Y%s{W", sitelist[i].ssite);
 
 			while (db_next_row() == SQL_OK) {
 				const char *name = db_get_column_str(0);
@@ -451,7 +451,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf, "{W[%12s] Level {C%3d{W connected since %d hours {C(%d total hours){x\n",
+			Format::sprintf(buf, "{W[%12s] Level {C%3d{W connected since %d hours {C(%d total hours){x\n",
 			        victim->name, victim->level,
 			        ((int)(current_time - victim->logon)) / 3600,
 			        (get_play_seconds(victim) + (int)(current_time - victim->logon)) / 3600);
@@ -473,7 +473,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{W[%12s] {P%5d{RHP {P%5d{RMP{c/{G%2d %2d %2d %2d %2d %2d{c/{Y%8ld {bWorth{c/{Y%4d {bQpts{c/{Y%4d {b Spts{x\n",
 			        victim->name,
 			        GET_MAX_HIT(victim), GET_MAX_MANA(victim), ATTR_BASE(victim, APPLY_STR),
@@ -502,7 +502,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{W[%12s] {b%4d Items (W:%5d){c/{PH:%4d D:%4d{c/{GS:%-4d{c/{CAC:%-5d %-5d %-5d %-5d{x\n",
 			        victim->name, get_carry_number(victim), get_carry_weight(victim),
 			        GET_ATTR_HITROLL(victim), GET_ATTR_DAMROLL(victim), GET_ATTR_SAVES(victim),
@@ -526,7 +526,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{W[%12s] {RABS: {P%s{x\n",
 			        victim->name, print_defense_modifiers(victim, TO_ABSORB));
 			add_buf(buffer, buf);
@@ -547,7 +547,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{W[%12s] {RIMM: {P%s{x\n",
 			        victim->name,
 			        print_defense_modifiers(victim, TO_IMMUNE));
@@ -569,7 +569,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{W[%12s] {HRES: {G%s{x\n",
 			        victim->name,
 			        print_defense_modifiers(victim, TO_RESIST));
@@ -591,7 +591,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "{W[%12s] {TVUL: {C%s{x\n",
 			        victim->name,
 			        print_defense_modifiers(victim, TO_VULN));
@@ -620,7 +620,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			sprintf(buf, "{W[%12s] is being snooped by {G%s\n", victim->name,
+			Format::sprintf(buf, "{W[%12s] is being snooped by {G%s\n", victim->name,
 			        (victim->desc->snoop_by != NULL) ? victim->desc->snoop_by->character->name : "nobody");
 			add_buf(buffer, buf);
 		}
@@ -776,11 +776,11 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 			wiznet("$N has cloned: $p.", ch, clone, WIZ_LOAD, WIZ_SECURE, GET_RANK(ch));
 		}
 		else {
-			sprintf(arg, "$n clones $p[%d].", number);
+			Format::sprintf(arg, "$n clones $p[%d].", number);
 			act(arg, ch, clone, NULL, TO_ROOM);
-			sprintf(arg, "You clone $p[%d].", number);
+			Format::sprintf(arg, "You clone $p[%d].", number);
 			act(arg, ch, clone, NULL, TO_CHAR);
-			sprintf(arg, "$N has cloned: $p[%d].", number);
+			Format::sprintf(arg, "$N has cloned: $p[%d].", number);
 			wiznet(arg, ch, clone, WIZ_LOAD, WIZ_SECURE, GET_RANK(ch));
 		}
 
@@ -824,7 +824,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 		char_to_room(clone, ch->in_room);
 		act("$n clones $N.", ch, NULL, clone, TO_ROOM);
 		act("You clone $N.", ch, NULL, clone, TO_CHAR);
-		sprintf(buf, "$N has cloned: %s.", clone->short_descr);
+		Format::sprintf(buf, "$N has cloned: %s.", clone->short_descr);
 		wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, GET_RANK(ch));
 		return;
 	}
@@ -853,7 +853,7 @@ void do_oclone(CHAR_DATA *ch, const char *argument)
 
 	// don't use get_obj_carry/wear, the visibility check shouldn't fall to the victim
 	if ((obj = get_obj_list(ch, arg1, victim->carrying)) == NULL) {
-		sprintf(buf, "%s doesn't seem to have a %s.\n", victim->name, arg1);
+		Format::sprintf(buf, "%s doesn't seem to have a %s.\n", victim->name, arg1);
 		stc(buf, ch);
 		return;
 	}
@@ -1140,7 +1140,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		if (d->descriptor == desc) {
 			if (d->connected == 0) {
-				sprintf(buf,
+				Format::sprintf(buf,
 				        "But '%s' is playing! A simple QUIT would suffice.\n",
 				        d->original ? d->original->name : d->character->name);
 				stc(buf, ch);
@@ -1153,7 +1153,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	sprintf(buf,
+	Format::sprintf(buf,
 	        "No socket number '%d' found. Check SOCKETS and try again!\n",
 	        desc);
 	stc(buf, ch);
@@ -1346,7 +1346,7 @@ void do_file(CHAR_DATA *ch, const char *argument)
 	else
 		req_lines = URANGE(1, atoi(value), 150);
 
-	sprintf(strsave, "%s%s", MISC_DIR, fields[i].file);
+	Format::sprintf(strsave, "%s%s", MISC_DIR, fields[i].file);
 
 	if ((req_file = fopen(strsave, "r")) == NULL) {
 		stc("That file does not exist.\n", ch);
@@ -1458,7 +1458,7 @@ const char *name_expand(CHAR_DATA *ch)
 		if (is_name(name, rch->name))
 			count++;
 
-	sprintf(outbuf, "%d.%s", count, name);
+	Format::sprintf(outbuf, "%d.%s", count, name);
 	return outbuf;
 }
 
@@ -1739,7 +1739,7 @@ void do_grouplist(CHAR_DATA *ch, const char *argument)
 
 	/* loop over all leaders, print the group */
 	for (curnode = leaders; curnode != NULL; curnode = curnode->next) {
-		sprintf(buf, "{G<G%d> {Y%s{x", ++counter, curnode->leader->name);
+		Format::sprintf(buf, "{G<G%d> {Y%s{x", ++counter, curnode->leader->name);
 
 		/* find all followers */
 		for (d = descriptor_list; d != NULL; d = d->next) {
@@ -1912,9 +1912,9 @@ void do_heed(CHAR_DATA *ch, const char *argument)
 	const String& wizname = ch->desc && ch->desc->original ? ch->desc->original->name : ch->name;
 
 	if (victim != truevictim)
-		sprintf(buf, "%s HEEDs %s (%s): %s\n", wizname, truevictim->name, victim->name, argument);
+		Format::sprintf(buf, "%s HEEDs %s (%s): %s\n", wizname, truevictim->name, victim->name, argument);
 	else
-		sprintf(buf, "%s HEEDs %s: %s\n", wizname, truevictim->name, argument);
+		Format::sprintf(buf, "%s HEEDs %s: %s\n", wizname, truevictim->name, argument);
 
 	/* send it to all other imms who are connected and listening */
 	for (d = descriptor_list; d; d = d->next) {
@@ -1986,11 +1986,11 @@ void do_linkload(CHAR_DATA *ch, const char *argument)
 			extract_char(victim, TRUE);
 		}
 		else {
-			sprintf(buf, "You reach into the pfile and link-load %s from room %d.\n",
+			Format::sprintf(buf, "You reach into the pfile and link-load %s from room %d.\n",
 			        victim->name, victim->in_room->vnum);
 			stc(buf, ch);
 			act("$n reaches into the pfiles and link-loads $N.", ch, NULL, victim, TO_NOTVICT);
-			sprintf(buf, "$N has link-loaded %s from room %d.", victim->name, victim->in_room->vnum);
+			Format::sprintf(buf, "$N has link-loaded %s from room %d.", victim->name, victim->in_room->vnum);
 			wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
 			char_to_room(victim, ch->in_room);
 
@@ -2036,7 +2036,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 
 	char_to_room(victim, ch->in_room);
 	act("$n creates $N!", ch, NULL, victim, TO_ROOM);
-	sprintf(buf, "$N loads %s.", victim->short_descr);
+	Format::sprintf(buf, "$N loads %s.", victim->short_descr);
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, GET_RANK(ch));
 	stc("Success.\n", ch);
 	return;
@@ -2164,7 +2164,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 				char strip[MAX_STRING_LENGTH];
 				strcpy(strip, ed->description);
 				strip[strlen(strip) - 2] = '\0';
-				sprintf(buf, "This item is already owned by %s.\n", strip);
+				Format::sprintf(buf, "This item is already owned by %s.\n", strip);
 				stc(buf, ch);
 				return;
 			}
@@ -2191,9 +2191,9 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_IMMORTAL(victim)) {
-		sprintf(buf, "%s %s", what, victim->name);
+		Format::sprintf(buf, "%s %s", what, victim->name);
 		do_owner(ch, buf);
-		sprintf(buf, "deduct %s %d", victim->name, qp);
+		Format::sprintf(buf, "deduct %s %d", victim->name, qp);
 		do_quest(ch, buf);
 	}
 
@@ -2389,9 +2389,9 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (found) {
-			sprintf(tmpbuf, "[%%4d][%%5d] %%-%zus{x [%%s]\n",
+			Format::sprintf(tmpbuf, "[%%4d][%%5d] %%-%zus{x [%%s]\n",
 			        45 + (strlen(pObjIndex->short_descr) - color_strlen(pObjIndex->short_descr)));
-			sprintf(buf, tmpbuf, pObjIndex->level, pObjIndex->vnum,
+			Format::sprintf(buf, tmpbuf, pObjIndex->level, pObjIndex->vnum,
 			        pObjIndex->short_descr, wear_bit_name(pObjIndex->wear_flags));
 			add_buf(buffer, buf);
 			matches++;
@@ -2403,14 +2403,14 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 		stc("No objects by that level.\n", ch);
 	else {
 		if (blevel < elevel)
-			sprintf(buf, "Objects level range: %d to %d.\n", blevel, elevel);
+			Format::sprintf(buf, "Objects level range: %d to %d.\n", blevel, elevel);
 		else
-			sprintf(buf, "Objects level: %d\n", blevel);
+			Format::sprintf(buf, "Objects level: %d\n", blevel);
 
 		stc(buf, ch);
 		stc("Level Vnum    Name                                          Wear Loc.\n", ch);
 		page_to_char(buf_string(buffer), ch);
-		sprintf(buf, "%d match%s found.\n", matches, (matches > 0) ? "es" : "");
+		Format::sprintf(buf, "%d match%s found.\n", matches, (matches > 0) ? "es" : "");
 		stc(buf, ch);
 	}
 
@@ -2465,9 +2465,9 @@ void do_mlevel(CHAR_DATA *ch, const char *argument)
 
 			if ((blevel <= pMobIndex->level) && (elevel >= pMobIndex->level)) {
 				found = TRUE;
-				sprintf(tmpbuf, "[%%3d][%%5d] %%-%zus (Align: %%d)\n",
+				Format::sprintf(tmpbuf, "[%%3d][%%5d] %%-%zus (Align: %%d)\n",
 				        40 + (strlen(pMobIndex->short_descr) - color_strlen(pMobIndex->short_descr)));
-				sprintf(buf, tmpbuf,
+				Format::sprintf(buf, tmpbuf,
 				        pMobIndex->level, pMobIndex->vnum,
 				        pMobIndex->short_descr, pMobIndex->alignment);
 				add_buf(buffer, buf);
@@ -2630,7 +2630,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
 			        count,
 			        in_obj->carried_by->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -2653,7 +2653,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
 			        count,
 			        in_obj->in_locker->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -2676,7 +2676,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
 			        count,
 			        in_obj->in_strongbox->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -2695,7 +2695,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
 			        count,
 			        in_obj->in_room->vnum,
 			        obj->pIndexData->vnum,
@@ -2716,7 +2716,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	if (--count == 0)
 		stc("You found no item like that.\n", ch);
 	else {
-		sprintf(buf, "You found %d matching item%s%s%s.\n",
+		Format::sprintf(buf, "You found %d matching item%s%s%s.\n",
 		        count,
 		        count > 1 ? "s" : "",
 		        fGround ? " lying around" : "",
@@ -2768,7 +2768,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		}
 
 		found = TRUE;
-		sprintf(buf, "[%5d] %s%*s[%5d] %s\n",
+		Format::sprintf(buf, "[%5d] %s%*s[%5d] %s\n",
 		        victim->pIndexData->vnum,
 		        victim->short_descr,
 		        28 - color_strlen(victim->short_descr),
@@ -2824,7 +2824,7 @@ void do_rwhere(CHAR_DATA *ch, const char *argument)
 					if (cp != NULL)
 						*cp = '\0';
 
-					sprintf(buf, "[%5d] <%-8.8s> %s{x\n", vnum, fname, room->name);
+					Format::sprintf(buf, "[%5d] <%-8.8s> %s{x\n", vnum, fname, room->name);
 					add_buf(dbuf, buf);
 				}
 			}
@@ -2873,7 +2873,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 
 			if (fAll || is_name(argument, pMobIndex->player_name)) {
 				found = TRUE;
-				sprintf(buf, "M (%3d) [%5d] %s\n",
+				Format::sprintf(buf, "M (%3d) [%5d] %s\n",
 				        pMobIndex->level, pMobIndex->vnum, pMobIndex->short_descr);
 				add_buf(output, buf);
 			}
@@ -2924,7 +2924,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 
 			if (fAll || is_name(argument, pObjIndex->name)) {
 				found = TRUE;
-				sprintf(buf, "O (%3d) [%5d] %s\n",
+				Format::sprintf(buf, "O (%3d) [%5d] %s\n",
 				        pObjIndex->level, pObjIndex->vnum, pObjIndex->short_descr);
 				add_buf(output, buf);
 			}
@@ -3155,7 +3155,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 				extract_obj(obj);
 		}
 
-		sprintf(buf, "$N has purged room: %d.", ch->in_room->vnum);
+		Format::sprintf(buf, "$N has purged room: %d.", ch->in_room->vnum);
 		wiznet(buf, ch, NULL, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 		act("$n purges the room of all objects!", ch, NULL, NULL, TO_ROOM);
 		stc("The room has been purged.\n", ch);
@@ -3174,14 +3174,14 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!OUTRANKS(ch, victim) && !IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
-			sprintf(buf, "$N has tried to purge the immortal: %s", victim->name);
+			Format::sprintf(buf, "$N has tried to purge the immortal: %s", victim->name);
 			wiznet(buf, ch, NULL, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 			stc("Maybe that wasn't a good idea...\n", ch);
 			ptc(victim, "%s just tried to purge you!\n", ch->name);
 			return;
 		}
 
-		sprintf(buf, "$N has purged the player: %s", victim->name);
+		Format::sprintf(buf, "$N has purged the player: %s", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 		act("$n disintegrates $N.", ch, 0, victim, TO_NOTVICT);
 		act("You disintegrate $N.", ch, 0, victim, TO_CHAR);
@@ -3203,7 +3203,7 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "$N has purged the mobile: %s", victim->short_descr);
+	Format::sprintf(buf, "$N has purged the mobile: %s", victim->short_descr);
 	wiznet(buf, ch, NULL, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 	act("$n disintegrates $N.", ch, NULL, victim, TO_NOTVICT);
 	act("You disintegrate $N.", ch, NULL, victim, TO_CHAR);
@@ -3275,7 +3275,7 @@ void do_qpconv(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (has_enough_qps(victim, qpcost) == 0) {
-		sprintf(buffer, "{x%s doesn't seem to have enough the required %d questpoints.\n", victim->name, qpcost);
+		Format::sprintf(buffer, "{x%s doesn't seem to have enough the required %d questpoints.\n", victim->name, qpcost);
 		stc(buffer, ch);
 		return;
 	}
@@ -3293,7 +3293,7 @@ void do_qpconv(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	sprintf(buffer, "{x%d questpoints deducted, %d %s%sadded.\n", qpcost, number_of, (what == 1) ? "train" : "practice",
+	Format::sprintf(buffer, "{x%d questpoints deducted, %d %s%sadded.\n", qpcost, number_of, (what == 1) ? "train" : "practice",
 	        (number_of) > 1 ? "s " : " ");
 	stc(buffer, victim);
 	stc("{xConversion was successful.\n", ch);
@@ -3329,7 +3329,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 		for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
 			restore_char(ch, victim);
 
-		sprintf(buf, "$N has restored room: %d.", ch->in_room->vnum);
+		Format::sprintf(buf, "$N has restored room: %d.", ch->in_room->vnum);
 		wiznet(buf, ch, NULL, WIZ_RESTORE, WIZ_SECURE, GET_RANK(ch));
 		stc("Room restored.\n", ch);
 		return;
@@ -3352,7 +3352,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 	}
 
 	restore_char(ch, victim);
-	sprintf(buf, "$N has restored: %s", IS_NPC(victim) ? victim->short_descr : victim->name);
+	Format::sprintf(buf, "$N has restored: %s", IS_NPC(victim) ? victim->short_descr : victim->name);
 	wiznet(buf, ch, NULL, WIZ_RESTORE, WIZ_SECURE, GET_RANK(ch));
 	stc("The player has been restored.\n", ch);
 }
@@ -3642,8 +3642,8 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(pfile_buf, "%s%s", PLAYER_DIR, capitalize(argument));
-		sprintf(storage_buf, "%s%s", STORAGE_DIR, capitalize(argument));
+		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, capitalize(argument));
+		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, capitalize(argument));
 
 		if ((fp = fopen(pfile_buf, "r")) == NULL) {
 			stc("No such character!\n", ch);
@@ -3651,7 +3651,7 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 		}
 
 		fclose(fp);
-		sprintf(command_buf, "mv %s %s", pfile_buf, storage_buf);
+		Format::sprintf(command_buf, "mv %s %s", pfile_buf, storage_buf);
 
 		if (system(command_buf) != 0) {
 			ptc(ch, "Error trying to move %s into storage!.\n", argument);
@@ -3687,9 +3687,9 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(pfile_buf, "%s%s", PLAYER_DIR, capitalize(argument));
-		sprintf(storage_buf, "%s%s", STORAGE_DIR, capitalize(argument));
-		sprintf(command_buf, "mv %s %s", storage_buf, pfile_buf);
+		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, capitalize(argument));
+		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, capitalize(argument));
+		Format::sprintf(command_buf, "mv %s %s", storage_buf, pfile_buf);
 
 		if (system(command_buf) == 0) {
 			ptc(ch, "%s has successfully been removed from storage.\n", capitalize(argument));
@@ -3771,7 +3771,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 			    &&   d->character->in_room != NULL
 			    &&   can_see_char(ch, d->character)) {
 				char buf[MAX_STRING_LENGTH];
-				sprintf(buf, "%s %s", d->character->name, arg2);
+				Format::sprintf(buf, "%s %s", d->character->name, arg2);
 				do_transfer(ch, buf);
 			}
 		}
@@ -3987,7 +3987,7 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* Backup their pfile to BACKUP_DIR/pfileGOD.gz */
-	sprintf(strsave, "%s%s%s", BACKUP_DIR, victim->name.capitalize(), "GOD.gz");
+	Format::sprintf(strsave, "%s%s%s", BACKUP_DIR, victim->name.capitalize(), "GOD.gz");
 
 	if ((fp = fopen(strsave, "r")) != NULL)
 		fclose(fp);
@@ -3995,7 +3995,7 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 		backup_char_obj(ch);
 		stc("Your pfile has been backed up.\n", victim);
 		String capname = victim->name.capitalize();
-		sprintf(strsave, "mv %s%s.gz %s%sGOD.gz",
+		Format::sprintf(strsave, "mv %s%s.gz %s%sGOD.gz",
 		        BACKUP_DIR, capname, BACKUP_DIR, capname);
 		system(strsave);
 	}
@@ -4211,7 +4211,7 @@ void do_clanqp(CHAR_DATA *ch, const char *argument)
 			ptc(ch, "The %s{x is now %d questpoint%s richer!\n",
 			    target->clanname, qp_amount, qp_amount > 1 ? "s" : "");
 		else {
-			sprintf(buf, "{W[ %s just donated %d questpoint%s to the clan! ]{x\n",
+			Format::sprintf(buf, "{W[ %s just donated %d questpoint%s to the clan! ]{x\n",
 			        ch->name, qp_amount, qp_amount > 1 ? "s" : "");
 			send_to_clan(ch, target, buf);
 			ptc(ch, "You donate %d questpoint%s to the clan.\n",
@@ -4238,7 +4238,7 @@ void do_clanqp(CHAR_DATA *ch, const char *argument)
 		}
 
 		target->clanqp -= qp_amount;
-		sprintf(buf, "{W[ %s has deducted %d questpoint%s for %s ]\n",
+		Format::sprintf(buf, "{W[ %s has deducted %d questpoint%s for %s ]\n",
 		        ch->name, qp_amount, qp_amount > 1 ? "s" : "", argument);
 		send_to_clan(ch, target, buf);
 		ptc(ch, "You deduct %d questpoints from the %s{x.\n", qp_amount, target->clanname);

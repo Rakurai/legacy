@@ -408,7 +408,7 @@ bool swearcheck(const char *argument)
 		{       NULL,           0       }
 	};
 	int x;  /* Our lovely counter */
-	sprintf(tobechecked, "%s", smash_bracket(argument));;
+	Format::sprintf(tobechecked, "%s", smash_bracket(argument));;
 
 	for (x = 0; swear_table[x].level > 0; x++) {
 		switch (swear_table[x].level) {
@@ -688,9 +688,9 @@ void channel(CHAR_DATA *ch, const char *argument, int channel)
 		char prefix[MSL];
 
 		if (ch->pcdata && ch->pcdata->immprefix[0] != '\0')
-			sprintf(prefix, "%s", ch->pcdata->immprefix);
+			Format::sprintf(prefix, "%s", ch->pcdata->immprefix);
 		else
-			sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
+			Format::sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
 
 		ptc(ch, "[%s",
 		    ch->secure_level == RANK_IMP ? "{YIMP" :
@@ -720,12 +720,12 @@ void channel(CHAR_DATA *ch, const char *argument, int channel)
 				char prefix[MSL];
 				if (can_see_who(victim, ch)) {
 					if (ch->pcdata && ch->pcdata->immprefix[0] != '\0')
-						sprintf(prefix, "%s", ch->pcdata->immprefix);
+						Format::sprintf(prefix, "%s", ch->pcdata->immprefix);
 					else
-						sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
+						Format::sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
 				}
 				else
-					sprintf(prefix, "Someone:");
+					Format::sprintf(prefix, "Someone:");
 
 				new_color(victim, cslot);
 				ptc(victim, "[%s",
@@ -1022,15 +1022,15 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 	{
 	    pose = select_pose( ch );
 	    if ( pose < 0 ) return;
-	    sprintf( buf, "[P] %s\n",
+	    Format::sprintf( buf, "[P] %s\n",
 	        new_pose_table[ch->cls].poses[pose].self_msg );
 	}
 	else
 	*****/
 	if (!str_prefix1(arg, "emote") && (arg2[0] != '\0'))
-		sprintf(buf, "[E] %s %s\n", ch->name, arg2);
+		Format::sprintf(buf, "[E] %s %s\n", ch->name, arg2);
 	else
-		sprintf(buf, "You socialize '%s{x'\n", argument);
+		Format::sprintf(buf, "You socialize '%s{x'\n", argument);
 
 	/* send social to player himself */
 	new_color(ch, CSLOT_CHAN_SOCIAL);
@@ -1040,14 +1040,14 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 
 	/* no channel poses */
 	/*    if ( pose != -1 )
-	        sprintf( buf, "[P] %s\n",
+	        Format::sprintf( buf, "[P] %s\n",
 	            new_pose_table[ch->cls].poses[pose].room_msg );
 	*/
 
 	if (!str_prefix1(arg, "emote") && (arg2[0] != '\0'))
-		sprintf(buf, "[E] $n %s", arg2);
+		Format::sprintf(buf, "[E] $n %s", arg2);
 	else
-		sprintf(buf, "$n socializes '%s{x'", argument);
+		Format::sprintf(buf, "$n socializes '%s{x'", argument);
 
 	/* broadcast the social */
 	for (d = descriptor_list; d != NULL; d = d->next) {
@@ -1228,7 +1228,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		act_new("$E has lost $S link, but your message will go through when $E returns.",
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1250,7 +1250,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		stc(victim->pcdata->afk, ch);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1345,7 +1345,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$N seems to have misplaced $S link...try again later.", ch, NULL, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1367,7 +1367,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		act(victim->pcdata->afk, ch, NULL, NULL, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1674,7 +1674,7 @@ void do_page(CHAR_DATA *ch, const char *argument)
 		act("$N seems to have misplaced $S link...try again later.",
 		    ch, NULL, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "{R[%s] %s PAGES '%s{x'{x\a\n",
+		Format::sprintf(buf, "{R[%s] %s PAGES '%s{x'{x\a\n",
 		        strtime , PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 
@@ -1769,7 +1769,7 @@ void do_qtell(CHAR_DATA *ch, const char *argument)
 	new_color(ch, CSLOT_CHAN_QTELL);
 	ptc(ch, "You tell the query '%s{x'\n", argument);
 	set_color(ch, WHITE, NOBOLD);
-	sprintf(buf, "%s tells the query '%s{x'\n", ch->name, argument);
+	Format::sprintf(buf, "%s tells the query '%s{x'\n", ch->name, argument);
 	send_to_query(ch, buf);
 	return;
 }
@@ -1789,7 +1789,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Note use of stc, so gtell works on sleepers.
 	 */
-	sprintf(buf, "%s tells the group '%s{x'\n", ch->name, argument);
+	Format::sprintf(buf, "%s tells the group '%s{x'\n", ch->name, argument);
 
 	/* would be more efficient to find leader and step thru all his group members
 	-- Elrac */

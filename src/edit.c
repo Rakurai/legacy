@@ -126,11 +126,11 @@ static void listline(BUFFER *dbuf, int lineno, char *line)
 	char *bp;
 
 	if (lineno == ed->edit_line)
-		sprintf(buf, "{W<%3d> {x", lineno);
+		Format::sprintf(buf, "{W<%3d> {x", lineno);
 	else if (lineno <= ed->edit_nlines)
-		sprintf(buf, "{x %3d: {x", lineno);
+		Format::sprintf(buf, "{x %3d: {x", lineno);
 	else
-		sprintf(buf, "{x    : {x");
+		Format::sprintf(buf, "{x    : {x");
 
 	add_buf(dbuf, buf);
 	bp = buf;
@@ -208,7 +208,7 @@ static void edit_status(CHAR_DATA *ch, const char *argument)
 			        "and then type {REDIT NOTE{x to edit it.\n", ch);
 		}
 		else {
-			sprintf(buf, "You have started writing a(n) {Y%s{x.\n",
+			Format::sprintf(buf, "You have started writing a(n) {Y%s{x.\n",
 			        board_index[ch->pnote->type].board_long);
 			stc(buf, ch);
 			stc("You could use {REDIT NOTE{x to edit it.\n", ch);
@@ -237,7 +237,7 @@ static void edit_status(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(buf, "You are currently editing a(n) {Y%s{x.\n",
+		Format::sprintf(buf, "You are currently editing a(n) {Y%s{x.\n",
 		        board_index[ch->pnote->type].board_long);
 		stc(buf, ch);
 		break;
@@ -260,7 +260,7 @@ static void edit_status(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "You are on line {C%d{x of {C%d{x.\n",
+	Format::sprintf(buf, "You are on line {C%d{x of {C%d{x.\n",
 	        ed->edit_line, ed->edit_nlines);
 	stc(buf, ch);
 	stc(
@@ -277,7 +277,7 @@ static bool check_line(CHAR_DATA *ch, int line)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (line < 0 || line > ed->edit_nlines) {
-		sprintf(buf, "{PThere is no line number %d{x.\n", line);
+		Format::sprintf(buf, "{PThere is no line number %d{x.\n", line);
 		stc(buf, ch);
 		return FALSE;
 	}
@@ -295,7 +295,7 @@ static bool check_range(CHAR_DATA *ch, int *fromline, int *toline)
 
 		if (num2 > ed->edit_nlines) {
 			num2 = ed->edit_nlines;
-			sprintf(buf, "{PLast line adjusted to {Y%d{x.\n", num2);
+			Format::sprintf(buf, "{PLast line adjusted to {Y%d{x.\n", num2);
 			stc(buf, ch);
 		}
 		else if (num2 < num1) {
@@ -404,7 +404,7 @@ static void edit_change(CHAR_DATA *ch, const char *argument)
 	*end_pos = end_char;
 
 	if (where == NULL) {
-		sprintf(arg2, "{PSearch string '%s{P' not found in current line.{x\n", arg1);
+		Format::sprintf(arg2, "{PSearch string '%s{P' not found in current line.{x\n", arg1);
 		stc(arg2, ch);
 		return;
 	}
@@ -489,7 +489,7 @@ static void edit_done(CHAR_DATA *ch, const char *argument)
 			    "{PYour edited text is going down the drain now.{x\n", ch);
 		}
 		else {
-			sprintf(buf, "OK, I'm saving your {Y%s{x.\n",
+			Format::sprintf(buf, "OK, I'm saving your {Y%s{x.\n",
 			        board_index[ch->pnote->type].board_long);
 			stc(buf, ch);
 			stc("Don't forget to {RPOST{x it!\n", ch);
@@ -712,7 +712,7 @@ static void edit_split(CHAR_DATA *ch, const char *argument)
 	*end_pos = end_char;
 
 	if (where == NULL) {
-		sprintf(buf, "{PCharacters '%s{P' not found in current line.{x\n", token);
+		Format::sprintf(buf, "{PCharacters '%s{P' not found in current line.{x\n", token);
 		stc(buf, ch);
 		return;
 	}
@@ -1015,7 +1015,7 @@ void do_edit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "{PUnknown {CEDIT{x function '{R%s{P'.{x\n", arg);
+	Format::sprintf(buf, "{PUnknown {CEDIT{x function '{R%s{P'.{x\n", arg);
 	stc(buf, ch);
 	edit_status(ch, "");
 } /* end do_edit() */

@@ -393,14 +393,14 @@ void unique_item(OBJ_DATA *item)
 		                }
 		                else
 		                {
-		                        fprintf(fp, "%s\n", item->short_descr);
+		                        Format::fprintf(fp, "%s\n", item->short_descr);
 		                        fclose(fp);
 		                }
 
 		*/
 
 		/* enable below 2 lines for testing */
-		/*              sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == NULL ? 0 : item->in_room->vnum);
+		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == NULL ? 0 : item->in_room->vnum);
 		                bug(buf,0); */
 	}
 }
@@ -679,7 +679,7 @@ void reset_area(AREA_DATA *pArea)
 
 					/* error message if it is too high */
 					if (obj->level > mob->level + 3)
-						fprintf(stderr,
+						Format::fprintf(stderr,
 						        "Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
 						        obj->short_descr, obj->pIndexData->vnum, obj->level,
 						        mob->short_descr, mob->pIndexData->vnum, mob->level);
@@ -771,7 +771,7 @@ void area_update(void)
 		    ||    pArea->age >= 31) {
 			ROOM_INDEX_DATA *pRoomIndex;
 			reset_area(pArea);
-			sprintf(buf, "%s has just been reset.", pArea->name);
+			Format::sprintf(buf, "%s has just been reset.", pArea->name);
 			wiznet(buf, NULL, NULL, WIZ_RESETS, 0, 0);
 			pArea->age = number_range(0, 3);
 			pRoomIndex = get_room_index(ROOM_VNUM_SCHOOL);
@@ -1394,7 +1394,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 			break;
 
 		default:
-			sprintf(range, "{x%3d-%3d{x", ap->low_range, ap->high_range);
+			Format::sprintf(range, "{x%3d-%3d{x", ap->low_range, ap->high_range);
 
 			if (ap->high_range <= 15)
 				range[1] = 'C';
@@ -1425,16 +1425,16 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 			strcpy(filename, arg);
 
 			if (ap->nplayer == 0) {
-				sprintf(buf, "%-8.8s [%5d-%5d]%3s ",
+				Format::sprintf(buf, "%-8.8s [%5d-%5d]%3s ",
 				        filename, ap->min_vnum, ap->max_vnum, " ");
 			}
 			else {
-				sprintf(buf, "%-8.8s [%5d-%5d]{Y%3d{x ",
+				Format::sprintf(buf, "%-8.8s [%5d-%5d]{Y%3d{x ",
 				        filename, ap->min_vnum, ap->max_vnum, ap->nplayer);
 			}
 		}
 
-		sprintf(buf + strlen(buf),
+		Format::sprintf(buf + strlen(buf),
 		        "<%s> %-s{a{x%*s%-s{a{x\n", range,
 		        ap->title, 25 - color_strlen(ap->title), " ",
 		        ap->author);
@@ -1442,13 +1442,13 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (showall) {
-		sprintf(buf,
+		Format::sprintf(buf,
 		        "%d areas listed. Type {Rhelp areas{x to see selection options.\n",
 		        count);
 		add_buf(dbuf, buf);
 	}
 	else if (count <= 0) {
-		sprintf(buf, "No areas found matching your search criteria.\n");
+		Format::sprintf(buf, "No areas found matching your search criteria.\n");
 		add_buf(dbuf, buf);
 	}
 

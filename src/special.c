@@ -776,7 +776,7 @@ bool spec_executioner(CHAR_DATA *ch)
 	if (victim == NULL)
 		return FALSE;
 
-	sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
+	Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 	        victim->name, crime);
 	REMOVE_BIT(ch->comm, COMM_NOCHANNELS);
 	do_yell(ch, buf);
@@ -853,7 +853,7 @@ bool spec_guard(CHAR_DATA *ch)
 	}
 
 	if (victim != NULL) {
-		sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
+		Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
 		        victim->name, crime);
 		REMOVE_BIT(ch->comm, COMM_NOCHANNELS);
 		do_yell(ch, buf);
@@ -1078,7 +1078,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		deduct_cost(ch, obj->level * 10 + 50);
-		sprintf(buf, "The identify on %s has cost you %d silver.\n",
+		Format::sprintf(buf, "The identify on %s has cost you %d silver.\n",
 		        obj->short_descr, obj->level * 10 + 50);
 		stc(buf, ch);
 	}
@@ -1149,7 +1149,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 			etched = affect_exists_on_obj(obj, gsn_acid_breath) ? TRUE : FALSE;
 
-			sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
+			Format::sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
 			        , condition_lookup(obj->condition),
 			        obj->short_descr, (etched) ? "{G({HEtched{G){x" : "");
 			stc(buf, ch);
@@ -1225,11 +1225,11 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 				return;
 			}
 
-			sprintf(buf, "$n repairs $p to %s condition.",
+			Format::sprintf(buf, "$n repairs $p to %s condition.",
 			        condition_lookup(obj->condition));
 			act(buf, rch, obj, 0, TO_ROOM);
 			obj->condition = max;
-			sprintf(buf, "You repair $p to %s condition.",
+			Format::sprintf(buf, "You repair $p to %s condition.",
 			        condition_lookup(obj->condition));
 			act(buf, ch, obj, NULL, TO_CHAR);
 			check_improve(ch, gsn_repair, TRUE, 8);
@@ -1247,13 +1247,13 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 	else {
 		deduct_cost(ch, (max - obj->condition) * 100);
-		sprintf(buf, "The repairs on %s has cost you %d gold.\n",
+		Format::sprintf(buf, "The repairs on %s has cost you %d gold.\n",
 		        obj->short_descr, (max - obj->condition));
 		stc(buf, ch);
 	}
 
 	obj->condition = max;
-	sprintf(buf, "$n repairs $p to %s condition.",
+	Format::sprintf(buf, "$n repairs $p to %s condition.",
 	        condition_lookup(obj->condition));
 	act(buf, rch, obj, 0, TO_ROOM);
 }

@@ -539,13 +539,13 @@ void check_protection_aura(CHAR_DATA *ch, CHAR_DATA *victim) {
 					char buf[MSL];
 					DAZE_STATE(ch, 2 * PULSE_VIOLENCE);
 
-					sprintf(buf, "The impact with $N's %s aura sends a numbing shock through your arm!",
+					Format::sprintf(buf, "The impact with $N's %s aura sends a numbing shock through your arm!",
 						IS_EVIL(ch) ? "holy" : "unholy");
 					act(buf, ch, NULL, victim, TO_CHAR);
-					sprintf(buf, "Your %s aura shocks $n's arm!",
+					Format::sprintf(buf, "Your %s aura shocks $n's arm!",
 						IS_EVIL(ch) ? "holy" : "unholy");
 					act(buf, ch, NULL, victim, TO_VICT);
-					sprintf(buf, "$N's %s aura shocks $n's arm!",
+					Format::sprintf(buf, "$N's %s aura shocks $n's arm!",
 						IS_EVIL(ch) ? "holy" : "unholy");
 					act(buf, ch, NULL, victim, TO_NOTVICT);
 				}
@@ -556,13 +556,13 @@ void check_protection_aura(CHAR_DATA *ch, CHAR_DATA *victim) {
 					char buf[MSL];
 					WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
-					sprintf(buf, "$N's %s aura knocks you back, momentarily stunning you!",
+					Format::sprintf(buf, "$N's %s aura knocks you back, momentarily stunning you!",
 						IS_EVIL(ch) ? "holy" : "unholy");
 					act(buf, ch, NULL, victim, TO_CHAR);
-					sprintf(buf, "Your %s aura knocks $n back, momentarily stunning $s!",
+					Format::sprintf(buf, "Your %s aura knocks $n back, momentarily stunning $s!",
 						IS_EVIL(ch) ? "holy" : "unholy");
 					act(buf, ch, NULL, victim, TO_VICT);
-					sprintf(buf, "$N's %s aura knocks $n back, momentarily stunning $n!",
+					Format::sprintf(buf, "$N's %s aura knocks $n back, momentarily stunning $n!",
 						IS_EVIL(ch) ? "holy" : "unholy");
 					act(buf, ch, NULL, victim, TO_NOTVICT);
 				}
@@ -1282,9 +1282,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			if (!IS_NPC(ch) && !IS_NPC(victim) && ch->fighting == NULL) {
 				char buf[MAX_STRING_LENGTH];
 				REMOVE_BIT(victim->act, PLR_NOPK);
-				sprintf(buf, "%s is out for blood - En guarde, %s!", ch->name, victim->name);
+				Format::sprintf(buf, "%s is out for blood - En guarde, %s!", ch->name, victim->name);
 				do_send_announce(ch, buf);
-				sprintf(buf, "$N is attempting to murder %s", victim->name);
+				Format::sprintf(buf, "$N is attempting to murder %s", victim->name);
 				wiznet(buf, ch, NULL, WIZ_FLAGS, 0, 0);
 
 				if (!victim->pcdata->pktimer)
@@ -1593,18 +1593,18 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	// announcements
 	if (!IS_NPC(victim)) {
-		sprintf(log_buf, "%s killed by %s at %d", victim->name,
+		Format::sprintf(log_buf, "%s killed by %s at %d", victim->name,
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->vnum);
 		log_string(log_buf);
-		sprintf(log_buf, "<PK> %s was slain by %s at [{W%d{x] [{W%d Exp{x]",
+		Format::sprintf(log_buf, "<PK> %s was slain by %s at [{W%d{x] [{W%d Exp{x]",
 		        victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name),
 		        ch->in_room->vnum, IS_NPC(ch) ? 0 : gxp);
 		wiznet(log_buf, NULL, NULL, WIZ_DEATHS, 0, 0);
-		sprintf(buf, "%s has been slain by %s.",  victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
+		Format::sprintf(buf, "%s has been slain by %s.",  victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
 	}
 	else {
-		sprintf(log_buf, "%s got ToAsTeD by %s at [{W%d{x] [{W%d Exp{x]",
+		Format::sprintf(log_buf, "%s got ToAsTeD by %s at [{W%d{x] [{W%d Exp{x]",
 		        (IS_NPC(victim) ? victim->short_descr : victim->name),
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->vnum, gxp);
 		wiznet(log_buf, NULL, NULL, WIZ_MOBDEATHS, 0, 0);
@@ -2002,7 +2002,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (affect_exists_on_char(ch, gsn_charm_person)) {
 		if (ch->master == NULL) {
 			char buf[MAX_STRING_LENGTH];
-			sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
+			Format::sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
 			bug(buf, 0);
 			affect_remove_sn_from_char(ch, gsn_charm_person);
 			return;
@@ -2116,12 +2116,12 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{BYou parry $n's {B%s.{x", attack);
+		Format::sprintf(buf, "{BYou parry $n's {B%s.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
 	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{R$N{R parries your %s.{x", attack);
+		Format::sprintf(buf, "{R$N{R parries your %s.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
 
@@ -2212,12 +2212,12 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{BYou parry $n's {B%s with your second weapon!{x", attack);
+		Format::sprintf(buf, "{BYou parry $n's {B%s with your second weapon!{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
 	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{R$N{R parries your %s with $S second weapon!{x", attack);
+		Format::sprintf(buf, "{R$N{R parries your %s with $S second weapon!{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
 
@@ -2294,12 +2294,12 @@ bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{BYou block $n's {B%s with your shield.{x", attack);
+		Format::sprintf(buf, "{BYou block $n's {B%s with your shield.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
 	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{R$N{R blocks your %s with a shield.{x", attack);
+		Format::sprintf(buf, "{R$N{R blocks your %s with a shield.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
 
@@ -2379,12 +2379,12 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{BYou dodge $n's {B%s.{x", attack);
+		Format::sprintf(buf, "{BYou dodge $n's {B%s.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
 	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{R$N{R dodges your %s.{x", attack);
+		Format::sprintf(buf, "{R$N{R dodges your %s.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
 
@@ -2461,12 +2461,12 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 
 	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{V$n's {V%s is no match for your speed.{x", attack);
+		Format::sprintf(buf, "{V$n's {V%s is no match for your speed.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
 	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
-		sprintf(buf, "{M$N {Mblurs with speed as $E evades your %s.{x", attack);
+		Format::sprintf(buf, "{M$N {Mblurs with speed as $E evades your %s.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
 
@@ -2581,10 +2581,10 @@ void make_corpse(CHAR_DATA *ch)
 	}
 
 	corpse->level = ch->level;
-	sprintf(buf, corpse->short_descr, name);
+	Format::sprintf(buf, corpse->short_descr, name);
 	free_string(corpse->short_descr);
 	corpse->short_descr = str_dup(buf);
-	sprintf(buf, corpse->description, name);
+	Format::sprintf(buf, corpse->description, name);
 	free_string(corpse->description);
 	corpse->description = str_dup(buf);
 
@@ -2739,10 +2739,10 @@ void death_cry(CHAR_DATA *ch)
 		}
 
 		obj->timer = number_range(4, 7);
-		sprintf(buf, obj->short_descr, name);
+		Format::sprintf(buf, obj->short_descr, name);
 		free_string(obj->short_descr);
 		obj->short_descr = str_dup(buf);
-		sprintf(buf, obj->description, name);
+		Format::sprintf(buf, obj->description, name);
 		free_string(obj->description);
 		obj->description = str_dup(buf);
 
@@ -2933,7 +2933,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 				stc("{YYou have almost completed your QUEST!{x\n", gch);
 				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
 				gch->questmob = -1;
-				sprintf(buf, "{Y:QUEST: {x$N has slain %s", victim->short_descr);
+				Format::sprintf(buf, "{Y:QUEST: {x$N has slain %s", victim->short_descr);
 				wiznet(buf, gch, NULL, WIZ_QUEST, 0, 0);
 			}
 		}
@@ -3166,13 +3166,13 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 
 	if (dt == TYPE_HIT) {
 		if (ch == victim) {
-			sprintf(buf1, "$n %s $melf%c", vp, punct);
-			sprintf(buf2, "You %s yourself%c", vs, punct);
+			Format::sprintf(buf1, "$n %s $melf%c", vp, punct);
+			Format::sprintf(buf2, "You %s yourself%c", vs, punct);
 		}
 		else {
-			sprintf(buf1, "$n %s $N%c",  vp, punct);
-			sprintf(buf2, "You %s $N%c", vs, punct);
-			sprintf(buf3, "$n %s you%c", vp, punct);
+			Format::sprintf(buf1, "$n %s $N%c",  vp, punct);
+			Format::sprintf(buf2, "You %s $N%c", vs, punct);
+			Format::sprintf(buf3, "$n %s you%c", vp, punct);
 		}
 	}
 	else {
@@ -3188,35 +3188,35 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 
 		if (immune) {
 			if (ch == victim) {
-				sprintf(buf1, "$n is unaffected by $s own %s.", attack);
-				sprintf(buf2, "Luckily, you are immune to that.");
+				Format::sprintf(buf1, "$n is unaffected by $s own %s.", attack);
+				Format::sprintf(buf2, "Luckily, you are immune to that.");
 			}
 			else {
-				sprintf(buf1, "$N is unaffected by $n's %s!", attack);
-				sprintf(buf2, "$N is unaffected by your %s!", attack);
-				sprintf(buf3, "$n's %s is powerless against you.", attack);
+				Format::sprintf(buf1, "$N is unaffected by $n's %s!", attack);
+				Format::sprintf(buf2, "$N is unaffected by your %s!", attack);
+				Format::sprintf(buf3, "$n's %s is powerless against you.", attack);
 			}
 		}
 		else if (sanc_immune) {
 			if (ch == victim) {
-				sprintf(buf1, "$n's holy aura protects $m from $s own %s.", attack);
-				sprintf(buf2, "Your sanctuary protects you from your own %s.", attack);
+				Format::sprintf(buf1, "$n's holy aura protects $m from $s own %s.", attack);
+				Format::sprintf(buf2, "Your sanctuary protects you from your own %s.", attack);
 			}
 			else {
-				sprintf(buf1, "$N's sanctuary repels $n's cursed %s!", attack);
-				sprintf(buf2, "$N's sanctuary repels your cursed %s!", attack);
-				sprintf(buf3, "$n's %s fails to penetrate your sanctuary.", attack);
+				Format::sprintf(buf1, "$N's sanctuary repels $n's cursed %s!", attack);
+				Format::sprintf(buf2, "$N's sanctuary repels your cursed %s!", attack);
+				Format::sprintf(buf3, "$n's %s fails to penetrate your sanctuary.", attack);
 			}
 		}
 		else {
 			if (ch == victim) {
-				sprintf(buf1, "$n's %s %s $m%c [%d]" , attack, vp, punct, dam);
-				sprintf(buf2, "Your %s %s you%c [%d]", attack, vp, punct, dam);
+				Format::sprintf(buf1, "$n's %s %s $m%c [%d]" , attack, vp, punct, dam);
+				Format::sprintf(buf2, "Your %s %s you%c [%d]", attack, vp, punct, dam);
 			}
 			else {
-				sprintf(buf1, "$n's %s %s $N%c [%d]" , attack, vp, punct, dam);
-				sprintf(buf2, "Your %s %s $N%c [%d]" , attack, vp, punct, dam);
-				sprintf(buf3, "$n's %s %s you%c [%d]", attack, vp, punct, dam);
+				Format::sprintf(buf1, "$n's %s %s $N%c [%d]" , attack, vp, punct, dam);
+				Format::sprintf(buf2, "Your %s %s $N%c [%d]" , attack, vp, punct, dam);
+				Format::sprintf(buf3, "$n's %s %s you%c [%d]", attack, vp, punct, dam);
 			}
 		}
 	}
@@ -3832,7 +3832,7 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 			if (battle.issued) {
 				stc("The battle begins!\n", ch);
 				battle.start = TRUE;
-				sprintf(buf, "[FYI] $n has closed the arena and battle has begun.\n");
+				Format::sprintf(buf, "[FYI] $n has closed the arena and battle has begun.\n");
 				global_act(ch, buf, TRUE, RED, COMM_QUIET | COMM_NOANNOUNCE);
 				return;
 			}
@@ -3935,7 +3935,7 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 		battle.issued = TRUE;
 		ptc(ch, "You open the arena to levels %d to %d, fee %d silver\n",
 		    battle.low, battle.high, battle.fee);
-		sprintf(buf, "[FYI] $n has opened the arena to levels %d - %d for a %d silver fee.\n",
+		Format::sprintf(buf, "[FYI] $n has opened the arena to levels %d - %d for a %d silver fee.\n",
 		        battle.low, battle.high, battle.fee);
 		global_act(ch, buf, TRUE, RED, COMM_QUIET | COMM_NOANNOUNCE);
 	}
@@ -3989,7 +3989,7 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 		deduct_cost(ch, battle.fee);
 		act("$n enters the arena and prepares to draw blood.", ch, NULL, NULL, TO_ROOM);
 		stc("You have been teleported to the arena.\n", ch);
-		sprintf(buf, "%s has joined the battle in the arena.\n", ch->name);
+		Format::sprintf(buf, "%s has joined the battle in the arena.\n", ch->name);
 		do_send_announce(ch, buf);
 		do_look(ch, "auto");
 	}
@@ -4815,20 +4815,20 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 				    && (next_room = pexit->u1.to_room) != NULL
 				    && can_see_room(victim, next_room)) {
 					if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-						sprintf(buf, "$p slams against the $d and clatters to the %s!",
+						Format::sprintf(buf, "$p slams against the $d and clatters to the %s!",
 						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 						act(buf, ch, weapon, pexit->keyword, TO_CHAR);
 						act(buf, ch, weapon, pexit->keyword, TO_ROOM);
 						obj_to_room(weapon, victim->in_room);
 					}
 					else {
-						sprintf(buf, "$p flies through the air and disappears %s%s!",
+						Format::sprintf(buf, "$p flies through the air and disappears %s%s!",
 						        door < 4 ? "to the " : "", dir_name[door]);
 						act(buf, ch, weapon, NULL, TO_CHAR);
 						act(buf, ch, weapon, NULL, TO_ROOM);
 
 						if (next_room->people != NULL) {
-							sprintf(buf, "$p flies in from %s%s and clatters to the %s!",
+							Format::sprintf(buf, "$p flies in from %s%s and clatters to the %s!",
 							        rev_dir[door] < 4 ? "the " : "", dir_name[rev_dir[door]],
 							        next_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 							act(buf, next_room->people, weapon, NULL, TO_CHAR);
@@ -4840,17 +4840,17 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 				}
 				else {
 					if (door < 4)
-						sprintf(buf, "$p slams against the %s wall and clatters to the %s!",
+						Format::sprintf(buf, "$p slams against the %s wall and clatters to the %s!",
 						        dir_name[door],
 						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 					else if (door < 5)
-						sprintf(buf, "$p clatters to the %s.",
+						Format::sprintf(buf, "$p clatters to the %s.",
 						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 					else {
 						if (victim->in_room->sector_type == SECT_INSIDE)
-							sprintf(buf, "$p flies up and strikes the ceiling, then clatters to the floor!");
+							Format::sprintf(buf, "$p flies up and strikes the ceiling, then clatters to the floor!");
 						else
-							sprintf(buf, "$p flies into the air, and falls hard to the ground!");
+							Format::sprintf(buf, "$p flies into the air, and falls hard to the ground!");
 					}
 
 					act(buf, ch, weapon, NULL, TO_CHAR);
@@ -4925,7 +4925,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 
 	/* Add this so it will announce it - Lotus */
 	if (!IS_NPC(victim)) {
-		sprintf(buf, "%s has been slain by %s.", victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
+		Format::sprintf(buf, "%s has been slain by %s.", victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
 	}
 

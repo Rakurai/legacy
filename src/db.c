@@ -379,7 +379,7 @@ void boot_db()
 	/* Load the clan info, needs to be done before the areas due to clanrooms */
 	{
 		load_clan_table();
-		printf("survived load_clan_table\n");
+		Format::printf("survived load_clan_table\n");
 	}
 	/* Set time and weather */
 	{
@@ -455,7 +455,7 @@ void boot_db()
 				fpArea = stdin;
 			else {
 				char abuf[MSL];
-				sprintf(abuf, "%s%s", AREA_DIR, strArea);
+				Format::sprintf(abuf, "%s%s", AREA_DIR, strArea);
 
 				if ((fpArea = fopen(abuf, "r")) == NULL) {
 					perror(strArea);
@@ -463,7 +463,7 @@ void boot_db()
 				}
 			}
 
-			printf("Now loading area: %s\n", strArea);
+			Format::printf("Now loading area: %s\n", strArea);
 
 			for (; ;) {
 				char *word;
@@ -503,33 +503,33 @@ void boot_db()
 	quest_init();
 
 	int itemsloaded = objstate_load_items();   /* load our list of items from disk, before resets! */
-	printf("survived objstate_load_items (%d)\n", itemsloaded);
+	Format::printf("survived objstate_load_items (%d)\n", itemsloaded);
 
 	/* Perform various loading procedures, reset all areas once, fix up exits */
 	fix_exits();
-	printf("survived fix_exits\n");
+	Format::printf("survived fix_exits\n");
 	load_war_table();
-	printf("survived load_war_table\n");
+	Format::printf("survived load_war_table\n");
 	load_war_events();
-	printf("survived load_war_events\n");
+	Format::printf("survived load_war_events\n");
 	load_arena_table();
-	printf("survived load_arena_table\n");
+	Format::printf("survived load_arena_table\n");
 	fBootDb = FALSE;
 	area_update();
-	printf("survived area_update\n");
+	Format::printf("survived area_update\n");
 	load_notes();
-	printf("survived load_notes\n");
+	Format::printf("survived load_notes\n");
 	load_disabled();
-	printf("survived load_disabled\n");
+	Format::printf("survived load_disabled\n");
 	MOBtrigger = TRUE;
 	load_songs();
-	printf("survived load_songs\n");
+	Format::printf("survived load_songs\n");
 	load_social_table();
-	printf("survived load_social_table\n");
+	Format::printf("survived load_social_table\n");
 	load_storage_list();
-	printf("survived load_storage_list\n");
+	Format::printf("survived load_storage_list\n");
 	load_departed_list();
-	printf("survived load_departed_list\n");
+	Format::printf("survived load_departed_list\n");
 
 	/* read in our record players and record logins */
 	if (db_query("boot_db", "SELECT logins, players FROM records") == SQL_OK) {
@@ -652,7 +652,7 @@ int  scan_credits(AREA_DATA *pArea)
 		strcpy(keywords, "XXX ");
 	}
 	else if (!isascii(*levels) || !isdigit(*levels)) {
-		sprintf(buf, "scan_credits: Unrecognized level range: '%s'\n", levels);
+		Format::sprintf(buf, "scan_credits: Unrecognized level range: '%s'\n", levels);
 		log_string(buf);
 		return -3;
 	}
@@ -663,7 +663,7 @@ int  scan_credits(AREA_DATA *pArea)
 		ilow = atoi(levels);
 
 		if (ilow < 0) {
-			sprintf(buf, "scan_credits: Bad start level: %d\n", ilow);
+			Format::sprintf(buf, "scan_credits: Bad start level: %d\n", ilow);
 			log_string(buf);
 			return -4;
 		}
@@ -683,7 +683,7 @@ int  scan_credits(AREA_DATA *pArea)
 		ihigh = atoi(levels);
 
 		if (ihigh < ilow || ihigh > 100) {
-			sprintf(buf, "scan_credits: Bad ending level : low : %d High : %d\n", ilow, ihigh);
+			Format::sprintf(buf, "scan_credits: Bad ending level : low : %d High : %d\n", ilow, ihigh);
 			log_string(buf);
 			return -6;
 		}
@@ -1364,17 +1364,17 @@ void load_rooms(FILE *fp)
 			pRoomIndex->exit[door] = NULL;
 
 		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY)) {
-			sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
+			Format::sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
 		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY)) {
-			sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
+			Format::sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
 		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_LOCKER)) {
-			sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
+			Format::sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
@@ -1604,7 +1604,7 @@ void fix_exits(void)
 	              &&   pexit_rev->u1.to_room != pRoomIndex
 	              &&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
 	              {
-	                  sprintf( buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
+	                  Format::sprintf( buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
 	                      pRoomIndex->vnum, door,
 	                      to_room->vnum,    rev_dir[door],
 	                      (pexit_rev->u1.to_room == NULL)
@@ -1643,24 +1643,24 @@ void bug(const String& str, int param)
 			fseek(fpArea, iChar, 0);
 		}
 
-		sprintf(buf, "[*****] FILE: %s LINE: %d", strArea, iLine);
+		Format::sprintf(buf, "[*****] FILE: %s LINE: %d", strArea, iLine);
 		log_string(buf);
 		/* RT removed because we don't want bugs shutting the mud
 		        if ( ( fp = fopen( "shutdown.txt", "a" ) ) != NULL )
 		        {
-		            fprintf( fp, "[*****] %s\n", buf );
+		            Format::fprintf( fp, "[*****] %s\n", buf );
 		            fclose( fp );
 		        }
 		*/
 	}
 
 	strcpy(buf, "[*****] BUG: ");
-	sprintf(buf + strlen(buf), str.c_str(), param);
+	Format::sprintf(buf + strlen(buf), str.c_str(), param);
 	log_string(buf);
 	/* RT removed due to bug-file spamming
 	    if ( ( fp = fopen( BUG_FILE, "a" ) ) != NULL )
 	    {
-	        fprintf( fp, "%s\n", buf );
+	        Format::fprintf( fp, "%s\n", buf );
 	        fclose( fp );
 	    }
 	*/
@@ -1676,7 +1676,7 @@ void log_string(const String& str)
 	char *strtime;
 	strtime                    = ctime(&current_time);
 	strtime[strlen(strtime) - 1] = '\0';
-	fprintf(stderr, "%s :: %s\n", strtime, str);
+	Format::fprintf(stderr, "%s :: %s\n", strtime, str);
 	return;
 }
 
@@ -1729,7 +1729,7 @@ MPROG_DATA *mprog_file_read(char *f, MPROG_DATA *mprg,
 	FILE       *progfile;
 	char        letter;
 	bool        done = FALSE;
-	sprintf(MOBProgfile, "%s%s", MOB_DIR, f);
+	Format::sprintf(MOBProgfile, "%s%s", MOB_DIR, f);
 	progfile = fopen(MOBProgfile, "r");
 
 	if (!progfile) {

@@ -204,11 +204,11 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	char_to_room(ch, to_room);
 
 	if (rev_dir[door] == 5)
-		sprintf(dir_buf, "%s", "below");
+		Format::sprintf(dir_buf, "%s", "below");
 	else if (rev_dir[door] == 4)
-		sprintf(dir_buf, "%s", "above");
+		Format::sprintf(dir_buf, "%s", "above");
 	else
-		sprintf(dir_buf, "the %s", dir_name[rev_dir[door]]);
+		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[door]]);
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
@@ -1760,7 +1760,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		sprintf(buf, "You have %d training sessions.\n", ch->train);
+		Format::sprintf(buf, "You have %d training sessions.\n", ch->train);
 		stc(buf, ch);
 		argument = "foo";
 	}
@@ -2070,11 +2070,11 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(pexit->exit_info, EX_CLOSED)
 	    && (!affect_exists_on_char(victim, gsn_pass_door)
 	        || IS_SET(pexit->exit_info, EX_NOPASS))) {
-		sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword);
+		Format::sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword);
 		act(buf, ch, NULL, victim, TO_CHAR);
-		sprintf(buf, "$n shoves you up against the %s and threatens you.", pexit->keyword);
+		Format::sprintf(buf, "$n shoves you up against the %s and threatens you.", pexit->keyword);
 		act(buf, ch, NULL, victim, TO_VICT);
-		sprintf(buf, "$n shoves $N up against the %s and threatens $M.", pexit->keyword);
+		Format::sprintf(buf, "$n shoves $N up against the %s and threatens $M.", pexit->keyword);
 		act(buf, ch, NULL, victim, TO_NOTVICT);
 		return;
 	}
@@ -2085,21 +2085,21 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	}
 
 	WAIT_STATE(ch, 3);
-	sprintf(buf, "$n pushes you %s!\n", dir_name[dir]);
+	Format::sprintf(buf, "$n pushes you %s!\n", dir_name[dir]);
 	act(buf, ch, NULL, victim, TO_VICT);
-	sprintf(buf, "$n pushes $N %s!", dir_name[dir]);
+	Format::sprintf(buf, "$n pushes $N %s!", dir_name[dir]);
 	act(buf, ch, NULL, victim, TO_NOTVICT);
-	sprintf(buf, "You push $N %s.", dir_name[dir]);
+	Format::sprintf(buf, "You push $N %s.", dir_name[dir]);
 	act(buf, ch, NULL, victim, TO_CHAR);
 	char_from_room(victim);
 	char_to_room(victim, to_room);
 
 	if (rev_dir[dir] == 5)
-		sprintf(dir_buf, "%s", "below");
+		Format::sprintf(dir_buf, "%s", "below");
 	else if (rev_dir[dir] == 4)
-		sprintf(dir_buf, "%s", "above");
+		Format::sprintf(dir_buf, "%s", "above");
 	else
-		sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
+		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
 
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)
 	    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER))
@@ -2108,12 +2108,12 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
 		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)) {
 			stc("{CYou continue to hold your breath...{x\n", victim);
-			sprintf(buf, "$N floats in from %s.", dir_buf);
+			Format::sprintf(buf, "$N floats in from %s.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 		}
 		else {
 			stc("{CYou begin to hold your breath.{x\n", victim);
-			sprintf(buf, "$N spashes in from %s.", dir_buf);
+			Format::sprintf(buf, "$N spashes in from %s.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 		}
 	}
@@ -2121,7 +2121,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		if (!IS_FLYING(victim)
 		    && victim->in_room->exit[DIR_DOWN]) {
 
-			sprintf(buf, "$n stumbles into the emptiness from %s.", dir_buf);
+			Format::sprintf(buf, "$n stumbles into the emptiness from %s.", dir_buf);
 			act(buf, victim, NULL, NULL, TO_ROOM);
 
 			// try to fly
@@ -2152,7 +2152,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 							continue;
 
 						char_to_room(victim, old->exit[dir]->u1.to_room);
-						sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
+						Format::sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
 						        dir_name[rev_dir[dir]]);
 						act(buf, victim, NULL, NULL, TO_ROOM);
 						char_from_room(victim);
@@ -2190,12 +2190,12 @@ void do_push(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		else {
-			sprintf(buf, "$n floats in from %s.", dir_buf);
+			Format::sprintf(buf, "$n floats in from %s.", dir_buf);
 			act(buf, victim, NULL, NULL, TO_ROOM);
 		}
 	}
 	else {
-		sprintf(buf, "$n is stumbles in from %s.", dir_buf);
+		Format::sprintf(buf, "$n is stumbles in from %s.", dir_buf);
 		act(buf, victim, NULL, NULL, TO_ROOM);
 	}
 
@@ -2352,11 +2352,11 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		if (!affect_exists_on_char(ch, gsn_pass_door)
 		    || IS_SET(pexit->exit_info, EX_NOPASS)) {
 			ptc(ch, "You back into the %s.\n", pexit->keyword);
-			sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword);
+			Format::sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 
 			if (IS_AWAKE(victim)) {
-				sprintf(buf, "$n tries to drag you, but backs into the %s.", pexit->keyword);
+				Format::sprintf(buf, "$n tries to drag you, but backs into the %s.", pexit->keyword);
 				act(buf, ch, NULL, victim, TO_VICT);
 			}
 
@@ -2366,11 +2366,11 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		if (!affect_exists_on_char(victim, gsn_pass_door)
 		    || IS_SET(pexit->exit_info, EX_NOPASS)) {
 			ptc(ch, "You try to drag them through the %s, but they are too solid.\n", pexit->keyword);
-			sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword);
+			Format::sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 
 			if (IS_AWAKE(victim)) {
-				sprintf(buf, "$n tries to drag you, but you are too solid to pass through the %s.", pexit->keyword);
+				Format::sprintf(buf, "$n tries to drag you, but you are too solid to pass through the %s.", pexit->keyword);
 				act(buf, ch, NULL, victim, TO_VICT);
 			}
 			else
@@ -2387,11 +2387,11 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, 3);
 	/* act should default to resting position minimum */
-	sprintf(buf, "$n drags you %s!", dir_name[dir]);
+	Format::sprintf(buf, "$n drags you %s!", dir_name[dir]);
 	act(buf, ch, NULL, victim, TO_VICT);
-	sprintf(buf, "$n drags $N %s!", dir_name[dir]);
+	Format::sprintf(buf, "$n drags $N %s!", dir_name[dir]);
 	act(buf, ch, NULL, victim, TO_NOTVICT);
-	sprintf(buf, "You drag $N %s.", dir_name[dir]);
+	Format::sprintf(buf, "You drag $N %s.", dir_name[dir]);
 	act(buf, ch, NULL, victim, TO_CHAR);
 	char_from_room(victim);
 	char_from_room(ch);
@@ -2399,11 +2399,11 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 	char_to_room(ch, to_room);
 
 	if (rev_dir[dir] == 5)
-		sprintf(dir_buf, "%s", "below");
+		Format::sprintf(dir_buf, "%s", "below");
 	else if (rev_dir[dir] == 4)
-		sprintf(dir_buf, "%s", "above");
+		Format::sprintf(dir_buf, "%s", "above");
 	else
-		sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
+		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
 
 	if (IS_SET(GET_ROOM_FLAGS(from_room), ROOM_UNDER_WATER)
 	    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
@@ -2415,12 +2415,12 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		if (IS_SET(GET_ROOM_FLAGS(from_room), ROOM_UNDER_WATER)) {
 			stc("{CYou continue to hold your breath...{x\n", ch);
 			act("{CYou continue to hold your breath...{x", victim, NULL, NULL, TO_CHAR);
-			sprintf(buf, "$n swims in from %s, dragging $N behind.", dir_buf);
+			Format::sprintf(buf, "$n swims in from %s, dragging $N behind.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 		}
 		else {
 			stc("{CYou begin to hold your breath.{x\n", ch);
-			sprintf(buf, "$n spashes in from %s, dragging $N behind.", dir_buf);
+			Format::sprintf(buf, "$n spashes in from %s, dragging $N behind.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 
 			if (!IS_AWAKE(victim)) {
@@ -2445,7 +2445,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		if (!IS_FLYING(victim)
 		 && victim->in_room->exit[DIR_DOWN]) {
 
-			sprintf(buf, "$n drags $N into the emptiness from %s.", dir_buf);
+			Format::sprintf(buf, "$n drags $N into the emptiness from %s.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 
 			if (CAN_FLY(victim)
@@ -2477,7 +2477,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 								continue;
 
 							char_to_room(victim, old->exit[dir]->u1.to_room);
-							sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
+							Format::sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
 							        dir_name[rev_dir[dir]]);
 							act(buf, victim, NULL, NULL, TO_ROOM);
 							char_from_room(victim);
@@ -2535,12 +2535,12 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 			}
 		}
 		else {
-			sprintf(buf, "$n flies in from %s, dragging $N behind.", dir_buf);
+			Format::sprintf(buf, "$n flies in from %s, dragging $N behind.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 		}
 	}
 	else {
-		sprintf(buf, "$n drags $N in from %s.", dir_buf);
+		Format::sprintf(buf, "$n drags $N in from %s.", dir_buf);
 		act(buf, ch, NULL, victim, TO_NOTVICT);
 	}
 
@@ -2893,7 +2893,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 		if (portal != NULL && portal->value[0] == -1) {
 			char buf[MAX_STRING_LENGTH];
 			act("$p explodes outwards and vanishes.", ch, portal, NULL, TO_CHAR);
-			sprintf(buf, "$p disappears with an inrush of air and a 'Pop!'");
+			Format::sprintf(buf, "$p disappears with an inrush of air and a 'Pop!'");
 
 			if (ch->in_room == old_room)
 				act(buf, ch, portal, NULL, TO_ROOM);

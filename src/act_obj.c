@@ -72,13 +72,13 @@ char *ordinal_string(int n)
 	else if (n == 3)
 		return "third";
 	else if (n % 10 == 1)
-		sprintf(buf, "%dst", n);
+		Format::sprintf(buf, "%dst", n);
 	else if (n % 10 == 2)
-		sprintf(buf, "%dnd", n);
+		Format::sprintf(buf, "%dnd", n);
 	else if (n % 10 == 3)
-		sprintf(buf, "%drd", n);
+		Format::sprintf(buf, "%drd", n);
 	else
-		sprintf(buf, "%dth", n);
+		Format::sprintf(buf, "%dth", n);
 
 	return buf;
 }
@@ -170,9 +170,9 @@ bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 	}
 
 	if (action != NULL && *action != '\0') {
-		sprintf(buf, "You attempt to %s %s.\n", action, obj->short_descr);
+		Format::sprintf(buf, "You attempt to %s %s.\n", action, obj->short_descr);
 		stc(buf, ch);
-		sprintf(buf, "   This item belongs to %s!\n", owner);
+		Format::sprintf(buf, "   This item belongs to %s!\n", owner);
 		stc(buf, ch);
 
 		if (IS_IMMORTAL(ch)) {
@@ -367,7 +367,7 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 					members++;
 
 			if (members > 1 && (obj->value[0] > 1 || obj->value[1])) {
-				sprintf(buffer, "%d %d", obj->value[0], obj->value[1]);
+				Format::sprintf(buffer, "%d %d", obj->value[0], obj->value[1]);
 				do_split(ch, buffer);
 			}
 		}
@@ -385,7 +385,7 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 					stc("{YYou have almost completed your QUEST!{x\n", ch);
 					stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 					ch->questobf = -1;
-					sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
+					Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
 					wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 				}
 			}
@@ -401,13 +401,13 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 					}
 					else {
 						stc("{YYou have completed part of your {VSKILL QUEST!{x\n", ch);
-						sprintf(buf, "{YTake the artifact to %s while there is still time!{x\n",
+						Format::sprintf(buf, "{YTake the artifact to %s while there is still time!{x\n",
 						        ch->pcdata->squestmob->short_descr);
 						stc(buf, ch);
 					}
 
 					ch->pcdata->squestobjf = TRUE;
-					sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
+					Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
 					wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 				}
 			}
@@ -1080,14 +1080,14 @@ void do_drop(CHAR_DATA *ch, const char *argument)
 	number = mult_argument(arg, obj_name);
 
 	if (number == -1) {
-		sprintf(arg, "You patiently wait for something called "
+		Format::sprintf(arg, "You patiently wait for something called "
 		        "'%s' to drop on you from the sky.\n", obj_name);
 		stc(arg, ch);
 		return;
 	}
 
 	if (number < 0) {
-		sprintf(arg, "You patiently wait for %d things called "
+		Format::sprintf(arg, "You patiently wait for %d things called "
 		        "'%s' to drop on you from the sky.\n", -number, obj_name);
 		stc(arg, ch);
 		return;
@@ -1149,7 +1149,7 @@ void do_drop(CHAR_DATA *ch, const char *argument)
 				break;
 		}
 
-		sprintf(arg, "%d", count);
+		Format::sprintf(arg, "%d", count);
 
 		if (count < number) {
 			act("But you only have $T of those!", ch, NULL, arg, TO_CHAR);
@@ -1247,7 +1247,7 @@ void do_give(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_NPC(victim)) {
 			if (!IS_IMMORTAL(ch) && IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
-				sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
+				Format::sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 				wiznet(buf, ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 				stc("Your recipient cannot receive objects in their current state.\n", ch);
 				return;
@@ -1292,21 +1292,21 @@ void do_give(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (amount == 1)
-			sprintf(buf, "$n gives you one %s coin.", silver ? "silver" : "gold");
+			Format::sprintf(buf, "$n gives you one %s coin.", silver ? "silver" : "gold");
 		else
-			sprintf(buf, "$n gives you %d %s.", amount, silver ? "silver" : "gold");
+			Format::sprintf(buf, "$n gives you %d %s.", amount, silver ? "silver" : "gold");
 
 		act(buf, ch, NULL, victim, TO_VICT);
-		sprintf(buf, "$n gives $N %s %s coin%s.  Must be nice to be rich.",
+		Format::sprintf(buf, "$n gives $N %s %s coin%s.  Must be nice to be rich.",
 		        amount == 1 ? "one" : "some",
 		        silver ? "silver" : "gold",
 		        amount == 1 ? "" : "s");
 		act(buf, ch, NULL, victim, TO_NOTVICT);
 
 		if (amount == 1)
-			sprintf(buf, "You give one %s coin to $N.", silver ? "silver" : "gold");
+			Format::sprintf(buf, "You give one %s coin to $N.", silver ? "silver" : "gold");
 		else
-			sprintf(buf, "You give %d %s to $N.", amount, silver ? "silver" : "gold");
+			Format::sprintf(buf, "You give %d %s to $N.", amount, silver ? "silver" : "gold");
 
 		act(buf, ch, NULL, victim, TO_CHAR);
 		mprog_bribe_trigger(victim, ch, silver ? amount : amount * 100);
@@ -1329,16 +1329,16 @@ void do_give(CHAR_DATA *ch, const char *argument)
 			if (change < 1) {
 				act("$n tells you 'I'm sorry, you did not give me enough to change.'", victim, NULL, ch, TO_VICT);
 				strcpy(ch->reply, victim->name);
-				sprintf(buf, "%d %s %s", amount, silver ? "silver" : "gold", ch->name);
+				Format::sprintf(buf, "%d %s %s", amount, silver ? "silver" : "gold", ch->name);
 				do_give(victim, buf);
 				return;
 			}
 
-			sprintf(buf, "%d %s %s", change, silver ? "gold" : "silver", ch->name);
+			Format::sprintf(buf, "%d %s %s", change, silver ? "gold" : "silver", ch->name);
 			do_give(victim, buf);
 
 			if (silver) {
-				sprintf(buf, "%d silver %s", (95 * amount / 100 - change * 100), ch->name);
+				Format::sprintf(buf, "%d silver %s", (95 * amount / 100 - change * 100), ch->name);
 				do_give(victim, buf);
 			}
 
@@ -1411,7 +1411,7 @@ void do_give(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(victim) && !IS_IMMORTAL(ch) && IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
-		sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
+		Format::sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 		stc("Your recipient cannot receive objects in their current state.\n", ch);
 		return;
@@ -1469,11 +1469,11 @@ void do_give(CHAR_DATA *ch, const char *argument)
 		act("You give $p to $N.", ch, obj, victim, TO_CHAR);
 	}
 	else {
-		sprintf(buf, "$n gives $p[%d] to $N.", number);
+		Format::sprintf(buf, "$n gives $p[%d] to $N.", number);
 		act(buf, ch, obj, victim, TO_NOTVICT);
-		sprintf(buf, "$n gives you $p[%d].", number);
+		Format::sprintf(buf, "$n gives you $p[%d].", number);
 		act(buf, ch, obj, victim, TO_VICT);
-		sprintf(buf, "You give $p[%d] to $N.", number);
+		Format::sprintf(buf, "You give $p[%d] to $N.", number);
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
@@ -1731,10 +1731,10 @@ void do_fill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "You fill $p with %s from $P.",
+	Format::sprintf(buf, "You fill $p with %s from $P.",
 	        liq_table[wanted_fountain->value[2]].liq_name);
 	act(buf, ch, obj, wanted_fountain, TO_CHAR);
-	sprintf(buf, "$n fills $p with %s from $P.",
+	Format::sprintf(buf, "$n fills $p with %s from $P.",
 	        liq_table[wanted_fountain->value[2]].liq_name);
 	act(buf, ch, obj, wanted_fountain, TO_ROOM);
 	obj->value[2] = wanted_fountain->value[2];
@@ -1773,10 +1773,10 @@ void do_pour(CHAR_DATA *ch, const char *argument)
 
 		out->value[1] = 0;
 		out->value[3] = 0;      /* no more poison */
-		sprintf(buf, "You invert $p, spilling %s all over the ground.",
+		Format::sprintf(buf, "You invert $p, spilling %s all over the ground.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, out, NULL, TO_CHAR);
-		sprintf(buf, "$n inverts $p, spilling %s all over the ground.",
+		Format::sprintf(buf, "$n inverts $p, spilling %s all over the ground.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, out, NULL, TO_ROOM);
 		return;
@@ -1830,21 +1830,21 @@ void do_pour(CHAR_DATA *ch, const char *argument)
 	in->value[3] = out->value[3];   /* transfer the poison */
 
 	if (vch == NULL) {
-		sprintf(buf, "You pour %s from $p into $P.",
+		Format::sprintf(buf, "You pour %s from $p into $P.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, out, in, TO_CHAR);
-		sprintf(buf, "$n pours %s from $p into $P.",
+		Format::sprintf(buf, "$n pours %s from $p into $P.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, out, in, TO_ROOM);
 	}
 	else {
-		sprintf(buf, "You pour some %s for $N.",
+		Format::sprintf(buf, "You pour some %s for $N.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, NULL, vch, TO_CHAR);
-		sprintf(buf, "$n pours you some %s.",
+		Format::sprintf(buf, "$n pours you some %s.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, NULL, vch, TO_VICT);
-		sprintf(buf, "$n pours some %s for $N.",
+		Format::sprintf(buf, "$n pours some %s for $N.",
 		        liq_table[out->value[2]].liq_name);
 		act(buf, ch, NULL, vch, TO_NOTVICT);
 	}
@@ -2032,7 +2032,7 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 			break;
 	}
 
-	sprintf(buf, "%d", count);
+	Format::sprintf(buf, "%d", count);
 
 	if (count < number) {
 		act("But you only have $T of those!", ch, NULL, buf, TO_CHAR);
@@ -2113,7 +2113,7 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 	if (count == 1)
 		strcpy(buf, "");
 	else
-		sprintf(buf, "[%d]", count);
+		Format::sprintf(buf, "[%d]", count);
 
 	if (obj->item_type != ITEM_PILL) {
 		act("$n eats $p$T.", ch, to_extract, buf, TO_ROOM);
@@ -2717,11 +2717,11 @@ void do_sacrifice(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (silver == 1) {
-			sprintf(buf, "%s gives you one silver coin for your sacrifices.\n", ch->pcdata->deity);
+			Format::sprintf(buf, "%s gives you one silver coin for your sacrifices.\n", ch->pcdata->deity);
 			stc(buf, ch);
 		}
 		else {
-			sprintf(buf, "%s gives you %d silver coins for your sacrifices.\n", ch->pcdata->deity, silver);
+			Format::sprintf(buf, "%s gives you %d silver coins for your sacrifices.\n", ch->pcdata->deity, silver);
 			stc(buf, ch);
 		}
 
@@ -2756,11 +2756,11 @@ void do_sacrifice(CHAR_DATA *ch, const char *argument)
 			silver = URANGE(1, obj->cost, (obj->level * 3));
 
 			if (silver == 1) {
-				sprintf(buf, "%s gives you one silver coin for your sacrifice.\n", ch->pcdata->deity);
+				Format::sprintf(buf, "%s gives you one silver coin for your sacrifice.\n", ch->pcdata->deity);
 				stc(buf, ch);
 			}
 			else {
-				sprintf(buf, "%s gives you %d silver coins for your sacrifice.\n", ch->pcdata->deity, silver);
+				Format::sprintf(buf, "%s gives you %d silver coins for your sacrifice.\n", ch->pcdata->deity, silver);
 				stc(buf, ch);
 			}
 		}
@@ -2782,7 +2782,7 @@ void do_sacrifice(CHAR_DATA *ch, const char *argument)
 				members++;
 
 		if (members > 1 && silver > 1) {
-			sprintf(buffer, "%d", silver);
+			Format::sprintf(buffer, "%d", silver);
 			do_split(ch, buffer);
 		}
 	}
@@ -3435,20 +3435,20 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 
 		switch (number_range(0, 3)) {
 		case 0 :
-			sprintf(buf, "%s is a bum mugger!", ch->name);
+			Format::sprintf(buf, "%s is a bum mugger!", ch->name);
 			break;
 
 		case 1 :
-			sprintf(buf, "%s couldn't rob %s way out of a paper bag!",
+			Format::sprintf(buf, "%s couldn't rob %s way out of a paper bag!",
 			        ch->name, GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "its" : GET_ATTR_SEX(ch) == SEX_MALE ? "his" : "her");
 			break;
 
 		case 2 :
-			sprintf(buf, "%s tried to rob me!", ch->name);
+			Format::sprintf(buf, "%s tried to rob me!", ch->name);
 			break;
 
 		case 3 :
-			sprintf(buf, "Keep your hands out of there, %s! Pervert!", ch->name);
+			Format::sprintf(buf, "Keep your hands out of there, %s! Pervert!", ch->name);
 			break;
 		}
 
@@ -3460,7 +3460,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 				multi_hit(victim, ch, TYPE_UNDEFINED);
 			}
 			else {
-				sprintf(buf, "$N tried to steal from %s.", victim->name);
+				Format::sprintf(buf, "$N tried to steal from %s.", victim->name);
 				wiznet(buf, ch, NULL, WIZ_FLAGS, 0, 0);
 
 				if (!IS_SET(ch->act, PLR_THIEF)) {
@@ -3497,13 +3497,13 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 		victim->gold    -= gold;
 
 		if (silver <= 0)
-			sprintf(buf, "Bingo!  You got %d gold coin%s.\n", gold,
+			Format::sprintf(buf, "Bingo!  You got %d gold coin%s.\n", gold,
 			        gold == 1 ? "" : "s");
 		else if (gold <= 0)
-			sprintf(buf, "Bingo!  You got %d silver coin%s.\n", silver,
+			Format::sprintf(buf, "Bingo!  You got %d silver coin%s.\n", silver,
 			        silver == 1 ? "" : "s");
 		else
-			sprintf(buf, "Bingo!  You got %d silver and %d gold coins.\n",
+			Format::sprintf(buf, "Bingo!  You got %d silver and %d gold coins.\n",
 			        silver, gold);
 
 		stc(buf, ch);
@@ -3552,7 +3552,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 			stc("{YYou have almost completed your QUEST!{x\n", ch);
 			stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 			ch->questobf = -1;
-			sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
+			Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
 			wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 		}
 	}
@@ -3573,7 +3573,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 			}
 
 			ch->pcdata->squestobjf = TRUE;
-			sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
+			Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
 			wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 		}
 	}
@@ -3608,7 +3608,7 @@ CHAR_DATA *find_keeper(CHAR_DATA *ch)
 	if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_KILLER) )
 	{
 	        do_say( keeper, "Killers are not welcome!" );
-	        sprintf( buf, "%s the psycho KILLER is over here!\n", ch->name );
+	        Format::sprintf( buf, "%s the psycho KILLER is over here!\n", ch->name );
 	        do_yell( keeper, buf );
 	        return NULL;
 	}
@@ -3616,7 +3616,7 @@ CHAR_DATA *find_keeper(CHAR_DATA *ch)
 	if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_THIEF) )
 	{
 	        do_say( keeper, "Thieves are not welcome!" );
-	        sprintf( buf, "%s the gutless THIEF is over here!\n", ch->name );
+	        Format::sprintf( buf, "%s the gutless THIEF is over here!\n", ch->name );
 	        do_yell( keeper, buf );
 	        return NULL;
 	}
@@ -3915,11 +3915,11 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 				wiznet("$N is attempting to use the tilde in pet name cheat.",
 				       ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 
-			sprintf(buf, "%s %s", pet->name, smash_tilde(arg));
+			Format::sprintf(buf, "%s %s", pet->name, smash_tilde(arg));
 			pet->name = buf;
 		}
 
-		sprintf(buf, "%sA collar around its neck says 'I belong to %s'.\n",
+		Format::sprintf(buf, "%sA collar around its neck says 'I belong to %s'.\n",
 		        pet->description, ch->name);
 		free_string(pet->description);
 		pet->description = str_dup(buf);
@@ -4048,14 +4048,14 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 			}
 
 			if (number > 1) {
-				sprintf(buf, "$n buys $p[%d].", number);
+				Format::sprintf(buf, "$n buys $p[%d].", number);
 				act(buf, ch, obj, NULL, TO_ROOM);
-				sprintf(buf, "You buy $p[%d] for %d silver.", number, cost * number);
+				Format::sprintf(buf, "You buy $p[%d] for %d silver.", number, cost * number);
 				act(buf, ch, obj, NULL, TO_CHAR);
 			}
 			else {
 				act("$n buys $p.", ch, obj, NULL, TO_ROOM);
-				sprintf(buf, "You buy $p for %d silver.", cost);
+				Format::sprintf(buf, "You buy $p for %d silver.", cost);
 				act(buf, ch, obj, NULL, TO_CHAR);
 			}
 
@@ -4089,15 +4089,15 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		else {
 			/* quest shop keeper. sale is not for money. */
 			if (number > 1) {
-				sprintf(buf, "$n buys $p[%d].", number);
+				Format::sprintf(buf, "$n buys $p[%d].", number);
 				act(buf, ch, obj, NULL, TO_ROOM);
-				sprintf(buf, "You buy $p[%d] for %d Quest Points.",
+				Format::sprintf(buf, "You buy $p[%d] for %d Quest Points.",
 				        number, cost * number);
 				act(buf, ch, obj, NULL, TO_CHAR);
 			}
 			else {
 				act("$n buys $p.", ch, obj, NULL, TO_ROOM);
-				sprintf(buf, "You buy $p for %d Quest Points.", cost);
+				Format::sprintf(buf, "You buy $p for %d Quest Points.", cost);
 				act(buf, ch, obj, NULL, TO_CHAR);
 			}
 
@@ -4188,7 +4188,7 @@ void do_list(CHAR_DATA *ch, const char *argument)
 					stc("Pets and Exotic Companions for sale:\n", ch);
 				}
 
-				sprintf(buf, "[%2d] %8d - %s\n",
+				Format::sprintf(buf, "[%2d] %8d - %s\n",
 				        pet->level,
 				        10 * pet->level * pet->level,
 				        pet->short_descr);
@@ -4231,7 +4231,7 @@ void do_list(CHAR_DATA *ch, const char *argument)
 				}
 
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
-					sprintf(buf, "[%2d %5d -- ] %s\n",
+					Format::sprintf(buf, "[%2d %5d -- ] %s\n",
 					        obj->level, cost, obj->short_descr);
 				else {
 					count = 1;
@@ -4244,7 +4244,7 @@ void do_list(CHAR_DATA *ch, const char *argument)
 						count++;
 					}
 
-					sprintf(buf, "[%2d %5d %2d ] %s\n",
+					Format::sprintf(buf, "[%2d %5d %2d ] %s\n",
 					        obj->level, cost, count, obj->short_descr);
 				}
 
@@ -4331,7 +4331,7 @@ void do_sell(CHAR_DATA *ch, const char *argument)
 			check_improve(ch, gsn_haggle, TRUE, 4);
 		}
 
-		sprintf(buf, "You sell $p for %d silver and %d gold piece%s.",
+		Format::sprintf(buf, "You sell $p for %d silver and %d gold piece%s.",
 		        cost - (cost / 100) * 100, cost / 100, cost == 1 ? "" : "s");
 		act(buf, ch, obj, NULL, TO_CHAR);
 		ch->gold     += cost / 100;
@@ -4345,7 +4345,7 @@ void do_sell(CHAR_DATA *ch, const char *argument)
 			keeper->silver = 0;
 	}
 	else {
-		sprintf(buf, "You sell $p for %d Quest Point%s.",
+		Format::sprintf(buf, "You sell $p for %d Quest Point%s.",
 		        cost, cost == 1 ? "" : "s");
 		act(buf, ch, obj, NULL, TO_CHAR);
 		ch->questpoints += cost;
@@ -4404,9 +4404,9 @@ void do_value(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_QUESTSHOPKEEPER(keeper))
-		sprintf(buf, "$n tells you 'I'll give you %d quest points for $p'.", cost);
+		Format::sprintf(buf, "$n tells you 'I'll give you %d quest points for $p'.", cost);
 	else {
-		sprintf(buf,
+		Format::sprintf(buf,
 		        "$n tells you 'I'll give you %d silver and %d gold coins for $p'.",
 		        cost - (cost / 100) * 100, cost / 100);
 	}
@@ -4507,10 +4507,10 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		sprintf(buf, "Sale of %s has been stopped by the Imms. Item confiscated.\n",
+		Format::sprintf(buf, "Sale of %s has been stopped by the Imms. Item confiscated.\n",
 		        auction->item->short_descr);
 		talk_auction(NULL, buf);
-		sprintf(buf, "%s has stopped the auction of %s.", ch->name, auction->item->short_descr);
+		Format::sprintf(buf, "%s has stopped the auction of %s.", ch->name, auction->item->short_descr);
 		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
 		obj_to_char(auction->item, ch);
 		auction->item = NULL;
@@ -4587,10 +4587,10 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction->bet   = newbet;
 		auction->going = 0;
 		auction->pulse = PULSE_AUCTION; /* start the auction over again */
-		sprintf(buf, "A bid of %d gold has been received on %s.\n",
+		Format::sprintf(buf, "A bid of %d gold has been received on %s.\n",
 		        newbet, auction->item->short_descr);
 		talk_auction(NULL, buf);
-		sprintf(buf, "%s has bid %d gold.", ch->name, newbet);
+		Format::sprintf(buf, "%s has bid %d gold.", ch->name, newbet);
 		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
 		return;
 	} /* end bid */
@@ -4692,14 +4692,14 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction->min    = min;
 
 		if (auction->min > 0)
-			sprintf(buf, "The auctioneer receives %s and announces a minimum bid of %d gold.\n",
+			Format::sprintf(buf, "The auctioneer receives %s and announces a minimum bid of %d gold.\n",
 			        obj->short_descr, auction->min);
 		else
-			sprintf(buf, "The auctioneer receives %s and places it on the auction block.\n",
+			Format::sprintf(buf, "The auctioneer receives %s and places it on the auction block.\n",
 			        obj->short_descr);
 
 		talk_auction(NULL, buf);
-		sprintf(buf, "%s is auctioning %s.", ch->name, obj->short_descr);
+		Format::sprintf(buf, "%s is auctioning %s.", ch->name, obj->short_descr);
 		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
 		return;
 	}
@@ -4916,7 +4916,7 @@ void do_hone(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_IMMORTAL(ch)) {
 		if (number_percent() > UMIN(get_skill(ch, gsn_hone), 95)) {
-			sprintf(buf, "You fail to hone your weapon, and you gouge %s deeply, ruining it.\n",
+			Format::sprintf(buf, "You fail to hone your weapon, and you gouge %s deeply, ruining it.\n",
 			        whetstone->short_descr);
 			stc(buf, ch);
 			act("$n's hand slips, and $e ruins $s whetstone.", ch, NULL, NULL, TO_ROOM);
@@ -4925,7 +4925,7 @@ void do_hone(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	sprintf(buf, "You skillfully hone %s to a razor edge.\n", weapon->short_descr);
+	Format::sprintf(buf, "You skillfully hone %s to a razor edge.\n", weapon->short_descr);
 	act("$n skillfully sharpens $p to a razor edge.", ch, weapon, NULL, TO_ROOM);
 	stc(buf, ch);
 	SET_BIT(weapon->value[4], WEAPON_SHARP);
@@ -5058,16 +5058,16 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 
 	obj->value[0] = weapon_type(type);
 	free_string(obj->name);
-	sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));
+	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));
 	obj->name = str_dup(buf);
-	sprintf(sdesc, "%s{x", name);
+	Format::sprintf(sdesc, "%s{x", name);
 	free_string(obj->short_descr);
 	obj->short_descr = str_dup(sdesc);
-	sprintf(buf, "A %s is here, forged by %s's craftsmanship.", weapon_table[weapon_lookup(type)].name, ch->name);
+	Format::sprintf(buf, "A %s is here, forged by %s's craftsmanship.", weapon_table[weapon_lookup(type)].name, ch->name);
 	free_string(obj->description);
 	obj->description = str_dup(buf);
 	ed = new_extra_descr();
-	sprintf(buf, "It is a marvellous %s, crafted from the finest %s around.\n"
+	Format::sprintf(buf, "It is a marvellous %s, crafted from the finest %s around.\n"
 	        "It was created in the Month of %s by %s %s\n"
 	        "named %s.  Legend holds that this %s was a great weaponsmith.\n",
 	        weapon_table[weapon_lookup(type)].name, obj->material,
@@ -5122,13 +5122,13 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 
 	obj_to_char(obj, ch);
 	/* Nicer message -- Elrac */
-	sprintf(buf, "%s %s into a formidable %s\ncalled \"%s\".\n",
+	Format::sprintf(buf, "%s %s into a formidable %s\ncalled \"%s\".\n",
 	        "You quickly and skillfully forge",
 	        material->short_descr,
 	        weapon_table[weapon_lookup(type)].name,
 	        obj->short_descr);
 	stc(buf, ch);
-	sprintf(buf, "%s has forged a %s named \"%s\".", ch->name,
+	Format::sprintf(buf, "%s has forged a %s named \"%s\".", ch->name,
 	        weapon_table[weapon_lookup(type)].name, obj->short_descr);
 	act(buf, ch, obj, NULL, TO_ROOM);
 	extract_obj(material);
@@ -5137,13 +5137,13 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	/* Charge player for forging -- Elrac */
 	if (cost > 0) {
 		if (anvil->value[2] == 0) { /* public */
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "You pay the community of Thera %d silver for the use of its anvil.\n",
 			        cost);
 			stc(buf, ch);
 		}
 		else {
-			sprintf(buf,
+			Format::sprintf(buf,
 			        "You pay %d silver for the use of this private anvil.\n",
 			        cost);
 			stc(buf, ch);
@@ -5154,17 +5154,17 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 				if (owner != NULL) {
 					cost_gold = cost / 100;
 					cost_silver = cost - 100 * cost_gold;
-					sprintf(buf, "%s pays you ", ch->name);
+					Format::sprintf(buf, "%s pays you ", ch->name);
 
 					if (cost_gold > 0) {
-						sprintf(costbuf, "%d gold ", cost_gold);
+						Format::sprintf(costbuf, "%d gold ", cost_gold);
 						strcat(buf, costbuf);
 
 						if (cost_silver > 0) strcat(buf, "and ");
 					}
 
 					if (cost_silver > 0) {
-						sprintf(costbuf, "%d silver ", cost_silver);
+						Format::sprintf(costbuf, "%d silver ", cost_silver);
 						strcat(buf, costbuf);
 					}
 
@@ -5353,18 +5353,18 @@ void do_engrave(CHAR_DATA *ch, const char *argument)
 	add_buf(dbuf, buf);
 
 	if (IS_NPC(ch)) {
-		sprintf(buf, "{Y%s{x, {Mcitizen of %s,", ch->short_descr,
+		Format::sprintf(buf, "{Y%s{x, {Mcitizen of %s,", ch->short_descr,
 		        ch->in_room && ch->in_room->area && ch->in_room->area->name ?
 		        ch->in_room->area->name : "Thera");
 	}
 	else {
-		sprintf(buf, "{Y%s{W%s{x ", ch->name,
+		Format::sprintf(buf, "{Y%s{W%s{x ", ch->name,
 		        ch->pcdata && ch->pcdata->title[0] ?
 		        ch->pcdata->title : "{M(adventurer of Thera){x");
 	}
 
 	add_buf(dbuf, buf);
-	sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", smash_tilde(argument));
+	Format::sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", smash_tilde(argument));
 	add_buf(dbuf, buf);
 	eng_desc->description = str_dup(buf_string(dbuf));
 	free_buf(dbuf);
@@ -5486,7 +5486,7 @@ void do_autograph(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(buf, "%s {c(autographed){x", obj->short_descr);
+	Format::sprintf(buf, "%s {c(autographed){x", obj->short_descr);
 	free_string(obj->short_descr);
 	obj->short_descr = str_dup(buf);
 	stc("You sign the card.\n", ch);
@@ -5532,7 +5532,7 @@ void do_rename(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	sprintf(new_name, "%s %s", pet->name, argument);
+	Format::sprintf(new_name, "%s %s", pet->name, argument);
 	pet->name = new_name;
 	stc("Your pet has now been named ", ch);
 	stc(argument, ch);
