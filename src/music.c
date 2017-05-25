@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "music.h"
 #include "recycle.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 int channel_songs[MAX_GLOBAL + 1];

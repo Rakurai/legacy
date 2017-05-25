@@ -16,6 +16,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 extern  ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];

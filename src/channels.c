@@ -29,6 +29,7 @@
 #include "tables.h"
 #include "lookup.h"
 #include "recycle.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 extern void     channel_who     args((CHAR_DATA *ch, const char *channelname, int

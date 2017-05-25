@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 /* globals from db.c for load_notes */

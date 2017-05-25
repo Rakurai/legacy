@@ -59,23 +59,6 @@ void ptc(CHAR_DATA *ch, const char *fmt, Params&&... params)
 	stc(buf, ch);
 }
 
-// print stuff, append to buffer. safe.
-template<class... Params>
-int ptb(BUFFER *buffer, const char *fmt, Params&&... params)
-{
-	char buf[MAX_STRING_LENGTH];
-	int res = snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
-
-	if (res >= MAX_STRING_LENGTH - 1) {
-		buf[0] = '\0';
-		bug("print_to_buffer: overflow to buffer, aborting", 0);
-	}
-	else
-		add_buf(buffer, buf);
-
-	return res;
-}
-
 template<class... Params>
 void bugf(const char *fmt, Params&&... params)
 {

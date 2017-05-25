@@ -30,6 +30,7 @@
 #include "recycle.h"
 #include "magic.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 /*****

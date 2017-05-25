@@ -35,6 +35,7 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 #include "c_string.h"
 

@@ -29,17 +29,6 @@
 extern char str_empty[1];
 extern int mobile_count;
 
-/* stuff for providing a crash-proof buffer */
-
-#define MAX_BUF		65536
-#define MAX_BUF_LIST 	12
-#define BASE_BUF 	1024
-
-/* valid states */
-#define BUFFER_SAFE	0
-#define BUFFER_OVERFLOW	1
-#define BUFFER_FREED 	2
-
 // for character stats
 #define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
@@ -130,11 +119,3 @@ void		free_duel args((DUEL_DATA *duel));
 WM_COORD_DATA	*new_coord args((void));
 void		free_coord args((WM_COORD_DATA *coord));
 */
-
-/* buffer procedures */
-BUFFER	*new_buf args( (void) );
-BUFFER  *new_buf_size args( (long size) );
-void	free_buf args( (BUFFER *buffer) );
-bool	add_buf args( (BUFFER *buffer, const char *string) );
-void	clear_buf args( (BUFFER *buffer) );
-char	*buf_string args( (BUFFER *buffer) );

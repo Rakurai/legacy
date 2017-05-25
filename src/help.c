@@ -12,6 +12,7 @@
 #include "recycle.h"
 #include "sql.h"
 #include "tables.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 DECLARE_DO_FUN(do_departed);

@@ -13,6 +13,7 @@
 #include "memory.h"
 #include "db.h"
 #include "affect.h"
+#include "buffer.h"
 
 void unique_item(OBJ_DATA *item)
 {

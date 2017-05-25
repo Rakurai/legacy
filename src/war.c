@@ -6,6 +6,7 @@
 #include "merc.h"
 #include "lookup.h"
 #include "recycle.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 #define WAR_DIR         "../war/"

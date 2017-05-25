@@ -31,6 +31,7 @@
 #include "magic.h"
 #include "gem.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 DECLARE_DO_FUN(do_rset);

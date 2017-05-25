@@ -30,6 +30,7 @@
 #include "recycle.h"
 #include "tables.h"
 #include "affect.h"
+#include "buffer.h"
 
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool fAdd));
@@ -2505,50 +2506,6 @@ int color_strlen(const char *argument)
 	}
 
 	return length;
-}
-
-
-template<class... Params>
-void ptc(CHAR_DATA *ch, const char *fmt, Params&&... params)
-{
-  char buf [MAX_STRING_LENGTH];
-//  va_list params;
-//  va_start(params, fmt);
-  vsnprintf(buf, MSL, fmt, params...);
-//  va_end(params);
-  stc(buf, ch);
-}
-
-// print stuff, append to buffer. safe.
-template<class... Params>
-int ptb(BUFFER *buffer, const char *fmt, Params&&... params)
-{
-  char buf[MSL];
-//  va_list params;
-  int res;
-//  va_start(params, fmt);
-  res = vsnprintf(buf, MSL, fmt, params...);
-//  va_end(params);
-
-  if (res >= MSL - 1) {
-    buf[0] = '\0';
-    bug("print_to_buffer: overflow to buffer, aborting", 0);
-  }
-  else
-    add_buf(buffer, buf);
-
-  return res;
-}
-
-template<class... Params>
-void bugf(const char *fmt, Params&&... params)
-{
-  char buf [MAX_STRING_LENGTH];
-//  va_list params;
-//  va_start(params, fmt);
-  vsnprintf(buf, MSL, fmt, params...);
-//  va_end(params);
-  bug(buf, 0);
 }
 
 /* Tell if a given string has a slash in it.

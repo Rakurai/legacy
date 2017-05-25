@@ -1059,7 +1059,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 		process_output(dclose, FALSE);
 
 	if (dclose->snoop_by != NULL)
-		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n", 0);
+		write_to_descriptor(dclose->snoop_by, "Your victim has left the game.\n", 0);
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (d->snoop_by == dclose)
@@ -1327,7 +1327,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	if (IS_PLAYING(d)
 	    && d->character->pcdata
 	    && IS_SET(d->character->pcdata->video, VIDEO_VT100)) {
-		write_to_buffer(d, VT_SAVECURSOR, 0);
+		write_to_descriptor(d, VT_SAVECURSOR, 0);
 		goto_line(d->character, d->character->lines - 2, 1);
 	}
 
@@ -1335,7 +1335,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 * Bust a prompt.
 	 */
 	if (!merc_down && d->showstr_point)
-		write_to_buffer(d, "[Hit Enter to continue]\n", 0);
+		write_to_descriptor(d, "[Hit Enter to continue]\n", 0);
 	else if (fPrompt && !merc_down && IS_PLAYING(d)) {
 		CHAR_DATA *ch;
 		CHAR_DATA *victim;
@@ -1409,7 +1409,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		ch = d->original ? d->original : d->character;
 
 		if (!IS_SET(ch->comm, COMM_COMPACT))
-			write_to_buffer(d, "\n", 1);
+			write_to_descriptor(d, "\n", 1);
 
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
 			set_color(ch, CYAN, NOBOLD);
@@ -1429,10 +1429,10 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 */
 	if (d->snoop_by != NULL) {
 		if (d->character != NULL)
-			write_to_buffer(d->snoop_by, (d->character)->name, 0);
+			write_to_descriptor(d->snoop_by, (d->character)->name, 0);
 
-		write_to_buffer(d->snoop_by, "> ", 2);
-		write_to_buffer(d->snoop_by, d->outbuf, d->outtop);
+		write_to_descriptor(d->snoop_by, "> ", 2);
+		write_to_descriptor(d->snoop_by, d->outbuf, d->outtop);
 	}
 
 	/* VT100 Stuff */
@@ -1440,9 +1440,9 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	    && d->character->pcdata
 	    && IS_SET(d->character->pcdata->video, PLR_VT100)) {
 		goto_line(d->character, d->character->lines - 1, 1);
-		write_to_buffer(d, VT_CLEAR_LINE, 0);
-		write_to_buffer(d, VT_BAR, 0);
-		write_to_buffer(d, VT_RESTORECURSOR, 0);
+		write_to_descriptor(d, VT_CLEAR_LINE, 0);
+		write_to_descriptor(d, VT_BAR, 0);
+		write_to_descriptor(d, VT_RESTORECURSOR, 0);
 	}
 
 	/*
@@ -1887,14 +1887,14 @@ void bust_a_prompt(CHAR_DATA *ch)
 //	*point = '\0';
 //	strcat(buf, "\n");
 //	bugf("Sending prompt: '%s', len %d", buf, point - buf+1);
-//	write_to_buffer(ch->desc, "testing", 7);
-	write_to_buffer(ch->desc, buf, point - buf);
+//	write_to_descriptor(ch->desc, "testing", 7);
+	write_to_descriptor(ch->desc, buf, point - buf);
 
 	if (ch->prefix[0] != '\0')
-		write_to_buffer(ch->desc, ch->prefix, 0);
+		write_to_descriptor(ch->desc, ch->prefix, 0);
 } /* end bust_a_prompt() */
 
-/* write_to_buffer with color codes -- Montrey */
+/* write_to_descriptor with color codes -- Montrey */
 void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 {
 	const char *a, *b;
@@ -1908,7 +1908,7 @@ void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 				;
 
 			if (l > 0)
-				write_to_buffer(d, b, l);
+				write_to_descriptor(d, b, l);
 
 			if (*a) {
 				a++;
@@ -1978,7 +1978,7 @@ void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 					}
 
 					if (found)
-						write_to_buffer(d, code, strlen(code));
+						write_to_descriptor(d, code, strlen(code));
 
 					curlen++;
 				}
@@ -1994,7 +1994,7 @@ void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer(DESCRIPTOR_DATA *d, const String& txt, int length)
+void write_to_descriptor(DESCRIPTOR_DATA *d, const String& txt, int length)
 {
 	if (d == NULL)
 		return;
@@ -2092,8 +2092,8 @@ bool check_playing(DESCRIPTOR_DATA *d, const String& name)
 		    &&   dold->connected != CON_GET_OLD_PASSWORD
 		    &&   !str_cmp(name, dold->original
 		                  ? dold->original->name : dold->character->name)) {
-			write_to_buffer(d, "That character is already playing.\n", 0);
-			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?", 0);
+			write_to_descriptor(d, "That character is already playing.\n", 0);
+			write_to_descriptor(d, "Do you wish to connect anyway (Y/N)?", 0);
 			d->connected = CON_BREAK_CONNECT;
 			return TRUE;
 		}
@@ -2262,7 +2262,7 @@ void process_color(CHAR_DATA *ch, char a)
 		return;
 	}
 
-	write_to_buffer(ch->desc, code, strlen(code));
+	write_to_descriptor(ch->desc, code, strlen(code));
 }
 
 /*
@@ -2287,12 +2287,12 @@ void stc(const String& txt, CHAR_DATA *ch)
 			}
 
 			if (l > 0)
-				write_to_buffer(ch->desc, b, l);
+				write_to_descriptor(ch->desc, b, l);
 
 			if (*a) {
 				if (!IS_NPC(ch) && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW)) {
 					process_color(ch, 'x');
-					write_to_buffer(ch->desc, a, 2);
+					write_to_descriptor(ch->desc, a, 2);
 				}
 
 				a++;
@@ -2388,7 +2388,7 @@ void show_string(struct descriptor_data *d, const char *input)
             if (d-> character)
                 stc (buffer, d-> character);
             else
-            write_to_buffer(d,buffer,strlen(buffer));
+            write_to_descriptor(d,buffer,strlen(buffer));
             for (chk = d->showstr_point; isspace(*chk); chk++);
 /*
  ... there is a semicolon at the end of this for loop, making it empty and giving a compile warning.

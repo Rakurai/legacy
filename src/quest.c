@@ -14,6 +14,7 @@
 #include "tables.h"
 #include "recycle.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 /* Object vnums for object quest 'tokens' */

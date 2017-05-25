@@ -30,6 +30,7 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 /* command procedures needed */

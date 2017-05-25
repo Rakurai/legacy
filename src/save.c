@@ -31,6 +31,7 @@
 #include "lookup.h"
 #include "deps/cJSON/cJSON.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 extern  int     _filbuf         args((FILE *));

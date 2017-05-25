@@ -20,6 +20,7 @@
 #include "tables.h"
 #include "sql.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 DECLARE_DO_FUN(do_slookup);

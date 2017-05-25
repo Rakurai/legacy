@@ -309,16 +309,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define BAN_ALL                 D
 #define BAN_PERMIT              E
 
-struct buf_type
-{
-    BUFFER *    next;
-    bool        valid;
-    sh_int      state;  /* error state of the buffer */
-    long      size;   /* size in k */
-    char *      string; /* buffer's string */
-};
-
-
 /*
   Character classes  -- Outsider
 */
@@ -3422,7 +3412,7 @@ void    find_money      args( ( CHAR_DATA *ch ) );
 void    show_string     args( ( struct descriptor_data *d, const char *input) );
 void    close_socket    args( ( DESCRIPTOR_DATA *dclose ) );
 void	cwtb		args((DESCRIPTOR_DATA *d, const char *txt));
-void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const String& txt,
+void    write_to_descriptor args( ( DESCRIPTOR_DATA *d, const String& txt,
                             int length ) );
 void    stc    args( ( const String& txt, CHAR_DATA *ch ) );
 void    page_to_char    args( ( char *txt, CHAR_DATA *ch ) );

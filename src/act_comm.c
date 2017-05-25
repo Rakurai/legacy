@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "vt100.h"
 #include "affect.h"
+#include "buffer.h"
 #include "Format.hpp"
 
 extern void     do_file(CHAR_DATA *, const char *);
