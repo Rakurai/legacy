@@ -4,9 +4,8 @@
 #include <string>
 #include <cstdio>
 
-#include "merc.h" // for type defines, can't count on merc.h being included before this
-#include "recycle.h" // for add_buf
-//#include "String.hpp"
+#include "String.hpp"
+#include "memory.h"
 
 /* Variadic template for overloading the *printf functions to use C++ strings.
  * Lets us keep our old C-style printfs and get nice modern strings. */
@@ -48,21 +47,4 @@ int sprintf(String& str, char const* fmt, Params&&... params) {
 	char buf[MAX_STRING_LENGTH];
 	snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
     str.assign(buf);
-}
-
-// printf to a character
-template<class... Params>
-void ptc(CHAR_DATA *ch, const char *fmt, Params&&... params)
-{
-	char buf[MAX_STRING_LENGTH];
-	snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
-	stc(buf, ch);
-}
-
-template<class... Params>
-void bugf(const char *fmt, Params&&... params)
-{
-	char buf[MAX_STRING_LENGTH];
-	snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
-	bug(buf, 0);
 }

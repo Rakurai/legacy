@@ -3749,6 +3749,22 @@ void    list_extraskill args( ( CHAR_DATA *ch ) );
 
 /* channels.c */
 
+// printf to a character
+template<class... Params>
+void ptc(CHAR_DATA *ch, const char *fmt, Params&&... params)
+{
+  char buf[MAX_STRING_LENGTH];
+  snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
+  stc(buf, ch);
+}
+
+template<class... Params>
+void bugf(const char *fmt, Params&&... params)
+{
+  char buf[MAX_STRING_LENGTH];
+  snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
+  bug(buf, 0);
+}
 
 #define MSL MAX_STRING_LENGTH
 #undef  CD
