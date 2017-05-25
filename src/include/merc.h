@@ -2732,9 +2732,6 @@ extern sh_int	gsn_critical_blow;
 /*
  * Utility macros.
  */
-#define IS_VALID(data)          ((data) != NULL && (data)->valid)
-#define VALIDATE(data)          ((data)->valid = TRUE)
-#define INVALIDATE(data)        ((data)->valid = FALSE)
 #define UMIN(a, b)              ((a) < (b) ? (a) : (b))
 #define UMAX(a, b)              ((a) > (b) ? (a) : (b))
 #define URANGE(a, b, c)         ((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))

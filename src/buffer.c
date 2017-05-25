@@ -2,6 +2,7 @@
 
 #include "buffer.h"
 #include "memory.h"
+#include "recycle.h"
 
 BUFFER *buf_free;
 

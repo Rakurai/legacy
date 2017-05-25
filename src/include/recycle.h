@@ -29,6 +29,10 @@
 extern char str_empty[1];
 extern int mobile_count;
 
+#define IS_VALID(data)          ((data) != NULL && (data)->valid)
+#define VALIDATE(data)          ((data)->valid = TRUE)
+#define INVALIDATE(data)        ((data)->valid = FALSE)
+
 // for character stats
 #define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
