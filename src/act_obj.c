@@ -50,16 +50,12 @@ extern  void    channel_who     args((CHAR_DATA *ch, const char *channelname, in
 /*
  * Local functions.
  */
-#define CD CHAR_DATA
-#define OD OBJ_DATA
-bool    remove_obj      args((CHAR_DATA *ch, int iWear, bool fReplace));
-void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
-CD     *find_keeper     args((CHAR_DATA *ch));
-int     get_cost        args((CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy));
-void    obj_to_keeper   args((OBJ_DATA *obj, CHAR_DATA *ch));
-OD     *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, const char *argument));
-#undef OD
-#undef  CD
+bool       remove_obj      args((CHAR_DATA *ch, int iWear, bool fReplace));
+void       wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
+CHAR_DATA *find_keeper     args((CHAR_DATA *ch));
+int        get_cost        args((CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy));
+void       obj_to_keeper   args((OBJ_DATA *obj, CHAR_DATA *ch));
+OBJ_DATA  *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, const char *argument));
 
 /* Convert a number to an ordinal string -- Elrac
    The string may come from a static buffer, so it should be copied

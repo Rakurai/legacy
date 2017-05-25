@@ -41,58 +41,42 @@ extern int mobile_count;
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
 
 /* note recycling */
-#define ND NOTE_DATA
-ND	*new_note args( (void) );
+NOTE_DATA	*new_note args( (void) );
 void	free_note args( (NOTE_DATA *note) );
-#undef ND
 
 /* descriptor recycling */
-#define DD DESCRIPTOR_DATA
-DD	*new_descriptor args( (void) );
+DESCRIPTOR_DATA	*new_descriptor args( (void) );
 void	free_descriptor args( (DESCRIPTOR_DATA *d) );
-#undef DD
 
 /* char gen data recycling */
 GEN_DATA 	*new_gen_data args( (void) );
 void	free_gen_data args( (GEN_DATA * gen) );
 
 /* extra descr recycling */
-#define ED EXTRA_DESCR_DATA
-ED	*new_extra_descr args( (void) );
+EXTRA_DESCR_DATA	*new_extra_descr args( (void) );
 void	free_extra_descr args( (EXTRA_DESCR_DATA *ed) );
-#undef ED
 
 /* affect recycling */
-#define AD AFFECT_DATA
-AD	*new_affect args( (void) );
+AFFECT_DATA	*new_affect args( (void) );
 void	free_affect args( (AFFECT_DATA *af) );
-#undef AD
 
 /* object recycling */
-#define OD OBJ_DATA
-OD	*new_obj args( (void) );
+OBJ_DATA	*new_obj args( (void) );
 void	free_obj args( (OBJ_DATA *obj) );
-#undef OD
 
 /* character recyling */
-#define CD CHAR_DATA
-#define PD PC_DATA
-CD	*new_char args( (void) );
+CHAR_DATA	*new_char args( (void) );
 void	free_char args( (CHAR_DATA *ch) );
-PD	*new_pcdata args( (void) );
+PC_DATA	*new_pcdata args( (void) );
 void	free_pcdata args( (PC_DATA *pcdata) );
-#undef PD
-#undef CD
 
 
 /* mob id and memory procedures */
-#define MD MEM_DATA
 long 	get_pc_id args( (void) );
 long	get_mob_id args( (void) );
-MD	*new_mem_data args( (void) );
+MEM_DATA	*new_mem_data args( (void) );
 void	free_mem_data args( ( MEM_DATA *memory) );
-MD	*find_memory args( (MEM_DATA *memory, long id) );
-#undef MD
+MEM_DATA	*find_memory args( (MEM_DATA *memory, long id) );
 
 /* war recycling */
 WAR_DATA	*new_war args((void));

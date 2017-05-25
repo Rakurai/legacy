@@ -3257,13 +3257,6 @@ char *  crypt           args( ( const char *key, const char *salt ) );
  * Our function prototypes.
  * One big lump ... this is every function in Merc.
  */
-#define CD      CHAR_DATA
-#define MID     MOB_INDEX_DATA
-#define OD      OBJ_DATA
-#define OID     OBJ_INDEX_DATA
-#define RID     ROOM_INDEX_DATA
-#define SF      SPEC_FUN
-#define AD      AFFECT_DATA
 
 #define MSL MAX_STRING_LENGTH
 #define MIL MAX_INPUT_LENGTH
@@ -3359,7 +3352,7 @@ void    move_char       args( ( CHAR_DATA *ch, int door, bool follow ) );
 void    do_mark         args( ( CHAR_DATA *ch, const char *argument ) );
 void    do_relocate     args( ( CHAR_DATA *ch, const char *argument ) );
 void    recall		args( ( CHAR_DATA *ch, bool clan ) );
-RID  *get_random_room   args( ( CHAR_DATA *ch ) );
+ROOM_INDEX_DATA  *get_random_room   args( ( CHAR_DATA *ch ) );
 void    do_land         args( ( CHAR_DATA *ch, const char *argument ) );
 void    do_fly          args( ( CHAR_DATA *ch, const char *argument ) );
 
@@ -3373,7 +3366,7 @@ void    do_engrave      args( (CHAR_DATA *ch, const char *argument) );
 
 /* act_wiz.c */
 void do_allsave         args( (CHAR_DATA *ch, const char *argument) );
-RID *find_location      args( (CHAR_DATA *ch, const char *argument) );
+ROOM_INDEX_DATA *find_location      args( (CHAR_DATA *ch, const char *argument) );
 void do_fod             args( (CHAR_DATA *ch, const char *argument) );
 void do_grouplist       args( (CHAR_DATA *ch, const char *argument) );
 void do_restore         args( (CHAR_DATA *ch, const char *argument) );
@@ -3423,13 +3416,13 @@ void    do_oldareas     args( ( CHAR_DATA *ch, const char *argument ) );
 
 /* area_handler.c */
 void    area_update     args( ( void ) );
-CD *    create_mobile   args( ( MOB_INDEX_DATA *pMobIndex ) );
+CHAR_DATA *    create_mobile   args( ( MOB_INDEX_DATA *pMobIndex ) );
 void    clone_mobile    args( ( CHAR_DATA *parent, CHAR_DATA *clone) );
-OD *    create_object   args( ( OBJ_INDEX_DATA *pObjIndex, int level ) );
+OBJ_DATA *    create_object   args( ( OBJ_INDEX_DATA *pObjIndex, int level ) );
 void    clone_object    args( ( OBJ_DATA *parent, OBJ_DATA *clone ) );
-MID *   get_mob_index   args( ( int vnum ) );
-OID *   get_obj_index   args( ( int vnum ) );
-RID *   get_room_index  args( ( int vnum ) );
+MOB_INDEX_DATA *   get_mob_index   args( ( int vnum ) );
+OBJ_INDEX_DATA *   get_obj_index   args( ( int vnum ) );
+ROOM_INDEX_DATA *   get_room_index  args( ( int vnum ) );
 int	get_location_ac args( (CHAR_DATA *ch, int wear, int type) );
 
 
@@ -3553,7 +3546,7 @@ void    obj_to_strongbox args(( OBJ_DATA *obj, CHAR_DATA *ch ) );
 void    obj_from_locker args(( OBJ_DATA *obj ) );
 void    obj_from_strongbox args(( OBJ_DATA *obj) );
 int     apply_ac        args(( OBJ_DATA *obj, int iWear, int type ) );
-OD *    get_eq_char     args(( CHAR_DATA *ch, int iWear ) );
+OBJ_DATA *    get_eq_char     args(( CHAR_DATA *ch, int iWear ) );
 void    equip_char      args(( CHAR_DATA *ch, OBJ_DATA *obj, int iWear ) );
 void    unequip_char    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
 int     count_obj_list  args(( OBJ_INDEX_DATA *obj, OBJ_DATA *list ) );
@@ -3563,8 +3556,8 @@ void    obj_to_obj      args(( OBJ_DATA *obj, OBJ_DATA *obj_to ) );
 void    obj_from_obj    args(( OBJ_DATA *obj ) );
 void    extract_obj     args(( OBJ_DATA *obj ) );
 void    extract_char    args(( CHAR_DATA *ch, bool fPull ) );
-OD *    get_obj_type    args(( OBJ_INDEX_DATA *pObjIndexData ) );
-OD *    create_money    args(( int gold, int silver ) );
+OBJ_DATA *    get_obj_type    args(( OBJ_INDEX_DATA *pObjIndexData ) );
+OBJ_DATA *    create_money    args(( int gold, int silver ) );
 int     get_obj_number  args(( OBJ_DATA *obj ) );
 int     get_obj_weight  args(( OBJ_DATA *obj ) );
 int     get_true_weight args(( OBJ_DATA *obj ) );
@@ -3610,7 +3603,7 @@ int	get_usable_level	args((CHAR_DATA *ch));
 int	get_holdable_level	args((CHAR_DATA *ch));
 const char *	strins			args((const char *string, const char *ins, int place));
 const char *	get_owner		args((CHAR_DATA *ch, OBJ_DATA *obj));
-CD *	get_obj_carrier		args((OBJ_DATA *obj));
+CHAR_DATA *	get_obj_carrier		args((OBJ_DATA *obj));
 int	get_locker_number	args((CHAR_DATA *ch));
 int	get_locker_weight	args((CHAR_DATA *ch));
 int	get_strongbox_number	args((CHAR_DATA *ch));
@@ -3629,21 +3622,21 @@ int	interpolate		args((int level, int value_00, int value_32));
 const char *	get_extra_descr		args((const char *name, EXTRA_DESCR_DATA *ed));
 
 /* find.c */
-CD *	get_mob_here		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_mob_area		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_mob_world		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_char_here		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *    get_char_room       args((CHAR_DATA *ch, ROOM_INDEX_DATA *room, const String& argument, int vis));
-CD *	get_char_area		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_char_world		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_player_here		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_player_area		args((CHAR_DATA *ch, const String& argument, int vis));
-CD *	get_player_world	args((CHAR_DATA *ch, const String& argument, int vis));
-OD *	get_obj_list		args((CHAR_DATA *ch, const String& argument, OBJ_DATA *list));
-OD *	get_obj_carry		args((CHAR_DATA *ch, const String& argument));
-OD *	get_obj_wear		args((CHAR_DATA *ch, const String& argument));
-OD *	get_obj_here		args((CHAR_DATA *ch, const String& argument));
-OD *	get_obj_world		args((CHAR_DATA *ch, const String& argument));
+CHAR_DATA *	get_mob_here		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_mob_area		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_mob_world		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_char_here		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *    get_char_room       args((CHAR_DATA *ch, ROOM_INDEX_DATA *room, const String& argument, int vis));
+CHAR_DATA *	get_char_area		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_char_world		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_player_here		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_player_area		args((CHAR_DATA *ch, const String& argument, int vis));
+CHAR_DATA *	get_player_world	args((CHAR_DATA *ch, const String& argument, int vis));
+OBJ_DATA *	get_obj_list		args((CHAR_DATA *ch, const String& argument, OBJ_DATA *list));
+OBJ_DATA *	get_obj_carry		args((CHAR_DATA *ch, const String& argument));
+OBJ_DATA *	get_obj_wear		args((CHAR_DATA *ch, const String& argument));
+OBJ_DATA *	get_obj_here		args((CHAR_DATA *ch, const String& argument));
+OBJ_DATA *	get_obj_world		args((CHAR_DATA *ch, const String& argument));
 
 /* objstate.c */
 int     objstate_load_items		args((void));
@@ -3717,12 +3710,12 @@ int	get_skill_cost  args( ( CHAR_DATA *ch, int sn ) );
 bool	deduct_stamina  args( ( CHAR_DATA *ch, int sn ) );
 
 /* special.c */
-SF *    spec_lookup     args( ( const char *name ) );
+SPEC_FUN *    spec_lookup     args( ( const char *name ) );
 const char *  spec_name       args( ( SPEC_FUN *function ) );
 bool    IS_SPECIAL      args( ( CHAR_DATA *ch) );
 
 /* teleport.c */
-RID *   room_by_name    args( ( const char *target, int level, bool error) );
+ROOM_INDEX_DATA *   room_by_name    args( ( const char *target, int level, bool error) );
 
 /* tour.c */
 //void    do_alight       args( ( CHAR_DATA *ch, const char *argument ) );
@@ -3765,15 +3758,6 @@ void bugf(const char *fmt, Params&&... params)
   snprintf(buf, MAX_STRING_LENGTH, fmt, params...);
   bug(buf, 0);
 }
-
-#define MSL MAX_STRING_LENGTH
-#undef  CD
-#undef  MID
-#undef  OD
-#undef  OID
-#undef  RID
-#undef  SF
-#undef  AD
 
 struct raffects
 {
