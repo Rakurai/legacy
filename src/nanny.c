@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "vt100.h"
+#include "telnet.h"
 #include "sql.h"
 #include "recycle.h"
 #include "affect.h"
@@ -26,19 +27,9 @@ bool                newlock;            /* Game is newlocked            */
 /*
  * Socket and TCP/IP stuff.
  */
-#if     defined(unix)
-#include "telnet.h"
-#if defined (SAND)
-#endif
-#if !defined( STDOUT_FILENO )
-#define STDOUT_FILENO 1
-#endif
 const   unsigned char    echo_off_str    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
 const   unsigned char    echo_on_str     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
 const   unsigned char    go_ahead_str    [] = { IAC, GA, '\0' };
-/* Overflow messages are due to fact this is not declared as unsigned...however, declaring
-as unsigned causes errors in write_to_buf.  Therefore, ignore the warning - Lotus */
-#endif
 
 /**
  * check_ban
@@ -205,12 +196,9 @@ bool check_parse_name(const String& name)
 	if (strlen(name) <  2)
 		return FALSE;
 
-#if defined(unix)
-
 	if (strlen(name) > 12)
 		return FALSE;
 
-#endif
 	/*
 	 * Alphanumerics only.
 	 * Lock out IllIll twits.
@@ -458,9 +446,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		return;
 
 	case CON_GET_OLD_PASSWORD:
-#if defined(unix)
 		write_to_descriptor(d, "\n", 1);
-#endif
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
 			stc("{bIncorrect password!{x\n", ch);
@@ -632,9 +618,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_NEW_PASSWORD:
-#if defined(unix)
 		write_to_descriptor(d, "\n", 1);
-#endif
 
 		if (strlen(argument) < 5) {
 			stc("You whisper in her ear, and she giggles.\n\n"
@@ -665,9 +649,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
-#if defined(unix)
 		write_to_descriptor(d, "\n", 1);
-#endif
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
 			stc("The pixie frowns as you whisper again.\n\n"

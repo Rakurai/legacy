@@ -755,17 +755,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	ATTR_BASE(ch, APPLY_STAM)           = 100;
 	ch->pcdata->last_logoff         = current_time;
 	found = FALSE;
-	// added if here
-	/* decompress if .gz file exists */
-	/*    #if defined(unix)
-	    Format::sprintf( strsave, "%s%s%s", PLAYER_DIR, capitalize(name),".gz");
-	    if ( ( fp = fopen( strsave, "r" ) ) != NULL )
-	    {
-	        fclose(fp);
-	        Format::sprintf(buf,"gzip -dfq %s",strsave);
-	        system(buf);
-	    }
-	    #endif */
+
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
 
 	cJSON *root = NULL;

@@ -45,9 +45,13 @@
 
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <signal.h>
+#include <fcntl.h>
+#include <netdb.h>
 
 #include "merc.h"
 #include "vt100.h" /* VT100 Stuff */
+#include "telnet.h"
 #include "memory.h"
 #include "lookup.h"
 #include "recycle.h"
@@ -72,9 +76,6 @@ extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
 /*
  * Malloc debugging stuff.
  */
-#if defined(sun)
-  #undef MALLOC_DEBUG
-#endif
 
 #if defined(MALLOC_DEBUG)
   extern  int     malloc_debug    args((int));
@@ -83,200 +84,7 @@ extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
 
 /*
  * Signal handling.
- * Apollo has a problem with __attribute(atomic) in signal.h,
- *   I dance around it.
  */
-#if defined(apollo)
-  #define __attribute(x)
-#endif
-
-#if defined(unix)
-  #include <signal.h>
-#endif
-
-#if defined(apollo)
-  #undef __attribute
-#endif
-
-#if     defined(unix)
-
-  #include <fcntl.h>
-  #include <netdb.h>
-  #include "telnet.h"
-
-  #if defined(SAND)
-  #endif
-
-  #if !defined( STDOUT_FILENO )
-    #define STDOUT_FILENO 1
-  #endif
-
-  const   unsigned char    echo_off_comm    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
-  const   unsigned char    echo_on_comm     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
-  const   unsigned char    go_ahead_comm    [] = { IAC, GA, '\0' };
-  /*
-  Overflow messages are due to fact this is not declared as unsigned...however, declaring
-  as unsigned causes errors in write_to_buff.  Therefore, ignore the warning - Lotus
-  */
-
-#endif
-
-/*
- * OS-dependent declarations.
- */
-#if     defined(_AIX)
-int     accept          args((int s, struct sockaddr *addr, int *addrlen));
-int     bind            args((int s, struct sockaddr *name, int namelen));
-void    bzero           args((char *b, int length));
-int     getpeername     args((int s, struct sockaddr *name, int *namelen));
-int     getsockname     args((int s, struct sockaddr *name, int *namelen));
-int     gettimeofday    args((struct timeval *tp, struct timezone *tzp));
-int     listen          args((int s, int backlog));
-int     setsockopt      args((int s, int level, int optname, void *optval,
-                              int optlen));
-int     socket          args((int domain, int type, int protocol));
-#endif
-
-/*#if     defined(apollo)
-void    bzero           args( ( char *b, int length ) );
-#endif
-*/
-
-#if     defined(__hpux)
-int     accept          args((int s, void *addr, int *addrlen));
-int     bind            args((int s, const void *addr, int addrlen));
-void    bzero           args((char *b, int length));
-int     getpeername     args((int s, void *addr, int *addrlen));
-int     getsockname     args((int s, void *name, int *addrlen));
-int     gettimeofday    args((struct timeval *tp, struct timezone *tzp));
-int     listen          args((int s, int backlog));
-int     setsockopt      args((int s, int level, int optname,
-                              const void *optval, int optlen));
-int     socket          args((int domain, int type, int protocol));
-#endif
-
-#if     defined(interactive)
-#endif
-
-#if     defined(linux)
-/*
-int     accept          args( ( int s, struct sockaddr *addr, int *addrlen ) );
-int     bind            args( ( int s, struct sockaddr *name, int namelen ) );
-*/
-int     close           args((int fd));
-//int     getpeername     args( ( int s, struct sockaddr *name, int *namelen ) );
-//int     getsockname     args( ( int s, struct sockaddr *name, int *namelen ) );
-//int     gettimeofday    args((struct timeval *tp, struct timezone *tzp));
-//int     listen          args( ( int s, int backlog ) );
-int     select          args((int width, fd_set *readfds, fd_set *writefds,
-                              fd_set *exceptfds, struct timeval *timeout));
-int     socket          args((int domain, int type, int protocol));
-//int     read            args( ( int fd, char *buf, int nbyte ) );
-//int     write           args( ( int fd, char *buf, int nbyte ) );
-pid_t   waitpid         args((pid_t pid, int *status, int options));
-pid_t   fork            args((void));
-int     kill            args((pid_t pid, int sig));
-int     pipe            args((int filedes[2]));
-int     dup2            args((int oldfd, int newfd));
-int     execl           args((const char *path, const char *arg, ...));
-
-/* Added by demonfire */
-
-u_short htons           args((u_short hostshort));
-//u_long  ntohl           args( ( u_long hostlong ) );
-u_short ntohs           args((u_short netshort));
-
-/* Added by demonfire */
-
-#endif
-
-#if     defined(MIPS_OS)
-extern  int             errno;
-#endif
-
-#if     defined(NeXT)
-int     close           args((int fd));
-int     fcntl           args((int fd, int cmd, int arg));
-#if     !defined(htons)
-u_short htons           args((u_short hostshort));
-#endif
-#if     !defined(ntohl)
-u_long  ntohl           args((u_long hostlong));
-#endif
-int     read            args((int fd, char *buf, int nbyte));
-int     select          args((int width, fd_set *readfds, fd_set *writefds,
-                              fd_set *exceptfds, struct timeval *timeout));
-int     write           args((int fd, char *buf, int nbyte));
-#endif
-
-#if     defined(sequent)
-int     accept          args((int s, struct sockaddr *addr, int *addrlen));
-int     bind            args((int s, struct sockaddr *name, int namelen));
-int     close           args((int fd));
-int     fcntl           args((int fd, int cmd, int arg));
-int     getpeername     args((int s, struct sockaddr *name, int *namelen));
-int     getsockname     args((int s, struct sockaddr *name, int *namelen));
-int     gettimeofday    args((struct timeval *tp, struct timezone *tzp));
-#if     !defined(htons)
-u_short htons           args((u_short hostshort));
-#endif
-int     listen          args((int s, int backlog));
-#if     !defined(ntohl)
-u_long  ntohl           args((u_long hostlong));
-#endif
-int     read            args((int fd, char *buf, int nbyte));
-int     select          args((int width, fd_set *readfds, fd_set *writefds,
-                              fd_set *exceptfds, struct timeval *timeout));
-int     setsockopt      args((int s, int level, int optname, caddr_t optval,
-                              int optlen));
-int     socket          args((int domain, int type, int protocol));
-int     write           args((int fd, char *buf, int nbyte));
-#endif
-
-/* This includes Solaris Sys V as well */
-#if defined(sun)
-int     accept          args((int s, struct sockaddr *addr, int *addrlen));
-int     bind            args((int s, struct sockaddr *name, int namelen));
-void    bzero           args((char *b, int length));
-int     close           args((int fd));
-int     getpeername     args((int s, struct sockaddr *name, int *namelen));
-int     getsockname     args((int s, struct sockaddr *name, int *namelen));
-int     gettimeofday    args((struct timeval *tp, struct timezone *tzp));
-int     listen          args((int s, int backlog));
-int     read            args((int fd, char *buf, int nbyte));
-int     select          args((int width, fd_set *readfds, fd_set *writefds,
-                              fd_set *exceptfds, struct timeval *timeout));
-#if defined(SYSV)
-int setsockopt          args((int s, int level, int optname,
-                              const char *optval, int optlen));
-#else
-int     setsockopt      args((int s, int level, int optname, void *optval,
-                              int optlen));
-#endif
-
-int     socket          args((int do
-	                              main, int type, int protocol));
-
-int     write           args((int fd, char *buf, int nbyte));
-#endif
-
-#if defined(ultrix)
-int     accept          args((int s, struct sockaddr *addr, int *addrlen));
-int     bind            args((int s, struct sockaddr *name, int namelen));
-void    bzero           args((char *b, int length));
-int     close           args((int fd));
-int     getpeername     args((int s, struct sockaddr *name, int *namelen));
-int     getsockname     args((int s, struct sockaddr *name, int *namelen));
-int     gettimeofday    args((struct timeval *tp, struct timezone *tzp));
-int     listen          args((int s, int backlog));
-int     read            args((int fd, char *buf, int nbyte));
-int     select          args((int width, fd_set *readfds, fd_set *writefds,
-                              fd_set *exceptfds, struct timeval *timeout));
-int     setsockopt      args((int s, int level, int optname, void *optval,
-                              int optlen));
-int     socket          args((int domain, int type, int protocol));
-int     write           args((int fd, char *buf, int nbyte));
-#endif
 
 /*
  * Global variables.
@@ -296,13 +104,11 @@ int                                     last_signal = -1;
 /*
  * OS-dependent local functions.
  */
-#if defined(unix)
 void    game_loop_unix          args((int control));
 int     init_socket             args((int port));
 void    init_descriptor         args((int control));
 bool    read_from_descriptor    args((DESCRIPTOR_DATA *d));
 bool    write_to_descriptor     args((int desc, char *txt, int length));
-#endif
 
 /*
  * Other local functions (OS-independent).
@@ -470,15 +276,15 @@ int main(int argc, char **argv)
 	gettimeofday(&now_time, NULL);
 	current_time = (time_t) now_time.tv_sec;
 	strcpy(str_boot_time, ctime(&current_time));
+
 	/* Create boot file for script control -- Elrac
 	   This file is created here and deleted after boot_db
 	   completes, indicating a successful boot. */
-#if defined(unix)
 	fpBoot = fopen(BOOT_FILE, "w");
 
-	if (fpBoot) fclose(fpBoot);
+	if (fpBoot)
+		fclose(fpBoot);
 
-#endif
 	/* Get the port number. */
 	port = DIZZYPORT;
 
@@ -495,16 +301,10 @@ int main(int argc, char **argv)
 		}
 	}
 
-#if defined(unix)
-
 	if (port != DIZZYPORT) {
 		/* not running on Dizzy port, so no need for boot control */
 		unlink(BOOT_FILE);
 	}
-
-#endif
-	/* COPYOVER won't work anywhere but UNIX */
-#if defined(unix)
 
 	/* Check for COPYOVER argument; Get 'control' and 'rmud' descriptors if so. */
 	if (argc > 3) {
@@ -527,12 +327,9 @@ int main(int argc, char **argv)
 		}
 	}
 
-#endif
-
 	if (!fCopyOver)
 		control = init_socket(port);
 
-#if defined(unix)
 #if defined(SAND)
 	/* simple asynchronous name daemon support -- Elrac */
 	sand_init(SANDCLIENTPORT, SANDSERVERPORT);
@@ -578,16 +375,16 @@ int main(int argc, char **argv)
 
 	game_loop_unix(control);
 	close(control);
+
 	/* close our database */
 	db_close();
-#endif
+
 	/* That's all, folks. */
 	log_string("Normal termination of game.");
 	exit(0);
 	return 0;
 }
 
-#if defined(unix)
 int init_socket(int port)
 {
 	int x = 1;
@@ -627,7 +424,7 @@ int init_socket(int port)
 	}
 
 #endif
-#if defined(SO_DONTLINGER) && !defined(SYSV)
+#if defined(SO_DONTLINGER)
 	{
 		struct  linger  ld;
 		ld.l_onoff  = 1;
@@ -667,9 +464,7 @@ int init_socket(int port)
 
 	return fd;
 }
-#endif
 
-#if defined(unix)
 void game_loop_unix(int control)
 {
 	static struct timeval null_time;
@@ -882,9 +677,7 @@ void game_loop_unix(int control)
 
 	return;
 }
-#endif
 
-#if defined(unix)
 void init_descriptor(int control)
 {
 	DESCRIPTOR_DATA *dnew;
@@ -910,7 +703,7 @@ void init_descriptor(int control)
 	}
 
 #if !defined(FNDELAY)
-#define FNDELAY O_NDELAY
+ #define FNDELAY O_NDELAY
 #endif
 
 	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
@@ -1017,7 +810,6 @@ void init_descriptor(int control)
 	}
 	return;
 }
-#endif
 
 void close_socket(DESCRIPTOR_DATA *dclose)
 {
@@ -1131,8 +923,6 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	}
 
 	/* Snarf input. */
-#if defined(unix)
-
 	for (; ;) {
 		int nRead;
 		nRead = read(d->descriptor, d->inbuf + iStart,
@@ -1164,7 +954,6 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		}
 	}
 
-#endif
 	d->inbuf[iStart] = '\0';
 	return TRUE;
 }

@@ -52,57 +52,34 @@
 #include "String.hpp"
 #include "Format.hpp"
 
-/*
- * Accommodate old non-Ansi compilers.
- */
-#if defined(TRADITIONAL)
-#define const
-#define args( list )                    ( )
-#define DECLARE_DO_FUN( fun )           void fun( )
-#define DECLARE_SPEC_FUN( fun )         bool fun( )
-#define DECLARE_SPELL_FUN( fun )        void fun( )
-#else
 #define args( list )                    list
 #define DECLARE_DO_FUN( fun )           DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )         SPEC_FUN  fun
 #define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
-#endif
 
 /* system calls */
 //int unlink();
 int system();
 
-
-
 /*
  * Short scalar types.
- * Diavolo reports AIX compiler has bugs with short types.
  */
 #if     !defined(FALSE)
-#define FALSE    0
+ #define FALSE    0
 #endif
 
 #if     !defined(TRUE)
-#define TRUE     1
+ #define TRUE     1
 #endif
 
-#if     defined(_AIX)
- #if     !defined(const)
-  #define const
- #endif
- typedef int                             sh_int;
- typedef int                             bool;
- #define unix
-#else
- typedef short   int                     sh_int;
- #ifndef __cplusplus
-  typedef unsigned char                   bool;
- #endif
-#endif
+typedef short   int                     sh_int;
 
-#define DIZZYPORT 3000
+#ifndef __cplusplus
+ typedef unsigned char                   bool;
+#endif
 
 /* global access to our port number, set in comm.c */
+#define DIZZYPORT 3000
 extern int port;
 
 
@@ -3105,80 +3082,6 @@ extern long	       quest_double;
 extern int             quest_min, quest_max;
 extern ROOM_INDEX_DATA *quest_startroom;
 extern AREA_DATA       *quest_area;
-
-/*
- * OS-dependent declarations.
- * These are all very standard library functions,
- *   but some systems have incomplete or non-ansi header files.
- */
-#if     defined(_AIX)
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-#if     defined(apollo)
-int     atoi            args( ( const char *string ) );
-void *  calloc          args( ( unsigned nelem, size_t size ) );
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-#if     defined(hpux)
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-#if     defined(linux)
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-#if     defined(MIPS_OS)
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-#if     defined(NeXT)
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-#if     defined(sequent)
-char *  crypt           args( ( const char *key, const char *salt ) );
-int     fclose          args( ( FILE *stream ) );
-int     fprintf         args( ( FILE *stream, const char *format, ... ) );
-int     fread           args( ( void *ptr, int size, int n, FILE *stream ) );
-int     fseek           args( ( FILE *stream, long offset, int ptrname ) );
-void    perror          args( ( const char *s ) );
-int     ungetc          args( ( int c, FILE *stream ) );
-#endif
-
-#if     defined(sun)
-char *  crypt           args( ( const char *key, const char *salt ) );
-int     fclose          args( ( FILE *stream ) );
-int     fprintf         args( ( FILE *stream, const char *format, ... ) );
-#if     defined(SYSV)
-siz_t   fread           args( ( void *ptr, size_t size, size_t n,
-                            FILE *stream) );
-#else
-int     fread           args( ( void *ptr, int size, int n, FILE *stream ) );
-#endif
-int     fseek           args( ( FILE *stream, long offset, int ptrname ) );
-void    perror          args( ( const char *s ) );
-int     ungetc          args( ( int c, FILE *stream ) );
-#endif
-
-#if     defined(ultrix)
-char *  crypt           args( ( const char *key, const char *salt ) );
-#endif
-
-
-
-/*
- * The crypt(3) function is not available on some operating systems.
- * In particular, the U.S. Government prohibits its export from the
- *   United States to foreign countries.
- * Turn on NOCRYPT to keep passwords in plain text.
- */
-#if     defined(NOCRYPT)
-#define crypt(s1, s2)   (s1)
-#endif
-
-
 
 /*
  * Data files used by the server.
