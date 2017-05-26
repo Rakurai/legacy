@@ -25,7 +25,7 @@ _H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.
 	telnet.h vt100.h affect.h affect_list.h String.hpp Format.hpp
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
-_O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
+_O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o \
 	affect.o affect_char.o affect_obj.o affect_room.o affect_list.o affect_cache_array.o attribute.o \
 	alias.o area_handler.o bank.o buffer.o channels.o clan-edit.o comm.o config.o const.o db.o \
 	debug.o departed.o dispel.o duel.o edit.o effects.o	\

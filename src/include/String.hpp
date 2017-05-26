@@ -1,8 +1,9 @@
 #pragma once
 
 #include <string>
+#include "Actable.hpp"
 
-class String: public std::string {
+class String: public std::string, public Actable {
 public:
 	String() : std::string() {};
 	String(const char *c_str) : std::string(c_str) {};
@@ -46,5 +47,7 @@ public:
 
 	// replace some or all occurrences of "what" with "with", -1 is all
 	String replace(const String& what, const String& with, int times = -1) const;
-};
 
+	// Actable
+	virtual std::string identifier() const { return *this; }
+};

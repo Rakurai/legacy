@@ -48,7 +48,13 @@
 #include <map>
 #include <algorithm>
 
+#ifdef __cplusplus
+ #undef NULL
+ #define NULL nullptr
+#endif
+
 #include "memory.h"
+#include "Actable.hpp"
 #include "String.hpp"
 #include "Format.hpp"
 
@@ -1904,7 +1910,7 @@ struct mem_data
 /*
  * One character (PC or NPC).
  */
-struct  char_data
+struct  char_data: public Actable
 {
     CHAR_DATA *         next;
     CHAR_DATA *         next_in_room;
@@ -2018,6 +2024,8 @@ struct  char_data
     sh_int              questobf;     /* Lotus */
     TAIL_DATA *         tail;         /* -- Elrac */
     EDIT_DATA *         edit;         /* -- Elrac */
+
+    virtual std::string identifier() const { return this->name; }
 };
 
 
@@ -2219,7 +2227,7 @@ struct  obj_index_data
 /*
  * One object.
  */
-struct obj_data
+struct obj_data: public Actable
 {
 	OBJ_INDEX_DATA *	pIndexData;
 	RESET_DATA *		reset;		/* let's make it keep track of what reset it */
@@ -2266,6 +2274,8 @@ struct obj_data
     char            num_settings;
     OBJ_DATA *      gems; // gems in settings
     AFFECT_DATA *   gem_affected;
+
+    virtual std::string identifier() const { return this->name; }
 };
 
 
@@ -3295,13 +3305,6 @@ void    write_to_descriptor args( ( DESCRIPTOR_DATA *d, const String& txt,
                             int length ) );
 void    stc    args( ( const String& txt, CHAR_DATA *ch ) );
 void    page_to_char    args( ( char *txt, CHAR_DATA *ch ) );
-void    xact             args( ( const char *format, CHAR_DATA *ch,
-                                const void *arg1, const void *arg2, int type ) );
-void    act             args( ( const char *format, CHAR_DATA *ch,
-                                const void *arg1, const void *arg2, int type ) );
-void    act_new         args( ( const char *format, CHAR_DATA *ch,
-                            const void *arg1, const void *arg2, int type,
-                            int min_pos, bool censor) );
 
 /* nanny.c */
 void	update_pc_index		args((CHAR_DATA *ch, bool remove));
@@ -3409,7 +3412,7 @@ void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
 int flag_to_index args((unsigned long flag));
 int affect_bit_to_sn args((int bit));
 int stat_to_attr args((int stat));
-int     get_max_stat   args(( CHAR_DATA *ch, int stat ) );
+int     get_max_stat   args(( const CHAR_DATA *ch, int stat ) );
 int get_age         args((CHAR_DATA *ch));
 int get_max_hit args((CHAR_DATA *ch));
 int get_max_mana args((CHAR_DATA *ch));
@@ -3434,7 +3437,7 @@ int     class_lookup    args(( const char *name) );
 int     deity_lookup    args(( const char *name) );
 bool    is_clan         args((CHAR_DATA *ch) );
 bool    is_same_clan    args((CHAR_DATA *ch, CHAR_DATA *victim));
-int     get_skill       args(( CHAR_DATA *ch, int sn ) );
+int     get_skill       args(( const CHAR_DATA *ch, int sn ) );
 int     get_weapon_sn   args(( CHAR_DATA *ch, bool secondary ) );
 int     get_weapon_skill args(( CHAR_DATA *ch, int sn ) );
 void    reset_char      args(( CHAR_DATA *ch )  );
@@ -3469,10 +3472,10 @@ bool    room_is_dark    args(( ROOM_INDEX_DATA *room));
 bool    room_is_very_dark args((ROOM_INDEX_DATA *room));
 bool    is_room_owner   args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room) );
 bool    room_is_private args(( ROOM_INDEX_DATA *pRoomIndex ) );
-bool    is_blinded      args(( CHAR_DATA *ch ));
-bool    can_see_char    args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
-bool    can_see_who     args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
-bool    can_see_obj     args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
+bool    is_blinded      args(( const CHAR_DATA *ch ));
+bool    can_see_char    args(( const CHAR_DATA *ch, const CHAR_DATA *victim ) );
+bool    can_see_who     args(( const CHAR_DATA *ch, const CHAR_DATA *victim ) );
+bool    can_see_obj     args(( const CHAR_DATA *ch, const OBJ_DATA *obj ) );
 bool    can_see_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
 bool    can_see_in_room args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room));
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
@@ -3499,8 +3502,6 @@ const char *  first_arg       args(( const char *argument, char *arg_first, bool
 const char *  get_who_line    args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    mob_exists      args(( const char *name ) );
 bool    has_slash       args(( const char *str ) );
-bool    valid_character args(( CHAR_DATA *cd ) );
-bool    valid_object    args(( OBJ_DATA *od ) );
 //int	round			args((float fNum, int iInc));	/* below is Montrey's list of */
 int	parse_deity		args((const char *dstring));		/* hacks!  Beware! :) */
 int	get_usable_level	args((CHAR_DATA *ch));
@@ -3737,8 +3738,10 @@ struct raffects
 #define  RAFF_RES_LIGHT			964
 #define  RAFF_RES_SOUND			965
 
+// here's the place for header files that depend on merc.h, that we need in almost every .c file
 #include "c_string.h"
 #include "StringPatch.hpp"
+#include "act.hpp"
 
 #endif
 

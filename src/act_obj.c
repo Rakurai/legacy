@@ -2127,7 +2127,7 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 		stc("You are full.\n", ch);
 
 	if (fPoisoned) {
-		act("$n turns six shades of green and collapses.", ch, 0, 0, TO_ROOM);
+		act("$n turns six shades of green and collapses.", ch, NULL, NULL, TO_ROOM);
 		stc("You turn six shades of green and collapse.\n", ch);
 	}
 
@@ -2605,7 +2605,7 @@ void do_donate(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n donates $p to the donation pit.", ch, item, NULL, TO_ROOM);
-	act("You donate $p to the donation pit.", ch, item, 0, TO_CHAR);
+	act("You donate $p to the donation pit.", ch, item, NULL, TO_CHAR);
 	obj_from_char(item);
 	obj_to_obj(item, donation_pit);
 }
@@ -2633,7 +2633,7 @@ void do_junk(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n junks $p.", ch, obj, NULL, TO_ROOM);
-	act("You junk $p.", ch, obj, 0, TO_CHAR);
+	act("You junk $p.", ch, obj, NULL, TO_CHAR);
 	extract_obj(obj);
 	return;
 }

@@ -372,7 +372,7 @@ void global_act(CHAR_DATA *ch, const char *message,
 		    !IS_SET(victim->comm, nocomm_bits) &&
 		    (ch == NULL || despite_invis || can_see_who(victim, ch))) {
 			set_color(victim, color, BOLD);
-			act_new(message, ch, NULL, d->character, TO_VICT, POS_SLEEPING, FALSE);
+			act(message, ch, NULL, d->character, TO_VICT, POS_SLEEPING, FALSE);
 			set_color(victim, WHITE, NOBOLD);
 		}
 	}
@@ -458,7 +458,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const char *co
 		if (iterator->char_no_arg != NULL)
 			stc("[S] ", ch);
 
-		act_new(iterator->char_no_arg,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act(iterator->char_no_arg,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else if (victim == NULL) {
 		stc("[S] They are not here.\n", ch);
@@ -468,13 +468,13 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const char *co
 		if (iterator->char_auto != NULL)
 			stc("[S] ", ch);
 
-		act_new(iterator->char_auto,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act(iterator->char_auto,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else {
 		if (iterator->char_found != NULL)
 			stc("[S] ", ch);
 
-		act_new(iterator->char_found,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act(iterator->char_found,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 
 	set_color(ch, WHITE, NOBOLD);
@@ -494,25 +494,25 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const char *co
 				if (iterator->others_no_arg != NULL)
 					stc("[S] ", vic);
 
-				act_new(iterator->others_no_arg, ch, NULL, vic, TO_VICT, POS_SLEEPING, FALSE);
+				act(iterator->others_no_arg, ch, NULL, vic, TO_VICT, POS_SLEEPING, FALSE);
 			}
 			else if (victim == ch) {
 				if (iterator->others_auto != NULL)
 					stc("[S] ", vic);
 
-				act_new(iterator->others_auto, ch, vic, victim, TO_WORLD, POS_SLEEPING, FALSE);
+				act(iterator->others_auto, ch, vic, victim, TO_WORLD, POS_SLEEPING, FALSE);
 			}
 			else if (vic == victim) {
 				if (iterator->vict_found != NULL)
 					stc("[S] ", vic);
 
-				act_new(iterator->vict_found,  ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
+				act(iterator->vict_found,  ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 			}
 			else {
 				if (iterator->others_found != NULL)
 					stc("[S] ", vic);
 
-				act_new(iterator->others_found, ch, vic, victim, TO_WORLD, POS_SLEEPING, FALSE);
+				act(iterator->others_found, ch, vic, victim, TO_WORLD, POS_SLEEPING, FALSE);
 			}
 
 			set_color(vic, WHITE, NOBOLD);
@@ -613,7 +613,7 @@ void wiznet(const char *string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long fl
 			if (IS_SET(d->character->wiznet, WIZ_PREFIX))
 				stc("{G<W{HizNe{Gt>{x ", d->character);
 
-			act_new(string, d->character, obj, ch, TO_CHAR, POS_DEAD, FALSE);
+			act(string, d->character, obj, ch, TO_CHAR, POS_DEAD, FALSE);
 		}
 	}
 }
@@ -775,7 +775,7 @@ void channel(CHAR_DATA *ch, const char *argument, int channel)
 				ptc(victim, "%s (%s) implores the gods: \"%s{x\"\n",
 				    ch->desc->original->name, ch->name, argument);
 			else
-				/* -----> */                    act_new(chan_table[channel].other_str,
+				/* -----> */                    act(chan_table[channel].other_str,
 				                                        ch, argument, victim, TO_VICT_CHANNEL, POS_SLEEPING, FALSE);
 
 			set_color(victim, WHITE, NOBOLD);
@@ -930,10 +930,10 @@ void do_fyi(CHAR_DATA *ch, const char *argument)
 			new_color(victim, CSLOT_CHAN_ANNOUNCE);
 
 			if (IS_IMMORTAL(victim))
-				act_new("[$n{x] $t{x",
+				act("[$n{x] $t{x",
 				        ch, argument, d->character, TO_VICT, POS_SLEEPING, FALSE);
 			else
-				act_new("[FYI] $t{x",
+				act("[FYI] $t{x",
 				        ch, argument, d->character, TO_VICT, POS_SLEEPING, FALSE);
 
 			set_color(ch, WHITE, NOBOLD);
@@ -1066,7 +1066,7 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 		    !IS_SET(victim->comm, COMM_NOSOCIAL) &&
 		    !IS_SET(victim->comm, COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_SOCIAL);
-			act_new(buf, ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
+			act(buf, ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 			set_color(victim, WHITE, NOBOLD);
 		}
 	}   /* end of for loop -- to each player */
@@ -1209,7 +1209,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(victim->comm, COMM_QUIET | COMM_DEAF | COMM_NOCHANNELS) && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		act_new("$E is not receiving tells.", ch, 0, victim, TO_CHAR, POS_DEAD, FALSE);
+		act("$E is not receiving tells.", ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1225,7 +1225,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
-		act_new("$E has lost $S link, but your message will go through when $E returns.",
+		act("$E has lost $S link, but your message will go through when $E returns.",
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
@@ -1237,7 +1237,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(victim->comm, COMM_AFK)) {
 		if (IS_NPC(victim)) {
 			new_color(ch, CSLOT_CHAN_TELL);
-			act_new("$E is AFK, and not receiving tells.",
+			act("$E is AFK, and not receiving tells.",
 			        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 			set_color(ch, WHITE, NOBOLD);
 			return;
@@ -1246,7 +1246,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
-		act_new("$E is AFK, but your tell will go through when $E returns.",
+		act("$E is AFK, but your tell will go through when $E returns.",
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		stc(victim->pcdata->afk, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1257,10 +1257,10 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 	}
 
 	new_color(ch, CSLOT_CHAN_TELL);
-	act_new("You tell $N '$t{x'", ch, argument, victim, TO_CHAR, POS_SLEEPING, FALSE);
+	act("You tell $N '$t{x'", ch, argument, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	set_color(ch, WHITE, NOBOLD);
 	new_color(victim, CSLOT_CHAN_TELL);
-	act_new("$n tells you '$t{x'", ch, argument, victim, TO_VICT, POS_SLEEPING, FALSE);
+	act("$n tells you '$t{x'", ch, argument, victim, TO_VICT, POS_SLEEPING, FALSE);
 	set_color(victim, WHITE, NOBOLD);
 
 	if (IS_NPC(victim) || !victim->replylock)
@@ -1327,7 +1327,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 	     || IS_SET(victim->comm, COMM_NOCHANNELS))
 	    && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		act_new("$E is not receiving tells.", ch, 0, victim, TO_CHAR, POS_DEAD, FALSE);
+		act("$E is not receiving tells.", ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1354,7 +1354,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 	if (IS_SET(victim->comm, COMM_AFK)) {
 		if (IS_NPC(victim)) {
 			new_color(ch, CSLOT_CHAN_TELL);
-			act_new("$E is AFK, and not receiving tells.",
+			act("$E is AFK, and not receiving tells.",
 			        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 			set_color(ch, WHITE, NOBOLD);
 			return;
@@ -1363,7 +1363,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		strtime = ctime(&current_time);
 		strtime[strlen(strtime) - 1] = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
-		act_new("$E is AFK, but your tell will go through when $E returns.",
+		act("$E is AFK, but your tell will go through when $E returns.",
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		act(victim->pcdata->afk, ch, NULL, NULL, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
@@ -1374,10 +1374,10 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 	}
 
 	new_color(ch, CSLOT_CHAN_TELL);
-	act_new("You tell $N '$t{x'", ch, argument, victim, TO_CHAR, POS_DEAD, FALSE);
+	act("You tell $N '$t{x'", ch, argument, victim, TO_CHAR, POS_DEAD, FALSE);
 	set_color(ch, WHITE, NOBOLD);
 	new_color(victim, CSLOT_CHAN_TELL);
-	act_new("$n tells you '$t{x'", ch, argument, victim, TO_VICT, POS_DEAD, FALSE);
+	act("$n tells you '$t{x'", ch, argument, victim, TO_VICT, POS_DEAD, FALSE);
 	set_color(victim, WHITE, NOBOLD);
 
 	if (IS_NPC(victim))
@@ -1655,7 +1655,7 @@ void do_page(CHAR_DATA *ch, const char *argument)
 	if ((IS_SET(victim->comm, COMM_NOPAGE))
 	    && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		act("$E does not have $S pager turned on.", ch, 0, victim, TO_CHAR);
+		act("$E does not have $S pager turned on.", ch, NULL, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1684,11 +1684,11 @@ void do_page(CHAR_DATA *ch, const char *argument)
 	}
 
 	new_color(ch, CSLOT_CHAN_PAGE);
-	act_new("You PAGE $N '$t{x'", ch, argument, victim, TO_CHAR, POS_SLEEPING, FALSE);
+	act("You PAGE $N '$t{x'", ch, argument, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	stc("Thank you for using Comcast Telecommunications, Inc.\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 	new_color(victim, CSLOT_CHAN_PAGE);
-	act_new("$n PAGES '$t{x'\a", ch, argument, victim, TO_VICT, POS_SLEEPING, FALSE);
+	act("$n PAGES '$t{x'\a", ch, argument, victim, TO_VICT, POS_SLEEPING, FALSE);
 	set_color(victim, WHITE, NOBOLD);
 	strcpy(victim->reply, ch->name);
 	return;

@@ -1579,7 +1579,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		act("$n joins the quest!", ch, 0, 0, TO_ROOM);
+		act("$n joins the quest!", ch, NULL, NULL, TO_ROOM);
 		char_from_room(ch);
 		char_to_room(ch, quest_startroom);
 		act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);

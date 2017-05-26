@@ -36,7 +36,7 @@ int stat_to_attr(int stat) {
 }
 
 /* command for retrieving stats */
-int get_max_stat(CHAR_DATA *ch, int stat)
+int get_max_stat(const CHAR_DATA *ch, int stat)
 {
 	int max = 25;
 

@@ -9,7 +9,7 @@ void free_affect_cache(CHAR_DATA *ch) {
 	ch->affect_cache = NULL;
 }
 
-bool affect_in_cache(CHAR_DATA *ch, sh_int sn) {
+bool affect_in_cache(const CHAR_DATA *ch, sh_int sn) {
 	return (
 		sn > 1
 	 && sn < MAX_SKILL

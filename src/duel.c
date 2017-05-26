@@ -799,10 +799,10 @@ void do_duel(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		act("$n leaves to watch the duel!", ch, 0, 0, TO_ROOM);
+		act("$n leaves to watch the duel!", ch, NULL, NULL, TO_ROOM);
 		char_from_room(ch);
 		char_to_room(ch, duel->arena->viewroom);
-		act("$n has arrived to watch the duel!", ch, 0, 0, TO_ROOM);
+		act("$n has arrived to watch the duel!", ch, NULL, NULL, TO_ROOM);
 		do_look(ch, "auto");
 		return;
 	}

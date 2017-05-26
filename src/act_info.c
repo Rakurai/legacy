@@ -2888,7 +2888,7 @@ void do_inventory(CHAR_DATA *ch, const char *argument)
 			}
 
 			new_color(ch, CSLOT_MISC_INV);
-			act_new("$N is carrying:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+			act("$N is carrying:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 		}
 		else if (!str_cmp(arg1, "all")) {
 			victim = ch;
@@ -2927,7 +2927,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 			}
 
 		set_color(ch, GREEN, NOBOLD);
-		act_new("$N is using:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act("$N is using:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else {
 		victim = ch;
@@ -4151,7 +4151,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 
 				Format::sprintf(buf, "%s has accepted an invitation to enter the clan hall",
 				        ch->name);
-				act_new("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
+				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
 				set_color(d->character, WHITE, NOBOLD);
 			}
 		}
@@ -4191,7 +4191,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 
 				Format::sprintf(buf, "%s has declined an invitation to enter the clan hall",
 				        ch->name);
-				act_new("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
+				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
 				set_color(d->character, WHITE, NOBOLD);
 			}
 		}
@@ -4789,7 +4789,7 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 
 	/* hastily dummy up an empty clone of the pit */
 	/* not a bona fide object, it is on local stack and not in obj list */
-	memset(&sel_pit, 0, sizeof(sel_pit));
+//	memset(&sel_pit, 0, sizeof(sel_pit));
 	sel_pit.pIndexData = pit->pIndexData;
 	clone_object(pit, &sel_pit);
 	sel_pit.in_room = pit->in_room;

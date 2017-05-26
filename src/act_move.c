@@ -196,7 +196,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
-		act_new("$n leaves $T.", ch, NULL, dir_name[door], TO_NOTVIEW, POS_SNEAK, FALSE);
+		act("$n leaves $T.", ch, NULL, dir_name[door], TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
 		act("$n leaves $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
 
@@ -212,7 +212,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
-		act_new("$n has arrived from $T.", ch, NULL, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
+		act("$n has arrived from $T.", ch, NULL, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
 		act("$n has arrived from $T.", ch, NULL, dir_buf, TO_NOTVIEW);
 
@@ -1006,7 +1006,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
-			act_new("There's no room to stand on $p.",
+			act("There's no room to stand on $p.",
 			        ch, obj, NULL, TO_ROOM, POS_DEAD, FALSE);
 			return;
 		}
@@ -1026,15 +1026,15 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 			ch->on = NULL;
 		}
 		else if (IS_SET(obj->value[2], STAND_AT)) {
-			act_new("You wake and stand at $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and stand at $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and stands at $p.", ch, obj, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2], STAND_ON)) {
-			act_new("You wake and stand on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and stand on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and stands on $p.", ch, obj, NULL, TO_ROOM);
 		}
 		else {
-			act_new("You wake and stand in $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and stand in $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and stands in $p.", ch, obj, NULL, TO_ROOM);
 		}
 
@@ -1115,7 +1115,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0]) {
-			act_new("There's no more room on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("There's no more room on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			return;
 		}
 
@@ -1134,17 +1134,17 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 			act("$n wakes up and starts resting.", ch, NULL, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2], REST_AT)) {
-			act_new("You wake up and rest at $p.",
+			act("You wake up and rest at $p.",
 			        ch, obj, NULL, TO_CHAR, POS_SLEEPING, FALSE);
 			act("$n wakes up and rests at $p.", ch, obj, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2], REST_ON)) {
-			act_new("You wake up and rest on $p.",
+			act("You wake up and rest on $p.",
 			        ch, obj, NULL, TO_CHAR, POS_SLEEPING, FALSE);
 			act("$n wakes up and rests on $p.", ch, obj, NULL, TO_ROOM);
 		}
 		else {
-			act_new("You wake up and rest in $p.",
+			act("You wake up and rest in $p.",
 			        ch, obj, NULL, TO_CHAR, POS_SLEEPING, FALSE);
 			act("$n wakes up and rests in $p.", ch, obj, NULL, TO_ROOM);
 		}
@@ -1251,7 +1251,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (obj != NULL && ch->on != obj && count_users(obj) >= obj->value[0]) {
-			act_new("There's no more room on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("There's no more room on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			return;
 		}
 
@@ -1265,15 +1265,15 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 			act("$n wakes and sits up.", ch, NULL, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2], SIT_AT)) {
-			act_new("You wake and sit at $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and sit at $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and sits at $p.", ch, obj, NULL, TO_ROOM);
 		}
 		else if (IS_SET(obj->value[2], SIT_ON)) {
-			act_new("You wake and sit on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and sit on $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and sits at $p.", ch, obj, NULL, TO_ROOM);
 		}
 		else {
-			act_new("You wake and sit in $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and sit in $p.", ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and sits in $p.", ch, obj, NULL, TO_ROOM);
 		}
 
@@ -1380,7 +1380,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 			}
 
 			if (ch->on != obj && count_users(obj) >= obj->value[0]) {
-				act_new("There is no room on $p for you.",
+				act("There is no room on $p for you.",
 				        ch, obj, NULL, TO_CHAR, POS_DEAD, FALSE);
 				return;
 			}
@@ -1454,7 +1454,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	if (affect_exists_on_char(victim, gsn_sleep))
 	{ act("$E doesn't seem to WANT to wake up!",   ch, NULL, victim, TO_CHAR);  return; }
 
-	act_new("$n rudely awakes you from your peaceful slumber.",
+	act("$n rudely awakes you from your peaceful slumber.",
 	        ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 
 	if (victim->start_pos == POS_FLYING && CAN_FLY(victim))
@@ -1595,7 +1595,7 @@ void recall(CHAR_DATA *ch, bool clan)
 		}
 	}
 
-	act("$n prays for divine transportation...", ch, 0, 0, TO_ROOM);
+	act("$n prays for divine transportation...", ch, NULL, NULL, TO_ROOM);
 
 	if (char_in_duel(ch)) {
 		ptc(ch, "You cannot %srecall from the duel arena.\n", clan ? "clan" : "");

@@ -2130,25 +2130,25 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((obj = get_obj_carry(ch, what)) == NULL) {
-		act_new("You're not carrying a(n) $t.", ch, what, NULL, TO_CHAR,
+		act("You're not carrying a(n) $t.", ch, what, NULL, TO_CHAR,
 		        POS_DEAD, FALSE);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		act_new("Whom do you want to lower $t for?", ch,
+		act("Whom do you want to lower $t for?", ch,
 		        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
-		act_new("Sorry, no player called '$t' is in the game!", ch,
+		act("Sorry, no player called '$t' is in the game!", ch,
 		        argument, NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
 
 	if (victim->level < LEVEL_HERO) {
-		act_new("Sorry, $t must be level 91 to have an item lowered.", ch,
+		act("Sorry, $t must be level 91 to have an item lowered.", ch,
 		        victim->name.c_str(), NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
@@ -2179,7 +2179,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (qp == 0) {
-		act_new("But $t is already lower than level 92.", ch,
+		act("But $t is already lower than level 92.", ch,
 		        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
@@ -2198,7 +2198,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 	}
 
 	obj->level = LEVEL_HERO;
-	act_new("$t has been successfully lowered to level 91.", ch,
+	act("$t has been successfully lowered to level 91.", ch,
 	        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 }
 
@@ -3084,7 +3084,7 @@ void do_owner(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		act_new("OK, $t now belongs to no one in particular.", ch, item->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
+		act("OK, $t now belongs to no one in particular.", ch, item->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
 
@@ -3102,7 +3102,7 @@ void do_owner(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	act_new("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, FALSE);
+	act("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, FALSE);
 	ed                      = new_extra_descr();
 	ed->keyword             = str_dup(KEYWD_OWNER);
 	ed->description         = str_dup(player->name);
@@ -3183,8 +3183,8 @@ void do_purge(CHAR_DATA *ch, const char *argument)
 
 		Format::sprintf(buf, "$N has purged the player: %s", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
-		act("$n disintegrates $N.", ch, 0, victim, TO_NOTVICT);
-		act("You disintegrate $N.", ch, 0, victim, TO_CHAR);
+		act("$n disintegrates $N.", ch, NULL, victim, TO_NOTVICT);
+		act("You disintegrate $N.", ch, NULL, victim, TO_CHAR);
 
 		if (victim->level > 1)
 			save_char_obj(victim);
@@ -3314,7 +3314,7 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	victim->mana    = GET_MAX_MANA(victim);
 	victim->stam    = GET_MAX_STAM(victim);
 	update_pos(victim);
-	act_new("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
+	act("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 }
 
 void do_restore(CHAR_DATA *ch, const char *argument)

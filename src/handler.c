@@ -227,7 +227,7 @@ bool is_same_clan(CHAR_DATA *ch, CHAR_DATA *victim)
 }
 
 /* for returning skill information */
-int get_skill(CHAR_DATA *ch, int sn)
+int get_skill(const CHAR_DATA *ch, int sn)
 {
 	int skill = 0;
 
@@ -1495,7 +1495,7 @@ bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	return TRUE;
 }
 
-bool is_blinded(CHAR_DATA *ch) {
+bool is_blinded(const CHAR_DATA *ch) {
 	if (IS_IMMORTAL(ch))
 		return FALSE;
 
@@ -1512,7 +1512,7 @@ bool is_blinded(CHAR_DATA *ch) {
 /*
  * True if char can see victim.
  */
-bool can_see_char(CHAR_DATA *ch, CHAR_DATA *victim)
+bool can_see_char(const CHAR_DATA *ch, const CHAR_DATA *victim)
 {
 	if (ch == victim)
 		return TRUE;
@@ -1575,7 +1575,7 @@ bool can_see_char(CHAR_DATA *ch, CHAR_DATA *victim)
  * True if char can see victim in WHO -- Elrac
  * This makes almost all characters visible in who, except hiding imms
  */
-bool can_see_who(CHAR_DATA *ch, CHAR_DATA *victim)
+bool can_see_who(const CHAR_DATA *ch, const CHAR_DATA *victim)
 {
 	/* wizi still rules */
 	if (victim->invis_level && !IS_IMMORTAL(ch))
@@ -1617,7 +1617,7 @@ bool can_see_in_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 /*
  * True if char can see obj.
  */
-bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+bool can_see_obj(const CHAR_DATA *ch, const OBJ_DATA *obj)
 {
 	if (IS_IMMORTAL(ch))
 		return TRUE;
@@ -2514,32 +2514,6 @@ bool has_slash(const char *str)
 {
 	return (strchr(str, '/') != NULL);
 } /* end has_slash() */
-
-/* Validate a character by searching for it in the character list.
-   This is CPU intensive but the only way I can think of to protect
-   ACT from bad sequences -- Elrac */
-bool valid_character(CHAR_DATA *cd)
-{
-	CHAR_DATA *p;
-
-	for (p = char_list; p != NULL; p = p->next) {
-		if (p == cd) return TRUE;
-	}
-
-	return FALSE;
-} /* end valid_character() */
-
-/* Validate an object by searching for it in the object list. */
-bool valid_object(OBJ_DATA *od)
-{
-	OBJ_DATA *p;
-
-	for (p = object_list; p != NULL; p = p->next) {
-		if (p == od) return TRUE;
-	}
-
-	return FALSE;
-} /* end valid_object() */
 
 /* round to the nearest whole number, in increments */
 /*int round(float fNum, int iInc)

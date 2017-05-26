@@ -1073,7 +1073,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 	else if ((ch->silver + 100 * ch->gold) < obj->level * 10 + 50) {
 		act("$n goes about his business and ignores $p.",
-		    rch, obj, 0, TO_ROOM);
+		    rch, obj, NULL, TO_ROOM);
 		return;
 	}
 	else {
@@ -1084,7 +1084,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 
 	act("$n fondles $p and ponders its purpose.",
-	    rch, obj, 0, TO_ROOM);
+	    rch, obj, NULL, TO_ROOM);
 	spell_identify(0, 0, ch, obj, TAR_OBJ_INV, get_evolution(ch, gsn_identify));
 }
 bool spec_charm(CHAR_DATA *ch)
@@ -1227,7 +1227,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 
 			Format::sprintf(buf, "$n repairs $p to %s condition.",
 			        condition_lookup(obj->condition));
-			act(buf, rch, obj, 0, TO_ROOM);
+			act(buf, rch, obj, NULL, TO_ROOM);
 			obj->condition = max;
 			Format::sprintf(buf, "You repair $p to %s condition.",
 			        condition_lookup(obj->condition));
@@ -1242,7 +1242,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if ((ch->silver + 100 * ch->gold) < (max - obj->condition) * 100) {
 		act("$n says, 'You don't have enough money to repair $p.",
-		    rch, obj, 0, TO_ROOM);
+		    rch, obj, NULL, TO_ROOM);
 		return;
 	}
 	else {
@@ -1255,7 +1255,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 	obj->condition = max;
 	Format::sprintf(buf, "$n repairs $p to %s condition.",
 	        condition_lookup(obj->condition));
-	act(buf, rch, obj, 0, TO_ROOM);
+	act(buf, rch, obj, NULL, TO_ROOM);
 }
 
 bool spec_fight_clanguard(CHAR_DATA *ch)

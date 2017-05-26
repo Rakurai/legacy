@@ -79,7 +79,7 @@ void song_update(void)
 				    !IS_SET(victim->comm, COMM_NOMUSIC) &&
 				    !IS_SET(victim->comm, COMM_QUIET)) {
 					new_color(victim, CSLOT_CHAN_MUSIC);
-					act_new("$t", d->character, buf, NULL, TO_CHAR, POS_SLEEPING, FALSE);
+					act("$t", d->character, buf, NULL, TO_CHAR, POS_SLEEPING, FALSE);
 					set_color(victim, WHITE, NOBOLD);
 				}
 			}

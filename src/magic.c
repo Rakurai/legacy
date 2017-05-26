@@ -6805,12 +6805,12 @@ void spell_age(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
 	if (affect_exists_on_char(victim, sn)) {
-		act("$N is already aged beyond $S years.", ch, NULL, vo, TO_CHAR);
+		act("$N is already aged beyond $S years.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
 	if (saves_spell(level, victim, DAM_OTHER)) {
-		act("As if by a miracle, $N retains $S youth.", ch, NULL, vo, TO_CHAR);
+		act("As if by a miracle, $N retains $S youth.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -6846,7 +6846,7 @@ void spell_starve(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	}
 
 	if (saves_spell(level, victim, DAM_OTHER)) {
-		act("$N appears uneffected.", ch, NULL, vo, TO_CHAR);
+		act("$N appears uneffected.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 

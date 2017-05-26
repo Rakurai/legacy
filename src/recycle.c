@@ -230,7 +230,6 @@ OBJ_DATA *new_obj(void)
 		obj_free = obj_free->next;
 	}
 
-	*obj = (OBJ_DATA){0};
 	obj->name = str_empty;
 	obj->description = str_empty;
 	obj->short_descr = str_empty;
@@ -282,7 +281,6 @@ CHAR_DATA *new_char(void)
 		char_free = char_free->next;
 	}
 
-	*ch                         = (CHAR_DATA){0};
 	ch->name =
 	ch->short_descr =
 	ch->long_descr =
@@ -345,7 +343,7 @@ void free_char(CHAR_DATA *ch)
 	/* stop all passive TAILs -- Elrac */
 	for (td = ch->tail; td != NULL; td = ch->tail) {
 		ch->tail = td->next;
-		act_new("You stop tailing $n", ch, NULL, td->tailed_by, TO_VICT, POS_SLEEPING, FALSE);
+		act("You stop tailing $n", ch, NULL, td->tailed_by, TO_VICT, POS_SLEEPING, FALSE);
 		free_mem(td, sizeof(struct tail_data));
 	}
 
