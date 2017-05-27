@@ -36,6 +36,56 @@
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool fAdd));
 
+String flags_to_string(int flag)
+{
+	String buf;
+
+	for (int count = 0; count < 32; count++) {
+		if (IS_SET(flag, 1 << count)) {
+			if (count < 26)
+				buf += 'A' + count;
+			else
+				buf += 'a' + (count - 26);
+		}
+	}
+
+	if (buf.empty())
+		return "0";
+
+	return buf;
+}
+
+long string_to_flags(const String& str) {
+	const char *p = str.c_str();
+	long number = 0;
+	bool sign = FALSE;
+
+	if (*p == '-') {
+		sign = TRUE;
+		p++;
+	}
+
+	if (!isdigit(*p)) {
+		while (('A' <= *p && *p <= 'Z') || ('a' <= *p && *p <= 'z')) {
+			number += flag_convert(*p);
+			p++;
+		}
+	}
+
+	while (isdigit(*p)) {
+		number = number * 10 + *p - '0';
+		p++;
+	}
+
+	if (sign)
+		number = 0 - number;
+
+	if (*p == '|')
+		number += string_to_flags(p+1);
+
+	return number;
+}
+
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 {

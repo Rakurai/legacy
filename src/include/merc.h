@@ -3281,7 +3281,6 @@ void    page_to_char    args( ( char *txt, CHAR_DATA *ch ) );
 void	update_pc_index		args((CHAR_DATA *ch, bool remove));
 
 /* db.c */
-const char *  print_flags     args( ( int flag ));
 void    boot_db         args( ( void ) );
 void    clear_char      args( ( CHAR_DATA *ch ) );
 void    bug             args( ( const String& str, int param ) );
@@ -3392,6 +3391,8 @@ int get_unspelled_damroll    args((CHAR_DATA *ch));
 int get_unspelled_ac        args((CHAR_DATA *ch, int type));
 
 /* handler.c */
+String  flags_to_string args((int flag));
+long    string_to_flags args((const String& str));
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
 int     liq_lookup      args( ( const char *name) );

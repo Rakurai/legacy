@@ -30,7 +30,7 @@
 #include "recycle.h"
 #include "tables.h"
 #include "lookup.h"
-#include "deps/cJSON/cJSON.h"
+#include "cJSON.h"
 #include "affect.h"
 #include "buffer.h"
 #include "Format.hpp"
@@ -47,62 +47,6 @@ bool debug_json = FALSE;
 
 int rename(const char *oldfname, const char *newfname);
 
-const char *print_flags(int flag)
-{
-	int count, pos = 0;
-	static char buf[52];
-
-	for (count = 0; count < 32; count++) {
-		if (IS_SET(flag, 1 << count)) {
-			if (count < 26)
-				buf[pos] = 'A' + count;
-			else
-				buf[pos] = 'a' + (count - 26);
-
-			pos++;
-		}
-	}
-
-	if (pos == 0) {
-		buf[pos] = '0';
-		pos++;
-	}
-
-	buf[pos] = '\0';
-	return buf;
-}
-
-long read_flags(const char *str) {
-	const char *p = str;
-	long number = 0;
-	bool sign = FALSE;
-
-	if (*p == '-') {
-		sign = TRUE;
-		p++;
-	}
-
-	if (!isdigit(*p)) {
-		while (('A' <= *p && *p <= 'Z') || ('a' <= *p && *p <= 'z')) {
-			number += flag_convert(*p);
-			p++;
-		}
-	}
-
-	while (isdigit(*p)) {
-		number = number * 10 + *p - '0';
-		p++;
-	}
-
-	if (sign)
-		number = 0 - number;
-
-	if (*p == '|')
-		number += read_flags(p+1);
-
-	return number;
-}
-
 /*
  * Local functions.
  */
@@ -114,13 +58,6 @@ void    fread_char      args((CHAR_DATA *ch,  cJSON *json, int version));
 void    fread_player      args((CHAR_DATA *ch,  cJSON *json, int version));
 void    fread_pet       args((CHAR_DATA *ch,  cJSON *json, int version));
 void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version));
-
-void get_JSON_boolean(cJSON *obj, bool *target, const char *key);
-void get_JSON_short(cJSON *obj, sh_int *target, const char *key);
-void get_JSON_int(cJSON *obj, int *target, const char *key);
-void get_JSON_long(cJSON *obj, long *target, const char *key);
-void get_JSON_flags(cJSON *obj, long *target, const char *key);
-void get_JSON_string(cJSON *obj, char **target, const char *key);
 
 /*
  * Save a character and inventory.
@@ -212,23 +149,23 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	}
 
 	if (ch->pcdata->afk[0] != '\0')
-		cJSON_AddStringToObject(o,	"Afk",			ch->pcdata->afk);
+		JSON::addStringToObject(o,	"Afk",			ch->pcdata->afk);
 
 	cJSON_AddNumberToObject(o,		"Akills",		ch->pcdata->arenakills);
 	cJSON_AddNumberToObject(o,		"Akilled",		ch->pcdata->arenakilled);
 
 	if (ch->pcdata->aura[0])
-		cJSON_AddStringToObject(o,	"Aura",			ch->pcdata->aura);
+		JSON::addStringToObject(o,	"Aura",			ch->pcdata->aura);
 
 	cJSON_AddNumberToObject(o,		"Back",			ch->pcdata->backup);
 
 	if (ch->pcdata->bamfin[0] != '\0')
-		cJSON_AddStringToObject(o,	"Bin",			ch->pcdata->bamfin);
+		JSON::addStringToObject(o,	"Bin",			ch->pcdata->bamfin);
 
 	if (ch->pcdata->bamfout[0] != '\0')
-		cJSON_AddStringToObject(o,	"Bout",			ch->pcdata->bamfout);
+		JSON::addStringToObject(o,	"Bout",			ch->pcdata->bamfout);
 
-	cJSON_AddStringToObject(o,		"Cgrp",			print_flags(ch->pcdata->cgroup));
+	JSON::addStringToObject(o,		"Cgrp",			flags_to_string(ch->pcdata->cgroup));
 
 	item = cJSON_CreateObject();
 	cJSON_AddNumberToObject(item,	"drunk",		ch->pcdata->condition[COND_DRUNK]);
@@ -251,15 +188,15 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddItemToObject(o,		"Colr",			item);
 
 	if (ch->pcdata->deity[0])
-		cJSON_AddStringToObject(o,	"Deit",			ch->pcdata->deity);
+		JSON::addStringToObject(o,	"Deit",			ch->pcdata->deity);
 
 	if (ch->pcdata->email[0] != '\0')
-		cJSON_AddStringToObject(o,	"Email",		ch->pcdata->email);
+		JSON::addStringToObject(o,	"Email",		ch->pcdata->email);
 
 	cJSON_AddNumberToObject(o,		"Familiar",		ch->pcdata->familiar);
 
 	if (ch->pcdata->fingerinfo[0] != '\0')
-		cJSON_AddStringToObject(o,	"Finf",			ch->pcdata->fingerinfo);
+		JSON::addStringToObject(o,	"Finf",			ch->pcdata->fingerinfo);
 
 	if (ch->pcdata->flag_killer)
 		cJSON_AddNumberToObject(o,	"FlagKiller",	ch->pcdata->flag_killer);
@@ -268,10 +205,10 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 		cJSON_AddNumberToObject(o,	"FlagThief",	ch->pcdata->flag_thief);
 
 	if (ch->pcdata->gamein[0])
-		cJSON_AddStringToObject(o,	"GameIn",		ch->pcdata->gamein);
+		JSON::addStringToObject(o,	"GameIn",		ch->pcdata->gamein);
 
 	if (ch->pcdata->gameout[0])
-		cJSON_AddStringToObject(o,	"GameOut",		ch->pcdata->gameout);
+		JSON::addStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
 	item = NULL;
 	for (int gn = 0; gn < MAX_GROUP; gn++) {
@@ -309,9 +246,9 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	}
 
 	if (ch->pcdata->immname[0])
-		cJSON_AddStringToObject(o,	"Immn",			ch->pcdata->immname);
+		JSON::addStringToObject(o,	"Immn",			ch->pcdata->immname);
 	if (ch->pcdata->immprefix[0])
-		cJSON_AddStringToObject(o,	"Immp",			ch->pcdata->immprefix);
+		JSON::addStringToObject(o,	"Immp",			ch->pcdata->immprefix);
 
 	if (ch->cls == PALADIN_CLASS) {
 		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
@@ -322,10 +259,10 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(o,		"LogO",			current_time);
 
 	if (ch->pcdata->last_lsite[0])
-		cJSON_AddStringToObject(o,	"Lsit",			ch->pcdata->last_lsite);
+		JSON::addStringToObject(o,	"Lsit",			ch->pcdata->last_lsite);
 
-	cJSON_AddStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
-	cJSON_AddStringToObject(o,		"LSav",			dizzy_ctime(&ch->pcdata->last_saved));
+	JSON::addStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
+	JSON::addStringToObject(o,		"LSav",			dizzy_ctime(&ch->pcdata->last_saved));
 
 	if (ch->pcdata->mark_room)
 		cJSON_AddNumberToObject(o,	"Mark",			ch->pcdata->mark_room);
@@ -342,11 +279,11 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(item,	"trade",		ch->pcdata->last_trade);
 	cJSON_AddItemToObject(o, 		"Note", 		item);
 
-	cJSON_AddStringToObject(o,		"Pass",			ch->pcdata->pwd);
+	JSON::addStringToObject(o,		"Pass",			ch->pcdata->pwd);
 	cJSON_AddNumberToObject(o,		"PCkills",		ch->pcdata->pckills);
 	cJSON_AddNumberToObject(o,		"PCkilled",		ch->pcdata->pckilled);
 	cJSON_AddNumberToObject(o,		"PKRank",		ch->pcdata->pkrank);
-	cJSON_AddStringToObject(o,		"Plr",			print_flags(ch->pcdata->plr));
+	JSON::addStringToObject(o,		"Plr",			flags_to_string(ch->pcdata->plr));
 	cJSON_AddNumberToObject(o,		"Plyd",			ch->pcdata->played);
 	cJSON_AddNumberToObject(o,		"Pnts",			ch->pcdata->points);
 
@@ -360,7 +297,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	}
 
 	if (ch->pcdata->rank[0])
-		cJSON_AddStringToObject(o,	"Rank",			ch->pcdata->rank);
+		JSON::addStringToObject(o,	"Rank",			ch->pcdata->rank);
 
 	if (ch->pcdata->rolepoints)
 		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
@@ -382,7 +319,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 			ch->pcdata->evolution[sn] = 4;
 
 		cJSON *sk = cJSON_CreateObject();
-		cJSON_AddStringToObject(sk, "name", skill_table[sn].name);
+		JSON::addStringToObject(sk, "name", skill_table[sn].name);
 		cJSON_AddNumberToObject(sk, "prac", ch->pcdata->learned[sn]);
 		cJSON_AddNumberToObject(sk, "evol", ch->pcdata->evolution[sn]);
 		cJSON_AddItemToArray(item, sk);
@@ -394,7 +331,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 		cJSON_AddNumberToObject(o,	"SkillPnts",	ch->pcdata->skillpoints);
 
 	if (ch->pcdata->spouse[0])
-		cJSON_AddStringToObject(o,	"Spou",			ch->pcdata->spouse);
+		JSON::addStringToObject(o,	"Spou",			ch->pcdata->spouse);
 
 	if (ch->pcdata->nextsquest)
 		cJSON_AddNumberToObject(o,	"SQuestNext",	ch->pcdata->nextsquest);
@@ -403,7 +340,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	if (ch->pcdata->remort_count > 0) {
 		if (ch->pcdata->status[0])
-			cJSON_AddStringToObject(o,	"Stus",		ch->pcdata->status);
+			JSON::addStringToObject(o,	"Stus",		ch->pcdata->status);
 
 		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
 
@@ -433,12 +370,12 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddItemToObject(o, 		"THMS",	 		item);
 
 	if (ch->pcdata->title[0])
-		cJSON_AddStringToObject(o,	"Titl",			ch->pcdata->title[0] == ' ' ?
+		JSON::addStringToObject(o,	"Titl",			ch->pcdata->title[0] == ' ' ?
 		ch->pcdata->title+1 : ch->pcdata->title);
-	cJSON_AddStringToObject(o,		"Video",		print_flags(ch->pcdata->video));
+	JSON::addStringToObject(o,		"Video",		flags_to_string(ch->pcdata->video));
 
 	if (ch->pcdata->whisper[0])
-		cJSON_AddStringToObject(o,	"Wspr",			ch->pcdata->whisper);
+		JSON::addStringToObject(o,	"Wspr",			ch->pcdata->whisper);
 
 	return o;
 }
@@ -451,7 +388,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject(); // object to return
 
-	cJSON_AddStringToObject(o,		"Act",			print_flags(ch->act));
+	JSON::addStringToObject(o,		"Act",			flags_to_string(ch->act));
 
 	item = NULL;
 	for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
@@ -466,7 +403,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 			item = cJSON_CreateArray();
 
 		cJSON *aff = cJSON_CreateObject();
-		cJSON_AddStringToObject(aff, "name", skill_table[paf->type].name);
+		JSON::addStringToObject(aff, "name", skill_table[paf->type].name);
 		cJSON_AddNumberToObject(aff, "where", paf->where);
 		cJSON_AddNumberToObject(aff, "level", paf->level);
 		cJSON_AddNumberToObject(aff, "dur", paf->duration);
@@ -492,14 +429,14 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 
 
 	if (ch->clan)
-		cJSON_AddStringToObject(o,	"Clan",			ch->clan->name);
+		JSON::addStringToObject(o,	"Clan",			ch->clan->name);
 
 	cJSON_AddNumberToObject(o,		"Cla",			ch->cls);
-	cJSON_AddStringToObject(o,		"Cnsr",			print_flags(ch->censor));
-	cJSON_AddStringToObject(o,		"Comm",			print_flags(ch->comm));
+	JSON::addStringToObject(o,		"Cnsr",			flags_to_string(ch->censor));
+	JSON::addStringToObject(o,		"Comm",			flags_to_string(ch->comm));
 
 	if (ch->description[0])
-		cJSON_AddStringToObject(o,	"Desc",			ch->description);
+		JSON::addStringToObject(o,	"Desc",			ch->description);
 
 	cJSON_AddNumberToObject(o,		"Exp",			ch->exp);
 
@@ -527,15 +464,15 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(o,		"Levl",			ch->level);
 
 	if (ch->long_descr[0])
-		cJSON_AddStringToObject(o,	"LnD",			ch->long_descr);
+		JSON::addStringToObject(o,	"LnD",			ch->long_descr);
 
-	cJSON_AddStringToObject(o,		"Name",			ch->name.c_str());
+	JSON::addStringToObject(o,		"Name",			ch->name.c_str());
 	cJSON_AddNumberToObject(o,		"Pos",			ch->position);
 	cJSON_AddNumberToObject(o,              "PosP",                 ch->start_pos);
 	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);
 
 	if (ch->prompt[0])
-		cJSON_AddStringToObject(o,	"Prom",			ch->prompt);
+		JSON::addStringToObject(o,	"Prom",			ch->prompt);
 
 	if (ch->questpoints_donated)
 		cJSON_AddNumberToObject(o,	"QpDonated",	ch->questpoints_donated);
@@ -548,8 +485,8 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	else if (ch->countdown)
 		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
-	cJSON_AddStringToObject(o,		"Race",			race_table[ch->race].name);
-	cJSON_AddStringToObject(o,		"Revk",			print_flags(ch->revoke));
+	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
+	JSON::addStringToObject(o,		"Revk",			flags_to_string(ch->revoke));
 	cJSON_AddNumberToObject(o,		"Room",			
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != NULL)
 	        ? ch->was_in_room->vnum
@@ -564,13 +501,13 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 		cJSON_AddNumberToObject(o,	"Silver_in_bank", ch->silver_in_bank);
 
 	if (ch->short_descr[0])
-		cJSON_AddStringToObject(o,	"ShD",			ch->short_descr);
+		JSON::addStringToObject(o,	"ShD",			ch->short_descr);
 
 	cJSON_AddNumberToObject(o,		"Trai",			ch->train);
 	cJSON_AddNumberToObject(o,		"Wimp",			ch->wimpy);
 
 	if (IS_IMMORTAL(ch)) { // why aren't these pcdata?
-		cJSON_AddStringToObject(o,	"Wizn",			print_flags(ch->wiznet));
+		JSON::addStringToObject(o,	"Wizn",			flags_to_string(ch->wiznet));
 		cJSON_AddNumberToObject(o,	"Invi",			ch->invis_level);
 		cJSON_AddNumberToObject(o,	"Lurk",			ch->lurk_level);
 		cJSON_AddNumberToObject(o,	"Secu",			ch->secure_level);
@@ -620,7 +557,7 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	if (obj->cost != obj->pIndexData->cost)
 		cJSON_AddNumberToObject(o,	"Cost",			obj->cost);
 	if (obj->description != obj->pIndexData->description)
-		cJSON_AddStringToObject(o,	"Desc",			obj->description);
+		JSON::addStringToObject(o,	"Desc",			obj->description);
 
 	if (affect_enchanted_obj(obj)) {
 		// we could write an empty list here, for a disenchanted item
@@ -631,7 +568,7 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 				continue;
 
 			cJSON *aff = cJSON_CreateObject();
-			cJSON_AddStringToObject(aff, "name", skill_table[paf->type].name);
+			JSON::addStringToObject(aff, "name", skill_table[paf->type].name);
 			cJSON_AddNumberToObject(aff, "where", paf->where);
 			cJSON_AddNumberToObject(aff, "level", paf->level);
 			cJSON_AddNumberToObject(aff, "dur", paf->duration);
@@ -650,7 +587,7 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 		if (item == NULL)
 			item = cJSON_CreateObject();
 
-		cJSON_AddStringToObject(item, ed->keyword, ed->description);
+		JSON::addStringToObject(item, ed->keyword, ed->description);
 	}
 	if (item != NULL)
 		cJSON_AddItemToObject(o,	"ExDe",			item);
@@ -662,11 +599,11 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	if (obj->level != obj->pIndexData->level)
 		cJSON_AddNumberToObject(o,	"Lev",			obj->level);
 	if (obj->material != obj->pIndexData->material)
-		cJSON_AddStringToObject(o,	"Mat",			obj->material);
+		JSON::addStringToObject(o,	"Mat",			obj->material);
 	if (obj->name != obj->pIndexData->name)
-		cJSON_AddStringToObject(o,	"Name",			obj->name);
+		JSON::addStringToObject(o,	"Name",			obj->name);
 	if (obj->short_descr != obj->pIndexData->short_descr)
-		cJSON_AddStringToObject(o,	"ShD",			obj->short_descr);
+		JSON::addStringToObject(o,	"ShD",			obj->short_descr);
 
 	if (obj->timer != 0)
 		cJSON_AddNumberToObject(o,	"Time",			obj->timer);
@@ -780,7 +717,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	if (root != NULL) {
 
 		int version = CURRENT_VERSION;
-		get_JSON_int(root, &version, "version");
+		JSON::get_int(root, &version, "version");
 
 		fread_char(ch, cJSON_GetObjectItem(root, "character"), version);
 		fread_player(ch, cJSON_GetObjectItem(root, "player"), version);
@@ -966,52 +903,6 @@ void setstr(char **field, const char* value) {
 	}	
 
 
-void get_JSON_boolean(cJSON *obj, bool *target, const char *key) {
-	cJSON *val = cJSON_GetObjectItem(obj, key);
-
-	if (val != NULL)
-		*target = (val->valueint != 0);
-}
-
-void get_JSON_short(cJSON *obj, sh_int *target, const char *key) {
-	cJSON *val = cJSON_GetObjectItem(obj, key);
-
-	if (val != NULL)
-		*target = val->valueint;
-}
-
-void get_JSON_int(cJSON *obj, int *target, const char *key) {
-	cJSON *val = cJSON_GetObjectItem(obj, key);
-
-	if (val != NULL)
-		*target = val->valueint;
-}
-
-void get_JSON_long(cJSON *obj, long *target, const char *key) {
-	cJSON *val = cJSON_GetObjectItem(obj, key);
-
-	if (val != NULL)
-		*target = val->valueint;
-}
-
-void get_JSON_flags(cJSON *obj, long *target, const char *key) {
-	cJSON *val = cJSON_GetObjectItem(obj, key);
-
-	if (val != NULL)
-		*target = read_flags(val->valuestring);
-}
-
-void get_JSON_string(cJSON *obj, char **target, const char *key) {
-	cJSON *val = cJSON_GetObjectItem(obj, key);
-
-	if (val != NULL) {
-		if (*target != NULL) {
-			free_string(*target);
-		}
-		*target = str_dup(val->valuestring);
-	}
-}
-
 void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 	if (json == NULL)
 		return;
@@ -1049,23 +940,23 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'C':
 				if (!str_cmp(key, "Cnd")) { // 4-tuple
-					get_JSON_short(o, &ch->pcdata->condition[COND_DRUNK], "drunk");
-					get_JSON_short(o, &ch->pcdata->condition[COND_FULL], "full");
-					get_JSON_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
-					get_JSON_short(o, &ch->pcdata->condition[COND_HUNGER], "hunger");
+					JSON::get_short(o, &ch->pcdata->condition[COND_DRUNK], "drunk");
+					JSON::get_short(o, &ch->pcdata->condition[COND_FULL], "full");
+					JSON::get_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
+					JSON::get_short(o, &ch->pcdata->condition[COND_HUNGER], "hunger");
 					fMatch = TRUE; break;
 				}
 
 				if (!str_cmp(key, "Colr")) { // array of dicts
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int slot = cJSON_GetObjectItem(item, "slot")->valueint;
-						get_JSON_short(item, &ch->pcdata->color[slot], "color");
-						get_JSON_short(item, &ch->pcdata->bold[slot], "bold");
+						JSON::get_short(item, &ch->pcdata->color[slot], "color");
+						JSON::get_short(item, &ch->pcdata->bold[slot], "bold");
 					}
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("Cgrp",			ch->pcdata->cgroup,			read_flags(o->valuestring));
+				INTKEY("Cgrp",			ch->pcdata->cgroup,			string_to_flags(o->valuestring));
 				break;
 			case 'D':
 				STRKEY("Deit",			ch->pcdata->deity,			o->valuestring);
@@ -1121,9 +1012,9 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'H':
 				if (!str_cmp(key, "HMSP")) { // removed in version 16, moved to fread_char
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
 					fMatch = TRUE; break;
 				}
 
@@ -1153,13 +1044,13 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'N':
 				if (!str_cmp(key, "Note")) {
-					get_JSON_long(o, &ch->pcdata->last_note, "note");
-					get_JSON_long(o, &ch->pcdata->last_idea, "idea");
-					get_JSON_long(o, &ch->pcdata->last_roleplay, "role");
-					get_JSON_long(o, &ch->pcdata->last_immquest, "quest");
-					get_JSON_long(o, &ch->pcdata->last_changes, "change");
-					get_JSON_long(o, &ch->pcdata->last_personal, "pers");
-					get_JSON_long(o, &ch->pcdata->last_trade, "trade");
+					JSON::get_long(o, &ch->pcdata->last_note, "note");
+					JSON::get_long(o, &ch->pcdata->last_idea, "idea");
+					JSON::get_long(o, &ch->pcdata->last_roleplay, "role");
+					JSON::get_long(o, &ch->pcdata->last_immquest, "quest");
+					JSON::get_long(o, &ch->pcdata->last_changes, "change");
+					JSON::get_long(o, &ch->pcdata->last_personal, "pers");
+					JSON::get_long(o, &ch->pcdata->last_trade, "trade");
 					fMatch = TRUE; break;
 				}
 
@@ -1170,7 +1061,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				INTKEY("PCkilled",		ch->pcdata->pckilled,	o->valueint);
 				INTKEY("PKRank",		ch->pcdata->pkrank,		o->valueint);
 				INTKEY("Plyd",			ch->pcdata->played,		o->valueint);
-				INTKEY("Plr",			ch->pcdata->plr,		read_flags(o->valuestring));
+				INTKEY("Plr",			ch->pcdata->plr,		string_to_flags(o->valuestring));
 				INTKEY("Pnts",			ch->pcdata->points,		o->valueint);
 				break;
 			case 'Q':
@@ -1217,9 +1108,9 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'T':
 				if (!str_cmp(key, "THMS")) {
-					get_JSON_short(o, &ch->pcdata->trains_to_hit, "hit");
-					get_JSON_short(o, &ch->pcdata->trains_to_hit, "mana");
-					get_JSON_short(o, &ch->pcdata->trains_to_hit, "stam");
+					JSON::get_short(o, &ch->pcdata->trains_to_hit, "hit");
+					JSON::get_short(o, &ch->pcdata->trains_to_hit, "mana");
+					JSON::get_short(o, &ch->pcdata->trains_to_hit, "stam");
 					fMatch = TRUE; break;
 				}
 
@@ -1231,7 +1122,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				INTKEY("TSex",			ATTR_BASE(ch, APPLY_SEX),	o->valueint); // removed in version 16
 				break;
 			case 'V':
-				INTKEY("Video",			ch->pcdata->video,			read_flags(o->valuestring));
+				INTKEY("Video",			ch->pcdata->video,			string_to_flags(o->valuestring));
 				break;
 			case 'W':
 				STRKEY("Wspr",			ch->pcdata->whisper,		o->valuestring);
@@ -1282,13 +1173,13 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 
 						AFFECT_DATA af;
 						af.type = sn;
-						get_JSON_short(item, &af.where, "where");
-						get_JSON_short(item, &af.level, "level");
-						get_JSON_short(item, &af.duration, "dur");
-						get_JSON_short(item, &af.modifier, "mod");
-						get_JSON_short(item, &af.location, "loc");
-						get_JSON_int(item, &af.bitvector, "bitv");
-						get_JSON_short(item, &af.evolution, "evo");
+						JSON::get_short(item, &af.where, "where");
+						JSON::get_short(item, &af.level, "level");
+						JSON::get_short(item, &af.duration, "dur");
+						JSON::get_short(item, &af.modifier, "mod");
+						JSON::get_short(item, &af.location, "loc");
+						JSON::get_int(item, &af.bitvector, "bitv");
+						JSON::get_short(item, &af.evolution, "evo");
 						af.permanent = FALSE;
 
 						affect_copy_to_char(ch, &af);
@@ -1297,23 +1188,23 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				}
 
 				if (!str_cmp(key, "Atrib")) {
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_STR), "str");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_INT), "int");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_WIS), "wis");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_DEX), "dex");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_CON), "con");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_CHR), "chr");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STR), "str");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_INT), "int");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_WIS), "wis");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_DEX), "dex");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_CON), "con");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_CHR), "chr");
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("Act",           ch->act,                    read_flags(o->valuestring));
+				INTKEY("Act",           ch->act,                    string_to_flags(o->valuestring));
 				INTKEY("Alig",			ch->alignment,				o->valueint);
 				break;
 			case 'C':
 				INTKEY("Clan",			ch->clan,					clan_lookup(o->valuestring));
 				INTKEY("Cla",			ch->cls,					o->valueint);
-				INTKEY("Comm",			ch->comm,					read_flags(o->valuestring));
-				INTKEY("Cnsr",			ch->censor,					read_flags(o->valuestring));
+				INTKEY("Comm",			ch->comm,					string_to_flags(o->valuestring));
+				INTKEY("Cnsr",			ch->censor,					string_to_flags(o->valuestring));
 				break;
 			case 'D':
 				INTKEY("Dam",			ATTR_BASE(ch, APPLY_DAMROLL), o->valueint);		// NPC
@@ -1331,16 +1222,16 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				break;
 			case 'H':
 				if (!str_cmp(key, "HMS")) {
-					get_JSON_short(o, &ch->hit, "hit");
-					get_JSON_short(o, &ch->mana, "mana");
-					get_JSON_short(o, &ch->stam, "stam");
+					JSON::get_short(o, &ch->hit, "hit");
+					JSON::get_short(o, &ch->mana, "mana");
+					JSON::get_short(o, &ch->stam, "stam");
 					fMatch = TRUE; break;
 				}
 
 				if (!str_cmp(key, "HMSP")) {
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
-					get_JSON_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
+					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
 					fMatch = TRUE; break;
 				}
 
@@ -1372,7 +1263,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));
 				INTKEY("Room",			ch->in_room,				get_room_index(o->valueint));
-				INTKEY("Revk",			ch->revoke,					read_flags(o->valuestring));
+				INTKEY("Revk",			ch->revoke,					string_to_flags(o->valuestring));
 				break;
 			case 'S':
 				INTKEY("Save",			ATTR_BASE(ch, APPLY_SAVES),	o->valueint); // NPC
@@ -1391,7 +1282,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				break;
 			case 'W':
 				INTKEY("Wimp",			ch->wimpy,					o->valueint);
-				INTKEY("Wizn",			ch->wiznet,					read_flags(o->valuestring));
+				INTKEY("Wizn",			ch->wiznet,					string_to_flags(o->valuestring));
 				break;
 			default:
 				// drop down
@@ -1465,13 +1356,13 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 						AFFECT_DATA af;
 						af.type = sn;
 
-						get_JSON_short(item, &af.where, "where");
-						get_JSON_short(item, &af.level, "level");
-						get_JSON_short(item, &af.duration, "dur");
-						get_JSON_short(item, &af.modifier, "mod");
-						get_JSON_short(item, &af.location, "loc");
-						get_JSON_int(item, &af.bitvector, "bitv");
-						get_JSON_short(item, &af.evolution, "evo");
+						JSON::get_short(item, &af.where, "where");
+						JSON::get_short(item, &af.level, "level");
+						JSON::get_short(item, &af.duration, "dur");
+						JSON::get_short(item, &af.modifier, "mod");
+						JSON::get_short(item, &af.location, "loc");
+						JSON::get_int(item, &af.bitvector, "bitv");
+						JSON::get_short(item, &af.evolution, "evo");
 
 						// some old objects made with 'addapply' have things affects without an sn,
 						// or modifies nothing with no bits.  also, some items that were enchanted
@@ -1547,7 +1438,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not fread_flags
+				INTKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not fstring_to_flags
 				break;
 			case 'I':
 				INTKEY("Ityp",			obj->item_type,				o->valueint);
@@ -1578,7 +1469,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 				SKIPKEY("Vnum");
 				break;
 			case 'W':
-				INTKEY("WeaF",			obj->wear_flags,			o->valueint); // no, not read_flags
+				INTKEY("WeaF",			obj->wear_flags,			o->valueint); // no, not string_to_flags
 				INTKEY("Wear",			obj->wear_loc,				o->valueint);
 				INTKEY("Wt",			obj->weight,				o->valueint);
 				break;
@@ -1828,29 +1719,29 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 
 	cJSON *section, *item;
 	section = cJSON_GetObjectItem(root, "character");
-	get_JSON_string(section, &name, "Name");
-	get_JSON_string(section, &race, "Race");
-	get_JSON_int(section, &level, "Levl");
-	get_JSON_int(section, &cls, "Cla");
+	JSON::get_string(section, &name, "Name");
+	JSON::get_string(section, &race, "Race");
+	JSON::get_int(section, &level, "Levl");
+	JSON::get_int(section, &cls, "Cla");
 
 	if ((item = cJSON_GetObjectItem(section, "Clan")) != NULL)
 		clan = clan_lookup(item->valuestring);
 
 	section = cJSON_GetObjectItem(root, "player");
-	get_JSON_string(section, &email, "Email");
-	get_JSON_string(section, &fingerinfo, "Finf");
-	get_JSON_string(section, &title, "Titl");
-	get_JSON_string(section, &spouse, "Spou");
-	get_JSON_string(section, &deity, "Deit");
-	get_JSON_string(section, &last_lsite, "Lsit");
-	get_JSON_int(section, &pks, "PCkills");
-	get_JSON_int(section, &pkd, "PCkilled");
-	get_JSON_int(section, &pkr, "PKRank");
-	get_JSON_int(section, &aks, "Akills");
-	get_JSON_int(section, &akd, "Akilled");
-	get_JSON_int(section, &rmct, "RmCt");
-	get_JSON_flags(section, &cgroup, "Cgrp");
-	get_JSON_flags(section, &plr, "Plr");
+	JSON::get_string(section, &email, "Email");
+	JSON::get_string(section, &fingerinfo, "Finf");
+	JSON::get_string(section, &title, "Titl");
+	JSON::get_string(section, &spouse, "Spou");
+	JSON::get_string(section, &deity, "Deit");
+	JSON::get_string(section, &last_lsite, "Lsit");
+	JSON::get_int(section, &pks, "PCkills");
+	JSON::get_int(section, &pkd, "PCkilled");
+	JSON::get_int(section, &pkr, "PKRank");
+	JSON::get_int(section, &aks, "Akills");
+	JSON::get_int(section, &akd, "Akilled");
+	JSON::get_int(section, &rmct, "RmCt");
+	JSON::get_flags(section, &cgroup, "Cgrp");
+	JSON::get_flags(section, &plr, "Plr");
 
 	if ((item = cJSON_GetObjectItem(section, "Ltim")) != NULL)
 		last_ltime = dizzy_scantime(item->valuestring);
