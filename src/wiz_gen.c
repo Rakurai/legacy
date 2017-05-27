@@ -100,67 +100,6 @@ void do_allsave(CHAR_DATA *ch, const char *argument)
 	stc("done.\n", ch);
 } /* end allsave */
 
-char *site_to_ssite(char *site)
-{
-	static char ssite[MSL];
-	char *p;
-	bool alpha = FALSE;
-	int dotcount = 0;
-
-	/* Parse the site, determine type.  For alphanumeric hosts, we
-	   match the last three dot sections, for straight numerics we
-	   match the first three. */
-	for (p = site; *p; p++) {
-		if (*p == '.')
-			dotcount++;
-		else if (!isdigit(*p))
-			alpha = TRUE;
-	}
-
-	strcpy(ssite, site);
-	p = ssite;
-
-	if (alpha) {
-		int skippart = 1;
-
-		/* use all but the first part if it's 4 or less parts, 5 or more, all but the first 2 */
-		if (dotcount > 3)
-			skippart = 2;
-
-		dotcount = 0;
-
-		while (*p != '\0') {
-			if (*p == '.') {
-				if (++dotcount == skippart) {
-					p++;
-					break;
-				}
-			}
-
-			p++;
-		}
-
-		if (*p == '\0')
-			return site;
-	}
-	else {
-		dotcount = 0;
-
-		while (*p) {
-			if (*p == '.' && ++dotcount == 3) {
-				*p = '\0';
-				break;
-			}
-
-			p++;
-		}
-
-		p = ssite;
-	}
-
-	return p;
-}
-
 void do_alternate(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], query[MSL], colorsite[MSL], *p, *q;

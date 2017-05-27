@@ -110,11 +110,34 @@ bool check_player_exist(DESCRIPTOR_DATA *d, const String& name)
 	return FALSE;
 }
 
+String site_to_ssite(const String& site)
+{
+	bool alpha = FALSE;
+	int dotcount = 0;
+
+	/* Parse the site, determine type.  For alphanumeric hosts, we
+	   match the last three dot sections, for straight numerics we
+	   match the first three. */
+	for (const char *p = site.c_str(); *p; p++) {
+		if (*p == '.')
+			dotcount++;
+		else if (!isdigit(*p))
+			alpha = TRUE;
+	}
+
+	if (alpha) {
+		if (dotcount < 3)
+			return site;
+
+		return site.substr(site.find_nth(dotcount - 2, '.'));
+	}
+
+	return site.substr(0, site.find_nth(3, '.'));
+}
+
 void update_site(CHAR_DATA *ch)
 {
-	char shortsite[MSL];
-	extern char *site_to_ssite(char *site);
-	strcpy(shortsite, site_to_ssite(ch->desc->host));
+	String shortsite = site_to_ssite(ch->desc->host);
 
 	if (db_countf("update_site",
 	              "SELECT COUNT(*) FROM sites WHERE name='%s' AND ssite='%s'", ch->name, shortsite) > 0)
