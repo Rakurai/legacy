@@ -178,7 +178,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 
 			strcpy(results_sorted[sorted_count].name, db_get_column_str(0));
 			strcpy(results_sorted[sorted_count].site,
-			       strrpc(p, colorsite, db_get_column_str(1)));
+				String(db_get_column_str(1)).replace(p, colorsite));
 			sorted_count++;
 		}
 
@@ -252,7 +252,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 
 					strcpy(results_sorted[sorted_count].name, name);
 					strcpy(results_sorted[sorted_count].site,
-					       strrpc(sitelist[i].ssite, colorsite, db_get_column_str(1)));
+						String(db_get_column_str(1)).replace(sitelist[i].ssite, colorsite));
 					results_sorted[sorted_count].printed = FALSE;
 					sorted_count++;
 				}
@@ -264,7 +264,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 
 					strcpy(results_to_sort[to_sort_count].name, name);
 					strcpy(results_to_sort[to_sort_count].site,
-					       strrpc(sitelist[i].ssite, colorsite, db_get_column_str(1)));
+						String(db_get_column_str(1)).replace(sitelist[i].ssite, colorsite));
 					results_to_sort[to_sort_count].printed = FALSE;
 					to_sort_count++;
 				}

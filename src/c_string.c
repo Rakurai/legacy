@@ -244,46 +244,6 @@ const char *strcenter(const String& s, int space)
 	return output;
 }
 
-const char *strrpc(const String& replace_, const String& with_, const String& in_)
-{
-	const char *replace = replace_.c_str();
-	const char *with = with_.c_str();
-	const char *in = in_.c_str();
-	unsigned int replacelen = strlen(replace), i;
-	static char out[MSL * 2];
-	const char *replaceptr, *withptr = with, *inptr = in;
-	char *outptr = out;
-
-	if (replacelen <= 0
-	    || strlen(in) < replacelen
-	    || (replaceptr = strstr(in, replace)) == NULL)
-		return in;
-
-	while (inptr != replaceptr) {
-		*outptr = *inptr;
-		outptr++;
-		inptr++;
-	}
-
-	while (*withptr) {
-		*outptr = *withptr;
-		outptr++;
-		withptr++;
-	}
-
-	for (i = 0; i < replacelen; i++)
-		inptr++;
-
-	while (*inptr) {
-		*outptr = *inptr;
-		outptr++;
-		inptr++;
-	}
-
-	*outptr = '\0';
-	return out;
-}
-
 /* insert a string at a specified point in a string -- Montrey */
 const char *strins(const String& string, const String& ins, int place)
 {
