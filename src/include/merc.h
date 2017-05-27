@@ -3477,7 +3477,7 @@ bool    can_see_obj     args(( const CHAR_DATA *ch, const OBJ_DATA *obj ) );
 bool    can_see_room    args(( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex) );
 bool    can_see_in_room args(( CHAR_DATA *ch, ROOM_INDEX_DATA *room));
 bool    can_drop_obj    args(( CHAR_DATA *ch, OBJ_DATA *obj ) );
-const char *  first_arg       args(( const char *argument, char *arg_first, bool fCase ) );
+//const char *  first_arg       args(( const char *argument, char *arg_first, bool fCase ) );
 const char *  get_who_line    args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    mob_exists      args(( const char *name ) );
 bool    has_slash       args(( const char *str ) );
@@ -3485,7 +3485,6 @@ bool    has_slash       args(( const char *str ) );
 int	parse_deity		args((const char *dstring));		/* hacks!  Beware! :) */
 int	get_usable_level	args((CHAR_DATA *ch));
 int	get_holdable_level	args((CHAR_DATA *ch));
-const char *	strins			args((const char *string, const char *ins, int place));
 const char *	get_owner		args((CHAR_DATA *ch, OBJ_DATA *obj));
 CHAR_DATA *	get_obj_carrier		args((OBJ_DATA *obj));
 int	get_locker_number	args((CHAR_DATA *ch));

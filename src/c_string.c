@@ -285,13 +285,13 @@ const char *strrpc(const String& replace_, const String& with_, const String& in
 }
 
 /* insert a string at a specified point in a string -- Montrey */
-const char *strins(const char *string, const char *ins, int place)
+const char *strins(const String& string, const String& ins, int place)
 {
 	static char output[MSL];
 	memset(output, 0, MSL);
 	strncat(output, string, place);
 	strcat(output, ins);
-	strcat(output, string + place);
+	strcat(output, string.c_str() + place);
 	return output;
 }
 
