@@ -28,7 +28,10 @@ public:
 
 	// TODO: sorting comparison operators
 
+	int find_nth(std::size_t nth, char val) const;
+
 	// String transformations, each return a new String object.  NO modify in place ops
+	String substr(std::size_t pos = 0, std::size_t count = npos) const;
 
 	// capitalize the first letter of a string, skips non-alphanumerics
 	String capitalize() const;

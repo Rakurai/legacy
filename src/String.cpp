@@ -21,10 +21,26 @@ bool operator== (const String &lhs, const char *rhs) {
 	return false;
 }
 
+int String::
+find_nth(std::size_t nth, char val) const {
+    std::size_t pos = 0;
+    unsigned occurrence = 0;
+
+    while (occurrence != nth && (pos = find(val, pos) != std::string::npos))
+        ++occurrence;
+
+    return pos;
+}
+
 /*
  * String transformations.  The paradigm here is IMMUTABLE - never modify the string
  * in place.  This allows syntax like print(str.capitalize()), without unexpected side effects.
  */
+
+String String::
+substr(std::size_t pos, std::size_t count) const {
+	return std::string::substr(pos, count);
+}
 
 String String::
 lstrip(const char *chars) const {
