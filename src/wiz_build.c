@@ -29,11 +29,8 @@ const sh_int opposite_dir [6] =
 typedef enum {exit_from, exit_to, exit_both} exit_status;
 
 /* depending on status print > or < or <> between the 2 rooms */
-void room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex, char *buffer)
-{
-	char *sExit;
-	char leftname[MAX_STRING_LENGTH];
-	char rightname[MAX_STRING_LENGTH];
+String room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex) {
+	String sExit;
 
 	switch (ex) {
 	default:
@@ -49,9 +46,9 @@ void room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex, ch
 		sExit = "<>"; break;
 	}
 
-	Format::sprintf(leftname, "%s", smash_bracket(left->name));
-	Format::sprintf(rightname, "%s", smash_bracket(right->name));
-	Format::sprintf(buffer, "%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
+	String leftname = smash_bracket(left->name);
+	String rightname = smash_bracket(right->name);
+	return Format::format("%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
 	        left->vnum, leftname,
 	        sExit,
 	        right->vnum, rightname,
@@ -60,21 +57,16 @@ void room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex, ch
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
-void checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea, char *buffer)
-{
-	char buf[MAX_STRING_LENGTH];
-	int i;
-	EXIT_DATA *exit;
-	ROOM_INDEX_DATA *to_room;
-	strcpy(buffer, "");
+String checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea) {
+	String buf;
 
-	for (i = 0; i < 6; i++) {
-		exit = room->exit[i];
+	for (int i = 0; i < 6; i++) {
+		EXIT_DATA *exit = room->exit[i];
 
 		if (!exit)
 			continue;
-		else
-			to_room = exit->u1.to_room;
+
+		ROOM_INDEX_DATA *to_room = exit->u1.to_room;
 
 		if (to_room) { /* there is something on the other side */
 			if ((room->area == pArea) && (to_room->area != pArea)) {
@@ -82,11 +74,9 @@ void checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea, char *buffer)
 				/* check first if it is a two-way exit */
 				if (to_room->exit[opposite_dir[i]] &&
 				    to_room->exit[opposite_dir[i]]->u1.to_room == room)
-					room_pair(room, to_room, exit_both, buf); /* <> */
+					buf += room_pair(room, to_room, exit_both); /* <> */
 				else
-					room_pair(room, to_room, exit_to, buf); /* > */
-
-				strcat(buffer, buf);
+					buf += room_pair(room, to_room, exit_to); /* > */
 			}
 			else if ((room->area != pArea) && (exit->u1.to_room->area == pArea)) {
 				/* an exit from another area to our area */
@@ -94,49 +84,41 @@ void checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea, char *buffer)
 				      to_room->exit[opposite_dir[i]]->u1.to_room == room))
 					/* two-way exits are handled in the other if */
 				{
-					room_pair(to_room, room, exit_from, buf);
-					strcat(buffer, buf);
+					buf += room_pair(to_room, room, exit_from);
 				}
 			} /* if room->area */
 		}
 	} /* for */
+
+	return buf;
 }
 
 /* for now, no arguments, just list the current area */
 void do_exlist(CHAR_DATA *ch, const char *argument)
 {
-	AREA_DATA *pArea;
-	ROOM_INDEX_DATA *room;
-	int i;
-	char buffer[MAX_STRING_LENGTH];
-	pArea = ch->in_room->area; /* this is the area we want info on */
+	AREA_DATA *pArea = ch->in_room->area; /* this is the area we want info on */
 
-	for (i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
-		for (room = room_index_hash[i]; room != NULL; room = room->next)
+	for (int i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
+		for (ROOM_INDEX_DATA *room = room_index_hash[i]; room; room = room->next)
 			/* run through all the rooms on the MUD */
 		{
-			checkexits(room, pArea, buffer);
-			stc(buffer, ch);
+			stc(checkexits(room, pArea), ch);
 		}
 }
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
-void checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest, char *buffer)
+String checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest)
 {
-	char buf[MAX_STRING_LENGTH];
-	int i;
-	EXIT_DATA *exit;
-	ROOM_INDEX_DATA *to_room;
-	strcpy(buffer, "");
+	String buf;
 
-	for (i = 0; i < 6; i++) {
-		exit = room->exit[i];
+	for (int i = 0; i < 6; i++) {
+		EXIT_DATA *exit = room->exit[i];
 
 		if (!exit)
 			continue;
-		else
-			to_room = exit->u1.to_room;
+
+		ROOM_INDEX_DATA *to_room = exit->u1.to_room;
 
 		if (to_room) { /* there is something on the other side */
 			if (room == dest) {
@@ -144,40 +126,34 @@ void checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest, char *buffer
 				/* check first if it is a two-way exit */
 				if (to_room->exit[opposite_dir[i]] &&
 				    to_room->exit[opposite_dir[i]]->u1.to_room == room)
-					room_pair(room, to_room, exit_both, buf); /* <> */
+					buf += room_pair(room, to_room, exit_both); /* <> */
 				else
-					room_pair(room, to_room, exit_to, buf); /* > */
-
-				strcat(buffer, buf);
+					buf += room_pair(room, to_room, exit_to); /* > */
 			}
 			else if (to_room == dest) {
 				if (!(to_room->exit[opposite_dir[i]] &&
 				      to_room->exit[opposite_dir[i]]->u1.to_room == room))
 					/* two-way exits are handled in the other if */
 				{
-					room_pair(to_room, room, exit_from, buf);
-					strcat(buffer, buf);
+					buf += room_pair(to_room, room, exit_from);
 				}
 			}
 		}
 	} /* for */
+
+	return buf;
 }
 
 /* for now, no arguments, just list the current room */
 void do_roomexits(CHAR_DATA *ch, const char *argument)
 {
-	ROOM_INDEX_DATA *dest;
-	ROOM_INDEX_DATA *room;
-	int i;
-	char buffer[MAX_STRING_LENGTH];
-	dest = ch->in_room; /* this is the room we want info on */
+	ROOM_INDEX_DATA *dest = ch->in_room; /* this is the room we want info on */
 
-	for (i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
-		for (room = room_index_hash[i]; room != NULL; room = room->next)
+	for (int i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
+		for (ROOM_INDEX_DATA *room = room_index_hash[i]; room; room = room->next)
 			/* run through all the rooms on the MUD */
 		{
-			checkexitstoroom(room, dest, buffer);
-			stc(buffer, ch);
+			stc(checkexitstoroom(room, dest), ch);
 		}
 }
 
