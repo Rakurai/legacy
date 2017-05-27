@@ -26,20 +26,12 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
 #include "Format.hpp"
 
-/* command procedures needed */
-DECLARE_DO_FUN(do_yell);
-DECLARE_DO_FUN(do_open);
-DECLARE_DO_FUN(do_close);
-DECLARE_DO_FUN(do_say);
-DECLARE_DO_FUN(do_order);
-DECLARE_DO_FUN(do_backstab);
-DECLARE_DO_FUN(do_flee);
-DECLARE_DO_FUN(do_kill);
 DECLARE_SPELL_FUN(spell_identify);
 DECLARE_SPELL_FUN(spell_charm_person);
 

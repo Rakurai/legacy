@@ -30,6 +30,7 @@
    -- Outsider
 */
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "tables.h"
 #include "magic.h"
@@ -38,12 +39,6 @@
 #include "buffer.h"
 #include "Format.hpp"
 #include "c_string.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_split);
-DECLARE_DO_FUN(do_yell);
-DECLARE_DO_FUN(do_say);
-DECLARE_DO_FUN(talk_auction);
 
 extern  void    channel_who     args((CHAR_DATA *ch, const char *channelname, int channel, int custom));
 
@@ -4509,7 +4504,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 		Format::sprintf(buf, "Sale of %s has been stopped by the Imms. Item confiscated.\n",
 		        auction->item->short_descr);
-		talk_auction(NULL, buf);
+		talk_auction(buf);
 		Format::sprintf(buf, "%s has stopped the auction of %s.", ch->name, auction->item->short_descr);
 		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
 		obj_to_char(auction->item, ch);
@@ -4589,7 +4584,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction->pulse = PULSE_AUCTION; /* start the auction over again */
 		Format::sprintf(buf, "A bid of %d gold has been received on %s.\n",
 		        newbet, auction->item->short_descr);
-		talk_auction(NULL, buf);
+		talk_auction(buf);
 		Format::sprintf(buf, "%s has bid %d gold.", ch->name, newbet);
 		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
 		return;
@@ -4698,7 +4693,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			Format::sprintf(buf, "The auctioneer receives %s and places it on the auction block.\n",
 			        obj->short_descr);
 
-		talk_auction(NULL, buf);
+		talk_auction(buf);
 		Format::sprintf(buf, "%s is auctioning %s.", ch->name, obj->short_descr);
 		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
 		return;

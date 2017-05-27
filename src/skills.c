@@ -26,14 +26,11 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "magic.h"
 #include "buffer.h"
 #include "Format.hpp"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_groups);
-DECLARE_DO_FUN(do_say);
 
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(CHAR_DATA *ch, int gn)

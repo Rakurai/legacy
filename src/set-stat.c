@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "tables.h"
 #include "magic.h"
@@ -33,14 +34,6 @@
 #include "affect.h"
 #include "buffer.h"
 #include "Format.hpp"
-
-DECLARE_DO_FUN(do_rset);
-DECLARE_DO_FUN(do_mset);
-DECLARE_DO_FUN(do_oset);
-DECLARE_DO_FUN(do_sset);
-DECLARE_DO_FUN(do_evoset);
-DECLARE_DO_FUN(do_raffset);
-DECLARE_DO_FUN(do_extraset);
 
 /* RT set replaces sset, mset, oset, rset and cset */
 

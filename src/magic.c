@@ -26,20 +26,13 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
 #include "buffer.h"
 #include "Format.hpp"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_look);
-DECLARE_DO_FUN(do_get);
-DECLARE_DO_FUN(do_sacrifice);
-DECLARE_DO_FUN(do_switch);
-DECLARE_DO_FUN(do_say);
-DECLARE_DO_FUN(do_scan);
 
 /* global focus variable */
 extern bool     focus;

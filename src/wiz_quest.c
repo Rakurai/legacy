@@ -14,12 +14,11 @@
 *************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "affect.h"
 #include "buffer.h"
 #include "Format.hpp"
-
-DECLARE_DO_FUN(do_switch);
 
 void do_addapply(CHAR_DATA *ch, const char *argument)
 {

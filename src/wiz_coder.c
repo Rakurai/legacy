@@ -15,13 +15,12 @@
 *************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "memory.h"
 #include "sql.h"
 #include "affect.h"
 #include "Format.hpp"
-
-DECLARE_DO_FUN(do_echo);
 
 extern  time_t  reboot_time;
 extern  int     top_exit;

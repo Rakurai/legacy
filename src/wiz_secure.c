@@ -15,16 +15,13 @@
 
 #include <unistd.h>
 #include "merc.h"
+#include "interp.h"
 #include "tables.h"
 #include "recycle.h"
 #include "sql.h"
 #include "buffer.h"
 #include "memory.h"
 #include "Format.hpp"
-
-DECLARE_DO_FUN(do_quit);                /* do_deny */
-DECLARE_DO_FUN(do_echo);
-DECLARE_DO_FUN(do_fuckoff);
 
 void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
 

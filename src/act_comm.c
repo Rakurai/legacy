@@ -26,6 +26,7 @@
 
 #include <unistd.h>
 #include "merc.h"
+#include "interp.h"
 #include "vt100.h"
 #include "affect.h"
 #include "buffer.h"

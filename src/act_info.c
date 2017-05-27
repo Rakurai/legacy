@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "tables.h"
 #include "magic.h"
@@ -39,11 +40,6 @@
 #include "Format.hpp"
 
 extern AREA_DATA *area_first;
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_exits);
-DECLARE_DO_FUN(do_look);
-DECLARE_DO_FUN(do_play);
 
 extern void     email_file    args((CHAR_DATA *ch, const char *file, const char *str));
 extern void do_config args((CHAR_DATA *ch, const char *buf));

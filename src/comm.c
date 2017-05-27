@@ -50,6 +50,7 @@
 #include <netdb.h>
 
 #include "merc.h"
+#include "interp.h"
 #include "vt100.h" /* VT100 Stuff */
 #include "telnet.h"
 #include "memory.h"
@@ -58,13 +59,6 @@
 #include "sql.h"
 #include "affect.h"
 #include "Format.hpp"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_color);
-DECLARE_DO_FUN(do_look);
-DECLARE_DO_FUN(do_skills);
-DECLARE_DO_FUN(do_outfit);
-DECLARE_DO_FUN(do_unread);
 
 /* EPKA structure */
 struct ka_struct *ka;

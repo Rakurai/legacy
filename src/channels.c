@@ -844,7 +844,7 @@ void do_question(CHAR_DATA *ch, const char *argument)
 	channel(ch, argument, CHAN_QA);
 }
 
-void talk_auction(CHAR_DATA *ch, const char *argument)
+void talk_auction(const char *argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
@@ -853,7 +853,6 @@ void talk_auction(CHAR_DATA *ch, const char *argument)
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d)
-		    && d->character != ch
 		    && IS_SET(victim->censor, CENSOR_CHAN))
 			if (swearcheck(argument))
 				continue;

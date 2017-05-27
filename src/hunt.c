@@ -32,11 +32,9 @@
 */
 
 #include "merc.h"
+#include "interp.h"
 
 /* *** GLOBAL VARIABLES *** */
-
-DECLARE_DO_FUN(do_open);
-DECLARE_DO_FUN(do_say);
 
 extern const char *dir_name[];
 

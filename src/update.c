@@ -26,18 +26,12 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "sql.h"
 #include "music.h"
 #include "affect.h"
 #include "memory.h"
 #include "Format.hpp"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_quit);
-DECLARE_DO_FUN(do_afk);
-DECLARE_DO_FUN(do_hgratz);
-DECLARE_DO_FUN(talk_auction);
-DECLARE_DO_FUN(do_look);
 
 extern void new_day(void);
 
@@ -1537,7 +1531,7 @@ void auction_update(void)
 				        auction->item->short_descr,
 				        ((auction->going == 1) ? "once" : "twice"));
 
-			talk_auction(NULL, buf);
+			talk_auction(buf);
 			break;
 
 		case 3 : /* SOLD! */
@@ -1563,7 +1557,7 @@ void auction_update(void)
 				Format::sprintf(buf,
 				        "No bets received for %s - object has been removed.\n",
 				        auction->item->short_descr);
-				talk_auction(NULL, buf);
+				talk_auction(buf);
 				act("The auctioneer appears before you to return $p to you.",
 				    auction->seller, auction->item, NULL, TO_CHAR);
 				act("The auctioneer appears before $n to return $p to $m.",

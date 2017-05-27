@@ -35,8 +35,6 @@
  */
 
 char                   *mprog_type_to_name      args((int type));
-DECLARE_DO_FUN(do_transfer);
-DECLARE_DO_FUN(mpcast);
 
 /* This routine transfers between alpha and numeric forms of the
  *  mob_prog bitvector types. It allows the words to show up in mpstat to

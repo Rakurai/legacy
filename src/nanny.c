@@ -1,4 +1,5 @@
 #include "merc.h"
+#include "interp.h"
 #include "vt100.h"
 #include "telnet.h"
 #include "sql.h"
@@ -7,12 +8,6 @@
 #include "lookup.h"
 #include "buffer.h"
 #include "Format.hpp"
-
-//For the hack fix
-
-DECLARE_DO_FUN(do_skills);
-DECLARE_DO_FUN(do_outfit);
-DECLARE_DO_FUN(do_unread);
 
 extern bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
 int     roll_stat               args((CHAR_DATA *ch, int stat));

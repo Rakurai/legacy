@@ -1,4 +1,5 @@
 #include "merc.h"
+#include "interp.h"
 #include "affect.h"
 
 void do_paintbow(CHAR_DATA *ch, const char *argument)

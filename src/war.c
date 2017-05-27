@@ -4,6 +4,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "lookup.h"
 #include "recycle.h"
 #include "buffer.h"

@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "tables.h"
 #include "lookup.h"

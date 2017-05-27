@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "magic.h"
 #include "recycle.h"
 #include "tables.h"
@@ -34,9 +35,6 @@
 
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool fAdd));
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_return);
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)

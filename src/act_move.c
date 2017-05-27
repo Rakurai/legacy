@@ -26,13 +26,10 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "affect.h"
 #include "Format.hpp"
 
-/* command procedures needed */
-DECLARE_DO_FUN(do_look);
-DECLARE_DO_FUN(do_force);
-DECLARE_DO_FUN(do_stand);
 DECLARE_SPEC_FUN(spec_clanguard);
 
 const   char *  dir_name        []              = {

@@ -26,29 +26,12 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "affect.h"
 #include "Format.hpp"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_backstab);
-DECLARE_DO_FUN(do_circle);
-DECLARE_DO_FUN(do_emote);
-DECLARE_DO_FUN(do_berserk);
-DECLARE_DO_FUN(do_bash);
-DECLARE_DO_FUN(do_trip);
-DECLARE_DO_FUN(do_dirt);
-DECLARE_DO_FUN(do_flee);
-DECLARE_DO_FUN(do_kick);
-DECLARE_DO_FUN(do_crush);
-DECLARE_DO_FUN(do_disarm);
-DECLARE_DO_FUN(do_get);
-DECLARE_DO_FUN(do_recall);
-DECLARE_DO_FUN(do_yell);
-DECLARE_DO_FUN(do_sacrifice);
-DECLARE_DO_FUN(do_look);
 
 /* Maybe this will help me compile. -- Outsider */
 void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));

@@ -15,6 +15,7 @@
 *************************************************/
 
 #include "merc.h"
+#include "interp.h"
 #include "recycle.h"
 #include "lookup.h"
 #include "tables.h"
@@ -23,9 +24,6 @@
 #include "buffer.h"
 #include "memory.h"
 #include "Format.hpp"
-
-DECLARE_DO_FUN(do_slookup);
-DECLARE_DO_FUN(do_claninfo);
 
 
 extern bool    swearcheck              args((const char *argument));
