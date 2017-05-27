@@ -223,19 +223,6 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (item != NULL)
 		cJSON_AddItemToObject(o,	"Gr",			item);
 
-	item = NULL;
-	for (int pos = 0; pos < MAX_GRANT; pos++) {
-		if (!ch->pcdata->granted_commands[pos][0])
-			continue;
-
-		if (item == NULL)
-			item = cJSON_CreateArray();
-
-		cJSON_AddItemToArray(item, cJSON_CreateString(ch->pcdata->granted_commands[pos]));
-	}
-	if (item != NULL)
-		cJSON_AddItemToObject(o,	"Grant",		item);
-
 	if (!ch->pcdata->ignore.empty()) {
 		item = cJSON_CreateArray();
 
@@ -986,12 +973,6 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				INTKEY("FlagKiller",	ch->pcdata->flag_killer,	o->valueint);
 				break;
 			case 'G':
-				if (!str_cmp(key, "Grant")) {
-					for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
-						strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
-					fMatch = TRUE; break;
-				}
-
 				if (!str_cmp(key, "Gr")) {
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int gn = group_lookup(item->valuestring);

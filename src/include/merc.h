@@ -171,7 +171,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define LEVEL_AVATAR				(MAX_LEVEL - 30)	/* 80 */
 #define LEVEL_HERO                 (MAX_LEVEL - 9)  /*  91 */
 #define LEVEL_IMMORTAL             (MAX_LEVEL - 8)  /*  92 */
-#define MAX_GRANT                  32   /* number of granted commands a player can have */
 #define QPS_PER_PRAC		   20
 #define QPS_PER_TRAIN	           200
 #define MAX_BOW_DISTANCE 3
@@ -2145,7 +2144,6 @@ struct  pc_data
    sh_int      lays;     /* times we can lay on hands */
    sh_int      next_lay_countdown;   /* time before we get power back */
    bool      familiar;          /* PCs can have a familiar -- Outsider */
-   char        granted_commands[MAX_GRANT][32];    /* granted commands */
 };
 
 
@@ -3532,7 +3530,6 @@ const char *one_argument(const char * argument, char *arg);
 bool    check_social    args( ( CHAR_DATA *ch, const char *command,
                             const char *argument ) );
 void	do_huh		args( ( CHAR_DATA *ch ) );	/* Xenith */
-bool    Is_Granted      args( (CHAR_DATA *ch, const char *argument) );
 
 
 /* magic.c */

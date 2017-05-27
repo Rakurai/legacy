@@ -210,8 +210,6 @@ DECLARE_DO_FUN( do_give         );
 DECLARE_DO_FUN( do_globalsocial );
 DECLARE_DO_FUN( do_gossip       );
 DECLARE_DO_FUN( do_goto         );
-DECLARE_DO_FUN( do_grant        );
-DECLARE_DO_FUN( do_grantlist    );
 DECLARE_DO_FUN( do_grats        );
 DECLARE_DO_FUN( do_group        );
 DECLARE_DO_FUN( do_grouplist    );

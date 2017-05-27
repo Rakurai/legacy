@@ -242,8 +242,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "goto",                       do_goto,                POS_DEAD,               LOG_NORMAL,     5,      GWG                     },
 	{ "gossip",                     do_gossip,              POS_SLEEPING,   LOG_NORMAL,     1,      0                       },
 	{ "group",                      do_group,               POS_SLEEPING,   LOG_NORMAL,     8,      0                       },
-	{ "grant",                      do_grant,               POS_DEAD,               LOG_NORMAL,     5,      GL | GWG        },
-	{ "grantlist",          do_grantlist,   POS_DEAD,               LOG_NORMAL,     5,      0                       },
 	{ "grats",                      do_grats,               POS_SLEEPING,   LOG_NORMAL,     1,      0                       },
 	{ "grouplist",          do_grouplist,   POS_DEAD,               LOG_NORMAL,     5,      GWG                     },
 	{ "groups",                     do_groups,              POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
@@ -614,7 +612,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 				continue;
 
 			/* check for ALL cgroups being present */
-			if (!HAS_CGROUP(ch, cmd_table[cmd].group) && !Is_Granted(ch, cmd_table[cmd].name))
+			if (!HAS_CGROUP(ch, cmd_table[cmd].group))
 				continue;
 		}
 
@@ -1160,8 +1158,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 
 		for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
 			if (IS_SET(cmd_table[cmd].group, cgroup_flags[i].bit)
-			    && (HAS_CGROUP(ch, cmd_table[cmd].group)
-			        || Is_Granted(ch, cmd_table[cmd].name))
+			    && HAS_CGROUP(ch, cmd_table[cmd].group)
 			    && cmd_table[cmd].show) {
 				if (col % 5 == 0)
 					stc("        ", ch);
@@ -1333,27 +1330,3 @@ void do_disable(CHAR_DATA *ch, const char *argument)
 	            db_esc(p->command->name), db_esc(p->disabled_by), db_esc(p->reason));
 	stc("Command disabled.\n", ch);
 }
-
-/*
-This function checks to see if a given commands
-has been granted to the character.
--- Outsider
-*/
-bool Is_Granted(CHAR_DATA *ch, const char *argument)
-{
-	int index = 0;
-	bool found = FALSE;
-
-	if (IS_NPC(ch))
-		return FALSE;
-
-	while ((index < MAX_GRANT) && (! found)) {
-		if (! strcmp(ch->pcdata->granted_commands[index], argument))
-			found = TRUE;
-		else
-			index++;
-	}
-
-	return found;
-}
-
