@@ -46,7 +46,7 @@ char *mprog_process_if  args((const String& ifchck, char *com_list,
                                       CHAR_DATA *mob, CHAR_DATA *actor,
                                       OBJ_DATA *obj, void *vo,
                                       CHAR_DATA *rndm));
-void    mprog_translate         args((char ch, char *t, CHAR_DATA *mob,
+String  mprog_translate         args((char ch, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
 void    mprog_process_cmnd      args((const String& cmnd, CHAR_DATA *mob,
@@ -1275,7 +1275,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, CHAR_DATA *mob,
  * would be to change act() so that vo becomes vict & v_obj.
  * but this would require a lot of small changes all over the code.
  */
-void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
+String mprog_translate(char ch, CHAR_DATA *mob, CHAR_DATA *actor,
                      OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
 {
 	static char *he_she        [] = { "it",  "he",  "she" };
@@ -1283,24 +1283,24 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 	static char *his_her       [] = { "its", "his", "her" };
 	CHAR_DATA   *vict             = (CHAR_DATA *) vo;
 	OBJ_DATA    *v_obj            = (OBJ_DATA *) vo;
-	*t = '\0';
+	String t;
 
 	switch (ch) {
 	case 'i':
-		one_argument(mob->name, t);
+		t = mob->name.lsplit();
 		break;
 
 	case 'I':
-		strcpy(t, mob->short_descr);
+		t = mob->short_descr;
 		break;
 
 	case 'n':
 		if (actor)
 			if (can_see_char(mob, actor))
-				one_argument(actor->name, t);
+				t = actor->name;
 
 		if (!IS_NPC(actor))
-			*t = UPPER(*t);
+			t[0] = UPPER(t[0]);
 
 		break;
 
@@ -1308,15 +1308,15 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 		if (actor) {
 			if (can_see_char(mob, actor)) {
 				if (IS_NPC(actor))
-					strcpy(t, actor->short_descr);
+					t = actor->short_descr;
 				else {
-					strcpy(t, actor->name);
-					strcat(t, " ");
-					strcat(t, actor->pcdata->title);
+					t = actor->name;
+					t += " ";
+					t += actor->pcdata->title;
 				}
 			}
 			else
-				strcpy(t, "someone");
+				t = "someone";
 		}
 
 		break;
@@ -1324,11 +1324,11 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 	case 't':
 		if (vict) {
 			if (can_see_char(mob, vict))
-				one_argument(vict->name, t);
+				t = vict->name;
 		}
 
 		if (!IS_NPC(vict))
-			*t = UPPER(*t);
+			t[0] = UPPER(t[0]);
 
 		break;
 
@@ -1336,15 +1336,15 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 		if (vict) {
 			if (can_see_char(mob, vict)) {
 				if (IS_NPC(vict))
-					strcpy(t, vict->short_descr);
+					t = vict->short_descr;
 				else {
-					strcpy(t, vict->name);
-					strcat(t, " ");
-					strcat(t, vict->pcdata->title);
+					t = vict->name;
+					t += " ";
+					t += vict->pcdata->title;
 				}
 			}
 			else
-				strcpy(t, "someone");
+				t = "someone";
 		}
 
 		break;
@@ -1352,12 +1352,12 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 	case 'r':
 		if (rndm) {
 			if (can_see_char(mob, rndm))
-				one_argument(rndm->name, t);
+				t = rndm->name.lsplit();
 			else
-				strcpy(t, "someone");
+				t = "someone";
 
 			if (!IS_NPC(rndm))
-				*t = UPPER(*t);
+				t[0] = UPPER(t[0]);
 		}
 
 		break;
@@ -1366,148 +1366,135 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 		if (rndm) {
 			if (can_see_char(mob, rndm)) {
 				if (IS_NPC(rndm))
-					strcpy(t, rndm->short_descr);
+					t = rndm->short_descr;
 				else {
-					strcpy(t, rndm->name);
-					strcat(t, " ");
-					strcat(t, rndm->pcdata->title);
+					t = rndm->name;
+					t += " ";
+					t += rndm->pcdata->title;
 				}
 			}
 			else
-				strcpy(t, "someone");
+				t = "someone";
 		}
 
 		break;
 
 	case 'e':
 		if (actor)
-			can_see_char(mob, actor) ? strcpy(t, he_she[GET_ATTR_SEX(actor)])
-			: strcpy(t, "someone");
+			t = can_see_char(mob, actor) ? he_she[GET_ATTR_SEX(actor)] : "someone";
 
 		break;
 
 	case 'm':
 		if (actor)
-			can_see_char(mob, actor) ? strcpy(t, him_her[GET_ATTR_SEX(actor)])
-			: strcpy(t, "someone");
+			t = can_see_char(mob, actor) ? him_her[GET_ATTR_SEX(actor)] : "someone";
 
 		break;
 
 	case 's':
 		if (actor)
-			can_see_char(mob, actor) ? strcpy(t, his_her[GET_ATTR_SEX(actor)])
-			: strcpy(t, "someone's");
+			t = can_see_char(mob, actor) ? his_her[GET_ATTR_SEX(actor)] : "someone's";
 
 		break;
 
 	case 'E':
 		if (vict)
-			can_see_char(mob, vict) ? strcpy(t, he_she[GET_ATTR_SEX(vict)])
-			: strcpy(t, "someone");
+			t = can_see_char(mob, vict) ? he_she[GET_ATTR_SEX(vict)] : "someone";
 
 		break;
 
 	case 'M':
 		if (vict)
-			can_see_char(mob, vict) ? strcpy(t, him_her[GET_ATTR_SEX(vict)])
-			: strcpy(t, "someone");
+			t = can_see_char(mob, vict) ? him_her[GET_ATTR_SEX(vict)] : "someone";
 
 		break;
 
 	case 'S':
 		if (vict)
-			can_see_char(mob, vict) ? strcpy(t, his_her[GET_ATTR_SEX(vict)])
-			: strcpy(t, "someone's");
+			t = can_see_char(mob, vict) ? his_her[GET_ATTR_SEX(vict)] : "someone's";
 
 		break;
 
 	case 'j':
-		strcpy(t, he_she[GET_ATTR_SEX(mob)]);
+		t = he_she[GET_ATTR_SEX(mob)];
 		break;
 
 	case 'k':
-		strcpy(t, him_her[GET_ATTR_SEX(mob)]);
+		t = him_her[GET_ATTR_SEX(mob)];
 		break;
 
 	case 'l':
-		strcpy(t, his_her[GET_ATTR_SEX(mob)]);
+		t = his_her[GET_ATTR_SEX(mob)];
 		break;
 
 	case 'J':
 		if (rndm)
-			can_see_char(mob, rndm) ? strcpy(t, he_she[GET_ATTR_SEX(rndm)])
-			: strcpy(t, "someone");
+			t = can_see_char(mob, rndm) ? he_she[GET_ATTR_SEX(rndm)] : "someone";
 
 		break;
 
 	case 'K':
 		if (rndm)
-			can_see_char(mob, rndm) ? strcpy(t, him_her[GET_ATTR_SEX(rndm)])
-			: strcpy(t, "someone");
+			t = can_see_char(mob, rndm) ? him_her[GET_ATTR_SEX(rndm)] : "someone";
 
 		break;
 
 	case 'L':
 		if (rndm)
-			can_see_char(mob, rndm) ? strcpy(t, his_her[GET_ATTR_SEX(rndm)])
-			: strcpy(t, "someone's");
+			t = can_see_char(mob, rndm) ? his_her[GET_ATTR_SEX(rndm)] : "someone's";
 
 		break;
 
 	case 'o':
 		if (obj)
-			can_see_obj(mob, obj) ? one_argument(obj->name, t)
-			: strcpy(t, "something");
+			t = can_see_obj(mob, obj) ? String(obj->name).lsplit() : "something";
 
 		break;
 
 	case 'O':
 		if (obj)
-			can_see_obj(mob, obj) ? strcpy(t, obj->short_descr)
-			: strcpy(t, "something");
+			t = can_see_obj(mob, obj) ? obj->short_descr : "something";
 
 		break;
 
 	case 'p':
 		if (v_obj)
-			can_see_obj(mob, v_obj) ? one_argument(v_obj->name, t)
-			: strcpy(t, "something");
+			t = can_see_obj(mob, v_obj) ? String(v_obj->name).lsplit() : "something";
 
 		break;
 
 	case 'P':
 		if (v_obj)
-			can_see_obj(mob, v_obj) ? strcpy(t, v_obj->short_descr)
-			: strcpy(t, "something");
+			t = can_see_obj(mob, v_obj) ? v_obj->short_descr : "something";
 
 		break;
 
 	case 'a':
 		if (obj)
-			switch (*(obj->name)) {
+			switch (tolower(obj->name[0])) {
 			case 'a': case 'e': case 'i':
-			case 'o': case 'u': strcpy(t, "an");
+			case 'o': case 'u': t = "an";
 				break;
 
-			default: strcpy(t, "a");
+			default: t = "a";
 			}
 
 		break;
 
 	case 'A':
 		if (v_obj)
-			switch (*(v_obj->name)) {
+			switch (tolower(v_obj->name[0])) {
 			case 'a': case 'e': case 'i':
-			case 'o': case 'u': strcpy(t, "an");
+			case 'o': case 'u': t = "an";
 				break;
 
-			default: strcpy(t, "a");
+			default: t = "a";
 			}
 
 		break;
 
 	case '$':
-		strcpy(t, "$");
+		t = "$";
 		break;
 
 	default:
@@ -1515,7 +1502,7 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 		break;
 	}
 
-	return;
+	return t;
 }
 
 /* This procedure simply copies the cmnd to a buffer while expanding
@@ -1525,31 +1512,21 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
 void mprog_process_cmnd(const String& cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
                         OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
 {
-	char buf[ MAX_INPUT_LENGTH ];
-	char tmp[ MAX_INPUT_LENGTH ];
-	const char *str;
-	char *i;
-	char *point;
-	point   = buf;
-	str     = cmnd.c_str();
+	String buf;
+	const char *str = cmnd.c_str();
 
 	while (*str != '\0') {
 		if (*str != '$') {
-			*point++ = *str++;
+			buf += *str++;
 			continue;
 		}
 
 		str++;
-		mprog_translate(*str, tmp, mob, actor, obj, vo, rndm);
-		i = tmp;
-		++str;
-
-		while ((*point = *i) != '\0')
-			++point, ++i;
+		buf += mprog_translate(*str, mob, actor, obj, vo, rndm);
+		str++;
 	}
 
-	*point = '\0';
-	interpret(mob, buf);
+	interpret(mob, buf.c_str());
 	return;
 }
 
