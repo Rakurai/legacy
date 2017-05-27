@@ -136,7 +136,7 @@ bool clan_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 */
 bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 {
-	const char *pdesc;
+	EXTRA_DESCR_DATA *pdesc;
 	char owner[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 
@@ -159,7 +159,7 @@ bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 	    && (pdesc = get_extra_descr(KEYWD_OWNER, obj->pIndexData->extra_descr)) == NULL)
 		return TRUE;
 
-	sscanf(pdesc, "%[^\n]", owner);
+	sscanf(pdesc->description, "%[^\n]", owner);
 
 	if (is_name(ch->name, owner))
 		return TRUE;

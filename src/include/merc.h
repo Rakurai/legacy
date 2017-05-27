@@ -3499,7 +3499,7 @@ int	get_play_seconds	args((CHAR_DATA *ch));
 int	get_affect_evolution	args((CHAR_DATA *ch, int sn));
 long	flag_convert		args((char letter));
 int	interpolate		args((int level, int value_00, int value_32));
-const char *	get_extra_descr		args((const char *name, EXTRA_DESCR_DATA *ed));
+EXTRA_DESCR_DATA *get_extra_descr		args((const char *name, EXTRA_DESCR_DATA *ed));
 
 /* typename.c */
 String weapon_name     args(( int weapon_Type) );

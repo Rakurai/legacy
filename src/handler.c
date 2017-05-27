@@ -1866,11 +1866,11 @@ int interpolate(int level, int value_00, int value_32)
 }
 
 /* Get an extra description from a list. */
-const char *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)
+EXTRA_DESCR_DATA *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)
 {
 	for (; ed != NULL; ed = ed->next)
 		if (is_name((char *) name, ed->keyword))
-			return ed->description;
+			return ed;
 
 	return NULL;
 }

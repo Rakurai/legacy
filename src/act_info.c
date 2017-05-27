@@ -1644,7 +1644,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	const char *pdesc;
+	EXTRA_DESCR_DATA *pdesc;
 	int door;
 	int number, count;
 
@@ -1922,7 +1922,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (pdesc != NULL) {
 				if (++count == number) {
-					stc(pdesc, ch);
+					stc(pdesc->description, ch);
 					return;
 				}
 				else continue;
@@ -1932,7 +1932,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (pdesc != NULL) {
 				if (++count == number) {
-					stc(pdesc, ch);
+					stc(pdesc->description, ch);
 					return;
 				}
 				else continue;
@@ -1954,7 +1954,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (pdesc != NULL) {
 				if (++count == number) {
-					stc(pdesc, ch);
+					stc(pdesc->description, ch);
 					return;
 				}
 				else
@@ -1965,7 +1965,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			if (pdesc != NULL) {
 				if (++count == number) {
-					stc(pdesc, ch);
+					stc(pdesc->description, ch);
 					return;
 				}
 				else
@@ -1985,7 +1985,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 	if (pdesc != NULL) {
 		if (++count == number) {
-			stc(pdesc, ch);
+			stc(pdesc->description, ch);
 			return;
 		}
 	}
