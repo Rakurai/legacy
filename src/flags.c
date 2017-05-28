@@ -35,8 +35,7 @@ extern AREA_DATA *area_first;
 
 void do_flag(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], arg3[MIL];
-	char word[MIL], what[MIL];
+	char what[MIL];
 	CHAR_DATA *victim = NULL;
 	OBJ_DATA *object;
 	ROOM_INDEX_DATA *room;
@@ -44,6 +43,8 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 	int old = 0, nw = 0, marked = 0, pos, fieldptr, length;
 	char type;
 	const struct flag_type *flag_table;
+
+	String arg1, arg2, arg3, word;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
@@ -703,11 +704,12 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 
 void do_flagsearch(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], word[MIL];
 	int fieldptr, length;
 	long marked = 0, pos;
 	const struct flag_type *flag_table;
 	bool player = TRUE, mobile = TRUE, toolowmobile = FALSE, toolowplayer = FALSE;
+
+	String arg1, arg2, word;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 

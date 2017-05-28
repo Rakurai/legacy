@@ -59,7 +59,7 @@
 #include "Format.hpp"
 
 #define args( list )                    list
-#define DECLARE_DO_FUN( fun )           DO_FUN    fun
+#define DECLARE_DO_FUN( fun )           DO_FUN    fun ;  inline void (fun) args((CHAR_DATA *ch, const String& argument)) { return (::fun)(ch, argument.c_str()); }
 #define DECLARE_SPEC_FUN( fun )         SPEC_FUN  fun
 #define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
 
@@ -3180,7 +3180,7 @@ void    nuke_pets       args( ( CHAR_DATA *ch ) );
 void    die_follower    args( ( CHAR_DATA *ch ) );
 bool    is_same_group   args( ( CHAR_DATA *ach, CHAR_DATA *bch ) );
 void    send_to_clan    args( ( CHAR_DATA *ch, CLAN_DATA *target, const char *text ) );
-void wiznet             args( (const char *string, CHAR_DATA *ch, OBJ_DATA *obj,
+void wiznet             args( (const String& string, CHAR_DATA *ch, OBJ_DATA *obj,
                                long flag, long flag_skip, int min_rank ) );
 
 /* channel.c */
@@ -3239,7 +3239,7 @@ void insert_departed(const char *);
 bool has_departed(const char *);
 
 /* act_info.c */
-void    set_title       args( ( CHAR_DATA *ch, const char *title ) );
+void    set_title       args( ( CHAR_DATA *ch, const String& title ) );
 int     color_strlen    args( ( const char *argument ) );
 void	set_color	args((CHAR_DATA *ch, int color, int bold));
 void	new_color	args((CHAR_DATA *ch, int custom));
@@ -3257,7 +3257,7 @@ void    get_obj         args( ( CHAR_DATA *ch, OBJ_DATA *obj,
                             OBJ_DATA *container ) );
 
 /* act_wiz.c */
-ROOM_INDEX_DATA *find_location      args( (CHAR_DATA *ch, const char *argument) );
+ROOM_INDEX_DATA *find_location      args( (CHAR_DATA *ch, const String& argument) );
 int  set_tail           args( (CHAR_DATA *ch, CHAR_DATA *victim, int tail_flags) );
 
 /* alias.c */
@@ -3270,7 +3270,7 @@ void    find_money      args( ( CHAR_DATA *ch ) );
 void    show_string     args( ( struct descriptor_data *d, const char *input) );
 void    close_socket    args( ( DESCRIPTOR_DATA *dclose ) );
 void	cwtb		args((DESCRIPTOR_DATA *d, const char *txt));
-void    write_to_descriptor args( ( DESCRIPTOR_DATA *d, const String& txt,
+void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const String& txt,
                             int length ) );
 void    stc    args( ( const String& txt, CHAR_DATA *ch ) );
 void    page_to_char    args( ( char *txt, CHAR_DATA *ch ) );
@@ -3394,12 +3394,12 @@ long    string_to_flags args((const String& str));
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
 int     liq_lookup      args( ( const char *name) );
-int     weapon_lookup   args( ( const char *name) );
-int     weapon_type     args( ( const char *name) );
+int     weapon_lookup   args( ( const String& name) );
+int     weapon_type     args( ( const String& name) );
 int     item_lookup     args( ( const char *name) );
 int     attack_lookup   args(( const char *name) );
-int     race_lookup     args(( const char *name) );
-int     class_lookup    args(( const char *name) );
+int     race_lookup     args(( const String& name) );
+int     class_lookup    args(( const String& name) );
 int     deity_lookup    args(( const char *name) );
 bool    is_clan         args((CHAR_DATA *ch) );
 bool    is_same_clan    args((CHAR_DATA *ch, CHAR_DATA *victim));
@@ -3466,7 +3466,7 @@ int	get_play_seconds	args((CHAR_DATA *ch));
 int	get_affect_evolution	args((CHAR_DATA *ch, int sn));
 long	flag_convert		args((char letter));
 int	interpolate		args((int level, int value_00, int value_32));
-EXTRA_DESCR_DATA *get_extra_descr		args((const char *name, EXTRA_DESCR_DATA *ed));
+EXTRA_DESCR_DATA *get_extra_descr		args((const String& name, EXTRA_DESCR_DATA *ed));
 
 /* typename.c */
 String weapon_name     args(( int weapon_Type) );
@@ -3522,20 +3522,16 @@ void hunt_victim        args( ( CHAR_DATA *ch) );
 
 /* interp.c */
 void    interpret       args( ( CHAR_DATA *ch, const char *argument ) );
-bool    is_number       args( ( const char *arg ) );
-int number_argument(const char * argument, char *arg);
-int entity_argument(const char * argument, char *arg);
-int mult_argument(const char * argument, char *arg);
-const char *one_argument(const char * argument, char *arg);
-bool    check_social    args( ( CHAR_DATA *ch, const char *command,
-                            const char *argument ) );
+bool    is_number       args( ( const String& arg ) );
+bool    check_social    args( ( CHAR_DATA *ch, const String& command,
+                            const String& argument ) );
 void	do_huh		args( ( CHAR_DATA *ch ) );	/* Xenith */
 
 
 /* magic.c */
 void    spread_plague   args(( ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance));
-int     find_spell      args( ( CHAR_DATA *ch, const char *name) );
-int     skill_lookup    args( ( const char *name ) );
+int     find_spell      args( ( CHAR_DATA *ch, const String& name) );
+int     skill_lookup    args( ( const String& name ) );
 int     slot_lookup     args( ( int slot ) );
 void    obj_cast_spell  args( ( int sn, int level, CHAR_DATA *ch,
                                     CHAR_DATA *victim, OBJ_DATA *obj ) );
@@ -3582,7 +3578,7 @@ int	get_skill_cost  args( ( CHAR_DATA *ch, int sn ) );
 bool	deduct_stamina  args( ( CHAR_DATA *ch, int sn ) );
 
 /* special.c */
-SPEC_FUN *    spec_lookup     args( ( const char *name ) );
+SPEC_FUN *    spec_lookup     args( ( const String& name ) );
 const char *  spec_name       args( ( SPEC_FUN *function ) );
 bool    IS_SPECIAL      args( ( CHAR_DATA *ch) );
 

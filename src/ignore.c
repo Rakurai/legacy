@@ -59,7 +59,8 @@ bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 void do_ignore(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim, *rch;
-	char arg[MIL];
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (ch->desc == NULL)

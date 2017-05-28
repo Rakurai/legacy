@@ -361,8 +361,6 @@ static void edit_cancel(CHAR_DATA *ch, const char *argument)
 
 static void edit_change(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	int this_line = ed->edit_line;
 	char *here, *next;
 	char *where;
@@ -378,14 +376,15 @@ static void edit_change(CHAR_DATA *ch, const char *argument)
 	}
 
 	edit_goto1(ch, this_line);
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0') {
 		stc("{PYou must specify a string to change.{x\n", ch);
 		return;
 	}
-
-	argument = one_argument(argument, arg2);
 
 	if (strlen(arg2) > strlen(arg1)
 	    && strlen(ed->edit_string) + strlen(arg2) - strlen(arg1) > MAX_EDIT_LENGTH) {
@@ -678,7 +677,6 @@ static void edit_help(CHAR_DATA *ch, const char *argument)
 
 static void edit_split(CHAR_DATA *ch, const char *argument)
 {
-	char token[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	int this_line = ed->edit_line;
 	char *here, *next;
@@ -695,12 +693,14 @@ static void edit_split(CHAR_DATA *ch, const char *argument)
 	}
 
 	edit_goto1(ch, this_line);
-	argument = one_argument(argument, token);
 
-	if (token[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("{PYou must specify a string to split before.{x\n", ch);
 		return;
 	}
+
+	String token;
+	argument = one_argument(argument, token);
 
 	here = find_line(ed->edit_line);
 	next = next_line(here);
@@ -877,10 +877,11 @@ static void edit_wrap(CHAR_DATA *ch, const char *argument)
 /* Main edit function. Some pre-scanning, then branch to appropriate subfunction. */
 void do_edit(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	const char *new_arg;
 	argmask = 0;
+
+	String arg;
 
 	/* scan numeric args, if any. */
 	if (*argument != '\0') {

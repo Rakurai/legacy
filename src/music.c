@@ -197,9 +197,10 @@ void do_play(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *juke;
 	const char *str;
-	char arg[MAX_INPUT_LENGTH];
 	int song, i;
 	bool global = FALSE;
+
+	String arg;
 	str = one_argument(argument, arg);
 
 	for (juke = ch->carrying; juke != NULL; juke = juke->next_content) {

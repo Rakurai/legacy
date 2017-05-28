@@ -35,7 +35,7 @@
 extern void     channel_who     args((CHAR_DATA *ch, const char *channelname, int
                                       channel, int custom));
 bool    check_channel_social    args((CHAR_DATA *ch, int channel,
-                                      int custom, const char *command, const char *argument));
+                                      int custom, const String& command, const String& argument));
 
 void    send_to_query           args((CHAR_DATA *ch, const char *string));
 bool    swearcheck              args((const char *argument));
@@ -425,9 +425,8 @@ bool swearcheck(const char *argument)
 	return FALSE;
 } /* end swearcheck() */
 
-bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const char *command, const char *argument)
+bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& command, const String& argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
 	struct social_type *iterator;
@@ -450,7 +449,9 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const char *co
 		return TRUE;
 	}
 
+	String arg;
 	one_argument(argument, arg);
+
 	victim = get_player_world(ch, arg, VIS_PLR);
 	new_color(ch, custom);
 
@@ -598,7 +599,7 @@ void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, const char *text)
 	}
 }
 
-void wiznet(const char *string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip, int min_rank)
+void wiznet(const String& string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip, int min_rank)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -620,7 +621,6 @@ void wiznet(const char *string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long fl
 
 void channel(CHAR_DATA *ch, const char *argument, int channel)
 {
-	char arg[MSL];
 	DESCRIPTOR_DATA *d;
 	int cslot = chan_table[channel].cslot;
 
@@ -674,6 +674,7 @@ void channel(CHAR_DATA *ch, const char *argument, int channel)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "who") && argument[3] == '\0') {
@@ -958,8 +959,6 @@ void do_replay(CHAR_DATA *ch, const char *argument)
 void do_globalsocial(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
-	const char *arg2;
 	DESCRIPTOR_DATA *d;
 
 	if (argument[0] == '\0') {
@@ -1002,7 +1001,8 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	arg2 = one_argument(argument, arg);
+	String arg;
+	const char *arg2 = one_argument(argument, arg);
 
 	if (!str_prefix1(arg, "who") && argument[3] == '\0') {
 		channel_who(ch, "Social", COMM_NOSOCIAL, CSLOT_CHAN_SOCIAL);
@@ -1074,8 +1074,9 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 
 void do_iclantalk(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_STRING_LENGTH];
 	CLAN_DATA *clan, *oclan;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -1163,7 +1164,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 
 void do_tell(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MSL];
+	char buf[MSL];
 	CHAR_DATA *victim;
 	char *strtime;
 
@@ -1188,6 +1189,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -1601,7 +1603,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 
 void do_page(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	char *strtime;
 
@@ -1626,6 +1628,7 @@ void do_page(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -1806,8 +1809,6 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 void do_query(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
-	char arg[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -1817,6 +1818,7 @@ void do_query(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(rch))
 		return;
 
+	String arg, arg2;
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg2);
 

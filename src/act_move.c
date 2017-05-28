@@ -49,7 +49,7 @@ const   sh_int  stamina_loss   [SECT_MAX]      = {
  */
 int     find_door       args((CHAR_DATA *ch, char *arg));
 bool    has_key         args((CHAR_DATA *ch, int key));
-int     find_exit       args((CHAR_DATA *ch, char *arg));
+int     find_exit       args((CHAR_DATA *ch, const String& arg));
 
 void move_char(CHAR_DATA *ch, int door, bool follow)
 {
@@ -291,7 +291,7 @@ void do_down(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-int find_door(CHAR_DATA *ch, char *arg)
+int find_door(CHAR_DATA *ch, const String& arg)
 {
 	EXIT_DATA *pexit;
 	int door;
@@ -329,7 +329,7 @@ int find_door(CHAR_DATA *ch, char *arg)
 }
 
 /* This is for Smokescreen */
-int find_exit(CHAR_DATA *ch, char *arg)
+int find_exit(CHAR_DATA *ch, const String& arg)
 {
 	EXIT_DATA *pexit;
 	int door;
@@ -363,15 +363,16 @@ int find_exit(CHAR_DATA *ch, char *arg)
 
 void do_open(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int door;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Open what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
 	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
@@ -470,15 +471,16 @@ void do_open(CHAR_DATA *ch, const char *argument)
 
 void do_close(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int door;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Close what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
 	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
@@ -577,15 +579,16 @@ bool has_key(CHAR_DATA *ch, int key)
 
 void do_lock(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int door;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Lock what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
 	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
@@ -707,15 +710,16 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 
 void do_unlock(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int door;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Unlock what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
 	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
@@ -836,16 +840,17 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 
 void do_pick(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
 	OBJ_DATA *obj;
 	int door;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Pick what?  Your nose!?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	WAIT_STATE(ch, skill_table[gsn_pick_lock].beats);
 
@@ -1422,11 +1427,9 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 
 void do_wake(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 //		if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
 //			do_sit(ch, "");
 //		else
@@ -1438,6 +1441,9 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (!IS_AWAKE(ch))
 	{ stc("In your sleep?\n",       ch); return; }
@@ -1980,17 +1986,19 @@ bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
 
 void do_push(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MIL], dir_buf[MSL];
+	char buf[MIL], dir_buf[MSL];
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
 	CHAR_DATA *victim;
 	int dir;
-	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Whom do you want to push?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
 		stc("They aren't here.\n", ch);
@@ -2203,17 +2211,19 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 void do_drag(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MIL], dir_buf[MSL];
+	char buf[MIL], dir_buf[MSL];
 	ROOM_INDEX_DATA *to_room, *from_room;
 	EXIT_DATA *pexit;
 	CHAR_DATA *victim;
 	int dir, cost;
-	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Whom do you want to drag?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
 		stc("They aren't here.\n", ch);

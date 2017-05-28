@@ -105,7 +105,7 @@ const   struct  spec_type    spec_table[] = {
 };
 
 /* Given a name, return the appropriate spec fun. */
-SPEC_FUN *spec_lookup(const char *name)
+SPEC_FUN *spec_lookup(const String& name)
 {
 	int i;
 

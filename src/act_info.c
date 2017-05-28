@@ -361,20 +361,20 @@ void do_peek(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	bool all = FALSE;
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
 
 	if (IS_NPC(ch) || !get_skill(ch, gsn_peek)) {
 		stc("You are not skilled at peeking.\n", ch);
 		return;
 	}
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Peek at whom?\n", ch);
 		return;
 	}
+
+	String arg1, arg2;
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
 
 	if ((victim = get_char_here(ch, arg1, VIS_CHAR)) == NULL) {
 		stc("You see no one by that name in the room.\n", ch);
@@ -879,17 +879,18 @@ void set_window(CHAR_DATA *ch, int top, int bottom)
 /* changes your scroll */
 void do_scroll(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[100];
 	int lines;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		Format::sprintf(buf, "You currently display %d lines per page.\n",
 		        ch->lines);
 		stc(buf, ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (!is_number(arg)) {
 		stc("You must provide a number.\n", ch);
@@ -1634,9 +1635,6 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 void do_look(CHAR_DATA *ch, const char *argument)
 {
 	char buf  [MAX_STRING_LENGTH];
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
-	char arg3 [MAX_INPUT_LENGTH];
 	EXIT_DATA *pexit;
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -1666,6 +1664,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	number = number_argument(arg1, arg3);
@@ -2033,21 +2032,22 @@ void do_look(CHAR_DATA *ch, const char *argument)
 void do_examine(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Examine what?\n", ch);
 		return;
 	}
 
+	String arg;
+	one_argument(argument, arg);
+
 	/* enable "examine locker" -- Elrac */
 	if (!str_prefix1(argument, "locker"))
-		strcpy(arg, "in locker");
+		arg = "in locker";
 
 	if (!str_prefix1(argument, "strongbox"))
-		strcpy(arg, "in strongbox");
+		arg = "in strongbox";
 
 	do_look(ch, arg);
 
@@ -2389,19 +2389,20 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 /* new whois by Montrey */
 void do_whois(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	char block[MAX_INPUT_LENGTH];
 	char clan[MAX_STRING_LENGTH];
 	char *remort, *rank;
 	BUFFER *output;
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("You must provide a name.\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
 		stc("No one of that name is playing.\n", ch);
@@ -2535,11 +2536,11 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 	/* Parse arguments. */
 	for (; ;) {
-		char arg[MIL];
-		argument = one_argument(argument, arg);
-
-		if (arg[0] == '\0')
+		if (argument[0] == '\0')
 			break;
+
+		String arg;
+		argument = one_argument(argument, arg);
 
 		if (is_number(arg)) {
 			switch (++nNumber) {
@@ -2865,7 +2866,6 @@ void do_swho(CHAR_DATA *ch, const char *argument)
 void do_inventory(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = NULL;
-	char arg1[MAX_INPUT_LENGTH];
 
 	if (argument[0] == '\0') {
 		victim = ch;
@@ -2873,6 +2873,7 @@ void do_inventory(CHAR_DATA *ch, const char *argument)
 		stc("You are carrying:\n", ch);
 	}
 	else {
+		String arg1;
 		argument = one_argument(argument, arg1);
 
 		if (!str_cmp(arg1, "char") && IS_IMMORTAL(ch)) {
@@ -2976,20 +2977,20 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 
 void do_compare(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj1;
 	OBJ_DATA *obj2;
 	int value1;
 	int value2;
 	char *msg;
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Compare what to what?\n", ch);
 		return;
 	}
+
+	String arg1, arg2;
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
 
 	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
 		stc("You do not have one in your inventory.\n", ch);
@@ -3061,11 +3062,9 @@ void do_credits(CHAR_DATA *ch, const char *argument)
 void do_where(CHAR_DATA *ch, const char *argument)
 {
 	ARENA_DATA *arena = arena_table_head->next;
-	char arg[MIL];
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
 	bool found = FALSE;
-	one_argument(argument, arg);
 
 	if (ch->in_room == NULL)
 		return;
@@ -3096,7 +3095,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Nearby you see:\n", ch);
 
 		for (d = descriptor_list; d; d = d->next) {
@@ -3116,6 +3115,9 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			stc("None.\n", ch);
 	}
 	else {
+		String arg;
+		one_argument(argument, arg);
+
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (victim->in_room != NULL
 			    && victim->in_room->area == ch->in_room->area
@@ -3136,11 +3138,12 @@ void do_where(CHAR_DATA *ch, const char *argument)
 /* New short consider by Lotus */
 void do_scon(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *victim;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		if ((victim = ch->fighting) == NULL) {
 			stc("Which way did he go?!?\n", ch);
 			return;
@@ -3183,15 +3186,17 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 
 void do_consider(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	int diff, percent;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Consider killing whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
 		stc("They're not here.\n", ch);
@@ -3326,7 +3331,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void set_title(CHAR_DATA *ch, const char *title)
+void set_title(CHAR_DATA *ch, const String& title)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -3565,8 +3570,8 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 void do_report(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 
+	String arg;
 	one_argument(argument, arg);
 
 	ptc(ch,
@@ -3689,9 +3694,8 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 } /* end prac_by_group() */
 
 /* PRACTICE list of skills and spells, sorted by percentage and/or name -- Elrac */
-void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
+void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	int sn;             /* skill number */
 	int slist[MAX_SKILL];
 	int nskills = 0;
@@ -3702,6 +3706,8 @@ void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
 	BUFFER *output;
 	output = new_buf();
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	/* loop thru all skills */
@@ -3782,8 +3788,6 @@ void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
 
 void do_practice(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_STRING_LENGTH];
-	const char *argtail;
 	char buf[MAX_STRING_LENGTH];
 	int sn;
 	CHAR_DATA *mob;
@@ -3793,7 +3797,8 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 
 	/*** PRACTICE (the info command) ***/
-	argtail = one_argument(argument, arg);
+	String arg;
+	const char *argtail = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
 		prac_by_key(ch, "abc", "");
@@ -3895,8 +3900,9 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 void do_wimpy(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	int wimpy;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0')
@@ -4019,7 +4025,6 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
-	char arg1[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	bool found = FALSE;
 
@@ -4063,6 +4068,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "terminate")) {
@@ -4242,9 +4248,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 
 void do_join(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
 	if (IS_IMMORTAL(ch)) {
 		stc("Use 'guild' instead.\n", ch);
@@ -4256,10 +4260,13 @@ void do_join(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Whom do want to join your clan?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
 		stc("They aren't playing.\n", ch);
@@ -4349,10 +4356,8 @@ void vape_ceq(CHAR_DATA *ch)
 
 void do_unjoin(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *victim;
 	CLAN_DATA *clan;
-	one_argument(argument, arg);
 
 	if (IS_IMMORTAL(ch)) {
 		stc("Use 'guild' instead.\n", ch);
@@ -4364,10 +4369,13 @@ void do_unjoin(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Whom do want to remove from your clan?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
 		stc("They aren't playing.\n", ch);
@@ -4425,7 +4433,6 @@ void do_unjoin(CHAR_DATA *ch, const char *argument)
 /* Begin modification by Lotus and Slipstream */
 void do_rank(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
 	char test[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 
@@ -4434,12 +4441,13 @@ void do_rank(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Change whose clan rank?\n", ch);
 		return;
 	}
+
+	String arg1;
+	argument = one_argument(argument, arg1);
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
 		stc("The player is not logged on.\n", ch);
@@ -4625,24 +4633,18 @@ void gameinout(CHAR_DATA *ch, const char *mortal, const char *entryexit, char in
 
 void do_gamein(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
-	one_argument(argument, arg);
-
-	if (!IS_IMMORTAL(ch) || arg[0] == '\0')
+	if (!IS_IMMORTAL(ch) || argument[0] == '\0')
 		gameinout(ch, NULL, "entry", 'I');
 	else
-		gameinout(ch, arg, "entry", 'I');
+		gameinout(ch, argument, "entry", 'I');
 } /* end do_gamein() */
 
 void do_gameout(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
-	one_argument(argument, arg);
-
-	if (!IS_IMMORTAL(ch) || arg[0] == '\0')
+	if (!IS_IMMORTAL(ch) || argument[0] == '\0')
 		gameinout(ch, NULL, "exit", 'O');
 	else
-		gameinout(ch, arg, "exit", 'O');
+		gameinout(ch, argument, "exit", 'O');
 } /* end do_gameout() */
 
 /* Show contents of the pit, selected by level -- Elrac */
@@ -4651,7 +4653,6 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *pit;
 	OBJ_DATA sel_pit; /* a real live container-type object! */
 	OBJ_DATA *obj, *next_obj;
-	char arg[MAX_INPUT_LENGTH];
 	const char *keywords;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
@@ -4679,6 +4680,7 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 
 	/* scan [ [level [level] ] keyword(s) ] */
 	keywords = argument;
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0')

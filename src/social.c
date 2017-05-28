@@ -226,7 +226,7 @@ void save_social_table()
 }
 
 /* Find a social based on name */
-struct social_type *social_lookup(const char *name)
+struct social_type *social_lookup(const String& name)
 {
 	struct social_type *iterator;
 	/* set to first social */
@@ -249,9 +249,10 @@ struct social_type *social_lookup(const char *name)
 #ifndef CONST_SOCIAL
 void do_sedit(CHAR_DATA *ch, const char *argument)
 {
-	char cmd[MAX_INPUT_LENGTH], social[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	struct social_type *iSocial;
+
+	String cmd, social;
 	argument = one_argument(argument, cmd);
 	argument = one_argument(argument, social);
 

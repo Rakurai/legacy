@@ -412,7 +412,7 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 	/* don't show notes to the forwarding person *mutter*  -- Montrey */
 	Format::sprintf(buf, "FORWARD(%s)", ch->name);
 
-	if (strstr(buf, smash_bracket(pnote->subject)))
+	if (std::strstr(buf, smash_bracket(pnote->subject)))
 		return FALSE;
 
 	/* note to followers */
@@ -487,7 +487,6 @@ void note_attach(CHAR_DATA *ch, int type)
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 {
 	char to_new[MAX_INPUT_LENGTH];
-	char to_one[MAX_INPUT_LENGTH];
 	NOTE_DATA *prev;
 	NOTE_DATA **list;
 	const char *to_list;
@@ -498,6 +497,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 		to_list = pnote->to_list;
 
 		while (*to_list != '\0') {
+			String to_one;
 			to_list     = one_argument(to_list, to_one);
 
 			if (to_one[0] != '\0' && str_cmp(ch->name, to_one)) {
@@ -707,7 +707,7 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 void parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
 	BUFFER *buffer;
-	char buf[MSL], arg[MIL];
+	char buf[MSL];
 	NOTE_DATA *pnote;
 	NOTE_DATA **list;
 	char *list_name;
@@ -715,6 +715,8 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	/* NOTE: Mobs CAN currently do notes. Don't do anything player-specific! */
 	list = board_index[type].board_list;
 	list_name = board_index[type].board_plural;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !str_prefix1(arg, "read")) {
@@ -879,13 +881,13 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 	if (!str_prefix1(arg, "forward")) {
 		NOTE_DATA *newnote;
-		char forward[MAX_STRING_LENGTH];
 
 		if (IS_NPC(ch)) {
 			stc("Mobs can't forward notes.\n", ch);
 			return;
 		}
 
+		String forward;
 		argument = one_argument(argument, forward);
 
 		if (forward[0] == '\0') {
@@ -1140,8 +1142,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	}
 
 	if (!str_cmp(arg, "replace")) {
-		char old[MAX_INPUT_LENGTH];
-		char nw[MAX_INPUT_LENGTH];
+		String old, nw;
 		argument = one_argument(argument, old);
 		argument = one_argument(argument, nw);
 
@@ -1157,7 +1158,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		char *temp = ch->pnote->text;
-		ch->pnote->text = str_dup(string_replace(temp, old, nw));
+		ch->pnote->text = str_dup(string_replace(temp, old.c_str(), nw.c_str()));
 		free_string(temp);
 		Format::sprintf(buf, "'%s' replaced with '%s'.\n", old, nw);
 		stc(buf, ch);
@@ -1264,10 +1265,10 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			char line[MSL], *p;
 			/* copy string, it'll get mangled */
 			strcpy(line, argument);
-			p = strstr(line, "clan");
+			p = std::strstr(line, "clan");
 
 			while (*(p + 4) != ' ' && *(p + 4) != '\0')
-				p = strstr(p + 4, "clan");
+				p = std::strstr(p + 4, "clan");
 
 			*p = '\0';
 			p += 4;

@@ -88,9 +88,11 @@ void do_fod(CHAR_DATA *ch, const char *argument)
 
 void do_force(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MSL], arg[MIL], arg2[MIL], arg3[MIL];
+	char buf[MSL];
 	PC_DATA *vpc, *vpc_next;
 	CHAR_DATA *victim;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -105,6 +107,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg2;
 	one_argument(argument, arg2);
 
 	if (!str_cmp(arg2, "delete")) {
@@ -112,6 +115,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg3;
 	one_argument(argument, arg3);
 	Format::sprintf(buf, "$n forces you to %s.", argument);
 
@@ -247,8 +251,10 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 
 void do_fry(CHAR_DATA *ch, const char *argument)
 {
-	char strsave[MIL], arg[MIL];
+	char strsave[MIL];
 	CHAR_DATA *victim;
+
+	String arg;
 	one_argument(argument, arg);
 
 	/* prevent Alara from accidentally frying people :) -- Montrey */
@@ -281,7 +287,6 @@ void do_fry(CHAR_DATA *ch, const char *argument)
 
 void do_locker(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
@@ -291,6 +296,7 @@ void do_locker(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
@@ -304,6 +310,7 @@ void do_locker(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg2;
 	argument = one_argument(argument, arg2);
 
 	if (arg2[0] == '\0' || argument[0] == '\0') {
@@ -342,7 +349,6 @@ void do_locker(CHAR_DATA *ch, const char *argument)
 
 void do_strongbox(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
@@ -352,6 +358,7 @@ void do_strongbox(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
@@ -408,7 +415,6 @@ void do_strongbox(CHAR_DATA *ch, const char *argument)
 
 void do_log(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *victim;
 
 	if (argument[0] == '\0') {
@@ -418,6 +424,7 @@ void do_log(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "all")) {
@@ -456,7 +463,7 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 
 void do_newpasswd(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MSL];
+	char buf[MSL];
 	CHAR_DATA *victim;
 	char *pwdnew, *p;
 
@@ -466,6 +473,7 @@ void do_newpasswd(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
@@ -503,8 +511,9 @@ void do_newpasswd(CHAR_DATA *ch, const char *argument)
 
 void do_pardon(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -575,9 +584,11 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 
 void do_revoke(CHAR_DATA *ch, const char *argument)
 {
-	char buf1[MSL], buf2[MSL], arg1[MIL], arg2[MIL];
+	char buf1[MSL], buf2[MSL];
 	CHAR_DATA *victim;
 	int i;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -711,7 +722,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 
 void do_tail(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MSL];
+	char buf[MSL];
 	CHAR_DATA *victim = NULL;
 
 	if (IS_NPC(ch)) {
@@ -727,6 +738,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!str_cmp(arg, "stop")) {
@@ -770,9 +782,11 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 
 void do_snoop(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MSL];
+	char buf[MSL];
 	DESCRIPTOR_DATA *d;
 	CHAR_DATA *victim;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (argument[0] == '\0') {
@@ -845,11 +859,10 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 
 void do_ban(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], site[MIL];
-	char *p;
 	int flags = 0;
 
 	if (argument[0] == '\0') {
+		String site;
 		BUFFER *output;
 		bool found = FALSE;
 
@@ -889,6 +902,7 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 	   reason is that we need to Format::sprintf both arg1 and argument into the
 	   query, and a char function using a static char can't do it twice in
 	   the same Format::sprintf */
+	String arg1, arg2;
 	argument = one_argument(db_esc(argument), arg1);
 	argument = one_argument(argument, arg2);
 
@@ -919,19 +933,15 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	p = arg1;
+	String site = arg1;
 
-	if (*p == '*') {
-		strcpy(site, p + 1);
+	if (site.front() == '*') {
+		site.erase(0, 1);
 		SET_BIT(flags, BAN_PREFIX);
 	}
-	else
-		strcpy(site, p);
 
-	for (p = site; * (p + 1) != '\0'; p++);
-
-	if (*p == '*') {
-		*p = '\0';
+	if (site.back() == '*') {
+		site.erase(site.size()-1);
 		SET_BIT(flags, BAN_SUFFIX);
 	}
 
@@ -947,9 +957,9 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 
 void do_allow(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], site[MIL];
-	char *p;
 	int wildflags = 0;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -962,19 +972,15 @@ void do_allow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	p = arg;
+	String site = arg;
 
-	if (*p == '*') {
-		strcpy(site, p + 1);
+	if (site.front() == '*') {
+		site.erase(0, 1);
 		SET_BIT(wildflags, BAN_PREFIX);
 	}
-	else
-		strcpy(site, p);
 
-	for (p = site; * (p + 1) != '\0'; p++);
-
-	if (*p == '*') {
-		*p = '\0';
+	if (site.back() == '*') {
+		site.erase(site.size()-1);
 		SET_BIT(wildflags, BAN_SUFFIX);
 	}
 
@@ -989,10 +995,10 @@ void do_allow(CHAR_DATA *ch, const char *argument)
 
 void do_permit(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], site[MIL];
-	char *p;
 	int wildflags = 0;
 	bool found = FALSE;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1032,19 +1038,15 @@ void do_permit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	p = arg;
+	String site = arg;
 
-	if (*p == '*') {
-		strcpy(site, p + 1);
+	if (site.front() == '*') {
+		site.erase(0, 1);
 		SET_BIT(wildflags, BAN_PREFIX);
 	}
-	else
-		strcpy(site, p);
 
-	for (p = site; * (p + 1) != '\0'; p++);
-
-	if (*p == '*') {
-		*p = '\0';
+	if (site.back() == '*') {
+		site.erase(site.size()-1);
 		SET_BIT(wildflags, BAN_SUFFIX);
 	}
 
@@ -1077,7 +1079,6 @@ void do_permit(CHAR_DATA *ch, const char *argument)
 void do_deny(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	char arg1[MIL];
 
 	if (argument[0] == '\0') {
 		BUFFER *output;
@@ -1108,6 +1109,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(db_esc(argument), arg1);
 
 	if (argument[0] == '\0') {
@@ -1148,7 +1150,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 
 void do_undeny(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {

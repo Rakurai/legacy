@@ -73,7 +73,7 @@ bool check_player_exist(DESCRIPTOR_DATA *d, const String& name)
 		    &&   dold->connected != CON_PLAYING
 		    &&   !str_cmp(name, dold->original
 		                  ? dold->original->name : dold->character->name)) {
-			write_to_descriptor(d,
+			write_to_buffer(d,
 			                "A character by that name is currently being created.\n"
 			                "You cannot access that character.\n"
 			                "Please create a character with a different name, and\n"
@@ -96,7 +96,7 @@ bool check_player_exist(DESCRIPTOR_DATA *d, const String& name)
 	exist = lookup_storage_data(name);
 
 	if (exist) {
-		write_to_descriptor(d,
+		write_to_buffer(d,
 		                "A character by that name is currently in storage.\n"
 		                "You cannot create a character by this name.\n"
 		                "Please create a character with a different name, and\n"
@@ -335,7 +335,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next, *sd;
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
+	String arg;
 	CHAR_DATA *ch, *victim;
 	const char *pwdnew, *p;
 	int iClass, race, i, weapon, deity;
@@ -371,7 +371,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		/* Check valid name - Lotus */
 		if (!check_parse_name(name)) {
-			write_to_descriptor(d, "Sorry, that name cannot be used.\n"
+			write_to_buffer(d, "Sorry, that name cannot be used.\n"
 			                "Please choose another name!\n"
 			                "\n"
 			                "Name: ", 0);
@@ -392,7 +392,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		/* check for attempt to newly create with a mob name -- Elrac */
 		if (!fOld && mob_exists(name)) {
-			write_to_descriptor(d, "Sorry, we already have a mobile by that name.\n"
+			write_to_buffer(d, "Sorry, we already have a mobile by that name.\n"
 			                "Please choose another name!\n"
 			                "\n"
 			                "Name: ", 0);
@@ -404,7 +404,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (check_deny(ch->name)) {
 			Format::sprintf(log_buf, "Denying access to %s@%s.", ch->name, d->host);
 			log_string(log_buf);
-			write_to_descriptor(d, "You are denied access to Legacy.\n", 0);
+			write_to_buffer(d, "You are denied access to Legacy.\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -413,7 +413,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
-			write_to_descriptor(d, "Your site has been banned from this mud.\n"
+			write_to_buffer(d, "Your site has been banned from this mud.\n"
 			                "If you feel that your site has been banned in error, or would\n"
 			                "like to request special permission to play, please contact us at:\n"
 			                "   legacy@kyndig.com\n", 0);
@@ -424,7 +424,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (check_reconnect(d, name, FALSE))
 			fOld = TRUE;
 		else if (wizlock && !IS_IMMORTAL(ch)) {
-			write_to_descriptor(d, "Access has been limited to imms only at this time.\n", 0);
+			write_to_buffer(d, "Access has been limited to imms only at this time.\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -433,14 +433,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (logon_lurk && IS_IMMORTAL(ch))
 				ch->lurk_level = LEVEL_IMMORTAL;
 
-			write_to_descriptor(d, "What is your password? ", 0);
-			write_to_descriptor(d, (const char *)echo_off_str, 0);
+			write_to_buffer(d, "What is your password? ", 0);
+			write_to_buffer(d, (const char *)echo_off_str, 0);
 			d->connected = CON_GET_OLD_PASSWORD;
 			return;
 		}
 
 		if (newlock) {
-			write_to_descriptor(d, "Due to technical difficulties, we are not accepting new players\n"
+			write_to_buffer(d, "Due to technical difficulties, we are not accepting new players\n"
 			                "at this time.  Please try again in a few hours.\n", 0);
 			close_socket(d);
 			return;
@@ -450,7 +450,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			Format::sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
-			write_to_descriptor(d, "New players are not allowed from your site.\n"
+			write_to_buffer(d, "New players are not allowed from your site.\n"
 			                "If you feel that your site has been banned in error, or would\n"
 			                "like to request special permission to play, please contact us at:\n"
 			                "   legacyimms@kyndig.com\n", 0);
@@ -459,12 +459,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		Format::sprintf(buf, "You wish for history to remember you as %s (Y/N)? ", name);
-		write_to_descriptor(d, buf, 0);
+		write_to_buffer(d, buf, 0);
 		d->connected = CON_CONFIRM_NEW_NAME;
 		return;
 
 	case CON_GET_OLD_PASSWORD:
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
 			stc("{bIncorrect password!{x\n", ch);
@@ -472,7 +472,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		write_to_descriptor(d, (const char *)echo_on_str, 0);
+		write_to_buffer(d, (const char *)echo_on_str, 0);
 
 		if (check_playing(d, ch->name))
 			return;
@@ -526,7 +526,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (check_reconnect(d, ch->name, TRUE))
 				return;
 
-			write_to_descriptor(d, "Reconnect attempt failed.\nName: ", 0);
+			write_to_buffer(d, "Reconnect attempt failed.\nName: ", 0);
 
 			if (d->character != NULL) {
 				free_char(d->character);
@@ -538,7 +538,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		case 'n':
 		case 'N':
-			write_to_descriptor(d, "Name: ", 0);
+			write_to_buffer(d, "Name: ", 0);
 
 			if (d->character != NULL) {
 				free_char(d->character);
@@ -549,7 +549,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 
 		default:
-			write_to_descriptor(d, "Please type Y or N? ", 0);
+			write_to_buffer(d, "Please type Y or N? ", 0);
 			break;
 		}
 
@@ -636,7 +636,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_NEW_PASSWORD:
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 
 		if (strlen(argument) < 5) {
 			stc("You whisper in her ear, and she giggles.\n\n"
@@ -667,7 +667,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
 			stc("The pixie frowns as you whisper again.\n\n"
@@ -712,14 +712,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			else
 				help(ch, argument);
 
-			write_to_descriptor(d, "What is your race? ", 0);
+			write_to_buffer(d, "What is your race? ", 0);
 			break;
 		}
 
 		if (!(race = race_lookup(argument))
 		    || !race_table[race].pc_race
 		    || pc_race_table[race].remort_level) {
-			write_to_descriptor(d, "That is not a valid race.\nWhat is your race? ", 0);
+			write_to_buffer(d, "That is not a valid race.\nWhat is your race? ", 0);
 			break;
 		}
 
@@ -740,14 +740,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		for (i = 0; i < 5 && pc_race_table[race].skills[i]; i++)
 			group_add(ch, pc_race_table[race].skills[i], FALSE);
 
-		write_to_descriptor(d, "\n", 1);
-		write_to_descriptor(d, "Here are your default stats:\n", 0);
+		write_to_buffer(d, "\n", 1);
+		write_to_buffer(d, "Here are your default stats:\n", 0);
 		Format::sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
 		        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
 		        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
 		        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
-		write_to_descriptor(d, buf, 0);
-		write_to_descriptor(d, "Would you like to roll for new stats? [Y/N] ", 0);
+		write_to_buffer(d, buf, 0);
+		write_to_buffer(d, "Would you like to roll for new stats? [Y/N] ", 0);
 		d->connected = CON_ROLL_STATS;
 		break;
 
@@ -755,8 +755,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch (argument[0]) {
 		case 'n':
 		case 'N':
-			write_to_descriptor(d, "\n", 1);
-			write_to_descriptor(d, "What is your sex (M/F)? ", 0);
+			write_to_buffer(d, "\n", 1);
+			write_to_buffer(d, "What is your sex (M/F)? ", 0);
 			d->connected = CON_GET_NEW_SEX;
 			break;
 
@@ -769,13 +769,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
 			        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
 			        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
-			write_to_descriptor(d, buf, 0);
-			write_to_descriptor(d, "Would you like to roll for new stats? [Y/N] ", 0);
+			write_to_buffer(d, buf, 0);
+			write_to_buffer(d, "Would you like to roll for new stats? [Y/N] ", 0);
 			d->connected = CON_ROLL_STATS;
 			break;
 
 		default:
-			write_to_descriptor(d, "Yes or No? ", 0);
+			write_to_buffer(d, "Yes or No? ", 0);
 			break;
 		}
 
@@ -794,11 +794,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 
 		default:
-			write_to_descriptor(d, "That's not a sex.\n(M/F)? ", 0);
+			write_to_buffer(d, "That's not a sex.\n(M/F)? ", 0);
 			return;
 		}
 
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 		strcpy(buf, "Select a class [");
 
 		for (iClass = 0; iClass < MAX_CLASS; iClass++) {
@@ -809,7 +809,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		strcat(buf, "]\nHelp file: class\nWhat is your class? ");
-		write_to_descriptor(d, buf, 0);
+		write_to_buffer(d, buf, 0);
 		d->connected = CON_GET_NEW_CLASS;
 		break;
 
@@ -824,12 +824,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			else
 				help(ch, argument);
 
-			write_to_descriptor(d, "What is your class? ", 0);
+			write_to_buffer(d, "What is your class? ", 0);
 			break;
 		}
 
 		if ((iClass = class_lookup(argument)) == -1) {
-			write_to_descriptor(d, "That is not a class.\nWhat is your class? ", 0);
+			write_to_buffer(d, "That is not a class.\nWhat is your class? ", 0);
 			return;
 		}
 
@@ -839,12 +839,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		log_string(log_buf);
 		Format::sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
 		wiznet(log_buf, ch, NULL, WIZ_NEWBIE, 0, 0);
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 		/* paladins can't be neutral */
 		Format::sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
 		        ch->cls == PALADIN_CLASS ? "" : ", neutral,",
 		        ch->cls == PALADIN_CLASS ? "" : "/N");
-		write_to_descriptor(d, buf, 0);
+		write_to_buffer(d, buf, 0);
 		d->connected = CON_GET_ALIGNMENT;
 		break;
 
@@ -880,11 +880,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		default:
 			Format::sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
 			        ch->cls == PALADIN_CLASS ? "" : "/N");
-			write_to_descriptor(d, buf, 0);
+			write_to_buffer(d, buf, 0);
 			return;
 		}
 
-		write_to_descriptor(d, "\n", 0);
+		write_to_buffer(d, "\n", 0);
 		group_add(ch, "rom basics", FALSE);
 		group_add(ch, class_table[ch->cls].base_group, FALSE);
 		ch->pcdata->learned[gsn_recall] = 50;
@@ -912,8 +912,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			}
 		}
 
-		write_to_descriptor(d, buf, 0);
-		write_to_descriptor(d, "\nHelp file: deity\nWho is your deity? ", 0);
+		write_to_buffer(d, buf, 0);
+		write_to_buffer(d, "\nHelp file: deity\nWho is your deity? ", 0);
 		d->connected = CON_DEITY;
 		break;
 
@@ -928,19 +928,19 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			else
 				help(ch, argument);
 
-			write_to_descriptor(d, "Who is your deity? ", 0);
+			write_to_buffer(d, "Who is your deity? ", 0);
 			break;
 		}
 
 		if ((deity = deity_lookup(argument)) == -1) {
-			write_to_descriptor(d, "That's not a valid deity.\nWho is your deity? ", 0);
+			write_to_buffer(d, "That's not a valid deity.\nWho is your deity? ", 0);
 			return;
 		}
 
 		free_string(ch->pcdata->deity);
 		ch->pcdata->deity = str_dup(deity_table[deity].name);
-//		write_to_descriptor(d, "\nDo you wish to customize this character?\n", 0);
-//		write_to_descriptor(d, "Customization takes time, but allows a wider range of skills"
+//		write_to_buffer(d, "\nDo you wish to customize this character?\n", 0);
+//		write_to_buffer(d, "Customization takes time, but allows a wider range of skills"
 //		                " and abilities.\nCustomize (Y/N)? ", 0);
 		d->connected = CON_DEFAULT_CHOICE;
 //		break;
@@ -953,7 +953,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->gen_data->points_chosen = ch->pcdata->points;
 			help(ch, "group header");
 			list_group_costs(ch);
-			write_to_descriptor(d, "You already have the following skills:\n", 0);
+			write_to_buffer(d, "You already have the following skills:\n", 0);
 			do_skills(ch, "");
 			help(ch, "menu choice");
 			d->connected = CON_GEN_GROUPS;
@@ -967,8 +967,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (ch->pcdata->points < 40)
 				ch->train = 40 - ch->pcdata->points;
 
-			write_to_descriptor(d, "\n", 1);
-			write_to_descriptor(d, "Please pick a weapon from the following choices:\n", 0);
+			write_to_buffer(d, "\n", 1);
+			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
 
 			for (i = 0; weapon_table[i].name != NULL; i++)
@@ -978,28 +978,28 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				}
 
 			strcat(buf, "\nYour choice? ");
-			write_to_descriptor(d, buf, 0);
+			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
 /*			break;
 
 		default:
-			write_to_descriptor(d, "Please answer (Y/N)? ", 0);
+			write_to_buffer(d, "Please answer (Y/N)? ", 0);
 			return;
 		}
 */
 		break;
 
 	case CON_PICK_WEAPON:
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 		weapon = weapon_lookup(argument);
 
 		if (weapon == -1 || ch->pcdata->learned[*weapon_table[weapon].gsn] <= 0) {
-			write_to_descriptor(d, "That is not a valid selection.  You choice? \n", 0);
+			write_to_buffer(d, "That is not a valid selection.  You choice? \n", 0);
 			return;
 		}
 
 		ch->pcdata->learned[*weapon_table[weapon].gsn] = 40;
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 		set_color(ch, CYAN, BOLD);
 		help(ch, "automotd");
 		d->connected = CON_READ_MOTD;
@@ -1021,8 +1021,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			free_gen_data(ch->gen_data);
 			ch->gen_data = NULL;
-			write_to_descriptor(d, "\n", 1);
-			write_to_descriptor(d, "Please pick a weapon from the following choices:\n", 0);
+			write_to_buffer(d, "\n", 1);
+			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
 
 			for (i = 0; weapon_table[i].name != NULL; i++)
@@ -1032,7 +1032,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				}
 
 			strcat(buf, "\nYour choice? ");
-			write_to_descriptor(d, buf, 0);
+			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
 			break;
 		}
@@ -1044,7 +1044,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_READ_IMOTD:
-		write_to_descriptor(d, "\n", 1);
+		write_to_buffer(d, "\n", 1);
 		set_color(ch, CYAN, NOBOLD);
 		help(ch, "automotd");
 		d->connected = CON_READ_MOTD;
@@ -1066,9 +1066,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		set_color(ch, WHITE, NOBOLD);
 
 		if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0') {
-			write_to_descriptor(d, "Warning! Null password!\n", 0);
-			write_to_descriptor(d, "Please report old password with 'bug'.\n", 0);
-			write_to_descriptor(d, "Type 'password null <new password>' to fix.\n", 0);
+			write_to_buffer(d, "Warning! Null password!\n", 0);
+			write_to_buffer(d, "Please report old password with 'bug'.\n", 0);
+			write_to_buffer(d, "Type 'password null <new password>' to fix.\n", 0);
 		}
 
 		ch->next                = char_list;

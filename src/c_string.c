@@ -283,8 +283,8 @@ const char *center_string_in_whitespace(const String& s, int length)
 bool note_is_name(const String& s, const String& nl)
 {
 	const char *str = s.c_str(), *namelist = nl.c_str();
-	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
 	const char *list, *string;
+	String part, name;
 
 	/* fix crash on NULL namelist */
 	if (namelist == NULL || namelist[0] == '\0')
@@ -325,8 +325,8 @@ bool note_is_name(const String& s, const String& nl)
 bool is_exact_name(const String& s, const String& nl)
 {
 	const char *str = s.c_str(), *namelist = nl.c_str();
-	char name[MIL], part[MIL];
 	const char *list, *string;
+	String part, name;
 	string = str;
 
 	/* we need ALL parts of string to match part of namelist */
@@ -360,8 +360,8 @@ bool is_exact_name(const String& s, const String& nl)
 bool is_name(const String& s, const String& nl)
 {
 	const char *str = s.c_str(), *namelist = nl.c_str();
-	char name[MIL], part[MIL];
 	const char *list, *string;
+	String part, name;
 	string = str;
 
 	/* we need ALL parts of string to match part of namelist */
@@ -392,8 +392,8 @@ bool is_name(const String& s, const String& nl)
 bool is_exact_name_color(const String& s, const String& nl)
 {
 	const char *str = s.c_str(), *namelist = nl.c_str();
-	char name[MIL], part[MIL];
 	const char *list, *string;
+	String part, name;
 	/* strip the color codes */
 	str = smash_bracket(str);
 	namelist = smash_bracket(namelist);

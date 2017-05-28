@@ -27,10 +27,9 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, const String& argument, int vis)
 {
 	CHAR_DATA *rch;
 	int count = 0, vnum = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -82,10 +81,9 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, const String& argument, int vis)
 		return ach;
 
 	int count = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (!IS_NPC(ach))
@@ -126,10 +124,9 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, const String& argument, int vis)
 		return wch;
 
 	int count = 0, vnum = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -174,10 +171,9 @@ CHAR_DATA *get_char_here(CHAR_DATA *ch, const String& argument, int vis)
 {
 	CHAR_DATA *rch;
 	int count = 0, vnum = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -226,10 +222,9 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const String& arg
 {
 	CHAR_DATA *rch;
 	int count = 0, vnum = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -278,10 +273,9 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const String& argument, int vis)
 		return ach;
 
 	int count = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (ach->in_room == NULL)
@@ -319,10 +313,9 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const String& argument, int vis)
 		return wch;
 
 	int count = 0, vnum = 0;
-	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int etype = entity_argument(argument, temp_arg);
-	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
-	int number = number_argument(temp_arg, arg);
+	String arg;
+	int etype = entity_argument(argument, arg);
+	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -473,9 +466,9 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, const String& argument, int vis)
 /* Find an obj in a list. */
 OBJ_DATA *get_obj_list(CHAR_DATA *ch, const String& argument, OBJ_DATA *list)
 {
-	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
+	String arg;
 	number = number_argument(argument, arg);
 
 	for (obj = list; obj != NULL; obj = obj->next_content)
@@ -489,9 +482,9 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const String& argument, OBJ_DATA *list)
 /* Find an obj in player's equipment. */
 OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const String& argument)
 {
-	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
+	String arg;
 	number = number_argument(argument, arg);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
@@ -507,9 +500,9 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const String& argument)
 /* Find an obj in player's inventory. */
 OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const String& argument)
 {
-	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
+	String arg;
 	number = number_argument(argument, arg);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
@@ -542,13 +535,13 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const String& argument)
 /* Find an obj in the world. */
 OBJ_DATA *get_obj_world(CHAR_DATA *ch, const String& argument)
 {
-	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
 
 	if ((obj = get_obj_here(ch, argument)) != NULL)
 		return obj;
 
+	String arg;
 	number = number_argument(argument, arg);
 
 	for (obj = object_list; obj; obj = obj->next)

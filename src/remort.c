@@ -295,9 +295,10 @@ void list_extraskill(CHAR_DATA *ch)
 
 void do_eremort(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	BUFFER *output;
 	int x, sn = 0;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (IS_NPC(ch)) {
@@ -405,8 +406,10 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 void do_remort(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
+	char buf[MSL];
 	int race, x, c;
+
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);

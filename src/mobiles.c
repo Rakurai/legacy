@@ -30,7 +30,6 @@
 
 void do_heal(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	char *words;
 	CHAR_DATA *mob;
@@ -48,6 +47,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {

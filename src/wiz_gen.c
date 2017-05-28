@@ -27,7 +27,7 @@
 
 
 extern bool    swearcheck              args((const char *argument));
-
+extern bool check_parse_name(const String& name);
 extern  ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
 extern  AREA_DATA       *area_first;
 
@@ -35,9 +35,9 @@ void do_adjust(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char       buf  [ MAX_STRING_LENGTH ];
-	char       arg1 [ MAX_INPUT_LENGTH ];
-	char       arg2 [ MAX_INPUT_LENGTH ];
 	int      value;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -102,7 +102,7 @@ void do_allsave(CHAR_DATA *ch, const char *argument)
 
 void do_alternate(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], query[MSL], colorsite[MSL], *p, *q;
+	char query[MSL], colorsite[MSL], *p, *q;
 	BUFFER *output;
 	int sorted_count = 0, i;
 	struct alts {
@@ -111,6 +111,8 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 		bool printed;
 	};
 	struct alts results_sorted[500];
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
@@ -320,11 +322,12 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 
 void do_at(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *original;
 	OBJ_DATA *on;
 	CHAR_DATA *wch;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -369,10 +372,11 @@ void do_at(CHAR_DATA *ch, const char *argument)
 void do_check(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	bool SHOWIMM = FALSE;
 	BUFFER *buffer;
 	CHAR_DATA *victim;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!str_cmp(arg, "gods") || !str_cmp(argument, "gods"))
@@ -573,10 +577,10 @@ void do_check(CHAR_DATA *ch, const char *argument)
 
 void do_chown(CHAR_DATA *ch, const char *argument)
 {
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -630,13 +634,13 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 /* command that is similar to load */
 void do_clone(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
-	char which[MAX_INPUT_LENGTH];
 	const char *rest;
 	CHAR_DATA *mob;
 	OBJ_DATA  *obj;
 	int j;
 	int number;
+
+	String arg, which;
 	rest = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -770,11 +774,11 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 /* Funky style clone command */
 void do_oclone(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -822,7 +826,7 @@ void do_oclone(CHAR_DATA *ch, const char *argument)
 
 void do_departedlist(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -859,11 +863,12 @@ void do_departedlist(CHAR_DATA *ch, const char *argument)
 
 void do_leader(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *victim;
 	/* Not using these at the moment. -- Outsider
 	int count = 0, ldrcount = 0;
 	*/
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -947,9 +952,10 @@ void do_leader(CHAR_DATA *ch, const char *argument)
 
 void do_deputize(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *victim;
 	int count = 0, depcount = 0;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1029,7 +1035,8 @@ void do_deputize(CHAR_DATA *ch, const char *argument)
 void do_despell(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	char arg[MAX_INPUT_LENGTH];
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1049,7 +1056,6 @@ void do_despell(CHAR_DATA *ch, const char *argument)
 
 void do_disconnect(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	DESCRIPTOR_DATA *d;
 	int desc;
 	char buf[MAX_INPUT_LENGTH];
@@ -1060,6 +1066,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (!is_number(arg)) {
@@ -1102,7 +1109,8 @@ void do_doas(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *orig;
-	char arg[MAX_STRING_LENGTH];
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -1204,8 +1212,9 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 
 void do_pecho(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (argument[0] == '\0' || arg[0] == '\0') {
@@ -1233,7 +1242,7 @@ void do_file(CHAR_DATA *ch, const char *argument)
 {
 	FILE *req_file;
 	int num_lines = 0, req_lines = 0, cur_line = 0, i;
-	char field[MIL], value[MIL], buf[MSL], strsave[50];
+	char buf[MSL], strsave[50];
 	BUFFER *buffer;
 	struct file_struct {
 		char   *cmd;
@@ -1254,6 +1263,8 @@ void do_file(CHAR_DATA *ch, const char *argument)
 		{       "hbb",          "hbb.txt"       },      /* Chilalin */
 		{       NULL,           NULL }
 	};
+
+	String field, value;
 	argument = one_argument(argument, field);
 	one_argument(argument, value);
 
@@ -1325,10 +1336,11 @@ void do_file(CHAR_DATA *ch, const char *argument)
 
 void do_followerlist(CHAR_DATA *ch, const char *argument)
 {
-	char query[MSL], deity[MSL];
+	char query[MSL];
+	String deity;
 
 	if (argument[0] == '\0')
-		strcpy(deity, ch->name);
+		deity = ch->name;
 	else
 		one_argument(argument, deity);
 
@@ -1378,12 +1390,12 @@ const char *name_expand(CHAR_DATA *ch)
 {
 	int count = 1;
 	CHAR_DATA *rch;
-	char name[MAX_INPUT_LENGTH];
 	static char outbuf[MAX_INPUT_LENGTH];
 
 	if (!IS_NPC(ch))
 		return ch->name.c_str();
 
+	String name;
 	one_argument(ch->name, name);  /* copy the first word into name */
 
 	if (!name[0]) { /* weird mob .. no keywords */
@@ -1401,11 +1413,13 @@ const char *name_expand(CHAR_DATA *ch)
 
 void do_for(CHAR_DATA *ch, const char *argument)
 {
-	char range[MIL], buf[MSL];
+	char buf[MSL];
 	ROOM_INDEX_DATA *room, *old_room = NULL;
 	CHAR_DATA *p, *p_next;
 	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
 	int i;
+
+	String range;
 	argument = one_argument(argument, range);
 
 	if (!range[0] || !argument[0]) { /* invalid usage? */
@@ -1542,7 +1556,6 @@ void do_for(CHAR_DATA *ch, const char *argument)
 
 void do_goto(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	ROOM_INDEX_DATA *location = NULL;
 	CHAR_DATA *rch;
 	OBJ_DATA *obj;
@@ -1557,6 +1570,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (is_number(arg))
@@ -1710,9 +1724,10 @@ void do_grouplist(CHAR_DATA *ch, const char *argument)
 
 void do_guild(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
 	CLAN_DATA *clan;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -1779,10 +1794,12 @@ void do_guild(CHAR_DATA *ch, const char *argument)
    imm who is sending the message. Also broadcasts to all other imms in game. */
 void do_heed(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], buf[100 + MIL]; /* enough for pompous intro + text */
+	char buf[100 + MIL]; /* enough for pompous intro + text */
 	CHAR_DATA *victim, *truevictim;
 	PC_DATA *tpc;
 	DESCRIPTOR_DATA *d;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (!arg1[0]) {
@@ -1873,11 +1890,12 @@ void do_heed(CHAR_DATA *ch, const char *argument)
 void do_linkload(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *dnew;
 	DESCRIPTOR_DATA *d;
 	int desc = 5;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1890,7 +1908,7 @@ void do_linkload(CHAR_DATA *ch, const char *argument)
 
 	desc++;
 
-	if (has_slash(arg)) {
+	if (!check_parse_name(arg)) {
 		stc("That is not a valid player name.\n", ch);
 		return;
 	}
@@ -1947,10 +1965,11 @@ void do_linkload(CHAR_DATA *ch, const char *argument)
 
 void do_mload(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA *pMobIndex;
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !is_number(arg)) {
@@ -1981,9 +2000,10 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 
 void do_oload(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0' || !is_number(arg1)) {
@@ -2017,7 +2037,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 
 void do_load(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -2043,7 +2063,6 @@ void do_load(CHAR_DATA *ch, const char *argument)
 
 void do_lower(CHAR_DATA *ch, const char *argument)
 {
-	char what[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
 	CHAR_DATA *victim;
@@ -2059,6 +2078,8 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 		{ 0, 0 }
 	};
 	extern void do_quest(CHAR_DATA * ch, const char *argument);
+
+	String what;
 	argument = one_argument(argument, what);
 
 	if (what[0] == '\0') {
@@ -2156,9 +2177,10 @@ void do_lurk(CHAR_DATA *ch, const char *argument)
 /* Master command by Lotus */
 void do_master(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *pet;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0' || argument[0] == '\0') {
@@ -2210,16 +2232,15 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        // Extra buffer, needed to fix mis-alignment. by Clerve
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	char arg3[MAX_INPUT_LENGTH];
 	BUFFER *buffer;
 	OBJ_INDEX_DATA *pObjIndex;
 	int vnum, blevel, elevel;
 	int nMatch, matches;
 	unsigned long wear_loc;
 	bool found, with_wear;
+
 	/* Check 1st argument - required begin level */
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 
 	if (!is_number(arg1)) {
@@ -2231,6 +2252,7 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 	elevel = blevel;
 	wear_loc = -1;          /* standard: everything */
 	with_wear = FALSE;
+
 	/* Check for 2nd argument - optional ending level */
 	argument = one_argument(argument, arg2);
 
@@ -2253,7 +2275,7 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 
 	/* Check for 3rd Argument - optional wear location*/
 	if (with_wear)
-		strcpy(arg3, arg2);
+		arg3 = arg2;
 	else
 		argument = one_argument(argument, arg3);
 
@@ -2359,13 +2381,14 @@ void do_mlevel(CHAR_DATA *ch, const char *argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	char tmpbuf[80];        // needed to mix misalignment due to colorcodes.. Clerve
 	BUFFER *buffer;
 	MOB_INDEX_DATA *pMobIndex;
 	int vnum, blevel, elevel;
 	int nMatch;
 	bool found;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!is_number(arg)) {
@@ -2505,7 +2528,7 @@ void do_motd(CHAR_DATA *ch, const char *argument)
 
 void do_owhere(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MSL], arg[MIL], arg2[MIL];
+	char buf[MSL];
 	BUFFER *output;
 	OBJ_DATA *obj, *in_obj;
 	int count = 1, vnum = 0;
@@ -2513,6 +2536,8 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	int place_last_found = 0;   /* the vnum of the place where we last found an item */
 	int item_last_found = 0;    /* the vnum of the last item displayed */
 	output = new_buf();
+
+	String arg, arg2;
 	argument = one_argument(argument, arg);
 	one_argument(argument, arg2);
 
@@ -2668,12 +2693,12 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 void do_mwhere(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	BUFFER *output;
 	CHAR_DATA *victim;
 	bool found;
 	output = new_buf();
+
+	String arg, arg2;
 	argument = one_argument(argument, arg);
 	one_argument(argument, arg2);
 
@@ -2779,7 +2804,6 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	BUFFER *output;
 	MOB_INDEX_DATA *pMobIndex;
 	int vnum;
@@ -2787,6 +2811,8 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	bool fAll;
 	bool found;
 	output = new_buf();
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -2830,20 +2856,22 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 {
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
 	BUFFER *output;
 	int vnum;
 	int nMatch;
 	bool fAll;
 	bool found;
-	output = new_buf();
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
 		stc("Find what object?\n", ch);
 		return;
 	}
+
+	output = new_buf();
 
 	fAll        = FALSE; /* !str_cmp( arg, "all" ); */
 	found       = FALSE;
@@ -2880,9 +2908,8 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 /* ofind and mfind replaced with vnum, vnum skill also added */
 void do_vnum(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
-	const char *string;
-	string = one_argument(argument, arg);
+	String arg;
+	const char *string = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
 		stc("Syntax:\n", ch);
@@ -2914,8 +2941,9 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 
 void do_canmakebag(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -2971,10 +2999,11 @@ void do_noreply(CHAR_DATA *ch, const char *argument)
  */
 void do_owner(CHAR_DATA *ch, const char *argument)
 {
-	char what[MIL], whom[MIL];
 	OBJ_DATA *item;
 	CHAR_DATA *player = NULL;
 	EXTRA_DESCR_DATA *ed;
+
+	String what, whom;
 	argument = one_argument(argument, what);
 	argument = one_argument(argument, whom);
 
@@ -3065,11 +3094,12 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 
 void do_purge(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	DESCRIPTOR_DATA *d;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -3157,15 +3187,14 @@ int has_enough_qps(CHAR_DATA *ch, int number_of)
 
 void do_qpconv(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	char arg3[MAX_INPUT_LENGTH];
-	int number_of = 0, qpcost = 0, what = 0, l = 0;
+	int number_of = 0, qpcost = 0, what = 0;
 	char buffer[1024];
 	CHAR_DATA *victim;
+
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+	arg3 = argument;
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		stc("Syntax: qpconv <character> <train|prac> <number of>.\n", ch);
@@ -3194,14 +3223,12 @@ void do_qpconv(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	l = strlen(arg2);
-
-	if (!strncasecmp(arg2, "train", l)) {
+	if (!str_cmp(arg2, "train")) {
 		qpcost = number_of * QPS_PER_TRAIN;
 		what = 1;
 	}
 
-	if (!strncasecmp(arg2, "practice", l)) {
+	if (!str_cmp(arg2, "practice")) {
 		qpcost = number_of * QPS_PER_PRAC;
 		what = 2;
 	}
@@ -3256,9 +3283,11 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 
 void do_restore(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !str_cmp(arg, "room")) {
@@ -3297,7 +3326,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 /* Secure levels by Lotus */
 void do_secure(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !str_prefix1(arg, "immortal")) {
@@ -3325,9 +3354,10 @@ void do_secure(CHAR_DATA *ch, const char *argument)
 /* The workhorse coding of do_setgamein() and do_setgameout() */
 void setgameinout(CHAR_DATA *ch, const char *argument, char *entryexit, char flag)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	char **msgptr;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (! arg[0]) {
@@ -3385,11 +3415,12 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *vch;
 	PC_DATA *vpc, *vpc_next;
 	BUFFER *buffer = new_buf();
-	char arg[MAX_INPUT_LENGTH];
 	char status[MAX_STRING_LENGTH];
 	char s[100];
 	bool multiplay = FALSE;
 	int count = 0, ldcount = 0;
+
+	String arg;
 	one_argument(argument, arg);
 	add_buf(buffer, "\n{PNum{x|{YConnected_State{x| {BLogin{x |{CIdl{x|{GPlayer  Name{x|{WHost{x\n");
 	add_buf(buffer, "---|---------------|-------|---|------------|-------------------------\n");
@@ -3532,7 +3563,6 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 
 void do_storage(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
 	STORAGE_DATA *i;
 
 	if (argument[0] == '\0') {
@@ -3543,6 +3573,7 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1); /* storage command */
 
 	if (!str_cmp(arg1, "list")) {
@@ -3669,7 +3700,7 @@ void do_superwiz(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *arg)
+ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const String& arg)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -3688,11 +3719,11 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *arg)
 
 void do_transfer(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	ROOM_INDEX_DATA *location;
 	DESCRIPTOR_DATA *d;
 	CHAR_DATA *victim;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -3766,7 +3797,6 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 
 void do_violate(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	OBJ_DATA *obj;
 	ROOM_INDEX_DATA *location = NULL;
 	CHAR_DATA *rch;
@@ -3776,6 +3806,7 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (is_number(arg))
@@ -3834,10 +3865,11 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 /* Command groups - Command to give/take */
 void do_wizgroup(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], arg3[MIL];
 	CHAR_DATA *victim;
 	int count = 0;
 	bool add = FALSE, all = FALSE, found = FALSE;
+
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
@@ -3896,11 +3928,12 @@ void do_wizgroup(CHAR_DATA *ch, const char *argument)
 /* Wizify by Pwrdemon */
 void do_wizify(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
 	char strsave[MAX_INPUT_LENGTH];
 	FILE *fp;
 	CHAR_DATA *victim;
 	int sn;
+
+	String arg1;
 	one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {
@@ -3961,8 +3994,9 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 /* Aura command stolen from rank - Lotus */
 void do_aura(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	CHAR_DATA *victim;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (IS_NPC(ch)) {
@@ -4074,7 +4108,7 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 
 void do_clanqp(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
+	char buf[MSL];
 	CLAN_DATA *target;
 	int qp_amount = 0;
 
@@ -4100,6 +4134,7 @@ void do_clanqp(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1); /* donate/withdraw     */
 	argument = one_argument(argument, arg2); /* qp_amount           */
 	argument = one_argument(argument, arg3); /* clanname            */

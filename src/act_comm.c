@@ -465,13 +465,12 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 /* code to test poses -- Elrac */
 void do_testpose(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
-
 	if (!argument[0]) {
 		stc("Syntax: testpose [class [number]]\n", ch);
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 	int cls = class_lookup(arg);
 
@@ -1301,14 +1300,15 @@ void do_save(CHAR_DATA *ch, const char *argument)
 void do_follow(CHAR_DATA *ch, const char *argument)
 {
 	/* RT changed to allow unlimited following and follow the NOFOLLOW rules */
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Follow whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
 		stc("They aren't here.\n", ch);
@@ -1445,13 +1445,14 @@ void die_follower(CHAR_DATA *ch)
 void do_order(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *och;
 	CHAR_DATA *och_next;
 	bool found;
 	bool fAll;
 	bool remote_familiar = FALSE;
+
+	String arg, arg2;
 	argument = one_argument(argument, arg);
 	one_argument(argument, arg2);
 
@@ -1612,8 +1613,9 @@ void do_pet(CHAR_DATA *ch, const char *argument)
 void do_group(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1701,19 +1703,20 @@ void do_group(CHAR_DATA *ch, const char *argument)
 void do_split(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
 	int members;
 	int amount_gold = 0, amount_silver = 0;
 	int share_gold, share_silver;
 	int extra_gold, extra_silver;
-	argument = one_argument(argument, arg1);
-	one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Split how much?\n", ch);
 		return;
 	}
+
+	String arg1, arg2;
+	argument = one_argument(argument, arg1);
+	one_argument(argument, arg2);
 
 	amount_silver = atoi(arg1);
 
@@ -1836,8 +1839,6 @@ void align(CHAR_DATA *ch, int new_align, char *align_str)
 
 void do_align(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_INPUT_LENGTH];
-
 	if (IS_NPC(ch)) {
 		stc("Silly, mobiles can't change their alignment!\n", ch);
 		return;
@@ -1848,20 +1849,21 @@ void do_align(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, buf);
-
-	if (buf[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Syntax: {RALIGN GOOD{x\n"
 		    "or      {RALIGN NEUTRAL{x\n"
 		    "or      {RALIGN EVIL{x\n", ch);
 		return;
 	}
 
-	if (!str_prefix1(buf, "good"))
+	String arg;
+	one_argument(argument, arg);
+
+	if (!str_prefix1(arg, "good"))
 		align(ch, 750, "good");
-	else if (!str_prefix1(buf, "neutral"))
+	else if (!str_prefix1(arg, "neutral"))
 		align(ch, 0, "neutral");
-	else if (!str_prefix1(buf, "evil"))
+	else if (!str_prefix1(arg, "evil"))
 		align(ch, -750, "evil");
 	else
 		do_align(ch, "");

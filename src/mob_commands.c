@@ -86,9 +86,10 @@ char *mprog_type_to_name(int type)
 void do_mpstat(CHAR_DATA *ch, const char *argument)
 {
 	char        buf[ MAX_STRING_LENGTH ];
-	char        arg[ MAX_INPUT_LENGTH  ];
 	MPROG_DATA *mprg;
 	CHAR_DATA  *victim;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -184,7 +185,6 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
 
 void do_mpkill(CHAR_DATA *ch, const char *argument)
 {
-	char      arg[ MAX_INPUT_LENGTH ];
 	CHAR_DATA *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
@@ -192,6 +192,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -234,7 +235,6 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 
 void do_mpjunk(CHAR_DATA *ch, const char *argument)
 {
-	char      arg[ MAX_INPUT_LENGTH ];
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 
@@ -243,6 +243,7 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -281,7 +282,6 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
 
 void do_mpechoaround(CHAR_DATA *ch, const char *argument)
 {
-	char       arg[ MAX_INPUT_LENGTH ];
 	CHAR_DATA *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
@@ -289,6 +289,7 @@ void do_mpechoaround(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -310,7 +311,6 @@ void do_mpechoaround(CHAR_DATA *ch, const char *argument)
 
 void do_mpechoat(CHAR_DATA *ch, const char *argument)
 {
-	char       arg[ MAX_INPUT_LENGTH ];
 	CHAR_DATA *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
@@ -318,6 +318,7 @@ void do_mpechoat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -373,7 +374,6 @@ the load object portion as well. */
 
 void do_mpmload(CHAR_DATA *ch, const char *argument)
 {
-	char            arg[ MAX_INPUT_LENGTH ];
 	MOB_INDEX_DATA *pMobIndex;
 	CHAR_DATA      *victim;
 
@@ -382,6 +382,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !is_number(arg)) {
@@ -407,8 +408,6 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 
 void do_mpoload(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[ MAX_INPUT_LENGTH ];
-	char arg2[ MAX_INPUT_LENGTH ];
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA       *obj;
 
@@ -417,6 +416,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -453,7 +453,6 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
 
 void do_mppurge(CHAR_DATA *ch, const char *argument)
 {
-	char       arg[ MAX_INPUT_LENGTH ];
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 
@@ -462,6 +461,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -503,7 +503,6 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 
 void do_mpgoto(CHAR_DATA *ch, const char *argument)
 {
-	char             arg[ MAX_INPUT_LENGTH ];
 	ROOM_INDEX_DATA *location;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
@@ -511,6 +510,7 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -535,7 +535,6 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
 
 void do_mpat(CHAR_DATA *ch, const char *argument)
 {
-	char             arg[ MAX_INPUT_LENGTH ];
 	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *original;
 	CHAR_DATA       *wch;
@@ -545,6 +544,7 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -582,7 +582,6 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
 
 void do_mptransfer(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	ROOM_INDEX_DATA *location;
 //	DESCRIPTOR_DATA *d;
 	CHAR_DATA *victim;
@@ -592,6 +591,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -660,13 +660,12 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
    and the all argument only affects those in the room with the mobile */
 void do_mpforce(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
-
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {

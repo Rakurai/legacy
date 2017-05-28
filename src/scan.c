@@ -43,10 +43,12 @@ void    scan_char       args((CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh
 void do_scan2(CHAR_DATA *ch, const char *argument)
 {
 	extern char *const dir_name[];
-	char arg1[MIL], buf[MIL];
+	char buf[MIL];
 	ROOM_INDEX_DATA *room;
 	EXIT_DATA *pExit;
 	sh_int door, depth;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {
@@ -118,10 +120,12 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 void do_scan(CHAR_DATA *ch, const char *argument)
 {
 	extern char *const dir_name[];
-	char arg1[MIL], buf[MIL];
+	char buf[MIL];
 	ROOM_INDEX_DATA *scan_room;
 	EXIT_DATA *pExit;
 	sh_int door, depth;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {

@@ -39,7 +39,7 @@
 
 void do_set(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -110,14 +110,13 @@ void do_set(CHAR_DATA *ch, const char *argument)
 
 void do_sset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
-	char arg3 [MAX_INPUT_LENGTH];
 	char buf[1024];
 	CHAR_DATA *victim;
 	int value;
 	int sn;
 	bool fAll;
+
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
@@ -190,12 +189,11 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 
 void do_evoset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	char arg3[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	int value, sn;
+
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
@@ -294,10 +292,10 @@ void do_raffset(CHAR_DATA *ch, const char *argument)
 	extern void roll_one_raff(CHAR_DATA * ch, CHAR_DATA * victim, int place);
 	extern void roll_raffects(CHAR_DATA * ch, CHAR_DATA * victim);
 	extern void rem_raff_affect(CHAR_DATA * ch, int index);
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int i, index;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -453,12 +451,12 @@ void do_raffset(CHAR_DATA *ch, const char *argument)
 void do_extraset(CHAR_DATA *ch, const char *argument)
 {
 	extern void fix_blank_extraclass(CHAR_DATA * ch, int index);
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
 	CHAR_DATA *victim;
 	int sn, x, i, gn, cn, col = 0;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -627,9 +625,11 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 
 void do_mset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], arg3[MIL], buf[1024];
+	char arg3[MIL], buf[1024];
 	CHAR_DATA *victim;
 	int value;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
@@ -1247,12 +1247,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 void do_oset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	char arg3 [MAX_INPUT_LENGTH];
 	char buf[1024];
 	OBJ_DATA *obj;
 	int value;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
@@ -1397,12 +1397,12 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 
 void do_rset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	char arg3 [MAX_INPUT_LENGTH];
 	char buf [MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *location;
 	int value;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
@@ -1811,7 +1811,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 
 void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
-	char buf[MSL];
+	String buf;
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
 	int door;
@@ -1887,7 +1887,6 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
-	char arg1[MIL];
 	const char *arg2;
 
 	if (argument[0] == '\0') {
@@ -1900,6 +1899,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	arg2 = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "char")) {

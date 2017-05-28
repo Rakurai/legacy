@@ -3277,17 +3277,18 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 
 void do_bash(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
 	int kdtime;
 	int evolution_level;
-	one_argument(argument, arg);
 
 	if (get_skill(ch, gsn_bash) == 0) {
 		stc("Bashing? What's that?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
@@ -3449,9 +3450,10 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 
 void do_dirt(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if ((chance = get_skill(ch, gsn_dirt_kicking)) == 0) {
@@ -3634,9 +3636,10 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 
 void do_trip(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if ((chance = get_skill(ch, gsn_trip)) == 0) {
@@ -3756,14 +3759,15 @@ bool check_attack_ok(CHAR_DATA *ch, CHAR_DATA *victim) {
 
 void do_kill(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Kill whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	/* Check to see if we have blind fight -- Outsider */
 	if (CAN_USE_RSKILL(ch, gsn_blind_fight)) {
@@ -3797,7 +3801,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 /* Battle/Arena by Lotus */
 void do_battle(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_STRING_LENGTH], arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH], arg3[MAX_INPUT_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	int low, high, fee;
 	ROOM_INDEX_DATA *location;
 	DESCRIPTOR_DATA *d;
@@ -3807,6 +3811,7 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_IMMORTAL(ch)) {
+		String arg1, arg2, arg3;
 		argument = one_argument(argument, arg1);
 		argument = one_argument(argument, arg2);
 		argument = one_argument(argument, arg3);
@@ -4082,7 +4087,6 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 
 void do_backstab(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
@@ -4091,12 +4095,13 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Backstab whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (ch->fighting != NULL) {
 		stc("You're facing the wrong end.\n", ch);
@@ -4169,7 +4174,6 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 /* Shadow Form for remorts - Lotus */
 void do_shadow(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
@@ -4183,6 +4187,7 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0')
@@ -4237,7 +4242,6 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 
 void do_circle(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
@@ -4251,6 +4255,7 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0')
@@ -4429,15 +4434,16 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 
 void do_rescue(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *fch;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Rescue whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
 		stc("They aren't here.\n", ch);
@@ -4875,15 +4881,16 @@ void do_sla(CHAR_DATA *ch, const char *argument)
 
 void do_slay(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH]; /* For [FYI] */
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Slay whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
 		stc("They aren't here.\n", ch);
@@ -4918,19 +4925,20 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 
 void do_rotate(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
 	if (get_skill(ch, gsn_rotate) == 0) {
 		stc("Do what?", ch);
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Rotate your attack to whom?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (ch->fighting == NULL) {
 		stc("You're not in combat, just pick someone!\n", ch);
@@ -5174,9 +5182,7 @@ void do_rage(CHAR_DATA *ch, const char *argument)
 void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 {
 	int heal, skill;
-	char arg[MIL];
 	CHAR_DATA *victim;
-	one_argument(argument, arg);
 
 	if (IS_NPC(ch))
 		return;
@@ -5188,11 +5194,14 @@ void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Syntax: lay <target>\n"
 		    "        lay count\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (!str_prefix(arg, "count")) {
 		ptc(ch, "You may use Lay on Hands %d more times today.\n",
@@ -5271,7 +5280,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else { // if any arguments, try parsing the first one for a direction
-		char dir_str[MIL], dir_arg[MIL];
+		String dir_str, dir_arg;
 		const char *target_str = one_argument(argument, dir_arg);
 		ROOM_INDEX_DATA *target_room = NULL;
 		int distance = MAX_BOW_DISTANCE;
@@ -5282,7 +5291,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 			distance = UMIN(number_argument(dir_arg, dir_str), MAX_BOW_DISTANCE);
 		else {
 			nearest = TRUE;
-			strcpy(dir_str, dir_arg);
+			dir_str = dir_arg;
 		}
 
 		     if (!str_prefix1(dir_str, "north")) dir = DIR_NORTH;

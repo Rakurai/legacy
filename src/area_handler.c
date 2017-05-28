@@ -1257,7 +1257,6 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 /* new, improved AREAS command -- Elrac */
 void do_areas(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	/* user parameters */
 	bool showall = TRUE;
 	bool sortv = FALSE;
@@ -1278,6 +1277,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 	char *p;
 	int j, k;
 	/* scan syntax: [lvl] {[keywd|'*'|'#'] ... } */
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0]) {
@@ -1415,14 +1415,16 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		buf[0] = '\0';
 
 		if (IS_IMMORTAL(ch)) {
-			strcpy(arg, ap->file_name);
-			p = strchr(arg, '.');
+			char buf2[MAX_STRING_LENGTH];
+			strcpy(buf2, ap->file_name);
+
+			p = strchr(buf2, '.');
 
 			if (p)
 				*p = '\0';
 
-			arg[sizeof(filename)] = '\0';
-			strcpy(filename, arg);
+			buf2[sizeof(filename)] = '\0';
+			strcpy(filename, buf2);
 
 			if (ap->nplayer == 0) {
 				Format::sprintf(buf, "%-8.8s [%5d-%5d]%3s ",

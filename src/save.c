@@ -59,6 +59,9 @@ void    fread_player      args((CHAR_DATA *ch,  cJSON *json, int version));
 void    fread_pet       args((CHAR_DATA *ch,  cJSON *json, int version));
 void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version));
 
+// external
+bool check_parse_name(const String& name);
+
 /*
  * Save a character and inventory.
  * Would be cool to save NPC's too for quest purposes,
@@ -66,7 +69,7 @@ void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, 
  */
 void save_char_obj(CHAR_DATA *ch)
 {
-	char strsave[MIL], buf[MSL];
+	char strsave[MIL];
 	FILE *fp;
 
 	if (ch == NULL || IS_NPC(ch))
@@ -96,8 +99,9 @@ void save_char_obj(CHAR_DATA *ch)
 	cJSON_Delete(root);
 
 	// added if to avoid closing invalid file
+	String buf;
 	one_argument(ch->name, buf);
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.capitalize());
 
 	if ((fp = fopen(TEMP_FILE, "w")) != NULL) {
 		fputs(JSONstring, fp);
@@ -116,16 +120,17 @@ void backup_char_obj(CHAR_DATA *ch)
 {
 	save_char_obj(ch);
 
-	char strsave[MIL], strback[MIL], buf[MIL];
+	char strsave[MIL], strback[MIL];
+	String buf;
 	one_argument(ch->name, buf);
 
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
-	Format::sprintf(strback, "%s%s", BACKUP_DIR, capitalize(buf));
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.capitalize());
+	Format::sprintf(strback, "%s%s", BACKUP_DIR, buf.capitalize());
 
 	Format::sprintf(buf, "cp %s %s", strsave, strback);
-	system(buf);
+	system(buf.c_str());
 	Format::sprintf(buf, "gzip -fq %s", strback);
-	system(buf);
+	system(buf.c_str());
 } /* end backup_char_obj() */
 
 cJSON *fwrite_player(CHAR_DATA *ch)
@@ -1629,7 +1634,7 @@ endoftime:
 
 void do_finger(CHAR_DATA *ch, const char *argument)
 {
-	char filename[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
+	char filename[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	FILE *fp;
 	BUFFER *dbuf = NULL;
@@ -1640,6 +1645,8 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 	long cgroup = 0L, plr = 0L;
 	time_t last_ltime, last_saved;
 	CLAN_DATA *clan = NULL;
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (!arg[0]) {
@@ -1665,13 +1672,13 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (has_slash(arg)) {
+	if (!check_parse_name(arg)) {
 		stc("That is not a valid player name.\n", ch);
 		return;
 	}
 
 	cJSON *root = NULL;
-	Format::sprintf(filename, "%s%s", PLAYER_DIR, capitalize(arg));
+	Format::sprintf(filename, "%s%s", PLAYER_DIR, arg.capitalize());
 
 	if ((fp = fopen(filename, "rb")) != NULL) {
 		int length;

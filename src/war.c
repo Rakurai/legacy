@@ -1036,11 +1036,13 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 /* all-encompassing war command */
 void do_war(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
+	char buf[MSL];
 	CLAN_DATA *clanA, *clanB;
 	WAR_DATA *war = NULL;
 	int count = 0, number = 0;
 	bool challenger = FALSE;
+
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);

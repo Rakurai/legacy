@@ -102,7 +102,7 @@ void    game_loop_unix          args((int control));
 int     init_socket             args((int port));
 void    init_descriptor         args((int control));
 bool    read_from_descriptor    args((DESCRIPTOR_DATA *d));
-bool    write_to_descriptor     args((int desc, char *txt, int length));
+bool    write_to_descriptor     args((int desc, const String& txt, int length));
 
 /*
  * Other local functions (OS-independent).

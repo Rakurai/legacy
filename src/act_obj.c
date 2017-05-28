@@ -50,7 +50,7 @@ void       wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
 CHAR_DATA *find_keeper     args((CHAR_DATA *ch));
 int        get_cost        args((CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy));
 void       obj_to_keeper   args((OBJ_DATA *obj, CHAR_DATA *ch));
-OBJ_DATA  *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, const char *argument));
+OBJ_DATA  *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, const String& argument));
 
 /* Convert a number to an ordinal string -- Elrac
    The string may come from a static buffer, so it should be copied
@@ -440,21 +440,21 @@ bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
 
 void do_get(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj, *obj_next, *container;
 	bool found;
+
+	/* Get type. */
+	if (argument[0] == '\0') {
+		stc("Get what?\n", ch);
+		return;
+	}
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
 	if (!str_cmp(arg2, "from"))
 		argument = one_argument(argument, arg2);
-
-	/* Get type. */
-	if (arg1[0] == '\0') {
-		stc("Get what?\n", ch);
-		return;
-	}
 
 	if (arg2[0] == '\0') {
 		if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
@@ -722,10 +722,11 @@ bool will_fit(OBJ_DATA *obj, OBJ_DATA *container)
 
 void do_put(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	OBJ_DATA *container, *obj, *obj_next;
 	int weight;
 	bool found = FALSE, tooheavy = TRUE;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -966,18 +967,18 @@ void do_put(CHAR_DATA *ch, const char *argument)
 
 void do_drop(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	bool found;
-	char obj_name[MAX_INPUT_LENGTH];
 	int number;
-	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
-		stc("Drop what?\n", ch);
+	if (argument[0] == '\0') {
+		stc("You attempt to drop it like it's hot.\n", ch);
 		return;
 	}
+
+	String arg, obj_name;
+	argument = one_argument(argument, arg);
 
 	if (is_number(arg)) {
 		/* 'drop NNNN coins' */
@@ -1185,10 +1186,11 @@ void do_drop(CHAR_DATA *ch, const char *argument)
 
 void do_give(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], buf[MSL];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj, *op, *obj_next;
 	int number, count = 0, item_number = 0, item_weight = 0;
+
+	String arg1, arg2, buf;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -1346,7 +1348,7 @@ void do_give(CHAR_DATA *ch, const char *argument)
 
 	/* 'normal' give [n*]<object> <victim> */
 	number = mult_argument(arg1, buf);
-	strcpy(arg1, buf);
+	arg1 = buf;
 
 	if (number < 0) {
 		stc("If you want more than you had, try stealing!\n", ch);
@@ -1661,17 +1663,18 @@ void do_firebuilding(CHAR_DATA *ch, const char *argument)
 
 void do_fill(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
 	OBJ_DATA *first_fountain = NULL;
 	OBJ_DATA *wanted_fountain = NULL;
-	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Fill what?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		stc("You do not have that item.\n", ch);
@@ -1739,10 +1742,12 @@ void do_fill(CHAR_DATA *ch, const char *argument)
 
 void do_pour(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_STRING_LENGTH], buf[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *out, *in;
 	CHAR_DATA *vch = NULL;
 	int amount;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -1847,9 +1852,10 @@ void do_pour(CHAR_DATA *ch, const char *argument)
 
 void do_drink(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	OBJ_DATA *obj;
 	int amount, liquid, liqvalue;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] != '\0' && argument[0] != '\0' && !str_cmp(arg, "from"))
@@ -1965,12 +1971,13 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 
 void do_eat(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj, *op, *obj_next;
 	int number, count;
 	sh_int obj_vnum;
 	bool fFull = FALSE, fNoLongerHungry = FALSE, fPoisoned = FALSE, found = FALSE;
 	OBJ_DATA *to_extract = NULL;
+
+	String buf, arg;
 	number = mult_argument(argument, buf);
 	one_argument(buf, arg);
 
@@ -2106,7 +2113,7 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 	} /* end for */
 
 	if (count == 1)
-		strcpy(buf, "");
+		buf.erase();
 	else
 		Format::sprintf(buf, "[%d]", count);
 
@@ -2490,14 +2497,15 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 
 void do_wear(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Wear, wield, or hold what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "all")) {
 		OBJ_DATA *obj_next;
@@ -2525,14 +2533,15 @@ void do_wear(CHAR_DATA *ch, const char *argument)
 
 void do_remove(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Remove what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	/* Remove all...from miscellanous donation code */
 	if (!strcmp(arg, "all")) {
@@ -2556,7 +2565,6 @@ void do_remove(CHAR_DATA *ch, const char *argument)
 /* Donate by Lotus */
 void do_donate(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	OBJ_DATA *item;
 
 	/* try to find the pit */
@@ -2578,12 +2586,13 @@ void do_donate(CHAR_DATA *ch, const char *argument)
 		obj_to_room(donation_pit, get_room_index(ROOM_VNUM_ALTAR));
 	}
 
-	argument = one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Donate what?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	if ((item = get_obj_carry(ch, arg)) == NULL) {
 		stc("You do not have that item.\n", ch);
@@ -2608,14 +2617,15 @@ void do_donate(CHAR_DATA *ch, const char *argument)
 /* Junk by Lotus */
 void do_junk(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Junk what?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		stc("You do not have that item.\n", ch);
@@ -2656,7 +2666,6 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 /* sacrifice all by Montrey */
 void do_sacrifice(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj, *obj_next;
 	bool found = FALSE;
@@ -2667,6 +2676,8 @@ void do_sacrifice(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *gch;
 	int members;
 	char buffer[100];
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
@@ -2785,14 +2796,15 @@ void do_sacrifice(CHAR_DATA *ch, const char *argument)
 
 void do_quaff(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Quaff what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		if ((obj = get_eq_char(ch, WEAR_HOLD)) == NULL) {
@@ -2830,13 +2842,14 @@ void do_quaff(CHAR_DATA *ch, const char *argument)
 }
 
 /* Global for scrolls that want that extra oomph */
-extern const char *target_name;
+extern String target_name;
 
 void do_recite(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *scroll, *obj = NULL;
+
+	String arg1, arg2;
 	target_name = one_argument(argument, arg1);
 	one_argument(target_name, arg2);
 
@@ -2999,13 +3012,11 @@ void do_brandish(CHAR_DATA *ch, const char *argument)
 
 void do_zap(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *wand;
-	OBJ_DATA *obj;
-	one_argument(argument, arg);
+	OBJ_DATA *obj = NULL;
 
-	if (arg[0] == '\0' && ch->fighting == NULL) {
+	if (argument[0] == '\0' && ch->fighting == NULL) {
 		stc("Zap whom or what?\n", ch);
 		return;
 	}
@@ -3020,7 +3031,8 @@ void do_zap(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	obj = NULL;
+	String arg;
+	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {   /* no target given */
 		/* check for default target */
@@ -3095,7 +3107,6 @@ void do_zap(CHAR_DATA *ch, const char *argument)
 
 void do_brew(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int sn;
 	int target_level = 0;    /* what level should we brew at? */
@@ -3111,12 +3122,13 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Brew what spell?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	/* Do we have a vial to brew potions? */
 	for (obj = ch->carrying; obj; obj = obj->next_content) {
@@ -3225,7 +3237,6 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 
 void do_scribe(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int sn;
 	int target_level = 0;   /* let caster make items of lower level */
@@ -3241,12 +3252,13 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	argument = one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Scribe what spell?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	/* Do we have a parchment to scribe spells? */
 	for (obj = ch->carrying; obj; obj = obj->next_content) {
@@ -3337,8 +3349,6 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 void do_steal(CHAR_DATA *ch, const char *argument)
 {
 	char buf  [MAX_STRING_LENGTH];
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	int percent;
@@ -3348,6 +3358,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -3677,12 +3688,13 @@ void obj_to_keeper(OBJ_DATA *obj, CHAR_DATA *ch)
 }
 
 /* get an object from a shopkeeper's list */
-OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, const char *argument)
+OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, const String& argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	int number;
 	int count;
+
+	String arg;
 	number = number_argument(argument, arg);
 	count  = 0;
 
@@ -3786,7 +3798,6 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
 		/* PETS */
-		char arg[MAX_INPUT_LENGTH];
 		char buf[MAX_STRING_LENGTH];
 		CHAR_DATA *pet;
 		ROOM_INDEX_DATA *pRoomIndexNext;
@@ -3795,6 +3806,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(ch))
 			return;
 
+		String arg;
 		argument = one_argument(argument, arg);
 
 		/* hack to make new thalos pets work */
@@ -3930,7 +3942,6 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		/* non-pet shop */
 		CHAR_DATA *keeper;
 		OBJ_DATA *obj, *t_obj;
-		char arg[MAX_INPUT_LENGTH];
 		int number, count = 1;
 
 		if ((keeper = find_keeper(ch)) == NULL)
@@ -3941,7 +3952,9 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		String arg;
 		number = mult_argument(argument, arg);
+
 		obj  = get_obj_keeper(ch, keeper, arg);
 		cost = get_cost(keeper, obj, TRUE);
 
@@ -4202,11 +4215,11 @@ void do_list(CHAR_DATA *ch, const char *argument)
 		OBJ_DATA *obj;
 		int cost, count;
 		bool found;
-		char arg[MAX_INPUT_LENGTH];
 
 		if ((keeper = find_keeper(ch)) == NULL)
 			return;
 
+		String arg;
 		one_argument(argument, arg);
 		found = FALSE;
 
@@ -4263,16 +4276,17 @@ void do_list(CHAR_DATA *ch, const char *argument)
 void do_sell(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *keeper;
 	OBJ_DATA *obj;
 	int cost, roll;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Sell what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
@@ -4362,16 +4376,17 @@ void do_sell(CHAR_DATA *ch, const char *argument)
 void do_value(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *keeper;
 	OBJ_DATA *obj;
 	int cost;
-	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Value what?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
@@ -4415,7 +4430,7 @@ void do_value(CHAR_DATA *ch, const char *argument)
 void do_auction(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	char buf[MSL], arg1[MIL], arg2[MIL];
+	char buf[MSL];
 	CLAN_DATA *clan;
 	int min = 0;
 
@@ -4455,6 +4470,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "who")) {
@@ -4597,6 +4613,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	/* auc was not followed by an auc command keyword, so we auc an object */
 	/* Added minimum bid - Lotus */
+	String arg2;
 	argument = one_argument(argument, arg2);
 
 	/* changed from obj_list to obj_carry so as not to auc worn EQ -- Elrac */
@@ -4729,7 +4746,6 @@ int is_anvil_owner(CHAR_DATA *ch, OBJ_DATA *anvil)
  */
 void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 {
-	char arg[MIL];
 	OBJ_DATA *weapon;
 	int flag_table_num, flag, flag_count = 0, evo, qpcost;
 	evo = get_evolution(ch, gsn_forge);
@@ -4746,6 +4762,7 @@ void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	/* player used a valid flag type? */
@@ -4931,12 +4948,14 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj, *anvil = NULL, *material;
 	CHAR_DATA *owner;
-	char type[MSL], sdesc[MSL], buf[MSL], costbuf[MSL];
+	char sdesc[MSL], buf[MSL], costbuf[MSL];
 	EXTRA_DESCR_DATA *ed;
 	extern char *const month_name[];
 	int is_owner, cost, cost_gold, cost_silver, evo;
 	evo = get_evolution(ch, gsn_forge);
 	/* check arguments */
+
+	String type;
 	argument = one_argument(argument, type);
 
 	if (argument[0] == '\0' || type[0] == '\0') {
@@ -5228,7 +5247,10 @@ void do_engrave(CHAR_DATA *ch, const char *argument)
 	eng_line = "There are some personal {Cengravings{x on this weapon.\n";
 	eng_desc = NULL;
 	dflt_desc = NULL;
-	one_argument(weapon->name, buf);
+
+	String tbuf;
+	one_argument(weapon->name, tbuf);
+	strcpy(buf, tbuf);
 
 	for (ed = weapon->extra_descr; ed; ed = ed->next) {
 		if (dflt_desc == NULL && is_name(buf, ed->keyword))
@@ -5266,7 +5288,7 @@ void do_engrave(CHAR_DATA *ch, const char *argument)
 		dflt_desc->next = weapon->extra_descr;
 		weapon->extra_descr = dflt_desc;
 	}
-	else if (strstr(dflt_desc->description, eng_line) == NULL) {
+	else if (std::strstr(dflt_desc->description, eng_line) == NULL) {
 		/* add to existing extdesc */
 		dbuf = new_buf();
 		add_buf(dbuf, dflt_desc->description);
@@ -5372,7 +5394,6 @@ void do_weddingring(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *jeweler = NULL;
 	OBJ_DATA *ring;
-	char arg1[MAX_INPUT_LENGTH];
 	int price = 0;
 
 	if (ch->desc->original != NULL) {
@@ -5393,6 +5414,7 @@ void do_weddingring(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0' || argument[0] == '\0')
@@ -5437,7 +5459,6 @@ help:
 
 void do_lore(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 
 	if (!get_skill(ch, gsn_lore)) {
@@ -5445,12 +5466,13 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("What do you want to lore?\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(argument, arg);
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL
 	 && (obj = get_obj_here(ch, arg)) == NULL) {
@@ -5473,7 +5495,9 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 void do_autograph(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	char arg[MIL], buf[MSL];
+	char buf[MSL];
+
+	String arg;
 	one_argument(argument, arg);
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {

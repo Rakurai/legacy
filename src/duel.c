@@ -537,7 +537,7 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 
 void do_duel(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
+	char buf[MSL];
 	DUEL_DATA *duel;
 	CHAR_DATA *victim = NULL;
 	ARENA_DATA *arena;
@@ -547,6 +547,7 @@ void do_duel(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);

@@ -11,11 +11,11 @@
 
 void do_deposit(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	long max_gold;  /* to get rid of a warning on make :P */
 	long max_silver;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -83,8 +83,6 @@ void do_deposit(CHAR_DATA *ch, const char *argument)
 
 void do_clandeposit(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	CLAN_DATA *target;
 
@@ -98,6 +96,7 @@ void do_clandeposit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -240,14 +239,13 @@ void do_balance(CHAR_DATA *ch, void *vo)
 void do_withdraw(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
 		stc("NPC's can't get money..  dumbass!!!!\n", ch);
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -311,8 +309,6 @@ void do_withdraw(CHAR_DATA *ch, const char *argument)
 void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	CLAN_DATA *target;
 
 	if (IS_NPC(ch)) {
@@ -320,6 +316,7 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	/* do the mortal case first */
@@ -401,6 +398,7 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg2;
 	argument = one_argument(argument, arg2);
 
 	if (atoi(arg2) <= 0) {

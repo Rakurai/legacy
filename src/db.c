@@ -726,12 +726,13 @@ int  scan_credits(AREA_DATA *pArea)
 void load_area(FILE *fp)
 {
 	const char *line;
-	char num[50];
 	AREA_DATA *pArea = (AREA_DATA *)alloc_perm(sizeof(*pArea));
 	pArea->reset_first      = NULL;
 	pArea->reset_last       = NULL;
 	pArea->file_name        = fread_string(fp);
 	line = pArea->file_name;
+
+	String num;
 	line = one_argument(line, num);
 
 	if (is_number(num)) {

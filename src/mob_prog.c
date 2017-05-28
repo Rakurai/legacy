@@ -1085,7 +1085,6 @@ char *mprog_process_if(const char *ifchck, char *com_list, CHAR_DATA *mob,
                        CHAR_DATA *actor, OBJ_DATA *obj, void *vo,
                        CHAR_DATA *rndm)
 {
-	char buf[ MAX_INPUT_LENGTH ];
 	const char *morebuf = NULL;
 	char    *cmnd = NULL;
 	bool loopdone = FALSE;
@@ -1099,6 +1098,8 @@ char *mprog_process_if(const char *ifchck, char *com_list, CHAR_DATA *mob,
 		else
 			return NULL;
 	}
+
+	String buf;
 
 	while (loopdone == FALSE) { /*scan over any existing or statements */
 		cmnd     = com_list;
@@ -1539,7 +1540,6 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
                   OBJ_DATA *obj, void *vo)
 {
 	char tmpcmndlst[ MAX_STRING_LENGTH ];
-	char buf       [ MAX_INPUT_LENGTH ];
 	const char *morebuf;
 	char *command_list;
 	char *cmnd;
@@ -1566,6 +1566,8 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	command_list = tmpcmndlst;
 	cmnd         = command_list;
 	command_list = mprog_next_command(command_list);
+
+	String buf;
 
 	while (*cmnd != '\0') {
 		morebuf = one_argument(cmnd, buf);
@@ -1598,12 +1600,13 @@ void mprog_wordlist_check(const char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
-	char        word[ MAX_INPUT_LENGTH ];
 	MPROG_DATA *mprg;
 	const char       *list;
 	char       *start;
 	char       *dupl;
 	char       *end;
+
+	String word;
 
 	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 		if (mprg->type & type) {
@@ -1622,7 +1625,7 @@ void mprog_wordlist_check(const char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
 			if ((list[0] == 'p') && (list[1] == ' ')) {
 				list += 2;
 
-				while ((start = strstr(dupl, list)))
+				while ((start = std::strstr(dupl, list)))
 					if ((start == dupl || *(start - 1) == ' ')
 					    && (*(end = start + strlen(list)) == ' '
 					        || *end == '\n'
@@ -1769,8 +1772,8 @@ void mprog_buy_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 
 void mprog_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	char        buf[MAX_INPUT_LENGTH];
 	MPROG_DATA *mprg;
+	String buf;
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & GIVE_PROG))

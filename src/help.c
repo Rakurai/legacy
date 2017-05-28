@@ -63,7 +63,7 @@ const char *one_keyword(const char *keywords, char *word)
 	return keywords;
 }
 
-void help_char_search(CHAR_DATA *ch, char *arg)
+void help_char_search(CHAR_DATA *ch, const String& arg)
 {
 	char buf[MSL] = "\0", query[MSL], *text;
 	BUFFER *output;
@@ -177,7 +177,7 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 /* load the specified help file into the database */
 void do_loadhelps(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MSL], *q, *p;
+	char buf[MSL], *q, *p;
 	FILE *fp;
 	int tablenum, count = 0;
 	struct help_struct {
@@ -204,6 +204,7 @@ void do_loadhelps(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "all")) {
@@ -311,7 +312,7 @@ void do_loadhelps(CHAR_DATA *ch, const char *argument)
 /* print all helps matching a group to file */
 void do_printhelps(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], buf[MSL * 3];
+	char buf[MSL * 3];
 	FILE *fp;
 	int tablenum, count = 0;
 
@@ -332,6 +333,7 @@ void do_printhelps(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "all")) {
@@ -391,7 +393,7 @@ void do_printhelps(CHAR_DATA *ch, const char *argument)
 
 void do_help(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], query[MSL];
+	char query[MSL];
 	const char *p;
 	BUFFER *output;
 	int result_count = 0, partial_count = 0, result_num = 0, i;
@@ -403,6 +405,8 @@ void do_help(CHAR_DATA *ch, const char *argument)
 		int id;
 	};
 	struct help_struct temp_help[100];
+
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -564,10 +568,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 
 void do_hedit(CHAR_DATA *ch, const char *argument)
 {
-	char cmd[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
-	argument = one_argument(argument, cmd);
-
-	if (!cmd[0]) {
+	if (!argument[0]) {
 		ptc(ch, "Syntax:  hedit new <keywords>\n"
 		    "               delete <id>\n"
 		    "               show <id>\n"
@@ -576,6 +577,9 @@ void do_hedit(CHAR_DATA *ch, const char *argument)
 		   );
 		return;
 	}
+
+	String cmd;
+	argument = one_argument(argument, cmd);
 
 	if (!str_cmp(cmd, "new")) {
 		if (!argument[0]) {
@@ -599,6 +603,7 @@ void do_hedit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!arg[0]) {

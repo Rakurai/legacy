@@ -1056,13 +1056,13 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *questman;
 	char buf [MAX_STRING_LENGTH];
-	char arg1 [MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
 		do_say(ch, "Don't be silly, mobs can't quest!");
 		return;
 	}
 
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {
@@ -1077,10 +1077,11 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 	/*** AWARD ***/
 	if (IS_IMP(ch) && !str_prefix1(arg1, "award")) {
-		char player[MAX_INPUT_LENGTH];
 		int number = -1;
 		CHAR_DATA *wch;
 		DESCRIPTOR_DATA *d;
+
+		String player;
 		argument = one_argument(argument, player);
 
 		if (player[0] == '\0') {
@@ -1390,7 +1391,6 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 	/*** CLOSE ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "close")) {
-		char num_arg[MAX_INPUT_LENGTH];
 		int num_in_area;
 		int num_to_oust = 0;
 		CHAR_DATA *victim;
@@ -1401,6 +1401,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		String num_arg;
 		argument = one_argument(argument, num_arg);
 
 		if (num_arg[0] != '\0' && is_number(num_arg))
@@ -1443,9 +1444,10 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 	/*** DEDUCT ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "deduct")) {
-		char arg[MAX_INPUT_LENGTH];
 		CHAR_DATA *victim;
 		int qpoint;
+
+		String arg;
 		argument = one_argument(argument, arg);
 
 		if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
@@ -1698,8 +1700,6 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 	/*** OPEN ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "open")) {
-		char num_arg[MAX_INPUT_LENGTH];
-
 		if ((quest_startroom = get_room_index(QUEST_STARTROOM)) == NULL) {
 			stc("The quest area is not available in this reboot.\n", ch);
 			return;
@@ -1712,6 +1712,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
+		String num_arg;
 		argument = one_argument(argument, num_arg);
 
 		if (num_arg[0] != '\0' && is_number(num_arg))

@@ -160,9 +160,10 @@ void do_roomexits(CHAR_DATA *ch, const char *argument)
 /* find pockets of unused vnums equal to or greater than the argument */
 void do_pocket(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
 	AREA_DATA *area;
 	int vnum, count = 0, size = 50;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] != '\0' && is_number(arg1))
@@ -194,9 +195,10 @@ void do_roomlist(CHAR_DATA *ch, const char *argument)
 {
 	int first, last, counter;
 	bool found = FALSE;
-	char arg[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *room;
 	BUFFER *buffer;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -246,7 +248,6 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char totalbuf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	BUFFER *buffer;
 	int vnum, begvnum, endvnum;
 	MOB_INDEX_DATA *mobile;
@@ -255,6 +256,8 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 	     printed = FALSE,
 	     foundmobile = FALSE,
 	     founddata = FALSE;
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!is_number(arg)) {

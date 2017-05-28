@@ -63,7 +63,7 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
 
 void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 {
-	char arg1[MIL], arg2[MIL], typestr[20];
+	char typestr[20];
 	int low, high, mod, slot, i;
 
 	switch (type) {
@@ -75,10 +75,7 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
-	argument = one_argument(argument, arg1);
-	one_argument(argument, arg2);
-
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Use the color name or 'reset' after an option to modify.\n", ch);
 		ptc(ch, "%s color settings:\n\n", capitalize(typestr));
 
@@ -100,6 +97,10 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
+
+	String arg1, arg2;
+	argument = one_argument(argument, arg1);
+	one_argument(argument, arg2);
 
 	if (is_number(arg1))
 		slot = atoi(arg1) - mod;
@@ -149,11 +150,9 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 
 void config_color(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	int argnum = 0;
-	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Color options:\n\n", ch);
 		ptc(ch, "  1.  Color                                      %s\n",
@@ -166,6 +165,9 @@ void config_color(CHAR_DATA *ch, const char *argument)
 		stc("  6.  Reset\n", ch);
 		return;
 	}
+
+	String arg1;
+	argument = one_argument(argument, arg1);
 
 	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
 		stc("Config color allows you to specify the what color options you\n"
@@ -261,11 +263,9 @@ void config_color(CHAR_DATA *ch, const char *argument)
 
 void config_video(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	int argnum = 0;
-	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Video options:\n\n", ch);
 		ptc(ch, "  1.  Flash                                      %s\n",
@@ -280,6 +280,9 @@ void config_video(CHAR_DATA *ch, const char *argument)
 		    IS_SET(ch->pcdata->video, VIDEO_VT100) ?  "{CON{x" : "{POFF{x");
 		return;
 	}
+
+	String arg1;
+	argument = one_argument(argument, arg1);
 
 	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
 		stc("With config video, you can set your video options, determining\n"
@@ -399,11 +402,9 @@ void config_video(CHAR_DATA *ch, const char *argument)
 
 void config_censor(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	int argnum = 0;
-	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Censor options:\n\n", ch);
 		ptc(ch, "  1.  Channels                                   %s\n",
@@ -412,6 +413,9 @@ void config_censor(CHAR_DATA *ch, const char *argument)
 		    IS_SET(ch->censor, CENSOR_SPAM) ?  "{CON{x" : "{POFF{x");
 		return;
 	}
+
+	String arg1;
+	argument = one_argument(argument, arg1);
 
 	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
 		stc("Censor allows players to specify their censorship settings, to\n"
@@ -498,11 +502,9 @@ void config_censor(CHAR_DATA *ch, const char *argument)
 
 void config_immortal(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	int argnum = 0;
-	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Immortal options:\n\n", ch);
 		ptc(ch, "  1.  Immprefix                                  %s\n",
@@ -511,6 +513,9 @@ void config_immortal(CHAR_DATA *ch, const char *argument)
 		    ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
 		return;
 	}
+
+	String arg1;
+	argument = one_argument(argument, arg1);
 
 	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
 		stc("Various configuration options are available only to the Legacy\n"
@@ -591,9 +596,10 @@ void config_immortal(CHAR_DATA *ch, const char *argument)
 
 void config_wiznet(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	int argnum = -1;
 	int flag;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
@@ -693,11 +699,9 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
 
 void do_config(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL];
 	int argnum = 0;
-	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Configuration groups:\n\n", ch);
 //		stc("  1.  Channels\n", ch);
 
@@ -715,6 +719,9 @@ void do_config(CHAR_DATA *ch, const char *argument)
 
 		return;
 	}
+
+	String arg1;
+	argument = one_argument(argument, arg1);
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
 	else if (!str_prefix1(arg1, "channels"))        argnum = 1;

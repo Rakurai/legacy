@@ -111,9 +111,9 @@ void compile_gem_effects(OBJ_DATA *eq) {
 
 void do_inset(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	OBJ_DATA *eq, *gem;
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 

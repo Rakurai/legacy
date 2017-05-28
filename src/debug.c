@@ -36,7 +36,7 @@ extern AREA_DATA *area_first;
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(CHAR_DATA *ch, const char *argument)
 {
-	char subfunc[MIL];
+	String subfunc;
 	argument = one_argument(argument, subfunc);
 
 	if (subfunc[0] == '\0') {
@@ -245,8 +245,9 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 
 	if (!strcmp(subfunc, "qtz")) {
 		/* Quest Time Zero */
-		char arg[MIL];
 		CHAR_DATA *questor;
+
+		String arg;
 		argument = one_argument(argument, arg);
 
 		if (!str_cmp(arg, "all")) {

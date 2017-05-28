@@ -12,7 +12,7 @@ void act_format(const String& format, CHAR_DATA *ch,
 	static char *const him_her [] = { "it",  "him", "her" };
 	static char *const his_her [] = { "its", "his", "her" };
 	char buf[MAX_STRING_LENGTH];
-	char fname[MAX_INPUT_LENGTH];
+    String fname;
 	const char *str;
 	const char *i;
 	char *point;
@@ -117,7 +117,7 @@ void act_format(const String& format, CHAR_DATA *ch,
 				i = "door";
 			else {
 				one_argument((char *) arg2, fname);
-				i = fname;
+				i = fname.c_str();
 			}
 
 			break;

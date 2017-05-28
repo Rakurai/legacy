@@ -283,7 +283,6 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 
 void do_slookup(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	int sn;
 
 	if (argument[0] == '\0') {
@@ -293,6 +292,7 @@ void do_slookup(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "all")) {
@@ -318,9 +318,10 @@ void do_slookup(CHAR_DATA *ch, const char *argument)
 
 void do_advance(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
 	int level, iLevel;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -426,13 +427,13 @@ void do_relevel(CHAR_DATA *ch, const char *argument)
 
 void do_addexit(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MIL], arg2[MIL];
 	EXIT_DATA *exit;
 	int dir;
 
 	if (ch->in_room == NULL)
 		return;
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
@@ -478,12 +479,12 @@ void do_addexit(CHAR_DATA *ch, const char *argument)
 
 void do_remexit(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	int dir;
 
 	if (ch->in_room == NULL)
 		return;
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {

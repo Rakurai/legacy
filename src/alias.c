@@ -30,14 +30,6 @@
 
 char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 
-void add_alias(PC_DATA *pch, const char *text, const char *sub) {
-	pch->alias[text] = String(sub);
-}
-
-void remove_alias(PC_DATA *pch, const char *text) {
-	pch->alias.erase(text);
-}
-
 /* does aliasing and other fun stuff */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
@@ -76,7 +68,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	strcpy(buf, argument); // the default, in case we don't find an alias
 
 	std::string input = argument;
-	char word[MAX_INPUT_LENGTH];
+	String word;
 	const char *remainder = one_argument(argument, word);
 	auto search = ch->pcdata->alias.find(word);
 
@@ -105,7 +97,6 @@ void do_alia(CHAR_DATA *ch, const char *argument)
 void do_alias(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
-	char arg[MAX_INPUT_LENGTH];
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -124,6 +115,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -168,13 +160,12 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		search == rch->pcdata->alias.end() ? "" : "re",
 		argument);
 
-	add_alias(rch->pcdata, arg, argument);
+	rch->pcdata->alias[arg] = argument;
 }
 
 void do_unalias(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
-	char arg[MAX_INPUT_LENGTH];
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -184,12 +175,13 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(rch))
 		return;
 
-	argument = one_argument(argument, arg);
-
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Unalias what?\n", ch);
 		return;
 	}
+
+	String arg;
+	argument = one_argument(argument, arg);
 
 	auto search = rch->pcdata->alias.find(arg);
 
@@ -198,6 +190,6 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 	else
 		stc("Alias removed.\n", ch);
 
-	remove_alias(rch->pcdata, arg);
+	rch->pcdata->alias.erase(arg);
 }
 

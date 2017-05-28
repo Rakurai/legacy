@@ -145,7 +145,7 @@ int count_users(OBJ_DATA *obj)
 }
 
 /* returns race number */
-int race_lookup(const char *name)
+int race_lookup(const String& name)
 {
 	int race;
 
@@ -171,7 +171,7 @@ int liq_lookup(const char *name)
 	return -1;
 }
 
-int weapon_lookup(const char *name)
+int weapon_lookup(const String& name)
 {
 	int type;
 
@@ -184,7 +184,7 @@ int weapon_lookup(const char *name)
 	return -1;
 }
 
-int weapon_type(const char *name)
+int weapon_type(const String& name)
 {
 	int type;
 
@@ -224,7 +224,7 @@ int attack_lookup(const char *name)
 }
 
 /* returns class number */
-int class_lookup(const char *name)
+int class_lookup(const String& name)
 {
 	int cls;
 
@@ -1914,10 +1914,10 @@ int interpolate(int level, int value_00, int value_32)
 }
 
 /* Get an extra description from a list. */
-EXTRA_DESCR_DATA *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)
+EXTRA_DESCR_DATA *get_extra_descr(const String& name, EXTRA_DESCR_DATA *ed)
 {
 	for (; ed != NULL; ed = ed->next)
-		if (is_name((char *) name, ed->keyword))
+		if (is_name(name, ed->keyword))
 			return ed;
 
 	return NULL;

@@ -104,7 +104,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	int ngroups = 0;
 	struct s_spell_info spell_list[MAX_SKILL];
 	int nspells = 0;
-	char arg[MAX_INPUT_LENGTH];
+	String arg;
 	char buf[MAX_INPUT_LENGTH];
 	int cols = 0;
 	int pos = 18;
@@ -369,7 +369,6 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	int j;
 	struct s_spell_info skill_list[MAX_SKILL];
 	int nskills = 0;
-	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
 	int cols = 0;
 	int pos = 18;
@@ -392,6 +391,8 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 	/* Check for a skill name */
 	skill_name[0] = '\0';
+
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!is_number(arg)) {
@@ -537,7 +538,6 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 void do_levels(CHAR_DATA *ch, const char *argument)
 {
 	char list[LEVEL_HERO][MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
 	char columns[LEVEL_HERO];
 	int sn, lev, x, y;
 	char buf[MAX_STRING_LENGTH];
@@ -547,6 +547,7 @@ void do_levels(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -878,13 +879,13 @@ long exp_per_level(CHAR_DATA *ch, int points)
 /* this procedure handles the input parsing for the skill generator */
 bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char buf[100];
 	int gn, sn, i;
 
 	if (argument[0] == '\0')
 		return FALSE;
 
+	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!str_prefix1(arg, "help")) {
@@ -1431,7 +1432,6 @@ void evolve_info(CHAR_DATA *ch)
 
 void do_evolve(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH];
 	char *type;
 	int sn, cost, can, perc;
 	int special = 0;
@@ -1441,6 +1441,7 @@ void do_evolve(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1578,7 +1579,6 @@ bool deduct_stamina(CHAR_DATA *ch, int sn)
 /* used to get new skills */
 void do_gain(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL];
 	CHAR_DATA *trainer;
 	int gn = 0, sn = 0;
 
@@ -1597,6 +1597,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {

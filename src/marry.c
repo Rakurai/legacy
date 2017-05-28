@@ -42,10 +42,10 @@
 
 void do_marry(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *victim2;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -92,10 +92,10 @@ void do_marry(CHAR_DATA *ch, const char *argument)
 
 void do_divorce(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *victim2;
+
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 

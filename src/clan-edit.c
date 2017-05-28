@@ -234,15 +234,16 @@ void remove_clan(char *name)
 
 void do_cedit(CHAR_DATA *ch, const char *argument)
 {
-	char cmd[MAX_INPUT_LENGTH], clanname[MAX_INPUT_LENGTH];
 	CLAN_DATA *cdata;
-	argument = one_argument(argument, cmd);
-	argument = one_argument(argument, clanname);
 
-	if (!cmd[0]) {
+	if (!argument[0]) {
 		stc("Huh? type HELP CEDIT to see syntax.\n", ch);
 		return;
 	}
+
+	String cmd, clanname;
+	argument = one_argument(argument, cmd);
+	argument = one_argument(argument, clanname);
 
 	if (!clanname[0]) {
 		stc("What clan do you want to operate on?\n", ch);

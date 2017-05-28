@@ -1155,7 +1155,7 @@ const struct csetting_type csetting_table[] = {
 	{       0,      0,      NULL            }       /* MAX_COLOR */
 };
 
-long flag_lookup(const char *name, const struct flag_type *flag_table)
+long flag_lookup(const String& name, const struct flag_type *flag_table)
 {
 	int flag;
 

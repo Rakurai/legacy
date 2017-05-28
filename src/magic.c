@@ -37,6 +37,9 @@
 /* global focus variable */
 extern bool     focus;
 
+/* The kludgy global is for spells who want more stuff from command line. */
+String target_name;
+
 void    kill_off        args((CHAR_DATA *ch, CHAR_DATA *victim));
 
 /* Local functions. */
@@ -45,10 +48,10 @@ void    say_spell       args((CHAR_DATA *ch, int sn));
 /* imported functions */
 bool    remove_obj      args((CHAR_DATA *ch, int iWear, bool fReplace));
 void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
-int     find_exit       args((CHAR_DATA *ch, char *arg));
+int     find_exit       args((CHAR_DATA *ch, const String& arg));
 
 /* Lookup a skill by name. */
-int skill_lookup(const char *name)
+int skill_lookup(const String& name)
 {
 	int sn;
 
@@ -63,7 +66,7 @@ int skill_lookup(const char *name)
 	return -1;
 } /* end skill_lookup */
 
-int find_spell(CHAR_DATA *ch, const char *name)
+int find_spell(CHAR_DATA *ch, const String& name)
 {
 	/* finds a spell the character can cast if possible */
 	int sn, found = -1;
@@ -206,12 +209,8 @@ bool help_mob(CHAR_DATA *ch, CHAR_DATA *victim)
 	return FALSE;
 } /* end help_mob */
 
-/* The kludgy global is for spells who want more stuff from command line. */
-const char *target_name;
-
 void do_cast(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	void *vo;
@@ -226,13 +225,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	target_name = one_argument(argument, arg1);
-	one_argument(target_name, arg2);
-
-	if (arg1[0] == '\0') {
+	if (argument[0] == '\0') {
 		stc("Cast which what where?\n", ch);
 		return;
 	}
+
+	String arg1, arg2;
+	target_name = one_argument(argument, arg1);
+	one_argument(target_name, arg2);
 
 	if ((sn = find_spell(ch, arg1)) < 0
 	    || (!IS_NPC(ch) && (ch->level < skill_table[sn].skill_level[ch->cls]
@@ -508,7 +508,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
    the mob has the skill and PK restrictions are irrelevant. */
 void do_mpcast(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	void *vo;
@@ -519,6 +518,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	target_name = one_argument(argument, arg1);
 	one_argument(target_name, arg2);
 
@@ -801,16 +801,12 @@ void obj_cast_spell(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DAT
 		break;
 	}
 
-	if (!target_name)
-		/* target_name = str_dup(""); -- Looks like a memory leak. */
-		target_name = "";
-
+//	target_name.erase();
 	/* I don't see why this is here. Taking it out
 	   so that wands will work.
 	   -- Outsider
-	else
-	     target_name[0] = '\0';
 	*/
+
 	/* right now objects cast spells at evolution 1 */
 	focus = FALSE;
 	(*skill_table[sn].spell_fun)(sn, level, ch, vo, target, 1);
@@ -1623,8 +1619,9 @@ void spell_change_sex(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 void spell_channel(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim;
-	char camount[MAX_STRING_LENGTH];
 	int amount, max;
+
+	String camount;
 	target_name = one_argument(target_name, camount);
 
 	if ((victim = get_char_here(ch, target_name, VIS_CHAR)) == NULL) {
@@ -3181,7 +3178,6 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim;
-	char arg[MIL];
 	int dam;
 
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE) && !IS_IMMORTAL(ch)) {
@@ -3200,6 +3196,7 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	default:                        break;
 	}
 
+	String arg;
 	one_argument(target_name, arg);
 
 	/* fireball the room! */
@@ -5794,13 +5791,14 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
 	int door;
-	char arg[MAX_STRING_LENGTH];
-	one_argument(target_name, arg);
 
-	if (arg[0] == '\0') {
+	if (target_name[0] == '\0') {
 		stc("Without direction, the smoke has no purpose...\n", ch);
 		return;
 	}
+
+	String arg;
+	one_argument(target_name, arg);
 
 	door = find_exit(ch, arg);
 	in_room = ch->in_room;
@@ -5978,8 +5976,9 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 void spell_summon_object(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *obj;
-	char arg[MIL];
 	int number, count = 0;
+
+	String arg;
 	number = number_argument(target_name, arg);
 
 	if (arg[0] == '\0') {
@@ -6203,8 +6202,6 @@ void spell_teleport_object(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	char object[MAX_STRING_LENGTH];
-	char name[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 
 	if (ch->in_room != NULL && ch->in_room->area == quest_area) {
@@ -6214,6 +6211,7 @@ void spell_teleport_object(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 	}
 
 	/* target_name is a global in magic.c */
+	String object, name;
 	target_name = one_argument(target_name, object);
 	one_argument(target_name, name);
 
@@ -6340,9 +6338,10 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_undo_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim;
-	char spell[MSL], name[MSL];
 	int undo_sn;
 	/* target_name is a global in magic.c */
+
+	String spell, name;
 	target_name = one_argument(target_name, spell);
 	one_argument(target_name, name);
 
@@ -6421,8 +6420,9 @@ void spell_ventriloquate(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 {
 	char buf1[MAX_STRING_LENGTH];
 	char buf2[MAX_STRING_LENGTH];
-	char speaker[MAX_INPUT_LENGTH];
 	CHAR_DATA *vch;
+
+	String speaker;
 	target_name = one_argument(target_name, speaker);
 	Format::sprintf(buf1, "%s says '%s'.\n",              speaker, target_name);
 	Format::sprintf(buf2, "Someone makes %s say '%s'.\n", speaker, target_name);

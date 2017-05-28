@@ -23,11 +23,9 @@
 void do_addapply(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	char arg3[MAX_INPUT_LENGTH];
-	char arg4[MAX_INPUT_LENGTH];
 	int affect_modify = 1, enchant_type, duration = -1;
+
+	String arg1, arg2, arg3, arg4;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
@@ -106,11 +104,11 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 /* Morph Command by Lotus */
 void do_morph(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *morph;
 	CHAR_DATA *mobile;
+
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {
@@ -133,6 +131,7 @@ void do_morph(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg2;
 	argument = one_argument(argument, arg2);
 
 	if (arg2[0] == '\0') {
@@ -166,7 +165,6 @@ void do_morph(CHAR_DATA *ch, const char *argument)
 void do_rppaward(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
@@ -195,6 +193,7 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -316,18 +315,16 @@ void do_scatter(CHAR_DATA *ch, const char *argument)
 
 void do_string(CHAR_DATA *ch, const char *argument)
 {
-	char type [MAX_INPUT_LENGTH];
-	char arg1 [MAX_INPUT_LENGTH];
-	char arg2 [MAX_INPUT_LENGTH];
-	char arg3 [MAX_INPUT_LENGTH];
 	char buf [MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	ROOM_INDEX_DATA *room;
+
+	String type, arg1, arg2, arg3;
 	argument = one_argument(argument, type);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, smash_tilde(argument));
+	arg3 = smash_tilde(argument);
 
 	if (type[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		stc("Syntax:\n", ch);
@@ -403,7 +400,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 		if (!str_prefix1(arg2, "long")) {
 			free_string(victim->long_descr);
-			strcat(arg3, "\n");
+			arg3 += "\n";
 			victim->long_descr = str_dup(arg3);
 			Format::sprintf(buf, "%s's long description has been changed to %s", victim->name, arg3);
 			stc(buf, ch);
@@ -622,7 +619,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 void do_switch(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
+	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 
 	if (IS_NPC(ch) || ch->desc == NULL) {
@@ -635,6 +632,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg;
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -732,7 +730,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 /* for future use */
 bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, const char *argument)
 {
-	char arg1[MIL];
+	String arg1;
 	argument = one_argument(argument, arg1);
 
 	switch (obj->item_type) {
@@ -833,8 +831,6 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, const char *argument)
 
 void do_create(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_STRING_LENGTH];
-	char arg2[MAX_STRING_LENGTH];
 	char buf[100];
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
@@ -849,6 +845,7 @@ void do_create(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -914,11 +911,11 @@ skillpoint <award|deduct> <player> <amount>
 */
 void do_skillpoint(CHAR_DATA *ch, const char *argument)
 {
-	char char_name[MAX_INPUT_LENGTH];
-	char give_or_take[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	sh_int new_points;
 	char buffer[MAX_INPUT_LENGTH];
+
+	String char_name, give_or_take;
 	argument = one_argument(argument, give_or_take);
 	argument = one_argument(argument, char_name);
 
