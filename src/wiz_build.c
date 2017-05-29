@@ -94,7 +94,7 @@ String checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea) {
 }
 
 /* for now, no arguments, just list the current area */
-void do_exlist(CHAR_DATA *ch, const char *argument)
+void do_exlist(CHAR_DATA *ch, String argument)
 {
 	AREA_DATA *pArea = ch->in_room->area; /* this is the area we want info on */
 
@@ -145,7 +145,7 @@ String checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest)
 }
 
 /* for now, no arguments, just list the current room */
-void do_roomexits(CHAR_DATA *ch, const char *argument)
+void do_roomexits(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *dest = ch->in_room; /* this is the room we want info on */
 
@@ -158,7 +158,7 @@ void do_roomexits(CHAR_DATA *ch, const char *argument)
 }
 
 /* find pockets of unused vnums equal to or greater than the argument */
-void do_pocket(CHAR_DATA *ch, const char *argument)
+void do_pocket(CHAR_DATA *ch, String argument)
 {
 	AREA_DATA *area;
 	int vnum, count = 0, size = 50;
@@ -191,7 +191,7 @@ void do_pocket(CHAR_DATA *ch, const char *argument)
 }
 
 /* Room List by Lotus */
-void do_roomlist(CHAR_DATA *ch, const char *argument)
+void do_roomlist(CHAR_DATA *ch, String argument)
 {
 	int first, last, counter;
 	bool found = FALSE;
@@ -201,7 +201,7 @@ void do_roomlist(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		stc("Syntax: roomlist <starting vnum> <ending vnum>\n", ch);
 		return;
 	}
@@ -244,7 +244,7 @@ void do_roomlist(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_vlist(CHAR_DATA *ch, const char *argument)
+void do_vlist(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char totalbuf[MAX_STRING_LENGTH];
@@ -267,7 +267,7 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 
 	begvnum = atoi(arg);
 
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		if (!is_number(argument)) {
 			stc("Syntax: vlist [beg vnum] [end vnum]\n", ch);
 			return;

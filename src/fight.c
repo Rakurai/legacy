@@ -3219,7 +3219,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 	}
 } /* end dam_message */
 
-void do_berserk(CHAR_DATA *ch, const char *argument)
+void do_berserk(CHAR_DATA *ch, String argument)
 {
 	int chance, hp_percent;
 
@@ -3275,7 +3275,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_berserk */
 
-void do_bash(CHAR_DATA *ch, const char *argument)
+void do_bash(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -3448,7 +3448,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_bash */
 
-void do_dirt(CHAR_DATA *ch, const char *argument)
+void do_dirt(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -3634,7 +3634,7 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 	}
 }
 
-void do_trip(CHAR_DATA *ch, const char *argument)
+void do_trip(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int chance;
@@ -3757,11 +3757,11 @@ bool check_attack_ok(CHAR_DATA *ch, CHAR_DATA *victim) {
 	return TRUE;
 }
 
-void do_kill(CHAR_DATA *ch, const char *argument)
+void do_kill(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Kill whom?\n", ch);
 		return;
 	}
@@ -3799,7 +3799,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 } /* end do_kill */
 
 /* Battle/Arena by Lotus */
-void do_battle(CHAR_DATA *ch, const char *argument)
+void do_battle(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int low, high, fee;
@@ -3984,12 +3984,12 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 } /* end battle */
 
 /* Singing Skill by Lotus */
-void do_sing(CHAR_DATA *ch, const char *argument)
+void do_sing(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int singchance;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You sing a simple melody for all to enjoy.\n", ch);
 		return;
 	}
@@ -4085,7 +4085,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	return;
 } /* end do_sing */
 
-void do_backstab(CHAR_DATA *ch, const char *argument)
+void do_backstab(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -4095,7 +4095,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Backstab whom?\n", ch);
 		return;
 	}
@@ -4172,7 +4172,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 } /* end do_backstab */
 
 /* Shadow Form for remorts - Lotus */
-void do_shadow(CHAR_DATA *ch, const char *argument)
+void do_shadow(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -4240,7 +4240,7 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 	);
 } /* end do_shadow */
 
-void do_circle(CHAR_DATA *ch, const char *argument)
+void do_circle(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -4295,7 +4295,7 @@ void do_circle(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_circle */
 
-void do_flee(CHAR_DATA *ch, const char *argument)
+void do_flee(CHAR_DATA *ch, String argument)
 {
 	EXIT_DATA *pexit;
 	ROOM_INDEX_DATA *was_in;
@@ -4432,12 +4432,12 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	stc("PANIC! You couldn't escape!\n", ch);
 } /* end do_flee */
 
-void do_rescue(CHAR_DATA *ch, const char *argument)
+void do_rescue(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *fch;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Rescue whom?\n", ch);
 		return;
 	}
@@ -4503,7 +4503,7 @@ void do_rescue(CHAR_DATA *ch, const char *argument)
 	set_fighting(fch, ch);
 } /* end do_rescue */
 
-void do_kick(CHAR_DATA *ch, const char *argument)
+void do_kick(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int skill, amount;
@@ -4567,7 +4567,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_kick */
 
-void do_crush(CHAR_DATA *ch, const char *argument)
+void do_crush(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -4595,7 +4595,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 	check_killer(ch, victim);
 } /* end do_crush */
 
-void do_disarm(CHAR_DATA *ch, const char *argument)
+void do_disarm(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -4604,7 +4604,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if ((victim = ch->fighting) == NULL) {
 			stc("You aren't fighting anyone.\n", ch);
 			return;
@@ -4874,17 +4874,17 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_blind_fight, FALSE, 1);
 }
 
-void do_sla(CHAR_DATA *ch, const char *argument)
+void do_sla(CHAR_DATA *ch, String argument)
 {
 	stc("If you want to SLAY, spell it out.\n", ch);
 } /* end do_sla */
 
-void do_slay(CHAR_DATA *ch, const char *argument)
+void do_slay(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH]; /* For [FYI] */
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Slay whom?\n", ch);
 		return;
 	}
@@ -4923,7 +4923,7 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 
 } /* end do_slay */
 
-void do_rotate(CHAR_DATA *ch, const char *argument)
+void do_rotate(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -4932,7 +4932,7 @@ void do_rotate(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Rotate your attack to whom?\n", ch);
 		return;
 	}
@@ -4975,7 +4975,7 @@ void do_rotate(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_rotate */
 
-void do_hammerstrike(CHAR_DATA *ch, const char *argument)
+void do_hammerstrike(CHAR_DATA *ch, String argument)
 {
 	int chance;
 
@@ -5014,7 +5014,7 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_hammerstrike */
 
-void do_critical_blow(CHAR_DATA *ch, const char *argument)
+void do_critical_blow(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *weapon;
 	int chance;
@@ -5120,7 +5120,7 @@ void do_riposte(CHAR_DATA *victim, CHAR_DATA *ch)
 } /* end do_riposte */
 
 /* RAGE by Montrey */
-void do_rage(CHAR_DATA *ch, const char *argument)
+void do_rage(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
@@ -5179,7 +5179,7 @@ void do_rage(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, gsn_rage, TRUE, 2);
 }
 
-void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
+void do_lay_on_hands(CHAR_DATA *ch, String argument)
 {
 	int heal, skill;
 	CHAR_DATA *victim;
@@ -5194,7 +5194,7 @@ void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax: lay <target>\n"
 		    "        lay count\n", ch);
 		return;
@@ -5250,7 +5250,7 @@ void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_shoot(CHAR_DATA *ch, const char *argument)
+void do_shoot(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim = NULL;
 
@@ -5271,7 +5271,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') { // no arguments, can only target current opponent
+	if (argument.empty()) { // no arguments, can only target current opponent
 		victim = ch->fighting; // could be NULL
 
 		if (victim == NULL) {
@@ -5281,7 +5281,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	}
 	else { // if any arguments, try parsing the first one for a direction
 		String dir_str, dir_arg;
-		const char *target_str = one_argument(argument, dir_arg);
+		String target_str = one_argument(argument, dir_arg);
 		ROOM_INDEX_DATA *target_room = NULL;
 		int distance = MAX_BOW_DISTANCE;
 		bool nearest = FALSE;

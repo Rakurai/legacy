@@ -9,7 +9,7 @@
 #include "lookup.h"
 #include "Format.hpp"
 
-void do_deposit(CHAR_DATA *ch, const char *argument)
+void do_deposit(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	long max_gold;  /* to get rid of a warning on make :P */
@@ -81,7 +81,7 @@ void do_deposit(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_clandeposit(CHAR_DATA *ch, const char *argument)
+void do_clandeposit(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	CLAN_DATA *target;
@@ -91,7 +91,7 @@ void do_clandeposit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("{PHelp clandeposit{x for help on how to use this.\n", ch);
 		return;
 	}
@@ -236,7 +236,7 @@ void do_balance(CHAR_DATA *ch, void *vo)
 	stc(buf, ch);
 }
 
-void do_withdraw(CHAR_DATA *ch, const char *argument)
+void do_withdraw(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -306,7 +306,7 @@ void do_withdraw(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
+void do_clanwithdraw(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	CLAN_DATA *target;
@@ -347,7 +347,7 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("You must provide a reason.\n", ch);
 			return;
 		}
@@ -411,7 +411,7 @@ void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a reason.\n", ch);
 		return;
 	}

@@ -210,7 +210,7 @@ bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 	return FALSE;
 }
 
-void do_second(CHAR_DATA *ch, const char *argument)
+void do_second(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
@@ -219,7 +219,7 @@ void do_second(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Which weapon do you want to wield in your off-hand?\n", ch);
 		return;
 	}
@@ -438,13 +438,13 @@ bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
 	return TRUE;
 }
 
-void do_get(CHAR_DATA *ch, const char *argument)
+void do_get(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj, *obj_next, *container;
 	bool found;
 
 	/* Get type. */
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Get what?\n", ch);
 		return;
 	}
@@ -720,7 +720,7 @@ bool will_fit(OBJ_DATA *obj, OBJ_DATA *container)
 	return TRUE;
 }
 
-void do_put(CHAR_DATA *ch, const char *argument)
+void do_put(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *container, *obj, *obj_next;
 	int weight;
@@ -965,14 +965,14 @@ void do_put(CHAR_DATA *ch, const char *argument)
 }
 
 
-void do_drop(CHAR_DATA *ch, const char *argument)
+void do_drop(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	bool found;
 	int number;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You attempt to drop it like it's hot.\n", ch);
 		return;
 	}
@@ -1184,7 +1184,7 @@ void do_drop(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_drop() */
 
-void do_give(CHAR_DATA *ch, const char *argument)
+void do_give(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj, *op, *obj_next;
@@ -1495,13 +1495,13 @@ void do_give(CHAR_DATA *ch, const char *argument)
 }
 
 /* for poisoning weapons and food/drink */
-void do_envenom(CHAR_DATA *ch, const char *argument)
+void do_envenom(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int percent, skill;
 
 	/* find out what */
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Envenom what item?\n", ch);
 		return;
 	}
@@ -1605,7 +1605,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 	return;
 }
 /* Firebuilding by Lotus */
-void do_firebuilding(CHAR_DATA *ch, const char *argument)
+void do_firebuilding(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *torch;
 
@@ -1661,14 +1661,14 @@ void do_firebuilding(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_fill(CHAR_DATA *ch, const char *argument)
+void do_fill(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
 	OBJ_DATA *first_fountain = NULL;
 	OBJ_DATA *wanted_fountain = NULL;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Fill what?\n", ch);
 		return;
 	}
@@ -1740,7 +1740,7 @@ void do_fill(CHAR_DATA *ch, const char *argument)
 	obj->value[3] = wanted_fountain->value[3];      /* poison the drink */
 } /* end do_fill() */
 
-void do_pour(CHAR_DATA *ch, const char *argument)
+void do_pour(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *out, *in;
@@ -1750,7 +1750,7 @@ void do_pour(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		stc("Pour what into what?\n", ch);
 		return;
 	}
@@ -1850,7 +1850,7 @@ void do_pour(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_drink(CHAR_DATA *ch, const char *argument)
+void do_drink(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int amount, liquid, liqvalue;
@@ -1858,7 +1858,7 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] != '\0' && argument[0] != '\0' && !str_cmp(arg, "from"))
+	if (arg[0] != '\0' && !argument.empty() && !str_cmp(arg, "from"))
 		one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
@@ -1969,7 +1969,7 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_eat(CHAR_DATA *ch, const char *argument)
+void do_eat(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj, *op, *obj_next;
 	int number, count;
@@ -2495,11 +2495,11 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		stc("You can't wear, wield, or hold that.\n", ch);
 } /* end wear_obj() */
 
-void do_wear(CHAR_DATA *ch, const char *argument)
+void do_wear(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Wear, wield, or hold what?\n", ch);
 		return;
 	}
@@ -2531,11 +2531,11 @@ void do_wear(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_remove(CHAR_DATA *ch, const char *argument)
+void do_remove(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Remove what?\n", ch);
 		return;
 	}
@@ -2563,7 +2563,7 @@ void do_remove(CHAR_DATA *ch, const char *argument)
 }
 
 /* Donate by Lotus */
-void do_donate(CHAR_DATA *ch, const char *argument)
+void do_donate(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *item;
 
@@ -2586,7 +2586,7 @@ void do_donate(CHAR_DATA *ch, const char *argument)
 		obj_to_room(donation_pit, get_room_index(ROOM_VNUM_ALTAR));
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Donate what?\n", ch);
 		return;
 	}
@@ -2615,11 +2615,11 @@ void do_donate(CHAR_DATA *ch, const char *argument)
 }
 
 /* Junk by Lotus */
-void do_junk(CHAR_DATA *ch, const char *argument)
+void do_junk(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Junk what?\n", ch);
 		return;
 	}
@@ -2664,7 +2664,7 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 /* sacrifice all by Montrey */
-void do_sacrifice(CHAR_DATA *ch, const char *argument)
+void do_sacrifice(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj, *obj_next;
@@ -2794,11 +2794,11 @@ void do_sacrifice(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_quaff(CHAR_DATA *ch, const char *argument)
+void do_quaff(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Quaff what?\n", ch);
 		return;
 	}
@@ -2844,7 +2844,7 @@ void do_quaff(CHAR_DATA *ch, const char *argument)
 /* Global for scrolls that want that extra oomph */
 extern String target_name;
 
-void do_recite(CHAR_DATA *ch, const char *argument)
+void do_recite(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *scroll, *obj = NULL;
@@ -2924,7 +2924,7 @@ void do_recite(CHAR_DATA *ch, const char *argument)
 	extract_obj(scroll);
 }
 
-void do_brandish(CHAR_DATA *ch, const char *argument)
+void do_brandish(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
@@ -3010,13 +3010,13 @@ void do_brandish(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_zap(CHAR_DATA *ch, const char *argument)
+void do_zap(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wand;
 	OBJ_DATA *obj = NULL;
 
-	if (argument[0] == '\0' && ch->fighting == NULL) {
+	if (argument.empty() && ch->fighting == NULL) {
 		stc("Zap whom or what?\n", ch);
 		return;
 	}
@@ -3105,7 +3105,7 @@ void do_zap(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_brew(CHAR_DATA *ch, const char *argument)
+void do_brew(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int sn;
@@ -3122,7 +3122,7 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Brew what spell?\n", ch);
 		return;
 	}
@@ -3235,7 +3235,7 @@ void do_brew(CHAR_DATA *ch, const char *argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-void do_scribe(CHAR_DATA *ch, const char *argument)
+void do_scribe(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int sn;
@@ -3252,7 +3252,7 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Scribe what spell?\n", ch);
 		return;
 	}
@@ -3346,7 +3346,7 @@ void do_scribe(CHAR_DATA *ch, const char *argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-void do_steal(CHAR_DATA *ch, const char *argument)
+void do_steal(CHAR_DATA *ch, String argument)
 {
 	char buf  [MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -3778,7 +3778,7 @@ void make_pet(CHAR_DATA *ch, CHAR_DATA *pet) {
 	ch->pet = pet;
 }
 
-void do_buy(CHAR_DATA *ch, const char *argument)
+void do_buy(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cost, roll;
@@ -3791,7 +3791,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 	cash_on_char = ch->silver + (ch->gold * 100);
 	money_in_bank = ch->silver_in_bank + (ch->gold_in_bank * 100);
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("What do you want to buy?\n", ch);
 		return;
 	}
@@ -4166,7 +4166,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_buy() */
 
-void do_list(CHAR_DATA *ch, const char *argument)
+void do_list(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -4273,14 +4273,14 @@ void do_list(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_list() */
 
-void do_sell(CHAR_DATA *ch, const char *argument)
+void do_sell(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *keeper;
 	OBJ_DATA *obj;
 	int cost, roll;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Sell what?\n", ch);
 		return;
 	}
@@ -4373,14 +4373,14 @@ void do_sell(CHAR_DATA *ch, const char *argument)
 	return;
 } /* end do_sell() */
 
-void do_value(CHAR_DATA *ch, const char *argument)
+void do_value(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *keeper;
 	OBJ_DATA *obj;
 	int cost;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Value what?\n", ch);
 		return;
 	}
@@ -4427,7 +4427,7 @@ void do_value(CHAR_DATA *ch, const char *argument)
 }
 
 /* put an item on auction, or see the stats on the current item or bet */
-void do_auction(CHAR_DATA *ch, const char *argument)
+void do_auction(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	char buf[MSL];
@@ -4440,7 +4440,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (IS_SET(ch->comm, COMM_NOAUCTION)) {
 			new_color(ch, CSLOT_CHAN_AUCTION);
 			stc("Auction channel is now ON.\n", ch);
@@ -4560,7 +4560,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		/* Took this out cause it seems to have started to malfunction - Lotus
 		                newbet = parsebet (auction->bet, argument);
 		*/
-		if (argument[0] == '\0')
+		if (argument.empty())
 			newbet = auction->bet + UMAX(auction->bet / 10, 1);
 		else {
 			if (!is_number(argument)) {
@@ -4591,7 +4591,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			deduct_cost(auction->buyer, -(auction->bet * 100));
 
 		/* players spam bidding without having to type their bid! :P */
-		if (argument[0] == '\0')
+		if (argument.empty())
 			WAIT_STATE(ch, PULSE_PER_SECOND);
 
 		auction->buyer = ch;
@@ -4744,7 +4744,7 @@ int is_anvil_owner(CHAR_DATA *ch, OBJ_DATA *anvil)
  * Age of Legacy's Evolution System.
  *
  */
-void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
+void forge_flag(CHAR_DATA *ch, const String& argument, OBJ_DATA *anvil)
 {
 	OBJ_DATA *weapon;
 	int flag_table_num, flag, flag_count = 0, evo, qpcost;
@@ -4763,7 +4763,7 @@ void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 	}
 
 	String arg;
-	argument = one_argument(argument, arg);
+	one_argument(argument, arg);
 
 	/* player used a valid flag type? */
 	if ((flag_table_num = flag_lookup(arg, weapon_flags)) == -1) {
@@ -4889,7 +4889,7 @@ void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 }
 
 /* Hone by Montrey */
-void do_hone(CHAR_DATA *ch, const char *argument)
+void do_hone(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *weapon;
@@ -4944,7 +4944,7 @@ void do_hone(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_forge(CHAR_DATA *ch, const char *argument)
+void do_forge(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj, *anvil = NULL, *material;
 	CHAR_DATA *owner;
@@ -4958,7 +4958,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	String type;
 	argument = one_argument(argument, type);
 
-	if (argument[0] == '\0' || type[0] == '\0') {
+	if (argument.empty() || type[0] == '\0') {
 		if (get_skill(ch, gsn_forge))
 			stc("Syntax: {Rforge{x <weapon type> <weapon name>\n"
 			    "        {Rforge flag{x <flag type>\n", ch);
@@ -5195,7 +5195,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 } /* end do_forge() */
 
 /* Engrave a message of historical significance on a weapon -- Elrac */
-void do_engrave(CHAR_DATA *ch, const char *argument)
+void do_engrave(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *jeweler = NULL;
 	OBJ_DATA *weapon;
@@ -5390,7 +5390,7 @@ void do_engrave(CHAR_DATA *ch, const char *argument)
 } /* end do_engrave() */
 
 /* Change the looks on weddingrings */
-void do_weddingring(CHAR_DATA *ch, const char *argument)
+void do_weddingring(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *jeweler = NULL;
 	OBJ_DATA *ring;
@@ -5417,7 +5417,7 @@ void do_weddingring(CHAR_DATA *ch, const char *argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0' || argument[0] == '\0')
+	if (arg1[0] == '\0' || argument.empty())
 		goto help;
 
 	if (!IS_IMMORTAL(ch))
@@ -5457,7 +5457,7 @@ help:
 	return;
 }
 
-void do_lore(CHAR_DATA *ch, const char *argument)
+void do_lore(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
@@ -5466,7 +5466,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("What do you want to lore?\n", ch);
 		return;
 	}
@@ -5492,7 +5492,7 @@ void do_lore(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_autograph(CHAR_DATA *ch, const char *argument)
+void do_autograph(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	char buf[MSL];
@@ -5515,7 +5515,7 @@ void do_autograph(CHAR_DATA *ch, const char *argument)
 This function allows a character to rename their pet.
 -- Outsider
 */
-void do_rename(CHAR_DATA *ch, const char *argument)
+void do_rename(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *pet;
 	char new_name[64];
@@ -5527,7 +5527,7 @@ void do_rename(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* We have to name it something.... */
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("So...it's a No Name brand?\n", ch);
 		return;
 	}

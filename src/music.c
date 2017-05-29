@@ -193,7 +193,7 @@ void load_songs(void)
 	fclose(fp); /* One more close than open -  Lotus */
 }
 
-void do_play(CHAR_DATA *ch, const char *argument)
+void do_play(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *juke;
 	const char *str;
@@ -220,7 +220,7 @@ void do_play(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Play what?\n", ch);
 		return;
 	}
@@ -237,7 +237,7 @@ void do_play(CHAR_DATA *ch, const char *argument)
 		if (!str_cmp(arg, "artist"))
 			artist = TRUE;
 
-		if (argument[0] != '\0')
+		if (!argument.empty())
 			match = TRUE;
 
 		Format::sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
@@ -304,7 +304,7 @@ void do_play(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Play what?\n", ch);
 		return;
 	}

@@ -38,12 +38,12 @@ bool    check_channel_social    args((CHAR_DATA *ch, int channel,
                                       int custom, const String& command, const String& argument));
 
 void    send_to_query           args((CHAR_DATA *ch, const char *string));
-bool    swearcheck              args((const char *argument));
+bool    swearcheck              args((const String& argument));
 extern bool     is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim);
 const char   *makedrunk               args((CHAR_DATA *ch, const char *string));
 
 /* RT code to display channel status */
-void do_channels(CHAR_DATA *ch, const char *argument)
+void do_channels(CHAR_DATA *ch, String argument)
 {
 	/* lists all channels and their status */
 	stc("   channel     status\n", ch);
@@ -205,7 +205,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 		stc("You only feel like flaming.\n", ch);
 }
 
-const char *makedrunk(CHAR_DATA *ch, const char *string)
+String makedrunk(CHAR_DATA *ch, const String& string)
 {
 	/* This structure defines all changes for a character */
 	static struct struckdrunk drunk[] = {
@@ -314,46 +314,37 @@ const char *makedrunk(CHAR_DATA *ch, const char *string)
 			{"z", "z", "ZzzZz", "Zzz", "Zsszzsz", "szz", "sZZz", "ZSz", "zZ", "Z"}
 		}
 	};
-	static char buf[MAX_STRING_LENGTH];
-	char temp;
-	int pos = 0;
-	int drunklevel;
-	int randomnum;
+
+	if (IS_NPC(ch))
+		return string;
 
 	/* Check how drunk a person is... */
-	if (IS_NPC(ch))
-		drunklevel = 0;
-	else
-		drunklevel = ch->pcdata->condition[COND_DRUNK];
+	int drunklevel = ch->pcdata->condition[COND_DRUNK];
 
 	if (drunklevel <= 10)
 		return string;
 
+	String buf;
+
 	/* drunk in earnest. mangle his speech. */
-	for (; *string; string++) {
-		temp = toupper(*string);
+	for (auto it = string.begin(); it != string.end(); it++) {
+		char temp = toupper(*it);
 
 		if ((temp >= 'A') && (temp <= 'Z')) {
 			if (drunklevel > drunk[temp - 'A'].min_drunk_level) {
-				randomnum = number_range(0, drunk[temp - 'A'].number_of_rep);
-				strcpy(&buf[pos], drunk[temp - 'A'].replacement[randomnum]);
-				pos += strlen(&buf[pos]);
+				int randomnum = number_range(0, drunk[temp - 'A'].number_of_rep);
+				buf += drunk[temp - 'A'].replacement[randomnum];
 			}
 			else
-				buf[pos++] = *string;
+				buf += *it;
 		}
 		else if ((temp >= '0') && (temp <= '9')) {
-			temp = '0' + number_range(0, 9);
-			buf[pos++] = temp;
+			buf += '0' + number_range(0, 9);
 		}
 		else
-			buf[pos++] = *string;
-
-		if (pos > (MAX_STRING_LENGTH - 25))
-			break;
+			buf += *it;
 	}
 
-	buf[pos] = '\0';          /* Mark end of the string... */
 	return (buf);
 } /* end makedrunk() */
 
@@ -378,7 +369,7 @@ void global_act(CHAR_DATA *ch, const char *message,
 	}
 } /* end global_act() */
 
-bool swearcheck(const char *argument)
+bool swearcheck(const String& argument)
 {
 	/* For partial matches, cause we do want to trigger dickhead */
 	char tobechecked[MSL];
@@ -619,7 +610,7 @@ void wiznet(const String& string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long 
 	}
 }
 
-void channel(CHAR_DATA *ch, const char *argument, int channel)
+void channel(CHAR_DATA *ch, const String& argument, int channel)
 {
 	DESCRIPTOR_DATA *d;
 	int cslot = chan_table[channel].cslot;
@@ -631,7 +622,7 @@ void channel(CHAR_DATA *ch, const char *argument, int channel)
 		}
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		new_color(ch, cslot);
 
 		if (IS_SET(ch->comm, chan_table[channel].bit)) {
@@ -785,37 +776,37 @@ void channel(CHAR_DATA *ch, const char *argument, int channel)
 
 }
 
-void do_gossip(CHAR_DATA *ch, const char *argument)
+void do_gossip(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_GOSSIP);
 }
 
-void do_flame(CHAR_DATA *ch, const char *argument)
+void do_flame(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_FLAME);
 }
 
-void do_qwest(CHAR_DATA *ch, const char *argument)
+void do_qwest(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_QWEST);
 }
 
-void do_pray(CHAR_DATA *ch, const char *argument)
+void do_pray(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_PRAY);
 }
 
-void do_clantalk(CHAR_DATA *ch, const char *argument)
+void do_clantalk(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_CLAN);
 }
 
-void do_music(CHAR_DATA *ch, const char *argument)
+void do_music(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_MUSIC);
 }
 
-void do_ic(CHAR_DATA *ch, const char *argument)
+void do_ic(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Just be yourself, no need to pretend :)\n", ch);
@@ -830,17 +821,17 @@ void do_ic(CHAR_DATA *ch, const char *argument)
 	channel(ch, argument, CHAN_IC);
 }
 
-void do_grats(CHAR_DATA *ch, const char *argument)
+void do_grats(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_GRATS);
 }
 
-void do_immtalk(CHAR_DATA *ch, const char *argument)
+void do_immtalk(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_IMMTALK);
 }
 
-void do_question(CHAR_DATA *ch, const char *argument)
+void do_question(CHAR_DATA *ch, String argument)
 {
 	channel(ch, argument, CHAN_QA);
 }
@@ -868,7 +859,7 @@ void talk_auction(const char *argument)
 	}
 }
 
-void do_announce(CHAR_DATA *ch, const char *argument)
+void do_announce(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
@@ -884,7 +875,7 @@ void do_announce(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_send_announce(CHAR_DATA *ch, const char *argument)
+void do_send_announce(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
@@ -905,7 +896,7 @@ void do_send_announce(CHAR_DATA *ch, const char *argument)
 }
 
 /* Lotus - Let us Imms use the FYI Channel for jokes */
-void do_fyi(CHAR_DATA *ch, const char *argument)
+void do_fyi(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
@@ -942,7 +933,7 @@ void do_fyi(CHAR_DATA *ch, const char *argument)
 
 }
 
-void do_replay(CHAR_DATA *ch, const char *argument)
+void do_replay(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("{YMobiles can't work answering machines.{x\n", ch);
@@ -956,12 +947,12 @@ void do_replay(CHAR_DATA *ch, const char *argument)
 }
 
 /* Channel specifically for socials and emotes by Lotus */
-void do_globalsocial(CHAR_DATA *ch, const char *argument)
+void do_globalsocial(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (IS_SET(ch->comm, COMM_NOSOCIAL)) {
 			new_color(ch, CSLOT_CHAN_SOCIAL);
 			stc("Social channel is now ON.\n", ch);
@@ -1072,14 +1063,14 @@ void do_globalsocial(CHAR_DATA *ch, const char *argument)
 
 }
 
-void do_iclantalk(CHAR_DATA *ch, const char *argument)
+void do_iclantalk(CHAR_DATA *ch, String argument)
 {
 	CLAN_DATA *clan, *oclan;
 
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_CLAN);
 		stc("Syntax: iclan <clan name> <message>\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1099,14 +1090,14 @@ void do_iclantalk(CHAR_DATA *ch, const char *argument)
 }
 
 /* Improved do_say (With Colour!) - Xenith */
-void do_say(CHAR_DATA *ch, const char *argument)
+void do_say(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 
 	if (ch->in_room == NULL)
 		return;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Say what?\n", ch);
 		return;
 	}
@@ -1162,7 +1153,7 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	mprog_speech_trigger(argument, ch);
 }
 
-void do_tell(CHAR_DATA *ch, const char *argument)
+void do_tell(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim;
@@ -1192,7 +1183,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("Tell whom what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1268,14 +1259,14 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		strcpy(victim->reply, ch->name);
 }
 
-void do_reply(CHAR_DATA *ch, const char *argument)
+void do_reply(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
 	char *strtime;
 	bool found = FALSE;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("Reply with what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1387,11 +1378,11 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		strcpy(victim->reply, ch->name);
 }
 
-void do_yell(CHAR_DATA *ch, const char *argument)
+void do_yell(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You yell your head off but no one hears.\n", ch);
 		return;
 	}
@@ -1425,14 +1416,14 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_emote(CHAR_DATA *ch, const char *argument)
+void do_emote(CHAR_DATA *ch, String argument)
 {
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
 		stc("You're not feeling very emotional right now.\n", ch);
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Emote what?\n", ch);
 		return;
 	}
@@ -1443,7 +1434,7 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_pmote(CHAR_DATA *ch, const char *argument)
+void do_pmote(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 	const char *letter, *name;
@@ -1455,7 +1446,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Emote what?\n", ch);
 		return;
 	}
@@ -1518,7 +1509,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_smote(CHAR_DATA *ch, const char *argument)
+void do_smote(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 	const char *letter, *name;
@@ -1530,7 +1521,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("S-Emote what?\n", ch);
 		return;
 	}
@@ -1601,7 +1592,7 @@ void do_smote(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_page(CHAR_DATA *ch, const char *argument)
+void do_page(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -1631,7 +1622,7 @@ void do_page(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 
 		if (IS_SET(ch->comm, COMM_NOPAGE)) {
@@ -1696,7 +1687,7 @@ void do_page(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_whisper(CHAR_DATA *ch, const char *argument)
+void do_whisper(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -1715,7 +1706,7 @@ void do_whisper(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(victim, "{G%s whispers sweet nothings into your ear.{x\n", ch->name);
 		ptc(ch, "{GYou whisper sweet nothings into %s's ear.{x\n", victim->name);
 		return;
@@ -1725,7 +1716,7 @@ void do_whisper(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "{GYou whisper in %s's ear, '%s{G'{x\n", victim->name, argument);
 }
 
-void do_qtell(CHAR_DATA *ch, const char *argument)
+void do_qtell(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -1734,7 +1725,7 @@ void do_qtell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (IS_SET(ch->comm, COMM_NOQUERY)) {
 			new_color(ch, CSLOT_CHAN_QTELL);
 			stc("Query channel is now on.\n", ch);
@@ -1776,12 +1767,12 @@ void do_qtell(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_gtell(CHAR_DATA *ch, const char *argument)
+void do_gtell(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *gch;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		new_color(ch, CSLOT_CHAN_GTELL);
 		stc("Tell your group what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1806,7 +1797,7 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_query(CHAR_DATA *ch, const char *argument)
+void do_query(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *rch;
 

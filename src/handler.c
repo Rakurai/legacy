@@ -333,7 +333,7 @@ int get_skill(const CHAR_DATA *ch, int sn)
 	return URANGE(0, skill, 100);
 }
 /* returns deity number */
-int deity_lookup(const char *name)
+int deity_lookup(const String& name)
 {
 	int deity;
 
@@ -1701,16 +1701,16 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 /* Count characters in a string, ignoring color codes */
 /* color_strlen now counts {{s as a character, fixes a few bugs -- Montrey */
-int color_strlen(const char *argument)
+int color_strlen(const String& argument)
 {
 	const char *str;
 	int length;
 
-	if (argument == NULL || argument[0] == '\0')
+	if (argument.empty())
 		return 0;
 
 	length = 0;
-	str = argument;
+	str = argument.c_str();
 
 	while (*str != '\0') {
 		if (*str != '{') {

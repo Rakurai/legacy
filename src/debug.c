@@ -34,7 +34,7 @@
 extern AREA_DATA *area_first;
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
-void do_debug(CHAR_DATA *ch, const char *argument)
+void do_debug(CHAR_DATA *ch, String argument)
 {
 	String subfunc;
 	argument = one_argument(argument, subfunc);
@@ -113,7 +113,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 	}
 */
 	if (!strcmp(subfunc, "rng")) {
-		long iterations = atol(argument);
+		long iterations = atol(argument.c_str());
 
 		long nums[100];
 
@@ -139,7 +139,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!strcmp(subfunc, "rng2")) {
-		long iterations = atol(argument);
+		long iterations = atol(argument.c_str());
 
 		long nums[100];
 
@@ -280,7 +280,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 		extern void     obj_update      args((void));
 		extern void     room_update     args((void));
 
-		if (argument[0] != '\0' && is_number(argument))
+		if (!argument.empty() && is_number(argument))
 			number = URANGE(1, atoi(argument), 100);
 
 		for (count = 0; count < number; count++) {

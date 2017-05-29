@@ -209,7 +209,7 @@ bool help_mob(CHAR_DATA *ch, CHAR_DATA *victim)
 	return FALSE;
 } /* end help_mob */
 
-void do_cast(CHAR_DATA *ch, const char *argument)
+void do_cast(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
@@ -225,7 +225,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Cast which what where?\n", ch);
 		return;
 	}
@@ -506,7 +506,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
    This is very similar to CAST but with many fewer restrictions and less
    bells & whistles. We assume the mobprogrammer knows what he's doing,
    the mob has the skill and PK restrictions are irrelevant. */
-void do_mpcast(CHAR_DATA *ch, const char *argument)
+void do_mpcast(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;

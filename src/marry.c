@@ -40,7 +40,7 @@
 #include "merc.h"
 #include "Format.hpp"
 
-void do_marry(CHAR_DATA *ch, const char *argument)
+void do_marry(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *victim2;
@@ -90,7 +90,7 @@ void do_marry(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_divorce(CHAR_DATA *ch, const char *argument)
+void do_divorce(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *victim2;
@@ -141,7 +141,7 @@ void do_divorce(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_spousetalk(CHAR_DATA *ch, const char *argument)
+void do_spousetalk(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -164,7 +164,7 @@ void do_spousetalk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
 		stc("What do you wish to tell your other half?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -202,7 +202,7 @@ void do_spousetalk(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_propose(CHAR_DATA *ch, const char *argument)
+void do_propose(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -211,7 +211,7 @@ void do_propose(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Propose to who?\n", ch);
 		return;
 	}
@@ -259,7 +259,7 @@ void do_propose(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_accept(CHAR_DATA *ch, const char *argument)
+void do_accept(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MSL];
@@ -270,7 +270,7 @@ void do_accept(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Accept who's proposal?\n", ch);
 		return;
 	}
@@ -333,7 +333,7 @@ void do_accept(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_reject(CHAR_DATA *ch, const char *argument)
+void do_reject(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -342,7 +342,7 @@ void do_reject(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Reject who's proposal?\n", ch);
 		return;
 	}
@@ -389,7 +389,7 @@ void do_reject(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_breakup(CHAR_DATA *ch, const char *argument)
+void do_breakup(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MSL];
@@ -400,7 +400,7 @@ void do_breakup(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Breakup with who?\n", ch);
 		return;
 	}

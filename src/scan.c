@@ -40,7 +40,7 @@ void    scan_list       args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int 
 void    scan_room       args((ROOM_INDEX_DATA *room, CHAR_DATA *ch, int depth, int door, struct exit_data *pexit));
 void    scan_char       args((CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door));
 
-void do_scan2(CHAR_DATA *ch, const char *argument)
+void do_scan2(CHAR_DATA *ch, String argument)
 {
 	extern char *const dir_name[];
 	char buf[MIL];
@@ -117,7 +117,7 @@ void do_scan2(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_scan(CHAR_DATA *ch, const char *argument)
+void do_scan(CHAR_DATA *ch, String argument)
 {
 	extern char *const dir_name[];
 	char buf[MIL];

@@ -61,7 +61,7 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
         stc("That is not a valid censor option.\n", ch);
 }*/
 
-void config_color_func(CHAR_DATA *ch, const char *argument, int type)
+void config_color_func(CHAR_DATA *ch, String argument, int type)
 {
 	char typestr[20];
 	int low, high, mod, slot, i;
@@ -75,7 +75,7 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Use the color name or 'reset' after an option to modify.\n", ch);
 		ptc(ch, "%s color settings:\n\n", capitalize(typestr));
 
@@ -148,11 +148,11 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void config_color(CHAR_DATA *ch, const char *argument)
+void config_color(CHAR_DATA *ch, String argument)
 {
 	int argnum = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Color options:\n\n", ch);
 		ptc(ch, "  1.  Color                                      %s\n",
@@ -191,7 +191,7 @@ void config_color(CHAR_DATA *ch, const char *argument)
 	case 1: /* color */
 		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
 			stc("This toggles color on or off.\n", ch);
-		else if (argument[0] == '\0') {
+		else if (argument.empty()) {
 			if (IS_SET(ch->act, PLR_COLOR)) {
 				stc("You see things in ", ch);
 				set_color(ch, WHITE, NOBOLD);
@@ -219,7 +219,7 @@ void config_color(CHAR_DATA *ch, const char *argument)
 			    "that allows people to use color codes (found in 'ctest').\n"
 			    "Toggling this option determines if the affected test looks\n"
 			    "normal or colored to you.\n", ch);
-		else if (argument[0] == '\0') {
+		else if (argument.empty()) {
 			if (IS_SET(ch->act, PLR_COLOR2)) {
 				REMOVE_BIT(ch->act, PLR_COLOR2);
 				stc("Crazy Color Disabled =(\n", ch);
@@ -241,7 +241,7 @@ void config_color(CHAR_DATA *ch, const char *argument)
 		return;
 
 	case 6: /* reset */
-		if (argument[0] != '\0')
+		if (!argument.empty())
 			stc("This option, without an argument, will reset your personal color\n"
 			    "settings to their default scheme.\n", ch);
 		else {
@@ -261,11 +261,11 @@ void config_color(CHAR_DATA *ch, const char *argument)
 	stc("That is not a valid color option.\n", ch);
 }
 
-void config_video(CHAR_DATA *ch, const char *argument)
+void config_video(CHAR_DATA *ch, String argument)
 {
 	int argnum = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Video options:\n\n", ch);
 		ptc(ch, "  1.  Flash                                      %s\n",
@@ -318,7 +318,7 @@ void config_video(CHAR_DATA *ch, const char *argument)
 				stc("Flashing text should now look {funderlined{x to you!\n", ch);
 			}
 		}
-		else if (argument[0] == '\0') {
+		else if (argument.empty()) {
 			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE)) {
 				REMOVE_BIT(ch->pcdata->video, VIDEO_FLASH_LINE);
 				stc("Flashing text will no longer be converted to underlined.\n", ch);
@@ -343,12 +343,12 @@ void config_video(CHAR_DATA *ch, const char *argument)
 			    "converted to grey.", ch);
 		/* backwards compatible with old video command */
 		else if (!str_prefix1(argument, "modify")
-		         || (argument[0] == '\0' && !IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
+		         || (argument.empty() && !IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
 			SET_BIT(ch->pcdata->video, VIDEO_DARK_MOD);
 			stc("You can now see {ccharcoal{x and {kblack{x!\n", ch);
 		}
 		else if (!str_prefix1(argument, "normal")
-		         || (argument[0] == '\0' && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
+		         || (argument.empty() && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
 			REMOVE_BIT(ch->pcdata->video, VIDEO_DARK_MOD);
 			stc("Can you still see {ccharcoal{x and {kblack{x?\n", ch);
 		}
@@ -363,12 +363,12 @@ void config_video(CHAR_DATA *ch, const char *argument)
 			    "or converted into colors ({POFF{x).\n", ch);
 		/* backwards compatible with old video command */
 		else if (!str_prefix1(argument, "show")
-		         || (argument[0] == '\0' && !IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
+		         || (argument.empty() && !IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
 			SET_BIT(ch->pcdata->video, VIDEO_CODES_SHOW);
 			stc("{RColor{x {Ccodes{x will now be shown.\n", ch);
 		}
 		else if (!str_prefix1(argument, "hide")
-		         || (argument[0] == '\0' && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
+		         || (argument.empty() && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
 			REMOVE_BIT(ch->pcdata->video, VIDEO_CODES_SHOW);
 			stc("You see no more {Rcolor{x {Ccodes{x.\n", ch);
 		}
@@ -381,7 +381,7 @@ void config_video(CHAR_DATA *ch, const char *argument)
 		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
 			stc("Video VT100 emulation mode looks terrible if you do not have\n"
 			    "a VT100, so only use it if you must.\n", ch);
-		else if (argument[0] == '\0') {
+		else if (argument.empty()) {
 			if (IS_SET(ch->pcdata->video, VIDEO_VT100)) {
 				REMOVE_BIT(ch->pcdata->video, VIDEO_VT100);
 				stc("VT100 mode off.\n", ch);
@@ -400,11 +400,11 @@ void config_video(CHAR_DATA *ch, const char *argument)
 	stc("That is not a valid video option.\n", ch);
 }
 
-void config_censor(CHAR_DATA *ch, const char *argument)
+void config_censor(CHAR_DATA *ch, String argument)
 {
 	int argnum = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Censor options:\n\n", ch);
 		ptc(ch, "  1.  Channels                                   %s\n",
@@ -460,7 +460,7 @@ void config_censor(CHAR_DATA *ch, const char *argument)
 			if (x % 4 != 3)
 				stc("\n", ch);
 		}
-		else if (argument[0] == '\0') {
+		else if (argument.empty()) {
 			if (IS_SET(ch->censor, CENSOR_CHAN)) {
 				REMOVE_BIT(ch->censor, CENSOR_CHAN);
 				stc("{BL{Ce{gg{Wa{Cc{By{x is now rated {PR{x.\n", ch);
@@ -481,7 +481,7 @@ void config_censor(CHAR_DATA *ch, const char *argument)
 			    "addressed to 'spam'.  Swearing censors still apply to spam\n"
 			    "notes, no vulgarities, racial, sexual, or ethnic slurs are\n"
 			    "allowed under any circumstance.\n", ch);
-		else if (argument[0] == '\0') {
+		else if (argument.empty()) {
 			if (IS_SET(ch->censor, CENSOR_SPAM)) {
 				REMOVE_BIT(ch->censor, CENSOR_SPAM);
 				stc("{BL{Ce{gg{Wa{Cc{By{x is now {GSPAMMY{x!\n", ch);
@@ -500,11 +500,11 @@ void config_censor(CHAR_DATA *ch, const char *argument)
 	stc("That is not a valid censor option.\n", ch);
 }
 
-void config_immortal(CHAR_DATA *ch, const char *argument)
+void config_immortal(CHAR_DATA *ch, String argument)
 {
 	int argnum = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Immortal options:\n\n", ch);
 		ptc(ch, "  1.  Immprefix                                  %s\n",
@@ -534,7 +534,7 @@ void config_immortal(CHAR_DATA *ch, const char *argument)
 		if (!str_cmp(argument, "help") || !str_cmp(argument, "?"))
 			stc("Your immprefix is what appears at the beginning of each immtalk\n"
 				"line.  It must include your name.  Use 'none' for the default.\n", ch);
-		else if (argument[0] == '\0')
+		else if (argument.empty())
 			ptc(ch, "Your immtalk prefix is currently: %s{x\n",
 				ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
 		else if (!str_cmp(argument, "none")) {
@@ -563,7 +563,7 @@ void config_immortal(CHAR_DATA *ch, const char *argument)
 		if (!str_cmp(argument, "help") || !str_cmp(argument, "?"))
 			stc("Your immname is what appears in the WHO list in place of a player's\n"
 				"race, class, and level.  Use 'none' for the default.\n", ch);
-		else if (argument[0] == '\0')
+		else if (argument.empty())
 			ptc(ch, "Your immname is currently: %s{x\n",
 				ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
 		else if (!str_cmp(argument, "none")) {
@@ -594,7 +594,7 @@ void config_immortal(CHAR_DATA *ch, const char *argument)
 	stc("That is not a valid immortal configuration option.\n", ch);
 }
 
-void config_wiznet(CHAR_DATA *ch, const char *argument)
+void config_wiznet(CHAR_DATA *ch, String argument)
 {
 	int argnum = -1;
 	int flag;
@@ -671,7 +671,7 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
 		ptc(ch, "%s\n", wiznet_table[argnum].desc);
-	else if (argument[0] == '\0') {
+	else if (argument.empty()) {
 		if (argnum == 0) {      /* Wiznet ON */
 			if (IS_SET(ch->wiznet, wiznet_table[argnum].flag)) {
 				stc("You have now signed off Wiznet.\n", ch);
@@ -697,11 +697,11 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
 		stc("Valid options are {Phelp{x and no argument (toggle).\n", ch);
 }
 
-void do_config(CHAR_DATA *ch, const char *argument)
+void do_config(CHAR_DATA *ch, String argument)
 {
 	int argnum = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Configuration groups:\n\n", ch);
 //		stc("  1.  Channels\n", ch);
 
@@ -752,7 +752,7 @@ void do_config(CHAR_DATA *ch, const char *argument)
  Replaced configuration commands, left for oldbies
  *****/
 
-void do_color(CHAR_DATA *ch, const char *argument)
+void do_color(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL];
 
@@ -761,7 +761,7 @@ void do_color(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0')
+	if (argument.empty())
 		do_config(ch, "color color");
 	else {
 		Format::sprintf(buf, "color %s", argument);
@@ -769,7 +769,7 @@ void do_color(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_video(CHAR_DATA *ch, const char *argument)
+void do_video(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL];
 
@@ -782,14 +782,14 @@ void do_video(CHAR_DATA *ch, const char *argument)
 	do_config(ch, buf);
 }
 
-void do_censor(CHAR_DATA *ch, const char *argument)
+void do_censor(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL];
 	Format::sprintf(buf, "censor %s", argument);
 	do_config(ch, buf);
 }
 
-void do_wiznet(CHAR_DATA *ch, const char *argument)
+void do_wiznet(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL];
 
@@ -798,7 +798,7 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0')
+	if (argument.empty())
 		do_config(ch, "wiznet wiznet");
 	else {
 		Format::sprintf(buf, "wiznet %s", argument);

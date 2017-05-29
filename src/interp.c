@@ -532,7 +532,7 @@ const   struct  cmd_type        cmd_table       [] = {
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret(CHAR_DATA *ch, const char *argument)
+void interpret(CHAR_DATA *ch, String argument)
 {
 	int cmd;
 	bool found;
@@ -546,10 +546,9 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Strip leading spaces.
 	 */
-	while (isspace(*argument))
-		argument++;
+	argument = argument.lstrip();
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		/* VT100 Stuff */
 		if (ch->pcdata
 		    && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
@@ -580,10 +579,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 
 	if (!isalpha(argument[0]) && !isdigit(argument[0])) {
 		command = argument[0];
-		argument++;
-
-		while (isspace(*argument))
-			argument++;
+		argument = argument.substr(1).lstrip();
 	}
 	else
 		argument = one_argument(argument, command);
@@ -861,7 +857,7 @@ bool is_number(const char *arg)
 /*
  * Contributed by Alander, modified by Lotus
  */
-void do_commands(CHAR_DATA *ch, const char *argument)
+void do_commands(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cmd;
@@ -886,7 +882,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		{ "\n",                       0 }
 	};
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Command Structure:\n\n", ch);
 
 		for (x = 1, counter = 1; fields[x].number; x++) {
@@ -975,7 +971,7 @@ void do_huh(CHAR_DATA *ch)
 	return;
 }
 
-void do_wizhelp(CHAR_DATA *ch, const char *argument)
+void do_wizhelp(CHAR_DATA *ch, String argument)
 {
 	int cmd, col, i;
 
@@ -1081,11 +1077,12 @@ void load_disabled()
 	}
 }
 
-void do_disable(CHAR_DATA *ch, const char *argument)
+void do_disable(CHAR_DATA *ch, String argument)
 {
-	char cmd[MIL];
 	DISABLED_DATA *p;
 	int i;
+
+	String cmd;
 	argument = one_argument(argument, cmd);
 
 	if (cmd[0] == '\0') {
@@ -1134,7 +1131,7 @@ void do_disable(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a reason.\n", ch);
 		return;
 	}

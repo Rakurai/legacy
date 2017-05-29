@@ -26,12 +26,12 @@
 #include "Format.hpp"
 
 
-extern bool    swearcheck              args((const char *argument));
+extern bool    swearcheck              args((const String& argument));
 extern bool check_parse_name(const String& name);
 extern  ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
 extern  AREA_DATA       *area_first;
 
-void do_adjust(CHAR_DATA *ch, const char *argument)
+void do_adjust(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char       buf  [ MAX_STRING_LENGTH ];
@@ -86,7 +86,7 @@ void do_adjust(CHAR_DATA *ch, const char *argument)
 }
 
 /* save all players, without lag -- Elrac */
-void do_allsave(CHAR_DATA *ch, const char *argument)
+void do_allsave(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 	CHAR_DATA *wch;
@@ -100,7 +100,7 @@ void do_allsave(CHAR_DATA *ch, const char *argument)
 	stc("done.\n", ch);
 } /* end allsave */
 
-void do_alternate(CHAR_DATA *ch, const char *argument)
+void do_alternate(CHAR_DATA *ch, String argument)
 {
 	char query[MSL], colorsite[MSL], *p, *q;
 	BUFFER *output;
@@ -320,7 +320,7 @@ void do_alternate(CHAR_DATA *ch, const char *argument)
 	free_buf(output);
 }
 
-void do_at(CHAR_DATA *ch, const char *argument)
+void do_at(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *original;
@@ -330,7 +330,7 @@ void do_at(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		stc("At where and what?\n", ch);
 		return;
 	}
@@ -369,7 +369,7 @@ void do_at(CHAR_DATA *ch, const char *argument)
 }
 
 /* Check Command borrowed from a web site */
-void do_check(CHAR_DATA *ch, const char *argument)
+void do_check(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	bool SHOWIMM = FALSE;
@@ -575,7 +575,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_chown(CHAR_DATA *ch, const char *argument)
+void do_chown(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
@@ -632,7 +632,7 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 }
 
 /* command that is similar to load */
-void do_clone(CHAR_DATA *ch, const char *argument)
+void do_clone(CHAR_DATA *ch, String argument)
 {
 	const char *rest;
 	CHAR_DATA *mob;
@@ -772,7 +772,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 } /* end do_clone() */
 
 /* Funky style clone command */
-void do_oclone(CHAR_DATA *ch, const char *argument)
+void do_oclone(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -824,12 +824,12 @@ void do_oclone(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_departedlist(CHAR_DATA *ch, const char *argument)
+void do_departedlist(CHAR_DATA *ch, String argument)
 {
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		stc("Syntax:\n"
 		    "  departedlist add    <immortal>\n"
 		    "  departedlist remove <immortal>\n", ch);
@@ -861,7 +861,7 @@ void do_departedlist(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_leader(CHAR_DATA *ch, const char *argument)
+void do_leader(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	/* Not using these at the moment. -- Outsider
@@ -950,7 +950,7 @@ void do_leader(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_deputize(CHAR_DATA *ch, const char *argument)
+void do_deputize(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int count = 0, depcount = 0;
@@ -1032,7 +1032,7 @@ void do_deputize(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_despell(CHAR_DATA *ch, const char *argument)
+void do_despell(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 
@@ -1054,13 +1054,13 @@ void do_despell(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_disconnect(CHAR_DATA *ch, const char *argument)
+void do_disconnect(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 	int desc;
 	char buf[MAX_INPUT_LENGTH];
 
-	if (argument == NULL || *argument == '\0') {
+	if (argument == NULL || argument.empty()) {
 		stc("Disconnect which socket? (type SOCKETS for list)\n",
 		    ch);
 		return;
@@ -1105,7 +1105,7 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 
 /* idea by Erwin Andreasen */
 /* Switch into another (perhaps live player) and execute a command, then switch back */
-void do_doas(CHAR_DATA *ch, const char *argument)
+void do_doas(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *orig;
@@ -1113,7 +1113,7 @@ void do_doas(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		stc("Syntax:  doas <victim> <command>\n", ch);
 		return;
 	}
@@ -1140,11 +1140,11 @@ void do_doas(CHAR_DATA *ch, const char *argument)
 	victim->desc    = orig;
 }
 
-void do_echo(CHAR_DATA *ch, const char *argument)
+void do_echo(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Global echo what?\n", ch);
 		return;
 	}
@@ -1165,11 +1165,11 @@ void do_echo(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_recho(CHAR_DATA *ch, const char *argument)
+void do_recho(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Local echo what?\n", ch);
 		return;
 	}
@@ -1188,11 +1188,11 @@ void do_recho(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_zecho(CHAR_DATA *ch, const char *argument)
+void do_zecho(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Zone echo what?\n", ch);
 		return;
 	}
@@ -1210,14 +1210,14 @@ void do_zecho(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_pecho(CHAR_DATA *ch, const char *argument)
+void do_pecho(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (argument[0] == '\0' || arg[0] == '\0') {
+	if (argument.empty() || arg[0] == '\0') {
 		stc("Personal echo what?\n", ch);
 		return;
 	}
@@ -1238,7 +1238,7 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 }
 
 /* File command by Lotus */
-void do_file(CHAR_DATA *ch, const char *argument)
+void do_file(CHAR_DATA *ch, String argument)
 {
 	FILE *req_file;
 	int num_lines = 0, req_lines = 0, cur_line = 0, i;
@@ -1334,12 +1334,12 @@ void do_file(CHAR_DATA *ch, const char *argument)
 	free_buf(buffer);
 }
 
-void do_followerlist(CHAR_DATA *ch, const char *argument)
+void do_followerlist(CHAR_DATA *ch, String argument)
 {
 	char query[MSL];
 	String deity;
 
-	if (argument[0] == '\0')
+	if (argument.empty())
 		deity = ch->name;
 	else
 		one_argument(argument, deity);
@@ -1411,7 +1411,7 @@ const char *name_expand(CHAR_DATA *ch)
 	return outbuf;
 }
 
-void do_for(CHAR_DATA *ch, const char *argument)
+void do_for(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	ROOM_INDEX_DATA *room, *old_room = NULL;
@@ -1477,7 +1477,7 @@ void do_for(CHAR_DATA *ch, const char *argument)
 				found = TRUE;
 
 			if (found) { /* p is 'appropriate' */
-				const char *pSource = argument; /* head of buffer to be parsed */
+				const char *pSource = argument.c_str(); /* head of buffer to be parsed */
 				char *pDest = buf; /* parse into this */
 
 				while (*pSource) {
@@ -1554,7 +1554,7 @@ void do_for(CHAR_DATA *ch, const char *argument)
 	} /* if strchr */
 } /* do_for */
 
-void do_goto(CHAR_DATA *ch, const char *argument)
+void do_goto(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location = NULL;
 	CHAR_DATA *rch;
@@ -1562,7 +1562,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 	int count = 0;
 	bool goto_pet = FALSE;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  goto <room vnum>\n"
 		    "  goto <character name or object name>\n"
@@ -1643,7 +1643,7 @@ void do_goto(CHAR_DATA *ch, const char *argument)
 ** Grouplist with no arguments will show all the current
 ** groups on the MUD. Only players will be shown.
 */
-void do_grouplist(CHAR_DATA *ch, const char *argument)
+void do_grouplist(CHAR_DATA *ch, String argument)
 {
 	struct group_data {
 		CHAR_DATA *leader;
@@ -1722,7 +1722,7 @@ void do_grouplist(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_grouplist() */
 
-void do_guild(CHAR_DATA *ch, const char *argument)
+void do_guild(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CLAN_DATA *clan;
@@ -1792,7 +1792,7 @@ void do_guild(CHAR_DATA *ch, const char *argument)
 
 /* answer to PRAY. Goes to one mortal like TELL does but does not reveal the
    imm who is sending the message. Also broadcasts to all other imms in game. */
-void do_heed(CHAR_DATA *ch, const char *argument)
+void do_heed(CHAR_DATA *ch, String argument)
 {
 	char buf[100 + MIL]; /* enough for pompous intro + text */
 	CHAR_DATA *victim, *truevictim;
@@ -1887,7 +1887,7 @@ void do_heed(CHAR_DATA *ch, const char *argument)
 	}
 } /* end do_heed() */
 
-void do_linkload(CHAR_DATA *ch, const char *argument)
+void do_linkload(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
@@ -1963,7 +1963,7 @@ void do_linkload(CHAR_DATA *ch, const char *argument)
 	free_descriptor(dnew);
 } /* end do_linkload() */
 
-void do_mload(CHAR_DATA *ch, const char *argument)
+void do_mload(CHAR_DATA *ch, String argument)
 {
 	MOB_INDEX_DATA *pMobIndex;
 	CHAR_DATA *victim;
@@ -1998,7 +1998,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_oload(CHAR_DATA *ch, const char *argument)
+void do_oload(CHAR_DATA *ch, String argument)
 {
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA *obj;
@@ -2035,7 +2035,7 @@ void do_oload(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_load(CHAR_DATA *ch, const char *argument)
+void do_load(CHAR_DATA *ch, String argument)
 {
 	String arg;
 	argument = one_argument(argument, arg);
@@ -2061,7 +2061,7 @@ void do_load(CHAR_DATA *ch, const char *argument)
 	do_load(ch, "");
 }
 
-void do_lower(CHAR_DATA *ch, const char *argument)
+void do_lower(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
@@ -2077,7 +2077,6 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 		{ LEVEL_IMMORTAL, 125 },
 		{ 0, 0 }
 	};
-	extern void do_quest(CHAR_DATA * ch, const char *argument);
 
 	String what;
 	argument = one_argument(argument, what);
@@ -2093,7 +2092,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		act("Whom do you want to lower $t for?", ch,
 		        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 		return;
@@ -2160,7 +2159,7 @@ void do_lower(CHAR_DATA *ch, const char *argument)
 	        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 }
 
-void do_lurk(CHAR_DATA *ch, const char *argument)
+void do_lurk(CHAR_DATA *ch, String argument)
 {
 	if (ch->lurk_level) {
 		ch->lurk_level = 0;
@@ -2175,7 +2174,7 @@ void do_lurk(CHAR_DATA *ch, const char *argument)
 }
 
 /* Master command by Lotus */
-void do_master(CHAR_DATA *ch, const char *argument)
+void do_master(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *pet;
@@ -2183,7 +2182,7 @@ void do_master(CHAR_DATA *ch, const char *argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0' || argument[0] == '\0') {
+	if (arg1[0] == '\0' || argument.empty()) {
 		stc("Master what mobile to whom?\n", ch);
 		return;
 	}
@@ -2227,7 +2226,7 @@ void do_master(CHAR_DATA *ch, const char *argument)
 }
 
 /* Olevel and Mlevel from ROM Newsgroup */
-void do_olevel(CHAR_DATA *ch, const char *argument)
+void do_olevel(CHAR_DATA *ch, String argument)
 {
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
@@ -2377,7 +2376,7 @@ void do_olevel(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_mlevel(CHAR_DATA *ch, const char *argument)
+void do_mlevel(CHAR_DATA *ch, String argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
@@ -2398,7 +2397,7 @@ void do_mlevel(CHAR_DATA *ch, const char *argument)
 
 	blevel = atoi(arg);
 
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		if (!is_number(argument)) {
 			stc("Syntax: olevel [beg level] [end level]\n", ch);
 			return;
@@ -2444,11 +2443,11 @@ void do_mlevel(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_motd(CHAR_DATA *ch, const char *argument)
+void do_motd(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		buf[0] = '\0';
 
 		if (!str_cmp(argument, "clear")) {
@@ -2502,10 +2501,7 @@ void do_motd(CHAR_DATA *ch, const char *argument)
 			if (time_info.motd != NULL)
 				strcat(buf, time_info.motd);
 
-			argument++;
-
-			while (isspace(*argument))
-				argument++;
+			argument = argument.substr(1).lstrip();
 		}
 
 		if (strlen(buf) + strlen(argument) >= MAX_STRING_LENGTH - 2) {
@@ -2526,7 +2522,7 @@ void do_motd(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_owhere(CHAR_DATA *ch, const char *argument)
+void do_owhere(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	BUFFER *output;
@@ -2567,7 +2563,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 		else if (!is_name(arg, obj->name))
 			continue;
 
-		if (argument[0] != '\0' && !fGround) {
+		if (!argument.empty() && !fGround) {
 			if (is_number(arg2)) {
 				if (atoi(arg2) != obj->level)
 					continue;
@@ -2690,7 +2686,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	free_buf(output);
 }
 
-void do_mwhere(CHAR_DATA *ch, const char *argument)
+void do_mwhere(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	BUFFER *output;
@@ -2754,7 +2750,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 }
 
 /* find a room, given its name */
-void do_rwhere(CHAR_DATA *ch, const char *argument)
+void do_rwhere(CHAR_DATA *ch, String argument)
 {
 	AREA_DATA *area;
 	ROOM_INDEX_DATA *room;
@@ -2764,7 +2760,7 @@ void do_rwhere(CHAR_DATA *ch, const char *argument)
 	bool found = FALSE;
 	int vnum;
 
-	if (*argument == '\0') {
+	if (argument.empty()) {
 		stc("rwhere which room?\n", ch);
 		return;
 	}
@@ -2800,7 +2796,7 @@ void do_rwhere(CHAR_DATA *ch, const char *argument)
 	free_buf(dbuf);
 } /* end do_rwhere() */
 
-void do_mfind(CHAR_DATA *ch, const char *argument)
+void do_mfind(CHAR_DATA *ch, String argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
@@ -2852,7 +2848,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_ofind(CHAR_DATA *ch, const char *argument)
+void do_ofind(CHAR_DATA *ch, String argument)
 {
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
@@ -2906,7 +2902,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 }
 
 /* ofind and mfind replaced with vnum, vnum skill also added */
-void do_vnum(CHAR_DATA *ch, const char *argument)
+void do_vnum(CHAR_DATA *ch, String argument)
 {
 	String arg;
 	const char *string = one_argument(argument, arg);
@@ -2939,7 +2935,7 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 	do_ofind(ch, argument);
 }
 
-void do_canmakebag(CHAR_DATA *ch, const char *argument)
+void do_canmakebag(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -2971,7 +2967,7 @@ void do_canmakebag(CHAR_DATA *ch, const char *argument)
 }
 
 /* Noreply by Lotus */
-void do_noreply(CHAR_DATA *ch, const char *argument)
+void do_noreply(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *wch;
 
@@ -2997,7 +2993,7 @@ void do_noreply(CHAR_DATA *ch, const char *argument)
  * other than by the owner.
  *
  */
-void do_owner(CHAR_DATA *ch, const char *argument)
+void do_owner(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *item;
 	CHAR_DATA *player = NULL;
@@ -3076,7 +3072,7 @@ void do_owner(CHAR_DATA *ch, const char *argument)
 	item->extra_descr       = ed;
 }
 
-void do_peace(CHAR_DATA *ch, const char *argument)
+void do_peace(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *rch;
 
@@ -3092,7 +3088,7 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_purge(CHAR_DATA *ch, const char *argument)
+void do_purge(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -3185,7 +3181,7 @@ int has_enough_qps(CHAR_DATA *ch, int number_of)
 	return 0;
 }
 
-void do_qpconv(CHAR_DATA *ch, const char *argument)
+void do_qpconv(CHAR_DATA *ch, String argument)
 {
 	int number_of = 0, qpcost = 0, what = 0;
 	char buffer[1024];
@@ -3281,7 +3277,7 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	act("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 }
 
-void do_restore(CHAR_DATA *ch, const char *argument)
+void do_restore(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -3324,7 +3320,7 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 }
 
 /* Secure levels by Lotus */
-void do_secure(CHAR_DATA *ch, const char *argument)
+void do_secure(CHAR_DATA *ch, String argument)
 {
 	String arg;
 	one_argument(argument, arg);
@@ -3352,7 +3348,7 @@ void do_secure(CHAR_DATA *ch, const char *argument)
 }
 
 /* The workhorse coding of do_setgamein() and do_setgameout() */
-void setgameinout(CHAR_DATA *ch, const char *argument, char *entryexit, char flag)
+void setgameinout(CHAR_DATA *ch, String argument, const String& entryexit, char flag)
 {
 	CHAR_DATA *victim;
 	char **msgptr;
@@ -3377,7 +3373,7 @@ void setgameinout(CHAR_DATA *ch, const char *argument, char *entryexit, char fla
 	else
 		msgptr = &victim->pcdata->gameout;
 
-	if (!argument || !argument[0]) {    /* clear flag */
+	if (argument.empty()) {    /* clear flag */
 		free_string(*msgptr);
 		*msgptr = NULL;
 		act("OK, $N no longer has a game $t string",
@@ -3398,18 +3394,18 @@ void setgameinout(CHAR_DATA *ch, const char *argument, char *entryexit, char fla
 } /* end setgameinout() */
 
 /* Set the game entry message for a player -- Elrac */
-void do_setgamein(CHAR_DATA *ch, const char *argument)
+void do_setgamein(CHAR_DATA *ch, String argument)
 {
 	setgameinout(ch, argument, "entry", 'I');
 }
 
 /* Set the game exit message for a player -- Elrac */
-void do_setgameout(CHAR_DATA *ch, const char *argument)
+void do_setgameout(CHAR_DATA *ch, String argument)
 {
 	setgameinout(ch, argument, "exit", 'O');
 }
 
-void do_sockets(CHAR_DATA *ch, const char *argument)
+void do_sockets(CHAR_DATA *ch, String argument)
 {
 	DESCRIPTOR_DATA *d, *dmult;
 	CHAR_DATA *vch;
@@ -3561,11 +3557,11 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	free_buf(buffer);
 }
 
-void do_storage(CHAR_DATA *ch, const char *argument)
+void do_storage(CHAR_DATA *ch, String argument)
 {
 	STORAGE_DATA *i;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  storage list                 (lists all characters in storage)\n"
 		    "  storage store <player>       (puts a character in storage)\n"
@@ -3600,7 +3596,7 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 		FILE *fp;
 		STORAGE_DATA *newdata;
 
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("Store who?\n", ch);
 			return;
 		}
@@ -3610,8 +3606,8 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, capitalize(argument));
-		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, capitalize(argument));
+		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, argument.capitalize());
+		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, argument.capitalize());
 
 		if ((fp = fopen(pfile_buf, "r")) == NULL) {
 			stc("No such character!\n", ch);
@@ -3627,13 +3623,13 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 		}
 
 		newdata = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
-		newdata->name = str_dup(capitalize(argument));
+		newdata->name = str_dup(argument.capitalize());
 		newdata->by_who = str_dup(ch->name);
 		newdata->date = str_dup(ctime(&current_time));
 		newdata->date[strlen(newdata->date) - 1] = '\0';
 		insert_storagedata(newdata);
 		save_storage_list();
-		ptc(ch, "Character %s successfully put into storage.\n", capitalize(argument));
+		ptc(ch, "Character %s successfully put into storage.\n", argument.capitalize());
 		return;
 	}
 
@@ -3643,7 +3639,7 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 		char command_buf[255];
 		STORAGE_DATA *olddata;
 
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("Store who?\n", ch);
 			return;
 		}
@@ -3655,17 +3651,17 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, capitalize(argument));
-		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, capitalize(argument));
+		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, argument.capitalize());
+		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, argument.capitalize());
 		Format::sprintf(command_buf, "mv %s %s", storage_buf, pfile_buf);
 
 		if (system(command_buf) == 0) {
-			ptc(ch, "%s has successfully been removed from storage.\n", capitalize(argument));
+			ptc(ch, "%s has successfully been removed from storage.\n", argument.capitalize());
 			remove_storagedata(olddata);
 			save_storage_list();
 		}
 		else
-			ptc(ch, "Error while trying to retrieve '%s'.\n", capitalize(argument));
+			ptc(ch, "Error while trying to retrieve '%s'.\n", argument.capitalize());
 
 		return;
 	}
@@ -3673,7 +3669,7 @@ void do_storage(CHAR_DATA *ch, const char *argument)
 	do_storage(ch, "");
 }
 
-void do_invis(CHAR_DATA *ch, const char *argument)
+void do_invis(CHAR_DATA *ch, String argument)
 {
 	/* take the default path */
 	if (ch->invis_level) {
@@ -3688,7 +3684,7 @@ void do_invis(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_superwiz(CHAR_DATA *ch, const char *argument)
+void do_superwiz(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->act, PLR_SUPERWIZ)) {
 		stc("You return to reality.\n", ch);
@@ -3717,7 +3713,7 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const String& arg)
 	return NULL;
 }
 
-void do_transfer(CHAR_DATA *ch, const char *argument)
+void do_transfer(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location;
 	DESCRIPTOR_DATA *d;
@@ -3795,13 +3791,13 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 	stc("Transfer Successful.\n", ch);
 }
 
-void do_violate(CHAR_DATA *ch, const char *argument)
+void do_violate(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	ROOM_INDEX_DATA *location = NULL;
 	CHAR_DATA *rch;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Which private room do you wish to violate?\n", ch);
 		return;
 	}
@@ -3863,7 +3859,7 @@ void do_violate(CHAR_DATA *ch, const char *argument)
 }
 
 /* Command groups - Command to give/take */
-void do_wizgroup(CHAR_DATA *ch, const char *argument)
+void do_wizgroup(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int count = 0;
@@ -3926,7 +3922,7 @@ void do_wizgroup(CHAR_DATA *ch, const char *argument)
 }
 
 /* Wizify by Pwrdemon */
-void do_wizify(CHAR_DATA *ch, const char *argument)
+void do_wizify(CHAR_DATA *ch, String argument)
 {
 	char strsave[MAX_INPUT_LENGTH];
 	FILE *fp;
@@ -3992,7 +3988,7 @@ void do_wizify(CHAR_DATA *ch, const char *argument)
 }
 
 /* Aura command stolen from rank - Lotus */
-void do_aura(CHAR_DATA *ch, const char *argument)
+void do_aura(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -4023,7 +4019,7 @@ void do_aura(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(ch, "Their aura is currently {W(%s{W){x.\n", victim->pcdata->aura);
 		return;
 	}
@@ -4052,9 +4048,9 @@ void do_aura(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "Their aura is now {W(%s{W){x.\n", victim->pcdata->aura);
 }
 
-void do_bamfin(CHAR_DATA *ch, const char *argument)
+void do_bamfin(CHAR_DATA *ch, String argument)
 {
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(ch, "Your poofin is currently: %s\n", ch->pcdata->bamfin);
 		return;
 	}
@@ -4079,9 +4075,9 @@ void do_bamfin(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "Your poofin is now: %s\n", ch->pcdata->bamfin);
 }
 
-void do_bamfout(CHAR_DATA *ch, const char *argument)
+void do_bamfout(CHAR_DATA *ch, String argument)
 {
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(ch, "Your poofout is currently: %s\n", ch->pcdata->bamfout);
 		return;
 	}
@@ -4106,13 +4102,13 @@ void do_bamfout(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "Your poofout is now: %s\n", ch->pcdata->bamfout);
 }
 
-void do_clanqp(CHAR_DATA *ch, const char *argument)
+void do_clanqp(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CLAN_DATA *target;
 	int qp_amount = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		do_claninfo(ch, argument);
 		return;
 	}
@@ -4129,7 +4125,7 @@ void do_clanqp(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("See 'help clanqp' on how this command works!\n", ch);
 		return;
 	}
@@ -4199,7 +4195,7 @@ void do_clanqp(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("You have to provide a reason!\n", ch);
 			return;
 		}

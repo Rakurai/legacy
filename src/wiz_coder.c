@@ -32,13 +32,13 @@ extern  DESCRIPTOR_DATA *descriptor_free;
 extern  PC_DATA         *pcdata_free;
 extern  AFFECT_DATA     *affect_free;
 
-void do_autoboot(CHAR_DATA *ch, const char *argument)
+void do_autoboot(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	int reboottime, hours = 0, minutes = 0;
 	struct tm *tm;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (reboot_time != 0)
 			ptc(ch, "Legacy is scheduled to reboot at %s\n", (char *) ctime(&reboot_time));
 		else
@@ -101,18 +101,18 @@ char *fgetf(char *s, int n, register FILE *iop)
 }
 
 /* integrated shell */
-void do_pipe(CHAR_DATA *ch, const char *argument)
+void do_pipe(CHAR_DATA *ch, String argument)
 {
 	char buf[5000];
 	FILE *fp;
-	fp = popen(argument, "r");
+	fp = popen(argument.c_str(), "r");
 	fgetf(buf, 5000, fp);
 	page_to_char(buf, ch);
 	pclose(fp);
 	return;
 }
 /*
-void do_mypipe(CHAR_DATA *ch, const char *argument)
+void do_mypipe(CHAR_DATA *ch, String argument)
 {
 	char divline[MSL], line[MSL];
 	MYSQL_RES *result;
@@ -208,18 +208,18 @@ void do_mypipe(CHAR_DATA *ch, const char *argument)
 	mysql_free_result(result);
 }
 */
-void do_reboo(CHAR_DATA *ch, const char *argument)
+void do_reboo(CHAR_DATA *ch, String argument)
 {
 	stc("{NTo REBOOT, you must spell the entire word.{x\n", ch);
 }
 
-void do_reboot(CHAR_DATA *ch, const char *argument)
+void do_reboot(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d, *d_next;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a reason for a reboot.\n", ch);
 		return;
 	}
@@ -238,12 +238,12 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_shutdow(CHAR_DATA *ch, const char *argument)
+void do_shutdow(CHAR_DATA *ch, String argument)
 {
 	stc("{NTo SHUTDOWN, you must spell the entire word.{x\n", ch);
 }
 
-void do_shutdown(CHAR_DATA *ch, const char *argument)
+void do_shutdown(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL], buf2[MSL];
 	char *strtime;
@@ -255,7 +255,7 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a reason for a shutdown.\n", ch);
 		return;
 	}
@@ -268,7 +268,7 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 		strtime[strlen(strtime) - 1] = '\0';
 		Format::sprintf(buf2, "%s :SHUTDOWN", strtime);
 		fappend(SHUTDOWN_FILE, buf2);
-		fappend(SHUTDOWN_FILE, argument);
+		fappend(SHUTDOWN_FILE, argument.c_str());
 	}
 
 	do_allsave(ch, "");
@@ -281,11 +281,11 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_slookup(CHAR_DATA *ch, const char *argument)
+void do_slookup(CHAR_DATA *ch, String argument)
 {
 	int sn;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "slookup all\n"
 		    "slookup <skill or spell name>\n", ch);
@@ -316,7 +316,7 @@ void do_slookup(CHAR_DATA *ch, const char *argument)
 	    skill_table[sn].name);
 }
 
-void do_advance(CHAR_DATA *ch, const char *argument)
+void do_advance(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int level, iLevel;
@@ -394,7 +394,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	save_char_obj(victim);
 }
 
-void do_wizlock(CHAR_DATA *ch, const char *argument)
+void do_wizlock(CHAR_DATA *ch, String argument)
 {
 	extern bool wizlock;
 	wizlock = !wizlock;
@@ -409,7 +409,7 @@ void do_wizlock(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_relevel(CHAR_DATA *ch, const char *argument)
+void do_relevel(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch) || !IS_SPECIAL(ch)) {
 		do_huh(ch);
@@ -425,7 +425,7 @@ void do_relevel(CHAR_DATA *ch, const char *argument)
 	stc("Done.\n", ch);
 }
 
-void do_addexit(CHAR_DATA *ch, const char *argument)
+void do_addexit(CHAR_DATA *ch, String argument)
 {
 	EXIT_DATA *exit;
 	int dir;
@@ -477,7 +477,7 @@ void do_addexit(CHAR_DATA *ch, const char *argument)
 	stc("Exit added.\n", ch);
 }
 
-void do_remexit(CHAR_DATA *ch, const char *argument)
+void do_remexit(CHAR_DATA *ch, String argument)
 {
 	int dir;
 
@@ -517,14 +517,14 @@ void do_remexit(CHAR_DATA *ch, const char *argument)
 	stc("Exit removed.\n", ch);
 }
 
-void do_sectchange(CHAR_DATA *ch, const char *argument)
+void do_sectchange(CHAR_DATA *ch, String argument)
 {
 	int sect;
 
 	if (ch->in_room == NULL)
 		return;
 
-	if (argument[0] == '\0'
+	if (argument.empty()
 	    || !is_number(argument)
 	    || (sect = atoi(argument)) < 0
 	    || (sect > 10 && sect < 20)
@@ -552,7 +552,7 @@ void do_sectchange(CHAR_DATA *ch, const char *argument)
 	stc("Sector type changed.\n", ch);
 }
 
-void do_memory(CHAR_DATA *ch, const char *argument)
+void do_memory(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	Format::sprintf(buf, "Affects %5d\n", top_affect);
@@ -590,7 +590,7 @@ void do_memory(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_dump(CHAR_DATA *ch, const char *argument)
+void do_dump(CHAR_DATA *ch, String argument)
 {
 	int count, count2, num_pcs, aff_count;
 	CHAR_DATA *fch;

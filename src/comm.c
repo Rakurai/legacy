@@ -110,7 +110,7 @@ bool    write_to_descriptor     args((int desc, const String& txt, int length));
 extern bool    check_parse_name        args((const String& name));
 bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
 int     main                    args((int argc, char **argv));
-void    nanny                   args((DESCRIPTOR_DATA *d, const char *argument));
+void    nanny                   args((DESCRIPTOR_DATA *d, String argument));
 bool    process_output          args((DESCRIPTOR_DATA *d, bool fPrompt));
 void    read_from_buffer        args((DESCRIPTOR_DATA *d));
 void    stop_idling             args((CHAR_DATA *ch));
@@ -2168,7 +2168,7 @@ char *get_multi_command(DESCRIPTOR_DATA *d, const char *argument)
 	pcom = command;
 
 	while (*argument != '\0') {
-		if (*argument == '|') {
+		if (argument[0] == '|') {
 			if (*++argument != '|') {
 				strcpy(d->incomm, argument);
 				*pcom = '\0';
@@ -2215,7 +2215,7 @@ void do_copyove(CHAR_DATA *ch)
 	return;
 }
 
-void do_copyover(CHAR_DATA *ch, const char *argument)
+void do_copyover(CHAR_DATA *ch, String argument)
 {
 	FILE *fp;
 	DESCRIPTOR_DATA *d, *d_next;

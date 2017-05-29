@@ -1854,13 +1854,13 @@ void mprog_tick_trigger(CHAR_DATA *mob)    /* Montrey */
 	return;
 }
 
-void mprog_speech_trigger(const char *txt, CHAR_DATA *mob)
+void mprog_speech_trigger(const String& txt, CHAR_DATA *mob)
 {
 	CHAR_DATA *vmob;
 
 	for (vmob = mob->in_room->people; vmob != NULL; vmob = vmob->next_in_room)
 		if (IS_NPC(vmob) && (vmob->pIndexData->progtypes & SPEECH_PROG))
-			mprog_wordlist_check(txt, vmob, mob, NULL, NULL, SPEECH_PROG);
+			mprog_wordlist_check(txt.c_str(), vmob, mob, NULL, NULL, SPEECH_PROG);
 
 	return;
 }

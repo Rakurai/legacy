@@ -331,7 +331,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 /*
  * Deal with sockets that haven't logged in yet.
  */
-void nanny(DESCRIPTOR_DATA *d, const char *argument)
+void nanny(DESCRIPTOR_DATA *d, String argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next, *sd;
 	char buf[MAX_STRING_LENGTH];
@@ -341,8 +341,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	int iClass, race, i, weapon, deity;
 	bool fOld, logon_lurk;
 
-	while (isspace(*argument))
-		argument++;
+	argument = argument.lstrip();
 
 	ch = d->character;
 
@@ -353,7 +352,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		return;
 
 	case CON_GET_NAME:
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			close_socket(d);
 			return;
 		}
@@ -362,7 +361,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (argument[0] == '-') { /* Lurk mode -- Elrac */
 			logon_lurk = TRUE;
-			argument++;
+			argument.erase(0, 1);
 		}
 
 		char name[MIL];
@@ -507,7 +506,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_BREAK_CONNECT:
-		switch (*argument) {
+		switch (argument[0]) {
 		case 'y':
 		case 'Y':
 			for (d_old = descriptor_list; d_old != NULL; d_old = d_next) {
@@ -559,7 +558,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		/* We're past all the reconnect stuff, we can be sure that the character
 		   is not playing and is new.  Start using stc and ptc for the colors */
-		switch (*argument) {
+		switch (argument[0]) {
 		case 'y':
 		case 'Y':
 			stc("\nYou find yourself standing in the market square of Midgaard, surrounded by\n"
@@ -591,7 +590,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 
 	case CON_GET_MUD_EXP:
-		switch (*argument) {
+		switch (argument[0]) {
 		case '1':
 			stc("\nThe pixie beams a smile at you, and you shuffle your feet nervously.\n\n"
 			    "{Y'{WWell then,{Y'{x she says, {Y'{Wyou've been missing out!  Legacy is a MUD, a place\n"
@@ -646,7 +645,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		pwdnew = argument;
+		pwdnew = argument.c_str();
 
 		for (p = pwdnew; *p != '\0'; p++)
 			if (*p == '~') {
@@ -707,7 +706,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!strcmp(arg, "help")) {
 			argument = one_argument(argument, arg);
 
-			if (argument[0] == '\0')
+			if (argument.empty())
 				help(ch, "races");
 			else
 				help(ch, argument);
@@ -819,7 +818,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!strcmp(arg, "help")) {
 			argument = one_argument(argument, arg);
 
-			if (argument[0] == '\0')
+			if (argument.empty())
 				help(ch, "class help");
 			else
 				help(ch, argument);
@@ -923,7 +922,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!strcmp(arg, "help")) {
 			argument = one_argument(argument, arg);
 
-			if (argument[0] == '\0')
+			if (argument.empty())
 				help(ch, "deity");
 			else
 				help(ch, argument);

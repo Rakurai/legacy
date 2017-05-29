@@ -28,7 +28,7 @@
 #include "merc.h"
 #include "magic.h"
 
-void do_heal(CHAR_DATA *ch, const char *argument)
+void do_heal(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *words;

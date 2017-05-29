@@ -293,7 +293,7 @@ void list_extraskill(CHAR_DATA *ch)
 	free_buf(output);
 }
 
-void do_eremort(CHAR_DATA *ch, const char *argument)
+void do_eremort(CHAR_DATA *ch, String argument)
 {
 	BUFFER *output;
 	int x, sn = 0;
@@ -403,7 +403,7 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 
 /* Remort Code by Lotus */
 /* Redone by Endo and Montrey */
-void do_remort(CHAR_DATA *ch, const char *argument)
+void do_remort(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MSL];
@@ -417,7 +417,7 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	if (arg1[0] == '\0'
 	    || (arg2[0] != '\0'
 	        && (arg3[0] == '\0'
-	            || argument[0] == '\0'))) {
+	            || argument.empty()))) {
 		stc("Syntax:\n"
 		    "  remort <victim>   (must be remort 1 or higher)\n"
 		    "  remort <victim> <race> <deity> <title>\n", ch);

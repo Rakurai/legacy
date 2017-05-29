@@ -2,7 +2,7 @@
 #include "interp.h"
 #include "affect.h"
 
-void do_paintbow(CHAR_DATA *ch, const char *argument)
+void do_paintbow(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't like to play paintball =).\n", ch);
@@ -61,7 +61,7 @@ void do_reload(CHAR_DATA *ch)
 	stc(buf, ch);
 } /* end do_reload() */
 
-void do_splat(CHAR_DATA *ch, const char *argument)
+void do_splat(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *gun;
 	ROOM_INDEX_DATA *location;
@@ -77,7 +77,7 @@ void do_splat(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Shoot who?\n", ch);
 		return;
 	}

@@ -432,7 +432,7 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, const String& argument, int vis)
 	if (!str_cmp(argument, "self"))
 		return ch;
 
-	if (argument[0] == '\0')
+	if (argument.empty())
 		return NULL;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */

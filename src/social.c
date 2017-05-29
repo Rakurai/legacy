@@ -247,7 +247,7 @@ struct social_type *social_lookup(const String& name)
  */
 
 #ifndef CONST_SOCIAL
-void do_sedit(CHAR_DATA *ch, const char *argument)
+void do_sedit(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	struct social_type *iSocial;
@@ -312,7 +312,7 @@ void do_sedit(CHAR_DATA *ch, const char *argument)
 		struct social_type *new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
 		int x;
 
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("Rename it to what?\n", ch);
 			return;
 		}
@@ -372,7 +372,7 @@ void do_sedit(CHAR_DATA *ch, const char *argument)
 		struct social_type *i;
 		bool fAll = FALSE;
 
-		if (argument[0] == '\0')
+		if (argument.empty())
 			fAll = TRUE;
 
 		if (!str_cmp(social, "unfinished")) {

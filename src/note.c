@@ -37,7 +37,7 @@ extern char                    strArea[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
-void parse_note(CHAR_DATA *ch, const char *argument, int type);
+void parse_note(CHAR_DATA *ch, String argument, int type);
 bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);
 
 NOTE_DATA *note_list;
@@ -75,7 +75,7 @@ int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
 }
 
 /* display the numbers of unread messages of each type, visible to 'ch' */
-void do_unread(CHAR_DATA *ch, const char *argument)
+void do_unread(CHAR_DATA *ch, String argument)
 {
 	int count;
 	bool found = FALSE;
@@ -144,37 +144,37 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_note(CHAR_DATA *ch, const char *argument)
+void do_note(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_NOTE);
 }
 
-void do_idea(CHAR_DATA *ch, const char *argument)
+void do_idea(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_IDEA);
 }
 
-void do_personal(CHAR_DATA *ch, const char *argument)
+void do_personal(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_PERSONAL);
 }
 
-void do_roleplay(CHAR_DATA *ch, const char *argument)
+void do_roleplay(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_ROLEPLAY);
 }
 
-void do_immquest(CHAR_DATA *ch, const char *argument)
+void do_immquest(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_IMMQUEST);
 }
 
-void do_changes(CHAR_DATA *ch, const char *argument)
+void do_changes(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_CHANGES);
 }
 
-void do_trade(CHAR_DATA *ch, const char *argument)
+void do_trade(CHAR_DATA *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_TRADE);
 }
@@ -704,7 +704,7 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 	}
 }
 
-void parse_note(CHAR_DATA *ch, const char *argument, int type)
+void parse_note(CHAR_DATA *ch, String argument, int type)
 {
 	BUFFER *buffer;
 	char buf[MSL];
@@ -728,7 +728,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		}
 
 		/* read next unread note */
-		if (argument[0] == '\0' || !str_prefix1(argument, "next")) {
+		if (argument.empty() || !str_prefix1(argument, "next")) {
 			for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
 					ptc(ch, "{W[%3d] From: {x%s\n"
@@ -795,7 +795,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			nw = TRUE;
 		else if (!str_cmp(argument, "all"))
 			all = TRUE;
-		else if (argument[0] != '\0')
+		else if (!argument.empty())
 			search = TRUE;
 
 		buffer = new_buf();
@@ -1252,7 +1252,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			return;
 		}
 
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("Whom do you wish to address it to?\n", ch);
 			return;
 		}
@@ -1581,7 +1581,7 @@ void do_old_next(CHAR_DATA *ch)
 }
 
 /* Chronological NEXT -- Elrac */
-void do_next(CHAR_DATA *ch, const char *argument)
+void do_next(CHAR_DATA *ch, String argument)
 {
 	struct board_index_struct *pbis, *obis = NULL;
 	time_t ostamp = (time_t) 0;
@@ -1595,7 +1595,7 @@ void do_next(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* with an argument, e.g. 'next unread', they get old format */
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		do_old_next(ch);
 		return;
 	}

@@ -1632,7 +1632,7 @@ endoftime:
 	return mktime(&loc_tm);
 } /* end dizzy_scantime() */
 
-void do_finger(CHAR_DATA *ch, const char *argument)
+void do_finger(CHAR_DATA *ch, String argument)
 {
 	char filename[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];

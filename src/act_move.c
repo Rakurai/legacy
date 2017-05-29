@@ -255,37 +255,37 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	mprog_greet_trigger(ch);
 }
 
-void do_north(CHAR_DATA *ch, const char *argument)
+void do_north(CHAR_DATA *ch, String argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
 	return;
 }
 
-void do_east(CHAR_DATA *ch, const char *argument)
+void do_east(CHAR_DATA *ch, String argument)
 {
 	move_char(ch, DIR_EAST, FALSE);
 	return;
 }
 
-void do_south(CHAR_DATA *ch, const char *argument)
+void do_south(CHAR_DATA *ch, String argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
 	return;
 }
 
-void do_west(CHAR_DATA *ch, const char *argument)
+void do_west(CHAR_DATA *ch, String argument)
 {
 	move_char(ch, DIR_WEST, FALSE);
 	return;
 }
 
-void do_up(CHAR_DATA *ch, const char *argument)
+void do_up(CHAR_DATA *ch, String argument)
 {
 	move_char(ch, DIR_UP, FALSE);
 	return;
 }
 
-void do_down(CHAR_DATA *ch, const char *argument)
+void do_down(CHAR_DATA *ch, String argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
 	return;
@@ -361,12 +361,12 @@ int find_exit(CHAR_DATA *ch, const String& arg)
 	return door;
 }
 
-void do_open(CHAR_DATA *ch, const char *argument)
+void do_open(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int door;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Open what?\n", ch);
 		return;
 	}
@@ -469,12 +469,12 @@ void do_open(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_close(CHAR_DATA *ch, const char *argument)
+void do_close(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int door;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Close what?\n", ch);
 		return;
 	}
@@ -577,12 +577,12 @@ bool has_key(CHAR_DATA *ch, int key)
 	return FALSE;
 }
 
-void do_lock(CHAR_DATA *ch, const char *argument)
+void do_lock(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int door;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Lock what?\n", ch);
 		return;
 	}
@@ -708,12 +708,12 @@ void do_lock(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_unlock(CHAR_DATA *ch, const char *argument)
+void do_unlock(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int door;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Unlock what?\n", ch);
 		return;
 	}
@@ -838,13 +838,13 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_pick(CHAR_DATA *ch, const char *argument)
+void do_pick(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *gch;
 	OBJ_DATA *obj;
 	int door;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Pick what?  Your nose!?\n", ch);
 		return;
 	}
@@ -972,7 +972,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_stand(CHAR_DATA *ch, const char *argument)
+void do_stand(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -982,7 +982,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 //		return;
 //	}
 
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		if (get_position(ch) == POS_FIGHTING) {
 			stc("This is already a standup fight!\n", ch);
 			return;
@@ -1083,7 +1083,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_rest(CHAR_DATA *ch, const char *argument)
+void do_rest(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1093,7 +1093,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* okay, now that we know we can rest, find an object to rest on */
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		obj = get_obj_list(ch, argument, ch->in_room->contents);
 
 		if (obj == NULL) {
@@ -1214,7 +1214,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_sit(CHAR_DATA *ch, const char *argument)
+void do_sit(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1229,7 +1229,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* okay, now that we know we can sit, find an object to sit on */
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		obj = get_obj_list(ch, argument, ch->in_room->contents);
 
 		if (obj == NULL) {
@@ -1336,7 +1336,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_sleep(CHAR_DATA *ch, const char *argument)
+void do_sleep(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1353,13 +1353,13 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 	case POS_RESTING:
 	case POS_SITTING:
 	case POS_STANDING:
-		if (argument[0] == '\0' && ch->on == NULL) {
+		if (argument.empty() && ch->on == NULL) {
 			stc("You go to sleep.\n", ch);
 			act("$n goes to sleep.", ch, NULL, NULL, TO_ROOM);
 			ch->position = POS_SLEEPING;
 		}
 		else { /* find an object and sleep on it */
-			if (argument[0] == '\0')
+			if (argument.empty())
 				obj = ch->on;
 			else
 				obj = get_obj_list(ch, argument,  ch->in_room->contents);
@@ -1425,11 +1425,11 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_wake(CHAR_DATA *ch, const char *argument)
+void do_wake(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 //		if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
 //			do_sit(ch, "");
 //		else
@@ -1466,7 +1466,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 		do_stand(victim, "");
 }
 
-void do_sneak(CHAR_DATA *ch, const char *argument)
+void do_sneak(CHAR_DATA *ch, String argument)
 {
 	if (affect_exists_on_char(ch, gsn_sneak)) {
 		stc("You already surpass the wind in stealth.\n", ch);
@@ -1500,7 +1500,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_hide(CHAR_DATA *ch, const char *argument)
+void do_hide(CHAR_DATA *ch, String argument)
 {
 	if (affect_exists_on_char(ch, gsn_hide)) {
 		stc("You find an even better hiding place.\n", ch);
@@ -1537,7 +1537,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 /*
  * Contributed by Alander.
  */
-void do_visible(CHAR_DATA *ch, const char *argument)
+void do_visible(CHAR_DATA *ch, String argument)
 {
 	affect_remove_sn_from_char(ch, gsn_invis);
 	affect_remove_sn_from_char(ch, gsn_sneak);
@@ -1550,12 +1550,12 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_recall(CHAR_DATA *ch, const char *argument)
+void do_recall(CHAR_DATA *ch, String argument)
 {
 	recall(ch, FALSE);
 }
 
-void do_clan_recall(CHAR_DATA *ch, const char *argument)
+void do_clan_recall(CHAR_DATA *ch, String argument)
 {
 	/* This looks really ugly, so I'm re-writing it. -- Outsider
 	if ((!is_clan(ch) && !IS_SET(ch->act,ACT_PET)) || ch->clan == NULL)
@@ -1738,7 +1738,7 @@ void recall(CHAR_DATA *ch, bool clan)
 	}
 }
 
-void do_train(CHAR_DATA *ch, const char *argument)
+void do_train(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
@@ -1762,7 +1762,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		Format::sprintf(buf, "You have %d training sessions.\n", ch->train);
 		stc(buf, ch);
 		argument = "foo";
@@ -1984,7 +1984,7 @@ bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
 	return is_safe_char(ch, victim, TRUE);
 }
 
-void do_push(CHAR_DATA *ch, const char *argument)
+void do_push(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL], dir_buf[MSL];
 	ROOM_INDEX_DATA *to_room;
@@ -1992,7 +1992,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int dir;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Whom do you want to push?\n", ch);
 		return;
 	}
@@ -2209,7 +2209,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	mprog_greet_trigger(victim);
 }
 
-void do_drag(CHAR_DATA *ch, const char *argument)
+void do_drag(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL], dir_buf[MSL];
 	ROOM_INDEX_DATA *to_room, *from_room;
@@ -2217,7 +2217,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int dir, cost;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Whom do you want to drag?\n", ch);
 		return;
 	}
@@ -2562,7 +2562,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 }
 
 /* MARK: remember the current location for RELOCATE - Elrac */
-void do_mark(CHAR_DATA *ch, const char *argument)
+void do_mark(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("You feel so at home here, there is no need to MARK.\n", ch);
@@ -2595,7 +2595,7 @@ void do_mark(CHAR_DATA *ch, const char *argument)
 } /* end do_mark() */
 
 /* RELOCATE: return to previously MARKed location - Elrac */
-void do_relocate(CHAR_DATA *ch, const char *argument)
+void do_relocate(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *target_room;
 
@@ -2706,12 +2706,12 @@ ROOM_INDEX_DATA *get_random_room(CHAR_DATA *ch)
 	}
 }
 
-void do_enter(CHAR_DATA *ch, const char *argument)
+void do_enter(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location;
 
 	/* nifty portal stuff */
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		ROOM_INDEX_DATA *old_room;
 		OBJ_DATA *portal;
 		CHAR_DATA *fch, *fch_next;
@@ -2918,7 +2918,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	stc("Nope, can't do it.\n", ch);
 }
 
-void do_land(CHAR_DATA *ch, const char *argument)
+void do_land(CHAR_DATA *ch, String argument)
 {
 	if (ch->in_room->sector_type == SECT_AIR) {
 		stc("There is nowhere to put your feet!\n", ch);
@@ -2944,7 +2944,7 @@ void do_land(CHAR_DATA *ch, const char *argument)
 	ch->start_pos = POS_STANDING; // preferred position after bash, rest, sleep, etc
 }
 
-void do_fly(CHAR_DATA *ch, const char *argument)
+void do_fly(CHAR_DATA *ch, String argument)
 {
 	if (IS_FLYING(ch)) {
 		stc("You are already flying!\n", ch);
@@ -2980,7 +2980,7 @@ if they are not married, are effected by curse or not standing,
 or in a non-teleport/recall area.
 -- Outsider
 */
-void do_spousegate(CHAR_DATA *ch, const char *argument)
+void do_spousegate(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;   /* the spouse in question */
 	bool gate_pet = FALSE;   /* take pet with you */

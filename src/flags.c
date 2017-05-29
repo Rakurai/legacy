@@ -33,7 +33,7 @@
 
 extern AREA_DATA *area_first;
 
-void do_flag(CHAR_DATA *ch, const char *argument)
+void do_flag(CHAR_DATA *ch, String argument)
 {
 	char what[MIL];
 	CHAR_DATA *victim = NULL;
@@ -88,7 +88,7 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Which flags do you wish to change?\n", ch);
 		return;
 	}
@@ -327,11 +327,11 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 	*flag = nw;
 }
 
-void do_typelist(CHAR_DATA *ch, const char *argument)
+void do_typelist(CHAR_DATA *ch, String argument)
 {
 	int x;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Valid lists: liquid, attack\n", ch);
 		return;
 	}
@@ -359,12 +359,12 @@ char *flag_to_alpha(long flag)
 	return NULL;
 }
 
-void do_flaglist(CHAR_DATA *ch, const char *argument)
+void do_flaglist(CHAR_DATA *ch, String argument)
 {
 	int x;
 	const struct flag_type *flag_table;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Flag fields are:\n", ch);
 
 		for (x = 0; flag_fields[x].name != NULL; x++)
@@ -702,7 +702,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 	free_buf(output);
 }
 
-void do_flagsearch(CHAR_DATA *ch, const char *argument)
+void do_flagsearch(CHAR_DATA *ch, String argument)
 {
 	int fieldptr, length;
 	long marked = 0, pos;
@@ -743,7 +743,7 @@ void do_flagsearch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must specify at least one flag to search for.\n", ch);
 		return;
 	}

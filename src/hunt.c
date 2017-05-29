@@ -165,7 +165,7 @@ foundit:
 
 /* hunt command implementation for players.
    aggressing mobs use hunt_victim() instead. */
-void do_hunt(CHAR_DATA *ch, const char *argument)
+void do_hunt(CHAR_DATA *ch, String argument)
 {
 	char buffer[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -179,7 +179,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (*argument == '\0') {
+	if (argument.empty()) {
 		stc("Whom or what are you trying to hunt?\n", ch);
 		return;
 	}

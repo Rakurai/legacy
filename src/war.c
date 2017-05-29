@@ -1034,7 +1034,7 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 }
 
 /* all-encompassing war command */
-void do_war(CHAR_DATA *ch, const char *argument)
+void do_war(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CLAN_DATA *clanA, *clanB;
@@ -1214,7 +1214,7 @@ void do_war(CHAR_DATA *ch, const char *argument)
 
 	/*** JOIN ***/
 	if (!str_cmp(arg1, "join") && IS_IMMORTAL(ch)) {
-		if (arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0') {
+		if (arg2[0] == '\0' || arg3[0] == '\0' || argument.empty()) {
 			stc("Syntax: war join <clan> <war number> <challenger|defender>\n", ch);
 			return;
 		}
@@ -1281,7 +1281,7 @@ void do_war(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg1, "unjoin") && IS_IMMORTAL(ch)) {
 		bool remove = FALSE;
 
-		if (arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0') {
+		if (arg2[0] == '\0' || arg3[0] == '\0' || argument.empty()) {
 			stc("Syntax: war unjoin <clan> <war number> <remove|stop>\n", ch);
 			return;
 		}

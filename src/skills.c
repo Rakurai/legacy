@@ -92,7 +92,7 @@ int comp_spells(const void *sn1, const void *sn2)
      SPELLS WEATHER -> list of spells in the WEATHER group
      SPELLS ACID    -> list of spells beginning with 'acid'
 */
-void do_spells(CHAR_DATA *ch, const char *argument)
+void do_spells(CHAR_DATA *ch, String argument)
 {
 	int level;
 	int min_level = 1;
@@ -120,7 +120,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* SPELLS: list all available spells, as in times of olde */
-	if (*argument == '\0') {
+	if (argument.empty()) {
 		do_spells(ch, "1");
 		return;
 	}
@@ -195,7 +195,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (*argument != '\0') {
+		if (!argument.empty()) {
 			argument = one_argument(argument, arg);
 
 			if (is_number(arg)) {
@@ -360,7 +360,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
      SKILLS 50 60   -> spells from lv 50 - 60
      SKILLS DUAL    -> list of spells beginning with 'dual'
 */
-void do_skills(CHAR_DATA *ch, const char *argument)
+void do_skills(CHAR_DATA *ch, String argument)
 {
 	int level;
 	int min_level = 1;
@@ -384,7 +384,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* SKILLS: list all available skills */
-	if (*argument == '\0') {
+	if (argument.empty()) {
 		do_skills(ch, "1");
 		return;
 	}
@@ -409,7 +409,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 		else if (min_level > LEVEL_HERO)
 			min_level = LEVEL_HERO;
 
-		if (*argument != '\0') {
+		if (!argument.empty()) {
 			argument = one_argument(argument, arg);
 
 			if (is_number(arg)) {
@@ -535,7 +535,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 }
 
 /* Levelist by Lotus */
-void do_levels(CHAR_DATA *ch, const char *argument)
+void do_levels(CHAR_DATA *ch, String argument)
 {
 	char list[LEVEL_HERO][MAX_STRING_LENGTH];
 	char columns[LEVEL_HERO];
@@ -877,19 +877,19 @@ long exp_per_level(CHAR_DATA *ch, int points)
 } /* end exp_per_level() */
 
 /* this procedure handles the input parsing for the skill generator */
-bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
+bool parse_gen_groups(CHAR_DATA *ch, String argument)
 {
 	char buf[100];
 	int gn, sn, i;
 
-	if (argument[0] == '\0')
+	if (argument.empty())
 		return FALSE;
 
 	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!str_prefix1(arg, "help")) {
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			help(ch, "group help");
 			return TRUE;
 		}
@@ -899,7 +899,7 @@ bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix1(arg, "add")) {
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("You must provide a skill name.\n", ch);
 			return TRUE;
 		}
@@ -958,7 +958,7 @@ bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!strcmp(arg, "drop")) {
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			stc("You must provide a skill to drop.\n", ch);
 			return TRUE;
 		}
@@ -1027,7 +1027,7 @@ bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 }
 
 /* shows all groups, or the sub-members of a group */
-void do_groups(CHAR_DATA *ch, const char *argument)
+void do_groups(CHAR_DATA *ch, String argument)
 {
 	char buf[100];
 	int gn, sn, col;
@@ -1037,7 +1037,7 @@ void do_groups(CHAR_DATA *ch, const char *argument)
 
 	col = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		/* show all groups */
 		for (gn = 0; gn < MAX_GROUP; gn++) {
 			if (group_table[gn].name == NULL)
@@ -1169,7 +1169,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 } /* end check_improve() */
 
 /* returns a group index number given the name */
-int group_lookup(const char *name)
+int group_lookup(const String& name)
 {
 	int gn;
 
@@ -1430,7 +1430,7 @@ void evolve_info(CHAR_DATA *ch)
 	free_buf(buffer);
 }
 
-void do_evolve(CHAR_DATA *ch, const char *argument)
+void do_evolve(CHAR_DATA *ch, String argument)
 {
 	char *type;
 	int sn, cost, can, perc;
@@ -1577,7 +1577,7 @@ bool deduct_stamina(CHAR_DATA *ch, int sn)
 }
 
 /* used to get new skills */
-void do_gain(CHAR_DATA *ch, const char *argument)
+void do_gain(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *trainer;
 	int gn = 0, sn = 0;
@@ -1862,12 +1862,12 @@ For example: "convert 20" will change 20 SP into 2 practices.
 
 -- Outsider
 */
-void do_convert(CHAR_DATA *ch, const char *argument)
+void do_convert(CHAR_DATA *ch, String argument)
 {
 	sh_int use_points;
 	char buffer[MAX_INPUT_LENGTH];
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Convert: Change <X> number of skill points into practice sessions.\n", ch);
 		stc("Syntax: convert <skill_points>\n", ch);
 		return;

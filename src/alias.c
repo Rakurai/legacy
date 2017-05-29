@@ -88,13 +88,13 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	interpret(d->character, buf);
 } /* end substitute_alias() */
 
-void do_alia(CHAR_DATA *ch, const char *argument)
+void do_alia(CHAR_DATA *ch, String argument)
 {
 	stc("I'm sorry, alias must be entered in full.\n", ch);
 	return;
 }
 
-void do_alias(CHAR_DATA *ch, const char *argument)
+void do_alias(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *rch;
 
@@ -105,15 +105,6 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(rch))
 		return;
-
-	/* Fix the alias bug and add wiznet for those cheaters - Lotus */
-	for (const char *x = argument; *x != '\0'; x++) {
-		if (*x == '~') {
-			wiznet("$N is attempting to use the tilde in alias cheat.", ch,
-			       NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-			break;
-		}
-	}
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -137,7 +128,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		auto search = rch->pcdata->alias.find(arg);
 
 		if (search == rch->pcdata->alias.end())
@@ -163,7 +154,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	rch->pcdata->alias[arg] = argument;
 }
 
-void do_unalias(CHAR_DATA *ch, const char *argument)
+void do_unalias(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *rch;
 
@@ -175,7 +166,7 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(rch))
 		return;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Unalias what?\n", ch);
 		return;
 	}

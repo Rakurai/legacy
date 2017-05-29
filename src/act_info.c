@@ -42,7 +42,6 @@
 extern AREA_DATA *area_first;
 
 extern void     email_file    args((CHAR_DATA *ch, const char *file, const char *str));
-extern void do_config args((CHAR_DATA *ch, const char *buf));
 
 char   *const   where_name      [] = {
 	"<used as light>     ",
@@ -357,7 +356,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 			}
 } /* end show_list_to_char() */
 
-void do_peek(CHAR_DATA *ch, const char *argument)
+void do_peek(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	bool all = FALSE;
@@ -367,7 +366,7 @@ void do_peek(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Peek at whom?\n", ch);
 		return;
 	}
@@ -408,7 +407,7 @@ void do_peek(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			if (argument[0] == '\0') {
+			if (argument.empty()) {
 				stc("What item in their inventory do you want to lore?\n", ch);
 				return;
 			}
@@ -877,12 +876,12 @@ void set_window(CHAR_DATA *ch, int top, int bottom)
 }
 
 /* changes your scroll */
-void do_scroll(CHAR_DATA *ch, const char *argument)
+void do_scroll(CHAR_DATA *ch, String argument)
 {
 	char buf[100];
 	int lines;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		Format::sprintf(buf, "You currently display %d lines per page.\n",
 		        ch->lines);
 		stc(buf, ch);
@@ -909,7 +908,7 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	ch->lines = lines;
 } /* end set_scroll() */
 
-void do_socials(CHAR_DATA *ch, const char *argument)
+void do_socials(CHAR_DATA *ch, String argument)
 {
 	BUFFER *dbuf;
 	char buf[MAX_STRING_LENGTH];
@@ -934,22 +933,22 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 } /* end do_socials() */
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
-void do_imotd(CHAR_DATA *ch, const char *argument)
+void do_imotd(CHAR_DATA *ch, String argument)
 {
 	help(ch, "imotd");
 }
 
-void do_rules(CHAR_DATA *ch, const char *argument)
+void do_rules(CHAR_DATA *ch, String argument)
 {
 	help(ch, "rules");
 }
 
-void do_story(CHAR_DATA *ch, const char *argument)
+void do_story(CHAR_DATA *ch, String argument)
 {
 	help(ch, "story");
 }
 
-void do_departed(CHAR_DATA *ch, const char *argument)
+void do_departed(CHAR_DATA *ch, String argument)
 {
 	DEPARTED_DATA *iterator;
 	char name_buf[20];
@@ -981,7 +980,7 @@ void do_departed(CHAR_DATA *ch, const char *argument)
 		stc("\n", ch);
 }
 
-void do_wizlist(CHAR_DATA *ch, const char *argument)
+void do_wizlist(CHAR_DATA *ch, String argument)
 {
 	help(ch, "wizlist");
 }
@@ -992,7 +991,7 @@ int compare_clans(const void *p1, const void *p2)
 	return strcmp((*(CLAN_DATA **)p1)->name, (*(CLAN_DATA **)p2)->name);
 }
 
-void do_clanlist(CHAR_DATA *ch, const char *argument)
+void do_clanlist(CHAR_DATA *ch, String argument)
 {
 	char lblock[MIL], rblock[MIL];
 	CLAN_DATA *clan;
@@ -1009,7 +1008,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 	};
 	struct clan_clan clan_list[500];
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		CLAN_DATA *aClan[count_clans()], zero_clan;
 		int index = 0;
 		zero_clan.name = "zzzzzzzz";
@@ -1152,7 +1151,7 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
 
-void do_autolist(CHAR_DATA *ch, const char *argument)
+void do_autolist(CHAR_DATA *ch, String argument)
 {
 	/* lists most player flags */
 	if (IS_NPC(ch))
@@ -1307,7 +1306,7 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 }
 
 /* Color testing by Lotus */
-void do_ctest(CHAR_DATA *ch, const char *argument)
+void do_ctest(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1329,7 +1328,7 @@ void do_ctest(CHAR_DATA *ch, const char *argument)
 		stc("You must turn color on to see this.\n", ch);
 }
 
-void do_autoassist(CHAR_DATA *ch, const char *argument)
+void do_autoassist(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1344,7 +1343,7 @@ void do_autoassist(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_defensive(CHAR_DATA *ch, const char *argument)
+void do_defensive(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1359,7 +1358,7 @@ void do_defensive(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_autoexit(CHAR_DATA *ch, const char *argument)
+void do_autoexit(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1374,7 +1373,7 @@ void do_autoexit(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_autogold(CHAR_DATA *ch, const char *argument)
+void do_autogold(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1389,7 +1388,7 @@ void do_autogold(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_autoloot(CHAR_DATA *ch, const char *argument)
+void do_autoloot(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1404,7 +1403,7 @@ void do_autoloot(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_autosac(CHAR_DATA *ch, const char *argument)
+void do_autosac(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1419,7 +1418,7 @@ void do_autosac(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_autosplit(CHAR_DATA *ch, const char *argument)
+void do_autosplit(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1434,7 +1433,7 @@ void do_autosplit(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_brief(CHAR_DATA *ch, const char *argument)
+void do_brief(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_BRIEF)) {
 		stc("Full descriptions activated.\n", ch);
@@ -1446,7 +1445,7 @@ void do_brief(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_compact(CHAR_DATA *ch, const char *argument)
+void do_compact(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_COMPACT)) {
 		stc("Compact mode removed.\n", ch);
@@ -1458,13 +1457,13 @@ void do_compact(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_showflags(CHAR_DATA *ch, const char *argument)
+void do_showflags(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	victim = ch;
 
-	if (IS_IMMORTAL(ch) && argument[0] != '\0') {
+	if (IS_IMMORTAL(ch) && !argument.empty()) {
 		if ((victim = get_char_world(ch, argument, VIS_PLR)) == NULL) {
 			stc("You cannot locate that character.\n", ch);
 			return;
@@ -1501,7 +1500,7 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_show(CHAR_DATA *ch, const char *argument)
+void do_show(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS)) {
 		stc("Affects will no longer be shown in score.\n", ch);
@@ -1514,11 +1513,11 @@ void do_show(CHAR_DATA *ch, const char *argument)
 }
 
 #define MAX_PROMPT_LEN 300
-void do_prompt(CHAR_DATA *ch, const char *argument)
+void do_prompt(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_PROMPT_LEN+1];
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
 			stc("You will no longer see prompts.\n", ch);
 			REMOVE_BIT(ch->comm, COMM_PROMPT);
@@ -1562,7 +1561,7 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	stc(buf, ch);
 }
 
-void do_combine(CHAR_DATA *ch, const char *argument)
+void do_combine(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_COMBINE)) {
 		stc("Long inventory selected.\n", ch);
@@ -1574,7 +1573,7 @@ void do_combine(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_showlost(CHAR_DATA *ch, const char *argument)
+void do_showlost(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1589,7 +1588,7 @@ void do_showlost(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_noloot(CHAR_DATA *ch, const char *argument)
+void do_noloot(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1604,7 +1603,7 @@ void do_noloot(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_nofollow(CHAR_DATA *ch, const char *argument)
+void do_nofollow(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1620,7 +1619,7 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_nosummon(CHAR_DATA *ch, const char *argument)
+void do_nosummon(CHAR_DATA *ch, String argument)
 {
 	if (IS_SET(ch->act, PLR_NOSUMMON)) {
 		stc("You are no longer immune to summon.\n", ch);
@@ -1632,7 +1631,7 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_look(CHAR_DATA *ch, const char *argument)
+void do_look(CHAR_DATA *ch, String argument)
 {
 	char buf  [MAX_STRING_LENGTH];
 	EXIT_DATA *pexit;
@@ -2029,12 +2028,12 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_examine(CHAR_DATA *ch, const char *argument)
+void do_examine(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Examine what?\n", ch);
 		return;
 	}
@@ -2180,7 +2179,7 @@ void exits_in(CHAR_DATA *ch)
 /*
  * Thanks to Zrin for auto-exit part.
  */
-void do_exits(CHAR_DATA *ch, const char *argument)
+void do_exits(CHAR_DATA *ch, String argument)
 {
 	extern const char* dir_name[];
 	char buf[MAX_STRING_LENGTH];
@@ -2248,7 +2247,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_worth(CHAR_DATA *ch, const char *argument)
+void do_worth(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		ptc(ch, "You have %ld gold and %ld silver.\n", ch->gold, ch->silver);
@@ -2299,7 +2298,7 @@ void new_day(void)
 	}
 } /* end new_day() */
 
-void do_time(CHAR_DATA *ch, const char *argument)
+void do_time(CHAR_DATA *ch, String argument)
 {
 	extern char str_boot_time[];
 	char buf[MAX_STRING_LENGTH];
@@ -2352,7 +2351,7 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_weather(CHAR_DATA *ch, const char *argument)
+void do_weather(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	static char *const sky_look[4] = {
@@ -2387,7 +2386,7 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 }
 
 /* new whois by Montrey */
-void do_whois(CHAR_DATA *ch, const char *argument)
+void do_whois(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	char block[MAX_INPUT_LENGTH];
@@ -2396,7 +2395,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a name.\n", ch);
 		return;
 	}
@@ -2494,7 +2493,7 @@ char *count_players(CHAR_DATA *ch)
 	return buf;
 }
 
-void do_count(CHAR_DATA *ch, const char *argument)
+void do_count(CHAR_DATA *ch, String argument)
 {
 	set_color(ch, WHITE, BOLD);
 	stc(count_players(ch), ch);
@@ -2502,7 +2501,7 @@ void do_count(CHAR_DATA *ch, const char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_who(CHAR_DATA *ch, const char *argument)
+void do_who(CHAR_DATA *ch, String argument)
 {
 	struct s_charitem {
 		CHAR_DATA *pch;
@@ -2536,7 +2535,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 	/* Parse arguments. */
 	for (; ;) {
-		if (argument[0] == '\0')
+		if (argument.empty())
 			break;
 
 		String arg;
@@ -2766,7 +2765,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 } /* do_who() */
 
 /* Short Who by Lotus */
-void do_swho(CHAR_DATA *ch, const char *argument)
+void do_swho(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char roombuf[MAX_STRING_LENGTH];
@@ -2863,11 +2862,11 @@ void do_swho(CHAR_DATA *ch, const char *argument)
 } /* end do_swho() */
 
 /* New container capable inventory - Lotus */
-void do_inventory(CHAR_DATA *ch, const char *argument)
+void do_inventory(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim = NULL;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		victim = ch;
 		new_color(ch, CSLOT_MISC_INV);
 		stc("You are carrying:\n", ch);
@@ -2909,7 +2908,7 @@ void do_inventory(CHAR_DATA *ch, const char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_equipment(CHAR_DATA *ch, const char *argument)
+void do_equipment(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int iWear;
@@ -2975,7 +2974,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_compare(CHAR_DATA *ch, const char *argument)
+void do_compare(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj1;
 	OBJ_DATA *obj2;
@@ -2983,7 +2982,7 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	int value2;
 	char *msg;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Compare what to what?\n", ch);
 		return;
 	}
@@ -3052,14 +3051,14 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_credits(CHAR_DATA *ch, const char *argument)
+void do_credits(CHAR_DATA *ch, String argument)
 {
 	help(ch, "diku");
 	help(ch, "credit");
 	return;
 }
 
-void do_where(CHAR_DATA *ch, const char *argument)
+void do_where(CHAR_DATA *ch, String argument)
 {
 	ARENA_DATA *arena = arena_table_head->next;
 	CHAR_DATA *victim;
@@ -3095,7 +3094,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Nearby you see:\n", ch);
 
 		for (d = descriptor_list; d; d = d->next) {
@@ -3136,14 +3135,14 @@ void do_where(CHAR_DATA *ch, const char *argument)
 }
 
 /* New short consider by Lotus */
-void do_scon(CHAR_DATA *ch, const char *argument)
+void do_scon(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if ((victim = ch->fighting) == NULL) {
 			stc("Which way did he go?!?\n", ch);
 			return;
@@ -3184,13 +3183,13 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_consider(CHAR_DATA *ch, const char *argument)
+void do_consider(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
 	int diff, percent;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Consider killing whom?\n", ch);
 		return;
 	}
@@ -3352,12 +3351,12 @@ void set_title(CHAR_DATA *ch, const String& title)
 	return;
 }
 
-void do_title(CHAR_DATA *ch, const char *argument)
+void do_title(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Change your title to what?\n", ch);
 		return;
 	}
@@ -3387,7 +3386,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
  * moved to config function -- Montrey
  */
 
-void do_immname(CHAR_DATA *ch, const char *argument)
+void do_immname(CHAR_DATA *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -3397,11 +3396,11 @@ void do_immname(CHAR_DATA *ch, const char *argument)
 	do_config(ch, buf);
 }
 
-void do_description(CHAR_DATA *ch, const char *argument)
+void do_description(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		buf[0] = '\0';
 
 		if (argument[0] == '-') {
@@ -3448,10 +3447,7 @@ void do_description(CHAR_DATA *ch, const char *argument)
 			if (ch->description != NULL)
 				strcat(buf, ch->description);
 
-			argument++;
-
-			while (isspace(*argument))
-				argument++;
+			argument = argument.substr(1).lstrip();
 		}
 
 		if (strlen(buf) + strlen(argument) >= MAX_STRING_LENGTH - 2) {
@@ -3473,14 +3469,14 @@ void do_description(CHAR_DATA *ch, const char *argument)
 }
 
 /* Duplicate of Description for Finger Info */
-void do_fingerinfo(CHAR_DATA *ch, const char *argument)
+void do_fingerinfo(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 
 	if (IS_NPC(ch))
 		return;
 
-	if (argument[0] != '\0') {
+	if (!argument.empty()) {
 		buf[0] = '\0';
 
 		if (!str_cmp(argument, "clear")) {
@@ -3533,10 +3529,7 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 			if (ch->pcdata->fingerinfo[0])
 				strcat(buf, ch->pcdata->fingerinfo);
 
-			argument++;
-
-			while (isspace(*argument))
-				argument++;
+			argument = argument.substr(1).lstrip();
 		}
 		else {
 			stc("Syntax:\n"
@@ -3567,7 +3560,7 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_report(CHAR_DATA *ch, const char *argument)
+void do_report(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -3786,7 +3779,7 @@ void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
 	free_buf(output);
 } /* end prac_by_key() */
 
-void do_practice(CHAR_DATA *ch, const char *argument)
+void do_practice(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int sn;
@@ -3897,7 +3890,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 /*
  * 'Wimpy' originally by Dionysos.
  */
-void do_wimpy(CHAR_DATA *ch, const char *argument)
+void do_wimpy(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int wimpy;
@@ -3926,62 +3919,16 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_password(CHAR_DATA *ch, const char *argument)
+void do_password(CHAR_DATA *ch, String argument)
 {
-	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	char *pArg;
-	char *pwdnew;
-	char *p;
-	char cEnd;
-
 	if (IS_NPC(ch))
 		return;
 
 	/*
 	 * Can't use one_argument here because it smashes case.
-	 * So we just steal all its code.  Bleagh.
 	 */
-	pArg = arg1;
-
-	while (isspace(*argument))
-		argument++;
-
-	cEnd = ' ';
-
-	if (*argument == '\'' || *argument == '"')
-		cEnd = *argument++;
-
-	while (*argument != '\0') {
-		if (*argument == cEnd) {
-			argument++;
-			break;
-		}
-
-		*pArg++ = *argument++;
-	}
-
-	*pArg = '\0';
-	pArg = arg2;
-
-	while (isspace(*argument))
-		argument++;
-
-	cEnd = ' ';
-
-	if (*argument == '\'' || *argument == '"')
-		cEnd = *argument++;
-
-	while (*argument != '\0') {
-		if (*argument == cEnd) {
-			argument++;
-			break;
-		}
-
-		*pArg++ = *argument++;
-	}
-
-	*pArg = '\0';
+	String arg1, arg2;
+	argument.lsplit(arg1).lsplit(arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		stc("Syntax: password <old> <new>.\n", ch);
@@ -4001,34 +3948,20 @@ void do_password(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	/*
-	 * No tilde allowed because of player file format.
-	 */
-	/*pwdnew = crypt( arg2, ch->name );*/
-	pwdnew = arg2;
-
-	for (p = pwdnew; *p != '\0'; p++) {
-		if (*p == '~') {
-			stc(
-			        "No tildes in passwords, try again.\n", ch);
-			return;
-		}
-	}
-
 	free_string(ch->pcdata->pwd);
-	ch->pcdata->pwd = str_dup(pwdnew);
+	ch->pcdata->pwd = str_dup(arg2);
 	save_char_obj(ch);
 	stc("Password Changed.\n", ch);
 	return;
 }
-void do_invite(CHAR_DATA *ch, const char *argument)
+void do_invite(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 	bool found = FALSE;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (IS_IMMORTAL(ch)) {
 			for (d = descriptor_list; d != NULL; d = d->next) {
 				if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
@@ -4072,7 +4005,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "terminate")) {
-		if (argument[0] == '\0') {
+		if (argument.empty()) {
 			if ((ch->inviters != NULL)) {
 				stc("You have terminated your invitation.\n", ch);
 				ch->inviters = NULL;
@@ -4246,7 +4179,7 @@ void do_invite(CHAR_DATA *ch, const char *argument)
 	stc(buf, victim);
 } /* do_invite */
 
-void do_join(CHAR_DATA *ch, const char *argument)
+void do_join(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -4260,7 +4193,7 @@ void do_join(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Whom do want to join your clan?\n", ch);
 		return;
 	}
@@ -4354,7 +4287,7 @@ void vape_ceq(CHAR_DATA *ch)
 	}
 }
 
-void do_unjoin(CHAR_DATA *ch, const char *argument)
+void do_unjoin(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CLAN_DATA *clan;
@@ -4369,7 +4302,7 @@ void do_unjoin(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Whom do want to remove from your clan?\n", ch);
 		return;
 	}
@@ -4431,7 +4364,7 @@ void do_unjoin(CHAR_DATA *ch, const char *argument)
 
 /* Clan Status by Lotus */
 /* Begin modification by Lotus and Slipstream */
-void do_rank(CHAR_DATA *ch, const char *argument)
+void do_rank(CHAR_DATA *ch, String argument)
 {
 	char test[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -4441,7 +4374,7 @@ void do_rank(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Change whose clan rank?\n", ch);
 		return;
 	}
@@ -4459,7 +4392,7 @@ void do_rank(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Change their clan rank to what?\n"
 		    "(use 'none' to remove rank)\n", ch);
 		return;
@@ -4493,17 +4426,17 @@ void do_rank(CHAR_DATA *ch, const char *argument)
 }
 
 /* prefix command: it will put the string typed on each line typed */
-void do_prefi(CHAR_DATA *ch, const char *argument)
+void do_prefi(CHAR_DATA *ch, String argument)
 {
 	stc("You cannot abbreviate the prefix command.\n", ch);
 	return;
 }
 
-void do_prefix(CHAR_DATA *ch, const char *argument)
+void do_prefix(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		if (ch->prefix[0] == '\0') {
 			stc("You have no prefix to clear.\n", ch);
 			return;
@@ -4544,7 +4477,7 @@ void email_file(CHAR_DATA *ch, const char *file, const char *str)
 	return;
 }
 
-void do_email(CHAR_DATA *ch, const char *argument)
+void do_email(CHAR_DATA *ch, String argument)
 {
 	char buf[MIL];
 
@@ -4553,7 +4486,7 @@ void do_email(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(ch, "Your current email address is: %s\n", ch->pcdata->email);
 		return;
 	}
@@ -4570,7 +4503,7 @@ void do_email(CHAR_DATA *ch, const char *argument)
 }
 
 /* gameinout: show game entry or exit message -- Elrac */
-void gameinout(CHAR_DATA *ch, const char *mortal, const char *entryexit, char inout)
+void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, char inout)
 {
 	CHAR_DATA *victim;
 	char *msgptr;
@@ -4631,29 +4564,28 @@ void gameinout(CHAR_DATA *ch, const char *mortal, const char *entryexit, char in
 	}
 } /* end gameinout() */
 
-void do_gamein(CHAR_DATA *ch, const char *argument)
+void do_gamein(CHAR_DATA *ch, String argument)
 {
-	if (!IS_IMMORTAL(ch) || argument[0] == '\0')
+	if (!IS_IMMORTAL(ch) || argument.empty())
 		gameinout(ch, NULL, "entry", 'I');
 	else
 		gameinout(ch, argument, "entry", 'I');
 } /* end do_gamein() */
 
-void do_gameout(CHAR_DATA *ch, const char *argument)
+void do_gameout(CHAR_DATA *ch, String argument)
 {
-	if (!IS_IMMORTAL(ch) || argument[0] == '\0')
+	if (!IS_IMMORTAL(ch) || argument.empty())
 		gameinout(ch, NULL, "exit", 'O');
 	else
 		gameinout(ch, argument, "exit", 'O');
 } /* end do_gameout() */
 
 /* Show contents of the pit, selected by level -- Elrac */
-void do_pit(CHAR_DATA *ch, const char *argument)
+void do_pit(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *pit;
 	OBJ_DATA sel_pit; /* a real live container-type object! */
 	OBJ_DATA *obj, *next_obj;
-	const char *keywords;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
 	bool flevel = FALSE, fexplevel = FALSE, fname = FALSE, fwear = FALSE, fweapon = FALSE;
@@ -4679,7 +4611,7 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* scan [ [level [level] ] keyword(s) ] */
-	keywords = argument;
+	String keywords = argument;
 	String arg;
 	argument = one_argument(argument, arg);
 
@@ -4839,7 +4771,7 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 } /* end do_pit() */
 
 /* Show information of a clan to a member */
-void do_claninfo(CHAR_DATA *ch, const char *argument)
+void do_claninfo(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -4899,7 +4831,7 @@ char *make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
 	return str_dup(strins(output, buf, numbg + 4));
 }
 
-void do_clanpower(CHAR_DATA *ch, const char *argument)
+void do_clanpower(CHAR_DATA *ch, String argument)
 {
 	CLAN_DATA *clan;
 	int count = 0, inc, i, x, j = 0, high, low, negmod = 0, total;
@@ -5398,7 +5330,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "%s[[|]]                                                              [[|]]{x\n", torch);
 }
 
-void do_affects(CHAR_DATA *ch, const char *argument)
+void do_affects(CHAR_DATA *ch, String argument)
 {
 	new_color(ch, CSLOT_SCORE_FLAME);
 	stc("  ,                                                                  ,\n"
@@ -5420,7 +5352,7 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_score(CHAR_DATA *ch, const char *argument)
+void do_score(CHAR_DATA *ch, String argument)
 {
 	score_new(ch);
 }

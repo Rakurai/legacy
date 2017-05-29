@@ -37,7 +37,7 @@
 
 /* RT set replaces sset, mset, oset, rset and cset */
 
-void do_set(CHAR_DATA *ch, const char *argument)
+void do_set(CHAR_DATA *ch, String argument)
 {
 	String arg;
 	argument = one_argument(argument, arg);
@@ -108,7 +108,7 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	do_set(ch, "");
 }
 
-void do_sset(CHAR_DATA *ch, const char *argument)
+void do_sset(CHAR_DATA *ch, String argument)
 {
 	char buf[1024];
 	CHAR_DATA *victim;
@@ -187,7 +187,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	stc(buf, ch);
 } /* end do_sset() */
 
-void do_evoset(CHAR_DATA *ch, const char *argument)
+void do_evoset(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -286,7 +286,7 @@ void do_evoset(CHAR_DATA *ch, const char *argument)
 	    skill_table[sn].spell_fun != spell_null ? "spell" : "skill", value);
 } /* end do_evoset() */
 
-void do_raffset(CHAR_DATA *ch, const char *argument)
+void do_raffset(CHAR_DATA *ch, String argument)
 {
 	extern void fix_blank_raff(CHAR_DATA * ch, int start);
 	extern void roll_one_raff(CHAR_DATA * ch, CHAR_DATA * victim, int place);
@@ -448,7 +448,7 @@ void do_raffset(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_extraset(CHAR_DATA *ch, const char *argument)
+void do_extraset(CHAR_DATA *ch, String argument)
 {
 	extern void fix_blank_extraclass(CHAR_DATA * ch, int index);
 	char buf[MAX_STRING_LENGTH];
@@ -623,7 +623,7 @@ void do_extraset(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_mset(CHAR_DATA *ch, const char *argument)
+void do_mset(CHAR_DATA *ch, String argument)
 {
 	char arg3[MIL], buf[1024];
 	CHAR_DATA *victim;
@@ -1245,7 +1245,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	do_mset(ch, "");
 }
 
-void do_oset(CHAR_DATA *ch, const char *argument)
+void do_oset(CHAR_DATA *ch, String argument)
 {
 	char arg3 [MAX_INPUT_LENGTH];
 	char buf[1024];
@@ -1395,7 +1395,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	do_oset(ch, "");
 } /* end do_oset() */
 
-void do_rset(CHAR_DATA *ch, const char *argument)
+void do_rset(CHAR_DATA *ch, String argument)
 {
 	char arg3 [MAX_INPUT_LENGTH];
 	char buf [MAX_STRING_LENGTH];
@@ -1882,14 +1882,14 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 }
 
 /* main stat function */
-void do_stat(CHAR_DATA *ch, const char *argument)
+void do_stat(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
 	const char *arg2;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  stat <name or room vnum>\n"
 		    "  stat char   <name>\n"
@@ -1987,7 +1987,7 @@ void do_stat(CHAR_DATA *ch, const char *argument)
 }
 
 /* new player stat -- Elrac */
-void do_pstat(CHAR_DATA *ch, const char *argument)
+void do_pstat(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	int xpl, xnl; /* experience per/next level */

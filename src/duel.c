@@ -535,7 +535,7 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	do_look(ch, "auto");
 }
 
-void do_duel(CHAR_DATA *ch, const char *argument)
+void do_duel(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	DUEL_DATA *duel;

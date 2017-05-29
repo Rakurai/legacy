@@ -109,7 +109,7 @@ void compile_gem_effects(OBJ_DATA *eq) {
 	}
 }
 
-void do_inset(CHAR_DATA *ch, const char *argument)
+void do_inset(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *eq, *gem;
 

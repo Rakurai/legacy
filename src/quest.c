@@ -1052,7 +1052,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 } /* end generate_quest() */
 
 /* The main quest function */
-void do_quest(CHAR_DATA *ch, const char *argument)
+void do_quest(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *questman;
 	char buf [MAX_STRING_LENGTH];
@@ -1096,7 +1096,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (argument != NULL && *argument != '\0')
+		if (!argument.empty())
 			number = atoi(argument);
 
 		if (number < 0 || number > 10) {

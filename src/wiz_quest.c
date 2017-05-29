@@ -20,7 +20,7 @@
 #include "buffer.h"
 #include "Format.hpp"
 
-void do_addapply(CHAR_DATA *ch, const char *argument)
+void do_addapply(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int affect_modify = 1, enchant_type, duration = -1;
@@ -102,7 +102,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 }
 
 /* Morph Command by Lotus */
-void do_morph(CHAR_DATA *ch, const char *argument)
+void do_morph(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	CHAR_DATA *morph;
@@ -162,7 +162,7 @@ void do_morph(CHAR_DATA *ch, const char *argument)
 	stc("Successful Morph!\n", ch);
 }
 
-void do_rppaward(CHAR_DATA *ch, const char *argument)
+void do_rppaward(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
@@ -170,7 +170,7 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 	DESCRIPTOR_DATA *d;
 	int rppoint;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		output = new_buf();
 		stc("Name            RPPs\n", ch);
 		stc("--------------------\n", ch);
@@ -197,7 +197,7 @@ void do_rppaward(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || argument[0] == '\0') {
+	if (arg1[0] == '\0' || arg2[0] == '\0' || argument.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  rpp <award|deduct> <victim> <amount>\n", ch);
 		return;
@@ -286,7 +286,7 @@ ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 }
 
 /* scatter all items in a room -- Montrey */
-void do_scatter(CHAR_DATA *ch, const char *argument)
+void do_scatter(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj, *obj_next;
 	ROOM_INDEX_DATA *room;
@@ -313,7 +313,7 @@ void do_scatter(CHAR_DATA *ch, const char *argument)
 		stc("Done.\n", ch);
 }
 
-void do_string(CHAR_DATA *ch, const char *argument)
+void do_string(CHAR_DATA *ch, String argument)
 {
 	char buf [MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -617,7 +617,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	do_string(ch, "");
 } /* end do_string() */
 
-void do_switch(CHAR_DATA *ch, const char *argument)
+void do_switch(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -680,7 +680,7 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_return(CHAR_DATA *ch, const char *argument)
+void do_return(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *location;
@@ -728,7 +728,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 }
 
 /* for future use */
-bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, const char *argument)
+bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, String argument)
 {
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -829,7 +829,7 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, const char *argument)
 	return TRUE;
 }
 
-void do_create(CHAR_DATA *ch, const char *argument)
+void do_create(CHAR_DATA *ch, String argument)
 {
 	char buf[100];
 	OBJ_INDEX_DATA *pObjIndex;
@@ -839,7 +839,7 @@ void do_create(CHAR_DATA *ch, const char *argument)
 	if (!IS_IMMORTAL(ch))
 		return;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  create obj <type>\n", ch);
 		return;
@@ -909,7 +909,7 @@ skillpoint <award|deduct> <player> <amount>
 
 -- Outsider
 */
-void do_skillpoint(CHAR_DATA *ch, const char *argument)
+void do_skillpoint(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	sh_int new_points;
@@ -919,7 +919,7 @@ void do_skillpoint(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, give_or_take);
 	argument = one_argument(argument, char_name);
 
-	if ((give_or_take[0] == '\0') || (char_name[0] == '\0') || (argument[0] == '\0')) {
+	if ((give_or_take[0] == '\0') || (char_name[0] == '\0') || (argument.empty())) {
 		stc("Syntax: skillpoint <award|deduct> <player> <amount>\n", ch);
 		return;
 	}

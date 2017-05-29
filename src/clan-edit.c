@@ -232,7 +232,7 @@ void remove_clan(char *name)
 	}
 }
 
-void do_cedit(CHAR_DATA *ch, const char *argument)
+void do_cedit(CHAR_DATA *ch, String argument)
 {
 	CLAN_DATA *cdata;
 

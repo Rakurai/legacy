@@ -25,7 +25,7 @@
 
 void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
 
-void do_fod(CHAR_DATA *ch, const char *argument)
+void do_fod(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim = NULL;
@@ -33,7 +33,7 @@ void do_fod(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *ch_room, *victim_room;
 	OBJ_DATA *on;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		global_act(ch, msg, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
 		stc("Your FOD reverberates through the world as a warning to all.\n", ch);
 		return;
@@ -86,7 +86,7 @@ void do_fod(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_force(CHAR_DATA *ch, const char *argument)
+void do_force(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	PC_DATA *vpc, *vpc_next;
@@ -95,7 +95,7 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		stc("Syntax:\n"
 		    "  force <player> <command>\n", ch);
 
@@ -205,12 +205,12 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	stc("You succeed.\n", ch);
 }
 
-void do_freeze(CHAR_DATA *ch, const char *argument)
+void do_freeze(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  freeze <player>\n", ch);
 		return;
@@ -249,7 +249,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	save_char_obj(victim);
 }
 
-void do_fry(CHAR_DATA *ch, const char *argument)
+void do_fry(CHAR_DATA *ch, String argument)
 {
 	char strsave[MIL];
 	CHAR_DATA *victim;
@@ -285,12 +285,12 @@ void do_fry(CHAR_DATA *ch, const char *argument)
 	unlink(strsave);
 }
 
-void do_locker(CHAR_DATA *ch, const char *argument)
+void do_locker(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  locker <victim> <get|put> <object>\n", ch);
 		return;
@@ -304,7 +304,7 @@ void do_locker(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(ch, "%s's locker contains:\n", victim->name);
 		show_list_to_char(victim->pcdata->locker, ch, TRUE, TRUE, TRUE);
 		return;
@@ -313,7 +313,7 @@ void do_locker(CHAR_DATA *ch, const char *argument)
 	String arg2;
 	argument = one_argument(argument, arg2);
 
-	if (arg2[0] == '\0' || argument[0] == '\0') {
+	if (arg2[0] == '\0' || argument.empty()) {
 		stc("Syntax:\n"
 		    "  locker <player> <get|put> <object>\n", ch);
 		return;
@@ -347,12 +347,12 @@ void do_locker(CHAR_DATA *ch, const char *argument)
 	    "  locker <player> <get|put> <object>\n", ch);
 }
 
-void do_strongbox(CHAR_DATA *ch, const char *argument)
+void do_strongbox(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  strongbox <victim> <get|put> <object>\n", ch);
 		return;
@@ -371,7 +371,7 @@ void do_strongbox(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		ptc(ch, "%s's strongbox contains:\n", victim->name);
 		show_list_to_char(victim->pcdata->strongbox, ch, TRUE, TRUE, TRUE);
 		return;
@@ -379,7 +379,7 @@ void do_strongbox(CHAR_DATA *ch, const char *argument)
 
 	argument = one_argument(argument, arg2);
 
-	if (arg2[0] == '\0' || argument[0] == '\0') {
+	if (arg2[0] == '\0' || argument.empty()) {
 		stc("Syntax:\n"
 		    "  strongbox <player> <get|put> <object>\n", ch);
 		return;
@@ -413,11 +413,11 @@ void do_strongbox(CHAR_DATA *ch, const char *argument)
 	    "  strongbox <player> <get|put> <object>\n", ch);
 }
 
-void do_log(CHAR_DATA *ch, const char *argument)
+void do_log(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  log <player>\n"
 		    "  log all\n", ch);
@@ -446,7 +446,7 @@ void do_log(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "LOG %s.\n", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
 }
 
-void do_newlock(CHAR_DATA *ch, const char *argument)
+void do_newlock(CHAR_DATA *ch, String argument)
 {
 	extern bool newlock;
 	newlock = !newlock;
@@ -461,13 +461,13 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_newpasswd(CHAR_DATA *ch, const char *argument)
+void do_newpasswd(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim;
 	char *pwdnew, *p;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  newpasswd <player> <passwd>\n", ch);
 		return;
@@ -509,7 +509,7 @@ void do_newpasswd(CHAR_DATA *ch, const char *argument)
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
 }
 
-void do_pardon(CHAR_DATA *ch, const char *argument)
+void do_pardon(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -557,11 +557,11 @@ void do_pardon(CHAR_DATA *ch, const char *argument)
 		    "  pardon <player> <killer|thief>\n", ch);
 }
 
-void do_protect(CHAR_DATA *ch, const char *argument)
+void do_protect(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  protect <player>\n", ch);
 		return;
@@ -582,7 +582,7 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_revoke(CHAR_DATA *ch, const char *argument)
+void do_revoke(CHAR_DATA *ch, String argument)
 {
 	char buf1[MSL], buf2[MSL];
 	CHAR_DATA *victim;
@@ -720,7 +720,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 	return 0;
 }
 
-void do_tail(CHAR_DATA *ch, const char *argument)
+void do_tail(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim = NULL;
@@ -730,7 +730,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  tail <victim> act\n"
 		    "  tail <victim> stop\n"
@@ -780,7 +780,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		do_tail(ch, "");
 }
 
-void do_snoop(CHAR_DATA *ch, const char *argument)
+void do_snoop(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	DESCRIPTOR_DATA *d;
@@ -789,7 +789,7 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  snoop <player>\n", ch);
 		return;
@@ -857,11 +857,11 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 	stc("You now view the world through the players eyes.\n", ch);
 }
 
-void do_ban(CHAR_DATA *ch, const char *argument)
+void do_ban(CHAR_DATA *ch, String argument)
 {
 	int flags = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		String site;
 		BUFFER *output;
 		bool found = FALSE;
@@ -916,7 +916,7 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a reason.\n", ch);
 		return;
 	}
@@ -955,7 +955,7 @@ void do_ban(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_allow(CHAR_DATA *ch, const char *argument)
+void do_allow(CHAR_DATA *ch, String argument)
 {
 	int wildflags = 0;
 
@@ -993,7 +993,7 @@ void do_allow(CHAR_DATA *ch, const char *argument)
 		stc("That site is not banned.\n", ch);
 }
 
-void do_permit(CHAR_DATA *ch, const char *argument)
+void do_permit(CHAR_DATA *ch, String argument)
 {
 	int wildflags = 0;
 	bool found = FALSE;
@@ -1076,11 +1076,11 @@ void do_permit(CHAR_DATA *ch, const char *argument)
 		stc("That site is not banned.\n", ch);
 }
 
-void do_deny(CHAR_DATA *ch, const char *argument)
+void do_deny(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		BUFFER *output;
 		bool found = FALSE;
 
@@ -1112,7 +1112,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	String arg1;
 	argument = one_argument(db_esc(argument), arg1);
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("You must provide a reason.\n", ch);
 		return;
 	}
@@ -1148,7 +1148,7 @@ void do_deny(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-void do_undeny(CHAR_DATA *ch, const char *argument)
+void do_undeny(CHAR_DATA *ch, String argument)
 {
 	String arg;
 	one_argument(argument, arg);

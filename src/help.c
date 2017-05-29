@@ -111,13 +111,13 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 }
 
 /* the mud's internal help command, no multiple results, no suggestions.  command groups are not checked */
-void help(CHAR_DATA *ch, const char *argument)
+void help(CHAR_DATA *ch, const String& argument)
 {
 	char query[MSL];
 	const char *p;
 	BUFFER *output;
 	Format::sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
-	p = argument;
+	p = argument.c_str();
 
 	while (*p != '\0') {
 		char word[MIL];
@@ -175,7 +175,7 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 /*** USER COMMANDS ***/
 
 /* load the specified help file into the database */
-void do_loadhelps(CHAR_DATA *ch, const char *argument)
+void do_loadhelps(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL], *q, *p;
 	FILE *fp;
@@ -187,7 +187,7 @@ void do_loadhelps(CHAR_DATA *ch, const char *argument)
 	};
 	struct help_struct temp_help[500];
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  loadhelps <filename>\n"
 		    "  loadhelps all\n\n"
@@ -310,13 +310,13 @@ void do_loadhelps(CHAR_DATA *ch, const char *argument)
 }
 
 /* print all helps matching a group to file */
-void do_printhelps(CHAR_DATA *ch, const char *argument)
+void do_printhelps(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL * 3];
 	FILE *fp;
 	int tablenum, count = 0;
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		stc("Syntax:\n"
 		    "  printhelps <filename>\n"
 		    "  printhelps all\n\n"
@@ -391,7 +391,7 @@ void do_printhelps(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
 }
 
-void do_help(CHAR_DATA *ch, const char *argument)
+void do_help(CHAR_DATA *ch, String argument)
 {
 	char query[MSL];
 	const char *p;
@@ -433,7 +433,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 	        " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d AND ",
 	        ch->level
 	       );
-	p = argument;
+	p = argument.c_str();
 
 	while (*p != '\0') {
 		char word[MIL];
@@ -566,7 +566,7 @@ void do_help(CHAR_DATA *ch, const char *argument)
 	free_buf(output);
 }
 
-void do_hedit(CHAR_DATA *ch, const char *argument)
+void do_hedit(CHAR_DATA *ch, String argument)
 {
 	if (!argument[0]) {
 		ptc(ch, "Syntax:  hedit new <keywords>\n"

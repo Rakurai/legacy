@@ -83,7 +83,7 @@ char *mprog_type_to_name(int type)
  * show the MOBprograms which are set.
  */
 
-void do_mpstat(CHAR_DATA *ch, const char *argument)
+void do_mpstat(CHAR_DATA *ch, String argument)
 {
 	char        buf[ MAX_STRING_LENGTH ];
 	MPROG_DATA *mprg;
@@ -145,7 +145,7 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 
 /* prints the argument to all the rooms aroud the mobile */
 
-void do_mpasound(CHAR_DATA *ch, const char *argument)
+void do_mpasound(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *was_in_room;
 	int              door;
@@ -156,7 +156,7 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		bug("Mpasound - No argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -183,7 +183,7 @@ void do_mpasound(CHAR_DATA *ch, const char *argument)
 
 /* lets the mobile kill any player or mobile without murder*/
 
-void do_mpkill(CHAR_DATA *ch, const char *argument)
+void do_mpkill(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -233,7 +233,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
    it can also destroy a worn object and it can destroy
    items using all.xxxxx or just plain all of them */
 
-void do_mpjunk(CHAR_DATA *ch, const char *argument)
+void do_mpjunk(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
@@ -280,7 +280,7 @@ void do_mpjunk(CHAR_DATA *ch, const char *argument)
 
 /* prints the message to everyone in the room other than the mob and victim */
 
-void do_mpechoaround(CHAR_DATA *ch, const char *argument)
+void do_mpechoaround(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -309,7 +309,7 @@ void do_mpechoaround(CHAR_DATA *ch, const char *argument)
 
 /* prints the message to only the victim */
 
-void do_mpechoat(CHAR_DATA *ch, const char *argument)
+void do_mpechoat(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 
@@ -321,7 +321,7 @@ void do_mpechoat(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		bug("Mpechoat - No argument:  vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -339,14 +339,14 @@ void do_mpechoat(CHAR_DATA *ch, const char *argument)
 
 /* prints the message to the room at large */
 
-void do_mpecho(CHAR_DATA *ch, const char *argument)
+void do_mpecho(CHAR_DATA *ch, String argument)
 {
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		bug("Mpecho - called w/o argument: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -356,7 +356,7 @@ void do_mpecho(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_mpclearmoney(CHAR_DATA *ch, const char *argument)
+void do_mpclearmoney(CHAR_DATA *ch, String argument)
 {
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
 		stc("Huh?\n", ch);
@@ -372,7 +372,7 @@ void do_mpclearmoney(CHAR_DATA *ch, const char *argument)
 are loaded into inventory.  you can specify a level with
 the load object portion as well. */
 
-void do_mpmload(CHAR_DATA *ch, const char *argument)
+void do_mpmload(CHAR_DATA *ch, String argument)
 {
 	MOB_INDEX_DATA *pMobIndex;
 	CHAR_DATA      *victim;
@@ -406,7 +406,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-void do_mpoload(CHAR_DATA *ch, const char *argument)
+void do_mpoload(CHAR_DATA *ch, String argument)
 {
 	OBJ_INDEX_DATA *pObjIndex;
 	OBJ_DATA       *obj;
@@ -451,7 +451,7 @@ void do_mpoload(CHAR_DATA *ch, const char *argument)
    itself, but this had best be the last command in the MOBprogram
    otherwise ugly stuff will happen */
 
-void do_mppurge(CHAR_DATA *ch, const char *argument)
+void do_mppurge(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
@@ -501,7 +501,7 @@ void do_mppurge(CHAR_DATA *ch, const char *argument)
 
 /* lets the mobile goto any location it wishes that is not private */
 
-void do_mpgoto(CHAR_DATA *ch, const char *argument)
+void do_mpgoto(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location;
 
@@ -533,7 +533,7 @@ void do_mpgoto(CHAR_DATA *ch, const char *argument)
 
 /* lets the mobile do a command at another location. Very useful */
 
-void do_mpat(CHAR_DATA *ch, const char *argument)
+void do_mpat(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location;
 	ROOM_INDEX_DATA *original;
@@ -547,7 +547,7 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		bug("Mpat - Bad argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -580,7 +580,7 @@ void do_mpat(CHAR_DATA *ch, const char *argument)
 /* lets the mobile transfer people.  the all argument transfers
    everyone in the current room to the specified location */
 
-void do_mptransfer(CHAR_DATA *ch, const char *argument)
+void do_mptransfer(CHAR_DATA *ch, String argument)
 {
 	ROOM_INDEX_DATA *location;
 //	DESCRIPTOR_DATA *d;
@@ -658,7 +658,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 
 /* lets the mobile force someone to do something.  must be mortal level
    and the all argument only affects those in the room with the mobile */
-void do_mpforce(CHAR_DATA *ch, const char *argument)
+void do_mpforce(CHAR_DATA *ch, String argument)
 {
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
 		do_huh(ch);
@@ -668,7 +668,7 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument[0] == '\0') {
+	if (arg[0] == '\0' || argument.empty()) {
 		bug("Mpforce - Bad syntax: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}

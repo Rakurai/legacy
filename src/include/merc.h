@@ -59,7 +59,7 @@
 #include "Format.hpp"
 
 #define args( list )                    list
-#define DECLARE_DO_FUN( fun )           DO_FUN    fun ;  inline void (fun) args((CHAR_DATA *ch, const String& argument)) { return (::fun)(ch, argument.c_str()); }
+#define DECLARE_DO_FUN( fun )           DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )         SPEC_FUN  fun
 #define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
 
@@ -137,7 +137,7 @@ typedef struct	duel_data		DUEL_DATA;
 /*
  * Function types.
  */
-typedef void DO_FUN     args( ( CHAR_DATA *ch, const char *argument ) );
+typedef void DO_FUN     args( ( CHAR_DATA *ch, String argument ) );
 typedef bool SPEC_FUN   args( ( CHAR_DATA *ch ) );
 typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
                                 int target, int evolution) );
@@ -3234,13 +3234,13 @@ STORAGE_DATA *lookup_storage_data(const String&);
 void load_departed_list();
 void save_departed_list();
 
-void remove_departed(const char *);
-void insert_departed(const char *);
-bool has_departed(const char *);
+void remove_departed(const String&);
+void insert_departed(const String&);
+bool has_departed(const String&);
 
 /* act_info.c */
 void    set_title       args( ( CHAR_DATA *ch, const String& title ) );
-int     color_strlen    args( ( const char *argument ) );
+int     color_strlen    args( ( const String& argument ) );
 void	set_color	args((CHAR_DATA *ch, int color, int bold));
 void	new_color	args((CHAR_DATA *ch, int custom));
 void    show_affect_to_char  args((const AFFECT_DATA *paf, CHAR_DATA *ch));
@@ -3324,7 +3324,7 @@ bool prd_chance      args(( int *prev_fails, int percent ));
 int     load_config     args((const char *filename));
 
 /* help.c */
-void	help		args((CHAR_DATA *ch, const char *argument));
+void	help		args((CHAR_DATA *ch, const String& argument));
 
 /* effect.c */
 void    acid_effect     args( (void *vo, int level, int dam, int target, int evolution) );
@@ -3371,7 +3371,7 @@ void    mprog_death_trigger     args ( ( CHAR_DATA* mob ) );
 void    mprog_random_trigger    args ( ( CHAR_DATA* mob ) );
 void    mprog_tick_trigger      args ( ( CHAR_DATA* mob ) );
 void 	mprog_boot_trigger	args ( ( CHAR_DATA* mob	) );
-void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
+void    mprog_speech_trigger    args ( ( const String& txt, CHAR_DATA* mob ) );
 
 
 // attribute.c
@@ -3400,7 +3400,7 @@ int     item_lookup     args( ( const char *name) );
 int     attack_lookup   args(( const char *name) );
 int     race_lookup     args(( const String& name) );
 int     class_lookup    args(( const String& name) );
-int     deity_lookup    args(( const char *name) );
+int     deity_lookup    args(( const String& name) );
 bool    is_clan         args((CHAR_DATA *ch) );
 bool    is_same_clan    args((CHAR_DATA *ch, CHAR_DATA *victim));
 int     get_skill       args(( const CHAR_DATA *ch, int sn ) );
@@ -3521,7 +3521,7 @@ int     objstate_save_items		args((void));
 void hunt_victim        args( ( CHAR_DATA *ch) );
 
 /* interp.c */
-void    interpret       args( ( CHAR_DATA *ch, const char *argument ) );
+void    interpret       args( ( CHAR_DATA *ch, String argument ) );
 bool    is_number       args( ( const String& arg ) );
 bool    check_social    args( ( CHAR_DATA *ch, const String& command,
                             const String& argument ) );
@@ -3562,13 +3562,13 @@ const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const char *ctime ) );
 
 /* skills.c */
-bool    parse_gen_groups args( ( CHAR_DATA *ch, const char *argument ) );
+bool    parse_gen_groups args( ( CHAR_DATA *ch, String argument ) );
 void    list_group_costs args( ( CHAR_DATA *ch ) );
 void    list_group_known args( ( CHAR_DATA *ch ) );
 long    exp_per_level   args( ( CHAR_DATA *ch, int points ) );
 void    check_improve   args( ( CHAR_DATA *ch, int sn, bool success,
                                     int multiplier ) );
-int     group_lookup    args( (const char *name) );
+int     group_lookup    args( (const String& name) );
 void    gn_add          args( ( CHAR_DATA *ch, int gn) );
 void    gn_remove       args( ( CHAR_DATA *ch, int gn) );
 void    group_add       args( ( CHAR_DATA *ch, const char *name, bool deduct) );

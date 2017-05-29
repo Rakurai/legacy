@@ -1044,7 +1044,7 @@ bool spec_thief(CHAR_DATA *ch)
 
 	return FALSE;
 }
-void do_identify(CHAR_DATA *ch, const char *argument)
+void do_identify(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
@@ -1125,13 +1125,13 @@ bool spec_charm(CHAR_DATA *ch)
 
 	return TRUE;
 }
-void do_repair(CHAR_DATA *ch, const char *argument)
+void do_repair(CHAR_DATA *ch, String argument)
 {
 	int iWear;
 	OBJ_DATA *obj;
 	char buf[MAX_STRING_LENGTH];
 
-	if (argument[0] == '\0') {
+	if (argument.empty()) {
 		bool etched = FALSE;
 		stc("{WItems you are wearing:\n", ch);
 
@@ -1334,7 +1334,7 @@ bonus ability point in the same ability which is
 highest in the pet.
 -- Outsider
 */
-void do_familiar(CHAR_DATA *ch, const char *argument)
+void do_familiar(CHAR_DATA *ch, String argument)
 {
 	/* first check to make sure this is a character */
 	if (IS_NPC(ch))
