@@ -51,7 +51,7 @@ void do_scan2(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
 		stc("{PLooking around you see:{x\n", ch);
 		scan_room(ch->in_room, ch, 0, -1, NULL);
@@ -128,7 +128,7 @@ void do_scan(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
 		stc("{PLooking around you see:{x\n", ch);
 		scan_list(ch->in_room, ch, 0, -1);

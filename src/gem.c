@@ -120,7 +120,7 @@ void do_inset(CHAR_DATA *ch, String argument)
 	if (!str_cmp(arg2, "in"))
 		argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Set what gem in what equipment?\n", ch);
 		return;
 	}

@@ -92,7 +92,7 @@ void do_mpstat(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("MobProg stat whom?\n", ch);
 		return;
 	}
@@ -195,7 +195,7 @@ void do_mpkill(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		bug("MpKill - no argument: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -246,7 +246,7 @@ void do_mpjunk(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		bug("Mpjunk - No argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -292,7 +292,7 @@ void do_mpechoaround(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		bug("Mpechoaround - No argument:  vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -321,7 +321,7 @@ void do_mpechoat(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		bug("Mpechoat - No argument:  vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -385,7 +385,7 @@ void do_mpmload(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0' || !is_number(arg)) {
+	if (arg.empty() || !is_number(arg)) {
 		bug("Mpmload - Bad vnum as arg: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -420,7 +420,7 @@ void do_mpoload(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || !is_number(arg1)) {
+	if (arg1.empty() || !is_number(arg1)) {
 		bug("Mpoload - Bad syntax: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -464,7 +464,7 @@ void do_mppurge(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		/* 'purge' */
 		CHAR_DATA *vnext;
 		OBJ_DATA  *obj_next;
@@ -513,7 +513,7 @@ void do_mpgoto(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		bug("Mpgoto - No argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -547,7 +547,7 @@ void do_mpat(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		bug("Mpat - Bad argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -595,7 +595,7 @@ void do_mptransfer(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		bug("Mptransfer - Bad syntax: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -620,7 +620,7 @@ void do_mptransfer(CHAR_DATA *ch, String argument)
 	                return;
 	        } */
 
-	if (arg2[0] == '\0')
+	if (arg2.empty())
 		location = ch->in_room;
 	else {
 		if ((location = find_location(ch, arg2)) == NULL) {
@@ -668,7 +668,7 @@ void do_mpforce(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		bug("Mpforce - Bad syntax: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}

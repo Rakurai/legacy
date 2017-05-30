@@ -166,7 +166,7 @@ void do_pocket(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] != '\0' && is_number(arg1))
+	if (!arg1.empty() && is_number(arg1))
 		size = atoi(arg1);
 
 	if (size < 20) {
@@ -201,7 +201,7 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("Syntax: roomlist <starting vnum> <ending vnum>\n", ch);
 		return;
 	}

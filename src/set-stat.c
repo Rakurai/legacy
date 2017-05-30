@@ -42,7 +42,7 @@ void do_set(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set mob   <name> <field> <value>\n", ch);
 		stc("  set obj   <name> <field> <value>\n", ch);
@@ -121,7 +121,7 @@ void do_sset(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set skill <player> <spell or skill> <value>\n", ch);
 		stc("  set skill <player> all <value>\n", ch);
@@ -198,7 +198,7 @@ void do_evoset(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || (arg2[0] != '\0' && arg3[0] == '\0')) {
+	if (arg1.empty() || (!arg2.empty() && arg3.empty())) {
 		stc("Syntax:\n", ch);
 		stc("  set evolve <player>     (lists all evolved on a player)\n", ch);
 		stc("  set evolve <player> <spell or skill> <value>\n", ch);
@@ -216,7 +216,7 @@ void do_evoset(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		extern int can_evolve args((CHAR_DATA * ch, int sn));
 		BUFFER *buffer;
 		int x, can;
@@ -299,7 +299,7 @@ void do_raffset(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set raffect                    (displays syntax)\n", ch);
 		stc("  set raffect list               (displays a list of remort affects)\n", ch);
@@ -343,7 +343,7 @@ void do_raffset(CHAR_DATA *ch, String argument)
 	/* before we even start, let's fix holes in their raffects */
 	fix_blank_raff(victim, 0);
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		if (victim->pcdata->raffect[0] == 0) {
 			stc("That player does not have any remort affects.\n", ch);
 			return;
@@ -460,7 +460,7 @@ void do_extraset(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set extraclass                    (displays syntax)\n", ch);
 		stc("  set extraclass list               (displays a list of extraclass skills)\n", ch);
@@ -525,7 +525,7 @@ void do_extraset(CHAR_DATA *ch, String argument)
 	/* before we even start, let's fix holes in their exsk array */
 	/*    fix_blank_extraclass(victim,0); */
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		if ((victim->pcdata->extraclass[0] +
 		     victim->pcdata->extraclass[1] +
 		     victim->pcdata->extraclass[2] +
@@ -625,16 +625,16 @@ void do_extraset(CHAR_DATA *ch, String argument)
 
 void do_mset(CHAR_DATA *ch, String argument)
 {
-	char arg3[MIL], buf[1024];
+	char buf[1024];
 	CHAR_DATA *victim;
 	int value;
 
-	String arg1, arg2;
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+	arg3 = argument;
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set char <name> <field> <value>\n", ch);
 		stc("  Field being one of:\n",                      ch);
@@ -1247,17 +1247,16 @@ void do_mset(CHAR_DATA *ch, String argument)
 
 void do_oset(CHAR_DATA *ch, String argument)
 {
-	char arg3 [MAX_INPUT_LENGTH];
 	char buf[1024];
 	OBJ_DATA *obj;
 	int value;
 
-	String arg1, arg2;
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+	arg3 = argument;
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set obj <object> <field> <value>\n", ch);
 		stc("  Field being one of:\n",                               ch);
@@ -1397,19 +1396,18 @@ void do_oset(CHAR_DATA *ch, String argument)
 
 void do_rset(CHAR_DATA *ch, String argument)
 {
-	char arg3 [MAX_INPUT_LENGTH];
 	char buf [MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *location;
 	int value;
 
-	String arg1, arg2;
+	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+	arg3 = argument;
 
 	// this doesn't actually change files, so no need to smash_tilde here. -- Montrey
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set room <location> <field> <value>\n", ch);
 		stc("  Field being one of:\n",                ch);
@@ -1887,7 +1885,6 @@ void do_stat(CHAR_DATA *ch, String argument)
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
-	const char *arg2;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -1900,10 +1897,10 @@ void do_stat(CHAR_DATA *ch, String argument)
 	}
 
 	String arg1;
-	arg2 = one_argument(argument, arg1);
+	String arg2 = one_argument(argument, arg1);
 
 	if (!str_cmp(arg1, "char")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Stat what character?\n", ch);
 			return;
 		}
@@ -1917,7 +1914,7 @@ void do_stat(CHAR_DATA *ch, String argument)
 		format_mstat(ch, vch);
 	}
 	else if (!str_prefix1(arg1, "mobile")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Stat what mobile?\n", ch);
 			return;
 		}
@@ -1931,7 +1928,7 @@ void do_stat(CHAR_DATA *ch, String argument)
 		format_mstat(ch, vch);
 	}
 	else if (!str_prefix1(arg1, "player")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Stat what player?\n", ch);
 			return;
 		}
@@ -1944,7 +1941,7 @@ void do_stat(CHAR_DATA *ch, String argument)
 		format_mstat(ch, vch);
 	}
 	else if (!str_prefix1(arg1, "object")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Stat what object?\n", ch);
 			return;
 		}

@@ -1065,7 +1065,7 @@ void do_quest(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		quest_usage(ch);
 		return;
 	}
@@ -1404,7 +1404,7 @@ void do_quest(CHAR_DATA *ch, String argument)
 		String num_arg;
 		argument = one_argument(argument, num_arg);
 
-		if (num_arg[0] != '\0' && is_number(num_arg))
+		if (!num_arg.empty() && is_number(num_arg))
 			num_to_oust = atoi(num_arg);
 
 		num_in_area = quest_area->nplayer;
@@ -1715,7 +1715,7 @@ void do_quest(CHAR_DATA *ch, String argument)
 		String num_arg;
 		argument = one_argument(argument, num_arg);
 
-		if (num_arg[0] != '\0' && is_number(num_arg))
+		if (!num_arg.empty() && is_number(num_arg))
 			quest_min = atoi(num_arg);
 
 		if (quest_min < 1 || quest_min > 100) {
@@ -1725,7 +1725,7 @@ void do_quest(CHAR_DATA *ch, String argument)
 
 		argument = one_argument(argument, num_arg);
 
-		if (num_arg[0] != '\0' && is_number(num_arg))
+		if (!num_arg.empty() && is_number(num_arg))
 			quest_max = atoi(num_arg);
 
 		if (quest_max < quest_min || quest_max > 100) {

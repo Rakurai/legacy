@@ -719,7 +719,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || !str_prefix1(arg, "read")) {
+	if (arg.empty() || !str_prefix1(arg, "read")) {
 		bool fAll = FALSE;
 
 		if (IS_NPC(ch)) {
@@ -1026,7 +1026,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		/* get message number */
 		argument = one_argument(argument, arg);
 
-		if (arg[0] == '\0' || !is_number(arg)) {
+		if (arg.empty() || !is_number(arg)) {
 			ptc(ch, "Move which %s number?\n", board_index[type].board_short);
 			return;
 		}

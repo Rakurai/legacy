@@ -553,7 +553,7 @@ void do_duel(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg3);
 
 	if (!str_prefix1(arg1, "arena")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Keyword:        Name:\n", ch);
 
 			for (arena = arena_table_head->next; arena != arena_table_tail; arena = arena->next)
@@ -624,7 +624,7 @@ void do_duel(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg1[0] != '\0' && ch->in_room != NULL && ch->in_room->vnum == 1212) {
+	if (!arg1.empty() && ch->in_room != NULL && ch->in_room->vnum == 1212) {
 		stc("Put your nose back in the corner, you don't need to duel.\n", ch);
 		return;
 	}
@@ -635,7 +635,7 @@ void do_duel(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Syntax: duel issue <victim> <arena name (optional)>\n", ch);
 			return;
 		}
@@ -693,7 +693,7 @@ void do_duel(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		if (arg3[0] == '\0') {
+		if (arg3.empty()) {
 			if ((arena = get_random_arena()) == NULL) {
 				stc("Sorry, there are no arenas right now.\n", ch);
 				return;

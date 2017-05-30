@@ -550,7 +550,7 @@ void do_levels(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		if (!IS_IMMORTAL(ch)) {
 			stc("What class do you want level info on?\n", ch);
 			return;
@@ -1444,7 +1444,7 @@ void do_evolve(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		evolve_list(ch);
 		return;
 	}
@@ -1600,7 +1600,7 @@ void do_gain(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n"
 		    "gain list\n"
 		    "gain convert\n"

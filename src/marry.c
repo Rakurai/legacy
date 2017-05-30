@@ -49,7 +49,7 @@ void do_marry(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax: marry <char1> <char2>\n", ch);
 		return;
 	}
@@ -99,7 +99,7 @@ void do_divorce(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax: divorce <char1> <char2>\n", ch);
 		return;
 	}

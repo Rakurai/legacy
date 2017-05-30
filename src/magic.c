@@ -275,7 +275,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			if ((victim = ch->fighting) == NULL) {
 				stc("Cast the spell on whom?\n", ch);
 				return;
@@ -322,7 +322,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
-		if (arg2[0] == '\0')
+		if (arg2.empty())
 			victim = ch;
 		else if ((victim = get_char_here(ch, target_name, VIS_CHAR)) == NULL) {
 			stc("They aren't here.\n", ch);
@@ -338,7 +338,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_CHAR_SELF:
-		if (arg2[0] != '\0' && !is_name(target_name, ch->name)) {
+		if (!arg2.empty() && !is_name(target_name, ch->name)) {
 			stc("You cannot cast this spell on another.\n", ch);
 			return;
 		}
@@ -348,7 +348,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_INV:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("What should the spell be cast upon?\n", ch);
 			return;
 		}
@@ -363,7 +363,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_HERE:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("What should the spell be cast upon?\n", ch);
 			return;
 		}
@@ -379,7 +379,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			if ((victim = ch->fighting) == NULL) {
 				stc("Cast the spell on whom or what?\n", ch);
 				return;
@@ -422,7 +422,7 @@ void do_cast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			vo = (void *) ch;
 			target = TARGET_CHAR;
 		}
@@ -522,7 +522,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 	target_name = one_argument(argument, arg1);
 	one_argument(target_name, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Cast which what where?\n", ch);
 		return;
 	}
@@ -553,7 +553,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
-		if ((arg2[0] == '\0' && ch->fighting == NULL)
+		if ((arg2.empty() && ch->fighting == NULL)
 		    || (victim = get_char_here(ch, target_name, VIS_CHAR)) == NULL
 		    || (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
 			return;
@@ -563,7 +563,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
-		if (arg2[0] == '\0')
+		if (arg2.empty())
 			victim = ch;
 		else if ((victim = get_char_here(ch, target_name, VIS_CHAR)) == NULL)
 			return;
@@ -573,7 +573,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_CHAR_SELF:
-		if (arg2[0] != '\0' && !is_name(target_name, ch->name))
+		if (!arg2.empty() && !is_name(target_name, ch->name))
 			return;
 
 		vo = (void *) ch;
@@ -581,7 +581,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_INV:
-		if (arg2[0] == '\0' || (obj = get_obj_carry(ch, target_name)) == NULL)
+		if (arg2.empty() || (obj = get_obj_carry(ch, target_name)) == NULL)
 			return;
 
 		vo = (void *) obj;
@@ -589,7 +589,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			if ((victim = ch->fighting) == NULL)
 				return;
 
@@ -615,7 +615,7 @@ void do_mpcast(CHAR_DATA *ch, String argument)
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			vo = (void *) ch;
 			target = TARGET_CHAR;
 		}
@@ -5981,7 +5981,7 @@ void spell_summon_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	String arg;
 	number = number_argument(target_name, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("You must specify an object if you want to summon one.\n", ch);
 		return;
 	}

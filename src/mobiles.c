@@ -50,7 +50,7 @@ void do_heal(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		/* display price list */
 		act("$N says 'I offer the following spells:'", ch, NULL, mob, TO_CHAR);
 		stc("  light: cure light wounds       5 gold\n", ch);

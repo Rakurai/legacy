@@ -325,7 +325,7 @@ void do_advance(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
+	if (arg1.empty() || arg2.empty() || !is_number(arg2)) {
 		stc("Syntax:\n"
 		    "  advance <player> <level>\n", ch);
 		return;
@@ -437,7 +437,7 @@ void do_addexit(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg1)) {
+	if (arg1.empty() || arg2.empty() || !is_number(arg1)) {
 		stc("Syntax:\n"
 		    "  addexit <to room vnum> <direction>\n", ch);
 		return;
@@ -487,7 +487,7 @@ void do_remexit(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n"
 		    "  remexit <direction>\n", ch);
 		return;

@@ -1460,7 +1460,7 @@ void do_order(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("Order whom to do what?\n", ch);
 		return;
 	}
@@ -1616,7 +1616,7 @@ void do_group(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		CHAR_DATA *gch;
 		CHAR_DATA *leader;
 		leader = (ch->leader != NULL) ? ch->leader : ch;
@@ -1718,7 +1718,7 @@ void do_split(CHAR_DATA *ch, String argument)
 
 	amount_silver = atoi(arg1);
 
-	if (arg2[0] != '\0')
+	if (!arg2.empty())
 		amount_gold = atoi(arg2);
 
 	if (amount_gold < 0 || amount_silver < 0) {

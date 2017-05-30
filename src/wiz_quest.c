@@ -31,7 +31,7 @@ void do_addapply(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg3);
 	argument = one_argument(argument, arg4);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax: addapply <object> <apply> <value> [duration]\n", ch);
 		stc("  Applies can be of:\n", ch);
 		stc("    hp mana stamina str dex int wis con chr\n", ch);
@@ -78,7 +78,7 @@ void do_addapply(CHAR_DATA *ch, String argument)
 
 	affect_modify = atoi(arg3);
 
-	if (arg4[0] == '\0')
+	if (arg4.empty())
 		duration = -1;
 	else if (!is_number(arg4))
 		duration = -1;
@@ -111,7 +111,7 @@ void do_morph(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Morph Whom?\n", ch);
 		return;
 	}
@@ -134,7 +134,7 @@ void do_morph(CHAR_DATA *ch, String argument)
 	String arg2;
 	argument = one_argument(argument, arg2);
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		stc("Morph them into what?\n", ch);
 		return;
 	}
@@ -197,7 +197,7 @@ void do_rppaward(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || argument.empty()) {
+	if (arg1.empty() || arg2.empty() || argument.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  rpp <award|deduct> <victim> <amount>\n", ch);
 		return;
@@ -326,7 +326,7 @@ void do_string(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 	arg3 = smash_tilde(argument);
 
-	if (type[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (type[0] == '\0' || arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  string char <name> <field> <string>\n", ch);
 		stc("    fields: name short long desc title spec deity status spouse\n", ch);
@@ -635,7 +635,7 @@ void do_switch(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Switch into whom?\n", ch);
 		return;
 	}
@@ -769,7 +769,7 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, String argument)
 	                                }
 	                        };
 
-	                        if (arg1[0] == '\0')                    type = TOKEN_NONE;
+	                        if (arg1.empty())                    type = TOKEN_NONE;
 	                        else if (!str_prefix1(arg1, "wild"))    type = TOKEN_WILD;
 	                        else if (!str_prefix1(arg1, "trivia"))  type = TOKEN_TRIVIA;
 	                        else if (!str_prefix1(arg1, "hidden"))  type = TOKEN_HIDDEN;
@@ -850,7 +850,7 @@ void do_create(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	if (!str_cmp(arg1, "object")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Valid item types are:\n", ch);
 
 			for (x = 0; item_table[x].name != NULL; x++)

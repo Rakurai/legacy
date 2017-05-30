@@ -456,7 +456,7 @@ void do_get(CHAR_DATA *ch, String argument)
 	if (!str_cmp(arg2, "from"))
 		argument = one_argument(argument, arg2);
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
 			/* 'get obj' */
 			obj = get_obj_list(ch, arg1, ch->in_room->contents);
@@ -733,7 +733,7 @@ void do_put(CHAR_DATA *ch, String argument)
 	if (!str_cmp(arg2, "in") || !str_cmp(arg2, "on"))
 		argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Put what in what?\n", ch);
 		return;
 	}
@@ -1194,7 +1194,7 @@ void do_give(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Give what to whom?\n", ch);
 		return;
 	}
@@ -1221,7 +1221,7 @@ void do_give(CHAR_DATA *ch, String argument)
 		silver = str_cmp(arg2, "gold");
 		argument = one_argument(argument, arg2);
 
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Give the money to whom?\n", ch);
 			return;
 		}
@@ -1700,11 +1700,11 @@ void do_fill(CHAR_DATA *ch, String argument)
 	/* check for a user requested OTHER fountain -- Elrac */
 	argument = one_argument(argument, arg);
 
-	if (arg[0] != '\0') {
+	if (!arg.empty()) {
 		if (!str_prefix1(arg, "from"))
 			argument = one_argument(argument, arg);
 
-		if (arg[0] != '\0') {
+		if (!arg.empty()) {
 			wanted_fountain = get_obj_here(ch, arg);
 
 			if (wanted_fountain == NULL) {
@@ -1750,7 +1750,7 @@ void do_pour(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("Pour what into what?\n", ch);
 		return;
 	}
@@ -1858,10 +1858,10 @@ void do_drink(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] != '\0' && !argument.empty() && !str_cmp(arg, "from"))
+	if (!arg.empty() && !argument.empty() && !str_cmp(arg, "from"))
 		one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		for (obj = ch->in_room->contents; obj; obj = obj->next_content)
 			if (obj->item_type == ITEM_FOUNTAIN)
 				break;
@@ -1991,7 +1991,7 @@ void do_eat(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
 			if (obj->item_type == ITEM_FOOD) {
 				found = TRUE;
@@ -2680,7 +2680,7 @@ void do_sacrifice(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0' || !str_cmp(arg, ch->name)) {
+	if (arg.empty() || !str_cmp(arg, ch->name)) {
 		act("$n flings $mself at the feet of the Gods...sad.", ch, NULL, NULL, TO_ROOM);
 		stc("Please refrain from bloodying the altar.\n", ch);
 		return;
@@ -2879,7 +2879,7 @@ void do_recite(CHAR_DATA *ch, String argument)
 	if (!deduct_stamina(ch, gsn_scrolls))
 		return;
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		/* Smart Targetting -- Montrey */
 		/* target according to first spell on the scroll */
 		if (skill_table[scroll->value[1]].target == TAR_CHAR_OFFENSIVE
@@ -3034,7 +3034,7 @@ void do_zap(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {   /* no target given */
+	if (arg.empty()) {   /* no target given */
 		/* check for default target */
 		if (ch->fighting != NULL)
 			victim = ch->fighting;
@@ -3185,7 +3185,7 @@ void do_brew(CHAR_DATA *ch, String argument)
 	arg[0] = '\0';    /* just making sure */
 	argument = one_argument(argument, arg);
 
-	if (arg[0] != '\0') {  /* we got a new level set */
+	if (!arg.empty()) {  /* we got a new level set */
 		target_level = atoi(arg);
 
 		/* make sure the new level is high enough */
@@ -3295,7 +3295,7 @@ void do_scribe(CHAR_DATA *ch, String argument)
 	arg[0] = '\0';    /* make sure it is reset */
 	argument = one_argument(argument, arg);
 
-	if (arg[0] != '\0') {  /* we got some data */
+	if (!arg.empty()) {  /* we got some data */
 		target_level = atoi(arg);
 
 		/* Keep the spell level from dropping too low. */
@@ -3362,7 +3362,7 @@ void do_steal(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Steal what from whom?\n", ch);
 		return;
 	}
@@ -3917,7 +3917,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 
 		argument = one_argument(argument, arg);
 
-		if (arg[0] != '\0') {
+		if (!arg.empty()) {
 			if (strchr(arg, '~'))
 				wiznet("$N is attempting to use the tilde in pet name cheat.",
 				       ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
@@ -4227,7 +4227,7 @@ void do_list(CHAR_DATA *ch, String argument)
 			if (obj->wear_loc == WEAR_NONE
 			    &&   can_see_obj(ch, obj)
 			    && (cost = get_cost(keeper, obj, TRUE)) > 0
-			    && (arg[0] == '\0'
+			    && (arg.empty()
 			        ||  is_name(arg, obj->name))) {
 				if (!found) {
 					found = TRUE;
@@ -4659,7 +4659,7 @@ void do_auction(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] != '\0') {
+	if (!arg2.empty()) {
 		if (!is_number(arg2)) {
 			stc("Minimum bid value must be numeric.\n", ch);
 			return;
@@ -5417,7 +5417,7 @@ void do_weddingring(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0' || argument.empty())
+	if (arg1.empty() || argument.empty())
 		goto help;
 
 	if (!IS_IMMORTAL(ch))

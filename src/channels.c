@@ -446,7 +446,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 	victim = get_player_world(ch, arg, VIS_PLR);
 	new_color(ch, custom);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		if (iterator->char_no_arg != NULL)
 			stc("[S] ", ch);
 
@@ -482,7 +482,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 		    !IS_SET(vic->comm, COMM_QUIET)) {
 			new_color(vic, custom);
 
-			if (arg[0] == '\0') {
+			if (arg.empty()) {
 				if (iterator->others_no_arg != NULL)
 					stc("[S] ", vic);
 
@@ -993,7 +993,7 @@ void do_globalsocial(CHAR_DATA *ch, String argument)
 	}
 
 	String arg;
-	const char *arg2 = one_argument(argument, arg);
+	String arg2 = one_argument(argument, arg);
 
 	if (!str_prefix1(arg, "who") && argument[3] == '\0') {
 		channel_who(ch, "Social", COMM_NOSOCIAL, CSLOT_CHAN_SOCIAL);
@@ -1017,7 +1017,7 @@ void do_globalsocial(CHAR_DATA *ch, String argument)
 	}
 	else
 	*****/
-	if (!str_prefix1(arg, "emote") && (arg2[0] != '\0'))
+	if (!str_prefix1(arg, "emote") && (!arg2.empty()))
 		Format::sprintf(buf, "[E] %s %s\n", ch->name, arg2);
 	else
 		Format::sprintf(buf, "You socialize '%s{x'\n", argument);
@@ -1034,7 +1034,7 @@ void do_globalsocial(CHAR_DATA *ch, String argument)
 	            new_pose_table[ch->cls].poses[pose].room_msg );
 	*/
 
-	if (!str_prefix1(arg, "emote") && (arg2[0] != '\0'))
+	if (!str_prefix1(arg, "emote") && (!arg2.empty()))
 		Format::sprintf(buf, "[E] $n %s", arg2);
 	else
 		Format::sprintf(buf, "$n socializes '%s{x'", argument);
@@ -1070,7 +1070,7 @@ void do_iclantalk(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_CLAN);
 		stc("Syntax: iclan <clan name> <message>\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1183,7 +1183,7 @@ void do_tell(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("Tell whom what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1622,7 +1622,7 @@ void do_page(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 
 		if (IS_SET(ch->comm, COMM_NOPAGE)) {
@@ -1846,7 +1846,7 @@ void do_query(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_prefix1(arg, "+")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Add who to the query list?\n", ch);
 			return;
 		}
@@ -1867,7 +1867,7 @@ void do_query(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_prefix1(arg, "-")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Remove who from the query list?\n", ch);
 			return;
 		}

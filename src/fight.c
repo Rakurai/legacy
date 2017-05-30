@@ -3290,7 +3290,7 @@ void do_bash(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		victim = ch->fighting;
 
 		if (victim == NULL) {
@@ -3461,7 +3461,7 @@ void do_dirt(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		victim = ch->fighting;
 
 		if (victim == NULL) {
@@ -3647,7 +3647,7 @@ void do_trip(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		victim = ch->fighting;
 
 		if (victim == NULL) {
@@ -3883,7 +3883,7 @@ void do_battle(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+		if (arg1.empty() || arg2.empty() || arg3.empty()) {
 			stc("Syntax: <low> <high> <fee>\n", ch);
 			return;
 		}
@@ -4190,7 +4190,7 @@ void do_shadow(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
+	if (arg.empty())
 		victim = ch->fighting;
 	else {
 		if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
@@ -4258,7 +4258,7 @@ void do_circle(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
+	if (arg.empty())
 		victim = ch->fighting;
 	else {
 		if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {

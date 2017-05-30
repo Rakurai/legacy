@@ -398,7 +398,7 @@ void do_peek(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] != '\0' && get_evolution(ch, gsn_peek) > 1) {
+	if (!arg2.empty() && get_evolution(ch, gsn_peek) > 1) {
 		if (!str_cmp(arg2, "lore")) {
 			OBJ_DATA *obj;
 
@@ -1669,7 +1669,7 @@ void do_look(CHAR_DATA *ch, String argument)
 	number = number_argument(arg1, arg3);
 	count = 0;
 
-	if (arg1[0] == '\0' || !str_cmp(arg1, "auto")) {
+	if (arg1.empty() || !str_cmp(arg1, "auto")) {
 		if (ch->in_room == NULL)
 			return;
 
@@ -1690,7 +1690,7 @@ void do_look(CHAR_DATA *ch, String argument)
 
 		stc("\n", ch);
 
-		if (arg1[0] == '\0'
+		if (arg1.empty()
 		    || (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF))) {
 			stc("  ", ch);
 			stc(ch->in_room->description, ch);
@@ -1752,7 +1752,7 @@ void do_look(CHAR_DATA *ch, String argument)
 		ROOM_INDEX_DATA *location;
 
 		/* 'look in' */
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Look in what?\n", ch);
 			return;
 		}
@@ -2996,7 +2996,7 @@ void do_compare(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		for (obj2 = ch->carrying; obj2 != NULL; obj2 = obj2->next_content) {
 			if (obj2->wear_loc != WEAR_NONE
 			    &&  can_see_obj(ch, obj2)
@@ -3715,7 +3715,7 @@ void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
 		if (ch->pcdata->learned[sn] <= 0)
 			continue; /* player doesn't know skill */
 
-		if (arg[0] != '\0' && str_prefix1(arg, skill_table[sn].name))
+		if (!arg.empty() && str_prefix1(arg, skill_table[sn].name))
 			continue;
 
 		/* skill is known. Insertion sort into slist by appropriate key. */
@@ -3793,7 +3793,7 @@ void do_practice(CHAR_DATA *ch, String argument)
 	String arg;
 	const char *argtail = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		prac_by_key(ch, "abc", "");
 		return;
 	}
@@ -3898,7 +3898,7 @@ void do_wimpy(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
+	if (arg.empty())
 		wimpy = GET_MAX_HIT(ch) / 5;
 	else
 		wimpy = atoi(arg);
@@ -3930,7 +3930,7 @@ void do_password(CHAR_DATA *ch, String argument)
 	String arg1, arg2;
 	argument.lsplit(arg1).lsplit(arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax: password <old> <new>.\n", ch);
 		return;
 	}
@@ -4615,7 +4615,7 @@ void do_pit(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0')
+	if (arg.empty())
 		keywords = "";
 	else {
 		if (is_number(arg)) {
@@ -4623,7 +4623,7 @@ void do_pit(CHAR_DATA *ch, String argument)
 			keywords = argument;
 			argument = one_argument(argument, arg);
 
-			if (arg[0] == '\0')
+			if (arg.empty())
 				keywords = "";
 			else {
 				if (is_number(arg)) {
@@ -4631,7 +4631,7 @@ void do_pit(CHAR_DATA *ch, String argument)
 					keywords = argument;
 					one_argument(argument, arg);
 
-					if (arg[0] == '\0')
+					if (arg.empty())
 						keywords = "";
 				}
 			}
@@ -4673,7 +4673,7 @@ void do_pit(CHAR_DATA *ch, String argument)
 		keywords = one_argument(keywords, arg); // strip off the "wear "
 		keywords = one_argument(keywords, arg); // get the wear slot name
 
-		if (arg[0] != '\0') {
+		if (!arg.empty()) {
 			int index = flag_lookup(arg, wear_flags); // gets the index
 
 			if (index == -1) {
@@ -4696,7 +4696,7 @@ void do_pit(CHAR_DATA *ch, String argument)
 		keywords = one_argument(keywords, arg); // strip off the "weapon "
 		keywords = one_argument(keywords, arg); // get the weapon type name
 
-		if (arg[0] != '\0') {
+		if (!arg.empty()) {
 			int index = weapon_lookup(arg); // gets the index
 
 			if (index == -1) {

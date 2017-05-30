@@ -41,7 +41,7 @@ void do_adjust(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
+	if (arg1.empty() || arg2.empty() || !is_number(arg2)) {
 		stc("Syntax: Adjust <char> <Exp>.\n", ch);
 		return;
 	}
@@ -116,7 +116,7 @@ void do_alternate(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || (!str_cmp(arg1, "site") && arg2[0] == '\0')) {
+	if (arg1.empty() || (!str_cmp(arg1, "site") && arg2.empty())) {
 		stc("Syntax:\n"
 		    "  alternate <{Yplayer name{x>\n"
 		    "  alternate site <{Ysite{x>\n"
@@ -330,7 +330,7 @@ void do_at(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("At where and what?\n", ch);
 		return;
 	}
@@ -382,7 +382,7 @@ void do_check(CHAR_DATA *ch, String argument)
 	if (!str_cmp(arg, "gods") || !str_cmp(argument, "gods"))
 		SHOWIMM = TRUE;
 
-	if (arg[0] == '\0' || !str_prefix1(arg, "gods")) {
+	if (arg.empty() || !str_prefix1(arg, "gods")) {
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
@@ -584,7 +584,7 @@ void do_chown(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Get what from whom?\n", ch);
 		return;
 	}
@@ -643,7 +643,7 @@ void do_clone(CHAR_DATA *ch, String argument)
 	String arg, which;
 	rest = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Clone what?\n", ch);
 		return;
 	}
@@ -782,7 +782,7 @@ void do_oclone(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax: oclone <object> <person who has object>\n", ch);
 		return;
 	}
@@ -829,7 +829,7 @@ void do_departedlist(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("Syntax:\n"
 		    "  departedlist add    <immortal>\n"
 		    "  departedlist remove <immortal>\n", ch);
@@ -871,7 +871,7 @@ void do_leader(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Whom do you wish to make a clan leader?\n", ch);
 		return;
 	}
@@ -958,7 +958,7 @@ void do_deputize(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Whom do you wish to make a clan deputy?\n", ch);
 		return;
 	}
@@ -1039,7 +1039,7 @@ void do_despell(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax: \n", ch);
 		stc("despell <object name>\n", ch);
 		return;
@@ -1074,7 +1074,7 @@ void do_disconnect(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Disconnect whom?\n", ch);
 		return;
 	}
@@ -1113,7 +1113,7 @@ void do_doas(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("Syntax:  doas <victim> <command>\n", ch);
 		return;
 	}
@@ -1217,7 +1217,7 @@ void do_pecho(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (argument.empty() || arg[0] == '\0') {
+	if (argument.empty() || arg.empty()) {
 		stc("Personal echo what?\n", ch);
 		return;
 	}
@@ -1731,7 +1731,7 @@ void do_guild(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax: guild <char> <clan name>\n", ch);
 		return;
 	}
@@ -1898,7 +1898,7 @@ void do_linkload(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Whom do you want to linkload?\n", ch);
 		return;
 	}
@@ -1972,7 +1972,7 @@ void do_mload(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0' || !is_number(arg)) {
+	if (arg.empty() || !is_number(arg)) {
 		stc("Syntax: load mob <vnum>.\n", ch);
 		return;
 	}
@@ -2006,7 +2006,7 @@ void do_oload(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0' || !is_number(arg1)) {
+	if (arg1.empty() || !is_number(arg1)) {
 		stc("Syntax: load obj <vnum>.\n", ch);
 		return;
 	}
@@ -2040,7 +2040,7 @@ void do_load(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  load mob <vnum>\n", ch);
 		stc("  load obj <vnum>\n", ch);
@@ -2182,7 +2182,7 @@ void do_master(CHAR_DATA *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1[0] == '\0' || argument.empty()) {
+	if (arg1.empty() || argument.empty()) {
 		stc("Master what mobile to whom?\n", ch);
 		return;
 	}
@@ -2255,7 +2255,7 @@ void do_olevel(CHAR_DATA *ch, String argument)
 	/* Check for 2nd argument - optional ending level */
 	argument = one_argument(argument, arg2);
 
-	if (arg2[0] != '\0') {
+	if (!arg2.empty()) {
 		if (!is_number(arg2)) {
 			//stc("Syntax: olevel [beg level] [end level]\n",ch);
 			with_wear = TRUE;
@@ -2280,7 +2280,7 @@ void do_olevel(CHAR_DATA *ch, String argument)
 
 	bool specified_wear_loc = FALSE;
 
-	if (arg3[0] != '\0') {
+	if (!arg3.empty()) {
 		if (!str_prefix1(arg3, "take"))
 			wear_loc = ITEM_TAKE;
 		else if (!str_prefix1(arg3, "finger"))
@@ -2537,7 +2537,7 @@ void do_owhere(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg);
 	one_argument(argument, arg2);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n"
 		    "  owhere <object or vnum> <second keyword, level, or 'ground'>\n", ch);
 		return;
@@ -2698,7 +2698,7 @@ void do_mwhere(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg);
 	one_argument(argument, arg2);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax: mwhere <mob name or vnum> <second keyword or level>\n", ch);
 		return;
 	}
@@ -2716,7 +2716,7 @@ void do_mwhere(CHAR_DATA *ch, String argument)
 		else if (!is_name(arg, victim->name))
 			continue;
 
-		if (arg2[0] != '\0') {
+		if (!arg2.empty()) {
 			if (is_number(arg2)) {
 				if (atoi(arg2) != victim->level)
 					continue;
@@ -2811,7 +2811,7 @@ void do_mfind(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Find whom?\n", ch);
 		return;
 	}
@@ -2862,7 +2862,7 @@ void do_ofind(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Find what object?\n", ch);
 		return;
 	}
@@ -2907,7 +2907,7 @@ void do_vnum(CHAR_DATA *ch, String argument)
 	String arg;
 	const char *string = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  vnum obj <name>\n", ch);
 		stc("  vnum mob <name>\n", ch);
@@ -2942,7 +2942,7 @@ void do_canmakebag(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Change newbie helper flag on who?", ch);
 		return;
 	}
@@ -3098,7 +3098,7 @@ void do_purge(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		CHAR_DATA *vnext;
 		OBJ_DATA  *obj_next;
 
@@ -3192,7 +3192,7 @@ void do_qpconv(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 	arg3 = argument;
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax: qpconv <character> <train|prac> <number of>.\n", ch);
 		return;
 	}
@@ -3286,7 +3286,7 @@ void do_restore(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0' || !str_cmp(arg, "room")) {
+	if (arg.empty() || !str_cmp(arg, "room")) {
 		/* cure room */
 		for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
 			restore_char(ch, victim);
@@ -3325,7 +3325,7 @@ void do_secure(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0' || !str_prefix1(arg, "immortal")) {
+	if (arg.empty() || !str_prefix1(arg, "immortal")) {
 		ch->secure_level = RANK_IMM;
 		stc("All immortals can see your immtalks now.\n", ch);
 	}
@@ -3481,7 +3481,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 			    d->host);
 		}
 		else if (can_see_char(ch, d->character)
-		         && (arg[0] == '\0'
+		         && (arg.empty()
 		             || is_name(arg, d->character->name)
 		             || (d->original && is_name(arg, d->original->name)))) {
 			count++;
@@ -3521,7 +3521,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 		if (vpc->ch != ch
 		    && IS_SET(vpc->plr, PLR_LINK_DEAD)
 		    && can_see_char(ch, vpc->ch)
-		    && (arg[0] == '\0'
+		    && (arg.empty()
 		        || is_name(arg, vpc->ch->name))) {
 			strftime(s, 100, "%I:%M%p", localtime(&vpc->ch->logon));
 			ptb(buffer, "{P---{x|{Y   Linkdead    {x|{B%7s{x|{C%-2d{x |{G%-12s{x|{W%s{x\n",
@@ -3537,7 +3537,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 		add_buf(buffer, "---|---------------|-------|---|------------|-------------------------\n");
 
 	if (!count && !ldcount) {
-		if (arg[0] == '\0')
+		if (arg.empty())
 			stc("No one is connected...\n", ch);
 		else
 			stc("No one by that name is connected.\n", ch);
@@ -3723,7 +3723,7 @@ void do_transfer(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Transfer whom (and where)?\n", ch);
 		return;
 	}
@@ -3746,7 +3746,7 @@ void do_transfer(CHAR_DATA *ch, String argument)
 	/*
 	 * Thanks to Grodyn for the optional location parameter.
 	 */
-	if (arg2[0] == '\0')
+	if (arg2.empty())
 		location = ch->in_room;
 	else {
 		if ((location = find_location(ch, arg2)) == NULL) {
@@ -3870,7 +3870,7 @@ void do_wizgroup(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
+	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("wizgroup <add/remove> <player> <group>\n", ch);
 		stc("Valid groups are:\n", ch);
 		stc("  general quest build code security\n"
@@ -3932,7 +3932,7 @@ void do_wizify(CHAR_DATA *ch, String argument)
 	String arg1;
 	one_argument(argument, arg1);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("You must provide a name.\n", ch);
 		return;
 	}
@@ -4000,7 +4000,7 @@ void do_aura(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		if (ch->pcdata->aura[0] == '\0')
 			stc("You have no aura set.\n", ch);
 		else
@@ -4138,7 +4138,7 @@ void do_clanqp(CHAR_DATA *ch, String argument)
 	if (!IS_IMMORTAL(ch))
 		target = ch->clan;
 	else
-		target = (arg3[0] == '\0' ? ch->clan : clan_lookup(arg3));
+		target = (arg3.empty() ? ch->clan : clan_lookup(arg3));
 
 	if (!target) {
 		stc("There is no such clan.\n", ch);

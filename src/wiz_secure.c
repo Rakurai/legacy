@@ -95,7 +95,7 @@ void do_force(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' || argument.empty()) {
+	if (arg.empty() || argument.empty()) {
 		stc("Syntax:\n"
 		    "  force <player> <command>\n", ch);
 
@@ -258,7 +258,7 @@ void do_fry(CHAR_DATA *ch, String argument)
 	one_argument(argument, arg);
 
 	/* prevent Alara from accidentally frying people :) -- Montrey */
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n"
 		    "  fry <player>\n", ch);
 		return;
@@ -313,7 +313,7 @@ void do_locker(CHAR_DATA *ch, String argument)
 	String arg2;
 	argument = one_argument(argument, arg2);
 
-	if (arg2[0] == '\0' || argument.empty()) {
+	if (arg2.empty() || argument.empty()) {
 		stc("Syntax:\n"
 		    "  locker <player> <get|put> <object>\n", ch);
 		return;
@@ -379,7 +379,7 @@ void do_strongbox(CHAR_DATA *ch, String argument)
 
 	argument = one_argument(argument, arg2);
 
-	if (arg2[0] == '\0' || argument.empty()) {
+	if (arg2.empty() || argument.empty()) {
 		stc("Syntax:\n"
 		    "  strongbox <player> <get|put> <object>\n", ch);
 		return;
@@ -517,7 +517,7 @@ void do_pardon(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax:\n"
 		    "  pardon <player> <killer|thief>\n", ch);
 		return;
@@ -592,7 +592,7 @@ void do_revoke(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1.empty() || arg2.empty()) {
 		long printed = 0;
 		/* print a list of revokable stuff */
 		stc("Current REVOKE options:\n\n", ch);
@@ -911,7 +911,7 @@ void do_ban(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		stc("You must specify a ban type.\n", ch);
 		return;
 	}
@@ -962,7 +962,7 @@ void do_allow(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Remove which site from the ban list?\n", ch);
 		return;
 	}
@@ -1001,7 +1001,7 @@ void do_permit(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Syntax:\n"
 		    "  permit <site>\n"
 		    "  permit player <name>\n", ch);
@@ -1153,7 +1153,7 @@ void do_undeny(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		stc("Undeny which player?\n", ch);
 		return;
 	}

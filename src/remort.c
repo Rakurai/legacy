@@ -318,7 +318,7 @@ void do_eremort(CHAR_DATA *ch, String argument)
 
 	output = new_buf();
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		list_extraskill(ch);
 
 		if (ch->pcdata->extraclass[0] +
@@ -414,9 +414,9 @@ void do_remort(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
 
-	if (arg1[0] == '\0'
-	    || (arg2[0] != '\0'
-	        && (arg3[0] == '\0'
+	if (arg1.empty()
+	    || (!arg2.empty()
+	        && (arg3.empty()
 	            || argument.empty()))) {
 		stc("Syntax:\n"
 		    "  remort <victim>   (must be remort 1 or higher)\n"
@@ -445,7 +445,7 @@ void do_remort(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] == '\0' && victim->pcdata->remort_count < 1) {
+	if (arg2.empty() && victim->pcdata->remort_count < 1) {
 		stc("Syntax:\n"
 		    "  remort <victim> <race> <deity> <title>\n", ch);
 		return;
@@ -459,7 +459,7 @@ void do_remort(CHAR_DATA *ch, String argument)
 		}
 	}
 
-	if (arg2[0] == '\0')
+	if (arg2.empty())
 		race = victim->race;
 	else {
 		race = race_lookup(arg2);
@@ -504,7 +504,7 @@ void do_remort(CHAR_DATA *ch, String argument)
 		ATTR_BASE(victim, stat_to_attr(stat))
 		 = UMIN(ATTR_BASE(victim, stat_to_attr(stat)), get_max_train(victim, stat));
 
-	if (arg2[0] != '\0') {
+	if (!arg2.empty()) {
 		free_string(victim->pcdata->deity);
 		free_string(victim->pcdata->status);
 		victim->pcdata->deity = str_dup(arg3);

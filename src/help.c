@@ -409,7 +409,7 @@ void do_help(CHAR_DATA *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		do_help(ch, "SUMMARY");
 		return;
 	}

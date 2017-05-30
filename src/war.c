@@ -1095,7 +1095,7 @@ void do_war(CHAR_DATA *ch, String argument)
 
 	/*** EVENTS ***/
 	if (!str_prefix1(arg1, "events")) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Syntax: war events <war number>\n", ch);
 			return;
 		}
@@ -1118,7 +1118,7 @@ void do_war(CHAR_DATA *ch, String argument)
 
 	/*** DECLARE ***/
 	if (!str_cmp(arg1, "declare") && IS_IMMORTAL(ch)) {
-		if (arg2[0] == '\0' || arg3[0] == '\0') {
+		if (arg2.empty() || arg3.empty()) {
 			stc("Syntax: war declare <challenger> <defender>\n", ch);
 			return;
 		}
@@ -1214,7 +1214,7 @@ void do_war(CHAR_DATA *ch, String argument)
 
 	/*** JOIN ***/
 	if (!str_cmp(arg1, "join") && IS_IMMORTAL(ch)) {
-		if (arg2[0] == '\0' || arg3[0] == '\0' || argument.empty()) {
+		if (arg2.empty() || arg3.empty() || argument.empty()) {
 			stc("Syntax: war join <clan> <war number> <challenger|defender>\n", ch);
 			return;
 		}
@@ -1281,7 +1281,7 @@ void do_war(CHAR_DATA *ch, String argument)
 	if (!str_cmp(arg1, "unjoin") && IS_IMMORTAL(ch)) {
 		bool remove = FALSE;
 
-		if (arg2[0] == '\0' || arg3[0] == '\0' || argument.empty()) {
+		if (arg2.empty() || arg3.empty() || argument.empty()) {
 			stc("Syntax: war unjoin <clan> <war number> <remove|stop>\n", ch);
 			return;
 		}
@@ -1332,7 +1332,7 @@ void do_war(CHAR_DATA *ch, String argument)
 	/*** SURRENDER ***/
 	/*      if (!str_prefix1(arg1, "surrender") && IS_IMMORTAL(ch))
 	        {
-	                if (arg2[0] == '\0')
+	                if (arg2.empty())
 	                {
 	                        stc("Syntax: war surrender <clan>\n", ch);
 	                        return;
@@ -1363,7 +1363,7 @@ void do_war(CHAR_DATA *ch, String argument)
 
 	/*** STOP ***/
 	if (!str_cmp(arg1, "stop") && IS_IMMORTAL(ch)) {
-		if (arg2[0] == '\0') {
+		if (arg2.empty()) {
 			stc("Syntax: war stop <war number>\n", ch);
 			return;
 		}
@@ -1417,7 +1417,7 @@ void do_war(CHAR_DATA *ch, String argument)
 	        {
 	                CHAR_DATA *winner, *loser;
 
-	                if (arg2[0] == '\0' || arg3[0] == '\0')
+	                if (arg2.empty() || arg3.empty())
 	                {
 	                        stc("Syntax: war kill <char> <victim>\n", ch);
 	                        return;

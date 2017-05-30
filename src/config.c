@@ -37,7 +37,7 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
 
         argument = one_argument(argument, arg1);
 
-        if (arg1[0] == '\0')
+        if (arg1.empty())
         {
                 stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
                 stc("Censor options:\n\n", ch);
@@ -621,7 +621,7 @@ void config_wiznet(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg1[0] == '\0' || !str_prefix1(arg1, "status")) {
+	if (arg1.empty() || !str_prefix1(arg1, "status")) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);

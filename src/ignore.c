@@ -76,7 +76,7 @@ void do_ignore(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		if (rch->pcdata->ignore.empty()) {
 			stc("You are ignoring nobody.\n", ch);
 			return;

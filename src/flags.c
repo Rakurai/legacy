@@ -53,7 +53,7 @@ void do_flag(CHAR_DATA *ch, String argument)
 	if (type == '=' || type == '-' || type == '+')
 		argument = one_argument(argument, word);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Syntax:\n"
 		    "  flag char   <name> <field> {c(+,-,=){x <flags>\n"
 		    "  flag mob    <name> <field> {c(+,-,=){x <flags>\n"
@@ -69,12 +69,12 @@ void do_flag(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		stc("What do you wish to set flags on?\n", ch);
 		return;
 	}
 
-	if (arg3[0] == '\0') {
+	if (arg3.empty()) {
 		stc("You need to specify a field to modify.\n", ch);
 		return;
 	}
@@ -713,7 +713,7 @@ void do_flagsearch(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("Syntax:\n"
 		    "  flagsearch char   <field> <flags>\n"
 		    "  flagsearch mob    <field> <flags>\n"
@@ -729,7 +729,7 @@ void do_flagsearch(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (arg2[0] == '\0') {
+	if (arg2.empty()) {
 		stc("You must specify a field of flags to search for.\n", ch);
 		return;
 	}

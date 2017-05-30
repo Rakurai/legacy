@@ -785,7 +785,7 @@ bool check_social(CHAR_DATA *ch, const String& command, const String& argument)
 	one_argument(argument, arg);
 	victim = NULL;
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		act(iterator->others_no_arg, ch, NULL, victim, TO_ROOM);
 		act(iterator->char_no_arg,   ch, NULL, victim, TO_CHAR);
 	}
@@ -840,13 +840,13 @@ bool check_social(CHAR_DATA *ch, const String& command, const String& argument)
  */
 bool is_number(const char *arg)
 {
-	if (*arg == '\0')
+	if (!arg[0])
 		return FALSE;
 
-	if (*arg == '+' || *arg == '-')
+	if (arg[0] == '+' || arg[0] == '-')
 		arg++;
 
-	for (; *arg != '\0'; arg++) {
+	for (; *arg; arg++) {
 		if (!isdigit(*arg))
 			return FALSE;
 	}

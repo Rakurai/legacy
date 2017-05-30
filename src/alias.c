@@ -109,7 +109,7 @@ void do_alias(CHAR_DATA *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		if (rch->pcdata->alias.empty()) {
 			stc("You have no aliases defined.\n", ch);
 			return;

@@ -381,7 +381,7 @@ static void edit_change(CHAR_DATA *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0') {
+	if (arg1.empty()) {
 		stc("{PYou must specify a string to change.{x\n", ch);
 		return;
 	}
@@ -906,7 +906,7 @@ void do_edit(CHAR_DATA *ch, String argument)
 
 	argument = one_argument(argument, arg);
 
-	if (arg[0] == '\0' && argmask == 0) {
+	if (arg.empty() && argmask == 0) {
 		edit_status(ch, argument);
 		return;
 	}
@@ -941,7 +941,7 @@ void do_edit(CHAR_DATA *ch, String argument)
 
 	/* below this point, character is sure to be editing something */
 
-	if (arg[0] == '\0') {
+	if (arg.empty()) {
 		edit_goto(ch, argument);
 		list_window(ch);
 		return;
