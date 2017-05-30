@@ -234,10 +234,10 @@ void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door)
 	ptc(ch, "  {C%s, %s%s.\n{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? dir_name[door] : "");
 	/*      buf[0] = '\0';
 	        strcat(buf, PERS(victim, ch));
-	        strcat(buf, ", ");
+	        buf += ", ";
 	        Format::sprintf(buf2, distance[depth], dir_name[door]);
-	        strcat(buf, buf2);
-	        strcat(buf, "\n");
+	        buf += buf2;
+	        buf += "\n";
 	        stc(buf, ch); */
 	set_color(ch, WHITE, NOBOLD);
 }

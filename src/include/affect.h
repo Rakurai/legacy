@@ -31,7 +31,7 @@ void          affect_update               args(( AFFECT_DATA *paf, const AFFECT_
 void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b ));
 unsigned long affect_checksum             args(( const AFFECT_DATA *paf ));
 bool          affect_parse_flags      args(( char letter, AFFECT_DATA *paf, unsigned int *bitvector ));
-char *        affect_print_cache          args(( CHAR_DATA *ch ));
+String        affect_print_cache          args(( CHAR_DATA *ch ));
 bool          affect_in_cache             args(( const CHAR_DATA *ch, sh_int sn ));
 void          update_affect_cache         args(( CHAR_DATA *ch, sh_int sn, bool fAdd ));
 void          free_affect_cache           args(( CHAR_DATA *ch ));

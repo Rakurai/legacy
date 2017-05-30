@@ -34,7 +34,7 @@ char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
 	CHAR_DATA *ch;
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	char prefix[2 * MAX_INPUT_LENGTH];
 	ch = d->original ? d->original : d->character;
 
@@ -65,7 +65,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 		return;
 	}
 
-	strcpy(buf, argument); // the default, in case we don't find an alias
+	buf = argument; // the default, in case we don't find an alias
 
 	std::string input = argument;
 	String word;
@@ -73,11 +73,11 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	auto search = ch->pcdata->alias.find(word);
 
 	if (search != ch->pcdata->alias.end()) {
-		strcpy(buf, (*search).second.c_str());
-		strcat(buf, " ");
-		strcat(buf, remainder);
+		buf = (*search).second.c_str();
+		buf += " ";
+		buf += remainder;
 
-		strcpy(buf, get_multi_command(d, buf));
+		buf = get_multi_command(d, buf.c_str());
 
 		if (strlen(buf) > MAX_INPUT_LENGTH) {
 			stc("Alias substitution too long. Truncated.\n", ch);

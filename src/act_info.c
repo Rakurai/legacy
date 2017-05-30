@@ -89,55 +89,52 @@ const char   * month_name      [] = {
 /*
  * Local functions.
  */
-char   *format_obj_to_char      args((OBJ_DATA *obj, CHAR_DATA *ch,
-                                      bool fShort));
 void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
 void    show_char_to_char_0     args((CHAR_DATA *victim, CHAR_DATA *ch));
 void    show_char_to_char_1     args((CHAR_DATA *victim, CHAR_DATA *ch));
 void    show_char_to_char       args((CHAR_DATA *list, CHAR_DATA *ch));
 bool    check_blind             args((CHAR_DATA *ch));
 
-char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
+String format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
-	static char buf[MSL];
+	String buf;
 	int diff;
-	buf[0] = '\0';
 
 	if ((fShort && (obj->short_descr == NULL || obj->short_descr[0] == '\0'))
 	    || (obj->description == NULL || obj->description[0] == '\0'))
 		return buf;
 
 	if (obj->num_settings > 0) {
-		strcat(buf, get_gem_short_string(obj));
-		strcat(buf, " ");
+		buf += get_gem_short_string(obj);
+		buf += " ";
 	}
 
 	/* Color additions by Lotus */
 	if (!IS_NPC(ch)
 	    && ((ch->questobj > 0 && obj->pIndexData->vnum == ch->questobj)
 	        || (ch->pcdata->squestobj != NULL && ch->pcdata->squestobj == obj)))
-		strcat(buf, "{f{R[TARGET] {x");
+		buf += "{f{R[TARGET] {x";
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
-		strcat(buf, "{W(Invis) ");
+		buf += "{W(Invis) ";
 
 	if (affect_exists_on_char(ch, gsn_detect_evil)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
-		strcat(buf, "{R(Red Aura) ");
+		buf += "{R(Red Aura) ";
 
 	if (affect_exists_on_char(ch, gsn_detect_good)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
-		strcat(buf, "{B(Blue Aura) ");
+		buf += "{B(Blue Aura) ";
 
 	if (affect_exists_on_char(ch, gsn_detect_magic)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
-		strcat(buf, "{G(Magical) ");
+		buf += "{G(Magical) ";
 
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
-		strcat(buf, "{Y(Glowing) ");
+		buf += "{Y(Glowing) ";
 
 	if (IS_OBJ_STAT(obj, ITEM_HUM))
-		strcat(buf, "{C(Humming) ");
+		buf += "{C(Humming) ";
 
 	/* flags for temp weapon affects -- Elrac */
 	if (obj->item_type == ITEM_WEAPON) {
@@ -147,48 +144,48 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 			if (paf->duration)
 				bits |= paf->bitvector;
 
-		if (bits & WEAPON_FLAMING)    strcat(buf, "{Y(Fl) ");
-		if (bits & WEAPON_FROST)      strcat(buf, "{C(Fr) ");
-		if (bits & WEAPON_VAMPIRIC)   strcat(buf, "{P(Bl) ");
-		if (bits & WEAPON_SHOCKING)   strcat(buf, "{V(Sh) ");
-		if (bits & WEAPON_POISON)     strcat(buf, "{G(Po) ");
+		if (bits & WEAPON_FLAMING)    buf += "{Y(Fl) ";
+		if (bits & WEAPON_FROST)      buf += "{C(Fr) ";
+		if (bits & WEAPON_VAMPIRIC)   buf += "{P(Bl) ";
+		if (bits & WEAPON_SHOCKING)   buf += "{V(Sh) ";
+		if (bits & WEAPON_POISON)     buf += "{G(Po) ";
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
 	if (affect_exists_on_obj(obj, gsn_dazzling_light))
-		strcat(buf, "{W{f(Dazzling){x ");
+		buf += "{W{f(Dazzling){x ";
 
-	if (obj->condition <= 9 && obj->condition >= 0)         strcat(buf, "{b(Ruined) ");
+	if (obj->condition <= 9 && obj->condition >= 0)         buf += "{b(Ruined) ";
 
-	if (obj->condition >= 10 && obj->condition <= 24)       strcat(buf, "{b(Broken) ");
+	if (obj->condition >= 10 && obj->condition <= 24)       buf += "{b(Broken) ";
 
-	strcat(buf, "{x");
+	buf += "{x";
 
 	if (fShort) {
 		if (obj->short_descr != NULL)
-			strcat(buf, obj->short_descr);
+			buf += obj->short_descr;
 	}
 	else {
 		if (obj->description != NULL)
-			strcat(buf, obj->description);
+			buf += obj->description;
 	}
 
-	strcat(buf, "{x");
+	buf += "{x";
 
 	if (IS_SET(ch->act, PLR_LOOKINPIT) && !IS_NPC(ch)) {
 		diff = get_usable_level(ch) - obj->level;
 
-		if (obj->level >= LEVEL_IMMORTAL)  strcat(buf, " {V(Immortal Item)");
-		else if (diff < -50)                    strcat(buf, " {R(You wish)");
-		else if (diff < -25)                    strcat(buf, " {R(In your dreams)");
-		else if (diff < -10)                    strcat(buf, " {P(Powerful Item)");
-		else if (diff <   0)                    strcat(buf, " {P(Almost there)");
-		else if (diff <  10)                    strcat(buf, " {G(Just your size)");
-		else if (diff <  25)                    strcat(buf, " {G(Still useful)");
-		else if (diff <  50)                    strcat(buf, " {H(Weak Item)");
-		else                                    strcat(buf, " {H(Tis but a toy)");
+		if (obj->level >= LEVEL_IMMORTAL)  buf += " {V(Immortal Item)";
+		else if (diff < -50)                    buf += " {R(You wish)";
+		else if (diff < -25)                    buf += " {R(In your dreams)";
+		else if (diff < -10)                    buf += " {P(Powerful Item)";
+		else if (diff <   0)                    buf += " {P(Almost there)";
+		else if (diff <  10)                    buf += " {G(Just your size)";
+		else if (diff <  25)                    buf += " {G(Still useful)";
+		else if (diff <  50)                    buf += " {H(Weak Item)";
+		else                                    buf += " {H(Tis but a toy)";
 
-		strcat(buf, "{x");
+		buf += "{x";
 	}
 
 	return buf;
@@ -196,8 +193,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 {
-	char buf[MSL];
-	buf[0] = '\0';
+	String buf;
 
 	if (paf->type > 0)
 		Format::sprintf(buf, "Spell '%s'", skill_table[paf->type].name);
@@ -217,7 +213,7 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 	if (paf->duration > -1)
 		Format::sprintf(buf, "%s, %d hours", buf, paf->duration);
 
-	strcat(buf, ".");
+	buf += ".";
 
 	if (paf->bitvector) {
 		int num_flags = 0;
@@ -239,7 +235,7 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 		}
 	}
 
-	strcat(buf, "\n");
+	buf += "\n";
 	stc(buf, ch);
 }
 
@@ -252,7 +248,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 	OBJ_DATA *obj;
 	BUFFER *output;
 	char buf[MAX_STRING_LENGTH];
-	char **prgpstrShow, *pstrShow;
+	char **prgpstrShow;
 	int *prgnShow, nShow = 0, iShow, count = 0;
 	bool fCombine, foundcont = FALSE;
 
@@ -282,7 +278,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 			foundcont = TRUE;
 
 		if (obj->wear_loc == WEAR_NONE) {
-			pstrShow = format_obj_to_char(obj, ch, fShort);
+			String pstrShow = format_obj_to_char(obj, ch, fShort);
 			fCombine = FALSE;
 
 			if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
@@ -441,76 +437,65 @@ void do_peek(CHAR_DATA *ch, String argument)
 
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH],
-	     message[MAX_STRING_LENGTH];
-	buf[0] = '\0';
+	String buf;
+	char message[MAX_STRING_LENGTH];
 
 	/* Pretty little link dead by Demonfire */
 	if (!IS_NPC(victim)) {
 		if (IS_SET(victim->pcdata->plr, PLR_LINK_DEAD))
-			strcat(buf, "{G(LinkDead) ");
+			buf += "{G(LinkDead) ";
 	}
 
 	if (IS_NPC(victim)
 	    && ((ch->questmob > 0 && victim->pIndexData->vnum == ch->questmob)
 	        || (!ch->desc->original && ch->pcdata->squestmob != NULL && victim == ch->pcdata->squestmob)))
-		strcat(buf, "{f{R[TARGET] {x");
+		buf += "{f{R[TARGET] {x";
 
 	if (IS_SET(victim->comm, COMM_AFK))
-		strcat(buf, "{b[AFK] ");
+		buf += "{b[AFK] ";
 
 	if (affect_exists_on_char(victim, gsn_invis))
-		strcat(buf, "{C(Invis) ");
+		buf += "{C(Invis) ";
 
 	if (affect_exists_on_char(victim, gsn_midnight))
-		strcat(buf, "{c(Shadowy) ");
+		buf += "{c(Shadowy) ";
 
 	if (affect_exists_on_char(victim, gsn_hex))
-		strcat(buf, "{c(Dark Aura) ");
+		buf += "{c(Dark Aura) ";
 
 	if (victim->invis_level)
-		strcat(buf, "{T(Wizi) ");
+		buf += "{T(Wizi) ";
 
 	if (victim->lurk_level)
-		strcat(buf, "{H(Lurk) ");
+		buf += "{H(Lurk) ";
 
 	if (!IS_NPC(victim) && (victim->pcdata->aura[0] != '\0')) {
 		char string[MAX_INPUT_LENGTH];
 		Format::sprintf(string, "{W(%s{W) ", victim->pcdata->aura);
-		strcat(buf, string);
+		buf += string;
 	}
 
-	if (affect_exists_on_char(victim, gsn_hide)) strcat(buf,
-		                "{B(Hide) ");
+	if (affect_exists_on_char(victim, gsn_hide)) buf += "{B(Hide) ";
 
-	if (affect_exists_on_char(victim, gsn_charm_person)) strcat(buf,
-		                "{M(Charmed) ");
+	if (affect_exists_on_char(victim, gsn_charm_person)) buf += "{M(Charmed) ";
 
-	if (affect_exists_on_char(victim, gsn_pass_door)) strcat(buf,
-		                "{c(Translucent) ");
+	if (affect_exists_on_char(victim, gsn_pass_door)) buf += "{c(Translucent) ";
 
-	if (affect_exists_on_char(victim, gsn_faerie_fire)) strcat(buf,
-		                "{P(Pink Aura) ");
+	if (affect_exists_on_char(victim, gsn_faerie_fire)) buf += "{P(Pink Aura) ";
 
-	if (affect_exists_on_char(victim, gsn_flameshield)) strcat(buf,
-		                "{b(Flaming Aura) ");
+	if (affect_exists_on_char(victim, gsn_flameshield)) buf += "{b(Flaming Aura) ";
 
-	if (IS_EVIL(victim) && affect_exists_on_char(ch, gsn_detect_evil)) strcat(buf,
-		                "{R(Red Aura) ");
+	if (IS_EVIL(victim) && affect_exists_on_char(ch, gsn_detect_evil)) buf += "{R(Red Aura) ";
 
-	if (IS_GOOD(victim) && affect_exists_on_char(ch, gsn_detect_good)) strcat(buf,
-		                "{Y(Golden Aura) ");
+	if (IS_GOOD(victim) && affect_exists_on_char(ch, gsn_detect_good)) buf += "{Y(Golden Aura) ";
 
-	if (affect_exists_on_char(victim, gsn_sanctuary)) strcat(buf,
-		                "{W(White Aura) ");
+	if (affect_exists_on_char(victim, gsn_sanctuary)) buf += "{W(White Aura) ";
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER))
-		strcat(buf, "{R(KILLER) ");
+	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)) buf += "{R(KILLER) ";
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF))
-		strcat(buf, "{B(THIEF) ");
+	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)) buf += "{B(THIEF) ";
 
-	strcat(buf, "{x");
+	buf += "{x";
 
 	if (get_position(victim) == victim->start_pos && victim->long_descr[0] != '\0') {
 		if (IS_NPC(victim))
@@ -518,7 +503,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			new_color(ch, CSLOT_MISC_PLAYERS);
 
-		strcat(buf, victim->long_descr);
+		buf += victim->long_descr;
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
@@ -526,45 +511,45 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	/* took PERS out of this line, with both show_char_to_char and PERS checking can_see,
 	   means that sometimes it shows players (and mobs) as 'someone' in the room list -- Montrey */
-	strcat(buf, (IS_NPC(victim) ? victim->short_descr : victim->name));
+	buf += (IS_NPC(victim) ? victim->short_descr : victim->name);
 
 	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
 	    &&   get_position(victim) >= POS_STANDING && ch->on == NULL) {
 		new_color(ch, CSLOT_MISC_PLAYERS);
-		strcat(buf, victim->pcdata->title);
+		buf += victim->pcdata->title;
 		stc("{x{a", ch);
 		set_color(ch, WHITE, NOBOLD);
 	}
 
 	switch (get_position(victim)) {
-	case POS_DEAD:     strcat(buf, " is DEAD!!");              break;
+	case POS_DEAD:     buf += " is DEAD!!";              break;
 
-	case POS_MORTAL:   strcat(buf, " is mortally wounded.");   break;
+	case POS_MORTAL:   buf += " is mortally wounded.";   break;
 
-	case POS_INCAP:    strcat(buf, " is incapacitated.");      break;
+	case POS_INCAP:    buf += " is incapacitated.";      break;
 
-	case POS_STUNNED:  strcat(buf, " is lying here stunned."); break;
+	case POS_STUNNED:  buf += " is lying here stunned."; break;
 
 	case POS_SLEEPING:
 		if (victim->on != NULL) {
 			if (IS_SET(victim->on->value[2], SLEEP_AT)) {
 				Format::sprintf(message, " is sleeping at %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else if (IS_SET(victim->on->value[2], SLEEP_ON)) {
 				Format::sprintf(message, " is sleeping on %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else {
 				Format::sprintf(message, " is sleeping in %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 		}
 		else
-			strcat(buf, " is sleeping here.");
+			buf += " is sleeping here.";
 
 		break;
 
@@ -573,21 +558,21 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			if (IS_SET(victim->on->value[2], REST_AT)) {
 				Format::sprintf(message, " is resting at %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else if (IS_SET(victim->on->value[2], REST_ON)) {
 				Format::sprintf(message, " is resting on %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else {
 				Format::sprintf(message, " is resting in %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 		}
 		else
-			strcat(buf, " is resting here.");
+			buf += " is resting here.";
 
 		break;
 
@@ -596,21 +581,21 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			if (IS_SET(victim->on->value[2], SIT_AT)) {
 				Format::sprintf(message, " is sitting at %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else if (IS_SET(victim->on->value[2], SIT_ON)) {
 				Format::sprintf(message, " is sitting on %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else {
 				Format::sprintf(message, " is sitting in %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 		}
 		else
-			strcat(buf, " is sitting here.");
+			buf += " is sitting here.";
 
 		break;
 
@@ -619,46 +604,46 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			if (IS_SET(victim->on->value[2], STAND_AT)) {
 				Format::sprintf(message, " is standing at %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else if (IS_SET(victim->on->value[2], STAND_ON)) {
 				Format::sprintf(message, " is standing on %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 			else {
 				Format::sprintf(message, " is standing in %s.",
 				        victim->on->short_descr);
-				strcat(buf, message);
+				buf += message;
 			}
 		}
 		else
-			strcat(buf, " is here.");
+			buf += " is here.";
 
 		break;
 
 	case POS_FLYING:
-		strcat(buf, " is flying here.");
+		buf += " is flying here.";
 		break;
 
 	case POS_FIGHTING:
-		strcat(buf, " is here, fighting ");
+		buf += " is here, fighting ";
 
 		if (victim->fighting == NULL)
-			strcat(buf, "thin air??");
+			buf += "thin air??";
 		else if (victim->fighting == ch)
-			strcat(buf, "YOU! DOH!");
+			buf += "YOU! DOH!";
 		else if (victim->in_room == victim->fighting->in_room) {
-			strcat(buf, PERS(victim->fighting, ch, VIS_CHAR));
-			strcat(buf, ".");
+			buf += PERS(victim->fighting, ch, VIS_CHAR);
+			buf += ".";
 		}
 		else
-			strcat(buf, "with shadow-boxers??");
+			buf += "with shadow-boxers??";
 
 		break;
 	}
 
-	strcat(buf, "\n");
+	buf += "\n";
 	buf[0] = UPPER(buf[0]);
 	new_color(ch, IS_NPC(victim) ? CSLOT_MISC_MOBILES : CSLOT_MISC_PLAYERS);
 	stc(buf, ch);
@@ -668,7 +653,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	OBJ_DATA *obj;
 	int iWear;
 	int percent;
@@ -699,26 +684,26 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	else
 		percent = -1;
 
-	strcpy(buf, PERS(victim, ch, VIS_CHAR));
+	buf = PERS(victim, ch, VIS_CHAR);
 
 	if (percent >= 100)
-		strcat(buf, " is in excellent condition.\n");
+		buf += " is in excellent condition.\n";
 	else if (percent >= 90)
-		strcat(buf, " has a few scratches.\n");
+		buf += " has a few scratches.\n";
 	else if (percent >= 75)
-		strcat(buf, " has some small wounds and bruises.\n");
+		buf += " has some small wounds and bruises.\n";
 	else if (percent >=  50)
-		strcat(buf, " has quite a few wounds.\n");
+		buf += " has quite a few wounds.\n";
 	else if (percent >= 30)
-		strcat(buf, " has some big nasty wounds and scratches.\n");
+		buf += " has some big nasty wounds and scratches.\n";
 	else if (percent >= 15)
-		strcat(buf, " looks pretty hurt.\n");
+		buf += " looks pretty hurt.\n";
 	else if (percent >= 1)
-		strcat(buf, " is in awful condition.\n");
+		buf += " is in awful condition.\n";
 	else if (percent >= 0)
-		strcat(buf, " will soon be toast!!!\n");
+		buf += " will soon be toast!!!\n";
 	else
-		strcat(buf, " is in need of ***SERIOUS*** medical attention!!!\n");
+		buf += " is in need of ***SERIOUS*** medical attention!!!\n";
 
 	buf[0] = UPPER(buf[0]);
 	set_color(ch, CYAN, NOBOLD);
@@ -1515,7 +1500,7 @@ void do_show(CHAR_DATA *ch, String argument)
 #define MAX_PROMPT_LEN 300
 void do_prompt(CHAR_DATA *ch, String argument)
 {
-	char buf[MAX_PROMPT_LEN+1];
+	String buf;
 
 	if (argument.empty()) {
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
@@ -1531,28 +1516,28 @@ void do_prompt(CHAR_DATA *ch, String argument)
 	}
 
 	if (!strcmp(argument, "default"))
-		strcpy(buf, "{W<{C%h{Thp {G%m{Hma {B%v{Nst {W[{g%e{W] {R%X{W>{x ");
+		buf = "{W<{C%h{Thp {G%m{Hma {B%v{Nst {W[{g%e{W] {R%X{W>{x ";
 	else if (!strcmp(argument, "short"))
-		strcpy(buf, "{W<{C%h{Thp {G%m{Hma {B%v{Nst{W>{x ");
+		buf = "{W<{C%h{Thp {G%m{Hma {B%v{Nst{W>{x ";
 	else if (!strcmp(argument, "long"))
-		strcpy(buf, "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ");
+		buf = "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ";
 	else if (!strcmp(argument, "riches"))
-		strcpy(buf, "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{g%e{W] {Y%g{bg {W%s{gs{W>{x ");
+		buf = "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{g%e{W] {Y%g{bg {W%s{gs{W>{x ";
 	else if (!strcmp(argument, "immortal"))
-		strcpy(buf, "{W<{Y({W%R{Y) {T-{C%r{T- {H[{G%e{H] {W%z {N[{B%w{N]{W>{x ");
+		buf = "{W<{Y({W%R{Y) {T-{C%r{T- {H[{G%e{H] {W%z {N[{B%w{N]{W>{x ";
 	else if (!strcmp(argument, "align"))
-		strcpy(buf, "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {R%X {V({M%a{V){W>{x ");
+		buf = "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {R%X {V({M%a{V){W>{x ";
 	else if (!strcmp(argument, "quest"))
-		strcpy(buf, "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {Y({b%Q %q{Y){W>{x ");
+		buf = "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {Y({b%Q %q{Y){W>{x ";
 	else {
 //		if (strlen(argument) > 100)
 //			argument[100] = '\0';
 
-		strncpy(buf, argument, MAX_PROMPT_LEN);
-		buf[MAX_PROMPT_LEN] = '\0';
+		buf += argument;
+		buf.erase(MAX_PROMPT_LEN);
 
 		if (str_suffix("%c", buf))
-			strcat(buf, " ");
+			buf += " ";
 	}
 
 	free_string(ch->prompt);
@@ -2182,7 +2167,7 @@ void exits_in(CHAR_DATA *ch)
 void do_exits(CHAR_DATA *ch, String argument)
 {
 	extern const char* dir_name[];
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	EXIT_DATA *pexit;
 	bool found;
 	bool fAuto;
@@ -2215,11 +2200,11 @@ void do_exits(CHAR_DATA *ch, String argument)
 			found = TRUE;
 
 			if (fAuto) {
-				strcat(buf, " ");
-				strcat(buf, dir_name[door]);
+				buf += " ";
+				buf += dir_name[door];
 			}
 			else {
-				Format::sprintf(buf + strlen(buf), "%-5s - %s",
+				buf += Format::format("%-5s - %s",
 				        capitalize(dir_name[door]),
 				        (room_is_dark(pexit->u1.to_room) && !affect_exists_on_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
@@ -2227,19 +2212,18 @@ void do_exits(CHAR_DATA *ch, String argument)
 				       );
 
 				if (IS_IMMORTAL(ch))
-					Format::sprintf(buf + strlen(buf),
-					        " (room %d)\n", pexit->u1.to_room->vnum);
+					buf += Format::format(" (room %d)\n", pexit->u1.to_room->vnum);
 				else
-					Format::sprintf(buf + strlen(buf), "\n");
+					buf += "\n";
 			}
 		}
 	}
 
 	if (!found)
-		strcat(buf, fAuto ? " none" : "None.\n");
+		buf += fAuto ? " none" : "None.\n";
 
 	if (fAuto)
-		strcat(buf, "]\n");
+		buf += "]\n";
 
 	set_color(ch, WHITE, BOLD);
 	stc(buf, ch);
@@ -2508,7 +2492,8 @@ void do_who(CHAR_DATA *ch, String argument)
 		long levelkey;
 	}
 	*charitems, tmp_charitem;
-	char buf[MIL], buf2[MIL];
+	String buf;
+	char buf2[MIL];
 	char block1[MIL];  /* [level race class] */
 	char block2[MIL];  /* [rank clan] */
 	char rbuf[32];
@@ -2736,18 +2721,18 @@ void do_who(CHAR_DATA *ch, String argument)
 
 		Format::sprintf(buf, "%s %s ", block1, block2);
 
-		if (IS_SET(wch->comm, COMM_AFK))        strcat(buf, "{b[AFK]{x ");
+		if (IS_SET(wch->comm, COMM_AFK))        buf += "{b[AFK]{x ";
 
-		if (IS_SET(wch->act, PLR_KILLER))       strcat(buf, "{R(KILLER){x ");
+		if (IS_SET(wch->act, PLR_KILLER))       buf += "{R(KILLER){x ";
 
-		if (IS_SET(wch->act, PLR_THIEF))        strcat(buf, "{B(THIEF){x ");
+		if (IS_SET(wch->act, PLR_THIEF))        buf += "{B(THIEF){x ";
 
-		strcat(buf, lbrk);
-		strcat(buf, wch->name);
-		strcat(buf, rbrk);
-		strcat(buf, "{x");
-		strcat(buf, wch->pcdata->title);
-		strcat(buf, "{x{a{W \n");
+		buf += lbrk;
+		buf += wch->name;
+		buf += rbrk;
+		buf += "{x";
+		buf += wch->pcdata->title;
+		buf += "{x{a{W \n";
 		add_buf(output, buf);
 	}
 
@@ -2912,7 +2897,7 @@ void do_equipment(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj;
 	int iWear;
-	char buf[MSL];
+	String buf;
 	CHAR_DATA *victim;
 
 	if (IS_IMMORTAL(ch) && argument[0]) {
@@ -2936,7 +2921,7 @@ void do_equipment(CHAR_DATA *ch, String argument)
 			if (iWear == WEAR_WEDDINGRING && ch->pcdata->spouse[0] && !IS_IMMORTAL(ch))
 				continue;
 
-		strcpy(buf, where_name[iWear]);
+		buf = where_name[iWear];
 
 		if ((obj = get_eq_char(victim, iWear)) == NULL) {
 			if (!IS_IMMORTAL(victim)) {
@@ -2949,7 +2934,7 @@ void do_equipment(CHAR_DATA *ch, String argument)
 					continue;
 			}
 
-			strcat(buf, "       ({W- - -{x)");
+			buf += "       ({W- - -{x)";
 		}
 		else if (can_see_obj(ch, obj)) {
 			int spaces;
@@ -2960,14 +2945,14 @@ void do_equipment(CHAR_DATA *ch, String argument)
 				spaces = (MAX_GEM_SETTINGS - obj->num_settings);
 
 			while (spaces-- > 0)
-				strcat(buf, " ");
+				buf += " ";
 
-			strcat(buf, format_obj_to_char(obj, ch, TRUE));
+			buf += format_obj_to_char(obj, ch, TRUE);
 		}
 		else
-			strcat(buf, "       (something)");
+			buf += "       (something)";
 
-		strcat(buf, "\n");
+		buf += "\n";
 		stc(buf, ch);
 	}
 
@@ -3398,7 +3383,7 @@ void do_immname(CHAR_DATA *ch, String argument)
 
 void do_description(CHAR_DATA *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 
 	if (!argument.empty()) {
 		buf[0] = '\0';
@@ -3412,7 +3397,7 @@ void do_description(CHAR_DATA *ch, String argument)
 				return;
 			}
 
-			strcpy(buf, ch->description);
+			buf = ch->description;
 
 			for (len = strlen(buf); len > 0; len--) {
 				if (buf[len] == '\n') {
@@ -3445,7 +3430,7 @@ void do_description(CHAR_DATA *ch, String argument)
 
 		if (argument[0] == '+') {
 			if (ch->description != NULL)
-				strcat(buf, ch->description);
+				buf += ch->description;
 
 			argument = argument.substr(1).lstrip();
 		}
@@ -3455,8 +3440,8 @@ void do_description(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		strcat(buf, argument);
-		strcat(buf, "\n");
+		buf += argument;
+		buf += "\n";
 		free_string(ch->description);
 		ch->description = str_dup(buf);
 	}
@@ -3471,7 +3456,7 @@ void do_description(CHAR_DATA *ch, String argument)
 /* Duplicate of Description for Finger Info */
 void do_fingerinfo(CHAR_DATA *ch, String argument)
 {
-	char buf[MSL];
+	String buf;
 
 	if (IS_NPC(ch))
 		return;
@@ -3494,7 +3479,7 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 				return;
 			}
 
-			strcpy(buf, ch->pcdata->fingerinfo);
+			buf = ch->pcdata->fingerinfo;
 
 			for (len = strlen(buf); len > 0; len--) {
 				if (buf[len] == '\n') {
@@ -3527,7 +3512,7 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 		}
 		else if (argument[0] == '+') {
 			if (ch->pcdata->fingerinfo[0])
-				strcat(buf, ch->pcdata->fingerinfo);
+				buf += ch->pcdata->fingerinfo;
 
 			argument = argument.substr(1).lstrip();
 		}
@@ -3545,8 +3530,8 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		strcat(buf, argument);
-		strcat(buf, "\n");
+		buf += argument;
+		buf += "\n";
 		free_string(ch->pcdata->fingerinfo);
 		ch->pcdata->fingerinfo = str_dup(buf);
 	}
@@ -3613,7 +3598,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 	bool group_first;
 	int sn;
 	char buf[50];
-	char line[160];
+	String line;
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
 	BUFFER *output;
 	output = new_buf();
@@ -3654,7 +3639,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 				Format::sprintf(line, "{G%-25.25s{x ", buf);
 				add_buf(output, line);
 				add_buf(output, "\n");
-				strcpy(line, "");
+				line.erase();
 				line_cols = 0;
 				group_first = FALSE;
 			}
@@ -3662,20 +3647,20 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 			if (line_cols >= 3) {
 				add_buf(output, line);
 				add_buf(output, "\n");
-				strcpy(line, "");
+				line.erase();
 				line_cols = 0;
 			}
 
 			Format::sprintf(buf, "%3d%% %-20.20s ", ch->pcdata->learned[sn],
 			        gp->spells[js]);
-			strcat(line, buf);
+			line += buf;
 			line_cols++;
 		} /* end for skills */
 
 		if (line_cols > 0) { /* print last incomplete line */
 			add_buf(output, line);
 			add_buf(output, "\n");
-			strcpy(line, "");
+			line.erase();
 			line_cols = 0;
 		}
 	} /* end for groups */
@@ -5126,10 +5111,10 @@ void print_new_affects(CHAR_DATA *ch)
 
 void score_new(CHAR_DATA *ch)
 {
-	char buf[MSL], border[4], torch[4], flame[4];
-	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
-	strcpy(torch, get_custom_color_code(ch, CSLOT_SCORE_TORCH));
-	strcpy(flame, get_custom_color_code(ch, CSLOT_SCORE_FLAME));
+	String buf;
+	String border = get_custom_color_code(ch, CSLOT_SCORE_BORDER);
+	String torch = get_custom_color_code(ch, CSLOT_SCORE_TORCH);
+	String flame = get_custom_color_code(ch, CSLOT_SCORE_FLAME);
 //	line  1:   ,                                                                  ,
 	ptc(ch, "  %s,                                                                  ,{x\n", flame);
 //	line  2:  '`,                Kazander, Lover of Freyja's Soul                '`,
@@ -5141,9 +5126,9 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
 //	line  4:  .:.                        Male Dragon Mage                        .:.
 	Format::sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
-	strcat(buf, capitalize(race_table[ch->race].name));
-	strcat(buf, " ");
-	strcat(buf, capitalize(class_table[ch->cls].name));
+	buf += capitalize(race_table[ch->race].name);
+	buf += " ";
+	buf += capitalize(class_table[ch->cls].name);
 	new_color(ch, CSLOT_SCORE_CLASS);
 	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", strcenter(buf, 62));
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(
@@ -5280,23 +5265,23 @@ void score_new(CHAR_DATA *ch)
 	Format::sprintf(buf, "You are ");
 
 	switch (get_position(ch)) {
-	case POS_DEAD:          strcat(buf, "DEAD!!");          break;
+	case POS_DEAD:          buf += "DEAD!!";          break;
 
 	case POS_INCAP:
-	case POS_MORTAL:        strcat(buf, "dying");           break;
+	case POS_MORTAL:        buf += "dying";           break;
 
-	case POS_STUNNED:       strcat(buf, "stunned");         break;
+	case POS_STUNNED:       buf += "stunned";         break;
 
-	case POS_SLEEPING:      strcat(buf, "sleeping");        break;
+	case POS_SLEEPING:      buf += "sleeping";        break;
 
-	case POS_RESTING:       strcat(buf, "resting");         break;
+	case POS_RESTING:       buf += "resting";         break;
 
-	case POS_STANDING:      strcat(buf, "standing");        break;
+	case POS_STANDING:      buf += "standing";        break;
 
-	case POS_FIGHTING:      strcat(buf, "fighting");        break;
+	case POS_FIGHTING:      buf += "fighting";        break;
 
-	case POS_SITTING:       strcat(buf, "sitting");         break;
-	case POS_FLYING:        strcat(buf, "flying");          break;
+	case POS_SITTING:       buf += "sitting";         break;
+	case POS_FLYING:        buf += "flying";          break;
 	}
 
 	ptc(ch, " %s|#|                    %s|{x", torch, border);

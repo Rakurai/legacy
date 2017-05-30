@@ -151,9 +151,8 @@ void attribute_check(CHAR_DATA *ch) {
 	}
 }
 
-char *print_defense_modifiers(CHAR_DATA *ch, int where) {
-	static char buf[MSL];
-	buf[0] = '\0';
+String print_defense_modifiers(CHAR_DATA *ch, int where) {
+	String buf;
 
 	if (ch->defense_mod == NULL)
 		return buf;
@@ -173,9 +172,9 @@ char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 
 		if (print) {
 			if (buf[0] != '\0')
-				strcat(buf, " ");
+				buf += " ";
 
-			strcat(buf, dam_type_name(i));
+			buf += dam_type_name(i);
 
 			if (where != TO_IMMUNE) {
 				char mbuf[100];
@@ -184,7 +183,7 @@ char *print_defense_modifiers(CHAR_DATA *ch, int where) {
 					where == TO_RESIST ? -ch->defense_mod[i] : // prints resist as a negative
 					                    -ch->defense_mod[i] // prints vuln as a positive
 				);
-				strcat(buf, mbuf);
+				buf += mbuf;
 			}
 		}
 	}

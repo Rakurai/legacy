@@ -365,7 +365,8 @@ ROOM_INDEX_DATA *get_random_arena_room(ARENA_DATA *arena, int notvnum)
 
 void view_room_hpbar(CHAR_DATA *ch)
 {
-	char chalblock[MSL], defblock[MSL], line[MSL];
+	String chalblock, defblock;
+	char line[MSL];
 	DUEL_DATA *duel;
 	CHAR_DATA *chal, *def, *vch;
 	int i, chalpct, defpct;
@@ -388,43 +389,43 @@ void view_room_hpbar(CHAR_DATA *ch)
 	defpct  = URANGE(1, 10 * def->hit  / GET_MAX_HIT(def),  10);
 	Format::sprintf(chalblock, "{C%s{C [", chal->name);
 
-	if (chalpct <= 3)       strcat(chalblock, "{P");
-	else                    strcat(chalblock, "{G");
+	if (chalpct <= 3)       chalblock += "{P";
+	else                    chalblock += "{G";
 
 	for (i = 1; i < 11; i++) {
 		if (chalpct == i) {
-			strcat(chalblock, "{Y*");
+			chalblock += "{Y*";
 
-			if (chalpct <= 3)       strcat(chalblock, "{R");
-			else                    strcat(chalblock, "{H");
+			if (chalpct <= 3)       chalblock += "{R";
+			else                    chalblock += "{H";
 
 			continue;
 		}
 
-		strcat(chalblock, "*");
+		chalblock += "*";
 	}
 
-	strcat(chalblock, "{C]");
+	chalblock += "{C]";
 	Format::sprintf(defblock, "{C[");
 
-	if (defpct <= 3)        strcat(defblock, "{P");
-	else                    strcat(defblock, "{G");
+	if (defpct <= 3)        defblock += "{P";
+	else                    defblock += "{G";
 
 	for (i = 1; i < 11; i++) {
 		if (defpct == i) {
-			strcat(defblock, "{Y*");
+			defblock += "{Y*";
 
-			if (defpct <= 3)        strcat(defblock, "{R");
-			else                    strcat(defblock, "{H");
+			if (defpct <= 3)        defblock += "{R";
+			else                    defblock += "{H";
 
 			continue;
 		}
 
-		strcat(defblock, "*");
+		defblock += "*";
 	}
 
-	strcat(defblock, "{C] ");
-	strcat(defblock, def->name);
+	defblock += "{C] ";
+	defblock += def->name;
 	Format::sprintf(line, "%30s %-30s{x\n", chalblock, defblock);
 
 	for (vch = duel->arena->viewroom->people; vch != NULL; vch = vch->next_in_room)

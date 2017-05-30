@@ -159,25 +159,25 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 		lengths[i] = UMAX(lengths[i], strlen(fields[i].name));
 
 		for (x = 0; x <= lengths[i] + 2; x++)
-			strcat(divline, " ");
+			divline += " ";
 	}
 
-	strcat(divline, "{x\n");
+	divline += "{x\n";
 	add_buf(output, divline);
 	strcpy(line, "{n {x");
 
 	for (i = 0; i < numfields; i++) {
 		int wlen = lengths[i] - strlen(fields[i].name);
-		strcat(line, " ");
-		strcat(line, fields[i].name);
+		line += " ";
+		line += fields[i].name;
 
 		while (wlen-- >= 0)
-			strcat(line, " ");
+			line += " ";
 
-		strcat(line, "{n {x");
+		line += "{n {x";
 	}
 
-	strcat(line, "\n");
+	line += "\n";
 	add_buf(output, line);
 	add_buf(output, divline);
 
@@ -186,18 +186,18 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 
 		for (i = 0; i < numfields; i++) {
 			int wlen = lengths[i] - color_strlen(row[x][i]);
-			strcat(line, " ");
+			line += " ";
 
 			if (row[x][i])
-				strcat(line, row[x][i]);
+				line += row[x][i];
 
 			while (wlen-- >= 0)
-				strcat(line, " ");
+				line += " ";
 
-			strcat(line, "{n {x");
+			line += "{n {x";
 		}
 
-		strcat(line, "\n");
+		line += "\n";
 		add_buf(output, line);
 	}
 

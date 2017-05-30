@@ -4948,7 +4948,8 @@ void do_forge(CHAR_DATA *ch, String argument)
 {
 	OBJ_DATA *obj, *anvil = NULL, *material;
 	CHAR_DATA *owner;
-	char sdesc[MSL], buf[MSL], costbuf[MSL];
+	String buf;
+	char sdesc[MSL], costbuf[MSL];
 	EXTRA_DESCR_DATA *ed;
 	extern char *const month_name[];
 	int is_owner, cost, cost_gold, cost_silver, evo;
@@ -5172,17 +5173,17 @@ void do_forge(CHAR_DATA *ch, String argument)
 
 					if (cost_gold > 0) {
 						Format::sprintf(costbuf, "%d gold ", cost_gold);
-						strcat(buf, costbuf);
+						buf += costbuf;
 
-						if (cost_silver > 0) strcat(buf, "and ");
+						if (cost_silver > 0) buf += "and ";
 					}
 
 					if (cost_silver > 0) {
 						Format::sprintf(costbuf, "%d silver ", cost_silver);
-						strcat(buf, costbuf);
+						buf += costbuf;
 					}
 
-					strcat(buf, "for the use of your anvil.\n");
+					buf += "for the use of your anvil.\n";
 					stc(buf, owner);
 					owner->gold += cost_gold;
 					owner->silver += cost_silver;

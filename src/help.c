@@ -65,7 +65,8 @@ const char *one_keyword(const char *keywords, char *word)
 
 void help_char_search(CHAR_DATA *ch, const String& arg)
 {
-	char buf[MSL] = "\0", query[MSL], *text;
+	String buf;
+	char query[MSL], *text;
 	BUFFER *output;
 	int i = 0, count = 0;
 	Format::sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
@@ -89,8 +90,8 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 		if (!is_name(arg, keywords))
 			continue;
 
-		strcat(buf, ++i % 2 ? " {W" : " {c");
-		strcat(buf, keywords);
+		buf += ++i % 2 ? " {W" : " {c";
+		buf += keywords;
 	}
 
 	if (count == 0) {
@@ -101,7 +102,7 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 	output = new_buf();
 	add_buf(output, stupidassline);
 	ptb(output, "\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
-	text = str_dup(format_string(buf));
+	text = str_dup(format_string(buf.c_str()));
 	add_buf(output, text);
 	free_string(text);
 	ptb(output, "\n{W[%d] total help entries.{x\n\n", i);
@@ -113,7 +114,7 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 /* the mud's internal help command, no multiple results, no suggestions.  command groups are not checked */
 void help(CHAR_DATA *ch, const String& argument)
 {
-	char query[MSL];
+	String query;
 	const char *p;
 	BUFFER *output;
 	Format::sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
@@ -122,15 +123,15 @@ void help(CHAR_DATA *ch, const String& argument)
 	while (*p != '\0') {
 		char word[MIL];
 		p = one_keyword(p, word);
-		strcat(query, HCOL_KEYS " LIKE '%");
-		strcat(query, db_esc(word));
-		strcat(query, "%'");
+		query += HCOL_KEYS " LIKE '%";
+		query += db_esc(word);
+		query += "%'";
 
 		if (*p != '\0')
-			strcat(query, " AND ");
+			query += " AND ";
 	}
 
-	strcat(query, " LIMIT 1");
+	query += " LIMIT 1";
 
 	if (db_query("help", query) != SQL_OK)
 		return;
@@ -155,7 +156,7 @@ void help(CHAR_DATA *ch, const String& argument)
 
 void add_help(int group, int order, int level, char *keywords, char *text)
 {
-	char query[MSL];
+	String query;
 
 	if (!str_cmp(keywords, "GREETING")) {
 		free_string(help_greeting);
@@ -165,10 +166,10 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 	Format::sprintf(query, "INSERT INTO " HTABLE " (" HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
 	        "VALUES(%d,%d,%d,'", group, order, level
 	       );
-	strcat(query, db_esc(keywords));
-	strcat(query, "','");
-	strcat(query, db_esc(text));
-	strcat(query, "')");
+	query += db_esc(keywords);
+	query += "','";
+	query += db_esc(text);
+	query += "')";
 	db_command("add_help", query);
 }
 
@@ -312,7 +313,7 @@ void do_loadhelps(CHAR_DATA *ch, String argument)
 /* print all helps matching a group to file */
 void do_printhelps(CHAR_DATA *ch, String argument)
 {
-	char buf[MSL * 3];
+	String buf;
 	FILE *fp;
 	int tablenum, count = 0;
 
@@ -368,13 +369,13 @@ void do_printhelps(CHAR_DATA *ch, String argument)
 	}
 
 	while (db_next_row() == SQL_OK) {
-		strcpy(buf, db_get_column_str(0));
-		strcat(buf, " ");
-		strcat(buf, smash_tilde(db_get_column_str(1)));
-		strcat(buf, "~\n");
-		strcat(buf, smash_tilde(db_get_column_str(2)));
-		strcat(buf, "~\n\n");
-		fputs(buf, fp);
+		buf = db_get_column_str(0);
+		buf += " ";
+		buf += smash_tilde(db_get_column_str(1));
+		buf += "~\n";
+		buf += smash_tilde(db_get_column_str(2));
+		buf += "~\n\n";
+		fputs(buf.c_str(), fp);
 		count++;
 	}
 
@@ -387,13 +388,13 @@ void do_printhelps(CHAR_DATA *ch, String argument)
 	Format::fprintf(fp, "-2\n");
 	fclose(fp);
 	Format::sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
-	rename(TEMP_FILE, buf);
+	rename(TEMP_FILE, buf.c_str());
 	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
 }
 
 void do_help(CHAR_DATA *ch, String argument)
 {
-	char query[MSL];
+	String query;
 	const char *p;
 	BUFFER *output;
 	int result_count = 0, partial_count = 0, result_num = 0, i;
@@ -438,16 +439,16 @@ void do_help(CHAR_DATA *ch, String argument)
 	while (*p != '\0') {
 		char word[MIL];
 		p = one_keyword(p, word);
-		strcat(query, HCOL_KEYS " LIKE '%");
-		strcat(query, db_esc(word));
-		strcat(query, "%'");
+		query += HCOL_KEYS " LIKE '%";
+		query += db_esc(word);
+		query += "%'";
 
 		if (*p != '\0')
-			strcat(query, " AND ");
+			query += " AND ";
 	}
 
 	/* display the normal helps, followed by immortal helps */
-	strcat(query, " ORDER BY " HCOL_ORDER);
+	query += " ORDER BY " HCOL_ORDER;
 
 	if (db_query("do_help", query) != SQL_OK) {
 		stc("There was a problem with your help query, please notify the imms\n"

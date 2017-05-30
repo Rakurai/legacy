@@ -315,7 +315,7 @@ void do_scatter(CHAR_DATA *ch, String argument)
 
 void do_string(CHAR_DATA *ch, String argument)
 {
-	char buf [MAX_STRING_LENGTH];
+	String buf;
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	ROOM_INDEX_DATA *room;
@@ -552,8 +552,7 @@ void do_string(CHAR_DATA *ch, String argument)
 
 		if (!str_prefix1(arg2, "more")) {
 			EXTRA_DESCR_DATA *ed;
-			char buf[MAX_STRING_LENGTH];
-			buf[0] = '\0';
+			buf.erase();
 			argument = one_argument(argument, arg3);
 
 			if (argument == NULL) {
@@ -569,7 +568,7 @@ void do_string(CHAR_DATA *ch, String argument)
 					ed_next = ed->next;
 
 					if (!str_cmp(ed->keyword, arg3)) {
-						strcpy(buf, ed->description);
+						buf = ed->description;
 
 						if (ed == obj->extra_descr)
 							obj->extra_descr = ed_next;
@@ -583,8 +582,8 @@ void do_string(CHAR_DATA *ch, String argument)
 				}
 			}
 
-			strcat(buf, argument);
-			strcat(buf, "\n");
+			buf += argument;
+			buf += "\n";
 			ed = new_extra_descr();
 			ed->keyword         = str_dup(arg3);
 			ed->description     = str_dup(buf);

@@ -334,8 +334,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 void nanny(DESCRIPTOR_DATA *d, String argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next, *sd;
-	char buf[MAX_STRING_LENGTH];
-	String arg;
+	String buf, arg;
 	CHAR_DATA *ch, *victim;
 	const char *pwdnew, *p;
 	int iClass, race, i, weapon, deity;
@@ -798,16 +797,16 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 		}
 
 		write_to_buffer(d, "\n", 1);
-		strcpy(buf, "Select a class [");
+		buf = "Select a class [";
 
 		for (iClass = 0; iClass < MAX_CLASS; iClass++) {
 			if (iClass > 0)
-				strcat(buf, " ");
+				buf += " ";
 
-			strcat(buf, class_table[iClass].name);
+			buf += class_table[iClass].name;
 		}
 
-		strcat(buf, "]\nHelp file: class\nWhat is your class? ");
+		buf += "]\nHelp file: class\nWhat is your class? ";
 		write_to_buffer(d, buf, 0);
 		d->connected = CON_GET_NEW_CLASS;
 		break;
@@ -888,26 +887,26 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 		group_add(ch, class_table[ch->cls].base_group, FALSE);
 		ch->pcdata->learned[gsn_recall] = 50;
 		ch->pcdata->learned[gsn_scan]   = 100;
-		strcpy(buf, "Select a deity:\n");
+		buf = "Select a deity:\n";
 
 		for (deity = 0; deity_table[deity].name != NULL; deity++) {
 			if (ch->cls == PALADIN_CLASS) { /* Paladins */
 				if (deity_table[deity].value > 0 && ch->alignment > 0) {
-					strcat(buf, deity_table[deity].align);
-					strcat(buf, deity_table[deity].name);
-					strcat(buf, "\n");
+					buf += deity_table[deity].align;
+					buf += deity_table[deity].name;
+					buf += "\n";
 				}
 				else if (deity_table[deity].value < 0 && ch->alignment < 0) {
-					strcat(buf, deity_table[deity].align);
-					strcat(buf, deity_table[deity].name);
-					strcat(buf, "\n");
+					buf += deity_table[deity].align;
+					buf += deity_table[deity].name;
+					buf += "\n";
 				}
 			}
 			else if (deity_table[deity].value == ch->alignment
 			         ||       deity_table[deity].value == -1) {
-				strcat(buf, deity_table[deity].align);
-				strcat(buf, deity_table[deity].name);
-				strcat(buf, "\n");
+				buf += deity_table[deity].align;
+				buf += deity_table[deity].name;
+				buf += "\n";
 			}
 		}
 
@@ -972,11 +971,11 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 
 			for (i = 0; weapon_table[i].name != NULL; i++)
 				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
-					strcat(buf, weapon_table[i].name);
-					strcat(buf, " ");
+					buf += weapon_table[i].name;
+					buf += " ";
 				}
 
-			strcat(buf, "\nYour choice? ");
+			buf += "\nYour choice? ";
 			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
 /*			break;
@@ -1026,11 +1025,11 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 
 			for (i = 0; weapon_table[i].name != NULL; i++)
 				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
-					strcat(buf, weapon_table[i].name);
-					strcat(buf, " ");
+					buf += weapon_table[i].name;
+					buf += " ";
 				}
 
-			strcat(buf, "\nYour choice? ");
+			buf += "\nYour choice? ";
 			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
 			break;

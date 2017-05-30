@@ -596,7 +596,7 @@ void mobile_update(void)
  */
 void weather_update(void)
 {
-	char buf[MSL];
+	String buf;
 	CHAR_DATA *ch;
 	int diff;
 	buf[0] = '\0';
@@ -605,30 +605,30 @@ void weather_update(void)
 	case  5:
 		new_day();
 		weather_info.sunlight = SUN_LIGHT;
-		strcat(buf, "The Clocktower Bell rings as another day begins.\n");
+		buf += "The Clocktower Bell rings as another day begins.\n";
 		break;
 
 	case  6:
 		weather_info.sunlight = SUN_RISE;
-		strcat(buf, "The sun rises in the east.\n");
+		buf += "The sun rises in the east.\n";
 		break;
 
 	case 12:
-		strcat(buf, "The Clocktower Bell signals the midday.\n");
+		buf += "The Clocktower Bell signals the midday.\n";
 		break;
 
 	case 19:
 		weather_info.sunlight = SUN_SET;
-		strcat(buf, "The sun slowly disappears in the west.\n");
+		buf += "The sun slowly disappears in the west.\n";
 		break;
 
 	case 20:
 		weather_info.sunlight = SUN_DARK;
-		strcat(buf, "The night has begun.\n");
+		buf += "The night has begun.\n";
 		break;
 
 	case 24:
-		strcat(buf, "The Clocktower Bell tolls, declaring midnight.\n");
+		buf += "The Clocktower Bell tolls, declaring midnight.\n";
 		time_info.hour = 0;
 		time_info.day++;
 		break;
@@ -665,7 +665,7 @@ void weather_update(void)
 
 	case SKY_CLOUDLESS:
 		if (weather_info.mmhg < 990 || (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-			strcat(buf, "The sky grows dark with rolling grey clouds.\n");
+			buf += "The sky grows dark with rolling grey clouds.\n";
 			weather_info.sky = SKY_CLOUDY;
 		}
 
@@ -674,15 +674,15 @@ void weather_update(void)
 	case SKY_CLOUDY:
 		if (weather_info.mmhg < 970 || (weather_info.mmhg < 990 && number_bits(2) == 0)) {
 #ifdef SEASON_CHRISTMAS
-			strcat(buf, "Snow starts to fall from the sky.\n");
+			buf += "Snow starts to fall from the sky.\n";
 #else
-			strcat(buf, "It starts to rain a heavy downpour.\n");
+			buf += "It starts to rain a heavy downpour.\n";
 #endif
 			weather_info.sky = SKY_RAINING;
 		}
 
 		if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-			strcat(buf, "Shafts of light cut through the dense clouds above.\n");
+			buf += "Shafts of light cut through the dense clouds above.\n";
 			weather_info.sky = SKY_CLOUDLESS;
 		}
 
@@ -690,15 +690,15 @@ void weather_update(void)
 
 	case SKY_RAINING:
 		if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-			strcat(buf, "Lightning flashes in the sky.\n");
+			buf += "Lightning flashes in the sky.\n";
 			weather_info.sky = SKY_LIGHTNING;
 		}
 
 		if (weather_info.mmhg > 1030 || (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
 #ifdef SEASON_CHRISTMAS
-			strcat(buf, "The snow slows to a few flakes, and finally stops.\n");
+			buf += "The snow slows to a few flakes, and finally stops.\n";
 #else
-			strcat(buf, "The rain stopped.\n");
+			buf += "The rain stopped.\n";
 #endif
 			weather_info.sky = SKY_CLOUDY;
 		}
@@ -707,7 +707,7 @@ void weather_update(void)
 
 	case SKY_LIGHTNING:
 		if (weather_info.mmhg > 1010 || (weather_info.mmhg >  990 && number_bits(2) == 0)) {
-			strcat(buf, "The lightning has stopped.\n");
+			buf += "The lightning has stopped.\n";
 			weather_info.sky = SKY_RAINING;
 			break;
 		}

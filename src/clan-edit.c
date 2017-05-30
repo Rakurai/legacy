@@ -39,7 +39,7 @@ struct clan_type *clan_table_tail;
 
 int count_clan_members(CLAN_DATA *clan, int bit)
 {
-	char query[MSL];
+	String query;
 	int count;
 
 	if (bit != 0 && bit != GROUP_LEADER && bit != GROUP_DEPUTY)
@@ -50,7 +50,7 @@ int count_clan_members(CLAN_DATA *clan, int bit)
 	if (bit != 0) {
 		char buf[MSL];
 		Format::sprintf(buf, " AND cgroup&%d", bit);
-		strcat(query, buf);
+		query += buf;
 	}
 
 	if ((count = db_count("count_clan_members", query)) == -1)

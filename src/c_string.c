@@ -220,7 +220,7 @@ void strcut(char *str, unsigned int length)
 const char *strcenter(const String& s, int space)
 {
 	const char* str = s.c_str();
-	static char output[MSL];
+	static String output;
 	int length;
 
 	/* if string is longer than the space, just cut it off and return it */
@@ -234,14 +234,14 @@ const char *strcenter(const String& s, int space)
 		rspace = extraspace - lspace;
 		Format::sprintf(output, " ");
 
-		while (--lspace > 0)    strcat(output, " ");
+		while (--lspace > 0)    output += " ";
 
-		strcat(output, str);
+		output += str;
 
-		while (rspace-- > 0)    strcat(output, " ");
+		while (rspace-- > 0)    output += " ";
 	}
 
-	return output;
+	return output.c_str();
 }
 
 /* insert a string at a specified point in a string -- Montrey */

@@ -1262,7 +1262,7 @@ void do_areas(CHAR_DATA *ch, String argument)
 	bool sortv = FALSE;
 	int level = 0;
 	long vnum = 0;
-	char keywords[MAX_INPUT_LENGTH] = "";
+	String keywords;
 	bool star = FALSE;
 	/* output data management */
 	size_t ptrs_size;
@@ -1305,9 +1305,9 @@ void do_areas(CHAR_DATA *ch, String argument)
 				sortv = TRUE;
 			else {
 				if (keywords[0])
-					strcat(keywords, " ");
+					keywords += " ";
 
-				strcat(keywords, arg);
+				keywords += arg;
 			}
 
 			argument = one_argument(argument, arg);

@@ -486,14 +486,13 @@ void note_attach(CHAR_DATA *ch, int type)
 
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 {
-	char to_new[MAX_INPUT_LENGTH];
+	String to_new;
 	NOTE_DATA *prev;
 	NOTE_DATA **list;
 	const char *to_list;
 
 	if (!del) {
 		/* make a new list */
-		to_new[0]       = '\0';
 		to_list = pnote->to_list;
 
 		while (*to_list != '\0') {
@@ -501,15 +500,15 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 			to_list     = one_argument(to_list, to_one);
 
 			if (to_one[0] != '\0' && str_cmp(ch->name, to_one)) {
-				strcat(to_new, " ");
-				strcat(to_new, to_one);
+				to_new += " ";
+				to_new += to_one;
 			}
 		}
 
 		/* Just a simple recipient removal? */
 		if (str_cmp(ch->name, pnote->sender) && to_new[0] != '\0') {
 			free_string(pnote->to_list);
-			pnote->to_list = str_dup(to_new + 1);
+			pnote->to_list = str_dup(to_new.substr(1));
 			return;
 		}
 	}
@@ -672,7 +671,7 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
 void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 {
 	CHAR_DATA *ch;
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	char *list_name;
 	list_name = board_index[type].board_long;
 
@@ -685,15 +684,15 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 			        list_name, pnote->sender, pnote->subject);
 
 			if (ch->clan && is_name(ch->clan->name, pnote->to_list))
-				strcat(buf, "Guild note.{x\n");
+				buf += "Guild note.{x\n";
 			else if (note_is_name(ch->name, pnote->to_list))
-				strcat(buf, "Personal note.{x\n");
+				buf += "Personal note.{x\n";
 			else if (is_name("all", pnote->to_list))
-				strcat(buf, "Global note.{x\n");
+				buf += "Global note.{x\n";
 			else if (IS_IMMORTAL(ch) && is_name("immortal", pnote->to_list))
-				strcat(buf, "Immortal note.{x\n");
+				buf += "Immortal note.{x\n";
 			else
-				strcat(buf, "{x\n");
+				buf += "{x\n";
 
 			if (ch != vch
 			    /* don't info author of forward -- Elrac */
@@ -1157,9 +1156,9 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			return;
 		}
 
-		char *temp = ch->pnote->text;
-		ch->pnote->text = str_dup(string_replace(temp, old.c_str(), nw.c_str()));
-		free_string(temp);
+		String temp = ch->pnote->text;
+		free_string(ch->pnote->text);
+		ch->pnote->text = str_dup(temp.replace(old, nw));
 		Format::sprintf(buf, "'%s' replaced with '%s'.\n", old, nw);
 		stc(buf, ch);
 		return;
@@ -1648,9 +1647,9 @@ void do_next(CHAR_DATA *ch, String argument)
  * Thanks to Kalgen for the new procedure (no more bug!)
  * Original wordwrap() written by Surreality.
  */
-const char *format_string(const char *oldstring)
+String format_string(const char *oldstring)
 {
-	static char xbuf[MAX_STRING_LENGTH];
+	String xbuf;
 	char xbuf2[MAX_STRING_LENGTH];
 	char *rdesc;
 	int i = 0, j;
@@ -1799,12 +1798,12 @@ const char *format_string(const char *oldstring)
 		/* if current character is a line break, insert a blank line and continue */
 		if (*(rdesc + i) == '\n') {
 			*(rdesc + i) = 0;
-			strcat(xbuf, rdesc);
+			xbuf += rdesc;
 
 			if (!blankline)
-				strcat(xbuf, "\n");
+				xbuf += "\n";
 
-			strcat(xbuf, "\n");
+			xbuf += "\n";
 			blankline = TRUE;
 			rdesc += i + 1;
 
@@ -1826,8 +1825,8 @@ const char *format_string(const char *oldstring)
 
 		if (i) {
 			*(rdesc + i) = 0;
-			strcat(xbuf, rdesc);
-			strcat(xbuf, "\n");
+			xbuf += rdesc;
+			xbuf += "\n";
 			rdesc += i + 1;
 
 			while (*rdesc == ' ')
@@ -1836,8 +1835,8 @@ const char *format_string(const char *oldstring)
 		else {
 			/* means that they have a single word longer than 77 characters, cut it off */
 			*(rdesc + 75) = 0;
-			strcat(xbuf, rdesc);
-			strcat(xbuf, "-\n");
+			xbuf += rdesc;
+			xbuf += "-\n";
 			rdesc += 76;
 		}
 	}
@@ -1849,30 +1848,11 @@ const char *format_string(const char *oldstring)
 		i--;
 
 	*(rdesc + i + 1) = 0;
-	strcat(xbuf, rdesc);
+	xbuf += rdesc;
 
 	if (xbuf[strlen(xbuf) - 2] != '\n')
-		strcat(xbuf, "\n");
+		xbuf += "\n";
 
 //	free_string(oldstring);
 	return xbuf;
 }
-
-const char *string_replace(const char *orig, const char *old, const char *nw)
-{
-	static char xbuf[MAX_STRING_LENGTH];
-	int i;
-	xbuf[0] = '\0';
-	strcpy(xbuf, orig);
-
-	if (strstr(orig, old) != NULL) {
-		i = strlen(orig) - strlen(strstr(orig, old));
-		xbuf[i] = '\0';
-		strcat(xbuf, nw);
-		strcat(xbuf, &orig[i + strlen(old)]);
-//		free_string(orig);
-	}
-
-	return xbuf;
-}
-

@@ -55,9 +55,8 @@ void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 	}
 }
 
-char *affect_print_cache(CHAR_DATA *ch) {
-	static char buf[MSL];
-	buf[0] = '\0';
+String affect_print_cache(CHAR_DATA *ch) {
+	String buf;
 
 	if (ch->affect_cache == NULL)
 		return buf;
@@ -67,10 +66,10 @@ char *affect_print_cache(CHAR_DATA *ch) {
 
 		if (count > 0) {
 			if (buf[0] != '\0')
-				strcat(buf, " ");
+				buf += " ";
 
 			Format::sprintf(buf, "%s%s(%d)", buf, skill_table[sn].name, count);
-//			strcat(str, skill_table[sn].name);
+//			str += skill_table[sn].name;
 		}
 	}
 

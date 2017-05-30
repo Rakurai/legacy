@@ -3382,7 +3382,7 @@ int get_age         args((CHAR_DATA *ch));
 int get_max_hit args((CHAR_DATA *ch));
 int get_max_mana args((CHAR_DATA *ch));
 int get_max_stam args((CHAR_DATA *ch));
-char *print_defense_modifiers args((CHAR_DATA *ch, int where));
+String print_defense_modifiers args((CHAR_DATA *ch, int where));
 int get_unspelled_hitroll    args((CHAR_DATA *ch));
 int get_unspelled_damroll    args((CHAR_DATA *ch));
 int get_unspelled_ac        args((CHAR_DATA *ch, int type));
@@ -3545,7 +3545,7 @@ bool    dispel_char       args(( CHAR_DATA *victim, int level, bool cancellation
 bool    level_save        args(( int dis_level, int save_level));
 
 /* note.c */
-const char *format_string( const char *oldstring );
+String  format_string( const char *oldstring );
 const char * string_replace( const char * orig, const char * old_str, const char * 
 new_str);
 

@@ -563,7 +563,8 @@ void boot_db()
  */
 int  scan_credits(AREA_DATA *pArea)
 {
-	char line[MIL], buf[MIL], keywords[MIL] = "";
+	char line[MIL], buf[MIL];
+	String keywords;
 	char *p, *levels, *author, *title;
 	int nblanks;
 
@@ -620,36 +621,36 @@ int  scan_credits(AREA_DATA *pArea)
 
 	if (!strcmp(levels, "ALL")) {
 		pArea->area_type  = AREA_TYPE_ALL;
-		strcpy(keywords, "ALL ");
+		keywords = "ALL ";
 	}
 	else if (!strcmp(levels, "CLANS") || !strcmp(levels, "CLAN")) {
 		pArea->low_range  = 15; /* min for clan membership */
 		pArea->area_type  = AREA_TYPE_CLAN;
-		strcpy(keywords, "CLAN ");
+		keywords = "CLAN ";
 	}
 	else if (!strcmp(levels, "IMM") || !strcmp(levels, "IMMS")) {
 		pArea->low_range  = LEVEL_IMMORTAL;
 		pArea->high_range = MAX_LEVEL;
 		pArea->area_type  = AREA_TYPE_IMMS;
-		strcpy(keywords, "IMMS ");
+		keywords = "IMMS ";
 	}
 	else if (!strcmp(levels, "HRO") || !strcmp(levels, "HERO")) {
 		pArea->low_range  = LEVEL_HERO;
 		pArea->high_range = MAX_LEVEL;
 		pArea->area_type  = AREA_TYPE_HERO;
-		strcpy(keywords, "HRO HERO ");
+		keywords = "HRO HERO ";
 	}
 	else if (!strcmp(levels, "ARENA")) {
 		pArea->low_range  = 1;
 		pArea->high_range = MAX_LEVEL;
 		pArea->area_type  = AREA_TYPE_ARENA;
-		strcpy(keywords, "ARENA ");
+		keywords = "ARENA ";
 	}
 	else if (!strcmp(levels, "XXX")) {
 		pArea->low_range  = MAX_LEVEL;
 		pArea->high_range = MAX_LEVEL;
 		pArea->area_type  = AREA_TYPE_XXX;
-		strcpy(keywords, "XXX ");
+		keywords = "XXX ";
 	}
 	else if (!isascii(*levels) || !isdigit(*levels)) {
 		Format::sprintf(buf, "scan_credits: Unrecognized level range: '%s'\n", levels);
@@ -659,7 +660,6 @@ int  scan_credits(AREA_DATA *pArea)
 	else {
 		int ilow, ihigh;
 		pArea->area_type = AREA_TYPE_NORM;
-		strcpy(keywords, "");
 		ilow = atoi(levels);
 
 		if (ilow < 0) {
@@ -708,13 +708,13 @@ int  scan_credits(AREA_DATA *pArea)
 	}
 
 	pArea->author = str_dup(author);
-	strcat(keywords, smash_bracket(author));
-	strcat(keywords, " ");
+	keywords += smash_bracket(author);
+	keywords += " ";
 	/*** title is the remainder ***/
 	pArea->title = str_dup(title);
-	strcat(keywords, smash_bracket(title));
+	keywords += smash_bracket(title);
 
-	for (p = keywords; *p; p++) *p = LOWER(*p);
+	for (auto it = keywords.begin(); it != keywords.end(); it++) *it = LOWER(*it);
 
 	pArea->keywords = str_dup(keywords);
 	return pArea->area_type;

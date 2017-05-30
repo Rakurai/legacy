@@ -625,11 +625,10 @@ void do_extraset(CHAR_DATA *ch, String argument)
 
 void do_mset(CHAR_DATA *ch, String argument)
 {
-	char buf[1024];
 	CHAR_DATA *victim;
 	int value;
 
-	String arg1, arg2, arg3;
+	String arg1, arg2, arg3, buf;
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	arg3 = argument;
@@ -976,12 +975,12 @@ void do_mset(CHAR_DATA *ch, String argument)
 
 			for (cls = 0; cls < MAX_CLASS; cls++) {
 				if (cls > 0)
-					strcat(buf, " ");
+					buf += " ";
 
-				strcat(buf, class_table[cls].name);
+				buf += class_table[cls].name;
 			}
 
-			strcat(buf, ".\n");
+			buf += ".\n";
 			stc(buf, ch);
 			return;
 		}
@@ -1588,7 +1587,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		ptc(ch, "Mobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
 	if (!IS_NPC(victim) && victim->pcdata->raffect[0] != 0) {
-		char buf[MAX_STRING_LENGTH];
+		String buf;
 		int raff, id;
 		stc("{VRemort affects{x:\n", ch);
 		id = (raff_lookup(victim->pcdata->raffect[0]));
@@ -1602,14 +1601,14 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 			id = (raff_lookup(victim->pcdata->raffect[raff]));
 
 			if (id == -1)
-				strcat(buf, ", Unknown");
+				buf += ", Unknown";
 			else {
-				strcat(buf, ", ");
-				strcat(buf, raffects[id].shortname);
+				buf += ", ";
+				buf += raffects[id].shortname;
 			}
 		}
 
-		strcat(buf, "\n");
+		buf += "\n";
 		stc(buf, ch);
 	}
 

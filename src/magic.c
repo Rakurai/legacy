@@ -114,7 +114,8 @@ int slot_lookup(int slot)
 /* Utter mystical words for an sn. */
 void say_spell(CHAR_DATA *ch, int sn)
 {
-	char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
+	String buf;
+	char buf2[MAX_STRING_LENGTH];
 	CHAR_DATA *rch;
 	char *pName;
 	int iSyl, length;
@@ -160,7 +161,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 	for (pName = skill_table[sn].name; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++) {
 			if (!str_prefix1(syl_table[iSyl].old, pName)) {
-				strcat(buf, syl_table[iSyl].nw);
+				buf += syl_table[iSyl].nw;
 				break;
 			}
 		}
@@ -3913,7 +3914,7 @@ void spell_holy_word(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	int sp_slot, i, mana;
 
 	/* Don't cast this spell on characters. It cuases memory errors. -- Outsider */
@@ -3988,8 +3989,8 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
-			strcat(buf, skill_table[obj->value[i]].name);
-			(i != sp_slot) ? strcat(buf, ", ") : strcat(buf, "") ;
+			buf += skill_table[obj->value[i]].name;
+			buf += (i != sp_slot) ? ", " : "";
 		}
 
 	obj->short_descr = str_dup(buf);
@@ -3998,8 +3999,8 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
-			strcat(buf, skill_table[obj->value[i]].name);
-			(i != sp_slot) ? strcat(buf, ", ") : strcat(buf, " lies here.\n");
+			buf += skill_table[obj->value[i]].name;
+			buf += (i != sp_slot) ? ", " : " lies here.\n";
 		}
 
 	obj->description = str_dup(buf);
@@ -4008,8 +4009,8 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
-			strcat(buf, " ");
-			strcat(buf, skill_table[obj->value[i]].name);
+			buf += " ";
+			buf += skill_table[obj->value[i]].name;
 		}
 
 	obj->name = str_dup(buf);

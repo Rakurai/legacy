@@ -104,8 +104,7 @@ void do_spells(CHAR_DATA *ch, String argument)
 	int ngroups = 0;
 	struct s_spell_info spell_list[MAX_SKILL];
 	int nspells = 0;
-	String arg;
-	char buf[MAX_INPUT_LENGTH];
+	String arg, buf;
 	int cols = 0;
 	int pos = 18;
 	char spell_name[MAX_INPUT_LENGTH];
@@ -332,12 +331,12 @@ void do_spells(CHAR_DATA *ch, String argument)
 			Format::sprintf(buf, "[{V%3d%% %3d Ma{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
 
 		Format::sprintf(arg, "{C%-1.20s{x", skill_table[sn].name);
-		strcat(buf, arg);
+		buf += arg;
 
 		if (++cols < 2)
 			pos = strlen(arg);
 		else {
-			strcat(buf, "\n");
+			buf += "\n";
 			cols = 0;
 		}
 
@@ -369,7 +368,7 @@ void do_skills(CHAR_DATA *ch, String argument)
 	int j;
 	struct s_spell_info skill_list[MAX_SKILL];
 	int nskills = 0;
-	char buf[MAX_INPUT_LENGTH];
+	String buf;
 	int cols = 0;
 	int pos = 18;
 	char skill_name[MAX_INPUT_LENGTH];
@@ -513,12 +512,12 @@ void do_skills(CHAR_DATA *ch, String argument)
 			Format::sprintf(buf, "[{G%3d%% %3d St{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
 
 		Format::sprintf(arg, "{H%-1.20s{x", skill_table[sn].name);
-		strcat(buf, arg);
+		buf += arg;
 
 		if (++cols < 2)
 			pos = strlen(arg);
 		else {
-			strcat(buf, "\n");
+			buf += "\n";
 			cols = 0;
 		}
 
@@ -537,7 +536,7 @@ void do_skills(CHAR_DATA *ch, String argument)
 /* Levelist by Lotus */
 void do_levels(CHAR_DATA *ch, String argument)
 {
-	char list[LEVEL_HERO][MAX_STRING_LENGTH];
+	String list[LEVEL_HERO];
 	char columns[LEVEL_HERO];
 	int sn, lev, x, y;
 	char buf[MAX_STRING_LENGTH];
@@ -667,9 +666,9 @@ void do_levels(CHAR_DATA *ch, String argument)
 				Format::sprintf(list[lev], "\n{HLevel %2d: %s", lev, buf);
 			else { /* append */
 				if (++columns[lev] % 2 == 0)
-					strcat(list[lev], "\n          ");
+					list[lev] += "\n          ";
 
-				strcat(list[lev], buf);
+				list[lev] += buf;
 			}
 		}
 	}
@@ -702,9 +701,9 @@ void do_levels(CHAR_DATA *ch, String argument)
 				Format::sprintf(list[lev], "\n{HLevel %2d: %s{x", lev, buf);
 			else { /* append */
 				if (++columns[lev] % 2 == 0)
-					strcat(list[lev], "\n          ");
+					list[lev] += "\n          ";
 
-				strcat(list[lev], buf);
+				list[lev] += buf;
 			}
 		}
 	}

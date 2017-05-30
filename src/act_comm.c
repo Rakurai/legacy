@@ -1576,7 +1576,7 @@ Okay, so I just need something to do...
 */
 void do_pet(CHAR_DATA *ch, String argument)
 {
-	char buffer[MIL];
+	String buffer;
 	int index;
 	char letter;
 
@@ -1591,7 +1591,6 @@ void do_pet(CHAR_DATA *ch, String argument)
 	}
 
 	/* Copy first part of pet's name into buffer. */
-	memset(buffer, '\0', MIL);
 	index = 0;
 	letter = ch->pet->name[index];
 
@@ -1602,8 +1601,8 @@ void do_pet(CHAR_DATA *ch, String argument)
 	}
 
 	/* Place order after name. */
-	strcat(buffer, " ");
-	strcat(buffer, argument);
+	buffer += " ";
+	buffer += argument;
 	do_order(ch, buffer);
 	return;
 }

@@ -1095,7 +1095,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 
 		/* battle prompt */
 		if ((victim = ch->fighting) != NULL) {
-			char atb[MSL];
+			String atb;
 
 			if (IS_SET(ch->comm, COMM_ATBPROMPT)) {
 				if (ch->wait > 40)      Format::sprintf(atb, "{B[{C*{T*********{B]{x ");
@@ -1126,7 +1126,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
                                 else                    Format::sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
 
                                 Format::sprintf(buf, "({G%d{x) ", ch->fightpulse);
-                                strcat(atb, buf);
+                                atb += buf;
                         } */
 			else
 				Format::sprintf(atb, "{x");
@@ -1135,24 +1135,24 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				int percent;
 
 				if (IS_NPC(victim))
-					strcat(atb, victim->short_descr);
+					atb += victim->short_descr;
 				else
-					strcat(atb, victim->name);
+					atb += victim->name;
 
 				if (GET_MAX_HIT(victim) > 0)
 					percent = victim->hit * 100 / GET_MAX_HIT(victim);
 				else
 					percent = -1;
 
-				if (percent >= 100)     strcat(atb, " is in excellent condition.");
-				else if (percent >= 90) strcat(atb, " has a few scratches.");
-				else if (percent >= 75) strcat(atb, " has some small wounds and bruises.");
-				else if (percent >= 50) strcat(atb, " has quite a few wounds.");
-				else if (percent >= 30) strcat(atb, " has some big nasty wounds and scratches.");
-				else if (percent >= 15) strcat(atb, " looks pretty hurt.");
-				else if (percent >= 1)  strcat(atb, " is in awful condition.");
-				else if (percent >= 0)  strcat(atb, " will soon be toast!!!");
-				else                    strcat(atb, " is in need of ***SERIOUS*** medical attention!");
+				if (percent >= 100)     atb += " is in excellent condition.";
+				else if (percent >= 90) atb += " has a few scratches.";
+				else if (percent >= 75) atb += " has some small wounds and bruises.";
+				else if (percent >= 50) atb += " has quite a few wounds.";
+				else if (percent >= 30) atb += " has some big nasty wounds and scratches.";
+				else if (percent >= 15) atb += " looks pretty hurt.";
+				else if (percent >= 1)  atb += " is in awful condition.";
+				else if (percent >= 0)  atb += " will soon be toast!!!";
+				else                    atb += " is in need of ***SERIOUS*** medical attention!";
 			}
 
 			ptc(ch, "%s\n", atb);
@@ -1217,7 +1217,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 void bust_a_prompt(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
-	char doors[MAX_INPUT_LENGTH];
+	String doors;
 	const char *str, *i;
 	char *point;
 	EXIT_DATA *pexit;
@@ -1327,14 +1327,14 @@ void bust_a_prompt(CHAR_DATA *ch)
 					found = TRUE;
 
 					if (!IS_SET(pexit->exit_info, EX_CLOSED))
-						strcat(doors, dir_name[door]);
+						doors += dir_name[door];
 					else
-						strcat(doors, dirl_name[door]);
+						doors += dirl_name[door];
 				}
 			}
 
 			if (!found)
-				strcat(doors, "none");
+				doors += "none";
 
 			Format::sprintf(buf2, "%s", doors);
 			i = buf2;
@@ -1637,7 +1637,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 	}
 
 //	*point = '\0';
-//	strcat(buf, "\n");
+//	buf += "\n";
 //	bugf("Sending prompt: '%s', len %d", buf, point - buf+1);
 //	write_to_buffer(ch->desc, "testing", 7);
 	write_to_buffer(ch->desc, buf, point - buf);
@@ -1872,7 +1872,7 @@ void stop_idling(CHAR_DATA *ch)
 
 void process_color(CHAR_DATA *ch, char a)
 {
-	char code[35];
+	String code;
 
 	if (IS_NPC(ch))
 		return;
@@ -1897,10 +1897,10 @@ void process_color(CHAR_DATA *ch, char a)
 		break;
 
 	case 'k':
-		strcpy(code, C_BLACK);
+		code = C_BLACK;
 
 		if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
-			strcpy(code, C_WHITE);
+			code = C_WHITE;
 
 		break;
 
@@ -1949,23 +1949,23 @@ void process_color(CHAR_DATA *ch, char a)
 		break;
 
 	case 'c':
-		strcpy(code, C_B_GREY);
+		code = C_B_GREY;
 
 		if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
-			strcpy(code, C_WHITE);
+			code = C_WHITE;
 
 		break;
 
 	case 'f':
-		strcpy(code, "");
+		code.erase();
 		Format::sprintf(code, C_FLASH);
 
 		if (ch->pcdata) {
 			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_OFF))
-				strcpy(code, "");
+				code.erase();
 
 			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE))
-				strcat(code, C_UNDERLINE);
+				code += C_UNDERLINE;
 		}
 
 		break;
@@ -2007,7 +2007,7 @@ void process_color(CHAR_DATA *ch, char a)
 		break;
 
 	case '{':
-		strcpy(code, "{");
+		code = "{";
 		break;
 
 	default:

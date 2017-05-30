@@ -572,17 +572,16 @@ void config_immortal(CHAR_DATA *ch, String argument)
 			stc("Your immname has been removed.\n", ch);
 		}
 		else {
-			char buf[MIL];
-			strcpy(buf, smash_bracket(argument));
+			String buf = smash_bracket(argument);
 
 			if (strlen(buf) > TITLEBLOCK)
 				stc("Your immname can be no longer than 13 printed characters.\n", ch);
 			else {
 				free_string(ch->pcdata->immname);
 				buf[0]  = '\0';
-				strcat(buf, "{W[{x");
-				strcat(buf, center_string_in_whitespace(argument, TITLEBLOCK));
-				strcat(buf, "{W]{x");
+				buf += "{W[{x";
+				buf += center_string_in_whitespace(argument, TITLEBLOCK);
+				buf += "{W]{x";
 				ch->pcdata->immname = str_dup(buf);
 				ptc(ch, "Your immname is now: %s{x\n", ch->pcdata->immname);
 			}

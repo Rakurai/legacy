@@ -247,7 +247,7 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 void do_vlist(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char totalbuf[MAX_STRING_LENGTH];
+	String totalbuf;
 	BUFFER *buffer;
 	int vnum, begvnum, endvnum;
 	MOB_INDEX_DATA *mobile;
@@ -304,7 +304,7 @@ void do_vlist(CHAR_DATA *ch, String argument)
 			Format::sprintf(buf, "%s%*s", mobile->short_descr,
 			        30 - color_strlen(mobile->short_descr), " ");
 			/* Format::sprintf(buf, "%-30s ",mobile->short_descr); Color corrected -- Elrac */
-			strcat(totalbuf, buf);
+			totalbuf += buf;
 			found = TRUE;
 			foundmobile = TRUE;
 			printed = TRUE;
@@ -320,21 +320,21 @@ void do_vlist(CHAR_DATA *ch, String argument)
 			else
 				Format::sprintf(buf, "NONE                          %s", object->short_descr);
 
-			strcat(totalbuf, buf);
+			totalbuf += buf;
 			found = TRUE;
 			printed = TRUE;
 			founddata = TRUE;
 		}
 		else if (foundmobile) {
 			Format::sprintf(buf, "NONE");
-			strcat(totalbuf, buf);
+			totalbuf += buf;
 		}
 		/* error check */
 //		else
 //			bug("Error in getting object index in do_vlist().", 0);
 
 		if (found) {
-			strcat(totalbuf, "\n");
+			totalbuf += "\n";
 			add_buf(buffer, totalbuf);
 		}
 	}

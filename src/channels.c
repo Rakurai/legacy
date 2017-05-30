@@ -1438,7 +1438,8 @@ void do_pmote(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 	const char *letter, *name;
-	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
+	char last[MAX_INPUT_LENGTH];
+	String temp;
 	unsigned int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
@@ -1462,14 +1463,14 @@ void do_pmote(CHAR_DATA *ch, String argument)
 			continue;
 		}
 
-		strcpy(temp, argument);
+		temp = argument;
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name.c_str();
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strcat(temp, "r");
+				temp += "r";
 				continue;
 			}
 
@@ -1486,7 +1487,7 @@ void do_pmote(CHAR_DATA *ch, String argument)
 				name++;
 
 				if (matches == strlen(vch->name)) {
-					strcat(temp, "you");
+					temp += "you";
 					last[0] = '\0';
 					name = vch->name.c_str();
 					continue;
@@ -1497,8 +1498,8 @@ void do_pmote(CHAR_DATA *ch, String argument)
 			}
 
 			matches = 0;
-			strcat(temp, last);
-			strncat(temp, letter, 1);
+			temp += last;
+			temp += letter[0];
 			last[0] = '\0';
 			name = vch->name.c_str();
 		}
@@ -1513,7 +1514,8 @@ void do_smote(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *vch;
 	const char *letter, *name;
-	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
+	char last[MAX_INPUT_LENGTH];
+	String temp;
 	unsigned int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOCHANNELS)) {
@@ -1544,14 +1546,14 @@ void do_smote(CHAR_DATA *ch, String argument)
 			continue;
 		}
 
-		strcpy(temp, argument);
+		temp = argument;
 		temp[strlen(argument) - strlen(letter)] = '\0';
 		last[0] = '\0';
 		name = vch->name.c_str();
 
 		for (; *letter != '\0'; letter++) {
 			if (*letter == '\'' && matches == strlen(vch->name)) {
-				strcat(temp, "r");
+				temp += "r";
 				continue;
 			}
 
@@ -1568,7 +1570,7 @@ void do_smote(CHAR_DATA *ch, String argument)
 				name++;
 
 				if (matches == strlen(vch->name)) {
-					strcat(temp, "you");
+					temp += "you";
 					last[0] = '\0';
 					name = vch->name.c_str();
 					continue;
@@ -1579,8 +1581,8 @@ void do_smote(CHAR_DATA *ch, String argument)
 			}
 
 			matches = 0;
-			strcat(temp, last);
-			strncat(temp, letter, 1);
+			temp += last;
+			temp += letter[0];
 			last[0] = '\0';
 			name = vch->name.c_str();
 		}

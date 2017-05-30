@@ -102,7 +102,8 @@ void do_allsave(CHAR_DATA *ch, String argument)
 
 void do_alternate(CHAR_DATA *ch, String argument)
 {
-	char query[MSL], colorsite[MSL], *p, *q;
+	String query;
+	char colorsite[MSL], *p, *q;
 	BUFFER *output;
 	int sorted_count = 0, i;
 	struct alts {
@@ -136,8 +137,8 @@ void do_alternate(CHAR_DATA *ch, String argument)
 		   this instead of simply selecting only log entries up to
 		   a year old so that if the person has not logged on in the
 		   last year, we still get a result.  -- Montrey */
-		strcpy(query, "SELECT name, site, (DATE() - lastlog) FROM sites "
-		       "WHERE site LIKE '");
+		query = "SELECT name, site, (DATE() - lastlog) FROM sites "
+		       "WHERE site LIKE '";
 
 		if (*p == '*') {
 			prefix = TRUE;
@@ -154,14 +155,14 @@ void do_alternate(CHAR_DATA *ch, String argument)
 		Format::sprintf(colorsite, "{Y%s{W", p);
 
 		if (prefix)
-			strcat(query, "\%");
+			query += "\%";
 
-		strcat(query, p);
+		query += p;
 
 		if (suffix)
-			strcat(query, "\%");
+			query += "\%";
 
-		strcat(query, "' ORDER BY name, (DATE() - lastlog)");
+		query += "' ORDER BY name, (DATE() - lastlog)";
 		bug(query, 0);
 
 		if (db_query("do_alternate", query) != SQL_OK)
@@ -234,9 +235,9 @@ void do_alternate(CHAR_DATA *ch, String argument)
 			Format::sprintf(query, "SELECT name, site FROM sites WHERE ");
 
 			if (!old_char)
-				strcat(query, "lastlog >= DATE('now', '-1 year') AND ");
+				query += "lastlog >= DATE('now', '-1 year') AND ";
 
-			strcat(query, "ssite='%s'");
+			query += "ssite='%s'";
 
 			if (db_queryf("do_alternate", query, db_esc(sitelist[i].ssite)) != SQL_OK)
 				return;
@@ -1336,18 +1337,17 @@ void do_file(CHAR_DATA *ch, String argument)
 
 void do_followerlist(CHAR_DATA *ch, String argument)
 {
-	char query[MSL];
-	String deity;
+	String query, deity;
 
 	if (argument.empty())
 		deity = ch->name;
 	else
 		one_argument(argument, deity);
 
-	strcpy(query, "SELECT name, deity FROM pc_index WHERE deity_nocol LIKE '");
-	strcat(query, "%");
-	strcat(query, deity);
-	strcat(query, "%'");
+	query = "SELECT name, deity FROM pc_index WHERE deity_nocol LIKE '";
+	query += "%";
+	query += deity;
+	query += "%'";
 
 	if (db_query("do_followerlist", query) != SQL_OK)
 		return;
@@ -1359,14 +1359,13 @@ void do_followerlist(CHAR_DATA *ch, String argument)
 	int count = 0;
 	while (db_next_row() == SQL_OK) {
 		count++;
-		char deityblock[MSL];
 		int space = 50 - color_strlen(db_get_column_str(1));
-		strcpy(deityblock, "{W");
+		String deityblock = "{W";
 
 		while (space-- >= 0)
-			strcat(deityblock, " ");
+			deityblock += " ";
 
-		strcat(deityblock, db_get_column_str(1));
+		deityblock += db_get_column_str(1);
 		ptb(buffer, "{G[{W%12s{G][%s{G]{x\n", db_get_column_str(0), deityblock);
 	}
 
@@ -1656,7 +1655,7 @@ void do_grouplist(CHAR_DATA *ch, String argument)
 	CHAR_DATA *victim;
 	bool dupe;
 	int counter = 0;
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 
 	/* loop over all players, looking for leaders.
 	   we don't find the leaders directly, we get pointers to them
@@ -1699,12 +1698,12 @@ void do_grouplist(CHAR_DATA *ch, String argument)
 			if (victim != NULL
 			    && victim->leader != victim
 			    && victim->leader == curnode->leader) {
-				strcat(buf, " ");
-				strcat(buf, victim->name);
+				buf += " ";
+				buf += victim->name;
 			}
 		}
 
-		strcat(buf, "\n");
+		buf += "\n";
 		stc(buf, ch);
 	}
 
@@ -2445,7 +2444,7 @@ void do_mlevel(CHAR_DATA *ch, String argument)
 
 void do_motd(CHAR_DATA *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 
 	if (!argument.empty()) {
 		buf[0] = '\0';
@@ -2466,7 +2465,7 @@ void do_motd(CHAR_DATA *ch, String argument)
 				return;
 			}
 
-			strcpy(buf, time_info.motd);
+			buf = time_info.motd;
 
 			for (len = strlen(buf); len > 0; len--) {
 				if (buf[len] == '\n') {
@@ -2499,7 +2498,7 @@ void do_motd(CHAR_DATA *ch, String argument)
 
 		if (argument[0] == '+') {
 			if (time_info.motd != NULL)
-				strcat(buf, time_info.motd);
+				buf += time_info.motd;
 
 			argument = argument.substr(1).lstrip();
 		}
@@ -2509,8 +2508,8 @@ void do_motd(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		strcat(buf, argument);
-		strcat(buf, "\n");
+		buf += argument;
+		buf += "\n";
 		free_string(time_info.motd);
 		time_info.motd = str_dup(buf);
 	}

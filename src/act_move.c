@@ -1740,7 +1740,7 @@ void recall(CHAR_DATA *ch, bool clan)
 
 void do_train(CHAR_DATA *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	CHAR_DATA *mob;
 	sh_int stat = - 1;
 	char *pOutput = NULL;
@@ -1819,27 +1819,27 @@ void do_train(CHAR_DATA *ch, String argument)
 	else if (!str_cmp(argument, "stamina"))
 		cost = 1;
 	else {
-		strcpy(buf, "You can train:");
+		buf = "You can train:";
 
 		if (ATTR_BASE(ch, APPLY_STR) < get_max_train(ch, STAT_STR))
-			strcat(buf, " str");
+			buf += " str";
 
 		if (ATTR_BASE(ch, APPLY_INT) < get_max_train(ch, STAT_INT))
-			strcat(buf, " int");
+			buf += " int";
 
 		if (ATTR_BASE(ch, APPLY_WIS) < get_max_train(ch, STAT_WIS))
-			strcat(buf, " wis");
+			buf += " wis";
 
 		if (ATTR_BASE(ch, APPLY_DEX) < get_max_train(ch, STAT_DEX))
-			strcat(buf, " dex");
+			buf += " dex";
 
 		if (ATTR_BASE(ch, APPLY_CON) < get_max_train(ch, STAT_CON))
-			strcat(buf, " con");
+			buf += " con";
 
 		if (ATTR_BASE(ch, APPLY_CHR) < get_max_train(ch, STAT_CHR))
-			strcat(buf, " chr");
+			buf += " chr";
 
-		strcat(buf, " hp mana stamina.\n");
+		buf += " hp mana stamina.\n";
 		stc(buf, ch);
 		return;
 	}
