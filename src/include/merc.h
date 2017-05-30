@@ -479,8 +479,7 @@ struct  descriptor_data
     int                 outtop;
     int                 port;
     int                 ip;
-    char *              showstr_head;
-    char *              showstr_point;
+    String              showstr_head;
     sh_int              timer;
 };
 
@@ -3267,13 +3266,13 @@ void    substitute_alias args( (DESCRIPTOR_DATA *d, const char *input) );
 void    find_money      args( ( CHAR_DATA *ch ) );
 
 /* comm.c */
-void    show_string     args( ( struct descriptor_data *d, const char *input) );
+void    show_string     args( ( struct descriptor_data *d, const String& input) );
 void    close_socket    args( ( DESCRIPTOR_DATA *dclose ) );
 void	cwtb		args((DESCRIPTOR_DATA *d, const char *txt));
 void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const String& txt,
                             int length ) );
 void    stc    args( ( const String& txt, CHAR_DATA *ch ) );
-void    page_to_char    args( ( char *txt, CHAR_DATA *ch ) );
+void    page_to_char    args( ( const String& txt, CHAR_DATA *ch ) );
 
 /* nanny.c */
 void	update_pc_index		args((CHAR_DATA *ch, bool remove));

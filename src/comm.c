@@ -589,7 +589,7 @@ void game_loop_unix(int control)
 				tempbuf = str_dup(d->incomm);
 				command2 = get_multi_command(d, d->incomm);
 
-				if (d->showstr_point)
+				if (!d->showstr_head.empty())
 					show_string(d, tempbuf);
 				else if (d->connected == CON_PLAYING) {
 					if (d->character == NULL) {
@@ -1086,7 +1086,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Bust a prompt.
 	 */
-	if (!merc_down && d->showstr_point)
+	if (!merc_down && !d->showstr_head.empty())
 		write_to_buffer(d, "[Hit Enter to continue]\n", 0);
 	else if (fPrompt && !merc_down && IS_PLAYING(d)) {
 		CHAR_DATA *ch;
@@ -2066,100 +2066,43 @@ void stc(const String& txt, CHAR_DATA *ch)
 /*
  * Send a page to one char.
  */
-void page_to_char(char *txt, CHAR_DATA *ch)
+void page_to_char(const String& txt, CHAR_DATA *ch)
 {
-	if (txt == NULL /*|| ch->desc == NULL (this is screwing up doas, we'll trust the caller*/)
+	if (txt.empty() || ch->desc == NULL)
 		return;
 
-	/* The old method - Lotus
-	    ch->desc->showstr_head = alloc_mem(strlen(txt) + 1);
-	    strcpy(ch->desc->showstr_head,txt);
-	    ch->desc->showstr_point = ch->desc->showstr_head;
-	    show_string(ch->desc,"");
-	*/
-	if (ch->desc->showstr_head &&
-	    (strlen(txt) + strlen(ch->desc->showstr_head) + 1) < 32000) {
-		char *temp = (char *)alloc_mem(strlen(txt) + strlen(ch->desc->showstr_head) 
-+ 1);
-		strcpy(temp, ch->desc->showstr_head);
-		strcat(temp, txt);
-		ch->desc->showstr_point = temp +
-		                          (ch->desc->showstr_point - ch->desc->showstr_head);
-		free_mem(ch->desc->showstr_head, strlen(ch->desc->showstr_head) + 1);
-		ch->desc->showstr_head = temp;
-	}
-	else {
-		if (ch->desc->showstr_head)
-			free_mem(ch->desc->showstr_head, strlen(ch->desc->showstr_head) + 1);
-
-		ch->desc->showstr_head = (char *)alloc_mem(strlen(txt) + 1);
-		strcpy(ch->desc->showstr_head, txt);
-		ch->desc->showstr_point = ch->desc->showstr_head;
-		show_string(ch->desc, "");
-	}
+	ch->desc->showstr_head += txt;
+	show_string(ch->desc, "");
 }
 
 /* string pager */
-void show_string(struct descriptor_data *d, const char *input)
+void show_string(struct descriptor_data *d, const String& input)
 {
-	char buffer[4 * MAX_STRING_LENGTH];
-	char *scan, *chk;
-	int lines = 0, toggle = 1;
-	int show_lines;
-
-	// get the first word from the input
-	String buf;
-	one_argument(input, buf);
-
-	// if nothing, done paging output, clear the remainders
-	if (buf[0] != '\0') {
-		if (d->showstr_head) {
-			free_string(d->showstr_head);
-			d->showstr_head = 0;
-		}
-
-		d->showstr_point  = 0;
+	// if not nothing, done paging output, clear the remainders
+	if (!input.empty()) {
+		d->showstr_head.erase();
 		return;
 	}
 
+	int break_pos;
+
 	// how many lines per page?
-	if (d->character)
-		show_lines = d->character->lines;
+	if (d->character) {
+		break_pos = d->showstr_head.find_nth(d->character->lines, '\n');
+
+		if (break_pos == std::string::npos)
+			break_pos = d->showstr_head.size()-1;
+	}
 	else
-		show_lines = 0;
+		break_pos = d->showstr_head.size()-1;
 
-    for (scan = buffer; ; scan++, d->showstr_point++)
-    {
-        if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
-            && (toggle = -toggle) < 0)
-            lines++;
+	String page = d->showstr_head.substr(0, break_pos);
+	d->showstr_head.erase(0, break_pos+1);
 
-        else if (!*scan || (show_lines > 0 && lines >= show_lines))
-        {
-            *scan = '\0';
-            if (d-> character)
-                stc (buffer, d-> character);
-            else
-            write_to_buffer(d,buffer,strlen(buffer));
-            for (chk = d->showstr_point; isspace(*chk); chk++);
-/*
- ... there is a semicolon at the end of this for loop, making it empty and giving a compile warning.
- is it a bug?  masking a bug?  remove it later and find out -- Montrey
-*/
-            {
-                if (!*chk)
-                {
-                    if (d->showstr_head)
-                    {
-                        free_string(d->showstr_head);
-                        d->showstr_head = 0;
-                    }
-                    d->showstr_point  = 0;
-                }
-            }
-            return;
-        }
-    }
+	if (d->character)
+		stc(page, d->character);
+	else
+		write_to_buffer(d, page, page.size());
 } /* end show_string() */
 
 char *get_multi_command(DESCRIPTOR_DATA *d, const char *argument)
