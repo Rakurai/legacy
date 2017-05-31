@@ -4719,13 +4719,13 @@ void do_auction(CHAR_DATA *ch, String argument)
 String anvil_owner_name(OBJ_DATA *anvil)
 {
 	/* check if private anvil */
-	if (anvil->value[2] == 0) return NULL;
+	if (anvil->value[2] == 0) return "";
 
 	/* anvil name must begin with "anvil private " */
 	if (str_prefix1("anvil private ", anvil->name)) {
 		bug("anvil_owner_name: anvil %d has a private flag but incorrect name",
 		    anvil->pIndexData->vnum);
-		return NULL;
+		return "";
 	}
 
 	return anvil->name.substr(strlen("anvil private "));

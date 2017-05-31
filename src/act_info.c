@@ -4521,7 +4521,7 @@ void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, cha
 void do_gamein(CHAR_DATA *ch, String argument)
 {
 	if (!IS_IMMORTAL(ch) || argument.empty())
-		gameinout(ch, NULL, "entry", 'I');
+		gameinout(ch, "", "entry", 'I');
 	else
 		gameinout(ch, argument, "entry", 'I');
 } /* end do_gamein() */
@@ -4529,7 +4529,7 @@ void do_gamein(CHAR_DATA *ch, String argument)
 void do_gameout(CHAR_DATA *ch, String argument)
 {
 	if (!IS_IMMORTAL(ch) || argument.empty())
-		gameinout(ch, NULL, "exit", 'O');
+		gameinout(ch, "", "exit", 'O');
 	else
 		gameinout(ch, argument, "exit", 'O');
 } /* end do_gameout() */

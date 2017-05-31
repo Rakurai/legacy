@@ -157,7 +157,7 @@ void load_songs(void)
 
 		if (letter == '#') {
 			if (count < MAX_SONGS)
-				song_table[count].name = NULL;
+				song_table[count].name = "";
 
 			fclose(fp);
 			return;

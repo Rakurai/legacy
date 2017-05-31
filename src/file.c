@@ -212,7 +212,7 @@ String fread_word(FILE *fp)
 
 	bug("Fread_word: word too long.", 0);
 //	exit(1);
-	return NULL;
+	return "";
 }
 
 /* Append a string to a file */

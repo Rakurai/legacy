@@ -384,7 +384,7 @@ void boot_db()
 		lmonth          = lday   / MUD_MONTH;
 		time_info.month = lmonth % MUD_YEAR;
 		time_info.year  = lmonth / MUD_YEAR;
-		time_info.motd  = NULL;
+		time_info.motd  = "";
 
 		if (time_info.hour <  5)   weather_info.sunlight = SUN_DARK;
 		else if (time_info.hour <  6)   weather_info.sunlight = SUN_RISE;

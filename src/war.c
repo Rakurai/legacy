@@ -540,7 +540,7 @@ void war_power_adjust(CLAN_DATA *vclan, bool surrender)
 
 		for (war = war_table_head->next; war != war_table_tail; war = war->next)
 			if (war->ongoing && clan_in_war(vclan, war, TRUE))
-				rec_event(war, EVENT_CLAN_WIPEOUT, vclan->clanname, NULL, 0);
+				rec_event(war, EVENT_CLAN_WIPEOUT, vclan->clanname, "", 0);
 
 		Format::sprintf(buf, "[FYI] %s has been wiped out!", vclan->clanname);
 
@@ -715,7 +715,7 @@ WAR_DATA *war_start(CLAN_DATA *chal, CLAN_DATA *def)
 	war->def[0]->start_score        = def->score;
 	war->def[0]->final_score        = 0;
 	war->ongoing                    = TRUE;
-	rec_event(war, EVENT_WAR_START, NULL, NULL, 0);
+	rec_event(war, EVENT_WAR_START, "", "", 0);
 	append_war(war);
 	return war;
 }
@@ -751,7 +751,7 @@ void war_stop(WAR_DATA *war)
 
 void war_win(WAR_DATA *war, CHAR_DATA *ch)
 {
-	rec_event(war, EVENT_WAR_STOP_WIN, NULL, NULL, clan_is_challenger(ch->clan, war));
+	rec_event(war, EVENT_WAR_STOP_WIN, "", "", clan_is_challenger(ch->clan, war));
 	war_stop(war);
 }
 
@@ -1262,7 +1262,7 @@ void do_war(CHAR_DATA *ch, String argument)
 		}
 
 		war_join(clanA, war, challenger);
-		rec_event(war, EVENT_WAR_JOIN, clanA->clanname, NULL, challenger);
+		rec_event(war, EVENT_WAR_JOIN, clanA->clanname, "", challenger);
 		save_clan_table();
 		save_war_table();
 		ptc(ch, "%s is now a %s in War %d.\n",
@@ -1384,7 +1384,7 @@ void do_war(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		rec_event(war, EVENT_WAR_STOP_IMM, NULL, NULL, 0);
+		rec_event(war, EVENT_WAR_STOP_IMM, "", "", 0);
 		war_stop(war);
 		save_clan_table();
 		save_war_table();
