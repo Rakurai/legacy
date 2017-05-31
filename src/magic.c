@@ -1835,22 +1835,21 @@ void spell_control_weather(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *food = NULL;
-	char *type;
 	char buf[MAX_STRING_LENGTH];
 	EXTRA_DESCR_DATA *ed;
-	type = str_dup(target_name);
+	String type = target_name;
 
 	if (target_name[0] == '\0') {
 		switch (number_range(0, 4)) {
-		case 0: type = str_dup("a Magic Mushroom");             break;
+		case 0: type = "a Magic Mushroom";             break;
 
-		case 1: type = str_dup("a Slice of Pizza");             break;
+		case 1: type = "a Slice of Pizza";             break;
 
-		case 2: type = str_dup("a slice of burnt toast");       break;
+		case 2: type = "a slice of burnt toast";       break;
 
-		case 3: type = str_dup("a delicious {Ycheesestick{x");  break;
+		case 3: type = "a delicious {Ycheesestick{x";  break;
 
-		case 4: type = str_dup("a can of SPAM!!!");             break;
+		case 4: type = "a can of SPAM!!!";             break;
 		}
 	}
 

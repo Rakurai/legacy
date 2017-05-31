@@ -873,7 +873,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	mob->form               = pMobIndex->form;
 	mob->parts              = pMobIndex->parts;
 	mob->size               = pMobIndex->size;
-	mob->material           = str_dup(pMobIndex->material);
+	mob->material           = pMobIndex->material;
 
 	/* computed on the spot */
 	for (int stat = 0; stat < MAX_STATS; stat++)
@@ -960,13 +960,13 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 		return;
 
 	/* start fixing values */
-	clone->name         = str_dup(parent->name);
-	clone->short_descr  = str_dup(parent->short_descr);
-	clone->long_descr   = str_dup(parent->long_descr);
-	clone->description  = str_dup(parent->description);
-	clone->material     = str_dup(parent->material);
-	clone->prefix     = str_dup(parent->prefix);
-	clone->prompt     = str_dup(parent->prompt);
+	clone->name         = parent->name;
+	clone->short_descr  = parent->short_descr;
+	clone->long_descr   = parent->long_descr;
+	clone->description  = parent->description;
+	clone->material     = parent->material;
+	clone->prefix     = parent->prefix;
+	clone->prompt     = parent->prompt;
 
 	for (int i = 1; i < MAX_ATTR; i++)
 		ATTR_BASE(clone, i) = ATTR_BASE(parent, i);
@@ -1054,10 +1054,10 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	obj->pIndexData     = pObjIndex;
 	obj->level          = pObjIndex->level;
 	obj->wear_loc       = -1;
-	obj->name           = str_dup(pObjIndex->name);
-	obj->short_descr    = str_dup(pObjIndex->short_descr);
-	obj->description    = str_dup(pObjIndex->description);
-	obj->material       = str_dup(pObjIndex->material);
+	obj->name           = pObjIndex->name;
+	obj->short_descr    = pObjIndex->short_descr;
+	obj->description    = pObjIndex->description;
+	obj->material       = pObjIndex->material;
 	obj->condition      = pObjIndex->condition;
 	obj->item_type      = pObjIndex->item_type;
 	obj->extra_flags    = pObjIndex->extra_flags;
@@ -1146,9 +1146,9 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 		return;
 
 	/* start fixing the object */
-	clone->name         = str_dup(parent->name);
-	clone->short_descr  = str_dup(parent->short_descr);
-	clone->description  = str_dup(parent->description);
+	clone->name         = parent->name;
+	clone->short_descr  = parent->short_descr;
+	clone->description  = parent->description;
 	clone->item_type    = parent->item_type;
 	clone->extra_flags  = parent->extra_flags;
 	clone->wear_flags   = parent->wear_flags;
@@ -1156,7 +1156,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->cost         = parent->cost;
 	clone->level        = parent->level;
 	clone->condition    = parent->condition;
-	clone->material     = str_dup(parent->material);
+	clone->material     = parent->material;
 	clone->timer        = parent->timer;
 
 	for (i = 0;  i < 5; i ++)
@@ -1171,8 +1171,8 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	/* extended desc */
 	for (ed = parent->extra_descr; ed != NULL; ed = ed->next) {
 		ed_new                  = new_extra_descr();
-		ed_new->keyword         = str_dup(ed->keyword);
-		ed_new->description     = str_dup(ed->description);
+		ed_new->keyword         = ed->keyword;
+		ed_new->description     = ed->description;
 		ed_new->next            = clone->extra_descr;
 		clone->extra_descr      = ed_new;
 	}

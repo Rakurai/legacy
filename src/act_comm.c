@@ -1942,6 +1942,6 @@ void do_outfit(CHAR_DATA *ch, String argument)
 	}
 
 	ptc(ch, "You have been equipped by %s.\n",
-	    ch->pcdata->deity[0] ? str_dup(ch->pcdata->deity) : "Alisa");
+	    !ch->pcdata->deity.empty() ? ch->pcdata->deity : "Alisa");
 }
 

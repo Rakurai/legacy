@@ -2549,7 +2549,7 @@ void make_corpse(CHAR_DATA *ch)
 
 		corpse->timer   = number_range(25, 40);
 		REMOVE_BIT(ch->act, PLR_CANLOOT);
-		corpse->owner = str_dup(ch->name);
+		corpse->owner = ch->name;
 		/* Corpse Looting - Taken Out
 		corpse->owner = NULL;
 

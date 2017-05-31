@@ -283,16 +283,16 @@ void do_cedit(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		new_clan->name = str_dup(clanname);
-		new_clan->who_name = str_dup("         ");
+		new_clan->name = clanname;
+		new_clan->who_name = "         ";
 		new_clan->hall = 3001;
 		new_clan->area_minvnum = 0;
 		new_clan->area_maxvnum = 0;
 		new_clan->independent = FALSE;
 		new_clan->clanqp = 0;
 		new_clan->gold_balance = 1000;
-		new_clan->clanname = str_dup("");
-		new_clan->creator = str_dup("");
+		new_clan->clanname = "";
+		new_clan->creator = "";
 		new_clan->score = 0;
 		new_clan->warcpmod = 0;
 		append_clan(new_clan);

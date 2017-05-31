@@ -30,10 +30,6 @@ char *str_dup(const char *str)
 	return str_new;
 }
 
-char *str_dup(const String& str) {
-	return str_dup(str.data());
-}
-
 /*
  * Free a string.
  * Null is legal here to simplify callers.

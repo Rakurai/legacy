@@ -478,7 +478,7 @@ void note_attach(CHAR_DATA *ch, int type)
 		return;
 
 	pnote = new_note();
-	pnote->sender       = str_dup(IS_NPC(ch) ? ch->short_descr : ch->name);
+	pnote->sender       = IS_NPC(ch) ? ch->short_descr : ch->name;
 	pnote->type         = type;
 	ch->pnote           = pnote;
 	return;
@@ -505,7 +505,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 
 		/* Just a simple recipient removal? */
 		if (str_cmp(ch->name, pnote->sender) && !to_new.empty()) {
-			pnote->to_list = str_dup(to_new.substr(1));
+			pnote->to_list = to_new.substr(1);
 			return;
 		}
 	}
@@ -902,17 +902,17 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				newnote = new_note();
-				newnote->sender   = str_dup(pnote->sender);
-				newnote->date     = str_dup(pnote->date);
+				newnote->sender   = pnote->sender;
+				newnote->date     = pnote->date;
 				newnote->date_stamp           = current_time;
-				newnote->to_list  = str_dup(forward);
+				newnote->to_list  = forward;
 				/* is_note_to relies on the text before the forwarding person's name
 				   to be 14 characters, including color codes.  change it if you
 				   change this!  the smash_bracket is to assure there's no color
 				   codes in their name, even though mobs can't forward -- Montrey */
 				Format::sprintf(buf, "{VFORWARD{W({V%s{W){x: %s", smash_bracket(ch->name), pnote->subject);
-				newnote->subject  = str_dup(buf);
-				newnote->text     = str_dup(pnote->text);
+				newnote->subject  = buf;
+				newnote->text     = pnote->text;
 				newnote->type     = pnote->type;
 				append_note(newnote);
 				stc("Note Forwarded.\n", ch);
@@ -940,14 +940,14 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				newnote = new_note();
-				newnote->sender   = str_dup(pnote->sender);
-				newnote->date     = str_dup(pnote->date);
+				newnote->sender   = pnote->sender;
+				newnote->date     = pnote->date;
 				newnote->date_stamp           = current_time;
-				newnote->to_list  = str_dup("Immortal");
+				newnote->to_list  = "Immortal";
 				Format::sprintf(buf, "{PIMM REPOST{W({P%s{W){x: %s", ch->name,
 				        pnote->subject);
-				newnote->subject  = str_dup(buf);
-				newnote->text     = str_dup(pnote->text);
+				newnote->subject  = buf;
+				newnote->text     = pnote->text;
 				newnote->type     = pnote->type;
 				append_note(newnote);
 				note_remove(ch, pnote, TRUE);
@@ -1079,12 +1079,12 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 
 		/* copy message to new list */
 		newnote                 = new_note();
-		newnote->sender         = str_dup(pnote->sender);
-		newnote->date           = str_dup(pnote->date);
+		newnote->sender         = pnote->sender;
+		newnote->date           = pnote->date;
 		newnote->date_stamp     = current_time;
-		newnote->to_list        = str_dup(pnote->to_list);
-		newnote->subject        = str_dup(pnote->subject);
-		newnote->text           = str_dup(pnote->text);
+		newnote->to_list        = pnote->to_list;
+		newnote->subject        = pnote->subject;
+		newnote->text           = pnote->text;
 		newnote->type           = newtype;
 		append_note(newnote);
 		note_remove(ch, pnote, TRUE);

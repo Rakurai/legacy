@@ -45,7 +45,7 @@
 #endif
 
 void insert_social(struct social_type *);
-void remove_social(char *);
+void remove_social(const String&);
 int count_socials();
 
 int maxSocial;
@@ -56,7 +56,7 @@ struct social_type *social_table_tail;     /* and social table */
 
 void load_social(FILE *fp, struct social_type *social)
 {
-	strcpy(social->name, fread_string(fp));
+	social->name =          fread_string(fp);
 	social->char_no_arg =   fread_string(fp);
 	social->others_no_arg = fread_string(fp);
 	social->char_found =    fread_string(fp);
@@ -133,7 +133,7 @@ void insert_social(struct social_type *s)
  * May 9th by Clerve.
  * Removing a social
  */
-void remove_social(char *name)
+void remove_social(const String& name)
 {
 	struct social_type *iterator;
 
@@ -284,14 +284,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			}
 		}
 
-		strcpy(new_social->name, str_dup(social));
-		new_social->char_no_arg = str_dup("");
-		new_social->others_no_arg = str_dup("");
-		new_social->char_found = str_dup("");
-		new_social->others_found = str_dup("");
-		new_social->vict_found = str_dup("");
-		new_social->char_auto = str_dup("");
-		new_social->others_auto = str_dup("");
+		new_social->name = social;
 		insert_social(new_social);
 		stc("New social added.\n", ch);
 	}
@@ -316,7 +309,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			}
 		}
 
-		strcpy(new_social->name, str_dup(argument));
+		new_social->name                = argument;
 		new_social->char_no_arg         = iSocial->char_no_arg;
 		new_social->others_no_arg       = iSocial->others_no_arg;
 		new_social->char_found          = iSocial->char_found;

@@ -2447,11 +2447,8 @@ void do_motd(CHAR_DATA *ch, String argument)
 	String buf;
 
 	if (!argument.empty()) {
-		buf[0] = '\0';
-
 		if (!str_cmp(argument, "clear")) {
-			free_string(time_info.motd);
-			time_info.motd = str_dup(buf);
+			time_info.motd.erase();
 			stc("MOTD cleared.\n", ch);
 			return;
 		}
@@ -2477,11 +2474,10 @@ void do_motd(CHAR_DATA *ch, String argument)
 					}
 					else { /* found the second one */
 						buf[len + 1] = '\0';
-						free_string(time_info.motd);
-						time_info.motd = str_dup(buf);
+						time_info.motd = buf;
 						set_color(ch, GREEN, NOBOLD);
 						stc("The MOTD is:\n", ch);
-						stc(time_info.motd ? time_info.motd :
+						stc(!time_info.motd.empty() ? time_info.motd :
 						    "(None).\n", ch);
 						set_color(ch, WHITE, NOBOLD);
 						return;
@@ -2490,16 +2486,13 @@ void do_motd(CHAR_DATA *ch, String argument)
 			}
 
 			buf[0] = '\0';
-			free_string(time_info.motd);
-			time_info.motd = str_dup(buf);
+			time_info.motd.erase();
 			stc("MOTD cleared.\n", ch);
 			return;
 		}
 
 		if (argument[0] == '+') {
-			if (time_info.motd != NULL)
-				buf += time_info.motd;
-
+			buf += time_info.motd;
 			argument = argument.substr(1).lstrip();
 		}
 
@@ -2510,13 +2503,12 @@ void do_motd(CHAR_DATA *ch, String argument)
 
 		buf += argument;
 		buf += "\n";
-		free_string(time_info.motd);
-		time_info.motd = str_dup(buf);
+		time_info.motd = buf;
 	}
 
 	set_color(ch, WHITE, BOLD);
 	stc("The MOTD is:\n", ch);
-	stc(time_info.motd ? time_info.motd : "(None).\n", ch);
+	stc(!time_info.motd.empty() ? time_info.motd : "(None).\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 	return;
 }
@@ -3065,8 +3057,8 @@ void do_owner(CHAR_DATA *ch, String argument)
 
 	act("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, FALSE);
 	ed                      = new_extra_descr();
-	ed->keyword             = str_dup(KEYWD_OWNER);
-	ed->description         = str_dup(player->name);
+	ed->keyword             = KEYWD_OWNER;
+	ed->description         = player->name;
 	ed->next                = item->extra_descr;
 	item->extra_descr       = ed;
 }
@@ -3621,9 +3613,9 @@ void do_storage(CHAR_DATA *ch, String argument)
 		}
 
 		newdata = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
-		newdata->name = str_dup(argument.capitalize());
-		newdata->by_who = str_dup(ch->name);
-		newdata->date = str_dup(ctime(&current_time));
+		newdata->name = argument.capitalize();
+		newdata->by_who = ch->name;
+		newdata->date = ctime(&current_time);
 		newdata->date[strlen(newdata->date) - 1] = '\0';
 		insert_storagedata(newdata);
 		save_storage_list();

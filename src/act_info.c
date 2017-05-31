@@ -244,8 +244,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 	OBJ_DATA *obj;
 	BUFFER *output;
 	char buf[MAX_STRING_LENGTH];
-	char **prgpstrShow;
-	int *prgnShow, nShow = 0, iShow, count = 0;
+	int nShow = 0, iShow, count = 0;
 	bool fCombine, foundcont = FALSE;
 
 	if (ch->desc == NULL)
@@ -262,8 +261,9 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 		return;
 	}
 
-	prgpstrShow = (char **)alloc_mem(count * sizeof(char *));
-	prgnShow    = (int *)alloc_mem(count * sizeof(int));
+	// gross temporary fix
+	String prgpstrShow[8000];
+	int prgnShow[8000];
 
 	/* Format the list of objects */
 	for (obj = list; obj != NULL; obj = obj->next_content) {
@@ -290,7 +290,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 
 			/* Couldn't combine, or didn't want to */
 			if (!fCombine) {
-				prgpstrShow [nShow] = str_dup(pstrShow);
+				prgpstrShow [nShow] = pstrShow;
 				prgnShow    [nShow] = 1;
 				nShow++;
 			}
@@ -299,8 +299,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 
 	/* Output the formatted list */
 	for (iShow = 0; iShow < nShow; iShow++) {
-		if (prgpstrShow[iShow][0] == '\0') {
-			free_string(prgpstrShow[iShow]);
+		if (prgpstrShow[iShow].empty()) {
 			continue;
 		}
 
@@ -315,7 +314,6 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 
 		add_buf(output, prgpstrShow[iShow]);
 		add_buf(output, "\n");
-		free_string(prgpstrShow[iShow]);
 
 		if (output->size > 15500) {
 			if (IS_SET(ch->comm, COMM_COMBINE))
@@ -337,8 +335,6 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 	page_to_char(buf_string(output), ch);
 	/* Clean up */
 	free_buf(output);
-	free_mem(prgpstrShow, count * sizeof(char *));
-	free_mem(prgnShow,    count * sizeof(int));
 
 	if (foundcont)  /* for evolved peek, list items in containers, but not twice nested */
 		for (obj = list; obj != NULL; obj = obj->next_content)

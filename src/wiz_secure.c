@@ -660,7 +660,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 		if (!td) {
 			td = (struct tail_data *)alloc_mem(sizeof(struct tail_data));
 			td->tailed_by = ch;
-			td->tailer_name = str_dup(ch->name);
+			td->tailer_name = ch->name;
 			td->flags = 0;
 			td->next = victim->tail;
 			victim->tail = td;

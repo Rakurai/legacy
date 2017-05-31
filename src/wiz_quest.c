@@ -531,8 +531,8 @@ void do_string(CHAR_DATA *ch, String argument)
 			Format::sprintf(desc, "%s\n", argument);
 
 			ed = new_extra_descr();
-			ed->keyword         = str_dup(arg3);
-			ed->description     = str_dup(desc);
+			ed->keyword         = arg3;
+			ed->description     = desc;
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
 			ptc(ch, "Extended description set to:\n%s\n", arg3);
@@ -574,8 +574,8 @@ void do_string(CHAR_DATA *ch, String argument)
 			buf += argument;
 			buf += "\n";
 			ed = new_extra_descr();
-			ed->keyword         = str_dup(arg3);
-			ed->description     = str_dup(buf);
+			ed->keyword         = arg3;
+			ed->description     = buf;
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
 			ptc(ch, "Added to extended description:\n%s\n", arg3);

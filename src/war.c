@@ -201,8 +201,8 @@ void fix_war(WAR_DATA *war)
 
 	for (i = 0; i < 4; i++) {
 		if (war->chal[i]->name[0] != '\0') {
-			fixed_war->chal[c]->name        = str_dup(war->chal[i]->name);
-			fixed_war->chal[c]->clanname    = str_dup(war->chal[i]->clanname);
+			fixed_war->chal[c]->name        = war->chal[i]->name;
+			fixed_war->chal[c]->clanname    = war->chal[i]->clanname;
 			fixed_war->chal[c]->inwar       = war->chal[i]->inwar;
 			fixed_war->chal[c]->start_score = war->chal[i]->start_score;
 			fixed_war->chal[c]->final_score = war->chal[i]->final_score;
@@ -210,8 +210,8 @@ void fix_war(WAR_DATA *war)
 		}
 
 		if (war->def[i]->name[0] != '\0') {
-			fixed_war->def[d]->name         = str_dup(war->def[i]->name);
-			fixed_war->def[d]->clanname     = str_dup(war->def[i]->clanname);
+			fixed_war->def[d]->name         = war->def[i]->name;
+			fixed_war->def[d]->clanname     = war->def[i]->clanname;
 			fixed_war->def[d]->inwar        = war->def[i]->inwar;
 			fixed_war->def[d]->start_score  = war->def[i]->start_score;
 			fixed_war->def[d]->final_score  = war->def[i]->final_score;
@@ -457,7 +457,7 @@ void war_power_adjust(CLAN_DATA *vclan, bool surrender)
 	int i = 0, x = 0, dealt = 0, loss, highest, listcount = 0, award, numpower, cp = 0, qploss, qpaward;
 	bool found;
 	struct conq {
-		char   *clanname;
+		String  clanname;
 		sh_int  scored;
 	};
 	struct conq conqlist[MAX_CLAN];
@@ -508,7 +508,7 @@ void war_power_adjust(CLAN_DATA *vclan, bool surrender)
 
 					/* nope, add a new entry */
 					if (!found) {
-						conqlist[i].clanname = str_dup(tclan->clanname);
+						conqlist[i].clanname = tclan->clanname;
 						conqlist[i].scored = event->number;
 						listcount++;
 					}
@@ -678,9 +678,8 @@ void rec_event(WAR_DATA *war, int type, const String& astr, const String& bstr, 
 	n_event = new_event();
 	n_event->type   = type;
 
-	n_event->astr = str_dup(astr);
-
-	n_event->bstr = str_dup(bstr);
+	n_event->astr = astr;
+	n_event->bstr = bstr;
 
 	n_event->number = number;
 	n_event->time   = current_time;
@@ -708,13 +707,13 @@ WAR_DATA *war_start(CLAN_DATA *chal, CLAN_DATA *def)
 	if (def->score <= 0)
 		def->score = calc_cp(def, TRUE);
 
-	war->chal[0]->name              = str_dup(chal->name);
-	war->chal[0]->clanname          = str_dup(chal->clanname);
+	war->chal[0]->name              = chal->name;
+	war->chal[0]->clanname          = chal->clanname;
 	war->chal[0]->inwar             = TRUE;
 	war->chal[0]->start_score       = chal->score;
 	war->chal[0]->final_score       = 0;
-	war->def[0]->name               = str_dup(def->name);
-	war->def[0]->clanname           = str_dup(def->clanname);
+	war->def[0]->name               = def->name;
+	war->def[0]->clanname           = def->clanname;
 	war->def[0]->inwar              = TRUE;
 	war->def[0]->start_score        = def->score;
 	war->def[0]->final_score        = 0;
@@ -778,15 +777,15 @@ void war_join(CLAN_DATA *clan, WAR_DATA *war, bool challenger)
 		clan->score = calc_cp(clan, TRUE);
 
 	if (challenger) {
-		war->chal[i]->name      = str_dup(clan->name);
-		war->chal[i]->clanname  = str_dup(clan->clanname);
+		war->chal[i]->name      = clan->name;
+		war->chal[i]->clanname  = clan->clanname;
 		war->chal[i]->inwar     = TRUE;
 		war->chal[i]->start_score       = clan->score;
 		war->chal[i]->final_score       = 0;
 	}
 	else {
-		war->def[i]->name       = str_dup(clan->name);
-		war->def[i]->clanname   = str_dup(clan->clanname);
+		war->def[i]->name       = clan->name;
+		war->def[i]->clanname   = clan->clanname;
 		war->def[i]->inwar      = TRUE;
 		war->def[i]->start_score        = clan->score;
 		war->def[i]->final_score        = 0;

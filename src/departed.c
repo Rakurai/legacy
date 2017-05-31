@@ -69,7 +69,7 @@ void insert_departed(const String& name)
 	DEPARTED_DATA *iterator, *newDeparted;
 	iterator = departed_list_head->next;
 	newDeparted = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
-	newDeparted->name = str_dup(name);
+	newDeparted->name = name;
 
 	while (iterator != departed_list_tail) {
 		if (strcasecmp(newDeparted->name, iterator->name) < 1) {

@@ -371,7 +371,7 @@ struct  time_info_data
     int         day;
     int         month;
     int         year;
-    char *      motd;
+    String      motd;
 };
 
 struct disabled_data
@@ -2842,7 +2842,7 @@ extern sh_int	gsn_critical_blow;
  */
 struct  social_type
 {
-    char      name[20];
+    String    name;
     String    char_no_arg;
     String    others_no_arg;
     String    char_found;

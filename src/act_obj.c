@@ -5085,8 +5085,8 @@ void do_forge(CHAR_DATA *ch, String argument)
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
 	        "a newbie", class_table[ch->cls].name, ch->name,
 	        race_table[ch->race].name);
-	ed->keyword        = str_dup(obj->name);
-	ed->description    = str_dup(buf);
+	ed->keyword        = obj->name;
+	ed->description    = buf;
 	ed->next           = obj->extra_descr;
 	obj->extra_descr   = ed;
 	obj->value[1] = 5;
@@ -5258,8 +5258,8 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	if (eng_desc == NULL) {
 		/* no engravings yet, build an empty extdesc */
 		eng_desc = new_extra_descr();
-		eng_desc->keyword = str_dup("engravings");
-		eng_desc->description = str_dup("\n");
+		eng_desc->keyword = "engravings";
+		eng_desc->description = "\n";
 		eng_desc->next = weapon->extra_descr;
 		weapon->extra_descr = eng_desc;
 	}
@@ -5267,18 +5267,18 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	if (dflt_desc == NULL) {
 		/* no extdesc for wpn, build an empty one */
 		dflt_desc = new_extra_descr();
-		dflt_desc->keyword = str_dup(weapon->name);
+		dflt_desc->keyword = weapon->name;
 
 		if (!weapon->description.empty()) {
 			dbuf = new_buf();
 			add_buf(dbuf, weapon->description);
 			add_buf(dbuf, "\n");
 			add_buf(dbuf, eng_line);
-			dflt_desc->description = str_dup(buf_string(dbuf));
+			dflt_desc->description = buf_string(dbuf);
 			free_buf(dbuf);
 		}
 		else
-			dflt_desc->description = str_dup(eng_line);
+			dflt_desc->description = eng_line;
 
 		dflt_desc->next = weapon->extra_descr;
 		weapon->extra_descr = dflt_desc;

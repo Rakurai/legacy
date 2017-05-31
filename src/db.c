@@ -707,16 +707,16 @@ int  scan_credits(AREA_DATA *pArea)
 		for (title = p + 1; *title == ' '; title++);
 	}
 
-	pArea->author = str_dup(author);
+	pArea->author = author;
 	keywords += smash_bracket(author);
 	keywords += " ";
 	/*** title is the remainder ***/
-	pArea->title = str_dup(title);
+	pArea->title = title;
 	keywords += smash_bracket(title);
 
 	for (auto it = keywords.begin(); it != keywords.end(); it++) *it = LOWER(*it);
 
-	pArea->keywords = str_dup(keywords);
+	pArea->keywords = keywords;
 	return pArea->area_type;
 } /* end scan_credits() */
 

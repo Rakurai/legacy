@@ -24,7 +24,7 @@ bool                newlock;            /* Game is newlocked            */
  */
 const   unsigned char    echo_off_str    [] = { IAC, WILL, TELOPT_ECHO, '\0' };
 const   unsigned char    echo_on_str     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
-const   unsigned char    go_ahead_str    [] = { IAC, GA, '\0' };
+//const   unsigned char    go_ahead_str    [] = { IAC, GA, '\0' };
 
 /**
  * check_ban
@@ -1049,7 +1049,7 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 	case CON_READ_MOTD:
 		set_color(ch, WHITE, BOLD);
 
-		if (time_info.motd != NULL)
+		if (!time_info.motd.empty())
 			stc(time_info.motd, ch);
 
 		stc("\n{x[Hit Enter to continue]", ch);
@@ -1180,7 +1180,7 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 		    ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available",
 		    ch->pcdata->last_ltime != (time_t) 0 ? dizzy_ctime(&ch->pcdata->last_ltime) : "00:00:00");
 		ch->pcdata->last_ltime = current_time;
-		ch->pcdata->last_lsite = str_dup(d->host);
+		ch->pcdata->last_lsite = d->host;
 		ptc(ch, "\n{VYou are traveler [%lu] of Legacy!!!{x\n", update_records());
 		update_pc_index(ch, FALSE);
 
