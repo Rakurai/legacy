@@ -21,15 +21,14 @@ bool operator== (const String &lhs, const char *rhs) {
 	return false;
 }
 
-int String::
+std::size_t String::
 find_nth(std::size_t nth, char val) const {
-    std::size_t pos = 0;
-    unsigned occurrence = 0;
+	if (nth > 0)
+		for (std::size_t pos = 0, occurrence = 0; pos < size(); pos++)
+			if ((*this)[pos] == val && ++occurrence == nth)
+				return pos;
 
-    while (occurrence != nth && (pos = find(val, pos) != std::string::npos))
-        ++occurrence;
-
-    return pos;
+	return std::string::npos;
 }
 
 /*
@@ -44,25 +43,27 @@ substr(std::size_t pos, std::size_t count) const {
 
 String String::
 lstrip(const char *chars) const {
-	return substr(find_first_not_of(chars));
+	std::size_t pos = find_first_not_of(chars);
+	return pos == std::string::npos ? *this : substr(find_first_not_of(chars));
 }
 
 String String::
 rstrip(const char *chars) const {
-	return substr(0, find_last_not_of(chars));
+	std::size_t pos = find_last_not_of(chars);
+	return substr(0, pos == std::string::npos ? size() : pos);
 }
 
 String String::
 strip(const char *chars) const {
-	return substr(find_first_not_of(chars), find_last_not_of(chars));
+	return lstrip(chars).rstrip(chars);
 }
 
 String String::
 capitalize() const {
 	String str(*this);
-	size_t pos = str.find_first_not_of(" \t\r\n");
+	std::size_t pos = str.find_first_not_of(" \t\r\n");
 
-	if (pos != npos)
+	if (pos != std::string::npos)
 		str[pos] = toupper(str[pos]);
 
 	return str;
@@ -70,36 +71,49 @@ capitalize() const {
 
 String String::
 lsplit(const char *chars) const {
-	return substr(0, find_first_of(chars));
+	std::size_t pos = find_first_of(chars);
+	return substr(0, pos == std::string::npos ? size() : pos);
 }
 
 String String::
 rsplit(const char *chars) const {
-	int pos = find_last_of(chars);
-	return substr(pos == npos ? 0 : pos);
+	std::size_t pos = find_last_of(chars);
+	return substr(pos == std::string::npos ? 0 : pos);
 }
 
 String String::
 lsplit(String& word, const char *chars) const {
-	size_t pos = find_first_of(chars);
+	std::size_t pos = find_first_of(chars);
+
+	if (pos == std::string::npos) {
+		word.assign(*this);
+		return "";
+	}
+
 	word.assign(substr(0, pos));
 	return substr(pos);
 }
 
 String String::
 rsplit(String& word, const char *chars) const {
-	int pos = find_last_of(chars);
+	std::size_t pos = find_last_of(chars);
+
+	if (pos == std::string::npos) {
+		word.assign(*this);
+		return "";
+	}
+
 	word.assign(substr(pos));
 	return substr(0, pos);
 }
 
 String String::
 replace(const String& what, const String& with, int times) const {
-	size_t pos;
+	std::size_t pos;
 	String str;
 
 	// if -1 specified, replace all (will never be 0)
-	while (times-- != 0 && (pos = str.find(what)) != npos)
+	while (times-- != 0 && (pos = str.find(what)) != std::string::npos)
 		str.std::string::replace(pos, with.size(), with);
 
 	return str;
