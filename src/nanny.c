@@ -288,8 +288,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 		    && (!fConn || ch->desc == NULL)
 		    &&   !str_cmp(d->character->name, ch->name)) {
 			if (fConn == FALSE) {
-				free_string(d->character->pcdata->pwd);
-				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
+				d->character->pcdata->pwd = ch->pcdata->pwd;
 			}
 			else {
 				CHAR_DATA *rch;
@@ -656,8 +655,7 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 				return;
 			}
 
-		free_string(ch->pcdata->pwd);
-		ch->pcdata->pwd = str_dup(pwdnew);
+		ch->pcdata->pwd = pwdnew;
 		stc("The pixie smiles as you whisper in her ear.\n\n"
 		    "{Y'{WGood, that will do nicely.  Just to make sure I have it, say it one more time.{Y'{x\n\n", ch);
 		stc("{CPlease repeat the password.{x ", ch);
@@ -935,8 +933,7 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 			return;
 		}
 
-		free_string(ch->pcdata->deity);
-		ch->pcdata->deity = str_dup(deity_table[deity].name);
+		ch->pcdata->deity = deity_table[deity].name;
 //		write_to_buffer(d, "\nDo you wish to customize this character?\n", 0);
 //		write_to_buffer(d, "Customization takes time, but allows a wider range of skills"
 //		                " and abilities.\nCustomize (Y/N)? ", 0);
@@ -1136,7 +1133,7 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 			    && can_see_who(victim, ch)
 			    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
 			    && !IS_SET(victim->comm, COMM_QUIET)) {
-				if (ch->pcdata && ch->pcdata->gamein && ch->pcdata->gamein[0]) {
+				if (ch->pcdata && !ch->pcdata->gamein.empty()) {
 					set_color(victim, GREEN, BOLD);
 					ptc(victim, "[%s] %s\n", ch->name, ch->pcdata->gamein);
 				}

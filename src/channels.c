@@ -447,7 +447,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 	new_color(ch, custom);
 
 	if (arg.empty()) {
-		if (iterator->char_no_arg != NULL)
+		if (!iterator->char_no_arg.empty())
 			stc("[S] ", ch);
 
 		act(iterator->char_no_arg,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
@@ -457,13 +457,13 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 		return TRUE;
 	}
 	else if (victim == ch) {
-		if (iterator->char_auto != NULL)
+		if (!iterator->char_auto.empty())
 			stc("[S] ", ch);
 
 		act(iterator->char_auto,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else {
-		if (iterator->char_found != NULL)
+		if (!iterator->char_found.empty())
 			stc("[S] ", ch);
 
 		act(iterator->char_found,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
@@ -483,25 +483,25 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 			new_color(vic, custom);
 
 			if (arg.empty()) {
-				if (iterator->others_no_arg != NULL)
+				if (!iterator->others_no_arg.empty())
 					stc("[S] ", vic);
 
 				act(iterator->others_no_arg, ch, NULL, vic, TO_VICT, POS_SLEEPING, FALSE);
 			}
 			else if (victim == ch) {
-				if (iterator->others_auto != NULL)
+				if (!iterator->others_auto.empty())
 					stc("[S] ", vic);
 
 				act(iterator->others_auto, ch, vic, victim, TO_WORLD, POS_SLEEPING, FALSE);
 			}
 			else if (vic == victim) {
-				if (iterator->vict_found != NULL)
+				if (!iterator->vict_found.empty())
 					stc("[S] ", vic);
 
 				act(iterator->vict_found,  ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 			}
 			else {
-				if (iterator->others_found != NULL)
+				if (!iterator->others_found.empty())
 					stc("[S] ", vic);
 
 				act(iterator->others_found, ch, vic, victim, TO_WORLD, POS_SLEEPING, FALSE);
@@ -1256,7 +1256,7 @@ void do_tell(CHAR_DATA *ch, String argument)
 	set_color(victim, WHITE, NOBOLD);
 
 	if (IS_NPC(victim) || !victim->replylock)
-		strcpy(victim->reply, ch->name);
+		victim->reply = ch->name;
 }
 
 void do_reply(CHAR_DATA *ch, String argument)
@@ -1373,9 +1373,9 @@ void do_reply(CHAR_DATA *ch, String argument)
 	set_color(victim, WHITE, NOBOLD);
 
 	if (IS_NPC(victim))
-		strcpy(victim->reply, ch->name);
+		victim->reply = ch->name;
 	else if (!victim->replylock)
-		strcpy(victim->reply, ch->name);
+		victim->reply = ch->name;
 }
 
 void do_yell(CHAR_DATA *ch, String argument)
@@ -1685,7 +1685,7 @@ void do_page(CHAR_DATA *ch, String argument)
 	new_color(victim, CSLOT_CHAN_PAGE);
 	act("$n PAGES '$t{x'\a", ch, argument, victim, TO_VICT, POS_SLEEPING, FALSE);
 	set_color(victim, WHITE, NOBOLD);
-	strcpy(victim->reply, ch->name);
+	victim->reply = ch->name;
 	return;
 }
 

@@ -130,10 +130,8 @@ void do_divorce(CHAR_DATA *ch, String argument)
 	ptc(victim, "You are now divorced from %s.\n", victim2->name);
 	stc("Your divorce is final.\n", victim2);
 	ptc(victim2, "You are now divorced from %s.\n", victim->name);
-	free_string(victim->pcdata->spouse);
-	victim->pcdata->spouse = str_dup("");
-	free_string(victim2->pcdata->spouse);
-	victim2->pcdata->spouse = str_dup("");
+	victim->pcdata->spouse.erase();
+	victim2->pcdata->spouse.erase();
 	REMOVE_BIT(victim->pcdata->plr, PLR_MARRIED);
 	REMOVE_BIT(victim2->pcdata->plr, PLR_MARRIED);
 	save_char_obj(victim);
@@ -251,8 +249,7 @@ void do_propose(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(ch->pcdata->propose);
-	ch->pcdata->propose = str_dup(victim->name);
+	ch->pcdata->propose = victim->name;
 	act("You propose marriage to $M.", ch, NULL, victim, TO_CHAR);
 	act("$n gets down on one knee and proposes to $N.", ch, NULL, victim, TO_NOTVICT);
 	act("$n asks you quietly 'Will you marry me?'", ch, NULL, victim, TO_VICT);
@@ -305,14 +302,10 @@ void do_accept(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(victim->pcdata->propose);
-	victim->pcdata->propose = str_dup("");
-	free_string(ch->pcdata->propose);
-	ch->pcdata->propose = str_dup("");
-	free_string(victim->pcdata->spouse);
-	victim->pcdata->spouse = str_dup(ch->name);
-	free_string(ch->pcdata->spouse);
-	ch->pcdata->spouse = str_dup(victim->name);
+	victim->pcdata->propose.erase();
+	ch->pcdata->propose.erase();
+	victim->pcdata->spouse = ch->name;
+	ch->pcdata->spouse = victim->name;
 	act("You accept $S offer of marriage.  Woohoo!", ch, NULL, victim, TO_CHAR);
 	act("$n accepts $N's offer of marriage.  Woohoo!", ch, NULL, victim, TO_NOTVICT);
 	act("$n accepts your offer of marriage.  Woohoo!", ch, NULL, victim, TO_VICT);
@@ -377,10 +370,8 @@ void do_reject(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(victim->pcdata->propose);
-	victim->pcdata->propose = str_dup("");
-	free_string(ch->pcdata->propose);
-	ch->pcdata->propose = str_dup("");
+	victim->pcdata->propose.erase();
+	ch->pcdata->propose.erase();
 	act("You reject $S offer of marriage.", ch, NULL, victim, TO_CHAR);
 	act("$n rejects $N's offer of marriage.", ch, NULL, victim, TO_NOTVICT);
 	act("$n rejects your offer of marriage.", ch, NULL, victim, TO_VICT);
@@ -437,10 +428,8 @@ void do_breakup(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(victim->pcdata->spouse);
-	victim->pcdata->spouse = str_dup("");
-	free_string(ch->pcdata->spouse);
-	ch->pcdata->spouse = str_dup("");
+	victim->pcdata->spouse.erase();
+	ch->pcdata->spouse.erase();
 	act("You break off your engagement with $M.", ch, NULL, victim, TO_CHAR);
 	act("$n breaks off $s engagement with $N.", ch, NULL, victim, TO_NOTVICT);
 	act("$n breaks off $s engagement with you.", ch, NULL, victim, TO_VICT);

@@ -505,10 +505,8 @@ void do_remort(CHAR_DATA *ch, String argument)
 		 = UMIN(ATTR_BASE(victim, stat_to_attr(stat)), get_max_train(victim, stat));
 
 	if (!arg2.empty()) {
-		free_string(victim->pcdata->deity);
-		free_string(victim->pcdata->status);
-		victim->pcdata->deity = str_dup(arg3);
-		victim->pcdata->status = str_dup(argument);
+		victim->pcdata->deity = arg3;
+		victim->pcdata->status = argument;
 	}
 
 	victim->pcdata->remort_count++;

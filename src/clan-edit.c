@@ -30,7 +30,7 @@
 
 /* Forward declaration of functions in this module */
 void append_clan(CLAN_DATA *);
-void remove_clan(char *);
+void remove_clan(const String&);
 int count_clans();
 
 /* Needed variables for using the list */
@@ -213,7 +213,7 @@ int calc_cp(CLAN_DATA *clan, bool curve)
 }
 
 /* Remove a clan */
-void remove_clan(char *name)
+void remove_clan(const String& name)
 {
 	CLAN_DATA *iterator;
 	iterator = clan_table_head->next;
@@ -341,8 +341,7 @@ void do_cedit(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(cmd, "whoname")) {
-		free_string(cdata->who_name);
-		cdata->who_name = str_dup(argument);
+		cdata->who_name = argument;
 
 		if (!argument[0])
 			stc("The who-name is set to none.\n", ch);
@@ -492,8 +491,7 @@ void do_cedit(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(cmd, "clanname")) {
-		free_string(cdata->clanname);
-		cdata->clanname = str_dup(argument);
+		cdata->clanname = argument;
 
 		if (!argument[0])
 			stc("Clanname set to none.\n", ch);
@@ -505,8 +503,7 @@ void do_cedit(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(cmd, "creator")) {
-		free_string(cdata->creator);
-		cdata->creator = str_dup(argument);
+		cdata->creator = argument;
 
 		if (!argument[0])
 			stc("Creator set to none.\n", ch);

@@ -28,7 +28,7 @@
 #include "merc.h"
 #include "Format.hpp"
 
-char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
+char    *get_multi_command     args((DESCRIPTOR_DATA *d, const String& argument));
 
 /* does aliasing and other fun stuff */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)

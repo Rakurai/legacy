@@ -893,8 +893,7 @@ void animate_mob(CHAR_DATA *ch, int level, const char *name, long vnum)
 
 	Format::sprintf(buf, "%sSummoned from the darkside, this %s serves '%s'.\n",
 	        mob->description, name, ch->name);
-	free_string(mob->description);
-	mob->description = str_dup(buf);
+	mob->description = buf;
 
 	switch (vnum) {
 	case MOB_VNUM_ZOMBIE:           ch->pcdata->zombie = mob;       break;
@@ -1863,26 +1862,22 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		return;
 	}
 
-	free_string(food->short_descr);
-	food->short_descr = str_dup(type);
-	free_string(food->name);
+	food->short_descr = type;
 	Format::sprintf(buf, "food %s", smash_bracket(food->short_descr));
-	food->name = str_dup(buf);
+	food->name = buf;
 	Format::sprintf(buf, "%s{x is lying on the ground.", type);
 	buf[0] = UPPER(buf[0]);
-	free_string(food->description);
-	food->description = str_dup(buf);
-	free_string(food->material);
-	food->material = str_dup("food");
+	food->description = buf;
+	food->material = "food";
 	Format::sprintf(buf, "This food was created by %s.\n", ch->name);
 	ed = new_extra_descr();
-	ed->keyword             = str_dup("chef");
-	ed->description         = str_dup(buf);
+	ed->keyword             = "chef";
+	ed->description         = buf;
 	ed->next                = food->extra_descr;
 	food->extra_descr       = ed;
 	ed = new_extra_descr();
-	ed->keyword             = str_dup("food");
-	ed->description         = str_dup("It looks delicious.\n");
+	ed->keyword             = "food";
+	ed->description         = "It looks delicious.\n";
 	ed->next                = food->extra_descr;
 	food->extra_descr       = ed;
 	food->value[0] = level / 2;
@@ -1926,24 +1921,20 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	Format::sprintf(buf, "%s has created a beautiful %s{x rose.", ch->name, color);
 	act(buf, ch, rose, NULL, TO_ROOM);
 	Format::sprintf(buf, "a %s{x rose", color);
-	free_string(rose->short_descr);
-	rose->short_descr = str_dup(buf);
+	rose->short_descr = buf;
 	Format::sprintf(buf, "A %s{x rose is lying on the ground.", color);
-	free_string(rose->description);
-	rose->description = str_dup(buf);
-	free_string(rose->material);
-	rose->material = str_dup("silk");
-	free_string(rose->name);
-	rose->name = str_dup("rose");
+	rose->description = buf;
+	rose->material = "silk";
+	rose->name = "rose";
 	Format::sprintf(buf, "This rose was created by %s.\n", ch->name);
 	ed = new_extra_descr();
-	ed->keyword             = str_dup("florist");
-	ed->description         = str_dup(buf);
+	ed->keyword             = "florist";
+	ed->description         = buf;
 	ed->next                = rose->extra_descr;
 	rose->extra_descr       = ed;
 	ed = new_extra_descr();
-	ed->keyword             = str_dup("rose");
-	ed->description         = str_dup("It's a beautiful rose, with a soft and romantic fragrance.\n");
+	ed->keyword             = "rose";
+	ed->description         = "It's a beautiful rose, with a soft and romantic fragrance.\n";
 	ed->next                = rose->extra_descr;
 	rose->extra_descr       = ed;
 	rose->value[1] = 1;
@@ -1994,14 +1985,14 @@ void spell_create_sign(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 
 	Format::sprintf(buf, "%s\n", target_name);
 	ed = new_extra_descr();
-	ed->keyword         = str_dup("sign");
-	ed->description     = str_dup(buf);
+	ed->keyword         = "sign";
+	ed->description     = buf;
 	ed->next            = sign->extra_descr;
 	sign->extra_descr   = ed;
 	Format::sprintf(buf, "This road sign was created by %s.\n", ch->name);
 	owner = new_extra_descr();
-	owner->keyword        = str_dup("carpenter");
-	owner->description    = str_dup(buf);
+	owner->keyword        = "carpenter";
+	owner->description    = buf;
 	owner->next           = sign->extra_descr;
 	sign->extra_descr     = owner;
 }
@@ -2111,8 +2102,7 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		if (!is_name("water", obj->name)) {
 			char buf[MAX_STRING_LENGTH];
 			Format::sprintf(buf, "%s water", obj->name);
-			free_string(obj->name);
-			obj->name = str_dup(buf);
+			obj->name = buf;
 		}
 
 		act("$p is filled.", ch, obj, NULL, TO_CHAR);
@@ -3984,7 +3974,6 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	/* labeling the item */
-	free_string(obj->short_descr);
 	Format::sprintf(buf, "a %s of ", item_type_name(obj));
 
 	for (i = 1; i <= sp_slot ; i++)
@@ -3993,8 +3982,7 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 			buf += (i != sp_slot) ? ", " : "";
 		}
 
-	obj->short_descr = str_dup(buf);
-	free_string(obj->description);
+	obj->short_descr = buf;
 	Format::sprintf(buf, "A %s of ", item_type_name(obj));
 
 	for (i = 1; i <= sp_slot ; i++)
@@ -4003,9 +3991,8 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 			buf += (i != sp_slot) ? ", " : " lies here.\n";
 		}
 
-	obj->description = str_dup(buf);
+	obj->description = buf;
 	Format::sprintf(buf, "%s", item_type_name(obj));
-	free_string(obj->name);
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
@@ -4013,7 +4000,7 @@ void spell_imprint(int sn, int level, CHAR_DATA *ch, void *vo)
 			buf += skill_table[obj->value[i]].name;
 		}
 
-	obj->name = str_dup(buf);
+	obj->name = buf;
 	ptc(ch, "You have imbued a new spell to the %s.\n", item_type_name(obj));
 }
 
@@ -5147,9 +5134,8 @@ void spell_resurrect(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	ATTR_BASE(mob, APPLY_DAMROLL) = mob->level / 20;
 	mob->damage[DICE_NUMBER]        = mob->level / 4;
 	mob->damage[DICE_TYPE]          = 2;
-	free_string(mob->long_descr);
 	Format::sprintf(buf, "A zombie made from %s is here.\n", obj->short_descr);
-	mob->long_descr = str_dup(buf);
+	mob->long_descr = buf;
 	char_to_room(mob, ch->in_room);
 	act("$p springs to life as a hideous zombie!", ch, obj, NULL, TO_ROOM);
 	act("$p springs to life as a hideous zombie!", ch, obj, NULL, TO_CHAR);

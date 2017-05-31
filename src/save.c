@@ -363,7 +363,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	if (ch->pcdata->title[0])
 		JSON::addStringToObject(o,	"Titl",			ch->pcdata->title[0] == ' ' ?
-		ch->pcdata->title+1 : ch->pcdata->title);
+		ch->pcdata->title.substr(1) : ch->pcdata->title);
 	JSON::addStringToObject(o,		"Video",		flags_to_string(ch->pcdata->video));
 
 	if (ch->pcdata->whisper[0])

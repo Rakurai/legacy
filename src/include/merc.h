@@ -378,8 +378,8 @@ struct disabled_data
 {
     DISABLED_DATA *next;             /* pointer to next node */
     struct cmd_type const *command;  /* pointer to the command struct*/
-    char *disabled_by;               /* name of disabler */
-    char *reason;
+    String disabled_by;               /* name of disabler */
+    String reason;
 };
 
 struct  auction_data
@@ -422,7 +422,7 @@ struct tail_data
 {
     bool      valid;
     CHAR_DATA *tailed_by;
-    char      *tailer_name;
+    String    tailer_name;
     int       flags;
     TAIL_DATA *next;
 };
@@ -466,7 +466,7 @@ struct  descriptor_data
     CHAR_DATA *         original;
     bool                valid;
     long                hostaddr;       /* numeric IP addr -- Elrac */
-    char *              host;           /* text addr */
+    String              host;           /* text addr */
     sh_int              descriptor;
     sh_int              connected;
     bool                fcommand;
@@ -676,11 +676,11 @@ struct  note_data
     NOTE_DATA * next;
     bool        valid;
     sh_int      type;
-    char *      sender;
-    char *      date;
-    char *      to_list;
-    char *      subject;
-    char *      text;
+    String      sender;
+    String      date;
+    String      to_list;
+    String      subject;
+    String      text;
     time_t      date_stamp;
 };
 
@@ -1818,10 +1818,10 @@ struct  mob_index_data
     sh_int		version;	/* Mob versioning -- Montrey */
     sh_int              count;
     sh_int              killed;
-    char *              player_name;
-    char *              short_descr;
-    char *              long_descr;
-    char *              description;
+    String              player_name;
+    String              short_descr;
+    String              long_descr;
+    String              description;
     long                act;
     long                affect_flags;
     sh_int              alignment;
@@ -1845,7 +1845,7 @@ struct  mob_index_data
     long                form;
     long                parts;
     sh_int              size;
-    char *              material;
+    String              material;
     MPROG_DATA *        mobprogs;
     int                 progtypes;
 };
@@ -1853,7 +1853,7 @@ struct  mob_index_data
 struct  mob_prog_act_list
 {
     MPROG_ACT_LIST * next;
-    char *           buf;
+    String           buf;
     CHAR_DATA *      ch;
     OBJ_DATA *       obj;
     void *           vo;
@@ -1863,8 +1863,8 @@ struct  mob_prog_data
 {
     MPROG_DATA *next;
     int         type;
-    char *      arglist;
-    char *      comlist;
+    String      arglist;
+    String      comlist;
 };
 
 extern bool    MOBtrigger;
@@ -1916,7 +1916,7 @@ struct  char_data: public Actable
     CHAR_DATA *         leader;
     CHAR_DATA *         fighting;
     /* CHAR_DATA *         reply; -- Changing this to a string, holding the player's name. */
-    char                reply[64];
+    String              reply;
     RESET_DATA *	reset;		/* let's make it keep track of what reset it */
     bool		replylock;	   /* <--- made this a bool to simplify */
     CHAR_DATA *         pet;			/* not saving at quit - Montrey */
@@ -1936,11 +1936,11 @@ struct  char_data: public Actable
     bool                valid;
     String              name;
     long                id;
-    char *              short_descr;
-    char *              long_descr;
-    char *              description;
-    char *              prompt;
-    char *              prefix;
+    String              short_descr;
+    String              long_descr;
+    String              description;
+    String              prompt;
+    String              prefix;
     sh_int              group;
     CLAN_DATA *         clan;
     CLAN_DATA *		inviters;
@@ -1998,7 +1998,7 @@ struct  char_data: public Actable
     unsigned long       form;
     unsigned long       parts;
     sh_int              size;
-    char*               material;
+    String              material;
     /* mobile stuff */
     unsigned long       off_flags;
     sh_int              damage[3];
@@ -2057,15 +2057,15 @@ struct  pc_data
 
 	BUFFER *            buffer;
 	bool                valid;
-	char *              pwd;
-	char *              bamfin;
-	char *              bamfout;
-	char *              gamein;
-	char *              gameout;
-	char *              afk;
-	char *              title;
-	char *              immname;   /* Immortal Name */
-    char *              immprefix; // immtalk prefix
+	String              pwd;
+	String              bamfin;
+	String              bamfout;
+	String              gamein;
+	String              gameout;
+	String              afk;
+	String              title;
+	String              immname;   /* Immortal Name */
+    String              immprefix; // immtalk prefix
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_roleplay;
@@ -2114,35 +2114,35 @@ struct  pc_data
 	sh_int              bold          [MAX_COLORS];
 	unsigned long       cgroup;  /* Command Groups - Xenith */
     unsigned long       plr; /* Extra PLR flags */
-   char *              rank;
-   sh_int              lastcolor     [2];
-   sh_int              pktimer;
-   sh_int              combattimer;
-   char *              status;
-   char *              deity;
-   sh_int              remort_count;
-   int			extraclass[MAX_EXTRACLASS_SLOTS];			/* Endo */
-   int			raffect[MAX_RAFFECT_SLOTS];			/* Endo */
+    String              rank;
+    sh_int              lastcolor     [2];
+    sh_int              pktimer;
+    sh_int              combattimer;
+    String              status;
+    String              deity;
+    sh_int              remort_count;
+    int			extraclass[MAX_EXTRACLASS_SLOTS];			/* Endo */
+    int			raffect[MAX_RAFFECT_SLOTS];			/* Endo */
     OBJ_DATA *          locker;
-   OBJ_DATA *          strongbox;			/* Elrac */
-   char *              email;
-   time_t              last_ltime;
-   time_t              last_saved;
-   sh_int			flag_thief;
-   sh_int			flag_killer;
-   char *              last_lsite;
-   char *              fingerinfo;
-   char *              spouse;
-   char *              propose;
-   char *              whisper;			/* Montrey */
-   long              video;				/* Elrac */
-   sh_int              tailing;			/* Elrac */
-   int                 mark_room;			/* Elrac */
-   char *              aura;   /* For Gimic Aura Command */
-   DUEL_DATA *	duel;				/* Montrey */
-   sh_int      lays;     /* times we can lay on hands */
-   sh_int      next_lay_countdown;   /* time before we get power back */
-   bool      familiar;          /* PCs can have a familiar -- Outsider */
+    OBJ_DATA *          strongbox;			/* Elrac */
+    String              email;
+    time_t              last_ltime;
+    time_t              last_saved;
+    sh_int			flag_thief;
+    sh_int			flag_killer;
+    String              last_lsite;
+    String              fingerinfo;
+    String              spouse;
+    String              propose;
+    String              whisper;			/* Montrey */
+    long              video;				/* Elrac */
+    sh_int              tailing;			/* Elrac */
+    int                 mark_room;			/* Elrac */
+    String              aura;   /* For Gimic Aura Command */
+    DUEL_DATA *	duel;				/* Montrey */
+    sh_int      lays;     /* times we can lay on hands */
+    sh_int      next_lay_countdown;   /* time before we get power back */
+    bool      familiar;          /* PCs can have a familiar -- Outsider */
 };
 
 
@@ -2179,8 +2179,8 @@ struct  extra_descr_data
 {
     EXTRA_DESCR_DATA *next;     /* Next in list                     */
     bool valid;
-    char *keyword;              /* Keyword in look/examine          */
-    char *description;          /* What to see                      */
+    String keyword;              /* Keyword in look/examine          */
+    String description;          /* What to see                      */
 };
 
 
@@ -2199,13 +2199,13 @@ struct  obj_index_data
     EXTRA_DESCR_DATA *  extra_descr;
     AFFECT_DATA *       affected;
     unsigned long       affect_checksum; // for comparing to instances on saving
-    char *              name;
-    char *              short_descr;
-    char *              description;
+    String              name;
+    String              short_descr;
+    String              description;
     sh_int              vnum;
     sh_int              reset_num;
     sh_int		version;	/* Object versioning -- Montrey */
-    char *              material;
+    String              material;
     sh_int              item_type;
     unsigned long       extra_flags; /* Formerly INT */
     unsigned long       wear_flags;  /* Formerly INT */
@@ -2239,11 +2239,11 @@ struct obj_data: public Actable
 	OBJ_DATA *		contains;
     long            donated; // timestamp when an obj was donated, for pit cleanup
 
-	char *			name;
-	char *			short_descr;
-	char *			description;
-	char *			material;
-	char *			owner;
+	String 		name;
+	String 		short_descr;
+	String 		description;
+	String 		material;
+	String 		owner;
 	EXTRA_DESCR_DATA *	extra_descr;
 	sh_int			item_type;
 	unsigned long	extra_flags;
@@ -2289,8 +2289,8 @@ struct  exit_data
     } u1;
     sh_int              exit_info;
     sh_int              key;
-    char *              keyword;
-    char *              description;
+    String              keyword;
+    String              description;
 };
 
 
@@ -2341,9 +2341,9 @@ struct  area_data
     RESET_DATA *        reset_first;
     RESET_DATA *        reset_last;
     sh_int		version;	/* Area file versioning -- Montrey */
-    char *              file_name;
-    char *              name;
-    char *              credits;
+    String              file_name;
+    String              name;
+    String              credits;
     sh_int              age;
     sh_int              nplayer;
     sh_int              low_range;
@@ -2352,9 +2352,9 @@ struct  area_data
     sh_int              max_vnum;
     bool                empty;
     char                area_type;  /* -- Elrac */
-    char *              author;     /* -- Elrac */
-    char *              title;      /* -- Elrac */
-    char *              keywords;   /* -- Elrac */
+    String              author;     /* -- Elrac */
+    String              title;      /* -- Elrac */
+    String              keywords;   /* -- Elrac */
 };
 
 
@@ -2369,9 +2369,9 @@ struct room_index_data
 	AREA_DATA *		area;
 	EXIT_DATA *		exit    [6];
 	EXIT_DATA *		old_exit[6];
-	char *			name;
-	char *			description;
-	char *			owner;
+	String 		name;
+	String 		description;
+	String 		owner;
 	sh_int			vnum;
 	sh_int			version;	/* Room versioning -- Montrey */
 	AFFECT_DATA *		affected;		/* Montrey */
@@ -2843,16 +2843,16 @@ extern sh_int	gsn_critical_blow;
 struct  social_type
 {
     char      name[20];
-    char *    char_no_arg;
-    char *    others_no_arg;
-    char *    char_found;
-    char *    others_found;
-    char *    vict_found;
+    String    char_no_arg;
+    String    others_no_arg;
+    String    char_found;
+    String    others_found;
+    String    vict_found;
 /*
-    char *    char_not_found;
+    String    char_not_found;
 */
-    char *      char_auto;
-    char *      others_auto;
+    String      char_auto;
+    String      others_auto;
     struct social_type * previous;
     struct social_type * next;
 };
@@ -2863,16 +2863,16 @@ struct  social_type
 
 struct clan_type
 {
-	char *		name;
-	char *		who_name;
+	String 	name;
+	String 	who_name;
 	sh_int		hall;
 	sh_int		area_minvnum;
 	sh_int		area_maxvnum;
 	bool		independent; /* true for loners and imm clans */
 	long		clanqp;
 	long		gold_balance;
-	char *		clanname;
-	char *		creator;
+	String 	clanname;
+	String 	creator;
 	int		score;		/* points remaining to defeat in current war */
 	int		warcpmod;	/* how much their power is modified by wars */
 
@@ -2881,16 +2881,18 @@ struct clan_type
 };
 
 struct storage_type
-{	char *name;
-	char *by_who;
-	char *date;
+{	
+    String name;
+	String by_who;
+	String date;
 
 	struct storage_type *next;
 	struct storage_type *previous;
 };
 
 struct departed_type
-{	char *name;
+{	
+    String name;
 	struct departed_type *next;
 	struct departed_type *previous;
 };
@@ -2927,8 +2929,8 @@ struct war_data
 
 struct opp_data
 {
-	char *		name;
-	char *		clanname;
+	String 	name;
+	String 	clanname;
 	bool		inwar;
 	sh_int		start_score;
 	sh_int		final_score;
@@ -2940,8 +2942,8 @@ struct opp_data
 struct event_data
 {
 	sh_int		type;
-	char *		astr;
-	char *		bstr;
+	String 	astr;
+	String 	bstr;
 	sh_int		number;
 	time_t		time;
 
@@ -2951,12 +2953,12 @@ struct event_data
 
 struct merc_data
 {
-	char *		name;
+	String 	name;
 	int		minimum;
 
 	OFFER_DATA * 	offer;
 	sh_int		num_offers;
-	char *		employer;
+	String 	employer;
 
 	bool		valid;
 	MERC_DATA *	previous;
@@ -2965,7 +2967,7 @@ struct merc_data
 
 struct offer_data
 {
-	char *		name;
+	String 	name;
 	int		amount;
 
 	bool		valid;
@@ -2974,9 +2976,9 @@ struct offer_data
 
 struct arena_data
 {
-	char *		keyword;
-	char *		name;
-	char *		desc;
+	String 	keyword;
+	String 	name;
+	String 	desc;
 
 	int		minvnum;	/* actual arena, not prep rooms or view room */
 	int		maxvnum;
@@ -3348,7 +3350,7 @@ void    update_pos      args( ( CHAR_DATA *victim ) );
 void    violence_update args( ( void ) );
 
 /* mob_prog.c */
-void    mprog_wordlist_check    args ( ( const char * arg, CHAR_DATA *mob,
+void    mprog_wordlist_check    args ( ( const String& arg, CHAR_DATA *mob,
                                         CHAR_DATA* actor, OBJ_DATA* object,
                                         void* vo, int type ) );
 void    mprog_percent_check     args ( ( CHAR_DATA *mob, CHAR_DATA* actor,
@@ -3449,10 +3451,10 @@ const char *  get_who_line    args(( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool    mob_exists      args(( const char *name ) );
 bool    has_slash       args(( const char *str ) );
 //int	round			args((float fNum, int iInc));	/* below is Montrey's list of */
-int	parse_deity		args((const char *dstring));		/* hacks!  Beware! :) */
+int	parse_deity		args((const String& dstring));		/* hacks!  Beware! :) */
 int	get_usable_level	args((CHAR_DATA *ch));
 int	get_holdable_level	args((CHAR_DATA *ch));
-const char *	get_owner		args((CHAR_DATA *ch, OBJ_DATA *obj));
+String	get_owner		args((CHAR_DATA *ch, OBJ_DATA *obj));
 CHAR_DATA *	get_obj_carrier		args((OBJ_DATA *obj));
 int	get_locker_number	args((CHAR_DATA *ch));
 int	get_locker_weight	args((CHAR_DATA *ch));
@@ -3545,7 +3547,7 @@ bool    dispel_char       args(( CHAR_DATA *victim, int level, bool cancellation
 bool    level_save        args(( int dis_level, int save_level));
 
 /* note.c */
-String  format_string( const char *oldstring );
+String  format_string( const String& oldstring );
 const char * string_replace( const char * orig, const char * old_str, const char * 
 new_str);
 

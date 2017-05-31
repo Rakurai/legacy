@@ -65,8 +65,8 @@ const char *one_keyword(const char *keywords, char *word)
 
 void help_char_search(CHAR_DATA *ch, const String& arg)
 {
-	String buf;
-	char query[MSL], *text;
+	String buf, text;
+	char query[MSL];
 	BUFFER *output;
 	int i = 0, count = 0;
 	Format::sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
@@ -102,9 +102,8 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 	output = new_buf();
 	add_buf(output, stupidassline);
 	ptb(output, "\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
-	text = str_dup(format_string(buf.c_str()));
+	text = format_string(buf);
 	add_buf(output, text);
-	free_string(text);
 	ptb(output, "\n{W[%d] total help entries.{x\n\n", i);
 	add_buf(output, stupidassline);
 	page_to_char(buf_string(output), ch);

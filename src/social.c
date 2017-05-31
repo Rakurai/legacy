@@ -46,7 +46,6 @@
 
 void insert_social(struct social_type *);
 void remove_social(char *);
-void clear_social(struct social_type *);
 int count_socials();
 
 int maxSocial;
@@ -144,22 +143,10 @@ void remove_social(char *name)
 			struct social_type *n = iterator->next;
 			p->next = n;
 			n->previous = p;
-			clear_social(iterator);
 			free_mem(iterator, sizeof(iterator));
 			return;
 		}
 	}
-}
-
-void clear_social(struct social_type *social)
-{
-	free_string(social->char_no_arg);
-	free_string(social->others_no_arg);
-	free_string(social->char_found);
-	free_string(social->others_found);
-	free_string(social->vict_found);
-	free_string(social->char_auto);
-	free_string(social->others_auto);
 }
 
 /*
@@ -187,13 +174,13 @@ void save_social(const struct social_type *s, FILE *fp)
 {
 	/* get rid of (null) */
 	Format::fprintf(fp, "%s~\n", smash_tilde(s->name));
-	Format::fprintf(fp, "%s~\n", s->char_no_arg    ? smash_tilde(s->char_no_arg)   : "");
-	Format::fprintf(fp, "%s~\n", s->others_no_arg  ? smash_tilde(s->others_no_arg) : "");
-	Format::fprintf(fp, "%s~\n", s->char_found     ? smash_tilde(s->char_found)    : "");
-	Format::fprintf(fp, "%s~\n", s->others_found   ? smash_tilde(s->others_found)  : "");
-	Format::fprintf(fp, "%s~\n", s->vict_found     ? smash_tilde(s->vict_found)    : "");
-	Format::fprintf(fp, "%s~\n", s->char_auto      ? smash_tilde(s->char_auto)     : "");
-	Format::fprintf(fp, "%s~\n\n", s->others_auto  ? smash_tilde(s->others_auto)   : "");
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->char_no_arg));
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->others_no_arg));
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->char_found));
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->others_found));
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->vict_found));
+	Format::fprintf(fp, "%s~\n", smash_tilde(s->char_auto));
+	Format::fprintf(fp, "%s~\n\n", smash_tilde(s->others_auto));
 }
 
 void save_social_table()
@@ -418,8 +405,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 		return;
 	}
 	else if (!str_cmp(cmd, "cnoarg")) { /* Set that argument */
-		free_string(iSocial->char_no_arg);
-		iSocial->char_no_arg = str_dup(argument);
+		iSocial->char_no_arg = argument;
 
 		if (!argument[0])
 			stc("Character will now see nothing when this social is used without arguments.\n", ch);
@@ -427,8 +413,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "onoarg")) {
-		free_string(iSocial->others_no_arg);
-		iSocial->others_no_arg = str_dup(argument);
+		iSocial->others_no_arg = argument;
 
 		if (!argument[0])
 			stc("Others will now see nothing when this social is used without arguments.\n", ch);
@@ -436,8 +421,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "cfound")) {
-		free_string(iSocial->char_found);
-		iSocial->char_found = str_dup(argument);
+		iSocial->char_found = argument;
 
 		if (!argument[0])
 			stc("The character will now see nothing when a target is found.\n", ch);
@@ -445,8 +429,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "ofound")) {
-		free_string(iSocial->others_found);
-		iSocial->others_found = str_dup(argument);
+		iSocial->others_found = argument;
 
 		if (!argument[0])
 			stc("Others will now see nothing when a target is found.\n", ch);
@@ -454,8 +437,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "vfound")) {
-		free_string(iSocial->vict_found);
-		iSocial->vict_found = str_dup(argument);
+		iSocial->vict_found = argument;
 
 		if (!argument[0])
 			stc("Victim will now see nothing when a target is found.\n", ch);
@@ -463,8 +445,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "cself")) {
-		free_string(iSocial->char_auto);
-		iSocial->char_auto = str_dup(argument);
+		iSocial->char_auto = argument;
 
 		if (!argument[0])
 			stc("Character will now see nothing when targetting self.\n", ch);
@@ -472,8 +453,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "oself")) {
-		free_string(iSocial->others_auto);
-		iSocial->others_auto = str_dup(argument);
+		iSocial->others_auto = argument;
 
 		if (!argument[0])
 			stc("Others will now see nothing when character targets self.\n", ch);

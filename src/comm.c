@@ -116,7 +116,7 @@ void    read_from_buffer        args((DESCRIPTOR_DATA *d));
 void    stop_idling             args((CHAR_DATA *ch));
 void    bust_a_prompt           args((CHAR_DATA *ch));
 int     roll_stat               args((CHAR_DATA *ch, int stat));
-char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
+char    *get_multi_command     args((DESCRIPTOR_DATA *d, const String& argument));
 
 /* Desparate debugging measure: A function to print a reason for exiting. */
 void exit_reason(const char *module, int line, const char *reason)
@@ -1218,7 +1218,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
 	String doors;
-	const char *str, *i;
+	const char *i;
 	char *point;
 	EXIT_DATA *pexit;
 	bool found;
@@ -1226,9 +1226,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 	const char *dirl_name[] = {"n", "e", "s", "w", "u", "d"};
 	int door, color, bold;
 	point = buf;
-	str = ch->prompt;
 
-	if (str == NULL || str[0] == '\0') {
+	if (ch->prompt.empty()) {
 		ptc(ch, "{W<{C%d{Thp {G%d{Hma {B%d{Nst{W>{x %s", ch->hit, ch->mana, ch->stam, ch->prefix);
 		return;
 	}
@@ -1237,6 +1236,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 		stc("{b<AFK> {x", ch);
 		return;
 	}
+
+	const char *str = ch->prompt.c_str();
 
 	while (*str != '\0') {
 		if (*str == '{') {      /* hack to make it backwards compatible with %C(color) */
@@ -2105,21 +2106,22 @@ void show_string(struct descriptor_data *d, const String& input)
 		write_to_buffer(d, page, page.size());
 } /* end show_string() */
 
-char *get_multi_command(DESCRIPTOR_DATA *d, const char *argument)
+char *get_multi_command(DESCRIPTOR_DATA *d, const String& argument)
 {
 	char *pcom;
 	pcom = command;
+	const char *argptr = argument.c_str();
 
-	while (*argument != '\0') {
-		if (argument[0] == '|') {
-			if (*++argument != '|') {
-				strcpy(d->incomm, argument);
+	while (*argptr != '\0') {
+		if (argptr[0] == '|') {
+			if (*++argptr != '|') {
+				strcpy(d->incomm, argptr);
 				*pcom = '\0';
 				return command;
 			}
 		}
 
-		*pcom++ = *argument++;
+		*pcom++ = *argptr++;
 	}
 
 	*pcom = '\0';

@@ -486,28 +486,25 @@ void note_attach(CHAR_DATA *ch, int type)
 
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 {
-	String to_new;
 	NOTE_DATA *prev;
 	NOTE_DATA **list;
-	const char *to_list;
 
 	if (!del) {
 		/* make a new list */
-		to_list = pnote->to_list;
+		String to_new, to_list = pnote->to_list;
 
-		while (*to_list != '\0') {
+		while (!to_list.empty()) {
 			String to_one;
-			to_list     = one_argument(to_list, to_one);
+			to_list = one_argument(to_list, to_one);
 
-			if (to_one[0] != '\0' && str_cmp(ch->name, to_one)) {
+			if (!to_one.empty() && str_cmp(ch->name, to_one)) {
 				to_new += " ";
 				to_new += to_one;
 			}
 		}
 
 		/* Just a simple recipient removal? */
-		if (str_cmp(ch->name, pnote->sender) && to_new[0] != '\0') {
-			free_string(pnote->to_list);
+		if (str_cmp(ch->name, pnote->sender) && !to_new.empty()) {
 			pnote->to_list = str_dup(to_new.substr(1));
 			return;
 		}
@@ -1133,8 +1130,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		add_buf(buffer, ch->pnote->text);
 		add_buf(buffer, argument);
 		add_buf(buffer, "\n");
-		free_string(ch->pnote->text);
-		ch->pnote->text = str_dup(buf_string(buffer));
+		ch->pnote->text = buf_string(buffer);
 		free_buf(buffer);
 		stc("Line added.\n", ch);
 		return;
@@ -1157,8 +1153,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		}
 
 		String temp = ch->pnote->text;
-		free_string(ch->pnote->text);
-		ch->pnote->text = str_dup(temp.replace(old, nw));
+		ch->pnote->text = temp.replace(old, nw);
 		Format::sprintf(buf, "'%s' replaced with '%s'.\n", old, nw);
 		stc(buf, ch);
 		return;
@@ -1170,9 +1165,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			return;
 		}
 
-		char *temp = ch->pnote->text;
-		ch->pnote->text = str_dup(format_string(temp));
-		free_string(temp);
+		ch->pnote->text = format_string(ch->pnote->text);
 		stc("Note formatted.\n", ch);
 		return;
 	}
@@ -1204,8 +1197,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			if (buf[len] == '\n') {
 				if (found) { /* found the second one */
 					buf[len + 1] = '\0';
-					free_string(ch->pnote->text);
-					ch->pnote->text = str_dup(buf);
+					ch->pnote->text = buf;
 					stc("Line removed.\n", ch);
 					return;
 				}
@@ -1215,8 +1207,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		}
 
 		buf[0] = '\0';
-		free_string(ch->pnote->text);
-		ch->pnote->text = str_dup(buf);
+		ch->pnote->text = buf;
 		stc("Line removed.\n", ch);
 		return;
 	}
@@ -1230,8 +1221,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			return;
 		}
 
-		free_string(ch->pnote->subject);
-		ch->pnote->subject = str_dup(argument);
+		ch->pnote->subject = argument;
 		stc("Subject set.\n", ch);
 		return;
 	}
@@ -1256,8 +1246,6 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			return;
 		}
 
-		free_string(ch->pnote->to_list);
-
 		/* if they're not an imm and in a clan, replace 'clan' with their clan's name.
 		   but not 'clans'!     -- Montrey */
 		if (!IS_IMMORTAL(ch) && ch->clan && is_exact_name("clan", argument)) {
@@ -1271,11 +1259,11 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 
 			*p = '\0';
 			p += 4;
-			Format::sprintf(buf, "%s%s%s", line, capitalize(ch->clan->name), p);
-			ch->pnote->to_list = str_dup(buf);
+			Format::sprintf(buf, "%s%s%s", line, ch->clan->name.capitalize(), p);
+			ch->pnote->to_list = buf;
 		}
 		else
-			ch->pnote->to_list = str_dup(argument);
+			ch->pnote->to_list = argument;
 
 		stc("Recipient list set.\n", ch);
 		return;
@@ -1647,7 +1635,7 @@ void do_next(CHAR_DATA *ch, String argument)
  * Thanks to Kalgen for the new procedure (no more bug!)
  * Original wordwrap() written by Surreality.
  */
-String format_string(const char *oldstring)
+String format_string(const String& oldstring)
 {
 	String xbuf;
 	char xbuf2[MAX_STRING_LENGTH];

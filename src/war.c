@@ -839,7 +839,7 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 	int i, x, chcount = 0, defcount = 0, c = 0, d = 0, chlead, deflead, lines;
 	BUFFER *output;
 	struct opp_list {
-		char *name;
+		String name;
 		bool inwar;
 		int st_score;
 		int score;

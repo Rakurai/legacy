@@ -2514,11 +2514,10 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 /* Make a corpse out of a character. */
 void make_corpse(CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *corpse;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	const char *name;
+	String name;
 
 	if (IS_NPC(ch)) {
 		name          = ch->short_descr;
@@ -2564,12 +2563,8 @@ void make_corpse(CHAR_DATA *ch)
 	}
 
 	corpse->level = ch->level;
-	Format::sprintf(buf, corpse->short_descr, name);
-	free_string(corpse->short_descr);
-	corpse->short_descr = str_dup(buf);
-	Format::sprintf(buf, corpse->description, name);
-	free_string(corpse->description);
-	corpse->description = str_dup(buf);
+	corpse->short_descr = Format::format(corpse->short_descr, name);
+	corpse->description = Format::format(corpse->description, name);
 
 	/* We crashed today in this:  a mobile had just high enough strength to
 	   wield his sword, with a piece of eq that gave a strength bonus.  When
@@ -2710,10 +2705,9 @@ void death_cry(CHAR_DATA *ch)
 	act(msg, ch, NULL, NULL, TO_NOTVIEW);
 
 	if (vnum != 0) {
-		char buf[MAX_STRING_LENGTH];
 		OBJ_DATA *obj;
-		const char *name;
-		name       = IS_NPC(ch) ? ch->short_descr : ch->name.c_str();
+		String name;
+		name       = IS_NPC(ch) ? ch->short_descr : ch->name;
 		obj        = create_object(get_obj_index(vnum), 0);
 
 		if (! obj) {
@@ -2722,12 +2716,8 @@ void death_cry(CHAR_DATA *ch)
 		}
 
 		obj->timer = number_range(4, 7);
-		Format::sprintf(buf, obj->short_descr, name);
-		free_string(obj->short_descr);
-		obj->short_descr = str_dup(buf);
-		Format::sprintf(buf, obj->description, name);
-		free_string(obj->description);
-		obj->description = str_dup(buf);
+		obj->short_descr = Format::format(obj->short_descr, name);
+		obj->description = Format::format(obj->description, name);
 
 		if (obj->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form, FORM_POISON))

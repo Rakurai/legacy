@@ -630,16 +630,13 @@ OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
 	}
 
 	questobj->timer = (4 * ch->pcdata->sqcountdown + 10) / 3;
-	free_string(questobj->name);
-	free_string(questobj->short_descr);
-	free_string(questobj->description);
 	Format::sprintf(buf, "%s %s", sq_item_table[descnum].name, ch->name);
-	questobj->name        = str_dup(buf);
-	questobj->short_descr = str_dup(sq_item_table[descnum].shortdesc);
-	questobj->description = str_dup(sq_item_table[descnum].longdesc);
+	questobj->name        = buf;
+	questobj->short_descr = sq_item_table[descnum].shortdesc;
+	questobj->description = sq_item_table[descnum].longdesc;
 	ed = new_extra_descr();
-	ed->keyword        = str_dup(sq_item_table[descnum].name);
-	ed->description    = str_dup(sq_item_table[descnum].extended);
+	ed->keyword        = sq_item_table[descnum].name;
+	ed->description    = sq_item_table[descnum].extended;
 	ed->next           = questobj->extra_descr;
 	questobj->extra_descr   = ed;
 	ch->pcdata->squestobj = questobj;
@@ -722,8 +719,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 
 	Format::sprintf(name, "squestmob %s", shortdesc);
 	questmob->name = name;
-	free_string(questmob->short_descr);
-	questmob->short_descr = str_dup(shortdesc);
+	questmob->short_descr = shortdesc;
 
 	/* generate title */
 	switch (number_range(1, 4)) {
@@ -731,7 +727,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; MagT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female);
+		title = GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female;
 		quest = "the powers of magic";
 		SET_BIT(questmob->act, ACT_MAGE);
 		break;
@@ -740,7 +736,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; CleT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female);
+		title = GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female;
 		quest = "the wisdom of holiness";
 		SET_BIT(questmob->act, ACT_CLERIC);
 		break;
@@ -749,7 +745,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; ThiT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female);
+		title = GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female;
 		quest = "the art of thievery";
 		SET_BIT(questmob->act, ACT_THIEF);
 		break;
@@ -758,14 +754,14 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		for (maxnoun = 0; WarT_table[maxnoun].male != NULL; maxnoun++);
 
 		x = number_range(0, --maxnoun);
-		title = str_dup(GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female);
+		title = GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female;
 		quest = "the ways of weaponcraft";
 		SET_BIT(questmob->act, ACT_WARRIOR);
 		break;
 	}
 
 	Format::sprintf(longdesc, "The %s, %s, stands here.\n", title, questmob->short_descr);
-	questmob->long_descr = str_dup(longdesc);
+	questmob->long_descr = longdesc;
 
 	if ((questroom = generate_skillquest_room(ch, level)) == NULL) {
 		bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
@@ -982,8 +978,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 
 		/* Add player's name to mox name to prevent visibility by others */
 		Format::sprintf(buf, "%s %s", questitem->name, ch->name);
-		free_string(questitem->name);
-		questitem->name = str_dup(buf);
+		questitem->name = buf;
 		/* Mox timer added by Demonfire as a preventative measure against cheating.
 		The countdown timer assignment was moved here so that it could be used
 		in the mox timer calculation, it was normally assigned after the return
@@ -1038,7 +1033,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 			break;
 		}
 
-		if (room->name != NULL) {
+		if (!room->name.empty()) {
 			Format::sprintf(buf, "Seek %s out somewhere in the vicinity of %s!",
 			        victim->short_descr, room->name);
 			do_say(questman, buf);

@@ -568,7 +568,7 @@ int  scan_credits(AREA_DATA *pArea)
 	char *p, *levels, *author, *title;
 	int nblanks;
 
-	if (!pArea->credits || !pArea->credits[0]) {
+	if (pArea->credits.empty()) {
 		log_string("scan_credits: No credits available.\n");
 		return -1;
 	}
@@ -725,21 +725,18 @@ int  scan_credits(AREA_DATA *pArea)
  */
 void load_area(FILE *fp)
 {
-	const char *line;
 	AREA_DATA *pArea = (AREA_DATA *)alloc_perm(sizeof(*pArea));
 	pArea->reset_first      = NULL;
 	pArea->reset_last       = NULL;
 	pArea->file_name        = fread_string(fp);
-	line = pArea->file_name;
+	String line = pArea->file_name;
 
 	String num;
 	line = one_argument(line, num);
 
 	if (is_number(num)) {
 		aVersion = atoi(num);
-		char *temp = str_dup(line);
-		free_string(pArea->file_name);
-		pArea->file_name = temp;
+		pArea->file_name = line;
 	}
 	else
 		aVersion = 1;

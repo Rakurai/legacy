@@ -1270,14 +1270,10 @@ OBJ_DATA *create_money(int gold, int silver)
 		        gold > 0 ? silver > 0 ? " and gold" : "gold" : "");
 	}
 
-	free_string(obj->name);
-	free_string(obj->short_descr);
-	free_string(obj->description);
-	free_string(obj->material);
-	obj->name               = str_dup(name);
-	obj->short_descr        = str_dup(short_descr);
-	obj->description        = str_dup(description);
-	obj->material           = str_dup(material);
+	obj->name               = name;
+	obj->short_descr        = short_descr;
+	obj->description        = description;
+	obj->material           = material;
 	obj->value[0]           = silver;
 	obj->value[1]           = gold;
 	obj->cost               = 100 * gold + silver;
@@ -1443,7 +1439,7 @@ bool room_is_private(ROOM_INDEX_DATA *pRoomIndex)
 	CHAR_DATA *rch;
 	int count;
 
-	if (pRoomIndex->owner != NULL && pRoomIndex->owner[0] != '\0')
+	if (!pRoomIndex->owner.empty())
 		return TRUE;
 
 	count = 0;
@@ -1755,7 +1751,7 @@ bool has_slash(const char *str)
 }
 */
 /* take a deity string, pull out a valid deity -- Montrey */
-int parse_deity(const char *dstring)
+int parse_deity(const String& dstring)
 {
 	int i;
 
@@ -1813,7 +1809,7 @@ int get_holdable_level(CHAR_DATA *ch)
  * Clerve
  */
 
-const char *get_owner(CHAR_DATA *ch, OBJ_DATA *obj)
+String get_owner(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	if (obj->extra_descr != NULL) {
 		EXTRA_DESCR_DATA *ed_next;

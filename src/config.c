@@ -538,8 +538,7 @@ void config_immortal(CHAR_DATA *ch, String argument)
 			ptc(ch, "Your immtalk prefix is currently: %s{x\n",
 				ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
 		else if (!str_cmp(argument, "none")) {
-			free_string(ch->pcdata->immprefix);
-			ch->pcdata->immprefix = str_dup("");
+			ch->pcdata->immprefix.erase();
 			stc("Your immtalk prefix has been removed.\n", ch);
 		}
 		else {
@@ -551,8 +550,7 @@ void config_immortal(CHAR_DATA *ch, String argument)
 			else if (!strstr(buf, ch->name))
 				stc("Your immtalk prefix must include your name.\n", ch);
 			else {
-				free_string(ch->pcdata->immprefix);
-				ch->pcdata->immprefix = str_dup(argument);
+				ch->pcdata->immprefix = argument;
 				ptc(ch, "Your immtalk prefix is now: %s{x\n", ch->pcdata->immprefix);
 			}
 		}
@@ -567,8 +565,7 @@ void config_immortal(CHAR_DATA *ch, String argument)
 			ptc(ch, "Your immname is currently: %s{x\n",
 				ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
 		else if (!str_cmp(argument, "none")) {
-			free_string(ch->pcdata->immprefix);
-			ch->pcdata->immname = str_dup("");
+			ch->pcdata->immname.erase();
 			stc("Your immname has been removed.\n", ch);
 		}
 		else {
@@ -577,12 +574,11 @@ void config_immortal(CHAR_DATA *ch, String argument)
 			if (strlen(buf) > TITLEBLOCK)
 				stc("Your immname can be no longer than 13 printed characters.\n", ch);
 			else {
-				free_string(ch->pcdata->immname);
 				buf[0]  = '\0';
 				buf += "{W[{x";
 				buf += center_string_in_whitespace(argument, TITLEBLOCK);
 				buf += "{W]{x";
-				ch->pcdata->immname = str_dup(buf);
+				ch->pcdata->immname = buf;
 				ptc(ch, "Your immname is now: %s{x\n", ch->pcdata->immname);
 			}
 		}

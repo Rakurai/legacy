@@ -3350,7 +3350,7 @@ void do_secure(CHAR_DATA *ch, String argument)
 void setgameinout(CHAR_DATA *ch, String argument, const String& entryexit, char flag)
 {
 	CHAR_DATA *victim;
-	char **msgptr;
+	String *msgptr;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -3373,8 +3373,7 @@ void setgameinout(CHAR_DATA *ch, String argument, const String& entryexit, char 
 		msgptr = &victim->pcdata->gameout;
 
 	if (argument.empty()) {    /* clear flag */
-		free_string(*msgptr);
-		*msgptr = NULL;
+		msgptr->erase();
 		act("OK, $N no longer has a game $t string",
 		    ch, entryexit, victim, TO_CHAR);
 	}
@@ -3387,7 +3386,7 @@ void setgameinout(CHAR_DATA *ch, String argument, const String& entryexit, char 
 		return;
 	}
 	else {
-		*msgptr = str_dup(argument);
+		*msgptr = argument;
 		act("OK, game $t message set", ch, entryexit, NULL, TO_CHAR);
 	}
 } /* end setgameinout() */
@@ -4026,8 +4025,7 @@ void do_aura(CHAR_DATA *ch, String argument)
 	if (!str_cmp(argument, "none")) {
 		stc("Aura removed.\n", ch);
 		stc("Your aura has been removed.\n", victim);
-		free_string(victim->pcdata->aura);
-		victim->pcdata->aura = str_dup("");
+		victim->pcdata->aura.erase();
 		return;
 	}
 
@@ -4041,8 +4039,7 @@ void do_aura(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(victim->pcdata->aura);
-	victim->pcdata->aura = str_dup(argument);
+	victim->pcdata->aura = argument;
 	ptc(victim, "Your aura is now {W(%s{W){x.\n", victim->pcdata->aura);
 	ptc(ch, "Their aura is now {W(%s{W){x.\n", victim->pcdata->aura);
 }
@@ -4069,8 +4066,7 @@ void do_bamfin(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(ch->pcdata->bamfin);
-	ch->pcdata->bamfin = str_dup(argument);
+	ch->pcdata->bamfin = argument;
 	ptc(ch, "Your poofin is now: %s\n", ch->pcdata->bamfin);
 }
 
@@ -4096,8 +4092,7 @@ void do_bamfout(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(ch->pcdata->bamfout);
-	ch->pcdata->bamfout = str_dup(argument);
+	ch->pcdata->bamfout = argument;
 	ptc(ch, "Your poofout is now: %s\n", ch->pcdata->bamfout);
 }
 

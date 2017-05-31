@@ -452,15 +452,10 @@ static void edit_desc(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	char *str = ch->long_descr;
-
-	if (!str)
-		str = "";
-
 	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_DESC;
-	strcpy(ed->edit_string, str);
+	strcpy(ed->edit_string, ch->long_descr);
 	backup();
 	ed->edit_nlines = count_lines();
 	edit_goto1(ch, 1);
@@ -492,19 +487,14 @@ static void edit_done(CHAR_DATA *ch, const String& argument)
 			        board_index[ch->pnote->type].board_long);
 			stc(buf, ch);
 			stc("Don't forget to {RPOST{x it!\n", ch);
-			free_string(ch->pnote->text);
-			ch->pnote->text = str_dup(ed->edit_string);
+			ch->pnote->text = ed->edit_string;
 		}
 
 		break;
 
 	case EDIT_TYPE_DESC:
 		stc("OK, I'm saving {Yyour description{x.\n", ch);
-
-		if (ch->long_descr != NULL)
-			free_string(ch->long_descr);
-
-		ch->description = str_dup(ed->edit_string);
+		ch->description = ed->edit_string;
 		break;
 
 	case EDIT_TYPE_ROOM:
@@ -514,11 +504,7 @@ static void edit_done(CHAR_DATA *ch, const String& argument)
 		}
 
 		stc("OK, I'm saving your {Yroom description{x.\n", ch);
-
-		if (ch->in_room->description != NULL)
-			free_string(ch->in_room->description);
-
-		ch->in_room->description = str_dup(ed->edit_string);
+		ch->in_room->description = ed->edit_string;
 		break;
 
 	case EDIT_TYPE_HELP:
@@ -623,15 +609,10 @@ static void edit_room(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	char *str = ch->in_room->description;
-
-	if (!str)
-		str = "";
-
 	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_ROOM;
-	strcpy(ed->edit_string, str);
+	strcpy(ed->edit_string, ch->in_room->description);
 	backup();
 	ed->edit_nlines = count_lines();
 	edit_goto1(ch, 1);

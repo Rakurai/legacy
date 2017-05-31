@@ -154,7 +154,7 @@ bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 	    && (pdesc = get_extra_descr(KEYWD_OWNER, obj->pIndexData->extra_descr)) == NULL)
 		return TRUE;
 
-	sscanf(pdesc->description, "%[^\n]", owner);
+	sscanf(pdesc->description.c_str(), "%[^\n]", owner);
 
 	if (is_name(ch->name, owner))
 		return TRUE;
@@ -188,7 +188,7 @@ bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (!obj->owner || obj->owner == NULL)
+	if (obj->owner.empty())
 		return TRUE;
 
 	for (wch = char_list; wch != NULL ; wch = wch->next)
@@ -1325,7 +1325,7 @@ void do_give(CHAR_DATA *ch, String argument)
 
 			if (change < 1) {
 				act("$n tells you 'I'm sorry, you did not give me enough to change.'", victim, NULL, ch, TO_VICT);
-				strcpy(ch->reply, victim->name);
+				ch->reply = victim->name;
 				Format::sprintf(buf, "%d %s %s", amount, silver ? "silver" : "gold", ch->name);
 				do_give(victim, buf);
 				return;
@@ -1340,7 +1340,7 @@ void do_give(CHAR_DATA *ch, String argument)
 			}
 
 			act("$n tells you 'What do you think I am?  Made of money?!'", victim, NULL, ch, TO_VICT);
-			strcpy(ch->reply, victim->name);
+			ch->reply = victim->name;
 		}
 
 		return;
@@ -1416,7 +1416,7 @@ void do_give(CHAR_DATA *ch, String argument)
 
 	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL) {
 		act("$N tells you 'Sorry, you'll have to sell that.'", ch, NULL, victim, TO_CHAR);
-		strcpy(ch->reply, victim->name);
+		ch->reply = victim->name;
 		return;
 	}
 
@@ -2656,7 +2656,7 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC) || IS_OBJ_STAT(obj, ITEM_NOSAC)) {
-		ptc(ch, "%s is not an acceptable sacrifice.\n", capitalize(obj->short_descr));
+		ptc(ch, "%s is not an acceptable sacrifice.\n", obj->short_descr.capitalize());
 		return FALSE;
 	}
 
@@ -3928,8 +3928,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 
 		Format::sprintf(buf, "%sA collar around its neck says 'I belong to %s'.\n",
 		        pet->description, ch->name);
-		free_string(pet->description);
-		pet->description = str_dup(buf);
+		pet->description = buf;
 		char_to_room(pet, ch->in_room);
 
 		make_pet(ch, pet);
@@ -3961,7 +3960,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 		if (cost <= 0 || !can_see_obj(ch, obj)) {
 			act("$n tells you 'I don't sell that -- try 'list''.",
 			    keeper, NULL, ch, TO_VICT);
-			strcpy(ch->reply, keeper->name);
+			ch->reply = keeper->name;
 			return;
 		}
 
@@ -3985,7 +3984,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 			if (count < number) {
 				act("$n tells you 'I don't have that many in stock.",
 				    keeper, NULL, ch, TO_VICT);
-				strcpy(ch->reply, keeper->name);
+				ch->reply = keeper->name;
 				return;
 			}
 		}
@@ -3994,7 +3993,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 			if (ch->questpoints < cost * number) {
 				act("$n tell you 'Sorry, but you don't have enough quest points!'",
 				    keeper, NULL, ch, TO_VICT);
-				strcpy(ch->reply, keeper->name);
+				ch->reply = keeper->name;
 				return;
 			}
 		}
@@ -4011,7 +4010,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 					act("$n tells you 'You can't afford to buy $p'.",
 					    keeper, obj, ch, TO_VICT);
 
-				strcpy(ch->reply, keeper->name);
+				ch->reply = keeper->name;
 				return;
 			}
 		}
@@ -4024,7 +4023,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 		if (obj->level > level_buyable) {
 			act("$n tells you 'You can't use $p yet'.",
 			    keeper, obj, ch, TO_VICT);
-			strcpy(ch->reply, keeper->name);
+			ch->reply = keeper->name;
 			return;
 		}
 
@@ -4131,7 +4130,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 
 			/* owner items bought in guild rooms to purchaser -- Montrey */
 			if (keeper->in_room->guild) {
-				char owner[MSL];
+				String owner;
 				EXTRA_DESCR_DATA *ed;
 				bool foundold = FALSE;
 
@@ -4139,18 +4138,17 @@ void do_buy(CHAR_DATA *ch, String argument)
 				if (t_obj->extra_descr != NULL) {
 					for (ed = t_obj->extra_descr; ed != NULL; ed = ed->next)
 						if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
-							free_string(ed->description);
-							strcpy(owner, ch->name);
-							ed->description = str_dup(owner);
+							owner = ch->name;
+							ed->description = owner;
 							foundold = TRUE;
 						}
 				}
 
 				if (!foundold) {
-					strcpy(owner, ch->name);
+					owner = ch->name;
 					ed                      = new_extra_descr();
-					ed->keyword             = str_dup(KEYWD_OWNER);
-					ed->description         = str_dup(owner);
+					ed->keyword             = KEYWD_OWNER;
+					ed->description         = owner;
 					ed->next                = t_obj->extra_descr;
 					t_obj->extra_descr      = ed;
 				}
@@ -4294,7 +4292,7 @@ void do_sell(CHAR_DATA *ch, String argument)
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		act("$n tells you 'You don't have that item'.",
 		    keeper, NULL, ch, TO_VICT);
-		strcpy(ch->reply, keeper->name);
+		ch->reply = keeper->name;
 		return;
 	}
 
@@ -4394,7 +4392,7 @@ void do_value(CHAR_DATA *ch, String argument)
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		act("$n tells you 'You don't have that item'.",
 		    keeper, NULL, ch, TO_VICT);
-		strcpy(ch->reply, keeper->name);
+		ch->reply = keeper->name;
 		return;
 	}
 
@@ -4422,7 +4420,7 @@ void do_value(CHAR_DATA *ch, String argument)
 	}
 
 	act(buf, keeper, obj, ch, TO_VICT);
-	strcpy(ch->reply, keeper->name);
+	ch->reply = keeper->name;
 	return;
 }
 
@@ -4718,7 +4716,7 @@ void do_auction(CHAR_DATA *ch, String argument)
 }
 
 /* get the name of the anvil's owner */
-char *anvil_owner_name(OBJ_DATA *anvil)
+String anvil_owner_name(OBJ_DATA *anvil)
 {
 	/* check if private anvil */
 	if (anvil->value[2] == 0) return NULL;
@@ -4730,7 +4728,7 @@ char *anvil_owner_name(OBJ_DATA *anvil)
 		return NULL;
 	}
 
-	return anvil->name + strlen("anvil private ");
+	return anvil->name.substr(strlen("anvil private "));
 }
 
 /* is named player the anvil's owner? -- Elrac */
@@ -5062,8 +5060,7 @@ void do_forge(CHAR_DATA *ch, String argument)
 	const char *name = smash_tilde(argument); // volatile, good until smash_tilde called again
 
 	obj->level = ch->level;
-	free_string(obj->material);
-	obj->material = str_dup(material->material);
+	obj->material = material->material;
 	obj->condition = material->condition;
 
 	obj->extra_flags = material->extra_flags;
@@ -5072,15 +5069,12 @@ void do_forge(CHAR_DATA *ch, String argument)
 		affect_copy_to_obj(obj, paf);
 
 	obj->value[0] = weapon_type(type);
-	free_string(obj->name);
 	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));
-	obj->name = str_dup(buf);
+	obj->name = buf;
 	Format::sprintf(sdesc, "%s{x", name);
-	free_string(obj->short_descr);
-	obj->short_descr = str_dup(sdesc);
+	obj->short_descr = sdesc;
 	Format::sprintf(buf, "A %s is here, forged by %s's craftsmanship.", weapon_table[weapon_lookup(type)].name, ch->name);
-	free_string(obj->description);
-	obj->description = str_dup(buf);
+	obj->description = buf;
 	ed = new_extra_descr();
 	Format::sprintf(buf, "It is a marvellous %s, crafted from the finest %s around.\n"
 	        "It was created in the Month of %s by %s %s\n"
@@ -5275,7 +5269,7 @@ void do_engrave(CHAR_DATA *ch, String argument)
 		dflt_desc = new_extra_descr();
 		dflt_desc->keyword = str_dup(weapon->name);
 
-		if (weapon->description && weapon->description[0]) {
+		if (!weapon->description.empty()) {
 			dbuf = new_buf();
 			add_buf(dbuf, weapon->description);
 			add_buf(dbuf, "\n");
@@ -5289,13 +5283,12 @@ void do_engrave(CHAR_DATA *ch, String argument)
 		dflt_desc->next = weapon->extra_descr;
 		weapon->extra_descr = dflt_desc;
 	}
-	else if (std::strstr(dflt_desc->description, eng_line) == NULL) {
+	else if (strstr(dflt_desc->description, eng_line) == NULL) {
 		/* add to existing extdesc */
 		dbuf = new_buf();
 		add_buf(dbuf, dflt_desc->description);
 		add_buf(dbuf, eng_line);
-		free_string(dflt_desc->description);
-		dflt_desc->description = str_dup(buf_string(dbuf));
+		dflt_desc->description = buf_string(dbuf);
 		free_buf(dbuf);
 		dbuf = NULL;
 	}
@@ -5313,8 +5306,10 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	ld = NULL;
 	la = NULL;
 	pb = buf;
+	char tdesc[10*MIL];
+	strcpy(tdesc, eng_desc->description);
 
-	for (pd = eng_desc->description; *pd;) {
+	for (pd = tdesc; *pd;) {
 		if (pd[0] == '\n') {
 			*pb++ = *pd++;
 			*pb = '\0';
@@ -5364,7 +5359,6 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	else
 		add_buf(dbuf, eng_desc->description);
 
-	free_string(eng_desc->description);
 	gettimeofday(&now_time, NULL);
 	current_time = (time_t) now_time.tv_sec;
 	strftime(buf, 9, "[%m/%d] ", localtime(&current_time));
@@ -5372,7 +5366,7 @@ void do_engrave(CHAR_DATA *ch, String argument)
 
 	if (IS_NPC(ch)) {
 		Format::sprintf(buf, "{Y%s{x, {Mcitizen of %s,", ch->short_descr,
-		        ch->in_room && ch->in_room->area && ch->in_room->area->name ?
+		        ch->in_room && ch->in_room->area && !ch->in_room->area->name.empty() ?
 		        ch->in_room->area->name : "Thera");
 	}
 	else {
@@ -5384,7 +5378,7 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	add_buf(dbuf, buf);
 	Format::sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", smash_tilde(argument));
 	add_buf(dbuf, buf);
-	eng_desc->description = str_dup(buf_string(dbuf));
+	eng_desc->description = buf_string(dbuf);
 	free_buf(dbuf);
 	stc("You have left a mark of duration upon your weapon.\n", ch);
 	act("$n solemnly engraves $s weapon.", ch, NULL, NULL, TO_ROOM);
@@ -5436,13 +5430,11 @@ void do_weddingring(CHAR_DATA *ch, String argument)
 
 	if (!str_prefix1(arg1, "long")) {
 		ptc(ch, "The long description of your weddingring is now:\n{x'%s{x'.\n", argument);
-		free_string(ring->description);
-		ring->description = str_dup(smash_tilde(argument));
+		ring->description = smash_tilde(argument);
 	}
 	else if (!str_prefix1(arg1, "short")) {
 		ptc(ch, "The short description of your weddingring is now:\n{x'%s{x'.\n", argument);
-		free_string(ring->short_descr);
-		ring->short_descr = str_dup(smash_tilde(argument));
+		ring->short_descr = smash_tilde(argument);
 	}
 	else
 		goto help;
@@ -5507,8 +5499,7 @@ void do_autograph(CHAR_DATA *ch, String argument)
 	}
 
 	Format::sprintf(buf, "%s {c(autographed){x", obj->short_descr);
-	free_string(obj->short_descr);
-	obj->short_descr = str_dup(buf);
+	obj->short_descr = buf;
 	stc("You sign the card.\n", ch);
 }
 

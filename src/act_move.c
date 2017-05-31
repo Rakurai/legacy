@@ -306,7 +306,6 @@ int find_door(CHAR_DATA *ch, const String& arg)
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != NULL
 			    && IS_SET(pexit->exit_info, EX_ISDOOR)
-			    && pexit->keyword != NULL
 			    && is_name(arg, pexit->keyword))
 				return door;
 		}
@@ -344,7 +343,6 @@ int find_exit(CHAR_DATA *ch, const String& arg)
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != NULL
 			    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
-			    &&   pexit->keyword != NULL
 			    &&   is_name(arg, pexit->keyword))
 				return door;
 		}

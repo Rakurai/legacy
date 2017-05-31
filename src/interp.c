@@ -1118,8 +1118,6 @@ void do_disable(CHAR_DATA *ch, String argument)
 
 		/* remove it from the database */
 		db_commandf("do_disable", "DELETE FROM disabled WHERE command LIKE '%s'", db_esc(p->command->name));
-		free_string(p->disabled_by);
-		free_string(p->reason);
 		free_mem(p, sizeof(DISABLED_DATA));
 		stc("Command enabled.\n", ch);
 		return;
@@ -1153,10 +1151,8 @@ void do_disable(CHAR_DATA *ch, String argument)
 	/* maybe a command group check here? thinking about it */
 	p = (DISABLED_DATA *)alloc_mem(sizeof(DISABLED_DATA));
 	p->command      = &cmd_table[i];
-	p->disabled_by  = str_dup(ch->name);
-	p->reason       = str_dup(argument);
-	strcut(p->disabled_by, 25);
-	strcut(p->reason, 100);
+	p->disabled_by  = ch->name;
+	p->reason       = argument;
 	p->next = disabled_first;
 	disabled_first = p;
 	/* add it to the database */

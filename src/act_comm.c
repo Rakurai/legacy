@@ -908,8 +908,7 @@ void do_afk(CHAR_DATA *ch, String argument)
 				Format::sprintf(buf, "{B[{C%s{B] {CUnknown Departure.{x\n",
 				        strtime);
 
-			free_string(ch->pcdata->afk);
-			ch->pcdata->afk = str_dup(buf);
+			ch->pcdata->afk = buf;
 			stc(buf, ch);
 		}
 	}
@@ -1192,7 +1191,7 @@ void do_quit(CHAR_DATA *ch, String argument)
 		    && can_see_who(victim, ch)
 		    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
 		    && !IS_SET(victim->comm, COMM_QUIET)) {
-			if (ch->pcdata && ch->pcdata->gameout && ch->pcdata->gameout[0] != '\0') {
+			if (ch->pcdata && !ch->pcdata->gameout.empty()) {
 				set_color(victim, GREEN, BOLD);
 				ptc(victim, "[%s] %s\n", ch->name, ch->pcdata->gameout);
 			}

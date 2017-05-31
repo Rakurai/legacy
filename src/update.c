@@ -1375,22 +1375,22 @@ void aggr_update(void)
 		   This has nothing to do with aggression but parasitizes on our
 		   list of player-inhabited rooms and the loop thereover. */
 		for (ch = room->people; ch != NULL; ch = ch->next_in_room) {
-			if (IS_NPC(ch) && ch->mpactnum > 0) {
+			if (IS_NPC(ch) && ch->mpact != NULL) {
 				MPROG_ACT_LIST *tmp_act, *tmp2_act;
 
+				// go through acts and handle them
 				for (tmp_act = ch->mpact; tmp_act != NULL;
 				     tmp_act = tmp_act->next) {
 					mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
 					                     tmp_act->obj, tmp_act->vo, ACT_PROG);
-					free_string(tmp_act->buf);
 				}
 
+				// delete the list
 				for (tmp_act = ch->mpact; tmp_act != NULL; tmp_act = tmp2_act) {
 					tmp2_act = tmp_act->next;
 					free_mem(tmp_act, sizeof(MPROG_ACT_LIST));
 				}
 
-				ch->mpactnum = 0;
 				ch->mpact    = NULL;
 			}
 		}

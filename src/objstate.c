@@ -253,8 +253,7 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 			break;
 
 		case 'D':
-			free_string(obj->description);
-			obj->description = str_dup(fread_string(fp));
+			obj->description = fread_string(fp);
 			break;
 
 		case 'E':
@@ -270,18 +269,15 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 			break;
 
 		case 'M':
-			free_string(obj->material);
-			obj->material = str_dup(fread_string(fp));
+			obj->material = fread_string(fp);
 			break;
 
 		case 'N':
-			free_string(obj->name);
-			obj->name = str_dup(fread_string(fp));
+			obj->name = fread_string(fp);
 			break;
 
 		case 'S':
-			free_string(obj->short_descr);
-			obj->short_descr = str_dup(fread_string(fp));
+			obj->short_descr = fread_string(fp);
 			break;
 
 		case 'T':

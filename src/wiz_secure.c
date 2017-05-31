@@ -465,7 +465,6 @@ void do_newpasswd(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim;
-	char *pwdnew, *p;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -491,18 +490,7 @@ void do_newpasswd(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	pwdnew = str_dup(argument);
-
-	for (p = pwdnew; *p != '\0'; p++) {
-		if (*p == '~') {
-			stc("New password not acceptable, try again.\n", ch);
-			return;
-		}
-	}
-
-	free_string(victim->pcdata->pwd);
-	victim->pcdata->pwd = str_dup(pwdnew);
-	free_string(pwdnew);
+	victim->pcdata->pwd = argument;
 	ptc(ch, "%s's new password is: %s\n", victim->name, argument);
 	save_char_obj(victim);
 	Format::sprintf(buf, "$N has changed %s's password.", victim->name);
@@ -707,7 +695,6 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 
 		/* lop off first item */
 		victim->tail = td->next;
-		free_string(td->tailer_name);
 		INVALIDATE(td);
 		free_mem(td, sizeof(struct tail_data));
 

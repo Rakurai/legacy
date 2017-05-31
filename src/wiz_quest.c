@@ -357,12 +357,10 @@ void do_string(CHAR_DATA *ch, String argument)
 			}
 
 			if (!str_cmp(arg3, "none")) {
-				free_string(victim->pcdata->spouse);
-				victim->pcdata->spouse = str_dup("");
+				victim->pcdata->spouse.erase();
 			}
 			else {
-				free_string(victim->pcdata->spouse);
-				victim->pcdata->spouse = str_dup(arg3);
+				victim->pcdata->spouse = arg3;
 			}
 
 			Format::sprintf(buf, "%s's spouse has been changed to %s.\n", victim->name, arg3);
@@ -383,25 +381,22 @@ void do_string(CHAR_DATA *ch, String argument)
 		}
 
 		if (!str_prefix1(arg2, "description")) {
-			free_string(victim->description);
-			victim->description = str_dup(arg3);
+			victim->description = arg3;
 			Format::sprintf(buf, "%s's description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "short")) {
-			free_string(victim->short_descr);
-			victim->short_descr = str_dup(arg3);
+			victim->short_descr = arg3;
 			Format::sprintf(buf, "%s's short description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "long")) {
-			free_string(victim->long_descr);
 			arg3 += "\n";
-			victim->long_descr = str_dup(arg3);
+			victim->long_descr = arg3;
 			Format::sprintf(buf, "%s's long description has been changed to %s", victim->name, arg3);
 			stc(buf, ch);
 			return;
@@ -442,8 +437,7 @@ void do_string(CHAR_DATA *ch, String argument)
 				return;
 			}
 
-			free_string(victim->pcdata->deity);
-			victim->pcdata->deity = str_dup(arg3);
+			victim->pcdata->deity = arg3;
 			Format::sprintf(buf, "%s's deity string has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
@@ -455,8 +449,7 @@ void do_string(CHAR_DATA *ch, String argument)
 				return;
 			}
 
-			free_string(victim->pcdata->status);
-			victim->pcdata->status = str_dup(arg3);
+			victim->pcdata->status = arg3;
 			Format::sprintf(buf, "%s's status string has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
@@ -475,24 +468,21 @@ void do_string(CHAR_DATA *ch, String argument)
 
 		if (!str_prefix1(arg2, "name")) {
 			Format::sprintf(buf, "%s is now known as %s.\n", obj->name, arg3);
-			free_string(obj->name);
-			obj->name = str_dup(arg3);
+			obj->name = arg3;
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "short")) {
 			Format::sprintf(buf, "%s's short description has been changed to %s.\n", obj->short_descr, arg3);
-			free_string(obj->short_descr);
-			obj->short_descr = str_dup(arg3);
+			obj->short_descr = arg3;
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "long")) {
 			Format::sprintf(buf, "%s's long description has been changed to %s.\n", obj->short_descr, arg3);
-			free_string(obj->description);
-			obj->description = str_dup(arg3);
+			obj->description = arg3;
 			stc(buf, ch);
 			return;
 		}
@@ -500,8 +490,7 @@ void do_string(CHAR_DATA *ch, String argument)
 		if (!str_prefix1(arg2, "material")) {
 			Format::sprintf(buf, "%s suddenly warps into %s as %s glows brightly.\n",
 			        obj->material, arg3, obj->short_descr);
-			free_string(obj->material);
-			obj->material = str_dup(arg3);
+			obj->material = arg3;
 			stc(buf, ch);
 			return;
 		}
@@ -603,8 +592,7 @@ void do_string(CHAR_DATA *ch, String argument)
 		}
 
 		if (!str_prefix1(arg2, "name")) {
-			free_string(room->name);
-			room->name = str_dup(arg3);
+			room->name = arg3;
 			Format::sprintf(buf, "Room %d's name has been changed to %s.\n",
 			        atoi(arg1), arg3);
 			stc(buf, ch);
@@ -669,8 +657,7 @@ void do_switch(CHAR_DATA *ch, String argument)
 	ch->desc            = NULL;
 
 	/* change communications to match */
-	free_string(victim->prompt);
-	victim->prompt = str_dup(ch->prompt);
+	victim->prompt = ch->prompt;
 
 	victim->comm = ch->comm;
 	victim->censor = ch->censor;        /* Montrey */
@@ -694,8 +681,7 @@ void do_return(CHAR_DATA *ch, String argument)
 
 	stc("You return to your original body.\n", ch);
 
-	free_string(ch->prompt);
-	ch->prompt = str_dup("");
+	ch->prompt.erase();
 
 	Format::sprintf(buf, "$N has returned from: %s.", ch->short_descr);
 	wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, GET_RANK(ch));

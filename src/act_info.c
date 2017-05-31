@@ -161,14 +161,10 @@ String format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	buf += "{x";
 
-	if (fShort) {
-		if (obj->short_descr != NULL)
-			buf += obj->short_descr;
-	}
-	else {
-		if (obj->description != NULL)
-			buf += obj->description;
-	}
+	if (fShort)
+		buf += obj->short_descr;
+	else
+		buf += obj->description;
 
 	buf += "{x";
 
@@ -1540,8 +1536,7 @@ void do_prompt(CHAR_DATA *ch, String argument)
 			buf += " ";
 	}
 
-	free_string(ch->prompt);
-	ch->prompt = str_dup(buf);
+	ch->prompt = buf;
 	Format::sprintf(buf, "Prompt set to %s\n", ch->prompt);
 	stc(buf, ch);
 }
@@ -1996,13 +1991,12 @@ void do_look(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (pexit->description != NULL && pexit->description[0] != '\0')
+	if (!pexit->description.empty())
 		stc(pexit->description, ch);
 	else
 		stc("Nothing special there.\n", ch);
 
-	if (pexit->keyword    != NULL
-	    &&   pexit->keyword[0] != '\0'
+	if (!pexit->keyword.empty()
 	    &&   pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED))
 			act("The $d is closed.", ch, NULL, pexit->keyword, TO_CHAR);
@@ -2375,7 +2369,8 @@ void do_whois(CHAR_DATA *ch, String argument)
 	char buf[MAX_INPUT_LENGTH];
 	char block[MAX_INPUT_LENGTH];
 	char clan[MAX_STRING_LENGTH];
-	char *remort, *rank;
+	String rank;
+	char *remort;
 	BUFFER *output;
 	CHAR_DATA *victim;
 
@@ -2494,7 +2489,7 @@ void do_who(CHAR_DATA *ch, String argument)
 	*charitems, tmp_charitem;
 	String buf;
 	char buf2[MIL];
-	char block1[MIL];  /* [level race class] */
+	String block1;  /* [level race class] */
 	char block2[MIL];  /* [rank clan] */
 	char rbuf[32];
 	BUFFER *output;
@@ -2509,7 +2504,7 @@ void do_who(CHAR_DATA *ch, String argument)
 	CHAR_DATA *wch;
 	CLAN_DATA *cch = NULL;
 	const char *cls;
-	char *rank, *p, *q, *lbrk, *rbrk, *remort;
+	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
 	for (iClass = 0; iClass < MAX_CLASS; iClass++)
@@ -2644,13 +2639,11 @@ void do_who(CHAR_DATA *ch, String argument)
 		else
 			remort = "  ";
 
-		if (IS_IMMORTAL(wch) && wch->pcdata->immname[0]) {
+		if (IS_IMMORTAL(wch) && !wch->pcdata->immname.empty()) {
 			/* copy immname without the brackets */
-			for (q = block1, *q++ = ' ', p = wch->pcdata->immname; *p; p++)
-				if (*p != '[' && *p != ']')
-					*q++ = *p;
-
-			*q = '\0';
+			block1 = wch->pcdata->immname
+				.substr(wch->pcdata->immname.find('['))
+				.substr(0, wch->pcdata->immname.find(']'));
 		}
 		else {
 			if (char_at_war(wch)) {
@@ -3331,8 +3324,7 @@ void set_title(CHAR_DATA *ch, const String& title)
 	else
 		strcpy(buf, title);
 
-	free_string(ch->pcdata->title);
-	ch->pcdata->title = str_dup(buf);
+	ch->pcdata->title = buf;
 	return;
 }
 
@@ -3409,12 +3401,10 @@ void do_description(CHAR_DATA *ch, String argument)
 					}
 					else { /* found the second one */
 						buf[len + 1] = '\0';
-						free_string(ch->description);
-						ch->description = str_dup(buf);
+						ch->description = buf;
 						set_color(ch, PURPLE, NOBOLD);
 						stc("Your description is:\n", ch);
-						stc(ch->description ? ch->description :
-						    "(None).\n", ch);
+						stc(ch->description.empty() ? "(None).\n" : ch->description, ch);
 						set_color(ch, WHITE, NOBOLD);
 						return;
 					}
@@ -3422,16 +3412,13 @@ void do_description(CHAR_DATA *ch, String argument)
 			}
 
 			buf[0] = '\0';
-			free_string(ch->description);
-			ch->description = str_dup(buf);
+			ch->description = buf;
 			stc("Description cleared.\n", ch);
 			return;
 		}
 
 		if (argument[0] == '+') {
-			if (ch->description != NULL)
-				buf += ch->description;
-
+			buf += ch->description;
 			argument = argument.substr(1).lstrip();
 		}
 
@@ -3442,13 +3429,12 @@ void do_description(CHAR_DATA *ch, String argument)
 
 		buf += argument;
 		buf += "\n";
-		free_string(ch->description);
-		ch->description = str_dup(buf);
+		ch->description = buf;
 	}
 
 	set_color(ch, PURPLE, NOBOLD);
 	stc("Your description is:\n", ch);
-	stc(ch->description ? ch->description : "(None).\n", ch);
+	stc(ch->description.empty() ? "(None).\n" : ch->description, ch);
 	set_color(ch, WHITE, NOBOLD);
 	return;
 }
@@ -3465,8 +3451,7 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 		buf[0] = '\0';
 
 		if (!str_cmp(argument, "clear")) {
-			free_string(ch->pcdata->fingerinfo);
-			ch->pcdata->fingerinfo = str_dup("");
+			ch->pcdata->fingerinfo.erase();
 			stc("Fingerinfo cleared.\n", ch);
 			return;
 		}
@@ -3474,7 +3459,7 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 			int len;
 			bool found = FALSE;
 
-			if (ch->pcdata->fingerinfo[0] == '\0') {
+			if (ch->pcdata->fingerinfo.empty()) {
 				stc("No lines left to remove.\n", ch);
 				return;
 			}
@@ -3491,14 +3476,11 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 					}
 					else { /* found the second one */
 						buf[len + 1] = '\0';
-						free_string(ch->pcdata->fingerinfo);
-						ch->pcdata->fingerinfo = str_dup(buf);
+						ch->pcdata->fingerinfo = buf;
 						set_color(ch, CYAN, NOBOLD);
-						ptc(ch, "Your finger info is:\n"
-						    "%s",
-						    ch->pcdata->fingerinfo[0] ?
-						    ch->pcdata->fingerinfo :
-						    "(None).\n");
+						ptc(ch, "Your finger info is:\n%s",
+						    ch->pcdata->fingerinfo.empty() ?
+						    "(None).\n" : ch->pcdata->fingerinfo);
 						set_color(ch, WHITE, NOBOLD);
 						return;
 					}
@@ -3506,14 +3488,11 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 			}
 
 			buf[0] = '\0';
-			free_string(ch->pcdata->fingerinfo);
-			ch->pcdata->fingerinfo = str_dup("");
+			ch->pcdata->fingerinfo.erase();
 			stc("Finger Info cleared.\n", ch);
 		}
 		else if (argument[0] == '+') {
-			if (ch->pcdata->fingerinfo[0])
-				buf += ch->pcdata->fingerinfo;
-
+			buf += ch->pcdata->fingerinfo;
 			argument = argument.substr(1).lstrip();
 		}
 		else {
@@ -3532,16 +3511,15 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 
 		buf += argument;
 		buf += "\n";
-		free_string(ch->pcdata->fingerinfo);
-		ch->pcdata->fingerinfo = str_dup(buf);
+		ch->pcdata->fingerinfo = buf;
 	}
 
 	set_color(ch, CYAN, NOBOLD);
 	ptc(ch, "Your finger info is:\n"
 	    "%s",
-	    ch->pcdata->fingerinfo[0] ?
-	    ch->pcdata->fingerinfo :
-	    "(None).\n");
+	    ch->pcdata->fingerinfo.empty() ?
+	    "(None).\n" :
+	    ch->pcdata->fingerinfo);
 	set_color(ch, WHITE, NOBOLD);
 }
 
@@ -3933,8 +3911,7 @@ void do_password(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(ch->pcdata->pwd);
-	ch->pcdata->pwd = str_dup(arg2);
+	ch->pcdata->pwd = arg2;
 	save_char_obj(ch);
 	stc("Password Changed.\n", ch);
 	return;
@@ -4386,8 +4363,7 @@ void do_rank(CHAR_DATA *ch, String argument)
 	if (!str_prefix1(argument, "none")) {
 		stc("Clan rank removed.\n", ch);
 		stc("Your clan rank has been removed.\n", victim);
-		free_string(victim->pcdata->rank);
-		victim->pcdata->rank = str_dup("");
+		victim->pcdata->rank.erase();
 		return;
 	}
 
@@ -4401,8 +4377,7 @@ void do_rank(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	free_string(victim->pcdata->rank);
-	victim->pcdata->rank = str_dup(center_string_in_whitespace(argument, 3));
+	victim->pcdata->rank = center_string_in_whitespace(argument, 3);
 	Format::sprintf(test, "Your new rank is {W[%s{W]{x.\n",
 	        victim->pcdata->rank);
 	stc(test, victim);
@@ -4428,19 +4403,18 @@ void do_prefix(CHAR_DATA *ch, String argument)
 		}
 
 		stc("Prefix removed.\n", ch);
-		free_string(ch->prefix);
-		ch->prefix = str_dup("");
+		ch->prefix.erase();
 		return;
 	}
 
-	if (ch->prefix[0] != '\0') {
+	if (!ch->prefix.empty()) {
 		Format::sprintf(buf, "Prefix changed to: %s.\n", argument);
-		free_string(ch->prefix);
 	}
 	else
 		Format::sprintf(buf, "Prefix set to: %s.\n", argument);
 
-	ch->prefix = str_dup(argument);
+	stc(buf, ch);
+	ch->prefix = argument;
 } /* end do_prefix() */
 
 void email_file(CHAR_DATA *ch, const char *file, const char *str)
@@ -4477,8 +4451,7 @@ void do_email(CHAR_DATA *ch, String argument)
 	}
 
 	strcpy(buf, argument);
-	free_string(ch->pcdata->email);
-	ch->pcdata->email = str_dup(buf);
+	ch->pcdata->email = buf;
 
 	ptc(ch, "Your email has been changed to: %s\n", buf);
 	Format::sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);
@@ -4491,7 +4464,7 @@ void do_email(CHAR_DATA *ch, String argument)
 void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, char inout)
 {
 	CHAR_DATA *victim;
-	char *msgptr;
+	String *msgptr;
 	char buf[MAX_INPUT_LENGTH];
 	char *p;
 
@@ -4512,11 +4485,11 @@ void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, cha
 	}
 
 	if (inout == 'I')
-		msgptr = victim->pcdata->gamein;
+		msgptr = &victim->pcdata->gamein;
 	else
-		msgptr = victim->pcdata->gameout;
+		msgptr = &victim->pcdata->gameout;
 
-	if (msgptr == NULL || *msgptr == '\0') {
+	if (msgptr->empty()) {
 		if (victim == ch)
 			act("You don't have a game $t message!",
 			    ch, entryexit, NULL, TO_CHAR);
@@ -4528,10 +4501,10 @@ void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, cha
 	}
 
 	if (victim == ch)
-		act(msgptr, ch, NULL, NULL, TO_CHAR);
+		act(*msgptr, ch, NULL, NULL, TO_CHAR);
 	else {
 		/* convert $n to $N for 3rd person form of game msg */
-		strcpy(buf, msgptr);
+		strcpy(buf, *msgptr);
 
 		for (p = buf; *p; p++)
 			if (*p == '$')

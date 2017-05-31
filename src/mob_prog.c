@@ -1536,7 +1536,7 @@ void mprog_process_cmnd(const String& cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
  *  the command list and figuring out what to do. However, like all
  *  complex procedures, everything is farmed out to the other guys.
  */
-void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
+void mprog_driver(const String& com_list, CHAR_DATA *mob, CHAR_DATA *actor,
                   OBJ_DATA *obj, void *vo)
 {
 	char tmpcmndlst[ MAX_STRING_LENGTH ];
@@ -1595,7 +1595,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
  *  on a certain percent, or trigger on a keyword or word phrase.
  *  To see how this works, look at the various trigger routines..
  */
-void mprog_wordlist_check(const char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
+void mprog_wordlist_check(const String& arg, CHAR_DATA *mob, CHAR_DATA *actor,
                           OBJ_DATA *obj, void *vo, int type)
 {
 	char        temp1[ MAX_STRING_LENGTH ];
@@ -1692,17 +1692,14 @@ void mprog_act_trigger(const char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
 	    && (mob->pIndexData->progtypes & ACT_PROG)) {
 		tmp_act = (MPROG_ACT_LIST *)alloc_mem(sizeof(MPROG_ACT_LIST));
 
-		if (mob->mpactnum > 0)
-			tmp_act->next = mob->mpact->next;
-		else
-			tmp_act->next = NULL;
-
 		mob->mpact      = tmp_act;
-		mob->mpact->buf = str_dup(buf);
+		mob->mpact->buf = buf;
 		mob->mpact->ch  = ch;
 		mob->mpact->obj = obj;
 		mob->mpact->vo  = vo;
-		mob->mpactnum++;
+
+		tmp_act->next = mob->mpact->next;
+		mob->mpact->next = tmp_act;
 		/*
 		      free_mem(tmp_act, sizeof( MPROG_ACT_LIST ) );
 		 */

@@ -73,12 +73,6 @@ void free_note(NOTE_DATA *note)
 	if (!IS_VALID(note))
 		return;
 
-	free_string(note->sender);
-	free_string(note->to_list);
-	free_string(note->subject);
-	free_string(note->date);
-	free_string(note->text);
-
 	INVALIDATE(note);
 	note->next = note_free;
 	note_free   = note;
@@ -113,7 +107,6 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 	if (!IS_VALID(d))
 		return;
 
-	free_string(d->host);
 	free_mem(d->outbuf, d->outsize);
 
 	INVALIDATE(d);
@@ -177,9 +170,6 @@ void free_extra_descr(EXTRA_DESCR_DATA *ed)
 {
 	if (!IS_VALID(ed))
 		return;
-
-	free_string(ed->keyword);
-	free_string(ed->description);
 
 	INVALIDATE(ed);
 	ed->next = extra_descr_free;
@@ -255,12 +245,6 @@ void free_obj(OBJ_DATA *obj)
 		ed_next = ed->next;
 		free_extra_descr(ed);
 	}
-
-	free_string(obj->name);
-	free_string(obj->description);
-	free_string(obj->short_descr);
-	free_string(obj->owner);
-	free_string(obj->material);
 
 	INVALIDATE(obj);
 	obj->next   = obj_free;
@@ -364,14 +348,6 @@ void free_char(CHAR_DATA *ch)
 	if (ch->affect_cache)
 		free_affect_cache(ch);
 
-	free_string(ch->short_descr);
-	free_string(ch->long_descr);
-	free_string(ch->description);
-	free_string(ch->prompt);
-	free_string(ch->prefix);
-	free_string(ch->material);
-	// currently all 7 strings in char_data, make sure they're set to str_empty above
-
 	INVALIDATE(ch);
 	ch->next = char_free;
 	char_free  = ch;
@@ -424,26 +400,6 @@ void free_pcdata(PC_DATA *pcdata)
 {
 	if (!IS_VALID(pcdata))
 		return;
-
-	free_string(pcdata->pwd);
-	free_string(pcdata->bamfin);
-	free_string(pcdata->bamfout);
-	free_string(pcdata->gamein);
-	free_string(pcdata->gameout);
-	free_string(pcdata->title);
-	free_string(pcdata->rank);
-	free_string(pcdata->deity);
-	free_string(pcdata->status);
-	free_string(pcdata->last_lsite);
-	free_string(pcdata->afk);
-	free_string(pcdata->immname);
-	free_string(pcdata->immprefix);
-	free_string(pcdata->aura);
-	free_string(pcdata->spouse);
-	free_string(pcdata->propose);
-	free_string(pcdata->whisper);
-	free_string(pcdata->fingerinfo);
-	free_string(pcdata->email);
 
 	free_buf(pcdata->buffer);
 
@@ -576,9 +532,6 @@ void free_opp(OPP_DATA *opp)
 	if (!IS_VALID(opp))
 		return;
 
-	free_string(opp->name);
-	free_string(opp->clanname);
-
 	INVALIDATE(opp);
 	opp->next = opp_free;
 	opp_free = opp;
@@ -610,9 +563,6 @@ void free_event(EVENT_DATA *event)
 {
 	if (!IS_VALID(event))
 		return;
-
-	free_string(event->astr);
-	free_string(event->bstr);
 
 	INVALIDATE(event);
 	event->next = event_free;
@@ -647,9 +597,6 @@ void free_merc(MERC_DATA *merc)
 
 	if (!IS_VALID(merc))
 		return;
-
-	free_string(merc->name);
-	free_string(merc->employer);
 
 	for (offer = merc->offer; offer != NULL; offer = offer_next) {
 		offer_next = offer->next;
@@ -687,8 +634,6 @@ void free_offer(OFFER_DATA *offer)
 {
 	if (!IS_VALID(offer))
 		return;
-
-	free_string(offer->name);
 
 	INVALIDATE(offer);
 	offer->next = offer_free;
