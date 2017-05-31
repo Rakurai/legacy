@@ -47,7 +47,7 @@ SHOP_DATA              *shop_last;
 char                    bug_buf         [2 * MAX_INPUT_LENGTH];
 CHAR_DATA              *char_list;
 PC_DATA                *pc_list;        /* should probably go somewhere else *shrug* -- Montrey */
-char                   *help_greeting;
+String                  help_greeting;
 char                    log_buf         [2 * MAX_INPUT_LENGTH];
 KILL_DATA               kill_table      [MAX_LEVEL];
 OBJ_DATA               *object_list;
@@ -338,8 +338,8 @@ sh_int                  aVersion = 1;
  * MOBprogram locals
 */
 
-int             mprog_name_to_type      args((char *name));
-MPROG_DATA     *mprog_file_read         args((char *f, MPROG_DATA *mprg,
+int             mprog_name_to_type      args((const String& name));
+MPROG_DATA     *mprog_file_read         args((const String& f, MPROG_DATA *mprg,
                 MOB_INDEX_DATA *pMobIndex));
 void            mprog_read_programs     args((FILE *fp,
                 MOB_INDEX_DATA *pMobIndex));
@@ -466,14 +466,12 @@ void boot_db()
 			Format::printf("Now loading area: %s\n", strArea);
 
 			for (; ;) {
-				char *word;
-
 				if (fread_letter(fpArea) != '#') {
 					bug("Boot_db: # not found.", 0);
 					exit(1);
 				}
 
-				word = fread_word(fpArea);
+				String word = fread_word(fpArea);
 
 				if (word[0] == '$')  break;
 				else if (!str_cmp(word, "AREA"))  load_area(fpArea);
@@ -544,14 +542,14 @@ void boot_db()
 	/* load our greeting */
 	if (db_query("boot_db", "SELECT text FROM helps WHERE keywords='GREETING'") == SQL_OK) {
 		if (db_next_row() == SQL_OK)
-			help_greeting = str_dup(db_get_column_str(0));
+			help_greeting = db_get_column_str(0);
 		else {
 			bug("boot_db: failed to fetch greeting", 0);
 			exit(1);
 		}
 	}
 
-	if (help_greeting == NULL)
+	if (help_greeting.empty())
 		help_greeting = str_dup("need a greeting! enter your name: ");
 } /* end boot_db() */
 
@@ -1015,13 +1013,13 @@ void load_mobiles(FILE *fp)
 			exit(1);
 		}
 
-		pMobIndex->material             = str_dup(fread_word(fp));
+		pMobIndex->material             = fread_word(fp);
 
 		for (; ;) {
 			letter = fread_letter(fp);
 
 			if (letter == 'F') {
-				char *word;
+				String word;
 				long vector;
 				word                    = fread_word(fp);
 				vector                  = fread_flag(fp);
@@ -1683,7 +1681,7 @@ void log_string(const String& str)
  *  mob/script files.
  */
 
-int mprog_name_to_type(char *name)
+int mprog_name_to_type(const String& name)
 {
 	if (!str_cmp(name, "in_file_prog"))    return IN_FILE_PROG;
 
@@ -1719,7 +1717,7 @@ int mprog_name_to_type(char *name)
 }
 /* This routine reads in scripts of MOBprograms from a file */
 
-MPROG_DATA *mprog_file_read(char *f, MPROG_DATA *mprg,
+MPROG_DATA *mprog_file_read(const String& f, MPROG_DATA *mprg,
                             MOB_INDEX_DATA *pMobIndex)
 {
 	char        MOBProgfile[ MAX_INPUT_LENGTH ];

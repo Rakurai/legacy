@@ -15,7 +15,6 @@ char *departed_list_line = "            {c|  {g\\{WV{g/  {c|      {k.{W";
 
 void load_departed_list()
 {
-	char *buf;
 	FILE *fp;
 	departed_list_head = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
 	departed_list_tail = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
@@ -28,7 +27,7 @@ void load_departed_list()
 	}
 
 	for (;;) {
-		buf = fread_word(fp);
+		String buf = fread_word(fp);
 
 		if (buf[0] == '#')
 			break;

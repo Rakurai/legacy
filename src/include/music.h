@@ -32,9 +32,9 @@
 
 struct song_data
 {
-    char *group;
-    char *name;
-    char *lyrics[MAX_LINES];
+    String group;
+    String name;
+    String lyrics[MAX_LINES];
     int lines;
 };
 

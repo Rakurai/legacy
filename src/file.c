@@ -116,15 +116,9 @@ long fread_flag(FILE *fp)
  *   hash code is simply the string length.
  *   this function takes 40% to 50% of boot-up time.
  */
-char *fread_string(FILE *fp)
+String fread_string(FILE *fp, char to_char)
 {
-	char *plast, c;
-	plast = top_string + sizeof(char *);
-
-	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH]) {
-		bug("Fread_string: MAX_STRING %d exceeded.", MAX_STRING);
-		exit(1);
-	}
+	char c;
 
 	/* Skip blanks. Read first char. */
 	do {
@@ -132,160 +126,34 @@ char *fread_string(FILE *fp)
 	}
 	while (isspace(c));
 
-	if ((*plast++ = c) == '~')
-		return &str_empty[0];
+	if (c == to_char)
+		return "";
 
-	for (; ;) {
-		switch (*plast = getc(fp)) {
-		default:
-			plast++;
-			break;
+	String buf;
+	buf = c;
 
-		case EOF:
-			/* temp fix */
-			bug("Fread_string: EOF", 0);
-			return NULL;
+	while (TRUE) {
+		c = getc(fp);
 
-		/* exit( 1 ); */
+		switch (c) {
+			case EOF:
+				bug("Fread_string: EOF", 0);
+				return buf;
+			case '\r':
+				break; // skip it
+			default:
+				if (c == to_char)
+					return buf;
 
-		case '\n':
-			plast++;
-			break;
-
-		case '\r':
-			break;
-
-		case '~':
-			plast++;
-			{
-				union {
-					char *pc;
-					char rgc[sizeof(char *)];
-				} u1;
-				int iHash;
-				char *pHash, *pHashPrev, *pString;
-				plast[-1] = '\0';
-				iHash = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
-
-				for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev) {
-					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
-						u1.rgc[ic] = pHash[ic];
-
-					pHashPrev = u1.pc;
-					pHash += sizeof(char *);
-
-					if (top_string[sizeof(char *)] == pHash[0]
-					    && !strcmp(top_string + sizeof(char *) + 1, pHash + 1))
-						return pHash;
-				}
-
-				if (fBootDb) {
-					pString         = top_string;
-					top_string      = plast;
-					u1.pc           = string_hash[iHash];
-
-					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
-						pString[ic] = u1.rgc[ic];
-
-					string_hash[iHash] = pString;
-					nAllocString++;
-					sAllocString += top_string - pString;
-					/* Has crashed on above line before - Lotus */
-					return pString + sizeof(char *);
-				}
-				else
-					return str_dup(top_string + sizeof(char *));
-			}
+				buf += c;
+				break;
 		}
 	}
 }
 
-char *fread_string_eol(FILE *fp)
+String fread_string_eol(FILE *fp)
 {
-	static bool char_special[256 - EOF];
-	char *plast;
-	char c;
-
-	if (char_special[EOF - EOF] != TRUE) {
-		char_special[EOF -  EOF] = TRUE;
-		char_special['\n' - EOF] = TRUE;
-		char_special['\r' - EOF] = TRUE;
-	}
-
-	plast = top_string + sizeof(char *);
-
-	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH]) {
-		bug("Fread_string: MAX_STRING %d exceeded.", MAX_STRING);
-		exit(1);
-	}
-
-	/*
-	 * Skip blanks.
-	 * Read first char.
-	 */
-	do {
-		c = getc(fp);
-	}
-	while (isspace(c));
-
-	if ((*plast++ = c) == '\n')
-		return &str_empty[0];
-
-	for (;;) {
-		if (!char_special[(*plast++ = getc(fp)) - EOF ])
-			continue;
-
-		switch (plast[-1]) {
-		default:
-			break;
-
-		case EOF:
-			bug("Fread_string_eol  EOF", 0);
-			exit(1);
-			break;
-
-		case '\n':  case '\r': {
-				union {
-					char       *pc;
-					char        rgc[sizeof(char *)];
-				} u1;
-				int iHash;
-				char *pHash;
-				char *pHashPrev;
-				char *pString;
-				plast[-1] = '\0';
-				iHash     = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
-
-				for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev) {
-					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
-						u1.rgc[ic] = pHash[ic];
-
-					pHashPrev = u1.pc;
-					pHash    += sizeof(char *);
-
-					if (top_string[sizeof(char *)] == pHash[0]
-					    &&   !strcmp(top_string + sizeof(char *) + 1, pHash + 1))
-						return pHash;
-				}
-
-				if (fBootDb) {
-					pString             = top_string;
-					top_string          = plast;
-					u1.pc               = string_hash[iHash];
-
-					for (unsigned int ic = 0; ic < sizeof(char *); ic++)
-						pString[ic] = u1.rgc[ic];
-
-					string_hash[iHash]  = pString;
-					nAllocString += 1;
-					sAllocString += top_string - pString;
-					return pString + sizeof(char *);
-				}
-				else
-					return str_dup(top_string + sizeof(char *));
-			}
-		}
-	}
+	return fread_string(fp, '\n');
 }
 
 /*
@@ -311,9 +179,9 @@ void fread_to_eol(FILE *fp)
 /*
  * Read one word (into static buffer).
  */
-char *fread_word(FILE *fp)
+String fread_word(FILE *fp)
 {
-	static char word[MIL];
+	char word[MIL];
 	char *pword;
 	char cEnd;
 

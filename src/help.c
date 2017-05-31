@@ -32,7 +32,7 @@ char stupidassline[1000] =
 #define HCOL_KEYS "keywords"
 #define HCOL_TEXT "text"
 
-extern char *help_greeting;
+extern String help_greeting;
 
 /*** UTILITY FUNCTIONS ***/
 
@@ -153,13 +153,12 @@ void help(CHAR_DATA *ch, const String& argument)
 	free_buf(output);
 }
 
-void add_help(int group, int order, int level, char *keywords, char *text)
+void add_help(int group, int order, int level, const String& keywords, const String& text)
 {
 	String query;
 
 	if (!str_cmp(keywords, "GREETING")) {
-		free_string(help_greeting);
-		help_greeting = str_dup(text);
+		help_greeting = text;
 	}
 
 	Format::sprintf(query, "INSERT INTO " HTABLE " (" HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
@@ -177,13 +176,14 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 /* load the specified help file into the database */
 void do_loadhelps(CHAR_DATA *ch, String argument)
 {
-	char buf[MSL], *q, *p;
+	char buf[MSL], *q;
+	const char *p;
 	FILE *fp;
 	int tablenum, count = 0;
 	struct help_struct {
 		int level;
-		char *keywords;
-		char *text;
+		String keywords;
+		String text;
 	};
 	struct help_struct temp_help[500];
 
@@ -276,7 +276,7 @@ void do_loadhelps(CHAR_DATA *ch, String argument)
 		/* unfuck any weird spacing */
 		buf[0] = '\0';
 		q = buf;
-		p = temp_help[count].keywords;
+		p = temp_help[count].keywords.c_str();
 
 		while (*p != '\0') {
 			if (*p == ' ') {

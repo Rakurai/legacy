@@ -158,7 +158,7 @@ int race_lookup(const String& name)
 	return 0;
 }
 
-int liq_lookup(const char *name)
+int liq_lookup(const String& name)
 {
 	int liq;
 
@@ -197,7 +197,7 @@ int weapon_type(const String& name)
 	return WEAPON_EXOTIC;
 }
 
-int item_lookup(const char *name)
+int item_lookup(const String& name)
 {
 	int type;
 
@@ -210,7 +210,7 @@ int item_lookup(const char *name)
 	return -1;
 }
 
-int attack_lookup(const char *name)
+int attack_lookup(const String& name)
 {
 	int att;
 

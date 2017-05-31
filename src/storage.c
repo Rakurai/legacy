@@ -13,9 +13,9 @@ STORAGE_DATA *storage_list_tail;
 
 void read_line(FILE *fp, STORAGE_DATA *sd)
 {
-	sd->name = str_dup(fread_string(fp));
-	sd->by_who = str_dup(fread_string(fp));
-	sd->date = str_dup(fread_string(fp));
+	sd->name = fread_string(fp);
+	sd->by_who = fread_string(fp);
+	sd->date = fread_string(fp);
 }
 
 void save_line(FILE *fp, STORAGE_DATA *sd)

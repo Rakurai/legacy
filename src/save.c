@@ -1595,7 +1595,7 @@ const char *dizzy_ctime(time_t *timep)
  * Day of week is scanned in spite of not being needed so that the
  * return value from Format::sprintf() will be significant.
  */
-time_t dizzy_scantime(const char *ctime)
+time_t dizzy_scantime(const String& ctime)
 {
 	char cdow[4], cmon[4];
 	int year, month, day, hour, minute, second;
@@ -1604,7 +1604,7 @@ time_t dizzy_scantime(const char *ctime)
 	/* this helps initialize local-dependent stuff like TZ, etc. */
 	loc_tm = *localtime(&current_time);
 
-	if (sscanf(ctime, " %3s %3s %d %d:%d:%d %d",
+	if (sscanf(ctime.c_str(), " %3s %3s %d %d:%d:%d %d",
 	           cdow, cmon, &day, &hour, &minute, &second, &year) < 7) {
 		Format::sprintf(msg, "dizzy_scantime(): Error scanning date/time: '%s'", ctime);
 		bug(msg, 0);
@@ -1612,7 +1612,7 @@ time_t dizzy_scantime(const char *ctime)
 	}
 
 	for (month = 0; month < 12; month++) {
-		if (!str_prefix1(month_names[month], ctime + 4))
+		if (!str_prefix1(month_names[month], ctime.substr(4)))
 			break;
 	}
 

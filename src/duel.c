@@ -91,9 +91,9 @@ void load_arena_table()
 
 		for (i = 0; i < maxArenas; i++) {
 			new_arena = (ARENA_DATA *)alloc_mem(sizeof(ARENA_DATA));
-			new_arena->keyword      = str_dup(fread_string(fp));
-			new_arena->name         = str_dup(fread_string(fp));
-			new_arena->desc         = str_dup(fread_string(fp));
+			new_arena->keyword      = fread_string(fp);
+			new_arena->name         = fread_string(fp);
+			new_arena->desc         = fread_string(fp);
 			new_arena->minvnum      = atoi(fread_string(fp));
 			new_arena->maxvnum      = atoi(fread_string(fp));
 			new_arena->chalprep     = get_room_index(atoi(fread_string(fp)));

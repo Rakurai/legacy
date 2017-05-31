@@ -34,7 +34,6 @@ void append_war(WAR_DATA *war)
 void load_war_events()
 {
 	char strsave[MIL];
-	char *tmp_string;
 	FILE *fp;
 	WAR_DATA *war;
 	EVENT_DATA *event, *n_event;
@@ -50,12 +49,10 @@ void load_war_events()
 
 				n_event         = new_event();
 				n_event->type   = atoi(fread_string(fp));
-				n_event->astr   = str_dup(fread_string(fp));
-				n_event->bstr   = str_dup(fread_string(fp));
+				n_event->astr   = fread_string(fp);
+				n_event->bstr   = fread_string(fp);
 				n_event->number = atoi(fread_string(fp));
-				tmp_string      = fread_string(fp);
-				n_event->time   = dizzy_scantime(tmp_string);
-				free_string(tmp_string);
+				n_event->time   = dizzy_scantime(fread_string(fp));
 
 				if (war->events == NULL) /* first event? */
 					war->events = n_event;
@@ -129,16 +126,16 @@ void load_war_table()
 			war = new_war();
 
 			for (i = 0; i < 4; i++) {
-				war->chal[i]->name              = str_dup(fread_string(fp));
-				war->chal[i]->clanname          = str_dup(fread_string(fp));
+				war->chal[i]->name              = fread_string(fp);
+				war->chal[i]->clanname          = fread_string(fp);
 				war->chal[i]->inwar             = atoi(fread_string(fp));
 				war->chal[i]->start_score       = atoi(fread_string(fp));
 				war->chal[i]->final_score       = atoi(fread_string(fp));
 			}
 
 			for (i = 0; i < 4; i++) {
-				war->def[i]->name               = str_dup(fread_string(fp));
-				war->def[i]->clanname           = str_dup(fread_string(fp));
+				war->def[i]->name               = fread_string(fp);
+				war->def[i]->clanname           = fread_string(fp);
 				war->def[i]->inwar              = atoi(fread_string(fp));
 				war->def[i]->start_score        = atoi(fread_string(fp));
 				war->def[i]->final_score        = atoi(fread_string(fp));

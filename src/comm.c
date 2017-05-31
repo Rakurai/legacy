@@ -131,7 +131,8 @@ void copyover_recover()
 {
 	DESCRIPTOR_DATA *d;
 	FILE *fp;
-	char name[100], *logname;
+	String logname;
+	char name[100];
 	char host[MSL], msg1[MSL], msg2[MSL];
 	int desc;
 	log_string("Copyover recovery initiated");
@@ -145,7 +146,7 @@ void copyover_recover()
 #if 0
 	unlink(COPYOVER_LOG);
 #endif
-	logname = str_dup(fread_string(fp));
+	logname = fread_string(fp);
 	fclose(fp);
 
 	if ((fp = fopen(COPYOVER_FILE, "r")) == NULL) {
@@ -799,8 +800,8 @@ void init_descriptor(int control)
 	dnew->next                  = descriptor_list;
 	descriptor_list             = dnew;
 	{
-		extern char *help_greeting;
-		cwtb(dnew, help_greeting[0] == '.' ? help_greeting + 1 : help_greeting);
+		extern String help_greeting;
+		cwtb(dnew, help_greeting[0] == '.' ? help_greeting.substr(1) : help_greeting);
 	}
 	return;
 }
@@ -1648,11 +1649,11 @@ void bust_a_prompt(CHAR_DATA *ch)
 } /* end bust_a_prompt() */
 
 /* write_to_buffer with color codes -- Montrey */
-void cwtb(DESCRIPTOR_DATA *d, const char *txt)
+void cwtb(DESCRIPTOR_DATA *d, const String& txt)
 {
 	const char *a, *b;
 	int length, l, curlen = 0;
-	a = txt;
+	a = txt.c_str();
 	length = strlen(a);
 
 	if (a != NULL) {

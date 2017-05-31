@@ -3270,7 +3270,7 @@ void    find_money      args( ( CHAR_DATA *ch ) );
 /* comm.c */
 void    show_string     args( ( struct descriptor_data *d, const String& input) );
 void    close_socket    args( ( DESCRIPTOR_DATA *dclose ) );
-void	cwtb		args((DESCRIPTOR_DATA *d, const char *txt));
+void	cwtb		args((DESCRIPTOR_DATA *d, const String& txt));
 void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const String& txt,
                             int length ) );
 void    stc    args( ( const String& txt, CHAR_DATA *ch ) );
@@ -3304,10 +3304,10 @@ int	get_location_ac args( (CHAR_DATA *ch, int wear, int type) );
 char	fread_letter		args((FILE *fp));
 int	fread_number		args((FILE *fp));
 long	fread_flag		args((FILE *fp));
-char *	fread_string		args((FILE *fp));
-char *	fread_string_eol	args((FILE *fp));
+String	fread_string		args((FILE *fp, char to_char = '~'));
+String	fread_string_eol	args((FILE *fp));
 void	fread_to_eol		args((FILE *fp));
-char *	fread_word		args((FILE *fp));
+String	fread_word		args((FILE *fp));
 void	fappend			args((const char *file, const char *str));
 
 
@@ -3394,11 +3394,11 @@ String  flags_to_string args((int flag));
 long    string_to_flags args((const String& str));
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
-int     liq_lookup      args( ( const char *name) );
+int     liq_lookup      args( ( const String& name) );
 int     weapon_lookup   args( ( const String& name) );
 int     weapon_type     args( ( const String& name) );
-int     item_lookup     args( ( const char *name) );
-int     attack_lookup   args(( const char *name) );
+int     item_lookup     args( ( const String& name) );
+int     attack_lookup   args(( const String& name) );
 int     race_lookup     args(( const String& name) );
 int     class_lookup    args(( const String& name) );
 int     deity_lookup    args(( const String& name) );
@@ -3560,7 +3560,7 @@ void    save_char_obj    args( ( CHAR_DATA *ch ) );
 void    backup_char_obj  args( ( CHAR_DATA *ch ) );
 bool    load_char_obj    args( ( DESCRIPTOR_DATA *d, const char *name ) );
 const char    *dizzy_ctime     args( ( time_t *timep ) );
-time_t  dizzy_scantime   args( ( const char *ctime ) );
+time_t  dizzy_scantime   args( ( const String& ctime ) );
 
 /* skills.c */
 bool    parse_gen_groups args( ( CHAR_DATA *ch, String argument ) );

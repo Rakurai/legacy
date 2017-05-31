@@ -58,7 +58,7 @@ CLAN_DATA *clan_lookup(const String& name)
 	return NULL;
 }
 
-int position_lookup(const char *name)
+int position_lookup(const String& name)
 {
 	int pos;
 
@@ -71,7 +71,7 @@ int position_lookup(const char *name)
 	return -1;
 }
 
-int sex_lookup(const char *name)
+int sex_lookup(const String& name)
 {
 	int sex;
 
@@ -84,7 +84,7 @@ int sex_lookup(const char *name)
 	return -1;
 }
 
-int size_lookup(const char *name)
+int size_lookup(const String& name)
 {
 	int size;
 
@@ -129,7 +129,7 @@ char *sector_lookup(int type)
 	return "unknown";
 }
 
-int drink_lookup(const char *name)
+int drink_lookup(const String& name)
 {
 	int pos;
 

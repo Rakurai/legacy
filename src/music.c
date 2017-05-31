@@ -41,7 +41,7 @@ void song_update(void)
 	ROOM_INDEX_DATA *room;
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_STRING_LENGTH];
-	char *line;
+	String line;
 	int i;
 
 	/* do the global song, if any */
