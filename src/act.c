@@ -4,38 +4,31 @@
 /* the guts of act, taken out to reduce complexity. */
 void act_format(const String& format, CHAR_DATA *ch,
                 const CHAR_DATA *vch, const CHAR_DATA *vch2,
-                const String *arg1, const String *arg2,
+                const String *str1, const String *str2,
                 const OBJ_DATA *obj1, const OBJ_DATA *obj2,
                 CHAR_DATA *to, bool snooper, int vis)
 {
 	static char *const he_she  [] = { "it",  "he",  "she" };
 	static char *const him_her [] = { "it",  "him", "her" };
 	static char *const his_her [] = { "its", "his", "her" };
-	char buf[MAX_STRING_LENGTH];
-    String fname;
-	const char *str;
-	const char *i;
-	char *point;
-	char dollarmsg[3];
-	point   = buf;
+
+    String buf, i;
 
 	if (snooper) {
-		strcpy(point, "{n[T] ");
-		point += 6;
+		buf += "{n[T] ";
 	}
 
-	str     = format.c_str();
+	const char *str = format.c_str();
 
 	while (*str != '\0') {
 		if (*str != '$') {
-			*point++ = *str++;
+            buf += *str++;
 			continue;
 		}
 
 		/* '$' sign after this point */
 		++str;
-		Format::sprintf(dollarmsg, "$%c", *str);
-		i = dollarmsg;
+		i = Format::format("$%c", *str); // default output if we don't find it
 
 		switch (*str) {
 		default:                                                break;
@@ -113,30 +106,28 @@ void act_format(const String& format, CHAR_DATA *ch,
 		/* The following needs a string describing a door. */
 
 		case 'd':
-			if (arg2 == NULL || ((char *) arg2)[0] == '\0')
+			if (str2 == NULL || str2->empty())
 				i = "door";
-			else {
-				one_argument((char *) arg2, fname);
-				i = fname.c_str();
-			}
+			else
+				one_argument(*str2, i);
 
 			break;
 
-		/* The following codes need valid strings in arg1/arg2 */
+		/* The following codes need valid strings in str1/str2 */
 
 		case 't':
-			if (arg1 == NULL || arg1->empty())
-				bug("Missing arg1 for '$$t'", 0);
+			if (str1 == NULL || str1->empty())
+				bug("Missing str1 for '$$t'", 0);
 			else
-				i = arg1->c_str();
+				i = *str1;
 
 			break;
 
 		case 'T':
-			if (arg2 == NULL || arg1->empty())
-				bug("Missing arg2 for '$$T'", 0);
+			if (str2 == NULL || str1->empty())
+				bug("Missing str2 for '$$T'", 0);
 			else
-				i = arg2->c_str();
+				i = *str2;
 
 			break;
 
@@ -148,20 +139,14 @@ void act_format(const String& format, CHAR_DATA *ch,
 		}
 
 		++str;
-
-		while ((*point = *i) != '\0')
-			++point, ++i;
+        buf += i;
 	}
 
-	if (snooper) {
-		*point++ = '{';
-		*point++ = 'x';
-	}
+	if (snooper)
+        buf += "{x";
 
-	*point++ = '\n';
-//	*point++ = '\r';
-	*point   = 0;
-	buf[0]   = UPPER(buf[0]);
+    buf += '\n';
+	buf[0] = UPPER(buf[0]);
 
 	if (to->desc)
 		stc(buf, to);
@@ -170,7 +155,7 @@ void act_format(const String& format, CHAR_DATA *ch,
         // removing const from things here, because i don't want to follow that rabbit
         // hole right now.  it does need to be fixed by making mprog stuff use const
         // object pointers, but at a later date.
-		mprog_act_trigger(buf, to, ch,
+		mprog_act_trigger(buf.c_str(), to, ch,
             const_cast<OBJ_DATA *>(obj1),
             const_cast<CHAR_DATA *>(vch));
 } /* end act_format() */
