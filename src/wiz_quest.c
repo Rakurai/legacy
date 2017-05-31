@@ -766,10 +766,8 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, String argument)
 	                                return FALSE;
 	                        }
 
-	                        free_string(obj->name);
-	                        free_string (obj->short_descr);
-	                        obj->name = str_dup(tdesc_table[type].keywords);
-	                        obj->short_descr = str_dup(tdesc_table[type].short_desc);
+	                        obj->name = tdesc_table[type].keywords;
+	                        obj->short_descr = tdesc_table[type].short_desc;
 	                        obj->value[0] = type;
 	                        break;
 	                } */

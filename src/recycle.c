@@ -36,12 +36,9 @@
    We keep having problems with assumptions about whether data needs to be zeroed or set
    to some default value before it is used, resulting in a lot of crashes or accessing
    garbage data.  To be clear: new_* is contractually obligated to return a piece of memory
-   that is ZEROED with the exception of default values, and all char* pointers will point to
-   str_empty.  free_* on the other hand, will free ALL char* pointers in the object (freeing
-   str_empty is fine).  Therefore, I have also gone through and removed a lot of useless
-   str_dup("") after calls to new_*, and hopefully this will fix a few bugs where someone
-   forgot to zero an array before using it.  -- Montrey 2016
-*/
+   that is ZEROED with the exception of default values, and all Strings will be empty.
+     -- Montrey 2016 (removed str_dup/free_string 2017)
+ */
 
 /* stuff for recyling notes */
 NOTE_DATA *note_free;
@@ -58,11 +55,11 @@ NOTE_DATA *new_note()
 	}
 
 	*note = (NOTE_DATA){0};
-	note->sender = str_empty;
-	note->to_list = str_empty;
-	note->subject = str_empty;
-	note->date = str_empty;
-	note->text = str_empty;
+	note->sender.erase();
+	note->to_list.erase();
+	note->subject.erase();
+	note->date.erase();
+	note->text.erase();
 
 	VALIDATE(note);
 	return note;
@@ -96,7 +93,7 @@ DESCRIPTOR_DATA *new_descriptor(void)
 	d->connected     = CON_GET_NAME;
 	d->outsize       = 2000;
 	d->outbuf        = (char *)alloc_mem(d->outsize);
-	d->host = str_empty;
+	d->host.erase();
 
 	VALIDATE(d);
 	return d;
@@ -159,8 +156,8 @@ EXTRA_DESCR_DATA *new_extra_descr(void)
 	}
 
 	*ed = (EXTRA_DESCR_DATA){0};
-	ed->keyword = str_empty;
-	ed->description = str_empty;
+	ed->keyword.erase();
+	ed->description.erase();
 
 	VALIDATE(ed);
 	return ed;
@@ -220,11 +217,11 @@ OBJ_DATA *new_obj(void)
 		obj_free = obj_free->next;
 	}
 
-	obj->name = str_empty;
-	obj->description = str_empty;
-	obj->short_descr = str_empty;
-	obj->owner = str_empty;
-	obj->material = str_empty;
+	obj->name.erase();
+	obj->description.erase();
+	obj->short_descr.erase();
+	obj->owner.erase();
+	obj->material.erase();
 
 	VALIDATE(obj);
 	return obj;
@@ -271,7 +268,7 @@ CHAR_DATA *new_char(void)
 	ch->description =
 	ch->prompt =
 	ch->material =
-	ch->prefix                  = str_empty;
+	ch->prefix                 .erase();
 	ch->logon                   = current_time;
 	ch->lines                   = PAGELEN;
 
@@ -388,7 +385,7 @@ PC_DATA *new_pcdata(void)
 	pcdata->propose =
 	pcdata->whisper =
 	pcdata->fingerinfo =
-	pcdata->email = str_empty;
+	pcdata->email.erase();
 
 	pcdata->buffer = new_buf();
 
@@ -520,8 +517,8 @@ OPP_DATA *new_opp(void)
 	}
 
 	*opp = (OPP_DATA){0};
-	opp->name = &str_empty[0];
-	opp->clanname = &str_empty[0];
+	opp->name.erase();
+	opp->clanname.erase();
 
 	VALIDATE(opp);
 	return opp;
@@ -552,8 +549,8 @@ EVENT_DATA *new_event(void)
 	}
 
 	*event = (EVENT_DATA){0};
-	event->astr = str_empty;
-	event->bstr = str_empty;
+	event->astr.erase();
+	event->bstr.erase();
 
 	VALIDATE(event);
 	return event;
@@ -584,8 +581,8 @@ MERC_DATA *new_merc(void)
 	}
 
 	*merc = (MERC_DATA){0};
-	merc->name = str_empty;
-	merc->employer = str_empty;
+	merc->name.erase();
+	merc->employer.erase();
 
 	VALIDATE(merc);
 	return merc;
@@ -624,7 +621,7 @@ OFFER_DATA *new_offer(void)
 	}
 
 	*offer = (OFFER_DATA){0};
-	offer->name = str_empty;
+	offer->name.erase();
 
 	VALIDATE(offer);
 	return offer;

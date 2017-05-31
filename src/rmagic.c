@@ -446,12 +446,12 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	affect_join_to_obj(sword, &af);
 
 	if (ch->alignment >= 1) {
-		sword->short_descr = str_dup("{Wa Holy Avenger{x");
+		sword->short_descr = "{Wa Holy Avenger{x";
 		SET_BIT(sword->extra_flags, ITEM_BLESS);
 		SET_BIT(sword->extra_flags, ITEM_ANTI_EVIL);
 	}
 	else {
-		sword->short_descr = str_dup("{can Unholy Avenger{x");
+		sword->short_descr = "{can Unholy Avenger{x";
 		SET_BIT(sword->extra_flags, ITEM_EVIL);
 		SET_BIT(sword->extra_flags, ITEM_ANTI_GOOD);
 	}

@@ -131,7 +131,6 @@ void copyover_recover()
 {
 	DESCRIPTOR_DATA *d;
 	FILE *fp;
-	String logname;
 	char name[100];
 	char host[MSL], msg1[MSL], msg2[MSL];
 	int desc;
@@ -146,7 +145,7 @@ void copyover_recover()
 #if 0
 	unlink(COPYOVER_LOG);
 #endif
-	logname = fread_string(fp);
+	String logname = fread_string(fp);
 	fclose(fp);
 
 	if ((fp = fopen(COPYOVER_FILE, "r")) == NULL) {
@@ -206,7 +205,7 @@ void copyover_recover()
 
 		d = new_descriptor();
 		d->descriptor = desc;
-		d->host = str_dup(host);
+		d->host = host;
 		d->next = descriptor_list;
 		descriptor_list = d;
 		d->connected = CON_COPYOVER_RECOVER; /* -15, so close_socket frees the char */
@@ -587,7 +586,7 @@ void game_loop_unix(int control)
 				char *tempbuf;
 				d->fcommand = TRUE;
 				stop_idling(d->character);
-				tempbuf = str_dup(d->incomm);
+				tempbuf = d->incomm;
 				command2 = get_multi_command(d, d->incomm);
 
 				if (!d->showstr_head.empty())
@@ -605,10 +604,6 @@ void game_loop_unix(int control)
 					nanny(d, command2);
 					d->incomm[0] = '\0';
 				}
-
-				/* Attempt to fix memory bug -- Elrac */
-				if (tempbuf)
-					free_string(tempbuf);
 			}    /* end of have input */
 		} /* end of input loop */
 
@@ -720,7 +715,7 @@ void init_descriptor(int control)
 		wiznet("init_descriptor: error getting peername",
 		       NULL, NULL, WIZ_MALLOC, 0, 0);
 		perror("New_descriptor: getpeername");
-		dnew->host = str_dup("(unknown)");
+		dnew->host = "(unknown)";
 	}
 	else {
 		/*
@@ -753,10 +748,10 @@ void init_descriptor(int control)
 		if (tmp_name == NULL) {
 			Format::sprintf(log_buf, "name not available");
 			log_string(log_buf);
-			dnew->host = str_dup(buf);
+			dnew->host = buf;
 		}
 		else {
-			dnew->host = str_dup(tmp_name);
+			dnew->host = tmp_name;
 //                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
@@ -777,10 +772,10 @@ void init_descriptor(int control)
 		if (from == NULL || from->h_name == NULL) {
 			Format::sprintf(log_buf, "name not available");
 			log_string(log_buf);
-			dnew->host = str_dup(buf);
+			dnew->host = buf;
 		}
 		else {
-			dnew->host = str_dup(from->h_name);
+			dnew->host = from->h_name;
 //                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 			{
 				if (strcmp("kyndig.com", dnew->host)) {

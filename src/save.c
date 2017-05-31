@@ -658,7 +658,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	ch->pcdata = new_pcdata();
 	d->character                        = ch;
 	ch->desc                            = d;
-	ch->name                            = str_dup(name);
+	ch->name                            = name;
 	ch->id                              = get_pc_id();
 	ch->race                            = race_lookup("human");
 	ch->act                             = PLR_NOSUMMON | PLR_AUTOASSIST | PLR_AUTOEXIT | PLR_AUTOLOOT |
@@ -667,9 +667,9 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	ch->comm                            = COMM_COMBINE | COMM_PROMPT;
 	ch->secure_level                    = RANK_IMM;
 	ch->censor                          = CENSOR_CHAN;    /* default rating is PG */
-	ch->prompt                          = str_dup("%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ");
+	ch->prompt                          = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
 	ch->pcdata->ch                      = ch;
-	ch->pcdata->deity                   = str_dup("Nobody");
+	ch->pcdata->deity                   = "Nobody";
 	ch->pcdata->mud_exp                 = MEXP_LEGACY_OLDBIE;
 //	ch->pcdata->plr                     = PLR_NEWSCORE;
 
@@ -855,21 +855,13 @@ void setstr(String *field, const char* value) {
 	*field = value;
 }
 
-void setstr(char **field, const char* value) {
-	free_string(*field);
-	*field = str_dup(value);
-}
-
 #define STRKEY( literal, field, value )                                    \
 	if ( !str_cmp( key, literal ) )        \
 	{                                       \
-		setstr(&field, value);               \
+		field = value;                      \
 		fMatch = TRUE;						\
 		break;                              \
 	}
-//		free_string(field);					
-//		field = str_dup(value);	
-
 
 #if defined(INTKEY)
 #undef INTKEY
@@ -1305,9 +1297,6 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 	if (obj == NULL) { /* either not found or old style */
 		bug("obj is null!", 0);
 		obj = new_obj();
-		obj->name               = str_dup("");
-		obj->short_descr        = str_dup("");
-		obj->description        = str_dup("");
 	}
 
 	for (cJSON *o = json->child; o; o = o->next) {
@@ -1416,8 +1405,8 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 				if (!str_cmp(key, "ExDe")) {
 					for (cJSON *item = o->child; item; item = item->next) {
 						EXTRA_DESCR_DATA *ed = new_extra_descr();
-						ed->keyword             = str_dup(item->string);
-						ed->description         = str_dup(item->valuestring);
+						ed->keyword             = item->string;
+						ed->description         = item->valuestring;
 						ed->next                = obj->extra_descr;
 						obj->extra_descr        = ed;
 					}
@@ -1640,7 +1629,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 	BUFFER *dbuf = NULL;
 
 	/* the following vars are read from the player file */
-	char *email, *fingerinfo, *last_lsite, *name, *title, *spouse, *race, *deity;
+	String email, fingerinfo, last_lsite, name, title, spouse, race, deity;
 	int cls, pks, pkd, pkr, aks, akd, level, rmct;
 	long cgroup = 0L, plr = 0L;
 	time_t last_ltime, last_saved;
@@ -1702,7 +1691,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 	}
 
 	/* initialize variables */
-	email = fingerinfo = last_lsite = name = title = spouse = race = deity = str_empty;
+	// strings are empty by default
 	cls = pks = pkd = pkr = aks = akd = level = rmct = 0;
 
 	cJSON *section, *item;
@@ -1743,8 +1732,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 
 	if (title[0] != '.' && title[0] != ',' &&  title[0] != '!' && title[0] != '?') {
 		Format::sprintf(buf, " %s{x", title);
-		free_string(title);
-		title = str_dup(buf);
+		title = buf;
 	}
 
 	if (RANK(cgroup) >= RANK_IMM)
@@ -1769,7 +1757,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 		add_buf(dbuf, buf);
 	}
 
-	Format::sprintf(buf, "{C%s ", capitalize(race));
+	Format::sprintf(buf, "{C%s ", race.capitalize());
 	add_buf(dbuf, buf);
 	Format::sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[cls].name), deity);
 	add_buf(dbuf, buf);
@@ -1817,15 +1805,5 @@ void do_finger(CHAR_DATA *ch, String argument)
 	add_buf(dbuf, "\n");
 	page_to_char(buf_string(dbuf), ch);
 	free_buf(dbuf);
-
-	/* clean up dup'd strings */
-	free_string(email);
-	free_string(fingerinfo);
-	free_string(last_lsite);
-	free_string(name);
-	free_string(title);
-	free_string(spouse);
-	free_string(race);
-	free_string(deity);
 }
 

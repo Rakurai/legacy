@@ -29,7 +29,6 @@
 #include "merc.h" // for data types
 
 /* externs */
-extern char str_empty[1];
 extern int mobile_count;
 
 #define IS_VALID(data)          ((data) != NULL && (data)->valid)

@@ -1070,8 +1070,8 @@ void load_disabled()
 
 		p = (DISABLED_DATA *)alloc_mem(sizeof(DISABLED_DATA));
 		p->command = &cmd_table[i];
-		p->disabled_by = str_dup(db_get_column_str(1));
-		p->reason = str_dup(db_get_column_str(2));
+		p->disabled_by = db_get_column_str(1);
+		p->reason = db_get_column_str(2);
 		p->next = disabled_first;
 		disabled_first = p;
 	}

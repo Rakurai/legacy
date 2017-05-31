@@ -1349,7 +1349,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		ch->pnote->next                 = NULL;
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
-		ch->pnote->date                 = str_dup(strtime);
+		ch->pnote->date                 = strtime;
 		ch->pnote->date_stamp           = current_time;
 		Format::sprintf(buf2, "%s has just posted a %s to: %s", ch->name,
 		        board_index[type].board_long, ch->pnote->to_list);
@@ -1841,6 +1841,5 @@ String format_string(const String& oldstring)
 	if (xbuf[strlen(xbuf) - 2] != '\n')
 		xbuf += "\n";
 
-//	free_string(oldstring);
 	return xbuf;
 }

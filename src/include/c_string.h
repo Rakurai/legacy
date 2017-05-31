@@ -1,7 +1,5 @@
 #pragma once
 
-char *  str_dup         ( const char *str) ;
-void    free_string     ( char *pstr ) ;
 bool    str_cmp         ( const String& astr, const String& bstr) ;
 bool    str_prefix      ( const String& astr, const String& bstr) ;
 bool    str_prefix1     ( const String& astr, const String& bstr) ;

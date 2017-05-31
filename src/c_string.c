@@ -3,49 +3,6 @@
 #include "memory.h"
 #include "Format.hpp"
 
-extern char *string_space;
-extern char *top_string;
-
-/*
- * Duplicate a string into dynamic memory.
- * Fread_strings are read-only and shared.
- */
-char *str_dup(const char *str)
-{
-	char *str_new;
-
-	if (str == NULL) {
-		bug("str_dup: NULL string", 0);
-		return &str_empty[0];
-	}
-
-	if (str[0] == '\0')
-		return &str_empty[0];
-
-	if (str >= string_space && str < top_string)
-		return (char *) str;
-
-	str_new = (char *)alloc_mem(strlen(str) + 1);
-	strcpy(str_new, str);
-	return str_new;
-}
-
-/*
- * Free a string.
- * Null is legal here to simplify callers.
- * Read-only shared strings are not touched.
- */
-void free_string(char *pstr)
-{
-	if (pstr == NULL
-	    ||   pstr == &str_empty[0]
-	    || (pstr >= string_space && pstr < top_string))
-		return;
-
-	free_mem(pstr, strlen(pstr) + 1);
-	return;
-}
-
 /* Removes the tildes from a string.
    Used for player-entered strings that go into disk files. */
 const char *smash_tilde(const String& s)

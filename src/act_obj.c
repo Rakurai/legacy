@@ -161,7 +161,7 @@ bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 
 	if (obj->short_descr == NULL || obj->short_descr[0] == '\0') {
 		bug("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
-		obj->short_descr = str_dup("something");
+		obj->short_descr = "something";
 	}
 
 	if (action != NULL && *action != '\0') {

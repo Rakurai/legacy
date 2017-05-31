@@ -315,7 +315,7 @@ void do_raffset(CHAR_DATA *ch, String argument)
 	if (!str_cmp(arg1, "list")) {
 		for (i = 1; i < MAX_RAFFECTS; i++)
 			ptc(ch, "{W[{C%3d{W] %10s {x%s\n",
-			    raffects[i].id, str_dup(raffects[i].shortname), str_dup(raffects[i].description));
+			    raffects[i].id, raffects[i].shortname, raffects[i].description);
 
 		return;
 	}
@@ -358,7 +358,7 @@ void do_raffset(CHAR_DATA *ch, String argument)
 			if (!rindex)
 				stc("{W[{C000{W] {xNone\n", ch);
 			else
-				ptc(ch, "{W[{C%3d{W] {x%s\n", raffects[rindex].id, str_dup(raffects[rindex].description));
+				ptc(ch, "{W[{C%3d{W] {x%s\n", raffects[rindex].id, raffects[rindex].description);
 		}
 
 		return;

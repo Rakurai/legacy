@@ -4772,7 +4772,7 @@ void do_claninfo(CHAR_DATA *ch, String argument)
 	return;
 }
 
-char *make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
+String make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
 {
 	char output[MSL], buf[MSL];
 
@@ -4782,7 +4782,7 @@ char *make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
 		Format::sprintf(output, "{%s{%s          {x", bgcolor, fgcolor);
 
 	Format::sprintf(buf, "{x{%s", fgcolor);
-	return str_dup(strins(output, buf, numbg + 4));
+	return strins(output, buf, numbg + 4);
 }
 
 void do_clanpower(CHAR_DATA *ch, String argument)

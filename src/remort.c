@@ -189,9 +189,9 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 	raff_add_to_char(victim, test);
 
 	if (ch != victim)
-		ptc(ch, "({C%3d{x) {W%s{x added.\n", raffects[test].id, str_dup(raffects[test].description));
+		ptc(ch, "({C%3d{x) {W%s{x added.\n", raffects[test].id, raffects[test].description);
 
-	ptc(victim, "{C--- {W%s.{x\n", str_dup(raffects[test].description));
+	ptc(victim, "{C--- {W%s.{x\n", raffects[test].description);
 }
 
 void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)

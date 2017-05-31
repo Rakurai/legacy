@@ -55,7 +55,8 @@ TIME_INFO_DATA          time_info;
 WEATHER_DATA            weather_info;
 BATTLE_DATA             battle;
 AUCTION_DATA           *auction;
-char                   *default_prompt = "";
+String                  default_prompt = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
+
 OBJ_DATA               *donation_pit;
 
 /* records */
@@ -361,16 +362,8 @@ void    fix_exits       args((void));
 /* Big mama top level function */
 void boot_db()
 {
-	/* Init some data space stuff */
-	{
-		if ((string_space = (char *)calloc(1, MAX_STRING)) == NULL) {
-			bug("Boot_db: can't alloc %d string space.", MAX_STRING);
-			exit(1);
-		}
+	fBootDb = TRUE;
 
-		top_string = string_space;
-		fBootDb = TRUE;
-	}
 	/* Init random number generator */
 	{
 		init_mm();
@@ -431,8 +424,6 @@ void boot_db()
 			if (skill_table[sn].pgsn != NULL)
 				*skill_table[sn].pgsn = sn;
 	}
-	/* Set up default prompt */
-	default_prompt = str_dup("%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ");
 	/* Read in all the area files */
 	{
 		FILE *fpList;
@@ -550,7 +541,7 @@ void boot_db()
 	}
 
 	if (help_greeting.empty())
-		help_greeting = str_dup("need a greeting! enter your name: ");
+		help_greeting = "need a greeting! enter your name: ";
 } /* end boot_db() */
 
 /*
@@ -575,7 +566,7 @@ int  scan_credits(AREA_DATA *pArea)
 	pArea->area_type  = AREA_TYPE_NORM;
 	pArea->low_range  = 1;
 	pArea->high_range = LEVEL_HERO;
-	pArea->keywords   = str_dup("");
+
 	/* credit line gets mangled in scanning. copy for safekeeping. */
 	strcpy(line, pArea->credits);
 	/*** scan low/high level range numbers ***/
@@ -1338,7 +1329,6 @@ void load_rooms(FILE *fp)
 		fBootDb = TRUE;
 		pRoomIndex                      = (ROOM_INDEX_DATA *)alloc_perm(sizeof(*pRoomIndex));
 		pRoomIndex->version             = aVersion;
-		pRoomIndex->owner               = str_dup("");
 		pRoomIndex->people              = NULL;
 		pRoomIndex->contents            = NULL;
 		pRoomIndex->extra_descr         = NULL;

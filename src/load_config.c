@@ -53,19 +53,19 @@ int load_config(const char *filename) {
 /*
 	// got a valid json object, pull values from it
 	if ((obj = cJSON_GetObjectItem(json, "db_host")) != NULL) {
-		DB_HOST = str_dup(obj->valuestring);
+		DB_HOST = obj->valuestring;
 		items++;
 	}
 	if ((obj = cJSON_GetObjectItem(json, "db_name")) != NULL) {
-		DB_NAME = str_dup(obj->valuestring);
+		DB_NAME = obj->valuestring;
 		items++;
 	}
 	if ((obj = cJSON_GetObjectItem(json, "db_user")) != NULL) {
-		DB_USER = str_dup(obj->valuestring);
+		DB_USER = obj->valuestring;
 		items++;
 	}
 	if ((obj = cJSON_GetObjectItem(json, "db_pass")) != NULL) {
-		DB_PASS = str_dup(obj->valuestring);
+		DB_PASS = obj->valuestring;
 		items++;
 	}
 */

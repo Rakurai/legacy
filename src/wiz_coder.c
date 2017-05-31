@@ -465,8 +465,6 @@ void do_addexit(CHAR_DATA *ch, String argument)
 	}
 
 	exit                            = (EXIT_DATA *)alloc_perm(sizeof(*exit));
-	exit->description               = str_dup("");
-	exit->keyword                   = str_dup("");
 	exit->exit_info                 = 0;
 	exit->key                       = -1;
 	exit->u1.vnum                   = atoi(arg1);

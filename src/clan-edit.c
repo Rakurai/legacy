@@ -93,10 +93,10 @@ void load_clan_table()
 			return;
 		}
 
-		clan->name              = str_dup(db_get_column_str(1));
-		clan->who_name          = str_dup(db_get_column_str(2));
-		clan->clanname          = str_dup(db_get_column_str(3));
-		clan->creator           = str_dup(db_get_column_str(4));
+		clan->name              = db_get_column_str(1);
+		clan->who_name          = db_get_column_str(2);
+		clan->clanname          = db_get_column_str(3);
+		clan->creator           = db_get_column_str(4);
 		clan->hall              = db_get_column_int(5);
 		clan->area_minvnum      = db_get_column_int(6);
 		clan->area_maxvnum      = db_get_column_int(7);

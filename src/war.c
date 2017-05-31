@@ -796,8 +796,8 @@ void war_unjoin(CLAN_DATA *clan, WAR_DATA *war, bool remove)
 	for (i = 0; i < 4; i++) {
 		if (!str_cmp(war->chal[i]->name, clan->name)) {
 			if (remove) {
-				war->chal[i]->name      = &str_empty[0];
-				war->chal[i]->clanname  = &str_empty[0];
+				war->chal[i]->name.erase();
+				war->chal[i]->clanname.erase();
 				war->chal[i]->final_score       = 0;
 			}
 			else
@@ -809,8 +809,8 @@ void war_unjoin(CLAN_DATA *clan, WAR_DATA *war, bool remove)
 
 		if (!str_cmp(war->def[i]->name, clan->name)) {
 			if (remove) {
-				war->def[i]->name       = &str_empty[0];
-				war->def[i]->clanname   = &str_empty[0];
+				war->def[i]->name.erase();
+				war->def[i]->clanname.erase();
 				war->def[i]->final_score        = 0;
 			}
 			else

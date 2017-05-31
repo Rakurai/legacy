@@ -2823,8 +2823,6 @@ extern sh_int	gsn_critical_blow;
  * Identd stuff
  */
 
-#define replace_string( pstr, nstr ) \
-          { free_string( (pstr) ); pstr=str_dup( (nstr) ); }
 #define IS_NULLSTR(str)       ((str)==NULL || (str)[0]=='\0')
 #define CH(d)         ((d)->original ? (d)->original : (d)->character )
 
