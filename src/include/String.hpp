@@ -6,7 +6,6 @@
 class String: public std::string, public Actable {
 public:
 	String() : std::string() {};
-//	String(std::nullptr_t *) : std::string() {};
 	String(const char *c_str) : std::string(c_str == NULL ? "" : c_str) {};
 	String(const std::string &s_str) : std::string(s_str) {};
 	String(const String &name) : std::string(name) {};
@@ -40,17 +39,17 @@ public:
 	String capitalize() const;
 
 	// trim the whitespace (or user-defined characters) from the front, back, or both
-	String lstrip(const char *chars = " \t\n\r") const;
-	String rstrip(const char *chars = " \t\n\r") const;
-	String strip(const char *chars = " \t\n\r") const;
+	String lstrip(const String& chars = " \t\n\r") const;
+	String rstrip(const String& chars = " \t\n\r") const;
+	String strip(const String& chars = " \t\n\r") const;
 
 	// split the string on the first occurrence of one of "chars".  return the word,
 	// or put word into the reference String and return the remainder.  if string
 	// starts with one of "chars", they will be trimmed (return and word will be stripped)
-	String lsplit(const char *chars = " ") const;
-	String rsplit(const char *chars = " ") const;
-	String lsplit(String& word, const char *chars = " ") const;
-	String rsplit(String& word, const char *chars = " ") const;
+	String lsplit(const String& chars = " ") const;
+	String rsplit(const String& chars = " ") const;
+	String lsplit(String& word, const String& chars = " ") const;
+	String rsplit(String& word, const String& chars = " ") const;
 
 	// replace some or all occurrences of "what" with "with", -1 is all
 	String replace(const String& what, const String& with, int times = -1) const;
