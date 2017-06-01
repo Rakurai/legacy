@@ -2081,20 +2081,22 @@ void show_string(struct descriptor_data *d, const String& input)
 		return;
 	}
 
-	int break_pos;
+	int page_len;
 
 	// how many lines per page?
 	if (d->character) {
-		break_pos = d->showstr_head.find_nth(d->character->lines, '\n');
+		int break_pos = d->showstr_head.find_nth(d->character->lines, '\n');
 
 		if (break_pos == std::string::npos)
-			break_pos = d->showstr_head.size()-1;
+			page_len = d->showstr_head.size();
+		else
+			page_len = break_pos + 1;
 	}
 	else
-		break_pos = d->showstr_head.size()-1;
+		page_len = d->showstr_head.size();
 
-	String page = d->showstr_head.substr(0, break_pos);
-	d->showstr_head.erase(0, break_pos+1);
+	String page = d->showstr_head.substr(0, page_len);
+	d->showstr_head.erase(0, page_len);
 
 	if (d->character)
 		stc(page, d->character);
