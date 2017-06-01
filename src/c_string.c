@@ -82,8 +82,8 @@ bool str_cmp(const String& a, const String& b)
  */
 bool str_prefix(const String& astr, const String& bstr)
 {
-	if (astr.empty() || bstr.empty())
-		return FALSE;
+	if (bstr.size() < astr.size())
+		return TRUE;
 
 	for (const char *a = astr.c_str(), *b = bstr.c_str(); *a && *b; a++, b++)
 		if (LOWER(*a) != LOWER(*b))
@@ -94,13 +94,13 @@ bool str_prefix(const String& astr, const String& bstr)
 
 /*
  * Compare strings, case insensitive, for prefix matching.
- * Return TRUE if astr not a prefix of bstr
+ * Return TRUE if astr NOT a prefix of bstr
  *   (compatibility with historical functions).
  * like str_prefix, but insists on at least 1 matching char.
  */
 bool str_prefix1(const String& astr, const String& bstr)
 {
-	if (astr.empty() || bstr.empty())
+	if (astr.empty())
 		return TRUE;
 
 	return str_prefix(astr, bstr);
@@ -232,44 +232,46 @@ const char *center_string_in_whitespace(const String& s, int length)
 	return buf;
 }
 
-/* Note name match exact */
-bool note_is_name(const String& s, const String& nl)
+/*
+ * See if a string is one of the names of an object.
+ */
+bool is_name(const String& s, const String& nl, bool exact)
 {
-	const char *str = s.c_str(), *namelist = nl.c_str();
-	const char *list, *string;
-	String part, name;
-
-	/* fix crash on NULL namelist */
-	if (namelist == NULL || namelist[0] == '\0')
-		return FALSE;
-
-	/* fixed to prevent is_name on "" returning TRUE */
-	if (str[0] == '\0')
-		return FALSE;
-
-	string = str;
+	String str(s), namelist(nl);
 
 	/* we need ALL parts of string to match part of namelist */
 	for (; ;) {  /* start parsing string */
+
+		String part;
 		str = one_argument(str, part);
 
-		if (part[0] == '\0')
+		if (part.empty())
 			return TRUE;
 
 		/* check to see if this is part of namelist */
-		list = namelist;
+		String list(namelist);
 
 		for (; ;) {  /* start parsing namelist */
+			String name;
 			list = one_argument(list, name);
 
-			if (name[0] == '\0')  /* this name was not found */
+			if (name.empty())  /* this name was not found */
 				return FALSE;
 
-			if (!str_prefix1(string, name))
-				return TRUE; /* full pattern match */
+			if (exact) {
+				if (!str_cmp(s, name))
+					return TRUE;
 
-			if (!str_prefix1(part, name))
-				break;
+				if (!str_cmp(part, name))
+					break;
+			}
+			else {
+				if (!str_prefix1(s, name))
+					return TRUE; /* full pattern match */
+
+				if (!str_prefix1(part, name))
+					break;
+			}
 		}
 	}
 }
@@ -277,102 +279,19 @@ bool note_is_name(const String& s, const String& nl)
 /* Is Exact Name by Lotus */
 bool is_exact_name(const String& s, const String& nl)
 {
-	const char *str = s.c_str(), *namelist = nl.c_str();
-	const char *list, *string;
-	String part, name;
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_cmp(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_cmp(part, name))
-				break;
-		}
-	}
-}
-
-/*
- * See if a string is one of the names of an object.
- */
-bool is_name(const String& s, const String& nl)
-{
-	const char *str = s.c_str(), *namelist = nl.c_str();
-	const char *list, *string;
-	String part, name;
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_prefix1(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_prefix1(part, name))
-				break;
-		}
-	}
+	return is_name(s, nl, TRUE);
 }
 
 bool is_exact_name_color(const String& s, const String& nl)
 {
-	const char *str = s.c_str(), *namelist = nl.c_str();
-	const char *list, *string;
-	String part, name;
-	/* strip the color codes */
-	str = smash_bracket(str);
-	namelist = smash_bracket(namelist);
-	string = str;
+	return is_name(smash_bracket(s), smash_bracket(nl), TRUE);
+}
 
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
+/* Note name match exact */
+bool note_is_name(const String& s, const String& nl)
+{
+	if (s.empty() || nl.empty())
+		return FALSE;
 
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_cmp(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_cmp(part, name))
-				break;
-		}
-	}
+	return is_name(s, nl, FALSE);
 }
