@@ -124,7 +124,7 @@ void act_format(const String& format, CHAR_DATA *ch,
 			break;
 
 		case 'T':
-			if (str2 == NULL || str1->empty())
+			if (str2 == NULL || str2->empty())
 				bug("Missing str2 for '$$T'", 0);
 			else
 				i = *str2;
@@ -350,12 +350,12 @@ void act_parse(
 void act(const String& format, CHAR_DATA *ch, const Actable* arg1, const Actable* arg2, int type, int min_pos, bool censor) {
     act_parse(
         format, ch,
-        dynamic_cast<const CHAR_DATA *>(arg2),
-        dynamic_cast<const CHAR_DATA *>(arg1),
-        dynamic_cast<const String *>(arg1),
-        dynamic_cast<const String *>(arg2),
-        dynamic_cast<const OBJ_DATA *>(arg1),
-        dynamic_cast<const OBJ_DATA *>(arg2),
+        (const CHAR_DATA *)arg2,
+        (const CHAR_DATA *)arg1,
+        (const String *)arg1,
+        (const String *)arg2,
+        (const OBJ_DATA *)arg1,
+        (const OBJ_DATA *)arg2,
         type, min_pos, censor
     );
 }
