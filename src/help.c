@@ -13,7 +13,6 @@
 #include "recycle.h"
 #include "sql.h"
 #include "tables.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 #ifdef SEASON_CHRISTMAS
@@ -67,7 +66,7 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 {
 	String buf, text;
 	char query[MSL];
-	BUFFER *output;
+	String output;
 	int i = 0, count = 0;
 	Format::sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
 	        "AND " HCOL_KEYS " LIKE '%% %s%%' "
@@ -99,15 +98,13 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 		return;
 	}
 
-	output = new_buf();
-	add_buf(output, stupidassline);
-	ptb(output, "\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
+	output += stupidassline;
+	output += Format::format("\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
 	text = format_string(buf);
-	add_buf(output, text);
-	ptb(output, "\n{W[%d] total help entries.{x\n\n", i);
-	add_buf(output, stupidassline);
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += text;
+	output += Format::format("\n{W[%d] total help entries.{x\n\n", i);
+	output += stupidassline;
+	page_to_char(output, ch);
 }
 
 /* the mud's internal help command, no multiple results, no suggestions.  command groups are not checked */
@@ -115,7 +112,7 @@ void help(CHAR_DATA *ch, const String& argument)
 {
 	String query;
 	const char *p;
-	BUFFER *output;
+	String output;
 	Format::sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
 	p = argument.c_str();
 
@@ -147,10 +144,8 @@ void help(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	output = new_buf();
-	add_buf(output, text + (text[0] == '.' ? 1 : 0));
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += text + (text[0] == '.' ? 1 : 0);
+	page_to_char(output, ch);
 }
 
 void add_help(int group, int order, int level, const String& keywords, const String& text)
@@ -395,7 +390,7 @@ void do_help(CHAR_DATA *ch, String argument)
 {
 	String query;
 	const char *p;
-	BUFFER *output;
+	String output;
 	int result_count = 0, partial_count = 0, result_num = 0, i;
 	struct help_struct {
 		int type;
@@ -495,7 +490,6 @@ void do_help(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	output = new_buf();
 
 	/* if we have an exact result, display them, then a list of partial match keywords */
 	if (result_count > partial_count) {     /* exact results? */
@@ -508,17 +502,17 @@ void do_help(CHAR_DATA *ch, String argument)
 			if (IS_IMMORTAL(ch))
 				Format::sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
-			ptb(output, "%s\n{W%s%s{x\n\n",
+			output += Format::format("%s\n{W%s%s{x\n\n",
 			    stupidassline,
 			    immbuf,
 			    temp_help[result_num].keywords);
 			/* Strip leading '.' to allow initial blanks. */
-			add_buf(output, temp_help[result_num].text + (temp_help[result_num].text[0] == '.' ? 1 : 0));
-			ptb(output, "\n%s", stupidassline);
+			output += temp_help[result_num].text + (temp_help[result_num].text[0] == '.' ? 1 : 0);
+			output += Format::format("\n%s", stupidassline);
 		}
 
 		if (partial_count)
-			add_buf(output, "\nYou could also try the following partial matches:\n\n");
+			output += "\nYou could also try the following partial matches:\n\n";
 	}
 	else if (partial_count == 1) {
 		/* no exact matches, if there's only one partial match, let's show it and be done */
@@ -527,17 +521,18 @@ void do_help(CHAR_DATA *ch, String argument)
 		if (IS_IMMORTAL(ch))
 			Format::sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
-		ptb(output, "%s\n{W%s%s{x\n\n",
+		output += Format::format("%s\n{W%s%s{x\n\n",
 		    stupidassline,
 		    immbuf,
 		    temp_help[0].keywords);
-		add_buf(output, temp_help[0].text + (temp_help[0].text[0] == '.' ? 1 : 0));
-		ptb(output, "\n%s", stupidassline);
+		output += temp_help[0].text + (temp_help[0].text[0] == '.' ? 1 : 0);
+		output += Format::format("\n%s", stupidassline);
 		/* done, we'll drop through the next if statement to the printing */
 	}
-	else
-		add_buf(output, "No helps were found matching all of your keywords, but the\n"
-		        "following partial matches may direct you to the proper help:\n\n");
+	else {
+		output += "No helps were found matching all of your keywords, but the\n";
+		output += "following partial matches may direct you to the proper help:\n\n";
+	}
 
 	if (partial_count && (result_count > partial_count || partial_count > 1)) {
 		int newres;
@@ -558,12 +553,11 @@ void do_help(CHAR_DATA *ch, String argument)
 			if (newres != result_num)
 				continue;
 
-			ptb(output, "%s\n", temp_help[result_num].keywords);
+			output += Format::format("%s\n", temp_help[result_num].keywords);
 		}
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 }
 
 void do_hedit(CHAR_DATA *ch, String argument)

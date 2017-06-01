@@ -29,7 +29,6 @@
 #include "interp.h"
 #include "recycle.h"
 #include "magic.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /* return TRUE if a player either has the group or has all skills in it */
@@ -110,7 +109,7 @@ void do_spells(CHAR_DATA *ch, String argument)
 	char spell_name[MAX_INPUT_LENGTH];
 	bool found = FALSE;
 	bool new_level = TRUE;
-	BUFFER *buffer;
+	String buffer;
 	bool reached_player_level = FALSE;
 
 	if (IS_NPC(ch)) {
@@ -273,11 +272,10 @@ void do_spells(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	buffer = new_buf();
 
 	if (group != -1) {
 		Format::sprintf(buf, "Spells in group '%s':\n\n", group_table[group].name);
-		add_buf(buffer, buf);
+		buffer += buf;
 	}
 
 	/* sort */
@@ -293,14 +291,14 @@ void do_spells(CHAR_DATA *ch, String argument)
 			level = spell_list[j].level;
 
 			if (cols > 0) {
-				add_buf(buffer, "\n");
+				buffer += "\n";
 				cols = 0;
 			}
 
 			if (level > ch->level && !reached_player_level) {
 				Format::sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
-				add_buf(buffer, buf);
+				buffer += buf;
 				reached_player_level = TRUE;
 			}
 		}
@@ -312,11 +310,11 @@ void do_spells(CHAR_DATA *ch, String argument)
 				Format::sprintf(buf, "%*s", (int)strlen(buf), " ");
 
 			new_level = FALSE;
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 		else {
 			Format::sprintf(buf, "%*s", 24 - pos, " ");
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
 		sn = spell_list[j].sn;
@@ -340,16 +338,15 @@ void do_spells(CHAR_DATA *ch, String argument)
 			cols = 0;
 		}
 
-		add_buf(buffer, buf);
+		buffer += buf;
 	}
 
 	if (cols > 0) {
-		add_buf(buffer, "\n");
+		buffer += "\n";
 		cols = 0;
 	}
 
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	page_to_char(buffer, ch);
 } /* end do_spells() */
 
 /* The guts of 'spells', used here for skill listing - Montrey */
@@ -374,7 +371,7 @@ void do_skills(CHAR_DATA *ch, String argument)
 	char skill_name[MAX_INPUT_LENGTH];
 	bool found = FALSE;
 	bool new_level = TRUE;
-	BUFFER *buffer;
+	String buffer;
 	bool reached_player_level = FALSE;
 
 	if (IS_NPC(ch)) {
@@ -459,7 +456,6 @@ void do_skills(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	buffer = new_buf();
 
 	/* sort */
 	if (nskills > 0)
@@ -474,14 +470,14 @@ void do_skills(CHAR_DATA *ch, String argument)
 			level = skill_list[j].level;
 
 			if (cols > 0) {
-				add_buf(buffer, "\n");
+				buffer += "\n";
 				cols = 0;
 			}
 
 			if (level > ch->level && !reached_player_level) {
 				Format::sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
-				add_buf(buffer, buf);
+				buffer += buf;
 				reached_player_level = TRUE;
 			}
 		}
@@ -493,11 +489,11 @@ void do_skills(CHAR_DATA *ch, String argument)
 				Format::sprintf(buf, "%*s", (int)strlen(buf), " ");
 
 			new_level = FALSE;
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 		else {
 			Format::sprintf(buf, "%*s", 24 - pos, " ");
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
 		sn = skill_list[j].sn;
@@ -521,16 +517,15 @@ void do_skills(CHAR_DATA *ch, String argument)
 			cols = 0;
 		}
 
-		add_buf(buffer, buf);
+		buffer += buf;
 	}
 
 	if (cols > 0) {
-		add_buf(buffer, "\n");
+		buffer += "\n";
 		cols = 0;
 	}
 
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	page_to_char(buffer, ch);
 }
 
 /* Levelist by Lotus */
@@ -541,7 +536,7 @@ void do_levels(CHAR_DATA *ch, String argument)
 	int sn, lev, x, y;
 	char buf[MAX_STRING_LENGTH];
 	int cls;
-	BUFFER *buffer;
+	String buffer;
 
 	if (IS_NPC(ch))
 		return;
@@ -555,7 +550,6 @@ void do_levels(CHAR_DATA *ch, String argument)
 			return;
 		}
 		else {
-			buffer = new_buf();
 			stc("Skill/Spell           Mag Cle Thi War Nec Pdn Bar Ran\n\n", ch);
 
 			for (sn = 0; sn < MAX_SKILL; sn++) {
@@ -569,7 +563,7 @@ void do_levels(CHAR_DATA *ch, String argument)
 					continue;
 
 				Format::sprintf(buf, "%-21s", skill_table[sn].name);
-				add_buf(buffer, buf);
+				buffer += buf;
 
 				for (x = 0; x < MAX_CLASS; x++) {
 					if (skill_table[sn].skill_level[x] < 0 || skill_table[sn].skill_level[x] > LEVEL_HERO)
@@ -577,27 +571,25 @@ void do_levels(CHAR_DATA *ch, String argument)
 					else
 						Format::sprintf(buf, "%4d", skill_table[sn].skill_level[x]);
 
-					add_buf(buffer, buf);
+					buffer += buf;
 				}
 
 				Format::sprintf(buf, "\n");
-				add_buf(buffer, buf);
+				buffer += buf;
 			}
 
-			page_to_char(buf_string(buffer), ch);
-			free_buf(buffer);
+			page_to_char(buffer, ch);
 			return;
 		}
 	}
 
 	if (!str_prefix1(arg, "remort") && IS_IMMORTAL(ch)) {
-		buffer = new_buf();
 		stc("                                           Level/Trains\n", ch);
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
 		for (x = 0; x < MAX_CLASS; x++) {
 			Format::sprintf(buf, "{W%s Skills:{x\n", capitalize(class_table[x].name));
-			add_buf(buffer, buf);
+			buffer += buf;
 
 			for (sn = 0; sn < MAX_SKILL; sn++) {
 				if (skill_table[sn].name == NULL)
@@ -607,7 +599,7 @@ void do_levels(CHAR_DATA *ch, String argument)
 					continue;
 
 				Format::sprintf(buf, "  {g%-19s{x", skill_table[sn].name);
-				add_buf(buffer, buf);
+				buffer += buf;
 
 				for (y = 0; y < MAX_CLASS; y++) {
 					if (skill_table[sn].skill_level[y] < 0 || skill_table[sn].skill_level[y] > LEVEL_HERO)
@@ -615,16 +607,15 @@ void do_levels(CHAR_DATA *ch, String argument)
 					else
 						Format::sprintf(buf, "{C%3d{c/{G%-3d{x", skill_table[sn].skill_level[y], skill_table[sn].rating[y]);
 
-					add_buf(buffer, buf);
+					buffer += buf;
 				}
 
 				Format::sprintf(buf, "\n");
-				add_buf(buffer, buf);
+				buffer += buf;
 			}
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
@@ -647,7 +638,6 @@ void do_levels(CHAR_DATA *ch, String argument)
 		list[lev][0] = '\0';
 	}
 
-	buffer = new_buf();
 
 	for (sn = 0; sn < MAX_SKILL; sn++) {
 		if (skill_table[sn].name == NULL)
@@ -675,9 +665,9 @@ void do_levels(CHAR_DATA *ch, String argument)
 
 	for (lev = 0; lev < LEVEL_HERO; lev++)
 		if (list[lev][0] != '\0')
-			add_buf(buffer, list[lev]);
+			buffer += list[lev];
 
-	add_buf(buffer, "\n");
+	buffer += "\n";
 
 	/* Initialize the data */
 	for (lev = 0; lev < LEVEL_HERO; lev++) {
@@ -710,11 +700,10 @@ void do_levels(CHAR_DATA *ch, String argument)
 
 	for (lev = 0; lev < LEVEL_HERO; lev++)
 		if (list[lev][0] != '\0')
-			add_buf(buffer, list[lev]);
+			buffer += list[lev];
 
-	add_buf(buffer, "\n");
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	buffer += "\n";
+	page_to_char(buffer, ch);
 } /* end do_levels() */
 
 /* shows skills, groups and costs (only if not bought) */
@@ -1322,12 +1311,11 @@ int can_evolve(CHAR_DATA *ch, int sn)
 
 void evolve_list(CHAR_DATA *ch)
 {
-	BUFFER *buffer;
+	String buffer;
 	int x, can;
-	buffer = new_buf();
-	add_buf(buffer, "Currently evolvable skills and spells:\n\n");
-	add_buf(buffer, "{GSkill or spell      {C| {GPct {C| {GEvo {C| {GNext{x\n");
-	add_buf(buffer, "{C--------------------+-----+-----+-----{x\n");
+	buffer += "Currently evolvable skills and spells:\n\n";
+	buffer += "{GSkill or spell      {C| {GPct {C| {GEvo {C| {GNext{x\n";
+	buffer += "{C--------------------+-----+-----+-----{x\n";
 
 	for (x = 0; x < MAX_SKILL; x++) {
 		if (skill_table[x].name == NULL)
@@ -1337,47 +1325,46 @@ void evolve_list(CHAR_DATA *ch)
 			continue;
 
 		if (ch->pcdata->learned[x] < 1) {
-			ptb(buffer, "{H%-20s{C|   {H0 {C|   {H0 {C| {H%4d{x\n",
+			buffer += Format::format("{H%-20s{C|   {H0 {C|   {H0 {C| {H%4d{x\n",
 			    skill_table[x].name,
 			    skill_table[x].evocost_sec[ch->cls]);
 			continue;
 		}
 
-		ptb(buffer, "{G%-20s{C| {G%3d {C|   {G%d {C| {G",
+		buffer += Format::format("{G%-20s{C| {G%3d {C|   {G%d {C| {G",
 		    skill_table[x].name,
 		    ch->pcdata->learned[x],
 		    ch->pcdata->evolution[x]);
 
 		if (can == 1)
-			ptb(buffer, "%4d{x\n",
+			buffer += Format::format("%4d{x\n",
 			    ch->pcdata->evolution[x] == 1 ?
 			    skill_table[x].evocost_sec[ch->cls] :
 			    skill_table[x].evocost_pri[ch->cls]);
 		else
-			add_buf(buffer, "----{x\n");
+			buffer += "----{x\n";
 	}
 
-	ptb(buffer, "\nYou have %d skill points to spend.\n", ch->pcdata->skillpoints);
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	buffer += Format::format("\nYou have %d skill points to spend.\n", ch->pcdata->skillpoints);
+	page_to_char(buffer, ch);
 }
 
 void evolve_info(CHAR_DATA *ch)
 {
-	BUFFER *buffer = new_buf();
+	String buffer;
 	int evo_sum[8] = {0};
 
-	add_buf(buffer, "Currently evolvable skills and spells:\n\n");
-	add_buf(buffer, "{GSkill or spell      {C|{G");
+	buffer += "Currently evolvable skills and spells:\n\n";
+	buffer += "{GSkill or spell      {C|{G";
 
 	for (int cls = 0; cls < 8; cls++) {
-		add_buf(buffer, class_table[cls].who_name);
-		add_buf(buffer, "{C|{G");
+		buffer += class_table[cls].who_name;
+		buffer += "{C|{G";
 	}
 
-	add_buf(buffer, "\n");
+	buffer += "\n";
 
-	add_buf(buffer, "{C--------------------+---+---+---+---+---+---+---+---+{x\n");
+	buffer += "{C--------------------+---+---+---+---+---+---+---+---+{x\n";
 
 	for (int sn = 0; sn < MAX_SKILL; sn++) {
 		if (skill_table[sn].name == NULL)
@@ -1399,13 +1386,13 @@ void evolve_info(CHAR_DATA *ch)
 		if (!should_show)
 			continue;
 
-		ptb(buffer, "{H%-20s{C|", skill_table[sn].name);
+		buffer += Format::format("{H%-20s{C|", skill_table[sn].name);
 
 		for (int cls = 0; cls < 8; cls++) {
 			if (max_evo[cls] == 0)
-				add_buf(buffer, "   |");
+				buffer += "   |";
 			else {
-				ptb(buffer, "{%s %d {C|",
+				buffer += Format::format("{%s %d {C|",
 					max_evo[cls] > 1 ? "Y" : "G",
 					max_evo[cls]+1);
 
@@ -1413,20 +1400,19 @@ void evolve_info(CHAR_DATA *ch)
 			}
 		}
 
-		add_buf(buffer, "\n");
+		buffer += "\n";
 
 	}
 
-	add_buf(buffer, "{C--------------------+---+---+---+---+---+---+---+---+{x\n");
+	buffer += "{C--------------------+---+---+---+---+---+---+---+---+{x\n";
 
-	ptb(buffer, "{H%-20s{C|", "sum");
+	buffer += Format::format("{H%-20s{C|", "sum");
 
 	for (int cls = 0; cls < 8; cls++)
-		ptb(buffer, "{G%3d{C|", evo_sum[cls]);
+		buffer += Format::format("{G%3d{C|", evo_sum[cls]);
 
-	add_buf(buffer, "\n");
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	buffer += "\n";
+	page_to_char(buffer, ch);
 }
 
 void do_evolve(CHAR_DATA *ch, String argument)
@@ -1611,10 +1597,9 @@ void do_gain(CHAR_DATA *ch, String argument)
 
 	if (!str_prefix1(arg, "list")) {
 		int col = 0;
-		BUFFER *output;
+		String output;
 		bool foundsect = FALSE, foundall = FALSE;
-		output = new_buf();
-		ptb(output, "%-18s %-5s %-18s %-5s %-18s %-5s\n",
+		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "group", "cost", "group", "cost", "group", "cost");
 
 		for (gn = 0; group_table[gn].name != NULL; gn++) {
@@ -1623,28 +1608,26 @@ void do_gain(CHAR_DATA *ch, String argument)
 				continue;
 
 			foundsect = TRUE;
-			ptb(output, "%-18s %s%-5d{x ",
+			output += Format::format("%-18s %s%-5d{x ",
 			    group_table[gn].name,
 			    group_table[gn].rating[ch->cls] > ch->train ? "{T" : "{C",
 			    group_table[gn].rating[ch->cls]);
 
 			if (++col % 3 == 0)
-				add_buf(output, "\n");
+				output += "\n";
 		}
 
 		if (col % 3 != 0)
-			add_buf(output, "\n");
+			output += "\n";
 
-		add_buf(output, "\n");
+		output += "\n";
 
 		if (foundsect) {
-			page_to_char(buf_string(output), ch);
+			page_to_char(output, ch);
 			foundall = TRUE;
 		}
 
-		free_buf(output);
-		output = new_buf();
-		ptb(output, "%-18s %-5s %-18s %-5s %-18s %-5s\n",
+		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "skill", "cost", "skill", "cost", "skill", "cost");
 
 		for (sn = 0, col = 0, foundsect = FALSE; skill_table[sn].name != NULL; sn++) {
@@ -1653,45 +1636,42 @@ void do_gain(CHAR_DATA *ch, String argument)
 			    && skill_table[sn].spell_fun == spell_null
 			    && skill_table[sn].remort_class == 0) {
 				foundsect = TRUE;
-				ptb(output, "%s%-18s %s%-5d{x ",
+				output += Format::format("%s%-18s %s%-5d{x ",
 				    skill_table[sn].skill_level[ch->cls] > ch->level ? "{c" : "{g",
 				    skill_table[sn].name,
 				    skill_table[sn].rating[ch->cls] > ch->train ? "{T" : "{C",
 				    skill_table[sn].rating[ch->cls]);
 
 				if (++col % 3 == 0)
-					add_buf(output, "\n");
+					output += "\n";
 			}
 		}
 
 		if (col % 3 != 0)
-			add_buf(output, "\n");
+			output += "\n";
 
 		if (foundsect) {
-			page_to_char(buf_string(output), ch);
+			page_to_char(output, ch);
 			foundall = TRUE;
 		}
 
-		free_buf(output);
-		output = new_buf();
 
 		if (ch->pcdata->remort_count < 1) {
 			if (!foundall)
-				add_buf(output, "You have nothing left to learn until you remort.\n");
+				output += "You have nothing left to learn until you remort.\n";
 
-			ptb(output, "You have %d train%s left.\n",
+			output += Format::format("You have %d train%s left.\n",
 			    ch->train, ch->train == 1 ? "" : "s");
-			page_to_char(buf_string(output), ch);
-			free_buf(output);
+			page_to_char(output, ch);
 			return;
 		}
 
 		if (foundall)
-			add_buf(output, "\n");
+			output += "\n";
 
-		ptb(output, "Remort specials for class %s\n",
+		output += Format::format("Remort specials for class %s\n",
 		    class_table[ch->cls].name);
-		add_buf(output, "---------------\n");
+		output += "---------------\n";
 
 		for (sn = 0, col = 0, foundsect = FALSE; skill_table[sn].name != NULL; sn++) {
 			if (!ch->pcdata->learned[sn]
@@ -1699,35 +1679,32 @@ void do_gain(CHAR_DATA *ch, String argument)
 			    && skill_table[sn].remort_class > 0
 			    && skill_table[sn].remort_class == ch->cls + 1) {
 				foundsect = TRUE;
-				ptb(output, "%s%-18s %s%-5d{x ",
+				output += Format::format("%s%-18s %s%-5d{x ",
 				    skill_table[sn].skill_level[ch->cls] > ch->level ? "{c" : "{g",
 				    skill_table[sn].name,
 				    skill_table[sn].rating[ch->cls] > ch->train ? "{T" : "{C",
 				    skill_table[sn].rating[ch->cls]);
 
 				if (++col % 3 == 0)
-					add_buf(output, "\n");
+					output += "\n";
 			}
 		}
 
 		if (col % 3 != 0)
-			add_buf(output, "\n");
+			output += "\n";
 
 		if (foundsect) {
-			page_to_char(buf_string(output), ch);
+			page_to_char(output, ch);
 			foundall = TRUE;
 		}
 
-		free_buf(output);
-		output = new_buf();
 
 		if (!foundall)
-			add_buf(output, "You have nothing left to learn!\n");
+			output += "You have nothing left to learn!\n";
 
-		ptb(output, "You have %d train%s left.\n",
+		output += Format::format("You have %d train%s left.\n",
 		    ch->train, ch->train == 1 ? "" : "s");
-		page_to_char(buf_string(output), ch);
-		free_buf(output);
+		page_to_char(output, ch);
 		return;
 	}
 

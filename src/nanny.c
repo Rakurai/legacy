@@ -6,7 +6,6 @@
 #include "recycle.h"
 #include "affect.h"
 #include "lookup.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 extern bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
@@ -299,7 +298,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 				stc("Reconnecting...\n", ch);
 
 				if (!IS_NPC(ch))
-					if (ch->pcdata->buffer->string[0] != '\0')
+					if (!ch->pcdata->buffer.empty())
 						stc("You have messages: Type 'replay'\n", ch);
 
 				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)

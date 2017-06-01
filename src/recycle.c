@@ -29,7 +29,6 @@
 #include "recycle.h"
 #include "affect.h"
 #include "affect_list.h"
-#include "buffer.h"
 #include "memory.h"
 
 /* CHANGES
@@ -387,7 +386,6 @@ PC_DATA *new_pcdata(void)
 	pcdata->fingerinfo =
 	pcdata->email.erase();
 
-	pcdata->buffer = new_buf();
 
 	VALIDATE(pcdata);
 	return pcdata;
@@ -398,7 +396,6 @@ void free_pcdata(PC_DATA *pcdata)
 	if (!IS_VALID(pcdata))
 		return;
 
-	free_buf(pcdata->buffer);
 
 	INVALIDATE(pcdata);
 	pcdata->next = pcdata_free;

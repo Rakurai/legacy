@@ -31,7 +31,6 @@
 #include "recycle.h"
 #include "tables.h"
 #include "affect.h"
-#include "buffer.h"
 
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool fAdd));

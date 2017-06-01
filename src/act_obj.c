@@ -36,7 +36,6 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 #include "c_string.h"
 
@@ -5203,7 +5202,7 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	char *l2, *ld, *la; /* line 2, line with dup author, line after dup author */
 	int  lines;         /* number of lines */
 	char c0;
-	BUFFER *dbuf = NULL;
+	String dbuf;
 	char *eng_line;
 	struct timeval now_time;
 	time_t current_time;
@@ -5270,12 +5269,10 @@ void do_engrave(CHAR_DATA *ch, String argument)
 		dflt_desc->keyword = weapon->name;
 
 		if (!weapon->description.empty()) {
-			dbuf = new_buf();
-			add_buf(dbuf, weapon->description);
-			add_buf(dbuf, "\n");
-			add_buf(dbuf, eng_line);
-			dflt_desc->description = buf_string(dbuf);
-			free_buf(dbuf);
+			dbuf += weapon->description;
+			dbuf += "\n";
+			dbuf += eng_line;
+			dflt_desc->description = dbuf;
 		}
 		else
 			dflt_desc->description = eng_line;
@@ -5285,11 +5282,9 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	}
 	else if (strstr(dflt_desc->description, eng_line) == NULL) {
 		/* add to existing extdesc */
-		dbuf = new_buf();
-		add_buf(dbuf, dflt_desc->description);
-		add_buf(dbuf, eng_line);
-		dflt_desc->description = buf_string(dbuf);
-		free_buf(dbuf);
+		dbuf += dflt_desc->description;
+		dbuf += eng_line;
+		dflt_desc->description = dbuf;
 		dbuf = NULL;
 	}
 
@@ -5345,24 +5340,23 @@ void do_engrave(CHAR_DATA *ch, String argument)
 	} /* end for chars in desc */
 
 	/* assemble 'worthy' parts of the old desc into a buffer. */
-	dbuf = new_buf();
 
 	if (ld != NULL) {
 		c0 = *ld;
 		*ld = '\0';
-		add_buf(dbuf, eng_desc->description);
+		dbuf += eng_desc->description;
 		*ld = c0;
-		add_buf(dbuf, la);
+		dbuf += la;
 	}
 	else if (lines > 20)
-		add_buf(dbuf, l2);
+		dbuf += l2;
 	else
-		add_buf(dbuf, eng_desc->description);
+		dbuf += eng_desc->description;
 
 	gettimeofday(&now_time, NULL);
 	current_time = (time_t) now_time.tv_sec;
 	strftime(buf, 9, "[%m/%d] ", localtime(&current_time));
-	add_buf(dbuf, buf);
+	dbuf += buf;
 
 	if (IS_NPC(ch)) {
 		Format::sprintf(buf, "{Y%s{x, {Mcitizen of %s,", ch->short_descr,
@@ -5375,11 +5369,10 @@ void do_engrave(CHAR_DATA *ch, String argument)
 		        ch->pcdata->title : "{M(adventurer of Thera){x");
 	}
 
-	add_buf(dbuf, buf);
+	dbuf += buf;
 	Format::sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", smash_tilde(argument));
-	add_buf(dbuf, buf);
-	eng_desc->description = buf_string(dbuf);
-	free_buf(dbuf);
+	dbuf += buf;
+	eng_desc->description = dbuf;
 	stc("You have left a mark of duration upon your weapon.\n", ch);
 	act("$n solemnly engraves $s weapon.", ch, NULL, NULL, TO_ROOM);
 } /* end do_engrave() */

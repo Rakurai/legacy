@@ -57,7 +57,6 @@
 #include "merc.h"
 #include "recycle.h"
 #include "sql.h"
-#include "buffer.h"
 #include "memory.h"
 #include "Format.hpp"
 
@@ -120,7 +119,7 @@ static char *find_line(int lineno)
 	return pl;
 } /* end find_line() */
 
-static void listline(BUFFER *dbuf, int lineno, char *line)
+static void listline(String& dbuf, int lineno, char *line)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *bp;
@@ -132,13 +131,13 @@ static void listline(BUFFER *dbuf, int lineno, char *line)
 	else
 		Format::sprintf(buf, "{x    : {x");
 
-	add_buf(dbuf, buf);
+	dbuf += buf;
 	bp = buf;
 
 	if (lineno == 0)
-		add_buf(dbuf, "~~~TOP~~~");
+		dbuf += "~~~TOP~~~";
 	else if (lineno == ed->edit_nlines + 1)
-		add_buf(dbuf, "~~~END~~~");
+		dbuf += "~~~END~~~";
 	else {
 		while (*line != '\n' && *line != '\0') {
 			*bp++ = *line++;
@@ -146,19 +145,18 @@ static void listline(BUFFER *dbuf, int lineno, char *line)
 	}
 
 	strcpy(bp, "{x\n");
-	add_buf(dbuf, buf);
+	dbuf += buf;
 } /* end listline() */
 
 static void edit_list1(CHAR_DATA *ch, int fromline, int toline)
 {
 	int jline;
 	char *cp;
-	BUFFER *dbuf;
+	String dbuf;
 	fromline = UMAX(fromline, 0);
 	fromline = UMIN(fromline, ed->edit_nlines);
 	toline   = UMAX(toline, fromline);
 	toline   = UMIN(toline, ed->edit_nlines + 1);
-	dbuf = new_buf();
 
 	if (fromline == 0) {
 		listline(dbuf, 0, "");
@@ -172,8 +170,7 @@ static void edit_list1(CHAR_DATA *ch, int fromline, int toline)
 		cp = next_line(cp);
 	}
 
-	page_to_char(buf_string(dbuf), ch);
-	free_buf(dbuf);
+	page_to_char(dbuf, ch);
 } /* end edit_list1() */
 
 static void list_window(CHAR_DATA *ch)
@@ -366,7 +363,7 @@ static void edit_change(CHAR_DATA *ch, String argument)
 	char *where;
 	char *end_pos;
 	char end_char;
-	BUFFER *dbuf;
+	String dbuf;
 
 	if (IS_SET(argmask, 1)) {
 		if (!check_line(ch, num1))
@@ -409,11 +406,9 @@ static void edit_change(CHAR_DATA *ch, String argument)
 	}
 
 	backup();
-	dbuf = new_buf();
-	add_buf(dbuf, arg2);
-	add_buf(dbuf, where + strlen(arg1));
-	strcpy(where, buf_string(dbuf));
-	free_buf(dbuf);
+	dbuf += arg2;
+	dbuf += where + strlen(arg1);
+	strcpy(where, dbuf);
 } /* end edit_change() */
 
 static void edit_delete(CHAR_DATA *ch, const String& argument)
@@ -530,7 +525,7 @@ static void edit_goto(CHAR_DATA *ch, const String& argument)
 static void edit_insert(CHAR_DATA *ch, const String& argument)
 {
 	char *lp;
-	BUFFER *dbuf;
+	String dbuf;
 	int after_line = ed->edit_line + 1;
 
 	if (IS_SET(argmask, 1)) {
@@ -546,13 +541,11 @@ static void edit_insert(CHAR_DATA *ch, const String& argument)
 	}
 
 	backup();
-	dbuf = new_buf();
-	add_buf(dbuf, argument);
-	add_buf(dbuf, "\n");
+	dbuf += argument;
+	dbuf += "\n";
 	lp = find_line(after_line);
-	add_buf(dbuf, lp);
-	strcpy(lp, buf_string(dbuf));
-	free_buf(dbuf);
+	dbuf += lp;
+	strcpy(lp, dbuf);
 	ed->edit_nlines = count_lines();
 	edit_goto1(ch, after_line);
 } /* end edit_insert() */
@@ -664,7 +657,7 @@ static void edit_split(CHAR_DATA *ch, String argument)
 	char *where;
 	char *end_pos;
 	char end_char;
-	BUFFER *dbuf;
+	String dbuf;
 
 	if (IS_SET(argmask, 1)) {
 		if (!check_line(ch, num1))
@@ -699,11 +692,9 @@ static void edit_split(CHAR_DATA *ch, String argument)
 	}
 
 	backup();
-	dbuf = new_buf();
-	add_buf(dbuf, where);
+	dbuf += where;
 	strcpy(where, "\n");
-	strcat(where, buf_string(dbuf));
-	free_buf(dbuf);
+	strcat(where, dbuf);
 	ed->edit_nlines = count_lines();
 } /* end edit_split() */
 
@@ -734,7 +725,7 @@ static void edit_wrap(CHAR_DATA *ch, const String& argument)
 	int lineno, linelen, wordlen;
 	char *start, *after;
 	char *cp, *wp, *lp;
-	BUFFER *dbuf;
+	String dbuf;
 	char word[MAX_STRING_LENGTH];
 	char line[MAX_INPUT_LENGTH];
 	bool in_word;
@@ -781,7 +772,6 @@ static void edit_wrap(CHAR_DATA *ch, const String& argument)
 		after = NULL;
 
 	backup();
-	dbuf = new_buf();
 	wp = word;
 	lp = line;
 	linelen = 0;
@@ -819,7 +809,7 @@ static void edit_wrap(CHAR_DATA *ch, const String& argument)
 					}
 
 					strcpy(lp, "\n");
-					add_buf(dbuf, line);
+					dbuf += line;
 					lp = line;
 					linelen = 0;
 				}
@@ -843,14 +833,13 @@ static void edit_wrap(CHAR_DATA *ch, const String& argument)
 	/* finish current line, if started */
 	if (lp > line) {
 		strcpy(lp, "\n");
-		add_buf(dbuf, line);
+		dbuf += line;
 	}
 
 	if (after != NULL)
-		add_buf(dbuf, after);
+		dbuf += after;
 
-	strcpy(start, buf_string(dbuf));
-	free_buf(dbuf);
+	strcpy(start, dbuf);
 	ed->edit_nlines = count_lines();
 	edit_goto1(ch, prev_blank_line + 1);
 } /* end edit_wrap() */

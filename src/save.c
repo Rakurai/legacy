@@ -32,7 +32,6 @@
 #include "lookup.h"
 #include "cJSON.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 extern  int     _filbuf         args((FILE *));
@@ -1626,7 +1625,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 	char filename[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	FILE *fp;
-	BUFFER *dbuf = NULL;
+	String dbuf;
 
 	/* the following vars are read from the player file */
 	String email, fingerinfo, last_lsite, name, title, spouse, race, deity;
@@ -1728,7 +1727,6 @@ void do_finger(CHAR_DATA *ch, String argument)
 	cJSON_Delete(root); // finished with it
 
 	/* display information */
-	dbuf = new_buf();
 
 	if (title[0] != '.' && title[0] != ',' &&  title[0] != '!' && title[0] != '?') {
 		Format::sprintf(buf, " %s{x", title);
@@ -1742,7 +1740,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 	else
 		Format::sprintf(buf, "{W[{GR%d{T/{B%2d{W] %s%s{x\n", rmct, level, name, title);
 
-	add_buf(dbuf, buf);
+	dbuf += buf;
 
 	if (clan) {
 		if (IS_SET(cgroup, GROUP_LEADER))
@@ -1752,23 +1750,23 @@ void do_finger(CHAR_DATA *ch, String argument)
 		else
 			Format::sprintf(buf, "{BMember of ");
 
-		add_buf(dbuf, buf);
+		dbuf += buf;
 		Format::sprintf(buf, "%s{x\n", clan->clanname);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
 	Format::sprintf(buf, "{C%s ", race.capitalize());
-	add_buf(dbuf, buf);
+	dbuf += buf;
 	Format::sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[cls].name), deity);
-	add_buf(dbuf, buf);
+	dbuf += buf;
 	Format::sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
-	add_buf(dbuf, buf);
+	dbuf += buf;
 	Format::sprintf(buf, "{PBlood Trail (%d): %d kills, %d deaths{x\n\n", pkr, pks, pkd);
-	add_buf(dbuf, buf);
+	dbuf += buf;
 
 	if (fingerinfo[0]) {
 		Format::sprintf(buf, "{CAdditional Info:{x\n%s{x\n", fingerinfo);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
 	if (spouse[0]) {
@@ -1777,33 +1775,32 @@ void do_finger(CHAR_DATA *ch, String argument)
 		else
 			Format::sprintf(buf, "{Y%s is happily married to %s.{x\n", name, spouse);
 
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
 	if (email[0] && (IS_IMMORTAL(ch) || IS_SET(plr, PLR_SHOWEMAIL))) {
 		Format::sprintf(buf, "{GEmail: %s{x\n", email);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
 	if (IS_IMMORTAL(ch) || !IS_SET(plr, PLR_NOSHOWLAST)) {
 		if (last_ltime) {
 			Format::sprintf(buf, "{HLast Login : %s\n{x", dizzy_ctime(&last_ltime));
-			add_buf(dbuf, buf);
+			dbuf += buf;
 		}
 
 		if (last_saved) {
 			Format::sprintf(buf, "{HLast Saved : %s\n{x", dizzy_ctime(&last_saved));
-			add_buf(dbuf, buf);
+			dbuf += buf;
 		}
 	}
 
 	if (IS_IMP(ch)) {
 		Format::sprintf(buf, "{HLast Site  : %s{x\n", last_lsite);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
-	add_buf(dbuf, "\n");
-	page_to_char(buf_string(dbuf), ch);
-	free_buf(dbuf);
+	dbuf += "\n";
+	page_to_char(dbuf, ch);
 }
 

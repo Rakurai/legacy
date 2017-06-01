@@ -29,7 +29,6 @@
 #include "tables.h"
 #include "lookup.h"
 #include "recycle.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 extern void     channel_who     args((CHAR_DATA *ch, const char *channelname, int
@@ -941,9 +940,9 @@ void do_replay(CHAR_DATA *ch, String argument)
 	}
 
 	new_color(ch, CSLOT_CHAN_TELL);
-	page_to_char(buf_string(ch->pcdata->buffer), ch);
+	page_to_char(ch->pcdata->buffer, ch);
 	set_color(ch, WHITE, NOBOLD);
-	clear_buf(ch->pcdata->buffer);
+	ch->pcdata->buffer.clear();
 }
 
 /* Channel specifically for socials and emotes by Lotus */
@@ -1222,7 +1221,7 @@ void do_tell(CHAR_DATA *ch, String argument)
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
-		add_buf(victim->pcdata->buffer, buf);
+		victim->pcdata->buffer += buf;
 		return;
 	}
 
@@ -1244,7 +1243,7 @@ void do_tell(CHAR_DATA *ch, String argument)
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
-		add_buf(victim->pcdata->buffer, buf);
+		victim->pcdata->buffer += buf;
 		return;
 	}
 
@@ -1339,7 +1338,7 @@ void do_reply(CHAR_DATA *ch, String argument)
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
-		add_buf(victim->pcdata->buffer, buf);
+		victim->pcdata->buffer += buf;
 		return;
 	}
 
@@ -1361,7 +1360,7 @@ void do_reply(CHAR_DATA *ch, String argument)
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
-		add_buf(victim->pcdata->buffer, buf);
+		victim->pcdata->buffer += buf;
 		return;
 	}
 
@@ -1673,7 +1672,7 @@ void do_page(CHAR_DATA *ch, String argument)
 		        strtime , PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 
-		if (!IS_NPC(victim)) add_buf(victim->pcdata->buffer, buf);
+		if (!IS_NPC(victim)) victim->pcdata->buffer += buf;
 
 		return;
 	}

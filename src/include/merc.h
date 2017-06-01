@@ -95,7 +95,6 @@ extern int port;
 typedef struct  affect_data             AFFECT_DATA;
 typedef struct  affect_cache_data       AFFECT_CACHE_DATA;
 typedef struct  area_data               AREA_DATA;
-typedef struct  buf_type                BUFFER;
 typedef struct  char_data               CHAR_DATA;
 typedef struct  descriptor_data         DESCRIPTOR_DATA;
 typedef struct  exit_data               EXIT_DATA;
@@ -2055,7 +2054,7 @@ struct  pc_data
 	CHAR_DATA *	ch;	/* i may be missing something, but this seems like a 'duh',
 				   make it point backwards to the character -- Montrey */
 
-	BUFFER *            buffer;
+	String              buffer;
 	bool                valid;
 	String              pwd;
 	String              bamfin;

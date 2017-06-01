@@ -15,7 +15,6 @@
 #include "tables.h"
 #include "recycle.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /* Object vnums for object quest 'tokens' */
@@ -1590,9 +1589,8 @@ void do_quest(CHAR_DATA *ch, String argument)
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "list")) {
 		char qblock[MAX_STRING_LENGTH], sqblock[MAX_STRING_LENGTH], mblock[MAX_STRING_LENGTH],
 		     oblock[MAX_STRING_LENGTH], lblock[MAX_STRING_LENGTH];
-		BUFFER *output;
+		String output;
 		DESCRIPTOR_DATA *d;
-		output = new_buf();
 		stc("                            {YQuest                         {GSkill Quest{x\n", ch);
 		stc("Name           Mobile Object Loctn   Time  QP   --- MobLoc ObjLoc  Time  SP\n", ch);
 		stc("-----------------------------------------------------------------------------\n", ch);
@@ -1685,11 +1683,10 @@ void do_quest(CHAR_DATA *ch, String argument)
 				        0, 0, wch->pcdata->nextsquest, wch->pcdata->skillpoints);
 
 			Format::sprintf(buf, "%-14s %s     %s{x\n", wch->name, qblock, sqblock);
-			add_buf(output, buf);
+			output += buf;
 		}
 
-		page_to_char(buf_string(output), ch);
-		free_buf(output);
+		page_to_char(output, ch);
 		return;
 	}
 

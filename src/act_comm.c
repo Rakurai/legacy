@@ -29,7 +29,6 @@
 #include "interp.h"
 #include "vt100.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /*
@@ -876,7 +875,7 @@ void do_afk(CHAR_DATA *ch, String argument)
 		stc("AFK mode removed.\n", ch);
 
 		if (!IS_NPC(ch))
-			if (ch->pcdata->buffer->string[0] != '\0')
+			if (!ch->pcdata->buffer.empty())
 				stc("You have messages: Type 'replay'\n", ch);
 
 		REMOVE_BIT(ch->comm, COMM_AFK);

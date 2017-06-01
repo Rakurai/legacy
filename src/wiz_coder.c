@@ -118,7 +118,7 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 	MYSQL_RES *result;
 	MYSQL_FIELD *fields;
 	MYSQL_ROW row[32000];
-	BUFFER *output;
+	String output;
 	int numfields = 0, numrows = 0, i, x;
 	int lengths[100];
 
@@ -151,7 +151,6 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 			lengths[i] = UMAX(reslengths[i], lengths[i]);
 	}
 
-	output = new_buf();
 	fields = mysql_fetch_fields(result);
 	strcpy(divline, "{n ");
 
@@ -163,7 +162,7 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 	}
 
 	divline += "{x\n";
-	add_buf(output, divline);
+	output += divline;
 	strcpy(line, "{n {x");
 
 	for (i = 0; i < numfields; i++) {
@@ -178,8 +177,8 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 	}
 
 	line += "\n";
-	add_buf(output, line);
-	add_buf(output, divline);
+	output += line;
+	output += divline;
 
 	for (x = 0; x < numrows; x++) {
 		strcpy(line, "{n {x");
@@ -198,13 +197,12 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 		}
 
 		line += "\n";
-		add_buf(output, line);
+		output += line;
 	}
 
-	add_buf(output, divline);
-	ptb(output, "  %ld rows in set.\n", (long) mysql_num_rows(result));
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += divline;
+	output += Format::format("  %ld rows in set.\n", (long) mysql_num_rows(result));
+	page_to_char(output, ch);
 	mysql_free_result(result);
 }
 */

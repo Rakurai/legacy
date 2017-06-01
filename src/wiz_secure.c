@@ -19,7 +19,6 @@
 #include "tables.h"
 #include "recycle.h"
 #include "sql.h"
-#include "buffer.h"
 #include "memory.h"
 #include "Format.hpp"
 
@@ -850,15 +849,14 @@ void do_ban(CHAR_DATA *ch, String argument)
 
 	if (argument.empty()) {
 		String site;
-		BUFFER *output;
+		String output;
 		bool found = FALSE;
 
 		if (db_query("do_ban", "SELECT site, name, flags, reason FROM bans") != SQL_OK)
 			return;
 
-		output = new_buf();
-		add_buf(output, "Banned Sites                  {T|{xBanned by      {T|{xType   {T|{xReason\n");
-		add_buf(output, "{T------------------------------+---------------+-------+-----------------------------{x\n");
+		output += "Banned Sites                  {T|{xBanned by      {T|{xType   {T|{xReason\n";
+		output += "{T------------------------------+---------------+-------+-----------------------------{x\n";
 
 		while (db_next_row() == SQL_OK) {
 			found = TRUE;
@@ -867,7 +865,7 @@ void do_ban(CHAR_DATA *ch, String argument)
 			        IS_SET(flags, BAN_PREFIX) ? "*" : "",
 			        db_get_column_str(0),
 			        IS_SET(flags, BAN_SUFFIX) ? "*" : "");
-			ptb(output, "%-30s{T|{x%-15s{T|{x%s{T|{x%s\n",
+			output += Format::format("%-30s{T|{x%-15s{T|{x%s{T|{x%s\n",
 			    site,
 			    db_get_column_str(1),
 			    IS_SET(flags, BAN_PERMIT)  ? "PERMIT " :
@@ -877,11 +875,10 @@ void do_ban(CHAR_DATA *ch, String argument)
 		}
 
 		if (found)
-			page_to_char(buf_string(output), ch);
+			page_to_char(output, ch);
 		else
 			stc("There are no banned hosts.\n", ch);
 
-		free_buf(output);
 		return;
 	}
 
@@ -1068,19 +1065,18 @@ void do_deny(CHAR_DATA *ch, String argument)
 	CHAR_DATA *victim;
 
 	if (argument.empty()) {
-		BUFFER *output;
+		String output;
 		bool found = FALSE;
 
 		if (db_query("do_deny", "SELECT name, denier, reason FROM denies") != SQL_OK)
 			return;
 
-		output = new_buf();
-		add_buf(output, "Denied Players {T|{xDenied by      {T|{xReason\n");
-		add_buf(output, "{T---------------+---------------+-------------------------------------------{x\n");
+		output += "Denied Players {T|{xDenied by      {T|{xReason\n";
+		output += "{T---------------+---------------+-------------------------------------------{x\n";
 
 		while (db_next_row() == SQL_OK) {
 			found = TRUE;
-			ptb(output, "%-15s{T|{x%-15s{T|{x%s\n",
+			output += Format::format("%-15s{T|{x%-15s{T|{x%s\n",
 			    db_get_column_str(0),
 			    db_get_column_str(1),
 			    db_get_column_str(2)
@@ -1088,11 +1084,10 @@ void do_deny(CHAR_DATA *ch, String argument)
 		}
 
 		if (found)
-			page_to_char(buf_string(output), ch);
+			page_to_char(output, ch);
 		else
 			stc("There are no denied players.\n", ch);
 
-		free_buf(output);
 		return;
 	}
 

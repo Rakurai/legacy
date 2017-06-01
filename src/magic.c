@@ -31,7 +31,6 @@
 #include "magic.h"
 #include "lookup.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /* global focus variable */
@@ -4295,11 +4294,10 @@ void spell_lightning_bolt(int sn, int level, CHAR_DATA *ch, void *vo, int target
 void spell_locate_life(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	char buf[MAX_STRING_LENGTH];
-	BUFFER *buffer;
+	String buffer;
 	CHAR_DATA *victim;
 	bool found = FALSE;
 	int number = 0, max_found = 2 * level;
-	buffer = new_buf();
 
 	for (victim = char_list; victim != NULL; victim = victim->next) {
 		if (!can_see_char(ch , victim)        /* NOT can_see_who */
@@ -4317,7 +4315,7 @@ void spell_locate_life(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		Format::sprintf(buf, "[%d] %s is located at %s\n",
 		        number, IS_NPC(victim) ? victim->short_descr : victim->name, victim->in_room->name);
 		buf[0] = UPPER(buf[0]);
-		add_buf(buffer, buf);
+		buffer += buf;
 
 		if (number >= max_found)
 			break;
@@ -4326,20 +4324,18 @@ void spell_locate_life(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	if (!found)
 		stc("No one around appears to go by that name.\n", ch);
 	else
-		page_to_char(buf_string(buffer), ch);
+		page_to_char(buffer, ch);
 
-	free_buf(buffer);
 }
 
 void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	char buf[MAX_STRING_LENGTH];
-	/*      BUFFER *buffer;*/
+	/*      String buffer;*/
 	OBJ_DATA *obj, *in_obj;
 	bool found = FALSE;
 	int number = 0, max_found = 2 * level;
 
-	/*      buffer = new_buf();*/
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
@@ -4367,7 +4363,7 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		}
 
 		buf[0] = UPPER(buf[0]);
-		/*              add_buf(buffer,buf);*/
+		/*              buffer += buf;*/
 		stc(buf, ch);
 
 		if (number >= max_found)
@@ -4376,11 +4372,6 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 
 	if (!found)
 		stc("Nothing like that in heaven or earth.\n", ch);
-
-	/*      else
-	                page_to_char(buf_string(buffer),ch);
-
-	        free_buf(buffer); */
 }
 
 /* New magic missile -- Montrey */

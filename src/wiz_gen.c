@@ -21,7 +21,6 @@
 #include "tables.h"
 #include "sql.h"
 #include "affect.h"
-#include "buffer.h"
 #include "memory.h"
 #include "Format.hpp"
 
@@ -104,7 +103,7 @@ void do_alternate(CHAR_DATA *ch, String argument)
 {
 	String query;
 	char colorsite[MSL], *p, *q;
-	BUFFER *output;
+	String output;
 	int sorted_count = 0, i;
 	struct alts {
 		char name[20];
@@ -302,23 +301,21 @@ void do_alternate(CHAR_DATA *ch, String argument)
 		}
 	}
 
-	output = new_buf();
-	add_buf(output, "{GMatching characters/sites:{x\n");
-	add_buf(output, "{G=================================================================={x\n");
+	output += "{GMatching characters/sites:{x\n";
+	output += "{G=================================================================={x\n";
 
 	char fstr[25];
 	strcpy(fstr, "{G[{W%12s%s%54s{G]{x\n");
-	ptb(output, fstr, results_sorted[0].name, " {G-{W", results_sorted[0].site);
+	output += Format::format(fstr, results_sorted[0].name, " {G-{W", results_sorted[0].site);
 
 	for (i = 1; i < sorted_count; i++)
-		ptb(output, fstr,
+		output += Format::format(fstr,
 		    str_cmp(results_sorted[i].name, results_sorted[i - 1].name) ? results_sorted[i].name : "",
 		    str_cmp(results_sorted[i].name, results_sorted[i - 1].name) ? " {G-{W" : "  ",
 		    results_sorted[i].site);
 
-	add_buf(output, "{G=================================================================={x\n");
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += "{G=================================================================={x\n";
+	page_to_char(output, ch);
 }
 
 void do_at(CHAR_DATA *ch, String argument)
@@ -374,7 +371,7 @@ void do_check(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	bool SHOWIMM = FALSE;
-	BUFFER *buffer;
+	String buffer;
 	CHAR_DATA *victim;
 
 	String arg;
@@ -384,7 +381,6 @@ void do_check(CHAR_DATA *ch, String argument)
 		SHOWIMM = TRUE;
 
 	if (arg.empty() || !str_prefix1(arg, "gods")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -397,16 +393,14 @@ void do_check(CHAR_DATA *ch, String argument)
 			        victim->name, victim->level,
 			        ((int)(current_time - victim->logon)) / 3600,
 			        (get_play_seconds(victim) + (int)(current_time - victim->logon)) / 3600);
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "stats")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -425,16 +419,14 @@ void do_check(CHAR_DATA *ch, String argument)
 			        victim->gold + victim->silver / 100,
 			        victim->questpoints,
 			        !IS_NPC(victim) ? victim->pcdata->skillpoints : 0);
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "eq")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim)
@@ -450,16 +442,14 @@ void do_check(CHAR_DATA *ch, String argument)
 			        GET_ATTR_HITROLL(victim), GET_ATTR_DAMROLL(victim), GET_ATTR_SAVES(victim),
 			        GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 			        GET_AC(victim, AC_SLASH), GET_AC(victim, AC_EXOTIC));
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "absorb")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -471,16 +461,14 @@ void do_check(CHAR_DATA *ch, String argument)
 			Format::sprintf(buf,
 			        "{W[%12s] {RABS: {P%s{x\n",
 			        victim->name, print_defense_modifiers(victim, TO_ABSORB));
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "immune")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -493,16 +481,14 @@ void do_check(CHAR_DATA *ch, String argument)
 			        "{W[%12s] {RIMM: {P%s{x\n",
 			        victim->name,
 			        print_defense_modifiers(victim, TO_IMMUNE));
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "resistance")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -515,16 +501,14 @@ void do_check(CHAR_DATA *ch, String argument)
 			        "{W[%12s] {HRES: {G%s{x\n",
 			        victim->name,
 			        print_defense_modifiers(victim, TO_RESIST));
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "vulnerable")) {
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -537,11 +521,10 @@ void do_check(CHAR_DATA *ch, String argument)
 			        "{W[%12s] {TVUL: {C%s{x\n",
 			        victim->name,
 			        print_defense_modifiers(victim, TO_VULN));
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
@@ -551,7 +534,6 @@ void do_check(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim)
@@ -564,11 +546,10 @@ void do_check(CHAR_DATA *ch, String argument)
 
 			Format::sprintf(buf, "{W[%12s] is being snooped by {G%s\n", victim->name,
 			        (victim->desc->snoop_by != NULL) ? victim->desc->snoop_by->character->name : "nobody");
-			add_buf(buffer, buf);
+			buffer += buf;
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
@@ -1244,7 +1225,7 @@ void do_file(CHAR_DATA *ch, String argument)
 	FILE *req_file;
 	int num_lines = 0, req_lines = 0, cur_line = 0, i;
 	char buf[MSL], strsave[50];
-	BUFFER *buffer;
+	String buffer;
 	struct file_struct {
 		char   *cmd;
 		char   *file;
@@ -1323,16 +1304,14 @@ void do_file(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	buffer = new_buf();
 
 	/* and print the requested lines */
 	while (fgets(buf, MIL, req_file) != NULL)
 		if (++cur_line > (num_lines - req_lines))
-			add_buf(buffer, buf);
+			buffer += buf;
 
 	fclose(req_file);
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	page_to_char(buffer, ch);
 }
 
 void do_followerlist(CHAR_DATA *ch, String argument)
@@ -1352,9 +1331,9 @@ void do_followerlist(CHAR_DATA *ch, String argument)
 	if (db_query("do_followerlist", query) != SQL_OK)
 		return;
 
-	BUFFER *buffer = new_buf();
-	ptb(buffer, "{GFollowers of %s{G:{x\n", deity);
-	add_buf(buffer, "{G=================================================================={x\n");
+	String buffer;
+	buffer += Format::format("{GFollowers of %s{G:{x\n", deity);
+	buffer += "{G=================================================================={x\n";
 
 	int count = 0;
 	while (db_next_row() == SQL_OK) {
@@ -1366,19 +1345,18 @@ void do_followerlist(CHAR_DATA *ch, String argument)
 			deityblock += " ";
 
 		deityblock += db_get_column_str(1);
-		ptb(buffer, "{G[{W%12s{G][%s{G]{x\n", db_get_column_str(0), deityblock);
+		buffer += Format::format("{G[{W%12s{G][%s{G]{x\n", db_get_column_str(0), deityblock);
 	}
 
 	if (count == 0)
 		ptc(ch, "No one follows %s.\n", deity);
 	else {
-		add_buf(buffer, "{G=================================================================={x\n");
-		ptb(buffer, "{WThere %s %d follower%s of %s{x.\n",
+		buffer += "{G=================================================================={x\n";
+		buffer += Format::format("{WThere %s %d follower%s of %s{x.\n",
 		    count == 1 ? "is" : "are", count, count == 1 ? "" : "s", deity);
-		page_to_char(buf_string(buffer), ch);
+		page_to_char(buffer, ch);
 	}
 
-	free_buf(buffer);
 }
 
 /* Expand the name of a character into a string that identifies THAT
@@ -2230,7 +2208,7 @@ void do_olevel(CHAR_DATA *ch, String argument)
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        // Extra buffer, needed to fix mis-alignment. by Clerve
-	BUFFER *buffer;
+	String buffer;
 	OBJ_INDEX_DATA *pObjIndex;
 	int vnum, blevel, elevel;
 	int nMatch, matches;
@@ -2322,7 +2300,6 @@ void do_olevel(CHAR_DATA *ch, String argument)
 		specified_wear_loc = TRUE;
 	}
 
-	buffer = new_buf();
 	found = FALSE;
 	nMatch = 0;
 	matches = 0;
@@ -2350,7 +2327,7 @@ void do_olevel(CHAR_DATA *ch, String argument)
 			        45 + (strlen(pObjIndex->short_descr) - color_strlen(pObjIndex->short_descr)));
 			Format::sprintf(buf, tmpbuf, pObjIndex->level, pObjIndex->vnum,
 			        pObjIndex->short_descr, wear_bit_name(pObjIndex->wear_flags));
-			add_buf(buffer, buf);
+			buffer += buf;
 			matches++;
 			found = FALSE;
 		}
@@ -2366,12 +2343,11 @@ void do_olevel(CHAR_DATA *ch, String argument)
 
 		stc(buf, ch);
 		stc("Level Vnum    Name                                          Wear Loc.\n", ch);
-		page_to_char(buf_string(buffer), ch);
+		page_to_char(buffer, ch);
 		Format::sprintf(buf, "%d match%s found.\n", matches, (matches > 0) ? "es" : "");
 		stc(buf, ch);
 	}
 
-	free_buf(buffer);
 	return;
 }
 
@@ -2380,7 +2356,7 @@ void do_mlevel(CHAR_DATA *ch, String argument)
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        // needed to mix misalignment due to colorcodes.. Clerve
-	BUFFER *buffer;
+	String buffer;
 	MOB_INDEX_DATA *pMobIndex;
 	int vnum, blevel, elevel;
 	int nMatch;
@@ -2413,7 +2389,6 @@ void do_mlevel(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	buffer = new_buf();
 	found = FALSE;
 	nMatch = 0;
 
@@ -2428,7 +2403,7 @@ void do_mlevel(CHAR_DATA *ch, String argument)
 				Format::sprintf(buf, tmpbuf,
 				        pMobIndex->level, pMobIndex->vnum,
 				        pMobIndex->short_descr, pMobIndex->alignment);
-				add_buf(buffer, buf);
+				buffer += buf;
 			}
 		}
 	}
@@ -2436,9 +2411,8 @@ void do_mlevel(CHAR_DATA *ch, String argument)
 	if (!found)
 		stc("No mobiles by that level.\n", ch);
 	else
-		page_to_char(buf_string(buffer), ch);
+		page_to_char(buffer, ch);
 
-	free_buf(buffer);
 	return;
 }
 
@@ -2516,13 +2490,12 @@ void do_motd(CHAR_DATA *ch, String argument)
 void do_owhere(CHAR_DATA *ch, String argument)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	OBJ_DATA *obj, *in_obj;
 	int count = 1, vnum = 0;
 	bool fGround = FALSE;
 	int place_last_found = 0;   /* the vnum of the place where we last found an item */
 	int item_last_found = 0;    /* the vnum of the last item displayed */
-	output = new_buf();
 
 	String arg, arg2;
 	argument = one_argument(argument, arg);
@@ -2540,7 +2513,7 @@ void do_owhere(CHAR_DATA *ch, String argument)
 	if (!str_prefix1(arg2, "ground"))
 		fGround = TRUE;
 
-	add_buf(output, "{VCount {YRoom  {GObject{x\n");
+	output += "{VCount {YRoom  {GObject{x\n";
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
 	for (obj = object_list; obj != NULL; obj = obj->next) {
@@ -2659,7 +2632,7 @@ void do_owhere(CHAR_DATA *ch, String argument)
 
 		/* this should be 400 or less, not 500 -- Outsider */
 		if (++count <= 400)     /* count stays one ahead of actual number found */
-			add_buf(output, buf);
+			output += buf;
 	}
 
 	if (--count == 0)
@@ -2670,20 +2643,18 @@ void do_owhere(CHAR_DATA *ch, String argument)
 		        count > 1 ? "s" : "",
 		        fGround ? " lying around" : "",
 		        count > 400 ? ", of which 400 are shown" : "");
-		add_buf(output, buf);
-		page_to_char(buf_string(output), ch);
+		output += buf;
+		page_to_char(output, ch);
 	}
 
-	free_buf(output);
 }
 
 void do_mwhere(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	BUFFER *output;
+	String output;
 	CHAR_DATA *victim;
 	bool found;
-	output = new_buf();
 
 	String arg, arg2;
 	argument = one_argument(argument, arg);
@@ -2724,11 +2695,10 @@ void do_mwhere(CHAR_DATA *ch, String argument)
 		        " ",
 		        victim->in_room->vnum,
 		        victim->in_room->name);
-		add_buf(output, buf);
+		output += buf;
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 
 	if (!found) {
 		if (is_number(arg))
@@ -2745,7 +2715,7 @@ void do_rwhere(CHAR_DATA *ch, String argument)
 {
 	AREA_DATA *area;
 	ROOM_INDEX_DATA *room;
-	BUFFER *dbuf = NULL;
+	String dbuf;
 	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH], rbuf[MAX_INPUT_LENGTH];
 	char *cp;
 	bool found = FALSE;
@@ -2756,7 +2726,6 @@ void do_rwhere(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	dbuf = new_buf();
 
 	for (area = area_first; area; area = area->next) {
 		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
@@ -2774,30 +2743,28 @@ void do_rwhere(CHAR_DATA *ch, String argument)
 						*cp = '\0';
 
 					Format::sprintf(buf, "[%5d] <%-8.8s> %s{x\n", vnum, fname, room->name);
-					add_buf(dbuf, buf);
+					dbuf += buf;
 				}
 			}
 		}
 	}
 
 	if (!found)
-		add_buf(dbuf, "No matching rooms found.\n");
+		dbuf += "No matching rooms found.\n";
 
-	page_to_char(buf_string(dbuf), ch);
-	free_buf(dbuf);
+	page_to_char(dbuf, ch);
 } /* end do_rwhere() */
 
 void do_mfind(CHAR_DATA *ch, String argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
-	BUFFER *output;
+	String output;
 	MOB_INDEX_DATA *pMobIndex;
 	int vnum;
 	int nMatch;
 	bool fAll;
 	bool found;
-	output = new_buf();
 
 	String arg;
 	one_argument(argument, arg);
@@ -2825,13 +2792,12 @@ void do_mfind(CHAR_DATA *ch, String argument)
 				found = TRUE;
 				Format::sprintf(buf, "M (%3d) [%5d] %s\n",
 				        pMobIndex->level, pMobIndex->vnum, pMobIndex->short_descr);
-				add_buf(output, buf);
+				output += buf;
 			}
 		}
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 
 	if (!found)
 		stc("No mobiles by that name.\n", ch);
@@ -2844,7 +2810,7 @@ void do_ofind(CHAR_DATA *ch, String argument)
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
-	BUFFER *output;
+	String output;
 	int vnum;
 	int nMatch;
 	bool fAll;
@@ -2858,7 +2824,6 @@ void do_ofind(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	output = new_buf();
 
 	fAll        = FALSE; /* !str_cmp( arg, "all" ); */
 	found       = FALSE;
@@ -2878,13 +2843,12 @@ void do_ofind(CHAR_DATA *ch, String argument)
 				found = TRUE;
 				Format::sprintf(buf, "O (%3d) [%5d] %s\n",
 				        pObjIndex->level, pObjIndex->vnum, pObjIndex->short_descr);
-				add_buf(output, buf);
+				output += buf;
 			}
 		}
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 
 	if (!found)
 		stc("No objects by that name.\n", ch);
@@ -3400,7 +3364,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 	DESCRIPTOR_DATA *d, *dmult;
 	CHAR_DATA *vch;
 	PC_DATA *vpc, *vpc_next;
-	BUFFER *buffer = new_buf();
+	String buffer;
 	char status[MAX_STRING_LENGTH];
 	char s[100];
 	bool multiplay = FALSE;
@@ -3408,8 +3372,8 @@ void do_sockets(CHAR_DATA *ch, String argument)
 
 	String arg;
 	one_argument(argument, arg);
-	add_buf(buffer, "\n{PNum{x|{YConnected_State{x| {BLogin{x |{CIdl{x|{GPlayer  Name{x|{WHost{x\n");
-	add_buf(buffer, "---|---------------|-------|---|------------|-------------------------\n");
+	buffer += "\n{PNum{x|{YConnected_State{x| {BLogin{x |{CIdl{x|{GPlayer  Name{x|{WHost{x\n";
+	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		switch (d->connected) {
@@ -3462,7 +3426,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 
 		if (d->character == NULL) {
 			/* no character known -- show it in SOCKETS anyway */
-			ptb(buffer, "{P%3d{x|{Y%s{x|       |{C%2d{x |{G%-12s{x|{W%s{x\n",
+			buffer += Format::format("{P%3d{x|{Y%s{x|       |{C%2d{x |{G%-12s{x|{W%s{x\n",
 			    d->descriptor,
 			    status,
 			    UMAX(0, d->timer),
@@ -3490,7 +3454,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 			/* Format "login" value... */
 			vch = d->original ? d->original : d->character;
 			strftime(s, 100, "%I:%M%p", localtime(&vch->logon));
-			ptb(buffer, "{P%3d{x|{Y%s{x|{B%7s{x|{C%2d{x |{G%-12s{x%s%s{x\n",
+			buffer += Format::format("{P%3d{x|{Y%s{x|{B%7s{x|{C%2d{x |{G%-12s{x%s%s{x\n",
 			    d->descriptor,
 			    status,
 			    s,
@@ -3502,7 +3466,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 		}
 	}
 
-	add_buf(buffer, "---|---------------|-------|---|------------|-------------------------\n");
+	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	/* now list linkdead ppl */
 	for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
@@ -3514,7 +3478,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 		    && (arg.empty()
 		        || is_name(arg, vpc->ch->name))) {
 			strftime(s, 100, "%I:%M%p", localtime(&vpc->ch->logon));
-			ptb(buffer, "{P---{x|{Y   Linkdead    {x|{B%7s{x|{C%-2d{x |{G%-12s{x|{W%s{x\n",
+			buffer += Format::format("{P---{x|{Y   Linkdead    {x|{B%7s{x|{C%-2d{x |{G%-12s{x|{W%s{x\n",
 			    s,
 			    UMAX(0, vpc->ch->desc == NULL ? vpc->ch->timer : vpc->ch->desc->timer),
 			    vpc->ch->name,
@@ -3524,7 +3488,7 @@ void do_sockets(CHAR_DATA *ch, String argument)
 	}
 
 	if (ldcount)
-		add_buf(buffer, "---|---------------|-------|---|------------|-------------------------\n");
+		buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	if (!count && !ldcount) {
 		if (arg.empty())
@@ -3532,19 +3496,17 @@ void do_sockets(CHAR_DATA *ch, String argument)
 		else
 			stc("No one by that name is connected.\n", ch);
 
-		free_buf(buffer);
 		return;
 	}
 
-	ptb(buffer, "%d user%s connected", count, count == 1 ? "" : "s");
+	buffer += Format::format("%d user%s connected", count, count == 1 ? "" : "s");
 
 	if (ldcount)
-		ptb(buffer, ", %d user%s linkdead.\n", ldcount, ldcount == 1 ? "" : "s");
+		buffer += Format::format(", %d user%s linkdead.\n", ldcount, ldcount == 1 ? "" : "s");
 	else
-		add_buf(buffer, ".\n");
+		buffer += ".\n";
 
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	page_to_char(buffer, ch);
 }
 
 void do_storage(CHAR_DATA *ch, String argument)

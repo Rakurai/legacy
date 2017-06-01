@@ -16,7 +16,6 @@
 
 #include "merc.h"
 #include "recycle.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 extern  ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
@@ -196,7 +195,7 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 	int first, last, counter;
 	bool found = FALSE;
 	ROOM_INDEX_DATA *room;
-	BUFFER *buffer;
+	String buffer;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -213,7 +212,6 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 
 	first = atoi(arg);
 	last = atoi(argument);
-	buffer = new_buf();
 
 	if ((first < 0) || (first > 99999) || (last < 0) || (last > 99999)) {
 		stc("Values must be between 0 and 99999.\n", ch);
@@ -230,7 +228,7 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 			Format::sprintf(arg, "[%5d] (%s{x) %s{X\n",
 			        room->vnum, room->area->name,
 			        room->name);
-			add_buf(buffer, arg);
+			buffer += arg;
 			found = TRUE;
 		}
 	}
@@ -238,9 +236,8 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 	if (!found)
 		stc("No rooms were found within the range given.\n", ch);
 	else
-		page_to_char(buf_string(buffer), ch);
+		page_to_char(buffer, ch);
 
-	free_buf(buffer);
 	return;
 }
 
@@ -248,7 +245,7 @@ void do_vlist(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	String totalbuf;
-	BUFFER *buffer;
+	String buffer;
 	int vnum, begvnum, endvnum;
 	MOB_INDEX_DATA *mobile;
 	OBJ_INDEX_DATA *object;
@@ -289,7 +286,6 @@ void do_vlist(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	buffer = new_buf();
 
 	for (vnum = begvnum; vnum <= endvnum; vnum++) {
 		found = FALSE;
@@ -335,15 +331,14 @@ void do_vlist(CHAR_DATA *ch, String argument)
 
 		if (found) {
 			totalbuf += "\n";
-			add_buf(buffer, totalbuf);
+			buffer += totalbuf;
 		}
 	}
 
 	if (!founddata)
 		stc("Nothing was found in that vnum range.\n", ch);
 	else
-		page_to_char(buf_string(buffer), ch);
+		page_to_char(buffer, ch);
 
-	free_buf(buffer);
 }
 

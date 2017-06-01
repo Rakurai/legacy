@@ -7,7 +7,6 @@
 #include "interp.h"
 #include "lookup.h"
 #include "recycle.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 #define WAR_DIR         "../war/"
@@ -833,7 +832,7 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 	CLAN_DATA *clan;
 	char chblock[MSL], defblock[MSL], buf[MSL], *vsblock;
 	int i, x, chcount = 0, defcount = 0, c = 0, d = 0, chlead, deflead, lines;
-	BUFFER *output;
+	String output;
 	struct opp_list {
 		String name;
 		bool inwar;
@@ -887,11 +886,10 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 	Format::sprintf(chblock, " ");
 	Format::sprintf(defblock, " ");
 	vsblock = "";
-	output = new_buf();
 	chlead = (chcount - defcount);
 	deflead = (defcount - chcount);
 	lines = (chcount > defcount ? chcount : defcount);
-	add_buf(output, "\n");
+	output += "\n";
 
 	for (x = 1; x < (lines + 1); x++) {
 		if ((deflead > 1 && x == 1) || c >= chcount)
@@ -938,21 +936,19 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 		}
 
 		Format::sprintf(buf, "%s{x    %s{x    %s{x\n", chblock, vsblock, defblock);
-		add_buf(output, buf);
+		output += buf;
 	}
 
-	add_buf(output, "\n");
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += "\n";
+	page_to_char(output, ch);
 }
 
 void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	EVENT_DATA *event;
 	format_war_list(ch, war, war->ongoing);
-	output = new_buf();
 
 	for (event = war->events; event != NULL; event = event->next) {
 		Format::sprintf(buf, "{Punknown event type{x");
@@ -1022,11 +1018,10 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 			break;
 		}
 
-		add_buf(output, buf);
+		output += buf;
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 }
 
 /* all-encompassing war command */

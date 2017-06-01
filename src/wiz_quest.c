@@ -17,7 +17,6 @@
 #include "interp.h"
 #include "recycle.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 void do_addapply(CHAR_DATA *ch, String argument)
@@ -166,12 +165,11 @@ void do_rppaward(CHAR_DATA *ch, String argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
-	BUFFER *output;
+	String output;
 	DESCRIPTOR_DATA *d;
 	int rppoint;
 
 	if (argument.empty()) {
-		output = new_buf();
 		stc("Name            RPPs\n", ch);
 		stc("--------------------\n", ch);
 
@@ -185,11 +183,10 @@ void do_rppaward(CHAR_DATA *ch, String argument)
 				continue;
 
 			Format::sprintf(buf, "%-14s {V%5d{x\n", victim->name, victim->pcdata->rolepoints);
-			add_buf(output, buf);
+			output += buf;
 		}
 
-		page_to_char(buf_string(output), ch);
-		free_buf(output);
+		page_to_char(output, ch);
 		return;
 	}
 
@@ -701,7 +698,7 @@ void do_return(CHAR_DATA *ch, String argument)
 	ch->desc->character->desc = ch->desc;
 
 	if (!IS_NPC(ch->desc->character))
-		if (ch->desc->character->pcdata->buffer->string[0] != '\0')
+		if (!ch->desc->character->pcdata->buffer.empty())
 			stc("You have messages: Type 'replay'\n", ch);
 
 	ch->desc                  = NULL;

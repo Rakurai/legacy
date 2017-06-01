@@ -28,7 +28,6 @@
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 extern AREA_DATA *area_first;
@@ -399,13 +398,12 @@ void do_flaglist(CHAR_DATA *ch, String argument)
 int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	CHAR_DATA *victim;
 	PC_DATA *vpc;
 	int count = 0;
 	long flag;
-	output = new_buf();
-	add_buf(output, "{VCount {YRoom{x\n");
+	output += "{VCount {YRoom{x\n";
 
 	for (vpc = pc_list; vpc != NULL; vpc = vpc->next) {
 		if ((victim = vpc->ch) == NULL
@@ -444,25 +442,23 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 		        count,
 		        victim->in_room->vnum,
 		        victim->short_descr);
-		add_buf(output, buf);
+		output += buf;
 	}
 
 	if (count > 0)
-		page_to_char(buf_string(output), ch);
+		page_to_char(output, ch);
 
-	free_buf(output);
 	return count;
 }
 
 int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	CHAR_DATA *victim;
 	int count = 0;
 	long flag;
-	output = new_buf();
-	add_buf(output, "{VCount  {YRoom   {GMob{x\n");
+	output += "{VCount  {YRoom   {GMob{x\n";
 
 	for (victim = char_list; victim != NULL; victim = victim->next) {
 		if (!IS_NPC(victim)
@@ -501,27 +497,25 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 		        victim->in_room->vnum,
 		        victim->pIndexData->vnum,
 		        victim->short_descr);
-		add_buf(output, buf);
+		output += buf;
 	}
 
 	if (count > 0)
-		page_to_char(buf_string(output), ch);
+		page_to_char(output, ch);
 
-	free_buf(output);
 	return count;
 }
 
 void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool player)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	int mobilecount = 0, playercount = 0;
 
 	if (mobile)     mobilecount = fsearch_mobile(ch, fieldptr, marked);
 
 	if (player)     playercount = fsearch_player(ch, fieldptr, marked);
 
-	output = new_buf();
 
 	if (mobile) {
 		if (mobilecount == 0)
@@ -532,7 +526,7 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 			        mobilecount > 1 ? "s" : "",
 			        mobilecount > 500 ? ", of which 500 are shown" : "");
 
-		add_buf(output, buf);
+		output += buf;
 	}
 
 	if (player) {
@@ -544,23 +538,21 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 			        playercount > 1 ? "s" : "",
 			        playercount > 500 ? ", of which 500 are shown" : "");
 
-		add_buf(output, buf);
+		output += buf;
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 }
 
 void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	AREA_DATA *area;
 	ROOM_INDEX_DATA *room;
 	int count = 0, vnum;
 	long flag;
-	output = new_buf();
-	add_buf(output, "{VCount {GVnum{x\n");
+	output += "{VCount {GVnum{x\n";
 
 	for (area = area_first; area; area = area->next) {
 		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
@@ -584,7 +576,7 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 			        count,
 			        vnum,
 			        room->name);
-			add_buf(output, buf);
+			output += buf;
 		}
 	}
 
@@ -595,22 +587,20 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 		        count,
 		        count > 1 ? "s" : "",
 		        count > 500 ? ", of which 500 are shown" : "");
-		add_buf(output, buf);
-		page_to_char(buf_string(output), ch);
+		output += buf;
+		page_to_char(output, ch);
 	}
 
-	free_buf(output);
 }
 
 void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
-	BUFFER *output;
+	String output;
 	OBJ_DATA *obj, *in_obj;
 	int count = 1;
 	long flag;
-	output = new_buf();
-	add_buf(output, "{VCount {YRoom  {GObject{x\n");
+	output += "{VCount {YRoom  {GObject{x\n";
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
 	for (obj = object_list; obj != NULL; obj = obj->next) {
@@ -685,7 +675,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 			continue;
 
 		if (++count <= 500)     /* count stays one ahead of actual number found */
-			add_buf(output, buf);
+			output += buf;
 	}
 
 	if (--count == 0)
@@ -695,11 +685,10 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 		        count,
 		        count > 1 ? "s" : "",
 		        count > 500 ? ", of which 500 are shown" : "");
-		add_buf(output, buf);
-		page_to_char(buf_string(output), ch);
+		output += buf;
+		page_to_char(output, ch);
 	}
 
-	free_buf(output);
 }
 
 void do_flagsearch(CHAR_DATA *ch, String argument)

@@ -13,7 +13,6 @@
 #include "memory.h"
 #include "db.h"
 #include "affect.h"
-#include "buffer.h"
 
 void unique_item(OBJ_DATA *item)
 {
@@ -1272,7 +1271,7 @@ void do_areas(CHAR_DATA *ch, String argument)
 	char filename[9];    /* 12345678    + '\0' */
 	char range[12];      /* {xnnn-nnn{x + '\0' */
 	char buf[MAX_INPUT_LENGTH];
-	BUFFER *dbuf = NULL;
+	String dbuf;
 	/* misc */
 	char *p;
 	int j, k;
@@ -1363,7 +1362,6 @@ void do_areas(CHAR_DATA *ch, String argument)
 			}
 
 	/* Output area data to buffer */
-	dbuf = new_buf();
 
 	for (j = 0; j < count; j++) {
 		ap = ptrs[j];
@@ -1440,22 +1438,21 @@ void do_areas(CHAR_DATA *ch, String argument)
 		        "<%s> %-s{a{x%*s%-s{a{x\n", range,
 		        ap->title, 25 - color_strlen(ap->title), " ",
 		        ap->author);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
 	if (showall) {
 		Format::sprintf(buf,
 		        "%d areas listed. Type {Rhelp areas{x to see selection options.\n",
 		        count);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 	else if (count <= 0) {
 		Format::sprintf(buf, "No areas found matching your search criteria.\n");
-		add_buf(dbuf, buf);
+		dbuf += buf;
 	}
 
-	page_to_char(buf_string(dbuf), ch);
+	page_to_char(dbuf, ch);
 	/* clean up */
 	free_mem(ptrs, ptrs_size);
-	free_buf(dbuf);
 } /* end do_areas() */

@@ -27,7 +27,6 @@
 
 #include "merc.h"
 #include "recycle.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /* globals from db.c for load_notes */
@@ -702,7 +701,7 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 
 void parse_note(CHAR_DATA *ch, String argument, int type)
 {
-	BUFFER *buffer;
+	String buffer;
 	char buf[MSL];
 	NOTE_DATA *pnote;
 	NOTE_DATA **list;
@@ -794,7 +793,6 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 		else if (!argument.empty())
 			search = TRUE;
 
-		buffer = new_buf();
 
 		for (pnote = *list, vnum = -1; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote)) {
@@ -815,7 +813,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 				if (all)
 					stc(buf, ch);
 				else
-					add_buf(buffer, buf);
+					buffer += buf;
 
 				found = TRUE;
 			}
@@ -825,9 +823,8 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			stc("There are no messages that match that criteria.\n", ch);
 
 		if (!all)
-			page_to_char(buf_string(buffer), ch);
+			page_to_char(buffer, ch);
 
-		free_buf(buffer);
 		return;
 	}
 
@@ -1117,7 +1114,6 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			return;
 		}
 
-		buffer = new_buf();
 
 		if (strlen(ch->pnote->text) + strlen(argument) >= 4096) {
 			stc("Note too long.\n", ch);
@@ -1127,11 +1123,10 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 			return;
 		}
 
-		add_buf(buffer, ch->pnote->text);
-		add_buf(buffer, argument);
-		add_buf(buffer, "\n");
-		ch->pnote->text = buf_string(buffer);
-		free_buf(buffer);
+		buffer += ch->pnote->text;
+		buffer += argument;
+		buffer += "\n";
+		ch->pnote->text = buffer;
 		stc("Line added.\n", ch);
 		return;
 	}

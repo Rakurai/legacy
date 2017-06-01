@@ -28,7 +28,6 @@
 #include "merc.h"
 #include "music.h"
 #include "recycle.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 int channel_songs[MAX_GLOBAL + 1];
@@ -226,11 +225,10 @@ void do_play(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(arg, "list")) {
-		BUFFER *buffer;
+		String buffer;
 		char buf[MAX_STRING_LENGTH];
 		int col = 0;
 		bool artist = FALSE, match = FALSE;
-		buffer = new_buf();
 		argument = str;
 		argument = one_argument(argument, arg);
 
@@ -241,7 +239,7 @@ void do_play(CHAR_DATA *ch, String argument)
 			match = TRUE;
 
 		Format::sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
-		add_buf(buffer, capitalize(buf));
+		buffer += capitalize(buf);
 
 		for (i = 0; i < MAX_SONGS; i++) {
 			if (song_table[i].name == NULL)
@@ -257,17 +255,16 @@ void do_play(CHAR_DATA *ch, String argument)
 			else
 				continue;
 
-			add_buf(buffer, buf);
+			buffer += buf;
 
 			if (!artist && ++col % 2 == 0)
-				add_buf(buffer, "\n");
+				buffer += "\n";
 		}
 
 		if (!artist && col % 2 != 0)
-			add_buf(buffer, "\n");
+			buffer += "\n";
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 

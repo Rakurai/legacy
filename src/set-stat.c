@@ -32,7 +32,6 @@
 #include "magic.h"
 #include "gem.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /* RT set replaces sset, mset, oset, rset and cset */
@@ -218,10 +217,9 @@ void do_evoset(CHAR_DATA *ch, String argument)
 
 	if (arg2.empty()) {
 		extern int can_evolve args((CHAR_DATA * ch, int sn));
-		BUFFER *buffer;
+		String buffer;
 		int x, can;
-		buffer = new_buf();
-		add_buf(buffer, "They have the following skills and spells evolved:\n\n");
+		buffer += "They have the following skills and spells evolved:\n\n";
 
 		for (x = 0; x < MAX_SKILL; x++) {
 			if (skill_table[x].name == NULL)
@@ -234,7 +232,7 @@ void do_evoset(CHAR_DATA *ch, String argument)
 			        skill_table[x].name,
 			        victim->pcdata->learned[x],
 			        victim->pcdata->evolution[x]);
-			add_buf(buffer, buf);
+			buffer += buf;
 
 			if (can == 1)
 				Format::sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
@@ -244,12 +242,11 @@ void do_evoset(CHAR_DATA *ch, String argument)
 				        skill_table[x].name,
 				        victim->pcdata->evolution[x] + 1);
 
-			add_buf(buffer, buf);
-			add_buf(buffer, "\n");
+			buffer += buf;
+			buffer += "\n";
 		}
 
-		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
+		page_to_char(buffer, ch);
 		return;
 	}
 
@@ -452,7 +449,7 @@ void do_extraset(CHAR_DATA *ch, String argument)
 {
 	extern void fix_blank_extraclass(CHAR_DATA * ch, int index);
 	char buf[MAX_STRING_LENGTH];
-	BUFFER *output;
+	String output;
 	CHAR_DATA *victim;
 	int sn, x, i, gn, cn, col = 0;
 
@@ -471,14 +468,13 @@ void do_extraset(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	output = new_buf();
 
 	if (!str_cmp(arg1, "list")) {
-		add_buf(output, "\n                      {BExtraclass Remort Skills{x\n");
+		output += "\n                      {BExtraclass Remort Skills{x\n";
 
 		for (cn = 0; cn < MAX_CLASS; cn++) {
 			Format::sprintf(buf, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
-			add_buf(output, buf);
+			output += buf;
 			col = 0;
 
 			for (gn = 0; gn < MAX_SKILL; gn++) {
@@ -487,18 +483,17 @@ void do_extraset(CHAR_DATA *ch, String argument)
 
 				if (skill_table[gn].remort_class > 0 && skill_table[gn].remort_class == cn + 1) {
 					Format::sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->cls]);
-					add_buf(output, buf);
+					output += buf;
 				}
 			}
 
-			add_buf(output, "\n");
+			output += "\n";
 		}
 
 		if (col % 3 != 0)
-			add_buf(output, "\n\n");
+			output += "\n\n";
 
-		page_to_char(buf_string(output), ch);
-		free_buf(output);
+		page_to_char(output, ch);
 		return;
 	}
 
@@ -532,23 +527,22 @@ void do_extraset(CHAR_DATA *ch, String argument)
 		     victim->pcdata->extraclass[3] +
 		     victim->pcdata->extraclass[4]) > 0) {
 			Format::sprintf(buf, "Their current extraclass skill%s", victim->pcdata->extraclass[1] ? "s are" : " is");
-			add_buf(output, buf);
+			output += buf;
 
 			if (victim->pcdata->extraclass[0]) {
 				Format::sprintf(buf, " %s", skill_table[victim->pcdata->extraclass[0]].name);
-				add_buf(output, buf);
+				output += buf;
 			}
 
 			for (x = 1; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 				if (victim->pcdata->extraclass[x]) {
 					Format::sprintf(buf, ", %s", skill_table[victim->pcdata->extraclass[x]].name);
-					add_buf(output, buf);
+					output += buf;
 				}
 			}
 
-			add_buf(output, ".\n");
-			page_to_char(buf_string(output), ch);
-			free_buf(output);
+			output += ".\n";
+			page_to_char(output, ch);
 			return;
 		}
 

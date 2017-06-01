@@ -35,7 +35,6 @@
 #include "affect.h"
 #include "gem.h"
 #include "affect.h"
-#include "buffer.h"
 #include "memory.h"
 #include "Format.hpp"
 
@@ -242,7 +241,7 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont)
 {
 	OBJ_DATA *obj;
-	BUFFER *output;
+//	String output;
 	char buf[MAX_STRING_LENGTH];
 	int nShow = 0, iShow, count = 0;
 	bool fCombine, foundcont = FALSE;
@@ -250,8 +249,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 	if (ch->desc == NULL)
 		return;
 
-	/* Alloc space for output lines */
-	output = new_buf();
+	String output;
 
 	for (obj = list; obj != NULL; obj = obj->next_content)
 		count++;
@@ -306,20 +304,20 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE)) {
 			if (prgnShow[iShow] != 1) {
 				Format::sprintf(buf, "(%2d) ", prgnShow[iShow]);
-				add_buf(output, buf);
+				output += buf;
 			}
 			else
-				add_buf(output, "     ");
+				output += "     ";
 		}
 
-		add_buf(output, prgpstrShow[iShow]);
-		add_buf(output, "\n");
+		output += prgpstrShow[iShow];
+		output += '\n';
 
-		if (output->size > 15500) {
+		if (output.size() > 15500) {
 			if (IS_SET(ch->comm, COMM_COMBINE))
-				add_buf(output, "     (More stuff not shown)\n");
+				output += "     (More stuff not shown)\n";
 			else
-				add_buf(output, "     (More stuff not shown -- COMBINE would help)\n");
+				output += "     (More stuff not shown -- COMBINE would help)\n";
 
 			break;
 		}
@@ -332,9 +330,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 		stc("Nothing.\n", ch);
 	}
 
-	page_to_char(buf_string(output), ch);
-	/* Clean up */
-	free_buf(output);
+	page_to_char(output, ch);
 
 	if (foundcont)  /* for evolved peek, list items in containers, but not twice nested */
 		for (obj = list; obj != NULL; obj = obj->next_content)
@@ -887,26 +883,24 @@ void do_scroll(CHAR_DATA *ch, String argument)
 
 void do_socials(CHAR_DATA *ch, String argument)
 {
-	BUFFER *dbuf;
+	String dbuf;
 	char buf[MAX_STRING_LENGTH];
 	struct social_type *iterator;
 	int col;
 	col = 0;
-	dbuf = new_buf();
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
 		Format::sprintf(buf, "%-12s", iterator->name);
-		add_buf(dbuf, buf);
+		dbuf += buf;
 
 		if (++col % 6 == 0)
-			add_buf(dbuf, "\n");
+			dbuf += "\n";
 	}
 
 	if (col % 6 != 0)
-		add_buf(dbuf, "\n");
+		dbuf += "\n";
 
-	page_to_char(buf_string(dbuf), ch);
-	free_buf(dbuf);
+	page_to_char(dbuf, ch);
 } /* end do_socials() */
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
@@ -972,7 +966,7 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 {
 	char lblock[MIL], rblock[MIL];
 	CLAN_DATA *clan;
-	BUFFER *buffer;
+	String buffer;
 	int count = 0, l = 0, r = 0, i = 0, highremort = 0, highlevel = 0;
 	struct clan_clan {
 		char    name[20];
@@ -1060,8 +1054,7 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 		count++;
 	}
 
-	buffer = new_buf();
-	ptb(buffer, "{VMembers of %s:\n\n", clan->clanname);
+	buffer += Format::format("{VMembers of %s:\n\n", clan->clanname);
 	Format::sprintf(rblock, "{x");
 	Format::sprintf(lblock, "{x");
 
@@ -1071,7 +1064,7 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 				if (clan_list[i].printed || clan_list[i].status != r)
 					continue;
 
-				ptb(buffer, "%s[{G%3s%s] {W[ {CIMM {W] %s%s{x\n",
+				buffer += Format::format("%s[{G%3s%s] {W[ {CIMM {W] %s%s{x\n",
 				    r == 2 ? "{Y" : r == 1 ? "{B" : "{W",
 				    clan_list[i].rank,
 				    r == 2 ? "{Y" : r == 1 ? "{B" : "{W",
@@ -1101,7 +1094,7 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 					else
 						Format::sprintf(lblock, "{W[ {CIMM {W]");
 
-					ptb(buffer, "%s[{G%3s%s] %s %s%s{x\n",
+					buffer += Format::format("%s[{G%3s%s] %s %s%s{x\n",
 					    clan_list[i].status == 2 ? "{Y" :
 					    clan_list[i].status == 1 ? "{B" : "{W",
 					    clan_list[i].rank,
@@ -1118,11 +1111,10 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 	if (count == 0)
 		stc("- none -\n", ch);
 	else {
-		ptb(buffer, "\n{WThere are %d members of %s{x.\n", count, clan->clanname);
-		page_to_char(buf_string(buffer), ch);
+		buffer += Format::format("\n{WThere are %d members of %s{x.\n", count, clan->clanname);
+		page_to_char(buffer, ch);
 	}
 
-	free_buf(buffer);
 } /* end do_clanlist() */
 
 /* RT this following section holds all the auto commands from ROM, as well as
@@ -2083,7 +2075,7 @@ void exits_in(CHAR_DATA *ch)
 	ROOM_INDEX_DATA *room;
 	EXIT_DATA *exit;
 	OBJ_DATA *obj;
-	BUFFER *output = NULL;
+	String output;
 	char buf[1024];
 	int vnum, in_room_vnum, i;
 	char *dir_name[] = { "North", "East", "South", "West", "Up", "Down" };
@@ -2092,7 +2084,6 @@ void exits_in(CHAR_DATA *ch)
 	if (ch->in_room == NULL)
 		return;
 
-	output = new_buf();
 	in_room_vnum = ch->in_room->vnum;                                   /* Save our current rooms vnum */
 
 	for (pArea = area_first; pArea; pArea = pArea->next) {              /* Every area */
@@ -2114,7 +2105,7 @@ void exits_in(CHAR_DATA *ch)
 							        room->name,
 							        room->vnum,
 							        room->area->name);
-							add_buf(output, buf);
+							output += buf;
 						} /* End if */
 					} /* End else */
 				} /* End for */
@@ -2123,7 +2114,7 @@ void exits_in(CHAR_DATA *ch)
 	} /* End for */
 
 	if (!found)
-		add_buf(output, "No rooms lead into this one.\n");
+		output += "No rooms lead into this one.\n";
 
 	found = FALSE;
 
@@ -2139,16 +2130,15 @@ void exits_in(CHAR_DATA *ch)
 				        obj->in_room->name,
 				        obj->in_room->vnum,
 				        obj->in_room->area->name);
-				add_buf(output, buf);
+				output += buf;
 			}                                                          /* End if */
 		}
 	}
 
 	if (!found)
-		add_buf(output, "No portals found that lead into this room.\n");
+		output += "No portals found that lead into this room.\n";
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 } /* End do_exits_in */
 
 /*
@@ -2367,7 +2357,7 @@ void do_whois(CHAR_DATA *ch, String argument)
 	char clan[MAX_STRING_LENGTH];
 	String rank;
 	char *remort;
-	BUFFER *output;
+	String output;
 	CHAR_DATA *victim;
 
 	if (argument.empty()) {
@@ -2383,16 +2373,15 @@ void do_whois(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	output = new_buf();
 	/* first block "(RP)(PB)(NH) " */
 	Format::sprintf(block, "%s%s%s",
 	        IS_SET(victim->pcdata->plr, PLR_OOC) ? "{W({YRP{W){x" : "",
 	        IS_SET(victim->pcdata->plr, PLR_PAINT) ? "{W({VPB{W){x" : "",
 	        IS_SET(victim->act, PLR_MAKEBAG) ? "{W({CNH{W){x" : "");
-	add_buf(output, block);
+	output += block;
 
 	if (block[0] != '\0')
-		add_buf(output, " ");
+		output += " ";
 
 	/* second block "[99 100 Sup Pdn]"*/
 	if (IS_REMORT(victim)) {
@@ -2409,7 +2398,7 @@ void do_whois(CHAR_DATA *ch, String argument)
 	        pc_race_table[victim->race].who_name,
 	        class_table[victim->cls].who_name,
 	        (IS_SET(victim->pcdata->plr, PLR_PK)) ? "{P]{x" : "{g]{x");
-	add_buf(output, block);
+	output += block;
 	/* third block "name title" */
 	Format::sprintf(block, "%s%s%s{W%s{x %s{x\n",
 	        (IS_SET(victim->comm, COMM_AFK)) ? "{b[AFK]{x " : "",
@@ -2417,7 +2406,7 @@ void do_whois(CHAR_DATA *ch, String argument)
 	        (IS_SET(victim->act, PLR_THIEF)) ? "{B(THIEF){x " : "",
 	        victim->name,
 	        victim->pcdata->title);
-	add_buf(output, block);
+	output += block;
 	/* second line */
 	Format::sprintf(clan, "{x"); /* ugly, do something better someday */
 
@@ -2440,13 +2429,12 @@ void do_whois(CHAR_DATA *ch, String argument)
 		remort = "";
 
 	Format::sprintf(block, "%s%s{PRating: %d{x\n", clan, remort, victim->pcdata->pkrank);
-	add_buf(output, block);
+	output += block;
 
 	if (IS_SET(victim->comm, COMM_AFK))
-		add_buf(output, victim->pcdata->afk);
+		output += victim->pcdata->afk;
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 }
 
 char *count_players(CHAR_DATA *ch)
@@ -2488,7 +2476,7 @@ void do_who(CHAR_DATA *ch, String argument)
 	String block1;  /* [level race class] */
 	char block2[MIL];  /* [rank clan] */
 	char rbuf[32];
-	BUFFER *output;
+	String output;
 	DESCRIPTOR_DATA *d;
 	int iClass, iRace, iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
@@ -2570,7 +2558,6 @@ void do_who(CHAR_DATA *ch, String argument)
 	charitems = (struct s_charitem *)alloc_mem(ndesc * sizeof(struct s_charitem));
 	/* Now show matching chars. */
 	buf[0] = '\0';
-	output = new_buf();
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		/* Check for match against restrictions. */
@@ -2722,19 +2709,18 @@ void do_who(CHAR_DATA *ch, String argument)
 		buf += "{x";
 		buf += wch->pcdata->title;
 		buf += "{x{a{W \n";
-		add_buf(output, buf);
+		output += buf;
 	}
 
 	free_mem(charitems, ndesc * sizeof(struct s_charitem));
 	stc("\n                             {C*{W*{C* {BL{Ce{gg{Wa{Cc{By {C*{W*{C*{x\n\n", ch);
 	Format::sprintf(buf2, "\n");
-	add_buf(output, buf2);
-	add_buf(output, count_players(ch));
-	add_buf(output, "\n");
+	output += buf2;
+	output += count_players(ch);
+	output += "\n";
 	set_color(ch, WHITE, BOLD);
-	page_to_char(buf_string(output), ch);
+	page_to_char(output, ch);
 	set_color(ch, WHITE, NOBOLD);
-	free_buf(output);
 
 } /* do_who() */
 
@@ -2743,11 +2729,10 @@ void do_swho(CHAR_DATA *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char roombuf[MAX_STRING_LENGTH];
-	BUFFER *output;
+	String output;
 	DESCRIPTOR_DATA *d;
-	output = new_buf();
-	add_buf(output, "{WRP PK NH PB QW SQ NT  Name          Pos'n   Room Name{x\n");
-	add_buf(output, "{W----------------------------------------------------------------------------{x\n");
+	output += "{WRP PK NH PB QW SQ NT  Name          Pos'n   Room Name{x\n";
+	output += "{W----------------------------------------------------------------------------{x\n";
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *wch;
@@ -2827,12 +2812,11 @@ void do_swho(CHAR_DATA *ch, String argument)
 		        wch->name,
 		        position,
 		        roombuf);
-		add_buf(output, buf);
+		output += buf;
 	} /* end for */
 
-	add_buf(output, "{W----------------------------------------------------------------------------{x\n");
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += "{W----------------------------------------------------------------------------{x\n";
+	page_to_char(output, ch);
 } /* end do_swho() */
 
 /* New container capable inventory - Lotus */
@@ -3574,8 +3558,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 	char buf[50];
 	String line;
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
-	BUFFER *output;
-	output = new_buf();
+	String output;
 
 	for (gt = 0; group_table[gt].name; gt++) { /* loop thru groups */
 		if (!ch->pcdata->group_known[gt])   /* ignore groups the player doesn't have */
@@ -3611,16 +3594,16 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 				Format::sprintf(buf, "%s:", gp->name);
 				/* Header, like all columns, formatted as 25 char + 1 sp */
 				Format::sprintf(line, "{G%-25.25s{x ", buf);
-				add_buf(output, line);
-				add_buf(output, "\n");
+				output += line;
+				output += "\n";
 				line.erase();
 				line_cols = 0;
 				group_first = FALSE;
 			}
 
 			if (line_cols >= 3) {
-				add_buf(output, line);
-				add_buf(output, "\n");
+				output += line;
+				output += "\n";
 				line.erase();
 				line_cols = 0;
 			}
@@ -3632,17 +3615,16 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 		} /* end for skills */
 
 		if (line_cols > 0) { /* print last incomplete line */
-			add_buf(output, line);
-			add_buf(output, "\n");
+			output += line;
+			output += "\n";
 			line.erase();
 			line_cols = 0;
 		}
 	} /* end for groups */
 
 	Format::sprintf(buf, "You have %d practice sessions left.\n", ch->practice);
-	add_buf(output, buf);
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += buf;
+	page_to_char(output, ch);
 } /* end prac_by_group() */
 
 /* PRACTICE list of skills and spells, sorted by percentage and/or name -- Elrac */
@@ -3656,8 +3638,7 @@ void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
 	int adept;
 	char buf[50];
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
-	BUFFER *output;
-	output = new_buf();
+	String output;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -3717,25 +3698,24 @@ void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
 		else
 			adept = class_table[ch->cls].skill_adept;
 
-		ptb(output, "%s%3d%% %-20.20s{x ",
+		output += Format::format("%s%3d%% %-20.20s{x ",
 		    ch->pcdata->learned[slist[js]] >= adept ? "{g" : "{C",
 		    ch->pcdata->learned[slist[js]],
 		    skill_table[slist[js]].name);
 		line_cols++;
 
 		if (line_cols >= 3) {
-			add_buf(output, "\n");
+			output += "\n";
 			line_cols = 0;
 		}
 	}
 
 	if (line_cols > 0)
-		add_buf(output, "\n");
+		output += "\n";
 
 	Format::sprintf(buf, "You have %d practice sessions left.\n", ch->practice);
-	add_buf(output, buf);
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += buf;
+	page_to_char(output, ch);
 } /* end prac_by_key() */
 
 void do_practice(CHAR_DATA *ch, String argument)
@@ -4789,7 +4769,7 @@ void do_clanpower(CHAR_DATA *ch, String argument)
 {
 	CLAN_DATA *clan;
 	int count = 0, inc, i, x, j = 0, high, low, negmod = 0, total;
-	BUFFER *output;
+	String output;
 	struct c_list {
 		CLAN_DATA *clan;
 		int members;
@@ -4800,7 +4780,6 @@ void do_clanpower(CHAR_DATA *ch, String argument)
 		bool printed;
 	};
 	struct c_list clist[count_clans()];
-	output = new_buf();
 
 	for (clan = clan_table_head->next; clan != clan_table_tail; clan = clan->next) {
 		if (clan->independent)
@@ -4847,8 +4826,8 @@ void do_clanpower(CHAR_DATA *ch, String argument)
 	for (i = 0; i < count; i++)
 		clist[i].warpts = inc ? URANGE(1, ((9 * (clist[i].warpts + negmod - low)) / inc) + 1, 10) : high ? 10 : 1;
 
-	add_buf(output, "\n                            {WThe {BClans{W of {BL{Ce{gg{Wa{Cc{By{W:\n\n");
-	ptb(output, "%s{CSize:      {GFame:      {YWealth:    {PMight:{x\n",
+	output += "\n                            {WThe {BClans{W of {BL{Ce{gg{Wa{Cc{By{W:\n\n";
+	output += Format::format("%s{CSize:      {GFame:      {YWealth:    {PMight:{x\n",
 	    IS_IMMORTAL(ch) ? "                                       " :
 	    "                                  ");
 
@@ -4864,10 +4843,10 @@ void do_clanpower(CHAR_DATA *ch, String argument)
 			}
 
 		if (IS_IMMORTAL(ch))
-			ptb(output, "{G(%2d) ", high);
+			output += Format::format("{G(%2d) ", high);
 
 		clist[j].printed = TRUE;
-		ptb(output, "{W%d. %-30s{x%s %s %s %s\n",
+		output += Format::format("{W%d. %-30s{x%s %s %s %s\n",
 		    i + 1,
 		    clist[j].clan->clanname,
 		    make_bar("t", "C", clist[j].tmembers, clist[j].members, IS_IMMORTAL(ch)),
@@ -4876,21 +4855,19 @@ void do_clanpower(CHAR_DATA *ch, String argument)
 		    make_bar("r", "P", clist[j].clan->warcpmod, clist[j].warpts, IS_IMMORTAL(ch)));
 	}
 
-	add_buf(output, "\n");
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	output += "\n";
+	page_to_char(output, ch);
 }
 
 
 void print_new_affects(CHAR_DATA *ch)
 {
 	char torch[8], border[4], breakline[MSL];
-	BUFFER *buffer;
+	String buffer;
 	bool found = FALSE;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	Format::sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	Format::sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
-	buffer = new_buf();
 
 	if (affect_list_char(ch) != NULL)
 		affect_sort_char(ch, affect_comparator_duration);
@@ -4904,9 +4881,9 @@ void print_new_affects(CHAR_DATA *ch)
 				affcount++;
 
 		if (affcount > 0) {
-			ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
+			buffer += Format::format(" %s {bYou are affected by the following spells:                      %s\n",
 			    torch, torch);
-			add_buf(buffer, breakline);
+			buffer += breakline;
 
 			const AFFECT_DATA *paf_last = NULL;
 			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
@@ -4934,7 +4911,7 @@ void print_new_affects(CHAR_DATA *ch)
 						Format::sprintf(timebuf, "%3d hrs", paf->duration + 1);
 				}
 
-				ptb(buffer, " %s {b%-19s %s| {b%-30s %s| {b%7s %s\n",
+				buffer += Format::format(" %s {b%-19s %s| {b%-30s %s| {b%7s %s\n",
 					torch,
 					namebuf,
 					border,
@@ -4963,11 +4940,11 @@ void print_new_affects(CHAR_DATA *ch)
 
 				if (!print) {
 					if (found)
-						add_buf(buffer, breakline);
+						buffer += breakline;
 
-					ptb(buffer, " %s {bYou are affected by the following equipment spells:            %s\n",
+					buffer += Format::format(" %s {bYou are affected by the following equipment spells:            %s\n",
 					    torch, torch);
-					add_buf(buffer, breakline);
+					buffer += breakline;
 					print = TRUE;
 					found = TRUE;
 				}
@@ -4981,7 +4958,7 @@ void print_new_affects(CHAR_DATA *ch)
 				if (paf->duration != -1)
 					Format::sprintf(timebuf, "%3d hrs", paf->duration + 1);
 
-				ptb(buffer, " %s {b%-19s %s| {g%-30s %s| {b%7s %s\n",
+				buffer += Format::format(" %s {b%-19s %s| {g%-30s %s| {b%7s %s\n",
 					torch,
 					namebuf,
 					border,
@@ -5003,11 +4980,11 @@ void print_new_affects(CHAR_DATA *ch)
 
 		if (affcount > 0) {
 			if (found)
-				add_buf(buffer, breakline);
+				buffer += breakline;
 
-			ptb(buffer, " %s {bYou are affected by the following racial abilities:            %s\n",
+			buffer += Format::format(" %s {bYou are affected by the following racial abilities:            %s\n",
 			    torch, torch);
-			add_buf(buffer, breakline);
+			buffer += breakline;
 
 			const AFFECT_DATA *paf_last = NULL;
 			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
@@ -5032,7 +5009,7 @@ void print_new_affects(CHAR_DATA *ch)
 					        affect_loc_name(paf->location), paf->modifier);
 				}
 
-				ptb(buffer, " %s {b%-19s %s| {b%-40s %s\n",
+				buffer += Format::format(" %s {b%-19s %s| {b%-40s %s\n",
 					torch,
 					namebuf,
 					border,
@@ -5053,28 +5030,27 @@ void print_new_affects(CHAR_DATA *ch)
 	    && IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
 
 		if (found)
-			add_buf(buffer, breakline);
+			buffer += breakline;
 
-		ptb(buffer, " %s {bYou are affected by the following remort affects:              %s\n",
+		buffer += Format::format(" %s {bYou are affected by the following remort affects:              %s\n",
 		    torch, torch);
-		add_buf(buffer, breakline);
+		buffer += breakline;
 
 		for (int raff = 0; raff < ch->pcdata->remort_count / 10 + 1; raff++)
 			for (int i = 0; i < MAX_RAFFECTS; i++)
 				if (raffects[i].id == ch->pcdata->raffect[raff])
-					ptb(buffer, " %s {b%-62s %s\n",
+					buffer += Format::format(" %s {b%-62s %s\n",
 					    torch, raffects[i].description, torch);
 
 		found = TRUE;
 	}
 
 	if (!found)
-		ptb(buffer, " %s {bYou are not affected by any spells.                            %s\n",
+		buffer += Format::format(" %s {bYou are not affected by any spells.                            %s\n",
 		    torch, torch);
 
-	ptb(buffer, " %s%s================================================================%s\n", torch, border, torch);
-	page_to_char(buf_string(buffer), ch);
-	free_buf(buffer);
+	buffer += Format::format(" %s%s================================================================%s\n", torch, border, torch);
+	page_to_char(buffer, ch);
 }
 
 

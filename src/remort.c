@@ -31,7 +31,6 @@
 #include "recycle.h"
 #include "magic.h"
 #include "affect.h"
-#include "buffer.h"
 #include "Format.hpp"
 
 /*****
@@ -252,17 +251,16 @@ bool CAN_USE_RSKILL(CHAR_DATA *ch, int sn)
 
 void list_extraskill(CHAR_DATA *ch)
 {
-	BUFFER *output;
+	String output;
 	int sn, cn, col;
-	output = new_buf();
-	add_buf(output, "\n                      {BExtraclass Remort Skills{x\n");
+	output += "\n                      {BExtraclass Remort Skills{x\n";
 
 	for (cn = 0; cn < MAX_CLASS; cn++) {
 		if (!IS_IMMORTAL(ch))
 			if (cn == ch->cls)
 				continue;
 
-		ptb(output, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
+		output += Format::format("\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
 
 		for (sn = 0, col = 0; skill_table[sn].name != NULL; sn++) {
 			if (skill_table[sn].remort_class != cn + 1)
@@ -274,28 +272,27 @@ void list_extraskill(CHAR_DATA *ch)
 			        || skill_table[sn].skill_level[ch->cls] > LEVEL_HERO))
 				continue;
 
-			ptb(output, "%-15s %s%-8d{x",
+			output += Format::format("%-15s %s%-8d{x",
 			    skill_table[sn].name,
 			    ch->train >= skill_table[sn].rating[ch->cls] ? "{C" : "{T",
 			    skill_table[sn].rating[ch->cls]);
 
 			if (++col % 3 == 0)
-				add_buf(output, "\n");
+				output += "\n";
 		}
 
-		add_buf(output, "\n");
+		output += "\n";
 
 		if (col % 3 != 0)
-			add_buf(output, "\n");
+			output += "\n";
 	}
 
-	page_to_char(buf_string(output), ch);
-	free_buf(output);
+	page_to_char(output, ch);
 }
 
 void do_eremort(CHAR_DATA *ch, String argument)
 {
-	BUFFER *output;
+	String output;
 	int x, sn = 0;
 
 	String arg1;
@@ -316,7 +313,6 @@ void do_eremort(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	output = new_buf();
 
 	if (arg1.empty()) {
 		list_extraskill(ch);
@@ -326,21 +322,20 @@ void do_eremort(CHAR_DATA *ch, String argument)
 		    ch->pcdata->extraclass[2] +
 		    ch->pcdata->extraclass[3] +
 		    ch->pcdata->extraclass[4] > 0) {
-			ptb(output, "\nYour current extraclass skill%s",
+			output += Format::format("\nYour current extraclass skill%s",
 			    ch->pcdata->extraclass[1] ? "s are" : " is");
 
 			if (ch->pcdata->extraclass[0])
-				ptb(output, " %s",
+				output += Format::format(" %s",
 				    skill_table[ch->pcdata->extraclass[0]].name);
 
 			for (x = 1; x < ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++)
 				if (ch->pcdata->extraclass[x])
-					ptb(output, ", %s",
+					output += Format::format(", %s",
 					    skill_table[ch->pcdata->extraclass[x]].name);
 
-			add_buf(output, ".\n");
-			page_to_char(buf_string(output), ch);
-			free_buf(output);
+			output += ".\n";
+			page_to_char(output, ch);
 		}
 
 		return;
