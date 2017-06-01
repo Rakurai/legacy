@@ -8,7 +8,7 @@
 
 // need to include whole String class declaration because variadic templates can't
 // be in the .cpp file, and we access the String members here.
-#include "String.h" 
+#include "String.hpp"
 
 /* Variadic template for overloading the *printf functions to use C++ strings.
  * Lets us keep our old C-style printfs and get nice modern strings. */

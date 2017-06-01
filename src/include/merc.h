@@ -78,7 +78,7 @@ int system();
  #define TRUE     1
 #endif
 
-typedef short   int                     sh_int;
+typedef   int                     sh_int;
 
 #ifndef __cplusplus
  typedef unsigned char                   bool;
@@ -3617,7 +3617,7 @@ void ptc(CHAR_DATA *ch, const String& fmt, Params&&... params)
 }
 
 template<class... Params>
-void bugf(const String& fmt, Params&&... params)
+void bugf(const String& fmt, Params... params)
 {
 	bug(Format::format(fmt, params...), 0);
 }

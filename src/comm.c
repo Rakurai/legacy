@@ -2081,11 +2081,11 @@ void show_string(struct descriptor_data *d, const String& input)
 		return;
 	}
 
-	int page_len;
+	std::size_t page_len;
 
 	// how many lines per page?
 	if (d->character) {
-		int break_pos = d->showstr_head.find_nth(d->character->lines, '\n');
+		std::size_t break_pos = d->showstr_head.find_nth(d->character->lines, '\n');
 
 		if (break_pos == std::string::npos)
 			page_len = d->showstr_head.size();

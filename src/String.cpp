@@ -5,6 +5,7 @@
 #include <functional>
 #include <cctype>
 #include <locale>
+#include <strings.h> // strcasecmp
 
 #include "c_string.h"
 
@@ -135,7 +136,7 @@ replace(const String& what, const String& with, int times) const {
 	if (what.empty())
 		return *this;
 
-	int pos = 0;
+	std::size_t pos = 0;
 	String str(*this);
 
 	while (times-- != 0 && (pos = str.find(what, pos)) != std::string::npos) {

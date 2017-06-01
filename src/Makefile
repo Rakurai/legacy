@@ -8,7 +8,7 @@ CC      = g++
 #STD     = -std=gnu99
 STD     = -std=c++11
 WARNING = -Wall -Winline -Wno-write-strings -Wno-format-security
-DEBUG   = -ggdb -ferror-limit=1
+DEBUG   = -ggdb
 DEFINE  = -Dunix -DSQL -DDEBUG -DIPV6
 INCLUDE = -I$(INCDIR) -I/usr/include -I/usr/local/include
 C_FLAGS = ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}

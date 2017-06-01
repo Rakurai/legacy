@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <cstring>
+
 char * strcat(char *dest, const String& src);
 char * strncat(char *dest, const String& src, size_t n);
 char * strcpy(char *dest, const String& src);
