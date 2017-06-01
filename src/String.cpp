@@ -14,11 +14,18 @@ bool operator== (const String &lhs, const String &rhs) {
 }
 
 bool operator== (const String &lhs, const char *rhs) {
-//	return boost.iequals(lhs, rhs);
 	if (rhs)
-		return strcasecmp(lhs.c_str(), rhs) == 0;
+		return lhs == String(rhs);
 
 	return false;
+}
+
+bool operator!= (const String &lhs, const String &rhs) {
+	return !(lhs == rhs);
+}
+
+bool operator!= (const String &lhs, const char *rhs) {
+	return !(lhs == rhs);
 }
 
 std::size_t String::
@@ -44,13 +51,13 @@ substr(std::size_t pos, std::size_t count) const {
 String String::
 lstrip(const char *chars) const {
 	std::size_t pos = find_first_not_of(chars);
-	return pos == std::string::npos ? *this : substr(find_first_not_of(chars));
+	return pos == std::string::npos ? "" : substr(pos);
 }
 
 String String::
 rstrip(const char *chars) const {
 	std::size_t pos = find_last_not_of(chars);
-	return substr(0, pos == std::string::npos ? size() : pos);
+	return pos == std::string::npos ? "" : substr(0, pos+1);
 }
 
 String String::
@@ -71,40 +78,56 @@ capitalize() const {
 
 String String::
 lsplit(const char *chars) const {
-	std::size_t pos = find_first_of(chars);
-	return substr(0, pos == std::string::npos ? size() : pos);
+	String word;
+	lsplit(word, chars);
+	return word;
 }
 
 String String::
 rsplit(const char *chars) const {
-	std::size_t pos = find_last_of(chars);
-	return substr(pos == std::string::npos ? 0 : pos);
+	String word;
+	rsplit(word, chars);
+	return word;
 }
 
 String String::
 lsplit(String& word, const char *chars) const {
-	std::size_t pos = find_first_of(chars);
+	std::size_t start_pos = find_first_not_of(chars);
 
-	if (pos == std::string::npos) {
-		word.assign(*this);
+	if (start_pos == std::string::npos) {
+		word.clear();
 		return "";
 	}
 
-	word.assign(substr(0, pos));
-	return substr(pos);
+	std::size_t end_pos = find_first_of(chars, start_pos);
+
+	if (end_pos == std::string::npos) {
+		word.assign(substr(start_pos));
+		return "";
+	}
+
+	word.assign(substr(start_pos, end_pos - start_pos));
+	return substr(end_pos).lstrip(chars);
 }
 
 String String::
 rsplit(String& word, const char *chars) const {
-	std::size_t pos = find_last_of(chars);
+	std::size_t end_pos = find_last_not_of(chars);
 
-	if (pos == std::string::npos) {
-		word.assign(*this);
+	if (end_pos == std::string::npos) {
+		word.clear();
 		return "";
 	}
 
-	word.assign(substr(pos));
-	return substr(0, pos);
+	std::size_t start_pos = find_last_of(chars, end_pos);
+
+	if (start_pos == std::string::npos) {
+		word.assign(substr(0, end_pos + 1));
+		return "";
+	}
+
+	word.assign(substr(start_pos + 1, end_pos - start_pos));
+	return substr(0, start_pos + 1).rstrip();
 }
 
 String String::

@@ -26,6 +26,8 @@ public:
 	// the difference from std::string - perform case insensitive comparisons by default
 	friend bool operator== (const String &, const String &);
 	friend bool operator== (const String &, const char *);
+	friend bool operator!= (const String &, const String &);
+	friend bool operator!= (const String &, const char *);
 
 	// TODO: sorting comparison operators
 
@@ -43,7 +45,8 @@ public:
 	String strip(const char *chars = " \t\n\r") const;
 
 	// split the string on the first occurrence of one of "chars".  return the word,
-	// or put word into the reference String and return the remainder
+	// or put word into the reference String and return the remainder.  if string
+	// starts with one of "chars", they will be trimmed (return and word will be stripped)
 	String lsplit(const char *chars = " ") const;
 	String rsplit(const char *chars = " ") const;
 	String lsplit(String& word, const char *chars = " ") const;
