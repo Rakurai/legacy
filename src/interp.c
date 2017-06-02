@@ -647,9 +647,9 @@ void interpret(CHAR_DATA *ch, String argument)
 	}
 
 	if (ch->desc != NULL && ch->desc->snoop_by != NULL) {
-		write_to_buffer(ch->desc->snoop_by, "% ",    2);
-		write_to_buffer(ch->desc->snoop_by, logline, 0);
-		write_to_buffer(ch->desc->snoop_by, "\n",  1);
+		write_to_buffer(ch->desc->snoop_by, "% ");
+		write_to_buffer(ch->desc->snoop_by, logline);
+		write_to_buffer(ch->desc->snoop_by, "\n");
 	}
 
 	if (!found) {

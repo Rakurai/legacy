@@ -90,8 +90,7 @@ DESCRIPTOR_DATA *new_descriptor(void)
 
 	*d = (DESCRIPTOR_DATA){0};
 	d->connected     = CON_GET_NAME;
-	d->outsize       = 2000;
-	d->outbuf        = (char *)alloc_mem(d->outsize);
+	d->outbuf.erase();
 	d->host.erase();
 
 	VALIDATE(d);
@@ -102,8 +101,6 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 {
 	if (!IS_VALID(d))
 		return;
-
-	free_mem(d->outbuf, d->outsize);
 
 	INVALIDATE(d);
 	d->next = descriptor_free;

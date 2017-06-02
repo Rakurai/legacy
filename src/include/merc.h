@@ -473,9 +473,7 @@ struct  descriptor_data
     char                incomm          [MAX_INPUT_LENGTH];
     char                inlast          [MAX_INPUT_LENGTH];
     int                 repeat;
-    char *              outbuf;
-    int                 outsize;
-    int                 outtop;
+    String              outbuf;
     int                 port;
     int                 ip;
     String              showstr_head;
@@ -3268,8 +3266,7 @@ void    find_money      args( ( CHAR_DATA *ch ) );
 void    show_string     args( ( struct descriptor_data *d, const String& input) );
 void    close_socket    args( ( DESCRIPTOR_DATA *dclose ) );
 void	cwtb		args((DESCRIPTOR_DATA *d, const String& txt));
-void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const String& txt,
-                            int length ) );
+void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const String& txt ) );
 void    stc    args( ( const String& txt, CHAR_DATA *ch ) );
 void    page_to_char    args( ( const String& txt, CHAR_DATA *ch ) );
 

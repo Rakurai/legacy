@@ -117,6 +117,7 @@ void    stop_idling             args((CHAR_DATA *ch));
 void    bust_a_prompt           args((CHAR_DATA *ch));
 int     roll_stat               args((CHAR_DATA *ch, int stat));
 char    *get_multi_command     args((DESCRIPTOR_DATA *d, const String& argument));
+String expand_color_codes(CHAR_DATA *ch, const String& str);
 
 /* Desparate debugging measure: A function to print a reason for exiting. */
 void exit_reason(const char *module, int line, const char *reason)
@@ -538,7 +539,7 @@ void game_loop_unix(int control)
 
 				log_string(log_buf);
 				wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
-				d->outtop = 0;
+				d->outbuf.clear();
 				close_socket(d);
 			}
 		}
@@ -569,7 +570,7 @@ void game_loop_unix(int control)
 						wiznet(log_buf, NULL, NULL, WIZ_MALLOC, 0, 0);
 					}
 
-					d->outtop = 0;
+					d->outbuf.clear();
 					close_socket(d);
 					continue;
 				}
@@ -613,13 +614,13 @@ void game_loop_unix(int control)
 		for (d = descriptor_list; d != NULL; d = d_next) {
 			d_next = d->next;
 
-			if ((d->fcommand || d->outtop > 0)
+			if ((d->fcommand || !d->outbuf.empty())
 			    && FD_ISSET(d->descriptor, &out_set)) {
 				if (!process_output(d, TRUE)) {
 					if (d->character != NULL && d->character->level > 1)
 						save_char_obj(d->character);
 
-					d->outtop = 0;
+					d->outbuf.clear();
 					close_socket(d);
 				}
 			}
@@ -806,11 +807,11 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 	CHAR_DATA *ch;
 	DESCRIPTOR_DATA *d;
 
-	if (dclose->outtop > 0)
+	if (!dclose->outbuf.empty())
 		process_output(dclose, FALSE);
 
 	if (dclose->snoop_by != NULL)
-		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n", 0);
+		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n");
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (d->snoop_by == dclose)
@@ -1075,7 +1076,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	if (IS_PLAYING(d)
 	    && d->character->pcdata
 	    && IS_SET(d->character->pcdata->video, VIDEO_VT100)) {
-		write_to_buffer(d, VT_SAVECURSOR, 0);
+		write_to_buffer(d, VT_SAVECURSOR);
 		goto_line(d->character, d->character->lines - 2, 1);
 	}
 
@@ -1083,7 +1084,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 * Bust a prompt.
 	 */
 	if (!merc_down && !d->showstr_head.empty())
-		write_to_buffer(d, "[Hit Enter to continue]\n", 0);
+		write_to_buffer(d, "[Hit Enter to continue]\n");
 	else if (fPrompt && !merc_down && IS_PLAYING(d)) {
 		CHAR_DATA *ch;
 		CHAR_DATA *victim;
@@ -1157,7 +1158,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		ch = d->original ? d->original : d->character;
 
 		if (!IS_SET(ch->comm, COMM_COMPACT))
-			write_to_buffer(d, "\n", 1);
+			write_to_buffer(d, "\n");
 
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
 			set_color(ch, CYAN, NOBOLD);
@@ -1169,7 +1170,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Short-circuit if nothing to write.
 	 */
-	if (d->outtop == 0)
+	if (d->outbuf.empty())
 		return TRUE;
 
 	/*
@@ -1177,10 +1178,10 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 */
 	if (d->snoop_by != NULL) {
 		if (d->character != NULL)
-			write_to_buffer(d->snoop_by, (d->character)->name, 0);
+			write_to_buffer(d->snoop_by, (d->character)->name);
 
-		write_to_buffer(d->snoop_by, "> ", 2);
-		write_to_buffer(d->snoop_by, d->outbuf, d->outtop);
+		write_to_buffer(d->snoop_by, "> ");
+		write_to_buffer(d->snoop_by, d->outbuf);
 	}
 
 	/* VT100 Stuff */
@@ -1188,20 +1189,20 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	    && d->character->pcdata
 	    && IS_SET(d->character->pcdata->video, PLR_VT100)) {
 		goto_line(d->character, d->character->lines - 1, 1);
-		write_to_buffer(d, VT_CLEAR_LINE, 0);
-		write_to_buffer(d, VT_BAR, 0);
-		write_to_buffer(d, VT_RESTORECURSOR, 0);
+		write_to_buffer(d, VT_CLEAR_LINE);
+		write_to_buffer(d, VT_BAR);
+		write_to_buffer(d, VT_RESTORECURSOR);
 	}
 
 	/*
 	 * OS-dependent output.
 	 */
-	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outtop)) {
-		d->outtop = 0;
+	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outbuf.size())) {
+		d->outbuf.clear();
 		return FALSE;
 	}
 	else {
-		d->outtop = 0;
+		d->outbuf.clear();
 		return TRUE;
 	}
 }
@@ -1212,16 +1213,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
  */
 void bust_a_prompt(CHAR_DATA *ch)
 {
-	char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
-	String doors;
-	const char *i;
-	char *point;
-	EXIT_DATA *pexit;
-	bool found;
-	const char *dir_name[] = {"N", "E", "S", "W", "U", "D"};
-	const char *dirl_name[] = {"n", "e", "s", "w", "u", "d"};
-	int door, color, bold;
-	point = buf;
+	String buf;
+	extern const char *dir_name[];
 
 	if (ch->prompt.empty()) {
 		ptc(ch, "{W<{C%d{Thp {G%d{Hma {B%d{Nst{W>{x %s", ch->hit, ch->mana, ch->stam, ch->prefix);
@@ -1236,72 +1229,21 @@ void bust_a_prompt(CHAR_DATA *ch)
 	const char *str = ch->prompt.c_str();
 
 	while (*str != '\0') {
-		if (*str == '{') {      /* hack to make it backwards compatible with %C(color) */
+		if (*str == '{') {
+			// copy the code straight in, let expand_codes handle it
 			++str;
 
-			if (*str == '{') {
-				Format::sprintf(buf2, "{");
-				i = buf2;
-				++str;
-
-				while ((*point = *i) != '\0')
-					++point, ++i;
-
+			if (*str == '\0')
 				continue;
-			}
 
-			switch (*str) {
-			default:        color = WHITE;  bold = NOBOLD;  break;
-
-			case 'W':       color = WHITE;  bold = BOLD;    break;
-
-			case 'g':       color = WHITE;  bold = NOBOLD;  break;
-
-			case 'P':       color = RED;    bold = BOLD;    break;
-
-			case 'R':       color = RED;    bold = NOBOLD;  break;
-
-			case 'Y':       color = YELLOW; bold = BOLD;    break;
-
-			case 'b':       color = YELLOW; bold = NOBOLD;  break;
-
-			case 'G':       color = GREEN;  bold = BOLD;    break;
-
-			case 'H':       color = GREEN;  bold = NOBOLD;  break;
-
-			case 'C':       color = CYAN;   bold = BOLD;    break;
-
-			case 'T':       color = CYAN;   bold = NOBOLD;  break;
-
-			case 'B':       color = BLUE;   bold = BOLD;    break;
-
-			case 'N':       color = BLUE;   bold = NOBOLD;  break;
-
-			case 'V':       color = PURPLE; bold = BOLD;    break;
-
-			case 'M':       color = PURPLE; bold = NOBOLD;  break;
-
-			case 'c':       color = GREY;   bold = BOLD;    break;
-
-			case 'k':       color = GREY;   bold = NOBOLD;  break;
-			}
-
-			if (IS_SET(ch->act, PLR_COLOR))
-				Format::sprintf(buf2, "\033[%d;%dm", bold, color);
-			else
-				Format::sprintf(buf2, " ");
-
-			i = buf2;
+			buf += '{';
+			buf += *str;
 			++str;
-
-			while ((*point = *i) != '\0')
-				++point, ++i;
-
 			continue;
 		}
 
 		if (*str != '%') {
-			*point++ = *str++;
+			buf += *str++;
 			continue;
 		}
 
@@ -1309,14 +1251,15 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 		switch (*str) {
 		default:
-			i = " ";
+			buf += " ";
 			break;
 
-		case 'e':
-			found = FALSE;
-			doors[0] = '\0';
+		case 'e': {
+			bool found = FALSE;
 
-			for (door = 0; door < 6; door++) {
+			for (int door = 0; door < 6; door++) {
+				EXIT_DATA *pexit;
+
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				    && pexit ->u1.to_room != NULL
 				    && can_see_room(ch, pexit->u1.to_room)
@@ -1324,471 +1267,224 @@ void bust_a_prompt(CHAR_DATA *ch)
 					found = TRUE;
 
 					if (!IS_SET(pexit->exit_info, EX_CLOSED))
-						doors += dir_name[door];
+						buf += UPPER(dir_name[door][0]);
 					else
-						doors += dirl_name[door];
+						buf += LOWER(dir_name[door][0]);
 				}
 			}
 
 			if (!found)
-				doors += "none";
+				buf += "none";
 
-			Format::sprintf(buf2, "%s", doors);
-			i = buf2;
 			break;
-
-		case 'c':
-			Format::sprintf(buf2, "%s", "\n");
-			i = buf2;
-			break;
-
-		case 'h':
-			Format::sprintf(buf2, "%d", ch->hit);
-			i = buf2;
-			break;
-
-		case 'H':
-			Format::sprintf(buf2, "%d", GET_MAX_HIT(ch));
-			i = buf2;
-			break;
-
-		case 'm':
-			Format::sprintf(buf2, "%d", ch->mana);
-			i = buf2;
-			break;
-
-		case 'M':
-			Format::sprintf(buf2, "%d", GET_MAX_MANA(ch));
-			i = buf2;
-			break;
-
-		case 'v':
-			Format::sprintf(buf2, "%d", ch->stam);
-			i = buf2;
-			break;
-
-		case 'V':
-			Format::sprintf(buf2, "%d", GET_MAX_STAM(ch));
-			i = buf2;
-			break;
-
-		case 'x':
-			Format::sprintf(buf2, "%d", ch->exp);
-			i = buf2;
-			break;
-
+		}
+		case 'c':  buf += '\n'; break;
+		case 'h':  buf += Format::format("%d", ch->hit); break;
+		case 'H':  buf += Format::format("%d", GET_MAX_HIT(ch)); break;
+		case 'm':  buf += Format::format("%d", ch->mana); break;
+		case 'M':  buf += Format::format("%d", GET_MAX_MANA(ch)); break;
+		case 'v':  buf += Format::format("%d", ch->stam); break;
+		case 'V':  buf += Format::format("%d", GET_MAX_STAM(ch)); break;
+		case 'x':  buf += Format::format("%d", ch->exp); break;
 		case 'X':
 			if (!IS_NPC(ch))
-				Format::sprintf(buf2, "%ld",
+				buf += Format::format("%ld",
 				        (ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp);
 
-			i = buf2;
 			break;
-
-		case 'g':
-			Format::sprintf(buf2, "%ld", ch->gold);
-			i = buf2;
-			break;
-
-		case 's':
-			Format::sprintf(buf2, "%ld", ch->silver);
-			i = buf2;
-			break;
-
+		case 'g':  buf += Format::format("%ld", ch->gold); break;
+		case 's':  buf += Format::format("%ld", ch->silver); break;
 		case 'a':
 			if (ch->level > 9)
-				Format::sprintf(buf2, "%d", ch->alignment);
+				buf += Format::format("%d", ch->alignment);
 			else
-				Format::sprintf(buf2, "%s", IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral");
+				buf += IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral";
 
-			i = buf2;
 			break;
-
 		case 'r':
 			if (ch->in_room != NULL)
-				Format::sprintf(buf2, "%s",
-				        can_see_in_room(ch, ch->in_room) ? ch->in_room->name : "darkness");
+				buf += can_see_in_room(ch, ch->in_room) ? smash_bracket(ch->in_room->name) : "darkness";
 			else
-				Format::sprintf(buf2, " ");
+				buf += ' ';
 
-			i = smash_bracket(buf2);
 			break;
-
 		case 'R':
 			if (IS_IMMORTAL(ch) && ch->in_room != NULL)
-				Format::sprintf(buf2, "%d", ch->in_room->vnum);
+				buf += Format::format("%d", ch->in_room->vnum);
 			else
-				Format::sprintf(buf2, " ");
+				buf += ' ';
 
-			i = buf2;
 			break;
-
 		case 'z':
 			if (ch->in_room != NULL)
-				Format::sprintf(buf2, "%s", ch->in_room->area->name);
+				buf += ch->in_room->area->name;
 			else
-				Format::sprintf(buf2, " ");
+				buf += ' ';
 
-			i = buf2;
 			break;
-
 		case 't':
 			if (ch->in_room != NULL)
-				Format::sprintf(buf2, "%s", sector_lookup(ch->in_room->sector_type));
+				buf += sector_lookup(ch->in_room->sector_type);
 			else
-				Format::sprintf(buf2, " ");
+				buf += ' ';
 
-			i = buf2;
 			break;
-
 		case 'q':
 			if (!IS_QUESTOR(ch))
-				Format::sprintf(buf2, "%d", ch->nextquest);
+				buf += Format::format("%d", ch->nextquest);
 			else
-				Format::sprintf(buf2, "%d", ch->countdown);
+				buf += Format::format("%d", ch->countdown);
 
-			i = buf2;
 			break;
-
 		case 'Q':
 			if (IS_QUESTOR(ch)) {
 //				OBJ_INDEX_DATA *questinfoobj;
 				MOB_INDEX_DATA *questinfo;
 
 				if (ch->questmob == -1 || ch->questobf == -1)
-					Format::sprintf(buf2, "*report!*");
+					buf += "*report!*";
 				else if (ch->questobj > 0) {
 //					if ((questinfoobj = get_obj_index(ch->questobj)) != NULL)
 //						Format::sprintf(buf2, "%s", questinfoobj->name);
 					if (ch->questloc)
-						Format::sprintf(buf2, "%s", get_room_index(ch->questloc)->name);
+						buf += smash_bracket(get_room_index(ch->questloc)->name);
 					else
-						Format::sprintf(buf2, "Unknown");
+						buf += "Unknown";
 				}
 				else if (ch->questmob > 0) {
 					if ((questinfo = get_mob_index(ch->questmob)) != NULL)
-						Format::sprintf(buf2, "%s", questinfo->short_descr);
+						buf += smash_bracket(questinfo->short_descr);
 					else
-						Format::sprintf(buf2, "Unknown");
+						buf += "Unknown";
 				}
 				else
-					Format::sprintf(buf2, "Unknown");
+					buf += "Unknown";
 			}
-			else
-//				Format::sprintf(buf2, "None");
-				buf2[0] = '\0';
 
-			i = smash_bracket(buf2);
 			break;
-
 		case 'p':
 			if (!IS_NPC(ch))
-				Format::sprintf(buf2, "%d", ch->questpoints);
+				buf += Format::format("%d", ch->questpoints);
 
-			i = buf2;
 			break;
-
 		case 'j':
 			if (!IS_NPC(ch)) {
 				if (!IS_SQUESTOR(ch))
-					Format::sprintf(buf2, "%d", ch->pcdata->nextsquest);
+					buf += Format::format("%d", ch->pcdata->nextsquest);
 				else
-					Format::sprintf(buf2, "%d", ch->pcdata->sqcountdown);
+					buf += Format::format("%d", ch->pcdata->sqcountdown);
 			}
 			else
-				Format::sprintf(buf2, "0");
+				buf += '0';
 
-			i = buf2;
 			break;
-
 		case 'J':
 			if (IS_SQUESTOR(ch)) {
 				if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) {
 					if (!ch->pcdata->squestobjf)
-//						Format::sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
-						Format::sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
+//						buf += ch->pcdata->squestobj->short_descr;
+						buf += smash_bracket(get_room_index(ch->pcdata->squestloc1)->name);
 					else
-						Format::sprintf(buf2, "*report!*");
+						buf += "*report!*";
 				}
 				else if (ch->pcdata->squestmob != NULL && ch->pcdata->squestobj == NULL) {
 					if (!ch->pcdata->squestmobf)
-						Format::sprintf(buf2, "%s", ch->pcdata->squestmob->short_descr);
+						buf += smash_bracket(ch->pcdata->squestmob->short_descr);
 					else
-						Format::sprintf(buf2, "*report!*");
+						buf += "*report!*";
 				}
 				else if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob != NULL) {
 					if (ch->pcdata->squestobjf) {
 						if (!ch->pcdata->squestmobf)
-							Format::sprintf(buf2, "%s", ch->pcdata->squestmob->short_descr);
+							buf += smash_bracket(ch->pcdata->squestmob->short_descr);
 						else
-							Format::sprintf(buf2, "*report!*");
+							buf += "*report!*";
 					}
 					else
-//						Format::sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
-						Format::sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
+//						buf += ch->pcdata->squestobj->short_descr;
+						buf += smash_bracket(get_room_index(ch->pcdata->squestloc1)->name);
 				}
 				else
-					Format::sprintf(buf2, "Unknown");
+					buf += "Unknown";
 			}
-			else
-//				Format::sprintf(buf2, "None");
-				buf2[0] = '\0';
 
-			i = smash_bracket(buf2);
 			break;
-
 		case 'k':
 			if (!IS_NPC(ch))
-				Format::sprintf(buf2, "%d", ch->pcdata->skillpoints);
+				buf += Format::format("%d", ch->pcdata->skillpoints);
 
-			i = buf2;
 			break;
-
 		case 'K':
 			if (!IS_NPC(ch))
-				Format::sprintf(buf2, "%d", ch->pcdata->rolepoints);
+				buf += Format::format("%d", ch->pcdata->rolepoints);
 
-			i = buf2;
 			break;
-
 		case 'w':
 			if (IS_IMMORTAL(ch)) {
 				if (!ch->invis_level && !ch->lurk_level)
-					Format::sprintf(buf2, "VIS");
+					buf += "VIS";
 				else
-					Format::sprintf(buf2, "%d/%d", ch->invis_level, ch->lurk_level);
+					buf += Format::format("%d/%d", ch->invis_level, ch->lurk_level);
 
 				if (IS_SET(ch->act, PLR_SUPERWIZ))
-					Format::sprintf(buf2, "WIZ");
+					buf += "WIZ";
 			}
 			else
-				Format::sprintf(buf2, " ");
+				buf += ' ';
 
-			i = buf2;
 			break;
-
 		case 'C':
 			++str;
 
-			switch (*str) {
-			default:        color = WHITE;  bold = NOBOLD;  break;
+			if (*str == '\0')
+				continue;
 
-			case 'W':       color = WHITE;  bold = BOLD;    break;
-
-			case 'g':       color = WHITE;  bold = NOBOLD;  break;
-
-			case 'P':       color = RED;    bold = BOLD;    break;
-
-			case 'R':       color = RED;    bold = NOBOLD;  break;
-
-			case 'Y':       color = YELLOW; bold = BOLD;    break;
-
-			case 'b':       color = YELLOW; bold = NOBOLD;  break;
-
-			case 'G':       color = GREEN;  bold = BOLD;    break;
-
-			case 'H':       color = GREEN;  bold = NOBOLD;  break;
-
-			case 'C':       color = CYAN;   bold = BOLD;    break;
-
-			case 'T':       color = CYAN;   bold = NOBOLD;  break;
-
-			case 'B':       color = BLUE;   bold = BOLD;    break;
-
-			case 'N':       color = BLUE;   bold = NOBOLD;  break;
-
-			case 'V':       color = PURPLE; bold = BOLD;    break;
-
-			case 'M':       color = PURPLE; bold = NOBOLD;  break;
-
-			case 'c':       color = GREY;   bold = BOLD;    break;
-
-			case 'k':       color = GREY;   bold = NOBOLD;  break;
-			}
-
-			if (IS_SET(ch->act, PLR_COLOR))
-				Format::sprintf(buf2, "\033[%d;%dm", bold, color);
-			else
-				Format::sprintf(buf2, " ");
-
-			i = buf2;
+			// put in a color code, let expand_codes handle it
+			buf += '{';
+			buf += *str;
 			break;
-
-		/* added by Outsider to allow a character to see
-		   his/her level in the prompt */
-		case 'l':
-			Format::sprintf(buf2, "%d", ch->level);
-			i = buf2;
-			break;
-
-		case '%':
-			Format::sprintf(buf2, "%%");
-			i = buf2;
-			break;
+		case 'l':  buf += Format::format("%d", ch->level); break;
+		case '%':  buf += '%'; break;
 		}
 
 		++str;
-
-		while ((*point = *i) != '\0')
-			++point, ++i;
 	}
 
-//	*point = '\0';
-//	buf += "\n";
-//	bugf("Sending prompt: '%s', len %d", buf, point - buf+1);
-//	write_to_buffer(ch->desc, "testing", 7);
-	write_to_buffer(ch->desc, buf, point - buf);
+	stc(buf, ch);
 
-	if (ch->prefix[0] != '\0')
-		write_to_buffer(ch->desc, ch->prefix, 0);
+	if (!ch->prefix.empty())
+		stc(ch->prefix, ch);
 } /* end bust_a_prompt() */
 
 /* write_to_buffer with color codes -- Montrey */
 void cwtb(DESCRIPTOR_DATA *d, const String& txt)
 {
-	const char *a, *b;
-	int length, l, curlen = 0;
-	a = txt.c_str();
-	length = strlen(a);
+	if (txt.empty())
+		return;
 
-	if (a != NULL) {
-		while (curlen < length) {
-			for (b = a, l = 0; curlen < length && *a != '{'; l++, curlen++, a++)
-				;
-
-			if (l > 0)
-				write_to_buffer(d, b, l);
-
-			if (*a) {
-				a++;
-				curlen++;
-
-				if (curlen < length) {
-					char code[35];
-					bool found = TRUE;
-
-					switch (*a++) {
-					case 'x': Format::sprintf(code, "%s%s",
-						                  CLEAR, B_BLACK);        break;
-
-					case 'N': Format::sprintf(code, C_BLUE);        break;
-
-					case 'T': Format::sprintf(code, C_CYAN);        break;
-
-					case 'H': Format::sprintf(code, C_GREEN);       break;
-
-					case 'k': Format::sprintf(code, C_BLACK);       break;
-
-					case 'M': Format::sprintf(code, C_MAGENTA);     break;
-
-					case 'R': Format::sprintf(code, C_RED);         break;
-
-					case 'g': Format::sprintf(code, C_WHITE);       break;
-
-					case 'b': Format::sprintf(code, C_YELLOW);      break;
-
-					case 'B': Format::sprintf(code, C_B_BLUE);      break;
-
-					case 'C': Format::sprintf(code, C_B_CYAN);      break;
-
-					case 'G': Format::sprintf(code, C_B_GREEN);     break;
-
-					case 'V': Format::sprintf(code, C_B_MAGENTA);   break;
-
-					case 'P': Format::sprintf(code, C_B_RED);       break;
-
-					case 'W': Format::sprintf(code, C_B_WHITE);     break;
-
-					case 'Y': Format::sprintf(code, C_B_YELLOW);    break;
-
-					case 'c': Format::sprintf(code, C_B_GREY);      break;
-
-					case 's': Format::sprintf(code, C_REVERSE);     break;
-
-					case 'e': Format::sprintf(code, B_GREY);        break;
-
-					case 'r': Format::sprintf(code, B_RED);         break;
-
-					case 'y': Format::sprintf(code, B_YELLOW);      break;
-
-					case 'h': Format::sprintf(code, B_GREEN);       break;
-
-					case 't': Format::sprintf(code, B_CYAN);        break;
-
-					case 'n': Format::sprintf(code, B_BLUE);        break;
-
-					case 'm': Format::sprintf(code, B_MAGENTA);     break;
-
-					case 'a': Format::sprintf(code, B_BLACK);       break;
-
-					case '{': strcpy(code, "{");            break;
-
-					default:  found = FALSE;                break;
-					}
-
-					if (found)
-						write_to_buffer(d, code, strlen(code));
-
-					curlen++;
-				}
-				else {
-					a++;
-					curlen++;
-				}
-			}
-		}
-	}
+	write_to_buffer(d, expand_color_codes(d->character, txt));
 }
 
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer(DESCRIPTOR_DATA *d, const String& txt, int length)
+void write_to_buffer(DESCRIPTOR_DATA *d, const String& txt)
 {
 	if (d == NULL)
 		return;
 
 	/*
-	 * Find length in case caller didn't.
-	 */
-	if (length <= 0)
-		length = strlen(txt);
-
-	/*
 	 * Initial \n if needed.
 	 */
-	if (d->outtop == 0 && !d->fcommand) {
-		d->outbuf[0]    = '\n';
-		d->outbuf[1]    = '\r';
-		d->outtop       = 2;
-	}
-
-	/*
-	 * Expand the buffer as needed.
-	 */
-	while (d->outtop + length >= d->outsize) {
-		char *outbuf;
-
-		if (d->outsize >= 64000) {
-			String culprit = d->original ? d->original->name : d->character->name;
-			bugf("Buffer overflow. Closing connection to %s.\n", culprit.empty() ? culprit : "culprit");
-			close_socket(d);
-			return;
-		}
-
-		outbuf      = (char *)alloc_mem(2 * d->outsize);
-		strncpy(outbuf, d->outbuf, d->outtop);
-		free_mem(d->outbuf, d->outsize);
-		d->outbuf   = outbuf;
-		d->outsize *= 2;
+	if (d->outbuf.empty() && !d->fcommand) {
+		d->outbuf += '\n';
+		d->outbuf += '\r';
 	}
 
 	/*
 	 * Copy.
 	 */
-	strncpy(d->outbuf + d->outtop, txt, length);
-	d->outtop += length;
-	d->outbuf[d->outtop] = '\0';
+	d->outbuf += txt;
 	return;
 }
 
@@ -1841,8 +1537,8 @@ bool check_playing(DESCRIPTOR_DATA *d, const String& name)
 		    &&   dold->connected != CON_GET_OLD_PASSWORD
 		    &&   !str_cmp(name, dold->original
 		                  ? dold->original->name : dold->character->name)) {
-			write_to_buffer(d, "That character is already playing.\n", 0);
-			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?", 0);
+			write_to_buffer(d, "That character is already playing.\n");
+			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?");
 			d->connected = CON_BREAK_CONNECT;
 			return TRUE;
 		}
@@ -1867,97 +1563,56 @@ void stop_idling(CHAR_DATA *ch)
 	return;
 }
 
-void process_color(CHAR_DATA *ch, char a)
+String interpret_color_code(CHAR_DATA *ch, char a)
 {
+	// ch could be NULL here, and might not be PC, so lots of checks
 	String code;
 
-	if (IS_NPC(ch))
-		return;
-
 	switch (a) {
-	case 'x':
-		Format::sprintf(code, "%s%s\033[%d;%dm", CLEAR, B_BLACK,
-		        ch->pcdata->lastcolor[1],
-		        ch->pcdata->lastcolor[0]);
+	case 'x': 
+		if (ch && ch->pcdata)
+			code = Format::format("%s%s\033[%d;%dm",
+				CLEAR, B_BLACK,
+				ch->pcdata->lastcolor[1], ch->pcdata->lastcolor[0]);
+		else
+			code = Format::format("%s%s", CLEAR, B_BLACK);
+
 		break;
 
-	case 'N':
-		Format::sprintf(code, C_BLUE);
-		break;
-
-	case 'T':
-		Format::sprintf(code, C_CYAN);
-		break;
-
-	case 'H':
-		Format::sprintf(code, C_GREEN);
-		break;
-
+	case 'N': code = C_BLUE; break;
+	case 'T': code = C_CYAN; break;
+	case 'H': code = C_GREEN; break;
 	case 'k':
-		code = C_BLACK;
-
-		if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
+		if (ch && ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
 			code = C_WHITE;
+		else
+			code = C_BLACK;
 
 		break;
 
-	case 'M':
-		Format::sprintf(code, C_MAGENTA);
-		break;
-
-	case 'R':
-		Format::sprintf(code, C_RED);
-		break;
-
-	case 'g':
-		Format::sprintf(code, C_WHITE);
-		break;
-
-	case 'b':
-		Format::sprintf(code, C_YELLOW);
-		break;
-
-	case 'B':
-		Format::sprintf(code, C_B_BLUE);
-		break;
-
-	case 'C':
-		Format::sprintf(code, C_B_CYAN);
-		break;
-
-	case 'G':
-		Format::sprintf(code, C_B_GREEN);
-		break;
-
-	case 'V':
-		Format::sprintf(code, C_B_MAGENTA);
-		break;
-
-	case 'P':
-		Format::sprintf(code, C_B_RED);
-		break;
-
-	case 'W':
-		Format::sprintf(code, C_B_WHITE);
-		break;
-
-	case 'Y':
-		Format::sprintf(code, C_B_YELLOW);
-		break;
-
+	case 'M': code = C_MAGENTA; break;
+	case 'R': code = C_RED; break;
+	case 'g': code = C_WHITE; break;
+	case 'b': code = C_YELLOW; break;
+	case 'B': code = C_B_BLUE; break;
+	case 'C': code = C_B_CYAN; break;
+	case 'G': code = C_B_GREEN; break;
+	case 'V': code = C_B_MAGENTA; break;
+	case 'P': code = C_B_RED; break;
+	case 'W': code = C_B_WHITE; break;
+	case 'Y': code = C_B_YELLOW; break;
 	case 'c':
-		code = C_B_GREY;
-
-		if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
+		if (ch && ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
 			code = C_WHITE;
+		else
+			code = C_B_GREY;
 
 		break;
 
 	case 'f':
-		code.erase();
-		Format::sprintf(code, C_FLASH);
+		code = C_FLASH;
 
-		if (ch->pcdata) {
+		if (ch && ch->pcdata) {
 			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_OFF))
 				code.erase();
 
@@ -1967,51 +1622,38 @@ void process_color(CHAR_DATA *ch, char a)
 
 		break;
 
-	case 's':
-		Format::sprintf(code, C_REVERSE);
-		break;
-
-	case 'e':
-		Format::sprintf(code, B_GREY);
-		break;
-
-	case 'r':
-		Format::sprintf(code, B_RED);
-		break;
-
-	case 'y':
-		Format::sprintf(code, B_YELLOW);
-		break;
-
-	case 'h':
-		Format::sprintf(code, B_GREEN);
-		break;
-
-	case 't':
-		Format::sprintf(code, B_CYAN);
-		break;
-
-	case 'n':
-		Format::sprintf(code, B_BLUE);
-		break;
-
-	case 'm':
-		Format::sprintf(code, B_MAGENTA);
-		break;
-
-	case 'a':
-		Format::sprintf(code, B_BLACK);
-		break;
-
-	case '{':
-		code = "{";
-		break;
-
-	default:
-		return;
+	case 's': code = C_REVERSE; break;
+	case 'e': code = B_GREY; break;
+	case 'r': code = B_RED; break;
+	case 'y': code = B_YELLOW; break;
+	case 'h': code = B_GREEN; break;
+	case 't': code = B_CYAN; break;
+	case 'n': code = B_BLUE; break;
+	case 'm': code = B_MAGENTA; break;
+	case 'a': code = B_BLACK; break;
+	case '{': code = "{"; break;
+	default: break;
 	}
 
-	write_to_buffer(ch->desc, code, strlen(code));
+	return code;
+}
+
+String expand_color_codes(CHAR_DATA *ch, const String& str) {
+	String out;
+
+	for (auto it = str.cbegin(); it != str.cend(); it++) {
+		if (*it != '{') {
+			out += *it;
+			continue;
+		}
+
+		if (++it == str.cend())
+			break;
+
+		out += interpret_color_code(ch, *it);
+	}
+
+	return out;
 }
 
 /*
@@ -2019,45 +1661,15 @@ void process_color(CHAR_DATA *ch, char a)
  */
 void stc(const String& txt, CHAR_DATA *ch)
 {
-	const char *a, *b;
-	int length, l, curlen = 0;
-	a = txt.c_str();
-	length = strlen(a);
+	if (txt.empty() || ch->desc == NULL)
+		return;
 
-	if (!txt.empty() && ch->desc != NULL) {
-		while (curlen < length) {
-			b = a;
-			l = 0;
-
-			while (curlen < length && *a != '{') {
-				l++;
-				curlen++;
-				a++;
-			}
-
-			if (l > 0)
-				write_to_buffer(ch->desc, b, l);
-
-			if (*a) {
-				if (!IS_NPC(ch) && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW)) {
-					process_color(ch, 'x');
-					write_to_buffer(ch->desc, a, 2);
-				}
-
-				a++;
-				curlen++;
-
-				if (curlen < length && IS_SET(ch->act, PLR_COLOR2)) {
-					process_color(ch, *a++);
-					curlen++;
-				}
-				else {
-					a++;
-					curlen++;
-				}
-			}
-		}
-	}
+	if (!IS_NPC(ch) && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))
+		write_to_buffer(ch->desc, txt);
+	else if (IS_SET(ch->act, PLR_COLOR2))
+		write_to_buffer(ch->desc, expand_color_codes(ch, txt));
+	else
+		write_to_buffer(ch->desc, smash_bracket(txt));
 } /* end stc() */
 
 /*
@@ -2101,7 +1713,7 @@ void show_string(struct descriptor_data *d, const String& input)
 	if (d->character)
 		stc(page, d->character);
 	else
-		write_to_buffer(d, page, page.size());
+		cwtb(d, page);
 } /* end show_string() */
 
 char *get_multi_command(DESCRIPTOR_DATA *d, const String& argument)
