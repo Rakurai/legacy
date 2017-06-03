@@ -41,6 +41,7 @@ bool    swearcheck              args((const String& argument));
 extern bool     is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim);
 const char   *makedrunk               args((CHAR_DATA *ch, const char *string));
 
+
 /* RT code to display channel status */
 void do_channels(CHAR_DATA *ch, String argument)
 {
@@ -207,111 +208,37 @@ void do_channels(CHAR_DATA *ch, String argument)
 String makedrunk(CHAR_DATA *ch, const String& string)
 {
 	/* This structure defines all changes for a character */
-	static struct struckdrunk drunk[] = {
-		{
-			3, 10,
-			{"a", "a", "a", "A", "aa", "ah", "Ah", "ao", "aw", "oa", "ahhhh"}
-		},
-		{
-			8, 5,
-			{"b", "b", "b", "B", "B", "vb"}
-		},
-		{
-			3, 5,
-			{"c", "c", "C", "cj", "sj", "zj"}
-		},
-		{
-			5, 2,
-			{"d", "d", "D"}
-		},
-		{
-			3, 3,
-			{"e", "e", "eh", "E"}
-		},
-		{
-			4, 5,
-			{"f", "f", "ff", "fff", "fFf", "F"}
-		},
-		{
-			8, 2,
-			{"g", "g", "G"}
-		},
-		{
-			9, 6,
-			{"h", "h", "hh", "hhh", "Hhh", "HhH", "H"}
-		},
-		{
-			7, 6,
-			{"i", "i", "Iii", "ii", "iI", "Ii", "I"}
-		},
-		{
-			9, 5,
-			{"j", "j", "jj", "Jj", "jJ", "J"}
-		},
-		{
-			7, 2,
-			{"k", "k", "K"}
-		},
-		{
-			3, 2,
-			{"l", "l", "L"}
-		},
-		{
-			5, 8,
-			{"m", "m", "mm", "mmm", "mmmm", "mmmmm", "MmM", "mM", "M"}
-		},
-		{
-			6, 6,
-			{"n", "n", "nn", "Nn", "nnn", "nNn", "N"}
-		},
-		{
-			3, 6,
-			{"o", "o", "ooo", "ao", "aOoo", "Ooo", "ooOo"}
-		},
-		{
-			3, 2,
-			{"p", "p", "P"}
-		},
-		{
-			5, 5,
-			{"q", "q", "Q", "ku", "ququ", "kukeleku"}
-		},
-		{
-			4, 2,
-			{"r", "r", "R"}
-		},
-		{
-			2, 5,
-			{"s", "ss", "zzZzssZ", "ZSssS", "sSzzsss", "sSss"}
-		},
-		{
-			5, 2,
-			{"t", "t", "T"}
-		},
-		{
-			3, 6,
-			{"u", "u", "uh", "Uh", "Uhuhhuh", "uhU", "uhhu"}
-		},
-		{
-			4, 2,
-			{"v", "v", "V"}
-		},
-		{
-			4, 2,
-			{"w", "w", "W"}
-		},
-		{
-			5, 6,
-			{"x", "x", "X", "ks", "iks", "kz", "xz"}
-		},
-		{
-			3, 2,
-			{"y", "y", "Y"}
-		},
-		{
-			2, 9,
-			{"z", "z", "ZzzZz", "Zzz", "Zsszzsz", "szz", "sZZz", "ZSz", "zZ", "Z"}
-		}
+	static struct struckdrunk {
+        int     min_drunk_level;
+        int     number_of_rep;
+        char    *replacement[11];
+	} drunk[] = {
+		{ 3, 10,{"a", "a", "a", "A", "aa", "ah", "Ah", "ao", "aw", "oa", "ahhhh"} },
+		{ 8, 5, {"b", "b", "b", "B", "B", "vb"} },
+		{ 3, 5, {"c", "c", "C", "cj", "sj", "zj"} },
+		{ 5, 2, {"d", "d", "D"} },
+		{ 3, 3, {"e", "e", "eh", "E"} },
+		{ 4, 5, {"f", "f", "ff", "fff", "fFf", "F"} },
+		{ 8, 2, {"g", "g", "G"} },
+		{ 9, 6, {"h", "h", "hh", "hhh", "Hhh", "HhH", "H"} },
+		{ 7, 6, {"i", "i", "Iii", "ii", "iI", "Ii", "I"} },
+		{ 9, 5, {"j", "j", "jj", "Jj", "jJ", "J"} },
+		{ 7, 2, {"k", "k", "K"} },
+		{ 3, 2, {"l", "l", "L"} },
+		{ 5, 8, {"m", "m", "mm", "mmm", "mmmm", "mmmmm", "MmM", "mM", "M"} },
+		{ 6, 6, {"n", "n", "nn", "Nn", "nnn", "nNn", "N"} },
+		{ 3, 6, {"o", "o", "ooo", "ao", "aOoo", "Ooo", "ooOo"} },
+		{ 3, 2, {"p", "p", "P"} },
+		{ 5, 5, {"q", "q", "Q", "ku", "ququ", "kukeleku"} },
+		{ 4, 2, {"r", "r", "R"} },
+		{ 2, 5, {"s", "ss", "zzZzssZ", "ZSssS", "sSzzsss", "sSss"} },
+		{ 5, 2, {"t", "t", "T"} },
+		{ 3, 6, {"u", "u", "uh", "Uh", "Uhuhhuh", "uhU", "uhhu"} },
+		{ 4, 2, {"v", "v", "V"} },
+		{ 4, 2, {"w", "w", "W"} },
+		{ 5, 6, {"x", "x", "X", "ks", "iks", "kz", "xz"} },
+		{ 3, 2, {"y", "y", "Y"} },
+		{ 2, 9, {"z", "z", "ZzzZz", "Zzz", "Zsszzsz", "szz", "sZZz", "ZSz", "zZ", "Z"} }
 	};
 
 	if (IS_NPC(ch))

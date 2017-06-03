@@ -351,17 +351,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define VIS_PLR		2
 
 
-/*
- * Drunk struct
- */
-struct struckdrunk
-{
-        int     min_drunk_level;
-
-        int     number_of_rep;
-        char    *replacement[11];
-};
-
 struct  time_info_data
 {
     int         hour;
