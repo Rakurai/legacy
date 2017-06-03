@@ -29,8 +29,8 @@ void load_storage_list()
 {
 	FILE *fp;
 	int count, i;
-	storage_list_head = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
-	storage_list_tail = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
+	storage_list_head = new STORAGE_DATA;
+	storage_list_tail = new STORAGE_DATA;
 	storage_list_head->next = storage_list_tail;
 	storage_list_tail->previous = storage_list_head;
 
@@ -42,7 +42,7 @@ void load_storage_list()
 	fscanf(fp, "%d\n", &count);
 
 	for (i = 0; i < count; i++) {
-		STORAGE_DATA *newData = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
+		STORAGE_DATA *newData = new STORAGE_DATA;
 
 		if (newData == NULL) {
 			bug("Failed to allocate memory for STORAGE_DATA!", 0);
@@ -114,7 +114,7 @@ void remove_storagedata(STORAGE_DATA *olddata)
 			STORAGE_DATA *n = i->next;
 			p->next = n;
 			n->previous = p;
-			free_mem(i, sizeof(STORAGE_DATA));
+			delete i;
 			return;
 		}
 

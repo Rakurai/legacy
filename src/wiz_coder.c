@@ -462,7 +462,7 @@ void do_addexit(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	exit                            = (EXIT_DATA *)alloc_perm(sizeof(*exit));
+	exit = new EXIT_DATA;
 	exit->exit_info                 = 0;
 	exit->key                       = -1;
 	exit->u1.vnum                   = atoi(arg1);
@@ -576,12 +576,6 @@ void do_memory(CHAR_DATA *ch, String argument)
 	Format::sprintf(buf, "Clans   %5d\n", count_clans());
 	stc(buf, ch);
 	Format::sprintf(buf, "Characters in storage  %5d\n", count_stored_characters());
-	stc(buf, ch);
-	Format::sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n",
-	        nAllocString, sAllocString, MAX_STRING);
-	stc(buf, ch);
-	Format::sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n",
-	        nAllocPerm, sAllocPerm);
 	stc(buf, ch);
 	return;
 }

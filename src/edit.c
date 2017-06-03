@@ -351,8 +351,9 @@ static void backup(void)
 
 static void edit_cancel(CHAR_DATA *ch, const String& argument)
 {
-	free_mem(ed, sizeof(EDIT_DATA));
+	delete ed;
 	ch->edit = NULL;
+	ed = NULL;
 	stc("OK, editing session aborted, {Ynothing changed{x.\n", ch);
 } /* end edit_cancel() */
 
@@ -447,7 +448,7 @@ static void edit_desc(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
+	ed = new EDIT_DATA;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_DESC;
 	strcpy(ed->edit_string, ch->long_descr);
@@ -511,7 +512,7 @@ static void edit_done(CHAR_DATA *ch, const String& argument)
 		break;
 	}
 
-	free_mem(ed, sizeof(EDIT_DATA));
+	delete ed;
 	ch->edit = NULL;
 	ed = NULL;
 } /* end edit_done() */
@@ -579,7 +580,7 @@ static void edit_note(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
+	ed = new EDIT_DATA;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_NOTE;
 	strcpy(ed->edit_string, ch->pnote->text);
@@ -602,7 +603,7 @@ static void edit_room(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
+	ed = new EDIT_DATA;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_ROOM;
 	strcpy(ed->edit_string, ch->in_room->description);
@@ -633,7 +634,7 @@ static void edit_help(CHAR_DATA *ch, const String& argument)
 	}
 
 	if (db_next_row() == SQL_OK) {
-		ed = (EDIT_DATA *)alloc_mem(sizeof(EDIT_DATA));
+		ed = new EDIT_DATA;
 		ch->edit = ed;
 		ed->edit_type = EDIT_TYPE_HELP;
 		strcpy(ed->edit_string, db_get_column_str(0));

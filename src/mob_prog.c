@@ -1690,7 +1690,7 @@ void mprog_act_trigger(const char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & ACT_PROG)) {
-		tmp_act = (MPROG_ACT_LIST *)alloc_mem(sizeof(MPROG_ACT_LIST));
+		tmp_act = new MPROG_ACT_LIST;
 
 		mob->mpact      = tmp_act;
 		mob->mpact->buf = buf;

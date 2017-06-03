@@ -1308,7 +1308,6 @@ void aggr_update(void)
 	int jroom, room_count;
 	int jvictim, victim_count, victim_num;
 	int jmob, mob_count, mob_num;
-	ROOM_INDEX_DATA **room_list;
 	ROOM_INDEX_DATA *room;
 	CHAR_DATA *ch, *plr, *mob, *victim;
 	bool duplicate;
@@ -1319,8 +1318,8 @@ void aggr_update(void)
 	for (d = descriptor_list; d != NULL; d = d->next)
 		player_count++;
 
-	/* allocate memory for pointers to <player_count> rooms */
-	room_list = (ROOM_INDEX_DATA **)alloc_mem(player_count * sizeof(ROOM_INDEX_DATA *));
+	/* allocate stack memory for pointers to <player_count> rooms */
+	ROOM_INDEX_DATA *room_list[player_count];
 
 	for (jroom = 0; jroom < player_count; jroom++)
 		room_list[jroom] = NULL;
@@ -1389,7 +1388,7 @@ void aggr_update(void)
 				// delete the list
 				for (tmp_act = ch->mpact; tmp_act != NULL; tmp_act = tmp2_act) {
 					tmp2_act = tmp_act->next;
-					free_mem(tmp_act, sizeof(MPROG_ACT_LIST));
+					delete tmp_act;
 				}
 
 				ch->mpact    = NULL;
@@ -1476,9 +1475,6 @@ void aggr_update(void)
 		/* rumble! */
 		multi_hit(mob, victim, TYPE_UNDEFINED);
 	}
-
-	/* release temp memory */
-	free_mem(room_list, player_count * sizeof(ROOM_INDEX_DATA *));
 } /* end aggr_update() */
 
 void tele_update(void)

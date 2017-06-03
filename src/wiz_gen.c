@@ -1658,7 +1658,7 @@ void do_grouplist(CHAR_DATA *ch, String argument)
 		}
 
 		if (!dupe) {
-			newnode = (GROUP_DATA *)alloc_mem(sizeof(GROUP_DATA));
+			newnode = new GROUP_DATA;
 			newnode->leader = victim->leader;
 			newnode->next = leaders;
 			leaders = newnode;
@@ -1694,7 +1694,7 @@ void do_grouplist(CHAR_DATA *ch, String argument)
 	/* release leader chain */
 	while (leaders != NULL) {
 		nextnode = leaders->next;
-		free_mem(leaders, sizeof(GROUP_DATA));
+		delete leaders;
 		leaders = nextnode;
 	}
 } /* end do_grouplist() */
@@ -3574,7 +3574,7 @@ void do_storage(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		newdata = (STORAGE_DATA *)alloc_mem(sizeof(STORAGE_DATA));
+		newdata = new STORAGE_DATA;
 		newdata->name = argument.capitalize();
 		newdata->by_who = ch->name;
 		newdata->date = ctime(&current_time);

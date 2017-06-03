@@ -2470,7 +2470,7 @@ void do_who(CHAR_DATA *ch, String argument)
 		CHAR_DATA *pch;
 		long levelkey;
 	}
-	*charitems, tmp_charitem;
+	tmp_charitem;
 	String buf;
 	char buf2[MIL];
 	String block1;  /* [level race class] */
@@ -2555,7 +2555,8 @@ void do_who(CHAR_DATA *ch, String argument)
 	for (d = descriptor_list; d != NULL; d = d->next)
 		ndesc++;
 
-	charitems = (struct s_charitem *)alloc_mem(ndesc * sizeof(struct s_charitem));
+	struct s_charitem charitems[ndesc];
+
 	/* Now show matching chars. */
 	buf[0] = '\0';
 
@@ -2712,7 +2713,6 @@ void do_who(CHAR_DATA *ch, String argument)
 		output += buf;
 	}
 
-	free_mem(charitems, ndesc * sizeof(struct s_charitem));
 	stc("\n                             {C*{W*{C* {BL{Ce{gg{Wa{Cc{By {C*{W*{C*{x\n\n", ch);
 	Format::sprintf(buf2, "\n");
 	output += buf2;

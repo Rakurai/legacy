@@ -108,14 +108,6 @@ long fread_flag(FILE *fp)
 	return number;
 }
 
-/*
- * Read and allocate space for a string from a file.
- * These strings are read-only and shared.
- * Strings are hashed:
- *   each string prepended with hash pointer to prev string,
- *   hash code is simply the string length.
- *   this function takes 40% to 50% of boot-up time.
- */
 String fread_string(FILE *fp, char to_char)
 {
 	char c;

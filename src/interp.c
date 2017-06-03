@@ -45,10 +45,6 @@ bool    check_disabled(const struct cmd_type *command);
 DISABLED_DATA *disabled_first;
 #define END_MARKER      "END" /* for load_disabled() and save_disabled() */
 
-/* Malloc Stuff */
-extern int nAllocString;
-extern int nAllocPerm;
-
 /*
  * Command logging types.
  */
@@ -536,12 +532,6 @@ void interpret(CHAR_DATA *ch, String argument)
 {
 	int cmd;
 	bool found;
-	/* Stuff for Malloc */
-	int string_count = nAllocString;
-	int perm_count = nAllocPerm;
-	char cmd_copy[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
-	/* End Stuff for Malloc */
 
 	/*
 	 * Strip leading spaces.
@@ -574,7 +564,7 @@ void interpret(CHAR_DATA *ch, String argument)
 	 *   also no spaces needed after punctuation.
 	 */
 	strcpy(logline, argument);
-	strcpy(cmd_copy, argument);
+//	strcpy(cmd_copy, argument);
 	String command;
 
 	if (!isalpha(argument[0]) && !isdigit(argument[0])) {
@@ -716,18 +706,6 @@ void interpret(CHAR_DATA *ch, String argument)
 	if (ch && ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
 		goto_line(ch, ch->lines, 1);
 		stc(VT_CLEAR_LINE, ch);
-	}
-
-	if (string_count < nAllocString) {
-		Format::sprintf(buf,
-		        "{PMALLOC{x Increase in strings :: %s : %s", ch->name, cmd_copy) ;
-		wiznet(buf, NULL, NULL, WIZ_MALLOC, 0, 0) ;
-	}
-
-	if (perm_count < nAllocPerm) {
-		Format::sprintf(buf,
-		        "{PMALLOC{x Increase in perms :: %s : %s", ch->name, cmd_copy) ;
-		wiznet(buf, NULL, NULL, WIZ_MALLOC, 0, 0) ;
 	}
 
 	tail_chain();
@@ -1068,7 +1046,7 @@ void load_disabled()
 			continue;
 		}
 
-		p = (DISABLED_DATA *)alloc_mem(sizeof(DISABLED_DATA));
+		p = new DISABLED_DATA;
 		p->command = &cmd_table[i];
 		p->disabled_by = db_get_column_str(1);
 		p->reason = db_get_column_str(2);
@@ -1118,7 +1096,7 @@ void do_disable(CHAR_DATA *ch, String argument)
 
 		/* remove it from the database */
 		db_commandf("do_disable", "DELETE FROM disabled WHERE command LIKE '%s'", db_esc(p->command->name));
-		free_mem(p, sizeof(DISABLED_DATA));
+		delete p;
 		stc("Command enabled.\n", ch);
 		return;
 	}
@@ -1149,7 +1127,7 @@ void do_disable(CHAR_DATA *ch, String argument)
 	}
 
 	/* maybe a command group check here? thinking about it */
-	p = (DISABLED_DATA *)alloc_mem(sizeof(DISABLED_DATA));
+	p = new DISABLED_DATA;
 	p->command      = &cmd_table[i];
 	p->disabled_by  = ch->name;
 	p->reason       = argument;

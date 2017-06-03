@@ -16,8 +16,8 @@ char *departed_list_line = "            {c|  {g\\{WV{g/  {c|      {k.{W";
 void load_departed_list()
 {
 	FILE *fp;
-	departed_list_head = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
-	departed_list_tail = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
+	departed_list_head = new DEPARTED_DATA;
+	departed_list_tail = new DEPARTED_DATA;
 	departed_list_head->next = departed_list_tail;
 	departed_list_tail->previous = departed_list_head;
 
@@ -67,7 +67,7 @@ void insert_departed(const String& name)
 {
 	DEPARTED_DATA *iterator, *newDeparted;
 	iterator = departed_list_head->next;
-	newDeparted = (DEPARTED_DATA *)alloc_mem(sizeof(DEPARTED_DATA));
+	newDeparted = new DEPARTED_DATA;
 	newDeparted->name = name;
 
 	while (iterator != departed_list_tail) {
@@ -100,7 +100,7 @@ void remove_departed(const String& name)
 			DEPARTED_DATA *p = iterator->previous;
 			p->next = n;
 			n->previous = p;
-			free_mem(iterator, sizeof(DEPARTED_DATA));
+			delete iterator;
 			return;
 		}
 
