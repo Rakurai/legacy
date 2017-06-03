@@ -100,7 +100,6 @@ typedef struct  descriptor_data         DESCRIPTOR_DATA;
 typedef struct  exit_data               EXIT_DATA;
 typedef struct  extra_descr_data        EXTRA_DESCR_DATA;
 typedef struct  kill_data               KILL_DATA;
-typedef struct  mem_data                MEM_DATA;
 typedef struct  mob_index_data          MOB_INDEX_DATA;
 typedef struct  note_data               NOTE_DATA;
 typedef struct  obj_data                OBJ_DATA;
@@ -1884,24 +1883,6 @@ extern bool    MOBtrigger;
 #define BOOT_PROG	8192
 
 
-
-/* memory settings */
-#define MEM_CUSTOMER    A
-#define MEM_SELLER      B
-#define MEM_HOSTILE     C
-#define MEM_AFRAID      D
-
-/* memory for mobs */
-struct mem_data
-{
-    MEM_DATA    *next;
-    bool        valid;
-    int         id;
-    int         reaction;
-    time_t      when;
-};
-
-
 /*
  * One character (PC or NPC).
  */
@@ -1917,7 +1898,6 @@ struct  char_data: public Actable
     RESET_DATA *	reset;		/* let's make it keep track of what reset it */
     bool		replylock;	   /* <--- made this a bool to simplify */
     CHAR_DATA *         pet;			/* not saving at quit - Montrey */
-    MEM_DATA *          memory;
     SPEC_FUN *          spec_fun;
     MOB_INDEX_DATA *    pIndexData;
     DESCRIPTOR_DATA *   desc;

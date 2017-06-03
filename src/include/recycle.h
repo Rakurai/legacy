@@ -73,9 +73,6 @@ void	free_pcdata args( (PC_DATA *pcdata) );
 /* mob id and memory procedures */
 long 	get_pc_id args( (void) );
 long	get_mob_id args( (void) );
-MEM_DATA	*new_mem_data args( (void) );
-void	free_mem_data args( ( MEM_DATA *memory) );
-MEM_DATA	*find_memory args( (MEM_DATA *memory, long id) );
 
 /* war recycling */
 WAR_DATA	*new_war args((void));

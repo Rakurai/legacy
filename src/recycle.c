@@ -418,35 +418,6 @@ long get_mob_id(void)
 	return last_mob_id;
 }
 
-MEM_DATA *mem_data_free;
-
-MEM_DATA *new_mem_data(void)
-{
-	MEM_DATA *memory;
-
-	if (mem_data_free == NULL)
-		memory = (MEM_DATA *)alloc_mem(sizeof(*memory));
-	else {
-		memory = mem_data_free;
-		mem_data_free = mem_data_free->next;
-	}
-
-	*memory = (MEM_DATA){0};
-
-	VALIDATE(memory);
-	return memory;
-}
-
-void free_mem_data(MEM_DATA *memory)
-{
-	if (!IS_VALID(memory))
-		return;
-
-	INVALIDATE(memory);
-	memory->next = mem_data_free;
-	mem_data_free = memory;
-}
-
 /* recycle war structures */
 WAR_DATA *war_free;
 
