@@ -57,6 +57,7 @@
 #include "Actable.hpp"
 #include "String.hpp"
 #include "Format.hpp"
+#include "Note.hpp"
 
 #define args( list )                    list
 #define DECLARE_DO_FUN( fun )           DO_FUN    fun
@@ -101,7 +102,6 @@ typedef struct  exit_data               EXIT_DATA;
 typedef struct  extra_descr_data        EXTRA_DESCR_DATA;
 typedef struct  kill_data               KILL_DATA;
 typedef struct  mob_index_data          MOB_INDEX_DATA;
-typedef struct  note_data               NOTE_DATA;
 typedef struct  obj_data                OBJ_DATA;
 typedef struct  obj_index_data          OBJ_INDEX_DATA;
 typedef struct  pc_data                 PC_DATA;
@@ -642,41 +642,6 @@ struct spec_type
     char *      name;                   /* special function name */
     SPEC_FUN *  function;               /* the function */
 };
-
-/*
- * Data structure for notes.
- */
-
-#define NOTE_NOTE       0
-#define NOTE_IDEA       1
-#define NOTE_ROLEPLAY   2
-#define NOTE_IMMQUEST   3
-#define NOTE_CHANGES    4
-#define NOTE_PERSONAL   5
-#define NOTE_TRADE      6
-
-struct  note_data
-{
-    NOTE_DATA * next;
-    bool        valid;
-    sh_int      type;
-    String      sender;
-    String      date;
-    String      to_list;
-    String      subject;
-    String      text;
-    time_t      date_stamp;
-};
-
-struct board_index_struct
-{
-    char *board_hdr;
-    NOTE_DATA **board_list;
-    char *board_short;
-    char *board_plural;
-    char *board_long;
-};
-
 
 /* data structure for EDIT -- Elrac */
 
@@ -1890,7 +1855,7 @@ struct  char_data: public Actable
     MOB_INDEX_DATA *    pIndexData;
     DESCRIPTOR_DATA *   desc;
     AFFECT_DATA *       affected;
-    NOTE_DATA *         pnote;
+    Note      *         pnote;
     OBJ_DATA *          carrying;
     OBJ_DATA *          on;
     ROOM_INDEX_DATA *   in_room;
@@ -3506,11 +3471,6 @@ bool    check_dispel_obj  args(( int dis_level, OBJ_DATA *obj, int sn, bool save
 bool    undo_spell        args(( int dis_level, CHAR_DATA *victim, int sn, bool save ));
 bool    dispel_char       args(( CHAR_DATA *victim, int level, bool cancellation ));
 bool    level_save        args(( int dis_level, int save_level));
-
-/* note.c */
-String  format_string( const String& oldstring );
-const char * string_replace( const char * orig, const char * old_str, const char * 
-new_str);
 
 /* quest.c */
 void    quest_init       args( (void) );

@@ -39,10 +39,6 @@ extern int mobile_count;
 #define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
 
-/* note recycling */
-NOTE_DATA	*new_note args( (void) );
-void	free_note args( (NOTE_DATA *note) );
-
 /* descriptor recycling */
 DESCRIPTOR_DATA	*new_descriptor args( (void) );
 void	free_descriptor args( (DESCRIPTOR_DATA *d) );

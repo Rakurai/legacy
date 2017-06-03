@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "Format.hpp"
+#include "Note.hpp"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
@@ -35,17 +36,17 @@ extern FILE                   *fpArea;
 extern char                    strArea[MAX_INPUT_LENGTH];
 
 /* local procedures */
-void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
+void load_thread(char *name, Note **list, int type, time_t free_time);
 void parse_note(CHAR_DATA *ch, String argument, int type);
-bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);
+bool hide_note(CHAR_DATA *ch, Note *pnote);
 
-NOTE_DATA *note_list;
-NOTE_DATA *idea_list;
-NOTE_DATA *roleplay_list;
-NOTE_DATA *immquest_list;
-NOTE_DATA *changes_list;
-NOTE_DATA *personal_list;
-NOTE_DATA *trade_list;
+Note *note_list;
+Note *idea_list;
+Note *roleplay_list;
+Note *immquest_list;
+Note *changes_list;
+Note *personal_list;
+Note *trade_list;
 
 /* Names for note types. Keep these in line with the
    #define names NOTE_NOTE, NOTE_IDEA etc. in merc.h !!! */
@@ -60,11 +61,45 @@ struct board_index_struct board_index [] = {
 	{ "",    NULL,          "",                     "",                     ""                      }
 };
 
+/* stuff for recyling notes */
+Note *note_free;
+
+Note *new_note()
+{
+	Note *note;
+
+	if (note_free == NULL)
+		note = new Note;
+	else {
+		note = note_free;
+		note_free = note_free->next;
+	}
+
+	note->sender.erase();
+	note->to_list.erase();
+	note->subject.erase();
+	note->date.erase();
+	note->text.erase();
+
+	VALIDATE(note);
+	return note;
+}
+
+void free_note(Note *note)
+{
+	if (!IS_VALID(note))
+		return;
+
+	INVALIDATE(note);
+	note->next = note_free;
+	note_free   = note;
+}
+
 /* count the number of messages, visible to 'ch', in a given message list */
-int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
+int count_spool(CHAR_DATA *ch, Note *spool)
 {
 	int count = 0;
-	NOTE_DATA *pnote;
+	Note *pnote;
 
 	for (pnote = spool; pnote != NULL; pnote = pnote->next)
 		if (!hide_note(ch, pnote))
@@ -182,7 +217,7 @@ void save_notes(int type)
 {
 	FILE *fp;
 	char *name;
-	NOTE_DATA *pnote;
+	Note *pnote;
 
 	switch (type) {
 	default:
@@ -252,10 +287,10 @@ void load_notes(void)
 	load_thread(TRADE_FILE, &trade_list, NOTE_TRADE, 10 * 24 * 60 * 60);
 }
 
-void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
+void load_thread(char *name, Note **list, int type, time_t free_time)
 {
 	FILE *fp;
-	NOTE_DATA *pnote, *pnotelast;
+	Note *pnote, *pnotelast;
 
 	if ((fp = fopen(name, "r")) == NULL)
 		return;
@@ -336,12 +371,12 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	return;
 }
 
-void append_note(NOTE_DATA *pnote)
+void append_note(Note *pnote)
 {
 	FILE *fp;
 	char *name;
-	NOTE_DATA **list;
-	NOTE_DATA *last;
+	Note **list;
+	Note *last;
 
 	switch (pnote->type) {
 	default:
@@ -405,7 +440,7 @@ void append_note(NOTE_DATA *pnote)
 	}
 }
 
-bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
+bool is_note_to(CHAR_DATA *ch, Note *pnote)
 {
 	char buf[MSL];
 	/* don't show notes to the forwarding person *mutter*  -- Montrey */
@@ -471,7 +506,7 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 
 void note_attach(CHAR_DATA *ch, int type)
 {
-	NOTE_DATA *pnote;
+	Note *pnote;
 
 	if (ch->pnote != NULL)
 		return;
@@ -483,10 +518,10 @@ void note_attach(CHAR_DATA *ch, int type)
 	return;
 }
 
-void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
+void note_remove(CHAR_DATA *ch, Note *pnote, bool del)
 {
-	NOTE_DATA *prev;
-	NOTE_DATA **list;
+	Note *prev;
+	Note **list;
 
 	if (!del) {
 		/* make a new list */
@@ -568,7 +603,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool del)
 	return;
 }
 
-bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
+bool hide_note(CHAR_DATA *ch, Note *pnote)
 {
 	time_t last_read;
 
@@ -621,7 +656,7 @@ bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
 	return FALSE;
 }
 
-void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
+void update_read(CHAR_DATA *ch, Note *pnote)
 {
 	time_t stamp;
 	/* Mob Notes
@@ -664,7 +699,7 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
 	}
 }
 
-void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
+void notify_note_post(Note *pnote, CHAR_DATA *vch, int type)
 {
 	CHAR_DATA *ch;
 	String buf;
@@ -703,8 +738,8 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 {
 	String buffer;
 	char buf[MSL];
-	NOTE_DATA *pnote;
-	NOTE_DATA **list;
+	Note *pnote;
+	Note **list;
 	char *list_name;
 	int vnum = 0, anum = 0;
 	/* NOTE: Mobs CAN currently do notes. Don't do anything player-specific! */
@@ -873,7 +908,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 	}
 
 	if (!str_prefix1(arg, "forward")) {
-		NOTE_DATA *newnote;
+		Note *newnote;
 
 		if (IS_NPC(ch)) {
 			stc("Mobs can't forward notes.\n", ch);
@@ -924,7 +959,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 	}
 
 	if (!str_prefix1(arg, "repost") && IS_IMMORTAL(ch)) {
-		NOTE_DATA *newnote;
+		Note *newnote;
 
 		if (!is_number(argument)) {
 			stc("Note repost which number?\n", ch);
@@ -1014,7 +1049,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 
 	/* message move: e.g. NOTE MOVE 10 IDEA -- Elrac */
 	if (!str_prefix1(arg, "move")) {
-		NOTE_DATA *thenote, *newnote, *newlist;
+		Note *thenote, *newnote, *newlist;
 		int newtype = 0, j;
 		/* get message number */
 		argument = one_argument(argument, arg);
@@ -1367,8 +1402,8 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 void do_old_next(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH];
-	NOTE_DATA *pnote;
-	NOTE_DATA **list;
+	Note *pnote;
+	Note **list;
 	int vnum;
 
 	if (IS_NPC(ch)) {
@@ -1567,8 +1602,8 @@ void do_next(CHAR_DATA *ch, String argument)
 {
 	struct board_index_struct *pbis, *obis = NULL;
 	time_t ostamp = (time_t) 0;
-	NOTE_DATA *pnote, *onote = NULL;
-	NOTE_DATA **plist;
+	Note *pnote, *onote = NULL;
+	Note **plist;
 	int nnum, onum = 0;
 
 	if (IS_NPC(ch)) {

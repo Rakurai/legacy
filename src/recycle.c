@@ -39,41 +39,6 @@
      -- Montrey 2016 (removed str_dup/free_string 2017)
  */
 
-/* stuff for recyling notes */
-NOTE_DATA *note_free;
-
-NOTE_DATA *new_note()
-{
-	NOTE_DATA *note;
-
-	if (note_free == NULL)
-		note = new NOTE_DATA;
-	else {
-		note = note_free;
-		note_free = note_free->next;
-	}
-
-	*note = (NOTE_DATA){0};
-	note->sender.erase();
-	note->to_list.erase();
-	note->subject.erase();
-	note->date.erase();
-	note->text.erase();
-
-	VALIDATE(note);
-	return note;
-}
-
-void free_note(NOTE_DATA *note)
-{
-	if (!IS_VALID(note))
-		return;
-
-	INVALIDATE(note);
-	note->next = note_free;
-	note_free   = note;
-}
-
 /* stuff for recycling descriptors */
 DESCRIPTOR_DATA *descriptor_free;
 
