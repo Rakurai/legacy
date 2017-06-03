@@ -32,6 +32,7 @@
 #include "music.h"
 #include "affect.h"
 #include "affect_list.h"
+#include "auction.h"
 #include "Format.hpp"
 
 extern  int     _filbuf         args((FILE *));
@@ -54,7 +55,6 @@ OBJ_DATA               *object_list;
 TIME_INFO_DATA          time_info;
 WEATHER_DATA            weather_info;
 BATTLE_DATA             battle;
-AUCTION_DATA           *auction;
 String                  default_prompt = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
 
 OBJ_DATA               *donation_pit;
@@ -407,14 +407,7 @@ void boot_db()
 	}
 	/* initialize auction */
 	{
-		auction = (AUCTION_DATA *) malloc(sizeof(AUCTION_DATA));  /* DOH!!! */
-
-		if (auction == NULL) {
-			bug("malloc'ing AUCTION_DATA didn't give %d bytes", sizeof(AUCTION_DATA));
-			exit(1);
-		}
-
-		auction->item = NULL; /* nothing is being sold */
+		init_auction();
 	}
 	/* Assign gsn's for skills which have them */
 	{

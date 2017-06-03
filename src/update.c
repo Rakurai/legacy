@@ -31,6 +31,7 @@
 #include "music.h"
 #include "affect.h"
 #include "memory.h"
+#include "auction.h"
 #include "Format.hpp"
 
 extern void new_day(void);
@@ -1125,7 +1126,7 @@ void obj_update(void)
 		affect_iterate_over_obj(obj, affect_fn_fade_spell, NULL);
 
 		/* do not decay items being auctioned -- Elrac */
-		if (obj == auction->item)
+		if (is_auction_participant(obj))
 			continue;
 
 		if (obj->timer <= 0 || --obj->timer > 0)
@@ -1506,68 +1507,6 @@ void tele_update(void)
 		}
 	}
 }
-
-void auction_update(void)
-{
-	char buf[MAX_STRING_LENGTH];
-
-	if (auction->item == NULL) {
-		/* no auction in progress -- return doing nothing */
-		return;
-	}
-
-	if (--auction->pulse <= 0) { /* decrease pulse */
-		auction->pulse = PULSE_AUCTION;
-
-		switch (++auction->going) { /* increase the going state */
-		case 1 : /* going once */
-		case 2 : /* going twice */
-			if (auction->bet > 0)
-				Format::sprintf(buf, "%s: going %s for %d gold.\n",
-				        auction->item->short_descr,
-				        ((auction->going == 1) ? "once" : "twice"), auction->bet);
-			else
-				Format::sprintf(buf, "%s: going %s (no bet received yet).\n",
-				        auction->item->short_descr,
-				        ((auction->going == 1) ? "once" : "twice"));
-
-			talk_auction(buf);
-			break;
-
-		case 3 : /* SOLD! */
-			if (auction->bet > 0) {
-				Format::sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n",
-				        auction->item->short_descr, auction->bet);
-				global_act(auction->buyer, buf, TRUE,
-				           YELLOW, COMM_NOAUCTION | COMM_QUIET);
-				Format::sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
-				        auction->item->short_descr, auction->bet);
-				wiznet(buf, auction->buyer, NULL, WIZ_AUCTION, 0,
-				       GET_RANK(auction->buyer));
-				obj_to_char(auction->item, auction->buyer);
-				act("The auctioneer appears before you in a puff of smoke and hands you $p.",
-				    auction->buyer, auction->item, NULL, TO_CHAR);
-				act("The auctioneer appears before $n, and hands $m $p",
-				    auction->buyer, auction->item, NULL, TO_ROOM);
-				/* deduct_cost(auction->seller,-auction->bet); */ /* give him the money */
-				auction->seller->gold += auction->bet;
-				auction->item = NULL; /* reset item */
-			}
-			else { /* not sold */
-				Format::sprintf(buf,
-				        "No bets received for %s - object has been removed.\n",
-				        auction->item->short_descr);
-				talk_auction(buf);
-				act("The auctioneer appears before you to return $p to you.",
-				    auction->seller, auction->item, NULL, TO_CHAR);
-				act("The auctioneer appears before $n to return $p to $m.",
-				    auction->seller, auction->item, NULL, TO_ROOM);
-				obj_to_char(auction->item, auction->seller);
-				auction->item = NULL; /* clear auction */
-			} /* else */
-		} /* switch */
-	} /* if */
-} /* auction_update() */
 
 /*
  * All players age by 1 second here. -- Elrac

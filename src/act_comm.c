@@ -29,6 +29,7 @@
 #include "interp.h"
 #include "vt100.h"
 #include "affect.h"
+#include "auction.h"
 #include "Format.hpp"
 
 /*
@@ -1151,7 +1152,7 @@ void do_quit(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	if (auction->item != NULL && ((ch == auction->buyer) || (ch == auction->seller))) {
+	if (is_auction_participant(ch)) {
 		stc("Wait till you have sold/bought the item on auction.\n", ch);
 		return;
 	}

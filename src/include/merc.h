@@ -114,7 +114,6 @@ typedef struct  weather_data            WEATHER_DATA;
 typedef struct  battle_data             BATTLE_DATA;
 typedef struct  mob_prog_data           MPROG_DATA;
 typedef struct  mob_prog_act_list       MPROG_ACT_LIST;
-typedef struct  auction_data            AUCTION_DATA; /* auction data */
 typedef struct  disabled_data           DISABLED_DATA;
 typedef struct  tail_data               TAIL_DATA;      /* -- Elrac */
 typedef struct  edit_data               EDIT_DATA;      /* -- Elrac */
@@ -378,17 +377,6 @@ struct disabled_data
     struct cmd_type const *command;  /* pointer to the command struct*/
     String disabled_by;               /* name of disabler */
     String reason;
-};
-
-struct  auction_data
-{
-    OBJ_DATA  * item;   /* a pointer to the item */
-    CHAR_DATA * seller; /* a pointer to the seller - which may NOT quit */
-    CHAR_DATA * buyer;  /* a pointer to the buyer - which may NOT quit */
-    int         bet;    /* last bet - or 0 if noone has bet anything */
-    sh_int      going;  /* 1,2, sold */
-    sh_int      pulse;  /* how many pulses (.25 sec) until another call-out ? */
-    int         min;    /* Minimum bid */
 };
 
 struct  battle_data
@@ -3047,7 +3035,6 @@ extern          char                    log_buf         [];
 extern          TIME_INFO_DATA          time_info;
 extern          WEATHER_DATA            weather_info;
 extern          BATTLE_DATA             battle;
-extern          AUCTION_DATA      *     auction;
 extern          DISABLED_DATA     *     disabled_first;
 extern		OBJ_DATA	  *	donation_pit;
 
