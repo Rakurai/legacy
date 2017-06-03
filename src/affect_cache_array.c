@@ -5,7 +5,7 @@
 #define get_affect_cache(ch) ((ch)->affect_cache == NULL ? NULL : (sh_int *)(ch)->affect_cache)
 
 void free_affect_cache(CHAR_DATA *ch) {
-	free(ch->affect_cache);
+	delete[] (sh_int *)ch->affect_cache;
 	ch->affect_cache = NULL;
 }
 
@@ -25,7 +25,7 @@ void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 
 	if (fAdd) {
 		if (get_affect_cache(ch) == NULL) {
-			ch->affect_cache = malloc(sizeof(sh_int) * MAX_SKILL);
+			ch->affect_cache = new sh_int[MAX_SKILL];
 
 			for (int i = 0; i < MAX_SKILL; i++)
 				get_affect_cache(ch)[i] = 0;

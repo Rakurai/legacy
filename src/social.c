@@ -79,13 +79,13 @@ void load_social_table()
 	}
 
 	fscanf(fp, "%d\n", &maxSocial);
-	social_table_head = (struct social_type *)alloc_mem(sizeof(struct social_type));
-	social_table_tail = (struct social_type *)alloc_mem(sizeof(struct social_type));
+	social_table_head = new struct social_type;
+	social_table_tail = new struct social_type;
 	social_table_head->next = social_table_tail;
 	social_table_tail->previous = social_table_head;
 
 	for (i = 0; i < maxSocial; i++) {
-		new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
+		new_social = new struct social_type;
 		load_social(fp, new_social);
 		insert_social(new_social);
 	}
@@ -143,7 +143,7 @@ void remove_social(const String& name)
 			struct social_type *n = iterator->next;
 			p->next = n;
 			n->previous = p;
-			free_mem(iterator, sizeof(iterator));
+			delete iterator;
 			return;
 		}
 	}
@@ -269,29 +269,25 @@ void do_sedit(CHAR_DATA *ch, String argument)
 		stc("That social is history now.\n", ch);
 	}
 	else if (!str_cmp(cmd, "new")) { /* Create a new social */
-		struct social_type *new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
-		int x;
-
 		if (iSocial != NULL) {
 			stc("A social with that name already exists.\n", ch);
 			return;
 		}
 
-		for (x = 0; cmd_table[x].name[0] != '\0'; x++) {
+		for (int x = 0; cmd_table[x].name[0] != '\0'; x++) {
 			if (!str_prefix1(social, cmd_table[x].name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
 			}
 		}
 
+		struct social_type *new_social = new struct social_type;
+
 		new_social->name = social;
 		insert_social(new_social);
 		stc("New social added.\n", ch);
 	}
 	else if (!str_cmp(cmd, "rename")) { /* Rename a social */
-		struct social_type *new_social = (struct social_type *)alloc_mem(sizeof(struct social_type));
-		int x;
-
 		if (argument.empty()) {
 			stc("Rename it to what?\n", ch);
 			return;
@@ -302,12 +298,14 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		for (x = 0; cmd_table[x].name[0] != '\0'; x++) {
+		for (int x = 0; cmd_table[x].name[0] != '\0'; x++) {
 			if (!str_prefix1(argument, cmd_table[x].name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
 			}
 		}
+
+		struct social_type *new_social = new struct social_type;
 
 		new_social->name                = argument;
 		new_social->char_no_arg         = iSocial->char_no_arg;

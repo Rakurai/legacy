@@ -1265,7 +1265,6 @@ void do_areas(CHAR_DATA *ch, String argument)
 	bool star = FALSE;
 	/* output data management */
 	size_t ptrs_size;
-	AREA_DATA **ptrs;
 	int    count = 0;
 	AREA_DATA *ap;
 	char filename[9];    /* 12345678    + '\0' */
@@ -1315,7 +1314,7 @@ void do_areas(CHAR_DATA *ch, String argument)
 
 	/* Allocate space for pointers to all areas. */
 	ptrs_size = (top_area + 1) * sizeof(ap);
-	ptrs = (AREA_DATA **)alloc_mem(ptrs_size);
+	AREA_DATA *ptrs[ptrs_size];
 
 	/* Gather pointers to all areas of interest */
 	for (ap = area_first; ap; ap = ap->next) {
@@ -1453,6 +1452,4 @@ void do_areas(CHAR_DATA *ch, String argument)
 	}
 
 	page_to_char(dbuf, ch);
-	/* clean up */
-	free_mem(ptrs, ptrs_size);
 } /* end do_areas() */

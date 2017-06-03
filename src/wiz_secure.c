@@ -657,7 +657,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 
 		/* if none, build and link a new tail data item */
 		if (!td) {
-			td = (struct tail_data *)alloc_mem(sizeof(struct tail_data));
+			td = new TAIL_DATA;
 			td->tailed_by = ch;
 			td->tailer_name = ch->name;
 			td->flags = 0;
@@ -694,8 +694,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 
 		/* lop off first item */
 		victim->tail = td->next;
-		INVALIDATE(td);
-		free_mem(td, sizeof(struct tail_data));
+		delete td;
 
 		if (IS_VALID(ch))
 			ptc(ch, "You have stopped tailing %s.\n", PERS(victim, ch, VIS_PLR));

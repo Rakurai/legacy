@@ -292,7 +292,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 
 		if (fAdd) {
 			if (ch->defense_mod == NULL) {
-				ch->defense_mod = (sh_int *)alloc_mem(DEFENSE_MOD_MEM_SIZE);
+				ch->defense_mod = new sh_int[DEFENSE_MOD_MEM_SIZE];
 				memset(ch->defense_mod, 0, DEFENSE_MOD_MEM_SIZE);
 			}
 
@@ -309,7 +309,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 			ch->defense_mod[paf->location] -= paf->modifier;
 
 			if (ch->defense_mod[0] == 0) {
-				free_mem(ch->defense_mod, DEFENSE_MOD_MEM_SIZE);
+				delete[] ch->defense_mod;
 				ch->defense_mod = NULL;
 			}
 		}
@@ -340,7 +340,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 
 		if (fAdd) {
 			if (ch->apply_cache == NULL) {
-				ch->apply_cache = (int *)alloc_mem(APPLY_CACHE_MEM_SIZE);
+				ch->apply_cache = new int[APPLY_CACHE_MEM_SIZE];
 				memset(ch->apply_cache, 0, APPLY_CACHE_MEM_SIZE);
 			}
 
@@ -356,7 +356,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 			ch->apply_cache[paf->location] -= paf->modifier;
 
 			if (--ch->apply_cache[0] <= 0) {
-				free_mem(ch->apply_cache, APPLY_CACHE_MEM_SIZE);
+				delete[] ch->apply_cache;
 				ch->apply_cache = NULL;
 			}
 		}

@@ -47,7 +47,7 @@ NOTE_DATA *new_note()
 	NOTE_DATA *note;
 
 	if (note_free == NULL)
-		note = (NOTE_DATA *)alloc_perm2(sizeof(*note), "Note");
+		note = new NOTE_DATA;
 	else {
 		note = note_free;
 		note_free = note_free->next;
@@ -82,7 +82,7 @@ DESCRIPTOR_DATA *new_descriptor(void)
 	DESCRIPTOR_DATA *d;
 
 	if (descriptor_free == NULL)
-		d = (DESCRIPTOR_DATA *)alloc_perm2(sizeof(*d), "Descriptor");
+		d = new DESCRIPTOR_DATA;
 	else {
 		d = descriptor_free;
 		descriptor_free = descriptor_free->next;
@@ -115,7 +115,7 @@ GEN_DATA *new_gen_data(void)
 	GEN_DATA *gen;
 
 	if (gen_data_free == NULL)
-		gen = (GEN_DATA *)alloc_perm2(sizeof(*gen), "General");
+		gen = new GEN_DATA;
 	else {
 		gen = gen_data_free;
 		gen_data_free = gen_data_free->next;
@@ -145,7 +145,7 @@ EXTRA_DESCR_DATA *new_extra_descr(void)
 	EXTRA_DESCR_DATA *ed;
 
 	if (extra_descr_free == NULL)
-		ed = (EXTRA_DESCR_DATA *)alloc_perm2(sizeof(*ed), "Extra Description");
+		ed = new EXTRA_DESCR_DATA;
 	else {
 		ed = extra_descr_free;
 		extra_descr_free = extra_descr_free->next;
@@ -177,7 +177,7 @@ AFFECT_DATA *new_affect(void)
 	AFFECT_DATA *af;
 
 	if (affect_free == NULL)
-		af = (AFFECT_DATA *)alloc_perm2(sizeof(*af), "Affect");
+		af = new AFFECT_DATA;
 	else {
 		af = affect_free;
 		affect_free = affect_free->next;
@@ -207,7 +207,7 @@ OBJ_DATA *new_obj(void)
 	OBJ_DATA *obj;
 
 	if (obj_free == NULL)
-		obj = (OBJ_DATA *)alloc_perm2(sizeof(*obj), "Object");
+		obj = new OBJ_DATA;
 	else {
 		obj = obj_free;
 		obj_free = obj_free->next;
@@ -252,7 +252,7 @@ CHAR_DATA *new_char(void)
 	CHAR_DATA *ch;
 
 	if (char_free == NULL)
-		ch = (CHAR_DATA *)alloc_perm2(sizeof(*ch), "Character");
+		ch = new CHAR_DATA;
 	else {
 		ch = char_free;
 		char_free = char_free->next;
@@ -321,23 +321,24 @@ void free_char(CHAR_DATA *ch)
 	for (td = ch->tail; td != NULL; td = ch->tail) {
 		ch->tail = td->next;
 		act("You stop tailing $n", ch, NULL, td->tailed_by, TO_VICT, POS_SLEEPING, FALSE);
-		free_mem(td, sizeof(struct tail_data));
+		delete td;
 	}
 
 	ch->tail = NULL;
 
 	if (ch->edit != NULL) {
-		free_mem(ch->edit, sizeof(EDIT_DATA));
+		delete ch->edit;
 		ch->edit = NULL;
 	}
 
 	if (ch->pcdata != NULL)
 		free_pcdata(ch->pcdata);
-
+	if (ch->gen_data != NULL)
+		free_gen_data(ch->gen_data);
 	if (ch->apply_cache)
-		free_mem(ch->apply_cache, APPLY_CACHE_MEM_SIZE);
+		delete[] ch->apply_cache;
 	if (ch->defense_mod)
-		free_mem(ch->defense_mod, DEFENSE_MOD_MEM_SIZE);
+		delete[] ch->defense_mod;
 	if (ch->affect_cache)
 		free_affect_cache(ch);
 
@@ -354,7 +355,7 @@ PC_DATA *new_pcdata(void)
 	PC_DATA *pcdata;
 
 	if (pcdata_free == NULL)
-		pcdata = (PC_DATA *)alloc_perm2(sizeof(*pcdata), "PC Data");
+		pcdata = new PC_DATA;
 	else {
 		pcdata = pcdata_free;
 		pcdata_free = pcdata_free->next;
@@ -426,7 +427,7 @@ WAR_DATA *new_war(void)
 	WAR_DATA *war;
 
 	if (war_free == NULL)
-		war = (WAR_DATA *)alloc_perm2(sizeof(*war), "War");
+		war = new WAR_DATA;
 	else {
 		war = war_free;
 		war_free = war_free->next;
@@ -475,7 +476,7 @@ OPP_DATA *new_opp(void)
 	OPP_DATA *opp;
 
 	if (opp_free == NULL)
-		opp = (OPP_DATA *)alloc_perm2(sizeof(*opp), "War Opponent");
+		opp = new OPP_DATA;
 	else {
 		opp = opp_free;
 		opp_free = opp_free->next;
@@ -507,7 +508,7 @@ EVENT_DATA *new_event(void)
 	EVENT_DATA *event;
 
 	if (event_free == NULL)
-		event = (EVENT_DATA *)alloc_perm2(sizeof(*event), "War Event");
+		event = new EVENT_DATA;
 	else {
 		event = event_free;
 		event_free = event_free->next;
@@ -539,7 +540,7 @@ MERC_DATA *new_merc(void)
 	MERC_DATA *merc;
 
 	if (merc_free == NULL)
-		merc = (MERC_DATA *)alloc_perm2(sizeof(*merc), "Merc");
+		merc = new MERC_DATA;
 	else {
 		merc = merc_free;
 		merc_free = merc_free->next;
@@ -579,7 +580,7 @@ OFFER_DATA *new_offer(void)
 	OFFER_DATA *offer;
 
 	if (offer_free == NULL)
-		offer = (OFFER_DATA *)alloc_perm2(sizeof(*offer), "Merc Offer");
+		offer = new OFFER_DATA;
 	else {
 		offer = offer_free;
 		offer_free = offer_free->next;
@@ -610,7 +611,7 @@ DUEL_DATA *new_duel(void)
 	DUEL_DATA *duel;
 
 	if (duel_free == NULL)
-		duel = (DUEL_DATA *)alloc_perm2(sizeof(*duel), "Duel");
+		duel = new DUEL_DATA;
 	else {
 		duel = duel_free;
 		duel_free = duel_free->next;
@@ -631,31 +632,3 @@ void free_duel(DUEL_DATA *duel)
 	duel->previous = duel_free;
 	duel_free = duel;
 }
-
-/* recycle coordinate structures
-WM_COORD_DATA *coord_free;
-
-WM_COORD_DATA *new_coord(void)
-{
-        static WM_COORD_DATA coord_zero;
-        WM_COORD_DATA *coord;
-
-        if (coord_free == NULL)
-                coord = alloc_perm2(sizeof(*coord),"Coordinate");
-        else
-        {
-                coord = coord_free;
-                coord_free = coord_free->next;
-        }
-
-        *coord = coord_zero;
-
-        return coord;
-}
-
-void free_coord(WM_COORD_DATA *coord)
-{
-        coord->next = coord_free;
-        coord->previous = coord_free;
-        coord_free = coord;
-} */

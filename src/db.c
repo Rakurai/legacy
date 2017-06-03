@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "memory.h"
+#include "recycle.h"
 #include "sql.h"
 #include "lookup.h"
 #include "music.h"
@@ -707,7 +708,7 @@ int  scan_credits(AREA_DATA *pArea)
  */
 void load_area(FILE *fp)
 {
-	AREA_DATA *pArea = (AREA_DATA *)alloc_perm(sizeof(*pArea));
+	AREA_DATA *pArea = new AREA_DATA;
 	pArea->reset_first      = NULL;
 	pArea->reset_last       = NULL;
 	pArea->file_name        = fread_string(fp);
@@ -769,7 +770,7 @@ void load_resets(FILE *fp)
 			continue;
 		}
 
-		pReset          = (RESET_DATA *)alloc_perm(sizeof(*pReset));
+		pReset = new RESET_DATA;
 		pReset->version = aVersion;
 		pReset->command = letter;
 		/* if_flag */     fread_number(fp);
@@ -902,7 +903,7 @@ void load_mobiles(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pMobIndex                       = (MOB_INDEX_DATA *)alloc_perm(sizeof(*pMobIndex));
+		pMobIndex = new MOB_INDEX_DATA;
 		pMobIndex->vnum                 = vnum;
 		pMobIndex->version              = aVersion;
 		pMobIndex->player_name          = fread_string(fp);
@@ -1090,7 +1091,7 @@ void load_objects(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pObjIndex                       = (OBJ_INDEX_DATA *)alloc_perm(sizeof(*pObjIndex));
+		pObjIndex = new OBJ_INDEX_DATA;
 		pObjIndex->vnum                 = vnum;
 		pObjIndex->reset_num            = 0;
 		pObjIndex->version              = aVersion;
@@ -1247,7 +1248,7 @@ void load_objects(FILE *fp)
 				} while (bitvector != 0);
 			}
 			else if (letter == 'E') {
-				EXTRA_DESCR_DATA *ed    = (EXTRA_DESCR_DATA *)alloc_perm(sizeof(*ed));
+				EXTRA_DESCR_DATA *ed = new_extra_descr();
 				ed->keyword             = fread_string(fp);
 				ed->description         = fread_string(fp);
 				ed->next                = pObjIndex->extra_descr;
@@ -1320,7 +1321,7 @@ void load_rooms(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pRoomIndex                      = (ROOM_INDEX_DATA *)alloc_perm(sizeof(*pRoomIndex));
+		pRoomIndex = new ROOM_INDEX_DATA;
 		pRoomIndex->version             = aVersion;
 		pRoomIndex->people              = NULL;
 		pRoomIndex->contents            = NULL;
@@ -1397,7 +1398,7 @@ void load_rooms(FILE *fp)
 					exit(1);
 				}
 
-				pexit                   = (EXIT_DATA *)alloc_perm(sizeof(*pexit));
+				pexit = new EXIT_DATA;
 				pexit->description      = fread_string(fp);
 				pexit->keyword          = fread_string(fp);
 				pexit->exit_info        = 0;
@@ -1421,7 +1422,7 @@ void load_rooms(FILE *fp)
 				break;
 
 			case 'E':       /* extended desc */
-				ed                      = (EXTRA_DESCR_DATA *)alloc_perm(sizeof(*ed));
+				ed = new_extra_descr();
 				ed->keyword             = fread_string(fp);
 				ed->description         = fread_string(fp);
 				ed->next                = pRoomIndex->extra_descr;
@@ -1462,7 +1463,7 @@ void load_shops(FILE *fp)
 		if ((shopkeeper = fread_number(fp)) == 0)
 			break;
 
-		pShop                   = (SHOP_DATA *)alloc_perm(sizeof(*pShop));
+		pShop = new SHOP_DATA;
 		pShop->next             = NULL;
 		pShop->version          = aVersion;
 		pShop->keeper           = shopkeeper;
@@ -1754,7 +1755,7 @@ MPROG_DATA *mprog_file_read(const String& f, MPROG_DATA *mprg,
 
 			switch (letter = fread_letter(progfile)) {
 			case '>':
-				mprg2->next = (MPROG_DATA *)alloc_perm(sizeof(MPROG_DATA));
+				mprg2->next = new MPROG_DATA;
 				mprg2       = mprg2->next;
 				mprg2->next = NULL;
 				break;
@@ -1791,7 +1792,7 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 		exit(1);
 	}
 
-	pMobIndex->mobprogs = (MPROG_DATA *)alloc_perm(sizeof(MPROG_DATA));
+	pMobIndex->mobprogs = new MPROG_DATA;
 	mprg = pMobIndex->mobprogs;
 
 	while (!done) {
@@ -1809,7 +1810,7 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
 			switch (letter = fread_letter(fp)) {
 			case '>':
-				mprg->next = (MPROG_DATA *)alloc_perm(sizeof(MPROG_DATA));
+				mprg->next = new MPROG_DATA;
 				mprg       = mprg->next;
 				mprg->next = NULL;
 				break;
@@ -1837,7 +1838,7 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
 			switch (letter = fread_letter(fp)) {
 			case '>':
-				mprg->next = (MPROG_DATA *)alloc_perm(sizeof(MPROG_DATA));
+				mprg->next = new MPROG_DATA;
 				mprg       = mprg->next;
 				mprg->next = NULL;
 				break;

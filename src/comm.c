@@ -68,15 +68,6 @@ extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
 extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
 
 /*
- * Malloc debugging stuff.
- */
-
-#if defined(MALLOC_DEBUG)
-  extern  int     malloc_debug    args((int));
-  extern  int     malloc_verify   args((void));
-#endif
-
-/*
  * Signal handling.
  */
 
@@ -263,10 +254,7 @@ int main(int argc, char **argv)
 	sigemptyset(&sig_act.sa_mask);
 	sig_act.sa_flags = 0;
 	sigaction(SIGPIPE, &sig_act, 0);
-	/* Memory debugging if needed. */
-#if defined(MALLOC_DEBUG)
-	malloc_debug(2);
-#endif
+
 	/* Init time. */
 	gettimeofday(&now_time, NULL);
 	current_time = (time_t) now_time.tv_sec;
@@ -474,12 +462,6 @@ void game_loop_unix(int control)
 		fd_set exc_set;
 		DESCRIPTOR_DATA *d;
 		int maxdesc;
-#if defined(MALLOC_DEBUG)
-
-		if (malloc_verify() != 1)
-			abort();
-
-#endif
 
 		/* check and clear our signal buffer */
 		if (last_signal != -1) {

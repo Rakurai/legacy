@@ -80,17 +80,17 @@ void load_arena_table()
 
 	if ((fp = fopen(ARENA_DIR ARENA_FILE, "r")) != NULL) {
 		fscanf(fp, "%d\n", &maxArenas);
-		arena_table_head                = (ARENA_DATA *)alloc_mem(sizeof(ARENA_DATA));
-		arena_table_tail                = (ARENA_DATA *)alloc_mem(sizeof(ARENA_DATA));
+		arena_table_head = new ARENA_DATA;
+		arena_table_tail = new ARENA_DATA;
 		arena_table_head->next          = arena_table_tail;
 		arena_table_tail->previous      = arena_table_head;
-		duel_table_head         = (DUEL_DATA *)alloc_mem(sizeof(DUEL_DATA));
-		duel_table_tail         = (DUEL_DATA *)alloc_mem(sizeof(DUEL_DATA));
+		duel_table_head = new_duel();
+		duel_table_tail = new_duel();
 		duel_table_head->next   = duel_table_tail;
 		duel_table_tail->previous       = duel_table_head;
 
 		for (i = 0; i < maxArenas; i++) {
-			new_arena = (ARENA_DATA *)alloc_mem(sizeof(ARENA_DATA));
+			new_arena = new ARENA_DATA;
 			new_arena->keyword      = fread_string(fp);
 			new_arena->name         = fread_string(fp);
 			new_arena->desc         = fread_string(fp);
