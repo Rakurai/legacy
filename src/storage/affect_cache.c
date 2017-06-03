@@ -11,7 +11,7 @@ int gsn_compare(void *lhs, void *rhs) {
 }
 
 int *copy_int(int *key) {
-	int *new_key = malloc(sizeof(int));
+	int *new_key = new int;
 	*new_key = *key;
 	return new_key;
 }
@@ -40,9 +40,9 @@ void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 				COLLECTION_MODE_NOSYNC | COLLECTION_MODE_COPY | COLLECTION_MODE_DEEP,
 				(cp_compare_fn) gsn_compare,
 				(cp_copy_fn) copy_int,
-				(cp_destructor_fn) free,
+				(cp_destructor_fn) delete,
 				(cp_copy_fn) copy_int,
-				(cp_destructor_fn) free);
+				(cp_destructor_fn) delete);
 		}
 
 		// insert copies for both key and value, it makes our print work later
