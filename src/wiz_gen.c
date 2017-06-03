@@ -23,6 +23,7 @@
 #include "affect.h"
 #include "memory.h"
 #include "Format.hpp"
+#include "Time.hpp"
 
 
 extern bool    swearcheck              args((const String& argument));

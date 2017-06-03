@@ -33,6 +33,7 @@
 #include "memory.h"
 #include "auction.h"
 #include "Format.hpp"
+#include "Time.hpp"
 
 extern void new_day(void);
 

@@ -35,6 +35,7 @@
 #include "affect_list.h"
 #include "auction.h"
 #include "Format.hpp"
+#include "Time.hpp"
 
 extern  int     _filbuf         args((FILE *));
 extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head, const AFFECT_DATA *paf ));
@@ -53,7 +54,6 @@ String                  help_greeting;
 char                    log_buf         [2 * MAX_INPUT_LENGTH];
 KILL_DATA               kill_table      [MAX_LEVEL];
 OBJ_DATA               *object_list;
-TIME_INFO_DATA          time_info;
 WEATHER_DATA            weather_info;
 BATTLE_DATA             battle;
 String                  default_prompt = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";

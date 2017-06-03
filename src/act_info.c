@@ -37,6 +37,7 @@
 #include "affect.h"
 #include "memory.h"
 #include "Format.hpp"
+#include "Time.hpp"
 
 extern AREA_DATA *area_first;
 

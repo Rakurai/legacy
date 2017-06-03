@@ -7,6 +7,7 @@
 #include "affect.h"
 #include "lookup.h"
 #include "Format.hpp"
+#include "Time.hpp"
 
 extern bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
 int     roll_stat               args((CHAR_DATA *ch, int stat));

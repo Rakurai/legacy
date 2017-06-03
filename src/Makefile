@@ -22,7 +22,7 @@ _O_DEPS = cJSON/cJSON.o # cprops/splay.o cprops/mempool.o cprops/rb.o cprops/vec
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
 _H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.h tables.h	\
-	telnet.h vt100.h affect.h affect_list.h String.hpp Format.hpp cJSON.h Note.hpp
+	telnet.h vt100.h affect.h affect_list.h String.hpp Format.hpp cJSON.h Note.hpp Time.hpp
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o auction.o typename.o \
@@ -31,10 +31,10 @@ _O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o auction.o typename.o
 	debug.o departed.o dispel.o duel.o edit.o effects.o	\
 	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\
 	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o sqlite.o	\
-	nanny.o note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
+	nanny.o Note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
 	set-stat.o skills.o social.o special.o storage.o c_string.o tables.o update.o war.o	\
 	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o paint.o \
-	String.o StringPatch.o cJSON.o
+	String.o StringPatch.o cJSON.o Time.o
 
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 

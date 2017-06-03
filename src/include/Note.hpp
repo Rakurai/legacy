@@ -11,7 +11,8 @@
 class Note
 {
 public:
-    Note() : next(nullptr) {};
+    Note() : next(nullptr) {}
+    virtual ~Note() {}
 
     Note      * next;
     bool        valid;
@@ -25,7 +26,6 @@ public:
 
 private:
     Note(const Note&);
-    virtual ~Note() {}
     Note& operator=(const Note&);
 };
 

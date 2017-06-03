@@ -109,7 +109,6 @@ typedef struct  gen_data                GEN_DATA;
 typedef struct  reset_data              RESET_DATA;
 typedef struct  room_index_data         ROOM_INDEX_DATA;
 typedef struct  shop_data               SHOP_DATA;
-typedef struct  time_info_data          TIME_INFO_DATA;
 typedef struct  weather_data            WEATHER_DATA;
 typedef struct  battle_data             BATTLE_DATA;
 typedef struct  mob_prog_data           MPROG_DATA;
@@ -301,11 +300,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 /*
  * Time and weather stuff.
  */
-#define MUD_YEAR		17	/* months */
-#define MUD_MONTH		35	/* days */
-#define MUD_DAY			24	/* hours */
-#define MUD_HOUR		45	/* seconds */
-
 #define SUN_DARK                    0
 #define SUN_RISE                    1
 #define SUN_LIGHT                   2
@@ -350,15 +344,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
 #define VIS_CHAR	1
 #define VIS_PLR		2
 
-
-struct  time_info_data
-{
-    int         hour;
-    int         day;
-    int         month;
-    int         year;
-    String      motd;
-};
 
 struct disabled_data
 {
@@ -2986,7 +2971,6 @@ extern          time_t                  current_time;
 extern          bool                    fLogAll;
 extern          KILL_DATA               kill_table      [];
 extern          char                    log_buf         [];
-extern          TIME_INFO_DATA          time_info;
 extern          WEATHER_DATA            weather_info;
 extern          BATTLE_DATA             battle;
 extern          DISABLED_DATA     *     disabled_first;

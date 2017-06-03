@@ -29,6 +29,7 @@
 #include "interp.h"
 #include "affect.h"
 #include "Format.hpp"
+#include "Time.hpp"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */

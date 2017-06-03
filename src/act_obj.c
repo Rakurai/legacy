@@ -25,10 +25,6 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-/* Added sys/time to avoid error from
-   gettimeofday() function call.
-   -- Outsider
-*/
 #include "merc.h"
 #include "interp.h"
 #include "recycle.h"
@@ -38,6 +34,7 @@
 #include "affect.h"
 #include "Format.hpp"
 #include "c_string.h"
+#include "Time.hpp"
 
 extern  void    channel_who     args((CHAR_DATA *ch, const char *channelname, int channel, int custom));
 
