@@ -53,4 +53,6 @@ inline void get_string(cJSON *obj, String *target, const String& key) {
 	}
 }
 
+cJSON *read_file(const String& filename);
+
 } // namespace JSON

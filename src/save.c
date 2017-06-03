@@ -651,7 +651,6 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 {
 	char strsave[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
-	FILE *fp;
 	bool found;
 	ch = new_char();
 	ch->pcdata = new_pcdata();
@@ -687,23 +686,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
 
-	cJSON *root = NULL;
-
-	if ((fp = fopen(strsave, "rb")) != NULL) {
-		int length;
-		char *buffer;
-
-		fseek (fp, 0, SEEK_END);
-		length = ftell (fp);
-		fseek (fp, 0, SEEK_SET);
-		buffer = (char *)malloc (length);
-
-		fread (buffer, 1, length, fp);
-		fclose (fp);
-
-		root = cJSON_Parse(buffer);
-		free(buffer);
-	}
+	cJSON *root = JSON::read_file(strsave);
 
 	if (root != NULL) {
 
@@ -1624,7 +1607,6 @@ void do_finger(CHAR_DATA *ch, String argument)
 {
 	char filename[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
-	FILE *fp;
 	String dbuf;
 
 	/* the following vars are read from the player file */
@@ -1665,24 +1647,9 @@ void do_finger(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	cJSON *root = NULL;
 	Format::sprintf(filename, "%s%s", PLAYER_DIR, arg.capitalize());
 
-	if ((fp = fopen(filename, "rb")) != NULL) {
-		int length;
-		char *buffer;
-
-		fseek (fp, 0, SEEK_END);
-		length = ftell (fp);
-		fseek (fp, 0, SEEK_SET);
-		buffer = (char *)malloc (length);
-
-		fread (buffer, 1, length, fp);
-		fclose (fp);
-
-		root = cJSON_Parse(buffer);
-		free(buffer);
-	}
+	cJSON *root = JSON::read_file(filename);
 
 	if (root == NULL) {
 		stc("That player does not exist.\n", ch);
