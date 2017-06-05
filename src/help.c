@@ -152,7 +152,7 @@ void add_help(int group, int order, int level, const String& keywords, const Str
 {
 	String query;
 
-	if (!str_cmp(keywords, "GREETING")) {
+	if (keywords == "GREETING") {
 		help_greeting = text;
 	}
 
@@ -202,7 +202,7 @@ void do_loadhelps(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_loadhelps(ch, helpfile_table[tablenum].name);
 
@@ -331,7 +331,7 @@ void do_printhelps(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_printhelps(ch, helpfile_table[tablenum].name);
 
@@ -365,9 +365,9 @@ void do_printhelps(Character *ch, String argument)
 	while (db_next_row() == SQL_OK) {
 		buf = db_get_column_str(0);
 		buf += " ";
-		buf += smash_tilde(db_get_column_str(1));
+		buf += String(db_get_column_str(1)).replace("~", "-");
 		buf += "~\n";
-		buf += smash_tilde(db_get_column_str(2));
+		buf += String(db_get_column_str(2)).replace("~", "-");
 		buf += "~\n\n";
 		fputs(buf.c_str(), fp);
 		count++;
@@ -409,7 +409,7 @@ void do_help(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "departed")) {
+	if (arg == "departed") {
 		do_departed(ch, "");
 		return;
 	}
@@ -546,7 +546,7 @@ void do_help(Character *ch, String argument)
 				if (temp_help[newres].type != 2)
 					continue;
 
-				if (!str_cmp(temp_help[result_num].keywords, temp_help[newres].keywords))
+				if (temp_help[result_num].keywords == temp_help[newres].keywords)
 					break;
 			}
 
@@ -575,7 +575,7 @@ void do_hedit(Character *ch, String argument)
 	String cmd;
 	argument = one_argument(argument, cmd);
 
-	if (!str_cmp(cmd, "new")) {
+	if (cmd == "new") {
 		if (!argument[0]) {
 			stc("You need to specify some keywords.\n", ch);
 			return;
@@ -610,13 +610,13 @@ void do_hedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "delete")) {
+	if (cmd == "delete") {
 		db_commandf("do_hedit", "delete from " HTABLE " where " HCOL_ID "=%s", arg);
 		stc("That help is history now.\n", ch);
 		return;
 	}
 
-	if (!str_cmp(cmd, "show")) {
+	if (cmd == "show") {
 		if (db_queryf("do_help",
 		                        "select " HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT
 		                        " from " HTABLE " where " HCOL_ID "=%s", arg) != SQL_OK
@@ -641,7 +641,7 @@ void do_hedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, HCOL_GROUP) || !str_cmp(cmd, HCOL_ORDER) || !str_cmp(cmd, HCOL_LEVEL)) {
+	if (cmd == HCOL_GROUP || cmd == HCOL_ORDER || cmd == HCOL_LEVEL) {
 		if (!is_number(argument)) {
 			stc("New value has to be a number.\n", ch);
 			return;
@@ -652,7 +652,7 @@ void do_hedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, HCOL_KEYS) || !str_cmp(cmd, HCOL_TEXT)) {
+	if (cmd == HCOL_KEYS || cmd == HCOL_TEXT) {
 		db_commandf("do_hedit", "update " HTABLE " set %s='%s' where " HCOL_ID "=%s", cmd, db_esc(argument), arg);
 		stc("Done.\n", ch);
 		return;

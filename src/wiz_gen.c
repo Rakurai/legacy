@@ -117,7 +117,7 @@ void do_alternate(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
-	if (arg1.empty() || (!str_cmp(arg1, "site") && arg2.empty())) {
+	if (arg1.empty() || (arg1 == "site" && arg2.empty())) {
 		stc("Syntax:\n"
 		    "  alternate <{Yplayer name{x>\n"
 		    "  alternate site <{Ysite{x>\n"
@@ -125,7 +125,7 @@ void do_alternate(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "site")) {
+	if (arg1 == "site") {
 		char site[MSL];
 		bool prefix = FALSE, suffix = FALSE;
 		strcpy(site, arg2);
@@ -245,9 +245,9 @@ void do_alternate(Character *ch, String argument)
 			Format::sprintf(colorsite, "{Y%s{W", sitelist[i].ssite);
 
 			while (db_next_row() == SQL_OK) {
-				const char *name = db_get_column_str(0);
+				String name = db_get_column_str(0);
 
-				if (!str_cmp(name, arg1)) {
+				if (name == arg1) {
 					if (sorted_count >= 500) {
 						bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
 						break;
@@ -286,7 +286,7 @@ void do_alternate(Character *ch, String argument)
 
 					if (curname == -1)
 						curname = i;
-					else if (str_cmp(results_to_sort[curname].name, results_to_sort[i].name))
+					else if (results_to_sort[curname].name != results_to_sort[i].name)
 						continue;
 
 					strcpy(results_sorted[sorted_count].name, results_to_sort[i].name);
@@ -311,8 +311,8 @@ void do_alternate(Character *ch, String argument)
 
 	for (i = 1; i < sorted_count; i++)
 		output += Format::format(fstr,
-		    str_cmp(results_sorted[i].name, results_sorted[i - 1].name) ? results_sorted[i].name : "",
-		    str_cmp(results_sorted[i].name, results_sorted[i - 1].name) ? " {G-{W" : "  ",
+		    results_sorted[i].name != results_sorted[i - 1].name ? results_sorted[i].name : "",
+		    results_sorted[i].name != results_sorted[i - 1].name ? " {G-{W" : "  ",
 		    results_sorted[i].site);
 
 	output += "{G=================================================================={x\n";
@@ -378,7 +378,7 @@ void do_check(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!str_cmp(arg, "gods") || !str_cmp(argument, "gods"))
+	if (arg == "gods" || argument == "gods")
 		SHOWIMM = TRUE;
 
 	if (arg.empty() || !str_prefix1(arg, "gods")) {
@@ -819,7 +819,7 @@ void do_departedlist(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "add")) {
+	if (arg == "add") {
 		if (has_departed(argument)) {
 			ptc(ch, "'%s' already departed Legacy!\n", argument);
 			return;
@@ -831,7 +831,7 @@ void do_departedlist(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "remove")) {
+	if (arg == "remove") {
 		if (!has_departed(argument)) {
 			ptc(ch, "But no one named '%s' ever departed!\n", argument);
 			return;
@@ -2025,12 +2025,12 @@ void do_load(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "mob") || !str_cmp(arg, "char")) {
+	if (arg == "mob" || arg == "char") {
 		do_mload(ch, argument);
 		return;
 	}
 
-	if (!str_cmp(arg, "obj")) {
+	if (arg == "obj") {
 		do_oload(ch, argument);
 		return;
 	}
@@ -2095,7 +2095,7 @@ void do_lower(Character *ch, String argument)
 		for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 			ed_next = ed->next;
 
-			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
+			if (ed->keyword == KEYWD_OWNER) {
 				char strip[MAX_STRING_LENGTH];
 				strcpy(strip, ed->description);
 				strip[strlen(strip) - 2] = '\0';
@@ -2422,7 +2422,7 @@ void do_motd(Character *ch, String argument)
 	String buf;
 
 	if (!argument.empty()) {
-		if (!str_cmp(argument, "clear")) {
+		if (argument == "clear") {
 			time_info.motd.erase();
 			stc("MOTD cleared.\n", ch);
 			return;
@@ -2775,7 +2775,7 @@ void do_mfind(Character *ch, String argument)
 		return;
 	}
 
-	fAll        = FALSE; /* !str_cmp( arg, "all" ); */
+	fAll        = FALSE; /*  arg == "all" ; */
 	found       = FALSE;
 	nMatch      = 0;
 
@@ -2826,7 +2826,7 @@ void do_ofind(Character *ch, String argument)
 	}
 
 
-	fAll        = FALSE; /* !str_cmp( arg, "all" ); */
+	fAll        = FALSE; /*  arg == "all" ; */
 	found       = FALSE;
 	nMatch      = 0;
 
@@ -2871,17 +2871,17 @@ void do_vnum(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "obj")) {
+	if (arg == "obj") {
 		do_ofind(ch, string);
 		return;
 	}
 
-	if (!str_cmp(arg, "mob") || !str_cmp(arg, "char")) {
+	if (arg == "mob" || arg == "char") {
 		do_mfind(ch, string);
 		return;
 	}
 
-	if (!str_cmp(arg, "skill") || !str_cmp(arg, "spell")) {
+	if (arg == "skill" || arg == "spell") {
 		do_slookup(ch, string);
 		return;
 	}
@@ -2975,21 +2975,21 @@ void do_owner(Character *ch, String argument)
 		return;
 	}
 
-	if (str_cmp(whom, "none")) {
+	if (whom != "none") {
 		if ((player = get_player_world(ch, whom, VIS_PLR)) == NULL) {
 			stc("There is no one by that name in the realm.\n", ch);
 			return;
 		}
 	}
 
-	if (!str_cmp(whom, "none")) {
+	if (whom == "none") {
 		if (item->extra_descr != NULL) {
 			ExtraDescr *ed_next, *ed_prev = NULL;
 
 			for (ed = item->extra_descr; ed != NULL; ed = ed_next) {
 				ed_next = ed->next;
 
-				if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
+				if (ed->keyword == KEYWD_OWNER) {
 					if (ed == item->extra_descr)
 						item->extra_descr = ed_next;
 					else
@@ -3013,7 +3013,7 @@ void do_owner(Character *ch, String argument)
 		for (ed = item->extra_descr; ed != NULL; ed = ed_next) {
 			ed_next = ed->next;
 
-			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
+			if (ed->keyword == KEYWD_OWNER) {
 				ptc(ch, "This item is already owned by %s.\n", ed->description);
 				return;
 			}
@@ -3175,12 +3175,12 @@ void do_qpconv(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "train")) {
+	if (arg2 == "train") {
 		qpcost = number_of * QPS_PER_TRAIN;
 		what = 1;
 	}
 
-	if (!str_cmp(arg2, "practice")) {
+	if (arg2 == "practice") {
 		qpcost = number_of * QPS_PER_PRAC;
 		what = 2;
 	}
@@ -3242,7 +3242,7 @@ void do_restore(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.empty() || !str_cmp(arg, "room")) {
+	if (arg.empty() || arg == "room") {
 		/* cure room */
 		for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
 			restore_char(ch, victim);
@@ -3253,7 +3253,7 @@ void do_restore(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		/* cure all */
 		for (d = descriptor_list; d != NULL; d = d->next)
 			if (d->character != NULL && !IS_NPC(d->character))
@@ -3448,7 +3448,7 @@ void do_sockets(Character *ch, String argument)
 					if (dmult == d || dmult->connected != 0) /* if not playing */
 						continue;
 
-					if (!str_cmp(dmult->host, d->host))
+					if (dmult->host == d->host)
 						multiplay = TRUE;
 				}
 
@@ -3525,7 +3525,7 @@ void do_storage(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1); /* storage command */
 
-	if (!str_cmp(arg1, "list")) {
+	if (arg1 == "list") {
 		stc("Currently in storage are:\n"
 		    "\n"
 		    "name                |by who              |date\n"
@@ -3542,7 +3542,7 @@ void do_storage(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "store")) {
+	if (arg1 == "store") {
 		char pfile_buf[128];
 		char storage_buf[128];
 		char command_buf[255];
@@ -3586,7 +3586,7 @@ void do_storage(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "retrieve")) {
+	if (arg1 == "retrieve") {
 		char pfile_buf[128];
 		char storage_buf[128];
 		char command_buf[255];
@@ -3681,7 +3681,7 @@ void do_transfer(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "all")) {
+	if (arg1 == "all") {
 		for (d = descriptor_list; d != NULL; d = d->next) {
 			if (IS_PLAYING(d)
 			    &&   d->character != ch
@@ -3845,7 +3845,7 @@ void do_wizgroup(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg3, "all")) {
+	if (arg3 == "all") {
 		stc("The `all' option is no longer enabled.\n", ch);
 		return;
 	}
@@ -3977,7 +3977,7 @@ void do_aura(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(argument, "none")) {
+	if (argument == "none") {
 		stc("Aura removed.\n", ch);
 		stc("Your aura has been removed.\n", victim);
 		victim->pcdata->aura.erase();

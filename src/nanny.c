@@ -46,7 +46,7 @@ bool check_ban(const String& site, int type)
 		if ((prefix  &&  suffix && !str_infix(str, site))
 		    || (prefix  && !suffix && !str_suffix(str, site))
 		    || (!prefix &&  suffix && !str_prefix(str, site))
-		    || (!prefix && !suffix && !str_cmp(str, site)))
+		    || (!prefix && !suffix && site == str))
 			ban = TRUE;
 	}
 
@@ -71,7 +71,7 @@ bool check_player_exist(Descriptor *d, const String& name)
 		    &&   dold->character != NULL
 		    &&   dold->character->level < 1
 		    &&   dold->connected != CON_PLAYING
-		    &&   !str_cmp(name, dold->original
+		    &&   name == (dold->original
 		                  ? dold->original->name : dold->character->name)) {
 			write_to_buffer(d,
 			                "A character by that name is currently being created.\n"
@@ -286,7 +286,7 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 		if (!IS_NPC(ch)
 		    && d->character != ch
 		    && (!fConn || ch->desc == NULL)
-		    &&   !str_cmp(d->character->name, ch->name)) {
+		    &&   d->character->name == ch->name) {
 			if (fConn == FALSE) {
 				d->character->pcdata->pwd = ch->pcdata->pwd;
 			}
@@ -513,7 +513,7 @@ void nanny(Descriptor *d, String argument)
 				if (d_old == d || d_old->character == NULL)
 					continue;
 
-				if (str_cmp(ch->name, d_old->original ?
+				if (ch->name == (d_old->original ?
 				            d_old->original->name : d_old->character->name))
 					continue;
 
@@ -1004,7 +1004,7 @@ void nanny(Descriptor *d, String argument)
 	case CON_GEN_GROUPS:
 		stc("\n", ch);
 
-		if (!str_cmp(argument, "done")) {
+		if (argument == "done") {
 			if (ch->pcdata->points > 300)
 				ch->pcdata->points = 300;
 

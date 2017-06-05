@@ -1152,7 +1152,7 @@ void do_repair(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(argument, "all")) {
+	if (argument == "all") {
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 			if ((obj = get_eq_char(ch, iWear)) == NULL)
 				continue;
@@ -1320,8 +1320,8 @@ bool IS_SPECIAL(Character *ch)
 	if (IS_NPC(ch))
 		return FALSE;
 
-	if (!str_cmp(ch->name, "Montrey")
-	    || !str_cmp(ch->name, "Xenith"))
+	if (ch->name == "Montrey"
+	    || ch->name == "Xenith")
 		return TRUE;
 
 	return FALSE;

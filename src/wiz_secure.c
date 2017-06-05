@@ -109,7 +109,7 @@ void do_force(Character *ch, String argument)
 	String arg2;
 	one_argument(argument, arg2);
 
-	if (!str_cmp(arg2, "delete")) {
+	if (arg2 == "delete") {
 		stc("Do NOT do that.\n", ch);
 		return;
 	}
@@ -121,7 +121,7 @@ void do_force(Character *ch, String argument)
 	if (IS_IMP(ch)) {
 		bool found = FALSE;
 
-		if (!str_cmp(arg, "all")) {
+		if (arg == "all") {
 			for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
 				vpc_next = vpc->next;
 
@@ -138,7 +138,7 @@ void do_force(Character *ch, String argument)
 
 			return;
 		}
-		else if (!str_cmp(arg, "players")) {
+		else if (arg == "players") {
 			for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
 				vpc_next = vpc;
 
@@ -154,7 +154,7 @@ void do_force(Character *ch, String argument)
 
 			return;
 		}
-		else if (!str_cmp(arg, "gods")) {
+		else if (arg == "gods") {
 			for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
 				vpc_next = vpc;
 
@@ -426,7 +426,7 @@ void do_log(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		fLogAll = !fLogAll;
 		ptc(ch, "Log ALL %s.\n", fLogAll ? "on" : "off");
 		return;
@@ -515,7 +515,7 @@ void do_pardon(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "killer")) {
+	if (arg2 == "killer") {
 		if (IS_SET(victim->act_flags, PLR_KILLER)) {
 			REMOVE_BIT(victim->act_flags, PLR_KILLER);
 			stc("Their killer flag has been removed.\n", ch);
@@ -527,7 +527,7 @@ void do_pardon(Character *ch, String argument)
 
 		ch->pcdata->flag_killer = 0;
 	}
-	else if (!str_cmp(arg2, "thief")) {
+	else if (arg2 == "thief") {
 		if (IS_SET(victim->act_flags, PLR_THIEF)) {
 			REMOVE_BIT(victim->act_flags, PLR_THIEF);
 			stc("Their thief flag has been removed.\n", ch);
@@ -726,7 +726,7 @@ void do_tail(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!str_cmp(arg, "stop")) {
+	if (arg == "stop") {
 		if (!set_tail(ch, NULL, TAIL_NONE))
 			stc("You weren't tailing anyone.\n", ch);
 
@@ -909,8 +909,8 @@ void do_ban(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "all"))         SET_BIT(flags, BAN_ALL);
-	else if (!str_cmp(arg2, "newbies"))     SET_BIT(flags, BAN_NEWBIES);
+	if (arg2 == "all")         SET_BIT(flags, BAN_ALL);
+	else if (arg2 == "newbies")     SET_BIT(flags, BAN_NEWBIES);
 	else {
 		stc("Type must be ALL or NEWBIES.\n", ch);
 		return;
@@ -991,7 +991,7 @@ void do_permit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "player")) {
+	if (arg == "player") {
 		Character *plr;
 
 		if ((plr = get_player_world(ch, arg, VIS_PLR)) == NULL) {

@@ -293,7 +293,7 @@ void do_slookup(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		for (sn = 0; skill_table[sn].name != NULL; sn++)
 			ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n",
 			    sn,

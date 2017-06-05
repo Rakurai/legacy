@@ -64,7 +64,7 @@ void load_war_events()
 
 		if ((fp = fopen(strsave, "r")) != NULL) {
 			for (; ;) {
-				if (!str_cmp(fread_word(fp), "END"))
+				if (fread_word(fp) == "END")
 					break;
 
 				n_event         = new_event();
@@ -140,7 +140,7 @@ void load_war_table()
 
 	if ((fp = fopen(WAR_DIR WAR_FILE, "r")) != NULL) {
 		for (; ;) {
-			if (!str_cmp(fread_word(fp), "END"))
+			if (fread_word(fp) == "END")
 				break;
 
 			war = new_war();
@@ -251,7 +251,7 @@ bool clan_in_war(Clan *clan, War *war, bool onlycurrent)
 	int i;
 
 	for (i = 0; i < 4; i++) {
-		if (!str_cmp(clan->name, war->chal[i]->name)) {
+		if (clan->name == war->chal[i]->name) {
 			if (onlycurrent) {
 				if (war->chal[i]->inwar)
 					return TRUE;
@@ -260,7 +260,7 @@ bool clan_in_war(Clan *clan, War *war, bool onlycurrent)
 				return TRUE;
 		}
 
-		if (!str_cmp(clan->name, war->def[i]->name)) {
+		if (clan->name == war->def[i]->name) {
 			if (onlycurrent) {
 				if (war->def[i]->inwar)
 					return TRUE;
@@ -294,9 +294,9 @@ bool clan_is_challenger(Clan *clan, War *war)
 	int i;
 
 	for (i = 0; i < 4; i++) {
-		if (!str_cmp(clan->name, war->chal[i]->name) && war->chal[i]->inwar)
+		if (clan->name == war->chal[i]->name && war->chal[i]->inwar)
 			return TRUE;
-		else if (!str_cmp(clan->name, war->def[i]->name) && war->def[i]->inwar)
+		else if (clan->name == war->def[i]->name && war->def[i]->inwar)
 			return FALSE;
 	}
 
@@ -434,12 +434,12 @@ void defeat_clan(War *war, Character *ch, Character *victim)
 	int i;
 
 	for (i = 0; i < 4; i++) {
-		if (!str_cmp(victim->clan->name, war->chal[i]->name)) {
+		if (victim->clan->name == war->chal[i]->name) {
 			war->chal[i]->inwar = FALSE;
 			war->chal[i]->final_score = 0;
 		}
 
-		if (!str_cmp(victim->clan->name, war->def[i]->name)) {
+		if (victim->clan->name == war->def[i]->name) {
 			war->def[i]->inwar = FALSE;
 			war->def[i]->final_score = 0;
 		}
@@ -492,13 +492,13 @@ void war_power_adjust(Clan *vclan, bool surrender)
 			if (event->type != EVENT_ADJUST_SCORE)
 				continue;
 
-			if (!str_cmp(event->astr, vclan->clanname)) {
+			if (event->astr == vclan->clanname) {
 				/* adjusted in victim's favor */
 				dealt += event->number;
 				continue;
 			}
 
-			if (str_cmp(event->bstr, vclan->clanname))
+			if (event->bstr != vclan->clanname)
 				continue;
 
 			found = FALSE;
@@ -508,13 +508,13 @@ void war_power_adjust(Clan *vclan, bool surrender)
 				if (!clan_in_war(tclan, war, TRUE))
 					continue;
 
-				if (!str_cmp(event->astr, tclan->clanname)) {
+				if (event->astr == tclan->clanname) {
 					/* found em */
 					i = 0;
 
 					/* see if they're on our list already */
 					while (i < listcount) {
-						if (!str_cmp(conqlist[i].clanname, tclan->clanname)) {
+						if (conqlist[i].clanname == tclan->clanname) {
 							conqlist[i].scored += event->number;
 							found = TRUE;
 							break;
@@ -610,7 +610,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 				for (tclan = clan_table_head->next;
 				     tclan != clan_table_tail;
 				     tclan = tclan->next)
-					if (!str_cmp(conqlist[x].clanname, tclan->clanname))
+					if (conqlist[x].clanname == tclan->clanname)
 						break;
 
 				for (war = war_table_head->next; war != war_table_tail; war = war->next) {
@@ -814,7 +814,7 @@ void war_unjoin(Clan *clan, War *war, bool remove)
 	int i;
 
 	for (i = 0; i < 4; i++) {
-		if (!str_cmp(war->chal[i]->name, clan->name)) {
+		if (war->chal[i]->name == clan->name) {
 			if (remove) {
 				war->chal[i]->name.erase();
 				war->chal[i]->clanname.erase();
@@ -827,7 +827,7 @@ void war_unjoin(Clan *clan, War *war, bool remove)
 			break;
 		}
 
-		if (!str_cmp(war->def[i]->name, clan->name)) {
+		if (war->def[i]->name == clan->name) {
 			if (remove) {
 				war->def[i]->name.erase();
 				war->def[i]->clanname.erase();
@@ -1129,7 +1129,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** DECLARE ***/
-	if (!str_cmp(arg1, "declare") && IS_IMMORTAL(ch)) {
+	if (arg1 == "declare" && IS_IMMORTAL(ch)) {
 		if (arg2.empty() || arg3.empty()) {
 			stc("Syntax: war declare <challenger> <defender>\n", ch);
 			return;
@@ -1225,7 +1225,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** JOIN ***/
-	if (!str_cmp(arg1, "join") && IS_IMMORTAL(ch)) {
+	if (arg1 == "join" && IS_IMMORTAL(ch)) {
 		if (arg2.empty() || arg3.empty() || argument.empty()) {
 			stc("Syntax: war join <clan> <war number> <challenger|defender>\n", ch);
 			return;
@@ -1290,7 +1290,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** UNJOIN ***/
-	if (!str_cmp(arg1, "unjoin") && IS_IMMORTAL(ch)) {
+	if (arg1 == "unjoin" && IS_IMMORTAL(ch)) {
 		bool remove = FALSE;
 
 		if (arg2.empty() || arg3.empty() || argument.empty()) {
@@ -1374,7 +1374,7 @@ void do_war(Character *ch, String argument)
 	        } */
 
 	/*** STOP ***/
-	if (!str_cmp(arg1, "stop") && IS_IMMORTAL(ch)) {
+	if (arg1 == "stop" && IS_IMMORTAL(ch)) {
 		if (arg2.empty()) {
 			stc("Syntax: war stop <war number>\n", ch);
 			return;
@@ -1409,7 +1409,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** RELOAD ***/
-	if (!str_cmp(arg1, "reload") && IS_IMP(ch)) {
+	if (arg1 == "reload" && IS_IMP(ch)) {
 		War *war_next;
 		war = war_table_head;
 
@@ -1425,7 +1425,7 @@ void do_war(Character *ch, String argument)
 		return;
 	}
 
-	/*      if (!str_cmp(arg1, "kill") && IS_IMMORTAL(ch))
+	/*      if (arg1 == "kill" && IS_IMMORTAL(ch))
 	        {
 	                Character *winner, *loser;
 

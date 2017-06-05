@@ -151,33 +151,33 @@ void copyover_recover()
 #endif
 
 	/* starting recovery message, do NOT use standard color codes here, it's a wtd */
-	if (!str_cmp(logname, "Liriel"))
+	if (logname == "Liriel")
 		Format::sprintf(msg1, "\nYou blink, and all of a sudden, you are back where you were before,\n"
 		        "the world refreshed and born anew.\n");
-	else if (!str_cmp(logname, "Outsider"))
+	else if (logname == "Outsider")
 		Format::sprintf(msg1, "\nDispite all of the confusion, you feel no danger in the soft hug.\n");
-	else if (!str_cmp(logname, "Kenneth"))
+	else if (logname == "Kenneth")
 		Format::sprintf(msg1, "\nThe hand is cold, but seems to exert no pressure at all on your face.\n");
-	else if (!str_cmp(logname, "Montrey"))
+	else if (logname == "Montrey")
 		Format::sprintf(msg1, "\nThe world begins to take shape before your eyes.\n");
-	else if (!str_cmp(logname, "Xenith"))
+	else if (logname == "Xenith")
 		Format::sprintf(msg1, "\nYour vision returns, as your body forms again.\n");
 	else
 		Format::sprintf(msg1, "\nRestoring from copyover...\n");
 
 	/* finished recovery message, it's a stc so colors are ok */
-	if (!str_cmp(logname, "Xenith"))
+	if (logname == "Xenith")
 		Format::sprintf(msg2, "\nThe world begins anew, better from the destruction.\n");
-	else if (!str_cmp(logname, "Outsider"))
+	else if (logname == "Outsider")
 		Format::sprintf(msg2, "\nThe angel steps back from you, revealing a cleaner, newer world. You\n"
 		        "rub your eyes and when you open them again, the angel is gone.\n");
-	else if (!str_cmp(logname, "Montrey"))
+	else if (logname == "Montrey")
 		Format::sprintf(msg2, "\nYou blink, and see the world complete once again.\n"
 		        "Yet, something seems somehow... different.\n");
-	else if (!str_cmp(logname, "Liriel"))
+	else if (logname == "Liriel")
 		Format::sprintf(msg2, "\nThe only trace of the faerie is a little blue glimmer that quickly winks\n"
 		        "and vanishes.\n");
-	else if (!str_cmp(logname, "Kenneth"))
+	else if (logname == "Kenneth")
 		Format::sprintf(msg2, "\nHalf a second later your sight is returned, the man is gone, and the\n"
 		        "world is changed.\n");
 	else
@@ -1517,7 +1517,7 @@ bool check_playing(Descriptor *d, const String& name)
 		    &&   dold->character != NULL
 		    &&   dold->connected != CON_GET_NAME
 		    &&   dold->connected != CON_GET_OLD_PASSWORD
-		    &&   !str_cmp(name, dold->original
+		    &&   name == (dold->original
 		                  ? dold->original->name : dold->character->name)) {
 			write_to_buffer(d, "That character is already playing.\n");
 			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?");
@@ -1799,29 +1799,29 @@ void do_copyover(Character *ch, String argument)
 	/*****/
 
 	/* yes, this is ugly, but i don't think it warrants a place in pcdata */
-	if (!str_cmp(ch->name, "Montrey")) {
+	if (ch->name == "Montrey") {
 		Format::sprintf(buf, "\nA beam of pure white light arcs down from the heavens, striking\n"
 		        "the earth just beyond the horizon.  The ground starts to shake,\n"
 		        "and a curtain of fiery destruction sweeps over the land, clearing\n"
 		        "away the old in preparation for the new.\n");
 	}
-	else if (!str_cmp(ch->name, "Outsider")) {
+	else if (ch->name == "Outsider") {
 		Format::sprintf(buf, "\nAn angel, clothed in white light, lands before you. He stands\n"
 		        "before you, blocking your view of the rest of the world. His wings\n"
 		        "wrap about you in a soft, feathery embrace. All around you hear screams\n"
 		        "and loud cracking sounds, as if the world is turning inside out.\n");
 	}
-	else if (!str_cmp(ch->name, "Xenith")) {
+	else if (ch->name == "Xenith") {
 		Format::sprintf(buf, "\nThe winds suddenly spring up, as the storm destroys the world.\n"
 		        "Your body becomes dust before the maelstrom.\n"
 		        "Your vision dissapates as the universe vanishes in a flash.\n");
 	}
-	else if (!str_cmp(ch->name, "Liriel")) {
+	else if (ch->name == "Liriel") {
 		Format::sprintf(buf, "\nA tiny faerie shimmers into existence in front of you, it's magics quickly\n"
 		        "wrapping around you to form a protective barrier ... You watch in awe as the\n"
 		        "world around you blurs and distorts, reality as you know it washing away.\n");
 	}
-	else if (!str_cmp(ch->name, "Kenneth")) {
+	else if (ch->name == "Kenneth") {
 		Format::sprintf(buf, "\nA casual tap on the shoulder causes you to spin around.  Directly in front\n"
 		        "of you is a plain, unassuming man who gently covers your eyes.\n");
 	}

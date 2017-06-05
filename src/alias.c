@@ -123,7 +123,7 @@ void do_alias(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1("una", arg) || !str_cmp("alias", arg)) {
+	if (!str_prefix1("una", arg) || arg == "alias") {
 		stc("Sorry, that word is reserved.\n", ch);
 		return;
 	}

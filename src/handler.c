@@ -1817,7 +1817,7 @@ String get_owner(Character *ch, Object *obj)
 		for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 			ed_next = ed->next;
 
-			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
+			if (ed->keyword == KEYWD_OWNER) {
 				if (can_see_obj(ch, obj))
 					return ed->description;
 				else

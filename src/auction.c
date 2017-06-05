@@ -136,12 +136,12 @@ void do_auction(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_cmp(arg1, "who")) {
+	if (arg1 == "who") {
 		channel_who(ch, "Auction", COMM_NOAUCTION, CSLOT_CHAN_AUCTION);
 		return;
 	}
 
-	if (!str_cmp(arg1, "status")) {
+	if (arg1 == "status") {
 		if (auction.item == NULL) {
 			stc("No item is up for auction.\n", ch);
 			return;
@@ -175,7 +175,7 @@ void do_auction(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop")) {
+	if (IS_IMMORTAL(ch) && arg1 == "stop") {
 		if (auction.item == NULL) {
 			stc("There is no auction going on you can stop.\n", ch);
 			return;
@@ -197,7 +197,7 @@ void do_auction(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "bet") || !str_cmp(arg1, "bid")) {
+	if (arg1 == "bet" || arg1 == "bid") {
 		int newbet;
 
 		if (auction.item == NULL) {

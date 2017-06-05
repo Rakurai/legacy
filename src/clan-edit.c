@@ -252,12 +252,12 @@ void do_cedit(Character *ch, String argument)
 
 	cdata = clan_lookup(clanname);
 
-	if (str_cmp(cmd, "new") && (cdata == NULL)) {
+	if (cmd != "new" && (cdata == NULL)) {
 		stc("No such clan exists.\n", ch);
 		return;
 	}
 
-	if (!str_cmp(cmd, "delete")) {
+	if (cmd == "delete") {
 		if (cdata == NULL)
 			stc("You need to specify a clanname.\n", ch);
 		else {
@@ -269,7 +269,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "new")) {
+	if (cmd == "new") {
 		Clan *new_clan = new Clan;
 
 		if (new_clan == NULL) {
@@ -301,7 +301,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "show")) {
+	if (cmd == "show") {
 		ptc(ch,     "{HClan: %s\n"
 		    "{G[whoname]{c    The name that shows in the who-list:\n"
 		    "{Y             %s\n"
@@ -340,7 +340,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "whoname")) {
+	if (cmd == "whoname") {
 		cdata->who_name = argument;
 
 		if (!argument[0])
@@ -352,7 +352,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "hall")) {
+	if (cmd == "hall") {
 		if (!argument[0] || !is_number(argument)) {
 			stc("Clanrecall set to normal recall.\n", ch);
 			cdata->hall = 3001;
@@ -370,7 +370,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "areamin")) {
+	if (cmd == "areamin") {
 		int vnum = -1;
 
 		if (!argument[0] || !is_number(argument)) {
@@ -393,7 +393,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "areamax")) {
+	if (cmd == "areamax") {
 		int vnum = -1;
 
 		if (!argument[0] || !is_number(argument)) {
@@ -416,7 +416,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "independent")) {
+	if (cmd == "independent") {
 		int independent = 0;
 
 		if (!IS_IMP(ch)) {
@@ -448,7 +448,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "clanqp")) {
+	if (cmd == "clanqp") {
 		int clanqp = -1;
 
 		if (!argument[0] || !is_number(argument)) {
@@ -469,7 +469,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "clangold")) {
+	if (cmd == "clangold") {
 		int gold_balance = -1;
 
 		if (!argument[0] || !is_number(argument)) {
@@ -490,7 +490,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "clanname")) {
+	if (cmd == "clanname") {
 		cdata->clanname = argument;
 
 		if (!argument[0])
@@ -502,7 +502,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "creator")) {
+	if (cmd == "creator") {
 		cdata->creator = argument;
 
 		if (!argument[0])
@@ -514,7 +514,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "score")) {
+	if (cmd == "score") {
 		int score = 0;
 
 		if (!argument[0] || !is_number(argument)) {
@@ -535,7 +535,7 @@ void do_cedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(cmd, "warcpmod")) {
+	if (cmd == "warcpmod") {
 		int mod = 0;
 
 		if (!argument[0] || !is_number(argument)) {

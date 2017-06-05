@@ -224,7 +224,7 @@ void do_play(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "list")) {
+	if (arg == "list") {
 		String buffer;
 		char buf[MAX_STRING_LENGTH];
 		int col = 0;
@@ -232,7 +232,7 @@ void do_play(Character *ch, String argument)
 		argument = str;
 		argument = one_argument(argument, arg);
 
-		if (!str_cmp(arg, "artist"))
+		if (arg == "artist")
 			artist = TRUE;
 
 		if (!argument.empty())
@@ -268,12 +268,12 @@ void do_play(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "loud") && IS_IMMORTAL(ch)) {
+	if (arg == "loud" && IS_IMMORTAL(ch)) {
 		argument = str;
 		global = TRUE;
 	}
 
-	if (!str_cmp(arg, "stop")) {
+	if (arg == "stop") {
 		if (juke) { /* stop the jukebox in their inventory first */
 			if (!juke->carried_by) {
 				if (!IS_IMMORTAL(ch)) {

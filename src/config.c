@@ -125,7 +125,7 @@ void config_color_func(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_cmp(arg2, "reset")) {
+	if (arg2 == "reset") {
 		ch->pcdata->color[slot] = 0;
 		ch->pcdata->bold [slot] = 0;
 		stc("Your setting has been restored to the default color.\n", ch);
@@ -169,7 +169,7 @@ void config_color(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
+	if (!str_prefix1(arg1, "help") || arg1 == "?") {
 		stc("Config color allows you to specify the what color options you\n"
 		    "prefer.  You can toggle color and crazy color on and off, or\n"
 		    "add a personal touch to the colors of channels, score items,\n"
@@ -189,7 +189,7 @@ void config_color(Character *ch, String argument)
 	default:        break;
 
 	case 1: /* color */
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("This toggles color on or off.\n", ch);
 		else if (argument.empty()) {
 			if (IS_SET(ch->act_flags, PLR_COLOR)) {
@@ -214,7 +214,7 @@ void config_color(Character *ch, String argument)
 		return;
 
 	case 2: /* crazy */
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("This toggles crazy color on or off.  Crazy color is a feature\n"
 			    "that allows people to use color codes (found in 'ctest').\n"
 			    "Toggling this option determines if the affected test looks\n"
@@ -284,7 +284,7 @@ void config_video(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
+	if (!str_prefix1(arg1, "help") || arg1 == "?") {
 		stc("With config video, you can set your video options, determining\n"
 		    "how flashing text, colors, and other display features are shown\n"
 		    "to you.  Use without an argument for a list of options.\n", ch);
@@ -301,7 +301,7 @@ void config_video(Character *ch, String argument)
 	default:        break;
 
 	case 1: /* FLASH */
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("Video flash controls how flashing text will appear on your\n"
 			    "screen.  Without an argument, video flash toggles on or off,\n"
 			    "but you can use 'video flash underline' to make flashing text\n"
@@ -338,7 +338,7 @@ void config_video(Character *ch, String argument)
 		return;
 
 	case 2:
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("Video dark toggles whether or not charcoal and black text are\n"
 			    "converted to grey.", ch);
 		/* backwards compatible with old video command */
@@ -358,7 +358,7 @@ void config_video(Character *ch, String argument)
 		return;
 
 	case 3:
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("Video codes toggles whether color codes ({{) are shown ({CON{x)\n"
 			    "or converted into colors ({POFF{x).\n", ch);
 		/* backwards compatible with old video command */
@@ -378,7 +378,7 @@ void config_video(Character *ch, String argument)
 		return;
 
 	case 4:
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("Video VT100 emulation mode looks terrible if you do not have\n"
 			    "a VT100, so only use it if you must.\n", ch);
 		else if (argument.empty()) {
@@ -417,7 +417,7 @@ void config_censor(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
+	if (!str_prefix1(arg1, "help") || arg1 == "?") {
 		stc("Censor allows players to specify their censorship settings, to\n"
 		    "determine what text the mud will not show them.  Use without an\n"
 		    "argument to see a lit of options.\n", ch);
@@ -432,7 +432,7 @@ void config_censor(Character *ch, String argument)
 	default:        break;
 
 	case 1: /* CHANNELS */
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("Censor channels filters channel communications that have a word\n"
 			    "in them that appears on the censor list.  Note that gossip,\n"
 			    "socials, emotes, tells, says, heeds, and notes are NOT censored\n"
@@ -476,7 +476,7 @@ void config_censor(Character *ch, String argument)
 		return;
 
 	case 2: /* SPAM */
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+		if (!str_prefix1(argument, "help") || argument == "?")
 			stc("The spam censor toggles whether or not you will see notes\n"
 			    "addressed to 'spam'.  Swearing censors still apply to spam\n"
 			    "notes, no vulgarities, racial, sexual, or ethnic slurs are\n"
@@ -517,7 +517,7 @@ void config_immortal(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
+	if (!str_prefix1(arg1, "help") || arg1 == "?") {
 		stc("Various configuration options are available only to the Legacy\n"
 		    "staff.  Use without an argument to see a lit of options.\n", ch);
 		return;
@@ -531,13 +531,13 @@ void config_immortal(Character *ch, String argument)
 	default:        break;
 
 	case 1: /* Immprefix */
-		if (!str_cmp(argument, "help") || !str_cmp(argument, "?"))
+		if (argument == "help" || argument == "?")
 			stc("Your immprefix is what appears at the beginning of each immtalk\n"
 				"line.  It must include your name.  Use 'none' for the default.\n", ch);
 		else if (argument.empty())
 			ptc(ch, "Your immtalk prefix is currently: %s{x\n",
 				ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
-		else if (!str_cmp(argument, "none")) {
+		else if (argument == "none") {
 			ch->pcdata->immprefix.erase();
 			stc("Your immtalk prefix has been removed.\n", ch);
 		}
@@ -558,13 +558,13 @@ void config_immortal(Character *ch, String argument)
 		return;
 
 	case 2: /* Immname */
-		if (!str_cmp(argument, "help") || !str_cmp(argument, "?"))
+		if (argument == "help" || argument == "?")
 			stc("Your immname is what appears in the WHO list in place of a player's\n"
 				"race, class, and level.  Use 'none' for the default.\n", ch);
 		else if (argument.empty())
 			ptc(ch, "Your immname is currently: %s{x\n",
 				ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
-		else if (!str_cmp(argument, "none")) {
+		else if (argument == "none") {
 			ch->pcdata->immname.erase();
 			stc("Your immname has been removed.\n", ch);
 		}
@@ -597,7 +597,7 @@ void config_wiznet(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
+	if (!str_prefix1(arg1, "help") || arg1 == "?") {
 		stc("This allows you to specify your wiznet options.  Turning options\n"
 		    "on means that wiznet will report the specified field to you.\n"
 		    "Use without an argument to see a list of wiznet flags.\n", ch);
@@ -605,12 +605,12 @@ void config_wiznet(Character *ch, String argument)
 	}
 
 	/* hack so you can type config wiznet on or off */
-	if (!str_cmp(arg1, "on")) {
+	if (arg1 == "on") {
 		stc("Welcome to Wiznet!\n", ch);
 		SET_BIT(ch->wiznet, WIZ_ON);
 		return;
 	}
-	else if (!str_cmp(arg1, "off")) {
+	else if (arg1 == "off") {
 		stc("You have now signed off Wiznet.\n", ch);
 		REMOVE_BIT(ch->wiznet, WIZ_ON);
 		return;
@@ -664,7 +664,7 @@ void config_wiznet(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
+	if (!str_prefix1(argument, "help") || argument == "?")
 		ptc(ch, "%s\n", wiznet_table[argnum].desc);
 	else if (argument.empty()) {
 		if (argnum == 0) {      /* Wiznet ON */

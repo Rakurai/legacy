@@ -384,7 +384,7 @@ void do_peek(Character *ch, String argument)
 	}
 
 	if (!arg2.empty() && get_evolution(ch, gsn_peek) > 1) {
-		if (!str_cmp(arg2, "lore")) {
+		if (arg2 == "lore") {
 			Object *obj;
 
 			if (!get_skill(ch, gsn_lore)) {
@@ -415,7 +415,7 @@ void do_peek(Character *ch, String argument)
 
 			return;
 		}
-		else if (!str_cmp(arg2, "all") && get_evolution(ch, gsn_peek) > 2)
+		else if (arg2 == "all" && get_evolution(ch, gsn_peek) > 2)
 			all = TRUE;
 	}
 
@@ -1638,7 +1638,7 @@ void do_look(Character *ch, String argument)
 	number = number_argument(arg1, arg3);
 	count = 0;
 
-	if (arg1.empty() || !str_cmp(arg1, "auto")) {
+	if (arg1.empty() || arg1 == "auto") {
 		if (ch->in_room == NULL)
 			return;
 
@@ -1717,7 +1717,7 @@ void do_look(Character *ch, String argument)
 		}
 	}
 
-	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1, "on")) {
+	if (arg1 == "i" || arg1 == "in" || arg1 == "on") {
 		RoomPrototype *location;
 
 		/* 'look in' */
@@ -1963,12 +1963,12 @@ void do_look(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "n") || !str_cmp(arg1, "north")) door = 0;
-	else if (!str_cmp(arg1, "e") || !str_cmp(arg1, "east")) door = 1;
-	else if (!str_cmp(arg1, "s") || !str_cmp(arg1, "south")) door = 2;
-	else if (!str_cmp(arg1, "w") || !str_cmp(arg1, "west")) door = 3;
-	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up")) door = 4;
-	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
+	if (arg1 == "n" || arg1 == "north") door = 0;
+	else if (arg1 == "e" || arg1 == "east") door = 1;
+	else if (arg1 == "s" || arg1 == "south") door = 2;
+	else if (arg1 == "w" || arg1 == "west") door = 3;
+	else if (arg1 == "u" || arg1 == "up") door = 4;
+	else if (arg1 == "d" || arg1 == "down") door = 5;
 	else {
 		stc("You do not see that here.\n", ch);
 		return;
@@ -2157,12 +2157,12 @@ void do_exits(Character *ch, String argument)
 	if (!check_blind(ch))
 		return;
 
-	if (!str_cmp(argument, "in") && IS_IMMORTAL(ch)) {
+	if (argument == "in" && IS_IMMORTAL(ch)) {
 		exits_in(ch);
 		return;
 	}
 
-	fAuto  = !str_cmp(argument, "auto");
+	fAuto  = argument == "auto";
 
 	if (fAuto)
 		Format::sprintf(buf, "[Exits:");
@@ -2523,7 +2523,7 @@ void do_who(Character *ch, String argument)
 				fImmortalOnly = TRUE;
 			else if (!str_prefix1(arg, "pk"))
 				fPK = TRUE;
-			else if (!str_cmp(arg, "clan"))
+			else if (arg == "clan")
 				fClanRestrict = TRUE;
 			else {
 				iClass = class_lookup(arg);
@@ -2834,7 +2834,7 @@ void do_inventory(Character *ch, String argument)
 		String arg1;
 		argument = one_argument(argument, arg1);
 
-		if (!str_cmp(arg1, "char") && IS_IMMORTAL(ch)) {
+		if (arg1 == "char" && IS_IMMORTAL(ch)) {
 			victim = get_char_world(ch, argument, VIS_PLR);
 
 			if (victim == NULL) {
@@ -2845,7 +2845,7 @@ void do_inventory(Character *ch, String argument)
 			new_color(ch, CSLOT_MISC_INV);
 			act("$N is carrying:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 		}
-		else if (!str_cmp(arg1, "all")) {
+		else if (arg1 == "all") {
 			victim = ch;
 			new_color(ch, CSLOT_MISC_INV);
 			stc("You are carrying:\n", ch);
@@ -3319,7 +3319,7 @@ void do_title(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(argument, "none")) {
+	if (argument == "none") {
 		set_title(ch, "");
 		stc("Title removed.\n", ch);
 		return;
@@ -3431,7 +3431,7 @@ void do_fingerinfo(Character *ch, String argument)
 	if (!argument.empty()) {
 		buf[0] = '\0';
 
-		if (!str_cmp(argument, "clear")) {
+		if (argument == "clear") {
 			ch->pcdata->fingerinfo.erase();
 			stc("Fingerinfo cleared.\n", ch);
 			return;
@@ -3943,7 +3943,7 @@ void do_invite(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_cmp(arg1, "terminate")) {
+	if (arg1 == "terminate") {
 		if (argument.empty()) {
 			if ((ch->inviters != NULL)) {
 				stc("You have terminated your invitation.\n", ch);

@@ -456,15 +456,15 @@ void boot_db()
 				String word = fread_word(fpArea);
 
 				if (word[0] == '$')  break;
-				else if (!str_cmp(word, "AREA"))  load_area(fpArea);
-				else if (!str_cmp(word, "MOBILES"))  load_mobiles(fpArea);
-				else if (!str_cmp(word, "OBJECTS"))  load_objects(fpArea);
-				else if (!str_cmp(word, "RESETS"))  load_resets(fpArea);
-				else if (!str_cmp(word, "ROOMS"))  load_rooms(fpArea);
-				else if (!str_cmp(word, "SHOPS"))  load_shops(fpArea);
-				else if (!str_cmp(word, "SPECIALS"))  load_specials(fpArea);
-//				else if (!str_cmp(word, "TOURSTARTS"))  load_tourstarts(fpArea);
-//				else if (!str_cmp(word, "TOURROUTES"))  load_tourroutes(fpArea);
+				else if (word == "AREA")  load_area(fpArea);
+				else if (word == "MOBILES")  load_mobiles(fpArea);
+				else if (word == "OBJECTS")  load_objects(fpArea);
+				else if (word == "RESETS")  load_resets(fpArea);
+				else if (word == "ROOMS")  load_rooms(fpArea);
+				else if (word == "SHOPS")  load_shops(fpArea);
+				else if (word == "SPECIALS")  load_specials(fpArea);
+//				else if (word == "TOURSTARTS")  load_tourstarts(fpArea);
+//				else if (word == "TOURROUTES")  load_tourroutes(fpArea);
 				else {
 					bug("Boot_db: bad section name.", 0);
 					exit(1);
@@ -1663,35 +1663,35 @@ void log_string(const String& str)
 
 int mprog_name_to_type(const String& name)
 {
-	if (!str_cmp(name, "in_file_prog"))    return IN_FILE_PROG;
+	if (name == "in_file_prog")    return IN_FILE_PROG;
 
-	if (!str_cmp(name, "act_prog"))    return ACT_PROG;
+	if (name == "act_prog")    return ACT_PROG;
 
-	if (!str_cmp(name, "speech_prog"))    return SPEECH_PROG;
+	if (name == "speech_prog")    return SPEECH_PROG;
 
-	if (!str_cmp(name, "rand_prog"))    return RAND_PROG;
+	if (name == "rand_prog")    return RAND_PROG;
 
-	if (!str_cmp(name, "boot_prog"))    return BOOT_PROG;
+	if (name == "boot_prog")    return BOOT_PROG;
 
-	if (!str_cmp(name, "fight_prog"))    return FIGHT_PROG;
+	if (name == "fight_prog")    return FIGHT_PROG;
 
-	if (!str_cmp(name, "buy_prog"))    return BUY_PROG;
+	if (name == "buy_prog")    return BUY_PROG;
 
-	if (!str_cmp(name, "hitprcnt_prog"))    return HITPRCNT_PROG;
+	if (name == "hitprcnt_prog")    return HITPRCNT_PROG;
 
-	if (!str_cmp(name, "death_prog"))    return DEATH_PROG;
+	if (name == "death_prog")    return DEATH_PROG;
 
-	if (!str_cmp(name, "entry_prog"))    return ENTRY_PROG;
+	if (name == "entry_prog")    return ENTRY_PROG;
 
-	if (!str_cmp(name, "greet_prog"))    return GREET_PROG;
+	if (name == "greet_prog")    return GREET_PROG;
 
-	if (!str_cmp(name, "all_greet_prog"))    return ALL_GREET_PROG;
+	if (name == "all_greet_prog")    return ALL_GREET_PROG;
 
-	if (!str_cmp(name, "give_prog"))    return GIVE_PROG;
+	if (name == "give_prog")    return GIVE_PROG;
 
-	if (!str_cmp(name, "bribe_prog"))    return BRIBE_PROG;
+	if (name == "bribe_prog")    return BRIBE_PROG;
 
-	if (!str_cmp(name, "tick_prog"))    return TICK_PROG;
+	if (name == "tick_prog")    return TICK_PROG;
 
 	return (ERROR_PROG);
 }

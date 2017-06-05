@@ -34,7 +34,7 @@ Character *get_mob_here(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	if (!str_cmp(arg, "self"))
+	if (arg == "self")
 		return ch;
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
@@ -178,7 +178,7 @@ Character *get_char_here(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	if (!str_cmp(arg, "self"))
+	if (arg == "self")
 		return ch;
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
@@ -229,7 +229,7 @@ Character *get_char_room(Character *ch, RoomPrototype *room, const String& argum
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	if (!str_cmp(arg, "self"))
+	if (arg == "self")
 		return ch;
 
 	for (rch = room->people; rch != NULL; rch = rch->next_in_room) {
@@ -357,7 +357,7 @@ Character *get_player_here(Character *ch, const String& argument, int vis)
 {
 	Character *rch;
 
-	if (!str_cmp(argument, "self"))
+	if (argument == "self")
 		return ch;
 
 	if (ch->in_room == NULL)
@@ -387,7 +387,7 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 	Character *ach;
 	Player *apc;
 
-	if (!str_cmp(argument, "self"))
+	if (argument == "self")
 		return ch;
 
 	if (ch->in_room == NULL)
@@ -429,7 +429,7 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 	Character *wch;
 	Player *wpc;
 
-	if (!str_cmp(argument, "self"))
+	if (argument == "self")
 		return ch;
 
 	if (argument.empty())

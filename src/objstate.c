@@ -185,7 +185,7 @@ Object *fload_objstate(FILE *fp, int *count)
 	if (feof(fp))
 		return NULL;
 
-	if (str_cmp(fread_word(fp), "OBJ"))
+	if (fread_word(fp) != "OBJ")
 		return NULL;
 
 	ovnum = fread_number(fp);

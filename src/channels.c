@@ -594,7 +594,7 @@ void channel(Character *ch, const String& argument, int channel)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "who") && argument[3] == '\0') {
+	if (arg == "who" && argument[3] == '\0') {
 		channel_who(ch, chan_table[channel].name, chan_table[channel].bit, cslot);
 		return;
 	}
@@ -1229,7 +1229,7 @@ void do_reply(Character *ch, String argument)
 	}
 
 	/* Lock replies to someone, idea by Scattercat */
-	if (!str_cmp(argument, "lock") && !IS_NPC(ch)) {
+	if (argument == "lock" && !IS_NPC(ch)) {
 		ch->replylock = !ch->replylock;
 
 		if (!ch->replylock)
@@ -1741,7 +1741,7 @@ void do_query(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg2);
 
-	if (str_cmp(arg, "+") && str_cmp(arg, "-")
+	if (arg != "+" && arg != "-"
 	    && str_prefix1(arg, "list") && str_prefix1(arg, "clear")) {
 		stc("Syntax:\n", ch);
 		stc("{RQuery list{x       : Lists names in your query.\n", ch);

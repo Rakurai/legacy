@@ -313,32 +313,32 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 		ungetc(letter, fp);
 		pnote           = new_note();
 
-		if (str_cmp(fread_word(fp), "sender"))
+		if (fread_word(fp) != "sender")
 			break;
 
 		pnote->sender   = fread_string(fp);
 
-		if (str_cmp(fread_word(fp), "date"))
+		if (fread_word(fp) != "date")
 			break;
 
 		pnote->date     = fread_string(fp);
 
-		if (str_cmp(fread_word(fp), "stamp"))
+		if (fread_word(fp) != "stamp")
 			break;
 
 		pnote->date_stamp = fread_number(fp);
 
-		if (str_cmp(fread_word(fp), "to"))
+		if (fread_word(fp) != "to")
 			break;
 
 		pnote->to_list  = fread_string(fp);
 
-		if (str_cmp(fread_word(fp), "subject"))
+		if (fread_word(fp) != "subject")
 			break;
 
 		pnote->subject  = fread_string(fp);
 
-		if (str_cmp(fread_word(fp), "text"))
+		if (fread_word(fp) != "text")
 			break;
 
 		pnote->text     = fread_string(fp);
@@ -429,12 +429,12 @@ void append_note(Note *pnote)
 	if ((fp = fopen(name, "a")) == NULL)
 		perror(name);
 	else {
-		Format::fprintf(fp, "Sender  %s~\n", smash_tilde(pnote->sender));
+		Format::fprintf(fp, "Sender  %s~\n", pnote->sender.replace("~", "-"));
 		Format::fprintf(fp, "Date    %s~\n", pnote->date);
 		Format::fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-		Format::fprintf(fp, "To      %s~\n", smash_tilde(pnote->to_list));
-		Format::fprintf(fp, "Subject %s~\n", smash_tilde(pnote->subject));
-		Format::fprintf(fp, "Text\n%s~\n", smash_tilde(pnote->text));
+		Format::fprintf(fp, "To      %s~\n", pnote->to_list.replace("~", "-"));
+		Format::fprintf(fp, "Subject %s~\n", pnote->subject.replace("~", "-"));
+		Format::fprintf(fp, "Text\n%s~\n", pnote->text.replace("~", "-"));
 		fclose(fp);
 		/* Mud has crashed on above line before */
 	}
@@ -453,11 +453,11 @@ bool is_note_to(Character *ch, Note *pnote)
 	if (is_name("followers", pnote->to_list)) {
 		int i = parse_deity(ch->pcdata->deity);
 
-		if (i >= 0 && !str_cmp(pnote->sender, deity_table[i].name))
+		if (i >= 0 && pnote->sender == deity_table[i].name)
 			return TRUE;
 	}
 
-	if (!str_cmp(ch->name, pnote->sender))
+	if (ch->name == pnote->sender)
 		return TRUE;
 
 	if (is_name("spam", pnote->to_list)) {
@@ -531,14 +531,14 @@ void note_remove(Character *ch, Note *pnote, bool del)
 			String to_one;
 			to_list = one_argument(to_list, to_one);
 
-			if (!to_one.empty() && str_cmp(ch->name, to_one)) {
+			if (!to_one.empty() && ch->name != to_one) {
 				to_new += " ";
 				to_new += to_one;
 			}
 		}
 
 		/* Just a simple recipient removal? */
-		if (str_cmp(ch->name, pnote->sender) && !to_new.empty()) {
+		if (ch->name != pnote->sender && !to_new.empty()) {
 			pnote->to_list = to_new.substr(1);
 			return;
 		}
@@ -647,7 +647,7 @@ bool hide_note(Character *ch, Note *pnote)
 	if (pnote->date_stamp <= last_read)
 		return TRUE;
 
-	if (!str_cmp(ch->name, pnote->sender))
+	if (ch->name == pnote->sender)
 		return TRUE;
 
 	if (!is_note_to(ch, pnote))
@@ -784,7 +784,7 @@ void parse_note(Character *ch, String argument, int type)
 		}
 		else if (is_number(argument))
 			anum = atoi(argument);
-		else if (!str_cmp(argument, "all"))
+		else if (argument == "all")
 			fAll = TRUE;
 		else {
 			stc("Read which number?\n", ch);
@@ -821,9 +821,9 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (!str_cmp(argument, "new"))
+		if (argument == "new")
 			nw = TRUE;
-		else if (!str_cmp(argument, "all"))
+		else if (argument == "all")
 			all = TRUE;
 		else if (!argument.empty())
 			search = TRUE;
@@ -1140,7 +1140,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_cmp(arg, "+")) {
+	if (arg == "+") {
 		note_attach(ch, type);
 
 		if (ch->pnote->type != type) {
@@ -1166,7 +1166,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_cmp(arg, "replace")) {
+	if (arg == "replace") {
 		String old, nw;
 		argument = one_argument(argument, old);
 		argument = one_argument(argument, nw);
@@ -1189,7 +1189,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_cmp(arg, "format")) {
+	if (arg == "format") {
 		if (ch->pnote == NULL || ch->pnote->text == NULL) {
 			stc("You have no note in progress.\n", ch);
 			return;
@@ -1200,7 +1200,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_cmp(arg, "-")) {
+	if (arg == "-") {
 		note_attach(ch, type);
 
 		if (ch->pnote->type != type) {
@@ -1348,14 +1348,14 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (!str_cmp(ch->pnote->to_list, "")) {
+		if (ch->pnote->to_list == "") {
 			stc(
 			        "You need to provide a recipient (name, all, or immortal).\n",
 			        ch);
 			return;
 		}
 
-		if (!str_cmp(ch->pnote->subject, "")) {
+		if (ch->pnote->subject == "") {
 			stc("You need to provide a subject.\n", ch);
 			return;
 		}

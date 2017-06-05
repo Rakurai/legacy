@@ -3,24 +3,6 @@
 #include "memory.h"
 #include "Format.hpp"
 
-/* Removes the tildes from a string.
-   Used for player-entered strings that go into disk files. */
-const char *smash_tilde(const String& s)
-{
-	const char *str = s.c_str();
-	static char buf[MSL];
-	char *pbuf;
-
-	for (pbuf = buf; *str != '\0'; str++, pbuf++)
-		if (*str == '~')
-			*pbuf = '-';
-		else
-			*pbuf = *str;
-
-	*pbuf = '\0';
-	return buf;
-}
-
 /* Removes the brackets from a string.  Used to convert a color coded
    string to normal. */
 const char *smash_bracket(const String& s)
@@ -53,26 +35,6 @@ const char *smash_bracket(const String& s)
 
 	*q = '\0';
 	return retstr;
-}
-
-/*
- * Compare strings, case insensitive.
- * Return TRUE if different
- *   (compatibility with historical functions).
- */
-bool str_cmp(const String& a, const String& b)
-{
-	const char *astr = a.c_str(), *bstr = b.c_str();
-	if (!astr || !bstr) {
-		bugf("str_cmp: null %sstr", astr ? "b" : "a");
-		return TRUE;
-	}
-
-	for (; *astr || *bstr; astr++, bstr++)
-		if (LOWER(*astr) != LOWER(*bstr))
-			return TRUE;
-
-	return FALSE;
 }
 
 /*
@@ -142,7 +104,7 @@ bool str_suffix(const String& a, const String& b)
 	sstr1 = strlen(astr);
 	sstr2 = strlen(bstr);
 
-	if (sstr1 <= sstr2 && !str_cmp(astr, bstr + sstr2 - sstr1))
+	if (sstr1 <= sstr2 && astr == bstr + sstr2 - sstr1)
 		return FALSE;
 
 	return TRUE;
@@ -259,10 +221,10 @@ bool is_name(const String& s, const String& nl, bool exact)
 				return FALSE;
 
 			if (exact) {
-				if (!str_cmp(s, name))
+				if (s == name)
 					return TRUE;
 
-				if (!str_cmp(part, name))
+				if (part == name)
 					break;
 			}
 			else {

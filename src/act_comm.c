@@ -694,7 +694,7 @@ void do_pk(Character *ch, String argument)
 
 	if (IS_SET(ch->pcdata->plr, PLR_PK) && (argument.empty() || !IS_IMP(ch)))
 		stc("Your PK flag is already up!\n", ch);
-	else if (!str_cmp(argument, "on")) {
+	else if (argument == "on") {
 		stc("Everyone is going to be keeping an eye on you now =).\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_PK);
 		wiznet("$N is now in *PK* mode.", ch, NULL, WIZ_MISC, 0, 0);
@@ -1453,7 +1453,7 @@ void do_order(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 	one_argument(argument, arg2);
 
-	if (!str_cmp(arg2, "delete")
+	if (arg2 == "delete"
 	    || !str_prefix("mp", arg2)) {
 		stc("That will NOT be done.\n", ch);
 		return;
@@ -1469,7 +1469,7 @@ void do_order(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		fAll   = TRUE;
 		victim = NULL;
 	}
@@ -1495,25 +1495,25 @@ void do_order(Character *ch, String argument)
 		}
 
 		/* Stay/Follow code by Lotus */
-		if (!str_cmp(arg2, "stay") && IS_NPC(victim)) {
+		if (arg2 == "stay" && IS_NPC(victim)) {
 			stc("You order your pet to stay.\n", ch);
 			SET_BIT(victim->act_flags, ACT_STAY);
 			return;
 		}
 
-		if (!str_cmp(arg2, "follow") && IS_NPC(victim)) {
+		if (arg2 == "follow" && IS_NPC(victim)) {
 			stc("You order your pet to follow you.\n", ch);
 			REMOVE_BIT(victim->act_flags, ACT_STAY);
 			return;
 		}
 
-		if (!str_cmp(arg2, "wimpy") && IS_NPC(victim)) {
+		if (arg2 == "wimpy" && IS_NPC(victim)) {
 			stc("You order your pet to flee if injured.\n", ch);
 			SET_BIT(victim->act_flags, ACT_WIMPY);
 			return;
 		}
 
-		if (!str_cmp(arg2, "courage") && IS_NPC(victim)) {
+		if (arg2 == "courage" && IS_NPC(victim)) {
 			stc("You order your pet fight to the finish.\n", ch);
 			REMOVE_BIT(victim->act_flags, ACT_WIMPY);
 			return;

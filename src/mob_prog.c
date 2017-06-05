@@ -87,16 +87,16 @@ char *mprog_next_command(char *clist)
  */
 bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
 {
-	if (!str_cmp(opr, "=="))
-		return (bool)(!str_cmp(lhs, rhs));
+	if (!strcmp(opr, "=="))
+		return (bool)(!strcmp(lhs, rhs));
 
-	if (!str_cmp(opr, "!="))
-		return (bool)(str_cmp(lhs, rhs));
+	if (!strcmp(opr, "!="))
+		return (bool)(strcmp(lhs, rhs));
 
-	if (!str_cmp(opr, "/"))
+	if (!strcmp(opr, "/"))
 		return (bool)(!str_infix(rhs, lhs));
 
-	if (!str_cmp(opr, "!/"))
+	if (!strcmp(opr, "!/"))
 		return (bool)(str_infix(rhs, lhs));
 
 	bug("Improper MOBprog operator\n", 0);
@@ -105,28 +105,28 @@ bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
 
 bool mprog_veval(int lhs, const char *opr, int rhs)
 {
-	if (!str_cmp(opr, "=="))
+	if (!strcmp(opr, "=="))
 		return (lhs == rhs);
 
-	if (!str_cmp(opr, "!="))
+	if (!strcmp(opr, "!="))
 		return (lhs != rhs);
 
-	if (!str_cmp(opr, ">"))
+	if (!strcmp(opr, ">"))
 		return (lhs > rhs);
 
-	if (!str_cmp(opr, "<"))
+	if (!strcmp(opr, "<"))
 		return (lhs < rhs);
 
-	if (!str_cmp(opr, "<="))
+	if (!strcmp(opr, "<="))
 		return (lhs <= rhs);
 
-	if (!str_cmp(opr, ">="))
+	if (!strcmp(opr, ">="))
 		return (lhs >= rhs);
 
-	if (!str_cmp(opr, "&"))
+	if (!strcmp(opr, "&"))
 		return (lhs & rhs);
 
-	if (!str_cmp(opr, "|"))
+	if (!strcmp(opr, "|"))
 		return (lhs | rhs);
 
 	bug("Improper MOBprog operator\n", 0);
@@ -244,16 +244,16 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	 *  send the lhs,opr,rhs off to be evaluated.
 	 */
 
-	if (!str_cmp(buf, "rand"))
+	if (!strcmp(buf, "rand"))
 		return (number_percent() <= atoi(arg));
 
-	if (!str_cmp(buf, "mudtime")) {
+	if (!strcmp(buf, "mudtime")) {
 		lhsvl = time_info.hour;
 		rhsvl = atoi(val);
 		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
-	if (!str_cmp(buf, "ispc")) {
+	if (!strcmp(buf, "ispc")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i': return 0;
 
@@ -272,7 +272,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isnpc")) {
+	if (!strcmp(buf, "isnpc")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':                                       return 1;
 
@@ -291,7 +291,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isgood")) {
+	if (!strcmp(buf, "isgood")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':                                       return IS_GOOD(mob);
 
@@ -310,7 +310,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isevil")) {
+	if (!strcmp(buf, "isevil")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':                                       return IS_EVIL(mob);
 
@@ -329,7 +329,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isneutral")) {
+	if (!strcmp(buf, "isneutral")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':                                       return IS_NEUTRAL(mob);
 
@@ -348,7 +348,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isfight")) {
+	if (!strcmp(buf, "isfight")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':                                       return (mob->fighting)   ? 1 : 0;
 
@@ -367,7 +367,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isimmort")) {
+	if (!strcmp(buf, "isimmort")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 //		case 'i':                       return IS_IMMORTAL(mob);  impossible
 
@@ -386,7 +386,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "iskiller")) {
+	if (!strcmp(buf, "iskiller")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': return 0;
 			break;
@@ -425,7 +425,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isthief")) {
+	if (!strcmp(buf, "isthief")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': return 0;
 			break;
@@ -464,7 +464,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "ischarmed")) {
+	if (!strcmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': return affect_exists_on_char(mob, gsn_charm_person) ? 1 : 0;
 
@@ -487,7 +487,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isfollow")) {
+	if (!strcmp(buf, "isfollow")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':       return (mob->master != NULL && mob->master->in_room == mob->in_room);
 
@@ -515,7 +515,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "ismaster")) { /* is $ their master? */
+	if (!strcmp(buf, "ismaster")) { /* is $ their master? */
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':       return -1;
 
@@ -540,7 +540,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "isleader")) { /* is $ their leader? */
+	if (!strcmp(buf, "isleader")) { /* is $ their leader? */
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':       return -1;
 
@@ -565,7 +565,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 #if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
-	if (!str_cmp(buf, "isaffected")) {
+	if (!strcmp(buf, "isaffected")) {
 		int sn = skill_lookup(arg);
 
 		if (sn <= 0) {
@@ -593,7 +593,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 #endif // ifdef 0
-	if (!str_cmp(buf, "hitprcnt")) {
+	if (!strcmp(buf, "hitprcnt")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->hit / GET_MAX_HIT(mob);
 			rhsvl = atoi(val);
@@ -629,7 +629,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "inroom")) {
+	if (!strcmp(buf, "inroom")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->in_room->vnum;
 			rhsvl = atoi(val);
@@ -665,7 +665,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "sex")) {
+	if (!strcmp(buf, "sex")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = GET_ATTR_SEX(mob);
 			rhsvl = atoi(val);
@@ -701,7 +701,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "position")) {
+	if (!strcmp(buf, "position")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->position;
 			rhsvl = atoi(val);
@@ -737,7 +737,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "level")) {
+	if (!strcmp(buf, "level")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->level;
 			rhsvl = atoi(val);
@@ -773,7 +773,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "class")) {
+	if (!strcmp(buf, "class")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->cls;
 			rhsvl = atoi(val);
@@ -809,7 +809,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "goldamt")) {
+	if (!strcmp(buf, "goldamt")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->gold;
 			rhsvl = atoi(val);
@@ -845,7 +845,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "objtype")) {
+	if (!strcmp(buf, "objtype")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'o': if (obj) {
 				lhsvl = obj->item_type;
@@ -869,7 +869,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "objval0")) {
+	if (!strcmp(buf, "objval0")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'o': if (obj) {
 				lhsvl = obj->value[0];
@@ -893,7 +893,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "objval1")) {
+	if (!strcmp(buf, "objval1")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'o': if (obj) {
 				lhsvl = obj->value[1];
@@ -917,7 +917,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "objval2")) {
+	if (!strcmp(buf, "objval2")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'o': if (obj) {
 				lhsvl = obj->value[2];
@@ -941,7 +941,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "objval3")) {
+	if (!strcmp(buf, "objval3")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'o': if (obj) {
 				lhsvl = obj->value[3];
@@ -965,7 +965,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "number")) {
+	if (!strcmp(buf, "number")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': lhsvl = mob->gold;
 			rhsvl = atoi(val);
@@ -1022,7 +1022,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		}
 	}
 
-	if (!str_cmp(buf, "name")) {
+	if (!strcmp(buf, "name")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': return mprog_seval(mob->name, opr, val);
 
@@ -1116,7 +1116,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 
 		morebuf = one_argument(cmnd, buf);
 
-		if (!str_cmp(buf, "or")) {
+		if (!strcmp(buf, "or")) {
 			if ((legal = mprog_do_ifchck(morebuf, mob, actor, obj, vo, rndm))) {
 				if (legal == 1)
 					flag = TRUE;
@@ -1130,7 +1130,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 
 	if (flag)
 		for (; ;) { /*ifcheck was true, do commands but ignore else to endif*/
-			if (!str_cmp(buf, "if")) {
+			if (!strcmp(buf, "if")) {
 				com_list = mprog_process_if(morebuf, com_list, mob, actor, obj, vo, rndm);
 
 				while (*cmnd == ' ')
@@ -1145,14 +1145,14 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				continue;
 			}
 
-			if (!str_cmp(buf, "break"))
+			if (!strcmp(buf, "break"))
 				return NULL;
 
-			if (!str_cmp(buf, "endif"))
+			if (!strcmp(buf, "endif"))
 				return com_list;
 
-			if (!str_cmp(buf, "else")) {
-				while (str_cmp(buf, "endif")) {
+			if (!strcmp(buf, "else")) {
+				while (strcmp(buf, "endif")) {
 					cmnd     = com_list;
 					com_list = mprog_next_command(com_list);
 
@@ -1186,7 +1186,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			morebuf = one_argument(cmnd, buf);
 		}
 	else { /*false ifcheck, find else and do existing commands or quit at endif*/
-		while ((str_cmp(buf, "else")) && (str_cmp(buf, "endif"))) {
+		while ((strcmp(buf, "else")) && (strcmp(buf, "endif"))) {
 			cmnd     = com_list;
 			com_list = mprog_next_command(com_list);
 
@@ -1203,7 +1203,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 		}
 
 		/* found either an else or an endif.. act accordingly */
-		if (!str_cmp(buf, "endif"))
+		if (!strcmp(buf, "endif"))
 			return com_list;
 
 		cmnd     = com_list;
@@ -1220,7 +1220,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 		morebuf = one_argument(cmnd, buf);
 
 		for (; ;) { /*process the post-else commands until an endif is found.*/
-			if (!str_cmp(buf, "if")) {
+			if (!strcmp(buf, "if")) {
 				com_list = mprog_process_if(morebuf, com_list, mob, actor,
 				                            obj, vo, rndm);
 
@@ -1236,16 +1236,16 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				continue;
 			}
 
-			if (!str_cmp(buf, "else")) {
+			if (!strcmp(buf, "else")) {
 				bug("Mob: %d found else in an else section",
 				    mob->pIndexData->vnum);
 				return NULL;
 			}
 
-			if (!str_cmp(buf, "break"))
+			if (!strcmp(buf, "break"))
 				return NULL;
 
-			if (!str_cmp(buf, "endif"))
+			if (!strcmp(buf, "endif"))
 				return com_list;
 
 			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
@@ -1573,7 +1573,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	while (*cmnd != '\0') {
 		morebuf = one_argument(cmnd, buf);
 
-		if (!str_cmp(buf, "if")) {
+		if (!strcmp(buf, "if")) {
 			command_list = mprog_process_if(morebuf, command_list, mob,
 			                                actor, obj, vo, rndm);
 
@@ -1779,8 +1779,8 @@ void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 			one_argument(mprg->arglist, buf);
 
 			if ((mprg->type & GIVE_PROG)
-			    && ((!str_cmp(obj->name, mprg->arglist))
-			        || (!str_cmp("all", buf)))) {
+			    && ((!strcmp(obj->name, mprg->arglist))
+			        || (!strcmp("all", buf)))) {
 				mprog_driver(mprg->comlist, mob, ch, obj, NULL);
 				break;
 			}

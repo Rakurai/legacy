@@ -45,21 +45,21 @@ void do_addapply(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "hp"))          enchant_type = APPLY_HIT;
-	else if (!str_cmp(arg2, "mana"))        enchant_type = APPLY_MANA;
-	else if (!str_cmp(arg2, "stamina"))     enchant_type = APPLY_STAM;
-	else if (!str_cmp(arg2, "str"))         enchant_type = APPLY_STR;
-	else if (!str_cmp(arg2, "dex"))         enchant_type = APPLY_DEX;
-	else if (!str_cmp(arg2, "int"))         enchant_type = APPLY_INT;
-	else if (!str_cmp(arg2, "wis"))         enchant_type = APPLY_WIS;
-	else if (!str_cmp(arg2, "con"))         enchant_type = APPLY_CON;
-	else if (!str_cmp(arg2, "chr"))         enchant_type = APPLY_CHR;
-	else if (!str_cmp(arg2, "sex"))         enchant_type = APPLY_SEX;
-	else if (!str_cmp(arg2, "age"))         enchant_type = APPLY_AGE;
-	else if (!str_cmp(arg2, "ac"))          enchant_type = APPLY_AC;
-	else if (!str_cmp(arg2, "hitroll"))     enchant_type = APPLY_HITROLL;
-	else if (!str_cmp(arg2, "damroll"))     enchant_type = APPLY_DAMROLL;
-	else if (!str_cmp(arg2, "saves"))       enchant_type = APPLY_SAVES;
+	if (arg2 == "hp")          enchant_type = APPLY_HIT;
+	else if (arg2 == "mana")        enchant_type = APPLY_MANA;
+	else if (arg2 == "stamina")     enchant_type = APPLY_STAM;
+	else if (arg2 == "str")         enchant_type = APPLY_STR;
+	else if (arg2 == "dex")         enchant_type = APPLY_DEX;
+	else if (arg2 == "int")         enchant_type = APPLY_INT;
+	else if (arg2 == "wis")         enchant_type = APPLY_WIS;
+	else if (arg2 == "con")         enchant_type = APPLY_CON;
+	else if (arg2 == "chr")         enchant_type = APPLY_CHR;
+	else if (arg2 == "sex")         enchant_type = APPLY_SEX;
+	else if (arg2 == "age")         enchant_type = APPLY_AGE;
+	else if (arg2 == "ac")          enchant_type = APPLY_AC;
+	else if (arg2 == "hitroll")     enchant_type = APPLY_HITROLL;
+	else if (arg2 == "damroll")     enchant_type = APPLY_DAMROLL;
+	else if (arg2 == "saves")       enchant_type = APPLY_SAVES;
 	else {
 		stc("That apply is not possible!\n", ch);
 		return;
@@ -217,7 +217,7 @@ void do_rppaward(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "award")) {
+	if (arg1 == "award") {
 		victim->pcdata->rolepoints += rppoint;
 		ptc(ch, "You have awarded them %d role playing points.\n", rppoint);
 		ptc(victim, "You have been awarded %d role playing points.\n", rppoint);
@@ -226,7 +226,7 @@ void do_rppaward(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "deduct")) {
+	if (arg1 == "deduct") {
 		if (rppoint > victim->pcdata->rolepoints) {
 			stc("They do not have enough role playing points for that.\n", ch);
 			return;
@@ -260,12 +260,12 @@ RoomPrototype *get_scatter_room(Character *ch)
 		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
 		        && room->area->min_vnum <= 26999)
 		    || room->guild
-		    || !str_cmp(room->area->name, "Playpen")
-		    || !str_cmp(room->area->name, "IMM-Zone")
-		    || !str_cmp(room->area->name, "Limbo")
-		    || !str_cmp(room->area->name, "Eilyndrae")     /* hack to make eilyndrae and torayna cri unquestable */
-		    || !str_cmp(room->area->name, "Torayna Cri")
-		    || !str_cmp(room->area->name, "Battle Arenas")
+		    || room->area->name == "Playpen"
+		    || room->area->name == "IMM-Zone"
+		    || room->area->name == "Limbo"
+		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+		    || room->area->name == "Torayna Cri"
+		    || room->area->name == "Battle Arenas"
 		    || room->sector_type == SECT_ARENA
 		    || IS_SET(GET_ROOM_FLAGS(room),
 		              ROOM_MALE_ONLY
@@ -321,7 +321,7 @@ void do_string(Character *ch, String argument)
 	argument = one_argument(argument, type);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	arg3 = smash_tilde(argument);
+	arg3 = argument;
 
 	if (type[0] == '\0' || arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
@@ -353,7 +353,7 @@ void do_string(Character *ch, String argument)
 				return;
 			}
 
-			if (!str_cmp(arg3, "none")) {
+			if (arg3 == "none") {
 				victim->pcdata->spouse.erase();
 			}
 			else {
@@ -492,7 +492,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_cmp(arg2, "ed") || !str_prefix1(arg2, "extended")) {
+		if (arg2 == "ed" || !str_prefix1(arg2, "extended")) {
 			ExtraDescr *ed;
 			argument = one_argument(argument, arg3);
 
@@ -508,7 +508,7 @@ void do_string(Character *ch, String argument)
 				for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 					ed_next = ed->next;
 
-					if (!str_cmp(ed->keyword, arg3)) {
+					if (ed->keyword == arg3) {
 						if (ed == obj->extra_descr)
 							obj->extra_descr = ed_next;
 						else
@@ -521,7 +521,7 @@ void do_string(Character *ch, String argument)
 				}
 			}
 
-			if (!str_cmp(argument, "none"))
+			if (argument == "none")
 				return;
 
 			char desc[MIL];
@@ -553,7 +553,7 @@ void do_string(Character *ch, String argument)
 				for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 					ed_next = ed->next;
 
-					if (!str_cmp(ed->keyword, arg3)) {
+					if (ed->keyword == arg3) {
 						buf = ed->description;
 
 						if (ed == obj->extra_descr)
@@ -829,7 +829,7 @@ void do_create(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!str_cmp(arg1, "object")) {
+	if (arg1 == "object") {
 		if (arg2.empty()) {
 			stc("Valid item types are:\n", ch);
 
@@ -839,15 +839,15 @@ void do_create(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_cmp(arg2, "npc_corpse")
-		    || !str_cmp(arg2, "pc_corpse")) {
-//		    || !str_cmp(arg2, "coach")
+		if (arg2 == "npc_corpse"
+		    || arg2 == "pc_corpse") {
+//		    || arg2 == "coach"
 			stc("You cannot create one of those.\n", ch);
 			return;
 		}
 
 		for (x = 0; item_table[x].name != NULL; x++) {
-			if (!str_cmp(arg2, item_table[x].name)) {
+			if (arg2 == item_table[x].name) {
 				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == NULL) {
 					Format::sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);
 					bug(buf, 0);

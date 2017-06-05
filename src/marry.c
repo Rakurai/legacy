@@ -66,8 +66,8 @@ void do_marry(Character *ch, String argument)
 
 	if (victim->pcdata->spouse[0] == '\0'
 	    || victim2->pcdata->spouse[0] == '\0'
-	    || str_cmp(victim->pcdata->spouse, victim2->name)
-	    || str_cmp(victim2->pcdata->spouse, victim->name)) {
+	    || victim->pcdata->spouse != victim2->name
+	    || victim2->pcdata->spouse != victim->name) {
 		stc("They are not engaged.\n", ch);
 		return;
 	}
@@ -119,7 +119,7 @@ void do_divorce(Character *ch, String argument)
 		return;
 	}
 
-	if (str_cmp(victim->pcdata->spouse, victim2->name)) {
+	if (victim->pcdata->spouse != victim2->name) {
 		stc("They aren't even married to each other.\n", ch);
 		return;
 	}
@@ -297,7 +297,7 @@ void do_accept(Character *ch, String argument)
 		return;
 	}
 
-	if (!victim->pcdata->propose[0] || str_cmp(victim->pcdata->propose, ch->name)) {
+	if (!victim->pcdata->propose[0] || victim->pcdata->propose != ch->name) {
 		stc("They haven't proposed to you.\n", ch);
 		return;
 	}
@@ -365,7 +365,7 @@ void do_reject(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pcdata->propose == NULL || str_cmp(victim->pcdata->propose, ch->name)) {
+	if (victim->pcdata->propose == NULL || victim->pcdata->propose != ch->name) {
 		stc("They haven't proposed to you.\n", ch);
 		return;
 	}
@@ -421,9 +421,9 @@ void do_breakup(Character *ch, String argument)
 		return;
 	}
 
-	if (str_cmp(ch->pcdata->spouse, victim->name)
+	if (ch->pcdata->spouse != victim->name
 	    || victim->pcdata->spouse[0] == '\0'
-	    || str_cmp(victim->pcdata->spouse, ch->name)) {
+	    || victim->pcdata->spouse != ch->name) {
 		stc("They aren't even engaged to you.\n\t", ch);
 		return;
 	}

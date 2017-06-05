@@ -749,7 +749,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 
 		/* I just know this is the path to a 12" 'if' statement.  :(
 		   But two players asked for it already!  -- Furey */
-		if (!str_cmp(iterator->name, "snore"))
+		if (iterator->name == "snore")
 			break;
 
 		stc("Stop fidgeting and get some sleep!\n", ch);

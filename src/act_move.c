@@ -333,12 +333,12 @@ int find_exit(Character *ch, const String& arg)
 	Exit *pexit;
 	int door;
 
-	if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
-	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east")) door = 1;
-	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
-	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west")) door = 3;
-	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up")) door = 4;
-	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down")) door = 5;
+	if (arg == "n" || arg == "north") door = 0;
+	else if (arg == "e" || arg == "east") door = 1;
+	else if (arg == "s" || arg == "south") door = 2;
+	else if (arg == "w" || arg == "west") door = 3;
+	else if (arg == "u" || arg == "up") door = 4;
+	else if (arg == "d" || arg == "down") door = 5;
 	else {
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != NULL
@@ -1768,53 +1768,53 @@ void do_train(Character *ch, String argument)
 
 	cost = 1;
 
-	if (!str_cmp(argument, "str")) {
+	if (argument == "str") {
 		if (class_table[ch->cls].stat_prime == STAT_STR)
 			cost    = 1;
 
 		stat        = STAT_STR;
 		pOutput     = "strength";
 	}
-	else if (!str_cmp(argument, "int")) {
+	else if (argument == "int") {
 		if (class_table[ch->cls].stat_prime == STAT_INT)
 			cost    = 1;
 
 		stat        = STAT_INT;
 		pOutput     = "intelligence";
 	}
-	else if (!str_cmp(argument, "wis")) {
+	else if (argument == "wis") {
 		if (class_table[ch->cls].stat_prime == STAT_WIS)
 			cost    = 1;
 
 		stat        = STAT_WIS;
 		pOutput     = "wisdom";
 	}
-	else if (!str_cmp(argument, "dex")) {
+	else if (argument == "dex") {
 		if (class_table[ch->cls].stat_prime == STAT_DEX)
 			cost    = 1;
 
 		stat        = STAT_DEX;
 		pOutput     = "dexterity";
 	}
-	else if (!str_cmp(argument, "con")) {
+	else if (argument == "con") {
 		if (class_table[ch->cls].stat_prime == STAT_CON)
 			cost    = 1;
 
 		stat        = STAT_CON;
 		pOutput     = "constitution";
 	}
-	else if (!str_cmp(argument, "chr")) {
+	else if (argument == "chr") {
 		if (class_table[ch->cls].stat_prime == STAT_CHR)
 			cost    = 1;
 
 		stat        = STAT_CHR;
 		pOutput     = "charisma";
 	}
-	else if (!str_cmp(argument, "hp"))
+	else if (argument == "hp")
 		cost = 1;
-	else if (!str_cmp(argument, "mana"))
+	else if (argument == "mana")
 		cost = 1;
-	else if (!str_cmp(argument, "stamina"))
+	else if (argument == "stamina")
 		cost = 1;
 	else {
 		buf = "You can train:";
@@ -1842,7 +1842,7 @@ void do_train(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp("hp", argument)) {
+	if (argument == "hp") {
 		if (ch->pcdata->trains_to_hit < 50)             add = 10;
 		else if (ch->pcdata->trains_to_hit < 100)       add = 9;
 		else if (ch->pcdata->trains_to_hit < 150)       add = 8;
@@ -1868,7 +1868,7 @@ void do_train(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp("mana", argument)) {
+	if (argument == "mana") {
 		if (ch->pcdata->trains_to_mana < 50)            add = 10;
 		else if (ch->pcdata->trains_to_mana < 100)      add = 9;
 		else if (ch->pcdata->trains_to_mana < 150)      add = 8;
@@ -1894,7 +1894,7 @@ void do_train(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp("stamina", argument)) {
+	if (argument == "stamina") {
 		if (ch->pcdata->trains_to_stam < 50)            add = 10;
 		else if (ch->pcdata->trains_to_stam < 100)      add = 9;
 		else if (ch->pcdata->trains_to_stam < 150)      add = 8;
@@ -2685,11 +2685,11 @@ RoomPrototype *get_random_room(Character *ch)
 		    || room->area == quest_area
 		    || room->clan
 		    || room->guild
-		    || !str_cmp(room->area->name, "Playpen")
-		    || !str_cmp(room->area->name, "IMM-Zone")
-		    || !str_cmp(room->area->name, "Limbo")
-		    || !str_cmp(room->area->name, "Eilyndrae")     /* hack to make eilyndrae and torayna cri unquestable */
-		    || !str_cmp(room->area->name, "Torayna Cri")
+		    || room->area->name == "Playpen"
+		    || room->area->name == "IMM-Zone"
+		    || room->area->name == "Limbo"
+		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+		    || room->area->name == "Torayna Cri"
 		    || IS_SET(GET_ROOM_FLAGS(room), ROOM_PRIVATE | ROOM_SOLITARY)
 		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW) && IS_SET(ch->act_flags, ACT_AGGRESSIVE))
 		    || room->sector_type == SECT_ARENA)

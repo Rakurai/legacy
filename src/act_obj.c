@@ -188,13 +188,13 @@ bool can_loot(Character *ch, Object *obj)
 		return TRUE;
 
 	for (wch = char_list; wch != NULL ; wch = wch->next)
-		if (!str_cmp(wch->name, obj->owner))
+		if (wch->name == obj->owner)
 			owner = wch;
 
 	if (owner == NULL)
 		return TRUE;
 
-	if (!str_cmp(ch->name, owner->name))
+	if (ch->name == owner->name)
 		return TRUE;
 
 	if (!IS_NPC(owner) && IS_SET(owner->act_flags, PLR_CANLOOT))
@@ -449,11 +449,11 @@ void do_get(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!str_cmp(arg2, "from"))
+	if (arg2 == "from")
 		argument = one_argument(argument, arg2);
 
 	if (arg2.empty()) {
-		if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && str_prefix1("all.", arg1)) {
 			/* 'get obj' */
 			obj = get_obj_list(ch, arg1, ch->in_room->contents);
 
@@ -487,7 +487,7 @@ void do_get(Character *ch, String argument)
 	}
 	else {
 		/* 'get ... container' */
-		if (!str_cmp(arg2, "all") || !str_prefix1("all.", arg2)) {
+		if (arg2 == "all" || !str_prefix1("all.", arg2)) {
 			stc("You can't do that.\n", ch);
 			return;
 		}
@@ -508,7 +508,7 @@ void do_get(Character *ch, String argument)
 					}
 				}
 
-				if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+				if (arg1 != "all" && str_prefix1("all.", arg1)) {
 					obj = get_obj_list(ch, arg1, ch->pcdata->locker);
 
 					if (!from_box_ok(ch, obj, "locker"))
@@ -564,7 +564,7 @@ void do_get(Character *ch, String argument)
 				return;
 			}
 
-			if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+			if (arg1 != "all" && str_prefix1("all.", arg1)) {
 				obj = get_obj_list(ch, arg1, ch->pcdata->strongbox);
 
 				if (!from_box_ok(ch, obj, "strongbox"))
@@ -642,7 +642,7 @@ void do_get(Character *ch, String argument)
 			return;
 		}
 
-		if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && str_prefix1("all.", arg1)) {
 			/* 'get obj container' */
 			obj = get_obj_list(ch, arg1, container->contains);
 
@@ -726,7 +726,7 @@ void do_put(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!str_cmp(arg2, "in") || !str_cmp(arg2, "on"))
+	if (arg2 == "in" || arg2 == "on")
 		argument = one_argument(argument, arg2);
 
 	if (arg1.empty() || arg2.empty()) {
@@ -734,7 +734,7 @@ void do_put(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "all") || !str_prefix1("all.", arg2)) {
+	if (arg2 == "all" || !str_prefix1("all.", arg2)) {
 		stc("You can't do that.\n", ch);
 		return;
 	}
@@ -746,7 +746,7 @@ void do_put(Character *ch, String argument)
 			return;
 		}
 
-		if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && str_prefix1("all.", arg1)) {
 			/* 'put obj locker' */
 			if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 				stc("You do not have that item.\n", ch);
@@ -812,7 +812,7 @@ void do_put(Character *ch, String argument)
 			return;
 		}
 
-		if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && str_prefix1("all.", arg1)) {
 			/* 'put obj strongbox' */
 			if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 				stc("You do not have that item.\n", ch);
@@ -881,7 +881,7 @@ void do_put(Character *ch, String argument)
 		return;
 	}
 
-	if (str_cmp(arg1, "all") && str_prefix1("all.", arg1)) {
+	if (arg1 != "all" && str_prefix1("all.", arg1)) {
 		/* 'put obj container' */
 		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 			stc("You do not have that item.\n", ch);
@@ -1027,7 +1027,7 @@ void do_drop(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "all") || !str_prefix1("all.", arg)) {
+	if (arg == "all" || !str_prefix1("all.", arg)) {
 		/* 'drop all' or 'drop all.obj' */
 		found = FALSE;
 
@@ -1206,15 +1206,15 @@ void do_give(Character *ch, String argument)
 			return;
 		}
 
-		if (str_cmp(arg2, "coins")
-		    && str_cmp(arg2, "coin")
-		    && str_cmp(arg2, "gold")
-		    && str_cmp(arg2, "silver")) {
+		if (arg2 != "coins"
+		    && arg2 != "coin"
+		    && arg2 != "gold"
+		    && arg2 != "silver") {
 			stc("Use give <number> <gold|silver> <person>.\n", ch);
 			return;
 		}
 
-		silver = str_cmp(arg2, "gold");
+		silver = arg2 != "gold";
 		argument = one_argument(argument, arg2);
 
 		if (arg2.empty()) {
@@ -1761,7 +1761,7 @@ void do_pour(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(argument, "out")) {
+	if (argument == "out") {
 		if (out->value[1] == 0) {
 			stc("It's already empty.\n", ch);
 			return;
@@ -1854,7 +1854,7 @@ void do_drink(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!arg.empty() && !argument.empty() && !str_cmp(arg, "from"))
+	if (!arg.empty() && !argument.empty() && arg == "from")
 		one_argument(argument, arg);
 
 	if (arg.empty()) {
@@ -2503,7 +2503,7 @@ void do_wear(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		Object *obj_next;
 
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
@@ -2676,13 +2676,13 @@ void do_sacrifice(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.empty() || !str_cmp(arg, ch->name)) {
+	if (arg.empty() || arg == ch->name) {
 		act("$n flings $mself at the feet of the Gods...sad.", ch, NULL, NULL, TO_ROOM);
 		stc("Please refrain from bloodying the altar.\n", ch);
 		return;
 	}
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
@@ -3480,10 +3480,10 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "coin")
-	    ||   !str_cmp(arg1, "coins")
-	    ||   !str_cmp(arg1, "gold")
-	    ||   !str_cmp(arg1, "silver")) {
+	if (arg1 == "coin"
+	    ||   arg1 == "coins"
+	    ||   arg1 == "gold"
+	    ||   arg1 == "silver") {
 		int gold, silver;
 		gold = victim->gold * number_range(1, ch->level) / MAX_LEVEL;
 		silver = victim->silver * number_range(1, ch->level) / MAX_LEVEL;
@@ -3657,7 +3657,7 @@ void obj_to_keeper(Object *obj, Character *ch)
 		t_obj_next = t_obj->next_content;
 
 		if (obj->pIndexData == t_obj->pIndexData
-		    && !str_cmp(obj->short_descr, t_obj->short_descr)) {
+		    && obj->short_descr == t_obj->short_descr) {
 			/* if this is an unlimited item, destroy the new one */
 			if (IS_OBJ_STAT(t_obj, ITEM_INVENTORY)) {
 				extract_obj(obj);
@@ -3705,7 +3705,7 @@ Object *get_obj_keeper(Character *ch, Character *keeper, const String& argument)
 			/* skip other objects of the same name */
 			while (obj->next_content != NULL
 			       && obj->pIndexData == obj->next_content->pIndexData
-			       && !str_cmp(obj->short_descr, obj->next_content->short_descr))
+			       && obj->short_descr == obj->next_content->short_descr)
 				obj = obj->next_content;
 		}
 	}
@@ -3746,7 +3746,7 @@ int get_cost(Character *keeper, Object *obj, bool fBuy)
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT))
 			for (obj2 = keeper->carrying; obj2; obj2 = obj2->next_content) {
 				if (obj->pIndexData == obj2->pIndexData
-				    &&   !str_cmp(obj->short_descr, obj2->short_descr)) {
+				    &&   obj->short_descr == obj2->short_descr) {
 					if (IS_OBJ_STAT(obj2, ITEM_INVENTORY))
 						cost /= 2;
 					else
@@ -3918,7 +3918,7 @@ void do_buy(Character *ch, String argument)
 				wiznet("$N is attempting to use the tilde in pet name cheat.",
 				       ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 
-			Format::sprintf(buf, "%s %s", pet->name, smash_tilde(arg));
+			Format::sprintf(buf, "%s %s", pet->name, arg);
 			pet->name = buf;
 		}
 
@@ -3971,7 +3971,7 @@ void do_buy(Character *ch, String argument)
 			     count < number && t_obj != NULL;
 			     t_obj = t_obj->next_content) {
 				if (t_obj->pIndexData == obj->pIndexData
-				    &&  !str_cmp(t_obj->short_descr, obj->short_descr))
+				    &&  t_obj->short_descr == obj->short_descr)
 					count++;
 				else
 					break;
@@ -4133,7 +4133,7 @@ void do_buy(Character *ch, String argument)
 				/* loop through and find previous owner, if any, and change */
 				if (t_obj->extra_descr != NULL) {
 					for (ed = t_obj->extra_descr; ed != NULL; ed = ed->next)
-						if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
+						if (ed->keyword == KEYWD_OWNER) {
 							owner = ch->name;
 							ed->description = owner;
 							foundold = TRUE;
@@ -4240,8 +4240,7 @@ void do_list(Character *ch, String argument)
 
 					while (obj->next_content != NULL
 					       && obj->pIndexData == obj->next_content->pIndexData
-					       && !str_cmp(obj->short_descr,
-					                   obj->next_content->short_descr)) {
+					       && obj->short_descr == obj->next_content->short_descr) {
 						obj = obj->next_content;
 						count++;
 					}
@@ -4762,8 +4761,6 @@ void do_forge(Character *ch, String argument)
 		return;
 	}
 
-	const char *name = smash_tilde(argument); // volatile, good until smash_tilde called again
-
 	obj->level = ch->level;
 	obj->material = material->material;
 	obj->condition = material->condition;
@@ -4774,9 +4771,9 @@ void do_forge(Character *ch, String argument)
 		affect_copy_to_obj(obj, paf);
 
 	obj->value[0] = weapon_type(type);
-	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));
+	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(argument));
 	obj->name = buf;
-	Format::sprintf(sdesc, "%s{x", name);
+	Format::sprintf(sdesc, "%s{x", argument);
 	obj->short_descr = sdesc;
 	Format::sprintf(buf, "A %s is here, forged by %s's craftsmanship.", weapon_table[weapon_lookup(type)].name, ch->name);
 	obj->description = buf;
@@ -5076,7 +5073,7 @@ void do_engrave(Character *ch, String argument)
 	}
 
 	dbuf += buf;
-	Format::sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", smash_tilde(argument));
+	Format::sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", argument);
 	dbuf += buf;
 	eng_desc->description = dbuf;
 	stc("You have left a mark of duration upon your weapon.\n", ch);
@@ -5129,11 +5126,11 @@ void do_weddingring(Character *ch, String argument)
 
 	if (!str_prefix1(arg1, "long")) {
 		ptc(ch, "The long description of your weddingring is now:\n{x'%s{x'.\n", argument);
-		ring->description = smash_tilde(argument);
+		ring->description = argument;
 	}
 	else if (!str_prefix1(arg1, "short")) {
 		ptc(ch, "The short description of your weddingring is now:\n{x'%s{x'.\n", argument);
-		ring->short_descr = smash_tilde(argument);
+		ring->short_descr = argument;
 	}
 	else
 		goto help;

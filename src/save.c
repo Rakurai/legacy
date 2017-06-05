@@ -838,7 +838,7 @@ void setstr(String *field, const char* value) {
 }
 
 #define STRKEY( literal, field, value )                                    \
-	if ( !str_cmp( key, literal ) )        \
+	if (  key == literal  )        \
 	{                                       \
 		field = value;                      \
 		fMatch = TRUE;						\
@@ -850,7 +850,7 @@ void setstr(String *field, const char* value) {
 #endif
 
 #define INTKEY( literal, field, value )                                    \
-	if ( !str_cmp( key, literal ) )        \
+	if (  key == literal  )        \
 	{                                       \
 		field  = value;               \
 		fMatch = TRUE;                      \
@@ -862,7 +862,7 @@ void setstr(String *field, const char* value) {
 #endif
 
 #define SKIPKEY( literal )                  \
-	if ( !str_cmp( key, literal ) )			\
+	if (  key == literal  )			\
 	{                                       \
 		fMatch = TRUE;                      \
 		break;                              \
@@ -880,13 +880,13 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 
 	for (cJSON *o = json->child; o; o = o->next) {
-		char *key = o->string;
+		String key = o->string;
 		bool fMatch = FALSE;
 		int count = 0; // convenience variable to compact this list, resets with every item
 
 		switch (toupper(key[0])) {
 			case 'A':
-				if (!str_cmp(key, "Alias")) { // array of 2-tuples
+				if (key == "Alias") { // array of 2-tuples
 					// each alias is a 2-tuple (a list)
 					for (cJSON *item = o->child; item != NULL; item = item->next, count++)
 						ch->pcdata->alias[item->child->valuestring] = item->child->next->valuestring;
@@ -905,7 +905,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				STRKEY("Bout",			ch->pcdata->bamfout,		o->valuestring);
 				break;
 			case 'C':
-				if (!str_cmp(key, "Cnd")) { // 4-tuple
+				if (key == "Cnd") { // 4-tuple
 					JSON::get_short(o, &ch->pcdata->condition[COND_DRUNK], "drunk");
 					JSON::get_short(o, &ch->pcdata->condition[COND_FULL], "full");
 					JSON::get_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
@@ -913,7 +913,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-				if (!str_cmp(key, "Colr")) { // array of dicts
+				if (key == "Colr") { // array of dicts
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int slot = cJSON_GetObjectItem(item, "slot")->valueint;
 						JSON::get_short(item, &ch->pcdata->color[slot], "color");
@@ -928,7 +928,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				STRKEY("Deit",			ch->pcdata->deity,			o->valuestring);
 				break;
 			case 'E':
-				if (!str_cmp(key, "ExSk")) {
+				if (key == "ExSk") {
 					count = 0;
 					for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
 						int sn = skill_lookup(item->valuestring);
@@ -952,7 +952,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("FlagKiller",	ch->pcdata->flag_killer,	o->valueint);
 				break;
 			case 'G':
-				if (!str_cmp(key, "Gr")) {
+				if (key == "Gr") {
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int gn = group_lookup(item->valuestring);
 
@@ -971,7 +971,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				STRKEY("GameOut",		ch->pcdata->gameout,		o->valuestring);
 				break;
 			case 'H':
-				if (!str_cmp(key, "HMSP")) { // removed in version 16, moved to fread_char
+				if (key == "HMSP") { // removed in version 16, moved to fread_char
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
@@ -980,7 +980,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 				break;
 			case 'I':
-				if (!str_cmp(key, "Ignore")) {
+				if (key == "Ignore") {
 					for (cJSON *item = o->child; item != NULL; item = item->next)
 						ch->pcdata->ignore.push_back(item->valuestring);
 					fMatch = TRUE; break;
@@ -1003,7 +1003,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("Mexp",			ch->pcdata->mud_exp,		o->valueint);
 				break;
 			case 'N':
-				if (!str_cmp(key, "Note")) {
+				if (key == "Note") {
 					JSON::get_long(o, &ch->pcdata->last_note, "note");
 					JSON::get_long(o, &ch->pcdata->last_idea, "idea");
 					JSON::get_long(o, &ch->pcdata->last_roleplay, "role");
@@ -1025,7 +1025,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("Pnts",			ch->pcdata->points,		o->valueint);
 				break;
 			case 'Q':
-				if (!str_cmp(key, "Query")) {
+				if (key == "Query") {
 					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
 						ch->pcdata->query.push_back(item->valuestring);
 					fMatch = TRUE; break;
@@ -1033,7 +1033,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 				break;
 			case 'R':
-				if (!str_cmp(key, "Raff")) {
+				if (key == "Raff") {
 					for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
 						ch->pcdata->raffect[count++] = item->valueint;
 					fMatch = TRUE; break;
@@ -1044,7 +1044,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("RolePnts",		ch->pcdata->rolepoints,		o->valueint);
 				break;
 			case 'S':
-				if (!str_cmp(key, "Sk")) {
+				if (key == "Sk") {
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
 						int sn = skill_lookup(temp);
@@ -1067,14 +1067,14 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("SQuestNext",	ch->pcdata->nextsquest,		o->valueint);
 				break;
 			case 'T':
-				if (!str_cmp(key, "THMS")) {
+				if (key == "THMS") {
 					JSON::get_short(o, &ch->pcdata->trains_to_hit, "hit");
 					JSON::get_short(o, &ch->pcdata->trains_to_hit, "mana");
 					JSON::get_short(o, &ch->pcdata->trains_to_hit, "stam");
 					fMatch = TRUE; break;
 				}
 
-				if (!str_cmp(key, "Titl")) {
+				if (key == "Titl") {
 					set_title(ch, o->valuestring);
 					fMatch = TRUE; break;
 				}
@@ -1114,13 +1114,13 @@ void fread_char(Character *ch, cJSON *json, int version)
 	// on by others in the list, load them right here, and use SKIPKEY(key) in the list
 
 	for (cJSON *o = json->child; o; o = o->next) {
-		char *key = o->string;
+		String key = o->string;
 		bool fMatch = FALSE;
 //		int count = 0; // convenience variable to compact this list, resets with every item
 
 		switch (toupper(key[0])) {
 			case 'A':
-				if (!str_cmp(key, "Affc")) {
+				if (key == "Affc") {
 					// these are the non-permanent affects (not racial or remort affect),
 					// those are added after the character is loaded
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
@@ -1147,7 +1147,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 					fMatch = TRUE; break;
 				}
 
-				if (!str_cmp(key, "Atrib")) {
+				if (key == "Atrib") {
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STR), "str");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_INT), "int");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_WIS), "wis");
@@ -1181,14 +1181,14 @@ void fread_char(Character *ch, cJSON *json, int version)
 				INTKEY("GlDonated",		ch->gold_donated,			o->valueint);
 				break;
 			case 'H':
-				if (!str_cmp(key, "HMS")) {
+				if (key == "HMS") {
 					JSON::get_short(o, &ch->hit, "hit");
 					JSON::get_short(o, &ch->mana, "mana");
 					JSON::get_short(o, &ch->stam, "stam");
 					fMatch = TRUE; break;
 				}
 
-				if (!str_cmp(key, "HMSP")) {
+				if (key == "HMSP") {
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
@@ -1282,13 +1282,13 @@ Object * fread_obj(cJSON *json, int version) {
 	}
 
 	for (cJSON *o = json->child; o; o = o->next) {
-		char *key = o->string;
+		String key = o->string;
 		bool fMatch = FALSE;
 //		int count = 0; // convenience variable to compact this list, resets with every item
 
 		switch (toupper(key[0])) {
 			case 'A':
-				if (!str_cmp(key, "Affc")) {
+				if (key == "Affc") {
 					// ugh.  when I put this in, it took a while for a bug to show up where
 					// the object's affects were not in fact being cleared before the saved
 					// affects were applied, so any enchanted gear was having affects multiplied.
@@ -1351,7 +1351,7 @@ Object * fread_obj(cJSON *json, int version) {
 				}
 				break;
 			case 'C':
-				if (!str_cmp(key, "contains")) {
+				if (key == "contains") {
 					// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
 					// so the function pointer doesn't work.  maybe find a way to fix and condense?
 					for (cJSON *item = o->child; item; item = item->next) {
@@ -1384,7 +1384,7 @@ Object * fread_obj(cJSON *json, int version) {
 				STRKEY("Desc",			obj->description,			o->valuestring);
 				break;
 			case 'E':
-				if (!str_cmp(key, "ExDe")) {
+				if (key == "ExDe") {
 					for (cJSON *item = o->child; item; item = item->next) {
 						ExtraDescr *ed = new_extra_descr();
 						ed->keyword             = item->string;
@@ -1416,7 +1416,7 @@ Object * fread_obj(cJSON *json, int version) {
 				INTKEY("Time",			obj->timer,					o->valueint);
 				break;
 			case 'V':
-				if (!str_cmp(key, "Val")) {
+				if (key == "Val") {
 					int slot = 0;
 					for (cJSON *item = o->child; item; item = item->next, slot++)
 						obj->value[slot] = item->valueint;
@@ -1628,7 +1628,7 @@ void do_finger(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "private")) {
+	if (arg == "private") {
 		if (IS_SET(ch->pcdata->plr, PLR_SHOWEMAIL)) {
 			stc("Your email will no longer display in your finger info.\n", ch);
 			REMOVE_BIT(ch->pcdata->plr, PLR_SHOWEMAIL);

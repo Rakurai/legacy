@@ -250,7 +250,7 @@ void do_debug(Character *ch, String argument)
 		String arg;
 		argument = one_argument(argument, arg);
 
-		if (!str_cmp(arg, "all")) {
+		if (arg == "all") {
 			for (questor = char_list; questor; questor = questor->next)
 				if (!IS_NPC(questor) && !IS_IMMORTAL(questor)) {
 					questor->nextquest = 0;

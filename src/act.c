@@ -313,7 +313,7 @@ void act_parse(
     /* check integrity of tailer. untail if bad. */
     for (td = ch->tail; td;) {
         if (!IS_VALID(td->tailed_by)
-            || str_cmp(td->tailer_name, td->tailed_by->name)) {
+            || td->tailer_name != td->tailed_by->name) {
             set_tail(td->tailed_by, ch, 0);
             td = ch->tail;
             continue;

@@ -173,14 +173,14 @@ int count_socials()
 void save_social(const Social *s, FILE *fp)
 {
 	/* get rid of (null) */
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->name));
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->char_no_arg));
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->others_no_arg));
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->char_found));
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->others_found));
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->vict_found));
-	Format::fprintf(fp, "%s~\n", smash_tilde(s->char_auto));
-	Format::fprintf(fp, "%s~\n\n", smash_tilde(s->others_auto));
+	Format::fprintf(fp, "%s~\n", s->name.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n", s->char_no_arg.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n", s->others_no_arg.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n", s->char_found.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n", s->others_found.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n", s->vict_found.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n", s->char_auto.replace("~", "-"));
+	Format::fprintf(fp, "%s~\n\n", s->others_auto.replace("~", "-"));
 }
 
 void save_social_table()
@@ -220,7 +220,7 @@ Social *social_lookup(const String& name)
 	iterator = social_table_head->next;
 
 	while (iterator != social_table_tail) {
-		if (!str_cmp(name, iterator->name))
+		if (name == iterator->name)
 			return iterator;
 
 		iterator = iterator->next;
@@ -249,7 +249,7 @@ void do_sedit(Character *ch, String argument)
 	}
 
 	if (!social[0]) {
-		if (!str_cmp(cmd, "find"))
+		if (cmd == "find")
 			stc("What do you wish to find?\n", ch);
 		else
 			stc("What social do you want to operate on?\n", ch);
@@ -259,16 +259,16 @@ void do_sedit(Character *ch, String argument)
 
 	iSocial = social_lookup(social);
 
-	if (str_cmp(cmd, "new") && str_cmp(cmd, "find") && (iSocial == NULL)) {
+	if (cmd != "new" && cmd != "find" && (iSocial == NULL)) {
 		stc("No such social exists.\n", ch);
 		return;
 	}
 
-	if (!str_cmp(cmd, "delete")) { /* Remove a social */
+	if (cmd == "delete") { /* Remove a social */
 		remove_social(iSocial->name);
 		stc("That social is history now.\n", ch);
 	}
-	else if (!str_cmp(cmd, "new")) { /* Create a new social */
+	else if (cmd == "new") { /* Create a new social */
 		if (iSocial != NULL) {
 			stc("A social with that name already exists.\n", ch);
 			return;
@@ -287,7 +287,7 @@ void do_sedit(Character *ch, String argument)
 		insert_social(new_social);
 		stc("New social added.\n", ch);
 	}
-	else if (!str_cmp(cmd, "rename")) { /* Rename a social */
+	else if (cmd == "rename") { /* Rename a social */
 		if (argument.empty()) {
 			stc("Rename it to what?\n", ch);
 			return;
@@ -319,7 +319,7 @@ void do_sedit(Character *ch, String argument)
 		remove_social(iSocial->name);
 		stc("Social renamed.\n", ch);
 	}
-	else if (!str_cmp(cmd, "show")) { /* Show a certain social */
+	else if (cmd == "show") { /* Show a certain social */
 		Format::sprintf(buf, "{HSocial: %s{x\n"
 		        "{G[cnoarg]{c No argument given, character sees:\n"
 		        "{Y         %s\n"
@@ -353,32 +353,32 @@ void do_sedit(Character *ch, String argument)
 		if (argument.empty())
 			fAll = TRUE;
 
-		if (!str_cmp(social, "unfinished")) {
+		if (social == "unfinished") {
 			bool unfin;
 			int count = 0;
 
 			for (i = social_table_head->next; i != social_table_tail; i = i->next) {
 				unfin = FALSE;
 
-				if (!str_cmp(i->char_no_arg, "")   && (fAll || !str_cmp(argument, "cnoarg")))
+				if (i->char_no_arg == ""   && (fAll || argument == "cnoarg"))
 					unfin = TRUE;
 
-				if (!str_cmp(i->others_no_arg, "") && (fAll || !str_cmp(argument, "onoarg")))
+				if (i->others_no_arg == "" && (fAll || argument == "onoarg"))
 					unfin = TRUE;
 
-				if (!str_cmp(i->char_found, "")    && (fAll || !str_cmp(argument, "cfound")))
+				if (i->char_found == ""    && (fAll || argument == "cfound"))
 					unfin = TRUE;
 
-				if (!str_cmp(i->others_found, "")  && (fAll || !str_cmp(argument, "ofound")))
+				if (i->others_found == ""  && (fAll || argument == "ofound"))
 					unfin = TRUE;
 
-				if (!str_cmp(i->vict_found, "")    && (fAll || !str_cmp(argument, "vfound")))
+				if (i->vict_found == ""    && (fAll || argument == "vfound"))
 					unfin = TRUE;
 
-				if (!str_cmp(i->char_auto, "")     && (fAll || !str_cmp(argument, "cself")))
+				if (i->char_auto == ""     && (fAll || argument == "cself"))
 					unfin = TRUE;
 
-				if (!str_cmp(i->others_auto, "")   && (fAll || !str_cmp(argument, "oself")))
+				if (i->others_auto == ""   && (fAll || argument == "oself"))
 					unfin = TRUE;
 
 				if (unfin) {
@@ -395,7 +395,7 @@ void do_sedit(Character *ch, String argument)
 		stc("Find what?\n", ch);
 		return;
 	}
-	else if (!str_cmp(cmd, "cnoarg")) { /* Set that argument */
+	else if (cmd == "cnoarg") { /* Set that argument */
 		iSocial->char_no_arg = argument;
 
 		if (!argument[0])
@@ -403,7 +403,7 @@ void do_sedit(Character *ch, String argument)
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
-	else if (!str_cmp(cmd, "onoarg")) {
+	else if (cmd == "onoarg") {
 		iSocial->others_no_arg = argument;
 
 		if (!argument[0])
@@ -411,7 +411,7 @@ void do_sedit(Character *ch, String argument)
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
-	else if (!str_cmp(cmd, "cfound")) {
+	else if (cmd == "cfound") {
 		iSocial->char_found = argument;
 
 		if (!argument[0])
@@ -419,7 +419,7 @@ void do_sedit(Character *ch, String argument)
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
-	else if (!str_cmp(cmd, "ofound")) {
+	else if (cmd == "ofound") {
 		iSocial->others_found = argument;
 
 		if (!argument[0])
@@ -427,7 +427,7 @@ void do_sedit(Character *ch, String argument)
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
-	else if (!str_cmp(cmd, "vfound")) {
+	else if (cmd == "vfound") {
 		iSocial->vict_found = argument;
 
 		if (!argument[0])
@@ -435,7 +435,7 @@ void do_sedit(Character *ch, String argument)
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
-	else if (!str_cmp(cmd, "cself")) {
+	else if (cmd == "cself") {
 		iSocial->char_auto = argument;
 
 		if (!argument[0])
@@ -443,7 +443,7 @@ void do_sedit(Character *ch, String argument)
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
 	}
-	else if (!str_cmp(cmd, "oself")) {
+	else if (cmd == "oself") {
 		iSocial->others_auto = argument;
 
 		if (!argument[0])

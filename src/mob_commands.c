@@ -251,7 +251,7 @@ void do_mpjunk(Character *ch, String argument)
 		return;
 	}
 
-	if (str_cmp(arg, "all") && str_prefix1("all.", arg)) {
+	if (arg != "all" && str_prefix1("all.", arg)) {
 		if ((obj = get_obj_wear(ch, arg)) != NULL) {
 			unequip_char(ch, obj);
 			extract_obj(obj);
@@ -601,7 +601,7 @@ void do_mptransfer(Character *ch, String argument)
 	}
 
 	/* eh, let's go ahead and NOT let mobs transfer all :P  -- Montrey */
-	/*      if (!str_cmp(arg1, "all"))
+	/*      if (arg1 == "all")
 	        {
 	                for (d = descriptor_list; d != NULL; d = d->next)
 	                {
@@ -673,7 +673,7 @@ void do_mpforce(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "all")) {
+	if (arg == "all") {
 		Character *vch, *vch_next;
 
 		for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {

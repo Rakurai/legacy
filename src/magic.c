@@ -1821,9 +1821,9 @@ void spell_continual_light(int sn, int level, Character *ch, void *vo, int targe
 
 void spell_control_weather(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	if (!str_cmp(target_name, "better"))
+	if (target_name == "better")
 		weather_info.change += dice(level / 3, 4);
-	else if (!str_cmp(target_name, "worse"))
+	else if (target_name == "worse")
 		weather_info.change -= dice(level / 3, 4);
 	else
 		stc("Do you want it to get better or worse?\n", ch);
@@ -1905,7 +1905,7 @@ void spell_create_rose(int sn, int level, Character *ch, void *vo, int target, i
 	if (target_name[0] == '\0')
 		strcpy(color, "red");   /* Red is the default */
 	else
-		strcpy(color, smash_tilde(target_name));
+		strcpy(color, target_name);
 
 	rose = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
@@ -3189,7 +3189,7 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 	one_argument(target_name, arg);
 
 	/* fireball the room! */
-	if (!str_cmp(arg, "room") && evolution >= 2) {
+	if (arg == "room" && evolution >= 2) {
 		char buf[MSL], fb_buf[MSL];
 		Character *victim_next;
 		int newdam;
@@ -4061,7 +4061,7 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 		for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 			ed_next = ed->next;
 
-			if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
+			if (ed->keyword == KEYWD_OWNER) {
 				ptc(ch, "{CThis item is owned by %s.{x\n", ed->description);
 				break;
 			}
@@ -6103,12 +6103,12 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 	if (obj->item_type == ITEM_CORPSE_PC) {
 		if (ch->in_room->clan
 		    || ch->in_room->guild
-		    || !str_cmp(ch->in_room->area->name, "Playpen")
-		    || !str_cmp(ch->in_room->area->name, "IMM-Zone")
-		    || !str_cmp(ch->in_room->area->name, "Limbo")
-		    || !str_cmp(ch->in_room->area->name, "Eilyndrae")      /* hack to make eilyndrae and torayna cri unquestable */
-		    || !str_cmp(ch->in_room->area->name, "Torayna Cri")
-		    || !str_cmp(ch->in_room->area->name, "Battle Arenas")
+		    || ch->in_room->area->name == "Playpen"
+		    || ch->in_room->area->name == "IMM-Zone"
+		    || ch->in_room->area->name == "Limbo"
+		    || ch->in_room->area->name == "Eilyndrae"      /* hack to make eilyndrae and torayna cri unquestable */
+		    || ch->in_room->area->name == "Torayna Cri"
+		    || ch->in_room->area->name == "Battle Arenas"
 		    || ch->in_room->sector_type == SECT_ARENA
 		    || IS_SET(GET_ROOM_FLAGS(ch->in_room),
 		              ROOM_MALE_ONLY

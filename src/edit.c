@@ -940,7 +940,7 @@ void do_edit(Character *ch, String argument)
 
 	/* below this point, functions want no args */
 
-	if (!str_cmp(arg, "cancel")) {
+	if (arg == "cancel") {
 		edit_cancel(ch, argument);
 		return;
 	}
@@ -968,7 +968,7 @@ void do_edit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg, "undo")) {
+	if (arg == "undo") {
 		edit_undo(ch, argument);
 		list_window(ch);
 		return;

@@ -1,12 +1,10 @@
 #pragma once
 
-bool    str_cmp         ( const String& astr, const String& bstr) ;
 bool    str_prefix      ( const String& astr, const String& bstr) ;
 bool    str_prefix1     ( const String& astr, const String& bstr) ;
 bool    str_infix       ( const String& astr, const String& bstr) ;
 bool    str_suffix      ( const String& astr, const String& bstr) ;
 const char *  smash_bracket   ( const String& str) ;
-const char *  smash_tilde     ( const String& str);
 const char *	ignore_apostrophe (const String& str);
 void	strcut		(char *str, unsigned int length);
 const char *	strcenter	(const String& string, int space);

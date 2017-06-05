@@ -14,7 +14,7 @@ const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {
 // the strings here might not sensibly apply to every type of gem... amber?  other things?
 // but this will work for now.  what if the base obj from the area file had an extra desc
 // with a space-delimited list of the words?  and just figure it out at runtime.  Later.
-const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
+/*const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
 //      keyword         quality         level
 	{	"rough",		GEM_QUALITY_A,	1 },
 	{	"cracked",		GEM_QUALITY_B,	15 },
@@ -24,7 +24,7 @@ const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
 	{	"brilliant",	GEM_QUALITY_F,	75 },
 	{	"dazzling",		GEM_QUALITY_G,	90 }
 };
-
+*/
 // populate a short string for display, takes a buffer of size GEM_SHORT_STRING_LEN
 char *get_gem_short_string(Object *eq) {
 	static char buf[MAX_GEM_SETTINGS * 3 + 9];
@@ -117,7 +117,7 @@ void do_inset(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!str_cmp(arg2, "in"))
+	if (arg2 == "in")
 		argument = one_argument(argument, arg2);
 
 	if (arg1.empty() || arg2.empty()) {

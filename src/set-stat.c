@@ -140,7 +140,7 @@ void do_sset(Character *ch, String argument)
 		return;
 	}
 
-	fAll = !str_cmp(arg2, "all");
+	fAll = arg2 == "all";
 	sn   = 0;
 
 	if (!fAll && (sn = skill_lookup(arg2)) < 0) {
@@ -309,7 +309,7 @@ void do_raffset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "list")) {
+	if (arg1 == "list") {
 		for (i = 1; i < MAX_RAFFECTS; i++)
 			ptc(ch, "{W[{C%3d{W] %10s {x%s\n",
 			    raffects[i].id, raffects[i].shortname, raffects[i].description);
@@ -361,14 +361,14 @@ void do_raffset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "none") || !str_cmp(arg2, "reroll")) {
+	if (arg2 == "none" || arg2 == "reroll") {
 		/* loop through and set all remort affects to 0 */
 		for (i = 0; i < 10; i++) {
 			rem_raff_affect(victim, raff_lookup(victim->pcdata->raffect[i]));
 			victim->pcdata->raffect[i] = 0;
 		}
 
-		if (!str_cmp(arg2, "none")) {
+		if (arg2 == "none") {
 			stc("The player's remort affects have been cleared.\n", ch);
 			return;
 		}
@@ -379,7 +379,7 @@ void do_raffset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "rollone")) {
+	if (arg2 == "rollone") {
 		/* find the first blank spot, and add a random raffect */
 		for (i = 0; i < ((victim->pcdata->remort_count / 10) + 1); i++) {
 			if (victim->pcdata->raffect[i] < 1) {
@@ -469,7 +469,7 @@ void do_extraset(Character *ch, String argument)
 	}
 
 
-	if (!str_cmp(arg1, "list")) {
+	if (arg1 == "list") {
 		output += "\n                      {BExtraclass Remort Skills{x\n";
 
 		for (cn = 0; cn < MAX_CLASS; cn++) {
@@ -550,7 +550,7 @@ void do_extraset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "none")) {
+	if (arg2 == "none") {
 		/* loop through and set all exsks to 0 */
 		for (i = 0; i < 5; i++)
 			victim->pcdata->extraclass[i] = 0;
@@ -659,7 +659,7 @@ void do_mset(Character *ch, String argument)
 
 	/* Set something. */
 
-	if (!str_cmp(arg2, "str")) {
+	if (arg2 == "str") {
 		if (value < 3 || value > get_max_train(victim, STAT_STR)) {
 			ptc(ch, "Strength range is 3 to %d.\n", get_max_train(victim, STAT_STR));
 			return;
@@ -670,7 +670,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "int")) {
+	if (arg2 == "int") {
 		if (value < 3 || value > get_max_train(victim, STAT_INT)) {
 			ptc(ch, "Intelligence range is 3 to %d.\n", get_max_train(victim, STAT_INT));
 			return;
@@ -681,7 +681,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "wis")) {
+	if (arg2 == "wis") {
 		if (value < 3 || value > get_max_train(victim, STAT_WIS)) {
 			ptc(ch, "Wisdom range is 3 to %d.\n", get_max_train(victim, STAT_WIS));
 			return;
@@ -692,7 +692,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "dex")) {
+	if (arg2 == "dex") {
 		if (value < 3 || value > get_max_train(victim, STAT_DEX)) {
 			ptc(ch, "Dexterity range is 3 to %d.\n", get_max_train(victim, STAT_DEX));
 			return;
@@ -703,7 +703,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "con")) {
+	if (arg2 == "con") {
 		if (value < 3 || value > get_max_train(victim, STAT_CON)) {
 			ptc(ch, "Constitution range is 3 to %d.\n", get_max_train(victim, STAT_CON));
 			return;
@@ -714,7 +714,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "chr")) {
+	if (arg2 == "chr") {
 		if (value < 3 || value > get_max_train(victim, STAT_CHR)) {
 			ptc(ch, "Charisma range is 3 to %d.\n", get_max_train(victim, STAT_CHR));
 			return;
@@ -819,7 +819,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "hunt")) {
+	if (arg2 == "hunt") {
 		Character *hunted = 0;
 
 		if (!IS_NPC(victim)) {
@@ -827,7 +827,7 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_cmp(arg3, ".")) {
+		if (arg3 == ".") {
 			ptc(ch, "%s is now hunting no one.\n", victim->name);
 			return;
 		}
@@ -1275,19 +1275,19 @@ void do_oset(Character *ch, String argument)
 	/*
 	 * Set something.
 	 */
-	if (!str_cmp(arg2, "value0") || !str_cmp(arg2, "v0")) {
+	if (arg2 == "value0" || arg2 == "v0") {
 		obj->value[0] = value;
 		ptc(ch, "%s's v0 has been set to %d.\n", obj->short_descr, value);
 		return;
 	}
 
-	if (!str_cmp(arg2, "value1") || !str_cmp(arg2, "v1")) {
+	if (arg2 == "value1" || arg2 == "v1") {
 		obj->value[1] = value;
 		ptc(ch, "%s's v1 has been set to %d.\n", obj->short_descr, value);
 		return;
 	}
 
-	if (!str_cmp(arg2, "value2") || !str_cmp(arg2, "v2")) {
+	if (arg2 == "value2" || arg2 == "v2") {
 		// count the drinks
 		int count = 0;
 		while (liq_table[count].liq_name != NULL)
@@ -1306,7 +1306,7 @@ void do_oset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "value3") || !str_cmp(arg2, "v3")) {
+	if (arg2 == "value3" || arg2 == "v3") {
 		/* Hack to keep Crush from crashing the mud */
 		if (obj->item_type == ITEM_WEAPON && value > MAX_WEAPON) {
 			ptc(ch, "The max for weapons is %d.\n", MAX_WEAPON);
@@ -1318,7 +1318,7 @@ void do_oset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4")) {
+	if (arg2 == "value4" || arg2 == "v4") {
 		if (obj->item_type == ITEM_WEAPON) {
 			stc("Please use the flag command to add or remove weapon flags.\n", ch);
 			return;
@@ -1397,8 +1397,6 @@ void do_rset(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	arg3 = argument;
-
-	// this doesn't actually change files, so no need to smash_tilde here. -- Montrey
 
 	if (arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
@@ -1892,7 +1890,7 @@ void do_stat(Character *ch, String argument)
 	String arg1;
 	String arg2 = one_argument(argument, arg1);
 
-	if (!str_cmp(arg1, "char")) {
+	if (arg1 == "char") {
 		if (arg2.empty()) {
 			stc("Stat what character?\n", ch);
 			return;
@@ -1947,7 +1945,7 @@ void do_stat(Character *ch, String argument)
 
 		format_ostat(ch, obj);
 	}
-	else if (!str_cmp(arg1, "room"))        /* 'stat room' (current room) */
+	else if (arg1 == "room")        /* 'stat room' (current room) */
 		format_rstat(ch, ch->in_room);
 	else if (is_number(arg1)) {
 		if ((room = get_room_index(atoi(arg1))) == NULL) {

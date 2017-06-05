@@ -32,7 +32,7 @@ void load_disabled()
 
 	while (db_next_row() == SQL_OK) {
 		for (i = 0; cmd_table[i].name[0]; i++)
-			if (!str_cmp(cmd_table[i].name, db_get_column_str(0)))
+			if (cmd_table[i].name == db_get_column_str(0))
 				break;
 
 		if (!cmd_table[i].name[0]) {
@@ -74,7 +74,7 @@ void do_disable(Character *ch, String argument)
 
 	/* First check if it is one of the disabled commands */
 	for (p = disabled_first; p ; p = p->next)
-		if (!str_cmp(cmd, p->command->name))
+		if (cmd == p->command->name)
 			break;
 
 	if (p) { /* found the command, enable it */
@@ -96,7 +96,7 @@ void do_disable(Character *ch, String argument)
 	}
 
 	/* IQ test */
-	if (!str_cmp(cmd, "disable")) {
+	if (cmd == "disable") {
 		stc("You cannot disable the disable command.\n", ch);
 		return;
 	}
@@ -112,7 +112,7 @@ void do_disable(Character *ch, String argument)
 	}
 
 	for (i = 0; cmd_table[i].name[0] != '\0'; i++)
-		if (!str_cmp(cmd_table[i].name, cmd))
+		if (cmd == cmd_table[i].name)
 			break;
 
 	if (cmd_table[i].name[0] == '\0') {

@@ -166,7 +166,7 @@ void do_spells(Character *ch, String argument)
 	for (j = 0; j < ngroups; j++) {
 		gn = group_list[j];
 
-		if (!str_cmp(argument, group_table[gn].name)) {
+		if (argument == group_table[gn].name) {
 			/* discard group name argument */
 			argument = one_argument(argument, arg);
 			group = gn;
@@ -1048,7 +1048,7 @@ void do_groups(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_cmp(argument, "all")) { /* show all groups */
+	if (argument == "all") { /* show all groups */
 		for (gn = 0; gn < MAX_GROUP; gn++) {
 			if (group_table[gn].name == NULL)
 				break;
@@ -1162,7 +1162,7 @@ int group_lookup(const String& name)
 	int gn;
 
 	for (gn = 0; group_table[gn].name != NULL; gn++)
-		if (!str_cmp(name, group_table[gn].name))
+		if (name == group_table[gn].name)
 			return gn;
 
 	return -1;
@@ -1434,7 +1434,7 @@ void do_evolve(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_IMMORTAL(ch) && !str_cmp(arg, "info")) {
+	if (IS_IMMORTAL(ch) && arg == "info") {
 		evolve_info(ch);
 		return;
 	}

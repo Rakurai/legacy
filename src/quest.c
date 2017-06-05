@@ -657,14 +657,14 @@ RoomPrototype *generate_skillquest_room(Character *ch, int level)
 		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
 		        && room->area->min_vnum <= 26999)
 		    || room->guild
-		    || !str_cmp(room->area->name, "Playpen")
-		    || !str_cmp(room->area->name, "IMM-Zone")
-		    || !str_cmp(room->area->name, "Limbo")
-		    || !str_cmp(room->area->name, "Midgaard")
-		    || !str_cmp(room->area->name, "New Thalos")
-		    || !str_cmp(room->area->name, "Eilyndrae")     /* hack to make eilyndrae and torayna cri unquestable */
-		    || !str_cmp(room->area->name, "Torayna Cri")
-		    || !str_cmp(room->area->name, "Battle Arenas")
+		    || room->area->name == "Playpen"
+		    || room->area->name == "IMM-Zone"
+		    || room->area->name == "Limbo"
+		    || room->area->name == "Midgaard"
+		    || room->area->name == "New Thalos"
+		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+		    || room->area->name == "Torayna Cri"
+		    || room->area->name == "Battle Arenas"
 		    || room->sector_type == SECT_ARENA
 		    || IS_SET(GET_ROOM_FLAGS(room),
 		              ROOM_MALE_ONLY
