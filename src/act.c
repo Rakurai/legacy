@@ -2,11 +2,11 @@
 #include "recycle.h"
 
 /* the guts of act, taken out to reduce complexity. */
-void act_format(const String& format, CHAR_DATA *ch,
-                const CHAR_DATA *vch, const CHAR_DATA *vch2,
+void act_format(const String& format, Character *ch,
+                const Character *vch, const Character *vch2,
                 const String *str1, const String *str2,
-                const OBJ_DATA *obj1, const OBJ_DATA *obj2,
-                CHAR_DATA *to, bool snooper, int vis)
+                const Object *obj1, const Object *obj2,
+                Character *to, bool snooper, int vis)
 {
 	static char *const he_she  [] = { "it",  "he",  "she" };
 	static char *const him_her [] = { "it",  "him", "her" };
@@ -156,25 +156,25 @@ void act_format(const String& format, CHAR_DATA *ch,
         // hole right now.  it does need to be fixed by making mprog stuff use const
         // object pointers, but at a later date.
 		mprog_act_trigger(buf.c_str(), to, ch,
-            const_cast<OBJ_DATA *>(obj1),
-            const_cast<CHAR_DATA *>(vch));
+            const_cast<Object *>(obj1),
+            const_cast<Character *>(vch));
 } /* end act_format() */
 
 void act_parse(
     const String& fmt,
-    CHAR_DATA *ch,
-    const CHAR_DATA *vch, const CHAR_DATA *vch2,
+    Character *ch,
+    const Character *vch, const Character *vch2,
     const String *str1, const String *str2,
-    const OBJ_DATA *obj1, const OBJ_DATA *obj2,
+    const Object *obj1, const Object *obj2,
     int type,
     int min_pos,
     bool censor
 ) {
     String format(fmt);
-    ARENA_DATA *arena = arena_table_head->next;
-    CHAR_DATA *to;
+    Duel::Arena *arena = arena_table_head->next;
+    Character *to;
     bool SNEAKING = FALSE;
-    TAIL_DATA *td;
+    Tail *td;
     char fake_message[MAX_INPUT_LENGTH];
     int vis = VIS_CHAR;
 
@@ -347,31 +347,31 @@ void act_parse(
 
 }
 
-void act(const String& format, CHAR_DATA *ch, const Actable* arg1, const Actable* arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable* arg1, const Actable* arg2, int type, int min_pos, bool censor) {
     act_parse(
         format, ch,
-        (const CHAR_DATA *)arg2,
-        (const CHAR_DATA *)arg1,
+        (const Character *)arg2,
+        (const Character *)arg1,
         (const String *)arg1,
         (const String *)arg2,
-        (const OBJ_DATA *)arg1,
-        (const OBJ_DATA *)arg2,
+        (const Object *)arg1,
+        (const Object *)arg2,
         type, min_pos, censor
     );
 }
 
 // pointer and reference
-void act(const String& format, CHAR_DATA *ch, const Actable* arg1, const Actable& arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable* arg1, const Actable& arg2, int type, int min_pos, bool censor) {
     act(format, ch, arg1, &arg2, type, min_pos, censor);
 }
 
 // reference and pointer
-void act(const String& format, CHAR_DATA *ch, const Actable& arg1, const Actable* arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable& arg1, const Actable* arg2, int type, int min_pos, bool censor) {
     act(format, ch, &arg1, arg2, type, min_pos, censor);
 }
 
 // reference and reference
-void act(const String& format, CHAR_DATA *ch, const Actable& arg1, const Actable& arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable& arg1, const Actable& arg2, int type, int min_pos, bool censor) {
     act(format, ch, &arg1, &arg2, type, min_pos, censor);
 }
 
@@ -380,22 +380,22 @@ void act(const String& format, CHAR_DATA *ch, const Actable& arg1, const Actable
  */
 
 // arg and char*
-void act(const String& format, CHAR_DATA *ch, const Actable* arg1, const char *arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable* arg1, const char *arg2, int type, int min_pos, bool censor) {
     act(format, ch, arg1, String(arg2), type, min_pos, censor);
 }
 
 // arg and null
-void act(const String& format, CHAR_DATA *ch, const Actable* arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable* arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
     act(format, ch, arg1, String(), type, min_pos, censor);
 }
 
 // char* and arg
-void act(const String& format, CHAR_DATA *ch, const char *arg1, const Actable* arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const char *arg1, const Actable* arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(arg1), arg2, type, min_pos, censor);
 }
 
 // null and arg
-void act(const String& format, CHAR_DATA *ch, std::nullptr_t arg1, const Actable* arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, std::nullptr_t arg1, const Actable* arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(), arg2, type, min_pos, censor);
 }
 
@@ -404,22 +404,22 @@ void act(const String& format, CHAR_DATA *ch, std::nullptr_t arg1, const Actable
  */
 
 // arg and char*
-void act(const String& format, CHAR_DATA *ch, const Actable& arg1, const char *arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable& arg1, const char *arg2, int type, int min_pos, bool censor) {
     act(format, ch, &arg1, String(arg2), type, min_pos, censor);
 }
 
 // arg and null
-void act(const String& format, CHAR_DATA *ch, const Actable& arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const Actable& arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
     act(format, ch, &arg1, String(), type, min_pos, censor);
 }
 
 // char* and arg
-void act(const String& format, CHAR_DATA *ch, const char *arg1, const Actable& arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const char *arg1, const Actable& arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(arg1), &arg2, type, min_pos, censor);
 }
 
 // null and arg
-void act(const String& format, CHAR_DATA *ch, std::nullptr_t arg1, const Actable& arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, std::nullptr_t arg1, const Actable& arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(), &arg2, type, min_pos, censor);
 }
 
@@ -428,21 +428,21 @@ void act(const String& format, CHAR_DATA *ch, std::nullptr_t arg1, const Actable
  */
 
 // char* and char*
-void act(const String& format, CHAR_DATA *ch, const char *arg1, const char *arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const char *arg1, const char *arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(arg1), String(arg2), type, min_pos, censor);
 }
 
 // char* and null
-void act(const String& format, CHAR_DATA *ch, const char *arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, const char *arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(arg1), String(), type, min_pos, censor);
 }
 
 // null and char*
-void act(const String& format, CHAR_DATA *ch, std::nullptr_t arg1, const char *arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, std::nullptr_t arg1, const char *arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(), String(arg2), type, min_pos, censor);
 }
 
 // null and null
-void act(const String& format, CHAR_DATA *ch, std::nullptr_t arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
+void act(const String& format, Character *ch, std::nullptr_t arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
     act(format, ch, String(), String(), type, min_pos, censor);
 }

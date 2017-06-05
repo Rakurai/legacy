@@ -40,30 +40,18 @@ extern int mobile_count;
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
 
 /* descriptor recycling */
-DESCRIPTOR_DATA	*new_descriptor args( (void) );
-void	free_descriptor args( (DESCRIPTOR_DATA *d) );
+Descriptor	*new_descriptor args( (void) );
+void	free_descriptor args( (Descriptor *d) );
 
 /* char gen data recycling */
-GEN_DATA 	*new_gen_data args( (void) );
-void	free_gen_data args( (GEN_DATA * gen) );
-
-/* extra descr recycling */
-EXTRA_DESCR_DATA	*new_extra_descr args( (void) );
-void	free_extra_descr args( (EXTRA_DESCR_DATA *ed) );
-
-/* affect recycling */
-AFFECT_DATA	*new_affect args( (void) );
-void	free_affect args( (AFFECT_DATA *af) );
-
-/* object recycling */
-OBJ_DATA	*new_obj args( (void) );
-void	free_obj args( (OBJ_DATA *obj) );
+Customize 	*new_gen_data args( (void) );
+void	free_gen_data args( (Customize * gen) );
 
 /* character recyling */
-CHAR_DATA	*new_char args( (void) );
-void	free_char args( (CHAR_DATA *ch) );
-PC_DATA	*new_pcdata args( (void) );
-void	free_pcdata args( (PC_DATA *pcdata) );
+Character	*new_char args( (void) );
+void	free_char args( (Character *ch) );
+Player	*new_pcdata args( (void) );
+void	free_pcdata args( (Player *pcdata) );
 
 
 /* mob id and memory procedures */
@@ -71,28 +59,28 @@ long 	get_pc_id args( (void) );
 long	get_mob_id args( (void) );
 
 /* war recycling */
-WAR_DATA	*new_war args((void));
-void		free_war args((WAR_DATA *war));
+War	*new_war args((void));
+void		free_war args((War *war));
 
 /* war opponent recycling */
-OPP_DATA	*new_opp args((void));
-void		free_opp args((OPP_DATA *opp));
+War::Opponent	*new_opp args((void));
+void		free_opp args((War::Opponent *opp));
 
 /* war event recycling */
-EVENT_DATA	*new_event args((void));
-void		free_event args((EVENT_DATA *event));
+War::Event	*new_event args((void));
+void		free_event args((War::Event *event));
 
 /* merc recycling */
-MERC_DATA	*new_merc args((void));
-void		free_merc args((MERC_DATA *merc));
+Mercenary	*new_merc args((void));
+void		free_merc args((Mercenary *merc));
 
 /* merc offer recycling */
-OFFER_DATA	*new_offer args((void));
-void		free_offer args((OFFER_DATA *offer));
+Mercenary::Offer	*new_offer args((void));
+void		free_offer args((Mercenary::Offer *offer));
 
 /* duel data recycling */
-DUEL_DATA	*new_duel args((void));
-void		free_duel args((DUEL_DATA *duel));
+Duel	*new_duel args((void));
+void		free_duel args((Duel *duel));
 
 /* coordinate recycling
 WM_COORD_DATA	*new_coord args((void));

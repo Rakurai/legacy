@@ -29,23 +29,23 @@
 #include "interp.h"
 #include "sql.h"
 #include "music.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "memory.h"
 #include "auction.h"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 extern void new_day(void);
 
-extern void     squestmob_found args((CHAR_DATA *ch, CHAR_DATA *mob));
+extern void     squestmob_found args((Character *ch, Character *mob));
 extern           time_t                  reboot_time;
 
 /*
  * Local functions.
  */
-int     hit_gain        args((CHAR_DATA *ch));
-int     mana_gain       args((CHAR_DATA *ch));
-int     stam_gain       args((CHAR_DATA *ch));
+int     hit_gain        args((Character *ch));
+int     mana_gain       args((Character *ch));
+int     stam_gain       args((Character *ch));
 void    mobile_update   args((void));
 void    weather_update  args((void));
 void    char_update     args((void));
@@ -61,7 +61,7 @@ void    janitor_update  args((void));
 
 int     save_number = 0;
 
-void demote_level(CHAR_DATA *ch)
+void demote_level(Character *ch)
 {
 	int sub_hp, sub_mana, sub_stam, sub_prac, sub_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
@@ -90,7 +90,7 @@ void demote_level(CHAR_DATA *ch)
 	    sub_train,      ch->train);
 }
 
-void advance_level(CHAR_DATA *ch)
+void advance_level(Character *ch)
 {
 	int add_hp, add_mana, add_stam, add_prac, add_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
@@ -127,7 +127,7 @@ This function advances a NPC. This is to advance a pet's
 level. This function is likely to be called directly after advance_level().
 -- Outsider
 */
-void npc_advance_level(CHAR_DATA *ch)
+void npc_advance_level(Character *ch)
 {
 	int add_hit, add_mana, add_stam;
 
@@ -142,7 +142,7 @@ void npc_advance_level(CHAR_DATA *ch)
 	ATTR_BASE(ch, APPLY_STAM) += add_stam;
 }
 
-void gain_exp(CHAR_DATA *ch, int gain)
+void gain_exp(Character *ch, int gain)
 {
 	char buf[MSL];
 
@@ -161,8 +161,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		ch->level++;
 
 		if (ch->level == LEVEL_HERO) {
-			DESCRIPTOR_DATA *d;
-			CHAR_DATA *victim;
+			Descriptor *d;
+			Character *victim;
 			static char *msg =
 			        "{PGGGGGG  RRRRRR    AAAA   TTTTTTT  ZZZZZZ\n"
 			        "{YGG  GG  RR  RRR  AAAAAA  TTTTTTT  ZZZZZZ\n"
@@ -170,7 +170,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			        "{CGG GGG  RRRRRR   AAAAAA    TTT     ZZZ  \n"
 			        "{BGG  GG  RR  RRR  AA  AA    TTT    ZZZZZZ\n"
 			        "{VGGGGGG  RR   RR  AA  AA    TTT    ZZZZZZ{x\n";
-			extern void restore_char(CHAR_DATA *, CHAR_DATA *);
+			extern void restore_char(Character *, Character *);
 			stc("{MGratz from all the Immortals of Legacy!{x\n\n", ch);
 
 			for (d = descriptor_list; d; d = d->next)
@@ -214,7 +214,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 /*
  * Regeneration stuff.
  */
-int hit_gain(CHAR_DATA *ch)
+int hit_gain(Character *ch)
 {
 	int gain;
 	int number;
@@ -293,7 +293,7 @@ int hit_gain(CHAR_DATA *ch)
 	return UMIN(gain, GET_MAX_HIT(ch) - ch->hit);
 }
 
-int mana_gain(CHAR_DATA *ch)
+int mana_gain(Character *ch)
 {
 	int gain, number;
 
@@ -368,7 +368,7 @@ int mana_gain(CHAR_DATA *ch)
 	return UMIN(gain, GET_MAX_MANA(ch) - ch->mana);
 }
 
-int stam_gain(CHAR_DATA *ch)
+int stam_gain(Character *ch)
 {
 	int gain;
 
@@ -437,7 +437,7 @@ int stam_gain(CHAR_DATA *ch)
 	return UMIN(gain, GET_MAX_STAM(ch) - ch->stam);
 }
 
-void gain_condition(CHAR_DATA *ch, int iCond, int value)
+void gain_condition(Character *ch, int iCond, int value)
 {
 	int condition;
 
@@ -487,9 +487,9 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
  */
 void mobile_update(void)
 {
-	CHAR_DATA *ch;
-	CHAR_DATA *ch_next;
-	EXIT_DATA *pexit;
+	Character *ch;
+	Character *ch_next;
+	Exit *pexit;
 	int door;
 
 	/* Examine all mobs. */
@@ -539,9 +539,9 @@ void mobile_update(void)
 		if (IS_SET(ch->act, ACT_SCAVENGER)
 		    && ch->in_room->contents != NULL
 		    && number_bits(6) == 0) {
-			CHAR_DATA *gch;
-			OBJ_DATA *obj;
-			OBJ_DATA *obj_best = 0;
+			Character *gch;
+			Object *obj;
+			Object *obj_best = 0;
 			bool not_used;
 			int max = 1;
 
@@ -599,7 +599,7 @@ void mobile_update(void)
 void weather_update(void)
 {
 	String buf;
-	CHAR_DATA *ch;
+	Character *ch;
 	int diff;
 	buf[0] = '\0';
 
@@ -729,8 +729,8 @@ void weather_update(void)
 /* Update all descriptors, handles login timer */
 void descrip_update(void)
 {
-	DESCRIPTOR_DATA *d, *d_next;
-	CHAR_DATA *ch;
+	Descriptor *d, *d_next;
+	Character *ch;
 
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
@@ -786,9 +786,9 @@ void descrip_update(void)
 */
 void char_update(void)
 {
-	CHAR_DATA *ch;
-	CHAR_DATA *ch_next;
-	CHAR_DATA *ch_quit;
+	Character *ch;
+	Character *ch_next;
+	Character *ch_quit;
 	ch_quit     = NULL;
 	/* update save counter */
 	save_number++;
@@ -874,7 +874,7 @@ void char_update(void)
 			update_pos(ch);
 
 		if (!IS_NPC(ch) && !IS_IMMORTAL(ch)) {
-			OBJ_DATA *obj;
+			Object *obj;
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
 			    &&   obj->item_type == ITEM_LIGHT
@@ -968,7 +968,7 @@ void char_update(void)
 		affect_sort_char(ch, affect_comparator_duration);
 		affect_sort_char(ch, affect_comparator_type);
 
-		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next) {
+		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
@@ -980,7 +980,7 @@ void char_update(void)
 		}
 
 		// now remove spells with duration 0
-		AFFECT_DATA pattern;
+		Affect pattern;
 		pattern.duration = 0;
 		affect_remove_matching_from_char(ch, affect_comparator_duration, &pattern);
 
@@ -1007,7 +1007,7 @@ void char_update(void)
 		 */
 
 		if (ch != NULL && affect_exists_on_char(ch, gsn_plague)) {
-		 	const AFFECT_DATA *plague = affect_find_on_char(ch, gsn_plague);
+		 	const Affect *plague = affect_find_on_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
 			    ch, NULL, NULL, TO_ROOM);
@@ -1023,7 +1023,7 @@ void char_update(void)
 		}
 
 		if (ch != NULL && affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_slow)) {
-			const AFFECT_DATA *poison = affect_find_on_char(ch, gsn_poison);
+			const Affect *poison = affect_find_on_char(ch, gsn_poison);
 
 			if (poison != NULL) {
 				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
@@ -1062,11 +1062,11 @@ void char_update(void)
  */
 void obj_update(void)
 {
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
+	Object *obj;
+	Object *obj_next;
 
 	for (obj = object_list; obj != NULL; obj = obj_next) {
-		CHAR_DATA *rch;
+		Character *rch;
 		char *message;
 		obj_next = obj->next;
 
@@ -1082,7 +1082,7 @@ void obj_update(void)
 		affect_sort_obj(obj, affect_comparator_duration);
 		affect_sort_obj(obj, affect_comparator_type);
 
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
+		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
@@ -1116,7 +1116,7 @@ void obj_update(void)
 		}
 
 		// now remove spells with duration 0
-		AFFECT_DATA pattern;
+		Affect pattern;
 		pattern.duration = 0;
 		affect_remove_matching_from_obj(obj, affect_comparator_duration, &pattern);
 
@@ -1186,7 +1186,7 @@ void obj_update(void)
 
 		/* save the contents, but not npc corpses */
 		if (obj->item_type != ITEM_CORPSE_NPC && obj->contains) {
-			OBJ_DATA *t_obj, *next_obj;
+			Object *t_obj, *next_obj;
 
 			for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
 				next_obj = t_obj->next_content;
@@ -1218,7 +1218,7 @@ void obj_update(void)
 /* Update all rooms -- Montrey */
 void room_update(void)
 {
-	ROOM_INDEX_DATA *room;
+	RoomPrototype *room;
 	int x;
 
 	for (x = 1; x < 32600; x++) {
@@ -1234,7 +1234,7 @@ void room_update(void)
 		affect_sort_room(room, affect_comparator_duration);
 		affect_sort_room(room, affect_comparator_type);
 
-		for (const AFFECT_DATA *paf = affect_list_room(room); paf; paf = paf->next) {
+		for (const Affect *paf = affect_list_room(room); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
@@ -1250,7 +1250,7 @@ void room_update(void)
 		}
 
 		// now remove spells with duration 0
-		AFFECT_DATA pattern;
+		Affect pattern;
 		pattern.duration = 0;
 		affect_remove_matching_from_room(room, affect_comparator_duration, &pattern);
 
@@ -1277,7 +1277,7 @@ void room_update(void)
  *       mobprog updates. Do not forget this.
  */
 
-bool eligible_aggressor(CHAR_DATA *ch)
+bool eligible_aggressor(Character *ch)
 {
 	return (IS_NPC(ch)
 	        && IS_AWAKE(ch)
@@ -1288,7 +1288,7 @@ bool eligible_aggressor(CHAR_DATA *ch)
 	       );
 }
 
-bool eligible_victim(CHAR_DATA *ch)
+bool eligible_victim(Character *ch)
 {
 	if (IS_NPC(ch))
 		return FALSE;
@@ -1304,13 +1304,13 @@ bool eligible_victim(CHAR_DATA *ch)
 
 void aggr_update(void)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	int player_count;
 	int jroom, room_count;
 	int jvictim, victim_count, victim_num;
 	int jmob, mob_count, mob_num;
-	ROOM_INDEX_DATA *room;
-	CHAR_DATA *ch, *plr, *mob, *victim;
+	RoomPrototype *room;
+	Character *ch, *plr, *mob, *victim;
 	bool duplicate;
 	/* Count players. There can't possibly be more player-
 	   inhabited rooms than there are players. */
@@ -1320,7 +1320,7 @@ void aggr_update(void)
 		player_count++;
 
 	/* allocate stack memory for pointers to <player_count> rooms */
-	ROOM_INDEX_DATA *room_list[player_count];
+	RoomPrototype *room_list[player_count];
 
 	for (jroom = 0; jroom < player_count; jroom++)
 		room_list[jroom] = NULL;
@@ -1377,7 +1377,7 @@ void aggr_update(void)
 		   list of player-inhabited rooms and the loop thereover. */
 		for (ch = room->people; ch != NULL; ch = ch->next_in_room) {
 			if (IS_NPC(ch) && ch->mpact != NULL) {
-				MPROG_ACT_LIST *tmp_act, *tmp2_act;
+				MobProgActList *tmp_act, *tmp2_act;
 
 				// go through acts and handle them
 				for (tmp_act = ch->mpact; tmp_act != NULL;
@@ -1480,8 +1480,8 @@ void aggr_update(void)
 
 void tele_update(void)
 {
-	CHAR_DATA *ch, *ch_next;
-	ROOM_INDEX_DATA *pRoomIndex;
+	Character *ch, *ch_next;
+	RoomPrototype *pRoomIndex;
 
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
@@ -1514,8 +1514,8 @@ void tele_update(void)
  */
 void age_update(void)
 {
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *wch;
+	Descriptor *d;
+	Character *wch;
 
 	/* leech our quest_double counter here too */
 	if (quest_double)
@@ -1551,7 +1551,7 @@ void age_update(void)
                                                 -- Montrey */
 void wait_update(void)
 {
-	CHAR_DATA *ch;
+	Character *ch;
 
 	for (ch = char_list; ch != NULL; ch = ch->next) {
 		if (ch->daze > 0)       --ch->daze;
@@ -1616,14 +1616,14 @@ void update_handler(void)
 		if (reboot_time != 0) {
 			if (current_time == reboot_time) {
 				int count = 0;
-				DESCRIPTOR_DATA *d;
+				Descriptor *d;
 
 				for (d = descriptor_list; d != NULL; d = d->next)
 					if (IS_PLAYING(d))
 						count++;
 
 				if (count == 0) {
-					DESCRIPTOR_DATA *d_next;
+					Descriptor *d_next;
 					extern bool merc_down;
 					log_string("AUTO-REBOOT");
 //					do_sysinfo("The system is going down for auto-reboot NOW.\n");
@@ -1650,8 +1650,8 @@ void update_handler(void)
 /* worldwide cleanup of objects */
 void janitor_update()
 {
-	CHAR_DATA *rch;
-	OBJ_DATA *obj;
+	Character *rch;
+	Object *obj;
 
 	if (port != DIZZYPORT)
 		return;
@@ -1698,7 +1698,7 @@ void janitor_update()
 
 void underwater_update(void)
 {
-	CHAR_DATA *ch, *ch_next;
+	Character *ch, *ch_next;
 	int skill, dam;
 
 	for (ch = char_list; ch != NULL; ch = ch_next) {
@@ -1739,8 +1739,8 @@ void underwater_update(void)
 
 void quest_update(void)
 {
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *ch;
+	Descriptor *d;
+	Character *ch;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		if (IS_PLAYING(d)) {

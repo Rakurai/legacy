@@ -27,44 +27,44 @@
 
 #include "merc.h"
 #include "interp.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
 
 /* Maybe this will help me compile. -- Outsider */
-void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
+void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
 
 /*
  * Local functions.
  */
-void    check_assist    args((CHAR_DATA *ch, CHAR_DATA *victim));
-void    check_cond      args((CHAR_DATA *ch, OBJ_DATA *obj));
-void    check_all_cond  args((CHAR_DATA *ch));
-void    check_killer    args((CHAR_DATA *ch, CHAR_DATA *victim));
-bool    check_dodge     args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));
-bool    check_blur      args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));
-bool    check_shblock   args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));
-bool    check_parry     args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));
-bool    check_dual_parry args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));    /* not a skill, evo dual wield */
-void    do_riposte      args((CHAR_DATA *ch, CHAR_DATA *victim));
-void    dam_message     args((CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune, bool sanc_immune));
-void    death_cry       args((CHAR_DATA *ch));
-void    group_gain      args((CHAR_DATA *ch, CHAR_DATA *victim));
-int     xp_compute      args((CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_classes));
-bool    is_safe         args((CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg));
-void    make_corpse     args((CHAR_DATA *ch));
-bool    check_pulse     args((CHAR_DATA *victim));
-void    kill_off        args((CHAR_DATA *ch, CHAR_DATA *victim));
-void    one_hit         args((CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary));
-void    mob_hit         args((CHAR_DATA *ch, CHAR_DATA *victim, int dt));
-void    raw_kill        args((CHAR_DATA *victim));
-void    set_fighting    args((CHAR_DATA *ch, CHAR_DATA *victim));
-void    combat_regen    args((CHAR_DATA *ch));
-void    noncombat_regen    args((CHAR_DATA *ch));
-void    do_lay_on_hands       args((CHAR_DATA *ch, const char *argument));
+void    check_assist    args((Character *ch, Character *victim));
+void    check_cond      args((Character *ch, Object *obj));
+void    check_all_cond  args((Character *ch));
+void    check_killer    args((Character *ch, Character *victim));
+bool    check_dodge     args((Character *ch, Character *victim, int dt));
+bool    check_blur      args((Character *ch, Character *victim, int dt));
+bool    check_shblock   args((Character *ch, Character *victim, int dt));
+bool    check_parry     args((Character *ch, Character *victim, int dt));
+bool    check_dual_parry args((Character *ch, Character *victim, int dt));    /* not a skill, evo dual wield */
+void    do_riposte      args((Character *ch, Character *victim));
+void    dam_message     args((Character *ch, Character *victim, int dam, int dt, bool immune, bool sanc_immune));
+void    death_cry       args((Character *ch));
+void    group_gain      args((Character *ch, Character *victim));
+int     xp_compute      args((Character *gch, Character *victim, int total_levels, int diff_classes));
+bool    is_safe         args((Character *ch, Character *victim, bool showmsg));
+void    make_corpse     args((Character *ch));
+bool    check_pulse     args((Character *victim));
+void    kill_off        args((Character *ch, Character *victim));
+void    one_hit         args((Character *ch, Character *victim, int dt, bool secondary));
+void    mob_hit         args((Character *ch, Character *victim, int dt));
+void    raw_kill        args((Character *victim));
+void    set_fighting    args((Character *ch, Character *victim));
+void    combat_regen    args((Character *ch));
+void    noncombat_regen    args((Character *ch));
+void    do_lay_on_hands       args((Character *ch, const char *argument));
 
 /* Global XP */
 int gxp;
@@ -77,8 +77,8 @@ bool global_quick = FALSE;
    Called periodically by update_handler. */
 void violence_update(void)
 {
-	CHAR_DATA *ch;
-	CHAR_DATA *victim;
+	Character *ch;
+	Character *victim;
 
 	// go through first and make sure everybody is fighting who should be fighting
 	for (ch = char_list; ch != NULL; ch = ch->next)
@@ -94,7 +94,7 @@ void violence_update(void)
 		// timing frequency.  can't go in the affect modifiers, because
 		// we don't want them to drop a weapon when only half of the affects
 		// have been loaded on the character
-		extern void attribute_check(CHAR_DATA *ch);
+		extern void attribute_check(Character *ch);
 		attribute_check(ch);
 
 		/* Hunting mobs */
@@ -140,7 +140,7 @@ void violence_update(void)
 			if (IS_NPC(ch))
 				ch->wait = 1;
 			else {
-				CHAR_DATA *rch;
+				Character *rch;
 
 				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
 					if (IS_NPC(rch)
@@ -217,7 +217,7 @@ void violence_update(void)
 	}
 } /* end violence_update */
 
-void noncombat_regen(CHAR_DATA *ch) {
+void noncombat_regen(Character *ch) {
 	int hitgain = GET_MAX_HIT(ch)/10;
 	int managain = GET_MAX_MANA(ch)/10;
 	int stamgain = GET_MAX_STAM(ch)/10;
@@ -239,7 +239,7 @@ void noncombat_regen(CHAR_DATA *ch) {
 	}
 }
 
-void combat_regen(CHAR_DATA *ch)
+void combat_regen(Character *ch)
 {
 	int hitgain = 0, managain = 0, stamgain = 0;
 
@@ -345,10 +345,10 @@ void combat_regen(CHAR_DATA *ch)
 	if (ch->stam < GET_MAX_STAM(ch))    ch->stam = UMIN(GET_MAX_STAM(ch), ch->stam + stamgain);
 }
 
-void check_all_cond(CHAR_DATA *ch)
+void check_all_cond(Character *ch)
 {
 	int iWear;
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return;
@@ -364,7 +364,7 @@ void check_all_cond(CHAR_DATA *ch)
 	}
 } /* end check_all_cond */
 
-void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
+void check_cond(Character *ch, Object *obj)
 {
 	if (IS_IMMORTAL(ch))
 		return;
@@ -388,7 +388,7 @@ void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 		act("{W$p{x has been {Wdestroyed{x in combat!", ch, obj, NULL, TO_CHAR);
 
 		if (obj->contains) { /* dump contents */
-			OBJ_DATA *t_obj, *n_obj;
+			Object *t_obj, *n_obj;
 
 			if (ch->in_room->sector_type != SECT_ARENA
 			    && !char_in_darena_room(ch)) {
@@ -418,9 +418,9 @@ void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 } /* end check_cond */
 
 /* for auto assisting */
-void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
+void check_assist(Character *ch, Character *victim)
 {
-	CHAR_DATA *rch, *rch_next;
+	Character *rch, *rch_next;
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch_next) {
 		rch_next = rch->next_in_room;
@@ -431,7 +431,7 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (rch->fighting != NULL)
 			continue;
 
-		CHAR_DATA *target = NULL;
+		Character *target = NULL;
 
 		if (IS_NPC(ch)) {
 			if (IS_NPC(rch)) {
@@ -457,7 +457,7 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 						if (number_bits(1) == 0)
 							continue;
 
-						for (CHAR_DATA *vch = ch->in_room->people; vch; vch = vch->next) {
+						for (Character *vch = ch->in_room->people; vch; vch = vch->next) {
 							if (can_see_char(rch, vch)
 							    && is_same_group(vch, victim)
 							    && number_range(0, number) == 0) {
@@ -507,13 +507,13 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 } /* end check_assist */
 
-void check_protection_aura(CHAR_DATA *ch, CHAR_DATA *victim) {
+void check_protection_aura(Character *ch, Character *victim) {
 
 	if ((IS_EVIL(ch)
 	  && affect_exists_on_char(victim, gsn_protection_evil))
 	 || (IS_GOOD(ch)
 	  && affect_exists_on_char(victim, gsn_protection_good))) {
-		const AFFECT_DATA *paf = IS_EVIL(ch) ?
+		const Affect *paf = IS_EVIL(ch) ?
 			affect_find_on_char(victim, gsn_protection_evil) :
 			affect_find_on_char(victim, gsn_protection_good);
 
@@ -555,9 +555,9 @@ void check_protection_aura(CHAR_DATA *ch, CHAR_DATA *victim) {
 	}
 }
 
-void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+void multi_hit(Character *ch, Character *victim, int dt)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int chance;
 
 	// is this the best place to reset combat timer?  hanging it on the violence
@@ -708,9 +708,9 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 } /* end multi_hit */
 
 /* procedure for all mobile attacks */
-void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+void mob_hit(Character *ch, Character *victim, int dt)
 {
-	CHAR_DATA *vch, *vch_next;
+	Character *vch, *vch_next;
 	int chance, number;
 
 	if (ch->fighting == NULL
@@ -844,9 +844,9 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 } /* end mob_hit */
 
 /* Hit one guy once */
-void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
+void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 {
-	OBJ_DATA *wield;
+	Object *wield;
 	int victim_ac;
 	int thac0;
 	int thac0_00;
@@ -1064,7 +1064,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 	/* but do we have a funky weapon? */
 	if (result && wield != NULL) {
-		const AFFECT_DATA *weaponaff;
+		const Affect *weaponaff;
 		int dam, level, evolution;
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
@@ -1190,7 +1190,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 } /* end one_hit */
 
 // called on a hit from bone wall
-int affect_callback_weaken_bonewall(AFFECT_DATA *node, void *null) {
+int affect_callback_weaken_bonewall(Affect *node, void *null) {
 	if (node->type == gsn_bone_wall) {
 		node->duration = UMAX(0, node->duration - 1);
 
@@ -1203,7 +1203,7 @@ int affect_callback_weaken_bonewall(AFFECT_DATA *node, void *null) {
 
 /* Inflict damage from a hit.
    damage and damage consolidated, bool added to determine whether it's a magic spell or not -- Montrey */
-bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, bool show, bool spell)
+bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, bool show, bool spell)
 {
 	bool immune, sanc_immune;
 
@@ -1218,7 +1218,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	        if (!IS_IMMORTAL(ch))
 	        {
-	                OBJ_DATA *obj;
+	                Object *obj;
 	                obj = get_eq_char(ch,WEAR_WIELD);
 	                stc("You really shouldn't cheat.\n",ch);
 
@@ -1413,7 +1413,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, gsn_sanctuary, DAM_HOLY, TRUE, TRUE);
 
-			const AFFECT_DATA *paf;
+			const Affect *paf;
 			if ((paf = affect_find_on_char(victim, gsn_bone_wall)) != NULL
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
@@ -1512,7 +1512,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	return TRUE;
 } /* end damage() */
 
-bool check_pulse(CHAR_DATA *victim)
+bool check_pulse(Character *victim)
 {
 	if (IS_IMMORTAL(victim) && victim->hit < 1)
 		victim->hit = 1;
@@ -1571,7 +1571,7 @@ bool check_pulse(CHAR_DATA *victim)
 	}
 } /* end check_pulse */
 
-void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
+void kill_off(Character *ch, Character *victim)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -1613,7 +1613,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	// looting NPC corpse that was just made in raw_kill
 	if (!IS_NPC(ch) && was_NPC) {
-		OBJ_DATA *corpse, *obj, *obj_next;
+		Object *corpse, *obj, *obj_next;
 
 		if ((corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) == NULL
 		    || !can_see_obj(ch, corpse))
@@ -1695,7 +1695,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 } /* end kill_off */
 
 /* character only safety, rooms are not accounted for */
-bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
+bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 {
 	if (IS_IMMORTAL(ch))
 		return FALSE;
@@ -1801,7 +1801,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 	return FALSE;
 }
 
-bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
+bool is_safe(Character *ch, Character *victim, bool showmsg)
 {
 	if (victim->in_room == NULL || ch->in_room == NULL)
 		return TRUE;
@@ -1831,7 +1831,7 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 	return is_safe_char(ch, victim, showmsg);
 }
 
-bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
+bool is_safe_spell(Character *ch, Character *victim, bool area)
 {
 	if (victim->in_room == NULL || ch->in_room == NULL)
 		return TRUE;
@@ -1954,7 +1954,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 } /* end is_safe_spell */
 
 /* See if an attack justifies a KILLER flag. */
-void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
+void check_killer(Character *ch, Character *victim)
 {
 	/* Follow charm thread to responsible character.  Attacking someone's charmed char is hostile!
 	   Beware, this will cause a loop if master->pet->master - Lotus */
@@ -2023,9 +2023,9 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 } /* end check_killer */
 
 /* Check for parry. */
-bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+bool check_parry(Character *ch, Character *victim, int dt)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	const char *attack;
@@ -2122,9 +2122,9 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 } /* end check_parry */
 
 /* Check for parry from the off hand. */
-bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+bool check_dual_parry(Character *ch, Character *victim, int dt)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	const char *attack;
@@ -2238,7 +2238,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 } /* end check_dual_parry */
 
 /* Check for shield block. */
-bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+bool check_shblock(Character *ch, Character *victim, int dt)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
@@ -2293,7 +2293,7 @@ bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 } /* end check_shblock */
 
 /* Check for dodge. */
-bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+bool check_dodge(Character *ch, Character *victim, int dt)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
@@ -2378,7 +2378,7 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 } /* end check_dodge */
 
 /* Check for Blur - Montrey */
-bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
+bool check_blur(Character *ch, Character *victim, int dt)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
@@ -2460,7 +2460,7 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 }  /* end check_blur */
 
 /* Set position of a victim. */
-void update_pos(CHAR_DATA *victim)
+void update_pos(Character *victim)
 {
 	if (victim->hit > 0) {
 		if (victim->position <= POS_STUNNED)
@@ -2478,7 +2478,7 @@ void update_pos(CHAR_DATA *victim)
 } /* end update_pos */
 
 /* Start fights. */
-void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
+void set_fighting(Character *ch, Character *victim)
 {
 	if (ch->fighting != NULL) {
 		bug("Set_fighting: already fighting", 0);
@@ -2499,9 +2499,9 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 } /* end set_fighting */
 
 /* Stop fights. */
-void stop_fighting(CHAR_DATA *ch, bool fBoth)
+void stop_fighting(Character *ch, bool fBoth)
 {
-	CHAR_DATA *fch;
+	Character *fch;
 
 	for (fch = char_list; fch != NULL; fch = fch->next) {
 		if (fch == ch || (fBoth && fch->fighting == ch)) {
@@ -2513,11 +2513,11 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 } /* end stop_fighting */
 
 /* Make a corpse out of a character. */
-void make_corpse(CHAR_DATA *ch)
+void make_corpse(Character *ch)
 {
-	OBJ_DATA *corpse;
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
+	Object *corpse;
+	Object *obj;
+	Object *obj_next;
 	String name;
 
 	if (IS_NPC(ch)) {
@@ -2605,7 +2605,7 @@ void make_corpse(CHAR_DATA *ch)
 		else if (floating) {
 			if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH)) { /* get rid of it! */
 				if (obj->contains != NULL) {
-					OBJ_DATA *in, *in_next;
+					Object *in, *in_next;
 					act("$p decays, scattering its contents.", ch, obj, NULL, TO_ROOM);
 
 					for (in = obj->contains; in != NULL; in = in_next) {
@@ -2637,9 +2637,9 @@ void make_corpse(CHAR_DATA *ch)
 } /* end make_corpse */
 
 /* Improved Death_cry contributed by Diavolo. */
-void death_cry(CHAR_DATA *ch)
+void death_cry(Character *ch)
 {
-	ROOM_INDEX_DATA *was_in_room;
+	RoomPrototype *was_in_room;
 	char *msg;
 	int door, vnum;
 	vnum = 0;
@@ -2706,7 +2706,7 @@ void death_cry(CHAR_DATA *ch)
 	act(msg, ch, NULL, NULL, TO_NOTVIEW);
 
 	if (vnum != 0) {
-		OBJ_DATA *obj;
+		Object *obj;
 		String name;
 		name       = IS_NPC(ch) ? ch->short_descr : ch->name;
 		obj        = create_object(get_obj_index(vnum), 0);
@@ -2738,7 +2738,7 @@ void death_cry(CHAR_DATA *ch)
 	was_in_room = ch->in_room;
 
 	for (door = 0; door <= 5; door++) {
-		EXIT_DATA *pexit;
+		Exit *pexit;
 
 		if ((pexit = was_in_room->exit[door]) != NULL
 		    && pexit->u1.to_room != NULL
@@ -2751,7 +2751,7 @@ void death_cry(CHAR_DATA *ch)
 	ch->in_room = was_in_room;
 } /* end death_cry */
 
-void raw_kill(CHAR_DATA *victim)
+void raw_kill(Character *victim)
 {
 	stop_fighting(victim, TRUE);
 	mprog_death_trigger(victim);
@@ -2764,7 +2764,6 @@ void raw_kill(CHAR_DATA *victim)
 
 	if (IS_NPC(victim)) {
 		victim->pIndexData->killed++;
-		kill_table[URANGE(0, victim->level, MAX_LEVEL - 1)].killed++;
 		extract_char(victim, TRUE);
 		return;
 	}
@@ -2807,11 +2806,11 @@ void raw_kill(CHAR_DATA *victim)
 
 } /* end raw_kill */
 
-void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
+void group_gain(Character *ch, Character *victim)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *gch;
-	CHAR_DATA *lch;
+	Character *gch;
+	Character *lch;
 	int xp;
 	int members = 0;
 	int group_levels = 0;
@@ -2861,8 +2860,8 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	/* distribute exp among the remaining deserving */
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		OBJ_DATA *obj;
-		OBJ_DATA *obj_next;
+		Object *obj;
+		Object *obj_next;
 
 		if (!is_same_group(gch, ch) || IS_NPC(gch))
 			continue;
@@ -2915,7 +2914,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 } /* end group_gain */
 
 /* Compute xp for a kill, adjust alignment of killer.  Edit this function to change xp computations. */
-int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_classes)
+int xp_compute(Character *gch, Character *victim, int total_levels, int diff_classes)
 {
 	int xp, xp90, base_exp;
 	int align, level_range;
@@ -3094,7 +3093,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_cla
 } /* end xp_compute */
 
 // TODO: fix this for defense % modifiers
-void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune, bool sanc_immune)
+void dam_message(Character *ch, Character *victim, int dam, int dt, bool immune, bool sanc_immune)
 {
 	char buf1[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH], buf3[MAX_INPUT_LENGTH];
 	const char *vs;
@@ -3210,7 +3209,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 	}
 } /* end dam_message */
 
-void do_berserk(CHAR_DATA *ch, String argument)
+void do_berserk(Character *ch, String argument)
 {
 	int chance, hp_percent;
 
@@ -3266,9 +3265,9 @@ void do_berserk(CHAR_DATA *ch, String argument)
 	}
 } /* end do_berserk */
 
-void do_bash(CHAR_DATA *ch, String argument)
+void do_bash(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int chance;
 	int kdtime;
 	int evolution_level;
@@ -3439,9 +3438,9 @@ void do_bash(CHAR_DATA *ch, String argument)
 	}
 } /* end do_bash */
 
-void do_dirt(CHAR_DATA *ch, String argument)
+void do_dirt(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int chance;
 
 	String arg;
@@ -3575,7 +3574,7 @@ void do_dirt(CHAR_DATA *ch, String argument)
 } /* end do_dirt */
 
 // pulled out to use for evolved kick as well as do_trip
-bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
+bool trip(Character *ch, Character *victim, int chance, int dam_type)
 {
 	/* modifiers */
 	/* size */
@@ -3625,9 +3624,9 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 	}
 }
 
-void do_trip(CHAR_DATA *ch, String argument)
+void do_trip(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int chance;
 
 	String arg;
@@ -3703,7 +3702,7 @@ void do_trip(CHAR_DATA *ch, String argument)
 	}
 } /* end do_trip */
 
-bool check_attack_ok(CHAR_DATA *ch, CHAR_DATA *victim) {
+bool check_attack_ok(Character *ch, Character *victim) {
 	if ((ch->in_room->sector_type == SECT_ARENA) && (!battle.start)) {
 		stc("Hold your horses, the battle hasn't begun yet!\n", ch);
 		return FALSE;
@@ -3748,9 +3747,9 @@ bool check_attack_ok(CHAR_DATA *ch, CHAR_DATA *victim) {
 	return TRUE;
 }
 
-void do_kill(CHAR_DATA *ch, String argument)
+void do_kill(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Kill whom?\n", ch);
@@ -3790,13 +3789,13 @@ void do_kill(CHAR_DATA *ch, String argument)
 } /* end do_kill */
 
 /* Battle/Arena by Lotus */
-void do_battle(CHAR_DATA *ch, String argument)
+void do_battle(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int low, high, fee;
-	ROOM_INDEX_DATA *location;
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *ach;
+	RoomPrototype *location;
+	Descriptor *d;
+	Character *ach;
 
 	if (IS_NPC(ch))
 		return;
@@ -3975,9 +3974,9 @@ void do_battle(CHAR_DATA *ch, String argument)
 } /* end battle */
 
 /* Singing Skill by Lotus */
-void do_sing(CHAR_DATA *ch, String argument)
+void do_sing(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int singchance;
 
 	if (argument.empty()) {
@@ -4076,10 +4075,10 @@ void do_sing(CHAR_DATA *ch, String argument)
 	return;
 } /* end do_sing */
 
-void do_backstab(CHAR_DATA *ch, String argument)
+void do_backstab(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 
 	if (!get_skill(ch, gsn_backstab)) {
 		do_huh(ch);
@@ -4163,10 +4162,10 @@ void do_backstab(CHAR_DATA *ch, String argument)
 } /* end do_backstab */
 
 /* Shadow Form for remorts - Lotus */
-void do_shadow(CHAR_DATA *ch, String argument)
+void do_shadow(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 
 	if (!CAN_USE_RSKILL(ch, gsn_shadow_form)) {
 		stc("Huh?\n", ch);
@@ -4231,10 +4230,10 @@ void do_shadow(CHAR_DATA *ch, String argument)
 	);
 } /* end do_shadow */
 
-void do_circle(CHAR_DATA *ch, String argument)
+void do_circle(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 
 	if (!get_skill(ch, gsn_circle)) {
 		stc("You twirl around is a circle! wheeee!!!!\n", ch);
@@ -4286,13 +4285,13 @@ void do_circle(CHAR_DATA *ch, String argument)
 	}
 } /* end do_circle */
 
-void do_flee(CHAR_DATA *ch, String argument)
+void do_flee(Character *ch, String argument)
 {
-	EXIT_DATA *pexit;
-	ROOM_INDEX_DATA *was_in;
-	ROOM_INDEX_DATA *now_in;
-	CHAR_DATA *victim, *vch;
-	CHAR_DATA *hunted;
+	Exit *pexit;
+	RoomPrototype *was_in;
+	RoomPrototype *now_in;
+	Character *victim, *vch;
+	Character *hunted;
 	int dex, topp = 0, chance, dir;
 	/* some more vars to get the chance to flee */
 	int weight, wis;
@@ -4423,10 +4422,10 @@ void do_flee(CHAR_DATA *ch, String argument)
 	stc("PANIC! You couldn't escape!\n", ch);
 } /* end do_flee */
 
-void do_rescue(CHAR_DATA *ch, String argument)
+void do_rescue(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *fch;
+	Character *victim;
+	Character *fch;
 
 	if (argument.empty()) {
 		stc("Rescue whom?\n", ch);
@@ -4494,9 +4493,9 @@ void do_rescue(CHAR_DATA *ch, String argument)
 	set_fighting(fch, ch);
 } /* end do_rescue */
 
-void do_kick(CHAR_DATA *ch, String argument)
+void do_kick(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int skill, amount;
 
 	if ((skill = get_skill(ch, gsn_kick)) == 0) {
@@ -4558,9 +4557,9 @@ void do_kick(CHAR_DATA *ch, String argument)
 	}
 } /* end do_kick */
 
-void do_crush(CHAR_DATA *ch, String argument)
+void do_crush(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (!get_skill(ch, gsn_crush)) {
 		stc("You are not skilled at grappling.\n", ch);
@@ -4586,9 +4585,9 @@ void do_crush(CHAR_DATA *ch, String argument)
 	check_killer(ch, victim);
 } /* end do_crush */
 
-void do_disarm(CHAR_DATA *ch, String argument)
+void do_disarm(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (get_skill(ch, gsn_disarm) <= 0) {
 		stc("You don't know how to disarm opponents.\n", ch);
@@ -4659,7 +4658,7 @@ void do_disarm(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	OBJ_DATA *weapon = get_eq_char(victim, WEAR_WIELD);
+	Object *weapon = get_eq_char(victim, WEAR_WIELD);
 
 	if (weapon == NULL) {
 		stc("Your opponent is not wielding a weapon.\n", ch);
@@ -4742,8 +4741,8 @@ void do_disarm(CHAR_DATA *ch, String argument)
 
 	/* and now the attack */
 	if (chance(chance)) {
-		ROOM_INDEX_DATA *next_room = NULL;
-		EXIT_DATA *pexit = NULL;
+		RoomPrototype *next_room = NULL;
+		Exit *pexit = NULL;
 		char buf[MAX_STRING_LENGTH];
 		int door;
 		char *const dir_name [] =
@@ -4865,15 +4864,15 @@ void do_disarm(CHAR_DATA *ch, String argument)
 		check_improve(ch, gsn_blind_fight, FALSE, 1);
 }
 
-void do_sla(CHAR_DATA *ch, String argument)
+void do_sla(Character *ch, String argument)
 {
 	stc("If you want to SLAY, spell it out.\n", ch);
 } /* end do_sla */
 
-void do_slay(CHAR_DATA *ch, String argument)
+void do_slay(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH]; /* For [FYI] */
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Slay whom?\n", ch);
@@ -4914,9 +4913,9 @@ void do_slay(CHAR_DATA *ch, String argument)
 
 } /* end do_slay */
 
-void do_rotate(CHAR_DATA *ch, String argument)
+void do_rotate(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (get_skill(ch, gsn_rotate) == 0) {
 		stc("Do what?", ch);
@@ -4966,7 +4965,7 @@ void do_rotate(CHAR_DATA *ch, String argument)
 	}
 } /* end do_rotate */
 
-void do_hammerstrike(CHAR_DATA *ch, String argument)
+void do_hammerstrike(Character *ch, String argument)
 {
 	int chance;
 
@@ -5005,9 +5004,9 @@ void do_hammerstrike(CHAR_DATA *ch, String argument)
 	}
 } /* end do_hammerstrike */
 
-void do_critical_blow(CHAR_DATA *ch, String argument)
+void do_critical_blow(Character *ch, String argument)
 {
-	OBJ_DATA *weapon;
+	Object *weapon;
 	int chance;
 
 	if (!CAN_USE_RSKILL(ch, gsn_critical_blow)) {
@@ -5077,7 +5076,7 @@ void do_critical_blow(CHAR_DATA *ch, String argument)
 } /* end do_critical_blow */
 
 /* Riposte, originally by Elrac */
-void do_riposte(CHAR_DATA *victim, CHAR_DATA *ch)
+void do_riposte(Character *victim, Character *ch)
 {
 	int chance = (get_skill(victim, gsn_riposte));
 
@@ -5111,10 +5110,10 @@ void do_riposte(CHAR_DATA *victim, CHAR_DATA *ch)
 } /* end do_riposte */
 
 /* RAGE by Montrey */
-void do_rage(CHAR_DATA *ch, String argument)
+void do_rage(Character *ch, String argument)
 {
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
+	Character *vch;
+	Character *vch_next;
 	int pplhit = 0;
 
 	if (!CAN_USE_RSKILL(ch, gsn_rage)) {
@@ -5170,10 +5169,10 @@ void do_rage(CHAR_DATA *ch, String argument)
 	check_improve(ch, gsn_rage, TRUE, 2);
 }
 
-void do_lay_on_hands(CHAR_DATA *ch, String argument)
+void do_lay_on_hands(Character *ch, String argument)
 {
 	int heal, skill;
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_NPC(ch))
 		return;
@@ -5241,15 +5240,15 @@ void do_lay_on_hands(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_shoot(CHAR_DATA *ch, String argument)
+void do_shoot(Character *ch, String argument)
 {
-	CHAR_DATA *victim = NULL;
+	Character *victim = NULL;
 
 	if (IS_NPC(ch))
 		return;
 
 	/* make sure we are holding a bow */
-	OBJ_DATA *wield = get_eq_char(ch, WEAR_WIELD);
+	Object *wield = get_eq_char(ch, WEAR_WIELD);
 	int dir = -1;
 
 	if (wield == NULL) {
@@ -5273,7 +5272,7 @@ void do_shoot(CHAR_DATA *ch, String argument)
 	else { // if any arguments, try parsing the first one for a direction
 		String dir_str, dir_arg;
 		String target_str = one_argument(argument, dir_arg);
-		ROOM_INDEX_DATA *target_room = NULL;
+		RoomPrototype *target_room = NULL;
 		int distance = MAX_BOW_DISTANCE;
 		bool nearest = FALSE;
 
@@ -5303,9 +5302,9 @@ void do_shoot(CHAR_DATA *ch, String argument)
 				return;
 			}
 
-			ROOM_INDEX_DATA *room = ch->in_room;
-			ROOM_INDEX_DATA *to_room;
-			EXIT_DATA *pexit;
+			RoomPrototype *room = ch->in_room;
+			RoomPrototype *to_room;
+			Exit *pexit;
 
 			if (nearest) {
 				// find the nearest room with that target.  separated from below search code
@@ -5381,7 +5380,7 @@ void do_shoot(CHAR_DATA *ch, String argument)
 
 	// temporarily move the shooter to the victim, makes damage messages easier
 	// don't give away the shooter to the victim, make them temp superwiz
-	ROOM_INDEX_DATA *old_room = ch->in_room;
+	RoomPrototype *old_room = ch->in_room;
 	bool was_superwiz = IS_SET(ch->act, PLR_SUPERWIZ);
 
 	if (old_room != victim->in_room) {

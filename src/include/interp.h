@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "declare.h"
+
 /* this is a listing of all the commands and command related data */
 
 #define COM_INGORE      1

@@ -29,14 +29,14 @@
 #include "interp.h"
 #include "magic.h"
 #include "lookup.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 DECLARE_SPELL_FUN(spell_identify);
 DECLARE_SPELL_FUN(spell_charm_person);
 
-void     obj_repair      args((CHAR_DATA *ch, OBJ_DATA *obj));
+void     obj_repair      args((Character *ch, Object *obj));
 
 /*
  * The following special functions are available for mobiles.
@@ -130,9 +130,9 @@ const char *spec_name(SPEC_FUN *function)
 	return NULL;
 }
 
-bool spec_troll_member(CHAR_DATA *ch)
+bool spec_troll_member(Character *ch)
 {
-	CHAR_DATA *vch, *victim = NULL;
+	Character *vch, *victim = NULL;
 	int count = 0;
 	char *message;
 
@@ -188,9 +188,9 @@ bool spec_troll_member(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_ogre_member(CHAR_DATA *ch)
+bool spec_ogre_member(Character *ch)
 {
-	CHAR_DATA *vch, *victim = NULL;
+	Character *vch, *victim = NULL;
 	int count = 0;
 	char *message;
 
@@ -246,10 +246,10 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_patrolman(CHAR_DATA *ch)
+bool spec_patrolman(Character *ch)
 {
-	CHAR_DATA *vch, *victim = NULL;
-	OBJ_DATA *obj;
+	Character *vch, *victim = NULL;
+	Object *obj;
 	char *message;
 	int count = 0;
 
@@ -325,14 +325,14 @@ bool spec_patrolman(CHAR_DATA *ch)
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
 }
-bool spec_questmaster(CHAR_DATA *ch)
+bool spec_questmaster(Character *ch)
 {
 	if (ch->fighting != NULL) return spec_cast_mage(ch);
 
 	return FALSE;
 }
 
-bool spec_squestmaster(CHAR_DATA *ch)
+bool spec_squestmaster(Character *ch)
 {
 	if (ch->fighting != NULL)
 		return spec_cast_mage(ch);
@@ -340,22 +340,22 @@ bool spec_squestmaster(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_blacksmith(CHAR_DATA *ch)
+bool spec_blacksmith(Character *ch)
 {
 	if (ch->fighting != NULL) return spec_cast_mage(ch);
 
 	return FALSE;
 }
-bool spec_sage(CHAR_DATA *ch)
+bool spec_sage(Character *ch)
 {
 	if (ch->fighting != NULL) return spec_cast_mage(ch);
 
 	return FALSE;
 }
 
-bool spec_nasty(CHAR_DATA *ch)
+bool spec_nasty(Character *ch)
 {
-	CHAR_DATA *victim, *v_next;
+	Character *victim, *v_next;
 	long gold;
 
 	if (!IS_AWAKE(ch))
@@ -405,9 +405,9 @@ bool spec_nasty(CHAR_DATA *ch)
 }
 
 /* Core procedure for dragons. */
-bool dragon(CHAR_DATA *ch, int sn)
+bool dragon(Character *ch, int sn)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
@@ -431,7 +431,7 @@ bool dragon(CHAR_DATA *ch, int sn)
 }
 
 /* Special procedures for mobiles. */
-bool spec_breath_any(CHAR_DATA *ch)
+bool spec_breath_any(Character *ch)
 {
 	switch (number_bits(3)) {
 	case 0:
@@ -451,35 +451,35 @@ bool spec_breath_any(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_breath_acid(CHAR_DATA *ch)
+bool spec_breath_acid(Character *ch)
 {
 	return dragon(ch, gsn_acid_breath);
 }
 
-bool spec_breath_fire(CHAR_DATA *ch)
+bool spec_breath_fire(Character *ch)
 {
 	return dragon(ch, gsn_fire_breath);
 }
 
-bool spec_breath_frost(CHAR_DATA *ch)
+bool spec_breath_frost(Character *ch)
 {
 	return dragon(ch, gsn_frost_breath);
 }
 
-bool spec_breath_gas(CHAR_DATA *ch)
+bool spec_breath_gas(Character *ch)
 {
 	return dragon(ch, gsn_gas_breath);
 }
 
-bool spec_breath_lightning(CHAR_DATA *ch)
+bool spec_breath_lightning(Character *ch)
 {
 	return dragon(ch, gsn_lightning_breath);
 }
 
-bool spec_cast_adept(CHAR_DATA *ch)
+bool spec_cast_adept(Character *ch)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *v_next;
+	Character *victim;
+	Character *v_next;
 
 	if (!IS_AWAKE(ch))
 		return FALSE;
@@ -547,10 +547,10 @@ bool spec_cast_adept(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_cast_judge(CHAR_DATA *ch)
+bool spec_cast_judge(Character *ch)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *v_next;
+	Character *victim;
+	Character *v_next;
 	char *spell;
 	int sn;
 
@@ -576,9 +576,9 @@ bool spec_cast_judge(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_cast_cleric(CHAR_DATA *ch)
+bool spec_cast_cleric(Character *ch)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int sn, i;
 
 	if (get_position(ch) != POS_FIGHTING)
@@ -632,9 +632,9 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_cast_mage(CHAR_DATA *ch)
+bool spec_cast_mage(Character *ch)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int sn, i;
 
 	if (get_position(ch) != POS_FIGHTING)
@@ -687,9 +687,9 @@ bool spec_cast_mage(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_cast_undead(CHAR_DATA *ch)
+bool spec_cast_undead(Character *ch)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int sn, i;
 
 	if (get_position(ch) != POS_FIGHTING)
@@ -742,11 +742,11 @@ bool spec_cast_undead(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_executioner(CHAR_DATA *ch)
+bool spec_executioner(Character *ch)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	CHAR_DATA *v_next;
+	Character *victim;
+	Character *v_next;
 	char *crime;
 
 	if (!IS_AWAKE(ch) || ch->fighting != NULL)
@@ -777,12 +777,12 @@ bool spec_executioner(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_fido(CHAR_DATA *ch)
+bool spec_fido(Character *ch)
 {
-	OBJ_DATA *corpse;
-	OBJ_DATA *c_next;
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
+	Object *corpse;
+	Object *c_next;
+	Object *obj;
+	Object *obj_next;
 
 	if (!IS_AWAKE(ch))
 		return FALSE;
@@ -808,12 +808,12 @@ bool spec_fido(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_guard(CHAR_DATA *ch)
+bool spec_guard(Character *ch)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	CHAR_DATA *v_next;
-	CHAR_DATA *ech;
+	Character *victim;
+	Character *v_next;
+	Character *ech;
 	char *crime;
 	int max_evil;
 
@@ -864,10 +864,10 @@ bool spec_guard(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_janitor(CHAR_DATA *ch)
+bool spec_janitor(Character *ch)
 {
-	OBJ_DATA *trash;
-	OBJ_DATA *trash_next;
+	Object *trash;
+	Object *trash_next;
 
 	if (!IS_AWAKE(ch))
 		return FALSE;
@@ -894,7 +894,7 @@ bool spec_janitor(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_mayor(CHAR_DATA *ch)
+bool spec_mayor(Character *ch)
 {
 	static const char open_path[] =
 	        "W3a3003b33000c111d0d111Oe333333Oe22c222112212111a1S.";
@@ -989,9 +989,9 @@ bool spec_mayor(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool spec_poison(CHAR_DATA *ch)
+bool spec_poison(Character *ch)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (get_position(ch) != POS_FIGHTING
 	    || (victim = ch->fighting) == NULL
@@ -1005,10 +1005,10 @@ bool spec_poison(CHAR_DATA *ch)
 	return TRUE;
 }
 
-bool spec_thief(CHAR_DATA *ch)
+bool spec_thief(Character *ch)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *v_next;
+	Character *victim;
+	Character *v_next;
 	long gold, silver;
 
 	if (get_position(ch) < POS_STANDING)
@@ -1045,10 +1045,10 @@ bool spec_thief(CHAR_DATA *ch)
 
 	return FALSE;
 }
-void do_identify(CHAR_DATA *ch, String argument)
+void do_identify(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
-	CHAR_DATA *rch;
+	Object *obj;
+	Character *rch;
 	char buf[MAX_STRING_LENGTH];
 
 	if ((obj = get_obj_carry(ch, argument)) == NULL) {
@@ -1080,10 +1080,10 @@ void do_identify(CHAR_DATA *ch, String argument)
 	    rch, obj, NULL, TO_ROOM);
 	spell_identify(0, 0, ch, obj, TAR_OBJ_INV, get_evolution(ch, gsn_identify));
 }
-bool spec_charm(CHAR_DATA *ch)
+bool spec_charm(Character *ch)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *v_next;
+	Character *victim;
+	Character *v_next;
 
 	if (get_position(ch) != POS_FIGHTING) {
 		switch (number_range(0, 15)) {
@@ -1126,10 +1126,10 @@ bool spec_charm(CHAR_DATA *ch)
 
 	return TRUE;
 }
-void do_repair(CHAR_DATA *ch, String argument)
+void do_repair(Character *ch, String argument)
 {
 	int iWear;
-	OBJ_DATA *obj;
+	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 
 	if (argument.empty()) {
@@ -1171,9 +1171,9 @@ void do_repair(CHAR_DATA *ch, String argument)
 	obj_repair(ch, obj);
 }
 
-void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
+void obj_repair(Character *ch, Object *obj)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 	char buf[MAX_STRING_LENGTH];
 	int max = 100;
 
@@ -1186,7 +1186,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 	}
 
-	const AFFECT_DATA *paf;
+	const Affect *paf;
 	if ((paf = affect_find_on_obj(obj, gsn_acid_breath)) != NULL)
 		max = 100 - (5 * paf->modifier);
 
@@ -1251,15 +1251,15 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 	act(buf, rch, obj, NULL, TO_ROOM);
 }
 
-bool spec_fight_clanguard(CHAR_DATA *ch)
+bool spec_fight_clanguard(Character *ch)
 {
 	return TRUE;
 }
 
-bool spec_clanguard(CHAR_DATA *ch)
+bool spec_clanguard(Character *ch)
 {
-	CLAN_DATA *clan;
-	CHAR_DATA *victim, *v_next;
+	Clan *clan;
+	Character *victim, *v_next;
 	bool found = FALSE;
 
 	if (!IS_NPC(ch)
@@ -1315,7 +1315,7 @@ bool spec_clanguard(CHAR_DATA *ch)
  * of imp or head does not mean they don't need all
  * commands.  -- Montrey
  */
-bool IS_SPECIAL(CHAR_DATA *ch)
+bool IS_SPECIAL(Character *ch)
 {
 	if (IS_NPC(ch))
 		return FALSE;
@@ -1335,7 +1335,7 @@ bonus ability point in the same ability which is
 highest in the pet.
 -- Outsider
 */
-void do_familiar(CHAR_DATA *ch, String argument)
+void do_familiar(Character *ch, String argument)
 {
 	/* first check to make sure this is a character */
 	if (IS_NPC(ch))

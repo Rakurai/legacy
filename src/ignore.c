@@ -29,11 +29,11 @@
 #include "sql.h"
 #include "Format.hpp"
 
-void ignore_offline(CHAR_DATA *, const String& );
+void ignore_offline(Character *, const String& );
 
-bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
+bool is_ignoring(Character *ch, Character *victim)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	if (ch == NULL || victim == NULL)
 		return FALSE;
@@ -56,9 +56,9 @@ bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 }
 
 /* Stripped from do_query basically - Lotus */
-void do_ignore(CHAR_DATA *ch, String argument)
+void do_ignore(Character *ch, String argument)
 {
-	CHAR_DATA *victim, *rch;
+	Character *victim, *rch;
 
 	String arg;
 	one_argument(argument, arg);
@@ -133,7 +133,7 @@ void do_ignore(CHAR_DATA *ch, String argument)
 	}
 }
 
-void ignore_offline(CHAR_DATA *ch, const String& arg)
+void ignore_offline(Character *ch, const String& arg)
 {
 	char name[MIL];
 

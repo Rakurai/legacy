@@ -8,16 +8,16 @@
 #include "merc.h"
 #include "memory.h"
 
-DEPARTED_DATA *departed_list_head;
-DEPARTED_DATA *departed_list_tail;
+DepartedPlayer *departed_list_head;
+DepartedPlayer *departed_list_tail;
 
 char *departed_list_line = "            {c|  {g\\{WV{g/  {c|      {k.{W";
 
 void load_departed_list()
 {
 	FILE *fp;
-	departed_list_head = new DEPARTED_DATA;
-	departed_list_tail = new DEPARTED_DATA;
+	departed_list_head = new DepartedPlayer;
+	departed_list_tail = new DepartedPlayer;
 	departed_list_head->next = departed_list_tail;
 	departed_list_tail->previous = departed_list_head;
 
@@ -42,7 +42,7 @@ bailout:
 
 void save_departed_list()
 {
-	DEPARTED_DATA *iterator;
+	DepartedPlayer *iterator;
 	FILE *fp;
 
 	if ((fp = fopen(DEPARTED_FILE, "w")) == NULL) {
@@ -65,9 +65,9 @@ bailout:
 
 void insert_departed(const String& name)
 {
-	DEPARTED_DATA *iterator, *newDeparted;
+	DepartedPlayer *iterator, *newDeparted;
 	iterator = departed_list_head->next;
-	newDeparted = new DEPARTED_DATA;
+	newDeparted = new DepartedPlayer;
 	newDeparted->name = name;
 
 	while (iterator != departed_list_tail) {
@@ -91,13 +91,13 @@ void insert_departed(const String& name)
 
 void remove_departed(const String& name)
 {
-	DEPARTED_DATA *iterator;
+	DepartedPlayer *iterator;
 	iterator = departed_list_head->next;
 
 	while (iterator != departed_list_tail) {
 		if (!strcasecmp(name, iterator->name)) {
-			DEPARTED_DATA *n = iterator->next;
-			DEPARTED_DATA *p = iterator->previous;
+			DepartedPlayer *n = iterator->next;
+			DepartedPlayer *p = iterator->previous;
 			p->next = n;
 			n->previous = p;
 			delete iterator;
@@ -110,7 +110,7 @@ void remove_departed(const String& name)
 
 bool has_departed(const String& name)
 {
-	DEPARTED_DATA *iterator;
+	DepartedPlayer *iterator;
 	iterator = departed_list_head->next;
 
 	while (iterator != departed_list_tail) {

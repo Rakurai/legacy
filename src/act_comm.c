@@ -28,7 +28,7 @@
 #include "merc.h"
 #include "interp.h"
 #include "vt100.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "auction.h"
 #include "Format.hpp"
 
@@ -418,7 +418,7 @@ struct new_pose_index new_pose_table     [MAX_CLASS]      = {
 
 /* New POSE command which is more flexible with regard to
    the number of poses available per class -- Elrac */
-int select_pose(CHAR_DATA *ch)
+int select_pose(Character *ch)
 {
 	int level;
 	int maxpose;
@@ -447,7 +447,7 @@ int select_pose(CHAR_DATA *ch)
 	return pose;
 }
 
-void do_pose(CHAR_DATA *ch, String argument)
+void do_pose(Character *ch, String argument)
 {
 	int pose;
 	pose = select_pose(ch);
@@ -461,7 +461,7 @@ void do_pose(CHAR_DATA *ch, String argument)
 }
 
 /* code to test poses -- Elrac */
-void do_testpose(CHAR_DATA *ch, String argument)
+void do_testpose(Character *ch, String argument)
 {
 	if (!argument[0]) {
 		stc("Syntax: testpose [class [number]]\n", ch);
@@ -506,14 +506,14 @@ void do_testpose(CHAR_DATA *ch, String argument)
 } /* end do_testpose() */
 
 /* RT code to delete yourself */
-void do_delet(CHAR_DATA *ch, String argument)
+void do_delet(Character *ch, String argument)
 {
 	stc("You must type the full command to delete yourself.\n", ch);
 }
 
-void do_delete(CHAR_DATA *ch, String argument)
+void do_delete(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d, *d_next;
+	Descriptor *d, *d_next;
 	int id;
 	char strsave[MAX_INPUT_LENGTH];
 	bool important = TRUE;
@@ -594,7 +594,7 @@ void do_delete(CHAR_DATA *ch, String argument)
 
 		/* toast evil cheating bastards */
 		for (d = descriptor_list; d != NULL; d = d_next) {
-			CHAR_DATA *tch;
+			Character *tch;
 			d_next = d->next;
 			tch = d->original ? d->original : d->character;
 
@@ -616,16 +616,16 @@ void do_delete(CHAR_DATA *ch, String argument)
 } /* end do_delete() */
 
 /* Lotus - Clear Screen Quickie */
-void do_clear(CHAR_DATA *ch, String argument)
+void do_clear(Character *ch, String argument)
 {
 	stc("\033[2J", ch);
 }
 
 /* Newbie Bags by Lotus */
-void do_newbiekit(CHAR_DATA *ch, String argument)
+void do_newbiekit(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
-	OBJ_DATA *kit;
+	Object *obj;
+	Object *kit;
 	int i, kitvnum = 72;
 
 	if (!IS_IMMORTAL(ch) && !IS_SET(ch->act, PLR_MAKEBAG)) {
@@ -659,7 +659,7 @@ void do_newbiekit(CHAR_DATA *ch, String argument)
 }
 
 /* OOC by Lotus */
-void do_ooc(CHAR_DATA *ch, String argument)
+void do_ooc(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about RP =).\n", ch);
@@ -678,9 +678,9 @@ void do_ooc(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_pk(CHAR_DATA *ch, String argument)
+void do_pk(Character *ch, String argument)
 {
-	CHAR_DATA *wch;
+	Character *wch;
 
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about PK =).\n", ch);
@@ -716,7 +716,7 @@ void do_pk(CHAR_DATA *ch, String argument)
 } /* end do_pk() */
 
 /* Chatmode by Lotus */
-void do_chatmode(CHAR_DATA *ch, String argument)
+void do_chatmode(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -732,7 +732,7 @@ void do_chatmode(CHAR_DATA *ch, String argument)
 }
 
 /* Private for swho by Lotus */
-void do_private(CHAR_DATA *ch, String argument)
+void do_private(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about privacy =).\n", ch);
@@ -750,7 +750,7 @@ void do_private(CHAR_DATA *ch, String argument)
 }
 
 /* showlast for finger by Lotus */
-void do_showlast(CHAR_DATA *ch, String argument)
+void do_showlast(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about their showlast =).\n", ch);
@@ -770,7 +770,7 @@ void do_showlast(CHAR_DATA *ch, String argument)
 } /* end do_showlast() */
 
 /* Autorecall by Lotus */
-void do_autorecall(CHAR_DATA *ch, String argument)
+void do_autorecall(Character *ch, String argument)
 {
 	if (IS_SET(ch->act, PLR_WIMPY)) {
 		stc("You will no longer recall in link-dead combat.\n", ch);
@@ -782,7 +782,7 @@ void do_autorecall(CHAR_DATA *ch, String argument)
 	}
 }
 /* PlayerTicks by Lotus */
-void do_autotick(CHAR_DATA *ch, String argument)
+void do_autotick(Character *ch, String argument)
 {
 	if (IS_SET(ch->act, PLR_TICKS)) {
 		stc("You will no longer see ticks.\n", ch);
@@ -795,7 +795,7 @@ void do_autotick(CHAR_DATA *ch, String argument)
 }
 
 /* AutoPeek -- Elrac */
-void do_autopeek(CHAR_DATA *ch, String argument)
+void do_autopeek(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) return;
 
@@ -812,7 +812,7 @@ void do_autopeek(CHAR_DATA *ch, String argument)
 }
 
 /* ShowRaff - shows raffects in 'aff' */
-void do_showraff(CHAR_DATA *ch, String argument)
+void do_showraff(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Huh?\n", ch);
@@ -835,7 +835,7 @@ void do_showraff(CHAR_DATA *ch, String argument)
 }
 
 /* RT deaf blocks out all shouts */
-void do_deaf(CHAR_DATA *ch, String argument)
+void do_deaf(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_TELL);
@@ -853,7 +853,7 @@ void do_deaf(CHAR_DATA *ch, String argument)
 
 /* RT quiet blocks out all communication */
 
-void do_quiet(CHAR_DATA *ch, String argument)
+void do_quiet(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_QUIET)) {
 		stc("Quiet mode removed.\n", ch);
@@ -867,7 +867,7 @@ void do_quiet(CHAR_DATA *ch, String argument)
 
 /* afk command */
 
-void do_afk(CHAR_DATA *ch, String argument)
+void do_afk(Character *ch, String argument)
 {
 	char *strtime;
 
@@ -915,7 +915,7 @@ void do_afk(CHAR_DATA *ch, String argument)
 }
 
 /* Note notify by PwrDemon */
-void do_notify(CHAR_DATA *ch, String argument)
+void do_notify(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) return;
 
@@ -930,7 +930,7 @@ void do_notify(CHAR_DATA *ch, String argument)
 }
 
 /* Append a string to a file, used for our in game text files */
-void update_text_file(CHAR_DATA *ch, const String& file, const String& str)
+void update_text_file(Character *ch, const String& file, const String& str)
 {
 	char buf[MSL];
 	FILE *fp;
@@ -952,7 +952,7 @@ void update_text_file(CHAR_DATA *ch, const String& file, const String& str)
 		bug("update_text_file(): could not open the file", 0);
 }
 
-void do_wbi(CHAR_DATA *ch, String argument)
+void do_wbi(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "wbi 150");
@@ -963,7 +963,7 @@ void do_wbi(CHAR_DATA *ch, String argument)
 	stc("And may it be imped soon! :)\n", ch);
 }
 
-void do_hbi(CHAR_DATA *ch, String argument)
+void do_hbi(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "hbi 150");
@@ -974,7 +974,7 @@ void do_hbi(CHAR_DATA *ch, String argument)
 	stc("It will be posted in a change note soon! :)\n", ch);
 }
 
-void do_wbb(CHAR_DATA *ch, String argument)
+void do_wbb(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "wbb 150");
@@ -985,7 +985,7 @@ void do_wbb(CHAR_DATA *ch, String argument)
 	stc("And may it be built soon! :)\n", ch);
 }
 
-void do_hbb(CHAR_DATA *ch, String argument)
+void do_hbb(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "hbb 150");
@@ -996,7 +996,7 @@ void do_hbb(CHAR_DATA *ch, String argument)
 	stc("It will be posted in a change note soon! :)\n", ch);
 }
 
-void do_work(CHAR_DATA *ch, String argument)
+void do_work(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "work 150");
@@ -1007,7 +1007,7 @@ void do_work(CHAR_DATA *ch, String argument)
 	stc("May your ideas be developed soon! :)\n", ch);
 }
 
-void do_immapp(CHAR_DATA *ch, String argument)
+void do_immapp(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "immapp 150");
@@ -1018,7 +1018,7 @@ void do_immapp(CHAR_DATA *ch, String argument)
 	stc("May they be considered soon! :)\n", ch);
 }
 
-void do_ridea(CHAR_DATA *ch, String argument)
+void do_ridea(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "ridea 150");
@@ -1029,7 +1029,7 @@ void do_ridea(CHAR_DATA *ch, String argument)
 	stc("And may it be debated soon! :)\n", ch);
 }
 
-void do_punish(CHAR_DATA *ch, String argument)
+void do_punish(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		do_file(ch, "punishment 150");
@@ -1040,7 +1040,7 @@ void do_punish(CHAR_DATA *ch, String argument)
 	stc("Punishment logged.\n", ch);
 }
 
-void do_bug(CHAR_DATA *ch, String argument)
+void do_bug(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		if (IS_IMMORTAL(ch))
@@ -1055,7 +1055,7 @@ void do_bug(CHAR_DATA *ch, String argument)
 	stc("Bug logged.\n", ch);
 }
 
-void do_typo(CHAR_DATA *ch, String argument)
+void do_typo(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		if (IS_IMMORTAL(ch))
@@ -1070,7 +1070,7 @@ void do_typo(CHAR_DATA *ch, String argument)
 	stc("Typo logged.\n", ch);
 }
 
-void do_qui(CHAR_DATA *ch, String argument)
+void do_qui(Character *ch, String argument)
 {
 	stc("If you want to QUIT, you have to spell it out.\n", ch);
 	return;
@@ -1078,7 +1078,7 @@ void do_qui(CHAR_DATA *ch, String argument)
 
 /* recursive showlost -- Montrey */
 // this code is inactive, leaving it in case we decide otherwise
-bool showlost(CHAR_DATA *ch, OBJ_DATA *obj, bool found, bool locker)
+bool showlost(Character *ch, Object *obj, bool found, bool locker)
 {
 	for (; obj != NULL; obj = obj->next_content) {
 		if ((obj->level > get_holdable_level(ch))
@@ -1099,10 +1099,10 @@ bool showlost(CHAR_DATA *ch, OBJ_DATA *obj, bool found, bool locker)
 	return found;
 }
 
-void do_quit(CHAR_DATA *ch, String argument)
+void do_quit(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d, *d_next, *sd;
-	CHAR_DATA *victim;
+	Descriptor *d, *d_next, *sd;
+	Character *victim;
 	int id, lnum;
 	char *const message [] = {
 		"Your world shatters into a billion numbers circling around you.\n  They all flash, '{G0{x', and fade into blackness.\n",
@@ -1223,7 +1223,7 @@ void do_quit(CHAR_DATA *ch, String argument)
 
 	/* toast evil cheating bastards */
 	for (d = descriptor_list; d != NULL; d = d_next) {
-		CHAR_DATA *tch;
+		Character *tch;
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
 
@@ -1234,9 +1234,9 @@ void do_quit(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_fuckoff(CHAR_DATA *ch, String argument)
+void do_fuckoff(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d, *d_next;
+	Descriptor *d, *d_next;
 	int id;
 
 	if (IS_NPC(ch))
@@ -1259,7 +1259,7 @@ void do_fuckoff(CHAR_DATA *ch, String argument)
 
 	/* toast evil cheating bastards */
 	for (d = descriptor_list; d != NULL; d = d_next) {
-		CHAR_DATA *tch;
+		Character *tch;
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
 
@@ -1270,7 +1270,7 @@ void do_fuckoff(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_backup(CHAR_DATA *ch, String argument)
+void do_backup(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1283,7 +1283,7 @@ void do_backup(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_save(CHAR_DATA *ch, String argument)
+void do_save(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1294,10 +1294,10 @@ void do_save(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_follow(CHAR_DATA *ch, String argument)
+void do_follow(Character *ch, String argument)
 {
 	/* RT changed to allow unlimited following and follow the NOFOLLOW rules */
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Follow whom?\n", ch);
@@ -1342,7 +1342,7 @@ void do_follow(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
+void add_follower(Character *ch, Character *master)
 {
 	if (ch->master != NULL) {
 		bug("Add_follower: non-null master.", 0);
@@ -1359,7 +1359,7 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 	return;
 }
 
-void stop_follower(CHAR_DATA *ch)
+void stop_follower(Character *ch)
 {
 	if (ch->master == NULL) {
 		bug("Stop_follower: null master.", 0);
@@ -1384,9 +1384,9 @@ void stop_follower(CHAR_DATA *ch)
 }
 
 /* nukes charmed monsters and pets */
-void nuke_pets(CHAR_DATA *ch)
+void nuke_pets(Character *ch)
 {
-	CHAR_DATA *pet;
+	Character *pet;
 
 	if ((pet = ch->pet) != NULL) {
 		stop_follower(pet);
@@ -1401,9 +1401,9 @@ void nuke_pets(CHAR_DATA *ch)
 	return;
 }
 
-void die_follower(CHAR_DATA *ch)
+void die_follower(Character *ch)
 {
-	CHAR_DATA *fch;
+	Character *fch;
 
 	if (ch->master != NULL) {
 		if (ch->master->pet == ch)
@@ -1439,12 +1439,12 @@ void die_follower(CHAR_DATA *ch)
 	return;
 }
 
-void do_order(CHAR_DATA *ch, String argument)
+void do_order(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	CHAR_DATA *och;
-	CHAR_DATA *och_next;
+	Character *victim;
+	Character *och;
+	Character *och_next;
 	bool found;
 	bool fAll;
 	bool remote_familiar = FALSE;
@@ -1573,7 +1573,7 @@ order pet <your order here>
 Okay, so I just need something to do...
 -- Outsider
 */
-void do_pet(CHAR_DATA *ch, String argument)
+void do_pet(Character *ch, String argument)
 {
 	String buffer;
 	int index;
@@ -1606,17 +1606,17 @@ void do_pet(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_group(CHAR_DATA *ch, String argument)
+void do_group(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg;
 	one_argument(argument, arg);
 
 	if (arg.empty()) {
-		CHAR_DATA *gch;
-		CHAR_DATA *leader;
+		Character *gch;
+		Character *leader;
 		leader = (ch->leader != NULL) ? ch->leader : ch;
 		Format::sprintf(buf, "%s's group:\n", PERS(leader, ch, VIS_PLR));
 		set_color(ch, PURPLE, BOLD);
@@ -1696,10 +1696,10 @@ void do_group(CHAR_DATA *ch, String argument)
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
-void do_split(CHAR_DATA *ch, String argument)
+void do_split(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *gch;
+	Character *gch;
 	int members;
 	int amount_gold = 0, amount_silver = 0;
 	int share_gold, share_silver;
@@ -1800,7 +1800,7 @@ void do_split(CHAR_DATA *ch, String argument)
  * (2) if A ~ B then B ~ A
  * (3) if A ~ B  and B ~ C, then A ~ C
  */
-bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
+bool is_same_group(Character *ach, Character *bch)
 {
 	if (ach == NULL || bch == NULL)
 		return FALSE;
@@ -1812,7 +1812,7 @@ bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
 	return ach == bch;
 }
 
-void align(CHAR_DATA *ch, int new_align, char *align_str)
+void align(Character *ch, int new_align, char *align_str)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -1833,7 +1833,7 @@ void align(CHAR_DATA *ch, int new_align, char *align_str)
 	WAIT_STATE(ch, 4 * PULSE_PER_SECOND);
 } /* end align() */
 
-void do_align(CHAR_DATA *ch, String argument)
+void do_align(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Silly, mobiles can't change their alignment!\n", ch);
@@ -1866,9 +1866,9 @@ void do_align(CHAR_DATA *ch, String argument)
 } /* end do_align() */
 
 /* equips a character */
-void do_outfit(CHAR_DATA *ch, String argument)
+void do_outfit(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int i, sn, vnum;
 
 	if (ch->level > 5 || IS_NPC(ch)) {

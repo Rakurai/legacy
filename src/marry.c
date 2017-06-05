@@ -40,10 +40,10 @@
 #include "merc.h"
 #include "Format.hpp"
 
-void do_marry(CHAR_DATA *ch, String argument)
+void do_marry(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *victim2;
+	Character *victim;
+	Character *victim2;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -90,10 +90,10 @@ void do_marry(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_divorce(CHAR_DATA *ch, String argument)
+void do_divorce(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *victim2;
+	Character *victim;
+	Character *victim2;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -139,7 +139,7 @@ void do_divorce(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_spousetalk(CHAR_DATA *ch, String argument)
+void do_spousetalk(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -169,7 +169,7 @@ void do_spousetalk(CHAR_DATA *ch, String argument)
 		return;
 	}
 	else { /* message sent */
-		CHAR_DATA *victim;
+		Character *victim;
 
 		/* Us married folk wanna see our spouses - Lotus */
 
@@ -200,9 +200,9 @@ void do_spousetalk(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_propose(CHAR_DATA *ch, String argument)
+void do_propose(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_NPC(ch)) {
 		do_huh(ch);
@@ -256,11 +256,11 @@ void do_propose(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_accept(CHAR_DATA *ch, String argument)
+void do_accept(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MSL];
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (IS_NPC(ch)) {
 		do_huh(ch);
@@ -312,7 +312,7 @@ void do_accept(CHAR_DATA *ch, String argument)
 	Format::sprintf(buf, "{W[FYI] %s and %s are now engaged!  Congratulations!{x\n", ch->name, victim->name);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *msgvict;
+		Character *msgvict;
 		msgvict = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
@@ -326,9 +326,9 @@ void do_accept(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_reject(CHAR_DATA *ch, String argument)
+void do_reject(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_NPC(ch)) {
 		do_huh(ch);
@@ -380,11 +380,11 @@ void do_reject(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_breakup(CHAR_DATA *ch, String argument)
+void do_breakup(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MSL];
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (IS_NPC(ch)) {
 		do_huh(ch);
@@ -436,7 +436,7 @@ void do_breakup(CHAR_DATA *ch, String argument)
 	Format::sprintf(buf, "{W[FYI] %s and %s have broken off their engagement.{x\n", ch->name, victim->name);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *msgvict;
+		Character *msgvict;
 		msgvict = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&

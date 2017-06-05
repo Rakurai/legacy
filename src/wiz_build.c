@@ -18,8 +18,8 @@
 #include "recycle.h"
 #include "Format.hpp"
 
-extern  ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
-extern  AREA_DATA       *area_first;
+extern  RoomPrototype *room_index_hash [MAX_KEY_HASH];
+extern  Area       *area_first;
 
 /* The following locals are for the checkexit command - Lotus */
 const sh_int opposite_dir [6] =
@@ -28,7 +28,7 @@ const sh_int opposite_dir [6] =
 typedef enum {exit_from, exit_to, exit_both} exit_status;
 
 /* depending on status print > or < or <> between the 2 rooms */
-String room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex) {
+String room_pair(RoomPrototype *left, RoomPrototype *right, exit_status ex) {
 	String sExit;
 
 	switch (ex) {
@@ -56,16 +56,16 @@ String room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex) 
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
-String checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea) {
+String checkexits(RoomPrototype *room, Area *pArea) {
 	String buf;
 
 	for (int i = 0; i < 6; i++) {
-		EXIT_DATA *exit = room->exit[i];
+		Exit *exit = room->exit[i];
 
 		if (!exit)
 			continue;
 
-		ROOM_INDEX_DATA *to_room = exit->u1.to_room;
+		RoomPrototype *to_room = exit->u1.to_room;
 
 		if (to_room) { /* there is something on the other side */
 			if ((room->area == pArea) && (to_room->area != pArea)) {
@@ -93,12 +93,12 @@ String checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea) {
 }
 
 /* for now, no arguments, just list the current area */
-void do_exlist(CHAR_DATA *ch, String argument)
+void do_exlist(Character *ch, String argument)
 {
-	AREA_DATA *pArea = ch->in_room->area; /* this is the area we want info on */
+	Area *pArea = ch->in_room->area; /* this is the area we want info on */
 
 	for (int i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
-		for (ROOM_INDEX_DATA *room = room_index_hash[i]; room; room = room->next)
+		for (RoomPrototype *room = room_index_hash[i]; room; room = room->next)
 			/* run through all the rooms on the MUD */
 		{
 			stc(checkexits(room, pArea), ch);
@@ -107,17 +107,17 @@ void do_exlist(CHAR_DATA *ch, String argument)
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
-String checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest)
+String checkexitstoroom(RoomPrototype *room, RoomPrototype *dest)
 {
 	String buf;
 
 	for (int i = 0; i < 6; i++) {
-		EXIT_DATA *exit = room->exit[i];
+		Exit *exit = room->exit[i];
 
 		if (!exit)
 			continue;
 
-		ROOM_INDEX_DATA *to_room = exit->u1.to_room;
+		RoomPrototype *to_room = exit->u1.to_room;
 
 		if (to_room) { /* there is something on the other side */
 			if (room == dest) {
@@ -144,12 +144,12 @@ String checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest)
 }
 
 /* for now, no arguments, just list the current room */
-void do_roomexits(CHAR_DATA *ch, String argument)
+void do_roomexits(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *dest = ch->in_room; /* this is the room we want info on */
+	RoomPrototype *dest = ch->in_room; /* this is the room we want info on */
 
 	for (int i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
-		for (ROOM_INDEX_DATA *room = room_index_hash[i]; room; room = room->next)
+		for (RoomPrototype *room = room_index_hash[i]; room; room = room->next)
 			/* run through all the rooms on the MUD */
 		{
 			stc(checkexitstoroom(room, dest), ch);
@@ -157,9 +157,9 @@ void do_roomexits(CHAR_DATA *ch, String argument)
 }
 
 /* find pockets of unused vnums equal to or greater than the argument */
-void do_pocket(CHAR_DATA *ch, String argument)
+void do_pocket(Character *ch, String argument)
 {
-	AREA_DATA *area;
+	Area *area;
 	int vnum, count = 0, size = 50;
 
 	String arg1;
@@ -190,11 +190,11 @@ void do_pocket(CHAR_DATA *ch, String argument)
 }
 
 /* Room List by Lotus */
-void do_roomlist(CHAR_DATA *ch, String argument)
+void do_roomlist(Character *ch, String argument)
 {
 	int first, last, counter;
 	bool found = FALSE;
-	ROOM_INDEX_DATA *room;
+	RoomPrototype *room;
 	String buffer;
 
 	String arg;
@@ -241,14 +241,14 @@ void do_roomlist(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_vlist(CHAR_DATA *ch, String argument)
+void do_vlist(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	String totalbuf;
 	String buffer;
 	int vnum, begvnum, endvnum;
-	MOB_INDEX_DATA *mobile;
-	OBJ_INDEX_DATA *object;
+	MobilePrototype *mobile;
+	ObjectPrototype *object;
 	bool found = FALSE,
 	     printed = FALSE,
 	     foundmobile = FALSE,

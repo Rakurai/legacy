@@ -26,13 +26,13 @@
 ***************************************************************************/
 
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 
 void acid_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		RoomPrototype *room = (RoomPrototype *) vo;
+		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -43,8 +43,8 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_CHAR) { /* do the effect on a victim */
-		CHAR_DATA *victim = (CHAR_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		Character *victim = (Character *) vo;
+		Object *obj, *obj_next;
 
 		/* let's toast some gear */
 		if (!IS_IMMORTAL(victim)) {
@@ -58,10 +58,10 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_OBJ) { /* toast an object */
-		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		Object *obj = (Object *) vo;
 		int chance;
 		char *msg;
-		CHAR_DATA *owner;
+		Character *owner;
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
@@ -157,7 +157,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 		}
 
 		if (obj->contains) { /* dump contents */
-			OBJ_DATA *t_obj, *n_obj;
+			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
@@ -196,8 +196,8 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 void cold_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		RoomPrototype *room = (RoomPrototype *) vo;
+		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -208,8 +208,8 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_CHAR) { /* whack a character */
-		CHAR_DATA *victim = (CHAR_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		Character *victim = (Character *) vo;
+		Object *obj, *obj_next;
 
 		/* chill touch effect */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_COLD)) {
@@ -241,10 +241,10 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_OBJ) { /* toast an object */
-		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		Object *obj = (Object *) vo;
 		int chance;
 		char *msg;
-		CHAR_DATA *owner;
+		Character *owner;
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
@@ -295,7 +295,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
 
 		if (obj->contains) { /* dump contents */
-			OBJ_DATA *t_obj, *n_obj;
+			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
@@ -335,8 +335,8 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 void fire_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		RoomPrototype *room = (RoomPrototype *) vo;
+		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -347,8 +347,8 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_CHAR) { /* do the effect on a victim */
-		CHAR_DATA *victim = (CHAR_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		Character *victim = (Character *) vo;
+		Object *obj, *obj_next;
 
 		/* chance of blindness */
 		if (!is_blinded(victim)
@@ -382,10 +382,10 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_OBJ) { /* toast an object */
-		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		Object *obj = (Object *) vo;
 		int chance;
 		char *msg;
-		CHAR_DATA *owner;
+		Character *owner;
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
@@ -457,7 +457,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
 
 		if (obj->contains) { /* dump contents */
-			OBJ_DATA *t_obj, *n_obj;
+			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
@@ -497,8 +497,8 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 void poison_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		RoomPrototype *room = (RoomPrototype *) vo;
+		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -509,8 +509,8 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_CHAR) { /* do the effect on a victim */
-		CHAR_DATA *victim = (CHAR_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		Character *victim = (Character *) vo;
+		Object *obj, *obj_next;
 
 		/* chance of poisoning */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_POISON)) {
@@ -539,7 +539,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_OBJ) { /* do some poisoning */
-		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		Object *obj = (Object *) vo;
 		int chance;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -584,8 +584,8 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 void shock_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) {
-		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		RoomPrototype *room = (RoomPrototype *) vo;
+		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -596,8 +596,8 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_CHAR) {
-		CHAR_DATA *victim = (CHAR_DATA *) vo;
-		OBJ_DATA *obj, *obj_next;
+		Character *victim = (Character *) vo;
+		Object *obj, *obj_next;
 
 		/* daze and confused? */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_ELECTRICITY)) {
@@ -617,10 +617,10 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 
 	if (target == TARGET_OBJ) {
-		OBJ_DATA *obj = (OBJ_DATA *) vo;
+		Object *obj = (Object *) vo;
 		int chance;
 		char *msg;
-		CHAR_DATA *owner;
+		Character *owner;
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != NULL
@@ -671,7 +671,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
 
 		if (obj->contains) { /* dump contents */
-			OBJ_DATA *t_obj, *n_obj;
+			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))

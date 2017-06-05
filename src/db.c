@@ -31,34 +31,31 @@
 #include "sql.h"
 #include "lookup.h"
 #include "music.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "affect_list.h"
 #include "auction.h"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 extern  int     _filbuf         args((FILE *));
-extern void          affect_copy_to_list         args(( AFFECT_DATA **list_head, const AFFECT_DATA *paf ));
+extern void          affect_copy_to_list         args(( Affect **list_head, const Affect *paf ));
 
 /*
  * Globals.
  */
-SHOP_DATA              *shop_first;
-SHOP_DATA              *shop_last;
+Shop              *shop_first;
+Shop              *shop_last;
 
 
 char                    bug_buf         [2 * MAX_INPUT_LENGTH];
-CHAR_DATA              *char_list;
-PC_DATA                *pc_list;        /* should probably go somewhere else *shrug* -- Montrey */
+Character              *char_list;
+Player                *pc_list;        /* should probably go somewhere else *shrug* -- Montrey */
 String                  help_greeting;
 char                    log_buf         [2 * MAX_INPUT_LENGTH];
-KILL_DATA               kill_table      [MAX_LEVEL];
-OBJ_DATA               *object_list;
-WEATHER_DATA            weather_info;
-BATTLE_DATA             battle;
+Object               *object_list;
 String                  default_prompt = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
 
-OBJ_DATA               *donation_pit;
+Object               *donation_pit;
 
 /* records */
 unsigned long   record_logins = 0;
@@ -302,12 +299,12 @@ sh_int  gsn_critical_blow;
 /*
  * Locals.
  */
-MOB_INDEX_DATA         *mob_index_hash          [MAX_KEY_HASH];
-OBJ_INDEX_DATA         *obj_index_hash          [MAX_KEY_HASH];
-ROOM_INDEX_DATA        *room_index_hash         [MAX_KEY_HASH];
+MobilePrototype         *mob_index_hash          [MAX_KEY_HASH];
+ObjectPrototype         *obj_index_hash          [MAX_KEY_HASH];
+RoomPrototype        *room_index_hash         [MAX_KEY_HASH];
 
-AREA_DATA              *area_first;
-AREA_DATA              *area_last;
+Area              *area_first;
+Area              *area_last;
 
 /* quest_open, if true, says that the quest area is open.
    quest_min, quest_max are defined only if quest_open is true. */
@@ -317,8 +314,8 @@ bool                    quest_upk;
 long                    quest_double = 0;
 int                     quest_min, quest_max;
 /* startroom and area are initialized by quest_init() */
-ROOM_INDEX_DATA         *quest_startroom;
-AREA_DATA               *quest_area;
+RoomPrototype         *quest_startroom;
+Area               *quest_area;
 
 /*
  * Credits defines stuff
@@ -341,10 +338,10 @@ sh_int                  aVersion = 1;
 */
 
 int             mprog_name_to_type      args((const String& name));
-MPROG_DATA     *mprog_file_read         args((const String& f, MPROG_DATA *mprg,
-                MOB_INDEX_DATA *pMobIndex));
+MobProg     *mprog_file_read         args((const String& f, MobProg *mprg,
+                MobilePrototype *pMobIndex));
 void            mprog_read_programs     args((FILE *fp,
-                MOB_INDEX_DATA *pMobIndex));
+                MobilePrototype *pMobIndex));
 
 /*
  * Local booting procedures.
@@ -544,7 +541,7 @@ void boot_db()
  * {H{{ 5 25} {MFinn    {TThe Fourth Tower
  * - Elrac
  */
-int  scan_credits(AREA_DATA *pArea)
+int  scan_credits(Area *pArea)
 {
 	char line[MIL], buf[MIL];
 	String keywords;
@@ -708,7 +705,7 @@ int  scan_credits(AREA_DATA *pArea)
  */
 void load_area(FILE *fp)
 {
-	AREA_DATA *pArea = new AREA_DATA;
+	Area *pArea = new Area;
 	pArea->reset_first      = NULL;
 	pArea->reset_last       = NULL;
 	pArea->file_name        = fread_string(fp);
@@ -750,11 +747,11 @@ void load_area(FILE *fp)
  */
 void load_resets(FILE *fp)
 {
-	RESET_DATA *pReset;
-	ROOM_INDEX_DATA *pRoomIndex;
-	EXIT_DATA *pexit;
+	Reset *pReset;
+	RoomPrototype *pRoomIndex;
+	Exit *pexit;
 	char letter;
-	OBJ_INDEX_DATA *temp_index;
+	ObjectPrototype *temp_index;
 
 	if (area_last == NULL) {
 		bug("Load_resets: no #AREA seen yet.", 0);
@@ -770,7 +767,7 @@ void load_resets(FILE *fp)
 			continue;
 		}
 
-		pReset = new RESET_DATA;
+		pReset = new Reset;
 		pReset->version = aVersion;
 		pReset->command = letter;
 		/* if_flag */     fread_number(fp);
@@ -873,7 +870,7 @@ void load_resets(FILE *fp)
  */
 void load_mobiles(FILE *fp)
 {
-	MOB_INDEX_DATA *pMobIndex;
+	MobilePrototype *pMobIndex;
 	sh_int vnum;
 	char letter;
 	int iHash;
@@ -903,7 +900,7 @@ void load_mobiles(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pMobIndex = new MOB_INDEX_DATA;
+		pMobIndex = new MobilePrototype;
 		pMobIndex->vnum                 = vnum;
 		pMobIndex->version              = aVersion;
 		pMobIndex->player_name          = fread_string(fp);
@@ -1050,7 +1047,6 @@ void load_mobiles(FILE *fp)
 		pMobIndex->next         = mob_index_hash[iHash];
 		mob_index_hash[iHash]   = pMobIndex;
 		top_mob_index++;
-		kill_table[URANGE(0, pMobIndex->level, MAX_LEVEL - 1)].number++;
 	}
 
 	return;
@@ -1061,7 +1057,7 @@ void load_mobiles(FILE *fp)
  */
 void load_objects(FILE *fp)
 {
-	OBJ_INDEX_DATA *pObjIndex;
+	ObjectPrototype *pObjIndex;
 	sh_int vnum;
 	char letter;
 	int iHash;
@@ -1091,7 +1087,7 @@ void load_objects(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pObjIndex = new OBJ_INDEX_DATA;
+		pObjIndex = new ObjectPrototype;
 		pObjIndex->vnum                 = vnum;
 		pObjIndex->reset_num            = 0;
 		pObjIndex->version              = aVersion;
@@ -1203,7 +1199,7 @@ void load_objects(FILE *fp)
 			letter = fread_letter(fp);
 
 			if (letter == 'A') { // apply
-				AFFECT_DATA af;
+				Affect af;
 				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
@@ -1220,7 +1216,7 @@ void load_objects(FILE *fp)
 				}
 			}
 			else if (letter == 'F') { // flag, can add bits or do other ->where types
-				AFFECT_DATA af;
+				Affect af;
 				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
@@ -1248,7 +1244,7 @@ void load_objects(FILE *fp)
 				} while (bitvector != 0);
 			}
 			else if (letter == 'E') {
-				EXTRA_DESCR_DATA *ed = new_extra_descr();
+				ExtraDescr *ed = new_extra_descr();
 				ed->keyword             = fread_string(fp);
 				ed->description         = fread_string(fp);
 				ed->next                = pObjIndex->extra_descr;
@@ -1281,9 +1277,9 @@ void load_objects(FILE *fp)
  */
 void load_rooms(FILE *fp)
 {
-	ROOM_INDEX_DATA *pRoomIndex;
-	EXTRA_DESCR_DATA *ed;
-	EXIT_DATA *pexit;
+	RoomPrototype *pRoomIndex;
+	ExtraDescr *ed;
+	Exit *pexit;
 	int locks;
 	char log_buf[MAX_STRING_LENGTH];
 	sh_int vnum;
@@ -1321,7 +1317,7 @@ void load_rooms(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pRoomIndex = new ROOM_INDEX_DATA;
+		pRoomIndex = new RoomPrototype;
 		pRoomIndex->version             = aVersion;
 		pRoomIndex->people              = NULL;
 		pRoomIndex->contents            = NULL;
@@ -1398,7 +1394,7 @@ void load_rooms(FILE *fp)
 					exit(1);
 				}
 
-				pexit = new EXIT_DATA;
+				pexit = new Exit;
 				pexit->description      = fread_string(fp);
 				pexit->keyword          = fread_string(fp);
 				pexit->exit_info        = 0;
@@ -1454,8 +1450,8 @@ void load_rooms(FILE *fp)
  */
 void load_shops(FILE *fp)
 {
-	SHOP_DATA *pShop;
-	MOB_INDEX_DATA *pMobIndex;
+	Shop *pShop;
+	MobilePrototype *pMobIndex;
 	int shopkeeper;
 	int iTrade;
 
@@ -1463,7 +1459,7 @@ void load_shops(FILE *fp)
 		if ((shopkeeper = fread_number(fp)) == 0)
 			break;
 
-		pShop = new SHOP_DATA;
+		pShop = new Shop;
 		pShop->next             = NULL;
 		pShop->version          = aVersion;
 		pShop->keeper           = shopkeeper;
@@ -1498,7 +1494,7 @@ void load_shops(FILE *fp)
  */
 void load_specials(FILE *fp)
 {
-	MOB_INDEX_DATA *pMobIndex;
+	MobilePrototype *pMobIndex;
 	char letter;
 
 	for (; ;) {
@@ -1538,10 +1534,10 @@ void fix_exits(void)
 {
 //    extern const sh_int rev_dir [];
 //    char buf[MAX_STRING_LENGTH];
-	ROOM_INDEX_DATA *pRoomIndex;
-//    ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit;
-//    EXIT_DATA *pexit_rev;
+	RoomPrototype *pRoomIndex;
+//    RoomPrototype *to_room;
+	Exit *pexit;
+//    Exit *pexit_rev;
 	int iHash;
 	int door;
 
@@ -1701,11 +1697,11 @@ int mprog_name_to_type(const String& name)
 }
 /* This routine reads in scripts of MOBprograms from a file */
 
-MPROG_DATA *mprog_file_read(const String& f, MPROG_DATA *mprg,
-                            MOB_INDEX_DATA *pMobIndex)
+MobProg *mprog_file_read(const String& f, MobProg *mprg,
+                            MobilePrototype *pMobIndex)
 {
 	char        MOBProgfile[ MAX_INPUT_LENGTH ];
-	MPROG_DATA *mprg2;
+	MobProg *mprg2;
 	FILE       *progfile;
 	char        letter;
 	bool        done = FALSE;
@@ -1755,7 +1751,7 @@ MPROG_DATA *mprog_file_read(const String& f, MPROG_DATA *mprg,
 
 			switch (letter = fread_letter(progfile)) {
 			case '>':
-				mprg2->next = new MPROG_DATA;
+				mprg2->next = new MobProg;
 				mprg2       = mprg2->next;
 				mprg2->next = NULL;
 				break;
@@ -1781,9 +1777,9 @@ MPROG_DATA *mprog_file_read(const String& f, MPROG_DATA *mprg,
 /* This procedure is responsible for reading any in_file MOBprograms.
  */
 
-void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
+void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 {
-	MPROG_DATA *mprg;
+	MobProg *mprg;
 	char        letter;
 	bool        done = FALSE;
 
@@ -1792,7 +1788,7 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 		exit(1);
 	}
 
-	pMobIndex->mobprogs = new MPROG_DATA;
+	pMobIndex->mobprogs = new MobProg;
 	mprg = pMobIndex->mobprogs;
 
 	while (!done) {
@@ -1810,7 +1806,7 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
 			switch (letter = fread_letter(fp)) {
 			case '>':
-				mprg->next = new MPROG_DATA;
+				mprg->next = new MobProg;
 				mprg       = mprg->next;
 				mprg->next = NULL;
 				break;
@@ -1838,7 +1834,7 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
 			switch (letter = fread_letter(fp)) {
 			case '>':
-				mprg->next = new MPROG_DATA;
+				mprg->next = new MobProg;
 				mprg       = mprg->next;
 				mprg->next = NULL;
 				break;

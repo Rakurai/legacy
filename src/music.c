@@ -35,10 +35,10 @@ struct song_data song_table[MAX_SONGS];
 
 void song_update(void)
 {
-	OBJ_DATA *obj;
-	CHAR_DATA *victim;
-	ROOM_INDEX_DATA *room;
-	DESCRIPTOR_DATA *d;
+	Object *obj;
+	Character *victim;
+	RoomPrototype *room;
+	Descriptor *d;
 	char buf[MAX_STRING_LENGTH];
 	String line;
 	int i;
@@ -192,9 +192,9 @@ void load_songs(void)
 	fclose(fp); /* One more close than open -  Lotus */
 }
 
-void do_play(CHAR_DATA *ch, String argument)
+void do_play(Character *ch, String argument)
 {
-	OBJ_DATA *juke;
+	Object *juke;
 	const char *str;
 	int song, i;
 	bool global = FALSE;

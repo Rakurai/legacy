@@ -37,8 +37,8 @@ extern char                    strArea[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, Note **list, int type, time_t free_time);
-void parse_note(CHAR_DATA *ch, String argument, int type);
-bool hide_note(CHAR_DATA *ch, Note *pnote);
+void parse_note(Character *ch, String argument, int type);
+bool hide_note(Character *ch, Note *pnote);
 
 Note *note_list;
 Note *idea_list;
@@ -96,7 +96,7 @@ void free_note(Note *note)
 }
 
 /* count the number of messages, visible to 'ch', in a given message list */
-int count_spool(CHAR_DATA *ch, Note *spool)
+int count_spool(Character *ch, Note *spool)
 {
 	int count = 0;
 	Note *pnote;
@@ -109,7 +109,7 @@ int count_spool(CHAR_DATA *ch, Note *spool)
 }
 
 /* display the numbers of unread messages of each type, visible to 'ch' */
-void do_unread(CHAR_DATA *ch, String argument)
+void do_unread(Character *ch, String argument)
 {
 	int count;
 	bool found = FALSE;
@@ -178,37 +178,37 @@ void do_unread(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_note(CHAR_DATA *ch, String argument)
+void do_note(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_NOTE);
 }
 
-void do_idea(CHAR_DATA *ch, String argument)
+void do_idea(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_IDEA);
 }
 
-void do_personal(CHAR_DATA *ch, String argument)
+void do_personal(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_PERSONAL);
 }
 
-void do_roleplay(CHAR_DATA *ch, String argument)
+void do_roleplay(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_ROLEPLAY);
 }
 
-void do_immquest(CHAR_DATA *ch, String argument)
+void do_immquest(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_IMMQUEST);
 }
 
-void do_changes(CHAR_DATA *ch, String argument)
+void do_changes(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_CHANGES);
 }
 
-void do_trade(CHAR_DATA *ch, String argument)
+void do_trade(Character *ch, String argument)
 {
 	parse_note(ch, argument, NOTE_TRADE);
 }
@@ -440,7 +440,7 @@ void append_note(Note *pnote)
 	}
 }
 
-bool is_note_to(CHAR_DATA *ch, Note *pnote)
+bool is_note_to(Character *ch, Note *pnote)
 {
 	char buf[MSL];
 	/* don't show notes to the forwarding person *mutter*  -- Montrey */
@@ -504,7 +504,7 @@ bool is_note_to(CHAR_DATA *ch, Note *pnote)
 	return FALSE;
 }
 
-void note_attach(CHAR_DATA *ch, int type)
+void note_attach(Character *ch, int type)
 {
 	Note *pnote;
 
@@ -518,7 +518,7 @@ void note_attach(CHAR_DATA *ch, int type)
 	return;
 }
 
-void note_remove(CHAR_DATA *ch, Note *pnote, bool del)
+void note_remove(Character *ch, Note *pnote, bool del)
 {
 	Note *prev;
 	Note **list;
@@ -603,7 +603,7 @@ void note_remove(CHAR_DATA *ch, Note *pnote, bool del)
 	return;
 }
 
-bool hide_note(CHAR_DATA *ch, Note *pnote)
+bool hide_note(Character *ch, Note *pnote)
 {
 	time_t last_read;
 
@@ -656,7 +656,7 @@ bool hide_note(CHAR_DATA *ch, Note *pnote)
 	return FALSE;
 }
 
-void update_read(CHAR_DATA *ch, Note *pnote)
+void update_read(Character *ch, Note *pnote)
 {
 	time_t stamp;
 	/* Mob Notes
@@ -699,9 +699,9 @@ void update_read(CHAR_DATA *ch, Note *pnote)
 	}
 }
 
-void notify_note_post(Note *pnote, CHAR_DATA *vch, int type)
+void notify_note_post(Note *pnote, Character *vch, int type)
 {
-	CHAR_DATA *ch;
+	Character *ch;
 	String buf;
 	char *list_name;
 	list_name = board_index[type].board_long;
@@ -734,7 +734,7 @@ void notify_note_post(Note *pnote, CHAR_DATA *vch, int type)
 	}
 }
 
-void parse_note(CHAR_DATA *ch, String argument, int type)
+void parse_note(Character *ch, String argument, int type)
 {
 	String buffer;
 	char buf[MSL];
@@ -1399,7 +1399,7 @@ void parse_note(CHAR_DATA *ch, String argument, int type)
 	return;
 }
 
-void do_old_next(CHAR_DATA *ch)
+void do_old_next(Character *ch)
 {
 	char buf[MAX_STRING_LENGTH];
 	Note *pnote;
@@ -1598,7 +1598,7 @@ void do_old_next(CHAR_DATA *ch)
 }
 
 /* Chronological NEXT -- Elrac */
-void do_next(CHAR_DATA *ch, String argument)
+void do_next(Character *ch, String argument)
 {
 	struct board_index_struct *pbis, *obis = NULL;
 	time_t ostamp = (time_t) 0;

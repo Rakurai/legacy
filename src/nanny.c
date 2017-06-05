@@ -4,17 +4,17 @@
 #include "telnet.h"
 #include "sql.h"
 #include "recycle.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "lookup.h"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
-extern bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
-int     roll_stat               args((CHAR_DATA *ch, int stat));
+extern bool    check_playing           args((Descriptor *d, const String& name));
+int     roll_stat               args((Character *ch, int stat));
 
-extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
-extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
-extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
+extern void     roll_raffects   args((Character *ch, Character *victim));
+extern void     goto_line    args((Character *ch, int row, int column));
+extern void     set_window   args((Character *ch, int top, int bottom));
 
 bool                wizlock;            /* Game is wizlocked            */
 bool                newlock;            /* Game is newlocked            */
@@ -61,10 +61,10 @@ bool check_deny(const String& name)
 	return TRUE;
 }
 
-bool check_player_exist(DESCRIPTOR_DATA *d, const String& name)
+bool check_player_exist(Descriptor *d, const String& name)
 {
-	DESCRIPTOR_DATA *dold;
-	STORAGE_DATA *exist = NULL;    /* is character in storage */
+	Descriptor *dold;
+	StoredPlayer *exist = NULL;    /* is character in storage */
 
 	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
@@ -135,7 +135,7 @@ String site_to_ssite(const String& site)
 	return site.substr(0, site.find_nth(3, '.'));
 }
 
-void update_site(CHAR_DATA *ch)
+void update_site(Character *ch)
 {
 	String shortsite = site_to_ssite(ch->desc->host);
 
@@ -150,7 +150,7 @@ void update_site(CHAR_DATA *ch)
 
 unsigned long update_records()
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	int count = 0;
 
 	if (port != DIZZYPORT)
@@ -172,7 +172,7 @@ unsigned long update_records()
 	return ++record_logins;
 }
 
-void update_pc_index(CHAR_DATA *ch, bool remove)
+void update_pc_index(Character *ch, bool remove)
 {
 	db_commandf("update_pc_index", "DELETE FROM pc_index WHERE name='%s'", db_esc(ch->name));
 
@@ -195,7 +195,7 @@ void update_pc_index(CHAR_DATA *ch, bool remove)
  */
 bool check_parse_name(const String& name)
 {
-	CLAN_DATA *clan;
+	Clan *clan;
 
 	/*
 	 * Reserved words.
@@ -255,8 +255,8 @@ bool check_parse_name(const String& name)
 	 */
 	/* Yeah, but do it somewhere else -- Elrac
 	{
-	    extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
-	    MOB_INDEX_DATA *pMobIndex;
+	    extern MobilePrototype *mob_index_hash[MAX_KEY_HASH];
+	    MobilePrototype *pMobIndex;
 	    int iHash;
 
 	    for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
@@ -277,10 +277,10 @@ bool check_parse_name(const String& name)
 /*
  * Look for link-dead player to reconnect.
  */
-bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
+bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 {
-	CHAR_DATA *ch;
-	ROOM_INDEX_DATA *room;
+	Character *ch;
+	RoomPrototype *room;
 
 	for (ch = char_list; ch != NULL; ch = ch->next) {
 		if (!IS_NPC(ch)
@@ -291,7 +291,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 				d->character->pcdata->pwd = ch->pcdata->pwd;
 			}
 			else {
-				CHAR_DATA *rch;
+				Character *rch;
 				free_char(d->character);
 				d->character = ch;
 				ch->desc         = d;
@@ -330,11 +330,11 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const String& name, bool fConn)
 /*
  * Deal with sockets that haven't logged in yet.
  */
-void nanny(DESCRIPTOR_DATA *d, String argument)
+void nanny(Descriptor *d, String argument)
 {
-	DESCRIPTOR_DATA *d_old, *d_next, *sd;
+	Descriptor *d_old, *d_next, *sd;
 	String buf, arg;
-	CHAR_DATA *ch, *victim;
+	Character *ch, *victim;
 	const char *pwdnew, *p;
 	int iClass, race, i, weapon, deity;
 	bool fOld, logon_lurk;
@@ -1073,7 +1073,7 @@ void nanny(DESCRIPTOR_DATA *d, String argument)
 		d->connected = CON_PLAYING;
 
 		if (ch->level == 0) {
-			OBJ_DATA *obj;   /* a generic object variable */
+			Object *obj;   /* a generic object variable */
 			ATTR_BASE(ch, stat_to_attr(class_table[ch->cls].stat_prime)) += 3;
 			ch->level       = 1;
 			ch->exp         = exp_per_level(ch, ch->pcdata->points);

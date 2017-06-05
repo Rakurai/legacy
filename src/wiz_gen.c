@@ -20,20 +20,20 @@
 #include "lookup.h"
 #include "tables.h"
 #include "sql.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "memory.h"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 
 extern bool    swearcheck              args((const String& argument));
 extern bool check_parse_name(const String& name);
-extern  ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
-extern  AREA_DATA       *area_first;
+extern  RoomPrototype *room_index_hash[MAX_KEY_HASH];
+extern  Area       *area_first;
 
-void do_adjust(CHAR_DATA *ch, String argument)
+void do_adjust(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char       buf  [ MAX_STRING_LENGTH ];
 	int      value;
 
@@ -86,10 +86,10 @@ void do_adjust(CHAR_DATA *ch, String argument)
 }
 
 /* save all players, without lag -- Elrac */
-void do_allsave(CHAR_DATA *ch, String argument)
+void do_allsave(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *wch;
+	Descriptor *d;
+	Character *wch;
 	stc("Saving all players... ", ch);
 
 	for (d = descriptor_list; d; d = d->next) {
@@ -100,7 +100,7 @@ void do_allsave(CHAR_DATA *ch, String argument)
 	stc("done.\n", ch);
 } /* end allsave */
 
-void do_alternate(CHAR_DATA *ch, String argument)
+void do_alternate(Character *ch, String argument)
 {
 	String query;
 	char colorsite[MSL], *p, *q;
@@ -319,12 +319,12 @@ void do_alternate(CHAR_DATA *ch, String argument)
 	page_to_char(output, ch);
 }
 
-void do_at(CHAR_DATA *ch, String argument)
+void do_at(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *location;
-	ROOM_INDEX_DATA *original;
-	OBJ_DATA *on;
-	CHAR_DATA *wch;
+	RoomPrototype *location;
+	RoomPrototype *original;
+	Object *on;
+	Character *wch;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -368,12 +368,12 @@ void do_at(CHAR_DATA *ch, String argument)
 }
 
 /* Check Command borrowed from a web site */
-void do_check(CHAR_DATA *ch, String argument)
+void do_check(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	bool SHOWIMM = FALSE;
 	String buffer;
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -558,10 +558,10 @@ void do_check(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_chown(CHAR_DATA *ch, String argument)
+void do_chown(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA  *obj;
+	Character *victim;
+	Object  *obj;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -596,9 +596,9 @@ void do_chown(CHAR_DATA *ch, String argument)
 } /* end do_chown() */
 
 /* for clone, to insure that cloning goes many levels deep */
-void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
+void recursive_clone(Character *ch, Object *obj, Object *clone)
 {
-	OBJ_DATA *c_obj, *t_obj;
+	Object *c_obj, *t_obj;
 
 	for (c_obj = obj->contains; c_obj != NULL; c_obj = c_obj->next_content) {
 		t_obj = create_object(c_obj->pIndexData, 0);
@@ -615,11 +615,11 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 }
 
 /* command that is similar to load */
-void do_clone(CHAR_DATA *ch, String argument)
+void do_clone(Character *ch, String argument)
 {
 	const char *rest;
-	CHAR_DATA *mob;
-	OBJ_DATA  *obj;
+	Character *mob;
+	Object  *obj;
 	int j;
 	int number;
 
@@ -674,7 +674,7 @@ void do_clone(CHAR_DATA *ch, String argument)
 
 	/* clone an object */
 	if (obj != NULL) {
-		OBJ_DATA *clone = NULL;
+		Object *clone = NULL;
 
 		for (j = 1; j <= number; j++) {
 			clone = create_object(obj->pIndexData, 0);
@@ -711,8 +711,8 @@ void do_clone(CHAR_DATA *ch, String argument)
 		return;
 	}
 	else if (mob != NULL) {
-		CHAR_DATA *clone;
-		OBJ_DATA *new_obj;
+		Character *clone;
+		Object *new_obj;
 		char buf[MAX_STRING_LENGTH];
 
 		if (!IS_NPC(mob)) {
@@ -755,11 +755,11 @@ void do_clone(CHAR_DATA *ch, String argument)
 } /* end do_clone() */
 
 /* Funky style clone command */
-void do_oclone(CHAR_DATA *ch, String argument)
+void do_oclone(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	OBJ_DATA  *obj;
+	Character *victim;
+	Object  *obj;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -784,7 +784,7 @@ void do_oclone(CHAR_DATA *ch, String argument)
 
 	/* clone an object */
 	if (obj != NULL) {
-		OBJ_DATA *clone;
+		Object *clone;
 		clone = create_object(obj->pIndexData, 0);
 
 		if (! clone) {
@@ -807,7 +807,7 @@ void do_oclone(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_departedlist(CHAR_DATA *ch, String argument)
+void do_departedlist(Character *ch, String argument)
 {
 	String arg;
 	argument = one_argument(argument, arg);
@@ -844,9 +844,9 @@ void do_departedlist(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_leader(CHAR_DATA *ch, String argument)
+void do_leader(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	/* Not using these at the moment. -- Outsider
 	int count = 0, ldrcount = 0;
 	*/
@@ -933,9 +933,9 @@ void do_leader(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_deputize(CHAR_DATA *ch, String argument)
+void do_deputize(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int count = 0, depcount = 0;
 
 	String arg;
@@ -1015,9 +1015,9 @@ void do_deputize(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_despell(CHAR_DATA *ch, String argument)
+void do_despell(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -1037,9 +1037,9 @@ void do_despell(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_disconnect(CHAR_DATA *ch, String argument)
+void do_disconnect(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	int desc;
 	char buf[MAX_INPUT_LENGTH];
 
@@ -1088,10 +1088,10 @@ void do_disconnect(CHAR_DATA *ch, String argument)
 
 /* idea by Erwin Andreasen */
 /* Switch into another (perhaps live player) and execute a command, then switch back */
-void do_doas(CHAR_DATA *ch, String argument)
+void do_doas(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	DESCRIPTOR_DATA *orig;
+	Character *victim;
+	Descriptor *orig;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -1123,9 +1123,9 @@ void do_doas(CHAR_DATA *ch, String argument)
 	victim->desc    = orig;
 }
 
-void do_echo(CHAR_DATA *ch, String argument)
+void do_echo(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (argument.empty()) {
 		stc("Global echo what?\n", ch);
@@ -1148,9 +1148,9 @@ void do_echo(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_recho(CHAR_DATA *ch, String argument)
+void do_recho(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (argument.empty()) {
 		stc("Local echo what?\n", ch);
@@ -1171,9 +1171,9 @@ void do_recho(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_zecho(CHAR_DATA *ch, String argument)
+void do_zecho(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (argument.empty()) {
 		stc("Zone echo what?\n", ch);
@@ -1193,9 +1193,9 @@ void do_zecho(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_pecho(CHAR_DATA *ch, String argument)
+void do_pecho(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -1221,7 +1221,7 @@ void do_pecho(CHAR_DATA *ch, String argument)
 }
 
 /* File command by Lotus */
-void do_file(CHAR_DATA *ch, String argument)
+void do_file(Character *ch, String argument)
 {
 	FILE *req_file;
 	int num_lines = 0, req_lines = 0, cur_line = 0, i;
@@ -1315,7 +1315,7 @@ void do_file(CHAR_DATA *ch, String argument)
 	page_to_char(buffer, ch);
 }
 
-void do_followerlist(CHAR_DATA *ch, String argument)
+void do_followerlist(Character *ch, String argument)
 {
 	String query, deity;
 
@@ -1364,10 +1364,10 @@ void do_followerlist(CHAR_DATA *ch, String argument)
    character within a room. E.g. the second 'guard' -> 2. guard Right
    now its pretty much useless, but it might be useful in the future
    - Lotus */
-const char *name_expand(CHAR_DATA *ch)
+const char *name_expand(Character *ch)
 {
 	int count = 1;
-	CHAR_DATA *rch;
+	Character *rch;
 	static char outbuf[MAX_INPUT_LENGTH];
 
 	if (!IS_NPC(ch))
@@ -1389,11 +1389,11 @@ const char *name_expand(CHAR_DATA *ch)
 	return outbuf;
 }
 
-void do_for(CHAR_DATA *ch, String argument)
+void do_for(Character *ch, String argument)
 {
 	char buf[MSL];
-	ROOM_INDEX_DATA *room, *old_room = NULL;
-	CHAR_DATA *p, *p_next;
+	RoomPrototype *room, *old_room = NULL;
+	Character *p, *p_next;
 	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
 	int i;
 
@@ -1532,11 +1532,11 @@ void do_for(CHAR_DATA *ch, String argument)
 	} /* if strchr */
 } /* do_for */
 
-void do_goto(CHAR_DATA *ch, String argument)
+void do_goto(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *location = NULL;
-	CHAR_DATA *rch;
-	OBJ_DATA *obj;
+	RoomPrototype *location = NULL;
+	Character *rch;
+	Object *obj;
 	int count = 0;
 	bool goto_pet = FALSE;
 
@@ -1621,17 +1621,17 @@ void do_goto(CHAR_DATA *ch, String argument)
 ** Grouplist with no arguments will show all the current
 ** groups on the MUD. Only players will be shown.
 */
-void do_grouplist(CHAR_DATA *ch, String argument)
+void do_grouplist(Character *ch, String argument)
 {
 	struct group_data {
-		CHAR_DATA *leader;
+		Character *leader;
 		struct group_data *next;
 	};
 	typedef struct group_data GROUP_DATA;
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	GROUP_DATA *leaders = NULL;
 	GROUP_DATA *newnode, *curnode, *nextnode;
-	CHAR_DATA *victim;
+	Character *victim;
 	bool dupe;
 	int counter = 0;
 	String buf;
@@ -1700,10 +1700,10 @@ void do_grouplist(CHAR_DATA *ch, String argument)
 	}
 } /* end do_grouplist() */
 
-void do_guild(CHAR_DATA *ch, String argument)
+void do_guild(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CLAN_DATA *clan;
+	Character *victim;
+	Clan *clan;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -1770,12 +1770,12 @@ void do_guild(CHAR_DATA *ch, String argument)
 
 /* answer to PRAY. Goes to one mortal like TELL does but does not reveal the
    imm who is sending the message. Also broadcasts to all other imms in game. */
-void do_heed(CHAR_DATA *ch, String argument)
+void do_heed(Character *ch, String argument)
 {
 	char buf[100 + MIL]; /* enough for pompous intro + text */
-	CHAR_DATA *victim, *truevictim;
-	PC_DATA *tpc;
-	DESCRIPTOR_DATA *d;
+	Character *victim, *truevictim;
+	Player *tpc;
+	Descriptor *d;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -1865,12 +1865,12 @@ void do_heed(CHAR_DATA *ch, String argument)
 	}
 } /* end do_heed() */
 
-void do_linkload(CHAR_DATA *ch, String argument)
+void do_linkload(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MAX_STRING_LENGTH];
-	DESCRIPTOR_DATA *dnew;
-	DESCRIPTOR_DATA *d;
+	Descriptor *dnew;
+	Descriptor *d;
 	int desc = 5;
 
 	String arg;
@@ -1941,10 +1941,10 @@ void do_linkload(CHAR_DATA *ch, String argument)
 	free_descriptor(dnew);
 } /* end do_linkload() */
 
-void do_mload(CHAR_DATA *ch, String argument)
+void do_mload(Character *ch, String argument)
 {
-	MOB_INDEX_DATA *pMobIndex;
-	CHAR_DATA *victim;
+	MobilePrototype *pMobIndex;
+	Character *victim;
 	char buf[MAX_STRING_LENGTH];
 
 	String arg;
@@ -1976,10 +1976,10 @@ void do_mload(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_oload(CHAR_DATA *ch, String argument)
+void do_oload(Character *ch, String argument)
 {
-	OBJ_INDEX_DATA *pObjIndex;
-	OBJ_DATA *obj;
+	ObjectPrototype *pObjIndex;
+	Object *obj;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -2013,7 +2013,7 @@ void do_oload(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_load(CHAR_DATA *ch, String argument)
+void do_load(Character *ch, String argument)
 {
 	String arg;
 	argument = one_argument(argument, arg);
@@ -2039,11 +2039,11 @@ void do_load(CHAR_DATA *ch, String argument)
 	do_load(ch, "");
 }
 
-void do_lower(CHAR_DATA *ch, String argument)
+void do_lower(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *obj;
-	CHAR_DATA *victim;
+	Object *obj;
+	Character *victim;
 	int x;
 	int qp = 0;
 	struct quest_struct {
@@ -2089,8 +2089,8 @@ void do_lower(CHAR_DATA *ch, String argument)
 	}
 
 	if (obj->extra_descr != NULL) {
-		EXTRA_DESCR_DATA *ed_next;
-		EXTRA_DESCR_DATA *ed;
+		ExtraDescr *ed_next;
+		ExtraDescr *ed;
 
 		for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 			ed_next = ed->next;
@@ -2137,7 +2137,7 @@ void do_lower(CHAR_DATA *ch, String argument)
 	        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 }
 
-void do_lurk(CHAR_DATA *ch, String argument)
+void do_lurk(Character *ch, String argument)
 {
 	if (ch->lurk_level) {
 		ch->lurk_level = 0;
@@ -2152,10 +2152,10 @@ void do_lurk(CHAR_DATA *ch, String argument)
 }
 
 /* Master command by Lotus */
-void do_master(CHAR_DATA *ch, String argument)
+void do_master(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *pet;
+	Character *victim;
+	Character *pet;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -2204,13 +2204,13 @@ void do_master(CHAR_DATA *ch, String argument)
 }
 
 /* Olevel and Mlevel from ROM Newsgroup */
-void do_olevel(CHAR_DATA *ch, String argument)
+void do_olevel(Character *ch, String argument)
 {
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        // Extra buffer, needed to fix mis-alignment. by Clerve
 	String buffer;
-	OBJ_INDEX_DATA *pObjIndex;
+	ObjectPrototype *pObjIndex;
 	int vnum, blevel, elevel;
 	int nMatch, matches;
 	unsigned long wear_loc;
@@ -2352,13 +2352,13 @@ void do_olevel(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_mlevel(CHAR_DATA *ch, String argument)
+void do_mlevel(Character *ch, String argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        // needed to mix misalignment due to colorcodes.. Clerve
 	String buffer;
-	MOB_INDEX_DATA *pMobIndex;
+	MobilePrototype *pMobIndex;
 	int vnum, blevel, elevel;
 	int nMatch;
 	bool found;
@@ -2417,7 +2417,7 @@ void do_mlevel(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_motd(CHAR_DATA *ch, String argument)
+void do_motd(Character *ch, String argument)
 {
 	String buf;
 
@@ -2488,11 +2488,11 @@ void do_motd(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_owhere(CHAR_DATA *ch, String argument)
+void do_owhere(Character *ch, String argument)
 {
 	char buf[MSL];
 	String output;
-	OBJ_DATA *obj, *in_obj;
+	Object *obj, *in_obj;
 	int count = 1, vnum = 0;
 	bool fGround = FALSE;
 	int place_last_found = 0;   /* the vnum of the place where we last found an item */
@@ -2650,11 +2650,11 @@ void do_owhere(CHAR_DATA *ch, String argument)
 
 }
 
-void do_mwhere(CHAR_DATA *ch, String argument)
+void do_mwhere(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	String output;
-	CHAR_DATA *victim;
+	Character *victim;
 	bool found;
 
 	String arg, arg2;
@@ -2712,10 +2712,10 @@ void do_mwhere(CHAR_DATA *ch, String argument)
 }
 
 /* find a room, given its name */
-void do_rwhere(CHAR_DATA *ch, String argument)
+void do_rwhere(Character *ch, String argument)
 {
-	AREA_DATA *area;
-	ROOM_INDEX_DATA *room;
+	Area *area;
+	RoomPrototype *room;
 	String dbuf;
 	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH], rbuf[MAX_INPUT_LENGTH];
 	char *cp;
@@ -2756,12 +2756,12 @@ void do_rwhere(CHAR_DATA *ch, String argument)
 	page_to_char(dbuf, ch);
 } /* end do_rwhere() */
 
-void do_mfind(CHAR_DATA *ch, String argument)
+void do_mfind(Character *ch, String argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
 	String output;
-	MOB_INDEX_DATA *pMobIndex;
+	MobilePrototype *pMobIndex;
 	int vnum;
 	int nMatch;
 	bool fAll;
@@ -2806,11 +2806,11 @@ void do_mfind(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_ofind(CHAR_DATA *ch, String argument)
+void do_ofind(Character *ch, String argument)
 {
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
-	OBJ_INDEX_DATA *pObjIndex;
+	ObjectPrototype *pObjIndex;
 	String output;
 	int vnum;
 	int nMatch;
@@ -2858,7 +2858,7 @@ void do_ofind(CHAR_DATA *ch, String argument)
 }
 
 /* ofind and mfind replaced with vnum, vnum skill also added */
-void do_vnum(CHAR_DATA *ch, String argument)
+void do_vnum(Character *ch, String argument)
 {
 	String arg;
 	const char *string = one_argument(argument, arg);
@@ -2891,9 +2891,9 @@ void do_vnum(CHAR_DATA *ch, String argument)
 	do_ofind(ch, argument);
 }
 
-void do_canmakebag(CHAR_DATA *ch, String argument)
+void do_canmakebag(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg;
 	one_argument(argument, arg);
@@ -2923,9 +2923,9 @@ void do_canmakebag(CHAR_DATA *ch, String argument)
 }
 
 /* Noreply by Lotus */
-void do_noreply(CHAR_DATA *ch, String argument)
+void do_noreply(Character *ch, String argument)
 {
-	CHAR_DATA *wch;
+	Character *wch;
 
 	if (IS_NPC(ch))
 		return;
@@ -2949,11 +2949,11 @@ void do_noreply(CHAR_DATA *ch, String argument)
  * other than by the owner.
  *
  */
-void do_owner(CHAR_DATA *ch, String argument)
+void do_owner(Character *ch, String argument)
 {
-	OBJ_DATA *item;
-	CHAR_DATA *player = NULL;
-	EXTRA_DESCR_DATA *ed;
+	Object *item;
+	Character *player = NULL;
+	ExtraDescr *ed;
 
 	String what, whom;
 	argument = one_argument(argument, what);
@@ -2984,7 +2984,7 @@ void do_owner(CHAR_DATA *ch, String argument)
 
 	if (!str_cmp(whom, "none")) {
 		if (item->extra_descr != NULL) {
-			EXTRA_DESCR_DATA *ed_next, *ed_prev = NULL;
+			ExtraDescr *ed_next, *ed_prev = NULL;
 
 			for (ed = item->extra_descr; ed != NULL; ed = ed_next) {
 				ed_next = ed->next;
@@ -3008,7 +3008,7 @@ void do_owner(CHAR_DATA *ch, String argument)
 
 	/* Made it to where you have to "onwer item none" before assigning a new onwer - Lotus  */
 	if (item->extra_descr != NULL) {
-		EXTRA_DESCR_DATA *ed_next;
+		ExtraDescr *ed_next;
 
 		for (ed = item->extra_descr; ed != NULL; ed = ed_next) {
 			ed_next = ed->next;
@@ -3028,9 +3028,9 @@ void do_owner(CHAR_DATA *ch, String argument)
 	item->extra_descr       = ed;
 }
 
-void do_peace(CHAR_DATA *ch, String argument)
+void do_peace(Character *ch, String argument)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (rch->fighting != NULL)
@@ -3044,19 +3044,19 @@ void do_peace(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_purge(CHAR_DATA *ch, String argument)
+void do_purge(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
-	DESCRIPTOR_DATA *d;
+	Character *victim;
+	Object *obj;
+	Descriptor *d;
 
 	String arg;
 	one_argument(argument, arg);
 
 	if (arg.empty()) {
-		CHAR_DATA *vnext;
-		OBJ_DATA  *obj_next;
+		Character *vnext;
+		Object  *obj_next;
 
 		for (victim = ch->in_room->people; victim != NULL; victim = vnext) {
 			vnext = victim->next_in_room;
@@ -3129,7 +3129,7 @@ void do_purge(CHAR_DATA *ch, String argument)
 	extract_char(victim, TRUE);
 }
 
-int has_enough_qps(CHAR_DATA *ch, int number_of)
+int has_enough_qps(Character *ch, int number_of)
 {
 	if (ch->questpoints >= number_of || IS_IMMORTAL(ch))
 		return 1;
@@ -3137,11 +3137,11 @@ int has_enough_qps(CHAR_DATA *ch, int number_of)
 	return 0;
 }
 
-void do_qpconv(CHAR_DATA *ch, String argument)
+void do_qpconv(Character *ch, String argument)
 {
 	int number_of = 0, qpcost = 0, what = 0;
 	char buffer[1024];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
@@ -3216,7 +3216,7 @@ void do_qpconv(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
+void restore_char(Character *ch, Character *victim)
 {
 	affect_remove_sn_from_char(victim, gsn_plague);
 	affect_remove_sn_from_char(victim, gsn_poison);
@@ -3233,11 +3233,11 @@ void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	act("$n has restored you.", ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
 }
 
-void do_restore(CHAR_DATA *ch, String argument)
+void do_restore(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	DESCRIPTOR_DATA *d;
+	Character *victim;
+	Descriptor *d;
 
 	String arg;
 	one_argument(argument, arg);
@@ -3276,7 +3276,7 @@ void do_restore(CHAR_DATA *ch, String argument)
 }
 
 /* Secure levels by Lotus */
-void do_secure(CHAR_DATA *ch, String argument)
+void do_secure(Character *ch, String argument)
 {
 	String arg;
 	one_argument(argument, arg);
@@ -3304,9 +3304,9 @@ void do_secure(CHAR_DATA *ch, String argument)
 }
 
 /* The workhorse coding of do_setgamein() and do_setgameout() */
-void setgameinout(CHAR_DATA *ch, String argument, const String& entryexit, char flag)
+void setgameinout(Character *ch, String argument, const String& entryexit, char flag)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	String *msgptr;
 
 	String arg;
@@ -3349,22 +3349,22 @@ void setgameinout(CHAR_DATA *ch, String argument, const String& entryexit, char 
 } /* end setgameinout() */
 
 /* Set the game entry message for a player -- Elrac */
-void do_setgamein(CHAR_DATA *ch, String argument)
+void do_setgamein(Character *ch, String argument)
 {
 	setgameinout(ch, argument, "entry", 'I');
 }
 
 /* Set the game exit message for a player -- Elrac */
-void do_setgameout(CHAR_DATA *ch, String argument)
+void do_setgameout(Character *ch, String argument)
 {
 	setgameinout(ch, argument, "exit", 'O');
 }
 
-void do_sockets(CHAR_DATA *ch, String argument)
+void do_sockets(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d, *dmult;
-	CHAR_DATA *vch;
-	PC_DATA *vpc, *vpc_next;
+	Descriptor *d, *dmult;
+	Character *vch;
+	Player *vpc, *vpc_next;
 	String buffer;
 	char status[MAX_STRING_LENGTH];
 	char s[100];
@@ -3510,9 +3510,9 @@ void do_sockets(CHAR_DATA *ch, String argument)
 	page_to_char(buffer, ch);
 }
 
-void do_storage(CHAR_DATA *ch, String argument)
+void do_storage(Character *ch, String argument)
 {
-	STORAGE_DATA *i;
+	StoredPlayer *i;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -3547,7 +3547,7 @@ void do_storage(CHAR_DATA *ch, String argument)
 		char storage_buf[128];
 		char command_buf[255];
 		FILE *fp;
-		STORAGE_DATA *newdata;
+		StoredPlayer *newdata;
 
 		if (argument.empty()) {
 			stc("Store who?\n", ch);
@@ -3575,7 +3575,7 @@ void do_storage(CHAR_DATA *ch, String argument)
 			return;
 		}
 
-		newdata = new STORAGE_DATA;
+		newdata = new StoredPlayer;
 		newdata->name = argument.capitalize();
 		newdata->by_who = ch->name;
 		newdata->date = ctime(&current_time);
@@ -3590,7 +3590,7 @@ void do_storage(CHAR_DATA *ch, String argument)
 		char pfile_buf[128];
 		char storage_buf[128];
 		char command_buf[255];
-		STORAGE_DATA *olddata;
+		StoredPlayer *olddata;
 
 		if (argument.empty()) {
 			stc("Store who?\n", ch);
@@ -3622,7 +3622,7 @@ void do_storage(CHAR_DATA *ch, String argument)
 	do_storage(ch, "");
 }
 
-void do_invis(CHAR_DATA *ch, String argument)
+void do_invis(Character *ch, String argument)
 {
 	/* take the default path */
 	if (ch->invis_level) {
@@ -3637,7 +3637,7 @@ void do_invis(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_superwiz(CHAR_DATA *ch, String argument)
+void do_superwiz(Character *ch, String argument)
 {
 	if (IS_SET(ch->act, PLR_SUPERWIZ)) {
 		stc("You return to reality.\n", ch);
@@ -3649,10 +3649,10 @@ void do_superwiz(CHAR_DATA *ch, String argument)
 	}
 }
 
-ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const String& arg)
+RoomPrototype *find_location(Character *ch, const String& arg)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 
 	if (is_number(arg))
 		return get_room_index(atoi(arg));
@@ -3666,11 +3666,11 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const String& arg)
 	return NULL;
 }
 
-void do_transfer(CHAR_DATA *ch, String argument)
+void do_transfer(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *location;
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
+	RoomPrototype *location;
+	Descriptor *d;
+	Character *victim;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -3744,11 +3744,11 @@ void do_transfer(CHAR_DATA *ch, String argument)
 	stc("Transfer Successful.\n", ch);
 }
 
-void do_violate(CHAR_DATA *ch, String argument)
+void do_violate(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
-	ROOM_INDEX_DATA *location = NULL;
-	CHAR_DATA *rch;
+	Object *obj;
+	RoomPrototype *location = NULL;
+	Character *rch;
 
 	if (argument.empty()) {
 		stc("Which private room do you wish to violate?\n", ch);
@@ -3812,9 +3812,9 @@ void do_violate(CHAR_DATA *ch, String argument)
 }
 
 /* Command groups - Command to give/take */
-void do_wizgroup(CHAR_DATA *ch, String argument)
+void do_wizgroup(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int count = 0;
 	bool add = FALSE, all = FALSE, found = FALSE;
 
@@ -3875,11 +3875,11 @@ void do_wizgroup(CHAR_DATA *ch, String argument)
 }
 
 /* Wizify by Pwrdemon */
-void do_wizify(CHAR_DATA *ch, String argument)
+void do_wizify(Character *ch, String argument)
 {
 	char strsave[MAX_INPUT_LENGTH];
 	FILE *fp;
-	CHAR_DATA *victim;
+	Character *victim;
 	int sn;
 
 	String arg1;
@@ -3941,9 +3941,9 @@ void do_wizify(CHAR_DATA *ch, String argument)
 }
 
 /* Aura command stolen from rank - Lotus */
-void do_aura(CHAR_DATA *ch, String argument)
+void do_aura(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -3999,7 +3999,7 @@ void do_aura(CHAR_DATA *ch, String argument)
 	ptc(ch, "Their aura is now {W(%s{W){x.\n", victim->pcdata->aura);
 }
 
-void do_bamfin(CHAR_DATA *ch, String argument)
+void do_bamfin(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		ptc(ch, "Your poofin is currently: %s\n", ch->pcdata->bamfin);
@@ -4025,7 +4025,7 @@ void do_bamfin(CHAR_DATA *ch, String argument)
 	ptc(ch, "Your poofin is now: %s\n", ch->pcdata->bamfin);
 }
 
-void do_bamfout(CHAR_DATA *ch, String argument)
+void do_bamfout(Character *ch, String argument)
 {
 	if (argument.empty()) {
 		ptc(ch, "Your poofout is currently: %s\n", ch->pcdata->bamfout);
@@ -4051,10 +4051,10 @@ void do_bamfout(CHAR_DATA *ch, String argument)
 	ptc(ch, "Your poofout is now: %s\n", ch->pcdata->bamfout);
 }
 
-void do_clanqp(CHAR_DATA *ch, String argument)
+void do_clanqp(Character *ch, String argument)
 {
 	char buf[MSL];
-	CLAN_DATA *target;
+	Clan *target;
 	int qp_amount = 0;
 
 	if (argument.empty()) {

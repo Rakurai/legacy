@@ -31,22 +31,22 @@
 #include "tables.h"
 #include "magic.h"
 #include "lookup.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 #include "c_string.h"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
-extern  void    channel_who     args((CHAR_DATA *ch, const char *channelname, int channel, int custom));
+extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
 /*
  * Local functions.
  */
-bool       remove_obj      args((CHAR_DATA *ch, int iWear, bool fReplace));
-void       wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
-CHAR_DATA *find_keeper     args((CHAR_DATA *ch));
-int        get_cost        args((CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy));
-void       obj_to_keeper   args((OBJ_DATA *obj, CHAR_DATA *ch));
-OBJ_DATA  *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, const String& argument));
+bool       remove_obj      args((Character *ch, int iWear, bool fReplace));
+void       wear_obj        args((Character *ch, Object *obj, bool fReplace));
+Character *find_keeper     args((Character *ch));
+int        get_cost        args((Character *keeper, Object *obj, bool fBuy));
+void       obj_to_keeper   args((Object *obj, Character *ch));
+Object  *get_obj_keeper  args((Character *ch, Character *keeper, const String& argument));
 
 /* Convert a number to an ordinal string -- Elrac
    The string may come from a static buffer, so it should be copied
@@ -81,12 +81,12 @@ char *ordinal_string(int n)
    based on clan ownership and leadership. If not, it tells the player
    he can't do that and the object is destroyed. Also, FALSE is returned.
 */
-bool clan_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
+bool clan_eq_ok(Character *ch, Object *obj, char *action)
 {
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	CLAN_DATA *jclan;
+	Clan *jclan;
 	if ((jclan = clan_vnum_lookup(obj->pIndexData->vnum)) == NULL)
 		return TRUE;
 
@@ -125,9 +125,9 @@ bool clan_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
    gets a denial message with the intended action in it, and the
    function returns FALSE.
 */
-bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
+bool pers_eq_ok(Character *ch, Object *obj, char *action)
 {
-	EXTRA_DESCR_DATA *pdesc;
+	ExtraDescr *pdesc;
 	char owner[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 
@@ -177,9 +177,9 @@ bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 
 /* RT part of the corpse looting code */
 
-bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
+bool can_loot(Character *ch, Object *obj)
 {
-	CHAR_DATA *owner = NULL, *wch;
+	Character *owner = NULL, *wch;
 
 	if (IS_IMMORTAL(ch))
 		return TRUE;
@@ -206,9 +206,9 @@ bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 	return FALSE;
 }
 
-void do_second(CHAR_DATA *ch, String argument)
+void do_second(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (!get_skill(ch, gsn_dual_wield) && !IS_NPC(ch)) {
 		stc("You are not able to wield two weapons.\n", ch);
@@ -283,10 +283,10 @@ void do_second(CHAR_DATA *ch, String argument)
 	equip_char(ch, obj, WEAR_SECONDARY);
 } /* end do_second() */
 
-void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
+void get_obj(Character *ch, Object *obj, Object *container)
 {
 	/* variables for AUTOSPLIT */
-	CHAR_DATA *gch;
+	Character *gch;
 	int members;
 	char buffer[100];
 
@@ -408,7 +408,7 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 	return;
 }
 
-bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
+bool from_box_ok(Character *ch, Object *obj, char *box_type)
 {
 	if (obj == NULL) {
 		ptc(ch, "You do not see that in your %s.\n", box_type);
@@ -434,9 +434,9 @@ bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
 	return TRUE;
 }
 
-void do_get(CHAR_DATA *ch, String argument)
+void do_get(Character *ch, String argument)
 {
-	OBJ_DATA *obj, *obj_next, *container;
+	Object *obj, *obj_next, *container;
 	bool found;
 
 	/* Get type. */
@@ -687,7 +687,7 @@ void do_get(CHAR_DATA *ch, String argument)
    in which it gets a pretty big capacity.  Hopefully someday we'll put in a volume
    system to replace this ridiculous number of items and max weight capacities system.
                                                                 -- Montrey */
-bool will_fit(OBJ_DATA *obj, OBJ_DATA *container)
+bool will_fit(Object *obj, Object *container)
 {
 	int obj_weight, container_max_total, container_max_single;
 	obj_weight = get_obj_weight(obj);
@@ -716,9 +716,9 @@ bool will_fit(OBJ_DATA *obj, OBJ_DATA *container)
 	return TRUE;
 }
 
-void do_put(CHAR_DATA *ch, String argument)
+void do_put(Character *ch, String argument)
 {
-	OBJ_DATA *container, *obj, *obj_next;
+	Object *container, *obj, *obj_next;
 	int weight;
 	bool found = FALSE, tooheavy = TRUE;
 
@@ -961,10 +961,10 @@ void do_put(CHAR_DATA *ch, String argument)
 }
 
 
-void do_drop(CHAR_DATA *ch, String argument)
+void do_drop(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
+	Object *obj;
+	Object *obj_next;
 	bool found;
 	int number;
 
@@ -1117,7 +1117,7 @@ void do_drop(CHAR_DATA *ch, String argument)
 	}
 	else {
 		sh_int obj_vnum;
-		OBJ_DATA *op, *obj_next;
+		Object *op, *obj_next;
 		int count = 1;
 		/* drop <number> items, where <number> > 1. */
 		/* obtain vnum for the first object and count how many more of the
@@ -1180,10 +1180,10 @@ void do_drop(CHAR_DATA *ch, String argument)
 	}
 } /* end do_drop() */
 
-void do_give(CHAR_DATA *ch, String argument)
+void do_give(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj, *op, *obj_next;
+	Character *victim;
+	Object *obj, *op, *obj_next;
 	int number, count = 0, item_number = 0, item_weight = 0;
 
 	String arg1, arg2, buf;
@@ -1473,7 +1473,7 @@ void do_give(CHAR_DATA *ch, String argument)
 	if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_SQUESTOR)
 	    && ch->pcdata->squestmob != NULL && ch->pcdata->squestobj != NULL) {
 		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
-			extern void squestobj_to_squestmob args((CHAR_DATA * ch, OBJ_DATA * obj, CHAR_DATA * mob));
+			extern void squestobj_to_squestmob args((Character * ch, Object * obj, Character * mob));
 
 			if (!ch->pcdata->squestobjf) {
 				bug("At give sqobj to sqmob without sqobj found, continuing...", 0);
@@ -1491,9 +1491,9 @@ void do_give(CHAR_DATA *ch, String argument)
 }
 
 /* for poisoning weapons and food/drink */
-void do_envenom(CHAR_DATA *ch, String argument)
+void do_envenom(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int percent, skill;
 
 	/* find out what */
@@ -1573,7 +1573,7 @@ void do_envenom(CHAR_DATA *ch, String argument)
 		percent = number_percent();
 
 		if (percent < skill) {
-			AFFECT_DATA af = (AFFECT_DATA){0};
+			Affect af;
 			af.where     = TO_WEAPON;
 			af.type      = gsn_poison;
 			af.level     = ch->level;
@@ -1601,9 +1601,9 @@ void do_envenom(CHAR_DATA *ch, String argument)
 	return;
 }
 /* Firebuilding by Lotus */
-void do_firebuilding(CHAR_DATA *ch, String argument)
+void do_firebuilding(Character *ch, String argument)
 {
-	OBJ_DATA *torch;
+	Object *torch;
 
 	if (get_carry_number(ch) + 1 > can_carry_n(ch)) {
 		act("You can't carry any more items.", ch, NULL, NULL, TO_CHAR);
@@ -1657,12 +1657,12 @@ void do_firebuilding(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_fill(CHAR_DATA *ch, String argument)
+void do_fill(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *obj;
-	OBJ_DATA *first_fountain = NULL;
-	OBJ_DATA *wanted_fountain = NULL;
+	Object *obj;
+	Object *first_fountain = NULL;
+	Object *wanted_fountain = NULL;
 
 	if (argument.empty()) {
 		stc("Fill what?\n", ch);
@@ -1736,11 +1736,11 @@ void do_fill(CHAR_DATA *ch, String argument)
 	obj->value[3] = wanted_fountain->value[3];      /* poison the drink */
 } /* end do_fill() */
 
-void do_pour(CHAR_DATA *ch, String argument)
+void do_pour(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *out, *in;
-	CHAR_DATA *vch = NULL;
+	Object *out, *in;
+	Character *vch = NULL;
 	int amount;
 
 	String arg;
@@ -1846,9 +1846,9 @@ void do_pour(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_drink(CHAR_DATA *ch, String argument)
+void do_drink(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int amount, liquid, liqvalue;
 
 	String arg;
@@ -1965,13 +1965,13 @@ void do_drink(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_eat(CHAR_DATA *ch, String argument)
+void do_eat(Character *ch, String argument)
 {
-	OBJ_DATA *obj, *op, *obj_next;
+	Object *obj, *op, *obj_next;
 	int number, count;
 	sh_int obj_vnum;
 	bool fFull = FALSE, fNoLongerHungry = FALSE, fPoisoned = FALSE, found = FALSE;
-	OBJ_DATA *to_extract = NULL;
+	Object *to_extract = NULL;
 
 	String buf, arg;
 	number = mult_argument(argument, buf);
@@ -2136,9 +2136,9 @@ void do_eat(CHAR_DATA *ch, String argument)
 /*
  * Remove an object.
  */
-bool remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
+bool remove_obj(Character *ch, int iWear, bool fReplace)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if ((obj = get_eq_char(ch, iWear)) == NULL)
 		return TRUE;
@@ -2162,7 +2162,7 @@ bool remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
  * Optional replacement of existing objects.
  * Big repetitive code, ick.
  */
-void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
+void wear_obj(Character *ch, Object *obj, bool fReplace)
 {
 	/* check for clan equipment -- Elrac */
 	if (!clan_eq_ok(ch, obj, "equip yourself with"))
@@ -2383,7 +2383,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
-		OBJ_DATA *weapon;
+		Object *weapon;
 
 		if (get_eq_char(ch, WEAR_SECONDARY) != NULL && !IS_IMMORTAL(ch)) {
 			stc("You cannot use a shield while using two weapons.\n", ch);
@@ -2491,9 +2491,9 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		stc("You can't wear, wield, or hold that.\n", ch);
 } /* end wear_obj() */
 
-void do_wear(CHAR_DATA *ch, String argument)
+void do_wear(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Wear, wield, or hold what?\n", ch);
@@ -2504,7 +2504,7 @@ void do_wear(CHAR_DATA *ch, String argument)
 	one_argument(argument, arg);
 
 	if (!str_cmp(arg, "all")) {
-		OBJ_DATA *obj_next;
+		Object *obj_next;
 
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -2527,9 +2527,9 @@ void do_wear(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_remove(CHAR_DATA *ch, String argument)
+void do_remove(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Remove what?\n", ch);
@@ -2559,9 +2559,9 @@ void do_remove(CHAR_DATA *ch, String argument)
 }
 
 /* Donate by Lotus */
-void do_donate(CHAR_DATA *ch, String argument)
+void do_donate(Character *ch, String argument)
 {
-	OBJ_DATA *item;
+	Object *item;
 
 	/* try to find the pit */
 	if (donation_pit == NULL)
@@ -2611,9 +2611,9 @@ void do_donate(CHAR_DATA *ch, String argument)
 }
 
 /* Junk by Lotus */
-void do_junk(CHAR_DATA *ch, String argument)
+void do_junk(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Junk what?\n", ch);
@@ -2639,7 +2639,7 @@ void do_junk(CHAR_DATA *ch, String argument)
 	return;
 }
 
-bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
+bool acceptable_sac(Character *ch, Object *obj)
 {
 	if (!can_see_obj(ch, obj))
 		return FALSE;
@@ -2660,16 +2660,16 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 /* sacrifice all by Montrey */
-void do_sacrifice(CHAR_DATA *ch, String argument)
+void do_sacrifice(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *obj, *obj_next;
+	Object *obj, *obj_next;
 	bool found = FALSE;
 	int silver = 0;
-	CHAR_DATA *person;
+	Character *person;
 	bool being_used;
 	/* variables for AUTOSPLIT */
-	CHAR_DATA *gch;
+	Character *gch;
 	int members;
 	char buffer[100];
 
@@ -2790,9 +2790,9 @@ void do_sacrifice(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_quaff(CHAR_DATA *ch, String argument)
+void do_quaff(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Quaff what?\n", ch);
@@ -2840,10 +2840,10 @@ void do_quaff(CHAR_DATA *ch, String argument)
 /* Global for scrolls that want that extra oomph */
 extern String target_name;
 
-void do_recite(CHAR_DATA *ch, String argument)
+void do_recite(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *scroll, *obj = NULL;
+	Character *victim;
+	Object *scroll, *obj = NULL;
 
 	String arg1, arg2;
 	target_name = one_argument(argument, arg1);
@@ -2920,11 +2920,11 @@ void do_recite(CHAR_DATA *ch, String argument)
 	extract_obj(scroll);
 }
 
-void do_brandish(CHAR_DATA *ch, String argument)
+void do_brandish(Character *ch, String argument)
 {
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
-	OBJ_DATA *staff;
+	Character *vch;
+	Character *vch_next;
+	Object *staff;
 	int sn;
 
 	if ((staff = get_eq_char(ch, WEAR_HOLD)) == NULL) {
@@ -3006,11 +3006,11 @@ void do_brandish(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_zap(CHAR_DATA *ch, String argument)
+void do_zap(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *wand;
-	OBJ_DATA *obj = NULL;
+	Character *victim;
+	Object *wand;
+	Object *obj = NULL;
 
 	if (argument.empty() && ch->fighting == NULL) {
 		stc("Zap whom or what?\n", ch);
@@ -3101,9 +3101,9 @@ void do_zap(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_brew(CHAR_DATA *ch, String argument)
+void do_brew(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int sn;
 	int target_level = 0;    /* what level should we brew at? */
 
@@ -3231,9 +3231,9 @@ void do_brew(CHAR_DATA *ch, String argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-void do_scribe(CHAR_DATA *ch, String argument)
+void do_scribe(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int sn;
 	int target_level = 0;   /* let caster make items of lower level */
 
@@ -3342,11 +3342,11 @@ void do_scribe(CHAR_DATA *ch, String argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-void do_steal(CHAR_DATA *ch, String argument)
+void do_steal(Character *ch, String argument)
 {
 	char buf  [MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 	int percent;
 
 	if (get_skill(ch, gsn_steal) == 0) {
@@ -3584,11 +3584,11 @@ void do_steal(CHAR_DATA *ch, String argument)
 /*
  * Shopping commands.
  */
-CHAR_DATA *find_keeper(CHAR_DATA *ch)
+Character *find_keeper(Character *ch)
 {
 	/*char buf[MAX_STRING_LENGTH];*/
-	CHAR_DATA *keeper;
-	SHOP_DATA *pShop;
+	Character *keeper;
+	Shop *pShop;
 	pShop = NULL;
 
 	for (keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room) {
@@ -3648,9 +3648,9 @@ CHAR_DATA *find_keeper(CHAR_DATA *ch)
 }
 
 /* insert an object at the right spot for the keeper */
-void obj_to_keeper(OBJ_DATA *obj, CHAR_DATA *ch)
+void obj_to_keeper(Object *obj, Character *ch)
 {
-	OBJ_DATA *t_obj, *t_obj_next;
+	Object *t_obj, *t_obj_next;
 
 	/* see if any duplicates are found */
 	for (t_obj = ch->carrying; t_obj != NULL; t_obj = t_obj_next) {
@@ -3684,9 +3684,9 @@ void obj_to_keeper(OBJ_DATA *obj, CHAR_DATA *ch)
 }
 
 /* get an object from a shopkeeper's list */
-OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, const String& argument)
+Object *get_obj_keeper(Character *ch, Character *keeper, const String& argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int number;
 	int count;
 
@@ -3713,9 +3713,9 @@ OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, const String& argumen
 	return NULL;
 }
 
-int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
+int get_cost(Character *keeper, Object *obj, bool fBuy)
 {
-	SHOP_DATA *pShop;
+	Shop *pShop;
 	int cost;
 
 	if (obj == NULL || (pShop = keeper->pIndexData->pShop) == NULL)
@@ -3732,7 +3732,7 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 			cost = 0;
 	}
 	else {
-		OBJ_DATA *obj2;
+		Object *obj2;
 		int itype;
 		cost = 0;
 
@@ -3765,7 +3765,7 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	return cost;
 } /* end get_cost() */
 
-void make_pet(CHAR_DATA *ch, CHAR_DATA *pet) {
+void make_pet(Character *ch, Character *pet) {
 	SET_BIT(pet->act, ACT_PET);
 	affect_add_perm_to_char(pet, gsn_charm_person);
 	pet->comm = COMM_NOCHANNELS;
@@ -3774,7 +3774,7 @@ void make_pet(CHAR_DATA *ch, CHAR_DATA *pet) {
 	ch->pet = pet;
 }
 
-void do_buy(CHAR_DATA *ch, String argument)
+void do_buy(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cost, roll;
@@ -3795,9 +3795,9 @@ void do_buy(CHAR_DATA *ch, String argument)
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
 		/* PETS */
 		char buf[MAX_STRING_LENGTH];
-		CHAR_DATA *pet;
-		ROOM_INDEX_DATA *pRoomIndexNext;
-		ROOM_INDEX_DATA *in_room;
+		Character *pet;
+		RoomPrototype *pRoomIndexNext;
+		RoomPrototype *in_room;
 
 		if (IS_NPC(ch))
 			return;
@@ -3935,8 +3935,8 @@ void do_buy(CHAR_DATA *ch, String argument)
 	}
 	else {
 		/* non-pet shop */
-		CHAR_DATA *keeper;
-		OBJ_DATA *obj, *t_obj;
+		Character *keeper;
+		Object *obj, *t_obj;
 		int number, count = 1;
 
 		if ((keeper = find_keeper(ch)) == NULL)
@@ -4127,7 +4127,7 @@ void do_buy(CHAR_DATA *ch, String argument)
 			/* owner items bought in guild rooms to purchaser -- Montrey */
 			if (keeper->in_room->guild) {
 				String owner;
-				EXTRA_DESCR_DATA *ed;
+				ExtraDescr *ed;
 				bool foundold = FALSE;
 
 				/* loop through and find previous owner, if any, and change */
@@ -4160,13 +4160,13 @@ void do_buy(CHAR_DATA *ch, String argument)
 	}
 } /* end do_buy() */
 
-void do_list(CHAR_DATA *ch, String argument)
+void do_list(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
-		ROOM_INDEX_DATA *pRoomIndexNext;
-		CHAR_DATA *pet;
+		RoomPrototype *pRoomIndexNext;
+		Character *pet;
 		bool found;
 
 		/* hack to make new thalos pets work */
@@ -4205,8 +4205,8 @@ void do_list(CHAR_DATA *ch, String argument)
 	}
 	else {
 		/* non-pet shop */
-		CHAR_DATA *keeper;
-		OBJ_DATA *obj;
+		Character *keeper;
+		Object *obj;
 		int cost, count;
 		bool found;
 
@@ -4267,11 +4267,11 @@ void do_list(CHAR_DATA *ch, String argument)
 	}
 } /* end do_list() */
 
-void do_sell(CHAR_DATA *ch, String argument)
+void do_sell(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *keeper;
-	OBJ_DATA *obj;
+	Character *keeper;
+	Object *obj;
 	int cost, roll;
 
 	if (argument.empty()) {
@@ -4367,11 +4367,11 @@ void do_sell(CHAR_DATA *ch, String argument)
 	return;
 } /* end do_sell() */
 
-void do_value(CHAR_DATA *ch, String argument)
+void do_value(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *keeper;
-	OBJ_DATA *obj;
+	Character *keeper;
+	Object *obj;
 	int cost;
 
 	if (argument.empty()) {
@@ -4421,7 +4421,7 @@ void do_value(CHAR_DATA *ch, String argument)
 }
 
 /* get the name of the anvil's owner */
-String anvil_owner_name(OBJ_DATA *anvil)
+String anvil_owner_name(Object *anvil)
 {
 	/* check if private anvil */
 	if (anvil->value[2] == 0) return "";
@@ -4437,7 +4437,7 @@ String anvil_owner_name(OBJ_DATA *anvil)
 }
 
 /* is named player the anvil's owner? -- Elrac */
-int is_anvil_owner(CHAR_DATA *ch, OBJ_DATA *anvil)
+int is_anvil_owner(Character *ch, Object *anvil)
 {
 	return is_exact_name(ch->name, anvil_owner_name(anvil));
 }
@@ -4447,9 +4447,9 @@ int is_anvil_owner(CHAR_DATA *ch, OBJ_DATA *anvil)
  * Age of Legacy's Evolution System.
  *
  */
-void forge_flag(CHAR_DATA *ch, const String& argument, OBJ_DATA *anvil)
+void forge_flag(Character *ch, const String& argument, Object *anvil)
 {
-	OBJ_DATA *weapon;
+	Object *weapon;
 	int flag_table_num, flag, flag_count = 0, evo, qpcost;
 	evo = get_evolution(ch, gsn_forge);
 
@@ -4592,11 +4592,11 @@ void forge_flag(CHAR_DATA *ch, const String& argument, OBJ_DATA *anvil)
 }
 
 /* Hone by Montrey */
-void do_hone(CHAR_DATA *ch, String argument)
+void do_hone(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *weapon;
-	OBJ_DATA *whetstone;
+	Object *weapon;
+	Object *whetstone;
 	whetstone = get_eq_char(ch, WEAR_HOLD);
 	weapon = get_eq_char(ch, WEAR_WIELD);
 
@@ -4647,13 +4647,13 @@ void do_hone(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_forge(CHAR_DATA *ch, String argument)
+void do_forge(Character *ch, String argument)
 {
-	OBJ_DATA *obj, *anvil = NULL, *material;
-	CHAR_DATA *owner;
+	Object *obj, *anvil = NULL, *material;
+	Character *owner;
 	String buf;
 	char sdesc[MSL], costbuf[MSL];
-	EXTRA_DESCR_DATA *ed;
+	ExtraDescr *ed;
 	extern char *const month_name[];
 	int is_owner, cost, cost_gold, cost_silver, evo;
 	evo = get_evolution(ch, gsn_forge);
@@ -4770,7 +4770,7 @@ void do_forge(CHAR_DATA *ch, String argument)
 
 	obj->extra_flags = material->extra_flags;
 
-	for (const AFFECT_DATA *paf = affect_list_obj(material); paf; paf = paf->next)
+	for (const Affect *paf = affect_list_obj(material); paf; paf = paf->next)
 		affect_copy_to_obj(obj, paf);
 
 	obj->value[0] = weapon_type(type);
@@ -4895,13 +4895,13 @@ void do_forge(CHAR_DATA *ch, String argument)
 } /* end do_forge() */
 
 /* Engrave a message of historical significance on a weapon -- Elrac */
-void do_engrave(CHAR_DATA *ch, String argument)
+void do_engrave(Character *ch, String argument)
 {
-	CHAR_DATA *jeweler = NULL;
-	OBJ_DATA *weapon;
-	EXTRA_DESCR_DATA *ed;
-	EXTRA_DESCR_DATA *eng_desc;
-	EXTRA_DESCR_DATA *dflt_desc;
+	Character *jeweler = NULL;
+	Object *weapon;
+	ExtraDescr *ed;
+	ExtraDescr *eng_desc;
+	ExtraDescr *dflt_desc;
 	char buf[10 * MAX_INPUT_LENGTH];
 	char *pd;           /* ptr into desc text */
 	char *pb;           /* ptr into buffer */
@@ -5084,10 +5084,10 @@ void do_engrave(CHAR_DATA *ch, String argument)
 } /* end do_engrave() */
 
 /* Change the looks on weddingrings */
-void do_weddingring(CHAR_DATA *ch, String argument)
+void do_weddingring(Character *ch, String argument)
 {
-	CHAR_DATA *jeweler = NULL;
-	OBJ_DATA *ring;
+	Character *jeweler = NULL;
+	Object *ring;
 	int price = 0;
 
 	if (ch->desc->original != NULL) {
@@ -5149,9 +5149,9 @@ help:
 	return;
 }
 
-void do_lore(CHAR_DATA *ch, String argument)
+void do_lore(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (!get_skill(ch, gsn_lore)) {
 		stc("You aren't trained in the lore of items.\n", ch);
@@ -5184,9 +5184,9 @@ void do_lore(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_autograph(CHAR_DATA *ch, String argument)
+void do_autograph(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	char buf[MSL];
 
 	String arg;
@@ -5206,9 +5206,9 @@ void do_autograph(CHAR_DATA *ch, String argument)
 This function allows a character to rename their pet.
 -- Outsider
 */
-void do_rename(CHAR_DATA *ch, String argument)
+void do_rename(Character *ch, String argument)
 {
-	CHAR_DATA *pet;
+	Character *pet;
 	char new_name[64];
 
 	/* make sure we have a pet */

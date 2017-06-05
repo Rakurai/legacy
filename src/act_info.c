@@ -32,16 +32,16 @@
 #include "magic.h"
 #include "sql.h"
 #include "lookup.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "gem.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "memory.h"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
-extern AREA_DATA *area_first;
+extern Area *area_first;
 
-extern void     email_file    args((CHAR_DATA *ch, const char *file, const char *str));
+extern void     email_file    args((Character *ch, const char *file, const char *str));
 
 char   *const   where_name      [] = {
 	"<used as light>     ",
@@ -89,13 +89,13 @@ const char   * month_name      [] = {
 /*
  * Local functions.
  */
-void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
-void    show_char_to_char_0     args((CHAR_DATA *victim, CHAR_DATA *ch));
-void    show_char_to_char_1     args((CHAR_DATA *victim, CHAR_DATA *ch));
-void    show_char_to_char       args((CHAR_DATA *list, CHAR_DATA *ch));
-bool    check_blind             args((CHAR_DATA *ch));
+void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
+void    show_char_to_char_0     args((Character *victim, Character *ch));
+void    show_char_to_char_1     args((Character *victim, Character *ch));
+void    show_char_to_char       args((Character *list, Character *ch));
+bool    check_blind             args((Character *ch));
 
-String format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
+String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 {
 	String buf;
 	int diff;
@@ -140,7 +140,7 @@ String format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (obj->item_type == ITEM_WEAPON) {
 		long bits = 0;
 
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next)
+		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next)
 			if (paf->duration)
 				bits |= paf->bitvector;
 
@@ -187,7 +187,7 @@ String format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	return buf;
 }
 
-void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
+void show_affect_to_char(const Affect *paf, Character *ch)
 {
 	String buf;
 
@@ -239,9 +239,9 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
  * Show a list to a character.
  * Can coalesce duplicated items.
  */
-void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont)
+void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 //	String output;
 	char buf[MAX_STRING_LENGTH];
 	int nShow = 0, iShow, count = 0;
@@ -341,9 +341,9 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 			}
 } /* end show_list_to_char() */
 
-void do_peek(CHAR_DATA *ch, String argument)
+void do_peek(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	bool all = FALSE;
 
 	if (IS_NPC(ch) || !get_skill(ch, gsn_peek)) {
@@ -385,7 +385,7 @@ void do_peek(CHAR_DATA *ch, String argument)
 
 	if (!arg2.empty() && get_evolution(ch, gsn_peek) > 1) {
 		if (!str_cmp(arg2, "lore")) {
-			OBJ_DATA *obj;
+			Object *obj;
 
 			if (!get_skill(ch, gsn_lore)) {
 				stc("You aren't trained in the lore of items.\n", ch);
@@ -424,7 +424,7 @@ void do_peek(CHAR_DATA *ch, String argument)
 	check_improve(ch, gsn_peek, TRUE, 4);
 }
 
-void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
+void show_char_to_char_0(Character *victim, Character *ch)
 {
 	String buf;
 	char message[MAX_STRING_LENGTH];
@@ -640,10 +640,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	return;
 }
 
-void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
+void show_char_to_char_1(Character *victim, Character *ch)
 {
 	String buf;
-	OBJ_DATA *obj;
+	Object *obj;
 	int iWear;
 	int percent;
 	bool found;
@@ -774,9 +774,9 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	return;
 }
 
-void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
+void show_char_to_char(Character *list, Character *ch)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	for (rch = list; rch != NULL; rch = rch->next_in_room) {
 		if (rch == ch)
@@ -791,7 +791,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 	}
 }
 
-bool check_blind(CHAR_DATA *ch)
+bool check_blind(Character *ch)
 {
 	if (IS_IMMORTAL(ch))
 		return TRUE;
@@ -812,7 +812,7 @@ bool check_blind(CHAR_DATA *ch)
  * special notes: on a MAC the colors may be screwy, 0,30 gives you black
  * 0,34 seems to be REALLY dark so it doesn't show up too well...
  */
-void set_color(CHAR_DATA *ch, int color, int bold)
+void set_color(Character *ch, int color, int bold)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -827,7 +827,7 @@ void set_color(CHAR_DATA *ch, int color, int bold)
 	}
 }
 
-void new_color(CHAR_DATA *ch, int slot)
+void new_color(Character *ch, int slot)
 {
 	if (!IS_NPC(ch) && ch->pcdata->color[slot] != 0)
 		set_color(ch, ch->pcdata->color[slot], ch->pcdata->bold[slot]);
@@ -835,14 +835,14 @@ void new_color(CHAR_DATA *ch, int slot)
 		set_color(ch, csetting_table[slot].color, csetting_table[slot].bold);
 }
 
-void goto_line(CHAR_DATA *ch, int row, int column)
+void goto_line(Character *ch, int row, int column)
 {
 	char buf[MAX_INPUT_LENGTH];
 	Format::sprintf(buf, "\033[%d;%dH", row, column);
 	stc(buf, ch);
 }
 
-void set_window(CHAR_DATA *ch, int top, int bottom)
+void set_window(Character *ch, int top, int bottom)
 {
 	char buf[MAX_INPUT_LENGTH];
 	Format::sprintf(buf, "\033[%d;%dr", top, bottom);
@@ -850,7 +850,7 @@ void set_window(CHAR_DATA *ch, int top, int bottom)
 }
 
 /* changes your scroll */
-void do_scroll(CHAR_DATA *ch, String argument)
+void do_scroll(Character *ch, String argument)
 {
 	char buf[100];
 	int lines;
@@ -882,11 +882,11 @@ void do_scroll(CHAR_DATA *ch, String argument)
 	ch->lines = lines;
 } /* end set_scroll() */
 
-void do_socials(CHAR_DATA *ch, String argument)
+void do_socials(Character *ch, String argument)
 {
 	String dbuf;
 	char buf[MAX_STRING_LENGTH];
-	struct social_type *iterator;
+	Social *iterator;
 	int col;
 	col = 0;
 
@@ -905,24 +905,24 @@ void do_socials(CHAR_DATA *ch, String argument)
 } /* end do_socials() */
 
 /* RT Commands to replace news, motd, imotd, etc from ROM */
-void do_imotd(CHAR_DATA *ch, String argument)
+void do_imotd(Character *ch, String argument)
 {
 	help(ch, "imotd");
 }
 
-void do_rules(CHAR_DATA *ch, String argument)
+void do_rules(Character *ch, String argument)
 {
 	help(ch, "rules");
 }
 
-void do_story(CHAR_DATA *ch, String argument)
+void do_story(Character *ch, String argument)
 {
 	help(ch, "story");
 }
 
-void do_departed(CHAR_DATA *ch, String argument)
+void do_departed(Character *ch, String argument)
 {
-	DEPARTED_DATA *iterator;
+	DepartedPlayer *iterator;
 	char name_buf[20];
 	int i = 0;
 	stc("\n", ch);
@@ -952,7 +952,7 @@ void do_departed(CHAR_DATA *ch, String argument)
 		stc("\n", ch);
 }
 
-void do_wizlist(CHAR_DATA *ch, String argument)
+void do_wizlist(Character *ch, String argument)
 {
 	help(ch, "wizlist");
 }
@@ -960,13 +960,13 @@ void do_wizlist(CHAR_DATA *ch, String argument)
 /* Alphabetizing stuff. Fun. */
 int compare_clans(const void *p1, const void *p2)
 {
-	return strcmp((*(CLAN_DATA **)p1)->name, (*(CLAN_DATA **)p2)->name);
+	return strcmp((*(Clan **)p1)->name, (*(Clan **)p2)->name);
 }
 
-void do_clanlist(CHAR_DATA *ch, String argument)
+void do_clanlist(Character *ch, String argument)
 {
 	char lblock[MIL], rblock[MIL];
-	CLAN_DATA *clan;
+	Clan *clan;
 	String buffer;
 	int count = 0, l = 0, r = 0, i = 0, highremort = 0, highlevel = 0;
 	struct clan_clan {
@@ -981,7 +981,7 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 	struct clan_clan clan_list[500];
 
 	if (argument.empty()) {
-		CLAN_DATA *aClan[count_clans()], zero_clan;
+		Clan *aClan[count_clans()], zero_clan;
 		int index = 0;
 		zero_clan.name = "zzzzzzzz";
 		count = count_clans();
@@ -1121,7 +1121,7 @@ void do_clanlist(CHAR_DATA *ch, String argument)
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
 
-void do_autolist(CHAR_DATA *ch, String argument)
+void do_autolist(Character *ch, String argument)
 {
 	/* lists most player flags */
 	if (IS_NPC(ch))
@@ -1276,7 +1276,7 @@ void do_autolist(CHAR_DATA *ch, String argument)
 }
 
 /* Color testing by Lotus */
-void do_ctest(CHAR_DATA *ch, String argument)
+void do_ctest(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1298,7 +1298,7 @@ void do_ctest(CHAR_DATA *ch, String argument)
 		stc("You must turn color on to see this.\n", ch);
 }
 
-void do_autoassist(CHAR_DATA *ch, String argument)
+void do_autoassist(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1313,7 +1313,7 @@ void do_autoassist(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_defensive(CHAR_DATA *ch, String argument)
+void do_defensive(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1328,7 +1328,7 @@ void do_defensive(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_autoexit(CHAR_DATA *ch, String argument)
+void do_autoexit(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1343,7 +1343,7 @@ void do_autoexit(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_autogold(CHAR_DATA *ch, String argument)
+void do_autogold(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1358,7 +1358,7 @@ void do_autogold(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_autoloot(CHAR_DATA *ch, String argument)
+void do_autoloot(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1373,7 +1373,7 @@ void do_autoloot(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_autosac(CHAR_DATA *ch, String argument)
+void do_autosac(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1388,7 +1388,7 @@ void do_autosac(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_autosplit(CHAR_DATA *ch, String argument)
+void do_autosplit(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1403,7 +1403,7 @@ void do_autosplit(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_brief(CHAR_DATA *ch, String argument)
+void do_brief(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_BRIEF)) {
 		stc("Full descriptions activated.\n", ch);
@@ -1415,7 +1415,7 @@ void do_brief(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_compact(CHAR_DATA *ch, String argument)
+void do_compact(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_COMPACT)) {
 		stc("Compact mode removed.\n", ch);
@@ -1427,10 +1427,10 @@ void do_compact(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_showflags(CHAR_DATA *ch, String argument)
+void do_showflags(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 	victim = ch;
 
 	if (IS_IMMORTAL(ch) && !argument.empty()) {
@@ -1470,7 +1470,7 @@ void do_showflags(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_show(CHAR_DATA *ch, String argument)
+void do_show(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS)) {
 		stc("Affects will no longer be shown in score.\n", ch);
@@ -1483,7 +1483,7 @@ void do_show(CHAR_DATA *ch, String argument)
 }
 
 #define MAX_PROMPT_LEN 300
-void do_prompt(CHAR_DATA *ch, String argument)
+void do_prompt(Character *ch, String argument)
 {
 	String buf;
 
@@ -1530,7 +1530,7 @@ void do_prompt(CHAR_DATA *ch, String argument)
 	stc(buf, ch);
 }
 
-void do_combine(CHAR_DATA *ch, String argument)
+void do_combine(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_COMBINE)) {
 		stc("Long inventory selected.\n", ch);
@@ -1542,7 +1542,7 @@ void do_combine(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_showlost(CHAR_DATA *ch, String argument)
+void do_showlost(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1557,7 +1557,7 @@ void do_showlost(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_noloot(CHAR_DATA *ch, String argument)
+void do_noloot(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1572,7 +1572,7 @@ void do_noloot(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_nofollow(CHAR_DATA *ch, String argument)
+void do_nofollow(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1588,7 +1588,7 @@ void do_nofollow(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_nosummon(CHAR_DATA *ch, String argument)
+void do_nosummon(Character *ch, String argument)
 {
 	if (IS_SET(ch->act, PLR_NOSUMMON)) {
 		stc("You are no longer immune to summon.\n", ch);
@@ -1600,13 +1600,13 @@ void do_nosummon(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_look(CHAR_DATA *ch, String argument)
+void do_look(Character *ch, String argument)
 {
 	char buf  [MAX_STRING_LENGTH];
-	EXIT_DATA *pexit;
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
-	EXTRA_DESCR_DATA *pdesc;
+	Exit *pexit;
+	Character *victim;
+	Object *obj;
+	ExtraDescr *pdesc;
 	int door;
 	int number, count;
 
@@ -1679,7 +1679,7 @@ void do_look(CHAR_DATA *ch, String argument)
 
 	/* viewing room stuff */
 	{
-		DUEL_DATA *duel = duel_table_head->next;
+		Duel *duel = duel_table_head->next;
 
 		while (duel != duel_table_tail) {
 			if (duel->accept_timer == 0 && ch->in_room == duel->arena->viewroom)
@@ -1718,7 +1718,7 @@ void do_look(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1, "on")) {
-		ROOM_INDEX_DATA *location;
+		RoomPrototype *location;
 
 		/* 'look in' */
 		if (arg2.empty()) {
@@ -1996,10 +1996,10 @@ void do_look(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_examine(CHAR_DATA *ch, String argument)
+void do_examine(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Examine what?\n", ch);
@@ -2070,12 +2070,12 @@ void do_examine(CHAR_DATA *ch, String argument)
 ** Show the rooms && portals which have exits leading INTO the current room
 ** -DF ( 04-06-98 )
 */
-void exits_in(CHAR_DATA *ch)
+void exits_in(Character *ch)
 {
-	AREA_DATA *pArea;
-	ROOM_INDEX_DATA *room;
-	EXIT_DATA *exit;
-	OBJ_DATA *obj;
+	Area *pArea;
+	RoomPrototype *room;
+	Exit *exit;
+	Object *obj;
 	String output;
 	char buf[1024];
 	int vnum, in_room_vnum, i;
@@ -2145,11 +2145,11 @@ void exits_in(CHAR_DATA *ch)
 /*
  * Thanks to Zrin for auto-exit part.
  */
-void do_exits(CHAR_DATA *ch, String argument)
+void do_exits(Character *ch, String argument)
 {
 	extern const char* dir_name[];
 	String buf;
-	EXIT_DATA *pexit;
+	Exit *pexit;
 	bool found;
 	bool fAuto;
 	int door;
@@ -2212,7 +2212,7 @@ void do_exits(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_worth(CHAR_DATA *ch, String argument)
+void do_worth(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		ptc(ch, "You have %ld gold and %ld silver.\n", ch->gold, ch->silver);
@@ -2249,8 +2249,8 @@ void new_day(void)
 {
 	char *suf;
 	int day;
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
+	Descriptor *d;
+	Character *victim;
 	day = time_info.day + 1;
 	suf = day_number_suffix(day);
 
@@ -2263,7 +2263,7 @@ void new_day(void)
 	}
 } /* end new_day() */
 
-void do_time(CHAR_DATA *ch, String argument)
+void do_time(Character *ch, String argument)
 {
 	extern char str_boot_time[];
 	char buf[MAX_STRING_LENGTH];
@@ -2316,7 +2316,7 @@ void do_time(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_weather(CHAR_DATA *ch, String argument)
+void do_weather(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	static char *const sky_look[4] = {
@@ -2351,7 +2351,7 @@ void do_weather(CHAR_DATA *ch, String argument)
 }
 
 /* new whois by Montrey */
-void do_whois(CHAR_DATA *ch, String argument)
+void do_whois(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	char block[MAX_INPUT_LENGTH];
@@ -2359,7 +2359,7 @@ void do_whois(CHAR_DATA *ch, String argument)
 	String rank;
 	char *remort;
 	String output;
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("You must provide a name.\n", ch);
@@ -2438,11 +2438,11 @@ void do_whois(CHAR_DATA *ch, String argument)
 	page_to_char(output, ch);
 }
 
-char *count_players(CHAR_DATA *ch)
+char *count_players(Character *ch)
 {
 	static char buf[100];
 	int count = 0;
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (IS_PLAYING(d) && can_see_who(ch, d->character))
@@ -2457,7 +2457,7 @@ char *count_players(CHAR_DATA *ch)
 	return buf;
 }
 
-void do_count(CHAR_DATA *ch, String argument)
+void do_count(Character *ch, String argument)
 {
 	set_color(ch, WHITE, BOLD);
 	stc(count_players(ch), ch);
@@ -2465,10 +2465,10 @@ void do_count(CHAR_DATA *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_who(CHAR_DATA *ch, String argument)
+void do_who(Character *ch, String argument)
 {
 	struct s_charitem {
-		CHAR_DATA *pch;
+		Character *pch;
 		long levelkey;
 	}
 	tmp_charitem;
@@ -2478,7 +2478,7 @@ void do_who(CHAR_DATA *ch, String argument)
 	char block2[MIL];  /* [rank clan] */
 	char rbuf[32];
 	String output;
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	int iClass, iRace, iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
@@ -2486,8 +2486,8 @@ void do_who(CHAR_DATA *ch, String argument)
 	bool fClassRestrict = FALSE, fClanRestrict = FALSE, fRaceRestrict = FALSE, fImmortalOnly = FALSE;
 	bool fClan = FALSE;
 	bool fPK = FALSE;
-	CHAR_DATA *wch;
-	CLAN_DATA *cch = NULL;
+	Character *wch;
+	Clan *cch = NULL;
 	const char *cls;
 	char *rank, *lbrk, *rbrk, *remort;
 
@@ -2726,17 +2726,17 @@ void do_who(CHAR_DATA *ch, String argument)
 } /* do_who() */
 
 /* Short Who by Lotus */
-void do_swho(CHAR_DATA *ch, String argument)
+void do_swho(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char roombuf[MAX_STRING_LENGTH];
 	String output;
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	output += "{WRP PK NH PB QW SQ NT  Name          Pos'n   Room Name{x\n";
 	output += "{W----------------------------------------------------------------------------{x\n";
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *wch;
+		Character *wch;
 		char const *position = "Drooling";
 
 		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
@@ -2821,9 +2821,9 @@ void do_swho(CHAR_DATA *ch, String argument)
 } /* end do_swho() */
 
 /* New container capable inventory - Lotus */
-void do_inventory(CHAR_DATA *ch, String argument)
+void do_inventory(Character *ch, String argument)
 {
-	CHAR_DATA *victim = NULL;
+	Character *victim = NULL;
 
 	if (argument.empty()) {
 		victim = ch;
@@ -2867,12 +2867,12 @@ void do_inventory(CHAR_DATA *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_equipment(CHAR_DATA *ch, String argument)
+void do_equipment(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int iWear;
 	String buf;
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_IMMORTAL(ch) && argument[0]) {
 		if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL)
@@ -2933,10 +2933,10 @@ void do_equipment(CHAR_DATA *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_compare(CHAR_DATA *ch, String argument)
+void do_compare(Character *ch, String argument)
 {
-	OBJ_DATA *obj1;
-	OBJ_DATA *obj2;
+	Object *obj1;
+	Object *obj2;
 	int value1;
 	int value2;
 	char *msg;
@@ -3010,18 +3010,18 @@ void do_compare(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_credits(CHAR_DATA *ch, String argument)
+void do_credits(Character *ch, String argument)
 {
 	help(ch, "diku");
 	help(ch, "credit");
 	return;
 }
 
-void do_where(CHAR_DATA *ch, String argument)
+void do_where(Character *ch, String argument)
 {
-	ARENA_DATA *arena = arena_table_head->next;
-	CHAR_DATA *victim;
-	DESCRIPTOR_DATA *d;
+	Duel::Arena *arena = arena_table_head->next;
+	Character *victim;
+	Descriptor *d;
 	bool found = FALSE;
 
 	if (ch->in_room == NULL)
@@ -3094,9 +3094,9 @@ void do_where(CHAR_DATA *ch, String argument)
 }
 
 /* New short consider by Lotus */
-void do_scon(CHAR_DATA *ch, String argument)
+void do_scon(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -3142,10 +3142,10 @@ void do_scon(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_consider(CHAR_DATA *ch, String argument)
+void do_consider(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 	int diff, percent;
 
 	if (argument.empty()) {
@@ -3225,7 +3225,7 @@ void do_consider(CHAR_DATA *ch, String argument)
 		if (IS_NPC(victim) && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
-		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+		for (const Affect *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
 			if (paf->permanent)
 				continue;
 
@@ -3289,7 +3289,7 @@ void do_consider(CHAR_DATA *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void set_title(CHAR_DATA *ch, const String& title)
+void set_title(Character *ch, const String& title)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -3309,7 +3309,7 @@ void set_title(CHAR_DATA *ch, const String& title)
 	return;
 }
 
-void do_title(CHAR_DATA *ch, String argument)
+void do_title(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -3344,7 +3344,7 @@ void do_title(CHAR_DATA *ch, String argument)
  * moved to config function -- Montrey
  */
 
-void do_immname(CHAR_DATA *ch, String argument)
+void do_immname(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -3354,7 +3354,7 @@ void do_immname(CHAR_DATA *ch, String argument)
 	do_config(ch, buf);
 }
 
-void do_description(CHAR_DATA *ch, String argument)
+void do_description(Character *ch, String argument)
 {
 	String buf;
 
@@ -3421,7 +3421,7 @@ void do_description(CHAR_DATA *ch, String argument)
 }
 
 /* Duplicate of Description for Finger Info */
-void do_fingerinfo(CHAR_DATA *ch, String argument)
+void do_fingerinfo(Character *ch, String argument)
 {
 	String buf;
 
@@ -3504,7 +3504,7 @@ void do_fingerinfo(CHAR_DATA *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_report(CHAR_DATA *ch, String argument)
+void do_report(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -3529,8 +3529,8 @@ void do_report(CHAR_DATA *ch, String argument)
 			stc("You say 'I am affected by the following spells:'\n", ch);
 			act("$n says 'I am affected by the following spells:'", ch, NULL, NULL, TO_ROOM);
 
-			const AFFECT_DATA *paf_last = NULL;
-			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+			const Affect *paf_last = NULL;
+			for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 				if (paf_last != NULL && paf->type == paf_last->type)
 					continue;
 
@@ -3549,7 +3549,7 @@ void do_report(CHAR_DATA *ch, String argument)
 }
 
 /* PRACTICE list of skills and spells, sorted by group -- Elrac */
-void prac_by_group(CHAR_DATA *ch, const char *argument)
+void prac_by_group(Character *ch, const char *argument)
 {
 	int gt;
 	const struct group_type *gp;
@@ -3629,7 +3629,7 @@ void prac_by_group(CHAR_DATA *ch, const char *argument)
 } /* end prac_by_group() */
 
 /* PRACTICE list of skills and spells, sorted by percentage and/or name -- Elrac */
-void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
+void prac_by_key(Character *ch, const String& key, const char *argument)
 {
 	int sn;             /* skill number */
 	int slist[MAX_SKILL];
@@ -3719,11 +3719,11 @@ void prac_by_key(CHAR_DATA *ch, const String& key, const char *argument)
 	page_to_char(output, ch);
 } /* end prac_by_key() */
 
-void do_practice(CHAR_DATA *ch, String argument)
+void do_practice(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int sn;
-	CHAR_DATA *mob;
+	Character *mob;
 	int adept, increase;
 
 	if (IS_NPC(ch))
@@ -3830,7 +3830,7 @@ void do_practice(CHAR_DATA *ch, String argument)
 /*
  * 'Wimpy' originally by Dionysos.
  */
-void do_wimpy(CHAR_DATA *ch, String argument)
+void do_wimpy(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int wimpy;
@@ -3859,7 +3859,7 @@ void do_wimpy(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_password(CHAR_DATA *ch, String argument)
+void do_password(Character *ch, String argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -3893,11 +3893,11 @@ void do_password(CHAR_DATA *ch, String argument)
 	stc("Password Changed.\n", ch);
 	return;
 }
-void do_invite(CHAR_DATA *ch, String argument)
+void do_invite(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MAX_STRING_LENGTH];
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	bool found = FALSE;
 
 	if (argument.empty()) {
@@ -4118,9 +4118,9 @@ void do_invite(CHAR_DATA *ch, String argument)
 	stc(buf, victim);
 } /* do_invite */
 
-void do_join(CHAR_DATA *ch, String argument)
+void do_join(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_IMMORTAL(ch)) {
 		stc("Use 'guild' instead.\n", ch);
@@ -4177,13 +4177,13 @@ void do_join(CHAR_DATA *ch, String argument)
 	ptc(victim, "You are now a member of %s.\n", ch->clan->clanname);
 }
 
-void vape_ceq(CHAR_DATA *ch)
+void vape_ceq(Character *ch)
 {
-	CLAN_DATA *clan;
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-	OBJ_DATA *obj_in_cont;
-	OBJ_DATA *obj_in_cont_next;
+	Clan *clan;
+	Object *obj;
+	Object *obj_next;
+	Object *obj_in_cont;
+	Object *obj_in_cont_next;
 	clan = ch->clan;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
@@ -4226,10 +4226,10 @@ void vape_ceq(CHAR_DATA *ch)
 	}
 }
 
-void do_unjoin(CHAR_DATA *ch, String argument)
+void do_unjoin(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CLAN_DATA *clan;
+	Character *victim;
+	Clan *clan;
 
 	if (IS_IMMORTAL(ch)) {
 		stc("Use 'guild' instead.\n", ch);
@@ -4303,10 +4303,10 @@ void do_unjoin(CHAR_DATA *ch, String argument)
 
 /* Clan Status by Lotus */
 /* Begin modification by Lotus and Slipstream */
-void do_rank(CHAR_DATA *ch, String argument)
+void do_rank(Character *ch, String argument)
 {
 	char test[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (!IS_SET(ch->pcdata->cgroup, (GROUP_LEADER | GROUP_DEPUTY)) && !IS_IMMORTAL(ch)) {
 		stc("Sorry, only a leader can change clan rank.\n", ch);
@@ -4363,13 +4363,13 @@ void do_rank(CHAR_DATA *ch, String argument)
 }
 
 /* prefix command: it will put the string typed on each line typed */
-void do_prefi(CHAR_DATA *ch, String argument)
+void do_prefi(Character *ch, String argument)
 {
 	stc("You cannot abbreviate the prefix command.\n", ch);
 	return;
 }
 
-void do_prefix(CHAR_DATA *ch, String argument)
+void do_prefix(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -4394,7 +4394,7 @@ void do_prefix(CHAR_DATA *ch, String argument)
 	ch->prefix = argument;
 } /* end do_prefix() */
 
-void email_file(CHAR_DATA *ch, const char *file, const char *str)
+void email_file(Character *ch, const char *file, const char *str)
 {
 	FILE *fp;
 
@@ -4413,7 +4413,7 @@ void email_file(CHAR_DATA *ch, const char *file, const char *str)
 	return;
 }
 
-void do_email(CHAR_DATA *ch, String argument)
+void do_email(Character *ch, String argument)
 {
 	char buf[MIL];
 
@@ -4438,9 +4438,9 @@ void do_email(CHAR_DATA *ch, String argument)
 }
 
 /* gameinout: show game entry or exit message -- Elrac */
-void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, char inout)
+void gameinout(Character *ch, const String& mortal, const String& entryexit, char inout)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	String *msgptr;
 	char buf[MAX_INPUT_LENGTH];
 	char *p;
@@ -4499,7 +4499,7 @@ void gameinout(CHAR_DATA *ch, const String& mortal, const String& entryexit, cha
 	}
 } /* end gameinout() */
 
-void do_gamein(CHAR_DATA *ch, String argument)
+void do_gamein(Character *ch, String argument)
 {
 	if (!IS_IMMORTAL(ch) || argument.empty())
 		gameinout(ch, "", "entry", 'I');
@@ -4507,7 +4507,7 @@ void do_gamein(CHAR_DATA *ch, String argument)
 		gameinout(ch, argument, "entry", 'I');
 } /* end do_gamein() */
 
-void do_gameout(CHAR_DATA *ch, String argument)
+void do_gameout(Character *ch, String argument)
 {
 	if (!IS_IMMORTAL(ch) || argument.empty())
 		gameinout(ch, "", "exit", 'O');
@@ -4516,11 +4516,11 @@ void do_gameout(CHAR_DATA *ch, String argument)
 } /* end do_gameout() */
 
 /* Show contents of the pit, selected by level -- Elrac */
-void do_pit(CHAR_DATA *ch, String argument)
+void do_pit(Character *ch, String argument)
 {
-	OBJ_DATA *pit;
-	OBJ_DATA sel_pit; /* a real live container-type object! */
-	OBJ_DATA *obj, *next_obj;
+	Object *pit;
+	Object sel_pit; /* a real live container-type object! */
+	Object *obj, *next_obj;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
 	bool flevel = FALSE, fexplevel = FALSE, fname = FALSE, fwear = FALSE, fweapon = FALSE;
@@ -4706,7 +4706,7 @@ void do_pit(CHAR_DATA *ch, String argument)
 } /* end do_pit() */
 
 /* Show information of a clan to a member */
-void do_claninfo(CHAR_DATA *ch, String argument)
+void do_claninfo(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -4735,7 +4735,7 @@ void do_claninfo(CHAR_DATA *ch, String argument)
 		stc(buf, ch);
 	}
 	else {
-		CLAN_DATA *iterator;
+		Clan *iterator;
 		stc("Clanname            |QP     |Gold\n", ch);
 		stc("--------------------+-------+------\n", ch);
 
@@ -4766,13 +4766,13 @@ String make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
 	return strins(output, buf, numbg + 4);
 }
 
-void do_clanpower(CHAR_DATA *ch, String argument)
+void do_clanpower(Character *ch, String argument)
 {
-	CLAN_DATA *clan;
+	Clan *clan;
 	int count = 0, inc, i, x, j = 0, high, low, negmod = 0, total;
 	String output;
 	struct c_list {
-		CLAN_DATA *clan;
+		Clan *clan;
 		int members;
 		int tmembers;
 		int qp;
@@ -4861,7 +4861,7 @@ void do_clanpower(CHAR_DATA *ch, String argument)
 }
 
 
-void print_new_affects(CHAR_DATA *ch)
+void print_new_affects(Character *ch)
 {
 	char torch[8], border[4], breakline[MSL];
 	String buffer;
@@ -4877,7 +4877,7 @@ void print_new_affects(CHAR_DATA *ch)
 	if (affect_list_char(ch) != NULL) {
 		int affcount = 0;
 
-		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next)
+		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && !paf->permanent)
 				affcount++;
 
@@ -4886,8 +4886,8 @@ void print_new_affects(CHAR_DATA *ch)
 			    torch, torch);
 			buffer += breakline;
 
-			const AFFECT_DATA *paf_last = NULL;
-			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+			const Affect *paf_last = NULL;
+			for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 				if (paf->where != TO_AFFECTS || paf->permanent)
 					continue;
 
@@ -4932,10 +4932,10 @@ void print_new_affects(CHAR_DATA *ch)
 	bool print = FALSE;
 
 	for (int iWear = 0; iWear < MAX_WEAR; iWear++) {
-		OBJ_DATA *obj;
+		Object *obj;
 
 		if ((obj = get_eq_char(ch, iWear)) != NULL) {
-			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
+			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
 				if (paf->where != TO_AFFECTS)
 					continue;
 
@@ -4975,7 +4975,7 @@ void print_new_affects(CHAR_DATA *ch)
 	if (affect_list_char(ch) != NULL) {
 		int affcount = 0;
 
-		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next)
+		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && paf->permanent)
 				affcount++;
 
@@ -4987,8 +4987,8 @@ void print_new_affects(CHAR_DATA *ch)
 			    torch, torch);
 			buffer += breakline;
 
-			const AFFECT_DATA *paf_last = NULL;
-			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+			const Affect *paf_last = NULL;
+			for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 				if (paf->where != TO_AFFECTS || !paf->permanent)
 					continue;
 
@@ -5055,7 +5055,7 @@ void print_new_affects(CHAR_DATA *ch)
 }
 
 
-void score_new(CHAR_DATA *ch)
+void score_new(Character *ch)
 {
 	String buf;
 	String border = get_custom_color_code(ch, CSLOT_SCORE_BORDER);
@@ -5261,7 +5261,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "%s[[|]]                                                              [[|]]{x\n", torch);
 }
 
-void do_affects(CHAR_DATA *ch, String argument)
+void do_affects(Character *ch, String argument)
 {
 	new_color(ch, CSLOT_SCORE_FLAME);
 	stc("  ,                                                                  ,\n"
@@ -5283,7 +5283,7 @@ void do_affects(CHAR_DATA *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void do_score(CHAR_DATA *ch, String argument)
+void do_score(Character *ch, String argument)
 {
 	score_new(ch);
 }
@@ -5294,9 +5294,9 @@ pet is currently standing in. The room may, however, be
 dark.
 -- Outsider
 */
-void spell_scry(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_scry(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *pet;
+	Character *pet;
 
 	/* make sure we have a pet */
 	if (! ch->pet) {

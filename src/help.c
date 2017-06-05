@@ -62,7 +62,7 @@ const char *one_keyword(const char *keywords, char *word)
 	return keywords;
 }
 
-void help_char_search(CHAR_DATA *ch, const String& arg)
+void help_char_search(Character *ch, const String& arg)
 {
 	String buf, text;
 	char query[MSL];
@@ -108,7 +108,7 @@ void help_char_search(CHAR_DATA *ch, const String& arg)
 }
 
 /* the mud's internal help command, no multiple results, no suggestions.  command groups are not checked */
-void help(CHAR_DATA *ch, const String& argument)
+void help(Character *ch, const String& argument)
 {
 	String query;
 	const char *p;
@@ -169,7 +169,7 @@ void add_help(int group, int order, int level, const String& keywords, const Str
 /*** USER COMMANDS ***/
 
 /* load the specified help file into the database */
-void do_loadhelps(CHAR_DATA *ch, String argument)
+void do_loadhelps(Character *ch, String argument)
 {
 	char buf[MSL], *q;
 	const char *p;
@@ -305,7 +305,7 @@ void do_loadhelps(CHAR_DATA *ch, String argument)
 }
 
 /* print all helps matching a group to file */
-void do_printhelps(CHAR_DATA *ch, String argument)
+void do_printhelps(Character *ch, String argument)
 {
 	String buf;
 	FILE *fp;
@@ -386,7 +386,7 @@ void do_printhelps(CHAR_DATA *ch, String argument)
 	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
 }
 
-void do_help(CHAR_DATA *ch, String argument)
+void do_help(Character *ch, String argument)
 {
 	String query;
 	const char *p;
@@ -560,7 +560,7 @@ void do_help(CHAR_DATA *ch, String argument)
 	page_to_char(output, ch);
 }
 
-void do_hedit(CHAR_DATA *ch, String argument)
+void do_hedit(Character *ch, String argument)
 {
 	if (!argument[0]) {
 		ptc(ch, "Syntax:  hedit new <keywords>\n"

@@ -9,7 +9,7 @@
 #include "lookup.h"
 #include "Format.hpp"
 
-void do_deposit(CHAR_DATA *ch, String argument)
+void do_deposit(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	long max_gold;  /* to get rid of a warning on make :P */
@@ -81,10 +81,10 @@ void do_deposit(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_clandeposit(CHAR_DATA *ch, String argument)
+void do_clandeposit(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	CLAN_DATA *target;
+	Clan *target;
 
 	if (IS_NPC(ch)) {
 		stc("Mobiles can't deposit money!\n", ch);
@@ -189,7 +189,7 @@ void do_clandeposit(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void find_money(CHAR_DATA *ch)
+void find_money(Character *ch)
 {
 	sh_int j;
 	long max_gold, max_silver;
@@ -216,7 +216,7 @@ void find_money(CHAR_DATA *ch)
 		ch->silver_in_bank = max_silver;
 }
 
-void do_balance(CHAR_DATA *ch, void *vo)
+void do_balance(Character *ch, void *vo)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -236,7 +236,7 @@ void do_balance(CHAR_DATA *ch, void *vo)
 	stc(buf, ch);
 }
 
-void do_withdraw(CHAR_DATA *ch, String argument)
+void do_withdraw(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -306,10 +306,10 @@ void do_withdraw(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_clanwithdraw(CHAR_DATA *ch, String argument)
+void do_clanwithdraw(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	CLAN_DATA *target;
+	Clan *target;
 
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't need money.\n", ch);

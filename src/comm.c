@@ -57,15 +57,15 @@
 #include "lookup.h"
 #include "recycle.h"
 #include "sql.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 /* EPKA structure */
 struct ka_struct *ka;
 
-extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
-extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
-extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
+extern void     goto_line    args((Character *ch, int row, int column));
+extern void     set_window   args((Character *ch, int top, int bottom));
+extern void     roll_raffects   args((Character *ch, Character *victim));
 
 /*
  * Signal handling.
@@ -74,8 +74,8 @@ extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
 /*
  * Global variables.
  */
-DESCRIPTOR_DATA    *descriptor_list;    /* All open descriptors         */
-DESCRIPTOR_DATA    *d_next;             /* Next descriptor in loop      */
+Descriptor    *descriptor_list;    /* All open descriptors         */
+Descriptor    *d_next;             /* Next descriptor in loop      */
 bool                god;                /* All new chars are gods!      */
 bool            merc_down;              /* shutdown */
 char                str_boot_time[MAX_INPUT_LENGTH];
@@ -92,23 +92,23 @@ int                                     last_signal = -1;
 void    game_loop_unix          args((int control));
 int     init_socket             args((int port));
 void    init_descriptor         args((int control));
-bool    read_from_descriptor    args((DESCRIPTOR_DATA *d));
+bool    read_from_descriptor    args((Descriptor *d));
 bool    write_to_descriptor     args((int desc, const String& txt, int length));
 
 /*
  * Other local functions (OS-independent).
  */
 extern bool    check_parse_name        args((const String& name));
-bool    check_playing           args((DESCRIPTOR_DATA *d, const String& name));
+bool    check_playing           args((Descriptor *d, const String& name));
 int     main                    args((int argc, char **argv));
-void    nanny                   args((DESCRIPTOR_DATA *d, String argument));
-bool    process_output          args((DESCRIPTOR_DATA *d, bool fPrompt));
-void    read_from_buffer        args((DESCRIPTOR_DATA *d));
-void    stop_idling             args((CHAR_DATA *ch));
-void    bust_a_prompt           args((CHAR_DATA *ch));
-int     roll_stat               args((CHAR_DATA *ch, int stat));
-char    *get_multi_command     args((DESCRIPTOR_DATA *d, const String& argument));
-String expand_color_codes(CHAR_DATA *ch, const String& str);
+void    nanny                   args((Descriptor *d, String argument));
+bool    process_output          args((Descriptor *d, bool fPrompt));
+void    read_from_buffer        args((Descriptor *d));
+void    stop_idling             args((Character *ch));
+void    bust_a_prompt           args((Character *ch));
+int     roll_stat               args((Character *ch, int stat));
+char    *get_multi_command     args((Descriptor *d, const String& argument));
+String expand_color_codes(Character *ch, const String& str);
 
 /* Desparate debugging measure: A function to print a reason for exiting. */
 void exit_reason(const char *module, int line, const char *reason)
@@ -121,7 +121,7 @@ void exit_reason(const char *module, int line, const char *reason)
 
 void copyover_recover()
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	FILE *fp;
 	char name[100];
 	char host[MSL], msg1[MSL], msg2[MSL];
@@ -246,7 +246,7 @@ int main(int argc, char **argv)
 	struct timeval now_time;
 	bool fCopyOver = FALSE;
 	FILE *fpBoot = NULL;
-	CHAR_DATA *tempchars;
+	Character *tempchars;
 	struct sigaction sig_act;
 	/* our signal handler.  more signals can be caught with repeated calls to sigaction,
 	   using the same struct and different signals.  -- Montrey */
@@ -460,7 +460,7 @@ void game_loop_unix(int control)
 		fd_set in_set;
 		fd_set out_set;
 		fd_set exc_set;
-		DESCRIPTOR_DATA *d;
+		Descriptor *d;
 		int maxdesc;
 
 		/* check and clear our signal buffer */
@@ -509,8 +509,8 @@ void game_loop_unix(int control)
 			if (FD_ISSET(d->descriptor, &exc_set)) {
 				FD_CLR(d->descriptor, &in_set);
 				FD_CLR(d->descriptor, &out_set);
-				CHAR_DATA *ch = d->character;
-//				CHAR_DATA *ch = d->original ? d->original : d->character;
+				Character *ch = d->character;
+//				Character *ch = d->original ? d->original : d->character;
 
 				if (ch && ch->level > 1) {
 					save_char_obj(ch);
@@ -653,7 +653,7 @@ void game_loop_unix(int control)
 
 void init_descriptor(int control)
 {
-	DESCRIPTOR_DATA *dnew;
+	Descriptor *dnew;
 #ifdef IPV6
 	struct sockaddr_in6 sock;
 #else
@@ -784,10 +784,10 @@ void init_descriptor(int control)
 	return;
 }
 
-void close_socket(DESCRIPTOR_DATA *dclose)
+void close_socket(Descriptor *dclose)
 {
-	CHAR_DATA *ch;
-	DESCRIPTOR_DATA *d;
+	Character *ch;
+	Descriptor *d;
 
 	if (!dclose->outbuf.empty())
 		process_output(dclose, FALSE);
@@ -808,7 +808,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 		log_string(log_buf);
 
 		if (dclose->connected == CON_PLAYING) {
-			CHAR_DATA *rch;
+			Character *rch;
 
 			for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
 				if (!IS_IMMORTAL(ch) || can_see_char(rch, ch))
@@ -831,7 +831,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 
 				if (IS_SET(ch->act, ACT_MORPH)) {
 					if (ch->desc->original != NULL) {
-						ROOM_INDEX_DATA *location;
+						RoomPrototype *location;
 
 						if (ch->in_room == NULL)
 							location = get_room_index(ROOM_VNUM_MORGUE);
@@ -859,7 +859,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 	if (dclose == descriptor_list)
 		descriptor_list = descriptor_list->next;
 	else {
-		DESCRIPTOR_DATA *d;
+		Descriptor *d;
 
 		for (d = descriptor_list; d && d->next != dclose; d = d->next)
 			;
@@ -876,7 +876,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 	return;
 }
 
-bool read_from_descriptor(DESCRIPTOR_DATA *d)
+bool read_from_descriptor(Descriptor *d)
 {
 	unsigned int iStart;
 
@@ -934,7 +934,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 /*
  * Transfer one line from input buffer to input line.
  */
-void read_from_buffer(DESCRIPTOR_DATA *d)
+void read_from_buffer(Descriptor *d)
 {
 	int i, j, k;
 
@@ -1050,7 +1050,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 /*
  * Low level output function.
  */
-bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
+bool process_output(Descriptor *d, bool fPrompt)
 {
 	extern bool merc_down;
 
@@ -1068,8 +1068,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	if (!merc_down && !d->showstr_head.empty())
 		write_to_buffer(d, "[Hit Enter to continue]\n");
 	else if (fPrompt && !merc_down && IS_PLAYING(d)) {
-		CHAR_DATA *ch;
-		CHAR_DATA *victim;
+		Character *ch;
+		Character *victim;
 		ch = d->character;
 
 		/* battle prompt */
@@ -1193,7 +1193,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
  * Bust a prompt (player settable prompt)
  * coded by Morgenes for Aldara Mud
  */
-void bust_a_prompt(CHAR_DATA *ch)
+void bust_a_prompt(Character *ch)
 {
 	String buf;
 	extern const char *dir_name[];
@@ -1240,7 +1240,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			bool found = FALSE;
 
 			for (int door = 0; door < 6; door++) {
-				EXIT_DATA *pexit;
+				Exit *pexit;
 
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				    && pexit ->u1.to_room != NULL
@@ -1320,8 +1320,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 		case 'Q':
 			if (IS_QUESTOR(ch)) {
-//				OBJ_INDEX_DATA *questinfoobj;
-				MOB_INDEX_DATA *questinfo;
+//				ObjectPrototype *questinfoobj;
+				MobilePrototype *questinfo;
 
 				if (ch->questmob == -1 || ch->questobf == -1)
 					buf += "*report!*";
@@ -1439,7 +1439,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 } /* end bust_a_prompt() */
 
 /* write_to_buffer with color codes -- Montrey */
-void cwtb(DESCRIPTOR_DATA *d, const String& txt)
+void cwtb(Descriptor *d, const String& txt)
 {
 	if (txt.empty())
 		return;
@@ -1450,7 +1450,7 @@ void cwtb(DESCRIPTOR_DATA *d, const String& txt)
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer(DESCRIPTOR_DATA *d, const String& txt)
+void write_to_buffer(Descriptor *d, const String& txt)
 {
 	if (d == NULL)
 		return;
@@ -1508,9 +1508,9 @@ bool write_to_descriptor(int desc, const String& txt, int length)
 /*
  * Check if already playing.
  */
-bool check_playing(DESCRIPTOR_DATA *d, const String& name)
+bool check_playing(Descriptor *d, const String& name)
 {
-	DESCRIPTOR_DATA *dold;
+	Descriptor *dold;
 
 	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
@@ -1529,7 +1529,7 @@ bool check_playing(DESCRIPTOR_DATA *d, const String& name)
 	return FALSE;
 }
 
-void stop_idling(CHAR_DATA *ch)
+void stop_idling(Character *ch)
 {
 	if (ch == NULL
 	    ||   !IS_PLAYING(ch->desc)
@@ -1545,7 +1545,7 @@ void stop_idling(CHAR_DATA *ch)
 	return;
 }
 
-String interpret_color_code(CHAR_DATA *ch, char a)
+String interpret_color_code(Character *ch, char a)
 {
 	// ch could be NULL here, and might not be PC, so lots of checks
 	String code;
@@ -1620,7 +1620,7 @@ String interpret_color_code(CHAR_DATA *ch, char a)
 	return code;
 }
 
-String expand_color_codes(CHAR_DATA *ch, const String& str) {
+String expand_color_codes(Character *ch, const String& str) {
 	String out;
 
 	for (auto it = str.cbegin(); it != str.cend(); it++) {
@@ -1641,7 +1641,7 @@ String expand_color_codes(CHAR_DATA *ch, const String& str) {
 /*
  * Write to one char.
  */
-void stc(const String& txt, CHAR_DATA *ch)
+void stc(const String& txt, Character *ch)
 {
 	if (txt.empty() || ch->desc == NULL)
 		return;
@@ -1657,7 +1657,7 @@ void stc(const String& txt, CHAR_DATA *ch)
 /*
  * Send a page to one char.
  */
-void page_to_char(const String& txt, CHAR_DATA *ch)
+void page_to_char(const String& txt, Character *ch)
 {
 	if (txt.empty() || ch->desc == NULL)
 		return;
@@ -1667,7 +1667,7 @@ void page_to_char(const String& txt, CHAR_DATA *ch)
 }
 
 /* string pager */
-void show_string(struct descriptor_data *d, const String& input)
+void show_string(Descriptor *d, const String& input)
 {
 	// if not nothing, done paging output, clear the remainders
 	if (!input.empty()) {
@@ -1698,7 +1698,7 @@ void show_string(struct descriptor_data *d, const String& input)
 		cwtb(d, page);
 } /* end show_string() */
 
-char *get_multi_command(DESCRIPTOR_DATA *d, const String& argument)
+char *get_multi_command(Descriptor *d, const String& argument)
 {
 	char *pcom;
 	pcom = command;
@@ -1721,7 +1721,7 @@ char *get_multi_command(DESCRIPTOR_DATA *d, const String& argument)
 	return command;
 } /* end get_multi_command() */
 
-int roll_stat(CHAR_DATA *ch, int stat)
+int roll_stat(Character *ch, int stat)
 {
 	int percent, bonus, temp, low, high;
 	percent = number_percent();
@@ -1746,16 +1746,16 @@ int roll_stat(CHAR_DATA *ch, int stat)
    -- Elrac
 */
 
-void do_copyove(CHAR_DATA *ch)
+void do_copyove(Character *ch)
 {
 	ptc(ch, "You have to spell out COPYOVER if you want to copyover. Silly %s.\n", ch->name);
 	return;
 }
 
-void do_copyover(CHAR_DATA *ch, String argument)
+void do_copyover(Character *ch, String argument)
 {
 	FILE *fp;
-	DESCRIPTOR_DATA *d, *d_next;
+	Descriptor *d, *d_next;
 	String buf;
 	do_allsave(ch, "");
 	save_clan_table();
@@ -1773,7 +1773,7 @@ void do_copyover(CHAR_DATA *ch, String argument)
 		Format::printf("found socket %d, host %s, conn %d\n", d->descriptor, d->host, d->connected);
 
 		if (IS_PLAYING(d)) {
-			CHAR_DATA *och = CH(d);
+			Character *och = CH(d);
 			one_argument(och->name, buf);
 			Format::fprintf(fp, "%d %s %s\n", d->descriptor, buf, d->host);
 		}
@@ -1830,7 +1830,7 @@ void do_copyover(CHAR_DATA *ch, String argument)
 
 	/* For each playing descriptor, save its state */
 	for (d = descriptor_list; d ; d = d_next) {
-		CHAR_DATA *och;
+		Character *och;
 		d_next = d->next;
 
 		if (d->connected < 0) {

@@ -31,19 +31,19 @@
 #include "recycle.h"
 #include "Format.hpp"
 
-extern void     channel_who     args((CHAR_DATA *ch, const char *channelname, int
+extern void     channel_who     args((Character *ch, const char *channelname, int
                                       channel, int custom));
-bool    check_channel_social    args((CHAR_DATA *ch, int channel,
+bool    check_channel_social    args((Character *ch, int channel,
                                       int custom, const String& command, const String& argument));
 
-void    send_to_query           args((CHAR_DATA *ch, const char *string));
+void    send_to_query           args((Character *ch, const char *string));
 bool    swearcheck              args((const String& argument));
-extern bool     is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim);
-const char   *makedrunk               args((CHAR_DATA *ch, const char *string));
+extern bool     is_ignoring(Character *ch, Character *victim);
+const char   *makedrunk               args((Character *ch, const char *string));
 
 
 /* RT code to display channel status */
-void do_channels(CHAR_DATA *ch, String argument)
+void do_channels(Character *ch, String argument)
 {
 	/* lists all channels and their status */
 	stc("   channel     status\n", ch);
@@ -205,7 +205,7 @@ void do_channels(CHAR_DATA *ch, String argument)
 		stc("You only feel like flaming.\n", ch);
 }
 
-String makedrunk(CHAR_DATA *ch, const String& string)
+String makedrunk(Character *ch, const String& string)
 {
 	/* This structure defines all changes for a character */
 	static struct struckdrunk {
@@ -275,11 +275,11 @@ String makedrunk(CHAR_DATA *ch, const String& string)
 } /* end makedrunk() */
 
 /* This sends an ACT-type message to everybody in the game. */
-void global_act(CHAR_DATA *ch, const char *message,
+void global_act(Character *ch, const char *message,
                 int despite_invis, int color, long nocomm_bits)
 {
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
+	Descriptor *d;
+	Character *victim;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		victim = d->original ? d->original : d->character;
@@ -342,11 +342,11 @@ bool swearcheck(const String& argument)
 	return FALSE;
 } /* end swearcheck() */
 
-bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& command, const String& argument)
+bool check_channel_social(Character *ch, int channel, int custom, const String& command, const String& argument)
 {
-	CHAR_DATA *victim;
-	DESCRIPTOR_DATA *d;
-	struct social_type *iterator;
+	Character *victim;
+	Descriptor *d;
+	Social *iterator;
 	bool found;
 	found  = FALSE;
 
@@ -398,7 +398,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 	set_color(ch, WHITE, NOBOLD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *vic;
+		Character *vic;
 		vic = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
@@ -441,9 +441,9 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const String& 
 }
 
 /* Channel who by Lotus */
-void channel_who(CHAR_DATA *ch, const char *channelname, int channel, int custom)
+void channel_who(Character *ch, const char *channelname, int channel, int custom)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (IS_NPC(ch))
 		return;
@@ -452,7 +452,7 @@ void channel_who(CHAR_DATA *ch, const char *channelname, int channel, int custom
 	ptc(ch, "Players with %s ON\n", channelname);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *victim;
+		Character *victim;
 		victim = d->original ? d->original : d->character;
 
 		if ((channel == COMM_NOWIZ && !IS_IMMORTAL(d->character)) ||
@@ -476,11 +476,11 @@ void channel_who(CHAR_DATA *ch, const char *channelname, int channel, int custom
 
 /* This routine is for query call statements, checks to see which users in
 the query list are on, and then sends the mesg to them */
-void send_to_query(CHAR_DATA *ch, const char *string)
+void send_to_query(Character *ch, const char *string)
 {
 	// really hate directly accessing the pc_list, but I don't want multiple
 	// calls to get_player_world.
-	for (PC_DATA *pc = pc_list; pc; pc = pc->next) {
+	for (Player *pc = pc_list; pc; pc = pc->next) {
 		if (!pc->ch
 		    || IS_NPC(pc->ch)
 		    || IS_SET(pc->ch->comm, COMM_NOQUERY)
@@ -495,9 +495,9 @@ void send_to_query(CHAR_DATA *ch, const char *string)
 	}
 }
 
-void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, const char *text)
+void send_to_clan(Character *ch, Clan *target, const char *text)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (target == NULL) {
 		stc("No such clan!\n", ch);
@@ -516,9 +516,9 @@ void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, const char *text)
 	}
 }
 
-void wiznet(const String& string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip, int min_rank)
+void wiznet(const String& string, Character *ch, Object *obj, long flag, long flag_skip, int min_rank)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		if (IS_PLAYING(d)
@@ -536,9 +536,9 @@ void wiznet(const String& string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long 
 	}
 }
 
-void channel(CHAR_DATA *ch, const String& argument, int channel)
+void channel(Character *ch, const String& argument, int channel)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	int cslot = chan_table[channel].cslot;
 
 	if (channel == CHAN_CLAN) {
@@ -625,7 +625,7 @@ void channel(CHAR_DATA *ch, const String& argument, int channel)
 	set_color(ch, WHITE, NOBOLD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *victim;
+		Character *victim;
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) && d->character != ch) {
@@ -702,37 +702,37 @@ void channel(CHAR_DATA *ch, const String& argument, int channel)
 
 }
 
-void do_gossip(CHAR_DATA *ch, String argument)
+void do_gossip(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_GOSSIP);
 }
 
-void do_flame(CHAR_DATA *ch, String argument)
+void do_flame(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_FLAME);
 }
 
-void do_qwest(CHAR_DATA *ch, String argument)
+void do_qwest(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_QWEST);
 }
 
-void do_pray(CHAR_DATA *ch, String argument)
+void do_pray(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_PRAY);
 }
 
-void do_clantalk(CHAR_DATA *ch, String argument)
+void do_clantalk(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_CLAN);
 }
 
-void do_music(CHAR_DATA *ch, String argument)
+void do_music(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_MUSIC);
 }
 
-void do_ic(CHAR_DATA *ch, String argument)
+void do_ic(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Just be yourself, no need to pretend :)\n", ch);
@@ -747,25 +747,25 @@ void do_ic(CHAR_DATA *ch, String argument)
 	channel(ch, argument, CHAN_IC);
 }
 
-void do_grats(CHAR_DATA *ch, String argument)
+void do_grats(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_GRATS);
 }
 
-void do_immtalk(CHAR_DATA *ch, String argument)
+void do_immtalk(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_IMMTALK);
 }
 
-void do_question(CHAR_DATA *ch, String argument)
+void do_question(Character *ch, String argument)
 {
 	channel(ch, argument, CHAN_QA);
 }
 
 void talk_auction(const char *argument)
 {
-	CHAR_DATA *victim;
-	DESCRIPTOR_DATA *d;
+	Character *victim;
+	Descriptor *d;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		victim = d->original ? d->original : d->character;
@@ -785,7 +785,7 @@ void talk_auction(const char *argument)
 	}
 }
 
-void do_announce(CHAR_DATA *ch, String argument)
+void do_announce(Character *ch, String argument)
 {
 	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
@@ -801,10 +801,10 @@ void do_announce(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_send_announce(CHAR_DATA *ch, String argument)
+void do_send_announce(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	DESCRIPTOR_DATA *d;
+	Character *victim;
+	Descriptor *d;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		victim = d->original ? d->original : d->character;
@@ -822,15 +822,15 @@ void do_send_announce(CHAR_DATA *ch, String argument)
 }
 
 /* Lotus - Let us Imms use the FYI Channel for jokes */
-void do_fyi(CHAR_DATA *ch, String argument)
+void do_fyi(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
 	ptc(ch, "You FYI '%s{x'\n", argument);
 	set_color(ch, WHITE, NOBOLD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *victim;
+		Character *victim;
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
@@ -859,7 +859,7 @@ void do_fyi(CHAR_DATA *ch, String argument)
 
 }
 
-void do_replay(CHAR_DATA *ch, String argument)
+void do_replay(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("{YMobiles can't work answering machines.{x\n", ch);
@@ -873,10 +873,10 @@ void do_replay(CHAR_DATA *ch, String argument)
 }
 
 /* Channel specifically for socials and emotes by Lotus */
-void do_globalsocial(CHAR_DATA *ch, String argument)
+void do_globalsocial(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (argument.empty()) {
 		if (IS_SET(ch->comm, COMM_NOSOCIAL)) {
@@ -967,7 +967,7 @@ void do_globalsocial(CHAR_DATA *ch, String argument)
 
 	/* broadcast the social */
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *victim;
+		Character *victim;
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
@@ -989,9 +989,9 @@ void do_globalsocial(CHAR_DATA *ch, String argument)
 
 }
 
-void do_iclantalk(CHAR_DATA *ch, String argument)
+void do_iclantalk(Character *ch, String argument)
 {
-	CLAN_DATA *clan, *oclan;
+	Clan *clan, *oclan;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -1016,9 +1016,9 @@ void do_iclantalk(CHAR_DATA *ch, String argument)
 }
 
 /* Improved do_say (With Colour!) - Xenith */
-void do_say(CHAR_DATA *ch, String argument)
+void do_say(Character *ch, String argument)
 {
-	CHAR_DATA *vch;
+	Character *vch;
 
 	if (ch->in_room == NULL)
 		return;
@@ -1079,10 +1079,10 @@ void do_say(CHAR_DATA *ch, String argument)
 	mprog_speech_trigger(argument, ch);
 }
 
-void do_tell(CHAR_DATA *ch, String argument)
+void do_tell(Character *ch, String argument)
 {
 	char buf[MSL];
-	CHAR_DATA *victim;
+	Character *victim;
 	char *strtime;
 
 	if (IS_SET(ch->revoke, REVOKE_TELL)) {
@@ -1185,9 +1185,9 @@ void do_tell(CHAR_DATA *ch, String argument)
 		victim->reply = ch->name;
 }
 
-void do_reply(CHAR_DATA *ch, String argument)
+void do_reply(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MAX_STRING_LENGTH];
 	char *strtime;
 	bool found = FALSE;
@@ -1304,9 +1304,9 @@ void do_reply(CHAR_DATA *ch, String argument)
 		victim->reply = ch->name;
 }
 
-void do_yell(CHAR_DATA *ch, String argument)
+void do_yell(Character *ch, String argument)
 {
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 
 	if (argument.empty()) {
 		stc("You yell your head off but no one hears.\n", ch);
@@ -1321,7 +1321,7 @@ void do_yell(CHAR_DATA *ch, String argument)
 	act("You yell '$t{x'", ch, argument, NULL, TO_CHAR);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *victim;
+		Character *victim;
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
@@ -1342,7 +1342,7 @@ void do_yell(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_emote(CHAR_DATA *ch, String argument)
+void do_emote(Character *ch, String argument)
 {
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
 		stc("You're not feeling very emotional right now.\n", ch);
@@ -1360,9 +1360,9 @@ void do_emote(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_pmote(CHAR_DATA *ch, String argument)
+void do_pmote(Character *ch, String argument)
 {
-	CHAR_DATA *vch;
+	Character *vch;
 	const char *letter, *name;
 	char last[MAX_INPUT_LENGTH];
 	String temp;
@@ -1436,9 +1436,9 @@ void do_pmote(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_smote(CHAR_DATA *ch, String argument)
+void do_smote(Character *ch, String argument)
 {
-	CHAR_DATA *vch;
+	Character *vch;
 	const char *letter, *name;
 	char last[MAX_INPUT_LENGTH];
 	String temp;
@@ -1520,10 +1520,10 @@ void do_smote(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_page(CHAR_DATA *ch, String argument)
+void do_page(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 	char *strtime;
 
 	if (IS_SET(ch->revoke, REVOKE_PAGE)) {
@@ -1615,9 +1615,9 @@ void do_page(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_whisper(CHAR_DATA *ch, String argument)
+void do_whisper(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_NPC(ch)) {
 		stc("You lack the refined delicacy of voice to whisper.\n", ch);
@@ -1644,7 +1644,7 @@ void do_whisper(CHAR_DATA *ch, String argument)
 	ptc(ch, "{GYou whisper in %s's ear, '%s{G'{x\n", victim->name, argument);
 }
 
-void do_qtell(CHAR_DATA *ch, String argument)
+void do_qtell(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -1695,10 +1695,10 @@ void do_qtell(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_gtell(CHAR_DATA *ch, String argument)
+void do_gtell(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *gch;
+	Character *gch;
 
 	if (argument.empty()) {
 		new_color(ch, CSLOT_CHAN_GTELL);
@@ -1725,9 +1725,9 @@ void do_gtell(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_query(CHAR_DATA *ch, String argument)
+void do_query(Character *ch, String argument)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	if (ch->desc == NULL)
 		rch = ch;

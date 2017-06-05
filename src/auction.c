@@ -2,9 +2,9 @@
 
 typedef struct
 {
-    OBJ_DATA  * item;   /* a pointer to the item */
-    CHAR_DATA * seller; /* a pointer to the seller - which may NOT quit */
-    CHAR_DATA * buyer;  /* a pointer to the buyer - which may NOT quit */
+    Object  * item;   /* a pointer to the item */
+    Character * seller; /* a pointer to the seller - which may NOT quit */
+    Character * buyer;  /* a pointer to the buyer - which may NOT quit */
     int         bet;    /* last bet - or 0 if noone has bet anything */
     sh_int      going;  /* 1,2, sold */
     sh_int      pulse;  /* how many pulses (.25 sec) until another call-out ? */
@@ -13,17 +13,17 @@ typedef struct
 
 AUCTION_DATA auction;
 
-extern void channel_who(CHAR_DATA *ch, const char *channelname, int channel, int custom);
+extern void channel_who(Character *ch, const char *channelname, int channel, int custom);
 
 void init_auction() {
 	auction.item = NULL;
 }
 
-bool is_auction_participant(OBJ_DATA *obj) {
+bool is_auction_participant(Object *obj) {
 	return obj == auction.item;
 }
 
-bool is_auction_participant(CHAR_DATA *ch) {
+bool is_auction_participant(Character *ch) {
 	return auction.item != NULL && ((ch == auction.buyer) || (ch == auction.seller));
 }
 
@@ -90,11 +90,11 @@ void auction_update(void)
 } /* auction_update() */
 
 /* put an item on auction, or see the stats on the current item or bet */
-void do_auction(CHAR_DATA *ch, String argument)
+void do_auction(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	char buf[MSL];
-	CLAN_DATA *clan;
+	Clan *clan;
 	int min = 0;
 
 	/* NPC can be extracted at any time and thus can't auction! */

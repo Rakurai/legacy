@@ -36,16 +36,16 @@ char *const distance[4] = {
 	"off in the distance "
 };
 
-void    scan_list       args((ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int depth, sh_int door));
-void    scan_room       args((ROOM_INDEX_DATA *room, CHAR_DATA *ch, int depth, int door, struct exit_data *pexit));
-void    scan_char       args((CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door));
+void    scan_list       args((RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int door));
+void    scan_room       args((RoomPrototype *room, Character *ch, int depth, int door, Exit *pexit));
+void    scan_char       args((Character *victim, Character *ch, sh_int depth, sh_int door));
 
-void do_scan2(CHAR_DATA *ch, String argument)
+void do_scan2(Character *ch, String argument)
 {
 	extern char *const dir_name[];
 	char buf[MIL];
-	ROOM_INDEX_DATA *room;
-	EXIT_DATA *pExit;
+	RoomPrototype *room;
+	Exit *pExit;
 	sh_int door, depth;
 
 	String arg1;
@@ -117,12 +117,12 @@ void do_scan2(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_scan(CHAR_DATA *ch, String argument)
+void do_scan(Character *ch, String argument)
 {
 	extern char *const dir_name[];
 	char buf[MIL];
-	ROOM_INDEX_DATA *scan_room;
-	EXIT_DATA *pExit;
+	RoomPrototype *scan_room;
+	Exit *pExit;
 	sh_int door, depth;
 
 	String arg1;
@@ -187,7 +187,7 @@ void do_scan(CHAR_DATA *ch, String argument)
 	}
 }
 
-void scan_room(ROOM_INDEX_DATA *room, CHAR_DATA *ch, int depth, int door, struct exit_data *pexit)
+void scan_room(RoomPrototype *room, Character *ch, int depth, int door, Exit *pexit)
 {
 	extern char *const dir_name[];
 	ptc(ch, "{G(%5s){x ",
@@ -205,9 +205,9 @@ void scan_room(ROOM_INDEX_DATA *room, CHAR_DATA *ch, int depth, int door, struct
 	scan_list(room, ch, depth, door);
 }
 
-void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int depth, sh_int door)
+void scan_list(RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int door)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	if (scan_room == NULL)
 		return;
@@ -227,7 +227,7 @@ void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, sh_int depth, sh_int d
 	}
 }
 
-void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door)
+void scan_char(Character *victim, Character *ch, sh_int depth, sh_int door)
 {
 	extern char *const dir_name[];
 	extern char *const distance[];

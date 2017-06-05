@@ -28,13 +28,13 @@
 #include "merc.h"
 #include "sql.h"
 #include "recycle.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
-extern AREA_DATA *area_first;
+extern Area *area_first;
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
-void do_debug(CHAR_DATA *ch, String argument)
+void do_debug(Character *ch, String argument)
 {
 	String subfunc;
 	argument = one_argument(argument, subfunc);
@@ -59,7 +59,7 @@ void do_debug(CHAR_DATA *ch, String argument)
 	if (!strcmp(subfunc, "fullupdate")) {
 		MYSQL_RES *result;
 		MYSQL_ROW row;
-		DESCRIPTOR_DATA *d;
+		Descriptor *d;
 		int desc = 6;
 
 		for (d = descriptor_list; d != NULL; d = d->next)
@@ -69,7 +69,7 @@ void do_debug(CHAR_DATA *ch, String argument)
 			return;
 
 		while ((row = mysql_fetch_row(result))) {
-			CHAR_DATA *victim;
+			Character *victim;
 
 			if (get_player_world(ch, row[0], VIS_CHAR))
 				continue;
@@ -165,7 +165,7 @@ void do_debug(CHAR_DATA *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "aversion")) {
-		AREA_DATA *area;
+		Area *area;
 
 		for (area = area_first; area != NULL; area = area->next)
 			ptc(ch, "%-20s%d\n", area->file_name, area->version);
@@ -175,14 +175,14 @@ void do_debug(CHAR_DATA *ch, String argument)
 
 	if (!strcmp(subfunc, "affcall")) {
 		int count = 0;
-		extern int affect_fn_debug(AFFECT_DATA *node, void *data);
+		extern int affect_fn_debug(Affect *node, void *data);
 		affect_iterate_over_char(ch, affect_fn_debug, &count);
 		ptc(ch, "count: %d", count);
 		return;
 	}
 
 	if (!strcmp(subfunc, "compart")) {
-		OBJ_DATA *container, *obj;
+		Object *container, *obj;
 
 		for (obj = object_list; obj != NULL; obj = obj->next) {
 			if ((container = obj->in_obj) == NULL)
@@ -204,7 +204,7 @@ void do_debug(CHAR_DATA *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck")) {
-		ROOM_INDEX_DATA *room = NULL;
+		RoomPrototype *room = NULL;
 		int x, vnum;
 		bool found;
 
@@ -229,7 +229,7 @@ void do_debug(CHAR_DATA *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck2")) {
-		ROOM_INDEX_DATA *room = NULL;
+		RoomPrototype *room = NULL;
 		int vnum;
 
 		for (vnum = 1; vnum < 32600; vnum++) {
@@ -245,7 +245,7 @@ void do_debug(CHAR_DATA *ch, String argument)
 
 	if (!strcmp(subfunc, "qtz")) {
 		/* Quest Time Zero */
-		CHAR_DATA *questor;
+		Character *questor;
 
 		String arg;
 		argument = one_argument(argument, arg);

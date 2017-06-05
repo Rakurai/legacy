@@ -44,17 +44,17 @@
 #define SOCIAL_FILE "../misc/social.txt"
 #endif
 
-void insert_social(struct social_type *);
+void insert_social(Social *);
 void remove_social(const String&);
 int count_socials();
 
 int maxSocial;
 
 #ifndef CONST_SOCIAL
-struct social_type *social_table_head;     /* and social table */
-struct social_type *social_table_tail;     /* and social table */
+Social *social_table_head;     /* and social table */
+Social *social_table_tail;     /* and social table */
 
-void load_social(FILE *fp, struct social_type *social)
+void load_social(FILE *fp, Social *social)
 {
 	social->name =          fread_string(fp);
 	social->char_no_arg =   fread_string(fp);
@@ -70,7 +70,7 @@ void load_social_table()
 {
 	FILE *fp;
 	int i;
-	struct social_type *new_social;
+	Social *new_social;
 	fp = fopen(SOCIAL_FILE, "r");
 
 	if (!fp) {
@@ -79,13 +79,13 @@ void load_social_table()
 	}
 
 	fscanf(fp, "%d\n", &maxSocial);
-	social_table_head = new struct social_type;
-	social_table_tail = new struct social_type;
+	social_table_head = new Social;
+	social_table_tail = new Social;
 	social_table_head->next = social_table_tail;
 	social_table_tail->previous = social_table_head;
 
 	for (i = 0; i < maxSocial; i++) {
-		new_social = new struct social_type;
+		new_social = new Social;
 		load_social(fp, new_social);
 		insert_social(new_social);
 	}
@@ -97,9 +97,9 @@ void load_social_table()
  * May 9th by Clerve.
  * Inserting a social alphabeticly
  */
-void insert_social(struct social_type *s)
+void insert_social(Social *s)
 {
-	struct social_type *iterator;
+	Social *iterator;
 	/* First element
 	if (strlen(social_table->name)<1)
 	{       social_table=s;
@@ -135,12 +135,12 @@ void insert_social(struct social_type *s)
  */
 void remove_social(const String& name)
 {
-	struct social_type *iterator;
+	Social *iterator;
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
 		if (!strcasecmp(name, iterator->name)) {
-			struct social_type *p = iterator->previous;
-			struct social_type *n = iterator->next;
+			Social *p = iterator->previous;
+			Social *n = iterator->next;
 			p->next = n;
 			n->previous = p;
 			delete iterator;
@@ -155,7 +155,7 @@ void remove_social(const String& name)
  */
 int count_socials()
 {
-	struct social_type *iterator;
+	Social *iterator;
 	int socials = 0;
 	/* set to first social */
 	iterator = social_table_head->next;
@@ -170,7 +170,7 @@ int count_socials()
 
 #endif /* CONST_SOCIAL */
 
-void save_social(const struct social_type *s, FILE *fp)
+void save_social(const Social *s, FILE *fp)
 {
 	/* get rid of (null) */
 	Format::fprintf(fp, "%s~\n", smash_tilde(s->name));
@@ -186,7 +186,7 @@ void save_social(const struct social_type *s, FILE *fp)
 void save_social_table()
 {
 	FILE *fp;
-	struct social_type *iterator;
+	Social *iterator;
 	fp = fopen(SOCIAL_FILE, "w");
 
 	if (!fp) {
@@ -213,9 +213,9 @@ void save_social_table()
 }
 
 /* Find a social based on name */
-struct social_type *social_lookup(const String& name)
+Social *social_lookup(const String& name)
 {
-	struct social_type *iterator;
+	Social *iterator;
 	/* set to first social */
 	iterator = social_table_head->next;
 
@@ -234,10 +234,10 @@ struct social_type *social_lookup(const String& name)
  */
 
 #ifndef CONST_SOCIAL
-void do_sedit(CHAR_DATA *ch, String argument)
+void do_sedit(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	struct social_type *iSocial;
+	Social *iSocial;
 
 	String cmd, social;
 	argument = one_argument(argument, cmd);
@@ -281,7 +281,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			}
 		}
 
-		struct social_type *new_social = new struct social_type;
+		Social *new_social = new Social;
 
 		new_social->name = social;
 		insert_social(new_social);
@@ -305,7 +305,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 			}
 		}
 
-		struct social_type *new_social = new struct social_type;
+		Social *new_social = new Social;
 
 		new_social->name                = argument;
 		new_social->char_no_arg         = iSocial->char_no_arg;
@@ -347,7 +347,7 @@ void do_sedit(CHAR_DATA *ch, String argument)
 		return; /* return right away, do not save the table */
 	}
 	else if (!str_prefix1(cmd, "find")) { /* Find a social */
-		struct social_type *i;
+		Social *i;
 		bool fAll = FALSE;
 
 		if (argument.empty())

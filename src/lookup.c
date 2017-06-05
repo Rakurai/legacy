@@ -28,9 +28,9 @@
 #include "merc.h"
 #include "tables.h"
 
-CLAN_DATA *clan_vnum_lookup(int vnum)
+Clan *clan_vnum_lookup(int vnum)
 {
-	CLAN_DATA *c;
+	Clan *c;
 
 	for (c = clan_table_head->next; c != clan_table_tail; c = c->next)
 		if (vnum >= c->area_minvnum && vnum <= c->area_maxvnum)
@@ -39,9 +39,9 @@ CLAN_DATA *clan_vnum_lookup(int vnum)
 	return NULL;
 }
 
-CLAN_DATA *clan_lookup(const String& name)
+Clan *clan_lookup(const String& name)
 {
-	CLAN_DATA *iterator;
+	Clan *iterator;
 
 	if (name[0] == '\0')
 		return NULL;

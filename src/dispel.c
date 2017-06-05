@@ -1,5 +1,5 @@
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 struct dispel_type {
@@ -81,7 +81,7 @@ bool level_save(int dis_level, int save_level)
 }
 
 /* Compute a saving throw.  Negative apply's make saving throw better. */
-bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
+bool saves_spell(int level, Character *victim, int dam_type)
 {
 	int save;
 	save = (victim->level - level) * 3 - (GET_ATTR_SAVES(victim) * 4 / 3);
@@ -108,7 +108,7 @@ struct dispel_params {
 	int count;
 };
 
-int affect_fn_dispel_obj(AFFECT_DATA *node, void *data) {
+int affect_fn_dispel_obj(Affect *node, void *data) {
 	struct dispel_params *params = (struct dispel_params *)data;
 
 	if (node->type != params->sn)
@@ -118,7 +118,7 @@ int affect_fn_dispel_obj(AFFECT_DATA *node, void *data) {
 		return 0;
 
 	int dis_level = params->level;
-//	OBJ_DATA *obj = (OBJ_DATA *)params->target;
+//	Object *obj = (Object *)params->target;
 
 	if (node->duration == -1)
 		dis_level -= 3;
@@ -134,7 +134,7 @@ int affect_fn_dispel_obj(AFFECT_DATA *node, void *data) {
 	return 0;
 }
 
-int affect_fn_dispel_char(AFFECT_DATA *node, void *data) {
+int affect_fn_dispel_char(Affect *node, void *data) {
 	struct dispel_params *params = (struct dispel_params *)data;
 
 	if (node->type != params->sn)
@@ -144,7 +144,7 @@ int affect_fn_dispel_char(AFFECT_DATA *node, void *data) {
 		return 0;
 
 	int dis_level = params->level;
-	CHAR_DATA *victim = (CHAR_DATA *)params->target;
+	Character *victim = (Character *)params->target;
 
 	if (node->duration == -1)
 		dis_level -= 3;
@@ -162,7 +162,7 @@ int affect_fn_dispel_char(AFFECT_DATA *node, void *data) {
 }
 
 /* co-routine for dispel magic and cancellation */
-bool check_dispel_obj(int dis_level, OBJ_DATA *obj, int sn, bool save)
+bool check_dispel_obj(int dis_level, Object *obj, int sn, bool save)
 {
 	struct dispel_params params = {
 		.target = obj,
@@ -183,7 +183,7 @@ bool check_dispel_obj(int dis_level, OBJ_DATA *obj, int sn, bool save)
 }
 
 // try to remove all of a single spell sn from a character
-bool check_dispel_char(int dis_level, CHAR_DATA *victim, int sn, bool save)
+bool check_dispel_char(int dis_level, Character *victim, int sn, bool save)
 {
 	struct dispel_params params = {
 		.target = victim,
@@ -219,7 +219,7 @@ bool check_dispel_char(int dis_level, CHAR_DATA *victim, int sn, bool save)
 }
 
 // dispel a single spell with undo spell
-bool undo_spell(int dis_level, CHAR_DATA *victim, int sn, bool save) {
+bool undo_spell(int dis_level, Character *victim, int sn, bool save) {
 	for (int i = 0; dispel_table[i].sn != NULL; i++)
 		if (*dispel_table[i].sn == sn) {
 			if (dispel_table[i].can_undo)
@@ -232,7 +232,7 @@ bool undo_spell(int dis_level, CHAR_DATA *victim, int sn, bool save) {
 }
 
 // dispel a list of spells with dispel magic or cancellation
-bool dispel_char(CHAR_DATA *victim, int level, bool cancellation)
+bool dispel_char(Character *victim, int level, bool cancellation)
 {
 	bool found = FALSE;
 

@@ -1,24 +1,24 @@
 #include "merc.h"
 #include "memory.h"
 
-void read_line(FILE *, STORAGE_DATA *);
-void save_line(FILE *, STORAGE_DATA *);
+void read_line(FILE *, StoredPlayer *);
+void save_line(FILE *, StoredPlayer *);
 
 /**********************************************************************/
 
-STORAGE_DATA *storage_list_head;
-STORAGE_DATA *storage_list_tail;
+StoredPlayer *storage_list_head;
+StoredPlayer *storage_list_tail;
 
 /**********************************************************************/
 
-void read_line(FILE *fp, STORAGE_DATA *sd)
+void read_line(FILE *fp, StoredPlayer *sd)
 {
 	sd->name = fread_string(fp);
 	sd->by_who = fread_string(fp);
 	sd->date = fread_string(fp);
 }
 
-void save_line(FILE *fp, STORAGE_DATA *sd)
+void save_line(FILE *fp, StoredPlayer *sd)
 {
 	Format::fprintf(fp, "%s~\n", sd->name);
 	Format::fprintf(fp, "%s~\n", sd->by_who);
@@ -29,8 +29,8 @@ void load_storage_list()
 {
 	FILE *fp;
 	int count, i;
-	storage_list_head = new STORAGE_DATA;
-	storage_list_tail = new STORAGE_DATA;
+	storage_list_head = new StoredPlayer;
+	storage_list_tail = new StoredPlayer;
 	storage_list_head->next = storage_list_tail;
 	storage_list_tail->previous = storage_list_head;
 
@@ -42,10 +42,10 @@ void load_storage_list()
 	fscanf(fp, "%d\n", &count);
 
 	for (i = 0; i < count; i++) {
-		STORAGE_DATA *newData = new STORAGE_DATA;
+		StoredPlayer *newData = new StoredPlayer;
 
 		if (newData == NULL) {
-			bug("Failed to allocate memory for STORAGE_DATA!", 0);
+			bug("Failed to allocate memory for StoredPlayer!", 0);
 			return;
 		}
 
@@ -60,7 +60,7 @@ void load_storage_list()
 void save_storage_list()
 {
 	FILE *fp;
-	STORAGE_DATA *i;
+	StoredPlayer *i;
 
 	if ((fp = fopen(STORAGE_FILE, "w")) == NULL) {
 		bug("save_storage_list: Cannot open STORAGE_FILE!", 0);
@@ -78,9 +78,9 @@ void save_storage_list()
 	fclose(fp);
 }
 
-void insert_storagedata(STORAGE_DATA *newdata)
+void insert_storagedata(StoredPlayer *newdata)
 {
-	STORAGE_DATA *i;
+	StoredPlayer *i;
 	i = storage_list_head->next;
 
 	while (i != storage_list_tail) {
@@ -103,15 +103,15 @@ void insert_storagedata(STORAGE_DATA *newdata)
 	return;
 }
 
-void remove_storagedata(STORAGE_DATA *olddata)
+void remove_storagedata(StoredPlayer *olddata)
 {
-	STORAGE_DATA *i;
+	StoredPlayer *i;
 	i = storage_list_head->next;
 
 	while (i != storage_list_tail) {
 		if (!strcasecmp(olddata->name, i->name)) {
-			STORAGE_DATA *p = i->previous;
-			STORAGE_DATA *n = i->next;
+			StoredPlayer *p = i->previous;
+			StoredPlayer *n = i->next;
 			p->next = n;
 			n->previous = p;
 			delete i;
@@ -122,9 +122,9 @@ void remove_storagedata(STORAGE_DATA *olddata)
 	}
 }
 
-STORAGE_DATA *lookup_storage_data(const String& name)
+StoredPlayer *lookup_storage_data(const String& name)
 {
-	STORAGE_DATA *i;
+	StoredPlayer *i;
 	i = storage_list_head->next;
 
 	while (i != storage_list_tail) {
@@ -139,7 +139,7 @@ STORAGE_DATA *lookup_storage_data(const String& name)
 
 int count_stored_characters()
 {
-	STORAGE_DATA *i;
+	StoredPlayer *i;
 	int count = 0;
 	i = storage_list_head->next;
 

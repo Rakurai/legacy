@@ -1,38 +1,38 @@
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "affect_list.h"
 #include "recycle.h"
 
 // local declarations
-void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd);
+void affect_modify_obj(void *owner, const Affect *paf, bool fAdd);
 
 // searching
 
-bool affect_enchanted_obj(OBJ_DATA *obj) {
+bool affect_enchanted_obj(Object *obj) {
 	return affect_checksum_list(&obj->affected) != obj->pIndexData->affect_checksum;
 }
 
-const AFFECT_DATA *affect_list_obj(OBJ_DATA *obj) {
+const Affect *affect_list_obj(Object *obj) {
 	return obj->affected;
 }
 
-bool affect_exists_on_obj(OBJ_DATA *obj, int sn) {
+bool affect_exists_on_obj(Object *obj, int sn) {
 	return affect_find_on_obj(obj, sn) ? TRUE : FALSE;
 }
 
-const AFFECT_DATA *affect_find_on_obj(OBJ_DATA *obj, int sn) {
+const Affect *affect_find_on_obj(Object *obj, int sn) {
 	return affect_find_in_list(&obj->affected, sn);
 }
 
 // adding
 
-void affect_copy_to_obj(OBJ_DATA *obj, const AFFECT_DATA *aff_template)
+void affect_copy_to_obj(Object *obj, const Affect *aff_template)
 {
 	affect_copy_to_list(&obj->affected, aff_template);
 	affect_modify_obj(obj, aff_template, TRUE);
 }
 
-void affect_join_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf) {
+void affect_join_to_obj(Object *obj, Affect *paf) {
 	affect_fn_params params;
 
 	params.owner = obj;
@@ -45,14 +45,14 @@ void affect_join_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf) {
 
 // removing
 
-void affect_remove_from_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
+void affect_remove_from_obj(Object *obj, Affect *paf)
 {
 	affect_remove_from_list(&obj->affected, paf);
 	affect_modify_obj(obj, paf, FALSE);
 	free_affect(paf);
 }
 
-void affect_remove_matching_from_obj(OBJ_DATA *obj, affect_comparator comp, const AFFECT_DATA *pattern) {
+void affect_remove_matching_from_obj(Object *obj, affect_comparator comp, const Affect *pattern) {
 	affect_fn_params params;
 
 	params.owner = obj;
@@ -62,23 +62,23 @@ void affect_remove_matching_from_obj(OBJ_DATA *obj, affect_comparator comp, cons
 	affect_remove_matching_from_list(&obj->affected, comp, pattern, &params);
 }
 
-void affect_remove_marked_from_obj(OBJ_DATA *obj) {
-	AFFECT_DATA pattern;
+void affect_remove_marked_from_obj(Object *obj) {
+	Affect pattern;
 	pattern.mark = TRUE;
 
 	affect_remove_matching_from_obj(obj, affect_comparator_mark, &pattern);
 }
 
-void affect_remove_sn_from_obj(OBJ_DATA *obj, int sn) {
-	AFFECT_DATA pattern;
+void affect_remove_sn_from_obj(Object *obj, int sn) {
+	Affect pattern;
 	pattern.type = sn;
 
 	affect_remove_matching_from_obj(obj, affect_comparator_type, &pattern);
 }
 
-void affect_remove_all_from_obj(OBJ_DATA *obj, bool permanent)
+void affect_remove_all_from_obj(Object *obj, bool permanent)
 {
-	AFFECT_DATA pattern;
+	Affect pattern;
 	pattern.permanent = permanent;
 
 	affect_remove_matching_from_obj(obj, affect_comparator_permanent, &pattern);
@@ -86,7 +86,7 @@ void affect_remove_all_from_obj(OBJ_DATA *obj, bool permanent)
 
 // modifying
 
-void affect_iterate_over_obj(OBJ_DATA *obj, affect_fn fn, void *data) {
+void affect_iterate_over_obj(Object *obj, affect_fn fn, void *data) {
 	affect_fn_params params;
 
 	params.owner = obj;
@@ -96,18 +96,18 @@ void affect_iterate_over_obj(OBJ_DATA *obj, affect_fn fn, void *data) {
 	affect_iterate_over_list(&obj->affected, fn, &params);
 }
 
-void affect_sort_obj(OBJ_DATA *obj, affect_comparator comp) {
+void affect_sort_obj(Object *obj, affect_comparator comp) {
 	affect_sort_list(&obj->affected, comp);
 }
 
 // utility
 
 // test if an object has an affect
-bool obj_has_affect(OBJ_DATA *obj, int sn) {
+bool obj_has_affect(Object *obj, int sn) {
 	return affect_find_in_list(&obj->affected, sn) ? TRUE : FALSE;
 }
 
-void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flags, bool fAdd) {
+void affect_modify_flag_cache_obj(Object *obj, sh_int where, unsigned int flags, bool fAdd) {
 	if (flags == 0)
 		return;
 
@@ -121,10 +121,10 @@ void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flag
 		obj->extra_flag_cache = 0;
 		obj->weapon_flag_cache = 0;
 
-		for (const AFFECT_DATA *paf = obj->affected; paf; paf = paf->next)
+		for (const Affect *paf = obj->affected; paf; paf = paf->next)
 			affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, TRUE);
 
-		for (const AFFECT_DATA *paf = obj->gem_affected; paf; paf = paf->next)
+		for (const Affect *paf = obj->gem_affected; paf; paf = paf->next)
 			affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, TRUE);
 	}
 	else {
@@ -143,10 +143,10 @@ void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flag
 // the modify function is called any time there is a potential change to the list of
 // affects, and here we update any caches or entities that depend on the affect list.
 // it is important that owner->affected reflects the new state of the affects, i.e.
-// the affect has already been inserted or removed, and paf is not a member of the set.
-void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
-	OBJ_DATA *obj = (OBJ_DATA *)owner;
-	extern void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
+// the Affect.hppas already been inserted or removed, and paf is not a member of the set.
+void affect_modify_obj(void *owner, const Affect *paf, bool fAdd) {
+	Object *obj = (Object *)owner;
+	extern void affect_modify_char(void *owner, const Affect *paf, bool fAdd);
 
 	affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, fAdd);
 

@@ -32,7 +32,7 @@
 #include "Format.hpp"
 
 /* return TRUE if a player either has the group or has all skills in it */
-bool completed_group(CHAR_DATA *ch, int gn)
+bool completed_group(Character *ch, int gn)
 {
 	int i, ngn;
 
@@ -91,7 +91,7 @@ int comp_spells(const void *sn1, const void *sn2)
      SPELLS WEATHER -> list of spells in the WEATHER group
      SPELLS ACID    -> list of spells beginning with 'acid'
 */
-void do_spells(CHAR_DATA *ch, String argument)
+void do_spells(Character *ch, String argument)
 {
 	int level;
 	int min_level = 1;
@@ -356,7 +356,7 @@ void do_spells(CHAR_DATA *ch, String argument)
      SKILLS 50 60   -> spells from lv 50 - 60
      SKILLS DUAL    -> list of spells beginning with 'dual'
 */
-void do_skills(CHAR_DATA *ch, String argument)
+void do_skills(Character *ch, String argument)
 {
 	int level;
 	int min_level = 1;
@@ -529,7 +529,7 @@ void do_skills(CHAR_DATA *ch, String argument)
 }
 
 /* Levelist by Lotus */
-void do_levels(CHAR_DATA *ch, String argument)
+void do_levels(Character *ch, String argument)
 {
 	String list[LEVEL_HERO];
 	char columns[LEVEL_HERO];
@@ -707,7 +707,7 @@ void do_levels(CHAR_DATA *ch, String argument)
 } /* end do_levels() */
 
 /* shows skills, groups and costs (only if not bought) */
-void list_group_costs(CHAR_DATA *ch)
+void list_group_costs(Character *ch)
 {
 	int gn, sn, col = 0;
 
@@ -761,7 +761,7 @@ void list_group_costs(CHAR_DATA *ch)
 	    exp_per_level(ch, ch->gen_data->points_chosen));
 }
 
-void list_group_chosen(CHAR_DATA *ch)
+void list_group_chosen(Character *ch)
 {
 	char buf[100];
 	int gn, sn, col;
@@ -823,7 +823,7 @@ void list_group_chosen(CHAR_DATA *ch)
 	return;
 }
 
-long exp_per_level(CHAR_DATA *ch, int points)
+long exp_per_level(Character *ch, int points)
 {
 	int  inc;
 	long expl;
@@ -865,7 +865,7 @@ long exp_per_level(CHAR_DATA *ch, int points)
 } /* end exp_per_level() */
 
 /* this procedure handles the input parsing for the skill generator */
-bool parse_gen_groups(CHAR_DATA *ch, String argument)
+bool parse_gen_groups(Character *ch, String argument)
 {
 	char buf[100];
 	int gn, sn, i;
@@ -1015,7 +1015,7 @@ bool parse_gen_groups(CHAR_DATA *ch, String argument)
 }
 
 /* shows all groups, or the sub-members of a group */
-void do_groups(CHAR_DATA *ch, String argument)
+void do_groups(Character *ch, String argument)
 {
 	char buf[100];
 	int gn, sn, col;
@@ -1092,7 +1092,7 @@ void do_groups(CHAR_DATA *ch, String argument)
 }
 
 /* checks for skill improvement */
-void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
+void check_improve(Character *ch, int sn, bool success, int multiplier)
 {
 	int chance;
 	char buf[100];
@@ -1169,7 +1169,7 @@ int group_lookup(const String& name)
 }
 
 /* recursively adds a group given its number -- uses group_add */
-void gn_add(CHAR_DATA *ch, int gn)
+void gn_add(Character *ch, int gn)
 {
 	int i;
 	ch->pcdata->group_known[gn] = TRUE;
@@ -1183,7 +1183,7 @@ void gn_add(CHAR_DATA *ch, int gn)
 }
 
 /* recusively removes a group given its number -- uses group_remove */
-void gn_remove(CHAR_DATA *ch, int gn)
+void gn_remove(Character *ch, int gn)
 {
 	int i;
 	ch->pcdata->group_known[gn] = FALSE;
@@ -1197,7 +1197,7 @@ void gn_remove(CHAR_DATA *ch, int gn)
 }
 
 /* use for processing a skill or group for addition  */
-void group_add(CHAR_DATA *ch, const char *name, bool deduct)
+void group_add(Character *ch, const char *name, bool deduct)
 {
 	int sn, gn;
 
@@ -1235,7 +1235,7 @@ void group_add(CHAR_DATA *ch, const char *name, bool deduct)
 
 /* used for processing a skill or group for deletion -- no points back! */
 
-void group_remove(CHAR_DATA *ch, const char *name)
+void group_remove(Character *ch, const char *name)
 {
 	int sn, gn;
 	sn = skill_lookup(name);
@@ -1255,7 +1255,7 @@ void group_remove(CHAR_DATA *ch, const char *name)
 	}
 }
 
-int get_evolution(CHAR_DATA *ch, int sn)
+int get_evolution(Character *ch, int sn)
 {
 	int evolution;
 
@@ -1267,7 +1267,7 @@ int get_evolution(CHAR_DATA *ch, int sn)
 	return evolution;
 } /* end get_evolution */
 
-int can_evolve(CHAR_DATA *ch, int sn)
+int can_evolve(Character *ch, int sn)
 {
 	/* returns 1 if evolvable, 0 if already at max, -1 if not evolvable */
 	if (IS_IMMORTAL(ch)) {
@@ -1309,7 +1309,7 @@ int can_evolve(CHAR_DATA *ch, int sn)
 	return -1;      /* just in case */
 }
 
-void evolve_list(CHAR_DATA *ch)
+void evolve_list(Character *ch)
 {
 	String buffer;
 	int x, can;
@@ -1349,7 +1349,7 @@ void evolve_list(CHAR_DATA *ch)
 	page_to_char(buffer, ch);
 }
 
-void evolve_info(CHAR_DATA *ch)
+void evolve_info(Character *ch)
 {
 	String buffer;
 	int evo_sum[8] = {0};
@@ -1415,7 +1415,7 @@ void evolve_info(CHAR_DATA *ch)
 	page_to_char(buffer, ch);
 }
 
-void do_evolve(CHAR_DATA *ch, String argument)
+void do_evolve(Character *ch, String argument)
 {
 	char *type;
 	int sn, cost, can, perc;
@@ -1509,7 +1509,7 @@ void do_evolve(CHAR_DATA *ch, String argument)
 	ptc(ch, "Insight dawns on you as you envision new ways to use %s.\n", skill_table[sn].name);
 }
 
-int get_skill_cost(CHAR_DATA *ch, int sn)
+int get_skill_cost(Character *ch, int sn)
 {
 	int cost = skill_table[sn].min_mana;
 
@@ -1544,7 +1544,7 @@ int get_skill_cost(CHAR_DATA *ch, int sn)
 	return cost;
 }
 
-bool deduct_stamina(CHAR_DATA *ch, int sn)
+bool deduct_stamina(Character *ch, int sn)
 {
 	if (skill_table[sn].spell_fun != spell_null)
 		return FALSE;
@@ -1562,9 +1562,9 @@ bool deduct_stamina(CHAR_DATA *ch, int sn)
 }
 
 /* used to get new skills */
-void do_gain(CHAR_DATA *ch, String argument)
+void do_gain(Character *ch, String argument)
 {
-	CHAR_DATA *trainer;
+	Character *trainer;
 	int gn = 0, sn = 0;
 
 	if (IS_NPC(ch)) {
@@ -1838,7 +1838,7 @@ For example: "convert 20" will change 20 SP into 2 practices.
 
 -- Outsider
 */
-void do_convert(CHAR_DATA *ch, String argument)
+void do_convert(Character *ch, String argument)
 {
 	sh_int use_points;
 	char buffer[MAX_INPUT_LENGTH];

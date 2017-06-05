@@ -29,15 +29,15 @@
 #define CLAN_FILE       "clans.txt"
 
 /* Forward declaration of functions in this module */
-void append_clan(CLAN_DATA *);
+void append_clan(Clan *);
 void remove_clan(const String&);
 int count_clans();
 
 /* Needed variables for using the list */
-struct clan_type *clan_table_head;
-struct clan_type *clan_table_tail;
+Clan *clan_table_head;
+Clan *clan_table_tail;
 
-int count_clan_members(CLAN_DATA *clan, int bit)
+int count_clan_members(Clan *clan, int bit)
 {
 	String query;
 	int count;
@@ -61,10 +61,10 @@ int count_clan_members(CLAN_DATA *clan, int bit)
 
 void load_clan_table()
 {
-	CLAN_DATA *clan;
+	Clan *clan;
 	int count = 0;
-	clan_table_head                 = new CLAN_DATA;
-	clan_table_tail                 = new CLAN_DATA;
+	clan_table_head                 = new Clan;
+	clan_table_tail                 = new Clan;
 
 	/* Watch out for memory errors -- Outsider */
 	if ((!clan_table_head) || (!clan_table_tail)) {
@@ -88,7 +88,7 @@ void load_clan_table()
 		  if (atoi(row[0]) == 0)
 		          continue;
 		*/
-		if ((clan = new CLAN_DATA) == NULL) {
+		if ((clan = new Clan) == NULL) {
 			bug("load_clan_table: unable to allocate memory for new clan", 0);
 			return;
 		}
@@ -115,7 +115,7 @@ void load_clan_table()
 
 void save_clan_table()
 {
-	CLAN_DATA *clan;
+	Clan *clan;
 	int count;
 	/* first, set all entries to current 0 */
 	db_command("save_clan_table", "UPDATE clans SET current=0");
@@ -163,7 +163,7 @@ void save_clan_table()
 }
 
 /* Append clan_info to the end of the list */
-void append_clan(CLAN_DATA *c)
+void append_clan(Clan *c)
 {
 	c->previous = clan_table_tail->previous;
 	c->previous->next = c;
@@ -174,7 +174,7 @@ void append_clan(CLAN_DATA *c)
 /* Count the number of clans */
 int count_clans()
 {
-	CLAN_DATA *iterator;
+	Clan *iterator;
 	int clans = 0;
 	iterator = clan_table_head->next;
 
@@ -187,7 +187,7 @@ int count_clans()
 }
 
 /* calculate a clan's power */
-int calc_cp(CLAN_DATA *clan, bool curve)
+int calc_cp(Clan *clan, bool curve)
 {
 	int members = count_clan_members(clan, 0), clanpower;
 	clanpower       = ((members / 2) + (clan->gold_balance / 10000) + (clan->clanqp / 100) + clan->warcpmod);
@@ -215,13 +215,13 @@ int calc_cp(CLAN_DATA *clan, bool curve)
 /* Remove a clan */
 void remove_clan(const String& name)
 {
-	CLAN_DATA *iterator;
+	Clan *iterator;
 	iterator = clan_table_head->next;
 
 	while (iterator != clan_table_tail) {
 		if (!strcasecmp(iterator->name, name)) {
-			CLAN_DATA *p = iterator->previous;
-			CLAN_DATA *n = iterator->next;
+			Clan *p = iterator->previous;
+			Clan *n = iterator->next;
 			p->next = n;
 			n->previous = p;
 			delete iterator;
@@ -232,9 +232,9 @@ void remove_clan(const String& name)
 	}
 }
 
-void do_cedit(CHAR_DATA *ch, String argument)
+void do_cedit(Character *ch, String argument)
 {
-	CLAN_DATA *cdata;
+	Clan *cdata;
 
 	if (!argument[0]) {
 		stc("Huh? type HELP CEDIT to see syntax.\n", ch);
@@ -270,7 +270,7 @@ void do_cedit(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(cmd, "new")) {
-		CLAN_DATA *new_clan = new CLAN_DATA;
+		Clan *new_clan = new Clan;
 
 		if (new_clan == NULL) {
 			bug("Unable to allocate memory for new clan!", 0);

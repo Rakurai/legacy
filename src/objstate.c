@@ -6,14 +6,14 @@
 
 #include "merc.h"
 #include "recycle.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */
-bool has_modified_contents(OBJ_DATA *obj)
+bool has_modified_contents(Object *obj)
 {
-	OBJ_DATA *cobj;
+	Object *cobj;
 
 	for (cobj = obj->contains; cobj; cobj = cobj->next_content)
 		if (!cobj->reset
@@ -28,7 +28,7 @@ bool has_modified_contents(OBJ_DATA *obj)
    are in rooms, no stuff with timers, no potions/scrolls/pills/staves/wands/
    npc corpses.  check if it resets on the ground, if it does, only save it
    if it's contents are modified */
-bool is_worth_saving(OBJ_DATA *obj)
+bool is_worth_saving(Object *obj)
 {
 	if (!obj->in_room       /* only items laying around */
 	    || obj->carried_by     /* shouldn't be... */
@@ -62,10 +62,10 @@ bool is_worth_saving(OBJ_DATA *obj)
 }
 
 /* write one object recursively.  this is the guts of fwrite_obj, simplified a bit. */
-void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
+void fwrite_objstate(Object *obj, FILE *fp, int *count)
 {
-	OBJ_DATA *cobj;
-	EXTRA_DESCR_DATA *ed;
+	Object *cobj;
+	ExtraDescr *ed;
 	int i = 0;
 	bool enchanted = affect_enchanted_obj(obj); // whether to write affects or not
 
@@ -123,7 +123,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
 	if (enchanted) {
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
+		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
 
@@ -155,7 +155,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 int objstate_save_items()
 {
 	FILE *fp;
-	OBJ_DATA *obj;
+	Object *obj;
 	int count = 0;
 
 	if (port != DIZZYPORT)
@@ -175,10 +175,10 @@ int objstate_save_items()
 	return count;
 }
 
-OBJ_DATA *fload_objstate(FILE *fp, int *count)
+Object *fload_objstate(FILE *fp, int *count)
 {
-	ROOM_INDEX_DATA *room;
-	OBJ_DATA *obj, *cobj;
+	RoomPrototype *room;
+	Object *obj, *cobj;
 	bool extract = FALSE, done = FALSE;
 	int rvnum, nests, ovnum, enchanted;
 
@@ -228,7 +228,7 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
 		case 'A': {
-				AFFECT_DATA af;
+				Affect af;
 
 				af.type = skill_lookup(fread_word(fp));
 
@@ -297,7 +297,7 @@ OBJ_DATA *fload_objstate(FILE *fp, int *count)
 			break;
 
 		case 'X': {
-				EXTRA_DESCR_DATA *ed;
+				ExtraDescr *ed;
 				ed = new_extra_descr();
 				ed->keyword     = fread_string(fp);
 				ed->description = fread_string(fp);

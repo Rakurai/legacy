@@ -12,9 +12,9 @@
 #include "recycle.h"
 #include "memory.h"
 #include "db.h"
-#include "affect.h"
+#include "Affect.hpp"
 
-void unique_item(OBJ_DATA *item)
+void unique_item(Object *item)
 {
 	bool added = FALSE;
 
@@ -143,7 +143,7 @@ void unique_item(OBJ_DATA *item)
 				mod = -1;
 		}
 
-		AFFECT_DATA af = (AFFECT_DATA){0};
+		Affect af;
 		af.where      = TO_OBJECT;
 		af.type       = 0;
 		af.level      = item->level;
@@ -405,9 +405,9 @@ void unique_item(OBJ_DATA *item)
 }
 
 /* pick a random room to reset into -- Montrey */
-ROOM_INDEX_DATA *get_random_reset_room(AREA_DATA *area)
+RoomPrototype *get_random_reset_room(Area *area)
 {
-	ROOM_INDEX_DATA *room;
+	RoomPrototype *room;
 	int i, count, pick = 0, pass = 1;
 
 	while (pass <= 2) {
@@ -445,10 +445,10 @@ ROOM_INDEX_DATA *get_random_reset_room(AREA_DATA *area)
 /*
  * Reset one area.
  */
-void reset_area(AREA_DATA *pArea)
+void reset_area(Area *pArea)
 {
-	RESET_DATA *pReset;
-	CHAR_DATA *mob;
+	Reset *pReset;
+	Character *mob;
 	bool last;
 	int level;
 	mob         = NULL;
@@ -456,13 +456,13 @@ void reset_area(AREA_DATA *pArea)
 	level       = 0;
 
 	for (pReset = pArea->reset_first; pReset != NULL; pReset = pReset->next) {
-		ROOM_INDEX_DATA *pRoomIndex;
-		MOB_INDEX_DATA *pMobIndex;
-		OBJ_INDEX_DATA *pObjIndex;
-		OBJ_INDEX_DATA *pObjToIndex;
-		EXIT_DATA *pexit;
-		OBJ_DATA *obj;
-		OBJ_DATA *obj_to;
+		RoomPrototype *pRoomIndex;
+		MobilePrototype *pMobIndex;
+		ObjectPrototype *pObjIndex;
+		ObjectPrototype *pObjToIndex;
+		Exit *pexit;
+		Object *obj;
+		Object *obj_to;
 		int count, limit;
 
 		switch (pReset->command) {
@@ -521,7 +521,7 @@ void reset_area(AREA_DATA *pArea)
 			mob->reset = pReset;    /* keep track of what reset it -- Montrey */
 			/* Check for pet shop. */
 			{
-				ROOM_INDEX_DATA *pRoomIndexPrev;
+				RoomPrototype *pRoomIndexPrev;
 				pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
 
 				if (pRoomIndexPrev != NULL
@@ -755,7 +755,7 @@ void reset_area(AREA_DATA *pArea)
  */
 void area_update(void)
 {
-	AREA_DATA *pArea;
+	Area *pArea;
 	char buf[MAX_STRING_LENGTH];
 
 	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
@@ -768,7 +768,7 @@ void area_update(void)
 		 */
 		if ((!pArea->empty && (pArea->nplayer == 0 || pArea->age >= 15))
 		    ||    pArea->age >= 31) {
-			ROOM_INDEX_DATA *pRoomIndex;
+			RoomPrototype *pRoomIndex;
 			reset_area(pArea);
 			Format::sprintf(buf, "%s has just been reset.", pArea->name);
 			wiznet(buf, NULL, NULL, WIZ_RESETS, 0, 0);
@@ -788,9 +788,9 @@ void area_update(void)
 /*
  * Create an instance of a mobile.
  */
-CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
+Character *create_mobile(MobilePrototype *pMobIndex)
 {
-	CHAR_DATA *mob;
+	Character *mob;
 	int i, stambase;
 	long wealth;
 	mobile_count++;
@@ -953,7 +953,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 }
 
 /* duplicate a mobile exactly -- except inventory */
-void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
+void clone_mobile(Character *parent, Character *clone)
 {
 	if (parent == NULL || clone == NULL || !IS_NPC(parent))
 		return;
@@ -1021,16 +1021,16 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	affect_remove_all_from_char(clone, TRUE);
 	affect_remove_all_from_char(clone, FALSE);
 
-	for (const AFFECT_DATA *paf = affect_list_char(parent); paf != NULL; paf = paf->next)
+	for (const Affect *paf = affect_list_char(parent); paf != NULL; paf = paf->next)
 		affect_copy_to_char(clone, paf);
 }
 
 /*
  * Create an instance of an object.
  */
-OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
+Object *create_object(ObjectPrototype *pObjIndex, int level)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int i;
 
 	if (pObjIndex == NULL) {
@@ -1126,7 +1126,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 		break;
 	}
 
-	for (const AFFECT_DATA *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
+	for (const Affect *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
 		affect_copy_to_obj(obj, paf);
 
 	obj->next           = object_list;
@@ -1136,10 +1136,10 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 }
 
 /* duplicate an object exactly -- except contents */
-void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
+void clone_object(Object *parent, Object *clone)
 {
 	int i;
-	EXTRA_DESCR_DATA *ed, *ed_new;
+	ExtraDescr *ed, *ed_new;
 
 	if (parent == NULL || clone == NULL)
 		return;
@@ -1164,7 +1164,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	/* affects */
 	affect_remove_all_from_obj(clone, TRUE);
 
-	for (const AFFECT_DATA *paf = affect_list_obj(parent); paf; paf = paf->next)
+	for (const Affect *paf = affect_list_obj(parent); paf; paf = paf->next)
 		affect_copy_to_obj(clone, paf);
 
 	/* extended desc */
@@ -1181,9 +1181,9 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
  * Translates mob virtual number to its mob index struct.
  * Hash table lookup.
  */
-MOB_INDEX_DATA *get_mob_index(int vnum)
+MobilePrototype *get_mob_index(int vnum)
 {
-	MOB_INDEX_DATA *pMobIndex;
+	MobilePrototype *pMobIndex;
 
 	for (pMobIndex  = mob_index_hash[vnum % MAX_KEY_HASH];
 	     pMobIndex != NULL;
@@ -1206,9 +1206,9 @@ MOB_INDEX_DATA *get_mob_index(int vnum)
  * Translates mob virtual number to its obj index struct.
  * Hash table lookup.
  */
-OBJ_INDEX_DATA *get_obj_index(int vnum)
+ObjectPrototype *get_obj_index(int vnum)
 {
-	OBJ_INDEX_DATA *pObjIndex;
+	ObjectPrototype *pObjIndex;
 
 	for (pObjIndex  = obj_index_hash[vnum % MAX_KEY_HASH];
 	     pObjIndex != NULL;
@@ -1231,9 +1231,9 @@ OBJ_INDEX_DATA *get_obj_index(int vnum)
  * Translates mob virtual number to its room index struct.
  * Hash table lookup.
  */
-ROOM_INDEX_DATA *get_room_index(int vnum)
+RoomPrototype *get_room_index(int vnum)
 {
-	ROOM_INDEX_DATA *pRoomIndex;
+	RoomPrototype *pRoomIndex;
 
 	for (pRoomIndex  = room_index_hash[vnum % MAX_KEY_HASH];
 	     pRoomIndex != NULL;
@@ -1254,7 +1254,7 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */
 /* new, improved AREAS command -- Elrac */
-void do_areas(CHAR_DATA *ch, String argument)
+void do_areas(Character *ch, String argument)
 {
 	/* user parameters */
 	bool showall = TRUE;
@@ -1266,7 +1266,7 @@ void do_areas(CHAR_DATA *ch, String argument)
 	/* output data management */
 	size_t ptrs_size;
 	int    count = 0;
-	AREA_DATA *ap;
+	Area *ap;
 	char filename[9];    /* 12345678    + '\0' */
 	char range[12];      /* {xnnn-nnn{x + '\0' */
 	char buf[MAX_INPUT_LENGTH];
@@ -1314,7 +1314,7 @@ void do_areas(CHAR_DATA *ch, String argument)
 
 	/* Allocate space for pointers to all areas. */
 	ptrs_size = (top_area + 1) * sizeof(ap);
-	AREA_DATA *ptrs[ptrs_size];
+	Area *ptrs[ptrs_size];
 
 	/* Gather pointers to all areas of interest */
 	for (ap = area_first; ap; ap = ap->next) {

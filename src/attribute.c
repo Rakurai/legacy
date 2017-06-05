@@ -1,8 +1,8 @@
 #include "merc.h"
 #include "tables.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 // temporary file to hold attribute accessors
 
@@ -37,7 +37,7 @@ int stat_to_attr(int stat) {
 }
 
 /* command for retrieving stats */
-int get_max_stat(const CHAR_DATA *ch, int stat)
+int get_max_stat(const Character *ch, int stat)
 {
 	int max = 25;
 
@@ -70,7 +70,7 @@ int get_max_stat(const CHAR_DATA *ch, int stat)
 
 /* Retrieve a character's age in mud years.
    (178.5 hours = 1 year) */
-int get_age(CHAR_DATA *ch)
+int get_age(Character *ch)
 {
 	int age = 17;
 
@@ -87,26 +87,26 @@ int get_age(CHAR_DATA *ch)
    used when finding adjustment for hammerstrike and berserk
    TODO: these may need fixing for gem affects
                                                 -- Montrey */
-int get_unspelled_hitroll(CHAR_DATA *ch)
+int get_unspelled_hitroll(Character *ch)
 {
 	int sum = GET_ATTR_HITROLL(ch) - GET_ATTR_MOD(ch, APPLY_HITROLL);
 
-	for (OBJ_DATA *obj = ch->carrying; obj; obj = obj->next_content)
+	for (Object *obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE)
-			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next)
+			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next)
 				if (paf->location == APPLY_HITROLL)
 					sum += paf->modifier;
 
 	return sum;
 }
 
-int get_unspelled_damroll(CHAR_DATA *ch)
+int get_unspelled_damroll(Character *ch)
 {
 	int sum = GET_ATTR_DAMROLL(ch) - GET_ATTR_MOD(ch, APPLY_DAMROLL);
 
-	for (OBJ_DATA *obj = ch->carrying; obj; obj = obj->next_content)
+	for (Object *obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE)
-			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next)
+			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next)
 				if (paf->location == APPLY_DAMROLL)
 					sum += paf->modifier;
 
@@ -114,9 +114,9 @@ int get_unspelled_damroll(CHAR_DATA *ch)
 }
 
 /* return ac value of a the character's armor only, no dex, no spells */
-int get_unspelled_ac(CHAR_DATA *ch, int type)
+int get_unspelled_ac(Character *ch, int type)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int ac = 100, loc;
 
 	for (loc = 0; loc < MAX_WEAR; loc++)
@@ -126,9 +126,9 @@ int get_unspelled_ac(CHAR_DATA *ch, int type)
 	return ac;
 }
 
-void attribute_check(CHAR_DATA *ch) {
+void attribute_check(Character *ch) {
 	/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
-	OBJ_DATA *weapon;
+	Object *weapon;
 
 	if (ch != NULL
 	 && ch->in_room != NULL
@@ -137,7 +137,7 @@ void attribute_check(CHAR_DATA *ch) {
 
 		// only do this if they have a strength reducing spell affect (not from EQ)
 		bool found = FALSE;
-		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next)
+		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && paf->location == APPLY_STR && paf->modifier < 0) {
 				found = TRUE;
 				break;
@@ -152,7 +152,7 @@ void attribute_check(CHAR_DATA *ch) {
 	}
 }
 
-String print_defense_modifiers(CHAR_DATA *ch, int where) {
+String print_defense_modifiers(Character *ch, int where) {
 	String buf;
 
 	if (ch->defense_mod == NULL)

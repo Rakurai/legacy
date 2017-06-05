@@ -1,5 +1,5 @@
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "affect_list.h"
 #include "recycle.h"
 #include "tables.h"
@@ -7,31 +7,31 @@
 #include "Format.hpp"
 
 // local declarations
-void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
+void affect_modify_char(void *owner, const Affect *paf, bool fAdd);
 
 // searching
 
-const AFFECT_DATA *affect_list_char(CHAR_DATA *ch) {
+const Affect *affect_list_char(Character *ch) {
 	return ch->affected;
 }
 
-bool affect_exists_on_char(const CHAR_DATA *ch, int sn) {
+bool affect_exists_on_char(const Character *ch, int sn) {
 	return affect_in_cache(ch, sn);
 }
 
-const AFFECT_DATA *affect_find_on_char(CHAR_DATA *ch, int sn) {
+const Affect *affect_find_on_char(Character *ch, int sn) {
 	return affect_find_in_list(&ch->affected, sn);
 }
 
 // adding
 
-void affect_copy_to_char(CHAR_DATA *ch, const AFFECT_DATA *aff_template)
+void affect_copy_to_char(Character *ch, const Affect *aff_template)
 {
 	affect_copy_to_list(&ch->affected, aff_template);
 	affect_modify_char(ch, aff_template, TRUE);
 }
 
-void affect_join_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
+void affect_join_to_char(Character *ch, Affect *paf)
 {
 	affect_fn_params params;
 
@@ -43,13 +43,13 @@ void affect_join_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_copy_to_char(ch, paf);
 }
 
-void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
+void affect_add_perm_to_char(Character *ch, int sn) {
 	affect_add_sn_to_char(ch, sn, ch->level, -1, 1, TRUE);
 }
 
 // transform a bitvector into a set of affects or defense mods
-void affect_copy_flags_to_char(CHAR_DATA *ch, char letter, unsigned int bitvector, bool permanent) {
-	AFFECT_DATA af = (AFFECT_DATA){0};
+void affect_copy_flags_to_char(Character *ch, char letter, unsigned int bitvector, bool permanent) {
+	Affect af;
 	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
@@ -66,7 +66,7 @@ void affect_copy_flags_to_char(CHAR_DATA *ch, char letter, unsigned int bitvecto
 	}
 }
 
-void affect_add_racial_to_char(CHAR_DATA *ch) {
+void affect_add_racial_to_char(Character *ch) {
 	affect_copy_flags_to_char(ch, 'A', race_table[ch->race].aff, TRUE);
 	affect_copy_flags_to_char(ch, 'I', race_table[ch->race].imm, TRUE);
 	affect_copy_flags_to_char(ch, 'R', race_table[ch->race].res, TRUE);
@@ -75,14 +75,14 @@ void affect_add_racial_to_char(CHAR_DATA *ch) {
 
 // removing
 
-void affect_remove_from_char(CHAR_DATA *ch, AFFECT_DATA *paf)
+void affect_remove_from_char(Character *ch, Affect *paf)
 {
 	affect_remove_from_list(&ch->affected, paf);
 	affect_modify_char(ch, paf, FALSE);
 	free_affect(paf);
 }
 
-void affect_remove_matching_from_char(CHAR_DATA *ch, affect_comparator comp, const AFFECT_DATA *pattern) {
+void affect_remove_matching_from_char(Character *ch, affect_comparator comp, const Affect *pattern) {
 	affect_fn_params params;
 
 	params.owner = ch;
@@ -92,22 +92,22 @@ void affect_remove_matching_from_char(CHAR_DATA *ch, affect_comparator comp, con
 	affect_remove_matching_from_list(&ch->affected, comp, pattern, &params);
 }
 
-void affect_remove_marked_from_char(CHAR_DATA *ch) {
-	AFFECT_DATA pattern;
+void affect_remove_marked_from_char(Character *ch) {
+	Affect pattern;
 	pattern.mark = TRUE;
 
 	affect_remove_matching_from_char(ch, affect_comparator_mark, &pattern);
 }
 
-void affect_remove_sn_from_char(CHAR_DATA *ch, int sn) {
-	AFFECT_DATA pattern;
+void affect_remove_sn_from_char(Character *ch, int sn) {
+	Affect pattern;
 	pattern.type = sn;
 
 	affect_remove_matching_from_char(ch, affect_comparator_type, &pattern);
 }
 
-void affect_remove_all_from_char(CHAR_DATA *ch, bool permanent) {
-	AFFECT_DATA pattern;
+void affect_remove_all_from_char(Character *ch, bool permanent) {
+	Affect pattern;
 	pattern.permanent = permanent;
 
 	affect_remove_matching_from_char(ch, affect_comparator_permanent, &pattern);
@@ -115,7 +115,7 @@ void affect_remove_all_from_char(CHAR_DATA *ch, bool permanent) {
 
 // modifying
 
-void affect_iterate_over_char(CHAR_DATA *ch, affect_fn fn, void *data) {
+void affect_iterate_over_char(Character *ch, affect_fn fn, void *data) {
 	affect_fn_params params;
 
 	params.owner = ch;
@@ -125,13 +125,13 @@ void affect_iterate_over_char(CHAR_DATA *ch, affect_fn fn, void *data) {
 	affect_iterate_over_list(&ch->affected, fn, &params);
 }
 
-void affect_sort_char(CHAR_DATA *ch, affect_comparator comp) {
+void affect_sort_char(Character *ch, affect_comparator comp) {
 	affect_sort_list(&ch->affected, comp);
 }
 
 // utility
 
-void affect_add_sn_to_char(CHAR_DATA *ch, sh_int sn, sh_int level, sh_int duration, sh_int evolution, bool permanent) {
+void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int duration, sh_int evolution, bool permanent) {
 	struct aff {
 		sh_int  sn;
 		sh_int  location;
@@ -216,7 +216,7 @@ void affect_add_sn_to_char(CHAR_DATA *ch, sh_int sn, sh_int level, sh_int durati
 		{ 0,                       0,             0,               0 }
 	};
 
-	AFFECT_DATA af = (AFFECT_DATA){0};
+	Affect af;
 	af.where = TO_AFFECTS;
 	af.type = sn;
 	af.level = level;
@@ -247,8 +247,8 @@ void affect_add_sn_to_char(CHAR_DATA *ch, sh_int sn, sh_int level, sh_int durati
 		bug("affect_add_sn_to_char: affect with sn %d not found in table", sn);
 }
 
-void remort_affect_modify_char(CHAR_DATA *ch, int where, unsigned int bits, bool fAdd) {
-	AFFECT_DATA af;
+void remort_affect_modify_char(Character *ch, int where, unsigned int bits, bool fAdd) {
+	Affect af;
 	af.type = 0;
 	af.level = ch->level;
 	af.duration = -1;
@@ -274,9 +274,9 @@ void remort_affect_modify_char(CHAR_DATA *ch, int where, unsigned int bits, bool
 // the modify function is called any time there is a potential change to the list of
 // affects, and here we update any caches or entities that depend on the affect list.
 // it is important that owner->affected reflects the new state of the affects, i.e.
-// the affect has already been inserted or removed, and paf is not a member of the set.
-void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
-	CHAR_DATA *ch = (CHAR_DATA *)owner;
+// the Affect.hppas already been inserted or removed, and paf is not a member of the set.
+void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
+	Character *ch = (Character *)owner;
 
 	if (paf->where != TO_DEFENSE && paf->where != TO_AFFECTS && paf->where != TO_OBJECT)
 		return;

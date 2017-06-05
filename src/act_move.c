@@ -27,7 +27,7 @@
 
 #include "merc.h"
 #include "interp.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 DECLARE_SPEC_FUN(spec_clanguard);
@@ -47,15 +47,15 @@ const   sh_int  stamina_loss   [SECT_MAX]      = {
 /*
  * Local functions.
  */
-int     find_door       args((CHAR_DATA *ch, char *arg));
-bool    has_key         args((CHAR_DATA *ch, int key));
-int     find_exit       args((CHAR_DATA *ch, const String& arg));
+int     find_door       args((Character *ch, char *arg));
+bool    has_key         args((Character *ch, int key));
+int     find_exit       args((Character *ch, const String& arg));
 
-void move_char(CHAR_DATA *ch, int door, bool follow)
+void move_char(Character *ch, int door, bool follow)
 {
-	CHAR_DATA *fch, *fch_next;
-	ROOM_INDEX_DATA *in_room, *to_room;
-	EXIT_DATA *pexit;
+	Character *fch, *fch_next;
+	RoomPrototype *in_room, *to_room;
+	Exit *pexit;
 	int cost;
 	char dir_buf[128];
 
@@ -145,7 +145,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		// try to find a boat first
 		bool found = FALSE;
 
-		for (OBJ_DATA *obj = ch->carrying; obj != NULL; obj = obj->next_content)
+		for (Object *obj = ch->carrying; obj != NULL; obj = obj->next_content)
 			if (obj->item_type == ITEM_BOAT) {
 				found = TRUE;
 				break;
@@ -255,45 +255,45 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	mprog_greet_trigger(ch);
 }
 
-void do_north(CHAR_DATA *ch, String argument)
+void do_north(Character *ch, String argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
 	return;
 }
 
-void do_east(CHAR_DATA *ch, String argument)
+void do_east(Character *ch, String argument)
 {
 	move_char(ch, DIR_EAST, FALSE);
 	return;
 }
 
-void do_south(CHAR_DATA *ch, String argument)
+void do_south(Character *ch, String argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
 	return;
 }
 
-void do_west(CHAR_DATA *ch, String argument)
+void do_west(Character *ch, String argument)
 {
 	move_char(ch, DIR_WEST, FALSE);
 	return;
 }
 
-void do_up(CHAR_DATA *ch, String argument)
+void do_up(Character *ch, String argument)
 {
 	move_char(ch, DIR_UP, FALSE);
 	return;
 }
 
-void do_down(CHAR_DATA *ch, String argument)
+void do_down(Character *ch, String argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
 	return;
 }
 
-int find_door(CHAR_DATA *ch, const String& arg)
+int find_door(Character *ch, const String& arg)
 {
-	EXIT_DATA *pexit;
+	Exit *pexit;
 	int door;
 
 	if (!str_prefix1(arg, "north"))    door = 0;
@@ -328,9 +328,9 @@ int find_door(CHAR_DATA *ch, const String& arg)
 }
 
 /* This is for Smokescreen */
-int find_exit(CHAR_DATA *ch, const String& arg)
+int find_exit(Character *ch, const String& arg)
 {
-	EXIT_DATA *pexit;
+	Exit *pexit;
 	int door;
 
 	if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
@@ -359,9 +359,9 @@ int find_exit(CHAR_DATA *ch, const String& arg)
 	return door;
 }
 
-void do_open(CHAR_DATA *ch, String argument)
+void do_open(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int door;
 
 	if (argument.empty()) {
@@ -437,9 +437,9 @@ void do_open(CHAR_DATA *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'open door' */
-		ROOM_INDEX_DATA *to_room;
-		EXIT_DATA *pexit;
-		EXIT_DATA *pexit_rev;
+		RoomPrototype *to_room;
+		Exit *pexit;
+		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED))
@@ -456,7 +456,7 @@ void do_open(CHAR_DATA *ch, String argument)
 		if ((to_room   = pexit->u1.to_room) != NULL
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
 		    &&   pexit_rev->u1.to_room == ch->in_room) {
-			CHAR_DATA *rch;
+			Character *rch;
 			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
 
 			for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
@@ -467,9 +467,9 @@ void do_open(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_close(CHAR_DATA *ch, String argument)
+void do_close(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int door;
 
 	if (argument.empty()) {
@@ -536,9 +536,9 @@ void do_close(CHAR_DATA *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'close door' */
-		ROOM_INDEX_DATA *to_room;
-		EXIT_DATA *pexit;
-		EXIT_DATA *pexit_rev;
+		RoomPrototype *to_room;
+		Exit *pexit;
+		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
@@ -554,7 +554,7 @@ void do_close(CHAR_DATA *ch, String argument)
 		if ((to_room  = pexit->u1.to_room) != NULL
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != 0
 		    && pexit_rev->u1.to_room == ch->in_room) {
-			CHAR_DATA *rch;
+			Character *rch;
 			SET_BIT(pexit_rev->exit_info, EX_CLOSED);
 
 			for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
@@ -563,9 +563,9 @@ void do_close(CHAR_DATA *ch, String argument)
 	}
 }
 
-bool has_key(CHAR_DATA *ch, int key)
+bool has_key(Character *ch, int key)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
 		if (obj->pIndexData->vnum == key)
@@ -575,9 +575,9 @@ bool has_key(CHAR_DATA *ch, int key)
 	return FALSE;
 }
 
-void do_lock(CHAR_DATA *ch, String argument)
+void do_lock(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int door;
 
 	if (argument.empty()) {
@@ -669,9 +669,9 @@ void do_lock(CHAR_DATA *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'lock door' */
-		ROOM_INDEX_DATA *to_room;
-		EXIT_DATA *pexit;
-		EXIT_DATA *pexit_rev;
+		RoomPrototype *to_room;
+		Exit *pexit;
+		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
@@ -706,9 +706,9 @@ void do_lock(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_unlock(CHAR_DATA *ch, String argument)
+void do_unlock(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int door;
 
 	if (argument.empty()) {
@@ -799,9 +799,9 @@ void do_unlock(CHAR_DATA *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'unlock door' */
-		ROOM_INDEX_DATA *to_room;
-		EXIT_DATA *pexit;
-		EXIT_DATA *pexit_rev;
+		RoomPrototype *to_room;
+		Exit *pexit;
+		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
@@ -836,10 +836,10 @@ void do_unlock(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_pick(CHAR_DATA *ch, String argument)
+void do_pick(Character *ch, String argument)
 {
-	CHAR_DATA *gch;
-	OBJ_DATA *obj;
+	Character *gch;
+	Object *obj;
 	int door;
 
 	if (argument.empty()) {
@@ -938,9 +938,9 @@ void do_pick(CHAR_DATA *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'pick door' */
-		ROOM_INDEX_DATA *to_room;
-		EXIT_DATA *pexit;
-		EXIT_DATA *pexit_rev;
+		RoomPrototype *to_room;
+		Exit *pexit;
+		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
 		if (!IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch))
@@ -970,9 +970,9 @@ void do_pick(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_stand(CHAR_DATA *ch, String argument)
+void do_stand(Character *ch, String argument)
 {
-	OBJ_DATA *obj = NULL;
+	Object *obj = NULL;
 
 //	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH) {
 //		stc("There is no room to stand up inside the coach.\n"
@@ -1081,9 +1081,9 @@ void do_stand(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_rest(CHAR_DATA *ch, String argument)
+void do_rest(Character *ch, String argument)
 {
-	OBJ_DATA *obj = NULL;
+	Object *obj = NULL;
 
 	if (ch->fighting) {
 		stc("HEY! NO laying down on the JOB!!\n", ch);
@@ -1212,9 +1212,9 @@ void do_rest(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_sit(CHAR_DATA *ch, String argument)
+void do_sit(Character *ch, String argument)
 {
-	OBJ_DATA *obj = NULL;
+	Object *obj = NULL;
 
 	if (affect_exists_on_char(ch, gsn_sleep)) {
 		stc("You don't seem to want to wake up!\n", ch);
@@ -1334,9 +1334,9 @@ void do_sit(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_sleep(CHAR_DATA *ch, String argument)
+void do_sleep(Character *ch, String argument)
 {
-	OBJ_DATA *obj = NULL;
+	Object *obj = NULL;
 
 	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NOSLEEP)) {
 		stc("Hmmm...you can't seem to fall asleep in this room.\n", ch);
@@ -1423,9 +1423,9 @@ void do_sleep(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_wake(CHAR_DATA *ch, String argument)
+void do_wake(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 //		if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
@@ -1464,7 +1464,7 @@ void do_wake(CHAR_DATA *ch, String argument)
 		do_stand(victim, "");
 }
 
-void do_sneak(CHAR_DATA *ch, String argument)
+void do_sneak(Character *ch, String argument)
 {
 	if (affect_exists_on_char(ch, gsn_sneak)) {
 		stc("You already surpass the wind in stealth.\n", ch);
@@ -1498,7 +1498,7 @@ void do_sneak(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_hide(CHAR_DATA *ch, String argument)
+void do_hide(Character *ch, String argument)
 {
 	if (affect_exists_on_char(ch, gsn_hide)) {
 		stc("You find an even better hiding place.\n", ch);
@@ -1535,7 +1535,7 @@ void do_hide(CHAR_DATA *ch, String argument)
 /*
  * Contributed by Alander.
  */
-void do_visible(CHAR_DATA *ch, String argument)
+void do_visible(Character *ch, String argument)
 {
 	affect_remove_sn_from_char(ch, gsn_invis);
 	affect_remove_sn_from_char(ch, gsn_sneak);
@@ -1548,12 +1548,12 @@ void do_visible(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_recall(CHAR_DATA *ch, String argument)
+void do_recall(Character *ch, String argument)
 {
 	recall(ch, FALSE);
 }
 
-void do_clan_recall(CHAR_DATA *ch, String argument)
+void do_clan_recall(Character *ch, String argument)
 {
 	/* This looks really ugly, so I'm re-writing it. -- Outsider
 	if ((!is_clan(ch) && !IS_SET(ch->act,ACT_PET)) || ch->clan == NULL)
@@ -1578,9 +1578,9 @@ void do_clan_recall(CHAR_DATA *ch, String argument)
 	/* recall(ch, TRUE); */
 }
 
-void recall(CHAR_DATA *ch, bool clan)
+void recall(Character *ch, bool clan)
 {
-	ROOM_INDEX_DATA *location;
+	RoomPrototype *location;
 	bool pet = FALSE, combat = FALSE;
 	int lose = 0;
 
@@ -1630,7 +1630,7 @@ void recall(CHAR_DATA *ch, bool clan)
 			location = get_room_index(ROOM_VNUM_TEMPLE);
 	}
 	else if (ch->in_room->sector_type == SECT_ARENA) {
-		DESCRIPTOR_DATA *d;
+		Descriptor *d;
 		bool empty = TRUE;
 
 		for (d = descriptor_list; d != NULL; d = d->next)
@@ -1736,10 +1736,10 @@ void recall(CHAR_DATA *ch, bool clan)
 	}
 }
 
-void do_train(CHAR_DATA *ch, String argument)
+void do_train(Character *ch, String argument)
 {
 	String buf;
-	CHAR_DATA *mob;
+	Character *mob;
 	sh_int stat = - 1;
 	char *pOutput = NULL;
 	int cost, add;
@@ -1938,7 +1938,7 @@ void do_train(CHAR_DATA *ch, String argument)
 }
 
 /* function for checking legality of push/drag */
-bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
+bool is_safe_drag(Character *ch, Character *victim)
 {
 	if (victim->in_room == NULL || ch->in_room == NULL)
 		return TRUE;
@@ -1982,12 +1982,12 @@ bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
 	return is_safe_char(ch, victim, TRUE);
 }
 
-void do_push(CHAR_DATA *ch, String argument)
+void do_push(Character *ch, String argument)
 {
 	char buf[MIL], dir_buf[MSL];
-	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit;
-	CHAR_DATA *victim;
+	RoomPrototype *to_room;
+	Exit *pexit;
+	Character *victim;
 	int dir;
 
 	if (argument.empty()) {
@@ -2141,7 +2141,7 @@ void do_push(CHAR_DATA *ch, String argument)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
 				       && count++ < 10) {
-					ROOM_INDEX_DATA *around, *old = victim->in_room;
+					RoomPrototype *around, *old = victim->in_room;
 					act("$n screams and falls down...", victim, NULL, NULL, TO_ROOM);
 					do_look(victim, "auto");
 					char_from_room(victim);
@@ -2207,12 +2207,12 @@ void do_push(CHAR_DATA *ch, String argument)
 	mprog_greet_trigger(victim);
 }
 
-void do_drag(CHAR_DATA *ch, String argument)
+void do_drag(Character *ch, String argument)
 {
 	char buf[MIL], dir_buf[MSL];
-	ROOM_INDEX_DATA *to_room, *from_room;
-	EXIT_DATA *pexit;
-	CHAR_DATA *victim;
+	RoomPrototype *to_room, *from_room;
+	Exit *pexit;
+	Character *victim;
 	int dir, cost;
 
 	if (argument.empty()) {
@@ -2468,7 +2468,7 @@ void do_drag(CHAR_DATA *ch, String argument)
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
 				       && count++ < 10) {
 					if (IS_AWAKE(victim)) {
-						ROOM_INDEX_DATA *around, *old = victim->in_room;
+						RoomPrototype *around, *old = victim->in_room;
 						act("$n screams and falls down...", victim, NULL, NULL, TO_ROOM);
 						do_look(victim, "auto");
 						char_from_room(victim);
@@ -2560,7 +2560,7 @@ void do_drag(CHAR_DATA *ch, String argument)
 }
 
 /* MARK: remember the current location for RELOCATE - Elrac */
-void do_mark(CHAR_DATA *ch, String argument)
+void do_mark(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("You feel so at home here, there is no need to MARK.\n", ch);
@@ -2593,9 +2593,9 @@ void do_mark(CHAR_DATA *ch, String argument)
 } /* end do_mark() */
 
 /* RELOCATE: return to previously MARKed location - Elrac */
-void do_relocate(CHAR_DATA *ch, String argument)
+void do_relocate(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *target_room;
+	RoomPrototype *target_room;
 
 	if (IS_NPC(ch)) {
 		stc("It's a nice day out, you would rather walk.\n", ch);
@@ -2673,9 +2673,9 @@ void do_relocate(CHAR_DATA *ch, String argument)
 } /* end do_relocate() */
 
 /* random room generation procedure */
-ROOM_INDEX_DATA *get_random_room(CHAR_DATA *ch)
+RoomPrototype *get_random_room(Character *ch)
 {
-	ROOM_INDEX_DATA *room, *prev;
+	RoomPrototype *room, *prev;
 
 	for (; ;) {
 		room = get_room_index(number_range(0, 32767));
@@ -2704,15 +2704,15 @@ ROOM_INDEX_DATA *get_random_room(CHAR_DATA *ch)
 	}
 }
 
-void do_enter(CHAR_DATA *ch, String argument)
+void do_enter(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *location;
+	RoomPrototype *location;
 
 	/* nifty portal stuff */
 	if (!argument.empty()) {
-		ROOM_INDEX_DATA *old_room;
-		OBJ_DATA *portal;
-		CHAR_DATA *fch, *fch_next;
+		RoomPrototype *old_room;
+		Object *portal;
+		Character *fch, *fch_next;
 		bool fighting = FALSE;
 		int dex, chance, topp = 0;
 		old_room = ch->in_room;
@@ -2916,7 +2916,7 @@ void do_enter(CHAR_DATA *ch, String argument)
 	stc("Nope, can't do it.\n", ch);
 }
 
-void do_land(CHAR_DATA *ch, String argument)
+void do_land(Character *ch, String argument)
 {
 	if (ch->in_room->sector_type == SECT_AIR) {
 		stc("There is nowhere to put your feet!\n", ch);
@@ -2942,7 +2942,7 @@ void do_land(CHAR_DATA *ch, String argument)
 	ch->start_pos = POS_STANDING; // preferred position after bash, rest, sleep, etc
 }
 
-void do_fly(CHAR_DATA *ch, String argument)
+void do_fly(Character *ch, String argument)
 {
 	if (IS_FLYING(ch)) {
 		stc("You are already flying!\n", ch);
@@ -2978,9 +2978,9 @@ if they are not married, are effected by curse or not standing,
 or in a non-teleport/recall area.
 -- Outsider
 */
-void do_spousegate(CHAR_DATA *ch, String argument)
+void do_spousegate(Character *ch, String argument)
 {
-	CHAR_DATA *victim;   /* the spouse in question */
+	Character *victim;   /* the spouse in question */
 	bool gate_pet = FALSE;   /* take pet with you */
 
 	if (IS_NPC(ch))

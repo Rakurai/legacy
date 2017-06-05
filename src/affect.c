@@ -1,20 +1,20 @@
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 
 // reusable callback functions
 
-int affect_fn_debug(AFFECT_DATA *node, void *data) {
+int affect_fn_debug(Affect *node, void *data) {
 	int *count = (int *)data;
-//	AFFECT_DATA *node = (AFFECT_DATA *)node;
+//	Affect *node = (Affect *)node;
 
 	(*count)++;
 	bugf("callback %d in affect %d", *count, node->type);
 	return 0;
 }
 
-int affect_fn_fade_spell(AFFECT_DATA *node, void *data) {
+int affect_fn_fade_spell(Affect *node, void *data) {
 	sh_int sn = 0;
 
 	if (data != NULL)
@@ -34,25 +34,25 @@ int affect_fn_fade_spell(AFFECT_DATA *node, void *data) {
 
 // comparators (remember equality returns 0, like strcmp)
 
-int affect_comparator_mark(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
+int affect_comparator_mark(const Affect *lhs, const Affect *rhs) {
 	return lhs->mark - rhs->mark;
 }
 
-int affect_comparator_duration(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
+int affect_comparator_duration(const Affect *lhs, const Affect *rhs) {
 	return lhs->duration - rhs->duration;
 }
 
-int affect_comparator_type(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
+int affect_comparator_type(const Affect *lhs, const Affect *rhs) {
 	return lhs->type - rhs->type;
 }
 
-int affect_comparator_permanent(const AFFECT_DATA *lhs, const AFFECT_DATA *rhs) {
+int affect_comparator_permanent(const Affect *lhs, const Affect *rhs) {
 	return (lhs->permanent == rhs->permanent) ? 0 : 1;
 }
 
 // affect utilities
 
-void affect_update(AFFECT_DATA *paf, const AFFECT_DATA *aff_template) {
+void affect_update(Affect *paf, const Affect *aff_template) {
 	paf->type = aff_template->type;
 	paf->where = aff_template->where;
 	paf->location = aff_template->location;
@@ -64,19 +64,19 @@ void affect_update(AFFECT_DATA *paf, const AFFECT_DATA *aff_template) {
 	paf->permanent = aff_template->permanent;
 }
 
-// calculate a checksum over the important parts of the AFFECT_DATA structure, for
+// calculate a checksum over the important parts of the Affect structure, for
 // determining whether a list of affects is different from another list.  This is
 // Bernstein's djb2 algorithm, from http://www.cse.yorku.ca/~oz/hash.html
-unsigned long affect_checksum(const AFFECT_DATA *paf) {
+unsigned long affect_checksum(const Affect *paf) {
 	const unsigned char *str = (const unsigned char *)paf;
 
 	// start checksum at data values
 	int start = 0           // 0-index
-	 + sizeof(AFFECT_DATA *) // next
-	 + sizeof(AFFECT_DATA *) // prev
+	 + sizeof(Affect *) // next
+	 + sizeof(Affect *) // prev
 	 + sizeof(bool)          // valid
 	 + sizeof(bool);         // mark
-	int end = sizeof(AFFECT_DATA);
+	int end = sizeof(Affect);
 
 	unsigned long hash = 5381;
 
@@ -87,14 +87,14 @@ unsigned long affect_checksum(const AFFECT_DATA *paf) {
 	return hash;
 }
 
-void affect_swap(AFFECT_DATA *a, AFFECT_DATA *b) {
+void affect_swap(Affect *a, Affect *b) {
 	if (a == NULL || b == NULL)
 		return;
 
 	// we could go through a complicated mechanism for swapping nodes in a double
 	// linked list, handling both the adjacent and non-adjacent cases, and being
 	// correct... or, screw it, swapping the data is easier. -- Montrey
-	AFFECT_DATA t;
+	Affect t;
 	t = *a; // copy, including pointers
 	*a = *b;
 	*b = t;
@@ -177,11 +177,11 @@ int affect_attr_location_check(int location) {
 }
 
 // perform the error checking in building affects from a prototype, including bits.
-// fills an AFFECT_DATA struct with one of the bits, removes the bit from
+// fills an Affect struct with one of the bits, removes the bit from
 // the vector.  return value indicates whether the struct is valid to insert.
 // assumes type, level, duration, evolution, location and modifier already filled,
 // but alters if appropriate
-bool affect_parse_flags(char letter, AFFECT_DATA *paf, unsigned int *bitvector) {
+bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 	switch (letter) {
 	case  0 : break; // use the where that is set
 	case 'O': paf->where = TO_OBJECT; break; // location and modifier already set

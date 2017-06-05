@@ -14,15 +14,15 @@
 #define WAR_FILE        "war.txt"
 #define EVENT_TMP       "eventtmp"
 
-WAR_DATA *get_same_war(CLAN_DATA *clanA, CLAN_DATA *clanB);
-void war_win(WAR_DATA *war, CHAR_DATA *ch);
-int get_war_index(WAR_DATA *war);
-void rec_event(WAR_DATA *war, int type, const String& astr, const String& bstr, int number);
+War *get_same_war(Clan *clanA, Clan *clanB);
+void war_win(War *war, Character *ch);
+int get_war_index(War *war);
+void rec_event(War *war, int type, const String& astr, const String& bstr, int number);
 
-struct war_data *war_table_head;
-struct war_data *war_table_tail;
+War *war_table_head;
+War *war_table_tail;
 
-void append_war(WAR_DATA *war)
+void append_war(War *war)
 {
 	war->previous           = war_table_tail->previous;
 	war->previous->next     = war;
@@ -34,8 +34,8 @@ void load_war_events()
 {
 	char strsave[MIL];
 	FILE *fp;
-	WAR_DATA *war;
-	EVENT_DATA *event, *n_event;
+	War *war;
+	War::Event *event, *n_event;
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
@@ -76,8 +76,8 @@ void save_war_events()
 {
 	char strsave[MIL];
 	FILE *fp;
-	EVENT_DATA *event;
-	WAR_DATA *war;
+	War::Event *event;
+	War *war;
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
@@ -110,7 +110,7 @@ void save_war_events()
 void load_war_table()
 {
 	FILE *fp;
-	WAR_DATA *war;
+	War *war;
 	int i, count = 0;
 	war_table_head = new_war();
 	war_table_tail = new_war();
@@ -154,7 +154,7 @@ void load_war_table()
 void save_war_table()
 {
 	FILE *fp;
-	WAR_DATA *war;
+	War *war;
 	int i;
 
 	if ((fp = fopen(WAR_DIR WAR_FILE, "w")) != NULL) {
@@ -190,9 +190,9 @@ void save_war_table()
 		bug("Could not open " WAR_FILE " for writing!", 0);
 }
 
-void fix_war(WAR_DATA *war)
+void fix_war(War *war)
 {
-	WAR_DATA *fixed_war = new_war();
+	War *fixed_war = new_war();
 	int i, c = 0, d = 0;
 
 	for (i = 0; i < 4; i++) {
@@ -225,7 +225,7 @@ void fix_war(WAR_DATA *war)
 	free_war(war);
 }
 
-bool clan_in_war(CLAN_DATA *clan, WAR_DATA *war, bool onlycurrent)
+bool clan_in_war(Clan *clan, War *war, bool onlycurrent)
 {
 	int i;
 
@@ -252,9 +252,9 @@ bool clan_in_war(CLAN_DATA *clan, WAR_DATA *war, bool onlycurrent)
 	return FALSE;
 }
 
-bool clan_at_war(CLAN_DATA *clan)
+bool clan_at_war(Clan *clan)
 {
-	WAR_DATA *war;
+	War *war;
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
@@ -268,7 +268,7 @@ bool clan_at_war(CLAN_DATA *clan)
 	return FALSE;
 }
 
-bool clan_is_challenger(CLAN_DATA *clan, WAR_DATA *war)
+bool clan_is_challenger(Clan *clan, War *war)
 {
 	int i;
 
@@ -283,9 +283,9 @@ bool clan_is_challenger(CLAN_DATA *clan, WAR_DATA *war)
 	return FALSE;
 }
 
-bool clan_opponents(CLAN_DATA *clanA, CLAN_DATA *clanB)
+bool clan_opponents(Clan *clanA, Clan *clanB)
 {
-	WAR_DATA *war = NULL;
+	War *war = NULL;
 
 	if ((war = get_same_war(clanA, clanB)))
 		if (clan_is_challenger(clanA, war) != clan_is_challenger(clanB, war))
@@ -294,7 +294,7 @@ bool clan_opponents(CLAN_DATA *clanA, CLAN_DATA *clanB)
 	return FALSE;
 }
 
-bool char_at_war(CHAR_DATA *ch)
+bool char_at_war(Character *ch)
 {
 	if (IS_NPC(ch))
 		return FALSE;
@@ -308,7 +308,7 @@ bool char_at_war(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool char_opponents(CHAR_DATA *charA, CHAR_DATA *charB)
+bool char_opponents(Character *charA, Character *charB)
 {
 	/* checks npc, clan, clan at war */
 	if (!char_at_war(charA) || !char_at_war(charB))
@@ -320,7 +320,7 @@ bool char_opponents(CHAR_DATA *charA, CHAR_DATA *charB)
 	return FALSE;
 }
 
-bool war_is_full(WAR_DATA *war, bool challenger)
+bool war_is_full(War *war, bool challenger)
 {
 	int i;
 
@@ -338,9 +338,9 @@ bool war_is_full(WAR_DATA *war, bool challenger)
 	return TRUE;
 }
 
-int get_war_index(WAR_DATA *war)
+int get_war_index(War *war)
 {
-	WAR_DATA *iWar;
+	War *iWar;
 	int count = 1;
 	iWar = war_table_head->next;
 
@@ -355,9 +355,9 @@ int get_war_index(WAR_DATA *war)
 	return -1;
 }
 
-WAR_DATA *war_lookup(int number)
+War *war_lookup(int number)
 {
-	WAR_DATA *war;
+	War *war;
 	int count = 1;
 	war = war_table_head->next;
 
@@ -372,9 +372,9 @@ WAR_DATA *war_lookup(int number)
 	return NULL;
 }
 
-WAR_DATA *get_war(CLAN_DATA *clan)
+War *get_war(Clan *clan)
 {
-	WAR_DATA *war;
+	War *war;
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
@@ -387,9 +387,9 @@ WAR_DATA *get_war(CLAN_DATA *clan)
 	return NULL;
 }
 
-WAR_DATA *get_same_war(CLAN_DATA *clanA, CLAN_DATA *clanB)
+War *get_same_war(Clan *clanA, Clan *clanB)
 {
-	WAR_DATA *war;
+	War *war;
 	war = war_table_head->next;
 
 	if (clanA == clanB)
@@ -407,7 +407,7 @@ WAR_DATA *get_same_war(CLAN_DATA *clanA, CLAN_DATA *clanB)
 	return NULL;
 }
 
-void defeat_clan(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim)
+void defeat_clan(War *war, Character *ch, Character *victim)
 {
 	bool chal = FALSE, def = FALSE;
 	int i;
@@ -444,12 +444,12 @@ void defeat_clan(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim)
 	war_win(war, ch);
 }
 
-void war_power_adjust(CLAN_DATA *vclan, bool surrender)
+void war_power_adjust(Clan *vclan, bool surrender)
 {
 	char buf[MSL];
-	CLAN_DATA *tclan;
-	WAR_DATA *war;
-	EVENT_DATA *event;
+	Clan *tclan;
+	War *war;
+	War::Event *event;
 	int i = 0, x = 0, dealt = 0, loss, highest, listcount = 0, award, numpower, cp = 0, qploss, qpaward;
 	bool found;
 	struct conq {
@@ -534,8 +534,8 @@ void war_power_adjust(CLAN_DATA *vclan, bool surrender)
 	cp -= loss;
 
 	if (!cp) {
-		DESCRIPTOR_DATA *d;
-		CHAR_DATA *victim;
+		Descriptor *d;
+		Character *victim;
 
 		for (war = war_table_head->next; war != war_table_tail; war = war->next)
 			if (war->ongoing && clan_in_war(vclan, war, TRUE))
@@ -624,9 +624,9 @@ void war_power_adjust(CLAN_DATA *vclan, bool surrender)
 	}
 }
 
-void war_score_adjust(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim, int amount)
+void war_score_adjust(War *war, Character *ch, Character *victim, int amount)
 {
-	WAR_DATA *iter;
+	War *iter;
 	char buf[MSL];
 	victim->clan->score -= amount;
 	rec_event(war, EVENT_ADJUST_SCORE, ch->clan->clanname, victim->clan->clanname, amount);
@@ -652,9 +652,9 @@ void war_score_adjust(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim, int amoun
 	save_war_table();
 }
 
-void war_kill(CHAR_DATA *ch, CHAR_DATA *victim)
+void war_kill(Character *ch, Character *victim)
 {
-	WAR_DATA *war;
+	War *war;
 	int points = 3;
 	/* already verified that they're in clans, at war on opposite sides */
 	war = get_same_war(ch->clan, victim->clan);
@@ -668,9 +668,9 @@ void war_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	war_score_adjust(war, ch, victim, points);
 }
 
-void rec_event(WAR_DATA *war, int type, const String& astr, const String& bstr, int number)
+void rec_event(War *war, int type, const String& astr, const String& bstr, int number)
 {
-	EVENT_DATA *event, *n_event;
+	War::Event *event, *n_event;
 	n_event = new_event();
 	n_event->type   = type;
 
@@ -693,9 +693,9 @@ void rec_event(WAR_DATA *war, int type, const String& astr, const String& bstr, 
 	save_war_events();
 }
 
-WAR_DATA *war_start(CLAN_DATA *chal, CLAN_DATA *def)
+War *war_start(Clan *chal, Clan *def)
 {
-	WAR_DATA *war = new_war();
+	War *war = new_war();
 
 	if (chal->score <= 0)
 		chal->score = calc_cp(chal, TRUE);
@@ -719,10 +719,10 @@ WAR_DATA *war_start(CLAN_DATA *chal, CLAN_DATA *def)
 	return war;
 }
 
-void war_stop(WAR_DATA *war)
+void war_stop(War *war)
 {
 	int i;
-	CLAN_DATA *clan;
+	Clan *clan;
 	war->ongoing = FALSE;
 
 	for (i = 0; i < 4; i++) {
@@ -748,13 +748,13 @@ void war_stop(WAR_DATA *war)
 	}
 }
 
-void war_win(WAR_DATA *war, CHAR_DATA *ch)
+void war_win(War *war, Character *ch)
 {
 	rec_event(war, EVENT_WAR_STOP_WIN, "", "", clan_is_challenger(ch->clan, war));
 	war_stop(war);
 }
 
-void war_join(CLAN_DATA *clan, WAR_DATA *war, bool challenger)
+void war_join(Clan *clan, War *war, bool challenger)
 {
 	int i;
 
@@ -788,7 +788,7 @@ void war_join(CLAN_DATA *clan, WAR_DATA *war, bool challenger)
 	}
 }
 
-void war_unjoin(CLAN_DATA *clan, WAR_DATA *war, bool remove)
+void war_unjoin(Clan *clan, War *war, bool remove)
 {
 	int i;
 
@@ -827,9 +827,9 @@ void war_unjoin(CLAN_DATA *clan, WAR_DATA *war, bool remove)
 		clan->score = 0;
 }
 
-void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
+void format_war_list(Character *ch, War *war, bool current)
 {
-	CLAN_DATA *clan;
+	Clan *clan;
 	char chblock[MSL], defblock[MSL], buf[MSL], *vsblock;
 	int i, x, chcount = 0, defcount = 0, c = 0, d = 0, chlead, deflead, lines;
 	String output;
@@ -943,11 +943,11 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 	page_to_char(output, ch);
 }
 
-void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
+void format_war_events(Character *ch, War *war)
 {
 	char buf[MSL];
 	String output;
-	EVENT_DATA *event;
+	War::Event *event;
 	format_war_list(ch, war, war->ongoing);
 
 	for (event = war->events; event != NULL; event = event->next) {
@@ -1025,11 +1025,11 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 }
 
 /* all-encompassing war command */
-void do_war(CHAR_DATA *ch, String argument)
+void do_war(Character *ch, String argument)
 {
 	char buf[MSL];
-	CLAN_DATA *clanA, *clanB;
-	WAR_DATA *war = NULL;
+	Clan *clanA, *clanB;
+	War *war = NULL;
 	int count = 0, number = 0;
 	bool challenger = FALSE;
 
@@ -1389,7 +1389,7 @@ void do_war(CHAR_DATA *ch, String argument)
 
 	/*** RELOAD ***/
 	if (!str_cmp(arg1, "reload") && IS_IMP(ch)) {
-		WAR_DATA *war_next;
+		War *war_next;
 		war = war_table_head;
 
 		while (war != NULL) {
@@ -1406,7 +1406,7 @@ void do_war(CHAR_DATA *ch, String argument)
 
 	/*      if (!str_cmp(arg1, "kill") && IS_IMMORTAL(ch))
 	        {
-	                CHAR_DATA *winner, *loser;
+	                Character *winner, *loser;
 
 	                if (arg2.empty() || arg3.empty())
 	                {

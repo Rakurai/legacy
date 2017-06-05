@@ -31,12 +31,12 @@
 #include "tables.h"
 #include "magic.h"
 #include "gem.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 /* RT set replaces sset, mset, oset, rset and cset */
 
-void do_set(CHAR_DATA *ch, String argument)
+void do_set(Character *ch, String argument)
 {
 	String arg;
 	argument = one_argument(argument, arg);
@@ -107,10 +107,10 @@ void do_set(CHAR_DATA *ch, String argument)
 	do_set(ch, "");
 }
 
-void do_sset(CHAR_DATA *ch, String argument)
+void do_sset(Character *ch, String argument)
 {
 	char buf[1024];
-	CHAR_DATA *victim;
+	Character *victim;
 	int value;
 	int sn;
 	bool fAll;
@@ -186,10 +186,10 @@ void do_sset(CHAR_DATA *ch, String argument)
 	stc(buf, ch);
 } /* end do_sset() */
 
-void do_evoset(CHAR_DATA *ch, String argument)
+void do_evoset(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 	int value, sn;
 
 	String arg1, arg2, arg3;
@@ -216,7 +216,7 @@ void do_evoset(CHAR_DATA *ch, String argument)
 	}
 
 	if (arg2.empty()) {
-		extern int can_evolve args((CHAR_DATA * ch, int sn));
+		extern int can_evolve args((Character * ch, int sn));
 		String buffer;
 		int x, can;
 		buffer += "They have the following skills and spells evolved:\n\n";
@@ -283,13 +283,13 @@ void do_evoset(CHAR_DATA *ch, String argument)
 	    skill_table[sn].spell_fun != spell_null ? "spell" : "skill", value);
 } /* end do_evoset() */
 
-void do_raffset(CHAR_DATA *ch, String argument)
+void do_raffset(Character *ch, String argument)
 {
-	extern void fix_blank_raff(CHAR_DATA * ch, int start);
-	extern void roll_one_raff(CHAR_DATA * ch, CHAR_DATA * victim, int place);
-	extern void roll_raffects(CHAR_DATA * ch, CHAR_DATA * victim);
-	extern void rem_raff_affect(CHAR_DATA * ch, int index);
-	CHAR_DATA *victim;
+	extern void fix_blank_raff(Character * ch, int start);
+	extern void roll_one_raff(Character * ch, Character * victim, int place);
+	extern void roll_raffects(Character * ch, Character * victim);
+	extern void rem_raff_affect(Character * ch, int index);
+	Character *victim;
 	int i, index;
 
 	String arg1, arg2;
@@ -445,12 +445,12 @@ void do_raffset(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_extraset(CHAR_DATA *ch, String argument)
+void do_extraset(Character *ch, String argument)
 {
-	extern void fix_blank_extraclass(CHAR_DATA * ch, int index);
+	extern void fix_blank_extraclass(Character * ch, int index);
 	char buf[MAX_STRING_LENGTH];
 	String output;
-	CHAR_DATA *victim;
+	Character *victim;
 	int sn, x, i, gn, cn, col = 0;
 
 	String arg1, arg2;
@@ -617,9 +617,9 @@ void do_extraset(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_mset(CHAR_DATA *ch, String argument)
+void do_mset(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int value;
 
 	String arg1, arg2, arg3, buf;
@@ -820,7 +820,7 @@ void do_mset(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(arg2, "hunt")) {
-		CHAR_DATA *hunted = 0;
+		Character *hunted = 0;
 
 		if (!IS_NPC(victim)) {
 			stc("You can't make a player hunt!\n", ch);
@@ -1238,10 +1238,10 @@ void do_mset(CHAR_DATA *ch, String argument)
 	do_mset(ch, "");
 }
 
-void do_oset(CHAR_DATA *ch, String argument)
+void do_oset(Character *ch, String argument)
 {
 	char buf[1024];
-	OBJ_DATA *obj;
+	Object *obj;
 	int value;
 
 	String arg1, arg2, arg3;
@@ -1387,10 +1387,10 @@ void do_oset(CHAR_DATA *ch, String argument)
 	do_oset(ch, "");
 } /* end do_oset() */
 
-void do_rset(CHAR_DATA *ch, String argument)
+void do_rset(Character *ch, String argument)
 {
 	char buf [MAX_STRING_LENGTH];
-	ROOM_INDEX_DATA *location;
+	RoomPrototype *location;
 	int value;
 
 	String arg1, arg2, arg3;
@@ -1450,7 +1450,7 @@ void do_rset(CHAR_DATA *ch, String argument)
 } /* end do_rset() */
 
 /***** STAT COMMANDS *****/
-void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
+void format_mstat(Character *ch, Character *victim)
 {
 	if (IS_NPC(victim))
 		ptc(ch, "Vnum: %d  Group: %d  Count: %d  Killed: %d\n",
@@ -1606,7 +1606,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		stc(buf, ch);
 	}
 
-	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+	for (const Affect *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
 		if (paf->permanent)
 			continue;
 
@@ -1636,7 +1636,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 }
 
-void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
+void format_ostat(Character *ch, Object *obj)
 {
 	ptc(ch, "{CVnum: %d   Level: %d\n", obj->pIndexData->vnum, obj->level);
 	ptc(ch, "{CName(s):{x %s{x\n", obj->name);
@@ -1644,7 +1644,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	    obj->short_descr, obj->description);
 
 	if (obj->extra_descr != NULL || obj->pIndexData->extra_descr != NULL) {
-		EXTRA_DESCR_DATA *ed;
+		ExtraDescr *ed;
 		stc("Extra description keywords: '", ch);
 
 		for (ed = obj->extra_descr; ed != NULL; ed = ed->next) {
@@ -1777,7 +1777,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		break;
 	}
 
-	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+	for (const Affect *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
 			paf->where, paf->type, paf->level, paf->duration, paf->location,
 			paf->modifier, paf->evolution, paf->bitvector, affect_checksum(paf));
@@ -1788,23 +1788,23 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		ptc(ch, "Has %d settings.\n", obj->num_settings);
 	}
 
-	for (OBJ_DATA *gem = obj->gems; gem; gem = gem->next_content)
+	for (Object *gem = obj->gems; gem; gem = gem->next_content)
 		ptc(ch, "Has a gem %s of type %d with quality %d.\n",
 				gem->short_descr, gem->value[0], gem->value[1]);
 	if (obj->gems) {
 		stc("Gems are adding:", ch);
 
-		for (const AFFECT_DATA *paf = obj->gem_affected; paf != NULL; paf = paf->next)
+		for (const Affect *paf = obj->gem_affected; paf != NULL; paf = paf->next)
 			show_affect_to_char(paf, ch);
 	}
 
 }
 
-void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
+void format_rstat(Character *ch, RoomPrototype *location)
 {
 	String buf;
-	OBJ_DATA *obj;
-	CHAR_DATA *rch;
+	Object *obj;
+	Character *rch;
 	int door;
 	ptc(ch, "{W[%d] {gName: {P%s {W(%s){x\n", location->vnum, location->name, location->area->name);
 	ptc(ch, "{YSector: %d\tLight: %d\tHealing: %d\tMana: %d{x\n",
@@ -1819,7 +1819,7 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 	ptc(ch, "{BDescription:{x\n%s\n", location->description);
 
 	if (location->extra_descr != NULL) {
-		EXTRA_DESCR_DATA *ed;
+		ExtraDescr *ed;
 		stc("{BExtra description keywords: '{x", ch);
 
 		for (ed = location->extra_descr; ed; ed = ed->next)
@@ -1849,7 +1849,7 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 	}
 
 	for (door = 0; door <= 5; door++) {
-		EXIT_DATA *pexit;
+		Exit *pexit;
 
 		if ((pexit = location->exit[door]) != NULL) {
 			ptc(ch, "{WDoor: %d -> %d{c (Key: %d) Exit flags: %d. Keyword: '%s'{x\n",
@@ -1861,7 +1861,7 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 		}
 	}
 
-	for (const AFFECT_DATA *paf = affect_list_room(location); paf != NULL; paf = paf->next)
+	for (const Affect *paf = affect_list_room(location); paf != NULL; paf = paf->next)
 		ptc(ch, "{bAffect: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
 		    skill_table[(int) paf->type].name,
 		    affect_loc_name(paf->location),
@@ -1873,11 +1873,11 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 }
 
 /* main stat function */
-void do_stat(CHAR_DATA *ch, String argument)
+void do_stat(Character *ch, String argument)
 {
-	ROOM_INDEX_DATA *room;
-	OBJ_DATA *obj;
-	CHAR_DATA *vch;
+	RoomPrototype *room;
+	Object *obj;
+	Character *vch;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -1977,9 +1977,9 @@ void do_stat(CHAR_DATA *ch, String argument)
 }
 
 /* new player stat -- Elrac */
-void do_pstat(CHAR_DATA *ch, String argument)
+void do_pstat(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int xpl, xnl; /* experience per/next level */
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {

@@ -30,20 +30,17 @@
 #include "tables.h"
 #include "vt100.h" /* VT100 Stuff */
 #include "sql.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "memory.h"
 #include "Format.hpp"
 
-extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
-extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
-extern void     slog_file    args((CHAR_DATA *ch, char *file, char *str));
+extern void     goto_line    args((Character *ch, int row, int column));
+extern void     set_window   args((Character *ch, int top, int bottom));
+extern void     slog_file    args((Character *ch, char *file, char *str));
 
 char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 
 /* Disabled Commands Stuff */
-bool    check_disabled(const struct cmd_type *command);
-DISABLED_DATA *disabled_first;
-#define END_MARKER      "END" /* for load_disabled() and save_disabled() */
 
 /*
  * Command logging types.
@@ -528,7 +525,7 @@ const   struct  cmd_type        cmd_table       [] = {
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret(CHAR_DATA *ch, String argument)
+void interpret(Character *ch, String argument)
 {
 	int cmd;
 	bool found;
@@ -712,10 +709,10 @@ void interpret(CHAR_DATA *ch, String argument)
 	return;
 }
 
-bool check_social(CHAR_DATA *ch, const String& command, const String& argument)
+bool check_social(Character *ch, const String& command, const String& argument)
 {
-	CHAR_DATA *victim;
-	struct social_type *iterator;
+	Character *victim;
+	Social *iterator;
 	bool found;
 	found  = FALSE;
 
@@ -835,7 +832,7 @@ bool is_number(const char *arg)
 /*
  * Contributed by Alander, modified by Lotus
  */
-void do_commands(CHAR_DATA *ch, String argument)
+void do_commands(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cmd;
@@ -929,7 +926,7 @@ void do_commands(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_huh(CHAR_DATA *ch)
+void do_huh(Character *ch)
 {
 	char   *const   message        [] = {
 		"Huh?\n",
@@ -949,7 +946,7 @@ void do_huh(CHAR_DATA *ch)
 	return;
 }
 
-void do_wizhelp(CHAR_DATA *ch, String argument)
+void do_wizhelp(Character *ch, String argument)
 {
 	int cmd, col, i;
 
@@ -993,7 +990,7 @@ void do_wizhelp(CHAR_DATA *ch, String argument)
 		REMOVE_BIT(ch->pcdata->cgroup, GROUP_DEPUTY);
 }
 
-void slog_file(CHAR_DATA *ch, char *file, char *str)
+void slog_file(Character *ch, char *file, char *str)
 {
 	FILE *fp;
 
@@ -1010,131 +1007,4 @@ void slog_file(CHAR_DATA *ch, char *file, char *str)
 	}
 
 	return;
-}
-
-/* Check if that command is disabled
-   Note that we check for equivalence of the do_fun pointers; this means
-   that disabling 'chat' will also disable the '.' command
-*/
-bool check_disabled(const struct cmd_type *command)
-{
-	DISABLED_DATA *p;
-
-	for (p = disabled_first; p ; p = p->next)
-		if (p->command->do_fun == command->do_fun)
-			return TRUE;
-
-	return FALSE;
-}
-
-void load_disabled()
-{
-	DISABLED_DATA *p;
-	int i;
-	disabled_first = NULL;
-
-	if (db_query("load_disabled", "SELECT command, immortal, reason FROM disabled") != SQL_OK)
-		return;
-
-	while (db_next_row() == SQL_OK) {
-		for (i = 0; cmd_table[i].name[0]; i++)
-			if (!str_cmp(cmd_table[i].name, db_get_column_str(0)))
-				break;
-
-		if (!cmd_table[i].name[0]) {
-			bug("load_disabled: skipping uknown command", 0);
-			continue;
-		}
-
-		p = new DISABLED_DATA;
-		p->command = &cmd_table[i];
-		p->disabled_by = db_get_column_str(1);
-		p->reason = db_get_column_str(2);
-		p->next = disabled_first;
-		disabled_first = p;
-	}
-}
-
-void do_disable(CHAR_DATA *ch, String argument)
-{
-	DISABLED_DATA *p;
-	int i;
-
-	String cmd;
-	argument = one_argument(argument, cmd);
-
-	if (cmd[0] == '\0') {
-		if (!disabled_first) { /* Any disabled at all ? */
-			stc("There are no commands disabled.\n", ch);
-			return;
-		}
-
-		stc("Command             {T|{xDisabled by    {T|{xReason\n"
-		    "{T--------------------|---------------|-----------------------------------------------{x\n", ch);
-
-		for (p = disabled_first; p; p = p->next)
-			ptc(ch, "%-20s{T|{x%-15s{T|{x%s\n", p->command->name, p->disabled_by, p->reason);
-
-		return;
-	}
-
-	/* First check if it is one of the disabled commands */
-	for (p = disabled_first; p ; p = p->next)
-		if (!str_cmp(cmd, p->command->name))
-			break;
-
-	if (p) { /* found the command, enable it */
-		if (disabled_first == p)
-			disabled_first = p->next;
-		else {
-			DISABLED_DATA *q;
-
-			for (q = disabled_first; q && q->next; q = q->next)
-				if (q->next == p)
-					q->next = p->next;
-		}
-
-		/* remove it from the database */
-		db_commandf("do_disable", "DELETE FROM disabled WHERE command LIKE '%s'", db_esc(p->command->name));
-		delete p;
-		stc("Command enabled.\n", ch);
-		return;
-	}
-
-	/* IQ test */
-	if (!str_cmp(cmd, "disable")) {
-		stc("You cannot disable the disable command.\n", ch);
-		return;
-	}
-
-	if (argument.empty()) {
-		stc("You must provide a reason.\n", ch);
-		return;
-	}
-
-	if (strlen(argument) > 45) {
-		stc("Please limit the reason to 45 characters or less.\n", ch);
-		return;
-	}
-
-	for (i = 0; cmd_table[i].name[0] != '\0'; i++)
-		if (!str_cmp(cmd_table[i].name, cmd))
-			break;
-
-	if (cmd_table[i].name[0] == '\0') {
-		stc("No such command.\n", ch);
-		return;
-	}
-
-	/* maybe a command group check here? thinking about it */
-	p = new DISABLED_DATA;
-	p->command      = &cmd_table[i];
-	p->disabled_by  = ch->name;
-	p->reason       = argument;
-	p->next = disabled_first;
-	disabled_first = p;
-	/* add it to the database */
-	db_commandf("do_disable", "INSERT INTO disabled VALUES('%s','%s','%s')",
-	            db_esc(p->command->name), db_esc(p->disabled_by), db_esc(p->reason));
-	stc("Command disabled.\n", ch);
 }

@@ -30,14 +30,14 @@
 #include "recycle.h"
 #include "Format.hpp"
 
-extern AREA_DATA *area_first;
+extern Area *area_first;
 
-void do_flag(CHAR_DATA *ch, String argument)
+void do_flag(Character *ch, String argument)
 {
 	char what[MIL];
-	CHAR_DATA *victim = NULL;
-	OBJ_DATA *object;
-	ROOM_INDEX_DATA *room;
+	Character *victim = NULL;
+	Object *object;
+	RoomPrototype *room;
 	unsigned long *flag;
 	int old = 0, nw = 0, marked = 0, pos, fieldptr, length;
 	char type;
@@ -151,7 +151,7 @@ void do_flag(CHAR_DATA *ch, String argument)
 			switch (fieldptr) {
 			case FIELD_PLAYER:      flag = &victim->act;            break;
 
-			case FIELD_PCDATA:      flag = &victim->pcdata->plr;    break;
+			case FIELD_Player:      flag = &victim->pcdata->plr;    break;
 
 			case FIELD_WIZNET:      flag = &victim->wiznet;         break;
 
@@ -326,7 +326,7 @@ void do_flag(CHAR_DATA *ch, String argument)
 	*flag = nw;
 }
 
-void do_typelist(CHAR_DATA *ch, String argument)
+void do_typelist(Character *ch, String argument)
 {
 	int x;
 
@@ -358,7 +358,7 @@ char *flag_to_alpha(long flag)
 	return NULL;
 }
 
-void do_flaglist(CHAR_DATA *ch, String argument)
+void do_flaglist(Character *ch, String argument)
 {
 	int x;
 	const struct flag_type *flag_table;
@@ -395,12 +395,12 @@ void do_flaglist(CHAR_DATA *ch, String argument)
 
 /*** FLAG SEARCHING ***/
 
-int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
+int fsearch_player(Character *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
 	String output;
-	CHAR_DATA *victim;
-	PC_DATA *vpc;
+	Character *victim;
+	Player *vpc;
 	int count = 0;
 	long flag;
 	output += "{VCount {YRoom{x\n";
@@ -417,7 +417,7 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 		switch (fieldptr) {
 		case FIELD_PLAYER:      flag = victim->act;             break;
 
-		case FIELD_PCDATA:      flag = victim->pcdata->plr;     break;
+		case FIELD_Player:      flag = victim->pcdata->plr;     break;
 
 		case FIELD_WIZNET:      flag = victim->wiznet;          break;
 
@@ -451,11 +451,11 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 	return count;
 }
 
-int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
+int fsearch_mobile(Character *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
 	String output;
-	CHAR_DATA *victim;
+	Character *victim;
 	int count = 0;
 	long flag;
 	output += "{VCount  {YRoom   {GMob{x\n";
@@ -506,7 +506,7 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 	return count;
 }
 
-void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool player)
+void fsearch_char(Character *ch, int fieldptr, long marked, bool mobile, bool player)
 {
 	char buf[MSL];
 	String output;
@@ -544,12 +544,12 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 	page_to_char(output, ch);
 }
 
-void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
+void fsearch_room(Character *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
 	String output;
-	AREA_DATA *area;
-	ROOM_INDEX_DATA *room;
+	Area *area;
+	RoomPrototype *room;
 	int count = 0, vnum;
 	long flag;
 	output += "{VCount {GVnum{x\n";
@@ -593,11 +593,11 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 
 }
 
-void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
+void fsearch_obj(Character *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
 	String output;
-	OBJ_DATA *obj, *in_obj;
+	Object *obj, *in_obj;
 	int count = 1;
 	long flag;
 	output += "{VCount {YRoom  {GObject{x\n";
@@ -691,7 +691,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 
 }
 
-void do_flagsearch(CHAR_DATA *ch, String argument)
+void do_flagsearch(Character *ch, String argument)
 {
 	int fieldptr, length;
 	long marked = 0, pos;
@@ -792,7 +792,7 @@ void do_flagsearch(CHAR_DATA *ch, String argument)
 
 		switch (fieldptr) {
 		case FIELD_PLAYER:
-		case FIELD_PCDATA:
+		case FIELD_Player:
 		case FIELD_CGROUP:
 		case FIELD_WIZNET:      mobile = FALSE;         break;
 

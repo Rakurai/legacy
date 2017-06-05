@@ -19,20 +19,20 @@
 #include "recycle.h"
 #include "memory.h"
 #include "sql.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 extern  time_t  reboot_time;
 extern  int     top_exit;
 
 /* externals for counting purposes */
-extern  OBJ_DATA        *obj_free;
-extern  CHAR_DATA       *char_free;
-extern  DESCRIPTOR_DATA *descriptor_free;
-extern  PC_DATA         *pcdata_free;
-extern  AFFECT_DATA     *affect_free;
+extern  Object        *obj_free;
+extern  Character       *char_free;
+extern  Descriptor *descriptor_free;
+extern  Player         *pcdata_free;
+extern  Affect     *affect_free;
 
-void do_autoboot(CHAR_DATA *ch, String argument)
+void do_autoboot(Character *ch, String argument)
 {
 	char buf[MSL];
 	int reboottime, hours = 0, minutes = 0;
@@ -101,7 +101,7 @@ char *fgetf(char *s, int n, register FILE *iop)
 }
 
 /* integrated shell */
-void do_pipe(CHAR_DATA *ch, String argument)
+void do_pipe(Character *ch, String argument)
 {
 	char buf[5000];
 	FILE *fp;
@@ -112,7 +112,7 @@ void do_pipe(CHAR_DATA *ch, String argument)
 	return;
 }
 /*
-void do_mypipe(CHAR_DATA *ch, String argument)
+void do_mypipe(Character *ch, String argument)
 {
 	char divline[MSL], line[MSL];
 	MYSQL_RES *result;
@@ -206,16 +206,16 @@ void do_mypipe(CHAR_DATA *ch, String argument)
 	mysql_free_result(result);
 }
 */
-void do_reboo(CHAR_DATA *ch, String argument)
+void do_reboo(Character *ch, String argument)
 {
 	stc("{NTo REBOOT, you must spell the entire word.{x\n", ch);
 }
 
-void do_reboot(CHAR_DATA *ch, String argument)
+void do_reboot(Character *ch, String argument)
 {
 	char buf[MSL];
 	extern bool merc_down;
-	DESCRIPTOR_DATA *d, *d_next;
+	Descriptor *d, *d_next;
 
 	if (argument.empty()) {
 		stc("You must provide a reason for a reboot.\n", ch);
@@ -236,17 +236,17 @@ void do_reboot(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_shutdow(CHAR_DATA *ch, String argument)
+void do_shutdow(Character *ch, String argument)
 {
 	stc("{NTo SHUTDOWN, you must spell the entire word.{x\n", ch);
 }
 
-void do_shutdown(CHAR_DATA *ch, String argument)
+void do_shutdown(Character *ch, String argument)
 {
 	char buf[MSL], buf2[MSL];
 	char *strtime;
 	extern bool merc_down;
-	DESCRIPTOR_DATA *d, *d_next;
+	Descriptor *d, *d_next;
 
 	if (port == DIZZYPORT && !IS_IMP(ch)) {
 		stc("You must be an implementor to shutdown Legacy.\n", ch);
@@ -279,7 +279,7 @@ void do_shutdown(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_slookup(CHAR_DATA *ch, String argument)
+void do_slookup(Character *ch, String argument)
 {
 	int sn;
 
@@ -314,9 +314,9 @@ void do_slookup(CHAR_DATA *ch, String argument)
 	    skill_table[sn].name);
 }
 
-void do_advance(CHAR_DATA *ch, String argument)
+void do_advance(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	int level, iLevel;
 
 	String arg1, arg2;
@@ -392,7 +392,7 @@ void do_advance(CHAR_DATA *ch, String argument)
 	save_char_obj(victim);
 }
 
-void do_wizlock(CHAR_DATA *ch, String argument)
+void do_wizlock(Character *ch, String argument)
 {
 	extern bool wizlock;
 	wizlock = !wizlock;
@@ -407,7 +407,7 @@ void do_wizlock(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_relevel(CHAR_DATA *ch, String argument)
+void do_relevel(Character *ch, String argument)
 {
 	if (IS_NPC(ch) || !IS_SPECIAL(ch)) {
 		do_huh(ch);
@@ -423,9 +423,9 @@ void do_relevel(CHAR_DATA *ch, String argument)
 	stc("Done.\n", ch);
 }
 
-void do_addexit(CHAR_DATA *ch, String argument)
+void do_addexit(Character *ch, String argument)
 {
-	EXIT_DATA *exit;
+	Exit *exit;
 	int dir;
 
 	if (ch->in_room == NULL)
@@ -462,7 +462,7 @@ void do_addexit(CHAR_DATA *ch, String argument)
 		return;
 	}
 
-	exit = new EXIT_DATA;
+	exit = new Exit;
 	exit->exit_info                 = 0;
 	exit->key                       = -1;
 	exit->u1.vnum                   = atoi(arg1);
@@ -473,7 +473,7 @@ void do_addexit(CHAR_DATA *ch, String argument)
 	stc("Exit added.\n", ch);
 }
 
-void do_remexit(CHAR_DATA *ch, String argument)
+void do_remexit(Character *ch, String argument)
 {
 	int dir;
 
@@ -513,7 +513,7 @@ void do_remexit(CHAR_DATA *ch, String argument)
 	stc("Exit removed.\n", ch);
 }
 
-void do_sectchange(CHAR_DATA *ch, String argument)
+void do_sectchange(Character *ch, String argument)
 {
 	int sect;
 
@@ -548,7 +548,7 @@ void do_sectchange(CHAR_DATA *ch, String argument)
 	stc("Sector type changed.\n", ch);
 }
 
-void do_memory(CHAR_DATA *ch, String argument)
+void do_memory(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	Format::sprintf(buf, "Affects %5d\n", top_affect);
@@ -580,17 +580,17 @@ void do_memory(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_dump(CHAR_DATA *ch, String argument)
+void do_dump(Character *ch, String argument)
 {
-	int count, count2, num_pcs, aff_count;
-	CHAR_DATA *fch;
-	MOB_INDEX_DATA *pMobIndex;
-	PC_DATA *pc;
-	OBJ_DATA *obj;
-	OBJ_INDEX_DATA *pObjIndex;
-	ROOM_INDEX_DATA *room;
-	EXIT_DATA *exit;
-	DESCRIPTOR_DATA *d;
+	int count, num_pcs, aff_count;
+	Character *fch;
+	MobilePrototype *pMobIndex;
+	Player *pc;
+	Object *obj;
+	ObjectPrototype *pObjIndex;
+	RoomPrototype *room;
+	Exit *exit;
+	Descriptor *d;
 	FILE *fp;
 	int vnum, nMatch = 0;
 	/* open file */
@@ -602,7 +602,7 @@ void do_dump(CHAR_DATA *ch, String argument)
 	Format::fprintf(fp, "MobProt %4d (%8ld bytes)\n",
 	        top_mob_index, top_mob_index * (sizeof(*pMobIndex)));
 	/* mobs */
-	count = 0;  count2 = 0;
+	count = 0;
 
 	for (fch = char_list; fch != NULL; fch = fch->next) {
 		count++;
@@ -610,39 +610,29 @@ void do_dump(CHAR_DATA *ch, String argument)
 		if (fch->pcdata != NULL)
 			num_pcs++;
 
-		for (const AFFECT_DATA *af = affect_list_char(fch); af != NULL; af = af->next)
+		for (const Affect *af = affect_list_char(fch); af != NULL; af = af->next)
 			aff_count++;
 	}
 
-	for (fch = char_free; fch != NULL; fch = fch->next)
-		count2++;
-
-	Format::fprintf(fp, "Mobs    %4d (%8ld bytes), %2d free (%ld bytes)\n",
-	        count, count * (sizeof(*fch)), count2, count2 * (sizeof(*fch)));
+	Format::fprintf(fp, "Mobs    %4d (%8ld bytes)\n",
+	        count, count * (sizeof(*fch)));
 	/* pcdata */
-	count = 0;
 
-	for (pc = pcdata_free; pc != NULL; pc = pc->next)
-		count++;
-
-	Format::fprintf(fp, "Pcdata  %4d (%8ld bytes), %2d free (%ld bytes)\n",
-	        num_pcs, num_pcs * (sizeof(*pc)), count, count * (sizeof(*pc)));
+	Format::fprintf(fp, "Pcdata  %4d (%8ld bytes)\n",
+	        num_pcs, num_pcs * (sizeof(*pc)));
 	/* descriptors */
-	count = 0; count2 = 0;
+	count = 0;
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		count++;
 
-	for (d = descriptor_free; d != NULL; d = d->next)
-		count2++;
-
-	Format::fprintf(fp, "Descs  %4d (%8ld bytes), %2d free (%ld bytes)\n",
-	        count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
+	Format::fprintf(fp, "Descs  %4d (%8ld bytes)\n",
+	        count, count * (sizeof(*d)));
 
 	/* object prototypes */
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
 		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
-			for (const AFFECT_DATA *af = pObjIndex->affected; af != NULL; af = af->next)
+			for (const Affect *af = pObjIndex->affected; af != NULL; af = af->next)
 				aff_count++;
 
 			nMatch++;
@@ -651,28 +641,20 @@ void do_dump(CHAR_DATA *ch, String argument)
 	Format::fprintf(fp, "ObjProt %4d (%8ld bytes)\n",
 	        top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
 	/* objects */
-	count = 0;  count2 = 0;
+	count = 0;
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		count++;
 
-		for (const AFFECT_DATA *af = affect_list_obj(obj); af != NULL; af = af->next)
+		for (const Affect *af = affect_list_obj(obj); af != NULL; af = af->next)
 			aff_count++;
 	}
 
-	for (obj = obj_free; obj != NULL; obj = obj->next)
-		count2++;
-
-	Format::fprintf(fp, "Objs    %4d (%8ld bytes), %2d free (%ld bytes)\n",
-	        count, count * (sizeof(*obj)), count2, count2 * (sizeof(*obj)));
+	Format::fprintf(fp, "Objs    %4d (%8ld bytes)\n",
+	        count, count * (sizeof(*obj)));
 	/* affects */
-	count = 0;
-
-	for (const AFFECT_DATA *af = affect_free; af != NULL; af = af->next)
-		count++;
-
-	Format::fprintf(fp, "Affects %4d (%8ld bytes), %2d free (%ld bytes)\n",
-	        aff_count, aff_count * (sizeof(AFFECT_DATA)), count, count * (sizeof(AFFECT_DATA)));
+	Format::fprintf(fp, "Affects %4d (%8ld bytes)\n",
+	        aff_count, aff_count * (sizeof(Affect)));
 	/* rooms */
 	Format::fprintf(fp, "Rooms   %4d (%8ld bytes)\n",
 	        top_room, top_room * (sizeof(*room)));

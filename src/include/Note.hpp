@@ -11,18 +11,18 @@
 class Note
 {
 public:
-    Note() : next(nullptr) {}
+    Note() {}
     virtual ~Note() {}
 
-    Note      * next;
-    bool        valid;
-    int         type;
+    Note      * next = NULL;
+    bool        valid = FALSE;
+    int         type = 0;
     String      sender;
     String      date;
     String      to_list;
     String      subject;
     String      text;
-    time_t      date_stamp;
+    time_t      date_stamp = 0;
 
 private:
     Note(const Note&);

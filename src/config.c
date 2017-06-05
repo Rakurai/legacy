@@ -30,7 +30,7 @@
 #include "Format.hpp"
 
 /* TEMPLATE
-void config_wiznet(CHAR_DATA *ch, const char *argument)
+void config_wiznet(Character *ch, const char *argument)
 {
         char arg1[MIL];
         int argnum = 0;
@@ -61,7 +61,7 @@ void config_wiznet(CHAR_DATA *ch, const char *argument)
         stc("That is not a valid censor option.\n", ch);
 }*/
 
-void config_color_func(CHAR_DATA *ch, String argument, int type)
+void config_color_func(Character *ch, String argument, int type)
 {
 	char typestr[20];
 	int low, high, mod, slot, i;
@@ -148,7 +148,7 @@ void config_color_func(CHAR_DATA *ch, String argument, int type)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void config_color(CHAR_DATA *ch, String argument)
+void config_color(Character *ch, String argument)
 {
 	int argnum = 0;
 
@@ -261,7 +261,7 @@ void config_color(CHAR_DATA *ch, String argument)
 	stc("That is not a valid color option.\n", ch);
 }
 
-void config_video(CHAR_DATA *ch, String argument)
+void config_video(Character *ch, String argument)
 {
 	int argnum = 0;
 
@@ -400,7 +400,7 @@ void config_video(CHAR_DATA *ch, String argument)
 	stc("That is not a valid video option.\n", ch);
 }
 
-void config_censor(CHAR_DATA *ch, String argument)
+void config_censor(Character *ch, String argument)
 {
 	int argnum = 0;
 
@@ -500,7 +500,7 @@ void config_censor(CHAR_DATA *ch, String argument)
 	stc("That is not a valid censor option.\n", ch);
 }
 
-void config_immortal(CHAR_DATA *ch, String argument)
+void config_immortal(Character *ch, String argument)
 {
 	int argnum = 0;
 
@@ -589,7 +589,7 @@ void config_immortal(CHAR_DATA *ch, String argument)
 	stc("That is not a valid immortal configuration option.\n", ch);
 }
 
-void config_wiznet(CHAR_DATA *ch, String argument)
+void config_wiznet(Character *ch, String argument)
 {
 	int argnum = -1;
 	int flag;
@@ -692,7 +692,7 @@ void config_wiznet(CHAR_DATA *ch, String argument)
 		stc("Valid options are {Phelp{x and no argument (toggle).\n", ch);
 }
 
-void do_config(CHAR_DATA *ch, String argument)
+void do_config(Character *ch, String argument)
 {
 	int argnum = 0;
 
@@ -747,7 +747,7 @@ void do_config(CHAR_DATA *ch, String argument)
  Replaced configuration commands, left for oldbies
  *****/
 
-void do_color(CHAR_DATA *ch, String argument)
+void do_color(Character *ch, String argument)
 {
 	char buf[MIL];
 
@@ -764,7 +764,7 @@ void do_color(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_video(CHAR_DATA *ch, String argument)
+void do_video(Character *ch, String argument)
 {
 	char buf[MIL];
 
@@ -777,14 +777,14 @@ void do_video(CHAR_DATA *ch, String argument)
 	do_config(ch, buf);
 }
 
-void do_censor(CHAR_DATA *ch, String argument)
+void do_censor(Character *ch, String argument)
 {
 	char buf[MIL];
 	Format::sprintf(buf, "censor %s", argument);
 	do_config(ch, buf);
 }
 
-void do_wiznet(CHAR_DATA *ch, String argument)
+void do_wiznet(Character *ch, String argument)
 {
 	char buf[MIL];
 

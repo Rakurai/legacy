@@ -14,7 +14,7 @@
 #include "interp.h"
 #include "tables.h"
 #include "recycle.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 /* Object vnums for object quest 'tokens' */
@@ -51,7 +51,7 @@ void quest_init(void)
 
 /* Usage info on the QUEST commands -- Elrac */
 /* Keep this in line with the do_quest function's keywords */
-void quest_usage(CHAR_DATA *ch)
+void quest_usage(Character *ch)
 {
 	set_color(ch, YELLOW, BOLD);
 	stc("QUEST commands: REQUEST INFO TIME COMPLETE FORFEIT POINTS JOIN.\n", ch);
@@ -63,10 +63,10 @@ void quest_usage(CHAR_DATA *ch)
 	set_color(ch, WHITE, NOBOLD);
 } /* end quest_usage */
 
-void sq_cleanup(CHAR_DATA *ch)
+void sq_cleanup(Character *ch)
 {
-	CHAR_DATA *mob;
-	OBJ_DATA *obj;
+	Character *mob;
+	Object *obj;
 	REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 	ch->pcdata->squest_giver = 0;
 	ch->pcdata->sqcountdown = 0;
@@ -105,9 +105,9 @@ bool quest_level_diff(int clevel, int mlevel)
 /* Checks for a character in the room with spec_questmaster set. This special
    procedure must be defined in special.c. You could instead use an
    ACT_QUESTMASTER flag instead of a special procedure. */
-CHAR_DATA *find_questmaster(CHAR_DATA *ch)
+Character *find_questmaster(Character *ch)
 {
-	CHAR_DATA *questman;
+	Character *questman;
 
 	for (questman = ch->in_room->people; questman != NULL; questman = questman->next_in_room) {
 		if (!IS_NPC(questman))
@@ -133,9 +133,9 @@ CHAR_DATA *find_questmaster(CHAR_DATA *ch)
 	return questman;
 } /* end find_questmaster */
 
-CHAR_DATA *find_squestmaster(CHAR_DATA *ch)
+Character *find_squestmaster(Character *ch)
 {
-	CHAR_DATA *questman;
+	Character *questman;
 
 	for (questman = ch->in_room->people; questman != NULL; questman = questman->next_in_room) {
 		if (!IS_NPC(questman))
@@ -162,9 +162,9 @@ CHAR_DATA *find_squestmaster(CHAR_DATA *ch)
 } /* end find_squestmaster */
 
 /* Obtain additional location information about sought item/mob */
-void quest_where(CHAR_DATA *ch, char *what)
+void quest_where(Character *ch, char *what)
 {
-	ROOM_INDEX_DATA *room;
+	RoomPrototype *room;
 
 	if (ch->questloc <= 0) {
 		bug("QUEST INFO: ch->questloc = %d", ch->questloc);
@@ -196,10 +196,10 @@ void quest_where(CHAR_DATA *ch, char *what)
 	ptc(ch, "near %s.\n", room->name);
 } /* end quest_where */
 
-void squest_info(CHAR_DATA *ch)
+void squest_info(Character *ch)
 {
-	MOB_INDEX_DATA *questman;
-	ROOM_INDEX_DATA *questroom_obj, *questroom_mob;
+	MobilePrototype *questman;
+	RoomPrototype *questroom_obj, *questroom_mob;
 
 	if (!IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
 		stc("You aren't currently on a skill quest.\n", ch);
@@ -216,7 +216,7 @@ void squest_info(CHAR_DATA *ch)
 	questman = get_mob_index(ch->pcdata->squest_giver);
 
 	if (questman == NULL) {
-		bug("QUEST INFO: skill quest giver %d has no MOB_INDEX_DATA!", ch->quest_giver);
+		bug("QUEST INFO: skill quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmistress has fallen very ill. Please contact an imm!\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 		return;
@@ -344,10 +344,10 @@ void squest_info(CHAR_DATA *ch)
 	}
 }
 
-void quest_info(CHAR_DATA *ch)
+void quest_info(Character *ch)
 {
-	MOB_INDEX_DATA *questman, *questinfo;
-	OBJ_INDEX_DATA *questinfoobj;
+	MobilePrototype *questman, *questinfo;
+	ObjectPrototype *questinfoobj;
 
 	if (!IS_SET(ch->act, PLR_QUESTOR)) {
 		stc("You aren't currently on a quest.\n", ch);
@@ -364,7 +364,7 @@ void quest_info(CHAR_DATA *ch)
 	questman = get_mob_index(ch->quest_giver);
 
 	if (questman == NULL) {
-		bug("QUEST INFO: quest giver %d has no MOB_INDEX_DATA!", ch->quest_giver);
+		bug("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmaster has fallen very ill. Please contact an imm!\n", ch);
 		REMOVE_BIT(ch->act, PLR_QUESTOR);
 		return;
@@ -414,7 +414,7 @@ void quest_info(CHAR_DATA *ch)
 	return;
 }
 
-int get_random_skill(CHAR_DATA *ch)
+int get_random_skill(Character *ch)
 {
 	int count;
 	int sn = 0;
@@ -460,7 +460,7 @@ int get_random_skill(CHAR_DATA *ch)
 	return sn;
 }
 
-void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
+void squestobj_to_squestmob(Character *ch, Object *obj, Character *mob)
 {
 	char buf[MAX_STRING_LENGTH];
 	check_social(mob, "beam", ch->name.c_str());
@@ -477,7 +477,7 @@ void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
 	ch->pcdata->squestmobf = TRUE;
 }
 
-void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
+void squestmob_found(Character *ch, Character *mob)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -576,10 +576,10 @@ void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
 	ch->pcdata->squestmobf = TRUE;
 }
 
-OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
+Object *generate_skillquest_obj(Character *ch, int level)
 {
-	EXTRA_DESCR_DATA *ed;
-	OBJ_DATA *questobj;
+	ExtraDescr *ed;
+	Object *questobj;
 	char buf[MAX_STRING_LENGTH];
 	int num_objs, descnum;
 	struct sq_item_type {
@@ -642,9 +642,9 @@ OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
 	return questobj;
 }
 
-ROOM_INDEX_DATA *generate_skillquest_room(CHAR_DATA *ch, int level)
+RoomPrototype *generate_skillquest_room(Character *ch, int level)
 {
-	ROOM_INDEX_DATA *room, *prev;
+	RoomPrototype *room, *prev;
 
 	for (; ;) {
 		room = get_room_index(number_range(0, 32767));
@@ -683,11 +683,11 @@ ROOM_INDEX_DATA *generate_skillquest_room(CHAR_DATA *ch, int level)
 	}
 }
 
-void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int type)
+void generate_skillquest_mob(Character *ch, Character *questman, int level, int type)
 {
-	OBJ_DATA  *questobj;
-	CHAR_DATA *questmob;
-	ROOM_INDEX_DATA *questroom;
+	Object  *questobj;
+	Character *questmob;
+	RoomPrototype *questroom;
 	int x, maxnoun;
 	char buf[MAX_STRING_LENGTH];
 	char longdesc[MAX_STRING_LENGTH];
@@ -814,10 +814,10 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 	}
 }
 
-void generate_skillquest(CHAR_DATA *ch, CHAR_DATA *questman)
+void generate_skillquest(Character *ch, Character *questman)
 {
-	OBJ_DATA *questobj;
-	ROOM_INDEX_DATA *questroom;
+	Object *questobj;
+	RoomPrototype *questroom;
 	char buf[MAX_STRING_LENGTH];
 
 	int level = URANGE(1, ch->level, LEVEL_HERO);
@@ -861,11 +861,11 @@ void generate_skillquest(CHAR_DATA *ch, CHAR_DATA *questman)
 	}
 }
 
-void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
+void generate_quest(Character *ch, Character *questman)
 {
-	CHAR_DATA *victim;
-	ROOM_INDEX_DATA *room;
-	OBJ_DATA *questitem;
+	Character *victim;
+	RoomPrototype *room;
+	Object *questitem;
 	char buf [MAX_STRING_LENGTH];
 	/*  Randomly selects a mob from the world mob list. If you don't
 	want a mob to be selected, make sure it is immune to summon.
@@ -1046,9 +1046,9 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 } /* end generate_quest() */
 
 /* The main quest function */
-void do_quest(CHAR_DATA *ch, String argument)
+void do_quest(Character *ch, String argument)
 {
-	CHAR_DATA *questman;
+	Character *questman;
 	char buf [MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
@@ -1072,8 +1072,8 @@ void do_quest(CHAR_DATA *ch, String argument)
 	/*** AWARD ***/
 	if (IS_IMP(ch) && !str_prefix1(arg1, "award")) {
 		int number = -1;
-		CHAR_DATA *wch;
-		DESCRIPTOR_DATA *d;
+		Character *wch;
+		Descriptor *d;
 
 		String player;
 		argument = one_argument(argument, player);
@@ -1124,7 +1124,7 @@ void do_quest(CHAR_DATA *ch, String argument)
 
 	/*** COMPLETE ***/
 	if (!str_prefix1(arg1, "complete")) {
-		OBJ_DATA *obj = NULL;
+		Object *obj = NULL;
 		int pointreward = 0;
 		int reward = 0;
 		int pracreward = 0;
@@ -1387,8 +1387,8 @@ void do_quest(CHAR_DATA *ch, String argument)
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "close")) {
 		int num_in_area;
 		int num_to_oust = 0;
-		CHAR_DATA *victim;
-		ROOM_INDEX_DATA *temple;
+		Character *victim;
+		RoomPrototype *temple;
 
 		if (!quest_open) {
 			stc("The quest area is not currently open.\n", ch);
@@ -1438,7 +1438,7 @@ void do_quest(CHAR_DATA *ch, String argument)
 
 	/*** DEDUCT ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "deduct")) {
-		CHAR_DATA *victim;
+		Character *victim;
 		int qpoint;
 
 		String arg;
@@ -1590,13 +1590,13 @@ void do_quest(CHAR_DATA *ch, String argument)
 		char qblock[MAX_STRING_LENGTH], sqblock[MAX_STRING_LENGTH], mblock[MAX_STRING_LENGTH],
 		     oblock[MAX_STRING_LENGTH], lblock[MAX_STRING_LENGTH];
 		String output;
-		DESCRIPTOR_DATA *d;
+		Descriptor *d;
 		stc("                            {YQuest                         {GSkill Quest{x\n", ch);
 		stc("Name           Mobile Object Loctn   Time  QP   --- MobLoc ObjLoc  Time  SP\n", ch);
 		stc("-----------------------------------------------------------------------------\n", ch);
 
 		for (d = descriptor_list; d != NULL; d = d->next) {
-			CHAR_DATA *wch;
+			Character *wch;
 
 			if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
 				continue;
@@ -1735,8 +1735,8 @@ void do_quest(CHAR_DATA *ch, String argument)
 
 	/*** PK ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "pk")) {
-		CHAR_DATA *salesgnome;
-		ROOM_INDEX_DATA *to_room;
+		Character *salesgnome;
+		RoomPrototype *to_room;
 		salesgnome = get_mob_world(ch, "salesgnome", VIS_CHAR);
 
 		if (salesgnome == NULL)

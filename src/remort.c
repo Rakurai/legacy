@@ -30,7 +30,7 @@
 #include "tables.h"
 #include "recycle.h"
 #include "magic.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 /*****
@@ -52,7 +52,7 @@ int raff_lookup(int index)
 	return 0;
 }
 
-void fix_blank_raff(CHAR_DATA *ch, int start)
+void fix_blank_raff(Character *ch, int start)
 {
 	/* hunts through a remort's raffects, takes out zeroes except at the end */
 	/* start is the starting point, most cases use 0 */
@@ -76,7 +76,7 @@ void fix_blank_raff(CHAR_DATA *ch, int start)
 	}
 }
 
-void rem_raff_affect(CHAR_DATA *ch, int index)
+void rem_raff_affect(Character *ch, int index)
 {
 	if (raffects[index].add) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
@@ -88,7 +88,7 @@ void rem_raff_affect(CHAR_DATA *ch, int index)
 	return;
 }
 
-bool HAS_RAFF(CHAR_DATA *ch, int flag)
+bool HAS_RAFF(Character *ch, int flag)
 {
 	int i;
 
@@ -106,7 +106,7 @@ bool HAS_RAFF(CHAR_DATA *ch, int flag)
 	return FALSE;
 }
 
-bool HAS_RAFF_GROUP(CHAR_DATA *ch, int flag)
+bool HAS_RAFF_GROUP(Character *ch, int flag)
 {
 	int i;
 
@@ -121,7 +121,7 @@ bool HAS_RAFF_GROUP(CHAR_DATA *ch, int flag)
 	return FALSE;
 }
 
-void raff_add_to_char(CHAR_DATA *ch, int raff_id) {
+void raff_add_to_char(Character *ch, int raff_id) {
 	int index;
 
 	for (index = 1; index < MAX_RAFFECTS; index++)
@@ -141,7 +141,7 @@ void raff_add_to_char(CHAR_DATA *ch, int raff_id) {
 	}
 }
 
-void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
+void roll_one_raff(Character *ch, Character *victim, int place)
 {
 	int test;
 	bool can_add = FALSE;
@@ -193,7 +193,7 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 	ptc(victim, "{C--- {W%s.{x\n", raffects[test].description);
 }
 
-void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)
+void roll_raffects(Character *ch, Character *victim)
 {
 	/* not putting a lot of condition checking in this because it's only used in set and remort, we'll
 	   assume that the ch and victim are pcs, ch is an imm, victim is a remort */
@@ -207,7 +207,7 @@ void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)
  Extraclass Stuff
  *****/
 
-bool HAS_EXTRACLASS(CHAR_DATA *ch, int sn)
+bool HAS_EXTRACLASS(Character *ch, int sn)
 {
 	int i;
 
@@ -225,7 +225,7 @@ bool HAS_EXTRACLASS(CHAR_DATA *ch, int sn)
 	return FALSE;
 }
 
-bool CAN_USE_RSKILL(CHAR_DATA *ch, int sn)
+bool CAN_USE_RSKILL(Character *ch, int sn)
 {
 	if (IS_NPC(ch)) {
 		if (skill_table[sn].spell_fun == spell_null)
@@ -249,7 +249,7 @@ bool CAN_USE_RSKILL(CHAR_DATA *ch, int sn)
 	return TRUE;
 }
 
-void list_extraskill(CHAR_DATA *ch)
+void list_extraskill(Character *ch)
 {
 	String output;
 	int sn, cn, col;
@@ -290,7 +290,7 @@ void list_extraskill(CHAR_DATA *ch)
 	page_to_char(output, ch);
 }
 
-void do_eremort(CHAR_DATA *ch, String argument)
+void do_eremort(Character *ch, String argument)
 {
 	String output;
 	int x, sn = 0;
@@ -398,9 +398,9 @@ void do_eremort(CHAR_DATA *ch, String argument)
 
 /* Remort Code by Lotus */
 /* Redone by Endo and Montrey */
-void do_remort(CHAR_DATA *ch, String argument)
+void do_remort(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MSL];
 	int race, x, c;
 

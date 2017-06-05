@@ -1,9 +1,9 @@
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "affect_list.h"
 #include "recycle.h"
 
-void affect_remove_from_list(AFFECT_DATA **list_head, AFFECT_DATA *paf) {
+void affect_remove_from_list(Affect **list_head, Affect *paf) {
 	if (*list_head == paf)
 		*list_head = paf->next;
 
@@ -16,7 +16,7 @@ void affect_remove_from_list(AFFECT_DATA **list_head, AFFECT_DATA *paf) {
 	paf->prev = NULL;
 }
 
-void affect_insert_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf) {
+void affect_insert_in_list(Affect **list_head, Affect *paf) {
 	if (*list_head) {
 		if ((*list_head)->prev) {
 			(*list_head)->prev->next = paf;
@@ -30,9 +30,9 @@ void affect_insert_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf) {
 	*list_head = paf;
 }
 
-void affect_copy_to_list(AFFECT_DATA **list_head, const AFFECT_DATA *aff_template)
+void affect_copy_to_list(Affect **list_head, const Affect *aff_template)
 {
-	AFFECT_DATA *paf_new = new_affect();
+	Affect *paf_new = new_affect();
 	*paf_new            = *aff_template;
 	paf_new->next = NULL;
 	paf_new->prev = NULL;
@@ -40,9 +40,9 @@ void affect_copy_to_list(AFFECT_DATA **list_head, const AFFECT_DATA *aff_templat
 }
 
 // remove all affects in list with same type and where, accumulating effects into paf for re-adding
-void affect_dedup_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf, affect_fn_params *params)
+void affect_dedup_in_list(Affect **list_head, Affect *paf, affect_fn_params *params)
 {
-	AFFECT_DATA *paf_old, *paf_next;
+	Affect *paf_old, *paf_next;
 
 	for (paf_old = *list_head; paf_old != NULL; paf_old = paf_next) {
 		paf_next = paf_old->next;
@@ -67,7 +67,7 @@ void affect_dedup_in_list(AFFECT_DATA **list_head, AFFECT_DATA *paf, affect_fn_p
 	}
 }
 
-void affect_clear_list(AFFECT_DATA **list_head) {
+void affect_clear_list(Affect **list_head) {
 	if (*list_head == NULL)
 		return;
 
@@ -76,16 +76,16 @@ void affect_clear_list(AFFECT_DATA **list_head) {
 	*list_head = NULL;
 }
 
-const AFFECT_DATA *affect_find_in_list(AFFECT_DATA **list_head, int sn) {
-	for (const AFFECT_DATA *paf = *list_head; paf; paf = paf->next)
+const Affect *affect_find_in_list(Affect **list_head, int sn) {
+	for (const Affect *paf = *list_head; paf; paf = paf->next)
 		if (paf->type == sn)
 			return paf;
 
 	return NULL;
 }
 
-void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator comp, const AFFECT_DATA *pattern, affect_fn_params *params) {
-	AFFECT_DATA *paf, *paf_next;
+void affect_remove_matching_from_list(Affect **list_head, affect_comparator comp, const Affect *pattern, affect_fn_params *params) {
+	Affect *paf, *paf_next;
 
 	for (paf = *list_head; paf; paf = paf_next) {
 		paf_next = paf->next;
@@ -103,8 +103,8 @@ void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator
 	}
 }
 
-void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_params *params) {
-	for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
+void affect_iterate_over_list(Affect **list_head, affect_fn fn, affect_fn_params *params) {
+	for (Affect *paf = *list_head; paf; paf = paf->next) {
 		// unlink the item from the list to call the modifier function
 		if (paf->prev) paf->prev->next = paf->next;
 		if (paf->next) paf->next->prev = paf->prev;
@@ -119,19 +119,19 @@ void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_p
 	}
 }
 
-unsigned long affect_checksum_list(AFFECT_DATA **list_head) {
+unsigned long affect_checksum_list(Affect **list_head) {
 	unsigned long sum = 0;
 
 	// this checksum is intentionally insensitive to order: a->b->c == a->c->b because of
 	// the overflow property of unsigned integers, in that they behave as modulo.  therefore,
 	// the unsigned property of the checksum is critical.
-	for (const AFFECT_DATA *paf = *list_head; paf; paf = paf->next)
+	for (const Affect *paf = *list_head; paf != NULL; paf = paf->next)
 		sum += affect_checksum(paf);
 
 	return sum;
 }
 
-void affect_sort_list(AFFECT_DATA **list_head, affect_comparator comp) {
+void affect_sort_list(Affect **list_head, affect_comparator comp) {
 	bool sorted = FALSE;
 
 	while (!sorted) {
@@ -140,7 +140,7 @@ void affect_sort_list(AFFECT_DATA **list_head, affect_comparator comp) {
 		// go through the list, looking for unsorted items
 		// TODO: there's a more efficient way to do this, we don't have to start at the beginning
 		// with each iteration.  However, more important things to do right now, fix it later.
-		for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
+		for (Affect *paf = *list_head; paf; paf = paf->next) {
 			if (paf->next == NULL)
 				break;
 

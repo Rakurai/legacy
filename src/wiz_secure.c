@@ -22,15 +22,15 @@
 #include "memory.h"
 #include "Format.hpp"
 
-void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
+void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
 
-void do_fod(CHAR_DATA *ch, String argument)
+void do_fod(Character *ch, String argument)
 {
 	char buf[MSL];
-	CHAR_DATA *victim = NULL;
+	Character *victim = NULL;
 	char *msg = "In the distance you hear the thundering roar of a Finger Of Death!";
-	ROOM_INDEX_DATA *ch_room, *victim_room;
-	OBJ_DATA *on;
+	RoomPrototype *ch_room, *victim_room;
+	Object *on;
 
 	if (argument.empty()) {
 		global_act(ch, msg, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
@@ -85,11 +85,11 @@ void do_fod(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_force(CHAR_DATA *ch, String argument)
+void do_force(Character *ch, String argument)
 {
 	char buf[MSL];
-	PC_DATA *vpc, *vpc_next;
-	CHAR_DATA *victim;
+	Player *vpc, *vpc_next;
+	Character *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -204,10 +204,10 @@ void do_force(CHAR_DATA *ch, String argument)
 	stc("You succeed.\n", ch);
 }
 
-void do_freeze(CHAR_DATA *ch, String argument)
+void do_freeze(Character *ch, String argument)
 {
 	char buf[MSL];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -248,10 +248,10 @@ void do_freeze(CHAR_DATA *ch, String argument)
 	save_char_obj(victim);
 }
 
-void do_fry(CHAR_DATA *ch, String argument)
+void do_fry(Character *ch, String argument)
 {
 	char strsave[MIL];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg;
 	one_argument(argument, arg);
@@ -284,10 +284,10 @@ void do_fry(CHAR_DATA *ch, String argument)
 	unlink(strsave);
 }
 
-void do_locker(CHAR_DATA *ch, String argument)
+void do_locker(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -346,10 +346,10 @@ void do_locker(CHAR_DATA *ch, String argument)
 	    "  locker <player> <get|put> <object>\n", ch);
 }
 
-void do_strongbox(CHAR_DATA *ch, String argument)
+void do_strongbox(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
+	Character *victim;
+	Object *obj;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -412,9 +412,9 @@ void do_strongbox(CHAR_DATA *ch, String argument)
 	    "  strongbox <player> <get|put> <object>\n", ch);
 }
 
-void do_log(CHAR_DATA *ch, String argument)
+void do_log(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -445,7 +445,7 @@ void do_log(CHAR_DATA *ch, String argument)
 	ptc(ch, "LOG %s.\n", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
 }
 
-void do_newlock(CHAR_DATA *ch, String argument)
+void do_newlock(Character *ch, String argument)
 {
 	extern bool newlock;
 	newlock = !newlock;
@@ -460,10 +460,10 @@ void do_newlock(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_newpasswd(CHAR_DATA *ch, String argument)
+void do_newpasswd(Character *ch, String argument)
 {
 	char buf[MSL];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -496,9 +496,9 @@ void do_newpasswd(CHAR_DATA *ch, String argument)
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
 }
 
-void do_pardon(CHAR_DATA *ch, String argument)
+void do_pardon(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -544,9 +544,9 @@ void do_pardon(CHAR_DATA *ch, String argument)
 		    "  pardon <player> <killer|thief>\n", ch);
 }
 
-void do_protect(CHAR_DATA *ch, String argument)
+void do_protect(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -569,10 +569,10 @@ void do_protect(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_revoke(CHAR_DATA *ch, String argument)
+void do_revoke(Character *ch, String argument)
 {
 	char buf1[MSL], buf2[MSL];
-	CHAR_DATA *victim;
+	Character *victim;
 	int i;
 
 	String arg1, arg2;
@@ -632,10 +632,10 @@ void do_revoke(CHAR_DATA *ch, String argument)
 }
 
 /* like snoop, but better -- Elrac */
-int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
+int set_tail(Character *ch, Character *victim, int tail_flag)
 {
-	CHAR_DATA *wch;
-	TAIL_DATA *td;
+	Character *wch;
+	Tail *td;
 
 	/* if global untail, try specific untail on all chars having tail data */
 	if (victim == NULL) {
@@ -657,7 +657,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 
 		/* if none, build and link a new tail data item */
 		if (!td) {
-			td = new TAIL_DATA;
+			td = new Tail;
 			td->tailed_by = ch;
 			td->tailer_name = ch->name;
 			td->flags = 0;
@@ -705,10 +705,10 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 	return 0;
 }
 
-void do_tail(CHAR_DATA *ch, String argument)
+void do_tail(Character *ch, String argument)
 {
 	char buf[MSL];
-	CHAR_DATA *victim = NULL;
+	Character *victim = NULL;
 
 	if (IS_NPC(ch)) {
 		stc("Please return to your body before tailing.\n", ch);
@@ -765,11 +765,11 @@ void do_tail(CHAR_DATA *ch, String argument)
 		do_tail(ch, "");
 }
 
-void do_snoop(CHAR_DATA *ch, String argument)
+void do_snoop(Character *ch, String argument)
 {
 	char buf[MSL];
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
+	Descriptor *d;
+	Character *victim;
 
 	String arg;
 	one_argument(argument, arg);
@@ -842,7 +842,7 @@ void do_snoop(CHAR_DATA *ch, String argument)
 	stc("You now view the world through the players eyes.\n", ch);
 }
 
-void do_ban(CHAR_DATA *ch, String argument)
+void do_ban(Character *ch, String argument)
 {
 	int flags = 0;
 
@@ -938,7 +938,7 @@ void do_ban(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_allow(CHAR_DATA *ch, String argument)
+void do_allow(Character *ch, String argument)
 {
 	int wildflags = 0;
 
@@ -976,7 +976,7 @@ void do_allow(CHAR_DATA *ch, String argument)
 		stc("That site is not banned.\n", ch);
 }
 
-void do_permit(CHAR_DATA *ch, String argument)
+void do_permit(Character *ch, String argument)
 {
 	int wildflags = 0;
 	bool found = FALSE;
@@ -992,7 +992,7 @@ void do_permit(CHAR_DATA *ch, String argument)
 	}
 
 	if (!str_cmp(arg, "player")) {
-		CHAR_DATA *plr;
+		Character *plr;
 
 		if ((plr = get_player_world(ch, arg, VIS_PLR)) == NULL) {
 			stc("They are not playing or loaded.\n", ch);
@@ -1059,9 +1059,9 @@ void do_permit(CHAR_DATA *ch, String argument)
 		stc("That site is not banned.\n", ch);
 }
 
-void do_deny(CHAR_DATA *ch, String argument)
+void do_deny(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (argument.empty()) {
 		String output;
@@ -1129,7 +1129,7 @@ void do_deny(CHAR_DATA *ch, String argument)
 	}
 }
 
-void do_undeny(CHAR_DATA *ch, String argument)
+void do_undeny(Character *ch, String argument)
 {
 	String arg;
 	one_argument(argument, arg);

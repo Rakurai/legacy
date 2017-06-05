@@ -28,12 +28,12 @@
 #include "merc.h"
 #include "magic.h"
 
-void do_heal(CHAR_DATA *ch, String argument)
+void do_heal(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *words;
-	CHAR_DATA *mob;
-	CHAR_DATA *rch;
+	Character *mob;
+	Character *rch;
 	SPELL_FUN *spell;
 	int cost, sn;
 

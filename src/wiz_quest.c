@@ -16,12 +16,12 @@
 #include "merc.h"
 #include "interp.h"
 #include "recycle.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
-void do_addapply(CHAR_DATA *ch, String argument)
+void do_addapply(Character *ch, String argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int affect_modify = 1, enchant_type, duration = -1;
 
 	String arg1, arg2, arg3, arg4;
@@ -88,7 +88,7 @@ void do_addapply(CHAR_DATA *ch, String argument)
 
 	stc("Ok.\n", ch);
 
-	AFFECT_DATA af = (AFFECT_DATA){0};
+	Affect af;
 	af.where      = TO_OBJECT;
 	af.type       = 0;
 	af.level      = ch->level;
@@ -101,11 +101,11 @@ void do_addapply(CHAR_DATA *ch, String argument)
 }
 
 /* Morph Command by Lotus */
-void do_morph(CHAR_DATA *ch, String argument)
+void do_morph(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
-	CHAR_DATA *morph;
-	CHAR_DATA *mobile;
+	Character *victim;
+	Character *morph;
+	Character *mobile;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -161,12 +161,12 @@ void do_morph(CHAR_DATA *ch, String argument)
 	stc("Successful Morph!\n", ch);
 }
 
-void do_rppaward(CHAR_DATA *ch, String argument)
+void do_rppaward(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	char buf[MAX_STRING_LENGTH];
 	String output;
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	int rppoint;
 
 	if (argument.empty()) {
@@ -246,9 +246,9 @@ void do_rppaward(CHAR_DATA *ch, String argument)
 	stc("Use 'deduct' or 'award'.\n", ch);
 }
 
-ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
+RoomPrototype *get_scatter_room(Character *ch)
 {
-	ROOM_INDEX_DATA *room;
+	RoomPrototype *room;
 
 	for (; ;) {
 		room = get_room_index(number_range(0, 32767));
@@ -283,10 +283,10 @@ ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 }
 
 /* scatter all items in a room -- Montrey */
-void do_scatter(CHAR_DATA *ch, String argument)
+void do_scatter(Character *ch, String argument)
 {
-	OBJ_DATA *obj, *obj_next;
-	ROOM_INDEX_DATA *room;
+	Object *obj, *obj_next;
+	RoomPrototype *room;
 	bool scattered = FALSE;
 
 	if (ch->in_room == NULL)
@@ -310,12 +310,12 @@ void do_scatter(CHAR_DATA *ch, String argument)
 		stc("Done.\n", ch);
 }
 
-void do_string(CHAR_DATA *ch, String argument)
+void do_string(Character *ch, String argument)
 {
 	String buf;
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
-	ROOM_INDEX_DATA *room;
+	Character *victim;
+	Object *obj;
+	RoomPrototype *room;
 
 	String type, arg1, arg2, arg3;
 	argument = one_argument(argument, type);
@@ -493,7 +493,7 @@ void do_string(CHAR_DATA *ch, String argument)
 		}
 
 		if (!str_cmp(arg2, "ed") || !str_prefix1(arg2, "extended")) {
-			EXTRA_DESCR_DATA *ed;
+			ExtraDescr *ed;
 			argument = one_argument(argument, arg3);
 
 			if (argument == NULL) {
@@ -502,8 +502,8 @@ void do_string(CHAR_DATA *ch, String argument)
 			}
 
 			if (obj->extra_descr != NULL) {
-				EXTRA_DESCR_DATA *ed_next;
-				EXTRA_DESCR_DATA *ed_prev = NULL;
+				ExtraDescr *ed_next;
+				ExtraDescr *ed_prev = NULL;
 
 				for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 					ed_next = ed->next;
@@ -537,7 +537,7 @@ void do_string(CHAR_DATA *ch, String argument)
 		}
 
 		if (!str_prefix1(arg2, "more")) {
-			EXTRA_DESCR_DATA *ed;
+			ExtraDescr *ed;
 			buf.erase();
 			argument = one_argument(argument, arg3);
 
@@ -547,8 +547,8 @@ void do_string(CHAR_DATA *ch, String argument)
 			}
 
 			if (obj->extra_descr != NULL) {
-				EXTRA_DESCR_DATA *ed_next;
-				EXTRA_DESCR_DATA *ed_prev = NULL;
+				ExtraDescr *ed_next;
+				ExtraDescr *ed_prev = NULL;
 
 				for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 					ed_next = ed->next;
@@ -601,10 +601,10 @@ void do_string(CHAR_DATA *ch, String argument)
 	do_string(ch, "");
 } /* end do_string() */
 
-void do_switch(CHAR_DATA *ch, String argument)
+void do_switch(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 
 	if (IS_NPC(ch) || ch->desc == NULL) {
 		stc("You're not a real live player, you cannot switch.\n", ch);
@@ -663,10 +663,10 @@ void do_switch(CHAR_DATA *ch, String argument)
 	return;
 }
 
-void do_return(CHAR_DATA *ch, String argument)
+void do_return(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	ROOM_INDEX_DATA *location;
+	RoomPrototype *location;
 
 	if (ch->desc == NULL)
 		return;
@@ -710,7 +710,7 @@ void do_return(CHAR_DATA *ch, String argument)
 }
 
 /* for future use */
-bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, String argument)
+bool setup_obj(Character *ch, Object *obj, String argument)
 {
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -809,11 +809,11 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, String argument)
 	return TRUE;
 }
 
-void do_create(CHAR_DATA *ch, String argument)
+void do_create(Character *ch, String argument)
 {
 	char buf[100];
-	OBJ_INDEX_DATA *pObjIndex;
-	OBJ_DATA *obj;
+	ObjectPrototype *pObjIndex;
+	Object *obj;
 	int x;
 
 	if (!IS_IMMORTAL(ch))
@@ -889,9 +889,9 @@ skillpoint <award|deduct> <player> <amount>
 
 -- Outsider
 */
-void do_skillpoint(CHAR_DATA *ch, String argument)
+void do_skillpoint(Character *ch, String argument)
 {
-	CHAR_DATA *victim;
+	Character *victim;
 	sh_int new_points;
 	char buffer[MAX_INPUT_LENGTH];
 

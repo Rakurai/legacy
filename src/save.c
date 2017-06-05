@@ -31,12 +31,12 @@
 #include "tables.h"
 #include "lookup.h"
 #include "cJSON.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 extern  int     _filbuf         args((FILE *));
-extern void     goto_line       args((CHAR_DATA *ch, int row, int column));
-extern void     set_window      args((CHAR_DATA *ch, int top, int bottom));
+extern void     goto_line       args((Character *ch, int row, int column));
+extern void     set_window      args((Character *ch, int top, int bottom));
 
 #define CURRENT_VERSION         17   /* version number for pfiles */
 
@@ -49,14 +49,14 @@ int rename(const char *oldfname, const char *newfname);
 /*
  * Local functions.
  */
-cJSON * fwrite_player     args((CHAR_DATA *ch));
-cJSON * fwrite_char     args((CHAR_DATA *ch));
-cJSON * fwrite_objects  args((CHAR_DATA *ch,  OBJ_DATA *head, bool strongbox));
-cJSON * fwrite_pet      args((CHAR_DATA *pet));
-void    fread_char      args((CHAR_DATA *ch,  cJSON *json, int version));
-void    fread_player      args((CHAR_DATA *ch,  cJSON *json, int version));
-void    fread_pet       args((CHAR_DATA *ch,  cJSON *json, int version));
-void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version));
+cJSON * fwrite_player     args((Character *ch));
+cJSON * fwrite_char     args((Character *ch));
+cJSON * fwrite_objects  args((Character *ch,  Object *head, bool strongbox));
+cJSON * fwrite_pet      args((Character *pet));
+void    fread_char      args((Character *ch,  cJSON *json, int version));
+void    fread_player      args((Character *ch,  cJSON *json, int version));
+void    fread_pet       args((Character *ch,  cJSON *json, int version));
+void	fread_objects	args((Character *ch, cJSON *json, void (*obj_to)(Object *, Character *), int version));
 
 // external
 bool check_parse_name(const String& name);
@@ -66,7 +66,7 @@ bool check_parse_name(const String& name);
  * Would be cool to save NPC's too for quest purposes,
  *   some of the infrastructure is provided.
  */
-void save_char_obj(CHAR_DATA *ch)
+void save_char_obj(Character *ch)
 {
 	char strsave[MIL];
 	FILE *fp;
@@ -115,7 +115,7 @@ void save_char_obj(CHAR_DATA *ch)
 	update_pc_index(ch, FALSE);
 }
 
-void backup_char_obj(CHAR_DATA *ch)
+void backup_char_obj(Character *ch)
 {
 	save_char_obj(ch);
 
@@ -132,7 +132,7 @@ void backup_char_obj(CHAR_DATA *ch)
 	system(buf.c_str());
 } /* end backup_char_obj() */
 
-cJSON *fwrite_player(CHAR_DATA *ch)
+cJSON *fwrite_player(Character *ch)
 {
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject(); // object to return
@@ -374,7 +374,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 /*
  * Write the char.
  */
-cJSON *fwrite_char(CHAR_DATA *ch)
+cJSON *fwrite_char(Character *ch)
 {
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject(); // object to return
@@ -382,7 +382,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	JSON::addStringToObject(o,		"Act",			flags_to_string(ch->act));
 
 	item = NULL;
-	for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+	for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 		if (paf->type < 0 || paf->type >= MAX_SKILL)
 			continue;
 
@@ -508,7 +508,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 }
 
 /* write a pet */
-cJSON *fwrite_pet(CHAR_DATA *pet)
+cJSON *fwrite_pet(Character *pet)
 {
 	cJSON *o = fwrite_char(pet);
 
@@ -529,7 +529,7 @@ cJSON *fwrite_pet(CHAR_DATA *pet)
 /*
  * Write an object and its contents.
  */
-cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
+cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 {
 	/*
 	 * Castrate storage characters.
@@ -554,7 +554,7 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 		// we could write an empty list here, for a disenchanted item
 		item = cJSON_CreateArray();
 
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+		for (const Affect *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 			if (paf->type >= MAX_SKILL)
 				continue;
 
@@ -574,7 +574,7 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	}
 
 	item = NULL;
-	for (EXTRA_DESCR_DATA *ed = obj->extra_descr; ed != NULL; ed = ed->next) {
+	for (ExtraDescr *ed = obj->extra_descr; ed != NULL; ed = ed->next) {
 		if (item == NULL)
 			item = cJSON_CreateObject();
 
@@ -622,14 +622,14 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	return o;
 } /* end fwrite_obj() */
 
-cJSON *fwrite_objects(CHAR_DATA *ch, OBJ_DATA *head, bool strongbox) {
+cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 	cJSON *array = cJSON_CreateArray();
 
 	// old way was to use recursion to write items in reverse order, so loading would
 	// be in the original order.  same concept here, except no recursion; we just
 	// take advantage of the linked list underlying the cJSON array and insert at
 	// index 0, so the array is written backwards.
-	for (OBJ_DATA *obj = head; obj; obj = obj->next_content) {
+	for (Object *obj = head; obj; obj = obj->next_content) {
 		cJSON *item = fwrite_obj(ch, obj, strongbox);
 		if (item)
 			cJSON_InsertItemInArray(array, 0, item);
@@ -647,10 +647,10 @@ cJSON *fwrite_objects(CHAR_DATA *ch, OBJ_DATA *head, bool strongbox) {
 /*
  * Load a char and inventory into a new ch structure.
  */
-bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
+bool load_char_obj(Descriptor *d, const char *name)
 {
 	char strsave[MAX_INPUT_LENGTH];
-	CHAR_DATA *ch;
+	Character *ch;
 	bool found;
 	ch = new_char();
 	ch->pcdata = new_pcdata();
@@ -698,7 +698,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 
 		fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char, version);
 
-		for (OBJ_DATA *obj = ch->carrying; obj; obj = obj->next_content)
+		for (Object *obj = ch->carrying; obj; obj = obj->next_content)
 			if (obj->wear_loc != WEAR_NONE)
 				equip_char(ch, obj, obj->wear_loc);
 
@@ -784,7 +784,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		// rebuild them now
 		affect_add_racial_to_char(ch);
 
-		extern void raff_add_to_char(CHAR_DATA *ch, int raff);
+		extern void raff_add_to_char(Character *ch, int raff);
 		if (ch->pcdata->remort_count > 0)
 			for (int c = 0; c < ch->pcdata->remort_count / 10 + 1; c++)
 				raff_add_to_char(ch, ch->pcdata->raffect[c]);
@@ -869,7 +869,7 @@ void setstr(String *field, const char* value) {
 	}	
 
 
-void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
+void fread_player(Character *ch, cJSON *json, int version) {
 	if (json == NULL)
 		return;
 
@@ -1100,7 +1100,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 }
 
 // this could be PC or NPC!
-void fread_char(CHAR_DATA *ch, cJSON *json, int version)
+void fread_char(Character *ch, cJSON *json, int version)
 {
 	if (json == NULL)
 		return;
@@ -1131,7 +1131,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 							continue;
 						}
 
-						AFFECT_DATA af;
+						Affect af;
 						af.type = sn;
 						JSON::get_short(item, &af.where, "where");
 						JSON::get_short(item, &af.level, "level");
@@ -1255,12 +1255,12 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 }
 
 // read a single item including its contents
-OBJ_DATA * fread_obj(cJSON *json, int version) {
-	OBJ_DATA *obj = NULL;
+Object * fread_obj(cJSON *json, int version) {
+	Object *obj = NULL;
 	cJSON *o;
 
 	if ((o = cJSON_GetObjectItem(json, "Vnum")) != NULL) {
-		OBJ_INDEX_DATA *index = get_obj_index(o->valueint);
+		ObjectPrototype *index = get_obj_index(o->valueint);
 
 		if (index == NULL)
 			bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
@@ -1310,7 +1310,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 							continue;
 						}
 
-						AFFECT_DATA af;
+						Affect af;
 						af.type = sn;
 
 						JSON::get_short(item, &af.where, "where");
@@ -1355,7 +1355,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 					// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
 					// so the function pointer doesn't work.  maybe find a way to fix and condense?
 					for (cJSON *item = o->child; item; item = item->next) {
-						OBJ_DATA *content = fread_obj(item, version);
+						Object *content = fread_obj(item, version);
 
 						if (content->pIndexData) {
 							if (content->condition == 0)
@@ -1366,7 +1366,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 						else {
 							// deal with contents and extract
 							while (content->contains) {
-								OBJ_DATA *c = content->contains;
+								Object *c = content->contains;
 								content->contains = c->next_content;
 								obj_to_obj(c, obj);
 							}
@@ -1386,7 +1386,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 			case 'E':
 				if (!str_cmp(key, "ExDe")) {
 					for (cJSON *item = o->child; item; item = item->next) {
-						EXTRA_DESCR_DATA *ed = new_extra_descr();
+						ExtraDescr *ed = new_extra_descr();
 						ed->keyword             = item->string;
 						ed->description         = item->valuestring;
 						ed->next                = obj->extra_descr;
@@ -1442,12 +1442,12 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 }
 
 // read a list of objects and return the head
-void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version) {
+void fread_objects(Character *ch, cJSON *contains, void (*obj_to)(Object *, Character *), int version) {
 	if (contains == NULL)
 		return;
 
 	for (cJSON *item = contains->child; item; item = item->next) {
-		OBJ_DATA *content = fread_obj(item, version);
+		Object *content = fread_obj(item, version);
 
 		if (content->pIndexData) {
 			if (content->condition == 0)
@@ -1458,7 +1458,7 @@ void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CH
 		else {
 			// deal with contents and extract
 			while (content->contains) {
-				OBJ_DATA *c = content->contains;
+				Object *c = content->contains;
 				content->contains = c->next_content;
 				(*obj_to)(c, ch);
 			}
@@ -1469,7 +1469,7 @@ void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CH
 }
 
 /* load a pet from the forgotten reaches */
-void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
+void fread_pet(Character *ch, cJSON *json, int version)
 {
 	cJSON *o;
 
@@ -1487,14 +1487,14 @@ void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 		vnum = MOB_VNUM_FIDO;
 	}
 
-	MOB_INDEX_DATA *index = get_mob_index(vnum);
+	MobilePrototype *index = get_mob_index(vnum);
 
 	if (index == NULL) {
 		bug("Fread_pet: bad vnum %d in fread_pet().", vnum);
 		index = get_mob_index(MOB_VNUM_FIDO);
 	}
 
-	CHAR_DATA *pet = create_mobile(index);
+	Character *pet = create_mobile(index);
 
 	/* Check for memory error. -- Outsider */
 	if (!pet) {
@@ -1603,7 +1603,7 @@ endoftime:
 	return mktime(&loc_tm);
 } /* end dizzy_scantime() */
 
-void do_finger(CHAR_DATA *ch, String argument)
+void do_finger(Character *ch, String argument)
 {
 	char filename[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
@@ -1614,7 +1614,7 @@ void do_finger(CHAR_DATA *ch, String argument)
 	int cls, pks, pkd, pkr, aks, akd, level, rmct;
 	long cgroup = 0L, plr = 0L;
 	time_t last_ltime, last_saved;
-	CLAN_DATA *clan = NULL;
+	Clan *clan = NULL;
 
 	String arg;
 	one_argument(argument, arg);

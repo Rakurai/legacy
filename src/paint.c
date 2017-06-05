@@ -1,8 +1,8 @@
 #include "merc.h"
 #include "interp.h"
-#include "affect.h"
+#include "Affect.hpp"
 
-void do_paintbow(CHAR_DATA *ch, String argument)
+void do_paintbow(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't like to play paintball =).\n", ch);
@@ -22,11 +22,11 @@ void do_paintbow(CHAR_DATA *ch, String argument)
 } /* end do_paintball() */
 
 /* Paintball code by Lotus */
-void do_reload(CHAR_DATA *ch)
+void do_reload(Character *ch)
 {
 	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *tube;
-	OBJ_DATA *gun;
+	Object *tube;
+	Object *gun;
 
 	if ((tube = get_obj_carry(ch, "tube")) == NULL) {
 		stc("You don't have any paint tubes!\n", ch);
@@ -61,11 +61,11 @@ void do_reload(CHAR_DATA *ch)
 	stc(buf, ch);
 } /* end do_reload() */
 
-void do_splat(CHAR_DATA *ch, String argument)
+void do_splat(Character *ch, String argument)
 {
-	OBJ_DATA *gun;
-	ROOM_INDEX_DATA *location;
-	CHAR_DATA *victim;
+	Object *gun;
+	RoomPrototype *location;
+	Character *victim;
 
 	if ((gun = get_eq_char(ch, WEAR_HOLD)) == NULL) {
 		stc("You're not holding your paintgun!\n", ch);

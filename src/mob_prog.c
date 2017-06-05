@@ -27,9 +27,9 @@
  ***************************************************************************/
 
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "memory.h"
-#include "Time.hpp"
+#include "GameTime.hpp"
 
 bool MOBtrigger;
 
@@ -40,21 +40,21 @@ bool MOBtrigger;
 char *mprog_next_command  args((char *clist));
 bool    mprog_seval             args((const String& lhs, const String& opr, const String& rhs));
 bool    mprog_veval             args((int lhs, const String& opr, int rhs));
-bool    mprog_do_ifchck         args((const String& ifchck, CHAR_DATA *mob,
-                                      CHAR_DATA *actor, OBJ_DATA *obj,
-                                      void *vo, CHAR_DATA *rndm));
+bool    mprog_do_ifchck         args((const String& ifchck, Character *mob,
+                                      Character *actor, Object *obj,
+                                      void *vo, Character *rndm));
 char *mprog_process_if  args((const String& ifchck, char *com_list,
-                                      CHAR_DATA *mob, CHAR_DATA *actor,
-                                      OBJ_DATA *obj, void *vo,
-                                      CHAR_DATA *rndm));
-String  mprog_translate         args((char ch, CHAR_DATA *mob,
-                                      CHAR_DATA *actor, OBJ_DATA *obj,
-                                      void *vo, CHAR_DATA *rndm));
-void    mprog_process_cmnd      args((const String& cmnd, CHAR_DATA *mob,
-                                      CHAR_DATA *actor, OBJ_DATA *obj,
-                                      void *vo, CHAR_DATA *rndm));
-void    mprog_driver            args((const String& com_list, CHAR_DATA *mob,
-                                      CHAR_DATA *actor, OBJ_DATA *obj,
+                                      Character *mob, Character *actor,
+                                      Object *obj, void *vo,
+                                      Character *rndm));
+String  mprog_translate         args((char ch, Character *mob,
+                                      Character *actor, Object *obj,
+                                      void *vo, Character *rndm));
+void    mprog_process_cmnd      args((const String& cmnd, Character *mob,
+                                      Character *actor, Object *obj,
+                                      void *vo, Character *rndm));
+void    mprog_driver            args((const String& com_list, Character *mob,
+                                      Character *actor, Object *obj,
                                       void *vo));
 
 /***************************************************************************
@@ -143,15 +143,15 @@ bool mprog_veval(int lhs, const char *opr, int rhs)
  * to reduce the redundancy of the mammoth if statement list.
  * If there are errors, then return -1 otherwise return boolean 1,0
  */
-bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
-                     OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
+bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
+                     Object *obj, void *vo, Character *rndm)
 {
 	char buf[ MAX_INPUT_LENGTH ];
 	char arg[ MAX_INPUT_LENGTH ];
 	char opr[ MAX_INPUT_LENGTH ];
 	char val[ MAX_INPUT_LENGTH ];
-	CHAR_DATA *vict = (CHAR_DATA *) vo;
-	OBJ_DATA *v_obj = (OBJ_DATA *) vo;
+	Character *vict = (Character *) vo;
+	Object *v_obj = (Object *) vo;
 	char     *bufpt = buf;
 	char     *argpt = arg;
 	char     *oprpt = opr;
@@ -1082,9 +1082,9 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
  * Possibly all the return '\0's should be changed to return "".
  * -- Elrac
  */
-char *mprog_process_if(const char *ifchck, char *com_list, CHAR_DATA *mob,
-                       CHAR_DATA *actor, OBJ_DATA *obj, void *vo,
-                       CHAR_DATA *rndm)
+char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
+                       Character *actor, Object *obj, void *vo,
+                       Character *rndm)
 {
 	const char *morebuf = NULL;
 	char    *cmnd = NULL;
@@ -1277,14 +1277,14 @@ char *mprog_process_if(const char *ifchck, char *com_list, CHAR_DATA *mob,
  * would be to change act() so that vo becomes vict & v_obj.
  * but this would require a lot of small changes all over the code.
  */
-String mprog_translate(char ch, CHAR_DATA *mob, CHAR_DATA *actor,
-                     OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
+String mprog_translate(char ch, Character *mob, Character *actor,
+                     Object *obj, void *vo, Character *rndm)
 {
 	static char *he_she        [] = { "it",  "he",  "she" };
 	static char *him_her       [] = { "it",  "him", "her" };
 	static char *his_her       [] = { "its", "his", "her" };
-	CHAR_DATA   *vict             = (CHAR_DATA *) vo;
-	OBJ_DATA    *v_obj            = (OBJ_DATA *) vo;
+	Character   *vict             = (Character *) vo;
+	Object    *v_obj            = (Object *) vo;
 	String t;
 
 	switch (ch) {
@@ -1511,8 +1511,8 @@ String mprog_translate(char ch, CHAR_DATA *mob, CHAR_DATA *actor,
  * any variables by calling the translate procedure.  The observant
  * code scrutinizer will notice that this is taken from act()
  */
-void mprog_process_cmnd(const String& cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
-                        OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
+void mprog_process_cmnd(const String& cmnd, Character *mob, Character *actor,
+                        Object *obj, void *vo, Character *rndm)
 {
 	String buf;
 	const char *str = cmnd.c_str();
@@ -1537,15 +1537,15 @@ void mprog_process_cmnd(const String& cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
  *  the command list and figuring out what to do. However, like all
  *  complex procedures, everything is farmed out to the other guys.
  */
-void mprog_driver(const String& com_list, CHAR_DATA *mob, CHAR_DATA *actor,
-                  OBJ_DATA *obj, void *vo)
+void mprog_driver(const String& com_list, Character *mob, Character *actor,
+                  Object *obj, void *vo)
 {
 	char tmpcmndlst[ MAX_STRING_LENGTH ];
 	const char *morebuf;
 	char *command_list;
 	char *cmnd;
-	CHAR_DATA *rndm  = NULL;
-	CHAR_DATA *vch   = NULL;
+	Character *rndm  = NULL;
+	Character *vch   = NULL;
 	int        count = 0;
 
 	/*    if affect_exists_on_char( mob, gsn_charm_person )
@@ -1596,12 +1596,12 @@ void mprog_driver(const String& com_list, CHAR_DATA *mob, CHAR_DATA *actor,
  *  on a certain percent, or trigger on a keyword or word phrase.
  *  To see how this works, look at the various trigger routines..
  */
-void mprog_wordlist_check(const String& arg, CHAR_DATA *mob, CHAR_DATA *actor,
-                          OBJ_DATA *obj, void *vo, int type)
+void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
+                          Object *obj, void *vo, int type)
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
-	MPROG_DATA *mprg;
+	MobProg *mprg;
 	const char       *list;
 	char       *start;
 	char       *dupl;
@@ -1659,10 +1659,10 @@ void mprog_wordlist_check(const String& arg, CHAR_DATA *mob, CHAR_DATA *actor,
 	return;
 }
 
-void mprog_percent_check(CHAR_DATA *mob, CHAR_DATA *actor, OBJ_DATA *obj,
+void mprog_percent_check(Character *mob, Character *actor, Object *obj,
                          void *vo, int type)
 {
-	MPROG_DATA *mprg;
+	MobProg *mprg;
 
 	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 		if ((mprg->type & type)
@@ -1684,14 +1684,14 @@ void mprog_percent_check(CHAR_DATA *mob, CHAR_DATA *actor, OBJ_DATA *obj,
  * make sure you remember to modify the variable names to the ones in the
  * trigger calls.
  */
-void mprog_act_trigger(const char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
-                       OBJ_DATA *obj, void *vo)
+void mprog_act_trigger(const char *buf, Character *mob, Character *ch,
+                       Object *obj, void *vo)
 {
-	MPROG_ACT_LIST *tmp_act;
+	MobProgActList *tmp_act;
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & ACT_PROG)) {
-		tmp_act = new MPROG_ACT_LIST;
+		tmp_act = new MobProgActList;
 
 		mob->mpact      = tmp_act;
 		mob->mpact->buf = buf;
@@ -1702,17 +1702,17 @@ void mprog_act_trigger(const char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
 		tmp_act->next = mob->mpact->next;
 		mob->mpact->next = tmp_act;
 		/*
-		      free_mem(tmp_act, sizeof( MPROG_ACT_LIST ) );
+		      free_mem(tmp_act, sizeof( MobProgActList ) );
 		 */
 	}
 
 	return;
 }
 
-void mprog_bribe_trigger(CHAR_DATA *mob, CHAR_DATA *ch, int amount)
+void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 {
-	MPROG_DATA *mprg;
-	OBJ_DATA *obj;
+	MobProg *mprg;
+	Object *obj;
 
 	if (!IS_NPC(mob))
 		return;
@@ -1731,7 +1731,7 @@ void mprog_bribe_trigger(CHAR_DATA *mob, CHAR_DATA *ch, int amount)
 		}
 }
 
-void mprog_death_trigger(CHAR_DATA *mob)
+void mprog_death_trigger(Character *mob)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & DEATH_PROG))
@@ -1741,7 +1741,7 @@ void mprog_death_trigger(CHAR_DATA *mob)
 	return;
 }
 
-void mprog_entry_trigger(CHAR_DATA *mob)
+void mprog_entry_trigger(Character *mob)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & ENTRY_PROG))
@@ -1750,7 +1750,7 @@ void mprog_entry_trigger(CHAR_DATA *mob)
 	return;
 }
 
-void mprog_fight_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
+void mprog_fight_trigger(Character *mob, Character *ch)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & FIGHT_PROG))
@@ -1759,7 +1759,7 @@ void mprog_fight_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 	return;
 }
 
-void mprog_buy_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
+void mprog_buy_trigger(Character *mob, Character *ch)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & BUY_PROG))
@@ -1768,9 +1768,9 @@ void mprog_buy_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 	return;
 }
 
-void mprog_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
+void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 {
-	MPROG_DATA *mprg;
+	MobProg *mprg;
 	String buf;
 
 	if (IS_NPC(mob)
@@ -1789,9 +1789,9 @@ void mprog_give_trigger(CHAR_DATA *mob, CHAR_DATA *ch, OBJ_DATA *obj)
 	return;
 }
 
-void mprog_greet_trigger(CHAR_DATA *ch)
+void mprog_greet_trigger(Character *ch)
 {
-	CHAR_DATA *vmob;
+	Character *vmob;
 
 	for (vmob = ch->in_room->people; vmob != NULL; vmob = vmob->next_in_room)
 		if (IS_NPC(vmob)
@@ -1812,9 +1812,9 @@ void mprog_greet_trigger(CHAR_DATA *ch)
 	return;
 }
 
-void mprog_hitprcnt_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
+void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 {
-	MPROG_DATA *mprg;
+	MobProg *mprg;
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & HITPRCNT_PROG))
@@ -1828,7 +1828,7 @@ void mprog_hitprcnt_trigger(CHAR_DATA *mob, CHAR_DATA *ch)
 	return;
 }
 
-void mprog_boot_trigger(CHAR_DATA *mob)
+void mprog_boot_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtypes & BOOT_PROG)
 		mprog_percent_check(mob, NULL, NULL, NULL, BOOT_PROG);
@@ -1836,7 +1836,7 @@ void mprog_boot_trigger(CHAR_DATA *mob)
 	return;
 }
 
-void mprog_random_trigger(CHAR_DATA *mob)
+void mprog_random_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtypes & RAND_PROG)
 		mprog_percent_check(mob, NULL, NULL, NULL, RAND_PROG);
@@ -1844,7 +1844,7 @@ void mprog_random_trigger(CHAR_DATA *mob)
 	return;
 }
 
-void mprog_tick_trigger(CHAR_DATA *mob)    /* Montrey */
+void mprog_tick_trigger(Character *mob)    /* Montrey */
 {
 	if (mob->pIndexData->progtypes & TICK_PROG)
 		mprog_percent_check(mob, NULL, NULL, NULL, TICK_PROG);
@@ -1852,9 +1852,9 @@ void mprog_tick_trigger(CHAR_DATA *mob)    /* Montrey */
 	return;
 }
 
-void mprog_speech_trigger(const String& txt, CHAR_DATA *mob)
+void mprog_speech_trigger(const String& txt, Character *mob)
 {
-	CHAR_DATA *vmob;
+	Character *vmob;
 
 	for (vmob = mob->in_room->people; vmob != NULL; vmob = vmob->next_in_room)
 		if (IS_NPC(vmob) && (vmob->pIndexData->progtypes & SPEECH_PROG))

@@ -14,8 +14,8 @@
     structure:
 
     int                 hunt_id;    // unique id for current hunt
-    ROOM_INDEX_DATA *   hunt_next;  // next room in search circle
-    ROOM_INDEX_DATA *   hunt_back;  // pointer back toward origin
+    RoomPrototype *   hunt_next;  // next room in search circle
+    RoomPrototype *   hunt_back;  // pointer back toward origin
 
     'hunt_next' is used to connect rooms in concentric rings growing
     outward from the origin and having equal distance from the origin.
@@ -46,21 +46,21 @@ static const int exit_num = 6;
 
 struct hunt_conditions {
 	/* first few fields set up by caller of find_path */
-	CHAR_DATA *hunter;
-	ROOM_INDEX_DATA *from_room;
-	ROOM_INDEX_DATA *to_room;
+	Character *hunter;
+	RoomPrototype *from_room;
+	RoomPrototype *to_room;
 	int same_area;
 	int thru_doors;
 	int  steps;
 	/* these fields completed by find_path */
-	AREA_DATA *area;
+	Area *area;
 };
 typedef struct hunt_conditions HUNT_CONDITIONS;
 
 /* Returns the room accessible via exit 'ex' or NULL. */
-static ROOM_INDEX_DATA *access_room(HUNT_CONDITIONS *cond, EXIT_DATA *ex)
+static RoomPrototype *access_room(HUNT_CONDITIONS *cond, Exit *ex)
 {
-	ROOM_INDEX_DATA *new_room;
+	RoomPrototype *new_room;
 
 	if ((ex == NULL) ||
 	    ((new_room = ex->u1.to_room) == NULL) ||
@@ -76,12 +76,12 @@ static ROOM_INDEX_DATA *access_room(HUNT_CONDITIONS *cond, EXIT_DATA *ex)
    and return the direction of the first step or -1. */
 static int find_path(HUNT_CONDITIONS *cond)
 {
-	ROOM_INDEX_DATA *this_ring;
-	ROOM_INDEX_DATA *next_ring;
+	RoomPrototype *this_ring;
+	RoomPrototype *next_ring;
 	int jdir;
-	EXIT_DATA *pexit;
-	ROOM_INDEX_DATA *new_room;
-	ROOM_INDEX_DATA *step;
+	Exit *pexit;
+	RoomPrototype *new_room;
+	RoomPrototype *step;
 	static int hunt_id = 1;
 	hunt_id++;
 	cond->area      = cond->from_room->area;
@@ -165,10 +165,10 @@ foundit:
 
 /* hunt command implementation for players.
    aggressing mobs use hunt_victim() instead. */
-void do_hunt(CHAR_DATA *ch, String argument)
+void do_hunt(Character *ch, String argument)
 {
 	char buffer[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
+	Character *victim;
 	HUNT_CONDITIONS cond;
 	int direction;
 	bool same_area;
@@ -272,11 +272,11 @@ void do_hunt(CHAR_DATA *ch, String argument)
 } /* end do_hunt() */
 
 /* hunting function for aggressing mobs. */
-void hunt_victim(CHAR_DATA *ch)
+void hunt_victim(Character *ch)
 {
 	int           dir;
 	bool          found;
-	CHAR_DATA     *tmp;
+	Character     *tmp;
 	HUNT_CONDITIONS cond;
 
 	if (ch == NULL || ch->hunting == NULL || !IS_NPC(ch))

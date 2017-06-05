@@ -23,7 +23,7 @@
 #define OBJ_VNUM_GEM_RUBY           121
 #define OBJ_VNUM_GEM_EMERALD        122
 
-extern char *get_gem_short_string(OBJ_DATA *obj);
+extern char *get_gem_short_string(Object *obj);
 
 struct gem_type_table_t  /* additional data for pc races */
 {

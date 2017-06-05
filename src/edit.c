@@ -68,7 +68,7 @@ extern struct board_index_struct board_index[];
 /* Module global variables */
 
 static int num1, num2, argmask;
-static EDIT_DATA *ed;
+static Edit *ed;
 
 
 static char *next_line(char *current_line)
@@ -148,7 +148,7 @@ static void listline(String& dbuf, int lineno, char *line)
 	dbuf += buf;
 } /* end listline() */
 
-static void edit_list1(CHAR_DATA *ch, int fromline, int toline)
+static void edit_list1(Character *ch, int fromline, int toline)
 {
 	int jline;
 	char *cp;
@@ -173,7 +173,7 @@ static void edit_list1(CHAR_DATA *ch, int fromline, int toline)
 	page_to_char(dbuf, ch);
 } /* end edit_list1() */
 
-static void list_window(CHAR_DATA *ch)
+static void list_window(Character *ch)
 {
 	int fromline, toline;
 
@@ -192,7 +192,7 @@ static void list_window(CHAR_DATA *ch)
 	edit_list1(ch, fromline, toline);
 } /* end list_window() */
 
-static void edit_status(CHAR_DATA *ch, const String& argument)
+static void edit_status(Character *ch, const String& argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -269,7 +269,7 @@ static void edit_status(CHAR_DATA *ch, const String& argument)
 	list_window(ch);
 } /* end edit_status() */
 
-static bool check_line(CHAR_DATA *ch, int line)
+static bool check_line(Character *ch, int line)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -282,7 +282,7 @@ static bool check_line(CHAR_DATA *ch, int line)
 	return TRUE;
 } /* end check_line() */
 
-static bool check_range(CHAR_DATA *ch, int *fromline, int *toline)
+static bool check_range(Character *ch, int *fromline, int *toline)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -318,7 +318,7 @@ static bool check_range(CHAR_DATA *ch, int *fromline, int *toline)
 	return TRUE;
 } /* end check_range() */
 
-static void edit_goto1(CHAR_DATA *ch, int lineno)
+static void edit_goto1(Character *ch, int lineno)
 {
 	if (lineno < 0 || lineno > ed->edit_nlines) {
 		/* bug( "edit_goto1(%d)", lineno ); */
@@ -349,7 +349,7 @@ static void backup(void)
 
 /********** Main functions **********/
 
-static void edit_cancel(CHAR_DATA *ch, const String& argument)
+static void edit_cancel(Character *ch, const String& argument)
 {
 	delete ed;
 	ch->edit = NULL;
@@ -357,7 +357,7 @@ static void edit_cancel(CHAR_DATA *ch, const String& argument)
 	stc("OK, editing session aborted, {Ynothing changed{x.\n", ch);
 } /* end edit_cancel() */
 
-static void edit_change(CHAR_DATA *ch, String argument)
+static void edit_change(Character *ch, String argument)
 {
 	int this_line = ed->edit_line;
 	char *here, *next;
@@ -412,7 +412,7 @@ static void edit_change(CHAR_DATA *ch, String argument)
 	strcpy(where, dbuf);
 } /* end edit_change() */
 
-static void edit_delete(CHAR_DATA *ch, const String& argument)
+static void edit_delete(Character *ch, const String& argument)
 {
 	int linefrom = ed->edit_line;
 	int lineto = ed->edit_line;
@@ -440,7 +440,7 @@ static void edit_delete(CHAR_DATA *ch, const String& argument)
 	ed->edit_line = UMAX(0, linefrom - 1);
 } /* end edit_delete() */
 
-static void edit_desc(CHAR_DATA *ch, const String& argument)
+static void edit_desc(Character *ch, const String& argument)
 {
 	if (ch->edit != NULL) {
 		stc("{PBut you are already editing something!{x\n", ch);
@@ -448,7 +448,7 @@ static void edit_desc(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	ed = new EDIT_DATA;
+	ed = new Edit;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_DESC;
 	strcpy(ed->edit_string, ch->long_descr);
@@ -458,7 +458,7 @@ static void edit_desc(CHAR_DATA *ch, const String& argument)
 	edit_status(ch, "");
 } /* end edit_note() */
 
-static void edit_done(CHAR_DATA *ch, const String& argument)
+static void edit_done(Character *ch, const String& argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -517,13 +517,13 @@ static void edit_done(CHAR_DATA *ch, const String& argument)
 	ed = NULL;
 } /* end edit_done() */
 
-static void edit_goto(CHAR_DATA *ch, const String& argument)
+static void edit_goto(Character *ch, const String& argument)
 {
 	if (check_line(ch, num1))
 		edit_goto1(ch, num1);
 } /* end edit_goto() */
 
-static void edit_insert(CHAR_DATA *ch, const String& argument)
+static void edit_insert(Character *ch, const String& argument)
 {
 	char *lp;
 	String dbuf;
@@ -551,7 +551,7 @@ static void edit_insert(CHAR_DATA *ch, const String& argument)
 	edit_goto1(ch, after_line);
 } /* end edit_insert() */
 
-static void edit_list(CHAR_DATA *ch, const String& argument)
+static void edit_list(Character *ch, const String& argument)
 {
 	int fromline, toline;
 
@@ -567,7 +567,7 @@ static void edit_list(CHAR_DATA *ch, const String& argument)
 	edit_list1(ch, fromline, toline);
 } /* end edit_list() */
 
-static void edit_note(CHAR_DATA *ch, const String& argument)
+static void edit_note(Character *ch, const String& argument)
 {
 	if (ch->edit != NULL) {
 		stc("{PBut you are already editing something!{x\n", ch);
@@ -580,7 +580,7 @@ static void edit_note(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	ed = new EDIT_DATA;
+	ed = new Edit;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_NOTE;
 	strcpy(ed->edit_string, ch->pnote->text);
@@ -590,7 +590,7 @@ static void edit_note(CHAR_DATA *ch, const String& argument)
 	edit_status(ch, "");
 } /* end edit_note() */
 
-static void edit_room(CHAR_DATA *ch, const String& argument)
+static void edit_room(Character *ch, const String& argument)
 {
 	if (ch->edit != NULL) {
 		stc("{PBut you are already editing something!{x\n", ch);
@@ -603,7 +603,7 @@ static void edit_room(CHAR_DATA *ch, const String& argument)
 		return;
 	}
 
-	ed = new EDIT_DATA;
+	ed = new Edit;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_ROOM;
 	strcpy(ed->edit_string, ch->in_room->description);
@@ -613,7 +613,7 @@ static void edit_room(CHAR_DATA *ch, const String& argument)
 	edit_status(ch, "");
 } /* end edit_room() */
 
-static void edit_help(CHAR_DATA *ch, const String& argument)
+static void edit_help(Character *ch, const String& argument)
 {
 	if (ch->edit != NULL) {
 		stc("{PBut you are already editing something!{x\n", ch);
@@ -634,7 +634,7 @@ static void edit_help(CHAR_DATA *ch, const String& argument)
 	}
 
 	if (db_next_row() == SQL_OK) {
-		ed = new EDIT_DATA;
+		ed = new Edit;
 		ch->edit = ed;
 		ed->edit_type = EDIT_TYPE_HELP;
 		strcpy(ed->edit_string, db_get_column_str(0));
@@ -650,7 +650,7 @@ static void edit_help(CHAR_DATA *ch, const String& argument)
 
 } /* end edit_room() */
 
-static void edit_split(CHAR_DATA *ch, String argument)
+static void edit_split(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	int this_line = ed->edit_line;
@@ -699,7 +699,7 @@ static void edit_split(CHAR_DATA *ch, String argument)
 	ed->edit_nlines = count_lines();
 } /* end edit_split() */
 
-static void edit_undo(CHAR_DATA *ch, const String& junk)
+static void edit_undo(Character *ch, const String& junk)
 {
 	if (!ed->edit_undo_ok) {
 		stc("{PSorry, you have already undone your most recent change!{x\n",
@@ -718,7 +718,7 @@ static void edit_undo(CHAR_DATA *ch, const String& junk)
 	ed->edit_undo_ok = FALSE;
 } /* end edit_undo() */
 
-static void edit_wrap(CHAR_DATA *ch, const String& argument)
+static void edit_wrap(Character *ch, const String& argument)
 {
 	int prev_blank_line = 0;
 	int linefrom, lineto;
@@ -846,7 +846,7 @@ static void edit_wrap(CHAR_DATA *ch, const String& argument)
 } /* end edit_wrap() */
 
 /* Main edit function. Some pre-scanning, then branch to appropriate subfunction. */
-void do_edit(CHAR_DATA *ch, String argument)
+void do_edit(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	const char *new_arg;

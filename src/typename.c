@@ -26,7 +26,7 @@ String weapon_name(int weapon_type)
 /*
  * Return ascii name of an item type.
  */
-String item_type_name(OBJ_DATA *obj)
+String item_type_name(Object *obj)
 {
 	switch (obj->item_type) {
 	case ITEM_LIGHT:            return "light";
@@ -835,7 +835,7 @@ String get_color_code(int color, int bold)
 	return "";
 }
 
-String get_custom_color_name(CHAR_DATA *ch, int slot)
+String get_custom_color_name(Character *ch, int slot)
 {
 	int color, bold;
 
@@ -851,7 +851,7 @@ String get_custom_color_name(CHAR_DATA *ch, int slot)
 	return get_color_name(color, bold);
 }
 
-String get_custom_color_code(CHAR_DATA *ch, int slot)
+String get_custom_color_code(Character *ch, int slot)
 {
 	int color, bold;
 

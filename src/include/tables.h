@@ -85,7 +85,7 @@ struct revoke_type
 #define	CAND_ROOM	4
 
 #define FIELD_PLAYER	0
-#define FIELD_PCDATA	1
+#define FIELD_Player	1
 #define FIELD_CGROUP	2
 #define FIELD_WIZNET	3
 #define FIELD_REVOKE	4

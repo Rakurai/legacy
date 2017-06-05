@@ -1,15 +1,15 @@
 #include "merc.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "Format.hpp"
 
 #define get_affect_cache(ch) ((ch)->affect_cache == NULL ? NULL : (sh_int *)(ch)->affect_cache)
 
-void free_affect_cache(CHAR_DATA *ch) {
+void free_affect_cache(Character *ch) {
 	delete[] (sh_int *)ch->affect_cache;
 	ch->affect_cache = NULL;
 }
 
-bool affect_in_cache(const CHAR_DATA *ch, sh_int sn) {
+bool affect_in_cache(const Character *ch, sh_int sn) {
 	return (
 		sn > 1
 	 && sn < MAX_SKILL
@@ -17,7 +17,7 @@ bool affect_in_cache(const CHAR_DATA *ch, sh_int sn) {
 	 && get_affect_cache(ch)[sn] > 0);
 }
 
-void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
+void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 	if (sn < 1 || sn >= MAX_SKILL) {
 		bug("update_affect_cache: called with sn = %d", sn);
 		return;
@@ -55,7 +55,7 @@ void update_affect_cache(CHAR_DATA *ch, sh_int sn, bool fAdd) {
 	}
 }
 
-String affect_print_cache(CHAR_DATA *ch) {
+String affect_print_cache(Character *ch) {
 	String buf;
 
 	if (ch->affect_cache == NULL)

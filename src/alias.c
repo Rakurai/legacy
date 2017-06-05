@@ -28,12 +28,12 @@
 #include "merc.h"
 #include "Format.hpp"
 
-char    *get_multi_command     args((DESCRIPTOR_DATA *d, const String& argument));
+char    *get_multi_command     args((Descriptor *d, const String& argument));
 
 /* does aliasing and other fun stuff */
-void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
+void substitute_alias(Descriptor *d, const char *argument)
 {
-	CHAR_DATA *ch;
+	Character *ch;
 	String buf;
 	char prefix[2 * MAX_INPUT_LENGTH];
 	ch = d->original ? d->original : d->character;
@@ -88,15 +88,15 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	interpret(d->character, buf);
 } /* end substitute_alias() */
 
-void do_alia(CHAR_DATA *ch, String argument)
+void do_alia(Character *ch, String argument)
 {
 	stc("I'm sorry, alias must be entered in full.\n", ch);
 	return;
 }
 
-void do_alias(CHAR_DATA *ch, String argument)
+void do_alias(Character *ch, String argument)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	if (ch->desc == NULL)
 		rch = ch;
@@ -154,9 +154,9 @@ void do_alias(CHAR_DATA *ch, String argument)
 	rch->pcdata->alias[arg] = argument;
 }
 
-void do_unalias(CHAR_DATA *ch, String argument)
+void do_unalias(Character *ch, String argument)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	if (ch->desc == NULL)
 		rch = ch;

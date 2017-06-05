@@ -9,23 +9,23 @@
 
 /* character finding functions */
 
-/* get_mob_here         (CHAR_DATA *ch, const char *argument, int vis)
-   get_mob_area         (CHAR_DATA *ch, const char *argument, int vis)
-   get_mob_world        (CHAR_DATA *ch, const char *argument, int vis)
+/* get_mob_here         (Character *ch, const char *argument, int vis)
+   get_mob_area         (Character *ch, const char *argument, int vis)
+   get_mob_world        (Character *ch, const char *argument, int vis)
 
-   get_player_here      (CHAR_DATA *ch, const char *argument, int vis)
-   get_player_area      (CHAR_DATA *ch, const char *argument, int vis)
-   get_player_world     (CHAR_DATA *ch, const char *argument, int vis)
+   get_player_here      (Character *ch, const char *argument, int vis)
+   get_player_area      (Character *ch, const char *argument, int vis)
+   get_player_world     (Character *ch, const char *argument, int vis)
 
-   get_char_here        (CHAR_DATA *ch, const char *argument, int vis)
-   get_char_area        (CHAR_DATA *ch, const char *argument, int vis)
-   get_char_world       (CHAR_DATA *ch, const char *argument, int vis)
+   get_char_here        (Character *ch, const char *argument, int vis)
+   get_char_area        (Character *ch, const char *argument, int vis)
+   get_char_world       (Character *ch, const char *argument, int vis)
 */
 
 /* Find a mobile in the same room as ch */
-CHAR_DATA *get_mob_here(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_mob_here(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 	int count = 0, vnum = 0;
 	String arg;
 	int etype = entity_argument(argument, arg);
@@ -73,9 +73,9 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a character in the same area as ch.  Use mobonly to only find
    only mobiles, use get_player_area to only find players. */
-CHAR_DATA *get_mob_area(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_mob_area(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *ach;
+	Character *ach;
 
 	if ((ach = get_mob_here(ch, argument, vis)) != NULL)
 		return ach;
@@ -116,9 +116,9 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a character in the world.  Use mobonly to only find
    only mobiles, use get_player_world to only find players. */
-CHAR_DATA *get_mob_world(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_mob_world(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *wch;
+	Character *wch;
 
 	if ((wch = get_mob_here(ch, argument, vis)) != NULL)
 		return wch;
@@ -167,9 +167,9 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a character in the same room as ch.  Use mobonly to find
    only mobiles, use get_player_here to only find players. */
-CHAR_DATA *get_char_here(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_char_here(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 	int count = 0, vnum = 0;
 	String arg;
 	int etype = entity_argument(argument, arg);
@@ -218,9 +218,9 @@ it searches a given room, rather than the one the
 player is in.
 -- Outsider
 */
-CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const String& argument, int vis)
+Character *get_char_room(Character *ch, RoomPrototype *room, const String& argument, int vis)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 	int count = 0, vnum = 0;
 	String arg;
 	int etype = entity_argument(argument, arg);
@@ -265,9 +265,9 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const String& arg
 
 /* Find a character in the same area as ch.  Use mobonly to only find
    only mobiles, use get_player_area to only find players. */
-CHAR_DATA *get_char_area(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_char_area(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *ach;
+	Character *ach;
 
 	if ((ach = get_char_here(ch, argument, vis)) != NULL)
 		return ach;
@@ -305,9 +305,9 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a character in the world.  Use mobonly to only find
    only mobiles, use get_player_world to only find players. */
-CHAR_DATA *get_char_world(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_char_world(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *wch;
+	Character *wch;
 
 	if ((wch = get_char_here(ch, argument, vis)) != NULL)
 		return wch;
@@ -353,9 +353,9 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a player in the room. -- Elrac
    This does *not* find '2.Elrac'. Numbering is silly with players. */
-CHAR_DATA *get_player_here(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_player_here(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *rch;
+	Character *rch;
 
 	if (!str_cmp(argument, "self"))
 		return ch;
@@ -382,10 +382,10 @@ CHAR_DATA *get_player_here(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a *player* char in the same area as ch.
  * This does not find '2.Montrey'. Numbering is silly for players. */
-CHAR_DATA *get_player_area(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_player_area(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *ach;
-	PC_DATA *apc;
+	Character *ach;
+	Player *apc;
 
 	if (!str_cmp(argument, "self"))
 		return ch;
@@ -424,10 +424,10 @@ CHAR_DATA *get_player_area(CHAR_DATA *ch, const String& argument, int vis)
 
 /* Find a *player* char in the world. -- Elrac
  * This does not find '2.Elrac'. Numbering is silly for players. */
-CHAR_DATA *get_player_world(CHAR_DATA *ch, const String& argument, int vis)
+Character *get_player_world(Character *ch, const String& argument, int vis)
 {
-	CHAR_DATA *wch;
-	PC_DATA *wpc;
+	Character *wch;
+	Player *wpc;
 
 	if (!str_cmp(argument, "self"))
 		return ch;
@@ -464,9 +464,9 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, const String& argument, int vis)
 }
 
 /* Find an obj in a list. */
-OBJ_DATA *get_obj_list(CHAR_DATA *ch, const String& argument, OBJ_DATA *list)
+Object *get_obj_list(Character *ch, const String& argument, Object *list)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int number, count = 0;
 	String arg;
 	number = number_argument(argument, arg);
@@ -480,9 +480,9 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const String& argument, OBJ_DATA *list)
 }
 
 /* Find an obj in player's equipment. */
-OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const String& argument)
+Object *get_obj_wear(Character *ch, const String& argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int number, count = 0;
 	String arg;
 	number = number_argument(argument, arg);
@@ -498,9 +498,9 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const String& argument)
 }
 
 /* Find an obj in player's inventory. */
-OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const String& argument)
+Object *get_obj_carry(Character *ch, const String& argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int number, count = 0;
 	String arg;
 	number = number_argument(argument, arg);
@@ -516,9 +516,9 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const String& argument)
 }
 
 /* Find an obj in the room or in inventory. */
-OBJ_DATA *get_obj_here(CHAR_DATA *ch, const String& argument)
+Object *get_obj_here(Character *ch, const String& argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 
 	if ((obj = get_obj_list(ch, argument, ch->in_room->contents)) != NULL)
 		return obj;
@@ -533,9 +533,9 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const String& argument)
 }
 
 /* Find an obj in the world. */
-OBJ_DATA *get_obj_world(CHAR_DATA *ch, const String& argument)
+Object *get_obj_world(Character *ch, const String& argument)
 {
-	OBJ_DATA *obj;
+	Object *obj;
 	int number, count = 0;
 
 	if ((obj = get_obj_here(ch, argument)) != NULL)

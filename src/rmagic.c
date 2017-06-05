@@ -2,18 +2,18 @@
 
 #include "merc.h"
 #include "magic.h"
-#include "affect.h"
+#include "Affect.hpp"
 
 /* needed functions */
-void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
+void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
 
 extern bool     global_quick;
 
 /*** MAGE ***/
 
-void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_sheen(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (affect_exists_on_char(victim, sn)) {
 		stc("Your armor is already coated with magical steel.\n", ch);
@@ -31,9 +31,9 @@ void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	stc("A protective sheen covers your armor.\n", victim);
 }
 
-void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_focus(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (affect_exists_on_char(victim, sn)) {
 		stc("Your spells are already focused.\n", ch);
@@ -51,9 +51,9 @@ void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	stc("You focus on your magic -- you feel more deadly!\n", victim);
 }
 
-void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_paralyze(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (ch == victim) {
 		stc("That wouldn't be very smart now, would it?\n", ch);
@@ -82,9 +82,9 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	act("$n seems paralyzed!", victim, NULL, NULL, TO_ROOM);
 }
 
-void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_ironskin(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (affect_exists_on_char(victim, sn)) {
 		stc("Your skin is already hard as iron.\n", ch);
@@ -104,9 +104,9 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 
 /*** CLERIC ***/
 
-void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_barrier(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (affect_exists_on_char(victim, sn)) {
 		stc("You are already surrounded by a barrier.\n", ch);
@@ -125,9 +125,9 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 }
 
 /* Dazzle by Montrey */
-void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_dazzle(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 	int chance;
 
 	if (ch == victim && ch->fighting != NULL)
@@ -197,9 +197,9 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 }
 
 /* Full Heal by Montrey */
-void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_full_heal(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 	int mana, mana_cost;
 	mana = get_skill_cost(ch, sn);
 	mana_cost = (GET_MAX_HIT(ch) / 4) - mana;
@@ -239,9 +239,9 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 
 /*** THIEF ***/
 
-void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_midnight(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (affect_exists_on_char(victim, sn) && (victim == ch)) {
 		stc("You fail to invade the shadows further.\n", ch);
@@ -262,9 +262,9 @@ void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 
 /*** NECRO ***/
 
-void spell_sap(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_sap(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 	int dam, mult;
 	dam = dice(level, 22);
 	mult = ((100 - (((ch->hit * 100) / GET_MAX_HIT(ch)) * 2)) * 2);
@@ -289,9 +289,9 @@ void spell_sap(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 }
 
 /* Pain by Montrey */
-void spell_pain(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_pain(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 	int dam;
 
 	if (ch == victim) {
@@ -303,7 +303,7 @@ void spell_pain(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	act("$N writhes in agony as the pain of $S wounds overtakes $M.", ch, NULL, victim, TO_NOTVICT);
 	act("You scream in agony as the pain of your wounds increases.", ch, NULL, victim, TO_VICT);
 	dam = (UMIN(victim->hit, (4 * level))) + number_range(1, (level * 2));
-	damage(ch, (CHAR_DATA *) vo, dam, sn, DAM_HARM, TRUE, TRUE);
+	damage(ch, (Character *) vo, dam, sn, DAM_HARM, TRUE, TRUE);
 
 	if (ch->fighting != NULL) {
 		spell_slow(gsn_slow,   level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
@@ -315,9 +315,9 @@ void spell_pain(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 }
 
 /* Hex by Montrey */
-void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_hex(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (ch == victim) {
 		stc("Mortal fear of the dark gods prevents you from hexing yourself.\n", ch);
@@ -343,9 +343,9 @@ void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 }
 
 /* Bone Wall */
-void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_bone_wall(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	affect_add_sn_to_char(victim,
 		sn,
@@ -361,9 +361,9 @@ void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 
 /*** PALADIN ***/
 
-void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_force(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	Character *victim = (Character *) vo;
 
 	if (affect_exists_on_char(victim, sn)) {
 		stc("You are already protected by the force.\n", ch);
@@ -383,9 +383,9 @@ void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 }
 
 /* Holy Sword by Montrey */
-void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	OBJ_DATA *sword, *wielded;
+	Object *sword, *wielded;
 
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->alignment < 1000 && ch->alignment > -1000) {
@@ -424,7 +424,7 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	if (sword->level >= 70)
 		sword->value[4] |= WEAPON_FLAMING;
 
-	AFFECT_DATA af;
+	Affect af;
 	af.where      = TO_OBJECT;
 	af.type       = gsn_enchant_weapon;
 	af.level      = level;
@@ -467,7 +467,7 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 /*** BARD ***/
 
 /* Quick */
-void spell_quick(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
+void spell_quick(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	/* how simple could it be? */
 	act("$n blazes into a wild flurry of attacks!", ch, NULL, NULL, TO_ROOM);

@@ -1,7 +1,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "gem.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "affect_list.h"
 
 // Gem Table
@@ -26,7 +26,7 @@ const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
 };
 
 // populate a short string for display, takes a buffer of size GEM_SHORT_STRING_LEN
-char *get_gem_short_string(OBJ_DATA *eq) {
+char *get_gem_short_string(Object *eq) {
 	static char buf[MAX_GEM_SETTINGS * 3 + 9];
 
 	if (eq->num_settings == 0) {
@@ -49,7 +49,7 @@ char *get_gem_short_string(OBJ_DATA *eq) {
 	buf[pos++] = bracket_symbol_open;
 
 	// gems in the eq
-	for (OBJ_DATA *gem = eq->gems; gem; gem = gem->next_content) {
+	for (Object *gem = eq->gems; gem; gem = gem->next_content) {
 		count++;
 		buf[pos++] = '{';
 		buf[pos++] = gem_type_table[gem->value[0]].color_code;
@@ -83,8 +83,8 @@ char *get_gem_short_string(OBJ_DATA *eq) {
 	return buf;
 }
 
-void compile_gem_effects(OBJ_DATA *eq) {
-	OBJ_DATA *gem;
+void compile_gem_effects(Object *eq) {
+	Object *gem;
 
 	if (eq->wear_loc != WEAR_NONE) {
 		bug("compile_gem_effects: eq is worn", 0);
@@ -96,7 +96,7 @@ void compile_gem_effects(OBJ_DATA *eq) {
 	affect_clear_list(&eq->gem_affected);
 
 	for (gem = eq->gems; gem != NULL; gem = gem->next_content) {
-		AFFECT_DATA af;
+		Affect af;
 		af.where              = TO_OBJECT;
 		af.type               = 0;
 		af.level              = gem->level;
@@ -109,9 +109,9 @@ void compile_gem_effects(OBJ_DATA *eq) {
 	}
 }
 
-void do_inset(CHAR_DATA *ch, String argument)
+void do_inset(Character *ch, String argument)
 {
-	OBJ_DATA *eq, *gem;
+	Object *eq, *gem;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -151,7 +151,7 @@ void do_inset(CHAR_DATA *ch, String argument)
 	}
 
 	int count = 0;
-	OBJ_DATA *obj;
+	Object *obj;
 
 	for (obj = eq->gems; obj != NULL; obj = obj->next_content)
 		count++;

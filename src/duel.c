@@ -6,29 +6,29 @@
 #include "merc.h"
 #include "interp.h"
 #include "recycle.h"
-#include "affect.h"
+#include "Affect.hpp"
 #include "memory.h"
 #include "Format.hpp"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"
 
-void remove_duel(DUEL_DATA *c);
-ROOM_INDEX_DATA *get_random_arena_room(ARENA_DATA *arena, int notvnum);
-void duel_announce(char *buf, DUEL_DATA *duel);
-void clear_arena(ARENA_DATA *arena);
+void remove_duel(Duel *c);
+RoomPrototype *get_random_arena_room(Duel::Arena *arena, int notvnum);
+void duel_announce(char *buf, Duel *duel);
+void clear_arena(Duel::Arena *arena);
 
-struct duel_data *duel_table_head;
-struct duel_data *duel_table_tail;
-struct arena_data *arena_table_head;
-struct arena_data *arena_table_tail;
+Duel *duel_table_head;
+Duel *duel_table_tail;
+Duel::Arena *arena_table_head;
+Duel::Arena *arena_table_tail;
 
 /* called every second */
 void duel_update()
 {
 	char buf[MSL];
-	DUEL_DATA *c, *c_next;
-	ROOM_INDEX_DATA *room;
+	Duel *c, *c_next;
+	RoomPrototype *room;
 	c = duel_table_head->next;
 
 	while (c != duel_table_tail) {
@@ -50,7 +50,7 @@ void duel_update()
 
 		if (c->prep_timer > 0) {
 			if (--c->prep_timer == 0) {
-				CHAR_DATA *wch;
+				Character *wch;
 
 				for (wch = c->arena->viewroom->people; wch != NULL; wch = wch->next_in_room)
 					stc("{P[{RDUEL{P] {WThe duel has begun!{x\n", wch);
@@ -76,12 +76,12 @@ void load_arena_table()
 {
 	FILE *fp;
 	int i, maxArenas;
-	ARENA_DATA *new_arena;
+	Duel::Arena *new_arena;
 
 	if ((fp = fopen(ARENA_DIR ARENA_FILE, "r")) != NULL) {
 		fscanf(fp, "%d\n", &maxArenas);
-		arena_table_head = new ARENA_DATA;
-		arena_table_tail = new ARENA_DATA;
+		arena_table_head = new Duel::Arena;
+		arena_table_tail = new Duel::Arena;
 		arena_table_head->next          = arena_table_tail;
 		arena_table_tail->previous      = arena_table_head;
 		duel_table_head = new_duel();
@@ -90,7 +90,7 @@ void load_arena_table()
 		duel_table_tail->previous       = duel_table_head;
 
 		for (i = 0; i < maxArenas; i++) {
-			new_arena = new ARENA_DATA;
+			new_arena = new Duel::Arena;
 			new_arena->keyword      = fread_string(fp);
 			new_arena->name         = fread_string(fp);
 			new_arena->desc         = fread_string(fp);
@@ -119,7 +119,7 @@ void load_arena_table()
 		bug("Could not open " ARENA_FILE " for reading!", 0);
 }
 
-void append_duel(DUEL_DATA *c)
+void append_duel(Duel *c)
 {
 	c->previous                     = duel_table_tail->previous;
 	c->previous->next               = c;
@@ -129,9 +129,9 @@ void append_duel(DUEL_DATA *c)
 	c->defender->pcdata->duel       = c;
 }
 
-void remove_duel(DUEL_DATA *c)
+void remove_duel(Duel *c)
 {
-	CHAR_DATA *ch;
+	Character *ch;
 	c->previous->next       = c->next;
 	c->next->previous       = c->previous;
 
@@ -143,10 +143,10 @@ void remove_duel(DUEL_DATA *c)
 	free_duel(c);
 }
 
-void duel_announce(char *buf, DUEL_DATA *duel)
+void duel_announce(char *buf, Duel *duel)
 {
 	char buffer[MSL];
-	DESCRIPTOR_DATA *d;
+	Descriptor *d;
 	Format::sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n", buf);
 
 	for (d = descriptor_list; d != NULL; d = d->next)
@@ -158,9 +158,9 @@ void duel_announce(char *buf, DUEL_DATA *duel)
 			stc(buffer, d->character);
 }
 
-bool char_in_darena_room(CHAR_DATA *ch)
+bool char_in_darena_room(Character *ch)
 {
-	ARENA_DATA *arena = arena_table_head->next;
+	Duel::Arena *arena = arena_table_head->next;
 
 	if (ch->in_room == NULL)
 		return FALSE;
@@ -176,9 +176,9 @@ bool char_in_darena_room(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool char_in_duel_room(CHAR_DATA *ch)
+bool char_in_duel_room(Character *ch)
 {
-	ARENA_DATA *arena = arena_table_head->next;
+	Duel::Arena *arena = arena_table_head->next;
 
 	if (ch->in_room == NULL)
 		return FALSE;
@@ -196,9 +196,9 @@ bool char_in_duel_room(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool char_in_darena(CHAR_DATA *ch)
+bool char_in_darena(Character *ch)
 {
-	DUEL_DATA *duel;
+	Duel *duel;
 
 	if ((duel = get_duel(ch)) == NULL)
 		return FALSE;
@@ -209,9 +209,9 @@ bool char_in_darena(CHAR_DATA *ch)
 	return FALSE;
 }
 
-bool char_in_duel(CHAR_DATA *ch)
+bool char_in_duel(Character *ch)
 {
-	DUEL_DATA *duel;
+	Duel *duel;
 
 	if ((duel = get_duel(ch)) == NULL)
 		return FALSE;
@@ -223,10 +223,10 @@ bool char_in_duel(CHAR_DATA *ch)
 }
 
 /* return a player's duel, massive debugging at lowest level */
-DUEL_DATA *get_duel(CHAR_DATA *ch)
+Duel *get_duel(Character *ch)
 {
-	DUEL_DATA *duel;
-	CHAR_DATA *opp = NULL;
+	Duel *duel;
+	Character *opp = NULL;
 	bool cgr = FALSE;
 
 	if (IS_NPC(ch) || ch->in_room == NULL || ch->pcdata == NULL || ch->pcdata->duel == NULL)
@@ -326,9 +326,9 @@ bombout:
 	return NULL;
 }
 
-ARENA_DATA *get_random_arena()
+Duel::Arena *get_random_arena()
 {
-	ARENA_DATA *arena;
+	Duel::Arena *arena;
 	int count = 0, number;
 
 	for (arena = arena_table_head->next; arena != arena_table_tail; arena = arena->next)
@@ -351,9 +351,9 @@ ARENA_DATA *get_random_arena()
 	return arena;
 }
 
-ROOM_INDEX_DATA *get_random_arena_room(ARENA_DATA *arena, int notvnum)
+RoomPrototype *get_random_arena_room(Duel::Arena *arena, int notvnum)
 {
-	ROOM_INDEX_DATA *room;
+	RoomPrototype *room;
 
 	do {
 		room = get_room_index(number_range(arena->minvnum, arena->maxvnum));
@@ -363,12 +363,12 @@ ROOM_INDEX_DATA *get_random_arena_room(ARENA_DATA *arena, int notvnum)
 	return room;
 }
 
-void view_room_hpbar(CHAR_DATA *ch)
+void view_room_hpbar(Character *ch)
 {
 	String chalblock, defblock;
 	char line[MSL];
-	DUEL_DATA *duel;
-	CHAR_DATA *chal, *def, *vch;
+	Duel *duel;
+	Character *chal, *def, *vch;
 	int i, chalpct, defpct;
 
 	if ((duel = get_duel(ch)) == NULL)
@@ -432,10 +432,10 @@ void view_room_hpbar(CHAR_DATA *ch)
 		stc(line, vch);
 }
 
-void clear_arena(ARENA_DATA *arena)
+void clear_arena(Duel::Arena *arena)
 {
-	ROOM_INDEX_DATA *room;
-	CHAR_DATA *wch;
+	RoomPrototype *room;
+	Character *wch;
 	int i;
 
 	for (i = arena->minvnum; i != arena->maxvnum + 1; i++)
@@ -455,12 +455,12 @@ void clear_arena(ARENA_DATA *arena)
 				extract_char(wch, !IS_NPC(wch));
 }
 
-void duel_kill(CHAR_DATA *victim)
+void duel_kill(Character *victim)
 {
 	char buf[MSL];
-	CHAR_DATA *ch, *wch;
-	DUEL_DATA *duel;
-	ROOM_INDEX_DATA *room;
+	Character *ch, *wch;
+	Duel *duel;
+	RoomPrototype *room;
 	int room_vnum;
 	duel = get_duel(victim);
 
@@ -518,7 +518,7 @@ void duel_kill(CHAR_DATA *victim)
 	save_char_obj(victim);
 }
 
-void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
+void prepare_char(Character *ch, Duel *duel)
 {
 	char_from_room(ch);
 
@@ -536,12 +536,12 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	do_look(ch, "auto");
 }
 
-void do_duel(CHAR_DATA *ch, String argument)
+void do_duel(Character *ch, String argument)
 {
 	char buf[MSL];
-	DUEL_DATA *duel;
-	CHAR_DATA *victim = NULL;
-	ARENA_DATA *arena;
+	Duel *duel;
+	Character *victim = NULL;
+	Duel::Arena *arena;
 
 	if (IS_NPC(ch)) {
 		stc("You have no need to challenge players.\n", ch);
