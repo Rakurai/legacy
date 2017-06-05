@@ -406,7 +406,7 @@ void nanny(Descriptor *d, String argument)
 			return;
 		}
 
-		if (check_ban(d->host, BAN_ALL) && !IS_SET(ch->act, PLR_PERMIT)) {
+		if (check_ban(d->host, BAN_ALL) && !IS_SET(ch->act_flags, PLR_PERMIT)) {
 			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
@@ -479,7 +479,7 @@ void nanny(Descriptor *d, String argument)
 
 		REMOVE_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
-		REMOVE_BIT(ch->act, PLR_QUESTOR);
+		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
 		log_string(log_buf);
 		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));

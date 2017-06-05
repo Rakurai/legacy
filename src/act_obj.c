@@ -197,7 +197,7 @@ bool can_loot(Character *ch, Object *obj)
 	if (!str_cmp(ch->name, owner->name))
 		return TRUE;
 
-	if (!IS_NPC(owner) && IS_SET(owner->act, PLR_CANLOOT))
+	if (!IS_NPC(owner) && IS_SET(owner->act_flags, PLR_CANLOOT))
 		return TRUE;
 
 	if (is_same_group(ch, owner))
@@ -348,7 +348,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 		ch->silver += obj->value[0];
 		ch->gold += obj->value[1];
 
-		if (IS_SET(ch->act, PLR_AUTOSPLIT)) {
+		if (IS_SET(ch->act_flags, PLR_AUTOSPLIT)) {
 			/* AUTOSPLIT code */
 			members = 0;
 
@@ -370,7 +370,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 
 		if (!IS_NPC(ch)) {
 			/* Did they pick up their quest item? */
-			if (IS_SET(ch->act, PLR_QUESTOR)) {
+			if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
 				if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
 					char buf[MAX_STRING_LENGTH];
 					stc("{YYou have almost completed your QUEST!{x\n", ch);
@@ -494,13 +494,13 @@ void do_get(Character *ch, String argument)
 
 		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
 			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
-				if (IS_SET(ch->act, PLR_CLOSED)) {
+				if (IS_SET(ch->act_flags, PLR_CLOSED)) {
 					int number = get_locker_number(ch);
 
 					if (deduct_cost(ch, number * 10)) {
 						ptc(ch, "%d silver has been deducted for your locker.\n",
 						    number * 10);
-						REMOVE_BIT(ch->act, PLR_CLOSED);
+						REMOVE_BIT(ch->act_flags, PLR_CLOSED);
 					}
 					else {
 						stc("Your locker is closed.\n", ch);
@@ -1253,11 +1253,11 @@ void do_give(Character *ch, String argument)
 			}
 		}
 
-		if (IS_NPC(victim) && IS_SET(victim->act, ACT_IS_CHANGER)) {
+		if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
 
-			if (IS_NPC(ch) && IS_SET(ch->act, ACT_IS_CHANGER)) {
+			if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_IS_CHANGER)) {
 				stc("You don't need more money.\n", ch);
 				return;
 			}
@@ -1304,7 +1304,7 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, NULL, victim, TO_CHAR);
 		mprog_bribe_trigger(victim, ch, silver ? amount : amount * 100);
 
-		if (IS_NPC(victim) && IS_SET(victim->act, ACT_IS_CHANGER)) {
+		if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
 
@@ -2774,7 +2774,7 @@ void do_sacrifice(Character *ch, String argument)
 
 	ch->silver += silver;
 
-	if (IS_SET(ch->act, PLR_AUTOSPLIT)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOSPLIT)) {
 		/* AUTOSPLIT code */
 		members = 0;
 
@@ -3381,7 +3381,7 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim)) {
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim)) {
 		stc("Morphed players cannot attack PC's.\n", ch);
 		return;
 	}
@@ -3465,8 +3465,8 @@ void do_steal(Character *ch, String argument)
 				Format::sprintf(buf, "$N tried to steal from %s.", victim->name);
 				wiznet(buf, ch, NULL, WIZ_FLAGS, 0, 0);
 
-				if (!IS_SET(ch->act, PLR_THIEF)) {
-					SET_BIT(ch->act, PLR_THIEF);
+				if (!IS_SET(ch->act_flags, PLR_THIEF)) {
+					SET_BIT(ch->act_flags, PLR_THIEF);
 					SET_BIT(ch->pcdata->plr, PLR_NOPK);
 					set_color(ch, BLUE, NOBOLD);
 					stc("*** You are now a THIEF!! ***\n", ch);
@@ -3548,7 +3548,7 @@ void do_steal(Character *ch, String argument)
 	stc("Got it!\n", ch);
 
 	/* Did they pick up their quest item? */
-	if (IS_SET(ch->act, PLR_QUESTOR)) {
+	if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
 		if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
 			char buf[MAX_STRING_LENGTH];
 			stc("{YYou have almost completed your QUEST!{x\n", ch);
@@ -3592,7 +3592,7 @@ Character *find_keeper(Character *ch)
 	pShop = NULL;
 
 	for (keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room) {
-		if (IS_SET(keeper->act, ACT_MORPH))
+		if (IS_SET(keeper->act_flags, ACT_MORPH))
 			continue;
 
 		if (IS_NPC(keeper) && (pShop = keeper->pIndexData->pShop) != NULL)
@@ -3607,7 +3607,7 @@ Character *find_keeper(Character *ch)
 	/*
 	 * Undesirables.
 	 * REWORK PK, lets let them shop, Lotus
-	if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_KILLER) )
+	if ( !IS_NPC(ch) && IS_SET(ch->act_flags, PLR_KILLER) )
 	{
 	        do_say( keeper, "Killers are not welcome!" );
 	        Format::sprintf( buf, "%s the psycho KILLER is over here!\n", ch->name );
@@ -3615,7 +3615,7 @@ Character *find_keeper(Character *ch)
 	        return NULL;
 	}
 
-	if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_THIEF) )
+	if ( !IS_NPC(ch) && IS_SET(ch->act_flags, PLR_THIEF) )
 	{
 	        do_say( keeper, "Thieves are not welcome!" );
 	        Format::sprintf( buf, "%s the gutless THIEF is over here!\n", ch->name );
@@ -3766,7 +3766,7 @@ int get_cost(Character *keeper, Object *obj, bool fBuy)
 } /* end get_cost() */
 
 void make_pet(Character *ch, Character *pet) {
-	SET_BIT(pet->act, ACT_PET);
+	SET_BIT(pet->act_flags, ACT_PET);
 	affect_add_perm_to_char(pet, gsn_charm_person);
 	pet->comm = COMM_NOCHANNELS;
 	add_follower(pet, ch);
@@ -3827,7 +3827,7 @@ void do_buy(Character *ch, String argument)
 			return;
 		}
 
-		if (pet == NULL || !IS_SET(pet->act, ACT_PET)) {
+		if (pet == NULL || !IS_SET(pet->act_flags, ACT_PET)) {
 			stc("Sorry, we don't sell those.  If you'd like to see my manager...\n", ch);
 			return;
 		}
@@ -4184,7 +4184,7 @@ void do_list(Character *ch, String argument)
 		found = FALSE;
 
 		for (pet = pRoomIndexNext->people; pet; pet = pet->next_in_room) {
-			if (IS_SET(pet->act, ACT_PET)) {
+			if (IS_SET(pet->act_flags, ACT_PET)) {
 				if (!found) {
 					found = TRUE;
 					stc("Pets and Exotic Companions for sale:\n", ch);

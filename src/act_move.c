@@ -74,7 +74,7 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_LAW)
-	    && (IS_NPC(ch) && IS_SET(ch->act, ACT_AGGRESSIVE))) {
+	    && (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_AGGRESSIVE))) {
 		stc("They don't seem to want your 'type' here.", ch);
 		return;
 	}
@@ -192,7 +192,7 @@ void move_char(Character *ch, int door, bool follow)
 	ch->stam -= cost;
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
-	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
+	    || (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_SUPERWIZ)))
 		act("$n leaves $T.", ch, NULL, dir_name[door], TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
 		act("$n leaves $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
@@ -208,7 +208,7 @@ void move_char(Character *ch, int door, bool follow)
 		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[door]]);
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
-	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
+	    || (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_SUPERWIZ)))
 		act("$n has arrived from $T.", ch, NULL, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
 		act("$n has arrived from $T.", ch, NULL, dir_buf, TO_NOTVIEW);
@@ -236,11 +236,11 @@ void move_char(Character *ch, int door, bool follow)
 		}
 
 		if (fch->master == ch && get_position(fch) >= POS_STANDING && can_see_room(fch, to_room)) {
-			if (IS_NPC(fch) && IS_SET(fch->act, ACT_STAY))
+			if (IS_NPC(fch) && IS_SET(fch->act_flags, ACT_STAY))
 				continue;
 
 			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LAW) && (IS_NPC(fch)
-			                && IS_SET(fch->act, ACT_AGGRESSIVE))) {
+			                && IS_SET(fch->act_flags, ACT_AGGRESSIVE))) {
 				act("You can't bring $N into the city.", ch, NULL, fch, TO_CHAR);
 				act("They don't seem to want your 'type' here.", fch, NULL, NULL, TO_CHAR);
 				continue;
@@ -1541,7 +1541,7 @@ void do_visible(Character *ch, String argument)
 	affect_remove_sn_from_char(ch, gsn_sneak);
 	affect_remove_sn_from_char(ch, gsn_hide);
 	affect_remove_sn_from_char(ch, gsn_midnight);
-	REMOVE_BIT(ch->act, PLR_SUPERWIZ);
+	REMOVE_BIT(ch->act_flags, PLR_SUPERWIZ);
 	ch->invis_level = 0;
 	ch->lurk_level = 0;
 	stc("You are now visible.\n", ch);
@@ -1556,7 +1556,7 @@ void do_recall(Character *ch, String argument)
 void do_clan_recall(Character *ch, String argument)
 {
 	/* This looks really ugly, so I'm re-writing it. -- Outsider
-	if ((!is_clan(ch) && !IS_SET(ch->act,ACT_PET)) || ch->clan == NULL)
+	if ((!is_clan(ch) && !IS_SET(ch->act_flags,ACT_PET)) || ch->clan == NULL)
 	{
 	     stc("You do not belong to a clan.\n",ch);
 	     return;
@@ -1564,9 +1564,9 @@ void do_clan_recall(Character *ch, String argument)
 	*/
 
 	/* Make sure we belong to a clan OR we are a pet. */
-	if (is_clan(ch) || IS_SET(ch->act, ACT_PET)) {
+	if (is_clan(ch) || IS_SET(ch->act_flags, ACT_PET)) {
 		/* Make sure we have a valid clan OR we are a pet */
-		if (ch->clan || IS_SET(ch->act, ACT_PET)) {
+		if (ch->clan || IS_SET(ch->act_flags, ACT_PET)) {
 			recall(ch, TRUE);
 			return;
 		}
@@ -1588,7 +1588,7 @@ void recall(Character *ch, bool clan)
 		return;
 
 	if (IS_NPC(ch)) {
-		if (IS_SET(ch->act, ACT_PET) && ch->master != NULL)
+		if (IS_SET(ch->act_flags, ACT_PET) && ch->master != NULL)
 			pet = TRUE;
 		else {
 			ptc(ch, "Only players and pets can %srecall.\n", clan ? "clan" : "");
@@ -1751,7 +1751,7 @@ void do_train(Character *ch, String argument)
 	 * Check for trainer.
 	 */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->act, ACT_TRAIN))
+		if (IS_NPC(mob) && IS_SET(mob->act_flags, ACT_TRAIN))
 			break;
 	}
 
@@ -2057,7 +2057,7 @@ void do_push(Character *ch, String argument)
 	}
 
 	if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_LAW)
-	    && (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE))) {
+	    && (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_AGGRESSIVE))) {
 		stc("They are too ill-tempered to have in the city.\n", ch);
 		return;
 	}
@@ -2316,12 +2316,12 @@ void do_drag(Character *ch, String argument)
 	}
 
 	if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_LAW)) {
-		if (IS_NPC(ch) && IS_SET(ch->act, ACT_AGGRESSIVE)) {
+		if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_AGGRESSIVE)) {
 			stc("They don't want your 'type' in there.\n", ch);
 			return;
 		}
 
-		if (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE)) {
+		if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_AGGRESSIVE)) {
 			stc("They are too ill-tempered to have in the city.\n", ch);
 			return;
 		}
@@ -2691,7 +2691,7 @@ RoomPrototype *get_random_room(Character *ch)
 		    || !str_cmp(room->area->name, "Eilyndrae")     /* hack to make eilyndrae and torayna cri unquestable */
 		    || !str_cmp(room->area->name, "Torayna Cri")
 		    || IS_SET(GET_ROOM_FLAGS(room), ROOM_PRIVATE | ROOM_SOLITARY)
-		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW) && IS_SET(ch->act, ACT_AGGRESSIVE))
+		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW) && IS_SET(ch->act_flags, ACT_AGGRESSIVE))
 		    || room->sector_type == SECT_ARENA)
 			continue;
 
@@ -2765,7 +2765,7 @@ void do_enter(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(location), ROOM_LAW) && IS_SET(ch->act, ACT_AGGRESSIVE)) {
+		if (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(location), ROOM_LAW) && IS_SET(ch->act_flags, ACT_AGGRESSIVE)) {
 			stc("As soon as you enter, you are spat violently out again.\n", ch);
 			return;
 		}
@@ -2884,7 +2884,7 @@ void do_enter(Character *ch, String argument)
 
 			if (fch->master == ch && get_position(fch) == POS_STANDING) {
 				if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LAW)
-				    && (IS_NPC(fch) && IS_SET(fch->act, ACT_AGGRESSIVE))) {
+				    && (IS_NPC(fch) && IS_SET(fch->act_flags, ACT_AGGRESSIVE))) {
 					act("You can't bring $N into the city!! Are you DAFT?!", ch, NULL, fch, TO_CHAR);
 					act("Get yer aggressive butt outta town buddy...", fch, NULL, NULL, TO_CHAR);
 					continue;
@@ -3039,7 +3039,7 @@ void do_spousegate(Character *ch, String argument)
 
 	/* check for pet */
 	if ((ch->pet) && (ch->in_room == ch->pet->in_room) &&
-	    (! IS_SET(ch->pet->act, ACT_STAY)))
+	    (! IS_SET(ch->pet->act_flags, ACT_STAY)))
 		gate_pet = TRUE;
 
 	/* transfer person and (perhaps) pet */

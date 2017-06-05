@@ -238,7 +238,7 @@ void act_parse(
             if (!IS_IMMORTAL(to)) /* eliminates mobs too */
                 continue;
 
-            if (IS_SET(ch->act, PLR_SUPERWIZ) && !IS_IMP(to))
+            if (IS_SET(ch->act_flags, PLR_SUPERWIZ) && !IS_IMP(to))
                 continue;
         }
 

@@ -156,9 +156,9 @@ void config_color(Character *ch, String argument)
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Color options:\n\n", ch);
 		ptc(ch, "  1.  Color                                      %s\n",
-		    IS_SET(ch->act, PLR_COLOR) ? "{CON{x" : "{POFF{x");
+		    IS_SET(ch->act_flags, PLR_COLOR) ? "{CON{x" : "{POFF{x");
 		ptc(ch, "  2.  Crazy Color                                %s\n",
-		    IS_SET(ch->act, PLR_COLOR2) ? "{CON{x" : "{POFF{x");
+		    IS_SET(ch->act_flags, PLR_COLOR2) ? "{CON{x" : "{POFF{x");
 		stc("  3.  Channels\n", ch);
 		stc("  4.  Score\n", ch);
 		stc("  5.  Miscellaneous\n", ch);
@@ -192,19 +192,19 @@ void config_color(Character *ch, String argument)
 		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
 			stc("This toggles color on or off.\n", ch);
 		else if (argument.empty()) {
-			if (IS_SET(ch->act, PLR_COLOR)) {
+			if (IS_SET(ch->act_flags, PLR_COLOR)) {
 				stc("You see things in ", ch);
 				set_color(ch, WHITE, NOBOLD);
 				stc("BLACK and ", ch);
 				set_color(ch, WHITE, BOLD);
 				stc("WHITE.\n", ch);
 				set_color(ch, WHITE, NOBOLD);
-				REMOVE_BIT(ch->act, PLR_COLOR);
-				REMOVE_BIT(ch->act, PLR_COLOR2);
+				REMOVE_BIT(ch->act_flags, PLR_COLOR);
+				REMOVE_BIT(ch->act_flags, PLR_COLOR2);
 			}
 			else {
-				SET_BIT(ch->act, PLR_COLOR);
-				SET_BIT(ch->act, PLR_COLOR2);
+				SET_BIT(ch->act_flags, PLR_COLOR);
+				SET_BIT(ch->act_flags, PLR_COLOR2);
 				stc("{TYou {Hsee {bthings {Nin {Mmany {YC{GO{PL{BO{VR{CS{Y!{x\n", ch);
 			}
 		}
@@ -220,12 +220,12 @@ void config_color(Character *ch, String argument)
 			    "Toggling this option determines if the affected test looks\n"
 			    "normal or colored to you.\n", ch);
 		else if (argument.empty()) {
-			if (IS_SET(ch->act, PLR_COLOR2)) {
-				REMOVE_BIT(ch->act, PLR_COLOR2);
+			if (IS_SET(ch->act_flags, PLR_COLOR2)) {
+				REMOVE_BIT(ch->act_flags, PLR_COLOR2);
 				stc("Crazy Color Disabled =(\n", ch);
 			}
 			else {
-				SET_BIT(ch->act, PLR_COLOR2);
+				SET_BIT(ch->act_flags, PLR_COLOR2);
 				stc("Crazy Color Enabled!!! Yea!! =)\n", ch);
 			}
 		}

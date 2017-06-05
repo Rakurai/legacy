@@ -549,7 +549,7 @@ void interpret(Character *ch, String argument)
 	/*
 	 * Implement freeze command.
 	 */
-	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
+	if (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_FREEZE)) {
 		ptc(ch, "You try to {G%-100.100s{x\n", argument);
 		stc("A powerful force slams you up against the nearest object. YOU'RE FROZEN!\n", ch);
 		return;
@@ -613,7 +613,7 @@ void interpret(Character *ch, String argument)
 	if (cmd_table[cmd].log == LOG_NEVER)
 		strcpy(logline, "");
 
-	if ((!IS_NPC(ch) && IS_SET(ch->act, PLR_LOG))
+	if ((!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_LOG))
 	    ||   fLogAll
 	    ||   cmd_table[cmd].log == LOG_ALWAYS) {
 		Format::sprintf(log_buf, "Log %s: %s", ch->name, logline);
@@ -621,7 +621,7 @@ void interpret(Character *ch, String argument)
 		if (cmd_table[cmd].log == LOG_ALWAYS)
 			wiznet(log_buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
 
-		if (IS_SET(ch->act, PLR_LOG)) {
+		if (IS_SET(ch->act_flags, PLR_LOG)) {
 			char *strtime;
 			char tmp[MAX_STRING_LENGTH];
 			strtime = ctime(&current_time);

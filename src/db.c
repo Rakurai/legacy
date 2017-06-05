@@ -910,7 +910,7 @@ void load_mobiles(FILE *fp)
 		pMobIndex->race                 = race_lookup(fread_string(fp));
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
-		pMobIndex->act                  = fread_flag(fp) | race_table[pMobIndex->race].act;
+		pMobIndex->act_flags                  = fread_flag(fp) | race_table[pMobIndex->race].act;
 
 		// affect flags no longer includes flags already on the race affect bitvector
 		pMobIndex->affect_flags         = fread_flag(fp) & ~race_table[pMobIndex->race].aff;
@@ -955,11 +955,11 @@ void load_mobiles(FILE *fp)
 		pMobIndex->vuln_flags           = fread_flag(fp) & ~race_table[pMobIndex->race].vuln;
 
 		// fix old style ACT_IS_NPC (A) flag, changed to ACT_NOSUMMON (A)
-		REMOVE_BIT(pMobIndex->act, A);
+		REMOVE_BIT(pMobIndex->act_flags, A);
 
 		// fix old style IMM_SUMMON (A) flag, changed to ACT_NOSUMMON (A)
 		if (IS_SET(pMobIndex->imm_flags, A))
-			SET_BIT(pMobIndex->act, ACT_NOSUMMON);
+			SET_BIT(pMobIndex->act_flags, ACT_NOSUMMON);
 		REMOVE_BIT(pMobIndex->imm_flags, A);
 		REMOVE_BIT(pMobIndex->res_flags, A);
 		REMOVE_BIT(pMobIndex->vuln_flags, A);
@@ -1007,7 +1007,7 @@ void load_mobiles(FILE *fp)
 				vector                  = fread_flag(fp);
 
 				if (!str_prefix1(word, "act"))
-					REMOVE_BIT(pMobIndex->act, vector);
+					REMOVE_BIT(pMobIndex->act_flags, vector);
 				else if (!str_prefix1(word, "aff"))
 					REMOVE_BIT(pMobIndex->affect_flags, vector);
 				else if (!str_prefix1(word, "off"))

@@ -24,11 +24,41 @@ typedef int sh_int;
 
 #define args( list )                    list
 
-class String;
+// Forward declarations of all major classes on the mud.  This may disappear as
+// things become less tightly coupled.
+class Actable;
+class Affect;
+class Area;
+class Battle;
 class Character;
-//class Actable;
-//class Affect;
-//class ExtraDescr;
+class Clan;
+class Customize;
+class DepartedPlayer;
+class Descriptor;
+class Disabled;
+class Duel;
+class Edit;
+class EQSocket;
+class Exit;
+class ExtraDescr;
+class GameTime;
+class Mercenary;
+class MobilePrototype;
+class MobProg;
+class MobProgActList;
+class Note;
+class Object;
+class ObjectPrototype;
+class Player;
+class Reset;
+class RoomPrototype;
+class Shop;
+class Social;
+class StoredPlayer;
+class String;
+class Tail;
+class War;
+class Weather;
 
 /*
  * Function types.

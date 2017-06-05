@@ -757,11 +757,11 @@ bool spec_executioner(Character *ch)
 	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)
+		if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_KILLER)
 		    &&   can_see_char(ch, victim))
 		{ crime = "KILLER"; break; }
 
-		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)
+		if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_THIEF)
 		    &&   can_see_char(ch, victim))
 		{ crime = "THIEF"; break; }
 	}
@@ -828,11 +828,11 @@ bool spec_guard(Character *ch)
 		v_next = victim->next_in_room;
 
 		/* REWORK PK - Lotus
-		        if ( !IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)
+		        if ( !IS_NPC(victim) && IS_SET(victim->act_flags, PLR_KILLER)
 		        &&   can_see_char(ch,victim))
 		            { crime = "KILLER"; break; }
 
-		        if ( !IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)
+		        if ( !IS_NPC(victim) && IS_SET(victim->act_flags, PLR_THIEF)
 		        &&   can_see_char(ch,victim))
 		            { crime = "THIEF"; break; }
 		*/

@@ -15,7 +15,7 @@ public:
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
     String              host;           /* text addr */
     sh_int              descriptor = 0;
-    sh_int              connected = 0;
+    sh_int              connected = CON_GET_NAME;
     bool                fcommand = FALSE;
     char                inbuf           [4 * MAX_INPUT_LENGTH] = {0};
     char                incomm          [MAX_INPUT_LENGTH] = {0};

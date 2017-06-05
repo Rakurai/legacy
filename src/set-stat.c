@@ -1199,14 +1199,14 @@ void do_mset(Character *ch, String argument)
 		}
 
 		victim->pcdata->flag_thief = value;
-		SET_BIT(victim->act, PLR_NOPK);
+		SET_BIT(victim->act_flags, PLR_NOPK);
 
 		if (value) {
-			SET_BIT(victim->act, PLR_THIEF);
+			SET_BIT(victim->act_flags, PLR_THIEF);
 			ptc(ch, "%s will have a {BTHIEF{x flag for %d ticks.\n", victim->name, value);
 		}
 		else {
-			REMOVE_BIT(victim->act, PLR_THIEF);
+			REMOVE_BIT(victim->act_flags, PLR_THIEF);
 			ptc(ch, "%s is no longer a {BTHIEF{x.\n", victim->name);
 		}
 
@@ -1220,14 +1220,14 @@ void do_mset(Character *ch, String argument)
 		}
 
 		victim->pcdata->flag_killer = value;
-		SET_BIT(victim->act, PLR_NOPK);
+		SET_BIT(victim->act_flags, PLR_NOPK);
 
 		if (value) {
-			SET_BIT(victim->act, PLR_KILLER);
+			SET_BIT(victim->act_flags, PLR_KILLER);
 			ptc(ch, "%s will have a {RKILLER{x flag for %d ticks.\n", victim->name, value);
 		}
 		else {
-			REMOVE_BIT(victim->act, PLR_KILLER);
+			REMOVE_BIT(victim->act_flags, PLR_KILLER);
 			ptc(ch, "%s is no longer a {RKILLER{x.\n", victim->name);
 		}
 
@@ -1533,7 +1533,7 @@ void format_mstat(Character *ch, Character *victim)
 		if (victim->pcdata->email[0] != '\0')
 			ptc(ch, "Email: %s\n", victim->pcdata->email);
 
-	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act, IS_NPC(victim)));
+	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
 
 	if (!IS_NPC(victim)) {
 		ptc(ch, "{WPlr: %s\n", plr_bit_name(victim->pcdata->plr));
@@ -2107,8 +2107,8 @@ void do_pstat(Character *ch, String argument)
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
 	    affect_exists_on_char(victim, gsn_charm_person) ?                        "{M(Charmed) "  : "",
-	    IS_SET(victim->act, PLR_KILLER) ?                       "{R(KILLER) "   : "",
-	    IS_SET(victim->act, PLR_THIEF) ?                        "{B(THIEF) "    : "");
+	    IS_SET(victim->act_flags, PLR_KILLER) ?                       "{R(KILLER) "   : "",
+	    IS_SET(victim->act_flags, PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */
 	ptc(ch, "{W%s in room [%d]",
 	    position_table[victim->position].name,

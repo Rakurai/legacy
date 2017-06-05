@@ -39,9 +39,10 @@ _O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o auction.o typename.o
 	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\
 	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o sqlite.o	\
 	nanny.o Note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
-	set-stat.o skills.o social.o special.o storage.o c_string.o tables.o update.o war.o	\
+	set-stat.o skills.o social.o special.o storage.o c_string.o tables.o update.o \
 	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o paint.o \
-	Disabled.o String.o StringPatch.o cJSON.o GameTime.o Object.o Battle.o Weather.o
+	Disabled.o String.o StringPatch.o cJSON.o GameTime.o Object.o Battle.o Weather.o \
+	Character.o War.o
 
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 

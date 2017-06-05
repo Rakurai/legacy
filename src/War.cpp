@@ -8,6 +8,7 @@
 #include "lookup.h"
 #include "recycle.h"
 #include "Format.hpp"
+#include "War.hpp"
 
 #define WAR_DIR         "../war/"
 #define EVENT_DIR       "../war/events/"
@@ -21,6 +22,26 @@ void rec_event(War *war, int type, const String& astr, const String& bstr, int n
 
 War *war_table_head;
 War *war_table_tail;
+
+War::War() {
+	for (int i = 0; i < 4; i++) {
+		chal[i] = new Opponent();
+		def[i] = new Opponent();
+	}
+}
+
+War::~War() {
+	for (int i = 0; i < 4; i++) {
+		delete chal[i];
+		delete def[i];
+	}
+
+	Event *event, *event_next;
+	for (event = events; event != NULL; event = event_next) {
+		event_next = event->next;
+		delete event;
+	}
+}
 
 void append_war(War *war)
 {

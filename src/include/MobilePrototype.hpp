@@ -25,7 +25,7 @@ public:
     String              short_descr;
     String              long_descr;
     String              description;
-    long                act = 0;
+    long                act_flags = 0;
     long                affect_flags = 0;
     sh_int              alignment = 0;
     sh_int              level = 0;

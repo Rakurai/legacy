@@ -628,7 +628,7 @@ void do_newbiekit(Character *ch, String argument)
 	Object *kit;
 	int i, kitvnum = 72;
 
-	if (!IS_IMMORTAL(ch) && !IS_SET(ch->act, PLR_MAKEBAG)) {
+	if (!IS_IMMORTAL(ch) && !IS_SET(ch->act_flags, PLR_MAKEBAG)) {
 		do_huh(ch);
 		return;
 	}
@@ -687,7 +687,7 @@ void do_pk(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->act, PLR_NOPK)) {
+	if (IS_SET(ch->act_flags, PLR_NOPK)) {
 		stc("You are stuck in PK mode!  I hope no one is trying to kill you.\n", ch);
 		return;
 	}
@@ -772,25 +772,25 @@ void do_showlast(Character *ch, String argument)
 /* Autorecall by Lotus */
 void do_autorecall(Character *ch, String argument)
 {
-	if (IS_SET(ch->act, PLR_WIMPY)) {
+	if (IS_SET(ch->act_flags, PLR_WIMPY)) {
 		stc("You will no longer recall in link-dead combat.\n", ch);
-		REMOVE_BIT(ch->act, PLR_WIMPY);
+		REMOVE_BIT(ch->act_flags, PLR_WIMPY);
 	}
 	else {
 		stc("You will now recall in link-dead combat.\n", ch);
-		SET_BIT(ch->act, PLR_WIMPY);
+		SET_BIT(ch->act_flags, PLR_WIMPY);
 	}
 }
 /* PlayerTicks by Lotus */
 void do_autotick(Character *ch, String argument)
 {
-	if (IS_SET(ch->act, PLR_TICKS)) {
+	if (IS_SET(ch->act_flags, PLR_TICKS)) {
 		stc("You will no longer see ticks.\n", ch);
-		REMOVE_BIT(ch->act, PLR_TICKS);
+		REMOVE_BIT(ch->act_flags, PLR_TICKS);
 	}
 	else {
 		stc("You will now see ticks.\n", ch);
-		SET_BIT(ch->act, PLR_TICKS);
+		SET_BIT(ch->act_flags, PLR_TICKS);
 	}
 }
 
@@ -1172,12 +1172,12 @@ void do_quit(Character *ch, String argument)
 		if (deduct_cost(ch, lnum * 10)) {
 			ptc(ch, "%d silver has been deducted for your locker.\n",
 			    lnum * 10);
-			REMOVE_BIT(ch->act, PLR_CLOSED);
+			REMOVE_BIT(ch->act_flags, PLR_CLOSED);
 		}
 		else {
 			stc("You cannot afford to pay your locker fee.\n", ch);
 			stc("Your locker has been closed.\n", ch);
-			SET_BIT(ch->act, PLR_CLOSED);
+			SET_BIT(ch->act_flags, PLR_CLOSED);
 		}
 	}
 
@@ -1327,13 +1327,13 @@ void do_follow(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
+	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
 		act("$N doesn't seem to want any followers.\n",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	REMOVE_BIT(ch->act, PLR_NOFOLLOW);
+	REMOVE_BIT(ch->act_flags, PLR_NOFOLLOW);
 
 	if (ch->master != NULL)
 		stop_follower(ch);
@@ -1497,25 +1497,25 @@ void do_order(Character *ch, String argument)
 		/* Stay/Follow code by Lotus */
 		if (!str_cmp(arg2, "stay") && IS_NPC(victim)) {
 			stc("You order your pet to stay.\n", ch);
-			SET_BIT(victim->act, ACT_STAY);
+			SET_BIT(victim->act_flags, ACT_STAY);
 			return;
 		}
 
 		if (!str_cmp(arg2, "follow") && IS_NPC(victim)) {
 			stc("You order your pet to follow you.\n", ch);
-			REMOVE_BIT(victim->act, ACT_STAY);
+			REMOVE_BIT(victim->act_flags, ACT_STAY);
 			return;
 		}
 
 		if (!str_cmp(arg2, "wimpy") && IS_NPC(victim)) {
 			stc("You order your pet to flee if injured.\n", ch);
-			SET_BIT(victim->act, ACT_WIMPY);
+			SET_BIT(victim->act_flags, ACT_WIMPY);
 			return;
 		}
 
 		if (!str_cmp(arg2, "courage") && IS_NPC(victim)) {
 			stc("You order your pet fight to the finish.\n", ch);
-			REMOVE_BIT(victim->act, ACT_WIMPY);
+			REMOVE_BIT(victim->act_flags, ACT_WIMPY);
 			return;
 		}
 

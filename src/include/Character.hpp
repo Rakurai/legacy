@@ -1,3 +1,9 @@
+#pragma once
+
+#include "declare.h"
+#include "Actable.hpp"
+#include "String.hpp"
+
 /*
  * One character (PC or NPC).
  */
@@ -6,16 +12,11 @@
 #define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 
-class Player;
-class Customize;
-class Area;
-class Clan;
-
 class Character: public Actable
 {
 public:
-    Character() {}
-    virtual ~Character() {}
+    Character();
+    virtual ~Character();
 
     Character *         next = NULL;
     Character *         next_in_room = NULL;
@@ -86,7 +87,7 @@ public:
     long                gold_in_bank = 0;
     long                silver_in_bank = 0;
     int                 exp = 0;
-    unsigned long       act = 0;
+    unsigned long       act_flags = 0;
     unsigned long       comm = 0;   /* RT added to pad the vector */
     unsigned long       revoke = 0;  /* New Revoke stuff */
     unsigned long       wiznet = 0; /* wiz stuff */

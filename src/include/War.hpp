@@ -43,8 +43,8 @@ public:
         Event& operator=(const Event&);
     };
 
-    War() {}
-    virtual ~War() {}
+    War();
+    virtual ~War();
 
     War::Opponent *  chal[4] = {NULL};
     War::Opponent *  def[4] = {NULL};

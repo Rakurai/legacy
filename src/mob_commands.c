@@ -151,7 +151,7 @@ void do_mpasound(Character *ch, String argument)
 	int              door;
 	bool save_mobtrigger;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -187,7 +187,7 @@ void do_mpkill(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -238,7 +238,7 @@ void do_mpjunk(Character *ch, String argument)
 	Object *obj;
 	Object *obj_next;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -284,7 +284,7 @@ void do_mpechoaround(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -313,7 +313,7 @@ void do_mpechoat(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -341,7 +341,7 @@ void do_mpechoat(Character *ch, String argument)
 
 void do_mpecho(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -358,7 +358,7 @@ void do_mpecho(Character *ch, String argument)
 
 void do_mpclearmoney(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -377,7 +377,7 @@ void do_mpmload(Character *ch, String argument)
 	MobilePrototype *pMobIndex;
 	Character      *victim;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -411,7 +411,7 @@ void do_mpoload(Character *ch, String argument)
 	ObjectPrototype *pObjIndex;
 	Object       *obj;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}
@@ -456,7 +456,7 @@ void do_mppurge(Character *ch, String argument)
 	Character *victim;
 	Object  *obj;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -505,7 +505,7 @@ void do_mpgoto(Character *ch, String argument)
 {
 	RoomPrototype *location;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -539,7 +539,7 @@ void do_mpat(Character *ch, String argument)
 	RoomPrototype *original;
 	Character       *wch;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -586,7 +586,7 @@ void do_mptransfer(Character *ch, String argument)
 //	Descriptor *d;
 	Character *victim;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}
@@ -660,7 +660,7 @@ void do_mptransfer(Character *ch, String argument)
    and the all argument only affects those in the room with the mobile */
 void do_mpforce(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}

@@ -230,15 +230,15 @@ void do_freeze(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->act, PLR_FREEZE)) {
-		REMOVE_BIT(victim->act, PLR_FREEZE);
+	if (IS_SET(victim->act_flags, PLR_FREEZE)) {
+		REMOVE_BIT(victim->act_flags, PLR_FREEZE);
 		stc("Heat envelops your blood.\n", victim);
 		stc("FREEZE removed.\n", ch);
 		Format::sprintf(buf, "$N has unfrozen: %s.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
-		SET_BIT(victim->act, PLR_FREEZE);
+		SET_BIT(victim->act_flags, PLR_FREEZE);
 		stc("A crystal blue sheet of ice immobilizes your body!\n", victim);
 		stc("FREEZE set.\n", ch);
 		Format::sprintf(buf, "$N puts %s in the deep freeze.", victim->name);
@@ -437,12 +437,12 @@ void do_log(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->act, PLR_LOG))
-		REMOVE_BIT(victim->act, PLR_LOG);
+	if (IS_SET(victim->act_flags, PLR_LOG))
+		REMOVE_BIT(victim->act_flags, PLR_LOG);
 	else
-		SET_BIT(victim->act, PLR_LOG);
+		SET_BIT(victim->act_flags, PLR_LOG);
 
-	ptc(ch, "LOG %s.\n", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
+	ptc(ch, "LOG %s.\n", IS_SET(victim->act_flags, PLR_LOG) ? "set" : "removed");
 }
 
 void do_newlock(Character *ch, String argument)
@@ -516,11 +516,11 @@ void do_pardon(Character *ch, String argument)
 	}
 
 	if (!str_cmp(arg2, "killer")) {
-		if (IS_SET(victim->act, PLR_KILLER)) {
-			REMOVE_BIT(victim->act, PLR_KILLER);
+		if (IS_SET(victim->act_flags, PLR_KILLER)) {
+			REMOVE_BIT(victim->act_flags, PLR_KILLER);
 			stc("Their killer flag has been removed.\n", ch);
 			stc("You are no longer a KILLER.\n", victim);
-			REMOVE_BIT(victim->act, PLR_NOPK);
+			REMOVE_BIT(victim->act_flags, PLR_NOPK);
 		}
 		else
 			stc("They do not have a killer flag set.\n", ch);
@@ -528,11 +528,11 @@ void do_pardon(Character *ch, String argument)
 		ch->pcdata->flag_killer = 0;
 	}
 	else if (!str_cmp(arg2, "thief")) {
-		if (IS_SET(victim->act, PLR_THIEF)) {
-			REMOVE_BIT(victim->act, PLR_THIEF);
+		if (IS_SET(victim->act_flags, PLR_THIEF)) {
+			REMOVE_BIT(victim->act_flags, PLR_THIEF);
 			stc("Their thief flag has been removed.\n", ch);
 			stc("You are no longer a THIEF.\n", victim);
-			REMOVE_BIT(victim->act, PLR_NOPK);
+			REMOVE_BIT(victim->act_flags, PLR_NOPK);
 		}
 		else
 			stc("They do not have a thief flag set.\n", ch);
@@ -1004,13 +1004,13 @@ void do_permit(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(plr->act, PLR_PERMIT)) {
+		if (IS_SET(plr->act_flags, PLR_PERMIT)) {
 			stc("They are no longer permitted to bypass banned sites.\n", ch);
-			REMOVE_BIT(plr->act, PLR_PERMIT);
+			REMOVE_BIT(plr->act_flags, PLR_PERMIT);
 		}
 		else {
 			stc("They are now permitted to bypass banned sites.\n", ch);
-			SET_BIT(plr->act, PLR_PERMIT);
+			SET_BIT(plr->act_flags, PLR_PERMIT);
 		}
 
 		return;

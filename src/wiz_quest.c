@@ -151,9 +151,9 @@ void do_morph(Character *ch, String argument)
 		return;
 	}
 
-	REMOVE_BIT(mobile->act, ACT_AGGRESSIVE);
-	SET_BIT(mobile->act, PLR_COLOR);
-	SET_BIT(mobile->act, ACT_MORPH);
+	REMOVE_BIT(mobile->act_flags, ACT_AGGRESSIVE);
+	SET_BIT(mobile->act_flags, PLR_COLOR);
+	SET_BIT(mobile->act_flags, ACT_MORPH);
 	char_to_room(mobile, victim->in_room);
 	do_switch(victim, mobile->name.c_str());
 	char_from_room(victim);
@@ -683,7 +683,7 @@ void do_return(Character *ch, String argument)
 	Format::sprintf(buf, "$N has returned from: %s.", ch->short_descr);
 	wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, GET_RANK(ch));
 
-	if (IS_SET(ch->desc->character->act, ACT_MORPH)) {
+	if (IS_SET(ch->desc->character->act_flags, ACT_MORPH)) {
 		if (ch->desc->character->in_room == NULL)
 			location = get_room_index(ROOM_VNUM_MORGUE);
 		else
@@ -703,7 +703,7 @@ void do_return(Character *ch, String argument)
 
 	ch->desc                  = NULL;
 
-	if (IS_SET(ch->act, ACT_MORPH) && ch->in_room != NULL)
+	if (IS_SET(ch->act_flags, ACT_MORPH) && ch->in_room != NULL)
 		extract_char(ch, TRUE);  /* Only if raw_kill didn't do it */
 
 	return;

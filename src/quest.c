@@ -349,7 +349,7 @@ void quest_info(Character *ch)
 	MobilePrototype *questman, *questinfo;
 	ObjectPrototype *questinfoobj;
 
-	if (!IS_SET(ch->act, PLR_QUESTOR)) {
+	if (!IS_SET(ch->act_flags, PLR_QUESTOR)) {
 		stc("You aren't currently on a quest.\n", ch);
 		return;
 	}
@@ -357,7 +357,7 @@ void quest_info(Character *ch)
 	if (ch->quest_giver < 1) {
 		bug("QUEST INFO: quest giver = %d", ch->quest_giver);
 		stc("It seems the questmaster died of old age waiting for you.\n", ch);
-		REMOVE_BIT(ch->act, PLR_QUESTOR);
+		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 		return;
 	}
 
@@ -366,7 +366,7 @@ void quest_info(Character *ch)
 	if (questman == NULL) {
 		bug("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmaster has fallen very ill. Please contact an imm!\n", ch);
-		REMOVE_BIT(ch->act, PLR_QUESTOR);
+		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 		return;
 	}
 
@@ -390,7 +390,7 @@ void quest_info(Character *ch)
 		bug("No info for quest object %d", ch->questobj);
 		ch->questobj = 0;
 		ch->questobf = 0;
-		REMOVE_BIT(ch->act, PLR_QUESTOR);
+		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 		/* no RETURN -- fall thru to 'no quest', below */
 	}
 	else if (ch->questmob > 0) { /* questing for a mob */
@@ -405,7 +405,7 @@ void quest_info(Character *ch)
 		/* quest mob not found! */
 		bug("No info for quest mob %d", ch->questmob);
 		ch->questmob = 0;
-		REMOVE_BIT(ch->act, PLR_QUESTOR);
+		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 		/* no RETURN -- fall thru to 'no quest', below */
 	}
 
@@ -486,7 +486,7 @@ void squestmob_found(Character *ch, Character *mob)
 		ch->pcdata->squestmobf = FALSE;
 	}
 
-	if (IS_SET(mob->act, ACT_MAGE)) {
+	if (IS_SET(mob->act_flags, ACT_MAGE)) {
 		switch (number_range(1, 1)) {
 		case 1:
 			do_say(mob, "Greetings, young spellcaster!");
@@ -511,7 +511,7 @@ void squestmob_found(Character *ch, Character *mob)
 			break;
 		}
 	}
-	else if (IS_SET(mob->act, ACT_CLERIC)) {
+	else if (IS_SET(mob->act_flags, ACT_CLERIC)) {
 		switch (number_range(1, 1)) {
 		case 1:
 			act("$N smiles warmly at $n.", ch, NULL, mob, TO_NOTVICT);
@@ -526,7 +526,7 @@ void squestmob_found(Character *ch, Character *mob)
 			break;
 		}
 	}
-	else if (IS_SET(mob->act, ACT_THIEF)) {
+	else if (IS_SET(mob->act_flags, ACT_THIEF)) {
 		switch (number_range(1, 1)) {
 		case 1:
 			ptc(ch, "You feel a tap on your shoulder, and turn to see %s.\n", mob->short_descr);
@@ -728,7 +728,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female;
 		quest = "the powers of magic";
-		SET_BIT(questmob->act, ACT_MAGE);
+		SET_BIT(questmob->act_flags, ACT_MAGE);
 		break;
 
 	case 2:
@@ -737,7 +737,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female;
 		quest = "the wisdom of holiness";
-		SET_BIT(questmob->act, ACT_CLERIC);
+		SET_BIT(questmob->act_flags, ACT_CLERIC);
 		break;
 
 	case 3:
@@ -746,7 +746,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female;
 		quest = "the art of thievery";
-		SET_BIT(questmob->act, ACT_THIEF);
+		SET_BIT(questmob->act_flags, ACT_THIEF);
 		break;
 
 	case 4:
@@ -755,7 +755,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female;
 		quest = "the ways of weaponcraft";
-		SET_BIT(questmob->act, ACT_WARRIOR);
+		SET_BIT(questmob->act_flags, ACT_WARRIOR);
 		break;
 	}
 
@@ -897,8 +897,8 @@ void generate_quest(Character *ch, Character *questman)
 			    || victim->pIndexData == NULL
 			    || victim->in_room == NULL
 			    || victim->pIndexData->pShop != NULL
-			    || IS_SET(victim->act, ACT_NOSUMMON)
-			    || IS_SET(victim->act, ACT_PET)
+			    || IS_SET(victim->act_flags, ACT_NOSUMMON)
+			    || IS_SET(victim->act_flags, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
 			    || affect_exists_on_char(victim, gsn_charm_person)
@@ -1269,7 +1269,7 @@ void do_quest(Character *ch, String argument)
 				return;
 			}
 
-			if (!IS_SET(ch->act, PLR_QUESTOR)) {
+			if (!IS_SET(ch->act_flags, PLR_QUESTOR)) {
 				do_say(questman, "But you aren't on a quest at the moment!");
 				Format::sprintf(buf, "You have to REQUEST a quest first, %s.", ch->name);
 				do_say(questman, buf);
@@ -1358,7 +1358,7 @@ void do_quest(Character *ch, String argument)
 			if (pracreward > 0)
 				ptc(ch, "{YYou also gain %d practice%s!{x\n", pracreward, (pracreward == 1 ? "" : "s"));
 
-			REMOVE_BIT(ch->act, PLR_QUESTOR);
+			REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 			ch->quest_giver = 0;
 			ch->countdown = 0;
 			ch->questmob = 0;
@@ -1495,7 +1495,7 @@ void do_quest(Character *ch, String argument)
 
 	/*** FORFEIT ***/
 	if (!str_prefix1(arg1, "forfeit")) {
-		if (!IS_SET(ch->act, PLR_QUESTOR) && !IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
+		if (!IS_SET(ch->act_flags, PLR_QUESTOR) && !IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
 			stc("You aren't currently on a quest.\n", ch);
 			return;
 		}
@@ -1508,8 +1508,8 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(ch->act, PLR_QUESTOR) && find_questmaster(ch) != NULL) {
-			REMOVE_BIT(ch->act, PLR_QUESTOR);
+		if (IS_SET(ch->act_flags, PLR_QUESTOR) && find_questmaster(ch) != NULL) {
+			REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 			ch->quest_giver = 0;
 			ch->countdown = 0;
 			ch->questmob = 0;
@@ -1799,7 +1799,7 @@ void do_quest(Character *ch, String argument)
 			act("$n asks $N for a skill quest.", ch, NULL, questman, TO_ROOM);
 			act("You ask $N for a skill quest.", ch, NULL, questman, TO_CHAR);
 
-			if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET)) {
+			if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET)) {
 				check_social(questman, "rofl", ch->name.c_str());
 
 				Format::sprintf(buf, "Who ever heard of a pet questing for its %s?",
@@ -1841,7 +1841,7 @@ void do_quest(Character *ch, String argument)
 			act("$n asks $N for a quest.", ch, NULL, questman, TO_ROOM);
 			act("You ask $N for a quest.", ch, NULL, questman, TO_CHAR);
 
-			if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET)) {
+			if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET)) {
 				check_social(questman, "rofl", ch->name.c_str());
 
 				Format::sprintf(buf, "Who ever heard of a pet questing for its %s?",
@@ -1854,7 +1854,7 @@ void do_quest(Character *ch, String argument)
 				return;
 			}
 
-			if (IS_SET(ch->act, PLR_QUESTOR)) {
+			if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
 				do_say(questman, "But you're already on a quest!");
 				return;
 			}
@@ -1874,7 +1874,7 @@ void do_quest(Character *ch, String argument)
 			generate_quest(ch, questman);
 
 			if (ch->questmob > 0 || ch->questobj > 0) {
-				SET_BIT(ch->act, PLR_QUESTOR);
+				SET_BIT(ch->act_flags, PLR_QUESTOR);
 				Format::sprintf(buf, "You have %d minutes to complete this quest.", ch->countdown);
 				do_say(questman, buf);
 				do_say(questman, "May the gods go with you!");
@@ -1906,7 +1906,7 @@ void do_quest(Character *ch, String argument)
 
 	/*** TIME ***/
 	if (!str_prefix1(arg1, "time")) {
-		if (!IS_SET(ch->act, PLR_QUESTOR)) {
+		if (!IS_SET(ch->act_flags, PLR_QUESTOR)) {
 			stc("You aren't currently on a quest.\n", ch);
 
 			if (ch->nextquest > 1)

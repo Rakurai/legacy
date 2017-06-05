@@ -829,7 +829,7 @@ void close_socket(Descriptor *dclose)
 				         && ch->desc->original->pcdata != NULL)
 					SET_BIT(ch->desc->original->pcdata->plr, PLR_LINK_DEAD);
 
-				if (IS_SET(ch->act, ACT_MORPH)) {
+				if (IS_SET(ch->act_flags, ACT_MORPH)) {
 					if (ch->desc->original != NULL) {
 						RoomPrototype *location;
 
@@ -1408,7 +1408,7 @@ void bust_a_prompt(Character *ch)
 				else
 					buf += Format::format("%d/%d", ch->invis_level, ch->lurk_level);
 
-				if (IS_SET(ch->act, PLR_SUPERWIZ))
+				if (IS_SET(ch->act_flags, PLR_SUPERWIZ))
 					buf += "WIZ";
 			}
 			else
@@ -1648,7 +1648,7 @@ void stc(const String& txt, Character *ch)
 
 	if (!IS_NPC(ch) && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))
 		write_to_buffer(ch->desc, txt);
-	else if (IS_SET(ch->act, PLR_COLOR2))
+	else if (IS_SET(ch->act_flags, PLR_COLOR2))
 		write_to_buffer(ch->desc, expand_color_codes(ch, txt));
 	else
 		write_to_buffer(ch->desc, smash_bracket(txt));

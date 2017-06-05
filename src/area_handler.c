@@ -526,7 +526,7 @@ void reset_area(Area *pArea)
 
 				if (pRoomIndexPrev != NULL
 				    && IS_SET(GET_ROOM_FLAGS(pRoomIndexPrev), ROOM_PET_SHOP))
-					SET_BIT(mob->act, ACT_PET);
+					SET_BIT(mob->act_flags, ACT_PET);
 			}
 			/* set area */
 			mob->zone = pRoomIndex->area;
@@ -831,7 +831,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 
 	/* read from prototype */
 	mob->group              = pMobIndex->group;
-	mob->act                = pMobIndex->act;
+	mob->act_flags                = pMobIndex->act_flags;
 	mob->comm               = COMM_NOCHANNELS;
 	mob->alignment          = pMobIndex->alignment;
 	mob->level              = pMobIndex->level;
@@ -878,26 +878,26 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(mob, stat_to_attr(stat)) = UMIN(25, number_fuzzy(8 + mob->level / 12));
 
-	if (IS_SET(mob->act, ACT_WARRIOR)) {
+	if (IS_SET(mob->act_flags, ACT_WARRIOR)) {
 		ATTR_BASE(mob, APPLY_STR) += 3;
 		ATTR_BASE(mob, APPLY_INT) -= 2;
 		ATTR_BASE(mob, APPLY_CON) += 2;
 		ATTR_BASE(mob, APPLY_CHR) -= 1;
 		ATTR_BASE(mob, APPLY_WIS) -= 2;
 	}
-	else if (IS_SET(mob->act, ACT_THIEF)) {
+	else if (IS_SET(mob->act_flags, ACT_THIEF)) {
 		ATTR_BASE(mob, APPLY_DEX) += 3;
 		ATTR_BASE(mob, APPLY_WIS) -= 2;
 		ATTR_BASE(mob, APPLY_CHR) += 2;
 		ATTR_BASE(mob, APPLY_CON) -= 2;
 	}
-	else if (IS_SET(mob->act, ACT_CLERIC)) {
+	else if (IS_SET(mob->act_flags, ACT_CLERIC)) {
 		ATTR_BASE(mob, APPLY_WIS) += 3;
 		ATTR_BASE(mob, APPLY_INT) += 1;
 		ATTR_BASE(mob, APPLY_DEX) -= 2;
 		ATTR_BASE(mob, APPLY_CHR) += 1;
 	}
-	else if (IS_SET(mob->act, ACT_MAGE)) {
+	else if (IS_SET(mob->act_flags, ACT_MAGE)) {
 		ATTR_BASE(mob, APPLY_INT) += 3;
 		ATTR_BASE(mob, APPLY_STR) -= 3;
 		ATTR_BASE(mob, APPLY_DEX) += 1;
@@ -926,13 +926,13 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	/* give em some stamina -- Montrey */
 	ATTR_BASE(mob, APPLY_STAM) = 100;
 
-	if (IS_SET(mob->act, ACT_MAGE))
+	if (IS_SET(mob->act_flags, ACT_MAGE))
 		stambase = 3;
-	else if (IS_SET(mob->act, ACT_CLERIC))
+	else if (IS_SET(mob->act_flags, ACT_CLERIC))
 		stambase = 4;
-	else if (IS_SET(mob->act, ACT_THIEF))
+	else if (IS_SET(mob->act_flags, ACT_THIEF))
 		stambase = 7;
-	else if (IS_SET(mob->act, ACT_WARRIOR))
+	else if (IS_SET(mob->act_flags, ACT_WARRIOR))
 		stambase = 9;
 	else
 		stambase = 5;
@@ -986,7 +986,7 @@ void clone_mobile(Character *parent, Character *clone)
 	clone->gold         = /*parent->gold;*/ 0;
 	clone->silver       = /*parent->silver;*/ 0;
 	clone->exp          = parent->exp;
-	clone->act          = parent->act;
+	clone->act_flags          = parent->act_flags;
 	clone->comm         = parent->comm;
 	clone->invis_level  = parent->invis_level;
 	clone->position     = parent->position;

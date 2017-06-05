@@ -200,7 +200,7 @@ void say_spell(Character *ch, int sn)
 /* i hate seeing things repeated a lot, moved this here to save text -- Montrey */
 bool help_mob(Character *ch, Character *victim)
 {
-	if (!is_same_group(ch, victim->fighting) && !IS_SET(victim->act, ACT_PET)) {
+	if (!is_same_group(ch, victim->fighting) && !IS_SET(victim->act_flags, ACT_PET)) {
 		stc("You cannot attack/help that mobile!\n", ch);
 		wiznet("$N is attempting to help/hinder a mobile illegally.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 		return TRUE;
@@ -220,7 +220,7 @@ void do_cast(Character *ch, String argument)
 	if (IS_NPC(ch) && ch->desc == NULL)
 		return;
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH)) {
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Morphed players cannot cast spells.\n", ch);
 		return;
 	}
@@ -513,7 +513,7 @@ void do_mpcast(Character *ch, String argument)
 	void *vo;
 	int mana, sn, target;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
+	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -1512,7 +1512,7 @@ void spell_calm(int sn, int level, Character *ch, void *vo, int target, int evol
 			for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 				if (IS_NPC(vch)
 				    && (GET_DEFENSE_MOD(vch, DAM_CHARM) >= 100 // TODO: this should check chance individually?
-				        || IS_SET(vch->act, ACT_UNDEAD)))
+				        || IS_SET(vch->act_flags, ACT_UNDEAD)))
 					failure = TRUE;
 				else if (affect_exists_on_char(vch, gsn_calm)
 				         || affect_exists_on_char(vch, gsn_berserk)
@@ -3608,13 +3608,13 @@ void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evol
 	    || victim->in_room->guild
 	    || victim->level > level + (IS_NPC(victim) ? 3 : 8)
 	    || (IS_NPC(victim)
-	        && (IS_SET(victim->act, ACT_NOSUMMON)
+	        && (IS_SET(victim->act_flags, ACT_NOSUMMON)
 	            || saves_spell(level, victim, DAM_OTHER)))) {
 		stc("You failed.\n", ch);
 		return;
 	}
 
-	if (ch->pet != NULL && ch->in_room == ch->pet->in_room && !IS_SET(ch->pet->act, ACT_STAY))
+	if (ch->pet != NULL && ch->in_room == ch->pet->in_room && !IS_SET(ch->pet->act_flags, ACT_STAY))
 		gate_pet = TRUE;
 	else
 		gate_pet = FALSE;
@@ -4547,7 +4547,7 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 		    || to_room->guild || from_room->guild
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
-		        && (IS_SET(victim->act, ACT_NOSUMMON)
+		        && (IS_SET(victim->act_flags, ACT_NOSUMMON)
 		            || saves_spell(level, victim, DAM_OTHER)))) {
 			stc("You failed.\n", ch);
 			return;
@@ -4654,7 +4654,7 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	}
 
 	/* don't let em switch into mobs with the stronger immunities -- Montrey */
-	if (IS_SET(victim->act, ACT_NOMORPH)
+	if (IS_SET(victim->act_flags, ACT_NOMORPH)
 	 || GET_DEFENSE_MOD(victim, DAM_BASH) >= 100
 	 || GET_DEFENSE_MOD(victim, DAM_PIERCE) >= 100
 	 || GET_DEFENSE_MOD(victim, DAM_SLASH) >= 100
@@ -4677,11 +4677,11 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	}
 
 	act("$n morphs into $N!\n", ch, NULL, mobile, TO_ROOM);
-	REMOVE_BIT(mobile->act, ACT_AGGRESSIVE);
-	REMOVE_BIT(mobile->act, ACT_IS_HEALER);
-	REMOVE_BIT(mobile->act, ACT_IS_CHANGER);
-	SET_BIT(mobile->act, PLR_COLOR);
-	SET_BIT(mobile->act, ACT_MORPH);
+	REMOVE_BIT(mobile->act_flags, ACT_AGGRESSIVE);
+	REMOVE_BIT(mobile->act_flags, ACT_IS_HEALER);
+	REMOVE_BIT(mobile->act_flags, ACT_IS_CHANGER);
+	SET_BIT(mobile->act_flags, PLR_COLOR);
+	SET_BIT(mobile->act_flags, ACT_MORPH);
 
 	mobile->hit = ATTR_BASE(mobile, APPLY_HIT) = 100;
 	mobile->mana = ATTR_BASE(mobile, APPLY_MANA) = 100;
@@ -4761,7 +4761,7 @@ void spell_plague(int sn, int level, Character *ch, void *vo, int target, int ev
 	}
 
 	if (saves_spell(level, victim, DAM_DISEASE)
-	    || (IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD))) {
+	    || (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_UNDEAD))) {
 		if (ch == victim)
 			stc("You feel momentarily ill, but it passes.\n", ch);
 		else
@@ -4891,7 +4891,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 		    || victim->in_room->guild
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
-		        && (IS_SET(victim->act, ACT_NOSUMMON)
+		        && (IS_SET(victim->act_flags, ACT_NOSUMMON)
 		            || saves_spell(level, victim, DAM_OTHER)))) {
 			stc("You failed.\n", ch);
 			return;
@@ -4932,7 +4932,7 @@ void spell_power_word(int sn, int level, Character *ch, void *vo, int target, in
 	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 5;
 
-	if ((IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD))
+	if ((IS_NPC(victim) && IS_SET(victim->act_flags, ACT_UNDEAD))
 	    || (!IS_NPC(victim))
 	    || (level / 2) < victim->level
 	    || saves_spell(level, victim, DAM_CHARM)) {
@@ -5687,7 +5687,7 @@ void spell_sleep(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD)) {
+	if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_UNDEAD)) {
 		act("$E isn't sufficiently alive to be affected by your spell.",
 		    ch, NULL, victim, TO_CHAR);
 		return;
@@ -5907,11 +5907,11 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_PRIVATE)
 	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SOLITARY)
 	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL)
-	    || (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE))
+	    || (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_AGGRESSIVE))
 	    ||   victim->level >= level + 3
 	    || IS_IMMORTAL(victim)
 	    ||   victim->fighting != NULL
-	    || IS_SET(victim->act, ACT_NOSUMMON)
+	    || IS_SET(victim->act_flags, ACT_NOSUMMON)
 	    || (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
 	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_MALE_ONLY) && GET_ATTR_SEX(victim) != SEX_MALE)
 	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_FEMALE_ONLY) && GET_ATTR_SEX(victim) != SEX_FEMALE)
@@ -5924,7 +5924,7 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 
 	if (!IS_NPC(victim)) {
 		for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-			if (IS_NPC(rch) && IS_SET(rch->act, ACT_AGGRESSIVE)
+			if (IS_NPC(rch) && IS_SET(rch->act_flags, ACT_AGGRESSIVE)
 			    && rch->level + 6 > victim->level) {
 				act("I wouldn't do that! $N would attack them immediately."
 				    , ch, NULL, rch, TO_CHAR);
@@ -6291,7 +6291,7 @@ void spell_teleport(int sn, int level, Character *ch, void *vo, int target, int 
 	    || char_in_duel_room(ch)
 	    || char_in_duel_room(victim)
 	    || ch->in_room->sector_type == SECT_ARENA
-	    || (victim != ch && IS_SET(victim->act, ACT_NOSUMMON))
+	    || (victim != ch && IS_SET(victim->act_flags, ACT_NOSUMMON))
 	    || (!IS_NPC(ch) && victim->fighting != NULL)
 	    || (victim != ch && saves_spell(level, victim, DAM_OTHER))) {
 		stc("You failed.\n", ch);

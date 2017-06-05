@@ -170,7 +170,7 @@ void violence_update(void)
 
 		/* Wimp out? */
 		if (IS_NPC(ch)) {
-			if ((IS_SET(ch->act, ACT_WIMPY)
+			if ((IS_SET(ch->act_flags, ACT_WIMPY)
 			     && number_bits(2) == 0
 			     && ch->hit < GET_MAX_HIT(ch) / 5)
 			    || (affect_exists_on_char(ch, gsn_charm_person)
@@ -469,7 +469,7 @@ void check_assist(Character *ch, Character *victim)
 				}
 			}
 			else { // ch is a PC
-				if (IS_SET(rch->act, PLR_AUTOASSIST)
+				if (IS_SET(rch->act_flags, PLR_AUTOASSIST)
 				 && affect_exists_on_char(ch, gsn_charm_person)
 				 && is_same_group(ch, rch))
 					target = victim;
@@ -488,7 +488,7 @@ void check_assist(Character *ch, Character *victim)
 			else { // ch is a PC
 				// BOTH PC
 
-				if (IS_SET(rch->act, PLR_AUTOASSIST)
+				if (IS_SET(rch->act_flags, PLR_AUTOASSIST)
 				 && is_same_group(ch, rch))
 					target = victim;
 			}
@@ -811,8 +811,8 @@ void mob_hit(Character *ch, Character *victim, int dt)
 	case (2) :
 		if (IS_SET(ch->off_flags, OFF_DISARM)
 		    || (get_weapon_sn(ch, FALSE) != gsn_hand_to_hand
-		        && (IS_SET(ch->act, ACT_WARRIOR)
-		            ||  IS_SET(ch->act, ACT_THIEF))))
+		        && (IS_SET(ch->act_flags, ACT_WARRIOR)
+		            ||  IS_SET(ch->act_flags, ACT_THIEF))))
 			do_disarm(ch, "");
 
 		break;
@@ -925,13 +925,13 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 		thac0_00 = 20;
 		thac0_32 = -4;   /* as good as a thief */
 
-		if (IS_SET(ch->act, ACT_WARRIOR))
+		if (IS_SET(ch->act_flags, ACT_WARRIOR))
 			thac0_32 = -10;
-		else if (IS_SET(ch->act, ACT_THIEF))
+		else if (IS_SET(ch->act_flags, ACT_THIEF))
 			thac0_32 = -4;
-		else if (IS_SET(ch->act, ACT_CLERIC))
+		else if (IS_SET(ch->act_flags, ACT_CLERIC))
 			thac0_32 = 2;
-		else if (IS_SET(ch->act, ACT_MAGE))
+		else if (IS_SET(ch->act_flags, ACT_MAGE))
 			thac0_32 = 6;
 	}
 	else {
@@ -1265,7 +1265,7 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 		if (get_position(victim) > POS_STUNNED) {
 			if (!IS_NPC(ch) && !IS_NPC(victim) && ch->fighting == NULL) {
 				char buf[MAX_STRING_LENGTH];
-				REMOVE_BIT(victim->act, PLR_NOPK);
+				REMOVE_BIT(victim->act_flags, PLR_NOPK);
 				Format::sprintf(buf, "%s is out for blood - En guarde, %s!", ch->name, victim->name);
 				do_send_announce(ch, buf);
 				Format::sprintf(buf, "$N is attempting to murder %s", victim->name);
@@ -1625,9 +1625,9 @@ void kill_off(Character *ch, Character *victim)
 				obj_next = obj->next_content;
 
 				if (is_name("gcash", obj->name)
-				 && !IS_SET(ch->act, PLR_AUTOGOLD))
+				 && !IS_SET(ch->act_flags, PLR_AUTOGOLD))
 					continue;
-				else if (!IS_SET(ch->act, PLR_AUTOLOOT))
+				else if (!IS_SET(ch->act_flags, PLR_AUTOLOOT))
 					continue;
 
 				if (can_see_obj(ch, obj))
@@ -1635,8 +1635,8 @@ void kill_off(Character *ch, Character *victim)
 			}
 		}
 
-		if (IS_SET(ch->act, PLR_AUTOSAC)) {
-			if (IS_SET(ch->act, PLR_AUTOLOOT | PLR_AUTOGOLD) && corpse->contains)
+		if (IS_SET(ch->act_flags, PLR_AUTOSAC)) {
+			if (IS_SET(ch->act_flags, PLR_AUTOLOOT | PLR_AUTOGOLD) && corpse->contains)
 				return;
 			else
 				do_sacrifice(ch, "corpse");   /* leave if corpse has treasure */
@@ -1668,9 +1668,9 @@ void kill_off(Character *ch, Character *victim)
 		}
 		else {
 			/* Make sure victim PK flag is dropped when char dies. -- Outsider 
-			if ((victim->pcdata->flag_killer) && (IS_SET(victim->act, PLR_KILLER))) {
-				REMOVE_BIT(victim->act, PLR_KILLER);
-				REMOVE_BIT(victim->act, PLR_NOPK);
+			if ((victim->pcdata->flag_killer) && (IS_SET(victim->act_flags, PLR_KILLER))) {
+				REMOVE_BIT(victim->act_flags, PLR_KILLER);
+				REMOVE_BIT(victim->act_flags, PLR_NOPK);
 			}
 			what? why? not the point of killer flags -- Montrey */
 
@@ -1713,10 +1713,10 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 		}
 
 		/* no killing healers, trainers, etc */
-		if (IS_SET(victim->act, ACT_TRAIN)
-		    || IS_SET(victim->act, ACT_PRACTICE)
-		    || IS_SET(victim->act, ACT_IS_HEALER)
-		    || IS_SET(victim->act, ACT_IS_CHANGER)) {
+		if (IS_SET(victim->act_flags, ACT_TRAIN)
+		    || IS_SET(victim->act_flags, ACT_PRACTICE)
+		    || IS_SET(victim->act_flags, ACT_IS_HEALER)
+		    || IS_SET(victim->act_flags, ACT_IS_CHANGER)) {
 			if (showmsg)
 				stc("Have you no moral fibre whatsoever?!\n", ch);
 
@@ -1725,7 +1725,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (IS_SET(victim->act, ACT_PET) && affect_exists_on_char(victim, gsn_charm_person)) {
+			if (IS_SET(victim->act_flags, ACT_PET) && affect_exists_on_char(victim, gsn_charm_person)) {
 				if (showmsg)
 					act("But $N looks so cute and cuddly.", ch, NULL, victim, TO_CHAR);
 
@@ -1769,7 +1769,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 		}
 		/* player doing the killing */
 		else {
-			if (IS_SET(victim->act, PLR_KILLER) || IS_SET(victim->act, PLR_THIEF))
+			if (IS_SET(victim->act_flags, PLR_KILLER) || IS_SET(victim->act_flags, PLR_THIEF))
 				return FALSE;
 
 			if (victim->level > ch->level + 8 || ch->level > victim->level + 8) {
@@ -1865,7 +1865,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	if (char_in_darena_room(victim))
 		return FALSE;
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim))
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim))
 		return TRUE;
 
 	if (affect_exists_on_char(ch, gsn_fear))
@@ -1881,15 +1881,15 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 			return TRUE;
 
 		/* no killing healers, trainers, etc */
-		if (IS_SET(victim->act, ACT_TRAIN)
-		    || IS_SET(victim->act, ACT_PRACTICE)
-		    || IS_SET(victim->act, ACT_IS_HEALER)
-		    || IS_SET(victim->act, ACT_IS_CHANGER))
+		if (IS_SET(victim->act_flags, ACT_TRAIN)
+		    || IS_SET(victim->act_flags, ACT_PRACTICE)
+		    || IS_SET(victim->act_flags, ACT_IS_HEALER)
+		    || IS_SET(victim->act_flags, ACT_IS_CHANGER))
 			return TRUE;
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (IS_SET(victim->act, ACT_PET))
+			if (IS_SET(victim->act_flags, ACT_PET))
 				return TRUE;
 
 			/* no charmed creatures unless owner */
@@ -1935,7 +1935,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 			    && victim->in_room->area == quest_area)
 				return FALSE;
 
-			if (IS_SET(victim->act, PLR_KILLER) || IS_SET(victim->act, PLR_THIEF))
+			if (IS_SET(victim->act_flags, PLR_KILLER) || IS_SET(victim->act_flags, PLR_THIEF))
 				return FALSE;
 
 			if (ch->level > victim->level + 8)
@@ -1963,8 +1963,8 @@ void check_killer(Character *ch, Character *victim)
 
 	/* NPC's are fair game.  So are killers and thieves. */
 	if (IS_NPC(victim)
-	    || IS_SET(victim->act, PLR_KILLER)
-	    || IS_SET(victim->act, PLR_THIEF)
+	    || IS_SET(victim->act_flags, PLR_KILLER)
+	    || IS_SET(victim->act_flags, PLR_THIEF)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
 	    || char_in_darena(victim))
@@ -2003,7 +2003,7 @@ void check_killer(Character *ch, Character *victim)
 	if (IS_NPC(ch)
 	    || ch == victim
 	    || IS_IMMORTAL(ch)
-	    || IS_SET(ch->act, PLR_KILLER)
+	    || IS_SET(ch->act_flags, PLR_KILLER)
 	    || ch->fighting  == victim)
 		return;
 
@@ -2016,8 +2016,8 @@ void check_killer(Character *ch, Character *victim)
 		return;
 
 	stc("{P*** You are now a KILLER!! ***{x\n", ch);
-	SET_BIT(ch->act, PLR_KILLER);
-	SET_BIT(ch->act, PLR_NOPK);
+	SET_BIT(ch->act_flags, PLR_KILLER);
+	SET_BIT(ch->act_flags, PLR_NOPK);
 	ch->pcdata->flag_killer = MAX_KILLER;
 	save_char_obj(ch);
 } /* end check_killer */
@@ -2099,12 +2099,12 @@ bool check_parry(Character *ch, Character *victim, int dt)
 		attack = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou parry $n's {B%s.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R parries your %s.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
@@ -2195,12 +2195,12 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 		attack = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou parry $n's {B%s with your second weapon!{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R parries your %s with $S second weapon!{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
@@ -2277,12 +2277,12 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 		attack  = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou block $n's {B%s with your shield.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R blocks your %s with a shield.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
@@ -2362,12 +2362,12 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 		attack  = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou dodge $n's {B%s.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R dodges your %s.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
@@ -2444,12 +2444,12 @@ bool check_blur(Character *ch, Character *victim, int dt)
 		attack = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{V$n's {V%s is no match for your speed.{x", attack);
 		act(buf, ch, NULL, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act, PLR_DEFENSIVE)) {
+	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{M$N {Mblurs with speed as $E evades your %s.{x", attack);
 		act(buf, ch, NULL, victim, TO_CHAR);
 	}
@@ -2549,7 +2549,7 @@ void make_corpse(Character *ch)
 		}
 
 		corpse->timer   = number_range(25, 40);
-		REMOVE_BIT(ch->act, PLR_CANLOOT);
+		REMOVE_BIT(ch->act_flags, PLR_CANLOOT);
 		corpse->owner = ch->name;
 		/* Corpse Looting - Taken Out
 		corpse->owner = NULL;
@@ -2901,7 +2901,7 @@ void group_gain(Character *ch, Character *victim)
 			}
 		}
 
-		if (IS_SET(gch->act, PLR_QUESTOR) && IS_NPC(victim)) {
+		if (IS_SET(gch->act_flags, PLR_QUESTOR) && IS_NPC(victim)) {
 			if (gch->questmob == victim->pIndexData->vnum) {
 				stc("{YYou have almost completed your QUEST!{x\n", gch);
 				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
@@ -2969,7 +2969,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	/* do alignment computations */
 	align = victim->alignment - gch->alignment;
 
-	if (IS_SET(victim->act, ACT_NOALIGN)
+	if (IS_SET(victim->act_flags, ACT_NOALIGN)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
 	    || (victim->in_room->area == quest_area && quest_upk)
@@ -2993,7 +2993,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	gch->alignment = URANGE(-1000, gch->alignment, 1000);
 
 	/* calculate exp multiplier */
-	if (IS_SET(victim->act, ACT_NOALIGN))
+	if (IS_SET(victim->act_flags, ACT_NOALIGN))
 		xp = base_exp;
 	else if (gch->alignment > 500) { /* for goodie two shoes */
 		if (victim->alignment < -750)              xp = (base_exp * 4) / 3;
@@ -3708,13 +3708,13 @@ bool check_attack_ok(Character *ch, Character *victim) {
 		return FALSE;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim)) {
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim)) {
 		stc("Morphed players cannot attack PC's.\n", ch);
 		wiznet("$N is attempting PK while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 		return FALSE;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && IS_SET(victim->act, ACT_PET)) {
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && IS_SET(victim->act_flags, ACT_PET)) {
 		stc("Morphed players cannot attack pets.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 		return FALSE;
@@ -4127,13 +4127,13 @@ void do_backstab(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim)) {
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim)) {
 		stc("Morphed players cannot backstab PC's.\n", ch);
 		wiznet("$N is attempting PK while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && IS_SET(victim->act, ACT_PET)) {
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && IS_SET(victim->act_flags, ACT_PET)) {
 		stc("Morphed players cannot backstab pets or lirs.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
@@ -4408,7 +4408,7 @@ void do_flee(Character *ch, String argument)
 			}
 		}
 
-		if (IS_NPC(victim) && (IS_SET(victim->act, ACT_AGGRESSIVE))) {
+		if (IS_NPC(victim) && (IS_SET(victim->act_flags, ACT_AGGRESSIVE))) {
 			if ((hunted = get_char_area(victim, ch->name, VIS_CHAR)) != NULL) {
 				victim->hunting = hunted;
 				WAIT_STATE(victim, 3 * PULSE_VIOLENCE);
@@ -5381,12 +5381,12 @@ void do_shoot(Character *ch, String argument)
 	// temporarily move the shooter to the victim, makes damage messages easier
 	// don't give away the shooter to the victim, make them temp superwiz
 	RoomPrototype *old_room = ch->in_room;
-	bool was_superwiz = IS_SET(ch->act, PLR_SUPERWIZ);
+	bool was_superwiz = IS_SET(ch->act_flags, PLR_SUPERWIZ);
 
 	if (old_room != victim->in_room) {
 		char_from_room(ch);
 		char_to_room(ch, victim->in_room);
-		SET_BIT(ch->act, PLR_SUPERWIZ);
+		SET_BIT(ch->act_flags, PLR_SUPERWIZ);
 	}
 
 	// do the hit
@@ -5398,7 +5398,7 @@ void do_shoot(Character *ch, String argument)
 		char_to_room(ch, old_room);
 
 		if (!was_superwiz)
-			REMOVE_BIT(ch->act, PLR_SUPERWIZ);
+			REMOVE_BIT(ch->act_flags, PLR_SUPERWIZ);
 
 		/* if the target is NPC, then make it hunt the shooter */
 		if (IS_NPC(victim)) {

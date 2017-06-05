@@ -124,7 +124,7 @@ void do_flag(Character *ch, String argument)
 			}
 
 			switch (fieldptr) {
-			case FIELD_ACT:         flag = &victim->act;            break;
+			case FIELD_ACT:         flag = &victim->act_flags;            break;
 			case FIELD_OFF:         flag = &victim->off_flags;      break;
 			case FIELD_FORM:        flag = &victim->form;           break;
 			case FIELD_PART:        flag = &victim->parts;          break;
@@ -149,7 +149,7 @@ void do_flag(Character *ch, String argument)
 			}
 
 			switch (fieldptr) {
-			case FIELD_PLAYER:      flag = &victim->act;            break;
+			case FIELD_PLAYER:      flag = &victim->act_flags;            break;
 
 			case FIELD_Player:      flag = &victim->pcdata->plr;    break;
 
@@ -415,7 +415,7 @@ int fsearch_player(Character *ch, int fieldptr, long marked)
 
 		/* take care of flag comparison first */
 		switch (fieldptr) {
-		case FIELD_PLAYER:      flag = victim->act;             break;
+		case FIELD_PLAYER:      flag = victim->act_flags;             break;
 
 		case FIELD_Player:      flag = victim->pcdata->plr;     break;
 
@@ -469,7 +469,7 @@ int fsearch_mobile(Character *ch, int fieldptr, long marked)
 
 		/* take care of flag comparison first */
 		switch (fieldptr) {
-		case FIELD_ACT:         flag = victim->act;             break;
+		case FIELD_ACT:         flag = victim->act_flags;             break;
 
 		case FIELD_OFF:         flag = victim->off_flags;       break;
 

@@ -379,7 +379,7 @@ cJSON *fwrite_char(Character *ch)
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject(); // object to return
 
-	JSON::addStringToObject(o,		"Act",			flags_to_string(ch->act));
+	JSON::addStringToObject(o,		"Act",			flags_to_string(ch->act_flags));
 
 	item = NULL;
 	for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
@@ -659,7 +659,7 @@ bool load_char_obj(Descriptor *d, const char *name)
 	ch->name                            = name;
 	ch->id                              = get_pc_id();
 	ch->race                            = race_lookup("human");
-	ch->act                             = PLR_NOSUMMON | PLR_AUTOASSIST | PLR_AUTOEXIT | PLR_AUTOLOOT |
+	ch->act_flags                             = PLR_NOSUMMON | PLR_AUTOASSIST | PLR_AUTOEXIT | PLR_AUTOLOOT |
 	                                      PLR_AUTOSAC | PLR_AUTOSPLIT | PLR_AUTOGOLD | PLR_TICKS | PLR_WIMPY |
 	                                      PLR_COLOR | PLR_COLOR2;
 	ch->comm                            = COMM_COMBINE | COMM_PROMPT;
@@ -723,28 +723,28 @@ bool load_char_obj(Descriptor *d, const char *name)
 			ch->secure_level = GET_RANK(ch);
 
 		/* removed holylight at 12 -- Montrey */
-		if (version < 12 && IS_SET(ch->act, N))
-			REMOVE_BIT(ch->act, N);
+		if (version < 12 && IS_SET(ch->act_flags, N))
+			REMOVE_BIT(ch->act_flags, N);
 
 		// removed old score at 16 and new_score flag -- Montrey
 		if (version < 16 && IS_SET(ch->pcdata->plr, U))
 			REMOVE_BIT(ch->pcdata->plr, U);
 
 		// switching to cgroups with old pfiles -- Montrey (2014)
-		if (version < 15 && IS_SET(ch->act, N)) { // deputy
-			REMOVE_BIT(ch->act, N);
+		if (version < 15 && IS_SET(ch->act_flags, N)) { // deputy
+			REMOVE_BIT(ch->act_flags, N);
 			SET_CGROUP(ch, GROUP_DEPUTY);
 		}
 
-		if (version < 15 && IS_SET(ch->act, ee)) { // leader
-			REMOVE_BIT(ch->act, ee);
+		if (version < 15 && IS_SET(ch->act_flags, ee)) { // leader
+			REMOVE_BIT(ch->act_flags, ee);
 			SET_CGROUP(ch, GROUP_LEADER);
 		}
 
 		// removed act_is_npc bit and moved plr_nosummon to A, used to be Q -- Montrey
-		if (version < 16 && IS_SET(ch->act, Q)) {
-			REMOVE_BIT(ch->act, Q);
-			SET_BIT(ch->act, PLR_NOSUMMON);
+		if (version < 16 && IS_SET(ch->act_flags, Q)) {
+			REMOVE_BIT(ch->act_flags, Q);
+			SET_BIT(ch->act_flags, PLR_NOSUMMON);
 		}
 
 		if (ch->pcdata->remort_count > 0) {
@@ -800,8 +800,8 @@ bool load_char_obj(Descriptor *d, const char *name)
 		}
 
 		/* fix command groups */
-		REMOVE_BIT(ch->act, (ee));      /* PLR_LEADER */
-		REMOVE_BIT(ch->act, (N));       /* PLR_DEPUTY */
+		REMOVE_BIT(ch->act_flags, (ee));      /* PLR_LEADER */
+		REMOVE_BIT(ch->act_flags, (N));       /* PLR_DEPUTY */
 		SET_CGROUP(ch, GROUP_PLAYER);
 
 		/* nuke wiznet flags beyond their level, in case they were temp trusted */
@@ -1157,7 +1157,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("Act",           ch->act,                    string_to_flags(o->valuestring));
+				INTKEY("Act",           ch->act_flags,                    string_to_flags(o->valuestring));
 				INTKEY("Alig",			ch->alignment,				o->valueint);
 				break;
 			case 'C':

@@ -375,10 +375,10 @@ struct raffects
     (ch->daze = UMAX(ch->daze, npulse)) : (ch->daze = 0))
 #define gold_weight(amount)  ((amount) * 2 / 5)
 #define silver_weight(amount) ((amount)/ 10)
-#define IS_QUESTOR(ch)     (IS_SET((ch)->act, PLR_QUESTOR))
+#define IS_QUESTOR(ch)     (IS_SET((ch)->act_flags, PLR_QUESTOR))
 #define IS_SQUESTOR(ch)    (!IS_NPC(ch) && IS_SET((ch)->pcdata->plr, PLR_SQUESTOR))
-#define IS_KILLER(ch)		(IS_SET((ch)->act, PLR_KILLER))
-#define IS_THIEF(ch)		(IS_SET((ch)->act, PLR_THIEF))
+#define IS_KILLER(ch)		(IS_SET((ch)->act_flags, PLR_KILLER))
+#define IS_THIEF(ch)		(IS_SET((ch)->act_flags, PLR_THIEF))
 #define CAN_FLY(ch)         (affect_exists_on_char((ch), gsn_fly))
 #define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
 

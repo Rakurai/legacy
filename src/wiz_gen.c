@@ -1592,7 +1592,7 @@ void do_goto(Character *ch, String argument)
 		}
 	}
 
-	if (ch->pet != NULL && ch->in_room == ch->pet->in_room && !IS_SET(ch->pet->act, ACT_STAY))
+	if (ch->pet != NULL && ch->in_room == ch->pet->in_room && !IS_SET(ch->pet->act_flags, ACT_STAY))
 		goto_pet = TRUE;
 
 	char_from_room(ch);
@@ -2908,16 +2908,16 @@ void do_canmakebag(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->act, PLR_MAKEBAG)) {
+	if (IS_SET(victim->act_flags, PLR_MAKEBAG)) {
 		stc("You are no longer a Newbie Helper.\n", victim);
 		stc("They are no longer a newbie helper.\n", ch);
-		REMOVE_BIT(victim->act, PLR_MAKEBAG);
+		REMOVE_BIT(victim->act_flags, PLR_MAKEBAG);
 		return;
 	}
 	else {
 		stc("You are now a Newbie Helper!! WooWoo!!.\n", victim);
 		stc("They are now a newbie helper.\n", ch);
-		SET_BIT(victim->act, PLR_MAKEBAG);
+		SET_BIT(victim->act_flags, PLR_MAKEBAG);
 		return;
 	}
 }
@@ -3036,8 +3036,8 @@ void do_peace(Character *ch, String argument)
 		if (rch->fighting != NULL)
 			stop_fighting(rch, TRUE);
 
-		if (IS_NPC(rch) && IS_SET(rch->act, ACT_AGGRESSIVE))
-			REMOVE_BIT(rch->act, ACT_AGGRESSIVE);
+		if (IS_NPC(rch) && IS_SET(rch->act_flags, ACT_AGGRESSIVE))
+			REMOVE_BIT(rch->act_flags, ACT_AGGRESSIVE);
 	}
 
 	stc("The room is suddenly tranquil.\n", ch);
@@ -3062,7 +3062,7 @@ void do_purge(Character *ch, String argument)
 			vnext = victim->next_in_room;
 
 			if (IS_NPC(victim)
-			    && !IS_SET(victim->act, ACT_NOPURGE)
+			    && !IS_SET(victim->act_flags, ACT_NOPURGE)
 			    &&  victim != ch)
 				extract_char(victim, TRUE);
 		}
@@ -3639,13 +3639,13 @@ void do_invis(Character *ch, String argument)
 
 void do_superwiz(Character *ch, String argument)
 {
-	if (IS_SET(ch->act, PLR_SUPERWIZ)) {
+	if (IS_SET(ch->act_flags, PLR_SUPERWIZ)) {
 		stc("You return to reality.\n", ch);
-		REMOVE_BIT(ch->act, PLR_SUPERWIZ);
+		REMOVE_BIT(ch->act_flags, PLR_SUPERWIZ);
 	}
 	else {
 		stc("You vanish from existence.\n", ch);
-		SET_BIT(ch->act, PLR_SUPERWIZ);
+		SET_BIT(ch->act_flags, PLR_SUPERWIZ);
 	}
 }
 

@@ -505,7 +505,7 @@ void mobile_update(void)
 		/* Why check for resting mobiles? */
 
 		if (ch->in_room->area->empty)
-			/* && !IS_SET(ch->act,ACT_UPDATE_ALWAYS)) */
+			/* && !IS_SET(ch->act_flags,ACT_UPDATE_ALWAYS)) */
 			continue;
 
 		/* Examine call for special procedure */
@@ -536,7 +536,7 @@ void mobile_update(void)
 			continue;
 
 		/* Scavenge */
-		if (IS_SET(ch->act, ACT_SCAVENGER)
+		if (IS_SET(ch->act_flags, ACT_SCAVENGER)
 		    && ch->in_room->contents != NULL
 		    && number_bits(6) == 0) {
 			Character *gch;
@@ -566,18 +566,18 @@ void mobile_update(void)
 		}
 
 		/* Wander */
-		if (!IS_SET(ch->act, ACT_SENTINEL)
+		if (!IS_SET(ch->act_flags, ACT_SENTINEL)
 		    && number_bits(3) == 0
 		    && (door = number_bits(5)) <= 5
 		    && (pexit = ch->in_room->exit[door]) != NULL
 		    &&   pexit->u1.to_room != NULL
 		    &&   !IS_SET(pexit->exit_info, EX_CLOSED)
 		    &&   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)
-		    && (!IS_SET(ch->act, ACT_STAY_AREA)
+		    && (!IS_SET(ch->act_flags, ACT_STAY_AREA)
 		        ||   pexit->u1.to_room->area == ch->in_room->area)
-		    && (!IS_SET(ch->act, ACT_OUTDOORS)
+		    && (!IS_SET(ch->act_flags, ACT_OUTDOORS)
 		        ||   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))
-		    && (!IS_SET(ch->act, ACT_INDOORS)
+		    && (!IS_SET(ch->act_flags, ACT_INDOORS)
 		        ||   IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))) {
 			move_char(ch, door, FALSE);
 
@@ -721,7 +721,7 @@ void weather_update(void)
 		for (ch = char_list; ch != NULL; ch = ch->next)
 
 			/* why send it to mobs? */
-			if (!IS_NPC(ch) && IS_OUTSIDE(ch) && IS_AWAKE(ch) && IS_SET(ch->act, PLR_TICKS))
+			if (!IS_NPC(ch) && IS_OUTSIDE(ch) && IS_AWAKE(ch) && IS_SET(ch->act_flags, PLR_TICKS))
 				stc(buf, ch);
 	}
 }
@@ -809,7 +809,7 @@ void char_update(void)
 		}
 
 		/* Autotick stuff - Lotus */
-		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_TICKS))
+		if (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_TICKS))
 			stc("{Btick...{x\n", ch);
 
 		if (get_position(ch) >= POS_STUNNED) {
@@ -935,25 +935,25 @@ void char_update(void)
 				gain_condition(ch, COND_THIRST, -1);
 
 			/* Check killer flag - Clerve */
-			if (ch->pcdata->flag_killer == 0 && IS_SET(ch->act, PLR_KILLER)) {
-				REMOVE_BIT(ch->act, PLR_KILLER);
-				REMOVE_BIT(ch->act, PLR_NOPK);
+			if (ch->pcdata->flag_killer == 0 && IS_SET(ch->act_flags, PLR_KILLER)) {
+				REMOVE_BIT(ch->act_flags, PLR_KILLER);
+				REMOVE_BIT(ch->act_flags, PLR_NOPK);
 				stc("The urge to kill dimishes.\n", ch);
 				stc("You are no longer a KILLER.\n", ch);
 				save_char_obj(ch);
 			}
-			else if (ch->pcdata->flag_killer > 0 && IS_SET(ch->act, PLR_KILLER))
+			else if (ch->pcdata->flag_killer > 0 && IS_SET(ch->act_flags, PLR_KILLER))
 				ch->pcdata->flag_killer--;
 
 			/* Check thief flag - Clerve */
-			if (ch->pcdata->flag_thief == 0 && IS_SET(ch->act, PLR_THIEF)) {
-				REMOVE_BIT(ch->act, PLR_THIEF);
-				REMOVE_BIT(ch->act, PLR_NOPK);
+			if (ch->pcdata->flag_thief == 0 && IS_SET(ch->act_flags, PLR_THIEF)) {
+				REMOVE_BIT(ch->act_flags, PLR_THIEF);
+				REMOVE_BIT(ch->act_flags, PLR_NOPK);
 				stc("The urge to steal dimishes.\n", ch);
 				stc("You are no longer a THIEF.\n", ch);
 				save_char_obj(ch);
 			}
-			else if (ch->pcdata->flag_thief > 0 && IS_SET(ch->act, PLR_THIEF))
+			else if (ch->pcdata->flag_thief > 0 && IS_SET(ch->act_flags, PLR_THIEF))
 				ch->pcdata->flag_thief--;
 		}
 
@@ -1281,7 +1281,7 @@ bool eligible_aggressor(Character *ch)
 {
 	return (IS_NPC(ch)
 	        && IS_AWAKE(ch)
-	        && IS_SET(ch->act, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
+	        && IS_SET(ch->act_flags, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == NULL
 	        && !affect_exists_on_char(ch, gsn_calm)
 	        && !affect_exists_on_char(ch, gsn_charm_person)
@@ -1442,14 +1442,14 @@ void aggr_update(void)
 		}
 
 		/* final checks before the fight starts */
-		if ((IS_SET(mob->act, ACT_WIMPY) && IS_AWAKE(victim))
+		if ((IS_SET(mob->act_flags, ACT_WIMPY) && IS_AWAKE(victim))
 		    || !can_see_char(mob, victim))
 			continue;
 
 		if (mob->level < victim->level - 5)
 			continue;
 
-		if (IS_SET(mob->act, ACT_AGGR_ALIGN)) {
+		if (IS_SET(mob->act_flags, ACT_AGGR_ALIGN)) {
 			if (IS_NEUTRAL(victim))
 				continue;
 
@@ -1755,11 +1755,11 @@ void quest_update(void)
 				if (ch->nextquest == 0)
 					stc("You may now quest again.\n", ch);
 			}
-			else if (IS_SET(ch->act, PLR_QUESTOR)) {
+			else if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
 				if (--ch->countdown <= 0) {
 					ch->nextquest = 0;
 					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
-					REMOVE_BIT(ch->act, PLR_QUESTOR);
+					REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 					ch->quest_giver = 0;
 					ch->countdown = 0;
 					ch->questmob = 0;

@@ -168,7 +168,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	buf += "{x";
 
-	if (IS_SET(ch->act, PLR_LOOKINPIT) && !IS_NPC(ch)) {
+	if (IS_SET(ch->act_flags, PLR_LOOKINPIT) && !IS_NPC(ch)) {
 		diff = get_usable_level(ch) - obj->level;
 
 		if (obj->level >= LEVEL_IMMORTAL)  buf += " {V(Immortal Item)";
@@ -480,9 +480,9 @@ void show_char_to_char_0(Character *victim, Character *ch)
 
 	if (affect_exists_on_char(victim, gsn_sanctuary)) buf += "{W(White Aura) ";
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER)) buf += "{R(KILLER) ";
+	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_KILLER)) buf += "{R(KILLER) ";
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_THIEF)) buf += "{B(THIEF) ";
+	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_THIEF)) buf += "{B(THIEF) ";
 
 	buf += "{x";
 
@@ -816,7 +816,7 @@ void set_color(Character *ch, int color, int bold)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (IS_SET(ch->act, PLR_COLOR)) {
+	if (IS_SET(ch->act_flags, PLR_COLOR)) {
 		Format::sprintf(buf, "\033[%d;%dm", bold, color);
 		stc(buf, ch);
 	}
@@ -1131,56 +1131,56 @@ void do_autolist(Character *ch, String argument)
 	stc("---------------------\n", ch);
 	stc("autoassist     ", ch);
 
-	if (IS_SET(ch->act, PLR_AUTOASSIST))
+	if (IS_SET(ch->act_flags, PLR_AUTOASSIST))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autoexit       ", ch);
 
-	if (IS_SET(ch->act, PLR_AUTOEXIT))
+	if (IS_SET(ch->act_flags, PLR_AUTOEXIT))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autogold       ", ch);
 
-	if (IS_SET(ch->act, PLR_AUTOGOLD))
+	if (IS_SET(ch->act_flags, PLR_AUTOGOLD))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autoloot       ", ch);
 
-	if (IS_SET(ch->act, PLR_AUTOLOOT))
+	if (IS_SET(ch->act_flags, PLR_AUTOLOOT))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autosac        ", ch);
 
-	if (IS_SET(ch->act, PLR_AUTOSAC))
+	if (IS_SET(ch->act_flags, PLR_AUTOSAC))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autosplit      ", ch);
 
-	if (IS_SET(ch->act, PLR_AUTOSPLIT))
+	if (IS_SET(ch->act_flags, PLR_AUTOSPLIT))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autotick       ", ch);
 
-	if (IS_SET(ch->act, PLR_TICKS))
+	if (IS_SET(ch->act_flags, PLR_TICKS))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
 
 	stc("autorecall     ", ch);
 
-	if (IS_SET(ch->act, PLR_WIMPY))
+	if (IS_SET(ch->act_flags, PLR_WIMPY))
 		stc("ON\n", ch);
 	else
 		stc("OFF\n", ch);
@@ -1208,7 +1208,7 @@ void do_autolist(Character *ch, String argument)
 
 	stc("show defensive ", ch);
 
-	if (IS_SET(ch->act, PLR_DEFENSIVE))
+	if (IS_SET(ch->act_flags, PLR_DEFENSIVE))
 		stc("OFF\n", ch);
 	else
 		stc("ON\n", ch);
@@ -1252,17 +1252,17 @@ void do_autolist(Character *ch, String argument)
 			stc("ON\n", ch);
 	}
 
-	if (!IS_SET(ch->act, PLR_CANLOOT))
+	if (!IS_SET(ch->act_flags, PLR_CANLOOT))
 		stc("Your corpse is safe from thieves.\n", ch);
 	else
 		stc("Your corpse may be looted.\n", ch);
 
-	if (IS_SET(ch->act, PLR_NOSUMMON))
+	if (IS_SET(ch->act_flags, PLR_NOSUMMON))
 		stc("You cannot be summoned.\n", ch);
 	else
 		stc("You can be summoned.\n", ch);
 
-	if (IS_SET(ch->act, PLR_NOFOLLOW))
+	if (IS_SET(ch->act_flags, PLR_NOFOLLOW))
 		stc("You do not welcome followers.\n", ch);
 	else
 		stc("You accept followers.\n", ch);
@@ -1281,7 +1281,7 @@ void do_ctest(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_COLOR)) {
+	if (IS_SET(ch->act_flags, PLR_COLOR)) {
 		stc("Colors currently used at Legacy:\n", ch);
 		stc("\n", ch);
 		stc("{WWHITE     (W)  {gGREY      (g)  {e{WBG GREY      (e){a\n", ch);
@@ -1303,13 +1303,13 @@ void do_autoassist(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_AUTOASSIST)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOASSIST)) {
 		stc("Autoassist removed.\n", ch);
-		REMOVE_BIT(ch->act, PLR_AUTOASSIST);
+		REMOVE_BIT(ch->act_flags, PLR_AUTOASSIST);
 	}
 	else {
 		stc("You will now assist when needed.\n", ch);
-		SET_BIT(ch->act, PLR_AUTOASSIST);
+		SET_BIT(ch->act_flags, PLR_AUTOASSIST);
 	}
 }
 
@@ -1318,13 +1318,13 @@ void do_defensive(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_DEFENSIVE)) {
+	if (IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
 		stc("You will now see all blocks.\n", ch);
-		REMOVE_BIT(ch->act, PLR_DEFENSIVE);
+		REMOVE_BIT(ch->act_flags, PLR_DEFENSIVE);
 	}
 	else {
 		stc("You will no longer see defensive blocks.\n", ch);
-		SET_BIT(ch->act, PLR_DEFENSIVE);
+		SET_BIT(ch->act_flags, PLR_DEFENSIVE);
 	}
 }
 
@@ -1333,13 +1333,13 @@ void do_autoexit(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_AUTOEXIT)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOEXIT)) {
 		stc("Exits will no longer be displayed.\n", ch);
-		REMOVE_BIT(ch->act, PLR_AUTOEXIT);
+		REMOVE_BIT(ch->act_flags, PLR_AUTOEXIT);
 	}
 	else {
 		stc("Exits will now be displayed.\n", ch);
-		SET_BIT(ch->act, PLR_AUTOEXIT);
+		SET_BIT(ch->act_flags, PLR_AUTOEXIT);
 	}
 }
 
@@ -1348,13 +1348,13 @@ void do_autogold(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_AUTOGOLD)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOGOLD)) {
 		stc("Autogold removed.\n", ch);
-		REMOVE_BIT(ch->act, PLR_AUTOGOLD);
+		REMOVE_BIT(ch->act_flags, PLR_AUTOGOLD);
 	}
 	else {
 		stc("Automatic gold looting set.\n", ch);
-		SET_BIT(ch->act, PLR_AUTOGOLD);
+		SET_BIT(ch->act_flags, PLR_AUTOGOLD);
 	}
 }
 
@@ -1363,13 +1363,13 @@ void do_autoloot(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_AUTOLOOT)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOLOOT)) {
 		stc("Autolooting removed.\n", ch);
-		REMOVE_BIT(ch->act, PLR_AUTOLOOT);
+		REMOVE_BIT(ch->act_flags, PLR_AUTOLOOT);
 	}
 	else {
 		stc("Automatic corpse looting set.\n", ch);
-		SET_BIT(ch->act, PLR_AUTOLOOT);
+		SET_BIT(ch->act_flags, PLR_AUTOLOOT);
 	}
 }
 
@@ -1378,13 +1378,13 @@ void do_autosac(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_AUTOSAC)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOSAC)) {
 		stc("Autosacrificing removed.\n", ch);
-		REMOVE_BIT(ch->act, PLR_AUTOSAC);
+		REMOVE_BIT(ch->act_flags, PLR_AUTOSAC);
 	}
 	else {
 		stc("Automatic corpse sacrificing set.\n", ch);
-		SET_BIT(ch->act, PLR_AUTOSAC);
+		SET_BIT(ch->act_flags, PLR_AUTOSAC);
 	}
 }
 
@@ -1393,13 +1393,13 @@ void do_autosplit(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_AUTOSPLIT)) {
+	if (IS_SET(ch->act_flags, PLR_AUTOSPLIT)) {
 		stc("Autosplitting removed.\n", ch);
-		REMOVE_BIT(ch->act, PLR_AUTOSPLIT);
+		REMOVE_BIT(ch->act_flags, PLR_AUTOSPLIT);
 	}
 	else {
 		stc("Automatic gold splitting set.\n", ch);
-		SET_BIT(ch->act, PLR_AUTOSPLIT);
+		SET_BIT(ch->act_flags, PLR_AUTOSPLIT);
 	}
 }
 
@@ -1441,7 +1441,7 @@ void do_showflags(Character *ch, String argument)
 	}
 
 	set_color(ch, YELLOW, NOBOLD);
-	Format::sprintf(buf, "Act  : %s\n", act_bit_name(victim->act, IS_NPC(victim)));
+	Format::sprintf(buf, "Act  : %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
 	stc(buf, ch);
 
 	if (!IS_NPC(victim)) {
@@ -1562,13 +1562,13 @@ void do_noloot(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_CANLOOT)) {
+	if (IS_SET(ch->act_flags, PLR_CANLOOT)) {
 		stc("Your corpse is now safe from thieves.\n", ch);
-		REMOVE_BIT(ch->act, PLR_CANLOOT);
+		REMOVE_BIT(ch->act_flags, PLR_CANLOOT);
 	}
 	else {
 		stc("Your corpse may now be looted.\n", ch);
-		SET_BIT(ch->act, PLR_CANLOOT);
+		SET_BIT(ch->act_flags, PLR_CANLOOT);
 	}
 }
 
@@ -1577,26 +1577,26 @@ void do_nofollow(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->act, PLR_NOFOLLOW)) {
+	if (IS_SET(ch->act_flags, PLR_NOFOLLOW)) {
 		stc("You now accept followers.\n", ch);
-		REMOVE_BIT(ch->act, PLR_NOFOLLOW);
+		REMOVE_BIT(ch->act_flags, PLR_NOFOLLOW);
 	}
 	else {
 		stc("You no longer accept followers.\n", ch);
-		SET_BIT(ch->act, PLR_NOFOLLOW);
+		SET_BIT(ch->act_flags, PLR_NOFOLLOW);
 		die_follower(ch);
 	}
 }
 
 void do_nosummon(Character *ch, String argument)
 {
-	if (IS_SET(ch->act, PLR_NOSUMMON)) {
+	if (IS_SET(ch->act_flags, PLR_NOSUMMON)) {
 		stc("You are no longer immune to summon.\n", ch);
-		REMOVE_BIT(ch->act, PLR_NOSUMMON);
+		REMOVE_BIT(ch->act_flags, PLR_NOSUMMON);
 	}
 	else {
 		stc("You are now immune to summoning.\n", ch);
-		SET_BIT(ch->act, PLR_NOSUMMON);
+		SET_BIT(ch->act_flags, PLR_NOSUMMON);
 	}
 }
 
@@ -1665,7 +1665,7 @@ void do_look(Character *ch, String argument)
 			stc(ch->in_room->description, ch);
 		}
 
-		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
+		if (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_AUTOEXIT)) {
 			stc("\n", ch);
 			do_exits(ch, "auto");
 		}
@@ -1730,9 +1730,9 @@ void do_look(Character *ch, String argument)
 		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
 			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				stc("Your locker contains:\n", ch);
-				SET_BIT(ch->act, PLR_LOOKINPIT);
+				SET_BIT(ch->act_flags, PLR_LOOKINPIT);
 				show_list_to_char(ch->pcdata->locker, ch, TRUE, TRUE, FALSE);
-				REMOVE_BIT(ch->act, PLR_LOOKINPIT);
+				REMOVE_BIT(ch->act_flags, PLR_LOOKINPIT);
 			}
 			else
 				stc("You do not see that here.\n", ch);
@@ -1749,9 +1749,9 @@ void do_look(Character *ch, String argument)
 
 			if (ch->in_room && ch->in_room->vnum == ROOM_VNUM_STRONGBOX) {
 				stc("Your strongbox contains:\n", ch);
-				SET_BIT(ch->act, PLR_LOOKINPIT);
+				SET_BIT(ch->act_flags, PLR_LOOKINPIT);
 				show_list_to_char(ch->pcdata->strongbox, ch, TRUE, TRUE, FALSE);
-				REMOVE_BIT(ch->act, PLR_LOOKINPIT);
+				REMOVE_BIT(ch->act_flags, PLR_LOOKINPIT);
 			}
 			else
 				stc("You do not see that here.\n", ch);
@@ -1802,7 +1802,7 @@ void do_look(Character *ch, String argument)
 			}
 
 			if (obj == donation_pit)
-				SET_BIT(ch->act, PLR_LOOKINPIT);
+				SET_BIT(ch->act_flags, PLR_LOOKINPIT);
 
 			new_color(ch, CSLOT_MISC_OBJECTS);
 			act("$p holds:", ch, obj, NULL, TO_CHAR);
@@ -1810,7 +1810,7 @@ void do_look(Character *ch, String argument)
 			set_color(ch, WHITE, NOBOLD);
 
 			if (obj == donation_pit)
-				REMOVE_BIT(ch->act, PLR_LOOKINPIT);
+				REMOVE_BIT(ch->act_flags, PLR_LOOKINPIT);
 
 			break;
 
@@ -1843,7 +1843,7 @@ void do_look(Character *ch, String argument)
 
 			stc("\n", ch);
 
-			if (!IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)) {
+			if (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_AUTOEXIT)) {
 				char showexit[100];
 				Format::sprintf(showexit, "%d exits auto", location->vnum);
 				do_at(ch, showexit);
@@ -2378,7 +2378,7 @@ void do_whois(Character *ch, String argument)
 	Format::sprintf(block, "%s%s%s",
 	        IS_SET(victim->pcdata->plr, PLR_OOC) ? "{W({YRP{W){x" : "",
 	        IS_SET(victim->pcdata->plr, PLR_PAINT) ? "{W({VPB{W){x" : "",
-	        IS_SET(victim->act, PLR_MAKEBAG) ? "{W({CNH{W){x" : "");
+	        IS_SET(victim->act_flags, PLR_MAKEBAG) ? "{W({CNH{W){x" : "");
 	output += block;
 
 	if (block[0] != '\0')
@@ -2403,8 +2403,8 @@ void do_whois(Character *ch, String argument)
 	/* third block "name title" */
 	Format::sprintf(block, "%s%s%s{W%s{x %s{x\n",
 	        (IS_SET(victim->comm, COMM_AFK)) ? "{b[AFK]{x " : "",
-	        (IS_SET(victim->act, PLR_KILLER)) ? "{R(KILLER){x " : "",
-	        (IS_SET(victim->act, PLR_THIEF)) ? "{B(THIEF){x " : "",
+	        (IS_SET(victim->act_flags, PLR_KILLER)) ? "{R(KILLER){x " : "",
+	        (IS_SET(victim->act_flags, PLR_THIEF)) ? "{B(THIEF){x " : "",
 	        victim->name,
 	        victim->pcdata->title);
 	output += block;
@@ -2670,13 +2670,13 @@ void do_who(Character *ch, String argument)
 		Format::sprintf(block2, "%s %s{a{x %s%s%s",
 		        rank,
 		        wch->clan ? wch->clan->who_name : "       ",
-		        IS_SET(wch->act, PLR_MAKEBAG)       ? "{CH{x" : "{T-{x",
+		        IS_SET(wch->act_flags, PLR_MAKEBAG)       ? "{CH{x" : "{T-{x",
 		        IS_SET(wch->pcdata->plr, PLR_OOC)   ? "{YR{x" : "{b-{x",
 		        IS_SET(wch->pcdata->plr, PLR_PAINT) ? "{V*{x" : "{M-{x");
 
 		/* Format it up. */
 		/* new format -- Elrac */
-		if (IS_SET(wch->act, PLR_SUPERWIZ)) {
+		if (IS_SET(wch->act_flags, PLR_SUPERWIZ)) {
 			lbrk = "{P({R";
 			rbrk = "{P)";
 		}
@@ -2701,9 +2701,9 @@ void do_who(Character *ch, String argument)
 
 		if (IS_SET(wch->comm, COMM_AFK))        buf += "{b[AFK]{x ";
 
-		if (IS_SET(wch->act, PLR_KILLER))       buf += "{R(KILLER){x ";
+		if (IS_SET(wch->act_flags, PLR_KILLER))       buf += "{R(KILLER){x ";
 
-		if (IS_SET(wch->act, PLR_THIEF))        buf += "{B(THIEF){x ";
+		if (IS_SET(wch->act_flags, PLR_THIEF))        buf += "{B(THIEF){x ";
 
 		buf += lbrk;
 		buf += wch->name;
@@ -2796,9 +2796,9 @@ void do_swho(Character *ch, String argument)
 		Format::sprintf(buf, "{b[%s][%s][%s][%s][%s][%s][%s{b] {W%-12s {R({P%s{R) {M<{V%s{M>\n",
 		        IS_SET(wch->pcdata->plr, PLR_OOC) ? "{Y*{b" : " ",
 		        IS_SET(wch->pcdata->plr, PLR_PK) ? "{G*{b" : " ",
-		        IS_SET(wch->act, PLR_MAKEBAG) ? "{T*{b" : " ",
+		        IS_SET(wch->act_flags, PLR_MAKEBAG) ? "{T*{b" : " ",
 		        IS_SET(wch->pcdata->plr, PLR_PAINT) ? "{P*{b" : " ",
-		        IS_SET(wch->act, PLR_QUESTOR) ? "{V*{b" : " ",
+		        IS_SET(wch->act_flags, PLR_QUESTOR) ? "{V*{b" : " ",
 		        IS_SET(wch->pcdata->plr, PLR_SQUESTOR) ? "{B*{b" : " ",
 		        (wch->pnote != NULL) ?
 		        wch->pnote->type == NOTE_NOTE           ? "{P*" :
@@ -3196,7 +3196,7 @@ void do_consider(Character *ch, String argument)
 			    victim->pIndexData->count, victim->pIndexData->killed);
 		}
 
-		ptc(ch, "\n{gAct: %s\n", act_bit_name(victim->act, IS_NPC(victim)));
+		ptc(ch, "\n{gAct: %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
 
 		if (!IS_NPC(victim))
 			ptc(ch, "{gPlr: %s\n", plr_bit_name(victim->pcdata->plr));
@@ -3756,7 +3756,7 @@ void do_practice(Character *ch, String argument)
 	}
 
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->act, ACT_PRACTICE))
+		if (IS_NPC(mob) && IS_SET(mob->act_flags, ACT_PRACTICE))
 			break;
 	}
 
@@ -4689,12 +4689,12 @@ void do_pit(Character *ch, String argument)
 	}
 	else {
 		/* code copied from do_look(), so should be convincing. */
-		SET_BIT(ch->act, PLR_LOOKINPIT);
+		SET_BIT(ch->act_flags, PLR_LOOKINPIT);
 		new_color(ch, CSLOT_MISC_OBJECTS);
 		act("In your selection from $p, you see:", ch, pit, NULL, TO_CHAR);
 		show_list_to_char(sel_pit.contains, ch, TRUE, TRUE, FALSE);
 		set_color(ch, WHITE, NOBOLD);
-		REMOVE_BIT(ch->act, PLR_LOOKINPIT);
+		REMOVE_BIT(ch->act_flags, PLR_LOOKINPIT);
 	}
 
 	/* stuff goes back into pit. rummaging shuffles contents, that's ok */

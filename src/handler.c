@@ -118,7 +118,7 @@ bool is_friend(Character *ch, Character *victim)
 		return TRUE;
 
 	if (IS_SET(ch->off_flags, ASSIST_ALIGN)
-	    &&  !IS_SET(ch->act, ACT_NOALIGN) && !IS_SET(victim->act, ACT_NOALIGN)
+	    &&  !IS_SET(ch->act_flags, ACT_NOALIGN) && !IS_SET(victim->act_flags, ACT_NOALIGN)
 	    && ((IS_GOOD(ch) && IS_GOOD(victim))
 	        || (IS_EVIL(ch) && IS_EVIL(victim))
 	        || (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))))
@@ -276,11 +276,11 @@ int get_skill(const Character *ch, int sn)
 		else if (sn == gsn_shield_block)
 			skill = 15 + ch->level;
 		else if (sn == gsn_second_attack
-		         && (IS_SET(ch->act, ACT_WARRIOR) || IS_SET(ch->act, ACT_THIEF)))
+		         && (IS_SET(ch->act_flags, ACT_WARRIOR) || IS_SET(ch->act_flags, ACT_THIEF)))
 			skill = 25 + ch->level;
-		else if (sn == gsn_third_attack && IS_SET(ch->act, ACT_WARRIOR))
+		else if (sn == gsn_third_attack && IS_SET(ch->act_flags, ACT_WARRIOR))
 			skill = 15 + ch->level;
-		else if (sn == gsn_fourth_attack && IS_SET(ch->act, ACT_WARRIOR))
+		else if (sn == gsn_fourth_attack && IS_SET(ch->act_flags, ACT_WARRIOR))
 			skill = 2 * (ch->level - 60);
 		else if (sn == gsn_hand_to_hand)
 			skill = ch->level * 3 / 2;
@@ -293,12 +293,12 @@ int get_skill(const Character *ch, int sn)
 			skill = ch->level;
 		else if (sn == gsn_disarm
 		         && (IS_SET(ch->off_flags, OFF_DISARM)
-		             ||       IS_SET(ch->act, ACT_WARRIOR)
-		             ||       IS_SET(ch->act, ACT_THIEF)))
+		             ||       IS_SET(ch->act_flags, ACT_WARRIOR)
+		             ||       IS_SET(ch->act_flags, ACT_THIEF)))
 			skill = 20 + (ch->level * 2 / 3);
 		else if (sn == gsn_berserk && IS_SET(ch->off_flags, OFF_BERSERK))
 			skill = 3 * ch->level;
-		else if (sn == gsn_backstab && IS_SET(ch->act, ACT_THIEF))
+		else if (sn == gsn_backstab && IS_SET(ch->act_flags, ACT_THIEF))
 			skill = 20 + (ch->level * 2);
 		else if (sn == gsn_rescue)
 			skill = 40 + (ch->level / 2);
@@ -431,7 +431,7 @@ int can_carry_n(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 9999;
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET))
 		return 0;
 
 	return MAX_WEAR +  2 * GET_ATTR_DEX(ch) + ch->level;
@@ -445,7 +445,7 @@ int can_carry_w(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 10000000;
 
-	if (IS_NPC(ch) && IS_SET(ch->act, ACT_PET))
+	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET))
 		return 0;
 
 	return str_app[GET_ATTR_STR(ch)].carry * 10 + ch->level * 25;
@@ -1479,7 +1479,7 @@ bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 		return FALSE;
 
 	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_NEWBIES_ONLY)
-	    &&  ch->level > 5 && !IS_SET(ch->act, PLR_MAKEBAG))
+	    &&  ch->level > 5 && !IS_SET(ch->act_flags, PLR_MAKEBAG))
 		return FALSE;
 
 	/* can see other clanhall in times of war */
@@ -1541,13 +1541,13 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (IS_IMP(ch))
 		return TRUE;
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_SUPERWIZ))
+	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_SUPERWIZ))
 		return FALSE;
 
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (IS_NPC(victim) && IS_SET(victim->act, ACT_SUPERMOB))
+	if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_SUPERMOB))
 		return FALSE;
 
 	if (affect_exists_on_char(victim, gsn_midnight))
@@ -1603,7 +1603,7 @@ bool can_see_who(const Character *ch, const Character *victim)
 		return FALSE;
 
 	/* so does SUPERWIZ */
-	if (IS_SET(victim->act, PLR_SUPERWIZ) && !IS_NPC(victim) && !IS_IMP(ch))
+	if (IS_SET(victim->act_flags, PLR_SUPERWIZ) && !IS_NPC(victim) && !IS_IMP(ch))
 		return FALSE;
 
 	/* so does LURK */
