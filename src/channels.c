@@ -325,7 +325,7 @@ bool swearcheck(const String& argument)
 		{       NULL,           0       }
 	};
 	int x;  /* Our lovely counter */
-	Format::sprintf(tobechecked, "%s", smash_bracket(argument));;
+	Format::sprintf(tobechecked, "%s", argument.uncolor());;
 
 	for (x = 0; swear_table[x].level > 0; x++) {
 		switch (swear_table[x].level) {

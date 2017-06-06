@@ -98,7 +98,7 @@ void do_debug(Character *ch, String argument)
 			            db_esc(victim->name),
 			            db_esc(victim->pcdata->title),
 			            db_esc(victim->pcdata->deity),
-			            db_esc(smash_bracket(victim->pcdata->deity)),
+			            db_esc(victim->pcdata->deity.uncolor()),
 			            victim->pcdata->cgroup,
 			            victim->level,
 			            victim->pcdata->remort_count,

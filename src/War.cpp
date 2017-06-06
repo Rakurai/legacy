@@ -918,7 +918,7 @@ void format_war_list(Character *ch, War *war, bool current)
 		else if (c < chcount) {
 			Format::sprintf(chblock, "%s%30s %s(%s%2d{c/%s%2d%s)",
 			        chal_list[c].inwar ? "" : "{c",
-			        chal_list[c].inwar ? chal_list[c].name : smash_bracket(chal_list[c].name),
+			        chal_list[c].inwar ? chal_list[c].name : chal_list[c].name.uncolor(),
 			        chal_list[c].inwar ? "{g" : "{c",
 			        chal_list[c].inwar ? "{G" : "{P",
 			        chal_list[c].score,
@@ -952,7 +952,7 @@ void format_war_list(Character *ch, War *war, bool current)
 			        def_list[d].st_score,
 			        def_list[d].inwar ? "{g" : "{c",
 			        def_list[d].inwar ? "{x" : "",
-			        def_list[d].inwar ? def_list[d].name : smash_bracket(def_list[d].name));
+			        def_list[d].inwar ? def_list[d].name : def_list[d].name.uncolor());
 			d++;
 		}
 

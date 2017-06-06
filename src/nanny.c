@@ -182,7 +182,7 @@ void update_pc_index(Character *ch, bool remove)
 		            db_esc(ch->name),
 		            db_esc(ch->pcdata->title),
 		            db_esc(ch->pcdata->deity),
-		            db_esc(smash_bracket(ch->pcdata->deity)),
+		            db_esc(ch->pcdata->deity.uncolor()),
 		            ch->pcdata->cgroup,
 		            ch->level,
 		            ch->pcdata->remort_count,

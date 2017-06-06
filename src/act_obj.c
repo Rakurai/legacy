@@ -4771,7 +4771,7 @@ void do_forge(Character *ch, String argument)
 		affect_copy_to_obj(obj, paf);
 
 	obj->value[0] = weapon_type(type);
-	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(argument));
+	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, argument.uncolor());
 	obj->name = buf;
 	Format::sprintf(sdesc, "%s{x", argument);
 	obj->short_descr = sdesc;

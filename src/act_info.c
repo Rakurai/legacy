@@ -4019,7 +4019,7 @@ void do_invite(Character *ch, String argument)
 
 				if (IS_IMMORTAL(d->character)) {
 					Format::sprintf(buf, "%s",
-					        smash_bracket(ch->inviters->who_name));
+					        ch->inviters->who_name.uncolor());
 					stc(buf, d->character);
 				}
 
@@ -4059,7 +4059,7 @@ void do_invite(Character *ch, String argument)
 
 				if (IS_IMMORTAL(d->character)) {
 					Format::sprintf(buf, "%s",
-					        smash_bracket(ch->inviters->who_name));
+					        ch->inviters->who_name.uncolor());
 					stc(buf, d->character);
 				}
 
@@ -4954,7 +4954,7 @@ void print_new_affects(Character *ch)
 				namebuf[0] = eqbuf[0] = timebuf[0] = '\0';
 
 				strcpy(namebuf, skill_table[paf->type].name);
-				strncpy(eqbuf, smash_bracket(obj->short_descr), 38);
+				strncpy(eqbuf, obj->short_descr.uncolor(), 38);
 
 				if (paf->duration != -1)
 					Format::sprintf(timebuf, "%3d hrs", paf->duration + 1);

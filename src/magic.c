@@ -1861,7 +1861,7 @@ void spell_create_food(int sn, int level, Character *ch, void *vo, int target, i
 	}
 
 	food->short_descr = type;
-	Format::sprintf(buf, "food %s", smash_bracket(food->short_descr));
+	Format::sprintf(buf, "food %s", food->short_descr.uncolor());
 	food->name = buf;
 	Format::sprintf(buf, "%s{x is lying on the ground.", type);
 	buf[0] = UPPER(buf[0]);

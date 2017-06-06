@@ -36,8 +36,6 @@ bool operator!= (const String &lhs, const char *rhs) {
 	return !(lhs == rhs);
 }
 
-#include <iostream>
-
 std::size_t String::
 find(const String& str, std::size_t start_pos) const {
 	if (start_pos > size() - str.size())
@@ -146,6 +144,28 @@ capitalize() const {
 		str[pos] = toupper(str[pos]);
 
 	return str;
+}
+
+String String::
+uncolor() const {
+	String buf;
+
+	for (auto it = cbegin(); it != cend(); it++) {
+		if (*it != '{') {
+			buf += *it;
+			continue;
+		}
+
+		if (++it == cend())
+			break;
+
+		if (*it == '{')
+			buf += '{';
+
+		// otherwise, this is a color code, move on
+	}
+
+	return buf;
 }
 
 String String::

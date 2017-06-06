@@ -49,6 +49,7 @@ BOOST_AUTO_TEST_CASE(assignment)
 BOOST_AUTO_TEST_CASE(equality) // String should be case insensitive tests
 {
 	String a("Foo");
+	String b("");
 	BOOST_TEST( std::operator==(a, "Foo") );
 	BOOST_TEST( std::operator!=(a, "foo") ); // case sensitive
 
@@ -56,6 +57,64 @@ BOOST_AUTO_TEST_CASE(equality) // String should be case insensitive tests
 	BOOST_TEST( a == "foo" ); // case insensitive
 	BOOST_TEST( !(a != "Foo") );
 	BOOST_TEST( !(a != "foo") );
+
+	BOOST_TEST( a.is_prefix_of(a) ); // match vs self
+	BOOST_TEST( a.is_prefix_of(a, 0) );
+	BOOST_TEST( a.is_prefix_of(a, 3) );
+	BOOST_TEST( !a.is_prefix_of(a, 4) ); // too many required chars
+	BOOST_TEST( a.is_prefix_of("foo") ); 
+	BOOST_TEST( !a.is_prefix_of("Fod") ); 
+	BOOST_TEST( a.is_prefix_of("Foobar") ); 
+	BOOST_TEST( a.is_prefix_of("Foo bar") ); 
+	BOOST_TEST( !a.is_prefix_of("Fod bar") ); 
+	BOOST_TEST( !a.is_prefix_of("Fo") ); // not enough chars
+	BOOST_TEST( !a.is_prefix_of("Fo", 0) ); // not enough chars
+	BOOST_TEST( !a.is_prefix_of("Fo", 2) ); // not enough chars
+	BOOST_TEST( !a.is_prefix_of("Fo", 3) ); // not enough chars
+	BOOST_TEST( !a.is_prefix_of("Fo", 4) ); // not enough chars
+
+	BOOST_TEST( !b.is_prefix_of("Foo") ); // default requires 1 char
+	BOOST_TEST( b.is_prefix_of("Foo", 0) );
+
+	BOOST_TEST( a.is_infix_of(a) ); // match vs self
+	BOOST_TEST( a.is_infix_of(a, 0) );
+	BOOST_TEST( a.is_infix_of(a, 3) );
+	BOOST_TEST( !a.is_infix_of(a, 4) ); // too many required chars
+	BOOST_TEST( a.is_infix_of("foo") ); 
+	BOOST_TEST( !a.is_infix_of("Fod") ); 
+	BOOST_TEST( a.is_infix_of("barFoobar") ); 
+	BOOST_TEST( a.is_infix_of("bar Foo bar") ); 
+	BOOST_TEST( !a.is_infix_of("bar Fod bar") ); 
+	BOOST_TEST( a.is_infix_of("FooBar") ); 
+	BOOST_TEST( a.is_infix_of("BarFoo") );
+	BOOST_TEST( !a.is_infix_of("Fo") ); // not enough chars
+	BOOST_TEST( !a.is_infix_of("Fo", 0) ); // not enough chars
+	BOOST_TEST( !a.is_infix_of("Fo", 2) ); // not enough chars
+	BOOST_TEST( !a.is_infix_of("Fo", 3) ); // not enough chars
+	BOOST_TEST( !a.is_infix_of("Fo", 4) ); // not enough chars
+
+	BOOST_TEST( !b.is_infix_of("Foo") ); // default requires 1 char
+	BOOST_TEST( b.is_infix_of("Foo", 0) );
+
+	BOOST_TEST( a.is_suffix_of(a) ); // match vs self
+	BOOST_TEST( a.is_suffix_of(a, 0) );
+	BOOST_TEST( a.is_suffix_of(a, 3) );
+	BOOST_TEST( !a.is_suffix_of(a, 4) ); // too many required chars
+	BOOST_TEST( a.is_suffix_of("foo") ); 
+	BOOST_TEST( !a.is_suffix_of("Fod") ); 
+	BOOST_TEST( a.is_suffix_of("bar Foo") ); 
+	BOOST_TEST( !a.is_suffix_of("FooBar") ); 
+	BOOST_TEST( a.is_suffix_of("BarFoo") );
+	BOOST_TEST( !a.is_suffix_of("Fo") ); // not enough chars
+	BOOST_TEST( !a.is_suffix_of("Fo", 0) ); // not enough chars
+	BOOST_TEST( !a.is_suffix_of("Fo", 2) ); // not enough chars
+	BOOST_TEST( !a.is_suffix_of("Fo", 3) ); // not enough chars
+	BOOST_TEST( !a.is_suffix_of("Fo", 4) ); // not enough chars
+
+	BOOST_TEST( !b.is_suffix_of("Foo") ); // default requires 1 char
+	BOOST_TEST( b.is_suffix_of("Foo", 0) );
+
+	// has_*fix just calls args of is_*fix_of backwards, so no extra tests here
 }
 
 BOOST_AUTO_TEST_CASE(erase)
@@ -77,13 +136,53 @@ BOOST_AUTO_TEST_CASE(erase)
 
 BOOST_AUTO_TEST_CASE(search)
 {
-	String a("abracadabra");
-	BOOST_TEST( a.find_nth(1, 'a') == 0 );
-	BOOST_TEST( a.find_nth(2, 'a') == 3 );
-	BOOST_TEST( a.find_nth(3, 'a') == 5 );
-	BOOST_TEST( a.find_nth(4, 'a') == 7 );
-	BOOST_TEST( a.find_nth(5, 'a') == 10 );
-	BOOST_TEST( a.find_nth(6, 'a') == std::string::npos );
+	String a; // empty string
+	BOOST_TEST( a.find("") == 0 );
+	BOOST_TEST( a.find("", 1) == std::string::npos );
+	BOOST_TEST( a.find("a") == std::string::npos );
+
+	a = "aaa"; // empty search term
+	BOOST_TEST( a.find("") == 0 );
+	BOOST_TEST( a.find("", 4) == std::string::npos );
+
+	a = "jabberwocky"; // basic single char tests
+	BOOST_TEST( a.find("j") == 0 );
+	BOOST_TEST( a.find("a") == 1 );
+	BOOST_TEST( a.find("k") == 9 );
+	BOOST_TEST( a.find("y") == 10 );
+	BOOST_TEST( a.find("z") == std::string::npos );
+	BOOST_TEST( a.find("b", 1) == 2 );
+	BOOST_TEST( a.find("b", 2) == 2 );
+	BOOST_TEST( a.find("b", 3) == 3 );
+
+	// word searching
+	BOOST_TEST( a.find("bb") == 2 );
+	BOOST_TEST( a.find("bb", 1) == 2 );
+	BOOST_TEST( a.find("bb", 5) == std::string::npos );
+
+	// find nth term, single char in group
+	a = "aaaaa";
+	BOOST_TEST( a.find_nth(1, "a") == 0 );
+	BOOST_TEST( a.find_nth(2, "a") == 1 );
+	BOOST_TEST( a.find_nth(3, "a") == 2 );
+	BOOST_TEST( a.find_nth(4, "a") == 3 );
+	BOOST_TEST( a.find_nth(5, "a") == 4 );
+
+	// clusters of repeated letters
+	BOOST_TEST( a.find_nth(1, "aa") == 0 );
+	BOOST_TEST( a.find_nth(2, "aa") == 2 );
+	BOOST_TEST( a.find_nth(3, "aa") == std::string::npos );
+
+	// correctly identifying letters and words
+	a = "abracadabra";
+	BOOST_TEST( a.find_nth(1, "a") == 0 );
+	BOOST_TEST( a.find_nth(2, "a") == 3 );
+	BOOST_TEST( a.find_nth(3, "a") == 5 );
+	BOOST_TEST( a.find_nth(4, "a") == 7 );
+	BOOST_TEST( a.find_nth(5, "a") == 10 );
+	BOOST_TEST( a.find_nth(6, "a") == std::string::npos );
+	BOOST_TEST( a.find_nth(2, "br") == 8 );
+	BOOST_TEST( a.find_nth(2, "zap") == std::string::npos );
 }
 
 BOOST_AUTO_TEST_CASE(substr)
@@ -100,6 +199,24 @@ BOOST_AUTO_TEST_CASE(capitalize)
 	String a("foo"), b("  foo bar");
 	BOOST_TEST( std::operator==(a.capitalize(), "Foo") );
 	BOOST_TEST( std::operator==(b.capitalize(), "  Foo bar") );
+}
+
+BOOST_AUTO_TEST_CASE(uncolor)
+{
+	String a;
+	BOOST_TEST( a.uncolor() == "" );
+
+	a = "abc def";
+	BOOST_TEST( a.uncolor() == a );
+
+	a = "{";
+	BOOST_TEST( a.uncolor() == "" );
+
+	a = "{abc d{ef{x";
+	BOOST_TEST( a.uncolor() == "bc df" );
+
+	a = "{{a c{{{b";
+	BOOST_TEST( a.uncolor() == "{a c{" );
 }
 
 BOOST_AUTO_TEST_CASE(strip)
@@ -203,8 +320,8 @@ BOOST_AUTO_TEST_CASE(replace)
 	// empty what - don't match
 	BOOST_TEST( a.replace("", "baz") == "foo" );
 
-	// case sensitive?
-	BOOST_TEST( a.replace("Foo", "baz") == "Foo" );
+	// case insensitive?
+	BOOST_TEST( a.replace("Foo", "baz") == "baz" );
 
 	// multiple replacement
 	a = "foo foo bar foo bar";

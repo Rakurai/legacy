@@ -45,6 +45,7 @@ public:
 
 	// capitalize the first letter of a string, skips non-alphanumerics
 	String capitalize() const;
+	String uncolor() const;
 
 	// trim the whitespace (or user-defined characters) from the front, back, or both
 	String lstrip(const String& chars = " \t\n\r") const;

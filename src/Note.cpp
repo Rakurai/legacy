@@ -446,7 +446,7 @@ bool is_note_to(Character *ch, Note *pnote)
 	/* don't show notes to the forwarding person *mutter*  -- Montrey */
 	Format::sprintf(buf, "FORWARD(%s)", ch->name);
 
-	if (std::strstr(buf, smash_bracket(pnote->subject)))
+	if (std::strstr(buf, pnote->subject.uncolor().c_str()))
 		return FALSE;
 
 	/* note to followers */
@@ -942,7 +942,7 @@ void parse_note(Character *ch, String argument, int type)
 				   to be 14 characters, including color codes.  change it if you
 				   change this!  the smash_bracket is to assure there's no color
 				   codes in their name, even though mobs can't forward -- Montrey */
-				Format::sprintf(buf, "{VFORWARD{W({V%s{W){x: %s", smash_bracket(ch->name), pnote->subject);
+				Format::sprintf(buf, "{VFORWARD{W({V%s{W){x: %s", ch->name.uncolor(), pnote->subject);
 				newnote->subject  = buf;
 				newnote->text     = pnote->text;
 				newnote->type     = pnote->type;

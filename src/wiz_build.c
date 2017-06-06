@@ -45,8 +45,8 @@ String room_pair(RoomPrototype *left, RoomPrototype *right, exit_status ex) {
 		sExit = "<>"; break;
 	}
 
-	String leftname = smash_bracket(left->name);
-	String rightname = smash_bracket(right->name);
+	String leftname = left->name.uncolor();
+	String rightname = right->name.uncolor();
 	return Format::format("%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
 	        left->vnum, leftname,
 	        sExit,

@@ -1285,7 +1285,7 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'r':
 			if (ch->in_room != NULL)
-				buf += can_see_in_room(ch, ch->in_room) ? smash_bracket(ch->in_room->name) : "darkness";
+				buf += can_see_in_room(ch, ch->in_room) ? ch->in_room->name.uncolor() : "darkness";
 			else
 				buf += ' ';
 
@@ -1329,13 +1329,13 @@ void bust_a_prompt(Character *ch)
 //					if ((questinfoobj = get_obj_index(ch->questobj)) != NULL)
 //						Format::sprintf(buf2, "%s", questinfoobj->name);
 					if (ch->questloc)
-						buf += smash_bracket(get_room_index(ch->questloc)->name);
+						buf += get_room_index(ch->questloc)->name.uncolor();
 					else
 						buf += "Unknown";
 				}
 				else if (ch->questmob > 0) {
 					if ((questinfo = get_mob_index(ch->questmob)) != NULL)
-						buf += smash_bracket(questinfo->short_descr);
+						buf += questinfo->short_descr.uncolor();
 					else
 						buf += "Unknown";
 				}
@@ -1365,26 +1365,26 @@ void bust_a_prompt(Character *ch)
 				if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) {
 					if (!ch->pcdata->squestobjf)
 //						buf += ch->pcdata->squestobj->short_descr;
-						buf += smash_bracket(get_room_index(ch->pcdata->squestloc1)->name);
+						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
 					else
 						buf += "*report!*";
 				}
 				else if (ch->pcdata->squestmob != NULL && ch->pcdata->squestobj == NULL) {
 					if (!ch->pcdata->squestmobf)
-						buf += smash_bracket(ch->pcdata->squestmob->short_descr);
+						buf += ch->pcdata->squestmob->short_descr.uncolor();
 					else
 						buf += "*report!*";
 				}
 				else if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob != NULL) {
 					if (ch->pcdata->squestobjf) {
 						if (!ch->pcdata->squestmobf)
-							buf += smash_bracket(ch->pcdata->squestmob->short_descr);
+							buf += ch->pcdata->squestmob->short_descr.uncolor();
 						else
 							buf += "*report!*";
 					}
 					else
 //						buf += ch->pcdata->squestobj->short_descr;
-						buf += smash_bracket(get_room_index(ch->pcdata->squestloc1)->name);
+						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
 				}
 				else
 					buf += "Unknown";
@@ -1651,7 +1651,7 @@ void stc(const String& txt, Character *ch)
 	else if (IS_SET(ch->act_flags, PLR_COLOR2))
 		write_to_buffer(ch->desc, expand_color_codes(ch, txt));
 	else
-		write_to_buffer(ch->desc, smash_bracket(txt));
+		write_to_buffer(ch->desc, txt.uncolor());
 } /* end stc() */
 
 /*

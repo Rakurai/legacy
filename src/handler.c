@@ -1758,7 +1758,7 @@ int parse_deity(const String& dstring)
 		return -1;
 
 	for (i = 0; deity_table[i].name; i++)
-		if (strstr(smash_bracket(dstring), deity_table[i].name))
+		if (strstr(dstring.uncolor(), deity_table[i].name))
 			return i;
 
 	return -1;

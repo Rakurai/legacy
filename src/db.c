@@ -688,11 +688,11 @@ int  scan_credits(Area *pArea)
 	}
 
 	pArea->author = author;
-	keywords += smash_bracket(author);
+	keywords += String(author).uncolor();
 	keywords += " ";
 	/*** title is the remainder ***/
 	pArea->title = title;
-	keywords += smash_bracket(title);
+	keywords += String(title).uncolor();
 
 	for (auto it = keywords.begin(); it != keywords.end(); it++) *it = LOWER(*it);
 

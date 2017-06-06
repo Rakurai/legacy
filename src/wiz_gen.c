@@ -2716,8 +2716,8 @@ void do_rwhere(Character *ch, String argument)
 {
 	Area *area;
 	RoomPrototype *room;
-	String dbuf;
-	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH], rbuf[MAX_INPUT_LENGTH];
+	String dbuf, rbuf;
+	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH];
 	char *cp;
 	bool found = FALSE;
 	int vnum;
@@ -2733,9 +2733,9 @@ void do_rwhere(Character *ch, String argument)
 			room = get_room_index(vnum);
 
 			if (room != NULL) {
-				strcpy(rbuf, room->name);
+				rbuf = room->name;
 
-				if (is_name(argument, smash_bracket(rbuf))) {
+				if (is_name(argument, rbuf.uncolor())) {
 					found = TRUE;
 					strcpy(fname, room->area->file_name);
 					cp = strchr(fname, '.');

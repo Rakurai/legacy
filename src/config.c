@@ -543,7 +543,7 @@ void config_immortal(Character *ch, String argument)
 		}
 		else {
 			char buf[MIL];
-			strcpy(buf, smash_bracket(argument));
+			strcpy(buf, argument.uncolor());
 
 			if (strlen(buf) > 30)
 				stc("Your immtalk prefix can be no longer than 30 printed characters.\n", ch);
@@ -569,7 +569,7 @@ void config_immortal(Character *ch, String argument)
 			stc("Your immname has been removed.\n", ch);
 		}
 		else {
-			String buf = smash_bracket(argument);
+			String buf = argument.uncolor();
 
 			if (strlen(buf) > TITLEBLOCK)
 				stc("Your immname can be no longer than 13 printed characters.\n", ch);

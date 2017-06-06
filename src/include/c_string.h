@@ -1,6 +1,5 @@
 #pragma once
 
-const char *  smash_bracket   ( const String& str) ;
 const char *	ignore_apostrophe (const String& str);
 void	strcut		(char *str, unsigned int length);
 const char *	strcenter	(const String& string, int space);
