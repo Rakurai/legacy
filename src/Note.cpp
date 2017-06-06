@@ -749,7 +749,7 @@ void parse_note(Character *ch, String argument, int type)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg.empty() || !str_prefix1(arg, "read")) {
+	if (arg.empty() || arg.is_prefix_of("read")) {
 		bool fAll = FALSE;
 
 		if (IS_NPC(ch)) {
@@ -758,7 +758,7 @@ void parse_note(Character *ch, String argument, int type)
 		}
 
 		/* read next unread note */
-		if (argument.empty() || !str_prefix1(argument, "next")) {
+		if (argument.empty() || argument.is_prefix_of("next")) {
 			for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
 					ptc(ch, "{W[%3d] From: {x%s\n"
@@ -813,7 +813,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "list")) {
+	if (arg.is_prefix_of("list")) {
 		bool search = FALSE, nw = FALSE, found = FALSE, all = FALSE;
 
 		if (IS_NPC(ch)) {
@@ -833,7 +833,7 @@ void parse_note(Character *ch, String argument, int type)
 			if (is_note_to(ch, pnote)) {
 				vnum++;
 
-				if ((search) && str_prefix1(argument, pnote->sender))
+				if ((search) && !argument.is_prefix_of(pnote->sender))
 					continue;
 
 				if ((nw) && hide_note(ch, pnote))
@@ -863,7 +863,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "remove")) {
+	if (arg.is_prefix_of("remove")) {
 		if (!is_number(argument)) {
 			stc("Note remove which number?\n", ch);
 			return;
@@ -885,7 +885,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "delete") && IS_IMP(ch)) {
+	if (arg.is_prefix_of("delete") && IS_IMP(ch)) {
 		if (!is_number(argument)) {
 			stc("Message delete which number?\n", ch);
 			return;
@@ -907,7 +907,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "forward")) {
+	if (arg.is_prefix_of("forward")) {
 		Note *newnote;
 
 		if (IS_NPC(ch)) {
@@ -958,7 +958,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "repost") && IS_IMMORTAL(ch)) {
+	if (arg.is_prefix_of("repost") && IS_IMMORTAL(ch)) {
 		Note *newnote;
 
 		if (!is_number(argument)) {
@@ -994,7 +994,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "wipe")) {
+	if (arg.is_prefix_of("wipe")) {
 		ch->pcdata->last_note = current_time;
 		ch->pcdata->last_idea = current_time;
 		ch->pcdata->last_roleplay = current_time;
@@ -1006,7 +1006,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "catchup")) {
+	if (arg.is_prefix_of("catchup")) {
 		switch (type) {
 		case NOTE_NOTE:
 			ch->pcdata->last_note = current_time;
@@ -1048,7 +1048,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	/* message move: e.g. NOTE MOVE 10 IDEA -- Elrac */
-	if (!str_prefix1(arg, "move")) {
+	if (arg.is_prefix_of("move")) {
 		Note *thenote, *newnote, *newlist;
 		int newtype = 0, j;
 		/* get message number */
@@ -1087,7 +1087,7 @@ void parse_note(Character *ch, String argument, int type)
 		argument = one_argument(argument, arg);
 
 		for (j = 0; board_index[j].board_hdr[0] != '\0'; j++) {
-			if (!str_prefix1(arg, board_index[j].board_plural)) {
+			if (arg.is_prefix_of(board_index[j].board_plural)) {
 				newtype = j;
 				newlist = *(board_index[j].board_list);
 				break;
@@ -1242,7 +1242,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "subject")) {
+	if (arg.is_prefix_of("subject")) {
 		note_attach(ch, type);
 
 		if (ch->pnote->type != type) {
@@ -1256,7 +1256,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "to")) {
+	if (arg.is_prefix_of("to")) {
 		if (IS_SET(ch->comm, COMM_NOCHANNELS) &&
 		    strcmp(argument, "immortal")) {
 			stc("You can currently send notes only to immortal.\n", ch);
@@ -1299,7 +1299,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "clear")) {
+	if (arg.is_prefix_of("clear")) {
 		if (ch->pnote != NULL) {
 			free_note(ch->pnote);
 			ch->pnote = NULL;
@@ -1312,7 +1312,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "show")) {
+	if (arg.is_prefix_of("show")) {
 		if (ch->pnote == NULL) {
 			stc("You have no note in progress.\n", ch);
 			return;
@@ -1334,7 +1334,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (!str_prefix1(arg, "post") || !str_prefix1(arg, "send")) {
+	if (arg.is_prefix_of("post") || arg.is_prefix_of("send")) {
 		char *strtime;
 		char buf2[MAX_STRING_LENGTH];
 

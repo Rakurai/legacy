@@ -94,10 +94,10 @@ bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
 		return (bool)(strcmp(lhs, rhs));
 
 	if (!strcmp(opr, "/"))
-		return (bool)(!str_infix(rhs, lhs));
+		return lhs.has_infix(rhs);
 
 	if (!strcmp(opr, "!/"))
-		return (bool)(str_infix(rhs, lhs));
+		return !lhs.has_infix(rhs);
 
 	bug("Improper MOBprog operator\n", 0);
 	return 0;

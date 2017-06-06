@@ -150,7 +150,7 @@ int race_lookup(const String& name)
 
 	for (race = 0; race_table[race].name != NULL; race++) {
 		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
-		    &&  !str_prefix1(name, race_table[race].name))
+		    &&  name.is_prefix_of(race_table[race].name))
 			return race;
 	}
 
@@ -163,7 +163,7 @@ int liq_lookup(const String& name)
 
 	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
 		if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
-		    && !str_prefix1(name, liq_table[liq].liq_name))
+		    && name.is_prefix_of(liq_table[liq].liq_name))
 			return liq;
 	}
 
@@ -176,7 +176,7 @@ int weapon_lookup(const String& name)
 
 	for (type = 0; weapon_table[type].name != NULL; type++) {
 		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
-		    &&  !str_prefix1(name, weapon_table[type].name))
+		    &&  name.is_prefix_of(weapon_table[type].name))
 			return type;
 	}
 
@@ -189,7 +189,7 @@ int weapon_type(const String& name)
 
 	for (type = 0; weapon_table[type].name != NULL; type++) {
 		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
-		    &&  !str_prefix1(name, weapon_table[type].name))
+		    &&  name.is_prefix_of(weapon_table[type].name))
 			return weapon_table[type].type;
 	}
 
@@ -202,7 +202,7 @@ int item_lookup(const String& name)
 
 	for (type = 0; item_table[type].name != NULL; type++) {
 		if (LOWER(name[0]) == LOWER(item_table[type].name[0])
-		    &&  !str_prefix1(name, item_table[type].name))
+		    &&  name.is_prefix_of(item_table[type].name))
 			return item_table[type].type;
 	}
 
@@ -215,7 +215,7 @@ int attack_lookup(const String& name)
 
 	for (att = 0; attack_table[att].name != NULL; att++) {
 		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
-		    &&  !str_prefix1(name, attack_table[att].name))
+		    &&  name.is_prefix_of(attack_table[att].name))
 			return att;
 	}
 
@@ -228,7 +228,7 @@ int class_lookup(const String& name)
 	int cls;
 
 	for (cls = 0; cls < MAX_CLASS; cls++) {
-		if (!str_prefix1(name, class_table[cls].name))
+		if (name.is_prefix_of(class_table[cls].name))
 			return cls;
 	}
 
@@ -337,7 +337,7 @@ int deity_lookup(const String& name)
 	int deity;
 
 	for (deity = 0; deity_table[deity].name != NULL; deity++) {
-		if (!str_prefix1(name, deity_table[deity].name))
+		if (name.is_prefix_of(deity_table[deity].name))
 			return deity;
 	}
 

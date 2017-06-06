@@ -137,7 +137,7 @@ void do_spells(Character *ch, String argument)
 	qsort(group_list, ngroups, sizeof(int), comp_groupnames);
 
 	/* SPELLS GROUPS: List spell groups, sorted, indicate which are learned */
-	if (!str_prefix1(argument, "groups")) {
+	if (argument.is_prefix_of("groups")) {
 		stc("Spell groups (* = gained):\n"
 		    "--------------------------\n", ch);
 		buf[0] = '\0';
@@ -583,7 +583,7 @@ void do_levels(Character *ch, String argument)
 		}
 	}
 
-	if (!str_prefix1(arg, "remort") && IS_IMMORTAL(ch)) {
+	if (arg.is_prefix_of("remort") && IS_IMMORTAL(ch)) {
 		stc("                                           Level/Trains\n", ch);
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
@@ -619,14 +619,14 @@ void do_levels(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "mage"))             cls = 0;
-	else if (!str_prefix1(arg, "cleric"))      cls = 1;
-	else if (!str_prefix1(arg, "thief"))       cls = 2;
-	else if (!str_prefix1(arg, "warrior"))     cls = 3;
-	else if (!str_prefix1(arg, "necromancer")) cls = 4;
-	else if (!str_prefix1(arg, "paladin"))     cls = 5;
-	else if (!str_prefix1(arg, "bard"))        cls = 6;
-	else if (!str_prefix1(arg, "ranger"))      cls = 7;
+	if (arg.is_prefix_of("mage"))             cls = 0;
+	else if (arg.is_prefix_of("cleric"))      cls = 1;
+	else if (arg.is_prefix_of("thief"))       cls = 2;
+	else if (arg.is_prefix_of("warrior"))     cls = 3;
+	else if (arg.is_prefix_of("necromancer")) cls = 4;
+	else if (arg.is_prefix_of("paladin"))     cls = 5;
+	else if (arg.is_prefix_of("bard"))        cls = 6;
+	else if (arg.is_prefix_of("ranger"))      cls = 7;
 	else {
 		stc("Invalid class.\n", ch);
 		return;
@@ -876,7 +876,7 @@ bool parse_gen_groups(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!str_prefix1(arg, "help")) {
+	if (arg.is_prefix_of("help")) {
 		if (argument.empty()) {
 			help(ch, "group help");
 			return TRUE;
@@ -886,7 +886,7 @@ bool parse_gen_groups(Character *ch, String argument)
 		return TRUE;
 	}
 
-	if (!str_prefix1(arg, "add")) {
+	if (arg.is_prefix_of("add")) {
 		if (argument.empty()) {
 			stc("You must provide a skill name.\n", ch);
 			return TRUE;
@@ -984,28 +984,28 @@ bool parse_gen_groups(Character *ch, String argument)
 		return TRUE;
 	}
 
-	if (!str_prefix1(arg, "premise")) {
+	if (arg.is_prefix_of("premise")) {
 		help(ch, "premise");
 		return TRUE;
 	}
 
-	if (!str_prefix1(arg, "list")) {
+	if (arg.is_prefix_of("list")) {
 		list_group_costs(ch);
 		return TRUE;
 	}
 
-	if (!str_prefix1(arg, "learned")) {
+	if (arg.is_prefix_of("learned")) {
 		list_group_chosen(ch);
 		return TRUE;
 	}
 
-	if (!str_prefix1(arg, "info")) {
+	if (arg.is_prefix_of("info")) {
 		do_groups(ch, argument);
 		return TRUE;
 	}
 
 	/*
-	    if (!str_prefix1(arg,"levels"))
+	    if (arg.is_prefix_of("levels"))
 	    {
 	        do_levels( ch, argument);
 	        return TRUE;
@@ -1595,7 +1595,7 @@ void do_gain(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "list")) {
+	if (arg.is_prefix_of("list")) {
 		int col = 0;
 		String output;
 		bool foundsect = FALSE, foundall = FALSE;
@@ -1708,7 +1708,7 @@ void do_gain(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "convert")) {
+	if (arg.is_prefix_of("convert")) {
 		if (ch->practice < 10) {
 			act("$N tells you 'You are not yet ready.'", ch, NULL, trainer, TO_CHAR);
 			return;
@@ -1720,7 +1720,7 @@ void do_gain(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "revert")) {
+	if (arg.is_prefix_of("revert")) {
 		if (ch->train < 1) {
 			act("$N tells you 'You are not yet ready.'", ch, NULL, trainer, TO_CHAR);
 			return;
@@ -1732,7 +1732,7 @@ void do_gain(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "points")) {
+	if (arg.is_prefix_of("points")) {
 		int mod;
 
 		if (ch->train < 1) {

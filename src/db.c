@@ -1006,23 +1006,23 @@ void load_mobiles(FILE *fp)
 				word                    = fread_word(fp);
 				vector                  = fread_flag(fp);
 
-				if (!str_prefix1(word, "act"))
+				if (word.is_prefix_of("act"))
 					REMOVE_BIT(pMobIndex->act_flags, vector);
-				else if (!str_prefix1(word, "aff"))
+				else if (word.is_prefix_of("aff"))
 					REMOVE_BIT(pMobIndex->affect_flags, vector);
-				else if (!str_prefix1(word, "off"))
+				else if (word.is_prefix_of("off"))
 					REMOVE_BIT(pMobIndex->off_flags, vector);
-				else if (!str_prefix1(word, "drn"))
+				else if (word.is_prefix_of("drn"))
 					REMOVE_BIT(pMobIndex->absorb_flags, vector);
-				else if (!str_prefix1(word, "imm"))
+				else if (word.is_prefix_of("imm"))
 					REMOVE_BIT(pMobIndex->imm_flags, vector);
-				else if (!str_prefix1(word, "res"))
+				else if (word.is_prefix_of("res"))
 					REMOVE_BIT(pMobIndex->res_flags, vector);
-				else if (!str_prefix1(word, "vul"))
+				else if (word.is_prefix_of("vul"))
 					REMOVE_BIT(pMobIndex->vuln_flags, vector);
-				else if (!str_prefix1(word, "for"))
+				else if (word.is_prefix_of("for"))
 					REMOVE_BIT(pMobIndex->form, vector);
-				else if (!str_prefix1(word, "par"))
+				else if (word.is_prefix_of("par"))
 					REMOVE_BIT(pMobIndex->parts, vector);
 				else {
 					bug("Flag remove: flag not found.", 0);

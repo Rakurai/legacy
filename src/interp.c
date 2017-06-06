@@ -597,7 +597,7 @@ void interpret(Character *ch, String argument)
 				continue;
 		}
 
-		if (!str_prefix1(command, cmd_table[cmd].name)) {
+		if (command.is_prefix_of(cmd_table[cmd].name)) {
 			found = TRUE;
 			break;
 		}
@@ -717,7 +717,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 	found  = FALSE;
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
-		if (!str_prefix1(command, iterator->name)) {
+		if (command.is_prefix_of(iterator->name)) {
 			found = TRUE;
 			break;
 		}
@@ -878,7 +878,7 @@ void do_commands(Character *ch, String argument)
 	}
 	else {
 		for (x = 1; fields[x].number != 0; x++)
-			if (!str_prefix1(argument, fields[x].name))
+			if (argument.is_prefix_of(fields[x].name))
 				break;
 	}
 

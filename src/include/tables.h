@@ -27,7 +27,7 @@
 
 struct helpfile_table_type
 {
-	char *	name;
+	const String name;
 	int	group;
 };
 

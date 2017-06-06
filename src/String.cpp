@@ -9,6 +9,13 @@
 
 #include "c_string.h"
 
+// helper functor for case-insensitive search
+struct case_insensitive_equal {
+	bool operator() (char lhs, char rhs) {
+		return toupper(lhs) == toupper(rhs);
+	}
+};
+
 bool operator== (const String &lhs, const String &rhs) {
 //	return boost.iequals(lhs, rhs);
 	return strcasecmp(lhs.c_str(), rhs.c_str()) == 0;
@@ -29,14 +36,78 @@ bool operator!= (const String &lhs, const char *rhs) {
 	return !(lhs == rhs);
 }
 
-std::size_t String::
-find_nth(std::size_t nth, char val) const {
-	if (nth > 0)
-		for (std::size_t pos = 0, occurrence = 0; pos < size(); pos++)
-			if ((*this)[pos] == val && ++occurrence == nth)
-				return pos;
+#include <iostream>
 
-	return std::string::npos;
+std::size_t String::
+find(const String& str, std::size_t start_pos) const {
+	if (start_pos > size() - str.size())
+		return std::string::npos;
+
+	if (str.size() == 0)
+		return 0; 
+
+	auto it = std::search(
+		cbegin() + start_pos, cend(),
+		str.cbegin(), str.cend(),
+		case_insensitive_equal()
+	);
+
+	if (it == cend())
+		return std::string::npos;
+
+	return it - cbegin();
+}
+
+std::size_t String::
+find_nth(std::size_t nth, const String& str, std::size_t start_pos) const {
+	std::size_t pos = find(str, start_pos);
+
+	if (pos == std::string::npos)
+		return pos;
+
+	if (nth > 1)
+		pos = find_nth(nth - 1, str, pos + str.size());
+
+	return pos;
+}
+
+bool String::
+has_prefix(const String& str, std::size_t min_chars) const {
+	return str.is_prefix_of(*this, min_chars);
+}
+
+bool String::
+is_prefix_of(const String& str, std::size_t min_chars) const {
+	if (size() < min_chars || str.size() < size())
+		return false;
+
+	return *this == str.substr(0, size());
+}
+
+bool String::
+has_infix(const String& str, std::size_t min_chars) const {
+	return str.is_infix_of(*this, min_chars);
+}
+
+bool String::
+is_infix_of(const String& str, std::size_t min_chars) const {
+	if (size() < min_chars || str.size() < size())
+		return false;
+
+	return str.find(*this) != std::string::npos;
+}
+
+bool String::
+has_suffix(const String& str, std::size_t min_chars) const {
+	return str.is_suffix_of(*this, min_chars);
+}
+
+bool String::
+is_suffix_of(const String& str, std::size_t min_chars) const {
+	if (size() < min_chars || str.size() < size())
+		return false;
+
+	return *this == str.substr(str.size() - size());
 }
 
 /*

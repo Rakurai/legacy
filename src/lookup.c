@@ -49,7 +49,7 @@ Clan *clan_lookup(const String& name)
 	iterator = clan_table_head->next;
 
 	while (iterator != clan_table_tail) {
-		if (!str_prefix1(name, iterator->name))
+		if (name.is_prefix_of(iterator->name))
 			return iterator;
 
 		iterator = iterator->next;
@@ -64,7 +64,7 @@ int position_lookup(const String& name)
 
 	for (pos = 0; position_table[pos].name != NULL; pos++) {
 		if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
-		    &&  !str_prefix1(name, position_table[pos].name))
+		    &&  name.is_prefix_of(position_table[pos].name))
 			return pos;
 	}
 
@@ -77,7 +77,7 @@ int sex_lookup(const String& name)
 
 	for (sex = 0; sex_table[sex].name != NULL; sex++) {
 		if (LOWER(name[0]) == LOWER(sex_table[sex].name[0])
-		    &&  !str_prefix1(name, sex_table[sex].name))
+		    &&  name.is_prefix_of(sex_table[sex].name))
 			return sex;
 	}
 
@@ -90,7 +90,7 @@ int size_lookup(const String& name)
 
 	for (size = 0; size_table[size].name != NULL; size++) {
 		if (LOWER(name[0]) == LOWER(size_table[size].name[0])
-		    &&  !str_prefix1(name, size_table[size].name))
+		    &&  name.is_prefix_of(size_table[size].name))
 			return size;
 	}
 
@@ -135,7 +135,7 @@ int drink_lookup(const String& name)
 
 	for (pos = 0; position_table[pos].name != NULL; pos++)
 		if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
-		    && !str_prefix1(name, position_table[pos].name))
+		    && name.is_prefix_of(position_table[pos].name))
 			return pos;
 
 	return -1;

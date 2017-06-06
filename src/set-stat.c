@@ -58,17 +58,17 @@ void do_set(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "mobile") || !str_prefix1(arg, "character")) {
+	if (arg.is_prefix_of("mobile") || arg.is_prefix_of("character")) {
 		do_mset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "room")) {
+	if (arg.is_prefix_of("room")) {
 		do_rset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "object")) {
+	if (arg.is_prefix_of("object")) {
 		do_oset(ch, argument);
 		return;
 	}
@@ -79,27 +79,27 @@ void do_set(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "plr") || !str_prefix1(arg, "player")) {
+	if (arg.is_prefix_of("plr") || arg.is_prefix_of("player")) {
 		do_mset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "skill") || !str_prefix1(arg, "spell")) {
+	if (arg.is_prefix_of("skill") || arg.is_prefix_of("spell")) {
 		do_sset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "evolve") || !str_prefix1(arg, "evolution")) {
+	if (arg.is_prefix_of("evolve") || arg.is_prefix_of("evolution")) {
 		do_evoset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "raffect")) {
+	if (arg.is_prefix_of("raffect")) {
 		do_raffset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "extraclass")) {
+	if (arg.is_prefix_of("extraclass")) {
 		do_extraset(ch, argument);
 		return;
 	}
@@ -725,7 +725,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "sex")) {
+	if (arg2.is_prefix_of("sex")) {
 		switch (value) {
 		case 0: Format::sprintf(buf, "%s", "an it");            break;
 
@@ -743,7 +743,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "level")) {
+	if (arg2.is_prefix_of("level")) {
 		if (!IS_NPC(victim)) {
 			stc("You may not set a player's level.\n"
 			    "Use ADVANCE instead!\n", ch);
@@ -760,19 +760,19 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "gold")) {
+	if (arg2.is_prefix_of("gold")) {
 		victim->gold = value;
 		ptc(ch, "%s now has %d gold.\n", victim->name, value);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "silver")) {
+	if (arg2.is_prefix_of("silver")) {
 		victim->silver = value;
 		ptc(ch, "%s now has %d silver.\n", victim->name, value);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "hp")) {
+	if (arg2.is_prefix_of("hp")) {
 		if (value < -10 || value > 30000) {
 			stc("A valid hp value must be between -10 and 30,000 hit points.\n", ch);
 			return;
@@ -784,7 +784,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "mana")) {
+	if (arg2.is_prefix_of("mana")) {
 		if (value < -10 || value > 30000) {
 			stc("A valid mana value must be between -10 and 30,000 mana points.\n", ch);
 			return;
@@ -796,7 +796,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "stamina")) {
+	if (arg2.is_prefix_of("stamina")) {
 		if (value < -10 || value > 30000) {
 			stc("A valid stamina value must be between -10 and 30,000 stamina points.\n", ch);
 			return;
@@ -808,7 +808,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "align")) {
+	if (arg2.is_prefix_of("align")) {
 		if (value < -1000 || value > 1000) {
 			stc("A valid alignment must be between -1000 and 1000.\n", ch);
 			return;
@@ -842,7 +842,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "race")) {
+	if (arg2.is_prefix_of("race")) {
 		int race, loop = 0;
 		race = race_lookup(arg3);
 
@@ -869,7 +869,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "group")) {
+	if (arg2.is_prefix_of("group")) {
 		if (!IS_NPC(victim)) {
 			stc("You can't set a player's group!\n", ch);
 			return;
@@ -880,7 +880,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "nectimer")) {
+	if (arg2.is_prefix_of("nectimer")) {
 		if (!IS_NPC(victim)) {
 			stc("You can't set a player's necromancer timer!\n", ch);
 			return;
@@ -896,7 +896,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "damdice")) {
+	if (arg2.is_prefix_of("damdice")) {
 		if (!IS_NPC(victim)) {
 			stc("You cannot set a player's damage dice.\n", ch);
 			return;
@@ -912,7 +912,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "damsides")) {
+	if (arg2.is_prefix_of("damsides")) {
 		if (!IS_NPC(victim)) {
 			stc("You cannot set a player's damage dice type.\n", ch);
 			return;
@@ -928,7 +928,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "damtype")) {
+	if (arg2.is_prefix_of("damtype")) {
 		int i;
 
 		if (!IS_NPC(victim)) {
@@ -937,7 +937,7 @@ void do_mset(Character *ch, String argument)
 		}
 
 		for (i = 0; attack_table[i].name != NULL; i++)
-			if (!str_prefix1(arg3, attack_table[i].name))
+			if (arg3.is_prefix_of(attack_table[i].name))
 				break;
 
 		if (attack_table[i].name == NULL) {
@@ -961,7 +961,7 @@ void do_mset(Character *ch, String argument)
 	            Head of department or self below here
 	 *********************************************************/
 
-	if (!str_prefix1(arg2, "class")) {
+	if (arg2.is_prefix_of("class")) {
 		int cls = class_lookup(arg3);
 
 		if (cls == -1) {
@@ -984,7 +984,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "remort_count")) {
+	if (arg2.is_prefix_of("remort_count")) {
 		if (value < 0 || value > 99) {
 			stc("A valid remort count must be between 0 and 99.\n", ch);
 			return;
@@ -995,7 +995,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "hours")) {
+	if (arg2.is_prefix_of("hours")) {
 		if (value < 0 || value > 10000) {
 			stc("Hours must be between 0 and 10000.\n", ch);
 			return;
@@ -1006,13 +1006,13 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "experience")) {
+	if (arg2.is_prefix_of("experience")) {
 		victim->exp = value;
 		ptc(ch, "%s now has %d experience points.\n", victim->name, value);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "quest")) {
+	if (arg2.is_prefix_of("quest")) {
 		if (value < 0 || value > 30) {
 			stc("A valid Next Quest range is 0 to 10.\n", ch);
 			return;
@@ -1023,7 +1023,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "squest")) {
+	if (arg2.is_prefix_of("squest")) {
 		if (value < 0 || value > 30) {
 			stc("A valid next skill quest range is 0 to 30.\n", ch);
 			return;
@@ -1034,7 +1034,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "qp")) {
+	if (arg2.is_prefix_of("qp")) {
 		if (value < 0 || value > 5000) {
 			stc("A valid quest point value must be between 0 and 5000.\n", ch);
 			return;
@@ -1045,7 +1045,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "sp")) {
+	if (arg2.is_prefix_of("sp")) {
 		if (value < 0 || value > 5000) {
 			stc("A valid skill point value must be between 0 and 5000.\n", ch);
 			return;
@@ -1056,7 +1056,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "rpp")) {
+	if (arg2.is_prefix_of("rpp")) {
 		if (value < 0 || value > 5000) {
 			stc("A valid roleplay point value must be between 0 and 5000.\n", ch);
 			return;
@@ -1067,7 +1067,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "practice")) {
+	if (arg2.is_prefix_of("practice")) {
 		if (value < 0 || value > 15000) {
 			stc("A valid practice value must be between 0 and 15000 sessions.\n", ch);
 			return;
@@ -1078,7 +1078,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "train")) {
+	if (arg2.is_prefix_of("train")) {
 		if (value < 0 || value > 15000) {
 			stc("A valid train value must be between 0 and 15000 sessions.\n", ch);
 			return;
@@ -1089,7 +1089,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "thirst")) {
+	if (arg2.is_prefix_of("thirst")) {
 		if (value < -1 || value > 100) {
 			stc("A valid thirst value must be between -1 and 100.\n", ch);
 			return;
@@ -1100,7 +1100,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "drunk")) {
+	if (arg2.is_prefix_of("drunk")) {
 		if (value < -1 || value > 100) {
 			stc("A valid drunk value must be between -1 and 100.\n", ch);
 			return;
@@ -1115,7 +1115,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "full")) {
+	if (arg2.is_prefix_of("full")) {
 		if (value < -1 || value > 100) {
 			stc("A valid full value must be between -1 and 100.\n", ch);
 			return;
@@ -1126,7 +1126,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "hunger")) {
+	if (arg2.is_prefix_of("hunger")) {
 		if (value < -1 || value > 100) {
 			stc("A valid hunger value must be between -1 and 100.\n", ch);
 			return;
@@ -1137,7 +1137,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "pckills")) {
+	if (arg2.is_prefix_of("pckills")) {
 		if (value < 0 || value > 1000) {
 			stc("A valid player kills value must be between 0 and 1000.\n", ch);
 			return;
@@ -1148,7 +1148,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "pckilled")) {
+	if (arg2.is_prefix_of("pckilled")) {
 		if (value < 0 || value > 1000) {
 			stc("A valid PCKilled value must be between 0 and 1000.\n", ch);
 			return;
@@ -1159,7 +1159,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "akills")) {
+	if (arg2.is_prefix_of("akills")) {
 		if (value < 0 || value > 1000) {
 			stc("A valid arena kills value must be between 0 and 1000.\n", ch);
 			return;
@@ -1170,7 +1170,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "akilled")) {
+	if (arg2.is_prefix_of("akilled")) {
 		if (value < 0 || value > 1000) {
 			stc("A valid arena killed value must be between 0 and 1000.\n", ch);
 			return;
@@ -1181,7 +1181,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "pkrank")) {
+	if (arg2.is_prefix_of("pkrank")) {
 		if (value < 0 || value > 5) {
 			stc("PK Ranks must be between 0 and 5.\n", ch);
 			return;
@@ -1192,7 +1192,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "thief")) {
+	if (arg2.is_prefix_of("thief")) {
 		if (value < 0 || value > MAX_THIEF) {
 			ptc(ch, "A valid {BTHIEF{x time is between 0 and %d ticks.\n", MAX_THIEF);
 			return;
@@ -1213,7 +1213,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "killer")) {
+	if (arg2.is_prefix_of("killer")) {
 		if (value < 0 || value > MAX_KILLER) {
 			ptc(ch, "A valid {RKILLER{x time is between 0 and %d ticks.\n", MAX_KILLER);
 			return;
@@ -1329,7 +1329,7 @@ void do_oset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "condition")) {
+	if (arg2.is_prefix_of("condition")) {
 		if (value < -1 || value > 100) {
 			stc("A valid condition value must be between -1 and 100.\n", ch);
 			return;
@@ -1341,35 +1341,35 @@ void do_oset(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "level")) {
+	if (arg2.is_prefix_of("level")) {
 		obj->level = value;
 		Format::sprintf(buf, "%s's level has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "weight")) {
+	if (arg2.is_prefix_of("weight")) {
 		obj->weight = value;
 		Format::sprintf(buf, "%s's weight has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "cost")) {
+	if (arg2.is_prefix_of("cost")) {
 		obj->cost = value;
 		Format::sprintf(buf, "%s's cost has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "timer")) {
+	if (arg2.is_prefix_of("timer")) {
 		obj->timer = value;
 		Format::sprintf(buf, "%s's timer value has been changed to %d.\n", obj->short_descr, value);
 		stc(buf, ch);
 		return;
 	}
 
-	if (!str_prefix1(arg2, "settings")) {
+	if (arg2.is_prefix_of("settings")) {
 		if (value < 0 || value > MAX_GEM_SETTINGS) {
 			ptc(ch, "A valid settings vaue is between 0 and %d.\n", MAX_GEM_SETTINGS);
 			return;
@@ -1434,7 +1434,7 @@ void do_rset(Character *ch, String argument)
 	 * Set something.
 	 */
 
-	if (!str_prefix1(arg2, "sector")) {
+	if (arg2.is_prefix_of("sector")) {
 		location->sector_type   = value;
 		Format::sprintf(buf, "%s's sector type has been changed to %d.\n", location->name, value);
 		stc(buf, ch);
@@ -1904,7 +1904,7 @@ void do_stat(Character *ch, String argument)
 
 		format_mstat(ch, vch);
 	}
-	else if (!str_prefix1(arg1, "mobile")) {
+	else if (arg1.is_prefix_of("mobile")) {
 		if (arg2.empty()) {
 			stc("Stat what mobile?\n", ch);
 			return;
@@ -1918,7 +1918,7 @@ void do_stat(Character *ch, String argument)
 
 		format_mstat(ch, vch);
 	}
-	else if (!str_prefix1(arg1, "player")) {
+	else if (arg1.is_prefix_of("player")) {
 		if (arg2.empty()) {
 			stc("Stat what player?\n", ch);
 			return;
@@ -1931,7 +1931,7 @@ void do_stat(Character *ch, String argument)
 
 		format_mstat(ch, vch);
 	}
-	else if (!str_prefix1(arg1, "object")) {
+	else if (arg1.is_prefix_of("object")) {
 		if (arg2.empty()) {
 			stc("Stat what object?\n", ch);
 			return;

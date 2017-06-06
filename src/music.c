@@ -246,11 +246,11 @@ void do_play(Character *ch, String argument)
 				break;
 
 			if (artist && (!match
-			               ||             !str_prefix1(argument, song_table[i].group)))
+			               ||             argument.is_prefix_of(song_table[i].group)))
 				Format::sprintf(buf, "%-39s %-39s\n",
 				        song_table[i].group, song_table[i].name);
 			else if (!artist && (!match
-			                     ||                   !str_prefix1(argument, song_table[i].name)))
+			                     ||                   argument.is_prefix_of(song_table[i].name)))
 				Format::sprintf(buf, "%-35s ", song_table[i].name);
 			else
 				continue;
@@ -318,7 +318,7 @@ void do_play(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(argument, song_table[song].name))
+		if (argument.is_prefix_of(song_table[song].name))
 			break;
 	}
 

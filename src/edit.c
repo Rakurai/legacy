@@ -882,22 +882,22 @@ void do_edit(Character *ch, String argument)
 		return;
 	}
 
-	if (strlen(arg) >= 3 && !str_prefix1(arg, "description")) {
+	if (strlen(arg) >= 3 && arg.is_prefix_of("description")) {
 		edit_desc(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "note")) {
+	if (arg.is_prefix_of("note")) {
 		edit_note(ch, argument);
 		return;
 	}
 
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg, "room")) {
+	if (IS_IMMORTAL(ch) && arg.is_prefix_of("room")) {
 		edit_room(ch, argument);
 		return;
 	}
 
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg, "help")) {
+	if (IS_IMMORTAL(ch) && arg.is_prefix_of("help")) {
 		edit_help(ch, argument);
 		return;
 	}
@@ -920,19 +920,19 @@ void do_edit(Character *ch, String argument)
 
 	/* below this point, there is at least a keyword */
 
-	if (!str_prefix1(arg, "change")) {
+	if (arg.is_prefix_of("change")) {
 		edit_change(ch, argument);
 		list_window(ch);
 		return;
 	}
 
-	if (!str_prefix1(arg, "insert")) {
+	if (arg.is_prefix_of("insert")) {
 		edit_insert(ch, argument);
 		list_window(ch);
 		return;
 	}
 
-	if (!str_prefix1(arg, "split")) {
+	if (arg.is_prefix_of("split")) {
 		edit_split(ch, argument);
 		list_window(ch);
 		return;
@@ -945,25 +945,25 @@ void do_edit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "cance")) {
+	if (arg.is_prefix_of("cance")) {
 		stc(
 		        "{PIf you want to CANCEL your editing, write {RCANCEL{P out in full!{x\n",
 		        ch);
 		return;
 	}
 
-	if (!str_prefix1(arg, "delete")) {
+	if (arg.is_prefix_of("delete")) {
 		edit_delete(ch, argument);
 		list_window(ch);
 		return;
 	}
 
-	if (!str_prefix1(arg, "done")) {
+	if (arg.is_prefix_of("done")) {
 		edit_done(ch, argument);
 		return;
 	}
 
-	if (!str_prefix1(arg, "list")) {
+	if (arg.is_prefix_of("list")) {
 		edit_list(ch, argument);
 		return;
 	}
@@ -974,14 +974,14 @@ void do_edit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "und")) {
+	if (arg.is_prefix_of("und")) {
 		stc(
 		        "{PIf you want to UNDO your last change, write {RUNDO{P out in full!\n",
 		        ch);
 		return;
 	}
 
-	if (!str_prefix1(arg, "wrap")) {
+	if (arg.is_prefix_of("wrap")) {
 		edit_wrap(ch, argument);
 		list_window(ch);
 		return;

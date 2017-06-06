@@ -446,12 +446,12 @@ void do_addexit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "north"))   dir = 0;
-	else if (!str_prefix1(arg2, "east"))    dir = 1;
-	else if (!str_prefix1(arg2, "south"))   dir = 2;
-	else if (!str_prefix1(arg2, "west"))    dir = 3;
-	else if (!str_prefix1(arg2, "up"))      dir = 4;
-	else if (!str_prefix1(arg2, "down"))    dir = 5;
+	if (arg2.is_prefix_of("north"))   dir = 0;
+	else if (arg2.is_prefix_of("east"))    dir = 1;
+	else if (arg2.is_prefix_of("south"))   dir = 2;
+	else if (arg2.is_prefix_of("west"))    dir = 3;
+	else if (arg2.is_prefix_of("up"))      dir = 4;
+	else if (arg2.is_prefix_of("down"))    dir = 5;
 	else {
 		stc("No such direction.\n", ch);
 		return;
@@ -489,12 +489,12 @@ void do_remexit(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "north"))    dir = 0;
-	else if (!str_prefix1(arg, "east"))     dir = 1;
-	else if (!str_prefix1(arg, "south"))    dir = 2;
-	else if (!str_prefix1(arg, "west"))     dir = 3;
-	else if (!str_prefix1(arg, "up"))       dir = 4;
-	else if (!str_prefix1(arg, "down"))     dir = 5;
+	if (arg.is_prefix_of("north"))    dir = 0;
+	else if (arg.is_prefix_of("east"))     dir = 1;
+	else if (arg.is_prefix_of("south"))    dir = 2;
+	else if (arg.is_prefix_of("west"))     dir = 3;
+	else if (arg.is_prefix_of("up"))       dir = 4;
+	else if (arg.is_prefix_of("down"))     dir = 5;
 	else {
 		stc("No such direction.\n", ch);
 		return;

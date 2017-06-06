@@ -12,7 +12,7 @@ public:
 
 	virtual ~String() {}
 
-	String& operator=(char ch) {
+	String& operator=(const char ch) {
 		std::string::operator=(ch);
 		return *this;
 	}
@@ -30,7 +30,15 @@ public:
 
 	// TODO: sorting comparison operators
 
-	std::size_t find_nth(std::size_t nth, char val) const;
+	std::size_t find(const String& str, std::size_t start_pos = 0) const;
+	std::size_t find_nth(std::size_t nth, const String& str, std::size_t start_pos = 0) const;
+
+	bool has_prefix(const String& str, std::size_t min_chars = 1) const;
+	bool is_prefix_of(const String& str, std::size_t min_chars = 1) const;
+	bool has_infix(const String& str, std::size_t min_chars = 1) const;
+	bool is_infix_of(const String& str, std::size_t min_chars = 1) const;
+	bool has_suffix(const String& str, std::size_t min_chars = 1) const;
+	bool is_suffix_of(const String& str, std::size_t min_chars = 1) const;
 
 	// String transformations, each return a new String object.  NO modify in place ops
 	String substr(std::size_t pos = 0, std::size_t count = npos) const;

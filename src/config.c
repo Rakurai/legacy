@@ -47,8 +47,8 @@ void config_wiznet(Character *ch, const char *argument)
         }
 
              if (is_number(arg1))                       argnum = atoi(arg1);
-        else if (!str_prefix1(arg1, "channels"))        argnum = 1;
-        else if (!str_prefix1(arg1, "spam"))            argnum = 3;
+        else if (arg1.is_prefix_of("channels"))        argnum = 1;
+        else if (arg1.is_prefix_of("spam"))            argnum = 3;
 
         switch(argnum)
         {
@@ -115,7 +115,7 @@ void config_color_func(Character *ch, String argument, int type)
 			        || (slot == CSLOT_CHAN_IMM    && !IS_IMMORTAL(ch))))
 				continue;
 
-			if (!str_prefix1(arg1, csetting_table[slot].name))
+			if (arg1.is_prefix_of(csetting_table[slot].name))
 				break;
 		}
 
@@ -133,7 +133,7 @@ void config_color_func(Character *ch, String argument, int type)
 	}
 
 	for (i = 0; color_table[i].name != NULL; i++)
-		if (!str_prefix(arg2, color_table[i].name))
+		if (arg2.is_prefix_of(color_table[i].name))
 			break;
 
 	if (color_table[i].name == NULL) {
@@ -169,7 +169,7 @@ void config_color(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || arg1 == "?") {
+	if (arg1.is_prefix_of("help") || arg1 == "?") {
 		stc("Config color allows you to specify the what color options you\n"
 		    "prefer.  You can toggle color and crazy color on and off, or\n"
 		    "add a personal touch to the colors of channels, score items,\n"
@@ -178,18 +178,18 @@ void config_color(Character *ch, String argument)
 	}
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
-	else if (!str_prefix1(arg1, "color"))           argnum = 1;
-	else if (!str_prefix1(arg1, "crazy"))           argnum = 2;
-	else if (!str_prefix1(arg1, "channels"))        argnum = 3;
-	else if (!str_prefix1(arg1, "score"))           argnum = 4;
-	else if (!str_prefix1(arg1, "miscellaneous"))   argnum = 5;
-	else if (!str_prefix1(arg1, "reset"))           argnum = 6;
+	else if (arg1.is_prefix_of("color"))           argnum = 1;
+	else if (arg1.is_prefix_of("crazy"))           argnum = 2;
+	else if (arg1.is_prefix_of("channels"))        argnum = 3;
+	else if (arg1.is_prefix_of("score"))           argnum = 4;
+	else if (arg1.is_prefix_of("miscellaneous"))   argnum = 5;
+	else if (arg1.is_prefix_of("reset"))           argnum = 6;
 
 	switch (argnum) {
 	default:        break;
 
 	case 1: /* color */
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("This toggles color on or off.\n", ch);
 		else if (argument.empty()) {
 			if (IS_SET(ch->act_flags, PLR_COLOR)) {
@@ -214,7 +214,7 @@ void config_color(Character *ch, String argument)
 		return;
 
 	case 2: /* crazy */
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("This toggles crazy color on or off.  Crazy color is a feature\n"
 			    "that allows people to use color codes (found in 'ctest').\n"
 			    "Toggling this option determines if the affected test looks\n"
@@ -284,7 +284,7 @@ void config_video(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || arg1 == "?") {
+	if (arg1.is_prefix_of("help") || arg1 == "?") {
 		stc("With config video, you can set your video options, determining\n"
 		    "how flashing text, colors, and other display features are shown\n"
 		    "to you.  Use without an argument for a list of options.\n", ch);
@@ -292,22 +292,22 @@ void config_video(Character *ch, String argument)
 	}
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
-	else if (!str_prefix1(arg1, "flash"))           argnum = 1;
-	else if (!str_prefix1(arg1, "dark"))            argnum = 2;
-	else if (!str_prefix1(arg1, "codes"))           argnum = 3;
-	else if (!str_prefix1(arg1, "vt100"))           argnum = 4;
+	else if (arg1.is_prefix_of("flash"))           argnum = 1;
+	else if (arg1.is_prefix_of("dark"))            argnum = 2;
+	else if (arg1.is_prefix_of("codes"))           argnum = 3;
+	else if (arg1.is_prefix_of("vt100"))           argnum = 4;
 
 	switch (argnum) {
 	default:        break;
 
 	case 1: /* FLASH */
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("Video flash controls how flashing text will appear on your\n"
 			    "screen.  Without an argument, video flash toggles on or off,\n"
 			    "but you can use 'video flash underline' to make flashing text\n"
 			    "appear as underlined or as reversed video, depending on your\n"
 			    "screen emulator.\n", ch);
-		else if (!str_prefix1(argument, "underline")) {
+		else if (argument.is_prefix_of("underline")) {
 			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE)) {
 				REMOVE_BIT(ch->pcdata->video, VIDEO_FLASH_LINE);
 				stc("Flashing text will no longer be converted to underlined.\n", ch);
@@ -338,16 +338,16 @@ void config_video(Character *ch, String argument)
 		return;
 
 	case 2:
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("Video dark toggles whether or not charcoal and black text are\n"
 			    "converted to grey.", ch);
 		/* backwards compatible with old video command */
-		else if (!str_prefix1(argument, "modify")
+		else if (argument.is_prefix_of("modify")
 		         || (argument.empty() && !IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
 			SET_BIT(ch->pcdata->video, VIDEO_DARK_MOD);
 			stc("You can now see {ccharcoal{x and {kblack{x!\n", ch);
 		}
-		else if (!str_prefix1(argument, "normal")
+		else if (argument.is_prefix_of("normal")
 		         || (argument.empty() && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
 			REMOVE_BIT(ch->pcdata->video, VIDEO_DARK_MOD);
 			stc("Can you still see {ccharcoal{x and {kblack{x?\n", ch);
@@ -358,16 +358,16 @@ void config_video(Character *ch, String argument)
 		return;
 
 	case 3:
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("Video codes toggles whether color codes ({{) are shown ({CON{x)\n"
 			    "or converted into colors ({POFF{x).\n", ch);
 		/* backwards compatible with old video command */
-		else if (!str_prefix1(argument, "show")
+		else if (argument.is_prefix_of("show")
 		         || (argument.empty() && !IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
 			SET_BIT(ch->pcdata->video, VIDEO_CODES_SHOW);
 			stc("{RColor{x {Ccodes{x will now be shown.\n", ch);
 		}
-		else if (!str_prefix1(argument, "hide")
+		else if (argument.is_prefix_of("hide")
 		         || (argument.empty() && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
 			REMOVE_BIT(ch->pcdata->video, VIDEO_CODES_SHOW);
 			stc("You see no more {Rcolor{x {Ccodes{x.\n", ch);
@@ -378,7 +378,7 @@ void config_video(Character *ch, String argument)
 		return;
 
 	case 4:
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("Video VT100 emulation mode looks terrible if you do not have\n"
 			    "a VT100, so only use it if you must.\n", ch);
 		else if (argument.empty()) {
@@ -417,7 +417,7 @@ void config_censor(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || arg1 == "?") {
+	if (arg1.is_prefix_of("help") || arg1 == "?") {
 		stc("Censor allows players to specify their censorship settings, to\n"
 		    "determine what text the mud will not show them.  Use without an\n"
 		    "argument to see a lit of options.\n", ch);
@@ -425,14 +425,14 @@ void config_censor(Character *ch, String argument)
 	}
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
-	else if (!str_prefix1(arg1, "channels"))        argnum = 1;
-	else if (!str_prefix1(arg1, "spam"))            argnum = 2;
+	else if (arg1.is_prefix_of("channels"))        argnum = 1;
+	else if (arg1.is_prefix_of("spam"))            argnum = 2;
 
 	switch (argnum) {
 	default:        break;
 
 	case 1: /* CHANNELS */
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("Censor channels filters channel communications that have a word\n"
 			    "in them that appears on the censor list.  Note that gossip,\n"
 			    "socials, emotes, tells, says, heeds, and notes are NOT censored\n"
@@ -440,7 +440,7 @@ void config_censor(Character *ch, String argument)
 			    "HELP CENSOR to for more information, or use LIST as an option\n"
 			    "rather than help to see what words are censored.  Turning on this\n"
 			    "option allows you to see and use the FLAME channel.\n", ch);
-		else if (!str_prefix1(argument, "list")) {
+		else if (argument.is_prefix_of("list")) {
 			char *const swear [] = {
 				"shit",         "fuck",         "bitch",        "bastard",
 				"bullshit",     "pussy",        "dick",         "cock",
@@ -476,7 +476,7 @@ void config_censor(Character *ch, String argument)
 		return;
 
 	case 2: /* SPAM */
-		if (!str_prefix1(argument, "help") || argument == "?")
+		if (argument.is_prefix_of("help") || argument == "?")
 			stc("The spam censor toggles whether or not you will see notes\n"
 			    "addressed to 'spam'.  Swearing censors still apply to spam\n"
 			    "notes, no vulgarities, racial, sexual, or ethnic slurs are\n"
@@ -517,15 +517,15 @@ void config_immortal(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || arg1 == "?") {
+	if (arg1.is_prefix_of("help") || arg1 == "?") {
 		stc("Various configuration options are available only to the Legacy\n"
 		    "staff.  Use without an argument to see a lit of options.\n", ch);
 		return;
 	}
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
-	else if (!str_prefix1(arg1, "immprefix"))        argnum = 1;
-	else if (!str_prefix1(arg1, "immname"))            argnum = 2;
+	else if (arg1.is_prefix_of("immprefix"))        argnum = 1;
+	else if (arg1.is_prefix_of("immname"))            argnum = 2;
 
 	switch (argnum) {
 	default:        break;
@@ -597,7 +597,7 @@ void config_wiznet(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!str_prefix1(arg1, "help") || arg1 == "?") {
+	if (arg1.is_prefix_of("help") || arg1 == "?") {
 		stc("This allows you to specify your wiznet options.  Turning options\n"
 		    "on means that wiznet will report the specified field to you.\n"
 		    "Use without an argument to see a list of wiznet flags.\n", ch);
@@ -616,7 +616,7 @@ void config_wiznet(Character *ch, String argument)
 		return;
 	}
 
-	if (arg1.empty() || !str_prefix1(arg1, "status")) {
+	if (arg1.empty() || arg1.is_prefix_of("status")) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);
@@ -634,7 +634,7 @@ void config_wiznet(Character *ch, String argument)
 	}
 
 	/* old school 'show' option */
-	if (!str_prefix1(arg1, "show")) {
+	if (arg1.is_prefix_of("show")) {
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);
@@ -652,7 +652,7 @@ void config_wiznet(Character *ch, String argument)
 	}
 	else
 		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
-			if (!str_prefix1(arg1, wiznet_table[flag].name))
+			if (arg1.is_prefix_of(wiznet_table[flag].name))
 				argnum = flag;
 
 	if (argnum >= 0)
@@ -664,7 +664,7 @@ void config_wiznet(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(argument, "help") || argument == "?")
+	if (argument.is_prefix_of("help") || argument == "?")
 		ptc(ch, "%s\n", wiznet_table[argnum].desc);
 	else if (argument.empty()) {
 		if (argnum == 0) {      /* Wiznet ON */
@@ -719,12 +719,12 @@ void do_config(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
-	else if (!str_prefix1(arg1, "channels"))        argnum = 1;
-	else if (!IS_NPC(ch) &&          !str_prefix1(arg1, "color"))           argnum = 5;
-	else if (!IS_NPC(ch) &&          !str_prefix1(arg1, "video"))           argnum = 6;
-	else if (!str_prefix1(arg1, "censor"))          argnum = 7;
-	else if (IS_IMMORTAL(ch) &&      !str_prefix1(arg1, "immortal"))        argnum = 8;
-	else if (IS_IMMORTAL(ch) &&      !str_prefix1(arg1, "wiznet"))          argnum = 9;
+	else if (arg1.is_prefix_of("channels"))        argnum = 1;
+	else if (!IS_NPC(ch) &&          arg1.is_prefix_of("color"))           argnum = 5;
+	else if (!IS_NPC(ch) &&          arg1.is_prefix_of("video"))           argnum = 6;
+	else if (arg1.is_prefix_of("censor"))          argnum = 7;
+	else if (IS_IMMORTAL(ch) &&      arg1.is_prefix_of("immortal"))        argnum = 8;
+	else if (IS_IMMORTAL(ch) &&      arg1.is_prefix_of("wiznet"))          argnum = 9;
 
 	switch (argnum) {
 	default:                                        break;

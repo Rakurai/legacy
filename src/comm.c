@@ -1679,7 +1679,7 @@ void show_string(Descriptor *d, const String& input)
 
 	// how many lines per page?
 	if (d->character) {
-		std::size_t break_pos = d->showstr_head.find_nth(d->character->lines, '\n');
+		std::size_t break_pos = d->showstr_head.find_nth(d->character->lines, "\n");
 
 		if (break_pos == std::string::npos)
 			page_len = d->showstr_head.size();

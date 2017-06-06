@@ -31,11 +31,11 @@
 char    *get_multi_command     args((Descriptor *d, const String& argument));
 
 /* does aliasing and other fun stuff */
-void substitute_alias(Descriptor *d, const char *argument)
+void substitute_alias(Descriptor *d, String argument)
 {
 	Character *ch;
 	String buf;
-	char prefix[2 * MAX_INPUT_LENGTH];
+	String prefix;
 	ch = d->original ? d->original : d->character;
 
 	if (!ch) {
@@ -49,18 +49,12 @@ void substitute_alias(Descriptor *d, const char *argument)
 	}
 
 	/* check for prefix */
-	if (ch->prefix[0] != '\0' && str_prefix1("prefix", argument)) {
-		if (strlen(ch->prefix) + 1 + strlen(argument) + 1 > MAX_INPUT_LENGTH)
-			stc("{PLine too long, truncated!{x\n", ch);
-
-		Format::sprintf(prefix, "%s %s", ch->prefix, argument);
-		prefix[MAX_INPUT_LENGTH - 1] = '\0';
-		argument = prefix;
-	}
+	if (!ch->prefix.empty() && !argument.has_prefix("prefix"))
+		argument = ch->prefix + " " + argument;
 
 	if (IS_NPC(ch)
-	    ||  !str_prefix1("alias", argument) || !str_prefix1("una", argument)
-	    ||  !str_prefix1("prefix", argument)) {
+	    ||  argument.has_prefix("alias") || argument.has_prefix("una")
+	    ||  argument.has_prefix("prefix")) {
 		interpret(d->character, argument);
 		return;
 	}
@@ -69,13 +63,13 @@ void substitute_alias(Descriptor *d, const char *argument)
 
 	std::string input = argument;
 	String word;
-	const char *remainder = one_argument(argument, word);
+	argument = one_argument(argument, word);
 	auto search = ch->pcdata->alias.find(word);
 
 	if (search != ch->pcdata->alias.end()) {
 		buf = (*search).second.c_str();
 		buf += " ";
-		buf += remainder;
+		buf += argument;
 
 		buf = get_multi_command(d, buf.c_str());
 
@@ -123,7 +117,7 @@ void do_alias(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1("una", arg) || arg == "alias") {
+	if (arg.has_prefix("una") || arg == "alias") {
 		stc("Sorry, that word is reserved.\n", ch);
 		return;
 	}
@@ -139,7 +133,7 @@ void do_alias(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(argument, "delete") || !str_prefix1(argument, "prefix")) {
+	if (argument.is_prefix_of("delete") || argument.is_prefix_of("prefix")) {
 		stc("That shall not be done!\n", ch);
 		return;
 	}

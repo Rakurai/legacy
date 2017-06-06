@@ -815,7 +815,7 @@ RoomPrototype *find_location      args( (Character *ch, const String& argument) 
 int  set_tail           args( (Character *ch, Character *victim, int tail_flags) );
 
 /* alias.c */
-void    substitute_alias args( (Descriptor *d, const char *input) );
+void    substitute_alias args( (Descriptor *d, String input) );
 
 /* bank.c */
 void    find_money      args( ( Character *ch ) );

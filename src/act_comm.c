@@ -1454,7 +1454,7 @@ void do_order(Character *ch, String argument)
 	one_argument(argument, arg2);
 
 	if (arg2 == "delete"
-	    || !str_prefix("mp", arg2)) {
+	    || arg2.has_prefix("mp")) {
 		stc("That will NOT be done.\n", ch);
 		return;
 	}
@@ -1855,11 +1855,11 @@ void do_align(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_prefix1(arg, "good"))
+	if (arg.is_prefix_of("good"))
 		align(ch, 750, "good");
-	else if (!str_prefix1(arg, "neutral"))
+	else if (arg.is_prefix_of("neutral"))
 		align(ch, 0, "neutral");
-	else if (!str_prefix1(arg, "evil"))
+	else if (arg.is_prefix_of("evil"))
 		align(ch, -750, "evil");
 	else
 		do_align(ch, "");

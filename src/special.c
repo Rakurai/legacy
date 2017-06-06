@@ -111,7 +111,7 @@ SPEC_FUN *spec_lookup(const String& name)
 	int i;
 
 	for (i = 0; spec_table[i].name != NULL; i++) {
-		if (LOWER(name[0]) == LOWER(spec_table[i].name[0]) && !str_prefix1(name, spec_table[i].name))
+		if (LOWER(name[0]) == LOWER(spec_table[i].name[0]) && name.is_prefix_of(spec_table[i].name))
 			return spec_table[i].function;
 	}
 

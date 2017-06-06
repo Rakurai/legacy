@@ -67,61 +67,61 @@ void do_heal(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "light")) {
+	if (arg.is_prefix_of("light")) {
 		spell = spell_cure_light;
 		sn    = gsn_cure_light;
 		words = "judicandus dies";
 		cost  = 500;
 	}
-	else if (!str_prefix1(arg, "serious")) {
+	else if (arg.is_prefix_of("serious")) {
 		spell = spell_cure_serious;
 		sn    = gsn_cure_serious;
 		words = "judicandus gzfuajg";
 		cost  = 1000;
 	}
-	else if (!str_prefix1(arg, "critical")) {
+	else if (arg.is_prefix_of("critical")) {
 		spell = spell_cure_critical;
 		sn    = gsn_cure_critical;
 		words = "judicandus qfuhuqar";
 		cost  = 2000;
 	}
-	else if (!str_prefix1(arg, "heal")) {
+	else if (arg.is_prefix_of("heal")) {
 		spell = spell_heal;
 		sn = gsn_heal;
 		words = "Parr";
 		cost  = 3000;
 	}
-	else if (!str_prefix1(arg, "blindness")) {
+	else if (arg.is_prefix_of("blindness")) {
 		spell = spell_cure_blindness;
 		sn    = gsn_cure_blindness;
 		words = "judicandus noselacri";
 		cost  = 100;
 	}
-	else if (!str_prefix1(arg, "disease")) {
+	else if (arg.is_prefix_of("disease")) {
 		spell = spell_cure_disease;
 		sn    = gsn_cure_disease;
 		words = "judicandus eugzagz";
 		cost = 100;
 	}
-	else if (!str_prefix1(arg, "poison")) {
+	else if (arg.is_prefix_of("poison")) {
 		spell = spell_cure_poison;
 		sn    = gsn_cure_poison;
 		words = "judicandus sausabru";
 		cost  = 100;
 	}
-	else if (!str_prefix1(arg, "uncurse") || !str_prefix1(arg, "curse")) {
+	else if (arg.is_prefix_of("uncurse") || arg.is_prefix_of("curse")) {
 		spell = spell_remove_curse;
 		sn    = gsn_remove_curse;
 		words = "candussido judifgz";
 		cost  = 100;
 	}
-	else if (!str_prefix1(arg, "mana") || !str_prefix1(arg, "energize")) {
+	else if (arg.is_prefix_of("mana") || arg.is_prefix_of("energize")) {
 		spell = NULL;
 		sn = -1;
 		words = "energizer";
 		cost = 3500;
 	}
-	else if (!str_prefix1(arg, "refresh") || !str_prefix1(arg, "stamina")) {
+	else if (arg.is_prefix_of("refresh") || arg.is_prefix_of("stamina")) {
 		spell =  spell_refresh;
 		sn    = gsn_refresh;
 		words = "candusima";

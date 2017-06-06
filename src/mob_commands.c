@@ -251,7 +251,7 @@ void do_mpjunk(Character *ch, String argument)
 		return;
 	}
 
-	if (arg != "all" && str_prefix1("all.", arg)) {
+	if (arg != "all" && !arg.has_prefix("all.")) {
 		if ((obj = get_obj_wear(ch, arg)) != NULL) {
 			unequip_char(ch, obj);
 			extract_obj(obj);

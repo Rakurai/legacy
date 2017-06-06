@@ -1161,7 +1161,7 @@ long flag_lookup(const String& name, const struct flag_type *flag_table)
 
 	for (flag = 0; flag_table[flag].name != NULL; flag++) {
 		if (LOWER(name[0]) == LOWER(flag_table[flag].name[0])
-		    &&  !str_prefix1(name, flag_table[flag].name))
+		    &&  name.is_prefix_of(flag_table[flag].name))
 			return flag;
 	}
 

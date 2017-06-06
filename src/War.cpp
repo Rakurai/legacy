@@ -1060,7 +1060,7 @@ void do_war(Character *ch, String argument)
 	argument = one_argument(argument, arg3);
 
 	/*** HISTORY ***/
-	if (!str_prefix1(arg1, "history")) {
+	if (arg1.is_prefix_of("history")) {
 		bool found = FALSE;
 		war = war_table_head->next;
 
@@ -1083,7 +1083,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** LIST ***/
-	if (!str_prefix1(arg1, "list")) {
+	if (arg1.is_prefix_of("list")) {
 		bool peace = TRUE;
 		war = war_table_head->next;
 
@@ -1106,7 +1106,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** EVENTS ***/
-	if (!str_prefix1(arg1, "events")) {
+	if (arg1.is_prefix_of("events")) {
 		if (arg2.empty()) {
 			stc("Syntax: war events <war number>\n", ch);
 			return;
@@ -1248,9 +1248,9 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(argument, "challenger"))
+		if (argument.is_prefix_of("challenger"))
 			challenger = TRUE;
-		else if (!str_prefix1(argument, "defender"))
+		else if (argument.is_prefix_of("defender"))
 			challenger = FALSE;
 		else {
 			stc("Use 'challenger' or 'defender' after the war number.\n", ch);
@@ -1315,9 +1315,9 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(argument, "remove"))
+		if (argument.is_prefix_of("remove"))
 			remove = TRUE;
-		else if (!str_prefix1(argument, "stop"))
+		else if (argument.is_prefix_of("stop"))
 			remove = FALSE;
 		else {
 			stc("Use 'remove' or 'stop' after the war number.\n", ch);
@@ -1342,7 +1342,7 @@ void do_war(Character *ch, String argument)
 	}
 
 	/*** SURRENDER ***/
-	/*      if (!str_prefix1(arg1, "surrender") && IS_IMMORTAL(ch))
+	/*      if (arg1.is_prefix_of("surrender") && IS_IMMORTAL(ch))
 	        {
 	                if (arg2.empty())
 	                {

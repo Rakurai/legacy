@@ -300,11 +300,11 @@ void act_parse(
     if (type != TO_ROOM && type != TO_NOTVICT && type != TO_WORLD && type != TO_NOTVIEW)
         return;
 
-    if (!str_prefix1("$n says '", format)
-        || !str_prefix1("$n leaves ", format))
+    if (format.has_prefix("$n says '")
+        || format.has_prefix("$n leaves "))
         return;
 
-    if (!str_prefix1("$n has arrived.", format)) {
+    if (format.has_prefix("$n has arrived.")) {
         Format::sprintf(fake_message, "$n has arrived at %s (%s).",
                 ch->in_room->name, ch->in_room->area->file_name);
         format = fake_message;

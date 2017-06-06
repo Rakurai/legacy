@@ -381,7 +381,7 @@ void do_check(Character *ch, String argument)
 	if (arg == "gods" || argument == "gods")
 		SHOWIMM = TRUE;
 
-	if (arg.empty() || !str_prefix1(arg, "gods")) {
+	if (arg.empty() || arg.is_prefix_of("gods")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -401,7 +401,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "stats")) {
+	if (arg.is_prefix_of("stats")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -427,7 +427,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "eq")) {
+	if (arg.is_prefix_of("eq")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim)
@@ -450,7 +450,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "absorb")) {
+	if (arg.is_prefix_of("absorb")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -469,7 +469,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "immune")) {
+	if (arg.is_prefix_of("immune")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -489,7 +489,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "resistance")) {
+	if (arg.is_prefix_of("resistance")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -509,7 +509,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "vulnerable")) {
+	if (arg.is_prefix_of("vulnerable")) {
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
@@ -529,7 +529,7 @@ void do_check(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "snoop")) { /* this part by jerome */
+	if (arg.is_prefix_of("snoop")) { /* this part by jerome */
 		if (!IS_IMP(ch)) {
 			stc("You can't use this check option.\n", ch);
 			return;
@@ -631,7 +631,7 @@ void do_clone(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "object")) {
+	if (arg.is_prefix_of("object")) {
 		number = mult_argument(rest, which);
 		mob = NULL;
 		obj = get_obj_here(ch, which);
@@ -641,7 +641,7 @@ void do_clone(Character *ch, String argument)
 			return;
 		}
 	}
-	else if (!str_prefix1(arg, "mobile") || !str_prefix1(arg, "character")) {
+	else if (arg.is_prefix_of("mobile") || arg.is_prefix_of("character")) {
 		number = mult_argument(rest, which);
 		obj = NULL;
 		mob = get_char_here(ch, which, VIS_CHAR);
@@ -1111,7 +1111,7 @@ void do_doas(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(argument, "quit") || !str_prefix1(argument, "delete") || !str_prefix1(argument, "switch")) {
+	if (argument.is_prefix_of("quit") || argument.is_prefix_of("delete") || argument.is_prefix_of("switch")) {
 		stc("Don't do that.\n", ch);
 		return;
 	}
@@ -1264,7 +1264,7 @@ void do_file(Character *ch, String argument)
 	}
 
 	for (i = 0; fields[i].cmd; i++)
-		if (!str_prefix1(field, fields[i].cmd))
+		if (field.is_prefix_of(fields[i].cmd))
 			break;
 
 	if (!fields[i].cmd) {
@@ -1409,25 +1409,25 @@ void do_for(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1("slay", argument)
-	    || !str_prefix1("purge", argument)
-	    || !str_prefix1("quit", argument)
-	    || !str_prefix1("for ", argument)
-	    || !str_prefix1("delete", argument)
-	    || !str_prefix1("who", argument)) {
+	if (argument.has_prefix("slay")
+	    || argument.has_prefix("purge")
+	    || argument.has_prefix("quit")
+	    || argument.has_prefix("for ")
+	    || argument.has_prefix("delete")
+	    || argument.has_prefix("who")) {
 		stc("I don't think so Tim!\n", ch);
 		return;
 	}
 
-	if (!str_prefix1(range, "all")) {
+	if (range.is_prefix_of("all")) {
 		fMortals = TRUE;
 		fGods = TRUE;
 	}
-	else if (!str_prefix1(range, "gods"))
+	else if (range.is_prefix_of("gods"))
 		fGods = TRUE;
-	else if (!str_prefix1(range, "mortals"))
+	else if (range.is_prefix_of("mortals"))
 		fMortals = TRUE;
-	else if (!str_prefix1(range, "room"))
+	else if (range.is_prefix_of("room"))
 		fRoom = TRUE;
 	else {
 		stc("Syntax:\n"
@@ -1557,7 +1557,7 @@ void do_goto(Character *ch, String argument)
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != NULL)
 			location = rch->in_room;
 
-		if (!str_prefix1(arg, "object") || location == NULL) {
+		if (arg.is_prefix_of("object") || location == NULL) {
 			location = NULL;
 
 			if ((obj = get_obj_world(ch, argument)) != NULL)
@@ -1725,7 +1725,7 @@ void do_guild(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "none")) {
+	if (arg2.is_prefix_of("none")) {
 		stc("The character is now clanless.\n", ch);
 		stc("You are now clanless.\n", victim);
 
@@ -2259,39 +2259,39 @@ void do_olevel(Character *ch, String argument)
 	bool specified_wear_loc = FALSE;
 
 	if (!arg3.empty()) {
-		if (!str_prefix1(arg3, "take"))
+		if (arg3.is_prefix_of("take"))
 			wear_loc = ITEM_TAKE;
-		else if (!str_prefix1(arg3, "finger"))
+		else if (arg3.is_prefix_of("finger"))
 			wear_loc = ITEM_WEAR_FINGER;
-		else if (!str_prefix1(arg3, "neck"))
+		else if (arg3.is_prefix_of("neck"))
 			wear_loc = ITEM_WEAR_NECK;
-		else if (!str_prefix1(arg3, "body"))
+		else if (arg3.is_prefix_of("body"))
 			wear_loc = ITEM_WEAR_BODY;
-		else if (!str_prefix1(arg3, "head"))
+		else if (arg3.is_prefix_of("head"))
 			wear_loc = ITEM_WEAR_HEAD;
-		else if (!str_prefix1(arg3, "legs"))
+		else if (arg3.is_prefix_of("legs"))
 			wear_loc = ITEM_WEAR_LEGS;
-		else if (!str_prefix1(arg3, "feet"))
+		else if (arg3.is_prefix_of("feet"))
 			wear_loc = ITEM_WEAR_FEET;
-		else if (!str_prefix1(arg3, "hands"))
+		else if (arg3.is_prefix_of("hands"))
 			wear_loc = ITEM_WEAR_HANDS;
-		else if (!str_prefix1(arg3, "arms"))
+		else if (arg3.is_prefix_of("arms"))
 			wear_loc = ITEM_WEAR_ARMS;
-		else if (!str_prefix1(arg3, "shield"))
+		else if (arg3.is_prefix_of("shield"))
 			wear_loc = ITEM_WEAR_SHIELD;
-		else if (!str_prefix1(arg3, "about"))
+		else if (arg3.is_prefix_of("about"))
 			wear_loc = ITEM_WEAR_ABOUT;
-		else if (!str_prefix1(arg3, "waist"))
+		else if (arg3.is_prefix_of("waist"))
 			wear_loc = ITEM_WEAR_WAIST;
-		else if (!str_prefix1(arg3, "wrist"))
+		else if (arg3.is_prefix_of("wrist"))
 			wear_loc = ITEM_WEAR_WRIST;
-		else if (!str_prefix1(arg3, "wield"))
+		else if (arg3.is_prefix_of("wield"))
 			wear_loc = ITEM_WIELD;
-		else if (!str_prefix1(arg3, "hold"))
+		else if (arg3.is_prefix_of("hold"))
 			wear_loc = ITEM_HOLD;
-		else if (!str_prefix1(arg3, "float"))
+		else if (arg3.is_prefix_of("float"))
 			wear_loc = ITEM_WEAR_FLOAT;
-		else if (!str_prefix1(arg3, "none"))
+		else if (arg3.is_prefix_of("none"))
 			wear_loc = 0;
 		else {
 			stc("That is not a suitable wear location.\n", ch);
@@ -2511,7 +2511,7 @@ void do_owhere(Character *ch, String argument)
 	if (is_number(arg))
 		vnum = atoi(arg);
 
-	if (!str_prefix1(arg2, "ground"))
+	if (arg2.is_prefix_of("ground"))
 		fGround = TRUE;
 
 	output += "{VCount {YRoom  {GObject{x\n";
@@ -3281,15 +3281,15 @@ void do_secure(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.empty() || !str_prefix1(arg, "immortal")) {
+	if (arg.empty() || arg.is_prefix_of("immortal")) {
 		ch->secure_level = RANK_IMM;
 		stc("All immortals can see your immtalks now.\n", ch);
 	}
-	else if (!str_prefix1(arg, "head") || !str_prefix1(arg, "deputy")) {
+	else if (arg.is_prefix_of("head") || arg.is_prefix_of("deputy")) {
 		ch->secure_level = RANK_HEAD;
 		stc("Only heads of departments and implementors can see your immtalks now.\n", ch);
 	}
-	else if (!str_prefix1(arg, "implementor") && IS_IMP(ch)) {
+	else if (arg.is_prefix_of("implementor") && IS_IMP(ch)) {
 		ch->secure_level = RANK_IMP;
 		stc("Only implementors can see your immtalks now.\n", ch);
 	}
@@ -3764,7 +3764,7 @@ void do_violate(Character *ch, String argument)
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != NULL)
 			location = rch->in_room;
 
-		if (!str_prefix1(arg, "object") || location == NULL) {
+		if (arg.is_prefix_of("object") || location == NULL) {
 			location = NULL;
 
 			if ((obj = get_obj_world(ch, argument)) != NULL)
@@ -3836,9 +3836,9 @@ void do_wizgroup(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "add"))
+	if (arg1.is_prefix_of("add"))
 		add = TRUE;
-	else if (!str_prefix1(arg1, "remove"))
+	else if (arg1.is_prefix_of("remove"))
 		add = FALSE;
 	else {
 		do_wizgroup(ch, "");
@@ -3852,7 +3852,7 @@ void do_wizgroup(Character *ch, String argument)
 
 	/* loops == good!  else ifs == bad! :) */
 	while (cgroup_flags[count].name != NULL) {
-		if (!str_prefix1(arg3, cgroup_flags[count].name) || all) {
+		if (arg3.is_prefix_of(cgroup_flags[count].name) || all) {
 			found = TRUE;
 
 			if (add)
@@ -4109,7 +4109,7 @@ void do_clanqp(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "donate")) {
+	if (arg1.is_prefix_of("donate")) {
 		if (!IS_IMMORTAL(ch)) {
 			if (has_enough_qps(ch, qp_amount) == 0) {
 				stc("Please try again when you have enough questpoints!\n", ch);
@@ -4138,7 +4138,7 @@ void do_clanqp(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "withdraw") || !str_prefix1(arg1, "deduct")) {
+	if (arg1.is_prefix_of("withdraw") || arg1.is_prefix_of("deduct")) {
 		if (!IS_IMMORTAL(ch)) {
 			stc("Only immortals are allowed to do that!\n", ch);
 			return;

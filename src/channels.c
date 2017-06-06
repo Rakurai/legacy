@@ -352,7 +352,7 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
 		if (command[0] == iterator->name[0]
-		    &&   !str_prefix1(command, iterator->name)) {
+		    &&   command.is_prefix_of(iterator->name)) {
 			found = TRUE;
 			break;
 		}
@@ -921,7 +921,7 @@ void do_globalsocial(Character *ch, String argument)
 	String arg;
 	String arg2 = one_argument(argument, arg);
 
-	if (!str_prefix1(arg, "who") && argument[3] == '\0') {
+	if (arg.is_prefix_of("who") && argument[3] == '\0') {
 		channel_who(ch, "Social", COMM_NOSOCIAL, CSLOT_CHAN_SOCIAL);
 		return;
 	}
@@ -934,7 +934,7 @@ void do_globalsocial(Character *ch, String argument)
 		return;
 
 	/***** social pose removed -- Elrac
-	if (!str_prefix1( arg, "pose" ))
+	if ( arg.is_prefix_of("pose" ))
 	{
 	    pose = select_pose( ch );
 	    if ( pose < 0 ) return;
@@ -943,7 +943,7 @@ void do_globalsocial(Character *ch, String argument)
 	}
 	else
 	*****/
-	if (!str_prefix1(arg, "emote") && (!arg2.empty()))
+	if (arg.is_prefix_of("emote") && (!arg2.empty()))
 		Format::sprintf(buf, "[E] %s %s\n", ch->name, arg2);
 	else
 		Format::sprintf(buf, "You socialize '%s{x'\n", argument);
@@ -960,7 +960,7 @@ void do_globalsocial(Character *ch, String argument)
 	            new_pose_table[ch->cls].poses[pose].room_msg );
 	*/
 
-	if (!str_prefix1(arg, "emote") && (!arg2.empty()))
+	if (arg.is_prefix_of("emote") && (!arg2.empty()))
 		Format::sprintf(buf, "[E] $n %s", arg2);
 	else
 		Format::sprintf(buf, "$n socializes '%s{x'", argument);
@@ -1742,7 +1742,7 @@ void do_query(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg != "+" && arg != "-"
-	    && str_prefix1(arg, "list") && str_prefix1(arg, "clear")) {
+	    && !arg.is_prefix_of("list") && !arg.is_prefix_of("clear")) {
 		stc("Syntax:\n", ch);
 		stc("{RQuery list{x       : Lists names in your query.\n", ch);
 		stc("{RQuery +{x <{YName{x>   : Adds a name to your query.\n", ch);
@@ -1753,7 +1753,7 @@ void do_query(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "list")) {
+	if (arg.is_prefix_of("list")) {
 		if (rch->pcdata->query.empty()) {
 			stc("You have no one in your query.\n", ch);
 			return;
@@ -1767,13 +1767,13 @@ void do_query(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "clear")) {
+	if (arg.is_prefix_of("clear")) {
 		rch->pcdata->query.clear();
 		stc("Query cleared.\n", ch);
 		return;
 	}
 
-	if (!str_prefix1(arg, "+")) {
+	if (arg.is_prefix_of("+")) {
 		if (arg2.empty()) {
 			stc("Add who to the query list?\n", ch);
 			return;
@@ -1794,7 +1794,7 @@ void do_query(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "-")) {
+	if (arg.is_prefix_of("-")) {
 		if (arg2.empty()) {
 			stc("Remove who from the query list?\n", ch);
 			return;

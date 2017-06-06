@@ -1070,7 +1070,7 @@ void do_quest(Character *ch, String argument)
 	   accident when they abbreviate too much. */
 
 	/*** AWARD ***/
-	if (IS_IMP(ch) && !str_prefix1(arg1, "award")) {
+	if (IS_IMP(ch) && arg1.is_prefix_of("award")) {
 		int number = -1;
 		Character *wch;
 		Descriptor *d;
@@ -1085,7 +1085,7 @@ void do_quest(Character *ch, String argument)
 
 		wch = get_player_world(ch, player, VIS_PLR);
 
-		if (wch == NULL && str_prefix1("allchars", player)) {
+		if (wch == NULL && !player.has_prefix("allchars")) {
 			ptc(ch, "You find no player named '%s' in the game!\n", player);
 			return;
 		}
@@ -1098,7 +1098,7 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1("allchars", player)) {
+		if (player.has_prefix("allchars")) {
 			for (d = descriptor_list; d; d = d->next) {
 				if (IS_PLAYING(d) && !IS_IMMORTAL(d->character)) {
 					d->character->questpoints += number;
@@ -1123,7 +1123,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** COMPLETE ***/
-	if (!str_prefix1(arg1, "complete")) {
+	if (arg1.is_prefix_of("complete")) {
 		Object *obj = NULL;
 		int pointreward = 0;
 		int reward = 0;
@@ -1384,7 +1384,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** CLOSE ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "close")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("close")) {
 		int num_in_area;
 		int num_to_oust = 0;
 		Character *victim;
@@ -1437,7 +1437,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** DEDUCT ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "deduct")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("deduct")) {
 		Character *victim;
 		int qpoint;
 
@@ -1476,7 +1476,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** DOUBLE ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "double")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("double")) {
 		if (!quest_double) {
 			stc("You declare double QP for all!\n", ch);
 			wiznet("{Y:QUEST:{x $N has declared double QP", ch, NULL, WIZ_QUEST, 0, 0);
@@ -1494,7 +1494,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** FORFEIT ***/
-	if (!str_prefix1(arg1, "forfeit")) {
+	if (arg1.is_prefix_of("forfeit")) {
 		if (!IS_SET(ch->act_flags, PLR_QUESTOR) && !IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
 			stc("You aren't currently on a quest.\n", ch);
 			return;
@@ -1527,7 +1527,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** INFO ***/
-	if (!str_prefix1(arg1, "info")) {
+	if (arg1.is_prefix_of("info")) {
 		if (ch->in_room == NULL || ch->in_room->area == NULL) {
 			stc("You cannot recall your quest from this location.\n", ch);
 			return;
@@ -1540,7 +1540,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** JOIN ***/
-	if (!str_prefix1(arg1, "join")) {
+	if (arg1.is_prefix_of("join")) {
 		if (get_position(ch) < POS_RESTING) {
 			stc("You are too busy sleeping.\n", ch);
 			return;
@@ -1586,7 +1586,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** LIST ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "list")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("list")) {
 		char qblock[MAX_STRING_LENGTH], sqblock[MAX_STRING_LENGTH], mblock[MAX_STRING_LENGTH],
 		     oblock[MAX_STRING_LENGTH], lblock[MAX_STRING_LENGTH];
 		String output;
@@ -1691,7 +1691,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** OPEN ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "open")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("open")) {
 		if ((quest_startroom = get_room_index(QUEST_STARTROOM)) == NULL) {
 			stc("The quest area is not available in this reboot.\n", ch);
 			return;
@@ -1734,7 +1734,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** PK ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "pk")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("pk")) {
 		Character *salesgnome;
 		RoomPrototype *to_room;
 		salesgnome = get_mob_world(ch, "salesgnome", VIS_CHAR);
@@ -1782,14 +1782,14 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** POINTS ***/
-	if (!str_prefix1(arg1, "points")) {
+	if (arg1.is_prefix_of("points")) {
 		ptc(ch, "You have %d quest points and %d skill points.\n",
 		    ch->questpoints, ch->pcdata->skillpoints);
 		return;
 	}
 
 	/*** REQUEST ***/
-	if (!str_prefix1(arg1, "request")) {
+	if (arg1.is_prefix_of("request")) {
 		if (get_position(ch) < POS_RESTING) {
 			stc("You are too busy sleeping.\n", ch);
 			return;
@@ -1890,7 +1890,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** STATUS ***/
-	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "status")) {
+	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("status")) {
 		if (quest_open)
 			stc("The Quest Area is currently open for a {Rquest{x.\n", ch);
 		else
@@ -1905,7 +1905,7 @@ void do_quest(Character *ch, String argument)
 	}
 
 	/*** TIME ***/
-	if (!str_prefix1(arg1, "time")) {
+	if (arg1.is_prefix_of("time")) {
 		if (!IS_SET(ch->act_flags, PLR_QUESTOR)) {
 			stc("You aren't currently on a quest.\n", ch);
 

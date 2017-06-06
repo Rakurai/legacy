@@ -212,7 +212,7 @@ void do_loadhelps(Character *ch, String argument)
 	}
 
 	for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
-		if (!str_prefix1(helpfile_table[tablenum].name, arg))
+		if (helpfile_table[tablenum].name.is_prefix_of(arg))
 			break;
 
 	if (helpfile_table[tablenum].name == NULL) {
@@ -340,7 +340,7 @@ void do_printhelps(Character *ch, String argument)
 	}
 
 	for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
-		if (!str_prefix1(helpfile_table[tablenum].name, arg))
+		if (helpfile_table[tablenum].name.is_prefix_of(arg))
 			break;
 
 	if (helpfile_table[tablenum].name == NULL) {

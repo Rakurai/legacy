@@ -5193,7 +5193,7 @@ void do_lay_on_hands(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!str_prefix(arg, "count")) {
+	if (arg.is_prefix_of("count")) {
 		ptc(ch, "You may use Lay on Hands %d more times today.\n",
 		    ch->pcdata->lays);
 		return;
@@ -5284,12 +5284,12 @@ void do_shoot(Character *ch, String argument)
 			dir_str = dir_arg;
 		}
 
-		     if (!str_prefix1(dir_str, "north")) dir = DIR_NORTH;
-		else if (!str_prefix1(dir_str, "east"))  dir = DIR_EAST;
-		else if (!str_prefix1(dir_str, "south")) dir = DIR_SOUTH;
-		else if (!str_prefix1(dir_str, "west"))  dir = DIR_WEST;
-		else if (!str_prefix1(dir_str, "up"))    dir = DIR_UP;
-		else if (!str_prefix1(dir_str, "down"))  dir = DIR_DOWN;
+		     if (dir_str.is_prefix_of("north")) dir = DIR_NORTH;
+		else if (dir_str.is_prefix_of("east"))  dir = DIR_EAST;
+		else if (dir_str.is_prefix_of("south")) dir = DIR_SOUTH;
+		else if (dir_str.is_prefix_of("west"))  dir = DIR_WEST;
+		else if (dir_str.is_prefix_of("up"))    dir = DIR_UP;
+		else if (dir_str.is_prefix_of("down"))  dir = DIR_DOWN;
 
 		// find the target room
 		if (dir == -1) {

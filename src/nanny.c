@@ -39,13 +39,13 @@ bool check_ban(const String& site, int type)
 
 	while (!ban && db_next_row() == SQL_OK) {
 		int flags = db_get_column_int(0);
-		const char *str = db_get_column_str(1);
+		String str = db_get_column_str(1);
 		bool prefix = IS_SET(flags, BAN_PREFIX);
 		bool suffix = IS_SET(flags, BAN_SUFFIX);
 
-		if ((prefix  &&  suffix && !str_infix(str, site))
-		    || (prefix  && !suffix && !str_suffix(str, site))
-		    || (!prefix &&  suffix && !str_prefix(str, site))
+		if ((prefix  &&  suffix && str.is_infix_of(site))
+		    || (prefix  && !suffix && str.is_suffix_of(site))
+		    || (!prefix &&  suffix && str.is_prefix_of(site))
 		    || (!prefix && !suffix && site == str))
 			ban = TRUE;
 	}
@@ -129,10 +129,10 @@ String site_to_ssite(const String& site)
 		if (dotcount < 3)
 			return site;
 
-		return site.substr(site.find_nth(dotcount - 2, '.'));
+		return site.substr(site.find_nth(dotcount - 2, "."));
 	}
 
-	return site.substr(0, site.find_nth(3, '.'));
+	return site.substr(0, site.find_nth(3, "."));
 }
 
 void update_site(Character *ch)

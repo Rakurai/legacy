@@ -275,7 +275,7 @@ void do_sedit(Character *ch, String argument)
 		}
 
 		for (int x = 0; cmd_table[x].name[0] != '\0'; x++) {
-			if (!str_prefix1(social, cmd_table[x].name)) {
+			if (social.is_prefix_of(cmd_table[x].name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
 			}
@@ -299,7 +299,7 @@ void do_sedit(Character *ch, String argument)
 		}
 
 		for (int x = 0; cmd_table[x].name[0] != '\0'; x++) {
-			if (!str_prefix1(argument, cmd_table[x].name)) {
+			if (argument.is_prefix_of(cmd_table[x].name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
 			}
@@ -346,7 +346,7 @@ void do_sedit(Character *ch, String argument)
 		stc(buf, ch);
 		return; /* return right away, do not save the table */
 	}
-	else if (!str_prefix1(cmd, "find")) { /* Find a social */
+	else if (cmd.is_prefix_of("find")) { /* Find a social */
 		Social *i;
 		bool fAll = FALSE;
 

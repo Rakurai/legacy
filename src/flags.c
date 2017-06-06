@@ -79,7 +79,7 @@ void do_flag(Character *ch, String argument)
 	}
 
 	for (fieldptr = 0; flag_fields[fieldptr].name != NULL; fieldptr++)
-		if (!str_prefix1(arg3, flag_fields[fieldptr].name))
+		if (arg3.is_prefix_of(flag_fields[fieldptr].name))
 			break;
 
 	if (flag_fields[fieldptr].name == NULL) {
@@ -92,7 +92,7 @@ void do_flag(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "mobile") || !str_prefix1(arg1, "character") || !str_prefix1(arg1, "player")) {
+	if (arg1.is_prefix_of("mobile") || arg1.is_prefix_of("character") || arg1.is_prefix_of("player")) {
 		if (flag_fields[fieldptr].cand != CAND_CHAR
 		    && flag_fields[fieldptr].cand != CAND_MOB
 		    && flag_fields[fieldptr].cand != CAND_PLAYER) {
@@ -100,9 +100,9 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg1, "mobile"))
+		if (arg1.is_prefix_of("mobile"))
 			victim = get_mob_world(ch, arg2, VIS_CHAR);
-		else if (!str_prefix1(arg1, "player"))
+		else if (arg1.is_prefix_of("player"))
 			victim = get_player_world(ch, arg2, VIS_PLR);
 		else
 			victim = get_char_world(ch, arg2, VIS_CHAR);
@@ -171,7 +171,7 @@ void do_flag(Character *ch, String argument)
 
 		Format::sprintf(what, "%s", PERS(victim, ch, VIS_PLR));
 	}
-	else if (!str_prefix1(arg1, "obj")) {
+	else if (arg1.is_prefix_of("obj")) {
 		if (flag_fields[fieldptr].cand != CAND_OBJ) {
 			stc("That is not an object field.\n", ch);
 			return;
@@ -206,7 +206,7 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 	}
-	else if (!str_prefix1(arg1, "room")) {
+	else if (arg1.is_prefix_of("room")) {
 		if (flag_fields[fieldptr].cand != CAND_ROOM) {
 			stc("That is not a room field.\n", ch);
 			return;
@@ -335,11 +335,11 @@ void do_typelist(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(argument, "liquid")) {
+	if (argument.is_prefix_of("liquid")) {
 		for (x = 0; liq_table[x].liq_name != NULL; x++)
 			ptc(ch, "[%2d][%20s][%20s]\n", x, liq_table[x].liq_name, liq_table[x].liq_color);
 	}
-	else if (!str_prefix1(argument, "attack")) {
+	else if (argument.is_prefix_of("attack")) {
 		for (x = 0; attack_table[x].name != NULL; x++)
 			ptc(ch, "[%2d][%20s][%20s]\n", x, attack_table[x].name, attack_table[x].noun);
 	}
@@ -378,7 +378,7 @@ void do_flaglist(Character *ch, String argument)
 	for (x = 0; flag_fields[x].name != NULL; x++)
 		if (GET_RANK(ch) >= flag_fields[x].see_mob
 		    || GET_RANK(ch) >= flag_fields[x].see_plr)
-			if (!str_prefix1(argument, flag_fields[x].name))
+			if (argument.is_prefix_of(flag_fields[x].name))
 				break;
 
 	if (flag_fields[x].name == NULL) {
@@ -724,7 +724,7 @@ void do_flagsearch(Character *ch, String argument)
 	}
 
 	for (fieldptr = 0; flag_fields[fieldptr].name != NULL; fieldptr++)
-		if (!str_prefix1(arg2, flag_fields[fieldptr].name))
+		if (arg2.is_prefix_of(flag_fields[fieldptr].name))
 			break;
 
 	if (flag_fields[fieldptr].name == NULL) {
@@ -737,9 +737,9 @@ void do_flagsearch(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "mobile")
-	    || !str_prefix1(arg1, "player")
-	    || !str_prefix1(arg1, "character")) {
+	if (arg1.is_prefix_of("mobile")
+	    || arg1.is_prefix_of("player")
+	    || arg1.is_prefix_of("character")) {
 		if (flag_fields[fieldptr].cand != CAND_CHAR
 		    && flag_fields[fieldptr].cand != CAND_MOB
 		    && flag_fields[fieldptr].cand != CAND_PLAYER) {
@@ -747,9 +747,9 @@ void do_flagsearch(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg1, "mobile"))                       player = FALSE;
+		if (arg1.is_prefix_of("mobile"))                       player = FALSE;
 
-		if (!str_prefix1(arg1, "player"))                       mobile = FALSE;
+		if (arg1.is_prefix_of("player"))                       mobile = FALSE;
 
 		if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)       toolowmobile = TRUE;
 
@@ -810,7 +810,7 @@ void do_flagsearch(Character *ch, String argument)
 			return;
 		}
 	}
-	else if (!str_prefix1(arg1, "obj")) {
+	else if (arg1.is_prefix_of("obj")) {
 		if (flag_fields[fieldptr].cand == CAND_OBJ) {
 			if (GET_RANK(ch) < flag_fields[fieldptr].see_mob) {
 				stc("You are not high enough level to search for that field.\n", ch);
@@ -833,7 +833,7 @@ void do_flagsearch(Character *ch, String argument)
 			return;
 		}
 	}
-	else if (!str_prefix1(arg1, "room")) {
+	else if (arg1.is_prefix_of("room")) {
 		if (flag_fields[fieldptr].cand == CAND_ROOM) {
 			if (GET_RANK(ch) < flag_fields[fieldptr].see_mob) {
 				stc("You are not high enough level to search for that field.\n", ch);

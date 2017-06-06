@@ -80,12 +80,12 @@ void do_scan2(Character *ch, String argument)
 
 		return;
 	}
-	else if (!str_prefix1(arg1, "north"))   door = 0;
-	else if (!str_prefix1(arg1, "east"))    door = 1;
-	else if (!str_prefix1(arg1, "south"))   door = 2;
-	else if (!str_prefix1(arg1, "west"))    door = 3;
-	else if (!str_prefix1(arg1, "up"))      door = 4;
-	else if (!str_prefix1(arg1, "down"))    door = 5;
+	else if (arg1.is_prefix_of("north"))   door = 0;
+	else if (arg1.is_prefix_of("east"))    door = 1;
+	else if (arg1.is_prefix_of("south"))   door = 2;
+	else if (arg1.is_prefix_of("west"))    door = 3;
+	else if (arg1.is_prefix_of("up"))      door = 4;
+	else if (arg1.is_prefix_of("down"))    door = 5;
 	else {
 		stc("Which way do you want to scan?\n", ch);
 		return;
@@ -150,12 +150,12 @@ void do_scan(Character *ch, String argument)
 
 		return;
 	}
-	else if (!str_prefix1(arg1, "north"))   door = 0;
-	else if (!str_prefix1(arg1, "east"))    door = 1;
-	else if (!str_prefix1(arg1, "south"))   door = 2;
-	else if (!str_prefix1(arg1, "west"))    door = 3;
-	else if (!str_prefix1(arg1, "up"))      door = 4;
-	else if (!str_prefix1(arg1, "down"))    door = 5;
+	else if (arg1.is_prefix_of("north"))   door = 0;
+	else if (arg1.is_prefix_of("east"))    door = 1;
+	else if (arg1.is_prefix_of("south"))   door = 2;
+	else if (arg1.is_prefix_of("west"))    door = 3;
+	else if (arg1.is_prefix_of("up"))      door = 4;
+	else if (arg1.is_prefix_of("down"))    door = 5;
 	else {
 		stc("Which way do you want to scan?\n", ch);
 		return;

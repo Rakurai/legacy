@@ -296,12 +296,12 @@ int find_door(Character *ch, const String& arg)
 	Exit *pexit;
 	int door;
 
-	if (!str_prefix1(arg, "north"))    door = 0;
-	else if (!str_prefix1(arg, "east"))    door = 1;
-	else if (!str_prefix1(arg, "south"))    door = 2;
-	else if (!str_prefix1(arg, "west"))    door = 3;
-	else if (!str_prefix1(arg, "up"))    door = 4;
-	else if (!str_prefix1(arg, "down"))    door = 5;
+	if (arg.is_prefix_of("north"))    door = 0;
+	else if (arg.is_prefix_of("east"))    door = 1;
+	else if (arg.is_prefix_of("south"))    door = 2;
+	else if (arg.is_prefix_of("west"))    door = 3;
+	else if (arg.is_prefix_of("up"))    door = 4;
+	else if (arg.is_prefix_of("down"))    door = 5;
 	else {
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != NULL
@@ -372,12 +372,12 @@ void do_open(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
-	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
-	    && str_prefix1(arg, "south")
-	    && str_prefix1(arg, "west")
-	    && str_prefix1(arg, "up")
-	    && str_prefix1(arg, "down")
+	if (!arg.is_prefix_of("north") /* hack so players can refer to a direction if */
+	    && !arg.is_prefix_of("east")  /* they have an item of that name -- Montrey */
+	    && !arg.is_prefix_of("south")
+	    && !arg.is_prefix_of("west")
+	    && !arg.is_prefix_of("up")
+	    && !arg.is_prefix_of("down")
 	    && (obj = get_obj_here(ch, arg)) != NULL) {
 		/* open portal */
 		if (obj->item_type == ITEM_PORTAL) {
@@ -480,12 +480,12 @@ void do_close(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
-	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
-	    && str_prefix1(arg, "south")
-	    && str_prefix1(arg, "west")
-	    && str_prefix1(arg, "up")
-	    && str_prefix1(arg, "down")
+	if (!arg.is_prefix_of("north") /* hack so players can refer to a direction if */
+	    && !arg.is_prefix_of("east")  /* they have an item of that name -- Montrey */
+	    && !arg.is_prefix_of("south")
+	    && !arg.is_prefix_of("west")
+	    && !arg.is_prefix_of("up")
+	    && !arg.is_prefix_of("down")
 	    && (obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
@@ -588,12 +588,12 @@ void do_lock(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
-	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
-	    && str_prefix1(arg, "south")
-	    && str_prefix1(arg, "west")
-	    && str_prefix1(arg, "up")
-	    && str_prefix1(arg, "down")
+	if (!arg.is_prefix_of("north") /* hack so players can refer to a direction if */
+	    && !arg.is_prefix_of("east")  /* they have an item of that name -- Montrey */
+	    && !arg.is_prefix_of("south")
+	    && !arg.is_prefix_of("west")
+	    && !arg.is_prefix_of("up")
+	    && !arg.is_prefix_of("down")
 	    && (obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
@@ -719,12 +719,12 @@ void do_unlock(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (str_prefix1(arg, "north") /* hack so players can refer to a direction if */
-	    && str_prefix1(arg, "east")  /* they have an item of that name -- Montrey */
-	    && str_prefix1(arg, "south")
-	    && str_prefix1(arg, "west")
-	    && str_prefix1(arg, "up")
-	    && str_prefix1(arg, "down")
+	if (!arg.is_prefix_of("north") /* hack so players can refer to a direction if */
+	    && !arg.is_prefix_of("east")  /* they have an item of that name -- Montrey */
+	    && !arg.is_prefix_of("south")
+	    && !arg.is_prefix_of("west")
+	    && !arg.is_prefix_of("up")
+	    && !arg.is_prefix_of("down")
 	    && (obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
@@ -2017,12 +2017,12 @@ void do_push(Character *ch, String argument)
 	}
 
 	/* determine if its a valid direction, we'll deal with exits below */
-	if (!str_prefix1(argument, "north"))       dir = 0;
-	else if (!str_prefix1(argument, "east"))        dir = 1;
-	else if (!str_prefix1(argument, "south"))       dir = 2;
-	else if (!str_prefix1(argument, "west"))        dir = 3;
-	else if (!str_prefix1(argument, "up"))          dir = 4;
-	else if (!str_prefix1(argument, "down"))        dir = 5;
+	if (argument.is_prefix_of("north"))       dir = 0;
+	else if (argument.is_prefix_of("east"))        dir = 1;
+	else if (argument.is_prefix_of("south"))       dir = 2;
+	else if (argument.is_prefix_of("west"))        dir = 3;
+	else if (argument.is_prefix_of("up"))          dir = 4;
+	else if (argument.is_prefix_of("down"))        dir = 5;
 	else {
 		stc("No such direction.\n", ch);
 		return;
@@ -2244,12 +2244,12 @@ void do_drag(Character *ch, String argument)
 	}
 
 	/* determine if its a valid direction, we'll deal with exits below */
-	if (!str_prefix1(argument, "north"))       dir = 0;
-	else if (!str_prefix1(argument, "east"))        dir = 1;
-	else if (!str_prefix1(argument, "south"))       dir = 2;
-	else if (!str_prefix1(argument, "west"))        dir = 3;
-	else if (!str_prefix1(argument, "up"))          dir = 4;
-	else if (!str_prefix1(argument, "down"))        dir = 5;
+	if (argument.is_prefix_of("north"))       dir = 0;
+	else if (argument.is_prefix_of("east"))        dir = 1;
+	else if (argument.is_prefix_of("south"))       dir = 2;
+	else if (argument.is_prefix_of("west"))        dir = 3;
+	else if (argument.is_prefix_of("up"))          dir = 4;
+	else if (argument.is_prefix_of("down"))        dir = 5;
 	else {
 		stc("No such direction.\n", ch);
 		return;

@@ -58,7 +58,7 @@ int skill_lookup(const String& name)
 		if (skill_table[sn].name == NULL)
 			break;
 
-		if (!str_prefix1(name, skill_table[sn].name))
+		if (name.is_prefix_of(skill_table[sn].name))
 			return sn;
 	}
 
@@ -77,7 +77,7 @@ int find_spell(Character *ch, const String& name)
 		if (skill_table[sn].name == NULL)
 			break;
 
-		if (!str_prefix1(name, skill_table[sn].name)) {
+		if (name.is_prefix_of(skill_table[sn].name)) {
 			if (found == -1)
 				found = sn;
 
@@ -119,8 +119,8 @@ void say_spell(Character *ch, int sn)
 	char *pName;
 	int iSyl, length;
 	struct syl_type {
-		char   *old;
-		char   *nw;
+		const String old;
+		const String nw;
 	};
 	static const struct syl_type syl_table[] = {
 		{ " ",          " "             },
@@ -159,7 +159,7 @@ void say_spell(Character *ch, int sn)
 
 	for (pName = skill_table[sn].name; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++) {
-			if (!str_prefix1(syl_table[iSyl].old, pName)) {
+			if (syl_table[iSyl].old.is_prefix_of(pName)) {
 				buf += syl_table[iSyl].nw;
 				break;
 			}

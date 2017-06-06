@@ -1540,9 +1540,9 @@ void fread_pet(Character *ch, cJSON *json, int version)
  * with the next invocation of dizzy_ctime().
  */
 
-static const char *day_names[] =
+static const String day_names[] =
 { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
-static const char *month_names[] = {
+static const String month_names[] = {
 	"Jan", "Feb", "Mar", "Apr", "May", "Jun",
 	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 };
@@ -1583,7 +1583,7 @@ time_t dizzy_scantime(const String& ctime)
 	}
 
 	for (month = 0; month < 12; month++) {
-		if (!str_prefix1(month_names[month], ctime.substr(4)))
+		if (month_names[month].is_prefix_of(ctime.substr(4)))
 			break;
 	}
 

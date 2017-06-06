@@ -453,7 +453,7 @@ void do_get(Character *ch, String argument)
 		argument = one_argument(argument, arg2);
 
 	if (arg2.empty()) {
-		if (arg1 != "all" && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && !arg1.has_prefix("all.")) {
 			/* 'get obj' */
 			obj = get_obj_list(ch, arg1, ch->in_room->contents);
 
@@ -487,12 +487,12 @@ void do_get(Character *ch, String argument)
 	}
 	else {
 		/* 'get ... container' */
-		if (arg2 == "all" || !str_prefix1("all.", arg2)) {
+		if (arg2 == "all" || arg2.has_prefix("all.")) {
 			stc("You can't do that.\n", ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
+		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
 			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				if (IS_SET(ch->act_flags, PLR_CLOSED)) {
 					int number = get_locker_number(ch);
@@ -508,7 +508,7 @@ void do_get(Character *ch, String argument)
 					}
 				}
 
-				if (arg1 != "all" && str_prefix1("all.", arg1)) {
+				if (arg1 != "all" && !arg1.has_prefix("all.")) {
 					obj = get_obj_list(ch, arg1, ch->pcdata->locker);
 
 					if (!from_box_ok(ch, obj, "locker"))
@@ -553,7 +553,7 @@ void do_get(Character *ch, String argument)
 		}
 
 		/* Strongbox stuff -- Elrac */
-		if (!IS_NPC(ch) && !str_prefix1(arg2, "strongbox")) {
+		if (!IS_NPC(ch) && arg2.is_prefix_of("strongbox")) {
 			if (!IS_HEROIC(ch)) {
 				stc("Only heroes and former heroes have strongboxes.\n", ch);
 				return;
@@ -564,7 +564,7 @@ void do_get(Character *ch, String argument)
 				return;
 			}
 
-			if (arg1 != "all" && str_prefix1("all.", arg1)) {
+			if (arg1 != "all" && !arg1.has_prefix("all.")) {
 				obj = get_obj_list(ch, arg1, ch->pcdata->strongbox);
 
 				if (!from_box_ok(ch, obj, "strongbox"))
@@ -642,7 +642,7 @@ void do_get(Character *ch, String argument)
 			return;
 		}
 
-		if (arg1 != "all" && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && !arg1.has_prefix("all.")) {
 			/* 'get obj container' */
 			obj = get_obj_list(ch, arg1, container->contains);
 
@@ -734,19 +734,19 @@ void do_put(Character *ch, String argument)
 		return;
 	}
 
-	if (arg2 == "all" || !str_prefix1("all.", arg2)) {
+	if (arg2 == "all" || arg2.has_prefix("all.")) {
 		stc("You can't do that.\n", ch);
 		return;
 	}
 
 	/* locker stuff */
-	if (!IS_NPC(ch) && !str_prefix1(arg2, "locker")) {
+	if (!IS_NPC(ch) && arg2.is_prefix_of("locker")) {
 		if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 			stc("You do not see a locker in this room.\n", ch);
 			return;
 		}
 
-		if (arg1 != "all" && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && !arg1.has_prefix("all.")) {
 			/* 'put obj locker' */
 			if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 				stc("You do not have that item.\n", ch);
@@ -801,7 +801,7 @@ void do_put(Character *ch, String argument)
 	}
 
 	/* strongbox stuff -- Elrac */
-	if (!IS_NPC(ch) && !str_prefix1(arg2, "strongbox")) {
+	if (!IS_NPC(ch) && arg2.is_prefix_of("strongbox")) {
 		if (!IS_HEROIC(ch)) {
 			stc("Only heroes and former heroes have strongboxes.\n", ch);
 			return;
@@ -812,7 +812,7 @@ void do_put(Character *ch, String argument)
 			return;
 		}
 
-		if (arg1 != "all" && str_prefix1("all.", arg1)) {
+		if (arg1 != "all" && !arg1.has_prefix("all.")) {
 			/* 'put obj strongbox' */
 			if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 				stc("You do not have that item.\n", ch);
@@ -881,7 +881,7 @@ void do_put(Character *ch, String argument)
 		return;
 	}
 
-	if (arg1 != "all" && str_prefix1("all.", arg1)) {
+	if (arg1 != "all" && !arg1.has_prefix("all.")) {
 		/* 'put obj container' */
 		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 			stc("You do not have that item.\n", ch);
@@ -983,14 +983,14 @@ void do_drop(Character *ch, String argument)
 		argument = one_argument(argument, arg);
 
 		if (amount <= 0
-		    || (str_prefix1(arg, "coins") && str_prefix1(arg, "coin") &&
-		        str_prefix1(arg, "gold") && str_prefix1(arg, "silver"))) {
+		    || (!arg.is_prefix_of("coins") && !arg.is_prefix_of("coin") &&
+		        !arg.is_prefix_of("gold") && !arg.is_prefix_of("silver"))) {
 			stc("Sorry, you can't do that.\n", ch);
 			return;
 		}
 
-		if (!str_prefix1(arg, "coins") || !str_prefix1(arg, "coin")
-		    ||   !str_prefix1(arg, "silver")) {
+		if (arg.is_prefix_of("coins") || arg.is_prefix_of("coin")
+		    ||   arg.is_prefix_of("silver")) {
 			if (ch->silver < amount) {
 				stc("You don't have that much silver.\n", ch);
 				return;
@@ -1027,7 +1027,7 @@ void do_drop(Character *ch, String argument)
 		return;
 	}
 
-	if (arg == "all" || !str_prefix1("all.", arg)) {
+	if (arg == "all" || arg.has_prefix("all.")) {
 		/* 'drop all' or 'drop all.obj' */
 		found = FALSE;
 
@@ -1697,7 +1697,7 @@ void do_fill(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (!arg.empty()) {
-		if (!str_prefix1(arg, "from"))
+		if (arg.is_prefix_of("from"))
 			argument = one_argument(argument, arg);
 
 		if (!arg.empty()) {
@@ -4426,7 +4426,7 @@ String anvil_owner_name(Object *anvil)
 	if (anvil->value[2] == 0) return "";
 
 	/* anvil name must begin with "anvil private " */
-	if (str_prefix1("anvil private ", anvil->name)) {
+	if (!anvil->name.has_prefix("anvil private ")) {
 		bug("anvil_owner_name: anvil %d has a private flag but incorrect name",
 		    anvil->pIndexData->vnum);
 		return "";
@@ -4688,7 +4688,7 @@ void do_forge(Character *ch, String argument)
 	}
 
 	/* check for FORGE FLAG */
-	if (!str_prefix1(type, "flag")) {
+	if (type.is_prefix_of("flag")) {
 		if (!deduct_stamina(ch, gsn_forge))
 			return;
 
@@ -5124,11 +5124,11 @@ void do_weddingring(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "long")) {
+	if (arg1.is_prefix_of("long")) {
 		ptc(ch, "The long description of your weddingring is now:\n{x'%s{x'.\n", argument);
 		ring->description = argument;
 	}
-	else if (!str_prefix1(arg1, "short")) {
+	else if (arg1.is_prefix_of("short")) {
 		ptc(ch, "The short description of your weddingring is now:\n{x'%s{x'.\n", argument);
 		ring->short_descr = argument;
 	}

@@ -318,7 +318,7 @@ void do_locker(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "get")) {
+	if (arg2.is_prefix_of("get")) {
 		if ((obj = get_obj_list(ch, argument, victim->pcdata->locker)) == NULL) {
 			stc("You do not see that in their locker.\n", ch);
 			return;
@@ -330,7 +330,7 @@ void do_locker(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "put")) {
+	if (arg2.is_prefix_of("put")) {
 		if ((obj = get_obj_carry(ch, argument)) == NULL) {
 			stc("You do not have that item.\n", ch);
 			return;
@@ -384,7 +384,7 @@ void do_strongbox(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "get")) {
+	if (arg2.is_prefix_of("get")) {
 		if ((obj = get_obj_list(ch, argument, victim->pcdata->strongbox)) == NULL) {
 			stc("You do not see that in their strongbox.\n", ch);
 			return;
@@ -396,7 +396,7 @@ void do_strongbox(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg2, "put")) {
+	if (arg2.is_prefix_of("put")) {
 		if ((obj = get_obj_carry(ch, argument)) == NULL) {
 			stc("You do not have that item.\n", ch);
 			return;
@@ -609,7 +609,7 @@ void do_revoke(Character *ch, String argument)
 	}
 
 	for (i = 0; revoke_table[i].name != NULL; i++) {
-		if (str_prefix1(arg2, revoke_table[i].name))
+		if (!arg2.is_prefix_of(revoke_table[i].name))
 			continue;
 
 		if (IS_SET(victim->revoke, revoke_table[i].bit)) {
@@ -751,11 +751,11 @@ void do_tail(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "stop")) {
+	if (arg.is_prefix_of("stop")) {
 		if (!set_tail(ch, victim, TAIL_NONE))
 			stc("You were not tailing them.\n", ch);
 	}
-	else if (!str_prefix1(arg, "actions")) {
+	else if (arg.is_prefix_of("actions")) {
 		set_tail(ch, victim, TAIL_ACT);
 		ch->pcdata->tailing = TRUE;
 		Format::sprintf(buf, "$N has begun tailing %s.", PERS(victim, ch, VIS_PLR));

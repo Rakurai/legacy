@@ -37,36 +37,6 @@ const char *smash_bracket(const String& s)
 	return retstr;
 }
 
-/*
- * Compare strings, case insensitive, for prefix matching.
- * Return TRUE if astr NOT a prefix of bstr
- *   (compatibility with historical functions).
- */
-bool str_prefix(const String& astr, const String& bstr)
-{
-	if (bstr.size() < astr.size())
-		return TRUE;
-
-	for (const char *a = astr.c_str(), *b = bstr.c_str(); *a && *b; a++, b++)
-		if (LOWER(*a) != LOWER(*b))
-			return TRUE;
-
-	return FALSE;
-}
-
-/*
- * Compare strings, case insensitive, for prefix matching.
- * Return TRUE if astr NOT a prefix of bstr
- *   (compatibility with historical functions).
- * like str_prefix, but insists on at least 1 matching char.
- */
-bool str_prefix1(const String& astr, const String& bstr)
-{
-	if (astr.empty())
-		return TRUE;
-
-	return str_prefix(astr, bstr);
-}
 
 /*
  * Compare strings, case insensitive, for match anywhere.
@@ -86,7 +56,7 @@ bool str_infix(const String& a, const String& b)
 	sstr2 = strlen(bstr);
 
 	for (ichar = 0; ichar <= sstr2 - sstr1; ichar++)
-		if (c0 == LOWER(bstr[ichar]) && !str_prefix(astr, bstr + ichar))
+		if (c0 == LOWER(bstr[ichar]) && a.has_prefix(bstr + ichar))
 			return FALSE;
 
 	return TRUE;
@@ -228,10 +198,10 @@ bool is_name(const String& s, const String& nl, bool exact)
 					break;
 			}
 			else {
-				if (!str_prefix1(s, name))
+				if (s.is_prefix_of(name))
 					return TRUE; /* full pattern match */
 
-				if (!str_prefix1(part, name))
+				if (part.is_prefix_of(name))
 					break;
 			}
 		}

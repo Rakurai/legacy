@@ -553,7 +553,7 @@ void do_duel(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
 
-	if (!str_prefix1(arg1, "arena")) {
+	if (arg1.is_prefix_of("arena")) {
 		if (arg2.empty()) {
 			stc("Keyword:        Name:\n", ch);
 
@@ -565,7 +565,7 @@ void do_duel(Character *ch, String argument)
 		}
 
 		for (arena = arena_table_head->next; arena != arena_table_tail; arena = arena->next)
-			if (!str_prefix1(arg2, arena->keyword))
+			if (arg2.is_prefix_of(arena->keyword))
 				break;
 
 		if (arena == arena_table_tail) {
@@ -577,7 +577,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "decline")) {
+	if (arg1.is_prefix_of("decline")) {
 		if ((duel = get_duel(ch)) == NULL || duel->defender != ch) {
 			stc("No duel has been issued to you.\n", ch);
 			return;
@@ -602,7 +602,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "ignore")) {
+	if (arg1.is_prefix_of("ignore")) {
 		if (IS_IMMORTAL(ch)) {
 			stc("Immortals cannot duel.\n", ch);
 			return;
@@ -630,7 +630,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "issue")) {
+	if (arg1.is_prefix_of("issue")) {
 		if (ch->level < 10 && !IS_REMORT(ch)) {
 			stc("You cannot duel until you are level 10.\n", ch);
 			return;
@@ -732,7 +732,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "accept")) {
+	if (arg1.is_prefix_of("accept")) {
 		if (IS_IMMORTAL(ch)) {
 			stc("Immortals cannot duel.\n", ch);
 			return;
@@ -772,7 +772,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(arg1, "view")) {
+	if (arg1.is_prefix_of("view")) {
 		duel = duel_table_head->next;
 
 		while (duel != duel_table_tail) {

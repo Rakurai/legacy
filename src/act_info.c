@@ -1521,7 +1521,7 @@ void do_prompt(Character *ch, String argument)
 		buf += argument;
 		buf.erase(MAX_PROMPT_LEN);
 
-		if (str_suffix("%c", buf))
+		if (buf.has_suffix("%c"))
 			buf += " ";
 	}
 
@@ -1695,7 +1695,7 @@ void do_look(Character *ch, String argument)
 		    && ch != duel->defender) {
 			if (can_see_char(ch, duel->challenger)
 			    && !IS_SET(GET_ROOM_FLAGS(duel->challenger->in_room), ROOM_NOWHERE)
-			    && !str_prefix1(arg1, duel->challenger->name)) {
+			    && arg1.is_prefix_of(duel->challenger->name)) {
 				char_from_room(ch);
 				char_to_room(ch, duel->challenger->in_room);
 				do_look(ch, "");
@@ -1706,7 +1706,7 @@ void do_look(Character *ch, String argument)
 
 			if (can_see_char(ch, duel->defender)
 			    && !IS_SET(GET_ROOM_FLAGS(duel->defender->in_room), ROOM_NOWHERE)
-			    && !str_prefix1(arg1, duel->defender->name)) {
+			    && arg1.is_prefix_of(duel->defender->name)) {
 				char_from_room(ch);
 				char_to_room(ch, duel->defender->in_room);
 				do_look(ch, "");
@@ -1727,7 +1727,7 @@ void do_look(Character *ch, String argument)
 		}
 
 		/* Stuff for Lockers */
-		if (!str_prefix1(arg2, "locker") && !IS_NPC(ch)) {
+		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
 			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
 				stc("Your locker contains:\n", ch);
 				SET_BIT(ch->act_flags, PLR_LOOKINPIT);
@@ -1741,7 +1741,7 @@ void do_look(Character *ch, String argument)
 		}
 
 		/* Stuff for strongboxes -- Elrac */
-		if (!IS_NPC(ch) && !str_prefix1(arg2, "strongbox")) {
+		if (!IS_NPC(ch) && arg2.is_prefix_of("strongbox")) {
 			if (!IS_HEROIC(ch)) {
 				stc("Only heroes and former heroes have a strongbox.\n", ch);
 				return;
@@ -2010,10 +2010,10 @@ void do_examine(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	/* enable "examine locker" -- Elrac */
-	if (!str_prefix1(argument, "locker"))
+	if (argument.is_prefix_of("locker"))
 		arg = "in locker";
 
-	if (!str_prefix1(argument, "strongbox"))
+	if (argument.is_prefix_of("strongbox"))
 		arg = "in strongbox";
 
 	do_look(ch, arg);
@@ -2521,7 +2521,7 @@ void do_who(Character *ch, String argument)
 			/* Look for classes to turn on. */
 			if (arg[0] == 'i')
 				fImmortalOnly = TRUE;
-			else if (!str_prefix1(arg, "pk"))
+			else if (arg.is_prefix_of("pk"))
 				fPK = TRUE;
 			else if (arg == "clan")
 				fClanRestrict = TRUE;
@@ -2627,8 +2627,8 @@ void do_who(Character *ch, String argument)
 		if (IS_IMMORTAL(wch) && !wch->pcdata->immname.empty()) {
 			/* copy immname without the brackets */
 			block1 = wch->pcdata->immname
-				.substr(wch->pcdata->immname.find('['))
-				.substr(0, wch->pcdata->immname.find(']'));
+				.substr(wch->pcdata->immname.find("["))
+				.substr(0, wch->pcdata->immname.find("]"));
 		}
 		else {
 			if (char_at_war(wch)) {
@@ -3549,7 +3549,7 @@ void do_report(Character *ch, String argument)
 }
 
 /* PRACTICE list of skills and spells, sorted by group -- Elrac */
-void prac_by_group(Character *ch, const char *argument)
+void prac_by_group(Character *ch, const String& argument)
 {
 	int gt;
 	const struct group_type *gp;
@@ -3570,7 +3570,7 @@ void prac_by_group(Character *ch, const char *argument)
 		if (gp->rating[ch->cls] < 0)      /* ignore things not in class */
 			continue;
 
-		if (argument && argument[0] && str_prefix1(argument, gp->name))
+		if (!argument.empty() && !argument.is_prefix_of(gp->name))
 			continue;
 
 		group_first = TRUE;
@@ -3656,7 +3656,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 		if (ch->pcdata->learned[sn] <= 0)
 			continue; /* player doesn't know skill */
 
-		if (!arg.empty() && str_prefix1(arg, skill_table[sn].name))
+		if (!arg.empty() && !arg.is_prefix_of(skill_table[sn].name))
 			continue;
 
 		/* skill is known. Insertion sort into slist by appropriate key. */
@@ -3737,12 +3737,12 @@ void do_practice(Character *ch, String argument)
 		prac_by_key(ch, "abc", "");
 		return;
 	}
-	else if (!str_prefix1(arg, "groups")) {
+	else if (arg.is_prefix_of("groups")) {
 		prac_by_group(ch, argtail);
 		return;
 	}
-	else if (!str_prefix1(arg, "abc") ||
-	         !str_prefix1(arg, "%")) {
+	else if (arg.is_prefix_of("abc") ||
+	         arg.is_prefix_of("%")) {
 		prac_by_key(ch, arg, argtail);
 		return;
 	}
@@ -4337,7 +4337,7 @@ void do_rank(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(argument, "none")) {
+	if (argument.is_prefix_of("none")) {
 		stc("Clan rank removed.\n", ch);
 		stc("Your clan rank has been removed.\n", victim);
 		victim->pcdata->rank.erase();
@@ -4602,7 +4602,7 @@ void do_pit(Character *ch, String argument)
 		level2 = UMAX(num2, level1);
 	}
 
-	if (!str_prefix1("wear", keywords)) {
+	if (keywords.has_prefix("wear")) {
 	 	fwear = TRUE;
 	 	fname = FALSE;
 		keywords = one_argument(keywords, arg); // strip off the "wear "
@@ -4625,7 +4625,7 @@ void do_pit(Character *ch, String argument)
 			keywords = "wearable items";
 		}
 	}
-	else if (!str_prefix1("weapon", keywords)) {
+	else if (keywords.has_prefix("weapon")) {
 		fweapon = TRUE;
 	 	fname = FALSE;
 		keywords = one_argument(keywords, arg); // strip off the "weapon "

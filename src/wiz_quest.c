@@ -334,7 +334,7 @@ void do_string(Character *ch, String argument)
 		return;
 	}
 
-	if (!str_prefix1(type, "character") || !str_prefix1(type, "mobile")) {
+	if (type.is_prefix_of("character") || type.is_prefix_of("mobile")) {
 		if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
 			stc("They aren't here.\n", ch);
 			return;
@@ -347,7 +347,7 @@ void do_string(Character *ch, String argument)
 
 		/* string something */
 
-		if (!str_prefix1(arg2, "spouse")) {
+		if (arg2.is_prefix_of("spouse")) {
 			if (IS_NPC(victim)) {
 				stc("Not a good idea.\n", ch);
 				return;
@@ -365,7 +365,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "name")) {
+		if (arg2.is_prefix_of("name")) {
 			if (!IS_NPC(victim)) {
 				stc("You can't change a player's name!\n", ch);
 				return;
@@ -377,21 +377,21 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "description")) {
+		if (arg2.is_prefix_of("description")) {
 			victim->description = arg3;
 			Format::sprintf(buf, "%s's description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "short")) {
+		if (arg2.is_prefix_of("short")) {
 			victim->short_descr = arg3;
 			Format::sprintf(buf, "%s's short description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "long")) {
+		if (arg2.is_prefix_of("long")) {
 			arg3 += "\n";
 			victim->long_descr = arg3;
 			Format::sprintf(buf, "%s's long description has been changed to %s", victim->name, arg3);
@@ -399,7 +399,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "title")) {
+		if (arg2.is_prefix_of("title")) {
 			if (IS_NPC(victim)) {
 				stc("Mobiles don't have a title, silly!\n", ch);
 				return;
@@ -411,7 +411,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "spec")) {
+		if (arg2.is_prefix_of("spec")) {
 			if (!IS_NPC(victim)) {
 				stc("Players don't have specfuns, silly!\n", ch);
 				return;
@@ -428,7 +428,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "deity")) {
+		if (arg2.is_prefix_of("deity")) {
 			if (IS_NPC(victim)) {
 				stc("Mobiles are all atheists!\n", ch);
 				return;
@@ -440,7 +440,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "status")) {
+		if (arg2.is_prefix_of("status")) {
 			if (IS_NPC(victim)) {
 				stc("A mobile has no status to change!\n", ch);
 				return;
@@ -453,7 +453,7 @@ void do_string(Character *ch, String argument)
 		}
 	}
 
-	if (!str_prefix1(type, "object")) {
+	if (type.is_prefix_of("object")) {
 		/* string an obj */
 		if ((obj = get_obj_carry(ch, arg1)) == NULL
 		    && (obj = get_obj_wear(ch, arg1)) == NULL
@@ -463,28 +463,28 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "name")) {
+		if (arg2.is_prefix_of("name")) {
 			Format::sprintf(buf, "%s is now known as %s.\n", obj->name, arg3);
 			obj->name = arg3;
 			stc(buf, ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "short")) {
+		if (arg2.is_prefix_of("short")) {
 			Format::sprintf(buf, "%s's short description has been changed to %s.\n", obj->short_descr, arg3);
 			obj->short_descr = arg3;
 			stc(buf, ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "long")) {
+		if (arg2.is_prefix_of("long")) {
 			Format::sprintf(buf, "%s's long description has been changed to %s.\n", obj->short_descr, arg3);
 			obj->description = arg3;
 			stc(buf, ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "material")) {
+		if (arg2.is_prefix_of("material")) {
 			Format::sprintf(buf, "%s suddenly warps into %s as %s glows brightly.\n",
 			        obj->material, arg3, obj->short_descr);
 			obj->material = arg3;
@@ -492,7 +492,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (arg2 == "ed" || !str_prefix1(arg2, "extended")) {
+		if (arg2 == "ed" || arg2.is_prefix_of("extended")) {
 			ExtraDescr *ed;
 			argument = one_argument(argument, arg3);
 
@@ -536,7 +536,7 @@ void do_string(Character *ch, String argument)
 			return;
 		}
 
-		if (!str_prefix1(arg2, "more")) {
+		if (arg2.is_prefix_of("more")) {
 			ExtraDescr *ed;
 			buf.erase();
 			argument = one_argument(argument, arg3);
@@ -581,14 +581,14 @@ void do_string(Character *ch, String argument)
 	}
 
 	/* Room Strings by Lotus */
-	if (!str_prefix1(type, "room")) {
+	if (type.is_prefix_of("room")) {
 		if ((room = get_room_index(atoi(arg1))) == NULL) {
 			Format::sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
 			stc(buf, ch);
 			return;
 		}
 
-		if (!str_prefix1(arg2, "name")) {
+		if (arg2.is_prefix_of("name")) {
 			room->name = arg3;
 			Format::sprintf(buf, "Room %d's name has been changed to %s.\n",
 			        atoi(arg1), arg3);
@@ -752,10 +752,10 @@ bool setup_obj(Character *ch, Object *obj, String argument)
 	                        };
 
 	                        if (arg1.empty())                    type = TOKEN_NONE;
-	                        else if (!str_prefix1(arg1, "wild"))    type = TOKEN_WILD;
-	                        else if (!str_prefix1(arg1, "trivia"))  type = TOKEN_TRIVIA;
-	                        else if (!str_prefix1(arg1, "hidden"))  type = TOKEN_HIDDEN;
-	                        else if (!str_prefix1(arg1, "quest"))   type = TOKEN_QUEST;
+	                        else if (arg1.is_prefix_of("wild"))    type = TOKEN_WILD;
+	                        else if (arg1.is_prefix_of("trivia"))  type = TOKEN_TRIVIA;
+	                        else if (arg1.is_prefix_of("hidden"))  type = TOKEN_HIDDEN;
+	                        else if (arg1.is_prefix_of("quest"))   type = TOKEN_QUEST;
 	                        else
 	                        {
 	                                stc("Valid token types are quest, hidden, trivia, and wild,\n"
