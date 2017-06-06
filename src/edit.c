@@ -796,16 +796,16 @@ static void edit_wrap(Character *ch, const String& argument)
 				if (strlen(word) == 0)
 					continue;
 
-				wordlen = color_strlen(word);
+				wordlen = String(word).uncolor().size();
 
 				/* If word is too long to fit in line, dump line and/or chop word. */
 				while (linelen + 1 + wordlen > WRAP_WIDTH) {
 					if (linelen == 0) {
-						for (wp = word; color_strlen(line) < WRAP_WIDTH;)
+						for (wp = word; String(line).uncolor().size() < WRAP_WIDTH;)
 							*lp++ = *wp++;
 
 						strcpy(word, --wp);
-						wordlen = color_strlen(word);
+						wordlen = String(word).uncolor().size();
 						lp--;
 					}
 

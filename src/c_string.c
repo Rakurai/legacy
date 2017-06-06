@@ -109,7 +109,7 @@ const char *strcenter(const String& s, int space)
 	int length;
 
 	/* if string is longer than the space, just cut it off and return it */
-	if ((length = color_strlen(str)) > space) {
+	if ((length = s.uncolor().size()) > space) {
 		Format::sprintf(output, "%s", str);
 		output[space] = '\0';
 	}
@@ -146,7 +146,7 @@ const char *center_string_in_whitespace(const String& s, int length)
 	char spacebuf[MAX_STRING_LENGTH];
 	static char buf[MAX_STRING_LENGTH];
 	int x, spaces;
-	spaces = (((length - color_strlen(str)) / 2));
+	spaces = (((length - s.uncolor().size()) / 2));
 	buf[0] = '\0';
 	spacebuf[0] = '\0';
 
@@ -158,11 +158,47 @@ const char *center_string_in_whitespace(const String& s, int length)
 	strcat(buf, str);
 	strcat(buf, spacebuf);
 
-	if (color_strlen(buf) == (length - 1))
+	if (String(buf).uncolor().size() == (length - 1))
 		strcat(buf, " ");
 
 	return buf;
 }
+
+/* Count characters in a string, ignoring color codes */
+/* color_strlen now counts {{s as a character, fixes a few bugs -- Montrey */
+int color_strlen(const String& argument)
+{
+	const char *str;
+	int length;
+
+	if (argument.empty())
+		return 0;
+
+	length = 0;
+	str = argument.c_str();
+
+	while (*str != '\0') {
+		if (*str != '{') {
+			str++;
+			length++;
+			continue;
+		}
+
+		if (*(++str) == '{')
+			length++;
+
+		str++;
+	}
+
+	return length;
+}
+
+/* Tell if a given string has a slash in it.
+   This is useful for making sure a given name is not a directory name. */
+bool has_slash(const char *str)
+{
+	return (strchr(str, '/') != NULL);
+} /* end has_slash() */
 
 /*
  * See if a string is one of the names of an object.

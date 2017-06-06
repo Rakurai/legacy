@@ -1694,42 +1694,6 @@ bool can_drop_obj(Character *ch, Object *obj)
 	return FALSE;
 }
 
-/* Count characters in a string, ignoring color codes */
-/* color_strlen now counts {{s as a character, fixes a few bugs -- Montrey */
-int color_strlen(const String& argument)
-{
-	const char *str;
-	int length;
-
-	if (argument.empty())
-		return 0;
-
-	length = 0;
-	str = argument.c_str();
-
-	while (*str != '\0') {
-		if (*str != '{') {
-			str++;
-			length++;
-			continue;
-		}
-
-		if (*(++str) == '{')
-			length++;
-
-		str++;
-	}
-
-	return length;
-}
-
-/* Tell if a given string has a slash in it.
-   This is useful for making sure a given name is not a directory name. */
-bool has_slash(const char *str)
-{
-	return (strchr(str, '/') != NULL);
-} /* end has_slash() */
-
 /* round to the nearest whole number, in increments */
 /*int round(float fNum, int iInc)
 {

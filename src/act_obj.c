@@ -4725,7 +4725,7 @@ void do_forge(Character *ch, String argument)
 		}
 	}
 
-	if (color_strlen(argument) > 30) {
+	if (argument.uncolor().size() > 30) {
 		stc("Name is limited to 30 printed characters.\n", ch);
 		return;
 	}
@@ -4930,7 +4930,7 @@ void do_engrave(Character *ch, String argument)
 
 	/* Imms have no length limit. Please don't overdo it! */
 	/* If you change this, remember that the jeweler can == NULL for imms! */
-	if (!IS_IMMORTAL(ch) && color_strlen(argument) > 75) {
+	if (!IS_IMMORTAL(ch) && argument.uncolor().size() > 75) {
 		check_social(jeweler, "snort", "");
 		/* ENGRAVE 123456789012345678901234567890123456789012345678901234567890123456789012345 */
 		stc("       \"The blade of a weapon is not suited for the Great Theran Novel!\"\n", ch);
@@ -5112,7 +5112,7 @@ void do_weddingring(Character *ch, String argument)
 		goto help;
 
 	if (!IS_IMMORTAL(ch))
-		price = 2 * color_strlen(argument);
+		price = 2 * argument.uncolor().size();
 
 	if (price > 100 && !IS_IMMORTAL(ch)) {
 		stc("The jeweler exclaims 'That's too long! It'll never fit on such a tiny ring!\n", ch);

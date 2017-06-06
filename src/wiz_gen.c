@@ -1339,7 +1339,7 @@ void do_followerlist(Character *ch, String argument)
 	int count = 0;
 	while (db_next_row() == SQL_OK) {
 		count++;
-		int space = 50 - color_strlen(db_get_column_str(1));
+		int space = 50 - String(db_get_column_str(1)).uncolor().size();
 		String deityblock = "{W";
 
 		while (space-- >= 0)
@@ -2325,7 +2325,7 @@ void do_olevel(Character *ch, String argument)
 
 		if (found) {
 			Format::sprintf(tmpbuf, "[%%4d][%%5d] %%-%zus{x [%%s]\n",
-			        45 + (strlen(pObjIndex->short_descr) - color_strlen(pObjIndex->short_descr)));
+			        45 + (strlen(pObjIndex->short_descr) - pObjIndex->short_descr.uncolor().size()));
 			Format::sprintf(buf, tmpbuf, pObjIndex->level, pObjIndex->vnum,
 			        pObjIndex->short_descr, wear_bit_name(pObjIndex->wear_flags));
 			buffer += buf;
@@ -2400,7 +2400,7 @@ void do_mlevel(Character *ch, String argument)
 			if ((blevel <= pMobIndex->level) && (elevel >= pMobIndex->level)) {
 				found = TRUE;
 				Format::sprintf(tmpbuf, "[%%3d][%%5d] %%-%zus (Align: %%d)\n",
-				        40 + (strlen(pMobIndex->short_descr) - color_strlen(pMobIndex->short_descr)));
+				        40 + (strlen(pMobIndex->short_descr) - pMobIndex->short_descr.uncolor().size()));
 				Format::sprintf(buf, tmpbuf,
 				        pMobIndex->level, pMobIndex->vnum,
 				        pMobIndex->short_descr, pMobIndex->alignment);
@@ -2692,7 +2692,7 @@ void do_mwhere(Character *ch, String argument)
 		Format::sprintf(buf, "[%5d] %s%*s[%5d] %s\n",
 		        victim->pIndexData->vnum,
 		        victim->short_descr,
-		        28 - color_strlen(victim->short_descr),
+		        28 - victim->short_descr.uncolor().size(),
 		        " ",
 		        victim->in_room->vnum,
 		        victim->in_room->name);
@@ -3334,7 +3334,7 @@ void setgameinout(Character *ch, String argument, const String& entryexit, char 
 		act("OK, $N no longer has a game $t string",
 		    ch, entryexit, victim, TO_CHAR);
 	}
-	else if (color_strlen(argument) > 70) {
+	else if (argument.uncolor().size() > 70) {
 		act("This message is too long. Please try to think of something shorter!",
 		    ch, NULL, NULL, TO_CHAR);
 		stc("THIS is how long the message is allowed to be:\n", ch);
@@ -3984,7 +3984,7 @@ void do_aura(Character *ch, String argument)
 		return;
 	}
 
-	if (color_strlen(argument) > 30) {
+	if (argument.uncolor().size() > 30) {
 		stc("An aura cannot be longer than 30 printed characters.\n", ch);
 		return;
 	}
@@ -4016,7 +4016,7 @@ void do_bamfin(Character *ch, String argument)
 		return;
 	}
 
-	if (color_strlen(argument) > 300) {
+	if (argument.uncolor().size() > 300) {
 		stc("Poofins cannot be longer than 300 characters, counting color codes.\n", ch);
 		return;
 	}
@@ -4042,7 +4042,7 @@ void do_bamfout(Character *ch, String argument)
 		return;
 	}
 
-	if (color_strlen(argument) > 300) {
+	if (argument.uncolor().size() > 300) {
 		stc("Poofouts cannot be longer than 300 characters, counting color codes.\n", ch);
 		return;
 	}

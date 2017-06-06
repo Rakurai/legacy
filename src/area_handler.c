@@ -1435,7 +1435,7 @@ void do_areas(Character *ch, String argument)
 
 		Format::sprintf(buf + strlen(buf),
 		        "<%s> %-s{a{x%*s%-s{a{x\n", range,
-		        ap->title, 25 - color_strlen(ap->title), " ",
+		        ap->title, 25 - ap->title.uncolor().size(), " ",
 		        ap->author);
 		dbuf += buf;
 	}

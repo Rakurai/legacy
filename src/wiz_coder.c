@@ -184,7 +184,7 @@ void do_mypipe(Character *ch, String argument)
 		strcpy(line, "{n {x");
 
 		for (i = 0; i < numfields; i++) {
-			int wlen = lengths[i] - color_strlen(row[x][i]);
+			int wlen = lengths[i] - row[x][i].uncolor().size();
 			line += " ";
 
 			if (row[x][i])

@@ -298,7 +298,7 @@ void do_vlist(Character *ch, String argument)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 
 			Format::sprintf(buf, "%s%*s", mobile->short_descr,
-			        30 - color_strlen(mobile->short_descr), " ");
+			        30 - mobile->short_descr.uncolor().size(), " ");
 			/* Format::sprintf(buf, "%-30s ",mobile->short_descr); Color corrected -- Elrac */
 			totalbuf += buf;
 			found = TRUE;

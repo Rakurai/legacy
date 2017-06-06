@@ -2729,8 +2729,7 @@ void do_who(Character *ch, String argument)
 void do_swho(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	char roombuf[MAX_STRING_LENGTH];
-	String output;
+	String roombuf, output;
 	Descriptor *d;
 	output += "{WRP PK NH PB QW SQ NT  Name          Pos'n   Room Name{x\n";
 	output += "{W----------------------------------------------------------------------------{x\n";
@@ -2773,24 +2772,24 @@ void do_swho(Character *ch, String argument)
 		/* Imms can now see rooms of privated mortals -- Elrac */
 		if (!IS_SET(wch->pcdata->plr, PLR_PRIVATE)) {
 			int l;
-			strcpy(roombuf, wch->in_room->name);
+			roombuf = wch->in_room->name;
 			l = strlen(roombuf);
 
-			while (color_strlen(roombuf) > 37)
+			while (roombuf.uncolor().size() > 37)
 				roombuf[--l] = '\0';
 		}
 		else if (!IS_IMMORTAL(ch) || IS_IMMORTAL(wch))
 			Format::sprintf(roombuf, "Private");
 		else {
 			int l;
-			strcpy(roombuf + 1, wch->in_room->name);
-			roombuf[0] = '~';
+			roombuf = Format::format("~%s", wch->in_room->name);
+
 			l = strlen(roombuf);
 
-			while (color_strlen(roombuf) > 36)
-				roombuf[--l] = '\0';
+			while (roombuf.uncolor().size() > 36)
+				roombuf.pop_back();
 
-			strcpy(roombuf + l, "{V~");
+			roombuf += "{V~";
 		}
 
 		Format::sprintf(buf, "{b[%s][%s][%s][%s][%s][%s][%s{b] {W%-12s {R({P%s{R) {M<{V%s{M>\n",
@@ -3325,16 +3324,12 @@ void do_title(Character *ch, String argument)
 		return;
 	}
 
-	char buf[150];
-	buf[0] = '\0';
-	strncat(buf, argument, 150);
-
-	if (color_strlen(buf) > 45) {
+	if (argument.uncolor().size() > 45) {
 		stc("Titles can't be longer than 45 printed characters.\n", ch);
 		return;
 	}
 
-	set_title(ch, buf);
+	set_title(ch, argument);
 	ptc(ch, "Title changed to: %s\n", ch->pcdata->title);
 }
 
@@ -4344,7 +4339,7 @@ void do_rank(Character *ch, String argument)
 		return;
 	}
 
-	if (color_strlen(argument) > 3) {
+	if (argument.uncolor().size() > 3) {
 		stc("String cannot be longer than 3 printed characters.\n", ch);
 		return;
 	}
