@@ -1,6 +1,9 @@
 #pragma once
 
-class Duel;
+#include <vector>
+#include <map>
+#include "declare.h"
+#include "String.hpp"
 
 /*
  * Data which only PC's have.
@@ -8,7 +11,7 @@ class Duel;
 class Player
 {
 public:
-	Player() {}
+	Player();
 	virtual ~Player() {}
 
 	Player *            next = NULL;
@@ -47,8 +50,8 @@ public:
 	int                 played = 0;
 	int                 backup = 0;
 	sh_int              condition      [4] = {0};
-	sh_int              learned        [MAX_SKILL] = {0};
-	sh_int		        evolution      [MAX_SKILL] = {0};
+	std::vector<sh_int> learned;
+	std::vector<sh_int> evolution;
 	int			        skillpoints = 0;
 	int                 squest_giver = 0;
 	sh_int              nextsquest = 0;
@@ -59,7 +62,7 @@ public:
 	bool		        squestmobf = FALSE;
 	int			        squestloc1 = 0; /* obj */
 	int			        squestloc2 = 0;	/* mob */
-	bool                group_known    [MAX_GROUP] = {0};
+	std::vector<bool>   group_known;
 	int			        rolepoints = 0;
 	sh_int              points = 0;
 	sh_int              confirm_delete = 0;

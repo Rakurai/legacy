@@ -148,7 +148,7 @@ int race_lookup(const String& name)
 {
 	int race;
 
-	for (race = 0; race_table[race].name != NULL; race++) {
+	for (race = 0; race < race_table.size(); race++) {
 		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
 		    &&  name.is_prefix_of(race_table[race].name))
 			return race;
@@ -161,7 +161,7 @@ int liq_lookup(const String& name)
 {
 	int liq;
 
-	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
+	for (liq = 0; liq < liq_table.size(); liq++) {
 		if (LOWER(name[0]) == LOWER(liq_table[liq].liq_name[0])
 		    && name.is_prefix_of(liq_table[liq].liq_name))
 			return liq;
@@ -174,7 +174,7 @@ int weapon_lookup(const String& name)
 {
 	int type;
 
-	for (type = 0; weapon_table[type].name != NULL; type++) {
+	for (type = 0; type < weapon_table.size(); type++) {
 		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
 		    &&  name.is_prefix_of(weapon_table[type].name))
 			return type;
@@ -183,11 +183,11 @@ int weapon_lookup(const String& name)
 	return -1;
 }
 
-int weapon_type(const String& name)
+int get_weapon_type(const String& name)
 {
 	int type;
 
-	for (type = 0; weapon_table[type].name != NULL; type++) {
+	for (type = 0; type < weapon_table.size(); type++) {
 		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
 		    &&  name.is_prefix_of(weapon_table[type].name))
 			return weapon_table[type].type;
@@ -200,7 +200,7 @@ int item_lookup(const String& name)
 {
 	int type;
 
-	for (type = 0; item_table[type].name != NULL; type++) {
+	for (type = 0; type < item_table.size(); type++) {
 		if (LOWER(name[0]) == LOWER(item_table[type].name[0])
 		    &&  name.is_prefix_of(item_table[type].name))
 			return item_table[type].type;
@@ -213,7 +213,7 @@ int attack_lookup(const String& name)
 {
 	int att;
 
-	for (att = 0; attack_table[att].name != NULL; att++) {
+	for (att = 0; att < attack_table.size(); att++) {
 		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
 		    &&  name.is_prefix_of(attack_table[att].name))
 			return att;
@@ -258,7 +258,7 @@ int get_skill(const Character *ch, int sn)
 
 	if (sn == -1) /* shorthand for level based skills */
 		skill = ch->level * 5 / 2;
-	else if (sn < -1 || sn > MAX_SKILL) {
+	else if (sn < -1 || sn > skill_table.size()) {
 		bug("Bad sn %d in get_skill.", sn);
 		skill = 0;
 	}
@@ -336,7 +336,7 @@ int deity_lookup(const String& name)
 {
 	int deity;
 
-	for (deity = 0; deity_table[deity].name != NULL; deity++) {
+	for (deity = 0; deity < deity_table.size(); deity++) {
 		if (name.is_prefix_of(deity_table[deity].name))
 			return deity;
 	}
@@ -1721,7 +1721,7 @@ int parse_deity(const String& dstring)
 	if (dstring.empty())
 		return -1;
 
-	for (i = 0; deity_table[i].name; i++)
+	for (i = 0; i < deity_table.size(); i++)
 		if (strstr(dstring.uncolor(), deity_table[i].name))
 			return i;
 

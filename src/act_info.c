@@ -2482,7 +2482,7 @@ void do_who(Character *ch, String argument)
 	int iClass, iRace, iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
-	bool rgfClass[MAX_CLASS], rgfRace[MAX_PC_RACE];
+	bool rgfClass[MAX_CLASS], rgfRace[pc_race_table.size()];
 	bool fClassRestrict = FALSE, fClanRestrict = FALSE, fRaceRestrict = FALSE, fImmortalOnly = FALSE;
 	bool fClan = FALSE;
 	bool fPK = FALSE;
@@ -2495,7 +2495,7 @@ void do_who(Character *ch, String argument)
 	for (iClass = 0; iClass < MAX_CLASS; iClass++)
 		rgfClass[iClass] = FALSE;
 
-	for (iRace = 0; iRace < MAX_PC_RACE; iRace++)
+	for (iRace = 0; iRace < pc_race_table.size(); iRace++)
 		rgfRace[iRace] = FALSE;
 
 	/* Parse arguments. */
@@ -2531,7 +2531,7 @@ void do_who(Character *ch, String argument)
 				if (iClass == -1) {
 					iRace = race_lookup(arg);
 
-					if (iRace == 0 || iRace >= MAX_PC_RACE) {
+					if (iRace == 0 || iRace >= pc_race_table.size()) {
 						if ((cch = clan_lookup(arg)) != NULL)
 							fClan = TRUE;
 						else {
@@ -3556,7 +3556,7 @@ void prac_by_group(Character *ch, const String& argument)
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
 	String output;
 
-	for (gt = 0; group_table[gt].name; gt++) { /* loop thru groups */
+	for (gt = 0; gt < group_table.size(); gt++) { /* loop thru groups */
 		if (!ch->pcdata->group_known[gt])   /* ignore groups the player doesn't have */
 			continue;
 
@@ -3570,10 +3570,7 @@ void prac_by_group(Character *ch, const String& argument)
 
 		group_first = TRUE;
 
-		for (js = 0; js < MAX_IN_GROUP; js++) { /* loop thru skills/spells */
-			if (gp->spells[js] == NULL)
-				break;
-
+		for (js = 0; js < gp->spells.size(); js++) { /* loop thru skills/spells */
 			sn = skill_lookup(gp->spells[js]);
 
 			if (sn == -1)
@@ -3627,7 +3624,7 @@ void prac_by_group(Character *ch, const String& argument)
 void prac_by_key(Character *ch, const String& key, const char *argument)
 {
 	int sn;             /* skill number */
-	int slist[MAX_SKILL];
+	int slist[skill_table.size()];
 	int nskills = 0;
 	int js;
 	int ip;
@@ -3640,7 +3637,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	argument = one_argument(argument, arg);
 
 	/* loop thru all skills */
-	for (sn = 0; sn < MAX_SKILL && skill_table[sn].name; sn++) {
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (skill_table[sn].remort_class > 0)
 			if (!CAN_USE_RSKILL(ch, sn))
 				continue;
@@ -4632,7 +4629,7 @@ void do_pit(Character *ch, String argument)
 			if (index == -1) {
 				stc("That is not a weapon type you can search for in the pit.\n", ch);
 				stc("Searchable weapon types are:\n  ", ch);
-				for (int i = 0; weapon_table[i].name != NULL; i++)
+				for (int i = 0; i < weapon_table.size(); i++)
 					ptc(ch, "%s ", weapon_table[i].name);
 				stc("\n", ch);
 				return;
@@ -5067,9 +5064,9 @@ void score_new(Character *ch)
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
 //	line  4:  .:.                        Male Dragon Mage                        .:.
 	Format::sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
-	buf += capitalize(race_table[ch->race].name);
+	buf += race_table[ch->race].name.capitalize();
 	buf += " ";
-	buf += capitalize(class_table[ch->cls].name);
+	buf += class_table[ch->cls].name.capitalize();
 	new_color(ch, CSLOT_SCORE_CLASS);
 	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", strcenter(buf, 62));
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(

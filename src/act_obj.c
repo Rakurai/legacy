@@ -2938,7 +2938,7 @@ void do_brandish(Character *ch, String argument)
 	}
 
 	if ((sn = staff->value[3]) < 0
-	    ||   sn >= MAX_SKILL
+	    ||   sn >= skill_table.size()
 	    ||   skill_table[sn].spell_fun == 0) {
 		bug("Do_brandish: bad sn %d.", sn);
 		return;
@@ -4770,7 +4770,7 @@ void do_forge(Character *ch, String argument)
 	for (const Affect *paf = affect_list_obj(material); paf; paf = paf->next)
 		affect_copy_to_obj(obj, paf);
 
-	obj->value[0] = weapon_type(type);
+	obj->value[0] = get_weapon_type(type);
 	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, argument.uncolor());
 	obj->name = buf;
 	Format::sprintf(sdesc, "%s{x", argument);

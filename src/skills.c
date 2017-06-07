@@ -39,7 +39,7 @@ bool completed_group(Character *ch, int gn)
 	if (ch->pcdata->group_known[gn])
 		return TRUE;
 
-	for (i = 0; group_table[gn].spells[i] != NULL; i++) {
+	for (i = 0; i < group_table[gn].spells.size(); i++) {
 		if ((ngn = group_lookup(group_table[gn].spells[i])) >= 0) {
 			if (group_table[ngn].rating[ch->cls] <= 0)
 				continue;
@@ -99,9 +99,9 @@ void do_spells(Character *ch, String argument)
 	int group = -1;
 	int gn, sn;
 	int j;
-	int group_list[MAX_GROUP];
+	int group_list[group_table.size()];
 	int ngroups = 0;
-	struct s_spell_info spell_list[MAX_SKILL];
+	struct s_spell_info spell_list[skill_table.size()];
 	int nspells = 0;
 	String arg, buf;
 	int cols = 0;
@@ -126,10 +126,7 @@ void do_spells(Character *ch, String argument)
 	/* kludge to build a list of only spell groups:
 	   spell groups are mixed with skill groups,
 	   but currently 'attack' is the first one. */
-	for (gn = group_lookup("attack"); gn < MAX_GROUP; gn++) {
-		if (group_table[gn].name == NULL)
-			break;
-
+	for (gn = group_lookup("attack"); gn < group_table.size(); gn++) {
 		group_list[ngroups++] = gn;
 	}
 
@@ -212,10 +209,7 @@ void do_spells(Character *ch, String argument)
 	/* build a list of spells satisfying the given criteria. */
 	if (group != -1) {
 		/* select spells from given group */
-		for (j = 0; j < MAX_IN_GROUP; j++) {
-			if (group_table[group].spells[j] == NULL)
-				break;
-
+		for (j = 0; j < group_table[group].spells.size(); j++) {
 			sn = skill_lookup(group_table[group].spells[j]);
 
 			if (sn == -1)
@@ -234,10 +228,7 @@ void do_spells(Character *ch, String argument)
 	}
 	else {
 		/* select spells from player's repertoire or by name */
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name == NULL)
-				break;
-
+		for (sn = 0; sn < skill_table.size(); sn++) {
 			level = skill_table[sn].skill_level[ch->cls];
 
 			if (level < min_level
@@ -363,7 +354,7 @@ void do_skills(Character *ch, String argument)
 	int max_level = LEVEL_HERO;
 	int sn;
 	int j;
-	struct s_spell_info skill_list[MAX_SKILL];
+	struct s_spell_info skill_list[skill_table.size()];
 	int nskills = 0;
 	String buf;
 	int cols = 0;
@@ -420,10 +411,7 @@ void do_skills(Character *ch, String argument)
 	}
 
 	/* select skills from player's repertoire or by name */
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		level = skill_table[sn].skill_level[ch->cls];
 
 		if (level < min_level
@@ -552,10 +540,7 @@ void do_levels(Character *ch, String argument)
 		else {
 			stc("Skill/Spell           Mag Cle Thi War Nec Pdn Bar Ran\n\n", ch);
 
-			for (sn = 0; sn < MAX_SKILL; sn++) {
-				if (skill_table[sn].name == NULL)
-					break;
-
+			for (sn = 0; sn < skill_table.size(); sn++) {
 				if (skill_table[sn].remort_class < 0) /* for completely ungainable spells/skills */
 					continue;
 
@@ -588,13 +573,10 @@ void do_levels(Character *ch, String argument)
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
 		for (x = 0; x < MAX_CLASS; x++) {
-			Format::sprintf(buf, "{W%s Skills:{x\n", capitalize(class_table[x].name));
+			Format::sprintf(buf, "{W%s Skills:{x\n", class_table[x].name.capitalize());
 			buffer += buf;
 
-			for (sn = 0; sn < MAX_SKILL; sn++) {
-				if (skill_table[sn].name == NULL)
-					break;
-
+			for (sn = 0; sn < skill_table.size(); sn++) {
 				if (skill_table[sn].remort_class != x + 1)
 					continue;
 
@@ -639,10 +621,7 @@ void do_levels(Character *ch, String argument)
 	}
 
 
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (skill_table[sn].skill_level[cls] < 0)
 			continue;
 
@@ -675,10 +654,7 @@ void do_levels(Character *ch, String argument)
 		list[lev][0] = '\0';
 	}
 
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (skill_table[sn].skill_level[ch->cls] < 0)
 			continue;
 
@@ -717,7 +693,7 @@ void list_group_costs(Character *ch)
 	ptc(ch, "%-18s %-5s %-18s %-5s %-18s %-5s\n",
 	    "group", "cp", "group", "cp", "group", "cp");
 
-	for (gn = 0; group_table[gn].name != NULL; gn++) {
+	for (gn = 0; gn < group_table.size(); gn++) {
 		if (!ch->gen_data->group_chosen[gn]
 		    && !ch->pcdata->group_known[gn]
 		    && group_table[gn].rating[ch->cls] > 0) {
@@ -735,7 +711,7 @@ void list_group_costs(Character *ch)
 
 	ptc(ch, "\n%-18s %-5s %-18s %-5s %-18s %-5s\n", "skill", "cp", "skill", "cp", "skill", "cp");
 
-	for (sn = 0, col = 0; skill_table[sn].name != NULL; sn++) {
+	for (sn = 0, col = 0; sn < skill_table.size(); sn++) {
 		if (skill_table[sn].remort_class > 0)
 			continue;
 
@@ -773,10 +749,7 @@ void list_group_chosen(Character *ch)
 	Format::sprintf(buf, "%-18s %-5s %-18s %-5s %-18s %-5s", "group", "cp", "group", "cp", "group", "cp\n");
 	stc(buf, ch);
 
-	for (gn = 0; gn < MAX_GROUP; gn++) {
-		if (group_table[gn].name == NULL)
-			break;
-
+	for (gn = 0; gn < group_table.size(); gn++) {
 		if (ch->gen_data->group_chosen[gn]
 		    &&  group_table[gn].rating[ch->cls] > 0) {
 			Format::sprintf(buf, "%-18s %-5d ", group_table[gn].name,
@@ -796,10 +769,7 @@ void list_group_chosen(Character *ch)
 	Format::sprintf(buf, "%-18s %-5s %-18s %-5s %-18s %-5s", "skill", "cp", "skill", "cp", "skill", "cp\n");
 	stc(buf, ch);
 
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (ch->gen_data->skill_chosen[sn]
 		    &&  skill_table[sn].rating[ch->cls] > 0) {
 			Format::sprintf(buf, "%-18s %-5d ", skill_table[sn].name,
@@ -959,7 +929,7 @@ bool parse_gen_groups(Character *ch, String argument)
 			ch->gen_data->points_chosen -= group_table[gn].rating[ch->cls];
 			gn_remove(ch, gn);
 
-			for (i = 0; i < MAX_GROUP; i++) {
+			for (i = 0; i < group_table.size(); i++) {
 				if (ch->gen_data->group_chosen[gn])
 					gn_add(ch, gn);
 			}
@@ -1027,10 +997,7 @@ void do_groups(Character *ch, String argument)
 
 	if (argument.empty()) {
 		/* show all groups */
-		for (gn = 0; gn < MAX_GROUP; gn++) {
-			if (group_table[gn].name == NULL)
-				break;
-
+		for (gn = 0; gn < group_table.size(); gn++) {
 			if (ch->pcdata->group_known[gn]) {
 				Format::sprintf(buf, "%-18s ", group_table[gn].name);
 				stc(buf, ch);
@@ -1049,10 +1016,7 @@ void do_groups(Character *ch, String argument)
 	}
 
 	if (argument == "all") { /* show all groups */
-		for (gn = 0; gn < MAX_GROUP; gn++) {
-			if (group_table[gn].name == NULL)
-				break;
-
+		for (gn = 0; gn < group_table.size(); gn++) {
 			Format::sprintf(buf, "%-18s ", group_table[gn].name);
 			stc(buf, ch);
 
@@ -1076,10 +1040,7 @@ void do_groups(Character *ch, String argument)
 		return;
 	}
 
-	for (sn = 0; sn < MAX_IN_GROUP; sn++) {
-		if (group_table[gn].spells[sn] == NULL)
-			break;
-
+	for (sn = 0; sn < group_table[gn].spells.size(); sn++) {
 		Format::sprintf(buf, "%-18s ", group_table[gn].spells[sn]);
 		stc(buf, ch);
 
@@ -1161,7 +1122,7 @@ int group_lookup(const String& name)
 {
 	int gn;
 
-	for (gn = 0; group_table[gn].name != NULL; gn++)
+	for (gn = 0; gn < group_table.size(); gn++)
 		if (name == group_table[gn].name)
 			return gn;
 
@@ -1174,10 +1135,7 @@ void gn_add(Character *ch, int gn)
 	int i;
 	ch->pcdata->group_known[gn] = TRUE;
 
-	for (i = 0; i < MAX_IN_GROUP; i++) {
-		if (group_table[gn].spells[i] == NULL)
-			break;
-
+	for (i = 0; i < group_table[gn].spells.size(); i++) {
 		group_add(ch, group_table[gn].spells[i], FALSE);
 	}
 }
@@ -1188,16 +1146,13 @@ void gn_remove(Character *ch, int gn)
 	int i;
 	ch->pcdata->group_known[gn] = FALSE;
 
-	for (i = 0; i < MAX_IN_GROUP; i ++) {
-		if (group_table[gn].spells[i] == NULL)
-			break;
-
+	for (i = 0; i < group_table[gn].spells.size(); i ++) {
 		group_remove(ch, group_table[gn].spells[i]);
 	}
 }
 
 /* use for processing a skill or group for addition  */
-void group_add(Character *ch, const char *name, bool deduct)
+void group_add(Character *ch, const String& name, bool deduct)
 {
 	int sn, gn;
 
@@ -1235,7 +1190,7 @@ void group_add(Character *ch, const char *name, bool deduct)
 
 /* used for processing a skill or group for deletion -- no points back! */
 
-void group_remove(Character *ch, const char *name)
+void group_remove(Character *ch, const String& name)
 {
 	int sn, gn;
 	sn = skill_lookup(name);
@@ -1317,10 +1272,7 @@ void evolve_list(Character *ch)
 	buffer += "{GSkill or spell      {C| {GPct {C| {GEvo {C| {GNext{x\n";
 	buffer += "{C--------------------+-----+-----+-----{x\n";
 
-	for (x = 0; x < MAX_SKILL; x++) {
-		if (skill_table[x].name == NULL)
-			break;
-
+	for (x = 0; x < skill_table.size(); x++) {
 		if ((can = can_evolve(ch, x)) == -1)
 			continue;
 
@@ -1366,10 +1318,7 @@ void evolve_info(Character *ch)
 
 	buffer += "{C--------------------+---+---+---+---+---+---+---+---+{x\n";
 
-	for (int sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (int sn = 0; sn < skill_table.size(); sn++) {
 		int max_evo[8] = {0};
 		bool should_show = FALSE;
 
@@ -1602,7 +1551,7 @@ void do_gain(Character *ch, String argument)
 		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "group", "cost", "group", "cost", "group", "cost");
 
-		for (gn = 0; group_table[gn].name != NULL; gn++) {
+		for (gn = 0; gn < group_table.size(); gn++) {
 			if (completed_group(ch, gn)
 			    || group_table[gn].rating[ch->cls] <= 0)
 				continue;
@@ -1630,7 +1579,7 @@ void do_gain(Character *ch, String argument)
 		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "skill", "cost", "skill", "cost", "skill", "cost");
 
-		for (sn = 0, col = 0, foundsect = FALSE; skill_table[sn].name != NULL; sn++) {
+		for (sn = 0, col = 0, foundsect = FALSE; sn < skill_table.size(); sn++) {
 			if (!ch->pcdata->learned[sn]
 			    && skill_table[sn].rating[ch->cls] > 0
 			    && skill_table[sn].spell_fun == spell_null
@@ -1673,7 +1622,7 @@ void do_gain(Character *ch, String argument)
 		    class_table[ch->cls].name);
 		output += "---------------\n";
 
-		for (sn = 0, col = 0, foundsect = FALSE; skill_table[sn].name != NULL; sn++) {
+		for (sn = 0, col = 0, foundsect = FALSE; sn < skill_table.size(); sn++) {
 			if (!ch->pcdata->learned[sn]
 			    && skill_table[sn].rating[ch->cls] > 0
 			    && skill_table[sn].remort_class > 0

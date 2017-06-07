@@ -12,22 +12,22 @@ void free_affect_cache(Character *ch) {
 bool affect_in_cache(const Character *ch, sh_int sn) {
 	return (
 		sn > 1
-	 && sn < MAX_SKILL
+	 && sn < skill_table.size()
 	 && ch->affect_cache
 	 && get_affect_cache(ch)[sn] > 0);
 }
 
 void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
-	if (sn < 1 || sn >= MAX_SKILL) {
+	if (sn < 1 || sn >= skill_table.size()) {
 		bug("update_affect_cache: called with sn = %d", sn);
 		return;
 	}
 
 	if (fAdd) {
 		if (get_affect_cache(ch) == NULL) {
-			ch->affect_cache = new sh_int[MAX_SKILL];
+			ch->affect_cache = new sh_int[skill_table.size()];
 
-			for (int i = 0; i < MAX_SKILL; i++)
+			for (int i = 0; i < skill_table.size(); i++)
 				get_affect_cache(ch)[i] = 0;
 		}
 
@@ -37,13 +37,13 @@ void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 	else {
 		if (get_affect_cache(ch) == NULL) {
 			bugf("update_affect_cache: illegal removal from NULL affect cache at sn %d (%s)",
-				sn, skill_table[sn].name ? skill_table[sn].name : "");
+				sn, skill_table[sn].name);
 			return;
 		}
 
 		if (get_affect_cache(ch)[sn] == 0) {
 			bugf("update_affect_cache: illegal removal of uncounted value at sn %d (%s)",
-				sn, skill_table[sn].name ? skill_table[sn].name : "");
+				sn, skill_table[sn].name);
 			return;
 		}
 
@@ -61,7 +61,7 @@ String affect_print_cache(Character *ch) {
 	if (ch->affect_cache == NULL)
 		return buf;
 
-	for (int sn = 1; sn < MAX_SKILL; sn++) {
+	for (int sn = 1; sn < skill_table.size(); sn++) {
 		sh_int count = get_affect_cache(ch)[sn];
 
 		if (count > 0) {

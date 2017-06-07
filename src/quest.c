@@ -418,25 +418,23 @@ int get_random_skill(Character *ch)
 	while (pass != 0) {
 		count = 0;
 
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name != NULL) {
-				if (ch->pcdata->learned[sn] <= 0
-				    || ch->pcdata->learned[sn] >= 100)
-					continue;
+		for (sn = 0; sn < skill_table.size(); sn++) {
+			if (ch->pcdata->learned[sn] <= 0
+			    || ch->pcdata->learned[sn] >= 100)
+				continue;
 
-				if (skill_table[sn].remort_class > 0 && !CAN_USE_RSKILL(ch, sn))
-					continue;
+			if (skill_table[sn].remort_class > 0 && !CAN_USE_RSKILL(ch, sn))
+				continue;
 
-				if (skill_table[sn].skill_level[ch->cls] > ch->level)
-					continue;
+			if (skill_table[sn].skill_level[ch->cls] > ch->level)
+				continue;
 
-				if (pass == 2 && count == target) {
-					pass = 0;               /* get out of while loop */
-					break;                  /* get out of for loop */
-				}
-
-				count++;
+			if (pass == 2 && count == target) {
+				pass = 0;               /* get out of while loop */
+				break;                  /* get out of for loop */
 			}
+
+			count++;
 		}
 
 		if (count == 0) { /* no skills or spells found */

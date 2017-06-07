@@ -318,7 +318,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 	}
 
 	if (paf->where == TO_AFFECTS) {
-		if (paf->type < 1 || paf->type >= MAX_SKILL) {
+		if (paf->type < 1 || paf->type >= skill_table.size()) {
 			bugf("affect_modify_char: bad type %d in TO_AFFECTS", paf->type);
 			return;
 		}

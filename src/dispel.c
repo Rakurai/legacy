@@ -211,7 +211,7 @@ bool check_dispel_char(int dis_level, Character *victim, int sn, bool save)
 			}
 		}
 
-		if (skill_table[sn].msg_off)
+		if (!skill_table[sn].msg_off.empty())
 			ptc(victim, "%s\n", skill_table[sn].msg_off);
 	}
 

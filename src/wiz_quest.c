@@ -833,7 +833,7 @@ void do_create(Character *ch, String argument)
 		if (arg2.empty()) {
 			stc("Valid item types are:\n", ch);
 
-			for (x = 0; item_table[x].name != NULL; x++)
+			for (x = 0; x < item_table.size(); x++)
 				ptc(ch, "%s\n", item_table[x].name);
 
 			return;
@@ -846,7 +846,7 @@ void do_create(Character *ch, String argument)
 			return;
 		}
 
-		for (x = 0; item_table[x].name != NULL; x++) {
+		for (x = 0; x < item_table.size(); x++) {
 			if (arg2 == item_table[x].name) {
 				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == NULL) {
 					Format::sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);

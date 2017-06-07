@@ -621,10 +621,10 @@ void config_wiznet(Character *ch, String argument)
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);
 
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
+		for (flag = 0; flag < wiznet_table.size(); flag++)
 			if (GET_RANK(ch) >= wiznet_table[flag].level)
 				ptc(ch, "  %2d.  %-15s({Y%4s{x)                        %s\n",
-				    flag, capitalize(wiznet_table[flag].name),
+				    flag, wiznet_table[flag].name.capitalize(),
 				    wiznet_table[flag].level == IMM ? "Imm" :
 				    wiznet_table[flag].level == HED ? "Head" : "Imp",
 				    IS_SET(ch->wiznet, wiznet_table[flag].flag) ?
@@ -639,7 +639,7 @@ void config_wiznet(Character *ch, String argument)
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);
 
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
+		for (flag = 0; flag < wiznet_table.size(); flag++)
 			if (GET_RANK(ch) >= wiznet_table[flag].level)
 				ptc(ch, "%-10s - %s\n", wiznet_table[flag].name, wiznet_table[flag].desc);
 
@@ -647,11 +647,11 @@ void config_wiznet(Character *ch, String argument)
 	}
 
 	if (is_number(arg1)) {
-		if (wiznet_table[atoi(arg1)].name != NULL)
+		if (atoi(arg1) < wiznet_table.size())
 			argnum = atoi(arg1);
 	}
 	else
-		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
+		for (flag = 0; flag < wiznet_table.size(); flag++)
 			if (arg1.is_prefix_of(wiznet_table[flag].name))
 				argnum = flag;
 

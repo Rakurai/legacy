@@ -72,7 +72,7 @@ DECLARE_SPEC_FUN(spec_clanguard);
 DECLARE_SPEC_FUN(spec_fight_clanguard);
 
 /* the function table */
-const   struct  spec_type    spec_table[] = {
+const std::vector<spec_type> spec_table = {
 	{   "spec_breath_any",              spec_breath_any         },
 	{   "spec_breath_acid",             spec_breath_acid        },
 	{   "spec_breath_fire",             spec_breath_fire        },
@@ -102,7 +102,6 @@ const   struct  spec_type    spec_table[] = {
 	{   "spec_charm",                   spec_charm              },
 	{   "spec_clanguard",               spec_clanguard          },
 	{   "spec_fight_clanguard",         spec_fight_clanguard    },
-	{   NULL,                           NULL                    }
 };
 
 /* Given a name, return the appropriate spec fun. */
@@ -110,7 +109,7 @@ SPEC_FUN *spec_lookup(const String& name)
 {
 	int i;
 
-	for (i = 0; spec_table[i].name != NULL; i++) {
+	for (i = 0; i < spec_table.size(); i++) {
 		if (LOWER(name[0]) == LOWER(spec_table[i].name[0]) && name.is_prefix_of(spec_table[i].name))
 			return spec_table[i].function;
 	}
@@ -118,16 +117,16 @@ SPEC_FUN *spec_lookup(const String& name)
 	return 0;
 }
 
-const char *spec_name(SPEC_FUN *function)
+String spec_name(SPEC_FUN *function)
 {
 	int i;
 
-	for (i = 0; spec_table[i].function != NULL; i++) {
+	for (i = 0; i < spec_table.size(); i++) {
 		if (function == spec_table[i].function)
 			return spec_table[i].name;
 	}
 
-	return NULL;
+	return "(none)";
 }
 
 bool spec_troll_member(Character *ch)

@@ -5,7 +5,7 @@ String item_name(int item_type)
 {
 	int type;
 
-	for (type = 0; item_table[type].name != NULL; type++)
+	for (type = 0; type < item_table.size(); type++)
 		if (item_type == item_table[type].type)
 			return item_table[type].name;
 
@@ -16,7 +16,7 @@ String weapon_name(int weapon_type)
 {
 	int type;
 
-	for (type = 0; weapon_table[type].name != NULL; type++)
+	for (type = 0; type < weapon_table.size(); type++)
 		if (weapon_type == weapon_table[type].type)
 			return weapon_table[type].name;
 
@@ -719,7 +719,7 @@ String wiz_bit_name(int wiz_flags)
 {
 	String buf;
 
-	for (int flag = 0; wiznet_table[flag].name != NULL; flag++)
+	for (int flag = 0; flag < wiznet_table.size(); flag++)
 		if (wiz_flags & wiznet_table[flag].flag) {
 			buf += ' ';
 			buf += wiznet_table[flag].name;

@@ -282,7 +282,7 @@ const struct flag_type cgroup_flags[] = {
 
 /* wiznet table and prototype for future flag setting */
 /* must be added in order of level for config to work */
-const struct wiznet_type wiznet_table[] = {
+const std::vector<wiznet_type> wiznet_table = {
 	{    "wiznet",       WIZ_ON,         IMM, "You will see wiznet messages." },
 	{    "prefix",       WIZ_PREFIX,     IMM, "You will see the {G<W{Hizne{Gt>{x prefix." },
 	{    "logins",       WIZ_LOGINS,     IMM, "You will be notified when players arrive and depart." },
@@ -310,7 +310,6 @@ const struct wiznet_type wiznet_table[] = {
 	{    "malloc",       WIZ_MALLOC,     IMP, "You will see memory allocation spam." },
 	{    "snoops",       WIZ_SNOOPS,     IMP, "You will see snoop commands." },
 	{    "secure",       WIZ_SECURE,     IMP, "The catch all of generic Imm commands." },
-	{    NULL,           0,              0,  NULL }
 };
 
 const struct raffects raffects[MAX_RAFFECTS] = {

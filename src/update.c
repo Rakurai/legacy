@@ -973,7 +973,7 @@ void char_update(void)
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
-					if (paf->type > 0 && skill_table[paf->type].msg_off)
+					if (paf->type > 0 && !skill_table[paf->type].msg_off.empty())
 						ptc(ch, "%s\n", skill_table[paf->type].msg_off);
 				}
 			}
@@ -1100,7 +1100,7 @@ void obj_update(void)
 						}
 					}
 
-					if (paf->type > 0 && skill_table[paf->type].msg_obj) {
+					if (paf->type > 0 && !skill_table[paf->type].msg_obj.empty()) {
 						if (obj->carried_by != NULL) {
 							rch = obj->carried_by;
 							act(skill_table[paf->type].msg_obj, rch, obj, NULL, TO_CHAR);
@@ -1243,7 +1243,7 @@ void room_update(void)
 					   room affect spells.  might change this later, but i really
 					   don't feel like adding another ,"" to all those entries
 					   right now :P -- Montrey */
-					if (paf->type > 0 && skill_table[paf->type].msg_obj && room->people)
+					if (paf->type > 0 && !skill_table[paf->type].msg_obj.empty() && room->people)
 						act(skill_table[paf->type].msg_obj, NULL, NULL, NULL, TO_ALL);
 				}
 			}

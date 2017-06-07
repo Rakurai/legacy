@@ -86,8 +86,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define EXTRACLASS_SLOT_LEVELS     10 // number of remorts per extra extraclass slot
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
-#define MAX_SKILL                 234
-#define MAX_GROUP                  39
 #define MAX_IN_GROUP               15
 #define MAX_QUERY                  20
 #define MAX_CLASS                   8

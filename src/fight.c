@@ -2028,7 +2028,7 @@ bool check_parry(Character *ch, Character *victim, int dt)
 	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 	int chance;
-	const char *attack;
+	String attack;
 
 	if (!get_skill(victim, gsn_parry))
 		return FALSE;
@@ -2089,7 +2089,7 @@ bool check_parry(Character *ch, Character *victim, int dt)
 	}
 
 	/* parry is good, let's figure out the damage message */
-	if (dt >= 0 && dt < MAX_SKILL)
+	if (dt >= 0 && dt < skill_table.size())
 		attack = skill_table[dt].noun_damage;
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
@@ -2127,7 +2127,7 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 	int chance;
-	const char *attack;
+	String attack;
 
 	if (!get_skill(victim, gsn_dual_wield)
 	    || !get_skill(victim, gsn_parry)
@@ -2185,7 +2185,7 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 	}
 
 	/* parry is good, let's figure out the damage message */
-	if (dt >= 0 && dt < MAX_SKILL)
+	if (dt >= 0 && dt < skill_table.size())
 		attack = skill_table[dt].noun_damage;
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
@@ -2242,7 +2242,7 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
-	const char *attack;
+	String attack;
 
 	if (!get_skill(victim, gsn_shield_block))
 		return FALSE;
@@ -2267,7 +2267,7 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 	}
 
 	/* shield block is good, let's figure out the damage message */
-	if (dt >= 0 && dt < MAX_SKILL)
+	if (dt >= 0 && dt < skill_table.size())
 		attack = skill_table[dt].noun_damage;
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
@@ -2297,7 +2297,7 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
-	const char *attack;
+	String attack;
 
 	if (!get_skill(victim, gsn_dodge))
 		return FALSE;
@@ -2351,7 +2351,7 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 
 //	if (dt != gsn_bash) {
 	/* dodge is good, let's figure out the damage message */
-	if (dt >= 0 && dt < MAX_SKILL)
+	if (dt >= 0 && dt < skill_table.size())
 		attack = skill_table[dt].noun_damage;
 	// hack to get a specific damage type in here without making it a skill
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
@@ -2382,7 +2382,7 @@ bool check_blur(Character *ch, Character *victim, int dt)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
-	const char *attack;
+	String attack;
 
 	if (!CAN_USE_RSKILL(victim, gsn_blur))
 		return FALSE;
@@ -2434,7 +2434,7 @@ bool check_blur(Character *ch, Character *victim, int dt)
 
 //	if (dt != gsn_bash) {
 	/* blur is good, let's figure out the damage message */
-	if (dt >= 0 && dt < MAX_SKILL)
+	if (dt >= 0 && dt < skill_table.size())
 		attack = skill_table[dt].noun_damage;
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
@@ -3098,7 +3098,7 @@ void dam_message(Character *ch, Character *victim, int dam, int dt, bool immune,
 	char buf1[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH], buf3[MAX_INPUT_LENGTH];
 	const char *vs;
 	const char *vp;
-	const char *attack;
+	String attack;
 	char punct;
 
 	if (ch == NULL || victim == NULL)
@@ -3149,7 +3149,7 @@ void dam_message(Character *ch, Character *victim, int dam, int dt, bool immune,
 		}
 	}
 	else {
-		if (dt >= 0 && dt < MAX_SKILL)
+		if (dt >= 0 && dt < skill_table.size())
 			attack = skill_table[dt].noun_damage;
 		else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 			attack = attack_table[dt - TYPE_HIT].noun;

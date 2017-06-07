@@ -411,7 +411,7 @@ void boot_db()
 	{
 		int sn;
 
-		for (sn = 0; sn < MAX_SKILL; sn++)
+		for (sn = 0; sn < skill_table.size(); sn++)
 			if (skill_table[sn].pgsn != NULL)
 				*skill_table[sn].pgsn = sn;
 	}
@@ -1102,7 +1102,7 @@ void load_objects(FILE *fp)
 
 		switch (pObjIndex->item_type) {
 		case ITEM_WEAPON:
-			pObjIndex->value[0]         = weapon_type(fread_word(fp));
+			pObjIndex->value[0]         = get_weapon_type(fread_word(fp));
 			pObjIndex->value[1]         = fread_number(fp);
 			pObjIndex->value[2]         = fread_number(fp);
 			pObjIndex->value[3]         = attack_lookup(fread_word(fp));

@@ -42,7 +42,7 @@ _O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o auction.o typename.o
 	set-stat.o skills.o social.o special.o storage.o c_string.o tables.o update.o \
 	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o paint.o \
 	Disabled.o String.o StringPatch.o cJSON.o GameTime.o Object.o Battle.o Weather.o \
-	Character.o War.o
+	Character.o War.o Customize.o Player.o
 
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 

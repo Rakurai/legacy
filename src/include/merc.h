@@ -138,22 +138,22 @@ struct  chr_app_type
 
 struct deity_type
 {
-    char *      name;
-    char *      align;
+    String      name;
+    String      align;
     int         value;
 };
 
 struct  class_type
 {
-    char *      name;                   /* the full name of the class */
+    String      name;                   /* the full name of the class */
     char        who_name        [4];    /* Three-letter name for 'who'  */
     sh_int      stat_prime;             /* Prime attribute              */
     sh_int      weapon;                 /* First weapon                 */
     sh_int      skill_adept;            /* Maximum skill level          */
     sh_int      thac0_00;               /* Thac0 for level  0           */
     sh_int      thac0_32;               /* Thac0 for level 32           */
-    char *      base_group;             /* base skills gained           */
-    char *      default_group;          /* default skills gained        */
+    String      base_group;             /* base skills gained           */
+    String      default_group;          /* default skills gained        */
     sh_int      hp_min;                 /* Min hp gained on leveling    */
     sh_int      hp_max;                 /* Max hp gained on leveling    */
     sh_int	mana_min;		/* Min mana gained on leveling  */
@@ -165,12 +165,12 @@ struct  class_type
 struct item_type
 {
     int         type;
-    char *      name;
+    String      name;
 };
 
 struct weapon_type
 {
-    char *      name;
+    String      name;
     sh_int      vnum;
     sh_int      type;
     sh_int      *gsn;
@@ -178,22 +178,22 @@ struct weapon_type
 
 struct wiznet_type
 {
-    char *      name;
+    String      name;
     long        flag;
     int         level;
-    char *      desc;
+    String      desc;
 };
 
 struct attack_type
 {
-    char *      name;                   /* name */
-    char *      noun;                   /* message */
+    String      name;                   /* name */
+    String      noun;                   /* message */
     int         damage;                 /* damage class */
 };
 
 struct race_type
 {
-    char *      name;                   /* call name of the race */
+    String      name;                   /* call name of the race */
     bool        pc_race;                /* can be chosen by pcs */
     long	act;			/* act bits for the race */
     long        aff;                    /* aff bits for the race */
@@ -208,7 +208,7 @@ struct race_type
 
 struct pc_race_type  /* additional data for pc races */
 {
-    char *      name;                   /* MUST be in race_type */
+    String      name;                   /* MUST be in race_type */
     char        who_name[4];		/* first 3 characters are used in 'who' */
     sh_int	base_age;		/* the base age for the race */
     sh_int      points;                 /* cost in points of the race */
@@ -217,13 +217,13 @@ struct pc_race_type  /* additional data for pc races */
     sh_int      max_stats[MAX_STATS];   /* maximum stats */
     sh_int      size;                   /* aff bits for the race */
     int         remort_level;           /* remort level of race */
-    char *      skills[5];              /* bonus skills for the race */
+    String      skills[5];              /* bonus skills for the race */
 };
 
 
 struct spec_type
 {
-    char *      name;                   /* special function name */
+    String      name;                   /* special function name */
     SPEC_FUN *  function;               /* the function */
 };
 
@@ -234,8 +234,8 @@ struct spec_type
 
 struct  liq_type
 {
-    char *      liq_name;
-    char *      liq_color;
+    String      liq_name;
+    String      liq_color;
     sh_int      liq_affect[5];
 };
 
@@ -245,7 +245,7 @@ struct  liq_type
  */
 struct  skill_type
 {
-    char *      name;                   /* Name of skill                */
+    String      name;                   /* Name of skill                */
     sh_int      skill_level[MAX_CLASS]; /* Level needed by class        */
     sh_int      rating[MAX_CLASS];      /* How hard it is to learn      */
     SPELL_FUN * spell_fun;              /* Spell pointer (for spells)   */
@@ -255,9 +255,9 @@ struct  skill_type
     sh_int      slot;                   /* Slot for #OBJECT loading     */
     sh_int      min_mana;               /* Minimum mana used            */
     sh_int      beats;                  /* Waiting time after use       */
-    char *      noun_damage;            /* Damage message               */
-    char *      msg_off;                /* Wear off message             */
-    char *      msg_obj;                /* Wear off message for obects  */
+    String      noun_damage;            /* Damage message               */
+    String      msg_off;                /* Wear off message             */
+    String      msg_obj;                /* Wear off message for obects  */
     int         remort_class;           /* Required remort level or 0   */
     int		evocost_sec[MAX_CLASS];	/* Class cost to evolve to 2    */
     int		evocost_pri[MAX_CLASS];	/* Class cost to evolve to 3    */
@@ -265,9 +265,9 @@ struct  skill_type
 
 struct  group_type
 {
-    char *      name;
+    String      name;
     sh_int      rating[MAX_CLASS];
-    char *      spells[MAX_IN_GROUP];
+    std::vector<String> spells;
 };
 
 
@@ -421,18 +421,18 @@ extern  const   struct  dex_app_type    dex_app         [26];
 extern  const   struct  con_app_type    con_app         [26];
 extern  const   struct  chr_app_type    chr_app         [26];
 
-extern  const   struct  class_type      class_table     [MAX_CLASS];
-extern  const   struct  deity_type      deity_table     [];
-extern  const   struct  weapon_type     weapon_table    [];
-extern  const   struct  item_type       item_table      [];
-extern  const   struct  wiznet_type     wiznet_table    [];
-extern  const   struct  attack_type     attack_table    [];
-extern  const   struct  race_type       race_table      [];
-extern  const   struct  pc_race_type    pc_race_table   [];
-extern  const   struct  spec_type       spec_table      [];
-extern  const   struct  liq_type        liq_table       [];
-extern  const   struct  skill_type      skill_table     [MAX_SKILL];
-extern  const   struct  group_type      group_table     [MAX_GROUP];
+extern  const   std::vector<class_type>      class_table;
+extern  const   std::vector<deity_type>      deity_table;
+extern  const   std::vector<weapon_type>     weapon_table;
+extern  const   std::vector<item_type>       item_table;
+extern  const   std::vector<wiznet_type>     wiznet_table;
+extern  const   std::vector<attack_type>     attack_table;
+extern  const   std::vector<race_type>       race_table;
+extern  const   std::vector<pc_race_type>    pc_race_table;
+extern  const   std::vector<spec_type>       spec_table;
+extern  const   std::vector<liq_type>        liq_table;
+extern  const   std::vector<skill_type>      skill_table;
+extern  const   std::vector<group_type>      group_table;
 
 /* new social system by Clerve */
 extern          Social      *social_table_head;
@@ -945,7 +945,7 @@ int     count_users     args( (Object *obj) );
 bool    deduct_cost     args( (Character *ch, long cost) );
 int     liq_lookup      args( ( const String& name) );
 int     weapon_lookup   args( ( const String& name) );
-int     weapon_type     args( ( const String& name) );
+int     get_weapon_type     args( ( const String& name) );
 int     item_lookup     args( ( const String& name) );
 int     attack_lookup   args(( const String& name) );
 int     race_lookup     args(( const String& name) );
@@ -1115,15 +1115,15 @@ void    check_improve   args( ( Character *ch, int sn, bool success,
 int     group_lookup    args( (const String& name) );
 void    gn_add          args( ( Character *ch, int gn) );
 void    gn_remove       args( ( Character *ch, int gn) );
-void    group_add       args( ( Character *ch, const char *name, bool deduct) );
-void    group_remove    args( ( Character *ch, const char *name) );
+void    group_add       args( ( Character *ch, const String& name, bool deduct) );
+void    group_remove    args( ( Character *ch, const String& name) );
 int     get_evolution   args( ( Character *ch, int sn ) );
 int	get_skill_cost  args( ( Character *ch, int sn ) );
 bool	deduct_stamina  args( ( Character *ch, int sn ) );
 
 /* special.c */
 SPEC_FUN *    spec_lookup     args( ( const String& name ) );
-const char *  spec_name       args( ( SPEC_FUN *function ) );
+String spec_name       args( ( SPEC_FUN *function ) );
 bool    IS_SPECIAL      args( ( Character *ch) );
 
 /* teleport.c */

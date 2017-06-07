@@ -3927,9 +3927,8 @@ void do_wizify(Character *ch, String argument)
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(victim, stat_to_attr(stat)) = 25;
 
-	for (sn = 0; sn < MAX_SKILL; sn++)
-		if (skill_table[sn].name != NULL)
-			victim->pcdata->learned[sn] = 100;
+	for (sn = 0; sn < skill_table.size(); sn++)
+		victim->pcdata->learned[sn] = 100;
 
 	REM_CGROUP(victim, GROUP_LEADER);
 	REM_CGROUP(victim, GROUP_DEPUTY);

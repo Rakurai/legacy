@@ -260,9 +260,9 @@ void list_extraskill(Character *ch)
 			if (cn == ch->cls)
 				continue;
 
-		output += Format::format("\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
+		output += Format::format("\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
 
-		for (sn = 0, col = 0; skill_table[sn].name != NULL; sn++) {
+		for (sn = 0, col = 0; sn < skill_table.size(); sn++) {
 			if (skill_table[sn].remort_class != cn + 1)
 				continue;
 
@@ -463,7 +463,7 @@ void do_remort(Character *ch, String argument)
 		    || !race_table[race].pc_race) {
 			stc("That is not a valid race.  Please choose from:\n", ch);
 
-			for (race = 1; race_table[race].name != NULL && race_table[race].pc_race; race++) {
+			for (race = 1; race < race_table.size() && race_table[race].pc_race; race++) {
 				stc(race_table[race].name, ch);
 				stc(" ", ch);
 			}

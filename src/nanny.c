@@ -689,7 +689,7 @@ void nanny(Descriptor *d, String argument)
 		    "to be, just type {Yhelp{x for information on the races.\n\n", ch);
 		stc("The following races are available:\n", ch);
 
-		for (race = 1; race_table[race].name != NULL && race_table[race].pc_race; race++)
+		for (race = 1; race < race_table.size() && race_table[race].pc_race; race++)
 			if (!pc_race_table[race].remort_level)
 				ptc(ch, "%s\n", race_table[race].name);
 
@@ -733,7 +733,7 @@ void nanny(Descriptor *d, String argument)
 		ch->size                = pc_race_table[race].size;
 
 		/* add skills */
-		for (i = 0; i < 5 && pc_race_table[race].skills[i]; i++)
+		for (i = 0; i < 5 && !pc_race_table[race].skills[i].empty(); i++)
 			group_add(ch, pc_race_table[race].skills[i], FALSE);
 
 		write_to_buffer(d, "\n");
@@ -887,7 +887,7 @@ void nanny(Descriptor *d, String argument)
 		ch->pcdata->learned[gsn_scan]   = 100;
 		buf = "Select a deity:\n";
 
-		for (deity = 0; deity_table[deity].name != NULL; deity++) {
+		for (deity = 0; deity < deity_table.size(); deity++) {
 			if (ch->cls == PALADIN_CLASS) { /* Paladins */
 				if (deity_table[deity].value > 0 && ch->alignment > 0) {
 					buf += deity_table[deity].align;
@@ -966,7 +966,7 @@ void nanny(Descriptor *d, String argument)
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
 			buf[0] = '\0';
 
-			for (i = 0; weapon_table[i].name != NULL; i++)
+			for (i = 0; i < weapon_table.size(); i++)
 				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
 					buf += weapon_table[i].name;
 					buf += " ";
@@ -1020,7 +1020,7 @@ void nanny(Descriptor *d, String argument)
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
 			buf[0] = '\0';
 
-			for (i = 0; weapon_table[i].name != NULL; i++)
+			for (i = 0; i < weapon_table.size(); i++)
 				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
 					buf += weapon_table[i].name;
 					buf += " ";

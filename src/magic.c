@@ -54,10 +54,7 @@ int skill_lookup(const String& name)
 {
 	int sn;
 
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (name.is_prefix_of(skill_table[sn].name))
 			return sn;
 	}
@@ -73,10 +70,7 @@ int find_spell(Character *ch, const String& name)
 	if (IS_NPC(ch))
 		return skill_lookup(name);
 
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (name.is_prefix_of(skill_table[sn].name)) {
 			if (found == -1)
 				found = sn;
@@ -98,7 +92,7 @@ int slot_lookup(int slot)
 	if (slot <= 0)
 		return -1;
 
-	for (sn = 0; sn < MAX_SKILL; sn++)
+	for (sn = 0; sn < skill_table.size(); sn++)
 		if (slot == skill_table[sn].slot)
 			return sn;
 
@@ -116,7 +110,6 @@ void say_spell(Character *ch, int sn)
 	String buf;
 	char buf2[MAX_STRING_LENGTH];
 	Character *rch;
-	char *pName;
 	int iSyl, length;
 	struct syl_type {
 		const String old;
@@ -157,7 +150,7 @@ void say_spell(Character *ch, int sn)
 	};
 	buf[0] = '\0';
 
-	for (pName = skill_table[sn].name; *pName != '\0'; pName += length) {
+	for (const char *pName = skill_table[sn].name.c_str(); *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++) {
 			if (syl_table[iSyl].old.is_prefix_of(pName)) {
 				buf += syl_table[iSyl].nw;
@@ -653,7 +646,7 @@ void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object 
 	if (sn <= 0)
 		return;
 
-	if (sn >= MAX_SKILL || skill_table[sn].spell_fun == 0) {
+	if (sn >= skill_table.size() || skill_table[sn].spell_fun == 0) {
 		bug("Obj_cast_spell: bad sn %d.", sn);
 		return;
 	}
@@ -4074,16 +4067,16 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 	case ITEM_PILL:
 		ptc(ch, "Level %d spells of:", obj->value[0]);
 
-		if (obj->value[1] >= 0 && obj->value[1] < MAX_SKILL)
+		if (obj->value[1] >= 0 && obj->value[1] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[1]].name);
 
-		if (obj->value[2] >= 0 && obj->value[2] < MAX_SKILL)
+		if (obj->value[2] >= 0 && obj->value[2] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[2]].name);
 
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
+		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
 
-		if (obj->value[4] >= 0 && obj->value[4] < MAX_SKILL)
+		if (obj->value[4] >= 0 && obj->value[4] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[4]].name);
 
 		stc(".\n", ch);
@@ -4093,7 +4086,7 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 	case ITEM_STAFF:
 		ptc(ch, "Has %d charges of level %d", obj->value[2], obj->value[0]);
 
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
+		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
 
 		stc(".\n", ch);

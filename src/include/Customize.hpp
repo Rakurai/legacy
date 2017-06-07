@@ -1,15 +1,18 @@
 #pragma once
 
+#include "declare.h"
+#include <vector>
+
 /* Data for generating characters -- only used during generation */
 class Customize
 {
 public:
-	Customize() {}
+	Customize();
 	virtual ~Customize() {}
 
     bool        valid = FALSE;
-    bool        skill_chosen[MAX_SKILL] = {FALSE};
-    bool        group_chosen[MAX_GROUP] = {FALSE};
+    std::vector<bool> skill_chosen;
+    std::vector<bool> group_chosen;
     int         points_chosen = 0;
 
 private:

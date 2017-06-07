@@ -29,7 +29,7 @@
 #include "magic.h"
 
 /* item type list */
-const struct item_type item_table[] = {
+const std::vector<item_type> item_table = {
 	{       ITEM_LIGHT,     "light"         },
 	{       ITEM_SCROLL,    "scroll"        },
 	{       ITEM_WAND,      "wand"          },
@@ -65,12 +65,11 @@ const struct item_type item_table[] = {
 //	{       ITEM_COACH,     "coach"         },
 	{       ITEM_WEDDINGRING, "weddingring"  },
 	{       ITEM_TOKEN,     "token"         },
-	{       0,              NULL            }
 };
 
 /* weapon selection table */
 
-const struct weapon_type weapon_table[] = {
+const std::vector<weapon_type> weapon_table = {
 	{       "sword",        OBJ_VNUM_SCHOOL_SWORD,  WEAPON_SWORD,   &gsn_sword      },
 	{       "mace",         OBJ_VNUM_SCHOOL_MACE,   WEAPON_MACE,    &gsn_mace       },
 	{       "dagger",       OBJ_VNUM_SCHOOL_DAGGER, WEAPON_DAGGER,  &gsn_dagger     },
@@ -80,11 +79,10 @@ const struct weapon_type weapon_table[] = {
 	{       "whip",         OBJ_VNUM_SCHOOL_WHIP,   WEAPON_WHIP,    &gsn_whip       },
 	{       "polearm",      OBJ_VNUM_SCHOOL_POLEARM, WEAPON_POLEARM, &gsn_polearm    },
 	{       "bow",          OBJ_VNUM_SCHOOL_BOW,    WEAPON_BOW,     &gsn_archery     },
-	{       NULL,           0,                      0,              NULL            }
 };
 
 /* attack table  -- not very organized :( */
-const struct attack_type attack_table[] = {
+const std::vector<attack_type> attack_table = {
 	{   "none",         "hit",          -1              },  /*  0 */
 	{   "slice",        "slice",        DAM_SLASH       },
 	{   "stab",         "stab",         DAM_PIERCE      },
@@ -127,11 +125,10 @@ const struct attack_type attack_table[] = {
 	{   "chill",        "chill",        DAM_COLD        },
 	{   "hstrike",      "hilt strike",  DAM_BASH        },  /* 40 */ /* no skill for hilt strike */
 	{   "arrow",        "arrow",        DAM_PIERCE      },
-	{   NULL,           NULL,           0               }   /* 41 */
 };
 
 /* all races, make sure pc races are in the same order as the pc race table, below */
-const struct race_type race_table[] = {
+const std::vector<race_type> race_table = {
 	/*
 	        {
 	                name,           pc_race?,
@@ -371,11 +368,9 @@ const struct race_type race_table[] = {
 		IMM_POISON,     0,      VULN_LIGHT,
 		A | B | G | Z,        A | C | D | E | F | H | J | K | Q | V | X
 	},
-	{       "unique", FALSE, 0, 0, 0, 0, 0, 0, 0, 0 },
-	{       NULL, 0, 0, 0, 0, 0, 0 }
 };
 
-const struct pc_race_type pc_race_table [MAX_PC_RACE] = {
+const std::vector<pc_race_type> pc_race_table = {
 	/*
 	        {
 	                "race name",    short name,base age,    points, { class multipliers },
@@ -461,7 +456,7 @@ const struct pc_race_type pc_race_table [MAX_PC_RACE] = {
 /*
  * Deity Table
  */
-const struct deity_type deity_table [] = {
+const std::vector<deity_type> deity_table = {
 	{       "Navarre",      "[ Lawful Good		] ",    750     },
 	{       "Xenith",       "[ Chaotic Good		] ",   750     },
 	{       "Kenneth",      "[ Neutral Evil		] ",   -750    },
@@ -473,13 +468,12 @@ const struct deity_type deity_table [] = {
 	{       "Navarre",      "[ True Good		] ",      1000    },
 	{       "Kismet",       "[ Chaotic Neutral	] ", 0       },
 	{       "Whisper",      "[ Lawful Neutral	] ",  0       },
-	{       NULL,           NULL,                   0       }
 };
 
 /*
  * Class table.
  */
-const struct class_type class_table[MAX_CLASS] = {
+const std::vector<class_type> class_table = {
 	/*
 	        {
 	                name,           whoname,prime_attr,     vnum of newbie weapon,
@@ -716,7 +710,7 @@ const struct chr_app_type chr_app[26] = {
 /*
  * Liquid properties.
  */
-const struct liq_type liq_table[] = {
+const std::vector<liq_type> liq_table = {
 	/*        name                      color       proof, full, thirst, food, ssize */
 	{ "water",                  "clear",        {   0, 1, 10, 0, 16 }   },
 	{ "beer",                   "amber",        {  12, 1,  8, 1, 12 }   },
@@ -759,7 +753,6 @@ const struct liq_type liq_table[] = {
 	{ "liquid brimstone",       "red",          { 25,  0, 15, 0,  2 }   },
 	{ "protein shake",          "white",        {   0, 2,  9, 3, 12 }   },
 	{ "pumpkin spice latte",    "creamy",       {   0, 2,  9, 3, 12 }   },
-	{ NULL,                     NULL,           {   0, 0,  0, 0,  0 }   }
 };
 
 /*
@@ -767,7 +760,7 @@ const struct liq_type liq_table[] = {
  */
 #define SLOT(n) n
 
-const   struct  skill_type      skill_table     [MAX_SKILL]     = {
+const std::vector<skill_type> skill_table = {
 
 	/*
 	 * Magic spells.
@@ -2693,13 +2686,9 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 	},
 
 	/* End Remort Skills/Spells */
-
-	{
-		NULL
-	}
 };
 
-const struct group_type group_table [MAX_GROUP] = {
+const std::vector<group_type> group_table = {
 	{
 		"rom basics",           { 0, 0, 0, 0 , 0, 0, 0, 0 },
 		{ "scrolls", "staves", "wands", "recall", "scan" }
@@ -2915,8 +2904,5 @@ const struct group_type group_table [MAX_GROUP] = {
 		"alteration",           { 5, 7, 9, 15, 5, 15, 7, 9 },
 		{ "darkness", "change sex", "polymorph", "heat metal" }
 	},
-	{
-		NULL
-	}
 };
 

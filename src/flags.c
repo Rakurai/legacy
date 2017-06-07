@@ -336,11 +336,11 @@ void do_typelist(Character *ch, String argument)
 	}
 
 	if (argument.is_prefix_of("liquid")) {
-		for (x = 0; liq_table[x].liq_name != NULL; x++)
+		for (x = 0; x < liq_table.size(); x++)
 			ptc(ch, "[%2d][%20s][%20s]\n", x, liq_table[x].liq_name, liq_table[x].liq_color);
 	}
 	else if (argument.is_prefix_of("attack")) {
-		for (x = 0; attack_table[x].name != NULL; x++)
+		for (x = 0; x < attack_table.size(); x++)
 			ptc(ch, "[%2d][%20s][%20s]\n", x, attack_table[x].name, attack_table[x].noun);
 	}
 	else

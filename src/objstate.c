@@ -124,7 +124,7 @@ void fwrite_objstate(Object *obj, FILE *fp, int *count)
 
 	if (enchanted) {
 		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
-			if (paf->type < 0 || paf->type >= MAX_SKILL)
+			if (paf->type < 0 || paf->type >= skill_table.size())
 				continue;
 
 			Format::fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %10d %d\n",

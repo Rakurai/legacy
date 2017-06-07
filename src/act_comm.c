@@ -37,11 +37,11 @@
  */
 
 struct new_pose_struct {
-	const char *self_msg;
-	const char *room_msg;
+	String self_msg;
+	String room_msg;
 };
 
-struct new_pose_struct mage_poses       []      = {
+std::vector<new_pose_struct> mage_poses = {
 	{
 		"You call up a {Ps{Yh{Ci{Pm{Cm{Ye{Pr{Ci{Yn{Pg{x sphere of power to repel attacks.",
 		"A {Ps{Yh{Ci{Pm{Cm{Ye{Pr{Ci{Yn{Pg{x globe of force surrounds $n, repelling attacks."
@@ -87,7 +87,7 @@ struct new_pose_struct mage_poses       []      = {
 	},
 };
 
-struct new_pose_struct cleric_poses     []      = {
+std::vector<new_pose_struct> cleric_poses           = {
 	{
 		"The presence of your deity invigorates you and your heart soars.",
 		"$n has a beatific smile on $s face. Conversations with higher powers do that to you."
@@ -132,7 +132,7 @@ struct new_pose_struct cleric_poses     []      = {
 		"A {Pcolumn{x of {Yf{Pi{Yr{Pe{x reduces $n's enemies to piles of {cash{x."
 	}
 };
-struct new_pose_struct thief_poses     []      = {
+std::vector<new_pose_struct> thief_poses           = {
 	{
 		"You chortle in the darkness as your target searches for you in the shadows.",
 		"You hear {Cchilling laughter{x from the shadows."
@@ -174,7 +174,7 @@ struct new_pose_struct thief_poses     []      = {
 		"You hear a cry for help and rush to the rescue, finding nothing. Unfortunately, you feel a malevolent presence at your back...."
 	}
 };
-struct new_pose_struct warrior_poses     []      = {
+std::vector<new_pose_struct> warrior_poses           = {
 	{
 		"You clobber everyone in a game of knuckle thumping.",
 		"Your fingers are bruised and swollen after $n soundly trounces you in a game of knuckle thumping."
@@ -219,7 +219,7 @@ struct new_pose_struct warrior_poses     []      = {
 		"A {Pblood-curdling{x moan and $n's gasp of ecstasy are bad, but the feeling of insatiable hunger from $s weapon is absolutely terrifying."
 	}
 };
-struct new_pose_struct necromancer_poses     []      = {
+std::vector<new_pose_struct> necromancer_poses           = {
 	{
 		"After battle, using a {bdeep groaning chant{x, you raise up a party of {Hzombies{x.",
 		"You feel a {Tchill{x as $n starts a {bgroaning chant{x that ends with a few corpses clambering to their feet."
@@ -264,7 +264,7 @@ struct new_pose_struct necromancer_poses     []      = {
 		"$n presses a stud on $s staff and *DING* an elevator appears. \"PThe River Styx{x, {RHades{x, {YA{Rc{Yh{Re{Yr{Ro{Yn{x, and the {R666{x levels of the {VA{Pb{Vy{Ps{Vs{x. Going down.\""
 	}
 };
-struct new_pose_struct paladin_poses     []      = {
+std::vector<new_pose_struct> paladin_poses           = {
 	{
 		"Shuutz. You feel the {Ylight{x gather around you in a {Yprotective shield{x",
 		"Shuutz. A {Ygolden nimbus{x surrounds $n, protecting $m from harm."
@@ -309,7 +309,7 @@ struct new_pose_struct paladin_poses     []      = {
 		"*{YWhap{x*{CSMACK{x*{CSMACK{x*{gPunch{x*{PC{YR{RU{GS{PH{x*{CSMACK{x*{Y{fSLAP{x*{RKick{x*{G{fSLAM{x* --<<{PF{RA{PT{RA{PL{RI{PT{RY{x>>-- $n grins and bows."
 	}
 };
-struct new_pose_struct bard_poses     []      = {
+std::vector<new_pose_struct> bard_poses           = {
 	{
 		"The {Pheart rending{x ballad of the Goddess' lost love almost cripples you with {Tsorrow{x.",
 		"$n's {Pheart rending{x ballad of lost love leaves you feeling the Goddess' {Tdevastation{x."
@@ -354,7 +354,7 @@ struct new_pose_struct bard_poses     []      = {
 		"On the notes of a {Ywistful tune{x, the {WPatron of Music{x drops in to visit $n."
 	},
 };
-struct new_pose_struct ranger_poses     []      = {
+std::vector<new_pose_struct> ranger_poses           = {
 	{
 		"You trail behind the party acting as rearguard.",
 		"You hear {btwigs{x snap."
@@ -400,20 +400,15 @@ struct new_pose_struct ranger_poses     []      = {
 	}
 };
 
-struct new_pose_index {
-	struct new_pose_struct *poses;
-	int posecount;
-};
-
-struct new_pose_index new_pose_table     [MAX_CLASS]      = {
-	{ mage_poses,        sizeof(mage_poses) / sizeof(mage_poses[0]) },
-	{ cleric_poses,      sizeof(cleric_poses) / sizeof(cleric_poses[0]) },
-	{ thief_poses,       sizeof(thief_poses) / sizeof(thief_poses[0]) },
-	{ warrior_poses,     sizeof(warrior_poses) / sizeof(warrior_poses[0]) },
-	{ necromancer_poses, sizeof(necromancer_poses) / sizeof(necromancer_poses[0]) },
-	{ paladin_poses,     sizeof(paladin_poses) / sizeof(paladin_poses[0]) },
-	{ bard_poses,        sizeof(bard_poses) / sizeof(bard_poses[0]) },
-	{ ranger_poses,      sizeof(ranger_poses) / sizeof(ranger_poses[0]) }
+std::vector<std::vector<new_pose_struct> > new_pose_table      = {
+	mage_poses,       
+	cleric_poses,     
+	thief_poses,      
+	warrior_poses,    
+	necromancer_poses,
+	paladin_poses,    
+	bard_poses,       
+	ranger_poses,     
 };
 
 /* New POSE command which is more flexible with regard to
@@ -434,7 +429,7 @@ int select_pose(Character *ch)
 		return -1;
 	}
 
-	maxpose = new_pose_table[ch->cls].posecount;
+	maxpose = new_pose_table[ch->cls].size();
 
 	if (maxpose <= 0) {
 		stc("No poses implemented for your class, sorry!\n", ch);
@@ -455,8 +450,8 @@ void do_pose(Character *ch, String argument)
 	if (pose == -1)
 		return;
 
-	act(new_pose_table[ch->cls].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
-	act(new_pose_table[ch->cls].poses[pose].room_msg, ch, NULL, NULL, TO_ROOM);
+	act(new_pose_table[ch->cls][pose].self_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[ch->cls][pose].room_msg, ch, NULL, NULL, TO_ROOM);
 	return;
 }
 
@@ -479,7 +474,7 @@ void do_testpose(Character *ch, String argument)
 
 	if (!argument[0]) {
 		Format::sprintf(arg, "%d poses defined for class '%s'\n",
-		        new_pose_table[cls].posecount, class_table[cls].name);
+		        new_pose_table[cls].size(), class_table[cls].name);
 		stc(arg, ch);
 		return;
 	}
@@ -491,18 +486,18 @@ void do_testpose(Character *ch, String argument)
 		return;
 	}
 
-	int pose = atoi(arg);
+	int pose = atoi(arg); // 1-indexed
 
-	if (pose < 1 || pose > new_pose_table[cls].posecount) {
+	if (pose < 1 || pose > new_pose_table[cls].size()) {
 		stc("Pose number out of range!\n", ch);
 		return;
 	}
 
 	pose--;
 	stc("{Yto {Cyourself{x:\n", ch);
-	act(new_pose_table[cls].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[cls][pose].self_msg, ch, NULL, NULL, TO_CHAR);
 	stc("{Yto {Cothers{x:\n", ch);
-	act(new_pose_table[cls].poses[pose].room_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[cls][pose].room_msg, ch, NULL, NULL, TO_CHAR);
 } /* end do_testpose() */
 
 /* RT code to delete yourself */
@@ -1907,7 +1902,7 @@ void do_outfit(Character *ch, String argument)
 		sn = 0;
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
-		for (i = 0; weapon_table[i].name != NULL; i++) {
+		for (i = 0; i < weapon_table.size(); i++) {
 			if (ch->pcdata->learned[sn] <
 			    ch->pcdata->learned[*weapon_table[i].gsn]) {
 				sn = *weapon_table[i].gsn;

@@ -215,14 +215,14 @@ cJSON *fwrite_player(Character *ch)
 		JSON::addStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
 	item = NULL;
-	for (int gn = 0; gn < MAX_GROUP; gn++) {
-		if (group_table[gn].name == NULL || ch->pcdata->group_known[gn] == 0)
+	for (int gn = 0; gn < group_table.size(); gn++) {
+		if (ch->pcdata->group_known[gn] == 0)
 			continue;
 
 		if (item == NULL)
 			item = cJSON_CreateArray();
 
-		cJSON_AddItemToArray(item, cJSON_CreateString(group_table[gn].name));
+		cJSON_AddItemToArray(item, cJSON_CreateString(group_table[gn].name.c_str()));
 	}
 	if (item != NULL)
 		cJSON_AddItemToObject(o,	"Gr",			item);
@@ -294,10 +294,7 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
 
 	item = NULL;
-	for (int sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-
+	for (int sn = 0; sn < skill_table.size(); sn++) {
 		if (ch->pcdata->learned[sn] <= 0)
 			continue;
 
@@ -344,7 +341,7 @@ cJSON *fwrite_player(Character *ch)
 				item = cJSON_CreateArray();
 
 			cJSON_AddItemToArray(item,
-				cJSON_CreateString(skill_table[ch->pcdata->extraclass[i]].name));
+				cJSON_CreateString(skill_table[ch->pcdata->extraclass[i]].name.c_str()));
 		}
 
 		if (item != NULL)
@@ -383,7 +380,7 @@ cJSON *fwrite_char(Character *ch)
 
 	item = NULL;
 	for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
+		if (paf->type < 0 || paf->type >= skill_table.size())
 			continue;
 
 		// don't write permanent affects, rebuild them from race and raffects on load
@@ -555,7 +552,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		item = cJSON_CreateArray();
 
 		for (const Affect *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
-			if (paf->type >= MAX_SKILL)
+			if (paf->type >= skill_table.size())
 				continue;
 
 			cJSON *aff = cJSON_CreateObject();
@@ -793,7 +790,7 @@ bool load_char_obj(Descriptor *d, const char *name)
 		ch->dam_type = 17; /*punch */
 
 		for (i = 0; i < 5; i++) {
-			if (pc_race_table[ch->race].skills[i] == NULL)
+			if (pc_race_table[ch->race].skills[i].empty())
 				break;
 
 			group_add(ch, pc_race_table[ch->race].skills[i], FALSE);
@@ -806,7 +803,7 @@ bool load_char_obj(Descriptor *d, const char *name)
 
 		/* nuke wiznet flags beyond their level, in case they were temp trusted */
 		if (ch->wiznet)
-			for (i = 0; wiznet_table[i].name != NULL; i++)
+			for (i = 0; i < wiznet_table.size(); i++)
 				if (IS_SET(ch->wiznet, wiznet_table[i].flag) && GET_RANK(ch) < wiznet_table[i].level)
 					REMOVE_BIT(ch->wiznet, wiznet_table[i].flag);
 
@@ -1724,7 +1721,7 @@ void do_finger(Character *ch, String argument)
 
 	Format::sprintf(buf, "{C%s ", race.capitalize());
 	dbuf += buf;
-	Format::sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[cls].name), deity);
+	Format::sprintf(buf, "{C%s, follower of %s{x\n", class_table[cls].name.capitalize(), deity);
 	dbuf += buf;
 	Format::sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
 	dbuf += buf;

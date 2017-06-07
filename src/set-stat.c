@@ -167,10 +167,8 @@ void do_sset(Character *ch, String argument)
 	}
 
 	if (fAll) {
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name != NULL)
-				victim->pcdata->learned[sn]     = value;
-		}
+		for (sn = 0; sn < skill_table.size(); sn++)
+			victim->pcdata->learned[sn] = value;
 
 		Format::sprintf(buf, "All of %s's skills and spells set to %d.\n", victim->name, value);
 	}
@@ -221,10 +219,7 @@ void do_evoset(Character *ch, String argument)
 		int x, can;
 		buffer += "They have the following skills and spells evolved:\n\n";
 
-		for (x = 0; x < MAX_SKILL; x++) {
-			if (skill_table[x].name == NULL)
-				break;
-
+		for (x = 0; x < skill_table.size(); x++) {
 			if ((can = can_evolve(victim, x)) == -1)
 				continue;
 
@@ -262,7 +257,7 @@ void do_evoset(Character *ch, String argument)
 
 	if (skill_table[sn].evocost_sec[victim->cls] <= 0 && !IS_IMMORTAL(victim)) {
 		ptc(ch, "%ss cannot evolve %s.\n",
-		    capitalize(class_table[victim->cls].name), skill_table[sn].name);
+		    class_table[victim->cls].name.capitalize(), skill_table[sn].name);
 		return;
 	}
 
@@ -473,14 +468,11 @@ void do_extraset(Character *ch, String argument)
 		output += "\n                      {BExtraclass Remort Skills{x\n";
 
 		for (cn = 0; cn < MAX_CLASS; cn++) {
-			Format::sprintf(buf, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
+			Format::sprintf(buf, "\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
 			output += buf;
 			col = 0;
 
-			for (gn = 0; gn < MAX_SKILL; gn++) {
-				if (skill_table[gn].name == NULL)
-					break;
-
+			for (gn = 0; gn < skill_table.size(); gn++) {
 				if (skill_table[gn].remort_class > 0 && skill_table[gn].remort_class == cn + 1) {
 					Format::sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->cls]);
 					output += buf;
@@ -850,7 +842,7 @@ void do_mset(Character *ch, String argument)
 			ptc(ch, "%s is not a valid %s race.\n", arg3, !IS_NPC(victim) ? "PC" : "NPC");
 			stc("Valid races are :\n\n", ch);
 
-			while (race_table[loop].name != NULL) {
+			while (loop < race_table.size()) {
 				loop++;
 
 				if ((!IS_NPC(victim) && !race_table[loop].pc_race)
@@ -936,11 +928,11 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		for (i = 0; attack_table[i].name != NULL; i++)
+		for (i = 0; i < attack_table.size(); i++)
 			if (arg3.is_prefix_of(attack_table[i].name))
 				break;
 
-		if (attack_table[i].name == NULL) {
+		if (i >= attack_table.size()) {
 			stc("That is not a valid damage type.\n"
 			    "Use {Vtypelist attack{x to see valid types.\n", ch);
 			return;
@@ -1288,16 +1280,11 @@ void do_oset(Character *ch, String argument)
 	}
 
 	if (arg2 == "value2" || arg2 == "v2") {
-		// count the drinks
-		int count = 0;
-		while (liq_table[count].liq_name != NULL)
-			count++;
-
 		/* Hack to keep Crush from crashing the mud */
 		if ((obj->item_type == ITEM_FOUNTAIN
 		     || obj->item_type == ITEM_DRINK_CON)
-		    && value >= count) {
-			ptc(ch, "The max for drinks and fountains is %d.\n", count-1);
+		    && value >= liq_table.size()) {
+			ptc(ch, "The max for drinks and fountains is %d.\n", liq_table.size()-1);
 			return;
 		}
 
@@ -1692,16 +1679,16 @@ void format_ostat(Character *ch, Object *obj)
 	case ITEM_PILL:
 		ptc(ch, "Level %d spells of:", obj->value[0]);
 
-		if (obj->value[1] >= 0 && obj->value[1] < MAX_SKILL)
+		if (obj->value[1] >= 0 && obj->value[1] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[1]].name);
 
-		if (obj->value[2] >= 0 && obj->value[2] < MAX_SKILL)
+		if (obj->value[2] >= 0 && obj->value[2] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[2]].name);
 
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
+		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
 
-		if (obj->value[4] >= 0 && obj->value[4] < MAX_SKILL)
+		if (obj->value[4] >= 0 && obj->value[4] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[4]].name);
 
 		stc(".\n", ch);
@@ -1711,7 +1698,7 @@ void format_ostat(Character *ch, Object *obj)
 	case ITEM_STAFF:
 		ptc(ch, "Has %d charges of level %d", obj->value[2], obj->value[0]);
 
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
+		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
 			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
 
 		stc(".\n", ch);
