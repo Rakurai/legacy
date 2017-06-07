@@ -4094,7 +4094,7 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 
 	case ITEM_DRINK_CON:
 		ptc(ch, "It holds %s-colored %s.\n",
-		    liq_table[obj->value[2]].liq_color, liq_table[obj->value[2]].liq_name);
+		    liq_table[obj->value[2]].color, liq_table[obj->value[2]].name);
 		break;
 
 	case ITEM_CONTAINER:

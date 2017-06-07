@@ -954,7 +954,7 @@ void do_wizhelp(Character *ch, String argument)
 	if (HAS_CGROUP(ch, GROUP_LEADER))
 		SET_BIT(ch->pcdata->cgroup, GROUP_DEPUTY);
 
-	for (i = 0; cgroup_flags[i].name != NULL; i++) {
+	for (i = 0; i < cgroup_flags.size(); i++) {
 		if (!IS_IMM_GROUP(cgroup_flags[i].bit))
 			continue;
 

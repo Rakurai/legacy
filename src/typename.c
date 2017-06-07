@@ -441,7 +441,7 @@ String cgroup_bit_name(int flags)
 	String buf;
 	int i = 0;
 
-	while (cgroup_flags[i].name != NULL) {
+	while (i < cgroup_flags.size()) {
 		if (flags & cgroup_flags[i].bit) {
 			buf += "";
 			buf += cgroup_flags[i].name;
@@ -815,7 +815,7 @@ String get_color_name(int color, int bold)
 {
 	int i;
 
-	for (i = 0; color_table[i].name != NULL; i++)
+	for (i = 0; i < color_table.size(); i++)
 		if (color_table[i].color == color
 		    && color_table[i].bold  == bold)
 			return color_table[i].name;
@@ -827,7 +827,7 @@ String get_color_code(int color, int bold)
 {
 	int i;
 
-	for (i = 0; color_table[i].name != NULL; i++)
+	for (i = 0; i < color_table.size(); i++)
 		if (color_table[i].color == color
 		    && color_table[i].bold  == bold)
 			return color_table[i].code;

@@ -30,6 +30,7 @@
 #include "tables.h"
 #include "recycle.h"
 #include "magic.h"
+#include "lookup.h"
 #include "Affect.hpp"
 #include "Format.hpp"
 

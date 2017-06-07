@@ -13,7 +13,7 @@ typedef struct
 
 AUCTION_DATA auction;
 
-extern void channel_who(Character *ch, const char *channelname, int channel, int custom);
+extern void channel_who(Character *ch, const String& channelname, int channel, int custom);
 
 void init_auction() {
 	auction.item = NULL;

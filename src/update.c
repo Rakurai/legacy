@@ -1712,9 +1712,9 @@ void underwater_update(void)
 			else {
 				/* a drink of water */
 				gain_condition(ch, COND_THIRST,
-				               liq_table[0].liq_affect[4] * liq_table[0].liq_affect[COND_THIRST] / 10);
+				               liq_table[0].affect[4] * liq_table[0].affect[COND_THIRST] / 10);
 				gain_condition(ch, COND_FULL,
-				               liq_table[0].liq_affect[4] * liq_table[0].liq_affect[COND_FULL] / 4);
+				               liq_table[0].affect[4] * liq_table[0].affect[COND_FULL] / 4);
 				dam = (ch->hit * (100 - skill)) / 400;
 
 				if (ch->hit > 100) {

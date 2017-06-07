@@ -684,7 +684,8 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	char longdesc[MAX_STRING_LENGTH];
 	char shortdesc[MAX_STRING_LENGTH];
 	char name[MAX_STRING_LENGTH];
-	char *title, *quest;
+	String title;
+	char *quest;
 	title = quest = "";             /* ew :( */
 
 	if ((questmob = create_mobile(get_mob_index(MOB_VNUM_SQUESTMOB))) == NULL) {
@@ -714,7 +715,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	/* generate title */
 	switch (number_range(1, 4)) {
 	case 1:
-		for (maxnoun = 0; MagT_table[maxnoun].male != NULL; maxnoun++);
+		for (maxnoun = 0; maxnoun < MagT_table.size(); maxnoun++);
 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female;
@@ -723,7 +724,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		break;
 
 	case 2:
-		for (maxnoun = 0; CleT_table[maxnoun].male != NULL; maxnoun++);
+		for (maxnoun = 0; maxnoun < CleT_table.size(); maxnoun++);
 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female;
@@ -732,7 +733,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		break;
 
 	case 3:
-		for (maxnoun = 0; ThiT_table[maxnoun].male != NULL; maxnoun++);
+		for (maxnoun = 0; maxnoun < ThiT_table.size(); maxnoun++);
 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female;
@@ -741,7 +742,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		break;
 
 	case 4:
-		for (maxnoun = 0; WarT_table[maxnoun].male != NULL; maxnoun++);
+		for (maxnoun = 0; maxnoun < WarT_table.size(); maxnoun++);
 
 		x = number_range(0, --maxnoun);
 		title = GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female;

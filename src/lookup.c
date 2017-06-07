@@ -62,7 +62,7 @@ int position_lookup(const String& name)
 {
 	int pos;
 
-	for (pos = 0; position_table[pos].name != NULL; pos++) {
+	for (pos = 0; pos < position_table.size(); pos++) {
 		if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
 		    &&  name.is_prefix_of(position_table[pos].name))
 			return pos;
@@ -75,7 +75,7 @@ int sex_lookup(const String& name)
 {
 	int sex;
 
-	for (sex = 0; sex_table[sex].name != NULL; sex++) {
+	for (sex = 0; sex < sex_table.size(); sex++) {
 		if (LOWER(name[0]) == LOWER(sex_table[sex].name[0])
 		    &&  name.is_prefix_of(sex_table[sex].name))
 			return sex;
@@ -88,7 +88,7 @@ int size_lookup(const String& name)
 {
 	int size;
 
-	for (size = 0; size_table[size].name != NULL; size++) {
+	for (size = 0; size < size_table.size(); size++) {
 		if (LOWER(name[0]) == LOWER(size_table[size].name[0])
 		    &&  name.is_prefix_of(size_table[size].name))
 			return size;
@@ -96,7 +96,8 @@ int size_lookup(const String& name)
 
 	return -1;
 }
-char *condition_lookup(int condition)
+
+String condition_lookup(int condition)
 {
 	if (condition >= 100)
 		return "perfect";
@@ -118,25 +119,104 @@ char *condition_lookup(int condition)
 		return "unknown";
 }
 
-char *sector_lookup(int type)
+String sector_lookup(int type)
 {
 	int i;
 
-	for (i = 0; sector_table[i].name != NULL; i++)
+	for (i = 0; i < sector_table.size(); i++)
 		if (sector_table[i].type == type)
 			return sector_table[i].name;
 
 	return "unknown";
 }
 
-int drink_lookup(const String& name)
+/* returns race number */
+int race_lookup(const String& name)
 {
-	int pos;
+	int race;
 
-	for (pos = 0; position_table[pos].name != NULL; pos++)
-		if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
-		    && name.is_prefix_of(position_table[pos].name))
-			return pos;
+	for (race = 0; race < race_table.size(); race++) {
+		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
+		    &&  name.is_prefix_of(race_table[race].name))
+			return race;
+	}
+
+	return 0;
+}
+
+int weapon_lookup(const String& name)
+{
+	int type;
+
+	for (type = 0; type < weapon_table.size(); type++) {
+		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
+		    &&  name.is_prefix_of(weapon_table[type].name))
+			return type;
+	}
+
+	return -1;
+}
+
+int get_weapon_type(const String& name)
+{
+	int type;
+
+	for (type = 0; type < weapon_table.size(); type++) {
+		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
+		    &&  name.is_prefix_of(weapon_table[type].name))
+			return weapon_table[type].type;
+	}
+
+	return WEAPON_EXOTIC;
+}
+
+int item_lookup(const String& name)
+{
+	int type;
+
+	for (type = 0; type < item_table.size(); type++) {
+		if (LOWER(name[0]) == LOWER(item_table[type].name[0])
+		    &&  name.is_prefix_of(item_table[type].name))
+			return item_table[type].type;
+	}
+
+	return -1;
+}
+
+int attack_lookup(const String& name)
+{
+	int att;
+
+	for (att = 0; att < attack_table.size(); att++) {
+		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
+		    &&  name.is_prefix_of(attack_table[att].name))
+			return att;
+	}
+
+	return 0;
+}
+
+/* returns class number */
+int class_lookup(const String& name)
+{
+	int cls;
+
+	for (cls = 0; cls < MAX_CLASS; cls++) {
+		if (name.is_prefix_of(class_table[cls].name))
+			return cls;
+	}
+
+	return -1;
+}
+
+int liq_lookup(const String& name)
+{
+	int liq;
+
+	for (liq = 0; liq < liq_table.size(); liq++)
+		if (LOWER(name[0]) == LOWER(liq_table[liq].name[0])
+		    && name.is_prefix_of(liq_table[liq].name))
+			return liq;
 
 	return -1;
 }

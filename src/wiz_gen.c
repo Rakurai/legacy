@@ -3851,7 +3851,7 @@ void do_wizgroup(Character *ch, String argument)
 	}
 
 	/* loops == good!  else ifs == bad! :) */
-	while (cgroup_flags[count].name != NULL) {
+	while (count < cgroup_flags.size()) {
 		if (arg3.is_prefix_of(cgroup_flags[count].name) || all) {
 			found = TRUE;
 

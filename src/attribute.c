@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "tables.h"
+#include "lookup.h"
 #include "Affect.hpp"
 #include "Format.hpp"
 #include "GameTime.hpp"

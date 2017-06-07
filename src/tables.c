@@ -33,7 +33,7 @@ const std::vector<helpfile_table_type> helpfile_table = {
 };
 
 /* random name generation tables, male and female syllable sets 1, 2, 3 */
-const char *Msyl1[] = {
+const String Msyl1[] = {
 	"A",    "Ab",   "Ac",   "Ad",   "Af",   "Agr",  "Ast",  "As",   "Al",   "Adw",
 	"Adr",  "Ar",   "B",    "Br",   "C",    "C",    "C",    "Cr",   "Ch",   "Cad",
 	"D",    "Dr",   "Dw",   "Ed",   "Eth",  "Et",   "Er",   "El",   "Eow",  "F",
@@ -44,14 +44,14 @@ const char *Msyl1[] = {
 	"V",    "Y",    "Yb",   "Z",    "W",    "W",    "Wic"
 };
 
-const char *Msyl2[] = {
+const String Msyl2[] = {
 	"a",    "ae",   "ae",   "au",   "ao",   "are",  "ale",  "ale",  "ay",   "ardo",
 	"e",    "edri", "ei",   "ea",   "ea",   "eri",  "era",  "ela",  "enda", "erra",
 	"i",    "ia",   "ie",   "ira",  "ila",  "ili",  "ira",  "ire",  "igo",  "o",
 	"oha",  "oma",  "oa",   "oe",   "oi",   "ore",  "u",    "y"
 };
 
-const char *Msyl3[] = {
+const String Msyl3[] = {
 	"a",    "and",  "b",    "bwyn", "baen", "bard", "c",    "ch",   "can",  "d",
 	"dan",  "don",  "der",  "dric", "dus",  "f",    "g",    "gord", "gan",  "han",
 	"har",  "jar",  "jan",  "k",    "kin",  "kith", "kath", "koth", "kor",  "kon",
@@ -63,7 +63,7 @@ const char *Msyl3[] = {
 	"wyr",  "wyr",  "wyth"
 };
 
-const char *Fsyl1[] = {
+const String Fsyl1[] = {
 	"A",    "Ab",   "Ac",   "Ad",   "Af",   "Agr",  "Ast",  "As",   "Al",   "Adw",
 	"Adr",  "Ar",   "B",    "Br",   "C",    "C",    "C",    "Cr",   "Ch",   "Cad",
 	"D",    "Dr",   "Dw",   "Ed",   "Eth",  "Et",   "Er",   "El",   "Eow",  "F",
@@ -74,7 +74,7 @@ const char *Fsyl1[] = {
 	"W",    "W",    "Wic",  "Y",    "Yb",   "Z"
 };
 
-const char *Fsyl2[] = {
+const String Fsyl2[] = {
 	"a",    "a",    "a",    "ae",   "ae",   "au",   "ao",   "are",  "ale",  "ali",
 	"ay",   "ardo", "e",    "e",    "e",    "ei",   "ea",   "ea",   "eri",  "era",
 	"ela",  "eli",  "enda", "erra", "i",    "i",    "i",    "ia",   "ie",   "ire",
@@ -82,7 +82,7 @@ const char *Fsyl2[] = {
 	"u",    "y"
 };
 
-const char *Fsyl3[] = {
+const String Fsyl3[] = {
 	"beth", "cia",  "cien", "clya", "de",   "dia",  "dda",  "dien", "dith", "dia",
 	"lind", "lith", "lia",  "lian", "lla",  "llan", "lle",  "ma",   "mma",  "mwen",
 	"meth", "n",    "n",    "n",    "nna",  "ndra", "ng",   "ni",   "nia",  "niel",
@@ -92,7 +92,7 @@ const char *Fsyl3[] = {
 };
 
 /* random mob title generation, based on basic class */
-const struct MagT_type MagT_table[] = {
+const std::vector<MagT_type> MagT_table = {
 	{       "wizard",               "wizardess"             },
 	{       "spellcaster",          "spellcaster"           },
 	{       "prestidigitator",      "prestidigitator"       },
@@ -114,10 +114,9 @@ const struct MagT_type MagT_table[] = {
 	{       "invoker",              "invoker"               },
 	{       "savant",               "savant"                },
 	{       "magus",                "craftess"              },
-	{       NULL,                   NULL                    }
 };
 
-const struct CleT_type CleT_table[] = {
+const std::vector<CleT_type> CleT_table = {
 	{       "cleric",               "cleric"                },
 	{       "shaman",               "shaman"                },
 	{       "acolyte",              "acolyte"               },
@@ -136,10 +135,9 @@ const struct CleT_type CleT_table[] = {
 	{       "patriarch",            "matriarch"             },
 	{       "demon killer",         "demon killer"          },
 	{       "evangelist",           "evangelist"            },
-	{       NULL,                   NULL                    }
 };
 
-const struct ThiT_type ThiT_table[] = {
+const std::vector<ThiT_type> ThiT_table = {
 	{       "thief",                "thief"                 },
 	{       "cutpurse",             "cutpurse"              },
 	{       "treasure hunter",      "treasure hunter"       },
@@ -162,10 +160,9 @@ const struct ThiT_type ThiT_table[] = {
 	{       "cutthroat",            "cutthroat"             },
 	{       "assassin",             "assassin"              },
 	{       "thug",                 "thug"                  },
-	{       NULL,                   NULL                    }
 };
 
-const struct WarT_type WarT_table[] = {
+const std::vector<WarT_type> WarT_table = {
 	{       "sentry",               "sentress"              },
 	{       "fighter",              "fighter"               },
 	{       "soldier",              "soldier"               },
@@ -188,10 +185,9 @@ const struct WarT_type WarT_table[] = {
 	{       "barbarian",            "barbarian"             },
 	{       "knight terminus",      "lady knight terminus"  },
 	{       "rogue knight",         "rogue knight"          },
-	{       NULL,                   NULL                    }
 };
 
-const struct chan_type chan_table[] = {
+const std::vector<chan_type> chan_table = {
 	{
 		"gossip",       "You gossip",   "$n{x gossips '$t{x'",
 		CSLOT_CHAN_GOSSIP,      COMM_NOGOSSIP,  REVOKE_GOSSIP
@@ -232,13 +228,9 @@ const struct chan_type chan_table[] = {
 		"qa",           "You Q/A",      "[Q/A] $n{x '$t{x'",
 		CSLOT_CHAN_QA,          COMM_NOQUESTION, REVOKE_QA
 	},
-	{
-		NULL,           NULL,                   NULL,
-		0,                      0,              0
-	}
 };
 
-const struct revoke_type revoke_table[] = {
+const std::vector<revoke_type> revoke_table = {
 	/* name, bit, message */
 	{ "flameonly",  REVOKE_FLAMEONLY,       "ability to use channels other than FLAME"      },
 	{ "nochannel",  REVOKE_NOCHANNELS,      "channel priviledges"                           },
@@ -261,10 +253,9 @@ const struct revoke_type revoke_table[] = {
 	{ "emote",      REVOKE_EMOTE,           "ability to EMOTE"                              },
 	{ "exp",        REVOKE_EXP,             "ability to learn from your EXPeriences"        },
 	{ "note",       REVOKE_NOTE,            "ability to write NOTEs"                        },
-	{ NULL,         0,                      NULL                                            }
 };
 
-const struct flag_type cgroup_flags[] = {
+const std::vector<flag_type> cgroup_flags = {
 	{       "General",      GROUP_GEN,              TRUE    },
 	{       "Quest",        GROUP_QUEST,    TRUE    },
 	{       "Building",     GROUP_BUILD,    TRUE    },
@@ -277,7 +268,6 @@ const struct flag_type cgroup_flags[] = {
 	{       "Hero",         GROUP_HERO,             TRUE    },
 	{       "Deputy",       GROUP_DEPUTY,   TRUE    },
 	{       "Leader",       GROUP_LEADER,   TRUE    },
-	{       NULL,           0,                              0               }
 };
 
 /* wiznet table and prototype for future flag setting */
@@ -562,7 +552,7 @@ const struct raffects raffects[MAX_RAFFECTS] = {
 };
 
 /* for position */      /* shared with AEDIT */
-const struct position_type position_table[] = {
+const std::vector<position_type> position_table = {
 	{       "dead",                 "dead"  },
 	{       "mortally wounded",     "mort"  },
 	{       "incapacitated",        "incap" },
@@ -573,23 +563,22 @@ const struct position_type position_table[] = {
 	{       "fighting",             "fight" },
 	{       "standing",             "stand" },
 	{       "flying",               "fly"   },
-	{       NULL,                   NULL    }
 };
 
 /* for sex */           /* shared with AEDIT */
-const struct sex_type sex_table[] = {
-	{"none" },      {"male" },      {"female"},     {"either"},     {NULL}
+const std::vector<sex_type> sex_table = {
+	{"none" },      {"male" },      {"female"},     {"either"},
 };
 
 /* for sizes */         /* shared with AEDIT */
-const struct size_type size_table[] = {
+const std::vector<size_type> size_table = {
 	{"tiny"},       {"small"},      {"medium"},     {"large"},
-	{"huge"},       {"giant"},      {NULL}
+	{"huge"},       {"giant"},
 };
 
 /* Below is stuff that is mostly used for the flag related commands */
 
-const char *field_cand[] = {
+const String field_cand[] = {
 	"mobiles and players",
 	"mobiles only",
 	"players only",
@@ -600,7 +589,7 @@ const char *field_cand[] = {
 /* Organization of field types for the flag commands.  Note:  you must keep these
    in order with the FIELD definitions in tables.h!  This table will also see use
    in 'consider' and 'stat', to determine who can see what flag fields. */
-const struct field_type flag_fields[] = {
+const std::vector<field_type> flag_fields = {
 	/* name                 flag_table      cand            see_mob see_plr mod_mob mod_plr */
 	{ "player",             plr_flags,      CAND_PLAYER,    999,    IMM,    999,    HED     },
 	{ "pcdata",             pcdata_flags,   CAND_PLAYER,    999,    IMM,    999,    HED     },
@@ -617,20 +606,19 @@ const struct field_type flag_fields[] = {
 	{ "wear",               wear_flags,     CAND_OBJ,       MTL,    999,    IMM,    999     },
 	{ "weapon",             weapon_flags,   CAND_OBJ,       MTL,    999,    IMM,    999     },
 	{ "room",               room_flags,     CAND_ROOM,      IMM,    999,    IMM,    999     },
-	{ NULL,                 NULL,           0,              999,    999,    999,    999     }
 };
 
-const struct ftoa_type ftoa_table[] = {
+const std::vector<ftoa_type> ftoa_table = {
 	{ "A", A },     { "B", B },     { "C", C },     { "D", D },     { "E", E },
 	{ "F", F },     { "G", G },     { "H", H },     { "I", I },     { "J", J },
 	{ "K", K },     { "L", L },     { "M", M },     { "N", N },     { "O", O },
 	{ "P", P },     { "Q", Q },     { "R", R },     { "S", S },     { "T", T },
 	{ "U", U },     { "V", V },     { "W", W },     { "X", X },     { "Y", Y },
 	{ "Z", Z },     { "aa", aa },   { "bb", bb },   { "cc", cc },   { "dd", dd },
-	{ "ee", ee },   { NULL, 0 }
+	{ "ee", ee },
 };
 
-const struct sector_type sector_table [] = {
+const std::vector<sector_type> sector_table = {
 	{       "indoors",      SECT_INSIDE             },
 	{       "city",         SECT_CITY               },
 	{       "field",        SECT_FIELD              },
@@ -645,11 +633,10 @@ const struct sector_type sector_table [] = {
 	{       "MAX",          SECT_MAX                },
 	{       "arena",        SECT_ARENA              },
 	{       "clan arena",   SECT_CLANARENA  },
-	{       NULL,           SECT_NULL               }
 };
 
 /* various flag tables */
-const struct flag_type act_flags[] = {
+const std::vector<flag_type> act_flags = {
 	{   "nosummon",             A,      TRUE    },
 	{   "sentinel",             B,      TRUE    },
 	{   "scavenger",            C,      TRUE    },
@@ -674,10 +661,9 @@ const struct flag_type act_flags[] = {
 	{   "healer",               aa,     TRUE    },
 	{   "gain",                 bb,     TRUE    },
 	{   "changer",              dd,     TRUE    },
-	{   NULL,                   0,      FALSE   }
 };
 
-const struct flag_type wear_flags[] = {
+const std::vector<flag_type> wear_flags = {
 	{   "take",                 A,      TRUE    },
 	{   "finger",               B,      TRUE    },
 	{   "neck",                 C,      TRUE    },
@@ -696,10 +682,9 @@ const struct flag_type wear_flags[] = {
 	{   "nosac",                P,      TRUE    },
 	{   "floating",             Q,      TRUE    },
 	{   "weddingring",          R,      TRUE    },
-	{   NULL,                   0,      FALSE   }
 };
 
-const struct flag_type plr_flags[] = {
+const std::vector<flag_type> plr_flags = {
 	{   "nosummon",             A,      TRUE    },
 	{   "lookinpit",            B,      TRUE    },
 	{   "autoassist",           C,      TRUE    },
@@ -728,10 +713,9 @@ const struct flag_type plr_flags[] = {
 	{   "autotick",             cc,     TRUE    },
 	{   "changer",              dd,     TRUE    },
 	{   "leader",               ee,     TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct flag_type pcdata_flags[] = {
+const std::vector<flag_type> pcdata_flags = {
 	{   "ooc",                  A,      TRUE    },
 	{   "chatmode",             B,      TRUE    },
 	{   "private",              C,      TRUE    },
@@ -750,10 +734,9 @@ const struct flag_type pcdata_flags[] = {
 	{   "showraff",             Q,      TRUE    },
 	{   "married",              R,      TRUE    },
 	{   "squestor",             S,      TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct flag_type wiz_flags[] = {
+const std::vector<flag_type> wiz_flags = {
 	{   "on",                   A,      TRUE    },
 	{   "ticks",                B,      TRUE    },
 	{   "logins",               C,      TRUE    },
@@ -782,10 +765,9 @@ const struct flag_type wiz_flags[] = {
 	{   "quest",                cc,     TRUE    },
 	{   "malloc",               dd,     TRUE    },
 	{   "bugs",                 V,      TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct flag_type extra_flags[] = {
+const std::vector<flag_type> extra_flags = {
 	{   "glowing",              A,      TRUE    },
 	{   "humming",              B,      TRUE    },
 	{   "compartment",          C,      TRUE    },
@@ -811,10 +793,9 @@ const struct flag_type extra_flags[] = {
 	{   "sellextract",          W,      TRUE    },
 	{   "burnproof",            Y,      TRUE    },
 	{   "nouncurse",            Z,      TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct flag_type room_flags [] = {
+const std::vector<flag_type> room_flags = {
 	{       "dark",         A,      TRUE    },
 	{       "nolight",      B,      TRUE    },
 	{       "nomob",        C,      TRUE    },
@@ -843,10 +824,9 @@ const struct flag_type room_flags [] = {
 	{       "remortsonly",  Z,      TRUE    },
 	{       "noquest",      aa,     TRUE    },
 	{       "silent",       bb,     TRUE    },
-	{       NULL,           0,      0       }
 };
 
-const struct flag_type affect_flags[] = {
+const std::vector<flag_type> affect_flags = {
 	{   "blind",                A,      TRUE    },
 	{   "invisible",            B,      TRUE    },
 	{   "detect_evil",          C,      TRUE    },
@@ -878,10 +858,9 @@ const struct flag_type affect_flags[] = {
 	{   "regeneration",         cc,     TRUE    },
 	{   "slow",                 dd,     TRUE    },
 	{   "talon",                ee,     TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct flag_type off_flags[] = {
+const std::vector<flag_type> off_flags = {
 	{   "area_attack",          A,      TRUE    },
 	{   "backstab",             B,      TRUE    },
 	{   "bash",                 C,      TRUE    },
@@ -901,10 +880,9 @@ const struct flag_type off_flags[] = {
 	{   "assist_players",       S,      TRUE    },
 	{   "assist_guard",         T,      TRUE    },
 	{   "assist_vnum",          U,      TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct flag_type form_flags[] = {
+const std::vector<flag_type> form_flags = {
 	{   "edible",               FORM_EDIBLE,            TRUE    },
 	{   "poison",               FORM_POISON,            TRUE    },
 	{   "magical",              FORM_MAGICAL,           TRUE    },
@@ -931,10 +909,9 @@ const struct flag_type form_flags[] = {
 	{   "amphibian",            FORM_AMPHIBIAN,         TRUE    },
 	{   "fish",                 FORM_FISH ,             TRUE    },
 	{   "cold_blood",           FORM_COLD_BLOOD,        TRUE    },
-	{   NULL,                   0,                      0       }
 };
 
-const struct flag_type part_flags[] = {
+const std::vector<flag_type> part_flags = {
 	{   "head",                 PART_HEAD,              TRUE    },
 	{   "arms",                 PART_ARMS,              TRUE    },
 	{   "legs",                 PART_LEGS,              TRUE    },
@@ -957,10 +934,9 @@ const struct flag_type part_flags[] = {
 	{   "horns",                PART_HORNS,             TRUE    },
 	{   "scales",               PART_SCALES,            TRUE    },
 	{   "tusks",                PART_TUSKS,             TRUE    },
-	{   NULL,                   0,                      0       }
 };
 
-const struct flag_type comm_flags[] = {
+const std::vector<flag_type> comm_flags = {
 	{   "quiet",                COMM_QUIET,             TRUE    },
 	{   "deaf",                 COMM_DEAF,              TRUE    },
 	{   "nowiz",                COMM_NOWIZ,             TRUE    },
@@ -986,16 +962,14 @@ const struct flag_type comm_flags[] = {
 	{   "nochannels",           COMM_NOCHANNELS,        TRUE    },
 	{   "afk",                  COMM_AFK,               TRUE    },
 	{   "atbprompt",            COMM_ATBPROMPT,         TRUE    },
-	{   NULL,                   0,                      0       }
 };
 
-const struct flag_type censor_flags[] = {
+const std::vector<flag_type> censor_flags = {
 	{       "channels",             CENSOR_CHAN,            TRUE    },
 	{       "spam",                 CENSOR_SPAM,            TRUE    },
-	{       NULL,                   0,                      0,      }
 };
 
-const struct flag_type revoke_flags[] = {
+const std::vector<flag_type> revoke_flags = {
 	{   "nochannels",          REVOKE_NOCHANNELS,       TRUE    },
 	{   "flame_only",          REVOKE_FLAMEONLY,        TRUE    },
 	{   "pray",                REVOKE_PRAY,             TRUE    },
@@ -1011,10 +985,9 @@ const struct flag_type revoke_flags[] = {
 	{   "grats",               REVOKE_GRATS,            TRUE    },
 	{   "page",                REVOKE_PAGE,             TRUE    },
 	{   "qtell",               REVOKE_QTELL,            TRUE    },
-	{   NULL,                  0,                       0       },
 };
 
-const struct flag_type weapon_flags[] = {
+const std::vector<flag_type> weapon_flags = {
 	{   "flaming",              WEAPON_FLAMING,      TRUE    },
 	{   "frost",                WEAPON_FROST,      TRUE    },
 	{   "vampiric",             WEAPON_VAMPIRIC,      TRUE    },
@@ -1023,10 +996,9 @@ const struct flag_type weapon_flags[] = {
 	{   "twohanded",            WEAPON_TWO_HANDS,      TRUE    },
 	{   "shocking",             WEAPON_SHOCKING,      TRUE    },
 	{   "poison",               WEAPON_POISON,      TRUE    },
-	{   NULL,                   0,      0       }
 };
 
-const struct color_type color_table[] = {
+const std::vector<color_type> color_table = {
 	{       "black",        "{k",   GREY,   NOBOLD  },
 	{       "charcoal",     "{c",   GREY,   BOLD    },
 	{       "red",          "{R",   RED,    NOBOLD  },
@@ -1043,13 +1015,12 @@ const struct color_type color_table[] = {
 	{       "cyan",         "{C",   CYAN,   BOLD    },
 	{       "grey",         "{g",   WHITE,  NOBOLD  },
 	{       "white",        "{W",   WHITE,  BOLD    },
-	{       NULL,           NULL,   0,      0       }
 };
 
 /* default color settings table -- Montrey */
 /* sections must be separated by a NULL line, entries must match the
    definitions in merc.h for CSLOTs */
-const struct csetting_type csetting_table[] = {
+const std::vector<csetting_type> csetting_table = {
 //		color       bold    name
 	{       GREEN,  NOBOLD, "Gossip"        },      /*  0 */
 	{       RED,    BOLD,   "Flame"         },
@@ -1070,17 +1041,17 @@ const struct csetting_type csetting_table[] = {
 	{       PURPLE, BOLD,   "GTell"         },
 	{       PURPLE, BOLD,   "QTell"         },
 	{       YELLOW, BOLD,   "Spousetalk"    },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },      /* 20 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },      /* 25 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },      /* 20 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },      /* 25 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
 	{       CYAN,   BOLD,   "Name"          },      /* 30 */
 	{       PURPLE, NOBOLD, "PKills"        },
 	{       PURPLE, BOLD,   "AKills"        },
@@ -1096,11 +1067,11 @@ const struct csetting_type csetting_table[] = {
 	{       YELLOW, BOLD,   "QP"            },
 	{       GREEN,  BOLD,   "SP"            },
 	{       PURPLE, BOLD,   "RPP"           },
-	{       0,      0,      NULL            },      /* 45 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
+	{       0,      0,      ""              },      /* 45 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
 	{       YELLOW, NOBOLD, "Torch"         },      /* 50 */
 	{       RED,    BOLD,   "Flame"         },
 	{       YELLOW, NOBOLD, "Border"        },
@@ -1125,39 +1096,39 @@ const struct csetting_type csetting_table[] = {
 	{       GREEN,  NOBOLD, "Position"      },
 	{       RED,    NOBOLD, "PKRecord"      },
 	{       WHITE,  BOLD,   "PKRank"        },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },      /* 75 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },      /* 75 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
 	{       RED,    BOLD,   "Rooms"         },      /* 80 */
 	{       GREEN,  BOLD,   "Mobiles"       },
 	{       YELLOW, NOBOLD, "Objects"       },
 	{       PURPLE, BOLD,   "Players"       },
 	{       YELLOW, NOBOLD, "Inventory"     },
-	{       0,      0,      NULL            },      /* 85 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },      /* 90 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },      /* 95 */
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            },
-	{       0,      0,      NULL            }       /* MAX_COLOR */
+	{       0,      0,      ""              },      /* 85 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },      /* 90 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },      /* 95 */
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              },
+	{       0,      0,      ""              }       /* MAX_COLOR */
 };
 
-long flag_lookup(const String& name, const struct flag_type *flag_table)
+long flag_lookup(const String& name, const std::vector<flag_type>& flag_table)
 {
 	int flag;
 
-	for (flag = 0; flag_table[flag].name != NULL; flag++) {
+	for (flag = 0; flag < flag_table.size(); flag++) {
 		if (LOWER(name[0]) == LOWER(flag_table[flag].name[0])
 		    &&  name.is_prefix_of(flag_table[flag].name))
 			return flag;

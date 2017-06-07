@@ -584,7 +584,7 @@ void do_revoke(Character *ch, String argument)
 		/* print a list of revokable stuff */
 		stc("Current REVOKE options:\n\n", ch);
 
-		for (i = 0; revoke_table[i].name != NULL; i++) {
+		for (i = 0; i < revoke_table.size(); i++) {
 			/* don't print the same one twice :) */
 			if (IS_SET(printed, revoke_table[i].bit))
 				continue;
@@ -608,7 +608,7 @@ void do_revoke(Character *ch, String argument)
 		return;
 	}
 
-	for (i = 0; revoke_table[i].name != NULL; i++) {
+	for (i = 0; i < revoke_table.size(); i++) {
 		if (!arg2.is_prefix_of(revoke_table[i].name))
 			continue;
 

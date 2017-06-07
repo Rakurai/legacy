@@ -1790,7 +1790,7 @@ void do_look(Character *ch, String argument)
 			    obj->value[1] < obj->value[0] / 4 ?     "less than half-" :
 			    obj->value[1] < 3 * obj->value[0] / 4 ? "about half-" :
 			    "more than half-",
-			    liq_table[obj->value[2]].liq_color);
+			    liq_table[obj->value[2]].color);
 			break;
 
 		case ITEM_CONTAINER:
@@ -5063,7 +5063,7 @@ void score_new(Character *ch)
 //	line  3:  `,                                                                 `,
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
 //	line  4:  .:.                        Male Dragon Mage                        .:.
-	Format::sprintf(buf, "%s ", GET_ATTR_SEX(ch) == SEX_NEUTRAL ? "Sexless" : GET_ATTR_SEX(ch) == SEX_MALE ? "Male" : "Female");
+	Format::sprintf(buf, "%s ", sex_table[GET_ATTR_SEX(ch)].name.capitalize());
 	buf += race_table[ch->race].name.capitalize();
 	buf += " ";
 	buf += class_table[ch->cls].name.capitalize();

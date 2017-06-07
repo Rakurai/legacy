@@ -80,7 +80,7 @@ void config_color_func(Character *ch, String argument, int type)
 		ptc(ch, "%s color settings:\n\n", capitalize(typestr));
 
 		for (slot = low; slot < high; slot++) {
-			if (csetting_table[slot].name == NULL)
+			if (csetting_table[slot].name.empty())
 				continue;
 
 			if (type == 3
@@ -106,7 +106,7 @@ void config_color_func(Character *ch, String argument, int type)
 		slot = atoi(arg1) - mod;
 	else
 		for (slot = low; slot < high; slot++) {
-			if (csetting_table[slot].name == NULL)
+			if (csetting_table[slot].name.empty())
 				continue;
 
 			if (type == 3
@@ -119,7 +119,7 @@ void config_color_func(Character *ch, String argument, int type)
 				break;
 		}
 
-	if (csetting_table[slot].name == NULL || slot > high  || slot < low) {
+	if (csetting_table[slot].name.empty() || slot > high  || slot < low) {
 		ptc(ch, "That is not a valid %s.  Type 'config color %s' for a list.\n",
 		    type == 3 ? "channel" : "item", typestr);
 		return;
@@ -132,11 +132,11 @@ void config_color_func(Character *ch, String argument, int type)
 		return;
 	}
 
-	for (i = 0; color_table[i].name != NULL; i++)
+	for (i = 0; i < color_table.size(); i++)
 		if (arg2.is_prefix_of(color_table[i].name))
 			break;
 
-	if (color_table[i].name == NULL) {
+	if (i >= color_table.size()) {
 		stc("That is not a color name.  Type 'ctest' for a list.\n", ch);
 		return;
 	}

@@ -234,9 +234,9 @@ struct spec_type
 
 struct  liq_type
 {
-    String      liq_name;
-    String      liq_color;
-    sh_int      liq_affect[5];
+    String      name;
+    String      color;
+    sh_int      affect[5];
 };
 
 
@@ -270,16 +270,6 @@ struct  group_type
     std::vector<String> spells;
 };
 
-
-struct raffects
-{
-    char *description;
-    char *shortname;
-    int group;
-    int id;
-    int chance;
-    long add;
-};
 
 /*
  * Utility macros.
@@ -943,14 +933,7 @@ String  flags_to_string args((int flag));
 long    string_to_flags args((const String& str));
 int     count_users     args( (Object *obj) );
 bool    deduct_cost     args( (Character *ch, long cost) );
-int     liq_lookup      args( ( const String& name) );
-int     weapon_lookup   args( ( const String& name) );
 int     get_weapon_type     args( ( const String& name) );
-int     item_lookup     args( ( const String& name) );
-int     attack_lookup   args(( const String& name) );
-int     race_lookup     args(( const String& name) );
-int     class_lookup    args(( const String& name) );
-int     deity_lookup    args(( const String& name) );
 bool    is_clan         args((Character *ch) );
 bool    is_same_clan    args((Character *ch, Character *victim));
 int     get_skill       args(( const Character *ch, int sn ) );

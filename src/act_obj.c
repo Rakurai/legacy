@@ -1726,10 +1726,10 @@ void do_fill(Character *ch, String argument)
 	}
 
 	Format::sprintf(buf, "You fill $p with %s from $P.",
-	        liq_table[wanted_fountain->value[2]].liq_name);
+	        liq_table[wanted_fountain->value[2]].name);
 	act(buf, ch, obj, wanted_fountain, TO_CHAR);
 	Format::sprintf(buf, "$n fills $p with %s from $P.",
-	        liq_table[wanted_fountain->value[2]].liq_name);
+	        liq_table[wanted_fountain->value[2]].name);
 	act(buf, ch, obj, wanted_fountain, TO_ROOM);
 	obj->value[2] = wanted_fountain->value[2];
 	obj->value[1] = obj->value[0];
@@ -1770,10 +1770,10 @@ void do_pour(Character *ch, String argument)
 		out->value[1] = 0;
 		out->value[3] = 0;      /* no more poison */
 		Format::sprintf(buf, "You invert $p, spilling %s all over the ground.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, out, NULL, TO_CHAR);
 		Format::sprintf(buf, "$n inverts $p, spilling %s all over the ground.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, out, NULL, TO_ROOM);
 		return;
 	}
@@ -1827,21 +1827,21 @@ void do_pour(Character *ch, String argument)
 
 	if (vch == NULL) {
 		Format::sprintf(buf, "You pour %s from $p into $P.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, out, in, TO_CHAR);
 		Format::sprintf(buf, "$n pours %s from $p into $P.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, out, in, TO_ROOM);
 	}
 	else {
 		Format::sprintf(buf, "You pour some %s for $N.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, NULL, vch, TO_CHAR);
 		Format::sprintf(buf, "$n pours you some %s.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, NULL, vch, TO_VICT);
 		Format::sprintf(buf, "$n pours some %s for $N.",
-		        liq_table[out->value[2]].liq_name);
+		        liq_table[out->value[2]].name);
 		act(buf, ch, NULL, vch, TO_NOTVICT);
 	}
 }
@@ -1895,7 +1895,7 @@ void do_drink(Character *ch, String argument)
 			liquid = obj->value[2] = 0;
 		}
 
-		amount = liq_table[liquid].liq_affect[4] * 3;
+		amount = liq_table[liquid].affect[4] * 3;
 		break;
 
 	case ITEM_DRINK_CON:
@@ -1909,7 +1909,7 @@ void do_drink(Character *ch, String argument)
 			liquid = obj->value[2] = 0;
 		}
 
-		amount = liq_table[liquid].liq_affect[4];
+		amount = liq_table[liquid].affect[4];
 		amount = UMIN(amount, obj->value[1]);
 		break;
 	}
@@ -1920,16 +1920,16 @@ void do_drink(Character *ch, String argument)
 		return;
 	}
 
-	act("$n drinks $T from $p.", ch, obj, liq_table[liquid].liq_name, TO_ROOM);
-	act("You drink $T from $p.", ch, obj, liq_table[liquid].liq_name, TO_CHAR);
-	gain_condition(ch, COND_DRUNK,  amount * liq_table[liquid].liq_affect[COND_DRUNK]  / 36);
-	gain_condition(ch, COND_FULL,   amount * liq_table[liquid].liq_affect[COND_FULL]   /  4);
-	gain_condition(ch, COND_HUNGER, amount * liq_table[liquid].liq_affect[COND_HUNGER] /  2);
+	act("$n drinks $T from $p.", ch, obj, liq_table[liquid].name, TO_ROOM);
+	act("You drink $T from $p.", ch, obj, liq_table[liquid].name, TO_CHAR);
+	gain_condition(ch, COND_DRUNK,  amount * liq_table[liquid].affect[COND_DRUNK]  / 36);
+	gain_condition(ch, COND_FULL,   amount * liq_table[liquid].affect[COND_FULL]   /  4);
+	gain_condition(ch, COND_HUNGER, amount * liq_table[liquid].affect[COND_HUNGER] /  2);
 
-	if (ch->race == 6 && liquid == drink_lookup("blood"))   /* vampires */
+	if (ch->race == 6 && liquid == liq_lookup("blood"))   /* vampires */
 		liqvalue = 10;          /* same as water */
 	else
-		liqvalue = liq_table[liquid].liq_affect[COND_THIRST];
+		liqvalue = liq_table[liquid].affect[COND_THIRST];
 
 	gain_condition(ch, COND_THIRST, amount * liqvalue / 10);
 

@@ -27,45 +27,45 @@
 
 struct helpfile_table_type
 {
-	const String name;
+	String name;
 	int	group;
 };
 
 struct MagT_type
 {
-	char *male;
-	char *female;
+	String male;
+	String female;
 };
 
 struct CleT_type
 {
-	char *male;
-	char *female;
+	String male;
+	String female;
 };
 
 struct ThiT_type
 {
-	char *male;
-	char *female;
+	String male;
+	String female;
 };
 
 struct WarT_type
 {
-	char *male;
-	char *female;
+	String male;
+	String female;
 };
 
 struct ftoa_type
 {
-	char *alpha;
+	String alpha;
 	long flag;
 };
 
 struct chan_type
 {
-	char *name;
-	char *prefix_self;
-	char *other_str;
+	String name;
+	String prefix_self;
+	String other_str;
 	int cslot;
 	long bit;
 	long revoke_bit;
@@ -73,9 +73,9 @@ struct chan_type
 
 struct revoke_type
 {
-	char *name;
+	String name;
 	long bit;
-	char *message;
+	String message;
 };
 
 #define CAND_CHAR	0
@@ -100,10 +100,17 @@ struct revoke_type
 #define	FIELD_WEAPON	13
 #define	FIELD_ROOM	14
 
+struct flag_type
+{
+    String name;
+    unsigned int bit;
+    bool settable;
+};
+
 struct field_type
 {
-	char 				* name;
-	const	struct	flag_type	* flag_table;
+	String			name;
+	const std::vector<flag_type> &flag_table;
 	int				cand;
 	int				see_mob;
 	int				see_plr;
@@ -111,97 +118,99 @@ struct field_type
 	int				mod_plr;
 };
 
-struct flag_type
-{
-    char *name;
-    unsigned int bit;
-    bool settable;
-};
-
 struct position_type
 {
-    char *name;
-    char *short_name;
+    String name;
+    String short_name;
 };
 
 struct sex_type
 {
-    char *name;
+    String name;
 };
 
 struct size_type
 {
-    char *name;
+    String name;
 };
 
 struct csetting_type
 {
 	int color;
 	int bold;
-	char *name;
+	String name;
 };
 
 struct color_type
 {
-	char *name;
-	char *code;
+	String name;
+	String code;
 	int color;
 	int bold;
 };
 
 // sector types - Montrey (2014)
 struct sector_type {
-    char *name;
+    String name;
     sh_int type;
+};
+
+struct raffects
+{
+    String description;
+    String shortname;
+    int group;
+    int id;
+    int chance;
+    long add;
 };
 
 
 /* game tables */
-extern  const   struct  position_type   position_table[];
-extern  const   struct  sex_type        sex_table[];
-extern  const   struct  size_type       size_table[];
-/* extern  const   char                    *remort_titles[]; */
-extern  const   struct  raffects        raffects[MAX_RAFFECTS];
-extern  const   char    		*Msyl1[];
-extern  const   char    		*Msyl2[];
-extern  const   char    		*Msyl3[];
-extern  const   char    		*Fsyl1[];
-extern  const   char    		*Fsyl2[];
-extern  const   char    		*Fsyl3[];
-extern  const   struct  MagT_type	MagT_table[];
-extern  const   struct  CleT_type	CleT_table[];
-extern  const   struct  ThiT_type	ThiT_table[];
-extern  const   struct  WarT_type	WarT_table[];
-extern	const	struct	chan_type	chan_table[];		/* new channel table */
-extern	const	struct	revoke_type	revoke_table[];		/* revoke command table */
-extern	const	struct	ftoa_type	ftoa_table[];		/* flags to alpha */
-extern	const	struct	csetting_type	csetting_table[];	/* color settings table */
-extern	const	struct	color_type	color_table[];		/* color table */
+extern  const   std::vector<position_type> position_table;
+extern  const   std::vector<sex_type>      sex_table;
+extern  const   std::vector<size_type>     size_table;
+extern  const   struct  raffects           raffects[MAX_RAFFECTS];
+extern  const   String Msyl1[];
+extern  const   String Msyl2[];
+extern  const   String Msyl3[];
+extern  const   String Fsyl1[];
+extern  const   String Fsyl2[];
+extern  const   String Fsyl3[];
+extern  const   std::vector<MagT_type>     MagT_table;
+extern  const   std::vector<CleT_type>     CleT_table;
+extern  const   std::vector<ThiT_type>     ThiT_table;
+extern  const   std::vector<WarT_type>     WarT_table;
+extern	const	std::vector<chan_type>     chan_table;		/* new channel table */
+extern	const	std::vector<revoke_type>   revoke_table;		/* revoke command table */
+extern	const	std::vector<ftoa_type>     ftoa_table;		/* flags to alpha */
+extern	const	std::vector<csetting_type> csetting_table;	/* color settings table */
+extern	const	std::vector<color_type>    color_table;		/* color table */
 extern	const	std::vector<helpfile_table_type> helpfile_table;	/* help name group table */
-extern	const	struct  sector_type sector_table[];
+extern	const	std::vector<sector_type>   sector_table;
 
 /* flag tables */
-extern	const	char			*field_cand[];
-extern	const	struct	field_type	flag_fields[];
-extern  const   struct  flag_type       plr_flags[];
-extern  const   struct  flag_type       act_flags[];
-extern  const   struct  flag_type       pcdata_flags[];
-extern  const   struct  flag_type       wiz_flags[];
-extern  const   struct  flag_type       affect_flags[];
-extern  const   struct  flag_type       off_flags[];
-extern  const   struct  flag_type       imm_flags[];
-extern  const   struct  flag_type       form_flags[];
-extern  const   struct  flag_type       part_flags[];
-extern  const   struct  flag_type       comm_flags[];
-extern  const   struct  flag_type	censor_flags[];
-extern  const   struct  flag_type       revoke_flags[];
-extern  const   struct  flag_type       extra_flags[];
-extern  const   struct  flag_type       wear_flags[];
-extern  const   struct  flag_type       weapon_flags[];
-extern  const   struct  flag_type       container_flags[];
-extern  const   struct  flag_type       portal_flags[];
-extern  const   struct  flag_type       room_flags[];
-extern  const   struct  flag_type       exit_flags[];
-extern  const   struct  flag_type       cgroup_flags[];
+extern	const	String field_cand[];
+extern	const	std::vector<field_type> flag_fields;
+extern  const   std::vector<flag_type> plr_flags;
+extern  const   std::vector<flag_type> act_flags;
+extern  const   std::vector<flag_type> pcdata_flags;
+extern  const   std::vector<flag_type> wiz_flags;
+extern  const   std::vector<flag_type> affect_flags;
+extern  const   std::vector<flag_type> off_flags;
+extern  const   std::vector<flag_type> imm_flags;
+extern  const   std::vector<flag_type> form_flags;
+extern  const   std::vector<flag_type> part_flags;
+extern  const   std::vector<flag_type> comm_flags;
+extern  const   std::vector<flag_type> censor_flags;
+extern  const   std::vector<flag_type> revoke_flags;
+extern  const   std::vector<flag_type> extra_flags;
+extern  const   std::vector<flag_type> wear_flags;
+extern  const   std::vector<flag_type> weapon_flags;
+extern  const   std::vector<flag_type> container_flags;
+extern  const   std::vector<flag_type> portal_flags;
+extern  const   std::vector<flag_type> room_flags;
+extern  const   std::vector<flag_type> exit_flags;
+extern  const   std::vector<flag_type> cgroup_flags;
 
-long flag_lookup(const String& name, const struct flag_type *flag_table);
+long flag_lookup(const String& name, const std::vector<flag_type>& flag_table);

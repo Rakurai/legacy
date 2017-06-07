@@ -41,7 +41,6 @@ void do_flag(Character *ch, String argument)
 	unsigned long *flag;
 	int old = 0, nw = 0, marked = 0, pos, fieldptr, length;
 	char type;
-	const struct flag_type *flag_table;
 
 	String arg1, arg2, arg3, word;
 	argument = one_argument(argument, arg1);
@@ -78,11 +77,11 @@ void do_flag(Character *ch, String argument)
 		return;
 	}
 
-	for (fieldptr = 0; flag_fields[fieldptr].name != NULL; fieldptr++)
+	for (fieldptr = 0; fieldptr < flag_fields.size(); fieldptr++)
 		if (arg3.is_prefix_of(flag_fields[fieldptr].name))
 			break;
 
-	if (flag_fields[fieldptr].name == NULL) {
+	if (fieldptr == flag_fields.size()) {
 		stc("That is not a valid flag field.\n", ch);
 		return;
 	}
@@ -241,7 +240,7 @@ void do_flag(Character *ch, String argument)
 	}
 
 	old = *flag;
-	flag_table = flag_fields[fieldptr].flag_table;
+	const std::vector<flag_type>& flag_table = flag_fields[fieldptr].flag_table;
 
 	if (type != '=')
 		nw = old;
@@ -285,7 +284,7 @@ void do_flag(Character *ch, String argument)
 			SET_BIT(marked, flag_table[pos].bit);
 	}
 
-	for (pos = 0; flag_table[pos].name != NULL; pos++) {
+	for (pos = 0; pos < flag_table.size(); pos++) {
 		if (!flag_table[pos].settable && IS_SET(old, flag_table[pos].bit)) {
 			SET_BIT(nw, flag_table[pos].bit);
 			continue;
@@ -337,7 +336,7 @@ void do_typelist(Character *ch, String argument)
 
 	if (argument.is_prefix_of("liquid")) {
 		for (x = 0; x < liq_table.size(); x++)
-			ptc(ch, "[%2d][%20s][%20s]\n", x, liq_table[x].liq_name, liq_table[x].liq_color);
+			ptc(ch, "[%2d][%20s][%20s]\n", x, liq_table[x].name, liq_table[x].color);
 	}
 	else if (argument.is_prefix_of("attack")) {
 		for (x = 0; x < attack_table.size(); x++)
@@ -347,26 +346,25 @@ void do_typelist(Character *ch, String argument)
 		stc("Valid lists: liquid, attack\n", ch);
 }
 
-char *flag_to_alpha(long flag)
+String flag_to_alpha(long flag)
 {
 	int i;
 
-	for (i = 0; ftoa_table[i].alpha != NULL; i++)
+	for (i = 0; i < ftoa_table.size(); i++)
 		if (flag == ftoa_table[i].flag)
 			return ftoa_table[i].alpha;
 
-	return NULL;
+	return "";
 }
 
 void do_flaglist(Character *ch, String argument)
 {
 	int x;
-	const struct flag_type *flag_table;
-
+	
 	if (argument.empty()) {
 		stc("Flag fields are:\n", ch);
 
-		for (x = 0; flag_fields[x].name != NULL; x++)
+		for (x = 0; x < flag_fields.size(); x++)
 			if (GET_RANK(ch) >= flag_fields[x].see_mob
 			    || GET_RANK(ch) >= flag_fields[x].see_plr)
 				ptc(ch, "%-30s%s\n", flag_fields[x].name,
@@ -375,21 +373,22 @@ void do_flaglist(Character *ch, String argument)
 		return;
 	}
 
-	for (x = 0; flag_fields[x].name != NULL; x++)
+	for (x = 0; x < flag_fields.size(); x++)
 		if (GET_RANK(ch) >= flag_fields[x].see_mob
 		    || GET_RANK(ch) >= flag_fields[x].see_plr)
 			if (argument.is_prefix_of(flag_fields[x].name))
 				break;
 
-	if (flag_fields[x].name == NULL) {
+	if (x >= flag_fields.size()) {
 		stc("There is no such field.\n", ch);
 		return;
 	}
 
-	flag_table = flag_fields[x].flag_table;
 	ptc(ch, "Flags in the %s field:\n", flag_fields[x].name);
 
-	for (x = 0; flag_table[x].name != NULL; x++)
+	const std::vector<flag_type>& flag_table = flag_fields[x].flag_table;
+
+	for (x = 0; x < flag_table.size(); x++)
 		ptc(ch, "[%2s] %s\n", flag_to_alpha(flag_table[x].bit), flag_table[x].name);
 }
 
@@ -695,7 +694,6 @@ void do_flagsearch(Character *ch, String argument)
 {
 	int fieldptr, length;
 	long marked = 0, pos;
-	const struct flag_type *flag_table;
 	bool player = TRUE, mobile = TRUE, toolowmobile = FALSE, toolowplayer = FALSE;
 
 	String arg1, arg2, word;
@@ -723,11 +721,11 @@ void do_flagsearch(Character *ch, String argument)
 		return;
 	}
 
-	for (fieldptr = 0; flag_fields[fieldptr].name != NULL; fieldptr++)
+	for (fieldptr = 0; fieldptr < flag_fields.size(); fieldptr++)
 		if (arg2.is_prefix_of(flag_fields[fieldptr].name))
 			break;
 
-	if (flag_fields[fieldptr].name == NULL) {
+	if (fieldptr >= flag_fields.size()) {
 		stc("That is not a valid flag field.\n", ch);
 		return;
 	}
@@ -859,7 +857,7 @@ void do_flagsearch(Character *ch, String argument)
 		return;
 	}
 
-	flag_table = flag_fields[fieldptr].flag_table;
+	const std::vector<flag_type>& flag_table = flag_fields[fieldptr].flag_table;
 
 	/* turn the argument into flags */
 	for (; ;) {

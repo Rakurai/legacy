@@ -31,7 +31,7 @@
 #include "recycle.h"
 #include "Format.hpp"
 
-extern void     channel_who     args((Character *ch, const char *channelname, int
+extern void     channel_who     args((Character *ch, const String& channelname, int
                                       channel, int custom));
 bool    check_channel_social    args((Character *ch, int channel,
                                       int custom, const String& command, const String& argument));
@@ -441,7 +441,7 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 }
 
 /* Channel who by Lotus */
-void channel_who(Character *ch, const char *channelname, int channel, int custom)
+void channel_who(Character *ch, const String& channelname, int channel, int custom)
 {
 	Descriptor *d;
 

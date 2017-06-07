@@ -30,6 +30,7 @@
 #include "vt100.h"
 #include "Affect.hpp"
 #include "auction.h"
+#include "lookup.h"
 #include "Format.hpp"
 
 /*

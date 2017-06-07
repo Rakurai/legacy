@@ -31,6 +31,7 @@
 #include "tables.h"
 #include "magic.h"
 #include "gem.h"
+#include "lookup.h"
 #include "Affect.hpp"
 #include "Format.hpp"
 
@@ -1706,7 +1707,7 @@ void format_ostat(Character *ch, Object *obj)
 
 	case ITEM_DRINK_CON:
 		ptc(ch, "It holds %s-colored %s.\n",
-		    liq_table[obj->value[2]].liq_color, liq_table[obj->value[2]].liq_name);
+		    liq_table[obj->value[2]].color, liq_table[obj->value[2]].name);
 		break;
 
 	case ITEM_CONTAINER:
@@ -2003,7 +2004,7 @@ void do_pstat(Character *ch, String argument)
 
 	ptc(ch, " %s %s %s",
 	    race_table[victim->race].name,
-	    GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "sexless" : GET_ATTR_SEX(victim) == SEX_MALE ? "male" : "female",
+	    sex_table[GET_ATTR_SEX(ch)].name,
 	    class_table[victim->cls].name);
 
 	if (victim->clan) {
