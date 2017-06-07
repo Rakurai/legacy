@@ -188,7 +188,7 @@ void do_loadhelps(Character *ch, String argument)
 		    "  loadhelps all\n\n"
 		    "File names are:\n", ch);
 
-		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
@@ -203,7 +203,7 @@ void do_loadhelps(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 			do_loadhelps(ch, helpfile_table[tablenum].name);
 
 		stc("All help files in the " HELP_DIR " directory loaded.\n", ch);
@@ -211,14 +211,14 @@ void do_loadhelps(Character *ch, String argument)
 		return;
 	}
 
-	for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+	for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 		if (helpfile_table[tablenum].name.is_prefix_of(arg))
 			break;
 
-	if (helpfile_table[tablenum].name == NULL) {
+	if (tablenum >= helpfile_table.size()) {
 		stc("That is not a valid help file name.  Help file names are:\n\n", ch);
 
-		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
@@ -238,10 +238,8 @@ void do_loadhelps(Character *ch, String argument)
 		temp_help[count].keywords = fread_string(fp);
 		temp_help[count].text = fread_string(fp);
 
-		if (temp_help[count].keywords   == NULL
-		    || temp_help[count].text       == NULL
-		    || temp_help[count].keywords[0] == '\0'
-		    || temp_help[count].text[0]    == '\0')
+		if (temp_help[count].keywords.empty()
+		    || temp_help[count].text.empty())
 			stc("Error:  missing text.\n", ch);
 		else if (strlen(temp_help[count].keywords) > 100)
 			stc("Error:  keywords longer than 100 characters.\n", ch);
@@ -317,7 +315,7 @@ void do_printhelps(Character *ch, String argument)
 		    "  printhelps all\n\n"
 		    "Filenames are:\n", ch);
 
-		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
@@ -332,21 +330,21 @@ void do_printhelps(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 			do_printhelps(ch, helpfile_table[tablenum].name);
 
 		stc("All helps have been printed to file in the " HELP_DIR " directory.\n", ch);
 		return;
 	}
 
-	for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+	for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 		if (helpfile_table[tablenum].name.is_prefix_of(arg))
 			break;
 
-	if (helpfile_table[tablenum].name == NULL) {
+	if (tablenum >= helpfile_table.size()) {
 		stc("That is not a valid help file name.  Help file names are:\n\n", ch);
 
-		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
+		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
@@ -469,7 +467,7 @@ void do_help(Character *ch, String argument)
 		else
 			continue;
 
-		for (i = 0; helpfile_table[i].name != NULL; i++)
+		for (i = 0; i < helpfile_table.size(); i++)
 			if (helpfile_table[i].group == group) {
 				temp_help[result_count].hgroup = i;
 				break;

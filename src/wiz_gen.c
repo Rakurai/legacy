@@ -1043,7 +1043,7 @@ void do_disconnect(Character *ch, String argument)
 	int desc;
 	char buf[MAX_INPUT_LENGTH];
 
-	if (argument == NULL || argument.empty()) {
+	if (argument.empty()) {
 		stc("Disconnect which socket? (type SOCKETS for list)\n",
 		    ch);
 		return;
@@ -2432,7 +2432,7 @@ void do_motd(Character *ch, String argument)
 			int len;
 			bool found = FALSE;
 
-			if (time_info.motd == NULL || time_info.motd[0] == '\0') {
+			if (time_info.motd.empty()) {
 				stc("No lines left to remove.\n", ch);
 				return;
 			}

@@ -100,8 +100,8 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 	String buf;
 	int diff;
 
-	if ((fShort && (obj->short_descr == NULL || obj->short_descr[0] == '\0'))
-	    || (obj->description == NULL || obj->description[0] == '\0'))
+	if ((fShort && obj->short_descr.empty())
+	    || obj->description.empty())
 		return buf;
 
 	if (obj->num_settings > 0) {
@@ -3360,7 +3360,7 @@ void do_description(Character *ch, String argument)
 			int len;
 			bool found = FALSE;
 
-			if (ch->description == NULL || ch->description[0] == '\0') {
+			if (ch->description.empty()) {
 				stc("No lines left to remove.\n", ch);
 				return;
 			}
@@ -4445,7 +4445,7 @@ void gameinout(Character *ch, const String& mortal, const String& entryexit, cha
 		return;
 	}
 
-	if (mortal == NULL)
+	if (mortal.empty())
 		victim = ch;
 	else {
 		victim = get_player_world(ch, mortal, VIS_PLR);

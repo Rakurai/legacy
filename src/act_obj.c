@@ -155,7 +155,7 @@ bool pers_eq_ok(Character *ch, Object *obj, char *action)
 	if (is_name(ch->name, owner))
 		return TRUE;
 
-	if (obj->short_descr == NULL || obj->short_descr[0] == '\0') {
+	if (obj->short_descr.empty()) {
 		bug("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
 		obj->short_descr = "something";
 	}
@@ -4988,7 +4988,7 @@ void do_engrave(Character *ch, String argument)
 		dbuf += dflt_desc->description;
 		dbuf += eng_line;
 		dflt_desc->description = dbuf;
-		dbuf = NULL;
+		dbuf.erase();
 	}
 
 	/* Split existing extdesc into single lines.

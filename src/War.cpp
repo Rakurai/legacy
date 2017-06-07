@@ -596,7 +596,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 
 		while (x < listcount && loss > 0) {
 			if (conqlist[x].scored == highest) {
-				if (conqlist[x + 1].clanname == NULL) {
+				if (conqlist[x + 1].clanname.empty()) {
 					qpaward = qploss;
 					award = loss;
 				}

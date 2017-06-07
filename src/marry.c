@@ -365,7 +365,7 @@ void do_reject(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pcdata->propose == NULL || victim->pcdata->propose != ch->name) {
+	if (victim->pcdata->propose != ch->name) {
 		stc("They haven't proposed to you.\n", ch);
 		return;
 	}

@@ -181,7 +181,7 @@ void act_parse(
     /*
      * Discard null and zero-length messages.
      */
-    if (format == NULL || format[0] == '\0')
+    if (format.empty())
         return;
 
     /* discard null rooms and chars */

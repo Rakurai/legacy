@@ -65,4 +65,11 @@ public:
 
 	// Actable
 	virtual std::string identifier() const { return *this; }
+
+private:
+	// don't allow NULL operations
+	String(std::nullptr_t);
+	String& operator=(std::nullptr_t);
+	friend bool operator== (const String &, std::nullptr_t) = delete;
+	friend bool operator!= (const String &, std::nullptr_t) = delete;
 };

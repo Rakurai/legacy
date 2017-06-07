@@ -1177,7 +1177,7 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (ch->pnote == NULL || ch->pnote->text == NULL) {
+		if (ch->pnote == NULL || ch->pnote->text.empty()) {
 			stc("You have no note in progress.\n", ch);
 			return;
 		}
@@ -1190,7 +1190,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg == "format") {
-		if (ch->pnote == NULL || ch->pnote->text == NULL) {
+		if (ch->pnote == NULL || ch->pnote->text.empty()) {
 			stc("You have no note in progress.\n", ch);
 			return;
 		}
@@ -1208,7 +1208,7 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (ch->pnote->text == NULL || ch->pnote->text[0] == '\0') {
+		if (ch->pnote->text.empty()) {
 			stc("No lines left to remove.\n", ch);
 			return;
 		}

@@ -2651,7 +2651,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  1:
-		if (ch->material == 0)
+		if (ch->material.empty())
 			msg = "$n splatters blood all over you, the ground, everything...Eeeeeeew!";
 
 		break;

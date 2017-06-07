@@ -496,7 +496,7 @@ void do_string(Character *ch, String argument)
 			ExtraDescr *ed;
 			argument = one_argument(argument, arg3);
 
-			if (argument == NULL) {
+			if (argument.empty()) {
 				stc("Syntax: set obj <object> ed <keyword> <string>\n", ch);
 				return;
 			}
@@ -541,7 +541,7 @@ void do_string(Character *ch, String argument)
 			buf.erase();
 			argument = one_argument(argument, arg3);
 
-			if (argument == NULL) {
+			if (argument.empty()) {
 				stc("Syntax: string obj <obj> more <keyword> <string>\n", ch);
 				return;
 			}

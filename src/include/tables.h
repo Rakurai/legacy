@@ -177,7 +177,7 @@ extern	const	struct	revoke_type	revoke_table[];		/* revoke command table */
 extern	const	struct	ftoa_type	ftoa_table[];		/* flags to alpha */
 extern	const	struct	csetting_type	csetting_table[];	/* color settings table */
 extern	const	struct	color_type	color_table[];		/* color table */
-extern	const	struct	helpfile_table_type	helpfile_table[];	/* help name group table */
+extern	const	std::vector<helpfile_table_type> helpfile_table;	/* help name group table */
 extern	const	struct  sector_type sector_table[];
 
 /* flag tables */

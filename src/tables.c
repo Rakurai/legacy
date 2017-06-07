@@ -11,7 +11,7 @@
 #include "merc.h"
 #include "tables.h"
 
-const struct helpfile_table_type helpfile_table[] = {
+const std::vector<helpfile_table_type> helpfile_table = {
 	{       "wizhelp",      HELP_WIZHELP    },
 	{       "wizquest",     HELP_WIZQUEST   },
 	{       "wizsecure",    HELP_WIZSECURE  },
@@ -30,7 +30,6 @@ const struct helpfile_table_type helpfile_table[] = {
 	{       "info",         HELP_INFO       },
 	{       "combat",       HELP_COMBAT     },
 	{       "misc",         HELP_MISC       },
-	{       NULL,           0               }
 };
 
 /* random name generation tables, male and female syllable sets 1, 2, 3 */

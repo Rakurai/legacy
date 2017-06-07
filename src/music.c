@@ -31,7 +31,7 @@
 #include "Format.hpp"
 
 int channel_songs[MAX_GLOBAL + 1];
-struct song_data song_table[MAX_SONGS];
+std::vector<struct song_data> song_table;
 
 void song_update(void)
 {
@@ -44,7 +44,7 @@ void song_update(void)
 	int i;
 
 	/* do the global song, if any */
-	if (channel_songs[1] >= MAX_SONGS)
+	if (channel_songs[1] >= song_table.size())
 		channel_songs[1] = -1;
 
 	if (channel_songs[1] > -1) {
@@ -89,7 +89,7 @@ void song_update(void)
 		if (obj->item_type != ITEM_JUKEBOX || obj->value[1] < 0)
 			continue;
 
-		if (obj->value[1] >= MAX_SONGS) {
+		if (obj->value[1] >= song_table.size()) {
 			obj->value[1] = -1;
 			continue;
 		}
@@ -139,7 +139,7 @@ void song_update(void)
 void load_songs(void)
 {
 	FILE *fp;
-	int count = 0, lines, i;
+	int i;
 	char letter;
 
 	/* reset global */
@@ -151,42 +151,43 @@ void load_songs(void)
 		return;
 	}
 
-	for (count = 0; count < MAX_SONGS; count++) {
+	while (TRUE) {
 		letter = fread_letter(fp);
 
 		if (letter == '#') {
-			if (count < MAX_SONGS)
-				song_table[count].name = "";
-
 			fclose(fp);
 			return;
 		}
 		else
 			ungetc(letter, fp);
 
-		song_table[count].group = fread_string(fp);
-		song_table[count].name  = fread_string(fp);
-		/* read lyrics */
-		lines = 0;
+		struct song_data song;
+		song.group = fread_string(fp);
+		song.name  = fread_string(fp);
+		song.lines = 0;
 
+		/* read lyrics */
 		for (; ;) {
 			letter = fread_letter(fp);
 
 			if (letter == '~') {
-				song_table[count].lines = lines;
 				break;
 			}
 			else
 				ungetc(letter, fp);
 
-			if (lines >= MAX_LINES) {
+			if (song.lines >= MAX_LINES) {
 				bug("Too many lines in a song -- limit is  %d.", MAX_LINES);
+
 				break;
 			}
 
-			song_table[count].lyrics[lines] = fread_string_eol(fp);
-			lines++;
+			song.lyrics[song.lines] = fread_string_eol(fp);
+			song.lines++;
 		}
+
+		if (song.lines > 0)
+			song_table.push_back(song);
 	}
 
 	fclose(fp); /* One more close than open -  Lotus */
@@ -241,10 +242,7 @@ void do_play(Character *ch, String argument)
 		Format::sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
 		buffer += capitalize(buf);
 
-		for (i = 0; i < MAX_SONGS; i++) {
-			if (song_table[i].name == NULL)
-				break;
-
+		for (i = 0; i < song_table.size(); i++) {
 			if (artist && (!match
 			               ||             argument.is_prefix_of(song_table[i].group)))
 				Format::sprintf(buf, "%-39s %-39s\n",
@@ -312,17 +310,12 @@ void do_play(Character *ch, String argument)
 		return;
 	}
 
-	for (song = 0; song < MAX_SONGS; song++) {
-		if (song_table[song].name == NULL) {
-			stc("That song isn't available.\n", ch);
-			return;
-		}
-
+	for (song = 0; song < song_table.size(); song++) {
 		if (argument.is_prefix_of(song_table[song].name))
 			break;
 	}
 
-	if (song >= MAX_SONGS) {
+	if (song >= song_table.size()) {
 		stc("That song isn't available.\n", ch);
 		return;
 	}

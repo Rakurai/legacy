@@ -1424,7 +1424,7 @@ bool room_is_very_dark(RoomPrototype *room)
 
 bool is_room_owner(Character *ch, RoomPrototype *room)
 {
-	if (room->owner == NULL || room->owner[0] == '\0')
+	if (room->owner.empty())
 		return FALSE;
 
 	return is_name(ch->name, room->owner);
@@ -1718,7 +1718,7 @@ int parse_deity(const String& dstring)
 {
 	int i;
 
-	if (dstring == NULL || dstring[0] == '\0')
+	if (dstring.empty())
 		return -1;
 
 	for (i = 0; deity_table[i].name; i++)

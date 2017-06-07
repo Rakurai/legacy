@@ -181,19 +181,12 @@ void quest_where(Character *ch, char *what)
 		return;
 	}
 
-	if (room->area->name == NULL) {
-		bug("QUEST INFO: area->name == NULL", 0);
-		return;
-	}
+	ptc(ch, "Rumor has it this %s was last seen in the area known as %s", what, room->area->name);
 
-	ptc(ch, "Rumor has it this %s was last seen in the area known as %s,\n", what, room->area->name);
-
-	if (room->name == NULL) {
-		bug("QUEST INFO: room(%d)->name == NULL", ch->questloc);
-		return;
-	}
-
-	ptc(ch, "near %s.\n", room->name);
+	if (room->name.empty())
+		ptc(ch, ".\n");
+	else
+		ptc(ch, ",\nnear %s.\n", room->name);
 } /* end quest_where */
 
 void squest_info(Character *ch)
@@ -235,7 +228,7 @@ void squest_info(Character *ch)
 		if (ch->pcdata->squestobjf) {
 			stc("Your skill quest is ALMOST complete!\n", ch);
 			ptc(ch, "Get back to %s before your time runs out!\n",
-			    (questman->short_descr == NULL ? "your quest master" : questman->short_descr));
+			    (questman->short_descr.empty() ? "your quest master" : questman->short_descr));
 			return;
 		}
 
@@ -264,7 +257,7 @@ void squest_info(Character *ch)
 		if (ch->pcdata->squestmobf) {
 			stc("Your skill quest is ALMOST complete!\n", ch);
 			ptc(ch, "Get back to %s before your time runs out!\n",
-			    (questman->short_descr == NULL ? "the questmistress" : questman->short_descr));
+			    (questman->short_descr.empty() ? "the questmistress" : questman->short_descr));
 			return;
 		}
 
@@ -322,7 +315,7 @@ void squest_info(Character *ch)
 		if (ch->pcdata->squestobjf && ch->pcdata->squestmobf) {
 			stc("Your skill quest is ALMOST complete!\n", ch);
 			ptc(ch, "Get back to %s before your time runs out!\n",
-			    (questman->short_descr == NULL ? "the questmistress" : questman->short_descr));
+			    (questman->short_descr.empty() ? "the questmistress" : questman->short_descr));
 			return;
 		}
 
@@ -373,7 +366,7 @@ void quest_info(Character *ch)
 	if (ch->questmob == -1) { /* killed target mob */
 		stc("Your quest is ALMOST complete!\n", ch);
 		ptc(ch, "Get back to %s before your time runs out!\n",
-		    (questman->short_descr == NULL ? "your quest master" : questman->short_descr));
+		    (questman->short_descr.empty() ? "your quest master" : questman->short_descr));
 		return;
 	}
 	else if (ch->questobj > 0) { /* questing for an object */
