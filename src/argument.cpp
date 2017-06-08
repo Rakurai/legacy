@@ -1,60 +1,10 @@
-#include <string>
-#include "merc.h"
+
+#include <cstring>
+#include <cstdlib>
+#include <cctype>
+
+#include "declare.h"
 #include "String.hpp"
-
-char * 
-strcat(char *dest, const String& src) {
-	return std::strcat(dest, src.c_str());
-}
-
-char * 
-strncat(char *dest, const String& src, size_t n) {
-	return std::strncat(dest, src.c_str(), n);
-}
-
-char * 
-strcpy(char *dest, const String& src) {
-	return std::strcpy(dest, src.c_str());
-}
-
-char * 
-strncpy(char *dest, const String& src, size_t n) {
-	return std::strncpy(dest, src.c_str(), n);
-}
-
-size_t
-strlen(const String& str) {
-	return str.size();
-}
-
-const char *
-strchr(const String& str, int ch) {
-	return std::strchr(str.c_str(), ch);
-}
-
-const char *
-strstr(const String& astr, const String& bstr) {
-	return std::strstr(astr.c_str(), bstr.c_str());
-}
-
-int
-strcmp(const String& astr, const String& bstr) {
-	return std::strcmp(astr.c_str(), bstr.c_str());
-}
-
-int
-strncmp(const String& astr, const String& bstr, size_t n) {
-	return std::strncmp(astr.c_str(), bstr.c_str(), n);
-}
-
-int strcasecmp(const String& astr, const String& bstr) {
-	return strcasecmp(astr.c_str(), bstr.c_str());
-}
-
-bool is_number(const String& str) {
-	extern bool is_number(const char *str);
-	return is_number(str.c_str());
-}
 
 /*
  * Given a string like 14.foo, return 14 and 'foo'
@@ -70,13 +20,13 @@ int number_argument(const char *argument, char *arg)
 		const char *pdot = strstr(argument, ".");
 
 		if (pdot != NULL) {
-			char tmp_buf[MAX_INPUT_LENGTH];
+			char tmp_buf[strlen(argument)+1];
 			strcpy(tmp_buf, argument);
 			char *tdot = &tmp_buf[pdot - argument];
 			*tdot = '\0';
 
 			/* Check for good numeric */
-			if (is_number(tmp_buf)) {
+			if (String(tmp_buf).is_number()) {
 				/* strip out number, return numeric value */
 				strcpy(arg, tdot + 1);
 				return atoi(tmp_buf);
@@ -106,7 +56,7 @@ int number_argument(const char *argument, char *arg)
  */
 int entity_argument(const char *argument, char *arg)
 {
-	char tmp_buf[MAX_STRING_LENGTH];
+	char tmp_buf[strlen(argument)+1];
 	char *ap;   /* pointer to argument */
 	int  number;
 	int  etype = 0;
@@ -115,7 +65,7 @@ int entity_argument(const char *argument, char *arg)
 	ap = tmp_buf;
 
 	if (ap[0] != '\0' && ap[1] == '.') {
-		switch (LOWER(ap[0])) {
+		switch (tolower(ap[0])) {
 		case 'p':
 			etype = ENTITY_P;  ap += 2;
 			break;
@@ -134,7 +84,7 @@ int entity_argument(const char *argument, char *arg)
 		}
 	}
 	else if (ap[0] != '\0' && ap[1] == '#') {
-		switch (LOWER(ap[0])) {
+		switch (tolower(ap[0])) {
 		case 'm':
 			etype = ENTITY_VM;  ap += 2;
 			break;
@@ -153,7 +103,7 @@ int entity_argument(const char *argument, char *arg)
 	if (number == 1)
 		strcpy(arg, ap);
 	else
-		Format::sprintf(arg, "%d.%s", number, ap);
+		sprintf(arg, "%d.%s", number, ap);
 
 	return etype;
 }
@@ -164,7 +114,7 @@ int entity_argument(const char *argument, char *arg)
 int mult_argument(const char *argument, char *arg)
 {
 	int number;
-	char buf[MSL];
+	char buf[strlen(argument)+1];
 
 	strcpy(buf, argument);
 	char *pstar = strchr(buf, '*');

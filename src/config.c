@@ -46,7 +46,7 @@ void config_wiznet(Character *ch, const char *argument)
                 return;
         }
 
-             if (is_number(arg1))                       argnum = atoi(arg1);
+             if (arg1.is_number())                       argnum = atoi(arg1);
         else if (arg1.is_prefix_of("channels"))        argnum = 1;
         else if (arg1.is_prefix_of("spam"))            argnum = 3;
 
@@ -63,7 +63,7 @@ void config_wiznet(Character *ch, const char *argument)
 
 void config_color_func(Character *ch, String argument, int type)
 {
-	char typestr[20];
+	String typestr;
 	int low, high, mod, slot, i;
 
 	switch (type) {
@@ -77,7 +77,7 @@ void config_color_func(Character *ch, String argument, int type)
 
 	if (argument.empty()) {
 		stc("Use the color name or 'reset' after an option to modify.\n", ch);
-		ptc(ch, "%s color settings:\n\n", capitalize(typestr));
+		ptc(ch, "%s color settings:\n\n", typestr.capitalize());
 
 		for (slot = low; slot < high; slot++) {
 			if (csetting_table[slot].name.empty())
@@ -102,7 +102,7 @@ void config_color_func(Character *ch, String argument, int type)
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
-	if (is_number(arg1))
+	if (arg1.is_number())
 		slot = atoi(arg1) - mod;
 	else
 		for (slot = low; slot < high; slot++) {
@@ -177,7 +177,7 @@ void config_color(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg1))                       argnum = atoi(arg1);
+	if (arg1.is_number())                       argnum = atoi(arg1);
 	else if (arg1.is_prefix_of("color"))           argnum = 1;
 	else if (arg1.is_prefix_of("crazy"))           argnum = 2;
 	else if (arg1.is_prefix_of("channels"))        argnum = 3;
@@ -291,7 +291,7 @@ void config_video(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg1))                       argnum = atoi(arg1);
+	if (arg1.is_number())                       argnum = atoi(arg1);
 	else if (arg1.is_prefix_of("flash"))           argnum = 1;
 	else if (arg1.is_prefix_of("dark"))            argnum = 2;
 	else if (arg1.is_prefix_of("codes"))           argnum = 3;
@@ -424,7 +424,7 @@ void config_censor(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg1))                       argnum = atoi(arg1);
+	if (arg1.is_number())                       argnum = atoi(arg1);
 	else if (arg1.is_prefix_of("channels"))        argnum = 1;
 	else if (arg1.is_prefix_of("spam"))            argnum = 2;
 
@@ -523,7 +523,7 @@ void config_immortal(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg1))                       argnum = atoi(arg1);
+	if (arg1.is_number())                       argnum = atoi(arg1);
 	else if (arg1.is_prefix_of("immprefix"))        argnum = 1;
 	else if (arg1.is_prefix_of("immname"))            argnum = 2;
 
@@ -576,7 +576,7 @@ void config_immortal(Character *ch, String argument)
 			else {
 				buf[0]  = '\0';
 				buf += "{W[{x";
-				buf += center_string_in_whitespace(argument, TITLEBLOCK);
+				buf += argument.center(TITLEBLOCK);
 				buf += "{W]{x";
 				ch->pcdata->immname = buf;
 				ptc(ch, "Your immname is now: %s{x\n", ch->pcdata->immname);
@@ -646,7 +646,7 @@ void config_wiznet(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg1)) {
+	if (arg1.is_number()) {
 		if (atoi(arg1) < wiznet_table.size())
 			argnum = atoi(arg1);
 	}
@@ -718,7 +718,7 @@ void do_config(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (is_number(arg1))                       argnum = atoi(arg1);
+	if (arg1.is_number())                       argnum = atoi(arg1);
 	else if (arg1.is_prefix_of("channels"))        argnum = 1;
 	else if (!IS_NPC(ch) &&          arg1.is_prefix_of("color"))           argnum = 5;
 	else if (!IS_NPC(ch) &&          arg1.is_prefix_of("video"))           argnum = 6;

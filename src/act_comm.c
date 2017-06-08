@@ -482,7 +482,7 @@ void do_testpose(Character *ch, String argument)
 
 	argument = one_argument(argument, arg);
 
-	if (!is_number(arg)) {
+	if (!arg.is_number()) {
 		stc("Pose number must be numeric!\n", ch);
 		return;
 	}

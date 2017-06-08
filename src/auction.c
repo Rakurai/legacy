@@ -226,7 +226,7 @@ void do_auction(Character *ch, String argument)
 		if (argument.empty())
 			newbet = auction.bet + UMAX(auction.bet / 10, 1);
 		else {
-			if (!is_number(argument)) {
+			if (!argument.is_number()) {
 				stc("Your bid must be numeric.\n", ch);
 				return;
 			}
@@ -323,7 +323,7 @@ void do_auction(Character *ch, String argument)
 	}
 
 	if (!arg2.empty()) {
-		if (!is_number(arg2)) {
+		if (!arg2.is_number()) {
 			stc("Minimum bid value must be numeric.\n", ch);
 			return;
 		}

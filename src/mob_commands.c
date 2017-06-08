@@ -267,7 +267,7 @@ void do_mpjunk(Character *ch, String argument)
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if (arg[3] == '\0' || is_name(&arg[4], obj->name)) {
+			if (arg[3] == '\0' || obj->name.has_words(&arg[4])) {
 				if (obj->wear_loc != WEAR_NONE)
 					unequip_char(ch, obj);
 
@@ -385,7 +385,7 @@ void do_mpmload(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.empty() || !is_number(arg)) {
+	if (arg.empty() || !arg.is_number()) {
 		bug("Mpmload - Bad vnum as arg: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -420,7 +420,7 @@ void do_mpoload(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1.empty() || !is_number(arg1)) {
+	if (arg1.empty() || !arg1.is_number()) {
 		bug("Mpoload - Bad syntax: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -635,7 +635,7 @@ void do_mptransfer(Character *ch, String argument)
 	}
 
 	for (victim = char_list; victim != NULL; victim = victim->next)
-		if (is_name(arg1, victim->name))
+		if (victim->name.has_words(arg1))
 			break;
 
 	if (victim == NULL) {
@@ -689,7 +689,7 @@ void do_mpforce(Character *ch, String argument)
 		Character *victim;
 
 		for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
-			if (is_name(arg, victim->name))
+			if (victim->name.has_words(arg))
 				break;
 
 		if (victim == NULL) {

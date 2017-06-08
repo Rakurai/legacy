@@ -1624,7 +1624,7 @@ void kill_off(Character *ch, Character *victim)
 			for (obj = corpse->contains; obj; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if (is_name("gcash", obj->name)
+				if (obj->name.has_words("gcash")
 				 && !IS_SET(ch->act_flags, PLR_AUTOGOLD))
 					continue;
 				else if (!IS_SET(ch->act_flags, PLR_AUTOLOOT))
@@ -3878,7 +3878,7 @@ void do_battle(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg1) || !is_number(arg2) || !is_number(arg3)) {
+		if (!arg1.is_number() || !arg2.is_number() || !arg3.is_number()) {
 			stc("Values must be numeric.\n", ch);
 			return;
 		}

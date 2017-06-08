@@ -65,7 +65,7 @@ void do_addapply(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(arg3)) {
+	if (!arg3.is_number()) {
 		stc("Applies require a value.\n", ch);
 		return;
 	}
@@ -79,7 +79,7 @@ void do_addapply(Character *ch, String argument)
 
 	if (arg4.empty())
 		duration = -1;
-	else if (!is_number(arg4))
+	else if (!arg4.is_number())
 		duration = -1;
 	else if (atoi(arg4) < -1 || atoi(arg4) > 998)
 		duration = -1;
@@ -205,7 +205,7 @@ void do_rppaward(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(argument)) {
+	if (!argument.is_number()) {
 		stc("Value must be numeric.\n", ch);
 		return;
 	}
@@ -914,7 +914,7 @@ void do_skillpoint(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(argument)) {
+	if (!argument.is_number()) {
 		stc("Value must be numeric.\n", ch);
 		return;
 	}

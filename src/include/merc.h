@@ -49,6 +49,7 @@
 #include <algorithm>
 
 #include "declare.h"
+#include "argument.h"
 
 #include "memory.h"
 #include "Actable.hpp"
@@ -1084,7 +1085,7 @@ void    sq_cleanup	 args( ( Character *ch ) );
 /* save.c */
 void    save_char_obj    args( ( Character *ch ) );
 void    backup_char_obj  args( ( Character *ch ) );
-bool    load_char_obj    args( ( Descriptor *d, const char *name ) );
+bool    load_char_obj    args( ( Descriptor *d, const String& name ) );
 const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const String& ctime ) );
 
@@ -1154,8 +1155,6 @@ void bugf(const String& fmt, Params... params)
 
 
 // here's the place for header files that depend on merc.h, that we need in almost every .c file
-#include "c_string.h"
-#include "StringPatch.h"
 #include "act.h"
 
 #endif

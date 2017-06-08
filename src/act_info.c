@@ -865,7 +865,7 @@ void do_scroll(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!is_number(arg)) {
+	if (!arg.is_number()) {
 		stc("You must provide a number.\n", ch);
 		return;
 	}
@@ -1901,7 +1901,7 @@ void do_look(Character *ch, String argument)
 				else continue;
 			}
 
-			if (is_name(arg3, obj->name)) {
+			if (obj->name.has_words(arg3)) {
 				if (++count == number) {
 					stc(obj->description, ch);
 					stc("\n", ch);
@@ -1936,7 +1936,7 @@ void do_look(Character *ch, String argument)
 			}
 		}
 
-		if (is_name(arg3, obj->name))
+		if (obj->name.has_words(arg3))
 			if (++count == number) {
 				stc(obj->description, ch);
 				stc("\n", ch);
@@ -2072,6 +2072,7 @@ void do_examine(Character *ch, String argument)
 */
 void exits_in(Character *ch)
 {
+	extern const String dir_name[];
 	Area *pArea;
 	RoomPrototype *room;
 	Exit *exit;
@@ -2079,7 +2080,6 @@ void exits_in(Character *ch)
 	String output;
 	char buf[1024];
 	int vnum, in_room_vnum, i;
-	char *dir_name[] = { "North", "East", "South", "West", "Up", "Down" };
 	bool found = FALSE;
 
 	if (ch->in_room == NULL)
@@ -2147,7 +2147,7 @@ void exits_in(Character *ch)
  */
 void do_exits(Character *ch, String argument)
 {
-	extern const char* dir_name[];
+	extern const String dir_name[];
 	String buf;
 	Exit *pexit;
 	bool found;
@@ -2186,7 +2186,7 @@ void do_exits(Character *ch, String argument)
 			}
 			else {
 				buf += Format::format("%-5s - %s",
-				        capitalize(dir_name[door]),
+				        dir_name[door].capitalize(),
 				        (room_is_dark(pexit->u1.to_room) && !affect_exists_on_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
 				        : pexit->u1.to_room->name
@@ -2506,7 +2506,7 @@ void do_who(Character *ch, String argument)
 		String arg;
 		argument = one_argument(argument, arg);
 
-		if (is_number(arg)) {
+		if (arg.is_number()) {
 			switch (++nNumber) {
 			case 1:         iLevelLower = atoi(arg);        break;
 
@@ -3080,7 +3080,7 @@ void do_where(Character *ch, String argument)
 			    && victim->in_room->area == ch->in_room->area
 			    && !affect_exists_on_char(victim, gsn_hide)
 			    && can_see_char(ch, victim)
-			    && is_name(arg, victim->name)) {
+			    && victim->name.has_words(arg)) {
 				found = TRUE;
 				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name);
 				break;
@@ -4346,7 +4346,7 @@ void do_rank(Character *ch, String argument)
 		return;
 	}
 
-	victim->pcdata->rank = center_string_in_whitespace(argument, 3);
+	victim->pcdata->rank = argument.center(3);
 	Format::sprintf(test, "Your new rank is {W[%s{W]{x.\n",
 	        victim->pcdata->rank);
 	stc(test, victim);
@@ -4545,7 +4545,7 @@ void do_pit(Character *ch, String argument)
 	if (arg.empty())
 		keywords = "";
 	else {
-		if (is_number(arg)) {
+		if (arg.is_number()) {
 			num1 = UMAX(atoi(arg), -1);
 			keywords = argument;
 			argument = one_argument(argument, arg);
@@ -4553,7 +4553,7 @@ void do_pit(Character *ch, String argument)
 			if (arg.empty())
 				keywords = "";
 			else {
-				if (is_number(arg)) {
+				if (arg.is_number()) {
 					num2 = UMAX(atoi(arg), -1);
 					keywords = argument;
 					one_argument(argument, arg);
@@ -4659,7 +4659,7 @@ void do_pit(Character *ch, String argument)
 		    (obj->level < level1 || obj->level > level2))
 			continue;
 
-		if (fname && !is_name(keywords, obj->name))
+		if (fname && !obj->name.has_words(keywords))
 			continue;
 
 		if (fwear && !(obj->wear_flags & wear_flag))
@@ -4745,9 +4745,9 @@ void do_claninfo(Character *ch, String argument)
 	return;
 }
 
-String make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
+String make_bar(const String& bgcolor, const String& fgcolor, long info, int numbg, bool imm)
 {
-	char output[MSL], buf[MSL];
+	String output, buf;
 
 	if (imm)
 		Format::sprintf(output, "{%s{%s%-10ld{x", bgcolor, fgcolor, info);
@@ -4755,7 +4755,7 @@ String make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)
 		Format::sprintf(output, "{%s{%s          {x", bgcolor, fgcolor);
 
 	Format::sprintf(buf, "{x{%s", fgcolor);
-	return strins(output, buf, numbg + 4);
+	return output.insert(buf, numbg + 4);
 }
 
 void do_clanpower(Character *ch, String argument)
@@ -5059,7 +5059,7 @@ void score_new(Character *ch)
 	/* center the name and title */
 	new_color(ch, CSLOT_SCORE_TITLE);
 	Format::sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), IS_NPC(ch) ? ch->short_descr : ch->name, IS_NPC(ch) ? "" : ch->pcdata->title);
-	ptc(ch, " %s'`,{x %s %s'`,{x\n", flame, strcenter(buf, 62), flame);
+	ptc(ch, " %s'`,{x %s %s'`,{x\n", flame, buf.center(62), flame);
 //	line  3:  `,                                                                 `,
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
 //	line  4:  .:.                        Male Dragon Mage                        .:.
@@ -5068,7 +5068,7 @@ void score_new(Character *ch)
 	buf += " ";
 	buf += class_table[ch->cls].name.capitalize();
 	new_color(ch, CSLOT_SCORE_CLASS);
-	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", strcenter(buf, 62));
+	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", buf.center(62));
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(
 	ptc(ch, " %s)X({x ", torch);
 	new_color(ch, CSLOT_SCORE_LEVEL);
@@ -5077,7 +5077,7 @@ void score_new(Character *ch)
 	        IS_NPC(ch) ? 0 : ch->pcdata->remort_count,
 	        GET_ATTR_AGE(ch),
 	        get_play_hours(ch));
-	stc(strcenter(buf, 62), ch);
+	stc(buf.center(62), ch);
 	ptc(ch, " %s)X({x\n", torch);
 //	line  6: [%%%]==============================================================[%%%]
 	ptc(ch, "%s", torch);
@@ -5224,7 +5224,7 @@ void score_new(Character *ch)
 
 	ptc(ch, " %s|#|                    %s|{x", torch, border);
 	new_color(ch, CSLOT_SCORE_POSITION);
-	ptc(ch, "%s%s|{x", strcenter(buf, 22), border);
+	ptc(ch, "%s%s|{x", buf.center(22), border);
 	new_color(ch, CSLOT_SCORE_XPNUM);
 	ptc(ch, "       Total %6d %s|#|{x\n", UMIN(ch->exp, 999999), torch);
 //	line 20:  |#|----------------------------------------------------------------|#|
@@ -5238,7 +5238,7 @@ void score_new(Character *ch)
 		        ch->pcdata->pckills, ch->pcdata->pckilled,
 		        get_custom_color_code(ch, CSLOT_SCORE_PKRANK), ch->pcdata->pkrank,
 		        ch->pcdata->arenakills, ch->pcdata->arenakilled);
-		ptc(ch, " %s|#|{x %s %s|#|{x\n", torch, strcenter(buf, 62), torch);
+		ptc(ch, " %s|#|{x %s %s|#|{x\n", torch, buf.center(62), torch);
 	}
 //	line 22:  |#|================================================================|#|
 	ptc(ch, " %s|#|%s================================================================%s|#|{x\n",

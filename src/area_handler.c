@@ -1281,7 +1281,7 @@ void do_areas(Character *ch, String argument)
 	if (arg[0]) {
 		showall = FALSE;
 
-		if (is_number(arg)) {
+		if (arg.is_number()) {
 			level = atoi(arg);
 
 			if (IS_IMMORTAL(ch) && level > 150) {
@@ -1337,7 +1337,7 @@ void do_areas(Character *ch, String argument)
 				continue;
 
 		if (keywords[0]) {
-			if (!is_name(keywords, ap->keywords))
+			if (!ap->keywords.has_words(keywords))
 				continue;
 		}
 

@@ -107,7 +107,7 @@ void do_ignore(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_exact_name(victim->name, argument)) {
+	if (!argument.has_exact_words(victim->name)) {
 		stc("You must spell out their entire name.\n", ch);
 		return;
 	}

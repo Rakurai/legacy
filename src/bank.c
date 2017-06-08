@@ -29,7 +29,7 @@ void do_deposit(Character *ch, String argument)
 		return;
 	}
 
-	if (arg1.empty() || !is_number(arg1) || atoi(arg1) <= 0 ||
+	if (arg1.empty() || !arg1.is_number() || atoi(arg1) <= 0 ||
 	    (strcasecmp(arg2, "gold") != 0 && strcasecmp(arg2, "silver") != 0)) {
 		stc("Syntax:\n"
 		    "  deposit <amount> <gold or silver>\n", ch);
@@ -117,7 +117,7 @@ void do_clandeposit(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg1) || atoi(arg1) <= 0) {
+		if (!arg1.is_number() || atoi(arg1) <= 0) {
 			stc("Syntax:\n"
 			    "  clandeposit <amount>.\n", ch);
 			return;
@@ -256,7 +256,7 @@ void do_withdraw(Character *ch, String argument)
 
 	find_money(ch);
 
-	if (arg1.empty() || !is_number(arg1) || atoi(arg1) <= 0 ||
+	if (arg1.empty() || !arg1.is_number() || atoi(arg1) <= 0 ||
 	    (strcasecmp(arg2, "gold") != 0 && strcasecmp(arg2, "silver") != 0)) {
 		stc("Syntax:\n"
 		    "  withdraw <amount> <gold or silver>\n", ch);
@@ -341,7 +341,7 @@ void do_clanwithdraw(Character *ch, String argument)
 			return;
 		}
 
-		if (arg1.empty() || !is_number(arg1) || atoi(arg1) <= 0) {
+		if (arg1.empty() || !arg1.is_number() || atoi(arg1) <= 0) {
 			stc("Syntax:\n"
 			    "  clanwithdraw <amount>.\n", ch);
 			return;

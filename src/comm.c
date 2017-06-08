@@ -272,7 +272,7 @@ int main(int argc, char **argv)
 	port = DIZZYPORT;
 
 	if (argc > 1) {
-		if (!is_number(argv[1])) {
+		if (!String(argv[1]).is_number()) {
 			Format::fprintf(stderr, "Usage: %s [port #]\n", argv[0]);
 			EXIT_REASON(433, "bad Legacy port arg");
 			exit(1);
@@ -299,7 +299,7 @@ int main(int argc, char **argv)
 				exit(1);
 			}
 
-			if (!is_number(argv[4])) {
+			if (!String(argv[4]).is_number()) {
 				Format::fprintf(stderr, "Bad 'control' value '%s'\n", argv[4]);
 				EXIT_REASON(486, "bad control value for COPYOVER");
 				exit(1);

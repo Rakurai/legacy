@@ -200,8 +200,9 @@ bool check_parse_name(const String& name)
 	/*
 	 * Reserved words.
 	 */
-	if (is_name(name,
-	            "all auto immortal self remort imms private someone something the you"))
+	if (String(
+		"all auto immortal self remort imms private someone something the you"
+		).has_words(name))
 		return FALSE;
 
 	if ((clan = clan_lookup(name)) != NULL)
@@ -265,7 +266,7 @@ bool check_parse_name(const String& name)
 	              pMobIndex != NULL;
 	              pMobIndex  = pMobIndex->next )
 	        {
-	            if ( is_name( name, pMobIndex->player_name ) )
+	            if ( pMobIndex->player_name .has_words(name) )
 	                return FALSE;
 	        }
 	    }

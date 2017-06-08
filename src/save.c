@@ -644,7 +644,7 @@ cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 /*
  * Load a char and inventory into a new ch structure.
  */
-bool load_char_obj(Descriptor *d, const char *name)
+bool load_char_obj(Descriptor *d, const String& name)
 {
 	char strsave[MAX_INPUT_LENGTH];
 	Character *ch;
@@ -681,7 +681,7 @@ bool load_char_obj(Descriptor *d, const char *name)
 	ch->pcdata->last_logoff         = current_time;
 	found = FALSE;
 
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, name.capitalize());
 
 	cJSON *root = JSON::read_file(strsave);
 

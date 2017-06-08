@@ -450,7 +450,7 @@ bool is_note_to(Character *ch, Note *pnote)
 		return FALSE;
 
 	/* note to followers */
-	if (is_name("followers", pnote->to_list)) {
+	if (pnote->to_list.has_words("followers")) {
 		int i = parse_deity(ch->pcdata->deity);
 
 		if (i >= 0 && pnote->sender == deity_table[i].name)
@@ -460,40 +460,40 @@ bool is_note_to(Character *ch, Note *pnote)
 	if (ch->name == pnote->sender)
 		return TRUE;
 
-	if (is_name("spam", pnote->to_list)) {
+	if (pnote->to_list.has_words("spam")) {
 		if (IS_SET(ch->censor, CENSOR_SPAM))
 			return FALSE;
 
 		return TRUE;
 	}
 
-	if (is_exact_name("all", pnote->to_list))
+	if (pnote->to_list.has_exact_words("all"))
 		return TRUE;
 
-	if (IS_IMP(ch) && is_name("imp", pnote->to_list))
+	if (IS_IMP(ch) && pnote->to_list.has_words("imp"))
 		return TRUE;
 
-	if (IS_HEAD(ch) && is_name("head", pnote->to_list))
+	if (IS_HEAD(ch) && pnote->to_list.has_words("head"))
 		return TRUE;
 
 	if (IS_IMMORTAL(ch)
-	    && (is_name("immortal", pnote->to_list)
-	        || is_name("imm", pnote->to_list)))
+	    && (pnote->to_list.has_words("immortal")
+	        || pnote->to_list.has_words("imm")))
 		return TRUE;
 
-	if (is_exact_name(ch->name, pnote->to_list))
+	if (pnote->to_list.has_exact_words(ch->name))
 		return TRUE;
 
 	/* note to clans -- Montrey */
 	if (ch->clan
-	    && (is_exact_name(ch->clan->name, pnote->to_list)      /* note to one clan */
-	        || is_name("clan", pnote->to_list))) {                /* note to all clans */
-		if (is_name("leader", pnote->to_list))          /* note to leaders */
+	    && (pnote->to_list.has_exact_words(ch->clan->name)      /* note to one clan */
+	        || pnote->to_list.has_words("clan"))) {                /* note to all clans */
+		if (pnote->to_list.has_words("leader"))          /* note to leaders */
 			if (!HAS_CGROUP(ch, GROUP_LEADER))
 				return FALSE;
 
-		if (is_name("deputy", pnote->to_list)           /* note to deputies */
-		    || is_name("deputies", pnote->to_list))
+		if (pnote->to_list.has_words("deputy")           /* note to deputies */
+		    || pnote->to_list.has_words("deputies"))
 			if (!HAS_CGROUP(ch, GROUP_LEADER)
 			    && !HAS_CGROUP(ch, GROUP_DEPUTY))
 				return FALSE;
@@ -714,13 +714,13 @@ void notify_note_post(Note *pnote, Character *vch, int type)
 			Format::sprintf(buf, "{W[FYI] New %s from %s. Subject: [%s]. ",
 			        list_name, pnote->sender, pnote->subject);
 
-			if (ch->clan && is_name(ch->clan->name, pnote->to_list))
+			if (ch->clan && pnote->to_list.has_words(ch->clan->name))
 				buf += "Guild note.{x\n";
-			else if (note_is_name(ch->name, pnote->to_list))
+			else if (pnote->to_list.has_exact_words(ch->name))
 				buf += "Personal note.{x\n";
-			else if (is_name("all", pnote->to_list))
+			else if (pnote->to_list.has_words("all"))
 				buf += "Global note.{x\n";
-			else if (IS_IMMORTAL(ch) && is_name("immortal", pnote->to_list))
+			else if (IS_IMMORTAL(ch) && pnote->to_list.has_words("immortal"))
 				buf += "Immortal note.{x\n";
 			else
 				buf += "{x\n";
@@ -782,7 +782,7 @@ void parse_note(Character *ch, String argument, int type)
 			ptc(ch, "You have no unread %s.\n", list_name);
 			return;
 		}
-		else if (is_number(argument))
+		else if (argument.is_number())
 			anum = atoi(argument);
 		else if (argument == "all")
 			fAll = TRUE;
@@ -864,7 +864,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("remove")) {
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("Note remove which number?\n", ch);
 			return;
 		}
@@ -886,7 +886,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("delete") && IS_IMP(ch)) {
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("Message delete which number?\n", ch);
 			return;
 		}
@@ -923,7 +923,7 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("Note forward which number?\n", ch);
 			return;
 		}
@@ -961,7 +961,7 @@ void parse_note(Character *ch, String argument, int type)
 	if (arg.is_prefix_of("repost") && IS_IMMORTAL(ch)) {
 		Note *newnote;
 
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("Note repost which number?\n", ch);
 			return;
 		}
@@ -1054,7 +1054,7 @@ void parse_note(Character *ch, String argument, int type)
 		/* get message number */
 		argument = one_argument(argument, arg);
 
-		if (arg.empty() || !is_number(arg)) {
+		if (arg.empty() || !arg.is_number()) {
 			ptc(ch, "Move which %s number?\n", board_index[type].board_short);
 			return;
 		}
@@ -1278,7 +1278,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		/* if they're not an imm and in a clan, replace 'clan' with their clan's name.
 		   but not 'clans'!     -- Montrey */
-		if (!IS_IMMORTAL(ch) && ch->clan && is_exact_name("clan", argument)) {
+		if (!IS_IMMORTAL(ch) && ch->clan && argument.has_exact_words("clan")) {
 			char line[MSL], *p;
 			/* copy string, it'll get mangled */
 			strcpy(line, argument);
@@ -1362,16 +1362,16 @@ void parse_note(Character *ch, String argument, int type)
 
 		/* If a note is personal, route it to the personal board - Lotus */
 		if ((ch->pnote->type == NOTE_NOTE) &&
-		    ((!is_exact_name("all", ch->pnote->to_list))
-		     || (!is_exact_name("spam", ch->pnote->to_list)))) {
+		    ((!ch->pnote->to_list.has_exact_words("all"))
+		     || (!ch->pnote->to_list.has_exact_words("spam")))) {
 			ch->pnote->type = NOTE_PERSONAL;
 			type = NOTE_PERSONAL;
 		}
 
 		/* If a note is not personal, rout it to the note board */
 		if ((ch->pnote->type == NOTE_PERSONAL) &&
-		    (is_exact_name("all", ch->pnote->to_list) ||
-		     is_exact_name("spam", ch->pnote->to_list))) {
+		    (ch->pnote->to_list.has_exact_words("all") ||
+		     ch->pnote->to_list.has_exact_words("spam"))) {
 			ch->pnote->type = NOTE_NOTE;
 			type = NOTE_NOTE;
 		}

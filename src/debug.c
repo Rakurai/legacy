@@ -280,7 +280,7 @@ void do_debug(Character *ch, String argument)
 		extern void     obj_update      args((void));
 		extern void     room_update     args((void));
 
-		if (!argument.empty() && is_number(argument))
+		if (!argument.empty() && argument.is_number())
 			number = URANGE(1, atoi(argument), 100);
 
 		for (count = 0; count < number; count++) {

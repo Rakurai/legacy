@@ -165,7 +165,7 @@ void do_pocket(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!arg1.empty() && is_number(arg1))
+	if (!arg1.empty() && arg1.is_number())
 		size = atoi(arg1);
 
 	if (size < 20) {
@@ -205,7 +205,7 @@ void do_roomlist(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(arg) || !is_number(argument)) {
+	if (!arg.is_number() || !argument.is_number()) {
 		stc("Values must be numeric\n", ch);
 		return;
 	}
@@ -257,7 +257,7 @@ void do_vlist(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!is_number(arg)) {
+	if (!arg.is_number()) {
 		stc("Syntax: vlist [beg vnum] [end vnum]\n", ch);
 		return;
 	}
@@ -265,7 +265,7 @@ void do_vlist(Character *ch, String argument)
 	begvnum = atoi(arg);
 
 	if (!argument.empty()) {
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("Syntax: vlist [beg vnum] [end vnum]\n", ch);
 			return;
 		}

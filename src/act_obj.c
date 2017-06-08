@@ -33,7 +33,6 @@
 #include "lookup.h"
 #include "Affect.hpp"
 #include "Format.hpp"
-#include "c_string.h"
 #include "GameTime.hpp"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
@@ -103,7 +102,7 @@ bool clan_eq_ok(Character *ch, Object *obj, char *action)
 		return FALSE;
 	}
 
-	if (is_name("leadereq", obj->name) && !HAS_CGROUP(ch, GROUP_LEADER)) {
+	if (obj->name.has_words("leadereq") && !HAS_CGROUP(ch, GROUP_LEADER)) {
 		if (action != NULL && *action != '\0') {
 			ptc(ch, "You attempt to %s your Leader's %s.\n",
 			        action, obj->short_descr);
@@ -152,7 +151,7 @@ bool pers_eq_ok(Character *ch, Object *obj, char *action)
 
 	sscanf(pdesc->description.c_str(), "%[^\n]", owner);
 
-	if (is_name(ch->name, owner))
+	if (String(owner).has_words(ch->name))
 		return TRUE;
 
 	if (obj->short_descr.empty()) {
@@ -471,7 +470,7 @@ void do_get(Character *ch, String argument)
 			for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name)) && can_see_obj(ch, obj)) {
+				if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
 					found = TRUE;
 					get_obj(ch, obj, NULL);
 				}
@@ -525,7 +524,7 @@ void do_get(Character *ch, String argument)
 					for (obj = ch->pcdata->locker; obj != NULL; obj = obj_next) {
 						obj_next = obj->next_content;
 
-						if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name)) && can_see_obj(ch, obj)) {
+						if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
 							found = TRUE;
 
 							if (!from_box_ok(ch, obj, "locker"))
@@ -583,7 +582,7 @@ void do_get(Character *ch, String argument)
 			for (obj = ch->pcdata->strongbox; obj != NULL; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name)) && can_see_obj(ch, obj)) {
+				if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
 					found = TRUE;
 
 					if (!from_box_ok(ch, obj, "strongbox"))
@@ -660,7 +659,7 @@ void do_get(Character *ch, String argument)
 			for (obj = container->contains; obj != NULL; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name)) && can_see_obj(ch, obj)) {
+				if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
 					found = TRUE;
 
 					if (container == donation_pit && !IS_IMMORTAL(ch)) {
@@ -779,7 +778,7 @@ void do_put(Character *ch, String argument)
 			obj_next = obj->next_content;
 			weight = get_obj_weight(obj);
 
-			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
+			if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4]))
 			    && can_see_obj(ch, obj)
 			    && obj->wear_loc == WEAR_NONE
 			    && can_drop_obj(ch, obj)
@@ -840,7 +839,7 @@ void do_put(Character *ch, String argument)
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
+			if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4]))
 			    && can_see_obj(ch, obj)
 			    && obj->wear_loc == WEAR_NONE
 			    && can_drop_obj(ch, obj)) {
@@ -929,7 +928,7 @@ void do_put(Character *ch, String argument)
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
 
-		if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
+		if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4]))
 		    && can_see_obj(ch, obj)
 		    && obj->wear_loc == WEAR_NONE
 		    && obj != container
@@ -976,7 +975,7 @@ void do_drop(Character *ch, String argument)
 	String arg, obj_name;
 	argument = one_argument(argument, arg);
 
-	if (is_number(arg)) {
+	if (arg.is_number()) {
 		/* 'drop NNNN coins' */
 		int amount, gold = 0, silver = 0;
 		amount   = atoi(arg);
@@ -1014,7 +1013,7 @@ void do_drop(Character *ch, String argument)
 			obj_next = obj->next_content;
 
 			if (obj->pIndexData->vnum == GEN_OBJ_MONEY
-			    && is_name(obj->name, "gcash")) {
+			    && obj->name.has_words("gcash")) {
 				silver  += obj->value[0];
 				gold    += obj->value[1];
 				extract_obj(obj);
@@ -1034,7 +1033,7 @@ void do_drop(Character *ch, String argument)
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if ((arg[3] == '\0' || is_name(&arg[4], obj->name))
+			if ((arg[3] == '\0' || obj->name.has_words(&arg[4]))
 			    &&   can_see_obj(ch, obj)
 			    &&   obj->wear_loc == WEAR_NONE) {
 				found = TRUE;
@@ -1195,7 +1194,7 @@ void do_give(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg1)) {
+	if (arg1.is_number()) {
 		/* 'give NNNN coins victim' */
 		int amount;
 		bool silver;
@@ -3516,7 +3515,7 @@ void do_steal(Character *ch, String argument)
 	for (obj = victim->carrying; obj != NULL; obj = obj->next_content) {
 		if (obj->wear_loc == WEAR_NONE
 		    && can_see_obj(ch, obj)
-		    && is_name(arg1, obj->name))
+		    && obj->name.has_words(arg1))
 			break;
 	}
 
@@ -3698,7 +3697,7 @@ Object *get_obj_keeper(Character *ch, Character *keeper, const String& argument)
 		if (obj->wear_loc == WEAR_NONE
 		    &&  can_see_obj(keeper, obj)
 		    &&  can_see_obj(ch, obj)
-		    &&  is_name(arg, obj->name)) {
+		    &&  obj->name.has_words(arg)) {
 			if (++count == number)
 				return obj;
 
@@ -4222,7 +4221,7 @@ void do_list(Character *ch, String argument)
 			    &&   can_see_obj(ch, obj)
 			    && (cost = get_cost(keeper, obj, TRUE)) > 0
 			    && (arg.empty()
-			        ||  is_name(arg, obj->name))) {
+			        ||  obj->name.has_words(arg))) {
 				if (!found) {
 					found = TRUE;
 
@@ -4438,7 +4437,7 @@ String anvil_owner_name(Object *anvil)
 /* is named player the anvil's owner? -- Elrac */
 int is_anvil_owner(Character *ch, Object *anvil)
 {
-	return is_exact_name(ch->name, anvil_owner_name(anvil));
+	return anvil_owner_name(anvil).has_exact_words(ch->name);
 }
 
 /*
@@ -4620,7 +4619,7 @@ void do_hone(Character *ch, String argument)
 		return;
 	}
 
-	if ((whetstone == NULL) || (!is_name("whetstone", whetstone->name))) {
+	if ((whetstone == NULL) || (!whetstone->name.has_words("whetstone"))) {
 		stc("How do you expect to sharpen a weapon without holding a whetstone?\n", ch);
 		return;
 	}
@@ -4950,10 +4949,10 @@ void do_engrave(Character *ch, String argument)
 	strcpy(buf, tbuf);
 
 	for (ed = weapon->extra_descr; ed; ed = ed->next) {
-		if (dflt_desc == NULL && is_name(buf, ed->keyword))
+		if (dflt_desc == NULL && ed->keyword.has_words(buf))
 			dflt_desc = ed;
 
-		if (eng_desc == NULL && is_name("engravings", ed->keyword))
+		if (eng_desc == NULL && ed->keyword.has_words("engravings"))
 			eng_desc = ed;
 	}
 

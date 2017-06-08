@@ -1,7 +1,6 @@
 #include "Disabled.hpp"
 #include "interp.h"
 #include "sql.h"
-#include "c_string.h"
 #include "merc.h"
 
 Disabled *disabled_first;

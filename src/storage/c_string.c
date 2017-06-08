@@ -247,12 +247,12 @@ bool is_name(const String& s, const String& nl, bool exact)
 /* Is Exact Name by Lotus */
 bool is_exact_name(const String& s, const String& nl)
 {
-	return is_name(s, nl, TRUE);
+	return nl.has_words(s, TRUE);
 }
 
 bool is_exact_name_color(const String& s, const String& nl)
 {
-	return is_name(smash_bracket(s), smash_bracket(nl), TRUE);
+	return nl.uncolor().has_words(s.uncolor(), TRUE);
 }
 
 /* Note name match exact */
@@ -261,5 +261,5 @@ bool note_is_name(const String& s, const String& nl)
 	if (s.empty() || nl.empty())
 		return FALSE;
 
-	return is_name(s, nl, FALSE);
+	return nl.has_words(s, FALSE);
 }

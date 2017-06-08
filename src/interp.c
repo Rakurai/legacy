@@ -811,25 +811,6 @@ bool check_social(Character *ch, const String& command, const String& argument)
 }
 
 /*
- * Return true if an argument is completely numeric.
- */
-bool is_number(const char *arg)
-{
-	if (!arg[0])
-		return FALSE;
-
-	if (arg[0] == '+' || arg[0] == '-')
-		arg++;
-
-	for (; *arg; arg++) {
-		if (!isdigit(*arg))
-			return FALSE;
-	}
-
-	return TRUE;
-}
-
-/*
  * Contributed by Alander, modified by Lotus
  */
 void do_commands(Character *ch, String argument)
@@ -869,7 +850,7 @@ void do_commands(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(argument)) {
+	if (argument.is_number()) {
 		arg = atoi(argument);
 
 		for (x = 1; fields[x].number != 0; x++)

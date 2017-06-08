@@ -41,7 +41,7 @@ void do_adjust(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1.empty() || arg2.empty() || !is_number(arg2)) {
+	if (arg1.empty() || arg2.empty() || !arg2.is_number()) {
 		stc("Syntax: Adjust <char> <Exp>.\n", ch);
 		return;
 	}
@@ -1052,7 +1052,7 @@ void do_disconnect(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!is_number(arg)) {
+	if (!arg.is_number()) {
 		stc("Socket must be numeric!\n", ch);
 		return;
 	}
@@ -1382,7 +1382,7 @@ const char *name_expand(Character *ch)
 	}
 
 	for (rch = ch->in_room->people; rch && (rch != ch); rch = rch->next_in_room)
-		if (is_name(name, rch->name))
+		if (rch->name.has_words(name))
 			count++;
 
 	Format::sprintf(outbuf, "%d.%s", count, name);
@@ -1551,7 +1551,7 @@ void do_goto(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (is_number(arg))
+	if (arg.is_number())
 		location = get_room_index(atoi(arg));
 	else {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != NULL)
@@ -1795,7 +1795,7 @@ void do_heed(Character *ch, String argument)
 
 	/* find a player to talk to. Only REAL players are eligible. */
 	for (tpc = pc_list; tpc; tpc = tpc->next)
-		if (is_name(arg1, tpc->ch->name))
+		if (tpc->ch->name.has_words(arg1))
 			break;
 
 	if (!tpc || (truevictim = tpc->ch) == NULL) {
@@ -1950,7 +1950,7 @@ void do_mload(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.empty() || !is_number(arg)) {
+	if (arg.empty() || !arg.is_number()) {
 		stc("Syntax: load mob <vnum>.\n", ch);
 		return;
 	}
@@ -1984,7 +1984,7 @@ void do_oload(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (arg1.empty() || !is_number(arg1)) {
+	if (arg1.empty() || !arg1.is_number()) {
 		stc("Syntax: load obj <vnum>.\n", ch);
 		return;
 	}
@@ -2220,7 +2220,7 @@ void do_olevel(Character *ch, String argument)
 	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
 
-	if (!is_number(arg1)) {
+	if (!arg1.is_number()) {
 		stc("Syntax: olevel [beg level] [end level] [wear type]\n", ch);
 		return;
 	}
@@ -2234,7 +2234,7 @@ void do_olevel(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	if (!arg2.empty()) {
-		if (!is_number(arg2)) {
+		if (!arg2.is_number()) {
 			//stc("Syntax: olevel [beg level] [end level]\n",ch);
 			with_wear = TRUE;
 		}
@@ -2366,7 +2366,7 @@ void do_mlevel(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!is_number(arg)) {
+	if (!arg.is_number()) {
 		stc("Syntax: mlevel [beg level] [end level]\n", ch);
 		return;
 	}
@@ -2374,7 +2374,7 @@ void do_mlevel(Character *ch, String argument)
 	blevel = atoi(arg);
 
 	if (!argument.empty()) {
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("Syntax: olevel [beg level] [end level]\n", ch);
 			return;
 		}
@@ -2508,7 +2508,7 @@ void do_owhere(Character *ch, String argument)
 		return;
 	}
 
-	if (is_number(arg))
+	if (arg.is_number())
 		vnum = atoi(arg);
 
 	if (arg2.is_prefix_of("ground"))
@@ -2525,15 +2525,15 @@ void do_owhere(Character *ch, String argument)
 			if (obj->pIndexData->vnum != vnum)
 				continue;
 		}
-		else if (!is_name(arg, obj->name))
+		else if (!obj->name.has_words(arg))
 			continue;
 
 		if (!argument.empty() && !fGround) {
-			if (is_number(arg2)) {
+			if (arg2.is_number()) {
 				if (atoi(arg2) != obj->level)
 					continue;
 			}
-			else if (vnum > 0 || !is_name(argument, obj->name))
+			else if (vnum > 0 || !obj->name.has_words(argument))
 				continue;
 		}
 
@@ -2672,19 +2672,19 @@ void do_mwhere(Character *ch, String argument)
 		if (!IS_NPC(victim) || victim->in_room == NULL)
 			continue;
 
-		if (is_number(arg)) {
+		if (arg.is_number()) {
 			if (atoi(arg) != victim->pIndexData->vnum)
 				continue;
 		}
-		else if (!is_name(arg, victim->name))
+		else if (!victim->name.has_words(arg))
 			continue;
 
 		if (!arg2.empty()) {
-			if (is_number(arg2)) {
+			if (arg2.is_number()) {
 				if (atoi(arg2) != victim->level)
 					continue;
 			}
-			else if (!is_name(arg2, victim->name))
+			else if (!victim->name.has_words(arg2))
 				continue;
 		}
 
@@ -2702,7 +2702,7 @@ void do_mwhere(Character *ch, String argument)
 	page_to_char(output, ch);
 
 	if (!found) {
-		if (is_number(arg))
+		if (arg.is_number())
 			ptc(ch, "You did not find a mobile of vnum %d.", atoi(arg));
 		else
 			act("You did not find: $T.", ch, NULL, arg, TO_CHAR);
@@ -2735,7 +2735,7 @@ void do_rwhere(Character *ch, String argument)
 			if (room != NULL) {
 				rbuf = room->name;
 
-				if (is_name(argument, rbuf.uncolor())) {
+				if (rbuf.uncolor().has_words(argument)) {
 					found = TRUE;
 					strcpy(fname, room->area->file_name);
 					cp = strchr(fname, '.');
@@ -2789,7 +2789,7 @@ void do_mfind(Character *ch, String argument)
 		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
 			nMatch++;
 
-			if (fAll || is_name(argument, pMobIndex->player_name)) {
+			if (fAll || pMobIndex->player_name.has_words(argument)) {
 				found = TRUE;
 				Format::sprintf(buf, "M (%3d) [%5d] %s\n",
 				        pMobIndex->level, pMobIndex->vnum, pMobIndex->short_descr);
@@ -2840,7 +2840,7 @@ void do_ofind(Character *ch, String argument)
 		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
 			nMatch++;
 
-			if (fAll || is_name(argument, pObjIndex->name)) {
+			if (fAll || pObjIndex->name.has_words(argument)) {
 				found = TRUE;
 				Format::sprintf(buf, "O (%3d) [%5d] %s\n",
 				        pObjIndex->level, pObjIndex->vnum, pObjIndex->short_descr);
@@ -3437,8 +3437,8 @@ void do_sockets(Character *ch, String argument)
 		}
 		else if (can_see_char(ch, d->character)
 		         && (arg.empty()
-		             || is_name(arg, d->character->name)
-		             || (d->original && is_name(arg, d->original->name)))) {
+		             || d->character->name.has_words(arg)
+		             || (d->original && d->original->name.has_words(arg)))) {
 			count++;
 			/* check for multiplayers -- Montrey */
 			multiplay = FALSE;
@@ -3477,7 +3477,7 @@ void do_sockets(Character *ch, String argument)
 		    && IS_SET(vpc->plr, PLR_LINK_DEAD)
 		    && can_see_char(ch, vpc->ch)
 		    && (arg.empty()
-		        || is_name(arg, vpc->ch->name))) {
+		        || vpc->ch->name.has_words(arg))) {
 			strftime(s, 100, "%I:%M%p", localtime(&vpc->ch->logon));
 			buffer += Format::format("{P---{x|{Y   Linkdead    {x|{B%7s{x|{C%-2d{x |{G%-12s{x|{W%s{x\n",
 			    s,
@@ -3654,7 +3654,7 @@ RoomPrototype *find_location(Character *ch, const String& arg)
 	Character *victim;
 	Object *obj;
 
-	if (is_number(arg))
+	if (arg.is_number())
 		return get_room_index(atoi(arg));
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) != NULL)
@@ -3758,7 +3758,7 @@ void do_violate(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (is_number(arg))
+	if (arg.is_number())
 		location = get_room_index(atoi(arg));
 	else {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != NULL)
@@ -4005,7 +4005,7 @@ void do_bamfin(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_exact_name_color(ch->name, argument)) {
+	if (!argument.uncolor().has_exact_words(ch->name)) {
 		stc("You must include your name in a poofin.\n", ch);
 		return;
 	}
@@ -4031,7 +4031,7 @@ void do_bamfout(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_exact_name_color(ch->name, argument)) {
+	if (!argument.uncolor().has_exact_words(ch->name)) {
 		stc("You must include your name in a poofout.\n", ch);
 		return;
 	}
@@ -4098,7 +4098,7 @@ void do_clanqp(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(arg2)) {
+	if (!arg2.is_number()) {
 		stc("You must specify an amount of questpoints.\n", ch);
 		return;
 	}

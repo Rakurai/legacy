@@ -49,7 +49,7 @@ void do_autoboot(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(argument)) {
+	if (!argument.is_number()) {
 		stc("Time must be numeric, i.e. 1330 is 1:30 pm.\n", ch);
 		return;
 	}
@@ -323,7 +323,7 @@ void do_advance(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1.empty() || arg2.empty() || !is_number(arg2)) {
+	if (arg1.empty() || arg2.empty() || !arg2.is_number()) {
 		stc("Syntax:\n"
 		    "  advance <player> <level>\n", ch);
 		return;
@@ -435,7 +435,7 @@ void do_addexit(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
-	if (arg1.empty() || arg2.empty() || !is_number(arg1)) {
+	if (arg1.empty() || arg2.empty() || !arg1.is_number()) {
 		stc("Syntax:\n"
 		    "  addexit <to room vnum> <direction>\n", ch);
 		return;
@@ -521,7 +521,7 @@ void do_sectchange(Character *ch, String argument)
 		return;
 
 	if (argument.empty()
-	    || !is_number(argument)
+	    || !argument.is_number()
 	    || (sect = atoi(argument)) < 0
 	    || (sect > 10 && sect < 20)
 	    || sect > 21) {

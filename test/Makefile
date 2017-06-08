@@ -9,7 +9,7 @@ LIBS := -L /opt/local/lib -lboost_unit_test_framework-mt
  # -lboost_test_exec_monitor-mt
 
 # Create lists of the elements of our build
-SOURCES := $(shell find . -depth 1 -name '*.cpp' -print | sort)
+SOURCES := $(shell find . -depth 1 -name '*.c*' -print | sort)
 OBJECTS := $(SOURCES:.cpp=.o)
 BIN := tests
 

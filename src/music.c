@@ -239,8 +239,7 @@ void do_play(Character *ch, String argument)
 		if (!argument.empty())
 			match = TRUE;
 
-		Format::sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
-		buffer += capitalize(buf);
+		buffer += Format::format("%s has the following songs available:\n", juke->short_descr.capitalize());
 
 		for (i = 0; i < song_table.size(); i++) {
 			if (artist && (!match

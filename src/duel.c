@@ -702,7 +702,7 @@ void do_duel(Character *ch, String argument)
 		}
 		else {
 			for (arena = arena_table_head->next; arena != arena_table_tail; arena = arena->next)
-				if (is_name(arg3, arena->keyword))
+				if (arena->keyword.has_words(arg3))
 					break;
 
 			if (arena == arena_table_tail) {

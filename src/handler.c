@@ -1049,7 +1049,7 @@ bool mob_exists(const char *name)
 
 	for (i = 0; i < MAX_KEY_HASH; i++)
 		for (index = mob_index_hash[i]; index != NULL; index = index->next)
-			if (is_exact_name(name, index->player_name))
+			if (index->player_name.has_exact_words(name))
 				return TRUE;
 
 	return FALSE;
@@ -1336,7 +1336,7 @@ bool is_room_owner(Character *ch, RoomPrototype *room)
 	if (room->owner.empty())
 		return FALSE;
 
-	return is_name(ch->name, room->owner);
+	return room->owner.has_words(ch->name);
 }
 
 /*
@@ -1561,8 +1561,8 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH) && obj->carried_by != ch)
 		return FALSE;
 
-	if (obj->timer > 0 && !IS_NPC(ch) && is_name("mox", obj->name)
-	    && !is_name(ch->name, &obj->name[4]))
+	if (obj->timer > 0 && !IS_NPC(ch) && obj->name.has_words("mox")
+	    && !obj->name.substr(4).has_words(ch->name))
 		return FALSE;
 
 	if (obj->pIndexData->vnum == OBJ_VNUM_SQUESTOBJ) {
@@ -1785,7 +1785,7 @@ int interpolate(int level, int value_00, int value_32)
 ExtraDescr *get_extra_descr(const String& name, ExtraDescr *ed)
 {
 	for (; ed != NULL; ed = ed->next)
-		if (is_name(name, ed->keyword))
+		if (ed->keyword.has_words(name))
 			return ed;
 
 	return NULL;

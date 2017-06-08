@@ -117,6 +117,73 @@ BOOST_AUTO_TEST_CASE(equality) // String should be case insensitive tests
 	// has_*fix just calls args of is_*fix_of backwards, so no extra tests here
 }
 
+BOOST_AUTO_TEST_CASE(has_words)
+{
+	// empty string
+	String a;
+	BOOST_TEST( !a.has_words("") );
+	BOOST_TEST( !a.has_words(" ") );
+	BOOST_TEST( !a.has_words("foo") );
+	BOOST_TEST( !a.has_words("foo bar") );
+
+	// basic tests
+	a = "the quick brown fox jumped over the lazy dog";
+	BOOST_TEST( !a.has_words("") );
+	BOOST_TEST( !a.has_words(" ") );
+	BOOST_TEST( !a.has_words("foo") );
+	BOOST_TEST( !a.has_words("foo bar") );
+	BOOST_TEST( a.has_words("the") );
+	BOOST_TEST( a.has_words("the quick") );
+	BOOST_TEST( a.has_words("brown quick") );
+	BOOST_TEST( a.has_words("dog") );
+	BOOST_TEST( !a.has_words("foo dog") );
+
+	// prefix match by default
+	BOOST_TEST( a.has_words("jump") );
+	BOOST_TEST( a.has_words("jump over") );
+	BOOST_TEST( !a.has_words("quicker") );
+	BOOST_TEST( !a.has_words("quicker over") );
+	BOOST_TEST( !a.has_words("jump", true) );
+	BOOST_TEST( !a.has_words("jump over", true) );
+	BOOST_TEST( !a.has_words("quicker", true) );
+	BOOST_TEST( !a.has_words("quicker over", true) );
+
+	// case-insensitive
+	a = "Foo bar";
+	BOOST_TEST( a.has_words("foo") );
+	BOOST_TEST( a.has_words("Bar") );
+	BOOST_TEST( a.has_words("FOO BAR") );
+	BOOST_TEST( a.has_words("  foo ") );
+	BOOST_TEST( a.has_words(" foo   bar ") );
+
+	// weird spacing
+	a = "   foo   bar  ";
+	BOOST_TEST( !a.has_words("") );
+	BOOST_TEST( !a.has_words(" ") );
+	BOOST_TEST( a.has_words("foo") );
+	BOOST_TEST( a.has_words("foo bar") );
+	BOOST_TEST( a.has_words("  foo ") );
+	BOOST_TEST( a.has_words(" foo   bar ") );
+}
+
+BOOST_AUTO_TEST_CASE(identities)
+{
+	BOOST_TEST( String("1").is_number() );
+	BOOST_TEST( String("123").is_number() );
+	BOOST_TEST( String("+1").is_number() );
+	BOOST_TEST( String("-1").is_number() );
+	BOOST_TEST( String("+123").is_number() );
+
+	BOOST_TEST( !String("").is_number() );
+	BOOST_TEST( !String("a").is_number() );
+	BOOST_TEST( !String("+a").is_number() );
+	BOOST_TEST( !String("-a").is_number() );
+	BOOST_TEST( !String("abc").is_number() );
+	BOOST_TEST( !String("1.").is_number() );
+	BOOST_TEST( !String("1a").is_number() );
+	BOOST_TEST( !String("1 a").is_number() );
+}
+
 BOOST_AUTO_TEST_CASE(erase)
 {
 	String a("qwerty");
@@ -345,6 +412,49 @@ BOOST_AUTO_TEST_CASE(replace)
 	// bad recursion?
 	a = "foo";
 	BOOST_TEST( a.replace("o", "oo")    == "foooo" );
+}
+
+BOOST_AUTO_TEST_CASE(insert)
+{
+	String a;
+	BOOST_TEST( a.insert("", 0) == "" );
+	BOOST_TEST( a.insert("", 1) == "" );
+	BOOST_TEST( a.insert("foo", 0) == "foo" );
+	BOOST_TEST( a.insert("foo", 1) == "foo" );
+
+	a = "foo";
+	BOOST_TEST( a.insert("", 0) == "foo" );
+	BOOST_TEST( a.insert("", 1) == "foo" );
+	BOOST_TEST( a.insert("", 3) == "foo" );
+	BOOST_TEST( a.insert("", 4) == "foo" );
+	BOOST_TEST( a.insert("bar", 0) == "barfoo" );
+	BOOST_TEST( a.insert("bar", 1) == "fbaroo" );
+	BOOST_TEST( a.insert("bar", 3) == "foobar" );
+	BOOST_TEST( a.insert("bar", 4) == "foobar" );
+}
+
+BOOST_AUTO_TEST_CASE(center)
+{
+	String a;
+	BOOST_TEST( a.center(0) == "" );
+	BOOST_TEST( a.center(1) == " " );
+	BOOST_TEST( a.center(2) == "  " );
+
+	a = "foo";
+	BOOST_TEST( a.center(0) == "" );
+	BOOST_TEST( a.center(1) == "f" );
+	BOOST_TEST( a.center(3) == "foo" );
+	BOOST_TEST( a.center(4) == "foo " );
+	BOOST_TEST( a.center(5) == " foo " );
+	BOOST_TEST( a.center(6) == " foo  " );
+	BOOST_TEST( a.center(7) == "  foo  " );
+
+	a = "{cf{co{co{x";
+	BOOST_TEST( a.center(0) == "{c" );
+	BOOST_TEST( a.center(1) == "{cf{c" );
+	BOOST_TEST( a.center(2) == "{cf{co{c" );
+	BOOST_TEST( a.center(3) == "{cf{co{co{x" );
+	BOOST_TEST( a.center(7) == "  {cf{co{co{x  " );
 }
 
 BOOST_AUTO_TEST_SUITE_END()

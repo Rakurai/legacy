@@ -621,7 +621,7 @@ static void edit_help(Character *ch, const String& argument)
 		return;
 	}
 
-	if (!argument[0] || !is_number(argument)) {
+	if (!argument[0] || !argument.is_number()) {
 		stc("You must specify a help ID to edit it.", ch);
 		return;
 	}
@@ -858,7 +858,7 @@ void do_edit(Character *ch, String argument)
 	if (!argument.empty()) {
 		new_arg = one_argument(argument, arg);
 
-		if (is_number(arg)) {
+		if (arg.is_number()) {
 			num1 = atoi(arg);
 			SET_BIT(argmask, 1);
 			argument = new_arg;
@@ -868,7 +868,7 @@ void do_edit(Character *ch, String argument)
 	if (IS_SET(argmask, 1) && !argument.empty()) {
 		new_arg = one_argument(argument, arg);
 
-		if (is_number(arg)) {
+		if (arg.is_number()) {
 			num2 = atoi(arg);
 			SET_BIT(argmask, 2);
 			argument = new_arg;

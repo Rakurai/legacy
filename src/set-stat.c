@@ -153,7 +153,7 @@ void do_sset(Character *ch, String argument)
 	/*
 	 * Snarf the value.
 	 */
-	if (!is_number(arg3)) {
+	if (!arg3.is_number()) {
 		Format::sprintf(buf, "The third argument given, '%s', is not numeric.\n", arg3);
 		stc(buf, ch);
 		return;
@@ -251,7 +251,7 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(arg3)) {
+	if (!arg3.is_number()) {
 		ptc(ch, "The third argument given, '%s', is not numeric.\n", arg3);
 		return;
 	}
@@ -390,7 +390,7 @@ void do_raffset(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(arg2)) {
+	if (!arg2.is_number()) {
 		stc("Please use the number id for remort affects.  Type 'set raffect list' for a list.\n", ch);
 		return;
 	}
@@ -648,7 +648,7 @@ void do_mset(Character *ch, String argument)
 	}
 
 	/* Snarf the value (which need not be numeric). */
-	value = is_number(arg3) ? atoi(arg3) : -1;
+	value = arg3.is_number() ? atoi(arg3) : -1;
 
 	/* Set something. */
 
@@ -1410,7 +1410,7 @@ void do_rset(Character *ch, String argument)
 	/*
 	 * Snarf the value.
 	 */
-	if (!is_number(arg3)) {
+	if (!arg3.is_number()) {
 		Format::sprintf(buf, "The value entered, %s, is not numeric.\n", arg3);
 		stc(buf, ch);
 		return;
@@ -1935,7 +1935,7 @@ void do_stat(Character *ch, String argument)
 	}
 	else if (arg1 == "room")        /* 'stat room' (current room) */
 		format_rstat(ch, ch->in_room);
-	else if (is_number(arg1)) {
+	else if (arg1.is_number()) {
 		if ((room = get_room_index(atoi(arg1))) == NULL) {
 			stc("There is no room with that vnum.\n", ch);
 			return;

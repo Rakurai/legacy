@@ -298,7 +298,6 @@ void global_act(Character *ch, const char *message,
 bool swearcheck(const String& argument)
 {
 	/* For partial matches, cause we do want to trigger dickhead */
-	char tobechecked[MSL];
 	struct swear_type {
 		char *word;
 		int level;      /* level of checking -- Montrey
@@ -325,16 +324,16 @@ bool swearcheck(const String& argument)
 		{       NULL,           0       }
 	};
 	int x;  /* Our lovely counter */
-	Format::sprintf(tobechecked, "%s", argument.uncolor());;
+	String tobechecked = argument.uncolor();
 
 	for (x = 0; swear_table[x].level > 0; x++) {
 		switch (swear_table[x].level) {
 		case 1:
-			if (is_exact_name(swear_table[x].word, tobechecked))
+			if (tobechecked.has_exact_words(swear_table[x].word))
 				return TRUE;
 
 		case 2:
-			if (is_name(swear_table[x].word, tobechecked))
+			if (tobechecked.has_words(swear_table[x].word))
 				return TRUE;
 		}
 	}

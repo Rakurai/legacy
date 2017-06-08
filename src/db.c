@@ -714,7 +714,7 @@ void load_area(FILE *fp)
 	String num;
 	line = one_argument(line, num);
 
-	if (is_number(num)) {
+	if (num.is_number()) {
 		aVersion = atoi(num);
 		pArea->file_name = line;
 	}

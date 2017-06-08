@@ -216,7 +216,7 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg2)) {
+		if (!arg2.is_number()) {
 			stc("Use the room's vnum.\n", ch);
 			return;
 		}

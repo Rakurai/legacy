@@ -86,7 +86,7 @@ void help_char_search(Character *ch, const String& arg)
 		count++;
 		const char *keywords = db_get_column_str(0);
 
-		if (!is_name(arg, keywords))
+		if (!String(keywords).has_words(arg))
 			continue;
 
 		buf += ++i % 2 ? " {W" : " {c";
@@ -458,9 +458,9 @@ void do_help(Character *ch, String argument)
 			continue;
 
 		/* 0 if not keyword, 1 if exact match, 2 if semi-match */
-		if (is_exact_name(argument, keywords))
+		if (String(keywords).has_exact_words(argument))
 			temp_help[result_count].type = 1;
-		else if (is_name(argument, keywords)) {
+		else if (String(keywords).has_words(argument)) {
 			temp_help[result_count].type = 2;
 			partial_count++;
 		}
@@ -640,7 +640,7 @@ void do_hedit(Character *ch, String argument)
 	}
 
 	if (cmd == HCOL_GROUP || cmd == HCOL_ORDER || cmd == HCOL_LEVEL) {
-		if (!is_number(argument)) {
+		if (!argument.is_number()) {
 			stc("New value has to be a number.\n", ch);
 			return;
 		}

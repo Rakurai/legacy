@@ -176,7 +176,7 @@ void do_spousetalk(Character *ch, String argument)
 		for (victim = char_list; victim != NULL ; victim = victim->next) {
 			if (victim->in_room != NULL &&
 			    !IS_NPC(victim) &&
-			    is_name(ch->pcdata->spouse, victim->name))
+			    victim->name.has_words(ch->pcdata->spouse))
 				break;
 		}
 

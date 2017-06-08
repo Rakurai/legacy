@@ -7,7 +7,7 @@
 #include <locale>
 #include <strings.h> // strcasecmp
 
-#include "c_string.h"
+#include "argument.h"
 
 // helper functor for case-insensitive search
 struct case_insensitive_equal {
@@ -106,6 +106,69 @@ is_suffix_of(const String& str, std::size_t min_chars) const {
 		return false;
 
 	return *this == str.substr(str.size() - size());
+}
+
+bool String::
+has_words(const String& wordlist, bool exact) const {
+	String words = wordlist.strip();
+	String str = this->strip();
+
+	// don't match an empty query
+	if (words.empty())
+		return false;
+
+	/* we need ALL parts of wordlist to match part of *this */
+	while (true) {  /* start parsing string */
+		String word;
+		words = one_argument(words, word); // understands quotes
+
+		// if no more words, we've succeeded all match attempts
+		if (word.empty())
+			return true;
+
+		/* check to see if the word is part of this string */
+		String thislist(str);
+
+		while (true) {  /* start parsing namelist */
+			String part;
+			thislist = one_argument(thislist, part);
+
+			if (part.empty())  /* this name was not found */
+				return false;
+
+			if (exact) {
+				if (word == part)
+					break;
+			}
+			else {
+				if (word.is_prefix_of(part))
+					break;
+			}
+		}
+	}
+}
+
+bool String::
+has_exact_words(const String& wordlist) const {
+	return has_words(wordlist, true);
+}
+
+bool String::
+is_number() const {
+	if (empty())
+		return false;
+
+	const char *c = this->c_str();
+
+	if (c[0] == '+' || c[0] == '-')
+		c++;
+
+	for (; *c; c++) {
+		if (!isdigit(*c))
+			return false;
+	}
+
+	return true;
 }
 
 /*
@@ -236,4 +299,25 @@ replace(const String& what, const String& with, int times) const {
 	}
 
 	return str;
+}
+
+String String::
+insert(const String& what, std::size_t pos) const {
+	if (pos > size())
+		pos = size();
+
+	return substr(0, pos) + what + substr(pos);
+}
+
+String String::
+center(std::size_t total_len) const {
+	String str(*this), space;
+
+	while (str.uncolor().size() > total_len)
+		str.pop_back();
+
+	for (int len = total_len - str.uncolor().size(); len > 0; len--)
+		space += " ";
+
+	return space.insert(str, space.size()/2);
 }

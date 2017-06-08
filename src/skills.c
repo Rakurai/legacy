@@ -176,13 +176,13 @@ void do_spells(Character *ch, String argument)
 	spell_name[0] = '\0';
 	argument = one_argument(argument, arg);
 
-	if (!found && !is_number(arg)) {
+	if (!found && !arg.is_number()) {
 		strcpy(spell_name, arg);
 		argument = one_argument(argument, arg);
 	}
 
 	/* Check for 1 or 2 numbers. */
-	if (is_number(arg)) {
+	if (arg.is_number()) {
 		min_level = atoi(arg);
 
 		if (min_level < 0 || min_level > LEVEL_HERO) {
@@ -193,7 +193,7 @@ void do_spells(Character *ch, String argument)
 		if (!argument.empty()) {
 			argument = one_argument(argument, arg);
 
-			if (is_number(arg)) {
+			if (arg.is_number()) {
 				max_level = atoi(arg);
 
 				if (max_level < min_level)
@@ -242,7 +242,7 @@ void do_spells(Character *ch, String argument)
 				        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
 					continue;
 			}
-			else if (!is_name(spell_name, skill_table[sn].name))
+			else if (!skill_table[sn].name.has_words(spell_name))
 				continue;
 
 			found = TRUE;
@@ -382,13 +382,13 @@ void do_skills(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!is_number(arg)) {
+	if (!arg.is_number()) {
 		strcpy(skill_name, arg);
 		argument = one_argument(argument, arg);
 	}
 
 	/* Check for 1 or 2 numbers. */
-	if (is_number(arg)) {
+	if (arg.is_number()) {
 		min_level = atoi(arg);
 
 		if (min_level < 1)
@@ -399,7 +399,7 @@ void do_skills(Character *ch, String argument)
 		if (!argument.empty()) {
 			argument = one_argument(argument, arg);
 
-			if (is_number(arg)) {
+			if (arg.is_number()) {
 				max_level = atoi(arg);
 
 				if (max_level < min_level)
@@ -425,7 +425,7 @@ void do_skills(Character *ch, String argument)
 			        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
 				continue;
 		}
-		else if (!is_name(skill_name, skill_table[sn].name))
+		else if (!skill_table[sn].name.has_words(skill_name))
 			continue;
 
 		found = TRUE;
@@ -1798,7 +1798,7 @@ void do_convert(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_number(argument)) {
+	if (!argument.is_number()) {
 		stc("Please provide a valid number of skill points to convert.\n", ch);
 		return;
 	}

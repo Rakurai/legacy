@@ -353,7 +353,7 @@ void do_cedit(Character *ch, String argument)
 	}
 
 	if (cmd == "hall") {
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("Clanrecall set to normal recall.\n", ch);
 			cdata->hall = 3001;
 		}
@@ -373,7 +373,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "areamin") {
 		int vnum = -1;
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("Areamin set to 0.\n", ch);
 			cdata->area_minvnum = 0;
 		}
@@ -396,7 +396,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "areamax") {
 		int vnum = -1;
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("Areamax set to 0.\n", ch);
 			cdata->area_maxvnum = 0;
 		}
@@ -424,7 +424,7 @@ void do_cedit(Character *ch, String argument)
 			return;
 		}
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("Dependent set to 0 (not dependent)\n", ch);
 			cdata->independent = 0;
 		}
@@ -451,7 +451,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "clanqp") {
 		int clanqp = -1;
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
@@ -472,7 +472,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "clangold") {
 		int gold_balance = -1;
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
@@ -517,7 +517,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "score") {
 		int score = 0;
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
@@ -538,7 +538,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "warcpmod") {
 		int mod = 0;
 
-		if (!argument[0] || !is_number(argument)) {
+		if (!argument[0] || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}

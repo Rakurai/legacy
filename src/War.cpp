@@ -1112,7 +1112,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg2)) {
+		if (!arg2.is_number()) {
 			stc("Use the number of the war.\n", ch);
 			return;
 		}
@@ -1236,7 +1236,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg3)) {
+		if (!arg3.is_number()) {
 			stc("Use a number for the war.\n", ch);
 			return;
 		}
@@ -1303,7 +1303,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg3)) {
+		if (!arg3.is_number()) {
 			stc("Use the number of the war.\n", ch);
 			return;
 		}
@@ -1380,7 +1380,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_number(arg2)) {
+		if (!arg2.is_number()) {
 			stc("Use the number of the war.\n", ch);
 			return;
 		}

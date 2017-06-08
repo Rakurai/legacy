@@ -331,7 +331,7 @@ void do_cast(Character *ch, String argument)
 		break;
 
 	case TAR_CHAR_SELF:
-		if (!arg2.empty() && !is_name(target_name, ch->name)) {
+		if (!arg2.empty() && !ch->name.has_words(target_name)) {
 			stc("You cannot cast this spell on another.\n", ch);
 			return;
 		}
@@ -566,7 +566,7 @@ void do_mpcast(Character *ch, String argument)
 		break;
 
 	case TAR_CHAR_SELF:
-		if (!arg2.empty() && !is_name(target_name, ch->name))
+		if (!arg2.empty() && !ch->name.has_words(target_name))
 			return;
 
 		vo = (void *) ch;
@@ -2090,7 +2090,7 @@ void spell_create_water(int sn, int level, Character *ch, void *vo, int target, 
 		obj->value[2] = LIQ_WATER;
 		obj->value[1] += water;
 
-		if (!is_name("water", obj->name)) {
+		if (!obj->name.has_words("water")) {
 			char buf[MAX_STRING_LENGTH];
 			Format::sprintf(buf, "%s water", obj->name);
 			obj->name = buf;
@@ -4294,7 +4294,7 @@ void spell_locate_life(int sn, int level, Character *ch, void *vo, int target, i
 
 	for (victim = char_list; victim != NULL; victim = victim->next) {
 		if (!can_see_char(ch , victim)        /* NOT can_see_who */
-		    || !is_name(target_name, victim->name)
+		    || !victim->name.has_words(target_name)
 		    || victim->in_room == NULL
 		    || number_percent() > 2 * level
 		    || ch->level < victim->level
@@ -4332,7 +4332,7 @@ void spell_locate_object(int sn, int level, Character *ch, void *vo, int target,
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
-		    || !is_name(target_name, obj->name)
+		    || !obj->name.has_words(target_name)
 		    ||   IS_OBJ_STAT(obj, ITEM_NOLOCATE)
 		    || number_percent() > 2 * level
 		    ||   ch->level < obj->level)
@@ -5960,7 +5960,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 	if (IS_IMMORTAL(ch)) {
 		for (obj = object_list; obj != NULL; obj = obj->next) {
 			if (!can_see_obj(ch, obj)
-			    || !is_name(arg, obj->name))
+			    || !obj->name.has_words(arg))
 				continue;
 
 			if (++count < number)
@@ -6017,7 +6017,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
-		    || !is_name(arg, obj->name)
+		    || !obj->name.has_words(arg)
 		    || IS_OBJ_STAT(obj, ITEM_NOLOCATE))
 			continue;
 
@@ -6399,7 +6399,7 @@ void spell_ventriloquate(int sn, int level, Character *ch, void *vo, int target,
 	buf1[0] = UPPER(buf1[0]);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (!is_name(speaker, vch->name))
+		if (!vch->name.has_words(speaker))
 			stc(saves_spell(level, vch, DAM_OTHER) ? buf2 : buf1, vch);
 	}
 
