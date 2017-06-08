@@ -471,13 +471,13 @@ void war_power_adjust(Clan *vclan, bool surrender)
 	Clan *tclan;
 	War *war;
 	War::Event *event;
-	int i = 0, x = 0, dealt = 0, loss, highest, listcount = 0, award, numpower, cp = 0, qploss, qpaward;
+	int i = 0, x = 0, dealt = 0, loss, highest, award, numpower, cp = 0, qploss, qpaward;
 	bool found;
 	struct conq {
 		String  clanname;
 		sh_int  scored;
 	};
-	struct conq conqlist[MAX_CLAN];
+	std::vector<conq> conqlist;
 	war = war_table_head;
 
 	/* sort through all ongoing wars */
@@ -513,7 +513,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 					i = 0;
 
 					/* see if they're on our list already */
-					while (i < listcount) {
+					while (i < conqlist.size()) {
 						if (conqlist[i].clanname == tclan->clanname) {
 							conqlist[i].scored += event->number;
 							found = TRUE;
@@ -525,9 +525,10 @@ void war_power_adjust(Clan *vclan, bool surrender)
 
 					/* nope, add a new entry */
 					if (!found) {
-						conqlist[i].clanname = tclan->clanname;
-						conqlist[i].scored = event->number;
-						listcount++;
+						conq c;
+						c.clanname = tclan->clanname;
+						c.scored = event->number;
+						conqlist.push_back(c);
 					}
 
 					/* break to next event */
@@ -537,7 +538,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 		}
 	}
 
-	if (listcount < 1)
+	if (conqlist.empty())
 		return;
 
 	/* use real cp, not curved */
@@ -580,12 +581,12 @@ void war_power_adjust(Clan *vclan, bool surrender)
 	/* sort the list */
 	i = 0;
 
-	while (i < listcount) {
+	while (i < conqlist.size()) {
 		highest = 0;
 		x = 0;
 
 		/* find the next highest */
-		while (x < listcount) {
+		while (x < conqlist.size()) {
 			if (conqlist[x].scored > highest)
 				highest = conqlist[x].scored;
 
@@ -594,9 +595,9 @@ void war_power_adjust(Clan *vclan, bool surrender)
 
 		x = 0;
 
-		while (x < listcount && loss > 0) {
+		while (x < conqlist.size() && loss > 0) {
 			if (conqlist[x].scored == highest) {
-				if (conqlist[x + 1].clanname.empty()) {
+				if (x == conqlist.size()-1) {
 					qpaward = qploss;
 					award = loss;
 				}

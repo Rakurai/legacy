@@ -36,7 +36,3 @@ extern int  		top_affect;
 extern int		top_ed;
 extern Area 	* area_first;
 extern sh_int		aVersion;
-
-
-/* macro for flag swapping */
-#define GET_UNSET(flag1,flag2)	(~(flag1)&((flag1)|(flag2)))

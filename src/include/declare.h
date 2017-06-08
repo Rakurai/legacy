@@ -86,26 +86,19 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define EXTRACLASS_SLOT_LEVELS     10 // number of remorts per extra extraclass slot
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
-#define MAX_IN_GROUP               15
 #define MAX_QUERY                  20
 #define MAX_CLASS                   8
-#define MAX_PC_RACE                14
-#define MAX_CLAN                   13
 #define MAX_LEVEL                 100
 // max items in show_list_to_char is 8000
 #define MAX_DONATED              8000 // max number of items in the pit, affects do_pit performance
-#define MAX_EVOLUTION		    3
 #define LEVEL_AVATAR				(MAX_LEVEL - 30)	/* 80 */
 #define LEVEL_HERO                 (MAX_LEVEL - 9)  /*  91 */
 #define LEVEL_IMMORTAL             (MAX_LEVEL - 8)  /*  92 */
 #define QPS_PER_PRAC		   20
 #define QPS_PER_TRAIN	           200
 #define MAX_BOW_DISTANCE 3
-
-
-#define SILVER_PER_PLAYER	500000
-
-#define MAX_WEAPON                  39
+/* hours it takes to recharge lay on hands */
+#define NEW_LAY_COUNTER 12
 
 /* 1 + Total Used ColorItems in do_color */
 #define MAX_COLORS                  100
@@ -182,10 +175,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define CSLOT_MISC_INV		84	/* default: BROWN, NOBOLD */
 					/* MAX 99 */
 
-
-#define TITLEBLOCK                  14
-#define MAX_SPELL                   10   /* Max Spells on an Object */
-
 #define PULSE_PER_SECOND		4
 #define PULSE_VIOLENCE			(3 * PULSE_PER_SECOND)
 #define PULSE_MOBILE			(4 * PULSE_PER_SECOND)
@@ -222,37 +211,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define PALADIN_CLASS 5
 #define BARD_CLASS 6
 #define RANGER_CLASS 7
-
-
-/* hours it takes to recharge lay on hands */
-#define NEW_LAY_COUNTER 12
-
-
-
-/* help file type defines */
-/* here, and not in the table, is where order is important.  helps are sorted
-   by precedence of their type, so imm helps will follow mortal helps, etc.
-   if any changes to the order need to be made, make the change, then wipe the
-   table and reload fresh, because loadhelps() will not wipe the table properly
-   if numbers don't match up.  same goes for if any categories are removed */
-#define	HELP_INFO		A
-#define	HELP_CLAN		B
-#define	HELP_SKILL		C
-#define	HELP_SPELL		D
-#define	HELP_RACE		E
-#define	HELP_CLASS		F
-#define	HELP_REMORT		G
-#define	HELP_MOVE		H
-#define	HELP_OBJECT		I
-#define	HELP_COMM		J
-#define	HELP_COMBAT		K
-#define HELP_MISC		L
-#define	HELP_WIZQUEST		M
-#define	HELP_WIZSECURE		N
-#define	HELP_WIZCODE		O
-#define	HELP_WIZGEN		P
-#define	HELP_WIZBUILD		Q
-#define	HELP_WIZHELP		R
 
 
 /* there are 2 types of invisibility, all encompassing (wizi, superwiz, lurk)

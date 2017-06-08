@@ -101,131 +101,131 @@ extern int port;
  */
 struct  str_app_type
 {
-    sh_int      tohit;
-    sh_int      todam;
-    sh_int      carry;
-    sh_int      wield;
-    sh_int	stp;		/* bonus to stamina -- Montrey */
+	sh_int      tohit;
+	sh_int      todam;
+	sh_int      carry;
+	sh_int      wield;
+	sh_int	stp;		/* bonus to stamina -- Montrey */
 };
 
 struct  int_app_type
 {
-    sh_int      learn;
-    sh_int	manap;		/* bonus to mana -- Montrey */
+	sh_int      learn;
+	sh_int	manap;		/* bonus to mana -- Montrey */
 };
 
 struct  wis_app_type
 {
-    sh_int      practice;
+	sh_int      practice;
 };
 
 struct  dex_app_type
 {
-    sh_int      defensive;
+	sh_int      defensive;
 };
 
 struct  con_app_type
 {
-    sh_int      hitp;
-    sh_int      shock;
+	sh_int      hitp;
+	sh_int      shock;
 };
 
 struct  chr_app_type
 {
-    sh_int      chance;
+	sh_int      chance;
 };
 
 
 
 struct deity_type
 {
-    String      name;
-    String      align;
-    int         value;
+	String      name;
+	String      align;
+	int         value;
 };
 
 struct  class_type
 {
-    String      name;                   /* the full name of the class */
-    char        who_name        [4];    /* Three-letter name for 'who'  */
-    sh_int      stat_prime;             /* Prime attribute              */
-    sh_int      weapon;                 /* First weapon                 */
-    sh_int      skill_adept;            /* Maximum skill level          */
-    sh_int      thac0_00;               /* Thac0 for level  0           */
-    sh_int      thac0_32;               /* Thac0 for level 32           */
-    String      base_group;             /* base skills gained           */
-    String      default_group;          /* default skills gained        */
-    sh_int      hp_min;                 /* Min hp gained on leveling    */
-    sh_int      hp_max;                 /* Max hp gained on leveling    */
-    sh_int	mana_min;		/* Min mana gained on leveling  */
-    sh_int	mana_max;		/* Max mana gained on leveling  */
-    sh_int	stam_min;		/* Min stamina gained on leveling */
-    sh_int	stam_max;		/* Max stamina gained on leveling */
+	String      name;                   /* the full name of the class */
+	char        who_name        [4];    /* Three-letter name for 'who'  */
+	sh_int      stat_prime;             /* Prime attribute              */
+	sh_int      weapon;                 /* First weapon                 */
+	sh_int      skill_adept;            /* Maximum skill level          */
+	sh_int      thac0_00;               /* Thac0 for level  0           */
+	sh_int      thac0_32;               /* Thac0 for level 32           */
+	String      base_group;             /* base skills gained           */
+	String      default_group;          /* default skills gained        */
+	sh_int      hp_min;                 /* Min hp gained on leveling    */
+	sh_int      hp_max;                 /* Max hp gained on leveling    */
+	sh_int	mana_min;		/* Min mana gained on leveling  */
+	sh_int	mana_max;		/* Max mana gained on leveling  */
+	sh_int	stam_min;		/* Min stamina gained on leveling */
+	sh_int	stam_max;		/* Max stamina gained on leveling */
 };
 
 struct item_type
 {
-    int         type;
-    String      name;
+	int         type;
+	String      name;
 };
 
 struct weapon_type
 {
-    String      name;
-    sh_int      vnum;
-    sh_int      type;
-    sh_int      *gsn;
+	String      name;
+	sh_int      vnum;
+	sh_int      type;
+	sh_int      *gsn;
 };
 
 struct wiznet_type
 {
-    String      name;
-    long        flag;
-    int         level;
-    String      desc;
+	String      name;
+	long        flag;
+	int         level;
+	String      desc;
 };
 
 struct attack_type
 {
-    String      name;                   /* name */
-    String      noun;                   /* message */
-    int         damage;                 /* damage class */
+	String      name;                   /* name */
+	String      noun;                   /* message */
+	int         damage;                 /* damage class */
 };
 
 struct race_type
 {
-    String      name;                   /* call name of the race */
-    bool        pc_race;                /* can be chosen by pcs */
-    long	act;			/* act bits for the race */
-    long        aff;                    /* aff bits for the race */
-    long        off;                    /* off bits for the race */
-    long        imm;                    /* imm bits for the race */
-    long        res;                    /* res bits for the race */
-    long        vuln;                   /* vuln bits for the race */
-    long        form;                   /* default form flag for the race */
-    long        parts;                  /* default parts for the race */
+	String      name;                   /* call name of the race */
+	bool        pc_race;                /* can be chosen by pcs */
+	long	act;			/* act bits for the race */
+	long        aff;                    /* aff bits for the race */
+	long        off;                    /* off bits for the race */
+	long        imm;                    /* imm bits for the race */
+	long        res;                    /* res bits for the race */
+	long        vuln;                   /* vuln bits for the race */
+	long        form;                   /* default form flag for the race */
+	long        parts;                  /* default parts for the race */
 };
 
 
 struct pc_race_type  /* additional data for pc races */
 {
-    String      name;                   /* MUST be in race_type */
-    char        who_name[4];		/* first 3 characters are used in 'who' */
-    sh_int	base_age;		/* the base age for the race */
-    sh_int      points;                 /* cost in points of the race */
-    sh_int      class_mult[MAX_CLASS];  /* exp multiplier for class, * 100 */
-    sh_int      stats[MAX_STATS];       /* starting stats */
-    sh_int      max_stats[MAX_STATS];   /* maximum stats */
-    sh_int      size;                   /* aff bits for the race */
-    int         remort_level;           /* remort level of race */
-    String      skills[5];              /* bonus skills for the race */
+	String      name;                   /* MUST be in race_type */
+	char        who_name[4];		/* first 3 characters are used in 'who' */
+	sh_int	base_age;		/* the base age for the race */
+	sh_int      points;                 /* cost in points of the race */
+	sh_int      class_mult[MAX_CLASS];  /* exp multiplier for class, * 100 */
+	sh_int      stats[MAX_STATS];       /* starting stats */
+	sh_int      max_stats[MAX_STATS];   /* maximum stats */
+	sh_int      size;                   /* aff bits for the race */
+	int         remort_level;           /* remort level of race */
+	String      skills[5];              /* bonus skills for the race */
 };
 
 
 struct spec_type
 {
-    String      name;                   /* special function name */
-    SPEC_FUN *  function;               /* the function */
+	String      name;                   /* special function name */
+	SPEC_FUN *  function;               /* the function */
 };
 
 
@@ -235,9 +235,9 @@ struct spec_type
 
 struct  liq_type
 {
-    String      name;
-    String      color;
-    sh_int      affect[5];
+	String      name;
+	String      color;
+	sh_int      affect[5];
 };
 
 
@@ -246,29 +246,29 @@ struct  liq_type
  */
 struct  skill_type
 {
-    String      name;                   /* Name of skill                */
-    sh_int      skill_level[MAX_CLASS]; /* Level needed by class        */
-    sh_int      rating[MAX_CLASS];      /* How hard it is to learn      */
-    SPELL_FUN * spell_fun;              /* Spell pointer (for spells)   */
-    sh_int      target;                 /* Legal targets                */
-    sh_int      minimum_position;       /* Position for caster / user   */
-    sh_int *    pgsn;                   /* Pointer to associated gsn    */
-    sh_int      slot;                   /* Slot for #OBJECT loading     */
-    sh_int      min_mana;               /* Minimum mana used            */
-    sh_int      beats;                  /* Waiting time after use       */
-    String      noun_damage;            /* Damage message               */
-    String      msg_off;                /* Wear off message             */
-    String      msg_obj;                /* Wear off message for obects  */
-    int         remort_class;           /* Required remort level or 0   */
-    int		evocost_sec[MAX_CLASS];	/* Class cost to evolve to 2    */
-    int		evocost_pri[MAX_CLASS];	/* Class cost to evolve to 3    */
+	String      name;                   /* Name of skill                */
+	sh_int      skill_level[MAX_CLASS]; /* Level needed by class        */
+	sh_int      rating[MAX_CLASS];      /* How hard it is to learn      */
+	SPELL_FUN * spell_fun;              /* Spell pointer (for spells)   */
+	sh_int      target;                 /* Legal targets                */
+	sh_int      minimum_position;       /* Position for caster / user   */
+	sh_int *    pgsn;                   /* Pointer to associated gsn    */
+	sh_int      slot;                   /* Slot for #OBJECT loading     */
+	sh_int      min_mana;               /* Minimum mana used            */
+	sh_int      beats;                  /* Waiting time after use       */
+	String      noun_damage;            /* Damage message               */
+	String      msg_off;                /* Wear off message             */
+	String      msg_obj;                /* Wear off message for obects  */
+	int         remort_class;           /* Required remort level or 0   */
+	int		evocost_sec[MAX_CLASS];	/* Class cost to evolve to 2    */
+	int		evocost_pri[MAX_CLASS];	/* Class cost to evolve to 3    */
 };
 
 struct  group_type
 {
-    String      name;
-    sh_int      rating[MAX_CLASS];
-    std::vector<String> spells;
+	String      name;
+	sh_int      rating[MAX_CLASS];
+	std::vector<String> spells;
 };
 
 
@@ -314,21 +314,21 @@ struct  group_type
 #define GET_ATTR_SEX(ch) (GET_ATTR((ch), APPLY_SEX) % 3) // gives range of 0-2
 #define GET_ATTR_AGE(ch) (get_age(ch))
 #define GET_ATTR_AC(ch)  (GET_ATTR(ch, APPLY_AC)                              \
-                        + ( IS_AWAKE(ch)                                      \
-                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           \
-                        - (( !IS_NPC(ch) && ch->pcdata->remort_count > 0 )    \
-                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
-                                                                                   -1 per 5 remorts -- Montrey */
+						+ ( IS_AWAKE(ch)                                      \
+						? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           \
+						- (( !IS_NPC(ch) && ch->pcdata->remort_count > 0 )    \
+						? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
+																				   -1 per 5 remorts -- Montrey */
 #define GET_ATTR_HITROLL(ch) \
-                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
+				(GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
 #define GET_ATTR_DAMROLL(ch) \
-                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR_STR((ch))].todam)
+				(GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR_STR((ch))].todam)
 #define GET_ATTR_SAVES(ch) (GET_ATTR((ch), APPLY_SAVES))
 #define GET_MAX_HIT(ch)    (URANGE(1, GET_ATTR((ch), APPLY_HIT), 30000))
 #define GET_MAX_MANA(ch)   (URANGE(1, GET_ATTR((ch), APPLY_MANA), 30000))
 #define GET_MAX_STAM(ch)   (URANGE(1, GET_ATTR((ch), APPLY_STAM), 30000))
 #define GET_DEFENSE_MOD(ch, dam_type) (dam_type == DAM_NONE ? 0 :             \
-                          (ch)->defense_mod ? (ch)->defense_mod[dam_type] : 0)
+						  (ch)->defense_mod ? (ch)->defense_mod[dam_type] : 0)
 #define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
 
 
@@ -361,9 +361,9 @@ struct  group_type
 #define IS_OUTSIDE(ch)          (!IS_SET(GET_ROOM_FLAGS((ch)->in_room), ROOM_INDOORS))
 
 #define WAIT_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
-    (ch->wait = UMAX(ch->wait, npulse)) : (ch->wait = 0))
+	(ch->wait = UMAX(ch->wait, npulse)) : (ch->wait = 0))
 #define DAZE_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
-    (ch->daze = UMAX(ch->daze, npulse)) : (ch->daze = 0))
+	(ch->daze = UMAX(ch->daze, npulse)) : (ch->daze = 0))
 #define gold_weight(amount)  ((amount) * 2 / 5)
 #define silver_weight(amount) ((amount)/ 10)
 #define IS_QUESTOR(ch)     (IS_SET((ch)->act_flags, PLR_QUESTOR))
@@ -380,14 +380,13 @@ struct  group_type
 #define IS_OBJ_STAT(obj, stat)  (IS_SET((obj)->extra_flags | (obj)->extra_flag_cache, (stat)))
 #define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4] | (obj)->weapon_flag_cache,(stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
-        (obj)->value[4] : 100)
+		(obj)->value[4] : 100)
 
 
 /*
  * Identd stuff
  */
 
-#define IS_NULLSTR(str)       ((str)==NULL || (str)[0]=='\0')
 #define CH(d)         ((d)->original ? (d)->original : (d)->character )
 
 
@@ -398,8 +397,6 @@ struct  group_type
 				|| (vis == VIS_CHAR && can_see_char(looker, ch))		\
 				|| (vis == VIS_PLR && can_see_who(looker, ch))) ?	\
 				IS_NPC(ch) ? ch->short_descr : ch->name : "someone")
-
-
 
 
 /*
@@ -726,12 +723,12 @@ void    die_follower    args( ( Character *ch ) );
 bool    is_same_group   args( ( Character *ach, Character *bch ) );
 void    send_to_clan    args( ( Character *ch, Clan *target, const char *text ) );
 void wiznet             args( (const String& string, Character *ch, Object *obj,
-                               long flag, long flag_skip, int min_rank ) );
+							   long flag, long flag_skip, int min_rank ) );
 
 /* channel.c */
 void    global_act      args( ( Character *ch, const char *message, \
-                                int despite_invis, int color, \
-                                long nocomm_bits ) );
+								int despite_invis, int color, \
+								long nocomm_bits ) );
 
 /* social-edit.c */
 void load_social_table();
@@ -798,7 +795,7 @@ RoomPrototype  *get_random_room   args( ( Character *ch ) );
 void    make_pet        args((Character *ch, Character *pet));
 bool can_loot           args( (Character *ch, Object *obj) );
 void    get_obj         args( ( Character *ch, Object *obj,
-                            Object *container ) );
+							Object *container ) );
 
 /* act_wiz.c */
 RoomPrototype *find_location      args( (Character *ch, const String& argument) );
@@ -878,7 +875,7 @@ void    shock_effect    args( (void *vo, int level, int dam, int target, int evo
 /* fight.c */
 void    check_killer    args( ( Character *ch, Character *victim) );
 bool    damage          args( ( Character *ch, Character *victim, int dam,
-                                int dt, int cls, bool show, bool spell ) );
+								int dt, int cls, bool show, bool spell ) );
 void    death_cry       args( ( Character *ch ) );
 bool    is_safe         args( (Character *ch, Character *victim, bool showmsg ) );
 bool    is_safe_spell   args( (Character *ch, Character *victim, bool area ) );
@@ -891,19 +888,19 @@ void    violence_update args( ( void ) );
 
 /* mob_prog.c */
 void    mprog_wordlist_check    args ( ( const String& arg, Character *mob,
-                                        Character* actor, Object* object,
-                                        void* vo, int type ) );
+										Character* actor, Object* object,
+										void* vo, int type ) );
 void    mprog_percent_check     args ( ( Character *mob, Character* actor,
-                                        Object* object, void* vo,
-                                        int type ) );
+										Object* object, void* vo,
+										int type ) );
 void    mprog_act_trigger       args ( ( const char* buf, Character* mob,
-                                        Character* ch, Object* obj,
-                                        void* vo ) );
+										Character* ch, Object* obj,
+										void* vo ) );
 void    mprog_bribe_trigger     args ( ( Character* mob, Character* ch,
-                                        int amount ) );
+										int amount ) );
 void    mprog_entry_trigger     args ( ( Character* mob ) );
 void    mprog_give_trigger      args ( ( Character* mob, Character* ch,
-                                        Object* obj ) );
+										Object* obj ) );
 void    mprog_greet_trigger     args ( ( Character* mob ) );
 void    mprog_fight_trigger     args ( ( Character* mob, Character* ch ) );
 void    mprog_buy_trigger       args ( ( Character* mob, Character* ch ) );
@@ -1057,7 +1054,7 @@ void hunt_victim        args( ( Character *ch) );
 void    interpret       args( ( Character *ch, String argument ) );
 bool    is_number       args( ( const String& arg ) );
 bool    check_social    args( ( Character *ch, const String& command,
-                            const String& argument ) );
+							const String& argument ) );
 void	do_huh		args( ( Character *ch ) );	/* Xenith */
 
 
@@ -1067,7 +1064,7 @@ int     find_spell      args( ( Character *ch, const String& name) );
 int     skill_lookup    args( ( const String& name ) );
 int     slot_lookup     args( ( int slot ) );
 void    obj_cast_spell  args( ( int sn, int level, Character *ch,
-                                    Character *victim, Object *obj ) );
+									Character *victim, Object *obj ) );
 void spell_imprint      args( ( int sn, int level, Character *ch, void *vo ));
 
 // dispel.c
@@ -1095,7 +1092,7 @@ void    list_group_costs args( ( Character *ch ) );
 void    list_group_known args( ( Character *ch ) );
 long    exp_per_level   args( ( Character *ch, int points ) );
 void    check_improve   args( ( Character *ch, int sn, bool success,
-                                    int multiplier ) );
+									int multiplier ) );
 int     group_lookup    args( (const String& name) );
 void    gn_add          args( ( Character *ch, int gn) );
 void    gn_remove       args( ( Character *ch, int gn) );

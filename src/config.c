@@ -29,6 +29,8 @@
 #include "tables.h"
 #include "Format.hpp"
 
+#define TITLEBLOCK                  14
+
 /* TEMPLATE
 void config_wiznet(Character *ch, const char *argument)
 {

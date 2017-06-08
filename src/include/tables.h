@@ -25,12 +25,6 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-struct helpfile_table_type
-{
-	String name;
-	int	group;
-};
-
 struct MagT_type
 {
 	String male;
@@ -186,7 +180,6 @@ extern	const	std::vector<revoke_type>   revoke_table;		/* revoke command table *
 extern	const	std::vector<ftoa_type>     ftoa_table;		/* flags to alpha */
 extern	const	std::vector<csetting_type> csetting_table;	/* color settings table */
 extern	const	std::vector<color_type>    color_table;		/* color table */
-extern	const	std::vector<helpfile_table_type> helpfile_table;	/* help name group table */
 extern	const	std::vector<sector_type>   sector_table;
 
 /* flag tables */

@@ -1296,8 +1296,8 @@ void do_oset(Character *ch, String argument)
 
 	if (arg2 == "value3" || arg2 == "v3") {
 		/* Hack to keep Crush from crashing the mud */
-		if (obj->item_type == ITEM_WEAPON && value > MAX_WEAPON) {
-			ptc(ch, "The max for weapons is %d.\n", MAX_WEAPON);
+		if (obj->item_type == ITEM_WEAPON && value >= attack_table.size()) {
+			ptc(ch, "The max for weapons is %d.\n", attack_table.size()-1);
 			return;
 		}
 

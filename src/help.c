@@ -31,6 +31,59 @@ char stupidassline[1000] =
 #define HCOL_KEYS "keywords"
 #define HCOL_TEXT "text"
 
+/* help file type defines */
+/* here, and not in the table, is where order is important.  helps are sorted
+   by precedence of their type, so imm helps will follow mortal helps, etc.
+   if any changes to the order need to be made, make the change, then wipe the
+   table and reload fresh, because loadhelps() will not wipe the table properly
+   if numbers don't match up.  same goes for if any categories are removed */
+#define	HELP_INFO		A
+#define	HELP_CLAN		B
+#define	HELP_SKILL		C
+#define	HELP_SPELL		D
+#define	HELP_RACE		E
+#define	HELP_CLASS		F
+#define	HELP_REMORT		G
+#define	HELP_MOVE		H
+#define	HELP_OBJECT		I
+#define	HELP_COMM		J
+#define	HELP_COMBAT		K
+#define HELP_MISC		L
+#define	HELP_WIZQUEST		M
+#define	HELP_WIZSECURE		N
+#define	HELP_WIZCODE		O
+#define	HELP_WIZGEN		P
+#define	HELP_WIZBUILD		Q
+#define	HELP_WIZHELP		R
+
+struct helpfile_table_type
+{
+	String name;
+	int	group;
+};
+//extern	const	std::vector<helpfile_table_type> helpfile_table;	/* help name group table */
+
+const std::vector<helpfile_table_type> helpfile_table = {
+	{       "wizhelp",      HELP_WIZHELP    },
+	{       "wizquest",     HELP_WIZQUEST   },
+	{       "wizsecure",    HELP_WIZSECURE  },
+	{       "wizcode",      HELP_WIZCODE    },
+	{       "wizgen",       HELP_WIZGEN     },
+	{       "wizbuild",     HELP_WIZBUILD   },
+	{       "skill",        HELP_SKILL      },
+	{       "spell",        HELP_SPELL      },
+	{       "race",         HELP_RACE       },
+	{       "class",        HELP_CLASS      },
+	{       "remort",       HELP_REMORT     },
+	{       "clan",         HELP_CLAN       },
+	{       "move",         HELP_MOVE       },
+	{       "object",       HELP_OBJECT     },
+	{       "comm",         HELP_COMM       },
+	{       "info",         HELP_INFO       },
+	{       "combat",       HELP_COMBAT     },
+	{       "misc",         HELP_MISC       },
+};
+
 extern String help_greeting;
 
 /*** UTILITY FUNCTIONS ***/

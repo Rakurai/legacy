@@ -11,27 +11,6 @@
 #include "merc.h"
 #include "tables.h"
 
-const std::vector<helpfile_table_type> helpfile_table = {
-	{       "wizhelp",      HELP_WIZHELP    },
-	{       "wizquest",     HELP_WIZQUEST   },
-	{       "wizsecure",    HELP_WIZSECURE  },
-	{       "wizcode",      HELP_WIZCODE    },
-	{       "wizgen",       HELP_WIZGEN     },
-	{       "wizbuild",     HELP_WIZBUILD   },
-	{       "skill",        HELP_SKILL      },
-	{       "spell",        HELP_SPELL      },
-	{       "race",         HELP_RACE       },
-	{       "class",        HELP_CLASS      },
-	{       "remort",       HELP_REMORT     },
-	{       "clan",         HELP_CLAN       },
-	{       "move",         HELP_MOVE       },
-	{       "object",       HELP_OBJECT     },
-	{       "comm",         HELP_COMM       },
-	{       "info",         HELP_INFO       },
-	{       "combat",       HELP_COMBAT     },
-	{       "misc",         HELP_MISC       },
-};
-
 /* random name generation tables, male and female syllable sets 1, 2, 3 */
 const String Msyl1[] = {
 	"A",    "Ab",   "Ac",   "Ad",   "Af",   "Agr",  "Ast",  "As",   "Al",   "Adw",
