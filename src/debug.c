@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "find.h"
 #include "merc.h"
 #include "sql.h"
 #include "recycle.h"

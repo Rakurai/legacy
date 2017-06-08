@@ -25,11 +25,13 @@
 ***************************************************************************/
 
 #include <unistd.h>
+#include "find.h"
+#include "channels.h"
 #include "merc.h"
 #include "interp.h"
 #include "vt100.h"
 #include "Affect.hpp"
-#include "auction.h"
+#include "Auction.hpp"
 #include "lookup.h"
 #include "Format.hpp"
 
@@ -1148,7 +1150,7 @@ void do_quit(Character *ch, String argument)
 		return;
 	}
 
-	if (is_auction_participant(ch)) {
+	if (auction.is_participant(ch)) {
 		stc("Wait till you have sold/bought the item on auction.\n", ch);
 		return;
 	}

@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "channels.h"
 #include "merc.h"
 #include "recycle.h"
 #include "Format.hpp"

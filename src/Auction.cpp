@@ -1,89 +1,92 @@
-#include "merc.h"
+#include "Auction.hpp"
+#include "Clan.hpp"
+#include "ObjectPrototype.hpp"
+#include "find.h"
+#include "typename.h"
+#include "argument.h"
+#include "Player.hpp"
+#include "channels.h"
+#include "Object.hpp"
+#include "Format.hpp"
+#include "Character.hpp"
+#include "act.h"
 
-typedef struct
-{
-    Object  * item;   /* a pointer to the item */
-    Character * seller; /* a pointer to the seller - which may NOT quit */
-    Character * buyer;  /* a pointer to the buyer - which may NOT quit */
-    int         bet;    /* last bet - or 0 if noone has bet anything */
-    sh_int      going;  /* 1,2, sold */
-    sh_int      pulse;  /* how many pulses (.25 sec) until another call-out ? */
-    int         min;    /* Minimum bid */
-} AUCTION_DATA;
+// global auction
+Auction auction;
 
-AUCTION_DATA auction;
-
-extern void channel_who(Character *ch, const String& channelname, int channel, int custom);
-
-void init_auction() {
-	auction.item = NULL;
+void Auction::
+init() {
+	item = NULL;
+	buyer = NULL;
+	seller = NULL;
 }
 
-bool is_auction_participant(Object *obj) {
-	return obj == auction.item;
+bool Auction::
+is_participant(Object *obj) const {
+	return item != NULL && obj == item;
 }
 
-bool is_auction_participant(Character *ch) {
-	return auction.item != NULL && ((ch == auction.buyer) || (ch == auction.seller));
+bool Auction::
+is_participant(Character *ch) const {
+	return item != NULL && ch != NULL && ((ch == buyer) || (ch == seller));
 }
 
-void auction_update(void)
-{
-	char buf[MAX_STRING_LENGTH];
-
-	if (auction.item == NULL) {
+void Auction::
+update() {
+	if (item == NULL) {
 		/* no auction in progress -- return doing nothing */
 		return;
 	}
 
-	if (--auction.pulse <= 0) { /* decrease pulse */
-		auction.pulse = PULSE_AUCTION;
+	if (--pulse <= 0) { /* decrease pulse */
+		String buf;
+		pulse = PULSE_AUCTION;
 
-		switch (++auction.going) { /* increase the going state */
+		switch (++going) { /* increase the going state */
 		case 1 : /* going once */
 		case 2 : /* going twice */
-			if (auction.bet > 0)
+			if (bet > 0)
 				Format::sprintf(buf, "%s: going %s for %d gold.\n",
-				        auction.item->short_descr,
-				        ((auction.going == 1) ? "once" : "twice"), auction.bet);
+				        item->short_descr,
+				        ((going == 1) ? "once" : "twice"), bet);
 			else
 				Format::sprintf(buf, "%s: going %s (no bet received yet).\n",
-				        auction.item->short_descr,
-				        ((auction.going == 1) ? "once" : "twice"));
+				        item->short_descr,
+				        ((going == 1) ? "once" : "twice"));
 
 			talk_auction(buf);
 			break;
 
 		case 3 : /* SOLD! */
-			if (auction.bet > 0) {
+			if (bet > 0) {
 				Format::sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n",
-				        auction.item->short_descr, auction.bet);
-				global_act(auction.buyer, buf, TRUE,
+				        item->short_descr, bet);
+				global_act(buyer, buf, TRUE,
 				           YELLOW, COMM_NOAUCTION | COMM_QUIET);
 				Format::sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
-				        auction.item->short_descr, auction.bet);
-				wiznet(buf, auction.buyer, NULL, WIZ_AUCTION, 0,
-				       GET_RANK(auction.buyer));
-				obj_to_char(auction.item, auction.buyer);
+				        item->short_descr, bet);
+				wiznet(buf, buyer, NULL, WIZ_AUCTION, 0,
+				       GET_RANK(buyer));
+				obj_to_char(item, buyer);
 				act("The auctioneer appears before you in a puff of smoke and hands you $p.",
-				    auction.buyer, auction.item, NULL, TO_CHAR);
+				    buyer, item, nullptr, TO_CHAR);
 				act("The auctioneer appears before $n, and hands $m $p",
-				    auction.buyer, auction.item, NULL, TO_ROOM);
-				/* deduct_cost(auction.seller,-auction.bet); */ /* give him the money */
-				auction.seller->gold += auction.bet;
-				auction.item = NULL; /* reset item */
+				    buyer, item, NULL, TO_ROOM);
+				/* deduct_cost(seller,-bet); */ /* give him the money */
+				seller->gold += bet;
+				item = NULL; /* reset item */
 			}
 			else { /* not sold */
 				Format::sprintf(buf,
 				        "No bets received for %s - object has been removed.\n",
-				        auction.item->short_descr);
+				        item->short_descr);
 				talk_auction(buf);
 				act("The auctioneer appears before you to return $p to you.",
-				    auction.seller, auction.item, NULL, TO_CHAR);
+				    seller, item, NULL, TO_CHAR);
 				act("The auctioneer appears before $n to return $p to $m.",
-				    auction.seller, auction.item, NULL, TO_ROOM);
-				obj_to_char(auction.item, auction.seller);
-				auction.item = NULL; /* clear auction */
+				    seller, item, NULL, TO_ROOM);
+				obj_to_char(item, seller);
+				item = NULL; /* clear auction */
 			} /* else */
 		} /* switch */
 	} /* if */
@@ -104,19 +107,7 @@ void do_auction(Character *ch, String argument)
 	}
 
 	if (argument.empty()) {
-		if (IS_SET(ch->comm, COMM_NOAUCTION)) {
-			new_color(ch, CSLOT_CHAN_AUCTION);
-			stc("Auction channel is now ON.\n", ch);
-			REMOVE_BIT(ch->comm, COMM_NOAUCTION);
-			set_color(ch, WHITE, NOBOLD);
-		}
-		else {
-			new_color(ch, CSLOT_CHAN_AUCTION);
-			stc("Auction channel is now OFF.\n", ch);
-			SET_BIT(ch->comm, COMM_NOAUCTION);
-			set_color(ch, WHITE, NOBOLD);
-		}
-
+		channel(ch, argument, CHAN_AUCTION);
 		return;
 	}
 
@@ -127,9 +118,7 @@ void do_auction(Character *ch, String argument)
 	}
 
 	if (IS_SET(ch->comm, COMM_QUIET)) {
-		new_color(ch, CSLOT_CHAN_AUCTION);
 		stc("You must turn off quiet mode first.\n", ch);
-		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 

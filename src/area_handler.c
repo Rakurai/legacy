@@ -8,6 +8,7 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
+#include "channels.h"
 #include "merc.h"
 #include "recycle.h"
 #include "memory.h"

@@ -10,6 +10,8 @@
 *  ress. Quest Code v2.03. Please do not remove this notice from this file. *
 ****************************************************************************/
 
+#include "find.h"
+#include "channels.h"
 #include "merc.h"
 #include "interp.h"
 #include "tables.h"

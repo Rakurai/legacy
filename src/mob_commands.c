@@ -26,6 +26,7 @@
  *  such installation can be found in INSTALL.  Enjoy........    N'Atas-Ha *
  ***************************************************************************/
 
+#include "find.h"
 #include "merc.h"
 #include "Affect.hpp"
 #include "Format.hpp"

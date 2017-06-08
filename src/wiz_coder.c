@@ -14,6 +14,8 @@
 * the coder command group.                       *
 *************************************************/
 
+#include "find.h"
+#include "channels.h"
 #include "merc.h"
 #include "interp.h"
 #include "recycle.h"

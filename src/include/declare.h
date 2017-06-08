@@ -1,26 +1,12 @@
-#pragma once
+// don't disallow multiple reads - we don't want some other include redefining NULL
+//#pragma once
 
-#ifdef __cplusplus
- #undef NULL
- #define NULL nullptr
-#endif
-
-/*
- * Short scalar types.
- */
-#if     !defined(FALSE)
- #define FALSE    0
-#endif
-
-#if     !defined(TRUE)
- #define TRUE     1
-#endif
+#undef NULL
+#define NULL  nullptr
+#define FALSE false
+#define TRUE  true
 
 typedef int sh_int;
-
-#ifndef __cplusplus
- typedef unsigned char                   bool;
-#endif
 
 #define args( list )                    list
 
@@ -1198,8 +1184,9 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define CHAN_MUSIC		5
 #define CHAN_IC			6
 #define CHAN_GRATS		7
-#define CHAN_IMMTALK		8
+#define CHAN_IMMTALK	8
 #define CHAN_QA			9
+#define CHAN_AUCTION	10
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET              (A)
@@ -1556,3 +1543,5 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define  RAFF_RES_DROWNING		963
 #define  RAFF_RES_LIGHT			964
 #define  RAFF_RES_SOUND			965
+
+#include "macros.h"

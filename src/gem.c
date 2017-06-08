@@ -1,3 +1,4 @@
+#include "find.h"
 #include "merc.h"
 #include "recycle.h"
 #include "gem.h"

@@ -3,6 +3,7 @@
 #include "declare.h"
 #include "Actable.hpp"
 #include "String.hpp"
+#include "Format.hpp" // ptc inline
 
 /*
  * One character (PC or NPC).
@@ -135,3 +136,22 @@ private:
     Character(const Character&);
     Character& operator=(const Character&);
 };
+
+void    obj_to_char     args(( Object *obj, Character *ch ) );
+void    obj_from_char   args(( Object *obj ) );
+void    obj_to_locker   args(( Object *obj, Character *ch ) );
+void    obj_to_strongbox args(( Object *obj, Character *ch ) );
+void    obj_from_locker args(( Object *obj ) );
+void    obj_from_strongbox args(( Object *obj) );
+bool    can_drop_obj    args(( Character *ch, Object *obj ) );
+bool    deduct_cost     args( (Character *ch, long cost) );
+
+void    stc    args( ( const String& txt, Character *ch ) );
+void    page_to_char    args( ( const String& txt, Character *ch ) );
+
+// printf to a character
+template<class... Params>
+void ptc(Character *ch, const String& fmt, Params&&... params)
+{
+    stc(Format::format(fmt, params...), ch);
+}

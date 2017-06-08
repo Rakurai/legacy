@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef> // nullptr_t
+
 class String;
 
 // guts pushed to implementation so we only need forward class declarations here

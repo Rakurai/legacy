@@ -1,3 +1,4 @@
+#include "typename.h"
 #include "merc.h"
 #include "tables.h"
 #include "lookup.h"

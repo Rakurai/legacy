@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "find.h"
 #include "merc.h"
 #include "tables.h"
 #include "lookup.h"
@@ -275,7 +276,7 @@ String makedrunk(Character *ch, const String& string)
 } /* end makedrunk() */
 
 /* This sends an ACT-type message to everybody in the game. */
-void global_act(Character *ch, const char *message,
+void global_act(Character *ch, const String& message,
                 int despite_invis, int color, long nocomm_bits)
 {
 	Descriptor *d;
@@ -761,7 +762,7 @@ void do_question(Character *ch, String argument)
 	channel(ch, argument, CHAN_QA);
 }
 
-void talk_auction(const char *argument)
+void talk_auction(const String& argument)
 {
 	Character *victim;
 	Descriptor *d;

@@ -3,6 +3,7 @@
 * 2002 Jason Anderson, proprietary for Legacy.                             *
 ***************************************************************************/
 
+#include "find.h"
 #include "merc.h"
 #include "interp.h"
 #include "recycle.h"

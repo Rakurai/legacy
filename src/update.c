@@ -25,13 +25,14 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "channels.h"
 #include "merc.h"
 #include "interp.h"
 #include "sql.h"
 #include "music.h"
 #include "Affect.hpp"
 #include "memory.h"
-#include "auction.h"
+#include "Auction.hpp"
 #include "Format.hpp"
 #include "GameTime.hpp"
 
@@ -1127,7 +1128,7 @@ void obj_update(void)
 		affect_iterate_over_obj(obj, affect_fn_fade_spell, NULL);
 
 		/* do not decay items being auctioned -- Elrac */
-		if (is_auction_participant(obj))
+		if (auction.is_participant(obj))
 			continue;
 
 		if (obj->timer <= 0 || --obj->timer > 0)
@@ -1642,7 +1643,7 @@ void update_handler(void)
 	}
 
 	wait_update();
-	auction_update();
+	auction.update();
 	aggr_update();
 	tail_chain();
 } /* end update_handler() */

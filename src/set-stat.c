@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "find.h"
+#include "typename.h"
 #include "merc.h"
 #include "interp.h"
 #include "recycle.h"

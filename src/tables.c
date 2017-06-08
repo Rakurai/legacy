@@ -207,6 +207,10 @@ const std::vector<chan_type> chan_table = {
 		"qa",           "You Q/A",      "[Q/A] $n{x '$t{x'",
 		CSLOT_CHAN_QA,          COMM_NOQUESTION, REVOKE_QA
 	},
+	{
+		"auction",		"",				"",
+		CSLOT_CHAN_AUCTION,		COMM_NOAUCTION,	REVOKE_AUCTION
+	},
 };
 
 const std::vector<revoke_type> revoke_table = {

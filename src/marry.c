@@ -37,6 +37,7 @@
 *      xenith@xenith.org        legacy@kyndig.com                          *
 ***************************************************************************/
 
+#include "find.h"
 #include "merc.h"
 #include "Format.hpp"
 

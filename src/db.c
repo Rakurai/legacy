@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "channels.h"
 #include "merc.h"
 #include "memory.h"
 #include "recycle.h"
@@ -33,7 +34,7 @@
 #include "music.h"
 #include "Affect.hpp"
 #include "affect_list.h"
-#include "auction.h"
+#include "Auction.hpp"
 #include "Format.hpp"
 #include "GameTime.hpp"
 
@@ -405,7 +406,7 @@ void boot_db()
 	}
 	/* initialize auction */
 	{
-		init_auction();
+		auction.init();
 	}
 	/* Assign gsn's for skills which have them */
 	{

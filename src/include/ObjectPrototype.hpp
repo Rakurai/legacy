@@ -1,6 +1,8 @@
-/*
- * Prototype for an object.
- */
+#pragma once
+
+#include "declare.h"
+#include "String.hpp"
+
 class ObjectPrototype
 {
 public:

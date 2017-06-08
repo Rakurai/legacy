@@ -31,6 +31,7 @@
     initialize the entire room list.
 */
 
+#include "find.h"
 #include "merc.h"
 #include "interp.h"
 

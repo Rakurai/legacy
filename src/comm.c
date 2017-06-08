@@ -49,6 +49,7 @@
 #include <fcntl.h>
 #include <netdb.h>
 
+#include "channels.h"
 #include "merc.h"
 #include "interp.h"
 #include "vt100.h" /* VT100 Stuff */

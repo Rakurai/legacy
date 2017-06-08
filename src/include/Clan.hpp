@@ -1,5 +1,8 @@
 #pragma once
 
+#include "declare.h"
+#include "String.hpp"
+
 class Clan
 {
 public:
@@ -26,3 +29,14 @@ private:
     Clan(const Clan&);
     Clan& operator=(const Clan&);
 };
+
+/* new clan system by Clerve */
+extern      Clan    *clan_table_head;
+extern      Clan    *clan_table_tail;
+
+/* clan-edit.c */
+int count_clan_members  args((Clan *clan, int bit));
+void load_clan_table();
+void save_clan_table();
+int count_clans();
+int calc_cp(Clan *clan, bool curve);

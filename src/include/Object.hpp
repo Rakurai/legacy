@@ -75,3 +75,5 @@ private:
 /* object recycling */
 Object	*new_obj args( (void) );
 void	free_obj args( (Object *obj) );
+
+void    extract_obj     args(( Object *obj ) );

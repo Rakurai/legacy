@@ -1,3 +1,4 @@
+#include "channels.h"
 #include "merc.h"
 #include "interp.h"
 #include "vt100.h"
