@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "typename.h"
 #include "channels.h"
@@ -3580,7 +3582,7 @@ void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evol
 	if (ch->in_room == nullptr)
 		return;
 
-	if (ch->in_room->area == quest_area) {
+	if (ch->in_room->area == Game::world().quest_area) {
 		stc("You cannot gate while in the quest area.\n", ch);
 		return;
 	}
@@ -3598,7 +3600,7 @@ void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evol
 	    || !can_see_room(ch, victim->in_room)
 	    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 	    || victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->area == quest_area
+	    || victim->in_room->area == Game::world().quest_area
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan
 	    || victim->in_room->guild
@@ -4516,7 +4518,7 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 		}
 	}
 	else {
-		if (from_room->area == quest_area) {
+		if (from_room->area == Game::world().quest_area) {
 			stc("You cannot nexus while in the quest area.\n", ch);
 			return;
 		}
@@ -4532,7 +4534,7 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 		    || (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch))
 		    || (to_room = victim->in_room) == nullptr
 		    || to_room == from_room
-		    || to_room->area == quest_area
+		    || to_room->area == Game::world().quest_area
 		    || !can_see_room(ch, to_room)
 		    || !can_see_room(ch, from_room)
 		    || GET_ROOM_FLAGS(to_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
@@ -4862,7 +4864,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 		}
 	}
 	else {
-		if (ch->in_room->area == quest_area) {
+		if (ch->in_room->area == Game::world().quest_area) {
 			stc("You cannot portal while in the quest area.\n", ch);
 			return;
 		}
@@ -4880,7 +4882,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 		    || !can_see_room(ch, victim->in_room)
 		    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
 		    || victim->in_room->sector_type == SECT_ARENA
-		    || victim->in_room->area == quest_area
+		    || victim->in_room->area == Game::world().quest_area
 		    || char_in_duel_room(victim)
 		    || victim->in_room->clan
 		    || victim->in_room->guild
@@ -5870,7 +5872,7 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	if (ch->in_room->area == quest_area) {
+	if (ch->in_room->area == Game::world().quest_area) {
 		stc("You cannot summon while in the quest area.\n", ch);
 		return;
 	}
@@ -5885,7 +5887,7 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	if (victim->in_room->area == quest_area) {
+	if (victim->in_room->area == Game::world().quest_area) {
 		stc("Your target is in the quest area. You cannot summon from there.\n",
 		    ch);
 		return;
@@ -6007,7 +6009,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 		return;
 	}
 
-	if (ch->in_room->area == quest_area) {
+	if (ch->in_room->area == Game::world().quest_area) {
 		stc("You are in the quest area. You cannot summon objects here.\n", ch);
 		return;
 	}
@@ -6044,7 +6046,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 			if ((obj->carried_by->in_room == nullptr)
 			    || GET_ROOM_FLAGS(obj->carried_by->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 			    || obj->carried_by->in_room->sector_type == SECT_ARENA
-			    || obj->carried_by->in_room->area == quest_area
+			    || obj->carried_by->in_room->area == Game::world().quest_area
 			    || (!IS_NPC(obj->carried_by))
 			    || (obj->carried_by->level > ch->level + 3)
 			    || (IS_NPC(obj->carried_by) && obj->carried_by->pIndexData->pShop != nullptr)
@@ -6062,7 +6064,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 			/* lying around somewhere */
 			if (GET_ROOM_FLAGS(obj->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 			    || obj->in_room->sector_type == SECT_ARENA
-			    || obj->in_room->area == quest_area
+			    || obj->in_room->area == Game::world().quest_area
 			    || (!CAN_WEAR(obj, ITEM_TAKE))) {
 				if (number == 1)
 					continue;
@@ -6174,7 +6176,7 @@ void spell_teleport_object(int sn, int level, Character *ch, void *vo, int targe
 	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 
-	if (ch->in_room != nullptr && ch->in_room->area == quest_area) {
+	if (ch->in_room != nullptr && ch->in_room->area == Game::world().quest_area) {
 		stc("You cannot teleport objects in the quest area.\n",
 		    ch);
 		return;
@@ -6240,7 +6242,7 @@ void spell_teleport_object(int sn, int level, Character *ch, void *vo, int targe
 		return;
 	}
 
-	if (victim->in_room->area == quest_area) {
+	if (victim->in_room->area == Game::world().quest_area) {
 		stc(
 		        "Your recipient cannot receive teleported objects in the quest area.\n",
 		        ch);
@@ -6271,7 +6273,7 @@ void spell_teleport(int sn, int level, Character *ch, void *vo, int target, int 
 	Character *victim = (Character *) vo;
 	RoomPrototype *room;
 
-	if (ch->in_room != nullptr && ch->in_room->area == quest_area) {
+	if (ch->in_room != nullptr && ch->in_room->area == Game::world().quest_area) {
 		stc("Teleportation does not work in the quest area.\n", ch);
 		return;
 	}

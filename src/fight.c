@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "channels.h"
 #include "merc.h"
@@ -1111,12 +1113,12 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 
 			if (ch->in_room->sector_type != SECT_ARENA
 			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != quest_area || !quest_upk))
+			    && (ch->in_room->area != Game::world().quest_area || !quest_upk))
 				gain_exp(victim, 0 - number_range(ch->level / 20, 3 * ch->level / 20));
 
 			if (ch->in_room->sector_type != SECT_ARENA
 			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != quest_area || !quest_upk)
+			    && (ch->in_room->area != Game::world().quest_area || !quest_upk)
 			    && ch->cls != PALADIN_CLASS) /* Paladins */
 				ch->alignment = UMAX(-1000, ch->alignment - 1);
 
@@ -1145,7 +1147,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 
 			if (victim->in_room->sector_type != SECT_ARENA
 			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != quest_area || !quest_upk))
+			    && (ch->in_room->area != Game::world().quest_area || !quest_upk))
 				fire_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, 0, DAM_FIRE, FALSE, FALSE);
@@ -1163,7 +1165,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 
 			if (victim->in_room->sector_type != SECT_ARENA
 			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != quest_area || !quest_upk))
+			    && (ch->in_room->area != Game::world().quest_area || !quest_upk))
 				cold_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, 0, DAM_COLD, FALSE, FALSE);
@@ -1181,7 +1183,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 
 			if (victim->in_room->sector_type != SECT_ARENA
 			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != quest_area || !quest_upk))
+			    && (ch->in_room->area != Game::world().quest_area || !quest_upk))
 				shock_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, 0, DAM_ELECTRICITY, FALSE, FALSE);
@@ -1654,7 +1656,7 @@ void kill_off(Character *ch, Character *victim)
 	if (victim->exp > exp_per_level(victim, victim->pcdata->points) * victim->level
 	    && victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (ch->in_room->area != quest_area || !quest_upk))
+	    && (ch->in_room->area != Game::world().quest_area || !quest_upk))
 		gain_exp(victim,
 		         (2 * (exp_per_level(victim, victim->pcdata->points)*victim->level - victim->exp) / 3));
 
@@ -1662,7 +1664,7 @@ void kill_off(Character *ch, Character *victim)
 
 		if (ch->in_room->sector_type == SECT_ARENA
 		    || ch->in_room->sector_type == SECT_CLANARENA
-		    || (ch->in_room->area == quest_area && quest_upk)) {
+		    || (ch->in_room->area == Game::world().quest_area && quest_upk)) {
 			ch->pcdata->arenakills++;
 
 			if (!IS_IMMORTAL(ch))
@@ -1826,8 +1828,8 @@ bool is_safe(Character *ch, Character *victim, bool showmsg)
 
 	/* almost anything goes in the quest area if UPK is on */
 	if (quest_upk
-	    && victim->in_room->area == quest_area
-	    && ch->in_room->area == quest_area)
+	    && victim->in_room->area == Game::world().quest_area
+	    && ch->in_room->area == Game::world().quest_area)
 		return FALSE;
 
 	return is_safe_char(ch, victim, showmsg);
@@ -1933,8 +1935,8 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 
 			/* almost anything goes in questland if UPK is up */
 			if (quest_upk
-			    && ch->in_room->area == quest_area
-			    && victim->in_room->area == quest_area)
+			    && ch->in_room->area == Game::world().quest_area
+			    && victim->in_room->area == Game::world().quest_area)
 				return FALSE;
 
 			if (victim->act_flags.has(PLR_KILLER) || victim->act_flags.has(PLR_THIEF))
@@ -1975,9 +1977,9 @@ void check_killer(Character *ch, Character *victim)
 	/* if in questlands and UPK flag is up, all is fair */
 	if (quest_upk
 	    && victim->in_room != nullptr
-	    && victim->in_room->area == quest_area
+	    && victim->in_room->area == Game::world().quest_area
 	    && ch->in_room != nullptr
-	    && ch->in_room->area == quest_area)
+	    && ch->in_room->area == Game::world().quest_area)
 		return;
 
 	/* all's fair in war */
@@ -2760,7 +2762,7 @@ void raw_kill(Character *victim)
 
 	if (victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (victim->in_room->area != quest_area || !quest_upk)
+	    && (victim->in_room->area != Game::world().quest_area || !quest_upk)
 	    && !char_in_duel_room(victim))
 		make_corpse(victim);
 
@@ -2778,7 +2780,7 @@ void raw_kill(Character *victim)
 
 	if (victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (victim->in_room->area != quest_area || !quest_upk)
+	    && (victim->in_room->area != Game::world().quest_area || !quest_upk)
 	    && !char_in_duel_room(victim)) {
 		extract_char(victim, FALSE);
 
@@ -2878,7 +2880,7 @@ void group_gain(Character *ch, Character *victim)
 
 		if (ch->in_room->sector_type == SECT_ARENA
 		    || ch->in_room->sector_type == SECT_CLANARENA
-		    || (ch->in_room->area == quest_area && quest_upk))
+		    || (ch->in_room->area == Game::world().quest_area && quest_upk))
 			xp = 0;
 
 		ptc(gch, "{PYou receive %d experience points.{x\n", xp);
@@ -2974,7 +2976,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	if (victim->act_flags.has(ACT_NOALIGN)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
-	    || (victim->in_room->area == quest_area && quest_upk)
+	    || (victim->in_room->area == Game::world().quest_area && quest_upk)
 	    || gch->cls == 5) /* Paladins */
 	{/* no change */}
 	else if (align > 500) { /* monster is more good than slayer */

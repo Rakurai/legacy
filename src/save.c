@@ -142,10 +142,10 @@ cJSON *fwrite_player(Character *ch)
 	if (!ch->pcdata->alias.empty()) {
 		item = cJSON_CreateArray();
 
-		for (auto it = ch->pcdata->alias.cbegin(); it != ch->pcdata->alias.cend(); it++) {
+		for (const auto& kv: ch->pcdata->alias) {
 			cJSON *alias = cJSON_CreateArray();
-			cJSON_AddItemToArray(alias, cJSON_CreateString((*it).first.c_str()));
-			cJSON_AddItemToArray(alias, cJSON_CreateString((*it).second.c_str()));
+			cJSON_AddItemToArray(alias, cJSON_CreateString(kv.first.c_str()));
+			cJSON_AddItemToArray(alias, cJSON_CreateString(kv.second.c_str()));
 			cJSON_AddItemToArray(item, alias);
 		}
 
@@ -230,8 +230,8 @@ cJSON *fwrite_player(Character *ch)
 	if (!ch->pcdata->ignore.empty()) {
 		item = cJSON_CreateArray();
 
-		for (auto it = ch->pcdata->ignore.cbegin(); it != ch->pcdata->ignore.cend(); it++)
-			cJSON_AddItemToArray(item, cJSON_CreateString((*it).c_str()));
+		for (const auto& it: ch->pcdata->ignore)
+			cJSON_AddItemToArray(item, cJSON_CreateString(it.c_str()));
 
 		cJSON_AddItemToObject(o,	"Ignore",		item);
 	}
@@ -281,8 +281,8 @@ cJSON *fwrite_player(Character *ch)
 	if (!ch->pcdata->query.empty()) {
 		item = cJSON_CreateArray();
 
-		for (auto it = ch->pcdata->query.cbegin(); it != ch->pcdata->query.cend(); it++)
-			cJSON_AddItemToArray(item, cJSON_CreateString((*it).c_str()));
+		for (const auto& it: ch->pcdata->query)
+			cJSON_AddItemToArray(item, cJSON_CreateString(it.c_str()));
 
 		cJSON_AddItemToObject(o,	"Query",		item);
 	}

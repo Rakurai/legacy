@@ -252,8 +252,8 @@ String makedrunk(Character *ch, const String& string)
 	String buf;
 
 	/* drunk in earnest. mangle his speech. */
-	for (auto it = string.begin(); it != string.end(); it++) {
-		char temp = toupper(*it);
+	for (char c: string) {
+		char temp = toupper(c);
 
 		if ((temp >= 'A') && (temp <= 'Z')) {
 			if (drunklevel > drunk[temp - 'A'].min_drunk_level) {
@@ -261,13 +261,13 @@ String makedrunk(Character *ch, const String& string)
 				buf += drunk[temp - 'A'].replacement[randomnum];
 			}
 			else
-				buf += *it;
+				buf += c;
 		}
 		else if ((temp >= '0') && (temp <= '9')) {
 			buf += '0' + number_range(0, 9);
 		}
 		else
-			buf += *it;
+			buf += c;
 	}
 
 	return (buf);
@@ -1759,8 +1759,8 @@ void do_query(Character *ch, String argument)
 
 		stc("People in your query:\n", ch);
 
-		for (auto it = rch->pcdata->query.cbegin(); it != rch->pcdata->query.end(); it++)
-			ptc(ch, " %s\n", (*it).c_str());
+		for (auto& vict: rch->pcdata->query)
+			ptc(ch, " %s\n", vict);
 
 		return;
 	}

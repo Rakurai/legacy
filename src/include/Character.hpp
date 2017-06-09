@@ -25,7 +25,7 @@ public:
     Character *         master = nullptr;
     Character *         leader = nullptr;
     Character *         fighting = nullptr;
-    Reset *	    reset = nullptr;		/* let's make it keep track of what reset it */
+    const Reset *	    reset = nullptr;		/* let's make it keep track of what reset it */
     Character *         pet = nullptr;			/* not saving at quit - Montrey */
     SPEC_FUN *          spec_fun = nullptr;
     MobilePrototype *   pIndexData = nullptr;

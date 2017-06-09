@@ -51,6 +51,8 @@
 #include "declare.h"
 #include "argument.h"
 #include "Logging.hpp"
+#include "file.h"
+#include "random.h"
 
 using namespace Logging;
 
@@ -79,7 +81,6 @@ using namespace Logging;
 #include "Customize.hpp"
 #include "Exit.hpp"
 #include "Reset.hpp"
-#include "Area.hpp"
 #include "RoomPrototype.hpp"
 #include "Social.hpp"
 #include "Clan.hpp"
@@ -352,8 +353,6 @@ extern bool            quest_upk;
 extern long	       quest_double;
 extern int             quest_min, quest_max;
 extern RoomPrototype *quest_startroom;
-extern Area       *quest_area;
-
 
 /*
  * These are skill_lookup return values for common skills and spells.
@@ -683,7 +682,6 @@ void    clear_char      args( ( Character *ch ) );
 void    tail_chain      args( ( void ) );
 
 /* area_handler.c */
-void    area_update     args( ( void ) );
 Character *    create_mobile   args( ( MobilePrototype *pMobIndex ) );
 void    clone_mobile    args( ( Character *parent, Character *clone) );
 Object *    create_object   args( ( ObjectPrototype *pObjIndex, int level ) );
@@ -692,27 +690,6 @@ MobilePrototype *   get_mob_index   args( ( int vnum ) );
 ObjectPrototype *   get_obj_index   args( ( int vnum ) );
 RoomPrototype *   get_room_index  args( ( int vnum ) );
 
-
-/* file.c */
-char	fread_letter		args((FILE *fp));
-int	fread_number		args((FILE *fp));
-const Flags	fread_flag		args((FILE *fp));
-String	fread_string		args((FILE *fp, char to_char = '~'));
-String	fread_string_eol	args((FILE *fp));
-void	fread_to_eol		args((FILE *fp));
-String	fread_word		args((FILE *fp));
-void	fappend			args((const char *file, const char *str));
-
-
-/* random.c */
-int	number_fuzzy		args((int number));
-int	number_range		args((int from, int to));
-int	number_percent		args((void));
-int	number_door		args((void));
-int	number_bits		args((int width));
-long	number_mm		args((void));
-int	dice			args((int number, int size));
-bool prd_chance      args(( int *prev_fails, int percent ));
 
 /* load_config.c */
 int     load_config     args((const char *filename));

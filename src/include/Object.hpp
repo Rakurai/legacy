@@ -22,7 +22,7 @@ public:
     virtual ~Object();
 
 	ObjectPrototype *	pIndexData = nullptr;
-	Reset *		reset = nullptr;		/* let's make it keep track of what reset it */
+	const Reset *		reset = nullptr;		/* let's make it keep track of what reset it */
 	Object *            next = nullptr;
 	Object *            next_content = nullptr;
 	Object *            in_obj = nullptr;
@@ -79,3 +79,4 @@ Object	*new_obj args( (void) );
 void	free_obj args( (Object *obj) );
 
 void    extract_obj     args(( Object *obj ) );
+void unique_item(Object *item);

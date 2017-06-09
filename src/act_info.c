@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "typename.h"
 #include "channels.h"
@@ -41,8 +43,6 @@
 #include "memory.h"
 #include "Format.hpp"
 #include "GameTime.hpp"
-
-extern Area *area_first;
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 
@@ -2076,7 +2076,6 @@ void do_examine(Character *ch, String argument)
 void exits_in(Character *ch)
 {
 	extern const String dir_name[];
-	Area *pArea;
 	RoomPrototype *room;
 	Exit *exit;
 	Object *obj;
@@ -2090,7 +2089,7 @@ void exits_in(Character *ch)
 
 	in_room_vnum = ch->in_room->vnum;                                   /* Save our current rooms vnum */
 
-	for (pArea = area_first; pArea; pArea = pArea->next) {              /* Every area */
+	for (Area *pArea: Game::world().areas) {
 		for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) { /* Every vnum in the area */
 			room = get_room_index(vnum);
 

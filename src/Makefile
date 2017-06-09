@@ -29,8 +29,8 @@ _H_FILES = act.h affect_int.h affect_list.h cJSON.h db.h \
 	Edit.hpp MobilePrototype.hpp MobProg.hpp MobProgActList.hpp Character.hpp \
 	Player.hpp EQSocket.hpp ObjectPrototype.hpp Customize.hpp Exit.hpp Reset.hpp \
 	Area.hpp RoomPrototype.hpp Social.hpp Clan.hpp StoredPlayer.hpp \
-	DepartedPlayer.hpp War.hpp Mercenary.hpp Duel.hpp Auction.hpp Flags.hpp \
-	ObjectValue.hpp Logging.hpp
+	DepartedPlayer.hpp War.hpp Mercenary.hpp Duel.hpp Auction.hpp World.hpp Game.hpp \
+	ObjectValue.hpp Logging.hpp Flags.hpp
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o typename.o \
@@ -43,7 +43,8 @@ _O_FILES = act.o act_comm.o act_info.o act_move.o act_obj.o typename.o \
 	set-stat.o skills.o social.o special.o storage.o tables.o update.o \
 	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o gem.o paint.o \
 	Disabled.o String.o cJSON.o GameTime.o Object.o Battle.o Weather.o Auction.o \
-	Character.o War.o Customize.o Player.o Flags.o ObjectValue.o Logging.o
+	Character.o War.o Customize.o Player.o Area.o World.o Reset.o MobilePrototype.o \
+	Flags.o ObjectValue.o Logging.o
 
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 

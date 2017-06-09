@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "channels.h"
 #include "merc.h"
 #include "memory.h"
@@ -304,9 +306,6 @@ MobilePrototype         *mob_index_hash          [MAX_KEY_HASH];
 ObjectPrototype         *obj_index_hash          [MAX_KEY_HASH];
 RoomPrototype        *room_index_hash         [MAX_KEY_HASH];
 
-Area              *area_first;
-Area              *area_last;
-
 /* quest_open, if true, says that the quest area is open.
    quest_min, quest_max are defined only if quest_open is true. */
 /* quest_upk is restricted pk in quest area or not, quest_double is double qp time */
@@ -316,7 +315,6 @@ long                    quest_double = 0;
 int                     quest_min, quest_max;
 /* startroom and area are initialized by quest_init() */
 RoomPrototype         *quest_startroom;
-Area               *quest_area;
 
 /*
  * Credits defines stuff
@@ -334,6 +332,8 @@ bool                    fBootDb;
 FILE                   *fpArea;
 char                    strArea[MAX_INPUT_LENGTH];
 sh_int                  aVersion = 1;
+Area *area_last; // currently loading area
+
 /*
  * MOBprogram locals
 */
@@ -498,7 +498,8 @@ void boot_db()
 	load_arena_table();
 	Format::printf("survived load_arena_table\n");
 	fBootDb = FALSE;
-	area_update();
+//	area_update();
+	Game::world().update();
 	Format::printf("survived area_update\n");
 	load_notes();
 	Format::printf("survived load_notes\n");
@@ -539,210 +540,12 @@ void boot_db()
 } /* end boot_db() */
 
 /*
- * Pull the level ranges from the area credits field -- Elrac
- * Assumed credit line format example:
- * {H{{ 5 25} {MFinn    {TThe Fourth Tower
- * - Elrac
- */
-int  scan_credits(Area *pArea)
-{
-	char line[MIL], buf[MIL];
-	String keywords;
-	char *p, *levels, *author, *title;
-	int nblanks;
-
-	if (pArea->credits.empty()) {
-		log_string("scan_credits: No credits available.\n");
-		return -1;
-	}
-
-	/* default area type/levels */
-	pArea->area_type  = AREA_TYPE_NORM;
-	pArea->low_range  = 1;
-	pArea->high_range = LEVEL_HERO;
-
-	/* credit line gets mangled in scanning. copy for safekeeping. */
-	strcpy(line, pArea->credits);
-	/*** scan low/high level range numbers ***/
-	/* terminate level range at first closing brace. */
-	p = strchr(line, '}');
-
-	if (p == nullptr) {
-		log_string("Missing '}' in credits line\n");
-		return -1;
-	}
-
-	*p = '\0';
-	author = p + 1;
-	/* find the first nonblank after the last opening brace char in levels. */
-	levels = line;
-
-	while ((p = strchr(levels, '{')) != nullptr) levels = p + 1;
-
-	while (isascii(*levels) && isspace(*levels)) levels++;
-
-	/* truncate level range at last non-blank ascii char */
-	nblanks = 0;
-
-	for (p = levels; *p; p++) {
-		if (!isascii(*p))
-			nblanks = 0;
-		else if (isspace(*p))
-			nblanks++;
-		else {
-			*p = toupper(*p);
-			nblanks = 0;
-		}
-	}
-
-	*(p -= nblanks) = '\0';
-
-	if (*levels == '\0') {
-		log_string("scan_credits: Empty level range string\n");
-		return -2;
-	}
-
-	if (!strcmp(levels, "ALL")) {
-		pArea->area_type  = AREA_TYPE_ALL;
-		keywords = "ALL ";
-	}
-	else if (!strcmp(levels, "CLANS") || !strcmp(levels, "CLAN")) {
-		pArea->low_range  = 15; /* min for clan membership */
-		pArea->area_type  = AREA_TYPE_CLAN;
-		keywords = "CLAN ";
-	}
-	else if (!strcmp(levels, "IMM") || !strcmp(levels, "IMMS")) {
-		pArea->low_range  = LEVEL_IMMORTAL;
-		pArea->high_range = MAX_LEVEL;
-		pArea->area_type  = AREA_TYPE_IMMS;
-		keywords = "IMMS ";
-	}
-	else if (!strcmp(levels, "HRO") || !strcmp(levels, "HERO")) {
-		pArea->low_range  = LEVEL_HERO;
-		pArea->high_range = MAX_LEVEL;
-		pArea->area_type  = AREA_TYPE_HERO;
-		keywords = "HRO HERO ";
-	}
-	else if (!strcmp(levels, "ARENA")) {
-		pArea->low_range  = 1;
-		pArea->high_range = MAX_LEVEL;
-		pArea->area_type  = AREA_TYPE_ARENA;
-		keywords = "ARENA ";
-	}
-	else if (!strcmp(levels, "XXX")) {
-		pArea->low_range  = MAX_LEVEL;
-		pArea->high_range = MAX_LEVEL;
-		pArea->area_type  = AREA_TYPE_XXX;
-		keywords = "XXX ";
-	}
-	else if (!isascii(*levels) || !isdigit(*levels)) {
-		Format::sprintf(buf, "scan_credits: Unrecognized level range: '%s'\n", levels);
-		log_string(buf);
-		return -3;
-	}
-	else {
-		int ilow, ihigh;
-		pArea->area_type = AREA_TYPE_NORM;
-		ilow = atoi(levels);
-
-		if (ilow < 0) {
-			Format::sprintf(buf, "scan_credits: Bad start level: %d\n", ilow);
-			log_string(buf);
-			return -4;
-		}
-
-		pArea->low_range = ilow;
-
-		/* skip digits and spaces. */
-		while (isascii(*levels) && isdigit(*levels)) levels++;
-
-		while (isascii(*levels) && isspace(*levels)) levels++;
-
-		if (!isascii(*levels) || !isdigit(*levels)) {
-			log_string("scan_credits: Missing second number of range\n");
-			return -5;
-		}
-
-		ihigh = atoi(levels);
-
-		if (ihigh < ilow || ihigh > 100) {
-			Format::sprintf(buf, "scan_credits: Bad ending level : low : %d High : %d\n", ilow, ihigh);
-			log_string(buf);
-			return -6;
-		}
-
-		pArea->high_range = ihigh;
-	}
-
-	/*** scan author out of credits line (we assume it's one string) ***/
-
-	while (*author == ' ') author++;
-
-	for (p = author; *p && *p != ' '; p++);
-
-	if (*p == '\0') { /* only one string for author & title */
-		title = author;
-		author = "anonymous";
-	}
-	else {
-		*p = '\0';
-
-		for (title = p + 1; *title == ' '; title++);
-	}
-
-	pArea->author = author;
-	keywords += String(author).uncolor();
-	keywords += " ";
-	/*** title is the remainder ***/
-	pArea->title = title;
-	keywords += String(title).uncolor();
-
-	for (auto it = keywords.begin(); it != keywords.end(); it++) *it = LOWER(*it);
-
-	pArea->keywords = keywords;
-	return pArea->area_type;
-} /* end scan_credits() */
-
-/*
  * Load an AREA section (only a header, really)
  */
 void load_area(FILE *fp)
 {
-	Area *pArea = new Area;
-	pArea->reset_first      = nullptr;
-	pArea->reset_last       = nullptr;
-	pArea->file_name        = fread_string(fp);
-	String line = pArea->file_name;
-
-	String num;
-	line = one_argument(line, num);
-
-	if (num.is_number()) {
-		aVersion = atoi(num);
-		pArea->file_name = line;
-	}
-	else
-		aVersion = 1;
-
-	pArea->version          = aVersion;
-	pArea->name             = fread_string(fp);
-	pArea->credits          = fread_string(fp);
-	pArea->min_vnum         = fread_number(fp);
-	pArea->max_vnum         = fread_number(fp);
-	scan_credits(pArea);
-	pArea->age              = 15;
-	pArea->nplayer          = 0;
-	pArea->empty            = FALSE;
-
-	if (area_first == nullptr)
-		area_first = pArea;
-
-	if (area_last != nullptr)
-		area_last->next = pArea;
-
-	area_last   = pArea;
-	pArea->next = nullptr;
-	top_area++;
+	area_last = new Area(fp);
+	Game::world().areas.push_back(area_last);
 }
 
 /*
@@ -750,11 +553,7 @@ void load_area(FILE *fp)
  */
 void load_resets(FILE *fp)
 {
-	Reset *pReset;
-	RoomPrototype *pRoomIndex;
-	Exit *pexit;
 	char letter;
-	ObjectPrototype *temp_index;
 
 	if (area_last == nullptr) {
 		boot_bug("Load_resets: no #AREA seen yet.", 0);
@@ -770,101 +569,9 @@ void load_resets(FILE *fp)
 			continue;
 		}
 
-		pReset = new Reset;
-		pReset->version = aVersion;
-		pReset->command = letter;
-		/* if_flag */     fread_number(fp);
-		pReset->arg1    = fread_number(fp);
-		pReset->arg2    = fread_number(fp);
-		pReset->arg3    = (letter == 'G' || letter == 'R') ? 0 : fread_number(fp);
-		pReset->arg4    = (letter == 'P' || letter == 'M') ? fread_number(fp) : 0;
-		fread_to_eol(fp);
-
-		/* Validate parameters.  We're calling the index functions for the side effect. */
-		switch (letter) {
-		default:
-			boot_bug("Load_resets: bad command '%c'.", letter);
-			exit(1);
-			break;
-
-		/* Mobile resets, worked over to allow for resetting into random rooms -- Montrey */
-		case 'M':
-			/* make sure the mobile exists */
-			get_mob_index(pReset->arg1);
-
-			/* limit the global limit to 20, -1 is max */
-			if (pReset->arg2 > 20 || pReset->arg2 < 0)
-				pReset->arg2 = 20;
-
-			/* make sure the room exists, vnum 0 means it's a random reset */
-			if (pReset->arg3 != 0)
-				get_room_index(pReset->arg3);
-
-			/* on a random reset, local limit is percentage chance, limit to 0 to 100 */
-			if (pReset->arg3 == 0)
-				pReset->arg4 = URANGE(0, pReset->arg4, 100);
-
-			break;
-
-		case 'O':
-			temp_index = get_obj_index(pReset->arg1);
-			temp_index->reset_num++;
-			get_room_index(pReset->arg3);
-			break;
-
-		case 'P':
-			temp_index = get_obj_index(pReset->arg1);
-			temp_index->reset_num++;
-			get_obj_index(pReset->arg3);
-
-			if (pReset->arg4 > 20 || pReset->arg4 < 0)
-				pReset->arg4 = 20;    /* Lets add a limit - Lotus */
-
-			break;
-
-		case 'G':
-		case 'E':
-			temp_index = get_obj_index(pReset->arg1);
-			temp_index->reset_num++;
-			break;
-
-		case 'D':
-			pRoomIndex = get_room_index(pReset->arg1);
-
-			if (pReset->arg2 < 0 || pReset->arg2 > 5
-			    || (pexit = pRoomIndex->exit[pReset->arg2]) == nullptr
-			    || !pexit->exit_flags.has(EX_ISDOOR)) {
-				boot_bug("Load_resets: 'D': exit %d not door.", pReset->arg2);
-				exit(1);
-			}
-
-			if (pReset->arg3 < 0 || pReset->arg3 > 2) {
-				boot_bug("Load_resets: 'D': bad 'locks': %d.", pReset->arg3);
-				exit(1);
-			}
-
-			break;
-
-		case 'R':
-			pRoomIndex = get_room_index(pReset->arg1);
-
-			if (pReset->arg2 < 0 || pReset->arg2 > 6) {
-				boot_bug("Load_resets: 'R': bad exit %d.", pReset->arg2);
-				exit(1);
-			}
-
-			break;
-		}
-
-		if (area_last->reset_first == nullptr)
-			area_last->reset_first      = pReset;
-
-		if (area_last->reset_last  != nullptr)
-			area_last->reset_last->next = pReset;
-
-		area_last->reset_last = pReset;
-		pReset->next = nullptr;
-		top_reset++;
+		ungetc(letter, fp);
+		Reset *pReset = new Reset(fp);
+		area_last->resets.push_back(pReset);
 	}
 }
 
@@ -903,148 +610,7 @@ void load_mobiles(FILE *fp)
 		}
 
 		fBootDb = TRUE;
-		pMobIndex = new MobilePrototype;
-		pMobIndex->vnum                 = vnum;
-		pMobIndex->version              = aVersion;
-		pMobIndex->player_name          = fread_string(fp);
-		pMobIndex->short_descr          = fread_string(fp);
-		pMobIndex->long_descr           = fread_string(fp);
-		pMobIndex->description          = fread_string(fp);
-		pMobIndex->race                 = race_lookup(fread_string(fp));
-		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
-		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
-		pMobIndex->act_flags            = fread_flag(fp) + race_table[pMobIndex->race].act;
-
-		// affect flags no longer includes flags already on the race affect bitvector
-		pMobIndex->affect_flags         = fread_flag(fp) - race_table[pMobIndex->race].aff;
-
-		pMobIndex->pShop                = nullptr;
-		pMobIndex->alignment            = fread_number(fp);
-		pMobIndex->group_flags          = fread_flag(fp);
-		pMobIndex->level                = fread_number(fp);
-		pMobIndex->hitroll              = fread_number(fp);
-		/* read hit dice */
-		pMobIndex->hit[DICE_NUMBER]     = fread_number(fp);
-		/* 'd'          */                fread_letter(fp);
-		pMobIndex->hit[DICE_TYPE]       = fread_number(fp);
-		/* '+'          */                fread_letter(fp);
-		pMobIndex->hit[DICE_BONUS]      = fread_number(fp);
-		/* read mana dice */
-		pMobIndex->mana[DICE_NUMBER]    = fread_number(fp);
-		fread_letter(fp);
-		pMobIndex->mana[DICE_TYPE]      = fread_number(fp);
-		fread_letter(fp);
-		pMobIndex->mana[DICE_BONUS]     = fread_number(fp);
-		/* read damage dice */
-		pMobIndex->damage[DICE_NUMBER]  = fread_number(fp);
-		fread_letter(fp);
-		pMobIndex->damage[DICE_TYPE]    = fread_number(fp);
-		fread_letter(fp);
-		pMobIndex->damage[DICE_BONUS]   = fread_number(fp);
-		pMobIndex->dam_type         = attack_lookup(fread_word(fp));
-		/* read armor class */
-		pMobIndex->ac[AC_PIERCE]        = fread_number(fp) * 10;
-		pMobIndex->ac[AC_BASH]          = fread_number(fp) * 10;
-		pMobIndex->ac[AC_SLASH]         = fread_number(fp) * 10;
-		pMobIndex->ac[AC_EXOTIC]        = fread_number(fp) * 10;
-		/* read flags and add in data from the race table */
-		pMobIndex->off_flags            = fread_flag(fp)
-		                                  + race_table[pMobIndex->race].off;
-
-		// defense flags no longer includes flags already on the race bitvector
-		pMobIndex->absorb_flags.clear(); //        = 0; /* fix when we change the area versions */
-		pMobIndex->imm_flags            = fread_flag(fp) - race_table[pMobIndex->race].imm;
-		pMobIndex->res_flags            = fread_flag(fp) - race_table[pMobIndex->race].res;
-		pMobIndex->vuln_flags           = fread_flag(fp) - race_table[pMobIndex->race].vuln;
-
-		// fix old style ACT_IS_NPC (A) flag, changed to ACT_NOSUMMON (A)
-		pMobIndex->act_flags -= Flags::A;
-
-		// fix old style IMM_SUMMON (A) flag, changed to ACT_NOSUMMON (A)
-		if (pMobIndex->imm_flags.has(Flags::A))
-			pMobIndex->act_flags += ACT_NOSUMMON;
-		pMobIndex->imm_flags -= Flags::A;
-		pMobIndex->res_flags -= Flags::A;
-		pMobIndex->vuln_flags -= Flags::A;
-
-		/* vital statistics */
-		pMobIndex->start_pos        = position_lookup(fread_word(fp));
-
-		if (pMobIndex->start_pos == POS_STANDING && pMobIndex->affect_flags.has(AFF_FLYING))
-			pMobIndex->start_pos = POS_FLYING;
-
-		pMobIndex->default_pos      = position_lookup(fread_word(fp));
-
-		if (pMobIndex->default_pos == POS_STANDING && pMobIndex->affect_flags.has(AFF_FLYING))
-			pMobIndex->default_pos = POS_FLYING;
-
-		pMobIndex->sex              = sex_lookup(fread_word(fp));
-
-		if (pMobIndex->sex < 0) {
-			boot_bug("Load_mobiles: bad sex for vnum %d.", vnum);
-			exit(1);
-		}
-
-		pMobIndex->wealth               = fread_number(fp);
-		pMobIndex->form_flags                 = fread_flag(fp)
-		                                  + race_table[pMobIndex->race].form;
-		pMobIndex->parts_flags                = fread_flag(fp)
-		                                  + race_table[pMobIndex->race].parts;
-		/* size */
-		pMobIndex->size                 = size_lookup(fread_word(fp));
-
-		if (pMobIndex->size < 0) {
-			boot_bug("Load_mobiles: bad size for vnum %d.", vnum);
-			exit(1);
-		}
-
-		pMobIndex->material             = fread_word(fp);
-
-		for (; ;) {
-			letter = fread_letter(fp);
-
-			if (letter == 'F') {
-				String word;
-				Flags vector;
-				word                    = fread_word(fp);
-				vector                  = fread_flag(fp);
-
-				if (word.is_prefix_of("act"))
-					pMobIndex->act_flags -= vector;
-				else if (word.is_prefix_of("aff"))
-					pMobIndex->affect_flags -= vector;
-				else if (word.is_prefix_of("off"))
-					pMobIndex->off_flags -= vector;
-				else if (word.is_prefix_of("drn"))
-					pMobIndex->absorb_flags -= vector;
-				else if (word.is_prefix_of("imm"))
-					pMobIndex->imm_flags -= vector;
-				else if (word.is_prefix_of("res"))
-					pMobIndex->res_flags -= vector;
-				else if (word.is_prefix_of("vul"))
-					pMobIndex->vuln_flags -= vector;
-				else if (word.is_prefix_of("for"))
-					pMobIndex->form_flags -= vector;
-				else if (word.is_prefix_of("par"))
-					pMobIndex->parts_flags -= vector;
-				else {
-					boot_bug("Flag remove: flag not found.", 0);
-					exit(1);
-				}
-			}
-			else {
-				ungetc(letter, fp);
-				break;
-			}
-		}
-
-		letter = fread_letter(fp);
-
-		if (letter == '>') {
-			ungetc(letter, fp);
-			mprog_read_programs(fp, pMobIndex);
-		}
-		else ungetc(letter, fp);
+		pMobIndex = new MobilePrototype(fp, vnum);
 
 		iHash                   = vnum % MAX_KEY_HASH;
 		pMobIndex->next         = mob_index_hash[iHash];

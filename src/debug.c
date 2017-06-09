@@ -25,14 +25,14 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "merc.h"
 #include "sql.h"
 #include "recycle.h"
 #include "Affect.hpp"
 #include "Format.hpp"
-
-extern Area *area_first;
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(Character *ch, String argument)
@@ -166,9 +166,7 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "aversion")) {
-		Area *area;
-
-		for (area = area_first; area != nullptr; area = area->next)
+		for (Area *area: Game::world().areas)
 			ptc(ch, "%-20s%d\n", area->file_name, area->version);
 
 		return;

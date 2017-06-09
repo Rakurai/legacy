@@ -85,8 +85,8 @@ void do_ignore(Character *ch, String argument)
 
 		stc("People you are ignoring:\n", ch);
 
-		for (auto it = rch->pcdata->ignore.cbegin(); it != rch->pcdata->ignore.end(); it++)
-			ptc(ch, "  %s\n", (*it).c_str());
+		for (auto& vict: rch->pcdata->ignore)
+			ptc(ch, "  %s\n", vict);
 
 		return;
 	}

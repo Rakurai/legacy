@@ -14,6 +14,8 @@
 * group.                                         *
 *************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "typename.h"
 #include "channels.h"
@@ -32,7 +34,6 @@
 extern bool    swearcheck              args((const String& argument));
 extern bool check_parse_name(const String& name);
 extern  RoomPrototype *room_index_hash[MAX_KEY_HASH];
-extern  Area       *area_first;
 
 void do_adjust(Character *ch, String argument)
 {
@@ -2713,7 +2714,6 @@ void do_mwhere(Character *ch, String argument)
 /* find a room, given its name */
 void do_rwhere(Character *ch, String argument)
 {
-	Area *area;
 	RoomPrototype *room;
 	String dbuf, rbuf;
 	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH];
@@ -2727,7 +2727,7 @@ void do_rwhere(Character *ch, String argument)
 	}
 
 
-	for (area = area_first; area; area = area->next) {
+	for (const auto area: Game::world().areas) {
 		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
 			room = get_room_index(vnum);
 

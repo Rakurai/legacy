@@ -1,5 +1,6 @@
 #include "merc.h"
 #include "recycle.h"
+#include "Area.hpp"
 
 /* the guts of act, taken out to reduce complexity. */
 void act_format(const String& format, Character *ch,

@@ -25,13 +25,13 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
 #include "Format.hpp"
-
-extern Area *area_first;
 
 void do_flag(Character *ch, String argument)
 {
@@ -521,13 +521,12 @@ void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
-	Area *area;
 	RoomPrototype *room;
 	int count = 0, vnum;
 	Flags flag;
 	output += "{VCount {GVnum{x\n";
 
-	for (area = area_first; area; area = area->next) {
+	for (Area *area: Game::world().areas) {
 		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
 			if ((room = get_room_index(vnum)) == nullptr
 			    || !can_see_room(ch, room))

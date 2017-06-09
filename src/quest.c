@@ -10,6 +10,8 @@
 *  ress. Quest Code v2.03. Please do not remove this notice from this file. *
 ****************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "channels.h"
 #include "merc.h"
@@ -45,10 +47,10 @@ void quest_init(void)
 
 	if (quest_startroom == nullptr) {
 		bug("quest_init: Can't find quest start room %d.", QUEST_STARTROOM);
-		quest_area = nullptr;
+		Game::world().quest_area = nullptr;
 	}
 	else
-		quest_area = quest_startroom->area;
+		Game::world().quest_area = quest_startroom->area;
 } /* end quest_init */
 
 /* Usage info on the QUEST commands -- Elrac */
@@ -644,7 +646,7 @@ RoomPrototype *generate_skillquest_room(Character *ch, int level)
 
 		if (room == nullptr
 		    || !can_see_room(ch, room)
-		    || room->area == quest_area
+		    || room->area == Game::world().quest_area
 		    || room->area->low_range > level
 		    || room->area->high_range < level
 		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
@@ -1395,7 +1397,7 @@ void do_quest(Character *ch, String argument)
 		if (!num_arg.empty() && num_arg.is_number())
 			num_to_oust = atoi(num_arg);
 
-		num_in_area = quest_area->nplayer;
+		num_in_area = Game::world().quest_area->nplayer;
 
 		if (num_in_area > 0) {
 			if (num_to_oust < num_in_area - 1 || num_to_oust > num_in_area + 1) {
@@ -1411,7 +1413,7 @@ void do_quest(Character *ch, String argument)
 			else {
 				for (victim = char_list; victim != nullptr; victim = victim->next) {
 					if (!IS_NPC(victim) && victim->in_room != nullptr
-					    && victim->in_room->area == quest_area) {
+					    && victim->in_room->area == Game::world().quest_area) {
 						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);
 						stc("You are expelled from the quest area.\n", victim);
 						char_from_room(victim);
@@ -1691,7 +1693,7 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		quest_area = quest_startroom->area;
+		Game::world().quest_area = quest_startroom->area;
 
 		if (quest_open) {
 			ptc(ch, "The quest area is already open, to levels %d to %d\n", quest_min, quest_max);

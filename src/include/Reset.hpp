@@ -1,16 +1,17 @@
 #pragma once
 
+#include "declare.h"
+#include <cstdio>
+
 /*
  * Area-reset definition.
  */
 class Reset
 {
 public:
-	Reset() {}
+    Reset(FILE *fp);
 	virtual ~Reset() {}
 
-    Reset *        next = nullptr;
-    sh_int		version = 0;	/* Reset versioning -- Montrey */
     char                command = 0;
     sh_int              arg1 = 0;
     sh_int              arg2 = 0;
@@ -18,6 +19,7 @@ public:
     sh_int              arg4 = 0;
 
 private:
+    Reset();
 	Reset(const Reset&);
 	Reset& operator=(const Reset&);
 };

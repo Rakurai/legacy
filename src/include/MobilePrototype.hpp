@@ -1,7 +1,7 @@
 #pragma once
 
-class Shop;
-class MobProg;
+#include "declare.h"
+#include "String.hpp"
 
 #include "String.hpp"
 #include "Flags.hpp"
@@ -13,7 +13,7 @@ class MobProg;
 class MobilePrototype
 {
 public:
-    MobilePrototype() {}
+    MobilePrototype(FILE *fp, int vnum);
     virtual ~MobilePrototype() {}
 
     MobilePrototype *   next = nullptr;
@@ -21,7 +21,6 @@ public:
     Shop *              pShop = nullptr;
     sh_int              vnum = 0;
     Flags               group_flags;
-    sh_int		        version = 0;
     sh_int              count = 0;
     sh_int              killed = 0;
     String              player_name;
@@ -56,6 +55,7 @@ public:
     Flags               progtype_flags;
 
 private:
+    MobilePrototype();
     MobilePrototype(const MobilePrototype&);
     MobilePrototype& operator=(const MobilePrototype&);
 };

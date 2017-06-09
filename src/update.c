@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "channels.h"
 #include "merc.h"
 #include "interp.h"
@@ -1582,7 +1584,8 @@ void update_handler(void)
 	       pulse_janitor;
 //	       pulse_mysql_upd;
 
-	if (--pulse_area        <= 0)   { pulse_area    = PULSE_AREA;           area_update();  }
+	if (--pulse_area        <= 0)   { pulse_area    = PULSE_AREA;          
+	 /*area_update();*/  Game::world().update(); }
 
 	if (--pulse_quest       <= 0)   { pulse_quest   = PULSE_QUEST;          quest_update(); }
 

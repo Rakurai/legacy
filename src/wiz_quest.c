@@ -13,6 +13,8 @@
 * Most of these are in the quest command group.  *
 *************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "find.h"
 #include "channels.h"
 #include "merc.h"
@@ -258,7 +260,7 @@ RoomPrototype *get_scatter_room(Character *ch)
 		if (room == nullptr
 		    || room == ch->in_room
 		    || !can_see_room(ch, room)
-		    || room->area == quest_area
+		    || room->area == Game::world().quest_area
 		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
 		        && room->area->min_vnum <= 26999)
 		    || room->guild

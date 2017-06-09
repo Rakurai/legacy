@@ -14,12 +14,13 @@
 * group.                                         *
 *************************************************/
 
+#include "Game.hpp"
+#include "Area.hpp"
 #include "merc.h"
 #include "recycle.h"
 #include "Format.hpp"
 
 extern  RoomPrototype *room_index_hash [MAX_KEY_HASH];
-extern  Area       *area_first;
 
 /* The following locals are for the checkexit command - Lotus */
 const sh_int opposite_dir [6] =
@@ -159,7 +160,6 @@ void do_roomexits(Character *ch, String argument)
 /* find pockets of unused vnums equal to or greater than the argument */
 void do_pocket(Character *ch, String argument)
 {
-	Area *area;
 	int vnum, count = 0, size = 50;
 
 	String arg1;
@@ -175,7 +175,7 @@ void do_pocket(Character *ch, String argument)
 
 	for (vnum = 1; vnum < 32600; vnum++) {
 		/* figure out if it's in an area's range */
-		for (area = area_first; area; area = area->next) {
+		for (auto area: Game::world().areas) {
 			if (area->min_vnum <= vnum && area->max_vnum >= vnum) { /* it is */
 				if (count >= size)
 					ptc(ch, "%5d to %5d, size %d\n", vnum - (count - 1), vnum - 1, count - 1);

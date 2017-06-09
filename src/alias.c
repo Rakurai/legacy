@@ -111,8 +111,8 @@ void do_alias(Character *ch, String argument)
 
 		stc("Your current aliases are:\n", ch);
 
-		for (auto it = rch->pcdata->alias.begin(); it != rch->pcdata->alias.end(); it++)
-			ptc(ch, "    %s:  %s\n", (*it).first.c_str(), (*it).second.c_str());
+		for (auto &kv: rch->pcdata->alias)
+			ptc(ch, "    %s:  %s\n", kv.first, kv.second);
 
 		return;
 	}

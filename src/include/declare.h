@@ -46,6 +46,7 @@ class String;
 class Tail;
 class War;
 class Weather;
+class Game;
 class World;
 
 /*
