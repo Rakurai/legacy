@@ -358,7 +358,7 @@ void unique_item(Object *item)
 
 		                for testing, write all modified items in a list to a file
 
-		                if ((fp = fopen(UNIQUE_FILE, "w")) = NULL)
+		                if ((fp = fopen(UNIQUE_FILE, "w")) = nullptr)
 		                {
 		                        perror(UNIQUE_FILE);
 		                        bug("Could not open unique.txt",0);
@@ -372,7 +372,7 @@ void unique_item(Object *item)
 		*/
 
 		/* enable below 2 lines for testing */
-		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == NULL ? 0 : item->in_room->vnum);
+		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == nullptr ? 0 : item->in_room->vnum);
 		                bug(buf,0); */
 	}
 }

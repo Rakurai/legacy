@@ -80,7 +80,7 @@ reset() {
 			break;
 
 		case 'M':
-			if ((pMobIndex = get_mob_index(pReset->arg1)) == NULL) {
+			if ((pMobIndex = get_mob_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'M': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -94,18 +94,18 @@ reset() {
 				if (!chance(pReset->arg4))
 					continue;
 
-				if ((pRoomIndex = get_random_reset_room()) == NULL) {
+				if ((pRoomIndex = get_random_reset_room()) == nullptr) {
 					bug("Reset_area: 'R': no random room found.", 0);
 					continue;
 				}
 			}
 			else {
-				if ((pRoomIndex = get_room_index(pReset->arg3)) == NULL) {
+				if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
 					bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 					continue;
 				}
 
-				for (mob = pRoomIndex->people, count = 0; mob != NULL; mob = mob->next_in_room)
+				for (mob = pRoomIndex->people, count = 0; mob != nullptr; mob = mob->next_in_room)
 					if (mob->pIndexData == pMobIndex) {
 						count++;
 
@@ -146,7 +146,7 @@ reset() {
 
 		case 'O':
 			// might have loaded the pit from the copyover recovery file
-			if (pReset->arg1 == OBJ_VNUM_PIT && donation_pit != NULL) {
+			if (pReset->arg1 == OBJ_VNUM_PIT && donation_pit != nullptr) {
 				last = FALSE;
 				break;
 			}
@@ -156,12 +156,12 @@ reset() {
 				break;
 			}
 
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'O': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pRoomIndex = get_room_index(pReset->arg3)) == NULL) {
+			if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
 				bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 				continue;
 			}
@@ -191,12 +191,12 @@ reset() {
 			break;
 
 		case 'P':
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'P': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pObjToIndex = get_obj_index(pReset->arg3)) == NULL) {
+			if ((pObjToIndex = get_obj_index(pReset->arg3)) == nullptr) {
 				bug("Reset_area: 'P': bad vnum %d.", pReset->arg3);
 				continue;
 			}
@@ -209,8 +209,8 @@ reset() {
 				limit = pReset->arg2;
 
 			if (nplayer > 0
-			    || (obj_to = get_obj_type(pObjToIndex)) == NULL
-			    || (obj_to->in_room == NULL && !last)
+			    || (obj_to = get_obj_type(pObjToIndex)) == nullptr
+			    || (obj_to->in_room == nullptr && !last)
 			    || (pObjIndex->count >= limit && number_range(0, 4) != 0)
 			    || (count = count_obj_list(pObjIndex, obj_to->contains))
 			    > pReset->arg4) {
@@ -242,7 +242,7 @@ reset() {
 
 		case 'G':
 		case 'E':
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'E' or 'G': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -250,14 +250,14 @@ reset() {
 			if (!last)
 				break;
 
-			if (mob == NULL) {
+			if (mob == nullptr) {
 				bug("Reset_area: 'E' or 'G': null mob for vnum %d.",
 				    pReset->arg1);
 				last = FALSE;
 				break;
 			}
 
-			if (mob->pIndexData->pShop != NULL) {
+			if (mob->pIndexData->pShop != nullptr) {
 				int olevel = 0;
 				obj = create_object(pObjIndex, olevel);
 
@@ -306,12 +306,12 @@ reset() {
 			break;
 
 		case 'D':
-			if ((pRoomIndex = get_room_index(pReset->arg1)) == NULL) {
+			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pexit = pRoomIndex->exit[pReset->arg2]) == NULL)
+			if ((pexit = pRoomIndex->exit[pReset->arg2]) == nullptr)
 				break;
 
 			switch (pReset->arg3) {
@@ -335,7 +335,7 @@ reset() {
 			break;
 
 		case 'R':
-			if ((pRoomIndex = get_room_index(pReset->arg1)) == NULL) {
+			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'R': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -357,7 +357,7 @@ reset() {
 	}
 
 	String buf = Format::format("%s has just been reset.", name);
-	wiznet(buf, NULL, NULL, WIZ_RESETS, 0, 0);
+	wiznet(buf, nullptr, nullptr, WIZ_RESETS, 0, 0);
 }
 
 /*
@@ -390,7 +390,7 @@ scan_credits()
 	/* terminate level range at first closing brace. */
 	p = strchr(line, '}');
 
-	if (p == NULL) {
+	if (p == nullptr) {
 		log_string("Missing '}' in credits line\n");
 		return -1;
 	}
@@ -400,7 +400,7 @@ scan_credits()
 	/* find the first nonblank after the last opening brace char in levels. */
 	levels = line;
 
-	while ((p = strchr(levels, '{')) != NULL) levels = p + 1;
+	while ((p = strchr(levels, '{')) != nullptr) levels = p + 1;
 
 	while (isascii(*levels) && isspace(*levels)) levels++;
 
@@ -537,7 +537,7 @@ get_random_reset_room() const
 
 	while (pass <= 2) {
 		for (i = min_vnum, count = 0; i <= max_vnum; i++) {
-			if ((room = get_room_index(i)) == NULL)
+			if ((room = get_room_index(i)) == nullptr)
 				continue;
 
 			if (GET_ROOM_FLAGS(room).has_any_of(ROOM_NO_MOB
@@ -564,5 +564,5 @@ get_random_reset_room() const
 		pick = number_range(0, count);
 	}
 
-	return NULL;
+	return nullptr;
 }

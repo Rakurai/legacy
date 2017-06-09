@@ -297,8 +297,8 @@ const struct raffects raffects[MAX_RAFFECTS] = {
 
 	*/
 	{
-		"nullptr REMORT AFFECT",   /* Problems if someone gets this */
-		"nullptrRAFF",     0,      1,      100,    0
+		"NULL REMORT AFFECT",   /* Problems if someone gets this */
+		"NULLRAFF",     0,      1,      100,    0
 	},
 
 	/* "Good" Remort Affects (2-99) */
