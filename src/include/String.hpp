@@ -82,12 +82,16 @@ private:
 	// don't allow NULL operations
 	String(std::nullptr_t);
 	String& operator=(std::nullptr_t);
+#ifdef __clang__
+	// gcc doesn't allow deletion of friend functions until 5.0
 	friend bool operator== (const String &, std::nullptr_t) = delete;
 	friend bool operator!= (const String &, std::nullptr_t) = delete;
+#endif
 };
 
 // compatibility with legacy char array functions
 #include <cstdlib> // atoi
+#include <cstring> // gcc likes this for std functions
 
 inline char *strcat(char *dest, const String& src) {
 	return std::strcat(dest, src.c_str());
