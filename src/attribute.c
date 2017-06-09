@@ -15,7 +15,7 @@ int flag_to_index(unsigned long bit) {
 		return -1;
 
 	int index = 0;
-	for (index = 0; !IS_SET(bit, A); index++)
+	for (index = 0; !IS_SET(bit, BIT_A); index++)
 		bit >>= 1;
 
 	return index;

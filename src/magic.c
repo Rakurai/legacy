@@ -4008,22 +4008,22 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 		int bit;
 	};
 	const struct wear_type wearloc_table[] = {
-		{       "be worn on your finger",               B       },
-		{       "be worn around your neck",             C       },
-		{       "be worn on your torso",                D       },
-		{       "be worn on your head",                 E       },
-		{       "be worn on your legs",                 F       },
-		{       "be worn on your feet",                 G       },
-		{       "be worn on your hands",                H       },
-		{       "be worn on your arms",                 I       },
-		{       "be worn as a shield",                  J       },
-		{       "be worn about your body",              K       },
-		{       "be worn around your waist",            L       },
-		{       "be worn on your wrist",                M       },
-		{       "be used as a weapon",                  N       },
-		{       "be held",                              O       },
-		{       "float next to you",                    Q       },
-		{       "be worn on your ringfinger",           R       },
+		{       "be worn on your finger",               BIT_B       },
+		{       "be worn around your neck",             BIT_C       },
+		{       "be worn on your torso",                BIT_D       },
+		{       "be worn on your head",                 BIT_E       },
+		{       "be worn on your legs",                 BIT_F       },
+		{       "be worn on your feet",                 BIT_G       },
+		{       "be worn on your hands",                BIT_H       },
+		{       "be worn on your arms",                 BIT_I       },
+		{       "be worn as a shield",                  BIT_J       },
+		{       "be worn about your body",              BIT_K       },
+		{       "be worn around your waist",            BIT_L       },
+		{       "be worn on your wrist",                BIT_M       },
+		{       "be used as a weapon",                  BIT_N       },
+		{       "be held",                              BIT_O       },
+		{       "float next to you",                    BIT_Q       },
+		{       "be worn on your ringfinger",           BIT_R       },
 		{       NULL,                                   0       }
 	};
 

@@ -720,27 +720,27 @@ bool load_char_obj(Descriptor *d, const String& name)
 			ch->secure_level = GET_RANK(ch);
 
 		/* removed holylight at 12 -- Montrey */
-		if (version < 12 && IS_SET(ch->act_flags, N))
-			REMOVE_BIT(ch->act_flags, N);
+		if (version < 12 && IS_SET(ch->act_flags, BIT_N))
+			REMOVE_BIT(ch->act_flags, BIT_N);
 
 		// removed old score at 16 and new_score flag -- Montrey
-		if (version < 16 && IS_SET(ch->pcdata->plr, U))
-			REMOVE_BIT(ch->pcdata->plr, U);
+		if (version < 16 && IS_SET(ch->pcdata->plr, BIT_U))
+			REMOVE_BIT(ch->pcdata->plr, BIT_U);
 
 		// switching to cgroups with old pfiles -- Montrey (2014)
-		if (version < 15 && IS_SET(ch->act_flags, N)) { // deputy
-			REMOVE_BIT(ch->act_flags, N);
+		if (version < 15 && IS_SET(ch->act_flags, BIT_N)) { // deputy
+			REMOVE_BIT(ch->act_flags, BIT_N);
 			SET_CGROUP(ch, GROUP_DEPUTY);
 		}
 
-		if (version < 15 && IS_SET(ch->act_flags, ee)) { // leader
-			REMOVE_BIT(ch->act_flags, ee);
+		if (version < 15 && IS_SET(ch->act_flags, BIT_ee)) { // leader
+			REMOVE_BIT(ch->act_flags, BIT_ee);
 			SET_CGROUP(ch, GROUP_LEADER);
 		}
 
 		// removed act_is_npc bit and moved plr_nosummon to A, used to be Q -- Montrey
-		if (version < 16 && IS_SET(ch->act_flags, Q)) {
-			REMOVE_BIT(ch->act_flags, Q);
+		if (version < 16 && IS_SET(ch->act_flags, BIT_Q)) {
+			REMOVE_BIT(ch->act_flags, BIT_Q);
 			SET_BIT(ch->act_flags, PLR_NOSUMMON);
 		}
 
@@ -797,8 +797,8 @@ bool load_char_obj(Descriptor *d, const String& name)
 		}
 
 		/* fix command groups */
-		REMOVE_BIT(ch->act_flags, (ee));      /* PLR_LEADER */
-		REMOVE_BIT(ch->act_flags, (N));       /* PLR_DEPUTY */
+		REMOVE_BIT(ch->act_flags, (BIT_ee));      /* PLR_LEADER */
+		REMOVE_BIT(ch->act_flags, (BIT_N));       /* PLR_DEPUTY */
 		SET_CGROUP(ch, GROUP_PLAYER);
 
 		/* nuke wiznet flags beyond their level, in case they were temp trusted */

@@ -197,9 +197,9 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 	}
 
 	if (paf->where == TO_DEFENSE) {
-		// weird case, defense flag A used to be *_SUMMON, changed to a ACT_NOSUMMON.
+		// weird case, defense flag BIT_A used to be *_SUMMON, changed to a ACT_NOSUMMON.
 		// wouldn't be a concern except the index is repurposed to a cache counter.
-		REMOVE_BIT(*bitvector, A);
+		REMOVE_BIT(*bitvector, BIT_A);
 
 		if (IS_SET(*bitvector, IMM_WEAPON)) {
 			SET_BIT(*bitvector, IMM_SLASH|IMM_BASH|IMM_PIERCE);

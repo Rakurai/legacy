@@ -37,24 +37,24 @@ char stupidassline[1000] =
    if any changes to the order need to be made, make the change, then wipe the
    table and reload fresh, because loadhelps() will not wipe the table properly
    if numbers don't match up.  same goes for if any categories are removed */
-#define	HELP_INFO		A
-#define	HELP_CLAN		B
-#define	HELP_SKILL		C
-#define	HELP_SPELL		D
-#define	HELP_RACE		E
-#define	HELP_CLASS		F
-#define	HELP_REMORT		G
-#define	HELP_MOVE		H
-#define	HELP_OBJECT		I
-#define	HELP_COMM		J
-#define	HELP_COMBAT		K
-#define HELP_MISC		L
-#define	HELP_WIZQUEST		M
-#define	HELP_WIZSECURE		N
-#define	HELP_WIZCODE		O
-#define	HELP_WIZGEN		P
-#define	HELP_WIZBUILD		Q
-#define	HELP_WIZHELP		R
+#define	HELP_INFO		BIT_A
+#define	HELP_CLAN		BIT_B
+#define	HELP_SKILL		BIT_C
+#define	HELP_SPELL		BIT_D
+#define	HELP_RACE		BIT_E
+#define	HELP_CLASS		BIT_F
+#define	HELP_REMORT		BIT_G
+#define	HELP_MOVE		BIT_H
+#define	HELP_OBJECT		BIT_I
+#define	HELP_COMM		BIT_J
+#define	HELP_COMBAT		BIT_K
+#define HELP_MISC		BIT_L
+#define	HELP_WIZQUEST		BIT_M
+#define	HELP_WIZSECURE		BIT_N
+#define	HELP_WIZCODE		BIT_O
+#define	HELP_WIZGEN		BIT_P
+#define	HELP_WIZBUILD		BIT_Q
+#define	HELP_WIZHELP		BIT_R
 
 struct helpfile_table_type
 {

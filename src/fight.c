@@ -2820,7 +2820,7 @@ void group_gain(Character *ch, Character *victim)
 	int vary_int = 0;
 	int diff_classes = 1;
 	const sh_int vary_bit [] =
-	{ A, B, C, D, E, F, G, H };
+	{ BIT_A, BIT_B, BIT_C, BIT_D, BIT_E, BIT_F, BIT_G, BIT_H };
 
 	/* Monsters don't get kill xp's or alignment changes.
 	   P-killing doesn't help either.

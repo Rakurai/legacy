@@ -956,14 +956,14 @@ void load_mobiles(FILE *fp)
 		pMobIndex->vuln_flags           = fread_flag(fp) & ~race_table[pMobIndex->race].vuln;
 
 		// fix old style ACT_IS_NPC (A) flag, changed to ACT_NOSUMMON (A)
-		REMOVE_BIT(pMobIndex->act_flags, A);
+		REMOVE_BIT(pMobIndex->act_flags, BIT_A);
 
 		// fix old style IMM_SUMMON (A) flag, changed to ACT_NOSUMMON (A)
-		if (IS_SET(pMobIndex->imm_flags, A))
+		if (IS_SET(pMobIndex->imm_flags, BIT_A))
 			SET_BIT(pMobIndex->act_flags, ACT_NOSUMMON);
-		REMOVE_BIT(pMobIndex->imm_flags, A);
-		REMOVE_BIT(pMobIndex->res_flags, A);
-		REMOVE_BIT(pMobIndex->vuln_flags, A);
+		REMOVE_BIT(pMobIndex->imm_flags, BIT_A);
+		REMOVE_BIT(pMobIndex->res_flags, BIT_A);
+		REMOVE_BIT(pMobIndex->vuln_flags, BIT_A);
 
 		/* vital statistics */
 		pMobIndex->start_pos        = position_lookup(fread_word(fp));

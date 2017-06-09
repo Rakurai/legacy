@@ -20,5 +20,5 @@ private:
  * Tail (Snoop) flags
  */
 #define TAIL_NONE                        0
-#define TAIL_ACT                         A
+#define TAIL_ACT                         BIT_A
 #define TAIL_ALL                         TAIL_ACT
