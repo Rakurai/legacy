@@ -192,7 +192,7 @@ void help(Character *ch, const String& argument)
 
 	const char *text = db_get_column_str(0);
 
-	if (text == NULL) {
+	if (text == nullptr) {
 		bugf("help():  help with keywords '%s' has null text", argument);
 		return;
 	}
@@ -279,7 +279,7 @@ void do_loadhelps(Character *ch, String argument)
 
 	Format::sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 
-	if ((fp = fopen(buf, "r")) == NULL) {
+	if ((fp = fopen(buf, "r")) == nullptr) {
 		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n", ch);
 		return;
 	}
@@ -408,7 +408,7 @@ void do_printhelps(Character *ch, String argument)
 	                        helpfile_table[tablenum].group) != SQL_OK)
 		return;
 
-	if ((fp = fopen(TEMP_FILE, "w")) == NULL) {
+	if ((fp = fopen(TEMP_FILE, "w")) == nullptr) {
 		bug("do_printhelps: unable to open temp file", 0);
 		return;
 	}
@@ -507,7 +507,7 @@ void do_help(Character *ch, String argument)
 		const char *text = db_get_column_str(2);
 		int id = db_get_column_int(3);
 
-		if (keywords == NULL || text == NULL)
+		if (keywords == nullptr || text == nullptr)
 			continue;
 
 		/* 0 if not keyword, 1 if exact match, 2 if semi-match */

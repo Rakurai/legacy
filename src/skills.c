@@ -1526,7 +1526,7 @@ void do_gain(Character *ch, String argument)
 		if (IS_NPC(trainer) && IS_SET(trainer->act_flags, ACT_GAIN) && can_see_char(ch, trainer))
 			break;
 
-	if (trainer == NULL) {
+	if (trainer == nullptr) {
 		stc("You can't do that here.\n", ch);
 		return;
 	}
@@ -1659,11 +1659,11 @@ void do_gain(Character *ch, String argument)
 
 	if (arg.is_prefix_of("convert")) {
 		if (ch->practice < 10) {
-			act("$N tells you 'You are not yet ready.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You are not yet ready.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		act("$N helps you apply your practice to training.", ch, NULL, trainer, TO_CHAR);
+		act("$N helps you apply your practice to training.", ch, nullptr, trainer, TO_CHAR);
 		ch->practice -= 10;
 		ch->train++;
 		return;
@@ -1671,11 +1671,11 @@ void do_gain(Character *ch, String argument)
 
 	if (arg.is_prefix_of("revert")) {
 		if (ch->train < 1) {
-			act("$N tells you 'You are not yet ready.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You are not yet ready.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		act("$N helps you apply your training to practices.", ch, NULL, trainer, TO_CHAR);
+		act("$N helps you apply your training to practices.", ch, nullptr, trainer, TO_CHAR);
 		ch->practice += 10;
 		ch->train--;
 		return;
@@ -1685,16 +1685,16 @@ void do_gain(Character *ch, String argument)
 		int mod;
 
 		if (ch->train < 1) {
-			act("$N tells you 'You are not yet ready.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You are not yet ready.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
 		if (ch->pcdata->points <= 40) {
-			act("$N tells you 'There would be no point in that.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'There would be no point in that.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		act("$N trains you, and you feel more at ease with your skills.", ch, NULL, trainer, TO_CHAR);
+		act("$N trains you, and you feel more at ease with your skills.", ch, nullptr, trainer, TO_CHAR);
 		mod = ch->exp - (exp_per_level(ch, ch->pcdata->points) * ch->level);
 		ch->train--;
 		ch->pcdata->points--;
@@ -1708,17 +1708,17 @@ void do_gain(Character *ch, String argument)
 
 	if (gn >= 0) {
 		if (ch->pcdata->group_known[gn]) {
-			act("$N tells you 'You already know that group!'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You already know that group!'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
 		if (group_table[gn].rating[ch->cls] <= 0) {
-			act("$N tells you 'That group is beyond your powers.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'That group is beyond your powers.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
 		if (ch->train < group_table[gn].rating[ch->cls]) {
-			act("$N tells you 'You are not yet ready for that group.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You are not yet ready for that group.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
@@ -1734,36 +1734,36 @@ void do_gain(Character *ch, String argument)
 	if (sn > -1) {
 		if (skill_table[sn].spell_fun != spell_null
 		    && skill_table[sn].remort_class == 0) {
-			act("$N tells you 'You must learn the full group.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You must learn the full group.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
 		if (skill_table[sn].remort_class > 0) {
 			if (ch->pcdata->remort_count < 1) {
 				act("$N tells you 'That skill is available only to remorts.'",
-				    ch, NULL, trainer, TO_CHAR);
+				    ch, nullptr, trainer, TO_CHAR);
 				return;
 			}
 
 			if (ch->cls + 1 != skill_table[sn].remort_class) {
 				act("$N tells you 'Use extraclass for skills and spells outside your class.'",
-				    ch, NULL, trainer, TO_CHAR);
+				    ch, nullptr, trainer, TO_CHAR);
 				return;
 			}
 		}
 
 		if (ch->pcdata->learned[sn]) {
-			act("$N tells you 'You already know that skill!'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You already know that skill!'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
 		if (skill_table[sn].rating[ch->cls] <= 0) {
-			act("$N tells you 'That skill is beyond your powers.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'That skill is beyond your powers.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
 		if (ch->train < skill_table[sn].rating[ch->cls]) {
-			act("$N tells you 'You are not yet ready for that skill.'", ch, NULL, trainer, TO_CHAR);
+			act("$N tells you 'You are not yet ready for that skill.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
@@ -1775,7 +1775,7 @@ void do_gain(Character *ch, String argument)
 		return;
 	}
 
-	act("$N tells you 'I have no knowledge of that skill or spell group.'", ch, NULL, trainer, TO_CHAR);
+	act("$N tells you 'I have no knowledge of that skill or spell group.'", ch, nullptr, trainer, TO_CHAR);
 }
 
 /* This function converts skill points into practice sessions.

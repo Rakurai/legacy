@@ -88,7 +88,7 @@ void load_clan_table()
 		  if (atoi(row[0]) == 0)
 		          continue;
 		*/
-		if ((clan = new Clan) == NULL) {
+		if ((clan = new Clan) == nullptr) {
 			bug("load_clan_table: unable to allocate memory for new clan", 0);
 			return;
 		}
@@ -252,13 +252,13 @@ void do_cedit(Character *ch, String argument)
 
 	cdata = clan_lookup(clanname);
 
-	if (cmd != "new" && (cdata == NULL)) {
+	if (cmd != "new" && (cdata == nullptr)) {
 		stc("No such clan exists.\n", ch);
 		return;
 	}
 
 	if (cmd == "delete") {
-		if (cdata == NULL)
+		if (cdata == nullptr)
 			stc("You need to specify a clanname.\n", ch);
 		else {
 			remove_clan(cdata->name);
@@ -272,13 +272,13 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "new") {
 		Clan *new_clan = new Clan;
 
-		if (new_clan == NULL) {
+		if (new_clan == nullptr) {
 			bug("Unable to allocate memory for new clan!", 0);
 			stc("Allocation of memory for the new clan failed!\n", ch);
 			return;
 		}
 
-		if (cdata != NULL) {
+		if (cdata != nullptr) {
 			stc("A clan with that name already exists.\n", ch);
 			return;
 		}

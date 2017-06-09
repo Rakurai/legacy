@@ -8,7 +8,7 @@ public:
     Shop() {}
     virtual ~Shop() {}
 
-    Shop *      next = NULL;                   /* Next shop in list            */
+    Shop *      next = nullptr;                   /* Next shop in list            */
     sh_int	    version = 0;		/* Shop versioning -- Montrey */
     sh_int      keeper = 0;                 /* Vnum of shop keeper mob      */
     sh_int      buy_type [MAX_TRADE] = {0};   /* Item types shop will buy     */

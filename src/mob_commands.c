@@ -98,7 +98,7 @@ void do_mpstat(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -132,7 +132,7 @@ void do_mpstat(Character *ch, String argument)
 	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
 	stc(buf, ch);
 
-	for (mprg = victim->pIndexData->mobprogs; mprg != NULL;
+	for (mprg = victim->pIndexData->mobprogs; mprg != nullptr;
 	     mprg = mprg->next) {
 		Format::sprintf(buf, ">%s %s\n%s\n",
 		        mprog_type_to_name(mprg->type),
@@ -167,13 +167,13 @@ void do_mpasound(Character *ch, String argument)
 	for (door = 0; door <= 5; door++) {
 		Exit       *pexit;
 
-		if ((pexit = was_in_room->exit[door]) != NULL
-		    &&   pexit->u1.to_room != NULL
+		if ((pexit = was_in_room->exit[door]) != nullptr
+		    &&   pexit->u1.to_room != nullptr
 		    &&   pexit->u1.to_room != was_in_room) {
 			ch->in_room = pexit->u1.to_room;
 			save_mobtrigger = MOBtrigger;
 			MOBtrigger  = FALSE;
-			act(argument, ch, NULL, NULL, TO_ROOM);
+			act(argument, ch, nullptr, nullptr, TO_ROOM);
 			MOBtrigger = save_mobtrigger;
 		}
 	}
@@ -202,7 +202,7 @@ void do_mpkill(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
 		bug("MpKill - Victim not in room: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
@@ -253,19 +253,19 @@ void do_mpjunk(Character *ch, String argument)
 	}
 
 	if (arg != "all" && !arg.has_prefix("all.")) {
-		if ((obj = get_obj_wear(ch, arg)) != NULL) {
+		if ((obj = get_obj_wear(ch, arg)) != nullptr) {
 			unequip_char(ch, obj);
 			extract_obj(obj);
 			return;
 		}
 
-		if ((obj = get_obj_carry(ch, arg)) == NULL)
+		if ((obj = get_obj_carry(ch, arg)) == nullptr)
 			return;
 
 		extract_obj(obj);
 	}
 	else
-		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
+		for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 
 			if (arg[3] == '\0' || obj->name.has_words(&arg[4])) {
@@ -304,7 +304,7 @@ void do_mpechoaround(Character *ch, String argument)
 		return;
 	}
 
-	act(argument, ch, NULL, victim, TO_NOTVICT);
+	act(argument, ch, nullptr, victim, TO_NOTVICT);
 	return;
 }
 
@@ -334,7 +334,7 @@ void do_mpechoat(Character *ch, String argument)
 		return;
 	}
 
-	act(argument, ch, NULL, victim, TO_VICT);
+	act(argument, ch, nullptr, victim, TO_VICT);
 	return;
 }
 
@@ -353,7 +353,7 @@ void do_mpecho(Character *ch, String argument)
 		return;
 	}
 
-	act(argument, ch, NULL, NULL, TO_ROOM);
+	act(argument, ch, nullptr, nullptr, TO_ROOM);
 	return;
 }
 
@@ -391,7 +391,7 @@ void do_mpmload(Character *ch, String argument)
 		return;
 	}
 
-	if ((pMobIndex = get_mob_index(atoi(arg))) == NULL) {
+	if ((pMobIndex = get_mob_index(atoi(arg))) == nullptr) {
 		bug("Mpmload - Bad mob vnum: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -427,7 +427,7 @@ void do_mpoload(Character *ch, String argument)
 		return;
 	}
 
-	if ((pObjIndex = get_obj_index(atoi(arg1))) == NULL) {
+	if ((pObjIndex = get_obj_index(atoi(arg1))) == nullptr) {
 		bug("Mpoload - Bad vnum arg: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -470,14 +470,14 @@ void do_mppurge(Character *ch, String argument)
 		Character *vnext;
 		Object  *obj_next;
 
-		for (victim = ch->in_room->people; victim != NULL; victim = vnext) {
+		for (victim = ch->in_room->people; victim != nullptr; victim = vnext) {
 			vnext = victim->next_in_room;
 
 			if (IS_NPC(victim) && victim != ch)
 				extract_char(victim, TRUE);
 		}
 
-		for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
+		for (obj = ch->in_room->contents; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			extract_obj(obj);
 		}
@@ -485,7 +485,7 @@ void do_mppurge(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, arg, VIS_CHAR)) != NULL) {
+	if ((victim = get_char_here(ch, arg, VIS_CHAR)) != nullptr) {
 		if (!IS_NPC(victim)) {
 			bug("Mppurge - Purging a PC: vnum %d.", ch->pIndexData->vnum);
 			return;
@@ -494,7 +494,7 @@ void do_mppurge(Character *ch, String argument)
 		extract_char(victim, TRUE);
 		return;
 	}
-	else if ((obj = get_obj_here(ch, arg)) != NULL)
+	else if ((obj = get_obj_here(ch, arg)) != nullptr)
 		extract_obj(obj);
 	else
 		bug("Mppurge - Bad argument: vnum %d.", ch->pIndexData->vnum);
@@ -519,12 +519,12 @@ void do_mpgoto(Character *ch, String argument)
 		return;
 	}
 
-	if ((location = find_location(ch, arg)) == NULL) {
+	if ((location = find_location(ch, arg)) == nullptr) {
 		bug("Mpgoto - No such location: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
-	if (ch->fighting != NULL)
+	if (ch->fighting != nullptr)
 		stop_fighting(ch, TRUE);
 
 	char_from_room(ch);
@@ -553,7 +553,7 @@ void do_mpat(Character *ch, String argument)
 		return;
 	}
 
-	if ((location = find_location(ch, arg)) == NULL) {
+	if ((location = find_location(ch, arg)) == nullptr) {
 		bug("Mpat - No such location: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -567,7 +567,7 @@ void do_mpat(Character *ch, String argument)
 	 * See if 'ch' still exists before continuing!
 	 * Handles 'at XXXX quit' case.
 	 */
-	for (wch = char_list; wch != NULL; wch = wch->next) {
+	for (wch = char_list; wch != nullptr; wch = wch->next) {
 		if (wch == ch) {
 			char_from_room(ch);
 			char_to_room(ch, original);
@@ -604,11 +604,11 @@ void do_mptransfer(Character *ch, String argument)
 	/* eh, let's go ahead and NOT let mobs transfer all :P  -- Montrey */
 	/*      if (arg1 == "all")
 	        {
-	                for (d = descriptor_list; d != NULL; d = d->next)
+	                for (d = descriptor_list; d != nullptr; d = d->next)
 	                {
 	                        if (IS_PLAYING(d)
 	                         && d->character != ch
-	                         && d->character->in_room != NULL
+	                         && d->character->in_room != nullptr
 	                         && can_see_char(ch, d->character))
 	                        {
 	                                char buf[MSL];
@@ -624,7 +624,7 @@ void do_mptransfer(Character *ch, String argument)
 	if (arg2.empty())
 		location = ch->in_room;
 	else {
-		if ((location = find_location(ch, arg2)) == NULL) {
+		if ((location = find_location(ch, arg2)) == nullptr) {
 			bug("Mptransfer - No such location: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
@@ -635,21 +635,21 @@ void do_mptransfer(Character *ch, String argument)
 		}
 	}
 
-	for (victim = char_list; victim != NULL; victim = victim->next)
+	for (victim = char_list; victim != nullptr; victim = victim->next)
 		if (victim->name.has_words(arg1))
 			break;
 
-	if (victim == NULL) {
+	if (victim == nullptr) {
 		bug("Mptransfer - No such person: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
-	if (victim->in_room == NULL) {
-		bug("Mptransfer - Victim in NULL room: vnum %d.", ch->pIndexData->vnum);
+	if (victim->in_room == nullptr) {
+		bug("Mptransfer - Victim in nullptr room: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
-	if (victim->fighting != NULL)
+	if (victim->fighting != nullptr)
 		stop_fighting(victim, TRUE);
 
 	char_from_room(victim);
@@ -677,7 +677,7 @@ void do_mpforce(Character *ch, String argument)
 	if (arg == "all") {
 		Character *vch, *vch_next;
 
-		for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
+		for (vch = ch->in_room->people; vch != nullptr; vch = vch_next) {
 			vch_next = vch->next_in_room;
 
 			if (vch->in_room == ch->in_room
@@ -689,11 +689,11 @@ void do_mpforce(Character *ch, String argument)
 	else {
 		Character *victim;
 
-		for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
+		for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 			if (victim->name.has_words(arg))
 				break;
 
-		if (victim == NULL) {
+		if (victim == nullptr) {
 			bug("Mpforce - No such victim: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}

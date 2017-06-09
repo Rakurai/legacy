@@ -96,7 +96,7 @@ void compile_gem_effects(Object *eq) {
 	// blow away affects and rebuild
 	affect_clear_list(&eq->gem_affected);
 
-	for (gem = eq->gems; gem != NULL; gem = gem->next_content) {
+	for (gem = eq->gems; gem != nullptr; gem = gem->next_content) {
 		Affect af;
 		af.where              = TO_OBJECT;
 		af.type               = 0;
@@ -126,44 +126,44 @@ void do_inset(Character *ch, String argument)
 		return;
 	}
 
-	if ((gem = get_obj_carry(ch, arg1)) == NULL) {
-		act("You don't have a $T.", ch, NULL, arg1, TO_CHAR);
+	if ((gem = get_obj_carry(ch, arg1)) == nullptr) {
+		act("You don't have a $T.", ch, nullptr, arg1, TO_CHAR);
 		return;
 	}
 
 	if (gem->pIndexData->item_type != ITEM_GEM) {
-		act("That's not a gem you can inset.", ch, NULL, NULL, TO_CHAR);
+		act("That's not a gem you can inset.", ch, nullptr, nullptr, TO_CHAR);
 		return;
 	}
 
 	if (!can_drop_obj(ch, gem)) {
-		act("You can't let go of $p.\n", ch, gem, NULL, TO_CHAR);
+		act("You can't let go of $p.\n", ch, gem, nullptr, TO_CHAR);
 		return;
 	}
 
-	if ((eq = get_obj_list(ch, arg2, ch->carrying)) == NULL) {
-		act("You don't have a $T.", ch, NULL, arg2, TO_CHAR);
+	if ((eq = get_obj_list(ch, arg2, ch->carrying)) == nullptr) {
+		act("You don't have a $T.", ch, nullptr, arg2, TO_CHAR);
 		return;
 	}
 
 	if (eq->wear_loc != WEAR_NONE) {
-		act("You need to remove it first.", ch, NULL, NULL, TO_CHAR);
+		act("You need to remove it first.", ch, nullptr, nullptr, TO_CHAR);
 		return;
 	}
 
 	int count = 0;
 	Object *obj;
 
-	for (obj = eq->gems; obj != NULL; obj = obj->next_content)
+	for (obj = eq->gems; obj != nullptr; obj = obj->next_content)
 		count++;
 
 	if (count >= eq->num_settings) {
-		act("That item doesn't have an empty setting.", ch, NULL, NULL, TO_CHAR);
+		act("That item doesn't have an empty setting.", ch, nullptr, nullptr, TO_CHAR);
 		return;
 	}
 
 	if (gem->level > eq->level) {
-		act("That item is not powerful enough to hold $p.", ch, gem, NULL, TO_CHAR);
+		act("That item is not powerful enough to hold $p.", ch, gem, nullptr, TO_CHAR);
 		return;
 	}
 
@@ -176,8 +176,8 @@ void do_inset(Character *ch, String argument)
 	gem->next_content = eq->gems;
 	eq->gems = gem;
 	gem->in_obj = eq;
-	gem->in_room = NULL;
-	gem->carried_by = NULL;
+	gem->in_room = nullptr;
+	gem->carried_by = nullptr;
 
 	compile_gem_effects(eq);
 }

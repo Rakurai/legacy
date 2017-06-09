@@ -11,7 +11,7 @@ public:
 	ExtraDescr() {}
 	virtual ~ExtraDescr() {}
 
-    ExtraDescr *next = NULL;     /* Next in list                     */
+    ExtraDescr *next = nullptr;     /* Next in list                     */
     bool valid = FALSE;
     String keyword;              /* Keyword in look/examine          */
     String description;          /* What to see                      */

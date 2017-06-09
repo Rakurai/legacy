@@ -7,8 +7,8 @@ public:
 	virtual ~DepartedPlayer() {}
 
     String name;
-    DepartedPlayer *next = NULL;
-    DepartedPlayer *previous = NULL;
+    DepartedPlayer *next = nullptr;
+    DepartedPlayer *previous = nullptr;
 
 private:
 	DepartedPlayer(const DepartedPlayer&);

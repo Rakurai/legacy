@@ -17,7 +17,7 @@ int affect_fn_debug(Affect *node, void *data) {
 int affect_fn_fade_spell(Affect *node, void *data) {
 	sh_int sn = 0;
 
-	if (data != NULL)
+	if (data != nullptr)
 		sn = *(sh_int *)data;
 
 	if (node->duration > 0
@@ -88,7 +88,7 @@ unsigned long affect_checksum(const Affect *paf) {
 }
 
 void affect_swap(Affect *a, Affect *b) {
-	if (a == NULL || b == NULL)
+	if (a == nullptr || b == nullptr)
 		return;
 
 	// we could go through a complicated mechanism for swapping nodes in a double

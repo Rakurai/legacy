@@ -25,18 +25,18 @@ Character::~Character() {
 		mobile_count--;
 
 	Object *obj, *obj_next;
-	for (obj = carrying; obj != NULL; obj = obj_next) {
+	for (obj = carrying; obj != nullptr; obj = obj_next) {
 		obj_next = obj->next_content;
 		extract_obj(obj);
 	}
 
 	if (pcdata) {
-		for (obj = pcdata->locker; obj != NULL; obj = obj_next) {
+		for (obj = pcdata->locker; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			extract_obj(obj);
 		}
 
-		for (obj = pcdata->strongbox; obj != NULL; obj = obj_next) {
+		for (obj = pcdata->strongbox; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			extract_obj(obj);
 		}
@@ -46,25 +46,25 @@ Character::~Character() {
 
 	/* stop active TAILs, if any -- Elrac */
 	if (!IS_NPC(this) && pcdata && pcdata->tailing)
-		set_tail(this, NULL, 0);
+		set_tail(this, nullptr, 0);
 
 	/* stop all passive TAILs -- Elrac */
-	for (Tail *td = tail; td != NULL; td = tail) {
+	for (Tail *td = tail; td != nullptr; td = tail) {
 		tail = td->next;
 		act("You stop tailing $n", this, nullptr, td->tailed_by, TO_VICT, POS_SLEEPING, FALSE);
 		delete td;
 	}
 
-	tail = NULL;
+	tail = nullptr;
 
-	if (edit != NULL) {
+	if (edit != nullptr) {
 		delete edit;
-		edit = NULL;
+		edit = nullptr;
 	}
 
-	if (pcdata != NULL)
+	if (pcdata != nullptr)
 		free_pcdata(pcdata);
-	if (gen_data != NULL)
+	if (gen_data != nullptr)
 		free_gen_data(gen_data);
 	if (apply_cache)
 		delete[] apply_cache;

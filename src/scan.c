@@ -52,14 +52,14 @@ void do_scan2(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 
 	if (arg1.empty()) {
-		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
+		act("$n scans all around.", ch, nullptr, nullptr, TO_NOTVIEW);
 		stc("{PLooking around you see:{x\n", ch);
-		scan_room(ch->in_room, ch, 0, -1, NULL);
+		scan_room(ch->in_room, ch, 0, -1, nullptr);
 //		scan_list(ch->in_room, ch, 0, -1);
 
 		for (door = 0; door < 6; door++) {
-			if ((pExit = ch->in_room->exit[door]) == NULL
-			    || (pExit->u1.to_room) == NULL
+			if ((pExit = ch->in_room->exit[door]) == nullptr
+			    || (pExit->u1.to_room) == nullptr
 			    || !can_see_room(ch, pExit->u1.to_room)
 			    || !can_see_in_room(ch, pExit->u1.to_room))
 				continue;
@@ -91,14 +91,14 @@ void do_scan2(Character *ch, String argument)
 		return;
 	}
 
-	act("{PYou peer intently $T.{x", ch, NULL, dir_name[door], TO_CHAR);
-	act("$n peers intently $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
+	act("{PYou peer intently $T.{x", ch, nullptr, dir_name[door], TO_CHAR);
+	act("$n peers intently $T.", ch, nullptr, dir_name[door], TO_NOTVIEW);
 	Format::sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
 	room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
-		if ((pExit = room->exit[door]) == NULL
-		    || (pExit->u1.to_room) == NULL
+		if ((pExit = room->exit[door]) == nullptr
+		    || (pExit->u1.to_room) == nullptr
 		    || !can_see_room(ch, pExit->u1.to_room))
 			continue;
 
@@ -129,13 +129,13 @@ void do_scan(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 
 	if (arg1.empty()) {
-		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
+		act("$n scans all around.", ch, nullptr, nullptr, TO_NOTVIEW);
 		stc("{PLooking around you see:{x\n", ch);
 		scan_list(ch->in_room, ch, 0, -1);
 
 		for (door = 0; door < 6; door++) {
-			if ((pExit = ch->in_room->exit[door]) == NULL
-			    || (pExit->u1.to_room) == NULL
+			if ((pExit = ch->in_room->exit[door]) == nullptr
+			    || (pExit->u1.to_room) == nullptr
 			    || !can_see_room(ch, pExit->u1.to_room)
 			    || !can_see_in_room(ch, pExit->u1.to_room))
 				continue;
@@ -161,14 +161,14 @@ void do_scan(Character *ch, String argument)
 		return;
 	}
 
-	act("{PYou peer intently $T.{x", ch, NULL, dir_name[door], TO_CHAR);
-	act("$n peers intently $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
+	act("{PYou peer intently $T.{x", ch, nullptr, dir_name[door], TO_CHAR);
+	act("$n peers intently $T.", ch, nullptr, dir_name[door], TO_NOTVIEW);
 	Format::sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
 	scan_room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
-		if ((pExit = scan_room->exit[door]) == NULL
-		    || (pExit->u1.to_room) == NULL
+		if ((pExit = scan_room->exit[door]) == nullptr
+		    || (pExit->u1.to_room) == nullptr
 		    || !can_see_room(ch, pExit->u1.to_room))
 			continue;
 
@@ -209,10 +209,10 @@ void scan_list(RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int doo
 {
 	Character *rch;
 
-	if (scan_room == NULL)
+	if (scan_room == nullptr)
 		return;
 
-	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
+	for (rch = scan_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (rch == ch)
 			continue;
 

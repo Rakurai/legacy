@@ -226,7 +226,7 @@ Social *social_lookup(const String& name)
 		iterator = iterator->next;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /*
@@ -259,7 +259,7 @@ void do_sedit(Character *ch, String argument)
 
 	iSocial = social_lookup(social);
 
-	if (cmd != "new" && cmd != "find" && (iSocial == NULL)) {
+	if (cmd != "new" && cmd != "find" && (iSocial == nullptr)) {
 		stc("No such social exists.\n", ch);
 		return;
 	}
@@ -269,7 +269,7 @@ void do_sedit(Character *ch, String argument)
 		stc("That social is history now.\n", ch);
 	}
 	else if (cmd == "new") { /* Create a new social */
-		if (iSocial != NULL) {
+		if (iSocial != nullptr) {
 			stc("A social with that name already exists.\n", ch);
 			return;
 		}
@@ -293,7 +293,7 @@ void do_sedit(Character *ch, String argument)
 			return;
 		}
 
-		if (social_lookup(argument) != NULL) {
+		if (social_lookup(argument) != nullptr) {
 			stc("A social with that name already exists.\n", ch);
 			return;
 		}

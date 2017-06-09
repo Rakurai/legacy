@@ -37,7 +37,7 @@ void affect_join_to_char(Character *ch, Affect *paf)
 
 	params.owner = ch;
 	params.modifier = affect_modify_char;
-	params.data = NULL;
+	params.data = nullptr;
 
 	affect_dedup_in_list(&ch->affected, paf, &params);
 	affect_copy_to_char(ch, paf);
@@ -87,7 +87,7 @@ void affect_remove_matching_from_char(Character *ch, affect_comparator comp, con
 
 	params.owner = ch;
 	params.modifier = affect_modify_char;
-	params.data = NULL;
+	params.data = nullptr;
 
 	affect_remove_matching_from_list(&ch->affected, comp, pattern, &params);
 }
@@ -291,7 +291,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 			return;
 
 		if (fAdd) {
-			if (ch->defense_mod == NULL) {
+			if (ch->defense_mod == nullptr) {
 				ch->defense_mod = new sh_int[DEFENSE_MOD_MEM_SIZE];
 				memset(ch->defense_mod, 0, DEFENSE_MOD_MEM_SIZE);
 			}
@@ -300,8 +300,8 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 			ch->defense_mod[paf->location] += paf->modifier;
 		}
 		else {
-			if (ch->defense_mod == NULL) {
-				bug("affect_modify_char: attempt to remove from NULL defense_mod", 0);
+			if (ch->defense_mod == nullptr) {
+				bug("affect_modify_char: attempt to remove from nullptr defense_mod", 0);
 				return;
 			}
 
@@ -310,7 +310,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 
 			if (ch->defense_mod[0] == 0) {
 				delete[] ch->defense_mod;
-				ch->defense_mod = NULL;
+				ch->defense_mod = nullptr;
 			}
 		}
 
@@ -339,7 +339,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 		}
 
 		if (fAdd) {
-			if (ch->apply_cache == NULL) {
+			if (ch->apply_cache == nullptr) {
 				ch->apply_cache = new int[APPLY_CACHE_MEM_SIZE];
 				memset(ch->apply_cache, 0, APPLY_CACHE_MEM_SIZE);
 			}
@@ -348,8 +348,8 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 			ch->apply_cache[paf->location] += paf->modifier;
 		}
 		else {
-			if (ch->apply_cache == NULL) {
-				bug("affect_modify_char: attempt to remove from NULL apply_cache", 0);
+			if (ch->apply_cache == nullptr) {
+				bug("affect_modify_char: attempt to remove from nullptr apply_cache", 0);
 				return;
 			}
 
@@ -357,7 +357,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 
 			if (--ch->apply_cache[0] <= 0) {
 				delete[] ch->apply_cache;
-				ch->apply_cache = NULL;
+				ch->apply_cache = nullptr;
 			}
 		}
 	}

@@ -1,8 +1,5 @@
-// don't disallow multiple reads - we don't want some other include redefining NULL
-//#pragma once
+#pragma once
 
-#undef NULL
-#define NULL  nullptr
 #define FALSE false
 #define TRUE  true
 

@@ -9,7 +9,7 @@ Object::~Object() {
 	affect_clear_list(&this->gem_affected);
 
 	ExtraDescr *ed, *ed_next;
-	for (ed = this->extra_descr; ed != NULL; ed = ed_next) {
+	for (ed = this->extra_descr; ed != nullptr; ed = ed_next) {
 		ed_next = ed->next;
 		free_extra_descr(ed);
 	}

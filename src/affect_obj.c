@@ -37,7 +37,7 @@ void affect_join_to_obj(Object *obj, Affect *paf) {
 
 	params.owner = obj;
 	params.modifier = affect_modify_obj;
-	params.data = NULL;
+	params.data = nullptr;
 
 	affect_dedup_in_list(&obj->affected, paf, &params); // remove
 	affect_copy_to_obj(obj, paf); // add and modify holder
@@ -57,7 +57,7 @@ void affect_remove_matching_from_obj(Object *obj, affect_comparator comp, const 
 
 	params.owner = obj;
 	params.modifier = affect_modify_obj;
-	params.data = NULL;
+	params.data = nullptr;
 
 	affect_remove_matching_from_list(&obj->affected, comp, pattern, &params);
 }

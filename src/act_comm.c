@@ -453,8 +453,8 @@ void do_pose(Character *ch, String argument)
 	if (pose == -1)
 		return;
 
-	act(new_pose_table[ch->cls][pose].self_msg, ch, NULL, NULL, TO_CHAR);
-	act(new_pose_table[ch->cls][pose].room_msg, ch, NULL, NULL, TO_ROOM);
+	act(new_pose_table[ch->cls][pose].self_msg, ch, nullptr, nullptr, TO_CHAR);
+	act(new_pose_table[ch->cls][pose].room_msg, ch, nullptr, nullptr, TO_ROOM);
 	return;
 }
 
@@ -498,9 +498,9 @@ void do_testpose(Character *ch, String argument)
 
 	pose--;
 	stc("{Yto {Cyourself{x:\n", ch);
-	act(new_pose_table[cls][pose].self_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[cls][pose].self_msg, ch, nullptr, nullptr, TO_CHAR);
 	stc("{Yto {Cothers{x:\n", ch);
-	act(new_pose_table[cls][pose].room_msg, ch, NULL, NULL, TO_CHAR);
+	act(new_pose_table[cls][pose].room_msg, ch, nullptr, nullptr, TO_CHAR);
 } /* end do_testpose() */
 
 /* RT code to delete yourself */
@@ -533,7 +533,7 @@ void do_delete(Character *ch, String argument)
 			return;
 		}
 
-		wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, GET_RANK(ch));
+		wiznet("$N is contemplating deletion.", ch, nullptr, 0, 0, GET_RANK(ch));
 		ptc(ch, "{RType {PDELETE{R again if you really want to delete '%s{R';\n{x", ch->name);
 		stc("{Rtype {PDELETE NO{R to cancel this command.{x\n", ch);
 		ch->pcdata->confirm_delete = 1;
@@ -575,7 +575,7 @@ void do_delete(Character *ch, String argument)
 		}
 
 		Format::sprintf(strsave, "%s%s", PLAYER_DIR, String(ch->name).capitalize());
-		wiznet("$N has wiped $Mself from these realms.", ch, NULL, 0, 0, 0);
+		wiznet("$N has wiped $Mself from these realms.", ch, nullptr, 0, 0, 0);
 		update_pc_index(ch, TRUE);
 		id = ch->id;
 		d = ch->desc;
@@ -587,11 +587,11 @@ void do_delete(Character *ch, String argument)
 
 		extract_char(ch, TRUE);
 
-		if (d != NULL)
+		if (d != nullptr)
 			close_socket(d);
 
 		/* toast evil cheating bastards */
-		for (d = descriptor_list; d != NULL; d = d_next) {
+		for (d = descriptor_list; d != nullptr; d = d_next) {
 			Character *tch;
 			d_next = d->next;
 			tch = d->original ? d->original : d->character;
@@ -652,8 +652,8 @@ void do_newbiekit(Character *ch, String argument)
 	}
 
 	obj_to_char(kit, ch);
-	act("$n has created a $p!!!", ch, kit, NULL, TO_ROOM);
-	act("You have created $p!! WooWoo!!!", ch, kit, NULL, TO_CHAR);
+	act("$n has created a $p!!!", ch, kit, nullptr, TO_ROOM);
+	act("You have created $p!! WooWoo!!!", ch, kit, nullptr, TO_CHAR);
 }
 
 /* OOC by Lotus */
@@ -667,12 +667,12 @@ void do_ooc(Character *ch, String argument)
 	if (IS_SET(ch->pcdata->plr, PLR_OOC)) {
 		stc("You are no longer role playing.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_OOC);
-		wiznet("$N is now in *OOC* mode.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N is now in *OOC* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
 		stc("You slip into character.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_OOC);
-		wiznet("$N is now in *RP* mode.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N is now in *RP* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 }
 
@@ -695,17 +695,17 @@ void do_pk(Character *ch, String argument)
 	else if (argument == "on") {
 		stc("Everyone is going to be keeping an eye on you now =).\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_PK);
-		wiznet("$N is now in *PK* mode.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N is now in *PK* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else if (!argument.empty() && IS_IMP(ch)
-	         && (wch = get_player_world(ch, argument, VIS_PLR)) != NULL) {
+	         && (wch = get_player_world(ch, argument, VIS_PLR)) != nullptr) {
 		if (!IS_SET(wch->pcdata->plr, PLR_PK)) {
 			stc("That player's PK flag is already down.\n", ch);
 			return;
 		}
 
 		REMOVE_BIT(wch->pcdata->plr, PLR_PK);
-		wiznet("$N's PK flag has been lowered.", wch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N's PK flag has been lowered.", wch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
 		stc("Once you raise your PK flag it stays up until someone kills you!\n"
@@ -880,9 +880,9 @@ void do_afk(Character *ch, String argument)
 		REMOVE_BIT(ch->comm, COMM_AFK);
 		set_color(ch, WHITE, NOBOLD);
 		/*
-		      act( "$N has returned to $S keyboard.", ch, NULL, NULL, TO_ROOM );
+		      act( "$N has returned to $S keyboard.", ch, nullptr, nullptr, TO_ROOM );
 		*/
-		wiznet("$N has returned to $S keyboard.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N has returned to $S keyboard.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
 		strtime                         = ctime(&current_time);
@@ -891,10 +891,10 @@ void do_afk(Character *ch, String argument)
 		stc("You are now in AFK mode.\n", ch);
 		SET_BIT(ch->comm, COMM_AFK);
 		set_color(ch, WHITE, NOBOLD);
-		wiznet("$N has gone AFK.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N has gone AFK.", ch, nullptr, WIZ_MISC, 0, 0);
 
 		/*
-		     act( "$N has gone AFK.", ch, NULL, NULL, TO_ROOM );
+		     act( "$N has gone AFK.", ch, nullptr, nullptr, TO_ROOM );
 		*/
 		if (!IS_NPC(ch)) {
 			char buf[MAX_STRING_LENGTH];
@@ -938,8 +938,8 @@ void update_text_file(Character *ch, const String& file, const String& str)
 	if (IS_NPC(ch) || str[0] == '\0')
 		return;
 
-	if ((fp = fopen(file.c_str(), "a")) != NULL) {
-		gettimeofday(&now_time, NULL);
+	if ((fp = fopen(file.c_str(), "a")) != nullptr) {
+		gettimeofday(&now_time, nullptr);
 		current_time = (time_t) now_time.tv_sec;
 		strftime(buf, 9, "%m/%d/%y", localtime(&current_time));
 		Format::fprintf(fp, "{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
@@ -1078,7 +1078,7 @@ void do_qui(Character *ch, String argument)
 // this code is inactive, leaving it in case we decide otherwise
 bool showlost(Character *ch, Object *obj, bool found, bool locker)
 {
-	for (; obj != NULL; obj = obj->next_content) {
+	for (; obj != nullptr; obj = obj->next_content) {
 		if ((obj->level > get_holdable_level(ch))
 		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
 		    || (obj->item_type == ITEM_MAP && !obj->value[0])) {
@@ -1181,7 +1181,7 @@ void do_quit(Character *ch, String argument)
 
 	stc(message[number_range(0, 9)], ch);
 
-	for (sd = descriptor_list; sd != NULL; sd = sd->next) {
+	for (sd = descriptor_list; sd != nullptr; sd = sd->next) {
 		victim = sd->original ? sd->original : sd->character;
 
 		if (IS_PLAYING(sd)
@@ -1203,7 +1203,7 @@ void do_quit(Character *ch, String argument)
 	}
 
 	log_string(log_buf);
-	wiznet("$N rejoins the real world.", ch, NULL, WIZ_LOGINS, 0, GET_RANK(ch));
+	wiznet("$N rejoins the real world.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	save_char_obj(ch);
 	id = ch->id;
 	d = ch->desc;
@@ -1216,11 +1216,11 @@ void do_quit(Character *ch, String argument)
 	extract_char(ch, TRUE);
 
 	/* After extract_char the ch is no longer valid! */
-	if (d != NULL)
+	if (d != nullptr)
 		close_socket(d);
 
 	/* toast evil cheating bastards */
-	for (d = descriptor_list; d != NULL; d = d_next) {
+	for (d = descriptor_list; d != nullptr; d = d_next) {
 		Character *tch;
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
@@ -1243,7 +1243,7 @@ void do_fuckoff(Character *ch, String argument)
 	Format::sprintf(log_buf, "%s has been fried.", ch->name);
 	do_send_announce(ch, log_buf);
 	log_string(log_buf);
-	wiznet("$N has been terminated.", ch, NULL, WIZ_LOGINS, 0, GET_RANK(ch));
+	wiznet("$N has been terminated.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	/*
 	 * After extract_char the ch is no longer valid!
 	 */
@@ -1252,11 +1252,11 @@ void do_fuckoff(Character *ch, String argument)
 	d = ch->desc;
 	extract_char(ch, TRUE);
 
-	if (d != NULL)
+	if (d != nullptr)
 		close_socket(d);
 
 	/* toast evil cheating bastards */
-	for (d = descriptor_list; d != NULL; d = d_next) {
+	for (d = descriptor_list; d != nullptr; d = d_next) {
 		Character *tch;
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
@@ -1305,18 +1305,18 @@ void do_follow(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master != NULL) {
-		act("But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR);
+	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master != nullptr) {
+		act("But you'd rather follow $N!", ch, nullptr, ch->master, TO_CHAR);
 		return;
 	}
 
 	if (victim == ch) {
-		if (ch->master == NULL) {
+		if (ch->master == nullptr) {
 			stc("You now stare at your own butt.\n", ch);
 			return;
 		}
@@ -1327,13 +1327,13 @@ void do_follow(Character *ch, String argument)
 
 	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
 		act("$N doesn't seem to want any followers.\n",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
 	REMOVE_BIT(ch->act_flags, PLR_NOFOLLOW);
 
-	if (ch->master != NULL)
+	if (ch->master != nullptr)
 		stop_follower(ch);
 
 	add_follower(ch, victim);
@@ -1342,24 +1342,24 @@ void do_follow(Character *ch, String argument)
 
 void add_follower(Character *ch, Character *master)
 {
-	if (ch->master != NULL) {
+	if (ch->master != nullptr) {
 		bug("Add_follower: non-null master.", 0);
 		return;
 	}
 
 	ch->master        = master;
-	ch->leader        = NULL;
+	ch->leader        = nullptr;
 
 	if (can_see_char(master, ch))
-		act("$n now follows you.", ch, NULL, master, TO_VICT);
+		act("$n now follows you.", ch, nullptr, master, TO_VICT);
 
-	act("You now follow $N.",  ch, NULL, master, TO_CHAR);
+	act("You now follow $N.",  ch, nullptr, master, TO_CHAR);
 	return;
 }
 
 void stop_follower(Character *ch)
 {
-	if (ch->master == NULL) {
+	if (ch->master == nullptr) {
 		bug("Stop_follower: null master.", 0);
 		return;
 	}
@@ -1368,16 +1368,16 @@ void stop_follower(Character *ch)
 		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
 
-	if (can_see_char(ch->master, ch) && ch->in_room != NULL) {
-		act("$n stops following you.",     ch, NULL, ch->master, TO_VICT);
-		act("You stop following $N.",      ch, NULL, ch->master, TO_CHAR);
+	if (can_see_char(ch->master, ch) && ch->in_room != nullptr) {
+		act("$n stops following you.",     ch, nullptr, ch->master, TO_VICT);
+		act("You stop following $N.",      ch, nullptr, ch->master, TO_CHAR);
 	}
 
 	if (ch->master->pet == ch)
-		ch->master->pet = NULL;
+		ch->master->pet = nullptr;
 
-	ch->master = NULL;
-	ch->leader = NULL;
+	ch->master = nullptr;
+	ch->leader = nullptr;
 	return;
 }
 
@@ -1386,16 +1386,16 @@ void nuke_pets(Character *ch)
 {
 	Character *pet;
 
-	if ((pet = ch->pet) != NULL) {
+	if ((pet = ch->pet) != nullptr) {
 		stop_follower(pet);
 
-		if (pet->in_room != NULL)
-			act("$N slowly fades away.", ch, NULL, pet, TO_NOTVICT);
+		if (pet->in_room != nullptr)
+			act("$N slowly fades away.", ch, nullptr, pet, TO_NOTVICT);
 
 		extract_char(pet, TRUE);
 	}
 
-	ch->pet = NULL;
+	ch->pet = nullptr;
 	return;
 }
 
@@ -1403,30 +1403,30 @@ void die_follower(Character *ch)
 {
 	Character *fch;
 
-	if (ch->master != NULL) {
+	if (ch->master != nullptr) {
 		if (ch->master->pet == ch)
-			ch->master->pet = NULL;
+			ch->master->pet = nullptr;
 
-		if (ch->master->pcdata != NULL) {
+		if (ch->master->pcdata != nullptr) {
 			if (ch->master->pcdata->skeleton == ch)
-				ch->master->pcdata->skeleton = NULL;
+				ch->master->pcdata->skeleton = nullptr;
 
 			if (ch->master->pcdata->zombie == ch)
-				ch->master->pcdata->zombie = NULL;
+				ch->master->pcdata->zombie = nullptr;
 
 			if (ch->master->pcdata->wraith == ch)
-				ch->master->pcdata->wraith = NULL;
+				ch->master->pcdata->wraith = nullptr;
 
 			if (ch->master->pcdata->gargoyle == ch)
-				ch->master->pcdata->gargoyle = NULL;
+				ch->master->pcdata->gargoyle = nullptr;
 		}
 
 		stop_follower(ch);
 	}
 
-	ch->leader = NULL;
+	ch->leader = nullptr;
 
-	for (fch = char_list; fch != NULL; fch = fch->next) {
+	for (fch = char_list; fch != nullptr; fch = fch->next) {
 		if (fch->master == ch)
 			stop_follower(fch);
 
@@ -1469,13 +1469,13 @@ void do_order(Character *ch, String argument)
 
 	if (arg == "all") {
 		fAll   = TRUE;
-		victim = NULL;
+		victim = nullptr;
 	}
 	else {
 		fAll   = FALSE;
 
 		/* check for target in this room */
-		if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
+		if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
 			/* Check for familiar for remote orders
 			   -- Outsider
 			*/
@@ -1530,7 +1530,7 @@ void do_order(Character *ch, String argument)
 
 	found = FALSE;
 
-	for (och = ch->in_room->people; och != NULL; och = och_next) {
+	for (och = ch->in_room->people; och != nullptr; och = och_next) {
 		och_next = och->next_in_room;
 
 		if (affect_exists_on_char(och, gsn_charm_person) &&
@@ -1542,14 +1542,14 @@ void do_order(Character *ch, String argument)
 			}
 
 			Format::sprintf(buf, "$n orders you to '%s{x'.", argument);
-			act(buf, ch, NULL, och, TO_VICT);
+			act(buf, ch, nullptr, och, TO_VICT);
 			interpret(och, argument);
 		}
 	}
 
 	if ((! found) && (remote_familiar)) {
 		Format::sprintf(buf, "$n orders you to '%s{x'.", argument);
-		act(buf, ch, NULL, ch->pet, TO_VICT);
+		act(buf, ch, nullptr, ch->pet, TO_VICT);
 		interpret(ch->pet, argument);
 		found = TRUE;
 	}
@@ -1615,13 +1615,13 @@ void do_group(Character *ch, String argument)
 	if (arg.empty()) {
 		Character *gch;
 		Character *leader;
-		leader = (ch->leader != NULL) ? ch->leader : ch;
+		leader = (ch->leader != nullptr) ? ch->leader : ch;
 		Format::sprintf(buf, "%s's group:\n", PERS(leader, ch, VIS_PLR));
 		set_color(ch, PURPLE, BOLD);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
 
-		for (gch = char_list; gch != NULL; gch = gch->next) {
+		for (gch = char_list; gch != nullptr; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
 				Format::sprintf(buf,
 				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",
@@ -1642,7 +1642,7 @@ void do_group(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -1652,13 +1652,13 @@ void do_group(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->master != NULL || (ch->leader != NULL && ch->leader != ch)) {
+	if (ch->master != nullptr || (ch->leader != nullptr && ch->leader != ch)) {
 		stc("But you are following someone else!\n", ch);
 		return;
 	}
 
 	if (victim->master != ch && ch != victim) {
-		act("$N isn't following you.", ch, NULL, victim, TO_CHAR);
+		act("$N isn't following you.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -1668,26 +1668,26 @@ void do_group(Character *ch, String argument)
 	}
 
 	if (affect_exists_on_char(ch, gsn_charm_person)) {
-		act("You like your master too much to leave $m!", ch, NULL, victim, TO_VICT);
+		act("You like your master too much to leave $m!", ch, nullptr, victim, TO_VICT);
 		return;
 	}
 
 	if (is_same_group(victim, ch) && ch != victim) {
-		victim->leader = NULL;
-		act("$n removes $N from $s group.",   ch, NULL, victim, TO_NOTVICT);
+		victim->leader = nullptr;
+		act("$n removes $N from $s group.",   ch, nullptr, victim, TO_NOTVICT);
 		set_color(victim, PURPLE, BOLD);
-		act("$n removes you from $s group.",  ch, NULL, victim, TO_VICT);
+		act("$n removes you from $s group.",  ch, nullptr, victim, TO_VICT);
 		set_color(victim, WHITE, NOBOLD);
 		set_color(ch, PURPLE, BOLD);
-		act("You remove $N from your group.", ch, NULL, victim, TO_CHAR);
+		act("You remove $N from your group.", ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	victim->leader = ch;
-	act("$N joins $n's group.", ch, NULL, victim, TO_NOTVICT);
-	act("You join $n's group.", ch, NULL, victim, TO_VICT);
-	act("$N joins your group.", ch, NULL, victim, TO_CHAR);
+	act("$N joins $n's group.", ch, nullptr, victim, TO_NOTVICT);
+	act("You join $n's group.", ch, nullptr, victim, TO_VICT);
+	act("$N joins your group.", ch, nullptr, victim, TO_CHAR);
 	return;
 }
 
@@ -1734,7 +1734,7 @@ void do_split(Character *ch, String argument)
 
 	members = 0;
 
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
 		if (is_same_group(gch, ch) && !affect_exists_on_char(gch, gsn_charm_person))
 			members++;
 	}
@@ -1781,9 +1781,9 @@ void do_split(Character *ch, String argument)
 		        amount_silver, amount_gold, amount_gold > 1 ? "s" : "", share_silver, share_gold);
 	}
 
-	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
 		if (gch != ch && is_same_group(gch, ch) && !IS_NPC(gch)) {
-			act(buf, ch, NULL, gch, TO_VICT);
+			act(buf, ch, nullptr, gch, TO_VICT);
 			gch->gold += share_gold;
 			gch->silver += share_silver;
 		}
@@ -1800,12 +1800,12 @@ void do_split(Character *ch, String argument)
  */
 bool is_same_group(Character *ach, Character *bch)
 {
-	if (ach == NULL || bch == NULL)
+	if (ach == nullptr || bch == nullptr)
 		return FALSE;
 
-	if (ach->leader != NULL) ach = ach->leader;
+	if (ach->leader != nullptr) ach = ach->leader;
 
-	if (bch->leader != NULL) bch = bch->leader;
+	if (bch->leader != nullptr) bch = bch->leader;
 
 	return ach == bch;
 }
@@ -1874,7 +1874,7 @@ void do_outfit(Character *ch, String argument)
 		return;
 	}
 
-	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL) {
+	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == nullptr) {
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
 
 		if (! obj) {
@@ -1887,7 +1887,7 @@ void do_outfit(Character *ch, String argument)
 		equip_char(ch, obj, WEAR_LIGHT);
 	}
 
-	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL) {
+	if ((obj = get_eq_char(ch, WEAR_BODY)) == nullptr) {
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
 
 		if (! obj) {
@@ -1901,7 +1901,7 @@ void do_outfit(Character *ch, String argument)
 	}
 
 	/* do the weapon thing */
-	if ((obj = get_eq_char(ch, WEAR_WIELD)) == NULL) {
+	if ((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr) {
 		sn = 0;
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
@@ -1924,9 +1924,9 @@ void do_outfit(Character *ch, String argument)
 		equip_char(ch, obj, WEAR_WIELD);
 	}
 
-	if (((obj = get_eq_char(ch, WEAR_WIELD)) == NULL
+	if (((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr
 	     ||   !IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS))
-	    && (obj = get_eq_char(ch, WEAR_SHIELD)) == NULL) {
+	    && (obj = get_eq_char(ch, WEAR_SHIELD)) == nullptr) {
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
 
 		if (! obj) {

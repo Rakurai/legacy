@@ -449,11 +449,11 @@ void config_censor(Character *ch, String argument)
 				"bullshit",     "pussy",        "dick",         "cock",
 				"motherfuck",   "clit",         "damn",         "dammit",
 				"dumbass",      "slut",         "whore",        "ass",
-				NULL
+				nullptr
 			};
 			int x;
 
-			for (x = 0; swear[x] != NULL; x++) {
+			for (x = 0; swear[x] != nullptr; x++) {
 				ptc(ch, "%15s", swear[x]);
 
 				if (x % 4 == 3)

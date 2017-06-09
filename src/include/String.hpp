@@ -6,7 +6,7 @@
 class String: public std::string, public Actable {
 public:
 	String() : std::string() {};
-	String(const char *c_str) : std::string(c_str == NULL ? "" : c_str) {};
+	String(const char *c_str) : std::string(c_str == nullptr ? "" : c_str) {};
 	String(const std::string &s_str) : std::string(s_str) {};
 	String(const String &name) : std::string(name) {};
 
@@ -79,7 +79,7 @@ public:
 	virtual std::string identifier() const { return *this; }
 
 private:
-	// don't allow NULL operations
+	// don't allow nullptr operations
 	String(std::nullptr_t);
 	String& operator=(std::nullptr_t);
 #ifdef __clang__

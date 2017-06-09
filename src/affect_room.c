@@ -33,7 +33,7 @@ void affect_join_to_room(RoomPrototype *room, Affect *paf) {
 
 	params.owner = room;
 	params.modifier = affect_modify_room;
-	params.data = NULL;
+	params.data = nullptr;
 
 	affect_dedup_in_list(&room->affected, paf, &params); // remove
 	affect_copy_to_room(room, paf); // add and modify holder
@@ -53,7 +53,7 @@ void affect_remove_matching_from_room(RoomPrototype *room, affect_comparator com
 
 	params.owner = room;
 	params.modifier = affect_modify_room;
-	params.data = NULL;
+	params.data = nullptr;
 
 	affect_remove_matching_from_list(&room->affected, comp, pattern, &params);
 }

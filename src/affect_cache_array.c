@@ -2,11 +2,11 @@
 #include "Affect.hpp"
 #include "Format.hpp"
 
-#define get_affect_cache(ch) ((ch)->affect_cache == NULL ? NULL : (sh_int *)(ch)->affect_cache)
+#define get_affect_cache(ch) ((ch)->affect_cache == nullptr ? nullptr : (sh_int *)(ch)->affect_cache)
 
 void free_affect_cache(Character *ch) {
 	delete[] (sh_int *)ch->affect_cache;
-	ch->affect_cache = NULL;
+	ch->affect_cache = nullptr;
 }
 
 bool affect_in_cache(const Character *ch, sh_int sn) {
@@ -24,7 +24,7 @@ void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 	}
 
 	if (fAdd) {
-		if (get_affect_cache(ch) == NULL) {
+		if (get_affect_cache(ch) == nullptr) {
 			ch->affect_cache = new sh_int[skill_table.size()];
 
 			for (int i = 0; i < skill_table.size(); i++)
@@ -35,8 +35,8 @@ void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 		get_affect_cache(ch)[0]++;
 	}
 	else {
-		if (get_affect_cache(ch) == NULL) {
-			bugf("update_affect_cache: illegal removal from NULL affect cache at sn %d (%s)",
+		if (get_affect_cache(ch) == nullptr) {
+			bugf("update_affect_cache: illegal removal from nullptr affect cache at sn %d (%s)",
 				sn, skill_table[sn].name);
 			return;
 		}
@@ -58,7 +58,7 @@ void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 String affect_print_cache(Character *ch) {
 	String buf;
 
-	if (ch->affect_cache == NULL)
+	if (ch->affect_cache == nullptr)
 		return buf;
 
 	for (int sn = 1; sn < skill_table.size(); sn++) {

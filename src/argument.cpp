@@ -19,7 +19,7 @@ int number_argument(const char *argument, char *arg)
 		/* Check for dot */
 		const char *pdot = strstr(argument, ".");
 
-		if (pdot != NULL) {
+		if (pdot != nullptr) {
 			char tmp_buf[strlen(argument)+1];
 			strcpy(tmp_buf, argument);
 			char *tdot = &tmp_buf[pdot - argument];
@@ -119,7 +119,7 @@ int mult_argument(const char *argument, char *arg)
 	strcpy(buf, argument);
 	char *pstar = strchr(buf, '*');
 
-	if (pstar == NULL) {
+	if (pstar == nullptr) {
 		/* no star: return 1 */
 		strcpy(arg, argument);
 		return 1;

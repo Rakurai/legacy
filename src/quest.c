@@ -43,9 +43,9 @@ void quest_init(void)
 	quest_upk = TRUE;   /* unlimited PK */
 	quest_startroom = get_room_index(QUEST_STARTROOM);
 
-	if (quest_startroom == NULL) {
+	if (quest_startroom == nullptr) {
 		bug("quest_init: Can't find quest start room %d.", QUEST_STARTROOM);
-		quest_area = NULL;
+		quest_area = nullptr;
 	}
 	else
 		quest_area = quest_startroom->area;
@@ -73,16 +73,16 @@ void sq_cleanup(Character *ch)
 	ch->pcdata->squest_giver = 0;
 	ch->pcdata->sqcountdown = 0;
 
-	for (obj = object_list; obj != NULL; obj = obj->next)
+	for (obj = object_list; obj != nullptr; obj = obj->next)
 		if (obj == ch->pcdata->squestobj)
 			extract_obj(obj);
 
-	for (mob = char_list; mob != NULL ; mob = mob->next)
+	for (mob = char_list; mob != nullptr ; mob = mob->next)
 		if (mob == ch->pcdata->squestmob)
 			extract_char(mob, TRUE);
 
-	ch->pcdata->squestobj = NULL;
-	ch->pcdata->squestmob = NULL;
+	ch->pcdata->squestobj = nullptr;
+	ch->pcdata->squestmob = nullptr;
 	ch->pcdata->squestobjf = FALSE;
 	ch->pcdata->squestmobf = FALSE;
 }
@@ -111,7 +111,7 @@ Character *find_questmaster(Character *ch)
 {
 	Character *questman;
 
-	for (questman = ch->in_room->people; questman != NULL; questman = questman->next_in_room) {
+	for (questman = ch->in_room->people; questman != nullptr; questman = questman->next_in_room) {
 		if (!IS_NPC(questman))
 			continue;
 
@@ -119,17 +119,17 @@ Character *find_questmaster(Character *ch)
 			break;
 	}
 
-	if (questman == NULL)
-		return NULL;
+	if (questman == nullptr)
+		return nullptr;
 
-	if (questman->pIndexData == NULL) {
-		bug("find_questmaster: Questmaster has NULL pIndexData!", 0);
-		questman = NULL;
+	if (questman->pIndexData == nullptr) {
+		bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
+		questman = nullptr;
 	}
 
-	if (questman->fighting != NULL) {
+	if (questman->fighting != nullptr) {
 		stc("Wait until the fighting stops.\n", ch);
-		questman = NULL;
+		questman = nullptr;
 	}
 
 	return questman;
@@ -139,7 +139,7 @@ Character *find_squestmaster(Character *ch)
 {
 	Character *questman;
 
-	for (questman = ch->in_room->people; questman != NULL; questman = questman->next_in_room) {
+	for (questman = ch->in_room->people; questman != nullptr; questman = questman->next_in_room) {
 		if (!IS_NPC(questman))
 			continue;
 
@@ -147,17 +147,17 @@ Character *find_squestmaster(Character *ch)
 			break;
 	}
 
-	if (questman == NULL)
-		return NULL;
+	if (questman == nullptr)
+		return nullptr;
 
-	if (questman->pIndexData == NULL) {
-		bug("find_questmaster: Questmaster has NULL pIndexData!", 0);
-		questman = NULL;
+	if (questman->pIndexData == nullptr) {
+		bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
+		questman = nullptr;
 	}
 
-	if (questman->fighting != NULL) {
+	if (questman->fighting != nullptr) {
 		stc("Wait until the fighting stops.\n", ch);
-		questman = NULL;
+		questman = nullptr;
 	}
 
 	return questman;
@@ -173,13 +173,13 @@ void quest_where(Character *ch, char *what)
 		return;
 	}
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	room = get_room_index(ch->questloc);
 
-	if (room->area == NULL) {
-		bug("QUEST INFO: room(%d)->area == NULL", ch->questloc);
+	if (room->area == nullptr) {
+		bug("QUEST INFO: room(%d)->area == nullptr", ch->questloc);
 		return;
 	}
 
@@ -210,14 +210,14 @@ void squest_info(Character *ch)
 
 	questman = get_mob_index(ch->pcdata->squest_giver);
 
-	if (questman == NULL) {
+	if (questman == nullptr) {
 		bug("QUEST INFO: skill quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmistress has fallen very ill. Please contact an imm!\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 		return;
 	}
 
-	if (ch->pcdata->squestobj == NULL && ch->pcdata->squestmob == NULL) { /* no quest */
+	if (ch->pcdata->squestobj == nullptr && ch->pcdata->squestmob == nullptr) { /* no quest */
 		stc("You've forgotten what your skill quest was.\n", ch);
 		bug("QUEST INFO: skill quest with no obj or mob", 0);
 		sq_cleanup(ch);
@@ -226,7 +226,7 @@ void squest_info(Character *ch)
 
 	ptc(ch, "You recall the skill quest which %s gave you.\n", questman->short_descr);
 
-	if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) { /* obj, no mob */
+	if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob == nullptr) { /* obj, no mob */
 		if (ch->pcdata->squestobjf) {
 			stc("Your skill quest is ALMOST complete!\n", ch);
 			ptc(ch, "Get back to %s before your time runs out!\n",
@@ -234,14 +234,14 @@ void squest_info(Character *ch)
 			return;
 		}
 
-		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == NULL) {
+		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == nullptr) {
 			bug("QUEST INFO: sqobj quest with no location", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		if (questroom_obj->area == NULL) {
+		if (questroom_obj->area == nullptr) {
 			bug("QUEST INFO: sqobj location with no area", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
@@ -255,7 +255,7 @@ void squest_info(Character *ch)
 		return;
 	}
 
-	if (ch->pcdata->squestobj == NULL && ch->pcdata->squestmob != NULL) { /* mob, no obj */
+	if (ch->pcdata->squestobj == nullptr && ch->pcdata->squestmob != nullptr) { /* mob, no obj */
 		if (ch->pcdata->squestmobf) {
 			stc("Your skill quest is ALMOST complete!\n", ch);
 			ptc(ch, "Get back to %s before your time runs out!\n",
@@ -263,14 +263,14 @@ void squest_info(Character *ch)
 			return;
 		}
 
-		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == NULL) {
+		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == nullptr) {
 			bug("QUEST INFO: sqmob quest with no location", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		if (questroom_mob->area == NULL) {
+		if (questroom_mob->area == nullptr) {
 			bug("QUEST INFO: sqmob location with no area", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
@@ -285,29 +285,29 @@ void squest_info(Character *ch)
 		return;
 	}
 
-	if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob != NULL) { /* mob and obj */
-		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == NULL) {
+	if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr) { /* mob and obj */
+		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == nullptr) {
 			bug("QUEST INFO: sqobj/mob quest with no obj location", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		if (questroom_obj->area == NULL) {
+		if (questroom_obj->area == nullptr) {
 			bug("QUEST INFO: sqobj location with no area", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == NULL) {
+		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == nullptr) {
 			bug("QUEST INFO: sqobj/mob quest with no mob location", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		if (questroom_mob->area == NULL) {
+		if (questroom_mob->area == nullptr) {
 			bug("QUEST INFO: sqmob location with no area", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
@@ -358,7 +358,7 @@ void quest_info(Character *ch)
 
 	questman = get_mob_index(ch->quest_giver);
 
-	if (questman == NULL) {
+	if (questman == nullptr) {
 		bug("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmaster has fallen very ill. Please contact an imm!\n", ch);
 		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
@@ -374,7 +374,7 @@ void quest_info(Character *ch)
 	else if (ch->questobj > 0) { /* questing for an object */
 		questinfoobj = get_obj_index(ch->questobj);
 
-		if (questinfoobj != NULL) {
+		if (questinfoobj != nullptr) {
 			stc("You recall the quest which the questmaster gave you.\n", ch);
 			ptc(ch, "You are on a quest to recover the fabled %s!\n", questinfoobj->name);
 			quest_where(ch, "treasure");
@@ -391,7 +391,7 @@ void quest_info(Character *ch)
 	else if (ch->questmob > 0) { /* questing for a mob */
 		questinfo = get_mob_index(ch->questmob);
 
-		if (questinfo != NULL) {
+		if (questinfo != nullptr) {
 			ptc(ch, "You are on a quest to slay the dreaded %s!\n", questinfo->short_descr);
 			quest_where(ch, "fiend");
 			return;
@@ -461,11 +461,11 @@ void squestobj_to_squestmob(Character *ch, Object *obj, Character *mob)
 	do_say(mob, buf);
 	extract_obj(obj);
 	do_say(mob, "I left the gold reward with the Questmistress.  Farewell, and thank you!");
-	act("$n turns and walks away.", mob, NULL, NULL, TO_ROOM);
+	act("$n turns and walks away.", mob, nullptr, nullptr, TO_ROOM);
 	stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
 	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 	Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has returned %s to %s", obj->short_descr, mob->short_descr);
-	wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
+	wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 	extract_char(mob, TRUE);
 	ch->pcdata->squestmobf = TRUE;
 }
@@ -489,26 +489,26 @@ void squestmob_found(Character *ch, Character *mob)
 			       "thought, and have more room for error, but focusing on the\n"
 			       "spell, shaping the magic in your mind, perfecting it, is what\n"
 			       "sets apart the spellcaster from the wizard.");
-			act("$N leads you through some simple exercises to clear your mind,", ch, NULL, mob, TO_CHAR);
-			act("then helps you to visualize the abstract logic required to form", ch, NULL, mob, TO_CHAR);
-			act("a fireball.", ch, NULL, mob, TO_CHAR);
-			act("$N touches a finger to $n's head, and $e looks more relaxed.", ch, NULL, mob, TO_NOTVICT);
+			act("$N leads you through some simple exercises to clear your mind,", ch, nullptr, mob, TO_CHAR);
+			act("then helps you to visualize the abstract logic required to form", ch, nullptr, mob, TO_CHAR);
+			act("a fireball.", ch, nullptr, mob, TO_CHAR);
+			act("$N touches a finger to $n's head, and $e looks more relaxed.", ch, nullptr, mob, TO_NOTVICT);
 			do_say(mob, "Any mage can cast a simple fireball.  But a true student of\n"
 			       "magic will look for new ways, and cast a more powerful spell in the end.");
-			act("In your mind, the fireball starts to glow brighter, it's color", ch, NULL, mob, TO_CHAR);
-			act("turning to a soft green.", ch, NULL, mob, TO_CHAR);
-			act("Beads of sweat start to run down $n's forehead as $e concentrates.", ch, NULL, mob, TO_NOTVICT);
+			act("In your mind, the fireball starts to glow brighter, it's color", ch, nullptr, mob, TO_CHAR);
+			act("turning to a soft green.", ch, nullptr, mob, TO_CHAR);
+			act("Beads of sweat start to run down $n's forehead as $e concentrates.", ch, nullptr, mob, TO_NOTVICT);
 			do_say(mob, "The truly great magicians strive to make spells their own.");
-			act("The fireball in your mind fades.", ch, NULL, mob, TO_CHAR);
-			act("$n opens $s eyes.", ch, NULL, mob, TO_NOTVICT);
+			act("The fireball in your mind fades.", ch, nullptr, mob, TO_CHAR);
+			act("$n opens $s eyes.", ch, nullptr, mob, TO_NOTVICT);
 			break;
 		}
 	}
 	else if (IS_SET(mob->act_flags, ACT_CLERIC)) {
 		switch (number_range(1, 1)) {
 		case 1:
-			act("$N smiles warmly at $n.", ch, NULL, mob, TO_NOTVICT);
-			act("$N smiles warmly at you.", ch, NULL, mob, TO_CHAR);
+			act("$N smiles warmly at $n.", ch, nullptr, mob, TO_NOTVICT);
+			act("$N smiles warmly at you.", ch, nullptr, mob, TO_CHAR);
 			do_say(mob, "Persons of a godly profession act in their deity's name.");
 			do_say(mob, "One cannot always know their deity's true thoughts and\n"
 			       "intent, so you must use your best judgement.");
@@ -525,46 +525,46 @@ void squestmob_found(Character *ch, Character *mob)
 			ptc(ch, "You feel a tap on your shoulder, and turn to see %s.\n", mob->short_descr);
 			do_say(mob, "Many people express distaste at the life of a lowly pickpocket.");
 			do_say(mob, "But, few occupations require such skill, dexterity, and daring.");
-			act("$n starts into a long monologue detailing the ethics of theft for a living.", mob, NULL, NULL, TO_ROOM);
+			act("$n starts into a long monologue detailing the ethics of theft for a living.", mob, nullptr, nullptr, TO_ROOM);
 			do_say(mob, "Is it right to steal?  I'll let you decide for yourself, no one\n"
 			       "  needs another to explain moral values.  But, for me...");
-			act("$N hands $n $s gold pouch, and winks.", ch, NULL, mob, TO_NOTVICT);
-			act("$N hands you your gold pouch, and winks.", ch, NULL, mob, TO_CHAR);
+			act("$N hands $n $s gold pouch, and winks.", ch, nullptr, mob, TO_NOTVICT);
+			act("$N hands you your gold pouch, and winks.", ch, nullptr, mob, TO_CHAR);
 			break;
 		}
 	}
 	else {  /* all sqmobs should have one flag, revert to warrior just in case */
 		switch (number_range(1, 2)) {
 		case 1:
-			act("$n draws $s blade and places it over $s shoulder.", mob, NULL, NULL, TO_ROOM);
+			act("$n draws $s blade and places it over $s shoulder.", mob, nullptr, nullptr, TO_ROOM);
 			do_say(mob, "The blade is of the most powerful of weapons.");
 			do_say(mob, "It can be used for close combat, distanced, and defense.");
-			act("$n takes a fighting stance, raising $s blade into the air.", mob, NULL, NULL, TO_ROOM);
+			act("$n takes a fighting stance, raising $s blade into the air.", mob, nullptr, nullptr, TO_ROOM);
 			do_say(mob, "In one fluid movement one can overcome an untrained oppenent.");
 			act("$n whirls the blade down swiftly, pulls it back up into\n"
-			    " the air and slices down again.", mob, NULL, NULL, TO_ROOM);
+			    " the air and slices down again.", mob, nullptr, nullptr, TO_ROOM);
 			do_say(mob, "A blade can be used for good, or for evil.");
-			act("$n pulls the blade back up and slides it into its sheath.", mob, NULL, NULL, TO_ROOM);
+			act("$n pulls the blade back up and slides it into its sheath.", mob, nullptr, nullptr, TO_ROOM);
 			do_say(mob, "But its not the blade who decides...");
 			break;
 
 		case 2:
-			act("$N draws $S blade and motions toward $n.", ch, NULL, mob, TO_NOTVICT);
-			act("$N draws $S blade and motions toward you.", ch, NULL, mob, TO_CHAR);
+			act("$N draws $S blade and motions toward $n.", ch, nullptr, mob, TO_NOTVICT);
+			act("$N draws $S blade and motions toward you.", ch, nullptr, mob, TO_CHAR);
 			do_say(mob, "A blade is true, unyeilding, and unstoppable.");
 			do_say(mob, "It can be used to protect, to defend, to destroy, to disarm.");
-			act("$N positions $S blade to point toward $n.", ch, NULL, mob, TO_NOTVICT);
-			act("$N positions $S blade to point toward you.", ch, NULL, mob, TO_CHAR);
+			act("$N positions $S blade to point toward $n.", ch, nullptr, mob, TO_NOTVICT);
+			act("$N positions $S blade to point toward you.", ch, nullptr, mob, TO_CHAR);
 			do_say(mob, "The soul of a blade is within you, and only by your hand can it be awakened.");
 			break;
 		}
 	}
 
-	act("$n turns and walks away.", mob, NULL, NULL, TO_ROOM);
+	act("$n turns and walks away.", mob, nullptr, nullptr, TO_ROOM);
 	stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
 	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 	Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has spoken with %s", mob->short_descr);
-	wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
+	wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 	extract_char(mob, TRUE);
 	ch->pcdata->squestmobf = TRUE;
 }
@@ -606,11 +606,11 @@ Object *generate_skillquest_obj(Character *ch, int level)
 			"Though quite dusty, this soft robe looks well used and gives of a warm, comforting glow.\n"
 		},
 
-		{NULL, NULL, NULL, NULL}
+		{nullptr, nullptr, nullptr, nullptr}
 	};
 
 	/* count the objects */
-	for (num_objs = 0; sq_item_table[num_objs].name != NULL; num_objs++);
+	for (num_objs = 0; sq_item_table[num_objs].name != nullptr; num_objs++);
 
 	num_objs--;
 	descnum = number_range(0, num_objs);
@@ -618,7 +618,7 @@ Object *generate_skillquest_obj(Character *ch, int level)
 
 	if (! questobj) {
 		bug("Memory error creating quest object.", 0);
-		return NULL;
+		return nullptr;
 	}
 
 	questobj->timer = (4 * ch->pcdata->sqcountdown + 10) / 3;
@@ -642,7 +642,7 @@ RoomPrototype *generate_skillquest_room(Character *ch, int level)
 	for (; ;) {
 		room = get_room_index(number_range(0, 32767));
 
-		if (room == NULL
+		if (room == nullptr
 		    || !can_see_room(ch, room)
 		    || room->area == quest_area
 		    || room->area->low_range > level
@@ -668,7 +668,7 @@ RoomPrototype *generate_skillquest_room(Character *ch, int level)
 			continue;
 
 		/* no pet shops */
-		if ((prev = get_room_index(room->vnum - 1)) != NULL)
+		if ((prev = get_room_index(room->vnum - 1)) != nullptr)
 			if (IS_SET(GET_ROOM_FLAGS(prev), ROOM_PET_SHOP))
 				continue;
 
@@ -690,7 +690,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	char *quest;
 	title = quest = "";             /* ew :( */
 
-	if ((questmob = create_mobile(get_mob_index(MOB_VNUM_SQUESTMOB))) == NULL) {
+	if ((questmob = create_mobile(get_mob_index(MOB_VNUM_SQUESTMOB))) == nullptr) {
 		bug("Bad skillquest mob vnum, from generate_skillquest_mob", 0);
 		return;
 	}
@@ -756,7 +756,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	Format::sprintf(longdesc, "The %s, %s, stands here.\n", title, questmob->short_descr);
 	questmob->long_descr = longdesc;
 
-	if ((questroom = generate_skillquest_room(ch, level)) == NULL) {
+	if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
 		bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
 		return;
 	}
@@ -773,13 +773,13 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		do_say(questman, buf);
 	}
 	else if (type == 2) {   /* obj to mob quest */
-		if ((questobj = generate_skillquest_obj(ch, level)) == NULL) {
+		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
 			bug(" Bad generate_skillquest_obj, from generate_skillquest_mob", 0);
 			return;
 		}
 
 		for (; ;) {
-			if ((questroom = generate_skillquest_room(ch, level)) == NULL) {
+			if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
 				bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
 				return;
 			}
@@ -820,12 +820,12 @@ void generate_skillquest(Character *ch, Character *questman)
 
 	/* 40% chance of an item quest */
 	if (chance(40)) {
-		if ((questobj = generate_skillquest_obj(ch, level)) == NULL) {
+		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
 			bug("Bad generate_skillquest_obj, from generate_skillquest", 0);
 			return;
 		}
 
-		if ((questroom = generate_skillquest_room(ch, level)) == NULL) {
+		if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
 			bug("Bad generate_skillquest_room, from generate_skillquest", 0);
 			return;
 		}
@@ -886,11 +886,11 @@ void generate_quest(Character *ch, Character *questman)
 		aligned = 0;
 		total = 0;
 
-		for (victim = char_list; victim != NULL; victim = victim->next) {
+		for (victim = char_list; victim != nullptr; victim = victim->next) {
 			if (!IS_NPC(victim)
-			    || victim->pIndexData == NULL
-			    || victim->in_room == NULL
-			    || victim->pIndexData->pShop != NULL
+			    || victim->pIndexData == nullptr
+			    || victim->in_room == nullptr
+			    || victim->pIndexData->pShop != nullptr
 			    || IS_SET(victim->act_flags, ACT_NOSUMMON)
 			    || IS_SET(victim->act_flags, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
@@ -928,13 +928,13 @@ void generate_quest(Character *ch, Character *questman)
 			}
 			else {
 				/* no victims found */
-				victim = NULL;
+				victim = nullptr;
 				break; /* BREAK for no victims found */
 			}
 		}
 	} /* end while */
 
-	if (victim == NULL) {
+	if (victim == nullptr) {
 		do_say(questman, "I'm sorry, but I don't have any quests for you at this time.");
 		do_say(questman, "Try again later.");
 		ch->nextquest = 1;
@@ -1079,7 +1079,7 @@ void do_quest(Character *ch, String argument)
 
 		wch = get_player_world(ch, player, VIS_PLR);
 
-		if (wch == NULL && !player.has_prefix("allchars")) {
+		if (wch == nullptr && !player.has_prefix("allchars")) {
 			ptc(ch, "You find no player named '%s' in the game!\n", player);
 			return;
 		}
@@ -1102,7 +1102,7 @@ void do_quest(Character *ch, String argument)
 			}
 
 			Format::sprintf(buf, "Log %s: QUEST AWARD allchars %d", ch->name, number);
-			wiznet(buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
+			wiznet(buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
 			log_string(buf);
 			return;
 		}
@@ -1111,14 +1111,14 @@ void do_quest(Character *ch, String argument)
 		ptc(ch, "You award %d quest points to %s.\n", number, wch->name);
 		ptc(wch, "%s awards %d quest points to you.\n", ch->name, number);
 		Format::sprintf(buf, "Log %s: QUEST AWARD %d to %s", ch->name, number, player);
-		wiznet(buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
 		log_string(buf);
 		return;
 	}
 
 	/*** COMPLETE ***/
 	if (arg1.is_prefix_of("complete")) {
-		Object *obj = NULL;
+		Object *obj = nullptr;
 		int pointreward = 0;
 		int reward = 0;
 		int pracreward = 0;
@@ -1129,9 +1129,9 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if ((questman = find_squestmaster(ch)) != NULL) {
-			act("$n informs $N $e has completed $s skill quest.", ch, NULL, questman, TO_ROOM);
-			act("You inform $N you have completed your skill quest.", ch, NULL, questman, TO_CHAR);
+		if ((questman = find_squestmaster(ch)) != nullptr) {
+			act("$n informs $N $e has completed $s skill quest.", ch, nullptr, questman, TO_ROOM);
+			act("You inform $N you have completed your skill quest.", ch, nullptr, questman, TO_CHAR);
 
 			if (ch->pcdata->squest_giver != questman->pIndexData->vnum) {
 				do_say(questman, "I never sent you on a skill quest!  Perhaps you're thinking of someone else.");
@@ -1156,10 +1156,10 @@ void do_quest(Character *ch, String argument)
 
 			/* if they're looking for an object, and not a mob */
 			if (ch->pcdata->squestobj && !ch->pcdata->squestmob) {
-				for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-					if (obj->pIndexData == NULL) {
-						bug("SQUEST COMPLETE: obj with NULL pIndexData", 0);
-						obj = NULL;
+				for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
+					if (obj->pIndexData == nullptr) {
+						bug("SQUEST COMPLETE: obj with nullptr pIndexData", 0);
+						obj = nullptr;
 						break;
 					}
 					else if (obj == ch->pcdata->squestobj)
@@ -1167,7 +1167,7 @@ void do_quest(Character *ch, String argument)
 				}
 
 				/* check to see if they dropped it on the way */
-				if (ch->pcdata->squestobjf && obj == NULL) {
+				if (ch->pcdata->squestobjf && obj == nullptr) {
 					do_say(questman, "You must have lost the item on the way here.  Hurry and find it!");
 					ch->pcdata->squestobjf = FALSE;
 					return;
@@ -1251,12 +1251,12 @@ void do_quest(Character *ch, String argument)
 			ch->pcdata->nextsquest = pointreward;
 			ch->gold += reward;
 			ch->pcdata->skillpoints += pointreward;
-			wiznet("{Y:SKILL QUEST:{x $N has completed a skill quest", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:SKILL QUEST:{x $N has completed a skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
-		else if ((questman = find_questmaster(ch)) != NULL) {
-			act("$n informs $N $e has completed $s quest.", ch, NULL, questman, TO_ROOM);
-			act("You inform $N you have completed your quest.", ch, NULL, questman, TO_CHAR);
+		else if ((questman = find_questmaster(ch)) != nullptr) {
+			act("$n informs $N $e has completed $s quest.", ch, nullptr, questman, TO_ROOM);
+			act("You inform $N you have completed your quest.", ch, nullptr, questman, TO_CHAR);
 
 			if (ch->quest_giver != questman->pIndexData->vnum) {
 				do_say(questman, "I never sent you on a quest!  Perhaps you're thinking of someone else.");
@@ -1289,10 +1289,10 @@ void do_quest(Character *ch, String argument)
 
 			/* check if player has the quest object */
 			if (ch->questobj > 0) {
-				for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-					if (obj->pIndexData == NULL) {
-						bug("QUEST COMPLETE: obj with NULL pIndexData", 0);
-						obj = NULL;
+				for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
+					if (obj->pIndexData == nullptr) {
+						bug("QUEST COMPLETE: obj with nullptr pIndexData", 0);
+						obj = nullptr;
 						break;
 					}
 					else if (obj->pIndexData->vnum == ch->questobj)
@@ -1301,25 +1301,25 @@ void do_quest(Character *ch, String argument)
 			}
 
 			/* Added this in cause they drop their quest item after finding it */
-			if (ch->questobf < 0 && obj == NULL) {
+			if (ch->questobf < 0 && obj == nullptr) {
 				do_say(questman, "You must have lost your quest item on the way here.  Hurry and find it!");
 				ch->questobf = 0;
 				return;
 			}
 
 			/* check for incomplete quest */
-			if (ch->questmob > 0 || (ch->questobj > 0 && obj == NULL)) {
+			if (ch->questmob > 0 || (ch->questobj > 0 && obj == nullptr)) {
 				do_say(questman, "You haven't completed the quest yet, but there is still time!");
 				return;
 			}
 
 			/* rewards are calculated in the separate cases for mob and obj, but the ceremony is left
 			   until after the endif to avoid duplicate code -- Elrac */
-			if (ch->questobj > 0 && obj != NULL) {
+			if (ch->questobj > 0 && obj != nullptr) {
 				act("You hand $p to $N.", ch, obj, questman, TO_CHAR);
 				act("$n hands $p to $N.", ch, obj, questman, TO_ROOM);
 				extract_obj(obj);
-				obj = NULL;
+				obj = nullptr;
 			}
 			else if (ch->questmob != -1) {
 				/* we shouldn't be here. */
@@ -1368,7 +1368,7 @@ void do_quest(Character *ch, String argument)
 			ch->gold += reward;
 			ch->questpoints += pointreward;
 			ch->practice += pracreward;
-			wiznet("{Y:QUEST:{x $N has completed a quest", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has completed a quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
 		else
@@ -1406,17 +1406,17 @@ void do_quest(Character *ch, String argument)
 
 			temple = get_room_index(ROOM_VNUM_TEMPLE);
 
-			if (temple == NULL)
+			if (temple == nullptr)
 				bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
 			else {
-				for (victim = char_list; victim != NULL; victim = victim->next) {
-					if (!IS_NPC(victim) && victim->in_room != NULL
+				for (victim = char_list; victim != nullptr; victim = victim->next) {
+					if (!IS_NPC(victim) && victim->in_room != nullptr
 					    && victim->in_room->area == quest_area) {
-						act("You expel $N from the quest area.", ch, NULL, victim, TO_CHAR);
+						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);
 						stc("You are expelled from the quest area.\n", victim);
 						char_from_room(victim);
 						char_to_room(victim, temple);
-						act("$n arrives from a mushroom cloud.", victim, NULL, NULL, TO_ROOM);
+						act("$n arrives from a mushroom cloud.", victim, nullptr, nullptr, TO_ROOM);
 						do_look(victim, "auto");
 					}
 				}
@@ -1438,7 +1438,7 @@ void do_quest(Character *ch, String argument)
 		String arg;
 		argument = one_argument(argument, arg);
 
-		if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+		if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 			stc("Player not found.\n", ch);
 			return;
 		}
@@ -1465,7 +1465,7 @@ void do_quest(Character *ch, String argument)
 		stc(buf, ch);
 		stc(buf, victim);
 		Format::sprintf(buf, "%s deducted %d qp from %s [%d remaining].", ch->name, qpoint, victim->name, victim->questpoints);
-		wiznet(buf, ch, NULL, WIZ_SECURE, WIZ_QUEST, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_SECURE, WIZ_QUEST, GET_RANK(ch));
 		return;
 	}
 
@@ -1473,13 +1473,13 @@ void do_quest(Character *ch, String argument)
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("double")) {
 		if (!quest_double) {
 			stc("You declare double QP for all!\n", ch);
-			wiznet("{Y:QUEST:{x $N has declared double QP", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has declared double QP", ch, nullptr, WIZ_QUEST, 0, 0);
 			do_send_announce(ch, "The Gods have declared Double QP for all!  Happy Questing!");
 			quest_double = 1;
 		}
 		else {
 			stc("You declare normal QP for all.\n", ch);
-			wiznet("{Y:QUEST:{x $N has declared normal QP", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has declared normal QP", ch, nullptr, WIZ_QUEST, 0, 0);
 			do_send_announce(ch, "The Gods have declared normal questing.");
 			quest_double = 0;
 		}
@@ -1494,15 +1494,15 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(ch->pcdata->plr, PLR_SQUESTOR) && find_squestmaster(ch) != NULL) {
+		if (IS_SET(ch->pcdata->plr, PLR_SQUESTOR) && find_squestmaster(ch) != nullptr) {
 			sq_cleanup(ch);
 			ch->pcdata->nextsquest = 10;
-			wiznet("{Y:SKILL QUEST:{x $N has forfeited $S skill quest", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:SKILL QUEST:{x $N has forfeited $S skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			stc("You have forfeited your skill quest.\n", ch);
 			return;
 		}
 
-		if (IS_SET(ch->act_flags, PLR_QUESTOR) && find_questmaster(ch) != NULL) {
+		if (IS_SET(ch->act_flags, PLR_QUESTOR) && find_questmaster(ch) != nullptr) {
 			REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 			ch->quest_giver = 0;
 			ch->countdown = 0;
@@ -1511,7 +1511,7 @@ void do_quest(Character *ch, String argument)
 			ch->questobf = 0;
 			ch->questloc = 0;
 			ch->nextquest = 6;
-			wiznet("{Y:QUEST:{x $N has forfeited $S quest", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has forfeited $S quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			stc("You have forfeited your quest.\n", ch);
 			return;
 		}
@@ -1522,7 +1522,7 @@ void do_quest(Character *ch, String argument)
 
 	/*** INFO ***/
 	if (arg1.is_prefix_of("info")) {
-		if (ch->in_room == NULL || ch->in_room->area == NULL) {
+		if (ch->in_room == nullptr || ch->in_room->area == nullptr) {
 			stc("You cannot recall your quest from this location.\n", ch);
 			return;
 		}
@@ -1540,7 +1540,7 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->in_room == NULL) {
+		if (ch->in_room == nullptr) {
 			stc("Something prevents you from joining the quest.\n", ch);
 			return;
 		}
@@ -1565,15 +1565,15 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->fighting != NULL) {
+		if (ch->fighting != nullptr) {
 			stc("You will need to stop fighting before you can join the quest.\n", ch);
 			return;
 		}
 
-		act("$n joins the quest!", ch, NULL, NULL, TO_ROOM);
+		act("$n joins the quest!", ch, nullptr, nullptr, TO_ROOM);
 		char_from_room(ch);
 		char_to_room(ch, quest_startroom);
-		act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);
+		act("$n appears in the room.", ch, nullptr, nullptr, TO_ROOM);
 		stc("You join the Quest!\n", ch);
 		do_look(ch, "auto");
 		return;
@@ -1589,13 +1589,13 @@ void do_quest(Character *ch, String argument)
 		stc("Name           Mobile Object Loctn   Time  QP   --- MobLoc ObjLoc  Time  SP\n", ch);
 		stc("-----------------------------------------------------------------------------\n", ch);
 
-		for (d = descriptor_list; d != NULL; d = d->next) {
+		for (d = descriptor_list; d != nullptr; d = d->next) {
 			Character *wch;
 
 			if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
 				continue;
 
-			wch = (d->original != NULL) ? d->original : d->character;
+			wch = (d->original != nullptr) ? d->original : d->character;
 
 			if (IS_NPC(wch) || !can_see_who(ch, wch))
 				continue;
@@ -1634,8 +1634,8 @@ void do_quest(Character *ch, String argument)
 				        0, 0, 0, wch->nextquest, wch->questpoints);
 
 			if (IS_SQUESTOR(wch)) {
-				if (wch->pcdata->squestmob == NULL      /* item quest */
-				    && wch->pcdata->squestobj != NULL) {
+				if (wch->pcdata->squestmob == nullptr      /* item quest */
+				    && wch->pcdata->squestobj != nullptr) {
 					Format::sprintf(mblock, "{G<%5d>{x", 0);
 
 					if (wch->pcdata->squestobjf)    /* item has been found */
@@ -1643,8 +1643,8 @@ void do_quest(Character *ch, String argument)
 					else
 						Format::sprintf(oblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc1);
 				}
-				else if (wch->pcdata->squestobj == NULL /* mob quest */
-				         && wch->pcdata->squestmob != NULL) {
+				else if (wch->pcdata->squestobj == nullptr /* mob quest */
+				         && wch->pcdata->squestmob != nullptr) {
 					Format::sprintf(oblock, "{G<%5d>{x", 0);
 
 					if (wch->pcdata->squestmobf)    /* mob has been found */
@@ -1652,8 +1652,8 @@ void do_quest(Character *ch, String argument)
 					else
 						Format::sprintf(mblock, "{T<{G%5d{T>{x", wch->pcdata->squestloc2);
 				}
-				else if (wch->pcdata->squestobj != NULL /* item to mob quest */
-				         && wch->pcdata->squestmob != NULL) {
+				else if (wch->pcdata->squestobj != nullptr /* item to mob quest */
+				         && wch->pcdata->squestmob != nullptr) {
 					if (wch->pcdata->squestobjf)    /* item has been found */
 						Format::sprintf(oblock, "{C<{Gfound{C>{x");
 					else
@@ -1686,7 +1686,7 @@ void do_quest(Character *ch, String argument)
 
 	/*** OPEN ***/
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("open")) {
-		if ((quest_startroom = get_room_index(QUEST_STARTROOM)) == NULL) {
+		if ((quest_startroom = get_room_index(QUEST_STARTROOM)) == nullptr) {
 			stc("The quest area is not available in this reboot.\n", ch);
 			return;
 		}
@@ -1733,7 +1733,7 @@ void do_quest(Character *ch, String argument)
 		RoomPrototype *to_room;
 		salesgnome = get_mob_world(ch, "salesgnome", VIS_CHAR);
 
-		if (salesgnome == NULL)
+		if (salesgnome == nullptr)
 			bug("QUEST PK: salesgnome not there", 0);
 
 		stc("PK in Questlands is now ", ch);
@@ -1741,12 +1741,12 @@ void do_quest(Character *ch, String argument)
 
 		if (quest_upk) {
 			stc("UNLIMITED (Questlands = Open Arena)\n", ch);
-			wiznet("{Y:QUEST:{x $N has opened Questlands for Open Arena", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has opened Questlands for Open Arena", ch, nullptr, WIZ_QUEST, 0, 0);
 
-			if (salesgnome != NULL) {
+			if (salesgnome != nullptr) {
 				to_room = get_room_index(ROOM_VNUM_ARENATICKET);
 
-				if (to_room == NULL) {
+				if (to_room == nullptr) {
 					bug("QUEST PK: Can't find ticket booth", 0);
 					return;
 				}
@@ -1757,12 +1757,12 @@ void do_quest(Character *ch, String argument)
 		}
 		else {
 			stc("LIMITED (like everywhere else)\n", ch);
-			wiznet("{Y:QUEST:{x $N has restricted PK in Questlands", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has restricted PK in Questlands", ch, nullptr, WIZ_QUEST, 0, 0);
 
-			if (salesgnome != NULL) {
+			if (salesgnome != nullptr) {
 				to_room = get_room_index(ROOM_VNUM_TICKETBACKROOM);
 
-				if (to_room == NULL) {
+				if (to_room == nullptr) {
 					bug("QUEST PK: Can't find ticket booth back room", 0);
 					return;
 				}
@@ -1789,9 +1789,9 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if ((questman = find_squestmaster(ch)) != NULL) {
-			act("$n asks $N for a skill quest.", ch, NULL, questman, TO_ROOM);
-			act("You ask $N for a skill quest.", ch, NULL, questman, TO_CHAR);
+		if ((questman = find_squestmaster(ch)) != nullptr) {
+			act("$n asks $N for a skill quest.", ch, nullptr, questman, TO_ROOM);
+			act("You ask $N for a skill quest.", ch, nullptr, questman, TO_CHAR);
 
 			if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET)) {
 				check_social(questman, "rofl", ch->name.c_str());
@@ -1800,7 +1800,7 @@ void do_quest(Character *ch, String argument)
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
-				if (ch->leader != NULL)
+				if (ch->leader != nullptr)
 					check_social(questman, "laugh", ch->leader->name.c_str());
 
 				return;
@@ -1813,27 +1813,27 @@ void do_quest(Character *ch, String argument)
 
 			if (ch->pcdata->nextsquest > 0) {
 				act("$N says 'You're very brave, $n, but let someone else have a chance.'",
-				    ch, NULL, questman, TO_ROOM);
+				    ch, nullptr, questman, TO_ROOM);
 				act("$N says 'You're very brave, $n, but let someone else have a chance.'",
-				    ch, NULL, questman, TO_CHAR);
+				    ch, nullptr, questman, TO_CHAR);
 				return;
 			}
 
-			act("$N says 'Thank you, brave $n!", ch, NULL, questman, TO_ROOM);
-			act("$N says 'Thank you, brave $n!", ch, NULL, questman, TO_CHAR);
+			act("$N says 'Thank you, brave $n!", ch, nullptr, questman, TO_ROOM);
+			act("$N says 'Thank you, brave $n!", ch, nullptr, questman, TO_CHAR);
 			sq_cleanup(ch);
 			generate_skillquest(ch, questman);
 			SET_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 			Format::sprintf(buf, "You have %d minutes to complete this quest.", ch->pcdata->sqcountdown);
 			do_say(questman, buf);
 			do_say(questman, "May the gods go with you!");
-			wiznet("{Y:SKILL QUEST:{x $N has begun a skill quest", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:SKILL QUEST:{x $N has begun a skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
 
-		if ((questman = find_questmaster(ch)) != NULL) {
-			act("$n asks $N for a quest.", ch, NULL, questman, TO_ROOM);
-			act("You ask $N for a quest.", ch, NULL, questman, TO_CHAR);
+		if ((questman = find_questmaster(ch)) != nullptr) {
+			act("$n asks $N for a quest.", ch, nullptr, questman, TO_ROOM);
+			act("You ask $N for a quest.", ch, nullptr, questman, TO_CHAR);
 
 			if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET)) {
 				check_social(questman, "rofl", ch->name.c_str());
@@ -1842,7 +1842,7 @@ void do_quest(Character *ch, String argument)
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
-				if (ch->leader != NULL)
+				if (ch->leader != nullptr)
 					check_social(questman, "laugh", ch->leader->name.c_str());
 
 				return;
@@ -1854,13 +1854,13 @@ void do_quest(Character *ch, String argument)
 			}
 
 			if (ch->nextquest > 0) {
-				act("$N says 'You're very brave, $n, but let someone else have a chance.'", ch, NULL, questman, TO_ROOM);
-				act("$N says 'You're very brave, $n, but let someone else have a chance.'", ch, NULL, questman, TO_CHAR);
+				act("$N says 'You're very brave, $n, but let someone else have a chance.'", ch, nullptr, questman, TO_ROOM);
+				act("$N says 'You're very brave, $n, but let someone else have a chance.'", ch, nullptr, questman, TO_CHAR);
 				return;
 			}
 
-			act("$N says 'Thank you, brave $n!", ch, NULL, questman, TO_ROOM);
-			act("$N says 'Thank you, brave $n!", ch, NULL, questman, TO_CHAR);
+			act("$N says 'Thank you, brave $n!", ch, nullptr, questman, TO_ROOM);
+			act("$N says 'Thank you, brave $n!", ch, nullptr, questman, TO_CHAR);
 			ch->questmob = 0;
 			ch->questobj = 0;
 			ch->questobf = 0;
@@ -1874,7 +1874,7 @@ void do_quest(Character *ch, String argument)
 				do_say(questman, "May the gods go with you!");
 			}
 
-			wiznet("{Y:QUEST:{x $N has begun a quest", ch, NULL, WIZ_QUEST, 0, 0);
+			wiznet("{Y:QUEST:{x $N has begun a quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
 		else

@@ -122,7 +122,7 @@ void init_mm()
 	}
 
 #else
-	srandom(time(NULL)^getpid());
+	srandom(time(nullptr)^getpid());
 #endif
 	return;
 }

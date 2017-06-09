@@ -772,7 +772,7 @@ const std::vector<skill_type> skill_table = {
 	                "acid blast",           { 28, 33, 35, 32, 28, 33, 35, 32 },
 	                                        { 1, 1, 2, 2, 1, 1, 2, 2 },
 	                spell_acid_blast,       TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-	                NULL,                   SLOT(70),       20,     12,
+	                nullptr,                   SLOT(70),       20,     12,
 	                "acid blast",           "!Acid Blast!",         "",     0,
 	                { 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	        },

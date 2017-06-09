@@ -161,12 +161,12 @@ int objstate_save_items()
 	if (port != DIZZYPORT)
 		return 0;
 
-	if ((fp = fopen(COPYOVER_ITEMS, "w")) == NULL) {
+	if ((fp = fopen(COPYOVER_ITEMS, "w")) == nullptr) {
 		bugf("Could not write to copyover file: %s", COPYOVER_ITEMS);
 		return 0;
 	}
 
-	for (obj = object_list; obj != NULL; obj = obj->next)
+	for (obj = object_list; obj != nullptr; obj = obj->next)
 		if (is_worth_saving(obj))
 			fwrite_objstate(obj, fp, &count);
 
@@ -183,31 +183,31 @@ Object *fload_objstate(FILE *fp, int *count)
 	int rvnum, nests, ovnum, enchanted;
 
 	if (feof(fp))
-		return NULL;
+		return nullptr;
 
 	if (fread_word(fp) != "OBJ")
-		return NULL;
+		return nullptr;
 
 	ovnum = fread_number(fp);
 
-	if (get_obj_index(ovnum) == NULL) {
+	if (get_obj_index(ovnum) == nullptr) {
 		obj = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
 		if (obj)
 			extract = TRUE;
 		else {
 			bug("Memory error creating TREASURE object.", 0);
-			return NULL;
+			return nullptr;
 		}
 	}
-	else if ((obj = create_object(get_obj_index(ovnum), 0)) == NULL) {
+	else if ((obj = create_object(get_obj_index(ovnum), 0)) == nullptr) {
 		/* make a temp object, we'll extract it later, so we can read the rest of the list */
 		extract = TRUE;
 		obj = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
 		if (! obj) {
 			bug("Error creating TREASURE object.", 0);
-			return NULL;
+			return nullptr;
 		}
 	}
 
@@ -220,7 +220,7 @@ Object *fload_objstate(FILE *fp, int *count)
 	if (enchanted)
 		affect_remove_all_from_obj(obj, TRUE); // read them from the file
 
-	if (ovnum == OBJ_VNUM_PIT && donation_pit == NULL) {
+	if (ovnum == OBJ_VNUM_PIT && donation_pit == nullptr) {
 		donation_pit = obj;
 		Format::printf("Loading donation pit with %d items.\n", nests);
 	}
@@ -319,7 +319,7 @@ Object *fload_objstate(FILE *fp, int *count)
 
 	/* load it's contents */
 	for (int i = 0; i < nests; i++) {
-		if ((cobj = fload_objstate(fp, count)) != NULL)
+		if ((cobj = fload_objstate(fp, count)) != nullptr)
 			obj_to_obj(cobj, obj);
 	}
 
@@ -327,7 +327,7 @@ Object *fload_objstate(FILE *fp, int *count)
 	if (extract)
 		extract_obj(obj);
 	else if (rvnum > 0) {
-		if ((room = get_room_index(rvnum)) == NULL)
+		if ((room = get_room_index(rvnum)) == nullptr)
 			/* room not found, extract the object */
 			extract_obj(obj);
 		else {
@@ -352,7 +352,7 @@ int objstate_load_items()
 	FILE *fp;
 	int count = 0;
 
-	if ((fp = fopen(COPYOVER_ITEMS, "r")) == NULL) {
+	if ((fp = fopen(COPYOVER_ITEMS, "r")) == nullptr) {
 		bugf("Could not open copyover file: %s", COPYOVER_ITEMS);
 		return 0;
 	}

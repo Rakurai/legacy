@@ -36,7 +36,7 @@ extern Area *area_first;
 void do_flag(Character *ch, String argument)
 {
 	char what[MIL];
-	Character *victim = NULL;
+	Character *victim = nullptr;
 	Object *object;
 	RoomPrototype *room;
 	unsigned long *flag;
@@ -107,7 +107,7 @@ void do_flag(Character *ch, String argument)
 		else
 			victim = get_char_world(ch, arg2, VIS_CHAR);
 
-		if (victim == NULL) {
+		if (victim == nullptr) {
 			stc("You can't find them.\n", ch);
 			return;
 		}
@@ -182,7 +182,7 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 
-		if ((object = get_obj_world(ch, arg2)) == NULL) {
+		if ((object = get_obj_world(ch, arg2)) == nullptr) {
 			stc("You can't find it.\n", ch);
 			return;
 		}
@@ -222,7 +222,7 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 
-		if ((room = get_room_index(atoi(arg2))) == NULL) {
+		if ((room = get_room_index(atoi(arg2))) == nullptr) {
 			ptc(ch, "Room %d does not exist.\n", atoi(arg1));
 			return;
 		}
@@ -405,10 +405,10 @@ int fsearch_player(Character *ch, int fieldptr, long marked)
 	long flag;
 	output += "{VCount {YRoom{x\n";
 
-	for (vpc = pc_list; vpc != NULL; vpc = vpc->next) {
-		if ((victim = vpc->ch) == NULL
+	for (vpc = pc_list; vpc != nullptr; vpc = vpc->next) {
+		if ((victim = vpc->ch) == nullptr
 		    || IS_NPC(victim)
-		    || victim->in_room == NULL
+		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))
 			continue;
@@ -460,9 +460,9 @@ int fsearch_mobile(Character *ch, int fieldptr, long marked)
 	long flag;
 	output += "{VCount  {YRoom   {GMob{x\n";
 
-	for (victim = char_list; victim != NULL; victim = victim->next) {
+	for (victim = char_list; victim != nullptr; victim = victim->next) {
 		if (!IS_NPC(victim)
-		    || victim->in_room == NULL
+		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))
 			continue;
@@ -556,7 +556,7 @@ void fsearch_room(Character *ch, int fieldptr, long marked)
 
 	for (area = area_first; area; area = area->next) {
 		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
-			if ((room = get_room_index(vnum)) == NULL
+			if ((room = get_room_index(vnum)) == nullptr
 			    || !can_see_room(ch, room))
 				continue;
 
@@ -603,7 +603,7 @@ void fsearch_obj(Character *ch, int fieldptr, long marked)
 	output += "{VCount {YRoom  {GObject{x\n";
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
-	for (obj = object_list; obj != NULL; obj = obj->next) {
+	for (obj = object_list; obj != nullptr; obj = obj->next) {
 		/* take care of flag comparison first */
 		switch (fieldptr) {
 		case FIELD_EXTRA:       flag = obj->extra_flags;        break;
@@ -618,11 +618,11 @@ void fsearch_obj(Character *ch, int fieldptr, long marked)
 		if ((marked & flag) != marked)
 			continue;
 
-		for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
+		for (in_obj = obj; in_obj->in_obj != nullptr; in_obj = in_obj->in_obj)
 			;
 
 		if (in_obj->carried_by) {
-			if (in_obj->carried_by->in_room == NULL
+			if (in_obj->carried_by->in_room == nullptr
 			    || !can_see_room(ch, in_obj->carried_by->in_room)
 			    || !can_see_char(ch, in_obj->carried_by))
 				continue;
@@ -635,7 +635,7 @@ void fsearch_obj(Character *ch, int fieldptr, long marked)
 			        PERS(in_obj->carried_by, ch, VIS_PLR));
 		}
 		else if (in_obj->in_locker) {
-			if (in_obj->in_locker->in_room == NULL
+			if (in_obj->in_locker->in_room == nullptr
 			    || !can_see_room(ch, in_obj->in_locker->in_room)
 			    || !can_see_char(ch, in_obj->in_locker))
 				continue;
@@ -648,7 +648,7 @@ void fsearch_obj(Character *ch, int fieldptr, long marked)
 			        PERS(in_obj->in_locker, ch, VIS_PLR));
 		}
 		else if (in_obj->in_strongbox) {
-			if (in_obj->in_strongbox->in_room == NULL
+			if (in_obj->in_strongbox->in_room == nullptr
 			    || !can_see_room(ch, in_obj->in_strongbox->in_room)
 			    || !can_see_char(ch, in_obj->in_strongbox))
 				continue;

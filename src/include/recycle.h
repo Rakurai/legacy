@@ -31,7 +31,7 @@
 /* externs */
 extern int mobile_count;
 
-#define IS_VALID(data)          ((data) != NULL && (data)->valid)
+#define IS_VALID(data)          ((data) != nullptr && (data)->valid)
 #define VALIDATE(data)          ((data)->valid = TRUE)
 #define INVALIDATE(data)        ((data)->valid = FALSE)
 

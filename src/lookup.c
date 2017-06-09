@@ -36,7 +36,7 @@ Clan *clan_vnum_lookup(int vnum)
 		if (vnum >= c->area_minvnum && vnum <= c->area_maxvnum)
 			return c;
 
-	return NULL;
+	return nullptr;
 }
 
 Clan *clan_lookup(const String& name)
@@ -44,7 +44,7 @@ Clan *clan_lookup(const String& name)
 	Clan *iterator;
 
 	if (name[0] == '\0')
-		return NULL;
+		return nullptr;
 
 	iterator = clan_table_head->next;
 
@@ -55,7 +55,7 @@ Clan *clan_lookup(const String& name)
 		iterator = iterator->next;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 int position_lookup(const String& name)

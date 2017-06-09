@@ -386,7 +386,7 @@ void unique_item(Object *item)
 
 		                for testing, write all modified items in a list to a file
 
-		                if ((fp = fopen(UNIQUE_FILE, "w")) = NULL)
+		                if ((fp = fopen(UNIQUE_FILE, "w")) = nullptr)
 		                {
 		                        perror(UNIQUE_FILE);
 		                        bug("Could not open unique.txt",0);
@@ -400,7 +400,7 @@ void unique_item(Object *item)
 		*/
 
 		/* enable below 2 lines for testing */
-		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == NULL ? 0 : item->in_room->vnum);
+		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == nullptr ? 0 : item->in_room->vnum);
 		                bug(buf,0); */
 	}
 }
@@ -413,7 +413,7 @@ RoomPrototype *get_random_reset_room(Area *area)
 
 	while (pass <= 2) {
 		for (i = area->min_vnum, count = 0; i <= area->max_vnum; i++) {
-			if ((room = get_room_index(i)) == NULL)
+			if ((room = get_room_index(i)) == nullptr)
 				continue;
 
 			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_MOB
@@ -440,7 +440,7 @@ RoomPrototype *get_random_reset_room(Area *area)
 		pick = number_range(0, count);
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /*
@@ -452,11 +452,11 @@ void reset_area(Area *pArea)
 	Character *mob;
 	bool last;
 	int level;
-	mob         = NULL;
+	mob         = nullptr;
 	last        = TRUE;
 	level       = 0;
 
-	for (pReset = pArea->reset_first; pReset != NULL; pReset = pReset->next) {
+	for (pReset = pArea->reset_first; pReset != nullptr; pReset = pReset->next) {
 		RoomPrototype *pRoomIndex;
 		MobilePrototype *pMobIndex;
 		ObjectPrototype *pObjIndex;
@@ -472,7 +472,7 @@ void reset_area(Area *pArea)
 			break;
 
 		case 'M':
-			if ((pMobIndex = get_mob_index(pReset->arg1)) == NULL) {
+			if ((pMobIndex = get_mob_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'M': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -486,18 +486,18 @@ void reset_area(Area *pArea)
 				if (!chance(pReset->arg4))
 					continue;
 
-				if ((pRoomIndex = get_random_reset_room(pArea)) == NULL) {
+				if ((pRoomIndex = get_random_reset_room(pArea)) == nullptr) {
 					bug("Reset_area: 'R': no random room found.", 0);
 					continue;
 				}
 			}
 			else {
-				if ((pRoomIndex = get_room_index(pReset->arg3)) == NULL) {
+				if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
 					bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 					continue;
 				}
 
-				for (mob = pRoomIndex->people, count = 0; mob != NULL; mob = mob->next_in_room)
+				for (mob = pRoomIndex->people, count = 0; mob != nullptr; mob = mob->next_in_room)
 					if (mob->pIndexData == pMobIndex) {
 						count++;
 
@@ -525,7 +525,7 @@ void reset_area(Area *pArea)
 				RoomPrototype *pRoomIndexPrev;
 				pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
 
-				if (pRoomIndexPrev != NULL
+				if (pRoomIndexPrev != nullptr
 				    && IS_SET(GET_ROOM_FLAGS(pRoomIndexPrev), ROOM_PET_SHOP))
 					SET_BIT(mob->act_flags, ACT_PET);
 			}
@@ -538,7 +538,7 @@ void reset_area(Area *pArea)
 
 		case 'O':
 			// might have loaded the pit from the copyover recovery file
-			if (pReset->arg1 == OBJ_VNUM_PIT && donation_pit != NULL) {
+			if (pReset->arg1 == OBJ_VNUM_PIT && donation_pit != nullptr) {
 				last = FALSE;
 				break;
 			}
@@ -548,12 +548,12 @@ void reset_area(Area *pArea)
 				break;
 			}
 
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'O': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pRoomIndex = get_room_index(pReset->arg3)) == NULL) {
+			if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
 				bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 				continue;
 			}
@@ -583,12 +583,12 @@ void reset_area(Area *pArea)
 			break;
 
 		case 'P':
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'P': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pObjToIndex = get_obj_index(pReset->arg3)) == NULL) {
+			if ((pObjToIndex = get_obj_index(pReset->arg3)) == nullptr) {
 				bug("Reset_area: 'P': bad vnum %d.", pReset->arg3);
 				continue;
 			}
@@ -601,8 +601,8 @@ void reset_area(Area *pArea)
 				limit = pReset->arg2;
 
 			if (pArea->nplayer > 0
-			    || (obj_to = get_obj_type(pObjToIndex)) == NULL
-			    || (obj_to->in_room == NULL && !last)
+			    || (obj_to = get_obj_type(pObjToIndex)) == nullptr
+			    || (obj_to->in_room == nullptr && !last)
 			    || (pObjIndex->count >= limit && number_range(0, 4) != 0)
 			    || (count = count_obj_list(pObjIndex, obj_to->contains))
 			    > pReset->arg4) {
@@ -634,7 +634,7 @@ void reset_area(Area *pArea)
 
 		case 'G':
 		case 'E':
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == NULL) {
+			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'E' or 'G': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -642,14 +642,14 @@ void reset_area(Area *pArea)
 			if (!last)
 				break;
 
-			if (mob == NULL) {
+			if (mob == nullptr) {
 				bug("Reset_area: 'E' or 'G': null mob for vnum %d.",
 				    pReset->arg1);
 				last = FALSE;
 				break;
 			}
 
-			if (mob->pIndexData->pShop != NULL) {
+			if (mob->pIndexData->pShop != nullptr) {
 				int olevel = 0;
 				obj = create_object(pObjIndex, olevel);
 
@@ -698,12 +698,12 @@ void reset_area(Area *pArea)
 			break;
 
 		case 'D':
-			if ((pRoomIndex = get_room_index(pReset->arg1)) == NULL) {
+			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pexit = pRoomIndex->exit[pReset->arg2]) == NULL)
+			if ((pexit = pRoomIndex->exit[pReset->arg2]) == nullptr)
 				break;
 
 			switch (pReset->arg3) {
@@ -727,7 +727,7 @@ void reset_area(Area *pArea)
 			break;
 
 		case 'R':
-			if ((pRoomIndex = get_room_index(pReset->arg1)) == NULL) {
+			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
 				bug("Reset_area: 'R': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -759,7 +759,7 @@ void area_update(void)
 	Area *pArea;
 	char buf[MAX_STRING_LENGTH];
 
-	for (pArea = area_first; pArea != NULL; pArea = pArea->next) {
+	for (pArea = area_first; pArea != nullptr; pArea = pArea->next) {
 		if (++pArea->age < 3)
 			continue;
 
@@ -772,11 +772,11 @@ void area_update(void)
 			RoomPrototype *pRoomIndex;
 			reset_area(pArea);
 			Format::sprintf(buf, "%s has just been reset.", pArea->name);
-			wiznet(buf, NULL, NULL, WIZ_RESETS, 0, 0);
+			wiznet(buf, nullptr, nullptr, WIZ_RESETS, 0, 0);
 			pArea->age = number_range(0, 3);
 			pRoomIndex = get_room_index(ROOM_VNUM_SCHOOL);
 
-			if (pRoomIndex != NULL && pArea == pRoomIndex->area)
+			if (pRoomIndex != nullptr && pArea == pRoomIndex->area)
 				pArea->age = 15 - 2;
 			else if (pArea->nplayer == 0)
 				pArea->empty = TRUE;
@@ -796,19 +796,19 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	long wealth;
 	mobile_count++;
 
-	if (pMobIndex == NULL) {
-		bug("Create_mobile: NULL pMobIndex.", 0);
+	if (pMobIndex == nullptr) {
+		bug("Create_mobile: nullptr pMobIndex.", 0);
 		/* Just return an error, don't exit game. -- Outsider
 		exit( 1 );
 		*/
-		return NULL;
+		return nullptr;
 	}
 
 	mob = new_char();
 
 	/* Check for memory error. -- Outsider */
 	if (!mob)
-		return NULL;
+		return nullptr;
 
 	mob->pIndexData     = pMobIndex;
 	mob->name           = pMobIndex->player_name;
@@ -817,7 +817,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	mob->long_descr     = pMobIndex->long_descr;
 	mob->description    = pMobIndex->description;
 	mob->spec_fun       = pMobIndex->spec_fun;
-	mob->reset      = NULL;
+	mob->reset      = nullptr;
 
 	if (pMobIndex->wealth <= 0) {
 		mob->silver = 0;
@@ -956,7 +956,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 /* duplicate a mobile exactly -- except inventory */
 void clone_mobile(Character *parent, Character *clone)
 {
-	if (parent == NULL || clone == NULL || !IS_NPC(parent))
+	if (parent == nullptr || clone == nullptr || !IS_NPC(parent))
 		return;
 
 	/* start fixing values */
@@ -1022,7 +1022,7 @@ void clone_mobile(Character *parent, Character *clone)
 	affect_remove_all_from_char(clone, TRUE);
 	affect_remove_all_from_char(clone, FALSE);
 
-	for (const Affect *paf = affect_list_char(parent); paf != NULL; paf = paf->next)
+	for (const Affect *paf = affect_list_char(parent); paf != nullptr; paf = paf->next)
 		affect_copy_to_char(clone, paf);
 }
 
@@ -1034,13 +1034,13 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	Object *obj;
 	int i;
 
-	if (pObjIndex == NULL) {
-		bug("Create_object: NULL pObjIndex.", 0);
+	if (pObjIndex == nullptr) {
+		bug("Create_object: nullptr pObjIndex.", 0);
 		/* Let's not exit the game for this. Just report the error.
 		   -- Outsider
 		exit( 1 );
 		*/
-		return NULL;
+		return nullptr;
 	}
 
 	obj = new_obj();
@@ -1048,7 +1048,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	/* Check for memory error. -- Outsider */
 	if (! obj) {
 		bug("create_object: unable to allocate memory", 0);
-		return NULL;
+		return nullptr;
 	}
 
 	obj->pIndexData     = pObjIndex;
@@ -1127,7 +1127,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 		break;
 	}
 
-	for (const Affect *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
+	for (const Affect *paf = pObjIndex->affected; paf != nullptr; paf = paf->next)
 		affect_copy_to_obj(obj, paf);
 
 	obj->next           = object_list;
@@ -1142,7 +1142,7 @@ void clone_object(Object *parent, Object *clone)
 	int i;
 	ExtraDescr *ed, *ed_new;
 
-	if (parent == NULL || clone == NULL)
+	if (parent == nullptr || clone == nullptr)
 		return;
 
 	/* start fixing the object */
@@ -1169,7 +1169,7 @@ void clone_object(Object *parent, Object *clone)
 		affect_copy_to_obj(clone, paf);
 
 	/* extended desc */
-	for (ed = parent->extra_descr; ed != NULL; ed = ed->next) {
+	for (ed = parent->extra_descr; ed != nullptr; ed = ed->next) {
 		ed_new                  = new_extra_descr();
 		ed_new->keyword         = ed->keyword;
 		ed_new->description     = ed->description;
@@ -1187,7 +1187,7 @@ MobilePrototype *get_mob_index(int vnum)
 	MobilePrototype *pMobIndex;
 
 	for (pMobIndex  = mob_index_hash[vnum % MAX_KEY_HASH];
-	     pMobIndex != NULL;
+	     pMobIndex != nullptr;
 	     pMobIndex  = pMobIndex->next) {
 		if (pMobIndex->vnum == vnum)
 			return pMobIndex;
@@ -1195,12 +1195,12 @@ MobilePrototype *get_mob_index(int vnum)
 
 	if (fBootDb) {
 		bug("Get_mob_index: bad vnum %d.", vnum);
-		/* Don't do this, we already return NULL on error. -- Outsider
+		/* Don't do this, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /*
@@ -1212,7 +1212,7 @@ ObjectPrototype *get_obj_index(int vnum)
 	ObjectPrototype *pObjIndex;
 
 	for (pObjIndex  = obj_index_hash[vnum % MAX_KEY_HASH];
-	     pObjIndex != NULL;
+	     pObjIndex != nullptr;
 	     pObjIndex  = pObjIndex->next) {
 		if (pObjIndex->vnum == vnum)
 			return pObjIndex;
@@ -1220,12 +1220,12 @@ ObjectPrototype *get_obj_index(int vnum)
 
 	if (fBootDb) {
 		bug("Get_obj_index: bad vnum %d.", vnum);
-		/* Don't exit, we already return NULL on error. -- Outsider
+		/* Don't exit, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /*
@@ -1237,7 +1237,7 @@ RoomPrototype *get_room_index(int vnum)
 	RoomPrototype *pRoomIndex;
 
 	for (pRoomIndex  = room_index_hash[vnum % MAX_KEY_HASH];
-	     pRoomIndex != NULL;
+	     pRoomIndex != nullptr;
 	     pRoomIndex  = pRoomIndex->next) {
 		if (pRoomIndex->vnum == vnum)
 			return pRoomIndex;
@@ -1245,12 +1245,12 @@ RoomPrototype *get_room_index(int vnum)
 
 	if (fBootDb) {
 		bug("Get_room_index: bad vnum %d.", vnum);
-		/* Don't exit here, we already return NULL on error. -- Outsider
+		/* Don't exit here, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */

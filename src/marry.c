@@ -55,12 +55,12 @@ void do_marry(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("The first person mentioned isn't playing.\n", ch);
 		return;
 	}
 
-	if ((victim2 = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
+	if ((victim2 = get_player_world(ch, arg2, VIS_PLR)) == nullptr) {
 		stc("The second person mentioned isn't playing.\n", ch);
 		return;
 	}
@@ -105,12 +105,12 @@ void do_divorce(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("The first person mentioned isn't playing.\n", ch);
 		return;
 	}
 
-	if ((victim2 = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
+	if ((victim2 = get_player_world(ch, arg2, VIS_PLR)) == nullptr) {
 		stc("The second person mentioned isn't playing.\n", ch);
 		return;
 	}
@@ -174,14 +174,14 @@ void do_spousetalk(Character *ch, String argument)
 
 		/* Us married folk wanna see our spouses - Lotus */
 
-		for (victim = char_list; victim != NULL ; victim = victim->next) {
-			if (victim->in_room != NULL &&
+		for (victim = char_list; victim != nullptr ; victim = victim->next) {
+			if (victim->in_room != nullptr &&
 			    !IS_NPC(victim) &&
 			    victim->name.has_words(ch->pcdata->spouse))
 				break;
 		}
 
-		if (victim != NULL) {
+		if (victim != nullptr) {
 			new_color(ch, CSLOT_CHAN_SPOUSE);
 			new_color(victim, CSLOT_CHAN_SPOUSE);
 			Format::sprintf(buf, "%s says to you, '%s'\n" , ch->name, argument);
@@ -225,7 +225,7 @@ void do_propose(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == nullptr) {
 		stc("They aren't in the room.\n", ch);
 		return;
 	}
@@ -251,9 +251,9 @@ void do_propose(Character *ch, String argument)
 	}
 
 	ch->pcdata->propose = victim->name;
-	act("You propose marriage to $M.", ch, NULL, victim, TO_CHAR);
-	act("$n gets down on one knee and proposes to $N.", ch, NULL, victim, TO_NOTVICT);
-	act("$n asks you quietly 'Will you marry me?'", ch, NULL, victim, TO_VICT);
+	act("You propose marriage to $M.", ch, nullptr, victim, TO_CHAR);
+	act("$n gets down on one knee and proposes to $N.", ch, nullptr, victim, TO_NOTVICT);
+	act("$n asks you quietly 'Will you marry me?'", ch, nullptr, victim, TO_VICT);
 	return;
 }
 
@@ -283,7 +283,7 @@ void do_accept(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -307,12 +307,12 @@ void do_accept(Character *ch, String argument)
 	ch->pcdata->propose.erase();
 	victim->pcdata->spouse = ch->name;
 	ch->pcdata->spouse = victim->name;
-	act("You accept $S offer of marriage.  Woohoo!", ch, NULL, victim, TO_CHAR);
-	act("$n accepts $N's offer of marriage.  Woohoo!", ch, NULL, victim, TO_NOTVICT);
-	act("$n accepts your offer of marriage.  Woohoo!", ch, NULL, victim, TO_VICT);
+	act("You accept $S offer of marriage.  Woohoo!", ch, nullptr, victim, TO_CHAR);
+	act("$n accepts $N's offer of marriage.  Woohoo!", ch, nullptr, victim, TO_NOTVICT);
+	act("$n accepts your offer of marriage.  Woohoo!", ch, nullptr, victim, TO_VICT);
 	Format::sprintf(buf, "{W[FYI] %s and %s are now engaged!  Congratulations!{x\n", ch->name, victim->name);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *msgvict;
 		msgvict = d->original ? d->original : d->character;
 
@@ -351,7 +351,7 @@ void do_reject(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -373,9 +373,9 @@ void do_reject(Character *ch, String argument)
 
 	victim->pcdata->propose.erase();
 	ch->pcdata->propose.erase();
-	act("You reject $S offer of marriage.", ch, NULL, victim, TO_CHAR);
-	act("$n rejects $N's offer of marriage.", ch, NULL, victim, TO_NOTVICT);
-	act("$n rejects your offer of marriage.", ch, NULL, victim, TO_VICT);
+	act("You reject $S offer of marriage.", ch, nullptr, victim, TO_CHAR);
+	act("$n rejects $N's offer of marriage.", ch, nullptr, victim, TO_NOTVICT);
+	act("$n rejects your offer of marriage.", ch, nullptr, victim, TO_VICT);
 	save_char_obj(ch);
 	save_char_obj(victim);
 	return;
@@ -407,7 +407,7 @@ void do_breakup(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -431,12 +431,12 @@ void do_breakup(Character *ch, String argument)
 
 	victim->pcdata->spouse.erase();
 	ch->pcdata->spouse.erase();
-	act("You break off your engagement with $M.", ch, NULL, victim, TO_CHAR);
-	act("$n breaks off $s engagement with $N.", ch, NULL, victim, TO_NOTVICT);
-	act("$n breaks off $s engagement with you.", ch, NULL, victim, TO_VICT);
+	act("You break off your engagement with $M.", ch, nullptr, victim, TO_CHAR);
+	act("$n breaks off $s engagement with $N.", ch, nullptr, victim, TO_NOTVICT);
+	act("$n breaks off $s engagement with you.", ch, nullptr, victim, TO_VICT);
 	Format::sprintf(buf, "{W[FYI] %s and %s have broken off their engagement.{x\n", ch->name, victim->name);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *msgvict;
 		msgvict = d->original ? d->original : d->character;
 

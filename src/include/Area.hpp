@@ -6,9 +6,9 @@ public:
     Area() {}
     virtual ~Area() {}
 
-    Area *         next = NULL;
-    Reset *             reset_first = NULL;
-    Reset *             reset_last = NULL;
+    Area *         next = nullptr;
+    Reset *             reset_first = nullptr;
+    Reset *             reset_last = nullptr;
     sh_int		        version = 0;	/* Area file versioning -- Montrey */
     String              file_name;
     String              name;

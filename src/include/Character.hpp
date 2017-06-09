@@ -19,27 +19,27 @@ public:
     Character();
     virtual ~Character();
 
-    Character *         next = NULL;
-    Character *         next_in_room = NULL;
-    Character *         master = NULL;
-    Character *         leader = NULL;
-    Character *         fighting = NULL;
-    Reset *	    reset = NULL;		/* let's make it keep track of what reset it */
-    Character *         pet = NULL;			/* not saving at quit - Montrey */
-    SPEC_FUN *          spec_fun = NULL;
-    MobilePrototype *   pIndexData = NULL;
-    Descriptor *        desc = NULL;
-    Affect *       affected = NULL;
-    Note      *         pnote = NULL;
-    Object *            carrying = NULL;
-    Object *            on = NULL;
-    RoomPrototype *   in_room = NULL;
-    RoomPrototype *   was_in_room = NULL;
-    Clan *         clan = NULL;
-    Clan *         inviters = NULL;
-    Area *         zone = NULL;
-    Player *            pcdata = NULL;
-    Customize *          gen_data = NULL;
+    Character *         next = nullptr;
+    Character *         next_in_room = nullptr;
+    Character *         master = nullptr;
+    Character *         leader = nullptr;
+    Character *         fighting = nullptr;
+    Reset *	    reset = nullptr;		/* let's make it keep track of what reset it */
+    Character *         pet = nullptr;			/* not saving at quit - Montrey */
+    SPEC_FUN *          spec_fun = nullptr;
+    MobilePrototype *   pIndexData = nullptr;
+    Descriptor *        desc = nullptr;
+    Affect *       affected = nullptr;
+    Note      *         pnote = nullptr;
+    Object *            carrying = nullptr;
+    Object *            on = nullptr;
+    RoomPrototype *   in_room = nullptr;
+    RoomPrototype *   was_in_room = nullptr;
+    Clan *         clan = nullptr;
+    Clan *         inviters = nullptr;
+    Area *         zone = nullptr;
+    Player *            pcdata = nullptr;
+    Customize *          gen_data = nullptr;
     bool                valid = FALSE;
     String              name;
     long                id = 0;
@@ -60,9 +60,9 @@ public:
 //    sh_int              mod_stat[MAX_STATS];
 
     int                 attr_base[MAX_ATTR] = {0};
-    int *               apply_cache = NULL; // maximum stat without eq/affects
-    void *              affect_cache = NULL;
-    sh_int *            defense_mod = NULL;
+    int *               apply_cache = nullptr; // maximum stat without eq/affects
+    void *              affect_cache = nullptr;
+    sh_int *            defense_mod = nullptr;
 //    long                affect_bits;
 //    long      drain_flags;
 //    long                imm_flags;
@@ -112,10 +112,10 @@ public:
     sh_int              dam_type = 0;
     sh_int              start_pos = 0;
     sh_int              default_pos = 0;
-    Character *         hunting = NULL;
+    Character *         hunting = nullptr;
     sh_int              nectimer = 0;
     sh_int              secure_level = 0;
-    MobProgActList *    mpact = NULL;
+    MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
     int                 quest_giver = 0;  /* Elrac */
     int                 questpoints = 0;  /* Vassago */
@@ -127,8 +127,8 @@ public:
     sh_int              questmob = 0;     /* Vassago */
     sh_int              questloc = 0;     /* -- Elrac */
     sh_int              questobf = 0;     /* Lotus */
-    Tail *              tail = NULL;         /* -- Elrac */
-    Edit *              edit = NULL;         /* -- Elrac */
+    Tail *              tail = nullptr;         /* -- Elrac */
+    Edit *              edit = nullptr;         /* -- Elrac */
 
     virtual std::string identifier() const { return this->name; }
 

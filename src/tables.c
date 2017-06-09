@@ -297,8 +297,8 @@ const struct raffects raffects[MAX_RAFFECTS] = {
 
 	*/
 	{
-		"NULL REMORT AFFECT",   /* Problems if someone gets this */
-		"NULLRAFF",     0,      1,      100,    0
+		"nullptr REMORT AFFECT",   /* Problems if someone gets this */
+		"nullptrRAFF",     0,      1,      100,    0
 	},
 
 	/* "Good" Remort Affects (2-99) */
@@ -1001,7 +1001,7 @@ const std::vector<color_type> color_table = {
 };
 
 /* default color settings table -- Montrey */
-/* sections must be separated by a NULL line, entries must match the
+/* sections must be separated by a nullptr line, entries must match the
    definitions in merc.h for CSLOTs */
 const std::vector<csetting_type> csetting_table = {
 //		color       bold    name

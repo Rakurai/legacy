@@ -9,9 +9,9 @@ public:
     ObjectPrototype() {}
     virtual ~ObjectPrototype() {}
 
-    ObjectPrototype *    next = NULL;
-    ExtraDescr *        extra_descr = NULL;
-    Affect *       affected = NULL;
+    ObjectPrototype *    next = nullptr;
+    ExtraDescr *        extra_descr = nullptr;
+    Affect *       affected = nullptr;
     unsigned long       affect_checksum = 0; // for comparing to instances on saving
     String              name;
     String              short_descr;

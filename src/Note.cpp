@@ -59,7 +59,7 @@ struct board_index_struct board_index [] = {
 	{ "{GC", &changes_list, "change",               "changes",              "change"                },
 	{ "{CP", &personal_list, "personal message",     "personal messages",    "personal message"      },
 	{ "{bT", &trade_list,   "trade note",           "trade notes",          "trade note"            },
-	{ "",    NULL,          "",                     "",                     ""                      }
+	{ "",    nullptr,          "",                     "",                     ""                      }
 };
 
 /* stuff for recyling notes */
@@ -69,7 +69,7 @@ Note *new_note()
 {
 	Note *note;
 
-	if (note_free == NULL)
+	if (note_free == nullptr)
 		note = new Note;
 	else {
 		note = note_free;
@@ -102,7 +102,7 @@ int count_spool(Character *ch, Note *spool)
 	int count = 0;
 	Note *pnote;
 
-	for (pnote = spool; pnote != NULL; pnote = pnote->next)
+	for (pnote = spool; pnote != nullptr; pnote = pnote->next)
 		if (!hide_note(ch, pnote))
 			count++;
 
@@ -260,10 +260,10 @@ void save_notes(int type)
 		break;
 	}
 
-	if ((fp = fopen(name, "w")) == NULL)
+	if ((fp = fopen(name, "w")) == nullptr)
 		perror(name);
 	else {
-		for (; pnote != NULL; pnote = pnote->next) {
+		for (; pnote != nullptr; pnote = pnote->next) {
 			Format::fprintf(fp, "Sender  %s~\n", pnote->sender);
 			Format::fprintf(fp, "Date    %s~\n", pnote->date);
 			Format::fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
@@ -293,10 +293,10 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 	FILE *fp;
 	Note *pnote, *pnotelast;
 
-	if ((fp = fopen(name, "r")) == NULL)
+	if ((fp = fopen(name, "r")) == nullptr)
 		return;
 
-	pnotelast = NULL;
+	pnotelast = nullptr;
 
 	for (; ;) {
 		char letter;
@@ -351,7 +351,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 
 		pnote->type = type;
 
-		if (*list == NULL)
+		if (*list == nullptr)
 			*list           = pnote;
 		else
 			pnotelast->next     = pnote;
@@ -419,15 +419,15 @@ void append_note(Note *pnote)
 		break;
 	}
 
-	if (*list == NULL)
+	if (*list == nullptr)
 		*list = pnote;
 	else {
-		for (last = *list; last->next != NULL; last = last->next);
+		for (last = *list; last->next != nullptr; last = last->next);
 
 		last->next = pnote;
 	}
 
-	if ((fp = fopen(name, "a")) == NULL)
+	if ((fp = fopen(name, "a")) == nullptr)
 		perror(name);
 	else {
 		Format::fprintf(fp, "Sender  %s~\n", pnote->sender.replace("~", "-"));
@@ -509,7 +509,7 @@ void note_attach(Character *ch, int type)
 {
 	Note *pnote;
 
-	if (ch->pnote != NULL)
+	if (ch->pnote != nullptr)
 		return;
 
 	pnote = new_note();
@@ -586,12 +586,12 @@ void note_remove(Character *ch, Note *pnote, bool del)
 	if (pnote == *list)
 		*list = pnote->next;
 	else {
-		for (prev = *list; prev != NULL; prev = prev->next) {
+		for (prev = *list; prev != nullptr; prev = prev->next) {
 			if (prev->next == pnote)
 				break;
 		}
 
-		if (prev == NULL) {
+		if (prev == nullptr) {
 			bug("Note_remove: pnote not found.", 0);
 			return;
 		}
@@ -707,7 +707,7 @@ void notify_note_post(Note *pnote, Character *vch, int type)
 	char *list_name;
 	list_name = board_index[type].board_long;
 
-	for (ch = char_list; ch != NULL; ch = ch->next) {
+	for (ch = char_list; ch != nullptr; ch = ch->next) {
 		if (IS_NPC(ch))
 			continue;
 
@@ -760,7 +760,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		/* read next unread note */
 		if (argument.empty() || argument.is_prefix_of("next")) {
-			for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+			for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
 					ptc(ch, "{W[%3d] From: {x%s\n"
 					    "        {WTo: {x%s\n"
@@ -792,7 +792,7 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
 				ptc(ch, "{W[%3d] From: {x%s\n"
 				    "        {WTo: {x%s\n"
@@ -830,7 +830,7 @@ void parse_note(Character *ch, String argument, int type)
 			search = TRUE;
 
 
-		for (pnote = *list, vnum = -1; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list, vnum = -1; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote)) {
 				vnum++;
 
@@ -873,7 +873,7 @@ void parse_note(Character *ch, String argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, FALSE);
 				stc("Message removed.\n", ch);
@@ -895,7 +895,7 @@ void parse_note(Character *ch, String argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, TRUE);
 				stc("Message deleted.\n", ch);
@@ -932,7 +932,7 @@ void parse_note(Character *ch, String argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				newnote = new_note();
 				newnote->sender   = pnote->sender;
@@ -970,7 +970,7 @@ void parse_note(Character *ch, String argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				newnote = new_note();
 				newnote->sender   = pnote->sender;
@@ -1063,16 +1063,16 @@ void parse_note(Character *ch, String argument, int type)
 		anum = atoi(arg);
 		/* find the message in the list */
 		vnum = 0;
-		thenote = NULL;
+		thenote = nullptr;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				thenote = pnote;
 				break;
 			}
 		}
 
-		if (thenote == NULL) {
+		if (thenote == nullptr) {
 			ptc(ch, "There aren't that many %s.", board_index[type].board_long);
 			return;
 		}
@@ -1084,7 +1084,7 @@ void parse_note(Character *ch, String argument, int type)
 		}
 
 		/* get new list name */
-		newlist = NULL;
+		newlist = nullptr;
 		argument = one_argument(argument, arg);
 
 		for (j = 0; board_index[j].board_hdr[0] != '\0'; j++) {
@@ -1095,7 +1095,7 @@ void parse_note(Character *ch, String argument, int type)
 			}
 		}
 
-		if (newlist == NULL) {
+		if (newlist == nullptr) {
 			ptc(ch, "There's no such board name as '%s'\n", arg);
 			return;
 		}
@@ -1178,7 +1178,7 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (ch->pnote == NULL || ch->pnote->text.empty()) {
+		if (ch->pnote == nullptr || ch->pnote->text.empty()) {
 			stc("You have no note in progress.\n", ch);
 			return;
 		}
@@ -1191,7 +1191,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg == "format") {
-		if (ch->pnote == NULL || ch->pnote->text.empty()) {
+		if (ch->pnote == nullptr || ch->pnote->text.empty()) {
 			stc("You have no note in progress.\n", ch);
 			return;
 		}
@@ -1301,9 +1301,9 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("clear")) {
-		if (ch->pnote != NULL) {
+		if (ch->pnote != nullptr) {
 			free_note(ch->pnote);
-			ch->pnote = NULL;
+			ch->pnote = nullptr;
 		}
 
 		stc("Note cleared.\n", ch);
@@ -1314,7 +1314,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("show")) {
-		if (ch->pnote == NULL) {
+		if (ch->pnote == nullptr) {
 			stc("You have no note in progress.\n", ch);
 			return;
 		}
@@ -1339,7 +1339,7 @@ void parse_note(Character *ch, String argument, int type)
 		char *strtime;
 		char buf2[MAX_STRING_LENGTH];
 
-		if (ch->pnote == NULL) {
+		if (ch->pnote == nullptr) {
 			stc("You have no note in progress.\n", ch);
 			return;
 		}
@@ -1377,17 +1377,17 @@ void parse_note(Character *ch, String argument, int type)
 			type = NOTE_NOTE;
 		}
 
-		ch->pnote->next                 = NULL;
+		ch->pnote->next                 = nullptr;
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		ch->pnote->date                 = strtime;
 		ch->pnote->date_stamp           = current_time;
 		Format::sprintf(buf2, "%s has just posted a %s to: %s", ch->name,
 		        board_index[type].board_long, ch->pnote->to_list);
-		wiznet(buf2, ch, NULL, WIZ_MAIL, 0, GET_RANK(ch));
+		wiznet(buf2, ch, nullptr, WIZ_MAIL, 0, GET_RANK(ch));
 		append_note(ch->pnote);
 		notify_note_post(ch->pnote, ch, type);
-		ch->pnote = NULL;
+		ch->pnote = nullptr;
 		Format::sprintf(buf2, "Your %s has been posted.\n", board_index[type].board_long);
 		stc(buf2, ch);
 
@@ -1415,10 +1415,10 @@ void do_old_next(Character *ch)
 	list = &note_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{PN{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1441,10 +1441,10 @@ void do_old_next(Character *ch)
 	list = &idea_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{YI{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1467,10 +1467,10 @@ void do_old_next(Character *ch)
 	list = &changes_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{GC{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1493,10 +1493,10 @@ void do_old_next(Character *ch)
 	list = &immquest_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{BQ{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1519,10 +1519,10 @@ void do_old_next(Character *ch)
 	list = &roleplay_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{VR{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1545,10 +1545,10 @@ void do_old_next(Character *ch)
 	list = &personal_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{CP{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1571,10 +1571,10 @@ void do_old_next(Character *ch)
 	list = &trade_list;
 	pnote = *list;
 
-	if (pnote != NULL) {
+	if (pnote != nullptr) {
 		vnum = 0;
 
-		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				Format::sprintf(buf,
 				        "{W[{bT{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
@@ -1601,9 +1601,9 @@ void do_old_next(Character *ch)
 /* Chronological NEXT -- Elrac */
 void do_next(Character *ch, String argument)
 {
-	struct board_index_struct *pbis, *obis = NULL;
+	struct board_index_struct *pbis, *obis = nullptr;
 	time_t ostamp = (time_t) 0;
-	Note *pnote, *onote = NULL;
+	Note *pnote, *onote = nullptr;
 	Note **plist;
 	int nnum, onum = 0;
 
@@ -1624,9 +1624,9 @@ void do_next(Character *ch, String argument)
 		nnum = 0;
 
 		/* find the oldest non-hidden note on the board */
-		for (pnote = *plist; pnote != NULL; pnote = pnote->next) {
+		for (pnote = *plist; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
-				if (onote == NULL || pnote->date_stamp <= ostamp) {
+				if (onote == nullptr || pnote->date_stamp <= ostamp) {
 					obis = pbis;
 					onum = nnum;
 					onote = pnote;
@@ -1641,7 +1641,7 @@ void do_next(Character *ch, String argument)
 	}
 
 	/* was there an unread note? */
-	if (onote == NULL) {
+	if (onote == nullptr) {
 		stc("That's all folks!\n", ch);
 		return;
 	}

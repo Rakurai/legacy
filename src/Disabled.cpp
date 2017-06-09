@@ -24,7 +24,7 @@ void load_disabled()
 {
 	Disabled *p;
 	int i;
-	disabled_first = NULL;
+	disabled_first = nullptr;
 
 	if (db_query("load_disabled", "SELECT command, immortal, reason FROM disabled") != SQL_OK)
 		return;

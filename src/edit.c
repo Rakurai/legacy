@@ -87,7 +87,7 @@ int count_lines()
 	int nlines = 0;
 	char *line, *next;
 
-	if (ed == NULL) {
+	if (ed == nullptr) {
 		bug("count_lines(): not editing anything", 0);
 		return 0;
 	}
@@ -177,7 +177,7 @@ static void list_window(Character *ch)
 {
 	int fromline, toline;
 
-	if (ed == NULL) {
+	if (ed == nullptr) {
 		stc("{P~~~ You are not editing anything at the moment. ~~~{x\n", ch);
 		return;
 	}
@@ -196,10 +196,10 @@ static void edit_status(Character *ch, const String& argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (ch->edit == NULL) {
+	if (ch->edit == nullptr) {
 		stc("{PYou aren't editing anything yet.{x\n", ch);
 
-		if (ch->pnote == NULL) {
+		if (ch->pnote == nullptr) {
 			stc(
 			        "You could use {RNOTE{x, {RIDEA{x or {RROLEPLAY{x to start writing a note\n"
 			        "and then type {REDIT NOTE{x to edit it.\n", ch);
@@ -224,7 +224,7 @@ static void edit_status(Character *ch, const String& argument)
 		return;
 
 	case EDIT_TYPE_NOTE:
-		if (ch->pnote == NULL) {
+		if (ch->pnote == nullptr) {
 			stc(
 			        "{P You *were* editing a note of some sort.{x\n", ch);
 			stc(
@@ -352,8 +352,8 @@ static void backup(void)
 static void edit_cancel(Character *ch, const String& argument)
 {
 	delete ed;
-	ch->edit = NULL;
-	ed = NULL;
+	ch->edit = nullptr;
+	ed = nullptr;
 	stc("OK, editing session aborted, {Ynothing changed{x.\n", ch);
 } /* end edit_cancel() */
 
@@ -400,7 +400,7 @@ static void edit_change(Character *ch, String argument)
 	where = strstr(here, arg1);
 	*end_pos = end_char;
 
-	if (where == NULL) {
+	if (where == nullptr) {
 		Format::sprintf(arg2, "{PSearch string '%s{P' not found in current line.{x\n", arg1);
 		stc(arg2, ch);
 		return;
@@ -442,7 +442,7 @@ static void edit_delete(Character *ch, const String& argument)
 
 static void edit_desc(Character *ch, const String& argument)
 {
-	if (ch->edit != NULL) {
+	if (ch->edit != nullptr) {
 		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
@@ -474,7 +474,7 @@ static void edit_done(Character *ch, const String& argument)
 		break;
 
 	case EDIT_TYPE_NOTE:
-		if (ch->pnote == NULL) {
+		if (ch->pnote == nullptr) {
 			stc("{PI'm afraid your note is not there any more.{x\n"
 			    "{PYour edited text is going down the drain now.{x\n", ch);
 		}
@@ -494,7 +494,7 @@ static void edit_done(Character *ch, const String& argument)
 		break;
 
 	case EDIT_TYPE_ROOM:
-		if (ch->in_room == NULL) {
+		if (ch->in_room == nullptr) {
 			stc("{PI'm sorry, you don't seem to be in a room.{x\n", ch);
 			return;
 		}
@@ -513,8 +513,8 @@ static void edit_done(Character *ch, const String& argument)
 	}
 
 	delete ed;
-	ch->edit = NULL;
-	ed = NULL;
+	ch->edit = nullptr;
+	ed = nullptr;
 } /* end edit_done() */
 
 static void edit_goto(Character *ch, const String& argument)
@@ -569,13 +569,13 @@ static void edit_list(Character *ch, const String& argument)
 
 static void edit_note(Character *ch, const String& argument)
 {
-	if (ch->edit != NULL) {
+	if (ch->edit != nullptr) {
 		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
 	}
 
-	if (ch->pnote == NULL) {
+	if (ch->pnote == nullptr) {
 		stc("{PBut you haven't started writing any note yet!{x\n", ch);
 		return;
 	}
@@ -592,13 +592,13 @@ static void edit_note(Character *ch, const String& argument)
 
 static void edit_room(Character *ch, const String& argument)
 {
-	if (ch->edit != NULL) {
+	if (ch->edit != nullptr) {
 		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
 	}
 
-	if (ch->in_room == NULL) {
+	if (ch->in_room == nullptr) {
 		stc("{PYou don't seem to be in a room at the moment.{x\n", ch);
 		return;
 	}
@@ -615,7 +615,7 @@ static void edit_room(Character *ch, const String& argument)
 
 static void edit_help(Character *ch, const String& argument)
 {
-	if (ch->edit != NULL) {
+	if (ch->edit != nullptr) {
 		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
@@ -686,7 +686,7 @@ static void edit_split(Character *ch, String argument)
 	where = strstr(here, token);
 	*end_pos = end_char;
 
-	if (where == NULL) {
+	if (where == nullptr) {
 		Format::sprintf(buf, "{PCharacters '%s{P' not found in current line.{x\n", token);
 		stc(buf, ch);
 		return;
@@ -770,7 +770,7 @@ static void edit_wrap(Character *ch, const String& argument)
 	if (foll_blank_line <= ed->edit_nlines)
 		after = find_line(foll_blank_line);
 	else
-		after = NULL;
+		after = nullptr;
 
 	backup();
 	wp = word;
@@ -837,7 +837,7 @@ static void edit_wrap(Character *ch, const String& argument)
 		dbuf += line;
 	}
 
-	if (after != NULL)
+	if (after != nullptr)
 		dbuf += after;
 
 	strcpy(start, dbuf);
@@ -902,8 +902,8 @@ void do_edit(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->edit == NULL) {
-		ed = NULL;
+	if (ch->edit == nullptr) {
+		ed = nullptr;
 		list_window(ch);
 		return;
 	}

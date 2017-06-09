@@ -58,17 +58,17 @@ struct hunt_conditions {
 };
 typedef struct hunt_conditions HUNT_CONDITIONS;
 
-/* Returns the room accessible via exit 'ex' or NULL. */
+/* Returns the room accessible via exit 'ex' or nullptr. */
 static RoomPrototype *access_room(HUNT_CONDITIONS *cond, Exit *ex)
 {
 	RoomPrototype *new_room;
 
-	if ((ex == NULL) ||
-	    ((new_room = ex->u1.to_room) == NULL) ||
+	if ((ex == nullptr) ||
+	    ((new_room = ex->u1.to_room) == nullptr) ||
 	    (cond->same_area && new_room->area != cond->area) ||
 	    (!cond->thru_doors && IS_SET(ex->exit_info, EX_CLOSED)) ||
 	    (!can_see_room(cond->hunter, new_room)))
-		return NULL;
+		return nullptr;
 
 	return new_room;
 } /* end access_room() */
@@ -87,19 +87,19 @@ static int find_path(HUNT_CONDITIONS *cond)
 	hunt_id++;
 	cond->area      = cond->from_room->area;
 	cond->from_room->hunt_id   = hunt_id;
-	cond->from_room->hunt_back = NULL;
-	cond->from_room->hunt_next = NULL;
+	cond->from_room->hunt_back = nullptr;
+	cond->from_room->hunt_next = nullptr;
 	this_ring = cond->from_room;
-	next_ring = NULL;
+	next_ring = nullptr;
 
 	/* loop through all rooms in the current ring, spiral outwards */
-	while (this_ring != NULL) {
+	while (this_ring != nullptr) {
 		/* explore all possible exits */
 		for (jdir = 0; jdir < exit_num; jdir++) {
 			pexit = this_ring->exit[jdir];
 			new_room = access_room(cond, pexit);
 
-			if ((new_room != NULL) && (new_room->hunt_id != hunt_id)) {
+			if ((new_room != nullptr) && (new_room->hunt_id != hunt_id)) {
 				new_room->hunt_id   = hunt_id;
 				new_room->hunt_back = this_ring;
 				new_room->hunt_next = next_ring;
@@ -110,14 +110,14 @@ static int find_path(HUNT_CONDITIONS *cond)
 			}
 		}
 
-		if (this_ring->hunt_next != NULL) {
+		if (this_ring->hunt_next != nullptr) {
 			/* move to next room in current ring */
 			this_ring = this_ring->hunt_next;
 		}
 		else {
 			/* move outward */
 			this_ring = next_ring;
-			next_ring = NULL;
+			next_ring = nullptr;
 
 			if (--cond->steps <= 0) {
 				/* too many steps */
@@ -137,7 +137,7 @@ foundit:
 	while (step->hunt_back != cond->from_room) {
 		step = step->hunt_back;
 
-		if (step == NULL) {
+		if (step == nullptr) {
 			return -3;  /* backtrack dead ends! */
 		}
 
@@ -200,13 +200,13 @@ void do_hunt(Character *ch, String argument)
 	else if (!(victim = get_char_area(ch, argument, VIS_CHAR)))
 		victim = get_char_world(ch, argument, VIS_CHAR);
 
-	if (victim == NULL) {
+	if (victim == nullptr) {
 		stc("No-one around by that name.\n", ch);
 		return;
 	}
 
 	if (ch->in_room == victim->in_room) {
-		act("$N is here!", ch, NULL, victim, TO_CHAR);
+		act("$N is here!", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -214,7 +214,7 @@ void do_hunt(Character *ch, String argument)
 		return;
 
 	act("$n kneels down and checks for tracks.",
-	    ch, NULL, NULL, TO_ROOM);
+	    ch, nullptr, nullptr, TO_ROOM);
 	WAIT_STATE(ch, skill_table[gsn_hunt].beats);
 	/* set up hunt conditions */
 	cond.hunter     = ch;
@@ -228,12 +228,12 @@ void do_hunt(Character *ch, String argument)
 
 	if (direction == -1) {
 		act("You couldn't find a path to $N from here.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 	else if (direction == -2) {
 		act("$N is too far away or cannot be found.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -254,8 +254,8 @@ void do_hunt(Character *ch, String argument)
 		do {
 			direction = number_door();
 		}
-		while ((ch->in_room->exit[direction] == NULL)
-		       || (ch->in_room->exit[direction]->u1.to_room == NULL));
+		while ((ch->in_room->exit[direction] == nullptr)
+		       || (ch->in_room->exit[direction]->u1.to_room == nullptr));
 	}
 	else {
 		if (IS_IMMORTAL(ch)) {
@@ -280,7 +280,7 @@ void hunt_victim(Character *ch)
 	Character     *tmp;
 	HUNT_CONDITIONS cond;
 
-	if (ch == NULL || ch->hunting == NULL || !IS_NPC(ch))
+	if (ch == nullptr || ch->hunting == nullptr || !IS_NPC(ch))
 		return;
 
 	/* Make sure the victim still exists. */
@@ -293,19 +293,19 @@ void hunt_victim(Character *ch)
 
 	if (!found || !can_see_char(ch, ch->hunting)) {
 		do_say(ch, "Damn!  My prey is gone!!");
-		ch->hunting = NULL;
+		ch->hunting = nullptr;
 		return;
 	}
 
 	if (ch->in_room == ch->hunting->in_room) {
 		act("$n glares at $N and says, 'Ye shall DIE!'",
-		    ch, NULL, ch->hunting, TO_NOTVICT);
+		    ch, nullptr, ch->hunting, TO_NOTVICT);
 		act("$n glares at you and says, 'Ye shall DIE!'",
-		    ch, NULL, ch->hunting, TO_VICT);
+		    ch, nullptr, ch->hunting, TO_VICT);
 		act("You glare at $N and say, 'Ye shall DIE!",
-		    ch, NULL, ch->hunting, TO_CHAR);
+		    ch, nullptr, ch->hunting, TO_CHAR);
 		multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
-		ch->hunting = NULL;
+		ch->hunting = nullptr;
 		return;
 	}
 
@@ -320,8 +320,8 @@ void hunt_victim(Character *ch)
 	dir = find_path(&cond);
 
 	if (dir < 0 || dir > 5) {
-		act("$n says 'Damn!  Lost $M!'", ch, NULL, ch->hunting, TO_ROOM);
-		ch->hunting = NULL;
+		act("$n says 'Damn!  Lost $M!'", ch, nullptr, ch->hunting, TO_ROOM);
+		ch->hunting = nullptr;
 		return;
 	}
 
@@ -332,8 +332,8 @@ void hunt_victim(Character *ch)
 		do {
 			dir = number_door();
 		}
-		while ((ch->in_room->exit[dir] == NULL) ||
-		       (ch->in_room->exit[dir]->u1.to_room == NULL));
+		while ((ch->in_room->exit[dir] == nullptr) ||
+		       (ch->in_room->exit[dir]->u1.to_room == nullptr));
 	}
 
 	if (cond.thru_doors &&

@@ -34,7 +34,7 @@ void load_storage_list()
 	storage_list_head->next = storage_list_tail;
 	storage_list_tail->previous = storage_list_head;
 
-	if ((fp = fopen(STORAGE_FILE, "r")) == NULL) {
+	if ((fp = fopen(STORAGE_FILE, "r")) == nullptr) {
 		bug("load_storage_list: Cannot open STORAGE_FILE!", 0);
 		return;
 	}
@@ -44,7 +44,7 @@ void load_storage_list()
 	for (i = 0; i < count; i++) {
 		StoredPlayer *newData = new StoredPlayer;
 
-		if (newData == NULL) {
+		if (newData == nullptr) {
 			bug("Failed to allocate memory for StoredPlayer!", 0);
 			return;
 		}
@@ -62,7 +62,7 @@ void save_storage_list()
 	FILE *fp;
 	StoredPlayer *i;
 
-	if ((fp = fopen(STORAGE_FILE, "w")) == NULL) {
+	if ((fp = fopen(STORAGE_FILE, "w")) == nullptr) {
 		bug("save_storage_list: Cannot open STORAGE_FILE!", 0);
 		return;
 	}
@@ -134,7 +134,7 @@ StoredPlayer *lookup_storage_data(const String& name)
 		i = i->next;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 int count_stored_characters()

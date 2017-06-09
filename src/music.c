@@ -71,21 +71,21 @@ void song_update(void)
 				channel_songs[0]++;
 			}
 
-			for (d = descriptor_list; d != NULL; d = d->next) {
+			for (d = descriptor_list; d != nullptr; d = d->next) {
 				victim = d->original ? d->original : d->character;
 
 				if (IS_PLAYING(d) &&
 				    !IS_SET(victim->comm, COMM_NOMUSIC) &&
 				    !IS_SET(victim->comm, COMM_QUIET)) {
 					new_color(victim, CSLOT_CHAN_MUSIC);
-					act("$t", d->character, buf, NULL, TO_CHAR, POS_SLEEPING, FALSE);
+					act("$t", d->character, buf, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
 					set_color(victim, WHITE, NOBOLD);
 				}
 			}
 		}
 	}
 
-	for (obj = object_list; obj != NULL; obj = obj->next) {
+	for (obj = object_list; obj != nullptr; obj = obj->next) {
 		if (obj->item_type != ITEM_JUKEBOX || obj->value[1] < 0)
 			continue;
 
@@ -96,10 +96,10 @@ void song_update(void)
 
 		/* find which room to play in */
 
-		if ((room = obj->in_room) == NULL) {
-			if (obj->carried_by == NULL)
+		if ((room = obj->in_room) == nullptr) {
+			if (obj->carried_by == nullptr)
 				continue;
-			else if ((room = obj->carried_by->in_room) == NULL)
+			else if ((room = obj->carried_by->in_room) == nullptr)
 				continue;
 		}
 
@@ -107,8 +107,8 @@ void song_update(void)
 			Format::sprintf(buf, "$p starts playing %s, %s.",
 			        song_table[obj->value[1]].group, song_table[obj->value[1]].name);
 
-			if (room->people != NULL)
-				act(buf, room->people, obj, NULL, TO_ALL);
+			if (room->people != nullptr)
+				act(buf, room->people, obj, nullptr, TO_ALL);
 
 			obj->value[0] = 0;
 			continue;
@@ -131,8 +131,8 @@ void song_update(void)
 
 		Format::sprintf(buf, "$p bops: '%s'", line);
 
-		if (room->people != NULL)
-			act(buf, room->people, obj, NULL, TO_ALL);
+		if (room->people != nullptr)
+			act(buf, room->people, obj, nullptr, TO_ALL);
 	}
 }
 
@@ -146,7 +146,7 @@ void load_songs(void)
 	for (i = 0; i <= MAX_GLOBAL; i++)
 		channel_songs[i] = -1;
 
-	if ((fp = fopen(MUSIC_FILE, "r")) == NULL) {
+	if ((fp = fopen(MUSIC_FILE, "r")) == nullptr) {
 		bug("Couldn't open music file, no songs available.", 0);
 		return;
 	}
@@ -203,19 +203,19 @@ void do_play(Character *ch, String argument)
 	String arg;
 	str = one_argument(argument, arg);
 
-	for (juke = ch->carrying; juke != NULL; juke = juke->next_content) {
+	for (juke = ch->carrying; juke != nullptr; juke = juke->next_content) {
 		if (juke->item_type == ITEM_JUKEBOX && can_see_obj(ch, juke))
 			break;
 	}
 
-	if (juke == NULL) {
-		for (juke = ch->in_room->contents; juke != NULL; juke = juke->next_content) {
+	if (juke == nullptr) {
+		for (juke = ch->in_room->contents; juke != nullptr; juke = juke->next_content) {
 			if (juke->item_type == ITEM_JUKEBOX && can_see_obj(ch, juke))
 				break;
 		}
 	}
 
-	if (juke == NULL) {
+	if (juke == nullptr) {
 		stc("You see nothing to play.\n", ch);
 		return;
 	}

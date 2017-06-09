@@ -122,7 +122,7 @@ int get_unspelled_ac(Character *ch, int type)
 	int ac = 100, loc;
 
 	for (loc = 0; loc < MAX_WEAR; loc++)
-		if ((obj = get_eq_char(ch, loc)) != NULL)
+		if ((obj = get_eq_char(ch, loc)) != nullptr)
 			ac -= apply_ac(obj, loc, type);
 
 	return ac;
@@ -132,9 +132,9 @@ void attribute_check(Character *ch) {
 	/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
 	Object *weapon;
 
-	if (ch != NULL
-	 && ch->in_room != NULL
-	 && (weapon = get_eq_char(ch, WEAR_WIELD)) != NULL
+	if (ch != nullptr
+	 && ch->in_room != nullptr
+	 && (weapon = get_eq_char(ch, WEAR_WIELD)) != nullptr
 	 && get_obj_weight(weapon) > (str_app[GET_ATTR_STR(ch)].wield * 10)) {
 
 		// only do this if they have a strength reducing spell affect (not from EQ)
@@ -146,8 +146,8 @@ void attribute_check(Character *ch) {
 			}
 
 		if (found) {
-			act("You drop $p.", ch, weapon, NULL, TO_CHAR);
-			act("$n drops $p.", ch, weapon, NULL, TO_ROOM);
+			act("You drop $p.", ch, weapon, nullptr, TO_CHAR);
+			act("$n drops $p.", ch, weapon, nullptr, TO_ROOM);
 			obj_from_char(weapon);
 			obj_to_room(weapon, ch->in_room);
 		}
@@ -157,7 +157,7 @@ void attribute_check(Character *ch) {
 String print_defense_modifiers(Character *ch, int where) {
 	String buf;
 
-	if (ch->defense_mod == NULL)
+	if (ch->defense_mod == nullptr)
 		return buf;
 
 	for (int i = 1; i < 32; i++) {

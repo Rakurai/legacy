@@ -37,7 +37,7 @@ War::~War() {
 	}
 
 	Event *event, *event_next;
-	for (event = events; event != NULL; event = event_next) {
+	for (event = events; event != nullptr; event = event_next) {
 		event_next = event->next;
 		delete event;
 	}
@@ -62,7 +62,7 @@ void load_war_events()
 	while (war != war_table_tail) {
 		Format::sprintf(strsave, "%sWarEvents%d", EVENT_DIR, get_war_index(war));
 
-		if ((fp = fopen(strsave, "r")) != NULL) {
+		if ((fp = fopen(strsave, "r")) != nullptr) {
 			for (; ;) {
 				if (fread_word(fp) == "END")
 					break;
@@ -74,11 +74,11 @@ void load_war_events()
 				n_event->number = atoi(fread_string(fp));
 				n_event->time   = dizzy_scantime(fread_string(fp));
 
-				if (war->events == NULL) /* first event? */
+				if (war->events == nullptr) /* first event? */
 					war->events = n_event;
 				else
-					for (event = war->events; event != NULL; event = event->next)
-						if (event->next == NULL) {
+					for (event = war->events; event != nullptr; event = event->next)
+						if (event->next == nullptr) {
 							event->next = n_event;
 							break;
 						}
@@ -104,10 +104,10 @@ void save_war_events()
 	while (war != war_table_tail) {
 		Format::sprintf(strsave, "%sWarEvents%d", EVENT_DIR, get_war_index(war));
 
-		if ((fp = fopen(EVENT_TMP, "w")) != NULL) {
+		if ((fp = fopen(EVENT_TMP, "w")) != nullptr) {
 			event = war->events;
 
-			while (event != NULL) {
+			while (event != nullptr) {
 				Format::fprintf(fp, "NOTEND\n");
 				Format::fprintf(fp, "%d~\n", event->type);
 				Format::fprintf(fp, "%s~\n", event->astr);
@@ -138,7 +138,7 @@ void load_war_table()
 	war_table_head->next            = war_table_tail;
 	war_table_tail->previous        = war_table_head;
 
-	if ((fp = fopen(WAR_DIR WAR_FILE, "r")) != NULL) {
+	if ((fp = fopen(WAR_DIR WAR_FILE, "r")) != nullptr) {
 		for (; ;) {
 			if (fread_word(fp) == "END")
 				break;
@@ -178,7 +178,7 @@ void save_war_table()
 	War *war;
 	int i;
 
-	if ((fp = fopen(WAR_DIR WAR_FILE, "w")) != NULL) {
+	if ((fp = fopen(WAR_DIR WAR_FILE, "w")) != nullptr) {
 		war = war_table_head->next;
 
 		while (war != war_table_tail) {
@@ -237,7 +237,7 @@ void fix_war(War *war)
 	}
 
 	fixed_war->events   = war->events;
-	war->events = NULL; // prevent freeing
+	war->events = nullptr; // prevent freeing
 	fixed_war->ongoing  = war->ongoing;
 	fixed_war->previous = war->previous;
 	fixed_war->next     = war->next;
@@ -306,7 +306,7 @@ bool clan_is_challenger(Clan *clan, War *war)
 
 bool clan_opponents(Clan *clanA, Clan *clanB)
 {
-	War *war = NULL;
+	War *war = nullptr;
 
 	if ((war = get_same_war(clanA, clanB)))
 		if (clan_is_challenger(clanA, war) != clan_is_challenger(clanB, war))
@@ -390,7 +390,7 @@ War *war_lookup(int number)
 		count++;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 War *get_war(Clan *clan)
@@ -405,7 +405,7 @@ War *get_war(Clan *clan)
 		war = war->next;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 War *get_same_war(Clan *clanA, Clan *clanB)
@@ -414,7 +414,7 @@ War *get_same_war(Clan *clanA, Clan *clanB)
 	war = war_table_head->next;
 
 	if (clanA == clanB)
-		return NULL;
+		return nullptr;
 
 	while (war != war_table_tail) {
 		if (war->ongoing)
@@ -425,7 +425,7 @@ War *get_same_war(Clan *clanA, Clan *clanB)
 		war = war->next;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 void defeat_clan(War *war, Character *ch, Character *victim)
@@ -488,7 +488,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 			continue;
 
 		/* sort through the score adjustments, looking for ones pertaining to the victim */
-		for (event = war->events; event != NULL; event = event->next) {
+		for (event = war->events; event != nullptr; event = event->next) {
 			if (event->type != EVENT_ADJUST_SCORE)
 				continue;
 
@@ -565,7 +565,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 
 		Format::sprintf(buf, "[FYI] %s has been wiped out!", vclan->clanname);
 
-		for (d = descriptor_list; d != NULL; d = d->next) {
+		for (d = descriptor_list; d != nullptr; d = d->next) {
 			victim = d->original ? d->original : d->character;
 
 			if (IS_PLAYING(d)
@@ -702,11 +702,11 @@ void rec_event(War *war, int type, const String& astr, const String& bstr, int n
 	n_event->number = number;
 	n_event->time   = current_time;
 
-	if (war->events == NULL) /* first event? */
+	if (war->events == nullptr) /* first event? */
 		war->events = n_event;
 	else {
-		for (event = war->events; event != NULL; event = event->next)
-			if (event->next == NULL) {
+		for (event = war->events; event != nullptr; event = event->next)
+			if (event->next == nullptr) {
 				event->next = n_event;
 				break;
 			}
@@ -749,7 +749,7 @@ void war_stop(War *war)
 
 	for (i = 0; i < 4; i++) {
 		if (war->chal[i]->name[0] != '\0') {
-			if ((clan = clan_lookup(war->chal[i]->name)) != NULL) {
+			if ((clan = clan_lookup(war->chal[i]->name)) != nullptr) {
 				if (war->chal[i]->inwar)
 					war->chal[i]->final_score = clan->score;
 
@@ -759,7 +759,7 @@ void war_stop(War *war)
 		}
 
 		if (war->def[i]->name[0] != '\0') {
-			if ((clan = clan_lookup(war->def[i]->name)) != NULL) {
+			if ((clan = clan_lookup(war->def[i]->name)) != nullptr) {
 				if (war->def[i]->inwar)
 					war->def[i]->final_score = clan->score;
 
@@ -871,7 +871,7 @@ void format_war_list(Character *ch, War *war, bool current)
 			chal_list[chcount].inwar = war->chal[i]->inwar;
 			chal_list[chcount].st_score = war->chal[i]->start_score;
 
-			if ((clan = clan_lookup(war->chal[i]->name)) != NULL
+			if ((clan = clan_lookup(war->chal[i]->name)) != nullptr
 			    && war->chal[i]->inwar && current)
 				chal_list[chcount].score = clan->score;
 			else
@@ -885,7 +885,7 @@ void format_war_list(Character *ch, War *war, bool current)
 			def_list[defcount].inwar = war->def[i]->inwar;
 			def_list[defcount].st_score = war->def[i]->start_score;
 
-			if ((clan = clan_lookup(war->def[i]->name)) != NULL
+			if ((clan = clan_lookup(war->def[i]->name)) != nullptr
 			    && war->def[i]->inwar && current)
 				def_list[defcount].score = clan->score;
 			else
@@ -972,7 +972,7 @@ void format_war_events(Character *ch, War *war)
 	War::Event *event;
 	format_war_list(ch, war, war->ongoing);
 
-	for (event = war->events; event != NULL; event = event->next) {
+	for (event = war->events; event != nullptr; event = event->next) {
 		Format::sprintf(buf, "{Punknown event type{x");
 
 		switch (event->type) {
@@ -1051,7 +1051,7 @@ void do_war(Character *ch, String argument)
 {
 	char buf[MSL];
 	Clan *clanA, *clanB;
-	War *war = NULL;
+	War *war = nullptr;
 	int count = 0, number = 0;
 	bool challenger = FALSE;
 
@@ -1120,7 +1120,7 @@ void do_war(Character *ch, String argument)
 
 		number = atoi(arg2);
 
-		if ((war = war_lookup(number)) == NULL) {
+		if ((war = war_lookup(number)) == nullptr) {
 			stc("That is not a valid war.\n", ch);
 			return;
 		}
@@ -1136,12 +1136,12 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if ((clanA = clan_lookup(arg2)) == NULL) {
+		if ((clanA = clan_lookup(arg2)) == nullptr) {
 			ptc(ch, "'%s' is not a clan.\n", arg2);
 			return;
 		}
 
-		if ((clanB = clan_lookup(arg3)) == NULL) {
+		if ((clanB = clan_lookup(arg3)) == nullptr) {
 			ptc(ch, "'%s' is not a clan.\n", arg3);
 			return;
 		}
@@ -1232,7 +1232,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if ((clanA = clan_lookup(arg2)) == NULL) {
+		if ((clanA = clan_lookup(arg2)) == nullptr) {
 			ptc(ch, "'%s' is not a clan.\n", arg2);
 			return;
 		}
@@ -1244,7 +1244,7 @@ void do_war(Character *ch, String argument)
 
 		number = atoi(arg3);
 
-		if ((war = war_lookup(number)) == NULL) {
+		if ((war = war_lookup(number)) == nullptr) {
 			stc("That is not a valid war.\n", ch);
 			return;
 		}
@@ -1299,7 +1299,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if ((clanA = clan_lookup(arg2)) == NULL) {
+		if ((clanA = clan_lookup(arg2)) == nullptr) {
 			ptc(ch, "'%s' is not a clan.\n", arg2);
 			return;
 		}
@@ -1311,7 +1311,7 @@ void do_war(Character *ch, String argument)
 
 		number = atoi(arg3);
 
-		if ((war = war_lookup(number)) == NULL) {
+		if ((war = war_lookup(number)) == nullptr) {
 			stc("That is not a valid war.\n", ch);
 			return;
 		}
@@ -1351,7 +1351,7 @@ void do_war(Character *ch, String argument)
 	                        return;
 	                }
 
-	                if ((clanA = clan_lookup(arg2)) == NULL)
+	                if ((clanA = clan_lookup(arg2)) == nullptr)
 	                {
 	                        ptc(ch, "'%s' is not a clan.\n", arg2);
 	                        return;
@@ -1391,7 +1391,7 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if ((war = war_lookup(number)) == NULL) {
+		if ((war = war_lookup(number)) == nullptr) {
 			stc("That is not a valid war.\n", ch);
 			return;
 		}
@@ -1414,7 +1414,7 @@ void do_war(Character *ch, String argument)
 		War *war_next;
 		war = war_table_head;
 
-		while (war != NULL) {
+		while (war != nullptr) {
 			war_next = war->next;
 			free_war(war);
 			war = war_next;
@@ -1436,13 +1436,13 @@ void do_war(Character *ch, String argument)
 	                        return;
 	                }
 
-	                if ((winner = get_player_world(ch, arg2, VIS_PLR)) == NULL)
+	                if ((winner = get_player_world(ch, arg2, VIS_PLR)) == nullptr)
 	                {
 	                        stc("Winner not found.\n", ch);
 	                        return;
 	                }
 
-	                if ((loser = get_player_world(ch, arg3, VIS_PLR)) == NULL)
+	                if ((loser = get_player_world(ch, arg3, VIS_PLR)) == nullptr)
 	                {
 	                        stc("Loser not found.\n", ch);
 	                        return;

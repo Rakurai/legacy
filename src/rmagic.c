@@ -61,12 +61,12 @@ void spell_paralyze(int sn, int level, Character *ch, void *vo, int target, int 
 	}
 
 	if (affect_exists_on_char(victim, sn)) {
-		act("$N is already paralyzed.", ch, NULL, victim, TO_CHAR);
+		act("$N is already paralyzed.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
 	if (!IS_NPC(victim) && saves_spell(level, victim, DAM_MENTAL)) {
-		act("$N slows, but only momentarily.  Your paralysis has failed.", ch, NULL, victim, TO_CHAR);
+		act("$N slows, but only momentarily.  Your paralysis has failed.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -79,7 +79,7 @@ void spell_paralyze(int sn, int level, Character *ch, void *vo, int target, int 
 	);
 
 	stc("You can't move anymore!\n", victim);
-	act("$n seems paralyzed!", victim, NULL, NULL, TO_ROOM);
+	act("$n seems paralyzed!", victim, nullptr, nullptr, TO_ROOM);
 }
 
 void spell_ironskin(int sn, int level, Character *ch, void *vo, int target, int evolution)
@@ -130,7 +130,7 @@ void spell_dazzle(int sn, int level, Character *ch, void *vo, int target, int ev
 	Character *victim = (Character *) vo;
 	int chance;
 
-	if (ch == victim && ch->fighting != NULL)
+	if (ch == victim && ch->fighting != nullptr)
 		victim = ch->fighting;
 
 	if (is_blinded(victim)) {
@@ -171,10 +171,10 @@ void spell_dazzle(int sn, int level, Character *ch, void *vo, int target, int ev
 	/* Oh god, my eyes!! */
 	if (number_percent() < chance) {
 		act("A brilliant light flashes from $n's fingertips, and $s blinded opponent stops fighting.",
-		    ch, NULL, victim, TO_NOTVICT);
-		act("Your flash dazzles $N's eyes, and the fight stops.", ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_NOTVICT);
+		act("Your flash dazzles $N's eyes, and the fight stops.", ch, nullptr, victim, TO_CHAR);
 		act("A brilliant flash of light dazzles your eyes, and the fighting stops.",
-		    ch, NULL, victim, TO_VICT);
+		    ch, nullptr, victim, TO_VICT);
 
 		affect_add_sn_to_char(victim,
 			sn,
@@ -189,10 +189,10 @@ void spell_dazzle(int sn, int level, Character *ch, void *vo, int target, int ev
 	}
 
 	act("A brilliant flash of light bursts from $n's fingertips, but nothing happens.",
-	    ch, NULL, victim, TO_NOTVICT);
-	act("Your flash of light has no effect.", ch, NULL, victim, TO_CHAR);
+	    ch, nullptr, victim, TO_NOTVICT);
+	act("Your flash of light has no effect.", ch, nullptr, victim, TO_CHAR);
 	act("A brilliant flash of light bursts from $n's fingertips, but you close your eyes in time.",
-	    ch, NULL, victim, TO_VICT);
+	    ch, nullptr, victim, TO_VICT);
 	return;
 }
 
@@ -220,7 +220,7 @@ void spell_full_heal(int sn, int level, Character *ch, void *vo, int target, int
 		if (victim == ch)
 			stc("The fury of battle prevents a full healing.\n", ch);
 		else
-			act("$N cannot be fully healed while in combat.", ch, NULL, victim, TO_CHAR);
+			act("$N cannot be fully healed while in combat.", ch, nullptr, victim, TO_CHAR);
 
 		return;
 	}
@@ -233,7 +233,7 @@ void spell_full_heal(int sn, int level, Character *ch, void *vo, int target, int
 
 	victim->hit = GET_MAX_HIT(victim);
 	ch->mana -= mana_cost;
-	act("$n looks revived as $s wounds vanish completely.", victim, NULL, NULL, TO_ROOM);
+	act("$n looks revived as $s wounds vanish completely.", victim, nullptr, nullptr, TO_ROOM);
 	stc("Your wounds vanish completely.\n", victim);
 }
 
@@ -249,7 +249,7 @@ void spell_midnight(int sn, int level, Character *ch, void *vo, int target, int 
 	}
 
 	stc("You blend into the night.\n", victim);
-	act("$n vanishes into the shadows.", victim, NULL, NULL, TO_ROOM);
+	act("$n vanishes into the shadows.", victim, nullptr, nullptr, TO_ROOM);
 
 	affect_add_sn_to_char(victim,
 		sn,
@@ -299,13 +299,13 @@ void spell_pain(int sn, int level, Character *ch, void *vo, int target, int evol
 		return;
 	}
 
-	act("You bestow pure agony upon $N!", ch, NULL, victim, TO_CHAR);
-	act("$N writhes in agony as the pain of $S wounds overtakes $M.", ch, NULL, victim, TO_NOTVICT);
-	act("You scream in agony as the pain of your wounds increases.", ch, NULL, victim, TO_VICT);
+	act("You bestow pure agony upon $N!", ch, nullptr, victim, TO_CHAR);
+	act("$N writhes in agony as the pain of $S wounds overtakes $M.", ch, nullptr, victim, TO_NOTVICT);
+	act("You scream in agony as the pain of your wounds increases.", ch, nullptr, victim, TO_VICT);
 	dam = (UMIN(victim->hit, (4 * level))) + number_range(1, (level * 2));
 	damage(ch, (Character *) vo, dam, sn, DAM_HARM, TRUE, TRUE);
 
-	if (ch->fighting != NULL) {
+	if (ch->fighting != nullptr) {
 		spell_slow(gsn_slow,   level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
 		spell_weaken(gsn_weaken, level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
 		spell_plague(gsn_plague, level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
@@ -325,13 +325,13 @@ void spell_hex(int sn, int level, Character *ch, void *vo, int target, int evolu
 	}
 
 	if (affect_exists_on_char(victim, sn)) {
-		act("The dark gods have already cursed $N.", ch, NULL, victim, TO_CHAR);
+		act("The dark gods have already cursed $N.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
-	act("Unholy darkness surrounds $N, guiding your attacks.", ch, NULL, victim, TO_CHAR);
-	act("$N is surrounded by a dark mist.", ch, NULL, victim, TO_NOTVICT);
-	act("An unholy mist surrounds you.", ch, NULL, victim, TO_VICT);
+	act("Unholy darkness surrounds $N, guiding your attacks.", ch, nullptr, victim, TO_CHAR);
+	act("$N is surrounded by a dark mist.", ch, nullptr, victim, TO_NOTVICT);
+	act("An unholy mist surrounds you.", ch, nullptr, victim, TO_VICT);
 
 	affect_add_sn_to_char(victim,
 		sn,
@@ -356,7 +356,7 @@ void spell_bone_wall(int sn, int level, Character *ch, void *vo, int target, int
 	);
 
 	stc("Bones lift from the ground and begin to swirl around you.\n", ch);
-	act("Bones lift from the ground and begin to swirl around $n.", ch, NULL, NULL, TO_ROOM);
+	act("Bones lift from the ground and begin to swirl around $n.", ch, nullptr, nullptr, TO_ROOM);
 }
 
 /*** PALADIN ***/
@@ -370,7 +370,7 @@ void spell_force(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	act("$n is surrounded by a mystical aura.", victim, NULL, NULL, TO_ROOM);
+	act("$n is surrounded by a mystical aura.", victim, nullptr, nullptr, TO_ROOM);
 	stc("You are surrounded by a mystical aura.\n", victim);
 
 	affect_add_sn_to_char(victim,
@@ -396,8 +396,8 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 
 	wielded = get_eq_char(ch, WEAR_WIELD);
 
-	if (wielded != NULL && IS_OBJ_STAT(wielded, ITEM_NOREMOVE)) {
-		act("You can't remove $p.", ch, wielded, NULL, TO_CHAR);
+	if (wielded != nullptr && IS_OBJ_STAT(wielded, ITEM_NOREMOVE)) {
+		act("You can't remove $p.", ch, wielded, nullptr, TO_CHAR);
 		return;
 	}
 
@@ -456,7 +456,7 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 		SET_BIT(sword->extra_flags, ITEM_ANTI_GOOD);
 	}
 
-	act("$n prays for a moment, and a holy sword materializes in $s hand.", ch, NULL, NULL, TO_ROOM);
+	act("$n prays for a moment, and a holy sword materializes in $s hand.", ch, nullptr, nullptr, TO_ROOM);
 	stc("You summon a godly blade for your divine justice.\n", ch);
 	obj_to_char(sword, ch);
 	wear_obj(ch, sword, TRUE);
@@ -470,7 +470,7 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 void spell_quick(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	/* how simple could it be? */
-	act("$n blazes into a wild flurry of attacks!", ch, NULL, NULL, TO_ROOM);
+	act("$n blazes into a wild flurry of attacks!", ch, nullptr, nullptr, TO_ROOM);
 	stc("You blaze into a wild flurry of attacks!\n", ch);
 	global_quick = TRUE;
 	multi_hit(ch, ch->fighting, TYPE_UNDEFINED);

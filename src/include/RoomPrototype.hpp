@@ -6,19 +6,19 @@ public:
 	RoomPrototype() {}
 	virtual ~RoomPrototype() {}
 
-	RoomPrototype *	next = NULL;
-	Character *		people = NULL;
-	Object *		contents = NULL;
-	ExtraDescr *	extra_descr = NULL;
-	Area *		area = NULL;
-	Exit *		exit    [6] = {NULL};
-	Exit *		old_exit[6] = {NULL};
+	RoomPrototype *	next = nullptr;
+	Character *		people = nullptr;
+	Object *		contents = nullptr;
+	ExtraDescr *	extra_descr = nullptr;
+	Area *		area = nullptr;
+	Exit *		exit    [6] = {nullptr};
+	Exit *		old_exit[6] = {nullptr};
 	String 		name;
 	String 		description;
 	String 		owner;
 	sh_int			vnum = 0;
 	sh_int			version = 0;	/* Room versioning -- Montrey */
-	Affect *		affected = NULL;		/* Montrey */
+	Affect *		affected = nullptr;		/* Montrey */
 
 	unsigned long   room_flags = 0;
     unsigned long   room_flag_cache = 0;
@@ -27,12 +27,12 @@ public:
 	sh_int			sector_type = 0;
 	sh_int			heal_rate = 0;
 	sh_int			mana_rate = 0;
-	Clan *		clan = NULL;
+	Clan *		clan = nullptr;
 	sh_int			guild = 0;		/* guild room, class number+1, 0 none -- Montrey */
 	sh_int			tele_dest = 0;
 	sh_int			hunt_id = 0;  /* Unique ID for current hunt */
-	RoomPrototype *	hunt_next = NULL;  /* next room in search circle */
-	RoomPrototype *	hunt_back = NULL;  /* pointer back toward origin */
+	RoomPrototype *	hunt_next = nullptr;  /* next room in search circle */
+	RoomPrototype *	hunt_back = nullptr;  /* pointer back toward origin */
 
 private:
 	RoomPrototype(const RoomPrototype&);

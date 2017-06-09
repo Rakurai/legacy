@@ -42,7 +42,7 @@ void do_heal(Character *ch, String argument)
 		if (IS_NPC(mob) && IS_SET(mob->act_flags, ACT_IS_HEALER)) break;
 	}
 
-	if (mob == NULL) {
+	if (mob == nullptr) {
 		stc("You can't do that here.\n", ch);
 		return;
 	}
@@ -52,7 +52,7 @@ void do_heal(Character *ch, String argument)
 
 	if (arg.empty()) {
 		/* display price list */
-		act("$N says 'I offer the following spells:'", ch, NULL, mob, TO_CHAR);
+		act("$N says 'I offer the following spells:'", ch, nullptr, mob, TO_CHAR);
 		stc("  light: cure light wounds       5 gold\n", ch);
 		stc("  serious: cure serious wounds  10 gold\n", ch);
 		stc("  critic: cure critical wounds  20 gold\n", ch);
@@ -116,7 +116,7 @@ void do_heal(Character *ch, String argument)
 		cost  = 100;
 	}
 	else if (arg.is_prefix_of("mana") || arg.is_prefix_of("energize")) {
-		spell = NULL;
+		spell = nullptr;
 		sn = -1;
 		words = "energizer";
 		cost = 3500;
@@ -128,12 +128,12 @@ void do_heal(Character *ch, String argument)
 		cost  = 1500;
 	}
 	else {
-		act("$N says 'Type 'heal' for a list of spells.'", ch, NULL, mob, TO_CHAR);
+		act("$N says 'Type 'heal' for a list of spells.'", ch, nullptr, mob, TO_CHAR);
 		return;
 	}
 
 	if (cost > (ch->gold * 100 + ch->silver)) {
-		act("$N says 'You do not have enough gold for my services.'", ch, NULL, mob, TO_CHAR);
+		act("$N says 'You do not have enough gold for my services.'", ch, nullptr, mob, TO_CHAR);
 		return;
 	}
 
@@ -144,19 +144,19 @@ void do_heal(Character *ch, String argument)
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if (number_percent() < get_skill(rch, gsn_languages)) {
 			Format::sprintf(buf, "$n utters the words '%s'.", arg);
-			act(buf, mob, NULL, rch, TO_VICT);
+			act(buf, mob, nullptr, rch, TO_VICT);
 			check_improve(rch, gsn_languages, TRUE, 8);
 		}
 		else {
 			Format::sprintf(buf, "$n utters the words '%s'.", words);
-			act(buf, mob, NULL, rch, TO_VICT);
+			act(buf, mob, nullptr, rch, TO_VICT);
 
 			if (get_skill(rch, gsn_languages))
 				check_improve(rch, gsn_languages, FALSE, 8);
 		}
 	}
 
-	if (spell == NULL) { /* restore mana trap...kinda hackish */
+	if (spell == nullptr) { /* restore mana trap...kinda hackish */
 		ch->mana += dice(9, 10) + mob->level / 2;
 		ch->mana = UMIN(ch->mana, GET_MAX_MANA(ch));
 		stc("A warm glow passes through you.\n", ch);

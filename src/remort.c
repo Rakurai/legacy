@@ -421,7 +421,7 @@ void do_remort(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("Hmmm...they must have ran off in fear >=).\n", ch);
 		return;
 	}
@@ -450,7 +450,7 @@ void do_remort(Character *ch, String argument)
 
 	/* they gotta be naked */
 	for (x = 0; x < MAX_WEAR; x++) {
-		if (get_eq_char(victim, x) != NULL) {
+		if (get_eq_char(victim, x) != nullptr) {
 			stc("Tell them to remove all of their eq first.\n", ch);
 			return;
 		}
@@ -509,7 +509,7 @@ void do_remort(Character *ch, String argument)
 	victim->pcdata->remort_count++;
 	victim->exp = exp_per_level(victim, victim->pcdata->points);
 
-	if (victim->pet != NULL) {
+	if (victim->pet != nullptr) {
 		affect_remove_all_from_char(victim->pet, FALSE);
 
 		/* About the same stats as a Kitten */

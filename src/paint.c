@@ -14,12 +14,12 @@ void do_paintbow(Character *ch, String argument)
 	if (IS_SET(ch->pcdata->plr, PLR_PAINT)) {
 		stc("You pull out the white flag.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_PAINT);
-		wiznet("$N is now in *NPB* mode.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N is now in *NPB* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
 		stc("You prepare for combat.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_PAINT);
-		wiznet("$N is now in *PB* mode.", ch, NULL, WIZ_MISC, 0, 0);
+		wiznet("$N is now in *PB* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 } /* end do_paintball() */
 
@@ -30,7 +30,7 @@ void do_reload(Character *ch)
 	Object *tube;
 	Object *gun;
 
-	if ((tube = get_obj_carry(ch, "tube")) == NULL) {
+	if ((tube = get_obj_carry(ch, "tube")) == nullptr) {
 		stc("You don't have any paint tubes!\n", ch);
 		return;
 	}
@@ -40,7 +40,7 @@ void do_reload(Character *ch)
 		return;
 	}
 
-	if ((gun = get_eq_char(ch, WEAR_HOLD)) == NULL) {
+	if ((gun = get_eq_char(ch, WEAR_HOLD)) == nullptr) {
 		stc("Your not holding your paintgun!\n", ch);
 		return;
 	}
@@ -69,7 +69,7 @@ void do_splat(Character *ch, String argument)
 	RoomPrototype *location;
 	Character *victim;
 
-	if ((gun = get_eq_char(ch, WEAR_HOLD)) == NULL) {
+	if ((gun = get_eq_char(ch, WEAR_HOLD)) == nullptr) {
 		stc("You're not holding your paintgun!\n", ch);
 		return;
 	}
@@ -84,7 +84,7 @@ void do_splat(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -100,7 +100,7 @@ void do_splat(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room == NULL || victim->in_room == NULL)
+	if (ch->in_room == nullptr || victim->in_room == nullptr)
 		return;
 
 	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE)) {
@@ -126,15 +126,15 @@ void do_splat(Character *ch, String argument)
 	}
 
 	if (number_percent() > (75 - gun->value[4])) {
-		if ((location = get_room_index(ROOM_VNUM_ALTAR)) == NULL)
+		if ((location = get_room_index(ROOM_VNUM_ALTAR)) == nullptr)
 			return;
 
 		act("{P$n nails $N with a bullseye paintball shot! {HSPLAT!{x",
-		    ch, NULL, victim, TO_NOTVICT);
+		    ch, nullptr, victim, TO_NOTVICT);
 		act("{PYou blast $N with a perfect shot! {HSPLAT!{x",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		act("{PA pellet from $n's gun soars through the air and hits you! {HSPLAT!{x",
-		    ch, NULL, victim, TO_VICT);
+		    ch, nullptr, victim, TO_VICT);
 
 		if ((victim->in_room->sector_type != SECT_ARENA) &&
 		    (!IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL)) &&
@@ -143,7 +143,7 @@ void do_splat(Character *ch, String argument)
 			char_from_room(victim);
 			char_to_room(victim, location);
 
-			if (victim->pet != NULL) {
+			if (victim->pet != nullptr) {
 				char_from_room(victim->pet);
 				char_to_room(victim->pet, location);
 			}
@@ -157,11 +157,11 @@ void do_splat(Character *ch, String argument)
 	}
 	else if (number_percent() > (25 - gun->value[4])) {
 		act("{B$n fires at $N, but misses by a mile.{x",
-		    ch, NULL, victim, TO_NOTVICT);
+		    ch, nullptr, victim, TO_NOTVICT);
 		act("{BYou miss $N!  You couldn't hit the broadside of a barn!{x",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		act("{B$n shoots at you and misses.  Whew!{x",
-		    ch, NULL, victim, TO_VICT);
+		    ch, nullptr, victim, TO_VICT);
 		gun->value[0] -= 1;
 		WAIT_STATE(ch, gun->value[2]);
 		return;

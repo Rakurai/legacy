@@ -7,10 +7,10 @@ public:
     Descriptor() {}
     virtual ~Descriptor() {}
 
-    Descriptor *        next = NULL;
-    Descriptor *        snoop_by = NULL;
-    Character *         character = NULL;
-    Character *         original = NULL;
+    Descriptor *        next = nullptr;
+    Descriptor *        snoop_by = nullptr;
+    Character *         character = nullptr;
+    Character *         original = nullptr;
     bool                valid = FALSE;
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
     String              host;           /* text addr */

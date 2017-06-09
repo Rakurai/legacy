@@ -21,7 +21,7 @@ void load_departed_list()
 	departed_list_head->next = departed_list_tail;
 	departed_list_tail->previous = departed_list_head;
 
-	if ((fp = fopen(DEPARTED_FILE, "r")) == NULL) {
+	if ((fp = fopen(DEPARTED_FILE, "r")) == nullptr) {
 		bug("Departed: failed loading departed_file.", 0);
 		goto bailout;
 	}
@@ -45,7 +45,7 @@ void save_departed_list()
 	DepartedPlayer *iterator;
 	FILE *fp;
 
-	if ((fp = fopen(DEPARTED_FILE, "w")) == NULL) {
+	if ((fp = fopen(DEPARTED_FILE, "w")) == nullptr) {
 		bug("Departed: failed saving departed_file.", 0);
 		goto bailout;
 	}

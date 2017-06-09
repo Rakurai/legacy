@@ -9,7 +9,7 @@ public:
 	Reset() {}
 	virtual ~Reset() {}
 
-    Reset *        next = NULL;
+    Reset *        next = nullptr;
     sh_int		version = 0;	/* Reset versioning -- Montrey */
     char                command = 0;
     sh_int              arg1 = 0;

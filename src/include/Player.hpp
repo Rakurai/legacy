@@ -14,8 +14,8 @@ public:
 	Player();
 	virtual ~Player() {}
 
-	Player *            next = NULL;
-	Character *	        ch = NULL;	/* i may be missing something, but this seems like a 'duh',
+	Player *            next = nullptr;
+	Character *	        ch = nullptr;	/* i may be missing something, but this seems like a 'duh',
 				   make it point backwards to the character -- Montrey */
 
 	String              buffer;
@@ -56,8 +56,8 @@ public:
 	int                 squest_giver = 0;
 	sh_int              nextsquest = 0;
 	sh_int              sqcountdown = 0;
-	Object  *           squestobj = NULL;
-	Character *         squestmob = NULL;
+	Object  *           squestobj = nullptr;
+	Character *         squestmob = nullptr;
 	bool                squestobjf = FALSE;
 	bool		        squestmobf = FALSE;
 	int			        squestloc1 = 0; /* obj */
@@ -69,10 +69,10 @@ public:
 	std::map<String, String> alias;
 	std::vector<String> query;
 	std::vector<String> ignore;
-	Character *         skeleton = NULL;
-	Character *         zombie = NULL;
-	Character *         wraith = NULL;
-	Character *         gargoyle = NULL;
+	Character *         skeleton = nullptr;
+	Character *         zombie = nullptr;
+	Character *         wraith = nullptr;
+	Character *         gargoyle = nullptr;
 	sh_int              color          [MAX_COLORS] = {0};
 	sh_int              bold           [MAX_COLORS] = {0};
 	unsigned long       cgroup = 0;
@@ -86,8 +86,8 @@ public:
     sh_int              remort_count = 0;
     int			        extraclass     [MAX_EXTRACLASS_SLOTS] = {0};
     int			        raffect        [MAX_RAFFECT_SLOTS] = {0};
-    Object *            locker = NULL;
-    Object *            strongbox = NULL;
+    Object *            locker = nullptr;
+    Object *            strongbox = nullptr;
     String              email;
     time_t              last_ltime = 0;
     time_t              last_saved = 0;
@@ -102,7 +102,7 @@ public:
     sh_int              tailing = 0;
     int                 mark_room = 0;
     String              aura;
-    Duel *	        duel = NULL;
+    Duel *	        duel = nullptr;
     sh_int              lays = 0;
     sh_int              next_lay_countdown = 0;
     bool                familiar = FALSE;

@@ -42,7 +42,7 @@ void do_addapply(Character *ch, String argument)
 
 	obj = get_obj_world(ch, arg1);
 
-	if (obj == NULL) {
+	if (obj == nullptr) {
 		stc("No such object exists!\n", ch);
 		return;
 	}
@@ -117,17 +117,17 @@ void do_morph(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
 
-	if (victim->desc == NULL) {
+	if (victim->desc == nullptr) {
 		stc("You can only morph connected players.\n", ch);
 		return;
 	}
 
-	if (victim->desc->original != NULL) {
+	if (victim->desc->original != nullptr) {
 		stc("They are currently morphed already.\n", ch);
 		return;
 	}
@@ -140,7 +140,7 @@ void do_morph(Character *ch, String argument)
 		return;
 	}
 
-	if ((morph = get_mob_world(ch, arg2, VIS_CHAR)) == NULL) {
+	if ((morph = get_mob_world(ch, arg2, VIS_CHAR)) == nullptr) {
 		stc("That mobile does not exist.\n", ch);
 		return;
 	}
@@ -175,11 +175,11 @@ void do_rppaward(Character *ch, String argument)
 		stc("Name            RPPs\n", ch);
 		stc("--------------------\n", ch);
 
-		for (d = descriptor_list; d != NULL; d = d->next) {
+		for (d = descriptor_list; d != nullptr; d = d->next) {
 			if (!IS_PLAYING(d) || !can_see_char(ch, d->character))
 				continue;
 
-			victim = (d->original != NULL) ? d->original : d->character;
+			victim = (d->original != nullptr) ? d->original : d->character;
 
 			if (!can_see_char(ch, victim))
 				continue;
@@ -202,7 +202,7 @@ void do_rppaward(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg2, VIS_PLR)) == nullptr) {
 		stc("Player not found.\n", ch);
 		return;
 	}
@@ -224,7 +224,7 @@ void do_rppaward(Character *ch, String argument)
 		ptc(ch, "You have awarded them %d role playing points.\n", rppoint);
 		ptc(victim, "You have been awarded %d role playing points.\n", rppoint);
 		Format::sprintf(buf, "%s awarded %d rpp to %s.", ch->name, rppoint, victim->name);
-		wiznet(buf, ch, NULL, 0, 0, 0);
+		wiznet(buf, ch, nullptr, 0, 0, 0);
 		return;
 	}
 
@@ -241,7 +241,7 @@ void do_rppaward(Character *ch, String argument)
 		stc(buf, victim);
 		Format::sprintf(buf, "%s deducted %d rpp from %s [%d remaining].",
 		        ch->name, rppoint, victim->name, victim->pcdata->rolepoints);
-		wiznet(buf, ch, NULL, WIZ_SECURE, WIZ_QUEST, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_SECURE, WIZ_QUEST, GET_RANK(ch));
 		return;
 	}
 
@@ -255,7 +255,7 @@ RoomPrototype *get_scatter_room(Character *ch)
 	for (; ;) {
 		room = get_room_index(number_range(0, 32767));
 
-		if (room == NULL
+		if (room == nullptr
 		    || room == ch->in_room
 		    || !can_see_room(ch, room)
 		    || room->area == quest_area
@@ -281,7 +281,7 @@ RoomPrototype *get_scatter_room(Character *ch)
 		return room;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* scatter all items in a room -- Montrey */
@@ -291,10 +291,10 @@ void do_scatter(Character *ch, String argument)
 	RoomPrototype *room;
 	bool scattered = FALSE;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
-	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
+	for (obj = ch->in_room->contents; obj != nullptr; obj = obj_next) {
 		obj_next = obj->next_content;
 
 		if (!CAN_WEAR(obj, ITEM_TAKE))
@@ -337,7 +337,7 @@ void do_string(Character *ch, String argument)
 	}
 
 	if (type.is_prefix_of("character") || type.is_prefix_of("mobile")) {
-		if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+		if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 			stc("They aren't here.\n", ch);
 			return;
 		}
@@ -457,9 +457,9 @@ void do_string(Character *ch, String argument)
 
 	if (type.is_prefix_of("object")) {
 		/* string an obj */
-		if ((obj = get_obj_carry(ch, arg1)) == NULL
-		    && (obj = get_obj_wear(ch, arg1)) == NULL
-		    && (obj = get_obj_list(ch, arg1, ch->in_room->contents)) == NULL) {
+		if ((obj = get_obj_carry(ch, arg1)) == nullptr
+		    && (obj = get_obj_wear(ch, arg1)) == nullptr
+		    && (obj = get_obj_list(ch, arg1, ch->in_room->contents)) == nullptr) {
 			Format::sprintf(buf, "After searching the whole mud, you could not find %s.\n", arg1);
 			stc(buf, ch);
 			return;
@@ -503,11 +503,11 @@ void do_string(Character *ch, String argument)
 				return;
 			}
 
-			if (obj->extra_descr != NULL) {
+			if (obj->extra_descr != nullptr) {
 				ExtraDescr *ed_next;
-				ExtraDescr *ed_prev = NULL;
+				ExtraDescr *ed_prev = nullptr;
 
-				for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
+				for (ed = obj->extra_descr; ed != nullptr; ed = ed_next) {
 					ed_next = ed->next;
 
 					if (ed->keyword == arg3) {
@@ -548,11 +548,11 @@ void do_string(Character *ch, String argument)
 				return;
 			}
 
-			if (obj->extra_descr != NULL) {
+			if (obj->extra_descr != nullptr) {
 				ExtraDescr *ed_next;
-				ExtraDescr *ed_prev = NULL;
+				ExtraDescr *ed_prev = nullptr;
 
-				for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
+				for (ed = obj->extra_descr; ed != nullptr; ed = ed_next) {
 					ed_next = ed->next;
 
 					if (ed->keyword == arg3) {
@@ -584,7 +584,7 @@ void do_string(Character *ch, String argument)
 
 	/* Room Strings by Lotus */
 	if (type.is_prefix_of("room")) {
-		if ((room = get_room_index(atoi(arg1))) == NULL) {
+		if ((room = get_room_index(atoi(arg1))) == nullptr) {
 			Format::sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
 			stc(buf, ch);
 			return;
@@ -608,12 +608,12 @@ void do_switch(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	Character *victim;
 
-	if (IS_NPC(ch) || ch->desc == NULL) {
+	if (IS_NPC(ch) || ch->desc == nullptr) {
 		stc("You're not a real live player, you cannot switch.\n", ch);
 		return;
 	}
 
-	if (ch->desc->original != NULL) {
+	if (ch->desc->original != nullptr) {
 		stc("You are currently switched already.\n", ch);
 		return;
 	}
@@ -626,7 +626,7 @@ void do_switch(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -642,18 +642,18 @@ void do_switch(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->desc != NULL) {
+	if (victim->desc != nullptr) {
 		stc("Sorry, Character in use.\n", ch);
 		return;
 	}
 
 	Format::sprintf(buf, "$N has switched into: %s", victim->short_descr);
 	/* 0 so it shows spell casters */
-	wiznet(buf, ch, NULL, WIZ_SWITCHES, 0, 0);
+	wiznet(buf, ch, nullptr, WIZ_SWITCHES, 0, 0);
 	ch->desc->character = victim;
 	ch->desc->original  = ch;
 	victim->desc        = ch->desc;
-	ch->desc            = NULL;
+	ch->desc            = nullptr;
 
 	/* change communications to match */
 	victim->prompt = ch->prompt;
@@ -670,10 +670,10 @@ void do_return(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	RoomPrototype *location;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		return;
 
-	if (ch->desc->original == NULL) {
+	if (ch->desc->original == nullptr) {
 		stc("You are not currently morphed.\n", ch);
 		return;
 	}
@@ -686,7 +686,7 @@ void do_return(Character *ch, String argument)
 	wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, GET_RANK(ch));
 
 	if (IS_SET(ch->desc->character->act_flags, ACT_MORPH)) {
-		if (ch->desc->character->in_room == NULL)
+		if (ch->desc->character->in_room == nullptr)
 			location = get_room_index(ROOM_VNUM_MORGUE);
 		else
 			location = ch->desc->character->in_room;
@@ -696,16 +696,16 @@ void do_return(Character *ch, String argument)
 	}
 
 	ch->desc->character       = ch->desc->original;
-	ch->desc->original        = NULL;
+	ch->desc->original        = nullptr;
 	ch->desc->character->desc = ch->desc;
 
 	if (!IS_NPC(ch->desc->character))
 		if (!ch->desc->character->pcdata->buffer.empty())
 			stc("You have messages: Type 'replay'\n", ch);
 
-	ch->desc                  = NULL;
+	ch->desc                  = nullptr;
 
-	if (IS_SET(ch->act_flags, ACT_MORPH) && ch->in_room != NULL)
+	if (IS_SET(ch->act_flags, ACT_MORPH) && ch->in_room != nullptr)
 		extract_char(ch, TRUE);  /* Only if raw_kill didn't do it */
 
 	return;
@@ -850,7 +850,7 @@ void do_create(Character *ch, String argument)
 
 		for (x = 0; x < item_table.size(); x++) {
 			if (arg2 == item_table[x].name) {
-				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == NULL) {
+				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == nullptr) {
 					Format::sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);
 					bug(buf, 0);
 					stc("That item seems to be missing.\n", ch);
@@ -870,7 +870,7 @@ void do_create(Character *ch, String argument)
 				}
 
 				obj_to_char(obj, ch);
-				act("$n has created $p!", ch, obj, NULL, TO_ROOM);
+				act("$n has created $p!", ch, obj, nullptr, TO_ROOM);
 				stc("Success.\n", ch);
 				return;
 			}
@@ -906,7 +906,7 @@ void do_skillpoint(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, char_name, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, char_name, VIS_PLR)) == nullptr) {
 		stc("Player not found.\n", ch);
 		return;
 	}

@@ -21,54 +21,54 @@ struct dispel_type {
 
 const struct dispel_type dispel_table[] = {
 	{ &gsn_age,                 TRUE,  FALSE, FALSE, "$n looks younger."                             },
-	{ &gsn_armor,               TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_barrier,             TRUE,  FALSE, FALSE, NULL                                            },
-	{ &gsn_bless,               TRUE,  TRUE,  TRUE,  NULL                                            },
+	{ &gsn_armor,               TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_barrier,             TRUE,  FALSE, FALSE, nullptr                                            },
+	{ &gsn_bless,               TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_blindness,           FALSE, FALSE, FALSE, "$n is no longer blinded."                      },
-	{ &gsn_blood_moon,          TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_bone_wall,           TRUE,  FALSE, FALSE, NULL                                            },
+	{ &gsn_blood_moon,          TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_bone_wall,           TRUE,  FALSE, FALSE, nullptr                                            },
 	{ &gsn_calm,                TRUE,  FALSE, TRUE,  "$n no longer looks so peaceful..."             },
 	{ &gsn_change_sex,          TRUE,  FALSE, FALSE, "$n looks more like $mself again."              },
 	{ &gsn_charm_person,        TRUE,  FALSE, TRUE,  "$n regains $s free will."                      },
-	{ &gsn_change_sex,          TRUE,  FALSE, FALSE, NULL                                            },
+	{ &gsn_change_sex,          TRUE,  FALSE, FALSE, nullptr                                            },
 	{ &gsn_chill_touch,         TRUE,  FALSE, FALSE, "$n looks warmer."                              },
 	{ &gsn_curse,               FALSE, FALSE, FALSE, "$n looks more relaxed."                        },
-	{ &gsn_detect_evil,         TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_detect_good,         TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_detect_hidden,       TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_detect_invis,        TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_detect_magic,        TRUE,  TRUE,  TRUE,  NULL                                            },
-	{ &gsn_divine_regeneration, TRUE,  TRUE,  TRUE,  NULL                                            },
+	{ &gsn_detect_evil,         TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_detect_good,         TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_detect_hidden,       TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_detect_invis,        TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_detect_magic,        TRUE,  TRUE,  TRUE,  nullptr                                            },
+	{ &gsn_divine_regeneration, TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_faerie_fire,         TRUE,  TRUE,  FALSE, "$n's outline fades."                           },
 	{ &gsn_fear,                TRUE,  FALSE, FALSE, "$n looks less panicked."                       },
 	{ &gsn_flameshield,         TRUE,  TRUE,  TRUE,  "The flames around $n fade away."               },
 	{ &gsn_fly,                 TRUE,  TRUE,  TRUE,  "$n falls to the ground!"                       },
-	{ &gsn_focus,               TRUE,  FALSE, FALSE, NULL                                            },
-	{ &gsn_force_shield,        TRUE,  FALSE, FALSE, NULL                                            },
+	{ &gsn_focus,               TRUE,  FALSE, FALSE, nullptr                                            },
+	{ &gsn_force_shield,        TRUE,  FALSE, FALSE, nullptr                                            },
 	{ &gsn_frenzy,              TRUE,  TRUE,  TRUE,  "$n no longer looks so wild."                   },
 	{ &gsn_giant_strength,      TRUE,  TRUE,  TRUE,  "$n no longer looks so mighty."                 },
 	{ &gsn_haste,               TRUE,  TRUE,  TRUE,  "$n is no longer moving so quickly."            },
-	{ &gsn_hex,                 TRUE,  FALSE, FALSE, NULL                                            },
-	{ &gsn_night_vision,         TRUE,  TRUE,  TRUE,  NULL                                            },
+	{ &gsn_hex,                 TRUE,  FALSE, FALSE, nullptr                                            },
+	{ &gsn_night_vision,         TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_invis,               TRUE,  TRUE,  TRUE,  "$n fades into existance."                      },
-//	{ &gsn_ironskin,            TRUE,  FALSE, FALSE, NULL                                            },
-	{ &gsn_paralyze,            TRUE,  FALSE, FALSE, NULL                                            },
+//	{ &gsn_ironskin,            TRUE,  FALSE, FALSE, nullptr                                            },
+	{ &gsn_paralyze,            TRUE,  FALSE, FALSE, nullptr                                            },
 	{ &gsn_pass_door,           TRUE,  TRUE,  TRUE,  "$n becomes less translucent."                  },
 	{ &gsn_plague,              FALSE, FALSE, FALSE, "$n looks relieved as $s sores vanish."         },
 	{ &gsn_poison,              FALSE, FALSE, FALSE, "$n looks much better."                         },
 	{ &gsn_protection_evil,     TRUE,  TRUE,  TRUE,  "$n's holy aura fades."                         },
 	{ &gsn_protection_good,     TRUE,  TRUE,  TRUE,  "$n's unholy aura fades."                       },
 	{ &gsn_sanctuary,           TRUE,  TRUE,  TRUE,  "The white aura around $n's body vanishes."     },
-	{ &gsn_sheen,               TRUE,  FALSE, FALSE, NULL                                            },
+	{ &gsn_sheen,               TRUE,  FALSE, FALSE, nullptr                                            },
 	{ &gsn_shield,              TRUE,  TRUE,  TRUE,  "The shield protecting $n vanishes."            },
-	{ &gsn_sleep,               TRUE,  TRUE,  FALSE, NULL                                            },
+	{ &gsn_sleep,               TRUE,  TRUE,  FALSE, nullptr                                            },
 	{ &gsn_slow,                TRUE,  FALSE, FALSE, "$n is no longer moving so slowly."             },
-	{ &gsn_smokescreen,         TRUE,  FALSE, TRUE,  NULL                                            },
-	{ &gsn_steel_mist,          TRUE,  TRUE,  TRUE,  NULL                                            },
+	{ &gsn_smokescreen,         TRUE,  FALSE, TRUE,  nullptr                                            },
+	{ &gsn_steel_mist,          TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_stone_skin,          TRUE,  TRUE,  TRUE,  "$n's skin regains it's normal texture."        },
-	{ &gsn_talon,               TRUE,  TRUE,  TRUE,  NULL                                            },
+	{ &gsn_talon,               TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_weaken,              TRUE,  FALSE, FALSE, "$n looks stronger."                            },
-	{ NULL,                     TRUE,  TRUE,  TRUE,  NULL                                            }
+	{ nullptr,                     TRUE,  TRUE,  TRUE,  nullptr                                            }
 };
 
 /* saving throw based on level only */
@@ -202,10 +202,10 @@ bool check_dispel_char(int dis_level, Character *victim, int sn, bool save)
 	affect_remove_marked_from_char(victim);
 
 	if (!affect_exists_on_char(victim, sn)) {
-		for (int i = 0; dispel_table[i].sn != NULL; i++) {
+		for (int i = 0; dispel_table[i].sn != nullptr; i++) {
 			if (*dispel_table[i].sn == sn) {
-				if (dispel_table[i].msg_to_room != NULL)
-					act(dispel_table[i].msg_to_room, victim, NULL, NULL, TO_ROOM);
+				if (dispel_table[i].msg_to_room != nullptr)
+					act(dispel_table[i].msg_to_room, victim, nullptr, nullptr, TO_ROOM);
 
 				break;
 			}
@@ -220,7 +220,7 @@ bool check_dispel_char(int dis_level, Character *victim, int sn, bool save)
 
 // dispel a single spell with undo spell
 bool undo_spell(int dis_level, Character *victim, int sn, bool save) {
-	for (int i = 0; dispel_table[i].sn != NULL; i++)
+	for (int i = 0; dispel_table[i].sn != nullptr; i++)
 		if (*dispel_table[i].sn == sn) {
 			if (dispel_table[i].can_undo)
 				return check_dispel_char(dis_level, victim, sn, save);
@@ -236,7 +236,7 @@ bool dispel_char(Character *victim, int level, bool cancellation)
 {
 	bool found = FALSE;
 
-	for (int i = 0; dispel_table[i].sn != NULL; i++) {
+	for (int i = 0; dispel_table[i].sn != nullptr; i++) {
 		if (cancellation && !dispel_table[i].can_cancel)
 			continue;
 

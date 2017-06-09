@@ -19,12 +19,12 @@
 #define CHARTYPE_MATCH(chx,ct) ((CHARTYPE_TEST(chx) & ct) != 0)
 
 
-#define IS_QUESTSHOPKEEPER(mob) ((mob->pIndexData->pShop != NULL) && (mob->pIndexData->pShop->buy_type[0] == ITEM_QUESTSHOP))
+#define IS_QUESTSHOPKEEPER(mob) ((mob->pIndexData->pShop != nullptr) && (mob->pIndexData->pShop->buy_type[0] == ITEM_QUESTSHOP))
 
 /*
  * Character macros.
  */
-#define IS_NPC(ch)              ((ch)->pcdata == NULL ? TRUE : FALSE)
+#define IS_NPC(ch)              ((ch)->pcdata == nullptr ? TRUE : FALSE)
 #define IS_PLAYING(d)		(d && d->connected == CON_PLAYING && d->character)
 
 // Character attribute accessors (see attribute.c for explanations)

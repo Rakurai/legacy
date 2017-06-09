@@ -10,8 +10,8 @@ public:
     String by_who;
     String date;
 
-    StoredPlayer *next = NULL;
-    StoredPlayer *previous = NULL;
+    StoredPlayer *next = nullptr;
+    StoredPlayer *previous = nullptr;
 
 private:
 	StoredPlayer(const StoredPlayer&);

@@ -63,10 +63,10 @@ void do_debug(Character *ch, String argument)
 		Descriptor *d;
 		int desc = 6;
 
-		for (d = descriptor_list; d != NULL; d = d->next)
+		for (d = descriptor_list; d != nullptr; d = d->next)
 			desc++;
 
-		if ((result = db_query("do_debug:fullupdate", "SELECT name FROM pc_index")) == NULL)
+		if ((result = db_query("do_debug:fullupdate", "SELECT name FROM pc_index")) == nullptr)
 			return;
 
 		while ((row = mysql_fetch_row(result))) {
@@ -91,7 +91,7 @@ void do_debug(Character *ch, String argument)
 			char_list    = victim;
 			victim->pcdata->next = pc_list;
 			pc_list = victim->pcdata;
-			victim->desc = NULL;
+			victim->desc = nullptr;
 			free_descriptor(d);
 			char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
 			db_commandf("do_debug:fullupdate",
@@ -168,7 +168,7 @@ void do_debug(Character *ch, String argument)
 	if (!strcmp(subfunc, "aversion")) {
 		Area *area;
 
-		for (area = area_first; area != NULL; area = area->next)
+		for (area = area_first; area != nullptr; area = area->next)
 			ptc(ch, "%-20s%d\n", area->file_name, area->version);
 
 		return;
@@ -185,8 +185,8 @@ void do_debug(Character *ch, String argument)
 	if (!strcmp(subfunc, "compart")) {
 		Object *container, *obj;
 
-		for (obj = object_list; obj != NULL; obj = obj->next) {
-			if ((container = obj->in_obj) == NULL)
+		for (obj = object_list; obj != nullptr; obj = obj->next) {
+			if ((container = obj->in_obj) == nullptr)
 				continue;
 
 			if (obj == container) {
@@ -205,21 +205,21 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck")) {
-		RoomPrototype *room = NULL;
+		RoomPrototype *room = nullptr;
 		int x, vnum;
 		bool found;
 
 		for (vnum = 1; vnum < 32600; vnum++) {
 			found = FALSE;
 
-			if ((room = get_room_index(vnum)) == NULL)
+			if ((room = get_room_index(vnum)) == nullptr)
 				continue;
 
 			if (!IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_RECALL))
 				continue;
 
 			for (x = 0; x <= 5; x++)
-				if (room->exit[x] != NULL)
+				if (room->exit[x] != nullptr)
 					found = TRUE;
 
 			if (!found)
@@ -230,11 +230,11 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck2")) {
-		RoomPrototype *room = NULL;
+		RoomPrototype *room = nullptr;
 		int vnum;
 
 		for (vnum = 1; vnum < 32600; vnum++) {
-			if ((room = get_room_index(vnum)) == NULL)
+			if ((room = get_room_index(vnum)) == nullptr)
 				continue;
 
 			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NOLIGHT))
@@ -263,7 +263,7 @@ void do_debug(Character *ch, String argument)
 			return;
 		}
 
-		if ((questor = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+		if ((questor = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 			ptc(ch, "No player named '%s' found in game, sorry!\n", arg);
 			return;
 		}

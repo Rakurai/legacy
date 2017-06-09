@@ -92,7 +92,7 @@ void do_alias(Character *ch, String argument)
 {
 	Character *rch;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		rch = ch;
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
@@ -152,7 +152,7 @@ void do_unalias(Character *ch, String argument)
 {
 	Character *rch;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		rch = ch;
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;

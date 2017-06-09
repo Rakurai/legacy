@@ -107,7 +107,7 @@ void do_clandeposit(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->clan == NULL) {
+		if (ch->clan == nullptr) {
 			stc("You are not in a clan.\n", ch);
 			return;
 		}
@@ -160,7 +160,7 @@ void do_clandeposit(Character *ch, String argument)
 
 	target = clan_lookup(arg1);
 
-	if (target == NULL) {
+	if (target == nullptr) {
 		stc("There is no such clan.\n", ch);
 		return;
 	}
@@ -203,7 +203,7 @@ void find_money(Character *ch)
 			ch->silver_in_bank += ch->silver_in_bank * .02;
 		}
 
-		ch->last_bank = time(NULL);
+		ch->last_bank = time(nullptr);
 	}
 
 	max_gold = ((ch->pcdata->remort_count * 1000) + 50000);
@@ -271,7 +271,7 @@ void do_withdraw(Character *ch, String argument)
 
 		if (get_carry_weight(ch) + gold_weight(atoi(arg1)) > can_carry_w(ch)) {
 			act("You can't carry that much weight.",
-			    ch, NULL, NULL, TO_CHAR);
+			    ch, nullptr, nullptr, TO_CHAR);
 			return;
 		}
 
@@ -291,7 +291,7 @@ void do_withdraw(Character *ch, String argument)
 
 		if (get_carry_weight(ch) + silver_weight(atoi(arg1)) > can_carry_w(ch)) {
 			act("You can't carry that much weight.",
-			    ch, NULL, NULL, TO_CHAR);
+			    ch, nullptr, nullptr, TO_CHAR);
 			return;
 		}
 
@@ -326,7 +326,7 @@ void do_clanwithdraw(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->clan == NULL) {
+		if (ch->clan == nullptr) {
 			stc("You are not in a clan.\n", ch);
 			return;
 		}
@@ -388,7 +388,7 @@ void do_clanwithdraw(Character *ch, String argument)
 
 	target = clan_lookup(arg1);
 
-	if (target == NULL) {
+	if (target == nullptr) {
 		stc("There is no such clan.\n", ch);
 		return;
 	}

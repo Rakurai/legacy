@@ -413,14 +413,14 @@ void boot_db()
 		int sn;
 
 		for (sn = 0; sn < skill_table.size(); sn++)
-			if (skill_table[sn].pgsn != NULL)
+			if (skill_table[sn].pgsn != nullptr)
 				*skill_table[sn].pgsn = sn;
 	}
 	/* Read in all the area files */
 	{
 		FILE *fpList;
 
-		if ((fpList = fopen(AREA_LIST, "r")) == NULL) {
+		if ((fpList = fopen(AREA_LIST, "r")) == nullptr) {
 			perror(AREA_LIST);
 			exit(1);
 		}
@@ -440,7 +440,7 @@ void boot_db()
 				char abuf[MSL];
 				Format::sprintf(abuf, "%s%s", AREA_DIR, strArea);
 
-				if ((fpArea = fopen(abuf, "r")) == NULL) {
+				if ((fpArea = fopen(abuf, "r")) == nullptr) {
 					perror(strArea);
 					exit(1);
 				}
@@ -475,7 +475,7 @@ void boot_db()
 			if (fpArea != stdin)
 				fclose(fpArea);
 
-			fpArea = NULL;
+			fpArea = nullptr;
 		}
 
 		fclose(fpList);
@@ -565,7 +565,7 @@ int  scan_credits(Area *pArea)
 	/* terminate level range at first closing brace. */
 	p = strchr(line, '}');
 
-	if (p == NULL) {
+	if (p == nullptr) {
 		log_string("Missing '}' in credits line\n");
 		return -1;
 	}
@@ -575,7 +575,7 @@ int  scan_credits(Area *pArea)
 	/* find the first nonblank after the last opening brace char in levels. */
 	levels = line;
 
-	while ((p = strchr(levels, '{')) != NULL) levels = p + 1;
+	while ((p = strchr(levels, '{')) != nullptr) levels = p + 1;
 
 	while (isascii(*levels) && isspace(*levels)) levels++;
 
@@ -707,8 +707,8 @@ int  scan_credits(Area *pArea)
 void load_area(FILE *fp)
 {
 	Area *pArea = new Area;
-	pArea->reset_first      = NULL;
-	pArea->reset_last       = NULL;
+	pArea->reset_first      = nullptr;
+	pArea->reset_last       = nullptr;
 	pArea->file_name        = fread_string(fp);
 	String line = pArea->file_name;
 
@@ -732,14 +732,14 @@ void load_area(FILE *fp)
 	pArea->nplayer          = 0;
 	pArea->empty            = FALSE;
 
-	if (area_first == NULL)
+	if (area_first == nullptr)
 		area_first = pArea;
 
-	if (area_last != NULL)
+	if (area_last != nullptr)
 		area_last->next = pArea;
 
 	area_last   = pArea;
-	pArea->next = NULL;
+	pArea->next = nullptr;
 	top_area++;
 }
 
@@ -754,7 +754,7 @@ void load_resets(FILE *fp)
 	char letter;
 	ObjectPrototype *temp_index;
 
-	if (area_last == NULL) {
+	if (area_last == nullptr) {
 		bug("Load_resets: no #AREA seen yet.", 0);
 		exit(1);
 	}
@@ -830,7 +830,7 @@ void load_resets(FILE *fp)
 			pRoomIndex = get_room_index(pReset->arg1);
 
 			if (pReset->arg2 < 0 || pReset->arg2 > 5
-			    || (pexit = pRoomIndex->exit[pReset->arg2]) == NULL
+			    || (pexit = pRoomIndex->exit[pReset->arg2]) == nullptr
 			    || !IS_SET(pexit->exit_info, EX_ISDOOR)) {
 				bug("Load_resets: 'D': exit %d not door.", pReset->arg2);
 				exit(1);
@@ -854,14 +854,14 @@ void load_resets(FILE *fp)
 			break;
 		}
 
-		if (area_last->reset_first == NULL)
+		if (area_last->reset_first == nullptr)
 			area_last->reset_first      = pReset;
 
-		if (area_last->reset_last  != NULL)
+		if (area_last->reset_last  != nullptr)
 			area_last->reset_last->next = pReset;
 
 		area_last->reset_last = pReset;
-		pReset->next = NULL;
+		pReset->next = nullptr;
 		top_reset++;
 	}
 }
@@ -895,7 +895,7 @@ void load_mobiles(FILE *fp)
 
 		fBootDb = FALSE;
 
-		if (get_mob_index(vnum) != NULL) {
+		if (get_mob_index(vnum) != nullptr) {
 			bug("Load_mobiles: vnum %d duplicated.", vnum);
 			exit(1);
 		}
@@ -916,7 +916,7 @@ void load_mobiles(FILE *fp)
 		// affect flags no longer includes flags already on the race affect bitvector
 		pMobIndex->affect_flags         = fread_flag(fp) & ~race_table[pMobIndex->race].aff;
 
-		pMobIndex->pShop                = NULL;
+		pMobIndex->pShop                = nullptr;
 		pMobIndex->alignment            = fread_number(fp);
 		pMobIndex->group                = fread_flag(fp);
 		pMobIndex->level                = fread_number(fp);
@@ -1082,7 +1082,7 @@ void load_objects(FILE *fp)
 
 		fBootDb = FALSE;
 
-		if (get_obj_index(vnum) != NULL) {
+		if (get_obj_index(vnum) != nullptr) {
 			bug("Load_objects: vnum %d duplicated.", vnum);
 			exit(1);
 		}
@@ -1288,7 +1288,7 @@ void load_rooms(FILE *fp)
 	int door;
 	int iHash;
 
-	if (area_last == NULL) {
+	if (area_last == nullptr) {
 		bug("Load_resets: no #AREA seen yet.", 0);
 		exit(1);
 	}
@@ -1312,7 +1312,7 @@ void load_rooms(FILE *fp)
 
 		fBootDb = FALSE;
 
-		if (get_room_index(vnum) != NULL) {
+		if (get_room_index(vnum) != nullptr) {
 			bug("Load_rooms: vnum %d duplicated.", vnum);
 			exit(1);
 		}
@@ -1320,9 +1320,9 @@ void load_rooms(FILE *fp)
 		fBootDb = TRUE;
 		pRoomIndex = new RoomPrototype;
 		pRoomIndex->version             = aVersion;
-		pRoomIndex->people              = NULL;
-		pRoomIndex->contents            = NULL;
-		pRoomIndex->extra_descr         = NULL;
+		pRoomIndex->people              = nullptr;
+		pRoomIndex->contents            = nullptr;
+		pRoomIndex->extra_descr         = nullptr;
 		pRoomIndex->area                = area_last;
 		pRoomIndex->vnum                = vnum;
 		pRoomIndex->name                = fread_string(fp);
@@ -1338,7 +1338,7 @@ void load_rooms(FILE *fp)
 		pRoomIndex->light               = 0;
 
 		for (door = 0; door <= 5; door++)
-			pRoomIndex->exit[door] = NULL;
+			pRoomIndex->exit[door] = nullptr;
 
 		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY)) {
 			Format::sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
@@ -1461,7 +1461,7 @@ void load_shops(FILE *fp)
 			break;
 
 		pShop = new Shop;
-		pShop->next             = NULL;
+		pShop->next             = nullptr;
 		pShop->version          = aVersion;
 		pShop->keeper           = shopkeeper;
 
@@ -1476,14 +1476,14 @@ void load_shops(FILE *fp)
 		pMobIndex               = get_mob_index(pShop->keeper);
 		pMobIndex->pShop        = pShop;
 
-		if (shop_first == NULL)
+		if (shop_first == nullptr)
 			shop_first = pShop;
 
-		if (shop_last  != NULL)
+		if (shop_last  != nullptr)
 			shop_last->next = pShop;
 
 		shop_last       = pShop;
-		pShop->next     = NULL;
+		pShop->next     = nullptr;
 		top_shop++;
 	}
 
@@ -1544,16 +1544,16 @@ void fix_exits(void)
 
 	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
 		for (pRoomIndex  = room_index_hash[iHash];
-		     pRoomIndex != NULL;
+		     pRoomIndex != nullptr;
 		     pRoomIndex  = pRoomIndex->next) {
 			bool fexit;
 			fexit = FALSE;
 
 			for (door = 0; door <= 5; door++) {
-				if ((pexit = pRoomIndex->exit[door]) != NULL) {
+				if ((pexit = pRoomIndex->exit[door]) != nullptr) {
 					if (pexit->u1.vnum <= 0
-					    || get_room_index(pexit->u1.vnum) == NULL)
-						pexit->u1.to_room = NULL;
+					    || get_room_index(pexit->u1.vnum) == nullptr)
+						pexit->u1.to_room = nullptr;
 					else {
 						fexit = TRUE;
 						pexit->u1.to_room = get_room_index(pexit->u1.vnum);
@@ -1570,21 +1570,21 @@ void fix_exits(void)
 	  for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
 	  {
 	      for ( pRoomIndex  = room_index_hash[iHash];
-	            pRoomIndex != NULL;
+	            pRoomIndex != nullptr;
 	            pRoomIndex  = pRoomIndex->next )
 	      {
 	          for ( door = 0; door <= 5; door++ )
 	          {
-	              if ( ( pexit     = pRoomIndex->exit[door]       ) != NULL
-	              &&   ( to_room   = pexit->u1.to_room            ) != NULL
-	              &&   ( pexit_rev = to_room->exit[rev_dir[door]] ) != NULL
+	              if ( ( pexit     = pRoomIndex->exit[door]       ) != nullptr
+	              &&   ( to_room   = pexit->u1.to_room            ) != nullptr
+	              &&   ( pexit_rev = to_room->exit[rev_dir[door]] ) != nullptr
 	              &&   pexit_rev->u1.to_room != pRoomIndex
 	              &&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
 	              {
 	                  Format::sprintf( buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
 	                      pRoomIndex->vnum, door,
 	                      to_room->vnum,    rev_dir[door],
-	                      (pexit_rev->u1.to_room == NULL)
+	                      (pexit_rev->u1.to_room == nullptr)
 	                          ? 0 : pexit_rev->u1.to_room->vnum );
 	                  bug( buf, 0 );
 	              }
@@ -1602,7 +1602,7 @@ void bug(const String& str, int param)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (fpArea != NULL) {
+	if (fpArea != nullptr) {
 		int iLine;
 		int iChar;
 
@@ -1623,7 +1623,7 @@ void bug(const String& str, int param)
 		Format::sprintf(buf, "[*****] FILE: %s LINE: %d", strArea, iLine);
 		log_string(buf);
 		/* RT removed because we don't want bugs shutting the mud
-		        if ( ( fp = fopen( "shutdown.txt", "a" ) ) != NULL )
+		        if ( ( fp = fopen( "shutdown.txt", "a" ) ) != nullptr )
 		        {
 		            Format::fprintf( fp, "[*****] %s\n", buf );
 		            fclose( fp );
@@ -1635,13 +1635,13 @@ void bug(const String& str, int param)
 	Format::sprintf(buf + strlen(buf), str.c_str(), param);
 	log_string(buf);
 	/* RT removed due to bug-file spamming
-	    if ( ( fp = fopen( BUG_FILE, "a" ) ) != NULL )
+	    if ( ( fp = fopen( BUG_FILE, "a" ) ) != nullptr )
 	    {
 	        Format::fprintf( fp, "%s\n", buf );
 	        fclose( fp );
 	    }
 	*/
-	wiznet(buf, NULL, NULL, WIZ_BUGS, 0, 0);
+	wiznet(buf, nullptr, nullptr, WIZ_BUGS, 0, 0);
 	return;
 }
 
@@ -1754,7 +1754,7 @@ MobProg *mprog_file_read(const String& f, MobProg *mprg,
 			case '>':
 				mprg2->next = new MobProg;
 				mprg2       = mprg2->next;
-				mprg2->next = NULL;
+				mprg2->next = nullptr;
 				break;
 
 			case '|':
@@ -1809,11 +1809,11 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 			case '>':
 				mprg->next = new MobProg;
 				mprg       = mprg->next;
-				mprg->next = NULL;
+				mprg->next = nullptr;
 				break;
 
 			case '|':
-				mprg->next = NULL;
+				mprg->next = nullptr;
 				fread_to_eol(fp);
 				done = TRUE;
 				break;
@@ -1837,11 +1837,11 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 			case '>':
 				mprg->next = new MobProg;
 				mprg       = mprg->next;
-				mprg->next = NULL;
+				mprg->next = nullptr;
 				break;
 
 			case '|':
-				mprg->next = NULL;
+				mprg->next = nullptr;
 				fread_to_eol(fp);
 				done = TRUE;
 				break;

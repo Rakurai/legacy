@@ -12,8 +12,8 @@ void affect_remove_from_list(Affect **list_head, Affect *paf) {
 	if (paf->next)
 		paf->next->prev = paf->prev;
 
-	paf->next = NULL;
-	paf->prev = NULL;
+	paf->next = nullptr;
+	paf->prev = nullptr;
 }
 
 void affect_insert_in_list(Affect **list_head, Affect *paf) {
@@ -34,8 +34,8 @@ void affect_copy_to_list(Affect **list_head, const Affect *aff_template)
 {
 	Affect *paf_new = new_affect();
 	*paf_new            = *aff_template;
-	paf_new->next = NULL;
-	paf_new->prev = NULL;
+	paf_new->next = nullptr;
+	paf_new->prev = nullptr;
 	affect_insert_in_list(list_head, paf_new);
 }
 
@@ -44,7 +44,7 @@ void affect_dedup_in_list(Affect **list_head, Affect *paf, affect_fn_params *par
 {
 	Affect *paf_old, *paf_next;
 
-	for (paf_old = *list_head; paf_old != NULL; paf_old = paf_next) {
+	for (paf_old = *list_head; paf_old != nullptr; paf_old = paf_next) {
 		paf_next = paf_old->next;
 
 		if (paf_old->type != paf->type
@@ -68,12 +68,12 @@ void affect_dedup_in_list(Affect **list_head, Affect *paf, affect_fn_params *par
 }
 
 void affect_clear_list(Affect **list_head) {
-	if (*list_head == NULL)
+	if (*list_head == nullptr)
 		return;
 
 	affect_clear_list(&(*list_head)->next); // recurse
 	free_affect(*list_head);
-	*list_head = NULL;
+	*list_head = nullptr;
 }
 
 const Affect *affect_find_in_list(Affect **list_head, int sn) {
@@ -81,7 +81,7 @@ const Affect *affect_find_in_list(Affect **list_head, int sn) {
 		if (paf->type == sn)
 			return paf;
 
-	return NULL;
+	return nullptr;
 }
 
 void affect_remove_matching_from_list(Affect **list_head, affect_comparator comp, const Affect *pattern, affect_fn_params *params) {
@@ -92,10 +92,10 @@ void affect_remove_matching_from_list(Affect **list_head, affect_comparator comp
 
 		// never remove permanent affects unless explicitly instructed
 		// removing nonpermanent affects is done with a permanent comparator below
-		if (paf->permanent && (pattern == NULL || !pattern->permanent))
+		if (paf->permanent && (pattern == nullptr || !pattern->permanent))
 			continue;
 
-		if (comp == NULL || (*comp)(paf, pattern) == 0) {
+		if (comp == nullptr || (*comp)(paf, pattern) == 0) {
 			affect_remove_from_list(list_head, paf);
 			(params->modifier)(params->owner, paf, FALSE);
 			free_affect(paf);
@@ -125,7 +125,7 @@ unsigned long affect_checksum_list(Affect **list_head) {
 	// this checksum is intentionally insensitive to order: a->b->c == a->c->b because of
 	// the overflow property of unsigned integers, in that they behave as modulo.  therefore,
 	// the unsigned property of the checksum is critical.
-	for (const Affect *paf = *list_head; paf != NULL; paf = paf->next)
+	for (const Affect *paf = *list_head; paf != nullptr; paf = paf->next)
 		sum += affect_checksum(paf);
 
 	return sum;
@@ -141,7 +141,7 @@ void affect_sort_list(Affect **list_head, affect_comparator comp) {
 		// TODO: there's a more efficient way to do this, we don't have to start at the beginning
 		// with each iteration.  However, more important things to do right now, fix it later.
 		for (Affect *paf = *list_head; paf; paf = paf->next) {
-			if (paf->next == NULL)
+			if (paf->next == nullptr)
 				break;
 
 			if ((*comp)(paf, paf->next) > 0) { // bubble up

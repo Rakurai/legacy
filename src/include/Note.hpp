@@ -14,7 +14,7 @@ public:
     Note() {}
     virtual ~Note() {}
 
-    Note      * next = NULL;
+    Note      * next = nullptr;
     bool        valid = FALSE;
     int         type = 0;
     String      sender;

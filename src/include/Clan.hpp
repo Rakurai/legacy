@@ -22,8 +22,8 @@ public:
     int     score = 0;      /* points remaining to defeat in current war */
     int     warcpmod = 0;   /* how much their power is modified by wars */
 
-    Clan * previous = NULL;
-    Clan * next = NULL;
+    Clan * previous = nullptr;
+    Clan * next = nullptr;
 
 private:
     Clan(const Clan&);

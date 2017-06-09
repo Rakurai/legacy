@@ -46,7 +46,7 @@ void act_format(const String& format, Character *ch,
 		/* The following codes need 'vch' */
 
 		case 'N':
-			if (vch == NULL) {
+			if (vch == nullptr) {
 				bug("Missing vch for '$$N'", 0);
 				/*   bug( format, 0);  This will cause an endless loop */
 			}
@@ -56,7 +56,7 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'E':
-			if (vch == NULL)
+			if (vch == nullptr)
 				bug("Missing vch for '$$E'", 0);
 			else
 				i = he_she[GET_ATTR_SEX(vch)];
@@ -64,7 +64,7 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'M':
-			if (vch == NULL)
+			if (vch == nullptr)
 				bug("Missing vch for '$$M'", 0);
 			else
 				i = him_her[GET_ATTR_SEX(vch)];
@@ -72,7 +72,7 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'S':
-			if (vch == NULL)
+			if (vch == nullptr)
 				bug("Missing vch for '$$S'", 0);
 			else
 				i = his_her[GET_ATTR_SEX(vch)];
@@ -82,7 +82,7 @@ void act_format(const String& format, Character *ch,
 		/* The following codes need valid objects in obj1/obj2 */
 
 		case 'p':
-			if (obj1 == NULL)
+			if (obj1 == nullptr)
 				bug("Missing obj1 for '$$p'", 0);
 			else if (can_see_obj(to, obj1))
 				i = obj1->short_descr;
@@ -92,7 +92,7 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'P':
-			if (obj2 == NULL) {
+			if (obj2 == nullptr) {
 				bug("Missing obj2 for '$$P'", 0);
 				bug(format, 0);
 			}
@@ -106,7 +106,7 @@ void act_format(const String& format, Character *ch,
 		/* The following needs a string describing a door. */
 
 		case 'd':
-			if (str2 == NULL || str2->empty())
+			if (str2 == nullptr || str2->empty())
 				i = "door";
 			else
 				one_argument(*str2, i);
@@ -116,7 +116,7 @@ void act_format(const String& format, Character *ch,
 		/* The following codes need valid strings in str1/str2 */
 
 		case 't':
-			if (str1 == NULL || str1->empty())
+			if (str1 == nullptr || str1->empty())
 				bug("Missing str1 for '$$t'", 0);
 			else
 				i = *str1;
@@ -124,7 +124,7 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'T':
-			if (str2 == NULL || str2->empty())
+			if (str2 == nullptr || str2->empty())
 				bug("Missing str2 for '$$T'", 0);
 			else
 				i = *str2;
@@ -185,7 +185,7 @@ void act_parse(
         return;
 
     /* discard null rooms and chars */
-    if (ch == NULL || ch->in_room == NULL)
+    if (ch == nullptr || ch->in_room == nullptr)
         return;
 
     to = ch->in_room->people;
@@ -203,31 +203,31 @@ void act_parse(
     }
 
     if (type == TO_VICT) {
-        if (vch == NULL) {
+        if (vch == nullptr) {
             bug("Act: null vch with TO_VICT.", 0);
             return;
         }
 
-        if (vch->in_room == NULL)
+        if (vch->in_room == nullptr)
             return;
 
         to = vch->in_room->people;
     }
 
     if (type == TO_WORLD) {
-        if (vch2 == NULL) {
+        if (vch2 == nullptr) {
             bug("Act: null vch2 with TO_WORLD.", 0);
             return;
         }
 
-        if (vch2->in_room == NULL && ch->tail == NULL)
+        if (vch2->in_room == nullptr && ch->tail == nullptr)
             return;
 
         to = vch2->in_room->people;
     }
 
     /*** first loop, for normal recipients of ACT */
-    for (; to != NULL; to = to->next_in_room) {
+    for (; to != nullptr; to = to->next_in_room) {
         if (censor && IS_NPC(to))
             continue;
 
@@ -278,11 +278,11 @@ void act_parse(
             arena = arena->next;
         }
 
-        if (arena != arena_table_tail && arena->viewroom->people != NULL) {
+        if (arena != arena_table_tail && arena->viewroom->people != nullptr) {
             Format::sprintf(fake_message, "{Y[V]{x %s", format);
             format = fake_message;
 
-            for (to = arena->viewroom->people; to != NULL; to = to->next_in_room) {
+            for (to = arena->viewroom->people; to != nullptr; to = to->next_in_room) {
                 if (get_position(to) < min_pos)
                     continue;
 
@@ -294,7 +294,7 @@ void act_parse(
     }
 
     /* TAIL stuff -- Elrac */
-    if (ch->tail == NULL)
+    if (ch->tail == nullptr)
         return;
 
     if (type != TO_ROOM && type != TO_NOTVICT && type != TO_WORLD && type != TO_NOTVIEW)

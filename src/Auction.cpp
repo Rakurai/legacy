@@ -16,24 +16,24 @@ Auction auction;
 
 void Auction::
 init() {
-	item = NULL;
-	buyer = NULL;
-	seller = NULL;
+	item = nullptr;
+	buyer = nullptr;
+	seller = nullptr;
 }
 
 bool Auction::
 is_participant(Object *obj) const {
-	return item != NULL && obj == item;
+	return item != nullptr && obj == item;
 }
 
 bool Auction::
 is_participant(Character *ch) const {
-	return item != NULL && ch != NULL && ((ch == buyer) || (ch == seller));
+	return item != nullptr && ch != nullptr && ((ch == buyer) || (ch == seller));
 }
 
 void Auction::
 update() {
-	if (item == NULL) {
+	if (item == nullptr) {
 		/* no auction in progress -- return doing nothing */
 		return;
 	}
@@ -65,16 +65,16 @@ update() {
 				           YELLOW, COMM_NOAUCTION | COMM_QUIET);
 				Format::sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
 				        item->short_descr, bet);
-				wiznet(buf, buyer, NULL, WIZ_AUCTION, 0,
+				wiznet(buf, buyer, nullptr, WIZ_AUCTION, 0,
 				       GET_RANK(buyer));
 				obj_to_char(item, buyer);
 				act("The auctioneer appears before you in a puff of smoke and hands you $p.",
 				    buyer, item, nullptr, TO_CHAR);
 				act("The auctioneer appears before $n, and hands $m $p",
-				    buyer, item, NULL, TO_ROOM);
+				    buyer, item, nullptr, TO_ROOM);
 				/* deduct_cost(seller,-bet); */ /* give him the money */
 				seller->gold += bet;
-				item = NULL; /* reset item */
+				item = nullptr; /* reset item */
 			}
 			else { /* not sold */
 				Format::sprintf(buf,
@@ -82,11 +82,11 @@ update() {
 				        item->short_descr);
 				talk_auction(buf);
 				act("The auctioneer appears before you to return $p to you.",
-				    seller, item, NULL, TO_CHAR);
+				    seller, item, nullptr, TO_CHAR);
 				act("The auctioneer appears before $n to return $p to $m.",
-				    seller, item, NULL, TO_ROOM);
+				    seller, item, nullptr, TO_ROOM);
 				obj_to_char(item, seller);
-				item = NULL; /* clear auction */
+				item = nullptr; /* clear auction */
 			} /* else */
 		} /* switch */
 	} /* if */
@@ -131,7 +131,7 @@ void do_auction(Character *ch, String argument)
 	}
 
 	if (arg1 == "status") {
-		if (auction.item == NULL) {
+		if (auction.item == nullptr) {
 			stc("No item is up for auction.\n", ch);
 			return;
 		}
@@ -158,14 +158,14 @@ void do_auction(Character *ch, String argument)
 		if (IS_IMMORTAL(ch))
 			ptc(ch, "Seller: %s\n"
 			    "Current Bidder: %s\n",
-			    (auction.seller == NULL) ? "(None)" : auction.seller->name,
-			    (auction.buyer == NULL)  ? "(None)" : auction.buyer->name);
+			    (auction.seller == nullptr) ? "(None)" : auction.seller->name,
+			    (auction.buyer == nullptr)  ? "(None)" : auction.buyer->name);
 
 		return;
 	}
 
 	if (IS_IMMORTAL(ch) && arg1 == "stop") {
-		if (auction.item == NULL) {
+		if (auction.item == nullptr) {
 			stc("There is no auction going on you can stop.\n", ch);
 			return;
 		}
@@ -174,11 +174,11 @@ void do_auction(Character *ch, String argument)
 		        auction.item->short_descr);
 		talk_auction(buf);
 		Format::sprintf(buf, "%s has stopped the auction of %s.", ch->name, auction.item->short_descr);
-		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_AUCTION, 0, GET_RANK(ch));
 		obj_to_char(auction.item, ch);
-		auction.item = NULL;
+		auction.item = nullptr;
 
-		if (auction.buyer != NULL) { /* return money to the buyer */
+		if (auction.buyer != nullptr) { /* return money to the buyer */
 			auction.buyer->gold += auction.bet;
 			stc("Your money has been returned.\n", auction.buyer);
 		}
@@ -189,7 +189,7 @@ void do_auction(Character *ch, String argument)
 	if (arg1 == "bet" || arg1 == "bid") {
 		int newbet;
 
-		if (auction.item == NULL) {
+		if (auction.item == nullptr) {
 			stc("There isn't anything being auctioned right now.\n", ch);
 			return;
 		}
@@ -239,7 +239,7 @@ void do_auction(Character *ch, String argument)
 		}
 
 		/* return the gold to the last buyer, if one exists */
-		if (auction.buyer != NULL)
+		if (auction.buyer != nullptr)
 			deduct_cost(auction.buyer, -(auction.bet * 100));
 
 		/* players spam bidding without having to type their bid! :P */
@@ -254,12 +254,12 @@ void do_auction(Character *ch, String argument)
 		        newbet, auction.item->short_descr);
 		talk_auction(buf);
 		Format::sprintf(buf, "%s has bid %d gold.", ch->name, newbet);
-		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_AUCTION, 0, GET_RANK(ch));
 		return;
 	} /* end bid */
 
-	if (auction.item != NULL) {
-		act("Try again later - $p is being auctioned right now!", ch, auction.item, NULL, TO_CHAR);
+	if (auction.item != nullptr) {
+		act("Try again later - $p is being auctioned right now!", ch, auction.item, nullptr, TO_CHAR);
 		return;
 	}
 
@@ -269,7 +269,7 @@ void do_auction(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	/* changed from obj_list to obj_carry so as not to auc worn EQ -- Elrac */
-	if ((obj = get_obj_carry(ch, arg1)) == NULL) { /* does char have the item ? */
+	if ((obj = get_obj_carry(ch, arg1)) == nullptr) { /* does char have the item ? */
 		stc("You aren't carrying that.\n", ch);
 		return;
 	}
@@ -327,7 +327,7 @@ void do_auction(Character *ch, String argument)
 
 	switch (obj->item_type) {
 	default:
-		act("You cannot auction $Ts.", ch, NULL, item_type_name(obj), TO_CHAR);
+		act("You cannot auction $Ts.", ch, nullptr, item_type_name(obj), TO_CHAR);
 		return;
 
 	case ITEM_WEAPON:
@@ -349,7 +349,7 @@ void do_auction(Character *ch, String argument)
 		obj_from_char(obj);
 		auction.item   = obj;
 		auction.bet    = 0;
-		auction.buyer  = NULL;
+		auction.buyer  = nullptr;
 		auction.seller = ch;
 		auction.pulse  = PULSE_AUCTION;
 		auction.going  = 0;
@@ -364,7 +364,7 @@ void do_auction(Character *ch, String argument)
 
 		talk_auction(buf);
 		Format::sprintf(buf, "%s is auctioning %s.", ch->name, obj->short_descr);
-		wiznet(buf, ch, NULL, WIZ_AUCTION, 0, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_AUCTION, 0, GET_RANK(ch));
 		return;
 	}
 }

@@ -13,9 +13,9 @@ public:
     MobilePrototype() {}
     virtual ~MobilePrototype() {}
 
-    MobilePrototype *   next = NULL;
-    SPEC_FUN *          spec_fun = NULL;
-    Shop *              pShop = NULL;
+    MobilePrototype *   next = nullptr;
+    SPEC_FUN *          spec_fun = nullptr;
+    Shop *              pShop = nullptr;
     sh_int              vnum = 0;
     sh_int              group = 0;
     sh_int		        version = 0;
@@ -49,7 +49,7 @@ public:
     long                parts = 0;
     sh_int              size = 0;
     String              material;
-    MobProg *           mobprogs = NULL;
+    MobProg *           mobprogs = nullptr;
     int                 progtypes = 0;
 
 private:

@@ -131,7 +131,7 @@ void do_sset(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 		Format::sprintf(buf, "After searching all over the mud, player %s could not be found.\n",
 		        arg1);
 		stc(buf, ch);
@@ -206,7 +206,7 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 		ptc(ch, "After searching all over the mud, player %s could not be found.\n", arg1);
 		return;
 	}
@@ -315,7 +315,7 @@ void do_raffset(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 		stc("They are not here.\n", ch);
 		return;
 	}
@@ -492,7 +492,7 @@ void do_extraset(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 		stc("They are not here.\n", ch);
 		return;
 	}
@@ -639,7 +639,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 		ptc(ch, "After searching all over the mud, %s could not be found.\n", arg1);
 		return;
 	}
@@ -827,7 +827,7 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		if ((hunted = get_char_area(victim, arg3, VIS_CHAR)) == NULL) {
+		if ((hunted = get_char_area(victim, arg3, VIS_CHAR)) == nullptr) {
 			ptc(ch, "%s could not find %s.\n", victim->name, arg3);
 			return;
 		}
@@ -1253,7 +1253,7 @@ void do_oset(Character *ch, String argument)
 		return;
 	}
 
-	if ((obj = get_obj_world(ch, arg1)) == NULL) {
+	if ((obj = get_obj_world(ch, arg1)) == nullptr) {
 		Format::sprintf(buf, "After searching all over the mud, %s could not be found.\n", arg1);
 		stc(buf, ch);
 		return;
@@ -1396,7 +1396,7 @@ void do_rset(Character *ch, String argument)
 		return;
 	}
 
-	if ((location = find_location(ch, arg1)) == NULL) {
+	if ((location = find_location(ch, arg1)) == nullptr) {
 		Format::sprintf(buf, "No such location, %s.\n", arg1);
 		stc(buf, ch);
 		return;
@@ -1447,7 +1447,7 @@ void format_mstat(Character *ch, Character *victim)
 		    victim->pIndexData->count, victim->pIndexData->killed);
 
 	ptc(ch, "{WRoom: %d {CName: %s{x\n",
-	    victim->in_room == NULL ? 0 : victim->in_room->vnum, victim->name);
+	    victim->in_room == nullptr ? 0 : victim->in_room->vnum, victim->name);
 
 	if (!IS_NPC(victim))
 		ptc(ch, "{CRemort %d, {x", victim->pcdata->remort_count);
@@ -1511,7 +1511,7 @@ void format_mstat(Character *ch, Character *victim)
 
 	ptc(ch, "Fighting: %s\n", victim->fighting ? victim->fighting->name : "(none)");
 
-	if (IS_NPC(victim) && victim->hunting != NULL)
+	if (IS_NPC(victim) && victim->hunting != nullptr)
 		ptc(ch, "Hunting victim: %s (%s)\n",
 		    IS_NPC(victim->hunting) ? victim->hunting->short_descr
 		    : victim->hunting->name,
@@ -1594,7 +1594,7 @@ void format_mstat(Character *ch, Character *victim)
 		stc(buf, ch);
 	}
 
-	for (const Affect *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+	for (const Affect *paf = affect_list_char(victim); paf != nullptr; paf = paf->next) {
 		if (paf->permanent)
 			continue;
 
@@ -1631,33 +1631,33 @@ void format_ostat(Character *ch, Object *obj)
 	ptc(ch, "Short description: %s{x\nLong  description: %s{x\n",
 	    obj->short_descr, obj->description);
 
-	if (obj->extra_descr != NULL || obj->pIndexData->extra_descr != NULL) {
+	if (obj->extra_descr != nullptr || obj->pIndexData->extra_descr != nullptr) {
 		ExtraDescr *ed;
 		stc("Extra description keywords: '", ch);
 
-		for (ed = obj->extra_descr; ed != NULL; ed = ed->next) {
+		for (ed = obj->extra_descr; ed != nullptr; ed = ed->next) {
 			stc(ed->keyword, ch);
 
-			if (ed->next != NULL)
+			if (ed->next != nullptr)
 				stc(" ", ch);
 		}
 
 		stc("'\n", ch);
 		stc("Default description keywords: '", ch);
 
-		for (ed = obj->pIndexData->extra_descr; ed != NULL; ed = ed->next) {
+		for (ed = obj->pIndexData->extra_descr; ed != nullptr; ed = ed->next) {
 			stc(ed->keyword, ch);
 
-			if (ed->next != NULL)
+			if (ed->next != nullptr)
 				stc(" ", ch);
 		}
 	}
 
 	stc("\n", ch);
 	ptc(ch, "{PValue0 : %-7d{BCost     : %-13d{GIn room   : %d\n",
-	    obj->value[0], obj->cost, obj->in_room == NULL ? 0 : obj->in_room->vnum);
+	    obj->value[0], obj->cost, obj->in_room == nullptr ? 0 : obj->in_room->vnum);
 	ptc(ch, "{PValue1 : %-7d{BCondition: %-13d{GIn object : %s\n",
-	    obj->value[1], obj->condition, obj->in_obj == NULL ? "(none)" : obj->in_obj->short_descr);
+	    obj->value[1], obj->condition, obj->in_obj == nullptr ? "(none)" : obj->in_obj->short_descr);
 	ptc(ch, "{PValue2 : %-7d{BType     : %-13s{GIn %s : %s\n",
 	    obj->value[2], item_type_name(obj),
 	    obj->in_strongbox ? "StrBox" : "Locker",
@@ -1665,7 +1665,7 @@ void format_ostat(Character *ch, Object *obj)
 	    obj->in_strongbox ? PERS(obj->in_strongbox, ch, VIS_PLR) : "(none)");
 	ptc(ch, "{PValue3 : %-7d{BResets   : %-13d{GCarried by: %s\n",
 	    obj->value[3], obj->pIndexData->reset_num,
-	    obj->carried_by == NULL ? "(none)" : PERS(obj->carried_by, ch, VIS_PLR));
+	    obj->carried_by == nullptr ? "(none)" : PERS(obj->carried_by, ch, VIS_PLR));
 	ptc(ch, "{PValue4 : %-7d{BTimer    : %-13d{GOwned by  : %s\n",
 	    obj->value[4], obj->timer, get_owner(ch, obj));
 	ptc(ch, "\t\t{BNumber   : %d/%-11d{GWear Loc. : %d\n",
@@ -1765,7 +1765,7 @@ void format_ostat(Character *ch, Object *obj)
 		break;
 	}
 
-	for (const Affect *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
 		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
 			paf->where, paf->type, paf->level, paf->duration, paf->location,
 			paf->modifier, paf->evolution, paf->bitvector, affect_checksum(paf));
@@ -1782,7 +1782,7 @@ void format_ostat(Character *ch, Object *obj)
 	if (obj->gems) {
 		stc("Gems are adding:", ch);
 
-		for (const Affect *paf = obj->gem_affected; paf != NULL; paf = paf->next)
+		for (const Affect *paf = obj->gem_affected; paf != nullptr; paf = paf->next)
 			show_affect_to_char(paf, ch);
 	}
 
@@ -1806,12 +1806,12 @@ void format_rstat(Character *ch, RoomPrototype *location)
 
 	ptc(ch, "{BDescription:{x\n%s\n", location->description);
 
-	if (location->extra_descr != NULL) {
+	if (location->extra_descr != nullptr) {
 		ExtraDescr *ed;
 		stc("{BExtra description keywords: '{x", ch);
 
 		for (ed = location->extra_descr; ed; ed = ed->next)
-			ptc(ch, "%s{x%s", ed->keyword, ed->next == NULL ? "{B.{x\n" : " ");
+			ptc(ch, "%s{x%s", ed->keyword, ed->next == nullptr ? "{B.{x\n" : " ");
 	}
 
 	if (GET_ROOM_FLAGS(location))
@@ -1839,9 +1839,9 @@ void format_rstat(Character *ch, RoomPrototype *location)
 	for (door = 0; door <= 5; door++) {
 		Exit *pexit;
 
-		if ((pexit = location->exit[door]) != NULL) {
+		if ((pexit = location->exit[door]) != nullptr) {
 			ptc(ch, "{WDoor: %d -> %d{c (Key: %d) Exit flags: %d. Keyword: '%s'{x\n",
-			    door, (pexit->u1.to_room == NULL ? -1 : pexit->u1.to_room->vnum),
+			    door, (pexit->u1.to_room == nullptr ? -1 : pexit->u1.to_room->vnum),
 			    pexit->key, pexit->exit_info, pexit->keyword);
 
 			if (pexit->description[0] != '\0')
@@ -1849,7 +1849,7 @@ void format_rstat(Character *ch, RoomPrototype *location)
 		}
 	}
 
-	for (const Affect *paf = affect_list_room(location); paf != NULL; paf = paf->next)
+	for (const Affect *paf = affect_list_room(location); paf != nullptr; paf = paf->next)
 		ptc(ch, "{bAffect: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
 		    skill_table[(int) paf->type].name,
 		    affect_loc_name(paf->location),
@@ -1886,8 +1886,8 @@ void do_stat(Character *ch, String argument)
 			return;
 		}
 
-		if ((vch = get_char_here(ch, arg2, VIS_CHAR)) == NULL)
-			if ((vch = get_char_world(ch, arg2, VIS_CHAR)) == NULL) {
+		if ((vch = get_char_here(ch, arg2, VIS_CHAR)) == nullptr)
+			if ((vch = get_char_world(ch, arg2, VIS_CHAR)) == nullptr) {
 				stc("No players or mobiles by that name are in the world.\n", ch);
 				return;
 			}
@@ -1900,8 +1900,8 @@ void do_stat(Character *ch, String argument)
 			return;
 		}
 
-		if ((vch = get_mob_here(ch, arg2, VIS_CHAR)) == NULL)
-			if ((vch = get_mob_world(ch, arg2, VIS_CHAR)) == NULL) {
+		if ((vch = get_mob_here(ch, arg2, VIS_CHAR)) == nullptr)
+			if ((vch = get_mob_world(ch, arg2, VIS_CHAR)) == nullptr) {
 				stc("No mobiles by that name are in the world.\n", ch);
 				return;
 			}
@@ -1914,7 +1914,7 @@ void do_stat(Character *ch, String argument)
 			return;
 		}
 
-		if ((vch = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
+		if ((vch = get_player_world(ch, arg2, VIS_PLR)) == nullptr) {
 			stc("No player by that name is in the world.\n", ch);
 			return;
 		}
@@ -1927,8 +1927,8 @@ void do_stat(Character *ch, String argument)
 			return;
 		}
 
-		if ((obj = get_obj_here(ch, arg2)) == NULL)
-			if ((obj = get_obj_world(ch, arg2)) == NULL) {
+		if ((obj = get_obj_here(ch, arg2)) == nullptr)
+			if ((obj = get_obj_world(ch, arg2)) == nullptr) {
 				stc("No objects by that name are in the world.\n", ch);
 				return;
 			}
@@ -1938,7 +1938,7 @@ void do_stat(Character *ch, String argument)
 	else if (arg1 == "room")        /* 'stat room' (current room) */
 		format_rstat(ch, ch->in_room);
 	else if (arg1.is_number()) {
-		if ((room = get_room_index(atoi(arg1))) == NULL) {
+		if ((room = get_room_index(atoi(arg1))) == nullptr) {
 			stc("There is no room with that vnum.\n", ch);
 			return;
 		}
@@ -1970,7 +1970,7 @@ void do_pstat(Character *ch, String argument)
 	Character *victim;
 	int xpl, xnl; /* experience per/next level */
 
-	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr) {
 		ptc(ch, "No player named '%s' found in the game.\n", argument);
 		return;
 	}

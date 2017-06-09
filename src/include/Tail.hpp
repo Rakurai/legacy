@@ -6,10 +6,10 @@ public:
     virtual ~Tail() {}
 
     bool        valid = FALSE;
-    Character * tailed_by = NULL;
+    Character * tailed_by = nullptr;
     String      tailer_name;
     int         flags = 0;
-    Tail *      next = NULL;
+    Tail *      next = nullptr;
 
 private:
 	Tail(const Tail&);

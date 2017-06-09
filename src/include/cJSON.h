@@ -13,42 +13,42 @@ inline void addStringToObject(cJSON *obj, const String& key, const String& str) 
 inline void get_boolean(cJSON *obj, bool *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
-	if (val != NULL)
+	if (val != nullptr)
 		*target = (val->valueint != 0);
 }
 
 inline void get_short(cJSON *obj, sh_int *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
-	if (val != NULL)
+	if (val != nullptr)
 		*target = val->valueint;
 }
 
 inline void get_int(cJSON *obj, int *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
-	if (val != NULL)
+	if (val != nullptr)
 		*target = val->valueint;
 }
 
 inline void get_long(cJSON *obj, long *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
-	if (val != NULL)
+	if (val != nullptr)
 		*target = val->valueint;
 }
 
 inline void get_flags(cJSON *obj, long *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
-	if (val != NULL)
+	if (val != nullptr)
 		*target = string_to_flags(val->valuestring);
 }
 
 inline void get_string(cJSON *obj, String *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
-	if (val != NULL) {
+	if (val != nullptr) {
 		target->assign(val->valuestring);
 	}
 }

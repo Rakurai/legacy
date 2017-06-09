@@ -12,7 +12,7 @@ public:
         String  name;
         int     amount = 0;
         bool        valid = FALSE;
-        Mercenary::Offer *    next = NULL;
+        Mercenary::Offer *    next = nullptr;
 
     private:
         Offer(const Offer&);
@@ -25,13 +25,13 @@ public:
     String  name;
     int     minimum = 0;
 
-    Offer *    offer = NULL;
+    Offer *    offer = nullptr;
     sh_int      num_offers = 0;
     String  employer;
 
     bool        valid = FALSE;
-    Mercenary * previous = NULL;
-    Mercenary * next = NULL;
+    Mercenary * previous = nullptr;
+    Mercenary * next = nullptr;
 
 private:
     Mercenary(const Mercenary&);

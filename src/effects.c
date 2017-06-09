@@ -34,7 +34,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 		RoomPrototype *room = (RoomPrototype *) vo;
 		Object *obj, *obj_next;
 
-		for (obj = room->contents; obj != NULL; obj = obj_next) {
+		for (obj = room->contents; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			acid_effect(obj, level, dam, TARGET_OBJ, evolution);
 		}
@@ -48,7 +48,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* let's toast some gear */
 		if (!IS_IMMORTAL(victim)) {
-			for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			for (obj = victim->carrying; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 				acid_effect(obj, level, dam, TARGET_OBJ, evolution);
 			}
@@ -64,7 +64,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 		Character *owner;
 
 		/* sheen protects absolutely */
-		if ((owner = obj->carried_by) != NULL
+		if ((owner = obj->carried_by) != nullptr
 		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
@@ -122,10 +122,10 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 			return;
 
 		if (obj->item_type != ITEM_ARMOR) {
-			if (obj->carried_by != NULL)
-				act(msg, obj->carried_by, obj, NULL, TO_ALL);
-			else if (obj->in_room != NULL && obj->in_room->people != NULL)
-				act(msg, obj->in_room->people, obj, NULL, TO_ALL);
+			if (obj->carried_by != nullptr)
+				act(msg, obj->carried_by, obj, nullptr, TO_ALL);
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act(msg, obj->in_room->people, obj, nullptr, TO_ALL);
 		}
 		else {  /* etch it */
 			obj->condition -= number_range(5, 10);
@@ -137,23 +137,23 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 				if (amount <= 0)
 					return;
 
-				if (obj->carried_by != NULL)
-					act("$p is pitted and etched.", obj->carried_by, obj, NULL, TO_ALL);
-				else if (obj->in_room != NULL && obj->in_room->people != NULL)
-					act("$p is pitted and etched.", obj->in_room->people, obj, NULL, TO_ALL);
+				if (obj->carried_by != nullptr)
+					act("$p is pitted and etched.", obj->carried_by, obj, nullptr, TO_ALL);
+				else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+					act("$p is pitted and etched.", obj->in_room->people, obj, nullptr, TO_ALL);
 
 				obj->value[place] -= amount;
 
-				if (obj->carried_by != NULL && obj->wear_loc != WEAR_NONE)
+				if (obj->carried_by != nullptr && obj->wear_loc != WEAR_NONE)
 					obj->carried_by->armor_base[place] += amount;
 
 				return;
 			}
 
 			if (obj->carried_by)
-				act("$p is dissolved by the acid!", obj->carried_by, obj, NULL, TO_ALL);
-			else if (obj->in_room != NULL && obj->in_room->people != NULL)
-				act("$p is dissolved by the acid!", obj->in_room->people, obj, NULL, TO_ALL);
+				act("$p is dissolved by the acid!", obj->carried_by, obj, nullptr, TO_ALL);
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p is dissolved by the acid!", obj->in_room->people, obj, nullptr, TO_ALL);
 		}
 
 		if (obj->contains) { /* dump contents */
@@ -161,24 +161,24 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
-					act("$p's contents scatter on the ground.", obj->carried_by, obj, NULL, TO_ALL);
+					act("$p's contents scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
 			}
-			else if (obj->in_room != NULL && obj->in_room->people != NULL)
-				act("$p's contents scatter on the ground.", obj->in_room->people, obj, NULL, TO_ALL);
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
-			for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj) {
+			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
 				if (obj->carried_by) {
-					if (obj->carried_by->in_room == NULL)
+					if (obj->carried_by->in_room == nullptr)
 						extract_obj(t_obj);
 					else if (char_in_darena_room(obj->carried_by))
 						obj_to_char(t_obj, obj->carried_by);
 					else
 						obj_to_room(t_obj, obj->carried_by->in_room);
 				}
-				else if (obj->in_room != NULL)
+				else if (obj->in_room != nullptr)
 					obj_to_room(t_obj, obj->in_room);
 				else {
 					extract_obj(t_obj);
@@ -199,7 +199,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 		RoomPrototype *room = (RoomPrototype *) vo;
 		Object *obj, *obj_next;
 
-		for (obj = room->contents; obj != NULL; obj = obj_next) {
+		for (obj = room->contents; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			cold_effect(obj, level, dam, TARGET_OBJ, evolution);
 		}
@@ -213,8 +213,8 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* chill touch effect */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_COLD)) {
-			act("$n turns blue and shivers.", victim, NULL, NULL, TO_ROOM);
-			act("A chill sinks deep into your bones.", victim, NULL, NULL, TO_CHAR);
+			act("$n turns blue and shivers.", victim, nullptr, nullptr, TO_ROOM);
+			act("A chill sinks deep into your bones.", victim, nullptr, nullptr, TO_CHAR);
 
 			affect_add_sn_to_char(victim,
 				gsn_chill_touch,
@@ -231,7 +231,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* let's toast some gear */
 		if (!IS_IMMORTAL(victim)) {
-			for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			for (obj = victim->carrying; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 				cold_effect(obj, level, dam, TARGET_OBJ, evolution);
 			}
@@ -247,7 +247,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 		Character *owner;
 
 		/* sheen protects absolutely */
-		if ((owner = obj->carried_by) != NULL
+		if ((owner = obj->carried_by) != nullptr
 		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
@@ -290,26 +290,26 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 			return;
 
 		if (obj->carried_by)
-			act(msg, obj->carried_by, obj, NULL, TO_ALL);
-		else if (obj->in_room != NULL && obj->in_room->people != NULL)
-			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
+			act(msg, obj->carried_by, obj, nullptr, TO_ALL);
+		else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+			act(msg, obj->in_room->people, obj, nullptr, TO_ALL);
 
 		if (obj->contains) { /* dump contents */
 			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
-					act("$p's contents scatter on the ground.", obj->carried_by, obj, NULL, TO_ALL);
+					act("$p's contents scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
 			}
-			else if (obj->in_room != NULL && obj->in_room->people != NULL)
-				act("$p's contents scatter on the ground.", obj->in_room->people, obj, NULL, TO_ALL);
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
-			for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj) {
+			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
 				if (obj->carried_by) {
-					if (obj->carried_by->in_room == NULL)
+					if (obj->carried_by->in_room == nullptr)
 						extract_obj(t_obj);
 
 					if (char_in_darena_room(obj->carried_by))
@@ -317,7 +317,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 					else
 						obj_to_room(t_obj, obj->carried_by->in_room);
 				}
-				else if (obj->in_room != NULL)
+				else if (obj->in_room != nullptr)
 					obj_to_room(t_obj, obj->in_room);
 				else {
 					extract_obj(t_obj);
@@ -338,7 +338,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 		RoomPrototype *room = (RoomPrototype *) vo;
 		Object *obj, *obj_next;
 
-		for (obj = room->contents; obj != NULL; obj = obj_next) {
+		for (obj = room->contents; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			fire_effect(obj, level, dam, TARGET_OBJ, evolution);
 		}
@@ -353,9 +353,9 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 		/* chance of blindness */
 		if (!is_blinded(victim)
 		 && !saves_spell(level / 4 + dam / 20, victim, DAM_FIRE)) {
-			act("$n is blinded by smoke!", victim, NULL, NULL, TO_ROOM);
+			act("$n is blinded by smoke!", victim, nullptr, nullptr, TO_ROOM);
 			act("Your eyes tear up from smoke...you can't see a thing!",
-			    victim, NULL, NULL, TO_CHAR);
+			    victim, nullptr, nullptr, TO_CHAR);
 
 			affect_add_sn_to_char(victim,
 				gsn_fire_breath,
@@ -372,7 +372,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* let's toast some gear! */
 		if (!IS_IMMORTAL(victim)) {
-			for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			for (obj = victim->carrying; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 				fire_effect(obj, level, dam, TARGET_OBJ, evolution);
 			}
@@ -388,7 +388,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 		Character *owner;
 
 		/* sheen protects absolutely */
-		if ((owner = obj->carried_by) != NULL
+		if ((owner = obj->carried_by) != nullptr
 		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
@@ -452,26 +452,26 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			return;
 
 		if (obj->carried_by)
-			act(msg, obj->carried_by, obj, NULL, TO_ALL);
-		else if (obj->in_room != NULL && obj->in_room->people != NULL)
-			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
+			act(msg, obj->carried_by, obj, nullptr, TO_ALL);
+		else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+			act(msg, obj->in_room->people, obj, nullptr, TO_ALL);
 
 		if (obj->contains) { /* dump contents */
 			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
-					act("$p's contents scatter on the ground.", obj->carried_by, obj, NULL, TO_ALL);
+					act("$p's contents scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
 			}
-			else if (obj->in_room != NULL && obj->in_room->people != NULL)
-				act("$p's contents scatter on the ground.", obj->in_room->people, obj, NULL, TO_ALL);
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
-			for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj) {
+			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
 				if (obj->carried_by) {
-					if (obj->carried_by->in_room == NULL)
+					if (obj->carried_by->in_room == nullptr)
 						extract_obj(t_obj);
 
 					if (char_in_darena_room(obj->carried_by))
@@ -479,7 +479,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 					else
 						obj_to_room(t_obj, obj->carried_by->in_room);
 				}
-				else if (obj->in_room != NULL)
+				else if (obj->in_room != nullptr)
 					obj_to_room(t_obj, obj->in_room);
 				else {
 					extract_obj(t_obj);
@@ -500,7 +500,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 		RoomPrototype *room = (RoomPrototype *) vo;
 		Object *obj, *obj_next;
 
-		for (obj = room->contents; obj != NULL; obj = obj_next) {
+		for (obj = room->contents; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			poison_effect(obj, level, dam, TARGET_OBJ, evolution);
 		}
@@ -516,7 +516,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_POISON)) {
 			stc("You feel poison coursing through your veins.\n",
 			    victim);
-			act("$n looks very ill.", victim, NULL, NULL, TO_ROOM);
+			act("$n looks very ill.", victim, nullptr, nullptr, TO_ROOM);
 
 			affect_add_sn_to_char(victim,
 				gsn_poison,
@@ -529,7 +529,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* equipment */
 		if (!IS_IMMORTAL(victim)) {
-			for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			for (obj = victim->carrying; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 				poison_effect(obj, level, dam, TARGET_OBJ, evolution);
 			}
@@ -587,7 +587,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 		RoomPrototype *room = (RoomPrototype *) vo;
 		Object *obj, *obj_next;
 
-		for (obj = room->contents; obj != NULL; obj = obj_next) {
+		for (obj = room->contents; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			shock_effect(obj, level, dam, TARGET_OBJ, evolution);
 		}
@@ -607,7 +607,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* toast some gear */
 		if (!IS_IMMORTAL(victim)) {
-			for (obj = victim->carrying; obj != NULL; obj = obj_next) {
+			for (obj = victim->carrying; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 				shock_effect(obj, level, dam, TARGET_OBJ, evolution);
 			}
@@ -623,7 +623,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 		Character *owner;
 
 		/* sheen protects absolutely */
-		if ((owner = obj->carried_by) != NULL
+		if ((owner = obj->carried_by) != nullptr
 		    && affect_exists_on_char(owner, gsn_sheen))
 			return;
 
@@ -666,26 +666,26 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 			return;
 
 		if (obj->carried_by)
-			act(msg, obj->carried_by, obj, NULL, TO_ALL);
-		else if (obj->in_room != NULL && obj->in_room->people != NULL)
-			act(msg, obj->in_room->people, obj, NULL, TO_ALL);
+			act(msg, obj->carried_by, obj, nullptr, TO_ALL);
+		else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+			act(msg, obj->in_room->people, obj, nullptr, TO_ALL);
 
 		if (obj->contains) { /* dump contents */
 			Object *t_obj, *n_obj;
 
 			if (obj->carried_by) {
 				if (!char_in_darena_room(obj->carried_by))
-					act("$p's contents scatter on the ground.", obj->carried_by, obj, NULL, TO_ALL);
+					act("$p's contents scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
 			}
-			else if (obj->in_room != NULL && obj->in_room->people != NULL)
-				act("$p's contents scatter on the ground.", obj->in_room->people, obj, NULL, TO_ALL);
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
-			for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj) {
+			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
 				if (obj->carried_by) {
-					if (obj->carried_by->in_room == NULL)
+					if (obj->carried_by->in_room == nullptr)
 						extract_obj(t_obj);
 
 					if (char_in_darena_room(obj->carried_by))
@@ -693,7 +693,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 					else
 						obj_to_room(t_obj, obj->carried_by->in_room);
 				}
-				else if (obj->in_room != NULL)
+				else if (obj->in_room != nullptr)
 					obj_to_room(t_obj, obj->in_room);
 				else {
 					extract_obj(t_obj);

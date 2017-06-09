@@ -189,7 +189,7 @@ void gain_exp(Character *ch, int gain)
 			SET_CGROUP(ch, GROUP_AVATAR);
 
 		Format::sprintf(buf, "%s has attained level %d!", ch->name, ch->level);
-		wiznet(buf, ch, NULL, WIZ_LEVELS, 0, 0);
+		wiznet(buf, ch, nullptr, WIZ_LEVELS, 0, 0);
 		do_send_announce(ch, buf);
 		advance_level(ch);
 		// Do this below -- save_char_obj(ch);
@@ -220,7 +220,7 @@ int hit_gain(Character *ch)
 	int gain;
 	int number;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return 0;
 
 	if (IS_NPC(ch)) {
@@ -270,7 +270,7 @@ int hit_gain(Character *ch)
 
 	gain = gain * ch->in_room->heal_rate / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
 	if (affect_exists_on_char(ch, gsn_poison))
@@ -298,7 +298,7 @@ int mana_gain(Character *ch)
 {
 	int gain, number;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return 0;
 
 	if (IS_NPC(ch)) {
@@ -348,7 +348,7 @@ int mana_gain(Character *ch)
 
 	gain = gain * ch->in_room->mana_rate / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
 	if (affect_exists_on_char(ch, gsn_poison))
@@ -373,7 +373,7 @@ int stam_gain(Character *ch)
 {
 	int gain;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return 0;
 
 	if (IS_NPC(ch)) {
@@ -414,7 +414,7 @@ int stam_gain(Character *ch)
 
 	gain = gain * ch->in_room->heal_rate / 100;
 
-	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
+	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
 	if (affect_exists_on_char(ch, gsn_poison))
@@ -442,7 +442,7 @@ void gain_condition(Character *ch, int iCond, int value)
 {
 	int condition;
 
-	if (value == 0 || IS_NPC(ch) || ch->pcdata == NULL)
+	if (value == 0 || IS_NPC(ch) || ch->pcdata == nullptr)
 		return;
 
 	if (IS_IMMORTAL(ch)) {
@@ -494,10 +494,10 @@ void mobile_update(void)
 	int door;
 
 	/* Examine all mobs. */
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) || ch->in_room == NULL || affect_exists_on_char(ch, gsn_charm_person))
+		if (!IS_NPC(ch) || ch->in_room == nullptr || affect_exists_on_char(ch, gsn_charm_person))
 			continue;
 
 		if (get_position(ch) <= POS_SITTING)
@@ -515,7 +515,7 @@ void mobile_update(void)
 				continue;
 		}
 
-		if (ch->pIndexData->pShop != NULL)
+		if (ch->pIndexData->pShop != nullptr)
 			if ((ch->gold * 100 + ch->silver) < ch->pIndexData->wealth) {
 				ch->gold += ch->pIndexData->wealth * number_range(1, 20) / 5000000;
 				ch->silver += ch->pIndexData->wealth * number_range(1, 20) / 50000;
@@ -538,7 +538,7 @@ void mobile_update(void)
 
 		/* Scavenge */
 		if (IS_SET(ch->act_flags, ACT_SCAVENGER)
-		    && ch->in_room->contents != NULL
+		    && ch->in_room->contents != nullptr
 		    && number_bits(6) == 0) {
 			Character *gch;
 			Object *obj;
@@ -549,7 +549,7 @@ void mobile_update(void)
 			for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
 				not_used = TRUE;
 
-				for (gch = obj->in_room->people; gch != NULL; gch = gch->next_in_room)
+				for (gch = obj->in_room->people; gch != nullptr; gch = gch->next_in_room)
 					if (gch->on == obj)
 						not_used = FALSE;
 
@@ -562,7 +562,7 @@ void mobile_update(void)
 			if (obj_best) {
 				obj_from_room(obj_best);
 				obj_to_char(obj_best, ch);
-				act("$n gets $p.", ch, obj_best, NULL, TO_ROOM);
+				act("$n gets $p.", ch, obj_best, nullptr, TO_ROOM);
 			}
 		}
 
@@ -570,8 +570,8 @@ void mobile_update(void)
 		if (!IS_SET(ch->act_flags, ACT_SENTINEL)
 		    && number_bits(3) == 0
 		    && (door = number_bits(5)) <= 5
-		    && (pexit = ch->in_room->exit[door]) != NULL
-		    &&   pexit->u1.to_room != NULL
+		    && (pexit = ch->in_room->exit[door]) != nullptr
+		    &&   pexit->u1.to_room != nullptr
 		    &&   !IS_SET(pexit->exit_info, EX_CLOSED)
 		    &&   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)
 		    && (!IS_SET(ch->act_flags, ACT_STAY_AREA)
@@ -719,7 +719,7 @@ void weather_update(void)
 	}
 
 	if (buf[0] != '\0') {
-		for (ch = char_list; ch != NULL; ch = ch->next)
+		for (ch = char_list; ch != nullptr; ch = ch->next)
 
 			/* why send it to mobs? */
 			if (!IS_NPC(ch) && IS_OUTSIDE(ch) && IS_AWAKE(ch) && IS_SET(ch->act_flags, PLR_TICKS))
@@ -733,7 +733,7 @@ void descrip_update(void)
 	Descriptor *d, *d_next;
 	Character *ch;
 
-	for (d = descriptor_list; d != NULL; d = d_next) {
+	for (d = descriptor_list; d != nullptr; d = d_next) {
 		d_next = d->next;
 		++d->timer;
 
@@ -748,14 +748,14 @@ void descrip_update(void)
 			}
 
 			if (d->timer >= 12) {
-				if (ch->was_in_room == NULL && ch->in_room != NULL) {
+				if (ch->was_in_room == nullptr && ch->in_room != nullptr) {
 					ch->was_in_room = ch->in_room;
 
-					if (ch->fighting != NULL)
+					if (ch->fighting != nullptr)
 						stop_fighting(ch, TRUE);
 					
 					if (!IS_NPC(ch)){
-						act("$n disappears into the void...", ch, NULL, NULL, TO_ROOM);
+						act("$n disappears into the void...", ch, nullptr, nullptr, TO_ROOM);
 						stc("You disappear into the void.\n", ch);
 
 						if (ch->level > 1)
@@ -769,7 +769,7 @@ void descrip_update(void)
 
 			if (d->timer == 7) {
 				if (!IS_SET(ch->comm, COMM_AFK) && !IS_NPC(ch)) {
-					act("$n is set to auto-afk...", ch, NULL, NULL, TO_ROOM);
+					act("$n is set to auto-afk...", ch, nullptr, nullptr, TO_ROOM);
 					do_afk(ch, "{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x");
 				}
 			}
@@ -790,22 +790,22 @@ void char_update(void)
 	Character *ch;
 	Character *ch_next;
 	Character *ch_quit;
-	ch_quit     = NULL;
+	ch_quit     = nullptr;
 	/* update save counter */
 	save_number++;
 
 	if (save_number > 29)
 		save_number = 0;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		if (!IS_IMMORTAL(ch) && !char_in_duel_room(ch)) {
-			if (ch->desc != NULL)
+			if (ch->desc != nullptr)
 				if (ch->desc->timer > 30)
 					ch_quit = ch;
 
-			if (ch->timer > 30 && ch_quit == NULL)
+			if (ch->timer > 30 && ch_quit == nullptr)
 				ch_quit = ch;
 		}
 
@@ -819,7 +819,7 @@ void char_update(void)
 				ch->nectimer -= 1;
 
 				if (ch->nectimer <= 0) {
-					act("$n vanishes back into the nether void.", ch, NULL, NULL,
+					act("$n vanishes back into the nether void.", ch, nullptr, nullptr,
 					    TO_ROOM);
 					extract_char(ch, TRUE);
 					continue;
@@ -877,36 +877,36 @@ void char_update(void)
 		if (!IS_NPC(ch) && !IS_IMMORTAL(ch)) {
 			Object *obj;
 
-			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != NULL
+			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
 			    &&   obj->item_type == ITEM_LIGHT
 			    &&   obj->value[2] > 0) {
-				if (--obj->value[2] == 0 && ch->in_room != NULL) {
+				if (--obj->value[2] == 0 && ch->in_room != nullptr) {
 					if (ch->in_room->light > 0)
 						--ch->in_room->light;
 
-					act("$p goes out.  Hope you're not afraid of the dark.", ch, obj, NULL, TO_ROOM);
-					act("$p flickers and goes out.", ch, obj, NULL, TO_CHAR);
+					act("$p goes out.  Hope you're not afraid of the dark.", ch, obj, nullptr, TO_ROOM);
+					act("$p flickers and goes out.", ch, obj, nullptr, TO_CHAR);
 					extract_obj(obj);
 				}
-				else if (obj->value[2] <= 5 && ch->in_room != NULL)
-					act("$p hisses and sparks.", ch, obj, NULL, TO_CHAR);
+				else if (obj->value[2] <= 5 && ch->in_room != nullptr)
+					act("$p hisses and sparks.", ch, obj, nullptr, TO_CHAR);
 			}
 
 			/* This timer is here in case a player goes linkdead - Lotus */
-			if (ch->desc == NULL) {
+			if (ch->desc == nullptr) {
 				ch->timer++;
 
 				if (IS_IMMORTAL(ch) || char_in_duel_room(ch)) {
 					if (ch->timer > 99)
 						ch->timer = 99;
 				}
-				else if (ch->timer >= 12 && ch->was_in_room == NULL && ch->in_room != NULL) {
+				else if (ch->timer >= 12 && ch->was_in_room == nullptr && ch->in_room != nullptr) {
 					ch->was_in_room = ch->in_room;
 
-					if (ch->fighting != NULL)
+					if (ch->fighting != nullptr)
 						stop_fighting(ch, TRUE);
 
-					act("$n disappears into the void...", ch, NULL, NULL, TO_ROOM);
+					act("$n disappears into the void...", ch, nullptr, nullptr, TO_ROOM);
 					stc("You disappear into the void.\n", ch);
 
 					if (ch->level > 1)
@@ -971,7 +971,7 @@ void char_update(void)
 
 		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next) {
 			if (paf->duration == 0) {
-				if (paf->next == NULL
+				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
 					if (paf->type > 0 && !skill_table[paf->type].msg_off.empty())
@@ -989,7 +989,7 @@ void char_update(void)
 		// the wearing off of spells with duration 0, because we use -1 to mean
 		// indefinite and players are used to having spell counters go down to 0
 		// before they wear off.
-		affect_iterate_over_char(ch, affect_fn_fade_spell, NULL);
+		affect_iterate_over_char(ch, affect_fn_fade_spell, nullptr);
 
 		/* MOBprogram tick trigger -- Montrey */
 		if (IS_NPC(ch)) {
@@ -1007,36 +1007,36 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != NULL && affect_exists_on_char(ch, gsn_plague)) {
+		if (ch != nullptr && affect_exists_on_char(ch, gsn_plague)) {
 		 	const Affect *plague = affect_find_on_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
-			    ch, NULL, NULL, TO_ROOM);
+			    ch, nullptr, nullptr, TO_ROOM);
 			stc("You writhe in agony from the plague.\n", ch);
 
 			spread_plague(ch->in_room, plague, 4);
 
-			// TODO: check for plague being NULL only applies as long as plague bit exists
+			// TODO: check for plague being nullptr only applies as long as plague bit exists
 			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
 			damage(ch->fighting ? ch->fighting : ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
 		}
 
-		if (ch != NULL && affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_slow)) {
+		if (ch != nullptr && affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_slow)) {
 			const Affect *poison = affect_find_on_char(ch, gsn_poison);
 
-			if (poison != NULL) {
-				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
+			if (poison != nullptr) {
+				act("$n shivers and suffers.", ch, nullptr, nullptr, TO_ROOM);
 				stc("You shiver and suffer.\n", ch);
 				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, gsn_poison,
 				       DAM_POISON, FALSE, TRUE);
 			}
 		}
 		
-		if (ch != NULL && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
+		if (ch != nullptr && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
-		else if (ch != NULL && get_position(ch) == POS_MORTAL)
+		else if (ch != nullptr && get_position(ch) == POS_MORTAL)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
 	}
 
@@ -1044,10 +1044,10 @@ void char_update(void)
 	 * Autosave and autoquit.
 	 * Check that these chars still exist.
 	 */
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (ch->desc != NULL && ch->desc->descriptor % 30 == save_number)
+		if (ch->desc != nullptr && ch->desc->descriptor % 30 == save_number)
 			save_char_obj(ch);
 
 		if (ch == ch_quit)
@@ -1066,7 +1066,7 @@ void obj_update(void)
 	Object *obj;
 	Object *obj_next;
 
-	for (obj = object_list; obj != NULL; obj = obj_next) {
+	for (obj = object_list; obj != nullptr; obj = obj_next) {
 		Character *rch;
 		char *message;
 		obj_next = obj->next;
@@ -1085,31 +1085,31 @@ void obj_update(void)
 
 		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->duration == 0) {
-				if (paf->next == NULL
+				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
 					/* for addapplied objects with a duration */
 					if (paf->type == 0) {
-						if (obj->carried_by != NULL) {
+						if (obj->carried_by != nullptr) {
 							rch = obj->carried_by;
-							act("The magic of $p diminishes.", rch, obj, NULL, TO_CHAR);
+							act("The magic of $p diminishes.", rch, obj, nullptr, TO_CHAR);
 						}
 
-						if (obj->in_room != NULL && obj->in_room->people != NULL) {
+						if (obj->in_room != nullptr && obj->in_room->people != nullptr) {
 							rch = obj->in_room->people;
-							act("The magic of $p diminishes.", rch, obj, NULL, TO_ALL);
+							act("The magic of $p diminishes.", rch, obj, nullptr, TO_ALL);
 						}
 					}
 
 					if (paf->type > 0 && !skill_table[paf->type].msg_obj.empty()) {
-						if (obj->carried_by != NULL) {
+						if (obj->carried_by != nullptr) {
 							rch = obj->carried_by;
-							act(skill_table[paf->type].msg_obj, rch, obj, NULL, TO_CHAR);
+							act(skill_table[paf->type].msg_obj, rch, obj, nullptr, TO_CHAR);
 						}
 
-						if (obj->in_room != NULL && obj->in_room->people != NULL) {
+						if (obj->in_room != nullptr && obj->in_room->people != nullptr) {
 							rch = obj->in_room->people;
-							act(skill_table[paf->type].msg_obj, rch, obj, NULL, TO_ALL);
+							act(skill_table[paf->type].msg_obj, rch, obj, nullptr, TO_ALL);
 						}
 					}
 				}
@@ -1125,7 +1125,7 @@ void obj_update(void)
 		// the wearing off of spells with duration 0, because we use -1 to mean
 		// indefinite and players are used to having spell counters go down to 0
 		// before they wear off.
-		affect_iterate_over_obj(obj, affect_fn_fade_spell, NULL);
+		affect_iterate_over_obj(obj, affect_fn_fade_spell, nullptr);
 
 		/* do not decay items being auctioned -- Elrac */
 		if (auction.is_participant(obj))
@@ -1168,28 +1168,28 @@ void obj_update(void)
 			break;
 		}
 
-		if (obj->carried_by != NULL) {
-			if (IS_NPC(obj->carried_by) && obj->carried_by->pIndexData->pShop != NULL)
+		if (obj->carried_by != nullptr) {
+			if (IS_NPC(obj->carried_by) && obj->carried_by->pIndexData->pShop != nullptr)
 				obj->carried_by->silver += obj->cost / 5;
 			else if (!obj->in_obj) { /* don't send messages if it's in another object */
-				act(message, obj->carried_by, obj, NULL, TO_CHAR);
+				act(message, obj->carried_by, obj, nullptr, TO_CHAR);
 
 				if (get_eq_char(obj->carried_by, WEAR_FLOAT) == obj) {
-					act(message, obj->carried_by, obj, NULL, TO_ROOM);
+					act(message, obj->carried_by, obj, nullptr, TO_ROOM);
 
 					if (obj->contains)
-						act("$p spills its contents on the ground.", obj->carried_by, obj, NULL, TO_ALL);
+						act("$p spills its contents on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
 				}
 			}
 		}
-		else if (obj->in_room != NULL && (rch = obj->in_room->people) != NULL && !obj->in_obj)
-			act(message, rch, obj, NULL, TO_ALL);
+		else if (obj->in_room != nullptr && (rch = obj->in_room->people) != nullptr && !obj->in_obj)
+			act(message, rch, obj, nullptr, TO_ALL);
 
 		/* save the contents, but not npc corpses */
 		if (obj->item_type != ITEM_CORPSE_NPC && obj->contains) {
 			Object *t_obj, *next_obj;
 
-			for (t_obj = obj->contains; t_obj != NULL; t_obj = next_obj) {
+			for (t_obj = obj->contains; t_obj != nullptr; t_obj = next_obj) {
 				next_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
@@ -1197,7 +1197,7 @@ void obj_update(void)
 					obj_to_obj(t_obj, obj->in_obj);
 				else if (obj->carried_by) {                     /* carried */
 					if (get_eq_char(obj->carried_by, WEAR_FLOAT) == obj) {
-						if (obj->carried_by->in_room == NULL)
+						if (obj->carried_by->in_room == nullptr)
 							extract_obj(t_obj);
 						else
 							obj_to_room(t_obj, obj->carried_by->in_room);
@@ -1205,7 +1205,7 @@ void obj_update(void)
 					else
 						obj_to_char(t_obj, obj->carried_by);
 				}
-				else if (obj->in_room == NULL)                  /* destroy it */
+				else if (obj->in_room == nullptr)                  /* destroy it */
 					extract_obj(t_obj);
 				else                                            /* to a room */
 					obj_to_room(t_obj, obj->in_room);
@@ -1223,7 +1223,7 @@ void room_update(void)
 	int x;
 
 	for (x = 1; x < 32600; x++) {
-		if ((room = get_room_index(x)) == NULL)
+		if ((room = get_room_index(x)) == nullptr)
 			continue;
 
 		// print the affects that are wearing off.  this is complicated because
@@ -1237,7 +1237,7 @@ void room_update(void)
 
 		for (const Affect *paf = affect_list_room(room); paf; paf = paf->next) {
 			if (paf->duration == 0) {
-				if (paf->next == NULL
+				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
 					/* there is no msg_room for spells, so we'll use msg_obj for
@@ -1245,7 +1245,7 @@ void room_update(void)
 					   don't feel like adding another ,"" to all those entries
 					   right now :P -- Montrey */
 					if (paf->type > 0 && !skill_table[paf->type].msg_obj.empty() && room->people)
-						act(skill_table[paf->type].msg_obj, NULL, NULL, NULL, TO_ALL);
+						act(skill_table[paf->type].msg_obj, nullptr, nullptr, nullptr, TO_ALL);
 				}
 			}
 		}
@@ -1259,7 +1259,7 @@ void room_update(void)
 		// the wearing off of spells with duration 0, because we use -1 to mean
 		// indefinite and players are used to having spell counters go down to 0
 		// before they wear off.
-		affect_iterate_over_room(room, affect_fn_fade_spell, NULL);
+		affect_iterate_over_room(room, affect_fn_fade_spell, nullptr);
 	}
 }
 
@@ -1283,7 +1283,7 @@ bool eligible_aggressor(Character *ch)
 	return (IS_NPC(ch)
 	        && IS_AWAKE(ch)
 	        && IS_SET(ch->act_flags, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
-	        && ch->fighting == NULL
+	        && ch->fighting == nullptr
 	        && !affect_exists_on_char(ch, gsn_calm)
 	        && !affect_exists_on_char(ch, gsn_charm_person)
 	       );
@@ -1317,27 +1317,27 @@ void aggr_update(void)
 	   inhabited rooms than there are players. */
 	player_count = 0;
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		player_count++;
 
 	/* allocate stack memory for pointers to <player_count> rooms */
 	RoomPrototype *room_list[player_count];
 
 	for (jroom = 0; jroom < player_count; jroom++)
-		room_list[jroom] = NULL;
+		room_list[jroom] = nullptr;
 
 	/* build a list of rooms, no duplicates */
 	room_count = 0;
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		if (!IS_PLAYING(d) ||
-		    d->original  != NULL)
+		    d->original  != nullptr)
 			continue;
 
 		plr = d->character;
 
 		if (IS_NPC(plr)          ||
-		    plr->in_room == NULL)
+		    plr->in_room == nullptr)
 			continue;
 
 		duplicate = FALSE;
@@ -1358,13 +1358,13 @@ void aggr_update(void)
 		   to be in the same room as the mob for it to react.  Done before
 		   mobprog and aggression checking to prevent other mobs jumping the
 		   player before they can complete their quest, may change for realism, tho -- Montrey */
-		for (ch = room->people; ch != NULL; ch = ch->next_in_room) {
+		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
 			if (!IS_NPC(ch)
 			    && IS_SET(ch->pcdata->plr, PLR_SQUESTOR)
-			    && ch->pcdata->squestmob != NULL
-			    && ch->pcdata->squestobj == NULL) {
+			    && ch->pcdata->squestmob != nullptr
+			    && ch->pcdata->squestobj == nullptr) {
 				/* look for quest mob */
-				for (mob = room->people; mob != NULL; mob = mob->next_in_room) {
+				for (mob = room->people; mob != nullptr; mob = mob->next_in_room) {
 					if (IS_NPC(mob) && mob == ch->pcdata->squestmob && can_see_char(mob, ch)) {
 						squestmob_found(ch, mob);
 						break;
@@ -1376,24 +1376,24 @@ void aggr_update(void)
 		/* do mobprog updates where required.
 		   This has nothing to do with aggression but parasitizes on our
 		   list of player-inhabited rooms and the loop thereover. */
-		for (ch = room->people; ch != NULL; ch = ch->next_in_room) {
-			if (IS_NPC(ch) && ch->mpact != NULL) {
+		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
+			if (IS_NPC(ch) && ch->mpact != nullptr) {
 				MobProgActList *tmp_act, *tmp2_act;
 
 				// go through acts and handle them
-				for (tmp_act = ch->mpact; tmp_act != NULL;
+				for (tmp_act = ch->mpact; tmp_act != nullptr;
 				     tmp_act = tmp_act->next) {
 					mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
 					                     tmp_act->obj, tmp_act->vo, ACT_PROG);
 				}
 
 				// delete the list
-				for (tmp_act = ch->mpact; tmp_act != NULL; tmp_act = tmp2_act) {
+				for (tmp_act = ch->mpact; tmp_act != nullptr; tmp_act = tmp2_act) {
 					tmp2_act = tmp_act->next;
 					delete tmp_act;
 				}
 
-				ch->mpact    = NULL;
+				ch->mpact    = nullptr;
 			}
 		}
 
@@ -1407,7 +1407,7 @@ void aggr_update(void)
 		mob_count = 0;
 		victim_count = 0;
 
-		for (ch = room->people; ch != NULL; ch = ch->next_in_room)
+		for (ch = room->people; ch != nullptr; ch = ch->next_in_room)
 			if (eligible_aggressor(ch))
 				mob_count++;
 			else if (eligible_victim(ch))
@@ -1422,11 +1422,11 @@ void aggr_update(void)
 		victim_num = number_range(1, victim_count);
 		/* find the (numerically) selected mob and victim */
 		jmob = 0;
-		mob = NULL;
+		mob = nullptr;
 		jvictim = 0;
-		victim = NULL;
+		victim = nullptr;
 
-		for (ch = room->people; ch != NULL; ch = ch->next_in_room) {
+		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
 			if (eligible_aggressor(ch)) {
 				if (++jmob == mob_num)
 					mob = ch;
@@ -1437,8 +1437,8 @@ void aggr_update(void)
 			}
 		}
 
-		if (mob == NULL || victim == NULL) {
-			bug("aggr_update: mob or victim NULL!", 0);
+		if (mob == nullptr || victim == nullptr) {
+			bug("aggr_update: mob or victim nullptr!", 0);
 			return;
 		}
 
@@ -1484,10 +1484,10 @@ void tele_update(void)
 	Character *ch, *ch_next;
 	RoomPrototype *pRoomIndex;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (ch->in_room == NULL)
+		if (ch->in_room == nullptr)
 			continue;
 
 		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_TELEPORT)) {
@@ -1500,7 +1500,7 @@ void tele_update(void)
 
 			char_from_room(ch);
 			char_to_room(ch, pRoomIndex);
-			act("$n slowly fades into existence.\n", ch, NULL, NULL, TO_ROOM);
+			act("$n slowly fades into existence.\n", ch, nullptr, nullptr, TO_ROOM);
 			do_look(ch, "auto");
 		}
 	}
@@ -1526,7 +1526,7 @@ void age_update(void)
 		if (!IS_PLAYING(d))
 			continue;
 
-		wch = (d->original != NULL) ? d->original : d->character;
+		wch = (d->original != nullptr) ? d->original : d->character;
 
 		if (!IS_NPC(wch))
 			wch->pcdata->played++;
@@ -1554,7 +1554,7 @@ void wait_update(void)
 {
 	Character *ch;
 
-	for (ch = char_list; ch != NULL; ch = ch->next) {
+	for (ch = char_list; ch != nullptr; ch = ch->next) {
 		if (ch->daze > 0)       --ch->daze;
 
 		if (ch->wait > 0)       --ch->wait;
@@ -1619,7 +1619,7 @@ void update_handler(void)
 				int count = 0;
 				Descriptor *d;
 
-				for (d = descriptor_list; d != NULL; d = d->next)
+				for (d = descriptor_list; d != nullptr; d = d->next)
 					if (IS_PLAYING(d))
 						count++;
 
@@ -1630,7 +1630,7 @@ void update_handler(void)
 //					do_sysinfo("The system is going down for auto-reboot NOW.\n");
 					merc_down = TRUE;
 
-					for (d = descriptor_list; d != NULL; d = d_next) {
+					for (d = descriptor_list; d != nullptr; d = d_next) {
 						d_next = d->next;
 						save_char_obj(d->character);
 						close_socket(d);
@@ -1702,7 +1702,7 @@ void underwater_update(void)
 	Character *ch, *ch_next;
 	int skill, dam;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		if (!IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)) {
@@ -1743,7 +1743,7 @@ void quest_update(void)
 	Descriptor *d;
 	Character *ch;
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		if (IS_PLAYING(d)) {
 			ch = d->character;
 

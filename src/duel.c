@@ -53,7 +53,7 @@ void duel_update()
 			if (--c->prep_timer == 0) {
 				Character *wch;
 
-				for (wch = c->arena->viewroom->people; wch != NULL; wch = wch->next_in_room)
+				for (wch = c->arena->viewroom->people; wch != nullptr; wch = wch->next_in_room)
 					stc("{P[{RDUEL{P] {WThe duel has begun!{x\n", wch);
 
 				room = get_random_arena_room(c->arena, 0);
@@ -79,7 +79,7 @@ void load_arena_table()
 	int i, maxArenas;
 	Duel::Arena *new_arena;
 
-	if ((fp = fopen(ARENA_DIR ARENA_FILE, "r")) != NULL) {
+	if ((fp = fopen(ARENA_DIR ARENA_FILE, "r")) != nullptr) {
 		fscanf(fp, "%d\n", &maxArenas);
 		arena_table_head = new Duel::Arena;
 		arena_table_tail = new Duel::Arena;
@@ -101,9 +101,9 @@ void load_arena_table()
 			new_arena->defprep      = get_room_index(atoi(fread_string(fp)));
 			new_arena->viewroom     = get_room_index(atoi(fread_string(fp)));
 
-			if (new_arena->chalprep == NULL
-			    || new_arena->defprep  == NULL
-			    || new_arena->viewroom == NULL) {
+			if (new_arena->chalprep == nullptr
+			    || new_arena->defprep  == nullptr
+			    || new_arena->viewroom == nullptr) {
 				Format::printf("Bad arena room!");
 				exit(1);
 			}
@@ -136,9 +136,9 @@ void remove_duel(Duel *c)
 	c->previous->next       = c->next;
 	c->next->previous       = c->previous;
 
-	for (ch = char_list; ch != NULL; ch = ch->next)
+	for (ch = char_list; ch != nullptr; ch = ch->next)
 		if (!IS_NPC(ch) && ch->pcdata->duel == c)
-			ch->pcdata->duel = NULL;
+			ch->pcdata->duel = nullptr;
 
 	clear_arena(c->arena);
 	free_duel(c);
@@ -150,7 +150,7 @@ void duel_announce(char *buf, Duel *duel)
 	Descriptor *d;
 	Format::sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n", buf);
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		if (IS_PLAYING(d)
 		    && d->character != duel->challenger
 		    && d->character != duel->defender
@@ -163,7 +163,7 @@ bool char_in_darena_room(Character *ch)
 {
 	Duel::Arena *arena = arena_table_head->next;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return FALSE;
 
 	while (arena != arena_table_tail) {
@@ -181,7 +181,7 @@ bool char_in_duel_room(Character *ch)
 {
 	Duel::Arena *arena = arena_table_head->next;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return FALSE;
 
 	while (arena != arena_table_tail) {
@@ -201,7 +201,7 @@ bool char_in_darena(Character *ch)
 {
 	Duel *duel;
 
-	if ((duel = get_duel(ch)) == NULL)
+	if ((duel = get_duel(ch)) == nullptr)
 		return FALSE;
 
 	if (duel->accept_timer == 0 && duel->prep_timer == 0)
@@ -214,7 +214,7 @@ bool char_in_duel(Character *ch)
 {
 	Duel *duel;
 
-	if ((duel = get_duel(ch)) == NULL)
+	if ((duel = get_duel(ch)) == nullptr)
 		return FALSE;
 
 	if (duel->accept_timer == 0)
@@ -227,27 +227,27 @@ bool char_in_duel(Character *ch)
 Duel *get_duel(Character *ch)
 {
 	Duel *duel;
-	Character *opp = NULL;
+	Character *opp = nullptr;
 	bool cgr = FALSE;
 
-	if (IS_NPC(ch) || ch->in_room == NULL || ch->pcdata == NULL || ch->pcdata->duel == NULL)
-		return NULL;
+	if (IS_NPC(ch) || ch->in_room == nullptr || ch->pcdata == nullptr || ch->pcdata->duel == nullptr)
+		return nullptr;
 
 	duel = ch->pcdata->duel;
 
 	if (duel->challenger == ch) {
 		cgr = TRUE;
 
-		if ((opp = duel->defender) == NULL) {
-			bug("get_duel: defender is NULL", 0);
+		if ((opp = duel->defender) == nullptr) {
+			bug("get_duel: defender is nullptr", 0);
 			goto bombout;
 		}
 	}
 	else if (duel->defender == ch) {
 		cgr = FALSE;
 
-		if ((opp = duel->challenger) == NULL) {
-			bug("get_duel: challenger is NULL", 0);
+		if ((opp = duel->challenger) == nullptr) {
+			bug("get_duel: challenger is nullptr", 0);
 			goto bombout;
 		}
 	}
@@ -261,8 +261,8 @@ Duel *get_duel(Character *ch)
 		goto bombout;
 	}
 
-	if (opp->pcdata->duel == NULL) {
-		bug("get_duel: opp->pcdata->duel == NULL", 0);
+	if (opp->pcdata->duel == nullptr) {
+		bug("get_duel: opp->pcdata->duel == nullptr", 0);
 		goto bombout;
 	}
 
@@ -271,13 +271,13 @@ Duel *get_duel(Character *ch)
 		goto bombout;
 	}
 
-	if (opp->in_room == NULL) {
-		bug("get_duel: opp->in_room == NULL", 0);
+	if (opp->in_room == nullptr) {
+		bug("get_duel: opp->in_room == nullptr", 0);
 		goto bombout;
 	}
 
-	if (duel->arena == NULL) {
-		bug("get_duel: arena is NULL", 0);
+	if (duel->arena == nullptr) {
+		bug("get_duel: arena is nullptr", 0);
 		goto bombout;
 	}
 
@@ -324,7 +324,7 @@ Duel *get_duel(Character *ch)
 	return duel;
 bombout:
 	remove_duel(duel);
-	return NULL;
+	return nullptr;
 }
 
 Duel::Arena *get_random_arena()
@@ -347,7 +347,7 @@ Duel::Arena *get_random_arena()
 
 	/* no arenas? */
 	if (arena == arena_table_tail)
-		return NULL;
+		return nullptr;
 
 	return arena;
 }
@@ -359,7 +359,7 @@ RoomPrototype *get_random_arena_room(Duel::Arena *arena, int notvnum)
 	do {
 		room = get_room_index(number_range(arena->minvnum, arena->maxvnum));
 	}
-	while (room == NULL || room->vnum == notvnum);
+	while (room == nullptr || room->vnum == notvnum);
 
 	return room;
 }
@@ -372,7 +372,7 @@ void view_room_hpbar(Character *ch)
 	Character *chal, *def, *vch;
 	int i, chalpct, defpct;
 
-	if ((duel = get_duel(ch)) == NULL)
+	if ((duel = get_duel(ch)) == nullptr)
 		return;
 
 	if (duel->accept_timer != 0 || duel->prep_timer != 0)
@@ -429,7 +429,7 @@ void view_room_hpbar(Character *ch)
 	defblock += def->name;
 	Format::sprintf(line, "%30s %-30s{x\n", chalblock, defblock);
 
-	for (vch = duel->arena->viewroom->people; vch != NULL; vch = vch->next_in_room)
+	for (vch = duel->arena->viewroom->people; vch != nullptr; vch = vch->next_in_room)
 		stc(line, vch);
 }
 
@@ -440,18 +440,18 @@ void clear_arena(Duel::Arena *arena)
 	int i;
 
 	for (i = arena->minvnum; i != arena->maxvnum + 1; i++)
-		if ((room = get_room_index(i)) != NULL && room->people)
-			for (wch = room->people; wch != NULL; wch = wch->next_in_room)
+		if ((room = get_room_index(i)) != nullptr && room->people)
+			for (wch = room->people; wch != nullptr; wch = wch->next_in_room)
 				if (!IS_IMMORTAL(wch))
 					extract_char(wch, !IS_NPC(wch));
 
 	if (arena->chalprep->people)
-		for (wch = arena->chalprep->people; wch != NULL; wch = wch->next_in_room)
+		for (wch = arena->chalprep->people; wch != nullptr; wch = wch->next_in_room)
 			if (!IS_IMMORTAL(wch))
 				extract_char(wch, !IS_NPC(wch));
 
 	if (arena->defprep->people)
-		for (wch = arena->defprep->people; wch != NULL; wch = wch->next_in_room)
+		for (wch = arena->defprep->people; wch != nullptr; wch = wch->next_in_room)
 			if (!IS_IMMORTAL(wch))
 				extract_char(wch, !IS_NPC(wch));
 }
@@ -499,7 +499,7 @@ void duel_kill(Character *victim)
 			bug("Error with get_room_index() in duel_kill() in duel.c.", 0);
 
 		if (room->people)
-			for (wch = room->people; wch != NULL; wch = wch->next)
+			for (wch = room->people; wch != nullptr; wch = wch->next)
 				if (wch->master == ch || wch->master == victim) {
 					char_from_room(wch);
 					char_to_room(wch, wch->master->in_room);
@@ -541,7 +541,7 @@ void do_duel(Character *ch, String argument)
 {
 	char buf[MSL];
 	Duel *duel;
-	Character *victim = NULL;
+	Character *victim = nullptr;
 	Duel::Arena *arena;
 
 	if (IS_NPC(ch)) {
@@ -579,7 +579,7 @@ void do_duel(Character *ch, String argument)
 	}
 
 	if (arg1.is_prefix_of("decline")) {
-		if ((duel = get_duel(ch)) == NULL || duel->defender != ch) {
+		if ((duel = get_duel(ch)) == nullptr || duel->defender != ch) {
 			stc("No duel has been issued to you.\n", ch);
 			return;
 		}
@@ -626,7 +626,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!arg1.empty() && ch->in_room != NULL && ch->in_room->vnum == 1212) {
+	if (!arg1.empty() && ch->in_room != nullptr && ch->in_room->vnum == 1212) {
 		stc("Put your nose back in the corner, you don't need to duel.\n", ch);
 		return;
 	}
@@ -652,7 +652,7 @@ void do_duel(Character *ch, String argument)
 			return;
 		}
 
-		if ((victim = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
+		if ((victim = get_player_world(ch, arg2, VIS_PLR)) == nullptr) {
 			stc("You see no one by that name around.\n", ch);
 			return;
 		}
@@ -696,7 +696,7 @@ void do_duel(Character *ch, String argument)
 		}
 
 		if (arg3.empty()) {
-			if ((arena = get_random_arena()) == NULL) {
+			if ((arena = get_random_arena()) == nullptr) {
 				stc("Sorry, there are no arenas right now.\n", ch);
 				return;
 			}
@@ -754,7 +754,7 @@ void do_duel(Character *ch, String argument)
 			duel = duel->next;
 		}
 
-		if ((duel = get_duel(ch)) == NULL || duel->defender != ch) {
+		if ((duel = get_duel(ch)) == nullptr || duel->defender != ch) {
 			stc("You have not been challenged to a duel.\n", ch);
 			return;
 		}
@@ -798,15 +798,15 @@ void do_duel(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->in_room == NULL || ch->in_room == duel->arena->viewroom) {
+		if (ch->in_room == nullptr || ch->in_room == duel->arena->viewroom) {
 			stc("You're already there!\n", ch);
 			return;
 		}
 
-		act("$n leaves to watch the duel!", ch, NULL, NULL, TO_ROOM);
+		act("$n leaves to watch the duel!", ch, nullptr, nullptr, TO_ROOM);
 		char_from_room(ch);
 		char_to_room(ch, duel->arena->viewroom);
-		act("$n has arrived to watch the duel!", ch, NULL, NULL, TO_ROOM);
+		act("$n has arrived to watch the duel!", ch, nullptr, nullptr, TO_ROOM);
 		do_look(ch, "auto");
 		return;
 	}

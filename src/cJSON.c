@@ -7,25 +7,25 @@ cJSON * JSON::read_file(const String& filename) {
 	long fsize;
 	char *str;
 
-	if ((cf = fopen(filename.c_str(), "rb")) == NULL) {
+	if ((cf = fopen(filename.c_str(), "rb")) == nullptr) {
 		bugf("JSON::read_file: Could not open file '%s' for reading.", filename);
-		return NULL;
+		return nullptr;
 	}
 
 	// get size of file
 	if (fseek(cf, 0, SEEK_END) != 0 || (fsize = ftell(cf)) < 0) {
 		bugf("JSON::read_file: Error in computing size of file '%s'.", filename);
 		fclose(cf);
-		return NULL;
+		return nullptr;
 	}
 
 	rewind(cf);
 
 	// alloc mem
-	if ((str = (char *)malloc(fsize + 1)) == NULL) {
+	if ((str = (char *)malloc(fsize + 1)) == nullptr) {
 		bugf("JSON::read_file: Could not allocate memory to parse file '%s'.", filename);
 		fclose(cf);
-		return NULL;
+		return nullptr;
 	}
 
 	// read the file
@@ -33,7 +33,7 @@ cJSON * JSON::read_file(const String& filename) {
 		bugf("JSON::read_file: Error in reading file '%s'.", filename);
 		fclose(cf);
 		free(str);
-		return NULL;
+		return nullptr;
 	}
 
 	str[fsize] = 0; // terminate
@@ -43,9 +43,9 @@ cJSON * JSON::read_file(const String& filename) {
 	free(str); // done with it
 
 	// parse json string
-	if (json == NULL) {
+	if (json == nullptr) {
 		bugf("JSON::read_file: File '%s', error before: [%s]", filename, cJSON_GetErrorPtr());
-		return NULL;
+		return nullptr;
 	}
 
 	return json;

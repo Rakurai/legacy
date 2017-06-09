@@ -29,7 +29,7 @@ void    show_list_to_char       args((Object *list, Character *ch, bool fShort, 
 void do_fod(Character *ch, String argument)
 {
 	char buf[MSL];
-	Character *victim = NULL;
+	Character *victim = nullptr;
 	char *msg = "In the distance you hear the thundering roar of a Finger Of Death!";
 	RoomPrototype *ch_room, *victim_room;
 	Object *on;
@@ -40,7 +40,7 @@ void do_fod(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -50,7 +50,7 @@ void do_fod(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->desc != NULL && victim->desc->original != NULL) {
+	if (victim->desc != nullptr && victim->desc->original != nullptr) {
 		stc("Your victim is morphed or switched - no can do!\n", ch);
 		return;
 	}
@@ -70,12 +70,12 @@ void do_fod(Character *ch, String argument)
 
 	/* do it! */
 	global_act(ch, msg, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
-	act("You strike $N down with your {YFinger of {RDeath{x!", ch, NULL, victim, TO_CHAR);
-	act("$n strikes $N down with a {YFinger of {RDeath{x!", ch, NULL, victim, TO_NOTVICT);
-	act("$n strikes you down with a {YFinger of {RDeath{x!", ch, NULL, victim, TO_VICT);
+	act("You strike $N down with your {YFinger of {RDeath{x!", ch, nullptr, victim, TO_CHAR);
+	act("$n strikes $N down with a {YFinger of {RDeath{x!", ch, nullptr, victim, TO_NOTVICT);
+	act("$n strikes you down with a {YFinger of {RDeath{x!", ch, nullptr, victim, TO_VICT);
 	Format::sprintf(buf, "$n has struck down %s!", victim->name);
 	global_act(ch, buf, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
-	act("You fall to the ground, dazed.", ch, NULL, victim, TO_VICT);
+	act("You fall to the ground, dazed.", ch, nullptr, victim, TO_VICT);
 	victim->position = POS_RESTING;
 	WAIT_STATE(victim, 15 * PULSE_PER_SECOND);
 
@@ -124,14 +124,14 @@ void do_force(Character *ch, String argument)
 		bool found = FALSE;
 
 		if (arg == "all") {
-			for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
+			for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
 				vpc_next = vpc->next;
 
 				if (vpc->ch == ch)
 					continue;
 
 				found = TRUE;
-				act(buf, ch, NULL, vpc->ch, TO_VICT);
+				act(buf, ch, nullptr, vpc->ch, TO_VICT);
 				interpret(vpc->ch, argument);
 			}
 
@@ -141,12 +141,12 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "players") {
-			for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
+			for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
 				vpc_next = vpc;
 
 				if (vpc->ch != ch && !IS_IMMORTAL(vpc->ch)) {
 					found = TRUE;
-					act(buf, ch, NULL, vpc->ch, TO_VICT);
+					act(buf, ch, nullptr, vpc->ch, TO_VICT);
 					interpret(vpc->ch, argument);
 				}
 			}
@@ -157,13 +157,13 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "gods") {
-			for (vpc = pc_list; vpc != NULL; vpc = vpc_next) {
+			for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
 				vpc_next = vpc;
 
 				if (vpc->ch != ch && IS_IMMORTAL(vpc->ch) && !IS_IMP(vpc->ch)) {
 					found = TRUE;
 					vpc_next = vpc->next;
-					act(buf, ch, NULL, vpc->ch, TO_VICT);
+					act(buf, ch, nullptr, vpc->ch, TO_VICT);
 					interpret(vpc->ch, argument);
 				}
 			}
@@ -175,7 +175,7 @@ void do_force(Character *ch, String argument)
 		}
 	}
 
-	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -201,7 +201,7 @@ void do_force(Character *ch, String argument)
 		return;
 	}
 
-	act(buf, ch, NULL, victim, TO_VICT);
+	act(buf, ch, nullptr, victim, TO_VICT);
 	interpret(victim, argument);
 	stc("You succeed.\n", ch);
 }
@@ -217,7 +217,7 @@ void do_freeze(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -237,14 +237,14 @@ void do_freeze(Character *ch, String argument)
 		stc("Heat envelops your blood.\n", victim);
 		stc("FREEZE removed.\n", ch);
 		Format::sprintf(buf, "$N has unfrozen: %s.", victim->name);
-		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
+		wiznet(buf, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
 		SET_BIT(victim->act_flags, PLR_FREEZE);
 		stc("A crystal blue sheet of ice immobilizes your body!\n", victim);
 		stc("FREEZE set.\n", ch);
 		Format::sprintf(buf, "$N puts %s in the deep freeze.", victim->name);
-		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
+		wiznet(buf, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 
 	save_char_obj(victim);
@@ -265,7 +265,7 @@ void do_fry(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -275,9 +275,9 @@ void do_fry(Character *ch, String argument)
 		return;
 	}
 
-	act("You {Pdestroy{x $N and remove $M from Legacy!", ch, NULL, victim, TO_CHAR);
-	act("A huge bolt of {Wlightning{x strikes $N, utterly {Pdestroying{x $M.", ch, NULL, victim, TO_NOTVICT);
-	act("You look up, just in time to see the {Pflaming{x {Wlightning{x bolt strike your head. C-ya!", ch, NULL, victim,
+	act("You {Pdestroy{x $N and remove $M from Legacy!", ch, nullptr, victim, TO_CHAR);
+	act("A huge bolt of {Wlightning{x strikes $N, utterly {Pdestroying{x $M.", ch, nullptr, victim, TO_NOTVICT);
+	act("You look up, just in time to see the {Pflaming{x {Wlightning{x bolt strike your head. C-ya!", ch, nullptr, victim,
 	    TO_VICT);
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.capitalize());
 	do_echo(ch, "You hear the rumble of thunder in the distance.");
@@ -300,7 +300,7 @@ void do_locker(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("They must be online to examine their locker.\n", ch);
 		return;
 	}
@@ -321,7 +321,7 @@ void do_locker(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("get")) {
-		if ((obj = get_obj_list(ch, argument, victim->pcdata->locker)) == NULL) {
+		if ((obj = get_obj_list(ch, argument, victim->pcdata->locker)) == nullptr) {
 			stc("You do not see that in their locker.\n", ch);
 			return;
 		}
@@ -333,7 +333,7 @@ void do_locker(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("put")) {
-		if ((obj = get_obj_carry(ch, argument)) == NULL) {
+		if ((obj = get_obj_carry(ch, argument)) == nullptr) {
 			stc("You do not have that item.\n", ch);
 			return;
 		}
@@ -362,7 +362,7 @@ void do_strongbox(Character *ch, String argument)
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("They must be online to examine their strongbox.\n", ch);
 		return;
 	}
@@ -387,7 +387,7 @@ void do_strongbox(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("get")) {
-		if ((obj = get_obj_list(ch, argument, victim->pcdata->strongbox)) == NULL) {
+		if ((obj = get_obj_list(ch, argument, victim->pcdata->strongbox)) == nullptr) {
 			stc("You do not see that in their strongbox.\n", ch);
 			return;
 		}
@@ -399,7 +399,7 @@ void do_strongbox(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("put")) {
-		if ((obj = get_obj_carry(ch, argument)) == NULL) {
+		if ((obj = get_obj_carry(ch, argument)) == nullptr) {
 			stc("You do not have that item.\n", ch);
 			return;
 		}
@@ -434,7 +434,7 @@ void do_log(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -453,11 +453,11 @@ void do_newlock(Character *ch, String argument)
 	newlock = !newlock;
 
 	if (newlock) {
-		wiznet("$N locks out new characters.", ch, NULL, 0, 0, 0);
+		wiznet("$N locks out new characters.", ch, nullptr, 0, 0, 0);
 		stc("New characters have been locked out.\n", ch);
 	}
 	else {
-		wiznet("$N allows new characters back in.", ch, NULL, 0, 0, 0);
+		wiznet("$N allows new characters back in.", ch, nullptr, 0, 0, 0);
 		stc("Newlock removed.\n", ch);
 	}
 }
@@ -476,7 +476,7 @@ void do_newpasswd(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -495,7 +495,7 @@ void do_newpasswd(Character *ch, String argument)
 	ptc(ch, "%s's new password is: %s\n", victim->name, argument);
 	save_char_obj(victim);
 	Format::sprintf(buf, "$N has changed %s's password.", victim->name);
-	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
+	wiznet(buf, ch, nullptr, WIZ_LOAD, WIZ_SECURE, 0);
 }
 
 void do_pardon(Character *ch, String argument)
@@ -512,7 +512,7 @@ void do_pardon(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -556,7 +556,7 @@ void do_protect(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr) {
 		stc("You can't find them.\n", ch);
 		return;
 	}
@@ -600,7 +600,7 @@ void do_revoke(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -626,7 +626,7 @@ void do_revoke(Character *ch, String argument)
 		ptc(victim, "The Gods have %sd your %s.\n", buf1, revoke_table[i].message);
 		ptc(ch, "You %s their %s.\n", buf1, revoke_table[i].message);
 		Format::sprintf(buf2, "$N has %sd %s's %s", buf1, victim->name, revoke_table[i].message);
-		wiznet(buf2, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
+		wiznet(buf2, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 		return;
 	}
 
@@ -640,7 +640,7 @@ int set_tail(Character *ch, Character *victim, int tail_flag)
 	Tail *td;
 
 	/* if global untail, try specific untail on all chars having tail data */
-	if (victim == NULL) {
+	if (victim == nullptr) {
 		int count = 0;
 
 		for (wch = char_list; wch; wch = wch->next)
@@ -675,7 +675,7 @@ int set_tail(Character *ch, Character *victim, int tail_flag)
 	}
 
 	/* specific untail */
-	if (victim->tail == NULL)
+	if (victim->tail == nullptr)
 		return 0;
 
 	/* find tail data set by ch */
@@ -710,7 +710,7 @@ int set_tail(Character *ch, Character *victim, int tail_flag)
 void do_tail(Character *ch, String argument)
 {
 	char buf[MSL];
-	Character *victim = NULL;
+	Character *victim = nullptr;
 
 	if (IS_NPC(ch)) {
 		stc("Please return to your body before tailing.\n", ch);
@@ -729,14 +729,14 @@ void do_tail(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (arg == "stop") {
-		if (!set_tail(ch, NULL, TAIL_NONE))
+		if (!set_tail(ch, nullptr, TAIL_NONE))
 			stc("You weren't tailing anyone.\n", ch);
 
 		ch->pcdata->tailing = FALSE;
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
@@ -761,7 +761,7 @@ void do_tail(Character *ch, String argument)
 		set_tail(ch, victim, TAIL_ACT);
 		ch->pcdata->tailing = TRUE;
 		Format::sprintf(buf, "$N has begun tailing %s.", PERS(victim, ch, VIS_PLR));
-		wiznet(buf, ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
+		wiznet(buf, ch, nullptr, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 	}
 	else
 		do_tail(ch, "");
@@ -784,28 +784,28 @@ void do_snoop(Character *ch, String argument)
 
 	one_argument(argument, arg);
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("They aren't here.\n", ch);
 		return;
 	}
 
-	if (victim->desc == NULL) {
+	if (victim->desc == nullptr) {
 		stc("No descriptor to snoop.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
 		stc("All snoops in progress have been cancelled.\n", ch);
-		wiznet("$N has cancelled all snoops.", ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
+		wiznet("$N has cancelled all snoops.", ch, nullptr, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 
-		for (d = descriptor_list; d != NULL; d = d->next)
+		for (d = descriptor_list; d != nullptr; d = d->next)
 			if (d->snoop_by == ch->desc)
-				d->snoop_by = NULL;
+				d->snoop_by = nullptr;
 
 		return;
 	}
 
-	if (victim->desc->snoop_by != NULL) {
+	if (victim->desc->snoop_by != nullptr) {
 		stc("That character is already being snooped.\n", ch);
 		return;
 	}
@@ -829,8 +829,8 @@ void do_snoop(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->desc != NULL) {
-		for (d = ch->desc->snoop_by; d != NULL; d = d->snoop_by) {
+	if (ch->desc != nullptr) {
+		for (d = ch->desc->snoop_by; d != nullptr; d = d->snoop_by) {
 			if (d->character == victim || d->original == victim) {
 				stc("Sorry, we don't allow snoop loops.\n", ch);
 				return;
@@ -840,7 +840,7 @@ void do_snoop(Character *ch, String argument)
 
 	victim->desc->snoop_by = ch->desc;
 	Format::sprintf(buf, "$N has begun a snoop on %s.", victim->name);
-	wiznet(buf, ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
+	wiznet(buf, ch, nullptr, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 	stc("You now view the world through the players eyes.\n", ch);
 }
 
@@ -996,7 +996,7 @@ void do_permit(Character *ch, String argument)
 	if (arg == "player") {
 		Character *plr;
 
-		if ((plr = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+		if ((plr = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 			stc("They are not playing or loaded.\n", ch);
 			return;
 		}
@@ -1100,7 +1100,7 @@ void do_deny(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -1123,7 +1123,7 @@ void do_deny(Character *ch, String argument)
 		            db_esc(victim->name), db_esc(ch->name), db_esc(argument));
 		stc("You have been denied access!\n", victim);
 		Format::sprintf(buf, "$N has denied access to %s", victim->name);
-		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
+		wiznet(buf, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 		ptc(ch, "%s has been denied access.\n", arg1);
 		save_char_obj(victim);
 		stop_fighting(victim, TRUE);
@@ -1147,7 +1147,7 @@ void do_undeny(Character *ch, String argument)
 		char buf[MSL];
 		ptc(ch, "%s has been granted access to Legacy.\n", arg);
 		Format::sprintf(buf, "$N has undenied %s", arg);
-		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
+		wiznet(buf, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else
 		stc("That player is not denied.\n", ch);

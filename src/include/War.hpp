@@ -16,7 +16,7 @@ public:
         sh_int      final_score = 0;
 
         bool        valid = FALSE;
-        Opponent *  next = NULL;
+        Opponent *  next = nullptr;
 
     private:
         Opponent(const Opponent&);
@@ -36,7 +36,7 @@ public:
         time_t      time = 0;
 
         bool        valid = FALSE;
-        Event *    next = NULL;
+        Event *    next = nullptr;
 
     private:
         Event(const Event&);
@@ -46,15 +46,15 @@ public:
     War();
     virtual ~War();
 
-    War::Opponent *  chal[4] = {NULL};
-    War::Opponent *  def[4] = {NULL};
-    War::Event *    events = NULL;
+    War::Opponent *  chal[4] = {nullptr};
+    War::Opponent *  def[4] = {nullptr};
+    War::Event *    events = nullptr;
 
     bool        ongoing = FALSE;
 
     bool        valid = FALSE;
-    War *  previous = NULL;
-    War *  next = NULL;
+    War *  previous = nullptr;
+    War *  next = nullptr;
 
 private:
     War(const War&);

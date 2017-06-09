@@ -621,7 +621,7 @@ void interpret(Character *ch, String argument)
 		Format::sprintf(log_buf, "Log %s: %s", ch->name, logline);
 
 		if (cmd_table[cmd].log == LOG_ALWAYS)
-			wiznet(log_buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
+			wiznet(log_buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
 
 		if (IS_SET(ch->act_flags, PLR_LOG)) {
 			char *strtime;
@@ -635,7 +635,7 @@ void interpret(Character *ch, String argument)
 			log_string(log_buf);
 	}
 
-	if (ch->desc != NULL && ch->desc->snoop_by != NULL) {
+	if (ch->desc != nullptr && ch->desc->snoop_by != nullptr) {
 		write_to_buffer(ch->desc->snoop_by, "% ");
 		write_to_buffer(ch->desc->snoop_by, logline);
 		write_to_buffer(ch->desc->snoop_by, "\n");
@@ -760,44 +760,44 @@ bool check_social(Character *ch, const String& command, const String& argument)
 
 	String arg;
 	one_argument(argument, arg);
-	victim = NULL;
+	victim = nullptr;
 
 	if (arg.empty()) {
-		act(iterator->others_no_arg, ch, NULL, victim, TO_ROOM);
-		act(iterator->char_no_arg,   ch, NULL, victim, TO_CHAR);
+		act(iterator->others_no_arg, ch, nullptr, victim, TO_ROOM);
+		act(iterator->char_no_arg,   ch, nullptr, victim, TO_CHAR);
 	}
-	else if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL)
+	else if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr)
 		stc("They are not here.\n", ch);
 	else if (victim == ch) {
-		act(iterator->others_auto,   ch, NULL, victim, TO_ROOM);
-		act(iterator->char_auto,     ch, NULL, victim, TO_CHAR);
+		act(iterator->others_auto,   ch, nullptr, victim, TO_ROOM);
+		act(iterator->char_auto,     ch, nullptr, victim, TO_CHAR);
 	}
 	else {
-		act(iterator->others_found,  ch, NULL, victim, TO_NOTVICT);
-		act(iterator->char_found,    ch, NULL, victim, TO_CHAR);
-		act(iterator->vict_found,    ch, NULL, victim, TO_VICT);
+		act(iterator->others_found,  ch, nullptr, victim, TO_NOTVICT);
+		act(iterator->char_found,    ch, nullptr, victim, TO_CHAR);
+		act(iterator->vict_found,    ch, nullptr, victim, TO_VICT);
 
 		if (!IS_NPC(ch) && IS_NPC(victim)
 		    &&   !affect_exists_on_char(victim, gsn_charm_person)
 		    &&   IS_AWAKE(victim)
-		    &&   victim->desc == NULL
+		    &&   victim->desc == nullptr
 		    && (!IS_SET(victim->pIndexData->progtypes, ACT_PROG))) {
 			switch (number_bits(4)) {
 			case 0:
 			case 1: case 2: case 3: case 4:
 			case 5: case 6: case 7: case 8:
 				act(iterator->others_found,
-				    victim, NULL, ch, TO_NOTVICT);
+				    victim, nullptr, ch, TO_NOTVICT);
 				act(iterator->char_found,
-				    victim, NULL, ch, TO_CHAR);
+				    victim, nullptr, ch, TO_CHAR);
 				act(iterator->vict_found,
-				    victim, NULL, ch, TO_VICT);
+				    victim, nullptr, ch, TO_VICT);
 				break;
 
 			case 9: case 10: case 11: case 12:
-				act("$n raises an eyebrow at $N.", victim, NULL, ch, TO_NOTVICT);
-				act("You raise an eyebrow at $N.", victim, NULL, ch, TO_CHAR);
-				act("$n raises an eyebrow at you.", victim, NULL, ch, TO_VICT);
+				act("$n raises an eyebrow at $N.", victim, nullptr, ch, TO_NOTVICT);
+				act("You raise an eyebrow at $N.", victim, nullptr, ch, TO_CHAR);
+				act("$n raises an eyebrow at you.", victim, nullptr, ch, TO_VICT);
 				break;
 			}
 		}
@@ -980,7 +980,7 @@ void slog_file(Character *ch, char *file, char *str)
 	if (IS_NPC(ch) || str[0] == '\0')
 		return;
 
-	if ((fp = fopen(file, "a")) == NULL) {
+	if ((fp = fopen(file, "a")) == nullptr) {
 		perror(file);
 		stc("Could not open the file!\n", ch);
 	}

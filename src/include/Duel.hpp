@@ -15,12 +15,12 @@ public:
 
         int     minvnum = 0;    /* actual arena, not prep rooms or view room */
         int     maxvnum = 0;
-        RoomPrototype *chalprep = NULL;
-        RoomPrototype *defprep = NULL;
-        RoomPrototype *viewroom = NULL;
+        RoomPrototype *chalprep = nullptr;
+        RoomPrototype *defprep = nullptr;
+        RoomPrototype *viewroom = nullptr;
 
-        Duel::Arena *    previous = NULL;
-        Duel::Arena *    next = NULL;
+        Duel::Arena *    previous = nullptr;
+        Duel::Arena *    next = nullptr;
     private:
         Arena(const Arena&);
         Arena& operator=(const Arena&);
@@ -29,15 +29,15 @@ public:
     Duel() {}
     virtual ~Duel() {}
 
-    Character * challenger = NULL;
-    Character * defender = NULL;
-    Duel::Arena *    arena = NULL;
+    Character * challenger = nullptr;
+    Character * defender = nullptr;
+    Duel::Arena *    arena = nullptr;
     int     accept_timer = 0;
     int     prep_timer = 0;
 
     bool        valid = FALSE;
-    Duel *previous = NULL;
-    Duel *next = NULL;
+    Duel *previous = nullptr;
+    Duel *next = nullptr;
 
 private:
     Duel(const Duel&);

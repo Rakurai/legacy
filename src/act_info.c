@@ -115,7 +115,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 	/* Color additions by Lotus */
 	if (!IS_NPC(ch)
 	    && ((ch->questobj > 0 && obj->pIndexData->vnum == ch->questobj)
-	        || (ch->pcdata->squestobj != NULL && ch->pcdata->squestobj == obj)))
+	        || (ch->pcdata->squestobj != nullptr && ch->pcdata->squestobj == obj)))
 		buf += "{f{R[TARGET] {x";
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
@@ -250,12 +250,12 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 	int nShow = 0, iShow, count = 0;
 	bool fCombine, foundcont = FALSE;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		return;
 
 	String output;
 
-	for (obj = list; obj != NULL; obj = obj->next_content)
+	for (obj = list; obj != nullptr; obj = obj->next_content)
 		count++;
 
 	if (count > 8000) {
@@ -268,7 +268,7 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 	int prgnShow[8000];
 
 	/* Format the list of objects */
-	for (obj = list; obj != NULL; obj = obj->next_content) {
+	for (obj = list; obj != nullptr; obj = obj->next_content) {
 		if (!can_see_obj(ch, obj))
 			continue;
 
@@ -337,7 +337,7 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 	page_to_char(output, ch);
 
 	if (foundcont)  /* for evolved peek, list items in containers, but not twice nested */
-		for (obj = list; obj != NULL; obj = obj->next_content)
+		for (obj = list; obj != nullptr; obj = obj->next_content)
 			if (can_see_obj(ch, obj) && obj->contains) {
 				ptc(ch, "\n  Inside %s{x:\n", obj->short_descr);
 				show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
@@ -363,7 +363,7 @@ void do_peek(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if ((victim = get_char_here(ch, arg1, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, arg1, VIS_CHAR)) == nullptr) {
 		stc("You see no one by that name in the room.\n", ch);
 		return;
 	}
@@ -400,7 +400,7 @@ void do_peek(Character *ch, String argument)
 				return;
 			}
 
-			if ((obj = get_obj_carry(victim, argument)) == NULL) {
+			if ((obj = get_obj_carry(victim, argument)) == nullptr) {
 				stc("They aren't carrying that.\n", ch);
 				return;
 			}
@@ -409,7 +409,7 @@ void do_peek(Character *ch, String argument)
 
 			if (!IS_NPC(ch) && !chance(get_skill(ch, gsn_lore)))
 				act("You look at $p, but you can't find out any additional information.",
-				    ch, obj, NULL, TO_CHAR);
+				    ch, obj, nullptr, TO_CHAR);
 			else {
 				spell_identify(gsn_lore, (4 * obj->level) / 3, ch, obj,
 				               TARGET_OBJ, get_evolution(ch, gsn_lore));
@@ -422,7 +422,7 @@ void do_peek(Character *ch, String argument)
 			all = TRUE;
 	}
 
-	act("You peek at $S inventory:", ch, NULL, victim, TO_CHAR);
+	act("You peek at $S inventory:", ch, nullptr, victim, TO_CHAR);
 	show_list_to_char(victim->carrying, ch, TRUE, TRUE, all);
 	check_improve(ch, gsn_peek, TRUE, 4);
 }
@@ -440,7 +440,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 
 	if (IS_NPC(victim)
 	    && ((ch->questmob > 0 && victim->pIndexData->vnum == ch->questmob)
-	        || (!ch->desc->original && ch->pcdata->squestmob != NULL && victim == ch->pcdata->squestmob)))
+	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
 
 	if (IS_SET(victim->comm, COMM_AFK))
@@ -506,7 +506,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	buf += (IS_NPC(victim) ? victim->short_descr : victim->name);
 
 	if (!IS_NPC(victim) && !IS_SET(ch->comm, COMM_BRIEF)
-	    &&   get_position(victim) >= POS_STANDING && ch->on == NULL) {
+	    &&   get_position(victim) >= POS_STANDING && ch->on == nullptr) {
 		new_color(ch, CSLOT_MISC_PLAYERS);
 		buf += victim->pcdata->title;
 		stc("{x{a", ch);
@@ -523,7 +523,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	case POS_STUNNED:  buf += " is lying here stunned."; break;
 
 	case POS_SLEEPING:
-		if (victim->on != NULL) {
+		if (victim->on != nullptr) {
 			if (IS_SET(victim->on->value[2], SLEEP_AT)) {
 				Format::sprintf(message, " is sleeping at %s.",
 				        victim->on->short_descr);
@@ -546,7 +546,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 		break;
 
 	case POS_RESTING:
-		if (victim->on != NULL) {
+		if (victim->on != nullptr) {
 			if (IS_SET(victim->on->value[2], REST_AT)) {
 				Format::sprintf(message, " is resting at %s.",
 				        victim->on->short_descr);
@@ -569,7 +569,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 		break;
 
 	case POS_SITTING:
-		if (victim->on != NULL) {
+		if (victim->on != nullptr) {
 			if (IS_SET(victim->on->value[2], SIT_AT)) {
 				Format::sprintf(message, " is sitting at %s.",
 				        victim->on->short_descr);
@@ -592,7 +592,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 		break;
 
 	case POS_STANDING:
-		if (victim->on != NULL) {
+		if (victim->on != nullptr) {
 			if (IS_SET(victim->on->value[2], STAND_AT)) {
 				Format::sprintf(message, " is standing at %s.",
 				        victim->on->short_descr);
@@ -621,7 +621,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	case POS_FIGHTING:
 		buf += " is here, fighting ";
 
-		if (victim->fighting == NULL)
+		if (victim->fighting == nullptr)
 			buf += "thin air??";
 		else if (victim->fighting == ch)
 			buf += "YOU! DOH!";
@@ -653,10 +653,10 @@ void show_char_to_char_1(Character *victim, Character *ch)
 
 	if (can_see_char(victim, ch)) {
 		if (ch == victim)
-			act("$n looks at $mself.", ch, NULL, NULL, TO_ROOM);
+			act("$n looks at $mself.", ch, nullptr, nullptr, TO_ROOM);
 		else {
-			act("$n looks at you.", ch, NULL, victim, TO_VICT);
-			act("$n looks at $N.",  ch, NULL, victim, TO_NOTVICT);
+			act("$n looks at you.", ch, nullptr, victim, TO_VICT);
+			act("$n looks at $N.",  ch, nullptr, victim, TO_NOTVICT);
 		}
 	}
 
@@ -667,7 +667,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	}
 	else {
 		set_color(ch, PURPLE, NOBOLD);
-		act("Nothing Special.", ch, NULL, victim, TO_CHAR);
+		act("Nothing Special.", ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 	}
 
@@ -743,13 +743,13 @@ void show_char_to_char_1(Character *victim, Character *ch)
 		    && !IS_IMMORTAL(ch)) /* so imms can see weddingrings on unmarried ppl */
 			continue;
 
-		if ((obj = get_eq_char(victim, iWear)) != NULL
+		if ((obj = get_eq_char(victim, iWear)) != nullptr
 		    &&   can_see_obj(ch, obj)) {
 			set_color(ch, GREEN, NOBOLD);
 
 			if (!found) {
 				stc("\n", ch);
-				act("$N is using:", ch, NULL, victim, TO_CHAR);
+				act("$N is using:", ch, nullptr, victim, TO_CHAR);
 				found = TRUE;
 			}
 
@@ -781,7 +781,7 @@ void show_char_to_char(Character *list, Character *ch)
 {
 	Character *rch;
 
-	for (rch = list; rch != NULL; rch = rch->next_in_room) {
+	for (rch = list; rch != nullptr; rch = rch->next_in_room) {
 		if (rch == ch)
 			continue;
 
@@ -998,7 +998,7 @@ void do_clanlist(Character *ch, String argument)
 		count = 0;
 
 		while (clan != clan_table_tail) {
-			if (clan == NULL)
+			if (clan == nullptr)
 				continue;
 
 			if (!clan->independent)
@@ -1437,7 +1437,7 @@ void do_showflags(Character *ch, String argument)
 	victim = ch;
 
 	if (IS_IMMORTAL(ch) && !argument.empty()) {
-		if ((victim = get_char_world(ch, argument, VIS_PLR)) == NULL) {
+		if ((victim = get_char_world(ch, argument, VIS_PLR)) == nullptr) {
 			stc("You cannot locate that character.\n", ch);
 			return;
 		}
@@ -1613,7 +1613,7 @@ void do_look(Character *ch, String argument)
 	int door;
 	int number, count;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		return;
 
 	if (get_position(ch) < POS_SLEEPING) {
@@ -1642,7 +1642,7 @@ void do_look(Character *ch, String argument)
 	count = 0;
 
 	if (arg1.empty() || arg1 == "auto") {
-		if (ch->in_room == NULL)
+		if (ch->in_room == nullptr)
 			return;
 
 		/* 'look' or 'look auto' */
@@ -1692,8 +1692,8 @@ void do_look(Character *ch, String argument)
 		}
 
 		if (duel != duel_table_tail
-		    && duel->challenger != NULL
-		    && duel->defender != NULL
+		    && duel->challenger != nullptr
+		    && duel->defender != nullptr
 		    && ch != duel->challenger
 		    && ch != duel->defender) {
 			if (can_see_char(ch, duel->challenger)
@@ -1762,7 +1762,7 @@ void do_look(Character *ch, String argument)
 			return;
 		}
 
-		if ((obj = get_obj_here(ch, arg2)) == NULL) {
+		if ((obj = get_obj_here(ch, arg2)) == nullptr) {
 			stc("You do not see that here.\n", ch);
 			return;
 		}
@@ -1808,7 +1808,7 @@ void do_look(Character *ch, String argument)
 				SET_BIT(ch->act_flags, PLR_LOOKINPIT);
 
 			new_color(ch, CSLOT_MISC_OBJECTS);
-			act("$p holds:", ch, obj, NULL, TO_CHAR);
+			act("$p holds:", ch, obj, nullptr, TO_CHAR);
 			show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
 			set_color(ch, WHITE, NOBOLD);
 
@@ -1818,7 +1818,7 @@ void do_look(Character *ch, String argument)
 			break;
 
 		case ITEM_PORTAL:
-			if ((location = get_room_index(obj->value[3])) == NULL) {
+			if ((location = get_room_index(obj->value[3])) == nullptr) {
 				if (!obj->contains)
 					stc("It looks very empty..\n", ch);
 
@@ -1867,7 +1867,7 @@ void do_look(Character *ch, String argument)
 				stc("The surface is opaque.\n", ch);
 			else {
 				new_color(ch, CSLOT_MISC_OBJECTS);
-				act("$p holds:", ch, obj, NULL, TO_CHAR);
+				act("$p holds:", ch, obj, nullptr, TO_CHAR);
 				show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
 				set_color(ch, WHITE, NOBOLD);
 			}
@@ -1876,17 +1876,17 @@ void do_look(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_here(ch, arg1, VIS_CHAR)) != NULL) {
+	if ((victim = get_char_here(ch, arg1, VIS_CHAR)) != nullptr) {
 		show_char_to_char_1(victim, ch);
 		return;
 	}
 
-	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
+	for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
 		if (can_see_obj(ch, obj)) {
 			/* player can see object */
 			pdesc = get_extra_descr(arg3, obj->extra_descr);
 
-			if (pdesc != NULL) {
+			if (pdesc != nullptr) {
 				if (++count == number) {
 					stc(pdesc->description, ch);
 					return;
@@ -1896,7 +1896,7 @@ void do_look(Character *ch, String argument)
 
 			pdesc = get_extra_descr(arg3, obj->pIndexData->extra_descr);
 
-			if (pdesc != NULL) {
+			if (pdesc != nullptr) {
 				if (++count == number) {
 					stc(pdesc->description, ch);
 					return;
@@ -1914,11 +1914,11 @@ void do_look(Character *ch, String argument)
 		}
 	}
 
-	for (obj = ch->in_room->contents; obj != NULL; obj = obj->next_content) {
+	for (obj = ch->in_room->contents; obj != nullptr; obj = obj->next_content) {
 		if (can_see_obj(ch, obj)) {
 			pdesc = get_extra_descr(arg3, obj->extra_descr);
 
-			if (pdesc != NULL) {
+			if (pdesc != nullptr) {
 				if (++count == number) {
 					stc(pdesc->description, ch);
 					return;
@@ -1929,7 +1929,7 @@ void do_look(Character *ch, String argument)
 
 			pdesc = get_extra_descr(arg3, obj->pIndexData->extra_descr);
 
-			if (pdesc != NULL) {
+			if (pdesc != nullptr) {
 				if (++count == number) {
 					stc(pdesc->description, ch);
 					return;
@@ -1949,7 +1949,7 @@ void do_look(Character *ch, String argument)
 
 	pdesc = get_extra_descr(arg3, ch->in_room->extra_descr);
 
-	if (pdesc != NULL) {
+	if (pdesc != nullptr) {
 		if (++count == number) {
 			stc(pdesc->description, ch);
 			return;
@@ -1978,7 +1978,7 @@ void do_look(Character *ch, String argument)
 	}
 
 	/* 'look direction' */
-	if ((pexit = ch->in_room->exit[door]) == NULL) {
+	if ((pexit = ch->in_room->exit[door]) == nullptr) {
 		stc("Nothing special there.\n", ch);
 		return;
 	}
@@ -1991,9 +1991,9 @@ void do_look(Character *ch, String argument)
 	if (!pexit->keyword.empty()
 	    &&   pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED))
-			act("The $d is closed.", ch, NULL, pexit->keyword, TO_CHAR);
+			act("The $d is closed.", ch, nullptr, pexit->keyword, TO_CHAR);
 		else if (IS_SET(pexit->exit_info, EX_ISDOOR))
-			act("The $d is open.",   ch, NULL, pexit->keyword, TO_CHAR);
+			act("The $d is open.",   ch, nullptr, pexit->keyword, TO_CHAR);
 	}
 
 	return;
@@ -2021,7 +2021,7 @@ void do_examine(Character *ch, String argument)
 
 	do_look(ch, arg);
 
-	if ((obj = get_obj_here(ch, arg)) != NULL) {
+	if ((obj = get_obj_here(ch, arg)) != nullptr) {
 		switch (obj->item_type) {
 		default:
 			if (IS_OBJ_STAT(obj, ITEM_COMPARTMENT) || obj->contains) {
@@ -2085,7 +2085,7 @@ void exits_in(Character *ch)
 	int vnum, in_room_vnum, i;
 	bool found = FALSE;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	in_room_vnum = ch->in_room->vnum;                                   /* Save our current rooms vnum */
@@ -2094,12 +2094,12 @@ void exits_in(Character *ch)
 		for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) { /* Every vnum in the area */
 			room = get_room_index(vnum);
 
-			if (room != NULL) {
+			if (room != nullptr) {
 				for (i = 0; i < 6; i++) {                               /* Every exit in the current room */
 					exit = room->exit[i];
 
-					if (exit != NULL) {
-						if (exit->u1.to_room == NULL)
+					if (exit != nullptr) {
+						if (exit->u1.to_room == nullptr)
 							continue;
 
 						if (exit->u1.to_room->vnum == in_room_vnum) {   /* Does the exit lead to our room? */
@@ -2122,9 +2122,9 @@ void exits_in(Character *ch)
 
 	found = FALSE;
 
-	for (obj = object_list; obj != NULL; obj = obj->next) {
+	for (obj = object_list; obj != nullptr; obj = obj->next) {
 		if (obj->item_type == ITEM_PORTAL) {
-			if (obj->in_room == NULL)
+			if (obj->in_room == nullptr)
 				continue;
 
 			if (obj->value[3] == in_room_vnum) {
@@ -2177,8 +2177,8 @@ void do_exits(Character *ch, String argument)
 	found = FALSE;
 
 	for (door = 0; door <= 5; door++) {
-		if ((pexit = ch->in_room->exit[door]) != NULL
-		    &&   pexit->u1.to_room != NULL
+		if ((pexit = ch->in_room->exit[door]) != nullptr
+		    &&   pexit->u1.to_room != nullptr
 		    &&   can_see_room(ch, pexit->u1.to_room)
 		    &&   !IS_SET(pexit->exit_info, EX_CLOSED)) {
 			found = TRUE;
@@ -2257,7 +2257,7 @@ void new_day(void)
 	day = time_info.day + 1;
 	suf = day_number_suffix(day);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) && !IS_SET(victim->comm, COMM_NOANNOUNCE | COMM_QUIET))
@@ -2372,7 +2372,7 @@ void do_whois(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("No one of that name is playing.\n", ch);
 		return;
 	}
@@ -2414,7 +2414,7 @@ void do_whois(Character *ch, String argument)
 	/* second line */
 	Format::sprintf(clan, "{x"); /* ugly, do something better someday */
 
-	if (victim->clan != NULL) {
+	if (victim->clan != nullptr) {
 		if (victim->pcdata->rank[0] != '\0')
 			rank = victim->pcdata->rank;
 		else if (IS_SET(victim->pcdata->cgroup, GROUP_LEADER))
@@ -2447,7 +2447,7 @@ char *count_players(Character *ch)
 	int count = 0;
 	Descriptor *d;
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		if (IS_PLAYING(d) && can_see_who(ch, d->character))
 			count++;
 
@@ -2490,7 +2490,7 @@ void do_who(Character *ch, String argument)
 	bool fClan = FALSE;
 	bool fPK = FALSE;
 	Character *wch;
-	Clan *cch = NULL;
+	Clan *cch = nullptr;
 	const char *cls;
 	char *rank, *lbrk, *rbrk, *remort;
 
@@ -2535,7 +2535,7 @@ void do_who(Character *ch, String argument)
 					iRace = race_lookup(arg);
 
 					if (iRace == 0 || iRace >= pc_race_table.size()) {
-						if ((cch = clan_lookup(arg)) != NULL)
+						if ((cch = clan_lookup(arg)) != nullptr)
 							fClan = TRUE;
 						else {
 							stc("That's not a valid race, class, clan, or way to crash this mud.\n", ch);
@@ -2556,7 +2556,7 @@ void do_who(Character *ch, String argument)
 	}
 
 	/* Count up descriptors to get max # of players */
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		ndesc++;
 
 	struct s_charitem charitems[ndesc];
@@ -2564,7 +2564,7 @@ void do_who(Character *ch, String argument)
 	/* Now show matching chars. */
 	buf[0] = '\0';
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		/* Check for match against restrictions. */
 		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
 			continue;
@@ -2737,14 +2737,14 @@ void do_swho(Character *ch, String argument)
 	output += "{WRP PK NH PB QW SQ NT  Name          Pos'n   Room Name{x\n";
 	output += "{W----------------------------------------------------------------------------{x\n";
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *wch;
 		char const *position = "Drooling";
 
 		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
 			continue;
 
-		wch   = (d->original != NULL) ? d->original : d->character;
+		wch   = (d->original != nullptr) ? d->original : d->character;
 
 		if (!can_see_who(ch, wch))
 			continue;
@@ -2802,7 +2802,7 @@ void do_swho(Character *ch, String argument)
 		        IS_SET(wch->pcdata->plr, PLR_PAINT) ? "{P*{b" : " ",
 		        IS_SET(wch->act_flags, PLR_QUESTOR) ? "{V*{b" : " ",
 		        IS_SET(wch->pcdata->plr, PLR_SQUESTOR) ? "{B*{b" : " ",
-		        (wch->pnote != NULL) ?
+		        (wch->pnote != nullptr) ?
 		        wch->pnote->type == NOTE_NOTE           ? "{P*" :
 		        wch->pnote->type == NOTE_IDEA           ? "{Y*" :
 		        wch->pnote->type == NOTE_ROLEPLAY       ? "{V*" :
@@ -2825,7 +2825,7 @@ void do_swho(Character *ch, String argument)
 /* New container capable inventory - Lotus */
 void do_inventory(Character *ch, String argument)
 {
-	Character *victim = NULL;
+	Character *victim = nullptr;
 
 	if (argument.empty()) {
 		victim = ch;
@@ -2839,13 +2839,13 @@ void do_inventory(Character *ch, String argument)
 		if (arg1 == "char" && IS_IMMORTAL(ch)) {
 			victim = get_char_world(ch, argument, VIS_PLR);
 
-			if (victim == NULL) {
+			if (victim == nullptr) {
 				stc("They aren't in the game.\n", ch);
 				return;
 			}
 
 			new_color(ch, CSLOT_MISC_INV);
-			act("$N is carrying:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+			act("$N is carrying:", ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
 		}
 		else if (arg1 == "all") {
 			victim = ch;
@@ -2877,14 +2877,14 @@ void do_equipment(Character *ch, String argument)
 	Character *victim;
 
 	if (IS_IMMORTAL(ch) && argument[0]) {
-		if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL)
-			if ((victim = get_char_world(ch, argument, VIS_PLR)) == NULL) {
+		if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr)
+			if ((victim = get_char_world(ch, argument, VIS_PLR)) == nullptr) {
 				stc("They're not in the game.\n", ch);
 				return;
 			}
 
 		set_color(ch, GREEN, NOBOLD);
-		act("$N is using:", ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act("$N is using:", ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else {
 		victim = ch;
@@ -2899,11 +2899,11 @@ void do_equipment(Character *ch, String argument)
 
 		buf = where_name[iWear];
 
-		if ((obj = get_eq_char(victim, iWear)) == NULL) {
+		if ((obj = get_eq_char(victim, iWear)) == nullptr) {
 			if (!IS_IMMORTAL(victim)) {
 				/* mortals can not hold shield & held AND secondary wpn */
 				if ((iWear == WEAR_SHIELD || iWear == WEAR_HOLD)
-				    && get_eq_char(victim, WEAR_SECONDARY) != NULL)
+				    && get_eq_char(victim, WEAR_SECONDARY) != nullptr)
 					continue;
 
 				if (iWear == WEAR_SECONDARY)
@@ -2952,13 +2952,13 @@ void do_compare(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
+	if ((obj1 = get_obj_carry(ch, arg1)) == nullptr) {
 		stc("You do not have one in your inventory.\n", ch);
 		return;
 	}
 
 	if (arg2.empty()) {
-		for (obj2 = ch->carrying; obj2 != NULL; obj2 = obj2->next_content) {
+		for (obj2 = ch->carrying; obj2 != nullptr; obj2 = obj2->next_content) {
 			if (obj2->wear_loc != WEAR_NONE
 			    &&  can_see_obj(ch, obj2)
 			    &&  obj1->item_type == obj2->item_type
@@ -2966,17 +2966,17 @@ void do_compare(Character *ch, String argument)
 				break;
 		}
 
-		if (obj2 == NULL) {
+		if (obj2 == nullptr) {
 			stc("You aren't wearing anything comparable.\n", ch);
 			return;
 		}
 	}
-	else if ((obj2 = get_obj_carry(ch, arg2)) == NULL) {
+	else if ((obj2 = get_obj_carry(ch, arg2)) == nullptr) {
 		stc("You do not have one in your inventory.\n", ch);
 		return;
 	}
 
-	msg         = NULL;
+	msg         = nullptr;
 	value1      = 0;
 	value2      = 0;
 
@@ -3002,7 +3002,7 @@ void do_compare(Character *ch, String argument)
 		}
 	}
 
-	if (msg == NULL) {
+	if (msg == nullptr) {
 		if (value1 == value2) msg = "$p and $P look about the same.";
 		else if (value1  > value2) msg = "$p looks better than $P.";
 		else                         msg = "$p looks worse than $P.";
@@ -3026,7 +3026,7 @@ void do_where(Character *ch, String argument)
 	Descriptor *d;
 	bool found = FALSE;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	while (arena != arena_table_tail) {
@@ -3038,8 +3038,8 @@ void do_where(Character *ch, String argument)
 	}
 
 	if (arena != arena_table_tail) {
-		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (victim->in_room != NULL
+		for (victim = char_list; victim != nullptr; victim = victim->next) {
+			if (victim->in_room != nullptr
 			    && victim->in_room->vnum >= arena->minvnum
 			    && victim->in_room->vnum <= arena->maxvnum
 			    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOWHERE)
@@ -3062,7 +3062,7 @@ void do_where(Character *ch, String argument)
 			victim = d->character;
 
 			if (IS_PLAYING(d)
-			    && victim->in_room != NULL
+			    && victim->in_room != nullptr
 			    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOWHERE)
 			    && victim->in_room->area == ch->in_room->area
 			    && can_see_char(ch, victim)) {
@@ -3078,8 +3078,8 @@ void do_where(Character *ch, String argument)
 		String arg;
 		one_argument(argument, arg);
 
-		for (victim = char_list; victim != NULL; victim = victim->next) {
-			if (victim->in_room != NULL
+		for (victim = char_list; victim != nullptr; victim = victim->next) {
+			if (victim->in_room != nullptr
 			    && victim->in_room->area == ch->in_room->area
 			    && !affect_exists_on_char(victim, gsn_hide)
 			    && can_see_char(ch, victim)
@@ -3091,7 +3091,7 @@ void do_where(Character *ch, String argument)
 		}
 
 		if (!found)
-			act("You didn't find any $T.", ch, NULL, arg, TO_CHAR);
+			act("You didn't find any $T.", ch, nullptr, arg, TO_CHAR);
 	}
 }
 
@@ -3104,12 +3104,12 @@ void do_scon(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (argument.empty()) {
-		if ((victim = ch->fighting) == NULL) {
+		if ((victim = ch->fighting) == nullptr) {
 			stc("Which way did he go?!?\n", ch);
 			return;
 		}
 	}
-	else if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
+	else if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They're not here.\n", ch);
 		return;
 	}
@@ -3158,7 +3158,7 @@ void do_consider(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They're not here.\n", ch);
 		return;
 	}
@@ -3227,7 +3227,7 @@ void do_consider(Character *ch, String argument)
 		if (IS_NPC(victim) && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
-		for (const Affect *paf = affect_list_char(victim); paf != NULL; paf = paf->next) {
+		for (const Affect *paf = affect_list_char(victim); paf != nullptr; paf = paf->next) {
 			if (paf->permanent)
 				continue;
 
@@ -3269,7 +3269,7 @@ void do_consider(Character *ch, String argument)
 	else                    strcpy(buf, "$N could slay you in one blow.");
 
 	set_color(ch, WHITE, BOLD);
-	act(buf, ch, NULL, victim, TO_CHAR);
+	act(buf, ch, nullptr, victim, TO_CHAR);
 	set_color(ch, WHITE, NOBOLD);
 
 	if (GET_MAX_HIT(victim) > 0)
@@ -3287,7 +3287,7 @@ void do_consider(Character *ch, String argument)
 	else if (percent >=   0) strcpy(buf, "$N will soon be toast!!!");
 	else                     strcpy(buf, "$N is in need of ***SERIOUS*** medical attention!!!");
 
-	act(buf, ch, NULL, victim, TO_CHAR);
+	act(buf, ch, nullptr, victim, TO_CHAR);
 	set_color(ch, WHITE, NOBOLD);
 }
 
@@ -3520,26 +3520,26 @@ void do_report(Character *ch, String argument)
 	        ch->mana, GET_MAX_MANA(ch),
 	        ch->stam, GET_MAX_STAM(ch),
 	        ch->exp);
-	act(buf, ch, NULL, NULL, TO_ROOM);
+	act(buf, ch, nullptr, nullptr, TO_ROOM);
 
 	if (!strcmp(arg, "all")) {
-		if (affect_list_char(ch) != NULL) {
+		if (affect_list_char(ch) != nullptr) {
 			stc("You say 'I am affected by the following spells:'\n", ch);
-			act("$n says 'I am affected by the following spells:'", ch, NULL, NULL, TO_ROOM);
+			act("$n says 'I am affected by the following spells:'", ch, nullptr, nullptr, TO_ROOM);
 
-			const Affect *paf_last = NULL;
-			for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
-				if (paf_last != NULL && paf->type == paf_last->type)
+			const Affect *paf_last = nullptr;
+			for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
+				if (paf_last != nullptr && paf->type == paf_last->type)
 					continue;
 
 				ptc(ch, "You say 'Spell: %-15s'\n", skill_table[paf->type].name);
 				Format::sprintf(buf, "$n says 'Spell: %-15s'", skill_table[paf->type].name);
-				act(buf, ch, NULL, NULL, TO_ROOM);
+				act(buf, ch, nullptr, nullptr, TO_ROOM);
 			}
 		}
 		else {
 			stc("You say 'I am not affected by any spells.'\n", ch);
-			act("$n says 'I am not affected by any spells.'", ch, NULL, NULL, TO_ROOM);
+			act("$n says 'I am not affected by any spells.'", ch, nullptr, nullptr, TO_ROOM);
 		}
 	}
 
@@ -3750,12 +3750,12 @@ void do_practice(Character *ch, String argument)
 		return;
 	}
 
-	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
+	for (mob = ch->in_room->people; mob != nullptr; mob = mob->next_in_room) {
 		if (IS_NPC(mob) && IS_SET(mob->act_flags, ACT_PRACTICE))
 			break;
 	}
 
-	if (mob == NULL) {
+	if (mob == nullptr) {
 		stc("You can't do that here.\n", ch);
 		return;
 	}
@@ -3808,16 +3808,16 @@ void do_practice(Character *ch, String argument)
 
 	if (ch->pcdata->learned[sn] < adept) {
 		act("You practice $T.",
-		    ch, NULL, skill_table[sn].name, TO_CHAR);
+		    ch, nullptr, skill_table[sn].name, TO_CHAR);
 		act("$n practices $T.",
-		    ch, NULL, skill_table[sn].name, TO_ROOM);
+		    ch, nullptr, skill_table[sn].name, TO_ROOM);
 	}
 	else {
 		ch->pcdata->learned[sn] = adept;
 		act("You are now learned at $T.",
-		    ch, NULL, skill_table[sn].name, TO_CHAR);
+		    ch, nullptr, skill_table[sn].name, TO_CHAR);
 		act("$n is now learned at $T.",
-		    ch, NULL, skill_table[sn].name, TO_ROOM);
+		    ch, nullptr, skill_table[sn].name, TO_ROOM);
 	}
 } /* end do_practice() */
 
@@ -3897,16 +3897,16 @@ void do_invite(Character *ch, String argument)
 
 	if (argument.empty()) {
 		if (IS_IMMORTAL(ch)) {
-			for (d = descriptor_list; d != NULL; d = d->next) {
+			for (d = descriptor_list; d != nullptr; d = d->next) {
 				if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
 					continue;
 
-				victim = (d->original != NULL) ? d->original : d->character;
+				victim = (d->original != nullptr) ? d->original : d->character;
 
 				if (!can_see_who(ch, victim))
 					continue;
 
-				if (victim->inviters != NULL) {
+				if (victim->inviters != nullptr) {
 					if (!found) {
 						stc("{M[{YName        {M][{YInviting Clan                 {M][{YStatus  {M]\n", ch);
 						stc("--------------------------------------------------------{x\n", ch);
@@ -3940,9 +3940,9 @@ void do_invite(Character *ch, String argument)
 
 	if (arg1 == "terminate") {
 		if (argument.empty()) {
-			if ((ch->inviters != NULL)) {
+			if ((ch->inviters != nullptr)) {
 				stc("You have terminated your invitation.\n", ch);
-				ch->inviters = NULL;
+				ch->inviters = nullptr;
 				ch->invitation_accepted = FALSE;
 				return;
 			}
@@ -3957,16 +3957,16 @@ void do_invite(Character *ch, String argument)
 			return;
 		}
 
-		if ((victim = get_char_world(ch, argument, VIS_PLR)) == NULL) {
+		if ((victim = get_char_world(ch, argument, VIS_PLR)) == nullptr) {
 			stc("The person you want to uninvite is not here.\n", ch);
 			return;
 		}
 
-		if (victim->inviters != NULL) {
+		if (victim->inviters != nullptr) {
 			if (victim->inviters == ch->clan) {
 				stc("You have terminated their invitation.\n", ch);
 				Format::sprintf(buf, "%s has terminated your invitation.\n", ch->name);
-				victim->inviters = NULL;
+				victim->inviters = nullptr;
 				victim->invitation_accepted = FALSE;
 				stc(buf, victim);
 			}
@@ -3983,7 +3983,7 @@ void do_invite(Character *ch, String argument)
 	}
 
 	if (!strcmp(arg1, "accept")) {
-		if (ch->inviters == NULL) {
+		if (ch->inviters == nullptr) {
 			stc("No one has invited the likes of you!\n", ch);
 			return;
 		}
@@ -4001,7 +4001,7 @@ void do_invite(Character *ch, String argument)
 		stc("You have accepted their invitation.\n", ch);
 		ch->invitation_accepted = TRUE;
 
-		for (d = descriptor_list; d != NULL; d = d->next) {
+		for (d = descriptor_list; d != nullptr; d = d->next) {
 			victim = d->original ? d->original : d->character;
 
 			if (IS_PLAYING(d)
@@ -4029,7 +4029,7 @@ void do_invite(Character *ch, String argument)
 	}
 
 	if (!strcmp(arg1, "decline")) {
-		if (ch->inviters == NULL) {
+		if (ch->inviters == nullptr) {
 			stc("No one has invited the likes of you!\n", ch);
 			return;
 		}
@@ -4041,7 +4041,7 @@ void do_invite(Character *ch, String argument)
 
 		stc("You have declined their invitation.\n", ch);
 
-		for (d = descriptor_list; d != NULL; d = d->next) {
+		for (d = descriptor_list; d != nullptr; d = d->next) {
 			victim = d->original ? d->original : d->character;
 
 			if (IS_PLAYING(d)
@@ -4065,7 +4065,7 @@ void do_invite(Character *ch, String argument)
 			}
 		}
 
-		ch->inviters = NULL;
+		ch->inviters = nullptr;
 		ch->invitation_accepted = FALSE;
 		return;
 	}
@@ -4075,7 +4075,7 @@ void do_invite(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_char_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_char_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("The person you want to invite is not here.\n", ch);
 		return;
 	}
@@ -4085,7 +4085,7 @@ void do_invite(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->inviters != NULL) {
+	if (victim->inviters != nullptr) {
 		if (victim->inviters == ch->clan)
 			stc("They already have an invitation to your clan hall.\n", ch);
 		else
@@ -4135,7 +4135,7 @@ void do_join(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("They aren't playing.\n", ch);
 		return;
 	}
@@ -4181,11 +4181,11 @@ void vape_ceq(Character *ch)
 	Object *obj_in_cont_next;
 	clan = ch->clan;
 
-	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
+	for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 		obj_next = obj->next_content;
 
 		if (obj->contains) {
-			for (obj_in_cont = obj->contains; obj_in_cont != NULL; obj_in_cont = obj_in_cont_next) {
+			for (obj_in_cont = obj->contains; obj_in_cont != nullptr; obj_in_cont = obj_in_cont_next) {
 				obj_in_cont_next = obj_in_cont->next_content;
 
 				/* clanbag */
@@ -4244,7 +4244,7 @@ void do_unjoin(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		stc("They aren't playing.\n", ch);
 		return;
 	}
@@ -4276,7 +4276,7 @@ void do_unjoin(Character *ch, String argument)
 	ptc(ch, "The character is no longer a member of: %s\n", ch->clan->clanname);
 	ptc(victim, "You are no longer a member of: %s\n", ch->clan->clanname);
 	clan = victim->clan;
-	victim->clan = NULL;
+	victim->clan = nullptr;
 
 	/* boot them from the clanhall */
 	if (victim->in_room->vnum >= clan->area_minvnum
@@ -4316,7 +4316,7 @@ void do_rank(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("The player is not logged on.\n", ch);
 		return;
 	}
@@ -4396,7 +4396,7 @@ void email_file(Character *ch, const char *file, const char *str)
 	if (IS_NPC(ch) || str[0] == '\0')
 		return;
 
-	if ((fp = fopen(file, "a")) == NULL) {
+	if ((fp = fopen(file, "a")) == nullptr) {
 		perror(file);
 		stc("Could not open the file!\n", ch);
 	}
@@ -4429,7 +4429,7 @@ void do_email(Character *ch, String argument)
 	Format::sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);
 	email_file(ch, EMAIL_FILE, buf);
 	Format::sprintf(buf, "$N has changed their email to '%s'\n", ch->pcdata->email);
-	wiznet(buf, ch, NULL, WIZ_MAIL, 0, GET_RANK(ch));
+	wiznet(buf, ch, nullptr, WIZ_MAIL, 0, GET_RANK(ch));
 }
 
 /* gameinout: show game entry or exit message -- Elrac */
@@ -4450,8 +4450,8 @@ void gameinout(Character *ch, const String& mortal, const String& entryexit, cha
 	else {
 		victim = get_player_world(ch, mortal, VIS_PLR);
 
-		if (victim == NULL) {
-			act("No player named '$t' in the game!", ch, mortal, NULL, TO_CHAR);
+		if (victim == nullptr) {
+			act("No player named '$t' in the game!", ch, mortal, nullptr, TO_CHAR);
 			return;
 		}
 	}
@@ -4464,7 +4464,7 @@ void gameinout(Character *ch, const String& mortal, const String& entryexit, cha
 	if (msgptr->empty()) {
 		if (victim == ch)
 			act("You don't have a game $t message!",
-			    ch, entryexit, NULL, TO_CHAR);
+			    ch, entryexit, nullptr, TO_CHAR);
 		else
 			act("$N does not have a game $t message!",
 			    ch, entryexit, victim, TO_CHAR);
@@ -4473,7 +4473,7 @@ void gameinout(Character *ch, const String& mortal, const String& entryexit, cha
 	}
 
 	if (victim == ch)
-		act(*msgptr, ch, NULL, NULL, TO_CHAR);
+		act(*msgptr, ch, nullptr, nullptr, TO_CHAR);
 	else {
 		/* convert $n to $N for 3rd person form of game msg */
 		strcpy(buf, *msgptr);
@@ -4490,7 +4490,7 @@ void gameinout(Character *ch, const String& mortal, const String& entryexit, cha
 				case 's': p[1] = 'S'; break;
 				}
 
-		act(buf, ch, NULL, victim, TO_CHAR);
+		act(buf, ch, nullptr, victim, TO_CHAR);
 	}
 } /* end gameinout() */
 
@@ -4525,7 +4525,7 @@ void do_pit(Character *ch, String argument)
 	if (!check_blind(ch))
 		return;
 
-	if ((pit = get_obj_here(ch, "pit")) == NULL) {
+	if ((pit = get_obj_here(ch, "pit")) == nullptr) {
 		stc("You do not see a donation pit here.\n", ch);
 		return;
 	}
@@ -4535,7 +4535,7 @@ void do_pit(Character *ch, String argument)
 		return;
 	}
 
-	if (pit->contains == NULL) {
+	if (pit->contains == nullptr) {
 		stc("The pit is empty at the moment.\n", ch);
 		return;
 	}
@@ -4655,7 +4655,7 @@ void do_pit(Character *ch, String argument)
 	sel_pit.in_room = pit->in_room;
 
 	/* select pit items into 'sel_pit' for looking at */
-	for (obj = pit->contains; obj != NULL; obj = next_obj) {
+	for (obj = pit->contains; obj != nullptr; obj = next_obj) {
 		next_obj = obj->next_content;
 
 		if (flevel &&
@@ -4677,7 +4677,7 @@ void do_pit(Character *ch, String argument)
 		obj_to_obj(obj, &sel_pit);
 	}
 
-	if (sel_pit.contains == NULL) {
+	if (sel_pit.contains == nullptr) {
 		ptc(ch, "You see no %s%s in the pit.\n",
 			keywords,
 			flevel ? fexplevel ? "around that level" : "around your level" : "");
@@ -4686,14 +4686,14 @@ void do_pit(Character *ch, String argument)
 		/* code copied from do_look(), so should be convincing. */
 		SET_BIT(ch->act_flags, PLR_LOOKINPIT);
 		new_color(ch, CSLOT_MISC_OBJECTS);
-		act("In your selection from $p, you see:", ch, pit, NULL, TO_CHAR);
+		act("In your selection from $p, you see:", ch, pit, nullptr, TO_CHAR);
 		show_list_to_char(sel_pit.contains, ch, TRUE, TRUE, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		REMOVE_BIT(ch->act_flags, PLR_LOOKINPIT);
 	}
 
 	/* stuff goes back into pit. rummaging shuffles contents, that's ok */
-	for (obj = sel_pit.contains; obj != NULL; obj = next_obj) {
+	for (obj = sel_pit.contains; obj != nullptr; obj = next_obj) {
 		next_obj = obj->next_content;
 		obj_from_obj(obj);
 		obj_to_obj(obj, pit);
@@ -4706,7 +4706,7 @@ void do_claninfo(Character *ch, String argument)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (!IS_IMMORTAL(ch)) {
-		if (ch->clan == NULL) {
+		if (ch->clan == nullptr) {
 			stc("You're not even in a clan!\n", ch);
 			return;
 		}
@@ -4865,11 +4865,11 @@ void print_new_affects(Character *ch)
 	Format::sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	Format::sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
 
-	if (affect_list_char(ch) != NULL)
+	if (affect_list_char(ch) != nullptr)
 		affect_sort_char(ch, affect_comparator_duration);
 
 	// spells
-	if (affect_list_char(ch) != NULL) {
+	if (affect_list_char(ch) != nullptr) {
 		int affcount = 0;
 
 		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
@@ -4881,15 +4881,15 @@ void print_new_affects(Character *ch)
 			    torch, torch);
 			buffer += breakline;
 
-			const Affect *paf_last = NULL;
-			for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+			const Affect *paf_last = nullptr;
+			for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
 				if (paf->where != TO_AFFECTS || paf->permanent)
 					continue;
 
 				char namebuf[100], modbuf[100], timebuf[100];
 				namebuf[0] = modbuf[0] = timebuf[0] = '\0';
 
-				if (paf_last != NULL && paf->type == paf_last->type) {
+				if (paf_last != nullptr && paf->type == paf_last->type) {
 					if (ch->level >= 20)
 						strcpy(namebuf, "                   ");
 					else
@@ -4929,7 +4929,7 @@ void print_new_affects(Character *ch)
 	for (int iWear = 0; iWear < MAX_WEAR; iWear++) {
 		Object *obj;
 
-		if ((obj = get_eq_char(ch, iWear)) != NULL) {
+		if ((obj = get_eq_char(ch, iWear)) != nullptr) {
 			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
 				if (paf->where != TO_AFFECTS)
 					continue;
@@ -4967,7 +4967,7 @@ void print_new_affects(Character *ch)
 		}
 	}
 
-	if (affect_list_char(ch) != NULL) {
+	if (affect_list_char(ch) != nullptr) {
 		int affcount = 0;
 
 		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
@@ -4982,15 +4982,15 @@ void print_new_affects(Character *ch)
 			    torch, torch);
 			buffer += breakline;
 
-			const Affect *paf_last = NULL;
-			for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+			const Affect *paf_last = nullptr;
+			for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
 				if (paf->where != TO_AFFECTS || !paf->permanent)
 					continue;
 
 				char namebuf[100], modbuf[100];
 				namebuf[0] = modbuf[0] = '\0';
 
-				if (paf_last != NULL && paf->type == paf_last->type) {
+				if (paf_last != nullptr && paf->type == paf_last->type) {
 					if (ch->level >= 20)
 						strcpy(namebuf, "                   ");
 					else

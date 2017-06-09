@@ -65,11 +65,11 @@ bool check_deny(const String& name)
 bool check_player_exist(Descriptor *d, const String& name)
 {
 	Descriptor *dold;
-	StoredPlayer *exist = NULL;    /* is character in storage */
+	StoredPlayer *exist = nullptr;    /* is character in storage */
 
 	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
-		    &&   dold->character != NULL
+		    &&   dold->character != nullptr
 		    &&   dold->character->level < 1
 		    &&   dold->connected != CON_PLAYING
 		    &&   name == (dold->original
@@ -159,7 +159,7 @@ unsigned long update_records()
 
 	db_command("update_records", "UPDATE records SET logins=logins+1");
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		if (IS_PLAYING(d))
 			count++;
 
@@ -206,7 +206,7 @@ bool check_parse_name(const String& name)
 		).has_words(name))
 		return FALSE;
 
-	if ((clan = clan_lookup(name)) != NULL)
+	if ((clan = clan_lookup(name)) != nullptr)
 		return FALSE;
 
 	/*
@@ -264,7 +264,7 @@ bool check_parse_name(const String& name)
 	    for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
 	    {
 	        for ( pMobIndex  = mob_index_hash[iHash];
-	              pMobIndex != NULL;
+	              pMobIndex != nullptr;
 	              pMobIndex  = pMobIndex->next )
 	        {
 	            if ( pMobIndex->player_name .has_words(name) )
@@ -284,10 +284,10 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 	Character *ch;
 	RoomPrototype *room;
 
-	for (ch = char_list; ch != NULL; ch = ch->next) {
+	for (ch = char_list; ch != nullptr; ch = ch->next) {
 		if (!IS_NPC(ch)
 		    && d->character != ch
-		    && (!fConn || ch->desc == NULL)
+		    && (!fConn || ch->desc == nullptr)
 		    &&   d->character->name == ch->name) {
 			if (fConn == FALSE) {
 				d->character->pcdata->pwd = ch->pcdata->pwd;
@@ -311,9 +311,9 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 				Format::sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
 				log_string(log_buf);
 				wiznet("$N reclaims the fullness of $S link.",
-				       ch, NULL, WIZ_LINKS, 0, 0);
+				       ch, nullptr, WIZ_LINKS, 0, 0);
 
-				if ((room = ch->in_room) != NULL) {
+				if ((room = ch->in_room) != nullptr) {
 					char_from_room(ch);
 					char_to_room(ch, room);
 				}
@@ -375,7 +375,7 @@ void nanny(Descriptor *d, String argument)
 			                "\n"
 			                "Name: ");
 			free_char(d->character);
-			d->character = NULL;
+			d->character = nullptr;
 			return;
 		}
 
@@ -396,7 +396,7 @@ void nanny(Descriptor *d, String argument)
 			                "\n"
 			                "Name: ");
 			free_char(ch);
-			d->character = NULL;
+			d->character = nullptr;
 			return;
 		}
 
@@ -411,7 +411,7 @@ void nanny(Descriptor *d, String argument)
 		if (check_ban(d->host, BAN_ALL) && !IS_SET(ch->act_flags, PLR_PERMIT)) {
 			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
 			log_string(log_buf);
-			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
+			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 			write_to_buffer(d, "Your site has been banned from this mud.\n"
 			                "If you feel that your site has been banned in error, or would\n"
 			                "like to request special permission to play, please contact us at:\n"
@@ -448,7 +448,7 @@ void nanny(Descriptor *d, String argument)
 		if (check_ban(d->host, BAN_NEWBIES)) {
 			Format::sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
 			log_string(log_buf);
-			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
+			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 			write_to_buffer(d, "New players are not allowed from your site.\n"
 			                "If you feel that your site has been banned in error, or would\n"
 			                "like to request special permission to play, please contact us at:\n"
@@ -484,10 +484,10 @@ void nanny(Descriptor *d, String argument)
 		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
 		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
 		log_string(log_buf);
-		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
+		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		Format::sprintf(log_buf, "Last Site: %s",
 		        ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available");
-		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
+		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		update_site(ch);
 
 		if (IS_IMMORTAL(ch)) {
@@ -509,10 +509,10 @@ void nanny(Descriptor *d, String argument)
 		switch (argument[0]) {
 		case 'y':
 		case 'Y':
-			for (d_old = descriptor_list; d_old != NULL; d_old = d_next) {
+			for (d_old = descriptor_list; d_old != nullptr; d_old = d_next) {
 				d_next = d_old->next;
 
-				if (d_old == d || d_old->character == NULL)
+				if (d_old == d || d_old->character == nullptr)
 					continue;
 
 				if (ch->name == (d_old->original ?
@@ -527,9 +527,9 @@ void nanny(Descriptor *d, String argument)
 
 			write_to_buffer(d, "Reconnect attempt failed.\nName: ");
 
-			if (d->character != NULL) {
+			if (d->character != nullptr) {
 				free_char(d->character);
-				d->character = NULL;
+				d->character = nullptr;
 			}
 
 			d->connected = CON_GET_NAME;
@@ -539,9 +539,9 @@ void nanny(Descriptor *d, String argument)
 		case 'N':
 			write_to_buffer(d, "Name: ");
 
-			if (d->character != NULL) {
+			if (d->character != nullptr) {
 				free_char(d->character);
-				d->character = NULL;
+				d->character = nullptr;
 			}
 
 			d->connected = CON_GET_NAME;
@@ -578,7 +578,7 @@ void nanny(Descriptor *d, String argument)
 		case 'N':
 			stc("Ok, what do you want to be called, then? ", ch);
 			free_char(d->character);
-			d->character = NULL;
+			d->character = nullptr;
 			d->connected = CON_GET_NAME;
 			break;
 
@@ -833,10 +833,10 @@ void nanny(Descriptor *d, String argument)
 
 		ch->cls = iClass;
 		Format::sprintf(log_buf, "%s@%s new player.", ch->name, d->host);
-		wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, GET_RANK(ch));
+		wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 		log_string(log_buf);
 		Format::sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
-		wiznet(log_buf, ch, NULL, WIZ_NEWBIE, 0, 0);
+		wiznet(log_buf, ch, nullptr, WIZ_NEWBIE, 0, 0);
 		write_to_buffer(d, "\n");
 		/* paladins can't be neutral */
 		Format::sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
@@ -1017,7 +1017,7 @@ void nanny(Descriptor *d, String argument)
 				ch->train = (40 - ch->pcdata->points + 1) / 2;
 
 			free_gen_data(ch->gen_data);
-			ch->gen_data = NULL;
+			ch->gen_data = nullptr;
 			write_to_buffer(d, "\n");
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
 			buf[0] = '\0';
@@ -1062,7 +1062,7 @@ void nanny(Descriptor *d, String argument)
 	case CON_READ_NEWMOTD:
 		set_color(ch, WHITE, NOBOLD);
 
-		if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0') {
+		if (ch->pcdata == nullptr || ch->pcdata->pwd[0] == '\0') {
 			write_to_buffer(d, "Warning! Null password!\n");
 			write_to_buffer(d, "Please report old password with 'bug'.\n");
 			write_to_buffer(d, "Type 'password null <new password>' to fix.\n");
@@ -1113,7 +1113,7 @@ void nanny(Descriptor *d, String argument)
 			set_color(ch, WHITE, NOBOLD);
 			stc("\n", ch);
 		}
-		else if (ch->in_room != NULL)
+		else if (ch->in_room != nullptr)
 			char_to_room(ch, ch->in_room);
 		else if (IS_IMMORTAL(ch))
 			char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
@@ -1127,7 +1127,7 @@ void nanny(Descriptor *d, String argument)
 			set_color(ch, WHITE, NOBOLD);
 		}
 
-		for (sd = descriptor_list; sd != NULL; sd = sd->next) {
+		for (sd = descriptor_list; sd != nullptr; sd = sd->next) {
 			victim = sd->original ? sd->original : sd->character;
 
 			if (IS_PLAYING(sd)
@@ -1149,11 +1149,11 @@ void nanny(Descriptor *d, String argument)
 		}
 
 		do_look(ch, "auto");
-		wiznet("$N has left real life behind.", ch, NULL, WIZ_LOGINS, WIZ_SITES, GET_RANK(ch));
+		wiznet("$N has left real life behind.", ch, nullptr, WIZ_LOGINS, WIZ_SITES, GET_RANK(ch));
 
-		if (ch->pet != NULL) {
+		if (ch->pet != nullptr) {
 			char_to_room(ch->pet, ch->in_room);
-			act("$n has entered the game.", ch->pet, NULL, NULL, TO_ROOM);
+			act("$n has entered the game.", ch->pet, nullptr, nullptr, TO_ROOM);
 		}
 
 		do_unread(ch, "");

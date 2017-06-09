@@ -36,13 +36,13 @@ bool is_ignoring(Character *ch, Character *victim)
 {
 	Character *rch;
 
-	if (ch == NULL || victim == NULL)
+	if (ch == nullptr || victim == nullptr)
 		return FALSE;
 
 	if (IS_IMMORTAL(victim))
 		return FALSE;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		rch = ch;
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
@@ -64,7 +64,7 @@ void do_ignore(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		rch = ch;
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
@@ -93,7 +93,7 @@ void do_ignore(Character *ch, String argument)
 
 	victim = get_player_world(rch, argument, VIS_PLR);
 
-	if (victim == NULL) {
+	if (victim == nullptr) {
 		ignore_offline(ch, argument);
 		return;
 	}

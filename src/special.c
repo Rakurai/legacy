@@ -132,16 +132,16 @@ String spec_name(SPEC_FUN *function)
 
 bool spec_troll_member(Character *ch)
 {
-	Character *vch, *victim = NULL;
+	Character *vch, *victim = nullptr;
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
-	    || affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == nullptr
+	    || affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != nullptr)
 		return FALSE;
 
 	/* find an ogre to beat up */
-	for (vch = ch->in_room->people;  vch != NULL;  vch = vch->next_in_room) {
+	for (vch = ch->in_room->people;  vch != nullptr;  vch = vch->next_in_room) {
 		if (!IS_NPC(vch) || ch == vch)
 			continue;
 
@@ -156,7 +156,7 @@ bool spec_troll_member(Character *ch)
 		}
 	}
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	/* say something, then raise hell */
@@ -183,23 +183,23 @@ bool spec_troll_member(Character *ch)
 		break;
 	}
 
-	act(message, ch, NULL, victim, TO_ALL);
+	act(message, ch, nullptr, victim, TO_ALL);
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
 }
 
 bool spec_ogre_member(Character *ch)
 {
-	Character *vch, *victim = NULL;
+	Character *vch, *victim = nullptr;
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
-	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == nullptr
+	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != nullptr)
 		return FALSE;
 
 	/* find an troll to beat up */
-	for (vch = ch->in_room->people;  vch != NULL;  vch = vch->next_in_room) {
+	for (vch = ch->in_room->people;  vch != nullptr;  vch = vch->next_in_room) {
 		if (!IS_NPC(vch) || ch == vch)
 			continue;
 
@@ -214,7 +214,7 @@ bool spec_ogre_member(Character *ch)
 		}
 	}
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	/* say something, then raise hell */
@@ -241,28 +241,28 @@ bool spec_ogre_member(Character *ch)
 		break;
 	}
 
-	act(message, ch, NULL, victim, TO_ALL);
+	act(message, ch, nullptr, victim, TO_ALL);
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
 }
 
 bool spec_patrolman(Character *ch)
 {
-	Character *vch, *victim = NULL;
+	Character *vch, *victim = nullptr;
 	Object *obj;
 	char *message;
 	int count = 0;
 
-	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == NULL
-	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_exists_on_char(ch, gsn_calm) || ch->in_room == nullptr
+	    ||  affect_exists_on_char(ch, gsn_charm_person) || ch->fighting != nullptr)
 		return FALSE;
 
 	/* look for a fight in the room */
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+	for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
 		if (vch == ch)
 			continue;
 
-		if (vch->fighting != NULL) { /* break it up! */
+		if (vch->fighting != nullptr) { /* break it up! */
 			if (number_range(0, count) == 0)
 				victim = (vch->level > vch->fighting->level)
 				         ? vch : vch->fighting;
@@ -271,18 +271,18 @@ bool spec_patrolman(Character *ch)
 		}
 	}
 
-	if (victim == NULL || (IS_NPC(victim) && victim->spec_fun == ch->spec_fun))
+	if (victim == nullptr || (IS_NPC(victim) && victim->spec_fun == ch->spec_fun))
 		return FALSE;
 
-	if (((obj = get_eq_char(ch, WEAR_NECK_1)) != NULL
+	if (((obj = get_eq_char(ch, WEAR_NECK_1)) != nullptr
 	     &&   obj->pIndexData->vnum == OBJ_VNUM_WHISTLE)
-	    || ((obj = get_eq_char(ch, WEAR_NECK_2)) != NULL
+	    || ((obj = get_eq_char(ch, WEAR_NECK_2)) != nullptr
 	        &&   obj->pIndexData->vnum == OBJ_VNUM_WHISTLE)) {
-		act("You blow down hard on $p.", ch, obj, NULL, TO_CHAR);
-		act("$n blows on $p, ***WHEEEEEEEEEEEET***", ch, obj, NULL, TO_ROOM);
+		act("You blow down hard on $p.", ch, obj, nullptr, TO_CHAR);
+		act("$n blows on $p, ***WHEEEEEEEEEEEET***", ch, obj, nullptr, TO_ROOM);
 
-		for (vch = char_list; vch != NULL; vch = vch->next) {
-			if (vch->in_room == NULL)
+		for (vch = char_list; vch != nullptr; vch = vch->next) {
+			if (vch->in_room == nullptr)
 				continue;
 
 			if (vch->in_room != ch->in_room
@@ -292,7 +292,7 @@ bool spec_patrolman(Character *ch)
 	}
 
 	switch (number_range(0, 6)) {
-	default:        message = NULL;         break;
+	default:        message = nullptr;         break;
 
 	case 0: message = "$n yells 'All roit! All roit! break it up!'";
 		break;
@@ -319,22 +319,22 @@ bool spec_patrolman(Character *ch)
 		break;
 	}
 
-	if (message != NULL)
-		act(message, ch, NULL, NULL, TO_ALL);
+	if (message != nullptr)
+		act(message, ch, nullptr, nullptr, TO_ALL);
 
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
 }
 bool spec_questmaster(Character *ch)
 {
-	if (ch->fighting != NULL) return spec_cast_mage(ch);
+	if (ch->fighting != nullptr) return spec_cast_mage(ch);
 
 	return FALSE;
 }
 
 bool spec_squestmaster(Character *ch)
 {
-	if (ch->fighting != NULL)
+	if (ch->fighting != nullptr)
 		return spec_cast_mage(ch);
 
 	return FALSE;
@@ -342,13 +342,13 @@ bool spec_squestmaster(Character *ch)
 
 bool spec_blacksmith(Character *ch)
 {
-	if (ch->fighting != NULL) return spec_cast_mage(ch);
+	if (ch->fighting != nullptr) return spec_cast_mage(ch);
 
 	return FALSE;
 }
 bool spec_sage(Character *ch)
 {
-	if (ch->fighting != NULL) return spec_cast_mage(ch);
+	if (ch->fighting != nullptr) return spec_cast_mage(ch);
 
 	return FALSE;
 }
@@ -362,7 +362,7 @@ bool spec_nasty(Character *ch)
 		return FALSE;
 
 	if (!ch->fighting) {
-		for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+		for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 			v_next = victim->next_in_room;
 
 			if (!IS_NPC(victim)
@@ -382,16 +382,16 @@ bool spec_nasty(Character *ch)
 	}
 
 	/* okay, we must be fighting.... steal some coins and flee */
-	if ((victim = ch->fighting) == NULL)
+	if ((victim = ch->fighting) == nullptr)
 		return FALSE;   /* let's be paranoid.... */
 
 	switch (number_bits(2)) {
 	case 0:  act("$n rips apart your coin purse, spilling your gold!",
-		             ch, NULL, victim, TO_VICT);
+		             ch, nullptr, victim, TO_VICT);
 		act("You slash apart $N's coin purse and gather his gold.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		act("$N's coin purse is ripped apart!",
-		    ch, NULL, victim, TO_NOTVICT);
+		    ch, nullptr, victim, TO_NOTVICT);
 		gold = victim->gold / 10;  /* steal 10% of his gold */
 		victim->gold -= gold;
 		ch->gold     += gold;
@@ -412,13 +412,13 @@ bool dragon(Character *ch, int sn)
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
+	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch
 		    && can_see_char(ch, victim)
 		    && number_bits(3) == 0)
 			break;
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	/* made it so mobs won't keep breathing after mana runs out, but just using the min mana -- Montrey */
@@ -484,7 +484,7 @@ bool spec_cast_adept(Character *ch)
 	if (!IS_AWAKE(ch))
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (victim != ch && can_see_char(ch, victim) && number_bits(1) == 0
@@ -492,54 +492,54 @@ bool spec_cast_adept(Character *ch)
 			break;
 	}
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	switch (number_bits(4)) {
 	case 0:
 #if (defined(HALLOWEEN))
-		act("$n utters the word 'bhiae waai'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the word 'bhiae waai'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_blood_moon(gsn_blood_moon, ch->level, ch, victim, TARGET_CHAR,
 		                 get_evolution(ch, gsn_blood_moon));
 #else
-		act("$n utters the word 'abrazak'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the word 'abrazak'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_armor(gsn_armor, ch->level, ch, victim, TARGET_CHAR,
 		            get_evolution(ch, gsn_armor));
 #endif
 		return TRUE;
 
 	case 1:
-		act("$n utters the word 'fido'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the word 'fido'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_bless(gsn_bless, ch->level, ch, victim, TARGET_CHAR,
 		            get_evolution(ch, gsn_bless));
 		return TRUE;
 
 	case 2:
-		act("$n utters the words 'judicandus noselacri'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the words 'judicandus noselacri'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_blindness(gsn_cure_blindness,
 		                     ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, gsn_cure_blindness));
 		return TRUE;
 
 	case 3:
-		act("$n utters the words 'judicandus dies'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the words 'judicandus dies'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_light(gsn_cure_light,
 		                 ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, gsn_cure_light));
 		return TRUE;
 
 	case 4:
-		act("$n utters the words 'judicandus sausabru'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the words 'judicandus sausabru'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_poison(gsn_cure_poison,
 		                  ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, gsn_cure_poison));
 		return TRUE;
 
 	case 5:
-		act("$n utters the word 'candusima'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the word 'candusima'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_refresh(gsn_refresh, ch->level, ch, victim, TARGET_CHAR,
 		              get_evolution(ch, gsn_refresh));
 		return TRUE;
 
 	case 6:
-		act("$n utters the words 'judicandus eugzagz'.", ch, NULL, NULL, TO_ROOM);
+		act("$n utters the words 'judicandus eugzagz'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_disease(gsn_cure_disease,
 		                   ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, gsn_cure_disease));
 	}
@@ -557,14 +557,14 @@ bool spec_cast_judge(Character *ch)
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 	}
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	spell = "high explosive";
@@ -584,11 +584,11 @@ bool spec_cast_cleric(Character *ch)
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
+	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	for (i = 0; ; i++) {
@@ -640,11 +640,11 @@ bool spec_cast_mage(Character *ch)
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
+	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	for (i = 0; ; i++) {
@@ -695,11 +695,11 @@ bool spec_cast_undead(Character *ch)
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = victim->next_in_room)
+	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	for (i = 0; ; i++) {
@@ -749,12 +749,12 @@ bool spec_executioner(Character *ch)
 	Character *v_next;
 	char *crime;
 
-	if (!IS_AWAKE(ch) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || ch->fighting != nullptr)
 		return FALSE;
 
 	crime = "";
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_KILLER)
@@ -766,7 +766,7 @@ bool spec_executioner(Character *ch)
 		{ crime = "THIEF"; break; }
 	}
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
@@ -787,13 +787,13 @@ bool spec_fido(Character *ch)
 	if (!IS_AWAKE(ch))
 		return FALSE;
 
-	for (corpse = ch->in_room->contents; corpse != NULL; corpse = c_next) {
+	for (corpse = ch->in_room->contents; corpse != nullptr; corpse = c_next) {
 		c_next = corpse->next_content;
 
 		if (corpse->item_type != ITEM_CORPSE_NPC)
 			continue;
 
-		act("$n savagely devours a corpse.", ch, NULL, NULL, TO_ROOM);
+		act("$n savagely devours a corpse.", ch, nullptr, nullptr, TO_ROOM);
 
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -817,14 +817,14 @@ bool spec_guard(Character *ch)
 	char *crime;
 	int max_evil;
 
-	if (!IS_AWAKE(ch) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || ch->fighting != nullptr)
 		return FALSE;
 
 	max_evil = 300;
-	ech      = NULL;
+	ech      = nullptr;
 	crime    = "";
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		/* REWORK PK - Lotus
@@ -837,7 +837,7 @@ bool spec_guard(Character *ch)
 		            { crime = "THIEF"; break; }
 		*/
 
-		if (victim->fighting != NULL
+		if (victim->fighting != nullptr
 		    &&   victim->fighting != ch
 		    &&   victim->alignment < max_evil) {
 			max_evil = victim->alignment;
@@ -845,7 +845,7 @@ bool spec_guard(Character *ch)
 		}
 	}
 
-	if (victim != NULL) {
+	if (victim != nullptr) {
 		Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
 		        victim->name, crime);
 		REMOVE_BIT(ch->comm, COMM_NOCHANNELS);
@@ -854,9 +854,9 @@ bool spec_guard(Character *ch)
 		return TRUE;
 	}
 
-	if (ech != NULL) {
+	if (ech != nullptr) {
 		act("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
-		    ch, NULL, NULL, TO_ROOM);
+		    ch, nullptr, nullptr, TO_ROOM);
 		multi_hit(ch, ech, TYPE_UNDEFINED);
 		return TRUE;
 	}
@@ -872,7 +872,7 @@ bool spec_janitor(Character *ch)
 	if (!IS_AWAKE(ch))
 		return FALSE;
 
-	for (trash = ch->in_room->contents; trash != NULL; trash = trash_next) {
+	for (trash = ch->in_room->contents; trash != nullptr; trash = trash_next) {
 		trash_next = trash->next_content;
 
 		if (!IS_SET(trash->wear_flags, ITEM_TAKE) || !can_loot(ch, trash))
@@ -884,7 +884,7 @@ bool spec_janitor(Character *ch)
 		if (trash->item_type == ITEM_DRINK_CON
 		    ||   trash->item_type == ITEM_TRASH
 		    ||   trash->cost < 10) {
-			act("$n picks up some trash.", ch, NULL, NULL, TO_ROOM);
+			act("$n picks up some trash.", ch, nullptr, nullptr, TO_ROOM);
 			obj_from_room(trash);
 			obj_to_char(trash, ch);
 			return TRUE;
@@ -918,7 +918,7 @@ bool spec_mayor(Character *ch)
 		}
 	}
 
-	if (ch->fighting != NULL)
+	if (ch->fighting != nullptr)
 		return spec_cast_mage(ch);
 
 	if (!move || get_position(ch) < POS_SLEEPING)
@@ -934,40 +934,40 @@ bool spec_mayor(Character *ch)
 
 	case 'W':
 		ch->position = POS_STANDING;
-		act("$n awakens and groans loudly.", ch, NULL, NULL, TO_ROOM);
+		act("$n awakens and groans loudly.", ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'S':
 		ch->position = POS_SLEEPING;
-		act("$n lies down and falls asleep.", ch, NULL, NULL, TO_ROOM);
+		act("$n lies down and falls asleep.", ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'a':
-		act("$n says 'Hello Honey!'", ch, NULL, NULL, TO_ROOM);
+		act("$n says 'Hello Honey!'", ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'b':
 		act("$n says 'What a view!  I must do something about that dump!'",
-		    ch, NULL, NULL, TO_ROOM);
+		    ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'c':
 		act("$n says 'Vandals!  Youngsters have no respect for anything!'",
-		    ch, NULL, NULL, TO_ROOM);
+		    ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'd':
-		act("$n says 'Good day, citizens!'", ch, NULL, NULL, TO_ROOM);
+		act("$n says 'Good day, citizens!'", ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'e':
 		act("$n says 'I hereby declare the city of Midgaard open!'",
-		    ch, NULL, NULL, TO_ROOM);
+		    ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'E':
 		act("$n says 'I hereby declare the city of Midgaard closed!'",
-		    ch, NULL, NULL, TO_ROOM);
+		    ch, nullptr, nullptr, TO_ROOM);
 		break;
 
 	case 'O':
@@ -994,13 +994,13 @@ bool spec_poison(Character *ch)
 	Character *victim;
 
 	if (get_position(ch) != POS_FIGHTING
-	    || (victim = ch->fighting) == NULL
+	    || (victim = ch->fighting) == nullptr
 	    ||   number_percent() > 2 * ch->level)
 		return FALSE;
 
-	act("You bite $N!",  ch, NULL, victim, TO_CHAR);
-	act("$n bites $N!",  ch, NULL, victim, TO_NOTVICT);
-	act("$n bites you!", ch, NULL, victim, TO_VICT);
+	act("You bite $N!",  ch, nullptr, victim, TO_CHAR);
+	act("$n bites $N!",  ch, nullptr, victim, TO_NOTVICT);
+	act("$n bites you!", ch, nullptr, victim, TO_VICT);
 	spell_poison(gsn_poison, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, gsn_poison));
 	return TRUE;
 }
@@ -1014,7 +1014,7 @@ bool spec_thief(Character *ch)
 	if (get_position(ch) < POS_STANDING)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (IS_NPC(victim)
@@ -1025,9 +1025,9 @@ bool spec_thief(Character *ch)
 
 		if (IS_AWAKE(victim) && number_range(0, ch->level) == 0) {
 			act("You discover $n's hands in your wallet!",
-			    ch, NULL, victim, TO_VICT);
+			    ch, nullptr, victim, TO_VICT);
 			act("$N discovers $n's hands in $S wallet!",
-			    ch, NULL, victim, TO_NOTVICT);
+			    ch, nullptr, victim, TO_NOTVICT);
 			return TRUE;
 		}
 		else {
@@ -1051,12 +1051,12 @@ void do_identify(Character *ch, String argument)
 	Character *rch;
 	char buf[MAX_STRING_LENGTH];
 
-	if ((obj = get_obj_carry(ch, argument)) == NULL) {
+	if ((obj = get_obj_carry(ch, argument)) == nullptr) {
 		stc("You are not carrying that.\n", ch);
 		return;
 	}
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
+	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room)
 		if (IS_NPC(rch) && rch->spec_fun == spec_lookup("spec_sage"))
 			break;
 
@@ -1066,7 +1066,7 @@ void do_identify(Character *ch, String argument)
 	}
 	else if ((ch->silver + 100 * ch->gold) < obj->level * 10 + 50) {
 		act("$n goes about his business and ignores $p.",
-		    rch, obj, NULL, TO_ROOM);
+		    rch, obj, nullptr, TO_ROOM);
 		return;
 	}
 	else {
@@ -1077,7 +1077,7 @@ void do_identify(Character *ch, String argument)
 	}
 
 	act("$n fondles $p and ponders its purpose.",
-	    rch, obj, NULL, TO_ROOM);
+	    rch, obj, nullptr, TO_ROOM);
 	spell_identify(0, 0, ch, obj, TAR_OBJ_INV, get_evolution(ch, gsn_identify));
 }
 bool spec_charm(Character *ch)
@@ -1106,18 +1106,18 @@ bool spec_charm(Character *ch)
 		return TRUE;
 	}
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 	}
 
-	if (victim == NULL)
+	if (victim == nullptr)
 		return FALSE;
 
 	act("$n begins playing a new, beautiful song.",
-	    ch, NULL, NULL, TO_ROOM);
+	    ch, nullptr, nullptr, TO_ROOM);
 	spell_charm_person(gsn_charm_person, ch->level, ch, victim,
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, gsn_charm_person));
 
@@ -1137,7 +1137,7 @@ void do_repair(Character *ch, String argument)
 		stc("{WItems you are wearing:\n", ch);
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-			if ((obj = get_eq_char(ch, iWear)) == NULL)
+			if ((obj = get_eq_char(ch, iWear)) == nullptr)
 				continue;
 
 			etched = affect_exists_on_obj(obj, gsn_acid_breath) ? TRUE : FALSE;
@@ -1154,7 +1154,7 @@ void do_repair(Character *ch, String argument)
 
 	if (argument == "all") {
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-			if ((obj = get_eq_char(ch, iWear)) == NULL)
+			if ((obj = get_eq_char(ch, iWear)) == nullptr)
 				continue;
 
 			obj_repair(ch, obj);
@@ -1163,7 +1163,7 @@ void do_repair(Character *ch, String argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, argument)) == NULL) {
+	if ((obj = get_obj_carry(ch, argument)) == nullptr) {
 		stc("You are not carrying that.\n", ch);
 		return;
 	}
@@ -1177,7 +1177,7 @@ void obj_repair(Character *ch, Object *obj)
 	char buf[MAX_STRING_LENGTH];
 	int max = 100;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
+	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room)
 		if (IS_NPC(rch) && rch->spec_fun == spec_lookup("spec_blacksmith"))
 			break;
 
@@ -1187,7 +1187,7 @@ void obj_repair(Character *ch, Object *obj)
 	}
 
 	const Affect *paf;
-	if ((paf = affect_find_on_obj(obj, gsn_acid_breath)) != NULL)
+	if ((paf = affect_find_on_obj(obj, gsn_acid_breath)) != nullptr)
 		max = 100 - (5 * paf->modifier);
 
 	if (obj->condition >= max) {
@@ -1211,7 +1211,7 @@ void obj_repair(Character *ch, Object *obj)
 					obj->condition = 0;
 
 				if (obj->condition == 0) {
-					act("{W$p{x has been {Wdestroyed{x!", ch, obj, NULL, TO_CHAR);
+					act("{W$p{x has been {Wdestroyed{x!", ch, obj, nullptr, TO_CHAR);
 					extract_obj(obj);
 				}
 
@@ -1220,11 +1220,11 @@ void obj_repair(Character *ch, Object *obj)
 
 			Format::sprintf(buf, "$n repairs $p to %s condition.",
 			        condition_lookup(obj->condition));
-			act(buf, rch, obj, NULL, TO_ROOM);
+			act(buf, rch, obj, nullptr, TO_ROOM);
 			obj->condition = max;
 			Format::sprintf(buf, "You repair $p to %s condition.",
 			        condition_lookup(obj->condition));
-			act(buf, ch, obj, NULL, TO_CHAR);
+			act(buf, ch, obj, nullptr, TO_CHAR);
 			check_improve(ch, gsn_repair, TRUE, 8);
 			return;
 		}
@@ -1235,7 +1235,7 @@ void obj_repair(Character *ch, Object *obj)
 
 	if ((ch->silver + 100 * ch->gold) < (max - obj->condition) * 100) {
 		act("$n says, 'You don't have enough money to repair $p.",
-		    rch, obj, NULL, TO_ROOM);
+		    rch, obj, nullptr, TO_ROOM);
 		return;
 	}
 	else {
@@ -1248,7 +1248,7 @@ void obj_repair(Character *ch, Object *obj)
 	obj->condition = max;
 	Format::sprintf(buf, "$n repairs $p to %s condition.",
 	        condition_lookup(obj->condition));
-	act(buf, rch, obj, NULL, TO_ROOM);
+	act(buf, rch, obj, nullptr, TO_ROOM);
 }
 
 bool spec_fight_clanguard(Character *ch)
@@ -1266,16 +1266,16 @@ bool spec_clanguard(Character *ch)
 	    || !IS_AWAKE(ch)
 	    || affect_exists_on_char(ch, gsn_calm)
 	    || affect_exists_on_char(ch, gsn_charm_person)
-	    || ch->in_room == NULL)
+	    || ch->in_room == nullptr)
 		return FALSE;
 
-	if ((clan = clan_vnum_lookup(ch->pIndexData->vnum)) == NULL)
+	if ((clan = clan_vnum_lookup(ch->pIndexData->vnum)) == nullptr)
 		return FALSE;
 
 	if (ch->in_room->clan != clan)
 		return FALSE;
 
-	for (victim = ch->in_room->people; victim != NULL; victim = v_next) {
+	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (victim->fighting == ch || IS_IMMORTAL(victim))

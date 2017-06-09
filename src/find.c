@@ -37,8 +37,8 @@ Character *get_mob_here(Character *ch, const String& argument, int vis)
 	if (arg == "self")
 		return ch;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (rch->in_room == NULL)
+	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
+		if (rch->in_room == nullptr)
 			continue;
 
 		if (!IS_NPC(rch))
@@ -68,7 +68,7 @@ Character *get_mob_here(Character *ch, const String& argument, int vis)
 			return rch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a character in the same area as ch.  Use mobonly to only find
@@ -77,7 +77,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 {
 	Character *ach;
 
-	if ((ach = get_mob_here(ch, argument, vis)) != NULL)
+	if ((ach = get_mob_here(ch, argument, vis)) != nullptr)
 		return ach;
 
 	int count = 0;
@@ -85,11 +85,11 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 	int etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
-	for (ach = char_list; ach != NULL; ach = ach->next) {
+	for (ach = char_list; ach != nullptr; ach = ach->next) {
 		if (!IS_NPC(ach))
 			continue;
 
-		if (ach->in_room == NULL)
+		if (ach->in_room == nullptr)
 			continue;
 
 		if (etype != 0 && !CHARTYPE_MATCH(ach, etype))
@@ -111,7 +111,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 			return ach;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a character in the world.  Use mobonly to only find
@@ -120,7 +120,7 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 {
 	Character *wch;
 
-	if ((wch = get_mob_here(ch, argument, vis)) != NULL)
+	if ((wch = get_mob_here(ch, argument, vis)) != nullptr)
 		return wch;
 
 	int count = 0, vnum = 0;
@@ -131,11 +131,11 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = char_list; wch != NULL ; wch = wch->next) {
+	for (wch = char_list; wch != nullptr ; wch = wch->next) {
 		if (!IS_NPC(wch))
 			continue;
 
-		if (wch->in_room == NULL)
+		if (wch->in_room == nullptr)
 			continue;
 
 		if (etype == ENTITY_VM) {
@@ -162,7 +162,7 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 			return wch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a character in the same room as ch.  Use mobonly to find
@@ -181,8 +181,8 @@ Character *get_char_here(Character *ch, const String& argument, int vis)
 	if (arg == "self")
 		return ch;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (rch->in_room == NULL)
+	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
+		if (rch->in_room == nullptr)
 			continue;
 
 		if (etype == ENTITY_VM) {
@@ -209,7 +209,7 @@ Character *get_char_here(Character *ch, const String& argument, int vis)
 			return rch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /*
@@ -232,8 +232,8 @@ Character *get_char_room(Character *ch, RoomPrototype *room, const String& argum
 	if (arg == "self")
 		return ch;
 
-	for (rch = room->people; rch != NULL; rch = rch->next_in_room) {
-		if (rch->in_room == NULL)
+	for (rch = room->people; rch != nullptr; rch = rch->next_in_room) {
+		if (rch->in_room == nullptr)
 			continue;
 
 		if (etype == ENTITY_VM) {
@@ -260,7 +260,7 @@ Character *get_char_room(Character *ch, RoomPrototype *room, const String& argum
 			return rch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a character in the same area as ch.  Use mobonly to only find
@@ -269,7 +269,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 {
 	Character *ach;
 
-	if ((ach = get_char_here(ch, argument, vis)) != NULL)
+	if ((ach = get_char_here(ch, argument, vis)) != nullptr)
 		return ach;
 
 	int count = 0;
@@ -277,8 +277,8 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 	int etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
-	for (ach = char_list; ach != NULL; ach = ach->next) {
-		if (ach->in_room == NULL)
+	for (ach = char_list; ach != nullptr; ach = ach->next) {
+		if (ach->in_room == nullptr)
 			continue;
 
 		if (etype != 0 && !CHARTYPE_MATCH(ach, etype))
@@ -300,7 +300,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 			return ach;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a character in the world.  Use mobonly to only find
@@ -309,7 +309,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 {
 	Character *wch;
 
-	if ((wch = get_char_here(ch, argument, vis)) != NULL)
+	if ((wch = get_char_here(ch, argument, vis)) != nullptr)
 		return wch;
 
 	int count = 0, vnum = 0;
@@ -320,8 +320,8 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = char_list; wch != NULL ; wch = wch->next) {
-		if (wch->in_room == NULL)
+	for (wch = char_list; wch != nullptr ; wch = wch->next) {
+		if (wch->in_room == nullptr)
 			continue;
 
 		if (etype == ENTITY_VM) {
@@ -348,7 +348,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 			return wch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a player in the room. -- Elrac
@@ -360,10 +360,10 @@ Character *get_player_here(Character *ch, const String& argument, int vis)
 	if (argument == "self")
 		return ch;
 
-	if (ch->in_room == NULL)
-		return NULL;
+	if (ch->in_room == nullptr)
+		return nullptr;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
+	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
 
@@ -377,7 +377,7 @@ Character *get_player_here(Character *ch, const String& argument, int vis)
 			return rch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a *player* char in the same area as ch.
@@ -390,12 +390,12 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 	if (argument == "self")
 		return ch;
 
-	if (ch->in_room == NULL)
-		return NULL;
+	if (ch->in_room == nullptr)
+		return nullptr;
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (apc = pc_list; apc != NULL; apc = apc->next) {
-		if ((ach = apc->ch) == NULL) {
+	for (apc = pc_list; apc != nullptr; apc = apc->next) {
+		if ((ach = apc->ch) == nullptr) {
 			bug("get_player_area: pc_data without char_data", 0);
 			continue;
 		}
@@ -413,13 +413,13 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 		default:                                                        break;
 		}
 
-		if (ach->in_room != NULL
+		if (ach->in_room != nullptr
 		    && ach->in_room->area == ch->in_room->area
 		    && ach->name.has_words(argument))
 			return ach;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find a *player* char in the world. -- Elrac
@@ -433,11 +433,11 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 		return ch;
 
 	if (argument.empty())
-		return NULL;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
+		return nullptr;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (wpc = pc_list; wpc != NULL; wpc = wpc->next) {
-		if ((wch = wpc->ch) == NULL) {
+	for (wpc = pc_list; wpc != nullptr; wpc = wpc->next) {
+		if ((wch = wpc->ch) == nullptr) {
 			bug("get_player_world: pc_data without char_data", 0);
 			continue;
 		}
@@ -455,12 +455,12 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 		default:                                                        break;
 		}
 
-		if (wch->in_room != NULL
+		if (wch->in_room != nullptr
 		    && wch->name.has_words(argument))
 			return wch;
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find an obj in a list. */
@@ -471,7 +471,7 @@ Object *get_obj_list(Character *ch, const String& argument, Object *list)
 	String arg;
 	number = number_argument(argument, arg);
 
-	for (obj = list; obj != NULL; obj = obj->next_content)
+	for (obj = list; obj != nullptr; obj = obj->next_content)
 		if (can_see_obj(ch, obj) && obj->name.has_words(arg))
 			if (++count == number)
 				break;
@@ -487,7 +487,7 @@ Object *get_obj_wear(Character *ch, const String& argument)
 	String arg;
 	number = number_argument(argument, arg);
 
-	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
+	for (obj = ch->carrying; obj != nullptr; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE
 		    && can_see_obj(ch, obj)
 		    && obj->name.has_words(arg))
@@ -505,7 +505,7 @@ Object *get_obj_carry(Character *ch, const String& argument)
 	String arg;
 	number = number_argument(argument, arg);
 
-	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
+	for (obj = ch->carrying; obj != nullptr; obj = obj->next_content)
 		if (obj->wear_loc == WEAR_NONE
 		    && can_see_obj(ch, obj)
 		    && obj->name.has_words(arg))
@@ -520,16 +520,16 @@ Object *get_obj_here(Character *ch, const String& argument)
 {
 	Object *obj;
 
-	if ((obj = get_obj_list(ch, argument, ch->in_room->contents)) != NULL)
+	if ((obj = get_obj_list(ch, argument, ch->in_room->contents)) != nullptr)
 		return obj;
 
-	if ((obj = get_obj_carry(ch, argument)) != NULL)
+	if ((obj = get_obj_carry(ch, argument)) != nullptr)
 		return obj;
 
-	if ((obj = get_obj_wear(ch, argument)) != NULL)
+	if ((obj = get_obj_wear(ch, argument)) != nullptr)
 		return obj;
 
-	return NULL;
+	return nullptr;
 }
 
 /* Find an obj in the world. */
@@ -538,7 +538,7 @@ Object *get_obj_world(Character *ch, const String& argument)
 	Object *obj;
 	int number, count = 0;
 
-	if ((obj = get_obj_here(ch, argument)) != NULL)
+	if ((obj = get_obj_here(ch, argument)) != nullptr)
 		return obj;
 
 	String arg;

@@ -489,22 +489,22 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isfollow")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':       return (mob->master != NULL && mob->master->in_room == mob->in_room);
+		case 'i':       return (mob->master != nullptr && mob->master->in_room == mob->in_room);
 
 		case 'n':       if (actor)
-				return (actor->master != NULL
+				return (actor->master != nullptr
 				        && actor->master->in_room == actor->in_room);
 			else
 				return -1;
 
 		case 't':       if (vict)
-				return (vict->master != NULL
+				return (vict->master != nullptr
 				        && vict->master->in_room == vict->in_room);
 			else
 				return -1;
 
 		case 'r':       if (rndm)
-				return (rndm->master != NULL
+				return (rndm->master != nullptr
 				        && rndm->master->in_room == rndm->in_room);
 			else
 				return -1;
@@ -1076,9 +1076,9 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
  * MOBprograms, so if the mud crashes here, check the mob carefully!
  */
 /* Yesterday, this routine *did* crash on a syntactically correct
- * mobprog. com_list was NULL, and yet its value was being checked.
+ * mobprog. com_list was nullptr, and yet its value was being checked.
  * While the code is terriffic in general, I think the original author
- * was a bit fuzzy on the difference between NULL and an empty string.
+ * was a bit fuzzy on the difference between nullptr and an empty string.
  * Possibly all the return '\0's should be changed to return "".
  * -- Elrac
  */
@@ -1086,8 +1086,8 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
                        Character *actor, Object *obj, void *vo,
                        Character *rndm)
 {
-	const char *morebuf = NULL;
-	char    *cmnd = NULL;
+	const char *morebuf = nullptr;
+	char    *cmnd = nullptr;
 	bool loopdone = FALSE;
 	bool     flag = FALSE;
 	int  legal;
@@ -1097,7 +1097,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 		if (legal == 1)
 			flag = TRUE;
 		else
-			return NULL;
+			return nullptr;
 	}
 
 	String buf;
@@ -1111,7 +1111,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 
 		if (*cmnd == '\0') {
 			bug("Mob: %d no commands after IF/OR", mob->pIndexData->vnum);
-			return NULL;
+			return nullptr;
 		}
 
 		morebuf = one_argument(cmnd, buf);
@@ -1121,7 +1121,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				if (legal == 1)
 					flag = TRUE;
 				else
-					return NULL;
+					return nullptr;
 			}
 		}
 		else
@@ -1136,8 +1136,8 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				while (*cmnd == ' ')
 					cmnd++;
 
-				if (com_list == NULL || *com_list == '\0')
-					return NULL;
+				if (com_list == nullptr || *com_list == '\0')
+					return nullptr;
 
 				cmnd     = com_list;
 				com_list = mprog_next_command(com_list);
@@ -1146,7 +1146,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			}
 
 			if (!strcmp(buf, "break"))
-				return NULL;
+				return nullptr;
 
 			if (!strcmp(buf, "endif"))
 				return com_list;
@@ -1162,7 +1162,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 					if (*cmnd == '\0') {
 						bug("Mob: %d missing endif after else",
 						    mob->pIndexData->vnum);
-						return NULL;
+						return nullptr;
 					}
 
 					morebuf = one_argument(cmnd, buf);
@@ -1180,7 +1180,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 
 			if (*cmnd == '\0') {
 				bug("Mob: %d missing else or endif", mob->pIndexData->vnum);
-				return NULL;
+				return nullptr;
 			}
 
 			morebuf = one_argument(cmnd, buf);
@@ -1196,7 +1196,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			if (*cmnd == '\0') {
 				bug("Mob: %d missing an else or endif",
 				    mob->pIndexData->vnum);
-				return NULL;
+				return nullptr;
 			}
 
 			morebuf = one_argument(cmnd, buf);
@@ -1214,7 +1214,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 
 		if (*cmnd == '\0') {
 			bug("Mob: %d missing endif", mob->pIndexData->vnum);
-			return NULL;
+			return nullptr;
 		}
 
 		morebuf = one_argument(cmnd, buf);
@@ -1227,8 +1227,8 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				while (*cmnd == ' ')
 					cmnd++;
 
-				if (com_list == NULL || *com_list == '\0')
-					return NULL;
+				if (com_list == nullptr || *com_list == '\0')
+					return nullptr;
 
 				cmnd     = com_list;
 				com_list = mprog_next_command(com_list);
@@ -1239,11 +1239,11 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			if (!strcmp(buf, "else")) {
 				bug("Mob: %d found else in an else section",
 				    mob->pIndexData->vnum);
-				return NULL;
+				return nullptr;
 			}
 
 			if (!strcmp(buf, "break"))
-				return NULL;
+				return nullptr;
 
 			if (!strcmp(buf, "endif"))
 				return com_list;
@@ -1258,7 +1258,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			if (*cmnd == '\0') {
 				bug("Mob:%d missing endif in else section",
 				    mob->pIndexData->vnum);
-				return NULL;
+				return nullptr;
 			}
 
 			morebuf = one_argument(cmnd, buf);
@@ -1544,8 +1544,8 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	const char *morebuf;
 	char *command_list;
 	char *cmnd;
-	Character *rndm  = NULL;
-	Character *vch   = NULL;
+	Character *rndm  = nullptr;
+	Character *vch   = nullptr;
 	int        count = 0;
 
 	/*    if affect_exists_on_char( mob, gsn_charm_person )
@@ -1577,7 +1577,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 			command_list = mprog_process_if(morebuf, command_list, mob,
 			                                actor, obj, vo, rndm);
 
-			if (command_list == NULL)
+			if (command_list == nullptr)
 				break;
 		}
 		else
@@ -1609,7 +1609,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 
 	String word;
 
-	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
+	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
 		if (mprg->type & type) {
 			strcpy(temp1, mprg->arglist);
 
@@ -1664,7 +1664,7 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
 {
 	MobProg *mprg;
 
-	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
+	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
 		if ((mprg->type & type)
 		    && (number_percent() < atoi(mprg->arglist))) {
 			mprog_driver(mprg->comlist, mob, actor, obj, vo);
@@ -1717,15 +1717,15 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 	if (!IS_NPC(mob))
 		return;
 
-	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
+	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
 		if (mprg->type & BRIBE_PROG) {
-			if ((obj = create_money(0, amount)) == NULL)
+			if ((obj = create_money(0, amount)) == nullptr)
 				return;
 
 			deduct_cost(mob, amount);
 
 			if (amount >= atoi(mprg->arglist))
-				mprog_driver(mprg->comlist, mob, ch, obj, NULL);
+				mprog_driver(mprg->comlist, mob, ch, obj, nullptr);
 
 			break;
 		}
@@ -1735,7 +1735,7 @@ void mprog_death_trigger(Character *mob)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & DEATH_PROG))
-		mprog_percent_check(mob, NULL, NULL, NULL, DEATH_PROG);
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, DEATH_PROG);
 
 	death_cry(mob);
 	return;
@@ -1745,7 +1745,7 @@ void mprog_entry_trigger(Character *mob)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & ENTRY_PROG))
-		mprog_percent_check(mob, NULL, NULL, NULL, ENTRY_PROG);
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, ENTRY_PROG);
 
 	return;
 }
@@ -1754,7 +1754,7 @@ void mprog_fight_trigger(Character *mob, Character *ch)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & FIGHT_PROG))
-		mprog_percent_check(mob, ch, NULL, NULL, FIGHT_PROG);
+		mprog_percent_check(mob, ch, nullptr, nullptr, FIGHT_PROG);
 
 	return;
 }
@@ -1763,7 +1763,7 @@ void mprog_buy_trigger(Character *mob, Character *ch)
 {
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & BUY_PROG))
-		mprog_percent_check(mob, ch, NULL, NULL, BUY_PROG);
+		mprog_percent_check(mob, ch, nullptr, nullptr, BUY_PROG);
 
 	return;
 }
@@ -1775,13 +1775,13 @@ void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & GIVE_PROG))
-		for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next) {
+		for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next) {
 			one_argument(mprg->arglist, buf);
 
 			if ((mprg->type & GIVE_PROG)
 			    && ((!strcmp(obj->name, mprg->arglist))
 			        || (!strcmp("all", buf)))) {
-				mprog_driver(mprg->comlist, mob, ch, obj, NULL);
+				mprog_driver(mprg->comlist, mob, ch, obj, nullptr);
 				break;
 			}
 		}
@@ -1793,21 +1793,21 @@ void mprog_greet_trigger(Character *ch)
 {
 	Character *vmob;
 
-	for (vmob = ch->in_room->people; vmob != NULL; vmob = vmob->next_in_room)
+	for (vmob = ch->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
 		if (IS_NPC(vmob)
 		    && ch != vmob
 		    && can_see_char(vmob, ch)
-		    && (vmob->fighting == NULL)
+		    && (vmob->fighting == nullptr)
 		    && IS_AWAKE(vmob)
 		    && (vmob->pIndexData->progtypes & GREET_PROG))
-			mprog_percent_check(vmob, ch, NULL, NULL, GREET_PROG);
+			mprog_percent_check(vmob, ch, nullptr, nullptr, GREET_PROG);
 		else if (IS_NPC(vmob)
 		         && ch != vmob
 		         && can_see_char(vmob, ch)
-		         && (vmob->fighting == NULL)
+		         && (vmob->fighting == nullptr)
 		         && IS_AWAKE(vmob)
 		         && (vmob->pIndexData->progtypes & ALL_GREET_PROG))
-			mprog_percent_check(vmob, ch, NULL, NULL, ALL_GREET_PROG);
+			mprog_percent_check(vmob, ch, nullptr, nullptr, ALL_GREET_PROG);
 
 	return;
 }
@@ -1818,10 +1818,10 @@ void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtypes & HITPRCNT_PROG))
-		for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
+		for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
 			if ((mprg->type & HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
-				mprog_driver(mprg->comlist, mob, ch, NULL, NULL);
+				mprog_driver(mprg->comlist, mob, ch, nullptr, nullptr);
 				break;
 			}
 
@@ -1831,7 +1831,7 @@ void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 void mprog_boot_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtypes & BOOT_PROG)
-		mprog_percent_check(mob, NULL, NULL, NULL, BOOT_PROG);
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, BOOT_PROG);
 
 	return;
 }
@@ -1839,7 +1839,7 @@ void mprog_boot_trigger(Character *mob)
 void mprog_random_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtypes & RAND_PROG)
-		mprog_percent_check(mob, NULL, NULL, NULL, RAND_PROG);
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_PROG);
 
 	return;
 }
@@ -1847,7 +1847,7 @@ void mprog_random_trigger(Character *mob)
 void mprog_tick_trigger(Character *mob)    /* Montrey */
 {
 	if (mob->pIndexData->progtypes & TICK_PROG)
-		mprog_percent_check(mob, NULL, NULL, NULL, TICK_PROG);
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, TICK_PROG);
 
 	return;
 }
@@ -1856,9 +1856,9 @@ void mprog_speech_trigger(const String& txt, Character *mob)
 {
 	Character *vmob;
 
-	for (vmob = mob->in_room->people; vmob != NULL; vmob = vmob->next_in_room)
+	for (vmob = mob->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
 		if (IS_NPC(vmob) && (vmob->pIndexData->progtypes & SPEECH_PROG))
-			mprog_wordlist_check(txt.c_str(), vmob, mob, NULL, NULL, SPEECH_PROG);
+			mprog_wordlist_check(txt.c_str(), vmob, mob, nullptr, nullptr, SPEECH_PROG);
 
 	return;
 }

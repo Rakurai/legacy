@@ -224,7 +224,7 @@ void do_roomlist(Character *ch, String argument)
 	}
 
 	for (counter = first; counter <= last; counter++) {
-		if ((room = get_room_index(counter)) != NULL) {
+		if ((room = get_room_index(counter)) != nullptr) {
 			Format::sprintf(arg, "[%5d] (%s{x) %s{X\n",
 			        room->vnum, room->area->name,
 			        room->name);
@@ -293,7 +293,7 @@ void do_vlist(Character *ch, String argument)
 		totalbuf[0] = '\0';
 		Format::sprintf(totalbuf, "[%5d] ", vnum);
 
-		if ((mobile = get_mob_index(vnum)) != NULL) {
+		if ((mobile = get_mob_index(vnum)) != nullptr) {
 			if (!printed)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 
@@ -307,7 +307,7 @@ void do_vlist(Character *ch, String argument)
 			founddata = TRUE;
 		}
 
-		if ((object = get_obj_index(vnum)) != NULL) {
+		if ((object = get_obj_index(vnum)) != nullptr) {
 			if (!printed)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 

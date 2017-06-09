@@ -129,7 +129,7 @@ void copyover_recover()
 	int desc;
 	log_string("Copyover recovery initiated");
 
-	if ((fp = fopen(COPYOVER_LOG, "r")) == NULL) {
+	if ((fp = fopen(COPYOVER_LOG, "r")) == nullptr) {
 		perror("copyover_recover:fopen");
 		log_string("Copyover log not found. Exitting.\n");
 		exit(1);
@@ -141,7 +141,7 @@ void copyover_recover()
 	String logname = fread_string(fp);
 	fclose(fp);
 
-	if ((fp = fopen(COPYOVER_FILE, "r")) == NULL) {
+	if ((fp = fopen(COPYOVER_FILE, "r")) == nullptr) {
 		perror("copyover_recover:fopen");
 		log_string("Copyover file not found. Exitting.\n");
 		exit(1);
@@ -222,12 +222,12 @@ void copyover_recover()
 		write_to_descriptor(desc, msg2, 0);
 		char_to_room(d->character, d->character->in_room);
 		do_look(d->character, "auto");
-		act("$n materializes!", d->character, NULL, NULL, TO_ROOM);
+		act("$n materializes!", d->character, nullptr, nullptr, TO_ROOM);
 		d->connected = CON_PLAYING;
 
-		if (d->character->pet != NULL) {
+		if (d->character->pet != nullptr) {
 			char_to_room(d->character->pet, d->character->in_room);
-			act("$n materializes!", d->character->pet, NULL, NULL, TO_ROOM);
+			act("$n materializes!", d->character->pet, nullptr, nullptr, TO_ROOM);
 		}
 
 		record_players_since_boot++;
@@ -246,7 +246,7 @@ int main(int argc, char **argv)
 {
 	struct timeval now_time;
 	bool fCopyOver = FALSE;
-	FILE *fpBoot = NULL;
+	FILE *fpBoot = nullptr;
 	Character *tempchars;
 	struct sigaction sig_act;
 	/* our signal handler.  more signals can be caught with repeated calls to sigaction,
@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 	sigaction(SIGPIPE, &sig_act, 0);
 
 	/* Init time. */
-	gettimeofday(&now_time, NULL);
+	gettimeofday(&now_time, nullptr);
 	current_time = (time_t) now_time.tv_sec;
 	strcpy(str_boot_time, ctime(&current_time));
 
@@ -346,7 +346,7 @@ int main(int argc, char **argv)
 		FILE *pidfile;
 		int pid = getpid();
 
-		if ((pidfile = fopen(PID_FILE, "w")) == NULL) {
+		if ((pidfile = fopen(PID_FILE, "w")) == nullptr) {
 			perror("getpid:fopen");
 			log_string("pid file not found. Exitting.\n");
 			exit(1);
@@ -453,7 +453,7 @@ void game_loop_unix(int control)
 {
 	static struct timeval null_time;
 	struct timeval last_time;
-	gettimeofday(&last_time, NULL);
+	gettimeofday(&last_time, nullptr);
 	current_time = (time_t) last_time.tv_sec;
 
 	/* Main loop */
@@ -504,7 +504,7 @@ void game_loop_unix(int control)
 		}
 
 		/* Kick out the freaky folks. */
-		for (d = descriptor_list; d != NULL; d = d_next) {
+		for (d = descriptor_list; d != nullptr; d = d_next) {
 			d_next = d->next;
 
 			if (FD_ISSET(d->descriptor, &exc_set)) {
@@ -521,24 +521,24 @@ void game_loop_unix(int control)
 					strcpy(log_buf, "Kicking out unknown char");
 
 				log_string(log_buf);
-				wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
+				wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 				d->outbuf.clear();
 				close_socket(d);
 			}
 		}
 
 		/* Process input. */
-		for (d = descriptor_list; d != NULL; d = d_next) {
+		for (d = descriptor_list; d != nullptr; d = d_next) {
 			d_next = d->next;
 			d->fcommand = FALSE;
 
 			if (FD_ISSET(d->descriptor, &in_set)) {
-				if (d->character != NULL) {
+				if (d->character != nullptr) {
 					d->timer = 0;
 					d->character->timer = 0;
 				}
 
-				if (d->original != NULL) {
+				if (d->original != nullptr) {
 					d->original->timer = 0;
 					d->timer = 0;
 				}
@@ -546,11 +546,11 @@ void game_loop_unix(int control)
 				if (!read_from_descriptor(d)) {
 					FD_CLR(d->descriptor, &out_set);
 
-					if (d->character != NULL && d->character->level > 1) {
+					if (d->character != nullptr && d->character->level > 1) {
 						save_char_obj(d->character);
 						Format::sprintf(log_buf, "Char %s disconnected", d->character->name);
 						log_string(log_buf);
-						wiznet(log_buf, NULL, NULL, WIZ_MALLOC, 0, 0);
+						wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 					}
 
 					d->outbuf.clear();
@@ -576,7 +576,7 @@ void game_loop_unix(int control)
 				if (!d->showstr_head.empty())
 					show_string(d, tempbuf);
 				else if (d->connected == CON_PLAYING) {
-					if (d->character == NULL) {
+					if (d->character == nullptr) {
 						bug("playing descriptor with null character, closing phantom socket", 0);
 						close_socket(d);
 						continue;
@@ -594,13 +594,13 @@ void game_loop_unix(int control)
 		update_handler();
 
 		/* Output. */
-		for (d = descriptor_list; d != NULL; d = d_next) {
+		for (d = descriptor_list; d != nullptr; d = d_next) {
 			d_next = d->next;
 
 			if ((d->fcommand || !d->outbuf.empty())
 			    && FD_ISSET(d->descriptor, &out_set)) {
 				if (!process_output(d, TRUE)) {
-					if (d->character != NULL && d->character->level > 1)
+					if (d->character != nullptr && d->character->level > 1)
 						save_char_obj(d->character);
 
 					d->outbuf.clear();
@@ -616,7 +616,7 @@ void game_loop_unix(int control)
 			struct timeval now_time;
 			long secDelta;
 			long usecDelta;
-			gettimeofday(&now_time, NULL);
+			gettimeofday(&now_time, nullptr);
 			usecDelta = ((int) last_time.tv_usec) - ((int) now_time.tv_usec)
 			            + 1000000 / PULSE_PER_SECOND;
 			secDelta  = ((int) last_time.tv_sec) - ((int) now_time.tv_sec);
@@ -636,7 +636,7 @@ void game_loop_unix(int control)
 				stall_time.tv_usec = usecDelta;
 				stall_time.tv_sec  = secDelta;
 
-				if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
+				if (select(0, nullptr, nullptr, nullptr, &stall_time) < 0) {
 					if (port == DIZZYPORT) { // don't count a stall on the debugger -- Montrey
 						perror("Game_loop: select: stall");
 						EXIT_REASON(979, "game_loop select() stall");
@@ -645,7 +645,7 @@ void game_loop_unix(int control)
 				}
 			}
 		}
-		gettimeofday(&last_time, NULL);
+		gettimeofday(&last_time, nullptr);
 		current_time = (time_t) last_time.tv_sec;
 	}
 
@@ -671,7 +671,7 @@ void init_descriptor(int control)
 
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
 		wiznet("init_descriptor: error accepting new connection",
-		       NULL, NULL, WIZ_MALLOC, 0, 0);
+		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		perror("New_descriptor: accept");
 		return;
 	}
@@ -682,7 +682,7 @@ void init_descriptor(int control)
 
 	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
 		wiznet("init_descriptor: error setting FNDELAY",
-		       NULL, NULL, WIZ_MALLOC, 0, 0);
+		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		perror("New_descriptor: fcntl: FNDELAY");
 		return;
 	}
@@ -697,7 +697,7 @@ void init_descriptor(int control)
 
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
 		wiznet("init_descriptor: error getting peername",
-		       NULL, NULL, WIZ_MALLOC, 0, 0);
+		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		perror("New_descriptor: getpeername");
 		dnew->host = "(unknown)";
 	}
@@ -721,15 +721,15 @@ void init_descriptor(int control)
 		{
 			Format::sprintf(log_buf, "init_descriptor: sock.sinaddr  = %s", buf);
 			log_string(log_buf);
-			wiznet(log_buf, NULL, NULL, WIZ_MALLOC, 0, 0);
+			wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		}
-		from = NULL;
+		from = nullptr;
 		/* New coding to access the sand server. -- Elrac
 		   This prevents crashes and lag from overly long lookups. */
 #if defined(SAND)
 		tmp_name = sand_query(addr);
 
-		if (tmp_name == NULL) {
+		if (tmp_name == nullptr) {
 			Format::sprintf(log_buf, "name not available");
 			log_string(log_buf);
 			dnew->host = buf;
@@ -741,7 +741,7 @@ void init_descriptor(int control)
 				if (strcmp("kyndig.com", dnew->host)) {
 					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
 					log_string(log_buf);
-					wiznet(log_buf, NULL, NULL, WIZ_SITES, 0, 0);
+					wiznet(log_buf, nullptr, nullptr, WIZ_SITES, 0, 0);
 				}
 			}
 		}
@@ -753,7 +753,7 @@ void init_descriptor(int control)
 		from = gethostbyaddr((char *) &sock.sin_addr, sizeof(sock.sin_addr), AF_INET);
 #endif
 
-		if (from == NULL || from->h_name == NULL) {
+		if (from == nullptr || from->h_name == nullptr) {
 			Format::sprintf(log_buf, "name not available");
 			log_string(log_buf);
 			dnew->host = buf;
@@ -765,7 +765,7 @@ void init_descriptor(int control)
 				if (strcmp("kyndig.com", dnew->host)) {
 					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
 					log_string(log_buf);
-					wiznet(log_buf, NULL, NULL, WIZ_SITES, 0, 0);
+					wiznet(log_buf, nullptr, nullptr, WIZ_SITES, 0, 0);
 				}
 			}
 		}
@@ -793,14 +793,14 @@ void close_socket(Descriptor *dclose)
 	if (!dclose->outbuf.empty())
 		process_output(dclose, FALSE);
 
-	if (dclose->snoop_by != NULL)
+	if (dclose->snoop_by != nullptr)
 		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n");
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		if (d->snoop_by == dclose)
-			d->snoop_by = NULL;
+			d->snoop_by = nullptr;
 
-	if ((ch = dclose->character) == NULL) {
+	if ((ch = dclose->character) == nullptr) {
 		Format::sprintf(log_buf, "Closing link to phantom at socket %d.", dclose->descriptor);
 		/* log_string( log_buf ); */
 	}
@@ -818,23 +818,23 @@ void close_socket(Descriptor *dclose)
 					    GET_ATTR_SEX(ch) == SEX_FEMALE ? "her" :
 					    GET_ATTR_SEX(ch) == SEX_MALE   ? "his" : "its");
 
-			wiznet("$N has lost link.", ch, NULL, WIZ_LINKS, 0, 0);
+			wiznet("$N has lost link.", ch, nullptr, WIZ_LINKS, 0, 0);
 
 			if (!IS_NPC(ch))
 				SET_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
 			else {
 				/* been having problems with this -- Montrey */
-				if (ch->desc == NULL)
+				if (ch->desc == nullptr)
 					bug("close_socket: NPC without descriptor!", 0);
-				else if (ch->desc->original != NULL
-				         && ch->desc->original->pcdata != NULL)
+				else if (ch->desc->original != nullptr
+				         && ch->desc->original->pcdata != nullptr)
 					SET_BIT(ch->desc->original->pcdata->plr, PLR_LINK_DEAD);
 
 				if (IS_SET(ch->act_flags, ACT_MORPH)) {
-					if (ch->desc->original != NULL) {
+					if (ch->desc->original != nullptr) {
 						RoomPrototype *location;
 
-						if (ch->in_room == NULL)
+						if (ch->in_room == nullptr)
 							location = get_room_index(ROOM_VNUM_MORGUE);
 						else
 							location = ch->in_room;
@@ -842,13 +842,13 @@ void close_socket(Descriptor *dclose)
 						char_from_room(ch->desc->original);
 						char_to_room(ch->desc->original, location);
 
-						if (ch->in_room != NULL)
+						if (ch->in_room != nullptr)
 							char_from_room(ch);
 					}
 				}
 			}
 
-			ch->desc = NULL;
+			ch->desc = nullptr;
 		}
 		else
 			free_char(dclose->character);
@@ -865,7 +865,7 @@ void close_socket(Descriptor *dclose)
 		for (d = descriptor_list; d && d->next != dclose; d = d->next)
 			;
 
-		if (d != NULL)
+		if (d != nullptr)
 			d->next = dclose->next;
 		else
 			bug("Close_socket: dclose not found.", 0);
@@ -997,13 +997,13 @@ void read_from_buffer(Descriptor *d)
 				Format::sprintf(log_buf, "%s: input spamming!", d->host);
 				log_string(log_buf);
 				wiznet("And the spammer of the year is:  $N!!!",
-				       d->character, NULL, WIZ_SPAM, 0, GET_RANK(d->character));
+				       d->character, nullptr, WIZ_SPAM, 0, GET_RANK(d->character));
 
 				if (d->incomm[0] == '!')
-					wiznet(d->inlast, d->character, NULL, WIZ_SPAM, 0,
+					wiznet(d->inlast, d->character, nullptr, WIZ_SPAM, 0,
 					       GET_RANK(d->character));
 				else
-					wiznet(d->incomm, d->character, NULL, WIZ_SPAM, 0,
+					wiznet(d->incomm, d->character, nullptr, WIZ_SPAM, 0,
 					       GET_RANK(d->character));
 
 				d->repeat = 0;
@@ -1074,7 +1074,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 		ch = d->character;
 
 		/* battle prompt */
-		if ((victim = ch->fighting) != NULL) {
+		if ((victim = ch->fighting) != nullptr) {
 			String atb;
 
 			if (IS_SET(ch->comm, COMM_ATBPROMPT)) {
@@ -1159,8 +1159,8 @@ bool process_output(Descriptor *d, bool fPrompt)
 	/*
 	 * Snoop-o-rama.
 	 */
-	if (d->snoop_by != NULL) {
-		if (d->character != NULL)
+	if (d->snoop_by != nullptr) {
+		if (d->character != nullptr)
 			write_to_buffer(d->snoop_by, (d->character)->name);
 
 		write_to_buffer(d->snoop_by, "> ");
@@ -1243,8 +1243,8 @@ void bust_a_prompt(Character *ch)
 			for (int door = 0; door < 6; door++) {
 				Exit *pexit;
 
-				if ((pexit = ch->in_room->exit[door]) != NULL
-				    && pexit ->u1.to_room != NULL
+				if ((pexit = ch->in_room->exit[door]) != nullptr
+				    && pexit ->u1.to_room != nullptr
 				    && can_see_room(ch, pexit->u1.to_room)
 				    && can_see_in_room(ch, pexit->u1.to_room)) {
 					found = TRUE;
@@ -1285,28 +1285,28 @@ void bust_a_prompt(Character *ch)
 
 			break;
 		case 'r':
-			if (ch->in_room != NULL)
+			if (ch->in_room != nullptr)
 				buf += can_see_in_room(ch, ch->in_room) ? ch->in_room->name.uncolor() : "darkness";
 			else
 				buf += ' ';
 
 			break;
 		case 'R':
-			if (IS_IMMORTAL(ch) && ch->in_room != NULL)
+			if (IS_IMMORTAL(ch) && ch->in_room != nullptr)
 				buf += Format::format("%d", ch->in_room->vnum);
 			else
 				buf += ' ';
 
 			break;
 		case 'z':
-			if (ch->in_room != NULL)
+			if (ch->in_room != nullptr)
 				buf += ch->in_room->area->name;
 			else
 				buf += ' ';
 
 			break;
 		case 't':
-			if (ch->in_room != NULL)
+			if (ch->in_room != nullptr)
 				buf += sector_lookup(ch->in_room->sector_type);
 			else
 				buf += ' ';
@@ -1327,7 +1327,7 @@ void bust_a_prompt(Character *ch)
 				if (ch->questmob == -1 || ch->questobf == -1)
 					buf += "*report!*";
 				else if (ch->questobj > 0) {
-//					if ((questinfoobj = get_obj_index(ch->questobj)) != NULL)
+//					if ((questinfoobj = get_obj_index(ch->questobj)) != nullptr)
 //						Format::sprintf(buf2, "%s", questinfoobj->name);
 					if (ch->questloc)
 						buf += get_room_index(ch->questloc)->name.uncolor();
@@ -1335,7 +1335,7 @@ void bust_a_prompt(Character *ch)
 						buf += "Unknown";
 				}
 				else if (ch->questmob > 0) {
-					if ((questinfo = get_mob_index(ch->questmob)) != NULL)
+					if ((questinfo = get_mob_index(ch->questmob)) != nullptr)
 						buf += questinfo->short_descr.uncolor();
 					else
 						buf += "Unknown";
@@ -1363,20 +1363,20 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'J':
 			if (IS_SQUESTOR(ch)) {
-				if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) {
+				if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob == nullptr) {
 					if (!ch->pcdata->squestobjf)
 //						buf += ch->pcdata->squestobj->short_descr;
 						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
 					else
 						buf += "*report!*";
 				}
-				else if (ch->pcdata->squestmob != NULL && ch->pcdata->squestobj == NULL) {
+				else if (ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj == nullptr) {
 					if (!ch->pcdata->squestmobf)
 						buf += ch->pcdata->squestmob->short_descr.uncolor();
 					else
 						buf += "*report!*";
 				}
-				else if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob != NULL) {
+				else if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr) {
 					if (ch->pcdata->squestobjf) {
 						if (!ch->pcdata->squestmobf)
 							buf += ch->pcdata->squestmob->short_descr.uncolor();
@@ -1453,7 +1453,7 @@ void cwtb(Descriptor *d, const String& txt)
  */
 void write_to_buffer(Descriptor *d, const String& txt)
 {
-	if (d == NULL)
+	if (d == nullptr)
 		return;
 
 	/*
@@ -1493,7 +1493,7 @@ bool write_to_descriptor(int desc, const String& txt, int length)
 			perror("Write_to_descriptor");
 /* I don't know what this does exactly, but C++11 doesn't like it -- Montrey
 			if (errno == EBADF) {
-				char *nullptr = NULL;
+				char *nullptr = nullptr;
 
 				if (*nullptr != '\0') abort();
 			}
@@ -1515,7 +1515,7 @@ bool check_playing(Descriptor *d, const String& name)
 
 	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
-		    &&   dold->character != NULL
+		    &&   dold->character != nullptr
 		    &&   dold->connected != CON_GET_NAME
 		    &&   dold->connected != CON_GET_OLD_PASSWORD
 		    &&   name == (dold->original
@@ -1532,23 +1532,23 @@ bool check_playing(Descriptor *d, const String& name)
 
 void stop_idling(Character *ch)
 {
-	if (ch == NULL
+	if (ch == nullptr
 	    ||   !IS_PLAYING(ch->desc)
-	    ||   ch->was_in_room == NULL
+	    ||   ch->was_in_room == nullptr
 	    ||   ch->in_room != get_room_index(ROOM_VNUM_LIMBO))
 		return;
 
 	ch->desc->timer = 0;
 	char_from_room(ch);
 	char_to_room(ch, ch->was_in_room);
-	ch->was_in_room     = NULL;
-	act("$n has returned from the void.", ch, NULL, NULL, TO_ROOM);
+	ch->was_in_room     = nullptr;
+	act("$n has returned from the void.", ch, nullptr, nullptr, TO_ROOM);
 	return;
 }
 
 String interpret_color_code(Character *ch, char a)
 {
-	// ch could be NULL here, and might not be PC, so lots of checks
+	// ch could be nullptr here, and might not be PC, so lots of checks
 	String code;
 
 	switch (a) {
@@ -1644,7 +1644,7 @@ String expand_color_codes(Character *ch, const String& str) {
  */
 void stc(const String& txt, Character *ch)
 {
-	if (txt.empty() || ch->desc == NULL)
+	if (txt.empty() || ch->desc == nullptr)
 		return;
 
 	if (!IS_NPC(ch) && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))
@@ -1660,7 +1660,7 @@ void stc(const String& txt, Character *ch)
  */
 void page_to_char(const String& txt, Character *ch)
 {
-	if (txt.empty() || ch->desc == NULL)
+	if (txt.empty() || ch->desc == nullptr)
 		return;
 
 	ch->desc->showstr_head += txt;
@@ -1761,7 +1761,7 @@ void do_copyover(Character *ch, String argument)
 	do_allsave(ch, "");
 	save_clan_table();
 
-	if ((fp = fopen(COPYOVER_FILE, "w")) == NULL) {
+	if ((fp = fopen(COPYOVER_FILE, "w")) == nullptr) {
 		stc("Copyover file not writeable, aborted.\n", ch);
 		Format::sprintf(buf, "Could not write to copyover file: %s", COPYOVER_FILE);
 		log_string(buf);
@@ -1783,7 +1783,7 @@ void do_copyover(Character *ch, String argument)
 	Format::fprintf(fp, "-1\n");
 	fclose(fp);
 
-	if ((fp = fopen(COPYOVER_LOG, "w")) == NULL) {
+	if ((fp = fopen(COPYOVER_LOG, "w")) == nullptr) {
 		stc("Copyover file not writeable, aborted.\n", ch);
 		Format::sprintf(buf, "Could not write to copyover file: %s", COPYOVER_LOG);
 		log_string(buf);

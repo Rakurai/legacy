@@ -99,7 +99,7 @@ char *fgetf(char *s, int n, register FILE *iop)
 			break;
 
 	*cs = '\0';
-	return ((c == EOF && cs == s) ? NULL : s);
+	return ((c == EOF && cs == s) ? nullptr : s);
 }
 
 /* integrated shell */
@@ -127,8 +127,8 @@ void do_mypipe(Character *ch, String argument)
 	for (i = 0; i < 100; i++)
 		lengths[i] = 0;
 
-	if (mysql_db == NULL) {
-		bugf("do_mypipe:  mysql_db is NULL, reopening");
+	if (mysql_db == nullptr) {
+		bugf("do_mypipe:  mysql_db is nullptr, reopening");
 		db_open();
 	}
 
@@ -232,7 +232,7 @@ void do_reboot(Character *ch, String argument)
 	do_save(ch, "");
 	merc_down = TRUE;
 
-	for (d = descriptor_list; d != NULL; d = d_next) {
+	for (d = descriptor_list; d != nullptr; d = d_next) {
 		d_next = d->next;
 		close_socket(d);
 	}
@@ -275,7 +275,7 @@ void do_shutdown(Character *ch, String argument)
 	do_save(ch, "");
 	merc_down = TRUE;
 
-	for (d = descriptor_list; d != NULL; d = d_next) {
+	for (d = descriptor_list; d != nullptr; d = d_next) {
 		d_next = d->next;
 		close_socket(d);
 	}
@@ -331,7 +331,7 @@ void do_advance(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == nullptr) {
 		stc("They are not playing.\n", ch);
 		return;
 	}
@@ -400,11 +400,11 @@ void do_wizlock(Character *ch, String argument)
 	wizlock = !wizlock;
 
 	if (wizlock) {
-		wiznet("$N has wizlocked the game.", ch, NULL, 0, 0, 0);
+		wiznet("$N has wizlocked the game.", ch, nullptr, 0, 0, 0);
 		stc("Game wizlocked.\n", ch);
 	}
 	else {
-		wiznet("$N removes the current wizlock.", ch, NULL, 0, 0, 0);
+		wiznet("$N removes the current wizlock.", ch, nullptr, 0, 0, 0);
 		stc("Game un-wizlocked.\n", ch);
 	}
 }
@@ -430,7 +430,7 @@ void do_addexit(Character *ch, String argument)
 	Exit *exit;
 	int dir;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	String arg1, arg2;
@@ -443,7 +443,7 @@ void do_addexit(Character *ch, String argument)
 		return;
 	}
 
-	if (get_room_index(atoi(arg1)) == NULL) {
+	if (get_room_index(atoi(arg1)) == nullptr) {
 		stc("No such room with that vnum exists.\n", ch);
 		return;
 	}
@@ -459,7 +459,7 @@ void do_addexit(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->exit[dir] != NULL) {
+	if (ch->in_room->exit[dir] != nullptr) {
 		stc("There is already an exit in that direction.\n", ch);
 		return;
 	}
@@ -479,7 +479,7 @@ void do_remexit(Character *ch, String argument)
 {
 	int dir;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	String arg;
@@ -502,15 +502,15 @@ void do_remexit(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->exit[dir] == NULL) {
+	if (ch->in_room->exit[dir] == nullptr) {
 		stc("There is no exit in that direction.\n", ch);
 		return;
 	}
 
 	/* this is sloppy, but this command will be used once in a blue moon.
 	   just abandon the exit :P */
-	ch->in_room->exit[dir] = NULL;
-	ch->in_room->old_exit[dir] = NULL;
+	ch->in_room->exit[dir] = nullptr;
+	ch->in_room->old_exit[dir] = nullptr;
 	top_exit--;
 	stc("Exit removed.\n", ch);
 }
@@ -519,7 +519,7 @@ void do_sectchange(Character *ch, String argument)
 {
 	int sect;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	if (argument.empty()
@@ -606,13 +606,13 @@ void do_dump(Character *ch, String argument)
 	/* mobs */
 	count = 0;
 
-	for (fch = char_list; fch != NULL; fch = fch->next) {
+	for (fch = char_list; fch != nullptr; fch = fch->next) {
 		count++;
 
-		if (fch->pcdata != NULL)
+		if (fch->pcdata != nullptr)
 			num_pcs++;
 
-		for (const Affect *af = affect_list_char(fch); af != NULL; af = af->next)
+		for (const Affect *af = affect_list_char(fch); af != nullptr; af = af->next)
 			aff_count++;
 	}
 
@@ -625,7 +625,7 @@ void do_dump(Character *ch, String argument)
 	/* descriptors */
 	count = 0;
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	for (d = descriptor_list; d != nullptr; d = d->next)
 		count++;
 
 	Format::fprintf(fp, "Descs  %4d (%8ld bytes)\n",
@@ -633,8 +633,8 @@ void do_dump(Character *ch, String argument)
 
 	/* object prototypes */
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
-			for (const Affect *af = pObjIndex->affected; af != NULL; af = af->next)
+		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
+			for (const Affect *af = pObjIndex->affected; af != nullptr; af = af->next)
 				aff_count++;
 
 			nMatch++;
@@ -645,10 +645,10 @@ void do_dump(Character *ch, String argument)
 	/* objects */
 	count = 0;
 
-	for (obj = object_list; obj != NULL; obj = obj->next) {
+	for (obj = object_list; obj != nullptr; obj = obj->next) {
 		count++;
 
-		for (const Affect *af = affect_list_obj(obj); af != NULL; af = af->next)
+		for (const Affect *af = affect_list_obj(obj); af != nullptr; af = af->next)
 			aff_count++;
 	}
 
@@ -671,7 +671,7 @@ void do_dump(Character *ch, String argument)
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_mob_index; vnum++)
-		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
+		if ((pMobIndex = get_mob_index(vnum)) != nullptr) {
 			nMatch++;
 			Format::fprintf(fp, "#%-4d %3d active %3d killed     %s\n",
 			        pMobIndex->vnum, pMobIndex->count,
@@ -686,7 +686,7 @@ void do_dump(Character *ch, String argument)
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
+		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
 			nMatch++;
 			Format::fprintf(fp, "#%-4d %3d active %3d reset      %s\n",
 			        pObjIndex->vnum, pObjIndex->count,

@@ -20,8 +20,8 @@ public:
 */
     String      char_auto;
     String      others_auto;
-    Social * previous = NULL;
-    Social * next = NULL;
+    Social * previous = nullptr;
+    Social * next = nullptr;
 
 private:
     Social(const Social&);

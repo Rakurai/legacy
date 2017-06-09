@@ -11,17 +11,17 @@
 #include "sql.h"
 #include "Format.hpp"
 
-sqlite3* _db = NULL;
-sqlite3_stmt* _result = NULL;
+sqlite3* _db = nullptr;
+sqlite3_stmt* _result = nullptr;
 
 void db_open()
 {
 	int error;
 
 	if (_db)
-		bug("db_open: db is not NULL, opening anyway", 0);
+		bug("db_open: db is not nullptr, opening anyway", 0);
 
-	error = sqlite3_open_v2(DB_FILE, &_db, SQLITE_OPEN_READWRITE, NULL);
+	error = sqlite3_open_v2(DB_FILE, &_db, SQLITE_OPEN_READWRITE, nullptr);
 
 	if (error != SQLITE_OK)
 		db_error("db_open");
@@ -29,9 +29,9 @@ void db_open()
 
 void db_close()
 {
-	if (_db != NULL) {
+	if (_db != nullptr) {
 		sqlite3_close(_db);
-		_db = NULL;
+		_db = nullptr;
 	}
 }
 
@@ -75,13 +75,13 @@ int db_query(const String& func, const String& query)
 {
 	int error;
 
-	if (_result != NULL) {
+	if (_result != nullptr) {
 		// free result from last time
 		sqlite3_finalize(_result);
-		_result = NULL;
+		_result = nullptr;
 	}
 
-	error = sqlite3_prepare_v2(_db, query.c_str(), -1, &_result, NULL);
+	error = sqlite3_prepare_v2(_db, query.c_str(), -1, &_result, nullptr);
 
 	if (error != SQLITE_OK) {
 		db_error("db_query");

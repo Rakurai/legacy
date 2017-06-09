@@ -282,15 +282,15 @@ void global_act(Character *ch, const String& message,
 	Descriptor *d;
 	Character *victim;
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
 		    !IS_SET(victim->comm, nocomm_bits) &&
-		    (ch == NULL || despite_invis || can_see_who(victim, ch))) {
+		    (ch == nullptr || despite_invis || can_see_who(victim, ch))) {
 			set_color(victim, color, BOLD);
-			act(message, ch, NULL, d->character, TO_VICT, POS_SLEEPING, FALSE);
+			act(message, ch, nullptr, d->character, TO_VICT, POS_SLEEPING, FALSE);
 			set_color(victim, WHITE, NOBOLD);
 		}
 	}
@@ -322,7 +322,7 @@ bool swearcheck(const String& argument)
 		{       "pussy",        2       },
 		{       "dick",         2       },
 		{       "slut",         2       },
-		{       NULL,           0       }
+		{       nullptr,           0       }
 	};
 	int x;  /* Our lovely counter */
 	String tobechecked = argument.uncolor();
@@ -376,9 +376,9 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 		if (!iterator->char_no_arg.empty())
 			stc("[S] ", ch);
 
-		act(iterator->char_no_arg,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act(iterator->char_no_arg,  ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
-	else if (victim == NULL) {
+	else if (victim == nullptr) {
 		stc("[S] They are not here.\n", ch);
 		return TRUE;
 	}
@@ -386,18 +386,18 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 		if (!iterator->char_auto.empty())
 			stc("[S] ", ch);
 
-		act(iterator->char_auto,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act(iterator->char_auto,  ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else {
 		if (!iterator->char_found.empty())
 			stc("[S] ", ch);
 
-		act(iterator->char_found,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act(iterator->char_found,  ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 
 	set_color(ch, WHITE, NOBOLD);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *vic;
 		vic = d->original ? d->original : d->character;
 
@@ -412,7 +412,7 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 				if (!iterator->others_no_arg.empty())
 					stc("[S] ", vic);
 
-				act(iterator->others_no_arg, ch, NULL, vic, TO_VICT, POS_SLEEPING, FALSE);
+				act(iterator->others_no_arg, ch, nullptr, vic, TO_VICT, POS_SLEEPING, FALSE);
 			}
 			else if (victim == ch) {
 				if (!iterator->others_auto.empty())
@@ -424,7 +424,7 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 				if (!iterator->vict_found.empty())
 					stc("[S] ", vic);
 
-				act(iterator->vict_found,  ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
+				act(iterator->vict_found,  ch, nullptr, victim, TO_VICT, POS_SLEEPING, FALSE);
 			}
 			else {
 				if (!iterator->others_found.empty())
@@ -451,7 +451,7 @@ void channel_who(Character *ch, const String& channelname, int channel, int cust
 	new_color(ch, custom);
 	ptc(ch, "Players with %s ON\n", channelname);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -499,7 +499,7 @@ void send_to_clan(Character *ch, Clan *target, const char *text)
 {
 	Descriptor *d;
 
-	if (target == NULL) {
+	if (target == nullptr) {
 		stc("No such clan!\n", ch);
 		return;
 	}
@@ -509,7 +509,7 @@ void send_to_clan(Character *ch, Clan *target, const char *text)
 		return;
 	}
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		if (IS_PLAYING(d) &&
 		    d->character->clan == target)
 			stc(text, d->character);
@@ -520,7 +520,7 @@ void wiznet(const String& string, Character *ch, Object *obj, long flag, long fl
 {
 	Descriptor *d;
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		if (IS_PLAYING(d)
 		    && IS_IMMORTAL(d->character)
 		    && IS_SET(d->character->wiznet, WIZ_ON)
@@ -624,7 +624,7 @@ void channel(Character *ch, const String& argument, int channel)
 
 	set_color(ch, WHITE, NOBOLD);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -767,7 +767,7 @@ void talk_auction(const String& argument)
 	Character *victim;
 	Descriptor *d;
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d)
@@ -806,7 +806,7 @@ void do_send_announce(Character *ch, String argument)
 	Character *victim;
 	Descriptor *d;
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d)
@@ -829,7 +829,7 @@ void do_fyi(Character *ch, String argument)
 	ptc(ch, "You FYI '%s{x'\n", argument);
 	set_color(ch, WHITE, NOBOLD);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -966,7 +966,7 @@ void do_globalsocial(Character *ch, String argument)
 		Format::sprintf(buf, "$n socializes '%s{x'", argument);
 
 	/* broadcast the social */
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -982,7 +982,7 @@ void do_globalsocial(Character *ch, String argument)
 		    !IS_SET(victim->comm, COMM_NOSOCIAL) &&
 		    !IS_SET(victim->comm, COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_SOCIAL);
-			act(buf, ch, NULL, victim, TO_VICT, POS_SLEEPING, FALSE);
+			act(buf, ch, nullptr, victim, TO_VICT, POS_SLEEPING, FALSE);
 			set_color(victim, WHITE, NOBOLD);
 		}
 	}   /* end of for loop -- to each player */
@@ -1003,7 +1003,7 @@ void do_iclantalk(Character *ch, String argument)
 		return;
 	}
 
-	if ((clan = clan_lookup(arg)) == NULL) {
+	if ((clan = clan_lookup(arg)) == nullptr) {
 		stc("No such clan exists, type clanlist for a list of valid clans.\n", ch);
 		return;
 	}
@@ -1020,7 +1020,7 @@ void do_say(Character *ch, String argument)
 {
 	Character *vch;
 
-	if (ch->in_room == NULL)
+	if (ch->in_room == nullptr)
 		return;
 
 	if (argument.empty()) {
@@ -1040,7 +1040,7 @@ void do_say(Character *ch, String argument)
 
 	argument = makedrunk(ch, argument);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+	for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
 		if (vch != ch && IS_AWAKE(vch)) {
 			new_color(vch, CSLOT_CHAN_SAY);
 
@@ -1059,11 +1059,11 @@ void do_say(Character *ch, String argument)
 	/* viewing room stuff */
 	/* make say command handle yelling and questions */
 	if (argument[ strlen(argument) - 1] == '?')
-		act("$n asks '$T'\n", ch, NULL, argument, TO_VIEW);
+		act("$n asks '$T'\n", ch, nullptr, argument, TO_VIEW);
 	else if (argument[ strlen(argument) - 1] == '!')
-		act("$n exclaims '$T'\n", ch, NULL, argument, TO_VIEW);
+		act("$n exclaims '$T'\n", ch, nullptr, argument, TO_VIEW);
 	else
-		act("$n says '$T'\n", ch, NULL, argument, TO_VIEW);
+		act("$n says '$T'\n", ch, nullptr, argument, TO_VIEW);
 
 	new_color(ch, CSLOT_CHAN_SAY);
 
@@ -1117,8 +1117,8 @@ void do_tell(Character *ch, String argument)
 	}
 
 	/* Can tell to PC's anywhere, but NPC's only in same room. */
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL)
-		if ((victim = get_mob_here(ch, arg, VIS_CHAR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr)
+		if ((victim = get_mob_here(ch, arg, VIS_CHAR)) == nullptr) {
 			new_color(ch, CSLOT_CHAN_TELL);
 			stc("They aren't here.\n", ch);
 			set_color(ch, WHITE, NOBOLD);
@@ -1127,7 +1127,7 @@ void do_tell(Character *ch, String argument)
 
 	if (IS_SET(victim->comm, COMM_QUIET | COMM_DEAF | COMM_NOCHANNELS) && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		act("$E is not receiving tells.", ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
+		act("$E is not receiving tells.", ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1139,12 +1139,12 @@ void do_tell(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->desc == NULL && !IS_NPC(victim)) {
+	if (victim->desc == nullptr && !IS_NPC(victim)) {
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E has lost $S link, but your message will go through when $E returns.",
-		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
+		        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
@@ -1156,7 +1156,7 @@ void do_tell(Character *ch, String argument)
 		if (IS_NPC(victim)) {
 			new_color(ch, CSLOT_CHAN_TELL);
 			act("$E is AFK, and not receiving tells.",
-			        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
+			        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
@@ -1165,7 +1165,7 @@ void do_tell(Character *ch, String argument)
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E is AFK, but your tell will go through when $E returns.",
-		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
+		        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		stc(victim->pcdata->afk, ch);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
@@ -1214,7 +1214,7 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	for (victim = char_list; victim != NULL ; victim = victim->next)
+	for (victim = char_list; victim != nullptr ; victim = victim->next)
 		if (! strcmp(ch->reply, victim->name)) {
 			found = TRUE;
 			break;
@@ -1245,7 +1245,7 @@ void do_reply(Character *ch, String argument)
 	     || IS_SET(victim->comm, COMM_NOCHANNELS))
 	    && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		act("$E is not receiving tells.", ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
+		act("$E is not receiving tells.", ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1257,11 +1257,11 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->desc == NULL && !IS_NPC(victim)) {
+	if (victim->desc == nullptr && !IS_NPC(victim)) {
 		strtime = ctime(&current_time);
 		strtime[strlen(strtime) - 1] = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
-		act("$N seems to have misplaced $S link...try again later.", ch, NULL, victim, TO_CHAR);
+		act("$N seems to have misplaced $S link...try again later.", ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
@@ -1273,7 +1273,7 @@ void do_reply(Character *ch, String argument)
 		if (IS_NPC(victim)) {
 			new_color(ch, CSLOT_CHAN_TELL);
 			act("$E is AFK, and not receiving tells.",
-			        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
+			        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
@@ -1282,8 +1282,8 @@ void do_reply(Character *ch, String argument)
 		strtime[strlen(strtime) - 1] = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E is AFK, but your tell will go through when $E returns.",
-		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
-		act(victim->pcdata->afk, ch, NULL, NULL, TO_CHAR);
+		        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
+		act(victim->pcdata->afk, ch, nullptr, nullptr, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
@@ -1318,9 +1318,9 @@ void do_yell(Character *ch, String argument)
 		return;
 	}
 
-	act("You yell '$t{x'", ch, argument, NULL, TO_CHAR);
+	act("You yell '$t{x'", ch, argument, nullptr, TO_CHAR);
 
-	for (d = descriptor_list; d != NULL; d = d->next) {
+	for (d = descriptor_list; d != nullptr; d = d->next) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -1332,7 +1332,7 @@ void do_yell(Character *ch, String argument)
 
 		if (IS_PLAYING(d)
 		    &&   d->character != ch
-		    &&   d->character->in_room != NULL
+		    &&   d->character->in_room != nullptr
 		    &&   d->character->in_room->area == ch->in_room->area
 		    &&   !is_ignoring(victim, ch)
 		    &&   !IS_SET(d->character->comm, COMM_QUIET))
@@ -1354,8 +1354,8 @@ void do_emote(Character *ch, String argument)
 		return;
 	}
 
-	act("$n $T{x", ch, NULL, argument, TO_ROOM);
-	act("$n $T{x", ch, NULL, argument, TO_CHAR);
+	act("$n $T{x", ch, nullptr, argument, TO_ROOM);
+	act("$n $T{x", ch, nullptr, argument, TO_CHAR);
 	mprog_speech_trigger(argument, ch);
 	return;
 }
@@ -1378,13 +1378,13 @@ void do_pmote(Character *ch, String argument)
 		return;
 	}
 
-	act("$n $t{x", ch, argument, NULL, TO_CHAR);
+	act("$n $t{x", ch, argument, nullptr, TO_CHAR);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (vch->desc == NULL || vch == ch)
+	for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
+		if (vch->desc == nullptr || vch == ch)
 			continue;
 
-		if ((letter = strstr(argument, vch->name)) == NULL) {
+		if ((letter = strstr(argument, vch->name)) == nullptr) {
 			act("$N $t{x", vch, argument, ch, TO_CHAR);
 			continue;
 		}
@@ -1454,7 +1454,7 @@ void do_smote(Character *ch, String argument)
 		return;
 	}
 
-	if (strstr(argument, ch->name) == NULL) {
+	if (strstr(argument, ch->name) == nullptr) {
 		stc("You must include your name in an s-emote.\n", ch);
 		return;
 	}
@@ -1462,11 +1462,11 @@ void do_smote(Character *ch, String argument)
 	stc(argument, ch);
 	stc("\n", ch);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-		if (vch->desc == NULL || vch == ch)
+	for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
+		if (vch->desc == nullptr || vch == ch)
 			continue;
 
-		if ((letter = strstr(argument, vch->name)) == NULL) {
+		if ((letter = strstr(argument, vch->name)) == nullptr) {
 			stc(argument, vch);
 			stc("\n", vch);
 			continue;
@@ -1566,7 +1566,7 @@ void do_page(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, arg, VIS_PLR)) == nullptr) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 		ptc(ch, "You failed to locate [%s] in these realms.\n", arg);
 		set_color(ch, WHITE, NOBOLD);
@@ -1576,7 +1576,7 @@ void do_page(Character *ch, String argument)
 	if ((IS_SET(victim->comm, COMM_NOPAGE))
 	    && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		act("$E does not have $S pager turned on.", ch, NULL, victim, TO_CHAR);
+		act("$E does not have $S pager turned on.", ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1588,12 +1588,12 @@ void do_page(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->desc == NULL) {
+	if (victim->desc == nullptr) {
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_PAGE);
 		act("$N seems to have misplaced $S link...try again later.",
-		    ch, NULL, victim, TO_CHAR);
+		    ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "{R[%s] %s PAGES '%s{x'{x\a\n",
 		        strtime , PERS(ch, victim, VIS_PLR), argument);
@@ -1629,7 +1629,7 @@ void do_whisper(Character *ch, String argument)
 		return;
 	}
 
-	if ((victim = get_player_world(ch, ch->pcdata->whisper, VIS_PLR)) == NULL) {
+	if ((victim = get_player_world(ch, ch->pcdata->whisper, VIS_PLR)) == nullptr) {
 		ptc(ch, "{G%s isn't here. :({x\n", ch->pcdata->whisper);
 		return;
 	}
@@ -1714,7 +1714,7 @@ void do_gtell(Character *ch, String argument)
 
 	/* would be more efficient to find leader and step thru all his group members
 	-- Elrac */
-	for (gch = char_list; gch != NULL; gch = gch->next) {
+	for (gch = char_list; gch != nullptr; gch = gch->next) {
 		if (is_same_group(gch, ch)) {
 			new_color(gch, CSLOT_CHAN_GTELL);
 			stc(buf, gch);
@@ -1729,7 +1729,7 @@ void do_query(Character *ch, String argument)
 {
 	Character *rch;
 
-	if (ch->desc == NULL)
+	if (ch->desc == nullptr)
 		rch = ch;
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;

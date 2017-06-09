@@ -71,10 +71,10 @@ void save_char_obj(Character *ch)
 	char strsave[MIL];
 	FILE *fp;
 
-	if (ch == NULL || IS_NPC(ch))
+	if (ch == nullptr || IS_NPC(ch))
 		return;
 
-	if (ch->desc != NULL && ch->desc->original != NULL)
+	if (ch->desc != nullptr && ch->desc->original != nullptr)
 		ch = ch->desc->original;
 
 	ch->pcdata->last_saved = current_time;
@@ -102,7 +102,7 @@ void save_char_obj(Character *ch)
 	one_argument(ch->name, buf);
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.capitalize());
 
-	if ((fp = fopen(TEMP_FILE, "w")) != NULL) {
+	if ((fp = fopen(TEMP_FILE, "w")) != nullptr) {
 		fputs(JSONstring, fp);
 		fclose(fp);
 		rename(TEMP_FILE, strsave);
@@ -137,7 +137,7 @@ cJSON *fwrite_player(Character *ch)
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject(); // object to return
 
-	item = NULL;
+	item = nullptr;
 
 	if (!ch->pcdata->alias.empty()) {
 		item = cJSON_CreateArray();
@@ -214,17 +214,17 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->gameout[0])
 		JSON::addStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
-	item = NULL;
+	item = nullptr;
 	for (int gn = 0; gn < group_table.size(); gn++) {
 		if (ch->pcdata->group_known[gn] == 0)
 			continue;
 
-		if (item == NULL)
+		if (item == nullptr)
 			item = cJSON_CreateArray();
 
 		cJSON_AddItemToArray(item, cJSON_CreateString(group_table[gn].name.c_str()));
 	}
-	if (item != NULL)
+	if (item != nullptr)
 		cJSON_AddItemToObject(o,	"Gr",			item);
 
 	if (!ch->pcdata->ignore.empty()) {
@@ -293,12 +293,12 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->rolepoints)
 		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
 
-	item = NULL;
+	item = nullptr;
 	for (int sn = 0; sn < skill_table.size(); sn++) {
 		if (ch->pcdata->learned[sn] <= 0)
 			continue;
 
-		if (item == NULL)
+		if (item == nullptr)
 			item = cJSON_CreateArray();
 
 		if (ch->pcdata->evolution[sn] < 1)
@@ -312,7 +312,7 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddNumberToObject(sk, "evol", ch->pcdata->evolution[sn]);
 		cJSON_AddItemToArray(item, sk);
 	}
-	if (item != NULL)
+	if (item != nullptr)
 		cJSON_AddItemToObject(o,	"Sk",			item);
 
 	if (ch->pcdata->skillpoints)
@@ -332,19 +332,19 @@ cJSON *fwrite_player(Character *ch)
 
 		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
 
-		item = NULL;
+		item = nullptr;
 		for (int i = 0; i < (ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS) + 1; i++) {
 			if (ch->pcdata->extraclass[i] == 0)
 				break;
 
-			if (item == NULL)
+			if (item == nullptr)
 				item = cJSON_CreateArray();
 
 			cJSON_AddItemToArray(item,
 				cJSON_CreateString(skill_table[ch->pcdata->extraclass[i]].name.c_str()));
 		}
 
-		if (item != NULL)
+		if (item != nullptr)
 			cJSON_AddItemToObject(o, "ExSk", item);
 
 		item = cJSON_CreateIntArray(ch->pcdata->raffect, ch->pcdata->remort_count / 10 + 1);
@@ -378,8 +378,8 @@ cJSON *fwrite_char(Character *ch)
 
 	JSON::addStringToObject(o,		"Act",			flags_to_string(ch->act_flags));
 
-	item = NULL;
-	for (const Affect *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+	item = nullptr;
+	for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
 		if (paf->type < 0 || paf->type >= skill_table.size())
 			continue;
 
@@ -387,7 +387,7 @@ cJSON *fwrite_char(Character *ch)
 		if (paf->permanent)
 			continue;
 
-		if (item == NULL)
+		if (item == nullptr)
 			item = cJSON_CreateArray();
 
 		cJSON *aff = cJSON_CreateObject();
@@ -401,7 +401,7 @@ cJSON *fwrite_char(Character *ch)
 		cJSON_AddNumberToObject(aff, "evo", paf->evolution);
 		cJSON_AddItemToArray(item, aff);
 	}
-	if (item != NULL)
+	if (item != nullptr)
 		cJSON_AddItemToObject(o,	"Affc",			item);
 
 	cJSON_AddNumberToObject(o,		"Alig",			ch->alignment);
@@ -476,9 +476,9 @@ cJSON *fwrite_char(Character *ch)
 	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
 	JSON::addStringToObject(o,		"Revk",			flags_to_string(ch->revoke));
 	cJSON_AddNumberToObject(o,		"Room",			
-		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != NULL)
+		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != nullptr)
 	        ? ch->was_in_room->vnum
-	        : ch->in_room == NULL
+	        : ch->in_room == nullptr
 	        ? 3001
 	        : ch->in_room->vnum);
 
@@ -535,7 +535,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		if ((!strongbox && (obj->level > get_holdable_level(ch)))
 		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
 		    || (obj->item_type == ITEM_MAP && !obj->value[0]))
-			return NULL;
+			return nullptr;
 */
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject();
@@ -551,7 +551,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		// we could write an empty list here, for a disenchanted item
 		item = cJSON_CreateArray();
 
-		for (const Affect *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+		for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
 			if (paf->type >= skill_table.size())
 				continue;
 
@@ -570,14 +570,14 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		cJSON_AddItemToObject(o,	"Affc",			item);
 	}
 
-	item = NULL;
-	for (ExtraDescr *ed = obj->extra_descr; ed != NULL; ed = ed->next) {
-		if (item == NULL)
+	item = nullptr;
+	for (ExtraDescr *ed = obj->extra_descr; ed != nullptr; ed = ed->next) {
+		if (item == nullptr)
 			item = cJSON_CreateObject();
 
 		JSON::addStringToObject(item, ed->keyword, ed->description);
 	}
-	if (item != NULL)
+	if (item != nullptr)
 		cJSON_AddItemToObject(o,	"ExDe",			item);
 
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
@@ -613,7 +613,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 	if (obj->weight != obj->pIndexData->weight)
 		cJSON_AddNumberToObject(o,	"Wt",			obj->weight);
 
-	// does nothing if the contains is NULL
+	// does nothing if the contains is nullptr
 	cJSON_AddItemToObject(o, "contains", fwrite_objects(ch, obj->contains, strongbox));
 
 	return o;
@@ -635,7 +635,7 @@ cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 	// because objects could be nerfed on saving, this could still be empty
 	if (cJSON_GetArraySize(array) == 0) {
 		cJSON_Delete(array);
-		array = NULL;
+		array = nullptr;
 	}
 
 	return array;
@@ -685,7 +685,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 	cJSON *root = JSON::read_file(strsave);
 
-	if (root != NULL) {
+	if (root != nullptr) {
 
 		int version = CURRENT_VERSION;
 		JSON::get_int(root, &version, "version");
@@ -713,7 +713,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 		// fix things up
 
 		// fix up character stuff here
-		if (ch->in_room == NULL)
+		if (ch->in_room == nullptr)
 			ch->in_room = get_room_index(ROOM_VNUM_LIMBO);
 
 		if (ch->secure_level > GET_RANK(ch))
@@ -755,12 +755,12 @@ bool load_char_obj(Descriptor *d, const String& name)
 		if (ch->level >= LEVEL_HERO)
 			SET_CGROUP(ch, GROUP_HERO);
 
-		if (ch->clan == NULL && !IS_IMMORTAL(ch)) {
+		if (ch->clan == nullptr && !IS_IMMORTAL(ch)) {
 			REM_CGROUP(ch, GROUP_LEADER);
 			REM_CGROUP(ch, GROUP_DEPUTY);
 		}
 
-		if (ch->clan != NULL)
+		if (ch->clan != nullptr)
 			SET_CGROUP(ch, GROUP_CLAN);
 
 		if (!IS_IMMORTAL(ch)) {
@@ -867,7 +867,7 @@ void setstr(String *field, const char* value) {
 
 
 void fread_player(Character *ch, cJSON *json, int version) {
-	if (json == NULL)
+	if (json == nullptr)
 		return;
 
 	// if there are any player-specific fields that are depended on by others in the list,
@@ -885,7 +885,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 			case 'A':
 				if (key == "Alias") { // array of 2-tuples
 					// each alias is a 2-tuple (a list)
-					for (cJSON *item = o->child; item != NULL; item = item->next, count++)
+					for (cJSON *item = o->child; item != nullptr; item = item->next, count++)
 						ch->pcdata->alias[item->child->valuestring] = item->child->next->valuestring;
 
 					fMatch = TRUE; break;
@@ -911,7 +911,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				}
 
 				if (key == "Colr") { // array of dicts
-					for (cJSON *item = o->child; item != NULL; item = item->next) {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						int slot = cJSON_GetObjectItem(item, "slot")->valueint;
 						JSON::get_short(item, &ch->pcdata->color[slot], "color");
 						JSON::get_short(item, &ch->pcdata->bold[slot], "bold");
@@ -927,7 +927,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 			case 'E':
 				if (key == "ExSk") {
 					count = 0;
-					for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
+					for (cJSON *item = o->child; item != nullptr && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
 						int sn = skill_lookup(item->valuestring);
 
 						if (sn <= 0) {
@@ -950,7 +950,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				break;
 			case 'G':
 				if (key == "Gr") {
-					for (cJSON *item = o->child; item != NULL; item = item->next) {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						int gn = group_lookup(item->valuestring);
 
 						if (gn < 0) {
@@ -978,7 +978,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				break;
 			case 'I':
 				if (key == "Ignore") {
-					for (cJSON *item = o->child; item != NULL; item = item->next)
+					for (cJSON *item = o->child; item != nullptr; item = item->next)
 						ch->pcdata->ignore.push_back(item->valuestring);
 					fMatch = TRUE; break;
 				}
@@ -1023,7 +1023,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				break;
 			case 'Q':
 				if (key == "Query") {
-					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
+					for (cJSON *item = o->child; item != nullptr && count < MAX_QUERY; item = item->next)
 						ch->pcdata->query.push_back(item->valuestring);
 					fMatch = TRUE; break;
 				}
@@ -1031,7 +1031,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				break;
 			case 'R':
 				if (key == "Raff") {
-					for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
+					for (cJSON *item = o->child; item != nullptr && count < MAX_RAFFECT_SLOTS; item = item->next)
 						ch->pcdata->raffect[count++] = item->valueint;
 					fMatch = TRUE; break;
 				}
@@ -1042,7 +1042,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				break;
 			case 'S':
 				if (key == "Sk") {
-					for (cJSON *item = o->child; item != NULL; item = item->next) {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
 						int sn = skill_lookup(temp);
 
@@ -1099,7 +1099,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 // this could be PC or NPC!
 void fread_char(Character *ch, cJSON *json, int version)
 {
-	if (json == NULL)
+	if (json == nullptr)
 		return;
 
 	char buf[MSL];
@@ -1120,7 +1120,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 				if (key == "Affc") {
 					// these are the non-permanent affects (not racial or remort affect),
 					// those are added after the character is loaded
-					for (cJSON *item = o->child; item != NULL; item = item->next) {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
 						if (sn < 0) {
@@ -1253,19 +1253,19 @@ void fread_char(Character *ch, cJSON *json, int version)
 
 // read a single item including its contents
 Object * fread_obj(cJSON *json, int version) {
-	Object *obj = NULL;
+	Object *obj = nullptr;
 	cJSON *o;
 
-	if ((o = cJSON_GetObjectItem(json, "Vnum")) != NULL) {
+	if ((o = cJSON_GetObjectItem(json, "Vnum")) != nullptr) {
 		ObjectPrototype *index = get_obj_index(o->valueint);
 
-		if (index == NULL)
+		if (index == nullptr)
 			bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
 		else {
 			obj = create_object(index, -1);
 
-			if (obj == NULL)
-				bug("fread_obj: create_object returned NULL", 0);
+			if (obj == nullptr)
+				bug("fread_obj: create_object returned nullptr", 0);
 		}
 	}
 	else
@@ -1273,7 +1273,7 @@ Object * fread_obj(cJSON *json, int version) {
 
 //	bug("reading an object", 0);
 
-	if (obj == NULL) { /* either not found or old style */
+	if (obj == nullptr) { /* either not found or old style */
 		bug("obj is null!", 0);
 		obj = new_obj();
 	}
@@ -1299,7 +1299,7 @@ Object * fread_obj(cJSON *json, int version) {
 					// this object has different affects than the index, free the old ones
 					affect_remove_all_from_obj(obj, TRUE);
 
-					for (cJSON *item = o->child; item != NULL; item = item->next) {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
 						if (sn < 0) {
@@ -1440,7 +1440,7 @@ Object * fread_obj(cJSON *json, int version) {
 
 // read a list of objects and return the head
 void fread_objects(Character *ch, cJSON *contains, void (*obj_to)(Object *, Character *), int version) {
-	if (contains == NULL)
+	if (contains == nullptr)
 		return;
 
 	for (cJSON *item = contains->child; item; item = item->next) {
@@ -1470,13 +1470,13 @@ void fread_pet(Character *ch, cJSON *json, int version)
 {
 	cJSON *o;
 
-	if (json == NULL)
+	if (json == nullptr)
 		return;
 
 	int vnum;
 
 	// error compensation in case their mob goes away, don't poof inventory
-	if ((o = cJSON_GetObjectItem(json, "Vnum")) != NULL) {
+	if ((o = cJSON_GetObjectItem(json, "Vnum")) != nullptr) {
 		vnum = o->valueint;
 	}
 	else {
@@ -1486,7 +1486,7 @@ void fread_pet(Character *ch, cJSON *json, int version)
 
 	MobilePrototype *index = get_mob_index(vnum);
 
-	if (index == NULL) {
+	if (index == nullptr) {
 		bug("Fread_pet: bad vnum %d in fread_pet().", vnum);
 		index = get_mob_index(MOB_VNUM_FIDO);
 	}
@@ -1611,7 +1611,7 @@ void do_finger(Character *ch, String argument)
 	int cls, pks, pkd, pkr, aks, akd, level, rmct;
 	long cgroup = 0L, plr = 0L;
 	time_t last_ltime, last_saved;
-	Clan *clan = NULL;
+	Clan *clan = nullptr;
 
 	String arg;
 	one_argument(argument, arg);
@@ -1648,7 +1648,7 @@ void do_finger(Character *ch, String argument)
 
 	cJSON *root = JSON::read_file(filename);
 
-	if (root == NULL) {
+	if (root == nullptr) {
 		stc("That player does not exist.\n", ch);
 		return;
 	}
@@ -1664,7 +1664,7 @@ void do_finger(Character *ch, String argument)
 	JSON::get_int(section, &level, "Levl");
 	JSON::get_int(section, &cls, "Cla");
 
-	if ((item = cJSON_GetObjectItem(section, "Clan")) != NULL)
+	if ((item = cJSON_GetObjectItem(section, "Clan")) != nullptr)
 		clan = clan_lookup(item->valuestring);
 
 	section = cJSON_GetObjectItem(root, "player");
@@ -1683,9 +1683,9 @@ void do_finger(Character *ch, String argument)
 	JSON::get_flags(section, &cgroup, "Cgrp");
 	JSON::get_flags(section, &plr, "Plr");
 
-	if ((item = cJSON_GetObjectItem(section, "Ltim")) != NULL)
+	if ((item = cJSON_GetObjectItem(section, "Ltim")) != nullptr)
 		last_ltime = dizzy_scantime(item->valuestring);
-	if ((item = cJSON_GetObjectItem(section, "LSav")) != NULL)
+	if ((item = cJSON_GetObjectItem(section, "LSav")) != nullptr)
 		last_saved = dizzy_scantime(item->valuestring);
 
 	cJSON_Delete(root); // finished with it

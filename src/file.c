@@ -215,7 +215,7 @@ void fappend(const char *file, const char *str)
 	if (str[0] == '\0')
 		return;
 
-	if ((fp = fopen(file, "a")) != NULL) {
+	if ((fp = fopen(file, "a")) != nullptr) {
 		fputs(str, fp);
 		fclose(fp);
 	}

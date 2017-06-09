@@ -6,11 +6,11 @@ public:
 	MobProgActList() {}
 	virtual ~MobProgActList() {}
 
-    MobProgActList * next = NULL;
+    MobProgActList * next = nullptr;
     String           buf;
-    Character *      ch = NULL;
-    Object *         obj = NULL;
-    void *           vo = NULL;
+    Character *      ch = nullptr;
+    Object *         obj = nullptr;
+    void *           vo = nullptr;
 
 private:
 	MobProgActList(const MobProgActList&);

@@ -6,7 +6,7 @@ public:
 	MobProg() {}
 	virtual ~MobProg() {}
 
-    MobProg *next = NULL;
+    MobProg *next = nullptr;
     int         type = 0;
     String      arglist;
     String      comlist;

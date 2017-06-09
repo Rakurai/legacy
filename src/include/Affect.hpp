@@ -9,8 +9,8 @@ class Affect
 public:
     // note: the grouping of these fields is important for computing checksums.
     // if any of these change (especially these first 4) the checksum function will need updating.
-    Affect *       next = NULL;
-    Affect *       prev = NULL; // now a doubly liked list -- Montrey
+    Affect *       next = nullptr;
+    Affect *       prev = nullptr; // now a doubly liked list -- Montrey
     bool                valid = FALSE;
     bool                mark = FALSE; // mark for deletion from list, other uses
 
