@@ -366,10 +366,10 @@ void do_advance(Character *ch, String argument)
 
 			if (!IS_IMMORTAL(victim) && !IS_REMORT(victim)) {
 				if (victim->level == (LEVEL_AVATAR - 1))
-					REM_CGROUP(victim, GROUP_AVATAR);
+					victim->pcdata->cgroup_flags -= GROUP_AVATAR;
 
 				if (victim->level == (LEVEL_HERO - 1))
-					REM_CGROUP(victim, GROUP_HERO);
+					victim->pcdata->cgroup_flags -= GROUP_HERO;
 			}
 		}
 	}
@@ -383,10 +383,10 @@ void do_advance(Character *ch, String argument)
 			advance_level(victim);
 
 			if (victim->level == LEVEL_AVATAR)
-				SET_CGROUP(victim, GROUP_AVATAR);
+				victim->pcdata->cgroup_flags += GROUP_AVATAR;
 
 			if (victim->level == LEVEL_HERO)
-				SET_CGROUP(victim, GROUP_HERO);
+				victim->pcdata->cgroup_flags += GROUP_HERO;
 		}
 	}
 

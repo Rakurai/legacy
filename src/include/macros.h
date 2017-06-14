@@ -67,7 +67,6 @@
 #define IS_REMORT(ch)		(!IS_NPC(ch) && ch->pcdata->remort_count > 0)
 #define IS_HEROIC(ch)		(IS_HERO(ch) || IS_REMORT(ch))
 #define IS_IMM_GROUP(flags)	(Flags(GROUP_GEN|GROUP_QUEST|GROUP_BUILD|GROUP_CODE|GROUP_SECURE).has_any_of(flags))
-#define HAS_CGROUP(ch, flags)	(!IS_NPC(ch) && (ch->pcdata->cgroup_flags.has_any_of(flags)))
 #define RANK(flags)			(IS_IMM_GROUP(flags) ?										\
 							(flags.has(GROUP_LEADER) ?	RANK_IMP	:					\
 							(flags.has(GROUP_DEPUTY) ?	RANK_HEAD 	: RANK_IMM))	:	\
@@ -77,9 +76,6 @@
 #define IS_IMP(ch)			(GET_RANK(ch) == RANK_IMP)
 #define IS_HEAD(ch)			(GET_RANK(ch) >= RANK_HEAD)
 #define OUTRANKS(ch, victim)	(GET_RANK(ch) > GET_RANK(victim))
-
-#define SET_CGROUP(ch, bit)	(ch->pcdata->cgroup_flags += bit)
-#define REM_CGROUP(ch, bit)	(ch->pcdata->cgroup_flags -= bit)
 
 /* other shortcuts */
 #define IS_GOOD(ch)             (ch->alignment >= 350)

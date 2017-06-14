@@ -147,7 +147,7 @@ void do_clandeposit(Character *ch, String argument)
 
 	/* now for imms */
 
-	if (!HAS_CGROUP(ch, GROUP_BUILD) && !IS_IMP(ch)) {
+	if (!ch->pcdata->cgroup_flags.has(GROUP_BUILD) && !IS_IMP(ch)) {
 		stc("You're not high enough level to give gold to clans.\n", ch);
 		return;
 	}
@@ -336,7 +336,7 @@ void do_clanwithdraw(Character *ch, String argument)
 			return;
 		}
 
-		if (!HAS_CGROUP(ch, GROUP_LEADER)) {
+		if (!ch->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 			stc("Only leaders may withdraw gold from the clan bank account.\n", ch);
 			return;
 		}
@@ -375,7 +375,7 @@ void do_clanwithdraw(Character *ch, String argument)
 	}
 
 	/* now for imms */
-	if (!HAS_CGROUP(ch, GROUP_BUILD) && !IS_IMP(ch)) {
+	if (!ch->pcdata->cgroup_flags.has(GROUP_BUILD) && !IS_IMP(ch)) {
 		stc("You're not high enough level to withdraw gold from clans.\n", ch);
 		return;
 	}

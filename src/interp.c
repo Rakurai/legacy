@@ -579,7 +579,7 @@ void interpret(Character *ch, String argument)
 	found = FALSE;
 
 	/* temp give them a deputy group for command checking */
-	if (HAS_CGROUP(ch, GROUP_LEADER))
+	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
 		ch->pcdata->cgroup_flags += GROUP_DEPUTY;
 
 	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
@@ -595,7 +595,8 @@ void interpret(Character *ch, String argument)
 				continue;
 
 			/* check for ALL cgroups being present */
-			if (!HAS_CGROUP(ch, cmd_table[cmd].group))
+			if (!cmd_table[cmd].group.empty()
+			 && !ch->pcdata->cgroup_flags.has_all_of(cmd_table[cmd].group))
 				continue;
 		}
 
@@ -606,7 +607,7 @@ void interpret(Character *ch, String argument)
 	}
 
 	/* now remove it, can't have both groups */
-	if (HAS_CGROUP(ch, GROUP_LEADER))
+	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
 		ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
 
 	/*
@@ -888,7 +889,8 @@ void do_commands(Character *ch, String argument)
 				continue;
 
 			/* check for ALL cgroups being present */
-			if (!HAS_CGROUP(ch, cmd_table[cmd].group))
+			if (!cmd_table[cmd].group.empty()
+			 && !ch->pcdata->cgroup_flags.has_all_of(cmd_table[cmd].group))
 				continue;
 		}
 
@@ -934,14 +936,14 @@ void do_wizhelp(Character *ch, String argument)
 	int cmd, col, i;
 
 	/* temp give them a deputy group */
-	if (HAS_CGROUP(ch, GROUP_LEADER))
+	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
 		ch->pcdata->cgroup_flags += GROUP_DEPUTY;
 
 	for (i = 0; i < cgroup_flags.size(); i++) {
 		if (!IS_IMM_GROUP(cgroup_flags[i].bit))
 			continue;
 
-		if (!HAS_CGROUP(ch, cgroup_flags[i].bit))
+		if (!ch->pcdata->cgroup_flags.has(cgroup_flags[i].bit))
 			continue;
 
 		ptc(ch, "%s{G%s{x\n", i > 0 ? "\n" : "", cgroup_flags[i].name);
@@ -949,7 +951,7 @@ void do_wizhelp(Character *ch, String argument)
 
 		for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
 			if (cmd_table[cmd].group.has(cgroup_flags[i].bit)
-			    && HAS_CGROUP(ch, cmd_table[cmd].group)
+				&& ch->pcdata->cgroup_flags.has_all_of(cmd_table[cmd].group)
 			    && cmd_table[cmd].show) {
 				if (col % 5 == 0)
 					stc("        ", ch);
@@ -969,7 +971,7 @@ void do_wizhelp(Character *ch, String argument)
 	}
 
 	/* now remove it */
-	if (HAS_CGROUP(ch, GROUP_LEADER))
+	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
 		ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
 }
 

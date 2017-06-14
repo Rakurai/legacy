@@ -3161,7 +3161,7 @@ void do_consider(Character *ch, String argument)
 	}
 
 	/* New Consider by Clerve */
-	if (HAS_CGROUP(ch, GROUP_AVATAR)) {
+	if (ch->pcdata->cgroup_flags.has(GROUP_AVATAR)) {
 		ptc(ch, "{CYou see %s (level %d)\n", victim->name, victim->level);
 		ptc(ch, "{TRace: %s  Sex: %s  Class: %s  Size: %s\n",
 		    race_table[victim->race].name,
@@ -4158,9 +4158,9 @@ void do_join(Character *ch, String argument)
 	}
 
 	/* remove a leader flag, in case they were a leader of a clan that poofed */
-	REM_CGROUP(victim, GROUP_LEADER);
-	REM_CGROUP(victim, GROUP_DEPUTY);
-	SET_CGROUP(victim, GROUP_CLAN);
+	victim->pcdata->cgroup_flags -= GROUP_LEADER;
+	victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+	victim->pcdata->cgroup_flags += GROUP_CLAN;
 	victim->clan = ch->clan;
 	victim->questpoints_donated = 0;
 	victim->gold_donated = 0;
@@ -4228,7 +4228,7 @@ void do_unjoin(Character *ch, String argument)
 		return;
 	}
 
-	if (!ch->clan || !HAS_CGROUP(ch, GROUP_LEADER)) {
+	if (!ch->clan || !ch->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 		do_huh(ch);
 		return;
 	}
@@ -4261,7 +4261,7 @@ void do_unjoin(Character *ch, String argument)
 		return;
 	}
 
-	if (HAS_CGROUP(victim, GROUP_LEADER)) {
+	if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 		stc("They must be deleadered first.\n", ch);
 		return;
 	}
@@ -4285,9 +4285,9 @@ void do_unjoin(Character *ch, String argument)
 	}
 
 	/* Remove Leader flag!!!! */
-	REM_CGROUP(victim, GROUP_LEADER);
-	REM_CGROUP(victim, GROUP_DEPUTY);
-	REM_CGROUP(victim, GROUP_CLAN);
+	victim->pcdata->cgroup_flags -= GROUP_LEADER;
+	victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+	victim->pcdata->cgroup_flags -= GROUP_CLAN;
 	victim->questpoints_donated = 0;
 	victim->gold_donated = 0;
 	save_char_obj(victim);
