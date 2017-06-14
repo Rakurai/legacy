@@ -1,6 +1,7 @@
 #include "MobilePrototype.hpp"
 #include "merc.h"
 #include "lookup.h"
+#include "db.h" // boot_bug
 
 MobilePrototype::
 MobilePrototype(FILE *fp, int vnum) {
@@ -65,12 +66,12 @@ MobilePrototype(FILE *fp, int vnum) {
 	/* vital statistics */
 	start_pos        = position_lookup(fread_word(fp));
 
-	if (start_pos == POS_STANDING && IS_SET(affect_flags, AFF_FLYING))
+	if (start_pos == POS_STANDING && affect_flags.has(AFF_FLYING))
 		start_pos = POS_FLYING;
 
 	default_pos      = position_lookup(fread_word(fp));
 
-	if (default_pos == POS_STANDING && IS_SET(affect_flags, AFF_FLYING))
+	if (default_pos == POS_STANDING && affect_flags.has(AFF_FLYING))
 		default_pos = POS_FLYING;
 
 	sex              = sex_lookup(fread_word(fp));
@@ -97,10 +98,8 @@ MobilePrototype(FILE *fp, int vnum) {
 		char letter = fread_letter(fp);
 
 		if (letter == 'F') {
-			String word;
-			long vector;
-			word                    = fread_word(fp);
-			vector                  = fread_flag(fp);
+			String word  = fread_word(fp);
+			Flags vector = fread_flag(fp);
 
 			     if (word.is_prefix_of("act"))  act_flags -= vector;
 			else if (word.is_prefix_of("aff"))  affect_flags -= vector;

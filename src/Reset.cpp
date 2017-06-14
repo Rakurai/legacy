@@ -1,5 +1,6 @@
 #include "Reset.hpp"
 #include "merc.h"
+#include "db.h" // boot_bug
 
 Reset::
 Reset(FILE *fp) {
@@ -18,7 +19,7 @@ Reset(FILE *fp) {
 	/* Validate parameters.  We're calling the index functions for the side effect. */
 	switch (command) {
 	default:
-		boot_bug("Load_resets: bad command '%c'.", letter);
+		boot_bug("Load_resets: bad command '%c'.", command);
 		exit(1);
 		break;
 

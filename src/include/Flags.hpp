@@ -80,7 +80,7 @@ public:
 
 	friend bool operator== (const Flags&, const Flags&);
 	friend bool operator!= (const Flags&, const Flags&);
-	friend std::ostream& operator<<(std::ostream&, const Flags&);
+//	friend std::ostream& operator<<(std::ostream&, const Flags&);
 
 private:
 	std::bitset<FLAGS_NBITS> bits = {0};
@@ -93,12 +93,12 @@ inline bool operator== (const Flags& lhs, const Flags& rhs) {
 inline bool operator!= (const Flags& lhs, const Flags& rhs) {
 	return lhs.bits != rhs.bits;
 }
-
+/*
 inline std::ostream& operator<<(std::ostream& os, const Flags& f) {
 	os << f.to_ulong();
 	return os;
 }
-
+*/
 inline const Flags operator+ (const Flags::Bit& lhs, const Flags::Bit& rhs) {
 	return Flags(lhs) + rhs;
 }
