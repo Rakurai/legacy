@@ -196,7 +196,7 @@ void say_spell(Character *ch, int sn)
 /* i hate seeing things repeated a lot, moved this here to save text -- Montrey */
 bool help_mob(Character *ch, Character *victim)
 {
-	if (!is_same_group(ch, victim->fighting) && !IS_SET(victim->act_flags, ACT_PET)) {
+	if (!is_same_group(ch, victim->fighting) && !victim->act_flags.has(ACT_PET)) {
 		stc("You cannot attack/help that mobile!\n", ch);
 		wiznet("$N is attempting to help/hinder a mobile illegally.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return TRUE;
@@ -216,7 +216,7 @@ void do_cast(Character *ch, String argument)
 	if (IS_NPC(ch) && ch->desc == nullptr)
 		return;
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH)) {
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH)) {
 		stc("Morphed players cannot cast spells.\n", ch);
 		return;
 	}
@@ -509,7 +509,7 @@ void do_mpcast(Character *ch, String argument)
 	void *vo;
 	int mana, sn, target;
 
-	if (!IS_NPC(ch) || IS_SET(ch->act_flags, ACT_MORPH)) {
+	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -860,12 +860,12 @@ void animate_mob(Character *ch, int level, const char *name, long vnum)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LAW)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LAW)) {
 		stc("You cannot summon creatures within the city.\n", ch);
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE)) {
 		stc("Mobiles cannot be summoned in holy or unholy rooms.\n", ch);
 		return;
 	}
@@ -1035,7 +1035,7 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 			if (affect_exists_on_obj(obj, gsn_curse))
 				check_dispel_obj(level, obj, gsn_curse, TRUE);
 			else if (!level_save(level, obj->level))
-				REMOVE_BIT(obj->extra_flags, ITEM_EVIL);
+				obj->extra_flags -= ITEM_EVIL;
 
 			if (IS_OBJ_STAT(obj, ITEM_EVIL)) // still evil?
 				act("The evil of $p is too powerful for you to overcome.", ch, obj, nullptr, TO_CHAR);
@@ -1051,7 +1051,7 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 		af.duration     = 6 + level;
 		af.location     = APPLY_SAVES;
 		af.modifier     = -1;
-		af.bitvector    = ITEM_BLESS;
+		af.bitvector(ITEM_BLESS);
 		af.evolution = evolution;
 		affect_copy_to_obj(obj, &af);
 		act("$p glows with a holy aura.", ch, obj, nullptr, TO_ALL);
@@ -1353,7 +1353,7 @@ void spell_dazzling_light(int sn, int level, Character *ch, void *vo, int target
 	af.duration  = dur;
 	af.location  = APPLY_HITROLL;
 	af.modifier  = add;
-	af.bitvector = 0;
+	af.bitvector(0);
 	af.evolution = evolution;
 	affect_copy_to_obj(obj, &af);
 
@@ -1402,7 +1402,7 @@ void spell_light_of_truth(int sn, int level, Character *ch, void *vo, int target
 	af.duration  = level;
 	af.location  = 0;
 	af.modifier  = 0;
-	af.bitvector = 0;
+	af.bitvector(0);
 	af.evolution = evolution;
 
 	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
@@ -1508,7 +1508,7 @@ void spell_calm(int sn, int level, Character *ch, void *vo, int target, int evol
 			for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
 				if (IS_NPC(vch)
 				    && (GET_DEFENSE_MOD(vch, DAM_CHARM) >= 100 // TODO: this should check chance individually?
-				        || IS_SET(vch->act_flags, ACT_UNDEAD)))
+				        || vch->act_flags.has(ACT_UNDEAD)))
 					failure = TRUE;
 				else if (affect_exists_on_char(vch, gsn_calm)
 				         || affect_exists_on_char(vch, gsn_berserk)
@@ -1687,7 +1687,7 @@ void spell_charm_person(int sn, int level, Character *ch, void *vo, int target, 
 			return;
 		}
 
-		if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_LAW)) {
+		if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_LAW)) {
 			stc("The mayor does not allow charming in the city limits.\n", ch);
 			return;
 		}
@@ -1797,7 +1797,7 @@ void spell_continual_light(int sn, int level, Character *ch, void *vo, int targe
 			return;
 		}
 
-		SET_BIT(light->extra_flags, ITEM_GLOW);
+		light->extra_flags += ITEM_GLOW;
 		act("$p glows with a white light.", ch, light, nullptr, TO_ALL);
 		return;
 	}
@@ -2169,12 +2169,12 @@ void spell_darkness(int sn, int level, Character *ch, void *vo, int target, int 
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW)) {
+	if (GET_ROOM_FLAGS(room).has(ROOM_LAW)) {
 		stc("The mayor forbids using this spell in the city.\n", ch);
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(room), ROOM_SAFE)) {
+	if (GET_ROOM_FLAGS(room).has(ROOM_SAFE)) {
 		stc("You cannot use this spell in holy rooms.\n", ch);
 		return;
 	}
@@ -2190,7 +2190,7 @@ void spell_darkness(int sn, int level, Character *ch, void *vo, int target, int 
 	af.duration  = level / 20;
 	af.location  = 0;
 	af.modifier  = 0;
-	af.bitvector = ROOM_NOLIGHT;
+	af.bitvector(ROOM_NOLIGHT);
 	af.evolution = evolution;
 	affect_copy_to_room(room, &af);
 }
@@ -2264,7 +2264,7 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 			if (affect_exists_on_obj(obj, gsn_bless))
 				check_dispel_obj(level, obj, gsn_bless, TRUE);
 			else if (!level_save(level, obj->level))
-				REMOVE_BIT(obj->extra_flags, ITEM_BLESS);
+				obj->extra_flags -= ITEM_BLESS;
 
 			if (IS_OBJ_STAT(obj, ITEM_BLESS)) // still good?
 				act("The holy aura of $p is too powerful for you to overcome.", ch, obj, nullptr, TO_CHAR);
@@ -2280,7 +2280,7 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 		af.duration     = 2 * level;
 		af.location     = APPLY_SAVES;
 		af.modifier     = +1;
-		af.bitvector    = ITEM_EVIL;
+		af.bitvector(ITEM_EVIL);
 		af.evolution = evolution;
 		affect_copy_to_obj(obj, &af);
 		act("$p glows with a malevolent aura.", ch, obj, nullptr, TO_ALL);
@@ -2680,7 +2680,7 @@ void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int ev
 
 		/* remove all affects */
 		affect_remove_all_from_obj(obj, TRUE);
-		obj->extra_flags = 0;
+		obj->extra_flags.clear();
 		return;
 	}
 
@@ -2695,26 +2695,26 @@ void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int ev
 		if (IS_HEAD(ch) || number_percent() > 50) {
 			act("$p shines brilliantly with a silver aura.", ch, obj, nullptr, TO_CHAR);
 			act("$p shines brilliantly with a silver aura.", ch, obj, nullptr, TO_ROOM);
-			SET_BIT(obj->extra_flags, ITEM_MAGIC);
+			obj->extra_flags += ITEM_MAGIC;
 			obj->weight = 0;
 		}
 		else {
 			act("$p shimmers with a silver aura.", ch, obj, nullptr, TO_CHAR);
 			act("$p shimmers with a silver aura.", ch, obj, nullptr, TO_ROOM);
-			SET_BIT(obj->extra_flags, ITEM_MAGIC);
+			obj->extra_flags += ITEM_MAGIC;
 			obj->weight = URANGE(0, obj->weight - 50, obj->weight);
 		}
 	}
 	else if (result <= (90 - level / 5)) { /* success! */
 		act("$p shimmers with a silver aura.", ch, obj, nullptr, TO_CHAR);
 		act("$p shimmers with a silver aura.", ch, obj, nullptr, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
+		obj->extra_flags += ITEM_MAGIC;
 		obj->weight = URANGE(0, obj->weight - 50, obj->weight);
 	}
 	else { /* exceptional enchant */
 		act("$p shines brilliantly with a silver aura.", ch, obj, nullptr, TO_CHAR);
 		act("$p shines brilliantly with a silver aura.", ch, obj, nullptr, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
+		obj->extra_flags += ITEM_MAGIC;
 		obj->weight = 0;
 	}
 
@@ -2795,7 +2795,7 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 
 		/* remove all affects */
 		affect_remove_all_from_obj(obj, TRUE);
-		obj->extra_flags = 0;
+		obj->extra_flags.clear();
 		return;
 	}
 
@@ -2809,15 +2809,15 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 			/* exceptional enchant */
 			act("$p glows a brilliant gold!", ch, obj, nullptr, TO_CHAR);
 			act("$p glows a brilliant gold!", ch, obj, nullptr, TO_ROOM);
-			SET_BIT(obj->extra_flags, ITEM_MAGIC);
-			SET_BIT(obj->extra_flags, ITEM_GLOW);
+			obj->extra_flags += ITEM_MAGIC;
+			obj->extra_flags += ITEM_GLOW;
 			added = -2;
 		}
 		else {
 			/* good enchant */
 			act("$p shimmers with a gold aura.", ch, obj, nullptr, TO_CHAR);
 			act("$p shimmers with a gold aura.", ch, obj, nullptr, TO_ROOM);
-			SET_BIT(obj->extra_flags, ITEM_MAGIC);
+			obj->extra_flags += ITEM_MAGIC;
 			added = -1;
 		}
 	}
@@ -2825,14 +2825,14 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 		/* good enchant */
 		act("$p shimmers with a gold aura.", ch, obj, nullptr, TO_CHAR);
 		act("$p shimmers with a gold aura.", ch, obj, nullptr, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
+		obj->extra_flags += ITEM_MAGIC;
 		added = -1;
 	}
 	else { /* exceptional enchant */
 		act("$p glows a brilliant gold!", ch, obj, nullptr, TO_CHAR);
 		act("$p glows a brilliant gold!", ch, obj, nullptr, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
-		SET_BIT(obj->extra_flags, ITEM_GLOW);
+		obj->extra_flags += ITEM_MAGIC;
+		obj->extra_flags += ITEM_GLOW;
 		added = -2;
 	}
 
@@ -2847,7 +2847,7 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 	af.duration   = -1;
 	af.location   = APPLY_AC;
 	af.modifier   =  added;
-	af.bitvector  = 0;
+	af.bitvector(0);
 	af.evolution  = evolution;
 	affect_join_to_obj(obj, &af);
 }
@@ -2935,13 +2935,13 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 		affect_remove_all_from_obj(obj, TRUE);
 
 		if (obj->item_type == ITEM_WEAPON) {
-			if (IS_SET(obj->value[4], WEAPON_TWO_HANDS))
+			if (obj->value[4].flags().has(WEAPON_TWO_HANDS))
 				obj->value[4] = WEAPON_TWO_HANDS;
 			else
 				obj->value[4] = 0;
 		}
 
-		obj->extra_flags = 0;
+		obj->extra_flags.clear();
 		return;
 	}
 
@@ -2955,29 +2955,29 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 			/* exceptional enchant */
 			act("$p glows a brilliant blue!", ch, obj, nullptr, TO_CHAR);
 			act("$p glows a brilliant blue!", ch, obj, nullptr, TO_ROOM);
-			SET_BIT(obj->extra_flags, ITEM_MAGIC);
-			SET_BIT(obj->extra_flags, ITEM_GLOW);
+			obj->extra_flags += ITEM_MAGIC;
+			obj->extra_flags += ITEM_GLOW;
 			added = 2;
 		}
 		else {
 			/* good enchant */
 			act("$p glows blue.", ch, obj, nullptr, TO_CHAR);
 			act("$p glows blue.", ch, obj, nullptr, TO_ROOM);
-			SET_BIT(obj->extra_flags, ITEM_MAGIC);
+			obj->extra_flags += ITEM_MAGIC;
 			added = 1;
 		}
 	}
 	else if (result <= (100 - level / 5)) { /* success! */
 		act("$p glows blue.", ch, obj, nullptr, TO_CHAR);
 		act("$p glows blue.", ch, obj, nullptr, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
+		obj->extra_flags += ITEM_MAGIC;
 		added = 1;
 	}
 	else { /* exceptional enchant */
 		act("$p glows a brilliant blue!", ch, obj, nullptr, TO_CHAR);
 		act("$p glows a brilliant blue!", ch, obj, nullptr, TO_ROOM);
-		SET_BIT(obj->extra_flags, ITEM_MAGIC);
-		SET_BIT(obj->extra_flags, ITEM_GLOW);
+		obj->extra_flags += ITEM_MAGIC;
+		obj->extra_flags += ITEM_GLOW;
 		added = 2;
 	}
 
@@ -2999,7 +2999,7 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 	af.duration   = -1;
 	af.location   = APPLY_DAMROLL;
 	af.modifier   =  added;
-	af.bitvector  = 0;
+	af.bitvector(0);
 	af.evolution  = evolution;
 	affect_join_to_obj(obj, &af);
 
@@ -3009,7 +3009,7 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 	af.duration   = -1;
 	af.location   = APPLY_HITROLL;
 	af.modifier   =  added;
-	af.bitvector  = 0;
+	af.bitvector(0);
 	af.evolution  = evolution;
 	affect_join_to_obj(obj, &af);
 }
@@ -3102,7 +3102,7 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 	chance += (level - victim->level) / 2;
 	chance += (evolution - 1) * 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
+	if (victim->off_flags.has(OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 15;
 
 	chance -= ((victim->stam * 20) / GET_MAX_STAM(victim));
@@ -3165,7 +3165,7 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 	Character *victim;
 	int dam;
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE) && !IS_IMMORTAL(ch)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE) && !IS_IMMORTAL(ch)) {
 		stc("Oddly enough, in this room you feel peaceful.\n", ch);
 		return;
 	}
@@ -3312,7 +3312,7 @@ void spell_fireproof(int sn, int level, Character *ch, void *vo, int target, int
 	af.duration  = number_fuzzy(level / 4);
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = ITEM_BURN_PROOF;
+	af.bitvector(ITEM_BURN_PROOF);
 	af.evolution = evolution;
 	affect_copy_to_obj(obj, &af);
 	act("You protect $p from fire.", ch, obj, nullptr, TO_CHAR);
@@ -3320,7 +3320,7 @@ void spell_fireproof(int sn, int level, Character *ch, void *vo, int target, int
 }
 
 /* function for bladecraft spells -- Montrey */
-bool enhance_blade(Character *ch, Object *obj, int sn, int level, int bit)
+bool enhance_blade(Character *ch, Object *obj, int sn, int level, Flags::Bit bit)
 {
 	Affect af;
 
@@ -3348,7 +3348,7 @@ bool enhance_blade(Character *ch, Object *obj, int sn, int level, int bit)
 	af.duration     = (number_percent() + (level / 2));
 	af.location     = 0;
 	af.modifier     = 0;
-	af.bitvector    = bit;
+	af.bitvector(bit);
 	af.evolution    = get_evolution(ch, sn);
 	affect_copy_to_obj(obj, &af);
 	return TRUE;
@@ -3590,13 +3590,13 @@ void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evol
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL)
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)
 	    || (victim = get_char_world(ch, target_name, VIS_CHAR)) == nullptr
 	    || victim == ch
 	    || (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch))
 	    || victim->in_room == nullptr
 	    || !can_see_room(ch, victim->in_room)
-	    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
+	    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->area == quest_area
 	    || char_in_duel_room(victim)
@@ -3604,13 +3604,13 @@ void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evol
 	    || victim->in_room->guild
 	    || victim->level > level + (IS_NPC(victim) ? 3 : 8)
 	    || (IS_NPC(victim)
-	        && (IS_SET(victim->act_flags, ACT_NOSUMMON)
+	        && (victim->act_flags.has(ACT_NOSUMMON)
 	            || saves_spell(level, victim, DAM_OTHER)))) {
 		stc("You failed.\n", ch);
 		return;
 	}
 
-	if (ch->pet != nullptr && ch->in_room == ch->pet->in_room && !IS_SET(ch->pet->act_flags, ACT_STAY))
+	if (ch->pet != nullptr && ch->in_room == ch->pet->in_room && !ch->pet->act_flags.has(ACT_STAY))
 		gate_pet = TRUE;
 	else
 		gate_pet = FALSE;
@@ -3680,7 +3680,7 @@ void spell_haste(int sn, int level, Character *ch, void *vo, int target, int evo
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_haste) || IS_SET(victim->off_flags, OFF_FAST)) {
+	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_haste) || victim->off_flags.has(OFF_FAST)) {
 		if (victim == ch)
 			stc("You can't move any faster!\n", ch);
 		else
@@ -4004,27 +4004,26 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 	char buf[MAX_STRING_LENGTH];
 	int i;
 	struct wear_type {
-		char *loc;
-		int bit;
+		String loc;
+		Flags::Bit bit;
 	};
-	const struct wear_type wearloc_table[] = {
-		{       "be worn on your finger",               BIT_B       },
-		{       "be worn around your neck",             BIT_C       },
-		{       "be worn on your torso",                BIT_D       },
-		{       "be worn on your head",                 BIT_E       },
-		{       "be worn on your legs",                 BIT_F       },
-		{       "be worn on your feet",                 BIT_G       },
-		{       "be worn on your hands",                BIT_H       },
-		{       "be worn on your arms",                 BIT_I       },
-		{       "be worn as a shield",                  BIT_J       },
-		{       "be worn about your body",              BIT_K       },
-		{       "be worn around your waist",            BIT_L       },
-		{       "be worn on your wrist",                BIT_M       },
-		{       "be used as a weapon",                  BIT_N       },
-		{       "be held",                              BIT_O       },
-		{       "float next to you",                    BIT_Q       },
-		{       "be worn on your ringfinger",           BIT_R       },
-		{       nullptr,                                   0       }
+	const std::vector<wear_type> wearloc_table = {
+		{       "be worn on your finger",               Flags::B       },
+		{       "be worn around your neck",             Flags::C       },
+		{       "be worn on your torso",                Flags::D       },
+		{       "be worn on your head",                 Flags::E       },
+		{       "be worn on your legs",                 Flags::F       },
+		{       "be worn on your feet",                 Flags::G       },
+		{       "be worn on your hands",                Flags::H       },
+		{       "be worn on your arms",                 Flags::I       },
+		{       "be worn as a shield",                  Flags::J       },
+		{       "be worn about your body",              Flags::K       },
+		{       "be worn around your waist",            Flags::L       },
+		{       "be worn on your wrist",                Flags::M       },
+		{       "be used as a weapon",                  Flags::N       },
+		{       "be held",                              Flags::O       },
+		{       "float next to you",                    Flags::Q       },
+		{       "be worn on your ringfinger",           Flags::R       },
 	};
 
 	/* Avoid memory error if the target is a character. -- Outsider */
@@ -4032,12 +4031,12 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 		return;
 
 	ptc(ch, "Object '%s' is type %s, extra flags %s.\n",
-	    obj->name, item_type_name(obj), extra_bit_name(obj->extra_flags|obj->extra_flag_cache));
+	    obj->name, item_type_name(obj), extra_bit_name(obj->extra_flags+obj->cached_extra_flags));
 	ptc(ch, "Weight is %d, value is %d, level is %d, and material is %s.\n",
 	    obj->weight / 10, obj->cost, obj->level, obj->material);
 	Format::sprintf(buf, ".");
 
-	for (i = 0; wearloc_table[i].loc != nullptr; i++)
+	for (i = 0; i < wearloc_table.size(); i++)
 		if (CAN_WEAR(obj, wearloc_table[i].bit)) {
 			Format::sprintf(buf, ", and can %s.", wearloc_table[i].loc);
 			break;
@@ -4139,8 +4138,8 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
 
-		if (obj->value[4] || obj->weapon_flag_cache)  /* weapon flags */
-			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]|obj->weapon_flag_cache));
+		if (obj->value[4] || !obj->cached_weapon_flags.empty())  /* weapon flags */
+			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]+obj->cached_weapon_flags));
 
 		break;
 
@@ -4216,7 +4215,7 @@ void spell_invis(int sn, int level, Character *ch, void *vo, int target, int evo
 		af.duration     = level + 12;
 		af.location     = APPLY_NONE;
 		af.modifier     = 0;
-		af.bitvector    = ITEM_INVIS;
+		af.bitvector(ITEM_INVIS);
 		af.evolution = evolution;
 		affect_copy_to_obj(obj, &af);
 		act("$p fades out of sight.", ch, obj, nullptr, TO_ALL);
@@ -4302,7 +4301,7 @@ void spell_locate_life(int sn, int level, Character *ch, void *vo, int target, i
 		    || number_percent() > 2 * level
 		    || ch->level < victim->level
 		    || !can_see_room(ch, victim->in_room)
-		    || IS_SET(GET_ROOM_FLAGS(victim->in_room),
+		    || GET_ROOM_FLAGS(victim->in_room).has_any_of(
 		              ROOM_PRIVATE | ROOM_IMP_ONLY | ROOM_GODS_ONLY | ROOM_NOWHERE))
 			continue;
 
@@ -4536,14 +4535,14 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 		    || to_room->area == quest_area
 		    || !can_see_room(ch, to_room)
 		    || !can_see_room(ch, from_room)
-		    || IS_SET(GET_ROOM_FLAGS(to_room), ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
+		    || GET_ROOM_FLAGS(to_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
 		    || to_room->sector_type == SECT_ARENA
 		    || char_in_duel_room(victim)
 		    || to_room->clan  || from_room->clan
 		    || to_room->guild || from_room->guild
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
-		        && (IS_SET(victim->act_flags, ACT_NOSUMMON)
+		        && (victim->act_flags.has(ACT_NOSUMMON)
 		            || saves_spell(level, victim, DAM_OTHER)))) {
 			stc("You failed.\n", ch);
 			return;
@@ -4650,7 +4649,7 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	}
 
 	/* don't let em switch into mobs with the stronger immunities -- Montrey */
-	if (IS_SET(victim->act_flags, ACT_NOMORPH)
+	if (victim->act_flags.has(ACT_NOMORPH)
 	 || GET_DEFENSE_MOD(victim, DAM_BASH) >= 100
 	 || GET_DEFENSE_MOD(victim, DAM_PIERCE) >= 100
 	 || GET_DEFENSE_MOD(victim, DAM_SLASH) >= 100
@@ -4673,11 +4672,11 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	}
 
 	act("$n morphs into $N!\n", ch, nullptr, mobile, TO_ROOM);
-	REMOVE_BIT(mobile->act_flags, ACT_AGGRESSIVE);
-	REMOVE_BIT(mobile->act_flags, ACT_IS_HEALER);
-	REMOVE_BIT(mobile->act_flags, ACT_IS_CHANGER);
-	SET_BIT(mobile->act_flags, PLR_COLOR);
-	SET_BIT(mobile->act_flags, ACT_MORPH);
+	mobile->act_flags -= ACT_AGGRESSIVE;
+	mobile->act_flags -= ACT_IS_HEALER;
+	mobile->act_flags -= ACT_IS_CHANGER;
+	mobile->act_flags += PLR_COLOR;
+	mobile->act_flags += ACT_MORPH;
 
 	mobile->hit = ATTR_BASE(mobile, APPLY_HIT) = 100;
 	mobile->mana = ATTR_BASE(mobile, APPLY_MANA) = 100;
@@ -4757,7 +4756,7 @@ void spell_plague(int sn, int level, Character *ch, void *vo, int target, int ev
 	}
 
 	if (saves_spell(level, victim, DAM_DISEASE)
-	    || (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_UNDEAD))) {
+	    || (IS_NPC(victim) && victim->act_flags.has(ACT_UNDEAD))) {
 		if (ch == victim)
 			stc("You feel momentarily ill, but it passes.\n", ch);
 		else
@@ -4810,7 +4809,7 @@ void spell_poison(int sn, int level, Character *ch, void *vo, int target, int ev
 			af.duration  = level / 4;
 			af.location  = 0;
 			af.modifier  = 0;
-			af.bitvector = WEAPON_POISON;
+			af.bitvector(WEAPON_POISON);
 			af.evolution = evolution;
 			affect_copy_to_obj(obj, &af);
 			act("$p is coated with deadly venom.", ch, obj, nullptr, TO_ALL);
@@ -4879,7 +4878,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 		    || (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch))
 		    || victim->in_room == nullptr
 		    || !can_see_room(ch, victim->in_room)
-		    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
+		    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
 		    || victim->in_room->sector_type == SECT_ARENA
 		    || victim->in_room->area == quest_area
 		    || char_in_duel_room(victim)
@@ -4887,7 +4886,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 		    || victim->in_room->guild
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
-		        && (IS_SET(victim->act_flags, ACT_NOSUMMON)
+		        && (victim->act_flags.has(ACT_NOSUMMON)
 		            || saves_spell(level, victim, DAM_OTHER)))) {
 			stc("You failed.\n", ch);
 			return;
@@ -4928,7 +4927,7 @@ void spell_power_word(int sn, int level, Character *ch, void *vo, int target, in
 	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 5;
 
-	if ((IS_NPC(victim) && IS_SET(victim->act_flags, ACT_UNDEAD))
+	if ((IS_NPC(victim) && victim->act_flags.has(ACT_UNDEAD))
 	    || (!IS_NPC(victim))
 	    || (level / 2) < victim->level
 	    || saves_spell(level, victim, DAM_CHARM)) {
@@ -5004,7 +5003,7 @@ void spell_protect_container(int sn, int level, Character *ch, void *vo, int tar
 
 	/* Success */
 	deduct_cost(ch, cost);
-	SET_BIT(obj->extra_flags, ITEM_BURN_PROOF);
+	obj->extra_flags += ITEM_BURN_PROOF;
 	act("$p is covered with a thin sheen of adamantine.", ch, obj, nullptr, TO_CHAR);
 	act("$p is covered with a thin sheen of adamantine.", ch, obj, nullptr, TO_ROOM);
 }
@@ -5230,7 +5229,7 @@ void spell_recharge(int sn, int level, Character *ch, void *vo, int target, int 
 		stc("Nothing seems to happen.\n", ch);
 
 		if (obj->value[1] > 1)
-			obj->value[1]--;
+			--obj->value[1];
 
 		return;
 	}
@@ -5433,9 +5432,9 @@ void spell_remove_alignment(int sn, int level, Character *ch, void *vo, int targ
 	}
 
 	/* Success!  Remove the item's alignment */
-	REMOVE_BIT(obj->extra_flags, ITEM_ANTI_EVIL);
-	REMOVE_BIT(obj->extra_flags, ITEM_ANTI_GOOD);
-	REMOVE_BIT(obj->extra_flags, ITEM_ANTI_NEUTRAL);
+	obj->extra_flags -= ITEM_ANTI_EVIL;
+	obj->extra_flags -= ITEM_ANTI_GOOD;
+	obj->extra_flags -= ITEM_ANTI_NEUTRAL;
 	act("You remove $p's alignment!", ch, obj, nullptr, TO_CHAR);
 	act("$n removes $p's alignment!", ch, obj, nullptr, TO_ROOM);
 }
@@ -5459,7 +5458,7 @@ void spell_remove_invis(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	REMOVE_BIT(obj->extra_flags, ITEM_INVIS);
+	obj->extra_flags -= ITEM_INVIS;
 	act("$p appears out of thin air!", ch, obj, nullptr, TO_ALL);
 }
 
@@ -5485,8 +5484,8 @@ void spell_remove_curse(int sn, int level, Character *ch, void *vo, int target, 
 			return;
 		}
 
-		REMOVE_BIT(obj->extra_flags, ITEM_NODROP);
-		REMOVE_BIT(obj->extra_flags, ITEM_NOREMOVE);
+		obj->extra_flags -= ITEM_NODROP;
+		obj->extra_flags -= ITEM_NOREMOVE;
 		act("$p glows blue.", ch, obj, nullptr, TO_ALL);
 		return;
 	}
@@ -5514,8 +5513,8 @@ void spell_remove_curse(int sn, int level, Character *ch, void *vo, int target, 
 
 			/* attempt to remove curse */
 			if (IS_IMMORTAL(ch) || !level_save(level, obj->level)) {
-				REMOVE_BIT(obj->extra_flags, ITEM_NODROP);
-				REMOVE_BIT(obj->extra_flags, ITEM_NOREMOVE);
+				obj->extra_flags -= ITEM_NODROP;
+				obj->extra_flags -= ITEM_NOREMOVE;
 				act("Your $p glows blue.", victim, obj, nullptr, TO_CHAR);
 				act("$n's $p glows blue.", victim, obj, nullptr, TO_ROOM);
 				return;
@@ -5683,7 +5682,7 @@ void spell_sleep(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_UNDEAD)) {
+	if (IS_NPC(victim) && victim->act_flags.has(ACT_UNDEAD)) {
 		act("$E isn't sufficiently alive to be affected by your spell.",
 		    ch, nullptr, victim, TO_CHAR);
 		return;
@@ -5780,7 +5779,7 @@ void spell_smokescreen(int sn, int level, Character *ch, void *vo, int target, i
 	    || (pexit   = in_room->exit[door]) == nullptr
 	    || (to_room = pexit->u1.to_room) == nullptr
 	    ||   !can_see_room(ch, pexit->u1.to_room)
-	    || (IS_SET(pexit->exit_info, EX_CLOSED))) {
+	    || (pexit->exit_flags.has(EX_CLOSED))) {
 		stc("The smoke has nowhere to go and dissipates.\n", ch);
 		return;
 	}
@@ -5898,19 +5897,19 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_PRIVATE)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SOLITARY)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL)
-	    || (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_AGGRESSIVE))
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_PRIVATE)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_SOLITARY)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL)
+	    || (IS_NPC(victim) && victim->act_flags.has(ACT_AGGRESSIVE))
 	    ||   victim->level >= level + 3
 	    || IS_IMMORTAL(victim)
 	    ||   victim->fighting != nullptr
-	    || IS_SET(victim->act_flags, ACT_NOSUMMON)
+	    || victim->act_flags.has(ACT_NOSUMMON)
 	    || (IS_NPC(victim) && victim->pIndexData->pShop != nullptr)
-	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_MALE_ONLY) && GET_ATTR_SEX(victim) != SEX_MALE)
-	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_FEMALE_ONLY) && GET_ATTR_SEX(victim) != SEX_FEMALE)
+	    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_MALE_ONLY) && GET_ATTR_SEX(victim) != SEX_MALE)
+	    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_FEMALE_ONLY) && GET_ATTR_SEX(victim) != SEX_FEMALE)
 	   ) {
 		stc("You failed.\n", ch);
 		return;
@@ -5920,7 +5919,7 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 
 	if (!IS_NPC(victim)) {
 		for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
-			if (IS_NPC(rch) && IS_SET(rch->act_flags, ACT_AGGRESSIVE)
+			if (IS_NPC(rch) && rch->act_flags.has(ACT_AGGRESSIVE)
 			    && rch->level + 6 > victim->level) {
 				act("I wouldn't do that! $N would attack them immediately."
 				    , ch, nullptr, rch, TO_CHAR);
@@ -6013,7 +6012,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE)) {
 		stc("You fail to disturb the peace of this room.\n", ch);
 		return;
 	}
@@ -6043,8 +6042,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 		if (obj->carried_by != nullptr) {
 			/* object in someone's hands */
 			if ((obj->carried_by->in_room == nullptr)
-			    || IS_SET(GET_ROOM_FLAGS(obj->carried_by->in_room),
-			              ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
+			    || GET_ROOM_FLAGS(obj->carried_by->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 			    || obj->carried_by->in_room->sector_type == SECT_ARENA
 			    || obj->carried_by->in_room->area == quest_area
 			    || (!IS_NPC(obj->carried_by))
@@ -6062,8 +6060,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 		}
 		else if (obj->in_room != nullptr) {
 			/* lying around somewhere */
-			if (IS_SET(GET_ROOM_FLAGS(obj->in_room),
-			           ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
+			if (GET_ROOM_FLAGS(obj->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 			    || obj->in_room->sector_type == SECT_ARENA
 			    || obj->in_room->area == quest_area
 			    || (!CAN_WEAR(obj, ITEM_TAKE))) {
@@ -6106,7 +6103,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 		    || ch->in_room->area->name == "Torayna Cri"
 		    || ch->in_room->area->name == "Battle Arenas"
 		    || ch->in_room->sector_type == SECT_ARENA
-		    || IS_SET(GET_ROOM_FLAGS(ch->in_room),
+		    || GET_ROOM_FLAGS(ch->in_room).has_any_of(
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE
@@ -6228,7 +6225,7 @@ void spell_teleport_object(int sn, int level, Character *ch, void *vo, int targe
 	}
 
 	if (!IS_NPC(victim)) {
-		if (IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
+		if (victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 			Format::sprintf(buf, "$N is trying to teleport an object to the linkdead character %s.", victim->name);
 			wiznet(buf, ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 			stc("Your recipient cannot receive teleported objects in their current state.\n", ch);
@@ -6281,13 +6278,13 @@ void spell_teleport(int sn, int level, Character *ch, void *vo, int target, int 
 
 	if (victim->in_room == nullptr
 //	    || (victim->on && victim->on->pIndexData->item_type == ITEM_COACH)
-	    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL)
+	    || GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
 	    || char_in_duel_room(ch)
 	    || char_in_duel_room(victim)
 	    || ch->in_room->sector_type == SECT_ARENA
-	    || (victim != ch && IS_SET(victim->act_flags, ACT_NOSUMMON))
+	    || (victim != ch && victim->act_flags.has(ACT_NOSUMMON))
 	    || (!IS_NPC(ch) && victim->fighting != nullptr)
 	    || (victim != ch && saves_spell(level, victim, DAM_OTHER))) {
 		stc("You failed.\n", ch);
@@ -6369,9 +6366,9 @@ void spell_vision(int sn, int level, Character *ch, void *vo, int target, int ev
 	    ||   victim == ch
 	    ||   victim->in_room == nullptr
 	    ||   !can_see_room(ch, victim->in_room)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_PRIVATE)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SOLITARY)
-	    ||   IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NOVISION)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_PRIVATE)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_SOLITARY)
+	    ||   GET_ROOM_FLAGS(victim->in_room).has(ROOM_NOVISION)
 	    ||   victim->level >= level + 3
 	    || IS_IMMORTAL(victim)
 	    || (IS_NPC(victim) && saves_spell(level, victim, DAM_OTHER))) {
@@ -6472,7 +6469,7 @@ void spell_word_of_recall(int sn, int level, Character *ch, void *vo, int target
 			return;
 		}
 
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL) ||
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL) ||
 	    affect_exists_on_char(victim, gsn_curse) || char_in_duel_room(ch)) {
 		stc("Spell failed.\n", victim);
 		return;

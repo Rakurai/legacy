@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "declare.h"
+#include "Flags.hpp"
 
 /* this is a listing of all the commands and command related data */
 
@@ -42,7 +43,7 @@ struct  cmd_type
     sh_int              position;
     sh_int              log;
     sh_int              show;
-    unsigned int	group;
+    Flags group;
 };
 
 /* the command table itself */

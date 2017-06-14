@@ -2,6 +2,7 @@
 #ifndef __SQL_H
 #define __SQL_H
 
+#include "declare.h"
 #include "Format.hpp"
 
 #define SQL_OK		0
@@ -13,6 +14,7 @@ void		db_close			(void);
 void		db_error			(const String& func);
 int			db_next_row			();
 int			db_get_column_int	(int index);
+const Flags db_get_column_flags (int index);
 const char * 
 			db_get_column_str	(int index);
 int			db_query			(const String& func, const String& query);

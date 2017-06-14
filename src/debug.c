@@ -100,7 +100,7 @@ void do_debug(Character *ch, String argument)
 			            db_esc(victim->pcdata->title),
 			            db_esc(victim->pcdata->deity),
 			            db_esc(victim->pcdata->deity.uncolor()),
-			            victim->pcdata->cgroup,
+			            victim->pcdata->cgroup_flags,
 			            victim->level,
 			            victim->pcdata->remort_count,
 			            victim->clan ? victim->clan->name : "",
@@ -215,7 +215,7 @@ void do_debug(Character *ch, String argument)
 			if ((room = get_room_index(vnum)) == nullptr)
 				continue;
 
-			if (!IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_RECALL))
+			if (!GET_ROOM_FLAGS(room).has(ROOM_NO_RECALL))
 				continue;
 
 			for (x = 0; x <= 5; x++)
@@ -237,7 +237,7 @@ void do_debug(Character *ch, String argument)
 			if ((room = get_room_index(vnum)) == nullptr)
 				continue;
 
-			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NOLIGHT))
+			if (GET_ROOM_FLAGS(room).has(ROOM_NOLIGHT))
 				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
 		}
 

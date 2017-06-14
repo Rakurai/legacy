@@ -172,7 +172,7 @@ void violence_update(void)
 
 		/* Wimp out? */
 		if (IS_NPC(ch)) {
-			if ((IS_SET(ch->act_flags, ACT_WIMPY)
+			if ((ch->act_flags.has(ACT_WIMPY)
 			     && number_bits(2) == 0
 			     && ch->hit < GET_MAX_HIT(ch) / 5)
 			    || (affect_exists_on_char(ch, gsn_charm_person)
@@ -250,7 +250,7 @@ void combat_regen(Character *ch)
 		int sun_damage;
 
 		/* handle the regen first */
-		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_DARK | ROOM_INDOORS)
+		if (GET_ROOM_FLAGS(ch->in_room).has_any_of(ROOM_DARK | ROOM_INDOORS)
 		    || ch->in_room->sector_type == SECT_INSIDE
 		    || weather_info.sunlight == SUN_DARK)
 			hitgain += (ch->level / 10) + 1;
@@ -446,14 +446,14 @@ void check_assist(Character *ch, Character *victim)
 						target = victim;
 				}
 				else {
-					if (IS_SET(rch->off_flags, ASSIST_ALL)
+					if (rch->off_flags.has(ASSIST_ALL)
 					 || is_same_group(ch, rch)
-					 || (IS_SET(rch->off_flags, ASSIST_RACE) && rch->race == ch->race)
-					 || (IS_SET(rch->off_flags, ASSIST_ALIGN)
+					 || (rch->off_flags.has(ASSIST_RACE) && rch->race == ch->race)
+					 || (rch->off_flags.has(ASSIST_ALIGN)
 					  && ((IS_GOOD(rch) && IS_GOOD(ch))
 					   || (IS_EVIL(rch) && IS_EVIL(ch))
 					   || (IS_NEUTRAL(rch) && IS_NEUTRAL(ch))))
-					  || (IS_SET(rch->off_flags, ASSIST_VNUM) && rch->pIndexData == ch->pIndexData)) {
+					  || (rch->off_flags.has(ASSIST_VNUM) && rch->pIndexData == ch->pIndexData)) {
 						int number = 0;
 
 						if (number_bits(1) == 0)
@@ -471,7 +471,7 @@ void check_assist(Character *ch, Character *victim)
 				}
 			}
 			else { // ch is a PC
-				if (IS_SET(rch->act_flags, PLR_AUTOASSIST)
+				if (rch->act_flags.has(PLR_AUTOASSIST)
 				 && affect_exists_on_char(ch, gsn_charm_person)
 				 && is_same_group(ch, rch))
 					target = victim;
@@ -479,7 +479,7 @@ void check_assist(Character *ch, Character *victim)
 		}
 		else { // rch is a PC
 			if (IS_NPC(rch)) {
-				if (IS_SET(rch->off_flags, ASSIST_PLAYERS)
+				if (rch->off_flags.has(ASSIST_PLAYERS)
 				 && rch->level + 6 > victim->level) {
 					target = victim;
 				}
@@ -490,7 +490,7 @@ void check_assist(Character *ch, Character *victim)
 			else { // ch is a PC
 				// BOTH PC
 
-				if (IS_SET(rch->act_flags, PLR_AUTOASSIST)
+				if (rch->act_flags.has(PLR_AUTOASSIST)
 				 && is_same_group(ch, rch))
 					target = victim;
 			}
@@ -718,7 +718,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 	if (ch->fighting == nullptr
 	    && victim->hit == GET_MAX_HIT(victim)
 	    && (get_eq_char(ch, WEAR_WIELD) != nullptr)
-	    && IS_SET(ch->off_flags, OFF_BACKSTAB)
+	    && ch->off_flags.has(OFF_BACKSTAB)
 	    && get_skill(ch, gsn_backstab)) {
 		do_backstab(ch, victim->name.c_str());
 		return;
@@ -737,7 +737,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 	}
 
 	/* Area attack -- BALLS nasty! */
-	if (IS_SET(ch->off_flags, OFF_AREA_ATTACK)) {
+	if (ch->off_flags.has(OFF_AREA_ATTACK)) {
 		for (vch = ch->in_room->people; vch != nullptr; vch = vch_next) {
 			vch_next = vch->next;
 
@@ -747,7 +747,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 	}
 
 	if (affect_exists_on_char(ch, gsn_haste)
-	    || (IS_SET(ch->off_flags, OFF_FAST) && !affect_exists_on_char(ch, gsn_slow)))
+	    || (ch->off_flags.has(OFF_FAST) && !affect_exists_on_char(ch, gsn_slow)))
 		one_hit(ch, victim, dt, FALSE);
 
 	if (!ch->fighting || dt == gsn_backstab)
@@ -755,7 +755,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 
 	chance = get_skill(ch, gsn_second_attack) / 2;
 
-	if (affect_exists_on_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (affect_exists_on_char(ch, gsn_slow) && !ch->off_flags.has(OFF_FAST))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -767,7 +767,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 
 	chance = get_skill(ch, gsn_third_attack) / 4;
 
-	if (affect_exists_on_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (affect_exists_on_char(ch, gsn_slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -779,7 +779,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 
 	chance = get_skill(ch, gsn_fourth_attack) / 6;
 
-	if (affect_exists_on_char(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (affect_exists_on_char(ch, gsn_slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -799,46 +799,46 @@ void mob_hit(Character *ch, Character *victim, int dt)
 
 	switch (number) {
 	case (0) :
-		if (IS_SET(ch->off_flags, OFF_BASH))
+		if (ch->off_flags.has(OFF_BASH))
 			do_bash(ch, "");
 
 		break;
 
 	case (1) :
-		if (IS_SET(ch->off_flags, OFF_BERSERK) && !affect_exists_on_char(ch, gsn_berserk))
+		if (ch->off_flags.has(OFF_BERSERK) && !affect_exists_on_char(ch, gsn_berserk))
 			do_berserk(ch, "");
 
 		break;
 
 	case (2) :
-		if (IS_SET(ch->off_flags, OFF_DISARM)
+		if (ch->off_flags.has(OFF_DISARM)
 		    || (get_weapon_sn(ch, FALSE) != gsn_hand_to_hand
-		        && (IS_SET(ch->act_flags, ACT_WARRIOR)
-		            ||  IS_SET(ch->act_flags, ACT_THIEF))))
+		        && (ch->act_flags.has(ACT_WARRIOR)
+		            ||  ch->act_flags.has(ACT_THIEF))))
 			do_disarm(ch, "");
 
 		break;
 
 	case (3) :
-		if (IS_SET(ch->off_flags, OFF_KICK))
+		if (ch->off_flags.has(OFF_KICK))
 			do_kick(ch, "");
 
 		break;
 
 	case (4) :
-		if (IS_SET(ch->off_flags, OFF_KICK_DIRT))
+		if (ch->off_flags.has(OFF_KICK_DIRT))
 			do_dirt(ch, "");
 
 		break;
 
 	case (5) :
-		if (IS_SET(ch->off_flags, OFF_TRIP))
+		if (ch->off_flags.has(OFF_TRIP))
 			do_trip(ch, "");
 
 		break;
 
 	case (6) :
-		if (IS_SET(ch->off_flags, OFF_CRUSH))
+		if (ch->off_flags.has(OFF_CRUSH))
 			do_crush(ch, "");
 
 		break;
@@ -927,13 +927,13 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 		thac0_00 = 20;
 		thac0_32 = -4;   /* as good as a thief */
 
-		if (IS_SET(ch->act_flags, ACT_WARRIOR))
+		if (ch->act_flags.has(ACT_WARRIOR))
 			thac0_32 = -10;
-		else if (IS_SET(ch->act_flags, ACT_THIEF))
+		else if (ch->act_flags.has(ACT_THIEF))
 			thac0_32 = -4;
-		else if (IS_SET(ch->act_flags, ACT_CLERIC))
+		else if (ch->act_flags.has(ACT_CLERIC))
 			thac0_32 = 2;
-		else if (IS_SET(ch->act_flags, ACT_MAGE))
+		else if (ch->act_flags.has(ACT_MAGE))
 			thac0_32 = 6;
 	}
 	else {
@@ -1267,7 +1267,7 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 		if (get_position(victim) > POS_STUNNED) {
 			if (!IS_NPC(ch) && !IS_NPC(victim) && ch->fighting == nullptr) {
 				char buf[MAX_STRING_LENGTH];
-				REMOVE_BIT(victim->act_flags, PLR_NOPK);
+				victim->act_flags -= PLR_NOPK;
 				Format::sprintf(buf, "%s is out for blood - En guarde, %s!", ch->name, victim->name);
 				do_send_announce(ch, buf);
 				Format::sprintf(buf, "$N is attempting to murder %s", victim->name);
@@ -1627,9 +1627,9 @@ void kill_off(Character *ch, Character *victim)
 				obj_next = obj->next_content;
 
 				if (obj->name.has_words("gcash")
-				 && !IS_SET(ch->act_flags, PLR_AUTOGOLD))
+				 && !ch->act_flags.has(PLR_AUTOGOLD))
 					continue;
-				else if (!IS_SET(ch->act_flags, PLR_AUTOLOOT))
+				else if (!ch->act_flags.has(PLR_AUTOLOOT))
 					continue;
 
 				if (can_see_obj(ch, obj))
@@ -1637,8 +1637,8 @@ void kill_off(Character *ch, Character *victim)
 			}
 		}
 
-		if (IS_SET(ch->act_flags, PLR_AUTOSAC)) {
-			if (IS_SET(ch->act_flags, PLR_AUTOLOOT | PLR_AUTOGOLD) && corpse->contains)
+		if (ch->act_flags.has(PLR_AUTOSAC)) {
+			if (ch->act_flags.has_any_of(PLR_AUTOLOOT | PLR_AUTOGOLD) && corpse->contains)
 				return;
 			else
 				do_sacrifice(ch, "corpse");   /* leave if corpse has treasure */
@@ -1670,9 +1670,9 @@ void kill_off(Character *ch, Character *victim)
 		}
 		else {
 			/* Make sure victim PK flag is dropped when char dies. -- Outsider 
-			if ((victim->pcdata->flag_killer) && (IS_SET(victim->act_flags, PLR_KILLER))) {
-				REMOVE_BIT(victim->act_flags, PLR_KILLER);
-				REMOVE_BIT(victim->act_flags, PLR_NOPK);
+			if ((victim->pcdata->flag_killer) && (victim->act_flags.has(PLR_KILLER))) {
+				victim->act_flags -= PLR_KILLER;
+				victim->act_flags -= PLR_NOPK;
 			}
 			what? why? not the point of killer flags -- Montrey */
 
@@ -1682,8 +1682,8 @@ void kill_off(Character *ch, Character *victim)
 			ch->pcdata->pckills++;
 			victim->pcdata->pckilled++;
 
-			if (IS_SET(victim->pcdata->plr, PLR_PK))
-				REMOVE_BIT(victim->pcdata->plr, PLR_PK);
+			if (victim->pcdata->plr_flags.has(PLR_PK))
+				victim->pcdata->plr_flags -= PLR_PK;
 
 			if (victim->pcdata->pkrank >= ch->pcdata->pkrank) {
 				if (ch->pcdata->pkrank < 5)
@@ -1715,10 +1715,10 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 		}
 
 		/* no killing healers, trainers, etc */
-		if (IS_SET(victim->act_flags, ACT_TRAIN)
-		    || IS_SET(victim->act_flags, ACT_PRACTICE)
-		    || IS_SET(victim->act_flags, ACT_IS_HEALER)
-		    || IS_SET(victim->act_flags, ACT_IS_CHANGER)) {
+		if (victim->act_flags.has(ACT_TRAIN)
+		    || victim->act_flags.has(ACT_PRACTICE)
+		    || victim->act_flags.has(ACT_IS_HEALER)
+		    || victim->act_flags.has(ACT_IS_CHANGER)) {
 			if (showmsg)
 				stc("Have you no moral fibre whatsoever?!\n", ch);
 
@@ -1727,7 +1727,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (IS_SET(victim->act_flags, ACT_PET) && affect_exists_on_char(victim, gsn_charm_person)) {
+			if (victim->act_flags.has(ACT_PET) && affect_exists_on_char(victim, gsn_charm_person)) {
 				if (showmsg)
 					act("But $N looks so cute and cuddly.", ch, nullptr, victim, TO_CHAR);
 
@@ -1771,7 +1771,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 		}
 		/* player doing the killing */
 		else {
-			if (IS_SET(victim->act_flags, PLR_KILLER) || IS_SET(victim->act_flags, PLR_THIEF))
+			if (victim->act_flags.has(PLR_KILLER) || victim->act_flags.has(PLR_THIEF))
 				return FALSE;
 
 			if (victim->level > ch->level + 8 || ch->level > victim->level + 8) {
@@ -1784,14 +1784,14 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 			if (char_opponents(ch, victim))
 				return FALSE;
 
-			if (!IS_SET(victim->pcdata->plr, PLR_PK)) {
+			if (!victim->pcdata->plr_flags.has(PLR_PK)) {
 				if (showmsg)
 					stc("They are not in the mood to PK right now.\n", ch);
 
 				return TRUE;
 			}
 
-			if (!IS_SET(ch->pcdata->plr, PLR_PK)) {
+			if (!ch->pcdata->plr_flags.has(PLR_PK)) {
 				if (showmsg)
 					stc("You are not in the mood to PK right now.\n", ch);
 
@@ -1812,7 +1812,7 @@ bool is_safe(Character *ch, Character *victim, bool showmsg)
 //		return TRUE;
 
 	/* safe room? */
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE)) {
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)) {
 		if (showmsg)
 			stc("Oddly enough, in this room you feel peaceful.\n", ch);
 
@@ -1844,7 +1844,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	if (IS_IMMORTAL(ch) && !area)
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE))
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE))
 		return TRUE;
 
 	if (victim == ch && area)
@@ -1867,7 +1867,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	if (char_in_darena_room(victim))
 		return FALSE;
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim))
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim))
 		return TRUE;
 
 	if (affect_exists_on_char(ch, gsn_fear))
@@ -1876,22 +1876,22 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	/* killing mobiles */
 	if (IS_NPC(victim)) {
 		/* safe room? */
-		if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
+		if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
 			return TRUE;
 
 		if (victim->pIndexData->pShop != nullptr)
 			return TRUE;
 
 		/* no killing healers, trainers, etc */
-		if (IS_SET(victim->act_flags, ACT_TRAIN)
-		    || IS_SET(victim->act_flags, ACT_PRACTICE)
-		    || IS_SET(victim->act_flags, ACT_IS_HEALER)
-		    || IS_SET(victim->act_flags, ACT_IS_CHANGER))
+		if (victim->act_flags.has(ACT_TRAIN)
+		    || victim->act_flags.has(ACT_PRACTICE)
+		    || victim->act_flags.has(ACT_IS_HEALER)
+		    || victim->act_flags.has(ACT_IS_CHANGER))
 			return TRUE;
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (IS_SET(victim->act_flags, ACT_PET))
+			if (victim->act_flags.has(ACT_PET))
 				return TRUE;
 
 			/* no charmed creatures unless owner */
@@ -1919,7 +1919,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 				return TRUE;
 
 			/* safe room? */
-			if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
+			if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
 				return TRUE;
 
 			/* legal kill? -- mobs only hit players grouped with opponent*/
@@ -1928,7 +1928,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 		}
 		/* player doing the killing */
 		else {
-			if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
+			if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
 				return TRUE;
 
 			/* almost anything goes in questland if UPK is up */
@@ -1937,7 +1937,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 			    && victim->in_room->area == quest_area)
 				return FALSE;
 
-			if (IS_SET(victim->act_flags, PLR_KILLER) || IS_SET(victim->act_flags, PLR_THIEF))
+			if (victim->act_flags.has(PLR_KILLER) || victim->act_flags.has(PLR_THIEF))
 				return FALSE;
 
 			if (ch->level > victim->level + 8)
@@ -1946,8 +1946,8 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 			if (char_opponents(ch, victim))
 				return FALSE;
 
-			if (!IS_SET(victim->pcdata->plr, PLR_PK)
-			    || !IS_SET(ch->pcdata->plr, PLR_PK))
+			if (!victim->pcdata->plr_flags.has(PLR_PK)
+			    || !ch->pcdata->plr_flags.has(PLR_PK))
 				return TRUE;
 		}
 	}
@@ -1965,8 +1965,8 @@ void check_killer(Character *ch, Character *victim)
 
 	/* NPC's are fair game.  So are killers and thieves. */
 	if (IS_NPC(victim)
-	    || IS_SET(victim->act_flags, PLR_KILLER)
-	    || IS_SET(victim->act_flags, PLR_THIEF)
+	    || victim->act_flags.has(PLR_KILLER)
+	    || victim->act_flags.has(PLR_THIEF)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
 	    || char_in_darena(victim))
@@ -2005,7 +2005,7 @@ void check_killer(Character *ch, Character *victim)
 	if (IS_NPC(ch)
 	    || ch == victim
 	    || IS_IMMORTAL(ch)
-	    || IS_SET(ch->act_flags, PLR_KILLER)
+	    || ch->act_flags.has(PLR_KILLER)
 	    || ch->fighting  == victim)
 		return;
 
@@ -2018,8 +2018,8 @@ void check_killer(Character *ch, Character *victim)
 		return;
 
 	stc("{P*** You are now a KILLER!! ***{x\n", ch);
-	SET_BIT(ch->act_flags, PLR_KILLER);
-	SET_BIT(ch->act_flags, PLR_NOPK);
+	ch->act_flags += PLR_KILLER;
+	ch->act_flags += PLR_NOPK;
 	ch->pcdata->flag_killer = MAX_KILLER;
 	save_char_obj(ch);
 } /* end check_killer */
@@ -2101,12 +2101,12 @@ bool check_parry(Character *ch, Character *victim, int dt)
 		attack = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
+	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou parry $n's {B%s.{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
+	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R parries your %s.{x", attack);
 		act(buf, ch, nullptr, victim, TO_CHAR);
 	}
@@ -2197,12 +2197,12 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 		attack = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
+	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou parry $n's {B%s with your second weapon!{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
+	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R parries your %s with $S second weapon!{x", attack);
 		act(buf, ch, nullptr, victim, TO_CHAR);
 	}
@@ -2279,12 +2279,12 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 		attack  = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
+	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou block $n's {B%s with your shield.{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
+	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R blocks your %s with a shield.{x", attack);
 		act(buf, ch, nullptr, victim, TO_CHAR);
 	}
@@ -2312,10 +2312,10 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
+	if (victim->off_flags.has(OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance += 15;
 
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
+	if (ch->off_flags.has(OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance -= 15;
 
 	if (affect_exists_on_char(victim, gsn_slow))
@@ -2364,12 +2364,12 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 		attack  = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
+	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou dodge $n's {B%s.{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
+	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{R$N{R dodges your %s.{x", attack);
 		act(buf, ch, nullptr, victim, TO_CHAR);
 	}
@@ -2397,10 +2397,10 @@ bool check_blur(Character *ch, Character *victim, int dt)
 	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
+	if (victim->off_flags.has(OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
+	if (ch->off_flags.has(OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance -= 10;
 
 	if (affect_exists_on_char(victim, gsn_slow))
@@ -2446,12 +2446,12 @@ bool check_blur(Character *ch, Character *victim, int dt)
 		attack = attack_table[0].name;
 	}
 
-	if (!IS_SET(victim->act_flags, PLR_DEFENSIVE)) {
+	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{V$n's {V%s is no match for your speed.{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
 	}
 
-	if (!IS_SET(ch->act_flags, PLR_DEFENSIVE)) {
+	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{M$N {Mblurs with speed as $E evades your %s.{x", attack);
 		act(buf, ch, nullptr, victim, TO_CHAR);
 	}
@@ -2551,7 +2551,7 @@ void make_corpse(Character *ch)
 		}
 
 		corpse->timer   = number_range(25, 40);
-		REMOVE_BIT(ch->act_flags, PLR_CANLOOT);
+		ch->act_flags -= PLR_CANLOOT;
 		corpse->owner = ch->name;
 		/* Corpse Looting - Taken Out
 		corpse->owner = nullptr;
@@ -2597,10 +2597,10 @@ void make_corpse(Character *ch)
 
 		if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH) && !floating) {
 			obj->timer = number_range(5, 10);
-			REMOVE_BIT(obj->extra_flags, ITEM_ROT_DEATH);
+			obj->extra_flags -= ITEM_ROT_DEATH;
 		}
 
-		REMOVE_BIT(obj->extra_flags, ITEM_VIS_DEATH);
+		obj->extra_flags -= ITEM_VIS_DEATH;
 
 		if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 			extract_obj(obj);
@@ -2659,7 +2659,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  2:
-		if (IS_SET(ch->parts, PART_GUTS)) {
+		if (ch->parts_flags.has(PART_GUTS)) {
 			msg = "$n spills $s guts all over the floor.";
 			vnum = OBJ_VNUM_GUTS;
 		}
@@ -2667,7 +2667,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  3:
-		if (IS_SET(ch->parts, PART_HEAD)) {
+		if (ch->parts_flags.has(PART_HEAD)) {
 			msg = "$n's severed head plops on the ground.";
 			vnum = OBJ_VNUM_SEVERED_HEAD;
 		}
@@ -2675,7 +2675,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  4:
-		if (IS_SET(ch->parts, PART_HEART)) {
+		if (ch->parts_flags.has(PART_HEART)) {
 			msg = "$n's heart is torn from $s chest and lays beating at your feet.";
 			vnum = OBJ_VNUM_TORN_HEART;
 		}
@@ -2683,7 +2683,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  5:
-		if (IS_SET(ch->parts, PART_ARMS)) {
+		if (ch->parts_flags.has(PART_ARMS)) {
 			msg = "$n's arm is sliced from $s dead body.";
 			vnum = OBJ_VNUM_SLICED_ARM;
 		}
@@ -2691,7 +2691,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  6:
-		if (IS_SET(ch->parts, PART_LEGS)) {
+		if (ch->parts_flags.has(PART_LEGS)) {
 			msg = "$n's leg is sliced from $s dead body.";
 			vnum = OBJ_VNUM_SLICED_LEG;
 		}
@@ -2699,7 +2699,7 @@ void death_cry(Character *ch)
 		break;
 
 	case  7:
-		if (IS_SET(ch->parts, PART_BRAINS)) {
+		if (ch->parts_flags.has(PART_BRAINS)) {
 			msg = "$n's head is shattered, and $s brains splash all over you.";
 			vnum = OBJ_VNUM_BRAINS;
 		}
@@ -2723,9 +2723,9 @@ void death_cry(Character *ch)
 		obj->description = Format::format(obj->description, name);
 
 		if (obj->item_type == ITEM_FOOD) {
-			if (IS_SET(ch->form, FORM_POISON))
+			if (ch->form_flags.has(FORM_POISON))
 				obj->value[3] = 1;
-			else if (!IS_SET(ch->form, FORM_EDIBLE))
+			else if (!ch->form_flags.has(FORM_EDIBLE))
 				obj->item_type = ITEM_TRASH;
 		}
 
@@ -2817,10 +2817,10 @@ void group_gain(Character *ch, Character *victim)
 	int members = 0;
 	int group_levels = 0;
 	int highestlevel = 0;
-	int vary_int = 0;
+	Flags vary_int;
 	int diff_classes = 1;
-	const sh_int vary_bit [] =
-	{ BIT_A, BIT_B, BIT_C, BIT_D, BIT_E, BIT_F, BIT_G, BIT_H };
+	const Flags::Bit vary_bit [] =
+	{ Flags::A, Flags::B, Flags::C, Flags::D, Flags::E, Flags::F, Flags::G, Flags::H };
 
 	/* Monsters don't get kill xp's or alignment changes.
 	   P-killing doesn't help either.
@@ -2829,7 +2829,7 @@ void group_gain(Character *ch, Character *victim)
 	if (victim == ch)
 		return;
 
-	SET_BIT(vary_int, vary_bit[ch->cls]);
+	vary_int += vary_bit[ch->cls];
 
 	/* calculate number of group members present and the sum of their levels */
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
@@ -2838,8 +2838,8 @@ void group_gain(Character *ch, Character *victim)
 			group_levels += IS_NPC(gch) ? gch->level / 2 : gch->level;
 
 			/* figure out how varied the group is -- Montrey */
-			if (!IS_SET(vary_int, vary_bit[gch->cls])) {
-				SET_BIT(vary_int, vary_bit[gch->cls]);
+			if (!vary_int.has(vary_bit[gch->cls])) {
+				vary_int += vary_bit[gch->cls];
 				diff_classes++;
 			}
 		}
@@ -2883,7 +2883,7 @@ void group_gain(Character *ch, Character *victim)
 
 		ptc(gch, "{PYou receive %d experience points.{x\n", xp);
 
-		if (!IS_SET(ch->revoke, REVOKE_EXP))
+		if (!ch->revoke_flags.has(REVOKE_EXP))
 			gain_exp(gch, xp);
 
 		/* check for items becoming unwearable due to alignment changes */
@@ -2903,7 +2903,7 @@ void group_gain(Character *ch, Character *victim)
 			}
 		}
 
-		if (IS_SET(gch->act_flags, PLR_QUESTOR) && IS_NPC(victim)) {
+		if (gch->act_flags.has(PLR_QUESTOR) && IS_NPC(victim)) {
 			if (gch->questmob == victim->pIndexData->vnum) {
 				stc("{YYou have almost completed your QUEST!{x\n", gch);
 				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
@@ -2971,7 +2971,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	/* do alignment computations */
 	align = victim->alignment - gch->alignment;
 
-	if (IS_SET(victim->act_flags, ACT_NOALIGN)
+	if (victim->act_flags.has(ACT_NOALIGN)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
 	    || (victim->in_room->area == quest_area && quest_upk)
@@ -2995,7 +2995,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	gch->alignment = URANGE(-1000, gch->alignment, 1000);
 
 	/* calculate exp multiplier */
-	if (IS_SET(victim->act_flags, ACT_NOALIGN))
+	if (victim->act_flags.has(ACT_NOALIGN))
 		xp = base_exp;
 	else if (gch->alignment > 500) { /* for goodie two shoes */
 		if (victim->alignment < -750)              xp = (base_exp * 4) / 3;
@@ -3508,10 +3508,10 @@ void do_dirt(Character *ch, String argument)
 	chance -= 2 * GET_ATTR_DEX(victim);
 
 	/* speed  */
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
+	if (ch->off_flags.has(OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
+	if (victim->off_flags.has(OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 25;
 
 	/* level */
@@ -3588,10 +3588,10 @@ bool trip(Character *ch, Character *victim, int chance, int dam_type)
 	chance -= GET_ATTR_DEX(victim) * 3 / 2;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
+	if (ch->off_flags.has(OFF_FAST) || affect_exists_on_char(ch, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
+	if (victim->off_flags.has(OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
 		chance -= 20;
 
 	/* level */
@@ -3710,13 +3710,13 @@ bool check_attack_ok(Character *ch, Character *victim) {
 		return FALSE;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim)) {
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim)) {
 		stc("Morphed players cannot attack PC's.\n", ch);
 		wiznet("$N is attempting PK while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return FALSE;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && IS_SET(victim->act_flags, ACT_PET)) {
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
 		stc("Morphed players cannot attack pets.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return FALSE;
@@ -3994,7 +3994,7 @@ void do_sing(Character *ch, String argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_LAW)) {
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_LAW)) {
 		stc("The mayor does not approve of your playing style.\n", ch);
 		return;
 	}
@@ -4129,13 +4129,13 @@ void do_backstab(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim)) {
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim)) {
 		stc("Morphed players cannot backstab PC's.\n", ch);
 		wiznet("$N is attempting PK while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && IS_SET(victim->act_flags, ACT_PET)) {
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
 		stc("Morphed players cannot backstab pets or lirs.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
@@ -4351,10 +4351,10 @@ void do_flee(Character *ch, String argument)
 		if ((pexit = was_in->exit[dir]) == 0
 		    || pexit->u1.to_room == nullptr
 		    || !can_see_room(ch, pexit->u1.to_room)
-		    || (IS_SET(pexit->exit_info, EX_CLOSED)
+		    || (pexit->exit_flags.has(EX_CLOSED)
 		        && (!affect_exists_on_char(ch, gsn_pass_door)
-		            || IS_SET(pexit->exit_info, EX_NOPASS)))
-		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)))
+		            || pexit->exit_flags.has(EX_NOPASS)))
+		    || (IS_NPC(ch) && GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)))
 			continue;
 
 		topp++;
@@ -4374,10 +4374,10 @@ void do_flee(Character *ch, String argument)
 		if ((pexit = was_in->exit[dir]) == 0
 		    || pexit->u1.to_room == nullptr
 		    || !can_see_room(ch, pexit->u1.to_room)
-		    || (IS_SET(pexit->exit_info, EX_CLOSED)
+		    || (pexit->exit_flags.has(EX_CLOSED)
 		        && (!affect_exists_on_char(ch, gsn_pass_door)
-		            || IS_SET(pexit->exit_info, EX_NOPASS)))
-		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)))
+		            || pexit->exit_flags.has(EX_NOPASS)))
+		    || (IS_NPC(ch) && GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)))
 			continue;
 
 		if (!chance(chance))
@@ -4410,7 +4410,7 @@ void do_flee(Character *ch, String argument)
 			}
 		}
 
-		if (IS_NPC(victim) && (IS_SET(victim->act_flags, ACT_AGGRESSIVE))) {
+		if (IS_NPC(victim) && (victim->act_flags.has(ACT_AGGRESSIVE))) {
 			if ((hunted = get_char_area(victim, ch->name, VIS_CHAR)) != nullptr) {
 				victim->hunting = hunted;
 				WAIT_STATE(victim, 3 * PULSE_VIOLENCE);
@@ -4795,7 +4795,7 @@ void do_disarm(Character *ch, String argument)
 				if ((pexit = victim->in_room->exit[door]) != 0
 				    && (next_room = pexit->u1.to_room) != nullptr
 				    && can_see_room(victim, next_room)) {
-					if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+					if (pexit->exit_flags.has(EX_CLOSED)) {
 						Format::sprintf(buf, "$p slams against the $d and clatters to the %s!",
 						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 						act(buf, ch, weapon, pexit->keyword, TO_CHAR);
@@ -5123,7 +5123,7 @@ void do_rage(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE) && !IS_IMMORTAL(ch)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE) && !IS_IMMORTAL(ch)) {
 		stc("Oddly enough, in this room you feel peaceful.", ch);
 		return;
 	}
@@ -5315,8 +5315,8 @@ void do_shoot(Character *ch, String argument)
 					if ((pexit = room->exit[dir]) == nullptr
 			         || (to_room = pexit->u1.to_room) == nullptr
 			         || !can_see_room(ch, to_room)
-					 || (IS_SET(pexit->exit_info, EX_ISDOOR)
-				      && IS_SET(pexit->exit_info, EX_CLOSED)))
+					 || (pexit->exit_flags.has(EX_ISDOOR)
+				      && pexit->exit_flags.has(EX_CLOSED)))
 						break; // target room is nullptr
 
 					if (get_char_room(ch, to_room, target_str, VIS_CHAR)) {
@@ -5337,8 +5337,8 @@ void do_shoot(Character *ch, String argument)
 					}
 
 					/* check for a door in the way */
-					if (IS_SET(pexit->exit_info, EX_ISDOOR)
-				     && IS_SET(pexit->exit_info, EX_CLOSED)) {
+					if (pexit->exit_flags.has(EX_ISDOOR)
+				     && pexit->exit_flags.has(EX_CLOSED)) {
 						stc("A door blocks the path of the arrow.\n", ch);
 						return;
 					}
@@ -5383,12 +5383,12 @@ void do_shoot(Character *ch, String argument)
 	// temporarily move the shooter to the victim, makes damage messages easier
 	// don't give away the shooter to the victim, make them temp superwiz
 	RoomPrototype *old_room = ch->in_room;
-	bool was_superwiz = IS_SET(ch->act_flags, PLR_SUPERWIZ);
+	bool was_superwiz = ch->act_flags.has(PLR_SUPERWIZ);
 
 	if (old_room != victim->in_room) {
 		char_from_room(ch);
 		char_to_room(ch, victim->in_room);
-		SET_BIT(ch->act_flags, PLR_SUPERWIZ);
+		ch->act_flags += PLR_SUPERWIZ;
 	}
 
 	// do the hit
@@ -5400,7 +5400,7 @@ void do_shoot(Character *ch, String argument)
 		char_to_room(ch, old_room);
 
 		if (!was_superwiz)
-			REMOVE_BIT(ch->act_flags, PLR_SUPERWIZ);
+			ch->act_flags -= PLR_SUPERWIZ;
 
 		/* if the target is NPC, then make it hunt the shooter */
 		if (IS_NPC(victim)) {

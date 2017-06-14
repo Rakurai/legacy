@@ -462,7 +462,7 @@ bool is_note_to(Character *ch, Note *pnote)
 		return TRUE;
 
 	if (pnote->to_list.has_words("spam")) {
-		if (IS_SET(ch->censor, CENSOR_SPAM))
+		if (ch->censor_flags.has(CENSOR_SPAM))
 			return FALSE;
 
 		return TRUE;
@@ -729,7 +729,7 @@ void notify_note_post(Note *pnote, Character *vch, int type)
 			if (ch != vch
 			    /* don't info author of forward -- Elrac */
 			    && strcmp(pnote->sender, ch->name)
-			    && !IS_SET(ch->pcdata->plr, PLR_NONOTIFY))
+			    && !ch->pcdata->plr_flags.has(PLR_NONOTIFY))
 				stc(buf, ch);
 		}
 	}
@@ -1129,7 +1129,7 @@ void parse_note(Character *ch, String argument, int type)
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_NOTE)) {
+	if (ch->revoke_flags.has(REVOKE_NOTE)) {
 		stc("Your note writing priviledges have been revoked.\n", ch);
 		return;
 	}
@@ -1154,7 +1154,7 @@ void parse_note(Character *ch, String argument, int type)
 		if (strlen(ch->pnote->text) + strlen(argument) >= 4096) {
 			stc("Note too long.\n", ch);
 
-			if (!IS_NPC(ch)) SET_BIT(ch->pcdata->plr, PLR_STOPCRASH);
+			if (!IS_NPC(ch)) ch->pcdata->plr_flags += PLR_STOPCRASH;
 
 			return;
 		}
@@ -1214,7 +1214,7 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_STOPCRASH)) {
+		if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_STOPCRASH)) {
 			stc("You cannot edit this note any further.\n", ch);
 			stc("Please either post or clear this note.\n", ch);
 			return;
@@ -1258,7 +1258,7 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("to")) {
-		if (IS_SET(ch->comm, COMM_NOCHANNELS) &&
+		if (ch->comm_flags.has(COMM_NOCHANNELS) &&
 		    strcmp(argument, "immortal")) {
 			stc("You can currently send notes only to immortal.\n", ch);
 			return;
@@ -1308,7 +1308,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		stc("Note cleared.\n", ch);
 
-		if (!IS_NPC(ch)) REMOVE_BIT(ch->pcdata->plr, PLR_STOPCRASH);
+		if (!IS_NPC(ch)) ch->pcdata->plr_flags -= PLR_STOPCRASH;
 
 		return;
 	}
@@ -1391,7 +1391,7 @@ void parse_note(Character *ch, String argument, int type)
 		Format::sprintf(buf2, "Your %s has been posted.\n", board_index[type].board_long);
 		stc(buf2, ch);
 
-		if (!IS_NPC(ch)) REMOVE_BIT(ch->pcdata->plr, PLR_STOPCRASH);
+		if (!IS_NPC(ch)) ch->pcdata->plr_flags -= PLR_STOPCRASH;
 
 		return;
 	}

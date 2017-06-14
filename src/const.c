@@ -145,79 +145,79 @@ const std::vector<race_type> race_table = {
 		"human",        TRUE,
 		0,              0,              0,
 		0,              0,              0,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"elf",          TRUE,
 		0,              0,              0,
 		0,              RES_CHARM,      VULN_IRON,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"dwarf",        TRUE,
 		0,              AFF_NIGHT_VISION,  0,
 		0,              RES_POISON | RES_DISEASE, VULN_DROWNING,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"giant",        TRUE,
 		0,              0,              0,
 		0,              RES_FIRE | RES_COLD,      VULN_MENTAL | VULN_CHARM,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"feral",        TRUE,
 		0,              AFF_NIGHT_VISION,       OFF_DODGE,
 		0,              0,              VULN_DROWNING | VULN_ELECTRICITY,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"vampire",      TRUE,
 		0,              AFF_FLYING,     0,
 		0,              RES_NEGATIVE | RES_CHARM, VULN_LIGHT | VULN_HOLY,
-		BIT_A|BIT_D|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K|BIT_P
+		Flags::A|Flags::D|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::P
 	},
 	{
 		"irda",         TRUE,
 		0,              0,              0,
 		0,              0,              0,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J
 	},
 	{
 		"faerie",       TRUE,
 		0,              AFF_FLYING | AFF_HASTE,           0,
 		0,              0,              0,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K|BIT_P
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::P
 	},
 	{
 		"dragon",       TRUE,
 		0,              AFF_FLYING,     0,
 		0,              RES_SLASH | RES_BASH,     VULN_PIERCE,
-		BIT_A|BIT_H|BIT_Z,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K|BIT_P|BIT_Q|BIT_U|BIT_V|BIT_X
+		Flags::A|Flags::H|Flags::Z,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::P|Flags::Q|Flags::U|Flags::V|Flags::X
 	},
 	{
 		"wolf",         TRUE,
 		0,              0,              0,
 		0,              RES_COLD,       VULN_FIRE,
-		BIT_A|BIT_D|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::D|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"seraph",       TRUE,
 		0,              AFF_FLYING,     0,
 		0,              RES_HOLY | RES_LIGHT,     VULN_NEGATIVE,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_P
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::P
 	},
 	{
 		"superhuman",   TRUE,
 		0,              0,              0,
 		0,              0,              0,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J
 	},
 	{
 		"troll",        TRUE,
 		0,              AFF_REGENERATION,       0,
 		0,              RES_PIERCE | RES_POISON,  VULN_FIRE | VULN_ACID,
-		BIT_A|BIT_B|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K|BIT_L|BIT_U|BIT_W|BIT_Y
+		Flags::A|Flags::B|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::L|Flags::U|Flags::W|Flags::Y
 	},
 
 	/*** non-PC RACES ***/
@@ -226,37 +226,37 @@ const std::vector<race_type> race_table = {
 		"bat",          FALSE,
 		0,              AFF_FLYING,     OFF_DODGE | OFF_FAST,
 		0,              0,              VULN_LIGHT,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_P
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::P
 	},
 	{
 		"bear",         FALSE,
 		0,              0,              OFF_CRUSH | OFF_DISARM | OFF_BERSERK,
 		0,              RES_BASH | RES_COLD,      0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_U|BIT_V
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::U|Flags::V
 	},
 	{
 		"cat",          FALSE,
 		0,              0,              OFF_FAST | OFF_DODGE,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_Q|BIT_U|BIT_V
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::U|Flags::V
 	},
 	{
 		"centipede",    FALSE,
 		0,              0,              0,
 		0,              RES_PIERCE | RES_COLD,    VULN_BASH,
-		BIT_A|BIT_B|BIT_G|BIT_O,       BIT_A|BIT_C|BIT_K
+		Flags::A|Flags::B|Flags::G|Flags::O,       Flags::A|Flags::C|Flags::K
 	},
 	{
 		"crystal",      FALSE,
 		0,              AFF_REGENERATION,       0,
 		0,              0,              VULN_FIRE,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"dog",          FALSE,
 		0,              0,              OFF_FAST,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_U|BIT_V
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::U|Flags::V
 	},
 	{
 		"doll",         FALSE,
@@ -264,109 +264,109 @@ const std::vector<race_type> race_table = {
 		IMM_COLD | IMM_POISON | IMM_HOLY | IMM_NEGATIVE | IMM_MENTAL | IMM_DISEASE | IMM_DROWNING,
 		RES_BASH | RES_LIGHT,
 		VULN_SLASH | VULN_FIRE | VULN_ACID | VULN_ELECTRICITY | VULN_ENERGY,
-		BIT_E|BIT_J|BIT_M|BIT_cc,      BIT_A|BIT_B|BIT_C|BIT_G|BIT_H|BIT_K
+		Flags::E|Flags::J|Flags::M|Flags::c,      Flags::A|Flags::B|Flags::C|Flags::G|Flags::H|Flags::K
 	},
 	{
 		"fido",         FALSE,
 		0,              0,              OFF_DODGE | ASSIST_RACE,
 		0,              0,              VULN_MAGIC,
-		BIT_A|BIT_B|BIT_G|BIT_V,       BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_Q|BIT_V
+		Flags::A|Flags::B|Flags::G|Flags::V,       Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::V
 	},
 	{
 		"fox",          FALSE,
 		0,              0,              OFF_FAST | OFF_DODGE,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_Q|BIT_V
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::V
 	},
 	{
 		"goblin",       FALSE,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_DISEASE,    VULN_MAGIC,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"hobgoblin",    FALSE,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_DISEASE | RES_POISON, 0,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K|BIT_Y
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::Y
 	},
 	{
 		"horse",        FALSE,
 		0,              0,              0,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K
 	},
 	{
 		"kobold",       FALSE,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_POISON,     VULN_MAGIC,
-		BIT_A|BIT_B|BIT_H|BIT_M|BIT_V,     BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K|BIT_Q
+		Flags::A|Flags::B|Flags::H|Flags::M|Flags::V,     Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::Q
 	},
 	{
 		"lizard",       FALSE,
 		0,              0,              0,
 		0,              RES_POISON,     VULN_COLD,
-		BIT_A|BIT_G|BIT_X|BIT_cc,      BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_K|BIT_Q|BIT_V
+		Flags::A|Flags::G|Flags::X|Flags::c,      Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::K|Flags::Q|Flags::V
 	},
 	{
 		"modron",       FALSE,
 		0,              AFF_NIGHT_VISION,   ASSIST_RACE | ASSIST_ALIGN,
 		IMM_CHARM | IMM_DISEASE | IMM_MENTAL | IMM_HOLY | IMM_NEGATIVE, RES_FIRE | RES_COLD | RES_ACID,     0,
-		BIT_H,             BIT_A|BIT_B|BIT_C|BIT_G|BIT_H|BIT_J|BIT_K
+		Flags::H,             Flags::A|Flags::B|Flags::C|Flags::G|Flags::H|Flags::J|Flags::K
 	},
 	{
 		"orc",          FALSE,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_DISEASE,    VULN_LIGHT,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"pig",          FALSE,
 		0,              0,              0,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K
 	},
 	{
 		"rabbit",       FALSE,
 		0,              0,              OFF_DODGE | OFF_FAST,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_V,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K
+		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K
 	},
 	{
 		"school monster",       FALSE,
 		ACT_NOALIGN|ACT_NOSUMMON,            0,      0,
 		IMM_CHARM,   0,      VULN_MAGIC,
-		BIT_A|BIT_M|BIT_V,         BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_Q|BIT_U
+		Flags::A|Flags::M|Flags::V,         Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::U
 	},
 	{
 		"snake",        FALSE,
 		0,              0,              0,
 		0,              RES_POISON,     VULN_COLD,
-		BIT_A|BIT_G|BIT_X|BIT_Y|BIT_cc,    BIT_A|BIT_D|BIT_E|BIT_F|BIT_K|BIT_L|BIT_Q|BIT_V|BIT_X
+		Flags::A|Flags::G|Flags::X|Flags::Y|Flags::c,    Flags::A|Flags::D|Flags::E|Flags::F|Flags::K|Flags::L|Flags::Q|Flags::V|Flags::X
 	},
 	{
 		"song bird",    FALSE,
 		0,              AFF_FLYING,     OFF_FAST | OFF_DODGE,
 		0,              0,              0,
-		BIT_A|BIT_G|BIT_W,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_K|BIT_P
+		Flags::A|Flags::G|Flags::W,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::K|Flags::P
 	},
 	{
 		"teilysa",      FALSE,
 		0,              0,              0,
 		0,              RES_HOLY,       VULN_BASH | VULN_FIRE | VULN_ACID,
-		BIT_A|BIT_H|BIT_M|BIT_V,       BIT_A|BIT_B|BIT_C|BIT_D|BIT_E|BIT_F|BIT_G|BIT_H|BIT_I|BIT_J|BIT_K
+		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
 		"water fowl",   FALSE,
 		0,              AFF_FLYING,     0,
 		0,              RES_DROWNING,   0,
-		BIT_A|BIT_G|BIT_W,         BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_K|BIT_P
+		Flags::A|Flags::G|Flags::W,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::K|Flags::P
 	},
 	{
 		"wyvern",       FALSE,
 		0,              AFF_FLYING | AFF_DETECT_INVIS | AFF_DETECT_HIDDEN,  OFF_BASH | OFF_FAST | OFF_DODGE,
 		IMM_POISON,     0,      VULN_LIGHT,
-		BIT_A|BIT_B|BIT_G|BIT_Z,       BIT_A|BIT_C|BIT_D|BIT_E|BIT_F|BIT_H|BIT_J|BIT_K|BIT_Q|BIT_V|BIT_X
+		Flags::A|Flags::B|Flags::G|Flags::Z,       Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::V|Flags::X
 	},
 };
 

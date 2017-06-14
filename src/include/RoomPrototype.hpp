@@ -20,8 +20,8 @@ public:
 	sh_int			version = 0;	/* Room versioning -- Montrey */
 	Affect *		affected = nullptr;		/* Montrey */
 
-	unsigned long   room_flags = 0;
-    unsigned long   room_flag_cache = 0;
+	Flags           room_flags;
+    Flags           cached_room_flags;
 
 	sh_int			light = 0;
 	sh_int			sector_type = 0;

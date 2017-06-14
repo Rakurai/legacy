@@ -66,7 +66,7 @@ static RoomPrototype *access_room(HUNT_CONDITIONS *cond, Exit *ex)
 	if ((ex == nullptr) ||
 	    ((new_room = ex->u1.to_room) == nullptr) ||
 	    (cond->same_area && new_room->area != cond->area) ||
-	    (!cond->thru_doors && IS_SET(ex->exit_info, EX_CLOSED)) ||
+	    (!cond->thru_doors && ex->exit_flags.has(EX_CLOSED)) ||
 	    (!can_see_room(cond->hunter, new_room)))
 		return nullptr;
 
@@ -337,7 +337,7 @@ void hunt_victim(Character *ch)
 	}
 
 	if (cond.thru_doors &&
-	    IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED)) {
+	    ch->in_room->exit[dir]->exit_flags.has(EX_CLOSED)) {
 		do_open(ch, (char *) dir_name[dir]);
 		return;
 	}

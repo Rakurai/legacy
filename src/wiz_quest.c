@@ -97,7 +97,7 @@ void do_addapply(Character *ch, String argument)
 	af.duration   = duration;
 	af.location   = enchant_type;
 	af.modifier   = affect_modify;
-	af.bitvector  = 0;
+	af.bitvector(0);
 	af.evolution  = 1;
 	affect_join_to_obj(obj, &af);
 }
@@ -153,9 +153,9 @@ void do_morph(Character *ch, String argument)
 		return;
 	}
 
-	REMOVE_BIT(mobile->act_flags, ACT_AGGRESSIVE);
-	SET_BIT(mobile->act_flags, PLR_COLOR);
-	SET_BIT(mobile->act_flags, ACT_MORPH);
+	mobile->act_flags -= ACT_AGGRESSIVE;
+	mobile->act_flags += PLR_COLOR;
+	mobile->act_flags += ACT_MORPH;
 	char_to_room(mobile, victim->in_room);
 	do_switch(victim, mobile->name.c_str());
 	char_from_room(victim);
@@ -269,7 +269,7 @@ RoomPrototype *get_scatter_room(Character *ch)
 		    || room->area->name == "Torayna Cri"
 		    || room->area->name == "Battle Arenas"
 		    || room->sector_type == SECT_ARENA
-		    || IS_SET(GET_ROOM_FLAGS(room),
+		    || GET_ROOM_FLAGS(room).has_any_of(
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE
@@ -658,8 +658,8 @@ void do_switch(Character *ch, String argument)
 	/* change communications to match */
 	victim->prompt = ch->prompt;
 
-	victim->comm = ch->comm;
-	victim->censor = ch->censor;        /* Montrey */
+	victim->comm_flags = ch->comm_flags;
+	victim->censor_flags = ch->censor_flags;        /* Montrey */
 	victim->lines = ch->lines;
 	stc("You have been morphed.\n", victim);
 	return;
@@ -685,7 +685,7 @@ void do_return(Character *ch, String argument)
 	Format::sprintf(buf, "$N has returned from: %s.", ch->short_descr);
 	wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, GET_RANK(ch));
 
-	if (IS_SET(ch->desc->character->act_flags, ACT_MORPH)) {
+	if (ch->desc->character->act_flags.has(ACT_MORPH)) {
 		if (ch->desc->character->in_room == nullptr)
 			location = get_room_index(ROOM_VNUM_MORGUE);
 		else
@@ -705,7 +705,7 @@ void do_return(Character *ch, String argument)
 
 	ch->desc                  = nullptr;
 
-	if (IS_SET(ch->act_flags, ACT_MORPH) && ch->in_room != nullptr)
+	if (ch->act_flags.has(ACT_MORPH) && ch->in_room != nullptr)
 		extract_char(ch, TRUE);  /* Only if raw_kill didn't do it */
 
 	return;

@@ -37,24 +37,24 @@ char stupidassline[1000] =
    if any changes to the order need to be made, make the change, then wipe the
    table and reload fresh, because loadhelps() will not wipe the table properly
    if numbers don't match up.  same goes for if any categories are removed */
-#define	HELP_INFO		BIT_A
-#define	HELP_CLAN		BIT_B
-#define	HELP_SKILL		BIT_C
-#define	HELP_SPELL		BIT_D
-#define	HELP_RACE		BIT_E
-#define	HELP_CLASS		BIT_F
-#define	HELP_REMORT		BIT_G
-#define	HELP_MOVE		BIT_H
-#define	HELP_OBJECT		BIT_I
-#define	HELP_COMM		BIT_J
-#define	HELP_COMBAT		BIT_K
-#define HELP_MISC		BIT_L
-#define	HELP_WIZQUEST		BIT_M
-#define	HELP_WIZSECURE		BIT_N
-#define	HELP_WIZCODE		BIT_O
-#define	HELP_WIZGEN		BIT_P
-#define	HELP_WIZBUILD		BIT_Q
-#define	HELP_WIZHELP		BIT_R
+#define	HELP_INFO		Flags::A
+#define	HELP_CLAN		Flags::B
+#define	HELP_SKILL		Flags::C
+#define	HELP_SPELL		Flags::D
+#define	HELP_RACE		Flags::E
+#define	HELP_CLASS		Flags::F
+#define	HELP_REMORT		Flags::G
+#define	HELP_MOVE		Flags::H
+#define	HELP_OBJECT		Flags::I
+#define	HELP_COMM		Flags::J
+#define	HELP_COMBAT		Flags::K
+#define HELP_MISC		Flags::L
+#define	HELP_WIZQUEST		Flags::M
+#define	HELP_WIZSECURE		Flags::N
+#define	HELP_WIZCODE		Flags::O
+#define	HELP_WIZGEN		Flags::P
+#define	HELP_WIZBUILD		Flags::Q
+#define	HELP_WIZHELP		Flags::R
 
 struct helpfile_table_type
 {

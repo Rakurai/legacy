@@ -74,14 +74,14 @@ void move_char(Character *ch, int door, bool follow)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_LAW)
-	    && (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_AGGRESSIVE))) {
+	if (GET_ROOM_FLAGS(to_room).has(ROOM_LAW)
+	    && (IS_NPC(ch) && ch->act_flags.has(ACT_AGGRESSIVE))) {
 		stc("They don't seem to want your 'type' here.", ch);
 		return;
 	}
 
-	if (IS_SET(pexit->exit_info, EX_CLOSED)
-	    && (!affect_exists_on_char(ch, gsn_pass_door) || IS_SET(pexit->exit_info, EX_NOPASS))
+	if (pexit->exit_flags.has(EX_CLOSED)
+	    && (!affect_exists_on_char(ch, gsn_pass_door) || pexit->exit_flags.has(EX_NOPASS))
 	    &&  !IS_IMMORTAL(ch)) {
 		act("The $d is closed.", ch, nullptr, pexit->keyword, TO_CHAR);
 		return;
@@ -115,13 +115,13 @@ void move_char(Character *ch, int door, bool follow)
 		}
 
 		/* don't care about mobs getting messages */
-		if (IS_SET(GET_ROOM_FLAGS(in_room), ROOM_UNDER_WATER)) {
-			if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_UNDER_WATER))
+		if (GET_ROOM_FLAGS(in_room).has(ROOM_UNDER_WATER)) {
+			if (GET_ROOM_FLAGS(to_room).has(ROOM_UNDER_WATER))
 				stc("{CYou continue to hold your breath...{x\n", ch);
 			else
 				stc("{CYou gasp for air!{x\n", ch);
 		}
-		else if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_UNDER_WATER))
+		else if (GET_ROOM_FLAGS(to_room).has(ROOM_UNDER_WATER))
 			stc("{CYou begin to hold your breath.{x\n", ch);
 	}
 
@@ -193,7 +193,7 @@ void move_char(Character *ch, int door, bool follow)
 	ch->stam -= cost;
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
-	    || (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_SUPERWIZ)))
+	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
 		act("$n leaves $T.", ch, nullptr, dir_name[door], TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
 		act("$n leaves $T.", ch, nullptr, dir_name[door], TO_NOTVIEW);
@@ -209,7 +209,7 @@ void move_char(Character *ch, int door, bool follow)
 		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[door]]);
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
-	    || (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_SUPERWIZ)))
+	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
 		act("$n has arrived from $T.", ch, nullptr, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
 		act("$n has arrived from $T.", ch, nullptr, dir_buf, TO_NOTVIEW);
@@ -237,11 +237,11 @@ void move_char(Character *ch, int door, bool follow)
 		}
 
 		if (fch->master == ch && get_position(fch) >= POS_STANDING && can_see_room(fch, to_room)) {
-			if (IS_NPC(fch) && IS_SET(fch->act_flags, ACT_STAY))
+			if (IS_NPC(fch) && fch->act_flags.has(ACT_STAY))
 				continue;
 
-			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LAW) && (IS_NPC(fch)
-			                && IS_SET(fch->act_flags, ACT_AGGRESSIVE))) {
+			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LAW) && (IS_NPC(fch)
+			                && fch->act_flags.has(ACT_AGGRESSIVE))) {
 				act("You can't bring $N into the city.", ch, nullptr, fch, TO_CHAR);
 				act("They don't seem to want your 'type' here.", fch, nullptr, nullptr, TO_CHAR);
 				continue;
@@ -306,7 +306,7 @@ int find_door(Character *ch, const String& arg)
 	else {
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != nullptr
-			    && IS_SET(pexit->exit_info, EX_ISDOOR)
+			    && pexit->exit_flags.has(EX_ISDOOR)
 			    && pexit->keyword.has_words(arg))
 				return door;
 		}
@@ -320,7 +320,7 @@ int find_door(Character *ch, const String& arg)
 		return -1;
 	}
 
-	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
+	if (!pexit->exit_flags.has(EX_ISDOOR)) {
 		stc("You can't do that.\n", ch);
 		return -1;
 	}
@@ -343,7 +343,7 @@ int find_exit(Character *ch, const String& arg)
 	else {
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != nullptr
-			    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
+			    &&   pexit->exit_flags.has(EX_ISDOOR)
 			    &&   pexit->keyword.has_words(arg))
 				return door;
 		}
@@ -382,22 +382,22 @@ void do_open(Character *ch, String argument)
 	    && (obj = get_obj_here(ch, arg)) != nullptr) {
 		/* open portal */
 		if (obj->item_type == ITEM_PORTAL) {
-			if (!IS_SET(obj->value[1], EX_ISDOOR)) {
+			if (!obj->value[1].flags().has(EX_ISDOOR)) {
 				stc("You can't do that.\n", ch);
 				return;
 			}
 
-			if (!IS_SET(obj->value[1], EX_CLOSED)) {
+			if (!obj->value[1].flags().has(EX_CLOSED)) {
 				stc("It's already open.\n", ch);
 				return;
 			}
 
-			if (IS_SET(obj->value[1], EX_LOCKED)) {
+			if (obj->value[1].flags().has(EX_LOCKED)) {
 				stc("It's locked.\n", ch);
 				return;
 			}
 
-			REMOVE_BIT(obj->value[1], EX_CLOSED);
+			obj->value[1] -= EX_CLOSED;
 			act("You open $p and a bright unholy light dawns upon you.", ch, obj, nullptr, TO_CHAR);
 			act("$n opens $p and is overtaken by an unholy light.", ch, obj, nullptr, TO_ROOM);
 			return;
@@ -415,22 +415,22 @@ void do_open(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_CLOSED)) {
+		if (!obj->value[1].flags().has(CONT_CLOSED)) {
 			stc("It's already open.\n", ch);
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_CLOSEABLE)) {
+		if (!obj->value[1].flags().has(CONT_CLOSEABLE)) {
 			stc("You can't do that.\n", ch);
 			return;
 		}
 
-		if (IS_SET(obj->value[1], CONT_LOCKED)) {
+		if (obj->value[1].flags().has(CONT_LOCKED)) {
 			stc("It's locked.\n", ch);
 			return;
 		}
 
-		REMOVE_BIT(obj->value[1], CONT_CLOSED);
+		obj->value[1] -= CONT_CLOSED;
 		act("You open $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n opens $p.", ch, obj, nullptr, TO_ROOM);
 		return;
@@ -443,13 +443,13 @@ void do_open(Character *ch, String argument)
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
-		if (!IS_SET(pexit->exit_info, EX_CLOSED))
+		if (!pexit->exit_flags.has(EX_CLOSED))
 		{ stc("It's already open.\n",      ch); return; }
 
-		if (IS_SET(pexit->exit_info, EX_LOCKED))
+		if (pexit->exit_flags.has(EX_LOCKED))
 		{ stc("It's locked.\n",            ch); return; }
 
-		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+		pexit->exit_flags -= EX_CLOSED;
 		act("$n opens the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
 		stc("You open it.\n", ch);
 
@@ -458,7 +458,7 @@ void do_open(Character *ch, String argument)
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != nullptr
 		    &&   pexit_rev->u1.to_room == ch->in_room) {
 			Character *rch;
-			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
+			pexit_rev->exit_flags -= EX_CLOSED;
 
 			for (rch = to_room->people; rch != nullptr; rch = rch->next_in_room)
 				act("The $d opens.", rch, nullptr, pexit_rev->keyword, TO_CHAR);
@@ -490,18 +490,18 @@ void do_close(Character *ch, String argument)
 	    && (obj = get_obj_here(ch, arg)) != nullptr) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
-			if (!IS_SET(obj->value[1], EX_ISDOOR)
-			    || IS_SET(obj->value[1], EX_NOCLOSE)) {
+			if (!obj->value[1].flags().has(EX_ISDOOR)
+			    || obj->value[1].flags().has(EX_NOCLOSE)) {
 				stc("You can't do that.\n", ch);
 				return;
 			}
 
-			if (IS_SET(obj->value[1], EX_CLOSED)) {
+			if (obj->value[1].flags().has(EX_CLOSED)) {
 				stc("It's already closed.\n", ch);
 				return;
 			}
 
-			SET_BIT(obj->value[1], EX_CLOSED);
+			obj->value[1] += EX_CLOSED;
 			act("You close $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n closes $p.", ch, obj, nullptr, TO_ROOM);
 			return;
@@ -519,17 +519,17 @@ void do_close(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(obj->value[1], CONT_CLOSED)) {
+		if (obj->value[1].flags().has(CONT_CLOSED)) {
 			stc("It's already closed.\n", ch);
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_CLOSEABLE)) {
+		if (!obj->value[1].flags().has(CONT_CLOSEABLE)) {
 			stc("You can't do that.\n", ch);
 			return;
 		}
 
-		SET_BIT(obj->value[1], CONT_CLOSED);
+		obj->value[1] += CONT_CLOSED;
 		act("You close $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n closes $p.", ch, obj, nullptr, TO_ROOM);
 		return;
@@ -542,12 +542,12 @@ void do_close(Character *ch, String argument)
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
-		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+		if (pexit->exit_flags.has(EX_CLOSED)) {
 			stc("It's already closed.\n", ch);
 			return;
 		}
 
-		SET_BIT(pexit->exit_info, EX_CLOSED);
+		pexit->exit_flags += EX_CLOSED;
 		act("$n closes the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
 		stc("You close it.\n", ch);
 
@@ -556,7 +556,7 @@ void do_close(Character *ch, String argument)
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != 0
 		    && pexit_rev->u1.to_room == ch->in_room) {
 			Character *rch;
-			SET_BIT(pexit_rev->exit_info, EX_CLOSED);
+			pexit_rev->exit_flags += EX_CLOSED;
 
 			for (rch = to_room->people; rch != nullptr; rch = rch->next_in_room)
 				act("The $d closes.", rch, nullptr, pexit_rev->keyword, TO_CHAR);
@@ -598,18 +598,18 @@ void do_lock(Character *ch, String argument)
 	    && (obj = get_obj_here(ch, arg)) != nullptr) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
-			if (!IS_SET(obj->value[1], EX_ISDOOR)
-			    ||  IS_SET(obj->value[1], EX_NOCLOSE)) {
+			if (!obj->value[1].flags().has(EX_ISDOOR)
+			    ||  obj->value[1].flags().has(EX_NOCLOSE)) {
 				stc("You can't do that.\n", ch);
 				return;
 			}
 
-			if (!IS_SET(obj->value[1], EX_CLOSED)) {
+			if (!obj->value[1].flags().has(EX_CLOSED)) {
 				stc("It's not closed.\n", ch);
 				return;
 			}
 
-			if (obj->value[4] < 0 || IS_SET(obj->value[1], EX_NOLOCK)) {
+			if (obj->value[4] < 0 || obj->value[1].flags().has(EX_NOLOCK)) {
 				stc("It can't be locked.\n", ch);
 				return;
 			}
@@ -619,12 +619,12 @@ void do_lock(Character *ch, String argument)
 				return;
 			}
 
-			if (IS_SET(obj->value[1], EX_LOCKED)) {
+			if (obj->value[1].flags().has(EX_LOCKED)) {
 				stc("It's already locked.\n", ch);
 				return;
 			}
 
-			SET_BIT(obj->value[1], EX_LOCKED);
+			obj->value[1] += EX_LOCKED;
 			act("You lock $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n locks $p and carefully hides the key.", ch, obj, nullptr, TO_ROOM);
 			return;
@@ -642,7 +642,7 @@ void do_lock(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_CLOSED)) {
+		if (!obj->value[1].flags().has(CONT_CLOSED)) {
 			stc("It's not closed.\n", ch);
 			return;
 		}
@@ -657,12 +657,12 @@ void do_lock(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(obj->value[1], CONT_LOCKED)) {
+		if (obj->value[1].flags().has(CONT_LOCKED)) {
 			stc("It's already locked.\n", ch);
 			return;
 		}
 
-		SET_BIT(obj->value[1], CONT_LOCKED);
+		obj->value[1] += CONT_LOCKED;
 		act("You lock $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n locks $p and carefully hides the key.", ch, obj, nullptr, TO_ROOM);
 		return;
@@ -675,7 +675,7 @@ void do_lock(Character *ch, String argument)
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
-		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		if (!pexit->exit_flags.has(EX_CLOSED)) {
 			stc("It's not closed.\n", ch);
 			return;
 		}
@@ -690,12 +690,12 @@ void do_lock(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(pexit->exit_info, EX_LOCKED)) {
+		if (pexit->exit_flags.has(EX_LOCKED)) {
 			stc("It's already locked.\n", ch);
 			return;
 		}
 
-		SET_BIT(pexit->exit_info, EX_LOCKED);
+		pexit->exit_flags += EX_LOCKED;
 		stc("You lock the door.\n", ch);
 		act("$n locks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
 
@@ -703,7 +703,7 @@ void do_lock(Character *ch, String argument)
 		if ((to_room = pexit->u1.to_room) != nullptr
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != 0
 		    && pexit_rev->u1.to_room == ch->in_room)
-			SET_BIT(pexit_rev->exit_info, EX_LOCKED);
+			pexit_rev->exit_flags += EX_LOCKED;
 	}
 }
 
@@ -729,12 +729,12 @@ void do_unlock(Character *ch, String argument)
 	    && (obj = get_obj_here(ch, arg)) != nullptr) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
-			if (IS_SET(obj->value[1], EX_ISDOOR)) {
+			if (obj->value[1].flags().has(EX_ISDOOR)) {
 				stc("You can't do that.\n", ch);
 				return;
 			}
 
-			if (!IS_SET(obj->value[1], EX_CLOSED)) {
+			if (!obj->value[1].flags().has(EX_CLOSED)) {
 				stc("It's not closed.\n", ch);
 				return;
 			}
@@ -749,12 +749,12 @@ void do_unlock(Character *ch, String argument)
 				return;
 			}
 
-			if (!IS_SET(obj->value[1], EX_LOCKED)) {
+			if (!obj->value[1].flags().has(EX_LOCKED)) {
 				stc("It's already unlocked.\n", ch);
 				return;
 			}
 
-			REMOVE_BIT(obj->value[1], EX_LOCKED);
+			obj->value[1] -= EX_LOCKED;
 			act("You unlock $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n unlocks $p.", ch, obj, nullptr, TO_ROOM);
 			return;
@@ -772,7 +772,7 @@ void do_unlock(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_CLOSED)) {
+		if (!obj->value[1].flags().has(CONT_CLOSED)) {
 			stc("It's not closed.\n", ch);
 			return;
 		}
@@ -787,12 +787,12 @@ void do_unlock(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_LOCKED)) {
+		if (!obj->value[1].flags().has(CONT_LOCKED)) {
 			stc("It's already unlocked.\n", ch);
 			return;
 		}
 
-		REMOVE_BIT(obj->value[1], CONT_LOCKED);
+		obj->value[1] -= CONT_LOCKED;
 		act("You unlock $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n unlocks $p.", ch, obj, nullptr, TO_ROOM);
 		return;
@@ -805,7 +805,7 @@ void do_unlock(Character *ch, String argument)
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
-		if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		if (!pexit->exit_flags.has(EX_CLOSED)) {
 			stc("It's not closed.\n", ch);
 			return;
 		}
@@ -820,12 +820,12 @@ void do_unlock(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
+		if (!pexit->exit_flags.has(EX_LOCKED)) {
 			stc("It's already unlocked.\n", ch);
 			return;
 		}
 
-		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+		pexit->exit_flags -= EX_LOCKED;
 		stc("You unlock it.\n", ch);
 		act("$n unlocks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
 
@@ -833,7 +833,7 @@ void do_unlock(Character *ch, String argument)
 		if ((to_room = pexit->u1.to_room) != nullptr
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != nullptr
 		    && pexit_rev->u1.to_room == ch->in_room)
-			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
+			pexit_rev->exit_flags -= EX_LOCKED;
 	}
 }
 
@@ -879,12 +879,12 @@ void do_pick(Character *ch, String argument)
 	if ((obj = get_obj_here(ch, arg)) != nullptr) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
-			if (!IS_SET(obj->value[1], EX_ISDOOR)) {
+			if (!obj->value[1].flags().has(EX_ISDOOR)) {
 				stc("You can't do that.\n", ch);
 				return;
 			}
 
-			if (!IS_SET(obj->value[1], EX_CLOSED)) {
+			if (!obj->value[1].flags().has(EX_CLOSED)) {
 				stc("It's not closed.\n", ch);
 				return;
 			}
@@ -894,12 +894,12 @@ void do_pick(Character *ch, String argument)
 				return;
 			}
 
-			if (IS_SET(obj->value[1], EX_PICKPROOF)) {
+			if (obj->value[1].flags().has(EX_PICKPROOF)) {
 				stc("You failed.\n", ch);
 				return;
 			}
 
-			REMOVE_BIT(obj->value[1], EX_LOCKED);
+			obj->value[1] -= EX_LOCKED;
 			act("You pick the lock on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n picks the lock on $p.", ch, obj, nullptr, TO_ROOM);
 			check_improve(ch, gsn_pick_lock, TRUE, 2);
@@ -918,19 +918,19 @@ void do_pick(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_SET(obj->value[1], CONT_CLOSED))
+		if (!obj->value[1].flags().has(CONT_CLOSED))
 		{ stc("It's not closed.\n",        ch); return; }
 
 		if (obj->value[2] < 0)
 		{ stc("It can't be unlocked.\n",   ch); return; }
 
-		if (!IS_SET(obj->value[1], CONT_LOCKED))
+		if (!obj->value[1].flags().has(CONT_LOCKED))
 		{ stc("It's already unlocked.\n",  ch); return; }
 
-		if (IS_SET(obj->value[1], CONT_PICKPROOF))
+		if (obj->value[1].flags().has(CONT_PICKPROOF))
 		{ stc("Unfortunately, your skills prove to be lacking.\n", ch); return; }
 
-		REMOVE_BIT(obj->value[1], CONT_LOCKED);
+		obj->value[1] -= CONT_LOCKED;
 		act("You pick the lock on $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n picks the lock on $p.", ch, obj, nullptr, TO_ROOM);
 		check_improve(ch, gsn_pick_lock, TRUE, 2);
@@ -944,19 +944,19 @@ void do_pick(Character *ch, String argument)
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
 
-		if (!IS_SET(pexit->exit_info, EX_CLOSED) && !IS_IMMORTAL(ch))
+		if (!pexit->exit_flags.has(EX_CLOSED) && !IS_IMMORTAL(ch))
 		{ stc("It's not closed.\n",        ch); return; }
 
 		if (pexit->key < 0 && !IS_IMMORTAL(ch))
 		{ stc("It can't be picked.\n",     ch); return; }
 
-		if (!IS_SET(pexit->exit_info, EX_LOCKED))
+		if (!pexit->exit_flags.has(EX_LOCKED))
 		{ stc("It's already unlocked.\n",  ch); return; }
 
-		if (IS_SET(pexit->exit_info, EX_PICKPROOF) && !IS_IMMORTAL(ch))
+		if (pexit->exit_flags.has(EX_PICKPROOF) && !IS_IMMORTAL(ch))
 		{ stc("Unfortunately, your skills prove to be lacking.\n",             ch); return; }
 
-		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+		pexit->exit_flags -= EX_LOCKED;
 		stc("You pick it!!\n", ch);
 		act("$n picks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
 		check_improve(ch, gsn_pick_lock, TRUE, 2);
@@ -965,7 +965,7 @@ void do_pick(Character *ch, String argument)
 		if ((to_room   = pexit->u1.to_room) != nullptr
 		    && (pexit_rev = to_room->exit[rev_dir[door]]) != nullptr
 		    &&   pexit_rev->u1.to_room == ch->in_room)
-			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
+			pexit_rev->exit_flags -= EX_LOCKED;
 	}
 
 	return;
@@ -999,9 +999,9 @@ void do_stand(Character *ch, String argument)
 		}
 
 		if (obj->item_type != ITEM_FURNITURE
-		    || (!IS_SET(obj->value[2], STAND_AT)
-		        &&   !IS_SET(obj->value[2], STAND_ON)
-		        &&   !IS_SET(obj->value[2], STAND_IN))) {
+		    || (!obj->value[2].flags().has(STAND_AT)
+		        &&   !obj->value[2].flags().has(STAND_ON)
+		        &&   !obj->value[2].flags().has(STAND_IN))) {
 			stc("You can't seem to find a place to stand.\n", ch);
 			return;
 		}
@@ -1026,11 +1026,11 @@ void do_stand(Character *ch, String argument)
 			    TO_ROOM);
 			ch->on = nullptr;
 		}
-		else if (IS_SET(obj->value[2], STAND_AT)) {
+		else if (obj->value[2].flags().has(STAND_AT)) {
 			act("You wake and stand at $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and stands at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], STAND_ON)) {
+		else if (obj->value[2].flags().has(STAND_ON)) {
 			act("You wake and stand on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and stands on $p.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1049,11 +1049,11 @@ void do_stand(Character *ch, String argument)
 			act("$n stands up.", ch, nullptr, nullptr, TO_ROOM);
 			ch->on = nullptr;
 		}
-		else if (IS_SET(obj->value[2], STAND_AT)) {
+		else if (obj->value[2].flags().has(STAND_AT)) {
 			act("You stand at $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n stands at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], STAND_ON)) {
+		else if (obj->value[2].flags().has(STAND_ON)) {
 			act("You stand on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n stands on $p.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1107,10 +1107,10 @@ void do_rest(Character *ch, String argument)
 	else obj = ch->on;
 
 	if (obj != nullptr) {
-		if (!IS_SET(obj->item_type, ITEM_FURNITURE)
-		    || (!IS_SET(obj->value[2], REST_ON)
-		        &&   !IS_SET(obj->value[2], REST_IN)
-		        &&   !IS_SET(obj->value[2], REST_AT))) {
+		if (obj->item_type != ITEM_FURNITURE
+		    || (!obj->value[2].flags().has(REST_ON)
+		        &&   !obj->value[2].flags().has(REST_IN)
+		        &&   !obj->value[2].flags().has(REST_AT))) {
 			stc("You can't rest on that.\n", ch);
 			return;
 		}
@@ -1134,12 +1134,12 @@ void do_rest(Character *ch, String argument)
 			stc("You wake up and start resting.\n", ch);
 			act("$n wakes up and starts resting.", ch, nullptr, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], REST_AT)) {
+		else if (obj->value[2].flags().has(REST_AT)) {
 			act("You wake up and rest at $p.",
 			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
 			act("$n wakes up and rests at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], REST_ON)) {
+		else if (obj->value[2].flags().has(REST_ON)) {
 			act("You wake up and rest on $p.",
 			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
 			act("$n wakes up and rests on $p.", ch, obj, nullptr, TO_ROOM);
@@ -1162,11 +1162,11 @@ void do_rest(Character *ch, String argument)
 			stc("You sit down and rest.\n", ch);
 			act("$n sits down and rests.", ch, nullptr, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], REST_AT)) {
+		else if (obj->value[2].flags().has(REST_AT)) {
 			act("You sit down at $p and rest.", ch, obj, nullptr, TO_CHAR);
 			act("$n sits down at $p and rests.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], REST_ON)) {
+		else if (obj->value[2].flags().has(REST_ON)) {
 			act("You sit on $p and rest.", ch, obj, nullptr, TO_CHAR);
 			act("$n sits on $p and rests.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1183,11 +1183,11 @@ void do_rest(Character *ch, String argument)
 			stc("You lay back and rest.\n", ch);
 			act("$n lies back and rests.", ch, nullptr, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], REST_AT)) {
+		else if (obj->value[2].flags().has(REST_AT)) {
 			act("You rest at $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n rests at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], REST_ON)) {
+		else if (obj->value[2].flags().has(REST_ON)) {
 			act("You rest on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n rests on $p.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1243,10 +1243,10 @@ void do_sit(Character *ch, String argument)
 	else obj = ch->on;
 
 	if (obj != nullptr) {
-		if (!IS_SET(obj->item_type, ITEM_FURNITURE)
-		    || (!IS_SET(obj->value[2], SIT_ON)
-		        &&   !IS_SET(obj->value[2], SIT_IN)
-		        &&   !IS_SET(obj->value[2], SIT_AT))) {
+		if (obj->item_type != ITEM_FURNITURE
+		    || (!obj->value[2].flags().has(SIT_ON)
+		        &&   !obj->value[2].flags().has(SIT_IN)
+		        &&   !obj->value[2].flags().has(SIT_AT))) {
 			stc("You can't sit on that.\n", ch);
 			return;
 		}
@@ -1265,11 +1265,11 @@ void do_sit(Character *ch, String argument)
 			stc("You wake and sit up.\n", ch);
 			act("$n wakes and sits up.", ch, nullptr, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], SIT_AT)) {
+		else if (obj->value[2].flags().has(SIT_AT)) {
 			act("You wake and sit at $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and sits at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], SIT_ON)) {
+		else if (obj->value[2].flags().has(SIT_ON)) {
 			act("You wake and sit on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
 			act("$n wakes and sits at $p.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1284,11 +1284,11 @@ void do_sit(Character *ch, String argument)
 	case POS_RESTING:
 		if (obj == nullptr)
 			stc("You stop resting.\n", ch);
-		else if (IS_SET(obj->value[2], SIT_AT)) {
+		else if (obj->value[2].flags().has(SIT_AT)) {
 			act("You sit at $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n sits at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], SIT_ON)) {
+		else if (obj->value[2].flags().has(SIT_ON)) {
 			act("You sit on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n sits on $p.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1305,11 +1305,11 @@ void do_sit(Character *ch, String argument)
 			stc("You sit down.\n", ch);
 			act("$n sits down.", ch, nullptr, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], SIT_AT)) {
+		else if (obj->value[2].flags().has(SIT_AT)) {
 			act("You sit down at $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n sits down at $p.", ch, obj, nullptr, TO_ROOM);
 		}
-		else if (IS_SET(obj->value[2], SIT_ON)) {
+		else if (obj->value[2].flags().has(SIT_ON)) {
 			act("You sit on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n sits on $p.", ch, obj, nullptr, TO_ROOM);
 		}
@@ -1339,7 +1339,7 @@ void do_sleep(Character *ch, String argument)
 {
 	Object *obj = nullptr;
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NOSLEEP)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NOSLEEP)) {
 		stc("Hmmm...you can't seem to fall asleep in this room.\n", ch);
 		return;
 	}
@@ -1373,9 +1373,9 @@ void do_sleep(Character *ch, String argument)
 			}
 
 			if (obj->item_type != ITEM_FURNITURE || // && obj->item_type != ITEM_COACH) ||
-			   (!IS_SET(obj->value[2], SLEEP_ON)
-			        &&   !IS_SET(obj->value[2], SLEEP_IN)
-			        &&   !IS_SET(obj->value[2], SLEEP_AT))) {
+			   (!obj->value[2].flags().has(SLEEP_ON)
+			        &&   !obj->value[2].flags().has(SLEEP_IN)
+			        &&   !obj->value[2].flags().has(SLEEP_AT))) {
 				stc("You can't sleep on that!\n", ch);
 				return;
 			}
@@ -1388,11 +1388,11 @@ void do_sleep(Character *ch, String argument)
 
 			ch->on = obj;
 
-			if (IS_SET(obj->value[2], SLEEP_AT)) {
+			if (obj->value[2].flags().has(SLEEP_AT)) {
 				act("You go to sleep at $p.", ch, obj, nullptr, TO_CHAR);
 				act("$n goes to sleep at $p.", ch, obj, nullptr, TO_ROOM);
 			}
-			else if (IS_SET(obj->value[2], SLEEP_ON)) {
+			else if (obj->value[2].flags().has(SLEEP_ON)) {
 				act("You go to sleep on $p.", ch, obj, nullptr, TO_CHAR);
 				act("$n goes to sleep on $p.", ch, obj, nullptr, TO_ROOM);
 			}
@@ -1542,7 +1542,7 @@ void do_visible(Character *ch, String argument)
 	affect_remove_sn_from_char(ch, gsn_sneak);
 	affect_remove_sn_from_char(ch, gsn_hide);
 	affect_remove_sn_from_char(ch, gsn_midnight);
-	REMOVE_BIT(ch->act_flags, PLR_SUPERWIZ);
+	ch->act_flags -= PLR_SUPERWIZ;
 	ch->invis_level = 0;
 	ch->lurk_level = 0;
 	stc("You are now visible.\n", ch);
@@ -1557,7 +1557,7 @@ void do_recall(Character *ch, String argument)
 void do_clan_recall(Character *ch, String argument)
 {
 	/* This looks really ugly, so I'm re-writing it. -- Outsider
-	if ((!is_clan(ch) && !IS_SET(ch->act_flags,ACT_PET)) || ch->clan == nullptr)
+	if ((!is_clan(ch) && !ch->act_flags.has(ACT_PET)) || ch->clan == nullptr)
 	{
 	     stc("You do not belong to a clan.\n",ch);
 	     return;
@@ -1565,9 +1565,9 @@ void do_clan_recall(Character *ch, String argument)
 	*/
 
 	/* Make sure we belong to a clan OR we are a pet. */
-	if (is_clan(ch) || IS_SET(ch->act_flags, ACT_PET)) {
+	if (is_clan(ch) || ch->act_flags.has(ACT_PET)) {
 		/* Make sure we have a valid clan OR we are a pet */
-		if (ch->clan || IS_SET(ch->act_flags, ACT_PET)) {
+		if (ch->clan || ch->act_flags.has(ACT_PET)) {
 			recall(ch, TRUE);
 			return;
 		}
@@ -1589,7 +1589,7 @@ void recall(Character *ch, bool clan)
 		return;
 
 	if (IS_NPC(ch)) {
-		if (IS_SET(ch->act_flags, ACT_PET) && ch->master != nullptr)
+		if (ch->act_flags.has(ACT_PET) && ch->master != nullptr)
 			pet = TRUE;
 		else {
 			ptc(ch, "Only players and pets can %srecall.\n", clan ? "clan" : "");
@@ -1677,7 +1677,7 @@ void recall(Character *ch, bool clan)
 		return;
 	}
 
-	if ((!IS_IMMORTAL(ch) && IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL)) || affect_exists_on_char(ch, gsn_curse)) {
+	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect_exists_on_char(ch, gsn_curse)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
@@ -1752,7 +1752,7 @@ void do_train(Character *ch, String argument)
 	 * Check for trainer.
 	 */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->act_flags, ACT_TRAIN))
+		if (IS_NPC(mob) && mob->act_flags.has(ACT_TRAIN))
 			break;
 	}
 
@@ -1963,7 +1963,7 @@ bool is_safe_drag(Character *ch, Character *victim)
 		return FALSE;
 
 	/* safe room? */
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE)
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)
 	    && (IS_NPC(victim) || victim->pcdata->pktimer <= 0)) {
 		stc("Oddly enough, in this room you feel peaceful.\n", ch);
 		return TRUE;
@@ -2040,7 +2040,7 @@ void do_push(Character *ch, String argument)
 			act("$n tries to push you.", ch, nullptr, victim, TO_VICT);
 			act("$N looks at you with contempt and ignores you.", ch, nullptr, victim, TO_CHAR);
 
-			if (!IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
+			if (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
 				multi_hit(victim, ch, TYPE_UNDEFINED);
 
 			return;
@@ -2057,8 +2057,8 @@ void do_push(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_LAW)
-	    && (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_AGGRESSIVE))) {
+	if (GET_ROOM_FLAGS(to_room).has(ROOM_LAW)
+	    && (IS_NPC(victim) && victim->act_flags.has(ACT_AGGRESSIVE))) {
 		stc("They are too ill-tempered to have in the city.\n", ch);
 		return;
 	}
@@ -2071,9 +2071,9 @@ void do_push(Character *ch, String argument)
 	}
 
 	/* exit is impassible? */
-	if (IS_SET(pexit->exit_info, EX_CLOSED)
+	if (pexit->exit_flags.has(EX_CLOSED)
 	    && (!affect_exists_on_char(victim, gsn_pass_door)
-	        || IS_SET(pexit->exit_info, EX_NOPASS))) {
+	        || pexit->exit_flags.has(EX_NOPASS))) {
 		Format::sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword);
 		act(buf, ch, nullptr, victim, TO_CHAR);
 		Format::sprintf(buf, "$n shoves you up against the %s and threatens you.", pexit->keyword);
@@ -2105,12 +2105,12 @@ void do_push(Character *ch, String argument)
 	else
 		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)
-	    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER))
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)
+	    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER))
 		stc("{CYou gasp for air!{x\n", victim);
 
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
-		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)) {
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
+		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
 			stc("{CYou continue to hold your breath...{x\n", victim);
 			Format::sprintf(buf, "$N floats in from %s.", dir_buf);
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
@@ -2134,11 +2134,11 @@ void do_push(Character *ch, String argument)
 
 			if (!IS_FLYING(victim)) {
 				int count = 0;  /* just to prevent an infinite loop */
-				long brief = IS_SET(victim->comm, COMM_BRIEF);
-				SET_BIT(victim->comm, COMM_BRIEF);
+				long brief = victim->comm_flags.has(COMM_BRIEF);
+				victim->comm_flags += COMM_BRIEF;
 
 				while (victim->in_room->sector_type == SECT_AIR
-				       && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)
+				       && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
 				       && count++ < 10) {
@@ -2176,15 +2176,15 @@ void do_push(Character *ch, String argument)
 				}
 
 				if (!brief)
-					REMOVE_BIT(victim->comm, COMM_BRIEF);
+					victim->comm_flags -= COMM_BRIEF;
 
 				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
 				    || victim->in_room->sector_type == SECT_WATER_SWIM
-				    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
+				    || GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
 					stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					act("$n spashes down HARD in the water.", victim, nullptr, nullptr, TO_ROOM);
 
-					if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER))
+					if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER))
 						stc("{CYou begin to hold your breath.{x\n", victim);
 				}
 				else {
@@ -2271,7 +2271,7 @@ void do_drag(Character *ch, String argument)
 			if (IS_AWAKE(victim)) {
 				act("$n tries to drag you, but is not strong enough.", ch, nullptr, victim, TO_VICT);
 
-				if (!IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
+				if (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
 					multi_hit(victim, ch, TYPE_UNDEFINED);
 			}
 
@@ -2316,13 +2316,13 @@ void do_drag(Character *ch, String argument)
 			return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(to_room), ROOM_LAW)) {
-		if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_AGGRESSIVE)) {
+	if (GET_ROOM_FLAGS(to_room).has(ROOM_LAW)) {
+		if (IS_NPC(ch) && ch->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("They don't want your 'type' in there.\n", ch);
 			return;
 		}
 
-		if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_AGGRESSIVE)) {
+		if (IS_NPC(victim) && victim->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("They are too ill-tempered to have in the city.\n", ch);
 			return;
 		}
@@ -2354,9 +2354,9 @@ void do_drag(Character *ch, String argument)
 		stc("You dream about rugburns.\n", victim);
 
 	/* exit is impassible? */
-	if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+	if (pexit->exit_flags.has(EX_CLOSED)) {
 		if (!affect_exists_on_char(ch, gsn_pass_door)
-		    || IS_SET(pexit->exit_info, EX_NOPASS)) {
+		    || pexit->exit_flags.has(EX_NOPASS)) {
 			ptc(ch, "You back into the %s.\n", pexit->keyword);
 			Format::sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword);
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
@@ -2370,7 +2370,7 @@ void do_drag(Character *ch, String argument)
 		}
 
 		if (!affect_exists_on_char(victim, gsn_pass_door)
-		    || IS_SET(pexit->exit_info, EX_NOPASS)) {
+		    || pexit->exit_flags.has(EX_NOPASS)) {
 			ptc(ch, "You try to drag them through the %s, but they are too solid.\n", pexit->keyword);
 			Format::sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword);
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
@@ -2411,14 +2411,14 @@ void do_drag(Character *ch, String argument)
 	else
 		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
 
-	if (IS_SET(GET_ROOM_FLAGS(from_room), ROOM_UNDER_WATER)
-	    && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
+	if (GET_ROOM_FLAGS(from_room).has(ROOM_UNDER_WATER)
+	    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
 		act("{CYou gasp for air!{x\n", ch, nullptr, victim, TO_CHAR);
 		act("{CYou gasp for air!{x\n", ch, nullptr, victim, TO_VICT);
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
-		if (IS_SET(GET_ROOM_FLAGS(from_room), ROOM_UNDER_WATER)) {
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
+		if (GET_ROOM_FLAGS(from_room).has(ROOM_UNDER_WATER)) {
 			stc("{CYou continue to hold your breath...{x\n", ch);
 			act("{CYou continue to hold your breath...{x", victim, nullptr, nullptr, TO_CHAR);
 			Format::sprintf(buf, "$n swims in from %s, dragging $N behind.", dir_buf);
@@ -2460,11 +2460,11 @@ void do_drag(Character *ch, String argument)
 
 			if (!IS_FLYING(victim)) {
 				int count = 0;  /* just to prevent an infinite loop */
-				long brief = IS_SET(victim->comm, COMM_BRIEF);
-				SET_BIT(victim->comm, COMM_BRIEF);
+				long brief = victim->comm_flags.has(COMM_BRIEF);
+				victim->comm_flags += COMM_BRIEF;
 
 				while (victim->in_room->sector_type == SECT_AIR
-				       && !IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)
+				       && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
 				       && count++ < 10) {
@@ -2515,11 +2515,11 @@ void do_drag(Character *ch, String argument)
 				}
 
 				if (!brief)
-					REMOVE_BIT(victim->comm, COMM_BRIEF);
+					victim->comm_flags -= COMM_BRIEF;
 
 				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
 				    || victim->in_room->sector_type == SECT_WATER_SWIM
-				    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_UNDER_WATER)) {
+				    || GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
 					if (IS_AWAKE(victim))
 						stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					else
@@ -2580,7 +2580,7 @@ void do_mark(Character *ch, String argument)
 
 	if (ch->in_room->sector_type == SECT_ARENA
 	    || ch->in_room->area == quest_area
-	    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_GODS_ONLY) && !IS_IMMORTAL(ch))
+	    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_GODS_ONLY) && !IS_IMMORTAL(ch))
 	    || char_in_duel_room(ch)) {
 		stc("Access to this room must be gained anew each time!\n", ch);
 		return;
@@ -2691,14 +2691,14 @@ RoomPrototype *get_random_room(Character *ch)
 		    || room->area->name == "Limbo"
 		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
 		    || room->area->name == "Torayna Cri"
-		    || IS_SET(GET_ROOM_FLAGS(room), ROOM_PRIVATE | ROOM_SOLITARY)
-		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW) && IS_SET(ch->act_flags, ACT_AGGRESSIVE))
+		    || GET_ROOM_FLAGS(room).has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
+		    || (IS_NPC(ch) && GET_ROOM_FLAGS(room).has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
 		    || room->sector_type == SECT_ARENA)
 			continue;
 
 		/* no pet shops */
 		if ((prev = get_room_index(room->vnum - 1)) != nullptr)
-			if (IS_SET(GET_ROOM_FLAGS(prev), ROOM_PET_SHOP))
+			if (GET_ROOM_FLAGS(prev).has(ROOM_PET_SHOP))
 				continue;
 
 		return room;
@@ -2723,7 +2723,7 @@ void do_enter(Character *ch, String argument)
 			return;
 		}
 
-		if (portal->item_type != ITEM_PORTAL || (IS_SET(portal->value[1], EX_CLOSED) && !IS_IMMORTAL(ch))) {
+		if (portal->item_type != ITEM_PORTAL || (portal->value[1].flags().has(EX_CLOSED) && !IS_IMMORTAL(ch))) {
 			stc("You don't see any sort of entrance...\n", ch);
 			return;
 		}
@@ -2736,24 +2736,24 @@ void do_enter(Character *ch, String argument)
 
 			/* Added by Lotus 6-22-98 */
 			/* make it so you can't use portable portals to get out of norecall areas -- Montrey */
-			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NOPORTAL)
-			    || (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL) && CAN_WEAR(portal, ITEM_TAKE))) {
+			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NOPORTAL)
+			    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL) && CAN_WEAR(portal, ITEM_TAKE))) {
 				stc("The Lord of Evil has denied you access to your portal...muahahaha...\n", ch);
 				return;
 			}
 
 			if (affect_exists_on_char(ch, gsn_curse)
-			    && (IS_SET(portal->value[2], GATE_NOCURSE) || CAN_WEAR(portal, ITEM_TAKE))) {
+			    && (portal->value[2].flags().has(GATE_NOCURSE) || CAN_WEAR(portal, ITEM_TAKE))) {
 				stc("You step through and are spat violently back out.  Hmmm..\n", ch);
 				return;
 			}
 		}
 
-		if (IS_SET(portal->value[2], GATE_RANDOM) || portal->value[3] == -1) {
+		if (portal->value[2].flags().has(GATE_RANDOM) || portal->value[3] == -1) {
 			location = get_random_room(ch);
 			portal->value[3] = location->vnum; /* for record keeping :) */
 		}
-		else if (IS_SET(portal->value[2], GATE_BUGGY) && (number_percent() < 5))
+		else if (portal->value[2].flags().has(GATE_BUGGY) && (number_percent() < 5))
 			location = get_random_room(ch);
 		else
 			location = get_room_index(portal->value[3]);
@@ -2766,7 +2766,7 @@ void do_enter(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(location), ROOM_LAW) && IS_SET(ch->act_flags, ACT_AGGRESSIVE)) {
+		if (IS_NPC(ch) && GET_ROOM_FLAGS(location).has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("As soon as you enter, you are spat violently out again.\n", ch);
 			return;
 		}
@@ -2809,13 +2809,13 @@ void do_enter(Character *ch, String argument)
 			act("$n steps into $p.", ch, portal, nullptr, TO_ROOM);
 
 		if (fighting) {
-			if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
+			if (portal->value[2].flags().has(GATE_NORMAL_EXIT))
 				act("You jump through $p!", ch, portal, nullptr, TO_CHAR);
 			else
 				act("You jump through $p and into a bright light beyond...", ch, portal, nullptr, TO_CHAR);
 		}
 		else {
-			if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
+			if (portal->value[2].flags().has(GATE_NORMAL_EXIT))
 				act("You step through $p.", ch, portal, nullptr, TO_CHAR);
 			else
 				act("You walk through $p and into a bright light beyond...", ch, portal, nullptr, TO_CHAR);
@@ -2824,19 +2824,19 @@ void do_enter(Character *ch, String argument)
 		char_from_room(ch);
 		char_to_room(ch, location);
 
-		if (IS_SET(portal->value[2], GATE_GOWITH)) { /* take the gate along */
+		if (portal->value[2].flags().has(GATE_GOWITH)) { /* take the gate along */
 			obj_from_room(portal);
 			obj_to_room(portal, location);
 		}
 
 		if (fighting) {
-			if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
+			if (portal->value[2].flags().has(GATE_NORMAL_EXIT))
 				act("$n jumps out of $p, looking somewhat battered.", ch, portal, nullptr, TO_ROOM);
 			else
 				act("In a blinding flash, $n arrives through $p.", ch, portal, nullptr, TO_ROOM);
 		}
 		else {
-			if (IS_SET(portal->value[2], GATE_NORMAL_EXIT))
+			if (portal->value[2].flags().has(GATE_NORMAL_EXIT))
 				act("$n saunters in.", ch, portal, nullptr, TO_ROOM);
 			else
 				act("In a blinding flash, $n arrives through $p.", ch, portal, nullptr, TO_ROOM);
@@ -2859,7 +2859,7 @@ void do_enter(Character *ch, String argument)
 
 		/* charges */
 		if (portal->value[0] > 0) {
-			portal->value[0]--;
+			portal->value[0] -= 1;
 
 			if (portal->value[0] == 0)
 				portal->value[0] = -1;
@@ -2884,8 +2884,8 @@ void do_enter(Character *ch, String argument)
 			}
 
 			if (fch->master == ch && get_position(fch) == POS_STANDING) {
-				if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LAW)
-				    && (IS_NPC(fch) && IS_SET(fch->act_flags, ACT_AGGRESSIVE))) {
+				if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LAW)
+				    && (IS_NPC(fch) && fch->act_flags.has(ACT_AGGRESSIVE))) {
 					act("You can't bring $N into the city!! Are you DAFT?!", ch, nullptr, fch, TO_CHAR);
 					act("Get yer aggressive butt outta town buddy...", fch, nullptr, nullptr, TO_CHAR);
 					continue;
@@ -3006,7 +3006,7 @@ void do_spousegate(Character *ch, String argument)
 		return;
 	}
 
-	if (! IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
+	if (! ch->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("You are not married.\n", ch);
 		return;
 	}
@@ -3023,11 +3023,11 @@ void do_spousegate(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_NO_RECALL)
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)
 	    || victim == ch
 	    || victim->in_room == nullptr
 	    || !can_see_room(ch, victim->in_room)
-	    || IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
+	    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 	    || victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->area == quest_area
 	    || char_in_duel_room(victim)
@@ -3040,7 +3040,7 @@ void do_spousegate(Character *ch, String argument)
 
 	/* check for pet */
 	if ((ch->pet) && (ch->in_room == ch->pet->in_room) &&
-	    (! IS_SET(ch->pet->act_flags, ACT_STAY)))
+	    (! ch->pet->act_flags.has(ACT_STAY)))
 		gate_pet = TRUE;
 
 	/* transfer person and (perhaps) pet */

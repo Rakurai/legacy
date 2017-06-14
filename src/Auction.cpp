@@ -112,12 +112,12 @@ void do_auction(Character *ch, String argument)
 	}
 
 	/* at least one argument given */
-	if (IS_SET(ch->revoke, REVOKE_AUCTION)) {
+	if (ch->revoke_flags.has(REVOKE_AUCTION)) {
 		stc("The gods have revoked your ability to auction.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_QUIET)) {
+	if (ch->comm_flags.has(COMM_QUIET)) {
 		stc("You must turn off quiet mode first.\n", ch);
 		return;
 	}

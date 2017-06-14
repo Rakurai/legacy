@@ -39,8 +39,8 @@ void do_flag(Character *ch, String argument)
 	Character *victim = nullptr;
 	Object *object;
 	RoomPrototype *room;
-	unsigned long *flag;
-	int old = 0, nw = 0, marked = 0, pos, fieldptr, length;
+	Flags *flag, old, nw, marked;
+	int pos, fieldptr;
 	char type;
 
 	String arg1, arg2, arg3, word;
@@ -126,11 +126,11 @@ void do_flag(Character *ch, String argument)
 			switch (fieldptr) {
 			case FIELD_ACT:         flag = &victim->act_flags;            break;
 			case FIELD_OFF:         flag = &victim->off_flags;      break;
-			case FIELD_FORM:        flag = &victim->form;           break;
-			case FIELD_PART:        flag = &victim->parts;          break;
-			case FIELD_COMM:        flag = &victim->comm;           break;
-			case FIELD_CENSOR:      flag = &victim->censor;         break;
-			case FIELD_REVOKE:      flag = &victim->revoke;         break;
+			case FIELD_FORM:        flag = &victim->form_flags;           break;
+			case FIELD_PART:        flag = &victim->parts_flags;          break;
+			case FIELD_COMM:        flag = &victim->comm_flags;           break;
+			case FIELD_CENSOR:      flag = &victim->censor_flags;         break;
+			case FIELD_REVOKE:      flag = &victim->revoke_flags;         break;
 
 			default:
 				ptc(ch, "That is not an acceptable %s flag.\n", arg1);
@@ -150,18 +150,12 @@ void do_flag(Character *ch, String argument)
 
 			switch (fieldptr) {
 			case FIELD_PLAYER:      flag = &victim->act_flags;            break;
-
-			case FIELD_Player:      flag = &victim->pcdata->plr;    break;
-
-			case FIELD_WIZNET:      flag = &victim->wiznet;         break;
-
-			case FIELD_CGROUP:      flag = &victim->pcdata->cgroup; break;
-
-			case FIELD_COMM:        flag = &victim->comm;           break;
-
-			case FIELD_CENSOR:      flag = &victim->censor;         break;
-
-			case FIELD_REVOKE:      flag = &victim->revoke;         break;
+			case FIELD_PCDATA:      flag = &victim->pcdata->plr_flags;    break;
+			case FIELD_WIZNET:      flag = &victim->wiznet_flags;         break;
+			case FIELD_CGROUP:      flag = &victim->pcdata->cgroup_flags; break;
+			case FIELD_COMM:        flag = &victim->comm_flags;           break;
+			case FIELD_CENSOR:      flag = &victim->censor_flags;         break;
+			case FIELD_REVOKE:      flag = &victim->revoke_flags;         break;
 
 			default:
 				ptc(ch, "That is not an acceptable %s flag.\n", arg1);
@@ -193,7 +187,7 @@ void do_flag(Character *ch, String argument)
 		case FIELD_EXTRA:       flag = &object->extra_flags;    break;
 
 		case FIELD_WEAR:        flag = &object->wear_flags;     break;
-
+/* temporarily removed until I can figure out how I want to do it
 		case FIELD_WEAPON:
 			if (object->item_type != ITEM_WEAPON) {
 				stc("That is not a weapon.\n", ch);
@@ -201,6 +195,7 @@ void do_flag(Character *ch, String argument)
 			}
 
 			flag = (unsigned long *) & (object->value[4]);            break;
+*/
 		default:
 			stc("That's not an acceptable object flag.\n", ch);
 			return;
@@ -250,70 +245,59 @@ void do_flag(Character *ch, String argument)
 	for (; ;) {
 		argument = one_argument(argument, word);
 
-		if (word[0] == '\0')
+		if (word.empty())
 			break;
 
-		length = strlen(word);
+		if (word.size() == 1) { // alpha flag
+			Flags flag(word);
 
-		if (length <= 2) {              /* alpha flag? */
-			char letter;
-
-			if (length == 1) {
-				letter = UPPER(word[0]);
-				SET_BIT(marked, flag_convert(letter));
-				continue;
+			if (flag.empty()) {
+				stc("That flag doesn't exist!\n", ch);
+				return;
 			}
-			else {
-				letter = LOWER(word[0]);
 
-				if (letter == LOWER(word[1])
-				    && letter <= 'f'
-				    && letter >= 'a') {
-					SET_BIT(marked, flag_convert(letter));
-					continue;
-				}
-			}
+			marked += flag;
 		}
 
-		pos = flag_lookup(word, flag_table);
+		pos = flag_index_lookup(word, flag_table);
 
 		if (pos == -1) {
 			stc("That flag doesn't exist!\n", ch);
 			return;
 		}
 		else
-			SET_BIT(marked, flag_table[pos].bit);
+			marked += flag_table[pos].bit;
 	}
 
 	for (pos = 0; pos < flag_table.size(); pos++) {
-		if (!flag_table[pos].settable && IS_SET(old, flag_table[pos].bit)) {
-			SET_BIT(nw, flag_table[pos].bit);
+		if (!flag_table[pos].settable && old.has(flag_table[pos].bit)) {
+			nw += flag_table[pos].bit;
 			continue;
 		}
 
-		if (IS_SET(marked, flag_table[pos].bit)) {
+		if (marked.has(flag_table[pos].bit)) {
 			switch (type) {
 			case '=':
 			case '+':
-				SET_BIT(nw, flag_table[pos].bit);
+				nw += flag_table[pos].bit;
 				ptc(ch, "%s %s bit set on %s.\n",
 				    flag_table[pos].name, arg3, what);
 				break;
 
 			case '-':
-				REMOVE_BIT(nw, flag_table[pos].bit);
+				nw -= flag_table[pos].bit;
 				ptc(ch, "%s %s bit removed from %s.\n",
 				    flag_table[pos].name, arg3, what);
 				break;
 
 			default:
-				if (IS_SET(nw, flag_table[pos].bit)) {
-					REMOVE_BIT(nw, flag_table[pos].bit);
+				if (nw.has(flag_table[pos].bit)) {
+					nw -= flag_table[pos].bit;
 					ptc(ch, "%s %s bit removed from %s.\n",
 					    flag_table[pos].name, arg3, what);
 				}
 				else {
-					SET_BIT(nw, flag_table[pos].bit);
+					nw += flag_table[pos].bit;
 					ptc(ch, "%s %s bit set on %s.\n",
 					    flag_table[pos].name, arg3, what);
 				}
@@ -345,17 +329,6 @@ void do_typelist(Character *ch, String argument)
 	}
 	else
 		stc("Valid lists: liquid, attack\n", ch);
-}
-
-String flag_to_alpha(long flag)
-{
-	int i;
-
-	for (i = 0; i < ftoa_table.size(); i++)
-		if (flag == ftoa_table[i].flag)
-			return ftoa_table[i].alpha;
-
-	return "";
 }
 
 void do_flaglist(Character *ch, String argument)
@@ -390,19 +363,19 @@ void do_flaglist(Character *ch, String argument)
 	const std::vector<flag_type>& flag_table = flag_fields[x].flag_table;
 
 	for (x = 0; x < flag_table.size(); x++)
-		ptc(ch, "[%2s] %s\n", flag_to_alpha(flag_table[x].bit), flag_table[x].name);
+		ptc(ch, "[%2s] %s\n", Flags(flag_table[x].bit).to_string(), flag_table[x].name);
 }
 
 /*** FLAG SEARCHING ***/
 
-int fsearch_player(Character *ch, int fieldptr, long marked)
+int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
 	Character *victim;
 	Player *vpc;
 	int count = 0;
-	long flag;
+	Flags flag;
 	output += "{VCount {YRoom{x\n";
 
 	for (vpc = pc_list; vpc != nullptr; vpc = vpc->next) {
@@ -417,22 +390,22 @@ int fsearch_player(Character *ch, int fieldptr, long marked)
 		switch (fieldptr) {
 		case FIELD_PLAYER:      flag = victim->act_flags;             break;
 
-		case FIELD_Player:      flag = victim->pcdata->plr;     break;
+		case FIELD_PCDATA:      flag = victim->pcdata->plr_flags;     break;
 
-		case FIELD_WIZNET:      flag = victim->wiznet;          break;
+		case FIELD_WIZNET:      flag = victim->wiznet_flags;          break;
 
-		case FIELD_CGROUP:      flag = victim->pcdata->cgroup;  break;
+		case FIELD_CGROUP:      flag = victim->pcdata->cgroup_flags;  break;
 
-		case FIELD_COMM:        flag = victim->comm;            break;
+		case FIELD_COMM:        flag = victim->comm_flags;            break;
 
-		case FIELD_CENSOR:      flag = victim->censor;          break;
+		case FIELD_CENSOR:      flag = victim->censor_flags;          break;
 
-		case FIELD_REVOKE:      flag = victim->revoke;          break;
+		case FIELD_REVOKE:      flag = victim->revoke_flags;          break;
 
 		default:                                                return 0;
 		}
 
-		if ((marked & flag) != marked)
+		if (!flag.has_all_of(marked))
 			continue;
 
 		if (++count > 500)
@@ -451,13 +424,13 @@ int fsearch_player(Character *ch, int fieldptr, long marked)
 	return count;
 }
 
-int fsearch_mobile(Character *ch, int fieldptr, long marked)
+int fsearch_mobile(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
 	Character *victim;
 	int count = 0;
-	long flag;
+	Flags flag;
 	output += "{VCount  {YRoom   {GMob{x\n";
 
 	for (victim = char_list; victim != nullptr; victim = victim->next) {
@@ -473,20 +446,20 @@ int fsearch_mobile(Character *ch, int fieldptr, long marked)
 
 		case FIELD_OFF:         flag = victim->off_flags;       break;
 
-		case FIELD_FORM:        flag = victim->form;            break;
+		case FIELD_FORM:        flag = victim->form_flags;            break;
 
-		case FIELD_PART:        flag = victim->parts;           break;
+		case FIELD_PART:        flag = victim->parts_flags;           break;
 
-		case FIELD_COMM:        flag = victim->comm;            break;
+		case FIELD_COMM:        flag = victim->comm_flags;            break;
 
-		case FIELD_CENSOR:      flag = victim->censor;          break;
+		case FIELD_CENSOR:      flag = victim->censor_flags;          break;
 
-		case FIELD_REVOKE:      flag = victim->revoke;          break;
+		case FIELD_REVOKE:      flag = victim->revoke_flags;          break;
 
 		default:                                                return 0;
 		}
 
-		if ((marked & flag) != marked)
+		if (!flag.has_all_of(marked))
 			continue;
 
 		if (++count > 500)
@@ -506,7 +479,7 @@ int fsearch_mobile(Character *ch, int fieldptr, long marked)
 	return count;
 }
 
-void fsearch_char(Character *ch, int fieldptr, long marked, bool mobile, bool player)
+void fsearch_char(Character *ch, int fieldptr, const Flags& marked, bool mobile, bool player)
 {
 	char buf[MSL];
 	String output;
@@ -544,14 +517,14 @@ void fsearch_char(Character *ch, int fieldptr, long marked, bool mobile, bool pl
 	page_to_char(output, ch);
 }
 
-void fsearch_room(Character *ch, int fieldptr, long marked)
+void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
 	Area *area;
 	RoomPrototype *room;
 	int count = 0, vnum;
-	long flag;
+	Flags flag;
 	output += "{VCount {GVnum{x\n";
 
 	for (area = area_first; area; area = area->next) {
@@ -566,7 +539,7 @@ void fsearch_room(Character *ch, int fieldptr, long marked)
 			default:                                                return;
 			}
 
-			if ((marked & flag) != marked)
+			if (!flag.has_all_of(marked))
 				continue;
 
 			if (++count > 500)
@@ -593,13 +566,13 @@ void fsearch_room(Character *ch, int fieldptr, long marked)
 
 }
 
-void fsearch_obj(Character *ch, int fieldptr, long marked)
+void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
 	Object *obj, *in_obj;
 	int count = 1;
-	long flag;
+	Flags flag;
 	output += "{VCount {YRoom  {GObject{x\n";
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
@@ -615,7 +588,7 @@ void fsearch_obj(Character *ch, int fieldptr, long marked)
 		default:                                                return;
 		}
 
-		if ((marked & flag) != marked)
+		if (!flag.has_all_of(marked))
 			continue;
 
 		for (in_obj = obj; in_obj->in_obj != nullptr; in_obj = in_obj->in_obj)
@@ -693,8 +666,9 @@ void fsearch_obj(Character *ch, int fieldptr, long marked)
 
 void do_flagsearch(Character *ch, String argument)
 {
-	int fieldptr, length;
-	long marked = 0, pos;
+	int fieldptr;
+	Flags marked;
+	long pos;
 	bool player = TRUE, mobile = TRUE, toolowmobile = FALSE, toolowplayer = FALSE;
 
 	String arg1, arg2, word;
@@ -791,7 +765,7 @@ void do_flagsearch(Character *ch, String argument)
 
 		switch (fieldptr) {
 		case FIELD_PLAYER:
-		case FIELD_Player:
+		case FIELD_PCDATA:
 		case FIELD_CGROUP:
 		case FIELD_WIZNET:      mobile = FALSE;         break;
 
@@ -864,39 +838,28 @@ void do_flagsearch(Character *ch, String argument)
 	for (; ;) {
 		argument = one_argument(argument, word);
 
-		if (word[0] == '\0')
+		if (word.empty())
 			break;
 
-		length = strlen(word);
+		if (word.size() == 1) { // alpha flag
+			Flags flag(word);
 
-		if (length <= 2) {              /* alpha flag? */
-			char letter;
-
-			if (length == 1) {
-				letter = UPPER(word[0]);
-				SET_BIT(marked, flag_convert(letter));
-				continue;
+			if (flag.empty()) {
+				stc("That flag doesn't exist!\n", ch);
+				return;
 			}
-			else {
-				letter = LOWER(word[0]);
 
-				if (letter == LOWER(word[1])
-				    && letter <= 'f'
-				    && letter >= 'a') {
-					SET_BIT(marked, flag_convert(letter));
-					continue;
-				}
-			}
+			marked += flag;
 		}
 
-		pos = flag_lookup(word, flag_table);
+		pos = flag_index_lookup(word, flag_table);
 
 		if (pos == -1) {
 			ptc(ch, "That is not an acceptable %s flag.\n", flag_fields[fieldptr].name);
 			return;
 		}
 		else
-			SET_BIT(marked, flag_table[pos].bit);
+			marked += flag_table[pos].bit;
 	}
 
 	/* search the mud */

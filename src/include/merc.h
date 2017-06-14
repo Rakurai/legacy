@@ -50,7 +50,11 @@
 
 #include "declare.h"
 #include "argument.h"
+#include "Logging.hpp"
 
+using namespace Logging;
+
+#include "Flags.hpp"
 #include "memory.h"
 #include "Actable.hpp"
 #include "String.hpp"
@@ -180,7 +184,7 @@ struct weapon_type
 struct wiznet_type
 {
 	String      name;
-	long        flag;
+	Flags::Bit  flag;
 	int         level;
 	String      desc;
 };
@@ -196,14 +200,14 @@ struct race_type
 {
 	String      name;                   /* call name of the race */
 	bool        pc_race;                /* can be chosen by pcs */
-	long	act;			/* act bits for the race */
-	long        aff;                    /* aff bits for the race */
-	long        off;                    /* off bits for the race */
-	long        imm;                    /* imm bits for the race */
-	long        res;                    /* res bits for the race */
-	long        vuln;                   /* vuln bits for the race */
-	long        form;                   /* default form flag for the race */
-	long        parts;                  /* default parts for the race */
+	Flags       act;                    /* act bits for the race */
+	Flags       aff;                    /* aff bits for the race */
+	Flags       off;                    /* off bits for the race */
+	Flags       imm;                    /* imm bits for the race */
+	Flags       res;                    /* res bits for the race */
+	Flags       vuln;                   /* vuln bits for the race */
+	Flags       form;                   /* default form flag for the race */
+	Flags       parts;                  /* default parts for the race */
 };
 
 
@@ -656,7 +660,7 @@ void    get_obj         args( ( Character *ch, Object *obj,
 
 /* act_wiz.c */
 RoomPrototype *find_location      args( (Character *ch, const String& argument) );
-int  set_tail           args( (Character *ch, Character *victim, int tail_flags) );
+int  set_tail           args( (Character *ch, Character *victim, Flags::Bit tail_flags) );
 
 /* alias.c */
 void    substitute_alias args( (Descriptor *d, String input) );
@@ -676,8 +680,6 @@ void	update_pc_index		args((Character *ch, bool remove));
 /* db.c */
 void    boot_db         args( ( void ) );
 void    clear_char      args( ( Character *ch ) );
-void    bug             args( ( const String& str, int param ) );
-void    log_string      args( ( const String& str ) );
 void    tail_chain      args( ( void ) );
 
 /* area_handler.c */
@@ -689,13 +691,12 @@ void    clone_object    args( ( Object *parent, Object *clone ) );
 MobilePrototype *   get_mob_index   args( ( int vnum ) );
 ObjectPrototype *   get_obj_index   args( ( int vnum ) );
 RoomPrototype *   get_room_index  args( ( int vnum ) );
-int	get_location_ac args( (Character *ch, int wear, int type) );
 
 
 /* file.c */
 char	fread_letter		args((FILE *fp));
 int	fread_number		args((FILE *fp));
-long	fread_flag		args((FILE *fp));
+const Flags	fread_flag		args((FILE *fp));
 String	fread_string		args((FILE *fp, char to_char = '~'));
 String	fread_string_eol	args((FILE *fp));
 void	fread_to_eol		args((FILE *fp));
@@ -744,10 +745,10 @@ void    violence_update args( ( void ) );
 /* mob_prog.c */
 void    mprog_wordlist_check    args ( ( const String& arg, Character *mob,
 										Character* actor, Object* object,
-										void* vo, int type ) );
+										void* vo, Flags::Bit type ) );
 void    mprog_percent_check     args ( ( Character *mob, Character* actor,
 										Object* object, void* vo,
-										int type ) );
+										Flags::Bit type ) );
 void    mprog_act_trigger       args ( ( const char* buf, Character* mob,
 										Character* ch, Object* obj,
 										void* vo ) );
@@ -768,8 +769,7 @@ void    mprog_speech_trigger    args ( ( const String& txt, Character* mob ) );
 
 
 // attribute.c
-int flag_to_index args((unsigned long flag));
-int affect_bit_to_sn args((int bit));
+int affect_bit_to_sn args((Flags::Bit bit));
 int stat_to_attr args((int stat));
 int     get_max_stat   args(( const Character *ch, int stat ) );
 int get_age         args((Character *ch));
@@ -782,8 +782,6 @@ int get_unspelled_damroll    args((Character *ch));
 int get_unspelled_ac        args((Character *ch, int type));
 
 /* handler.c */
-String  flags_to_string args((int flag));
-long    string_to_flags args((const String& str));
 int     count_users     args( (Object *obj) );
 int     get_weapon_type     args( ( const String& name) );
 bool    is_clan         args((Character *ch) );
@@ -840,7 +838,6 @@ int	get_position		args((Character *ch));
 int	get_play_hours		args((Character *ch));
 int	get_play_seconds	args((Character *ch));
 int	get_affect_evolution	args((Character *ch, int sn));
-long	flag_convert		args((char letter));
 int	interpolate		args((int level, int value_00, int value_32));
 ExtraDescr *get_extra_descr		args((const String& name, ExtraDescr *ed));
 
@@ -933,14 +930,6 @@ bool    HAS_RAFF_GROUP  args( ( Character *ch, int flag ) );
 bool    HAS_EXTRACLASS	args( ( Character *ch, int sn ) );
 bool    CAN_USE_RSKILL  args( ( Character *ch, int sn ) );
 void    list_extraskill args( ( Character *ch ) );
-
-
-template<class... Params>
-void bugf(const String& fmt, Params... params)
-{
-	bug(Format::format(fmt, params...), 0);
-}
-
 
 
 // here's the place for header files that depend on merc.h, that we need in almost every .c file

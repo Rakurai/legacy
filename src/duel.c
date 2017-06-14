@@ -154,8 +154,8 @@ void duel_announce(char *buf, Duel *duel)
 		if (IS_PLAYING(d)
 		    && d->character != duel->challenger
 		    && d->character != duel->defender
-		    && !IS_SET(d->character->comm, COMM_NOANNOUNCE)
-		    && !IS_SET(d->character->comm, COMM_QUIET))
+		    && !d->character->comm_flags.has(COMM_NOANNOUNCE)
+		    && !d->character->comm_flags.has(COMM_QUIET))
 			stc(buffer, d->character);
 }
 
@@ -614,12 +614,12 @@ void do_duel(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(ch->pcdata->plr, PLR_DUEL_IGNORE)) {
-			REMOVE_BIT(ch->pcdata->plr, PLR_DUEL_IGNORE);
+		if (ch->pcdata->plr_flags.has(PLR_DUEL_IGNORE)) {
+			ch->pcdata->plr_flags -= PLR_DUEL_IGNORE;
 			stc("Others can challenge you now.\n", ch);
 		}
 		else {
-			SET_BIT(ch->pcdata->plr, PLR_DUEL_IGNORE);
+			ch->pcdata->plr_flags += PLR_DUEL_IGNORE;
 			stc("You no longer fight in duels.\n", ch);
 		}
 
@@ -672,13 +672,13 @@ void do_duel(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)
-		    || IS_SET(victim->comm, COMM_AFK)) {
+		if (victim->pcdata->plr_flags.has(PLR_LINK_DEAD)
+		    || victim->comm_flags.has(COMM_AFK)) {
 			stc("They are not with us at present, wait until they return.\n", ch);
 			return;
 		}
 
-		if (IS_SET(victim->pcdata->plr, PLR_DUEL_IGNORE)) {
+		if (victim->pcdata->plr_flags.has(PLR_DUEL_IGNORE)) {
 			stc("They are not accepting duels.\n", ch);
 			return;
 		}

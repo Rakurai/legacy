@@ -153,7 +153,7 @@ void spell_dazzle(int sn, int level, Character *ch, void *vo, int target, int ev
 	/* better chance if it's dark out */
 	if (ch->in_room->sector_type != SECT_INSIDE
 	    && ch->in_room->sector_type != SECT_CITY) {
-		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_DARK))
+		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_DARK))
 			chance += 25;
 		else if (weather_info.sunlight == SUN_DARK)
 			chance += 20;
@@ -413,16 +413,16 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 	sword->value[1]         = level / 8 + 1;
 	sword->timer            = level * 2 - number_range(0, level / 2);
 	sword->level            = level;
-	SET_BIT(sword->extra_flags, ITEM_INVENTORY);    /* so it vapes on death */
+	sword->extra_flags += ITEM_INVENTORY;    /* so it vapes on death */
 
 	if (sword->level >= 20)
-		sword->value[4] |= WEAPON_SHOCKING;
+		sword->value[4] += WEAPON_SHOCKING;
 
 	if (sword->level >= 45)
-		sword->value[4] |= WEAPON_VORPAL;
+		sword->value[4] += WEAPON_VORPAL;
 
 	if (sword->level >= 70)
-		sword->value[4] |= WEAPON_FLAMING;
+		sword->value[4] += WEAPON_FLAMING;
 
 	Affect af;
 	af.where      = TO_OBJECT;
@@ -431,7 +431,7 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 	af.duration   = -1;
 	af.location   = APPLY_HITROLL;
 	af.modifier   = level / 10 + 1;
-	af.bitvector  = 0;
+	af.bitvector(0);
 	af.evolution  = evolution;
 	affect_join_to_obj(sword, &af);
 
@@ -441,19 +441,19 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 	af.duration   = -1;
 	af.location   = APPLY_DAMROLL;
 	af.modifier   = level / 10 + 1;
-	af.bitvector  = 0;
+	af.bitvector(0);
 	af.evolution  = evolution;
 	affect_join_to_obj(sword, &af);
 
 	if (ch->alignment >= 1) {
 		sword->short_descr = "{Wa Holy Avenger{x";
-		SET_BIT(sword->extra_flags, ITEM_BLESS);
-		SET_BIT(sword->extra_flags, ITEM_ANTI_EVIL);
+		sword->extra_flags += ITEM_BLESS;
+		sword->extra_flags += ITEM_ANTI_EVIL;
 	}
 	else {
 		sword->short_descr = "{can Unholy Avenger{x";
-		SET_BIT(sword->extra_flags, ITEM_EVIL);
-		SET_BIT(sword->extra_flags, ITEM_ANTI_GOOD);
+		sword->extra_flags += ITEM_EVIL;
+		sword->extra_flags += ITEM_ANTI_GOOD;
 	}
 
 	act("$n prays for a moment, and a holy sword materializes in $s hand.", ch, nullptr, nullptr, TO_ROOM);

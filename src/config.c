@@ -45,7 +45,7 @@ void config_wiznet(Character *ch, const char *argument)
                 stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
                 stc("Censor options:\n\n", ch);
                 ptc(ch, "  1.  Channels                                   %s\n",
-                        IS_SET(ch->censor, CENSOR_CHAN) ?  "{CON{x" : "{POFF{x");
+                        ch->censor_flags.has(CENSOR_CHAN) ?  "{CON{x" : "{POFF{x");
                 return;
         }
 
@@ -88,7 +88,7 @@ void config_color_func(Character *ch, String argument, int type)
 
 			if (type == 3
 			    && ((slot == CSLOT_CHAN_CLAN   && !ch->clan && !IS_IMMORTAL(ch))
-			        || (slot == CSLOT_CHAN_SPOUSE && !IS_SET(ch->pcdata->plr, PLR_MARRIED))
+			        || (slot == CSLOT_CHAN_SPOUSE && !ch->pcdata->plr_flags.has(PLR_MARRIED))
 			        || (slot == CSLOT_CHAN_IMM    && !IS_IMMORTAL(ch))))
 				continue;
 
@@ -114,7 +114,7 @@ void config_color_func(Character *ch, String argument, int type)
 
 			if (type == 3
 			    && ((slot == CSLOT_CHAN_CLAN   && !ch->clan && !IS_IMMORTAL(ch))
-			        || (slot == CSLOT_CHAN_SPOUSE && !IS_SET(ch->pcdata->plr, PLR_MARRIED))
+			        || (slot == CSLOT_CHAN_SPOUSE && !ch->pcdata->plr_flags.has(PLR_MARRIED))
 			        || (slot == CSLOT_CHAN_IMM    && !IS_IMMORTAL(ch))))
 				continue;
 
@@ -159,9 +159,9 @@ void config_color(Character *ch, String argument)
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Color options:\n\n", ch);
 		ptc(ch, "  1.  Color                                      %s\n",
-		    IS_SET(ch->act_flags, PLR_COLOR) ? "{CON{x" : "{POFF{x");
+		    ch->act_flags.has(PLR_COLOR) ? "{CON{x" : "{POFF{x");
 		ptc(ch, "  2.  Crazy Color                                %s\n",
-		    IS_SET(ch->act_flags, PLR_COLOR2) ? "{CON{x" : "{POFF{x");
+		    ch->act_flags.has(PLR_COLOR2) ? "{CON{x" : "{POFF{x");
 		stc("  3.  Channels\n", ch);
 		stc("  4.  Score\n", ch);
 		stc("  5.  Miscellaneous\n", ch);
@@ -195,19 +195,19 @@ void config_color(Character *ch, String argument)
 		if (argument.is_prefix_of("help") || argument == "?")
 			stc("This toggles color on or off.\n", ch);
 		else if (argument.empty()) {
-			if (IS_SET(ch->act_flags, PLR_COLOR)) {
+			if (ch->act_flags.has(PLR_COLOR)) {
 				stc("You see things in ", ch);
 				set_color(ch, WHITE, NOBOLD);
 				stc("BLACK and ", ch);
 				set_color(ch, WHITE, BOLD);
 				stc("WHITE.\n", ch);
 				set_color(ch, WHITE, NOBOLD);
-				REMOVE_BIT(ch->act_flags, PLR_COLOR);
-				REMOVE_BIT(ch->act_flags, PLR_COLOR2);
+				ch->act_flags -= PLR_COLOR;
+				ch->act_flags -= PLR_COLOR2;
 			}
 			else {
-				SET_BIT(ch->act_flags, PLR_COLOR);
-				SET_BIT(ch->act_flags, PLR_COLOR2);
+				ch->act_flags += PLR_COLOR;
+				ch->act_flags += PLR_COLOR2;
 				stc("{TYou {Hsee {bthings {Nin {Mmany {YC{GO{PL{BO{VR{CS{Y!{x\n", ch);
 			}
 		}
@@ -223,12 +223,12 @@ void config_color(Character *ch, String argument)
 			    "Toggling this option determines if the affected test looks\n"
 			    "normal or colored to you.\n", ch);
 		else if (argument.empty()) {
-			if (IS_SET(ch->act_flags, PLR_COLOR2)) {
-				REMOVE_BIT(ch->act_flags, PLR_COLOR2);
+			if (ch->act_flags.has(PLR_COLOR2)) {
+				ch->act_flags -= PLR_COLOR2;
 				stc("Crazy Color Disabled =(\n", ch);
 			}
 			else {
-				SET_BIT(ch->act_flags, PLR_COLOR2);
+				ch->act_flags += PLR_COLOR2;
 				stc("Crazy Color Enabled!!! Yea!! =)\n", ch);
 			}
 		}
@@ -272,15 +272,15 @@ void config_video(Character *ch, String argument)
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Video options:\n\n", ch);
 		ptc(ch, "  1.  Flash                                      %s\n",
-		    IS_SET(ch->pcdata->video, VIDEO_FLASH_OFF) ?
-		    IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE) ?
+		    ch->pcdata->video_flags.has(VIDEO_FLASH_OFF) ?
+		    ch->pcdata->video_flags.has(VIDEO_FLASH_LINE) ?
 		    "{C{fUNDERLINE{x" : "{POFF{x" : "{C{fON{x");
 		ptc(ch, "  2.  Dark                                       %s\n",
-		    IS_SET(ch->pcdata->video, VIDEO_DARK_MOD) ? "{CON{x" : "{POFF{x");
+		    ch->pcdata->video_flags.has(VIDEO_DARK_MOD) ? "{CON{x" : "{POFF{x");
 		ptc(ch, "  3.  Codes                                      %s\n",
-		    IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW) ? "{CON{x" : "{POFF{x");
+		    ch->pcdata->video_flags.has(VIDEO_CODES_SHOW) ? "{CON{x" : "{POFF{x");
 		ptc(ch, "  4.  VT100                                      %s\n",
-		    IS_SET(ch->pcdata->video, VIDEO_VT100) ?  "{CON{x" : "{POFF{x");
+		    ch->pcdata->video_flags.has(VIDEO_VT100) ?  "{CON{x" : "{POFF{x");
 		return;
 	}
 
@@ -311,27 +311,27 @@ void config_video(Character *ch, String argument)
 			    "appear as underlined or as reversed video, depending on your\n"
 			    "screen emulator.\n", ch);
 		else if (argument.is_prefix_of("underline")) {
-			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE)) {
-				REMOVE_BIT(ch->pcdata->video, VIDEO_FLASH_LINE);
+			if (ch->pcdata->video_flags.has(VIDEO_FLASH_LINE)) {
+				ch->pcdata->video_flags -= VIDEO_FLASH_LINE;
 				stc("Flashing text will no longer be converted to underlined.\n", ch);
 			}
 			else {
-				SET_BIT(ch->pcdata->video, VIDEO_FLASH_OFF);
-				SET_BIT(ch->pcdata->video, VIDEO_FLASH_LINE);
+				ch->pcdata->video_flags += VIDEO_FLASH_OFF;
+				ch->pcdata->video_flags += VIDEO_FLASH_LINE;
 				stc("Flashing text should now look {funderlined{x to you!\n", ch);
 			}
 		}
 		else if (argument.empty()) {
-			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE)) {
-				REMOVE_BIT(ch->pcdata->video, VIDEO_FLASH_LINE);
+			if (ch->pcdata->video_flags.has(VIDEO_FLASH_LINE)) {
+				ch->pcdata->video_flags -= VIDEO_FLASH_LINE;
 				stc("Flashing text will no longer be converted to underlined.\n", ch);
 			}
-			else if (IS_SET(ch->pcdata->video, VIDEO_FLASH_OFF)) {
-				REMOVE_BIT(ch->pcdata->video, VIDEO_FLASH_OFF);
+			else if (ch->pcdata->video_flags.has(VIDEO_FLASH_OFF)) {
+				ch->pcdata->video_flags -= VIDEO_FLASH_OFF;
 				stc("You can now see {fflashing{x text!\n", ch);
 			}
 			else {
-				SET_BIT(ch->pcdata->video, VIDEO_FLASH_OFF);
+				ch->pcdata->video_flags += VIDEO_FLASH_OFF;
 				stc("Flashing text now holds still for you.\n", ch);
 			}
 		}
@@ -346,13 +346,13 @@ void config_video(Character *ch, String argument)
 			    "converted to grey.", ch);
 		/* backwards compatible with old video command */
 		else if (argument.is_prefix_of("modify")
-		         || (argument.empty() && !IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
-			SET_BIT(ch->pcdata->video, VIDEO_DARK_MOD);
+		         || (argument.empty() && !ch->pcdata->video_flags.has(VIDEO_DARK_MOD))) {
+			ch->pcdata->video_flags += VIDEO_DARK_MOD;
 			stc("You can now see {ccharcoal{x and {kblack{x!\n", ch);
 		}
 		else if (argument.is_prefix_of("normal")
-		         || (argument.empty() && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))) {
-			REMOVE_BIT(ch->pcdata->video, VIDEO_DARK_MOD);
+		         || (argument.empty() && ch->pcdata->video_flags.has(VIDEO_DARK_MOD))) {
+			ch->pcdata->video_flags -= VIDEO_DARK_MOD;
 			stc("Can you still see {ccharcoal{x and {kblack{x?\n", ch);
 		}
 		else
@@ -366,13 +366,13 @@ void config_video(Character *ch, String argument)
 			    "or converted into colors ({POFF{x).\n", ch);
 		/* backwards compatible with old video command */
 		else if (argument.is_prefix_of("show")
-		         || (argument.empty() && !IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
-			SET_BIT(ch->pcdata->video, VIDEO_CODES_SHOW);
+		         || (argument.empty() && !ch->pcdata->video_flags.has(VIDEO_CODES_SHOW))) {
+			ch->pcdata->video_flags += VIDEO_CODES_SHOW;
 			stc("{RColor{x {Ccodes{x will now be shown.\n", ch);
 		}
 		else if (argument.is_prefix_of("hide")
-		         || (argument.empty() && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))) {
-			REMOVE_BIT(ch->pcdata->video, VIDEO_CODES_SHOW);
+		         || (argument.empty() && ch->pcdata->video_flags.has(VIDEO_CODES_SHOW))) {
+			ch->pcdata->video_flags -= VIDEO_CODES_SHOW;
 			stc("You see no more {Rcolor{x {Ccodes{x.\n", ch);
 		}
 		else
@@ -385,13 +385,13 @@ void config_video(Character *ch, String argument)
 			stc("Video VT100 emulation mode looks terrible if you do not have\n"
 			    "a VT100, so only use it if you must.\n", ch);
 		else if (argument.empty()) {
-			if (IS_SET(ch->pcdata->video, VIDEO_VT100)) {
-				REMOVE_BIT(ch->pcdata->video, VIDEO_VT100);
+			if (ch->pcdata->video_flags.has(VIDEO_VT100)) {
+				ch->pcdata->video_flags -= VIDEO_VT100;
 				stc("VT100 mode off.\n", ch);
 			}
 			else {
 				stc("VT100 mode on.  Type {Rconfig video vt100{x if your screen goes screwy.\n", ch);
-				SET_BIT(ch->pcdata->video, VIDEO_VT100);
+				ch->pcdata->video_flags += VIDEO_VT100;
 			}
 		}
 		else
@@ -411,9 +411,9 @@ void config_censor(Character *ch, String argument)
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Censor options:\n\n", ch);
 		ptc(ch, "  1.  Channels                                   %s\n",
-		    IS_SET(ch->censor, CENSOR_CHAN) ?  "{CON{x" : "{POFF{x");
+		    ch->censor_flags.has(CENSOR_CHAN) ?  "{CON{x" : "{POFF{x");
 		ptc(ch, "  2.  Spam                                       %s\n",
-		    IS_SET(ch->censor, CENSOR_SPAM) ?  "{CON{x" : "{POFF{x");
+		    ch->censor_flags.has(CENSOR_SPAM) ?  "{CON{x" : "{POFF{x");
 		return;
 	}
 
@@ -464,12 +464,12 @@ void config_censor(Character *ch, String argument)
 				stc("\n", ch);
 		}
 		else if (argument.empty()) {
-			if (IS_SET(ch->censor, CENSOR_CHAN)) {
-				REMOVE_BIT(ch->censor, CENSOR_CHAN);
+			if (ch->censor_flags.has(CENSOR_CHAN)) {
+				ch->censor_flags -= CENSOR_CHAN;
 				stc("{BL{Ce{gg{Wa{Cc{By{x is now rated {PR{x.\n", ch);
 			}
 			else {
-				SET_BIT(ch->censor, CENSOR_CHAN);
+				ch->censor_flags += CENSOR_CHAN;
 				stc("{BL{Ce{gg{Wa{Cc{By{x is now rated {GPG{x.\n", ch);
 			}
 		}
@@ -485,12 +485,12 @@ void config_censor(Character *ch, String argument)
 			    "notes, no vulgarities, racial, sexual, or ethnic slurs are\n"
 			    "allowed under any circumstance.\n", ch);
 		else if (argument.empty()) {
-			if (IS_SET(ch->censor, CENSOR_SPAM)) {
-				REMOVE_BIT(ch->censor, CENSOR_SPAM);
+			if (ch->censor_flags.has(CENSOR_SPAM)) {
+				ch->censor_flags -= CENSOR_SPAM;
 				stc("{BL{Ce{gg{Wa{Cc{By{x is now {GSPAMMY{x!\n", ch);
 			}
 			else {
-				SET_BIT(ch->censor, CENSOR_SPAM);
+				ch->censor_flags += CENSOR_SPAM;
 				stc("{BL{Ce{gg{Wa{Cc{By{x is set to {YLow Fat SPAM{x.\n", ch);
 			}
 		}
@@ -610,12 +610,12 @@ void config_wiznet(Character *ch, String argument)
 	/* hack so you can type config wiznet on or off */
 	if (arg1 == "on") {
 		stc("Welcome to Wiznet!\n", ch);
-		SET_BIT(ch->wiznet, WIZ_ON);
+		ch->wiznet_flags += WIZ_ON;
 		return;
 	}
 	else if (arg1 == "off") {
 		stc("You have now signed off Wiznet.\n", ch);
-		REMOVE_BIT(ch->wiznet, WIZ_ON);
+		ch->wiznet_flags -= WIZ_ON;
 		return;
 	}
 
@@ -630,7 +630,7 @@ void config_wiznet(Character *ch, String argument)
 				    flag, wiznet_table[flag].name.capitalize(),
 				    wiznet_table[flag].level == IMM ? "Imm" :
 				    wiznet_table[flag].level == HED ? "Head" : "Imp",
-				    IS_SET(ch->wiznet, wiznet_table[flag].flag) ?
+				    ch->wiznet_flags.has(wiznet_table[flag].flag) ?
 				    "{CON{x" : "{POFF{x");
 
 		return;
@@ -671,22 +671,22 @@ void config_wiznet(Character *ch, String argument)
 		ptc(ch, "%s\n", wiznet_table[argnum].desc);
 	else if (argument.empty()) {
 		if (argnum == 0) {      /* Wiznet ON */
-			if (IS_SET(ch->wiznet, wiznet_table[argnum].flag)) {
+			if (ch->wiznet_flags.has(wiznet_table[argnum].flag)) {
 				stc("You have now signed off Wiznet.\n", ch);
-				REMOVE_BIT(ch->wiznet, wiznet_table[argnum].flag);
+				ch->wiznet_flags -= wiznet_table[argnum].flag;
 			}
 			else {
 				stc("Welcome to Wiznet!\n", ch);
-				SET_BIT(ch->wiznet, wiznet_table[argnum].flag);
+				ch->wiznet_flags += wiznet_table[argnum].flag;
 			}
 		}
 		else {
-			if (IS_SET(ch->wiznet, wiznet_table[argnum].flag)) {
-				REMOVE_BIT(ch->wiznet, wiznet_table[argnum].flag);
+			if (ch->wiznet_flags.has(wiznet_table[argnum].flag)) {
+				ch->wiznet_flags -= wiznet_table[argnum].flag;
 				ptc(ch, "Wiznet will no longer provide you with: %s\n", wiznet_table[argnum].name);
 			}
 			else {
-				SET_BIT(ch->wiznet, wiznet_table[argnum].flag);
+				ch->wiznet_flags += wiznet_table[argnum].flag;
 				ptc(ch, "Wiznet will now provide you with: %s\n", wiznet_table[argnum].name);
 			}
 		}

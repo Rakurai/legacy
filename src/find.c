@@ -28,7 +28,7 @@ Character *get_mob_here(Character *ch, const String& argument, int vis)
 	Character *rch;
 	int count = 0, vnum = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
@@ -82,7 +82,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 
 	int count = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	for (ach = char_list; ach != nullptr; ach = ach->next) {
@@ -125,7 +125,7 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 
 	int count = 0, vnum = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
@@ -172,7 +172,7 @@ Character *get_char_here(Character *ch, const String& argument, int vis)
 	Character *rch;
 	int count = 0, vnum = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
@@ -223,7 +223,7 @@ Character *get_char_room(Character *ch, RoomPrototype *room, const String& argum
 	Character *rch;
 	int count = 0, vnum = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)
@@ -274,7 +274,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 
 	int count = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	for (ach = char_list; ach != nullptr; ach = ach->next) {
@@ -314,7 +314,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 
 	int count = 0, vnum = 0;
 	String arg;
-	int etype = entity_argument(argument, arg);
+	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
 	if (etype == ENTITY_VM)

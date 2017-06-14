@@ -540,7 +540,7 @@ void interpret(Character *ch, String argument)
 	if (argument.empty()) {
 		/* VT100 Stuff */
 		if (ch->pcdata
-		    && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
+		    && ch->pcdata->video_flags.has(VIDEO_VT100)) {
 			goto_line(ch, ch->lines, 1);
 			stc(VT_CLEAR_LINE, ch);
 		}
@@ -551,7 +551,7 @@ void interpret(Character *ch, String argument)
 	/*
 	 * Implement freeze command.
 	 */
-	if (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_FREEZE)) {
+	if (!IS_NPC(ch) && ch->act_flags.has(PLR_FREEZE)) {
 		ptc(ch, "You try to {G%-100.100s{x\n", argument);
 		stc("A powerful force slams you up against the nearest object. YOU'RE FROZEN!\n", ch);
 		return;
@@ -580,18 +580,18 @@ void interpret(Character *ch, String argument)
 
 	/* temp give them a deputy group for command checking */
 	if (HAS_CGROUP(ch, GROUP_LEADER))
-		SET_BIT(ch->pcdata->cgroup, GROUP_DEPUTY);
+		ch->pcdata->cgroup_flags += GROUP_DEPUTY;
 
 	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
 		/* if it's a mob only command, there should be no multiple cgroup flags */
 		if (IS_NPC(ch)) {
-			if (cmd_table[cmd].group > 0
-			    && cmd_table[cmd].group != GROUP_MOBILE)
+			if (!cmd_table[cmd].group.empty()
+			    && !cmd_table[cmd].group.has(GROUP_MOBILE))
 				continue;
 		}
 		else {
 			/* players can't do any kind of mob only command */
-			if (IS_SET(cmd_table[cmd].group, GROUP_MOBILE))
+			if (cmd_table[cmd].group.has(GROUP_MOBILE))
 				continue;
 
 			/* check for ALL cgroups being present */
@@ -607,7 +607,7 @@ void interpret(Character *ch, String argument)
 
 	/* now remove it, can't have both groups */
 	if (HAS_CGROUP(ch, GROUP_LEADER))
-		REMOVE_BIT(ch->pcdata->cgroup, GROUP_DEPUTY);
+		ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
 
 	/*
 	 * Log and snoop.
@@ -615,7 +615,7 @@ void interpret(Character *ch, String argument)
 	if (cmd_table[cmd].log == LOG_NEVER)
 		strcpy(logline, "");
 
-	if ((!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_LOG))
+	if ((!IS_NPC(ch) && ch->act_flags.has(PLR_LOG))
 	    ||   fLogAll
 	    ||   cmd_table[cmd].log == LOG_ALWAYS) {
 		Format::sprintf(log_buf, "Log %s: %s", ch->name, logline);
@@ -623,7 +623,7 @@ void interpret(Character *ch, String argument)
 		if (cmd_table[cmd].log == LOG_ALWAYS)
 			wiznet(log_buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
 
-		if (IS_SET(ch->act_flags, PLR_LOG)) {
+		if (ch->act_flags.has(PLR_LOG)) {
 			char *strtime;
 			char tmp[MAX_STRING_LENGTH];
 			strtime = ctime(&current_time);
@@ -702,7 +702,7 @@ void interpret(Character *ch, String argument)
 	(*cmd_table[cmd].do_fun)(ch, argument);
 
 	/* VT100 Stuff */
-	if (ch && ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
+	if (ch && ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
 		goto_line(ch, ch->lines, 1);
 		stc(VT_CLEAR_LINE, ch);
 	}
@@ -728,7 +728,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 	if (!found)
 		return FALSE;
 
-	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
+	if (!IS_NPC(ch) && ch->revoke_flags.has(REVOKE_EMOTE)) {
 		stc("You are anti-social!\n", ch);
 		return TRUE;
 	}
@@ -781,7 +781,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 		    &&   !affect_exists_on_char(victim, gsn_charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == nullptr
-		    && (!IS_SET(victim->pIndexData->progtypes, ACT_PROG))) {
+		    && (!victim->pIndexData->progtype_flags.has(ACT_PROG))) {
 			switch (number_bits(4)) {
 			case 0:
 			case 1: case 2: case 3: case 4:
@@ -804,7 +804,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 	}
 
 	/* VT100 Stuff */
-	if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
+	if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
 		goto_line(ch, ch->lines, 1);
 		stc(VT_CLEAR_LINE, ch);
 	}
@@ -878,13 +878,13 @@ void do_commands(Character *ch, String argument)
 
 		/* if it's a mob only command, there should be no multiple cgroup flags */
 		if (IS_NPC(ch)) {
-			if (cmd_table[cmd].group > 0
-			    && cmd_table[cmd].group != GROUP_MOBILE)
+			if (!cmd_table[cmd].group.empty()
+			    && !cmd_table[cmd].group.has(GROUP_MOBILE))
 				continue;
 		}
 		else {
 			/* players can't do any kind of mob only command */
-			if (IS_SET(cmd_table[cmd].group, GROUP_MOBILE))
+			if (cmd_table[cmd].group.has(GROUP_MOBILE))
 				continue;
 
 			/* check for ALL cgroups being present */
@@ -935,7 +935,7 @@ void do_wizhelp(Character *ch, String argument)
 
 	/* temp give them a deputy group */
 	if (HAS_CGROUP(ch, GROUP_LEADER))
-		SET_BIT(ch->pcdata->cgroup, GROUP_DEPUTY);
+		ch->pcdata->cgroup_flags += GROUP_DEPUTY;
 
 	for (i = 0; i < cgroup_flags.size(); i++) {
 		if (!IS_IMM_GROUP(cgroup_flags[i].bit))
@@ -948,15 +948,15 @@ void do_wizhelp(Character *ch, String argument)
 		col = 0;
 
 		for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
-			if (IS_SET(cmd_table[cmd].group, cgroup_flags[i].bit)
+			if (cmd_table[cmd].group.has(cgroup_flags[i].bit)
 			    && HAS_CGROUP(ch, cmd_table[cmd].group)
 			    && cmd_table[cmd].show) {
 				if (col % 5 == 0)
 					stc("        ", ch);
 
 				ptc(ch, "%s%-14s{x",
-				    IS_SET(cmd_table[cmd].group, GROUP_LEADER) ? "{Y" :
-				    IS_SET(cmd_table[cmd].group, GROUP_DEPUTY) ? "{C" : "",
+				    cmd_table[cmd].group.has(GROUP_LEADER) ? "{Y" :
+				    cmd_table[cmd].group.has(GROUP_DEPUTY) ? "{C" : "",
 				    cmd_table[cmd].name);
 
 				if (++col % 5 == 0)
@@ -970,7 +970,7 @@ void do_wizhelp(Character *ch, String argument)
 
 	/* now remove it */
 	if (HAS_CGROUP(ch, GROUP_LEADER))
-		REMOVE_BIT(ch->pcdata->cgroup, GROUP_DEPUTY);
+		ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
 }
 
 void slog_file(Character *ch, char *file, char *str)

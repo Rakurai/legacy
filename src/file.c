@@ -67,45 +67,9 @@ int fread_number(FILE *fp)
 	return number;
 }
 
-long fread_flag(FILE *fp)
+const Flags fread_flag(FILE *fp)
 {
-	int number;
-	char c;
-	bool sign = FALSE;
-
-	do {
-		c = getc(fp);
-	}
-	while (isspace(c));
-
-	if (c == '-') {
-		sign = TRUE;
-		c = getc(fp);
-	}
-
-	number = 0;
-
-	if (!isdigit(c)) {
-		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) {
-			number += flag_convert(c);
-			c = getc(fp);
-		}
-	}
-
-	while (isdigit(c)) {
-		number = number * 10 + c - '0';
-		c = getc(fp);
-	}
-
-	if (sign)
-		number = 0 - number;
-
-	if (c == '|')
-		number += fread_flag(fp);
-	else if (c != ' ')
-		ungetc(c, fp);
-
-	return number;
+	return Flags(fread_word(fp));
 }
 
 String fread_string(FILE *fp, char to_char)

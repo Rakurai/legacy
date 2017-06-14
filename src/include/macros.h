@@ -1,16 +1,18 @@
 #pragma once
 
+#include <algorithm>
+
 /*
  * Utility macros.
  */
-#define UMIN(a, b)              ((a) < (b) ? (a) : (b))
-#define UMAX(a, b)              ((a) > (b) ? (a) : (b))
+#define UMIN(a, b) (std::min(int(a), int(b)))
+#define UMAX(a, b) (std::max(int(a), int(b)))
+//#define UMIN(a, b)              ((a) < (b) ? (a) : (b))
+//#define UMAX(a, b)              ((a) > (b) ? (a) : (b))
 #define URANGE(a, b, c)         ((b) < (a) ? (a) : ((b) > (c) ? (c) : (b)))
 #define LOWER(c)                ((c) >= 'A' && (c) <= 'Z' ? (c)+'a'-'A' : (c))
 #define UPPER(c)                ((c) >= 'a' && (c) <= 'z' ? (c)+'A'-'a' : (c))
-#define IS_SET(flag, bit)       ((flag) & (bit))
-#define SET_BIT(var, bit)       ((var) |= (bit))
-#define REMOVE_BIT(var, bit)    ((var) &= ~(bit))
+
 #define chance(prc)		(((number_range(1,100)) <= (prc)))
 #define rounddown(x, inc)	((inc > x) ? 0 : (x - (x % inc)))
 #define roundup(x, inc)		((inc > x) ? inc : (x - ((x % inc) == 0 ? inc : (x % inc)) + inc))
@@ -64,20 +66,20 @@
 #define IS_HERO(ch)         (!IS_NPC(ch) && ch->level >= LEVEL_HERO)
 #define IS_REMORT(ch)		(!IS_NPC(ch) && ch->pcdata->remort_count > 0)
 #define IS_HEROIC(ch)		(IS_HERO(ch) || IS_REMORT(ch))
-#define IS_IMM_GROUP(bit)	(IS_SET(bit, GROUP_GEN|GROUP_QUEST|GROUP_BUILD|GROUP_CODE|GROUP_SECURE))
-#define HAS_CGROUP(ch, bit)	(!IS_NPC(ch) && (((ch->pcdata->cgroup & bit) == bit)))
-#define RANK(flags)			(IS_IMM_GROUP(flags) ?												\
-							(IS_SET(flags, GROUP_LEADER) ?	RANK_IMP	:					\
-							(IS_SET(flags, GROUP_DEPUTY) ?	RANK_HEAD 	: RANK_IMM))	:	\
-							(IS_SET(flags, GROUP_PLAYER) ?	RANK_MORTAL : RANK_MOBILE))
-#define	GET_RANK(ch)		(IS_NPC(ch) ? RANK_MOBILE : RANK(ch->pcdata->cgroup))
+#define IS_IMM_GROUP(flags)	(Flags(GROUP_GEN|GROUP_QUEST|GROUP_BUILD|GROUP_CODE|GROUP_SECURE).has_any_of(flags))
+#define HAS_CGROUP(ch, flags)	(!IS_NPC(ch) && (ch->pcdata->cgroup_flags.has_any_of(flags)))
+#define RANK(flags)			(IS_IMM_GROUP(flags) ?										\
+							(flags.has(GROUP_LEADER) ?	RANK_IMP	:					\
+							(flags.has(GROUP_DEPUTY) ?	RANK_HEAD 	: RANK_IMM))	:	\
+							(flags.has(GROUP_PLAYER) ?	RANK_MORTAL : RANK_MOBILE))
+#define	GET_RANK(ch)		(IS_NPC(ch) ? RANK_MOBILE : RANK(ch->pcdata->cgroup_flags))
 #define IS_IMMORTAL(ch)		(GET_RANK(ch) >= RANK_IMM)
 #define IS_IMP(ch)			(GET_RANK(ch) == RANK_IMP)
 #define IS_HEAD(ch)			(GET_RANK(ch) >= RANK_HEAD)
 #define OUTRANKS(ch, victim)	(GET_RANK(ch) > GET_RANK(victim))
 
-#define SET_CGROUP(ch, bit)	(SET_BIT(ch->pcdata->cgroup, bit))
-#define REM_CGROUP(ch, bit)	(REMOVE_BIT(ch->pcdata->cgroup, bit))
+#define SET_CGROUP(ch, bit)	(ch->pcdata->cgroup_flags += bit)
+#define REM_CGROUP(ch, bit)	(ch->pcdata->cgroup_flags -= bit)
 
 /* other shortcuts */
 #define IS_GOOD(ch)             (ch->alignment >= 350)
@@ -85,8 +87,8 @@
 #define IS_NEUTRAL(ch)          (!IS_GOOD(ch) && !IS_EVIL(ch))
 
 #define IS_AWAKE(ch)            (ch->position > POS_SLEEPING)
-#define GET_ROOM_FLAGS(room)    ((room)->room_flags | (room)->room_flag_cache)
-#define IS_OUTSIDE(ch)          (!IS_SET(GET_ROOM_FLAGS((ch)->in_room), ROOM_INDOORS))
+#define GET_ROOM_FLAGS(room)    ((room)->room_flags + (room)->cached_room_flags)
+#define IS_OUTSIDE(ch)          (!GET_ROOM_FLAGS((ch)->in_room).has(ROOM_INDOORS))
 
 #define WAIT_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
 	(ch->wait = UMAX(ch->wait, npulse)) : (ch->wait = 0))
@@ -94,19 +96,19 @@
 	(ch->daze = UMAX(ch->daze, npulse)) : (ch->daze = 0))
 #define gold_weight(amount)  ((amount) * 2 / 5)
 #define silver_weight(amount) ((amount)/ 10)
-#define IS_QUESTOR(ch)     (IS_SET((ch)->act_flags, PLR_QUESTOR))
-#define IS_SQUESTOR(ch)    (!IS_NPC(ch) && IS_SET((ch)->pcdata->plr, PLR_SQUESTOR))
-#define IS_KILLER(ch)		(IS_SET((ch)->act_flags, PLR_KILLER))
-#define IS_THIEF(ch)		(IS_SET((ch)->act_flags, PLR_THIEF))
+#define IS_QUESTOR(ch)     ((ch)->act_flags.has(PLR_QUESTOR))
+#define IS_SQUESTOR(ch)    (!IS_NPC(ch) && (ch)->pcdata->plr_flags.has(PLR_SQUESTOR))
+#define IS_KILLER(ch)		((ch)->act_flags.has(PLR_KILLER))
+#define IS_THIEF(ch)		((ch)->act_flags.has(PLR_THIEF))
 #define CAN_FLY(ch)         (affect_exists_on_char((ch), gsn_fly))
 #define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
 
 /*
  * Object macros.
  */
-#define CAN_WEAR(obj, part)     (IS_SET((obj)->wear_flags,  (part)))
-#define IS_OBJ_STAT(obj, stat)  (IS_SET((obj)->extra_flags | (obj)->extra_flag_cache, (stat)))
-#define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4] | (obj)->weapon_flag_cache,(stat)))
+#define CAN_WEAR(obj, part)     ((obj)->wear_flags.has((part)))
+#define IS_OBJ_STAT(obj, stat)  (((obj)->extra_flags + (obj)->cached_extra_flags).has((stat)))
+#define IS_WEAPON_STAT(obj,stat)(((obj)->value[4] + (obj)->cached_weapon_flags).flags().has((stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
 		(obj)->value[4] : 100)
 

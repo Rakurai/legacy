@@ -47,36 +47,36 @@ public:
 	bool is_number() const;
 
 	// String transformations, each return a new String object.  NO modify in place ops
-	String substr(std::size_t pos = 0, std::size_t count = npos) const;
+	const String substr(std::size_t pos = 0, std::size_t count = npos) const;
 
 	// capitalize the first letter of a string, skips non-alphanumerics
-	String capitalize() const;
-	String uncolor() const;
+	const String capitalize() const;
+	const String uncolor() const;
 
 	// trim the whitespace (or user-defined characters) from the front, back, or both
-	String lstrip(const String& chars = " \t\n\r") const;
-	String rstrip(const String& chars = " \t\n\r") const;
-	String strip(const String& chars = " \t\n\r") const;
+	const String lstrip(const String& chars = " \t\n\r") const;
+	const String rstrip(const String& chars = " \t\n\r") const;
+	const String strip(const String& chars = " \t\n\r") const;
 
 	// split the string on the first occurrence of one of "chars".  return the word,
 	// or put word into the reference String and return the remainder.  if string
 	// starts with one of "chars", they will be trimmed (return and word will be stripped)
-	String lsplit(const String& chars = " ") const;
-	String rsplit(const String& chars = " ") const;
-	String lsplit(String& word, const String& chars = " ") const;
-	String rsplit(String& word, const String& chars = " ") const;
+	const String lsplit(const String& chars = " ") const;
+	const String rsplit(const String& chars = " ") const;
+	const String lsplit(String& word, const String& chars = " ") const;
+	const String rsplit(String& word, const String& chars = " ") const;
 
 	// replace some or all occurrences of "what" with "with", -1 is all
-	String replace(const String& what, const String& with, int times = -1) const;
+	const String replace(const String& what, const String& with, int times = -1) const;
 
 	// insert a string at a specified point
-	String insert(const String& what, std::size_t pos) const;
+	const String insert(const String& what, std::size_t pos) const;
 
 	// center the string in whitespace, color ignored.  truncates if too long
-	String center(std::size_t total_len) const;
+	const String center(std::size_t total_len) const;
 
 	// Actable
-	virtual std::string identifier() const { return *this; }
+	virtual const std::string identifier() const { return *this; }
 
 private:
 	// don't allow nullptr operations

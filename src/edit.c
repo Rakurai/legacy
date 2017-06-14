@@ -64,10 +64,13 @@ extern struct board_index_struct board_index[];
 
 #define MAX_EDIT_LENGTH 4000
 #define WRAP_WIDTH      70
+#define ARG_1 Flags::A
+#define ARG_2 Flags::B
 
 /* Module global variables */
 
-static int num1, num2, argmask;
+static int num1, num2;
+static Flags numeric_args;
 static Edit *ed;
 
 
@@ -286,7 +289,7 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (IS_SET(argmask, 2)) {
+	if (numeric_args.has(ARG_2)) {
 		if (!check_line(ch, num1) || !check_line(ch, num2))
 			return FALSE;
 
@@ -303,7 +306,7 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 		*fromline = num1;
 		*toline = num2;
 	}
-	else if (IS_SET(argmask, 1)) {
+	else if (numeric_args.has(ARG_1)) {
 		if (!check_line(ch, num1))
 			return FALSE;
 
@@ -366,7 +369,7 @@ static void edit_change(Character *ch, String argument)
 	char end_char;
 	String dbuf;
 
-	if (IS_SET(argmask, 1)) {
+	if (numeric_args.has(ARG_1)) {
 		if (!check_line(ch, num1))
 			return;
 
@@ -529,7 +532,7 @@ static void edit_insert(Character *ch, const String& argument)
 	String dbuf;
 	int after_line = ed->edit_line + 1;
 
-	if (IS_SET(argmask, 1)) {
+	if (numeric_args.has(ARG_1)) {
 		if (!check_line(ch, num1))
 			return;
 
@@ -556,7 +559,7 @@ static void edit_list(Character *ch, const String& argument)
 	int fromline, toline;
 
 	/* check args */
-	if (argmask == 0) {
+	if (numeric_args.empty()) {
 		edit_list1(ch, 0, ed->edit_nlines + 1);
 		return;
 	}
@@ -660,7 +663,7 @@ static void edit_split(Character *ch, String argument)
 	char end_char;
 	String dbuf;
 
-	if (IS_SET(argmask, 1)) {
+	if (numeric_args.has(ARG_1)) {
 		if (!check_line(ch, num1))
 			return;
 
@@ -731,7 +734,7 @@ static void edit_wrap(Character *ch, const String& argument)
 	char line[MAX_INPUT_LENGTH];
 	bool in_word;
 
-	if (argmask == 0) {
+	if (numeric_args.empty()) {
 		/* wrap current paragraph */
 		lineno = 1;
 		lp = ed->edit_string;
@@ -850,9 +853,9 @@ void do_edit(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	const char *new_arg;
-	argmask = 0;
-
 	String arg;
+
+	numeric_args.clear();
 
 	/* scan numeric args, if any. */
 	if (!argument.empty()) {
@@ -860,24 +863,24 @@ void do_edit(Character *ch, String argument)
 
 		if (arg.is_number()) {
 			num1 = atoi(arg);
-			SET_BIT(argmask, 1);
+			numeric_args += ARG_1;
 			argument = new_arg;
 		}
 	}
 
-	if (IS_SET(argmask, 1) && !argument.empty()) {
+	if (numeric_args.has(ARG_1) && !argument.empty()) {
 		new_arg = one_argument(argument, arg);
 
 		if (arg.is_number()) {
 			num2 = atoi(arg);
-			SET_BIT(argmask, 2);
+			numeric_args += ARG_2;
 			argument = new_arg;
 		}
 	}
 
 	argument = one_argument(argument, arg);
 
-	if (arg.empty() && argmask == 0) {
+	if (arg.empty() && numeric_args.empty()) {
 		edit_status(ch, argument);
 		return;
 	}

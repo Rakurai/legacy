@@ -1597,7 +1597,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
  *  To see how this works, look at the various trigger routines..
  */
 void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
-                          Object *obj, void *vo, int type)
+                          Object *obj, void *vo, Flags::Bit type)
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
@@ -1610,7 +1610,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 	String word;
 
 	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
-		if (mprg->type & type) {
+		if (mprg->type == type) {
 			strcpy(temp1, mprg->arglist);
 
 			for (unsigned int i = 0; i < strlen(temp1); i++)
@@ -1660,12 +1660,12 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 }
 
 void mprog_percent_check(Character *mob, Character *actor, Object *obj,
-                         void *vo, int type)
+                         void *vo, Flags::Bit type)
 {
 	MobProg *mprg;
 
 	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
-		if ((mprg->type & type)
+		if ((mprg->type == type)
 		    && (number_percent() < atoi(mprg->arglist))) {
 			mprog_driver(mprg->comlist, mob, actor, obj, vo);
 
@@ -1690,7 +1690,7 @@ void mprog_act_trigger(const char *buf, Character *mob, Character *ch,
 	MobProgActList *tmp_act;
 
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & ACT_PROG)) {
+	    && (mob->pIndexData->progtype_flags.has(ACT_PROG))) {
 		tmp_act = new MobProgActList;
 
 		mob->mpact      = tmp_act;
@@ -1718,7 +1718,7 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 		return;
 
 	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
-		if (mprg->type & BRIBE_PROG) {
+		if (mprg->type == BRIBE_PROG) {
 			if ((obj = create_money(0, amount)) == nullptr)
 				return;
 
@@ -1734,7 +1734,7 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 void mprog_death_trigger(Character *mob)
 {
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & DEATH_PROG))
+	    && (mob->pIndexData->progtype_flags.has(DEATH_PROG)))
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, DEATH_PROG);
 
 	death_cry(mob);
@@ -1744,7 +1744,7 @@ void mprog_death_trigger(Character *mob)
 void mprog_entry_trigger(Character *mob)
 {
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & ENTRY_PROG))
+	    && (mob->pIndexData->progtype_flags.has(ENTRY_PROG)))
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, ENTRY_PROG);
 
 	return;
@@ -1753,7 +1753,7 @@ void mprog_entry_trigger(Character *mob)
 void mprog_fight_trigger(Character *mob, Character *ch)
 {
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & FIGHT_PROG))
+	    && (mob->pIndexData->progtype_flags.has(FIGHT_PROG)))
 		mprog_percent_check(mob, ch, nullptr, nullptr, FIGHT_PROG);
 
 	return;
@@ -1762,7 +1762,7 @@ void mprog_fight_trigger(Character *mob, Character *ch)
 void mprog_buy_trigger(Character *mob, Character *ch)
 {
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & BUY_PROG))
+	    && (mob->pIndexData->progtype_flags.has(BUY_PROG)))
 		mprog_percent_check(mob, ch, nullptr, nullptr, BUY_PROG);
 
 	return;
@@ -1774,11 +1774,11 @@ void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 	String buf;
 
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & GIVE_PROG))
+	    && (mob->pIndexData->progtype_flags.has(GIVE_PROG)))
 		for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next) {
 			one_argument(mprg->arglist, buf);
 
-			if ((mprg->type & GIVE_PROG)
+			if ((mprg->type == GIVE_PROG)
 			    && ((!strcmp(obj->name, mprg->arglist))
 			        || (!strcmp("all", buf)))) {
 				mprog_driver(mprg->comlist, mob, ch, obj, nullptr);
@@ -1799,14 +1799,14 @@ void mprog_greet_trigger(Character *ch)
 		    && can_see_char(vmob, ch)
 		    && (vmob->fighting == nullptr)
 		    && IS_AWAKE(vmob)
-		    && (vmob->pIndexData->progtypes & GREET_PROG))
+		    && (vmob->pIndexData->progtype_flags.has(GREET_PROG)))
 			mprog_percent_check(vmob, ch, nullptr, nullptr, GREET_PROG);
 		else if (IS_NPC(vmob)
 		         && ch != vmob
 		         && can_see_char(vmob, ch)
 		         && (vmob->fighting == nullptr)
 		         && IS_AWAKE(vmob)
-		         && (vmob->pIndexData->progtypes & ALL_GREET_PROG))
+		         && (vmob->pIndexData->progtype_flags.has(ALL_GREET_PROG)))
 			mprog_percent_check(vmob, ch, nullptr, nullptr, ALL_GREET_PROG);
 
 	return;
@@ -1817,9 +1817,9 @@ void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 	MobProg *mprg;
 
 	if (IS_NPC(mob)
-	    && (mob->pIndexData->progtypes & HITPRCNT_PROG))
+	    && (mob->pIndexData->progtype_flags.has(HITPRCNT_PROG)))
 		for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
-			if ((mprg->type & HITPRCNT_PROG)
+			if ((mprg->type == HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
 				mprog_driver(mprg->comlist, mob, ch, nullptr, nullptr);
 				break;
@@ -1830,7 +1830,7 @@ void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 
 void mprog_boot_trigger(Character *mob)
 {
-	if (mob->pIndexData->progtypes & BOOT_PROG)
+	if (mob->pIndexData->progtype_flags.has(BOOT_PROG))
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, BOOT_PROG);
 
 	return;
@@ -1838,7 +1838,7 @@ void mprog_boot_trigger(Character *mob)
 
 void mprog_random_trigger(Character *mob)
 {
-	if (mob->pIndexData->progtypes & RAND_PROG)
+	if (mob->pIndexData->progtype_flags.has(RAND_PROG))
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_PROG);
 
 	return;
@@ -1846,7 +1846,7 @@ void mprog_random_trigger(Character *mob)
 
 void mprog_tick_trigger(Character *mob)    /* Montrey */
 {
-	if (mob->pIndexData->progtypes & TICK_PROG)
+	if (mob->pIndexData->progtype_flags.has(TICK_PROG))
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, TICK_PROG);
 
 	return;
@@ -1857,7 +1857,7 @@ void mprog_speech_trigger(const String& txt, Character *mob)
 	Character *vmob;
 
 	for (vmob = mob->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
-		if (IS_NPC(vmob) && (vmob->pIndexData->progtypes & SPEECH_PROG))
+		if (IS_NPC(vmob) && (vmob->pIndexData->progtype_flags.has(SPEECH_PROG)))
 			mprog_wordlist_check(txt.c_str(), vmob, mob, nullptr, nullptr, SPEECH_PROG);
 
 	return;

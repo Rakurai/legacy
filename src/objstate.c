@@ -97,10 +97,10 @@ void fwrite_objstate(Object *obj, FILE *fp, int *count)
 		Format::fprintf(fp, "M %s~\n", obj->material);
 
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
-		Format::fprintf(fp, "E %ld\n", obj->extra_flags);
+		Format::fprintf(fp, "E %s\n", obj->extra_flags);
 
 	if (obj->wear_flags != obj->pIndexData->wear_flags)
-		Format::fprintf(fp, "W %ld\n", obj->wear_flags);
+		Format::fprintf(fp, "W %s\n", obj->wear_flags);
 
 	if (obj->item_type != obj->pIndexData->item_type)
 		Format::fprintf(fp, "T %d\n",  obj->item_type);
@@ -134,7 +134,7 @@ void fwrite_objstate(Object *obj, FILE *fp, int *count)
 			        paf->duration,
 			        paf->modifier,
 			        paf->location,
-			        paf->bitvector,
+			        paf->bitvector(),
 			        paf->evolution ? paf->evolution : 1);
 		}
 	}
@@ -242,7 +242,7 @@ Object *fload_objstate(FILE *fp, int *count)
 				af.duration   = fread_number(fp);
 				af.modifier   = fread_number(fp);
 				af.location   = fread_number(fp);
-				af.bitvector  = fread_number(fp);
+				af.bitvector(fread_flag(fp));
 				af.evolution  = fread_number(fp);
 				affect_copy_to_obj(obj, &af);
 				break;
@@ -257,7 +257,7 @@ Object *fload_objstate(FILE *fp, int *count)
 			break;
 
 		case 'E':
-			obj->extra_flags = fread_number(fp);
+			obj->extra_flags = fread_flag(fp);
 			break;
 
 		case 'G':
@@ -293,7 +293,7 @@ Object *fload_objstate(FILE *fp, int *count)
 			break;
 
 		case 'W':
-			obj->wear_flags = fread_number(fp);
+			obj->wear_flags = fread_flag(fp);
 			break;
 
 		case 'X': {

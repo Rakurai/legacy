@@ -59,7 +59,7 @@ void affect_update(Affect *paf, const Affect *aff_template) {
 	paf->duration = aff_template->duration;
 	paf->level = aff_template->level;
 	paf->modifier = aff_template->modifier;
-	paf->bitvector = aff_template->bitvector;
+	paf->bitvector(aff_template->bitvector());
 	paf->evolution = aff_template->evolution;
 	paf->permanent = aff_template->permanent;
 }
@@ -105,7 +105,7 @@ void affect_swap(Affect *a, Affect *b) {
 	a->prev = t.prev;
 }
 
-int affect_bit_to_sn(int bit) {
+int affect_bit_to_sn(Flags::Bit bit) {
 	switch (bit) {
 		case AFF_BLIND: return gsn_blindness;
 		case AFF_INVISIBLE: return gsn_invis;
@@ -181,7 +181,7 @@ int affect_attr_location_check(int location) {
 // the vector.  return value indicates whether the struct is valid to insert.
 // assumes type, level, duration, evolution, location and modifier already filled,
 // but alters if appropriate
-bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
+bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	switch (letter) {
 	case  0 : break; // use the where that is set
 	case 'O': paf->where = TO_OBJECT; break; // location and modifier already set
@@ -197,20 +197,20 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 	}
 
 	if (paf->where == TO_DEFENSE) {
-		// weird case, defense flag BIT_A used to be *_SUMMON, changed to a ACT_NOSUMMON.
+		// weird case, defense flag Flags::A used to be *_SUMMON, changed to a ACT_NOSUMMON.
 		// wouldn't be a concern except the index is repurposed to a cache counter.
-		REMOVE_BIT(*bitvector, BIT_A);
+		bitvector -= Flags::A;
 
-		if (IS_SET(*bitvector, IMM_WEAPON)) {
-			SET_BIT(*bitvector, IMM_SLASH|IMM_BASH|IMM_PIERCE);
-			REMOVE_BIT(*bitvector, IMM_WEAPON);
+		if (bitvector.has(IMM_WEAPON)) {
+			bitvector += IMM_SLASH|IMM_BASH|IMM_PIERCE;
+			bitvector -= IMM_WEAPON;
 		}
 
-		if (IS_SET(*bitvector, IMM_MAGIC)) {
-			SET_BIT(*bitvector, IMM_FIRE|IMM_COLD|IMM_ELECTRICITY
+		if (bitvector.has(IMM_MAGIC)) {
+			bitvector += IMM_FIRE|IMM_COLD|IMM_ELECTRICITY
 				|IMM_ACID|IMM_POISON|IMM_NEGATIVE|IMM_HOLY|IMM_ENERGY
-				|IMM_MENTAL|IMM_DISEASE|IMM_DROWNING|IMM_LIGHT|IMM_SOUND);
-			REMOVE_BIT(*bitvector, IMM_MAGIC);
+				|IMM_MENTAL|IMM_DISEASE|IMM_DROWNING|IMM_LIGHT|IMM_SOUND;
+			bitvector -= IMM_MAGIC;
 		}
 	}
 
@@ -220,12 +220,12 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 
 	if (paf->where == TO_AFFECTS && paf->type != 0) {
 		// if we passed an sn in, don't parse bits
-		*bitvector = 0;
-		paf->bitvector = 0;
+		bitvector.clear();
+		paf->bitvector(0);
 	}
 	else if (paf->where == TO_OBJECT || paf->where == TO_WEAPON) {
 	 	// or, just quit the outside loop and leave paf->bitvector alone
-	 	*bitvector = 0;
+	 	bitvector.clear();
 	}
 
 	// others, parse and remove one bit, and let the outside loop call again
@@ -233,18 +233,18 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 
 	// treat the bitvector as an array, find the lowest index with a set bit, remove it from
 	// the vector, and use the index to match against new constants
-	unsigned int bit = 1;
+	unsigned long bit_val = 1;
+	Flags::Bit bit = Flags::none;
 	int index = 0;
-	bool found_bit = FALSE; // for simplicity
 
-	while (index < 32 && !IS_SET(bit, *bitvector)) {
-		bit <<= 1;
+	while (index < 32 && !bitvector.has(static_cast<Flags::Bit>(bit_val))) {
+		bit_val <<= 1;
 		index++;
 	}
 
 	if (index < 32) {
-		found_bit = TRUE;
-		REMOVE_BIT(*bitvector, bit);
+		bit = static_cast<Flags::Bit>(bit_val);
+		bitvector -= bit;
 	}
 
 	// if the bit wasn't found, still continue for the TO_OBJECT.  the loop will
@@ -256,7 +256,7 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 			return FALSE;
 		}
 
-		if (!found_bit) { // no bits, maybe defunct flag?
+		if (bit == Flags::none) { // no bits, maybe defunct flag?
 //			bugf("affect_parse_flags: TO_DEFENSE with no bit");
 			return FALSE;
 		}
@@ -286,12 +286,12 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 		}
 
 		// modifier was already set or done above
-		paf->bitvector = 0;
+		paf->bitvector(0);
 		return TRUE;
 	} // done with TO_DEFENSE
 
 	if (paf->where == TO_AFFECTS && paf->type <= 0) {
-		if (!found_bit) {
+		if (bit == Flags::none) {
 			bug("affect_parse_flags: TO_AFFECTS with no sn and no bit", 0);
 			return FALSE;
 		}
@@ -304,7 +304,7 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 		}
 
 		paf->type = sn;
-		paf->bitvector = 0;
+		paf->bitvector(0);
 		// drop down to applies for possible location and modifier
 	}
 
@@ -322,7 +322,7 @@ bool affect_parse_flags(char letter, Affect *paf, unsigned int *bitvector) {
 		paf->modifier = 0; // ensure, so we don't mess up the counter
 
 	// does nothing?
-	if (paf->where == TO_OBJECT && paf->bitvector == 0 && paf->location == 0) {
+	if (paf->where == TO_OBJECT && paf->bitvector().empty() && paf->location == 0) {
 		bug("affect_parse_flags: TO_OBJECT with no modifiers", 0);
 		return FALSE;
 	}

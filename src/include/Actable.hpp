@@ -3,5 +3,5 @@
 #include <string>
 
 class Actable {
-	virtual std::string identifier() const = 0;
+	virtual const std::string identifier() const = 0;
 };

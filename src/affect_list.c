@@ -58,7 +58,7 @@ void affect_dedup_in_list(Affect **list_head, Affect *paf, affect_fn_params *par
 		paf->level     = UMAX(paf->level, paf_old->level);
 		paf->duration  = UMAX(paf->duration, paf_old->duration); // ok for -1 duration too
 		paf->modifier  += paf_old->modifier;
-		paf->bitvector |= paf_old->bitvector;
+		paf->bitvector(paf->bitvector() + paf_old->bitvector());
 		paf->evolution = UMAX(paf->evolution, paf_old->evolution);
 
 		affect_remove_from_list(list_head, paf_old);

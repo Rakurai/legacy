@@ -4,6 +4,7 @@
 #include <map>
 #include "declare.h"
 #include "String.hpp"
+#include "Flags.hpp"
 
 /*
  * Data which only PC's have.
@@ -75,8 +76,8 @@ public:
 	Character *         gargoyle = nullptr;
 	sh_int              color          [MAX_COLORS] = {0};
 	sh_int              bold           [MAX_COLORS] = {0};
-	unsigned long       cgroup = 0;
-    unsigned long       plr = 0; /* Extra PLR flags */
+	Flags               cgroup_flags;
+    Flags               plr_flags; /* Extra PLR flags */
     String              rank;
     sh_int              lastcolor      [2] = {0};
     sh_int              pktimer = 0;
@@ -98,7 +99,7 @@ public:
     String              spouse;
     String              propose;
     String              whisper;
-    long                video = 0;
+    Flags               video_flags;
     sh_int              tailing = 0;
     int                 mark_room = 0;
     String              aura;

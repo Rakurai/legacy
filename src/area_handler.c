@@ -58,7 +58,7 @@ void unique_item(Object *item)
 	    && item->item_type != ITEM_POTION
 	    && item->item_type != ITEM_PILL
 	    && item->item_type != ITEM_MONEY
-	    && item->wear_flags < ITEM_WEAR_FINGER)
+	    && item->wear_flags.to_ulong() < ITEM_WEAR_FINGER)
 		return;
 
 	/* random apply */
@@ -151,7 +151,7 @@ void unique_item(Object *item)
 		af.duration   = -1;
 		af.location   = loc;
 		af.modifier   = mod;
-		af.bitvector  = 0;
+		af.bitvector(0);
 		af.evolution  = 1;
 		affect_join_to_obj(item, &af);
 
@@ -208,15 +208,15 @@ void unique_item(Object *item)
 				item->value[0] = number_range(item->value[0] * 3 / 4, item->value[0] * 5 / 4);
 			else if (chance(50)) { /* dice bonus */
 				if (chance(50))
-					item->value[1]++;
+					++item->value[1];
 				else
-					item->value[1]--;
+					--item->value[1];
 			}
 			else { /* sides bonus */
 				if (chance(50))
-					item->value[2]++;
+					++item->value[2];
 				else
-					item->value[2]--;
+					--item->value[2];
 			}
 
 			break;
@@ -249,57 +249,26 @@ void unique_item(Object *item)
 		case ITEM_WEAPON:
 			if (chance(40)) { /* dice */
 				if (chance(50))
-					item->value[1]++;
+					++item->value[1];
 				else
-					item->value[1]--;
+					--item->value[1];
 			}
 			else if (chance(66)) { /* sides */
 				if (chance(50))
-					item->value[2]++;
+					++item->value[2];
 				else
-					item->value[2]--;
+					--item->value[2];
 			}
 			else { /* flags, 20% chance */
 				switch (number_range(1, 8)) {
-				case 1: (IS_WEAPON_STAT(item, WEAPON_FLAMING) ?
-					         REMOVE_BIT(item->value[4], WEAPON_FLAMING) :
-					         SET_BIT(item->value[4], WEAPON_FLAMING));
-					break;
-
-				case 2: (IS_WEAPON_STAT(item, WEAPON_FROST) ?
-					         REMOVE_BIT(item->value[4], WEAPON_FROST) :
-					         SET_BIT(item->value[4], WEAPON_FROST));
-					break;
-
-				case 3: (IS_WEAPON_STAT(item, WEAPON_VAMPIRIC) ?
-					         REMOVE_BIT(item->value[4], WEAPON_VAMPIRIC) :
-					         SET_BIT(item->value[4], WEAPON_VAMPIRIC));
-					break;
-
-				case 4: (IS_WEAPON_STAT(item, WEAPON_SHARP) ?
-					         REMOVE_BIT(item->value[4], WEAPON_SHARP) :
-					         SET_BIT(item->value[4], WEAPON_SHARP));
-					break;
-
-				case 5: (IS_WEAPON_STAT(item, WEAPON_VORPAL) ?
-					         REMOVE_BIT(item->value[4], WEAPON_VORPAL) :
-					         SET_BIT(item->value[4], WEAPON_VORPAL));
-					break;
-
-				case 6: (IS_WEAPON_STAT(item, WEAPON_TWO_HANDS) ?
-					         REMOVE_BIT(item->value[4], WEAPON_TWO_HANDS) :
-					         SET_BIT(item->value[4], WEAPON_TWO_HANDS));
-					break;
-
-				case 7: (IS_WEAPON_STAT(item, WEAPON_SHOCKING) ?
-					         REMOVE_BIT(item->value[4], WEAPON_SHOCKING) :
-					         SET_BIT(item->value[4], WEAPON_SHOCKING));
-					break;
-
-				case 8: (IS_WEAPON_STAT(item, WEAPON_POISON) ?
-					         REMOVE_BIT(item->value[4], WEAPON_POISON) :
-					         SET_BIT(item->value[4], WEAPON_POISON));
-					break;
+				case 1: item->value[4] ^= WEAPON_FLAMING;	break;
+				case 2: item->value[4] ^= WEAPON_FROST;		break;
+				case 3: item->value[4] ^= WEAPON_VAMPIRIC;	break;
+				case 4: item->value[4] ^= WEAPON_SHARP;		break;
+				case 5: item->value[4] ^= WEAPON_VORPAL;	break;
+				case 6: item->value[4] ^= WEAPON_TWO_HANDS;	break;
+				case 7: item->value[4] ^= WEAPON_SHOCKING;	break;
+				case 8: item->value[4] ^= WEAPON_POISON;	break;
 				}
 			}
 
@@ -416,7 +385,7 @@ RoomPrototype *get_random_reset_room(Area *area)
 			if ((room = get_room_index(i)) == nullptr)
 				continue;
 
-			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_MOB
+			if (GET_ROOM_FLAGS(room).has_any_of(ROOM_NO_MOB
 			           | ROOM_PRIVATE
 			           | ROOM_SAFE
 			           | ROOM_SOLITARY
@@ -526,8 +495,8 @@ void reset_area(Area *pArea)
 				pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
 
 				if (pRoomIndexPrev != nullptr
-				    && IS_SET(GET_ROOM_FLAGS(pRoomIndexPrev), ROOM_PET_SHOP))
-					SET_BIT(mob->act_flags, ACT_PET);
+				    && GET_ROOM_FLAGS(pRoomIndexPrev).has(ROOM_PET_SHOP))
+					mob->act_flags += ACT_PET;
 			}
 			/* set area */
 			mob->zone = pRoomIndex->area;
@@ -658,7 +627,7 @@ void reset_area(Area *pArea)
 					return;
 				}
 
-				SET_BIT(obj->extra_flags, ITEM_INVENTORY);
+				obj->extra_flags += ITEM_INVENTORY;
 			}
 			else {
 				if (pReset->arg2 == -1) /* no limit */
@@ -708,18 +677,18 @@ void reset_area(Area *pArea)
 
 			switch (pReset->arg3) {
 			case 0:
-				REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-				REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+				pexit->exit_flags -= EX_CLOSED;
+				pexit->exit_flags -= EX_LOCKED;
 				break;
 
 			case 1:
-				SET_BIT(pexit->exit_info, EX_CLOSED);
-				REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+				pexit->exit_flags += EX_CLOSED;
+				pexit->exit_flags -= EX_LOCKED;
 				break;
 
 			case 2:
-				SET_BIT(pexit->exit_info, EX_CLOSED);
-				SET_BIT(pexit->exit_info, EX_LOCKED);
+				pexit->exit_flags += EX_CLOSED;
+				pexit->exit_flags += EX_LOCKED;
 				break;
 			}
 
@@ -831,9 +800,9 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	}
 
 	/* read from prototype */
-	mob->group              = pMobIndex->group;
+	mob->group_flags              = pMobIndex->group_flags;
 	mob->act_flags                = pMobIndex->act_flags;
-	mob->comm               = COMM_NOCHANNELS;
+	mob->comm_flags               = COMM_NOCHANNELS;
 	mob->alignment          = pMobIndex->alignment;
 	mob->level              = pMobIndex->level;
 	ATTR_BASE(mob, APPLY_HITROLL) = pMobIndex->hitroll;
@@ -870,8 +839,8 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 		ATTR_BASE(mob, APPLY_SEX) = pMobIndex->sex;
 
 	mob->race               = pMobIndex->race;
-	mob->form               = pMobIndex->form;
-	mob->parts              = pMobIndex->parts;
+	mob->form_flags               = pMobIndex->form_flags;
+	mob->parts_flags              = pMobIndex->parts_flags;
 	mob->size               = pMobIndex->size;
 	mob->material           = pMobIndex->material;
 
@@ -879,26 +848,26 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(mob, stat_to_attr(stat)) = UMIN(25, number_fuzzy(8 + mob->level / 12));
 
-	if (IS_SET(mob->act_flags, ACT_WARRIOR)) {
+	if (mob->act_flags.has(ACT_WARRIOR)) {
 		ATTR_BASE(mob, APPLY_STR) += 3;
 		ATTR_BASE(mob, APPLY_INT) -= 2;
 		ATTR_BASE(mob, APPLY_CON) += 2;
 		ATTR_BASE(mob, APPLY_CHR) -= 1;
 		ATTR_BASE(mob, APPLY_WIS) -= 2;
 	}
-	else if (IS_SET(mob->act_flags, ACT_THIEF)) {
+	else if (mob->act_flags.has(ACT_THIEF)) {
 		ATTR_BASE(mob, APPLY_DEX) += 3;
 		ATTR_BASE(mob, APPLY_WIS) -= 2;
 		ATTR_BASE(mob, APPLY_CHR) += 2;
 		ATTR_BASE(mob, APPLY_CON) -= 2;
 	}
-	else if (IS_SET(mob->act_flags, ACT_CLERIC)) {
+	else if (mob->act_flags.has(ACT_CLERIC)) {
 		ATTR_BASE(mob, APPLY_WIS) += 3;
 		ATTR_BASE(mob, APPLY_INT) += 1;
 		ATTR_BASE(mob, APPLY_DEX) -= 2;
 		ATTR_BASE(mob, APPLY_CHR) += 1;
 	}
-	else if (IS_SET(mob->act_flags, ACT_MAGE)) {
+	else if (mob->act_flags.has(ACT_MAGE)) {
 		ATTR_BASE(mob, APPLY_INT) += 3;
 		ATTR_BASE(mob, APPLY_STR) -= 3;
 		ATTR_BASE(mob, APPLY_DEX) += 1;
@@ -911,7 +880,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 			ATTR_BASE(mob, stat_to_attr(stat)) += (pc_race_table[mob->race].stats[stat] - 13);
 
 	/*Speed and size mods*/
-	if (IS_SET(mob->off_flags, OFF_FAST))
+	if (mob->off_flags.has(OFF_FAST))
 		ATTR_BASE(mob, APPLY_DEX) += 2;
 
 	ATTR_BASE(mob, APPLY_STR) += mob->size - SIZE_MEDIUM;
@@ -927,13 +896,13 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	/* give em some stamina -- Montrey */
 	ATTR_BASE(mob, APPLY_STAM) = 100;
 
-	if (IS_SET(mob->act_flags, ACT_MAGE))
+	if (mob->act_flags.has(ACT_MAGE))
 		stambase = 3;
-	else if (IS_SET(mob->act_flags, ACT_CLERIC))
+	else if (mob->act_flags.has(ACT_CLERIC))
 		stambase = 4;
-	else if (IS_SET(mob->act_flags, ACT_THIEF))
+	else if (mob->act_flags.has(ACT_THIEF))
 		stambase = 7;
-	else if (IS_SET(mob->act_flags, ACT_WARRIOR))
+	else if (mob->act_flags.has(ACT_WARRIOR))
 		stambase = 9;
 	else
 		stambase = 5;
@@ -971,7 +940,7 @@ void clone_mobile(Character *parent, Character *clone)
 	for (int i = 1; i < MAX_ATTR; i++)
 		ATTR_BASE(clone, i) = ATTR_BASE(parent, i);
 
-	clone->group        = parent->group;
+	clone->group_flags  = parent->group_flags;
 //	clone->sex          = parent->sex;
 	clone->cls        = parent->cls;
 	clone->race         = parent->race;
@@ -988,7 +957,7 @@ void clone_mobile(Character *parent, Character *clone)
 	clone->silver       = /*parent->silver;*/ 0;
 	clone->exp          = parent->exp;
 	clone->act_flags          = parent->act_flags;
-	clone->comm         = parent->comm;
+	clone->comm_flags         = parent->comm_flags;
 	clone->invis_level  = parent->invis_level;
 	clone->position     = parent->position;
 	clone->practice     = parent->practice;
@@ -998,8 +967,8 @@ void clone_mobile(Character *parent, Character *clone)
 //	clone->hitroll      = parent->hitroll;
 //	clone->damroll      = parent->damroll;
 	clone->wimpy        = parent->wimpy;
-	clone->form         = parent->form;
-	clone->parts        = parent->parts;
+	clone->form_flags         = parent->form_flags;
+	clone->parts_flags        = parent->parts_flags;
 	clone->size         = parent->size;
 	clone->off_flags    = parent->off_flags;
 	clone->dam_type     = parent->dam_type;

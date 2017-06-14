@@ -36,56 +36,6 @@
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const Affect *paf, bool fAdd));
 
-String flags_to_string(int flag)
-{
-	String buf;
-
-	for (int count = 0; count < 32; count++) {
-		if (IS_SET(flag, 1 << count)) {
-			if (count < 26)
-				buf += 'A' + count;
-			else
-				buf += 'a' + (count - 26);
-		}
-	}
-
-	if (buf.empty())
-		return "0";
-
-	return buf;
-}
-
-long string_to_flags(const String& str) {
-	const char *p = str.c_str();
-	long number = 0;
-	bool sign = FALSE;
-
-	if (*p == '-') {
-		sign = TRUE;
-		p++;
-	}
-
-	if (!isdigit(*p)) {
-		while (('A' <= *p && *p <= 'Z') || ('a' <= *p && *p <= 'z')) {
-			number += flag_convert(*p);
-			p++;
-		}
-	}
-
-	while (isdigit(*p)) {
-		number = number * 10 + *p - '0';
-		p++;
-	}
-
-	if (sign)
-		number = 0 - number;
-
-	if (*p == '|')
-		number += string_to_flags(p+1);
-
-	return number;
-}
-
 /* friend stuff -- for NPC's mostly */
 bool is_friend(Character *ch, Character *victim)
 {
@@ -96,7 +46,7 @@ bool is_friend(Character *ch, Character *victim)
 		return FALSE;
 
 	if (!IS_NPC(victim)) {
-		if (IS_SET(ch->off_flags, ASSIST_PLAYERS))
+		if (ch->off_flags.has(ASSIST_PLAYERS))
 			return TRUE;
 		else
 			return FALSE;
@@ -105,21 +55,21 @@ bool is_friend(Character *ch, Character *victim)
 	if (affect_exists_on_char(ch, gsn_charm_person))
 		return FALSE;
 
-	if (IS_SET(ch->off_flags, ASSIST_ALL))
+	if (ch->off_flags.has(ASSIST_ALL))
 		return TRUE;
 
-	if (ch->group && ch->group == victim->group)
+	if (ch->group_flags.has_any_of(victim->group_flags))
 		return TRUE;
 
-	if (IS_SET(ch->off_flags, ASSIST_VNUM)
+	if (ch->off_flags.has(ASSIST_VNUM)
 	    &&  ch->pIndexData == victim->pIndexData)
 		return TRUE;
 
-	if (IS_SET(ch->off_flags, ASSIST_RACE) && ch->race == victim->race)
+	if (ch->off_flags.has(ASSIST_RACE) && ch->race == victim->race)
 		return TRUE;
 
-	if (IS_SET(ch->off_flags, ASSIST_ALIGN)
-	    &&  !IS_SET(ch->act_flags, ACT_NOALIGN) && !IS_SET(victim->act_flags, ACT_NOALIGN)
+	if (ch->off_flags.has(ASSIST_ALIGN)
+	    &&  !ch->act_flags.has(ACT_NOALIGN) && !victim->act_flags.has(ACT_NOALIGN)
 	    && ((IS_GOOD(ch) && IS_GOOD(victim))
 	        || (IS_EVIL(ch) && IS_EVIL(victim))
 	        || (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))))
@@ -178,36 +128,36 @@ int get_skill(const Character *ch, int sn)
 			skill = ch->pcdata->learned[sn];
 	}
 	else { /* mobiles */
-		if ((sn == gsn_dodge && IS_SET(ch->off_flags, OFF_DODGE))
-		    || (sn == gsn_parry && IS_SET(ch->off_flags, OFF_PARRY))
-		    || (sn == gsn_kick && IS_SET(ch->off_flags, OFF_KICK)))
+		if ((sn == gsn_dodge && ch->off_flags.has(OFF_DODGE))
+		    || (sn == gsn_parry && ch->off_flags.has(OFF_PARRY))
+		    || (sn == gsn_kick && ch->off_flags.has(OFF_KICK)))
 			skill = 10 + ch->level;
 		else if (sn == gsn_shield_block)
 			skill = 15 + ch->level;
 		else if (sn == gsn_second_attack
-		         && (IS_SET(ch->act_flags, ACT_WARRIOR) || IS_SET(ch->act_flags, ACT_THIEF)))
+		         && (ch->act_flags.has(ACT_WARRIOR) || ch->act_flags.has(ACT_THIEF)))
 			skill = 25 + ch->level;
-		else if (sn == gsn_third_attack && IS_SET(ch->act_flags, ACT_WARRIOR))
+		else if (sn == gsn_third_attack && ch->act_flags.has(ACT_WARRIOR))
 			skill = 15 + ch->level;
-		else if (sn == gsn_fourth_attack && IS_SET(ch->act_flags, ACT_WARRIOR))
+		else if (sn == gsn_fourth_attack && ch->act_flags.has(ACT_WARRIOR))
 			skill = 2 * (ch->level - 60);
 		else if (sn == gsn_hand_to_hand)
 			skill = ch->level * 3 / 2;
-		else if ((sn == gsn_trip && IS_SET(ch->off_flags, OFF_TRIP))
-		         || (sn == gsn_dirt_kicking && IS_SET(ch->off_flags, OFF_KICK_DIRT)))
+		else if ((sn == gsn_trip && ch->off_flags.has(OFF_TRIP))
+		         || (sn == gsn_dirt_kicking && ch->off_flags.has(OFF_KICK_DIRT)))
 			skill = 10 + (ch->level * 3 / 2);
-		else if (sn == gsn_bash && IS_SET(ch->off_flags, OFF_BASH))
+		else if (sn == gsn_bash && ch->off_flags.has(OFF_BASH))
 			skill = 10 + (ch->level * 5 / 4);
-		else if (sn == gsn_crush && IS_SET(ch->off_flags, OFF_CRUSH))
+		else if (sn == gsn_crush && ch->off_flags.has(OFF_CRUSH))
 			skill = ch->level;
 		else if (sn == gsn_disarm
-		         && (IS_SET(ch->off_flags, OFF_DISARM)
-		             ||       IS_SET(ch->act_flags, ACT_WARRIOR)
-		             ||       IS_SET(ch->act_flags, ACT_THIEF)))
+		         && (ch->off_flags.has(OFF_DISARM)
+		             ||       ch->act_flags.has(ACT_WARRIOR)
+		             ||       ch->act_flags.has(ACT_THIEF)))
 			skill = 20 + (ch->level * 2 / 3);
-		else if (sn == gsn_berserk && IS_SET(ch->off_flags, OFF_BERSERK))
+		else if (sn == gsn_berserk && ch->off_flags.has(OFF_BERSERK))
 			skill = 3 * ch->level;
-		else if (sn == gsn_backstab && IS_SET(ch->act_flags, ACT_THIEF))
+		else if (sn == gsn_backstab && ch->act_flags.has(ACT_THIEF))
 			skill = 20 + (ch->level * 2);
 		else if (sn == gsn_rescue)
 			skill = 40 + (ch->level / 2);
@@ -340,7 +290,7 @@ int can_carry_n(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 9999;
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET))
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_PET))
 		return 0;
 
 	return MAX_WEAR +  2 * GET_ATTR_DEX(ch) + ch->level;
@@ -354,7 +304,7 @@ int can_carry_w(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 10000000;
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_PET))
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_PET))
 		return 0;
 
 	return str_app[GET_ATTR_STR(ch)].carry * 10 + ch->level * 25;
@@ -793,7 +743,7 @@ void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
 	/* Floating Rooms by Lotus - Idea from WWW site */
 	while (pRoomIndex &&
 	       pRoomIndex->sector_type == SECT_AIR &&
-	       (obj->wear_flags & ITEM_TAKE) &&
+	       obj->wear_flags.has(ITEM_TAKE) &&
 	       pRoomIndex->exit[DIR_DOWN] &&
 	       pRoomIndex->exit[DIR_DOWN]->u1.to_room) {
 		RoomPrototype *new_room =
@@ -1307,7 +1257,7 @@ bool room_is_dark(RoomPrototype *room)
 	if (room->light > 0)
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(room), ROOM_DARK))
+	if (GET_ROOM_FLAGS(room).has(ROOM_DARK))
 		return TRUE;
 
 	if (room->sector_type == SECT_INSIDE
@@ -1325,7 +1275,7 @@ bool room_is_very_dark(RoomPrototype *room)
 	if (room == nullptr)
 		return TRUE;
 
-	if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NOLIGHT))
+	if (GET_ROOM_FLAGS(room).has(ROOM_NOLIGHT))
 		return TRUE;
 
 	return FALSE;
@@ -1355,10 +1305,10 @@ bool room_is_private(RoomPrototype *pRoomIndex)
 	for (rch = pRoomIndex->people; rch != nullptr; rch = rch->next_in_room)
 		count++;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_PRIVATE)  && count >= 2)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_PRIVATE)  && count >= 2)
 		return TRUE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_SOLITARY) && count >= 1)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_SOLITARY) && count >= 1)
 		return TRUE;
 
 	return FALSE;
@@ -1367,7 +1317,7 @@ bool room_is_private(RoomPrototype *pRoomIndex)
 /* visibility on a room -- for entering and exits */
 bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 {
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_IMP_ONLY)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_IMP_ONLY)
 	    &&  GET_RANK(ch) < RANK_IMP)
 		return FALSE;
 
@@ -1376,19 +1326,19 @@ bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 
 	/* restrictions below this line do not apply to immortals of any level. */
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_GODS_ONLY))
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_GODS_ONLY))
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_REMORT_ONLY)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_REMORT_ONLY)
 	    && !IS_REMORT(ch))
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_HEROES_ONLY)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_HEROES_ONLY)
 	    &&  !IS_HEROIC(ch))
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_NEWBIES_ONLY)
-	    &&  ch->level > 5 && !IS_SET(ch->act_flags, PLR_MAKEBAG))
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_NEWBIES_ONLY)
+	    &&  ch->level > 5 && !ch->act_flags.has(PLR_MAKEBAG))
 		return FALSE;
 
 	/* can see other clanhall in times of war */
@@ -1412,14 +1362,14 @@ bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 			return FALSE;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_LEADER_ONLY)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_LEADER_ONLY)
 	    && !HAS_CGROUP(ch, GROUP_LEADER))
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)
 		return FALSE;
 
-	if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY) && GET_ATTR_SEX(ch) != SEX_FEMALE)
+	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_FEMALE_ONLY) && GET_ATTR_SEX(ch) != SEX_FEMALE)
 		return FALSE;
 
 	return TRUE;
@@ -1450,13 +1400,13 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (IS_IMP(ch))
 		return TRUE;
 
-	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_SUPERWIZ))
+	if (!IS_NPC(victim) && victim->act_flags.has(PLR_SUPERWIZ))
 		return FALSE;
 
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_SUPERMOB))
+	if (IS_NPC(victim) && victim->act_flags.has(ACT_SUPERMOB))
 		return FALSE;
 
 	if (affect_exists_on_char(victim, gsn_midnight))
@@ -1512,7 +1462,7 @@ bool can_see_who(const Character *ch, const Character *victim)
 		return FALSE;
 
 	/* so does SUPERWIZ */
-	if (IS_SET(victim->act_flags, PLR_SUPERWIZ) && !IS_NPC(victim) && !IS_IMP(ch))
+	if (victim->act_flags.has(PLR_SUPERWIZ) && !IS_NPC(victim) && !IS_IMP(ch))
 		return FALSE;
 
 	/* so does LURK */

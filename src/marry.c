@@ -73,7 +73,7 @@ void do_marry(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->pcdata->plr, PLR_MARRIED) || IS_SET(victim2->pcdata->plr, PLR_MARRIED)) {
+	if (victim->pcdata->plr_flags.has(PLR_MARRIED) || victim2->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("They are already married.\n", ch);
 		return;
 	}
@@ -84,8 +84,8 @@ void do_marry(Character *ch, String argument)
 	ptc(victim, "You are now married to %s.\n", victim2->name);
 	stc("You say the big 'I do!'\n", victim2);
 	ptc(victim2, "You are now married to %s.\n", victim->name);
-	SET_BIT(victim->pcdata->plr, PLR_MARRIED);
-	SET_BIT(victim2->pcdata->plr, PLR_MARRIED);
+	victim->pcdata->plr_flags += PLR_MARRIED;
+	victim2->pcdata->plr_flags += PLR_MARRIED;
 	save_char_obj(victim);
 	save_char_obj(victim2);
 	return;
@@ -115,7 +115,7 @@ void do_divorce(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_SET(victim->pcdata->plr, PLR_MARRIED) || !IS_SET(victim2->pcdata->plr, PLR_MARRIED)) {
+	if (!victim->pcdata->plr_flags.has(PLR_MARRIED) || !victim2->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("They aren't even married.\n", ch);
 		return;
 	}
@@ -133,8 +133,8 @@ void do_divorce(Character *ch, String argument)
 	ptc(victim2, "You are now divorced from %s.\n", victim->name);
 	victim->pcdata->spouse.erase();
 	victim2->pcdata->spouse.erase();
-	REMOVE_BIT(victim->pcdata->plr, PLR_MARRIED);
-	REMOVE_BIT(victim2->pcdata->plr, PLR_MARRIED);
+	victim->pcdata->plr_flags -= PLR_MARRIED;
+	victim2->pcdata->plr_flags -= PLR_MARRIED;
 	save_char_obj(victim);
 	save_char_obj(victim2);
 	return;
@@ -149,7 +149,7 @@ void do_spousetalk(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
+	if (!ch->pcdata->plr_flags.has(PLR_MARRIED)) {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
 		stc("But you aren't married.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -215,7 +215,7 @@ void do_propose(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
+	if (ch->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("You are already married.\n", ch);
 		return;
 	}
@@ -240,7 +240,7 @@ void do_propose(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->pcdata->plr, PLR_MARRIED)) {
+	if (victim->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("They are already married.\n", ch);
 		return;
 	}
@@ -273,7 +273,7 @@ void do_accept(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
+	if (ch->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("You are already married.\n", ch);
 		return;
 	}
@@ -317,8 +317,8 @@ void do_accept(Character *ch, String argument)
 		msgvict = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
-		    !IS_SET(msgvict->comm, COMM_NOANNOUNCE) &&
-		    !IS_SET(msgvict->comm, COMM_QUIET))
+		    !msgvict->comm_flags.has(COMM_NOANNOUNCE) &&
+		    !msgvict->comm_flags.has(COMM_QUIET))
 			stc(buf, msgvict);
 	}
 
@@ -341,7 +341,7 @@ void do_reject(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
+	if (ch->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("You are already married.\n", ch);
 		return;
 	}
@@ -397,7 +397,7 @@ void do_breakup(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
+	if (ch->pcdata->plr_flags.has(PLR_MARRIED)) {
 		stc("You are married, you have to get a divorce.\n", ch);
 		return;
 	}
@@ -441,8 +441,8 @@ void do_breakup(Character *ch, String argument)
 		msgvict = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
-		    !IS_SET(msgvict->comm, COMM_NOANNOUNCE) &&
-		    !IS_SET(msgvict->comm, COMM_QUIET))
+		    !msgvict->comm_flags.has(COMM_NOANNOUNCE) &&
+		    !msgvict->comm_flags.has(COMM_QUIET))
 			stc(buf, msgvict);
 	}
 

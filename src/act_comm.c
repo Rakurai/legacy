@@ -580,7 +580,7 @@ void do_delete(Character *ch, String argument)
 		id = ch->id;
 		d = ch->desc;
 
-		if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
+		if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
 			stc(VT_SETWIN_CLEAR, ch);
 			stc(VT_RESET_TERMINAL, ch);
 		}
@@ -626,7 +626,7 @@ void do_newbiekit(Character *ch, String argument)
 	Object *kit;
 	int i, kitvnum = 72;
 
-	if (!IS_IMMORTAL(ch) && !IS_SET(ch->act_flags, PLR_MAKEBAG)) {
+	if (!IS_IMMORTAL(ch) && !ch->act_flags.has(PLR_MAKEBAG)) {
 		do_huh(ch);
 		return;
 	}
@@ -664,14 +664,14 @@ void do_ooc(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_OOC)) {
+	if (ch->pcdata->plr_flags.has(PLR_OOC)) {
 		stc("You are no longer role playing.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_OOC);
+		ch->pcdata->plr_flags -= PLR_OOC;
 		wiznet("$N is now in *OOC* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
 		stc("You slip into character.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_OOC);
+		ch->pcdata->plr_flags += PLR_OOC;
 		wiznet("$N is now in *RP* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 }
@@ -685,26 +685,26 @@ void do_pk(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->act_flags, PLR_NOPK)) {
+	if (ch->act_flags.has(PLR_NOPK)) {
 		stc("You are stuck in PK mode!  I hope no one is trying to kill you.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_PK) && (argument.empty() || !IS_IMP(ch)))
+	if (ch->pcdata->plr_flags.has(PLR_PK) && (argument.empty() || !IS_IMP(ch)))
 		stc("Your PK flag is already up!\n", ch);
 	else if (argument == "on") {
 		stc("Everyone is going to be keeping an eye on you now =).\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_PK);
+		ch->pcdata->plr_flags += PLR_PK;
 		wiznet("$N is now in *PK* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else if (!argument.empty() && IS_IMP(ch)
 	         && (wch = get_player_world(ch, argument, VIS_PLR)) != nullptr) {
-		if (!IS_SET(wch->pcdata->plr, PLR_PK)) {
+		if (!wch->pcdata->plr_flags.has(PLR_PK)) {
 			stc("That player's PK flag is already down.\n", ch);
 			return;
 		}
 
-		REMOVE_BIT(wch->pcdata->plr, PLR_PK);
+		wch->pcdata->plr_flags -= PLR_PK;
 		wiznet("$N's PK flag has been lowered.", wch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
@@ -719,13 +719,13 @@ void do_chatmode(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (IS_SET(ch->pcdata->plr, PLR_CHATMODE)) {
+	if (ch->pcdata->plr_flags.has(PLR_CHATMODE)) {
 		stc("You have exited chatmode.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_CHATMODE);
+		ch->pcdata->plr_flags -= PLR_CHATMODE;
 	}
 	else {
 		stc("You will no longer see hunger/thirst messages.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_CHATMODE);
+		ch->pcdata->plr_flags += PLR_CHATMODE;
 	}
 }
 
@@ -737,13 +737,13 @@ void do_private(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_PRIVATE)) {
+	if (ch->pcdata->plr_flags.has(PLR_PRIVATE)) {
 		stc("Your room will now display in shortwho.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_PRIVATE);
+		ch->pcdata->plr_flags -= PLR_PRIVATE;
 	}
 	else {
 		stc("Your room will no longer display in shortwho.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_PRIVATE);
+		ch->pcdata->plr_flags += PLR_PRIVATE;
 	}
 }
 
@@ -755,12 +755,12 @@ void do_showlast(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_NOSHOWLAST)) {
-		REMOVE_BIT(ch->pcdata->plr, PLR_NOSHOWLAST);
+	if (ch->pcdata->plr_flags.has(PLR_NOSHOWLAST)) {
+		ch->pcdata->plr_flags -= PLR_NOSHOWLAST;
 		stc("Your last time on will now display in finger.\n", ch);
 	}
 	else {
-		SET_BIT(ch->pcdata->plr, PLR_NOSHOWLAST);
+		ch->pcdata->plr_flags += PLR_NOSHOWLAST;
 		stc("Your last time on will no longer display in finger.\n", ch);
 	}
 
@@ -770,25 +770,25 @@ void do_showlast(Character *ch, String argument)
 /* Autorecall by Lotus */
 void do_autorecall(Character *ch, String argument)
 {
-	if (IS_SET(ch->act_flags, PLR_WIMPY)) {
+	if (ch->act_flags.has(PLR_WIMPY)) {
 		stc("You will no longer recall in link-dead combat.\n", ch);
-		REMOVE_BIT(ch->act_flags, PLR_WIMPY);
+		ch->act_flags -= PLR_WIMPY;
 	}
 	else {
 		stc("You will now recall in link-dead combat.\n", ch);
-		SET_BIT(ch->act_flags, PLR_WIMPY);
+		ch->act_flags += PLR_WIMPY;
 	}
 }
 /* PlayerTicks by Lotus */
 void do_autotick(Character *ch, String argument)
 {
-	if (IS_SET(ch->act_flags, PLR_TICKS)) {
+	if (ch->act_flags.has(PLR_TICKS)) {
 		stc("You will no longer see ticks.\n", ch);
-		REMOVE_BIT(ch->act_flags, PLR_TICKS);
+		ch->act_flags -= PLR_TICKS;
 	}
 	else {
 		stc("You will now see ticks.\n", ch);
-		SET_BIT(ch->act_flags, PLR_TICKS);
+		ch->act_flags += PLR_TICKS;
 	}
 }
 
@@ -799,13 +799,13 @@ void do_autopeek(Character *ch, String argument)
 
 	if (!get_skill(ch, gsn_peek)) return;
 
-	if (IS_SET(ch->pcdata->plr, PLR_AUTOPEEK)) {
+	if (ch->pcdata->plr_flags.has(PLR_AUTOPEEK)) {
 		stc("You will no longer PEEK automatically.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_AUTOPEEK);
+		ch->pcdata->plr_flags -= PLR_AUTOPEEK;
 	}
 	else {
 		stc("You will now PEEK automatically when you LOOK.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_AUTOPEEK);
+		ch->pcdata->plr_flags += PLR_AUTOPEEK;
 	}
 }
 
@@ -822,29 +822,29 @@ void do_showraff(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
+	if (ch->pcdata->plr_flags.has(PLR_SHOWRAFF)) {
 		stc("Your remort affects will no longer show in 'affects'.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_SHOWRAFF);
+		ch->pcdata->plr_flags -= PLR_SHOWRAFF;
 	}
 	else {
 		stc("Your remort affects will now show in 'affects'.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_SHOWRAFF);
+		ch->pcdata->plr_flags += PLR_SHOWRAFF;
 	}
 }
 
 /* RT deaf blocks out all shouts */
 void do_deaf(Character *ch, String argument)
 {
-	if (IS_SET(ch->comm, COMM_DEAF)) {
+	if (ch->comm_flags.has(COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("You can now hear tells again.\n", ch);
-		REMOVE_BIT(ch->comm, COMM_DEAF);
+		ch->comm_flags -= COMM_DEAF;
 		set_color(ch, WHITE, NOBOLD);
 	}
 	else {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("From now on, you won't hear tells.\n", ch);
-		SET_BIT(ch->comm, COMM_DEAF);
+		ch->comm_flags += COMM_DEAF;
 		set_color(ch, WHITE, NOBOLD);
 	}
 }
@@ -853,13 +853,13 @@ void do_deaf(Character *ch, String argument)
 
 void do_quiet(Character *ch, String argument)
 {
-	if (IS_SET(ch->comm, COMM_QUIET)) {
+	if (ch->comm_flags.has(COMM_QUIET)) {
 		stc("Quiet mode removed.\n", ch);
-		REMOVE_BIT(ch->comm, COMM_QUIET);
+		ch->comm_flags -= COMM_QUIET;
 	}
 	else {
 		stc("From now on, you will only hear says and emotes.\n", ch);
-		SET_BIT(ch->comm, COMM_QUIET);
+		ch->comm_flags += COMM_QUIET;
 	}
 }
 
@@ -869,7 +869,7 @@ void do_afk(Character *ch, String argument)
 {
 	char *strtime;
 
-	if (IS_SET(ch->comm, COMM_AFK)) {
+	if (ch->comm_flags.has(COMM_AFK)) {
 		set_color(ch, YELLOW, NOBOLD);
 		stc("AFK mode removed.\n", ch);
 
@@ -877,7 +877,7 @@ void do_afk(Character *ch, String argument)
 			if (!ch->pcdata->buffer.empty())
 				stc("You have messages: Type 'replay'\n", ch);
 
-		REMOVE_BIT(ch->comm, COMM_AFK);
+		ch->comm_flags -= COMM_AFK;
 		set_color(ch, WHITE, NOBOLD);
 		/*
 		      act( "$N has returned to $S keyboard.", ch, nullptr, nullptr, TO_ROOM );
@@ -889,7 +889,7 @@ void do_afk(Character *ch, String argument)
 		strtime[strlen(strtime) - 1]      = '\0';
 		set_color(ch, YELLOW, NOBOLD);
 		stc("You are now in AFK mode.\n", ch);
-		SET_BIT(ch->comm, COMM_AFK);
+		ch->comm_flags += COMM_AFK;
 		set_color(ch, WHITE, NOBOLD);
 		wiznet("$N has gone AFK.", ch, nullptr, WIZ_MISC, 0, 0);
 
@@ -917,13 +917,13 @@ void do_notify(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) return;
 
-	if (IS_SET(ch->pcdata->plr, PLR_NONOTIFY)) {
+	if (ch->pcdata->plr_flags.has(PLR_NONOTIFY)) {
 		stc("From now on, you will be notified of new notes.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_NONOTIFY);
+		ch->pcdata->plr_flags -= PLR_NONOTIFY;
 	}
 	else {
 		stc("Note notify mode removed.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_NONOTIFY);
+		ch->pcdata->plr_flags += PLR_NONOTIFY;
 	}
 }
 
@@ -1155,7 +1155,7 @@ void do_quit(Character *ch, String argument)
 		return;
 	}
 /*
-	if (IS_SET(ch->pcdata->plr, PLR_SHOWLOST) && !argument[0] && !IS_IMMORTAL(ch)) {
+	if (ch->pcdata->plr_flags.has(PLR_SHOWLOST) && !argument[0] && !IS_IMMORTAL(ch)) {
 		bool found_inv, found_loc;
 		found_inv = showlost(ch, ch->carrying, FALSE, FALSE);
 		found_loc = showlost(ch, ch->pcdata->locker,   FALSE, TRUE);
@@ -1170,12 +1170,12 @@ void do_quit(Character *ch, String argument)
 		if (deduct_cost(ch, lnum * 10)) {
 			ptc(ch, "%d silver has been deducted for your locker.\n",
 			    lnum * 10);
-			REMOVE_BIT(ch->act_flags, PLR_CLOSED);
+			ch->act_flags -= PLR_CLOSED;
 		}
 		else {
 			stc("You cannot afford to pay your locker fee.\n", ch);
 			stc("Your locker has been closed.\n", ch);
-			SET_BIT(ch->act_flags, PLR_CLOSED);
+			ch->act_flags += PLR_CLOSED;
 		}
 	}
 
@@ -1187,8 +1187,8 @@ void do_quit(Character *ch, String argument)
 		if (IS_PLAYING(sd)
 		    && sd->character != ch
 		    && can_see_who(victim, ch)
-		    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
-		    && !IS_SET(victim->comm, COMM_QUIET)) {
+		    && !victim->comm_flags.has(COMM_NOANNOUNCE)
+		    && !victim->comm_flags.has(COMM_QUIET)) {
 			if (ch->pcdata && !ch->pcdata->gameout.empty()) {
 				set_color(victim, GREEN, BOLD);
 				ptc(victim, "[%s] %s\n", ch->name, ch->pcdata->gameout);
@@ -1208,7 +1208,7 @@ void do_quit(Character *ch, String argument)
 	id = ch->id;
 	d = ch->desc;
 
-	if (ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_VT100)) {
+	if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
 		stc(VT_SETWIN_CLEAR, ch);
 		stc(VT_RESET_TERMINAL, ch);
 	}
@@ -1325,13 +1325,13 @@ void do_follow(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
+	if (!IS_NPC(victim) && victim->act_flags.has(PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
 		act("$N doesn't seem to want any followers.\n",
 		    ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
-	REMOVE_BIT(ch->act_flags, PLR_NOFOLLOW);
+	ch->act_flags -= PLR_NOFOLLOW;
 
 	if (ch->master != nullptr)
 		stop_follower(ch);
@@ -1495,25 +1495,25 @@ void do_order(Character *ch, String argument)
 		/* Stay/Follow code by Lotus */
 		if (arg2 == "stay" && IS_NPC(victim)) {
 			stc("You order your pet to stay.\n", ch);
-			SET_BIT(victim->act_flags, ACT_STAY);
+			victim->act_flags += ACT_STAY;
 			return;
 		}
 
 		if (arg2 == "follow" && IS_NPC(victim)) {
 			stc("You order your pet to follow you.\n", ch);
-			REMOVE_BIT(victim->act_flags, ACT_STAY);
+			victim->act_flags -= ACT_STAY;
 			return;
 		}
 
 		if (arg2 == "wimpy" && IS_NPC(victim)) {
 			stc("You order your pet to flee if injured.\n", ch);
-			SET_BIT(victim->act_flags, ACT_WIMPY);
+			victim->act_flags += ACT_WIMPY;
 			return;
 		}
 
 		if (arg2 == "courage" && IS_NPC(victim)) {
 			stc("You order your pet fight to the finish.\n", ch);
-			REMOVE_BIT(victim->act_flags, ACT_WIMPY);
+			victim->act_flags -= ACT_WIMPY;
 			return;
 		}
 

@@ -48,16 +48,16 @@ void affect_add_perm_to_char(Character *ch, int sn) {
 }
 
 // transform a bitvector into a set of affects or defense mods
-void affect_copy_flags_to_char(Character *ch, char letter, unsigned int bitvector, bool permanent) {
+void affect_copy_flags_to_char(Character *ch, char letter, Flags bitvector, bool permanent) {
 	Affect af;
 	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
 	af.permanent = permanent;
 
-	while (bitvector != 0) {
+	while (!bitvector.empty()) {
 		af.type = 0; // reset every time
-		if (affect_parse_flags(letter, &af, &bitvector)) {
+		if (affect_parse_flags(letter, &af, bitvector)) {
 			if (letter == 'A') // special to come up with modifiers
 				affect_add_sn_to_char(ch, af.type, ch->level, -1, 1, permanent);
 			else
@@ -247,7 +247,7 @@ void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int durati
 		bug("affect_add_sn_to_char: affect with sn %d not found in table", sn);
 }
 
-void remort_affect_modify_char(Character *ch, int where, unsigned int bits, bool fAdd) {
+void remort_affect_modify_char(Character *ch, int where, Flags bits, bool fAdd) {
 	Affect af;
 	af.type = 0;
 	af.level = ch->level;
@@ -260,7 +260,7 @@ void remort_affect_modify_char(Character *ch, int where, unsigned int bits, bool
 		where == TO_RESIST ? 'R' : 
 		where == TO_VULN ? 'V' : '?'; // let parse handle error
 
-	while (affect_parse_flags(letter, &af, &bits))
+	while (affect_parse_flags(letter, &af, bits))
 		affect_modify_char(ch, &af, fAdd);
 }
 

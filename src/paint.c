@@ -11,14 +11,14 @@ void do_paintbow(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->pcdata->plr, PLR_PAINT)) {
+	if (ch->pcdata->plr_flags.has(PLR_PAINT)) {
 		stc("You pull out the white flag.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_PAINT);
+		ch->pcdata->plr_flags -= PLR_PAINT;
 		wiznet("$N is now in *NPB* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
 		stc("You prepare for combat.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_PAINT);
+		ch->pcdata->plr_flags += PLR_PAINT;
 		wiznet("$N is now in *PB* mode.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 } /* end do_paintball() */
@@ -94,8 +94,8 @@ void do_splat(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_SET(ch->pcdata->plr, PLR_PAINT) ||
-	    !IS_SET(victim->pcdata->plr, PLR_PAINT)) {
+	if (!ch->pcdata->plr_flags.has(PLR_PAINT) ||
+	    !victim->pcdata->plr_flags.has(PLR_PAINT)) {
 		stc("Both players must have their paintball flag on.\n", ch);
 		return;
 	}
@@ -103,7 +103,7 @@ void do_splat(Character *ch, String argument)
 	if (ch->in_room == nullptr || victim->in_room == nullptr)
 		return;
 
-	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE)) {
+	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)) {
 		stc("Oddly enough, in this room you feel peaceful.\n", ch);
 		return;
 	}
@@ -137,7 +137,7 @@ void do_splat(Character *ch, String argument)
 		    ch, nullptr, victim, TO_VICT);
 
 		if ((victim->in_room->sector_type != SECT_ARENA) &&
-		    (!IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_NO_RECALL)) &&
+		    (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL)) &&
 		    !char_in_duel_room(victim) &&
 		    (!affect_exists_on_char(victim, gsn_curse))) {
 			char_from_room(victim);

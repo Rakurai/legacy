@@ -80,7 +80,7 @@ void fix_blank_raff(Character *ch, int start)
 
 void rem_raff_affect(Character *ch, int index)
 {
-	if (raffects[index].add) {
+	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
 			remort_affect_modify_char(ch, TO_VULN, raffects[index].add, FALSE);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
@@ -135,7 +135,7 @@ void raff_add_to_char(Character *ch, int raff_id) {
 		return;
 	}
 
-	if (raffects[index].add != 0) {
+	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
 			remort_affect_modify_char(ch, TO_VULN, raffects[index].add, TRUE);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
@@ -171,8 +171,7 @@ void roll_one_raff(Character *ch, Character *victim, int place)
 			can_add = TRUE;
 		else if ((raffects[test].id >= 950)
 		         && (raffects[test].id <= 999) /* if it's a res... */
-		         && (number_percent() <= (raffects[test].chance + (victim->pcdata->remort_count / 10)))
-		         && (GET_DEFENSE_MOD(victim, raffects[test].add) < 20)) // don't increase a resistance to immunity
+		         && (number_percent() <= (raffects[test].chance + (victim->pcdata->remort_count / 10))))
 			can_add = TRUE;
 
 		if (HAS_RAFF(victim, raffects[test].id))
@@ -493,8 +492,8 @@ void do_remort(Character *ch, String argument)
 	victim->mana = ATTR_BASE(victim, APPLY_MANA) = 100;
 	victim->stam = ATTR_BASE(victim, APPLY_STAM) = 100;
 
-	victim->form                    = race_table[race].form;
-	victim->parts                   = race_table[race].parts;
+	victim->form_flags                    = race_table[race].form;
+	victim->parts_flags                   = race_table[race].parts;
 
 	/* make sure stats aren't above their new maximums */
 	for (int stat = 0; stat < MAX_STATS; stat++)
@@ -545,7 +544,7 @@ void do_remort(Character *ch, String argument)
 	roll_raffects(ch, victim);
 
 	if (victim->pcdata->remort_count == 1)
-		SET_BIT(victim->pcdata->plr, PLR_SHOWRAFF);
+		victim->pcdata->plr_flags += PLR_SHOWRAFF;
 
 	Format::sprintf(buf, "%s has been reborn!", victim->name);
 	do_send_announce(victim, buf);

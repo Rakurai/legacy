@@ -169,7 +169,7 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->bamfout[0] != '\0')
 		JSON::addStringToObject(o,	"Bout",			ch->pcdata->bamfout);
 
-	JSON::addStringToObject(o,		"Cgrp",			flags_to_string(ch->pcdata->cgroup));
+	JSON::addStringToObject(o,		"Cgrp",			ch->pcdata->cgroup_flags.to_string());
 
 	item = cJSON_CreateObject();
 	cJSON_AddNumberToObject(item,	"drunk",		ch->pcdata->condition[COND_DRUNK]);
@@ -274,7 +274,7 @@ cJSON *fwrite_player(Character *ch)
 	cJSON_AddNumberToObject(o,		"PCkills",		ch->pcdata->pckills);
 	cJSON_AddNumberToObject(o,		"PCkilled",		ch->pcdata->pckilled);
 	cJSON_AddNumberToObject(o,		"PKRank",		ch->pcdata->pkrank);
-	JSON::addStringToObject(o,		"Plr",			flags_to_string(ch->pcdata->plr));
+	JSON::addStringToObject(o,		"Plr",			ch->pcdata->plr_flags.to_string());
 	cJSON_AddNumberToObject(o,		"Plyd",			ch->pcdata->played);
 	cJSON_AddNumberToObject(o,		"Pnts",			ch->pcdata->points);
 
@@ -360,7 +360,7 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->title[0])
 		JSON::addStringToObject(o,	"Titl",			ch->pcdata->title[0] == ' ' ?
 		ch->pcdata->title.substr(1) : ch->pcdata->title);
-	JSON::addStringToObject(o,		"Video",		flags_to_string(ch->pcdata->video));
+	JSON::addStringToObject(o,		"Video",		ch->pcdata->video_flags.to_string());
 
 	if (ch->pcdata->whisper[0])
 		JSON::addStringToObject(o,	"Wspr",			ch->pcdata->whisper);
@@ -376,7 +376,7 @@ cJSON *fwrite_char(Character *ch)
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject(); // object to return
 
-	JSON::addStringToObject(o,		"Act",			flags_to_string(ch->act_flags));
+	JSON::addStringToObject(o,		"Act",			ch->act_flags.to_string());
 
 	item = nullptr;
 	for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
@@ -397,7 +397,7 @@ cJSON *fwrite_char(Character *ch)
 		cJSON_AddNumberToObject(aff, "dur", paf->duration);
 		cJSON_AddNumberToObject(aff, "mod", paf->modifier);
 		cJSON_AddNumberToObject(aff, "loc", paf->location);
-		cJSON_AddNumberToObject(aff, "bitv", paf->bitvector);
+		cJSON_AddNumberToObject(aff, "bitv", paf->bitvector().to_ulong());
 		cJSON_AddNumberToObject(aff, "evo", paf->evolution);
 		cJSON_AddItemToArray(item, aff);
 	}
@@ -420,8 +420,8 @@ cJSON *fwrite_char(Character *ch)
 		JSON::addStringToObject(o,	"Clan",			ch->clan->name);
 
 	cJSON_AddNumberToObject(o,		"Cla",			ch->cls);
-	JSON::addStringToObject(o,		"Cnsr",			flags_to_string(ch->censor));
-	JSON::addStringToObject(o,		"Comm",			flags_to_string(ch->comm));
+	JSON::addStringToObject(o,		"Cnsr",			ch->censor_flags.to_string());
+	JSON::addStringToObject(o,		"Comm",			ch->comm_flags.to_string());
 
 	if (ch->description[0])
 		JSON::addStringToObject(o,	"Desc",			ch->description);
@@ -474,7 +474,7 @@ cJSON *fwrite_char(Character *ch)
 		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
 	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
-	JSON::addStringToObject(o,		"Revk",			flags_to_string(ch->revoke));
+	JSON::addStringToObject(o,		"Revk",			ch->revoke_flags.to_string());
 	cJSON_AddNumberToObject(o,		"Room",			
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != nullptr)
 	        ? ch->was_in_room->vnum
@@ -495,7 +495,7 @@ cJSON *fwrite_char(Character *ch)
 	cJSON_AddNumberToObject(o,		"Wimp",			ch->wimpy);
 
 	if (IS_IMMORTAL(ch)) { // why aren't these pcdata?
-		JSON::addStringToObject(o,	"Wizn",			flags_to_string(ch->wiznet));
+		JSON::addStringToObject(o,	"Wizn",			ch->wiznet_flags.to_string());
 		cJSON_AddNumberToObject(o,	"Invi",			ch->invis_level);
 		cJSON_AddNumberToObject(o,	"Lurk",			ch->lurk_level);
 		cJSON_AddNumberToObject(o,	"Secu",			ch->secure_level);
@@ -562,7 +562,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 			cJSON_AddNumberToObject(aff, "dur", paf->duration);
 			cJSON_AddNumberToObject(aff, "mod", paf->modifier);
 			cJSON_AddNumberToObject(aff, "loc", paf->location);
-			cJSON_AddNumberToObject(aff, "bitv", paf->bitvector);
+			cJSON_AddNumberToObject(aff, "bitv", paf->bitvector().to_ulong());
 			cJSON_AddNumberToObject(aff, "evo", paf->evolution);
 			cJSON_AddItemToArray(item, aff);
 		}
@@ -581,7 +581,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		cJSON_AddItemToObject(o,	"ExDe",			item);
 
 	if (obj->extra_flags != obj->pIndexData->extra_flags)
-		cJSON_AddNumberToObject(o,	"ExtF",			obj->extra_flags);
+		cJSON_AddNumberToObject(o,	"ExtF",			obj->extra_flags.to_ulong());
 	if (obj->item_type != obj->pIndexData->item_type)
 		cJSON_AddNumberToObject(o,	"Ityp",			obj->item_type);
 	if (obj->level != obj->pIndexData->level)
@@ -600,8 +600,13 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 	    ||  obj->value[1] != obj->pIndexData->value[1]
 	    ||  obj->value[2] != obj->pIndexData->value[2]
 	    ||  obj->value[3] != obj->pIndexData->value[3]
-	    ||  obj->value[4] != obj->pIndexData->value[4])
-	    cJSON_AddItemToObject(o,	"Val",			cJSON_CreateIntArray(obj->value, 5));
+	    ||  obj->value[4] != obj->pIndexData->value[4]) {
+		// this is ugly, but i don't feel like creating a new overloaded function
+		int arr[5];
+		for (int i = 0; i < 5; i++)
+			arr[i] = obj->value[i];
+	    cJSON_AddItemToObject(o,	"Val",			cJSON_CreateIntArray(arr, 5));
+	}
 
 	cJSON_AddNumberToObject(o,		"Vnum",			obj->pIndexData->vnum);
 
@@ -609,7 +614,7 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		cJSON_AddNumberToObject(o,	"Wear",			obj->wear_loc);
 
 	if (obj->wear_flags != obj->pIndexData->wear_flags)
-		cJSON_AddNumberToObject(o,	"WeaF",			obj->wear_flags);
+		cJSON_AddNumberToObject(o,	"WeaF",			obj->wear_flags.to_ulong());
 	if (obj->weight != obj->pIndexData->weight)
 		cJSON_AddNumberToObject(o,	"Wt",			obj->weight);
 
@@ -659,14 +664,14 @@ bool load_char_obj(Descriptor *d, const String& name)
 	ch->act_flags                             = PLR_NOSUMMON | PLR_AUTOASSIST | PLR_AUTOEXIT | PLR_AUTOLOOT |
 	                                      PLR_AUTOSAC | PLR_AUTOSPLIT | PLR_AUTOGOLD | PLR_TICKS | PLR_WIMPY |
 	                                      PLR_COLOR | PLR_COLOR2;
-	ch->comm                            = COMM_COMBINE | COMM_PROMPT;
+	ch->comm_flags                            = COMM_COMBINE | COMM_PROMPT;
 	ch->secure_level                    = RANK_IMM;
-	ch->censor                          = CENSOR_CHAN;    /* default rating is PG */
+	ch->censor_flags                          = CENSOR_CHAN;    /* default rating is PG */
 	ch->prompt                          = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
 	ch->pcdata->ch                      = ch;
 	ch->pcdata->deity                   = "Nobody";
 	ch->pcdata->mud_exp                 = MEXP_LEGACY_OLDBIE;
-//	ch->pcdata->plr                     = PLR_NEWSCORE;
+//	ch->pcdata->plr_flags                     = PLR_NEWSCORE;
 
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(ch, stat_to_attr(stat)) = 3;
@@ -720,28 +725,28 @@ bool load_char_obj(Descriptor *d, const String& name)
 			ch->secure_level = GET_RANK(ch);
 
 		/* removed holylight at 12 -- Montrey */
-		if (version < 12 && IS_SET(ch->act_flags, BIT_N))
-			REMOVE_BIT(ch->act_flags, BIT_N);
+		if (version < 12 && ch->act_flags.has(Flags::N))
+			ch->act_flags -= Flags::N;
 
 		// removed old score at 16 and new_score flag -- Montrey
-		if (version < 16 && IS_SET(ch->pcdata->plr, BIT_U))
-			REMOVE_BIT(ch->pcdata->plr, BIT_U);
+		if (version < 16 && ch->pcdata->plr_flags.has(Flags::U))
+			ch->pcdata->plr_flags -= Flags::U;
 
 		// switching to cgroups with old pfiles -- Montrey (2014)
-		if (version < 15 && IS_SET(ch->act_flags, BIT_N)) { // deputy
-			REMOVE_BIT(ch->act_flags, BIT_N);
+		if (version < 15 && ch->act_flags.has(Flags::N)) { // deputy
+			ch->act_flags -= Flags::N;
 			SET_CGROUP(ch, GROUP_DEPUTY);
 		}
 
-		if (version < 15 && IS_SET(ch->act_flags, BIT_ee)) { // leader
-			REMOVE_BIT(ch->act_flags, BIT_ee);
+		if (version < 15 && ch->act_flags.has(Flags::e)) { // leader
+			ch->act_flags -= Flags::e;
 			SET_CGROUP(ch, GROUP_LEADER);
 		}
 
 		// removed act_is_npc bit and moved plr_nosummon to A, used to be Q -- Montrey
-		if (version < 16 && IS_SET(ch->act_flags, BIT_Q)) {
-			REMOVE_BIT(ch->act_flags, BIT_Q);
-			SET_BIT(ch->act_flags, PLR_NOSUMMON);
+		if (version < 16 && ch->act_flags.has(Flags::Q)) {
+			ch->act_flags -= Flags::Q;
+			ch->act_flags += PLR_NOSUMMON;
 		}
 
 		if (ch->pcdata->remort_count > 0) {
@@ -797,15 +802,15 @@ bool load_char_obj(Descriptor *d, const String& name)
 		}
 
 		/* fix command groups */
-		REMOVE_BIT(ch->act_flags, (BIT_ee));      /* PLR_LEADER */
-		REMOVE_BIT(ch->act_flags, (BIT_N));       /* PLR_DEPUTY */
+		ch->act_flags -= (Flags::e);      /* PLR_LEADER */
+		ch->act_flags -= (Flags::N);       /* PLR_DEPUTY */
 		SET_CGROUP(ch, GROUP_PLAYER);
 
 		/* nuke wiznet flags beyond their level, in case they were temp trusted */
-		if (ch->wiznet)
+		if (!ch->wiznet_flags.empty())
 			for (i = 0; i < wiznet_table.size(); i++)
-				if (IS_SET(ch->wiznet, wiznet_table[i].flag) && GET_RANK(ch) < wiznet_table[i].level)
-					REMOVE_BIT(ch->wiznet, wiznet_table[i].flag);
+				if (ch->wiznet_flags.has(wiznet_table[i].flag) && GET_RANK(ch) < wiznet_table[i].level)
+					ch->wiznet_flags -= wiznet_table[i].flag;
 
 //		reset_char(ch);
 		/* adjust hp mana stamina up  -- here for speed's sake */
@@ -850,6 +855,18 @@ void setstr(String *field, const char* value) {
 	if (  key == literal  )        \
 	{                                       \
 		field  = value;               \
+		fMatch = TRUE;                      \
+		break;                              \
+	}
+
+#if defined(FLAGKEY)
+#undef FLAGKEY
+#endif
+
+#define FLAGKEY( literal, field, value )                                    \
+	if (  key == literal  )        \
+	{                                       \
+		field  = Flags(value);               \
 		fMatch = TRUE;                      \
 		break;                              \
 	}
@@ -919,7 +936,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("Cgrp",			ch->pcdata->cgroup,			string_to_flags(o->valuestring));
+				FLAGKEY("Cgrp",			ch->pcdata->cgroup_flags,			o->valuestring);
 				break;
 			case 'D':
 				STRKEY("Deit",			ch->pcdata->deity,			o->valuestring);
@@ -1018,7 +1035,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("PCkilled",		ch->pcdata->pckilled,	o->valueint);
 				INTKEY("PKRank",		ch->pcdata->pkrank,		o->valueint);
 				INTKEY("Plyd",			ch->pcdata->played,		o->valueint);
-				INTKEY("Plr",			ch->pcdata->plr,		string_to_flags(o->valuestring));
+				FLAGKEY("Plr",			ch->pcdata->plr_flags,		o->valuestring);
 				INTKEY("Pnts",			ch->pcdata->points,		o->valueint);
 				break;
 			case 'Q':
@@ -1079,7 +1096,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("TSex",			ATTR_BASE(ch, APPLY_SEX),	o->valueint); // removed in version 16
 				break;
 			case 'V':
-				INTKEY("Video",			ch->pcdata->video,			string_to_flags(o->valuestring));
+				FLAGKEY("Video",		ch->pcdata->video_flags,			o->valuestring);
 				break;
 			case 'W':
 				STRKEY("Wspr",			ch->pcdata->whisper,		o->valuestring);
@@ -1135,7 +1152,9 @@ void fread_char(Character *ch, cJSON *json, int version)
 						JSON::get_short(item, &af.duration, "dur");
 						JSON::get_short(item, &af.modifier, "mod");
 						JSON::get_short(item, &af.location, "loc");
-						JSON::get_int(item, &af.bitvector, "bitv");
+						int bitvector;
+						JSON::get_int(item, &bitvector, "bitv");
+						af.bitvector(Flags(bitvector));
 						JSON::get_short(item, &af.evolution, "evo");
 						af.permanent = FALSE;
 
@@ -1154,14 +1173,14 @@ void fread_char(Character *ch, cJSON *json, int version)
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("Act",           ch->act_flags,                    string_to_flags(o->valuestring));
+				FLAGKEY("Act",          ch->act_flags,              o->valuestring);
 				INTKEY("Alig",			ch->alignment,				o->valueint);
 				break;
 			case 'C':
 				INTKEY("Clan",			ch->clan,					clan_lookup(o->valuestring));
 				INTKEY("Cla",			ch->cls,					o->valueint);
-				INTKEY("Comm",			ch->comm,					string_to_flags(o->valuestring));
-				INTKEY("Cnsr",			ch->censor,					string_to_flags(o->valuestring));
+				FLAGKEY("Comm",			ch->comm_flags,					o->valuestring);
+				FLAGKEY("Cnsr",			ch->censor_flags,					o->valuestring);
 				break;
 			case 'D':
 				INTKEY("Dam",			ATTR_BASE(ch, APPLY_DAMROLL), o->valueint);		// NPC
@@ -1220,7 +1239,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));
 				INTKEY("Room",			ch->in_room,				get_room_index(o->valueint));
-				INTKEY("Revk",			ch->revoke,					string_to_flags(o->valuestring));
+				FLAGKEY("Revk",			ch->revoke_flags,					o->valuestring);
 				break;
 			case 'S':
 				INTKEY("Save",			ATTR_BASE(ch, APPLY_SAVES),	o->valueint); // NPC
@@ -1239,7 +1258,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 				break;
 			case 'W':
 				INTKEY("Wimp",			ch->wimpy,					o->valueint);
-				INTKEY("Wizn",			ch->wiznet,					string_to_flags(o->valuestring));
+				FLAGKEY("Wizn",			ch->wiznet_flags,					o->valuestring);
 				break;
 			default:
 				// drop down
@@ -1315,7 +1334,9 @@ Object * fread_obj(cJSON *json, int version) {
 						JSON::get_short(item, &af.duration, "dur");
 						JSON::get_short(item, &af.modifier, "mod");
 						JSON::get_short(item, &af.location, "loc");
-						JSON::get_int(item, &af.bitvector, "bitv");
+						int tbitv;
+						JSON::get_int(item, &tbitv, "bitv");
+						af.bitvector(Flags(tbitv));
 						JSON::get_short(item, &af.evolution, "evo");
 
 						// some old objects made with 'addapply' have things affects without an sn,
@@ -1323,17 +1344,17 @@ Object * fread_obj(cJSON *json, int version) {
 						// under the old system could have bitvectors storing affects. clean up here,
 						// hopefully remove someday.
 						// obj name might not be read yet, use vnum
-						if (af.where == TO_AFFECTS && af.type == 0 && af.bitvector == 0)
+						if (af.where == TO_AFFECTS && af.type == 0 && af.bitvector().empty())
 							af.where = TO_OBJECT; // try making it an object apply
 
 						// let the parsing handle TO_OBJECT with no modifiers
 
-						unsigned int bitvector = af.bitvector;
+						Flags bitvector(af.bitvector());
 
 						// run bitvector down to 0 (unless certain cases)
 						// do at least once even if no bitvector
 						do {
-							if (affect_parse_flags(0, &af, &bitvector)) {
+							if (affect_parse_flags(0, &af, bitvector)) {
 								affect_copy_to_obj(obj, &af);
 								
 								// don't multiply the modifier, just apply to the first bit
@@ -1342,7 +1363,7 @@ Object * fread_obj(cJSON *json, int version) {
 							}
 
 							af.type = 0; // reset, in case we're parsing multiple TO_AFFECTS bits
-						} while (bitvector != 0);
+						} while (!bitvector.empty());
 					}
 					fMatch = TRUE; break;
 				}
@@ -1392,7 +1413,7 @@ Object * fread_obj(cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not fstring_to_flags
+				FLAGKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not string_to_flags
 				break;
 			case 'I':
 				INTKEY("Ityp",			obj->item_type,				o->valueint);
@@ -1423,7 +1444,7 @@ Object * fread_obj(cJSON *json, int version) {
 				SKIPKEY("Vnum");
 				break;
 			case 'W':
-				INTKEY("WeaF",			obj->wear_flags,			o->valueint); // no, not string_to_flags
+				FLAGKEY("WeaF",			obj->wear_flags,			o->valueint); // no, not string_to_flags
 				INTKEY("Wear",			obj->wear_loc,				o->valueint);
 				INTKEY("Wt",			obj->weight,				o->valueint);
 				break;
@@ -1609,7 +1630,7 @@ void do_finger(Character *ch, String argument)
 	/* the following vars are read from the player file */
 	String email, fingerinfo, last_lsite, name, title, spouse, race, deity;
 	int cls, pks, pkd, pkr, aks, akd, level, rmct;
-	long cgroup = 0L, plr = 0L;
+	Flags cgroup, plr;
 	time_t last_ltime, last_saved;
 	Clan *clan = nullptr;
 
@@ -1626,13 +1647,13 @@ void do_finger(Character *ch, String argument)
 	}
 
 	if (arg == "private") {
-		if (IS_SET(ch->pcdata->plr, PLR_SHOWEMAIL)) {
+		if (ch->pcdata->plr_flags.has(PLR_SHOWEMAIL)) {
 			stc("Your email will no longer display in your finger info.\n", ch);
-			REMOVE_BIT(ch->pcdata->plr, PLR_SHOWEMAIL);
+			ch->pcdata->plr_flags -= PLR_SHOWEMAIL;
 		}
 		else {
 			stc("Your email will now display in your finger info.\n", ch);
-			SET_BIT(ch->pcdata->plr, PLR_SHOWEMAIL);
+			ch->pcdata->plr_flags += PLR_SHOWEMAIL;
 		}
 
 		do_save(ch, "");
@@ -1707,9 +1728,9 @@ void do_finger(Character *ch, String argument)
 	dbuf += buf;
 
 	if (clan) {
-		if (IS_SET(cgroup, GROUP_LEADER))
+		if (cgroup.has(GROUP_LEADER))
 			Format::sprintf(buf, "{BLeader of ");
-		else if (IS_SET(cgroup, GROUP_DEPUTY))
+		else if (cgroup.has(GROUP_DEPUTY))
 			Format::sprintf(buf, "{BDeputy of ");
 		else
 			Format::sprintf(buf, "{BMember of ");
@@ -1734,7 +1755,7 @@ void do_finger(Character *ch, String argument)
 	}
 
 	if (spouse[0]) {
-		if (!IS_SET(plr, PLR_MARRIED))
+		if (!plr.has(PLR_MARRIED))
 			Format::sprintf(buf, "{Y%s is engaged to %s.{x\n", name, spouse);
 		else
 			Format::sprintf(buf, "{Y%s is happily married to %s.{x\n", name, spouse);
@@ -1742,12 +1763,12 @@ void do_finger(Character *ch, String argument)
 		dbuf += buf;
 	}
 
-	if (email[0] && (IS_IMMORTAL(ch) || IS_SET(plr, PLR_SHOWEMAIL))) {
+	if (email[0] && (IS_IMMORTAL(ch) || plr.has(PLR_SHOWEMAIL))) {
 		Format::sprintf(buf, "{GEmail: %s{x\n", email);
 		dbuf += buf;
 	}
 
-	if (IS_IMMORTAL(ch) || !IS_SET(plr, PLR_NOSHOWLAST)) {
+	if (IS_IMMORTAL(ch) || !plr.has(PLR_NOSHOWLAST)) {
 		if (last_ltime) {
 			Format::sprintf(buf, "{HLast Login : %s\n{x", dizzy_ctime(&last_ltime));
 			dbuf += buf;

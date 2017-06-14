@@ -32,8 +32,6 @@
 #include "recycle.h"
 #include "Format.hpp"
 
-extern void     channel_who     args((Character *ch, const String& channelname, int
-                                      channel, int custom));
 bool    check_channel_social    args((Character *ch, int channel,
                                       int custom, const String& command, const String& argument));
 
@@ -52,137 +50,137 @@ void do_channels(Character *ch, String argument)
 	new_color(ch, CSLOT_CHAN_GOSSIP);
 	stc("gossip         ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_GOSSIP)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOGOSSIP)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_GOSSIP)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOGOSSIP)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_FLAME);
 	stc("flame          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_FLAME)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOFLAME)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_FLAME)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOFLAME)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_QWEST);
 	stc("qwest          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_QWEST)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOQWEST)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_QWEST)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOQWEST)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_PRAY);
 	stc("pray           ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_PRAY)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOPRAY)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_PRAY)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOPRAY)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_AUCTION);
 	stc("auction        ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_AUCTION)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOAUCTION)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_AUCTION)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOAUCTION)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	if (is_clan(ch) && (!ch->clan->independent || IS_IMMORTAL(ch))) {
 		new_color(ch, CSLOT_CHAN_CLAN);
 		stc("Clantalk       ", ch);
 
-		if (IS_SET(ch->revoke, REVOKE_CLAN)) stc("REVOKED\n", ch);
-		else if (!IS_SET(ch->comm, COMM_NOCLAN)) stc("ON\n", ch);
+		if (ch->revoke_flags.has(REVOKE_CLAN)) stc("REVOKED\n", ch);
+		else if (!ch->comm_flags.has(COMM_NOCLAN)) stc("ON\n", ch);
 		else stc("OFF\n", ch);
 	}
 
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
 	stc("announce       ", ch);
 
-	if (!IS_SET(ch->comm, COMM_NOANNOUNCE)) stc("ON\n", ch);
+	if (!ch->comm_flags.has(COMM_NOANNOUNCE)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_MUSIC);
 	stc("music          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_MUSIC)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOMUSIC)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_MUSIC)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOMUSIC)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_QA);
 	stc("Q/A            ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_QA)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOQUESTION)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_QA)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOQUESTION)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_SOCIAL);
 	stc("Social         ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_SOCIAL)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOSOCIAL)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_SOCIAL)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOSOCIAL)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_IC);
 	stc("IC             ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_IC)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOIC)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_IC)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOIC)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_GRATS);
 	stc("grats          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_GRATS)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOGRATS)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_GRATS)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOGRATS)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	if (IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_IMM);
 		stc("Imm Chat       ", ch);
 
-		if (!IS_SET(ch->comm, COMM_NOWIZ)) stc("ON\n", ch);
+		if (!ch->comm_flags.has(COMM_NOWIZ)) stc("ON\n", ch);
 		else stc("OFF\n", ch);
 	}
 
 	new_color(ch, CSLOT_CHAN_PAGE);
 	stc("page           ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_PAGE)) stc("REVOKED\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOPAGE)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_PAGE)) stc("REVOKED\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOPAGE)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_TELL);
 	stc("tell           ", ch);
 
-	if (!IS_SET(ch->comm, COMM_DEAF)) stc("ON\n", ch);
+	if (!ch->comm_flags.has(COMM_DEAF)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	set_color(ch, WHITE, NOBOLD);
 	new_color(ch, CSLOT_CHAN_QTELL);
 	stc("qtell          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_QTELL)) stc("REVOKED\n\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOQUERY)) stc("ON\n", ch);
+	if (ch->revoke_flags.has(REVOKE_QTELL)) stc("REVOKED\n\n", ch);
+	else if (!ch->comm_flags.has(COMM_NOQUERY)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	set_color(ch, WHITE, NOBOLD);
 	stc("quiet mode     ", ch);
 
-	if (IS_SET(ch->comm, COMM_QUIET)) stc("ON\n", ch);
+	if (ch->comm_flags.has(COMM_QUIET)) stc("ON\n", ch);
 	else stc("OFF\n", ch);
 
 	/*
 	 * Stop the mud from crashing when morphed players use channels
 	*/
 	if (!IS_NPC(ch)) {
-		if (IS_SET(ch->pcdata->plr, PLR_NONOTIFY)) stc("You will not be notified of new notes.\n", ch);
+		if (ch->pcdata->plr_flags.has(PLR_NONOTIFY)) stc("You will not be notified of new notes.\n", ch);
 		else stc("You {Wwill{x be notified of new notes.\n", ch);
 
 		if (ch->pcdata->aura[0])
 			ptc(ch, "{VAura: (%s{V){x\n", ch->pcdata->aura);
 	}
 
-	if (IS_SET(ch->comm, COMM_AFK)) stc("You are AFK.\n", ch);
+	if (ch->comm_flags.has(COMM_AFK)) stc("You are AFK.\n", ch);
 
-	if (!IS_NPC(ch)) if (IS_SET(ch->pcdata->plr, PLR_SNOOP_PROOF)) stc("You are immune to Nosy people.\n", ch);
+	if (!IS_NPC(ch)) if (ch->pcdata->plr_flags.has(PLR_SNOOP_PROOF)) stc("You are immune to Nosy people.\n", ch);
 
 	if (ch->lines != PAGELEN) {
 		if (ch->lines)
@@ -193,16 +191,16 @@ void do_channels(Character *ch, String argument)
 
 	ptc(ch, "Your current prompt is: %s\n", ch->prompt[0] ? ch->prompt : "(none)");
 
-	if (IS_SET(ch->revoke, REVOKE_TELL))
+	if (ch->revoke_flags.has(REVOKE_TELL))
 		stc("No one wants to listen to you.\n", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_EMOTE))
+	if (ch->revoke_flags.has(REVOKE_EMOTE))
 		stc("You're not feeling very emotional right now.\n", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_NOCHANNELS))
+	if (ch->revoke_flags.has(REVOKE_NOCHANNELS))
 		stc("Your mouth seems to be stuck shut.\n", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_FLAMEONLY))
+	if (ch->revoke_flags.has(REVOKE_FLAMEONLY))
 		stc("You only feel like flaming.\n", ch);
 }
 
@@ -277,7 +275,7 @@ String makedrunk(Character *ch, const String& string)
 
 /* This sends an ACT-type message to everybody in the game. */
 void global_act(Character *ch, const String& message,
-                int despite_invis, int color, long nocomm_bits)
+                int despite_invis, int color, const Flags& nocomm_bits)
 {
 	Descriptor *d;
 	Character *victim;
@@ -287,7 +285,7 @@ void global_act(Character *ch, const String& message,
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
-		    !IS_SET(victim->comm, nocomm_bits) &&
+		    !victim->comm_flags.has_any_of(nocomm_bits) &&
 		    (ch == nullptr || despite_invis || can_see_who(victim, ch))) {
 			set_color(victim, color, BOLD);
 			act(message, ch, nullptr, d->character, TO_VICT, POS_SLEEPING, FALSE);
@@ -342,7 +340,7 @@ bool swearcheck(const String& argument)
 	return FALSE;
 } /* end swearcheck() */
 
-bool check_channel_social(Character *ch, int channel, int custom, const String& command, const String& argument)
+bool check_channel_social(Character *ch, Flags::Bit channel, int custom, const String& command, const String& argument)
 {
 	Character *victim;
 	Descriptor *d;
@@ -361,7 +359,7 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 	if (!found)
 		return FALSE;
 
-	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (!IS_NPC(ch) && ch->comm_flags.has(COMM_NOCHANNELS)) {
 		stc("You are anti-social!\n", ch);
 		return TRUE;
 	}
@@ -404,8 +402,8 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
 		    !is_ignoring(vic, ch) &&
-		    !IS_SET(vic->comm, channel) &&
-		    !IS_SET(vic->comm, COMM_QUIET)) {
+		    !vic->comm_flags.has(channel) &&
+		    !vic->comm_flags.has(COMM_QUIET)) {
 			new_color(vic, custom);
 
 			if (arg.empty()) {
@@ -441,7 +439,7 @@ bool check_channel_social(Character *ch, int channel, int custom, const String& 
 }
 
 /* Channel who by Lotus */
-void channel_who(Character *ch, const String& channelname, int channel, int custom)
+void channel_who(Character *ch, const String& channelname, const Flags::Bit& channel, int custom)
 {
 	Descriptor *d;
 
@@ -461,10 +459,10 @@ void channel_who(Character *ch, const String& channelname, int channel, int cust
 
 		if (IS_PLAYING(d) &&
 		    can_see_who(ch, victim) &&
-		    !IS_SET(victim->comm, channel) &&
-		    !IS_SET(victim->comm, COMM_NOCHANNELS) &&
-		    !IS_SET(victim->comm, COMM_QUIET)) {
-			if (channel == COMM_NOFLAME && IS_SET(victim->censor, CENSOR_CHAN))
+		    !victim->comm_flags.has(channel) &&
+		    !victim->comm_flags.has(COMM_NOCHANNELS) &&
+		    !victim->comm_flags.has(COMM_QUIET)) {
+			if (channel == COMM_NOFLAME && victim->censor_flags.has(CENSOR_CHAN))
 				continue;
 
 			ptc(ch, "%s\n", victim->name);
@@ -483,7 +481,7 @@ void send_to_query(Character *ch, const char *string)
 	for (Player *pc = pc_list; pc; pc = pc->next) {
 		if (!pc->ch
 		    || IS_NPC(pc->ch)
-		    || IS_SET(pc->ch->comm, COMM_NOQUERY)
+		    || pc->ch->comm_flags.has(COMM_NOQUERY)
 		    || is_ignoring(pc->ch, ch))
 			continue;
 
@@ -516,19 +514,19 @@ void send_to_clan(Character *ch, Clan *target, const char *text)
 	}
 }
 
-void wiznet(const String& string, Character *ch, Object *obj, long flag, long flag_skip, int min_rank)
+void wiznet(const String& string, Character *ch, Object *obj, const Flags& flag, const Flags& flag_skip, int min_rank)
 {
 	Descriptor *d;
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
 		if (IS_PLAYING(d)
 		    && IS_IMMORTAL(d->character)
-		    && IS_SET(d->character->wiznet, WIZ_ON)
-		    && (!flag || IS_SET(d->character->wiznet, flag))
-		    && (!flag_skip || IS_SET(d->character->wiznet, flag_skip))
+		    && d->character->wiznet_flags.has(WIZ_ON)
+		    && (d->character->wiznet_flags.has_any_of(flag))
+		    && (!d->character->wiznet_flags.has_any_of(flag_skip)) // why is this needed?
 		    && GET_RANK(d->character) >= min_rank
 		    && d->character != ch) {
-			if (IS_SET(d->character->wiznet, WIZ_PREFIX))
+			if (d->character->wiznet_flags.has(WIZ_PREFIX))
 				stc("{G<W{HizNe{Gt>{x ", d->character);
 
 			act(string, d->character, obj, ch, TO_CHAR, POS_DEAD, FALSE);
@@ -551,37 +549,37 @@ void channel(Character *ch, const String& argument, int channel)
 	if (argument.empty()) {
 		new_color(ch, cslot);
 
-		if (IS_SET(ch->comm, chan_table[channel].bit)) {
+		if (ch->comm_flags.has(chan_table[channel].bit)) {
 			ptc(ch, "The %s channel is now ON.\n", chan_table[channel].name);
-			REMOVE_BIT(ch->comm, chan_table[channel].bit);
+			ch->comm_flags -= chan_table[channel].bit;
 		}
 		else {
 			ptc(ch, "The %s channel is now OFF.\n", chan_table[channel].name);
-			SET_BIT(ch->comm, chan_table[channel].bit);
+			ch->comm_flags += chan_table[channel].bit;
 		}
 
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_QUIET) && channel != CHAN_IMMTALK) {
+	if (ch->comm_flags.has(COMM_QUIET) && channel != CHAN_IMMTALK) {
 		new_color(ch, cslot);
 		stc("You must turn off QUIET mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_NOCHANNELS)) {
+	if (ch->revoke_flags.has(REVOKE_NOCHANNELS)) {
 		stc("The gods have revoked your channel priviliges.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_FLAMEONLY) && channel != CHAN_FLAME) {
+	if (ch->revoke_flags.has(REVOKE_FLAMEONLY) && channel != CHAN_FLAME) {
 		stc("The gods have restricted you to the flame channel.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->revoke, chan_table[channel].revoke_bit)) {
+	if (ch->revoke_flags.has(chan_table[channel].revoke_bit)) {
 		ptc(ch, "The gods have revoked your ability to use %s.\n", chan_table[channel].name);
 		return;
 	}
@@ -599,7 +597,7 @@ void channel(Character *ch, const String& argument, int channel)
 		return;
 	}
 
-	REMOVE_BIT(ch->comm, chan_table[channel].bit);
+	ch->comm_flags -= chan_table[channel].bit;
 	new_color(ch, cslot);
 
 	if (channel == CHAN_IMMTALK) { /* lil different for immtalk */
@@ -632,7 +630,7 @@ void channel(Character *ch, const String& argument, int channel)
 			if (channel == CHAN_IMMTALK) { /* we can skip a lot of the below junk */
 				if (!IS_IMMORTAL(victim)
 				    || GET_RANK(victim) < ch->secure_level
-				    || IS_SET(victim->comm, chan_table[channel].bit))
+				    || victim->comm_flags.has(chan_table[channel].bit))
 					continue;
 
 				char prefix[MSL];
@@ -659,18 +657,18 @@ void channel(Character *ch, const String& argument, int channel)
 			}
 
 			if (is_ignoring(victim, ch)
-			    || IS_SET(victim->comm, chan_table[channel].bit)
-			    || IS_SET(victim->comm, COMM_QUIET))
+			    || victim->comm_flags.has(chan_table[channel].bit)
+			    || victim->comm_flags.has(COMM_QUIET))
 				continue;
 
 			if (channel == CHAN_PRAY && !IS_IMMORTAL(victim))
 				continue;
 
-			if (channel == CHAN_FLAME && IS_SET(victim->censor, CENSOR_CHAN))
+			if (channel == CHAN_FLAME && victim->censor_flags.has(CENSOR_CHAN))
 				continue;
 
 			if (channel != CHAN_FLAME && swearcheck(argument)) {
-				if (IS_SET(victim->censor, CENSOR_CHAN)
+				if (victim->censor_flags.has(CENSOR_CHAN)
 				    && channel != CHAN_PRAY) /* don't censor pray */
 					continue;
 
@@ -739,7 +737,7 @@ void do_ic(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_SET(ch->pcdata->plr, PLR_OOC)) {
+	if (!ch->pcdata->plr_flags.has(PLR_OOC)) {
 		stc("You are not in character (help ooc).\n", ch);
 		return;
 	}
@@ -771,13 +769,13 @@ void talk_auction(const String& argument)
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d)
-		    && IS_SET(victim->censor, CENSOR_CHAN))
+		    && victim->censor_flags.has(CENSOR_CHAN))
 			if (swearcheck(argument))
 				continue;
 
 		if (IS_PLAYING(d)
-		    && !IS_SET(victim->comm, COMM_NOAUCTION)
-		    && !IS_SET(victim->comm, COMM_QUIET)) {
+		    && !victim->comm_flags.has(COMM_NOAUCTION)
+		    && !victim->comm_flags.has(COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_AUCTION);
 			ptc(victim, "AUCTION: %s", argument);
 			set_color(victim, WHITE, NOBOLD);
@@ -787,17 +785,17 @@ void talk_auction(const String& argument)
 
 void do_announce(Character *ch, String argument)
 {
-	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
+	if (ch->comm_flags.has(COMM_NOANNOUNCE)) {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
 		stc("Announcements will now be shown.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
-		REMOVE_BIT(ch->comm, COMM_NOANNOUNCE);
+		ch->comm_flags -= COMM_NOANNOUNCE;
 	}
 	else {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
 		stc("Announce channel is now OFF.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
-		SET_BIT(ch->comm, COMM_NOANNOUNCE);
+		ch->comm_flags += COMM_NOANNOUNCE;
 	}
 }
 
@@ -811,8 +809,8 @@ void do_send_announce(Character *ch, String argument)
 
 		if (IS_PLAYING(d)
 		    && d->character != ch
-		    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
-		    && !IS_SET(victim->comm, COMM_QUIET)) {
+		    && !victim->comm_flags.has(COMM_NOANNOUNCE)
+		    && !victim->comm_flags.has(COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_ANNOUNCE);
 			ptc(victim, "[FYI] %s{x\n", argument);
 			set_color(victim, WHITE, NOBOLD);
@@ -835,15 +833,15 @@ void do_fyi(Character *ch, String argument)
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
-		    IS_SET(victim->censor, CENSOR_CHAN))
+		    victim->censor_flags.has(CENSOR_CHAN))
 			if (swearcheck(argument))
 				continue;
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
 		    !is_ignoring(victim, ch) &&
-		    !IS_SET(victim->comm, COMM_NOANNOUNCE) &&
-		    !IS_SET(victim->comm, COMM_QUIET)) {
+		    !victim->comm_flags.has(COMM_NOANNOUNCE) &&
+		    !victim->comm_flags.has(COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_ANNOUNCE);
 
 			if (IS_IMMORTAL(victim))
@@ -879,16 +877,16 @@ void do_globalsocial(Character *ch, String argument)
 	Descriptor *d;
 
 	if (argument.empty()) {
-		if (IS_SET(ch->comm, COMM_NOSOCIAL)) {
+		if (ch->comm_flags.has(COMM_NOSOCIAL)) {
 			new_color(ch, CSLOT_CHAN_SOCIAL);
 			stc("Social channel is now ON.\n", ch);
-			REMOVE_BIT(ch->comm, COMM_NOSOCIAL);
+			ch->comm_flags -= COMM_NOSOCIAL;
 			set_color(ch, WHITE, NOBOLD);
 		}
 		else {
 			new_color(ch, CSLOT_CHAN_SOCIAL);
 			stc("Social channel is now OFF.\n", ch);
-			SET_BIT(ch->comm, COMM_NOSOCIAL);
+			ch->comm_flags += COMM_NOSOCIAL;
 			set_color(ch, WHITE, NOBOLD);
 		}
 
@@ -896,24 +894,24 @@ void do_globalsocial(Character *ch, String argument)
 	}
 
 	/* social sent, turn Social on if it isn't already */
-	if (IS_SET(ch->comm, COMM_QUIET)) {
+	if (ch->comm_flags.has(COMM_QUIET)) {
 		new_color(ch, CSLOT_CHAN_SOCIAL);
 		stc("You must turn off quiet mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_NOCHANNELS)) {
+	if (ch->revoke_flags.has(REVOKE_NOCHANNELS)) {
 		stc("The gods have revoked your channel priviliges.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_FLAMEONLY)) {
+	if (ch->revoke_flags.has(REVOKE_FLAMEONLY)) {
 		stc("The gods have restricted you to the flame channel.\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_SOCIAL)) {
+	if (ch->revoke_flags.has(REVOKE_SOCIAL)) {
 		stc("The gods have revoked your ability to use this channel.\n", ch);
 		return;
 	}
@@ -926,7 +924,7 @@ void do_globalsocial(Character *ch, String argument)
 		return;
 	}
 
-	REMOVE_BIT(ch->comm, COMM_NOSOCIAL);
+	ch->comm_flags -= COMM_NOSOCIAL;
 
 	/* channel social: SOCIAL <social> */
 	/* This checks for predefined socials. -- Outsider */
@@ -972,15 +970,15 @@ void do_globalsocial(Character *ch, String argument)
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
-		    IS_SET(victim->censor, CENSOR_CHAN))
+		    victim->censor_flags.has(CENSOR_CHAN))
 			if (swearcheck(argument))
 				continue;
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
 		    !is_ignoring(victim, ch) &&
-		    !IS_SET(victim->comm, COMM_NOSOCIAL) &&
-		    !IS_SET(victim->comm, COMM_QUIET)) {
+		    !victim->comm_flags.has(COMM_NOSOCIAL) &&
+		    !victim->comm_flags.has(COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_SOCIAL);
 			act(buf, ch, nullptr, victim, TO_VICT, POS_SLEEPING, FALSE);
 			set_color(victim, WHITE, NOBOLD);
@@ -1028,12 +1026,12 @@ void do_say(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_SAY)) {
+	if (ch->revoke_flags.has(REVOKE_SAY)) {
 		stc("You are unable to talk!\n", ch);
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SILENT)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SILENT)) {
 		stc("A heavy mist dampens all sound in the room.\n", ch);
 		return;
 	}
@@ -1085,21 +1083,21 @@ void do_tell(Character *ch, String argument)
 	Character *victim;
 	char *strtime;
 
-	if (IS_SET(ch->revoke, REVOKE_TELL)) {
+	if (ch->revoke_flags.has(REVOKE_TELL)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("The Imms have rescinded your ability to TELL.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_QUIET)) {
+	if (ch->comm_flags.has(COMM_QUIET)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("You must turn off quiet mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_DEAF)) {
+	if (ch->comm_flags.has(COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("You must turn off deaf mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1125,7 +1123,7 @@ void do_tell(Character *ch, String argument)
 			return;
 		}
 
-	if (IS_SET(victim->comm, COMM_QUIET | COMM_DEAF | COMM_NOCHANNELS) && !IS_IMMORTAL(ch)) {
+	if (victim->comm_flags.has_any_of(COMM_QUIET | COMM_DEAF | COMM_NOCHANNELS) && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E is not receiving tells.", ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
@@ -1152,7 +1150,7 @@ void do_tell(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->comm, COMM_AFK)) {
+	if (victim->comm_flags.has(COMM_AFK)) {
 		if (IS_NPC(victim)) {
 			new_color(ch, CSLOT_CHAN_TELL);
 			act("$E is AFK, and not receiving tells.",
@@ -1199,7 +1197,7 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_TELL)) {
+	if (ch->revoke_flags.has(REVOKE_TELL)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("Your message didn't get through.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1240,9 +1238,9 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	if ((IS_SET(victim->comm, COMM_QUIET)
-	     || IS_SET(victim->comm, COMM_DEAF)
-	     || IS_SET(victim->comm, COMM_NOCHANNELS))
+	if ((victim->comm_flags.has(COMM_QUIET)
+	     || victim->comm_flags.has(COMM_DEAF)
+	     || victim->comm_flags.has(COMM_NOCHANNELS))
 	    && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E is not receiving tells.", ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
@@ -1269,7 +1267,7 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->comm, COMM_AFK)) {
+	if (victim->comm_flags.has(COMM_AFK)) {
 		if (IS_NPC(victim)) {
 			new_color(ch, CSLOT_CHAN_TELL);
 			act("$E is AFK, and not receiving tells.",
@@ -1313,7 +1311,7 @@ void do_yell(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_NOCHANNELS)) {
+	if (!IS_NPC(ch) && ch->revoke_flags.has(REVOKE_NOCHANNELS)) {
 		stc("The gods have revoked your channel priviliges.\n", ch);
 		return;
 	}
@@ -1326,7 +1324,7 @@ void do_yell(Character *ch, String argument)
 
 		if (IS_PLAYING(d) &&
 		    d->character != ch &&
-		    IS_SET(victim->censor, CENSOR_CHAN))
+		    victim->censor_flags.has(CENSOR_CHAN))
 			if (swearcheck(argument))
 				continue;
 
@@ -1335,7 +1333,7 @@ void do_yell(Character *ch, String argument)
 		    &&   d->character->in_room != nullptr
 		    &&   d->character->in_room->area == ch->in_room->area
 		    &&   !is_ignoring(victim, ch)
-		    &&   !IS_SET(d->character->comm, COMM_QUIET))
+		    &&   !d->character->comm_flags.has(COMM_QUIET))
 			act("$n yells '$t{x'", ch, argument, d->character, TO_VICT);
 	}
 
@@ -1344,7 +1342,7 @@ void do_yell(Character *ch, String argument)
 
 void do_emote(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
+	if (!IS_NPC(ch) && ch->revoke_flags.has(REVOKE_EMOTE)) {
 		stc("You're not feeling very emotional right now.\n", ch);
 		return;
 	}
@@ -1368,7 +1366,7 @@ void do_pmote(Character *ch, String argument)
 	String temp;
 	unsigned int matches = 0;
 
-	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
+	if (!IS_NPC(ch) && ch->revoke_flags.has(REVOKE_EMOTE)) {
 		stc("You're not feeling very emotional right now.\n", ch);
 		return;
 	}
@@ -1444,7 +1442,7 @@ void do_smote(Character *ch, String argument)
 	String temp;
 	unsigned int matches = 0;
 
-	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOCHANNELS)) {
+	if (!IS_NPC(ch) && ch->comm_flags.has(COMM_NOCHANNELS)) {
 		stc("You cannot show your emotions.\n", ch);
 		return;
 	}
@@ -1526,21 +1524,21 @@ void do_page(Character *ch, String argument)
 	Character *victim;
 	char *strtime;
 
-	if (IS_SET(ch->revoke, REVOKE_PAGE)) {
+	if (ch->revoke_flags.has(REVOKE_PAGE)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 		stc("The Imms have rescinded your ability to PAGE.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_QUIET)) {
+	if (ch->comm_flags.has(COMM_QUIET)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 		stc("You must turn off quiet mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_DEAF)) {
+	if (ch->comm_flags.has(COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 		stc("You must turn off deaf mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1553,13 +1551,13 @@ void do_page(Character *ch, String argument)
 	if (arg.empty() || argument.empty()) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 
-		if (IS_SET(ch->comm, COMM_NOPAGE)) {
+		if (ch->comm_flags.has(COMM_NOPAGE)) {
 			stc("You turn on your pager.\n", ch);
-			REMOVE_BIT(ch->comm, COMM_NOPAGE);
+			ch->comm_flags -= COMM_NOPAGE;
 		}
 		else {
 			stc("You turn off your pager.\n", ch);
-			SET_BIT(ch->comm, COMM_NOPAGE);
+			ch->comm_flags += COMM_NOPAGE;
 		}
 
 		set_color(ch, WHITE, NOBOLD);
@@ -1573,7 +1571,7 @@ void do_page(Character *ch, String argument)
 		return;
 	}
 
-	if ((IS_SET(victim->comm, COMM_NOPAGE))
+	if ((victim->comm_flags.has(COMM_NOPAGE))
 	    && !IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
 		act("$E does not have $S pager turned on.", ch, nullptr, victim, TO_CHAR);
@@ -1654,17 +1652,17 @@ void do_qtell(Character *ch, String argument)
 	}
 
 	if (argument.empty()) {
-		if (IS_SET(ch->comm, COMM_NOQUERY)) {
+		if (ch->comm_flags.has(COMM_NOQUERY)) {
 			new_color(ch, CSLOT_CHAN_QTELL);
 			stc("Query channel is now on.\n", ch);
-			REMOVE_BIT(ch->comm, COMM_NOQUERY);
+			ch->comm_flags -= COMM_NOQUERY;
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
 		else {
 			new_color(ch, CSLOT_CHAN_QTELL);
 			stc("Query channel is now off.\n", ch);
-			SET_BIT(ch->comm, COMM_NOQUERY);
+			ch->comm_flags += COMM_NOQUERY;
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
@@ -1675,15 +1673,15 @@ void do_qtell(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(ch->revoke, REVOKE_QTELL)) {
+	if (ch->revoke_flags.has(REVOKE_QTELL)) {
 		stc("Your message didn't get through!\n", ch);
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_NOQUERY)) {
+	if (ch->comm_flags.has(COMM_NOQUERY)) {
 		new_color(ch, CSLOT_CHAN_QTELL);
 		stc("Query channel is now on.\n", ch);
-		REMOVE_BIT(ch->comm, COMM_NOQUERY);
+		ch->comm_flags -= COMM_NOQUERY;
 		set_color(ch, WHITE, NOBOLD);
 	}
 

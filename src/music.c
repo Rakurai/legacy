@@ -75,8 +75,8 @@ void song_update(void)
 				victim = d->original ? d->original : d->character;
 
 				if (IS_PLAYING(d) &&
-				    !IS_SET(victim->comm, COMM_NOMUSIC) &&
-				    !IS_SET(victim->comm, COMM_QUIET)) {
+				    !victim->comm_flags.has(COMM_NOMUSIC) &&
+				    !victim->comm_flags.has(COMM_QUIET)) {
 					new_color(victim, CSLOT_CHAN_MUSIC);
 					act("$t", d->character, buf, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
 					set_color(victim, WHITE, NOBOLD);
@@ -126,7 +126,7 @@ void song_update(void)
 			}
 
 			line = song_table[obj->value[1]].lyrics[obj->value[0]];
-			obj->value[0]++;
+			++obj->value[0];
 		}
 
 		Format::sprintf(buf, "$p bops: '%s'", line);

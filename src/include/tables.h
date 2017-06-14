@@ -49,26 +49,20 @@ struct WarT_type
 	String female;
 };
 
-struct ftoa_type
-{
-	String alpha;
-	long flag;
-};
-
 struct chan_type
 {
 	String name;
 	String prefix_self;
 	String other_str;
 	int cslot;
-	long bit;
-	long revoke_bit;
+	Flags::Bit bit;
+	Flags::Bit revoke_bit;
 };
 
 struct revoke_type
 {
 	String name;
-	long bit;
+	Flags::Bit bit;
 	String message;
 };
 
@@ -79,7 +73,7 @@ struct revoke_type
 #define	CAND_ROOM	4
 
 #define FIELD_PLAYER	0
-#define FIELD_Player	1
+#define FIELD_PCDATA	1
 #define FIELD_CGROUP	2
 #define FIELD_WIZNET	3
 #define FIELD_REVOKE	4
@@ -89,15 +83,16 @@ struct revoke_type
 #define	FIELD_OFF	8
 #define	FIELD_FORM	9
 #define	FIELD_PART	10
-#define	FIELD_EXTRA	11
-#define	FIELD_WEAR	12
-#define	FIELD_WEAPON	13
-#define	FIELD_ROOM	14
+#define FIELD_GROUP 11
+#define	FIELD_EXTRA	12
+#define	FIELD_WEAR	13
+#define	FIELD_WEAPON	14
+#define	FIELD_ROOM	15
 
 struct flag_type
 {
     String name;
-    unsigned int bit;
+    Flags::Bit bit;
     bool settable;
 };
 
@@ -156,7 +151,7 @@ struct raffects
     int group;
     int id;
     int chance;
-    long add;
+    Flags add;
 };
 
 
@@ -177,7 +172,6 @@ extern  const   std::vector<ThiT_type>     ThiT_table;
 extern  const   std::vector<WarT_type>     WarT_table;
 extern	const	std::vector<chan_type>     chan_table;		/* new channel table */
 extern	const	std::vector<revoke_type>   revoke_table;		/* revoke command table */
-extern	const	std::vector<ftoa_type>     ftoa_table;		/* flags to alpha */
 extern	const	std::vector<csetting_type> csetting_table;	/* color settings table */
 extern	const	std::vector<color_type>    color_table;		/* color table */
 extern	const	std::vector<sector_type>   sector_table;
@@ -194,6 +188,7 @@ extern  const   std::vector<flag_type> off_flags;
 extern  const   std::vector<flag_type> imm_flags;
 extern  const   std::vector<flag_type> form_flags;
 extern  const   std::vector<flag_type> part_flags;
+extern  const   std::vector<flag_type> group_flags;
 extern  const   std::vector<flag_type> comm_flags;
 extern  const   std::vector<flag_type> censor_flags;
 extern  const   std::vector<flag_type> revoke_flags;
@@ -205,5 +200,6 @@ extern  const   std::vector<flag_type> portal_flags;
 extern  const   std::vector<flag_type> room_flags;
 extern  const   std::vector<flag_type> exit_flags;
 extern  const   std::vector<flag_type> cgroup_flags;
+extern  const   std::vector<flag_type> cont_flags;
 
-long flag_lookup(const String& name, const std::vector<flag_type>& flag_table);
+int flag_index_lookup(const String& name, const std::vector<flag_type>& flag_table);

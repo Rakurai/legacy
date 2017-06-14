@@ -66,7 +66,7 @@ void do_scan2(Character *ch, String argument)
 
 			scan_room(pExit->u1.to_room, ch, 1, door, pExit);
 			/*
-			                        if (IS_SET(pExit->exit_info, EX_CLOSED))
+			                        if (pExit->exit_flags.has(EX_CLOSED))
 			                        {
 			                                stc(ch, "{G(South) {Y(closed){x");
 			                                ptc(ch, "{YThere is a closed exit to the %s.{x\n",dir_name[door]);
@@ -107,7 +107,7 @@ void do_scan2(Character *ch, String argument)
 			break;
 		}
 
-		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
+		if (pExit->exit_flags.has(EX_CLOSED)) {
 			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 			break;
 		}
@@ -140,7 +140,7 @@ void do_scan(Character *ch, String argument)
 			    || !can_see_in_room(ch, pExit->u1.to_room))
 				continue;
 
-			if (IS_SET(pExit->exit_info, EX_CLOSED)) {
+			if (pExit->exit_flags.has(EX_CLOSED)) {
 				ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 				continue;
 			}
@@ -177,7 +177,7 @@ void do_scan(Character *ch, String argument)
 			break;
 		}
 
-		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
+		if (pExit->exit_flags.has(EX_CLOSED)) {
 			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 			break;
 		}
@@ -194,7 +194,7 @@ void scan_room(RoomPrototype *room, Character *ch, int depth, int door, Exit *pe
 	    door == -1 ? "here" : dir_name[door]
 	   );
 
-	if (pexit && IS_SET(pexit->exit_info, EX_CLOSED))
+	if (pexit && pexit->exit_flags.has(EX_CLOSED))
 		stc("{Y(closed){x\n", ch);
 	else
 		ptc(ch, "%s {B(%s){x\n",

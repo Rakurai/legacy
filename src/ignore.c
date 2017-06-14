@@ -140,7 +140,7 @@ void ignore_offline(Character *ch, const String& arg)
 
 	if (db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name LIKE '%s'", db_esc(arg)) != SQL_OK) {
 		if (db_next_row() != SQL_OK) {
-			if (IS_SET(db_get_column_int(1), GROUP_GEN)) {
+			if (db_get_column_flags(1).has(GROUP_GEN)) {
 				stc("You're not going to ignore us that easily!\n", ch);
 				return;
 			}

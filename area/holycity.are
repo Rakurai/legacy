@@ -3076,7 +3076,7 @@ orc captains bed~
 A Large bed is here.~
 wood~
 furniture 0 A
-B EIJKN EHK 150 150
+2 0 EHK 150 150
 10 30000 0 P
 E
 bed~
@@ -3223,7 +3223,7 @@ Wooden Casket~
 A roughly made wooden coffin lies here~
 wood~
 furniture S A
-A DFGHIJ FIL 110 110
+1 0 FIL 110 110
 10 100 10000 P
 #14081
 metal casket~
@@ -3231,7 +3231,7 @@ Metal Casket~
 An unimpressive metal coffin lies here.~
 steel~
 furniture 0 A
-A DFGHIJ FIL 120 120
+1 0 FIL 120 120
 20 300 25000 P
 #14082
 deluxe casket~
@@ -3239,7 +3239,7 @@ Deluxe Casket~
 A well made coffin lies here.~
 steel~
 furniture 0 A
-A DFGHIJ FIL 130 130
+1 0 FIL 130 130
 30 500 50000 P
 #14083
 super deluxe~
@@ -3247,7 +3247,7 @@ Super Deluxe~
 A well built coffin, complete with brass handles sits here~
 unknown~
 furniture 0 A
-A DFGHIJ FIL 140 140
+1 0 FIL 140 140
 40 600 75000 P
 #14084
 imperial casket~
@@ -3255,7 +3255,7 @@ Imperial Casket~
 A coffin fit for an empress lies here.~
 gold~
 furniture 0 A
-A DFGHIJ FIL 150 150
+1 0 FIL 150 150
 50 750 120000 P
 #14085
 the family burial~
@@ -3263,7 +3263,7 @@ Family Burial~
 A coffin big enough for a small family lies here.~
 steel~
 furniture 0 A
-C FHIJKL FIL 125 125
+4 0 FIL 125 125
 20 1200 100000 P
 #14090
 bodyguard~

@@ -10,6 +10,7 @@
 #include "db.h"
 #include "sql.h"
 #include "Format.hpp"
+#include "Flags.hpp"
 
 sqlite3* _db = nullptr;
 sqlite3_stmt* _result = nullptr;
@@ -64,6 +65,10 @@ int db_next_row() {
 
 int db_get_column_int(int index) {
 	return sqlite3_column_int(_result, index);
+}
+
+const Flags db_get_column_flags(int index) {
+	return Flags(sqlite3_column_int(_result, index));
 }
 
 const char * db_get_column_str(int index) {

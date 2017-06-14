@@ -5,6 +5,7 @@
 
 #include "declare.h"
 #include "String.hpp"
+#include "Flags.hpp"
 
 /*
  * Given a string like 14.foo, return 14 and 'foo'
@@ -54,12 +55,12 @@ int number_argument(const char *argument, char *arg)
  * It is most certainly NOT ok for argument to be identical to arg!
  * The strcpy at the end sometimes throws a SIGABRT on overlap! -- Montrey
  */
-int entity_argument(const char *argument, char *arg)
+Flags::Bit entity_argument(const char *argument, char *arg)
 {
 	char tmp_buf[strlen(argument)+1];
 	char *ap;   /* pointer to argument */
 	int  number;
-	int  etype = 0;
+	Flags::Bit etype = Flags::none;
 	/* check for and isolate leading numeric */
 	number = number_argument(argument, tmp_buf);
 	ap = tmp_buf;

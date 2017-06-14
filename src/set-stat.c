@@ -627,7 +627,7 @@ void do_mset(Character *ch, String argument)
 		stc("  set char <name> <field> <value>\n", ch);
 		stc("  Field being one of:\n",                      ch);
 		stc("    str int wis dex con chr sex level race nectimer\n"
-		    "    group gold silver hp mana stamina align hunt\n"
+		    "    gold silver hp mana stamina align hunt\n"
 		    "    damdice damsides damtype\n", ch);
 
 		if (IS_HEAD(ch))
@@ -861,17 +861,6 @@ void do_mset(Character *ch, String argument)
 
 		victim->race = race;
 		ptc(ch, "%s is now a member of the %s race.\n", victim->name, race_table[race].name);
-		return;
-	}
-
-	if (arg2.is_prefix_of("group")) {
-		if (!IS_NPC(victim)) {
-			stc("You can't set a player's group!\n", ch);
-			return;
-		}
-
-		victim->group = value;
-		ptc(ch, "%s's group value is now set to %d.\n", victim->name, value);
 		return;
 	}
 
@@ -1194,14 +1183,14 @@ void do_mset(Character *ch, String argument)
 		}
 
 		victim->pcdata->flag_thief = value;
-		SET_BIT(victim->act_flags, PLR_NOPK);
+		victim->act_flags += PLR_NOPK;
 
 		if (value) {
-			SET_BIT(victim->act_flags, PLR_THIEF);
+			victim->act_flags += PLR_THIEF;
 			ptc(ch, "%s will have a {BTHIEF{x flag for %d ticks.\n", victim->name, value);
 		}
 		else {
-			REMOVE_BIT(victim->act_flags, PLR_THIEF);
+			victim->act_flags -= PLR_THIEF;
 			ptc(ch, "%s is no longer a {BTHIEF{x.\n", victim->name);
 		}
 
@@ -1215,14 +1204,14 @@ void do_mset(Character *ch, String argument)
 		}
 
 		victim->pcdata->flag_killer = value;
-		SET_BIT(victim->act_flags, PLR_NOPK);
+		victim->act_flags += PLR_NOPK;
 
 		if (value) {
-			SET_BIT(victim->act_flags, PLR_KILLER);
+			victim->act_flags += PLR_KILLER;
 			ptc(ch, "%s will have a {RKILLER{x flag for %d ticks.\n", victim->name, value);
 		}
 		else {
-			REMOVE_BIT(victim->act_flags, PLR_KILLER);
+			victim->act_flags -= PLR_KILLER;
 			ptc(ch, "%s is no longer a {RKILLER{x.\n", victim->name);
 		}
 
@@ -1441,9 +1430,9 @@ void do_rset(Character *ch, String argument)
 void format_mstat(Character *ch, Character *victim)
 {
 	if (IS_NPC(victim))
-		ptc(ch, "Vnum: %d  Group: %d  Count: %d  Killed: %d\n",
+		ptc(ch, "Vnum: %d  Group: %s  Count: %d  Killed: %d\n",
 		    victim->pIndexData->vnum,
-		    victim->group,
+		    victim->group_flags,
 		    victim->pIndexData->count, victim->pIndexData->killed);
 
 	ptc(ch, "{WRoom: %d {CName: %s{x\n",
@@ -1524,22 +1513,22 @@ void format_mstat(Character *ch, Character *victim)
 	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
 
 	if (!IS_NPC(victim)) {
-		ptc(ch, "{WPlr: %s\n", plr_bit_name(victim->pcdata->plr));
+		ptc(ch, "{WPlr: %s\n", plr_bit_name(victim->pcdata->plr_flags));
 
-		if (victim->pcdata->cgroup && IS_IMP(ch))
-			ptc(ch, "{WCommand Groups: %s\n", cgroup_bit_name(victim->pcdata->cgroup));
+		if (!victim->pcdata->cgroup_flags.empty() && IS_IMP(ch))
+			ptc(ch, "{WCommand Groups: %s\n", cgroup_bit_name(victim->pcdata->cgroup_flags));
 	}
 
-	if (victim->comm)
-		ptc(ch, "{WComm: %s\n", comm_bit_name(victim->comm));
+	if (!victim->comm_flags.empty())
+		ptc(ch, "{WComm: %s\n", comm_bit_name(victim->comm_flags));
 
-	if (victim->revoke)
-		ptc(ch, "{WRevoke: %s\n", revoke_bit_name(victim->revoke));
+	if (!victim->revoke_flags.empty())
+		ptc(ch, "{WRevoke: %s\n", revoke_bit_name(victim->revoke_flags));
 
-	if (victim->censor)
-		ptc(ch, "{WCensor: %s\n", censor_bit_name(victim->censor));
+	if (!victim->censor_flags.empty())
+		ptc(ch, "{WCensor: %s\n", censor_bit_name(victim->censor_flags));
 
-	if (IS_NPC(victim) && victim->off_flags)
+	if (IS_NPC(victim) && !victim->off_flags.empty())
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
 	{
@@ -1556,7 +1545,7 @@ void format_mstat(Character *ch, Character *victim)
 		if (buf[0]) ptc(ch, "Aff : %s\n", buf);
 	}
 
-	ptc(ch, "{xForm: %s\nParts: %s\n", form_bit_name(victim->form), part_bit_name(victim->parts));
+	ptc(ch, "{xForm: %s\nParts: %s\n", form_bit_name(victim->form_flags), part_bit_name(victim->parts_flags));
 	ptc(ch, "Master: %s  Leader: %s  Pet: %s\n",
 	    victim->master  ? victim->master->name  : "(none)",
 	    victim->leader  ? victim->leader->name  : "(none)",
@@ -1673,7 +1662,7 @@ void format_ostat(Character *ch, Object *obj)
 	ptc(ch, "\t\t{BWeight   : %d/%d/%d (10th pounds){x\n",
 	    obj->weight, get_obj_weight(obj), get_true_weight(obj));
 	ptc(ch, "{W\nWear bits : %s\nExtra bits: %s{b\n\n",
-	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags|obj->extra_flag_cache));
+	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags + obj->cached_extra_flags));
 
 	/* now give out vital statistics as per identify */
 	switch (obj->item_type) {
@@ -1749,8 +1738,8 @@ void format_ostat(Character *ch, Object *obj)
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
 
-		if (obj->value[4] || obj->weapon_flag_cache)  /* weapon flags */
-			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]|obj->weapon_flag_cache));
+		if (obj->value[4] || !obj->cached_weapon_flags.empty())  /* weapon flags */
+			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4] + obj->cached_weapon_flags));
 
 		break;
 
@@ -1768,7 +1757,7 @@ void format_ostat(Character *ch, Object *obj)
 	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
 		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
 			paf->where, paf->type, paf->level, paf->duration, paf->location,
-			paf->modifier, paf->evolution, paf->bitvector, affect_checksum(paf));
+			paf->modifier, paf->evolution, paf->bitvector(), affect_checksum(paf));
 		show_affect_to_char(paf, ch);
 	}
 
@@ -1814,7 +1803,7 @@ void format_rstat(Character *ch, RoomPrototype *location)
 			ptc(ch, "%s{x%s", ed->keyword, ed->next == nullptr ? "{B.{x\n" : " ");
 	}
 
-	if (GET_ROOM_FLAGS(location))
+	if (!GET_ROOM_FLAGS(location).empty())
 		ptc(ch, "{CRoom flags: %s{x\n", room_bit_name(GET_ROOM_FLAGS(location)));
 
 	if (location->people) {
@@ -1842,7 +1831,7 @@ void format_rstat(Character *ch, RoomPrototype *location)
 		if ((pexit = location->exit[door]) != nullptr) {
 			ptc(ch, "{WDoor: %d -> %d{c (Key: %d) Exit flags: %d. Keyword: '%s'{x\n",
 			    door, (pexit->u1.to_room == nullptr ? -1 : pexit->u1.to_room->vnum),
-			    pexit->key, pexit->exit_info, pexit->keyword);
+			    pexit->key, pexit->exit_flags, pexit->keyword);
 
 			if (pexit->description[0] != '\0')
 				ptc(ch, "{cDescription: %s{x", pexit->description);
@@ -1855,7 +1844,7 @@ void format_rstat(Character *ch, RoomPrototype *location)
 		    affect_loc_name(paf->location),
 		    paf->modifier,
 		    paf->duration + 1,
-		    room_bit_name(paf->bitvector),
+		    room_bit_name(paf->bitvector()),
 		    paf->level,
 		    paf->evolution);
 }
@@ -2087,16 +2076,16 @@ void do_pstat(Character *ch, String argument)
 	    xnl - victim->exp, xpl, victim->exp);
 	/* (LinkDead) [AFK] (Invis) (Wizi) (Lurk) (Hide) (Charmed) (KILLER) (THIEF) */
 	ptc(ch, "%s%s%s%s%s%s%s%s%s%s{x\n",
-	    IS_SET(victim->pcdata->plr,     PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
-	    IS_SET(victim->comm,            COMM_AFK) ?             "{b[AFK] "      : "",
+	    victim->pcdata->plr_flags.has(PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
+	    victim->comm_flags.has(COMM_AFK) ?             "{b[AFK] "      : "",
 	    affect_exists_on_char(victim, gsn_invis) ?        "{C(Invis) "    : "",
 	    affect_exists_on_char(victim, gsn_hide) ?             "{B(Hide) "     : "",
 	    affect_exists_on_char(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
 	    affect_exists_on_char(victim, gsn_charm_person) ?                        "{M(Charmed) "  : "",
-	    IS_SET(victim->act_flags, PLR_KILLER) ?                       "{R(KILLER) "   : "",
-	    IS_SET(victim->act_flags, PLR_THIEF) ?                        "{B(THIEF) "    : "");
+	    victim->act_flags.has(PLR_KILLER) ?                       "{R(KILLER) "   : "",
+	    victim->act_flags.has(PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */
 	ptc(ch, "{W%s in room [%d]",
 	    position_table[victim->position].name,

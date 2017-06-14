@@ -9,6 +9,8 @@
 // need to include whole String class declaration because variadic templates can't
 // be in the .cpp file, and we access the String members here.
 #include "String.hpp"
+#include "Flags.hpp"
+#include "ObjectValue.hpp"
 
 /* Variadic template for overloading the *printf functions to use C++ strings.
  * Lets us keep our old C-style printfs and get nice modern strings. */
@@ -22,6 +24,10 @@ inline auto to_c(TMP&& param) -> decltype(std::forward<TMP>(param)) {
 
 inline const char *to_c(const String& s) { return s.c_str(); }
 inline const char *to_c(String& s) { return s.c_str(); }
+inline const char *to_c(const Flags& s) { return s.to_string().c_str(); }
+inline const char *to_c(Flags& s) { return s.to_string().c_str(); }
+inline int to_c(const ObjectValue& v) { return int(v); }
+inline int to_c(ObjectValue& v) { return int(v); }
 
 // wrappers around standard functions that accept objects with to_c functions (above)
 template<class... Params>

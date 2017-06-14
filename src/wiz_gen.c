@@ -883,13 +883,13 @@ void do_leader(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(victim->pcdata->cgroup, GROUP_LEADER)) {
+		if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 			REM_CGROUP(victim, GROUP_LEADER);
 			stc("You are no longer an implementor.\n", victim);
 			stc("Leader flag removed.\n", ch);
 		}
 		else {
-			if (IS_SET(victim->pcdata->cgroup, GROUP_DEPUTY)) {
+			if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
 				REM_CGROUP(victim, GROUP_DEPUTY);
 				stc("You have been promoted to implementor.\n", victim);
 				stc("Deputy flag removed.\n", ch);
@@ -917,13 +917,13 @@ void do_leader(Character *ch, String argument)
 	}
 	*/
 
-	if (IS_SET(victim->pcdata->cgroup, GROUP_LEADER)) {
+	if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 		REM_CGROUP(victim, GROUP_LEADER);
 		stc("You are no longer a clan leader.\n", victim);
 		stc("Leader flag removed.\n", ch);
 	}
 	else {
-		if (IS_SET(victim->pcdata->cgroup, GROUP_DEPUTY)) {
+		if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
 			REM_CGROUP(victim, GROUP_DEPUTY);
 			stc("You have been promoted to clan leader.\n", victim);
 			stc("Deputy flag removed.\n", ch);
@@ -970,13 +970,13 @@ void do_deputize(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(victim->pcdata->cgroup, GROUP_DEPUTY)) {
+		if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
 			REM_CGROUP(victim, GROUP_DEPUTY);
 			stc("You are no longer a head of your department.\n", victim);
 			stc("Deputy flag removed.\n", ch);
 		}
 		else {
-			if (IS_SET(victim->pcdata->cgroup, GROUP_LEADER)) {
+			if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 				REM_CGROUP(victim, GROUP_LEADER);
 				stc("You have been demoted to department head.\n", victim);
 				stc("Leader flag removed.\n", ch);
@@ -999,13 +999,13 @@ void do_deputize(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->pcdata->cgroup, GROUP_DEPUTY)) {
+	if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
 		REM_CGROUP(victim, GROUP_DEPUTY);
 		stc("You are no longer a clan deputy.\n", victim);
 		stc("Deputy flag removed.\n", ch);
 	}
 	else {
-		if (IS_SET(victim->pcdata->cgroup, GROUP_LEADER)) {
+		if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
 			REM_CGROUP(victim, GROUP_LEADER);
 			stc("You have been demoted to clan deputy.\n", victim);
 			stc("Leader flag removed.\n", ch);
@@ -1595,7 +1595,7 @@ void do_goto(Character *ch, String argument)
 		}
 	}
 
-	if (ch->pet != nullptr && ch->in_room == ch->pet->in_room && !IS_SET(ch->pet->act_flags, ACT_STAY))
+	if (ch->pet != nullptr && ch->in_room == ch->pet->in_room && !ch->pet->act_flags.has(ACT_STAY))
 		goto_pet = TRUE;
 
 	char_from_room(ch);
@@ -1784,13 +1784,13 @@ void do_heed(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 
 	if (!arg1[0]) {
-		if (IS_SET(ch->pcdata->plr, PLR_HEEDNAME)) {
+		if (ch->pcdata->plr_flags.has(PLR_HEEDNAME)) {
 			stc("Your name will not be shown in heeds.\n", ch);
-			REMOVE_BIT(ch->pcdata->plr, PLR_HEEDNAME);
+			ch->pcdata->plr_flags -= PLR_HEEDNAME;
 		}
 		else {
 			stc("Your name will now be shown in heeds.\n", ch);
-			SET_BIT(ch->pcdata->plr, PLR_HEEDNAME);
+			ch->pcdata->plr_flags += PLR_HEEDNAME;
 		}
 
 		return;
@@ -1807,7 +1807,7 @@ void do_heed(Character *ch, String argument)
 	}
 
 	/* is he linkdead? */
-	if (IS_SET(truevictim->pcdata->plr, PLR_LINK_DEAD)) {
+	if (truevictim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 		ptc(ch, "%s is linkdead at this time.\n", truevictim->name);
 		return;
 	}
@@ -1840,7 +1840,7 @@ void do_heed(Character *ch, String argument)
 	/* send the message to the player */
 	new_color(victim, CSLOT_CHAN_PRAY);
 	ptc(victim, "%s enlightens you with:\n   \"%s\"\n",
-	    IS_SET(ch->pcdata->plr, PLR_HEEDNAME) ? ch->name : "An Immortal", argument);
+	    ch->pcdata->plr_flags.has(PLR_HEEDNAME) ? ch->name : "An Immortal", argument);
 	set_color(victim, WHITE, NOBOLD);
 	/* build a message for the other imms */
 
@@ -1858,8 +1858,8 @@ void do_heed(Character *ch, String argument)
 			truevictim = d->original ? d->original : victim;
 
 			if (IS_IMMORTAL(truevictim)
-			    && !IS_SET(truevictim->comm, COMM_NOPRAY)
-			    && !IS_SET(truevictim->comm, COMM_QUIET)) {
+			    && !truevictim->comm_flags.has(COMM_NOPRAY)
+			    && !truevictim->comm_flags.has(COMM_QUIET)) {
 				new_color(victim, CSLOT_CHAN_PRAY);
 				stc(buf, victim);
 				set_color(victim, WHITE, NOBOLD);
@@ -1933,7 +1933,7 @@ void do_linkload(Character *ch, String argument)
 			if (victim->pet != nullptr)
 				char_to_room(victim->pet, ch->in_room);
 
-			SET_BIT(victim->pcdata->plr, PLR_LINK_DEAD);
+			victim->pcdata->plr_flags += PLR_LINK_DEAD;
 		}
 	}
 	else {
@@ -2216,7 +2216,6 @@ void do_olevel(Character *ch, String argument)
 	ObjectPrototype *pObjIndex;
 	int vnum, blevel, elevel;
 	int nMatch, matches;
-	unsigned long wear_loc;
 	bool found, with_wear;
 
 	/* Check 1st argument - required begin level */
@@ -2230,7 +2229,7 @@ void do_olevel(Character *ch, String argument)
 
 	blevel = atoi(arg1);
 	elevel = blevel;
-	wear_loc = -1;          /* standard: everything */
+	Flags::Bit wear_loc = Flags::all;          /* standard: everything */
 	with_wear = FALSE;
 
 	/* Check for 2nd argument - optional ending level */
@@ -2295,7 +2294,7 @@ void do_olevel(Character *ch, String argument)
 		else if (arg3.is_prefix_of("float"))
 			wear_loc = ITEM_WEAR_FLOAT;
 		else if (arg3.is_prefix_of("none"))
-			wear_loc = 0;
+			wear_loc = Flags::none;
 		else {
 			stc("That is not a suitable wear location.\n", ch);
 			return;
@@ -2317,10 +2316,7 @@ void do_olevel(Character *ch, String argument)
 				if (!specified_wear_loc)
 					found = TRUE;
 				else {
-					if (IS_SET(pObjIndex->wear_flags, wear_loc) > 0)
-						found = TRUE;
-
-					if (pObjIndex->wear_flags == wear_loc)
+					if (pObjIndex->wear_flags.has(wear_loc))
 						found = TRUE;
 				}
 			}
@@ -2911,16 +2907,16 @@ void do_canmakebag(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->act_flags, PLR_MAKEBAG)) {
+	if (victim->act_flags.has(PLR_MAKEBAG)) {
 		stc("You are no longer a Newbie Helper.\n", victim);
 		stc("They are no longer a newbie helper.\n", ch);
-		REMOVE_BIT(victim->act_flags, PLR_MAKEBAG);
+		victim->act_flags -= PLR_MAKEBAG;
 		return;
 	}
 	else {
 		stc("You are now a Newbie Helper!! WooWoo!!.\n", victim);
 		stc("They are now a newbie helper.\n", ch);
-		SET_BIT(victim->act_flags, PLR_MAKEBAG);
+		victim->act_flags += PLR_MAKEBAG;
 		return;
 	}
 }
@@ -3039,8 +3035,8 @@ void do_peace(Character *ch, String argument)
 		if (rch->fighting != nullptr)
 			stop_fighting(rch, TRUE);
 
-		if (IS_NPC(rch) && IS_SET(rch->act_flags, ACT_AGGRESSIVE))
-			REMOVE_BIT(rch->act_flags, ACT_AGGRESSIVE);
+		if (IS_NPC(rch) && rch->act_flags.has(ACT_AGGRESSIVE))
+			rch->act_flags -= ACT_AGGRESSIVE;
 	}
 
 	stc("The room is suddenly tranquil.\n", ch);
@@ -3065,7 +3061,7 @@ void do_purge(Character *ch, String argument)
 			vnext = victim->next_in_room;
 
 			if (IS_NPC(victim)
-			    && !IS_SET(victim->act_flags, ACT_NOPURGE)
+			    && !victim->act_flags.has(ACT_NOPURGE)
 			    &&  victim != ch)
 				extract_char(victim, TRUE);
 		}
@@ -3095,7 +3091,7 @@ void do_purge(Character *ch, String argument)
 			return;
 		}
 
-		if (!OUTRANKS(ch, victim) && !IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
+		if (!OUTRANKS(ch, victim) && !victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 			Format::sprintf(buf, "$N has tried to purge the immortal: %s", victim->name);
 			wiznet(buf, ch, nullptr, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 			stc("Maybe that wasn't a good idea...\n", ch);
@@ -3477,7 +3473,7 @@ void do_sockets(Character *ch, String argument)
 		vpc_next = vpc->next;
 
 		if (vpc->ch != ch
-		    && IS_SET(vpc->plr, PLR_LINK_DEAD)
+		    && vpc->plr_flags.has(PLR_LINK_DEAD)
 		    && can_see_char(ch, vpc->ch)
 		    && (arg.empty()
 		        || vpc->ch->name.has_words(arg))) {
@@ -3642,13 +3638,13 @@ void do_invis(Character *ch, String argument)
 
 void do_superwiz(Character *ch, String argument)
 {
-	if (IS_SET(ch->act_flags, PLR_SUPERWIZ)) {
+	if (ch->act_flags.has(PLR_SUPERWIZ)) {
 		stc("You return to reality.\n", ch);
-		REMOVE_BIT(ch->act_flags, PLR_SUPERWIZ);
+		ch->act_flags -= PLR_SUPERWIZ;
 	}
 	else {
 		stc("You vanish from existence.\n", ch);
-		SET_BIT(ch->act_flags, PLR_SUPERWIZ);
+		ch->act_flags += PLR_SUPERWIZ;
 	}
 }
 
@@ -3859,9 +3855,9 @@ void do_wizgroup(Character *ch, String argument)
 			found = TRUE;
 
 			if (add)
-				SET_BIT(victim->pcdata->cgroup, cgroup_flags[count].bit);
+				victim->pcdata->cgroup_flags += cgroup_flags[count].bit;
 			else
-				REMOVE_BIT(victim->pcdata->cgroup, cgroup_flags[count].bit);
+				victim->pcdata->cgroup_flags -= cgroup_flags[count].bit;
 
 			ptc(ch, "%s group %sed for %s.\n",
 			    cgroup_flags[count].name, add ? "add" : "remov", victim->name);

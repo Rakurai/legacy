@@ -416,7 +416,7 @@ void do_relevel(Character *ch, String argument)
 		return;
 	}
 
-	ch->pcdata->cgroup = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO | GROUP_LEADER
+	ch->pcdata->cgroup_flags = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO | GROUP_LEADER
 	                     | GROUP_GEN | GROUP_QUEST | GROUP_BUILD | GROUP_CODE | GROUP_SECURE;
 	ch->level       = MAX_LEVEL;
 	ch->hit =  ATTR_BASE(ch, APPLY_HIT)     = 30000;
@@ -465,7 +465,6 @@ void do_addexit(Character *ch, String argument)
 	}
 
 	exit = new Exit;
-	exit->exit_info                 = 0;
 	exit->key                       = -1;
 	exit->u1.vnum                   = atoi(arg1);
 	exit->u1.to_room                = get_room_index(exit->u1.vnum);

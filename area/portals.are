@@ -546,7 +546,7 @@ unique~
 BGTZ HJVa 1000 S
 65 13 3000d1+575 260d1+1 5d5+25 crush
 -43 -43 -43 -43
-CFHKr BMNQL HIJO 0
+CFHK BMNQL HIJO 0
 stand stand male 0
 0 0 large 0
 >rand_prog 10~

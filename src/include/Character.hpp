@@ -1,6 +1,7 @@
 #pragma once
 
 #include "declare.h"
+#include "Flags.hpp"
 #include "Actable.hpp"
 #include "String.hpp"
 #include "Format.hpp" // ptc inline
@@ -49,7 +50,7 @@ public:
     String              prompt;
     String              prefix;
     String              reply;
-    sh_int              group = 0;
+    Flags               group_flags; // mobs can be members of a group for spec_fun, like ogres/trolls
     bool                replylock = FALSE;     /* <--- made this a bool to simplify */
     bool		        invitation_accepted = FALSE;
 
@@ -88,11 +89,11 @@ public:
     long                gold_in_bank = 0;
     long                silver_in_bank = 0;
     int                 exp = 0;
-    unsigned long       act_flags = 0;
-    unsigned long       comm = 0;   /* RT added to pad the vector */
-    unsigned long       revoke = 0;  /* New Revoke stuff */
-    unsigned long       wiznet = 0; /* wiz stuff */
-    unsigned long       censor = 0;			/* New censor flags -- Montrey */
+    Flags               act_flags;
+    Flags               comm_flags;   /* RT added to pad the vector */
+    Flags               revoke_flags;  /* New Revoke stuff */
+    Flags               wiznet_flags; /* wiz stuff */
+    Flags               censor_flags;			/* New censor flags -- Montrey */
     sh_int              invis_level = 0;
     sh_int              lurk_level = 0;
     sh_int              position = 0;
@@ -102,12 +103,12 @@ public:
 	sh_int		        armor_base[4] = {0};
     sh_int              wimpy = 0;
     /* parts stuff */
-    unsigned long       form = 0;
-    unsigned long       parts = 0;
+    Flags               form_flags;
+    Flags               parts_flags;
     sh_int              size = 0;
     String              material;
     /* mobile stuff */
-    unsigned long       off_flags = 0;
+    Flags               off_flags;
     sh_int              damage[3] = {0};
     sh_int              dam_type = 0;
     sh_int              start_pos = 0;
@@ -130,7 +131,7 @@ public:
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */
 
-    virtual std::string identifier() const { return this->name; }
+    virtual const std::string identifier() const { return this->name; }
 
 private:
     Character(const Character&);

@@ -9,18 +9,6 @@
 // temporary file to hold attribute accessors
 
 
-// TODO: temporary hack to convert a bit to its index, come up with something better
-int flag_to_index(unsigned long bit) {
-	if (bit == 0)
-		return -1;
-
-	int index = 0;
-	for (index = 0; !IS_SET(bit, BIT_A); index++)
-		bit >>= 1;
-
-	return index;
-}
-
 // this is here because stats are 0-5, attributes are the old apply flags that are 1-5 and 26.
 // maybe someday we can reconcile this, but it'll probably take a sweep of area files.
 int stat_to_attr(int stat) {

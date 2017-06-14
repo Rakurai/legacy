@@ -104,7 +104,7 @@ void compile_gem_effects(Object *eq) {
 		af.duration           = -1;
 		af.location           = gem_type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;
 		af.modifier           = gem_type_table[gem->value[GEM_VALUE_TYPE]].modifier[gem->value[GEM_VALUE_QUALITY]];
-		af.bitvector          = 0;
+		af.bitvector(0);
 		af.evolution          = 1;
 		affect_copy_to_list(&eq->gem_affected, &af);
 	}

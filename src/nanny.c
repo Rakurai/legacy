@@ -39,10 +39,10 @@ bool check_ban(const String& site, int type)
 		return FALSE;
 
 	while (!ban && db_next_row() == SQL_OK) {
-		int flags = db_get_column_int(0);
+		Flags flags = db_get_column_flags(0);
 		String str = db_get_column_str(1);
-		bool prefix = IS_SET(flags, BAN_PREFIX);
-		bool suffix = IS_SET(flags, BAN_SUFFIX);
+		bool prefix = flags.has(BAN_PREFIX);
+		bool suffix = flags.has(BAN_SUFFIX);
 
 		if ((prefix  &&  suffix && str.is_infix_of(site))
 		    || (prefix  && !suffix && str.is_suffix_of(site))
@@ -184,7 +184,7 @@ void update_pc_index(Character *ch, bool remove)
 		            db_esc(ch->pcdata->title),
 		            db_esc(ch->pcdata->deity),
 		            db_esc(ch->pcdata->deity.uncolor()),
-		            ch->pcdata->cgroup,
+		            ch->pcdata->cgroup_flags.to_ulong(),
 		            ch->level,
 		            ch->pcdata->remort_count,
 		            ch->clan ? db_esc(ch->clan->name) : "",
@@ -318,7 +318,7 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 					char_to_room(ch, room);
 				}
 
-				REMOVE_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
+				ch->pcdata->plr_flags -= PLR_LINK_DEAD;
 				d->connected = CON_PLAYING;
 			}
 
@@ -408,7 +408,7 @@ void nanny(Descriptor *d, String argument)
 			return;
 		}
 
-		if (check_ban(d->host, BAN_ALL) && !IS_SET(ch->act_flags, PLR_PERMIT)) {
+		if (check_ban(d->host, BAN_ALL) && !ch->act_flags.has(PLR_PERMIT)) {
 			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
@@ -479,9 +479,9 @@ void nanny(Descriptor *d, String argument)
 		if (check_reconnect(d, ch->name, TRUE))
 			return;
 
-		REMOVE_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
-		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
-		REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
+		ch->pcdata->plr_flags -= PLR_LINK_DEAD;
+		ch->pcdata->plr_flags -= PLR_SQUESTOR;
+		ch->act_flags -= PLR_QUESTOR;
 		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
 		log_string(log_buf);
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
@@ -729,8 +729,8 @@ void nanny(Descriptor *d, String argument)
 
 		affect_add_racial_to_char(ch);
 
-		ch->form                = race_table[race].form;
-		ch->parts               = race_table[race].parts;
+		ch->form_flags                = race_table[race].form;
+		ch->parts_flags               = race_table[race].parts;
 		ch->pcdata->points      = pc_race_table[race].points;
 		ch->size                = pc_race_table[race].size;
 
@@ -1133,8 +1133,8 @@ void nanny(Descriptor *d, String argument)
 			if (IS_PLAYING(sd)
 			    && sd->character != ch
 			    && can_see_who(victim, ch)
-			    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
-			    && !IS_SET(victim->comm, COMM_QUIET)) {
+			    && !victim->comm_flags.has(COMM_NOANNOUNCE)
+			    && !victim->comm_flags.has(COMM_QUIET)) {
 				if (ch->pcdata && !ch->pcdata->gamein.empty()) {
 					set_color(victim, GREEN, BOLD);
 					ptc(victim, "[%s] %s\n", ch->name, ch->pcdata->gamein);
@@ -1159,7 +1159,7 @@ void nanny(Descriptor *d, String argument)
 		do_unread(ch, "");
 		stc("\n", ch);
 
-		if (!IS_SET(ch->censor, CENSOR_CHAN))
+		if (!ch->censor_flags.has(CENSOR_CHAN))
 			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PR{x.\n", ch);
 		else
 			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {GPG{x.\n", ch);
@@ -1187,7 +1187,7 @@ void nanny(Descriptor *d, String argument)
 		update_pc_index(ch, FALSE);
 
 		/* VT100 Stuff */
-		if (ch->pcdata && IS_SET(ch->pcdata->video, PLR_VT100)) {
+		if (ch->pcdata && ch->pcdata->video_flags.has(PLR_VT100)) {
 			goto_line(ch, 1, 1);
 			stc(VT_SETWIN_CLEAR, ch);
 			set_window(ch, 1, ch->lines - 2);

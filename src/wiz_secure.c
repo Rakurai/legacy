@@ -195,8 +195,8 @@ void do_force(Character *ch, String argument)
 
 	if (IS_IMMORTAL(victim)
 	    && !IS_IMP(ch)
-	    && !IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)
-	    && !IS_SET(victim->pcdata->plr, PLR_SNOOP_PROOF)) {
+	    && !victim->pcdata->plr_flags.has(PLR_LINK_DEAD)
+	    && !victim->pcdata->plr_flags.has(PLR_SNOOP_PROOF)) {
 		stc("Not at your level!\n", ch);
 		return;
 	}
@@ -232,15 +232,15 @@ void do_freeze(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->act_flags, PLR_FREEZE)) {
-		REMOVE_BIT(victim->act_flags, PLR_FREEZE);
+	if (victim->act_flags.has(PLR_FREEZE)) {
+		victim->act_flags -= PLR_FREEZE;
 		stc("Heat envelops your blood.\n", victim);
 		stc("FREEZE removed.\n", ch);
 		Format::sprintf(buf, "$N has unfrozen: %s.", victim->name);
 		wiznet(buf, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
-		SET_BIT(victim->act_flags, PLR_FREEZE);
+		victim->act_flags += PLR_FREEZE;
 		stc("A crystal blue sheet of ice immobilizes your body!\n", victim);
 		stc("FREEZE set.\n", ch);
 		Format::sprintf(buf, "$N puts %s in the deep freeze.", victim->name);
@@ -439,12 +439,12 @@ void do_log(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->act_flags, PLR_LOG))
-		REMOVE_BIT(victim->act_flags, PLR_LOG);
+	if (victim->act_flags.has(PLR_LOG))
+		victim->act_flags -= PLR_LOG;
 	else
-		SET_BIT(victim->act_flags, PLR_LOG);
+		victim->act_flags += PLR_LOG;
 
-	ptc(ch, "LOG %s.\n", IS_SET(victim->act_flags, PLR_LOG) ? "set" : "removed");
+	ptc(ch, "LOG %s.\n", victim->act_flags.has(PLR_LOG) ? "set" : "removed");
 }
 
 void do_newlock(Character *ch, String argument)
@@ -518,11 +518,11 @@ void do_pardon(Character *ch, String argument)
 	}
 
 	if (arg2 == "killer") {
-		if (IS_SET(victim->act_flags, PLR_KILLER)) {
-			REMOVE_BIT(victim->act_flags, PLR_KILLER);
+		if (victim->act_flags.has(PLR_KILLER)) {
+			victim->act_flags -= PLR_KILLER;
 			stc("Their killer flag has been removed.\n", ch);
 			stc("You are no longer a KILLER.\n", victim);
-			REMOVE_BIT(victim->act_flags, PLR_NOPK);
+			victim->act_flags -= PLR_NOPK;
 		}
 		else
 			stc("They do not have a killer flag set.\n", ch);
@@ -530,11 +530,11 @@ void do_pardon(Character *ch, String argument)
 		ch->pcdata->flag_killer = 0;
 	}
 	else if (arg2 == "thief") {
-		if (IS_SET(victim->act_flags, PLR_THIEF)) {
-			REMOVE_BIT(victim->act_flags, PLR_THIEF);
+		if (victim->act_flags.has(PLR_THIEF)) {
+			victim->act_flags -= PLR_THIEF;
 			stc("Their thief flag has been removed.\n", ch);
 			stc("You are no longer a THIEF.\n", victim);
-			REMOVE_BIT(victim->act_flags, PLR_NOPK);
+			victim->act_flags -= PLR_NOPK;
 		}
 		else
 			stc("They do not have a thief flag set.\n", ch);
@@ -561,13 +561,13 @@ void do_protect(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(victim->pcdata->plr, PLR_SNOOP_PROOF)) {
+	if (victim->pcdata->plr_flags.has(PLR_SNOOP_PROOF)) {
 		ptc(ch, "%s is no longer protected from snooping.\n", victim->name);
-		REMOVE_BIT(victim->pcdata->plr, PLR_SNOOP_PROOF);
+		victim->pcdata->plr_flags -= PLR_SNOOP_PROOF;
 	}
 	else {
 		ptc(ch, "You protect %s from snooping.\n", victim->name);
-		SET_BIT(victim->pcdata->plr, PLR_SNOOP_PROOF);
+		victim->pcdata->plr_flags += PLR_SNOOP_PROOF;
 	}
 }
 
@@ -582,17 +582,18 @@ void do_revoke(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1.empty() || arg2.empty()) {
-		long printed = 0;
+		Flags printed;
+
 		/* print a list of revokable stuff */
 		stc("Current REVOKE options:\n\n", ch);
 
 		for (i = 0; i < revoke_table.size(); i++) {
 			/* don't print the same one twice :) */
-			if (IS_SET(printed, revoke_table[i].bit))
+			if (printed.has(revoke_table[i].bit))
 				continue;
 
 			ptc(ch, "  %s\n", revoke_table[i].name);
-			SET_BIT(printed, revoke_table[i].bit);
+			printed += revoke_table[i].bit;
 		}
 
 		stc("\nSyntax:\n"
@@ -614,12 +615,12 @@ void do_revoke(Character *ch, String argument)
 		if (!arg2.is_prefix_of(revoke_table[i].name))
 			continue;
 
-		if (IS_SET(victim->revoke, revoke_table[i].bit)) {
-			REMOVE_BIT(victim->revoke, revoke_table[i].bit);
+		if (victim->revoke_flags.has(revoke_table[i].bit)) {
+			victim->revoke_flags -= revoke_table[i].bit;
 			Format::sprintf(buf1, "restore");
 		}
 		else {
-			SET_BIT(victim->revoke, revoke_table[i].bit);
+			victim->revoke_flags += revoke_table[i].bit;
 			Format::sprintf(buf1, "revoke");
 		}
 
@@ -634,7 +635,7 @@ void do_revoke(Character *ch, String argument)
 }
 
 /* like snoop, but better -- Elrac */
-int set_tail(Character *ch, Character *victim, int tail_flag)
+int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
 {
 	Character *wch;
 	Tail *td;
@@ -818,7 +819,7 @@ void do_snoop(Character *ch, String argument)
 		return;
 	}
 
-	if ((IS_IMMORTAL(victim) || IS_SET(victim->pcdata->plr, PLR_SNOOP_PROOF)) && !IS_IMP(ch)) {
+	if ((IS_IMMORTAL(victim) || victim->pcdata->plr_flags.has(PLR_SNOOP_PROOF)) && !IS_IMP(ch)) {
 		stc("They wouldn't like that!\n", ch);
 		return;
 	}
@@ -846,8 +847,6 @@ void do_snoop(Character *ch, String argument)
 
 void do_ban(Character *ch, String argument)
 {
-	int flags = 0;
-
 	if (argument.empty()) {
 		String site;
 		String output;
@@ -861,17 +860,18 @@ void do_ban(Character *ch, String argument)
 
 		while (db_next_row() == SQL_OK) {
 			found = TRUE;
-			flags = db_get_column_int(2);
+			Flags flags(db_get_column_int(2));
+
 			Format::sprintf(site, "%s%s%s",
-			        IS_SET(flags, BAN_PREFIX) ? "*" : "",
+			        flags.has(BAN_PREFIX) ? "*" : "",
 			        db_get_column_str(0),
-			        IS_SET(flags, BAN_SUFFIX) ? "*" : "");
+			        flags.has(BAN_SUFFIX) ? "*" : "");
 			output += Format::format("%-30s{T|{x%-15s{T|{x%s{T|{x%s\n",
 			    site,
 			    db_get_column_str(1),
-			    IS_SET(flags, BAN_PERMIT)  ? "PERMIT " :
-			    IS_SET(flags, BAN_ALL)     ? "  ALL  " :
-			    IS_SET(flags, BAN_NEWBIES) ? "NEWBIES" : "       ",
+			    flags.has(BAN_PERMIT)  ? "PERMIT " :
+			    flags.has(BAN_ALL)     ? "  ALL  " :
+			    flags.has(BAN_NEWBIES) ? "NEWBIES" : "       ",
 			    db_get_column_str(3));
 		}
 
@@ -911,8 +911,10 @@ void do_ban(Character *ch, String argument)
 		return;
 	}
 
-	if (arg2 == "all")         SET_BIT(flags, BAN_ALL);
-	else if (arg2 == "newbies")     SET_BIT(flags, BAN_NEWBIES);
+	Flags flags;
+
+	if (arg2 == "all")         flags += BAN_ALL;
+	else if (arg2 == "newbies")     flags += BAN_NEWBIES;
 	else {
 		stc("Type must be ALL or NEWBIES.\n", ch);
 		return;
@@ -922,27 +924,27 @@ void do_ban(Character *ch, String argument)
 
 	if (site.front() == '*') {
 		site.erase(0, 1);
-		SET_BIT(flags, BAN_PREFIX);
+		flags += BAN_PREFIX;
 	}
 
 	if (site.back() == '*') {
 		site.erase(site.size()-1);
-		SET_BIT(flags, BAN_SUFFIX);
+		flags += BAN_SUFFIX;
 	}
 
 	if (db_countf("do_ban", "SELECT COUNT(*) FROM bans WHERE site LIKE '%s' AND (flags-((flags>>4)<<4))=%d",
-	              site, flags) > 0)
+	              site, flags.to_ulong()) > 0)
 		ptc(ch, "%s is already banned.\n", arg1);
 	else {
 		db_commandf("do_ban", "INSERT INTO bans VALUES('%s','%s',%d,'%s')",
-		            db_esc(site), db_esc(ch->name), flags, db_esc(argument));
+		            db_esc(site), db_esc(ch->name), flags.to_ulong(), db_esc(argument));
 		ptc(ch, "%s has been banned.\n", arg1);
 	}
 }
 
 void do_allow(Character *ch, String argument)
 {
-	int wildflags = 0;
+	Flags wildflags;
 
 	String arg;
 	one_argument(argument, arg);
@@ -961,16 +963,16 @@ void do_allow(Character *ch, String argument)
 
 	if (site.front() == '*') {
 		site.erase(0, 1);
-		SET_BIT(wildflags, BAN_PREFIX);
+		wildflags += BAN_PREFIX;
 	}
 
 	if (site.back() == '*') {
 		site.erase(site.size()-1);
-		SET_BIT(wildflags, BAN_SUFFIX);
+		wildflags += BAN_SUFFIX;
 	}
 
 	db_commandf("do_allow", "DELETE FROM bans WHERE site LIKE '%s' AND (flags-((flags>>2)<<2))=%d",
-	            db_esc(site), wildflags);
+	            db_esc(site), wildflags.to_ulong());
 
 	if (db_rows_affected() > 0)
 		ptc(ch, "Ban on %s lifted.\n", arg);
@@ -980,7 +982,7 @@ void do_allow(Character *ch, String argument)
 
 void do_permit(Character *ch, String argument)
 {
-	int wildflags = 0;
+	Flags wildflags;
 	bool found = FALSE;
 
 	String arg;
@@ -1006,13 +1008,13 @@ void do_permit(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_SET(plr->act_flags, PLR_PERMIT)) {
+		if (plr->act_flags.has(PLR_PERMIT)) {
 			stc("They are no longer permitted to bypass banned sites.\n", ch);
-			REMOVE_BIT(plr->act_flags, PLR_PERMIT);
+			plr->act_flags -= PLR_PERMIT;
 		}
 		else {
 			stc("They are now permitted to bypass banned sites.\n", ch);
-			SET_BIT(plr->act_flags, PLR_PERMIT);
+			plr->act_flags += PLR_PERMIT;
 		}
 
 		return;
@@ -1027,33 +1029,33 @@ void do_permit(Character *ch, String argument)
 
 	if (site.front() == '*') {
 		site.erase(0, 1);
-		SET_BIT(wildflags, BAN_PREFIX);
+		wildflags += BAN_PREFIX;
 	}
 
 	if (site.back() == '*') {
 		site.erase(site.size()-1);
-		SET_BIT(wildflags, BAN_SUFFIX);
+		wildflags += BAN_SUFFIX;
 	}
 
 	if (db_queryf("do_permit",
 	                        "SELECT flags, site FROM bans WHERE site LIKE '%s' AND (flags-((flags>>2)<<2))=%d",
-	                        db_esc(site), wildflags) != SQL_OK)
+	                        db_esc(site), wildflags.to_ulong()) != SQL_OK)
 		return;
 
 	while (!found && db_next_row() == SQL_OK) {
-		int rowflags = db_get_column_int(0);
+		Flags rowflags(db_get_column_int(0));
 
-		if (IS_SET(rowflags, BAN_PERMIT)) {
+		if (rowflags.has(BAN_PERMIT)) {
 			ptc(ch, "Permit flag removed on %s.\n", arg);
-			REMOVE_BIT(rowflags, BAN_PERMIT);
+			rowflags -= BAN_PERMIT;
 		}
 		else {
 			ptc(ch, "Permit flag set on %s.\n", arg);
-			SET_BIT(rowflags, BAN_PERMIT);
+			rowflags += BAN_PERMIT;
 		}
 
 		db_commandf("do_permit", "UPDATE bans SET flags=%d WHERE site LIKE '%s' AND flags=%d",
-		            rowflags, db_esc(db_get_column_str(1)), db_get_column_int(0));
+		            rowflags.to_ulong(), db_esc(db_get_column_str(1)), db_get_column_int(0));
 		found = TRUE;
 	}
 

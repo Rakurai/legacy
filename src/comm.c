@@ -821,16 +821,16 @@ void close_socket(Descriptor *dclose)
 			wiznet("$N has lost link.", ch, nullptr, WIZ_LINKS, 0, 0);
 
 			if (!IS_NPC(ch))
-				SET_BIT(ch->pcdata->plr, PLR_LINK_DEAD);
+				ch->pcdata->plr_flags += PLR_LINK_DEAD;
 			else {
 				/* been having problems with this -- Montrey */
 				if (ch->desc == nullptr)
 					bug("close_socket: NPC without descriptor!", 0);
 				else if (ch->desc->original != nullptr
 				         && ch->desc->original->pcdata != nullptr)
-					SET_BIT(ch->desc->original->pcdata->plr, PLR_LINK_DEAD);
+					ch->desc->original->pcdata->plr_flags += PLR_LINK_DEAD;
 
-				if (IS_SET(ch->act_flags, ACT_MORPH)) {
+				if (ch->act_flags.has(ACT_MORPH)) {
 					if (ch->desc->original != nullptr) {
 						RoomPrototype *location;
 
@@ -1058,7 +1058,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	/* VT100 Stuff */
 	if (IS_PLAYING(d)
 	    && d->character->pcdata
-	    && IS_SET(d->character->pcdata->video, VIDEO_VT100)) {
+	    && d->character->pcdata->video_flags.has(VIDEO_VT100)) {
 		write_to_buffer(d, VT_SAVECURSOR);
 		goto_line(d->character, d->character->lines - 2, 1);
 	}
@@ -1077,7 +1077,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 		if ((victim = ch->fighting) != nullptr) {
 			String atb;
 
-			if (IS_SET(ch->comm, COMM_ATBPROMPT)) {
+			if (ch->comm_flags.has(COMM_ATBPROMPT)) {
 				if (ch->wait > 40)      Format::sprintf(atb, "{B[{C*{T*********{B]{x ");
 				else if (ch->wait > 36) Format::sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
 				else if (ch->wait > 32) Format::sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
@@ -1140,10 +1140,10 @@ bool process_output(Descriptor *d, bool fPrompt)
 
 		ch = d->original ? d->original : d->character;
 
-		if (!IS_SET(ch->comm, COMM_COMPACT))
+		if (!ch->comm_flags.has(COMM_COMPACT))
 			write_to_buffer(d, "\n");
 
-		if (IS_SET(ch->comm, COMM_PROMPT)) {
+		if (ch->comm_flags.has(COMM_PROMPT)) {
 			set_color(ch, CYAN, NOBOLD);
 			bust_a_prompt(d->character);
 			set_color(ch, WHITE, NOBOLD);
@@ -1170,7 +1170,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	/* VT100 Stuff */
 	if (IS_PLAYING(d)
 	    && d->character->pcdata
-	    && IS_SET(d->character->pcdata->video, PLR_VT100)) {
+	    && d->character->pcdata->video_flags.has(PLR_VT100)) {
 		goto_line(d->character, d->character->lines - 1, 1);
 		write_to_buffer(d, VT_CLEAR_LINE);
 		write_to_buffer(d, VT_BAR);
@@ -1204,7 +1204,7 @@ void bust_a_prompt(Character *ch)
 		return;
 	}
 
-	if (IS_SET(ch->comm, COMM_AFK)) {
+	if (ch->comm_flags.has(COMM_AFK)) {
 		stc("{b<AFK> {x", ch);
 		return;
 	}
@@ -1249,7 +1249,7 @@ void bust_a_prompt(Character *ch)
 				    && can_see_in_room(ch, pexit->u1.to_room)) {
 					found = TRUE;
 
-					if (!IS_SET(pexit->exit_info, EX_CLOSED))
+					if (!pexit->exit_flags.has(EX_CLOSED))
 						buf += UPPER(dir_name[door][0]);
 					else
 						buf += LOWER(dir_name[door][0]);
@@ -1409,7 +1409,7 @@ void bust_a_prompt(Character *ch)
 				else
 					buf += Format::format("%d/%d", ch->invis_level, ch->lurk_level);
 
-				if (IS_SET(ch->act_flags, PLR_SUPERWIZ))
+				if (ch->act_flags.has(PLR_SUPERWIZ))
 					buf += "WIZ";
 			}
 			else
@@ -1566,7 +1566,7 @@ String interpret_color_code(Character *ch, char a)
 	case 'T': code = C_CYAN; break;
 	case 'H': code = C_GREEN; break;
 	case 'k':
-		if (ch && ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
+		if (ch && ch->pcdata && ch->pcdata->video_flags.has(VIDEO_DARK_MOD))
 			code = C_WHITE;
 		else
 			code = C_BLACK;
@@ -1585,7 +1585,7 @@ String interpret_color_code(Character *ch, char a)
 	case 'W': code = C_B_WHITE; break;
 	case 'Y': code = C_B_YELLOW; break;
 	case 'c':
-		if (ch && ch->pcdata && IS_SET(ch->pcdata->video, VIDEO_DARK_MOD))
+		if (ch && ch->pcdata && ch->pcdata->video_flags.has(VIDEO_DARK_MOD))
 			code = C_WHITE;
 		else
 			code = C_B_GREY;
@@ -1596,10 +1596,10 @@ String interpret_color_code(Character *ch, char a)
 		code = C_FLASH;
 
 		if (ch && ch->pcdata) {
-			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_OFF))
+			if (ch->pcdata->video_flags.has(VIDEO_FLASH_OFF))
 				code.erase();
 
-			if (IS_SET(ch->pcdata->video, VIDEO_FLASH_LINE))
+			if (ch->pcdata->video_flags.has(VIDEO_FLASH_LINE))
 				code += C_UNDERLINE;
 		}
 
@@ -1647,9 +1647,9 @@ void stc(const String& txt, Character *ch)
 	if (txt.empty() || ch->desc == nullptr)
 		return;
 
-	if (!IS_NPC(ch) && IS_SET(ch->pcdata->video, VIDEO_CODES_SHOW))
+	if (!IS_NPC(ch) && ch->pcdata->video_flags.has(VIDEO_CODES_SHOW))
 		write_to_buffer(ch->desc, txt);
-	else if (IS_SET(ch->act_flags, PLR_COLOR2))
+	else if (ch->act_flags.has(PLR_COLOR2))
 		write_to_buffer(ch->desc, expand_color_codes(ch, txt));
 	else
 		write_to_buffer(ch->desc, txt.uncolor());

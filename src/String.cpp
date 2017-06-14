@@ -176,29 +176,29 @@ is_number() const {
  * in place.  This allows syntax like print(str.capitalize()), without unexpected side effects.
  */
 
-String String::
+const String String::
 substr(std::size_t pos, std::size_t count) const {
 	return std::string::substr(pos, count);
 }
 
-String String::
+const String String::
 lstrip(const String& chars) const {
 	std::size_t pos = find_first_not_of(chars);
 	return pos == std::string::npos ? "" : substr(pos);
 }
 
-String String::
+const String String::
 rstrip(const String& chars) const {
 	std::size_t pos = find_last_not_of(chars);
 	return pos == std::string::npos ? "" : substr(0, pos+1);
 }
 
-String String::
+const String String::
 strip(const String& chars) const {
 	return lstrip(chars).rstrip(chars);
 }
 
-String String::
+const String String::
 capitalize() const {
 	String str(*this);
 	std::size_t pos = str.find_first_not_of(" \t\r\n");
@@ -209,7 +209,7 @@ capitalize() const {
 	return str;
 }
 
-String String::
+const String String::
 uncolor() const {
 	String buf;
 
@@ -231,21 +231,21 @@ uncolor() const {
 	return buf;
 }
 
-String String::
+const String String::
 lsplit(const String& chars) const {
 	String word;
 	lsplit(word, chars);
 	return word;
 }
 
-String String::
+const String String::
 rsplit(const String& chars) const {
 	String word;
 	rsplit(word, chars);
 	return word;
 }
 
-String String::
+const String String::
 lsplit(String& word, const String& chars) const {
 	std::size_t start_pos = find_first_not_of(chars);
 
@@ -265,7 +265,7 @@ lsplit(String& word, const String& chars) const {
 	return substr(end_pos).lstrip(chars);
 }
 
-String String::
+const String String::
 rsplit(String& word, const String& chars) const {
 	std::size_t end_pos = find_last_not_of(chars);
 
@@ -285,7 +285,7 @@ rsplit(String& word, const String& chars) const {
 	return substr(0, start_pos + 1).rstrip();
 }
 
-String String::
+const String String::
 replace(const String& what, const String& with, int times) const {
 	if (what.empty())
 		return *this;
@@ -301,7 +301,7 @@ replace(const String& what, const String& with, int times) const {
 	return str;
 }
 
-String String::
+const String String::
 insert(const String& what, std::size_t pos) const {
 	if (pos > size())
 		pos = size();
@@ -309,7 +309,7 @@ insert(const String& what, std::size_t pos) const {
 	return substr(0, pos) + what + substr(pos);
 }
 
-String String::
+const String String::
 center(std::size_t total_len) const {
 	String str(*this), space;
 

@@ -38,11 +38,11 @@ inline void get_long(cJSON *obj, long *target, const String& key) {
 		*target = val->valueint;
 }
 
-inline void get_flags(cJSON *obj, long *target, const String& key) {
+inline void get_flags(cJSON *obj, Flags *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
 	if (val != nullptr)
-		*target = string_to_flags(val->valuestring);
+		*target = Flags(val->valuestring);
 }
 
 inline void get_string(cJSON *obj, String *target, const String& key) {

@@ -569,8 +569,8 @@ void war_power_adjust(Clan *vclan, bool surrender)
 			victim = d->original ? d->original : d->character;
 
 			if (IS_PLAYING(d)
-			    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
-			    && !IS_SET(victim->comm, COMM_QUIET)) {
+			    && !victim->comm_flags.has(COMM_NOANNOUNCE)
+			    && !victim->comm_flags.has(COMM_QUIET)) {
 				new_color(victim, CSLOT_CHAN_ANNOUNCE);
 				stc(buf, victim);
 				set_color(victim, WHITE, NOBOLD);

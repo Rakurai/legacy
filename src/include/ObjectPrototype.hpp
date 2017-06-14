@@ -2,6 +2,8 @@
 
 #include "declare.h"
 #include "String.hpp"
+#include "Flags.hpp"
+#include "ObjectValue.hpp"
 
 class ObjectPrototype
 {
@@ -21,14 +23,14 @@ public:
     sh_int	            version = 0;
     String              material;
     sh_int              item_type = 0;
-    unsigned long       extra_flags = 0; /* Formerly INT */
-    unsigned long       wear_flags = 0;  /* Formerly INT */
+    Flags               extra_flags; /* Formerly INT */
+    Flags               wear_flags;  /* Formerly INT */
     sh_int              level = 0;
     sh_int              condition = 0;
     sh_int              count = 0;
     sh_int              weight = 0;
     int                 cost = 0;
-    int                 value[5] = {0};
+    ObjectValue         value[5];
 
     int                 num_settings = 0; // for socketed gems
 

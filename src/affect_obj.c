@@ -107,8 +107,8 @@ bool obj_has_affect(Object *obj, int sn) {
 	return affect_find_in_list(&obj->affected, sn) ? TRUE : FALSE;
 }
 
-void affect_modify_flag_cache_obj(Object *obj, sh_int where, unsigned int flags, bool fAdd) {
-	if (flags == 0)
+void affect_modify_flag_cache_obj(Object *obj, sh_int where, const Flags& flags, bool fAdd) {
+	if (flags.empty())
 		return;
 
 	if (where != TO_OBJECT && where != TO_WEAPON)
@@ -118,23 +118,23 @@ void affect_modify_flag_cache_obj(Object *obj, sh_int where, unsigned int flags,
 	// should still have that bit (from a remaining affect) is to loop through
 	// them all, so just rebuild the bit vectors
 	if (!fAdd) {
-		obj->extra_flag_cache = 0;
-		obj->weapon_flag_cache = 0;
+		obj->cached_extra_flags.clear();
+		obj->cached_weapon_flags.clear();
 
 		for (const Affect *paf = obj->affected; paf; paf = paf->next)
-			affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, TRUE);
+			affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector(), TRUE);
 
 		for (const Affect *paf = obj->gem_affected; paf; paf = paf->next)
-			affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, TRUE);
+			affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector(), TRUE);
 	}
 	else {
 		switch (where) {
 		case TO_OBJECT:
-			SET_BIT(obj->extra_flag_cache, flags);
+			obj->cached_extra_flags += flags;
 			break;
 		case TO_WEAPON:
 			if (obj->item_type == ITEM_WEAPON)
-				SET_BIT(obj->weapon_flag_cache, flags);
+				obj->cached_weapon_flags += flags;
 			break;
 		}
 	}
@@ -148,7 +148,7 @@ void affect_modify_obj(void *owner, const Affect *paf, bool fAdd) {
 	Object *obj = (Object *)owner;
 	extern void affect_modify_char(void *owner, const Affect *paf, bool fAdd);
 
-	affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector, fAdd);
+	affect_modify_flag_cache_obj(obj, paf->where, paf->bitvector(), fAdd);
 
 	if (obj->carried_by && obj->wear_loc != WEAR_NONE)
 		affect_modify_char(obj->carried_by, paf, fAdd);

@@ -98,8 +98,8 @@ void affect_sort_room(RoomPrototype *room, affect_comparator comp) {
 
 // utility
 
-void affect_modify_flag_cache_room(RoomPrototype *room, sh_int where, unsigned int flags, bool fAdd) {
-	if (flags == 0)
+void affect_modify_flag_cache_room(RoomPrototype *room, sh_int where, const Flags& flags, bool fAdd) {
+	if (flags.empty())
 		return;
 
 	if (where != TO_ROOMFLAGS)
@@ -109,13 +109,13 @@ void affect_modify_flag_cache_room(RoomPrototype *room, sh_int where, unsigned i
 	// should still have that bit (from a remaining affect) is to loop through
 	// them all, so just rebuild the bit vectors
 	if (!fAdd) {
-		room->room_flag_cache = 0;
+		room->cached_room_flags.clear();
 
 		for (const Affect *paf = room->affected; paf; paf = paf->next)
-			affect_modify_flag_cache_room(room, paf->where, paf->bitvector, TRUE);
+			affect_modify_flag_cache_room(room, paf->where, paf->bitvector(), TRUE);
 	}
 	else {
-		SET_BIT(room->room_flag_cache, flags);
+		room->cached_room_flags += flags;
 	}
 }
 
@@ -128,7 +128,7 @@ void affect_modify_room(void *owner, const Affect *paf, bool fAdd) {
 
 	switch (paf->where) {
 	case TO_ROOMFLAGS:
-		affect_modify_flag_cache_room(room, paf->where, paf->bitvector, fAdd);
+		affect_modify_flag_cache_room(room, paf->where, paf->bitvector(), fAdd);
 		break;
 
 	case TO_HPREGEN:

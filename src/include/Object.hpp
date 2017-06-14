@@ -3,6 +3,8 @@
 #include "declare.h"
 #include "Actable.hpp"
 #include "String.hpp"
+#include "Flags.hpp"
+#include "ObjectValue.hpp"
 
 class ObjectPrototype;
 class RoomPrototype;
@@ -39,9 +41,9 @@ public:
 	String 	        owner;
 	ExtraDescr *	extra_descr = nullptr;
 	sh_int			item_type = 0;
-	unsigned long	extra_flags = 0;
-	unsigned long   wear_flags = 0;
-	int			value[5] = {0};
+	Flags           extra_flags;
+	Flags           wear_flags;
+	ObjectValue     value[5];
 	sh_int			weight = 0;
 	int			cost = 0;
 	sh_int			level = 0;
@@ -51,8 +53,8 @@ public:
 	sh_int			clean_timer = 0;		/* Montrey */
 	bool			valid = FALSE;
 
-    unsigned long   extra_flag_cache = 0;
-    unsigned long   weapon_flag_cache = 0;
+    Flags           cached_extra_flags;
+    Flags           cached_weapon_flags;
 
     /* ugly way to do this: rather than everywhere cycling through the affects given by
        the object's index data separately from the affects given by inset gems, we
@@ -65,7 +67,7 @@ public:
     Object *      gems = nullptr; // gems in settings
     Affect *   gem_affected = nullptr;
 
-    virtual std::string identifier() const { return this->name; }
+    virtual const std::string identifier() const { return this->name; }
 
 private:
 	Object(const String&);

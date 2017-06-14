@@ -238,7 +238,7 @@ void act_parse(
             if (!IS_IMMORTAL(to)) /* eliminates mobs too */
                 continue;
 
-            if (IS_SET(ch->act_flags, PLR_SUPERWIZ) && !IS_IMP(to))
+            if (ch->act_flags.has(PLR_SUPERWIZ) && !IS_IMP(to))
                 continue;
         }
 
@@ -314,7 +314,7 @@ void act_parse(
     for (td = ch->tail; td;) {
         if (!IS_VALID(td->tailed_by)
             || td->tailer_name != td->tailed_by->name) {
-            set_tail(td->tailed_by, ch, 0);
+            set_tail(td->tailed_by, ch, TAIL_NONE);
             td = ch->tail;
             continue;
         }

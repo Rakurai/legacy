@@ -338,7 +338,9 @@ sh_int                  aVersion = 1;
  * MOBprogram locals
 */
 
-int             mprog_name_to_type      args((const String& name));
+void boot_bug(const String& str, int param);
+
+//int             mprog_name_to_type      args((const String& name));
 MobProg     *mprog_file_read         args((const String& f, MobProg *mprg,
                 MobilePrototype *pMobIndex));
 void            mprog_read_programs     args((FILE *fp,
@@ -450,7 +452,7 @@ void boot_db()
 
 			for (; ;) {
 				if (fread_letter(fpArea) != '#') {
-					bug("Boot_db: # not found.", 0);
+					boot_bug("Boot_db: # not found.", 0);
 					exit(1);
 				}
 
@@ -467,7 +469,7 @@ void boot_db()
 //				else if (word == "TOURSTARTS")  load_tourstarts(fpArea);
 //				else if (word == "TOURROUTES")  load_tourroutes(fpArea);
 				else {
-					bug("Boot_db: bad section name.", 0);
+					boot_bug("Boot_db: bad section name.", 0);
 					exit(1);
 				}
 			}
@@ -755,7 +757,7 @@ void load_resets(FILE *fp)
 	ObjectPrototype *temp_index;
 
 	if (area_last == nullptr) {
-		bug("Load_resets: no #AREA seen yet.", 0);
+		boot_bug("Load_resets: no #AREA seen yet.", 0);
 		exit(1);
 	}
 
@@ -781,7 +783,7 @@ void load_resets(FILE *fp)
 		/* Validate parameters.  We're calling the index functions for the side effect. */
 		switch (letter) {
 		default:
-			bug("Load_resets: bad command '%c'.", letter);
+			boot_bug("Load_resets: bad command '%c'.", letter);
 			exit(1);
 			break;
 
@@ -831,13 +833,13 @@ void load_resets(FILE *fp)
 
 			if (pReset->arg2 < 0 || pReset->arg2 > 5
 			    || (pexit = pRoomIndex->exit[pReset->arg2]) == nullptr
-			    || !IS_SET(pexit->exit_info, EX_ISDOOR)) {
-				bug("Load_resets: 'D': exit %d not door.", pReset->arg2);
+			    || !pexit->exit_flags.has(EX_ISDOOR)) {
+				boot_bug("Load_resets: 'D': exit %d not door.", pReset->arg2);
 				exit(1);
 			}
 
 			if (pReset->arg3 < 0 || pReset->arg3 > 2) {
-				bug("Load_resets: 'D': bad 'locks': %d.", pReset->arg3);
+				boot_bug("Load_resets: 'D': bad 'locks': %d.", pReset->arg3);
 				exit(1);
 			}
 
@@ -847,7 +849,7 @@ void load_resets(FILE *fp)
 			pRoomIndex = get_room_index(pReset->arg1);
 
 			if (pReset->arg2 < 0 || pReset->arg2 > 6) {
-				bug("Load_resets: 'R': bad exit %d.", pReset->arg2);
+				boot_bug("Load_resets: 'R': bad exit %d.", pReset->arg2);
 				exit(1);
 			}
 
@@ -880,7 +882,7 @@ void load_mobiles(FILE *fp)
 		letter                          = fread_letter(fp);
 
 		if (letter != '#') {
-			bug("Load_mobiles: # not found.", 0);
+			boot_bug("Load_mobiles: # not found.", 0);
 			exit(1);
 		}
 
@@ -891,12 +893,12 @@ void load_mobiles(FILE *fp)
 
 		if (vnum < area_last->min_vnum ||
 		    vnum > area_last->max_vnum)
-			bug("mobile vnum %d out of range.", vnum);
+			boot_bug("mobile vnum %d out of range.", vnum);
 
 		fBootDb = FALSE;
 
 		if (get_mob_index(vnum) != nullptr) {
-			bug("Load_mobiles: vnum %d duplicated.", vnum);
+			boot_bug("Load_mobiles: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 
@@ -911,14 +913,14 @@ void load_mobiles(FILE *fp)
 		pMobIndex->race                 = race_lookup(fread_string(fp));
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
-		pMobIndex->act_flags                  = fread_flag(fp) | race_table[pMobIndex->race].act;
+		pMobIndex->act_flags            = fread_flag(fp) + race_table[pMobIndex->race].act;
 
 		// affect flags no longer includes flags already on the race affect bitvector
-		pMobIndex->affect_flags         = fread_flag(fp) & ~race_table[pMobIndex->race].aff;
+		pMobIndex->affect_flags         = fread_flag(fp) - race_table[pMobIndex->race].aff;
 
 		pMobIndex->pShop                = nullptr;
 		pMobIndex->alignment            = fread_number(fp);
-		pMobIndex->group                = fread_flag(fp);
+		pMobIndex->group_flags          = fread_flag(fp);
 		pMobIndex->level                = fread_number(fp);
 		pMobIndex->hitroll              = fread_number(fp);
 		/* read hit dice */
@@ -947,52 +949,52 @@ void load_mobiles(FILE *fp)
 		pMobIndex->ac[AC_EXOTIC]        = fread_number(fp) * 10;
 		/* read flags and add in data from the race table */
 		pMobIndex->off_flags            = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].off;
+		                                  + race_table[pMobIndex->race].off;
 
 		// defense flags no longer includes flags already on the race bitvector
-		pMobIndex->absorb_flags         = 0; /* fix when we change the area versions */
-		pMobIndex->imm_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].imm;
-		pMobIndex->res_flags            = fread_flag(fp) & ~race_table[pMobIndex->race].res;
-		pMobIndex->vuln_flags           = fread_flag(fp) & ~race_table[pMobIndex->race].vuln;
+		pMobIndex->absorb_flags.clear(); //        = 0; /* fix when we change the area versions */
+		pMobIndex->imm_flags            = fread_flag(fp) - race_table[pMobIndex->race].imm;
+		pMobIndex->res_flags            = fread_flag(fp) - race_table[pMobIndex->race].res;
+		pMobIndex->vuln_flags           = fread_flag(fp) - race_table[pMobIndex->race].vuln;
 
 		// fix old style ACT_IS_NPC (A) flag, changed to ACT_NOSUMMON (A)
-		REMOVE_BIT(pMobIndex->act_flags, BIT_A);
+		pMobIndex->act_flags -= Flags::A;
 
 		// fix old style IMM_SUMMON (A) flag, changed to ACT_NOSUMMON (A)
-		if (IS_SET(pMobIndex->imm_flags, BIT_A))
-			SET_BIT(pMobIndex->act_flags, ACT_NOSUMMON);
-		REMOVE_BIT(pMobIndex->imm_flags, BIT_A);
-		REMOVE_BIT(pMobIndex->res_flags, BIT_A);
-		REMOVE_BIT(pMobIndex->vuln_flags, BIT_A);
+		if (pMobIndex->imm_flags.has(Flags::A))
+			pMobIndex->act_flags += ACT_NOSUMMON;
+		pMobIndex->imm_flags -= Flags::A;
+		pMobIndex->res_flags -= Flags::A;
+		pMobIndex->vuln_flags -= Flags::A;
 
 		/* vital statistics */
 		pMobIndex->start_pos        = position_lookup(fread_word(fp));
 
-		if (pMobIndex->start_pos == POS_STANDING && IS_SET(pMobIndex->affect_flags, AFF_FLYING))
+		if (pMobIndex->start_pos == POS_STANDING && pMobIndex->affect_flags.has(AFF_FLYING))
 			pMobIndex->start_pos = POS_FLYING;
 
 		pMobIndex->default_pos      = position_lookup(fread_word(fp));
 
-		if (pMobIndex->default_pos == POS_STANDING && IS_SET(pMobIndex->affect_flags, AFF_FLYING))
+		if (pMobIndex->default_pos == POS_STANDING && pMobIndex->affect_flags.has(AFF_FLYING))
 			pMobIndex->default_pos = POS_FLYING;
 
 		pMobIndex->sex              = sex_lookup(fread_word(fp));
 
 		if (pMobIndex->sex < 0) {
-			bug("Load_mobiles: bad sex for vnum %d.", vnum);
+			boot_bug("Load_mobiles: bad sex for vnum %d.", vnum);
 			exit(1);
 		}
 
 		pMobIndex->wealth               = fread_number(fp);
-		pMobIndex->form                 = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].form;
-		pMobIndex->parts                = fread_flag(fp)
-		                                  | race_table[pMobIndex->race].parts;
+		pMobIndex->form_flags                 = fread_flag(fp)
+		                                  + race_table[pMobIndex->race].form;
+		pMobIndex->parts_flags                = fread_flag(fp)
+		                                  + race_table[pMobIndex->race].parts;
 		/* size */
 		pMobIndex->size                 = size_lookup(fread_word(fp));
 
 		if (pMobIndex->size < 0) {
-			bug("Load_mobiles: bad size for vnum %d.", vnum);
+			boot_bug("Load_mobiles: bad size for vnum %d.", vnum);
 			exit(1);
 		}
 
@@ -1003,30 +1005,30 @@ void load_mobiles(FILE *fp)
 
 			if (letter == 'F') {
 				String word;
-				long vector;
+				Flags vector;
 				word                    = fread_word(fp);
 				vector                  = fread_flag(fp);
 
 				if (word.is_prefix_of("act"))
-					REMOVE_BIT(pMobIndex->act_flags, vector);
+					pMobIndex->act_flags -= vector;
 				else if (word.is_prefix_of("aff"))
-					REMOVE_BIT(pMobIndex->affect_flags, vector);
+					pMobIndex->affect_flags -= vector;
 				else if (word.is_prefix_of("off"))
-					REMOVE_BIT(pMobIndex->off_flags, vector);
+					pMobIndex->off_flags -= vector;
 				else if (word.is_prefix_of("drn"))
-					REMOVE_BIT(pMobIndex->absorb_flags, vector);
+					pMobIndex->absorb_flags -= vector;
 				else if (word.is_prefix_of("imm"))
-					REMOVE_BIT(pMobIndex->imm_flags, vector);
+					pMobIndex->imm_flags -= vector;
 				else if (word.is_prefix_of("res"))
-					REMOVE_BIT(pMobIndex->res_flags, vector);
+					pMobIndex->res_flags -= vector;
 				else if (word.is_prefix_of("vul"))
-					REMOVE_BIT(pMobIndex->vuln_flags, vector);
+					pMobIndex->vuln_flags -= vector;
 				else if (word.is_prefix_of("for"))
-					REMOVE_BIT(pMobIndex->form, vector);
+					pMobIndex->form_flags -= vector;
 				else if (word.is_prefix_of("par"))
-					REMOVE_BIT(pMobIndex->parts, vector);
+					pMobIndex->parts_flags -= vector;
 				else {
-					bug("Flag remove: flag not found.", 0);
+					boot_bug("Flag remove: flag not found.", 0);
 					exit(1);
 				}
 			}
@@ -1067,7 +1069,7 @@ void load_objects(FILE *fp)
 		letter                          = fread_letter(fp);
 
 		if (letter != '#') {
-			bug("Load_objects: # not found.", 0);
+			boot_bug("Load_objects: # not found.", 0);
 			exit(1);
 		}
 
@@ -1078,12 +1080,12 @@ void load_objects(FILE *fp)
 
 		if (vnum < area_last->min_vnum ||
 		    vnum > area_last->max_vnum)
-			bug("object vnum %d out of range.", vnum);
+			boot_bug("object vnum %d out of range.", vnum);
 
 		fBootDb = FALSE;
 
 		if (get_obj_index(vnum) != nullptr) {
-			bug("Load_objects: vnum %d duplicated.", vnum);
+			boot_bug("Load_objects: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 
@@ -1101,73 +1103,118 @@ void load_objects(FILE *fp)
 		pObjIndex->wear_flags           = fread_flag(fp);
 		pObjIndex->num_settings			= 0;
 
+
+		int val = 0; // prevent accidents in altering below switches
 		switch (pObjIndex->item_type) {
 		case ITEM_WEAPON:
-			pObjIndex->value[0]         = get_weapon_type(fread_word(fp));
-			pObjIndex->value[1]         = fread_number(fp);
-			pObjIndex->value[2]         = fread_number(fp);
-			pObjIndex->value[3]         = attack_lookup(fread_word(fp));
-			pObjIndex->value[4]         = fread_flag(fp);
+			pObjIndex->value[val]         = ObjectValue(get_weapon_type(fread_word(fp)));
 			break;
 
+		case ITEM_KEY:
+			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
+			break;
+
+		default:
+			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
+			break;
+		}
+
+
+		val = 1;
+		switch (pObjIndex->item_type) {
 		case ITEM_CONTAINER:
-			pObjIndex->value[0]         = fread_number(fp);
-			pObjIndex->value[1]         = fread_flag(fp);
-			pObjIndex->value[2]         = fread_number(fp);
-			pObjIndex->value[3]         = fread_number(fp);
-			pObjIndex->value[4]         = fread_number(fp);
-			break;
-
-		case ITEM_DRINK_CON:
-		case ITEM_FOUNTAIN:
-			pObjIndex->value[0]         = fread_number(fp);
-			pObjIndex->value[1]         = fread_number(fp);
-			pObjIndex->value[2]         = liq_lookup(fread_word(fp));
-
-			if (pObjIndex->value[2] == -1) {
-				pObjIndex->value[2] = 0;
-				bug("Unknown liquid type", 0);
-			}
-
-			pObjIndex->value[3]         = fread_number(fp);
-			pObjIndex->value[4]         = fread_number(fp);
-			break;
-
-		case ITEM_WAND:
-		case ITEM_STAFF:
-			pObjIndex->value[0]         = fread_number(fp);
-			pObjIndex->value[1]         = fread_number(fp);
-			pObjIndex->value[2]         = fread_number(fp);
-			pObjIndex->value[3]         = skill_lookup(fread_word(fp));
-			pObjIndex->value[4]         = fread_number(fp);
+		case ITEM_CORPSE_NPC:
+		case ITEM_CORPSE_PC:
+		case ITEM_PORTAL:
+			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
 			break;
 
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[0]         = fread_number(fp);
-			pObjIndex->value[1]         = skill_lookup(fread_word(fp));
-			pObjIndex->value[2]         = skill_lookup(fread_word(fp));
-			pObjIndex->value[3]         = skill_lookup(fread_word(fp));
-			pObjIndex->value[4]         = skill_lookup(fread_word(fp));
-			break;
-
-		case ITEM_TOKEN:
-			pObjIndex->value[0]         = fread_number(fp);
-			pObjIndex->value[1]         = fread_number(fp);
-			pObjIndex->value[2]         = fread_number(fp);
-			pObjIndex->value[3]         = fread_number(fp);
-			pObjIndex->value[4]         = fread_number(fp);
+			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
 			break;
 
 		default:
-			pObjIndex->value[0]             = fread_flag(fp);
-			pObjIndex->value[1]             = fread_flag(fp);
-			pObjIndex->value[2]             = fread_flag(fp);
-			pObjIndex->value[3]             = fread_flag(fp);
-			pObjIndex->value[4]             = fread_flag(fp);
+			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
 			break;
 		}
+
+
+		val = 2;
+		switch (pObjIndex->item_type) {
+		case ITEM_DRINK_CON:
+		case ITEM_FOUNTAIN:
+			pObjIndex->value[val]         = ObjectValue(liq_lookup(fread_word(fp)));
+
+			if (pObjIndex->value[val] == -1) {
+				pObjIndex->value[val] = 0;
+				boot_bug("Unknown liquid type", 0);
+			}
+
+			break;
+
+		case ITEM_POTION:
+		case ITEM_PILL:
+		case ITEM_SCROLL:
+			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			break;
+
+		case ITEM_FURNITURE:
+		case ITEM_PORTAL:
+		case ITEM_ANVIL:
+			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
+			break;
+
+		default:
+			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
+			break;
+		}
+
+
+		val = 3;
+		switch (pObjIndex->item_type) {
+		case ITEM_WEAPON:
+			pObjIndex->value[val]         = ObjectValue(attack_lookup(fread_word(fp)));
+			break;
+
+		case ITEM_WAND:
+		case ITEM_STAFF:
+		case ITEM_POTION:
+		case ITEM_PILL:
+		case ITEM_SCROLL:
+			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			break;
+
+		case ITEM_DRINK_CON:
+		case ITEM_FOUNTAIN:
+		case ITEM_FOOD:
+			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
+			break;
+
+		default:
+			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
+			break;
+		}
+
+
+		val = 4;
+		switch (pObjIndex->item_type) {
+		case ITEM_WEAPON:
+			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
+			break;
+
+		case ITEM_POTION:
+		case ITEM_PILL:
+		case ITEM_SCROLL:
+			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			break;
+
+		default:
+			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
+			break;
+		}
+
 
 		pObjIndex->level                = fread_number(fp);
 		pObjIndex->weight               = fread_number(fp);
@@ -1207,11 +1254,11 @@ void load_objects(FILE *fp)
 				af.location           = fread_number(fp);
 				af.modifier           = fread_number(fp);
 				af.evolution          = 1;
-				af.bitvector          = 0;
+				af.bitvector(0);
 				af.permanent          = TRUE;
 
-				unsigned int bitvector = 0;
-				if (affect_parse_flags('O', &af, &bitvector)) {
+				Flags bitvector = 0;
+				if (affect_parse_flags('O', &af, bitvector)) {
 					affect_copy_to_list(&pObjIndex->affected, &af);
 					top_affect++;
 				}
@@ -1228,11 +1275,11 @@ void load_objects(FILE *fp)
 				af.location     = fread_number(fp);
 				af.modifier     = fread_number(fp);
 
-				unsigned int bitvector    = fread_flag(fp);
+				Flags bitvector    = fread_flag(fp);
 
 				// do at least once even if no bitvector
 				do {
-					if (affect_parse_flags(letter, &af, &bitvector)) {
+					if (affect_parse_flags(letter, &af, bitvector)) {
 						affect_copy_to_list(&pObjIndex->affected, &af); 
 						top_affect++;
 
@@ -1242,7 +1289,7 @@ void load_objects(FILE *fp)
 					}
 
 					af.type = 0; // reset every time
-				} while (bitvector != 0);
+				} while (!bitvector.empty());
 			}
 			else if (letter == 'E') {
 				ExtraDescr *ed = new_extra_descr();
@@ -1289,7 +1336,7 @@ void load_rooms(FILE *fp)
 	int iHash;
 
 	if (area_last == nullptr) {
-		bug("Load_resets: no #AREA seen yet.", 0);
+		boot_bug("Load_resets: no #AREA seen yet.", 0);
 		exit(1);
 	}
 
@@ -1297,7 +1344,7 @@ void load_rooms(FILE *fp)
 		letter                          = fread_letter(fp);
 
 		if (letter != '#') {
-			bug("Load_rooms: # not found.", 0);
+			boot_bug("Load_rooms: # not found.", 0);
 			exit(1);
 		}
 
@@ -1308,12 +1355,12 @@ void load_rooms(FILE *fp)
 
 		if (vnum < area_last->min_vnum ||
 		    vnum > area_last->max_vnum)
-			bug("room   vnum %d out of range.", vnum);
+			boot_bug("room   vnum %d out of range.", vnum);
 
 		fBootDb = FALSE;
 
 		if (get_room_index(vnum) != nullptr) {
-			bug("Load_rooms: vnum %d duplicated.", vnum);
+			boot_bug("Load_rooms: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 
@@ -1332,7 +1379,7 @@ void load_rooms(FILE *fp)
 
 		/* horrible hack */
 		if (3000 <= vnum && vnum < 3400)
-			SET_BIT(pRoomIndex->room_flags, ROOM_LAW);
+			pRoomIndex->room_flags += ROOM_LAW;
 
 		pRoomIndex->sector_type         = fread_number(fp);
 		pRoomIndex->light               = 0;
@@ -1340,17 +1387,17 @@ void load_rooms(FILE *fp)
 		for (door = 0; door <= 5; door++)
 			pRoomIndex->exit[door] = nullptr;
 
-		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_FEMALE_ONLY)) {
+		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_FEMALE_ONLY)) {
 			Format::sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
-		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_MALE_ONLY)) {
+		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_MALE_ONLY)) {
 			Format::sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
 
-		if (IS_SET(GET_ROOM_FLAGS(pRoomIndex), ROOM_LOCKER)) {
+		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_LOCKER)) {
 			Format::sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
 			log_string(log_buf);
 		}
@@ -1381,7 +1428,7 @@ void load_rooms(FILE *fp)
 
 			case 'G':       /* guild */
 				if (!(pRoomIndex->guild = class_lookup(fread_string(fp)) + 1)) {
-					bug("Load_rooms: invalid class in guild", 0);
+					boot_bug("Load_rooms: invalid class in guild", 0);
 					exit(1);
 				}
 
@@ -1391,26 +1438,26 @@ void load_rooms(FILE *fp)
 				door = fread_number(fp);
 
 				if (door < 0 || door > 5) {
-					bug("Fread_rooms: vnum %d has bad door number.", vnum);
+					boot_bug("Fread_rooms: vnum %d has bad door number.", vnum);
 					exit(1);
 				}
 
 				pexit = new Exit;
 				pexit->description      = fread_string(fp);
 				pexit->keyword          = fread_string(fp);
-				pexit->exit_info        = 0;
+				pexit->exit_flags        = Flags::none;
 				locks                   = fread_number(fp);
 				pexit->key              = fread_number(fp);
 				pexit->u1.vnum          = fread_number(fp);
 
 				switch (locks) {
-				case 1: pexit->exit_info = EX_ISDOOR;                   break;
+				case 1: pexit->exit_flags = EX_ISDOOR;                   break;
 
-				case 2: pexit->exit_info = EX_ISDOOR | EX_PICKPROOF;      break;
+				case 2: pexit->exit_flags = EX_ISDOOR | EX_PICKPROOF;      break;
 
-				case 3: pexit->exit_info = EX_ISDOOR | EX_NOPASS;         break;
+				case 3: pexit->exit_flags = EX_ISDOOR | EX_NOPASS;         break;
 
-				case 4: pexit->exit_info = EX_ISDOOR | EX_NOPASS | EX_PICKPROOF; break;
+				case 4: pexit->exit_flags = EX_ISDOOR | EX_NOPASS | EX_PICKPROOF; break;
 				}
 
 				pRoomIndex->exit[door] = pexit;
@@ -1432,7 +1479,7 @@ void load_rooms(FILE *fp)
 				break;
 
 			default:
-				bug("Load_rooms: vnum %d has flag not 'CDEHMOS'.", vnum);
+				boot_bug("Load_rooms: vnum %d has flag not 'CDEHMOS'.", vnum);
 				exit(1);
 			}
 		}
@@ -1501,7 +1548,7 @@ void load_specials(FILE *fp)
 	for (; ;) {
 		switch (letter = fread_letter(fp)) {
 		default:
-			bug("Load_specials: letter '%c' not *MS.", letter);
+			boot_bug("Load_specials: letter '%c' not *MS.", letter);
 			exit(1);
 
 		case 'S':
@@ -1515,7 +1562,7 @@ void load_specials(FILE *fp)
 			pMobIndex->spec_fun = spec_lookup(fread_word(fp));
 
 			if (pMobIndex->spec_fun == 0) {
-				bug("Load_specials: 'M': vnum %d.", pMobIndex->vnum);
+				boot_bug("Load_specials: 'M': vnum %d.", pMobIndex->vnum);
 				exit(1);
 			}
 
@@ -1562,7 +1609,7 @@ void fix_exits(void)
 			}
 
 			if (!fexit)
-				SET_BIT(pRoomIndex->room_flags, ROOM_NO_MOB);
+				pRoomIndex->room_flags += ROOM_NO_MOB;
 		}
 	}
 
@@ -1586,7 +1633,7 @@ void fix_exits(void)
 	                      to_room->vnum,    rev_dir[door],
 	                      (pexit_rev->u1.to_room == nullptr)
 	                          ? 0 : pexit_rev->u1.to_room->vnum );
-	                  bug( buf, 0 );
+	                  boot_bug( buf, 0 );
 	              }
 	          }
 	      }
@@ -1598,17 +1645,13 @@ void fix_exits(void)
 /*
  * Reports a bug.
  */
-void bug(const String& str, int param)
+void boot_bug(const String& str, int param)
 {
-	char buf[MAX_STRING_LENGTH];
-
 	if (fpArea != nullptr) {
-		int iLine;
-		int iChar;
+		int iLine = 0;
+		int iChar = 0;
 
-		if (fpArea == stdin)
-			iLine = 0;
-		else {
+		if (fpArea != stdin) {
 			iChar = ftell(fpArea);
 			fseek(fpArea, 0, 0);
 
@@ -1620,41 +1663,10 @@ void bug(const String& str, int param)
 			fseek(fpArea, iChar, 0);
 		}
 
-		Format::sprintf(buf, "[*****] FILE: %s LINE: %d", strArea, iLine);
-		log_string(buf);
-		/* RT removed because we don't want bugs shutting the mud
-		        if ( ( fp = fopen( "shutdown.txt", "a" ) ) != nullptr )
-		        {
-		            Format::fprintf( fp, "[*****] %s\n", buf );
-		            fclose( fp );
-		        }
-		*/
+		Logging::bugf("[*****] FILE: %s LINE: %d", strArea, iLine);
 	}
 
-	strcpy(buf, "[*****] BUG: ");
-	Format::sprintf(buf + strlen(buf), str.c_str(), param);
-	log_string(buf);
-	/* RT removed due to bug-file spamming
-	    if ( ( fp = fopen( BUG_FILE, "a" ) ) != nullptr )
-	    {
-	        Format::fprintf( fp, "%s\n", buf );
-	        fclose( fp );
-	    }
-	*/
-	wiznet(buf, nullptr, nullptr, WIZ_BUGS, 0, 0);
-	return;
-}
-
-/*
- * Writes a string to the log.
- */
-void log_string(const String& str)
-{
-	char *strtime;
-	strtime                    = ctime(&current_time);
-	strtime[strlen(strtime) - 1] = '\0';
-	Format::fprintf(stderr, "%s :: %s\n", strtime, str);
-	return;
+	Logging::bugf(str, param);
 }
 
 /* This routine transfers between alpha and numeric forms of the
@@ -1662,7 +1674,7 @@ void log_string(const String& str)
  *  mob/script files.
  */
 
-int mprog_name_to_type(const String& name)
+Flags::Bit mprog_name_to_type(const String& name)
 {
 	if (name == "in_file_prog")    return IN_FILE_PROG;
 
@@ -1710,7 +1722,7 @@ MobProg *mprog_file_read(const String& f, MobProg *mprg,
 	progfile = fopen(MOBProgfile, "r");
 
 	if (!progfile) {
-		bug("Mob: %d couldnt open mobprog file", pMobIndex->vnum);
+		boot_bug("Mob: %d couldnt open mobprog file", pMobIndex->vnum);
 		exit(1);
 	}
 
@@ -1721,12 +1733,12 @@ MobProg *mprog_file_read(const String& f, MobProg *mprg,
 		break;
 
 	case '|':
-		bug("empty mobprog file.", 0);
+		boot_bug("empty mobprog file.", 0);
 		exit(1);
 		break;
 
 	default:
-		bug("in mobprog file syntax error.", 0);
+		boot_bug("in mobprog file syntax error.", 0);
 		exit(1);
 		break;
 	}
@@ -1736,17 +1748,17 @@ MobProg *mprog_file_read(const String& f, MobProg *mprg,
 
 		switch (mprg2->type) {
 		case ERROR_PROG:
-			bug("mobprog file type error", 0);
+			boot_bug("mobprog file type error", 0);
 			exit(1);
 			break;
 
 		case IN_FILE_PROG:
-			bug("mprog file contains a call to file.", 0);
+			boot_bug("mprog file contains a call to file.", 0);
 			exit(1);
 			break;
 
 		default:
-			pMobIndex->progtypes = pMobIndex->progtypes | mprg2->type;
+			pMobIndex->progtype_flags = pMobIndex->progtype_flags + mprg2->type;
 			mprg2->arglist       = fread_string(progfile);
 			mprg2->comlist       = fread_string(progfile);
 
@@ -1762,7 +1774,7 @@ MobProg *mprog_file_read(const String& f, MobProg *mprg,
 				break;
 
 			default:
-				bug("in mobprog file syntax error.", 0);
+				boot_bug("in mobprog file syntax error.", 0);
 				exit(1);
 				break;
 			}
@@ -1785,7 +1797,7 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 	bool        done = FALSE;
 
 	if ((letter = fread_letter(fp)) != '>') {
-		bug("Load_mobiles: vnum %d MOBPROG char", pMobIndex->vnum);
+		boot_bug("Load_mobiles: vnum %d MOBPROG char", pMobIndex->vnum);
 		exit(1);
 	}
 
@@ -1797,7 +1809,7 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 
 		switch (mprg->type) {
 		case ERROR_PROG:
-			bug("Load_mobiles: vnum %d MOBPROG type.", pMobIndex->vnum);
+			boot_bug("Load_mobiles: vnum %d MOBPROG type.", pMobIndex->vnum);
 			exit(1);
 			break;
 
@@ -1819,7 +1831,7 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 				break;
 
 			default:
-				bug("Load_mobiles: vnum %d bad MOBPROG.", pMobIndex->vnum);
+				boot_bug("Load_mobiles: vnum %d bad MOBPROG.", pMobIndex->vnum);
 				exit(1);
 				break;
 			}
@@ -1827,7 +1839,7 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 			break;
 
 		default:
-			pMobIndex->progtypes = pMobIndex->progtypes | mprg->type;
+			pMobIndex->progtype_flags = pMobIndex->progtype_flags | mprg->type;
 			mprg->arglist        = fread_string(fp);
 			fread_to_eol(fp);
 			mprg->comlist        = fread_string(fp);
@@ -1847,7 +1859,7 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 				break;
 
 			default:
-				bug("Load_mobiles: vnum %d bad MOBPROG.", pMobIndex->vnum);
+				boot_bug("Load_mobiles: vnum %d bad MOBPROG.", pMobIndex->vnum);
 				exit(1);
 				break;
 			}

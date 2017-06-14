@@ -460,7 +460,7 @@ void gain_condition(Character *ch, int iCond, int value)
 
 	ch->pcdata->condition[iCond] = URANGE(0, condition + value, 48);
 
-	if (!IS_SET(ch->pcdata->plr, PLR_CHATMODE)) {
+	if (!ch->pcdata->plr_flags.has(PLR_CHATMODE)) {
 		if (ch->pcdata->condition[iCond] == 0) {
 			switch (iCond) {
 			case COND_HUNGER:
@@ -506,7 +506,7 @@ void mobile_update(void)
 		/* Why check for resting mobiles? */
 
 		if (ch->in_room->area->empty)
-			/* && !IS_SET(ch->act_flags,ACT_UPDATE_ALWAYS)) */
+			/* && !ch->act_flags.has(ACT_UPDATE_ALWAYS)) */
 			continue;
 
 		/* Examine call for special procedure */
@@ -537,7 +537,7 @@ void mobile_update(void)
 			continue;
 
 		/* Scavenge */
-		if (IS_SET(ch->act_flags, ACT_SCAVENGER)
+		if (ch->act_flags.has(ACT_SCAVENGER)
 		    && ch->in_room->contents != nullptr
 		    && number_bits(6) == 0) {
 			Character *gch;
@@ -567,19 +567,19 @@ void mobile_update(void)
 		}
 
 		/* Wander */
-		if (!IS_SET(ch->act_flags, ACT_SENTINEL)
+		if (!ch->act_flags.has(ACT_SENTINEL)
 		    && number_bits(3) == 0
 		    && (door = number_bits(5)) <= 5
 		    && (pexit = ch->in_room->exit[door]) != nullptr
 		    &&   pexit->u1.to_room != nullptr
-		    &&   !IS_SET(pexit->exit_info, EX_CLOSED)
-		    &&   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)
-		    && (!IS_SET(ch->act_flags, ACT_STAY_AREA)
+		    &&   !pexit->exit_flags.has(EX_CLOSED)
+		    &&   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)
+		    && (!ch->act_flags.has(ACT_STAY_AREA)
 		        ||   pexit->u1.to_room->area == ch->in_room->area)
-		    && (!IS_SET(ch->act_flags, ACT_OUTDOORS)
-		        ||   !IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))
-		    && (!IS_SET(ch->act_flags, ACT_INDOORS)
-		        ||   IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_INDOORS))) {
+		    && (!ch->act_flags.has(ACT_OUTDOORS)
+		        ||   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))
+		    && (!ch->act_flags.has(ACT_INDOORS)
+		        ||   GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))) {
 			move_char(ch, door, FALSE);
 
 			/* If ch changes position due
@@ -722,7 +722,7 @@ void weather_update(void)
 		for (ch = char_list; ch != nullptr; ch = ch->next)
 
 			/* why send it to mobs? */
-			if (!IS_NPC(ch) && IS_OUTSIDE(ch) && IS_AWAKE(ch) && IS_SET(ch->act_flags, PLR_TICKS))
+			if (!IS_NPC(ch) && IS_OUTSIDE(ch) && IS_AWAKE(ch) && ch->act_flags.has(PLR_TICKS))
 				stc(buf, ch);
 	}
 }
@@ -768,7 +768,7 @@ void descrip_update(void)
 			}
 
 			if (d->timer == 7) {
-				if (!IS_SET(ch->comm, COMM_AFK) && !IS_NPC(ch)) {
+				if (!ch->comm_flags.has(COMM_AFK) && !IS_NPC(ch)) {
 					act("$n is set to auto-afk...", ch, nullptr, nullptr, TO_ROOM);
 					do_afk(ch, "{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x");
 				}
@@ -810,7 +810,7 @@ void char_update(void)
 		}
 
 		/* Autotick stuff - Lotus */
-		if (!IS_NPC(ch) && IS_SET(ch->act_flags, PLR_TICKS))
+		if (!IS_NPC(ch) && ch->act_flags.has(PLR_TICKS))
 			stc("{Btick...{x\n", ch);
 
 		if (get_position(ch) >= POS_STUNNED) {
@@ -936,25 +936,25 @@ void char_update(void)
 				gain_condition(ch, COND_THIRST, -1);
 
 			/* Check killer flag - Clerve */
-			if (ch->pcdata->flag_killer == 0 && IS_SET(ch->act_flags, PLR_KILLER)) {
-				REMOVE_BIT(ch->act_flags, PLR_KILLER);
-				REMOVE_BIT(ch->act_flags, PLR_NOPK);
+			if (ch->pcdata->flag_killer == 0 && ch->act_flags.has(PLR_KILLER)) {
+				ch->act_flags -= PLR_KILLER;
+				ch->act_flags -= PLR_NOPK;
 				stc("The urge to kill dimishes.\n", ch);
 				stc("You are no longer a KILLER.\n", ch);
 				save_char_obj(ch);
 			}
-			else if (ch->pcdata->flag_killer > 0 && IS_SET(ch->act_flags, PLR_KILLER))
+			else if (ch->pcdata->flag_killer > 0 && ch->act_flags.has(PLR_KILLER))
 				ch->pcdata->flag_killer--;
 
 			/* Check thief flag - Clerve */
-			if (ch->pcdata->flag_thief == 0 && IS_SET(ch->act_flags, PLR_THIEF)) {
-				REMOVE_BIT(ch->act_flags, PLR_THIEF);
-				REMOVE_BIT(ch->act_flags, PLR_NOPK);
+			if (ch->pcdata->flag_thief == 0 && ch->act_flags.has(PLR_THIEF)) {
+				ch->act_flags -= PLR_THIEF;
+				ch->act_flags -= PLR_NOPK;
 				stc("The urge to steal dimishes.\n", ch);
 				stc("You are no longer a THIEF.\n", ch);
 				save_char_obj(ch);
 			}
-			else if (ch->pcdata->flag_thief > 0 && IS_SET(ch->act_flags, PLR_THIEF))
+			else if (ch->pcdata->flag_thief > 0 && ch->act_flags.has(PLR_THIEF))
 				ch->pcdata->flag_thief--;
 		}
 
@@ -1282,7 +1282,7 @@ bool eligible_aggressor(Character *ch)
 {
 	return (IS_NPC(ch)
 	        && IS_AWAKE(ch)
-	        && IS_SET(ch->act_flags, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
+	        && ch->act_flags.has_any_of(ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == nullptr
 	        && !affect_exists_on_char(ch, gsn_calm)
 	        && !affect_exists_on_char(ch, gsn_charm_person)
@@ -1360,7 +1360,7 @@ void aggr_update(void)
 		   player before they can complete their quest, may change for realism, tho -- Montrey */
 		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
 			if (!IS_NPC(ch)
-			    && IS_SET(ch->pcdata->plr, PLR_SQUESTOR)
+			    && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
 			    && ch->pcdata->squestmob != nullptr
 			    && ch->pcdata->squestobj == nullptr) {
 				/* look for quest mob */
@@ -1398,8 +1398,8 @@ void aggr_update(void)
 		}
 
 		/* no aggression in safe rooms */
-		if (IS_SET(GET_ROOM_FLAGS(room), ROOM_SAFE)
-		 || IS_SET(GET_ROOM_FLAGS(room), ROOM_LAW))
+		if (GET_ROOM_FLAGS(room).has(ROOM_SAFE)
+		 || GET_ROOM_FLAGS(room).has(ROOM_LAW))
 			continue;
 
 		/* only aggression below this point */
@@ -1443,14 +1443,14 @@ void aggr_update(void)
 		}
 
 		/* final checks before the fight starts */
-		if ((IS_SET(mob->act_flags, ACT_WIMPY) && IS_AWAKE(victim))
+		if ((mob->act_flags.has(ACT_WIMPY) && IS_AWAKE(victim))
 		    || !can_see_char(mob, victim))
 			continue;
 
 		if (mob->level < victim->level - 5)
 			continue;
 
-		if (IS_SET(mob->act_flags, ACT_AGGR_ALIGN)) {
+		if (mob->act_flags.has(ACT_AGGR_ALIGN)) {
 			if (IS_NEUTRAL(victim))
 				continue;
 
@@ -1490,7 +1490,7 @@ void tele_update(void)
 		if (ch->in_room == nullptr)
 			continue;
 
-		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_TELEPORT)) {
+		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_TELEPORT)) {
 			do_look(ch, "tele");
 
 			if (ch->in_room->tele_dest == 0)
@@ -1705,7 +1705,7 @@ void underwater_update(void)
 	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_UNDER_WATER)) {
+		if (!IS_NPC(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
 			skill = get_skill(ch, gsn_swimming);
 
 			if (skill == 100)
@@ -1756,11 +1756,11 @@ void quest_update(void)
 				if (ch->nextquest == 0)
 					stc("You may now quest again.\n", ch);
 			}
-			else if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
+			else if (ch->act_flags.has(PLR_QUESTOR)) {
 				if (--ch->countdown <= 0) {
 					ch->nextquest = 0;
 					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
-					REMOVE_BIT(ch->act_flags, PLR_QUESTOR);
+					ch->act_flags -= PLR_QUESTOR;
 					ch->quest_giver = 0;
 					ch->countdown = 0;
 					ch->questmob = 0;
@@ -1778,7 +1778,7 @@ void quest_update(void)
 				if (ch->pcdata->nextsquest == 0)
 					stc("You may now skill quest again.\n", ch);
 			}
-			else if (IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
+			else if (ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
 				if (--ch->pcdata->sqcountdown <= 0) {
 					ch->pcdata->nextsquest = 0;
 					stc("You have run out of time for your skill quest!\n"

@@ -39,7 +39,7 @@ void do_heal(Character *ch, String argument)
 
 	/* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && IS_SET(mob->act_flags, ACT_IS_HEALER)) break;
+		if (IS_NPC(mob) && mob->act_flags.has(ACT_IS_HEALER)) break;
 	}
 
 	if (mob == nullptr) {

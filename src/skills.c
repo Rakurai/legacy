@@ -1523,7 +1523,7 @@ void do_gain(Character *ch, String argument)
 
 	/* find a trainer */
 	for (trainer = ch->in_room->people; trainer; trainer = trainer->next_in_room)
-		if (IS_NPC(trainer) && IS_SET(trainer->act_flags, ACT_GAIN) && can_see_char(ch, trainer))
+		if (IS_NPC(trainer) && trainer->act_flags.has(ACT_GAIN) && can_see_char(ch, trainer))
 			break;
 
 	if (trainer == nullptr) {

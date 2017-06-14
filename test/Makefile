@@ -11,18 +11,25 @@ LIBS := -L /opt/local/lib -lboost_unit_test_framework-mt
 # Create lists of the elements of our build
 SOURCES := $(shell find . -depth 1 -name '*.c*' -print | sort)
 OBJECTS := $(SOURCES:.cpp=.o)
-BIN := tests
+TESTS := String Flags
+BINS := $(addsuffix .test, $(TESTS))
 
 %.o: %.cpp
 	$(CXX) -c -o $@ $< $(CXXFLAGS) $(INCLUDES)
 
-all: $(OBJECTS)
-	$(LD) -o $(BIN) $^ $(LIBS)
-	chmod 755 $(BIN)
+all: $(TESTS)
+
+String: String.o StringTest.o argument.o
+	$(LD) -o $@.test $^ $(LIBS)
+	chmod 755 $@.test
+
+Flags: Flags.o FlagsTest.o LoggingDummy.o
+	$(LD) -o $@.test $^ $(LIBS)
+	chmod 755 $@.test
 
 # Run all tests
 run:
-	./$(BIN)
+	for bin in $(BINS) ; do ./$$bin ; done
 
 # Clean up deleting all temporary files
 clean:

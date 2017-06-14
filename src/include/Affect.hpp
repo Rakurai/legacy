@@ -1,6 +1,8 @@
 #ifndef _AFFECT_H
 #define _AFFECT_H
 
+#include "Flags.hpp"
+
 /*
  * An affect.
  */
@@ -21,10 +23,12 @@ public:
     sh_int              duration = 0;
     sh_int              location = 0;
     sh_int              modifier = 0;
-    int                 bitvector = 0; // only for weapon flags now
+    int                 _bitvector = 0; // only for weapon flags now
     sh_int              evolution = 0;
     bool                permanent = FALSE;
 
+    const Flags bitvector() const { return Flags(_bitvector); }
+    void bitvector(const Flags& f) { _bitvector = f.to_ulong(); }
 } __attribute__((packed, aligned(1))); // no alignment padding, for checksums
 
 /* where definitions */
@@ -72,7 +76,7 @@ void          affect_update               args(( Affect *paf, const Affect
 *aff_template ));
 void          affect_swap                 args(( Affect *a, Affect *b ));
 unsigned long affect_checksum             args(( const Affect *paf ));
-bool          affect_parse_flags      args(( char letter, Affect *paf, unsigned int *bitvector ));
+bool          affect_parse_flags      args(( char letter, Affect *paf, Flags& bitvector ));
 String        affect_print_cache          args(( Character *ch ));
 bool          affect_in_cache             args(( const Character *ch, sh_int sn ));
 void          update_affect_cache         args(( Character *ch, sh_int sn, bool fAdd ));
@@ -105,7 +109,7 @@ void                affect_join_to_obj               args(( Object *obj, Affect 
 void                affect_join_to_char              args(( Character *ch, Affect *paf ));
 void                affect_join_to_room              args(( RoomPrototype *room, Affect *paf ));
 void                affect_add_perm_to_char          args(( Character *ch, int sn ));
-void                affect_copy_flags_to_char        args(( Character *ch, char letter, unsigned int bitvector, bool permanent ));
+void                affect_copy_flags_to_char        args(( Character *ch, char letter, Flags flags, bool permanent ));
 void                affect_add_sn_to_char            args(( Character *ch, sh_int sn, sh_int level, sh_int duration, sh_int evolution, bool permanent ));
 void                affect_add_racial_to_char        args(( Character *ch ));
 
@@ -134,7 +138,7 @@ void                affect_sort_obj                  args(( Object *ch, affect_c
 void                affect_sort_char                 args(( Character *ch, affect_comparator comp ));
 void                affect_sort_room                 args(( RoomPrototype *ch, affect_comparator comp ));
 
-void                remort_affect_modify_char        args(( Character *ch, int where, unsigned int bitvector, bool fAdd ));
+void                remort_affect_modify_char        args(( Character *ch, int where, Flags bitvector, bool fAdd ));
 
 /* affect recycling */
 Affect *new_affect args( (void) );

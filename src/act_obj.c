@@ -198,7 +198,7 @@ bool can_loot(Character *ch, Object *obj)
 	if (ch->name == owner->name)
 		return TRUE;
 
-	if (!IS_NPC(owner) && IS_SET(owner->act_flags, PLR_CANLOOT))
+	if (!IS_NPC(owner) && owner->act_flags.has(PLR_CANLOOT))
 		return TRUE;
 
 	if (is_same_group(ch, owner))
@@ -349,7 +349,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 		ch->silver += obj->value[0];
 		ch->gold += obj->value[1];
 
-		if (IS_SET(ch->act_flags, PLR_AUTOSPLIT)) {
+		if (ch->act_flags.has(PLR_AUTOSPLIT)) {
 			/* AUTOSPLIT code */
 			members = 0;
 
@@ -371,7 +371,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 
 		if (!IS_NPC(ch)) {
 			/* Did they pick up their quest item? */
-			if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
+			if (ch->act_flags.has(PLR_QUESTOR)) {
 				if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
 					char buf[MAX_STRING_LENGTH];
 					stc("{YYou have almost completed your QUEST!{x\n", ch);
@@ -383,7 +383,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 			}
 
 			/* or skill quest item? */
-			if (IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
+			if (ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
 				if (ch->pcdata->squestobj == obj && !ch->pcdata->squestobjf) {
 					char buf[MAX_STRING_LENGTH];
 
@@ -494,14 +494,14 @@ void do_get(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
-			if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
-				if (IS_SET(ch->act_flags, PLR_CLOSED)) {
+			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LOCKER)) {
+				if (ch->act_flags.has(PLR_CLOSED)) {
 					int number = get_locker_number(ch);
 
 					if (deduct_cost(ch, number * 10)) {
 						ptc(ch, "%d silver has been deducted for your locker.\n",
 						    number * 10);
-						REMOVE_BIT(ch->act_flags, PLR_CLOSED);
+						ch->act_flags -= PLR_CLOSED;
 					}
 					else {
 						stc("Your locker is closed.\n", ch);
@@ -638,7 +638,7 @@ void do_get(Character *ch, String argument)
 			break;
 		}
 
-		if (IS_SET(container->value[1], CONT_CLOSED) && !IS_OBJ_STAT(container, ITEM_COMPARTMENT)) {
+		if (container->value[1].flags().has(CONT_CLOSED) && !IS_OBJ_STAT(container, ITEM_COMPARTMENT)) {
 			ptc(ch, "The %s is closed.\n", container->short_descr);
 			return;
 		}
@@ -742,7 +742,7 @@ void do_put(Character *ch, String argument)
 
 	/* locker stuff */
 	if (!IS_NPC(ch) && arg2.is_prefix_of("locker")) {
-		if (!IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_LOCKER)) {
+		if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_LOCKER)) {
 			stc("You do not see a locker in this room.\n", ch);
 			return;
 		}
@@ -876,7 +876,7 @@ void do_put(Character *ch, String argument)
 		}
 	}
 
-	if (IS_SET(container->value[1], CONT_CLOSED)
+	if (container->value[1].flags().has(CONT_CLOSED)
 	    && !IS_OBJ_STAT(container, ITEM_COMPARTMENT)) {
 		act("The $d is closed.", ch, nullptr, container->name, TO_CHAR);
 		return;
@@ -914,7 +914,7 @@ void do_put(Character *ch, String argument)
 		obj_from_char(obj);
 		obj_to_obj(obj, container);
 
-		if (container->item_type == ITEM_CONTAINER && IS_SET(container->value[1], CONT_PUT_ON)) {
+		if (container->item_type == ITEM_CONTAINER && container->value[1].flags().has(CONT_PUT_ON)) {
 			act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
 			act("You put $p on $P.", ch, obj, container, TO_CHAR);
 		}
@@ -944,7 +944,7 @@ void do_put(Character *ch, String argument)
 			obj_from_char(obj);
 			obj_to_obj(obj, container);
 
-			if (container->item_type == ITEM_CONTAINER && IS_SET(container->value[1], CONT_PUT_ON)) {
+			if (container->item_type == ITEM_CONTAINER && container->value[1].flags().has(CONT_PUT_ON)) {
 				act("$n puts $p on $P.", ch, obj, container, TO_ROOM);
 				act("You put $p on $P.", ch, obj, container, TO_CHAR);
 			}
@@ -1240,7 +1240,7 @@ void do_give(Character *ch, String argument)
 		}
 
 		if (!IS_NPC(victim)) {
-			if (!IS_IMMORTAL(ch) && IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
+			if (!IS_IMMORTAL(ch) && victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 				Format::sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 				wiznet(buf, ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 				stc("Your recipient cannot receive objects in their current state.\n", ch);
@@ -1254,11 +1254,11 @@ void do_give(Character *ch, String argument)
 			}
 		}
 
-		if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_IS_CHANGER)) {
+		if (IS_NPC(victim) && victim->act_flags.has(ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
 
-			if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_IS_CHANGER)) {
+			if (IS_NPC(ch) && ch->act_flags.has(ACT_IS_CHANGER)) {
 				stc("You don't need more money.\n", ch);
 				return;
 			}
@@ -1305,7 +1305,7 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, nullptr, victim, TO_CHAR);
 		mprog_bribe_trigger(victim, ch, silver ? amount : amount * 100);
 
-		if (IS_NPC(victim) && IS_SET(victim->act_flags, ACT_IS_CHANGER)) {
+		if (IS_NPC(victim) && victim->act_flags.has(ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
 
@@ -1404,7 +1404,7 @@ void do_give(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && !IS_IMMORTAL(ch) && IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)) {
+	if (!IS_NPC(victim) && !IS_IMMORTAL(ch) && victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 		Format::sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 		wiznet(buf, ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		stc("Your recipient cannot receive objects in their current state.\n", ch);
@@ -1471,7 +1471,7 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
-	if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_SQUESTOR)
+	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
 	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {
 		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
 			extern void squestobj_to_squestmob args((Character * ch, Object * obj, Character * mob));
@@ -1581,7 +1581,7 @@ void do_envenom(Character *ch, String argument)
 			af.duration  = ch->level * 5;
 			af.location  = 0;
 			af.modifier  = 0;
-			af.bitvector = WEAPON_POISON;
+			af.bitvector(WEAPON_POISON);
 			af.evolution = get_evolution(ch, gsn_envenom);
 			affect_copy_to_obj(obj, &af);
 			act("$n coats $p with deadly venom.", ch, obj, nullptr, TO_ROOM);
@@ -2775,7 +2775,7 @@ void do_sacrifice(Character *ch, String argument)
 
 	ch->silver += silver;
 
-	if (IS_SET(ch->act_flags, PLR_AUTOSPLIT)) {
+	if (ch->act_flags.has(PLR_AUTOSPLIT)) {
 		/* AUTOSPLIT code */
 		members = 0;
 
@@ -3382,7 +3382,7 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && IS_SET(ch->act_flags, ACT_MORPH) && !IS_NPC(victim)) {
+	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim)) {
 		stc("Morphed players cannot attack PC's.\n", ch);
 		return;
 	}
@@ -3417,12 +3417,12 @@ void do_steal(Character *ch, String argument)
 	}
 
 	if (!IS_NPC(victim) && !IS_IMMORTAL(ch)) {
-		if (!IS_SET(victim->pcdata->plr, PLR_PK)) {
+		if (!victim->pcdata->plr_flags.has(PLR_PK)) {
 			stc("They are not in the mood to PSteal.\n", ch);
 			return;
 		}
 
-		if (!IS_SET(ch->pcdata->plr, PLR_PK)) {
+		if (!ch->pcdata->plr_flags.has(PLR_PK)) {
 			stc("You are not in the mood to PSteal.\n", ch);
 			return;
 		}
@@ -3466,9 +3466,9 @@ void do_steal(Character *ch, String argument)
 				Format::sprintf(buf, "$N tried to steal from %s.", victim->name);
 				wiznet(buf, ch, nullptr, WIZ_FLAGS, 0, 0);
 
-				if (!IS_SET(ch->act_flags, PLR_THIEF)) {
-					SET_BIT(ch->act_flags, PLR_THIEF);
-					SET_BIT(ch->pcdata->plr, PLR_NOPK);
+				if (!ch->act_flags.has(PLR_THIEF)) {
+					ch->act_flags += PLR_THIEF;
+					ch->pcdata->plr_flags += PLR_NOPK;
 					set_color(ch, BLUE, NOBOLD);
 					stc("*** You are now a THIEF!! ***\n", ch);
 					set_color(ch, WHITE, NOBOLD);
@@ -3549,7 +3549,7 @@ void do_steal(Character *ch, String argument)
 	stc("Got it!\n", ch);
 
 	/* Did they pick up their quest item? */
-	if (IS_SET(ch->act_flags, PLR_QUESTOR)) {
+	if (ch->act_flags.has(PLR_QUESTOR)) {
 		if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
 			char buf[MAX_STRING_LENGTH];
 			stc("{YYou have almost completed your QUEST!{x\n", ch);
@@ -3561,7 +3561,7 @@ void do_steal(Character *ch, String argument)
 	}
 
 	/* or skill quest item? */
-	if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
+	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
 		if (ch->pcdata->squestobj == obj && !ch->pcdata->squestobjf) {
 			char buf[MAX_STRING_LENGTH];
 
@@ -3593,7 +3593,7 @@ Character *find_keeper(Character *ch)
 	pShop = nullptr;
 
 	for (keeper = ch->in_room->people; keeper; keeper = keeper->next_in_room) {
-		if (IS_SET(keeper->act_flags, ACT_MORPH))
+		if (keeper->act_flags.has(ACT_MORPH))
 			continue;
 
 		if (IS_NPC(keeper) && (pShop = keeper->pIndexData->pShop) != nullptr)
@@ -3608,7 +3608,7 @@ Character *find_keeper(Character *ch)
 	/*
 	 * Undesirables.
 	 * REWORK PK, lets let them shop, Lotus
-	if ( !IS_NPC(ch) && IS_SET(ch->act_flags, PLR_KILLER) )
+	if ( !IS_NPC(ch) && ch->act_flags.has(PLR_KILLER) )
 	{
 	        do_say( keeper, "Killers are not welcome!" );
 	        Format::sprintf( buf, "%s the psycho KILLER is over here!\n", ch->name );
@@ -3616,7 +3616,7 @@ Character *find_keeper(Character *ch)
 	        return nullptr;
 	}
 
-	if ( !IS_NPC(ch) && IS_SET(ch->act_flags, PLR_THIEF) )
+	if ( !IS_NPC(ch) && ch->act_flags.has(PLR_THIEF) )
 	{
 	        do_say( keeper, "Thieves are not welcome!" );
 	        Format::sprintf( buf, "%s the gutless THIEF is over here!\n", ch->name );
@@ -3767,9 +3767,9 @@ int get_cost(Character *keeper, Object *obj, bool fBuy)
 } /* end get_cost() */
 
 void make_pet(Character *ch, Character *pet) {
-	SET_BIT(pet->act_flags, ACT_PET);
+	pet->act_flags += ACT_PET;
 	affect_add_perm_to_char(pet, gsn_charm_person);
-	pet->comm = COMM_NOCHANNELS;
+	pet->comm_flags = COMM_NOCHANNELS;
 	add_follower(pet, ch);
 	pet->leader = ch;
 	ch->pet = pet;
@@ -3793,7 +3793,7 @@ void do_buy(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_PET_SHOP)) {
 		/* PETS */
 		char buf[MAX_STRING_LENGTH];
 		Character *pet;
@@ -3828,7 +3828,7 @@ void do_buy(Character *ch, String argument)
 			return;
 		}
 
-		if (pet == nullptr || !IS_SET(pet->act_flags, ACT_PET)) {
+		if (pet == nullptr || !pet->act_flags.has(ACT_PET)) {
 			stc("Sorry, we don't sell those.  If you'd like to see my manager...\n", ch);
 			return;
 		}
@@ -4165,7 +4165,7 @@ void do_list(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_PET_SHOP)) {
+	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_PET_SHOP)) {
 		RoomPrototype *pRoomIndexNext;
 		Character *pet;
 		bool found;
@@ -4185,7 +4185,7 @@ void do_list(Character *ch, String argument)
 		found = FALSE;
 
 		for (pet = pRoomIndexNext->people; pet; pet = pet->next_in_room) {
-			if (IS_SET(pet->act_flags, ACT_PET)) {
+			if (pet->act_flags.has(ACT_PET)) {
 				if (!found) {
 					found = TRUE;
 					stc("Pets and Exotic Companions for sale:\n", ch);
@@ -4450,7 +4450,7 @@ int is_anvil_owner(Character *ch, Object *anvil)
 void forge_flag(Character *ch, const String& argument, Object *anvil)
 {
 	Object *weapon;
-	int flag_table_num, flag, flag_count = 0, evo, qpcost;
+	int flag_table_num, flag_count = 0, evo, qpcost;
 	evo = get_evolution(ch, gsn_forge);
 
 	/* are they wielding a weapon? */
@@ -4469,12 +4469,12 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 	one_argument(argument, arg);
 
 	/* player used a valid flag type? */
-	if ((flag_table_num = flag_lookup(arg, weapon_flags)) == -1) {
+	if ((flag_table_num = flag_index_lookup(arg, weapon_flags)) == -1) {
 		ptc(ch, "'%s' is not a valid weapon flag name, sorry!\n", arg);
 		return;
 	}
 
-	flag = weapon_flags[flag_table_num].bit;
+	Flags::Bit flag = weapon_flags[flag_table_num].bit;
 
 	/* have to be evo 2 to forge vorpal, otherwise, can forge everything but sharp and poison */
 	if (flag == WEAPON_POISON
@@ -4569,10 +4569,10 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 	if (IS_IMMORTAL(ch) || number_percent() < (flag_count >= 1 ? 50 : 30)) {
 		stc("Amid sparks and rising smoke, an awesome transformation affects your weapon!\n", ch);
 		act("$n's weapon strikes sparks on the anvil, and smoke rises. It is... changed!", ch, nullptr, nullptr, TO_ROOM);
-		SET_BIT(weapon->value[4], flag);
+		weapon->value[4] += flag;
 
 		if (flag == WEAPON_TWO_HANDS) {
-			weapon->value[1]++;
+			++weapon->value[1];
 			remove_obj(ch, WEAR_WIELD, TRUE);
 		}
 	}
@@ -4643,7 +4643,7 @@ void do_hone(Character *ch, String argument)
 	Format::sprintf(buf, "You skillfully hone %s to a razor edge.\n", weapon->short_descr);
 	act("$n skillfully sharpens $p to a razor edge.", ch, weapon, nullptr, TO_ROOM);
 	stc(buf, ch);
-	SET_BIT(weapon->value[4], WEAPON_SHARP);
+	weapon->value[4] += WEAPON_SHARP;
 	return;
 }
 

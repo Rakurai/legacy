@@ -7,7 +7,7 @@ public:
 	virtual ~MobProg() {}
 
     MobProg *next = nullptr;
-    int         type = 0;
+    Flags::Bit         type;
     String      arglist;
     String      comlist;
 
@@ -18,19 +18,19 @@ private:
 
 extern bool    MOBtrigger;
 
-#define ERROR_PROG        -1
-#define IN_FILE_PROG       0
-#define ACT_PROG           1
-#define SPEECH_PROG        2
-#define RAND_PROG          4
-#define FIGHT_PROG         8
-#define DEATH_PROG        16
-#define HITPRCNT_PROG     32
-#define ENTRY_PROG        64
-#define GREET_PROG       128
-#define ALL_GREET_PROG   256
-#define GIVE_PROG        512
-#define BRIBE_PROG      1024
-#define BUY_PROG        2048
-#define TICK_PROG       4096
-#define BOOT_PROG	8192
+#define ERROR_PROG         Flags::none
+#define IN_FILE_PROG       Flags::A
+#define ACT_PROG           Flags::B
+#define SPEECH_PROG        Flags::C
+#define RAND_PROG          Flags::D
+#define FIGHT_PROG         Flags::E
+#define DEATH_PROG         Flags::F
+#define HITPRCNT_PROG      Flags::G
+#define ENTRY_PROG         Flags::H
+#define GREET_PROG         Flags::I
+#define ALL_GREET_PROG     Flags::J
+#define GIVE_PROG          Flags::K
+#define BRIBE_PROG         Flags::L
+#define BUY_PROG           Flags::M
+#define TICK_PROG          Flags::N
+#define BOOT_PROG	       Flags::O

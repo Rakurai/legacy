@@ -1,4 +1,4 @@
 make sure calls to do_ functions don't have leading or trailing whitespace, don't rely on one_arg
 put something in *_argument functions to make sure we're not overwriting the input (loop?) see if 
 same object
-
+is wiznet actually working right?  it seems that both flag and flag_skip are required to see the message, is that correct?

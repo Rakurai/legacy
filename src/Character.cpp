@@ -46,7 +46,7 @@ Character::~Character() {
 
 	/* stop active TAILs, if any -- Elrac */
 	if (!IS_NPC(this) && pcdata && pcdata->tailing)
-		set_tail(this, nullptr, 0);
+		set_tail(this, nullptr, TAIL_NONE);
 
 	/* stop all passive TAILs -- Elrac */
 	for (Tail *td = tail; td != nullptr; td = tail) {

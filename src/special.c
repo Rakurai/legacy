@@ -148,7 +148,7 @@ bool spec_troll_member(Character *ch)
 		if (vch->pIndexData->vnum == MOB_VNUM_PATROLMAN)
 			return FALSE;
 
-		if (vch->pIndexData->group == GROUP_VNUM_OGRES &&  ch->level > vch->level - 2 && !is_safe(ch, vch, TRUE)) {
+		if (vch->pIndexData->group_flags.has(GROUP_VNUM_OGRES) &&  ch->level > vch->level - 2 && !is_safe(ch, vch, TRUE)) {
 			if (number_range(0, count) == 0)
 				victim = vch;
 
@@ -206,7 +206,7 @@ bool spec_ogre_member(Character *ch)
 		if (vch->pIndexData->vnum == MOB_VNUM_PATROLMAN)
 			return FALSE;
 
-		if (vch->pIndexData->group == GROUP_VNUM_TROLLS && ch->level > vch->level - 2 && !is_safe(ch, vch, TRUE)) {
+		if (vch->pIndexData->group_flags.has(GROUP_VNUM_TROLLS) && ch->level > vch->level - 2 && !is_safe(ch, vch, TRUE)) {
 			if (number_range(0, count) == 0)
 				victim = vch;
 
@@ -757,11 +757,11 @@ bool spec_executioner(Character *ch)
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_KILLER)
+		if (!IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)
 		    &&   can_see_char(ch, victim))
 		{ crime = "KILLER"; break; }
 
-		if (!IS_NPC(victim) && IS_SET(victim->act_flags, PLR_THIEF)
+		if (!IS_NPC(victim) && victim->act_flags.has(PLR_THIEF)
 		    &&   can_see_char(ch, victim))
 		{ crime = "THIEF"; break; }
 	}
@@ -771,7 +771,7 @@ bool spec_executioner(Character *ch)
 
 	Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 	        victim->name, crime);
-	REMOVE_BIT(ch->comm, COMM_NOCHANNELS);
+	ch->comm_flags -= COMM_NOCHANNELS;
 	do_yell(ch, buf);
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
@@ -828,11 +828,11 @@ bool spec_guard(Character *ch)
 		v_next = victim->next_in_room;
 
 		/* REWORK PK - Lotus
-		        if ( !IS_NPC(victim) && IS_SET(victim->act_flags, PLR_KILLER)
+		        if ( !IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)
 		        &&   can_see_char(ch,victim))
 		            { crime = "KILLER"; break; }
 
-		        if ( !IS_NPC(victim) && IS_SET(victim->act_flags, PLR_THIEF)
+		        if ( !IS_NPC(victim) && victim->act_flags.has(PLR_THIEF)
 		        &&   can_see_char(ch,victim))
 		            { crime = "THIEF"; break; }
 		*/
@@ -848,7 +848,7 @@ bool spec_guard(Character *ch)
 	if (victim != nullptr) {
 		Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!!  BANZAI!!",
 		        victim->name, crime);
-		REMOVE_BIT(ch->comm, COMM_NOCHANNELS);
+		ch->comm_flags -= COMM_NOCHANNELS;
 		do_yell(ch, buf);
 		multi_hit(ch, victim, TYPE_UNDEFINED);
 		return TRUE;
@@ -875,7 +875,7 @@ bool spec_janitor(Character *ch)
 	for (trash = ch->in_room->contents; trash != nullptr; trash = trash_next) {
 		trash_next = trash->next_content;
 
-		if (!IS_SET(trash->wear_flags, ITEM_TAKE) || !can_loot(ch, trash))
+		if (!trash->wear_flags.has(ITEM_TAKE) || !can_loot(ch, trash))
 			continue;
 
 		if (trash->item_type == ITEM_CORPSE_PC)
@@ -1288,7 +1288,7 @@ bool spec_clanguard(Character *ch)
 			continue;
 
 		if (!found) {
-			REMOVE_BIT(ch->comm, COMM_NOCHANNELS);
+			ch->comm_flags -= COMM_NOCHANNELS;
 			do_yell(ch, "Invaders!  KILL THE INFIDELS!!");
 		}
 

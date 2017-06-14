@@ -327,7 +327,7 @@ A practice shield~
 An apprentice has left his practice shield here.~
 wood~
 armor 0 AJ
-C BC AC 0 0
+4 6 5 0 0
 10 7 500 P
 A
 17 -2
@@ -341,7 +341,7 @@ A suit of practice armor~
 A suit of practice armor has been discarded in the corner.~
 leather~
 armor 0 AD
-AC AC AC 0 0
+5 5 5 0 0
 10 20 500 P
 A
 13 5
@@ -387,7 +387,7 @@ A practice holy symbol~
 A plain brass holy symbol is here.~
 brass~
 armor 0 AC
-AC AC AC 0 0
+5 5 5 0 0
 10 1 500 P
 A
 12 5
@@ -402,7 +402,7 @@ Some practice robes~
 A young mage's practice robes are folded neatly here.~
 cloth~
 armor 0 AI
-BC AC C 0 0
+6 5 4 0 0
 10 3 500 P
 A
 5 1
@@ -416,7 +416,7 @@ Some practice robes~
 A young mage's practice robes are discarded here.~
 cloth~
 armor 0 AF
-BC AC C 0 0
+6 5 4 0 0
 10 3 500 P
 A
 14 50
@@ -430,7 +430,7 @@ A practice hat~
 A conical shaped hat sits here.~
 cloth~
 armor 0 AE
-C BC AC 0 0
+4 6 5 0 0
 10 1 500 P
 A
 3 1
@@ -445,7 +445,7 @@ A pair of practice gloves~
 Some leather practice gloves are here.~
 leather~
 armor 0 AH
-C BC AC 0 0
+4 6 5 0 0
 10 3 500 P
 A
 1 1
@@ -459,7 +459,7 @@ A pair of practice boots~
 Some leather practice boots stand upright here.~
 leather~
 armor 0 AG
-AC AC AC 0 0
+5 5 5 0 0
 10 5 500 P
 A
 2 1
@@ -504,7 +504,7 @@ Cold steel shield~
 A shield wrought of cold steel sits here.~
 steel~
 armor I AJ
-BC ABC D AC 0
+6 7 8 5 0
 20 15 3000 P
 A
 17 -5
@@ -518,7 +518,7 @@ Cold steel chainmail~
 A suit of chain mesh sits here.~
 steel~
 armor I AD
-ABC D BC AC 0
+7 8 6 5 0
 20 30 3000 P
 A
 13 20
@@ -564,7 +564,7 @@ A Cold steel ankh~
 An ankh lies here.~
 steel~
 armor I AC
-ABC ABC ABC AC 0
+7 7 7 5 0
 20 5 3000 P
 A
 12 15
@@ -578,7 +578,7 @@ Some flowing robes~
 Some flowing robes lie folded on the floor.~
 cloth~
 armor I AI
-D BC ABC AC 0
+8 6 7 5 0
 20 7 3000 P
 A
 5 2
@@ -606,7 +606,7 @@ A Tall, pointed hat~
 A tall pointed hat sits on the table.~
 cloth~
 armor I AE
-BC D ABC AC 0
+6 8 7 5 0
 20 3 3000 P
 A
 3 2
@@ -620,7 +620,7 @@ Hard leather gloves~
 A pair of hard leather gloves are here.~
 leather~
 armor I AH
-BC BC AD AC 0
+6 6 9 5 0
 20 8 3000 P
 A
 1 2
@@ -634,7 +634,7 @@ Hard leather boots~
 A pair of hard leather boots are here.~
 leather~
 armor I AG
-BC ABC D AC 0
+6 7 8 5 0
 20 8 3000 P
 A
 2 2
@@ -664,7 +664,7 @@ Spiked greaves~
 A wicked looking set of spiked greaves is here.~
 steel~
 armor IK AI
-ABC AD D AC 0
+7 9 8 5 0
 25 20 5000 P
 A
 19 2
@@ -682,7 +682,7 @@ Spiked leggings~
 A wicked looking set of spiked leggings is here.~
 steel~
 armor IK AF
-AD ABC D AC 0
+9 7 8 5 0
 25 20 5000 P
 A
 19 2
@@ -700,7 +700,7 @@ Sun blazoned ankh~
 An ankh set before a golden sun hangs from a chain here.~
 silver~
 armor IK AC
-AD D ABC AC 0
+9 8 7 5 0
 25 10 5000 P
 A
 22 -5
@@ -760,7 +760,7 @@ Black bodysuit~
 A suit of pitch black cloth lies here.~
 cloth~
 armor IK AK
-D ABC AD AC 0
+8 7 9 5 0
 25 5 5000 P
 A
 24 -5
@@ -779,7 +779,7 @@ A ball of flame~
 A ball of flame winks in and out of existence.~
 steel~
 light ABF A
-0 0 ABCFGHIJ 0 0
+0 0 999 0 0
 25 1 0 P
 A
 19 3
