@@ -35,14 +35,6 @@
 
 DECLARE_SPEC_FUN(spec_clanguard);
 
-const   char *  dir_name        []              = {
-	"north", "east", "south", "west", "up", "down"
-};
-
-const   sh_int  rev_dir         []              = {
-	2, 3, 0, 1, 5, 4
-};
-
 const   sh_int  stamina_loss   [SECT_MAX]      = {
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
@@ -196,19 +188,19 @@ void move_char(Character *ch, int door, bool follow)
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
-		act("$n leaves $T.", ch, nullptr, dir_name[door], TO_NOTVIEW, POS_SNEAK, FALSE);
+		act("$n leaves $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
-		act("$n leaves $T.", ch, nullptr, dir_name[door], TO_NOTVIEW);
+		act("$n leaves $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW);
 
 	char_from_room(ch);
 	char_to_room(ch, to_room);
 
-	if (rev_dir[door] == 5)
+	if (Exit::rev_dir(door) == 5)
 		Format::sprintf(dir_buf, "%s", "below");
-	else if (rev_dir[door] == 4)
+	else if (Exit::rev_dir(door) == 4)
 		Format::sprintf(dir_buf, "%s", "above");
 	else
-		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[door]]);
+		Format::sprintf(dir_buf, "the %s", Exit::dir_name(door, true));
 
 	if (affect_exists_on_char(ch, gsn_sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
@@ -457,7 +449,7 @@ void do_open(Character *ch, String argument)
 
 		/* open the other side */
 		if ((to_room   = pexit->u1.to_room) != nullptr
-		    && (pexit_rev = to_room->exit[rev_dir[door]]) != nullptr
+		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != nullptr
 		    &&   pexit_rev->u1.to_room == ch->in_room) {
 			Character *rch;
 			pexit_rev->exit_flags -= EX_CLOSED;
@@ -555,7 +547,7 @@ void do_close(Character *ch, String argument)
 
 		/* close the other side */
 		if ((to_room  = pexit->u1.to_room) != nullptr
-		    && (pexit_rev = to_room->exit[rev_dir[door]]) != 0
+		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != 0
 		    && pexit_rev->u1.to_room == ch->in_room) {
 			Character *rch;
 			pexit_rev->exit_flags += EX_CLOSED;
@@ -703,7 +695,7 @@ void do_lock(Character *ch, String argument)
 
 		/* lock the other side */
 		if ((to_room = pexit->u1.to_room) != nullptr
-		    && (pexit_rev = to_room->exit[rev_dir[door]]) != 0
+		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != 0
 		    && pexit_rev->u1.to_room == ch->in_room)
 			pexit_rev->exit_flags += EX_LOCKED;
 	}
@@ -833,7 +825,7 @@ void do_unlock(Character *ch, String argument)
 
 		/* unlock the other side */
 		if ((to_room = pexit->u1.to_room) != nullptr
-		    && (pexit_rev = to_room->exit[rev_dir[door]]) != nullptr
+		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != nullptr
 		    && pexit_rev->u1.to_room == ch->in_room)
 			pexit_rev->exit_flags -= EX_LOCKED;
 	}
@@ -965,7 +957,7 @@ void do_pick(Character *ch, String argument)
 
 		/* pick the other side */
 		if ((to_room   = pexit->u1.to_room) != nullptr
-		    && (pexit_rev = to_room->exit[rev_dir[door]]) != nullptr
+		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != nullptr
 		    &&   pexit_rev->u1.to_room == ch->in_room)
 			pexit_rev->exit_flags -= EX_LOCKED;
 	}
@@ -2091,21 +2083,21 @@ void do_push(Character *ch, String argument)
 	}
 
 	WAIT_STATE(ch, 3);
-	Format::sprintf(buf, "$n pushes you %s!\n", dir_name[dir]);
+	Format::sprintf(buf, "$n pushes you %s!\n", Exit::dir_name(dir));
 	act(buf, ch, nullptr, victim, TO_VICT);
-	Format::sprintf(buf, "$n pushes $N %s!", dir_name[dir]);
+	Format::sprintf(buf, "$n pushes $N %s!", Exit::dir_name(dir));
 	act(buf, ch, nullptr, victim, TO_NOTVICT);
-	Format::sprintf(buf, "You push $N %s.", dir_name[dir]);
+	Format::sprintf(buf, "You push $N %s.", Exit::dir_name(dir));
 	act(buf, ch, nullptr, victim, TO_CHAR);
 	char_from_room(victim);
 	char_to_room(victim, to_room);
 
-	if (rev_dir[dir] == 5)
+	if (Exit::rev_dir(dir) == 5)
 		Format::sprintf(dir_buf, "%s", "below");
-	else if (rev_dir[dir] == 4)
+	else if (Exit::rev_dir(dir) == 4)
 		Format::sprintf(dir_buf, "%s", "above");
 	else
-		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
+		Format::sprintf(dir_buf, "the %s", Exit::dir_name(dir, true));
 
 	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)
 	    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER))
@@ -2153,13 +2145,13 @@ void do_push(Character *ch, String argument)
 					for (dir = 0; dir < 4; dir++) {
 						if (old->exit[dir] == nullptr
 						    || (around = old->exit[dir]->u1.to_room) == nullptr
-						    || around->exit[rev_dir[dir]] == nullptr
-						    || around->exit[rev_dir[dir]]->u1.to_room != old)
+						    || around->exit[Exit::rev_dir(dir)] == nullptr
+						    || around->exit[Exit::rev_dir(dir)]->u1.to_room != old)
 							continue;
 
 						char_to_room(victim, old->exit[dir]->u1.to_room);
 						Format::sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
-						        dir_name[rev_dir[dir]]);
+						        Exit::dir_name(dir, true));
 						act(buf, victim, nullptr, nullptr, TO_ROOM);
 						char_from_room(victim);
 					}
@@ -2395,23 +2387,23 @@ void do_drag(Character *ch, String argument)
 
 	WAIT_STATE(ch, 3);
 	/* act should default to resting position minimum */
-	Format::sprintf(buf, "$n drags you %s!", dir_name[dir]);
+	Format::sprintf(buf, "$n drags you %s!", Exit::dir_name(dir));
 	act(buf, ch, nullptr, victim, TO_VICT);
-	Format::sprintf(buf, "$n drags $N %s!", dir_name[dir]);
+	Format::sprintf(buf, "$n drags $N %s!", Exit::dir_name(dir));
 	act(buf, ch, nullptr, victim, TO_NOTVICT);
-	Format::sprintf(buf, "You drag $N %s.", dir_name[dir]);
+	Format::sprintf(buf, "You drag $N %s.", Exit::dir_name(dir));
 	act(buf, ch, nullptr, victim, TO_CHAR);
 	char_from_room(victim);
 	char_from_room(ch);
 	char_to_room(victim, to_room);
 	char_to_room(ch, to_room);
 
-	if (rev_dir[dir] == 5)
+	if (Exit::rev_dir(dir) == 5)
 		Format::sprintf(dir_buf, "%s", "below");
-	else if (rev_dir[dir] == 4)
+	else if (Exit::rev_dir(dir) == 4)
 		Format::sprintf(dir_buf, "%s", "above");
 	else
-		Format::sprintf(dir_buf, "the %s", dir_name[rev_dir[dir]]);
+		Format::sprintf(dir_buf, "the %s", Exit::dir_name(dir, true));
 
 	if (GET_ROOM_FLAGS(from_room).has(ROOM_UNDER_WATER)
 	    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
@@ -2480,13 +2472,13 @@ void do_drag(Character *ch, String argument)
 						for (dir = 0; dir < 4; dir++) {
 							if (old->exit[dir] == nullptr
 							    || (around = old->exit[dir]->u1.to_room) == nullptr
-							    || around->exit[rev_dir[dir]] == nullptr
-							    || around->exit[rev_dir[dir]]->u1.to_room != old)
+							    || around->exit[Exit::rev_dir(dir)] == nullptr
+							    || around->exit[Exit::rev_dir(dir)]->u1.to_room != old)
 								continue;
 
 							char_to_room(victim, old->exit[dir]->u1.to_room);
 							Format::sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
-							        dir_name[rev_dir[dir]]);
+							        Exit::dir_name(dir, true));
 							act(buf, victim, nullptr, nullptr, TO_ROOM);
 							char_from_room(victim);
 						}

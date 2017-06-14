@@ -37,8 +37,6 @@
 
 /* *** GLOBAL VARIABLES *** */
 
-extern const char *dir_name[];
-
 /* *** LOCAL VARIABLES *** */
 
 /* Number of exits is stupidly hardcoded in Merc.
@@ -268,7 +266,7 @@ void do_hunt(Character *ch, String argument)
 
 	/* Display the results of the search. */
 	act("$N is $t from here.", ch,
-	    dir_name[direction], victim, TO_CHAR);
+	    Exit::dir_name(direction), victim, TO_CHAR);
 	return;
 } /* end do_hunt() */
 
@@ -338,7 +336,7 @@ void hunt_victim(Character *ch)
 
 	if (cond.thru_doors &&
 	    ch->in_room->exit[dir]->exit_flags.has(EX_CLOSED)) {
-		do_open(ch, (char *) dir_name[dir]);
+		do_open(ch, Exit::dir_name(dir));
 		return;
 	}
 

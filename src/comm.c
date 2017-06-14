@@ -1198,7 +1198,6 @@ bool process_output(Descriptor *d, bool fPrompt)
 void bust_a_prompt(Character *ch)
 {
 	String buf;
-	extern const char *dir_name[];
 
 	if (ch->prompt.empty()) {
 		ptc(ch, "{W<{C%d{Thp {G%d{Hma {B%d{Nst{W>{x %s", ch->hit, ch->mana, ch->stam, ch->prefix);
@@ -1251,9 +1250,9 @@ void bust_a_prompt(Character *ch)
 					found = TRUE;
 
 					if (!pexit->exit_flags.has(EX_CLOSED))
-						buf += UPPER(dir_name[door][0]);
+						buf += UPPER(Exit::dir_name(door)[0]);
 					else
-						buf += LOWER(dir_name[door][0]);
+						buf += LOWER(Exit::dir_name(door)[0]);
 				}
 			}
 

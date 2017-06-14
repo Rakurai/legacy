@@ -4299,8 +4299,6 @@ void do_flee(Character *ch, String argument)
 	int dex, topp = 0, chance, dir;
 	/* some more vars to get the chance to flee */
 	int weight, wis;
-	char *const dir_name [] =
-	{       "north", "east", "south", "west", "up", "down"  };
 
 	if (ch->wait > 0)
 		return;
@@ -4396,7 +4394,7 @@ void do_flee(Character *ch, String argument)
 		ch->in_room = now_in;
 
 		if (!IS_NPC(ch)) {
-			act("You flee $T from combat!", ch, nullptr, dir_name[dir], TO_CHAR);
+			act("You flee $T from combat!", ch, nullptr, Exit::dir_name(dir), TO_CHAR);
 
 			if (ch->cls == THIEF_CLASS)
 				stc("You snuck away safely.\n", ch);
@@ -4749,10 +4747,6 @@ void do_disarm(Character *ch, String argument)
 		Exit *pexit = nullptr;
 		char buf[MAX_STRING_LENGTH];
 		int door;
-		char *const dir_name [] =
-		{       "north", "east", "south", "west", "above", "below"      };
-		const sh_int rev_dir [] =
-		{       2, 3, 0, 1, 5, 4        };
 
 		switch (evo) {
 		case 1:
@@ -4806,13 +4800,13 @@ void do_disarm(Character *ch, String argument)
 					}
 					else {
 						Format::sprintf(buf, "$p flies through the air and disappears %s%s!",
-						        door < 4 ? "to the " : "", dir_name[door]);
+						        door < 4 ? "to the " : "", Exit::dir_name(door));
 						act(buf, ch, weapon, nullptr, TO_CHAR);
 						act(buf, ch, weapon, nullptr, TO_ROOM);
 
 						if (next_room->people != nullptr) {
 							Format::sprintf(buf, "$p flies in from %s%s and clatters to the %s!",
-							        rev_dir[door] < 4 ? "the " : "", dir_name[rev_dir[door]],
+							        Exit::rev_dir(door) < 4 ? "the " : "", Exit::dir_name(door, true),
 							        next_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 							act(buf, next_room->people, weapon, nullptr, TO_CHAR);
 							act(buf, next_room->people, weapon, nullptr, TO_ROOM);
@@ -4824,7 +4818,7 @@ void do_disarm(Character *ch, String argument)
 				else {
 					if (door < 4)
 						Format::sprintf(buf, "$p slams against the %s wall and clatters to the %s!",
-						        dir_name[door],
+						        Exit::dir_name(door),
 						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
 					else if (door < 5)
 						Format::sprintf(buf, "$p clatters to the %s.",
@@ -5371,12 +5365,10 @@ void do_shoot(Character *ch, String argument)
 		if (victim->in_room == ch->in_room)
 			act("$n shoots an arrow at you!", ch, nullptr, victim, TO_VICT);
 		else {
-			char *const dir_name [] =
+			const String dir_name [] =
 			{       "the north", "the east", "the south", "the west", "above", "below"      };
-			const sh_int rev_dir [] =
-			{       2, 3, 0, 1, 5, 4        };
 
-			ptc(victim, "An arrow flies at you from %s!", dir_name[rev_dir[dir]]);
+			ptc(victim, "An arrow flies at you from %s!", dir_name[Exit::rev_dir(dir)]);
 		}
 	}
 	else

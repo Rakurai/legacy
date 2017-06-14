@@ -42,7 +42,6 @@ void    scan_char       args((Character *victim, Character *ch, sh_int depth, sh
 
 void do_scan2(Character *ch, String argument)
 {
-	extern char *const dir_name[];
 	char buf[MIL];
 	RoomPrototype *room;
 	Exit *pExit;
@@ -69,7 +68,7 @@ void do_scan2(Character *ch, String argument)
 			                        if (pExit->exit_flags.has(EX_CLOSED))
 			                        {
 			                                stc(ch, "{G(South) {Y(closed){x");
-			                                ptc(ch, "{YThere is a closed exit to the %s.{x\n",dir_name[door]);
+			                                ptc(ch, "{YThere is a closed exit to the %s.{x\n",Exit::dir_name(door));
 			                                continue;
 			                        }
 
@@ -91,9 +90,9 @@ void do_scan2(Character *ch, String argument)
 		return;
 	}
 
-	act("{PYou peer intently $T.{x", ch, nullptr, dir_name[door], TO_CHAR);
-	act("$n peers intently $T.", ch, nullptr, dir_name[door], TO_NOTVIEW);
-	Format::sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
+	act("{PYou peer intently $T.{x", ch, nullptr, Exit::dir_name(door), TO_CHAR);
+	act("$n peers intently $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW);
+	Format::sprintf(buf, "{GLooking %s you see:{x\n", Exit::dir_name(door));
 	room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
@@ -108,7 +107,7 @@ void do_scan2(Character *ch, String argument)
 		}
 
 		if (pExit->exit_flags.has(EX_CLOSED)) {
-			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
+			ptc(ch, "{YThere is a closed exit to the %s.{x\n", Exit::dir_name(door));
 			break;
 		}
 
@@ -119,7 +118,6 @@ void do_scan2(Character *ch, String argument)
 
 void do_scan(Character *ch, String argument)
 {
-	extern char *const dir_name[];
 	char buf[MIL];
 	RoomPrototype *scan_room;
 	Exit *pExit;
@@ -141,7 +139,7 @@ void do_scan(Character *ch, String argument)
 				continue;
 
 			if (pExit->exit_flags.has(EX_CLOSED)) {
-				ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
+				ptc(ch, "{YThere is a closed exit to the %s.{x\n", Exit::dir_name(door));
 				continue;
 			}
 
@@ -161,9 +159,9 @@ void do_scan(Character *ch, String argument)
 		return;
 	}
 
-	act("{PYou peer intently $T.{x", ch, nullptr, dir_name[door], TO_CHAR);
-	act("$n peers intently $T.", ch, nullptr, dir_name[door], TO_NOTVIEW);
-	Format::sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
+	act("{PYou peer intently $T.{x", ch, nullptr, Exit::dir_name(door), TO_CHAR);
+	act("$n peers intently $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW);
+	Format::sprintf(buf, "{GLooking %s you see:{x\n", Exit::dir_name(door));
 	scan_room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
@@ -178,7 +176,7 @@ void do_scan(Character *ch, String argument)
 		}
 
 		if (pExit->exit_flags.has(EX_CLOSED)) {
-			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
+			ptc(ch, "{YThere is a closed exit to the %s.{x\n", Exit::dir_name(door));
 			break;
 		}
 
@@ -189,9 +187,8 @@ void do_scan(Character *ch, String argument)
 
 void scan_room(RoomPrototype *room, Character *ch, int depth, int door, Exit *pexit)
 {
-	extern char *const dir_name[];
 	ptc(ch, "{G(%5s){x ",
-	    door == -1 ? "here" : dir_name[door]
+	    door == -1 ? "here" : Exit::dir_name(door)
 	   );
 
 	if (pexit && pexit->exit_flags.has(EX_CLOSED))
@@ -229,13 +226,12 @@ void scan_list(RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int doo
 
 void scan_char(Character *victim, Character *ch, sh_int depth, sh_int door)
 {
-	extern char *const dir_name[];
 	extern char *const distance[];
-	ptc(ch, "  {C%s, %s%s.\n{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? dir_name[door] : "");
+	ptc(ch, "  {C%s, %s%s.\n{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? Exit::dir_name(door) : "");
 	/*      buf[0] = '\0';
 	        strcat(buf, PERS(victim, ch));
 	        buf += ", ";
-	        Format::sprintf(buf2, distance[depth], dir_name[door]);
+	        Format::sprintf(buf2, distance[depth], Exit::dir_name(door));
 	        buf += buf2;
 	        buf += "\n";
 	        stc(buf, ch); */

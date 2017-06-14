@@ -2075,7 +2075,6 @@ void do_examine(Character *ch, String argument)
 */
 void exits_in(Character *ch)
 {
-	extern const String dir_name[];
 	RoomPrototype *room;
 	Exit *exit;
 	Object *obj;
@@ -2104,7 +2103,7 @@ void exits_in(Character *ch)
 						if (exit->u1.to_room->vnum == in_room_vnum) {   /* Does the exit lead to our room? */
 							found = TRUE;
 							Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
-							        dir_name[i],
+							        Exit::dir_name(i),
 							        room->name,
 							        room->vnum,
 							        room->area->name);
@@ -2149,7 +2148,6 @@ void exits_in(Character *ch)
  */
 void do_exits(Character *ch, String argument)
 {
-	extern const String dir_name[];
 	String buf;
 	Exit *pexit;
 	bool found;
@@ -2184,11 +2182,11 @@ void do_exits(Character *ch, String argument)
 
 			if (fAuto) {
 				buf += " ";
-				buf += dir_name[door];
+				buf += Exit::dir_name(door);
 			}
 			else {
 				buf += Format::format("%-5s - %s",
-				        dir_name[door].capitalize(),
+				        Exit::dir_name(door).capitalize(),
 				        (room_is_dark(pexit->u1.to_room) && !affect_exists_on_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
 				        : pexit->u1.to_room->name

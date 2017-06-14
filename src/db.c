@@ -1146,7 +1146,6 @@ void load_specials(FILE *fp)
  */
 void fix_exits(void)
 {
-//    extern const sh_int rev_dir [];
 //    char buf[MAX_STRING_LENGTH];
 	RoomPrototype *pRoomIndex;
 //    RoomPrototype *to_room;
@@ -1190,13 +1189,13 @@ void fix_exits(void)
 	          {
 	              if ( ( pexit     = pRoomIndex->exit[door]       ) != nullptr
 	              &&   ( to_room   = pexit->u1.to_room            ) != nullptr
-	              &&   ( pexit_rev = to_room->exit[rev_dir[door]] ) != nullptr
+	              &&   ( pexit_rev = to_room->exit[Exit::rev_dir(door)] ) != nullptr
 	              &&   pexit_rev->u1.to_room != pRoomIndex
 	              &&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
 	              {
 	                  Format::sprintf( buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
 	                      pRoomIndex->vnum, door,
-	                      to_room->vnum,    rev_dir[door],
+	                      to_room->vnum,    Exit::rev_dir(door),
 	                      (pexit_rev->u1.to_room == nullptr)
 	                          ? 0 : pexit_rev->u1.to_room->vnum );
 	                  boot_bug( buf, 0 );
