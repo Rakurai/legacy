@@ -27,27 +27,23 @@ DATE=`date +%Y-%m-%d`
 EXT_SOURCES = cJSON/cJSON.c
 EXT_OBJECTS = $(patsubst %,$(EXTDIR)/%.o,$(basename $(EXT_SOURCES)))
 
-C_SOURCES := $(shell find . -depth 1 -name '*.c' -print | sed 's|./||' | sort)
-C_OBJECTS = $(patsubst %,$(OBJDIR)/%.o,$(basename $(C_SOURCES)))
-
-CPP_SOURCES := $(shell find . -depth 1 -name '*.cpp' -print | sed 's|./||' | sort)
+CPP_SOURCES := $(shell find . -depth 1 -name '*.cc' -print | sed 's|./||' | sort)
 CPP_OBJECTS = $(patsubst %,$(OBJDIR)/%.o,$(basename $(CPP_SOURCES)))
 
-legacy: $(EXT_OBJECTS) $(C_OBJECTS) $(CPP_OBJECTS)
+legacy: $(EXT_OBJECTS) $(CPP_OBJECTS)
 	$(CXX) -o $@ $^ $(CPPFLAGS) $(L_FLAGS)
 
 $(OBJDIR)/%.o: %.c $(DEPDIR)/%.d
 	$(COMPILE.c) -o $@ $<
 	$(POSTCOMPILE)
 
-$(OBJDIR)/%.o: %.cpp $(DEPDIR)/%.d
+$(OBJDIR)/%.o: %.cc $(DEPDIR)/%.d
 	$(COMPILE.cc) -o $@ $<
 	$(POSTCOMPILE)
 
 $(DEPDIR)/%.d: ;
 .PRECIOUS: $(DEPDIR)/%.d
 
-include $(wildcard $(patsubst %,$(DEPDIR)/%.d,$(basename $(C_SOURCES))))
 include $(wildcard $(patsubst %,$(DEPDIR)/%.d,$(basename $(CPP_SOURCES))))
 
 clean:
