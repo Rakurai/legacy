@@ -27,7 +27,7 @@ DATE=`date +%Y-%m-%d`
 EXT_SOURCES = cJSON/cJSON.c
 EXT_OBJECTS = $(patsubst %,$(EXTDIR)/%.o,$(basename $(EXT_SOURCES)))
 
-CPP_SOURCES := $(shell find . -depth 1 -name '*.cc' -print | sed 's|./||' | sort)
+CPP_SOURCES := $(shell find . -maxdepth 1 -name '*.cc' -print | sed 's|./||' | sort)
 CPP_OBJECTS = $(patsubst %,$(OBJDIR)/%.o,$(basename $(CPP_SOURCES)))
 
 legacy: $(EXT_OBJECTS) $(CPP_OBJECTS)
