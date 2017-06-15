@@ -1,5 +1,7 @@
 #pragma once
 
+#include "declare.hh"
+
 class MobProgActList
 {
 public:

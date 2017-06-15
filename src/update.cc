@@ -37,6 +37,10 @@
 #include "Auction.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "Weather.hh"
+#include "MobProg.hh"
+#include "MobProgActList.hh"
+#include "Reset.hh"
 
 extern void new_day(void);
 

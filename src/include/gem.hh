@@ -1,5 +1,6 @@
-#ifndef GEM_H
-#define GEM_H
+#pragma once
+
+#include "declare.hh"
 
 // constants
 #define MAX_GEM_TYPES               2
@@ -40,5 +41,3 @@ struct gem_quality_table_t
 	int			quality;
 	int			level;
 };
-
-#endif // GEM_H

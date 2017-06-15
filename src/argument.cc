@@ -167,3 +167,31 @@ const char *one_argument(const char *argument, char *arg_first)
 
 	return argument;
 }
+
+int number_argument(const String& argument, String& arg) {
+	char buf[argument.size()+1];
+	int ret = number_argument(argument.c_str(), buf);
+	arg.assign(buf);
+	return ret;
+}
+
+Flags::Bit entity_argument(const String& argument, String& arg) {
+	char buf[argument.size()+1];
+	Flags::Bit ret = entity_argument(argument.c_str(), buf);
+	arg.assign(buf);
+	return ret;
+}
+
+int mult_argument(const String& argument, String& arg) {
+	char buf[argument.size()+1];
+	int ret = mult_argument(argument.c_str(), buf);
+	arg.assign(buf);
+	return ret;
+}
+
+const char *one_argument(const String& argument, String& arg) {
+	char buf[argument.size()+1];
+	const char *ret = one_argument(argument.c_str(), buf);
+	arg.assign(buf);
+	return ret;
+}

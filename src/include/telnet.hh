@@ -1,3 +1,4 @@
+#pragma once
 /*	@(#)telnet.h 1.7 88/08/19 SMI; from UCB 5.1 5/30/85	*/
 /*
  * Copyright (c) 1983 Regents of the University of California.
@@ -8,9 +9,6 @@
 /*
  * Definitions for the TELNET protocol.
  */
-
-#ifndef _arpa_telnet_h
-#define _arpa_telnet_h
 
 #define	IAC	255		/* interpret as command: */
 #define	DONT	254		/* you are not to use option */
@@ -83,5 +81,3 @@ char *telopts[NTELOPTS] = {
 /* sub-option qualifiers */
 #define	TELQUAL_IS	0	/* option is... */
 #define	TELQUAL_SEND	1	/* send option */
-
-#endif /*!_arpa_telnet_h*/

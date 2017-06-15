@@ -1,6 +1,9 @@
-/*
- * Exit data.
- */
+#pragma once
+
+#include "declare.hh"
+#include "String.hh"
+#include "Flags.hh"
+
 class Exit
 {
 public:

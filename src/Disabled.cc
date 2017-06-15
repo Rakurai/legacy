@@ -1,4 +1,5 @@
 #include "Disabled.hh"
+#include "Character.hh"
 #include "interp.hh"
 #include "sql.hh"
 #include "merc.hh"

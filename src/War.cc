@@ -3,6 +3,11 @@
 * 2002 Jason Anderson, proprietary for Legacy.                             *
 ***************************************************************************/
 
+#include "Descriptor.hh"
+#include "Player.hh"
+#include "Clan.hh"
+#include "Character.hh"
+#include "file.hh"
 #include "merc.hh"
 #include "interp.hh"
 #include "lookup.hh"

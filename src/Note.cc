@@ -25,6 +25,10 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "file.hh"
+#include "Clan.hh"
+#include "Player.hh"
+#include "Character.hh"
 #include "channels.hh"
 #include "merc.hh"
 #include "recycle.hh"

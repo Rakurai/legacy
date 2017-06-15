@@ -3,6 +3,7 @@
 * 2002 Jason Anderson, proprietary for Legacy.                             *
 ***************************************************************************/
 
+#include "file.hh"
 #include "find.hh"
 #include "merc.hh"
 #include "interp.hh"
@@ -10,6 +11,7 @@
 #include "Affect.hh"
 #include "memory.hh"
 #include "Format.hh"
+#include "Duel.hh"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"

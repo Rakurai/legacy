@@ -3,6 +3,7 @@
 #include "merc.hh"
 #include "magic.hh"
 #include "Affect.hh"
+#include "Weather.hh"
 
 /* needed functions */
 void    wear_obj        args((Character *ch, Object *obj, bool fReplace));

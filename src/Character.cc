@@ -1,4 +1,8 @@
 #include "Character.hh"
+#include "Edit.hh"
+#include "Tail.hh"
+#include "Player.hh"
+#include "Object.hh"
 #include "merc.hh"
 #include "affect_list.hh"
 #include "recycle.hh"

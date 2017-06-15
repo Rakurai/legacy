@@ -34,6 +34,8 @@
 #include "Affect.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "Battle.hh"
+#include "Weather.hh"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */

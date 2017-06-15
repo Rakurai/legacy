@@ -1,5 +1,7 @@
 #pragma once
 
+#include "declare.hh"
+
 #define MAX_TRADE        5
 
 class Shop

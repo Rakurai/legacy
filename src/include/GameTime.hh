@@ -1,5 +1,6 @@
 #pragma once
 
+#include "declare.hh"
 #include "String.hh"
 
 #define MUD_YEAR		17	/* months */

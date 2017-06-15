@@ -32,11 +32,13 @@
  * Social renaming.
  */
 
+#include "file.hh"
 #include "merc.hh"
 #include "db.hh"
 #include "interp.hh"
 #include "memory.hh"
 #include "Format.hh"
+#include "Social.hh"
 
 #ifdef CONST_SOCIAL
 #define SOCIAL_FILE "../misc/social.are"

@@ -59,6 +59,8 @@
 #include "sql.hh"
 #include "memory.hh"
 #include "Format.hh"
+#include "Edit.hh"
+#include "Note.hh"
 
 extern struct board_index_struct board_index[];
 

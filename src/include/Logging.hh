@@ -1,5 +1,6 @@
 #pragma once
 
+#include "declare.hh"
 #include "Format.hh"
 
 namespace Logging {

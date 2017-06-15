@@ -1,5 +1,8 @@
 #pragma once
 
+#include "declare.hh"
+#include <cstdio>
+
 /* file.c */
 char	fread_letter		args((FILE *fp));
 int	fread_number		args((FILE *fp));

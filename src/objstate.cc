@@ -4,10 +4,12 @@
    It's clumsy, processor intensive, but I think it's warranted.  Later, when
    we have more confidence in our database, I'll do it there.  -- Montrey */
 
+#include "file.hh"
 #include "merc.hh"
 #include "recycle.hh"
 #include "Affect.hh"
 #include "Format.hh"
+#include "Reset.hh"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */

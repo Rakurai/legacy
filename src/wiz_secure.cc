@@ -23,6 +23,7 @@
 #include "sql.hh"
 #include "memory.hh"
 #include "Format.hh"
+#include "Tail.hh"
 
 void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
 

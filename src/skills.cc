@@ -30,6 +30,7 @@
 #include "recycle.hh"
 #include "magic.hh"
 #include "Format.hh"
+#include "Customize.hh"
 
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(Character *ch, int gn)

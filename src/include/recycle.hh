@@ -26,7 +26,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
-#include "merc.hh" // for data types
+#include "declare.hh" // for data types
 
 /* externs */
 extern int mobile_count;
@@ -58,29 +58,6 @@ void	free_pcdata args( (Player *pcdata) );
 long 	get_pc_id args( (void) );
 long	get_mob_id args( (void) );
 
-/* war recycling */
-War	*new_war args((void));
-void		free_war args((War *war));
-
-/* war opponent recycling */
-War::Opponent	*new_opp args((void));
-void		free_opp args((War::Opponent *opp));
-
-/* war event recycling */
-War::Event	*new_event args((void));
-void		free_event args((War::Event *event));
-
-/* merc recycling */
-Mercenary	*new_merc args((void));
-void		free_merc args((Mercenary *merc));
-
-/* merc offer recycling */
-Mercenary::Offer	*new_offer args((void));
-void		free_offer args((Mercenary::Offer *offer));
-
-/* duel data recycling */
-Duel	*new_duel args((void));
-void		free_duel args((Duel *duel));
 
 /* coordinate recycling
 WM_COORD_DATA	*new_coord args((void));

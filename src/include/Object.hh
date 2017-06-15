@@ -6,12 +6,6 @@
 #include "Flags.hh"
 #include "ObjectValue.hh"
 
-class ObjectPrototype;
-class RoomPrototype;
-class Reset;
-class ExtraDescr;
-class Affect;
-
 /*
  * One object.
  */

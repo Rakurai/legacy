@@ -1,6 +1,7 @@
 #pragma once
 
-#include <algorithm>
+#include "declare.hh"
+//#include <algorithm>
 
 /*
  * Utility macros.

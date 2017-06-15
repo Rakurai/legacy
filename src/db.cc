@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "file.hh"
 #include "Game.hh"
 #include "Area.hh"
 #include "channels.hh"
@@ -39,6 +40,11 @@
 #include "Auction.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "Weather.hh"
+#include "Shop.hh"
+#include "MobProg.hh"
+#include "Reset.hh"
+#include "Disabled.hh"
 
 extern  int     _filbuf         args((FILE *));
 extern void          affect_copy_to_list         args(( Affect **list_head, const Affect *paf ));

@@ -8,6 +8,7 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
+#include "file.hh"
 #include "merc.hh"
 #include "memory.hh"
 #include "db.hh"

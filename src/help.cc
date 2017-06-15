@@ -8,12 +8,14 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
+#include "file.hh"
 #include "merc.hh"
 #include "interp.hh"
 #include "recycle.hh"
 #include "sql.hh"
 #include "tables.hh"
 #include "Format.hh"
+#include "Note.hh"
 
 #ifdef SEASON_CHRISTMAS
 char stupidassline[1000] =

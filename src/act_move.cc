@@ -32,6 +32,7 @@
 #include "interp.hh"
 #include "Affect.hh"
 #include "Format.hh"
+#include "Battle.hh"
 
 DECLARE_SPEC_FUN(spec_clanguard);
 

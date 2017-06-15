@@ -1,5 +1,7 @@
+#include "file.hh"
 #include "merc.hh"
 #include "memory.hh"
+#include "StoredPlayer.hh"
 
 void read_line(FILE *, StoredPlayer *);
 void save_line(FILE *, StoredPlayer *);

@@ -1,4 +1,5 @@
 #include "MobilePrototype.hh"
+#include "file.hh"
 #include "merc.hh"
 #include "lookup.hh"
 #include "db.hh" // boot_bug

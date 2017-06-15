@@ -30,6 +30,8 @@
 #include "Affect.hh"
 #include "memory.hh"
 #include "GameTime.hh"
+#include "MobProg.hh"
+#include "MobProgActList.hh"
 
 bool MOBtrigger;
 

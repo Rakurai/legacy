@@ -33,6 +33,7 @@
 #include "tables.hh"
 #include "lookup.hh"
 #include "Affect.hh"
+#include "Weather.hh"
 
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const Affect *paf, bool fAdd));

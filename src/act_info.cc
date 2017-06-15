@@ -43,6 +43,11 @@
 #include "memory.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "DepartedPlayer.hh"
+#include "Duel.hh"
+#include "Note.hh"
+#include "Social.hh"
+#include "Weather.hh"
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 

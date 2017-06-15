@@ -1,6 +1,4 @@
-
-#ifndef __SQL_H
-#define __SQL_H
+#pragma once
 
 #include "declare.hh"
 #include "Format.hh"
@@ -38,5 +36,3 @@ template<class... Params>
 int			db_countf			(const String& func, const String& query, Params... params) {
 	return db_count(func, Format::format(query, params...));
 }
-
-#endif /* __SQL_H */

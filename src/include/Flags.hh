@@ -1,10 +1,9 @@
 #pragma once
 
+#include "declare.hh"
 #include <bitset>
 
 #define FLAGS_NBITS 32
-
-class String;
 
 class Flags
 {

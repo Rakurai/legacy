@@ -9,6 +9,7 @@
 #include "lookup.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "Customize.hh"
 
 extern bool    check_playing           args((Descriptor *d, const String& name));
 int     roll_stat               args((Character *ch, int stat));

@@ -1,5 +1,6 @@
-#ifndef _AFFECT_INT_H
-#define _AFFECT_INT_H
+#pragma once
+
+#include "declare.hh"
 
 // internal functions for affect handling, prefer not to expose these to regular game code
 // and use type-specific accessors
@@ -17,5 +18,3 @@ Affect * affect_find_in_list         args(( Affect *list_head, int sn ));
 void          affect_modify_obj           args(( Object *obj, const Affect *paf, bool fAdd ));
 void          affect_modify_char          args(( Character *ch, const Affect *paf, bool fAdd ));
 void          affect_modify_room          args(( RoomPrototype *obj, const Affect *paf, bool fAdd ));
-
-#endif // _AFFECT_INT_H

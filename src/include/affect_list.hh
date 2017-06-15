@@ -1,6 +1,6 @@
-#ifndef _AFFECT_INT_H
-#define _AFFECT_INT_H
+#pragma once
 
+#include "declare.hh"
 #include "Affect.hh"
 
 // internal list operations on affects, should not be exposed outside of affect_* compilation units
@@ -19,5 +19,3 @@ void                affect_sort_list                  args(( Affect **list_head,
 //void          affect_modify_obj           args(( void *owner, const Affect *paf, bool fAdd ));
 //void          affect_modify_char          args(( void *owner, const Affect *paf, bool fAdd ));
 //void          affect_modify_room          args(( void *owner, const Affect *paf, bool fAdd ));
-
-#endif // _AFFECT_INT_H

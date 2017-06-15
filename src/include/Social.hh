@@ -1,5 +1,8 @@
 #pragma once
 
+#include "declare.hh"
+#include "String.hh"
+
 /*
  * Structure for a social in the socials table.
  */

@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "file.hh"
 #include "merc.hh"
 #include "music.hh"
 #include "recycle.hh"

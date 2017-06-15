@@ -1,3 +1,9 @@
+#pragma once
+
+#include "declare.hh"
+#include "String.hh"
+#include "memory.hh"
+
 /*
  * Descriptor (channel) structure.
  */

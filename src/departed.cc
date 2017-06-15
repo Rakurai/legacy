@@ -5,8 +5,10 @@
  *
  */
 
+#include "file.hh"
 #include "merc.hh"
 #include "memory.hh"
+#include "DepartedPlayer.hh"
 
 DepartedPlayer *departed_list_head;
 DepartedPlayer *departed_list_tail;

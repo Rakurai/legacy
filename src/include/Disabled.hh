@@ -1,5 +1,6 @@
 #pragma once
 
+#include "declare.hh"
 #include "String.hh"
 
 struct cmd_type;

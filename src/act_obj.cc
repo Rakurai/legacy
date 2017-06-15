@@ -38,6 +38,7 @@
 #include "Affect.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "Shop.hh"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 

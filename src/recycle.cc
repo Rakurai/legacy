@@ -1,4 +1,9 @@
 #include "merc.hh"
+#include "War.hh"
+#include "Mercenary.hh"
+#include "Duel.hh"
+#include "Customize.hh"
+#include "Affect.hh"
 
 /* stuff for setting ids */
 long    last_pc_id;

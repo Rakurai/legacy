@@ -30,6 +30,7 @@
 #include "merc.hh"
 #include "Affect.hh"
 #include "Format.hh"
+#include "MobProg.hh"
 
 /*
  * Local functions.

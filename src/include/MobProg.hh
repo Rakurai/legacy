@@ -1,5 +1,9 @@
 #pragma once
 
+#include "declare.hh"
+#include "Flags.hh"
+#include "String.hh"
+
 class MobProg
 {
 public:

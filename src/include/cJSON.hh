@@ -1,6 +1,6 @@
 #pragma once
 
-#include "merc.hh"
+#include "declare.hh"
 #include "String.hh"
 #include "../deps/cJSON/cJSON.h"
 

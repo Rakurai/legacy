@@ -1,5 +1,8 @@
 #pragma once
 
+#include "declare.hh"
+#include "String.hh"
+
 class Duel
 {
 public:
@@ -43,3 +46,12 @@ private:
     Duel(const Duel&);
     Duel& operator=(const Duel&);
 };
+
+extern      Duel::Arena *arena_table_head;
+extern      Duel::Arena *arena_table_tail;
+extern      Duel    *duel_table_head;
+extern      Duel    *duel_table_tail;
+
+/* duel data recycling */
+Duel    *new_duel args((void));
+void        free_duel args((Duel *duel));

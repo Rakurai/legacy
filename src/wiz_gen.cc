@@ -29,6 +29,7 @@
 #include "memory.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "StoredPlayer.hh"
 
 
 extern bool    swearcheck              args((const String& argument));

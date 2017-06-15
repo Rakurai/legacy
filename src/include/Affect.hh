@@ -1,6 +1,6 @@
-#ifndef _AFFECT_H
-#define _AFFECT_H
+#pragma once
 
+#include "declare.hh"
 #include "Flags.hh"
 
 /*
@@ -144,4 +144,3 @@ void                remort_affect_modify_char        args(( Character *ch, int w
 Affect *new_affect args( (void) );
 void    free_affect args( (Affect *af) );
 
-#endif // _AFFECT_H

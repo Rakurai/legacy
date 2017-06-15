@@ -1,5 +1,6 @@
 #pragma once
 
+#include "declare.hh"
 #include <cstddef> // nullptr_t
 
 class String;

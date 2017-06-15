@@ -14,6 +14,7 @@
 * the coder command group.                       *
 *************************************************/
 
+#include "file.hh"
 #include "find.hh"
 #include "channels.hh"
 #include "merc.hh"

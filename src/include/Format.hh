@@ -1,5 +1,6 @@
 #pragma once
 
+#include "declare.hh"
 #include <iostream>
 #include <string>
 #include <cstdio>

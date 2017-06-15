@@ -1,3 +1,5 @@
+#pragma once
+
 /***************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,        *
  *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
@@ -26,9 +28,6 @@
 ***************************************************************************/
 
 
-#ifndef MERC_HEADER_FILE__
-#define MERC_HEADER_FILE__
-
 // all system includes here, not in .c files
 // include local headers as needed in .c files only, starting with this header
 #include <sys/types.h>
@@ -48,47 +47,27 @@
 #include <map>
 #include <algorithm>
 
+// pervasive includes
 #include "declare.hh"
-#include "argument.hh"
 #include "Logging.hh"
-#include "file.hh"
 #include "random.hh"
+#include "Format.hh"
+
+#include "Character.hh"
+#include "Player.hh"
+#include "Descriptor.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "MobilePrototype.hh"
+#include "RoomPrototype.hh"
+#include "Exit.hh"
+#include "ExtraDescr.hh"
+#include "Clan.hh"
 
 using namespace Logging;
 
-#include "Flags.hh"
-#include "memory.hh"
-#include "Actable.hh"
-#include "String.hh"
-#include "Format.hh"
-#include "Note.hh"
-#include "Object.hh"
-#include "Affect.hh"
-#include "ExtraDescr.hh"
-#include "Disabled.hh"
-#include "Battle.hh"
-#include "Weather.hh"
-#include "Tail.hh"
-#include "Descriptor.hh"
-#include "Shop.hh"
-#include "Edit.hh"
-#include "MobilePrototype.hh"
-#include "MobProg.hh"
-#include "MobProgActList.hh"
-#include "Character.hh"
-#include "Player.hh"
-#include "ObjectPrototype.hh"
-#include "Customize.hh"
-#include "Exit.hh"
-#include "Reset.hh"
-#include "RoomPrototype.hh"
-#include "Social.hh"
-#include "Clan.hh"
-#include "StoredPlayer.hh"
-#include "DepartedPlayer.hh"
-#include "War.hh"
-#include "Mercenary.hh"
-#include "Duel.hh"
+#include "argument.hh" // temporary until i find a place
+
 
 /* system calls */
 //int unlink();
@@ -320,10 +299,6 @@ extern 		War		*war_table_head;
 extern 		War		*war_table_tail;
 extern		Mercenary	*merc_table_head;
 extern		Mercenary	*merc_table_tail;
-extern		Duel::Arena	*arena_table_head;
-extern		Duel::Arena	*arena_table_tail;
-extern		Duel	*duel_table_head;
-extern		Duel	*duel_table_tail;
 
 /*
  * Global variables.
@@ -911,6 +886,3 @@ void    list_extraskill args( ( Character *ch ) );
 
 // here's the place for header files that depend on merc.h, that we need in almost every .c file
 #include "act.hh"
-
-#endif
-

@@ -31,6 +31,7 @@
 #include "lookup.hh"
 #include "recycle.hh"
 #include "Format.hh"
+#include "Social.hh"
 
 bool    check_channel_social    args((Character *ch, int channel,
                                       int custom, const String& command, const String& argument));

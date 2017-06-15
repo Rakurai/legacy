@@ -1,4 +1,8 @@
 #include "Reset.hh"
+#include "Exit.hh"
+#include "RoomPrototype.hh"
+#include "ObjectPrototype.hh"
+#include "file.hh"
 #include "merc.hh"
 #include "db.hh" // boot_bug
 

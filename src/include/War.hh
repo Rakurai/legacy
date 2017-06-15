@@ -1,5 +1,7 @@
 #pragma once
 
+#include "declare.hh"
+
 class War
 {
 public:
@@ -60,3 +62,15 @@ private:
     War(const War&);
     War& operator=(const War&);
 };
+
+/* war recycling */
+War *new_war args((void));
+void        free_war args((War *war));
+
+/* war opponent recycling */
+War::Opponent   *new_opp args((void));
+void        free_opp args((War::Opponent *opp));
+
+/* war event recycling */
+War::Event  *new_event args((void));
+void        free_event args((War::Event *event));

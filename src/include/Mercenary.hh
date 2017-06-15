@@ -1,5 +1,7 @@
 #pragma once
 
+#include "declare.hh"
+
 class Mercenary
 {
 public:
@@ -37,3 +39,11 @@ private:
     Mercenary(const Mercenary&);
     Mercenary& operator=(const Mercenary&);
 };
+
+/* merc recycling */
+Mercenary   *new_merc args((void));
+void        free_merc args((Mercenary *merc));
+
+/* merc offer recycling */
+Mercenary::Offer    *new_offer args((void));
+void        free_offer args((Mercenary::Offer *offer));

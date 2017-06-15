@@ -1,5 +1,8 @@
 #pragma once
 
+#include "declare.hh"
+#include "String.hh"
+
 #define NOTE_NOTE       0
 #define NOTE_IDEA       1
 #define NOTE_ROLEPLAY   2

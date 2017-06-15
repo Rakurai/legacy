@@ -37,6 +37,7 @@
 #include "lookup.hh"
 #include "Affect.hh"
 #include "Format.hh"
+#include "Weather.hh"
 
 /* global focus variable */
 extern bool     focus;

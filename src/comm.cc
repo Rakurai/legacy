@@ -49,6 +49,7 @@
 #include <fcntl.h>
 #include <netdb.h>
 
+#include "file.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "merc.hh"

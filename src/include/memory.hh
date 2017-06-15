@@ -1,4 +1,6 @@
 #pragma once
+
+#include "declare.hh"
 /*************************************************
 *                                                *
 *               The Age of Legacy                *

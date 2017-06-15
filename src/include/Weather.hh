@@ -1,3 +1,6 @@
+#pragma once
+
+#include "declare.hh"
 
 class Weather
 {

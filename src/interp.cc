@@ -35,6 +35,9 @@
 #include "Affect.hh"
 #include "memory.hh"
 #include "Format.hh"
+#include "Social.hh"
+#include "MobProg.hh"
+#include "Disabled.hh"
 
 extern void     goto_line    args((Character *ch, int row, int column));
 extern void     set_window   args((Character *ch, int top, int bottom));
