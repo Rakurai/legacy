@@ -13,8 +13,8 @@ public:
 	const int value() const { return _value; }
 	const Flags flags() const;
 
-	const operator int() const { return value(); }
-	const operator Flags() const;
+	operator int() const { return value(); }
+	operator Flags() const;
 
 	ObjectValue& operator=(int rhs) { this->_value = rhs; return *this; }
 	ObjectValue& operator=(const Flags& rhs);
