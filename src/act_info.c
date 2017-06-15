@@ -2488,7 +2488,6 @@ void do_who(Character *ch, String argument)
 	bool fPK = FALSE;
 	Character *wch;
 	Clan *cch = nullptr;
-	const char *cls;
 	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
@@ -2615,7 +2614,7 @@ void do_who(Character *ch, String argument)
 		/*** Block 1 stuff ***/
 		/* Imm:    Immname */
 		/* Mortal: [lvl race class] */
-		cls = class_table[wch->cls].who_name;
+		String cls = class_table[wch->cls].who_name;
 
 		if (IS_REMORT(wch)) {
 			Format::sprintf(rbuf, "{G%2d{x", wch->pcdata->remort_count);

@@ -152,7 +152,7 @@ struct deity_type
 struct  class_type
 {
 	String      name;                   /* the full name of the class */
-	char        who_name        [4];    /* Three-letter name for 'who'  */
+	String      who_name;               /* Three-letter name for 'who'  */
 	sh_int      stat_prime;             /* Prime attribute              */
 	sh_int      weapon;                 /* First weapon                 */
 	sh_int      skill_adept;            /* Maximum skill level          */
@@ -215,8 +215,8 @@ struct race_type
 struct pc_race_type  /* additional data for pc races */
 {
 	String      name;                   /* MUST be in race_type */
-	char        who_name[4];		/* first 3 characters are used in 'who' */
-	sh_int	base_age;		/* the base age for the race */
+	String      who_name;		/* first 3 characters are used in 'who' */
+	sh_int	    base_age;		/* the base age for the race */
 	sh_int      points;                 /* cost in points of the race */
 	sh_int      class_mult[MAX_CLASS];  /* exp multiplier for class, * 100 */
 	sh_int      stats[MAX_STATS];       /* starting stats */
