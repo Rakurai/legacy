@@ -21,6 +21,8 @@ public:
     Character();
     virtual ~Character();
 
+    void update();
+
     bool has_cgroup(const Flags& cg) const { return IS_NPC(this) ? false : pcdata->cgroup_flags.has_any_of(cg); }
     void add_cgroup(const Flags& cg) { if (IS_NPC(this)) pcdata->cgroup_flags += cg; }
     void remove_cgroup(const Flags& cg) { if (IS_NPC(this)) pcdata->cgroup_flags -= cg; }

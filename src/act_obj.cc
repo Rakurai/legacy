@@ -3630,12 +3630,12 @@ Character *find_keeper(Character *ch)
 	/*
 	 * Shop hours.
 	 */
-	if (time_info.hour < pShop->open_hour) {
+	if (keeper->in_room->area->world.time.hour < pShop->open_hour) {
 		do_say(keeper, "Sorry, I am closed.");
 		return nullptr;
 	}
 
-	if (time_info.hour > pShop->close_hour) {
+	if (keeper->in_room->area->world.time.hour > pShop->close_hour) {
 		do_say(keeper, "Sorry, I am closed.");
 		return nullptr;
 	}
@@ -4786,7 +4786,7 @@ void do_forge(Character *ch, String argument)
 	        "It was created in the Month of %s by %s %s\n"
 	        "named %s.  Legend holds that this %s was a great weaponsmith.\n",
 	        weapon_table[weapon_lookup(type)].name, obj->material,
-	        month_name[time_info.month],
+	        ch->in_room->area->world.time.month_name(),
 	        (ch->level > LEVEL_HERO) ? "an immortal" : (ch->level > 75) ? "a master" :
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
 	        "a newbie", class_table[ch->cls].name, ch->name,

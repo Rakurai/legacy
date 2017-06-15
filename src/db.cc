@@ -381,37 +381,6 @@ void boot_db()
 		load_clan_table();
 		Format::printf("survived load_clan_table\n");
 	}
-	/* Set time and weather */
-	{
-		long lhour, lday, lmonth;
-		lhour           = (current_time - 650336715) / (PULSE_TICK / PULSE_PER_SECOND);
-		time_info.hour  = lhour  % MUD_DAY;
-		lday            = lhour  / MUD_DAY;
-		time_info.day   = lday   % MUD_MONTH;
-		lmonth          = lday   / MUD_MONTH;
-		time_info.month = lmonth % MUD_YEAR;
-		time_info.year  = lmonth / MUD_YEAR;
-		time_info.motd  = "";
-
-		if (time_info.hour <  5)   weather_info.sunlight = SUN_DARK;
-		else if (time_info.hour <  6)   weather_info.sunlight = SUN_RISE;
-		else if (time_info.hour < 19)   weather_info.sunlight = SUN_LIGHT;
-		else if (time_info.hour < 20)   weather_info.sunlight = SUN_SET;
-		else                            weather_info.sunlight = SUN_DARK;
-
-		weather_info.change     = 0;
-		weather_info.mmhg       = 960;
-
-		if (time_info.month >= 7 && time_info.month <= 12)
-			weather_info.mmhg += number_range(1, 50);
-		else
-			weather_info.mmhg += number_range(1, 80);
-
-		if (weather_info.mmhg <=  980)     weather_info.sky = SKY_LIGHTNING;
-		else if (weather_info.mmhg <= 1000)     weather_info.sky = SKY_RAINING;
-		else if (weather_info.mmhg <= 1020)     weather_info.sky = SKY_CLOUDY;
-		else                                    weather_info.sky = SKY_CLOUDLESS;
-	}
 	/* initialize auction */
 	{
 		auction.init();
@@ -550,7 +519,7 @@ void boot_db()
  */
 void load_area(FILE *fp)
 {
-	area_last = new Area(fp);
+	area_last = new Area(Game::world(), fp);
 	Game::world().areas.push_back(area_last);
 }
 

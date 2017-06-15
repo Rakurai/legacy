@@ -33,6 +33,8 @@
 #include "Affect.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "Area.hh"
+#include "World.hh"
 
 DECLARE_SPELL_FUN(spell_identify);
 DECLARE_SPELL_FUN(spell_charm_person);
@@ -905,13 +907,13 @@ bool spec_mayor(Character *ch)
 	static bool move;
 
 	if (!move) {
-		if (time_info.hour ==  6) {
+		if (ch->in_room->area->world.time.hour ==  6) {
 			path = open_path;
 			move = TRUE;
 			pos  = 0;
 		}
 
-		if (time_info.hour == 20) {
+		if (ch->in_room->area->world.time.hour == 20) {
 			path = close_path;
 			move = TRUE;
 			pos  = 0;

@@ -2424,7 +2424,7 @@ void do_motd(Character *ch, String argument)
 
 	if (!argument.empty()) {
 		if (argument == "clear") {
-			time_info.motd.erase();
+			Game::motd.erase();
 			stc("MOTD cleared.\n", ch);
 			return;
 		}
@@ -2433,12 +2433,12 @@ void do_motd(Character *ch, String argument)
 			int len;
 			bool found = FALSE;
 
-			if (time_info.motd.empty()) {
+			if (Game::motd.empty()) {
 				stc("No lines left to remove.\n", ch);
 				return;
 			}
 
-			buf = time_info.motd;
+			buf = Game::motd;
 
 			for (len = strlen(buf); len > 0; len--) {
 				if (buf[len] == '\n') {
@@ -2450,10 +2450,10 @@ void do_motd(Character *ch, String argument)
 					}
 					else { /* found the second one */
 						buf[len + 1] = '\0';
-						time_info.motd = buf;
+						Game::motd = buf;
 						set_color(ch, GREEN, NOBOLD);
 						stc("The MOTD is:\n", ch);
-						stc(!time_info.motd.empty() ? time_info.motd :
+						stc(!Game::motd.empty() ? Game::motd :
 						    "(None).\n", ch);
 						set_color(ch, WHITE, NOBOLD);
 						return;
@@ -2462,13 +2462,13 @@ void do_motd(Character *ch, String argument)
 			}
 
 			buf[0] = '\0';
-			time_info.motd.erase();
+			Game::motd.erase();
 			stc("MOTD cleared.\n", ch);
 			return;
 		}
 
 		if (argument[0] == '+') {
-			buf += time_info.motd;
+			buf += Game::motd;
 			argument = argument.substr(1).lstrip();
 		}
 
@@ -2479,12 +2479,12 @@ void do_motd(Character *ch, String argument)
 
 		buf += argument;
 		buf += "\n";
-		time_info.motd = buf;
+		Game::motd = buf;
 	}
 
 	set_color(ch, WHITE, BOLD);
 	stc("The MOTD is:\n", ch);
-	stc(!time_info.motd.empty() ? time_info.motd : "(None).\n", ch);
+	stc(!Game::motd.empty() ? Game::motd : "(None).\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 	return;
 }

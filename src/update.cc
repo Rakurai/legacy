@@ -42,8 +42,6 @@
 #include "MobProgActList.hh"
 #include "Reset.hh"
 
-extern void new_day(void);
-
 extern void     squestmob_found args((Character *ch, Character *mob));
 extern           time_t                  reboot_time;
 
@@ -496,242 +494,17 @@ void mobile_update(void)
 {
 	Character *ch;
 	Character *ch_next;
-	Exit *pexit;
-	int door;
 
 	/* Examine all mobs. */
 	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) || ch->in_room == nullptr || affect_exists_on_char(ch, gsn_charm_person))
-			continue;
-
-		if (get_position(ch) <= POS_SITTING)
-			continue;
-
-		/* Why check for resting mobiles? */
-
-		if (ch->in_room->area->empty)
-			/* && !ch->act_flags.has(ACT_UPDATE_ALWAYS)) */
-			continue;
-
-		/* Examine call for special procedure */
-		if (ch->spec_fun != 0) {
-			if ((*ch->spec_fun)(ch))
-				continue;
-		}
-
-		if (ch->pIndexData->pShop != nullptr)
-			if ((ch->gold * 100 + ch->silver) < ch->pIndexData->wealth) {
-				ch->gold += ch->pIndexData->wealth * number_range(1, 20) / 5000000;
-				ch->silver += ch->pIndexData->wealth * number_range(1, 20) / 50000;
-			}
-
-		/* MOBprogram random trigger */
-		if (ch->in_room->area->nplayer > 0) {
-			mprog_random_trigger(ch);
-
-			/* If ch dies or changes
-			position due to it's random
-			trigger, continue - Kahn */
-			if (get_position(ch) < POS_STANDING)
-				continue;
-		}
-
-		/* That's all for sleeping / busy monster, and empty zones */
-		if (get_position(ch) != POS_STANDING)
-			continue;
-
-		/* Scavenge */
-		if (ch->act_flags.has(ACT_SCAVENGER)
-		    && ch->in_room->contents != nullptr
-		    && number_bits(6) == 0) {
-			Character *gch;
-			Object *obj;
-			Object *obj_best = 0;
-			bool not_used;
-			int max = 1;
-
-			for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
-				not_used = TRUE;
-
-				for (gch = obj->in_room->people; gch != nullptr; gch = gch->next_in_room)
-					if (gch->on == obj)
-						not_used = FALSE;
-
-				if (CAN_WEAR(obj, ITEM_TAKE) && can_loot(ch, obj) && obj->cost > max && not_used) {
-					obj_best = obj;
-					max = obj->cost;
-				}
-			}
-
-			if (obj_best) {
-				obj_from_room(obj_best);
-				obj_to_char(obj_best, ch);
-				act("$n gets $p.", ch, obj_best, nullptr, TO_ROOM);
-			}
-		}
-
-		/* Wander */
-		if (!ch->act_flags.has(ACT_SENTINEL)
-		    && number_bits(3) == 0
-		    && (door = number_bits(5)) <= 5
-		    && (pexit = ch->in_room->exit[door]) != nullptr
-		    &&   pexit->u1.to_room != nullptr
-		    &&   !pexit->exit_flags.has(EX_CLOSED)
-		    &&   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)
-		    && (!ch->act_flags.has(ACT_STAY_AREA)
-		        ||   pexit->u1.to_room->area == ch->in_room->area)
-		    && (!ch->act_flags.has(ACT_OUTDOORS)
-		        ||   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))
-		    && (!ch->act_flags.has(ACT_INDOORS)
-		        ||   GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))) {
-			move_char(ch, door, FALSE);
-
-			/* If ch changes position due
-			to it's or someother mob's
-			movement via MOBProgs,
-			continue - Kahn */
-			if (get_position(ch) < POS_STANDING)
-				continue;
-		}
+		ch->update();
 	}
 
 	return;
 }
 
-/*
- * Update the weather.
- */
-void weather_update(void)
-{
-	String buf;
-	Character *ch;
-	int diff;
-	buf[0] = '\0';
-
-	switch (++time_info.hour) {
-	case  5:
-		new_day();
-		weather_info.sunlight = SUN_LIGHT;
-		buf += "The Clocktower Bell rings as another day begins.\n";
-		break;
-
-	case  6:
-		weather_info.sunlight = SUN_RISE;
-		buf += "The sun rises in the east.\n";
-		break;
-
-	case 12:
-		buf += "The Clocktower Bell signals the midday.\n";
-		break;
-
-	case 19:
-		weather_info.sunlight = SUN_SET;
-		buf += "The sun slowly disappears in the west.\n";
-		break;
-
-	case 20:
-		weather_info.sunlight = SUN_DARK;
-		buf += "The night has begun.\n";
-		break;
-
-	case 24:
-		buf += "The Clocktower Bell tolls, declaring midnight.\n";
-		time_info.hour = 0;
-		time_info.day++;
-		break;
-	}
-
-	if (time_info.day >= MUD_MONTH) {
-		time_info.day = 0;
-		time_info.month++;
-	}
-
-	if (time_info.month >= MUD_YEAR) {
-		time_info.month = 0;
-		time_info.year++;
-	}
-
-	/*
-	 * Weather change.
-	 */
-	if (time_info.month >= 9 && time_info.month <= 16) diff = weather_info.mmhg >  985 ? -2 : 2;
-	else diff = weather_info.mmhg > 1015 ? -2 : 2;
-
-	weather_info.change     += diff * dice(1, 4) + dice(2, 6) - dice(2, 6);
-	weather_info.change     = UMAX(weather_info.change, -12);
-	weather_info.change     = UMIN(weather_info.change, 12);
-	weather_info.mmhg       += weather_info.change;
-	weather_info.mmhg       = UMAX(weather_info.mmhg, 960);
-	weather_info.mmhg       = UMIN(weather_info.mmhg, 1040);
-
-	switch (weather_info.sky) {
-	default:
-		bug("Weather_update: bad sky %d.", weather_info.sky);
-		weather_info.sky = SKY_CLOUDLESS;
-		break;
-
-	case SKY_CLOUDLESS:
-		if (weather_info.mmhg < 990 || (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-			buf += "The sky grows dark with rolling grey clouds.\n";
-			weather_info.sky = SKY_CLOUDY;
-		}
-
-		break;
-
-	case SKY_CLOUDY:
-		if (weather_info.mmhg < 970 || (weather_info.mmhg < 990 && number_bits(2) == 0)) {
-#ifdef SEASON_CHRISTMAS
-			buf += "Snow starts to fall from the sky.\n";
-#else
-			buf += "It starts to rain a heavy downpour.\n";
-#endif
-			weather_info.sky = SKY_RAINING;
-		}
-
-		if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-			buf += "Shafts of light cut through the dense clouds above.\n";
-			weather_info.sky = SKY_CLOUDLESS;
-		}
-
-		break;
-
-	case SKY_RAINING:
-		if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-			buf += "Lightning flashes in the sky.\n";
-			weather_info.sky = SKY_LIGHTNING;
-		}
-
-		if (weather_info.mmhg > 1030 || (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
-#ifdef SEASON_CHRISTMAS
-			buf += "The snow slows to a few flakes, and finally stops.\n";
-#else
-			buf += "The rain stopped.\n";
-#endif
-			weather_info.sky = SKY_CLOUDY;
-		}
-
-		break;
-
-	case SKY_LIGHTNING:
-		if (weather_info.mmhg > 1010 || (weather_info.mmhg >  990 && number_bits(2) == 0)) {
-			buf += "The lightning has stopped.\n";
-			weather_info.sky = SKY_RAINING;
-			break;
-		}
-
-		break;
-	}
-
-	if (buf[0] != '\0') {
-		for (ch = char_list; ch != nullptr; ch = ch->next)
-
-			/* why send it to mobs? */
-			if (!IS_NPC(ch) && IS_OUTSIDE(ch) && IS_AWAKE(ch) && ch->act_flags.has(PLR_TICKS))
-				stc(buf, ch);
-	}
-}
 
 /* Update all descriptors, handles login timer */
 void descrip_update(void)
@@ -1615,7 +1388,8 @@ void update_handler(void)
 
 	if (--pulse_point       <= 0) {
 		pulse_point = PULSE_TICK;
-		weather_update();
+		Game::world().time.update();
+		Game::world().weather.update();
 		char_update();
 		descrip_update();
 		obj_update();

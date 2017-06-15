@@ -1450,7 +1450,7 @@ void spell_call_lightning(int sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	if (weather_info.sky < SKY_RAINING) {
+	if (ch->in_room->area->world.weather.sky < Weather::Raining) {
 		stc("You need bad weather.\n", ch);
 		return;
 	}
@@ -1821,9 +1821,9 @@ void spell_continual_light(int sn, int level, Character *ch, void *vo, int targe
 void spell_control_weather(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	if (target_name == "better")
-		weather_info.change += dice(level / 3, 4);
+		ch->in_room->area->world.weather.change += dice(level / 3, 4);
 	else if (target_name == "worse")
-		weather_info.change -= dice(level / 3, 4);
+		ch->in_room->area->world.weather.change -= dice(level / 3, 4);
 	else
 		stc("Do you want it to get better or worse?\n", ch);
 
@@ -2074,7 +2074,6 @@ void spell_create_spring(int sn, int level, Character *ch, void *vo, int target,
 void spell_create_water(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
-	int water;
 
 	/* Make sure the target is an object. -- Outsider */
 	if (ch == vo)
@@ -2090,7 +2089,8 @@ void spell_create_water(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	water = UMIN(level * (weather_info.sky >= SKY_RAINING ? 4 : 2), obj->value[0] - obj->value[1]);
+	int multiplier = ch->in_room->area->world.weather.sky >= Weather::Raining ? 4 : 2;
+	int water = UMIN(level * multiplier, obj->value[0] - obj->value[1]);
 
 	if (water > 0) {
 		obj->value[2] = LIQ_WATER;

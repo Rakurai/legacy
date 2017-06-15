@@ -26,6 +26,8 @@
  *  such installation can be found in INSTALL.  Enjoy...         N'Atas-Ha *
  ***************************************************************************/
 
+#include "World.hh"
+#include "Area.hh"
 #include "merc.hh"
 #include "Affect.hh"
 #include "memory.hh"
@@ -250,7 +252,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		return (number_percent() <= atoi(arg));
 
 	if (!strcmp(buf, "mudtime")) {
-		lhsvl = time_info.hour;
+		lhsvl = mob->in_room->area->world.time.hour;
 		rhsvl = atoi(val);
 		return mprog_veval(lhsvl, opr, rhsvl);
 	}

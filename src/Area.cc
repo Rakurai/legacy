@@ -11,7 +11,7 @@
 #include "Reset.hh"
 #include "merc.hh"
 
-Area::Area(FILE *fp) {
+Area::Area(World& w, FILE *fp) : world(w) {
 	file_name        = fread_string(fp);
 
 	String line = file_name;

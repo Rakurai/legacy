@@ -274,7 +274,6 @@ void do_debug(Character *ch, String argument)
 
 	if (!strcmp(subfunc, "tick")) {
 		int count, number = 1;
-		extern void     weather_update  args((void));
 		extern void     char_update     args((void));
 		extern void     obj_update      args((void));
 		extern void     room_update     args((void));
@@ -283,7 +282,8 @@ void do_debug(Character *ch, String argument)
 			number = URANGE(1, atoi(argument), 100);
 
 		for (count = 0; count < number; count++) {
-			weather_update();
+			Game::world().time.update();
+			Game::world().weather.update();
 			char_update();
 			obj_update();
 			room_update();

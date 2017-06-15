@@ -4,6 +4,8 @@
 #include "magic.hh"
 #include "Affect.hh"
 #include "Weather.hh"
+#include "Area.hh"
+#include "World.hh"
 
 /* needed functions */
 void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
@@ -156,9 +158,9 @@ void spell_dazzle(int sn, int level, Character *ch, void *vo, int target, int ev
 	    && ch->in_room->sector_type != SECT_CITY) {
 		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_DARK))
 			chance += 25;
-		else if (weather_info.sunlight == SUN_DARK)
+		else if (ch->in_room->area->world.time.sunlight == GameTime::Night)
 			chance += 20;
-		else if (weather_info.sunlight == SUN_SET)
+		else if (ch->in_room->area->world.time.sunlight == GameTime::Sunset)
 			chance += 15;
 	}
 

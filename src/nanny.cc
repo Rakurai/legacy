@@ -10,6 +10,7 @@
 #include "Format.hh"
 #include "GameTime.hh"
 #include "Customize.hh"
+#include "Game.hh"
 
 extern bool    check_playing           args((Descriptor *d, const String& name));
 int     roll_stat               args((Character *ch, int stat));
@@ -1052,8 +1053,8 @@ void nanny(Descriptor *d, String argument)
 	case CON_READ_MOTD:
 		set_color(ch, WHITE, BOLD);
 
-		if (!time_info.motd.empty())
-			stc(time_info.motd, ch);
+		if (!Game::motd.empty())
+			stc(Game::motd, ch);
 
 		stc("\n{x[Hit Enter to continue]", ch);
 		d->connected = CON_READ_NEWMOTD;

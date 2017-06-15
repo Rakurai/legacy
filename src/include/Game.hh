@@ -1,6 +1,7 @@
 #pragma once
 
 #include "declare.hh"
+#include "String.hh"
 #include "World.hh"
 
 class Game
@@ -11,6 +12,9 @@ public:
 		static World w;
 		return w;
 	}
+
+
+    static String motd;
 
 private:
 	Game() {} // static class

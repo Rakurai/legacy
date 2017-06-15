@@ -7,7 +7,7 @@
 class Area
 {
 public:
-    Area(FILE *fp);
+    Area(World& w, FILE *fp);
     virtual ~Area();
 
     void update();
@@ -33,6 +33,7 @@ public:
     bool                empty = FALSE;
 
     // components
+    World& world;
     std::vector<Reset *> resets;
 
 private:
@@ -43,5 +44,4 @@ private:
     int scan_credits();
     /* pick a random room to reset into -- Montrey */
     RoomPrototype *get_random_reset_room() const;
-
 };

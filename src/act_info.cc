@@ -75,25 +75,6 @@ char   *const   where_name      [] = {
 	"<wedding ring>      ",
 };
 
-const char   *   day_name        [] = {
-	"Regeneration",
-	"Endeavor",
-	"The Sun",
-	"The Great Gods",
-	"The Blue Moon",
-	"The Lesser Moon",
-	"Omens"
-};
-
-const char   * month_name      [] = {
-	"Abundance", "Perseverance", "Challenge",
-	"Sacrifice", "Continuity", "Reverence",
-	"Harmony", "Strife", "Peace",
-	"Futility", "Courtship", "Awakening",
-	"Long Shadows", "Silence", "Ancient Darkness",
-	"Endings", "Rapture"
-};
-
 /*
  * Local functions.
  */
@@ -2237,53 +2218,16 @@ void do_worth(Character *ch, String argument)
 	return;
 }
 
-char *day_number_suffix(int day)
-{
-	if (day > 4 && day < 20) return "th";
-
-	if (day % 10 == 1)       return "st";
-
-	if (day % 10 == 2)       return "nd";
-
-	if (day % 10 == 3)       return "rd";
-
-	return "th";
-} /* end day_number_suffix() */
-
-void new_day(void)
-{
-	char *suf;
-	int day;
-	Descriptor *d;
-	Character *victim;
-	day = time_info.day + 1;
-	suf = day_number_suffix(day);
-
-	for (d = descriptor_list; d != nullptr; d = d->next) {
-		victim = d->original ? d->original : d->character;
-
-		if (IS_PLAYING(d) && !victim->comm_flags.has_any_of(COMM_NOANNOUNCE | COMM_QUIET))
-			ptc(victim, "{BThera wakes to the Day of %s,\n%d%s of the Month of %s.{x\n",
-			    day_name[day % 7], day, suf, month_name[time_info.month]);
-	}
-} /* end new_day() */
-
 void do_time(Character *ch, String argument)
 {
-	extern char str_boot_time[];
-	char buf[MAX_STRING_LENGTH];
-	char *suf;
-	int day;
-	day     = time_info.day + 1;
-	suf = day_number_suffix(day);
-	Format::sprintf(buf,
-	        "{WIt is %d o'clock %s, Day of %s, %d%s of the Month of %s.{x\n",
-	        (time_info.hour % 12 == 0) ? 12 : time_info.hour % 12,
-	        time_info.hour >= 12 ? "pm" : "am",
-	        day_name[day % 7],
-	        day, suf,
-	        month_name[time_info.month]);
-	stc(buf, ch);
+	const World& world = ch->in_room->area->world;
+
+	ptc(ch, "{WIt is %d o'clock %s, Day of %s, %s of the Month of %s.{x\n",
+		(world.time.hour % 12 == 0) ? 12 : world.time.hour % 12,
+		world.time.hour >= 12 ? "pm" : "am",
+		world.time.day_name(),
+		world.time.day_string(),
+		world.time.month_name());
 
 	if (quest_double) {
 		stc("{gQuest points are currently being doubled!", ch);
@@ -2313,46 +2257,20 @@ void do_time(Character *ch, String argument)
 		stc("{x\n", ch);
 	}
 
-	Format::sprintf(buf, "{gLegacy started up %s\nThe system time is: %s{x\n",
-	        str_boot_time,
-	        (char *) ctime(&current_time)
-	       );
-	stc(buf, ch);
-	return;
+	extern char str_boot_time[];
+
+	ptc(ch, "{gLegacy started up %s\nThe system time is: %s{x\n",
+		str_boot_time, (char *) ctime(&current_time));
 }
 
 void do_weather(Character *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH];
-	static char *const sky_look[4] = {
-		"bright and sunny",
-		"cloudy",
-#ifdef SEASON_CHRISTMAS
-		"white with snow",
-#else
-		"raining with heavy droplets of water",
-#endif
-		"on fire with lightning"
-	};
-
 	if (!IS_OUTSIDE(ch)) {
 		stc("You are inside and cannot see outdoors.\n", ch);
 		return;
 	}
 
-	Format::sprintf(buf, "The sky is %s and %s.\n",
-	        sky_look[weather_info.sky],
-	        weather_info.change >= 0
-#ifdef SEASON_CHRISTMAS
-	        ? "a cold southerly breeze blows"
-	        : "a freezing northern gust blows"
-#else
-	        ? "a warm southerly breeze blows"
-	        : "a cold northern gust blows"
-#endif
-	       );
-	stc(buf, ch);
-	return;
+	ptc(ch, "%s\n", ch->in_room->area->world.weather.describe());
 }
 
 /* new whois by Montrey */

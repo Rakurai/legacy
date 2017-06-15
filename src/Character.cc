@@ -7,6 +7,7 @@
 #include "affect_list.hh"
 #include "recycle.hh"
 #include "act.hh"
+#include "Area.hh"
 
 Character::Character() {
 	logon = current_time;
@@ -76,4 +77,105 @@ Character::~Character() {
 		delete[] defense_mod;
 	if (affect_cache)
 		free_affect_cache(this);
+}
+
+void Character::update() {
+	Character *ch = this;
+
+	if (!IS_NPC(ch) || ch->in_room == nullptr || affect_exists_on_char(ch, gsn_charm_person))
+		return;
+
+	if (get_position(ch) <= POS_SITTING)
+		return;
+
+	/* Why check for resting mobiles? */
+
+	if (ch->in_room->area->empty)
+		/* && !ch->act_flags.has(ACT_UPDATE_ALWAYS)) */
+		return;
+
+	/* Examine call for special procedure */
+	if (ch->spec_fun != 0) {
+		if ((*ch->spec_fun)(ch))
+			return;
+	}
+
+	if (ch->pIndexData->pShop != nullptr)
+		if ((ch->gold * 100 + ch->silver) < ch->pIndexData->wealth) {
+			ch->gold += ch->pIndexData->wealth * number_range(1, 20) / 5000000;
+			ch->silver += ch->pIndexData->wealth * number_range(1, 20) / 50000;
+		}
+
+	/* MOBprogram random trigger */
+	if (ch->in_room->area->nplayer > 0) {
+		mprog_random_trigger(ch);
+
+		/* If ch dies or changes
+		position due to it's random
+		trigger, continue - Kahn */
+		if (get_position(ch) < POS_STANDING)
+			return;
+	}
+
+	/* That's all for sleeping / busy monster, and empty zones */
+	if (get_position(ch) != POS_STANDING)
+		return;
+
+	/* Scavenge */
+	if (ch->act_flags.has(ACT_SCAVENGER)
+	    && ch->in_room->contents != nullptr
+	    && number_bits(6) == 0) {
+		Character *gch;
+		Object *obj;
+		Object *obj_best = 0;
+		bool not_used;
+		int max = 1;
+
+		for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
+			not_used = TRUE;
+
+			for (gch = obj->in_room->people; gch != nullptr; gch = gch->next_in_room)
+				if (gch->on == obj)
+					not_used = FALSE;
+
+			if (CAN_WEAR(obj, ITEM_TAKE) && can_loot(ch, obj) && obj->cost > max && not_used) {
+				obj_best = obj;
+				max = obj->cost;
+			}
+		}
+
+		if (obj_best) {
+			obj_from_room(obj_best);
+			obj_to_char(obj_best, ch);
+			act("$n gets $p.", ch, obj_best, nullptr, TO_ROOM);
+		}
+	}
+
+	int door;
+	Exit *pexit;
+
+	/* Wander */
+	if (!ch->act_flags.has(ACT_SENTINEL)
+	    && number_bits(3) == 0
+	    && (door = number_bits(5)) <= 5
+	    && (pexit = ch->in_room->exit[door]) != nullptr
+	    &&   pexit->u1.to_room != nullptr
+	    &&   !pexit->exit_flags.has(EX_CLOSED)
+	    &&   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)
+	    && (!ch->act_flags.has(ACT_STAY_AREA)
+	        ||   pexit->u1.to_room->area == ch->in_room->area)
+	    && (!ch->act_flags.has(ACT_OUTDOORS)
+	        ||   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))
+	    && (!ch->act_flags.has(ACT_INDOORS)
+	        ||   GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))) {
+		move_char(ch, door, FALSE);
+
+		/* If ch changes position due
+		to it's or someother mob's
+		movement via MOBProgs,
+		continue - Kahn */
+		if (get_position(ch) < POS_STANDING)
+			return;
+	}
+
 }

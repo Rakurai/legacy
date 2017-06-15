@@ -34,6 +34,7 @@
 #include "lookup.hh"
 #include "Affect.hh"
 #include "Weather.hh"
+#include "World.hh"
 
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const Affect *paf, bool fAdd));
@@ -1266,7 +1267,7 @@ bool room_is_dark(RoomPrototype *room)
 	    || room->sector_type == SECT_CITY)
 		return FALSE;
 
-	if (weather_info.sunlight == SUN_DARK)
+	if (room->area->world.time.sunlight == GameTime::Night)
 		return TRUE;
 
 	return FALSE;

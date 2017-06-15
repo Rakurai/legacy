@@ -252,23 +252,25 @@ void combat_regen(Character *ch)
 	/* for real vampires, regen or damage */
 	if (ch->race == 6 && !IS_NPC(ch)) {
 		int sun_damage;
+		GameTime::Sun sun = ch->in_room->area->world.time.sunlight;
+		Weather::Sky sky = ch->in_room->area->world.weather.sky;
 
 		/* handle the regen first */
 		if (GET_ROOM_FLAGS(ch->in_room).has_any_of(ROOM_DARK | ROOM_INDOORS)
 		    || ch->in_room->sector_type == SECT_INSIDE
-		    || weather_info.sunlight == SUN_DARK)
+		    || sun == GameTime::Night)
 			hitgain += (ch->level / 10) + 1;
 		/* now damage from exposure to the sun */
 		else {
 			sun_damage = (ch->level / 20) + 1;
 
 			/* 75% damage if it's not fully light out */
-			if (weather_info.sunlight == SUN_RISE
-			    || weather_info.sunlight == SUN_SET)
+			if (sun == GameTime::Sunrise
+			    || sun == GameTime::Sunset)
 				sun_damage = (sun_damage * 3) / 4;
 
 			/* 80% damage if it's cloudy :)  -poor vamps-  */
-			if (weather_info.sunlight != SKY_CLOUDLESS)
+			if (sky != Weather::Cloudless)
 				sun_damage = (sun_damage * 4) / 5;
 
 			if (sun_damage < 0)
