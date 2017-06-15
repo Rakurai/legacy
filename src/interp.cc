@@ -582,8 +582,8 @@ void interpret(Character *ch, String argument)
 	found = FALSE;
 
 	/* temp give them a deputy group for command checking */
-	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
-		ch->pcdata->cgroup_flags += GROUP_DEPUTY;
+	if (ch->has_cgroup(GROUP_LEADER))
+		ch->add_cgroup(GROUP_DEPUTY);
 
 	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
 		/* if it's a mob only command, there should be no multiple cgroup flags */
@@ -610,8 +610,8 @@ void interpret(Character *ch, String argument)
 	}
 
 	/* now remove it, can't have both groups */
-	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
-		ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
+	if (ch->has_cgroup(GROUP_LEADER))
+		ch->remove_cgroup(GROUP_DEPUTY);
 
 	/*
 	 * Log and snoop.
@@ -939,14 +939,14 @@ void do_wizhelp(Character *ch, String argument)
 	int cmd, col, i;
 
 	/* temp give them a deputy group */
-	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
-		ch->pcdata->cgroup_flags += GROUP_DEPUTY;
+	if (ch->has_cgroup(GROUP_LEADER))
+		ch->add_cgroup(GROUP_DEPUTY);
 
 	for (i = 0; i < cgroup_flags.size(); i++) {
 		if (!IS_IMM_GROUP(cgroup_flags[i].bit))
 			continue;
 
-		if (!ch->pcdata->cgroup_flags.has(cgroup_flags[i].bit))
+		if (!ch->has_cgroup(cgroup_flags[i].bit))
 			continue;
 
 		ptc(ch, "%s{G%s{x\n", i > 0 ? "\n" : "", cgroup_flags[i].name);
@@ -974,8 +974,8 @@ void do_wizhelp(Character *ch, String argument)
 	}
 
 	/* now remove it */
-	if (ch->pcdata->cgroup_flags.has(GROUP_LEADER))
-		ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
+	if (ch->has_cgroup(GROUP_LEADER))
+		ch->remove_cgroup(GROUP_DEPUTY);
 }
 
 void slog_file(Character *ch, char *file, char *str)

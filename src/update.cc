@@ -187,12 +187,12 @@ void gain_exp(Character *ch, int gain)
 					restore_char(ch, victim);
 				}
 
-			ch->pcdata->cgroup_flags += GROUP_HERO;
+			ch->add_cgroup(GROUP_HERO);
 		}       /* end of if hero */
 
 		/* add avatar group if level 80 */
 		if (ch->level == LEVEL_AVATAR)
-			ch->pcdata->cgroup_flags += GROUP_AVATAR;
+			ch->add_cgroup(GROUP_AVATAR);
 
 		Format::sprintf(buf, "%s has attained level %d!", ch->name, ch->level);
 		wiznet(buf, ch, nullptr, WIZ_LEVELS, 0, 0);

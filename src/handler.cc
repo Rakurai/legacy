@@ -1365,7 +1365,7 @@ bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 	}
 
 	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_LEADER_ONLY)
-	    && !ch->pcdata->cgroup_flags.has(GROUP_LEADER))
+	    && !ch->has_cgroup(GROUP_LEADER))
 		return FALSE;
 
 	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)

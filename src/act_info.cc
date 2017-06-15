@@ -2419,9 +2419,9 @@ void do_whois(Character *ch, String argument)
 	if (victim->clan != nullptr) {
 		if (victim->pcdata->rank[0] != '\0')
 			rank = victim->pcdata->rank;
-		else if (victim->pcdata->cgroup_flags.has(GROUP_LEADER))
+		else if (victim->has_cgroup(GROUP_LEADER))
 			rank = "Leader";
-		else if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY))
+		else if (victim->has_cgroup(GROUP_DEPUTY))
 			rank = "Deputy";
 		else
 			rank = "Member";
@@ -2662,8 +2662,8 @@ void do_who(Character *ch, String argument)
 
 		if (wch->clan || IS_IMMORTAL(wch)) {
 			Format::sprintf(rbuf, "%s{x%3s{x",
-			        wch->pcdata->cgroup_flags.has(GROUP_LEADER) ? "{Y~" :
-			        wch->pcdata->cgroup_flags.has(GROUP_DEPUTY) ? "{B~" : " ",
+			        wch->has_cgroup(GROUP_LEADER) ? "{Y~" :
+			        wch->has_cgroup(GROUP_DEPUTY) ? "{B~" : " ",
 			        wch->pcdata->rank[0] ? wch->pcdata->rank :
 			        IS_IMMORTAL(wch) ? "{WIMM" : "   ");
 			rank = rbuf;
@@ -3162,7 +3162,7 @@ void do_consider(Character *ch, String argument)
 	}
 
 	/* New Consider by Clerve */
-	if (ch->pcdata->cgroup_flags.has(GROUP_AVATAR)) {
+	if (ch->has_cgroup(GROUP_AVATAR)) {
 		ptc(ch, "{CYou see %s (level %d)\n", victim->name, victim->level);
 		ptc(ch, "{TRace: %s  Sex: %s  Class: %s  Size: %s\n",
 		    race_table[victim->race].name,
@@ -3922,7 +3922,7 @@ void do_invite(Character *ch, String argument)
 				stc("There are currently no invited players.\n", ch);
 		}
 		else {
-			if (!ch->pcdata->cgroup_flags.has_any_of(GROUP_LEADER | GROUP_DEPUTY)) {
+			if (!ch->has_cgroup(GROUP_LEADER | GROUP_DEPUTY)) {
 				stc("Only leaders or deputies of your clan may send out invitations.\n", ch);
 				return;
 			}
@@ -4068,7 +4068,7 @@ void do_invite(Character *ch, String argument)
 		return;
 	}
 
-	if (!ch->pcdata->cgroup_flags.has_any_of(GROUP_LEADER | GROUP_DEPUTY)) {
+	if (!ch->has_cgroup(GROUP_LEADER | GROUP_DEPUTY)) {
 		stc("Only leaders or deputies of your clan may send out invitations.\n", ch);
 		return;
 	}
@@ -4120,7 +4120,7 @@ void do_join(Character *ch, String argument)
 		return;
 	}
 
-	if (!ch->clan || !ch->pcdata->cgroup_flags.has_any_of(GROUP_LEADER | GROUP_DEPUTY)) {
+	if (!ch->clan || !ch->has_cgroup(GROUP_LEADER | GROUP_DEPUTY)) {
 		do_huh(ch);
 		return;
 	}
@@ -4159,9 +4159,9 @@ void do_join(Character *ch, String argument)
 	}
 
 	/* remove a leader flag, in case they were a leader of a clan that poofed */
-	victim->pcdata->cgroup_flags -= GROUP_LEADER;
-	victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
-	victim->pcdata->cgroup_flags += GROUP_CLAN;
+	victim->remove_cgroup(GROUP_LEADER);
+	victim->remove_cgroup(GROUP_DEPUTY);
+	victim->add_cgroup(GROUP_CLAN);
 	victim->clan = ch->clan;
 	victim->questpoints_donated = 0;
 	victim->gold_donated = 0;
@@ -4229,7 +4229,7 @@ void do_unjoin(Character *ch, String argument)
 		return;
 	}
 
-	if (!ch->clan || !ch->pcdata->cgroup_flags.has(GROUP_LEADER)) {
+	if (!ch->clan || !ch->has_cgroup(GROUP_LEADER)) {
 		do_huh(ch);
 		return;
 	}
@@ -4262,7 +4262,7 @@ void do_unjoin(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
+	if (victim->has_cgroup(GROUP_LEADER)) {
 		stc("They must be deleadered first.\n", ch);
 		return;
 	}
@@ -4286,9 +4286,9 @@ void do_unjoin(Character *ch, String argument)
 	}
 
 	/* Remove Leader flag!!!! */
-	victim->pcdata->cgroup_flags -= GROUP_LEADER;
-	victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
-	victim->pcdata->cgroup_flags -= GROUP_CLAN;
+	victim->remove_cgroup(GROUP_LEADER);
+	victim->remove_cgroup(GROUP_DEPUTY);
+	victim->remove_cgroup(GROUP_CLAN);
 	victim->questpoints_donated = 0;
 	victim->gold_donated = 0;
 	save_char_obj(victim);
@@ -4301,7 +4301,7 @@ void do_rank(Character *ch, String argument)
 	char test[MAX_STRING_LENGTH];
 	Character *victim;
 
-	if (!ch->pcdata->cgroup_flags.has_any_of(GROUP_LEADER | GROUP_DEPUTY) && !IS_IMMORTAL(ch)) {
+	if (!ch->has_cgroup(GROUP_LEADER | GROUP_DEPUTY) && !IS_IMMORTAL(ch)) {
 		stc("Sorry, only a leader can change clan rank.\n", ch);
 		return;
 	}

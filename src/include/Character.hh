@@ -5,6 +5,7 @@
 #include "Actable.hh"
 #include "String.hh"
 #include "Format.hh" // ptc inline
+#include "Player.hh"
 
 /*
  * One character (PC or NPC).
@@ -19,6 +20,10 @@ class Character: public Actable
 public:
     Character();
     virtual ~Character();
+
+    bool has_cgroup(const Flags& cg) const { return IS_NPC(this) ? false : pcdata->cgroup_flags.has_any_of(cg); }
+    void add_cgroup(const Flags& cg) { if (IS_NPC(this)) pcdata->cgroup_flags += cg; }
+    void remove_cgroup(const Flags& cg) { if (IS_NPC(this)) pcdata->cgroup_flags -= cg; }
 
     Character *         next = nullptr;
     Character *         next_in_room = nullptr;

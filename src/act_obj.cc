@@ -107,7 +107,7 @@ bool clan_eq_ok(Character *ch, Object *obj, char *action)
 		return FALSE;
 	}
 
-	if (obj->name.has_words("leadereq") && !ch->pcdata->cgroup_flags.has(GROUP_LEADER)) {
+	if (obj->name.has_words("leadereq") && !ch->has_cgroup(GROUP_LEADER)) {
 		if (action != nullptr && *action != '\0') {
 			ptc(ch, "You attempt to %s your Leader's %s.\n",
 			        action, obj->short_descr);

@@ -2003,8 +2003,8 @@ void do_pstat(Character *ch, String argument)
 		stc(", ", ch);
 		set_color(ch, WHITE, NOBOLD);
 		ptc(ch, "%s of clan %s",
-		    victim->pcdata->cgroup_flags.has(GROUP_LEADER) ? "Leader" :
-		    victim->pcdata->cgroup_flags.has(GROUP_DEPUTY) ? "Deputy" :
+		    victim->has_cgroup(GROUP_LEADER) ? "Leader" :
+		    victim->has_cgroup(GROUP_DEPUTY) ? "Deputy" :
 		    "Member",
 		    victim->clan->who_name);
 	}

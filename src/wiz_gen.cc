@@ -885,21 +885,21 @@ void do_leader(Character *ch, String argument)
 			return;
 		}
 
-		if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
-			victim->pcdata->cgroup_flags -= GROUP_LEADER;
+		if (victim->has_cgroup(GROUP_LEADER)) {
+			victim->remove_cgroup(GROUP_LEADER);
 			stc("You are no longer an implementor.\n", victim);
 			stc("Leader flag removed.\n", ch);
 		}
 		else {
-			if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
-				victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+			if (victim->has_cgroup(GROUP_DEPUTY)) {
+				victim->remove_cgroup(GROUP_DEPUTY);
 				stc("You have been promoted to implementor.\n", victim);
 				stc("Deputy flag removed.\n", ch);
 			}
 			else
 				stc("You are now an implementor.\n", victim);
 
-			victim->pcdata->cgroup_flags += GROUP_LEADER;
+			victim->add_cgroup(GROUP_LEADER);
 			stc("Leader flag added.\n", ch);
 		}
 
@@ -919,21 +919,21 @@ void do_leader(Character *ch, String argument)
 	}
 	*/
 
-	if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
-		victim->pcdata->cgroup_flags -= GROUP_LEADER;
+	if (victim->has_cgroup(GROUP_LEADER)) {
+		victim->remove_cgroup(GROUP_LEADER);
 		stc("You are no longer a clan leader.\n", victim);
 		stc("Leader flag removed.\n", ch);
 	}
 	else {
-		if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
-			victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+		if (victim->has_cgroup(GROUP_DEPUTY)) {
+			victim->remove_cgroup(GROUP_DEPUTY);
 			stc("You have been promoted to clan leader.\n", victim);
 			stc("Deputy flag removed.\n", ch);
 		}
 		else
 			stc("You are now a clan leader.\n", victim);
 
-		victim->pcdata->cgroup_flags += GROUP_LEADER;
+		victim->add_cgroup(GROUP_LEADER);
 		stc("Leader flag added.\n", ch);
 	}
 }
@@ -972,21 +972,21 @@ void do_deputize(Character *ch, String argument)
 			return;
 		}
 
-		if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
-			victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+		if (victim->has_cgroup(GROUP_DEPUTY)) {
+			victim->remove_cgroup(GROUP_DEPUTY);
 			stc("You are no longer a head of your department.\n", victim);
 			stc("Deputy flag removed.\n", ch);
 		}
 		else {
-			if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
-				victim->pcdata->cgroup_flags -= GROUP_LEADER;
+			if (victim->has_cgroup(GROUP_LEADER)) {
+				victim->remove_cgroup(GROUP_LEADER);
 				stc("You have been demoted to department head.\n", victim);
 				stc("Leader flag removed.\n", ch);
 			}
 			else
 				stc("You are now a head of your department.\n", victim);
 
-			victim->pcdata->cgroup_flags += GROUP_DEPUTY;
+			victim->add_cgroup(GROUP_DEPUTY);
 			stc("Deputy flag added.\n", ch);
 		}
 
@@ -1001,21 +1001,21 @@ void do_deputize(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pcdata->cgroup_flags.has(GROUP_DEPUTY)) {
-		victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+	if (victim->has_cgroup(GROUP_DEPUTY)) {
+		victim->remove_cgroup(GROUP_DEPUTY);
 		stc("You are no longer a clan deputy.\n", victim);
 		stc("Deputy flag removed.\n", ch);
 	}
 	else {
-		if (victim->pcdata->cgroup_flags.has(GROUP_LEADER)) {
-			victim->pcdata->cgroup_flags -= GROUP_LEADER;
+		if (victim->has_cgroup(GROUP_LEADER)) {
+			victim->remove_cgroup(GROUP_LEADER);
 			stc("You have been demoted to clan deputy.\n", victim);
 			stc("Leader flag removed.\n", ch);
 		}
 		else
 			stc("You are now a clan deputy.\n", victim);
 
-		victim->pcdata->cgroup_flags += GROUP_DEPUTY;
+		victim->add_cgroup(GROUP_DEPUTY);
 		stc("Deputy flag added.\n", ch);
 	}
 }
@@ -1736,9 +1736,9 @@ void do_guild(Character *ch, String argument)
 
 		if (!IS_IMMORTAL(victim)) {
 			/* Remove leaderflag if it's set */
-			victim->pcdata->cgroup_flags -= GROUP_LEADER;
-			victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
-			victim->pcdata->cgroup_flags -= GROUP_CLAN;
+			victim->remove_cgroup(GROUP_LEADER);
+			victim->remove_cgroup(GROUP_DEPUTY);
+			victim->remove_cgroup(GROUP_CLAN);
 		}
 
 		victim->clan = nullptr;
@@ -1762,11 +1762,11 @@ void do_guild(Character *ch, String argument)
 
 	if (!IS_IMMORTAL(victim)) {
 		/* Remove leaderflag if it's set */
-		victim->pcdata->cgroup_flags -= GROUP_LEADER;
-		victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+		victim->remove_cgroup(GROUP_LEADER);
+		victim->remove_cgroup(GROUP_DEPUTY);
 	}
 
-	victim->pcdata->cgroup_flags += GROUP_CLAN;
+	victim->add_cgroup(GROUP_CLAN);
 	victim->clan = clan;
 	victim->questpoints_donated = 0;
 	victim->gold_donated = 0;
@@ -3856,9 +3856,9 @@ void do_wizgroup(Character *ch, String argument)
 			found = TRUE;
 
 			if (add)
-				victim->pcdata->cgroup_flags += cgroup_flags[count].bit;
+				victim->add_cgroup(cgroup_flags[count].bit);
 			else
-				victim->pcdata->cgroup_flags -= cgroup_flags[count].bit;
+				victim->remove_cgroup(cgroup_flags[count].bit);
 
 			ptc(ch, "%s group %sed for %s.\n",
 			    cgroup_flags[count].name, add ? "add" : "remov", victim->name);
@@ -3930,8 +3930,8 @@ void do_wizify(Character *ch, String argument)
 	for (sn = 0; sn < skill_table.size(); sn++)
 		victim->pcdata->learned[sn] = 100;
 
-	victim->pcdata->cgroup_flags -= GROUP_LEADER;
-	victim->pcdata->cgroup_flags -= GROUP_DEPUTY;
+	victim->remove_cgroup(GROUP_LEADER);
+	victim->remove_cgroup(GROUP_DEPUTY);
 	victim->clan = nullptr;
 	update_pos(victim);
 	stc("You have created a god.\n", ch);

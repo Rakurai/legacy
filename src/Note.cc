@@ -494,13 +494,13 @@ bool is_note_to(Character *ch, Note *pnote)
 	    && (pnote->to_list.has_exact_words(ch->clan->name)      /* note to one clan */
 	        || pnote->to_list.has_words("clan"))) {                /* note to all clans */
 		if (pnote->to_list.has_words("leader"))          /* note to leaders */
-			if (!ch->pcdata->cgroup_flags.has(GROUP_LEADER))
+			if (!ch->has_cgroup(GROUP_LEADER))
 				return FALSE;
 
 		if (pnote->to_list.has_words("deputy")           /* note to deputies */
 		    || pnote->to_list.has_words("deputies"))
-			if (!ch->pcdata->cgroup_flags.has(GROUP_LEADER)
-			    && !ch->pcdata->cgroup_flags.has(GROUP_DEPUTY))
+			if (!ch->has_cgroup(GROUP_LEADER)
+			    && !ch->has_cgroup(GROUP_DEPUTY))
 				return FALSE;
 
 		return TRUE;

@@ -735,12 +735,12 @@ bool load_char_obj(Descriptor *d, const String& name)
 		// switching to cgroups with old pfiles -- Montrey (2014)
 		if (version < 15 && ch->act_flags.has(Flags::N)) { // deputy
 			ch->act_flags -= Flags::N;
-			ch->pcdata->cgroup_flags += GROUP_DEPUTY;
+			ch->add_cgroup(GROUP_DEPUTY);
 		}
 
 		if (version < 15 && ch->act_flags.has(Flags::e)) { // leader
 			ch->act_flags -= Flags::e;
-			ch->pcdata->cgroup_flags += GROUP_LEADER;
+			ch->add_cgroup(GROUP_LEADER);
 		}
 
 		// removed act_is_npc bit and moved plr_nosummon to A, used to be Q -- Montrey
@@ -750,23 +750,23 @@ bool load_char_obj(Descriptor *d, const String& name)
 		}
 
 		if (ch->pcdata->remort_count > 0) {
-			ch->pcdata->cgroup_flags += GROUP_AVATAR;
-			ch->pcdata->cgroup_flags += GROUP_HERO;
+			ch->add_cgroup(GROUP_AVATAR);
+			ch->add_cgroup(GROUP_HERO);
 		}
 
 		if (ch->level >= LEVEL_AVATAR)
-			ch->pcdata->cgroup_flags += GROUP_AVATAR;
+			ch->add_cgroup(GROUP_AVATAR);
 
 		if (ch->level >= LEVEL_HERO)
-			ch->pcdata->cgroup_flags += GROUP_HERO;
+			ch->add_cgroup(GROUP_HERO);
 
 		if (ch->clan == nullptr && !IS_IMMORTAL(ch)) {
-			ch->pcdata->cgroup_flags -= GROUP_LEADER;
-			ch->pcdata->cgroup_flags -= GROUP_DEPUTY;
+			ch->remove_cgroup(GROUP_LEADER);
+			ch->remove_cgroup(GROUP_DEPUTY);
 		}
 
 		if (ch->clan != nullptr)
-			ch->pcdata->cgroup_flags += GROUP_CLAN;
+			ch->add_cgroup(GROUP_CLAN);
 
 		if (!IS_IMMORTAL(ch)) {
 			for (int stat = 0; stat < MAX_STATS; stat++)
@@ -804,7 +804,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 		/* fix command groups */
 		ch->act_flags -= (Flags::e);      /* PLR_LEADER */
 		ch->act_flags -= (Flags::N);       /* PLR_DEPUTY */
-		ch->pcdata->cgroup_flags += GROUP_PLAYER;
+		ch->add_cgroup(GROUP_PLAYER);
 
 		/* nuke wiznet flags beyond their level, in case they were temp trusted */
 		if (!ch->wiznet_flags.empty())
