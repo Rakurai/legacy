@@ -1,0 +1,19 @@
+#pragma once
+
+#include "declare.hh"
+
+Clan *clan_vnum_lookup	args((int vnum));
+Clan *	clan_lookup		args((const String& name));
+int		position_lookup		args((const String& name));
+int 	sex_lookup		args((const String& name));
+int 	size_lookup		args((const String& name));
+String	condition_lookup	args((int condition));
+int		liq_lookup		args((const String& name));
+String	sector_lookup		args((int type));
+int     liq_lookup      args( ( const String& name) );
+int     weapon_lookup   args( ( const String& name) );
+int     item_lookup     args( ( const String& name) );
+int     attack_lookup   args(( const String& name) );
+int     race_lookup     args(( const String& name) );
+int     class_lookup    args(( const String& name) );
+int     deity_lookup    args(( const String& name) );

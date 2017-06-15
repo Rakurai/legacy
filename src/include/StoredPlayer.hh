@@ -1,0 +1,22 @@
+#pragma once
+
+#include "declare.hh"
+#include "String.hh"
+
+class StoredPlayer
+{   
+public:
+	StoredPlayer() {}
+	virtual ~StoredPlayer() {}
+
+    String name;
+    String by_who;
+    String date;
+
+    StoredPlayer *next = nullptr;
+    StoredPlayer *previous = nullptr;
+
+private:
+	StoredPlayer(const StoredPlayer&);
+	StoredPlayer& operator=(const StoredPlayer&);
+};
