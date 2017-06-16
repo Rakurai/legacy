@@ -39,6 +39,7 @@
 #include "Format.hh"
 #include "GameTime.hh"
 #include "Shop.hh"
+#include "Quest.hh"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
@@ -374,38 +375,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 
 		if (!IS_NPC(ch)) {
 			/* Did they pick up their quest item? */
-			if (ch->act_flags.has(PLR_QUESTOR)) {
-				if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
-					char buf[MAX_STRING_LENGTH];
-					stc("{YYou have almost completed your QUEST!{x\n", ch);
-					stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-					ch->questobf = -1;
-					Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
-					wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-				}
-			}
-
-			/* or skill quest item? */
-			if (ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
-				if (ch->pcdata->squestobj == obj && !ch->pcdata->squestobjf) {
-					char buf[MAX_STRING_LENGTH];
-
-					if (ch->pcdata->squestmob == nullptr) {
-						stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
-						stc("{YReturn to the questmistress before your time runs out!{x\n", ch);
-					}
-					else {
-						stc("{YYou have completed part of your {VSKILL QUEST!{x\n", ch);
-						Format::sprintf(buf, "{YTake the artifact to %s while there is still time!{x\n",
-						        ch->pcdata->squestmob->short_descr);
-						stc(buf, ch);
-					}
-
-					ch->pcdata->squestobjf = TRUE;
-					Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
-					wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-				}
-			}
+			ch->pcdata->quests.check_complete(obj);
 		}
 	}
 
@@ -1428,8 +1398,9 @@ void do_give(Character *ch, String argument)
 	if (!can_see_obj(victim, obj)) {
 		/* hack so questmobs can take questobjs, easier than a bunch of reverse lookups in can_see_obj */
 		if (!(!IS_NPC(ch) && IS_NPC(victim)
-		      && IS_SQUESTOR(ch) && ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr
-		      && obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob)) {
+		      && ch->pcdata->quests.squest
+		      && ch->pcdata->quests.squest->is_target(victim)
+		      && ch->pcdata->quests.squest->is_target(obj))) {
 			act("$N can't see it.", ch, nullptr, victim, TO_CHAR);
 			return;
 		}
@@ -1474,19 +1445,8 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
-	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {
-		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
-			extern void squestobj_to_squestmob args((Character * ch, Object * obj, Character * mob));
-
-			if (!ch->pcdata->squestobjf) {
-				bug("At give sqobj to sqmob without sqobj found, continuing...", 0);
-				ch->pcdata->squestobjf = TRUE;
-			}
-
-			squestobj_to_squestmob(ch, obj, victim);
-		}
-	}
+	// did they hand over a quest object?
+	SkillQuest::squestobj_to_squestmob(ch, obj, victim);
 
 	/* This will trigger only once. We don't want anything to explode. */
 	/* If they want to achieve a given effect multiple times, they need */
@@ -3551,37 +3511,9 @@ void do_steal(Character *ch, String argument)
 	check_improve(ch, gsn_steal, TRUE, 2);
 	stc("Got it!\n", ch);
 
-	/* Did they pick up their quest item? */
-	if (ch->act_flags.has(PLR_QUESTOR)) {
-		if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
-			char buf[MAX_STRING_LENGTH];
-			stc("{YYou have almost completed your QUEST!{x\n", ch);
-			stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-			ch->questobf = -1;
-			Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
-			wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-		}
-	}
-
-	/* or skill quest item? */
-	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
-		if (ch->pcdata->squestobj == obj && !ch->pcdata->squestobjf) {
-			char buf[MAX_STRING_LENGTH];
-
-			if (ch->pcdata->squestmob == nullptr) {
-				stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
-				stc("{YReturn to the questmistress before your time runs out!{x\n", ch);
-			}
-			else {
-				stc("{YYou have completed part of your {VSKILL QUEST!{x\n", ch);
-				ptc(ch, "{YTake the artifact to %s while there is still time!{x\n",
-				    ch->pcdata->squestmob->short_descr);
-			}
-
-			ch->pcdata->squestobjf = TRUE;
-			Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
-			wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-		}
+	if (!IS_NPC(ch)) {
+		/* Did they pick up their quest item? */
+		ch->pcdata->quests.check_complete(obj);
 	}
 }
 

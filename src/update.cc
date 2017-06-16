@@ -1139,7 +1139,7 @@ void aggr_update(void)
 		   player before they can complete their quest, may change for realism, tho -- Montrey */
 		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
 			if (!IS_NPC(ch)
-			    && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
+			    && ch->pcdata->quests.squest
 			    && ch->pcdata->squestmob != nullptr
 			    && ch->pcdata->squestobj == nullptr) {
 				/* look for quest mob */
@@ -1297,9 +1297,9 @@ void age_update(void)
 	Descriptor *d;
 	Character *wch;
 
-	/* leech our quest_double counter here too */
-	if (quest_double)
-		quest_double++;
+	/* leech our QuestManager::doubleqp counter here too */
+	if (QuestManager::doubleqp)
+		QuestManager::doubleqp++;
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (!IS_PLAYING(d))
@@ -1521,36 +1521,14 @@ void underwater_update(void)
 
 void quest_update(void)
 {
-	Descriptor *d;
-	Character *ch;
-
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (Descriptor *d = descriptor_list; d != nullptr; d = d->next) {
 		if (IS_PLAYING(d)) {
-			ch = d->character;
+			Character *ch = d->character;
 
 			if (IS_NPC(ch))
 				continue;
 
-			if (ch->nextquest > 0) {
-				ch->nextquest--;
-
-				if (ch->nextquest == 0)
-					stc("You may now quest again.\n", ch);
-			}
-			else if (ch->act_flags.has(PLR_QUESTOR)) {
-				if (--ch->countdown <= 0) {
-					ch->nextquest = 0;
-					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
-					ch->act_flags -= PLR_QUESTOR;
-					ch->quest_giver = 0;
-					ch->countdown = 0;
-					ch->questmob = 0;
-					ch->questloc = 0;
-				}
-
-				if (ch->countdown > 0 && ch->countdown < 6)
-					stc("Better hurry, you're almost out of time for your quest!\n", ch);
-			}
+			ch->pcdata->quests.update();
 
 			/* parasite skill quest timer off of quest_update */
 			if (ch->pcdata->nextsquest > 0) {
@@ -1559,7 +1537,7 @@ void quest_update(void)
 				if (ch->pcdata->nextsquest == 0)
 					stc("You may now skill quest again.\n", ch);
 			}
-			else if (ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
+			else if (ch->pcdata->quests.squest) {
 				if (--ch->pcdata->sqcountdown <= 0) {
 					ch->pcdata->nextsquest = 0;
 					stc("You have run out of time for your skill quest!\n"

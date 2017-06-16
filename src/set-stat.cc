@@ -1003,7 +1003,7 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		victim->nextquest = value;
+		victim->pcdata->quests.nextquest = value;
 		ptc(ch, "%s can now quest again in %d minutes.\n", victim->name, value);
 		return;
 	}

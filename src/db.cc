@@ -312,7 +312,6 @@ MobilePrototype         *mob_index_hash          [MAX_KEY_HASH];
 ObjectPrototype         *obj_index_hash          [MAX_KEY_HASH];
 RoomPrototype        *room_index_hash         [MAX_KEY_HASH];
 
-long                    quest_double = 0;
 
 /*
  * Credits defines stuff

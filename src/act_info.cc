@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "Game.hh"
+#include "Quest.hh"
 #include "Area.hh"
 #include "find.hh"
 #include "typename.hh"
@@ -100,8 +101,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	/* Color additions by Lotus */
 	if (!IS_NPC(ch)
-	    && ((ch->questobj > 0 && obj->pIndexData->vnum == ch->questobj)
-	        || (ch->pcdata->squestobj != nullptr && ch->pcdata->squestobj == obj)))
+	 && ch->pcdata->quests.is_target(obj))
 		buf += "{f{R[TARGET] {x";
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
@@ -425,8 +425,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	}
 
 	if (IS_NPC(victim)
-	    && ((ch->questmob > 0 && victim->pIndexData->vnum == ch->questmob)
-	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
+	 && ch->pcdata->quests.is_target(victim))
 		buf += "{f{R[TARGET] {x";
 
 	if (victim->comm_flags.has(COMM_AFK))
@@ -2229,15 +2228,15 @@ void do_time(Character *ch, String argument)
 		world.time.day_string(),
 		world.time.month_name());
 
-	if (quest_double) {
+	if (QuestManager::doubleqp) {
 		stc("{gQuest points are currently being doubled!", ch);
 
 		if (IS_IMMORTAL(ch)) {
-			int hours       = quest_double / 3600,
-			    minutes     = (quest_double - (hours * 3600)) / 60,
-			    seconds     = (quest_double - (hours * 3600)) - (minutes * 60);
+			int hours       = QuestManager::doubleqp / 3600,
+			    minutes     = (QuestManager::doubleqp - (hours * 3600)) / 60,
+			    seconds     = (QuestManager::doubleqp - (hours * 3600)) - (minutes * 60);
 
-			if (quest_double > 1200)
+			if (QuestManager::doubleqp > 1200)
 				stc("{Y", ch);
 
 			stc(" (", ch);
@@ -2712,20 +2711,20 @@ void do_swho(Character *ch, String argument)
 		}
 
 		Format::sprintf(buf, "{b[%s][%s][%s][%s][%s][%s][%s{b] {W%-12s {R({P%s{R) {M<{V%s{M>\n",
-		        wch->pcdata->plr_flags.has(PLR_OOC) ? "{Y*{b" : " ",
-		        wch->pcdata->plr_flags.has(PLR_PK) ? "{G*{b" : " ",
-		        wch->act_flags.has(PLR_MAKEBAG) ? "{T*{b" : " ",
-		        wch->pcdata->plr_flags.has(PLR_PAINT) ? "{P*{b" : " ",
-		        wch->act_flags.has(PLR_QUESTOR) ? "{V*{b" : " ",
-		        wch->pcdata->plr_flags.has(PLR_SQUESTOR) ? "{B*{b" : " ",
+		        wch->pcdata->plr_flags.has(PLR_OOC)      ? "{Y*{b" : " ",
+		        wch->pcdata->plr_flags.has(PLR_PK)       ? "{G*{b" : " ",
+		        wch->act_flags.has(PLR_MAKEBAG)          ? "{T*{b" : " ",
+		        wch->pcdata->plr_flags.has(PLR_PAINT)    ? "{P*{b" : " ",
+		        wch->pcdata->quests.quest                ? "{V*{b" : " ",
+		        wch->pcdata->quests.squest ? "{B*{b" : " ",
 		        (wch->pnote != nullptr) ?
-		        wch->pnote->type == NOTE_NOTE           ? "{P*" :
-		        wch->pnote->type == NOTE_IDEA           ? "{Y*" :
-		        wch->pnote->type == NOTE_ROLEPLAY       ? "{V*" :
-		        wch->pnote->type == NOTE_IMMQUEST       ? "{B*" :
-		        wch->pnote->type == NOTE_CHANGES        ? "{G*" :
-		        wch->pnote->type == NOTE_PERSONAL       ? "{C*" :
-		        wch->pnote->type == NOTE_TRADE          ? "{b*" :
+		        wch->pnote->type == NOTE_NOTE            ? "{P*" :
+		        wch->pnote->type == NOTE_IDEA            ? "{Y*" :
+		        wch->pnote->type == NOTE_ROLEPLAY        ? "{V*" :
+		        wch->pnote->type == NOTE_IMMQUEST        ? "{B*" :
+		        wch->pnote->type == NOTE_CHANGES         ? "{G*" :
+		        wch->pnote->type == NOTE_PERSONAL        ? "{C*" :
+		        wch->pnote->type == NOTE_TRADE           ? "{b*" :
 		        "{c?" :
 		        " ",
 		        wch->name,

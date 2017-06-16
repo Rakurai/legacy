@@ -252,8 +252,8 @@ void do_debug(Character *ch, String argument)
 		if (arg == "all") {
 			for (questor = char_list; questor; questor = questor->next)
 				if (!IS_NPC(questor) && !IS_IMMORTAL(questor)) {
-					questor->nextquest = 0;
-					questor->pcdata->nextsquest = 0;
+					questor->pcdata->quests.nextquest = 0;
+					questor->pcdata->quests.nextsquest = 0;
 					stc("You may now quest again.\n", questor);
 				}
 
@@ -266,8 +266,8 @@ void do_debug(Character *ch, String argument)
 			return;
 		}
 
-		questor->nextquest = 0;
-		questor->pcdata->nextsquest = 0;
+		questor->pcdata->quests.nextquest = 0;
+		questor->pcdata->quests.nextsquest = 0;
 		ptc(ch, "OK, %s may quest again immediately.\n", questor->name);
 		return;
 	}

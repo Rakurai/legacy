@@ -319,7 +319,6 @@ extern	unsigned long	record_logins;
 extern	int		record_players;
 extern	int		record_players_since_boot;
 
-extern long	       quest_double;
 /*
  * These are skill_lookup return values for common skills and spells.
  */
@@ -815,9 +814,6 @@ bool    check_dispel_obj  args(( int dis_level, Object *obj, int sn, bool save )
 bool    undo_spell        args(( int dis_level, Character *victim, int sn, bool save ));
 bool    dispel_char       args(( Character *victim, int level, bool cancellation ));
 bool    level_save        args(( int dis_level, int save_level));
-
-/* quest.c */
-void    sq_cleanup	 args( ( Character *ch ) );
 
 /* save.c */
 void    save_char_obj    args( ( Character *ch ) );

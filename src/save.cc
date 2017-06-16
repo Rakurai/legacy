@@ -287,6 +287,11 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddItemToObject(o,	"Query",		item);
 	}
 
+	if (ch->pcdata->quests.nextquest > 0)
+		cJSON_AddNumberToObject(o,	"QuestNext",	ch->pcdata->quests.nextquest);
+	else if (ch->pcdata->quests.quest)
+		cJSON_AddNumberToObject(o,	"QuestNext",	12);
+
 	if (ch->pcdata->rank[0])
 		JSON::addStringToObject(o,	"Rank",			ch->pcdata->rank);
 
@@ -467,11 +472,6 @@ cJSON *fwrite_char(Character *ch)
 
 	if (ch->questpoints)
 		cJSON_AddNumberToObject(o,	"QuestPnts",	ch->questpoints);
-
-	if (ch->nextquest)
-		cJSON_AddNumberToObject(o,	"QuestNext",	ch->nextquest);
-	else if (ch->countdown)
-		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
 	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
 	JSON::addStringToObject(o,		"Revk",			ch->revoke_flags.to_string());
@@ -1045,6 +1045,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
+				INTKEY("QuestNext",		ch->pcdata->quests.nextquest,	o->valueint);
 				break;
 			case 'R':
 				if (key == "Raff") {
@@ -1234,7 +1235,6 @@ void fread_char(Character *ch, cJSON *json, int version)
 			case 'Q':
 				INTKEY("QuestPnts",		ch->questpoints,			o->valueint);
 				INTKEY("QpDonated",		ch->questpoints_donated,	o->valueint);
-				INTKEY("QuestNext",		ch->nextquest,				o->valueint);
 				break;
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));

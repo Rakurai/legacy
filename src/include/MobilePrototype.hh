@@ -3,12 +3,13 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "QuestTargetable.hh"
 
 /*
  * Prototype for a mob.
  * This is the in-memory version of #MOBILES.
  */
-class MobilePrototype
+class MobilePrototype : public QuestTargetable
 {
 public:
     MobilePrototype(FILE *fp, int vnum);
@@ -51,6 +52,8 @@ public:
     String              material;
     MobProg *           mobprogs = nullptr;
     Flags               progtype_flags;
+
+    virtual const std::string identifier() const { return this->short_descr; }
 
 private:
     MobilePrototype();

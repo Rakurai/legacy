@@ -6,6 +6,7 @@
 #include "String.hh"
 #include "Format.hh" // ptc inline
 #include "Player.hh"
+#include "QuestTargetable.hh"
 
 /*
  * One character (PC or NPC).
@@ -15,7 +16,7 @@
 #define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 
-class Character: public Actable
+class Character: public Actable, public QuestTargetable
 {
 public:
     Character();
@@ -125,20 +126,13 @@ public:
     sh_int              secure_level = 0;
     MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
-    int                 quest_giver = 0;  /* Elrac */
     int                 questpoints = 0;  /* Vassago */
     int			        questpoints_donated = 0; /* Clerve */
     long		        gold_donated = 0; /* Montrey */
-    sh_int              nextquest = 0;    /* Vassago */
-    sh_int              countdown = 0;    /* Vassago */
-    sh_int              questobj = 0;     /* Vassago */
-    sh_int              questmob = 0;     /* Vassago */
-    sh_int              questloc = 0;     /* -- Elrac */
-    sh_int              questobf = 0;     /* Lotus */
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */
 
-    virtual const std::string identifier() const { return this->name; }
+    virtual const std::string identifier() const { return this->short_descr; }
 
 private:
     Character(const Character&);

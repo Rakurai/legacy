@@ -5,6 +5,7 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "QuestManager.hh"
 
 /*
  * Data which only PC's have.
@@ -54,15 +55,7 @@ public:
 	std::vector<sh_int> learned;
 	std::vector<sh_int> evolution;
 	int			        skillpoints = 0;
-	int                 squest_giver = 0;
-	sh_int              nextsquest = 0;
-	sh_int              sqcountdown = 0;
-	Object  *           squestobj = nullptr;
-	Character *         squestmob = nullptr;
-	bool                squestobjf = FALSE;
-	bool		        squestmobf = FALSE;
-	int			        squestloc1 = 0; /* obj */
-	int			        squestloc2 = 0;	/* mob */
+
 	std::vector<bool>   group_known;
 	int			        rolepoints = 0;
 	sh_int              points = 0;
@@ -107,6 +100,8 @@ public:
     sh_int              lays = 0;
     sh_int              next_lay_countdown = 0;
     bool                familiar = FALSE;
+
+	QuestManager		quests;
 
 private:
 	Player(const Player&);

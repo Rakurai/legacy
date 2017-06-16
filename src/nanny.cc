@@ -482,8 +482,6 @@ void nanny(Descriptor *d, String argument)
 			return;
 
 		ch->pcdata->plr_flags -= PLR_LINK_DEAD;
-		ch->pcdata->plr_flags -= PLR_SQUESTOR;
-		ch->act_flags -= PLR_QUESTOR;
 		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
 		log_string(log_buf);
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));

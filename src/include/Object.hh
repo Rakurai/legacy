@@ -5,11 +5,12 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
+#include "QuestTargetable.hh"
 
 /*
  * One object.
  */
-class Object: public Actable
+class Object: public Actable, public QuestTargetable
 {
 public:
     Object() {};
@@ -61,7 +62,7 @@ public:
     Object *      gems = nullptr; // gems in settings
     Affect *   gem_affected = nullptr;
 
-    virtual const std::string identifier() const { return this->name; }
+    virtual const std::string identifier() const { return this->short_descr; }
 
 private:
 	Object(const String&);

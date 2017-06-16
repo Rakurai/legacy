@@ -37,6 +37,8 @@ class ObjectPrototype;
 class ObjectValue;
 class ObjectValues;
 class Player;
+class Quest;
+class QuestTargetable;
 class QuestArea;
 class Reset;
 class RoomPrototype;
@@ -1097,7 +1099,7 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define PLR_AUTOSPLIT           (Flags::H)
 #define PLR_DEFENSIVE           (Flags::I)
 #define PLR_WIMPY               (Flags::J)
-#define PLR_QUESTOR             (Flags::K)
+//#define PLR_QUESTOR             (Flags::K)
 
 /* RT personal flags */
 #define PLR_COLOR2              (Flags::L)
@@ -1136,7 +1138,7 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define PLR_SHOWLOST            (Flags::O)
 #define PLR_SHOWRAFF            (Flags::Q)
 #define PLR_MARRIED		(Flags::R)
-#define PLR_SQUESTOR		(Flags::S)	/* Montrey */
+//#define PLR_SQUESTOR		(Flags::S)	/* Montrey */
 #define PLR_DUEL_IGNORE		(Flags::T)	/* Montrey */
 //#define PLR_NEWSCORE		(Flags::U)	/* Montrey */
 

@@ -62,6 +62,7 @@
 #include "sql.hh"
 #include "Affect.hh"
 #include "Format.hh"
+#include "Quest.hh"
 
 /* EPKA structure */
 struct ka_struct *ka;
@@ -1314,33 +1315,24 @@ void bust_a_prompt(Character *ch)
 
 			break;
 		case 'q':
-			if (!IS_QUESTOR(ch))
-				buf += Format::format("%d", ch->nextquest);
-			else
-				buf += Format::format("%d", ch->countdown);
+			if (!IS_NPC(ch)) {
+				if (!ch->pcdata->quests.quest)
+					buf += Format::format("%d", ch->pcdata->quests.nextquest);
+				else
+					buf += Format::format("%d", ch->pcdata->quests.quest->countdown);
+			}
 
 			break;
 		case 'Q':
-			if (IS_QUESTOR(ch)) {
-//				ObjectPrototype *questinfoobj;
-				MobilePrototype *questinfo;
+			if (!IS_NPC(ch) && ch->pcdata->quests.quest) {
+				const Quest *quest = ch->pcdata->quests.quest;
 
-				if (ch->questmob == -1 || ch->questobf == -1)
+				if (quest->is_complete())
 					buf += "*report!*";
-				else if (ch->questobj > 0) {
-//					if ((questinfoobj = get_obj_index(ch->questobj)) != nullptr)
-//						Format::sprintf(buf2, "%s", questinfoobj->name);
-					if (ch->questloc)
-						buf += get_room_index(ch->questloc)->name.uncolor();
-					else
-						buf += "Unknown";
-				}
-				else if (ch->questmob > 0) {
-					if ((questinfo = get_mob_index(ch->questmob)) != nullptr)
-						buf += questinfo->short_descr.uncolor();
-					else
-						buf += "Unknown";
-				}
+				else if (quest->targets[0].type == QuestTarget::Obj)
+					buf += get_room_index(quest->targets[0].location)->name.uncolor();
+				else if (quest->targets[0].type == QuestTarget::Mob)
+					buf += String(quest->targets[0].target->identifier()).uncolor();
 				else
 					buf += "Unknown";
 			}
@@ -1353,43 +1345,49 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'j':
 			if (!IS_NPC(ch)) {
-				if (!IS_SQUESTOR(ch))
-					buf += Format::format("%d", ch->pcdata->nextsquest);
+				if (!ch->pcdata->quests.squest)
+					buf += Format::format("%d", ch->pcdata->quests.nextsquest);
 				else
-					buf += Format::format("%d", ch->pcdata->sqcountdown);
+					buf += Format::format("%d", ch->pcdata->quests.squest->countdown);
 			}
 			else
 				buf += '0';
 
 			break;
 		case 'J':
-			if (IS_SQUESTOR(ch)) {
-				if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob == nullptr) {
-					if (!ch->pcdata->squestobjf)
-//						buf += ch->pcdata->squestobj->short_descr;
-						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
+			if (!IS_NPC(ch) && ch->pcdata->quests.squest) {
+				const SkillQuest *quest = ch->pcdata->quests.squest;
+
+				if (quest->targets.size() == 1
+				 && quest->targets[0].type == QuestTarget::Obj) {
+					if (!quest->obj_found())
+						buf += get_room_index(quest->targets[0].location)->name.uncolor();
 					else
 						buf += "*report!*";
 				}
-				else if (ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj == nullptr) {
-					if (!ch->pcdata->squestmobf)
-						buf += ch->pcdata->squestmob->short_descr.uncolor();
+				else if (quest->targets.size() == 1
+				 && quest->targets[0].type == QuestTarget::Mob) {
+					if (!quest->mob_found())
+						buf += String(quest->targets[0].target->identifier()).uncolor();
 					else
 						buf += "*report!*";
 				}
-				else if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr) {
-					if (ch->pcdata->squestobjf) {
-						if (!ch->pcdata->squestmobf)
-							buf += ch->pcdata->squestmob->short_descr.uncolor();
+				else {
+					if (quest->obj_found()) {
+						if (!quest->mob_found()) {
+							for (const QuestTarget& t: quest->targets)
+								if (t.type == QuestTarget::Mob)
+									buf += String(t.target->identifier()).uncolor();
+						}
 						else
 							buf += "*report!*";
 					}
-					else
-//						buf += ch->pcdata->squestobj->short_descr;
-						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
+					else {
+						for (const QuestTarget& t: quest->targets)
+							if (t.type == QuestTarget::Obj)
+								buf += get_room_index(t.location)->name.uncolor();
+					}
 				}
-				else
-					buf += "Unknown";
 			}
 
 			break;

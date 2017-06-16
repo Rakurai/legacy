@@ -36,6 +36,7 @@
 #include "GameTime.hh"
 #include "Battle.hh"
 #include "Weather.hh"
+#include "Quest.hh"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
@@ -2816,7 +2817,6 @@ void raw_kill(Character *victim)
 
 void group_gain(Character *ch, Character *victim)
 {
-	char buf[MAX_STRING_LENGTH];
 	Character *gch;
 	Character *lch;
 	int xp;
@@ -2909,15 +2909,7 @@ void group_gain(Character *ch, Character *victim)
 			}
 		}
 
-		if (gch->act_flags.has(PLR_QUESTOR) && IS_NPC(victim)) {
-			if (gch->questmob == victim->pIndexData->vnum) {
-				stc("{YYou have almost completed your QUEST!{x\n", gch);
-				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
-				gch->questmob = -1;
-				Format::sprintf(buf, "{Y:QUEST: {x$N has slain %s", victim->short_descr);
-				wiznet(buf, gch, nullptr, WIZ_QUEST, 0, 0);
-			}
-		}
+		gch->pcdata->quests.check_complete(victim);
 	}
 } /* end group_gain */
 
