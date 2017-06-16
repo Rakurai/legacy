@@ -3,6 +3,7 @@
 #include "declare.hh"
 #include "GameTime.hh"
 #include "Weather.hh"
+#include "QuestArea.hh"
 #include <vector>
 
 class World
@@ -14,9 +15,9 @@ public:
 
 	GameTime time;
 	Weather weather;
+	QuestArea quest;
 
 	std::vector<Area *> areas;
-	Area *quest_area;
 
 private:
 	World();

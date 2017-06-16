@@ -1970,9 +1970,9 @@ bool is_safe_drag(Character *ch, Character *victim)
 		return FALSE;
 
 	/* almost anything goes in the quest area if UPK is on */
-	if (quest_upk
-	    && victim->in_room->area == Game::world().quest_area
-	    && ch->in_room->area == Game::world().quest_area)
+	if (Game::world().quest.pk
+	    && victim->in_room->area == Game::world().quest.area
+	    && ch->in_room->area == Game::world().quest.area)
 		return FALSE;
 
 	return is_safe_char(ch, victim, TRUE);
@@ -2574,7 +2574,7 @@ void do_mark(Character *ch, String argument)
 	}
 
 	if (ch->in_room->sector_type == SECT_ARENA
-	    || ch->in_room->area == Game::world().quest_area
+	    || ch->in_room->area == Game::world().quest.area
 	    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_GODS_ONLY) && !IS_IMMORTAL(ch))
 	    || char_in_duel_room(ch)) {
 		stc("Access to this room must be gained anew each time!\n", ch);
@@ -2646,7 +2646,7 @@ void do_relocate(Character *ch, String argument)
 	}
 
 	if ((ch->in_room->sector_type == SECT_ARENA)
-	    || (ch->in_room->area == Game::world().quest_area)) {
+	    || (ch->in_room->area == Game::world().quest.area)) {
 		stc("You aren't getting out of here that easily!\n", ch);
 		return;
 	}
@@ -2678,7 +2678,7 @@ RoomPrototype *get_random_room(Character *ch)
 
 		if (room == nullptr
 		    || !can_see_room(ch, room)
-		    || room->area == Game::world().quest_area
+		    || room->area == Game::world().quest.area
 		    || room->clan
 		    || room->guild
 		    || room->area->name == "Playpen"
@@ -2991,7 +2991,7 @@ void do_spousegate(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->area == Game::world().quest_area) {
+	if (ch->in_room->area == Game::world().quest.area) {
 		stc("You may not gate in the quest area.\n", ch);
 		return;
 	}
@@ -3024,7 +3024,7 @@ void do_spousegate(Character *ch, String argument)
 	    || !can_see_room(ch, victim->in_room)
 	    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
 	    || victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->area == Game::world().quest_area
+	    || victim->in_room->area == Game::world().quest.area
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan
 	    || victim->in_room->guild

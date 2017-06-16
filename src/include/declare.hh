@@ -37,6 +37,7 @@ class ObjectPrototype;
 class ObjectValue;
 class ObjectValues;
 class Player;
+class QuestArea;
 class Reset;
 class RoomPrototype;
 class Shop;

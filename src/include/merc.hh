@@ -319,16 +319,7 @@ extern	unsigned long	record_logins;
 extern	int		record_players;
 extern	int		record_players_since_boot;
 
-/*** Quest-related global data ***/
-/* quest_open, if true, says that the quest area is open.
-   The other variables are defined only if quest_open is true. */
-/* quest_upk is restricted pk in quest area or not, quest_double is double qp time */
-extern bool            quest_open;
-extern bool            quest_upk;
 extern long	       quest_double;
-extern int             quest_min, quest_max;
-extern RoomPrototype *quest_startroom;
-
 /*
  * These are skill_lookup return values for common skills and spells.
  */
@@ -826,7 +817,6 @@ bool    dispel_char       args(( Character *victim, int level, bool cancellation
 bool    level_save        args(( int dis_level, int save_level));
 
 /* quest.c */
-void    quest_init       args( (void) );
 void    sq_cleanup	 args( ( Character *ch ) );
 
 /* save.c */

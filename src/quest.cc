@@ -36,23 +36,6 @@
 #define MAXFSYL2        42
 #define MAXFSYL3        54
 
-/* The Vnum of the quest start location -- hard coded! */
-#define QUEST_STARTROOM 12000
-
-void quest_init(void)
-{
-	quest_open = FALSE;
-	quest_upk = TRUE;   /* unlimited PK */
-	quest_startroom = get_room_index(QUEST_STARTROOM);
-
-	if (quest_startroom == nullptr) {
-		bug("quest_init: Can't find quest start room %d.", QUEST_STARTROOM);
-		Game::world().quest_area = nullptr;
-	}
-	else
-		Game::world().quest_area = quest_startroom->area;
-} /* end quest_init */
-
 /* Usage info on the QUEST commands -- Elrac */
 /* Keep this in line with the do_quest function's keywords */
 void quest_usage(Character *ch)

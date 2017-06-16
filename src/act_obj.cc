@@ -3379,7 +3379,7 @@ void do_steal(Character *ch, String argument)
 
 	if (victim->in_room->sector_type == SECT_ARENA
 	    || victim->in_room->sector_type == SECT_CLANARENA
-	    || (victim->in_room->area == Game::world().quest_area && !quest_upk)
+	    || (victim->in_room->area == Game::world().quest.area && !Game::world().quest.pk)
 	    || char_in_duel_room(victim)) {
 		stc("You are here to do battle, not to steal!\n", ch);
 		return;

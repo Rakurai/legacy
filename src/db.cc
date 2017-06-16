@@ -312,15 +312,7 @@ MobilePrototype         *mob_index_hash          [MAX_KEY_HASH];
 ObjectPrototype         *obj_index_hash          [MAX_KEY_HASH];
 RoomPrototype        *room_index_hash         [MAX_KEY_HASH];
 
-/* quest_open, if true, says that the quest area is open.
-   quest_min, quest_max are defined only if quest_open is true. */
-/* quest_upk is restricted pk in quest area or not, quest_double is double qp time */
-bool                    quest_open;
-bool                    quest_upk;
 long                    quest_double = 0;
-int                     quest_min, quest_max;
-/* startroom and area are initialized by quest_init() */
-RoomPrototype         *quest_startroom;
 
 /*
  * Credits defines stuff
@@ -458,7 +450,7 @@ void boot_db()
 		fclose(fpList);
 	}
 	/* initialize quest stuff after areas loaded, maybe areas are needed */
-	quest_init();
+	Game::world().quest.init();
 
 	int itemsloaded = objstate_load_items();   /* load our list of items from disk, before resets! */
 	Format::printf("survived objstate_load_items (%d)\n", itemsloaded);

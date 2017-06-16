@@ -1,0 +1,23 @@
+#pragma once
+
+#include "declare.hh"
+
+class QuestArea {
+public:
+	QuestArea() {}
+	virtual ~QuestArea() {}
+
+	void init();
+
+	bool open = false;
+	bool pk = true; // unlimited pk
+	sh_int min_level = 0;
+	sh_int max_level = MAX_LEVEL;
+
+	RoomPrototype *startroom = nullptr;
+	Area *area = nullptr;
+
+private:
+	QuestArea(const QuestArea&);
+	QuestArea& operator=(const QuestArea&);
+};
