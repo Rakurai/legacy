@@ -9,6 +9,7 @@
 #include "interp.hh"
 #include "channels.hh"
 
+namespace quest {
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -247,3 +248,5 @@ generate(Character *ch, Character *questman) {
 		return quest;
 	}
 } /* end generate_quest() */
+
+} // namespace quest

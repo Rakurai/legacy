@@ -3,6 +3,8 @@
 #include "channels.hh"
 #include "interp.hh"
 
+namespace quest {
+
 void SkillQuest::
 complete_notify(Character *ch, const QuestTargetable *t) const {
 	if (is_complete()) { // found both things
@@ -77,3 +79,5 @@ squestobj_to_squestmob(Character *ch, Object *obj, Character *mob) {
 
 	quest->check_complete(ch, mob);
 }
+
+} // namespace quest

@@ -1,10 +1,14 @@
 #pragma once
 
 #include <vector>
+#include "event/Subscriber.hh"
 #include "declare.hh"
 #include "QuestTarget.hh"
 
-class Quest {
+namespace quest {
+
+class Quest :
+public event::Subscriber {
 public:
 	Quest(sh_int giver, sh_int time) :
 		quest_giver(giver), countdown(time) {}
@@ -16,6 +20,9 @@ public:
 	bool is_complete() const;
 	void check_complete(Character *ch, const QuestTargetable *t);
 
+	// event::Subscriber
+	virtual void notify(event::Event&);
+
 	const sh_int quest_giver;
 	sh_int countdown;
 
@@ -25,3 +32,5 @@ private:
 	Quest(const Quest&);
 	Quest& operator=(const Quest&);
 };
+
+} // namespace quest

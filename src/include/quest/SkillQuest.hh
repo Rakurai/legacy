@@ -2,6 +2,8 @@
 
 #include "Quest.hh"
 
+namespace quest {
+
 class SkillQuest : public Quest {
 public:
 	SkillQuest(sh_int giver, sh_int time) : Quest(giver, time) {}
@@ -19,3 +21,5 @@ private:
 	SkillQuest(const SkillQuest&);
 	SkillQuest& operator=(const SkillQuest&);
 };
+
+} // namespace quest

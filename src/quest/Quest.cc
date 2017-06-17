@@ -1,5 +1,7 @@
 #include "Quest.hh"
 
+namespace quest {
+
 bool Quest::
 is_target(const QuestTargetable *t) const {
 	for (const QuestTarget& target: targets)
@@ -31,3 +33,5 @@ check_complete(Character *ch, const QuestTargetable *t) {
 	if (found && is_complete())
 		complete_notify(ch, t);
 }
+
+} // namespace quest

@@ -2,6 +2,8 @@
 
 #include "declare.hh"
 
+namespace quest {
+
 class QuestTarget {
 public:
 	enum Type {
@@ -26,3 +28,5 @@ public:
 private:
 	QuestTarget& operator=(const QuestTarget&);
 };
+
+} // namespace quest

@@ -5,6 +5,8 @@
 #include "SkillQuest.hh"
 #include "PointQuest.hh"
 
+namespace quest {
+
 class QuestManager {
 public:
 	QuestManager(Player& p) : player(p) {}
@@ -33,3 +35,5 @@ private:
 
 	Player& player;
 };
+
+} // namespace quest

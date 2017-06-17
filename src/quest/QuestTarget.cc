@@ -3,6 +3,8 @@
 #include "Character.hh"
 #include "MobilePrototype.hh"
 
+namespace quest {
+
 bool QuestTarget::
 is_target(const QuestTargetable* t) const {
 	if (type == Obj) {
@@ -22,3 +24,5 @@ is_target(const QuestTargetable* t) const {
 
 	return false;
 }
+
+} // namespace quest

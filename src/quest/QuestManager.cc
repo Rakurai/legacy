@@ -3,6 +3,8 @@
 #include "Character.hh"
 #include "channels.hh"
 
+namespace quest {
+
 int QuestManager::doubleqp = 0;
 
 void QuestManager::
@@ -48,3 +50,5 @@ update() {
 		}
 	}
 }
+
+} // namespace quest
