@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "event/Event.hh"
 #include "Game.hh"
 #include "Area.hh"
 #include "find.hh"
@@ -1473,6 +1474,10 @@ void do_give(Character *ch, String argument)
 		Format::sprintf(buf, "You give $p[%d] to $N.", number);
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
+
+	event::Event(event::character_give_obj, {
+		{"ch", ch}, {"victim", victim}, {"obj", obj}
+	});
 
 	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
 	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {

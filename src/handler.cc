@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "event/Event.hh"
 #include "Area.hh"
 #include "merc.hh"
 #include "interp.hh"
@@ -386,6 +387,10 @@ void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
 	ch->in_room         = pRoomIndex;
 	ch->next_in_room    = pRoomIndex->people;
 	pRoomIndex->people  = ch;
+
+	event::Event(event::character_to_room, {
+		{"ch", ch}, {"room", pRoomIndex}
+	});
 
 	if (!IS_NPC(ch)) {
 		if (ch->in_room->area->empty) {

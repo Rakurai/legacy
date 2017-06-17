@@ -1,9 +1,7 @@
+#pragma once
+
 #include <map>
 #include "String.hh"
-
-// external forward declarations
-class Character;
-class RoomPrototype;
 
 namespace event {
 
@@ -12,14 +10,15 @@ class Subscriber;
 
 enum Type {
 	test,
-	character_enter_room,
+	character_to_room,
 	character_give_obj,
+	character_kill_other,
 };
 
 class Event {
 public:
-	Event(Type type, std::map<const char *, void *> args) :
-		type(type), args(args) {}
+	Event(Type t, std::map<const char *, void *> a) :
+		type(t), args(a) {}
 	virtual ~Event() {}
 
 	void fire();
