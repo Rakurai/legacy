@@ -14,3 +14,5 @@ sand_server
 *.pid
 copyover.item
 copyover.data
+.project
+.cproject

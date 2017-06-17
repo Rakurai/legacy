@@ -629,7 +629,7 @@ RoomPrototype *generate_skillquest_room(Character *ch, int level)
 
 		if (room == nullptr
 		    || !can_see_room(ch, room)
-		    || room->area == Game::world().quest_area
+		    || room->area == Game::world().quest.area
 		    || room->area->low_range > level
 		    || room->area->high_range < level
 		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
@@ -1369,7 +1369,7 @@ void do_quest(Character *ch, String argument)
 		Character *victim;
 		RoomPrototype *temple;
 
-		if (!quest_open) {
+		if (!Game::world().quest.open) {
 			stc("The quest area is not currently open.\n", ch);
 			return;
 		}
@@ -1380,7 +1380,7 @@ void do_quest(Character *ch, String argument)
 		if (!num_arg.empty() && num_arg.is_number())
 			num_to_oust = atoi(num_arg);
 
-		num_in_area = Game::world().quest_area->nplayer;
+		num_in_area = Game::world().quest.area->nplayer;
 
 		if (num_in_area > 0) {
 			if (num_to_oust < num_in_area - 1 || num_to_oust > num_in_area + 1) {
@@ -1396,7 +1396,7 @@ void do_quest(Character *ch, String argument)
 			else {
 				for (victim = char_list; victim != nullptr; victim = victim->next) {
 					if (!IS_NPC(victim) && victim->in_room != nullptr
-					    && victim->in_room->area == Game::world().quest_area) {
+					    && victim->in_room->area == Game::world().quest.area) {
 						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);
 						stc("You are expelled from the quest area.\n", victim);
 						char_from_room(victim);
@@ -1411,7 +1411,7 @@ void do_quest(Character *ch, String argument)
 		stc("*** You have closed the quest area ***\n", ch);
 		Format::sprintf(buf, "%s has closed the quest area.\n", ch->name);
 		do_send_announce(ch, buf);
-		quest_open = FALSE;
+		Game::world().quest.open = FALSE;
 		return;
 	}
 
@@ -1530,12 +1530,12 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (!quest_open) {
+		if (!Game::world().quest.open) {
 			stc("Sorry, but the quest area has not been opened!\n", ch);
 			return;
 		}
 
-		if (ch->level < quest_min || ch->level > quest_max) {
+		if (ch->level < Game::world().quest.min_level || ch->level > Game::world().quest.max_level) {
 			stc("Sorry, but the quest area is not open to your level!\n", ch);
 			return;
 		}
@@ -1557,7 +1557,7 @@ void do_quest(Character *ch, String argument)
 
 		act("$n joins the quest!", ch, nullptr, nullptr, TO_ROOM);
 		char_from_room(ch);
-		char_to_room(ch, quest_startroom);
+		char_to_room(ch, Game::world().quest.startroom);
 		act("$n appears in the room.", ch, nullptr, nullptr, TO_ROOM);
 		stc("You join the Quest!\n", ch);
 		do_look(ch, "auto");
@@ -1671,15 +1671,15 @@ void do_quest(Character *ch, String argument)
 
 	/*** OPEN ***/
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("open")) {
-		if ((quest_startroom = get_room_index(QUEST_STARTROOM)) == nullptr) {
+		if (Game::world().quest.startroom == nullptr) {
 			stc("The quest area is not available in this reboot.\n", ch);
 			return;
 		}
 
-		Game::world().quest_area = quest_startroom->area;
+		Game::world().quest.area = Game::world().quest.startroom->area;
 
-		if (quest_open) {
-			ptc(ch, "The quest area is already open, to levels %d to %d\n", quest_min, quest_max);
+		if (Game::world().quest.open) {
+			ptc(ch, "The quest area is already open, to levels %d to %d\n", Game::world().quest.min_level, Game::world().quest.max_level);
 			return;
 		}
 
@@ -1687,9 +1687,9 @@ void do_quest(Character *ch, String argument)
 		argument = one_argument(argument, num_arg);
 
 		if (!num_arg.empty() && num_arg.is_number())
-			quest_min = atoi(num_arg);
+			Game::world().quest.min_level = atoi(num_arg);
 
-		if (quest_min < 1 || quest_min > 100) {
+		if (Game::world().quest.min_level < 1 || Game::world().quest.min_level > 100) {
 			stc("Open the quest to which minimum level (1..100) ?\n", ch);
 			return;
 		}
@@ -1697,18 +1697,18 @@ void do_quest(Character *ch, String argument)
 		argument = one_argument(argument, num_arg);
 
 		if (!num_arg.empty() && num_arg.is_number())
-			quest_max = atoi(num_arg);
+			Game::world().quest.max_level = atoi(num_arg);
 
-		if (quest_max < quest_min || quest_max > 100) {
+		if (Game::world().quest.max_level < Game::world().quest.min_level || Game::world().quest.max_level > 100) {
 			ptc(ch, "Open the quest for levels %d to which maximum level (%d..100) ?\n",
-			    quest_min, quest_min);
+			    Game::world().quest.min_level, Game::world().quest.min_level);
 			return;
 		}
 
-		Format::sprintf(buf, "%s has opened the quest area to levels %d through %d!\n", ch->name, quest_min, quest_max);
+		Format::sprintf(buf, "%s has opened the quest area to levels %d through %d!\n", ch->name, Game::world().quest.min_level, Game::world().quest.max_level);
 		do_send_announce(ch, buf);
-		ptc(ch, "You open the quest area to levels %d through %d.\n", quest_min, quest_max);
-		quest_open = TRUE;
+		ptc(ch, "You open the quest area to levels %d through %d.\n", Game::world().quest.min_level, Game::world().quest.max_level);
+		Game::world().quest.open = TRUE;
 		return;
 	}
 
@@ -1722,9 +1722,9 @@ void do_quest(Character *ch, String argument)
 			bug("QUEST PK: salesgnome not there", 0);
 
 		stc("PK in Questlands is now ", ch);
-		quest_upk = !quest_upk;
+		Game::world().quest.pk = !Game::world().quest.pk;
 
-		if (quest_upk) {
+		if (Game::world().quest.pk) {
 			stc("UNLIMITED (Questlands = Open Arena)\n", ch);
 			wiznet("{Y:QUEST:{x $N has opened Questlands for Open Arena", ch, nullptr, WIZ_QUEST, 0, 0);
 
@@ -1870,12 +1870,12 @@ void do_quest(Character *ch, String argument)
 
 	/*** STATUS ***/
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("status")) {
-		if (quest_open)
+		if (Game::world().quest.open)
 			stc("The Quest Area is currently open for a {Rquest{x.\n", ch);
 		else
 			stc("There is currently {Gno quest{x going on.\n", ch);
 
-		if (quest_upk)
+		if (Game::world().quest.pk)
 			stc("There is {Gunrestricted carnage{x in the Quest Area.\n", ch);
 		else
 			stc("The Quest Area is currently PK {Rrestricted{x.\n", ch);
