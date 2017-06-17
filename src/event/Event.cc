@@ -3,10 +3,15 @@
 
 namespace event {
 
+// static member
+std::multimap<Type, Subscriber *> Event::subscribers;
+
 void Event::
 fire() {
-	for (Subscriber *s: subscribers[type])
-		s->notify(*this);
+	auto range = subscribers.equal_range(type);
+
+	for (auto i = range.first; i != range.second; ++i)
+		i->second->notify(*this);
 }
 
 }
