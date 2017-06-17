@@ -388,7 +388,7 @@ void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
 	ch->next_in_room    = pRoomIndex->people;
 	pRoomIndex->people  = ch;
 
-	event::Event(event::character_to_room, {
+	event::fire(event::character_to_room, {
 		{"ch", ch}, {"room", pRoomIndex}
 	});
 

@@ -1475,7 +1475,7 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
-	event::Event(event::character_give_obj, {
+	event::fire(event::character_give_obj, {
 		{"ch", ch}, {"victim", victim}, {"obj", obj}
 	});
 

@@ -1603,7 +1603,7 @@ void kill_off(Character *ch, Character *victim)
 		wiznet(log_buf, nullptr, nullptr, WIZ_MOBDEATHS, 0, 0);
 	}
 
-	event::Event(event::character_kill_other, {
+	event::fire(event::character_kill_other, {
 		{"ch", ch}, {"victim", victim}
 	});
 
