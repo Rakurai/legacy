@@ -11,7 +11,7 @@ dispatch() {
 	auto range = subscribers.equal_range(type);
 
 	for (auto i = range.first; i != range.second; ++i)
-		i->second->notify(*this);
+		i->second->notify(this->type, this->args);
 }
 
 }

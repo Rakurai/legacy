@@ -5,7 +5,7 @@ namespace event {
 class Subscriber {
 public:
 	virtual ~Subscriber() {}
-	virtual void notify(Event&) = 0;
+	virtual void notify(Type, EventArgs&) = 0;
 
 protected:
 	Subscriber() {}
