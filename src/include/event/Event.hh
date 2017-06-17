@@ -1,9 +1,7 @@
+#pragma once
+
 #include <map>
 #include "String.hh"
-
-// external forward declarations
-class Character;
-class RoomPrototype;
 
 namespace event {
 
@@ -12,31 +10,40 @@ class Subscriber;
 
 enum Type {
 	test,
-	character_enter_room,
+	character_to_room,
 	character_give_obj,
+	character_kill_other,
 };
+
+typedef std::map<const char *, void *> EventArgs;
 
 class Event {
 public:
-	Event(Type type, std::map<const char *, void *> args) :
-		type(type), args(args) {}
 	virtual ~Event() {}
 
-	void fire();
-
-	Type type;
-	std::map<const char *, void *> args;
-
 private:
+	Event(Type t, EventArgs& a) :
+		type(t), args(a) {}
+
 	Event();
 	Event(const Event&);
 	Event& operator=(const Event&);
 
+	void dispatch(); // send event to subscribers
+
+	Type type;
+	EventArgs& args;
+
 	static std::multimap<Type, Subscriber *> subscribers;
 
+	friend void fire(Type, EventArgs);
 	friend void subscribe(Type, Subscriber *);
 	friend void unsubscribe(Type, Subscriber *);
 };
+
+inline void fire(Type type, EventArgs args) {
+	Event(type, args).dispatch();
+}
 
 inline void subscribe(Type type, Subscriber *s) {
 	Event::subscribers.emplace(type, s);

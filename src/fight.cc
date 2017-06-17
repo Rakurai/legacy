@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "event/Event.hh"
 #include "Game.hh"
 #include "Area.hh"
 #include "find.hh"
@@ -1602,6 +1603,10 @@ void kill_off(Character *ch, Character *victim)
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->vnum, gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_MOBDEATHS, 0, 0);
 	}
+
+	event::fire(event::character_kill_other, {
+		{"ch", ch}, {"victim", victim}
+	});
 
 	// award exp
 	group_gain(ch, victim);

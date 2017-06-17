@@ -25,6 +25,7 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include "event/Event.hh"
 #include "Game.hh"
 #include "Area.hh"
 #include "find.hh"
@@ -1446,7 +1447,9 @@ void do_give(Character *ch, String argument)
 	}
 
 	// did they hand over a quest object?
-	SkillQuest::squestobj_to_squestmob(ch, obj, victim);
+	event::fire(event::character_give_obj, {
+		{"ch", ch}, {"victim", victim}, {"obj", obj}
+	});
 
 	/* This will trigger only once. We don't want anything to explode. */
 	/* If they want to achieve a given effect multiple times, they need */
