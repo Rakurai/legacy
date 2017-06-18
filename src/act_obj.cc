@@ -40,7 +40,7 @@
 #include "Format.hh"
 #include "GameTime.hh"
 #include "Shop.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
@@ -1446,7 +1446,6 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
-	// did they hand over a quest object?
 	event::fire(event::character_give_obj, {
 		{"ch", ch}, {"victim", victim}, {"obj", obj}
 	});

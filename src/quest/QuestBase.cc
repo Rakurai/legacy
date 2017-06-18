@@ -2,6 +2,15 @@
 
 namespace quest {
 
+Objective& Quest::
+next_objective() {
+	for (Objective& o: objectives)
+		if (o.complete == false)
+			return o;
+
+	return objectives.back();
+}
+
 bool Quest::
 is_target(const QuestTargetable *t) const {
 	for (const QuestTarget& target: targets)

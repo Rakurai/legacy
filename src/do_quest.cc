@@ -20,7 +20,7 @@
 #include "recycle.hh"
 #include "Affect.hh"
 #include "Format.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 
 /* syllable tables */
 #define MAXMSYL1        77
@@ -32,7 +32,7 @@
 
 void sq_cleanup(Character *ch)
 {
-	Quest *quest = ch->pcdata->quests.squest;
+	quest::Quest *quest = ch->pcdata->quests.squest;
 
 	if (!quest)
 		return;
@@ -59,7 +59,7 @@ void sq_cleanup(Character *ch)
 
 void squest_info(Character *ch)
 {
-	Quest *quest = ch->pcdata->quests.squest;
+	quest::Quest *quest = ch->pcdata->quests.squest;
 
 	if (!quest) {
 		stc("You aren't currently on a skill quest.\n", ch);
@@ -75,22 +75,22 @@ void squest_info(Character *ch)
 		questman = "your quest master";
 
 	Character *mob = nullptr;
-	RoomPrototype *mob_loc = nullptr;
+	const RoomPrototype *mob_loc = nullptr;
 	bool mob_found = false;
 	Object *obj = nullptr;
-	RoomPrototype *obj_loc = nullptr;
+	const RoomPrototype *obj_loc = nullptr;
 	bool obj_found = false;
 
-	for (QuestTarget& t: quest->targets) {
-		if (t.type == QuestTarget::Mob) {
-			mob = dynamic_cast<Character *>(t.target);
-			mob_loc = get_room_index(t.location);
-			mob_found = t.is_complete;
+	for (quest::Objective& o: quest->objectives) {
+		if (o.target.type == quest::Objective::Target::Mob) {
+			mob = dynamic_cast<Character *>(o.target.ptr);
+			mob_loc = o.location;
+			mob_found = o.is_complete;
 		}
-		else if (t.type == QuestTarget::Obj) {
-			obj = dynamic_cast<Object *>(t.target);
-			obj_loc = get_room_index(t.location);
-			obj_found = t.is_complete;
+		else if (o.target.type == quest::Objective::Target::Obj) {
+			obj = dynamic_cast<Object *>(o.target.ptr);
+			obj_loc = o.location;
+			obj_found = o.is_complete;
 		}
 	}
 
@@ -199,293 +199,6 @@ int get_random_skill(Character *ch)
 	return sn;
 }
 
-
-Object *generate_skillquest_obj(Character *ch, int level)
-{
-	ExtraDescr *ed;
-	Object *questobj;
-	char buf[MAX_STRING_LENGTH];
-	int num_objs, descnum;
-	struct sq_item_type {
-		char *name;
-		char *shortdesc;
-		char *longdesc;
-		char *extended;
-	};
-	const struct sq_item_type sq_item_table [] = {
-		{
-			"quest spellbook lotus",       "Spellbook of Lotus",
-			"The Spellbook of Lotus is lying here, waiting for a lucky finder.",
-			"A large, heavy book, worn with use. A tiny scrap of paper marks where the last reader's attention was.\n"
-		},
-
-		{
-			"quest sword furey",           "Sword of Furey",
-			"The Sword of Furey is lying here, waiting for a lucky finder.",
-			"This large blade's edges, even as stained as they are, seem to glisten with an inner strength.\n"
-		},
-
-		{
-			"quest lockpicks kahn",        "Lockpicks of Kahn",
-			"The Lockpicks of Kahn are lying here, waiting for a lucky finder.",
-			"A small grey pouch of supple leather holds the lockpicks of the legendary thief.\n"
-		},
-
-		{
-			"quest robe alander",          "Robe of Alander",
-			"The Robe of Alander is lying here, waiting for a lucky finder.",
-			"Though quite dusty, this soft robe looks well used and gives of a warm, comforting glow.\n"
-		},
-
-		{nullptr, nullptr, nullptr, nullptr}
-	};
-
-	/* count the objects */
-	for (num_objs = 0; sq_item_table[num_objs].name != nullptr; num_objs++);
-
-	num_objs--;
-	descnum = number_range(0, num_objs);
-	questobj = create_object(get_obj_index(OBJ_VNUM_SQUESTOBJ), level);
-
-	if (! questobj) {
-		bug("Memory error creating quest object.", 0);
-		return nullptr;
-	}
-
-	questobj->timer = (4 * ch->pcdata->sqcountdown + 10) / 3;
-	Format::sprintf(buf, "%s %s", sq_item_table[descnum].name, ch->name);
-	questobj->name        = buf;
-	questobj->short_descr = sq_item_table[descnum].shortdesc;
-	questobj->description = sq_item_table[descnum].longdesc;
-	ed = new_extra_descr();
-	ed->keyword        = sq_item_table[descnum].name;
-	ed->description    = sq_item_table[descnum].extended;
-	ed->next           = questobj->extra_descr;
-	questobj->extra_descr   = ed;
-	ch->pcdata->squestobj = questobj;
-	return questobj;
-}
-
-RoomPrototype *generate_skillquest_room(Character *ch, int level)
-{
-	RoomPrototype *room, *prev;
-
-	for (; ;) {
-		room = get_room_index(number_range(0, 32767));
-
-		if (room == nullptr
-		    || !can_see_room(ch, room)
-		    || room->area == Game::world().quest.area
-		    || room->area->low_range > level
-		    || room->area->high_range < level
-		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
-		        && room->area->min_vnum <= 26999)
-		    || room->guild
-		    || room->area->name == "Playpen"
-		    || room->area->name == "IMM-Zone"
-		    || room->area->name == "Limbo"
-		    || room->area->name == "Midgaard"
-		    || room->area->name == "New Thalos"
-		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
-		    || room->area->name == "Torayna Cri"
-		    || room->area->name == "Battle Arenas"
-		    || room->sector_type == SECT_ARENA
-		    || GET_ROOM_FLAGS(room).has_any_of(
-		              ROOM_MALE_ONLY
-		              | ROOM_FEMALE_ONLY
-		              | ROOM_PRIVATE
-		              | ROOM_SOLITARY
-		              | ROOM_NOQUEST))
-			continue;
-
-		/* no pet shops */
-		if ((prev = get_room_index(room->vnum - 1)) != nullptr)
-			if (GET_ROOM_FLAGS(prev).has(ROOM_PET_SHOP))
-				continue;
-
-		return room;
-	}
-}
-
-void generate_skillquest_mob(Character *ch, Character *questman, int level, int type)
-{
-	Object  *questobj;
-	Character *questmob;
-	RoomPrototype *questroom;
-	int x, maxnoun;
-	char buf[MAX_STRING_LENGTH];
-	char longdesc[MAX_STRING_LENGTH];
-	char shortdesc[MAX_STRING_LENGTH];
-	char name[MAX_STRING_LENGTH];
-	String title;
-	char *quest;
-	title = quest = "";             /* ew :( */
-
-	if ((questmob = create_mobile(get_mob_index(MOB_VNUM_SQUESTMOB))) == nullptr) {
-		bug("Bad skillquest mob vnum, from generate_skillquest_mob", 0);
-		return;
-	}
-
-	ATTR_BASE(ch, APPLY_SEX) = number_range(1, 2);
-	questmob->level = ch->level;
-
-	/* generate name */
-	if (GET_ATTR_SEX(questmob) == 1)
-		Format::sprintf(shortdesc, "%s%s%s",
-		        Msyl1[number_range(0, (MAXMSYL1 - 1))],
-		        Msyl2[number_range(0, (MAXMSYL2 - 1))],
-		        Msyl3[number_range(0, (MAXMSYL3 - 1))]);
-	else
-		Format::sprintf(shortdesc, "%s%s%s",
-		        Fsyl1[number_range(0, (MAXFSYL1 - 1))],
-		        Fsyl2[number_range(0, (MAXFSYL2 - 1))],
-		        Fsyl3[number_range(0, (MAXFSYL3 - 1))]);
-
-	Format::sprintf(name, "squestmob %s", shortdesc);
-	questmob->name = name;
-	questmob->short_descr = shortdesc;
-
-	/* generate title */
-	switch (number_range(1, 4)) {
-	case 1:
-		for (maxnoun = 0; maxnoun < MagT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
-		title = GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female;
-		quest = "the powers of magic";
-		questmob->act_flags += ACT_MAGE;
-		break;
-
-	case 2:
-		for (maxnoun = 0; maxnoun < CleT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
-		title = GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female;
-		quest = "the wisdom of holiness";
-		questmob->act_flags += ACT_CLERIC;
-		break;
-
-	case 3:
-		for (maxnoun = 0; maxnoun < ThiT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
-		title = GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female;
-		quest = "the art of thievery";
-		questmob->act_flags += ACT_THIEF;
-		break;
-
-	case 4:
-		for (maxnoun = 0; maxnoun < WarT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
-		title = GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female;
-		quest = "the ways of weaponcraft";
-		questmob->act_flags += ACT_WARRIOR;
-		break;
-	}
-
-	Format::sprintf(longdesc, "The %s, %s, stands here.\n", title, questmob->short_descr);
-	questmob->long_descr = longdesc;
-
-	if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
-		bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
-		return;
-	}
-
-	char_to_room(questmob, questroom);
-	ch->pcdata->squestmob = questmob;
-
-	if (type == 1) { /* mob quest */
-		Format::sprintf(buf, "Seek out the %s, %s, for teachings in %s!", title, questmob->short_descr, quest);
-		do_say(questman, buf);
-		Format::sprintf(buf, "%s resides somewhere in the area of %s{x,", questmob->short_descr, questmob->in_room->area->name);
-		do_say(questman, buf);
-		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
-		do_say(questman, buf);
-	}
-	else if (type == 2) {   /* obj to mob quest */
-		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
-			bug(" Bad generate_skillquest_obj, from generate_skillquest_mob", 0);
-			return;
-		}
-
-		for (; ;) {
-			if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
-				bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
-				return;
-			}
-
-			if (questroom->area == questmob->in_room->area)
-				continue;
-
-			obj_to_room(questobj, questroom);
-			break;
-		}
-
-		Format::sprintf(buf, "The %s %s{x has reported missing the legendary artifact,",
-		        title, questmob->short_descr);
-		do_say(questman, buf);
-		Format::sprintf(buf, "the %s{x!  %s{x resides somewhere in %s{x,",
-		        questobj->short_descr, questmob->short_descr, questmob->in_room->area->name);
-		do_say(questman, buf);
-		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
-		do_say(questman, buf);
-		Format::sprintf(buf, "%s last recalls travelling through %s{x, in the",
-		        GET_ATTR_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name);
-		do_say(questman, buf);
-		Format::sprintf(buf, "area of %s{x, when %s lost the treasure.",
-		        questobj->in_room->area->name, GET_ATTR_SEX(questmob) == 1 ? "he" : "she");
-		do_say(questman, buf);
-	}
-}
-
-void generate_skillquest(Character *ch, Character *questman)
-{
-	Object *questobj;
-	RoomPrototype *questroom;
-	char buf[MAX_STRING_LENGTH];
-
-	int level = URANGE(1, ch->level, LEVEL_HERO);
-	ch->pcdata->sqcountdown = number_range(15, 30);
-	ch->pcdata->squest_giver = questman->pIndexData->vnum;
-
-	/* 40% chance of an item quest */
-	if (chance(40)) {
-		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
-			bug("Bad generate_skillquest_obj, from generate_skillquest", 0);
-			return;
-		}
-
-		if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
-			bug("Bad generate_skillquest_room, from generate_skillquest", 0);
-			return;
-		}
-
-		obj_to_room(questobj, questroom);
-		ch->pcdata->squestloc1 = questroom->vnum;
-		ch->pcdata->squestobj = questobj;
-		Format::sprintf(buf, "The legendary artifact, the %s{x, has been reported stolen!", questobj->short_descr);
-		do_say(questman, buf);
-		Format::sprintf(buf, "The thieves were seen heading in the direction of %s{x,", questroom->area->name);
-		do_say(questman, buf);
-		do_say(questman, "and witnesses in that area say that they travelled");
-		Format::sprintf(buf, "through %s{x.", questroom->name);
-		do_say(questman, buf);
-		return;
-	}
-	/* 40% chance of a mob quest */
-	else if (chance(66)) {
-		generate_skillquest_mob(ch, questman, level, 1);
-		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum;
-	}
-	/* 20% chance of a obj to mob quest */
-	else {
-		generate_skillquest_mob(ch, questman, level, 2);
-		ch->pcdata->squestloc1 = ch->pcdata->squestobj->in_room->vnum;
-		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum;
-	}
-}
-
 /* Checks for a character in the room with spec_questmaster set. This special
    procedure must be defined in special.c. You could instead use an
    ACT_QUESTMASTER flag instead of a special procedure. */
@@ -538,7 +251,7 @@ Character *find_squestmaster(Character *ch)
 /* Obtain additional location information about sought item/mob */
 void quest_where(Character *ch, char *what)
 {
-	RoomPrototype *room = get_room_index(ch->pcdata->quests.quest->target.location);
+	const RoomPrototype *room = ch->pcdata->quests.quest->next_objective().location;
 	ptc(ch, "Rumor has it this %s was last seen in the area known as %s", what, room->area->name);
 
 	if (room->name.empty())
@@ -546,6 +259,84 @@ void quest_where(Character *ch, char *what)
 	else
 		ptc(ch, ",\nnear %s.\n", room->name);
 } /* end quest_where */
+
+void quest_complete(Character *ch, Character *questman) {
+	if (questman->spec_fun == spec_lookup("spec_questmaster")) {
+		int reward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; /* +1 is for the off chance of a level 0 questor */
+		int pointreward, pracreward = 0;
+
+		if (QuestManager::doubleqp)
+			pointreward = number_range(1, 10);
+		else
+			pointreward = number_range(1, 5);
+
+		if (chance(5))
+			pracreward = number_range(1, 3);
+
+		/* Awards ceremony */
+		do_say(questman, "Congratulations on completing your quest!");
+		Format::sprintf(buf, "As a reward, I am giving you %d quest point%s and %d gold.",
+		        pointreward, (pointreward == 1 ? "" : "s"), reward);
+		do_say(questman, buf);
+
+		if (!ch->revoke_flags.has(REVOKE_EXP)) {
+			int xp = number_range(100, 300);
+			ptc(ch, "{PYou receive %d experience points.{x\n", xp);
+			gain_exp(ch, xp);
+		}
+
+		if (pracreward > 0)
+			ptc(ch, "{YYou also gain %d practice%s!{x\n", pracreward, (pracreward == 1 ? "" : "s"));
+
+		ch->pcdata->quests.stop_quest();
+
+		if (QuestManager::doubleqp)
+			ch->pcdata->quests.nextquest = UMAX(1, pointreward/2);
+		else
+			ch->pcdata->quests.nextquest = pointreward;
+
+		ch->gold += reward;
+		ch->questpoints += pointreward;
+		ch->practice += pracreward;
+		wiznet("{Y:QUEST:{x $N has completed a quest", ch, nullptr, WIZ_QUEST, 0, 0);
+	}
+	else if (questman->spec_fun == spec_lookup("spec_squestmaster")) {
+		int reward = number_range(ch->level / 4, ch->level * 3 / 2) + 1;
+		int pointreward;
+
+		if (QuestManager::doubleqp)
+			pointreward = number_range(1, 20);
+		else
+			pointreward = number_range(1, 10);
+		
+		/* Awards ceremony */
+		do_say(questman, "Congratulations on completing your skill quest!");
+		Format::sprintf(buf, "As a reward, I am giving you %d skill point%s and %d gold.",
+		        pointreward, (pointreward == 1 ? "" : "s"), reward);
+		do_say(questman, buf);
+
+		if (!ch->revoke_flags.has(REVOKE_EXP)) {
+			int xp = number_range(100, 300);
+	                ptc(ch, "{PYou receive %d experience points.{x\n", xp);
+    	                gain_exp(ch, xp);
+		}
+
+		int sn = get_random_skill(ch);
+
+		if (chance(20) && sn != -1) {
+			Format::sprintf(buf, "I will also teach you some of the finer points of %s.", skill_table[sn].name);
+			do_say(questman, buf);
+			ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill_table[sn].name);
+			check_improve(ch, sn, TRUE, -1); /* always improve */
+		}
+
+		sq_cleanup(ch);
+		ch->pcdata->nextsquest = pointreward;
+		ch->gold += reward;
+		ch->pcdata->skillpoints += pointreward;
+		wiznet("{Y:SKILL QUEST:{x $N has completed a skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
+	}
+}
 
 /* Usage info on the QUEST commands -- Elrac */
 /* Keep this in line with the do_quest function's keywords */
@@ -790,75 +581,57 @@ void do_quest(Character *ch, String argument)
 				return;
 			}
 
-			if (quest->quest_giver != questman->pIndexData->vnum) {
+			// check if this is the right questmaster
+			int last_pos = quest->objectives.size()-1;
+
+			if (dynamic_cast<MobilePrototype *>(quest->objectives[last_pos].target.ptr) != questman->pIndexData) {
 				do_say(questman, "I never sent you on a quest!  Perhaps you're thinking of someone else.");
 				return;
 			}
 
-			if (!quest->is_complete) {
+			int next_pos = quest->next_objective_pos();
+
+			// check if this is the final objective
+			if (next_pos < last_pos) {
 				do_say(questman, "You haven't completed the quest yet, but there is still time!");
 				return;
 			}
 
-			if (quest->target.type == Quest::Target::Obj) {
-				Object *obj;
+			quest::Objective& objective = quest->objectives[next_pos];
 
-				/* check if player has the quest object */
-				for (obj = ch->carrying; obj != nullptr; obj = obj->next_content)
-					if (quest->is_target(obj))
-						break;
+			switch (objective.type) {
+				case give_obj_to_mob_proto: {
+					Object *quest_obj = dynamic_cast<Object *>objective.subject.ptr;
+					Object *obj;
 
-				/* Added this in cause they drop their quest item after finding it */
-				if (obj == nullptr) {
-					do_say(questman, "You must have lost your quest item on the way here.  Hurry and find it!");
-					quest->is_complete = false;
-					return;
+					/* check if player has the quest object */
+					for (obj = ch->carrying; obj != nullptr; obj = obj->next_content)
+						if (obj == quest_obj)
+							break;
+
+					/* Added this in cause they drop their quest item after finding it */
+					if (obj == nullptr) {
+						do_say(questman, "You must have lost your quest item on the way here.  Hurry and find it!");
+						quest->objectives[next_pos-1].complete = false;
+						return;
+					}
+
+					/* rewards are calculated in the separate cases for mob and obj, but the ceremony is left
+					   until after the endif to avoid duplicate code -- Elrac */
+					act("You hand $p to $N.", ch, obj, questman, TO_CHAR);
+					act("$n hands $p to $N.", ch, obj, questman, TO_ROOM);
+					extract_obj(obj);
+					break;
 				}
 
-				/* rewards are calculated in the separate cases for mob and obj, but the ceremony is left
-				   until after the endif to avoid duplicate code -- Elrac */
-				act("You hand $p to $N.", ch, obj, questman, TO_CHAR);
-				act("$n hands $p to $N.", ch, obj, questman, TO_ROOM);
-				extract_obj(obj);
+				case report:
+					break;
+
+				default:
+					bugf("weird objective type in quest complete");
 			}
 
-			reward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; /* +1 is for the off chance of a level 0 questor */
-
-			if (QuestManager::doubleqp)
-				pointreward = number_range(1, 10);
-			else
-				pointreward = number_range(1, 5);
-
-			if (chance(5))
-				pracreward = number_range(1, 3);
-
-			/* Awards ceremony */
-			do_say(questman, "Congratulations on completing your quest!");
-			Format::sprintf(buf, "As a reward, I am giving you %d quest point%s and %d gold.",
-			        pointreward, (pointreward == 1 ? "" : "s"), reward);
-			do_say(questman, buf);
-
-			if (!ch->revoke_flags.has(REVOKE_EXP)) {
-				int xp = number_range(100, 300);
-				ptc(ch, "{PYou receive %d experience points.{x\n", xp);
-				gain_exp(ch, xp);
-			}
-
-			if (pracreward > 0)
-				ptc(ch, "{YYou also gain %d practice%s!{x\n", pracreward, (pracreward == 1 ? "" : "s"));
-
-			ch->pcdata->quests.stop_quest();
-
-			if (QuestManager::doubleqp)
-				ch->pcdata->quests.nextquest = UMAX(1, pointreward/2);
-			else
-				ch->pcdata->quests.nextquest = pointreward;
-
-			ch->gold += reward;
-			ch->questpoints += pointreward;
-			ch->practice += pracreward;
-			wiznet("{Y:QUEST:{x $N has completed a quest", ch, nullptr, WIZ_QUEST, 0, 0);
-			return;
+			quest_complete(ch, questman);
 		}
 		else
 			stc("You can't do that here.\n", ch);

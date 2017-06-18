@@ -3,13 +3,14 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "QuestTargetable.hh"
+#include "quest/Targetable.hh"
 
 /*
  * Prototype for a mob.
  * This is the in-memory version of #MOBILES.
  */
-class MobilePrototype : public QuestTargetable
+class MobilePrototype :
+public quest::Targetable
 {
 public:
     MobilePrototype(FILE *fp, int vnum);

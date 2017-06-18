@@ -12,6 +12,12 @@ enum Type {
 	character_to_room,
 	character_give_obj,
 	character_kill_other,
+
+	object_to_char,
+
+	skill_quest_obj_to_mob,
+	skill_quest_found_obj,
+	skill_quest_found_mob,
 };
 
 typedef std::map<const char *, void *> Args;

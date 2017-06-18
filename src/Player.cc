@@ -1,5 +1,5 @@
 #include "Player.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 #include "merc.hh"
 
 Player::Player() :

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "declare.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 #include "SkillQuest.hh"
 #include "PointQuest.hh"
 
@@ -19,8 +19,8 @@ public:
 	void stop_quest(); // stop regular quest
 	void stop_squest(); // stop skill quest
 
-	bool is_target(const QuestTargetable *) const; // see if the thing is a target of any quests
-	void check_complete(const QuestTargetable *); // check completion of any quests with this thing
+	bool is_target(const Targetable *) const; // see if the thing is a target of any quests
+	void check_complete(const Targetable *); // check completion of any quests with this thing
 
 	PointQuest *quest = nullptr;
 	SkillQuest *squest = nullptr;

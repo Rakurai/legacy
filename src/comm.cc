@@ -62,7 +62,7 @@
 #include "sql.hh"
 #include "Affect.hh"
 #include "Format.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 
 /* EPKA structure */
 struct ka_struct *ka;
@@ -1325,16 +1325,22 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'Q':
 			if (!IS_NPC(ch) && ch->pcdata->quests.quest) {
-				const Quest *quest = ch->pcdata->quests.quest;
+				quest::Quest *quest = ch->pcdata->quests.quest;
+				quest::Objective& objective = quest->next_objective();
 
-				if (quest->is_complete())
-					buf += "*report!*";
-				else if (quest->targets[0].type == QuestTarget::Obj)
-					buf += get_room_index(quest->targets[0].location)->name.uncolor();
-				else if (quest->targets[0].type == QuestTarget::Mob)
-					buf += String(quest->targets[0].target->identifier()).uncolor();
-				else
-					buf += "Unknown";
+				switch (objective.target.type) {
+					case quest::Objective::Target::Questgiver:
+						buf += "*report!*";
+						break;
+					case quest::Objective::Target::Obj:
+						buf += objective.location->name.uncolor();
+						break;
+					case quest::Objective::Target::Mob:
+						buf += String(objective.target.ptr->identifier()).uncolor();
+						break;
+					default:
+						buf += "Unknown";
+				}
 			}
 
 			break;
@@ -1356,37 +1362,21 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'J':
 			if (!IS_NPC(ch) && ch->pcdata->quests.squest) {
-				const SkillQuest *quest = ch->pcdata->quests.squest;
+				quest::Quest *quest = ch->pcdata->quests.squest;
+				quest::Objective& objective = quest->next_objective();
 
-				if (quest->targets.size() == 1
-				 && quest->targets[0].type == QuestTarget::Obj) {
-					if (!quest->obj_found())
-						buf += get_room_index(quest->targets[0].location)->name.uncolor();
-					else
+				switch (objective.target.type) {
+					case quest::Objective::Target::Questgiver:
 						buf += "*report!*";
-				}
-				else if (quest->targets.size() == 1
-				 && quest->targets[0].type == QuestTarget::Mob) {
-					if (!quest->mob_found())
-						buf += String(quest->targets[0].target->identifier()).uncolor();
-					else
-						buf += "*report!*";
-				}
-				else {
-					if (quest->obj_found()) {
-						if (!quest->mob_found()) {
-							for (const QuestTarget& t: quest->targets)
-								if (t.type == QuestTarget::Mob)
-									buf += String(t.target->identifier()).uncolor();
-						}
-						else
-							buf += "*report!*";
-					}
-					else {
-						for (const QuestTarget& t: quest->targets)
-							if (t.type == QuestTarget::Obj)
-								buf += get_room_index(t.location)->name.uncolor();
-					}
+						break;
+					case quest::Objective::Target::Obj:
+						buf += objective.location->name.uncolor();
+						break;
+					case quest::Objective::Target::Mob:
+						buf += String(objective.target.ptr->identifier()).uncolor();
+						break;
+					default:
+						buf += "Unknown";
 				}
 			}
 

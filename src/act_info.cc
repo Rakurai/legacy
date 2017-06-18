@@ -26,7 +26,7 @@
 ***************************************************************************/
 
 #include "Game.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 #include "Area.hh"
 #include "find.hh"
 #include "typename.hh"
@@ -2228,15 +2228,15 @@ void do_time(Character *ch, String argument)
 		world.time.day_string(),
 		world.time.month_name());
 
-	if (QuestManager::doubleqp) {
+	if (quest::QuestManager::doubleqp) {
 		stc("{gQuest points are currently being doubled!", ch);
 
 		if (IS_IMMORTAL(ch)) {
-			int hours       = QuestManager::doubleqp / 3600,
-			    minutes     = (QuestManager::doubleqp - (hours * 3600)) / 60,
-			    seconds     = (QuestManager::doubleqp - (hours * 3600)) - (minutes * 60);
+			int hours       = quest::QuestManager::doubleqp / 3600,
+			    minutes     = (quest::QuestManager::doubleqp - (hours * 3600)) / 60,
+			    seconds     = (quest::QuestManager::doubleqp - (hours * 3600)) - (minutes * 60);
 
-			if (QuestManager::doubleqp > 1200)
+			if (quest::QuestManager::doubleqp > 1200)
 				stc("{Y", ch);
 
 			stc(" (", ch);

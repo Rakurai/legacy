@@ -5,7 +5,7 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "QuestManager.hh"
+#include "quest/QuestManager.hh"
 
 /*
  * Data which only PC's have.
@@ -101,7 +101,7 @@ public:
     sh_int              next_lay_countdown = 0;
     bool                familiar = FALSE;
 
-	QuestManager		quests;
+	quest::QuestManager	quests;
 
 private:
 	Player(const Player&);

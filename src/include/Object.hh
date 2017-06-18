@@ -5,12 +5,14 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
-#include "QuestTargetable.hh"
+#include "quest/Targetable.hh"
 
 /*
  * One object.
  */
-class Object: public Actable, public QuestTargetable
+class Object:
+public Actable,
+public quest::Targetable
 {
 public:
     Object() {};

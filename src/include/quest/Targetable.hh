@@ -1,8 +1,10 @@
 #pragma once
 
+#include <string>
+
 namespace quest {
 
-class QuestTargetable {
+class Targetable {
 public:
 	virtual const std::string identifier() const = 0;
 };

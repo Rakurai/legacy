@@ -1,4 +1,4 @@
-#include "QuestManager.hh"
+#include "quest/QuestManager.hh"
 #include "Player.hh"
 #include "Character.hh"
 #include "channels.hh"
@@ -11,21 +11,6 @@ void QuestManager::
 stop_quest() {
 	delete quest;
 	quest = nullptr;
-}
-
-bool QuestManager::
-is_target(const QuestTargetable *t) const {
-	return (quest && quest->is_target(t))
-	 || (squest && squest->is_target(t));
-}
-
-void QuestManager::
-check_complete(const QuestTargetable *t) {
-	if (quest)
-		quest->check_complete(player.ch, t);
-
-	if (squest)
-		squest->check_complete(player.ch, t);
 }
 
 void QuestManager::

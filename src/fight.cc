@@ -37,7 +37,7 @@
 #include "GameTime.hh"
 #include "Battle.hh"
 #include "Weather.hh"
-#include "Quest.hh"
+#include "quest/Quest.hh"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */

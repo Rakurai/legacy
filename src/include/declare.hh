@@ -37,8 +37,6 @@ class ObjectPrototype;
 class ObjectValue;
 class ObjectValues;
 class Player;
-class Quest;
-class QuestTargetable;
 class QuestArea;
 class Reset;
 class RoomPrototype;

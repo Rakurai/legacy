@@ -6,7 +6,7 @@
 #include "String.hh"
 #include "Format.hh" // ptc inline
 #include "Player.hh"
-#include "QuestTargetable.hh"
+#include "quest/Targetable.hh"
 
 /*
  * One character (PC or NPC).
@@ -16,7 +16,9 @@
 #define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 
-class Character: public Actable, public QuestTargetable
+class Character : 
+public Actable,
+public quest::Targetable
 {
 public:
     Character();
