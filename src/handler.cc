@@ -411,10 +411,6 @@ void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
 	ch->next_in_room    = pRoomIndex->people;
 	pRoomIndex->people  = ch;
 
-	event::fire(event::character_to_room, {
-		{"ch", ch}, {"room", pRoomIndex}
-	});
-
 	if (!IS_NPC(ch)) {
 		if (ch->in_room->area->empty) {
 			ch->in_room->area->empty = FALSE;

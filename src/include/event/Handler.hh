@@ -4,17 +4,17 @@
 
 namespace event {
 
-class Subscriber {
+class Handler {
 public:
-	virtual ~Subscriber() {}
+	virtual ~Handler() {}
 	virtual void notify(Type, Args&) = 0;
 
 protected:
-	Subscriber() {}
+	Handler() {}
 
 private:
-	Subscriber(const Subscriber&);
-	Subscriber& operator=(const Subscriber&);
+	Handler(const Handler&);
+	Handler& operator=(const Handler&);
 };
 
 } // namespace event

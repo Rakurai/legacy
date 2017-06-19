@@ -1498,10 +1498,6 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
-	event::fire(event::character_give_obj, {
-		{"ch", ch}, {"victim", victim}, {"obj", obj}
-	});
-
 	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
 	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {
 		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
