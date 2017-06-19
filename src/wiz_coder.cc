@@ -14,16 +14,30 @@
 * the coder command group.                       *
 *************************************************/
 
+#include <vector>
+
+#include "argument.hh"
+#include "Affect.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Exit.hh"
 #include "file.hh"
 #include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "memory.hh"
-#include "sql.hh"
-#include "Affect.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 extern  time_t  reboot_time;
 extern  int     top_exit;
@@ -129,7 +143,7 @@ void do_mypipe(Character *ch, String argument)
 		lengths[i] = 0;
 
 	if (mysql_db == nullptr) {
-		bugf("do_mypipe:  mysql_db is nullptr, reopening");
+		Logging::bugf("do_mypipe:  mysql_db is nullptr, reopening");
 		db_open();
 	}
 

@@ -8,14 +8,29 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "recycle.hh"
-#include "memory.hh"
-#include "db.hh"
+#include "argument.hh"
 #include "Affect.hh"
+#include "Area.hh"
+#include "Character.hh"
+#include "db.hh"
+#include "declare.hh"
+#include "ExtraDescr.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Game.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 
 /*
@@ -29,7 +44,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	mobile_count++;
 
 	if (pMobIndex == nullptr) {
-		bug("Create_mobile: nullptr pMobIndex.", 0);
+		Logging::bug("Create_mobile: nullptr pMobIndex.", 0);
 		/* Just return an error, don't exit game. -- Outsider
 		exit( 1 );
 		*/
@@ -267,7 +282,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	int i;
 
 	if (pObjIndex == nullptr) {
-		bug("Create_object: nullptr pObjIndex.", 0);
+		Logging::bug("Create_object: nullptr pObjIndex.", 0);
 		/* Let's not exit the game for this. Just report the error.
 		   -- Outsider
 		exit( 1 );
@@ -279,7 +294,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 
 	/* Check for memory error. -- Outsider */
 	if (! obj) {
-		bug("create_object: unable to allocate memory", 0);
+		Logging::bug("create_object: unable to allocate memory", 0);
 		return nullptr;
 	}
 
@@ -308,7 +323,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	 */
 	switch (obj->item_type) {
 	default:
-		bug("Read_object: vnum %d bad type.", pObjIndex->vnum);
+		Logging::bug("Read_object: vnum %d bad type.", pObjIndex->vnum);
 		break;
 
 	case ITEM_LIGHT:
@@ -426,7 +441,7 @@ MobilePrototype *get_mob_index(int vnum)
 	}
 
 	if (fBootDb) {
-		bug("Get_mob_index: bad vnum %d.", vnum);
+		Logging::bug("Get_mob_index: bad vnum %d.", vnum);
 		/* Don't do this, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
@@ -451,7 +466,7 @@ ObjectPrototype *get_obj_index(int vnum)
 	}
 
 	if (fBootDb) {
-		bug("Get_obj_index: bad vnum %d.", vnum);
+		Logging::bug("Get_obj_index: bad vnum %d.", vnum);
 		/* Don't exit, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
@@ -476,7 +491,7 @@ RoomPrototype *get_room_index(int vnum)
 	}
 
 	if (fBootDb) {
-		bug("Get_room_index: bad vnum %d.", vnum);
+		Logging::bug("Get_room_index: bad vnum %d.", vnum);
 		/* Don't exit here, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/

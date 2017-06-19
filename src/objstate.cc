@@ -4,12 +4,22 @@
    It's clumsy, processor intensive, but I think it's warranted.  Later, when
    we have more confidence in our database, I'll do it there.  -- Montrey */
 
-#include "file.hh"
-#include "merc.hh"
-#include "recycle.hh"
+#include <vector>
+
 #include "Affect.hh"
+#include "declare.hh"
+#include "ExtraDescr.hh"
+#include "file.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Logging.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
 #include "Reset.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */
@@ -164,7 +174,7 @@ int objstate_save_items()
 		return 0;
 
 	if ((fp = fopen(COPYOVER_ITEMS, "w")) == nullptr) {
-		bugf("Could not write to copyover file: %s", COPYOVER_ITEMS);
+		Logging::bugf("Could not write to copyover file: %s", COPYOVER_ITEMS);
 		return 0;
 	}
 
@@ -198,7 +208,7 @@ Object *fload_objstate(FILE *fp, int *count)
 		if (obj)
 			extract = TRUE;
 		else {
-			bug("Memory error creating TREASURE object.", 0);
+			Logging::bug("Memory error creating TREASURE object.", 0);
 			return nullptr;
 		}
 	}
@@ -208,7 +218,7 @@ Object *fload_objstate(FILE *fp, int *count)
 		obj = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
 		if (! obj) {
-			bug("Error creating TREASURE object.", 0);
+			Logging::bug("Error creating TREASURE object.", 0);
 			return nullptr;
 		}
 	}
@@ -313,7 +323,7 @@ Object *fload_objstate(FILE *fp, int *count)
 			break;
 
 		default:
-			bug("fload_objstate: no match", 0);
+			Logging::bug("fload_objstate: no match", 0);
 			fread_to_eol(fp);
 			break;
 		}
@@ -355,7 +365,7 @@ int objstate_load_items()
 	int count = 0;
 
 	if ((fp = fopen(COPYOVER_ITEMS, "r")) == nullptr) {
-		bugf("Could not open copyover file: %s", COPYOVER_ITEMS);
+		Logging::bugf("Could not open copyover file: %s", COPYOVER_ITEMS);
 		return 0;
 	}
 

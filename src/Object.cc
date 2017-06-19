@@ -1,8 +1,10 @@
 #include "Object.hh"
+
 #include "affect_list.hh"
 #include "Affect.hh"
 #include "ExtraDescr.hh"
-#include "merc.hh"
+#include "macros.hh"
+#include "random.hh"
 
 Object::~Object() {
 	// data wholly owned by this obj
@@ -361,7 +363,7 @@ void unique_item(Object *item)
 		                if ((fp = fopen(UNIQUE_FILE, "w")) = nullptr)
 		                {
 		                        perror(UNIQUE_FILE);
-		                        bug("Could not open unique.txt",0);
+		                        Logging::bug("Could not open unique.txt",0);
 		                }
 		                else
 		                {
@@ -373,6 +375,6 @@ void unique_item(Object *item)
 
 		/* enable below 2 lines for testing */
 		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == nullptr ? 0 : item->in_room->vnum);
-		                bug(buf,0); */
+		                Logging::bug(buf,0); */
 	}
 }

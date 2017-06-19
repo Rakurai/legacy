@@ -1,8 +1,10 @@
 #include "MobilePrototype.hh"
-#include "file.hh"
-#include "merc.hh"
-#include "lookup.hh"
+
 #include "db.hh" // boot_bug
+#include "file.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "merc.hh"
 
 MobilePrototype::
 MobilePrototype(FILE *fp, int vnum) {
@@ -78,7 +80,7 @@ MobilePrototype(FILE *fp, int vnum) {
 	sex              = sex_lookup(fread_word(fp));
 
 	if (sex < 0) {
-		bug("Load_mobiles: bad sex for vnum %d.", vnum);
+		Logging::bug("Load_mobiles: bad sex for vnum %d.", vnum);
 		exit(1);
 	}
 
@@ -89,7 +91,7 @@ MobilePrototype(FILE *fp, int vnum) {
 	size                 = size_lookup(fread_word(fp));
 
 	if (size < 0) {
-		bug("Load_mobiles: bad size for vnum %d.", vnum);
+		Logging::bug("Load_mobiles: bad size for vnum %d.", vnum);
 		exit(1);
 	}
 

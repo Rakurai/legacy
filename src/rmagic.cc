@@ -1,10 +1,22 @@
 /* remort magic */
 
-#include "merc.hh"
-#include "magic.hh"
+#include "act.hh"
 #include "Affect.hh"
-#include "Weather.hh"
 #include "Area.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "GameTime.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 #include "World.hh"
 
 /* needed functions */
@@ -408,7 +420,7 @@ void spell_holy_sword(int sn, int level, Character *ch, void *vo, int target, in
 	sword = create_object(get_obj_index(OBJ_VNUM_HOLYSWORD), 0);
 
 	if (! sword) {
-		bug("Memory error while creating holy sword.", 0);
+		Logging::bug("Memory error while creating holy sword.", 0);
 		stc("Unable to create a holy sword.\n", ch);
 		return;
 	}

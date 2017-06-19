@@ -31,9 +31,21 @@
     initialize the entire room list.
 */
 
+#include "act.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Exit.hh"
 #include "find.hh"
-#include "merc.hh"
+#include "Flags.hh"
+#include "Format.hh"
 #include "interp.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 /* *** GLOBAL VARIABLES *** */
 

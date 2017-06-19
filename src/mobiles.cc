@@ -25,8 +25,20 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "merc.hh"
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "macros.hh"
 #include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 void do_heal(Character *ch, String argument)
 {

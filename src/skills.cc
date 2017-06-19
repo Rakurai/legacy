@@ -25,12 +25,24 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "magic.hh"
-#include "Format.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
 #include "Customize.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "interp.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(Character *ch, int gn)

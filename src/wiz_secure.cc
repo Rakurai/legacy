@@ -14,15 +14,26 @@
 *************************************************/
 
 #include <unistd.h>
-#include "find.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "channels.hh"
-#include "merc.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "find.hh"
+#include "Flags.hh"
+#include "Format.hh"
 #include "interp.hh"
-#include "tables.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "Player.hh"
 #include "recycle.hh"
 #include "sql.hh"
-#include "memory.hh"
-#include "Format.hh"
+#include "String.hh"
+#include "tables.hh"
 #include "Tail.hh"
 
 void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));

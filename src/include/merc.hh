@@ -27,47 +27,10 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-
-// all system includes here, not in .c files
-// include local headers as needed in .c files only, starting with this header
-#include <sys/types.h>
-#include <sys/time.h>
-#include <ctype.h>
-#include <time.h>
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdarg.h>
-
-// hopefully temporary mud-wide includes, this can change as things get consolidated into class files
-
-#include <iostream>
 #include <vector>
-#include <map>
-#include <algorithm>
 
-// pervasive includes
-#include "declare.hh"
-#include "Logging.hh"
-#include "random.hh"
-#include "Format.hh"
-
-#include "Character.hh"
-#include "Player.hh"
-#include "Descriptor.hh"
-#include "Object.hh"
-#include "ObjectPrototype.hh"
-#include "MobilePrototype.hh"
-#include "RoomPrototype.hh"
-#include "Exit.hh"
-#include "ExtraDescr.hh"
-#include "Clan.hh"
-
-using namespace Logging;
-
-#include "argument.hh" // temporary until i find a place
-
+#include "String.hh"
+#include "Flags.hh"
 
 /* system calls */
 //int unlink();
@@ -873,6 +836,3 @@ bool    HAS_EXTRACLASS	args( ( Character *ch, int sn ) );
 bool    CAN_USE_RSKILL  args( ( Character *ch, int sn ) );
 void    list_extraskill args( ( Character *ch ) );
 
-
-// here's the place for header files that depend on merc.h, that we need in almost every .c file
-#include "act.hh"

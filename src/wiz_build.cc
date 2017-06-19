@@ -14,11 +14,19 @@
 * group.                                         *
 *************************************************/
 
-#include "Game.hh"
+#include "argument.hh"
 #include "Area.hh"
-#include "merc.hh"
-#include "recycle.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Exit.hh"
 #include "Format.hh"
+#include "Game.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "ObjectPrototype.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 extern  RoomPrototype *room_index_hash [MAX_KEY_HASH];
 
@@ -327,7 +335,7 @@ void do_vlist(Character *ch, String argument)
 		}
 		/* error check */
 //		else
-//			bug("Error in getting object index in do_vlist().", 0);
+//			Logging::bug("Error in getting object index in do_vlist().", 0);
 
 		if (found) {
 			totalbuf += "\n";

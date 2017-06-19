@@ -1,4 +1,5 @@
 #include "Player.hh"
+
 #include "merc.hh"
 
 Player::Player() :

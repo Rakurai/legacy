@@ -25,20 +25,44 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <vector>
+
+#include "argument.hh"
+#include "Affect.hh"
 #include "Area.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Exit.hh"
+#include "ExtraDescr.hh"
 #include "find.hh"
-#include "typename.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "tables.hh"
-#include "magic.hh"
+#include "Flags.hh"
+#include "Format.hh"
 #include "gem.hh"
 #include "lookup.hh"
-#include "Affect.hh"
-#include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "tables.hh"
+#include "typename.hh"
 
 /* RT set replaces sset, mset, oset, rset and cset */
+DECLARE_DO_FUN( do_mset );
+DECLARE_DO_FUN( do_rset );
+DECLARE_DO_FUN( do_oset );
+DECLARE_DO_FUN( do_sset );
+DECLARE_DO_FUN( do_evoset );
+DECLARE_DO_FUN( do_raffset );
+DECLARE_DO_FUN( do_extraset );
 
 void do_set(Character *ch, String argument)
 {
@@ -413,7 +437,7 @@ void do_raffset(Character *ch, String argument)
 		}
 
 		stc("Couldn't find that remort affect on the player.\n", ch);
-		bug("Couldn't find raffect on player.", 0);
+		Logging::bug("Couldn't find raffect on player.", 0);
 		return;
 	}
 
@@ -1966,7 +1990,7 @@ void do_pstat(Character *ch, String argument)
 	}
 
 	if (!victim->pcdata) {
-		bug("do_pstat: player without pcdata", 0);
+		Logging::bug("do_pstat: player without pcdata", 0);
 		stc("No information available about that player.\n", ch);
 		return;
 	}

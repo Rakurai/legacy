@@ -37,9 +37,19 @@
 *      xenith@xenith.org        legacy@kyndig.com                          *
 ***************************************************************************/
 
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
 #include "find.hh"
-#include "merc.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "String.hh"
 
 void do_marry(Character *ch, String argument)
 {

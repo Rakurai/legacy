@@ -25,15 +25,25 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "find.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "tables.hh"
-#include "recycle.hh"
-#include "magic.hh"
-#include "lookup.hh"
+#include <vector>
+
+#include "argument.hh"
 #include "Affect.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "String.hh"
+#include "tables.hh"
 
 /*****
  Remort Affects Stuff
@@ -131,7 +141,7 @@ void raff_add_to_char(Character *ch, int raff_id) {
 			break;
 
 	if (index == MAX_RAFFECTS) {
-		bugf("raff_add_to_char: invalid raffect ID %d", raff_id);
+		Logging::bugf("raff_add_to_char: invalid raffect ID %d", raff_id);
 		return;
 	}
 

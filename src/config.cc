@@ -25,10 +25,20 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "typename.hh"
-#include "merc.hh"
-#include "tables.hh"
+#include <vector>
+
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "String.hh"
+#include "tables.hh"
+#include "typename.hh"
 
 #define TITLEBLOCK                  14
 
@@ -74,7 +84,7 @@ void config_color_func(Character *ch, String argument, int type)
 	case 4: Format::sprintf(typestr, "score");              low = 50; high = 79; mod = -49;	break;
 	case 5: Format::sprintf(typestr, "miscellaneous");      low = 80; high = 99; mod = -79; break;
 	default:
-		bug("config_color_func: bad type %d", type);
+		Logging::bug("config_color_func: bad type %d", type);
 		return;
 	}
 

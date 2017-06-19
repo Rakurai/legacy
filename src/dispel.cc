@@ -1,6 +1,10 @@
-#include "merc.hh"
+#include "act.hh"
 #include "Affect.hh"
-#include "Format.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "random.hh"
 
 struct dispel_type {
 	sh_int *sn;

@@ -1,11 +1,10 @@
 //#include <boost/algorithm/string/predicate.hpp>
 //#include <strings.h>
+
 #include "String.hh"
-#include <algorithm>
-#include <functional>
-#include <cctype>
-#include <locale>
+
 #include <strings.h> // strcasecmp
+#include <algorithm>
 
 #include "argument.hh"
 

@@ -25,19 +25,31 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
 #include "interp.hh"
+
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
+#include "Affect.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Descriptor.hh"
+#include "Disabled.hh"
+#include "find.hh"
+#include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "MobProg.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "Social.hh"
+#include "String.hh"
 #include "tables.hh"
 #include "vt100.hh" /* VT100 Stuff */
-#include "sql.hh"
-#include "Affect.hh"
-#include "memory.hh"
-#include "Format.hh"
-#include "Social.hh"
-#include "MobProg.hh"
-#include "Disabled.hh"
 
 extern void     goto_line    args((Character *ch, int row, int column));
 extern void     set_window   args((Character *ch, int top, int bottom));
@@ -636,7 +648,7 @@ void interpret(Character *ch, String argument)
 			slog_file(ch, SLOG_FILE, tmp);
 		}
 		else
-			log_string(log_buf);
+			Logging::log(log_buf);
 	}
 
 	if (ch->desc != nullptr && ch->desc->snoop_by != nullptr) {

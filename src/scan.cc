@@ -25,9 +25,18 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "merc.hh"
-#include "lookup.hh"
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Exit.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "lookup.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 char *const distance[4] = {
 	"right here",

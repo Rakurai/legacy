@@ -24,16 +24,35 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <string>
 #include <unistd.h>
-#include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "vt100.hh"
+#include <vector>
+#include <sys/time.h>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
 #include "Auction.hh"
-#include "lookup.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "vt100.hh"
 
 /*
  * All the posing stuff.
@@ -428,7 +447,7 @@ int select_pose(Character *ch)
 	}
 
 	if (ch->cls + 1 > MAX_CLASS) {
-		bug("do_new_pose: Player has invalid class!", 0);
+		Logging::bug("do_new_pose: Player has invalid class!", 0);
 		return -1;
 	}
 
@@ -608,7 +627,7 @@ void do_delete(Character *ch, String argument)
 	default:
 		stc("For technical reasons, you cannot delete yourself just now.\n"
 		    "Please tell an Imm about this.\n", ch);
-		bug("do_delete: bad confirm_delete: %d ", ch->pcdata->confirm_delete);
+		Logging::bug("do_delete: bad confirm_delete: %d ", ch->pcdata->confirm_delete);
 		break;
 	} /* end switch */
 } /* end do_delete() */
@@ -634,7 +653,7 @@ void do_newbiekit(Character *ch, String argument)
 	kit = create_object(get_obj_index(kitvnum), 0);
 
 	if (! kit) {
-		bug("Error creating kit in do_newbiekit.", 0);
+		Logging::bug("Error creating kit in do_newbiekit.", 0);
 		stc("You were unable to create a newbiekit.\n", 0);
 		return;
 	}
@@ -644,7 +663,7 @@ void do_newbiekit(Character *ch, String argument)
 		obj = create_object(get_obj_index(i), 0);
 
 		if (! obj) {
-			bug("Error creating object in do_newbiekit.", 0);
+			Logging::bug("Error creating object in do_newbiekit.", 0);
 			return;
 		}
 
@@ -947,7 +966,7 @@ void update_text_file(Character *ch, const String& file, const String& str)
 		fclose(fp);
 	}
 	else
-		bug("update_text_file(): could not open the file", 0);
+		Logging::bug("update_text_file(): could not open the file", 0);
 }
 
 void do_wbi(Character *ch, String argument)
@@ -1202,7 +1221,7 @@ void do_quit(Character *ch, String argument)
 		}
 	}
 
-	log_string(log_buf);
+	Logging::log(log_buf);
 	wiznet("$N rejoins the real world.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	save_char_obj(ch);
 	id = ch->id;
@@ -1242,7 +1261,7 @@ void do_fuckoff(Character *ch, String argument)
 
 	Format::sprintf(log_buf, "%s has been fried.", ch->name);
 	do_send_announce(ch, log_buf);
-	log_string(log_buf);
+	Logging::log(log_buf);
 	wiznet("$N has been terminated.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	/*
 	 * After extract_char the ch is no longer valid!
@@ -1343,7 +1362,7 @@ void do_follow(Character *ch, String argument)
 void add_follower(Character *ch, Character *master)
 {
 	if (ch->master != nullptr) {
-		bug("Add_follower: non-null master.", 0);
+		Logging::bug("Add_follower: non-null master.", 0);
 		return;
 	}
 
@@ -1360,7 +1379,7 @@ void add_follower(Character *ch, Character *master)
 void stop_follower(Character *ch)
 {
 	if (ch->master == nullptr) {
-		bug("Stop_follower: null master.", 0);
+		Logging::bug("Stop_follower: null master.", 0);
 		return;
 	}
 
@@ -1878,7 +1897,7 @@ void do_outfit(Character *ch, String argument)
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
 
 		if (! obj) {
-			bug("Error making light in do_outfit.", 0);
+			Logging::bug("Error making light in do_outfit.", 0);
 			return;
 		}
 
@@ -1891,7 +1910,7 @@ void do_outfit(Character *ch, String argument)
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
 
 		if (! obj) {
-			bug("Error making vest in do_outfit.", 0);
+			Logging::bug("Error making vest in do_outfit.", 0);
 			return;
 		}
 
@@ -1916,7 +1935,7 @@ void do_outfit(Character *ch, String argument)
 		obj = create_object(get_obj_index(vnum), 0);
 
 		if (! obj) {
-			bug("Error creating weapon object in do_outfit.", 0);
+			Logging::bug("Error creating weapon object in do_outfit.", 0);
 			return;
 		}
 
@@ -1930,7 +1949,7 @@ void do_outfit(Character *ch, String argument)
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
 
 		if (! obj) {
-			bug("Error creating shield in do_outfit.", 0);
+			Logging::bug("Error creating shield in do_outfit.", 0);
 			return;
 		}
 

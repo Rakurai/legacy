@@ -25,26 +25,38 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "file.hh"
-#include "Game.hh"
-#include "Area.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "memory.hh"
-#include "recycle.hh"
-#include "sql.hh"
-#include "lookup.hh"
-#include "music.hh"
-#include "Affect.hh"
+#include <vector>
+
 #include "affect_list.hh"
+#include "Affect.hh"
+#include "Area.hh"
 #include "Auction.hh"
-#include "Format.hh"
-#include "GameTime.hh"
-#include "Weather.hh"
-#include "Shop.hh"
-#include "MobProg.hh"
-#include "Reset.hh"
+#include "Clan.hh"
+#include "declare.hh"
 #include "Disabled.hh"
+#include "Exit.hh"
+#include "ExtraDescr.hh"
+#include "file.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Game.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "music.hh"
+#include "MobilePrototype.hh"
+#include "MobProg.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "QuestArea.hh"
+#include "Reset.hh"
+#include "RoomPrototype.hh"
+#include "sql.hh"
+#include "Shop.hh"
+#include "String.hh"
+#include "World.hh"
 
 extern  int     _filbuf         args((FILE *));
 extern void          affect_copy_to_list         args(( Affect **list_head, const Affect *paf ));
@@ -489,7 +501,7 @@ void boot_db()
 			record_players = db_get_column_int(1);
 		}
 		else
-			bug("boot_db: failed to fetch record logins and players", 0);
+			Logging::bug("boot_db: failed to fetch record logins and players", 0);
 	}
 
 	/* load our greeting */
@@ -497,7 +509,7 @@ void boot_db()
 		if (db_next_row() == SQL_OK)
 			help_greeting = db_get_column_str(0);
 		else {
-			bug("boot_db: failed to fetch greeting", 0);
+			Logging::bug("boot_db: failed to fetch greeting", 0);
 			exit(1);
 		}
 	}
@@ -922,17 +934,17 @@ void load_rooms(FILE *fp)
 
 		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_FEMALE_ONLY)) {
 			Format::sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
-			log_string(log_buf);
+			Logging::log(log_buf);
 		}
 
 		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_MALE_ONLY)) {
 			Format::sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
-			log_string(log_buf);
+			Logging::log(log_buf);
 		}
 
 		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_LOCKER)) {
 			Format::sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
-			log_string(log_buf);
+			Logging::log(log_buf);
 		}
 
 		/* defaults */

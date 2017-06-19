@@ -25,21 +25,44 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "event/Event.hh"
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "tables.hh"
-#include "magic.hh"
-#include "lookup.hh"
+#include <vector>
+#include <sys/time.h>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
+#include "Area.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "event/Event.hh"
+#include "ExtraDescr.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "GameTime.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "QuestArea.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
 #include "Shop.hh"
+#include "String.hh"
+#include "tables.hh"
+#include "World.hh"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
@@ -137,17 +160,17 @@ bool pers_eq_ok(Character *ch, Object *obj, char *action)
 	char buf[MAX_STRING_LENGTH];
 
 	if (ch == nullptr) {
-		bug("pers_eq_ok: nullptr character", 0);
+		Logging::bug("pers_eq_ok: nullptr character", 0);
 		return TRUE;
 	}
 
 	if (obj == nullptr) {
-		bug("pers_eq_ok: nullptr object", 0);
+		Logging::bug("pers_eq_ok: nullptr object", 0);
 		return TRUE;
 	}
 
 	if (obj->pIndexData == nullptr) {
-		bug("pers_eq_ok: nullptr object->pIndexData", 0);
+		Logging::bug("pers_eq_ok: nullptr object->pIndexData", 0);
 		return TRUE;
 	}
 
@@ -161,7 +184,7 @@ bool pers_eq_ok(Character *ch, Object *obj, char *action)
 		return TRUE;
 
 	if (obj->short_descr.empty()) {
-		bug("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
+		Logging::bug("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
 		obj->short_descr = "something";
 	}
 
@@ -422,7 +445,7 @@ bool from_box_ok(Character *ch, Object *obj, char *box_type)
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)) {
 		stc("You can't take that!\n", ch);
-		bugf("Item without ITEM_TAKE in %s's %s.", ch->name, box_type);
+		Logging::bugf("Item without ITEM_TAKE in %s's %s.", ch->name, box_type);
 		return FALSE;
 	}
 
@@ -1485,7 +1508,7 @@ void do_give(Character *ch, String argument)
 			extern void squestobj_to_squestmob args((Character * ch, Object * obj, Character * mob));
 
 			if (!ch->pcdata->squestobjf) {
-				bug("At give sqobj to sqmob without sqobj found, continuing...", 0);
+				Logging::bug("At give sqobj to sqmob without sqobj found, continuing...", 0);
 				ch->pcdata->squestobjf = TRUE;
 			}
 
@@ -1652,7 +1675,7 @@ void do_firebuilding(Character *ch, String argument)
 	torch = create_object(get_obj_index(OBJ_VNUM_TORCH), 0);
 
 	if (! torch) {
-		bug("Error creating a torch in firebuilding.", 0);
+		Logging::bug("Error creating a torch in firebuilding.", 0);
 		stc("You were unable to make a torch.\n", ch);
 		return;
 	}
@@ -1900,7 +1923,7 @@ void do_drink(Character *ch, String argument)
 
 	case ITEM_FOUNTAIN:
 		if ((liquid = obj->value[2]) < 0) {
-			bug("Do_drink: bad liquid number %d.", liquid);
+			Logging::bug("Do_drink: bad liquid number %d.", liquid);
 			liquid = obj->value[2] = 0;
 		}
 
@@ -1914,7 +1937,7 @@ void do_drink(Character *ch, String argument)
 		}
 
 		if ((liquid = obj->value[2]) < 0) {
-			bug("Do_drink: bad liquid number %d.", liquid);
+			Logging::bug("Do_drink: bad liquid number %d.", liquid);
 			liquid = obj->value[2] = 0;
 		}
 
@@ -2250,7 +2273,7 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 			return;
 		}
 
-		bug("Wear_obj: no free finger.", 0);
+		Logging::bug("Wear_obj: no free finger.", 0);
 		stc("You already wear two rings.\n", ch);
 		return;
 	}
@@ -2276,7 +2299,7 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 			return;
 		}
 
-		bug("Wear_obj: no free neck.", 0);
+		Logging::bug("Wear_obj: no free neck.", 0);
 		stc("You already wear two neck items.\n", ch);
 		return;
 	}
@@ -2386,7 +2409,7 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 			return;
 		}
 
-		bug("Wear_obj: no free wrist.", 0);
+		Logging::bug("Wear_obj: no free wrist.", 0);
 		stc("You already wear two wrist items.\n", ch);
 		return;
 	}
@@ -2583,7 +2606,7 @@ void do_donate(Character *ch, String argument)
 		donation_pit = create_object(get_obj_index(OBJ_VNUM_PIT), 0);
 
 		if (! donation_pit) {
-			bug("Error creating donation pit in do_donate.", 0);
+			Logging::bug("Error creating donation pit in do_donate.", 0);
 			stc("There is no donation pit.\n", ch);
 			return;
 		}
@@ -2949,7 +2972,7 @@ void do_brandish(Character *ch, String argument)
 	if ((sn = staff->value[3]) < 0
 	    ||   sn >= skill_table.size()
 	    ||   skill_table[sn].spell_fun == 0) {
-		bug("Do_brandish: bad sn %d.", sn);
+		Logging::bug("Do_brandish: bad sn %d.", sn);
 		return;
 	}
 
@@ -2973,7 +2996,7 @@ void do_brandish(Character *ch, String argument)
 
 				switch (skill_table[sn].target) {
 				default:
-					bug("Do_brandish: bad target for sn %d.", sn);
+					Logging::bug("Do_brandish: bad target for sn %d.", sn);
 					return;
 
 				case TAR_IGNORE:
@@ -3821,7 +3844,7 @@ void do_buy(Character *ch, String argument)
 			pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 
 		if (pRoomIndexNext == nullptr) {
-			bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
+			Logging::bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
 			stc("Sorry, we don't sell those.  If you'd like to see my manager...\n", ch);
 			return;
 		}
@@ -3915,7 +3938,7 @@ void do_buy(Character *ch, String argument)
 
 		/* Check for memory error. -- Outsider */
 		if (! pet) {
-			bug("Memory error from create_mobile() in do_buy().", 0);
+			Logging::bug("Memory error from create_mobile() in do_buy().", 0);
 			stc("You were unable to take your pet! You get a refund.\n", ch);
 			ch->silver += cost;
 		}
@@ -4123,7 +4146,7 @@ void do_buy(Character *ch, String argument)
 				t_obj = create_object(obj->pIndexData, obj->level);
 
 				if (! t_obj) {
-					bug("Memory error creating object in do_buy.", 0);
+					Logging::bug("Memory error creating object in do_buy.", 0);
 					return;
 				}
 			}
@@ -4185,7 +4208,7 @@ void do_list(Character *ch, String argument)
 			pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
 
 		if (pRoomIndexNext == nullptr) {
-			bug("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
+			Logging::bug("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
 			stc("You can't do that here.\n", ch);
 			return;
 		}
@@ -4436,7 +4459,7 @@ String anvil_owner_name(Object *anvil)
 
 	/* anvil name must begin with "anvil private " */
 	if (!anvil->name.has_prefix("anvil private ")) {
-		bug("anvil_owner_name: anvil %d has a private flag but incorrect name",
+		Logging::bug("anvil_owner_name: anvil %d has a private flag but incorrect name",
 		    anvil->pIndexData->vnum);
 		return "";
 	}
@@ -4765,7 +4788,7 @@ void do_forge(Character *ch, String argument)
 	obj = create_object(get_obj_index(OBJ_VNUM_WEAPON), 0);
 
 	if (!obj) {
-		bug("Memory error in do_forge.", 0);
+		Logging::bug("Memory error in do_forge.", 0);
 		stc("An error occured while trying to forge.\n", ch);
 		return;
 	}

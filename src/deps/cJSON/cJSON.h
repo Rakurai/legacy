@@ -24,6 +24,8 @@
 #define cJSON__h
 
 #ifdef __cplusplus
+
+#include <cstdlib>
 extern "C"
 {
 #endif

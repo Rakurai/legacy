@@ -1,7 +1,9 @@
-#include "merc.hh"
-#include "Affect.hh"
+#include "affect_int.hh"
 #include "affect_list.hh"
-#include "recycle.hh"
+#include "Affect.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "RoomPrototype.hh"
 
 // local declarations
 void affect_modify_room(void *owner, const Affect *paf, bool fAdd);

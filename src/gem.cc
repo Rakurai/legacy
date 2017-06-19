@@ -1,9 +1,16 @@
-#include "find.hh"
-#include "merc.hh"
-#include "recycle.hh"
 #include "gem.hh"
-#include "Affect.hh"
+
+#include "act.hh"
 #include "affect_list.hh"
+#include "argument.hh"
+#include "Affect.hh"
+#include "Character.hh"
+#include "find.hh"
+#include "Flags.hh"
+#include "Logging.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "String.hh"
 
 // Gem Table
 const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {
@@ -88,7 +95,7 @@ void compile_gem_effects(Object *eq) {
 	Object *gem;
 
 	if (eq->wear_loc != WEAR_NONE) {
-		bug("compile_gem_effects: eq is worn", 0);
+		Logging::bug("compile_gem_effects: eq is worn", 0);
 		return;
 	}
 

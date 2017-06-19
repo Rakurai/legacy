@@ -25,8 +25,12 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "merc.hh"
+#include <vector>
+
+#include "declare.hh"
+#include "Flags.hh"
 #include "magic.hh"
+#include "merc.hh"
 
 /* item type list */
 const std::vector<item_type> item_table = {

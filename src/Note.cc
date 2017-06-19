@@ -25,15 +25,23 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "file.hh"
-#include "Clan.hh"
-#include "Player.hh"
-#include "Character.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "recycle.hh"
-#include "Format.hh"
 #include "Note.hh"
+
+#include <cstring>
+
+#include "argument.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "file.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "recycle.hh"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
@@ -367,7 +375,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 	free_note(pnote);
 	strcpy(strArea, NOTE_FILE);
 	fpArea = fp;
-	bug("Load_notes: bad key word.", 0);
+	Logging::bug("Load_notes: bad key word.", 0);
 	/* We probably should not crash the program over a
 	   bad note entry. Simply return to the calling function.
 	   Outsider <slicer69@hotmail.com> Feb 7, 2004
@@ -596,7 +604,7 @@ void note_remove(Character *ch, Note *pnote, bool del)
 		}
 
 		if (prev == nullptr) {
-			bug("Note_remove: pnote not found.", 0);
+			Logging::bug("Note_remove: pnote not found.", 0);
 			return;
 		}
 

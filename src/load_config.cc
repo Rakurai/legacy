@@ -1,14 +1,14 @@
-#include "merc.hh"
-#include "sql.hh"
+#include "../deps/cJSON/cJSON.h"
 #include "cJSON.hh"
 #include "Format.hh"
+#include "Logging.hh"
 
 int load_config(const char *filename) {
 	int items = 0;
 	cJSON *json = JSON::read_file(filename);
 
 	if (json == nullptr) {
-		bug("Error reading config file.", 0);
+		Logging::bug("Error reading config file.", 0);
 		return -1;
 	}
 /*

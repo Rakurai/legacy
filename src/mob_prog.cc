@@ -26,14 +26,30 @@
  *  such installation can be found in INSTALL.  Enjoy...         N'Atas-Ha *
  ***************************************************************************/
 
-#include "World.hh"
-#include "Area.hh"
-#include "merc.hh"
+#include <cstring>
+
+#include "argument.hh"
 #include "Affect.hh"
-#include "memory.hh"
+#include "Area.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
 #include "GameTime.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
 #include "MobProg.hh"
 #include "MobProgActList.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "World.hh"
 
 bool MOBtrigger;
 
@@ -103,7 +119,7 @@ bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
 	if (!strcmp(opr, "!/"))
 		return !lhs.has_infix(rhs);
 
-	bug("Improper MOBprog operator\n", 0);
+	Logging::bug("Improper MOBprog operator\n", 0);
 	return 0;
 }
 
@@ -133,7 +149,7 @@ bool mprog_veval(int lhs, const char *opr, int rhs)
 	if (!strcmp(opr, "|"))
 		return (lhs | rhs);
 
-	bug("Improper MOBprog operator\n", 0);
+	Logging::bug("Improper MOBprog operator\n", 0);
 	return 0;
 }
 
@@ -165,7 +181,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	int       rhsvl;
 
 	if (*point == '\0') {
-		bug("Mob: %d null ifchck", mob->pIndexData->vnum);
+		Logging::bug("Mob: %d null ifchck", mob->pIndexData->vnum);
 		return -1;
 	}
 
@@ -176,7 +192,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	/* get whatever comes before the left paren.. ignore spaces */
 	while (*point != '(')
 		if (*point == '\0') {
-			bug("Mob: %d ifchck syntax error", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d ifchck syntax error", mob->pIndexData->vnum);
 			return -1;
 		}
 		else if (*point == ' ')
@@ -190,7 +206,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	/* get whatever is in between the parens.. ignore spaces */
 	while (*point != ')')
 		if (*point == '\0') {
-			bug("Mob: %d ifchck syntax error", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d ifchck syntax error", mob->pIndexData->vnum);
 			return -1;
 		}
 		else if (*point == ' ')
@@ -212,7 +228,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	else { /* there should be an operator and value, so get them */
 		while ((*point != ' ') && (!isalnum(*point)))
 			if (*point == '\0') {
-				bug("Mob: %d ifchck operator without value",
+				Logging::bug("Mob: %d ifchck operator without value",
 				    mob->pIndexData->vnum);
 				return -1;
 			}
@@ -271,7 +287,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'ispc'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'ispc'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -290,7 +306,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isnpc'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isnpc'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -309,7 +325,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isgood'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isgood'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -328,7 +344,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isevil'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isevil'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -347,7 +363,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isneutral'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isneutral'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -366,7 +382,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isfight'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isfight'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -385,7 +401,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else                  return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isimmort'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isimmort'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -423,7 +439,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			break;
 
 		default:
-			bug("Mob: %d bad argument to 'iskiller'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'iskiller'", mob->pIndexData->vnum);
 			return -1;
 			break;
 		}
@@ -462,7 +478,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			break;
 
 		default:
-			bug("Mob: %d bad argument to 'isthief'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isthief'", mob->pIndexData->vnum);
 			return -1;
 			break;
 		}
@@ -485,7 +501,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'ischarmed'",
+			Logging::bug("Mob: %d bad argument to 'ischarmed'",
 			    mob->pIndexData->vnum);
 			return -1;
 		}
@@ -514,7 +530,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isfollow'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isfollow'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -539,7 +555,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'ismaster'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'ismaster'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -564,7 +580,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'isleader'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'isleader'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -573,7 +589,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		int sn = skill_lookup(arg);
 
 		if (sn <= 0) {
-			bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
+			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
 		}
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
 		case 'i': return affect_flag_on_char(mob, atoi(arg));
@@ -591,7 +607,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			else return -1;
 
 		default:
-			bug("Mob: %d bad argument '%s' to 'isaffected'",
+			Logging::bug("Mob: %d bad argument '%s' to 'isaffected'",
 			    mob->pIndexData->vnum, );
 			return -1;
 		}
@@ -628,7 +644,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'hitprcnt'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'hitprcnt'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -664,7 +680,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'inroom'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'inroom'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -700,7 +716,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'sex'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'sex'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -736,7 +752,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'position'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'position'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -772,7 +788,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'level'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'level'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -808,7 +824,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'class'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'class'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -844,7 +860,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'goldamt'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'goldamt'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -868,7 +884,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'objtype'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'objtype'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -892,7 +908,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'objval0'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'objval0'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -916,7 +932,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'objval1'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'objval1'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -940,7 +956,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'objval2'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'objval2'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -964,7 +980,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'objval3'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'objval3'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -1021,7 +1037,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'number'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'number'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -1056,7 +1072,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		default:
-			bug("Mob: %d bad argument to 'name'", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d bad argument to 'name'", mob->pIndexData->vnum);
 			return -1;
 		}
 	}
@@ -1064,7 +1080,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	/* Ok... all the ifchcks are done, so if we didnt find ours then something
 	 * odd happened.  So report the bug and abort the MOBprogram (return error)
 	 */
-	bug("Mob: %d unknown ifchck", mob->pIndexData->vnum);
+	Logging::bug("Mob: %d unknown ifchck", mob->pIndexData->vnum);
 	return -1;
 }
 /* Quite a long and arduous function, this guy handles the control
@@ -1114,7 +1130,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			cmnd++;
 
 		if (*cmnd == '\0') {
-			bug("Mob: %d no commands after IF/OR", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d no commands after IF/OR", mob->pIndexData->vnum);
 			return nullptr;
 		}
 
@@ -1164,7 +1180,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 						cmnd++;
 
 					if (*cmnd == '\0') {
-						bug("Mob: %d missing endif after else",
+						Logging::bug("Mob: %d missing endif after else",
 						    mob->pIndexData->vnum);
 						return nullptr;
 					}
@@ -1183,7 +1199,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				cmnd++;
 
 			if (*cmnd == '\0') {
-				bug("Mob: %d missing else or endif", mob->pIndexData->vnum);
+				Logging::bug("Mob: %d missing else or endif", mob->pIndexData->vnum);
 				return nullptr;
 			}
 
@@ -1198,7 +1214,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				cmnd++;
 
 			if (*cmnd == '\0') {
-				bug("Mob: %d missing an else or endif",
+				Logging::bug("Mob: %d missing an else or endif",
 				    mob->pIndexData->vnum);
 				return nullptr;
 			}
@@ -1217,7 +1233,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			cmnd++;
 
 		if (*cmnd == '\0') {
-			bug("Mob: %d missing endif", mob->pIndexData->vnum);
+			Logging::bug("Mob: %d missing endif", mob->pIndexData->vnum);
 			return nullptr;
 		}
 
@@ -1241,7 +1257,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			}
 
 			if (!strcmp(buf, "else")) {
-				bug("Mob: %d found else in an else section",
+				Logging::bug("Mob: %d found else in an else section",
 				    mob->pIndexData->vnum);
 				return nullptr;
 			}
@@ -1260,7 +1276,7 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				cmnd++;
 
 			if (*cmnd == '\0') {
-				bug("Mob:%d missing endif in else section",
+				Logging::bug("Mob:%d missing endif in else section",
 				    mob->pIndexData->vnum);
 				return nullptr;
 			}
@@ -1504,7 +1520,7 @@ String mprog_translate(char ch, Character *mob, Character *actor,
 		break;
 
 	default:
-		bug("Mob: %d bad $var", mob->pIndexData->vnum);
+		Logging::bug("Mob: %d bad $var", mob->pIndexData->vnum);
 		break;
 	}
 

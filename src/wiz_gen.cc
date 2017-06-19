@@ -14,22 +14,38 @@
 * group.                                         *
 *************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "typename.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "lookup.hh"
-#include "tables.hh"
-#include "sql.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
-#include "memory.hh"
+#include "Area.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "Descriptor.hh"
+#include "ExtraDescr.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
-#include "GameTime.hh"
+#include "Game.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "Player.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "sql.hh"
 #include "StoredPlayer.hh"
+#include "String.hh"
+#include "tables.hh"
+#include "typename.hh"
 
 
 extern bool    swearcheck              args((const String& argument));
@@ -168,14 +184,14 @@ void do_alternate(Character *ch, String argument)
 			query += "\%";
 
 		query += "' ORDER BY name, (DATE() - lastlog)";
-		bug(query, 0);
+		Logging::bug(query, 0);
 
 		if (db_query("do_alternate", query) != SQL_OK)
 			return;
 
 		while (db_next_row() == SQL_OK) {
 			if (sorted_count >= 500) {
-				bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
+				Logging::bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
 				break;
 			}
 
@@ -212,7 +228,7 @@ void do_alternate(Character *ch, String argument)
 
 		while (db_next_row() == SQL_OK) {
 			if (sitecount >= 50) {
-				bug("do_alternate: WARNING: maximum site structure size reached", 0);
+				Logging::bug("do_alternate: WARNING: maximum site structure size reached", 0);
 				break;
 			}
 
@@ -254,7 +270,7 @@ void do_alternate(Character *ch, String argument)
 
 				if (name == arg1) {
 					if (sorted_count >= 500) {
-						bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
+						Logging::bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
 						break;
 					}
 
@@ -266,7 +282,7 @@ void do_alternate(Character *ch, String argument)
 				}
 				else {
 					if (to_sort_count >= 500) {
-						bug("do_alternate: WARNING: maximum unsorted structure size reached", 0);
+						Logging::bug("do_alternate: WARNING: maximum unsorted structure size reached", 0);
 						break;
 					}
 
@@ -609,7 +625,7 @@ void recursive_clone(Character *ch, Object *obj, Object *clone)
 		t_obj = create_object(c_obj->pIndexData, 0);
 
 		if (! t_obj) {
-			bug("Error creating object in recursive_clone.", 0);
+			Logging::bug("Error creating object in recursive_clone.", 0);
 			return;
 		}
 
@@ -685,7 +701,7 @@ void do_clone(Character *ch, String argument)
 			clone = create_object(obj->pIndexData, 0);
 
 			if (! clone) {
-				bug("Error creating object in do_clone", 0);
+				Logging::bug("Error creating object in do_clone", 0);
 				return;
 			}
 
@@ -729,7 +745,7 @@ void do_clone(Character *ch, String argument)
 
 		/* Check for error. -- Outsider */
 		if (! clone) {
-			bug("Memory error in do_clone().", 0);
+			Logging::bug("Memory error in do_clone().", 0);
 			stc("Error while cloning mob.\n", ch);
 			return;
 		}
@@ -740,7 +756,7 @@ void do_clone(Character *ch, String argument)
 			new_obj = create_object(obj->pIndexData, 0);
 
 			if (! new_obj) {
-				bug("Error creating object in do_clone", 0);
+				Logging::bug("Error creating object in do_clone", 0);
 				return;
 			}
 
@@ -793,7 +809,7 @@ void do_oclone(Character *ch, String argument)
 		clone = create_object(obj->pIndexData, 0);
 
 		if (! clone) {
-			bug("Error cloning an object.", 0);
+			Logging::bug("Error cloning an object.", 0);
 			return;
 		}
 
@@ -1305,7 +1321,7 @@ void do_file(Character *ch, String argument)
 	}
 
 	if ((req_file = fopen(strsave, "r")) == nullptr) {
-		bug("do_file: file does not exist on second attempt", 0);
+		Logging::bug("do_file: file does not exist on second attempt", 0);
 		stc("That file does not exist.\n", ch);
 		return;
 	}
@@ -1968,7 +1984,7 @@ void do_mload(Character *ch, String argument)
 	victim = create_mobile(pMobIndex);
 
 	if (! victim) {
-		bug("Memory error while creating mob.", 0);
+		Logging::bug("Memory error while creating mob.", 0);
 		stc("Could not create mob.\n", ch);
 		return;
 	}
@@ -2003,7 +2019,7 @@ void do_oload(Character *ch, String argument)
 
 	if (! obj) {   /* avoid memory issues */
 		stc("You were unable to create that item.\n", ch);
-		bug("Error creating object in do_oload.\n", 0);
+		Logging::bug("Error creating object in do_oload.\n", 0);
 		return;
 	}
 

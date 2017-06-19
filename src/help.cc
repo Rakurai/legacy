@@ -8,14 +8,22 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
+#include <vector>
+
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
 #include "file.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "sql.hh"
-#include "tables.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
 #include "Note.hh"
+#include "Player.hh"
+#include "sql.hh"
+#include "String.hh"
 
 #ifdef SEASON_CHRISTMAS
 char stupidassline[1000] =
@@ -188,14 +196,14 @@ void help(Character *ch, const String& argument)
 		return;
 
 	if (db_next_row() != SQL_OK) {
-		bugf("help():  no helps with keywords '%s'", argument);
+		Logging::bugf("help():  no helps with keywords '%s'", argument);
 		return;
 	}
 
 	const char *text = db_get_column_str(0);
 
 	if (text == nullptr) {
-		bugf("help():  help with keywords '%s' has null text", argument);
+		Logging::bugf("help():  help with keywords '%s' has null text", argument);
 		return;
 	}
 
@@ -411,7 +419,7 @@ void do_printhelps(Character *ch, String argument)
 		return;
 
 	if ((fp = fopen(TEMP_FILE, "w")) == nullptr) {
-		bug("do_printhelps: unable to open temp file", 0);
+		Logging::bug("do_printhelps: unable to open temp file", 0);
 		return;
 	}
 

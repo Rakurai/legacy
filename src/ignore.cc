@@ -25,10 +25,20 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <algorithm>
+#include <iterator>
+#include <vector>
+
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
 #include "find.hh"
-#include "merc.hh"
+#include "Flags.hh"
+#include "macros.hh"
+#include "Player.hh"
 #include "sql.hh"
-#include "Format.hh"
+#include "String.hh"
 
 void ignore_offline(Character *, const String& );
 

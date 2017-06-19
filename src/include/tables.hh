@@ -1,6 +1,10 @@
 #pragma once
 
+#include <vector>
+
 #include "declare.hh"
+#include "Flags.hh"
+#include "String.hh"
 
 struct MagT_type
 {

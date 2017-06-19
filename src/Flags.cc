@@ -1,6 +1,7 @@
 #include "Flags.hh"
-#include "String.hh"
+
 #include "Logging.hh" // bugf
+#include "String.hh"
 
 Flags::
 Flags(const char *str) : Flags(String(str)) {}

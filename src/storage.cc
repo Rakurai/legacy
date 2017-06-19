@@ -1,7 +1,9 @@
+#include "declare.hh"
 #include "file.hh"
-#include "merc.hh"
-#include "memory.hh"
+#include "Format.hh"
+#include "Logging.hh"
 #include "StoredPlayer.hh"
+#include "String.hh"
 
 void read_line(FILE *, StoredPlayer *);
 void save_line(FILE *, StoredPlayer *);
@@ -25,59 +27,6 @@ void save_line(FILE *fp, StoredPlayer *sd)
 	Format::fprintf(fp, "%s~\n", sd->name);
 	Format::fprintf(fp, "%s~\n", sd->by_who);
 	Format::fprintf(fp, "%s~\n\n", sd->date);
-}
-
-void load_storage_list()
-{
-	FILE *fp;
-	int count, i;
-	storage_list_head = new StoredPlayer;
-	storage_list_tail = new StoredPlayer;
-	storage_list_head->next = storage_list_tail;
-	storage_list_tail->previous = storage_list_head;
-
-	if ((fp = fopen(STORAGE_FILE, "r")) == nullptr) {
-		bug("load_storage_list: Cannot open STORAGE_FILE!", 0);
-		return;
-	}
-
-	fscanf(fp, "%d\n", &count);
-
-	for (i = 0; i < count; i++) {
-		StoredPlayer *newData = new StoredPlayer;
-
-		if (newData == nullptr) {
-			bug("Failed to allocate memory for StoredPlayer!", 0);
-			return;
-		}
-
-		read_line(fp, newData);
-		insert_storagedata(newData);
-	}
-
-	fclose(fp);
-	Format::printf("%d characters in storage found.\n", count);
-}
-
-void save_storage_list()
-{
-	FILE *fp;
-	StoredPlayer *i;
-
-	if ((fp = fopen(STORAGE_FILE, "w")) == nullptr) {
-		bug("save_storage_list: Cannot open STORAGE_FILE!", 0);
-		return;
-	}
-
-	Format::fprintf(fp, "%d\n", count_stored_characters());
-	i = storage_list_head->next;
-
-	while (i != storage_list_tail) {
-		save_line(fp, i);
-		i = i->next;
-	}
-
-	fclose(fp);
 }
 
 void insert_storagedata(StoredPlayer *newdata)
@@ -151,4 +100,57 @@ int count_stored_characters()
 	}
 
 	return count;
+}
+
+void load_storage_list()
+{
+	FILE *fp;
+	int count, i;
+	storage_list_head = new StoredPlayer;
+	storage_list_tail = new StoredPlayer;
+	storage_list_head->next = storage_list_tail;
+	storage_list_tail->previous = storage_list_head;
+
+	if ((fp = fopen(STORAGE_FILE, "r")) == nullptr) {
+		Logging::bug("load_storage_list: Cannot open STORAGE_FILE!", 0);
+		return;
+	}
+
+	fscanf(fp, "%d\n", &count);
+
+	for (i = 0; i < count; i++) {
+		StoredPlayer *newData = new StoredPlayer;
+
+		if (newData == nullptr) {
+			Logging::bug("Failed to allocate memory for StoredPlayer!", 0);
+			return;
+		}
+
+		read_line(fp, newData);
+		insert_storagedata(newData);
+	}
+
+	fclose(fp);
+	Format::printf("%d characters in storage found.\n", count);
+}
+
+void save_storage_list()
+{
+	FILE *fp;
+	StoredPlayer *i;
+
+	if ((fp = fopen(STORAGE_FILE, "w")) == nullptr) {
+		Logging::bug("save_storage_list: Cannot open STORAGE_FILE!", 0);
+		return;
+	}
+
+	Format::fprintf(fp, "%d\n", count_stored_characters());
+	i = storage_list_head->next;
+
+	while (i != storage_list_tail) {
+		save_line(fp, i);
+		i = i->next;
+	}
+
+	fclose(fp);
 }

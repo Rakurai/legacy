@@ -1,9 +1,14 @@
-#include "merc.hh"
-#include "War.hh"
-#include "Mercenary.hh"
-#include "Duel.hh"
-#include "Customize.hh"
 #include "Affect.hh"
+#include "Character.hh"
+#include "Customize.hh"
+#include "Descriptor.hh"
+#include "Duel.hh"
+#include "ExtraDescr.hh"
+#include "merc.hh"
+#include "Mercenary.hh"
+#include "Object.hh"
+#include "Player.hh"
+#include "War.hh"
 
 /* stuff for setting ids */
 long    last_pc_id;

@@ -2,6 +2,7 @@
 
 #include "declare.hh"
 #include "String.hh"
+#include "Flags.hh"
 #include "../deps/cJSON/cJSON.h"
 
 namespace JSON {

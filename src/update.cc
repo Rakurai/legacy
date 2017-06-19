@@ -25,22 +25,34 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "sql.hh"
-#include "music.hh"
+#include "act.hh"
 #include "Affect.hh"
-#include "memory.hh"
 #include "Auction.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "GameTime.hh"
-#include "Weather.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "music.hh"
+#include "MobilePrototype.hh"
 #include "MobProg.hh"
 #include "MobProgActList.hh"
+#include "Object.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
 #include "Reset.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "Weather.hh"
+#include "World.hh"
 
 extern void     squestmob_found args((Character *ch, Character *mob));
 extern           time_t                  reboot_time;
@@ -1217,7 +1229,7 @@ void aggr_update(void)
 		}
 
 		if (mob == nullptr || victim == nullptr) {
-			bug("aggr_update: mob or victim nullptr!", 0);
+			Logging::bug("aggr_update: mob or victim nullptr!", 0);
 			return;
 		}
 
@@ -1407,7 +1419,7 @@ void update_handler(void)
 				if (count == 0) {
 					Descriptor *d_next;
 					extern bool merc_down;
-					log_string("AUTO-REBOOT");
+					Logging::log("AUTO-REBOOT");
 //					do_sysinfo("The system is going down for auto-reboot NOW.\n");
 					merc_down = TRUE;
 
@@ -1474,7 +1486,7 @@ void janitor_update()
 			obj->clean_timer = number_range(80, 240);       /* 1 to 3 hours */
 	}
 
-//	bugf("janitor_update: %d items marked for cleanup", count);
+//	Logging::bugf("janitor_update: %d items marked for cleanup", count);
 	objstate_save_items();
 }
 

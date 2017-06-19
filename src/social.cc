@@ -32,13 +32,16 @@
  * Social renaming.
  */
 
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
 #include "file.hh"
-#include "merc.hh"
-#include "db.hh"
-#include "interp.hh"
-#include "memory.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "memory.hh"
 #include "Social.hh"
+#include "String.hh"
 
 #ifdef CONST_SOCIAL
 #define SOCIAL_FILE "../misc/social.are"
@@ -76,7 +79,7 @@ void load_social_table()
 	fp = fopen(SOCIAL_FILE, "r");
 
 	if (!fp) {
-		bug("Could not open " SOCIAL_FILE " for reading.", 0);
+		Logging::bug("Could not open " SOCIAL_FILE " for reading.", 0);
 		return;
 	}
 
@@ -192,7 +195,7 @@ void save_social_table()
 	fp = fopen(SOCIAL_FILE, "w");
 
 	if (!fp) {
-		bug("Could not open " SOCIAL_FILE " for writing.", 0);
+		Logging::bug("Could not open " SOCIAL_FILE " for writing.", 0);
 		return;
 	}
 

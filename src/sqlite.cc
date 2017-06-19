@@ -6,11 +6,13 @@
  */
 
 #include <sqlite3.h>
-#include "merc.hh"
+
 #include "db.hh"
-#include "sql.hh"
-#include "Format.hh"
+#include "declare.hh"
 #include "Flags.hh"
+#include "Logging.hh"
+#include "sql.hh"
+#include "String.hh"
 
 sqlite3* _db = nullptr;
 sqlite3_stmt* _result = nullptr;
@@ -20,7 +22,7 @@ void db_open()
 	int error;
 
 	if (_db)
-		bug("db_open: db is not nullptr, opening anyway", 0);
+		Logging::bug("db_open: db is not nullptr, opening anyway", 0);
 
 	error = sqlite3_open_v2(DB_FILE, &_db, SQLITE_OPEN_READWRITE, nullptr);
 
@@ -38,7 +40,7 @@ void db_close()
 
 void db_error(const String& func)
 {
-	bugf("%s: %s", func, sqlite3_errmsg(_db));
+	Logging::bugf("%s: %s", func, sqlite3_errmsg(_db));
 
 	if (fBootDb) {
 		db_close();

@@ -25,18 +25,40 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "event/Event.hh"
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
-#include "Format.hh"
-#include "GameTime.hh"
+#include "Area.hh"
 #include "Battle.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "event/Event.hh"
+#include "Exit.hh"
+#include "find.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Game.hh"
+#include "GameTime.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "QuestArea.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 #include "Weather.hh"
+#include "World.hh"
 
 #define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
@@ -1222,7 +1244,7 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 	/* Stop up any residual loopholes.
 	if (dam > 2400 && dt >= TYPE_HIT)
 	{
-	        bug("Damage: %d: more than 2400 points!",dam);
+	        Logging::bug("Damage: %d: more than 2400 points!",dam);
 	        dam = 2400;
 
 	        if (!IS_IMMORTAL(ch))
@@ -1588,7 +1610,7 @@ void kill_off(Character *ch, Character *victim)
 	if (!IS_NPC(victim)) {
 		Format::sprintf(log_buf, "%s killed by %s at %d", victim->name,
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->vnum);
-		log_string(log_buf);
+		Logging::log(log_buf);
 		Format::sprintf(log_buf, "<PK> %s was slain by %s at [{W%d{x] [{W%d Exp{x]",
 		        victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name),
 		        ch->in_room->vnum, IS_NPC(ch) ? 0 : gxp);
@@ -2000,7 +2022,7 @@ void check_killer(Character *ch, Character *victim)
 		if (ch->master == nullptr) {
 			char buf[MAX_STRING_LENGTH];
 			Format::sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
-			bug(buf, 0);
+			Logging::bug(buf, 0);
 			affect_remove_sn_from_char(ch, gsn_charm_person);
 			return;
 		}
@@ -2107,7 +2129,7 @@ bool check_parry(Character *ch, Character *victim, int dt)
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
 	else {
-		bug("Dam_message: bad dt %d.", dt);
+		Logging::bug("Dam_message: bad dt %d.", dt);
 		dt = TYPE_HIT;
 		attack = attack_table[0].name;
 	}
@@ -2203,7 +2225,7 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
 	else {
-		bug("Dam_message: bad dt %d.", dt);
+		Logging::bug("Dam_message: bad dt %d.", dt);
 		dt = TYPE_HIT;
 		attack = attack_table[0].name;
 	}
@@ -2285,7 +2307,7 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
 	else {
-		bug("Dam_message: bad dt %d.", dt);
+		Logging::bug("Dam_message: bad dt %d.", dt);
 		dt  = TYPE_HIT;
 		attack  = attack_table[0].name;
 	}
@@ -2370,7 +2392,7 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
 	else {
-		bug("Dam_message: bad dt %d.", dt);
+		Logging::bug("Dam_message: bad dt %d.", dt);
 		dt  = TYPE_HIT;
 		attack  = attack_table[0].name;
 	}
@@ -2452,7 +2474,7 @@ bool check_blur(Character *ch, Character *victim, int dt)
 	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
 	else {
-		bug("Dam_message: bad dt %d.", dt);
+		Logging::bug("Dam_message: bad dt %d.", dt);
 		dt = TYPE_HIT;
 		attack = attack_table[0].name;
 	}
@@ -2494,7 +2516,7 @@ void update_pos(Character *victim)
 void set_fighting(Character *ch, Character *victim)
 {
 	if (ch->fighting != nullptr) {
-		bug("Set_fighting: already fighting", 0);
+		Logging::bug("Set_fighting: already fighting", 0);
 		return;
 	}
 
@@ -2538,7 +2560,7 @@ void make_corpse(Character *ch)
 		corpse        = create_object(get_obj_index(OBJ_VNUM_CORPSE_NPC), 0);
 
 		if (! corpse) {
-			bug("Error creating corpse in make_corpse.", 0);
+			Logging::bug("Error creating corpse in make_corpse.", 0);
 			return;
 		}
 
@@ -2557,7 +2579,7 @@ void make_corpse(Character *ch)
 		corpse          = create_object(get_obj_index(OBJ_VNUM_CORPSE_PC), 0);
 
 		if (! corpse) {
-			bug("Memory error making corpse in make_corpse.", 0);
+			Logging::bug("Memory error making corpse in make_corpse.", 0);
 			return;
 		}
 
@@ -2725,7 +2747,7 @@ void death_cry(Character *ch)
 		obj        = create_object(get_obj_index(vnum), 0);
 
 		if (! obj) {
-			bug("Memory error creating object in death_cry.", 0);
+			Logging::bug("Memory error creating object in death_cry.", 0);
 			return;
 		}
 
@@ -2857,7 +2879,7 @@ void group_gain(Character *ch, Character *victim)
 	}
 
 	if (members == 0) {
-		bug("Group_gain: members.", members);
+		Logging::bug("Group_gain: members.", members);
 		members = 1;
 		group_levels = ch->level ;
 	}
@@ -3167,7 +3189,7 @@ void dam_message(Character *ch, Character *victim, int dam, int dt, bool immune,
 		else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 			attack = attack_table[dt - TYPE_HIT].noun;
 		else {
-			bug("Dam_message: bad dt %d.", dt);
+			Logging::bug("Dam_message: bad dt %d.", dt);
 			dt  = TYPE_HIT;
 			attack  = attack_table[0].name;
 		}

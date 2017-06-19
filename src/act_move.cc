@@ -25,14 +25,33 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "merc.hh"
-#include "interp.hh"
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
-#include "Format.hh"
+#include "Area.hh"
 #include "Battle.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Exit.hh"
+#include "find.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Game.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "QuestArea.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 DECLARE_SPEC_FUN(spec_clanguard);
 
@@ -56,7 +75,7 @@ void move_char(Character *ch, int door, bool follow)
 	char dir_buf[128];
 
 	if (door < 0 || door > 5) {
-		bug("Do_move: bad door %d.", door);
+		Logging::bug("Do_move: bad door %d.", door);
 		return;
 	}
 

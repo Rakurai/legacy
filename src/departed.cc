@@ -5,10 +5,13 @@
  *
  */
 
-#include "file.hh"
-#include "merc.hh"
-#include "memory.hh"
+#include "declare.hh"
 #include "DepartedPlayer.hh"
+#include "file.hh"
+#include "Format.hh"
+#include "Logging.hh"
+#include "merc.hh"
+#include "String.hh"
 
 DepartedPlayer *departed_list_head;
 DepartedPlayer *departed_list_tail;
@@ -24,7 +27,7 @@ void load_departed_list()
 	departed_list_tail->previous = departed_list_head;
 
 	if ((fp = fopen(DEPARTED_FILE, "r")) == nullptr) {
-		bug("Departed: failed loading departed_file.", 0);
+		Logging::bug("Departed: failed loading departed_file.", 0);
 		goto bailout;
 	}
 
@@ -48,7 +51,7 @@ void save_departed_list()
 	FILE *fp;
 
 	if ((fp = fopen(DEPARTED_FILE, "w")) == nullptr) {
-		bug("Departed: failed saving departed_file.", 0);
+		Logging::bug("Departed: failed saving departed_file.", 0);
 		goto bailout;
 	}
 

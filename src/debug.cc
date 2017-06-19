@@ -25,14 +25,24 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "merc.hh"
-#include "sql.hh"
-#include "recycle.hh"
+#include "argument.hh"
 #include "Affect.hh"
-#include "Format.hh"
+#include "Area.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "find.hh"
+#include "Flags.hh"
+#include "Game.hh"
+#include "GameTime.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "Weather.hh"
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(Character *ch, String argument)

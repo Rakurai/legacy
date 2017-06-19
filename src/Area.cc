@@ -1,15 +1,22 @@
 #include "Area.hh"
+
+#include "argument.hh"
+#include "channels.hh"
+#include "Character.hh"
 #include "Exit.hh"
+#include "file.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
-#include "Character.hh"
-#include "MobilePrototype.hh"
-#include "RoomPrototype.hh"
-#include "channels.hh"
-#include "db.hh"
-#include "file.hh"
+#include "ObjectValue.hh"
+#include "random.hh"
 #include "Reset.hh"
-#include "merc.hh"
+#include "RoomPrototype.hh"
 
 Area::Area(World& w, FILE *fp) : world(w) {
 	file_name        = fread_string(fp);
@@ -80,12 +87,12 @@ reset() {
 
 		switch (pReset->command) {
 		default:
-			bug("Reset_area: bad command %c.", pReset->command);
+			Logging::bug("Reset_area: bad command %c.", pReset->command);
 			break;
 
 		case 'M':
 			if ((pMobIndex = get_mob_index(pReset->arg1)) == nullptr) {
-				bug("Reset_area: 'M': bad vnum %d.", pReset->arg1);
+				Logging::bug("Reset_area: 'M': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
@@ -99,13 +106,13 @@ reset() {
 					continue;
 
 				if ((pRoomIndex = get_random_reset_room()) == nullptr) {
-					bug("Reset_area: 'R': no random room found.", 0);
+					Logging::bug("Reset_area: 'R': no random room found.", 0);
 					continue;
 				}
 			}
 			else {
 				if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
-					bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
+					Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 					continue;
 				}
 
@@ -127,7 +134,7 @@ reset() {
 
 			/* Check for memory error. -- Outsider */
 			if (! mob) {
-				bug("Memory error creating mob in reset_area().", 0);
+				Logging::bug("Memory error creating mob in reset_area().", 0);
 				break;
 			}
 
@@ -161,12 +168,12 @@ reset() {
 			}
 
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
-				bug("Reset_area: 'O': bad vnum %d.", pReset->arg1);
+				Logging::bug("Reset_area: 'O': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
 			if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
-				bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
+				Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 				continue;
 			}
 
@@ -179,7 +186,7 @@ reset() {
 			                                    LEVEL_HERO - 1));
 
 			if (! obj) {
-				bug("Error creating object in area_reset.", 0);
+				Logging::bug("Error creating object in area_reset.", 0);
 				return;
 			}
 
@@ -196,12 +203,12 @@ reset() {
 
 		case 'P':
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
-				bug("Reset_area: 'P': bad vnum %d.", pReset->arg1);
+				Logging::bug("Reset_area: 'P': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
 			if ((pObjToIndex = get_obj_index(pReset->arg3)) == nullptr) {
-				bug("Reset_area: 'P': bad vnum %d.", pReset->arg3);
+				Logging::bug("Reset_area: 'P': bad vnum %d.", pReset->arg3);
 				continue;
 			}
 
@@ -226,7 +233,7 @@ reset() {
 				obj = create_object(pObjIndex, number_fuzzy(obj_to->level));
 
 				if (! obj) {
-					bug("Memory error creating object.", 0);
+					Logging::bug("Memory error creating object.", 0);
 					return;
 				}
 
@@ -247,7 +254,7 @@ reset() {
 		case 'G':
 		case 'E':
 			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
-				bug("Reset_area: 'E' or 'G': bad vnum %d.", pReset->arg1);
+				Logging::bug("Reset_area: 'E' or 'G': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
@@ -255,7 +262,7 @@ reset() {
 				break;
 
 			if (mob == nullptr) {
-				bug("Reset_area: 'E' or 'G': null mob for vnum %d.",
+				Logging::bug("Reset_area: 'E' or 'G': null mob for vnum %d.",
 				    pReset->arg1);
 				last = FALSE;
 				break;
@@ -266,7 +273,7 @@ reset() {
 				obj = create_object(pObjIndex, olevel);
 
 				if (! obj) {
-					bug("Error making object for mob inventory.", 0);
+					Logging::bug("Error making object for mob inventory.", 0);
 					return;
 				}
 
@@ -283,7 +290,7 @@ reset() {
 					                                    LEVEL_HERO - 1));
 
 					if (! obj) {
-						bug("Memory error creating object to equip mob.", 0);
+						Logging::bug("Memory error creating object to equip mob.", 0);
 						return;
 					}
 
@@ -311,7 +318,7 @@ reset() {
 
 		case 'D':
 			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
-				bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
+				Logging::bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
@@ -340,7 +347,7 @@ reset() {
 
 		case 'R':
 			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
-				bug("Reset_area: 'R': bad vnum %d.", pReset->arg1);
+				Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
@@ -379,7 +386,7 @@ scan_credits()
 	int nblanks;
 
 	if (credits.empty()) {
-		log_string("scan_credits: No credits available.\n");
+		Logging::log("scan_credits: No credits available.\n");
 		return -1;
 	}
 
@@ -395,7 +402,7 @@ scan_credits()
 	p = strchr(line, '}');
 
 	if (p == nullptr) {
-		log_string("Missing '}' in credits line\n");
+		Logging::log("Missing '}' in credits line\n");
 		return -1;
 	}
 
@@ -425,7 +432,7 @@ scan_credits()
 	*(p -= nblanks) = '\0';
 
 	if (*levels == '\0') {
-		log_string("scan_credits: Empty level range string\n");
+		Logging::log("scan_credits: Empty level range string\n");
 		return -2;
 	}
 
@@ -464,7 +471,7 @@ scan_credits()
 	}
 	else if (!isascii(*levels) || !isdigit(*levels)) {
 		Format::sprintf(buf, "scan_credits: Unrecognized level range: '%s'\n", levels);
-		log_string(buf);
+		Logging::log(buf);
 		return -3;
 	}
 	else {
@@ -474,7 +481,7 @@ scan_credits()
 
 		if (ilow < 0) {
 			Format::sprintf(buf, "scan_credits: Bad start level: %d\n", ilow);
-			log_string(buf);
+			Logging::log(buf);
 			return -4;
 		}
 
@@ -486,7 +493,7 @@ scan_credits()
 		while (isascii(*levels) && isspace(*levels)) levels++;
 
 		if (!isascii(*levels) || !isdigit(*levels)) {
-			log_string("scan_credits: Missing second number of range\n");
+			Logging::log("scan_credits: Missing second number of range\n");
 			return -5;
 		}
 
@@ -494,7 +501,7 @@ scan_credits()
 
 		if (ihigh < ilow || ihigh > 100) {
 			Format::sprintf(buf, "scan_credits: Bad ending level : low : %d High : %d\n", ilow, ihigh);
-			log_string(buf);
+			Logging::log(buf);
 			return -6;
 		}
 

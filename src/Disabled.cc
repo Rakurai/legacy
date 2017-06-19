@@ -1,8 +1,10 @@
 #include "Disabled.hh"
+
+#include "argument.hh"
 #include "Character.hh"
 #include "interp.hh"
+#include "Logging.hh"
 #include "sql.hh"
-#include "merc.hh"
 
 Disabled *disabled_first;
 
@@ -36,7 +38,7 @@ void load_disabled()
 				break;
 
 		if (!cmd_table[i].name[0]) {
-			bug("load_disabled: skipping uknown command", 0);
+			Logging::bug("load_disabled: skipping uknown command", 0);
 			continue;
 		}
 

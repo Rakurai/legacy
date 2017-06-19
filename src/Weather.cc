@@ -1,6 +1,14 @@
 #include "Weather.hh"
+
+#include "Character.hh"
+#include "Flags.hh"
+#include "Format.hh"
 #include "GameTime.hh"
+#include "Logging.hh"
+#include "macros.hh"
 #include "merc.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
 
 Weather::
 Weather(const GameTime& t) :
@@ -68,7 +76,7 @@ update()
 
 	switch (sky) {
 	default:
-		bug("Weather_update: bad sky %d.", sky);
+		Logging::bug("Weather_update: bad sky %d.", sky);
 		sky = Cloudless;
 		break;
 

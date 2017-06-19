@@ -1,7 +1,12 @@
 #include "GameTime.hh"
-#include "String.hh"
+
+#include "Character.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "macros.hh"
 #include "merc.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 GameTime::
 GameTime(std::time_t system_time) {

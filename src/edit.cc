@@ -54,13 +54,20 @@
 /*                                                                  */
 /********************************************************************/
 
-#include "merc.hh"
-#include "recycle.hh"
-#include "sql.hh"
-#include "memory.hh"
-#include "Format.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
 #include "Edit.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
 #include "Note.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
+#include "sql.hh"
+#include "String.hh"
 
 extern struct board_index_struct board_index[];
 
@@ -93,7 +100,7 @@ int count_lines()
 	char *line, *next;
 
 	if (ed == nullptr) {
-		bug("count_lines(): not editing anything", 0);
+		Logging::bug("count_lines(): not editing anything", 0);
 		return 0;
 	}
 
@@ -109,12 +116,12 @@ static char *find_line(int lineno)
 	char *pl = ed->edit_string;
 
 	if (lineno < 1) {
-		bug("find_line(0)", 0);
+		Logging::bug("find_line(0)", 0);
 		return pl;
 	}
 
 	if (lineno > ed->edit_nlines + 1) {
-		bug("find_line(): Line out of range", lineno);
+		Logging::bug("find_line(): Line out of range", lineno);
 		return pl;
 	}
 
@@ -225,7 +232,7 @@ static void edit_status(Character *ch, const String& argument)
 	switch (ed->edit_type) {
 	case EDIT_TYPE_NONE:
 		stc("{PStrange, you are editing NOTHING!{x\n", ch);
-		bug("editing nothing!", 0);
+		Logging::bug("editing nothing!", 0);
 		return;
 
 	case EDIT_TYPE_NOTE:
@@ -258,7 +265,7 @@ static void edit_status(Character *ch, const String& argument)
 
 	default:
 		stc("Strange, I don't know {PWHAT{x you're editing!\n", ch);
-		bug("Unknown edit type", 0);
+		Logging::bug("Unknown edit type", 0);
 		return;
 	}
 
@@ -326,7 +333,7 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 static void edit_goto1(Character *ch, int lineno)
 {
 	if (lineno < 0 || lineno > ed->edit_nlines) {
-		/* bug( "edit_goto1(%d)", lineno ); */
+		/* Logging::bug( "edit_goto1(%d)", lineno ); */
 		lineno = UMAX(lineno, 0);
 		lineno = UMIN(lineno, ed->edit_nlines);
 	}
@@ -470,12 +477,12 @@ static void edit_done(Character *ch, const String& argument)
 	switch (ed->edit_type) {
 	default:
 		stc("{POops, I lost track of myself.{x\n", ch);
-		bug("edit_done(): unknown edit type", 0);
+		Logging::bug("edit_done(): unknown edit type", 0);
 		break;
 
 	case EDIT_TYPE_NONE:
 		stc("{PHmm, looks like you weren't editing anything.{x\n", ch);
-		bug("edit_done(): edit type NONE", 0);
+		Logging::bug("edit_done(): edit type NONE", 0);
 		break;
 
 	case EDIT_TYPE_NOTE:

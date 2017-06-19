@@ -1,6 +1,9 @@
-#include "merc.hh"
 #include "Affect.hh"
-#include "Format.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "Logging.hh"
+#include "merc.hh"
+#include "random.hh"
 
 
 // reusable callback functions
@@ -10,7 +13,7 @@ int affect_fn_debug(Affect *node, void *data) {
 //	Affect *node = (Affect *)node;
 
 	(*count)++;
-	bugf("callback %d in affect %d", *count, node->type);
+	Logging::bugf("callback %d in affect %d", *count, node->type);
 	return 0;
 }
 
@@ -139,7 +142,7 @@ int affect_bit_to_sn(Flags::Bit bit) {
 		case AFF_TALON: return gsn_talon;
 		case AFF_STEEL: return gsn_steel_mist;
 		default:
-			bugf("affect_bit_to_sn: wierd bit %d", bit);
+			Logging::bugf("affect_bit_to_sn: wierd bit %d", bit);
 	}
 
 	return -1;
@@ -172,7 +175,7 @@ int affect_attr_location_check(int location) {
 		case APPLY_CHR           : return APPLY_CHR;
 	}
 
-	bugf("affect_attr_location_check: bad location %d", location);
+	Logging::bugf("affect_attr_location_check: bad location %d", location);
 	return -1;
 }
 
@@ -192,7 +195,7 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	case 'R': paf->where = TO_DEFENSE; paf->modifier = 50; break;
 	case 'V': paf->where = TO_DEFENSE; paf->modifier = -50; break;
 	default:
-		bugf("affect_parse_flags: bad letter %c", letter);
+		Logging::bugf("affect_parse_flags: bad letter %c", letter);
 		return FALSE;
 	}
 
@@ -252,12 +255,12 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	if (paf->where == TO_DEFENSE) {
 		if (index == 0) { // skip, that field is reserved
-			bug("affect_parse_flags: TO_DEFENSE with bit A", 0);
+			Logging::bug("affect_parse_flags: TO_DEFENSE with bit A", 0);
 			return FALSE;
 		}
 
 		if (bit == Flags::none) { // no bits, maybe defunct flag?
-//			bugf("affect_parse_flags: TO_DEFENSE with no bit");
+//			Logging::bugf("affect_parse_flags: TO_DEFENSE with no bit");
 			return FALSE;
 		}
 
@@ -280,7 +283,7 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
 			case IMM_SOUND       : paf->location = DAM_SOUND; break;
 			default: {
-//				bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
+//				Logging::bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
 				return FALSE;
 			}
 		}
@@ -292,14 +295,14 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	if (paf->where == TO_AFFECTS && paf->type <= 0) {
 		if (bit == Flags::none) {
-			bug("affect_parse_flags: TO_AFFECTS with no sn and no bit", 0);
+			Logging::bug("affect_parse_flags: TO_AFFECTS with no sn and no bit", 0);
 			return FALSE;
 		}
 
 		int sn = affect_bit_to_sn(bit);
 
 		if (sn <= 0) {
-			bugf("affect_parse_flags: TO_AFFECTS: sn not found for bit %d", bit);
+			Logging::bugf("affect_parse_flags: TO_AFFECTS: sn not found for bit %d", bit);
 			return FALSE;
 		}
 
@@ -314,7 +317,7 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	paf->location = affect_attr_location_check(paf->location);
 
 	if (paf->location == -1) {
-		bugf("affect_parse_flags: affect where=%d with bad location %d", paf->where, paf->location);
+		Logging::bugf("affect_parse_flags: affect where=%d with bad location %d", paf->where, paf->location);
 		return FALSE;
 	}
 
@@ -323,7 +326,7 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	// does nothing?
 	if (paf->where == TO_OBJECT && paf->bitvector().empty() && paf->location == 0) {
-		bug("affect_parse_flags: TO_OBJECT with no modifiers", 0);
+		Logging::bug("affect_parse_flags: TO_OBJECT with no modifiers", 0);
 		return FALSE;
 	}
 

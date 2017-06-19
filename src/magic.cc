@@ -25,19 +25,42 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "typename.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
 #include "magic.hh"
-#include "lookup.hh"
+
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
+#include "Area.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "Descriptor.hh"
+#include "Exit.hh"
+#include "ExtraDescr.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "QuestArea.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "typename.hh"
 #include "Weather.hh"
+#include "World.hh"
 
 /* global focus variable */
 extern bool     focus;
@@ -103,7 +126,7 @@ int slot_lookup(int slot)
 			return sn;
 
 	if (fBootDb) {
-		bug("Slot_lookup: bad slot %d.", slot);
+		Logging::bug("Slot_lookup: bad slot %d.", slot);
 		abort();
 	}
 
@@ -267,7 +290,7 @@ void do_cast(Character *ch, String argument)
 
 	switch (skill_table[sn].target) {
 	default:
-		bug("Do_cast: bad target for sn %d.", sn);
+		Logging::bug("Do_cast: bad target for sn %d.", sn);
 		return;
 
 	case TAR_IGNORE:
@@ -545,7 +568,7 @@ void do_mpcast(Character *ch, String argument)
 
 	switch (skill_table[sn].target) {
 	default:
-		bug("mpcast: bad target for sn %d.", sn);
+		Logging::bug("mpcast: bad target for sn %d.", sn);
 		return;
 
 	case TAR_IGNORE:
@@ -653,13 +676,13 @@ void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object 
 		return;
 
 	if (sn >= skill_table.size() || skill_table[sn].spell_fun == 0) {
-		bug("Obj_cast_spell: bad sn %d.", sn);
+		Logging::bug("Obj_cast_spell: bad sn %d.", sn);
 		return;
 	}
 
 	switch (skill_table[sn].target) {
 	default:
-		bug("Obj_cast_spell: bad target for sn %d.", sn);
+		Logging::bug("Obj_cast_spell: bad target for sn %d.", sn);
 		return;
 
 	case TAR_IGNORE:
@@ -877,7 +900,7 @@ void animate_mob(Character *ch, int level, const char *name, long vnum)
 
 	/* Check for memory error. -- Outsider */
 	if (! mob) {
-		bug("Memory error creating mob in animate_mob().", 0);
+		Logging::bug("Memory error creating mob in animate_mob().", 0);
 		stc("Could not create your servent.\n", ch);
 		return;
 	}
@@ -1808,7 +1831,7 @@ void spell_continual_light(int sn, int level, Character *ch, void *vo, int targe
 	light = create_object(get_obj_index(OBJ_VNUM_LIGHT_BALL), 0);
 
 	if (! light) {
-		bug("Memory error in spell_continual_light.", 0);
+		Logging::bug("Memory error in spell_continual_light.", 0);
 		stc("Error creating light source.\n", ch);
 		return;
 	}
@@ -1854,7 +1877,7 @@ void spell_create_food(int sn, int level, Character *ch, void *vo, int target, i
 	food = create_object(get_obj_index(GEN_OBJ_FOOD), 0);
 
 	if (! food) {
-		bug("Memory error creating food.", 0);
+		Logging::bug("Memory error creating food.", 0);
 		stc("You were unable to create food.\n", ch);
 		return;
 	}
@@ -1909,7 +1932,7 @@ void spell_create_rose(int sn, int level, Character *ch, void *vo, int target, i
 	rose = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
 	if (! rose) {
-		bug("Memory error creating a rose.", 0);
+		Logging::bug("Memory error creating a rose.", 0);
 		stc("You were unable to create a rose.\n", ch);
 		return;
 	}
@@ -1945,7 +1968,7 @@ void spell_encampment(int sn, int level, Character *ch, void *vo, int target, in
 	camp = create_object(get_obj_index(OBJ_VNUM_CAMP), 0);
 
 	if (! camp) {
-		bug("Memory error creating an encampment.", 0);
+		Logging::bug("Memory error creating an encampment.", 0);
 		stc("You were not able to create an encampment.\n", ch);
 		return;
 	}
@@ -1965,7 +1988,7 @@ void spell_create_sign(int sn, int level, Character *ch, void *vo, int target, i
 	sign = create_object(get_obj_index(OBJ_VNUM_SIGN), 0);
 
 	if (! sign) {
-		bug("Memory error trying to create sign.", 0);
+		Logging::bug("Memory error trying to create sign.", 0);
 		stc("You were unable to create a sign.\n", ch);
 		return;
 	}
@@ -2012,7 +2035,7 @@ void spell_create_vial(int sn, int level, Character *ch, void *vo, int target, i
 	vial = create_object(get_obj_index(OBJ_VNUM_VIAL), 0);
 
 	if (! vial) {
-		bug("Memory error creating vial.", 0);
+		Logging::bug("Memory error creating vial.", 0);
 		stc("You were unable to create a vial.\n", ch);
 		return;
 	}
@@ -2041,7 +2064,7 @@ void spell_create_parchment(int sn, int level, Character *ch, void *vo, int targ
 	parch = create_object(get_obj_index(OBJ_VNUM_PARCH), 0);
 
 	if (! parch) {
-		bug("Memory error trying to create parchment.", 0);
+		Logging::bug("Memory error trying to create parchment.", 0);
 		stc("You were unable to create parchment.\n", ch);
 		return;
 	}
@@ -2059,7 +2082,7 @@ void spell_create_spring(int sn, int level, Character *ch, void *vo, int target,
 
 	/* Make sure we have enough memory. -- Outsider */
 	if (! spring) {
-		bug("Memory error trying to create spring in spell_create_spring() in magic.", 0);
+		Logging::bug("Memory error trying to create spring in spell_create_spring() in magic.", 0);
 		stc("You are unable to create a spring.\n", ch);
 		return;
 	}
@@ -3496,7 +3519,7 @@ void spell_floating_disc(int sn, int level, Character *ch, void *vo, int target,
 	disc = create_object(get_obj_index(OBJ_VNUM_DISC), 0);
 
 	if (! disc) {
-		bug("Memory error in spell_floating_disc", 0);
+		Logging::bug("Memory error in spell_floating_disc", 0);
 		stc("You were unable to create a floating disc.\n", ch);
 		return;
 	}
@@ -3945,7 +3968,7 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 	/* Making it successively harder to pack more spells into potions or scrolls - JH */
 	switch (sp_slot) {
 	default:
-		bug("sp_slot has more than %d spells.", sp_slot);
+		Logging::bug("sp_slot has more than %d spells.", sp_slot);
 		return;
 
 	case 1:
@@ -4568,7 +4591,7 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
 
 	if (! portal) {
-		bug("Memory error in spell_nexus -- portal one.", 0);
+		Logging::bug("Memory error in spell_nexus -- portal one.", 0);
 		stc("You were unable to create a portal.\n", ch);
 		return;
 	}
@@ -4582,7 +4605,7 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
 
 	if (! portal) {
-		bug("Memory error in spell_nexus -- portal two.", 0);
+		Logging::bug("Memory error in spell_nexus -- portal two.", 0);
 		stc("You were unable to create a portal.\n", ch);
 		return;
 	}
@@ -4669,7 +4692,7 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	mobile = create_mobile(get_mob_index(victim->pIndexData->vnum));
 
 	if (! mobile) { /* Check for memory error. -- Outsider */
-		bug("Memory error creating mob in spell_polymorph().", 0);
+		Logging::bug("Memory error creating mob in spell_polymorph().", 0);
 		stc("You were unable to polymorph.\n", ch);
 		return;
 	}
@@ -4911,7 +4934,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
 
 	if (! portal) {
-		bug("Memory error creating a portal.", 0);
+		Logging::bug("Memory error creating a portal.", 0);
 		stc("You were unable to create a portal.\n", ch);
 		return;
 	}
@@ -5100,7 +5123,7 @@ void spell_resurrect(int sn, int level, Character *ch, void *vo, int target, int
 	mob = create_mobile(get_mob_index(MOB_VNUM_RESZOMBIE));
 
 	if (! mob) {  /* Check for memory errors. -- Outsider */
-		bug("Memory error creating mob in spell_resurrect().", 0);
+		Logging::bug("Memory error creating mob in spell_resurrect().", 0);
 		stc("You were unable to resurrect this creature.\n", ch);
 		return;
 	}
@@ -5989,7 +6012,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 			}
 			else {
 				/* neither held nor lying, nor in a locker or container. What's left?? */
-				bugf("(%s) spell_summon_obj: object %d seems to be nowhere",
+				Logging::bugf("(%s) spell_summon_obj: object %d seems to be nowhere",
 				     ch->name, obj->pIndexData->vnum);
 				stc("It could not be found.\n", ch);
 				return;
@@ -6081,7 +6104,7 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 		}
 		else {
 			/* neither held nor lying, nor in a locker or container. What's left?? */
-			bugf("(%s) spell_summon_obj: object %d seems to be nowhere",
+			Logging::bugf("(%s) spell_summon_obj: object %d seems to be nowhere",
 			     ch->name, obj->pIndexData->vnum);
 			continue;
 		}

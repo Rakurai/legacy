@@ -8,8 +8,14 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
-#include "merc.hh"
 #include "tables.hh"
+
+#include <vector>
+
+#include "Flags.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "String.hh"
 
 /* random name generation tables, male and female syllable sets 1, 2, 3 */
 const String Msyl1[] = {

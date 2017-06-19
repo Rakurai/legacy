@@ -25,29 +25,49 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "Game.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
+#include "Affect.hh"
 #include "Area.hh"
-#include "find.hh"
-#include "typename.hh"
 #include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "tables.hh"
-#include "magic.hh"
-#include "sql.hh"
-#include "lookup.hh"
-#include "Affect.hh"
-#include "gem.hh"
-#include "Affect.hh"
-#include "memory.hh"
-#include "Format.hh"
-#include "GameTime.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
 #include "DepartedPlayer.hh"
+#include "Descriptor.hh"
 #include "Duel.hh"
+#include "Exit.hh"
+#include "ExtraDescr.hh"
+#include "find.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "gem.hh"
+#include "Game.hh"
+#include "GameTime.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
 #include "Note.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "sql.hh"
 #include "Social.hh"
+#include "String.hh"
+#include "tables.hh"
+#include "typename.hh"
 #include "Weather.hh"
+#include "World.hh"
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 
@@ -3212,7 +3232,7 @@ void set_title(Character *ch, const String& title)
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
-		bug("Set_title: NPC.", 0);
+		Logging::bug("Set_title: NPC.", 0);
 		return;
 	}
 

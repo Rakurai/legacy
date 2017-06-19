@@ -1,13 +1,20 @@
 #include "Character.hh"
-#include "Edit.hh"
-#include "Tail.hh"
-#include "Player.hh"
-#include "Object.hh"
-#include "merc.hh"
-#include "affect_list.hh"
-#include "recycle.hh"
+
 #include "act.hh"
+#include "affect_list.hh"
+#include "Affect.hh"
 #include "Area.hh"
+#include "Edit.hh"
+#include "Exit.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "random.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "Tail.hh"
 
 Character::Character() {
 	logon = current_time;

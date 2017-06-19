@@ -25,8 +25,18 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "merc.hh"
+#include "act.hh"
 #include "Affect.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
 
 void acid_effect(void *vo, int level, int dam, int target, int evolution)
 {

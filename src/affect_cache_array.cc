@@ -1,6 +1,11 @@
-#include "merc.hh"
-#include "Affect.hh"
+#include <vector>
+
+#include "Character.hh"
+#include "declare.hh"
 #include "Format.hh"
+#include "Logging.hh"
+#include "merc.hh"
+#include "String.hh"
 
 #define get_affect_cache(ch) ((ch)->affect_cache == nullptr ? nullptr : (sh_int *)(ch)->affect_cache)
 
@@ -19,7 +24,7 @@ bool affect_in_cache(const Character *ch, sh_int sn) {
 
 void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 	if (sn < 1 || sn >= skill_table.size()) {
-		bug("update_affect_cache: called with sn = %d", sn);
+		Logging::bug("update_affect_cache: called with sn = %d", sn);
 		return;
 	}
 
@@ -36,13 +41,13 @@ void update_affect_cache(Character *ch, sh_int sn, bool fAdd) {
 	}
 	else {
 		if (get_affect_cache(ch) == nullptr) {
-			bugf("update_affect_cache: illegal removal from nullptr affect cache at sn %d (%s)",
+			Logging::bugf("update_affect_cache: illegal removal from nullptr affect cache at sn %d (%s)",
 				sn, skill_table[sn].name);
 			return;
 		}
 
 		if (get_affect_cache(ch)[sn] == 0) {
-			bugf("update_affect_cache: illegal removal of uncounted value at sn %d (%s)",
+			Logging::bugf("update_affect_cache: illegal removal of uncounted value at sn %d (%s)",
 				sn, skill_table[sn].name);
 			return;
 		}

@@ -1,11 +1,6 @@
-
-#include <cstring>
-#include <cstdlib>
-#include <cctype>
-
 #include "declare.hh"
-#include "String.hh"
 #include "Flags.hh"
+#include "String.hh"
 
 /*
  * Given a string like 14.foo, return 14 and 'foo'

@@ -43,25 +43,41 @@
  * -- Furey  26 Jan 1993
  */
 
-#include <unistd.h>
 #include <arpa/inet.h>
-#include <signal.h>
+#include <sys/time.h>
 #include <fcntl.h>
 #include <netdb.h>
+#include <signal.h>
+#include <unistd.h>
 
-#include "file.hh"
+#include "act.hh"
+#include "argument.hh"
 #include "Area.hh"
 #include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "vt100.hh" /* VT100 Stuff */
-#include "telnet.hh"
-#include "memory.hh"
-#include "lookup.hh"
-#include "recycle.hh"
-#include "sql.hh"
-#include "Affect.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Exit.hh"
+#include "file.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "sql.hh"
+#include "String.hh"
+#include "vt100.hh" /* VT100 Stuff */
+
+struct ka_struct;
 
 /* EPKA structure */
 struct ka_struct *ka;
@@ -129,11 +145,11 @@ void copyover_recover()
 	char name[100];
 	char host[MSL], msg1[MSL], msg2[MSL];
 	int desc;
-	log_string("Copyover recovery initiated");
+	Logging::log("Copyover recovery initiated");
 
 	if ((fp = fopen(COPYOVER_LOG, "r")) == nullptr) {
 		perror("copyover_recover:fopen");
-		log_string("Copyover log not found. Exitting.\n");
+		Logging::log("Copyover log not found. Exitting.\n");
 		exit(1);
 	}
 
@@ -145,7 +161,7 @@ void copyover_recover()
 
 	if ((fp = fopen(COPYOVER_FILE, "r")) == nullptr) {
 		perror("copyover_recover:fopen");
-		log_string("Copyover file not found. Exitting.\n");
+		Logging::log("Copyover file not found. Exitting.\n");
 		exit(1);
 	}
 
@@ -322,7 +338,7 @@ int main(int argc, char **argv)
 #endif
         // load our configuration
         if (load_config(CONFIG_FILE) != 0) {
-                bugf("Failed to load configuration from %s.", CONFIG_FILE);
+                Logging::bugf("Failed to load configuration from %s.", CONFIG_FILE);
                 exit(1);
         }
 
@@ -331,7 +347,7 @@ int main(int argc, char **argv)
 	db_open();
 	boot_db();
 	Format::sprintf(log_buf, "Legacy is ready to rock on port %d.", port);
-	log_string(log_buf);
+	Logging::log(log_buf);
 
 	if (fCopyOver)
 		copyover_recover();
@@ -350,7 +366,7 @@ int main(int argc, char **argv)
 
 		if ((pidfile = fopen(PID_FILE, "w")) == nullptr) {
 			perror("getpid:fopen");
-			log_string("pid file not found. Exitting.\n");
+			Logging::log("pid file not found. Exitting.\n");
 			exit(1);
 		}
 
@@ -366,7 +382,7 @@ int main(int argc, char **argv)
 	db_close();
 
 	/* That's all, folks. */
-	log_string("Normal termination of game.");
+	Logging::log("Normal termination of game.");
 	exit(0);
 	return 0;
 }
@@ -469,9 +485,9 @@ void game_loop_unix(int control)
 		/* check and clear our signal buffer */
 		if (last_signal != -1) {
 			switch (last_signal) {
-			case SIGPIPE:           bug("received signal SIGPIPE", 0);      break;
+			case SIGPIPE:           Logging::bug("received signal SIGPIPE", 0);      break;
 
-			default:                        bug("received signal %d", last_signal);
+			default:                        Logging::bug("received signal %d", last_signal);
 			}
 
 			last_signal = -1;
@@ -522,7 +538,7 @@ void game_loop_unix(int control)
 				else
 					strcpy(log_buf, "Kicking out unknown char");
 
-				log_string(log_buf);
+				Logging::log(log_buf);
 				wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 				d->outbuf.clear();
 				close_socket(d);
@@ -551,7 +567,7 @@ void game_loop_unix(int control)
 					if (d->character != nullptr && d->character->level > 1) {
 						save_char_obj(d->character);
 						Format::sprintf(log_buf, "Char %s disconnected", d->character->name);
-						log_string(log_buf);
+						Logging::log(log_buf);
 						wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 					}
 
@@ -579,7 +595,7 @@ void game_loop_unix(int control)
 					show_string(d, tempbuf);
 				else if (d->connected == CON_PLAYING) {
 					if (d->character == nullptr) {
-						bug("playing descriptor with null character, closing phantom socket", 0);
+						Logging::bug("playing descriptor with null character, closing phantom socket", 0);
 						close_socket(d);
 						continue;
 					}
@@ -722,7 +738,7 @@ void init_descriptor(int control)
 //        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 		{
 			Format::sprintf(log_buf, "init_descriptor: sock.sinaddr  = %s", buf);
-			log_string(log_buf);
+			Logging::log(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		}
 		from = nullptr;
@@ -733,7 +749,7 @@ void init_descriptor(int control)
 
 		if (tmp_name == nullptr) {
 			Format::sprintf(log_buf, "name not available");
-			log_string(log_buf);
+			Logging::log(log_buf);
 			dnew->host = buf;
 		}
 		else {
@@ -742,7 +758,7 @@ void init_descriptor(int control)
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
 					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
-					log_string(log_buf);
+					Logging::log(log_buf);
 					wiznet(log_buf, nullptr, nullptr, WIZ_SITES, 0, 0);
 				}
 			}
@@ -757,7 +773,7 @@ void init_descriptor(int control)
 
 		if (from == nullptr || from->h_name == nullptr) {
 			Format::sprintf(log_buf, "name not available");
-			log_string(log_buf);
+			Logging::log(log_buf);
 			dnew->host = buf;
 		}
 		else {
@@ -766,7 +782,7 @@ void init_descriptor(int control)
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
 					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
-					log_string(log_buf);
+					Logging::log(log_buf);
 					wiznet(log_buf, nullptr, nullptr, WIZ_SITES, 0, 0);
 				}
 			}
@@ -808,7 +824,7 @@ void close_socket(Descriptor *dclose)
 	}
 	else {
 		Format::sprintf(log_buf, "Closing link to %s.", ch->name);
-		log_string(log_buf);
+		Logging::log(log_buf);
 
 		if (dclose->connected == CON_PLAYING) {
 			Character *rch;
@@ -827,7 +843,7 @@ void close_socket(Descriptor *dclose)
 			else {
 				/* been having problems with this -- Montrey */
 				if (ch->desc == nullptr)
-					bug("close_socket: NPC without descriptor!", 0);
+					Logging::bug("close_socket: NPC without descriptor!", 0);
 				else if (ch->desc->original != nullptr
 				         && ch->desc->original->pcdata != nullptr)
 					ch->desc->original->pcdata->plr_flags += PLR_LINK_DEAD;
@@ -870,7 +886,7 @@ void close_socket(Descriptor *dclose)
 		if (d != nullptr)
 			d->next = dclose->next;
 		else
-			bug("Close_socket: dclose not found.", 0);
+			Logging::bug("Close_socket: dclose not found.", 0);
 	}
 
 	Format::printf("Closing socket %d\n", dclose->descriptor);
@@ -892,7 +908,7 @@ bool read_from_descriptor(Descriptor *d)
 
 	if (iStart >= sizeof(d->inbuf) - 10) {
 		Format::sprintf(log_buf, "%s input overflow!", d->host);
-		log_string(log_buf);
+		Logging::log(log_buf);
 		write_to_descriptor(d->descriptor,
 		                    "\n*** PUT A LID ON IT!!! ***\n", 0);
 		return FALSE;
@@ -919,7 +935,7 @@ bool read_from_descriptor(Descriptor *d)
 			else
 				Format::sprintf(log_buf, "EOF on read from host %s", d->host);
 
-			log_string(log_buf);
+			Logging::log(log_buf);
 			return FALSE;
 		}
 		else if (errno == EWOULDBLOCK)
@@ -997,7 +1013,7 @@ void read_from_buffer(Descriptor *d)
 		else {
 			if (++d->repeat >= 25) {
 				Format::sprintf(log_buf, "%s: input spamming!", d->host);
-				log_string(log_buf);
+				Logging::log(log_buf);
 				wiznet("And the spammer of the year is:  $N!!!",
 				       d->character, nullptr, WIZ_SPAM, 0, GET_RANK(d->character));
 
@@ -1765,7 +1781,7 @@ void do_copyover(Character *ch, String argument)
 	if ((fp = fopen(COPYOVER_FILE, "w")) == nullptr) {
 		stc("Copyover file not writeable, aborted.\n", ch);
 		Format::sprintf(buf, "Could not write to copyover file: %s", COPYOVER_FILE);
-		log_string(buf);
+		Logging::log(buf);
 		perror("do_copyover:fopen");
 		return;
 	}
@@ -1787,7 +1803,7 @@ void do_copyover(Character *ch, String argument)
 	if ((fp = fopen(COPYOVER_LOG, "w")) == nullptr) {
 		stc("Copyover file not writeable, aborted.\n", ch);
 		Format::sprintf(buf, "Could not write to copyover file: %s", COPYOVER_LOG);
-		log_string(buf);
+		Logging::log(buf);
 		perror("do_copyover:fopen");
 		return;
 	}

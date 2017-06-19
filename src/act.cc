@@ -1,13 +1,21 @@
+#include "argument.hh"
+#include "Area.hh"
+#include "Character.hh"
+#include "declare.hh"
 #include "Duel.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
 #include "MobProg.hh"
 #include "Object.hh"
-#include "RoomPrototype.hh"
-#include "Tail.hh"
 #include "Player.hh"
-#include "Character.hh"
-#include "merc.hh"
 #include "recycle.hh"
-#include "Area.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "Tail.hh"
 
 /* the guts of act, taken out to reduce complexity. */
 void act_format(const String& format, Character *ch,
@@ -55,8 +63,8 @@ void act_format(const String& format, Character *ch,
 
 		case 'N':
 			if (vch == nullptr) {
-				bug("Missing vch for '$$N'", 0);
-				/*   bug( format, 0);  This will cause an endless loop */
+				Logging::bug("Missing vch for '$$N'", 0);
+				/*   Logging::bug( format, 0);  This will cause an endless loop */
 			}
 			else
 				i = PERS(vch, to, vis).c_str();
@@ -65,7 +73,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'E':
 			if (vch == nullptr)
-				bug("Missing vch for '$$E'", 0);
+				Logging::bug("Missing vch for '$$E'", 0);
 			else
 				i = he_she[GET_ATTR_SEX(vch)];
 
@@ -73,7 +81,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'M':
 			if (vch == nullptr)
-				bug("Missing vch for '$$M'", 0);
+				Logging::bug("Missing vch for '$$M'", 0);
 			else
 				i = him_her[GET_ATTR_SEX(vch)];
 
@@ -81,7 +89,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'S':
 			if (vch == nullptr)
-				bug("Missing vch for '$$S'", 0);
+				Logging::bug("Missing vch for '$$S'", 0);
 			else
 				i = his_her[GET_ATTR_SEX(vch)];
 
@@ -91,7 +99,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'p':
 			if (obj1 == nullptr)
-				bug("Missing obj1 for '$$p'", 0);
+				Logging::bug("Missing obj1 for '$$p'", 0);
 			else if (can_see_obj(to, obj1))
 				i = obj1->short_descr;
 			else
@@ -101,8 +109,8 @@ void act_format(const String& format, Character *ch,
 
 		case 'P':
 			if (obj2 == nullptr) {
-				bug("Missing obj2 for '$$P'", 0);
-				bug(format, 0);
+				Logging::bug("Missing obj2 for '$$P'", 0);
+				Logging::bug(format, 0);
 			}
 			else if (can_see_obj(to, obj2))
 				i = obj2->short_descr;
@@ -125,7 +133,7 @@ void act_format(const String& format, Character *ch,
 
 		case 't':
 			if (str1 == nullptr || str1->empty())
-				bug("Missing str1 for '$$t'", 0);
+				Logging::bug("Missing str1 for '$$t'", 0);
 			else
 				i = *str1;
 
@@ -133,7 +141,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'T':
 			if (str2 == nullptr || str2->empty())
-				bug("Missing str2 for '$$T'", 0);
+				Logging::bug("Missing str2 for '$$T'", 0);
 			else
 				i = *str2;
 
@@ -212,7 +220,7 @@ void act_parse(
 
     if (type == TO_VICT) {
         if (vch == nullptr) {
-            bug("Act: null vch with TO_VICT.", 0);
+            Logging::bug("Act: null vch with TO_VICT.", 0);
             return;
         }
 
@@ -224,7 +232,7 @@ void act_parse(
 
     if (type == TO_WORLD) {
         if (vch2 == nullptr) {
-            bug("Act: null vch2 with TO_WORLD.", 0);
+            Logging::bug("Act: null vch2 with TO_WORLD.", 0);
             return;
         }
 

@@ -10,16 +10,35 @@
 *  ress. Quest Code v2.03. Please do not remove this notice from this file. *
 ****************************************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "tables.hh"
-#include "recycle.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
+#include "Area.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "ExtraDescr.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "Player.hh"
+#include "QuestArea.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "tables.hh"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -108,7 +127,7 @@ Character *find_questmaster(Character *ch)
 		return nullptr;
 
 	if (questman->pIndexData == nullptr) {
-		bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
+		Logging::bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
 		questman = nullptr;
 	}
 
@@ -136,7 +155,7 @@ Character *find_squestmaster(Character *ch)
 		return nullptr;
 
 	if (questman->pIndexData == nullptr) {
-		bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
+		Logging::bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
 		questman = nullptr;
 	}
 
@@ -154,7 +173,7 @@ void quest_where(Character *ch, char *what)
 	RoomPrototype *room;
 
 	if (ch->questloc <= 0) {
-		bug("QUEST INFO: ch->questloc = %d", ch->questloc);
+		Logging::bug("QUEST INFO: ch->questloc = %d", ch->questloc);
 		return;
 	}
 
@@ -164,7 +183,7 @@ void quest_where(Character *ch, char *what)
 	room = get_room_index(ch->questloc);
 
 	if (room->area == nullptr) {
-		bug("QUEST INFO: room(%d)->area == nullptr", ch->questloc);
+		Logging::bug("QUEST INFO: room(%d)->area == nullptr", ch->questloc);
 		return;
 	}
 
@@ -187,7 +206,7 @@ void squest_info(Character *ch)
 	}
 
 	if (ch->pcdata->squest_giver < 1) {
-		bug("QUEST INFO: quest giver = %d", ch->pcdata->squest_giver);
+		Logging::bug("QUEST INFO: quest giver = %d", ch->pcdata->squest_giver);
 		stc("It seems the questmistress died of old age waiting for you.\n", ch);
 		ch->pcdata->plr_flags -= PLR_SQUESTOR;
 		return;
@@ -196,7 +215,7 @@ void squest_info(Character *ch)
 	questman = get_mob_index(ch->pcdata->squest_giver);
 
 	if (questman == nullptr) {
-		bug("QUEST INFO: skill quest giver %d has no MobilePrototype!", ch->quest_giver);
+		Logging::bug("QUEST INFO: skill quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmistress has fallen very ill. Please contact an imm!\n", ch);
 		ch->pcdata->plr_flags -= PLR_SQUESTOR;
 		return;
@@ -204,7 +223,7 @@ void squest_info(Character *ch)
 
 	if (ch->pcdata->squestobj == nullptr && ch->pcdata->squestmob == nullptr) { /* no quest */
 		stc("You've forgotten what your skill quest was.\n", ch);
-		bug("QUEST INFO: skill quest with no obj or mob", 0);
+		Logging::bug("QUEST INFO: skill quest with no obj or mob", 0);
 		sq_cleanup(ch);
 		return;
 	}
@@ -220,14 +239,14 @@ void squest_info(Character *ch)
 		}
 
 		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == nullptr) {
-			bug("QUEST INFO: sqobj quest with no location", 0);
+			Logging::bug("QUEST INFO: sqobj quest with no location", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_obj->area == nullptr) {
-			bug("QUEST INFO: sqobj location with no area", 0);
+			Logging::bug("QUEST INFO: sqobj location with no area", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
@@ -249,14 +268,14 @@ void squest_info(Character *ch)
 		}
 
 		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == nullptr) {
-			bug("QUEST INFO: sqmob quest with no location", 0);
+			Logging::bug("QUEST INFO: sqmob quest with no location", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_mob->area == nullptr) {
-			bug("QUEST INFO: sqmob location with no area", 0);
+			Logging::bug("QUEST INFO: sqmob location with no area", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
@@ -272,28 +291,28 @@ void squest_info(Character *ch)
 
 	if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr) { /* mob and obj */
 		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == nullptr) {
-			bug("QUEST INFO: sqobj/mob quest with no obj location", 0);
+			Logging::bug("QUEST INFO: sqobj/mob quest with no obj location", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_obj->area == nullptr) {
-			bug("QUEST INFO: sqobj location with no area", 0);
+			Logging::bug("QUEST INFO: sqobj location with no area", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == nullptr) {
-			bug("QUEST INFO: sqobj/mob quest with no mob location", 0);
+			Logging::bug("QUEST INFO: sqobj/mob quest with no mob location", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_mob->area == nullptr) {
-			bug("QUEST INFO: sqmob location with no area", 0);
+			Logging::bug("QUEST INFO: sqmob location with no area", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
@@ -335,7 +354,7 @@ void quest_info(Character *ch)
 	}
 
 	if (ch->quest_giver < 1) {
-		bug("QUEST INFO: quest giver = %d", ch->quest_giver);
+		Logging::bug("QUEST INFO: quest giver = %d", ch->quest_giver);
 		stc("It seems the questmaster died of old age waiting for you.\n", ch);
 		ch->act_flags -= PLR_QUESTOR;
 		return;
@@ -344,7 +363,7 @@ void quest_info(Character *ch)
 	questman = get_mob_index(ch->quest_giver);
 
 	if (questman == nullptr) {
-		bug("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
+		Logging::bug("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmaster has fallen very ill. Please contact an imm!\n", ch);
 		ch->act_flags -= PLR_QUESTOR;
 		return;
@@ -367,7 +386,7 @@ void quest_info(Character *ch)
 		}
 
 		/* quest object not found! */
-		bug("No info for quest object %d", ch->questobj);
+		Logging::bug("No info for quest object %d", ch->questobj);
 		ch->questobj = 0;
 		ch->questobf = 0;
 		ch->act_flags -= PLR_QUESTOR;
@@ -383,14 +402,14 @@ void quest_info(Character *ch)
 		}
 
 		/* quest mob not found! */
-		bug("No info for quest mob %d", ch->questmob);
+		Logging::bug("No info for quest mob %d", ch->questmob);
 		ch->questmob = 0;
 		ch->act_flags -= PLR_QUESTOR;
 		/* no RETURN -- fall thru to 'no quest', below */
 	}
 
 	/* we shouldn't be here */
-	bug("QUEST INFO: Questor with no kill, mob or obj", 0);
+	Logging::bug("QUEST INFO: Questor with no kill, mob or obj", 0);
 	return;
 }
 
@@ -460,7 +479,7 @@ void squestmob_found(Character *ch, Character *mob)
 	char buf[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->squestmobf) {
-		bug("At squestmob_found, player's squestmob already found.  Continuing...", 0);
+		Logging::bug("At squestmob_found, player's squestmob already found.  Continuing...", 0);
 		ch->pcdata->squestmobf = FALSE;
 	}
 
@@ -602,7 +621,7 @@ Object *generate_skillquest_obj(Character *ch, int level)
 	questobj = create_object(get_obj_index(OBJ_VNUM_SQUESTOBJ), level);
 
 	if (! questobj) {
-		bug("Memory error creating quest object.", 0);
+		Logging::bug("Memory error creating quest object.", 0);
 		return nullptr;
 	}
 
@@ -676,7 +695,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	title = quest = "";             /* ew :( */
 
 	if ((questmob = create_mobile(get_mob_index(MOB_VNUM_SQUESTMOB))) == nullptr) {
-		bug("Bad skillquest mob vnum, from generate_skillquest_mob", 0);
+		Logging::bug("Bad skillquest mob vnum, from generate_skillquest_mob", 0);
 		return;
 	}
 
@@ -742,7 +761,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	questmob->long_descr = longdesc;
 
 	if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
-		bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
+		Logging::bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
 		return;
 	}
 
@@ -759,13 +778,13 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	}
 	else if (type == 2) {   /* obj to mob quest */
 		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
-			bug(" Bad generate_skillquest_obj, from generate_skillquest_mob", 0);
+			Logging::bug(" Bad generate_skillquest_obj, from generate_skillquest_mob", 0);
 			return;
 		}
 
 		for (; ;) {
 			if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
-				bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
+				Logging::bug("Bad generate_skillquest_room, from generate_skillquest_mob", 0);
 				return;
 			}
 
@@ -806,12 +825,12 @@ void generate_skillquest(Character *ch, Character *questman)
 	/* 40% chance of an item quest */
 	if (chance(40)) {
 		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
-			bug("Bad generate_skillquest_obj, from generate_skillquest", 0);
+			Logging::bug("Bad generate_skillquest_obj, from generate_skillquest", 0);
 			return;
 		}
 
 		if ((questroom = generate_skillquest_room(ch, level)) == nullptr) {
-			bug("Bad generate_skillquest_room, from generate_skillquest", 0);
+			Logging::bug("Bad generate_skillquest_room, from generate_skillquest", 0);
 			return;
 		}
 
@@ -950,7 +969,7 @@ void generate_quest(Character *ch, Character *questman)
 		questitem = create_object(get_obj_index(objvnum), ch->level);
 
 		if (! questitem) {
-			bug("Error creating quest item.", 0);
+			Logging::bug("Error creating quest item.", 0);
 			return;
 		}
 
@@ -1088,7 +1107,7 @@ void do_quest(Character *ch, String argument)
 
 			Format::sprintf(buf, "Log %s: QUEST AWARD allchars %d", ch->name, number);
 			wiznet(buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
-			log_string(buf);
+			Logging::log(buf);
 			return;
 		}
 
@@ -1097,7 +1116,7 @@ void do_quest(Character *ch, String argument)
 		ptc(wch, "%s awards %d quest points to you.\n", ch->name, number);
 		Format::sprintf(buf, "Log %s: QUEST AWARD %d to %s", ch->name, number, player);
 		wiznet(buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
-		log_string(buf);
+		Logging::log(buf);
 		return;
 	}
 
@@ -1143,7 +1162,7 @@ void do_quest(Character *ch, String argument)
 			if (ch->pcdata->squestobj && !ch->pcdata->squestmob) {
 				for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
 					if (obj->pIndexData == nullptr) {
-						bug("SQUEST COMPLETE: obj with nullptr pIndexData", 0);
+						Logging::bug("SQUEST COMPLETE: obj with nullptr pIndexData", 0);
 						obj = nullptr;
 						break;
 					}
@@ -1187,7 +1206,7 @@ void do_quest(Character *ch, String argument)
 				}
 
 				if (ch->pcdata->squestmobf && !ch->pcdata->squestobjf) { /* shouldn't happen */
-					bug("SQuest mob found without object", 0);
+					Logging::bug("SQuest mob found without object", 0);
 					do_say(questman, "%s must like you a great deal...");
 					sq_cleanup(ch);
 					return;
@@ -1199,7 +1218,7 @@ void do_quest(Character *ch, String argument)
 				}
 			}
 			else {  /* something went wrong */
-				bug("Skill quest not found", 0);
+				Logging::bug("Skill quest not found", 0);
 				sq_cleanup(ch);
 				return;
 			}
@@ -1276,7 +1295,7 @@ void do_quest(Character *ch, String argument)
 			if (ch->questobj > 0) {
 				for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
 					if (obj->pIndexData == nullptr) {
-						bug("QUEST COMPLETE: obj with nullptr pIndexData", 0);
+						Logging::bug("QUEST COMPLETE: obj with nullptr pIndexData", 0);
 						obj = nullptr;
 						break;
 					}
@@ -1308,7 +1327,7 @@ void do_quest(Character *ch, String argument)
 			}
 			else if (ch->questmob != -1) {
 				/* we shouldn't be here. */
-				bug("QUEST COMPLETE: at reward phase without kill or object", 0);
+				Logging::bug("QUEST COMPLETE: at reward phase without kill or object", 0);
 				return;
 			}
 
@@ -1392,7 +1411,7 @@ void do_quest(Character *ch, String argument)
 			temple = get_room_index(ROOM_VNUM_TEMPLE);
 
 			if (temple == nullptr)
-				bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
+				Logging::bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
 			else {
 				for (victim = char_list; victim != nullptr; victim = victim->next) {
 					if (!IS_NPC(victim) && victim->in_room != nullptr
@@ -1719,7 +1738,7 @@ void do_quest(Character *ch, String argument)
 		salesgnome = get_mob_world(ch, "salesgnome", VIS_CHAR);
 
 		if (salesgnome == nullptr)
-			bug("QUEST PK: salesgnome not there", 0);
+			Logging::bug("QUEST PK: salesgnome not there", 0);
 
 		stc("PK in Questlands is now ", ch);
 		Game::world().quest.pk = !Game::world().quest.pk;
@@ -1732,7 +1751,7 @@ void do_quest(Character *ch, String argument)
 				to_room = get_room_index(ROOM_VNUM_ARENATICKET);
 
 				if (to_room == nullptr) {
-					bug("QUEST PK: Can't find ticket booth", 0);
+					Logging::bug("QUEST PK: Can't find ticket booth", 0);
 					return;
 				}
 
@@ -1748,7 +1767,7 @@ void do_quest(Character *ch, String argument)
 				to_room = get_room_index(ROOM_VNUM_TICKETBACKROOM);
 
 				if (to_room == nullptr) {
-					bug("QUEST PK: Can't find ticket booth back room", 0);
+					Logging::bug("QUEST PK: Can't find ticket booth back room", 0);
 					return;
 				}
 

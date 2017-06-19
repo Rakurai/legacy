@@ -1,4 +1,5 @@
 #include "ObjectValue.hh"
+
 #include "Flags.hh"
 
 ObjectValue::

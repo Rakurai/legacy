@@ -1,4 +1,4 @@
-INCDIR  = ./include
+INCDIR  = include
 OBJDIR  = .obj
 BINDIR  = ../bin
 DEPDIR  = .dep
@@ -50,7 +50,7 @@ clean:
 	rm -f $(OBJDIR)/*.o *~ core $(INCDIR)/*~
 
 cleaner: clean
-	rm -f ${EXEFILE} $(DEPDIR)/*.d
+	rm -rf ${EXEFILE} $(DEPDIR)/*.d
 	cd sand && make cleaner
 
 install:

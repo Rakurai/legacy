@@ -25,13 +25,30 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <algorithm>
+#include <iterator>
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
 #include "find.hh"
-#include "merc.hh"
-#include "tables.hh"
-#include "lookup.hh"
-#include "recycle.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "lookup.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
 #include "Social.hh"
+#include "String.hh"
+#include "tables.hh"
 
 bool    check_channel_social    args((Character *ch, int channel,
                                       int custom, const String& command, const String& argument));

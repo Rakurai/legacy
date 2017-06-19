@@ -25,15 +25,30 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "find.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "magic.hh"
-#include "lookup.hh"
+#include <vector>
+
+#include "act.hh"
 #include "Affect.hh"
+#include "Area.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
 #include "GameTime.hh"
-#include "Area.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 #include "World.hh"
 
 DECLARE_SPELL_FUN(spell_identify);

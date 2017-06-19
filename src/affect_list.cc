@@ -1,7 +1,7 @@
-#include "merc.hh"
-#include "Affect.hh"
 #include "affect_list.hh"
-#include "recycle.hh"
+
+#include "Flags.hh"
+#include "macros.hh"
 
 void affect_remove_from_list(Affect **list_head, Affect *paf) {
 	if (*list_head == paf)

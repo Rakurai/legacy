@@ -1,4 +1,5 @@
 #include "Customize.hh"
+
 #include "merc.hh"
 
 Customize::Customize() :

@@ -5,9 +5,20 @@
  *    Modified by PwrDemon for Rom 2.4
  */
 
-#include "merc.hh"
-#include "lookup.hh"
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "lookup.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 void do_deposit(Character *ch, String argument)
 {

@@ -5,7 +5,18 @@
  Montrey
 ***********************/
 
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "Logging.hh"
+#include "macros.hh"
 #include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 /* character finding functions */
 
@@ -396,12 +407,12 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
 	for (apc = pc_list; apc != nullptr; apc = apc->next) {
 		if ((ach = apc->ch) == nullptr) {
-			bug("get_player_area: pc_data without char_data", 0);
+			Logging::bug("get_player_area: pc_data without char_data", 0);
 			continue;
 		}
 
 		if (IS_NPC(ach)) {
-			bug("get_player_area: pc_data with mobile char_data", 0);
+			Logging::bug("get_player_area: pc_data with mobile char_data", 0);
 			continue;
 		}
 
@@ -438,12 +449,12 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
 	for (wpc = pc_list; wpc != nullptr; wpc = wpc->next) {
 		if ((wch = wpc->ch) == nullptr) {
-			bug("get_player_world: pc_data without char_data", 0);
+			Logging::bug("get_player_world: pc_data without char_data", 0);
 			continue;
 		}
 
 		if (IS_NPC(wch)) {
-			bug("get_player_world: pc_data with mobile char_data", 0);
+			Logging::bug("get_player_world: pc_data with mobile char_data", 0);
 			continue;
 		}
 

@@ -1,16 +1,29 @@
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "vt100.hh"
-#include "telnet.hh"
-#include "sql.hh"
-#include "recycle.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
-#include "lookup.hh"
-#include "Format.hh"
-#include "GameTime.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "Clan.hh"
 #include "Customize.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Flags.hh"
+#include "Format.hh"
 #include "Game.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "sql.hh"
+#include "String.hh"
+#include "telnet.hh"
+#include "vt100.hh"
 
 extern bool    check_playing           args((Descriptor *d, const String& name));
 int     roll_stat               args((Character *ch, int stat));
@@ -311,7 +324,7 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
 
 				Format::sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
-				log_string(log_buf);
+				Logging::log(log_buf);
 				wiznet("$N reclaims the fullness of $S link.",
 				       ch, nullptr, WIZ_LINKS, 0, 0);
 
@@ -349,7 +362,7 @@ void nanny(Descriptor *d, String argument)
 
 	switch (d->connected) {
 	default:
-		bug("Nanny: bad d->connected %d.", d->connected);
+		Logging::bug("Nanny: bad d->connected %d.", d->connected);
 		close_socket(d);
 		return;
 
@@ -404,7 +417,7 @@ void nanny(Descriptor *d, String argument)
 
 		if (check_deny(ch->name)) {
 			Format::sprintf(log_buf, "Denying access to %s@%s.", ch->name, d->host);
-			log_string(log_buf);
+			Logging::log(log_buf);
 			write_to_buffer(d, "You are denied access to Legacy.\n");
 			close_socket(d);
 			return;
@@ -412,7 +425,7 @@ void nanny(Descriptor *d, String argument)
 
 		if (check_ban(d->host, BAN_ALL) && !ch->act_flags.has(PLR_PERMIT)) {
 			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
-			log_string(log_buf);
+			Logging::log(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 			write_to_buffer(d, "Your site has been banned from this mud.\n"
 			                "If you feel that your site has been banned in error, or would\n"
@@ -449,7 +462,7 @@ void nanny(Descriptor *d, String argument)
 
 		if (check_ban(d->host, BAN_NEWBIES)) {
 			Format::sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
-			log_string(log_buf);
+			Logging::log(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 			write_to_buffer(d, "New players are not allowed from your site.\n"
 			                "If you feel that your site has been banned in error, or would\n"
@@ -485,7 +498,7 @@ void nanny(Descriptor *d, String argument)
 		ch->pcdata->plr_flags -= PLR_SQUESTOR;
 		ch->act_flags -= PLR_QUESTOR;
 		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
-		log_string(log_buf);
+		Logging::log(log_buf);
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		Format::sprintf(log_buf, "Last Site: %s",
 		        ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available");
@@ -836,7 +849,7 @@ void nanny(Descriptor *d, String argument)
 		ch->cls = iClass;
 		Format::sprintf(log_buf, "%s@%s new player.", ch->name, d->host);
 		wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
-		log_string(log_buf);
+		Logging::log(log_buf);
 		Format::sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
 		wiznet(log_buf, ch, nullptr, WIZ_NEWBIE, 0, 0);
 		write_to_buffer(d, "\n");
@@ -1097,14 +1110,14 @@ void nanny(Descriptor *d, String argument)
 			obj = create_object(get_obj_index(OBJ_VNUM_MAP), 0);
 
 			if (! obj)
-				bug("Error creating object in nanny.c", 0);
+				Logging::bug("Error creating object in nanny.c", 0);
 			else
 				obj_to_char(obj, ch);
 
 			obj = create_object(get_obj_index(OBJ_VNUM_TOKEN), 0);
 
 			if (! obj)
-				bug("Error creating object in nanny.c", 0);
+				Logging::bug("Error creating object in nanny.c", 0);
 			else
 				obj_to_char(obj, ch);
 

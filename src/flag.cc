@@ -25,13 +25,25 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "Game.hh"
+#include <vector>
+
+#include "argument.hh"
 #include "Area.hh"
+#include "Character.hh"
+#include "declare.hh"
 #include "find.hh"
-#include "merc.hh"
-#include "tables.hh"
-#include "recycle.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
+#include "tables.hh"
 
 void do_flag(Character *ch, String argument)
 {

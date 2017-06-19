@@ -25,14 +25,35 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "tables.hh"
-#include "lookup.hh"
-#include "cJSON.hh"
+#include <map>
+#include <utility>
+#include <vector>
+
+#include "../deps/cJSON/cJSON.h"
+#include "argument.hh"
 #include "Affect.hh"
+#include "cJSON.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "ExtraDescr.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
@@ -108,7 +129,7 @@ void save_char_obj(Character *ch)
 		rename(TEMP_FILE, strsave);
 	}
 	else {
-		bug("Save_char_obj: fopen", 0);
+		Logging::bug("Save_char_obj: fopen", 0);
 		perror(strsave);
 	}
 
@@ -948,7 +969,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 						int sn = skill_lookup(item->valuestring);
 
 						if (sn <= 0) {
-							bugf("unknown extraclass skill '%s'", item->valuestring);
+							Logging::bugf("unknown extraclass skill '%s'", item->valuestring);
 							continue;
 						}
 
@@ -972,7 +993,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 						if (gn < 0) {
 							Format::fprintf(stderr, "%s", item->valuestring);
-							bug("Unknown group. ", 0);
+							Logging::bug("Unknown group. ", 0);
 							continue;
 						}
 
@@ -1065,7 +1086,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 						if (sn < 0) {
 							Format::fprintf(stderr, "%s", temp);
-							bug("Fread_char: unknown skill. ", 0);
+							Logging::bug("Fread_char: unknown skill. ", 0);
 							continue;
 						}
 
@@ -1107,7 +1128,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 		}
 
 		if (!fMatch)
-			bugf("fread_player: unknown key %s", key);
+			Logging::bugf("fread_player: unknown key %s", key);
 	}
 
 	// fix up pc-only stuff here
@@ -1121,7 +1142,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 
 	char buf[MSL];
 	Format::sprintf(buf, "Loading %s.", ch->name);
-	log_string(buf);
+	Logging::log(buf);
 
 	// unlike old pfiles, the order of calls is important here, because we can't
 	// guarantee order within the files. If there are any fields that are depended
@@ -1141,7 +1162,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
 						if (sn < 0) {
-							bug("Fread_char: unknown skill.", 0);
+							Logging::bug("Fread_char: unknown skill.", 0);
 							continue;
 						}
 
@@ -1266,7 +1287,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 		}
 
 		if (!fMatch)
-			bugf("fread_char: unknown key %s", key);
+			Logging::bugf("fread_char: unknown key %s", key);
 	}
 }
 
@@ -1279,21 +1300,21 @@ Object * fread_obj(cJSON *json, int version) {
 		ObjectPrototype *index = get_obj_index(o->valueint);
 
 		if (index == nullptr)
-			bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
+			Logging::bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
 		else {
 			obj = create_object(index, -1);
 
 			if (obj == nullptr)
-				bug("fread_obj: create_object returned nullptr", 0);
+				Logging::bug("fread_obj: create_object returned nullptr", 0);
 		}
 	}
 	else
-		bug("fread_obj: no vnum field in JSON object", 0);
+		Logging::bug("fread_obj: no vnum field in JSON object", 0);
 
-//	bug("reading an object", 0);
+//	Logging::bug("reading an object", 0);
 
 	if (obj == nullptr) { /* either not found or old style */
-		bug("obj is null!", 0);
+		Logging::bug("obj is null!", 0);
 		obj = new_obj();
 	}
 
@@ -1322,7 +1343,7 @@ Object * fread_obj(cJSON *json, int version) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
 						if (sn < 0) {
-							bug("Fread_obj: unknown skill.", 0);
+							Logging::bug("Fread_obj: unknown skill.", 0);
 							continue;
 						}
 
@@ -1453,7 +1474,7 @@ Object * fread_obj(cJSON *json, int version) {
 		}
 
 		if (!fMatch)
-			bugf("fread_obj: unknown key %s", key);
+			Logging::bugf("fread_obj: unknown key %s", key);
 	}
 
 	return obj;
@@ -1501,14 +1522,14 @@ void fread_pet(Character *ch, cJSON *json, int version)
 		vnum = o->valueint;
 	}
 	else {
-		bug("fread_pet: no vnum field in JSON object", 0);
+		Logging::bug("fread_pet: no vnum field in JSON object", 0);
 		vnum = MOB_VNUM_FIDO;
 	}
 
 	MobilePrototype *index = get_mob_index(vnum);
 
 	if (index == nullptr) {
-		bug("Fread_pet: bad vnum %d in fread_pet().", vnum);
+		Logging::bug("Fread_pet: bad vnum %d in fread_pet().", vnum);
 		index = get_mob_index(MOB_VNUM_FIDO);
 	}
 
@@ -1516,7 +1537,7 @@ void fread_pet(Character *ch, cJSON *json, int version)
 
 	/* Check for memory error. -- Outsider */
 	if (!pet) {
-		bug("Memory error creating mob in fread_pet().", 0);
+		Logging::bug("Memory error creating mob in fread_pet().", 0);
 		return;
 	}
 
@@ -1596,7 +1617,7 @@ time_t dizzy_scantime(const String& ctime)
 	if (sscanf(ctime.c_str(), " %3s %3s %d %d:%d:%d %d",
 	           cdow, cmon, &day, &hour, &minute, &second, &year) < 7) {
 		Format::sprintf(msg, "dizzy_scantime(): Error scanning date/time: '%s'", ctime);
-		bug(msg, 0);
+		Logging::bug(msg, 0);
 		goto endoftime;
 	}
 
@@ -1607,7 +1628,7 @@ time_t dizzy_scantime(const String& ctime)
 
 	if (month >= 12) {
 		Format::sprintf(msg, "dizzy_scantime(): Bad month in %s", ctime);
-		bug(msg, 0);
+		Logging::bug(msg, 0);
 		goto endoftime;
 	}
 

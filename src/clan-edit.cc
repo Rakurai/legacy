@@ -19,11 +19,19 @@
  * (c) 1999, Johan Jonkers(aka Clerve) (scoobers@hotmail.com)
  */
 
-#include "merc.hh"
-#include "lookup.hh"
-#include "sql.hh"
-#include "memory.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "sql.hh"
+#include "String.hh"
 
 #define CLAN_DIR        "../misc/"
 #define CLAN_FILE       "clans.txt"
@@ -89,7 +97,7 @@ void load_clan_table()
 		          continue;
 		*/
 		if ((clan = new Clan) == nullptr) {
-			bug("load_clan_table: unable to allocate memory for new clan", 0);
+			Logging::bug("load_clan_table: unable to allocate memory for new clan", 0);
 			return;
 		}
 
@@ -273,7 +281,7 @@ void do_cedit(Character *ch, String argument)
 		Clan *new_clan = new Clan;
 
 		if (new_clan == nullptr) {
-			bug("Unable to allocate memory for new clan!", 0);
+			Logging::bug("Unable to allocate memory for new clan!", 0);
 			stc("Allocation of memory for the new clan failed!\n", ch);
 			return;
 		}

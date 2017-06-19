@@ -25,11 +25,23 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "file.hh"
-#include "merc.hh"
 #include "music.hh"
-#include "recycle.hh"
+
+#include "act.hh"
+#include "argument.hh"
+#include "Character.hh"
+#include "Descriptor.hh"
+#include "file.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "RoomPrototype.hh"
 
 int channel_songs[MAX_GLOBAL + 1];
 std::vector<struct song_data> song_table;
@@ -148,7 +160,7 @@ void load_songs(void)
 		channel_songs[i] = -1;
 
 	if ((fp = fopen(MUSIC_FILE, "r")) == nullptr) {
-		bug("Couldn't open music file, no songs available.", 0);
+		Logging::bug("Couldn't open music file, no songs available.", 0);
 		return;
 	}
 
@@ -178,7 +190,7 @@ void load_songs(void)
 				ungetc(letter, fp);
 
 			if (song.lines >= MAX_LINES) {
-				bug("Too many lines in a song -- limit is  %d.", MAX_LINES);
+				Logging::bug("Too many lines in a song -- limit is  %d.", MAX_LINES);
 
 				break;
 			}

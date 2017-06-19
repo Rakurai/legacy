@@ -1,7 +1,7 @@
 #pragma once
 
 #include "declare.hh"
-//#include <algorithm>
+#include <algorithm> // min and max
 
 /*
  * Utility macros.

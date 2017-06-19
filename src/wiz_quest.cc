@@ -13,15 +13,33 @@
 * Most of these are in the quest command group.  *
 *************************************************/
 
-#include "Game.hh"
-#include "Area.hh"
-#include "find.hh"
-#include "channels.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
+#include <vector>
+
+#include "act.hh"
+#include "argument.hh"
 #include "Affect.hh"
+#include "Area.hh"
+#include "channels.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "ExtraDescr.hh"
+#include "find.hh"
+#include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "Player.hh"
+#include "QuestArea.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 void do_addapply(Character *ch, String argument)
 {
@@ -150,7 +168,7 @@ void do_morph(Character *ch, String argument)
 	mobile = create_mobile(get_mob_index(morph->pIndexData->vnum));
 
 	if (!mobile) {  /* Make sure it works. -- Outsider */
-		bug("Memory error creating mob in do_morph().", 0);
+		Logging::bug("Memory error creating mob in do_morph().", 0);
 		stc("Could not morph.\n", ch);
 		return;
 	}
@@ -854,7 +872,7 @@ void do_create(Character *ch, String argument)
 			if (arg2 == item_table[x].name) {
 				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == nullptr) {
 					Format::sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);
-					bug(buf, 0);
+					Logging::bug(buf, 0);
 					stc("That item seems to be missing.\n", ch);
 					return;
 				}
@@ -862,7 +880,7 @@ void do_create(Character *ch, String argument)
 				obj = create_object(pObjIndex, 0);
 
 				if (! obj) {
-					bug("Memory error creating object in do_create.", 0);
+					Logging::bug("Memory error creating object in do_create.", 0);
 					return;
 				}
 

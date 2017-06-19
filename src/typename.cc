@@ -1,4 +1,14 @@
+#include <vector>
+
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
+#include "Logging.hh"
+#include "macros.hh"
 #include "merc.hh"
+#include "Object.hh"
+#include "Player.hh"
+#include "String.hh"
 #include "tables.hh"
 
 String item_name(int item_type)
@@ -94,7 +104,7 @@ String item_type_name(Object *obj)
 	case ITEM_TOKEN:            return "token";
 	}
 
-	bug("Item_type_name: unknown type %d.", obj->item_type);
+	Logging::bug("Item_type_name: unknown type %d.", obj->item_type);
 	return "(unknown)";
 }
 
@@ -124,7 +134,7 @@ String dam_type_name(int type)
 		case DAM_SOUND       : return "sound";
 	}
 
-	bug("dam_type_name: unknown type %d.", type);
+	Logging::bug("dam_type_name: unknown type %d.", type);
 	return "(unknown)";
 }
 
@@ -159,7 +169,7 @@ String affect_loc_name(int location)
 	case APPLY_SAVING_SPELL:    return "save vs spell";
 	}
 
-	bug("Affect_location_name: unknown location %d.", location);
+	Logging::bug("Affect_location_name: unknown location %d.", location);
 	return "(unknown)";
 }
 

@@ -25,16 +25,39 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include "event/Event.hh"
-#include "Area.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "magic.hh"
-#include "recycle.hh"
-#include "tables.hh"
-#include "lookup.hh"
+#include <cstring>
+#include <vector>
+
+#include "act.hh"
+#include "affect_int.hh"
 #include "Affect.hh"
-#include "Weather.hh"
+#include "Area.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "event/Event.hh"
+#include "Exit.hh"
+#include "ExtraDescr.hh"
+#include "Flags.hh"
+#include "Format.hh"
+#include "GameTime.hh"
+#include "interp.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "magic.hh"
+#include "memory.hh"
+#include "merc.hh"
+#include "MobilePrototype.hh"
+#include "Object.hh"
+#include "ObjectPrototype.hh"
+#include "ObjectValue.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "recycle.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 #include "World.hh"
 
 // TODO: temporary access, remove when possible
@@ -122,7 +145,7 @@ int get_skill(const Character *ch, int sn)
 	if (sn == -1) /* shorthand for level based skills */
 		skill = ch->level * 5 / 2;
 	else if (sn < -1 || sn > skill_table.size()) {
-		bug("Bad sn %d in get_skill.", sn);
+		Logging::bug("Bad sn %d in get_skill.", sn);
 		skill = 0;
 	}
 	else if (!IS_NPC(ch)) {
@@ -326,7 +349,7 @@ void char_from_room(Character *ch)
 		return;
 
 	if (ch->in_room == nullptr) {
-		bug("Char_from_room: nullptr.", 0);
+		Logging::bug("Char_from_room: nullptr.", 0);
 		return;
 	}
 
@@ -352,8 +375,8 @@ void char_from_room(Character *ch)
 		}
 
 		if (prev == nullptr) {
-			bug("Char_from_room: ch not found.", 0);
-			bug(ch->name, 0);
+			Logging::bug("Char_from_room: ch not found.", 0);
+			Logging::bug(ch->name, 0);
 		}
 	}
 
@@ -375,8 +398,8 @@ void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
 
 	if (pRoomIndex == nullptr) {
 		RoomPrototype *room;
-		bug("Char_to_room: nullptr.", 0);
-		bug(ch->name, 0);
+		Logging::bug("Char_to_room: nullptr.", 0);
+		Logging::bug(ch->name, 0);
 
 		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != nullptr)
 			char_to_room(ch, room);
@@ -417,12 +440,12 @@ void obj_from_locker(Object *obj)
 	Character *ch;
 
 	if ((ch = obj->in_locker) == nullptr) {
-		bug("obj_from_locker: obj points to null ch", 0);
+		Logging::bug("obj_from_locker: obj points to null ch", 0);
 		return;
 	}
 
 	if (IS_NPC(ch)) {
-		bug("obj_from_locker: obj points to mobile", 0);
+		Logging::bug("obj_from_locker: obj points to mobile", 0);
 		return;
 	}
 
@@ -438,7 +461,7 @@ void obj_from_locker(Object *obj)
 			}
 
 		if (prev == nullptr)
-			bug("obj_from_locker: obj not in ch->pcdata->locker list.", 0);
+			Logging::bug("obj_from_locker: obj not in ch->pcdata->locker list.", 0);
 	}
 
 	obj->next_content    = nullptr;
@@ -450,12 +473,12 @@ void obj_from_strongbox(Object *obj)
 	Character *ch;
 
 	if ((ch = obj->in_strongbox) == nullptr) {
-		bug("obj_from_strongbox: obj points to null ch", 0);
+		Logging::bug("obj_from_strongbox: obj points to null ch", 0);
 		return;
 	}
 
 	if (IS_NPC(ch)) {
-		bug("obj_from_strongbox: obj points to a mobile", 0);
+		Logging::bug("obj_from_strongbox: obj points to a mobile", 0);
 		return;
 	}
 
@@ -471,7 +494,7 @@ void obj_from_strongbox(Object *obj)
 			}
 
 		if (prev == nullptr)
-			bug("Obj_from_strongbox: obj not in list.", 0);
+			Logging::bug("Obj_from_strongbox: obj not in list.", 0);
 	}
 
 	obj->next_content    = nullptr;
@@ -482,7 +505,7 @@ void obj_from_strongbox(Object *obj)
 void obj_to_locker(Object *obj, Character *ch)
 {
 	if (IS_NPC(ch)) {
-		bug("obj_to_locker: ch is a mobile", 0);
+		Logging::bug("obj_to_locker: ch is a mobile", 0);
 		return;
 	}
 
@@ -497,7 +520,7 @@ void obj_to_locker(Object *obj, Character *ch)
 void obj_to_strongbox(Object *obj, Character *ch)
 {
 	if (IS_NPC(ch)) {
-		bug("obj_to_strongbox: ch is a mobile", 0);
+		Logging::bug("obj_to_strongbox: ch is a mobile", 0);
 		return;
 	}
 
@@ -532,7 +555,7 @@ void obj_from_char(Object *obj)
 	Character *ch;
 
 	if ((ch = obj->carried_by) == nullptr) {
-		bug("Obj_from_char: null ch.", 0);
+		Logging::bug("Obj_from_char: null ch.", 0);
 		return;
 	}
 
@@ -552,7 +575,7 @@ void obj_from_char(Object *obj)
 		}
 
 		if (prev == nullptr)
-			bug("Obj_from_char: obj not in list.", 0);
+			Logging::bug("Obj_from_char: obj not in list.", 0);
 	}
 
 	obj->carried_by      = nullptr;
@@ -636,7 +659,7 @@ void equip_char(Character *ch, Object *obj, int iWear)
 	// loads the whole list and then equips it all based on the object's wear location
 	Object *equipped = get_eq_char(ch, iWear);
 	if (equipped != nullptr && equipped != obj) {
-		bug("Equip_char: already equipped (%d).", iWear);
+		Logging::bug("Equip_char: already equipped (%d).", iWear);
 		return;
 	}
 
@@ -658,7 +681,7 @@ void equip_char(Character *ch, Object *obj, int iWear)
 void unequip_char(Character *ch, Object *obj)
 {
 	if (obj->wear_loc == WEAR_NONE) {
-		bug("Unequip_char: already unequipped.", 0);
+		Logging::bug("Unequip_char: already unequipped.", 0);
 		return;
 	}
 
@@ -705,8 +728,8 @@ void obj_from_room(Object *obj)
 	Character *ch;
 
 	if ((in_room = obj->in_room) == nullptr) {
-		bug("obj_from_room: nullptr.", 0);
-		bug(obj->short_descr, 0); /* Bug huntin - Lotus */
+		Logging::bug("obj_from_room: nullptr.", 0);
+		Logging::bug(obj->short_descr, 0); /* Bug huntin - Lotus */
 		return;
 	}
 
@@ -727,7 +750,7 @@ void obj_from_room(Object *obj)
 		}
 
 		if (prev == nullptr) {
-			bug("Obj_from_room: obj not found.", 0);
+			Logging::bug("Obj_from_room: obj not found.", 0);
 			return;
 		}
 	}
@@ -744,7 +767,7 @@ void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
 {
 	/* make sure there is a room to put the object in -- Elrac */
 	if (pRoomIndex == nullptr) {
-		bug("obj_to_room: nullptr room", 0);
+		Logging::bug("obj_to_room: nullptr room", 0);
 		return;
 	}
 
@@ -821,7 +844,7 @@ void obj_from_obj(Object *obj)
 	Object *obj_from;
 
 	if ((obj_from = obj->in_obj) == nullptr) {
-		bug("Obj_from_obj: null obj_from.", 0);
+		Logging::bug("Obj_from_obj: null obj_from.", 0);
 		return;
 	}
 
@@ -838,7 +861,7 @@ void obj_from_obj(Object *obj)
 		}
 
 		if (prev == nullptr) {
-			bug("Obj_from_obj: obj not found.", 0);
+			Logging::bug("Obj_from_obj: obj not found.", 0);
 			return;
 		}
 	}
@@ -879,7 +902,7 @@ void extract_obj(Object *obj)
 		}
 
 		if (prev == nullptr) {
-			bug("Extract_obj: obj %d not found.", obj->pIndexData->vnum);
+			Logging::bug("Extract_obj: obj %d not found.", obj->pIndexData->vnum);
 			return;
 		}
 	}
@@ -899,7 +922,7 @@ void extract_char(Character *ch, bool fPull)
 	Object *obj_next;
 
 	if (ch->in_room == nullptr) {
-//		bugf("extract_char: ch->in_room == nullptr for %s", ch->name);
+//		Logging::bugf("extract_char: ch->in_room == nullptr for %s", ch->name);
 		return;
 	}
 
@@ -961,7 +984,7 @@ void extract_char(Character *ch, bool fPull)
 		}
 
 		if (prev == nullptr) {
-			bug("extract_char: char not found in char_list", 0);
+			Logging::bug("extract_char: char not found in char_list", 0);
 			return;
 		}
 	}
@@ -980,7 +1003,7 @@ void extract_char(Character *ch, bool fPull)
 			}
 
 			if (prev == nullptr)
-				bug("extract_char: pc_data not found in pc_list", 0);
+				Logging::bug("extract_char: pc_data not found in pc_list", 0);
 		}
 	}
 
@@ -1078,7 +1101,7 @@ Object *create_money(int gold, int silver)
 	};
 
 	if (gold <= 0 && silver <= 0) {
-		bug("Create_money: zero or negative money.", 0);
+		Logging::bug("Create_money: zero or negative money.", 0);
 		gold = UMAX(1, gold);
 		silver = UMAX(1, silver);
 	}
@@ -1095,7 +1118,7 @@ Object *create_money(int gold, int silver)
 	}
 
 	if ((obj = create_object(get_obj_index(GEN_OBJ_MONEY), 0)) == nullptr) {
-		bug("create_money: no generic money object", 0);
+		Logging::bug("create_money: no generic money object", 0);
 		return nullptr;
 	}
 

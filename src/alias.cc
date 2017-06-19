@@ -25,8 +25,19 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <map>
+#include <utility>
+
+#include "argument.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "memory.hh"
 #include "merc.hh"
-#include "Format.hh"
+#include "Player.hh"
+#include "String.hh"
 
 char    *get_multi_command     args((Descriptor *d, const String& argument));
 
@@ -39,12 +50,12 @@ void substitute_alias(Descriptor *d, String argument)
 	ch = d->original ? d->original : d->character;
 
 	if (!ch) {
-		bug("substitute_alias: null ch", 0);
+		Logging::bug("substitute_alias: null ch", 0);
 		return; /* crashed on a null character in this a few times -- Montrey */
 	}
 
 	if (!ch->pcdata) {
-		bug("substitute_alias: null pcdata", 0);
+		Logging::bug("substitute_alias: null pcdata", 0);
 		return;
 	}
 

@@ -1,10 +1,13 @@
 #include "Reset.hh"
-#include "Exit.hh"
-#include "RoomPrototype.hh"
-#include "ObjectPrototype.hh"
-#include "file.hh"
-#include "merc.hh"
+
 #include "db.hh" // boot_bug
+#include "Exit.hh"
+#include "file.hh"
+#include "Flags.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "ObjectPrototype.hh"
+#include "RoomPrototype.hh"
 
 Reset::
 Reset(FILE *fp) {

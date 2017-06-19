@@ -25,7 +25,13 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <vector>
+
+#include "Clan.hh"
+#include "declare.hh"
+#include "macros.hh"
 #include "merc.hh"
+#include "String.hh"
 #include "tables.hh"
 
 Clan *clan_vnum_lookup(int vnum)

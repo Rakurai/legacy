@@ -3,17 +3,24 @@
 * 2002 Jason Anderson, proprietary for Legacy.                             *
 ***************************************************************************/
 
-#include "Descriptor.hh"
-#include "Player.hh"
-#include "Clan.hh"
+#include "War.hh"
+
+#include <vector>
+
+#include "argument.hh"
 #include "Character.hh"
+#include "Clan.hh"
+#include "Descriptor.hh"
 #include "file.hh"
-#include "merc.hh"
+#include "Flags.hh"
+#include "Format.hh"
 #include "interp.hh"
 #include "lookup.hh"
-#include "recycle.hh"
-#include "Format.hh"
-#include "War.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "String.hh"
 
 #define WAR_DIR         "../war/"
 #define EVENT_DIR       "../war/events/"
@@ -92,7 +99,7 @@ void load_war_events()
 			fclose(fp);
 		}
 		else
-			bug("Could not open event file for reading!", 0);
+			Logging::bug("Could not open event file for reading!", 0);
 
 		war = war->next;
 	}
@@ -127,7 +134,7 @@ void save_war_events()
 			rename(EVENT_TMP, strsave);
 		}
 		else
-			bug("Could not open " EVENT_TMP " for writing!", 0);
+			Logging::bug("Could not open " EVENT_TMP " for writing!", 0);
 
 		war = war->next;
 	}
@@ -174,7 +181,7 @@ void load_war_table()
 		fclose(fp);
 	}
 	else
-		bug("Could not open " WAR_FILE " for reading!", 0);
+		Logging::bug("Could not open " WAR_FILE " for reading!", 0);
 }
 
 void save_war_table()
@@ -213,7 +220,7 @@ void save_war_table()
 		fclose(fp);
 	}
 	else
-		bug("Could not open " WAR_FILE " for writing!", 0);
+		Logging::bug("Could not open " WAR_FILE " for writing!", 0);
 }
 
 void fix_war(War *war)
@@ -305,7 +312,7 @@ bool clan_is_challenger(Clan *clan, War *war)
 			return FALSE;
 	}
 
-	bug("clan_is_challenger: clan not in war", 0);
+	Logging::bug("clan_is_challenger: clan not in war", 0);
 	return FALSE;
 }
 
@@ -459,7 +466,7 @@ void defeat_clan(War *war, Character *ch, Character *victim)
 	rec_event(war, EVENT_CLAN_DEFEAT, victim->clan->clanname, ch->clan->clanname, 0);
 
 	if (!chal && !def) { /* this shouldn't happen */
-		bug("No remaining clans in war!", 0);
+		Logging::bug("No remaining clans in war!", 0);
 		return;
 	}
 
@@ -901,12 +908,12 @@ void format_war_list(Character *ch, War *war, bool current)
 	}
 
 	if (chcount < 1 || defcount < 1) {
-		bug("war status: war is one sided!", 0);
+		Logging::bug("war status: war is one sided!", 0);
 		return;
 	}
 
 	if (chcount > 4 || defcount > 4) {
-		bug("war status: war has too many clans on one side!", 0);
+		Logging::bug("war status: war has too many clans on one side!", 0);
 		return;
 	}
 
@@ -1041,7 +1048,7 @@ void format_war_events(Character *ch, War *war)
 			break;
 
 		default:
-			bug("format_war_events: Event type unknown", 0);
+			Logging::bug("format_war_events: Event type unknown", 0);
 			break;
 		}
 

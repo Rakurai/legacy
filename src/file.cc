@@ -9,10 +9,10 @@
 *************************************************/
 
 #include "file.hh"
-#include "merc.hh"
-#include "memory.hh"
-#include "db.hh"
-#include "Format.hh"
+
+#include "Flags.hh"
+#include "Logging.hh"
+#include "String.hh"
 
 /* Read a letter from a file. */
 char fread_letter(FILE *fp)
@@ -47,7 +47,7 @@ int fread_number(FILE *fp)
 	}
 
 	if (!isdigit(c)) {
-		bug("Fread_number: bad format.", 0);
+		Logging::bug("Fread_number: bad format.", 0);
 		number = 0;
 		return number;
 	}
@@ -94,7 +94,7 @@ String fread_string(FILE *fp, char to_char)
 
 		switch (c) {
 			case EOF:
-				bug("Fread_string: EOF", 0);
+				Logging::bug("Fread_string: EOF", 0);
 				return buf;
 			case '\r':
 				break; // skip it
@@ -167,7 +167,7 @@ String fread_word(FILE *fp)
 		}
 	}
 
-	bug("Fread_word: word too long.", 0);
+	Logging::bug("Fread_word: word too long.", 0);
 //	exit(1);
 	return "";
 }
@@ -185,5 +185,5 @@ void fappend(const char *file, const char *str)
 		fclose(fp);
 	}
 	else
-		bugf("fappend(): could not open %s", file);
+		Logging::bugf("fappend(): could not open %s", file);
 }

@@ -3,15 +3,26 @@
 * 2002 Jason Anderson, proprietary for Legacy.                             *
 ***************************************************************************/
 
+#include "act.hh"
+#include "argument.hh"
+#include "Affect.hh"
+#include "Character.hh"
+#include "Clan.hh"
+#include "declare.hh"
+#include "Descriptor.hh"
+#include "Duel.hh"
 #include "file.hh"
 #include "find.hh"
-#include "merc.hh"
-#include "interp.hh"
-#include "recycle.hh"
-#include "Affect.hh"
-#include "memory.hh"
+#include "Flags.hh"
 #include "Format.hh"
-#include "Duel.hh"
+#include "interp.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Player.hh"
+#include "random.hh"
+#include "RoomPrototype.hh"
+#include "String.hh"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"
@@ -119,7 +130,7 @@ void load_arena_table()
 		fclose(fp);
 	}
 	else
-		bug("Could not open " ARENA_FILE " for reading!", 0);
+		Logging::bug("Could not open " ARENA_FILE " for reading!", 0);
 }
 
 void append_duel(Duel *c)
@@ -241,7 +252,7 @@ Duel *get_duel(Character *ch)
 		cgr = TRUE;
 
 		if ((opp = duel->defender) == nullptr) {
-			bug("get_duel: defender is nullptr", 0);
+			Logging::bug("get_duel: defender is nullptr", 0);
 			goto bombout;
 		}
 	}
@@ -249,37 +260,37 @@ Duel *get_duel(Character *ch)
 		cgr = FALSE;
 
 		if ((opp = duel->challenger) == nullptr) {
-			bug("get_duel: challenger is nullptr", 0);
+			Logging::bug("get_duel: challenger is nullptr", 0);
 			goto bombout;
 		}
 	}
 	else {
-		bug("get_duel: ch not in duel", 0);
+		Logging::bug("get_duel: ch not in duel", 0);
 		goto bombout;
 	}
 
 	if (opp == ch) {
-		bug("get_duel: opp == ch", 0);
+		Logging::bug("get_duel: opp == ch", 0);
 		goto bombout;
 	}
 
 	if (opp->pcdata->duel == nullptr) {
-		bug("get_duel: opp->pcdata->duel == nullptr", 0);
+		Logging::bug("get_duel: opp->pcdata->duel == nullptr", 0);
 		goto bombout;
 	}
 
 	if (opp->pcdata->duel != duel) {
-		bug("get_duel: opp->pcdata->duel != duel", 0);
+		Logging::bug("get_duel: opp->pcdata->duel != duel", 0);
 		goto bombout;
 	}
 
 	if (opp->in_room == nullptr) {
-		bug("get_duel: opp->in_room == nullptr", 0);
+		Logging::bug("get_duel: opp->in_room == nullptr", 0);
 		goto bombout;
 	}
 
 	if (duel->arena == nullptr) {
-		bug("get_duel: arena is nullptr", 0);
+		Logging::bug("get_duel: arena is nullptr", 0);
 		goto bombout;
 	}
 
@@ -287,36 +298,36 @@ Duel *get_duel(Character *ch)
 		if (duel->prep_timer == 0) {
 			if (ch->in_room->vnum > duel->arena->maxvnum
 			    || ch->in_room->vnum < duel->arena->minvnum) {
-				bug("get_duel: timers 0, ch not in arena", 0);
+				Logging::bug("get_duel: timers 0, ch not in arena", 0);
 				goto bombout;
 			}
 
 			if (opp->in_room->vnum > duel->arena->maxvnum
 			    || opp->in_room->vnum < duel->arena->minvnum) {
-				bug("get_duel: timers 0, opp not in arena", 0);
+				Logging::bug("get_duel: timers 0, opp not in arena", 0);
 				goto bombout;
 			}
 		}
 		else {
 			if (cgr) {
 				if (ch->in_room != duel->arena->chalprep) {
-					bug("get_duel: accept 0, ch not in chalprep", 0);
+					Logging::bug("get_duel: accept 0, ch not in chalprep", 0);
 					goto bombout;
 				}
 
 				if (opp->in_room != duel->arena->defprep) {
-					bug("get_duel: accept 0, opp not in defprep", 0);
+					Logging::bug("get_duel: accept 0, opp not in defprep", 0);
 					goto bombout;
 				}
 			}
 			else {
 				if (ch->in_room != duel->arena->defprep) {
-					bug("get_duel: accept 0, ch not in defprep", 0);
+					Logging::bug("get_duel: accept 0, ch not in defprep", 0);
 					goto bombout;
 				}
 
 				if (opp->in_room != duel->arena->chalprep) {
-					bug("get_duel: accept 0, opp not in chalprep", 0);
+					Logging::bug("get_duel: accept 0, opp not in chalprep", 0);
 					goto bombout;
 				}
 			}
@@ -498,7 +509,7 @@ void duel_kill(Character *victim)
 		room = get_room_index(room_vnum);
 
 		if (! room)
-			bug("Error with get_room_index() in duel_kill() in duel.c.", 0);
+			Logging::bug("Error with get_room_index() in duel_kill() in duel.c.", 0);
 
 		if (room->people)
 			for (wch = room->people; wch != nullptr; wch = wch->next)

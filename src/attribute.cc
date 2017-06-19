@@ -1,10 +1,18 @@
-#include "typename.hh"
-#include "merc.hh"
-#include "tables.hh"
-#include "lookup.hh"
+#include "act.hh"
 #include "Affect.hh"
+#include "Character.hh"
+#include "declare.hh"
+#include "Flags.hh"
 #include "Format.hh"
 #include "GameTime.hh"
+#include "lookup.hh"
+#include "Logging.hh"
+#include "macros.hh"
+#include "merc.hh"
+#include "Object.hh"
+#include "Player.hh"
+#include "String.hh"
+#include "typename.hh"
 
 // temporary file to hold attribute accessors
 
@@ -20,7 +28,7 @@ int stat_to_attr(int stat) {
 		case STAT_INT: return APPLY_INT;
 		case STAT_CHR: return APPLY_CHR;
 		default:
-			bugf("stat_to_attr: invalid stat %d", stat);
+			Logging::bugf("stat_to_attr: invalid stat %d", stat);
 	}
 
 	return APPLY_STR;
@@ -158,7 +166,7 @@ String print_defense_modifiers(Character *ch, int where) {
 			    print = TRUE; break;
 			case TO_VULN:    if (ch->defense_mod[i] < 0)    print = TRUE; break;
 			default:
-				bugf("print_defense_modifiers: unknown where %d", where);
+				Logging::bugf("print_defense_modifiers: unknown where %d", where);
 		}
 
 		if (print) {
