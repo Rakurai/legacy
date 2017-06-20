@@ -799,6 +799,52 @@ void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
 }
 
 /*
+ * Move a gem into an object.
+ */
+void gem_to_obj(Object *obj, Object *obj_to)
+{
+	obj->next_content       = obj_to->gems;
+	obj_to->gems            = obj;
+	obj->in_obj             = obj_to;
+	obj->in_room            = NULL;
+	obj->carried_by         = NULL;
+}
+
+/*
+ * Move a gem out of an object.
+ */
+void gem_from_obj(Object *obj)
+{
+	Object *obj_from;
+
+	if ((obj_from = obj->in_obj) == NULL) {
+		Logging::bug("gem_from_obj: null obj_from.", 0);
+		return;
+	}
+
+	if (obj == obj_from->gems)
+		obj_from->gems = obj->next_content;
+	else {
+		Object *prev;
+
+		for (prev = obj_from->gems; prev; prev = prev->next_content) {
+			if (prev->next_content == obj) {
+				prev->next_content = obj->next_content;
+				break;
+			}
+		}
+
+		if (prev == NULL) {
+			Logging::bug("gem_from_obj: obj not found.", 0);
+			return;
+		}
+	}
+
+	obj->next_content = NULL;
+	obj->in_obj       = NULL;
+}
+
+/*
  * Move an object into an object.
  */
 void obj_to_obj(Object *obj, Object *obj_to)
@@ -844,8 +890,13 @@ void obj_from_obj(Object *obj)
 		return;
 	}
 
-	if (obj == obj_from->contains)
+	bool found = FALSE;
+
+	// look in contents first
+	if (obj == obj_from->contains) {
 		obj_from->contains = obj->next_content;
+		found = TRUE;
+	}
 	else {
 		Object *prev;
 
@@ -856,10 +907,35 @@ void obj_from_obj(Object *obj)
 			}
 		}
 
-		if (prev == nullptr) {
-			Logging::bug("Obj_from_obj: obj not found.", 0);
-			return;
+		if (prev != nullptr)
+			found = TRUE;
+	}
+
+	if (!found) {
+		// try the gems
+		if (obj == obj_from->gems) {
+			obj_from->gems = obj->next_content;
+			found = TRUE;
 		}
+		else {
+			Object *prev;
+
+			for (prev = obj_from->gems; prev; prev = prev->next_content) {
+				if (prev->next_content == obj) {
+					prev->next_content = obj->next_content;
+					break;
+				}
+			}
+
+			if (prev != NULL)
+				found = TRUE;
+		}
+
+	}
+
+	if (!found) {
+		Logging::bug("Obj_from_obj: obj not found.", 0);
+		return;
 	}
 
 	obj->next_content = nullptr;

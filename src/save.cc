@@ -642,6 +642,8 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 	// does nothing if the contains is nullptr
 	cJSON_AddItemToObject(o, "contains", fwrite_objects(ch, obj->contains, strongbox));
 
+	cJSON_AddItemToObject(o, "gems", fwrite_objects(ch, obj->gems, strongbox));
+
 	return o;
 } /* end fwrite_obj() */
 
@@ -1438,6 +1440,23 @@ Object * fread_obj(cJSON *json, int version) {
 				}
 
 				FLAGKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not string_to_flags
+				break;
+			case 'G':
+				if (key == "gems") {
+					// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
+					// so the function pointer doesn't work.  maybe find a way to fix and condense?
+					for (cJSON *item = o->child; item; item = item->next) {
+						Object *gem = fread_obj(item, version);
+
+						if (gem->pIndexData) {
+							gem_to_obj(gem, obj);
+						}
+						else {
+							free_obj(gem);
+						}
+					}
+					fMatch = TRUE; break;
+				}
 				break;
 			case 'I':
 				INTKEY("Ityp",			obj->item_type,				o->valueint);
