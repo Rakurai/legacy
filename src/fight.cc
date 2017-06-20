@@ -423,6 +423,10 @@ void check_cond(Character *ch, Object *obj)
 				act("$p scatters it's contents on the ground.", ch, obj, nullptr, TO_CHAR);
 				act("$n's $p breaks, scattering it's contents on the ground.", ch, obj, nullptr, TO_ROOM);
 			}
+			if (obj->gems) { /* dump contents */
+				act("$p scatters it's gems on the ground.", ch, obj, nullptr, TO_CHAR);
+				act("$n's $p breaks, scattering it's gems on the ground.", ch, obj, nullptr, TO_ROOM);
+			}
 		}
 
 		destroy_obj(obj);

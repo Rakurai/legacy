@@ -199,6 +199,39 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 			}
 		}
 
+		if (obj->gems) { /* dump contents */
+			Object *t_obj, *n_obj;
+
+			if (obj->carried_by) {
+				if (!char_in_darena_room(obj->carried_by))
+					act("$p's gems scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
+			}
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's gems scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
+
+			for (t_obj = obj->gems; t_obj != nullptr; t_obj = n_obj) {
+				n_obj = t_obj->next_content;
+				obj_from_obj(t_obj);
+
+				if (obj->carried_by) {
+					if (obj->carried_by->in_room == nullptr)
+						extract_obj(t_obj);
+					else if (char_in_darena_room(obj->carried_by))
+						obj_to_char(t_obj, obj->carried_by);
+					else
+						obj_to_room(t_obj, obj->carried_by->in_room);
+				}
+				else if (obj->in_room != nullptr)
+					obj_to_room(t_obj, obj->in_room);
+				else {
+					extract_obj(t_obj);
+					continue;
+				}
+
+				acid_effect(t_obj, level / 2, dam / 2, TARGET_OBJ, evolution);
+			}
+		}
+
 		extract_obj(obj);
 	}
 }
@@ -315,6 +348,40 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
 			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
+				n_obj = t_obj->next_content;
+				obj_from_obj(t_obj);
+
+				if (obj->carried_by) {
+					if (obj->carried_by->in_room == nullptr)
+						extract_obj(t_obj);
+
+					if (char_in_darena_room(obj->carried_by))
+						obj_to_char(t_obj, obj->carried_by);
+					else
+						obj_to_room(t_obj, obj->carried_by->in_room);
+				}
+				else if (obj->in_room != nullptr)
+					obj_to_room(t_obj, obj->in_room);
+				else {
+					extract_obj(t_obj);
+					continue;
+				}
+
+				cold_effect(t_obj, level / 2, dam / 2, TARGET_OBJ, evolution);
+			}
+		}
+
+		if (obj->gems) { /* dump contents */
+			Object *t_obj, *n_obj;
+
+			if (obj->carried_by) {
+				if (!char_in_darena_room(obj->carried_by))
+					act("$p's gems scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
+			}
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's gems scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
+
+			for (t_obj = obj->gems; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
@@ -477,6 +544,40 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
 			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
+				n_obj = t_obj->next_content;
+				obj_from_obj(t_obj);
+
+				if (obj->carried_by) {
+					if (obj->carried_by->in_room == nullptr)
+						extract_obj(t_obj);
+
+					if (char_in_darena_room(obj->carried_by))
+						obj_to_char(t_obj, obj->carried_by);
+					else
+						obj_to_room(t_obj, obj->carried_by->in_room);
+				}
+				else if (obj->in_room != nullptr)
+					obj_to_room(t_obj, obj->in_room);
+				else {
+					extract_obj(t_obj);
+					continue;
+				}
+
+				fire_effect(t_obj, level / 2, dam / 2, TARGET_OBJ, evolution);
+			}
+		}
+
+		if (obj->gems) { /* dump contents */
+			Object *t_obj, *n_obj;
+
+			if (obj->carried_by) {
+				if (!char_in_darena_room(obj->carried_by))
+					act("$p's gems scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
+			}
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's gems scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
+
+			for (t_obj = obj->gems; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 
@@ -691,6 +792,40 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 				act("$p's contents scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
 
 			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
+				n_obj = t_obj->next_content;
+				obj_from_obj(t_obj);
+
+				if (obj->carried_by) {
+					if (obj->carried_by->in_room == nullptr)
+						extract_obj(t_obj);
+
+					if (char_in_darena_room(obj->carried_by))
+						obj_to_char(t_obj, obj->carried_by);
+					else
+						obj_to_room(t_obj, obj->carried_by->in_room);
+				}
+				else if (obj->in_room != nullptr)
+					obj_to_room(t_obj, obj->in_room);
+				else {
+					extract_obj(t_obj);
+					continue;
+				}
+
+				shock_effect(t_obj, level / 2, dam / 2, TARGET_OBJ, evolution);
+			}
+		}
+
+		if (obj->gems) { /* dump contents */
+			Object *t_obj, *n_obj;
+
+			if (obj->carried_by) {
+				if (!char_in_darena_room(obj->carried_by))
+					act("$p's gems scatter on the ground.", obj->carried_by, obj, nullptr, TO_ALL);
+			}
+			else if (obj->in_room != nullptr && obj->in_room->people != nullptr)
+				act("$p's gems scatter on the ground.", obj->in_room->people, obj, nullptr, TO_ALL);
+
+			for (t_obj = obj->gems; t_obj != nullptr; t_obj = n_obj) {
 				n_obj = t_obj->next_content;
 				obj_from_obj(t_obj);
 

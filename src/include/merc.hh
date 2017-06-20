@@ -708,6 +708,7 @@ void    unequip_char    args(( Character *ch, Object *obj ) );
 int     count_obj_list  args(( ObjectPrototype *obj, Object *list ) );
 void    obj_from_room   args(( Object *obj ) );
 void    obj_to_room     args(( Object *obj, RoomPrototype *pRoomIndex ) );
+void    gem_to_obj      args(( Object *obj, Object *obj_to ) );
 void    obj_to_obj      args(( Object *obj, Object *obj_to ) );
 void    obj_from_obj    args(( Object *obj ) );
 void    extract_char    args(( Character *ch, bool fPull ) );
