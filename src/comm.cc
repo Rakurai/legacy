@@ -568,6 +568,7 @@ void game_loop_unix(int control)
 						wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 					}
 
+					Logging::bugf("bad read_from_descriptor: socket %d disconnected.", d);
 					d->outbuf.clear();
 					close_socket(d);
 					continue;
@@ -618,6 +619,7 @@ void game_loop_unix(int control)
 					if (d->character != nullptr && d->character->level > 1)
 						save_char_obj(d->character);
 
+					Logging::bugf("bad write_to_descriptor: socket %d disconnected.", d);
 					d->outbuf.clear();
 					close_socket(d);
 				}
