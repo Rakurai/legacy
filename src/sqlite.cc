@@ -82,6 +82,9 @@ int db_query(const String& func, const String& query)
 {
 	int error;
 
+	if (_db == nullptr)
+		db_open();
+
 	if (_result != nullptr) {
 		// free result from last time
 		sqlite3_finalize(_result);

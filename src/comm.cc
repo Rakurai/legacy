@@ -342,9 +342,6 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	/* constant connection to sql db */
-	/* this must come before boot_db() */
-	db_open();
 	boot_db();
 	Format::sprintf(log_buf, "Legacy is ready to rock on port %d.", port);
 	Logging::log(log_buf);
