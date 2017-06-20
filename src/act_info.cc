@@ -4108,53 +4108,100 @@ void do_join(Character *ch, String argument)
 	ptc(victim, "You are now a member of %s.\n", ch->clan->clanname);
 }
 
+// new recursive function to vaporize clan equipment.  the idea is to start
+// at the end of the contents list, then descend into contents, appending surviving
+// equipment and returning it.
+Object *vape_ceq_recursive(Character *ch, Object *obj, int depth) {
+	if (obj == nullptr)
+		return nullptr;
+
+	// recurse to the end of the list
+	obj->next_content = vape_ceq_recursive(ch, obj->next_content, depth);
+
+	// go into the contents
+	obj->contains = vape_ceq_recursive(ch, obj->contains, depth+1);
+
+	// and gems (same depth, we can see them blow up if this is depth 0)
+	obj->gems = vape_ceq_recursive(ch, obj->gems, depth);
+
+	// and return this, if it's not clan eq
+	if (obj->pIndexData->vnum < ch->clan->area_minvnum
+	 || obj->pIndexData->vnum > ch->clan->area_maxvnum)
+		return obj;
+
+	// now destroy this object if necessary, and return the surviving contents and next_content
+	if (depth > 0)
+		stc("You hear a muffled {Yexplosion{x and smell {gsmoke{x from your belongings.\n\r", ch);
+	else
+		ptc(ch, "%s {Yexplodes violently{x, leaving only a cloud of {gsmoke{x.\n", obj->short_descr);
+
+	// the contents and gems have already been checked, insert them in this content list
+	Object *prev, *o, *o_next;
+
+	// find the tail of the contents and parse them at the same time
+	for (o = obj->contains, prev = nullptr; o; o = o_next) {
+		o_next = o->next_content;
+
+		// weird unlikely case of money going to player's inventory
+		if (depth == 0 && o->item_type == ITEM_MONEY) {
+			ch->silver += o->value[0];
+			ch->gold += o->value[1];
+
+			// handle the lists here, just destroy the thing
+			if (prev)
+				prev->next_content = o->next;
+
+			o->in_room = nullptr;
+			o->carried_by = nullptr;
+			o->in_obj = nullptr;
+			o->in_locker = nullptr;
+			o->in_strongbox = nullptr;
+			extract_obj(o);
+			continue;
+		}
+
+		o->in_obj = obj->in_obj; // update owner
+		prev = o;
+	}
+
+	// insert into list directly after this object
+	if (prev) {
+		prev->next_content = obj->next_content;
+		obj->next_content = obj->contains;
+		obj->contains = nullptr;
+	}
+
+	// do the same thing for gems, just finding the tail
+	for (o = obj->gems, prev = nullptr; o; o = o_next) {
+		o_next = o->next;
+		o->in_obj = obj->in_obj; // update owner
+		prev = o;
+	}
+
+	// insert into list directly after this object
+	if (prev) {
+		prev->next_content = obj->next_content;
+		obj->next_content = obj->gems;
+		obj->gems = nullptr;
+	}
+
+	// now obj->next_content is the object's former gems, then former contents,
+	// then it's former next content.  we can now trash the item and return the remains
+	Object *surviving = obj->next_content;
+
+	// remove the object from the game, but we'll handle the lists here
+	obj->in_room = nullptr;
+	obj->carried_by = nullptr;
+	obj->in_obj = nullptr;
+	obj->in_locker = nullptr;
+	obj->in_strongbox = nullptr;
+	extract_obj(obj);
+	return surviving;
+}
+
 void vape_ceq(Character *ch)
 {
-	Clan *clan;
-	Object *obj;
-	Object *obj_next;
-	Object *obj_in_cont;
-	Object *obj_in_cont_next;
-	clan = ch->clan;
-
-	for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
-		obj_next = obj->next_content;
-
-		if (obj->contains) {
-			for (obj_in_cont = obj->contains; obj_in_cont != nullptr; obj_in_cont = obj_in_cont_next) {
-				obj_in_cont_next = obj_in_cont->next_content;
-
-				/* clanbag */
-				if (obj->pIndexData->vnum >= clan->area_minvnum
-				    && obj->pIndexData->vnum <= clan->area_maxvnum) {
-					obj_from_obj(obj_in_cont);
-					obj_to_char(obj_in_cont, ch);
-
-					if (obj_in_cont->item_type == ITEM_MONEY) {
-						ch->silver += obj_in_cont->value[0];
-						ch->gold += obj_in_cont->value[1];
-						extract_obj(obj_in_cont);
-					}
-				}
-
-				if (obj_in_cont->pIndexData->vnum >= clan->area_minvnum
-				    && obj_in_cont->pIndexData->vnum <= clan->area_maxvnum) {
-					ptc(ch,
-					    "%s {Yexplodes violently{x, leaving only a cloud of {gsmoke{x.\n",
-					    obj->short_descr);
-					extract_obj(obj_in_cont);
-				}
-			}
-		}
-
-		if (obj->pIndexData->vnum >= clan->area_minvnum
-		    && obj->pIndexData->vnum <= clan->area_maxvnum) {
-			ptc(ch,
-			    "%s {Yexplodes violently{x, leaving only a cloud of {gsmoke{x.\n",
-			    obj->short_descr);
-			extract_obj(obj);
-		}
-	}
+	ch->carrying = vape_ceq_recursive(ch, ch->carrying, 0);
 }
 
 void do_unjoin(Character *ch, String argument)
@@ -4208,7 +4255,8 @@ void do_unjoin(Character *ch, String argument)
 	/* Get rid of their clan eq, twice for clanbags (put in a recursive form
 	   later, this is stupid) -- Montrey */
 	vape_ceq(victim);
-	vape_ceq(victim);
+//	vape_ceq(victim);   14 years later, done! -- Montrey
+
 	ptc(ch, "The character is no longer a member of: %s\n", ch->clan->clanname);
 	ptc(victim, "You are no longer a member of: %s\n", ch->clan->clanname);
 	clan = victim->clan;
