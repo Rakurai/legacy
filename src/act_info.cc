@@ -43,7 +43,6 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
-#include "gem.hh"
 #include "Game.hh"
 #include "GameTime.hh"
 #include "interp.hh"
@@ -68,6 +67,7 @@
 #include "typename.hh"
 #include "Weather.hh"
 #include "World.hh"
+#include "gem/gem.hh"
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 
@@ -114,7 +114,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 		return buf;
 
 	if (obj->num_settings > 0) {
-		buf += get_gem_short_string(obj);
+		buf += gem::get_short_string(obj);
 		buf += " ";
 	}
 

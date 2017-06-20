@@ -38,7 +38,6 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
-#include "gem.hh"
 #include "lookup.hh"
 #include "Logging.hh"
 #include "macros.hh"
@@ -54,6 +53,7 @@
 #include "String.hh"
 #include "tables.hh"
 #include "typename.hh"
+#include "gem/gem.hh"
 
 /* RT set replaces sset, mset, oset, rset and cset */
 DECLARE_DO_FUN( do_mset );

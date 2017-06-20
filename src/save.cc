@@ -54,6 +54,7 @@
 #include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
+#include "gem/gem.hh"
 
 extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
@@ -1449,7 +1450,7 @@ Object * fread_obj(cJSON *json, int version) {
 						Object *gem = fread_obj(item, version);
 
 						if (gem->pIndexData) {
-							gem_to_obj(gem, obj);
+							gem::inset(gem, obj);
 						}
 						else {
 							free_obj(gem);

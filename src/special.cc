@@ -798,8 +798,6 @@ bool spec_fido(Character *ch)
 {
 	Object *corpse;
 	Object *c_next;
-	Object *obj;
-	Object *obj_next;
 
 	if (!IS_AWAKE(ch))
 		return FALSE;
