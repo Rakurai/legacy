@@ -2696,7 +2696,7 @@ void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int ev
 	if (result < (fail / 5) && !IS_IMMORTAL(ch)) { /* Item Destroyed */
 		act("$p implodes into nothingness!", ch, obj, nullptr, TO_CHAR);
 		act("$p implodes into nothingness!", ch, obj, nullptr, TO_ROOM);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 	
@@ -2811,7 +2811,7 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 	if (result < (fail / 5)) { /* item destroyed */
 		act("$p flares blindingly... and evaporates!", ch, obj, nullptr, TO_CHAR);
 		act("$p flares blindingly... and evaporates!", ch, obj, nullptr, TO_ROOM);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 
@@ -2949,7 +2949,7 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 	if (result < (fail / 5)) { /* item destroyed */
 		act("$p shivers violently and explodes!", ch, obj, nullptr, TO_CHAR);
 		act("$p shivers violently and explodes!", ch, obj, nullptr, TO_ROOM);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 
@@ -3977,7 +3977,7 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 	case 2:
 		if (number_percent() > 25) {
 			ptc(ch, "The magic enchantment has failed --- the %s vanishes.\n", item_type_name(obj));
-			extract_obj(obj);
+			destroy_obj(obj);
 			return;
 		}
 
@@ -3986,7 +3986,7 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 	case 3:
 		if (number_percent() > 5) {
 			ptc(ch, "The magic enchantment has failed --- the %s vanishes.\n", item_type_name(obj));
-			extract_obj(obj);
+			destroy_obj(obj);
 			return;
 		}
 
@@ -4584,7 +4584,7 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 
 	if (stone != nullptr && stone->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.\nIt flares brightly and vanishes!", ch, stone, nullptr, TO_CHAR);
-		extract_obj(stone);
+		destroy_obj(stone);
 	}
 
 	/* portal one */
@@ -4928,7 +4928,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 
 	if (stone != nullptr && stone->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.\nIt flares brightly and vanishes!", ch, stone, nullptr, TO_CHAR);
-		extract_obj(stone);
+		destroy_obj(stone);
 	}
 
 	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
@@ -5000,25 +5000,7 @@ void spell_protect_container(int sn, int level, Character *ch, void *vo, int tar
 	if (result < (fail / 5)) { /* item destroyed */
 		act("$p begins to vibrate... then explodes!", ch, obj, nullptr, TO_CHAR);
 		act("$p begins to vibrate... then explodes!", ch, obj, nullptr, TO_ROOM);
-
-		if (obj->contains) {
-			/* dump the contents */
-			Object *t_obj, *n_obj;
-
-			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
-				n_obj = t_obj->next_content;
-				obj_from_obj(t_obj);
-
-				if ((obj->carried_by != nullptr) && (number_range(0, 4) != 0))
-					obj_to_room(t_obj, obj->carried_by->in_room);
-				else {
-					extract_obj(t_obj);
-					continue;
-				}
-			}
-		}
-
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 
@@ -5150,6 +5132,13 @@ void spell_resurrect(int sn, int level, Character *ch, void *vo, int target, int
 	char_to_room(mob, ch->in_room);
 	act("$p springs to life as a hideous zombie!", ch, obj, nullptr, TO_ROOM);
 	act("$p springs to life as a hideous zombie!", ch, obj, nullptr, TO_CHAR);
+
+	for (Object *o = obj->contains, *o_next; o; o = o_next) {
+		o_next = o->next_content;
+		obj_from_obj(o);
+		obj_to_char(o, mob);
+	}
+
 	extract_obj(obj);
 
 	make_pet(ch, mob);
@@ -5262,7 +5251,7 @@ void spell_recharge(int sn, int level, Character *ch, void *vo, int target, int 
 	else { /* whoops! */
 		act("$p glows brightly and explodes!", ch, obj, nullptr, TO_CHAR);
 		act("$p glows brightly and explodes!", ch, obj, nullptr, TO_ROOM);
-		extract_obj(obj);
+		destroy_obj(obj);
 	}
 }
 
@@ -5432,7 +5421,7 @@ void spell_remove_alignment(int sn, int level, Character *ch, void *vo, int targ
 	if (!IS_IMMORTAL(ch) && result < (fail / 5)) { /* item destroyed */
 		act("$p shivers and shudders... then implodes!", ch, obj, nullptr, TO_CHAR);
 		act("$p shivers and shudders... then implodes!", ch, obj, nullptr, TO_ROOM);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 

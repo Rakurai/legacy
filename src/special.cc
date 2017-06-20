@@ -811,14 +811,7 @@ bool spec_fido(Character *ch)
 			continue;
 
 		act("$n savagely devours a corpse.", ch, nullptr, nullptr, TO_ROOM);
-
-		for (obj = corpse->contains; obj; obj = obj_next) {
-			obj_next = obj->next_content;
-			obj_from_obj(obj);
-			obj_to_room(obj, ch->in_room);
-		}
-
-		extract_obj(corpse);
+		destroy_obj(corpse);
 		return TRUE;
 	}
 
@@ -1229,7 +1222,7 @@ void obj_repair(Character *ch, Object *obj)
 
 				if (obj->condition == 0) {
 					act("{W$p{x has been {Wdestroyed{x!", ch, obj, nullptr, TO_CHAR);
-					extract_obj(obj);
+					destroy_obj(obj);
 				}
 
 				return;

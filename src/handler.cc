@@ -866,6 +866,38 @@ void obj_from_obj(Object *obj)
 	obj->in_obj       = nullptr;
 }
 
+void spill_contents(Object *obj, Object *contents) {
+	Object *t_obj, *n_obj;
+
+	for (t_obj = contents; t_obj != nullptr; t_obj = n_obj) {
+		n_obj = t_obj->next_content;
+		obj_from_obj(t_obj);
+
+		if (obj->in_obj)
+			obj_to_obj(t_obj, obj->in_obj);
+		else if (obj->carried_by) {
+			if (number_range(0, 3) != 0
+			 || obj->carried_by->in_room == nullptr
+			 || obj->carried_by->in_room->sector_type == SECT_ARENA
+			 || char_in_darena_room(obj->carried_by))
+				obj_to_char(t_obj, obj->carried_by);
+			else
+				obj_to_room(t_obj, obj->carried_by->in_room);
+		}
+		else if (obj->in_room)
+			obj_to_room(t_obj, obj->in_room);
+		else
+			extract_obj(t_obj);
+	}
+}
+
+// destroy an object but leave the contents intact
+void destroy_obj(Object *obj) {
+	spill_contents(obj, obj->contains);
+	spill_contents(obj, obj->gems);
+	extract_obj(obj);
+}
+
 /*
  * Extract an obj from the world.
  */

@@ -72,5 +72,6 @@ private:
 Object	*new_obj args( (void) );
 void	free_obj args( (Object *obj) );
 
+void    destroy_obj     args(( Object *obj ));
 void    extract_obj     args(( Object *obj ) );
 void unique_item(Object *item);

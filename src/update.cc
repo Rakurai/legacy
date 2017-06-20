@@ -677,7 +677,7 @@ void char_update(void)
 
 					act("$p goes out.  Hope you're not afraid of the dark.", ch, obj, nullptr, TO_ROOM);
 					act("$p flickers and goes out.", ch, obj, nullptr, TO_CHAR);
-					extract_obj(obj);
+					destroy_obj(obj);
 				}
 				else if (obj->value[2] <= 5 && ch->in_room != nullptr)
 					act("$p hisses and sparks.", ch, obj, nullptr, TO_CHAR);

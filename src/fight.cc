@@ -418,31 +418,14 @@ void check_cond(Character *ch, Object *obj)
 	if (obj->condition <= 0) {
 		act("{W$p{x has been {Wdestroyed{x in combat!", ch, obj, nullptr, TO_CHAR);
 
-		if (obj->contains) { /* dump contents */
-			Object *t_obj, *n_obj;
-
-			if (ch->in_room->sector_type != SECT_ARENA
-			    && !char_in_darena_room(ch)) {
+		if (ch->in_room->sector_type != SECT_ARENA && !char_in_darena_room(ch)) {
+			if (obj->contains) { /* dump contents */
 				act("$p scatters it's contents on the ground.", ch, obj, nullptr, TO_CHAR);
 				act("$n's $p breaks, scattering it's contents on the ground.", ch, obj, nullptr, TO_ROOM);
 			}
-
-			for (t_obj = obj->contains; t_obj != nullptr; t_obj = n_obj) {
-				n_obj = t_obj->next_content;
-				obj_from_obj(t_obj);
-
-				if (ch->in_room->sector_type == SECT_ARENA
-				    || char_in_darena_room(ch))
-					obj_to_char(t_obj, ch);
-
-				if (obj->in_room != nullptr)
-					obj_to_room(t_obj, obj->in_room);
-				else
-					extract_obj(t_obj);
-			}
 		}
 
-		extract_obj(obj);
+		destroy_obj(obj);
 	}
 	else
 		act("{W$p{x has been {Wdamaged{x in combat!", ch, obj, nullptr, TO_CHAR);
@@ -2636,19 +2619,12 @@ void make_corpse(Character *ch)
 		else if (floating) {
 			if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH)) { /* get rid of it! */
 				if (obj->contains != nullptr) {
-					Object *in, *in_next;
 					act("$p decays, scattering its contents.", ch, obj, nullptr, TO_ROOM);
-
-					for (in = obj->contains; in != nullptr; in = in_next) {
-						in_next = in->next_content;
-						obj_from_obj(in);
-						obj_to_room(in, ch->in_room);
-					}
 				}
 				else
 					act("$p decays.", ch, obj, nullptr, TO_ROOM);
 
-				extract_obj(obj);
+				destroy_obj(obj);
 			}
 			else {
 				act("$p falls to the floor.", ch, obj, nullptr, TO_ROOM);
@@ -5088,7 +5064,7 @@ void do_critical_blow(Character *ch, String argument)
 
 			if (weapon-> condition <= 0) {
 				stc("Your failed attack has {Pdestroyed{x your weapon!\n", ch);
-				extract_obj(weapon);
+				destroy_obj(weapon);
 				WAIT_STATE(ch, skill_table[gsn_critical_blow].beats);
 				return;
 			}

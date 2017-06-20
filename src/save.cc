@@ -653,7 +653,10 @@ cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 	// take advantage of the linked list underlying the cJSON array and insert at
 	// index 0, so the array is written backwards.
 	for (Object *obj = head; obj; obj = obj->next_content) {
+		// unlike adding an item, inserting an item crashes with a NULL item
+		// and fwrite_obj could return NULL because of obj pruning
 		cJSON *item = fwrite_obj(ch, obj, strongbox);
+
 		if (item)
 			cJSON_InsertItemInArray(array, 0, item);
 	}

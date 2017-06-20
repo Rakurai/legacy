@@ -127,7 +127,7 @@ bool clan_eq_ok(Character *ch, Object *obj, char *action)
 		ptc(ch, "%s {Yexplodes violently{x, leaving only a cloud of {gsmoke{x.\n",
 		        obj->short_descr);
 		stc("You are lucky you weren't {Phurt!{x\n", ch);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return FALSE;
 	}
 
@@ -1076,7 +1076,7 @@ void do_drop(Character *ch, String argument)
 					if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
 						act("$p crumbles into dust.", ch, obj, nullptr, TO_ROOM);
 						act("$p crumbles into dust.", ch, obj, nullptr, TO_CHAR);
-						extract_obj(obj);
+						destroy_obj(obj);
 					}
 				}
 				else
@@ -1138,7 +1138,7 @@ void do_drop(Character *ch, String argument)
 		if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
 			act("$p dissolves into smoke.", ch, obj, nullptr, TO_ROOM);
 			act("$p dissolves into smoke.", ch, obj, nullptr, TO_CHAR);
-			extract_obj(obj);
+			destroy_obj(obj);
 		}
 
 		return;
@@ -1198,7 +1198,7 @@ void do_drop(Character *ch, String argument)
 			obj_from_char(op);
 
 			if (IS_OBJ_STAT(op, ITEM_MELT_DROP))
-				extract_obj(op);
+				destroy_obj(op);
 			else
 				obj_to_room(op, ch->in_room);
 
@@ -3028,7 +3028,7 @@ void do_brandish(Character *ch, String argument)
 	if (--staff->value[2] <= 0) {
 		act("$n's $p blazes bright and is gone.", ch, staff, nullptr, TO_ROOM);
 		act("Your $p blazes bright and is gone.", ch, staff, nullptr, TO_CHAR);
-		extract_obj(staff);
+		destroy_obj(staff);
 	}
 
 	return;
@@ -3123,7 +3123,7 @@ void do_zap(Character *ch, String argument)
 	if (--wand->value[2] <= 0) {
 		act("$n's $p explodes into fragments.", ch, wand, nullptr, TO_ROOM);
 		act("Your $p explodes into fragments.", ch, wand, nullptr, TO_CHAR);
-		extract_obj(wand);
+		destroy_obj(wand);
 	}
 
 	return;
@@ -3240,7 +3240,7 @@ void do_brew(Character *ch, String argument)
 		act("$p explodes violently!", ch, obj, nullptr, TO_CHAR);
 		act("$p explodes violently!", ch, obj, nullptr, TO_ROOM);
 		check_improve(ch, gsn_brew, FALSE, 2);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 
@@ -3350,7 +3350,7 @@ void do_scribe(Character *ch, String argument)
 		act("$p bursts in flames!", ch, obj, nullptr, TO_CHAR);
 		act("$p bursts in flames!", ch, obj, nullptr, TO_ROOM);
 		check_improve(ch, gsn_scribe, FALSE, 2);
-		extract_obj(obj);
+		destroy_obj(obj);
 		return;
 	}
 
@@ -4607,7 +4607,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 		if (flag_count >= 1) {
 			stc("Your weapon begins to glow a bright yellow then suddenly explodes!!!!!\n", ch);
 			act("$n's weapon glows a bright yellow then suddenly explodes.\n", ch, nullptr, nullptr, TO_ROOM);
-			extract_obj(weapon);
+			destroy_obj(weapon);
 			return;
 		}
 		else {
@@ -4662,7 +4662,7 @@ void do_hone(Character *ch, String argument)
 			        whetstone->short_descr);
 			stc(buf, ch);
 			act("$n's hand slips, and $e ruins $s whetstone.", ch, nullptr, nullptr, TO_ROOM);
-			extract_obj(whetstone);
+			destroy_obj(whetstone);
 			return;
 		}
 	}
@@ -4777,7 +4777,7 @@ void do_forge(Character *ch, String argument)
 		stc("You fail to forge a useful weapon.\n", ch);
 		act("$n tries but fails to forge a useful weapon.\n", ch, nullptr, nullptr, TO_ROOM);
 		check_improve(ch, gsn_forge, FALSE, 1);
-		extract_obj(material);
+		destroy_obj(material);
 		return;
 	}
 
@@ -4870,7 +4870,7 @@ void do_forge(Character *ch, String argument)
 	Format::sprintf(buf, "%s has forged a %s named \"%s\".", ch->name,
 	        weapon_table[weapon_lookup(type)].name, obj->short_descr);
 	act(buf, ch, obj, nullptr, TO_ROOM);
-	extract_obj(material);
+	destroy_obj(material);
 	check_improve(ch, gsn_forge, TRUE, 1);
 
 	/* Charge player for forging -- Elrac */
