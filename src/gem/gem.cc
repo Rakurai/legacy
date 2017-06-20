@@ -1,4 +1,4 @@
-#include "gem.hh"
+#include "gem/gem.hh"
 
 #include "act.hh"
 #include "affect_list.hh"
@@ -12,8 +12,11 @@
 #include "ObjectPrototype.hh"
 #include "String.hh"
 
+namespace gem {
+
 // Gem Table
-const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {
+const std::vector<type_st> type_table = {
+//const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {
 //      keyword         color_code	vnum                    apply_loc           modifier[quality]
 	{	"ruby",			'P',		OBJ_VNUM_GEM_RUBY,		APPLY_DAMROLL,		{1, 2, 3, 5, 8, 12, 20}  },
 	{	"emerald",		'G',		OBJ_VNUM_GEM_EMERALD,	APPLY_HITROLL,		{1, 2, 3, 5, 8, 12, 20}  }
@@ -22,23 +25,33 @@ const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {
 // the strings here might not sensibly apply to every type of gem... amber?  other things?
 // but this will work for now.  what if the base obj from the area file had an extra desc
 // with a space-delimited list of the words?  and just figure it out at runtime.  Later.
-/*const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
-//      keyword         quality         level
-	{	"rough",		GEM_QUALITY_A,	1 },
-	{	"cracked",		GEM_QUALITY_B,	15 },
-	{	"flawed",		GEM_QUALITY_C,	30 },
-	{	"flawless",		GEM_QUALITY_D,	45 },
-	{	"perfect",		GEM_QUALITY_E,	60 },
-	{	"brilliant",	GEM_QUALITY_F,	75 },
-	{	"dazzling",		GEM_QUALITY_G,	90 }
+const quality_st quality_table [Quality::COUNT] = {
+//      keyword         quality         	level
+	{	"rough",		Quality::Rough,		1 },
+	{	"cracked",		Quality::Cracked,	15 },
+	{	"flawed",		Quality::Flawed,	30 },
+	{	"flawless",		Quality::Flawless,	45 },
+	{	"perfect",		Quality::Perfect,	60 },
+	{	"brilliant",	Quality::Brilliant,	75 },
+	{	"dazzling",		Quality::Dazzling,	90 }
 };
-*/
+
+/*
+ * Move a gem into an object.
+ */
+void inset(Object *gem, Object *obj) {
+	gem->next_content = obj->gems;
+	obj->gems = gem;
+	gem->in_obj = obj;
+	gem->in_room = nullptr;
+	gem->carried_by = nullptr;
+}
+
 // populate a short string for display, takes a buffer of size GEM_SHORT_STRING_LEN
-char *get_gem_short_string(Object *eq) {
-	static char buf[MAX_GEM_SETTINGS * 3 + 9];
+const String get_short_string(Object *eq) {
+	String buf;
 
 	if (eq->num_settings == 0) {
-		buf[0] = '\0';
 		return buf;
 	}
 
@@ -49,53 +62,49 @@ char *get_gem_short_string(Object *eq) {
 	char empty_color = 'c';
 	char empty_symbol = '.';
 
-	int pos = 0;
 	int count = 0;
 
-	buf[pos++] = '{';
-	buf[pos++] = bracket_color;
-	buf[pos++] = bracket_symbol_open;
+	buf += '{';
+	buf += bracket_color;
+	buf += bracket_symbol_open;
 
 	// gems in the eq
 	for (Object *gem = eq->gems; gem; gem = gem->next_content) {
 		count++;
-		buf[pos++] = '{';
-		buf[pos++] = gem_type_table[gem->value[0]].color_code;
-		buf[pos++] = gem_symbol;
+		buf += '{';
+		buf += type_table[gem->value[0]].color_code;
+		buf += gem_symbol;
 	}
 
 	// empty settings
 	while (count < eq->num_settings) {
 		count++;
-		buf[pos++] = '{';
-		buf[pos++] = empty_color;
-		buf[pos++] = empty_symbol;
+		buf += '{';
+		buf += empty_color;
+		buf += empty_symbol;
 	}
 
-	buf[pos++] = '{';
-	buf[pos++] = bracket_color;
-	buf[pos++] = bracket_symbol_close;
+	buf += '{';
+	buf += bracket_color;
+	buf += bracket_symbol_close;
 
 	// trailing blank spaces
 //	while (count < MAX_GEM_SETTINGS) {
 //		count++;
-//		buf[pos++] = '{';
-//		buf[pos++] = 'x';
-//		buf[pos++] = ' ';
+//		buf += '{';
+//		buf += 'x';
+//		buf += ' ';
 //	}
 
-	buf[pos++] = '{';
-	buf[pos++] = 'x';
-	buf[pos] = '\0';
+	buf += '{';
+	buf += 'x';
 
 	return buf;
 }
 
-void compile_gem_effects(Object *eq) {
-	Object *gem;
-
+void compile_effects(Object *eq) {
 	if (eq->wear_loc != WEAR_NONE) {
-		Logging::bug("compile_gem_effects: eq is worn", 0);
+		Logging::bug("gem::compile_effects: eq is worn", 0);
 		return;
 	}
 
@@ -103,19 +112,21 @@ void compile_gem_effects(Object *eq) {
 	// blow away affects and rebuild
 	affect_clear_list(&eq->gem_affected);
 
-	for (gem = eq->gems; gem != nullptr; gem = gem->next_content) {
+	for (Object *gem = eq->gems; gem != nullptr; gem = gem->next_content) {
 		Affect af;
 		af.where              = TO_OBJECT;
 		af.type               = 0;
 		af.level              = gem->level;
 		af.duration           = -1;
-		af.location           = gem_type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;
-		af.modifier           = gem_type_table[gem->value[GEM_VALUE_TYPE]].modifier[gem->value[GEM_VALUE_QUALITY]];
+		af.location           = type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;
+		af.modifier           = type_table[gem->value[GEM_VALUE_TYPE]].modifier[gem->value[GEM_VALUE_QUALITY]];
 		af.bitvector(0);
 		af.evolution          = 1;
 		affect_copy_to_list(&eq->gem_affected, &af);
 	}
 }
+
+} // namespace gem
 
 void do_inset(Character *ch, String argument)
 {
@@ -186,5 +197,5 @@ void do_inset(Character *ch, String argument)
 	gem->in_room = nullptr;
 	gem->carried_by = nullptr;
 
-	compile_gem_effects(eq);
+	gem::compile_effects(eq);
 }
