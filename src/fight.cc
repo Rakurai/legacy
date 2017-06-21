@@ -37,7 +37,7 @@
 #include "Clan.hh"
 #include "declare.hh"
 #include "Descriptor.hh"
-#include "event/Event.hh"
+#include "event/event.hh"
 #include "Exit.hh"
 #include "find.hh"
 #include "Flags.hh"
