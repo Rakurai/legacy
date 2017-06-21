@@ -4681,7 +4681,6 @@ void do_forge(Character *ch, String argument)
 	String buf;
 	char sdesc[MSL], costbuf[MSL];
 	ExtraDescr *ed;
-	extern char *const month_name[];
 	int is_owner, cost, cost_gold, cost_silver, evo;
 	evo = get_evolution(ch, gsn_forge);
 	/* check arguments */

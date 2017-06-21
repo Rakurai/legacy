@@ -1129,7 +1129,7 @@ void do_rest(Character *ch, String argument)
 			return;
 		}
 
-		if (obj != nullptr && ch->on != obj && count_users(obj) >= obj->value[0]) {
+		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
 			act("There's no more room on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
 			return;
 		}
@@ -1265,7 +1265,7 @@ void do_sit(Character *ch, String argument)
 			return;
 		}
 
-		if (obj != nullptr && ch->on != obj && count_users(obj) >= obj->value[0]) {
+		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
 			act("There's no more room on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
 			return;
 		}

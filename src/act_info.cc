@@ -201,22 +201,22 @@ void show_affect_to_char(const Affect *paf, Character *ch)
 	String buf;
 
 	if (paf->type > 0)
-		Format::sprintf(buf, "Spell '%s'", skill_table[paf->type].name);
+		buf = Format::format("Spell '%s'", skill_table[paf->type].name);
 
 	if (paf->location != 0 && paf->modifier != 0) {
 		if (paf->where == TO_DEFENSE)
-			Format::sprintf(buf, "%s%sodifies defense against %s by %d",
-				buf, buf[0] == '\0' ? "M" : " m", dam_type_name(paf->location), paf->modifier);
+			buf += Format::format("%sodifies defense against %s by %d",
+				buf.empty() ? "M" : " m", dam_type_name(paf->location), paf->modifier);
 		else
-			Format::sprintf(buf, "%s%sffects %s by %d",
-				buf, buf[0] == '\0' ? "A" : " a", affect_loc_name(paf->location), paf->modifier);
+			buf += Format::format("%sffects %s by %d",
+				buf.empty() ? "A" : " a", affect_loc_name(paf->location), paf->modifier);
 	}
 
 	if (IS_IMMORTAL(ch))
-		Format::sprintf(buf, "%s, level %d", buf, paf->level);
+		buf += Format::format(", level %d", paf->level);
 
 	if (paf->duration > -1)
-		Format::sprintf(buf, "%s, %d hours", buf, paf->duration);
+		buf += Format::format(", %d hours", paf->duration);
 
 	buf += ".";
 
@@ -229,13 +229,13 @@ void show_affect_to_char(const Affect *paf, Character *ch)
 
 		switch (paf->where) {
 		case TO_OBJECT:
-			Format::sprintf(buf, "%s Adds %s object flag%s.",
-				buf, extra_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
+			buf += Format::format(" Adds %s object flag%s.",
+				extra_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
 
 		case TO_WEAPON:
-			Format::sprintf(buf, "%s Adds %s weapon flag%s.",
-				buf, weapon_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
+			buf += Format::format(" Adds %s weapon flag%s.",
+				weapon_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
 		}
 	}

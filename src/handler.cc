@@ -768,13 +768,16 @@ void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
 	}
 
 	/* Floating Rooms by Lotus - Idea from WWW site */
-	while (pRoomIndex &&
-	       pRoomIndex->sector_type == SECT_AIR &&
+	while (pRoomIndex->sector_type == SECT_AIR &&
 	       obj->wear_flags.has(ITEM_TAKE) &&
 	       pRoomIndex->exit[DIR_DOWN] &&
 	       pRoomIndex->exit[DIR_DOWN]->u1.to_room) {
 		RoomPrototype *new_room =
 		        pRoomIndex->exit[DIR_DOWN]->u1.to_room;
+
+		if (new_room == nullptr)
+			break;
+
 		Character *rch;
 
 		if ((rch = pRoomIndex->people) != nullptr) {
@@ -782,12 +785,12 @@ void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
 			act("$p falls away.", rch, obj, nullptr, TO_CHAR);
 		}
 
-		pRoomIndex = new_room;
-
 		if ((rch = new_room->people) != nullptr) {
 			act("$p floats by.", rch, obj, nullptr, TO_ROOM);
 			act("$p floats by.", rch, obj, nullptr, TO_CHAR);
 		}
+
+		pRoomIndex = new_room;
 	}
 
 	obj->next_content           = pRoomIndex->contents;

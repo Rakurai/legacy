@@ -73,7 +73,7 @@ String affect_print_cache(Character *ch) {
 			if (buf[0] != '\0')
 				buf += " ";
 
-			Format::sprintf(buf, "%s%s(%d)", buf, skill_table[sn].name, count);
+			buf += Format::format("%s(%d)", skill_table[sn].name, count);
 //			str += skill_table[sn].name;
 		}
 	}

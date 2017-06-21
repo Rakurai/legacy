@@ -128,12 +128,12 @@ Character *find_questmaster(Character *ch)
 
 	if (questman->pIndexData == nullptr) {
 		Logging::bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
-		questman = nullptr;
+		return nullptr;
 	}
 
 	if (questman->fighting != nullptr) {
 		stc("Wait until the fighting stops.\n", ch);
-		questman = nullptr;
+		return nullptr;
 	}
 
 	return questman;
@@ -156,12 +156,12 @@ Character *find_squestmaster(Character *ch)
 
 	if (questman->pIndexData == nullptr) {
 		Logging::bug("find_questmaster: Questmaster has nullptr pIndexData!", 0);
-		questman = nullptr;
+		return nullptr;
 	}
 
 	if (questman->fighting != nullptr) {
 		stc("Wait until the fighting stops.\n", ch);
-		questman = nullptr;
+		return nullptr;
 	}
 
 	return questman;
