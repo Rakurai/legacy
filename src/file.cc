@@ -173,15 +173,15 @@ String fread_word(FILE *fp)
 }
 
 /* Append a string to a file */
-void fappend(const char *file, const char *str)
+void fappend(const String& file, const String& str)
 {
 	FILE *fp;
 
-	if (str[0] == '\0')
+	if (str.empty())
 		return;
 
-	if ((fp = fopen(file, "a")) != nullptr) {
-		fputs(str, fp);
+	if ((fp = fopen(file.c_str(), "a")) != nullptr) {
+		fputs(str.c_str(), fp);
 		fclose(fp);
 	}
 	else

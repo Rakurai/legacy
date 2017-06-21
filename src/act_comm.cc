@@ -37,6 +37,7 @@
 #include "Character.hh"
 #include "declare.hh"
 #include "Descriptor.hh"
+#include "file.hh"
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
@@ -949,24 +950,21 @@ void do_notify(Character *ch, String argument)
 /* Append a string to a file, used for our in game text files */
 void update_text_file(Character *ch, const String& file, const String& str)
 {
-	char buf[MSL];
-	FILE *fp;
-	struct timeval now_time;
-	time_t current_time;
-
-	if (IS_NPC(ch) || str[0] == '\0')
+	if (IS_NPC(ch) || str.empty())
 		return;
 
-	if ((fp = fopen(file.c_str(), "a")) != nullptr) {
-		gettimeofday(&now_time, nullptr);
-		current_time = (time_t) now_time.tv_sec;
-		strftime(buf, 9, "%m/%d/%y", localtime(&current_time));
-		Format::fprintf(fp, "{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
-		        buf, ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
-		fclose(fp);
-	}
-	else
-		Logging::bug("update_text_file(): could not open the file", 0);
+	struct timeval now_time;
+	gettimeofday(&now_time, nullptr);
+	time_t current_time = (time_t) now_time.tv_sec;
+
+	const char *time_format = "%m/%d/%y";
+	char timebuf[100];
+	strftime(timebuf, sizeof(timebuf), time_format, localtime(&current_time));
+
+	String buf = Format::format("{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
+	        timebuf, ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
+
+	fappend(file, buf);
 }
 
 void do_wbi(Character *ch, String argument)

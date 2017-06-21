@@ -40,6 +40,7 @@
 #include "Duel.hh"
 #include "Exit.hh"
 #include "ExtraDescr.hh"
+#include "file.hh"
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
@@ -4373,25 +4374,6 @@ void do_prefix(Character *ch, String argument)
 	ch->prefix = argument;
 } /* end do_prefix() */
 
-void email_file(Character *ch, const char *file, const char *str)
-{
-	FILE *fp;
-
-	if (IS_NPC(ch) || str[0] == '\0')
-		return;
-
-	if ((fp = fopen(file, "a")) == nullptr) {
-		perror(file);
-		stc("Could not open the file!\n", ch);
-	}
-	else {
-		Format::fprintf(fp, "%s", str);
-		fclose(fp);
-	}
-
-	return;
-}
-
 void do_email(Character *ch, String argument)
 {
 	char buf[MIL];
@@ -4411,7 +4393,7 @@ void do_email(Character *ch, String argument)
 
 	ptc(ch, "Your email has been changed to: %s\n", buf);
 	Format::sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);
-	email_file(ch, EMAIL_FILE, buf);
+	fappend(EMAIL_FILE, buf);
 	Format::sprintf(buf, "$N has changed their email to '%s'\n", ch->pcdata->email);
 	wiznet(buf, ch, nullptr, WIZ_MAIL, 0, GET_RANK(ch));
 }

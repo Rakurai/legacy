@@ -53,7 +53,6 @@
 
 extern void     goto_line    args((Character *ch, int row, int column));
 extern void     set_window   args((Character *ch, int top, int bottom));
-extern void     slog_file    args((Character *ch, char *file, char *str));
 
 char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 
@@ -645,7 +644,7 @@ void interpret(Character *ch, String argument)
 			strtime = ctime(&current_time);
 			strtime[strlen(strtime) - 1] = '\0';
 			Format::sprintf(tmp, "%s :: %s\n", strtime, log_buf);
-			slog_file(ch, SLOG_FILE, tmp);
+			fappend(SLOG_FILE, tmp);
 		}
 		else
 			Logging::log(log_buf);
@@ -988,23 +987,4 @@ void do_wizhelp(Character *ch, String argument)
 	/* now remove it */
 	if (ch->has_cgroup(GROUP_LEADER))
 		ch->remove_cgroup(GROUP_DEPUTY);
-}
-
-void slog_file(Character *ch, char *file, char *str)
-{
-	FILE *fp;
-
-	if (IS_NPC(ch) || str[0] == '\0')
-		return;
-
-	if ((fp = fopen(file, "a")) == nullptr) {
-		perror(file);
-		stc("Could not open the file!\n", ch);
-	}
-	else {
-		Format::fprintf(fp, "%s\n", str);
-		fclose(fp);
-	}
-
-	return;
 }
