@@ -24,6 +24,9 @@ Flags(const String& str) {
 				p++;
 			}
 
+			// go back one, so loop can increment
+			p--;
+
 			*this += Flags(number);
 			continue;
 		}
