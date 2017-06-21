@@ -1,6 +1,7 @@
 #pragma once
 
 #include "declare.hh"
+#include "Pooled.hh"
 #include "Flags.hh"
 #include "Actable.hh"
 #include "String.hh"
@@ -15,7 +16,9 @@
 #define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 
-class Character: public Actable
+class Character :
+public Pooled<Character>,
+public Actable
 {
 public:
     Character();
