@@ -63,7 +63,7 @@ Character *get_mob_here(Character *ch, const String& argument, int vis)
 			if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
 				continue;
 
-			if (!rch->name.has_words(arg))
+			if (!arg.empty() && !rch->name.has_words(arg))
 				continue;
 		}
 
@@ -107,7 +107,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 			continue;
 
 		if (ach->in_room->area != ch->in_room->area
-		    || !ach->name.has_words(arg))
+		    || (!arg.empty() && !ach->name.has_words(arg)))
 			continue;
 
 		switch (vis) {
@@ -157,7 +157,7 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 			if (etype != 0 && !CHARTYPE_MATCH(wch, etype))
 				continue;
 
-			if (!wch->name.has_words(arg))
+			if (!arg.empty() && !wch->name.has_words(arg))
 				continue;
 		}
 
@@ -204,7 +204,7 @@ Character *get_char_here(Character *ch, const String& argument, int vis)
 			if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
 				continue;
 
-			if (!rch->name.has_words(arg))
+			if (!arg.empty() && !rch->name.has_words(arg))
 				continue;
 		}
 
@@ -255,7 +255,7 @@ Character *get_char_room(Character *ch, RoomPrototype *room, const String& argum
 			if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
 				continue;
 
-			if (!rch->name.has_words(arg))
+			if (!arg.empty() && !rch->name.has_words(arg))
 				continue;
 		}
 
@@ -296,7 +296,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 			continue;
 
 		if (ach->in_room->area != ch->in_room->area
-		    || !ach->name.has_words(arg))
+		    || (!arg.empty() && !ach->name.has_words(arg)))
 			continue;
 
 		switch (vis) {
@@ -343,7 +343,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 			if (etype != 0 && !CHARTYPE_MATCH(wch, etype))
 				continue;
 
-			if (!wch->name.has_words(arg))
+			if (!arg.empty() && !wch->name.has_words(arg))
 				continue;
 		}
 
@@ -483,7 +483,7 @@ Object *get_obj_list(Character *ch, const String& argument, Object *list)
 	number = number_argument(argument, arg);
 
 	for (obj = list; obj != nullptr; obj = obj->next_content)
-		if (can_see_obj(ch, obj) && obj->name.has_words(arg))
+		if (can_see_obj(ch, obj) && (arg.empty() || obj->name.has_words(arg)))
 			if (++count == number)
 				break;
 
@@ -501,7 +501,7 @@ Object *get_obj_wear(Character *ch, const String& argument)
 	for (obj = ch->carrying; obj != nullptr; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE
 		    && can_see_obj(ch, obj)
-		    && obj->name.has_words(arg))
+		    && (arg.empty() || obj->name.has_words(arg)))
 			if (++count == number)
 				break;
 
@@ -519,7 +519,7 @@ Object *get_obj_carry(Character *ch, const String& argument)
 	for (obj = ch->carrying; obj != nullptr; obj = obj->next_content)
 		if (obj->wear_loc == WEAR_NONE
 		    && can_see_obj(ch, obj)
-		    && obj->name.has_words(arg))
+		    && (arg.empty() || obj->name.has_words(arg)))
 			if (++count == number)
 				break;
 
@@ -557,7 +557,7 @@ Object *get_obj_world(Character *ch, const String& argument)
 
 	for (obj = object_list; obj; obj = obj->next)
 		if (can_see_obj(ch, obj)
-		    && obj->name.has_words(arg))
+		    && (arg.empty() || obj->name.has_words(arg)))
 			if (++count == number)
 				break;
 
