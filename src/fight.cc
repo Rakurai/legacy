@@ -3562,20 +3562,27 @@ void do_dirt(Character *ch, String argument)
 	check_killer(ch, victim);
 
 	if (number_percent() < chance) {
-		act("$n is blinded by the dirt in $s eyes!", victim, nullptr, nullptr, TO_ROOM);
-		act("$n kicks dirt in your eyes!", ch, nullptr, victim, TO_VICT);
-		damage(ch, victim, number_range(2, 5), gsn_dirt_kicking, DAM_NONE, FALSE, FALSE);
-		stc("You can't see a thing!\n", victim);
+		if (affect_exists_on_char(victim, gsn_rayban)) {
+			act("You kick dirt in $n's eyes, but it doesn't affect $m!", ch, nullptr, victim, TO_CHAR);
+			act("$n kicks dirt in your eyes, but your eye protection saves your vision!", ch, nullptr, victim, TO_VICT);
+		}
+		else {
+			act("$n is blinded by the dirt in $s eyes!", victim, nullptr, nullptr, TO_ROOM);
+			act("$n kicks dirt in your eyes!", ch, nullptr, victim, TO_VICT);
+			damage(ch, victim, number_range(2, 5), gsn_dirt_kicking, DAM_NONE, FALSE, FALSE);
+			stc("You can't see a thing!\n", victim);
+
+			affect_add_sn_to_char(victim,
+				gsn_dirt_kicking,
+				ch->level,
+				0,
+				get_evolution(ch, gsn_dirt_kicking),
+				FALSE
+			);
+		}
+
 		check_improve(ch, gsn_dirt_kicking, TRUE, 2);
 		WAIT_STATE(ch, skill_table[gsn_dirt_kicking].beats);
-
-		affect_add_sn_to_char(victim,
-			gsn_dirt_kicking,
-			ch->level,
-			0,
-			get_evolution(ch, gsn_dirt_kicking),
-			FALSE
-		);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, nullptr, victim, TO_CHAR);

@@ -198,6 +198,7 @@ sh_int  gsn_portal;
 sh_int  gsn_protect_container;
 sh_int  gsn_protection_evil;
 sh_int  gsn_protection_good;
+sh_int  gsn_rayban;
 sh_int  gsn_ray_of_truth;
 sh_int  gsn_recharge;
 sh_int  gsn_refresh;

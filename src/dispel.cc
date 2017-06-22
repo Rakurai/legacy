@@ -62,6 +62,7 @@ const struct dispel_type dispel_table[] = {
 	{ &gsn_poison,              FALSE, FALSE, FALSE, "$n looks much better."                         },
 	{ &gsn_protection_evil,     TRUE,  TRUE,  TRUE,  "$n's holy aura fades."                         },
 	{ &gsn_protection_good,     TRUE,  TRUE,  TRUE,  "$n's unholy aura fades."                       },
+    { &gsn_rayban,              TRUE,  TRUE,  TRUE,  "$n blinks as $s eye protection fades."         },
 	{ &gsn_sanctuary,           TRUE,  TRUE,  TRUE,  "The white aura around $n's body vanishes."     },
 	{ &gsn_sheen,               TRUE,  FALSE, FALSE, nullptr                                            },
 	{ &gsn_shield,              TRUE,  TRUE,  TRUE,  "The shield protecting $n vanishes."            },

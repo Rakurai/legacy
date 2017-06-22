@@ -206,6 +206,7 @@ void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int durati
 		{ gsn_poison,              APPLY_STR,     -2,              1 },
 		{ gsn_protection_evil,     APPLY_SAVES,   -1,              1 },
 		{ gsn_protection_good,     APPLY_SAVES,   -1,              1 },
+		{ gsn_rayban,              APPLY_NONE,    0,               1 },
 		{ gsn_regeneration,        APPLY_NONE,    0,               1 },
 		{ gsn_sanctuary,           APPLY_NONE,    0,               1 },
 		{ gsn_shadow_form,         APPLY_NONE,    0,               1 },

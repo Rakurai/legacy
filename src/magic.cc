@@ -5070,6 +5070,33 @@ void spell_protection_good(int sn, int level, Character *ch, void *vo, int targe
 		act("$N is protected from good.", ch, nullptr, victim, TO_CHAR);
 }
 
+void spell_rayban(int sn, int level, Character *ch, void *vo, int target, int evolution)
+{
+	Character *victim = (Character *) vo;
+
+	if (affect_exists_on_char(victim, gsn_rayban)) {
+		if (victim == ch)
+			stc("You are already protected.\n", ch);
+		else
+			act("$N is already protected.", ch, nullptr, victim, TO_CHAR);
+
+		return;
+	}
+
+	affect_add_sn_to_char(victim,
+		sn,
+		level,
+		24,
+		evolution,
+		FALSE
+	);
+
+	stc("Your vision distorts momentarily as the spell protects your eyes.\n", victim);
+
+	if (ch != victim)
+		act("$N's eyes are protected.", ch, nullptr, victim, TO_CHAR);
+}
+
 void spell_resurrect(int sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj;

@@ -1700,6 +1700,14 @@ const std::vector<skill_type> skill_table = {
 		{ 0, 220, 0, 0, 240, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
 	},
 	{
+		"rayban",              { 35, 30, 60, 60, 38, 40, 60, 60 },
+		{  1,  1,  2,  2,  1,  1,  2,  2 },
+		spell_rayban,           TAR_CHAR_SELF,          POS_STANDING,
+		&gsn_rayban,            SLOT(458),      5,      12,
+		"",                     "You blink as your eye protection fades.",   "",     0,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	},
+	{
 		"ray of truth",         { 40, 35, 60, 47, 33, 35, 60, 47 },
 		{  1,  1,  2,  2,  1,  1,  2,  2 },
 		spell_ray_of_truth,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
@@ -2887,7 +2895,7 @@ const std::vector<group_type> group_table = {
 		"protective",           { 4, 4, 7, 8, 4, 5, 7, 8 },
 		{
 			"armor", "cancellation", "dispel magic", "fireproof", "protection evil",
-			"protection good", "sanctuary", "shield", "stone skin", "undo spell"
+			"protection good", "rayban", "sanctuary", "shield", "stone skin", "undo spell"
 		}
 	},
 	{

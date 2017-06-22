@@ -398,6 +398,7 @@ extern sh_int   gsn_portal;
 extern sh_int   gsn_protect_container;
 extern sh_int   gsn_protection_evil;
 extern sh_int   gsn_protection_good;
+extern sh_int   gsn_rayban;
 extern sh_int   gsn_ray_of_truth;
 extern sh_int   gsn_recharge;
 extern sh_int   gsn_refresh;

@@ -115,6 +115,7 @@ DECLARE_SPELL_FUN(      spell_power_word        );
 DECLARE_SPELL_FUN(      spell_protect_container );
 DECLARE_SPELL_FUN(      spell_protection_evil   );
 DECLARE_SPELL_FUN(      spell_protection_good   );
+DECLARE_SPELL_FUN(      spell_rayban            );
 DECLARE_SPELL_FUN(      spell_ray_of_truth      );
 DECLARE_SPELL_FUN(      spell_recharge          );
 DECLARE_SPELL_FUN(      spell_refresh           );
