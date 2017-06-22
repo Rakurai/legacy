@@ -35,17 +35,11 @@ void free_descriptor(Descriptor *obj) { delete obj; }
 Customize *new_gen_data() { return new Customize(); }
 void free_gen_data(Customize *obj) { delete obj; }
 
-ExtraDescr *new_extra_descr() { return new ExtraDescr(); }
-void free_extra_descr(ExtraDescr *obj) { delete obj; }
-
 Affect	*new_affect() { return new Affect(); }
 void free_affect(Affect *obj) { delete obj; }
 
 Object *new_obj() { return new Object(); }
 void free_obj(Object *obj) { delete obj; }
-
-Character *new_char() { return new Character(); }
-void free_char(Character *obj) { delete obj; }
 
 Player	*new_pcdata() { return new Player(); }
 void free_pcdata(Player *obj) { delete obj; }

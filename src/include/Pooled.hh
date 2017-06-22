@@ -2,54 +2,62 @@
 
 #include <string>
 #include <vector>
+#include <cassert>
 
+/* Implements a self-contained list of free objects of type T, to prevent
+ * creating/destroying frequently used objects.  Subclass Pooled with
+ * SomeClass : public Pooled<SomeClass>, where Pooled is the first
+ * inherited.  DO NOT subclass a class inheriting from Pooled!  Each class
+ * must have its own object pool, or new() could return the wrong size object.
+ * I have placed an assert call to slap the programmer who does this.
+ *
+ * based on work by Thomas George, 2003, found at:
+ * https://www.codeproject.com/Articles/3968/Object-Pooling-for-Generic-C-classes
+ */
 template <class T > class Pooled
 {
 public:
-
-	Pooled() {}
-	virtual ~Pooled() {}
-
-	static std::vector<T* >& get_list()
-	{
-		static std::vector<T* > m_free;
-		return m_free;
+	Pooled() {
+//		std::cout << "Pooled: default constructor" << std::endl;
 	}
-/*
-	static void __op_initialize()
-	{
-		init();
+	virtual ~Pooled() {
+//		std::cout << "Pooled: destructor" << std::endl;
 	}
 
-	static void __op_finalize()
-	{
-		destroy();
-	}
-*/
-	static void init()
-	{
-		T::get_list().push_back(::new T);
+	static unsigned int pool_free() {
+		return free_list().size();
 	}
 
-	inline void *operator new( size_t stAllocateBlock)
-	{
-		if (T::get_list().size() <= 0)
-			T::init();
+	static unsigned int& pool_allocated() {
+		static unsigned int allocated;
+		return allocated;
+	}
 
-		T* p = T::get_list().back();
-		T::get_list().pop_back();
+	inline void *operator new( size_t stAllocateBlock) {
+//		std::cout << "Pooled: new" << std::endl;
+
+		assert(stAllocateBlock == sizeof(T));
+
+		if (T::free_list().size() <= 0)
+			T::alloc_new();
+
+		T* p = T::free_list().back();
+		T::free_list().pop_back();
 		return p;
 	}
 
-	inline void operator delete( void *p )
-	{
-		T::get_list().push_back((T*)p);
+	inline void operator delete( void *p ) {
+//		std::cout << "Pooled: delete" << std::endl;
+		T::free_list().push_back((T*)p);
 	}
 
-	static void destroy()
-	{
-		auto first = T::get_list().begin();
-		auto last = T::get_list().end();
+	// call destroy() if the entire pool is to be freed, probably only
+	// useful for a temporary list
+	static void destroy() {
+//		std::cout << "Pooled: destroy" << std::endl;
+		auto first = T::free_list().begin();
+		auto last = T::free_list().end();
+
 		while (first != last)
 		{
 			T* p = *first;
@@ -57,6 +65,20 @@ public:
 			::delete p;
 		}
 
-		T::get_list().erase();
+		T::free_list().erase();
 	}
+
+private:
+	static std::vector<T* >& free_list() {
+		static std::vector<T* > m_free;
+		return m_free;
+	}
+
+	static void alloc_new() {
+		pool_allocated()++;
+//		std::cout << "Pooled: init" << std::endl;
+		T::free_list().push_back(::new T);
+	}
+
+//	static unsigned int allocated = 0;
 };

@@ -51,7 +51,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 		return nullptr;
 	}
 
-	mob = new_char();
+	mob = new Character();
 
 	/* Check for memory error. -- Outsider */
 	if (!mob)
@@ -417,9 +417,7 @@ void clone_object(Object *parent, Object *clone)
 
 	/* extended desc */
 	for (ed = parent->extra_descr; ed != nullptr; ed = ed->next) {
-		ed_new                  = new_extra_descr();
-		ed_new->keyword         = ed->keyword;
-		ed_new->description     = ed->description;
+		ed_new                  = new ExtraDescr(*ed);
 		ed_new->next            = clone->extra_descr;
 		clone->extra_descr      = ed_new;
 	}

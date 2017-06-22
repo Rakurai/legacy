@@ -24,6 +24,7 @@
 #include "declare.hh"
 #include "Descriptor.hh"
 #include "Exit.hh"
+#include "ExtraDescr.hh"
 #include "file.hh"
 #include "find.hh"
 #include "Flags.hh"
@@ -571,13 +572,15 @@ void do_memory(Character *ch, String argument)
 	stc(buf, ch);
 	Format::sprintf(buf, "Areas   %5d\n", top_area);
 	stc(buf, ch);
-	Format::sprintf(buf, "ExDes   %5d\n", top_ed);
+	Format::sprintf(buf, "ExDes   %5d allocated, %5d free\n",
+		ExtraDescr::pool_allocated(), ExtraDescr::pool_free());
 	stc(buf, ch);
 	Format::sprintf(buf, "Exits   %5d\n", top_exit);
 	stc(buf, ch);
 	Format::sprintf(buf, "Socials %5d\n", count_socials());
 	stc(buf, ch);
-	Format::sprintf(buf, "Mobs    %5d\n", top_mob_index);
+	Format::sprintf(buf, "Chars   %5d allocated, %5d free\n",
+		Character::pool_allocated(), Character::pool_free());
 	stc(buf, ch);
 	Format::sprintf(buf, "(in use)%5d\n", mobile_count);
 	stc(buf, ch);

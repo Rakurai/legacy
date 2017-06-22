@@ -1071,7 +1071,7 @@ void extract_char(Character *ch, bool fPull)
 	if (ch->desc != nullptr)
 		ch->desc->character = nullptr;
 
-	free_char(ch);
+	delete ch;
 }
 
 /*

@@ -309,7 +309,7 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 			}
 			else {
 				Character *rch;
-				free_char(d->character);
+				delete d->character;
 				d->character = ch;
 				ch->desc         = d;
 				ch->desc->timer  = 0;
@@ -389,7 +389,7 @@ void nanny(Descriptor *d, String argument)
 			                "Please choose another name!\n"
 			                "\n"
 			                "Name: ");
-			free_char(d->character);
+			delete d->character;
 			d->character = nullptr;
 			return;
 		}
@@ -410,7 +410,7 @@ void nanny(Descriptor *d, String argument)
 			                "Please choose another name!\n"
 			                "\n"
 			                "Name: ");
-			free_char(ch);
+			delete ch;
 			d->character = nullptr;
 			return;
 		}
@@ -543,7 +543,7 @@ void nanny(Descriptor *d, String argument)
 			write_to_buffer(d, "Reconnect attempt failed.\nName: ");
 
 			if (d->character != nullptr) {
-				free_char(d->character);
+				delete d->character;
 				d->character = nullptr;
 			}
 
@@ -555,7 +555,7 @@ void nanny(Descriptor *d, String argument)
 			write_to_buffer(d, "Name: ");
 
 			if (d->character != nullptr) {
-				free_char(d->character);
+				delete d->character;
 				d->character = nullptr;
 			}
 
@@ -592,7 +592,7 @@ void nanny(Descriptor *d, String argument)
 		case 'n':
 		case 'N':
 			stc("Ok, what do you want to be called, then? ", ch);
-			free_char(d->character);
+			delete d->character;
 			d->character = nullptr;
 			d->connected = CON_GET_NAME;
 			break;

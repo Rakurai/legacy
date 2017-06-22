@@ -681,7 +681,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 	char strsave[MAX_INPUT_LENGTH];
 	Character *ch;
 	bool found;
-	ch = new_char();
+	ch = new Character();
 	ch->pcdata = new_pcdata();
 	d->character                        = ch;
 	ch->desc                            = d;
@@ -1431,9 +1431,7 @@ Object * fread_obj(cJSON *json, int version) {
 			case 'E':
 				if (key == "ExDe") {
 					for (cJSON *item = o->child; item; item = item->next) {
-						ExtraDescr *ed = new_extra_descr();
-						ed->keyword             = item->string;
-						ed->description         = item->valuestring;
+						ExtraDescr *ed = new ExtraDescr(item->string, item->valuestring);
 						ed->next                = obj->extra_descr;
 						obj->extra_descr        = ed;
 					}

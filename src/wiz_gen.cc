@@ -1941,7 +1941,7 @@ void do_linkload(Character *ch, String argument)
 	}
 	else {
 		stc("No such player exists in the pfiles.\n", ch);
-		free_char(dnew->character);
+		delete dnew->character;
 	}
 
 	free_descriptor(dnew);
@@ -2996,7 +2996,7 @@ void do_owner(Character *ch, String argument)
 					else
 						ed_prev->next = ed_next;
 
-					free_extra_descr(ed);
+					delete ed;
 				}
 				else
 					ed_prev = ed;
@@ -3022,9 +3022,7 @@ void do_owner(Character *ch, String argument)
 	}
 
 	act("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, FALSE);
-	ed                      = new_extra_descr();
-	ed->keyword             = KEYWD_OWNER;
-	ed->description         = player->name;
+	ed = new ExtraDescr(KEYWD_OWNER, player->name);
 	ed->next                = item->extra_descr;
 	item->extra_descr       = ed;
 }

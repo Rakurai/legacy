@@ -2,14 +2,18 @@
 
 #include "declare.hh"
 #include "String.hh"
+#include "Pooled.hh"
 
 /*
  * Extra description data for a room or object.
  */
-class ExtraDescr
+class ExtraDescr :
+public Pooled<ExtraDescr>
 {
 public:
 	ExtraDescr() {}
+	ExtraDescr(const String& k, const String& d) : keyword(k), description(d) {}
+	ExtraDescr(const ExtraDescr& e) : keyword(e.keyword), description(e.description) {}
 	virtual ~ExtraDescr() {}
 
     ExtraDescr *next = nullptr;     /* Next in list                     */
@@ -18,7 +22,6 @@ public:
     String description;          /* What to see                      */
 
 private:
-	ExtraDescr(const ExtraDescr&);
 	ExtraDescr& operator=(const ExtraDescr&);
 };
 

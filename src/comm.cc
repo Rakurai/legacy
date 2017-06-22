@@ -867,7 +867,7 @@ void close_socket(Descriptor *dclose)
 			ch->desc = nullptr;
 		}
 		else
-			free_char(dclose->character);
+			delete dclose->character;
 	}
 
 	if (d_next == dclose)

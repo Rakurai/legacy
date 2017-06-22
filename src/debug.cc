@@ -91,7 +91,7 @@ void do_debug(Character *ch, String argument)
 			d->connected     = CON_PLAYING;
 
 			if (!load_char_obj(d, row[0])) {
-				free_char(d->character);
+				delete d->character;
 				free_descriptor(d);
 				continue;
 			}

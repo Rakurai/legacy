@@ -1889,14 +1889,10 @@ void spell_create_food(int sn, int level, Character *ch, void *vo, int target, i
 	food->description = buf;
 	food->material = "food";
 	Format::sprintf(buf, "This food was created by %s.\n", ch->name);
-	ed = new_extra_descr();
-	ed->keyword             = "chef";
-	ed->description         = buf;
+	ed = new ExtraDescr("chef", buf);
 	ed->next                = food->extra_descr;
 	food->extra_descr       = ed;
-	ed = new_extra_descr();
-	ed->keyword             = "food";
-	ed->description         = "It looks delicious.\n";
+	ed = new ExtraDescr("food", "It looks delicious.\n");
 	ed->next                = food->extra_descr;
 	food->extra_descr       = ed;
 	food->value[0] = level / 2;
@@ -1946,14 +1942,10 @@ void spell_create_rose(int sn, int level, Character *ch, void *vo, int target, i
 	rose->material = "silk";
 	rose->name = "rose";
 	Format::sprintf(buf, "This rose was created by %s.\n", ch->name);
-	ed = new_extra_descr();
-	ed->keyword             = "florist";
-	ed->description         = buf;
+	ed = new ExtraDescr("florist", buf);
 	ed->next                = rose->extra_descr;
 	rose->extra_descr       = ed;
-	ed = new_extra_descr();
-	ed->keyword             = "rose";
-	ed->description         = "It's a beautiful rose, with a soft and romantic fragrance.\n";
+	ed = new ExtraDescr("rose", "It's a beautiful rose, with a soft and romantic fragrance.\n");
 	ed->next                = rose->extra_descr;
 	rose->extra_descr       = ed;
 	rose->value[1] = 1;
@@ -2003,15 +1995,11 @@ void spell_create_sign(int sn, int level, Character *ch, void *vo, int target, i
 	}
 
 	Format::sprintf(buf, "%s\n", target_name);
-	ed = new_extra_descr();
-	ed->keyword         = "sign";
-	ed->description     = buf;
+	ed = new ExtraDescr("sign", buf);
 	ed->next            = sign->extra_descr;
 	sign->extra_descr   = ed;
 	Format::sprintf(buf, "This road sign was created by %s.\n", ch->name);
-	owner = new_extra_descr();
-	owner->keyword        = "carpenter";
-	owner->description    = buf;
+	owner = new ExtraDescr("carpenter", buf);
 	owner->next           = sign->extra_descr;
 	sign->extra_descr     = owner;
 }

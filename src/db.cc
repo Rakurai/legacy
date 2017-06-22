@@ -838,9 +838,7 @@ void load_objects(FILE *fp)
 				} while (!bitvector.empty());
 			}
 			else if (letter == 'E') {
-				ExtraDescr *ed = new_extra_descr();
-				ed->keyword             = fread_string(fp);
-				ed->description         = fread_string(fp);
+				ExtraDescr *ed = new ExtraDescr(fread_string(fp), fread_string(fp));
 				ed->next                = pObjIndex->extra_descr;
 				pObjIndex->extra_descr  = ed;
 				top_ed++;
@@ -1012,9 +1010,7 @@ void load_rooms(FILE *fp)
 				break;
 
 			case 'E':       /* extended desc */
-				ed = new_extra_descr();
-				ed->keyword             = fread_string(fp);
-				ed->description         = fread_string(fp);
+				ed = new ExtraDescr(fread_string(fp), fread_string(fp));
 				ed->next                = pRoomIndex->extra_descr;
 				pRoomIndex->extra_descr = ed;
 				top_ed++;

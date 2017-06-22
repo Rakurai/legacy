@@ -630,9 +630,10 @@ Object *generate_skillquest_obj(Character *ch, int level)
 	questobj->name        = buf;
 	questobj->short_descr = sq_item_table[descnum].shortdesc;
 	questobj->description = sq_item_table[descnum].longdesc;
-	ed = new_extra_descr();
-	ed->keyword        = sq_item_table[descnum].name;
-	ed->description    = sq_item_table[descnum].extended;
+	ed = new ExtraDescr(
+		sq_item_table[descnum].name,
+		sq_item_table[descnum].extended
+	);
 	ed->next           = questobj->extra_descr;
 	questobj->extra_descr   = ed;
 	ch->pcdata->squestobj = questobj;

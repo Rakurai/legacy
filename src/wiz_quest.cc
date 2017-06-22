@@ -536,7 +536,7 @@ void do_string(Character *ch, String argument)
 						else
 							ed_prev->next = ed_next;
 
-						free_extra_descr(ed);
+						delete ed;
 					}
 					else
 						ed_prev = ed;
@@ -549,9 +549,7 @@ void do_string(Character *ch, String argument)
 			char desc[MIL];
 			Format::sprintf(desc, "%s\n", argument);
 
-			ed = new_extra_descr();
-			ed->keyword         = arg3;
-			ed->description     = desc;
+			ed = new ExtraDescr(arg3, desc);
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
 			ptc(ch, "Extended description set to:\n%s\n", arg3);
@@ -583,7 +581,7 @@ void do_string(Character *ch, String argument)
 						else
 							ed_prev->next = ed_next;
 
-						free_extra_descr(ed);
+						delete ed;
 					}
 					else
 						ed_prev = ed;
@@ -592,9 +590,7 @@ void do_string(Character *ch, String argument)
 
 			buf += argument;
 			buf += "\n";
-			ed = new_extra_descr();
-			ed->keyword         = arg3;
-			ed->description     = buf;
+			ed = new ExtraDescr(arg3, buf);
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
 			ptc(ch, "Added to extended description:\n%s\n", arg3);

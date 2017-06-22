@@ -14,7 +14,7 @@ Object::~Object() {
 	ExtraDescr *ed, *ed_next;
 	for (ed = this->extra_descr; ed != nullptr; ed = ed_next) {
 		ed_next = ed->next;
-		free_extra_descr(ed);
+		delete ed;
 	}
 
 	// deal with contents and gems at some point, for now extract_obj handles them

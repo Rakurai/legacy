@@ -309,10 +309,7 @@ Object *fload_objstate(FILE *fp, int *count)
 			break;
 
 		case 'X': {
-				ExtraDescr *ed;
-				ed = new_extra_descr();
-				ed->keyword     = fread_string(fp);
-				ed->description = fread_string(fp);
+				ExtraDescr *ed = new ExtraDescr(fread_string(fp), fread_string(fp));
 				ed->next        = obj->extra_descr;
 				obj->extra_descr = ed;
 				break;

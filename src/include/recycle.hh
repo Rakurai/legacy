@@ -48,8 +48,6 @@ Customize 	*new_gen_data args( (void) );
 void	free_gen_data args( (Customize * gen) );
 
 /* character recyling */
-Character	*new_char args( (void) );
-void	free_char args( (Character *ch) );
 Player	*new_pcdata args( (void) );
 void	free_pcdata args( (Player *pcdata) );
 

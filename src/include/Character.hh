@@ -17,7 +17,7 @@
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 
 class Character :
-public Pooled<Character>,
+public Pooled<Character>, // must be first inherited
 public Actable
 {
 public:

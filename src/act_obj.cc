@@ -4170,10 +4170,7 @@ void do_buy(Character *ch, String argument)
 				}
 
 				if (!foundold) {
-					owner = ch->name;
-					ed                      = new_extra_descr();
-					ed->keyword             = KEYWD_OWNER;
-					ed->description         = owner;
+					ed                      = new ExtraDescr(KEYWD_OWNER, ch->name);
 					ed->next                = t_obj->extra_descr;
 					t_obj->extra_descr      = ed;
 				}
@@ -4805,7 +4802,6 @@ void do_forge(Character *ch, String argument)
 	obj->short_descr = sdesc;
 	Format::sprintf(buf, "A %s is here, forged by %s's craftsmanship.", weapon_table[weapon_lookup(type)].name, ch->name);
 	obj->description = buf;
-	ed = new_extra_descr();
 	Format::sprintf(buf, "It is a marvellous %s, crafted from the finest %s around.\n"
 	        "It was created in the Month of %s by %s %s\n"
 	        "named %s.  Legend holds that this %s was a great weaponsmith.\n",
@@ -4815,8 +4811,7 @@ void do_forge(Character *ch, String argument)
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
 	        "a newbie", class_table[ch->cls].name, ch->name,
 	        race_table[ch->race].name);
-	ed->keyword        = obj->name;
-	ed->description    = buf;
+	ed = new ExtraDescr(obj->name, buf);
 	ed->next           = obj->extra_descr;
 	obj->extra_descr   = ed;
 	obj->value[1] = 5;
@@ -4987,26 +4982,17 @@ void do_engrave(Character *ch, String argument)
 
 	if (eng_desc == nullptr) {
 		/* no engravings yet, build an empty extdesc */
-		eng_desc = new_extra_descr();
-		eng_desc->keyword = "engravings";
-		eng_desc->description = "\n";
+		eng_desc = new ExtraDescr("engravings", "\n");
 		eng_desc->next = weapon->extra_descr;
 		weapon->extra_descr = eng_desc;
 	}
 
 	if (dflt_desc == nullptr) {
 		/* no extdesc for wpn, build an empty one */
-		dflt_desc = new_extra_descr();
-		dflt_desc->keyword = weapon->name;
-
-		if (!weapon->description.empty()) {
-			dbuf += weapon->description;
-			dbuf += "\n";
-			dbuf += eng_line;
-			dflt_desc->description = dbuf;
-		}
-		else
-			dflt_desc->description = eng_line;
+		dflt_desc = new ExtraDescr(
+			weapon->name,
+			!weapon->description.empty() ?
+			  (dbuf += weapon->description + "\n" + eng_line) : eng_line);
 
 		dflt_desc->next = weapon->extra_descr;
 		weapon->extra_descr = dflt_desc;
