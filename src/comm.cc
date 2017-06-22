@@ -117,6 +117,7 @@ bool    write_to_descriptor     args((int desc, const String& txt, int length));
 /*
  * Other local functions (OS-independent).
  */
+void show_string(Descriptor *d, bool clear_remainder);
 extern bool    check_parse_name        args((const String& name));
 bool    check_playing           args((Descriptor *d, const String& name));
 int     main                    args((int argc, char **argv));
@@ -583,14 +584,12 @@ void game_loop_unix(int control)
 
 			if (d->incomm[0] != '\0') {
 				char *command2;
-				char *tempbuf;
 				d->fcommand = TRUE;
 				stop_idling(d->character);
-				tempbuf = d->incomm;
 				command2 = get_multi_command(d, d->incomm);
 
 				if (!d->showstr_head.empty())
-					show_string(d, tempbuf);
+					show_string(d, !String(command2).lstrip().empty()); // ugly, fix someday
 				else if (d->connected == CON_PLAYING) {
 					if (d->character == nullptr) {
 						Logging::bug("playing descriptor with null character, closing phantom socket", 0);
@@ -1671,23 +1670,11 @@ void stc(const String& txt, Character *ch)
 		write_to_buffer(ch->desc, txt.uncolor());
 } /* end stc() */
 
-/*
- * Send a page to one char.
- */
-void page_to_char(const String& txt, Character *ch)
-{
-	if (txt.empty() || ch->desc == nullptr)
-		return;
-
-	ch->desc->showstr_head += txt;
-	show_string(ch->desc, "");
-}
-
 /* string pager */
-void show_string(Descriptor *d, const String& input)
+void show_string(Descriptor *d, bool clear_remainder)
 {
 	// if not nothing, done paging output, clear the remainders
-	if (!input.empty()) {
+	if (clear_remainder) {
 		d->showstr_head.erase();
 		return;
 	}
@@ -1714,6 +1701,18 @@ void show_string(Descriptor *d, const String& input)
 	else
 		cwtb(d, page);
 } /* end show_string() */
+
+/*
+ * Send a page to one char.
+ */
+void page_to_char(const String& txt, Character *ch)
+{
+	if (txt.empty() || ch->desc == nullptr)
+		return;
+
+	ch->desc->showstr_head += txt;
+	show_string(ch->desc, false);
+}
 
 char *get_multi_command(Descriptor *d, const String& argument)
 {

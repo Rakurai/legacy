@@ -598,7 +598,6 @@ void    substitute_alias args( (Descriptor *d, String input) );
 void    find_money      args( ( Character *ch ) );
 
 /* comm.c */
-void    show_string     args( ( Descriptor *d, const String& input) );
 void    close_socket    args( ( Descriptor *dclose ) );
 void	cwtb		args((Descriptor *d, const String& txt));
 void    write_to_buffer args( ( Descriptor *d, const String& txt ) );
