@@ -48,7 +48,7 @@ War::~War() {
 		delete def[i];
 	}
 
-	Event *event, *event_next;
+	War::Event *event, *event_next;
 	for (event = events; event != nullptr; event = event_next) {
 		event_next = event->next;
 		delete event;
@@ -79,7 +79,7 @@ void load_war_events()
 				if (fread_word(fp) == "END")
 					break;
 
-				n_event         = new_event();
+				n_event         = new War::Event();
 				n_event->type   = atoi(fread_string(fp));
 				n_event->astr   = fread_string(fp);
 				n_event->bstr   = fread_string(fp);
@@ -145,8 +145,8 @@ void load_war_table()
 	FILE *fp;
 	War *war;
 	int i, count = 0;
-	war_table_head = new_war();
-	war_table_tail = new_war();
+	war_table_head = new War();
+	war_table_tail = new War();
 	war_table_head->next            = war_table_tail;
 	war_table_tail->previous        = war_table_head;
 
@@ -155,7 +155,7 @@ void load_war_table()
 			if (fread_word(fp) == "END")
 				break;
 
-			war = new_war();
+			war = new War();
 
 			for (i = 0; i < 4; i++) {
 				war->chal[i]->name              = fread_string(fp);
@@ -225,7 +225,7 @@ void save_war_table()
 
 void fix_war(War *war)
 {
-	War *fixed_war = new_war();
+	War *fixed_war = new War();
 	int i, c = 0, d = 0;
 
 	for (i = 0; i < 4; i++) {
@@ -255,7 +255,7 @@ void fix_war(War *war)
 	fixed_war->next     = war->next;
 	fixed_war->previous->next = fixed_war;
 	fixed_war->next->previous = fixed_war;
-	free_war(war);
+	delete war;
 }
 
 bool clan_in_war(Clan *clan, War *war, bool onlycurrent)
@@ -705,7 +705,7 @@ void war_kill(Character *ch, Character *victim)
 void rec_event(War *war, int type, const String& astr, const String& bstr, int number)
 {
 	War::Event *event, *n_event;
-	n_event = new_event();
+	n_event = new War::Event();
 	n_event->type   = type;
 
 	n_event->astr = astr;
@@ -729,7 +729,7 @@ void rec_event(War *war, int type, const String& astr, const String& bstr, int n
 
 War *war_start(Clan *chal, Clan *def)
 {
-	War *war = new_war();
+	War *war = new War();
 
 	if (chal->score <= 0)
 		chal->score = calc_cp(chal, TRUE);
@@ -1428,7 +1428,7 @@ void do_war(Character *ch, String argument)
 
 		while (war != nullptr) {
 			war_next = war->next;
-			free_war(war);
+			delete war;
 			war = war_next;
 		}
 

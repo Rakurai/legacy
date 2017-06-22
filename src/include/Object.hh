@@ -5,14 +5,18 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
+#include "Pooled.hh"
 
 /*
  * One object.
  */
-class Object: public Actable
+class Object :
+public Pooled<Object>,
+public Actable
 {
 public:
     Object() {};
+	Object(ObjectPrototype *p) : pIndexData(p) {}
     virtual ~Object();
 
 	ObjectPrototype *	pIndexData = nullptr;
@@ -45,7 +49,6 @@ public:
 	sh_int			wear_loc = 0;
 	sh_int			timer = 0;
 	sh_int			clean_timer = 0;		/* Montrey */
-	bool			valid = FALSE;
 
     Flags           cached_extra_flags;
     Flags           cached_weapon_flags;
@@ -67,10 +70,6 @@ private:
 	Object(const String&);
 	String& operator=(const String&);
 };
-
-/* object recycling */
-Object	*new_obj args( (void) );
-void	free_obj args( (Object *obj) );
 
 void    destroy_obj     args(( Object *obj ));
 void    extract_obj     args(( Object *obj ) );

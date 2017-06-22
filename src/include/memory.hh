@@ -19,13 +19,13 @@
 #define MAX_INPUT_LENGTH          256
 #define PAGELEN                    22
 
-extern	int	top_affect;
-extern	int	top_area;
-extern	int	top_ed;
+// for character stats
+#define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
+#define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
+
 extern	int	top_exit;
 extern	int	top_mob_index;
 extern	int	top_obj_index;
 extern	int	top_reset;
 extern	int	top_room;
 extern	int	top_shop;
-extern	int	mobile_count;

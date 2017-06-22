@@ -597,7 +597,7 @@ void do_delete(Character *ch, String argument)
 		Format::sprintf(strsave, "%s%s", PLAYER_DIR, String(ch->name).capitalize());
 		wiznet("$N has wiped $Mself from these realms.", ch, nullptr, 0, 0, 0);
 		update_pc_index(ch, TRUE);
-		id = ch->id;
+		id = ch->pcdata->id;
 		d = ch->desc;
 
 		if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
@@ -616,7 +616,7 @@ void do_delete(Character *ch, String argument)
 			d_next = d->next;
 			tch = d->original ? d->original : d->character;
 
-			if (tch && tch->id == id) {
+			if (tch && tch->pcdata && tch->pcdata->id == id) {
 				extract_char(tch, TRUE);
 				close_socket(d);
 			}
@@ -1222,7 +1222,7 @@ void do_quit(Character *ch, String argument)
 	Logging::log(log_buf);
 	wiznet("$N rejoins the real world.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	save_char_obj(ch);
-	id = ch->id;
+	id = ch->pcdata->id;
 	d = ch->desc;
 
 	if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
@@ -1242,7 +1242,7 @@ void do_quit(Character *ch, String argument)
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
 
-		if (tch && tch->id == id) {
+		if (tch && tch->pcdata && tch->pcdata->id == id) {
 			extract_char(tch, TRUE);
 			close_socket(d);
 		}
@@ -1265,7 +1265,7 @@ void do_fuckoff(Character *ch, String argument)
 	 * After extract_char the ch is no longer valid!
 	 */
 	save_char_obj(ch);
-	id = ch->id;
+	id = ch->pcdata->id;
 	d = ch->desc;
 	extract_char(ch, TRUE);
 
@@ -1278,7 +1278,7 @@ void do_fuckoff(Character *ch, String argument)
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
 
-		if (tch && tch->id == id) {
+		if (tch && tch->pcdata && tch->pcdata->id == id) {
 			extract_char(tch, TRUE);
 			close_socket(d);
 		}

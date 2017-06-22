@@ -52,7 +52,7 @@ void affect_remove_from_obj(Object *obj, Affect *paf)
 {
 	affect_remove_from_list(&obj->affected, paf);
 	affect_modify_obj(obj, paf, FALSE);
-	free_affect(paf);
+	delete paf;
 }
 
 void affect_remove_matching_from_obj(Object *obj, affect_comparator comp, const Affect *pattern) {

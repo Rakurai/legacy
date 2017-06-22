@@ -2,6 +2,7 @@
 
 #include "declare.hh"
 #include "String.hh"
+#include "Pooled.hh"
 
 #define NOTE_NOTE       0
 #define NOTE_IDEA       1
@@ -11,14 +12,14 @@
 #define NOTE_PERSONAL   5
 #define NOTE_TRADE      6
 
-class Note
+class Note :
+public Pooled<Note>
 {
 public:
     Note() {}
     virtual ~Note() {}
 
     Note      * next = nullptr;
-    bool        valid = FALSE;
     int         type = 0;
     String      sender;
     String      date;

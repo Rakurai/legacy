@@ -51,7 +51,6 @@
 #include "ObjectPrototype.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
 #include "gem/gem.hh"
@@ -60,7 +59,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
 extern void     set_window      args((Character *ch, int top, int bottom));
 
-#define CURRENT_VERSION         17   /* version number for pfiles */
+#define CURRENT_VERSION         18   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -248,6 +247,8 @@ cJSON *fwrite_player(Character *ch)
 	}
 	if (item != nullptr)
 		cJSON_AddItemToObject(o,	"Gr",			item);
+
+	cJSON_AddNumberToObject(o,		"Id",			ch->pcdata->id);
 
 	if (!ch->pcdata->ignore.empty()) {
 		item = cJSON_CreateArray();
@@ -470,7 +471,6 @@ cJSON *fwrite_char(Character *ch)
 	cJSON_AddNumberToObject(item,	"stam",			ATTR_BASE(ch, APPLY_STAM));
 	cJSON_AddItemToObject(o, 		"HMSP",	 		item);
 
-	cJSON_AddNumberToObject(o,		"Id",			ch->id);
 	cJSON_AddNumberToObject(o,		"Levl",			ch->level);
 
 	if (ch->long_descr[0])
@@ -682,11 +682,10 @@ bool load_char_obj(Descriptor *d, const String& name)
 	Character *ch;
 	bool found;
 	ch = new Character();
-	ch->pcdata = new_pcdata();
+	ch->pcdata = new Player();
 	d->character                        = ch;
 	ch->desc                            = d;
 	ch->name                            = name;
-	ch->id                              = get_pc_id();
 	ch->race                            = race_lookup("human");
 	ch->act_flags                             = PLR_NOSUMMON | PLR_AUTOASSIST | PLR_AUTOEXIT | PLR_AUTOLOOT |
 	                                      PLR_AUTOSAC | PLR_AUTOSPLIT | PLR_AUTOGOLD | PLR_TICKS | PLR_WIMPY |
@@ -1027,6 +1026,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
+				INTKEY("Id",            ch->pcdata->id,             o->valueint); // moved from char in version 18
 				STRKEY("Immn",			ch->pcdata->immname,		o->valuestring);
 				STRKEY("Immp",			ch->pcdata->immprefix,		o->valuestring);
 				break;
@@ -1241,7 +1241,10 @@ void fread_char(Character *ch, cJSON *json, int version)
 				INTKEY("Hit",			ATTR_BASE(ch, APPLY_HITROLL), o->valueint); // NPC
 				break;
 			case 'I':
-				INTKEY("Id",			ch->id,						o->valueint);
+				if (key == "Id" && !IS_NPC(ch)) { // moved to pcdata in version 18
+					ch->pcdata->id = o->valueint;
+					fMatch = TRUE; break;
+				}
 				INTKEY("Invi",			ch->invis_level,			o->valueint);
 				break;
 			case 'L':
@@ -1321,7 +1324,7 @@ Object * fread_obj(cJSON *json, int version) {
 
 	if (obj == nullptr) { /* either not found or old style */
 		Logging::bug("obj is null!", 0);
-		obj = new_obj();
+		obj = new Object();
 	}
 
 	for (cJSON *o = json->child; o; o = o->next) {
@@ -1416,7 +1419,7 @@ Object * fread_obj(cJSON *json, int version) {
 								obj_to_obj(c, obj);
 							}
 
-							free_obj(content);
+							extract_obj(content);
 						}
 					}
 					fMatch = TRUE; break;
@@ -1451,7 +1454,7 @@ Object * fread_obj(cJSON *json, int version) {
 							gem::inset(gem, obj);
 						}
 						else {
-							free_obj(gem);
+							extract_obj(gem);
 						}
 					}
 					fMatch = TRUE; break;
@@ -1523,7 +1526,7 @@ void fread_objects(Character *ch, cJSON *contains, void (*obj_to)(Object *, Char
 				(*obj_to)(c, ch);
 			}
 
-			free_obj(content);
+			extract_obj(content);
 		}
 	}
 }

@@ -98,8 +98,8 @@ void load_arena_table()
 		arena_table_tail = new Duel::Arena;
 		arena_table_head->next          = arena_table_tail;
 		arena_table_tail->previous      = arena_table_head;
-		duel_table_head = new_duel();
-		duel_table_tail = new_duel();
+		duel_table_head = new Duel();
+		duel_table_tail = new Duel();
 		duel_table_head->next   = duel_table_tail;
 		duel_table_tail->previous       = duel_table_head;
 
@@ -154,7 +154,7 @@ void remove_duel(Duel *c)
 			ch->pcdata->duel = nullptr;
 
 	clear_arena(c->arena);
-	free_duel(c);
+	delete c;
 }
 
 void duel_announce(char *buf, Duel *duel)
@@ -725,7 +725,7 @@ void do_duel(Character *ch, String argument)
 			}
 		}
 
-		duel = new_duel();
+		duel = new Duel();
 		duel->challenger = ch;
 		duel->defender = victim;
 		duel->arena = arena;

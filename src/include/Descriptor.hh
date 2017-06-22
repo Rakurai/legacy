@@ -3,11 +3,13 @@
 #include "declare.hh"
 #include "String.hh"
 #include "memory.hh"
+#include "Pooled.hh"
 
 /*
  * Descriptor (channel) structure.
  */
-class Descriptor
+class Descriptor :
+public Pooled<Descriptor>
 {
 public:
     Descriptor() {}
@@ -17,7 +19,6 @@ public:
     Descriptor *        snoop_by = nullptr;
     Character *         character = nullptr;
     Character *         original = nullptr;
-    bool                valid = FALSE;
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
     String              host;           /* text addr */
     sh_int              descriptor = 0;

@@ -32,7 +32,7 @@ void affect_insert_in_list(Affect **list_head, Affect *paf) {
 
 void affect_copy_to_list(Affect **list_head, const Affect *aff_template)
 {
-	Affect *paf_new = new_affect();
+	Affect *paf_new = new Affect();
 	*paf_new            = *aff_template;
 	paf_new->next = nullptr;
 	paf_new->prev = nullptr;
@@ -63,7 +63,7 @@ void affect_dedup_in_list(Affect **list_head, Affect *paf, affect_fn_params *par
 
 		affect_remove_from_list(list_head, paf_old);
 		(params->modifier)(params->owner, paf_old, FALSE);
-		free_affect(paf_old);
+		delete paf_old;
 	}
 }
 
@@ -72,7 +72,7 @@ void affect_clear_list(Affect **list_head) {
 		return;
 
 	affect_clear_list(&(*list_head)->next); // recurse
-	free_affect(*list_head);
+	delete *list_head;
 	*list_head = nullptr;
 }
 
@@ -98,7 +98,7 @@ void affect_remove_matching_from_list(Affect **list_head, affect_comparator comp
 		if (comp == nullptr || (*comp)(paf, pattern) == 0) {
 			affect_remove_from_list(list_head, paf);
 			(params->modifier)(params->owner, paf, FALSE);
-			free_affect(paf);
+			delete paf;
 		}
 	}
 }

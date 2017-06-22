@@ -2,18 +2,19 @@
 
 #include "declare.hh"
 #include "Flags.hh"
+#include "Pooled.hh"
 
 /*
  * An affect.
  */
-class Affect
+class Affect :
+public Pooled<Affect>
 {
 public:
     // note: the grouping of these fields is important for computing checksums.
     // if any of these change (especially these first 4) the checksum function will need updating.
     Affect *       next = nullptr;
     Affect *       prev = nullptr; // now a doubly liked list -- Montrey
-    bool                valid = FALSE;
     bool                mark = FALSE; // mark for deletion from list, other uses
 
     // fields included in checksum
@@ -139,8 +140,4 @@ void                affect_sort_char                 args(( Character *ch, affec
 void                affect_sort_room                 args(( RoomPrototype *ch, affect_comparator comp ));
 
 void                remort_affect_modify_char        args(( Character *ch, int where, Flags bitvector, bool fAdd ));
-
-/* affect recycling */
-Affect *new_affect args( (void) );
-void    free_affect args( (Affect *af) );
 

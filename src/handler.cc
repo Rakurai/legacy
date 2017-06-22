@@ -55,7 +55,6 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
 #include "World.hh"
@@ -969,7 +968,7 @@ void extract_obj(Object *obj)
 	}
 
 	--obj->pIndexData->count;
-	free_obj(obj);
+	delete obj;
 	return;
 }
 

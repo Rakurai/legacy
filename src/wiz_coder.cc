@@ -29,6 +29,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -567,35 +568,19 @@ void do_sectchange(Character *ch, String argument)
 
 void do_memory(Character *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH];
-	Format::sprintf(buf, "Affects %5d\n", top_affect);
-	stc(buf, ch);
-	Format::sprintf(buf, "Areas   %5d\n", top_area);
-	stc(buf, ch);
-	Format::sprintf(buf, "ExDes   %5d allocated, %5d free\n",
-		ExtraDescr::pool_allocated(), ExtraDescr::pool_free());
-	stc(buf, ch);
-	Format::sprintf(buf, "Exits   %5d\n", top_exit);
-	stc(buf, ch);
-	Format::sprintf(buf, "Socials %5d\n", count_socials());
-	stc(buf, ch);
-	Format::sprintf(buf, "Chars   %5d allocated, %5d free\n",
-		Character::pool_allocated(), Character::pool_free());
-	stc(buf, ch);
-	Format::sprintf(buf, "(in use)%5d\n", mobile_count);
-	stc(buf, ch);
-	Format::sprintf(buf, "Objs    %5d\n", top_obj_index);
-	stc(buf, ch);
-	Format::sprintf(buf, "Resets  %5d\n", top_reset);
-	stc(buf, ch);
-	Format::sprintf(buf, "Rooms   %5d\n", top_room);
-	stc(buf, ch);
-	Format::sprintf(buf, "Shops   %5d\n", top_shop);
-	stc(buf, ch);
-	Format::sprintf(buf, "Clans   %5d\n", count_clans());
-	stc(buf, ch);
-	Format::sprintf(buf, "Characters in storage  %5d\n", count_stored_characters());
-	stc(buf, ch);
+	ptc(ch, "Affects %5d allocated, %5d free\n", Affect::pool_allocated(), Affect::pool_free());
+	ptc(ch, "Areas   %5d\n", Game::world().areas.size());
+	ptc(ch, "ExDes   %5d allocated, %5d free\n", ExtraDescr::pool_allocated(), ExtraDescr::pool_free());
+	ptc(ch, "Exits   %5d\n", top_exit);
+	ptc(ch, "Socials %5d\n", count_socials());
+	ptc(ch, "Chars   %5d allocated, %5d free\n", Character::pool_allocated(), Character::pool_free());
+	ptc(ch, "Descrs  %5d allocated, %5d free\n", Descriptor::pool_allocated(), Descriptor::pool_free());
+	ptc(ch, "Objs    %5d allocated, %5d free\n", Object::pool_allocated(), Object::pool_free());
+	ptc(ch, "Resets  %5d\n", top_reset);
+	ptc(ch, "Rooms   %5d\n", top_room);
+	ptc(ch, "Shops   %5d\n", top_shop);
+	ptc(ch, "Clans   %5d\n", count_clans());
+	ptc(ch, "Characters in storage  %5d\n", count_stored_characters());
 	return;
 }
 

@@ -12,7 +12,6 @@
 #include "MobProg.hh"
 #include "Object.hh"
 #include "Player.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
 #include "Tail.hh"
@@ -328,8 +327,7 @@ void act_parse(
 
     /* check integrity of tailer. untail if bad. */
     for (td = ch->tail; td;) {
-        if (!IS_VALID(td->tailed_by)
-            || td->tailer_name != td->tailed_by->name) {
+        if (td->tailer_name != td->tailed_by->name) {
             set_tail(td->tailed_by, ch, TAIL_NONE);
             td = ch->tail;
             continue;

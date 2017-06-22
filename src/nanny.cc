@@ -6,7 +6,6 @@
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
-#include "Customize.hh"
 #include "declare.hh"
 #include "Descriptor.hh"
 #include "Flags.hh"
@@ -18,7 +17,6 @@
 #include "macros.hh"
 #include "merc.hh"
 #include "Player.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "sql.hh"
 #include "String.hh"
@@ -1017,7 +1015,7 @@ void nanny(Descriptor *d, String argument)
 		d->connected = CON_READ_MOTD;
 		set_color(ch, WHITE, NOBOLD);
 		break;
-
+/*
 	case CON_GEN_GROUPS:
 		stc("\n", ch);
 
@@ -1031,8 +1029,6 @@ void nanny(Descriptor *d, String argument)
 			if (ch->pcdata->points < 40)
 				ch->train = (40 - ch->pcdata->points + 1) / 2;
 
-			free_gen_data(ch->gen_data);
-			ch->gen_data = nullptr;
 			write_to_buffer(d, "\n");
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
 			buf[0] = '\0';
@@ -1054,7 +1050,7 @@ void nanny(Descriptor *d, String argument)
 
 		help(ch, "menu choice");
 		break;
-
+*/
 	case CON_READ_IMOTD:
 		write_to_buffer(d, "\n");
 		set_color(ch, CYAN, NOBOLD);

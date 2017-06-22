@@ -806,7 +806,6 @@ void load_objects(FILE *fp)
 				Flags bitvector = 0;
 				if (affect_parse_flags('O', &af, bitvector)) {
 					affect_copy_to_list(&pObjIndex->affected, &af);
-					top_affect++;
 				}
 			}
 			else if (letter == 'F') { // flag, can add bits or do other ->where types
@@ -827,7 +826,6 @@ void load_objects(FILE *fp)
 				do {
 					if (affect_parse_flags(letter, &af, bitvector)) {
 						affect_copy_to_list(&pObjIndex->affected, &af); 
-						top_affect++;
 
 						// don't multiply the modifier, just apply to the first bit
 						af.location = 0;
@@ -841,7 +839,6 @@ void load_objects(FILE *fp)
 				ExtraDescr *ed = new ExtraDescr(fread_string(fp), fread_string(fp));
 				ed->next                = pObjIndex->extra_descr;
 				pObjIndex->extra_descr  = ed;
-				top_ed++;
 			}
 			else if (letter == 'S') {
 				pObjIndex->num_settings = fread_number(fp);
@@ -1013,7 +1010,6 @@ void load_rooms(FILE *fp)
 				ed = new ExtraDescr(fread_string(fp), fread_string(fp));
 				ed->next                = pRoomIndex->extra_descr;
 				pRoomIndex->extra_descr = ed;
-				top_ed++;
 				break;
 
 			case 'O':

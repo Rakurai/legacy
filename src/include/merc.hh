@@ -790,9 +790,6 @@ const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const String& ctime ) );
 
 /* skills.c */
-bool    parse_gen_groups args( ( Character *ch, String argument ) );
-void    list_group_costs args( ( Character *ch ) );
-void    list_group_known args( ( Character *ch ) );
 long    exp_per_level   args( ( Character *ch, int points ) );
 void    check_improve   args( ( Character *ch, int sn, bool success,
 									int multiplier ) );

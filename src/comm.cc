@@ -71,7 +71,6 @@
 #include "MobilePrototype.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "sql.hh"
 #include "String.hh"
@@ -215,7 +214,7 @@ void copyover_recover()
 			continue;
 		}
 
-		d = new_descriptor();
+		d = new Descriptor();
 		d->descriptor = desc;
 		d->host = host;
 		d->next = descriptor_list;
@@ -688,7 +687,7 @@ void init_descriptor(int control)
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
 		wiznet("init_descriptor: error accepting new connection",
 		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
-		perror("New_descriptor: accept");
+		perror("new Descriptor: accept");
 		return;
 	}
 
@@ -699,14 +698,14 @@ void init_descriptor(int control)
 	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
 		wiznet("init_descriptor: error setting FNDELAY",
 		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
-		perror("New_descriptor: fcntl: FNDELAY");
+		perror("new Descriptor: fcntl: FNDELAY");
 		return;
 	}
 
 	/*
 	 * Cons a new descriptor.
 	 */
-	dnew = new_descriptor();
+	dnew = new Descriptor();
 	dnew->descriptor = desc;
 	/* Format::printf( "new descriptor at socket %d\n", desc ); */
 	size = sizeof(sock);
@@ -714,7 +713,7 @@ void init_descriptor(int control)
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
 		wiznet("init_descriptor: error getting peername",
 		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
-		perror("New_descriptor: getpeername");
+		perror("new Descriptor: getpeername");
 		dnew->host = "(unknown)";
 	}
 	else {
@@ -889,7 +888,7 @@ void close_socket(Descriptor *dclose)
 
 	Format::printf("Closing socket %d\n", dclose->descriptor);
 	close(dclose->descriptor);
-	free_descriptor(dclose);
+	delete dclose;
 	return;
 }
 

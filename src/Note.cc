@@ -42,7 +42,6 @@
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
-#include "recycle.hh"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
@@ -73,40 +72,6 @@ std::vector<board_index_struct> board_index = {
 	{ "{CP", &personal_list, "personal message",     "personal messages",    "personal message"      },
 	{ "{bT", &trade_list,   "trade note",           "trade notes",          "trade note"            },
 };
-
-/* stuff for recyling notes */
-Note *note_free;
-
-Note *new_note()
-{
-	Note *note;
-
-	if (note_free == nullptr)
-		note = new Note;
-	else {
-		note = note_free;
-		note_free = note_free->next;
-	}
-
-	note->sender.erase();
-	note->to_list.erase();
-	note->subject.erase();
-	note->date.erase();
-	note->text.erase();
-
-	VALIDATE(note);
-	return note;
-}
-
-void free_note(Note *note)
-{
-	if (!IS_VALID(note))
-		return;
-
-	INVALIDATE(note);
-	note->next = note_free;
-	note_free   = note;
-}
 
 /* count the number of messages, visible to 'ch', in a given message list */
 int count_spool(Character *ch, Note *spool)
@@ -324,7 +289,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 		while (isspace(letter));
 
 		ungetc(letter, fp);
-		pnote           = new_note();
+		pnote           = new Note();
 
 		if (fread_word(fp) != "sender")
 			break;
@@ -357,7 +322,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 		pnote->text     = fread_string(fp);
 
 		if (free_time && (pnote->date_stamp < current_time - free_time)) {
-			free_note(pnote);
+			delete pnote;
 			continue;
 		}
 
@@ -372,7 +337,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 	}
 
 	// getting here means last note was unreadable
-	free_note(pnote);
+	delete pnote;
 	strcpy(strArea, NOTE_FILE);
 	fpArea = fp;
 	Logging::bug("Load_notes: bad key word.", 0);
@@ -524,7 +489,7 @@ void note_attach(Character *ch, int type)
 	if (ch->pnote != nullptr)
 		return;
 
-	pnote = new_note();
+	pnote = new Note();
 	pnote->sender       = IS_NPC(ch) ? ch->short_descr : ch->name;
 	pnote->type         = type;
 	ch->pnote           = pnote;
@@ -612,7 +577,7 @@ void note_remove(Character *ch, Note *pnote, bool del)
 	}
 
 	save_notes(pnote->type);
-	free_note(pnote);
+	delete pnote;
 	return;
 }
 
@@ -946,7 +911,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
-				newnote = new_note();
+				newnote = new Note();
 				newnote->sender   = pnote->sender;
 				newnote->date     = pnote->date;
 				newnote->date_stamp           = current_time;
@@ -984,7 +949,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
-				newnote = new_note();
+				newnote = new Note();
 				newnote->sender   = pnote->sender;
 				newnote->date     = pnote->date;
 				newnote->date_stamp           = current_time;
@@ -1123,7 +1088,7 @@ void parse_note(Character *ch, String argument, int type)
 		}
 
 		/* copy message to new list */
-		newnote                 = new_note();
+		newnote                 = new Note();
 		newnote->sender         = pnote->sender;
 		newnote->date           = pnote->date;
 		newnote->date_stamp     = current_time;
@@ -1314,7 +1279,7 @@ void parse_note(Character *ch, String argument, int type)
 
 	if (arg.is_prefix_of("clear")) {
 		if (ch->pnote != nullptr) {
-			free_note(ch->pnote);
+			delete ch->pnote;
 			ch->pnote = nullptr;
 		}
 

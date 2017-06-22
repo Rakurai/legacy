@@ -50,10 +50,7 @@ public:
     Clan *         inviters = nullptr;
     Area *         zone = nullptr;
     Player *            pcdata = nullptr;
-    Customize *          gen_data = nullptr;
-    bool                valid = FALSE;
     String              name;
-    long                id = 0;
     String              short_descr;
     String              long_descr;
     String              description;

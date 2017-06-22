@@ -12,7 +12,6 @@
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "random.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "Tail.hh"
 
@@ -33,9 +32,6 @@ Character::Character() {
 }
 
 Character::~Character() {
-	if (IS_NPC(this))
-		mobile_count--;
-
 	Object *obj, *obj_next;
 	for (obj = carrying; obj != nullptr; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -75,9 +71,7 @@ Character::~Character() {
 	}
 
 	if (pcdata != nullptr)
-		free_pcdata(pcdata);
-	if (gen_data != nullptr)
-		free_gen_data(gen_data);
+		delete pcdata;
 	if (apply_cache)
 		delete[] apply_cache;
 	if (defense_mod)

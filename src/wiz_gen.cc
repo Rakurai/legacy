@@ -39,7 +39,6 @@
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "Player.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "sql.hh"
 #include "StoredPlayer.hh"
@@ -1904,7 +1903,7 @@ void do_linkload(Character *ch, String argument)
 		}
 	}
 
-	dnew = new_descriptor();
+	dnew = new Descriptor();
 	dnew->descriptor    = desc;
 	dnew->connected     = CON_PLAYING;
 
@@ -1944,7 +1943,7 @@ void do_linkload(Character *ch, String argument)
 		delete dnew->character;
 	}
 
-	free_descriptor(dnew);
+	delete dnew;
 } /* end do_linkload() */
 
 void do_mload(Character *ch, String argument)

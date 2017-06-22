@@ -18,7 +18,6 @@ public:
         sh_int      start_score = 0;
         sh_int      final_score = 0;
 
-        bool        valid = FALSE;
         Opponent *  next = nullptr;
 
     private:
@@ -38,7 +37,6 @@ public:
         sh_int      number = 0;
         time_t      time = 0;
 
-        bool        valid = FALSE;
         Event *    next = nullptr;
 
     private:
@@ -55,7 +53,6 @@ public:
 
     bool        ongoing = FALSE;
 
-    bool        valid = FALSE;
     War *  previous = nullptr;
     War *  next = nullptr;
 
@@ -63,15 +60,3 @@ private:
     War(const War&);
     War& operator=(const War&);
 };
-
-/* war recycling */
-War *new_war args((void));
-void        free_war args((War *war));
-
-/* war opponent recycling */
-War::Opponent   *new_opp args((void));
-void        free_opp args((War::Opponent *opp));
-
-/* war event recycling */
-War::Event  *new_event args((void));
-void        free_event args((War::Event *event));

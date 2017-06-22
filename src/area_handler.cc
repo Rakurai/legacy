@@ -28,7 +28,6 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "recycle.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
 
@@ -41,7 +40,6 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	Character *mob;
 	int i, stambase;
 	long wealth;
-	mobile_count++;
 
 	if (pMobIndex == nullptr) {
 		Logging::bug("Create_mobile: nullptr pMobIndex.", 0);
@@ -59,7 +57,6 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 
 	mob->pIndexData     = pMobIndex;
 	mob->name           = pMobIndex->player_name;
-	mob->id             = get_mob_id();
 	mob->short_descr    = pMobIndex->short_descr;
 	mob->long_descr     = pMobIndex->long_descr;
 	mob->description    = pMobIndex->description;
@@ -290,7 +287,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 		return nullptr;
 	}
 
-	obj = new_obj();
+	obj = new Object(pObjIndex);
 
 	/* Check for memory error. -- Outsider */
 	if (! obj) {
@@ -298,7 +295,6 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 		return nullptr;
 	}
 
-	obj->pIndexData     = pObjIndex;
 	obj->level          = pObjIndex->level;
 	obj->wear_loc       = -1;
 	obj->name           = pObjIndex->name;
@@ -559,7 +555,7 @@ void do_areas(Character *ch, String argument)
 	}
 
 	/* Allocate space for pointers to all areas. */
-	ptrs_size = (top_area + 1) * sizeof(ap);
+	ptrs_size = (Game::world().areas.size() + 1) * sizeof(ap);
 	Area *ptrs[ptrs_size];
 
 	/* Gather pointers to all areas of interest */

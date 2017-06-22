@@ -47,7 +47,7 @@ void affect_remove_from_room(RoomPrototype *room, Affect *paf)
 {
 	affect_remove_from_list(&room->affected, paf);
 	affect_modify_room(room, paf, FALSE);
-	free_affect(paf);
+	delete paf;
 }
 
 void affect_remove_matching_from_room(RoomPrototype *room, affect_comparator comp, const Affect *pattern) {

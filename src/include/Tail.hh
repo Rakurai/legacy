@@ -10,7 +10,6 @@ public:
     Tail() {}
     virtual ~Tail() {}
 
-    bool        valid = FALSE;
     Character * tailed_by = nullptr;
     String      tailer_name;
     int         flags = 0;

@@ -30,7 +30,6 @@
 #include "merc.hh"
 #include "Object.hh"
 #include "Player.hh"
-#include "recycle.hh"
 #include "sql.hh"
 #include "String.hh"
 #include "tables.hh"
@@ -700,7 +699,6 @@ int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
 	if (td) {
 		if (td != victim->tail) {
 			/* not first in chain, so copy first over retiring item */
-			VALIDATE(td);
 			td->tailed_by = victim->tail->tailed_by;
 			td->tailer_name = victim->tail->tailer_name;
 			td->flags = victim->tail->flags;
@@ -711,8 +709,7 @@ int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
 		victim->tail = td->next;
 		delete td;
 
-		if (IS_VALID(ch))
-			ptc(ch, "You have stopped tailing %s.\n", PERS(victim, ch, VIS_PLR));
+		ptc(ch, "You have stopped tailing %s.\n", PERS(victim, ch, VIS_PLR));
 
 		return 1;
 	}

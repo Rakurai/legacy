@@ -5,11 +5,13 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "Pooled.hh"
 
 /*
  * Data which only PC's have.
  */
-class Player
+class Player :
+public Pooled<Player>
 {
 public:
 	Player();
@@ -19,8 +21,8 @@ public:
 	Character *	        ch = nullptr;	/* i may be missing something, but this seems like a 'duh',
 				   make it point backwards to the character -- Montrey */
 
+	long				id = 0;
 	String              buffer;
-	bool                valid = FALSE;
 	String              pwd;
 	String              bamfin;
 	String              bamfout;
@@ -112,6 +114,8 @@ private:
 	Player(const Player&);
 	Player& operator=(const Player&);
 };
+
+long get_pc_id();
 
 /* mudding experience for newbies */
 #define MEXP_TOTAL_NEWBIE	0

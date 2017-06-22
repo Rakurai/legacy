@@ -10,7 +10,6 @@
 #include "macros.hh"
 #include "merc.hh"
 #include "random.hh"
-#include "recycle.hh"
 
 // local declarations
 void affect_modify_char(void *owner, const Affect *paf, bool fAdd);
@@ -85,7 +84,7 @@ void affect_remove_from_char(Character *ch, Affect *paf)
 {
 	affect_remove_from_list(&ch->affected, paf);
 	affect_modify_char(ch, paf, FALSE);
-	free_affect(paf);
+	delete paf;
 }
 
 void affect_remove_matching_from_char(Character *ch, affect_comparator comp, const Affect *pattern) {
