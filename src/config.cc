@@ -576,18 +576,16 @@ void config_immortal(Character *ch, String argument)
 				"race, class, and level.  Use 'none' for the default.\n", ch);
 		else if (argument.empty())
 			ptc(ch, "Your immname is currently: %s{x\n",
-				ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
+				!ch->pcdata->immname.empty() ? ch->pcdata->immname : "(none)");
 		else if (argument == "none") {
 			ch->pcdata->immname.erase();
 			stc("Your immname has been removed.\n", ch);
 		}
 		else {
-			String buf = argument.uncolor();
-
-			if (strlen(buf) > TITLEBLOCK)
+			if (strlen(argument.uncolor()) > TITLEBLOCK)
 				stc("Your immname can be no longer than 13 printed characters.\n", ch);
 			else {
-				buf[0]  = '\0';
+				String buf;
 				buf += "{W[{x";
 				buf += argument.center(TITLEBLOCK);
 				buf += "{W]{x";
