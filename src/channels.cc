@@ -511,7 +511,7 @@ void send_to_query(Character *ch, const char *string)
 	}
 }
 
-void send_to_clan(Character *ch, Clan *target, const char *text)
+void send_to_clan(Character *ch, Clan *target, const String& text)
 {
 	Descriptor *d;
 
@@ -520,7 +520,7 @@ void send_to_clan(Character *ch, Clan *target, const char *text)
 		return;
 	}
 
-	if (text[0] == '\0') {
+	if (text.empty()) {
 		stc("Tell them what ?\n", ch);
 		return;
 	}
@@ -610,7 +610,7 @@ void channel(Character *ch, const String& argument, int channel)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg == "who" && argument[3] == '\0') {
+	if (arg == "who" && argument.length() == 3) {
 		channel_who(ch, chan_table[channel].name, chan_table[channel].bit, cslot);
 		return;
 	}
@@ -621,7 +621,7 @@ void channel(Character *ch, const String& argument, int channel)
 	if (channel == CHAN_IMMTALK) { /* lil different for immtalk */
 		char prefix[MSL];
 
-		if (ch->pcdata && ch->pcdata->immprefix[0] != '\0')
+		if (ch->pcdata && !ch->pcdata->immprefix.empty())
 			Format::sprintf(prefix, "%s", ch->pcdata->immprefix);
 		else
 			Format::sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
@@ -653,7 +653,7 @@ void channel(Character *ch, const String& argument, int channel)
 
 				char prefix[MSL];
 				if (can_see_who(victim, ch)) {
-					if (ch->pcdata && ch->pcdata->immprefix[0] != '\0')
+					if (ch->pcdata && !ch->pcdata->immprefix.empty())
 						Format::sprintf(prefix, "%s", ch->pcdata->immprefix);
 					else
 						Format::sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
@@ -937,7 +937,7 @@ void do_globalsocial(Character *ch, String argument)
 	String arg;
 	String arg2 = one_argument(argument, arg);
 
-	if (arg.is_prefix_of("who") && argument[3] == '\0') {
+	if (arg.is_prefix_of("who") && argument.length() == 3) {
 		channel_who(ch, "Social", COMM_NOSOCIAL, CSLOT_CHAN_SOCIAL);
 		return;
 	}
@@ -1222,7 +1222,7 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->reply[0] == '\0') {
+	if (ch->reply.empty()) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("But no one has sent you a tell yet!\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1380,8 +1380,7 @@ void do_pmote(Character *ch, String argument)
 {
 	Character *vch;
 	const char *letter, *name;
-	char last[MAX_INPUT_LENGTH];
-	String temp;
+	String last, temp;
 	unsigned int matches = 0;
 
 	if (!IS_NPC(ch) && ch->revoke_flags.has(REVOKE_EMOTE)) {
@@ -1406,8 +1405,8 @@ void do_pmote(Character *ch, String argument)
 		}
 
 		temp = argument;
-		temp[strlen(argument) - strlen(letter)] = '\0';
-		last[0] = '\0';
+		temp.erase(strlen(argument) - strlen(letter));
+		last.clear();
 		name = vch->name.c_str();
 
 		for (; *letter != '\0'; letter++) {
@@ -1430,19 +1429,19 @@ void do_pmote(Character *ch, String argument)
 
 				if (matches == strlen(vch->name)) {
 					temp += "you";
-					last[0] = '\0';
+					last.clear();
 					name = vch->name.c_str();
 					continue;
 				}
 
-				strncat(last, letter, 1);
+				last += letter[0];
 				continue;
 			}
 
 			matches = 0;
 			temp += last;
 			temp += letter[0];
-			last[0] = '\0';
+			last.clear();
 			name = vch->name.c_str();
 		}
 
@@ -1456,8 +1455,7 @@ void do_smote(Character *ch, String argument)
 {
 	Character *vch;
 	const char *letter, *name;
-	char last[MAX_INPUT_LENGTH];
-	String temp;
+	String last, temp;
 	unsigned int matches = 0;
 
 	if (!IS_NPC(ch) && ch->comm_flags.has(COMM_NOCHANNELS)) {
@@ -1489,8 +1487,8 @@ void do_smote(Character *ch, String argument)
 		}
 
 		temp = argument;
-		temp[strlen(argument) - strlen(letter)] = '\0';
-		last[0] = '\0';
+		temp.erase(strlen(argument) - strlen(letter));
+		last.clear();
 		name = vch->name.c_str();
 
 		for (; *letter != '\0'; letter++) {
@@ -1513,19 +1511,19 @@ void do_smote(Character *ch, String argument)
 
 				if (matches == strlen(vch->name)) {
 					temp += "you";
-					last[0] = '\0';
+					last.clear();
 					name = vch->name.c_str();
 					continue;
 				}
 
-				strncat(last, letter, 1);
+				last += letter[0];
 				continue;
 			}
 
 			matches = 0;
 			temp += last;
 			temp += letter[0];
-			last[0] = '\0';
+			last.clear();
 			name = vch->name.c_str();
 		}
 

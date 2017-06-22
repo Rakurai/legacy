@@ -75,8 +75,8 @@ void do_marry(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pcdata->spouse[0] == '\0'
-	    || victim2->pcdata->spouse[0] == '\0'
+	if (victim->pcdata->spouse.empty()
+	    || victim2->pcdata->spouse.empty()
 	    || victim->pcdata->spouse != victim2->name
 	    || victim2->pcdata->spouse != victim->name) {
 		stc("They are not engaged.\n", ch);
@@ -166,7 +166,7 @@ void do_spousetalk(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse[0] == '\0') {
+	if (ch->pcdata->spouse.empty()) {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
 		stc("You aren't even engaged. How do you expect to talk to your other half?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -230,7 +230,7 @@ void do_propose(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse[0] != '\0') {
+	if (!ch->pcdata->spouse.empty()) {
 		stc("You are already engaged.\n", ch);
 		return;
 	}
@@ -255,7 +255,7 @@ void do_propose(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pcdata->spouse[0] != '\0') {
+	if (!victim->pcdata->spouse.empty()) {
 		stc("They are already engaged.\n", ch);
 		return;
 	}
@@ -288,7 +288,7 @@ void do_accept(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse[0] != '\0') {
+	if (!ch->pcdata->spouse.empty()) {
 		stc("You are already engaged.\n", ch);
 		return;
 	}
@@ -356,7 +356,7 @@ void do_reject(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse[0] != '\0') {
+	if (!ch->pcdata->spouse.empty()) {
 		stc("You are already engaged.\n", ch);
 		return;
 	}
@@ -412,7 +412,7 @@ void do_breakup(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse[0] == '\0') {
+	if (ch->pcdata->spouse.empty()) {
 		stc("You aren't engaged.\n", ch);
 		return;
 	}
@@ -433,7 +433,7 @@ void do_breakup(Character *ch, String argument)
 	}
 
 	if (ch->pcdata->spouse != victim->name
-	    || victim->pcdata->spouse[0] == '\0'
+	    || victim->pcdata->spouse.empty()
 	    || victim->pcdata->spouse != ch->name) {
 		stc("They aren't even engaged to you.\n\t", ch);
 		return;

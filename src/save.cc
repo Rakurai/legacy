@@ -476,7 +476,7 @@ cJSON *fwrite_char(Character *ch)
 	if (ch->long_descr[0])
 		JSON::addStringToObject(o,	"LnD",			ch->long_descr);
 
-	JSON::addStringToObject(o,		"Name",			ch->name.c_str());
+	JSON::addStringToObject(o,		"Name",			ch->name);
 	cJSON_AddNumberToObject(o,		"Pos",			ch->position);
 	cJSON_AddNumberToObject(o,              "PosP",                 ch->start_pos);
 	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);

@@ -49,7 +49,7 @@ Clan *clan_lookup(const String& name)
 {
 	Clan *iterator;
 
-	if (name[0] == '\0')
+	if (name.empty())
 		return nullptr;
 
 	iterator = clan_table_head->next;

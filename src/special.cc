@@ -385,10 +385,10 @@ bool spec_nasty(Character *ch)
 			if (!IS_NPC(victim)
 			    && (victim->level > ch->level)
 			    && (victim->level < ch->level + 10)) {
-				do_backstab(ch, victim->name.c_str());
+				do_backstab(ch, victim->name);
 
 				if (!ch->fighting)
-					do_kill(ch, victim->name.c_str());
+					do_kill(ch, victim->name);
 
 				/* should steal some coins right away? :) */
 				return TRUE;

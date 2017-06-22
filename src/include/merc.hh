@@ -525,7 +525,7 @@ void    stop_follower   args( ( Character *ch ) );
 void    nuke_pets       args( ( Character *ch ) );
 void    die_follower    args( ( Character *ch ) );
 bool    is_same_group   args( ( Character *ach, Character *bch ) );
-void    send_to_clan    args( ( Character *ch, Clan *target, const char *text ) );
+void    send_to_clan    args( ( Character *ch, Clan *target, const String& text ) );
 
 /* social-edit.c */
 void load_social_table();

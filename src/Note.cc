@@ -28,6 +28,7 @@
 #include "Note.hh"
 
 #include <cstring>
+#include <vector>
 
 #include "argument.hh"
 #include "channels.hh"
@@ -63,7 +64,7 @@ Note *trade_list;
 
 /* Names for note types. Keep these in line with the
    #define names NOTE_NOTE, NOTE_IDEA etc. in merc.h !!! */
-struct board_index_struct board_index [] = {
+std::vector<board_index_struct> board_index = {
 	{ "{PN", &note_list,    "note",                 "notes",                "note"                  },
 	{ "{YI", &idea_list,    "idea",                 "ideas",                "idea"                  },
 	{ "{VR", &roleplay_list, "roleplay",             "roleplays",            "roleplaying note"      },
@@ -71,7 +72,6 @@ struct board_index_struct board_index [] = {
 	{ "{GC", &changes_list, "change",               "changes",              "change"                },
 	{ "{CP", &personal_list, "personal message",     "personal messages",    "personal message"      },
 	{ "{bT", &trade_list,   "trade note",           "trade notes",          "trade note"            },
-	{ "",    nullptr,          "",                     "",                     ""                      }
 };
 
 /* stuff for recyling notes */
@@ -931,7 +931,7 @@ void parse_note(Character *ch, String argument, int type)
 		String forward;
 		argument = one_argument(argument, forward);
 
-		if (forward[0] == '\0') {
+		if (forward.empty()) {
 			stc("Foward note to who?\n", ch);
 			return;
 		}
@@ -1099,7 +1099,7 @@ void parse_note(Character *ch, String argument, int type)
 		newlist = nullptr;
 		argument = one_argument(argument, arg);
 
-		for (j = 0; board_index[j].board_hdr[0] != '\0'; j++) {
+		for (j = 0; j < board_index.size(); j++) {
 			if (arg.is_prefix_of(board_index[j].board_plural)) {
 				newtype = j;
 				newlist = *(board_index[j].board_list);
@@ -1184,7 +1184,7 @@ void parse_note(Character *ch, String argument, int type)
 		argument = one_argument(argument, old);
 		argument = one_argument(argument, nw);
 
-		if ((old[0] == '\0') || (nw[0] == '\0')) {
+		if ((old.empty()) || (nw.empty())) {
 			stc("Usage: note replace 'old string' 'new string'\n",
 			    ch);
 			return;
@@ -1613,7 +1613,7 @@ void do_old_next(Character *ch)
 /* Chronological NEXT -- Elrac */
 void do_next(Character *ch, String argument)
 {
-	struct board_index_struct *pbis, *obis = nullptr;
+	struct board_index_struct *obis = nullptr;
 	time_t ostamp = (time_t) 0;
 	Note *pnote, *onote = nullptr;
 	Note **plist;
@@ -1631,15 +1631,15 @@ void do_next(Character *ch, String argument)
 	}
 
 	/* loop thru all boards, find the lowest unread note timestamp */
-	for (pbis = board_index; pbis->board_hdr[0]; pbis++) {
-		plist = pbis->board_list;
+	for (auto it = board_index.begin(); it != board_index.end(); ++it) {
+		plist = it->board_list;
 		nnum = 0;
 
 		/* find the oldest non-hidden note on the board */
 		for (pnote = *plist; pnote != nullptr; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				if (onote == nullptr || pnote->date_stamp <= ostamp) {
-					obis = pbis;
+					obis = &*it;
 					onum = nnum;
 					onote = pnote;
 					ostamp = pnote->date_stamp;

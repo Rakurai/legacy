@@ -59,7 +59,7 @@ void do_disable(Character *ch, String argument)
 	String cmd;
 	argument = one_argument(argument, cmd);
 
-	if (cmd[0] == '\0') {
+	if (cmd.empty()) {
 		if (!disabled_first) { /* Any disabled at all ? */
 			stc("There are no commands disabled.\n", ch);
 			return;
@@ -113,11 +113,11 @@ void do_disable(Character *ch, String argument)
 		return;
 	}
 
-	for (i = 0; cmd_table[i].name[0] != '\0'; i++)
+	for (i = 0; i < cmd_table.size(); i++)
 		if (cmd == cmd_table[i].name)
 			break;
 
-	if (cmd_table[i].name[0] == '\0') {
+	if (cmd_table[i].name.empty()) {
 		stc("No such command.\n", ch);
 		return;
 	}

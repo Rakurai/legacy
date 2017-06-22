@@ -170,7 +170,7 @@ String print_defense_modifiers(Character *ch, int where) {
 		}
 
 		if (print) {
-			if (buf[0] != '\0')
+			if (!buf.empty())
 				buf += " ";
 
 			buf += dam_type_name(i);

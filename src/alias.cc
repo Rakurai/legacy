@@ -78,15 +78,15 @@ void substitute_alias(Descriptor *d, String argument)
 	auto search = ch->pcdata->alias.find(word);
 
 	if (search != ch->pcdata->alias.end()) {
-		buf = (*search).second.c_str();
+		buf = (*search).second;
 		buf += " ";
 		buf += argument;
 
-		buf = get_multi_command(d, buf.c_str());
+		buf = get_multi_command(d, buf);
 
 		if (strlen(buf) > MAX_INPUT_LENGTH) {
 			stc("Alias substitution too long. Truncated.\n", ch);
-			buf[MAX_INPUT_LENGTH - 1] = '\0';
+			buf.erase(MAX_INPUT_LENGTH - 1);
 		}
 	}
 
@@ -139,7 +139,7 @@ void do_alias(Character *ch, String argument)
 		if (search == rch->pcdata->alias.end())
 			stc("That alias is not defined.\n", ch);
 		else
-			ptc(ch, "%s aliases to '%s'.\n", (*search).first.c_str(), (*search).second.c_str());
+			ptc(ch, "%s aliases to '%s'.\n", (*search).first, (*search).second);
 
 		return;
 	}

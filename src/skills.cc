@@ -119,7 +119,6 @@ void do_spells(Character *ch, String argument)
 	String arg, buf;
 	int cols = 0;
 	int pos = 18;
-	char spell_name[MAX_INPUT_LENGTH];
 	bool found = FALSE;
 	bool new_level = TRUE;
 	String buffer;
@@ -186,11 +185,12 @@ void do_spells(Character *ch, String argument)
 	}
 
 	/* Check for a spell name */
-	spell_name[0] = '\0';
+	String spell_name;
+
 	argument = one_argument(argument, arg);
 
 	if (!found && !arg.is_number()) {
-		strcpy(spell_name, arg);
+		spell_name = arg;
 		argument = one_argument(argument, arg);
 	}
 
@@ -249,7 +249,7 @@ void do_spells(Character *ch, String argument)
 			    || skill_table[sn].spell_fun == spell_null)
 				continue;
 
-			if (spell_name[0] == '\0') {
+			if (spell_name.empty()) {
 				if (ch->pcdata->learned[sn] <= 0
 				    || (skill_table[sn].remort_class != 0 && !IS_IMMORTAL(ch)
 				        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
@@ -267,7 +267,7 @@ void do_spells(Character *ch, String argument)
 
 	if (!found) {
 		/* if they did a list of all spells... */
-		if (min_level == 1 && max_level == LEVEL_HERO && spell_name[0] == '\0')
+		if (min_level == 1 && max_level == LEVEL_HERO && spell_name.empty())
 			stc("You know no spells.\n", ch);
 		else
 			stc("No spell group of that name and\n"
@@ -372,7 +372,6 @@ void do_skills(Character *ch, String argument)
 	String buf;
 	int cols = 0;
 	int pos = 18;
-	char skill_name[MAX_INPUT_LENGTH];
 	bool found = FALSE;
 	bool new_level = TRUE;
 	String buffer;
@@ -390,13 +389,13 @@ void do_skills(Character *ch, String argument)
 	}
 
 	/* Check for a skill name */
-	skill_name[0] = '\0';
+	String skill_name;
 
 	String arg;
 	argument = one_argument(argument, arg);
 
 	if (!arg.is_number()) {
-		strcpy(skill_name, arg);
+		skill_name = arg;
 		argument = one_argument(argument, arg);
 	}
 
@@ -432,7 +431,7 @@ void do_skills(Character *ch, String argument)
 		    || skill_table[sn].spell_fun != spell_null)
 			continue;
 
-		if (skill_name[0] == '\0') {
+		if (skill_name.empty()) {
 			if (ch->pcdata->learned[sn] <= 0
 			    || (skill_table[sn].remort_class != 0 && !IS_IMMORTAL(ch)
 			        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
@@ -449,7 +448,7 @@ void do_skills(Character *ch, String argument)
 
 	if (!found) {
 		/* if they did a list of all spells... */
-		if (min_level == 1 && max_level == LEVEL_HERO && skill_name[0] == '\0')
+		if (min_level == 1 && max_level == LEVEL_HERO && skill_name.empty())
 			stc("You know no skills.\n", ch);
 		else
 			stc("No skills of that name found.\n", ch);
@@ -644,7 +643,7 @@ void do_levels(Character *ch, String argument)
 			Format::sprintf(buf, "{G%-20s  {C%3d{x {Tmana{x  ", skill_table[sn].name,
 			        skill_table[sn].min_mana);
 
-			if (list[lev][0] == '\0')
+			if (list[lev].empty())
 				Format::sprintf(list[lev], "\n{HLevel %2d: %s", lev, buf);
 			else { /* append */
 				if (++columns[lev] % 2 == 0)
@@ -676,7 +675,7 @@ void do_levels(Character *ch, String argument)
 			lev = skill_table[sn].skill_level[cls];
 			Format::sprintf(buf, "{G%-20s   {x        ", skill_table[sn].name);
 
-			if (list[lev][0] == '\0')
+			if (list[lev].empty())
 				Format::sprintf(list[lev], "\n{HLevel %2d: %s{x", lev, buf);
 			else { /* append */
 				if (++columns[lev] % 2 == 0)

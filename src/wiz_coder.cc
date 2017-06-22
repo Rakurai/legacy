@@ -283,7 +283,7 @@ void do_shutdown(Character *ch, String argument)
 		strtime[strlen(strtime) - 1] = '\0';
 		Format::sprintf(buf2, "%s :SHUTDOWN", strtime);
 		fappend(SHUTDOWN_FILE, buf2);
-		fappend(SHUTDOWN_FILE, argument.c_str());
+		fappend(SHUTDOWN_FILE, argument);
 	}
 
 	do_allsave(ch, "");

@@ -1030,7 +1030,7 @@ void extract_char(Character *ch, bool fPull)
 
 	for (wch = char_list; wch != nullptr; wch = wch->next)
 		if (! strcasecmp(wch->reply, ch->name))
-			wch->reply[0] = '\0';
+			wch->reply.clear();
 
 	if (ch == char_list)
 		char_list = ch->next;

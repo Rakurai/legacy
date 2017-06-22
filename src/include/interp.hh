@@ -1,7 +1,9 @@
 #pragma once
 
 #include "declare.hh"
+#include "String.hh"
 #include "Flags.hh"
+#include <vector>
 
 /* this is a listing of all the commands and command related data */
 
@@ -13,7 +15,7 @@
  */
 struct  cmd_type
 {
-    char * const        name;
+    String              name;
     DO_FUN *            do_fun;
     sh_int              position;
     sh_int              log;
@@ -22,7 +24,7 @@ struct  cmd_type
 };
 
 /* the command table itself */
-extern  const   struct  cmd_type        cmd_table       [];
+extern const std::vector<cmd_type> cmd_table;
 
 /*
  * Command functions.

@@ -1272,7 +1272,7 @@ void do_file(Character *ch, String argument)
 	argument = one_argument(argument, field);
 	one_argument(argument, value);
 
-	if (field[0] == '\0') {
+	if (field.empty()) {
 		stc("Accessible files:\n\n"
 		    "Name:          Path:\n", ch);
 
@@ -1293,7 +1293,7 @@ void do_file(Character *ch, String argument)
 		return;
 	}
 
-	if (value[0] == '\0')
+	if (value.empty())
 		req_lines = 150;
 	else
 		req_lines = URANGE(1, atoi(value), 150);
@@ -1385,34 +1385,30 @@ void do_followerlist(Character *ch, String argument)
    character within a room. E.g. the second 'guard' -> 2. guard Right
    now its pretty much useless, but it might be useful in the future
    - Lotus */
-const char *name_expand(Character *ch)
+const String name_expand(Character *ch)
 {
 	int count = 1;
 	Character *rch;
-	static char outbuf[MAX_INPUT_LENGTH];
 
 	if (!IS_NPC(ch))
-		return ch->name.c_str();
+		return ch->name;
 
 	String name;
 	one_argument(ch->name, name);  /* copy the first word into name */
 
-	if (!name[0]) { /* weird mob .. no keywords */
-		strcpy(outbuf, "");  /* Return an empty buffer */
-		return outbuf;
+	if (name.empty()) { /* weird mob .. no keywords */
+		return name;
 	}
 
 	for (rch = ch->in_room->people; rch && (rch != ch); rch = rch->next_in_room)
 		if (rch->name.has_words(name))
 			count++;
 
-	Format::sprintf(outbuf, "%d.%s", count, name);
-	return outbuf;
+	return Format::format("%d.%s", count, name);
 }
 
 void do_for(Character *ch, String argument)
 {
-	char buf[MSL];
 	RoomPrototype *room, *old_room = nullptr;
 	Character *p, *p_next;
 	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
@@ -1475,40 +1471,29 @@ void do_for(Character *ch, String argument)
 			else if (p->in_room == ch->in_room && fRoom)
 				found = TRUE;
 
-			if (found) { /* p is 'appropriate' */
-				const char *pSource = argument.c_str(); /* head of buffer to be parsed */
-				char *pDest = buf; /* parse into this */
+			if (!found)
+				continue;
 
-				while (*pSource) {
-					if (*pSource == '#') { /* Replace # with name of target */
-						const char *namebuf = name_expand(p);
+			String name = name_expand(p);
 
-						if (namebuf) /* in case there is no mob name ?? */
-							while (*namebuf) /* copy name over */
-								*(pDest++) = *(namebuf++);
+			if (name.empty()) // mob with no name??
+				continue;
 
-						pSource++;
-					}
-					else
-						*(pDest++) = *(pSource++);
-				} /* while */
+			String buf = argument.replace("#", name);
 
-				*pDest = '\0'; /* Terminate */
+			/* Execute */
+			if (!fRoom) {
+				old_room = ch->in_room;
+				char_from_room(ch);
+				char_to_room(ch, p->in_room);
+			}
 
-				/* Execute */
-				if (!fRoom) {
-					old_room = ch->in_room;
-					char_from_room(ch);
-					char_to_room(ch, p->in_room);
-				}
+			interpret(ch, buf);
 
-				interpret(ch, buf);
-
-				if (ch && !fRoom) {     /* make sure ch still exists! :P -- Montrey */
-					char_from_room(ch);
-					char_to_room(ch, old_room);
-				}
-			} /* if found */
+			if (ch && !fRoom) {     /* make sure ch still exists! :P -- Montrey */
+				char_from_room(ch);
+				char_to_room(ch, old_room);
+			}
 		} /* for every char */
 	}
 	else { /* just for every room with the appropriate people in it */
@@ -2080,7 +2065,7 @@ void do_lower(Character *ch, String argument)
 	String what;
 	argument = one_argument(argument, what);
 
-	if (what[0] == '\0') {
+	if (what.empty()) {
 		stc("Which item do you wish to lower?\n", ch);
 		return;
 	}
@@ -2105,7 +2090,7 @@ void do_lower(Character *ch, String argument)
 
 	if (victim->level < LEVEL_HERO) {
 		act("Sorry, $t must be level 91 to have an item lowered.", ch,
-		        victim->name.c_str(), nullptr, TO_CHAR, POS_DEAD, FALSE);
+		        victim->name, nullptr, TO_CHAR, POS_DEAD, FALSE);
 		return;
 	}
 
@@ -2975,7 +2960,7 @@ void do_owner(Character *ch, String argument)
 	argument = one_argument(argument, what);
 	argument = one_argument(argument, whom);
 
-	if (what[0] == '\0') {
+	if (what.empty()) {
 		stc("Which item do you want to personalize?\n", ch);
 		return;
 	}
@@ -2985,7 +2970,7 @@ void do_owner(Character *ch, String argument)
 		return;
 	}
 
-	if (whom[0] == '\0') {
+	if (whom.empty()) {
 		ptc(ch, "Whom do you want to personalize the %s to?\n", item->pIndexData->short_descr);
 		ptc(ch, "Type 'owner %s none' if you want to make it public.\n", what);
 		return;
@@ -3969,7 +3954,7 @@ void do_aura(Character *ch, String argument)
 	}
 
 	if (arg1.empty()) {
-		if (ch->pcdata->aura[0] == '\0')
+		if (ch->pcdata->aura.empty())
 			stc("You have no aura set.\n", ch);
 		else
 			ptc(ch, "Your aura is currently {W(%s{W){x.\n", ch->pcdata->aura);

@@ -229,7 +229,7 @@ void fix_war(War *war)
 	int i, c = 0, d = 0;
 
 	for (i = 0; i < 4; i++) {
-		if (war->chal[i]->name[0] != '\0') {
+		if (!war->chal[i]->name.empty()) {
 			fixed_war->chal[c]->name        = war->chal[i]->name;
 			fixed_war->chal[c]->clanname    = war->chal[i]->clanname;
 			fixed_war->chal[c]->inwar       = war->chal[i]->inwar;
@@ -238,7 +238,7 @@ void fix_war(War *war)
 			c++;
 		}
 
-		if (war->def[i]->name[0] != '\0') {
+		if (!war->def[i]->name.empty()) {
 			fixed_war->def[d]->name         = war->def[i]->name;
 			fixed_war->def[d]->clanname     = war->def[i]->clanname;
 			fixed_war->def[d]->inwar        = war->def[i]->inwar;
@@ -359,11 +359,11 @@ bool war_is_full(War *war, bool challenger)
 
 	for (i = 0; i < 4; i++) {
 		if (challenger) {
-			if (war->chal[i]->name[0] == '\0')
+			if (war->chal[i]->name.empty())
 				return FALSE;
 		}
 		else {
-			if (war->def[i]->name[0] == '\0')
+			if (war->def[i]->name.empty())
 				return FALSE;
 		}
 	}
@@ -456,10 +456,10 @@ void defeat_clan(War *war, Character *ch, Character *victim)
 			war->def[i]->final_score = 0;
 		}
 
-		if (war->chal[i]->name[0] != '\0' && war->chal[i]->inwar)
+		if (!war->chal[i]->name.empty() && war->chal[i]->inwar)
 			chal = TRUE;
 
-		if (war->def[i]->name[0] != '\0' && war->def[i]->inwar)
+		if (!war->def[i]->name.empty() && war->def[i]->inwar)
 			def = TRUE;
 	}
 
@@ -760,7 +760,7 @@ void war_stop(War *war)
 	war->ongoing = FALSE;
 
 	for (i = 0; i < 4; i++) {
-		if (war->chal[i]->name[0] != '\0') {
+		if (!war->chal[i]->name.empty()) {
 			if ((clan = clan_lookup(war->chal[i]->name)) != nullptr) {
 				if (war->chal[i]->inwar)
 					war->chal[i]->final_score = clan->score;
@@ -770,7 +770,7 @@ void war_stop(War *war)
 			}
 		}
 
-		if (war->def[i]->name[0] != '\0') {
+		if (!war->def[i]->name.empty()) {
 			if ((clan = clan_lookup(war->def[i]->name)) != nullptr) {
 				if (war->def[i]->inwar)
 					war->def[i]->final_score = clan->score;
@@ -794,11 +794,11 @@ void war_join(Clan *clan, War *war, bool challenger)
 
 	for (i = 0; i < 4; i++) {
 		if (challenger) {
-			if (war->chal[i]->name[0] == '\0')
+			if (war->chal[i]->name.empty())
 				break;
 		}
 		else {
-			if (war->def[i]->name[0] == '\0')
+			if (war->def[i]->name.empty())
 				break;
 		}
 	}
@@ -878,7 +878,7 @@ void format_war_list(Character *ch, War *war, bool current)
 
 	/* count opponents on each side, get their full names and score */
 	for (i = 0; i < 4; i++) {
-		if (war->chal[i]->name[0] != '\0') {
+		if (!war->chal[i]->name.empty()) {
 			chal_list[chcount].name = war->chal[i]->clanname;
 			chal_list[chcount].inwar = war->chal[i]->inwar;
 			chal_list[chcount].st_score = war->chal[i]->start_score;
@@ -892,7 +892,7 @@ void format_war_list(Character *ch, War *war, bool current)
 			chcount++;
 		}
 
-		if (war->def[i]->name[0] != '\0') {
+		if (!war->def[i]->name.empty()) {
 			def_list[defcount].name = war->def[i]->clanname;
 			def_list[defcount].inwar = war->def[i]->inwar;
 			def_list[defcount].st_score = war->def[i]->start_score;

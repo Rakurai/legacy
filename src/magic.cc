@@ -177,7 +177,6 @@ void say_spell(Character *ch, int sn)
 		{ "y", "l" }, { "z", "k" },
 		{ "", "" }
 	};
-	buf[0] = '\0';
 
 	for (const char *pName = skill_table[sn].name.c_str(); *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++) {
@@ -1812,7 +1811,7 @@ void spell_continual_light(int sn, int level, Character *ch, void *vo, int targe
 {
 	Object *light;
 
-	if (target_name[0] != '\0') { /* do a glow on some object */
+	if (!target_name.empty()) { /* do a glow on some object */
 		if ((light = get_obj_carry(ch, target_name)) == nullptr) {
 			stc("You don't see that here.\n", ch);
 			return;
@@ -1860,7 +1859,7 @@ void spell_create_food(int sn, int level, Character *ch, void *vo, int target, i
 	ExtraDescr *ed;
 	String type = target_name;
 
-	if (target_name[0] == '\0') {
+	if (target_name.empty()) {
 		switch (number_range(0, 4)) {
 		case 0: type = "a Magic Mushroom";             break;
 
@@ -1924,7 +1923,7 @@ void spell_create_rose(int sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	if (target_name[0] == '\0')
+	if (target_name.empty())
 		strcpy(color, "red");   /* Red is the default */
 	else
 		strcpy(color, target_name);
@@ -1998,7 +1997,7 @@ void spell_create_sign(int sn, int level, Character *ch, void *vo, int target, i
 	obj_to_room(sign, ch->in_room);
 	sign->timer = level * 2;
 
-	if (target_name[0] == '\0') {
+	if (target_name.empty()) {
 		stc("You failed to include words to write on the sign.\n", ch);
 		return;
 	}
@@ -3263,7 +3262,7 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 		return;
 	}
 
-	if (target_name[0] == '\0') {
+	if (target_name.empty()) {
 		if ((victim = ch->fighting) == nullptr) {
 			stc("Cast the spell on whom?\n", ch);
 			/* This is a quick hack to give the player
@@ -4641,7 +4640,7 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 		return;
 	}
 
-	if (target_name[0] == '\0') {
+	if (target_name.empty()) {
 		stc("Morph into what?\n", ch);
 		return;
 	}
@@ -4716,7 +4715,7 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	mobile->gold = 0;
 	mobile->silver = 0;
 	char_to_room(mobile, ch->in_room);
-	do_switch(ch, mobile->name.c_str());
+	do_switch(ch, mobile->name);
 	char_from_room(ch);
 	char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
 }
@@ -5806,7 +5805,7 @@ void spell_smokescreen(int sn, int level, Character *ch, void *vo, int target, i
 	Exit *pexit;
 	int door;
 
-	if (target_name[0] == '\0') {
+	if (target_name.empty()) {
 		stc("Without direction, the smoke has no purpose...\n", ch);
 		return;
 	}
@@ -6229,7 +6228,7 @@ void spell_teleport_object(int sn, int level, Character *ch, void *vo, int targe
 
 	/* find object carried by ch */
 
-	if (object[0] == '\0') {
+	if (object.empty()) {
 		stc("What should the spell be cast upon?\n", ch);
 		return;
 	}
@@ -6251,7 +6250,7 @@ void spell_teleport_object(int sn, int level, Character *ch, void *vo, int targe
 
 	/* find victim in world */
 
-	if (name[0] == '\0')
+	if (name.empty())
 		victim = ch;
 	else {
 		if ((victim = get_char_world(ch, name, VIS_CHAR)) == nullptr ||
@@ -6364,7 +6363,7 @@ void spell_undo_spell(int sn, int level, Character *ch, void *vo, int target, in
 		return;
 	}
 
-	if (name[0] == '\0')
+	if (name.empty())
 		victim = ch;
 	else {
 		if ((victim = get_char_here(ch, target_name, VIS_CHAR)) == nullptr) {

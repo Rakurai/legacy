@@ -736,7 +736,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 	    && (get_eq_char(ch, WEAR_WIELD) != nullptr)
 	    && ch->off_flags.has(OFF_BACKSTAB)
 	    && get_skill(ch, gsn_backstab)) {
-		do_backstab(ch, victim->name.c_str());
+		do_backstab(ch, victim->name);
 		return;
 	}
 
@@ -2558,7 +2558,7 @@ void make_corpse(Character *ch)
 		corpse->cost = UMAX(1, (ch->level * 3));
 	}
 	else {
-		name            = ch->name.c_str();
+		name            = ch->name;
 		corpse          = create_object(get_obj_index(OBJ_VNUM_CORPSE_PC), 0);
 
 		if (! corpse) {
@@ -5309,7 +5309,7 @@ void do_shoot(Character *ch, String argument)
 			target_room = ch->in_room;
 		}
 		else {
-			if (target_str[0] == '\0') {
+			if (target_str.empty()) {
 				stc("Whom do you want to shoot?\n", ch);
 				return;
 			}

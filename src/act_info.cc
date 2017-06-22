@@ -468,7 +468,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	if (victim->lurk_level)
 		buf += "{H(Lurk) ";
 
-	if (!IS_NPC(victim) && (victim->pcdata->aura[0] != '\0')) {
+	if (!IS_NPC(victim) && !victim->pcdata->aura.empty()) {
 		char string[MAX_INPUT_LENGTH];
 		Format::sprintf(string, "{W(%s{W) ", victim->pcdata->aura);
 		buf += string;
@@ -496,7 +496,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 
 	buf += "{x";
 
-	if (get_position(victim) == victim->start_pos && victim->long_descr[0] != '\0') {
+	if (get_position(victim) == victim->start_pos && !victim->long_descr.empty()) {
 		if (IS_NPC(victim))
 			new_color(ch, CSLOT_MISC_MOBILES);
 		else
@@ -667,7 +667,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 		}
 	}
 
-	if (victim->description[0] != '\0') {
+	if (!victim->description.empty()) {
 		set_color(ch, PURPLE, NOBOLD);
 		stc(victim->description, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1525,9 +1525,6 @@ void do_prompt(Character *ch, String argument)
 	else if (!strcmp(argument, "quest"))
 		buf = "{W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {Y({b%Q %q{Y){W>{x ";
 	else {
-//		if (strlen(argument) > 100)
-//			argument[100] = '\0';
-
 		buf += argument;
 		buf.erase(MAX_PROMPT_LEN);
 
@@ -2298,7 +2295,7 @@ void do_weather(Character *ch, String argument)
 void do_whois(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	char block[MAX_INPUT_LENGTH];
+	String block;
 	char clan[MAX_STRING_LENGTH];
 	String rank;
 	char *remort;
@@ -2325,7 +2322,7 @@ void do_whois(Character *ch, String argument)
 	        victim->act_flags.has(PLR_MAKEBAG) ? "{W({CNH{W){x" : "");
 	output += block;
 
-	if (block[0] != '\0')
+	if (!block.empty())
 		output += " ";
 
 	/* second block "[99 100 Sup Pdn]"*/
@@ -2356,7 +2353,7 @@ void do_whois(Character *ch, String argument)
 	Format::sprintf(clan, "{x"); /* ugly, do something better someday */
 
 	if (victim->clan != nullptr) {
-		if (victim->pcdata->rank[0] != '\0')
+		if (!victim->pcdata->rank.empty())
 			rank = victim->pcdata->rank;
 		else if (victim->has_cgroup(GROUP_LEADER))
 			rank = "Leader";
@@ -2368,7 +2365,7 @@ void do_whois(Character *ch, String argument)
 		Format::sprintf(clan, "%s{x of %s{x, ", rank, victim->clan->clanname);
 	}
 
-	if (IS_REMORT(victim)&& victim->pcdata->status[0] != '\0')
+	if (IS_REMORT(victim) && !victim->pcdata->status.empty())
 		Format::sprintf(remort, "%s{x, ", victim->pcdata->status);
 	else
 		remort = "";
@@ -2502,7 +2499,7 @@ void do_who(Character *ch, String argument)
 	struct s_charitem charitems[ndesc];
 
 	/* Now show matching chars. */
-	buf[0] = '\0';
+	buf.clear();
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
 		/* Check for match against restrictions. */
@@ -2714,12 +2711,10 @@ void do_swho(Character *ch, String argument)
 
 		/* Imms can now see rooms of privated mortals -- Elrac */
 		if (!wch->pcdata->plr_flags.has(PLR_PRIVATE)) {
-			int l;
 			roombuf = wch->in_room->name;
-			l = strlen(roombuf);
 
 			while (roombuf.uncolor().size() > 37)
-				roombuf[--l] = '\0';
+				roombuf.pop_back();
 		}
 		else if (!IS_IMMORTAL(ch) || IS_IMMORTAL(wch))
 			Format::sprintf(roombuf, "Private");
@@ -3294,8 +3289,6 @@ void do_description(Character *ch, String argument)
 	String buf;
 
 	if (!argument.empty()) {
-		buf[0] = '\0';
-
 		if (argument[0] == '-') {
 			int len;
 			bool found = FALSE;
@@ -3316,7 +3309,7 @@ void do_description(Character *ch, String argument)
 						found = TRUE;
 					}
 					else { /* found the second one */
-						buf[len + 1] = '\0';
+						buf.erase(len + 1);
 						ch->description = buf;
 						set_color(ch, PURPLE, NOBOLD);
 						stc("Your description is:\n", ch);
@@ -3327,7 +3320,7 @@ void do_description(Character *ch, String argument)
 				}
 			}
 
-			buf[0] = '\0';
+			buf.clear();
 			ch->description = buf;
 			stc("Description cleared.\n", ch);
 			return;
@@ -3364,8 +3357,6 @@ void do_fingerinfo(Character *ch, String argument)
 		return;
 
 	if (!argument.empty()) {
-		buf[0] = '\0';
-
 		if (argument == "clear") {
 			ch->pcdata->fingerinfo.erase();
 			stc("Fingerinfo cleared.\n", ch);
@@ -3391,7 +3382,7 @@ void do_fingerinfo(Character *ch, String argument)
 						found = TRUE;
 					}
 					else { /* found the second one */
-						buf[len + 1] = '\0';
+						buf.erase(len + 1);
 						ch->pcdata->fingerinfo = buf;
 						set_color(ch, CYAN, NOBOLD);
 						ptc(ch, "Your finger info is:\n%s",
@@ -3403,7 +3394,7 @@ void do_fingerinfo(Character *ch, String argument)
 				}
 			}
 
-			buf[0] = '\0';
+			buf.clear();
 			ch->pcdata->fingerinfo.erase();
 			stc("Finger Info cleared.\n", ch);
 		}
@@ -4354,7 +4345,7 @@ void do_prefix(Character *ch, String argument)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (argument.empty()) {
-		if (ch->prefix[0] == '\0') {
+		if (ch->prefix.empty()) {
 			stc("You have no prefix to clear.\n", ch);
 			return;
 		}
@@ -4535,7 +4526,7 @@ void do_pit(Character *ch, String argument)
 	}
 
 	/* interpret num1 and num2 into a level range */
-	fname = (keywords[0] != '\0');
+	fname = !keywords.empty();
 
 	if (num1 == -1 && !fname) {
 		/* no number, no keyword */
@@ -4852,12 +4843,11 @@ void print_new_affects(Character *ch)
 				if (paf->where != TO_AFFECTS || paf->permanent)
 					continue;
 
-				char namebuf[100], modbuf[100], timebuf[100];
-				namebuf[0] = modbuf[0] = timebuf[0] = '\0';
+				String namebuf, modbuf, timebuf;
 
 				if (paf_last != nullptr && paf->type == paf_last->type) {
 					if (ch->level >= 20)
-						strcpy(namebuf, "                   ");
+						namebuf = "                   ";
 					else
 						continue;
 				}
@@ -4911,11 +4901,10 @@ void print_new_affects(Character *ch)
 					found = TRUE;
 				}
 
-				char namebuf[100], eqbuf[100], timebuf[100];
-				namebuf[0] = eqbuf[0] = timebuf[0] = '\0';
+				String namebuf, eqbuf, timebuf;
 
-				strcpy(namebuf, skill_table[paf->type].name);
-				strncpy(eqbuf, obj->short_descr.uncolor(), 38);
+				namebuf = skill_table[paf->type].name;
+				eqbuf = obj->short_descr.uncolor().substr(0, 38);
 
 				if (paf->duration != -1)
 					Format::sprintf(timebuf, "%3d hrs", paf->duration + 1);
@@ -4953,12 +4942,11 @@ void print_new_affects(Character *ch)
 				if (paf->where != TO_AFFECTS || !paf->permanent)
 					continue;
 
-				char namebuf[100], modbuf[100];
-				namebuf[0] = modbuf[0] = '\0';
+				String namebuf, modbuf;
 
 				if (paf_last != nullptr && paf->type == paf_last->type) {
 					if (ch->level >= 20)
-						strcpy(namebuf, "                   ");
+						namebuf = "                   ";
 					else
 						continue;
 				}

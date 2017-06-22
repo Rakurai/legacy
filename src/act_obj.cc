@@ -109,7 +109,7 @@ char *ordinal_string(int n)
    based on clan ownership and leadership. If not, it tells the player
    he can't do that and the object is destroyed. Also, FALSE is returned.
 */
-bool clan_eq_ok(Character *ch, Object *obj, char *action)
+bool clan_eq_ok(Character *ch, Object *obj, const String& action)
 {
 	if (IS_IMMORTAL(ch))
 		return TRUE;
@@ -119,7 +119,7 @@ bool clan_eq_ok(Character *ch, Object *obj, char *action)
 		return TRUE;
 
 	if (ch->clan != jclan) {
-		if (action != nullptr && *action != '\0') {
+		if (!action.empty()) {
 			ptc(ch, "You attempt to %s %s, which belongs to %s.\n",
 			        action, obj->short_descr, jclan->clanname);
 		}
@@ -132,7 +132,7 @@ bool clan_eq_ok(Character *ch, Object *obj, char *action)
 	}
 
 	if (obj->name.has_words("leadereq") && !ch->has_cgroup(GROUP_LEADER)) {
-		if (action != nullptr && *action != '\0') {
+		if (!action.empty()) {
 			ptc(ch, "You attempt to %s your Leader's %s.\n",
 			        action, obj->short_descr);
 		}
@@ -153,7 +153,7 @@ bool clan_eq_ok(Character *ch, Object *obj, char *action)
    gets a denial message with the intended action in it, and the
    function returns FALSE.
 */
-bool pers_eq_ok(Character *ch, Object *obj, char *action)
+bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 {
 	ExtraDescr *pdesc;
 	char owner[MAX_STRING_LENGTH];
@@ -188,7 +188,7 @@ bool pers_eq_ok(Character *ch, Object *obj, char *action)
 		obj->short_descr = "something";
 	}
 
-	if (action != nullptr && *action != '\0') {
+	if (!action.empty()) {
 		Format::sprintf(buf, "You attempt to %s %s.\n", action, obj->short_descr);
 		stc(buf, ch);
 		Format::sprintf(buf, "   This item belongs to %s!\n", owner);
@@ -499,14 +499,16 @@ void do_get(Character *ch, String argument)
 			for (obj = ch->in_room->contents; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
+				if ((arg1.length() == 3 // 'all '
+				 || obj->name.has_words(arg1.substr(4)))
+				  && can_see_obj(ch, obj)) {
 					found = TRUE;
 					get_obj(ch, obj, nullptr);
 				}
 			}
 
 			if (!found) {
-				if (arg1[3] == '\0')
+				if (arg1.length() == 3)
 					stc("Get what?\n", ch);
 				else
 					ptc(ch, "You see no %s here.\n", &arg1[4]);
@@ -553,7 +555,8 @@ void do_get(Character *ch, String argument)
 					for (obj = ch->pcdata->locker; obj != nullptr; obj = obj_next) {
 						obj_next = obj->next_content;
 
-						if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
+						if ((arg1.length() == 3
+						 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
 							found = TRUE;
 
 							if (!from_box_ok(ch, obj, "locker"))
@@ -567,7 +570,7 @@ void do_get(Character *ch, String argument)
 					}
 
 					if (!found) {
-						if (arg1[3] == '\0')
+						if (arg1.length() == 3)
 							stc("You see nothing in the locker.\n", ch);
 						else
 							stc("You see nothing like that in the locker.\n", ch);
@@ -611,7 +614,7 @@ void do_get(Character *ch, String argument)
 			for (obj = ch->pcdata->strongbox; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
+				if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
 					found = TRUE;
 
 					if (!from_box_ok(ch, obj, "strongbox"))
@@ -625,7 +628,7 @@ void do_get(Character *ch, String argument)
 			}
 
 			if (!found) {
-				if (arg1[3] == '\0')
+				if (arg1.length() == 3)
 					stc("You see nothing in your strongbox.\n", ch);
 				else
 					stc("You see nothing like that in your strongbox.\n", ch);
@@ -688,7 +691,7 @@ void do_get(Character *ch, String argument)
 			for (obj = container->contains; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 
-				if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4])) && can_see_obj(ch, obj)) {
+				if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
 					found = TRUE;
 
 					if (container == donation_pit && !IS_IMMORTAL(ch)) {
@@ -701,7 +704,7 @@ void do_get(Character *ch, String argument)
 			}
 
 			if (!found) {
-				if (arg1[3] == '\0')
+				if (arg1.length() == 3)
 					ptc(ch, "You see nothing in %s.\n", container->short_descr);
 				else
 					ptc(ch, "You see nothing like that in %s.\n", container->short_descr);
@@ -807,7 +810,7 @@ void do_put(Character *ch, String argument)
 			obj_next = obj->next_content;
 			weight = get_obj_weight(obj);
 
-			if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4]))
+			if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4)))
 			    && can_see_obj(ch, obj)
 			    && obj->wear_loc == WEAR_NONE
 			    && can_drop_obj(ch, obj)
@@ -868,7 +871,7 @@ void do_put(Character *ch, String argument)
 		for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4]))
+			if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4)))
 			    && can_see_obj(ch, obj)
 			    && obj->wear_loc == WEAR_NONE
 			    && can_drop_obj(ch, obj)) {
@@ -957,7 +960,7 @@ void do_put(Character *ch, String argument)
 	for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 		obj_next = obj->next_content;
 
-		if ((arg1[3] == '\0' || obj->name.has_words(&arg1[4]))
+		if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4)))
 		    && can_see_obj(ch, obj)
 		    && obj->wear_loc == WEAR_NONE
 		    && obj != container
@@ -1062,7 +1065,7 @@ void do_drop(Character *ch, String argument)
 		for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if ((arg[3] == '\0' || obj->name.has_words(&arg[4]))
+			if ((arg.length() == 3 || obj->name.has_words(arg.substr(4)))
 			    &&   can_see_obj(ch, obj)
 			    &&   obj->wear_loc == WEAR_NONE) {
 				found = TRUE;
@@ -1085,7 +1088,7 @@ void do_drop(Character *ch, String argument)
 		}
 
 		if (!found) {
-			if (arg[3] == '\0')
+			if (arg.length() == 3)
 				act("You are not carrying anything.",
 				    ch, nullptr, arg, TO_CHAR);
 			else
@@ -3206,7 +3209,6 @@ void do_brew(Character *ch, String argument)
 	   Example: Fireball cannot be brewed as a 1st level spell.
 	   Re-using "arg" here. We seem to be done with it. -- Outsider
 	*/
-	arg[0] = '\0';    /* just making sure */
 	argument = one_argument(argument, arg);
 
 	if (!arg.empty()) {  /* we got a new level set */
@@ -3316,7 +3318,6 @@ void do_scribe(Character *ch, String argument)
 	   Re-using "Arg" here. We seem to be done with it.
 	   -- Outsider
 	*/
-	arg[0] = '\0';    /* make sure it is reset */
 	argument = one_argument(argument, arg);
 
 	if (!arg.empty()) {  /* we got some data */
@@ -4688,7 +4689,7 @@ void do_forge(Character *ch, String argument)
 	String type;
 	argument = one_argument(argument, type);
 
-	if (argument.empty() || type[0] == '\0') {
+	if (argument.empty() || type.empty()) {
 		if (get_skill(ch, gsn_forge))
 			stc("Syntax: {Rforge{x <weapon type> <weapon name>\n"
 			    "        {Rforge flag{x <flag type>\n", ch);

@@ -36,6 +36,7 @@
 #include "Character.hh"
 #include "Descriptor.hh"
 #include "Disabled.hh"
+#include "file.hh"
 #include "find.hh"
 #include "Format.hh"
 #include "Logging.hh"
@@ -73,7 +74,7 @@ bool                            fLogAll         = FALSE;
 /*
  * Command table.
  */
-const   struct  cmd_type        cmd_table       [] = {
+const std::vector<cmd_type> cmd_table = {
 	/*
 	 * Abbreviations
 	 */
@@ -531,10 +532,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "yell",                       do_yell,                POS_RESTING,    LOG_NORMAL,     1,      0                       },
 	{ "zap",                        do_zap,                 POS_RESTING,    LOG_NORMAL,     7,      0                       },
 	{ "zecho",                      do_zecho,               POS_DEAD,               LOG_NORMAL,     5,      GWQ                     },
-	/*
-	* End of list.
-	*/
-	{ "",                           0,                              POS_DEAD,               LOG_NORMAL,     0,      0                       }
 };
 
 /*
@@ -596,7 +593,7 @@ void interpret(Character *ch, String argument)
 	if (ch->has_cgroup(GROUP_LEADER))
 		ch->add_cgroup(GROUP_DEPUTY);
 
-	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
+	for (cmd = 0; cmd < cmd_table.size(); cmd++) {
 		/* if it's a mob only command, there should be no multiple cgroup flags */
 		if (IS_NPC(ch)) {
 			if (!cmd_table[cmd].group.empty()
@@ -887,7 +884,7 @@ void do_commands(Character *ch, String argument)
 
 	col = 0;
 
-	for (cmd = 0, counter = 1; cmd_table[cmd].name[0] != '\0'; cmd++) {
+	for (cmd = 0, counter = 1; cmd < cmd_table.size(); cmd++) {
 		if (IS_IMM_GROUP(cmd_table[cmd].group))
 			continue;
 
@@ -963,7 +960,7 @@ void do_wizhelp(Character *ch, String argument)
 		ptc(ch, "%s{G%s{x\n", i > 0 ? "\n" : "", cgroup_flags[i].name);
 		col = 0;
 
-		for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
+		for (cmd = 0; cmd < cmd_table.size(); cmd++) {
 			if (cmd_table[cmd].group.has(cgroup_flags[i].bit)
 				&& ch->pcdata->cgroup_flags.has_all_of(cmd_table[cmd].group)
 			    && cmd_table[cmd].show) {

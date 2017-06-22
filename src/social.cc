@@ -279,7 +279,7 @@ void do_sedit(Character *ch, String argument)
 			return;
 		}
 
-		for (int x = 0; cmd_table[x].name[0] != '\0'; x++) {
+		for (int x = 0; x < cmd_table.size(); x++) {
 			if (social.is_prefix_of(cmd_table[x].name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
@@ -303,7 +303,7 @@ void do_sedit(Character *ch, String argument)
 			return;
 		}
 
-		for (int x = 0; cmd_table[x].name[0] != '\0'; x++) {
+		for (int x = 0; x < cmd_table.size(); x++) {
 			if (argument.is_prefix_of(cmd_table[x].name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;

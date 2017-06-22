@@ -50,7 +50,7 @@ void do_debug(Character *ch, String argument)
 	String subfunc;
 	argument = one_argument(argument, subfunc);
 
-	if (subfunc[0] == '\0') {
+	if (subfunc.empty()) {
 		stc("Currently defined DEBUG subfunctions are:\n"
 		    "  lcheck   - shows a player's locker number and weight, and strongbox number\n"
 		    "  rcheck   - check for rooms without exits and NO_RECALL\n"

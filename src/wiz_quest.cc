@@ -177,7 +177,7 @@ void do_morph(Character *ch, String argument)
 	mobile->act_flags += PLR_COLOR;
 	mobile->act_flags += ACT_MORPH;
 	char_to_room(mobile, victim->in_room);
-	do_switch(victim, mobile->name.c_str());
+	do_switch(victim, mobile->name);
 	char_from_room(victim);
 	char_to_room(victim, get_room_index(ROOM_VNUM_LIMBO));
 	stc("Successful Morph!\n", ch);
@@ -345,7 +345,7 @@ void do_string(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 	arg3 = argument;
 
-	if (type[0] == '\0' || arg1.empty() || arg2.empty() || arg3.empty()) {
+	if (type.empty() || arg1.empty() || arg2.empty() || arg3.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  string char <name> <field> <string>\n", ch);
 		stc("    fields: name short long desc title spec deity status spouse\n", ch);
@@ -921,7 +921,7 @@ void do_skillpoint(Character *ch, String argument)
 	argument = one_argument(argument, give_or_take);
 	argument = one_argument(argument, char_name);
 
-	if ((give_or_take[0] == '\0') || (char_name[0] == '\0') || (argument.empty())) {
+	if ((give_or_take.empty()) || (char_name.empty()) || (argument.empty())) {
 		stc("Syntax: skillpoint <award|deduct> <player> <amount>\n", ch);
 		return;
 	}

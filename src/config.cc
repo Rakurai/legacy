@@ -521,9 +521,9 @@ void config_immortal(Character *ch, String argument)
 		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
 		stc("Immortal options:\n\n", ch);
 		ptc(ch, "  1.  Immprefix                                  %s\n",
-		    ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
+		    !ch->pcdata->immprefix.empty() ? ch->pcdata->immprefix : "(none)");
 		ptc(ch, "  2.  Immname                                    %s\n",
-		    ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
+		    !ch->pcdata->immname.empty() ? ch->pcdata->immname : "(none)");
 		return;
 	}
 
@@ -549,7 +549,7 @@ void config_immortal(Character *ch, String argument)
 				"line.  It must include your name.  Use 'none' for the default.\n", ch);
 		else if (argument.empty())
 			ptc(ch, "Your immtalk prefix is currently: %s{x\n",
-				ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
+				!ch->pcdata->immprefix.empty() ? ch->pcdata->immprefix : "(none)");
 		else if (argument == "none") {
 			ch->pcdata->immprefix.erase();
 			stc("Your immtalk prefix has been removed.\n", ch);

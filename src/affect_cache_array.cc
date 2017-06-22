@@ -70,7 +70,7 @@ String affect_print_cache(Character *ch) {
 		sh_int count = get_affect_cache(ch)[sn];
 
 		if (count > 0) {
-			if (buf[0] != '\0')
+			if (!buf.empty())
 				buf += " ";
 
 			buf += Format::format("%s(%d)", skill_table[sn].name, count);

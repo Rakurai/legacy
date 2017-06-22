@@ -34,9 +34,9 @@ void act_format(const String& format, Character *ch,
 		buf += "{n[T] ";
 	}
 
-	const char *str = format.c_str();
+    auto str = format.cbegin();
 
-	while (*str != '\0') {
+    while (str != format.cend()) {
 		if (*str != '$') {
             buf += *str++;
 			continue;
@@ -51,7 +51,7 @@ void act_format(const String& format, Character *ch,
 
 		/* The following codes need 'ch', which should always be OK */
 
-		case 'n': i = PERS(ch, to, vis).c_str();            break;
+		case 'n': i = PERS(ch, to, vis);                  break;
 
 		case 'e': i = he_she  [GET_ATTR_SEX(ch)];        break;
 
@@ -67,7 +67,7 @@ void act_format(const String& format, Character *ch,
 				/*   Logging::bug( format, 0);  This will cause an endless loop */
 			}
 			else
-				i = PERS(vch, to, vis).c_str();
+				i = PERS(vch, to, vis);
 
 			break;
 

@@ -1224,9 +1224,9 @@ void bust_a_prompt(Character *ch)
 		return;
 	}
 
-	const char *str = ch->prompt.c_str();
+	auto str = ch->prompt.cbegin();
 
-	while (*str != '\0') {
+	while (str != ch->prompt.cend()) {
 		if (*str == '{') {
 			// copy the code straight in, let expand_codes handle it
 			++str;

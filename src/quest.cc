@@ -460,7 +460,7 @@ int get_random_skill(Character *ch)
 void squestobj_to_squestmob(Character *ch, Object *obj, Character *mob)
 {
 	char buf[MAX_STRING_LENGTH];
-	check_social(mob, "beam", ch->name.c_str());
+	check_social(mob, "beam", ch->name);
 	Format::sprintf(buf, "Thank you, %s, for returning my lost %s!", ch->name, obj->short_descr);
 	do_say(mob, buf);
 	extract_obj(obj);
@@ -1076,7 +1076,7 @@ void do_quest(Character *ch, String argument)
 		String player;
 		argument = one_argument(argument, player);
 
-		if (player[0] == '\0') {
+		if (player.empty()) {
 			stc("Quest award to whom?\n", ch);
 			return;
 		}
@@ -1798,14 +1798,14 @@ void do_quest(Character *ch, String argument)
 			act("You ask $N for a skill quest.", ch, nullptr, questman, TO_CHAR);
 
 			if (IS_NPC(ch) && ch->act_flags.has(ACT_PET)) {
-				check_social(questman, "rofl", ch->name.c_str());
+				check_social(questman, "rofl", ch->name);
 
 				Format::sprintf(buf, "Who ever heard of a pet questing for its %s?",
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != nullptr)
-					check_social(questman, "laugh", ch->leader->name.c_str());
+					check_social(questman, "laugh", ch->leader->name);
 
 				return;
 			}
@@ -1840,14 +1840,14 @@ void do_quest(Character *ch, String argument)
 			act("You ask $N for a quest.", ch, nullptr, questman, TO_CHAR);
 
 			if (IS_NPC(ch) && ch->act_flags.has(ACT_PET)) {
-				check_social(questman, "rofl", ch->name.c_str());
+				check_social(questman, "rofl", ch->name);
 
 				Format::sprintf(buf, "Who ever heard of a pet questing for its %s?",
 				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
 				do_say(questman, buf);
 
 				if (ch->leader != nullptr)
-					check_social(questman, "laugh", ch->leader->name.c_str());
+					check_social(questman, "laugh", ch->leader->name);
 
 				return;
 			}

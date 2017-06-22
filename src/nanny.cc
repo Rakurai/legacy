@@ -1077,7 +1077,7 @@ void nanny(Descriptor *d, String argument)
 	case CON_READ_NEWMOTD:
 		set_color(ch, WHITE, NOBOLD);
 
-		if (ch->pcdata == nullptr || ch->pcdata->pwd[0] == '\0') {
+		if (ch->pcdata == nullptr || ch->pcdata->pwd.empty()) {
 			write_to_buffer(d, "Warning! Null password!\n");
 			write_to_buffer(d, "Please report old password with 'bug'.\n");
 			write_to_buffer(d, "Type 'password null <new password>' to fix.\n");
@@ -1135,7 +1135,7 @@ void nanny(Descriptor *d, String argument)
 		else
 			char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
 
-		if (ch->pcdata->email[0] == '\0') {
+		if (ch->pcdata->email.empty()) {
 			set_color(ch, RED, BOLD);
 			stc("Your e-mail has not been set, please update your email address\n", ch);
 			stc("with the email command!\n\n", ch);
