@@ -1661,7 +1661,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 			else {
 				list = one_argument(list, word);
 
-				for (; word[0] != '\0'; list = one_argument(list, word))
+				for (; !word.empty(); list = one_argument(list, word))
 					while ((start = strstr(dupl, word)))
 						if ((start == dupl || *(start - 1) == ' ')
 						    && (*(end = start + strlen(word)) == ' '

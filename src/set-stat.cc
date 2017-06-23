@@ -1482,7 +1482,7 @@ void format_mstat(Character *ch, Character *victim)
 		    victim->pcdata->flag_killer, victim->pcdata->flag_thief);
 
 	ptc(ch, "Short description: %s{x\nLong  description: %s{x",
-	    victim->short_descr, victim->long_descr[0] != '\0' ? victim->long_descr : "(none)\n");
+	    victim->short_descr, !victim->long_descr.empty() ? victim->long_descr : "(none)\n");
 	stc("\n", ch);
 	ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{RHit Points: %d/%d\n",
 	    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
@@ -1532,7 +1532,7 @@ void format_mstat(Character *ch, Character *victim)
 		    IS_NPC(victim->hunting) ? "MOB" : "PLAYER");
 
 	if (!IS_NPC(victim))
-		if (victim->pcdata->email[0] != '\0')
+		if (!victim->pcdata->email.empty())
 			ptc(ch, "Email: %s\n", victim->pcdata->email);
 
 	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
@@ -1557,17 +1557,17 @@ void format_mstat(Character *ch, Character *victim)
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
 	{
-		char buf[MSL];
-		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
-		if (buf[0]) ptc(ch, "Abs : %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
-		if (buf[0]) ptc(ch, "Imm : %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
-		if (buf[0]) ptc(ch, "Res : %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
-		if (buf[0]) ptc(ch, "Vuln: %s\n", buf);
-		strcpy(buf, affect_print_cache(victim));
-		if (buf[0]) ptc(ch, "Aff : %s\n", buf);
+		String buf;
+		buf = print_defense_modifiers(victim, TO_ABSORB);
+		if (!buf.empty()) ptc(ch, "Abs : %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_IMMUNE);
+		if (!buf.empty()) ptc(ch, "Imm : %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_RESIST);
+		if (!buf.empty()) ptc(ch, "Res : %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_VULN);
+		if (!buf.empty()) ptc(ch, "Vuln: %s\n", buf);
+		buf = affect_print_cache(victim);
+		if (!buf.empty()) ptc(ch, "Aff : %s\n", buf);
 	}
 
 	ptc(ch, "{xForm: %s\nParts: %s\n", form_bit_name(victim->form_flags), part_bit_name(victim->parts_flags));
@@ -1858,7 +1858,7 @@ void format_rstat(Character *ch, RoomPrototype *location)
 			    door, (pexit->u1.to_room == nullptr ? -1 : pexit->u1.to_room->vnum),
 			    pexit->key, pexit->exit_flags, pexit->keyword);
 
-			if (pexit->description[0] != '\0')
+			if (!pexit->description.empty())
 				ptc(ch, "{cDescription: %s{x", pexit->description);
 		}
 	}
@@ -2001,7 +2001,7 @@ void do_pstat(Character *ch, String argument)
 	new_color(ch, CSLOT_OLDSCORE_NAME);
 	stc(victim->name, ch);
 
-	if (victim->pcdata->title[0]) {
+	if (!victim->pcdata->title.empty()) {
 		set_color(ch, WHITE, NOBOLD);
 		stc(" [", ch);
 		new_color(ch, CSLOT_OLDSCORE_NAME);
@@ -2036,7 +2036,7 @@ void do_pstat(Character *ch, String argument)
 	stc("\n", ch);
 
 	/* email: carls@ipf.de */
-	if (victim->pcdata->email[0]) {
+	if (!victim->pcdata->email.empty()) {
 		set_color(ch, WHITE, NOBOLD);
 		ptc(ch, "Email: %s\n", victim->pcdata->email);
 	}

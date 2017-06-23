@@ -173,21 +173,21 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddItemToObject(o,	"Alias",		item);
 	}
 
-	if (ch->pcdata->afk[0] != '\0')
+	if (!ch->pcdata->afk.empty())
 		JSON::addStringToObject(o,	"Afk",			ch->pcdata->afk);
 
 	cJSON_AddNumberToObject(o,		"Akills",		ch->pcdata->arenakills);
 	cJSON_AddNumberToObject(o,		"Akilled",		ch->pcdata->arenakilled);
 
-	if (ch->pcdata->aura[0])
+	if (!ch->pcdata->aura.empty())
 		JSON::addStringToObject(o,	"Aura",			ch->pcdata->aura);
 
 	cJSON_AddNumberToObject(o,		"Back",			ch->pcdata->backup);
 
-	if (ch->pcdata->bamfin[0] != '\0')
+	if (!ch->pcdata->bamfin.empty())
 		JSON::addStringToObject(o,	"Bin",			ch->pcdata->bamfin);
 
-	if (ch->pcdata->bamfout[0] != '\0')
+	if (!ch->pcdata->bamfout.empty())
 		JSON::addStringToObject(o,	"Bout",			ch->pcdata->bamfout);
 
 	JSON::addStringToObject(o,		"Cgrp",			ch->pcdata->cgroup_flags.to_string());
@@ -212,15 +212,15 @@ cJSON *fwrite_player(Character *ch)
 	}
 	cJSON_AddItemToObject(o,		"Colr",			item);
 
-	if (ch->pcdata->deity[0])
+	if (!ch->pcdata->deity.empty())
 		JSON::addStringToObject(o,	"Deit",			ch->pcdata->deity);
 
-	if (ch->pcdata->email[0] != '\0')
+	if (!ch->pcdata->email.empty())
 		JSON::addStringToObject(o,	"Email",		ch->pcdata->email);
 
 	cJSON_AddNumberToObject(o,		"Familiar",		ch->pcdata->familiar);
 
-	if (ch->pcdata->fingerinfo[0] != '\0')
+	if (!ch->pcdata->fingerinfo.empty())
 		JSON::addStringToObject(o,	"Finf",			ch->pcdata->fingerinfo);
 
 	if (ch->pcdata->flag_killer)
@@ -229,10 +229,10 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->flag_thief)
 		cJSON_AddNumberToObject(o,	"FlagThief",	ch->pcdata->flag_thief);
 
-	if (ch->pcdata->gamein[0])
+	if (!ch->pcdata->gamein.empty())
 		JSON::addStringToObject(o,	"GameIn",		ch->pcdata->gamein);
 
-	if (ch->pcdata->gameout[0])
+	if (!ch->pcdata->gameout.empty())
 		JSON::addStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
 	item = nullptr;
@@ -259,9 +259,9 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddItemToObject(o,	"Ignore",		item);
 	}
 
-	if (ch->pcdata->immname[0])
+	if (!ch->pcdata->immname.empty())
 		JSON::addStringToObject(o,	"Immn",			ch->pcdata->immname);
-	if (ch->pcdata->immprefix[0])
+	if (!ch->pcdata->immprefix.empty())
 		JSON::addStringToObject(o,	"Immp",			ch->pcdata->immprefix);
 
 	if (ch->cls == PALADIN_CLASS) {
@@ -272,7 +272,7 @@ cJSON *fwrite_player(Character *ch)
 	cJSON_AddNumberToObject(o,		"LLev",			ch->pcdata->last_level);
 	cJSON_AddNumberToObject(o,		"LogO",			current_time);
 
-	if (ch->pcdata->last_lsite[0])
+	if (!ch->pcdata->last_lsite.empty())
 		JSON::addStringToObject(o,	"Lsit",			ch->pcdata->last_lsite);
 
 	JSON::addStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
@@ -310,7 +310,7 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddItemToObject(o,	"Query",		item);
 	}
 
-	if (ch->pcdata->rank[0])
+	if (!ch->pcdata->rank.empty())
 		JSON::addStringToObject(o,	"Rank",			ch->pcdata->rank);
 
 	if (ch->pcdata->rolepoints)
@@ -341,7 +341,7 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->skillpoints)
 		cJSON_AddNumberToObject(o,	"SkillPnts",	ch->pcdata->skillpoints);
 
-	if (ch->pcdata->spouse[0])
+	if (!ch->pcdata->spouse.empty())
 		JSON::addStringToObject(o,	"Spou",			ch->pcdata->spouse);
 
 	if (ch->pcdata->nextsquest)
@@ -350,7 +350,7 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddNumberToObject(o,	"SQuestNext",	20);
 
 	if (ch->pcdata->remort_count > 0) {
-		if (ch->pcdata->status[0])
+		if (!ch->pcdata->status.empty())
 			JSON::addStringToObject(o,	"Stus",		ch->pcdata->status);
 
 		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
@@ -380,12 +380,12 @@ cJSON *fwrite_player(Character *ch)
 	cJSON_AddNumberToObject(item,	"stam",			ch->pcdata->trains_to_stam);
 	cJSON_AddItemToObject(o, 		"THMS",	 		item);
 
-	if (ch->pcdata->title[0])
+	if (!ch->pcdata->title.empty())
 		JSON::addStringToObject(o,	"Titl",			ch->pcdata->title[0] == ' ' ?
 		ch->pcdata->title.substr(1) : ch->pcdata->title);
 	JSON::addStringToObject(o,		"Video",		ch->pcdata->video_flags.to_string());
 
-	if (ch->pcdata->whisper[0])
+	if (!ch->pcdata->whisper.empty())
 		JSON::addStringToObject(o,	"Wspr",			ch->pcdata->whisper);
 
 	return o;
@@ -446,7 +446,7 @@ cJSON *fwrite_char(Character *ch)
 	JSON::addStringToObject(o,		"Cnsr",			ch->censor_flags.to_string());
 	JSON::addStringToObject(o,		"Comm",			ch->comm_flags.to_string());
 
-	if (ch->description[0])
+	if (!ch->description.empty())
 		JSON::addStringToObject(o,	"Desc",			ch->description);
 
 	cJSON_AddNumberToObject(o,		"Exp",			ch->exp);
@@ -473,7 +473,7 @@ cJSON *fwrite_char(Character *ch)
 
 	cJSON_AddNumberToObject(o,		"Levl",			ch->level);
 
-	if (ch->long_descr[0])
+	if (!ch->long_descr.empty())
 		JSON::addStringToObject(o,	"LnD",			ch->long_descr);
 
 	JSON::addStringToObject(o,		"Name",			ch->name);
@@ -481,7 +481,7 @@ cJSON *fwrite_char(Character *ch)
 	cJSON_AddNumberToObject(o,              "PosP",                 ch->start_pos);
 	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);
 
-	if (ch->prompt[0])
+	if (!ch->prompt.empty())
 		JSON::addStringToObject(o,	"Prom",			ch->prompt);
 
 	if (ch->questpoints_donated)
@@ -510,7 +510,7 @@ cJSON *fwrite_char(Character *ch)
 	if (ch->silver_in_bank > 0)
 		cJSON_AddNumberToObject(o,	"Silver_in_bank", ch->silver_in_bank);
 
-	if (ch->short_descr[0])
+	if (!ch->short_descr.empty())
 		JSON::addStringToObject(o,	"ShD",			ch->short_descr);
 
 	cJSON_AddNumberToObject(o,		"Trai",			ch->train);
@@ -1682,10 +1682,9 @@ void do_finger(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (!arg[0]) {
+	if (arg.empty()) {
 		stc("Syntax:\n"
 		    "  {Yfinger{x {Gplayer-name{x : displays info about {Gplayer-name{x\n"
-		    "  {Yfinger{X {Gplayer-name{x@{Gmud{x : displays info about player on other muds.\n"
 		    "  {YFinger private{x     : hides your e-mail address from FINGER\n\n"
 		    "  {YShowlast{x           : hides your last login/save times\n", ch);
 		return;
@@ -1794,12 +1793,12 @@ void do_finger(Character *ch, String argument)
 	Format::sprintf(buf, "{PBlood Trail (%d): %d kills, %d deaths{x\n\n", pkr, pks, pkd);
 	dbuf += buf;
 
-	if (fingerinfo[0]) {
+	if (!fingerinfo.empty()) {
 		Format::sprintf(buf, "{CAdditional Info:{x\n%s{x\n", fingerinfo);
 		dbuf += buf;
 	}
 
-	if (spouse[0]) {
+	if (!spouse.empty()) {
 		if (!plr.has(PLR_MARRIED))
 			Format::sprintf(buf, "{Y%s is engaged to %s.{x\n", name, spouse);
 		else
@@ -1808,7 +1807,7 @@ void do_finger(Character *ch, String argument)
 		dbuf += buf;
 	}
 
-	if (email[0] && (IS_IMMORTAL(ch) || plr.has(PLR_SHOWEMAIL))) {
+	if (!email.empty() && (IS_IMMORTAL(ch) || plr.has(PLR_SHOWEMAIL))) {
 		Format::sprintf(buf, "{GEmail: %s{x\n", email);
 		dbuf += buf;
 	}

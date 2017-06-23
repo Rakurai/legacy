@@ -23,7 +23,7 @@ struct dispel_type {
 // none       - can be removed on self or others ONLY with the appropriate 'cure *'
 // anything *NOT* in this table cannot be removed (only by time).  breath effects and dirt kicking, for example
 
-const struct dispel_type dispel_table[] = {
+static const std::vector<dispel_type> dispel_table = {
 	{ &gsn_age,                 TRUE,  FALSE, FALSE, "$n looks younger."                             },
 	{ &gsn_armor,               TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_barrier,             TRUE,  FALSE, FALSE, nullptr                                            },
@@ -73,7 +73,6 @@ const struct dispel_type dispel_table[] = {
 	{ &gsn_stone_skin,          TRUE,  TRUE,  TRUE,  "$n's skin regains it's normal texture."        },
 	{ &gsn_talon,               TRUE,  TRUE,  TRUE,  nullptr                                            },
 	{ &gsn_weaken,              TRUE,  FALSE, FALSE, "$n looks stronger."                            },
-	{ nullptr,                     TRUE,  TRUE,  TRUE,  nullptr                                            }
 };
 
 /* saving throw based on level only */
@@ -207,7 +206,7 @@ bool check_dispel_char(int dis_level, Character *victim, int sn, bool save)
 	affect_remove_marked_from_char(victim);
 
 	if (!affect_exists_on_char(victim, sn)) {
-		for (int i = 0; dispel_table[i].sn != nullptr; i++) {
+		for (int i = 0; i < dispel_table.size(); i++) {
 			if (*dispel_table[i].sn == sn) {
 				if (dispel_table[i].msg_to_room != nullptr)
 					act(dispel_table[i].msg_to_room, victim, nullptr, nullptr, TO_ROOM);
@@ -225,7 +224,7 @@ bool check_dispel_char(int dis_level, Character *victim, int sn, bool save)
 
 // dispel a single spell with undo spell
 bool undo_spell(int dis_level, Character *victim, int sn, bool save) {
-	for (int i = 0; dispel_table[i].sn != nullptr; i++)
+	for (int i = 0; i < dispel_table.size(); i++)
 		if (*dispel_table[i].sn == sn) {
 			if (dispel_table[i].can_undo)
 				return check_dispel_char(dis_level, victim, sn, save);
@@ -241,7 +240,7 @@ bool dispel_char(Character *victim, int level, bool cancellation)
 {
 	bool found = FALSE;
 
-	for (int i = 0; dispel_table[i].sn != nullptr; i++) {
+	for (int i = 0; i < dispel_table.size(); i++) {
 		if (cancellation && !dispel_table[i].can_cancel)
 			continue;
 

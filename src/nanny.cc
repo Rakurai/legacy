@@ -201,7 +201,7 @@ void update_pc_index(Character *ch, bool remove)
 		            ch->level,
 		            ch->pcdata->remort_count,
 		            ch->clan ? db_esc(ch->clan->name) : "",
-		            ch->clan && ch->pcdata->rank[0] ? db_esc(ch->pcdata->rank) : "");
+		            ch->clan && !ch->pcdata->rank.empty() ? db_esc(ch->pcdata->rank) : "");
 }
 
 /*
@@ -499,7 +499,7 @@ void nanny(Descriptor *d, String argument)
 		Logging::log(log_buf);
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		Format::sprintf(log_buf, "Last Site: %s",
-		        ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available");
+		        !ch->pcdata->last_lsite.empty() ? ch->pcdata->last_lsite : "Not Available");
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		update_site(ch);
 
@@ -979,7 +979,7 @@ void nanny(Descriptor *d, String argument)
 
 			write_to_buffer(d, "\n");
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
-			buf[0] = '\0';
+			buf.clear();
 
 			for (i = 0; i < weapon_table.size(); i++)
 				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
@@ -1031,7 +1031,7 @@ void nanny(Descriptor *d, String argument)
 
 			write_to_buffer(d, "\n");
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
-			buf[0] = '\0';
+			buf.clear();
 
 			for (i = 0; i < weapon_table.size(); i++)
 				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
@@ -1190,7 +1190,7 @@ void nanny(Descriptor *d, String argument)
 		}
 
 		ptc(ch, "\nYour last login was from [{W%s{x] %s",
-		    ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available",
+		    !ch->pcdata->last_lsite.empty() ? ch->pcdata->last_lsite : "Not Available",
 		    ch->pcdata->last_ltime != (time_t) 0 ? dizzy_ctime(&ch->pcdata->last_ltime) : "00:00:00");
 		ch->pcdata->last_ltime = current_time;
 		ch->pcdata->last_lsite = d->host;

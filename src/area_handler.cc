@@ -511,7 +511,6 @@ void do_areas(Character *ch, String argument)
 	Area *ap;
 	char filename[9];    /* 12345678    + '\0' */
 	char range[12];      /* {xnnn-nnn{x + '\0' */
-	char buf[MAX_INPUT_LENGTH];
 	String dbuf;
 	/* misc */
 	char *p;
@@ -520,7 +519,7 @@ void do_areas(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (arg[0]) {
+	if (!arg.empty()) {
 		showall = FALSE;
 
 		if (arg.is_number()) {
@@ -538,13 +537,13 @@ void do_areas(Character *ch, String argument)
 			argument = one_argument(argument, arg);
 		}
 
-		while (arg[0]) {
+		while (!arg.empty()) {
 			if (IS_IMMORTAL(ch) && !strcmp("*", arg))
 				star = TRUE;
 			else if (IS_IMMORTAL(ch) && !strcmp("#", arg))
 				sortv = TRUE;
 			else {
-				if (keywords[0])
+				if (!keywords.empty())
 					keywords += " ";
 
 				keywords += arg;
@@ -577,7 +576,7 @@ void do_areas(Character *ch, String argument)
 			if (level < ap->low_range || level > ap->high_range)
 				continue;
 
-		if (keywords[0]) {
+		if (!keywords.empty()) {
 			if (!ap->keywords.has_words(keywords))
 				continue;
 		}
@@ -650,8 +649,6 @@ void do_areas(Character *ch, String argument)
 			break;
 		} /* end switch */
 
-		buf[0] = '\0';
-
 		if (IS_IMMORTAL(ch)) {
 			char buf2[MAX_STRING_LENGTH];
 			strcpy(buf2, ap->file_name);
@@ -665,31 +662,28 @@ void do_areas(Character *ch, String argument)
 			strcpy(filename, buf2);
 
 			if (ap->nplayer == 0) {
-				Format::sprintf(buf, "%-8.8s [%5d-%5d]%3s ",
+				dbuf += Format::format("%-8.8s [%5d-%5d]%3s ",
 				        filename, ap->min_vnum, ap->max_vnum, " ");
 			}
 			else {
-				Format::sprintf(buf, "%-8.8s [%5d-%5d]{Y%3d{x ",
+				dbuf += Format::format("%-8.8s [%5d-%5d]{Y%3d{x ",
 				        filename, ap->min_vnum, ap->max_vnum, ap->nplayer);
 			}
 		}
 
-		Format::sprintf(buf + strlen(buf),
+		dbuf += Format::format(
 		        "<%s> %-s{a{x%*s%-s{a{x\n", range,
 		        ap->title, 25 - ap->title.uncolor().size(), " ",
 		        ap->author);
-		dbuf += buf;
 	}
 
 	if (showall) {
-		Format::sprintf(buf,
+		dbuf += Format::format(
 		        "%d areas listed. Type {Rhelp areas{x to see selection options.\n",
 		        count);
-		dbuf += buf;
 	}
 	else if (count <= 0) {
-		Format::sprintf(buf, "No areas found matching your search criteria.\n");
-		dbuf += buf;
+		dbuf += "No areas found matching your search criteria.\n";
 	}
 
 	page_to_char(dbuf, ch);

@@ -43,11 +43,7 @@
 #include "Social.hh"
 #include "String.hh"
 
-#ifdef CONST_SOCIAL
-#define SOCIAL_FILE "../misc/social.are"
-#else
 #define SOCIAL_FILE "../misc/social.txt"
-#endif
 
 void insert_social(Social *);
 void remove_social(const String&);
@@ -55,7 +51,6 @@ int count_socials();
 
 int maxSocial;
 
-#ifndef CONST_SOCIAL
 Social *social_table_head;     /* and social table */
 Social *social_table_tail;     /* and social table */
 
@@ -173,8 +168,6 @@ int count_socials()
 	return socials;
 }
 
-#endif /* CONST_SOCIAL */
-
 void save_social(const Social *s, FILE *fp)
 {
 	/* get rid of (null) */
@@ -199,12 +192,6 @@ void save_social_table()
 		return;
 	}
 
-#ifdef CONST_SOCIAL /* If old table still in use, count socials first */
-
-	for (maxSocial = 0 ; social_table[maxSocial].name[0] ; maxSocial++)
-		; /* empty */
-
-#endif
 	Format::fprintf(fp, "%d\n", count_socials());
 	/* set to first social */
 	iterator = social_table_head->next;
@@ -238,7 +225,6 @@ Social *social_lookup(const String& name)
  * Social editting command
  */
 
-#ifndef CONST_SOCIAL
 void do_sedit(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -248,12 +234,12 @@ void do_sedit(Character *ch, String argument)
 	argument = one_argument(argument, cmd);
 	argument = one_argument(argument, social);
 
-	if (!cmd[0]) {
+	if (cmd.empty()) {
 		stc("Huh? Type HELP SEDIT to see syntax.\n", ch);
 		return;
 	}
 
-	if (!social[0]) {
+	if (social.empty()) {
 		if (cmd == "find")
 			stc("What do you wish to find?\n", ch);
 		else
@@ -403,7 +389,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "cnoarg") { /* Set that argument */
 		iSocial->char_no_arg = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Character will now see nothing when this social is used without arguments.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -411,7 +397,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "onoarg") {
 		iSocial->others_no_arg = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Others will now see nothing when this social is used without arguments.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -419,7 +405,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "cfound") {
 		iSocial->char_found = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("The character will now see nothing when a target is found.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -427,7 +413,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "ofound") {
 		iSocial->others_found = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Others will now see nothing when a target is found.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -435,7 +421,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "vfound") {
 		iSocial->vict_found = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Victim will now see nothing when a target is found.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -443,7 +429,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "cself") {
 		iSocial->char_auto = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Character will now see nothing when targetting self.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -451,7 +437,7 @@ void do_sedit(Character *ch, String argument)
 	else if (cmd == "oself") {
 		iSocial->others_auto = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Others will now see nothing when character targets self.\n", ch);
 		else
 			ptc(ch, "New message is now:\n%s\n", argument);
@@ -464,5 +450,4 @@ void do_sedit(Character *ch, String argument)
 	/* We have done something. update social table */
 	save_social_table();
 }
-#endif /* CONST_SOCIAL */
 

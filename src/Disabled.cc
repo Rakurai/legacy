@@ -33,11 +33,11 @@ void load_disabled()
 		return;
 
 	while (db_next_row() == SQL_OK) {
-		for (i = 0; cmd_table[i].name[0]; i++)
+		for (i = 0; i < cmd_table.size(); i++)
 			if (cmd_table[i].name == db_get_column_str(0))
 				break;
 
-		if (!cmd_table[i].name[0]) {
+		if (i >= cmd_table.size()) {
 			Logging::bug("load_disabled: skipping uknown command", 0);
 			continue;
 		}

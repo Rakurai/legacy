@@ -244,7 +244,7 @@ void do_cedit(Character *ch, String argument)
 {
 	Clan *cdata;
 
-	if (!argument[0]) {
+	if (argument.empty()) {
 		stc("Huh? type HELP CEDIT to see syntax.\n", ch);
 		return;
 	}
@@ -253,7 +253,7 @@ void do_cedit(Character *ch, String argument)
 	argument = one_argument(argument, cmd);
 	argument = one_argument(argument, clanname);
 
-	if (!clanname[0]) {
+	if (clanname.empty()) {
 		stc("What clan do you want to operate on?\n", ch);
 		return;
 	}
@@ -351,7 +351,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "whoname") {
 		cdata->who_name = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("The who-name is set to none.\n", ch);
 		else
 			ptc(ch, "New whoname: '%s{x'.\n", cdata->who_name);
@@ -361,7 +361,7 @@ void do_cedit(Character *ch, String argument)
 	}
 
 	if (cmd == "hall") {
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("Clanrecall set to normal recall.\n", ch);
 			cdata->hall = 3001;
 		}
@@ -381,7 +381,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "areamin") {
 		int vnum = -1;
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("Areamin set to 0.\n", ch);
 			cdata->area_minvnum = 0;
 		}
@@ -404,7 +404,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "areamax") {
 		int vnum = -1;
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("Areamax set to 0.\n", ch);
 			cdata->area_maxvnum = 0;
 		}
@@ -432,7 +432,7 @@ void do_cedit(Character *ch, String argument)
 			return;
 		}
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("Dependent set to 0 (not dependent)\n", ch);
 			cdata->independent = 0;
 		}
@@ -459,7 +459,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "clanqp") {
 		int clanqp = -1;
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
@@ -480,7 +480,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "clangold") {
 		int gold_balance = -1;
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
@@ -501,7 +501,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "clanname") {
 		cdata->clanname = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Clanname set to none.\n", ch);
 		else
 			ptc(ch, "Clanname set to '%s{x'.\n", cdata->clanname);
@@ -513,7 +513,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "creator") {
 		cdata->creator = argument;
 
-		if (!argument[0])
+		if (argument.empty())
 			stc("Creator set to none.\n", ch);
 		else
 			ptc(ch, "Creator set to '%s{x'.\n", cdata->creator);
@@ -525,7 +525,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "score") {
 		int score = 0;
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
@@ -546,7 +546,7 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "warcpmod") {
 		int mod = 0;
 
-		if (!argument[0] || !argument.is_number()) {
+		if (argument.empty() || !argument.is_number()) {
 			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}

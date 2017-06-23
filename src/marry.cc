@@ -308,7 +308,7 @@ void do_accept(Character *ch, String argument)
 		return;
 	}
 
-	if (!victim->pcdata->propose[0] || victim->pcdata->propose != ch->name) {
+	if (victim->pcdata->propose.empty() || victim->pcdata->propose != ch->name) {
 		stc("They haven't proposed to you.\n", ch);
 		return;
 	}

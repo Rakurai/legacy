@@ -115,7 +115,7 @@ void do_spells(Character *ch, String argument)
 	int ngroups = 0;
 	struct s_spell_info spell_list[skill_table.size()];
 	int nspells = 0;
-	String arg, buf;
+	String arg;
 	int cols = 0;
 	int pos = 18;
 	bool found = FALSE;
@@ -148,7 +148,6 @@ void do_spells(Character *ch, String argument)
 	if (argument.is_prefix_of("groups")) {
 		stc("Spell groups (* = gained):\n"
 		    "--------------------------\n", ch);
-		buf[0] = '\0';
 
 		for (j = 0; j < ngroups; j++) {
 			gn = group_list[j];
@@ -277,8 +276,7 @@ void do_spells(Character *ch, String argument)
 
 
 	if (group != -1) {
-		Format::sprintf(buf, "Spells in group '%s':\n\n", group_table[group].name);
-		buffer += buf;
+		buffer += Format::format("Spells in group '%s':\n\n", group_table[group].name);
 	}
 
 	/* sort */
@@ -299,25 +297,23 @@ void do_spells(Character *ch, String argument)
 			}
 
 			if (level > ch->level && !reached_player_level) {
-				Format::sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
+				buffer += Format::format("Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
-				buffer += buf;
 				reached_player_level = TRUE;
 			}
 		}
 
 		if (cols == 0) {
-			Format::sprintf(buf, "Level %3d: ", level);
+			String buf = Format::format("Level %3d: ", level);
 
 			if (!new_level)
-				Format::sprintf(buf, "%*s", (int)strlen(buf), " ");
+				buf = Format::format("%*s", buf.size(), " "); // spaces
 
 			new_level = FALSE;
 			buffer += buf;
 		}
 		else {
-			Format::sprintf(buf, "%*s", 24 - pos, " ");
-			buffer += buf;
+			buffer += Format::format("%*s", 24 - pos, " ");
 		}
 
 		sn = spell_list[j].sn;
@@ -325,23 +321,21 @@ void do_spells(Character *ch, String argument)
 		if (ch->pcdata->learned[sn] <= 0
 		    || (skill_table[sn].remort_class != 0 && !IS_IMMORTAL(ch)
 		        && ch->cls + 1 != skill_table[sn].remort_class && !HAS_EXTRACLASS(ch, sn)))
-			Format::sprintf(buf, "[not  gained] ");
+			buffer += "[not  gained] ";
 		else if (ch->level < level)
-			Format::sprintf(buf, "[           ] ");
+			buffer += "[           ] ";
 		else
-			Format::sprintf(buf, "[{V%3d%% %3d Ma{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
+			buffer += Format::format("[{V%3d%% %3d Ma{x] ", ch->pcdata->learned[sn], get_skill_cost(ch, sn));
 
 		Format::sprintf(arg, "{C%-1.20s{x", skill_table[sn].name);
-		buf += arg;
+		buffer += arg;
 
 		if (++cols < 2)
 			pos = strlen(arg);
 		else {
-			buf += "\n";
+			buffer += "\n";
 			cols = 0;
 		}
-
-		buffer += buf;
 	}
 
 	if (cols > 0) {
@@ -531,7 +525,7 @@ void do_skills(Character *ch, String argument)
 void do_levels(Character *ch, String argument)
 {
 	String list[LEVEL_HERO];
-	char columns[LEVEL_HERO];
+	char columns[LEVEL_HERO] = {0};
 	int sn, lev, x, y;
 	char buf[MAX_STRING_LENGTH];
 	int cls;
@@ -625,13 +619,6 @@ void do_levels(Character *ch, String argument)
 		return;
 	}
 
-	/* initialize data */
-	for (lev = 0; lev < LEVEL_HERO; lev++) {
-		columns[lev] = 0;
-		list[lev][0] = '\0';
-	}
-
-
 	for (sn = 0; sn < skill_table.size(); sn++) {
 		if (skill_table[sn].skill_level[cls] < 0)
 			continue;
@@ -654,7 +641,7 @@ void do_levels(Character *ch, String argument)
 	}
 
 	for (lev = 0; lev < LEVEL_HERO; lev++)
-		if (list[lev][0] != '\0')
+//		if (!list[lev].empty())
 			buffer += list[lev];
 
 	buffer += "\n";
@@ -662,7 +649,7 @@ void do_levels(Character *ch, String argument)
 	/* Initialize the data */
 	for (lev = 0; lev < LEVEL_HERO; lev++) {
 		columns[lev] = 0;
-		list[lev][0] = '\0';
+		list[lev].clear();
 	}
 
 	for (sn = 0; sn < skill_table.size(); sn++) {
@@ -686,7 +673,7 @@ void do_levels(Character *ch, String argument)
 	}
 
 	for (lev = 0; lev < LEVEL_HERO; lev++)
-		if (list[lev][0] != '\0')
+//		if (!list[lev].empty())
 			buffer += list[lev];
 
 	buffer += "\n";

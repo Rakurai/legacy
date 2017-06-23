@@ -758,7 +758,7 @@ void do_tail(Character *ch, String argument)
 
 	argument = one_argument(argument, arg);
 
-	if (!arg[0]) {
+	if (arg.empty()) {
 		do_tail(ch, "");
 		return;
 	}

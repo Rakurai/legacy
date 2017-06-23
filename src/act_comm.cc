@@ -481,7 +481,7 @@ void do_pose(Character *ch, String argument)
 /* code to test poses -- Elrac */
 void do_testpose(Character *ch, String argument)
 {
-	if (!argument[0]) {
+	if (argument.empty()) {
 		stc("Syntax: testpose [class [number]]\n", ch);
 		return;
 	}
@@ -495,7 +495,7 @@ void do_testpose(Character *ch, String argument)
 		return;
 	}
 
-	if (!argument[0]) {
+	if (argument.empty()) {
 		Format::sprintf(arg, "%d poses defined for class '%s'\n",
 		        new_pose_table[cls].size(), class_table[cls].name);
 		stc(arg, ch);
@@ -1172,7 +1172,7 @@ void do_quit(Character *ch, String argument)
 		return;
 	}
 /*
-	if (ch->pcdata->plr_flags.has(PLR_SHOWLOST) && !argument[0] && !IS_IMMORTAL(ch)) {
+	if (ch->pcdata->plr_flags.has(PLR_SHOWLOST) && argument.empty() && !IS_IMMORTAL(ch)) {
 		bool found_inv, found_loc;
 		found_inv = showlost(ch, ch->carrying, FALSE, FALSE);
 		found_loc = showlost(ch, ch->pcdata->locker,   FALSE, TRUE);

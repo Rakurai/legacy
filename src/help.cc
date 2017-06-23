@@ -234,8 +234,6 @@ void add_help(int group, int order, int level, const String& keywords, const Str
 /* load the specified help file into the database */
 void do_loadhelps(Character *ch, String argument)
 {
-	char buf[MSL], *q;
-	const char *p;
 	FILE *fp;
 	int tablenum, count = 0;
 	struct help_struct {
@@ -287,9 +285,9 @@ void do_loadhelps(Character *ch, String argument)
 		return;
 	}
 
-	Format::sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
+	String buf = Format::format(HELP_DIR "%s.help", helpfile_table[tablenum].name);
 
-	if ((fp = fopen(buf, "r")) == nullptr) {
+	if ((fp = fopen(buf.c_str(), "r")) == nullptr) {
 		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n", ch);
 		return;
 	}
@@ -330,11 +328,10 @@ void do_loadhelps(Character *ch, String argument)
 	for (count = 0; temp_help[count].level >= -1; count++) {
 		bool foundspace = FALSE;
 		/* unfuck any weird spacing */
-		buf[0] = '\0';
-		q = buf;
-		p = temp_help[count].keywords.c_str();
+		String buf;
+		auto p = temp_help[count].keywords.cbegin();
 
-		while (*p != '\0') {
+		while (p != temp_help[count].keywords.cend()) {
 			if (*p == ' ') {
 				if (foundspace) {
 					p++;
@@ -346,18 +343,14 @@ void do_loadhelps(Character *ch, String argument)
 			else
 				foundspace = FALSE;
 
-			*q = *p;
-			q++;
-			p++;
+			buf += *p++;
 		}
 
-		*q = '\0';
-		q = buf;
 		add_help(
 		        helpfile_table[tablenum].group,
 		        count + 1,
 		        temp_help[count].level,
-		        q,
+		        buf,
 		        temp_help[count].text
 		);
 	}
@@ -623,7 +616,7 @@ void do_help(Character *ch, String argument)
 
 void do_hedit(Character *ch, String argument)
 {
-	if (!argument[0]) {
+	if (argument.empty()) {
 		ptc(ch, "Syntax:  hedit new <keywords>\n"
 		    "               delete <id>\n"
 		    "               show <id>\n"
@@ -637,7 +630,7 @@ void do_hedit(Character *ch, String argument)
 	argument = one_argument(argument, cmd);
 
 	if (cmd == "new") {
-		if (!argument[0]) {
+		if (argument.empty()) {
 			stc("You need to specify some keywords.\n", ch);
 			return;
 		}
@@ -661,7 +654,7 @@ void do_hedit(Character *ch, String argument)
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (!arg[0]) {
+	if (arg.empty()) {
 		stc("What help do you want to operate on?\n", ch);
 		return;
 	}
@@ -697,7 +690,7 @@ void do_hedit(Character *ch, String argument)
 		return;
 	}
 
-	if (!argument[0]) {
+	if (argument.empty()) {
 		stc("What value do you want to set it to?\n", ch);
 		return;
 	}

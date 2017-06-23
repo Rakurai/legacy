@@ -1650,7 +1650,7 @@ String format_string(const String& oldstring)
 	char *rdesc;
 	int i = 0, j;
 	bool cap = TRUE, blankline = FALSE;
-	xbuf[0] = xbuf2[0] = 0;
+	xbuf2[0] = '\0';
 
 	char oldbuf[MSL];
 	strcpy(oldbuf, oldstring);
@@ -1766,10 +1766,10 @@ String format_string(const String& oldstring)
 	}
 
 	/* clean up the end, reset our pointer */
-	xbuf[i] = 0;
+	xbuf.erase(i);
 	strcpy(xbuf2, xbuf);
 	rdesc = xbuf2;
-	xbuf[0] = 0;
+	xbuf.clear();
 	blankline = FALSE;
 
 	for (; ;) {

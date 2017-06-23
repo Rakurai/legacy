@@ -730,7 +730,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 
 	if (!IS_NPC(victim) && !IS_IMMORTAL(victim)) {
 		Format::sprintf(buf, "%s is a devout follower of %s.\n", victim->name,
-		        victim->pcdata->deity[0] ? victim->pcdata->deity : "no one");
+		        !victim->pcdata->deity.empty() ? victim->pcdata->deity : "no one");
 		set_color(ch, CYAN, BOLD);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -746,7 +746,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	}
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-		if (!IS_NPC(victim) && victim->pcdata->spouse[0] && iWear == WEAR_WEDDINGRING
+		if (!IS_NPC(victim) && !victim->pcdata->spouse.empty() && iWear == WEAR_WEDDINGRING
 		    && !IS_IMMORTAL(ch)) /* so imms can see weddingrings on unmarried ppl */
 			continue;
 
@@ -2600,7 +2600,7 @@ void do_who(Character *ch, String argument)
 			Format::sprintf(rbuf, "%s{x%3s{x",
 			        wch->has_cgroup(GROUP_LEADER) ? "{Y~" :
 			        wch->has_cgroup(GROUP_DEPUTY) ? "{B~" : " ",
-			        wch->pcdata->rank[0] ? wch->pcdata->rank :
+			        !wch->pcdata->rank.empty() ? wch->pcdata->rank :
 			        IS_IMMORTAL(wch) ? "{WIMM" : "   ");
 			rank = rbuf;
 		}
@@ -2808,7 +2808,7 @@ void do_equipment(Character *ch, String argument)
 	String buf;
 	Character *victim;
 
-	if (IS_IMMORTAL(ch) && argument[0]) {
+	if (IS_IMMORTAL(ch) && !argument.empty()) {
 		if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr)
 			if ((victim = get_char_world(ch, argument, VIS_PLR)) == nullptr) {
 				stc("They're not in the game.\n", ch);
@@ -2826,7 +2826,7 @@ void do_equipment(Character *ch, String argument)
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 		if (ch->pcdata)
-			if (iWear == WEAR_WEDDINGRING && ch->pcdata->spouse[0] && !IS_IMMORTAL(ch))
+			if (iWear == WEAR_WEDDINGRING && !ch->pcdata->spouse.empty() && !IS_IMMORTAL(ch))
 				continue;
 
 		buf = where_name[iWear];
@@ -3060,17 +3060,17 @@ void do_scon(Character *ch, String argument)
 		    GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 		    GET_AC(victim, AC_SLASH),  GET_AC(victim, AC_EXOTIC));
 
-		char buf[MSL];
-		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
-		if (buf[0]) ptc(ch, " Drain:  %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
-		if (buf[0]) ptc(ch, " Immune: %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
-		if (buf[0]) ptc(ch, " Resist: %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
-		if (buf[0]) ptc(ch, " Vuln:   %s\n", buf);
-		strcpy(buf, affect_print_cache(victim));
-		if (buf[0]) ptc(ch, " Affect:  %s\n", buf);
+		String buf;
+		buf = print_defense_modifiers(victim, TO_ABSORB);
+		if (!buf.empty()) ptc(ch, " Drain:  %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_IMMUNE);
+		if (!buf.empty()) ptc(ch, " Immune: %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_RESIST);
+		if (!buf.empty()) ptc(ch, " Resist: %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_VULN);
+		if (!buf.empty()) ptc(ch, " Vuln:   %s\n", buf);
+		buf = affect_print_cache(victim);
+		if (!buf.empty()) ptc(ch, " Affect:  %s\n", buf);
 
 		set_color(ch, WHITE, NOBOLD);
 	}
@@ -3078,7 +3078,7 @@ void do_scon(Character *ch, String argument)
 
 void do_consider(Character *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	String buf;
 	Character *victim;
 	int diff, percent;
 
@@ -3138,16 +3138,16 @@ void do_consider(Character *ch, String argument)
 		if (IS_NPC(victim) && !victim->off_flags.empty())
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
-		strcpy(buf, print_defense_modifiers(victim, TO_ABSORB));
-		if (buf[0]) ptc(ch, "Drain:  %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_IMMUNE));
-		if (buf[0]) ptc(ch, "Immune: %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_RESIST));
-		if (buf[0]) ptc(ch, "Resist: %s\n", buf);
-		strcpy(buf, print_defense_modifiers(victim, TO_VULN));
-		if (buf[0]) ptc(ch, "Vuln:   %s\n", buf);
-		strcpy(buf, affect_print_cache(victim));
-		if (buf[0]) ptc(ch, "Affect: %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_ABSORB);
+		if (!buf.empty()) ptc(ch, "Drain:  %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_IMMUNE);
+		if (!buf.empty()) ptc(ch, "Immune: %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_RESIST);
+		if (!buf.empty()) ptc(ch, "Resist: %s\n", buf);
+		buf = print_defense_modifiers(victim, TO_VULN);
+		if (!buf.empty()) ptc(ch, "Vuln:   %s\n", buf);
+		buf = affect_print_cache(victim);
+		if (!buf.empty()) ptc(ch, "Affect: %s\n", buf);
 
 		ptc(ch, "{gForm: %s\n{gParts: %s\n",
 		    form_bit_name(victim->form_flags), part_bit_name(victim->parts_flags));
@@ -3191,14 +3191,14 @@ void do_consider(Character *ch, String argument)
 
 	diff = victim->level - ch->level;
 
-	if (diff <= -10)   strcpy(buf, "You can kill $N naked and weaponless.");
-	else if (diff <=  -5)   strcpy(buf, "$N is no match for you.");
-	else if (diff <=  -2)   strcpy(buf, "$N looks like an easy kill.");
-	else if (diff <=   1)   strcpy(buf, "The perfect match!");
-	else if (diff <=   4)   strcpy(buf, "$N says 'Do you feel lucky, punk?'.");
-	else if (diff <=   9)   strcpy(buf, "$N laughs at you mercilessly..");
-	else if (diff <=  30)   strcpy(buf, "Death will thank you for your gift.");
-	else                    strcpy(buf, "$N could slay you in one blow.");
+	     if (diff <= -10)   buf = "You can kill $N naked and weaponless.";
+	else if (diff <=  -5)   buf = "$N is no match for you.";
+	else if (diff <=  -2)   buf = "$N looks like an easy kill.";
+	else if (diff <=   1)   buf = "The perfect match!";
+	else if (diff <=   4)   buf = "$N says 'Do you feel lucky, punk?'.";
+	else if (diff <=   9)   buf = "$N laughs at you mercilessly..";
+	else if (diff <=  30)   buf = "Death will thank you for your gift.";
+	else                    buf = "$N could slay you in one blow.";
 
 	set_color(ch, WHITE, BOLD);
 	act(buf, ch, nullptr, victim, TO_CHAR);
@@ -3209,15 +3209,15 @@ void do_consider(Character *ch, String argument)
 	else
 		percent = -1;
 
-	if (percent >= 100) strcpy(buf, "$N is in excellent condition.");
-	else if (percent >=  90) strcpy(buf, "$N has a few scratches.");
-	else if (percent >=  75) strcpy(buf, "$N has some small wounds and bruises.");
-	else if (percent >=  50) strcpy(buf, "$N has quite a few wounds.");
-	else if (percent >=  30) strcpy(buf, "$N has some big nasty wounds and scratches.");
-	else if (percent >=  15) strcpy(buf, "$N looks pretty hurt.");
-	else if (percent >=   1) strcpy(buf, "$N is in awful condition.");
-	else if (percent >=   0) strcpy(buf, "$N will soon be toast!!!");
-	else                     strcpy(buf, "$N is in need of ***SERIOUS*** medical attention!!!");
+	     if (percent >= 100) buf = "$N is in excellent condition.";
+	else if (percent >=  90) buf = "$N has a few scratches.";
+	else if (percent >=  75) buf = "$N has some small wounds and bruises.";
+	else if (percent >=  50) buf = "$N has quite a few wounds.";
+	else if (percent >=  30) buf = "$N has some big nasty wounds and scratches.";
+	else if (percent >=  15) buf = "$N looks pretty hurt.";
+	else if (percent >=   1) buf = "$N is in awful condition.";
+	else if (percent >=   0) buf = "$N will soon be toast!!!";
+	else                     buf = "$N is in need of ***SERIOUS*** medical attention!!!";
 
 	act(buf, ch, nullptr, victim, TO_CHAR);
 	set_color(ch, WHITE, NOBOLD);

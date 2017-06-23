@@ -192,7 +192,7 @@ void do_channels(Character *ch, String argument)
 		if (ch->pcdata->plr_flags.has(PLR_NONOTIFY)) stc("You will not be notified of new notes.\n", ch);
 		else stc("You {Wwill{x be notified of new notes.\n", ch);
 
-		if (ch->pcdata->aura[0])
+		if (!ch->pcdata->aura.empty())
 			ptc(ch, "{VAura: (%s{V){x\n", ch->pcdata->aura);
 	}
 
@@ -207,7 +207,7 @@ void do_channels(Character *ch, String argument)
 			stc("Scroll buffering is off.\n", ch);
 	}
 
-	ptc(ch, "Your current prompt is: %s\n", ch->prompt[0] ? ch->prompt : "(none)");
+	ptc(ch, "Your current prompt is: %s\n", !ch->prompt.empty() ? ch->prompt : "(none)");
 
 	if (ch->revoke_flags.has(REVOKE_TELL))
 		stc("No one wants to listen to you.\n", ch);
@@ -323,7 +323,7 @@ bool swearcheck(const String& argument)
 	};
 	/* future:  put in a level 3, to check for *any* instace in a string,
 	   inside a word or not.  don't feel like messing with pointers right now */
-	static const struct swear_type swear_table [] = {
+	static const std::vector<swear_type> swear_table = {
 		{       "ass",          1       },
 		{       "asshole",      2       },
 		{       "dumbass",      2       },
@@ -338,12 +338,11 @@ bool swearcheck(const String& argument)
 		{       "pussy",        2       },
 		{       "dick",         2       },
 		{       "slut",         2       },
-		{       nullptr,           0       }
 	};
 	int x;  /* Our lovely counter */
 	String tobechecked = argument.uncolor();
 
-	for (x = 0; swear_table[x].level > 0; x++) {
+	for (x = 0; x < swear_table.size(); x++) {
 		switch (swear_table[x].level) {
 		case 1:
 			if (tobechecked.has_exact_words(swear_table[x].word))
@@ -367,8 +366,7 @@ bool check_channel_social(Character *ch, Flags::Bit channel, int custom, const S
 	found  = FALSE;
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
-		if (command[0] == iterator->name[0]
-		    &&   command.is_prefix_of(iterator->name)) {
+		if (command.is_prefix_of(iterator->name)) {
 			found = TRUE;
 			break;
 		}
@@ -1162,8 +1160,8 @@ void do_tell(Character *ch, String argument)
 		act("$E has lost $S link, but your message will go through when $E returns.",
 		        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
-		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
-		buf[0] = UPPER(buf[0]);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n",
+			strtime, PERS(ch, victim, VIS_PLR).capitalize(), argument);
 		victim->pcdata->buffer += buf;
 		return;
 	}
@@ -1184,8 +1182,8 @@ void do_tell(Character *ch, String argument)
 		        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		stc(victim->pcdata->afk, ch);
 		set_color(ch, WHITE, NOBOLD);
-		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
-		buf[0] = UPPER(buf[0]);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n",
+			strtime, PERS(ch, victim, VIS_PLR).capitalize(), argument);
 		victim->pcdata->buffer += buf;
 		return;
 	}
@@ -1279,8 +1277,8 @@ void do_reply(Character *ch, String argument)
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$N seems to have misplaced $S link...try again later.", ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
-		buf[0] = UPPER(buf[0]);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n",
+			strtime, PERS(ch, victim, VIS_PLR).capitalize(), argument);
 		victim->pcdata->buffer += buf;
 		return;
 	}
@@ -1301,8 +1299,8 @@ void do_reply(Character *ch, String argument)
 		        ch, nullptr, victim, TO_CHAR, POS_DEAD, FALSE);
 		act(victim->pcdata->afk, ch, nullptr, nullptr, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
-		buf[0] = UPPER(buf[0]);
+		Format::sprintf(buf, "[%s] %s tells you '%s{x'\n",
+			strtime, PERS(ch, victim, VIS_PLR).capitalize(), argument);
 		victim->pcdata->buffer += buf;
 		return;
 	}
@@ -1610,8 +1608,7 @@ void do_page(Character *ch, String argument)
 		    ch, nullptr, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
 		Format::sprintf(buf, "{R[%s] %s PAGES '%s{x'{x\a\n",
-		        strtime , PERS(ch, victim, VIS_PLR), argument);
-		buf[0] = UPPER(buf[0]);
+		        strtime , PERS(ch, victim, VIS_PLR).capitalize(), argument);
 
 		if (!IS_NPC(victim)) victim->pcdata->buffer += buf;
 
@@ -1638,7 +1635,7 @@ void do_whisper(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->whisper[0]) {
+	if (ch->pcdata->whisper.empty()) {
 		do_huh(ch);
 		return;
 	}
@@ -1684,7 +1681,7 @@ void do_qtell(Character *ch, String argument)
 		}
 	}
 
-	if (!ch->pcdata->query[0][0]) {
+	if (ch->pcdata->query.empty()) {
 		stc("You have no one on your query list.\n", ch);
 		return;
 	}

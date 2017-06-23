@@ -133,7 +133,7 @@ void do_mpstat(Character *ch, String argument)
 	stc(buf, ch);
 	Format::sprintf(buf, "Short description: %s.\nLong  description: %s",
 	        victim->short_descr,
-	        victim->long_descr[0] != '\0' ?
+	        !victim->long_descr.empty() ?
 	        victim->long_descr : "(none).\n");
 	stc(buf, ch);
 	Format::sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",

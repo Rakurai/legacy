@@ -633,7 +633,7 @@ static void edit_help(Character *ch, const String& argument)
 		return;
 	}
 
-	if (!argument[0] || !argument.is_number()) {
+	if (argument.empty() || !argument.is_number()) {
 		stc("You must specify a help ID to edit it.", ch);
 		return;
 	}

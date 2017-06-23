@@ -298,8 +298,7 @@ void do_vlist(Character *ch, String argument)
 	for (vnum = begvnum; vnum <= endvnum; vnum++) {
 		found = FALSE;
 		foundmobile = FALSE;
-		totalbuf[0] = '\0';
-		Format::sprintf(totalbuf, "[%5d] ", vnum);
+		totalbuf = Format::format("[%5d] ", vnum);
 
 		if ((mobile = get_mob_index(vnum)) != nullptr) {
 			if (!printed)

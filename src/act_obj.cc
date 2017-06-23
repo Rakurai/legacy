@@ -4946,7 +4946,7 @@ void do_engrave(Character *ch, String argument)
 		return;
 	}
 
-	if (!argument[0]) {
+	if (argument.empty()) {
 		stc("What do you want to engrave on your weapon?\n", ch);
 		return;
 	}
@@ -5082,7 +5082,7 @@ void do_engrave(Character *ch, String argument)
 	}
 	else {
 		Format::sprintf(buf, "{Y%s{W%s{x ", ch->name,
-		        ch->pcdata && ch->pcdata->title[0] ?
+		        ch->pcdata && !ch->pcdata->title.empty() ?
 		        ch->pcdata->title : "{M(adventurer of Thera){x");
 	}
 

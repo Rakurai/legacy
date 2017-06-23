@@ -1416,7 +1416,7 @@ void do_for(Character *ch, String argument)
 	String range;
 	argument = one_argument(argument, range);
 
-	if (!range[0] || !argument[0]) { /* invalid usage? */
+	if (range.empty() || argument.empty()) { /* invalid usage? */
 		stc("Syntax:\n"
 		    "  for all     <action>\n"
 		    "  for gods    <action>\n"
@@ -1590,7 +1590,7 @@ void do_goto(Character *ch, String argument)
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (can_see_char(rch, ch)) {
-			if (ch->pcdata != nullptr && ch->pcdata->bamfout[0] != '\0')
+			if (ch->pcdata != nullptr && !ch->pcdata->bamfout.empty())
 				act("$t", ch, ch->pcdata->bamfout, rch, TO_VICT);
 			else
 				act("$n warps off to distant lands in a burst of electric energy.", ch, nullptr, rch, TO_VICT);
@@ -1605,7 +1605,7 @@ void do_goto(Character *ch, String argument)
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (can_see_char(rch, ch)) {
-			if (ch->pcdata != nullptr && ch->pcdata->bamfin[0] != '\0')
+			if (ch->pcdata != nullptr && !ch->pcdata->bamfin.empty())
 				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
 			else
 				act("$n materializes in a burst of electric energy.", ch, nullptr, rch, TO_VICT);
@@ -1785,7 +1785,7 @@ void do_heed(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (!arg1[0]) {
+	if (arg1.empty()) {
 		if (ch->pcdata->plr_flags.has(PLR_HEEDNAME)) {
 			stc("Your name will not be shown in heeds.\n", ch);
 			ch->pcdata->plr_flags -= PLR_HEEDNAME;
@@ -1834,7 +1834,7 @@ void do_heed(Character *ch, String argument)
 	}
 
 	/* make sure there's a message */
-	if (!argument[0]) {
+	if (argument.empty()) {
 		ptc(ch, "HEED %s with what message?\n", truevictim->name);
 		return;
 	}
@@ -2461,7 +2461,6 @@ void do_motd(Character *ch, String argument)
 				}
 			}
 
-			buf[0] = '\0';
 			Game::motd.erase();
 			stc("MOTD cleared.\n", ch);
 			return;
@@ -2932,7 +2931,7 @@ void do_noreply(Character *ch, String argument)
 
 	for (wch = char_list; wch != nullptr; wch = wch->next) {
 		if (! strcasecmp(wch->reply, ch->name))
-			wch->reply[0] = '\0';
+			wch->reply.clear();
 	}
 
 	stc("Nobody can reply to you now.\n", ch);
@@ -3310,7 +3309,7 @@ void setgameinout(Character *ch, String argument, const String& entryexit, char 
 	String arg;
 	argument = one_argument(argument, arg);
 
-	if (! arg[0]) {
+	if (arg.empty()) {
 		act("Set game $t message for whom?", ch, entryexit, nullptr, TO_CHAR);
 		return;
 	}
@@ -3786,7 +3785,7 @@ void do_violate(Character *ch, String argument)
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (can_see_char(rch, ch)) {
-			if (ch->pcdata != nullptr && ch->pcdata->bamfout[0] != '\0')
+			if (ch->pcdata != nullptr && !ch->pcdata->bamfout.empty())
 				act("$t", ch, ch->pcdata->bamfout, rch, TO_VICT);
 			else
 				act("$n warps off to distant lands in a burst of electric energy.", ch, nullptr, rch, TO_VICT);
@@ -3798,7 +3797,7 @@ void do_violate(Character *ch, String argument)
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (can_see_char(rch, ch)) {
-			if (ch->pcdata != nullptr && ch->pcdata->bamfin[0] != '\0')
+			if (ch->pcdata != nullptr && !ch->pcdata->bamfin.empty())
 				act("$t", ch, ch->pcdata->bamfin, rch, TO_VICT);
 			else
 				act("$n materializes in a burst of electric energy.", ch, nullptr, rch, TO_VICT);

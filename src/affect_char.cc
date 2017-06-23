@@ -137,14 +137,14 @@ void affect_sort_char(Character *ch, affect_comparator comp) {
 // utility
 
 void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int duration, sh_int evolution, bool permanent) {
-	struct aff {
+	struct aff_st {
 		sh_int  sn;
 		sh_int  location;
 		int  modifier;
 		sh_int  evolution;
 	};
 
-	const struct aff aff_table[] = {
+	static const std::vector<aff_st> aff_table = {
 		{ gsn_age,                 APPLY_STR,     -level/20,           1 },
 		{ gsn_age,                 APPLY_CON,     -level/20,           1 },
 		{ gsn_age,                 APPLY_WIS,     level/50,           1 },
@@ -219,7 +219,6 @@ void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int durati
 		{ gsn_stone_skin,          APPLY_AC,      -40,             1 },
 		{ gsn_talon,               APPLY_NONE,    0,               1 },
 		{ gsn_weaken,              APPLY_STR,     -level/5,        1 },
-		{ 0,                       0,             0,               0 }
 	};
 
 	Affect af;
@@ -231,7 +230,7 @@ void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int durati
 	af.permanent = permanent;
 	bool found = FALSE;
 
-	for (int i = 0; aff_table[i].sn != 0; i++) {
+	for (int i = 0; i < aff_table.size(); i++) {
 		if (aff_table[i].sn != sn) {
 			if (found)
 				break;
