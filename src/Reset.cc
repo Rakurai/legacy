@@ -36,8 +36,10 @@ Reset(FILE *fp) {
 		get_mob_index(arg1);
 
 		/* limit the global limit to 20, -1 is max */
+		/* This is 2017, I don't think we need to worry about this.  Let the builder decide. -- Montrey
 		if (arg2 > 20 || arg2 < 0)
 			arg2 = 20;
+		*/
 
 		/* make sure the room exists, vnum 0 means it's a random reset */
 		if (arg3 != 0)
@@ -60,8 +62,11 @@ Reset(FILE *fp) {
 		temp_index->reset_num++;
 		get_obj_index(arg3);
 
+		/*
 		if (arg4 > 20 || arg4 < 0)
-			arg4 = 20;    /* Lets add a limit - Lotus */
+			arg4 = 20;      Lets add a limit - Lotus
+							let's not -- Montrey
+		*/
 
 		break;
 
