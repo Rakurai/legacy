@@ -528,7 +528,7 @@ void nanny(Descriptor *d, String argument)
 				if (d_old == d || d_old->character == nullptr)
 					continue;
 
-				if (ch->name == (d_old->original ?
+				if (ch->name != (d_old->original ?
 				            d_old->original->name : d_old->character->name))
 					continue;
 

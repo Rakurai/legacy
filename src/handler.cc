@@ -1795,27 +1795,6 @@ int get_affect_evolution(Character *ch, int sn)
 	return URANGE(1, evo, 3);
 }
 
-long flag_convert(char letter)
-{
-	long bitsum = 0;
-	char i;
-
-	if ('A' <= letter && letter <= 'Z') {
-		bitsum = 1;
-
-		for (i = letter; i > 'A'; i--)
-			bitsum *= 2;
-	}
-	else if ('a' <= letter && letter <= 'z') {
-		bitsum = 67108864; /* 2^26 */
-
-		for (i = letter; i > 'a'; i--)
-			bitsum *= 2;
-	}
-
-	return bitsum;
-}
-
 /* Simple linear interpolation. */
 int interpolate(int level, int value_00, int value_32)
 {
