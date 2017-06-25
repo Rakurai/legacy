@@ -89,6 +89,8 @@ extern void     roll_raffects   args((Character *ch, Character *victim));
  * Signal handling.
  */
 
+String exe_file; // the executable this process booted from
+
 /*
  * Global variables.
  */
@@ -262,6 +264,8 @@ void sig_handle(int sig)
 
 int main(int argc, char **argv)
 {
+	exe_file = argv[0];
+
 	struct timeval now_time;
 	bool fCopyOver = FALSE;
 	FILE *fpBoot = nullptr;
@@ -1885,7 +1889,7 @@ void do_copyover(Character *ch, String argument)
 	char portbuf[MSL], controlbuf[MSL];
 	Format::sprintf(portbuf,  "%d", port);
 	Format::sprintf(controlbuf, "%d", control);
-	execl(EXE_FILE, "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
+	execl(exe_file.c_str(), "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");
 	stc("Copyover FAILED!\n", ch);
