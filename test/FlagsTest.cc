@@ -2,8 +2,8 @@
 #define BOOST_TEST_MODULE FlagsModule
 #include <boost/test/unit_test.hpp>
 
-#include "Flags.hpp"
-#include "String.hpp"
+#include "Flags.hh"
+#include "String.hh"
 
 BOOST_AUTO_TEST_SUITE(FlagsTest)
 

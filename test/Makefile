@@ -9,12 +9,12 @@ LIBS := -L /opt/local/lib -lboost_unit_test_framework-mt
  # -lboost_test_exec_monitor-mt
 
 # Create lists of the elements of our build
-SOURCES := $(shell find . -depth 1 -name '*.c*' -print | sort)
-OBJECTS := $(SOURCES:.cpp=.o)
+SOURCES := $(shell find . -depth 1 -name '*.cc' -print | sort)
+OBJECTS := $(SOURCES:.cc=.o)
 TESTS := String Flags
 BINS := $(addsuffix .test, $(TESTS))
 
-%.o: %.cpp
+%.o: %.cc
 	$(CXX) -c -o $@ $< $(CXXFLAGS) $(INCLUDES)
 
 all: $(TESTS)

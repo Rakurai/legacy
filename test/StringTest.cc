@@ -2,7 +2,7 @@
 #define BOOST_TEST_MODULE StringModule
 #include <boost/test/unit_test.hpp>
 
-#include "String.hpp"
+#include "String.hh"
 
 BOOST_AUTO_TEST_SUITE(StringTest)
 
