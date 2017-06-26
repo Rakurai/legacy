@@ -1,0 +1,550 @@
+[Area.cc:356]: (style) The scope of the variable 'd1' can be reduced.
+[Character.cc:132]: (style) The scope of the variable 'not_used' can be reduced.
+[Note.cc:1584]: (style) The scope of the variable 'plist' can be reduced.
+[Note.cc:1585]: (style) The scope of the variable 'nnum' can be reduced.
+[War.cc:69]: (style) The scope of the variable 'fp' can be reduced.
+[War.cc:111]: (style) The scope of the variable 'fp' can be reduced.
+[War.cc:146]: (style) The scope of the variable 'war' can be reduced.
+[War.cc:147]: (style) The scope of the variable 'i' can be reduced.
+[War.cc:147]: (style) The scope of the variable 'count' can be reduced.
+[War.cc:191]: (style) The scope of the variable 'i' can be reduced.
+[War.cc:482]: (style) The scope of the variable 'buf' can be reduced.
+[War.cc:486]: (style) The scope of the variable 'x' can be reduced.
+[War.cc:486]: (style) The scope of the variable 'highest' can be reduced.
+[War.cc:572]: (style) The scope of the variable 'victim' can be reduced.
+[War.cc:664]: (style) The scope of the variable 'buf' can be reduced.
+[War.cc:1065]: (style) The scope of the variable 'clanB' can be reduced.
+[act_comm.cc:645]: (style) The scope of the variable 'obj' can be reduced.
+[act_comm.cc:890]: (style) The scope of the variable 'strtime' can be reduced.
+[act_comm.cc:1120]: (style) The scope of the variable 'victim' can be reduced.
+[act_comm.cc:1626]: (style) The scope of the variable 'buf' can be reduced.
+[act_comm.cc:1832]: (style) The scope of the variable 'buf' can be reduced.
+[act_comm.cc:1887]: (style) The scope of the variable 'i' can be reduced.
+[act_comm.cc:1887]: (style) The scope of the variable 'sn' can be reduced.
+[act_comm.cc:1887]: (style) The scope of the variable 'vnum' can be reduced.
+[act_info.cc:111]: (style) The scope of the variable 'diff' can be reduced.
+[act_info.cc:827]: (style) The scope of the variable 'buf' can be reduced.
+[act_info.cc:981]: (style) The scope of the variable 'l' can be reduced.
+[act_info.cc:2008]: (style) The scope of the variable 'buf' can be reduced.
+[act_info.cc:2156]: (style) The scope of the variable 'pexit' can be reduced.
+[act_info.cc:3647]: (style) The scope of the variable 'buf' can be reduced.
+[act_info.cc:4398]: (style) The scope of the variable 'p' can be reduced.
+[act_move.cc:2159]: (style) The scope of the variable 'around' can be reduced.
+[act_move.cc:2486]: (style) The scope of the variable 'around' can be reduced.
+[act_move.cc:2693]: (style) The scope of the variable 'room' can be reduced.
+[act_move.cc:2732]: (style) The scope of the variable 'dex' can be reduced.
+[act_move.cc:2732]: (style) The scope of the variable 'chance' can be reduced.
+[act_move.cc:2732]: (style) The scope of the variable 'topp' can be reduced.
+[act_obj.cc:160]: (style) The scope of the variable 'buf' can be reduced.
+[act_obj.cc:318]: (style) The scope of the variable 'members' can be reduced.
+[act_obj.cc:319]: (style) The scope of the variable 'buffer' can be reduced.
+[act_obj.cc:753]: (style) The scope of the variable 'weight' can be reduced.
+[act_obj.cc:999]: (style) The scope of the variable 'found' can be reduced.
+[act_obj.cc:1528]: (style) The scope of the variable 'percent' can be reduced.
+[act_obj.cc:2701]: (style) The scope of the variable 'being_used' can be reduced.
+[act_obj.cc:2704]: (style) The scope of the variable 'members' can be reduced.
+[act_obj.cc:2705]: (style) The scope of the variable 'buffer' can be reduced.
+[act_obj.cc:3808]: (style) The scope of the variable 'buf' can be reduced.
+[act_obj.cc:3811]: (style) The scope of the variable 'level_buyable' can be reduced.
+[act_obj.cc:3814]: (style) The scope of the variable 'total_cost' can be reduced.
+[act_obj.cc:4236]: (style) The scope of the variable 'cost' can be reduced.
+[act_obj.cc:4300]: (style) The scope of the variable 'roll' can be reduced.
+[act_obj.cc:4678]: (style) The scope of the variable 'owner' can be reduced.
+[act_obj.cc:4680]: (style) The scope of the variable 'costbuf' can be reduced.
+[act_obj.cc:4682]: (style) The scope of the variable 'cost_gold' can be reduced.
+[act_obj.cc:4682]: (style) The scope of the variable 'cost_silver' can be reduced.
+[act_obj.cc:4930]: (style) The scope of the variable 'c0' can be reduced.
+[act_obj.cc:181]: (warning) sscanf() without field width limits can crash with huge input data.
+[alias.cc:75]: (style) Variable 'input' is assigned a value that is never used.
+[area_handler.cc:42]: (style) The scope of the variable 'wealth' can be reduced.
+[attribute.cc:182]: (style) Same expression in both branches of ternary operator.
+[attribute.cc:117]: (style) The scope of the variable 'obj' can be reduced.
+[bank.cc:26]: (style) The scope of the variable 'max_gold' can be reduced.
+[bank.cc:27]: (style) The scope of the variable 'max_silver' can be reduced.
+[channels.cc:299]: (style) The scope of the variable 'victim' can be reduced.
+[channels.cc:781]: (style) The scope of the variable 'victim' can be reduced.
+[channels.cc:820]: (style) The scope of the variable 'victim' can be reduced.
+[channels.cc:1537]: (style) The scope of the variable 'buf' can be reduced.
+[channels.cc:1539]: (style) The scope of the variable 'strtime' can be reduced.
+[clan-edit.cc:72]: (style) The scope of the variable 'clan' can be reduced.
+[clan-edit.cc:127]: (style) The scope of the variable 'count' can be reduced.
+[clan-edit.cc:382]: (style) The scope of the variable 'vnum' can be reduced.
+[clan-edit.cc:405]: (style) The scope of the variable 'vnum' can be reduced.
+[clan-edit.cc:428]: (style) The scope of the variable 'independent' can be reduced.
+[comm.cc:1498]: (style) The scope of the variable 'nBlock' can be reduced.
+[comm.cc:206]: (warning) fscanf() without field width limits can crash with huge input data.
+[comm.cc:678]: (style) The scope of the variable 'from' can be reduced.
+[./comm.cc:432]: (information) Skipping configuration 'SO_DONTLINGER' since the value of 'SO_DONTLINGER' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./comm.cc:418]: (information) Skipping configuration 'SO_NOSIGPIPE' since the value of 'SO_NOSIGPIPE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[config.cc:763]: (style) The scope of the variable 'buf' can be reduced.
+[config.cc:800]: (style) The scope of the variable 'buf' can be reduced.
+[db.cc:536]: (style) The scope of the variable 'letter' can be reduced.
+[db.cc:565]: (style) The scope of the variable 'letter' can be reduced.
+[db.cc:566]: (style) The scope of the variable 'iHash' can be reduced.
+[db.cc:611]: (style) The scope of the variable 'letter' can be reduced.
+[db.cc:612]: (style) The scope of the variable 'iHash' can be reduced.
+[db.cc:875]: (style) The scope of the variable 'letter' can be reduced.
+[db.cc:877]: (style) The scope of the variable 'iHash' can be reduced.
+[db.cc:1040]: (style) The scope of the variable 'pMobIndex' can be reduced.
+[db.cc:1041]: (style) The scope of the variable 'shopkeeper' can be reduced.
+[db.cc:1084]: (style) The scope of the variable 'letter' can be reduced.
+[db.cc:1189]: (style) The scope of the variable 'iChar' can be reduced.
+[debug.cc:194]: (style) The scope of the variable 'container' can be reduced.
+[debug.cc:218]: (style) The scope of the variable 'found' can be reduced.
+[deps/cJSON/cJSON.c:169]: (style) Condition 'd*0!=0' is always false
+[deps/cJSON/cJSON.c:681] -> [deps/cJSON/cJSON.c:686]: (warning) Either the condition 'c' is redundant or there is possible null pointer dereference: prev.
+[deps/cJSON/cJSON.c:450]: (style) The scope of the variable 'entries' can be reduced.
+[deps/cJSON/cJSON.c:454]: (style) The scope of the variable 'tmplen' can be reduced.
+[deps/cJSON/cJSON.c:566]: (style) The scope of the variable 'entries' can be reduced.
+[deps/cJSON/cJSON.c:566]: (style) The scope of the variable 'names' can be reduced.
+[deps/cJSON/cJSON.c:569]: (style) The scope of the variable 'fail' can be reduced.
+[deps/cJSON/cJSON.c:570]: (style) The scope of the variable 'tmplen' can be reduced.
+[deps/cprops/avl.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/avl.c:1002]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/avl.c:1030]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/avl.c:1056]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/bit_sequence.c:349]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/bstr.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/bstr.c:337]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/client.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 24 configurations. Use --force to check all configurations.
+[deps/cprops/client.c:757]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/client.c:759]: (style) The scope of the variable 'read_len' can be reduced.
+[deps/cprops/client.c:811]: (style) The scope of the variable 'rc' can be reduced.
+[./deps/cprops/client.c:229]: (information) Skipping configuration 'CP_USE_SSL;SSL_ERROR_WANT_ACCEPT' since the value of 'SSL_ERROR_WANT_ACCEPT' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[deps/cprops/collection.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/db.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 23 configurations. Use --force to check all configurations.
+[deps/cprops/db.c:270]: (style) The scope of the variable 'cstr' can be reduced.
+[deps/cprops/db.c:715]: (style) The scope of the variable 'item' can be reduced.
+[deps/cprops/db.c:1071]: (style) The scope of the variable 'conn' can be reduced.
+[deps/cprops/db.c:687]: (style) Variable 'field_types' is assigned a value that is never used.
+[deps/cprops/db.c:459]: (error) Deallocating a deallocated pointer: prm
+[deps/cprops/db_mysql.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[deps/cprops/db_mysql.c:443] -> [deps/cprops/db_mysql.c:447]: (style) Variable 'conn' is reassigned a value before the old one has been used.
+[deps/cprops/db_mysql.c:507]: (style) The scope of the variable 'lengths' can be reduced.
+[deps/cprops/db_mysql.c:508]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/db_mysql.c:544]: (style) The scope of the variable 'row' can be reduced.
+[deps/cprops/db_mysql.c:546]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/db_mysql.c:612]: (style) The scope of the variable 'field' can be reduced.
+[deps/cprops/db_postgres.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 23 configurations. Use --force to check all configurations.
+[deps/cprops/db_postgres.c:464]: (style) Condition 'sizeof(long)==sizeof(int)' is always false
+[deps/cprops/db_postgres.c:759]: (style) Condition 'sizeof(long)==sizeof(int)' is always false
+[deps/cprops/db_postgres.c:936]: (style) Condition 'sizeof(long)==sizeof(int)' is always false
+[deps/cprops/db_postgres.c:991]: (style) Condition 'sizeof(long)==sizeof(int)' is always false
+[deps/cprops/db_postgres.c:475]: (portability) Casting from float* to integer* is not portable due to different binary data representations on different platforms.
+[deps/cprops/db_postgres.c:489]: (portability) Casting from double* to integer* is not portable due to different binary data representations on different platforms.
+[deps/cprops/db_postgres.c:948]: (portability) Casting from float* to integer* is not portable due to different binary data representations on different platforms.
+[deps/cprops/db_postgres.c:604]: (style) The scope of the variable 'j' can be reduced.
+[deps/cprops/db_postgres.c:777]: (style) The scope of the variable 'marker' can be reduced.
+[deps/cprops/db_postgres.c:778]: (style) The scope of the variable 'count' can be reduced.
+[deps/cprops/db_postgres.c:1017]: (style) The scope of the variable 'ch' can be reduced.
+[deps/cprops/db_postgres.c:1067]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/hashlist.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[deps/cprops/hashlist.c:211]: (style) Variable 'rc' is assigned a value that is never used.
+[deps/cprops/hashlist.c:112]: (error) Memory leak: list
+[deps/cprops/hashtable.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations.
+[deps/cprops/hashtable.c:1251]: (style) Condition 'sizeof(long)<sizeof(double)' is always false
+[deps/cprops/hashtable.c:73]: (style) The scope of the variable 'pos' can be reduced.
+[deps/cprops/hashtable.c:144]: (error) Memory leak: table
+[deps/cprops/heap.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations.
+[deps/cprops/heap.c:41]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/heap.c:340] -> [deps/cprops/heap.c:104]: (warning) Either the condition 'if(h)' is redundant or there is possible null pointer dereference: h.
+[deps/cprops/heap.c:341] -> [deps/cprops/heap.c:104]: (warning) Either the condition 'if(h)' is redundant or there is possible null pointer dereference: h.
+[deps/cprops/heap.c:342] -> [deps/cprops/heap.c:104]: (warning) Either the condition 'if(h)' is redundant or there is possible null pointer dereference: h.
+[deps/cprops/heap.c:343] -> [deps/cprops/heap.c:104]: (warning) Either the condition 'if(h)' is redundant or there is possible null pointer dereference: h.
+[deps/cprops/heap.c:344] -> [deps/cprops/heap.c:104]: (warning) Either the condition 'if(h)' is redundant or there is possible null pointer dereference: h.
+[deps/cprops/http.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 38 configurations. Use --force to check all configurations.
+[deps/cprops/http.c:1782] -> [deps/cprops/http.c:1796]: (style) Variable 'rc' is reassigned a value before the old one has been used.
+[deps/cprops/http.c:534]: (style) The scope of the variable 'cookie_path' can be reduced.
+[deps/cprops/http.c:535]: (style) The scope of the variable 'cp' can be reduced.
+[deps/cprops/http.c:614]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/http.c:616]: (style) The scope of the variable 'now' can be reduced.
+[deps/cprops/http.c:617]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/http.c:798]: (style) The scope of the variable 'len' can be reduced.
+[deps/cprops/http.c:799]: (style) The scope of the variable 'name' can be reduced.
+[deps/cprops/http.c:799]: (style) The scope of the variable 'value' can be reduced.
+[deps/cprops/http.c:800]: (style) The scope of the variable 'eol' can be reduced.
+[deps/cprops/http.c:944]: (style) The scope of the variable 'len' can be reduced.
+[deps/cprops/http.c:946]: (style) The scope of the variable 'raw_name' can be reduced.
+[deps/cprops/http.c:946]: (style) The scope of the variable 'raw_value' can be reduced.
+[deps/cprops/http.c:1890]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/http.c:1954]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/http.c:1955]: (style) The scope of the variable 'len' can be reduced.
+[deps/cprops/http.c:2045]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/http.c:2047]: (style) The scope of the variable 'action' can be reduced.
+[deps/cprops/http.c:2051]: (style) The scope of the variable 'svc' can be reduced.
+[deps/cprops/http.c:898]: (style) Variable 'p' is modified but its new value is never used.
+[deps/cprops/httpclient.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 29 configurations. Use --force to check all configurations.
+[deps/cprops/httpclient.c:2064]: (style) Suspicious condition (assignment + comparison); Clarify expression with parentheses.
+[deps/cprops/httpclient.c:237]: (style) The scope of the variable 'content' can be reduced.
+[deps/cprops/httpclient.c:245]: (style) The scope of the variable 'fld' can be reduced.
+[deps/cprops/httpclient.c:324]: (style) The scope of the variable 'dbuf' can be reduced.
+[deps/cprops/httpclient.c:342]: (style) The scope of the variable 'value' can be reduced.
+[deps/cprops/httpclient.c:571]: (style) The scope of the variable 'value' can be reduced.
+[deps/cprops/httpclient.c:746]: (style) The scope of the variable 'value' can be reduced.
+[deps/cprops/httpclient.c:777]: (style) The scope of the variable 'cooklist' can be reduced.
+[deps/cprops/httpclient.c:1097]: (style) The scope of the variable 'len' can be reduced.
+[deps/cprops/httpclient.c:1099]: (style) The scope of the variable 'name' can be reduced.
+[deps/cprops/httpclient.c:1099]: (style) The scope of the variable 'value' can be reduced.
+[deps/cprops/httpclient.c:1131]: (style) The scope of the variable 'uri_trie' can be reduced.
+[deps/cprops/httpclient.c:1220]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/httpclient.c:1241]: (style) The scope of the variable 'inc' can be reduced.
+[deps/cprops/httpclient.c:1241]: (style) The scope of the variable 'cat' can be reduced.
+[deps/cprops/httpclient.c:1297]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/httpclient.c:1436]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/httpclient.c:1607]: (style) The scope of the variable 'res' can be reduced.
+[deps/cprops/httpclient.c:1998]: (style) The scope of the variable 'desc' can be reduced.
+[deps/cprops/httpclient.c:2052]: (style) The scope of the variable 'err' can be reduced.
+[deps/cprops/httpclient.c:2053]: (style) The scope of the variable 'rcount' can be reduced.
+[deps/cprops/httpclient.c:466] -> [deps/cprops/httpclient.c:460]: (warning) Either the condition 'client' is redundant or there is possible null pointer dereference: client.
+[deps/cprops/httpclient.c:470] -> [deps/cprops/httpclient.c:460]: (warning) Either the condition 'client' is redundant or there is possible null pointer dereference: client.
+[deps/cprops/linked_list.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/linked_list.c:936]: (style) Expression is always false because 'else if' condition matches previous condition at line 934.
+[deps/cprops/linked_list.c:76] -> [deps/cprops/linked_list.c:78]: (style) Variable 'list' is reassigned a value before the old one has been used.
+[deps/cprops/linked_list.c:718] -> [deps/cprops/linked_list.c:724]: (style) Variable 'rc' is reassigned a value before the old one has been used.
+[deps/cprops/linked_list.c:232]: (style) The scope of the variable 'lookup' can be reduced.
+[deps/cprops/linked_list.c:254]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/linked_list.c:404]: (style) The scope of the variable 'lookup' can be reduced.
+[deps/cprops/log.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 27 configurations. Use --force to check all configurations.
+[deps/cprops/log.c:573]: (style) The scope of the variable 'argp' can be reduced.
+[deps/cprops/log.c:574]: (style) The scope of the variable 'errcode' can be reduced.
+[deps/cprops/log.c:670]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/log.c:671]: (style) The scope of the variable 'idx' can be reduced.
+[deps/cprops/log.c:672]: (style) The scope of the variable 'prn' can be reduced.
+[deps/cprops/log.c:673]: (style) The scope of the variable 'lit' can be reduced.
+[deps/cprops/log.c:674]: (style) The scope of the variable 'hc' can be reduced.
+[deps/cprops/log.c:675]: (style) The scope of the variable 'line_done' can be reduced.
+[deps/cprops/log.c:121]: (error) Memory leak: num
+[deps/cprops/log.c:266]: (error) Memory leak: buf
+[deps/cprops/mempool.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 18 configurations. Use --force to check all configurations.
+[deps/cprops/mempool.c:286]: (style) The scope of the variable 'tmp' can be reduced.
+[./deps/cprops/mempool.c:75]: (information) Skipping configuration 'PTHREAD_MUTEX_RECURSIVE' since the value of 'PTHREAD_MUTEX_RECURSIVE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./deps/cprops/mempool.c:75]: (information) Skipping configuration 'PTHREAD_MUTEX_RECURSIVE;PTHREAD_MUTEX_RECURSIVE_NP' since the value of 'PTHREAD_MUTEX_RECURSIVE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[deps/cprops/mtab.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/mtab.c:45]: (style) The scope of the variable 'pos' can be reduced.
+[deps/cprops/mtab.c:132]: (style) The scope of the variable 'tmp' can be reduced.
+[deps/cprops/mtab.c:151]: (style) The scope of the variable 'tmp' can be reduced.
+[deps/cprops/multimap.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/multimap.c:801]: (style) The scope of the variable 'cmp' can be reduced.
+[deps/cprops/multimap.c:1322]: (style) The scope of the variable 'cmp' can be reduced.
+[deps/cprops/multimap.c:1379]: (style) The scope of the variable 'cmp' can be reduced.
+[deps/cprops/multimap.c:1493]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/multimap.c:1560]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/multimap.c:1601]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/multimap.c:1631]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/multimap.c:1681]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/multimap.c:1575]: (error) Uninitialized variable: drop_index
+[deps/cprops/nary.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/nary.c:278]: (style) The scope of the variable 'min' can be reduced.
+[deps/cprops/nary.c:278]: (style) The scope of the variable 'max' can be reduced.
+[deps/cprops/nary.c:377]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/nary.c:637]: (style) The scope of the variable 'min' can be reduced.
+[deps/cprops/nary.c:637]: (style) The scope of the variable 'max' can be reduced.
+[deps/cprops/nary.c:908]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/nary.c:909]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/priority_list.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/priority_list.c:73]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/priority_list.c:235]: (style) The scope of the variable 'start_queue' can be reduced.
+[deps/cprops/priority_list.c:421]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/rb.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/rb.c:31]: (style) The scope of the variable 'v' can be reduced.
+[deps/cprops/rb.c:857]: (style) The scope of the variable 'cmp' can be reduced.
+[deps/cprops/rb.c:929]: (style) The scope of the variable 'cmp' can be reduced.
+[deps/cprops/rb.c:1017]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/rb.c:1045]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/rb.c:1071]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/rtrie.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/rtrie.c:376]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/socket.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 25 configurations. Use --force to check all configurations.
+[deps/cprops/socket.c:580]: (style) The scope of the variable 'pfd' can be reduced.
+[deps/cprops/socket.c:729]: (style) The scope of the variable 'entry' can be reduced.
+[deps/cprops/socket.c:730]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/socket.c:851]: (style) The scope of the variable 'rc' can be reduced.
+[./deps/cprops/socket.c:931]: (information) Skipping configuration 'ECONNABORTED' since the value of 'ECONNABORTED' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./deps/cprops/socket.c:781]: (information) Skipping configuration 'ENOTSOCK' since the value of 'ENOTSOCK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./deps/cprops/socket.c:940]: (information) Skipping configuration 'ENOTSOCK' since the value of 'ENOTSOCK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[deps/cprops/sorted_hash.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/sorted_hash.c:31]: (style) The scope of the variable 'v' can be reduced.
+[deps/cprops/sorted_hash.c:656]: (style) The scope of the variable 'c' can be reduced.
+[deps/cprops/sorted_hash.c:1031]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/sorted_hash.c:1068]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/sorted_hash.c:1105]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/splay.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/splay.c:812]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/splay.c:840]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/splay.c:870]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/str.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[deps/cprops/str.c:341]: (style) The scope of the variable 'rc' can be reduced.
+[deps/cprops/str.c:479]: (style) The scope of the variable 'ch' can be reduced.
+[deps/cprops/testhttpsrv.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 18 configurations. Use --force to check all configurations.
+[deps/cprops/testhttpsrv.c:323]: (warning) Size of pointer 'pcount' used instead of size of its data.
+[deps/cprops/thread.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 18 configurations. Use --force to check all configurations.
+[deps/cprops/thread.c:351] -> [deps/cprops/thread.c:358]: (style) Variable 'pt' is reassigned a value before the old one has been used.
+[deps/cprops/thread.c:50]: (error) Memory leak: pt
+[deps/cprops/thread.c:487]: (error) Memory leak: ci
+[deps/cprops/trie.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations.
+[deps/cprops/trie.c:302]: (style) The scope of the variable 'next' can be reduced.
+[deps/cprops/trie.c:470]: (style) The scope of the variable 'attr' can be reduced.
+[deps/cprops/trie.c:574]: (style) The scope of the variable 'branch' can be reduced.
+[deps/cprops/trie.c:632]: (style) The scope of the variable 'branch' can be reduced.
+[deps/cprops/trie.c:669]: (style) The scope of the variable 'branch' can be reduced.
+[deps/cprops/util.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 22 configurations. Use --force to check all configurations.
+[deps/cprops/util.c:338]: (warning) %ld in format string (no. 1) requires 'long' but the argument type is 'unsigned long'.
+[deps/cprops/util.c:305]: (style) The scope of the variable 'addr' can be reduced.
+[deps/cprops/util.c:605]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/util.c:622]: (style) The scope of the variable 'curr' can be reduced.
+[deps/cprops/util.c:661]: (style) The scope of the variable 'ch' can be reduced.
+[deps/cprops/util.c:311]: (style) Variable 'rc' is assigned a value that is never used.
+[deps/cprops/util.c:193] -> [deps/cprops/util.c:201]: (style) Variable 'rc' is reassigned a value before the old one has been used.
+[deps/cprops/util.c:850] -> [deps/cprops/util.c:869]: (style) Variable 'bFuncRetn' is reassigned a value before the old one has been used.
+[deps/cprops/util.c:825]: (style) The scope of the variable 'len' can be reduced.
+[deps/cprops/vector.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/vector.c:69]: (style) The scope of the variable 'item' can be reduced.
+[deps/cprops/vector.c:85]: (style) The scope of the variable 'i' can be reduced.
+[deps/cprops/vector.c:30]: (error) Memory leak: v
+[deps/cprops/wtab.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/wtab.c:45]: (style) The scope of the variable 'pos' can be reduced.
+[deps/cprops/wtab.c:132]: (style) The scope of the variable 'tmp' can be reduced.
+[deps/cprops/wtab.c:151]: (style) The scope of the variable 'tmp' can be reduced.
+[deps/cprops/wtrie.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[deps/cprops/wtrie.c:302]: (style) The scope of the variable 'next' can be reduced.
+[deps/cprops/wtrie.c:462]: (style) The scope of the variable 'attr' can be reduced.
+[deps/cprops/wtrie.c:566]: (style) The scope of the variable 'branch' can be reduced.
+[deps/cprops/wtrie.c:624]: (style) The scope of the variable 'branch' can be reduced.
+[deps/cprops/wtrie.c:661]: (style) The scope of the variable 'branch' can be reduced.
+[duel.cc:92]: (style) The scope of the variable 'i' can be reduced.
+[edit.cc:286]: (style) The scope of the variable 'buf' can be reduced.
+[edit.cc:299]: (style) The scope of the variable 'buf' can be reduced.
+[edit.cc:431]: (style) The scope of the variable 'line9' can be reduced.
+[edit.cc:475]: (style) The scope of the variable 'buf' can be reduced.
+[edit.cc:667]: (style) The scope of the variable 'buf' can be reduced.
+[fight.cc:2116]: (style) Assignment of function parameter has no effect outside the function.
+[fight.cc:2294]: (style) Assignment of function parameter has no effect outside the function.
+[fight.cc:2379]: (style) Assignment of function parameter has no effect outside the function.
+[fight.cc:2461]: (style) Assignment of function parameter has no effect outside the function.
+[fight.cc:3169]: (style) Assignment of function parameter has no effect outside the function.
+[fight.cc:305] -> [fight.cc:307]: (warning) Either the condition 'ch==nullptr' is redundant or there is possible null pointer dereference: ch.
+[fight.cc:277]: (style) The scope of the variable 'sun_damage' can be reduced.
+[fight.cc:382]: (style) The scope of the variable 'obj' can be reduced.
+[fight.cc:1086]: (style) The scope of the variable 'level' can be reduced.
+[fight.cc:1456]: (style) The scope of the variable 'factor' can be reduced.
+[fight.cc:1594]: (style) The scope of the variable 'buf' can be reduced.
+[fight.cc:3283]: (style) The scope of the variable 'kdtime' can be reduced.
+[fight.cc:3813]: (style) The scope of the variable 'low' can be reduced.
+[fight.cc:3813]: (style) The scope of the variable 'high' can be reduced.
+[fight.cc:3813]: (style) The scope of the variable 'fee' can be reduced.
+[fight.cc:3816]: (style) The scope of the variable 'ach' can be reduced.
+[fight.cc:4515]: (style) The scope of the variable 'amount' can be reduced.
+[fight.cc:4762]: (style) The scope of the variable 'buf' can be reduced.
+[fight.cc:4763]: (style) The scope of the variable 'door' can be reduced.
+[fight.cc:4886]: (style) The scope of the variable 'buf' can be reduced.
+[fight.cc:2859]: (style) Variable 'members' is modified but its new value is never used.
+[find.cc:398]: (style) The scope of the variable 'ach' can be reduced.
+[find.cc:440]: (style) The scope of the variable 'wch' can be reduced.
+[flag.cc:682]: (style) The scope of the variable 'pos' can be reduced.
+[handler.cc:1152]: (style) The scope of the variable 'amount' can be reduced.
+[help.cc:155]: (style) Clarify calculation precedence for '%' and '?'.
+[interp.cc:836]: (style) The scope of the variable 'arg' can be reduced.
+[magic.cc:1047]: (style) The scope of the variable 'obj' can be reduced.
+[magic.cc:1163]: (style) The scope of the variable 'found' can be reduced.
+[magic.cc:2263]: (style) The scope of the variable 'obj' can be reduced.
+[magic.cc:2530]: (style) The scope of the variable 'buf' can be reduced.
+[magic.cc:3034]: (style) The scope of the variable 'manadrain' can be reduced.
+[magic.cc:3034]: (style) The scope of the variable 'stamdrain' can be reduced.
+[magic.cc:4213]: (style) The scope of the variable 'obj' can be reduced.
+[magic.cc:4796]: (style) The scope of the variable 'obj' can be reduced.
+[magic.cc:6204]: (style) The scope of the variable 'buf' can be reduced.
+[marry.cc:155]: (style) The scope of the variable 'buf' can be reduced.
+[mob_prog.cc:245]: (style) Redundant condition: If 'EXPR == '\0'', the comparison 'EXPR != ' '' is always true.
+[mob_prog.cc:1564]: (style) The scope of the variable 'morebuf' can be reduced.
+[music.cc:52]: (style) The scope of the variable 'victim' can be reduced.
+[music.cc:57]: (style) The scope of the variable 'i' can be reduced.
+[music.cc:156]: (style) The scope of the variable 'letter' can be reduced.
+[nanny.cc:352]: (style) The scope of the variable 'victim' can be reduced.
+[paint.cc:82]: (style) The scope of the variable 'location' can be reduced.
+[quest.cc:418]: (style) The scope of the variable 'count' can be reduced.
+[quest.cc:645]: (style) The scope of the variable 'room' can be reduced.
+[quest.cc:820]: (style) The scope of the variable 'buf' can be reduced.
+[quest.cc:878]: (style) The scope of the variable 'aligned' can be reduced.
+[quest.cc:879]: (style) The scope of the variable 'total' can be reduced.
+[quest.cc:1130]: (style) The scope of the variable 'sn' can be reduced.
+[quest.cc:1390]: (style) The scope of the variable 'temple' can be reduced.
+[random.cc:132]: (style) struct member 'prd_table_entry::p' is never used.
+[random.cc:133]: (style) struct member 'prd_table_entry::c' is never used.
+[./save.cc:965]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1065]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1126]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1203]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1209]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1210]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1272]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1291]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1444]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1492]: (information) Skipping configuration 'FLAGKEY' since the value of 'FLAGKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:938]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:939]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:943]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:989]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:991]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:992]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1029]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1034]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1035]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1036]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1037]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1039]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1040]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1043]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1044]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1061]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1062]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1063]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1064]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1066]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1084]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1085]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1105]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1108]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1123]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1204]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1207]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1208]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1213]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1217]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1222]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1223]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1224]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1241]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1248]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1251]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1253]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1259]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1260]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1261]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1265]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1266]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1267]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1270]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1271]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1275]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1276]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1277]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1278]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1280]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1281]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1284]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1290]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1428]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1429]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1464]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1467]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1479]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1493]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1494]: (information) Skipping configuration 'INTKEY' since the value of 'INTKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1287]: (information) Skipping configuration 'SKIPKEY' since the value of 'SKIPKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1489]: (information) Skipping configuration 'SKIPKEY' since the value of 'SKIPKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:937]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:940]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:944]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:945]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:968]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:986]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:990]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1010]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1011]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1030]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1031]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1038]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1060]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1083]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1106]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1107]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1129]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1214]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1252]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1256]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1262]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1279]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1432]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1470]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1473]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[./save.cc:1476]: (information) Skipping configuration 'STRKEY' since the value of 'STRKEY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[set-stat.cc:217]: (style) The scope of the variable 'buf' can be reduced.
+[set-stat.cc:247]: (style) The scope of the variable 'can' can be reduced.
+[set-stat.cc:477]: (style) The scope of the variable 'i' can be reduced.
+[set-stat.cc:477]: (style) The scope of the variable 'gn' can be reduced.
+[set-stat.cc:477]: (style) The scope of the variable 'cn' can be reduced.
+[set-stat.cc:477]: (style) The scope of the variable 'col' can be reduced.
+[set-stat.cc:866]: (style) The scope of the variable 'loop' can be reduced.
+[skills.cc:49]: (style) The scope of the variable 'ngn' can be reduced.
+[skills.cc:529]: (style) The scope of the variable 'y' can be reduced.
+[skills.cc:686]: (style) The scope of the variable 'inc' can be reduced.
+[skills.cc:1008]: (style) The scope of the variable 'can' can be reduced.
+[social.cc:73]: (style) The scope of the variable 'new_social' can be reduced.
+[social.cc:348]: (style) The scope of the variable 'unfin' can be reduced.
+[special.cc:821]: (style) The scope of the variable 'buf' can be reduced.
+[special.cc:1141]: (style) The scope of the variable 'buf' can be reduced.
+[update.cc:237]: (style) The scope of the variable 'number' can be reduced.
+[update.cc:315]: (style) The scope of the variable 'number' can be reduced.
+[update.cc:1013]: (style) The scope of the variable 'room' can be reduced.
+[wiz_build.cc:205]: (style) The scope of the variable 'room' can be reduced.
+[wiz_build.cc:258]: (style) The scope of the variable 'mobile' can be reduced.
+[wiz_build.cc:259]: (style) The scope of the variable 'object' can be reduced.
+[wiz_coder.cc:265]: (style) The scope of the variable 'buf2' can be reduced.
+[wiz_coder.cc:266]: (style) The scope of the variable 'strtime' can be reduced.
+[wiz_coder.cc:592]: (style) Variable 'pc' is not assigned a value.
+[wiz_coder.cc:595]: (style) Variable 'room' is not assigned a value.
+[wiz_coder.cc:596]: (style) Variable 'exit' is not assigned a value.
+[wiz_gen.cc:112]: (style) The scope of the variable 'wch' can be reduced.
+[wiz_gen.cc:126]: (style) The scope of the variable 'q' can be reduced.
+[wiz_gen.cc:621]: (style) The scope of the variable 't_obj' can be reduced.
+[wiz_gen.cc:643]: (style) The scope of the variable 'j' can be reduced.
+[wiz_gen.cc:735]: (style) The scope of the variable 'new_obj' can be reduced.
+[wiz_gen.cc:780]: (style) The scope of the variable 'buf' can be reduced.
+[wiz_gen.cc:1414]: (style) The scope of the variable 'i' can be reduced.
+[wiz_gen.cc:1876]: (style) The scope of the variable 'buf' can be reduced.
+[wiz_gen.cc:2218]: (style) The scope of the variable 'pObjIndex' can be reduced.
+[wiz_gen.cc:2362]: (style) The scope of the variable 'pMobIndex' can be reduced.
+[wiz_gen.cc:2763]: (style) The scope of the variable 'pMobIndex' can be reduced.
+[wiz_gen.cc:2812]: (style) The scope of the variable 'pObjIndex' can be reduced.
+[wiz_gen.cc:3049]: (style) The scope of the variable 'd' can be reduced.
+[wiz_quest.cc:273]: (style) The scope of the variable 'room' can be reduced.
+[wiz_quest.cc:338]: (style) The scope of the variable 'victim' can be reduced.
+[wiz_quest.cc:340]: (style) The scope of the variable 'room' can be reduced.
+[wiz_quest.cc:687]: (style) The scope of the variable 'location' can be reduced.
+[wiz_quest.cc:832]: (style) The scope of the variable 'buf' can be reduced.
+[wiz_quest.cc:833]: (style) The scope of the variable 'pObjIndex' can be reduced.
+[wiz_quest.cc:834]: (style) The scope of the variable 'obj' can be reduced.
+[wiz_quest.cc:835]: (style) The scope of the variable 'x' can be reduced.
+[affect_room.cc:17]: (style) The function 'affect_exists_on_room' is never used.
+[affect_room.cc:33]: (style) The function 'affect_join_to_room' is never used.
+[affect_room.cc:77]: (style) The function 'affect_remove_all_from_room' is never used.
+[affect_char.cc:83]: (style) The function 'affect_remove_from_char' is never used.
+[affect_obj.cc:51]: (style) The function 'affect_remove_from_obj' is never used.
+[affect_room.cc:46]: (style) The function 'affect_remove_from_room' is never used.
+[affect_room.cc:63]: (style) The function 'affect_remove_marked_from_room' is never used.
+[affect_obj.cc:75]: (style) The function 'affect_remove_sn_from_obj' is never used.
+[affect_room.cc:70]: (style) The function 'affect_remove_sn_from_room' is never used.
+[affect.cc:58]: (style) The function 'affect_update' is never used.
+[bank.cc:230]: (style) The function 'do_balance' is never used.
+[comm.cc:1764]: (style) The function 'do_copyove' is never used.
+[wiz_coder.cc:123]: (style) The function 'do_pipe' is never used.
+[paint.cc:40]: (style) The function 'do_reload' is never used.
+[paint.cc:79]: (style) The function 'do_splat' is never used.
+[attribute.cc:38]: (style) The function 'get_max_stat' is never used.
+[find.cc:87]: (style) The function 'get_mob_area' is never used.
+[handler.cc:1746]: (style) The function 'get_obj_carrier' is never used.
+[find.cc:396]: (style) The function 'get_player_area' is never used.
+[find.cc:367]: (style) The function 'get_player_here' is never used.
+[handler.cc:1249]: (style) The function 'get_strongbox_number' is never used.
+[War.cc:408]: (style) The function 'get_war' is never used.
+[handler.cc:66]: (style) The function 'is_friend' is never used.
+[typename.cc:14]: (style) The function 'item_name' is never used.
+[affect_obj.cc:109]: (style) The function 'obj_has_affect' is never used.
+[String.cc:30]: (style) The function 'operator!=' is never used.
+[String.cc:18]: (style) The function 'operator==' is never used.
+[save.cc:864]: (style) The function 'setstr' is never used.
+[magic.cc:116]: (style) The function 'slot_lookup' is never used.
+[rmagic.cc:100]: (style) The function 'spell_ironskin' is never used.
+[duel.cc:380]: (style) The function 'view_room_hpbar' is never used.
+[typename.cc:25]: (style) The function 'weapon_name' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

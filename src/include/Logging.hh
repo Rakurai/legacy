@@ -13,5 +13,11 @@ void bugf(const String& fmt, Params... params)
 {
 	Logging::bug(Format::format(fmt, params...), 0);
 }
+
+template<class... Params>
+void logf(const String& fmt, Params... params)
+{
+	Logging::log(Format::format(fmt, params...));
+}
 	
 }

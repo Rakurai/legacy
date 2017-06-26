@@ -3,6 +3,7 @@
 #include "declare.hh"
 #include "String.hh"
 #include "World.hh"
+#include "control/PlayerController.hh"
 
 class Game
 {
@@ -13,6 +14,7 @@ public:
 		return w;
 	}
 
+	static std::vector<control::PlayerController *> players;
 
     static String motd;
 

@@ -33,11 +33,13 @@
 #include "argument.hh"
 #include "Character.hh"
 #include "Clan.hh"
+#include "control/control.hh"
 #include "declare.hh"
 #include "Descriptor.hh"
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "lookup.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -295,10 +297,9 @@ String makedrunk(Character *ch, const String& string)
 void global_act(Character *ch, const String& message,
                 int despite_invis, int color, const Flags& nocomm_bits)
 {
-	Descriptor *d;
 	Character *victim;
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) &&
@@ -360,7 +361,6 @@ bool swearcheck(const String& argument)
 bool check_channel_social(Character *ch, Flags::Bit channel, int custom, const String& command, const String& argument)
 {
 	Character *victim;
-	Descriptor *d;
 	Social *iterator;
 	bool found;
 	found  = FALSE;
@@ -411,7 +411,7 @@ bool check_channel_social(Character *ch, Flags::Bit channel, int custom, const S
 
 	set_color(ch, WHITE, NOBOLD);
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		Character *vic;
 		vic = d->original ? d->original : d->character;
 
@@ -457,15 +457,13 @@ bool check_channel_social(Character *ch, Flags::Bit channel, int custom, const S
 /* Channel who by Lotus */
 void channel_who(Character *ch, const String& channelname, const Flags::Bit& channel, int custom)
 {
-	Descriptor *d;
-
 	if (IS_NPC(ch))
 		return;
 
 	new_color(ch, custom);
 	ptc(ch, "Players with %s ON\n", channelname);
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -511,8 +509,6 @@ void send_to_query(Character *ch, const char *string)
 
 void send_to_clan(Character *ch, Clan *target, const String& text)
 {
-	Descriptor *d;
-
 	if (target == nullptr) {
 		stc("No such clan!\n", ch);
 		return;
@@ -523,7 +519,7 @@ void send_to_clan(Character *ch, Clan *target, const String& text)
 		return;
 	}
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		if (IS_PLAYING(d) &&
 		    d->character->clan == target)
 			stc(text, d->character);
@@ -532,9 +528,7 @@ void send_to_clan(Character *ch, Clan *target, const String& text)
 
 void wiznet(const String& string, Character *ch, Object *obj, const Flags& flag, const Flags& flag_skip, int min_rank)
 {
-	Descriptor *d;
-
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		if (IS_PLAYING(d)
 		    && IS_IMMORTAL(d->character)
 		    && d->character->wiznet_flags.has(WIZ_ON)
@@ -552,7 +546,6 @@ void wiznet(const String& string, Character *ch, Object *obj, const Flags& flag,
 
 void channel(Character *ch, const String& argument, int channel)
 {
-	Descriptor *d;
 	int cslot = chan_table[channel].cslot;
 
 	if (channel == CHAN_CLAN) {
@@ -638,7 +631,7 @@ void channel(Character *ch, const String& argument, int channel)
 
 	set_color(ch, WHITE, NOBOLD);
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -703,9 +696,9 @@ void channel(Character *ch, const String& argument, int channel)
 			new_color(victim, cslot);
 
 			/* special for pray, reveal their original character */
-			if (channel == CHAN_PRAY && ch->desc && ch->desc->original)
+			if (channel == CHAN_PRAY && d->original)
 				ptc(victim, "%s (%s) implores the gods: \"%s{x\"\n",
-				    ch->desc->original->name, ch->name, argument);
+				    d->original->name, ch->name, argument);
 			else
 				/* -----> */                    act(chan_table[channel].other_str,
 				                                        ch, argument, victim, TO_VICT_CHANNEL, POS_SLEEPING, FALSE);
@@ -779,9 +772,8 @@ void do_question(Character *ch, String argument)
 void talk_auction(const String& argument)
 {
 	Character *victim;
-	Descriptor *d;
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d)
@@ -817,14 +809,13 @@ void do_announce(Character *ch, String argument)
 
 void do_send_announce(Character *ch, String argument)
 {
-	Character *victim;
-	Descriptor *d;
+	// ch could be nullptr to allow announce to all
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
-		victim = d->original ? d->original : d->character;
+	for (control::PlayerController *pc: Game::players) {
+		Character *victim = pc->original ? pc->original : pc->character;
 
-		if (IS_PLAYING(d)
-		    && d->character != ch
+		if (IS_PLAYING(pc)
+		    && pc->character != ch
 		    && !victim->comm_flags.has(COMM_NOANNOUNCE)
 		    && !victim->comm_flags.has(COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_ANNOUNCE);
@@ -838,39 +829,37 @@ void do_send_announce(Character *ch, String argument)
 /* Lotus - Let us Imms use the FYI Channel for jokes */
 void do_fyi(Character *ch, String argument)
 {
-	Descriptor *d;
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
 	ptc(ch, "You FYI '%s{x'\n", argument);
 	set_color(ch, WHITE, NOBOLD);
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
-		Character *victim;
-		victim = d->original ? d->original : d->character;
+	for (control::PlayerController *pc: Game::players) {
+		Character *victim = pc->original ? pc->original : pc->character;
 
-		if (IS_PLAYING(d) &&
-		    d->character != ch &&
-		    victim->censor_flags.has(CENSOR_CHAN))
-			if (swearcheck(argument))
-				continue;
+		if (!IS_PLAYING(pc)
+		 || pc->character == ch)
+			continue;
 
-		if (IS_PLAYING(d) &&
-		    d->character != ch &&
-		    !is_ignoring(victim, ch) &&
-		    !victim->comm_flags.has(COMM_NOANNOUNCE) &&
-		    !victim->comm_flags.has(COMM_QUIET)) {
-			new_color(victim, CSLOT_CHAN_ANNOUNCE);
+		if (victim->censor_flags.has(CENSOR_CHAN)
+		 && swearcheck(argument))
+			continue;
 
-			if (IS_IMMORTAL(victim))
-				act("[$n{x] $t{x",
-				        ch, argument, d->character, TO_VICT, POS_SLEEPING, FALSE);
-			else
-				act("[FYI] $t{x",
-				        ch, argument, d->character, TO_VICT, POS_SLEEPING, FALSE);
+		if (is_ignoring(victim, ch)
+		 || victim->comm_flags.has(COMM_NOANNOUNCE)
+		 || victim->comm_flags.has(COMM_QUIET))
+			continue;
 
-			set_color(ch, WHITE, NOBOLD);
-		}
+		new_color(victim, CSLOT_CHAN_ANNOUNCE);
+
+		if (IS_IMMORTAL(victim))
+			act("[$n{x] $t{x",
+			        ch, argument, pc->character, TO_VICT, POS_SLEEPING, FALSE);
+		else
+			act("[FYI] $t{x",
+			        ch, argument, pc->character, TO_VICT, POS_SLEEPING, FALSE);
+
+		set_color(ch, WHITE, NOBOLD);
 	}
-
 }
 
 void do_replay(Character *ch, String argument)
@@ -890,7 +879,6 @@ void do_replay(Character *ch, String argument)
 void do_globalsocial(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	Descriptor *d;
 
 	if (argument.empty()) {
 		if (ch->comm_flags.has(COMM_NOSOCIAL)) {
@@ -980,7 +968,7 @@ void do_globalsocial(Character *ch, String argument)
 		Format::sprintf(buf, "$n socializes '%s{x'", argument);
 
 	/* broadcast the social */
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -1320,8 +1308,6 @@ void do_reply(Character *ch, String argument)
 
 void do_yell(Character *ch, String argument)
 {
-	Descriptor *d;
-
 	if (argument.empty()) {
 		stc("You yell your head off but no one hears.\n", ch);
 		return;
@@ -1334,7 +1320,7 @@ void do_yell(Character *ch, String argument)
 
 	act("You yell '$t{x'", ch, argument, nullptr, TO_CHAR);
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto d : Game::players) {
 		Character *victim;
 		victim = d->original ? d->original : d->character;
 
@@ -1740,10 +1726,12 @@ void do_query(Character *ch, String argument)
 {
 	Character *rch;
 
-	if (ch->desc == nullptr)
+	auto pc = control::getPlayerController(ch);
+
+	if (pc == nullptr)
 		rch = ch;
 	else
-		rch = ch->desc->original ? ch->desc->original : ch;
+		rch = pc->original ? pc->original : ch;
 
 	if (IS_NPC(rch))
 		return;

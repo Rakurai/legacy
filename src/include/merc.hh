@@ -40,7 +40,8 @@ int system();
 extern int port;
 
 
-
+// temporary hack
+#include "control/PlayerController.hh"
 
 
 /*
@@ -785,7 +786,7 @@ void    sq_cleanup	 args( ( Character *ch ) );
 /* save.c */
 void    save_char_obj    args( ( Character *ch ) );
 void    backup_char_obj  args( ( Character *ch ) );
-bool    load_char_obj    args( ( Descriptor *d, const String& name ) );
+bool    load_char_obj    args( ( control::PlayerController *pc, const String& name ) );
 const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const String& ctime ) );
 

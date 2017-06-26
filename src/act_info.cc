@@ -447,7 +447,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 
 	if (IS_NPC(victim)
 	    && ((ch->questmob > 0 && victim->pIndexData->vnum == ch->questmob)
-	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
+	        || (ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
 
 	if (victim->comm_flags.has(COMM_AFK))
@@ -2383,10 +2383,9 @@ char *count_players(Character *ch)
 {
 	static char buf[100];
 	int count = 0;
-	Descriptor *d;
 
-	for (d = descriptor_list; d != nullptr; d = d->next)
-		if (IS_PLAYING(d) && can_see_who(ch, d->character))
+	for (auto pc : Game::players)
+		if (IS_PLAYING(pc) && can_see_who(ch, pc->character))
 			count++;
 
 	if (record_players_since_boot == count)
@@ -2501,12 +2500,12 @@ void do_who(Character *ch, String argument)
 	/* Now show matching chars. */
 	buf.clear();
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
+	for (auto pc : Game::players) {
 		/* Check for match against restrictions. */
-		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+		if (!IS_PLAYING(pc) || !can_see_who(ch, pc->character))
 			continue;
 
-		wch = d->original ? d->original : d->character;
+		wch = pc->original ? pc->original : pc->character;
 
 		if (!can_see_who(ch, wch))
 			continue;
@@ -2670,18 +2669,16 @@ void do_swho(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	String roombuf, output;
-	Descriptor *d;
 	output += "{WRP PK NH PB QW SQ NT  Name          Pos'n   Room Name{x\n";
 	output += "{W----------------------------------------------------------------------------{x\n";
 
-	for (d = descriptor_list; d != nullptr; d = d->next) {
-		Character *wch;
+	for (auto pc : Game::players) {
 		char const *position = "Drooling";
 
-		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+		if (!IS_PLAYING(pc) || !can_see_who(ch, pc->character))
 			continue;
 
-		wch   = (d->original != nullptr) ? d->original : d->character;
+		Character *wch   = (pc->original != nullptr) ? pc->original : pc->character;
 
 		if (!can_see_who(ch, wch))
 			continue;
@@ -2955,7 +2952,6 @@ void do_where(Character *ch, String argument)
 {
 	Duel::Arena *arena = arena_table_head->next;
 	Character *victim;
-	Descriptor *d;
 	bool found = FALSE;
 
 	if (ch->in_room == nullptr)
@@ -2990,10 +2986,10 @@ void do_where(Character *ch, String argument)
 	if (argument.empty()) {
 		stc("Nearby you see:\n", ch);
 
-		for (d = descriptor_list; d; d = d->next) {
-			victim = d->character;
+		for (auto pc : Game::players) {
+			victim = pc->character;
 
-			if (IS_PLAYING(d)
+			if (IS_PLAYING(pc)
 			    && victim->in_room != nullptr
 			    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_NOWHERE)
 			    && victim->in_room->area == ch->in_room->area
@@ -3820,16 +3816,15 @@ void do_invite(Character *ch, String argument)
 {
 	Character *victim;
 	char buf[MAX_STRING_LENGTH];
-	Descriptor *d;
 	bool found = FALSE;
 
 	if (argument.empty()) {
 		if (IS_IMMORTAL(ch)) {
-			for (d = descriptor_list; d != nullptr; d = d->next) {
-				if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+			for (auto pc : Game::players) {
+				if (!IS_PLAYING(pc) || !can_see_who(ch, pc->character))
 					continue;
 
-				victim = (d->original != nullptr) ? d->original : d->character;
+				victim = (pc->original != nullptr) ? pc->original : pc->character;
 
 				if (!can_see_who(ch, victim))
 					continue;
@@ -3929,27 +3924,27 @@ void do_invite(Character *ch, String argument)
 		stc("You have accepted their invitation.\n", ch);
 		ch->invitation_accepted = TRUE;
 
-		for (d = descriptor_list; d != nullptr; d = d->next) {
-			victim = d->original ? d->original : d->character;
+		for (auto pc : Game::players) {
+			victim = pc->original ? pc->original : pc->character;
 
-			if (IS_PLAYING(d)
-			    && d->character != ch
-			    && ((ch->inviters == d->character->clan)
-			        || IS_IMMORTAL(d->character))
-			    && !d->character->comm_flags.has(COMM_NOCLAN)
-			    && !d->character->comm_flags.has(COMM_QUIET)) {
-				new_color(d->character, CSLOT_CHAN_CLAN);
+			if (IS_PLAYING(pc)
+			    && pc->character != ch
+			    && ((ch->inviters == pc->character->clan)
+			        || IS_IMMORTAL(pc->character))
+			    && !pc->character->comm_flags.has(COMM_NOCLAN)
+			    && !pc->character->comm_flags.has(COMM_QUIET)) {
+				new_color(pc->character, CSLOT_CHAN_CLAN);
 
-				if (IS_IMMORTAL(d->character)) {
+				if (IS_IMMORTAL(pc->character)) {
 					Format::sprintf(buf, "%s",
 					        ch->inviters->who_name.uncolor());
-					stc(buf, d->character);
+					stc(buf, pc->character);
 				}
 
 				Format::sprintf(buf, "%s has accepted an invitation to enter the clan hall",
 				        ch->name);
-				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
-				set_color(d->character, WHITE, NOBOLD);
+				act("Clan Notice: '$t{x'", ch, buf, pc->character, TO_VICT, POS_DEAD, FALSE);
+				set_color(pc->character, WHITE, NOBOLD);
 			}
 		}
 
@@ -3969,7 +3964,7 @@ void do_invite(Character *ch, String argument)
 
 		stc("You have declined their invitation.\n", ch);
 
-		for (d = descriptor_list; d != nullptr; d = d->next) {
+		for (auto d : Game::players) {
 			victim = d->original ? d->original : d->character;
 
 			if (IS_PLAYING(d)

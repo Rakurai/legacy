@@ -34,6 +34,7 @@
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
+#include "control/control.hh"
 #include "Clan.hh"
 #include "declare.hh"
 #include "Descriptor.hh"
@@ -5101,7 +5102,9 @@ void do_weddingring(Character *ch, String argument)
 	Object *ring;
 	int price = 0;
 
-	if (ch->desc->original != nullptr) {
+	auto pc = control::getPlayerController(ch);
+
+	if (pc && pc->original) {
 		stc("Switch back to your real form!\n", ch);
 		return;
 	}

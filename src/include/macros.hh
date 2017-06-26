@@ -28,7 +28,7 @@
  * Character macros.
  */
 #define IS_NPC(ch)              ((ch)->pcdata == nullptr ? TRUE : FALSE)
-#define IS_PLAYING(d)		(d && d->connected == CON_PLAYING && d->character)
+#define IS_PLAYING(pc)		(pc && pc->descriptor.connected == CON_PLAYING && pc->character)
 
 // Character attribute accessors (see attribute.c for explanations)
 

@@ -30,6 +30,7 @@
 
 #include "argument.hh"
 #include "Character.hh"
+#include "control/control.hh"
 #include "declare.hh"
 #include "Descriptor.hh"
 #include "Logging.hh"
@@ -39,10 +40,10 @@
 #include "Player.hh"
 #include "String.hh"
 
-char    *get_multi_command     args((Descriptor *d, const String& argument));
+char    *get_multi_command     args((control::PlayerController *d, const String& argument));
 
 /* does aliasing and other fun stuff */
-void substitute_alias(Descriptor *d, String argument)
+void substitute_alias(control::PlayerController *d, String argument)
 {
 	Character *ch;
 	String buf;
@@ -103,10 +104,12 @@ void do_alias(Character *ch, String argument)
 {
 	Character *rch;
 
-	if (ch->desc == nullptr)
+	auto pc = control::getPlayerController(ch);
+
+	if (pc == nullptr)
 		rch = ch;
 	else
-		rch = ch->desc->original ? ch->desc->original : ch;
+		rch = pc->original ? pc->original : ch;
 
 	if (IS_NPC(rch))
 		return;
@@ -163,10 +166,12 @@ void do_unalias(Character *ch, String argument)
 {
 	Character *rch;
 
-	if (ch->desc == nullptr)
+	auto pc = control::getPlayerController(ch);
+
+	if (pc == nullptr)
 		rch = ch;
 	else
-		rch = ch->desc->original ? ch->desc->original : ch;
+		rch = pc->original ? pc->original : ch;
 
 	if (IS_NPC(rch))
 		return;

@@ -567,27 +567,13 @@ void war_power_adjust(Clan *vclan, bool surrender)
 	vclan->warcpmod -= loss;
 	cp -= loss;
 
-	if (!cp) {
-		Descriptor *d;
-		Character *victim;
-
+	if (cp <= 0) {
 		for (war = war_table_head->next; war != war_table_tail; war = war->next)
 			if (war->ongoing && clan_in_war(vclan, war, TRUE))
 				rec_event(war, EVENT_CLAN_WIPEOUT, vclan->clanname, "", 0);
 
-		Format::sprintf(buf, "[FYI] %s has been wiped out!", vclan->clanname);
-
-		for (d = descriptor_list; d != nullptr; d = d->next) {
-			victim = d->original ? d->original : d->character;
-
-			if (IS_PLAYING(d)
-			    && !victim->comm_flags.has(COMM_NOANNOUNCE)
-			    && !victim->comm_flags.has(COMM_QUIET)) {
-				new_color(victim, CSLOT_CHAN_ANNOUNCE);
-				stc(buf, victim);
-				set_color(victim, WHITE, NOBOLD);
-			}
-		}
+		Format::sprintf(buf, "%s has been wiped out!", vclan->clanname);
+		do_send_announce(nullptr, buf);
 	}
 
 	/* sort the list */

@@ -12,16 +12,21 @@ class Descriptor :
 public Pooled<Descriptor>
 {
 public:
-    Descriptor() {}
+    Descriptor(int d) : desc(d) {}
+    Descriptor(const Descriptor&);
     virtual ~Descriptor() {}
+
+    bool read();
+    void read_to_buffer();
+    bool write(const String&);
 
     Descriptor *        next = nullptr;
     Descriptor *        snoop_by = nullptr;
-    Character *         character = nullptr;
-    Character *         original = nullptr;
+//    Character *         character = nullptr;
+//    Character *         original = nullptr;
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
-    String              host;           /* text addr */
-    sh_int              descriptor = 0;
+    String              host = "(unknown)";           /* text addr */
+    const sh_int        desc = 0;
     sh_int              connected = CON_GET_NAME;
     bool                fcommand = FALSE;
     char                inbuf           [4 * MAX_INPUT_LENGTH] = {0};
@@ -35,8 +40,10 @@ public:
     sh_int              timer = 0;
 
 private:
-    Descriptor(const Descriptor&);
+    Descriptor() {}
     Descriptor& operator=(const Descriptor&);
+
+    friend class Pooled<Descriptor>;
 };
 
 extern Descriptor   *descriptor_list; // in comm.c

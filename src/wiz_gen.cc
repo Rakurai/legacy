@@ -1903,8 +1903,7 @@ void do_linkload(Character *ch, String argument)
 		}
 	}
 
-	dnew = new Descriptor();
-	dnew->descriptor    = desc;
+	dnew = new Descriptor(desc);
 	dnew->connected     = CON_PLAYING;
 
 	char cname[MIL];

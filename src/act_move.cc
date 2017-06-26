@@ -1645,10 +1645,9 @@ void recall(Character *ch, bool clan)
 			location = get_room_index(ROOM_VNUM_TEMPLE);
 	}
 	else if (ch->in_room->sector_type == SECT_ARENA) {
-		Descriptor *d;
 		bool empty = TRUE;
 
-		for (d = descriptor_list; d != nullptr; d = d->next)
+		for (auto d : Game::players)
 			if (IS_PLAYING(d)
 			    && d->character != ch
 			    && d->character != ch->pet     /* just in case */

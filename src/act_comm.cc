@@ -41,6 +41,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
@@ -523,6 +524,35 @@ void do_testpose(Character *ch, String argument)
 	act(new_pose_table[cls][pose].room_msg, ch, nullptr, nullptr, TO_CHAR);
 } /* end do_testpose() */
 
+void remove_player(Character *ch) {
+
+	update_pc_index(ch, TRUE);
+
+	if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
+		stc(VT_SETWIN_CLEAR, ch);
+		stc(VT_RESET_TERMINAL, ch);
+	}
+
+	int id = ch->pcdata->id;
+
+	/* toast evil cheating bastards */
+	// I think this is supposed to handle the case of someone getting to the
+	// 'already playing' state, where the character is loaded, and deleting
+	// at the same time.
+	// just delete everything with the ID
+	for (auto it = Game::players.begin(); it != Game::players.end();  ) {
+		control::PlayerController *pc = (*it);
+		Character *tch = pc->original ? pc->original : pc->character;
+
+		if (tch && tch->pcdata && tch->pcdata->id == id) {
+			delete *it;
+			it = Game::players.erase(it);
+		}
+		else
+			++it;
+	}
+
+}
 /* RT code to delete yourself */
 void do_delet(Character *ch, String argument)
 {
@@ -531,8 +561,6 @@ void do_delet(Character *ch, String argument)
 
 void do_delete(Character *ch, String argument)
 {
-	Descriptor *d, *d_next;
-	int id;
 	char strsave[MAX_INPUT_LENGTH];
 	bool important = TRUE;
 
@@ -596,31 +624,8 @@ void do_delete(Character *ch, String argument)
 
 		Format::sprintf(strsave, "%s%s", PLAYER_DIR, String(ch->name).capitalize());
 		wiznet("$N has wiped $Mself from these realms.", ch, nullptr, 0, 0, 0);
-		update_pc_index(ch, TRUE);
-		id = ch->pcdata->id;
-		d = ch->desc;
 
-		if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
-			stc(VT_SETWIN_CLEAR, ch);
-			stc(VT_RESET_TERMINAL, ch);
-		}
-
-		extract_char(ch, TRUE);
-
-		if (d != nullptr)
-			close_socket(d);
-
-		/* toast evil cheating bastards */
-		for (d = descriptor_list; d != nullptr; d = d_next) {
-			Character *tch;
-			d_next = d->next;
-			tch = d->original ? d->original : d->character;
-
-			if (tch && tch->pcdata && tch->pcdata->id == id) {
-				extract_char(tch, TRUE);
-				close_socket(d);
-			}
-		}
+		remove_player(ch);
 
 		unlink(strsave);
 		break;
@@ -1116,9 +1121,8 @@ bool showlost(Character *ch, Object *obj, bool found, bool locker)
 
 void do_quit(Character *ch, String argument)
 {
-	Descriptor *d, *d_next, *sd;
 	Character *victim;
-	int id, lnum;
+	int lnum;
 	char *const message [] = {
 		"Your world shatters into a billion numbers circling around you.\n  They all flash, '{G0{x', and fade into blackness.\n",
 		"Stop, come back, you haven't broken Ramaru's time online record yet!\n",
@@ -1198,11 +1202,11 @@ void do_quit(Character *ch, String argument)
 
 	stc(message[number_range(0, 9)], ch);
 
-	for (sd = descriptor_list; sd != nullptr; sd = sd->next) {
-		victim = sd->original ? sd->original : sd->character;
+	for (control::PlayerController *pc : Game::players) {
+		victim = pc->original ? pc->original : pc->character;
 
-		if (IS_PLAYING(sd)
-		    && sd->character != ch
+		if (IS_PLAYING(pc)
+		    && pc->character != ch
 		    && can_see_who(victim, ch)
 		    && !victim->comm_flags.has(COMM_NOANNOUNCE)
 		    && !victim->comm_flags.has(COMM_QUIET)) {
@@ -1222,38 +1226,11 @@ void do_quit(Character *ch, String argument)
 	Logging::log(log_buf);
 	wiznet("$N rejoins the real world.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	save_char_obj(ch);
-	id = ch->pcdata->id;
-	d = ch->desc;
-
-	if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
-		stc(VT_SETWIN_CLEAR, ch);
-		stc(VT_RESET_TERMINAL, ch);
-	}
-
-	extract_char(ch, TRUE);
-
-	/* After extract_char the ch is no longer valid! */
-	if (d != nullptr)
-		close_socket(d);
-
-	/* toast evil cheating bastards */
-	for (d = descriptor_list; d != nullptr; d = d_next) {
-		Character *tch;
-		d_next = d->next;
-		tch = d->original ? d->original : d->character;
-
-		if (tch && tch->pcdata && tch->pcdata->id == id) {
-			extract_char(tch, TRUE);
-			close_socket(d);
-		}
-	}
+	remove_player(ch);
 }
 
 void do_fuckoff(Character *ch, String argument)
 {
-	Descriptor *d, *d_next;
-	int id;
-
 	if (IS_NPC(ch))
 		return;
 
@@ -1265,24 +1242,7 @@ void do_fuckoff(Character *ch, String argument)
 	 * After extract_char the ch is no longer valid!
 	 */
 	save_char_obj(ch);
-	id = ch->pcdata->id;
-	d = ch->desc;
-	extract_char(ch, TRUE);
-
-	if (d != nullptr)
-		close_socket(d);
-
-	/* toast evil cheating bastards */
-	for (d = descriptor_list; d != nullptr; d = d_next) {
-		Character *tch;
-		d_next = d->next;
-		tch = d->original ? d->original : d->character;
-
-		if (tch && tch->pcdata && tch->pcdata->id == id) {
-			extract_char(tch, TRUE);
-			close_socket(d);
-		}
-	}
+	remove_player(ch);
 }
 
 void do_backup(Character *ch, String argument)

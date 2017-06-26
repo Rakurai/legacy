@@ -62,6 +62,7 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
@@ -75,6 +76,8 @@
 #include "sql.hh"
 #include "String.hh"
 #include "vt100.hh" /* VT100 Stuff */
+
+#include "control/PlayerController.hh"
 
 struct ka_struct;
 
@@ -102,18 +105,16 @@ char                str_boot_time[MAX_INPUT_LENGTH];
 time_t              reboot_time = 0;
 time_t              current_time;       /* time of this pulse */
 int                 port = 0;           /* telnet port for this MUD */
-int                 control;
+int                 control_socket;
 char                command[MAX_STRING_LENGTH];
 int                                     last_signal = -1;
 
 /*
  * OS-dependent local functions.
  */
-void    game_loop_unix          args((int control));
+void    game_loop_unix          args((int control_socket));
 int     init_socket             args((int port));
-void    init_descriptor         args((int control));
-bool    read_from_descriptor    args((Descriptor *d));
-bool    write_to_descriptor     args((int desc, const String& txt, int length));
+void    init_descriptor         args((int control_socket));
 
 /*
  * Other local functions (OS-independent).
@@ -128,7 +129,7 @@ void    read_from_buffer        args((Descriptor *d));
 void    stop_idling             args((Character *ch));
 void    bust_a_prompt           args((Character *ch));
 int     roll_stat               args((Character *ch, int stat));
-char    *get_multi_command     args((Descriptor *d, const String& argument));
+char    *get_multi_command     args((Descriptor &d, const String& argument));
 String expand_color_codes(Character *ch, const String& str);
 
 /* Desparate debugging measure: A function to print a reason for exiting. */
@@ -142,7 +143,6 @@ void exit_reason(const char *module, int line, const char *reason)
 
 void copyover_recover()
 {
-	Descriptor *d;
 	FILE *fp;
 	char name[100];
 	char host[MSL], msg1[MSL], msg2[MSL];
@@ -210,44 +210,45 @@ void copyover_recover()
 		if (desc == -1)
 			break;
 
+		Descriptor d(desc);
+
 		/* Write something, and check if it goes error-free */
-		if (!write_to_descriptor(desc, msg1, 0)) {
+		if (!d.write(msg1)) {
 			close(desc);  /* nope */
 			continue;
 		}
 
-		d = new Descriptor();
-		d->descriptor = desc;
-		d->host = host;
-		d->next = descriptor_list;
-		descriptor_list = d;
-		d->connected = CON_COPYOVER_RECOVER; /* -15, so close_socket frees the char */
+		d.host = host; // should be part of descriptor constructor?
+		d.connected = CON_COPYOVER_RECOVER; /* -15, so close_socket frees the char */
+
+		control::PlayerController *pc = new control::PlayerController(d);
 
 		/* Now, find the pfile */
-		if (!load_char_obj(d, name)) {  /* Player file not found?! */
-			write_to_descriptor(desc, "\nSomehow, your character was lost in the copyover. Sorry.\n", 0);
-			close_socket(d);
+		if (!load_char_obj(pc, name)) {  /* Player file not found?! */
+			d.write("\nSomehow, your character was lost in the copyover. Sorry.\n");
+			delete pc;
 			continue;
 		}
 
-		/* Just In Case */
-		if (!d->character->in_room)
-			d->character->in_room = get_room_index(ROOM_VNUM_TEMPLE);
-
 		/* Insert in the char_list */
-		d->character->next = char_list;
-		char_list = d->character;
-		d->character->pcdata->next = pc_list;
-		pc_list = d->character->pcdata;
-		write_to_descriptor(desc, msg2, 0);
-		char_to_room(d->character, d->character->in_room);
-		do_look(d->character, "auto");
-		act("$n materializes!", d->character, nullptr, nullptr, TO_ROOM);
-		d->connected = CON_PLAYING;
+		Game::players.push_back(pc); // now owned by Game
 
-		if (d->character->pet != nullptr) {
-			char_to_room(d->character->pet, d->character->in_room);
-			act("$n materializes!", d->character->pet, nullptr, nullptr, TO_ROOM);
+		pc->character->next = char_list;
+		char_list = pc->character;
+		pc->character->pcdata->next = pc_list;
+		pc_list = pc->character->pcdata;
+
+		stc(msg2, pc->character);
+
+		char_to_room(pc->character, pc->character->in_room);
+		do_look(pc->character, "auto");
+		act("$n materializes!", pc->character, nullptr, nullptr, TO_ROOM);
+
+		d.connected = CON_PLAYING;
+
+		if (pc->character->pet != nullptr) {
+			char_to_room(pc->character->pet, pc->character->in_room);
+			act("$n materializes!", pc->character->pet, nullptr, nullptr, TO_ROOM);
 		}
 
 		record_players_since_boot++;
@@ -323,18 +324,18 @@ int main(int argc, char **argv)
 			}
 
 			if (!String(argv[4]).is_number()) {
-				Format::fprintf(stderr, "Bad 'control' value '%s'\n", argv[4]);
-				EXIT_REASON(486, "bad control value for COPYOVER");
+				Format::fprintf(stderr, "Bad 'control_socket' value '%s'\n", argv[4]);
+				EXIT_REASON(486, "bad control_socket value for COPYOVER");
 				exit(1);
 			}
 
-			control = atoi(argv[4]);
+			control_socket = atoi(argv[4]);
 			fCopyOver = TRUE;
 		}
 	}
 
 	if (!fCopyOver)
-		control = init_socket(port);
+		control_socket = init_socket(port);
 
 #if defined(SAND)
 	/* simple asynchronous name daemon support -- Elrac */
@@ -376,8 +377,8 @@ int main(int argc, char **argv)
 		fclose(pidfile);
 	}
 
-	game_loop_unix(control);
-	close(control);
+	game_loop_unix(control_socket);
+	close(control_socket);
 
 	/* close our database */
 	db_close();
@@ -468,7 +469,7 @@ int init_socket(int port)
 	return fd;
 }
 
-void game_loop_unix(int control)
+void game_loop_unix(int control_socket)
 {
 	static struct timeval null_time;
 	struct timeval last_time;
@@ -498,14 +499,15 @@ void game_loop_unix(int control)
 		FD_ZERO(&in_set);
 		FD_ZERO(&out_set);
 		FD_ZERO(&exc_set);
-		FD_SET(control, &in_set);
-		maxdesc = control;
+		FD_SET(control_socket, &in_set);
+		maxdesc = control_socket;
 
-		for (d = descriptor_list; d; d = d->next) {
-			maxdesc = UMAX(maxdesc, d->descriptor);
-			FD_SET(d->descriptor, &in_set);
-			FD_SET(d->descriptor, &out_set);
-			FD_SET(d->descriptor, &exc_set);
+		for (control::PlayerController *pc: Game::players) {
+			int desc = pc->descriptor.desc;
+			maxdesc = UMAX(maxdesc, desc);
+			FD_SET(desc, &in_set);
+			FD_SET(desc, &out_set);
+			FD_SET(desc, &exc_set);
 		}
 
 		null_time.tv_sec = 0;
@@ -518,22 +520,26 @@ void game_loop_unix(int control)
 		}
 
 		/* New connection? */
-		if (FD_ISSET(control, &in_set)) {
-			init_descriptor(control);
+		if (FD_ISSET(control_socket, &in_set)) {
+			init_descriptor(control_socket);
 		}
 
 		/* Kick out the freaky folks. */
-		for (d = descriptor_list; d != nullptr; d = d_next) {
-			d_next = d->next;
+		for (auto it = Game::players.begin(); it != Game::players.end(); ) {
+			control::PlayerController *pc = *it;
+			int desc = pc->descriptor.desc;
 
-			if (FD_ISSET(d->descriptor, &exc_set)) {
-				FD_CLR(d->descriptor, &in_set);
-				FD_CLR(d->descriptor, &out_set);
-				Character *ch = d->character;
+			if (FD_ISSET(desc, &exc_set)) {
+				FD_CLR(desc, &in_set);
+				FD_CLR(desc, &out_set);
+
+				Character *ch = pc->character;
 //				Character *ch = d->original ? d->original : d->character;
 
-				if (ch && ch->level > 1) {
-					save_char_obj(ch);
+				if (ch) {
+					if (ch->level > 1)
+						save_char_obj(ch);
+
 					Format::sprintf(log_buf, "Kicking out char %s", ch->name);
 				}
 				else
@@ -541,62 +547,86 @@ void game_loop_unix(int control)
 
 				Logging::log(log_buf);
 				wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
-				d->outbuf.clear();
-				close_socket(d);
+
+				d->outbuf.clear(); // important
+				delete pc;
+				it = Game::players.erase(it);
+				continue;
 			}
+
+			++it;
 		}
 
 		/* Process input. */
-		for (d = descriptor_list; d != nullptr; d = d_next) {
-			d_next = d->next;
-			d->fcommand = FALSE;
+		for (auto it = Game::players.begin(); it != Game::players.end(); ) {
+			control::PlayerController *pc = *it;
+			Descriptor &d = pc->descriptor;
 
-			if (FD_ISSET(d->descriptor, &in_set)) {
-				if (d->character != nullptr) {
-					d->timer = 0;
-					d->character->timer = 0;
+			d.fcommand = FALSE;
+
+			// read from socket into descriptor's buffer
+			if (FD_ISSET(d.desc, &in_set)) {
+				if (pc->character != nullptr) {
+					d.timer = 0;
+					pc->character->timer = 0;
 				}
 
-				if (d->original != nullptr) {
-					d->original->timer = 0;
-					d->timer = 0;
+				if (pc->original != nullptr) {
+					pc->original->timer = 0;
+					d.timer = 0;
 				}
 
-				if (!read_from_descriptor(d)) {
-					FD_CLR(d->descriptor, &out_set);
+				if (!d.read()) {
+					FD_CLR(d.desc, &out_set);
 
-					if (d->character != nullptr && d->character->level > 1) {
-						save_char_obj(d->character);
-						Format::sprintf(log_buf, "Char %s disconnected", d->character->name);
-						Logging::log(log_buf);
-						wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
+					Character *ch = pc->character;
+//					Character *ch = d->original ? d->original : d->character;
+
+					if (ch) {
+						if (ch->level > 1)
+							save_char_obj(ch);
+
+						Format::sprintf(log_buf, "Char %s disconnected", ch->name);
 					}
+					else 
+						Format::sprintf(log_buf, "bad read_from_descriptor: socket %d disconnected.", d.desc);
 
-					Logging::bugf("bad read_from_descriptor: socket %d disconnected.", d);
-					d->outbuf.clear();
-					close_socket(d);
+					Logging::log(log_buf);
+					wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
+
+					d.outbuf.clear();
+					delete pc;
+					it = Game::players.erase(it); // increment by deleting
 					continue;
 				}
 			}
 
-			if (d->character && d->character->wait > 0)
+			if (pc->character && pc->character->wait > 0) {
+				++it; // normal increment
 				continue;
+			}
 
-			if (d->incomm[0] == '\0')
-				read_from_buffer(d);
+			// no command waiting?  fetch some input
+			if (d.incomm[0] == '\0')
+				d.read_to_buffer();
 
-			if (d->incomm[0] != '\0') {
+			// got some input waiting now?  process it
+			if (d.incomm[0] != '\0') {
 				char *command2;
-				d->fcommand = TRUE;
-				stop_idling(d->character);
-				command2 = get_multi_command(d, d->incomm);
+				d.fcommand = TRUE;
+				stop_idling(pc->character);
+				command2 = get_multi_command(d, d.incomm);
 
 				if (!d->showstr_head.empty())
 					show_string(d, !String(command2).lstrip().empty()); // ugly, fix someday
 				else if (d->connected == CON_PLAYING) {
 					if (d->character == nullptr) {
+						// how did this happen?
 						Logging::bug("playing descriptor with null character, closing phantom socket", 0);
-						close_socket(d);
+
+						d->outbuf.clear();
+						delete pc;
+						it = Game::players.erase(it); // increment by deleting
 						continue;
 					}
 
@@ -607,25 +637,37 @@ void game_loop_unix(int control)
 					d->incomm[0] = '\0';
 				}
 			}    /* end of have input */
+
+			++it; // normal increment
 		} /* end of input loop */
 
 		update_handler();
 
 		/* Output. */
-		for (d = descriptor_list; d != nullptr; d = d_next) {
-			d_next = d->next;
+		for (auto it = Game::players.begin(); it != Game::players.end();  ) {
+			Descriptor d = (*it)->descriptor;
 
-			if ((d->fcommand || !d->outbuf.empty())
-			    && FD_ISSET(d->descriptor, &out_set)) {
-				if (!process_output(d, TRUE)) {
-					if (d->character != nullptr && d->character->level > 1)
-						save_char_obj(d->character);
-
-					Logging::bugf("bad write_to_descriptor: socket %d disconnected.", d);
-					d->outbuf.clear();
-					close_socket(d);
-				}
+			if (d == nullptr
+			 || !FD_ISSET(d->desc, &out_set)
+			 || (!d->fcommand && d->outbuf.empty())) {
+				++it;
+				continue;
 			}
+
+			Character *ch = (*it)->character;
+//			Character *ch = d->original ? d->original : d->character;
+
+			if (!process_output(d, TRUE)) {
+				if (ch && ch->level > 1)
+					save_char_obj(ch);
+
+				Logging::bugf("bad write_to_descriptor: socket %d disconnected.", d->desc);
+				d->outbuf.clear();
+				delete *it;
+				it = Game::players.erase(it);
+			}
+			else
+				++it;
 		}
 
 		/* Synchronize to a clock.
@@ -671,7 +713,7 @@ void game_loop_unix(int control)
 	return;
 }
 
-void init_descriptor(int control)
+void init_descriptor(int control_socket)
 {
 	Descriptor *dnew;
 #ifdef IPV6
@@ -686,9 +728,9 @@ void init_descriptor(int control)
 	char *tmp_name;
 #endif
 	size = sizeof(sock);
-	getsockname(control, (struct sockaddr *) &sock, &size);
+	getsockname(control_socket, (struct sockaddr *) &sock, &size);
 
-	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
+	if ((desc = accept(control_socket, (struct sockaddr *) &sock, &size)) < 0) {
 		wiznet("init_descriptor: error accepting new connection",
 		       nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		perror("new Descriptor: accept");
@@ -709,8 +751,7 @@ void init_descriptor(int control)
 	/*
 	 * Cons a new descriptor.
 	 */
-	dnew = new Descriptor();
-	dnew->descriptor = desc;
+	dnew = new Descriptor(desc);
 	/* Format::printf( "new descriptor at socket %d\n", desc ); */
 	size = sizeof(sock);
 
@@ -815,9 +856,9 @@ void close_socket(Descriptor *dclose)
 	if (dclose->snoop_by != nullptr)
 		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n");
 
-	for (d = descriptor_list; d != nullptr; d = d->next)
-		if (d->snoop_by == dclose)
-			d->snoop_by = nullptr;
+	for (control::PlayerController *pc: Game::players)
+		if (pc->descriptor && pc->descriptor->snoop_by == dclose)
+			pc->descriptor->snoop_by = nullptr;
 
 	if ((ch = dclose->character) == nullptr) {
 		Format::sprintf(log_buf, "Closing link to phantom at socket %d.", dclose->descriptor);
@@ -893,177 +934,6 @@ void close_socket(Descriptor *dclose)
 	Format::printf("Closing socket %d\n", dclose->descriptor);
 	close(dclose->descriptor);
 	delete dclose;
-	return;
-}
-
-bool read_from_descriptor(Descriptor *d)
-{
-	unsigned int iStart;
-
-	/* Hold horses if pending command already. */
-	if (d->incomm[0] != '\0')
-		return TRUE;
-
-	/* Check for overflow. */
-	iStart = strlen(d->inbuf);
-
-	if (iStart >= sizeof(d->inbuf) - 10) {
-		Format::sprintf(log_buf, "%s input overflow!", d->host);
-		Logging::log(log_buf);
-		write_to_descriptor(d->descriptor,
-		                    "\n*** PUT A LID ON IT!!! ***\n", 0);
-		return FALSE;
-	}
-
-	/* Snarf input. */
-	for (; ;) {
-		int nRead;
-		nRead = read(d->descriptor, d->inbuf + iStart,
-		             sizeof(d->inbuf) - 10 - iStart);
-
-		if (nRead > 0) {
-			iStart += nRead;
-
-			// retain compatibility with \r line endings
-			if (d->inbuf[iStart - 1] == '\n' || d->inbuf[iStart - 1] == '\r')
-				break;
-		}
-		else if (nRead == 0) {
-			if (d->character && d->character->level > 0)
-				Format::sprintf(log_buf, "EOF on read from char %s", d->character->name);
-			else if (!strcmp(d->host, "localhost"))
-				return FALSE;
-			else
-				Format::sprintf(log_buf, "EOF on read from host %s", d->host);
-
-			Logging::log(log_buf);
-			return FALSE;
-		}
-		else if (errno == EWOULDBLOCK)
-			break;
-		else {
-			perror("Read_from_descriptor");
-			return FALSE;
-		}
-	}
-
-	d->inbuf[iStart] = '\0';
-	return TRUE;
-}
-
-/*
- * Transfer one line from input buffer to input line.
- */
-void read_from_buffer(Descriptor *d)
-{
-	int i, j, k;
-
-	/*
-	 * Hold horses if pending command already.
-	 */
-	if (d->incomm[0] != '\0')
-		return;
-
-	/*
-	 * Look for at least one new line.
-	 */
-	for (i = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++) {
-		if (d->inbuf[i] == '\0')
-			return;
-	}
-
-	/*
-	 * Canonical input processing.
-	 */
-	for (i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++) {
-		if (k >= MAX_INPUT_LENGTH - 2) {
-			write_to_descriptor(d->descriptor, "Line too long.\n", 0);
-
-			/* skip the rest of the line */
-			for (; d->inbuf[i] != '\0'; i++) {
-				if (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
-					break;
-			}
-
-			d->inbuf[i]   = '\n';
-			d->inbuf[i + 1] = '\0';
-			break;
-		}
-
-		if (d->inbuf[i] == '\b' && k > 0)
-			--k;
-		else if (isascii(d->inbuf[i]) && isprint(d->inbuf[i]))
-			d->incomm[k++] = d->inbuf[i];
-	}
-
-	/*
-	 * Finish off the line.
-	 */
-	if (k == 0)
-		d->incomm[k++] = ' ';
-
-	d->incomm[k] = '\0';
-
-	/*
-	 * Deal with bozos with #repeat 1000 ...
-	 */
-
-	if (k > 1 || d->incomm[0] == '!') {
-		if (d->incomm[0] != '!' && strcmp(d->incomm, d->inlast))
-			d->repeat = 0;
-		else {
-			if (++d->repeat >= 25) {
-				Format::sprintf(log_buf, "%s: input spamming!", d->host);
-				Logging::log(log_buf);
-				wiznet("And the spammer of the year is:  $N!!!",
-				       d->character, nullptr, WIZ_SPAM, 0, GET_RANK(d->character));
-
-				if (d->incomm[0] == '!')
-					wiznet(d->inlast, d->character, nullptr, WIZ_SPAM, 0,
-					       GET_RANK(d->character));
-				else
-					wiznet(d->incomm, d->character, nullptr, WIZ_SPAM, 0,
-					       GET_RANK(d->character));
-
-				d->repeat = 0;
-				/*
-				                write_to_descriptor( d->descriptor,
-				                    "\n*** PUT A LID ON IT!!! ***\n", 0 );
-				                strcpy( d->incomm, "quit" );
-				*/
-			}
-		}
-	}
-
-	/*
-	 * Do '!' substitution.
-	 */
-	if (d->incomm[0] == '!') {
-		/* Allow commands to be appended to "!" commands.
-		   This is done, only if we don't overflow the buffer.
-		   -- Outsider
-		*/
-		if ((strlen(d->incomm) + strlen(d->inlast) + 16) < MAX_INPUT_LENGTH) {
-			char temp_buffer[MAX_INPUT_LENGTH];
-			/* new command will be old command + everything after the "!" */
-			Format::sprintf(temp_buffer, "%s%s", d->inlast, & (d->incomm[1]));
-			strcpy(d->incomm, temp_buffer);
-		}
-		else   /* message was too long, use last command */
-			strcpy(d->incomm, d->inlast);
-	}
-	else
-		strcpy(d->inlast, d->incomm);
-
-	/*
-	 * Shift the input buffer.
-	 */
-	while (d->inbuf[i] == '\n' || d->inbuf[i] == '\r')
-		i++;
-
-	for (j = 0; (d->inbuf[j] = d->inbuf[i + j]) != '\0'; j++)
-		;
-
 	return;
 }
 
@@ -1199,7 +1069,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	/*
 	 * OS-dependent output.
 	 */
-	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outbuf.size())) {
+	if (!d->write(d->outbuf)) {
 		d->outbuf.clear();
 		return FALSE;
 	}
@@ -1490,48 +1360,13 @@ void write_to_buffer(Descriptor *d, const String& txt)
 }
 
 /*
- * Lowest level output function.
- * Write a block of text to the file descriptor.
- * If this gives errors on very long blocks (like 'ofind all'),
- *   try lowering the max block size.
- */
-bool write_to_descriptor(int desc, const String& txt, int length)
-{
-	int iStart;
-	int nWrite;
-	int nBlock;
-
-	if (length <= 0)
-		length = strlen(txt);
-
-	for (iStart = 0; iStart < length; iStart += nWrite) {
-		nBlock = UMIN(length - iStart, 4096);
-
-		if ((nWrite = write(desc, txt.c_str() + iStart, nBlock)) < 0) {
-			perror("Write_to_descriptor");
-/* I don't know what this does exactly, but C++11 doesn't like it -- Montrey
-			if (errno == EBADF) {
-				char *nullptr = nullptr;
-
-				if (*nullptr != '\0') abort();
-			}
-*/
-			return FALSE;
-		}
-	}
-
-	return TRUE;
-}
-
-
-/*
  * Check if already playing.
  */
 bool check_playing(Descriptor *d, const String& name)
 {
-	Descriptor *dold;
+	for (control::PlayerController *pc: Game::players) {
+		Descriptor *dold = pc->descriptor;
 
-	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
 		    &&   dold->character != nullptr
 		    &&   dold->connected != CON_GET_NAME
@@ -1717,7 +1552,7 @@ void page_to_char(const String& txt, Character *ch)
 	show_string(ch->desc, false);
 }
 
-char *get_multi_command(Descriptor *d, const String& argument)
+char *get_multi_command(Descriptor &d, const String& argument)
 {
 	char *pcom;
 	pcom = command;
@@ -1726,7 +1561,7 @@ char *get_multi_command(Descriptor *d, const String& argument)
 	while (*argptr != '\0') {
 		if (argptr[0] == '|') {
 			if (*++argptr != '|') {
-				strcpy(d->incomm, argptr);
+				strcpy(d.incomm, argptr);
 				*pcom = '\0';
 				return command;
 			}
@@ -1736,7 +1571,7 @@ char *get_multi_command(Descriptor *d, const String& argument)
 	}
 
 	*pcom = '\0';
-	d->incomm[0] = '\0';
+	d.incomm[0] = '\0';
 	return command;
 } /* end get_multi_command() */
 
@@ -1788,7 +1623,8 @@ void do_copyover(Character *ch, String argument)
 	}
 
 	/* save the socket state of all active players, only */
-	for (d = descriptor_list; d; d = d->next) {
+	for (control::PlayerController *pc : Game::players) {
+		Descriptor *d = pc->descriptor;
 		Format::printf("found socket %d, host %s, conn %d\n", d->descriptor, d->host, d->connected);
 
 		if (IS_PLAYING(d)) {
@@ -1848,32 +1684,24 @@ void do_copyover(Character *ch, String argument)
 		Format::sprintf(buf, "\n*** COPYOVER by %s - please remain seated!\n", ch->name);
 
 	/* For each playing descriptor, save its state */
-	for (d = descriptor_list; d ; d = d_next) {
-		Character *och;
-		d_next = d->next;
+	for (auto it = Game::players.begin(); it != Game::players.end();  ) {
+		control::PlayerController *pc = *it;
+		Descriptor *d = pc->descriptor;
 
-		if (d->connected < 0) {
-			/* we don't know what this descriptor is, just close it */
-			Format::printf("closing descriptor %d, conn stat %d\n",
-			       d->descriptor, d->connected);
-			close(d->descriptor);
-		}
-		else if (d->connected != CON_PLAYING) {
+		if (d->connected != CON_PLAYING) {
 			/* drop those logging on */
 			Format::printf("closing socket %d from host %s\n",
-			       d->descriptor, d->host);
-			write_to_descriptor(d->descriptor,
-			                    "\nSorry, we are rebooting. Come back in a minute.\n",
-			                    0);
+			       d->desc, d->host);
+			d->write("\nSorry, we are rebooting. Come back in a minute.\n");
 			close_socket(d);  /* throw'em out */
 		}
 		else {
 			/* regular character -- save and notify */
-			och =  CH(d);
+			Character *och = pc->character;
 			Format::printf("closing socket %d from char %s\n",
-			       d->descriptor, och->name);
+			       d->desc, och->name);
 			save_char_obj(och);
-			write_to_descriptor(d->descriptor, buf, 0);
+			d->write(buf);
 		}
 	}
 
@@ -1888,7 +1716,7 @@ void do_copyover(Character *ch, String argument)
 	/* exec - descriptors are inherited */
 	char portbuf[MSL], controlbuf[MSL];
 	Format::sprintf(portbuf,  "%d", port);
-	Format::sprintf(controlbuf, "%d", control);
+	Format::sprintf(controlbuf, "%d", control_socket);
 	execl(exe_file.c_str(), "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");

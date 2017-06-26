@@ -676,14 +676,14 @@ cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 /*
  * Load a char and inventory into a new ch structure.
  */
-bool load_char_obj(Descriptor *d, const String& name)
+bool load_char_obj(PlayerController *pc, const String& name)
 {
 	char strsave[MAX_INPUT_LENGTH];
 	Character *ch;
 	bool found;
 	ch = new Character();
 	ch->pcdata = new Player();
-	d->character                        = ch;
+	pc->character                       = ch;
 	ch->desc                            = d;
 	ch->name                            = name;
 	ch->race                            = race_lookup("human");
@@ -849,6 +849,10 @@ bool load_char_obj(Descriptor *d, const String& name)
 			ch->stam        += (GET_MAX_STAM(ch) - ch->stam) * percent / 100;
 		}
 	}
+
+	/* Just In Case */
+	if (!ch->in_room)
+		ch->in_room = get_room_index(ROOM_VNUM_TEMPLE);
 
 	return found;
 }
