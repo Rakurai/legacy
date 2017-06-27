@@ -131,13 +131,15 @@ void help_char_search(Character *ch, const String& arg)
 	char query[MSL];
 	String output;
 	int i = 0, count = 0;
+	String esc_arg = db_esc(arg);
+
 	Format::sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
 	        "AND " HCOL_KEYS " LIKE '%% %s%%' "
 	        "OR " HCOL_KEYS " LIKE '%s%%' "
-	        "OR " HCOL_KEYS " LIKE '%%\\'%s%%' "
+	        "OR " HCOL_KEYS " LIKE '%%''%s%%' "
 	        "ORDER BY " HCOL_KEYS,
-	        ch->level, db_esc(arg), db_esc(arg), db_esc(arg)
-	       );
+	        ch->level, esc_arg, esc_arg, esc_arg
+	);
 
 	if (db_query("help_char_search", query) != SQL_OK) {
 		stc("There was a problem with your help query, please notify the imms\n"
@@ -162,7 +164,7 @@ void help_char_search(Character *ch, const String& arg)
 	}
 
 	output += stupidassline;
-	output += Format::format("\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
+	output += Format::format("\n{WHelps with keywords beginning with the letter '{c%s{W':{x\n\n", arg);
 	text = format_string(buf);
 	output += text;
 	output += Format::format("\n{W[%d] total help entries.{x\n\n", i);
@@ -469,10 +471,9 @@ void do_help(Character *ch, String argument)
 	}
 
 	/* on a one char search, we print a list of all helps starting with that char */
-	if ((argument[1] == '\0' || argument[1] == ' ')
-	    && ((argument[0] >= 'a' && argument[0] <= 'z')
-	        || (argument[0] >= 'A' && argument[0] <= 'Z'))) {
-		one_argument(argument, arg);
+	if ((arg.size() == 1)
+	    && ((arg[0] >= 'a' && arg[0] <= 'z')
+	        || (arg[0] >= 'A' && arg[0] <= 'Z'))) {
 		help_char_search(ch, arg);
 		return;
 	}
