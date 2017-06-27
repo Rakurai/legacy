@@ -1155,8 +1155,13 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (ch->pnote == nullptr || ch->pnote->text.empty()) {
+		if (ch->pnote == nullptr) {
 			stc("You have no note in progress.\n", ch);
+			return;
+		}
+
+		if (ch->pnote->text.empty()) {
+			stc("You have not entered any text.\n", ch);
 			return;
 		}
 
@@ -1168,8 +1173,13 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg == "format") {
-		if (ch->pnote == nullptr || ch->pnote->text.empty()) {
+		if (ch->pnote == nullptr) {
 			stc("You have no note in progress.\n", ch);
+			return;
+		}
+
+		if (ch->pnote->text.empty()) {
+			stc("You have not entered any text.\n", ch);
 			return;
 		}
 
@@ -1639,11 +1649,133 @@ void do_next(Character *ch, String argument)
 	update_read(ch, onote);
 } /* end do_next */
 
+// wrap a line of text, aware of color codes
+const String wrap_string(const String& s, int wrap_len) {
+	String str(s), output;
+	int color_pos = 0, uncolor_pos = 0, last_space_pos = 0;
+
+	while (color_pos < str.size()) {
+		switch (str[color_pos]) {
+			case '{':
+				if (color_pos < str.size()-1
+				 && str[color_pos+1] == '{')
+					uncolor_pos++;
+
+				color_pos += 2;
+				break;
+			case ' ':
+				last_space_pos = color_pos;
+				// fall through to increment
+			default:
+				uncolor_pos++;
+				color_pos++;
+				break;
+		}
+
+		if (uncolor_pos > wrap_len) {
+			output += str.substr(0, last_space_pos);
+			output += '\n';
+			str = str.substr(last_space_pos+1);
+			color_pos = uncolor_pos = last_space_pos = 0;
+		}
+	}
+
+	output += str;
+	return output;
+}
+
+// transform a block of newline-separated text into a single formatted line
+const String format_paragraph(const String& orig_paragraph) {
+	// take out internal newlines so we can wrap it
+	String paragraph = orig_paragraph.replace("\n", " ").strip();
+
+	if (paragraph.empty())
+		return "";
+
+	String buf;
+	int pos;
+
+	// take out double spacing so we can normalize it
+	while ((pos = paragraph.find("  ")) != std::string::npos)
+		paragraph = paragraph.substr(0, pos) + paragraph.substr(pos+1);
+
+	// remove spaces between a sentence end and a closing parentheses
+	paragraph = paragraph.replace(". )", ".)");
+	paragraph = paragraph.replace("! )", "!)");
+	paragraph = paragraph.replace("? )", "?)");
+
+	// capitalize first letter after sentence end
+	for (int pos = 0; pos < paragraph.size()-2; pos++)
+		if (paragraph[pos+1] == ' '
+		 && (paragraph[pos] == '.'
+		  || paragraph[pos] == '!'
+		  || paragraph[pos] == '?'))
+			paragraph[pos+2] = toupper(paragraph[pos+2]);
+
+	// double space sentences
+	paragraph = paragraph.replace(". ", ".  ");
+	paragraph = paragraph.replace("! ", "!  ");
+	paragraph = paragraph.replace("? ", "?  ");
+
+	return String("    ") + paragraph;
+}
+
+// split a page into a sequence of paragraphs, wrap each, and make output
+const String format_page(const String& orig_page, int wrap_len) {
+	String page(orig_page), paragraph;
+	std::vector<String> paragraphs;
+
+	// preserve initial newlines
+	while (!page.empty() && page.front() == '\n') {
+		page.erase(0, 1);
+		paragraphs.push_back("");
+	}
+
+	// break on a double newline
+	while (!page.empty()) {
+		int pos = page.find("\n\n");
+
+		if (pos == std::string::npos) {
+			paragraph = page;
+			page.clear();
+		}
+		else {
+			paragraph = page.substr(0, pos);
+
+			if (pos < page.size()-1)
+				page = page.substr(pos+1); // keeps one of the newlines to push
+			else
+				page.clear();
+		}
+
+		paragraphs.push_back(wrap_string(format_paragraph(paragraph), wrap_len));
+
+		// add additional newlines after a double newline
+		while (!page.empty() && page.front() == '\n') {
+			page.erase(0, 1);
+			paragraphs.push_back("");
+		}
+	}
+
+	String output;
+
+	for (String& paragraph: paragraphs) {
+		output += paragraph;
+		output += '\n';
+	}
+
+	return output;
+}
+
+String format_string(const String& s) {
+	return format_page(s, 77);
+}
+
 /*
  * Thanks to Kalgen for the new procedure (no more bug!)
  * Original wordwrap() written by Surreality.
  */
-String format_string(const String& oldstring)
+String format_string_old(const String& oldstring)
 {
 	String xbuf;
 	char xbuf2[MAX_STRING_LENGTH];
@@ -1710,14 +1842,15 @@ String format_string(const String& oldstring)
 		}
 		/* run together punctuation marks, fiddle with quotations, double space sentences.
 		   capitalize the next letter after the punctuation mark is found */
-		else if (*rdesc == '.'
-		         || *rdesc == '?'
-		         || *rdesc == '!') {
+		else if (*rdesc == '.' || *rdesc == '?' || *rdesc == '!') {
+			// do we have ".  ."
 			if (xbuf[i - 1] == ' '
-			    && xbuf[i - 2] == ' '
-			    && (xbuf[i - 3] == '.'
-			        || xbuf[i - 3] == '?'
-			        || xbuf[i - 3] == '!')) {
+			 && xbuf[i - 2] == ' '
+			 && (xbuf[i - 3] == '.'
+			  || xbuf[i - 3] == '?'
+			  || xbuf[i - 3] == '!')) {
+
+				// change to ".."
 				xbuf[i - 2] = *rdesc;
 
 				if (*(rdesc + 1) != '\"') {
