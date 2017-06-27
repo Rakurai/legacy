@@ -38,9 +38,12 @@ void db_close()
 	}
 }
 
-void db_error(const String& func)
+void db_error(const String& func, const String& query)
 {
-	Logging::bugf("%s: %s", func, sqlite3_errmsg(_db));
+	if (!query.empty())
+		Logging::bugf("%s: %s, on query '%s'", func, sqlite3_errmsg(_db), query);
+	else
+		Logging::bugf("%s: %s", func, sqlite3_errmsg(_db));
 
 	if (fBootDb) {
 		db_close();
@@ -94,7 +97,7 @@ int db_query(const String& func, const String& query)
 	error = sqlite3_prepare_v2(_db, query.c_str(), -1, &_result, nullptr);
 
 	if (error != SQLITE_OK) {
-		db_error("db_query");
+		db_error("db_query", query);
 		return SQL_ERROR;
 	}
 
@@ -131,20 +134,19 @@ int db_rows_affected() {
 }
 
 /* escapes a string for a mysql query */
-String db_esc(const String& string)
+String db_esc(const String& str)
 {
 	String buf;
-	int i = 0;
 
-	while (string[i] != '\0') {
-		if (string[i] == '\'')
-			buf += '\'';
+	for (char c : str) {
+		if (c == '\'')
+			buf += '\''; // double the single quote
 // only for mysql compatibility?  don't use double quotes in queries,
 // and don't double them here
 //		else if (string[i] == '\"') 
 //			buf[j++] = '\"';
 
-		buf += string[i++];
+		buf += c;
 	}
 
 	return buf;

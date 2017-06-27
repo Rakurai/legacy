@@ -9,7 +9,7 @@
 /* db functions */
 void		db_open				(void);
 void		db_close			(void);
-void		db_error			(const String& func);
+void		db_error			(const String& func, const String& query = "");
 int			db_next_row			();
 int			db_get_column_int	(int index);
 const Flags db_get_column_flags (int index);
