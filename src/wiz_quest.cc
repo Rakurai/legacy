@@ -820,6 +820,7 @@ bool setup_obj(Character *ch, Object *obj, String argument)
 	case ITEM_GEM:
 	case ITEM_JEWELRY:
 	case ITEM_WEDDINGRING:
+	case ITEM_WARP_CRYSTAL:
 	default:
 		break;
 	}

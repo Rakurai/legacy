@@ -2688,15 +2688,26 @@ void do_relocate(Character *ch, String argument)
 	WAIT_STATE(ch, skill_table[gsn_mark].beats);
 } /* end do_relocate() */
 
-Object *get_warp_crystal(const String& str) {
-	for (Object *obj = object_list; obj; obj = obj->next) {
-		if (!obj->pIndexData)
-			continue;
+const String get_warp_loc_string(const Object *obj) {
+	if (!obj || obj->item_type != ITEM_WARP_CRYSTAL)
+		return "";
 
-		for (ExtraDescr *ed = obj->pIndexData->extra_descr; ed; ed = ed->next)
-			if (ed->keyword == "warp_loc" && ed->description == str)
+	ExtraDescr *ed = get_extra_descr("warp_loc", obj->extra_descr);
+
+	if (!ed && obj->pIndexData)
+		ed = get_extra_descr("warp_loc", obj->pIndexData->extra_descr);
+
+	if (ed)
+		return ed->description;
+
+	return "";
+}
+
+// search for an exact match on a warp crystal
+const Object *get_warp_crystal(const String& str) {
+	for (Object *obj = object_list; obj; obj = obj->next)
+		if (get_warp_loc_string(obj).uncolor() == str.uncolor())
 				return obj;
-	}
 
 	return nullptr;
 }
@@ -2717,18 +2728,26 @@ void do_warp(Character *ch, String argument)
 		}
 
 		stc("You have touched aetheryte crystals in:\n", ch);
+		int count = 1, max_count = ch->pcdata->warp_locs.size();
 
 		for (const String& str: ch->pcdata->warp_locs)
-			ptc(ch, "  %s\n", str);
+			ptc(ch, "  %*d) %s\n", max_count, count++, str);
 
 		return;
 	}
 
-	String target_loc;
+	String arg, target_loc;
+	int number;
+
+	if (argument.is_number())
+		number = atoi(argument);
+	else
+		number = number_argument(argument, arg);
 
 	for (const String& str: ch->pcdata->warp_locs)
-		if (str.has_words(argument))
-			target_loc = str;
+		if (arg.empty() || str.uncolor().has_words(arg))
+			if (--number == 0)
+				target_loc = str;
 
 	if (target_loc.empty()) {
 		stc("You have never been anywhere like that.\n", ch);
@@ -2736,7 +2755,7 @@ void do_warp(Character *ch, String argument)
 		return;
 	}
 
-	Object *crystal = get_warp_crystal(target_loc);
+	const Object *crystal = get_warp_crystal(target_loc);
 
 	if (!crystal || !crystal->in_room) {
 		stc("Strange, you don't seem to be able to travel there right now.\n", ch);

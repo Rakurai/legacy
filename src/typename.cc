@@ -102,6 +102,7 @@ String item_type_name(Object *obj)
 	case ITEM_WEDDINGRING:      return "weddingring";
 
 	case ITEM_TOKEN:            return "token";
+	case ITEM_WARP_CRYSTAL:     return "warp crystal";
 	}
 
 	Logging::bug("Item_type_name: unknown type %d.", obj->item_type);

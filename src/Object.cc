@@ -44,7 +44,8 @@ void unique_item(Object *item)
 	    || item->item_type == ITEM_ROOM_KEY
 	    || item->item_type == ITEM_WEDDINGRING
 	    || item->item_type == ITEM_TOKEN
-	    || item->item_type == ITEM_JUKEBOX)
+	    || item->item_type == ITEM_JUKEBOX
+	    || item->item_type == ITEM_WARP_CRYSTAL)
 		return;
 
 	/* don't care about most stuff unless it's at least takeable */

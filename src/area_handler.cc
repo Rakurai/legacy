@@ -367,6 +367,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	case ITEM_JEWELRY:
 	case ITEM_WEDDINGRING:
 	case ITEM_TOKEN:
+	case ITEM_WARP_CRYSTAL:
 		break;
 	}
 

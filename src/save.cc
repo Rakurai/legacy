@@ -81,6 +81,8 @@ void	fread_objects	args((Character *ch, cJSON *json, void (*obj_to)(Object *, Ch
 
 // external
 bool check_parse_name(const String& name);
+const Object *get_warp_crystal(const String&);
+const String get_warp_loc_string(const Object *);
 
 /*
  * Save a character and inventory.
@@ -1137,9 +1139,13 @@ void fread_player(Character *ch, cJSON *json, int version) {
 			case 'W':
 				if (key == "WarpLocs") {
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						// validate?
+						const Object *obj = get_warp_crystal(item->valuestring);
 
-						ch->pcdata->warp_locs.emplace(item->valuestring);
+						if (!obj)
+							continue;
+
+						// use the object's string, in case it has been updated for color or caps
+						ch->pcdata->warp_locs.emplace(get_warp_loc_string(obj));
 					}
 					fMatch = TRUE; break;
 				}
