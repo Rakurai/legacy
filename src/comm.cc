@@ -1889,7 +1889,7 @@ void do_copyover(Character *ch, String argument)
 	char portbuf[MSL], controlbuf[MSL];
 	Format::sprintf(portbuf,  "%d", port);
 	Format::sprintf(controlbuf, "%d", control);
-	execl(exe_file.c_str(), "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
+	execl(exe_file.c_str(), exe_file.c_str(), portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");
 	stc("Copyover FAILED!\n", ch);
