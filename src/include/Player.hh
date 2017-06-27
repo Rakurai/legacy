@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <map>
+#include <set>
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
@@ -109,6 +110,7 @@ public:
     sh_int              lays = 0;
     sh_int              next_lay_countdown = 0;
     bool                familiar = FALSE;
+    std::set<String>    warp_locs;
 
 private:
 	Player(const Player&);

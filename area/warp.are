@@ -1,0 +1,40 @@
+#AREA
+warp.are~
+Aetheryte~
+{H{{ ALL } {MMontrey {TAetheryte~
+2100 2199
+
+#OBJECTS
+
+#2100
+aetheryte crystal~
+aetheryte crystal~
+A huge {Bb{Clu{We-white crys{Cta{Bl{x emerges from the ground here, glowing with power.~
+crystal~
+warp_crystal AGORSTY P
+0 0 0 0 0
+100 20000 0 P
+E
+warp_loc~
+midgaard~
+
+#2101
+aetheryte crystal~
+aetheryte crystal~
+A huge {Bb{Clu{We-white crys{Cta{Bl{x emerges from the ground here, glowing with power.~
+crystal~
+warp_crystal AGORSTY P
+0 0 0 0 0
+100 20000 0 P
+E
+warp_loc~
+new thalos~
+
+#0
+
+#RESETS
+O 0 2100 1  3001 * midgaard
+O 0 2101 1  9506 * new thalos
+S
+
+#$

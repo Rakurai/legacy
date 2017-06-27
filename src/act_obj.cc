@@ -462,6 +462,61 @@ bool from_box_ok(Character *ch, Object *obj, char *box_type)
 	return TRUE;
 }
 
+void do_touch(Character *ch, String argument) {
+	if (argument.empty()) {
+		stc("Touch what?\n", ch);
+		return;
+	}
+
+	String arg;
+	argument = one_argument(argument, arg);
+
+	Object *obj = get_obj_here(ch, arg);
+
+	if (!obj) {
+		stc("You don't see that here.\n", ch);
+		return;
+	}
+
+	if (obj->item_type == ITEM_WARP_CRYSTAL) {
+		if (IS_NPC(ch)) {
+			stc("The gods have forbidden your kind from touching that.\n", ch);
+			return;
+		}
+
+		act("You place your hand upon the $p.", ch, obj, nullptr, TO_CHAR);
+		act("$n places $s hand upon the $p.", ch, obj, nullptr, TO_ROOM);
+
+		String loc;
+
+		for (ExtraDescr *ed = obj->pIndexData->extra_descr; ed; ed = ed->next)
+			if (ed->keyword == "warp_loc")
+				loc = ed->description;
+
+		if (loc.empty()) {
+			Logging::bug("warp crystal with no location extra description", 0);
+			act("The $p seems to be inert.", ch, obj, nullptr, TO_CHAR);
+			return;
+		}
+
+		if (ch->pcdata->warp_locs.find(loc) != ch->pcdata->warp_locs.end()) {
+			act("You have touched this $p already... nothing happens.", ch, obj, nullptr, TO_CHAR);
+			return;
+		}
+
+		act("Tendrils of blue-white energy momentarily swirl around your wrist.\n"
+			"When they subside, you feel a strange connection to the $p.",
+			ch, obj, nullptr, TO_CHAR);
+		act("Tendrils of blue-white energy momentarily swirl around $n's wrist.",
+			ch, obj, nullptr, TO_ROOM);
+
+		ch->pcdata->warp_locs.emplace(loc);
+		return;
+	}
+
+	stc("You touch it, but nothing happens.\n", ch);
+}
+
 void do_get(Character *ch, String argument)
 {
 	Object *obj, *obj_next, *container;

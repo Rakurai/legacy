@@ -385,6 +385,15 @@ cJSON *fwrite_player(Character *ch)
 		ch->pcdata->title.substr(1) : ch->pcdata->title);
 	JSON::addStringToObject(o,		"Video",		ch->pcdata->video_flags.to_string());
 
+	if (!ch->pcdata->warp_locs.empty()) {
+		item = cJSON_CreateArray();
+
+		for (const auto& it: ch->pcdata->warp_locs)
+			cJSON_AddItemToArray(item, cJSON_CreateString(it.c_str()));
+
+		cJSON_AddItemToObject(o,	"WarpLocs",		item);
+	}
+
 	if (!ch->pcdata->whisper.empty())
 		JSON::addStringToObject(o,	"Wspr",			ch->pcdata->whisper);
 
@@ -1126,6 +1135,15 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				FLAGKEY("Video",		ch->pcdata->video_flags,			o->valuestring);
 				break;
 			case 'W':
+				if (key == "WarpLocs") {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
+						// validate?
+
+						ch->pcdata->warp_locs.emplace(item->valuestring);
+					}
+					fMatch = TRUE; break;
+				}
+
 				STRKEY("Wspr",			ch->pcdata->whisper,		o->valuestring);
 				break;
 			default:

@@ -69,6 +69,7 @@ const std::vector<item_type> item_table = {
 //	{       ITEM_COACH,     "coach"         },
 	{       ITEM_WEDDINGRING, "weddingring"  },
 	{       ITEM_TOKEN,     "token"         },
+	{       ITEM_WARP_CRYSTAL, "warp_crystal" },
 };
 
 /* weapon selection table */

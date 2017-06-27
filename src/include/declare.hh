@@ -743,6 +743,7 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 //#define ITEM_COACH                   39
 #define ITEM_WEDDINGRING	     40
 #define ITEM_TOKEN                   41
+#define ITEM_WARP_CRYSTAL            42
 #define ITEM_QUESTSHOP              999 /* pseudo item type for quest shop -- Elrac */
 
 /* token types

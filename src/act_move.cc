@@ -35,6 +35,7 @@
 #include "declare.hh"
 #include "Descriptor.hh"
 #include "Exit.hh"
+#include "ExtraDescr.hh"
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
@@ -2685,6 +2686,111 @@ void do_relocate(Character *ch, String argument)
 	check_improve(ch, gsn_mark, TRUE, 4);
 	do_look(ch, "auto");
 	WAIT_STATE(ch, skill_table[gsn_mark].beats);
+} /* end do_relocate() */
+
+Object *get_warp_crystal(const String& str) {
+	for (Object *obj = object_list; obj; obj = obj->next) {
+		if (!obj->pIndexData)
+			continue;
+
+		for (ExtraDescr *ed = obj->pIndexData->extra_descr; ed; ed = ed->next)
+			if (ed->keyword == "warp_loc" && ed->description == str)
+				return obj;
+	}
+
+	return nullptr;
+}
+
+void do_warp(Character *ch, String argument)
+{
+	RoomPrototype *target_room;
+
+	if (IS_NPC(ch)) {
+		stc("It's a nice day out, you would rather walk.\n", ch);
+		return;
+	}
+
+	if (argument.empty()) {
+		if (ch->pcdata->warp_locs.empty()) {
+			stc("Once you have touched an aetheryte crystal, you will be able to warp to it.\n", ch);
+			return;
+		}
+
+		stc("You have touched aetheryte crystals in:\n", ch);
+
+		for (const String& str: ch->pcdata->warp_locs)
+			ptc(ch, "  %s\n", str);
+
+		return;
+	}
+
+	String target_loc;
+
+	for (const String& str: ch->pcdata->warp_locs)
+		if (str.has_words(argument))
+			target_loc = str;
+
+	if (target_loc.empty()) {
+		stc("You have never been anywhere like that.\n", ch);
+		do_warp(ch, "");
+		return;
+	}
+
+	Object *crystal = get_warp_crystal(target_loc);
+
+	if (!crystal || !crystal->in_room) {
+		stc("Strange, you don't seem to be able to travel there right now.\n", ch);
+		Logging::bugf("warp location '%s' doesn't match a crystal", target_loc);
+		return;
+	}
+
+	target_room = crystal->in_room;
+
+	/* Hack to prevent players from relocating out of 1212 */
+	if (ch->in_room->vnum == 1212) {
+		stc("You cannot warp out of this room.\n", ch);
+		return;
+	}
+
+	if (ch->fighting) {
+		stc("You cannot warp out of combat.\n", ch);
+		return;
+	}
+
+	if (char_in_duel_room(ch)) {
+		stc("You cannot warp from the duel arena.\n", ch);
+		return;
+	}
+
+	if (ch->pcdata->pktimer) {
+		stc("You cannot warp so soon after combat.\n", ch);
+		return;
+	}
+
+	if ((ch->in_room->sector_type == SECT_ARENA)
+	    || (ch->in_room->area == Game::world().quest.area)) {
+		stc("You aren't getting out of here that easily!\n", ch);
+		return;
+	}
+
+	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect_exists_on_char(ch, gsn_curse)) {
+		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
+		return;
+	}
+
+	if (ch->in_room == target_room) {
+		stc("Noticing you are already there, you don't bother.\n", ch);
+		return;
+	}
+
+	if (ch->in_room != nullptr) {
+		act("$n disappears in a flash of blinding light.", ch, nullptr, nullptr, TO_ROOM);
+		char_from_room(ch);
+	}
+
+	char_to_room(ch, target_room);
+	act("$n appears in flash of blinding light.", ch, nullptr, nullptr, TO_ROOM);
+	do_look(ch, "auto");
 } /* end do_relocate() */
 
 /* random room generation procedure */
