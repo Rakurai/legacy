@@ -1766,7 +1766,7 @@ String format_string(const String& oldstring)
 	}
 
 	/* clean up the end, reset our pointer */
-	xbuf.erase(i);
+//	xbuf.erase(i);
 	strcpy(xbuf2, xbuf);
 	rdesc = xbuf2;
 	xbuf.clear();
