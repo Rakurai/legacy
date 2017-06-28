@@ -47,6 +47,7 @@
 #include "GameTime.hh"
 #include "interp.hh"
 #include "Logging.hh"
+#include "lootv2.hh"
 #include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
@@ -60,6 +61,7 @@
 #include "RoomPrototype.hh"
 #include "skill/skill.hh"
 #include "String.hh"
+#include "tables.hh"
 #include "Weather.hh"
 #include "World.hh"
 
@@ -83,7 +85,8 @@ bool    check_dual_parry args((Character *ch, Character *victim, skill::type att
 void    do_riposte      args((Character *ch, Character *victim));
 void    dam_message     args((Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, bool immune, bool sanc_immune));
 void    death_cry       args((Character *ch));
-void    group_gain      args((Character *ch, Character *victim));
+//void    group_gain      args((Character *ch, Character *victim));
+int    	group_gain      args((Character *ch, Character *victim));
 int     xp_compute      args((Character *gch, Character *victim, int total_levels, int diff_classes));
 bool    is_safe         args((Character *ch, Character *victim, bool showmsg));
 void    make_corpse     args((Character *ch));
@@ -1159,7 +1162,14 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			act("$p draws life from $n.", victim, wield, nullptr, TO_ROOM);
 			act("You feel $p drawing your life away.", victim, wield, nullptr, TO_CHAR);
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_NEGATIVE, FALSE, TRUE);
-			ch->hit += dam / 2;
+			
+			/*suffix
+			 * placeholder for Hexxing (HEXXING)
+			 * bonus 10% to blood blade leech effect.
+			*/ 
+			 
+			// draining effect adds hp
+			ch->hit += (dam / 2) * GET_ATTR(ch, APPLY_VAMP_BONUS_PCT) / 100;
 		}
 
 		if (ch->fighting == victim
@@ -1255,6 +1265,12 @@ int affect_callback_weaken_bonewall(affect::Affect *node, void *null) {
 bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, int dam_type, bool show, bool spell)
 {
 	bool immune, sanc_immune;
+	/*
+	Object *wield; //vegita
+	wield = get_eq_char(ch, WEAR_WIELD);//vegita
+	Object *wield2;
+	wield2 = get_eq_char(ch, WEAR_SECONDARY);
+	*/
 
 	if (get_position(victim) == POS_DEAD)
 		return FALSE;
@@ -1277,6 +1293,11 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	} */
 
 	if (spell) {
+		//Object *wield; //vegita
+		//wield = get_eq_char(ch, WEAR_WIELD);//vegita
+		//Object *wield2;
+		//wield2 = get_eq_char(ch, WEAR_SECONDARY);
+		
 		int damroll = get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
 		
 		if (attack_skill == skill::type::magic_missile) {
@@ -1295,6 +1316,14 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 		if (focus && affect::exists_on_char(ch, affect::type::focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
+		
+		/* suffix
+		 * placeholder for Arcane Power (ARCANEPOWER) and Mystical Power (MYSTICALPOWER)
+		 * ARCANEPOWER is +5% bonus spell damage
+		 * MYSTICALPOWER is +10% bonus spell damage
+		 *
+		 */
+		 dam = dam * GET_ATTR(ch, APPLY_SPELL_DAMAGE_PCT) / 100;
 	}
 
 	/* damage reduction */
@@ -1520,6 +1549,13 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		}
 	}
 
+	/* suffix
+	 * placeholder for Devastation (DEVASTATION) and Annihilation (ANNIHILATION)
+	 * DEVASTATION is +5% bonus to damage.
+	 * ANNIHILATION is +10% bonus to damage.
+	 */
+	dam = dam * GET_ATTR(ch, APPLY_WPN_DAMAGE_PCT) / 100;
+	
 	if (show)
 		dam_message(ch, victim, dam, attack_skill, attack_type, immune, sanc_immune);
 
@@ -1646,7 +1682,8 @@ void kill_off(Character *ch, Character *victim)
 	}
 
 	// award exp
-	group_gain(ch, victim);
+	int least_exp_awarded = group_gain(ch, victim); 
+	
 
 	// raw_kill will extract an NPC, so don't refer to NPC victims after this point
 	bool was_NPC = IS_NPC(victim);
@@ -1669,7 +1706,17 @@ void kill_off(Character *ch, Character *victim)
 		if ((corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) == nullptr
 		    || !can_see_obj(ch, corpse))
 			return;
-
+		
+		if (chance(30) 
+			&& least_exp_awarded > 0
+			&& ch->act_flags.has(PLR_AUTOLOOT)){ //loot system roll chance (30% right now)
+			obj = generate_eq(ch->level);
+			if (obj){
+				obj_to_obj(obj, corpse);
+				get_obj(ch, obj, corpse);
+			}
+		}
+		
 		/* we don't use do_get here to eliminate messages on not finding stuff -- Montrey */
 		if (corpse->contains) {
 			for (obj = corpse->contains; obj; obj = obj_next) {
@@ -2862,7 +2909,8 @@ void raw_kill(Character *victim)
 
 } /* end raw_kill */
 
-void group_gain(Character *ch, Character *victim)
+//void 
+int group_gain(Character *ch, Character *victim)
 {
 	char buf[MAX_STRING_LENGTH];
 	Character *gch;
@@ -2876,12 +2924,17 @@ void group_gain(Character *ch, Character *victim)
 	const Flags::Bit vary_bit [] =
 	{ Flags::A, Flags::B, Flags::C, Flags::D, Flags::E, Flags::F, Flags::G, Flags::H };
 
+	// hack to pass back the lowest exp gain to see if anyone gets generated eq
+	int lowest_xp = 1000000;
+
 	/* Monsters don't get kill xp's or alignment changes.
 	   P-killing doesn't help either.
 	   Dying of mortal wounds or poison doesn't give xp to anyone! */
 
-	if (victim == ch)
-		return;
+	if (victim == ch){
+		xp = 0;
+		lowest_xp = 0;
+	}
 
 	vary_int += vary_bit[ch->cls];
 
@@ -2902,7 +2955,7 @@ void group_gain(Character *ch, Character *victim)
 	if (members == 0) {
 		Logging::bug("Group_gain: members.", members);
 		members = 1;
-		group_levels = ch->level ;
+		group_levels = ch->level;
 	}
 
 	/* Determine the highest level of a present group member */
@@ -2935,11 +2988,22 @@ void group_gain(Character *ch, Character *victim)
 		    || (ch->in_room->area == Game::world().quest.area && Game::world().quest.pk))
 			xp = 0;
 
+		// at this point xp is real
+		if (xp < lowest_xp)
+			lowest_xp = xp;
+
+		/*suffix
+		 *placeholder for suffix affecting exp
+		 *of The Experienced			+40 to exp gain
+		 */
+		xp = xp * GET_ATTR(gch, APPLY_EXP_PCT) / 100;
+
 		ptc(gch, "{PYou receive %d experience points.{x\n", xp);
 
+		
 		if (!ch->revoke_flags.has(REVOKE_EXP))
 			gain_exp(gch, xp);
-
+		
 		/* check for items becoming unwearable due to alignment changes */
 		for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -2967,6 +3031,8 @@ void group_gain(Character *ch, Character *victim)
 			}
 		}
 	}
+
+	return lowest_xp;
 } /* end group_gain */
 
 /* Compute xp for a kill, adjust alignment of killer.  Edit this function to change xp computations. */
@@ -3142,7 +3208,9 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 
 		if (xp > xp90) xp = xp90; /* but no more than the single grouped player limit */
 	}
-
+	
+	
+	
 	return xp;
 } /* end xp_compute */
 

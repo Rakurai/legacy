@@ -34,6 +34,7 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "interp.hh"
+#include "lootv2.hh"
 #include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
@@ -42,6 +43,7 @@
 #include "random.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
+#include "tables.hh"
 
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(Character *ch, int gn)
@@ -1374,12 +1376,25 @@ bool deduct_stamina(Character *ch, skill::type type)
 	if (skill::lookup(type).min_mana <= 0)
 		return TRUE;
 
-	if (ch->stam < get_skill_cost(ch, type)) {
+	int stam_cost = get_skill_cost(ch, type);
+	
+	/*suffix
+	 *placeholder for stamina cost modifying suffixes
+	 *
+	 *of The Swallow			2% stamina cost reduction
+	 *of The Hawk				4% stamina cost reduction
+	 *of The Falcon				6% stamina cost reduction
+	 
+	 replace section between snips with the following:
+	*/
+	stam_cost = stam_cost - stam_cost * GET_ATTR(ch, APPLY_STAM_COST_PCT) / 100;
+
+	if (ch->stam < stam_cost) {
 		ptc(ch, "You are too tired to %s.\n", skill::lookup(type).name);
 		return FALSE;
 	}
-
-	ch->stam -= get_skill_cost(ch, type);
+	
+	ch->stam -= stam_cost;
 	return TRUE;
 }
 

@@ -156,7 +156,7 @@ void boot_db()
 			const auto unknown = skill::lookup(skill::type::unknown);
 
 			if (skill::lookup((skill::type)i).name == unknown.name) {
-				boot_bug("boot_db: unable to find definition for skill enum %d.", 0);
+				boot_bug("boot_db: unable to find definition for skill enum %d.", i);
 				exit(1);
 			}
 		}
@@ -165,7 +165,7 @@ void boot_db()
 			const auto unknown = affect::lookup(affect::type::unknown);
 
 			if (affect::lookup((affect::type)i).name == unknown.name) {
-				boot_bug("boot_db: unable to find definition for affect enum %d.", 0);
+				boot_bug("boot_db: unable to find definition for affect enum %d.", i);
 				exit(1);
 			}
 		}
@@ -431,6 +431,7 @@ void load_objects(FILE *fp)
 		pObjIndex->extra_flags          = fread_flag(fp);
 		pObjIndex->wear_flags           = fread_flag(fp);
 		pObjIndex->num_settings			= 0;
+		
 
 
 		int val = 0; // prevent accidents in altering below switches

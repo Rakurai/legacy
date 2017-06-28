@@ -878,7 +878,7 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define APPLY_HIT                    13
 #define APPLY_STAM                   14
 #define APPLY_GOLD                   15
-#define APPLY_EXP                    16
+#define APPLY_EXP_PCT                16
 #define APPLY_AC                     17
 #define APPLY_HITROLL                18
 #define APPLY_DAMROLL                19
@@ -890,9 +890,13 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define APPLY_SAVING_SPELL           24
 //#define APPLY_SPELL_AFFECT           25
 #define APPLY_CHR                    26
-//#define APPLY_SHEEN                  27
-//#define APPLY_BARRIER                28
-//#define APPLY_FOCUS                  29
+#define APPLY_QUESTPOINTS			27
+#define APPLY_SKILLPOINTS			28
+#define APPLY_MANA_COST_PCT			29
+#define APPLY_STAM_COST_PCT			30
+#define APPLY_WPN_DAMAGE_PCT		31
+#define APPLY_SPELL_DAMAGE_PCT		32
+#define APPLY_VAMP_BONUS_PCT		33
 
 
 /*

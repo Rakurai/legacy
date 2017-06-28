@@ -27,6 +27,7 @@
 #include "Game.hh"
 #include "interp.hh"
 #include "Logging.hh"
+#include "lootv2.hh"
 #include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -1121,9 +1122,6 @@ void do_quest(Character *ch, String argument)
 	/*** COMPLETE ***/
 	if (arg1.is_prefix_of("complete")) {
 		Object *obj = nullptr;
-		int pointreward = 0;
-		int reward = 0;
-		int pracreward = 0;
 
 		if (get_position(ch) < POS_RESTING) {
 			stc("You are too busy sleeping.\n", ch);
@@ -1220,17 +1218,28 @@ void do_quest(Character *ch, String argument)
 				return;
 			}
 
-			reward = number_range(ch->level / 4, ch->level * 3 / 2) + 1;
+			int pointreward = number_range(1, 10);
 			
+			// set the next quest time here so it is based on the base award, not modifiers
+			ch->pcdata->nextsquest = pointreward;
+
 			if (quest_double)
-				pointreward = number_range(1, 20);
-			else
-				pointreward = number_range(1, 10);
+				pointreward += number_range(0, 10);
+
+			/*suffix
+			 *placeholder for skill quest suffixes
+			 * of The Skilled 			+1 sp (2 if double on)
+			 * of The Skillful 			+2 sp (4 if double on)
+			 * 
+			 replace section between above snips with the following:
+			 */
+			pointreward += number_range(0, GET_ATTR(ch, APPLY_SKILLPOINTS));
+			int goldreward = number_range(ch->level / 4, ch->level * 3 / 2) + 1;
 			
 			/* Awards ceremony */
 			do_say(questman, "Congratulations on completing your skill quest!");
 			Format::sprintf(buf, "As a reward, I am giving you %d skill point%s and %d gold.",
-			        pointreward, (pointreward == 1 ? "" : "s"), reward);
+			        pointreward, (pointreward == 1 ? "" : "s"), goldreward);
 			do_say(questman, buf);
 
 	                if (!ch->revoke_flags.has(REVOKE_EXP)) {
@@ -1249,8 +1258,7 @@ void do_quest(Character *ch, String argument)
 			}
 
 			sq_cleanup(ch);
-			ch->pcdata->nextsquest = pointreward;
-			ch->gold += reward;
+			ch->gold += goldreward;
 			ch->pcdata->skillpoints += pointreward;
 			wiznet("{Y:SKILL QUEST:{x $N has completed a skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
@@ -1328,20 +1336,34 @@ void do_quest(Character *ch, String argument)
 				return;
 			}
 
-			reward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; /* +1 is for the off chance of a level 0 questor */
+			int pointreward = number_range(1, 5);
+
+			// set the next quest time here so it is based on the base award, not modifiers
+			ch->nextquest = pointreward;
 
 			if (quest_double)
-				pointreward = number_range(1, 10);
-			else
-				pointreward = number_range(1, 5);
+				pointreward += number_range(0, 5);
 
+			/*suffix
+			 *placeholder for skill quest suffixes
+			 * of The Initiate Questor 			+1 qp (2 if double on)
+			 * of The Adv. Questor 				+2 qp (4 if double on)
+			 * of The Master Questor			+3 qp (6 if double on)
+			 * 
+			 replace section between above snips with the following:
+			 */
+			pointreward += number_range(0, GET_ATTR(ch, APPLY_QUESTPOINTS));
+
+			int pracreward = 0;
 			if (chance(5))
 				pracreward = number_range(1, 3);
+
+			int goldreward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; /* +1 is for the off chance of a level 0 questor */
 
 			/* Awards ceremony */
 			do_say(questman, "Congratulations on completing your quest!");
 			Format::sprintf(buf, "As a reward, I am giving you %d quest point%s and %d gold.",
-			        pointreward, (pointreward == 1 ? "" : "s"), reward);
+			        pointreward, (pointreward == 1 ? "" : "s"), goldreward);
 			do_say(questman, buf);
 
 	                if (!ch->revoke_flags.has(REVOKE_EXP)) {
@@ -1361,12 +1383,7 @@ void do_quest(Character *ch, String argument)
 			ch->questobf = 0;
 			ch->questloc = 0;
 
-			if (quest_double)
-				ch->nextquest = UMAX(1, pointreward/2);
-			else
-				ch->nextquest = pointreward;
-
-			ch->gold += reward;
+			ch->gold += goldreward;
 			ch->questpoints += pointreward;
 			ch->practice += pracreward;
 			wiznet("{Y:QUEST:{x $N has completed a quest", ch, nullptr, WIZ_QUEST, 0, 0);

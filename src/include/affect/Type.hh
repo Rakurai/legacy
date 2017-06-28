@@ -84,6 +84,43 @@ enum class type {
     weapon_two_hands,
     weapon_shocking,
 
+    // obj prefixes
+    obj_prefix_solar,
+    obj_prefix_astral,
+    obj_prefix_lunar,
+    obj_prefix_windy,
+    obj_prefix_healthy,
+    obj_prefix_hearty,
+    obj_prefix_stalwart,
+    obj_prefix_mystical,
+    obj_prefix_magical,
+    obj_prefix_lucky,
+    obj_prefix_fortuitous,
+    obj_prefix_sturdy,
+    obj_prefix_reinforced,
+    obj_prefix_precise,
+    obj_prefix_skilled,
+    obj_prefix_jagged,
+    obj_prefix_brutal,
+
+    obj_suffix_initiate_questor,
+    obj_suffix_advanced_questor,
+    obj_suffix_master_questor,
+    obj_suffix_skilled,
+    obj_suffix_skillful,
+    obj_suffix_experienced,
+    obj_suffix_initiate_mage,
+    obj_suffix_advanced_mage,
+    obj_suffix_master_mage,
+    obj_suffix_swallow,
+    obj_suffix_hawk,
+    obj_suffix_falcon,
+    obj_suffix_devastation,
+    obj_suffix_annihilation,
+    obj_suffix_arcane_power,
+    obj_suffix_mystical_power,
+    obj_suffix_hexxing,
+
     size, // don't touch
     first = 0 // don't touch
 };

@@ -47,6 +47,7 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
+#include "lootv2.hh"
 #include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -61,6 +62,7 @@
 #include "skill/skill.hh"
 #include "String.hh"
 #include "typename.hh"
+#include "tables.hh"
 #include "Weather.hh"
 #include "World.hh"
 
@@ -475,10 +477,20 @@ void do_cast(Character *ch, String argument)
 		ch->mana -= mana / 2;
 	}
 	else {
-		ch->mana -= mana;
+		/*suffix
+		 *placeholder for suffixes that affect Mana cost
+		 *of The Intiate Mage				5% cost reduction
+		 *of The Adv. Mage					10% cost reduction
+		 *of The Master Mage				15% cost reduction
+		 *
+		 replace section between snips above with the following:
+		 */
+		ch->mana -= mana - mana * GET_ATTR(ch, APPLY_MANA_COST_PCT) / 100;
+
 		(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
 		check_improve(ch, sn, TRUE, 1);
 	}
+	
 
 	if ((skill::lookup(sn).target == TAR_CHAR_OFFENSIVE
 	     || (skill::lookup(sn).target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
@@ -4135,17 +4147,14 @@ void spell_identify(skill::type sn, int level, Character *ch, void *vo, int targ
 
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
-/*
-		if (obj->value[4] || !obj->cached_weapon_flags.empty())
-			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]+obj->cached_weapon_flags));
-*/
+
 		break;
 
 	case ITEM_ARMOR:
 		ptc(ch, "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n",
 		    obj->value[0], obj->value[1], obj->value[2], obj->value[3]);
-		break;
 
+		break;
 	case ITEM_MATERIAL:
 		ptc(ch, "Skill modifier: %d, Dice Bonus %d, Sides Bonus %d\n",
 		    obj->value[0], obj->value[1], obj->value[2]);

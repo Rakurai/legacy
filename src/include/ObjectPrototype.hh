@@ -34,7 +34,8 @@ public:
     ObjectValue         value[5];
 
     int                 num_settings = 0; // for socketed gems
-
+	//int					suffix[3];
+	
 private:
     ObjectPrototype(const ObjectPrototype&);
     ObjectPrototype& operator=(const ObjectPrototype&);

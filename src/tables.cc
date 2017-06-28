@@ -593,6 +593,7 @@ const std::vector<field_type> flag_fields = {
 	{ "parts",              part_flags,     CAND_MOB,       MTL,    MTL,    IMM,    999     },
 	{ "group",              group_flags,    CAND_MOB,       MTL,    999,    IMM,    999     },
 	{ "extra",              extra_flags,    CAND_OBJ,       MTL,    999,    IMM,    999     },
+//	{ "EQ",              	eq_flags,    	CAND_OBJ,       MTL,    999,    IMM,    999     },
 	{ "wear",               wear_flags,     CAND_OBJ,       MTL,    999,    IMM,    999     },
 //	{ "weapon",             weapon_flags,   CAND_OBJ,       MTL,    999,    IMM,    999     },
 	{ "room",               room_flags,     CAND_ROOM,      IMM,    999,    IMM,    999     },
@@ -1116,6 +1117,7 @@ const std::vector<csetting_type> csetting_table = {
 	{       0,      0,      ""              },
 	{       0,      0,      ""              }       /* MAX_COLOR */
 };
+
 
 int flag_index_lookup(const String& name, const std::vector<flag_type>& flag_table)
 {

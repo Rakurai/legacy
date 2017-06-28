@@ -512,6 +512,9 @@ void    obj_cast_spell  args( ( skill::type, int level, Character *ch,
 									Character *victim, Object *obj ) );
 void spell_imprint      args( ( skill::type, int level, Character *ch, void *vo ));
 
+// loot.c 
+void generate_eq		  args(( Character *ch));
+
 /* quest.c */
 void    sq_cleanup	 args( ( Character *ch ) );
 

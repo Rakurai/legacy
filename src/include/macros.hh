@@ -107,6 +107,8 @@
 #define IS_OBJ_STAT(obj, stat)  (((obj)->extra_flags + (obj)->cached_extra_flags).has((stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
 		(obj)->value[4] : 100)
+//#define HAS_EQ_FLAG(obj, stat)  ((obj)->eq_flags.has((stat)))
+
 
 
 /*

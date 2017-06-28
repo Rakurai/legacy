@@ -154,11 +154,11 @@ String affect_loc_name(int location)
 	case APPLY_CHR:             return "charisma";
 	case APPLY_SEX:             return "sex";
 	case APPLY_AGE:             return "age";
-	case APPLY_MANA:            return "mana";
-	case APPLY_HIT:             return "hp";
-	case APPLY_STAM:            return "stamina";
-	case APPLY_GOLD:            return "gold";
-	case APPLY_EXP:             return "experience";
+	case APPLY_MANA:            return "maximum mana";
+	case APPLY_HIT:             return "maximum hp";
+	case APPLY_STAM:            return "maximum stamina";
+	case APPLY_GOLD:            return "gold gained";
+	case APPLY_EXP_PCT:         return "experience gained";
 	case APPLY_AC:              return "armor class";
 	case APPLY_HITROLL:         return "hit roll";
 	case APPLY_DAMROLL:         return "damage roll";
@@ -167,6 +167,13 @@ String affect_loc_name(int location)
 	case APPLY_SAVING_PETRI:    return "save vs petrification";
 	case APPLY_SAVING_BREATH:   return "save vs breath";
 	case APPLY_SAVING_SPELL:    return "save vs spell";
+	case APPLY_QUESTPOINTS:     return "quest points gained";
+	case APPLY_SKILLPOINTS:     return "skill points gained";
+	case APPLY_MANA_COST_PCT:   return "spell mana cost";
+	case APPLY_STAM_COST_PCT:   return "skill stamina cost";
+	case APPLY_WPN_DAMAGE_PCT:  return "weapon damage dealt";
+	case APPLY_SPELL_DAMAGE_PCT:return "spell damage dealt";
+	case APPLY_VAMP_BONUS_PCT:  return "vampiric weapon leeching";
 	}
 
 	Logging::bug("Affect_location_name: unknown location %d.", location);

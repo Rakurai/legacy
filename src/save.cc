@@ -1485,7 +1485,7 @@ Object * fread_obj(cJSON *json, int version) {
 					}
 					fMatch = TRUE; break;
 				}
-
+				
 				FLAGKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not string_to_flags
 				break;
 			case 'G':
@@ -1519,7 +1519,7 @@ Object * fread_obj(cJSON *json, int version) {
 				break;
 			case 'S':
 				STRKEY("ShD",			obj->short_descr,			o->valuestring);
-				break;
+				break;	
 			case 'T':
 				INTKEY("Time",			obj->timer,					o->valueint);
 				break;

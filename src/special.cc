@@ -1327,7 +1327,8 @@ bool IS_SPECIAL(Character *ch)
 		return FALSE;
 
 	if (ch->name == "Montrey"
-	    || ch->name == "Xenith")
+	    || ch->name == "Xenith"
+            || ch->name == "Vegita")
 		return TRUE;
 
 	return FALSE;

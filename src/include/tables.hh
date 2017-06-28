@@ -142,7 +142,7 @@ struct raffects
     Flags add;
 };
 
-
+ 
 /* game tables */
 extern  const   std::vector<position_type> position_table;
 extern  const   std::vector<sex_type>      sex_table;
@@ -181,6 +181,7 @@ extern  const   std::vector<flag_type> comm_flags;
 extern  const   std::vector<flag_type> censor_flags;
 extern  const   std::vector<flag_type> revoke_flags;
 extern  const   std::vector<flag_type> extra_flags;
+extern	const	std::vector<flag_type> eq_flags;	//loot system vegita
 extern  const   std::vector<flag_type> wear_flags;
 extern  const   std::vector<flag_type> container_flags;
 extern  const   std::vector<flag_type> portal_flags;

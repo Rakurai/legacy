@@ -204,9 +204,20 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 		if (paf->where == TO_DEFENSE)
 			buf += Format::format("%sodifies defense against %s by %d",
 				buf.empty() ? "M" : " m", dam_type_name(paf->location), paf->modifier);
-		else
+		else {
 			buf += Format::format("%sffects %s by %d",
-				buf.empty() ? "A" : " a", affect_loc_name(paf->location), paf->modifier);
+				buf.empty() ? "A" : " a",
+				affect_loc_name(paf->location),
+				paf->modifier);
+
+			if (paf->location == APPLY_EXP_PCT
+			 || paf->location == APPLY_MANA_COST_PCT
+			 || paf->location == APPLY_STAM_COST_PCT
+			 || paf->location == APPLY_WPN_DAMAGE_PCT
+			 || paf->location == APPLY_SPELL_DAMAGE_PCT
+			 || paf->location == APPLY_VAMP_BONUS_PCT)
+				buf += "%";
+		}
 	}
 
 	if (IS_IMMORTAL(ch))

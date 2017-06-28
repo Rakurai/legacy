@@ -34,6 +34,7 @@
 #include "Flags.hh"
 #include "Game.hh"
 #include "GameTime.hh"
+#include "lootv2.hh"
 #include "macros.hh"
 #include "merc.hh"
 #include "Object.hh"
@@ -62,6 +63,7 @@ void do_debug(Character *ch, String argument)
 		    "  aversion - lists all areas and their versions\n"
 		    "  define   - lists all defines that the preprocessor checks for\n"
 		    "  objstate - save all objects lying on the ground\n"
+		    "  geneq    - generate a piece of eq\n"
 		    "  affcall  - iterate through affects\n", ch);
 		return;
 	}
@@ -145,6 +147,31 @@ void do_debug(Character *ch, String argument)
 		return;
 	}
 */
+	if (!strcmp(subfunc, "geneq")) {
+		String arg;
+		argument = one_argument(argument, arg);
+
+		if (arg.empty() || !arg.is_number()) {
+			stc("Usage:  debug geneq <level>\n", ch);
+			return;
+		}
+
+		int level = atoi(arg);
+
+		if (level < 1 || level > 100) {
+			stc("Level is between 1 and 100.\n", ch);
+			return;
+		}
+
+		Object *obj = generate_eq(level);
+
+		if (obj)
+			obj_to_char(obj, ch);
+
+		stc("Loot Rolled\n", ch);
+		return;
+	}
+
 	if (!strcmp(subfunc, "rng")) {
 		long iterations = atol(argument.c_str());
 

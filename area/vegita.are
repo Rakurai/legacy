@@ -130,7 +130,227 @@ A
 19 1
 A
 2 1
+
+#24355
+floater base~
+blank floater~
+blank floater is here.~
+blank~
+armor 0 AQ
+0 0 0 0 0
+1 1 1 P
+
+#24356
+light base~
+blank light~
+blank light is here.~
+blank~
+light 0 AQ
+0 0 -1 0 0
+1 1 1 P
+
+#24357
+ring base~
+blank ring~
+blank ring is here.~
+armor~
+armor 0 AB
+0 0 0 0 0
+1 1 1 P
+
+#24358
+neck base~
+blank neck~
+blank neck is here.~
+blank~
+armor 0 AC
+0 0 0 0 0
+1 1 1 P
+
+#24359
+torso base~
+blank torso~
+blank torso is here.~
+blank~
+armor 0 AD
+0 0 0 0 0
+1 1 1 P
+
+#24360
+head base~
+blank head~
+blank head is here.~
+blank~
+armor 0 AE
+0 0 0 0 0
+1 1 1 P
+
+#24361
+legs base~
+blank legs~
+blank legs is here.~
+blank~
+armor 0 AF
+0 0 0 0 0
+1 1 1 P
+
+#24362
+feet base~
+blank feet~
+blank feet is here.~
+blank~
+armor 0 AG
+0 0 0 0 0
+1 1 1 P
+
+#24363
+hands base~
+blank hands~
+blank hands is here.~
+blank~
+armor 0 AH
+0 0 0 0 0
+1 1 1 P
+
+#24364
+arms base~
+blank arms~
+blank arms is here.~
+blank~
+armor 0 AI
+0 0 0 0 0
+1 1 1 P
+
+#24365
+shield base~
+blank shield~
+blank shield is here.~
+blank~
+armor 0 AJ
+0 0 0 0 0
+1 1 1 P
+
+#24366
+body base~
+blank body~
+blank body is here.~
+blank~
+armor 0 AK
+0 0 0 0 0
+1 1 1 P
+
+#24367
+waist base~
+blank waist~
+blank waist is here.~
+blank~
+armor 0 AL
+0 0 0 0 0
+1 1 1 P
+
+#24368
+wrist base~
+blank wrist~
+blank wrist is here.~
+blank~
+armor 0 AM
+0 0 0 0 0
+1 1 1 P
+
+#24369
+held base~
+blank held~
+blank held is here.~
+blank~
+armor 0 AO
+0 0 0 0 0
+1 1 1 P
+
+#24370
+axe base~
+blank axe~
+blank axe is here.~
+blank~
+weapon 0 AN
+axe 1 1 slash 0
+1 1 1 P
+
+#24371
+dagger base~
+blank dagger~
+blank dagger is here.~
+blank~
+weapon 0 AN
+dagger 1 1 pierce 0
+1 1 1 P
+
+#24372
+exotic base~
+blank exotic~
+blank exotic is here.~
+blank~
+weapon 0 AN
+exotic 1 1 blast 0
+1 1 1 P
+
+#24373
+flail base~
+blank flail~
+blank flail is here.~
+blank~
+weapon 0 AN
+flail 1 1 slash 0
+1 1 1 P
+
+#24374
+mace base~
+blank mace~
+blank mace is here.~
+blank~
+weapon 0 AN
+mace 1 1 crush 0
+1 1 1 P
+
+#24375
+polearm base~
+blank polearm~
+blank polearm is here.~
+blank~
+weapon 0 AN
+polearm 1 1 pierce 0
+1 1 1 P
+
+#24376
+spear base~
+blank spear~
+blank spear is here.~
+blank~
+weapon 0 AN
+staff 1 1 pierce 0
+1 1 1 P
+
+#24377
+sword base~
+blank sword~
+blank sword is here.~
+blank~
+weapon 0 AN
+sword 1 1 slash 0
+1 1 1 P
+
+#24378
+whip base~
+blank whip~
+blank whipis here.~
+blank~
+weapon 0 AN
+whip 1 1 slash 0
+1 1 1 P
+
 #0
+
+
+
 
 #ROOMS
 #24350

@@ -106,6 +106,43 @@ const std::map<::affect::type, const table_entry> affect_table = {
 	{ type::weapon_sharp,      { "sharp",             "",        "$p no longer looks so sharp." }},
 	{ type::weapon_vorpal,     { "vorpal",            "",        "$p feels less drawn to severing necks." }},
 
+	// object prefixes
+    { type::obj_prefix_solar,		{ "solar",		"",	"" }},
+    { type::obj_prefix_astral,	{ "astral",		"",	"" }},
+    { type::obj_prefix_lunar,		{ "lunar",		"",	"" }},
+    { type::obj_prefix_windy,		{ "windy",		"",	"" }},
+    { type::obj_prefix_healthy,	{ "healthy",	"",	"" }},
+    { type::obj_prefix_hearty,	{ "hearty",		"",	"" }},
+    { type::obj_prefix_stalwart,	{ "stalwart",	"",	"" }},
+    { type::obj_prefix_mystical,	{ "mystical",	"",	"" }},
+    { type::obj_prefix_magical,	{ "magical",	"",	"" }},
+    { type::obj_prefix_lucky,		{ "lucky",		"",	"" }},
+    { type::obj_prefix_fortuitous,{ "fortuitous",	"",	"" }},
+    { type::obj_prefix_sturdy,	{ "sturdy",		"",	"" }},
+    { type::obj_prefix_reinforced,{ "reinforced",	"",	"" }},
+    { type::obj_prefix_precise,	{ "precise",	"",	"" }},
+    { type::obj_prefix_skilled,	{ "skilled",	"",	"" }},
+    { type::obj_prefix_jagged,	{ "jagged",		"",	"" }},
+    { type::obj_prefix_brutal,	{ "brutal",		"",	"" }},
+
+    { type::obj_suffix_initiate_questor, { "initiate questor", "", "" }},
+    { type::obj_suffix_advanced_questor, { "advanced questor", "", "" }},
+    { type::obj_suffix_master_questor, { "master questor", "", "" }},
+    { type::obj_suffix_skilled, { "skilled", "", "" }},
+    { type::obj_suffix_skillful, { "skillful", "", "" }},
+    { type::obj_suffix_experienced, { "experienced", "", "" }},
+    { type::obj_suffix_initiate_mage, { "initiate mage", "", "" }},
+    { type::obj_suffix_advanced_mage, { "advanced mage", "", "" }},
+    { type::obj_suffix_master_mage, { "master mage", "", "" }},
+    { type::obj_suffix_swallow, { "swallow", "", "" }},
+    { type::obj_suffix_hawk, { "hawk", "", "" }},
+    { type::obj_suffix_falcon, { "falcon", "", "" }},
+    { type::obj_suffix_devastation, { "devastation", "", "" }},
+    { type::obj_suffix_annihilation, { "annihilation", "", "" }},
+    { type::obj_suffix_arcane_power, { "arcane power", "", "" }},
+    { type::obj_suffix_mystical_power, { "mystical power", "", "" }},
+    { type::obj_suffix_hexxing, { "hexxing", "", "" }},
+
 };
 
 } // namespace affect
