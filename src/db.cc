@@ -1220,6 +1220,7 @@ Flags::Bit mprog_name_to_type(const String& name)
 	if (name == "speech_prog")    return SPEECH_PROG;
 
 	if (name == "rand_prog")    return RAND_PROG;
+	if (name == "rand_area_prog") return RAND_AREA_PROG;
 
 	if (name == "boot_prog")    return BOOT_PROG;
 

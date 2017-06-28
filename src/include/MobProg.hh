@@ -38,3 +38,4 @@ extern bool    MOBtrigger;
 #define BUY_PROG           Flags::M
 #define TICK_PROG          Flags::N
 #define BOOT_PROG	       Flags::O
+#define RAND_AREA_PROG     Flags::P

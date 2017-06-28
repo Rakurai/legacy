@@ -33,6 +33,7 @@
 #include "Area.hh"
 #include "Character.hh"
 #include "declare.hh"
+#include "Descriptor.hh"
 #include "Flags.hh"
 #include "GameTime.hh"
 #include "Logging.hh"
@@ -1862,6 +1863,41 @@ void mprog_random_trigger(Character *mob)
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_PROG);
 
 	return;
+}
+
+void mprog_random_area_trigger(Character *mob)
+{
+	if (!mob->pIndexData->progtype_flags.has(RAND_AREA_PROG))
+		return;
+
+	// this is static to avoid creating the object every time, make sure to clear it below
+	static std::set<RoomPrototype *> rooms;
+
+	// build a set of all rooms in the area that have players
+	for (Descriptor *d = descriptor_list; d; d = d->next) {
+		if (IS_PLAYING(d)
+		 && d->character->in_room
+		 && d->character->in_room->area == mob->in_room->area)
+			rooms.emplace(d->character->in_room);
+	}
+
+	if (rooms.empty())
+		return;
+
+	RoomPrototype *orig_room = mob->in_room;
+	char_from_room(mob);
+
+	for (RoomPrototype *room : rooms) {
+		char_to_room(mob, room);
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_AREA_PROG);
+		char_from_room(mob);
+
+		if (get_position(mob) <= POS_STUNNED) // got killed by something?
+			break;
+	}
+
+	char_to_room(mob, orig_room);
+	rooms.clear();
 }
 
 void mprog_tick_trigger(Character *mob)    /* Montrey */

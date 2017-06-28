@@ -116,6 +116,11 @@ void Character::update() {
 		trigger, continue - Kahn */
 		if (get_position(ch) < POS_STANDING)
 			return;
+
+		mprog_random_area_trigger(ch);
+
+		if (get_position(ch) < POS_STANDING)
+			return;
 	}
 
 	/* That's all for sleeping / busy monster, and empty zones */

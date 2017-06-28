@@ -67,6 +67,7 @@ char *mprog_type_to_name(int type)
 	case SPEECH_PROG:           return "speech_prog";
 
 	case RAND_PROG:             return "rand_prog";
+	case RAND_AREA_PROG:        return "rand_area_prog";
 
 	case BOOT_PROG:             return "boot_prog";
 

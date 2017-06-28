@@ -669,6 +669,7 @@ void    mprog_buy_trigger       args ( ( Character* mob, Character* ch ) );
 void    mprog_hitprcnt_trigger  args ( ( Character* mob, Character* ch ) );
 void    mprog_death_trigger     args ( ( Character* mob ) );
 void    mprog_random_trigger    args ( ( Character* mob ) );
+void    mprog_random_area_trigger    args ( ( Character* mob ) );
 void    mprog_tick_trigger      args ( ( Character* mob ) );
 void 	mprog_boot_trigger	args ( ( Character* mob	) );
 void    mprog_speech_trigger    args ( ( const String& txt, Character* mob ) );
