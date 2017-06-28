@@ -66,6 +66,16 @@ void do_debug(Character *ch, String argument)
 		return;
 	}
 
+	if (subfunc == "strtest") {
+		for (int row = 0; row < 16; row++) {
+			for (int col = 0; col < 8; col++) {
+				unsigned char v = row * 8 + col + 128;
+				ptc(ch, "%d: %c  ", v, v);
+			}
+			stc("\n", ch);
+		}
+		return;
+	}
 /*
 	if (!strcmp(subfunc, "fullupdate")) {
 		MYSQL_RES *result;
