@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include <vector>
+#include <map>
 
 #include "affect_list.hh"
 #include "Affect.hh"
@@ -323,7 +324,7 @@ sh_int  gsn_critical_blow;
  */
 MobilePrototype         *mob_index_hash          [MAX_KEY_HASH];
 ObjectPrototype         *obj_index_hash          [MAX_KEY_HASH];
-RoomPrototype        *room_index_hash         [MAX_KEY_HASH];
+std::map<int, RoomPrototype *> room_index_map;
 
 long                    quest_double = 0;
 
@@ -874,7 +875,6 @@ void load_rooms(FILE *fp)
 	sh_int vnum;
 	char letter;
 	int door;
-	int iHash;
 
 	if (area_last == nullptr) {
 		boot_bug("Load_resets: no #AREA seen yet.", 0);
@@ -1022,9 +1022,7 @@ void load_rooms(FILE *fp)
 			}
 		}
 
-		iHash                   = vnum % MAX_KEY_HASH;
-		pRoomIndex->next        = room_index_hash[iHash];
-		room_index_hash[iHash]  = pRoomIndex;
+		room_index_map[vnum] = pRoomIndex;
 		top_room++;
 	}
 
@@ -1119,35 +1117,31 @@ void load_specials(FILE *fp)
 void fix_exits(void)
 {
 //    char buf[MAX_STRING_LENGTH];
-	RoomPrototype *pRoomIndex;
 //    RoomPrototype *to_room;
 	Exit *pexit;
 //    Exit *pexit_rev;
-	int iHash;
 	int door;
 
-	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
-		for (pRoomIndex  = room_index_hash[iHash];
-		     pRoomIndex != nullptr;
-		     pRoomIndex  = pRoomIndex->next) {
-			bool fexit;
-			fexit = FALSE;
+	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
+		RoomPrototype *pRoomIndex = it->second;
 
-			for (door = 0; door <= 5; door++) {
-				if ((pexit = pRoomIndex->exit[door]) != nullptr) {
-					if (pexit->u1.vnum <= 0
-					    || get_room_index(pexit->u1.vnum) == nullptr)
-						pexit->u1.to_room = nullptr;
-					else {
-						fexit = TRUE;
-						pexit->u1.to_room = get_room_index(pexit->u1.vnum);
-					}
+		bool fexit;
+		fexit = FALSE;
+
+		for (door = 0; door <= 5; door++) {
+			if ((pexit = pRoomIndex->exit[door]) != nullptr) {
+				if (pexit->u1.vnum <= 0
+				    || get_room_index(pexit->u1.vnum) == nullptr)
+					pexit->u1.to_room = nullptr;
+				else {
+					fexit = TRUE;
+					pexit->u1.to_room = get_room_index(pexit->u1.vnum);
 				}
 			}
-
-			if (!fexit)
-				pRoomIndex->room_flags += ROOM_NO_MOB;
 		}
+
+		if (!fexit)
+			pRoomIndex->room_flags += ROOM_NO_MOB;
 	}
 
 	/* nobody cares about the Fix_exits() messages -- Elrac

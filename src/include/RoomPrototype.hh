@@ -10,7 +10,6 @@ public:
 	RoomPrototype() {}
 	virtual ~RoomPrototype() {}
 
-	RoomPrototype *	next = nullptr;
 	Character *		people = nullptr;
 	Object *		contents = nullptr;
 	ExtraDescr *	extra_descr = nullptr;

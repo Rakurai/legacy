@@ -17,6 +17,7 @@
 #include "argument.hh"
 #include "Area.hh"
 #include "Character.hh"
+#include "db.hh"
 #include "declare.hh"
 #include "Exit.hh"
 #include "Format.hh"
@@ -27,8 +28,6 @@
 #include "ObjectPrototype.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
-
-extern  RoomPrototype *room_index_hash [MAX_KEY_HASH];
 
 /* The following locals are for the checkexit command - Lotus */
 const sh_int opposite_dir [6] =
@@ -106,12 +105,10 @@ void do_exlist(Character *ch, String argument)
 {
 	Area *pArea = ch->in_room->area; /* this is the area we want info on */
 
-	for (int i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
-		for (RoomPrototype *room = room_index_hash[i]; room; room = room->next)
-			/* run through all the rooms on the MUD */
-		{
-			stc(checkexits(room, pArea), ch);
-		}
+	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
+		/* run through all the rooms on the MUD */
+		stc(checkexits(it->second, pArea), ch);
+	}
 }
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
@@ -157,12 +154,10 @@ void do_roomexits(Character *ch, String argument)
 {
 	RoomPrototype *dest = ch->in_room; /* this is the room we want info on */
 
-	for (int i = 0; i < MAX_KEY_HASH; i++) /* room index hash table */
-		for (RoomPrototype *room = room_index_hash[i]; room; room = room->next)
-			/* run through all the rooms on the MUD */
-		{
-			stc(checkexitstoroom(room, dest), ch);
-		}
+	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
+		/* run through all the rooms on the MUD */
+		stc(checkexitstoroom(it->second, dest), ch);
+	}
 }
 
 /* find pockets of unused vnums equal to or greater than the argument */

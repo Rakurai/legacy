@@ -23,6 +23,7 @@
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
+#include "db.hh"
 #include "Descriptor.hh"
 #include "ExtraDescr.hh"
 #include "find.hh"
@@ -49,7 +50,6 @@
 
 extern bool    swearcheck              args((const String& argument));
 extern bool check_parse_name(const String& name);
-extern  RoomPrototype *room_index_hash[MAX_KEY_HASH];
 
 void do_adjust(Character *ch, String argument)
 {
@@ -1411,7 +1411,6 @@ void do_for(Character *ch, String argument)
 	RoomPrototype *room, *old_room = nullptr;
 	Character *p, *p_next;
 	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
-	int i;
 
 	String range;
 	argument = one_argument(argument, range);
@@ -1501,38 +1500,37 @@ void do_for(Character *ch, String argument)
 			return;
 		}
 
-		for (i = 0; i < MAX_KEY_HASH; i++) { /* run through all the buckets */
-			for (room = room_index_hash[i] ; room ; room = room->next) {
-				found = FALSE;
+		for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
+			room = it->second;
+			found = FALSE;
 
-				/* Anyone in here at all? */
-				if (!room->people) /* Skip it if room is empty */
+			/* Anyone in here at all? */
+			if (!room->people) /* Skip it if room is empty */
+				continue;
+
+			/* Check if there is anyone here of the requried type */
+			for (p = room->people; p; p = p->next_in_room) {
+				if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
 					continue;
+				else if (IS_NPC(p) && !fRoom)
+					continue;
+				else if (IS_IMMORTAL(p) && fGods)
+					found = TRUE;
+				else if (!IS_IMMORTAL(p) && fMortals)
+					found = TRUE;
+			}
 
-				/* Check if there is anyone here of the requried type */
-				for (p = room->people; p; p = p->next_in_room) {
-					if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
-						continue;
-					else if (IS_NPC(p) && !fRoom)
-						continue;
-					else if (IS_IMMORTAL(p) && fGods)
-						found = TRUE;
-					else if (!IS_IMMORTAL(p) && fMortals)
-						found = TRUE;
-				}
+			if (found) {
+				old_room = ch->in_room;
+				char_from_room(ch);
+				char_to_room(ch, room);
+				interpret(ch, argument);
 
-				if (found) {
-					old_room = ch->in_room;
+				if (ch) {
 					char_from_room(ch);
-					char_to_room(ch, room);
-					interpret(ch, argument);
-
-					if (ch) {
-						char_from_room(ch);
-						char_to_room(ch, old_room);
-					}
-				} /* if found */
-			} /* Index Hash */
+					char_to_room(ch, old_room);
+				}
+			} /* if found */
 		} /* for every room in a bucket */
 	} /* if strchr */
 } /* do_for */

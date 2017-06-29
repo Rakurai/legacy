@@ -476,23 +476,19 @@ ObjectPrototype *get_obj_index(int vnum)
  */
 RoomPrototype *get_room_index(int vnum)
 {
-	RoomPrototype *pRoomIndex;
+	auto search = room_index_map.find(vnum);
 
-	for (pRoomIndex  = room_index_hash[vnum % MAX_KEY_HASH];
-	     pRoomIndex != nullptr;
-	     pRoomIndex  = pRoomIndex->next) {
-		if (pRoomIndex->vnum == vnum)
-			return pRoomIndex;
+	if (search == room_index_map.end()) {
+		if (fBootDb) {
+			Logging::bug("Get_room_index: bad vnum %d.", vnum);
+			/* Don't exit here, we already return nullptr on error. -- Outsider
+			exit( 1 );
+			*/
+		}
+		return nullptr;
 	}
 
-	if (fBootDb) {
-		Logging::bug("Get_room_index: bad vnum %d.", vnum);
-		/* Don't exit here, we already return nullptr on error. -- Outsider
-		exit( 1 );
-		*/
-	}
-
-	return nullptr;
+	return search->second;
 }
 
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */
