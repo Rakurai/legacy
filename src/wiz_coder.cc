@@ -18,6 +18,7 @@
 
 #include "argument.hh"
 #include "Affect.hh"
+#include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
@@ -38,7 +39,10 @@
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "Player.hh"
+#include "Reset.hh"
 #include "RoomPrototype.hh"
+#include "Shop.hh"
+#include "Social.hh"
 #include "String.hh"
 
 extern  time_t  reboot_time;
@@ -568,18 +572,18 @@ void do_sectchange(Character *ch, String argument)
 
 void do_memory(Character *ch, String argument)
 {
-	ptc(ch, "Affects %5d allocated, %5d free\n", Affect::pool_allocated(), Affect::pool_free());
-	ptc(ch, "Areas   %5d\n", Game::world().areas.size());
-	ptc(ch, "ExDes   %5d allocated, %5d free\n", ExtraDescr::pool_allocated(), ExtraDescr::pool_free());
-	ptc(ch, "Exits   %5d\n", top_exit);
-	ptc(ch, "Socials %5d\n", count_socials());
-	ptc(ch, "Chars   %5d allocated, %5d free\n", Character::pool_allocated(), Character::pool_free());
-	ptc(ch, "Descrs  %5d allocated, %5d free\n", Descriptor::pool_allocated(), Descriptor::pool_free());
-	ptc(ch, "Objs    %5d allocated, %5d free\n", Object::pool_allocated(), Object::pool_free());
-	ptc(ch, "Resets  %5d\n", top_reset);
-	ptc(ch, "Rooms   %5d\n", top_room);
-	ptc(ch, "Shops   %5d\n", top_shop);
-	ptc(ch, "Clans   %5d\n", count_clans());
+	ptc(ch, "Affects %5d allocated, %5d free, %5d B each\n", Affect::pool_allocated(), Affect::pool_free(), sizeof(Affect));
+	ptc(ch, "Areas   %5d,                       %5d B each\n", Game::world().areas.size(), sizeof(Area));
+	ptc(ch, "ExDes   %5d allocated, %5d free, %5d B each\n", ExtraDescr::pool_allocated(), ExtraDescr::pool_free(), sizeof(ExtraDescr));
+	ptc(ch, "Exits   %5d,                       %5d B each\n", top_exit, sizeof(Exit));
+	ptc(ch, "Socials %5d,                       %5d B each\n", count_socials(), sizeof(Social));
+	ptc(ch, "Chars   %5d allocated, %5d free, %5d B each\n", Character::pool_allocated(), Character::pool_free(), sizeof(Character));
+	ptc(ch, "Descrs  %5d allocated, %5d free, %5d B each\n", Descriptor::pool_allocated(), Descriptor::pool_free(), sizeof(Descriptor));
+	ptc(ch, "Objs    %5d allocated, %5d free, %5d B each\n", Object::pool_allocated(), Object::pool_free(), sizeof(Object));
+	ptc(ch, "Resets  %5d,                       %5d B each\n", top_reset, sizeof(Reset));
+	ptc(ch, "Rooms   %5d,                       %5d B each\n", top_room, sizeof(RoomPrototype));
+	ptc(ch, "Shops   %5d,                       %5d B each\n", top_shop, sizeof(Shop));
+	ptc(ch, "Clans   %5d,                       %5d B each\n", count_clans(), sizeof(Clan));
 	ptc(ch, "Characters in storage  %5d\n", count_stored_characters());
 	return;
 }
