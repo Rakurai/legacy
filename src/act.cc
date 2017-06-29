@@ -16,6 +16,12 @@
 #include "String.hh"
 #include "Tail.hh"
 
+void act_bug(const String& var, char letter, const String fmt) {
+    // make sure $ is doubled here, or wiznet will cause a loop
+    Logging::bugf("Missing %s for '$$%c' in format string '%s'",
+        var, letter, fmt.replace("$", "$$"));
+}
+
 /* the guts of act, taken out to reduce complexity. */
 void act_format(const String& format, Character *ch,
                 const Character *vch, const Character *vch2,
@@ -62,8 +68,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'N':
 			if (vch == nullptr) {
-				Logging::bug("Missing vch for '$$N'", 0);
-				/*   Logging::bug( format, 0);  This will cause an endless loop */
+				act_bug("vch", *str, format);
 			}
 			else
 				i = PERS(vch, to, vis);
@@ -72,7 +77,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'E':
 			if (vch == nullptr)
-				Logging::bug("Missing vch for '$$E'", 0);
+                act_bug("vch", *str, format);
 			else
 				i = he_she[GET_ATTR_SEX(vch)];
 
@@ -80,7 +85,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'M':
 			if (vch == nullptr)
-				Logging::bug("Missing vch for '$$M'", 0);
+                act_bug("vch", *str, format);
 			else
 				i = him_her[GET_ATTR_SEX(vch)];
 
@@ -88,7 +93,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'S':
 			if (vch == nullptr)
-				Logging::bug("Missing vch for '$$S'", 0);
+                act_bug("vch", *str, format);
 			else
 				i = his_her[GET_ATTR_SEX(vch)];
 
@@ -98,7 +103,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'p':
 			if (obj1 == nullptr)
-				Logging::bug("Missing obj1 for '$$p'", 0);
+                act_bug("obj1", *str, format);
 			else if (can_see_obj(to, obj1))
 				i = obj1->short_descr;
 			else
@@ -107,10 +112,8 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'P':
-			if (obj2 == nullptr) {
-				Logging::bug("Missing obj2 for '$$P'", 0);
-				Logging::bug(format, 0);
-			}
+			if (obj2 == nullptr)
+                act_bug("obj2", *str, format);
 			else if (can_see_obj(to, obj2))
 				i = obj2->short_descr;
 			else
@@ -121,8 +124,10 @@ void act_format(const String& format, Character *ch,
 		/* The following needs a string describing a door. */
 
 		case 'd':
-			if (str2 == nullptr || str2->empty())
+			if (str2 == nullptr || str2->empty()) {
+                act_bug("str2", *str, format);
 				i = "door";
+            }
 			else
 				one_argument(*str2, i);
 
@@ -132,7 +137,7 @@ void act_format(const String& format, Character *ch,
 
 		case 't':
 			if (str1 == nullptr || str1->empty())
-				Logging::bug("Missing str1 for '$$t'", 0);
+                act_bug("str1", *str, format);
 			else
 				i = *str1;
 
@@ -140,7 +145,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'T':
 			if (str2 == nullptr || str2->empty())
-				Logging::bug("Missing str2 for '$$T'", 0);
+                act_bug("str2", *str, format);
 			else
 				i = *str2;
 
@@ -219,7 +224,7 @@ void act_parse(
 
     if (type == TO_VICT) {
         if (vch == nullptr) {
-            Logging::bug("Act: null vch with TO_VICT.", 0);
+            Logging::bugf("Act: null vch with TO_VICT in format string '%s'", format.replace("$", "$$"));
             return;
         }
 
@@ -231,7 +236,7 @@ void act_parse(
 
     if (type == TO_WORLD) {
         if (vch2 == nullptr) {
-            Logging::bug("Act: null vch2 with TO_WORLD.", 0);
+            Logging::bugf("Act: null vch2 with TO_WORLD in format string '%s'", format.replace("$", "$$"));
             return;
         }
 
