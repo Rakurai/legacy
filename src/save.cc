@@ -1550,6 +1550,7 @@ void fread_objects(Character *ch, cJSON *contains, void (*obj_to)(Object *, Char
 				(*obj_to)(c, ch);
 			}
 
+			// need something better, something down the line may rely on a non-null prototype
 			extract_obj(content);
 		}
 	}

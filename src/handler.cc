@@ -962,7 +962,8 @@ void extract_obj(Object *obj)
 		}
 
 		if (prev == nullptr) {
-			Logging::bug("Extract_obj: obj %d not found.", obj->pIndexData->vnum);
+			Logging::bug("Extract_obj: obj %d not found.",
+				obj->pIndexData ? obj->pIndexData->vnum : 0);
 			return;
 		}
 	}
