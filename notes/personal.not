@@ -1,4320 +1,902 @@
 Sender  Vegita~
-Date    Thu Dec  9 04:21:19 2004~
-Stamp   1102584079
-To      montrey ~
-Subject my src directory~
+Date    Sat Oct 15 21:25:06 2016~
+Stamp   1476591906
+To      imm montrey~
+Subject large bugey~
 Text
-Don't commit anything in their,,
-I have a skeleton system in and if you commit and someone updates
-you will like fubar the entire mud lol
-figured I'd warn yah
+made a new char and once I hit level 2 the point where it would say you levelled
+it crashed the mud and wiped the pfile for the character
 ~
-Sender  Teotwawki~
-Date    Thu Dec  9 06:29:48 2004~
-Stamp   1102591788
-To      seeker imm~
-Subject clan~
-Text
-We are not voting on who for a clan leader we are voting on weather or not
-you all like the idea of voting on your own clan leaders.  Thank you for the
-effort though .  
-
-Teo
+Sender  Vegita new char and once I hit level 2 the point where it would say you levelled
+it crashed the mud and wiped the pfile for the character
 ~
-Sender  Vegita~
-Date    Thu Dec  9 12:42:19 2004~
-Stamp   1102614139
-To      imm~
-Subject my current evolve stuff after forge~
-Text
-I'm working on a way to say evolve healing
-and it will affect healing spells *cure crit, cure light, cure serious, heal*
-and necromancy *animate skele, wraith, ect..*
-
-I'm just a busy bee!!!
+Date    Sat Oct 15 21:34:01 2016~
+Stamp   1476592441
+To      imm montreychar and once I hit level 2 the point where it would say you levelled
+it crashed the mud and wiped the pfile for the character
 ~
-Sender  Vegita~
-Date    Thu Dec  9 17:18:07 2004~
-Stamp   1102630687
-To      imm~
-Subject bah sql bug again~
-Text
-<WizNet> Sturm rejoins the real world.
-<WizNet> [*****] BUG: update_pc_index: Lost connection to MySQL server during query
+Subject updatentreychar and once I hit level 2 the point where it would say you levelled
+it crashed the mud and wiped the pfile for the character
 ~
-Sender  Teotwawki~
-Date    Thu Dec  9 18:39:01 2004~
-Stamp   1102635541
-To      outsider~
-Subject *kisses*~
 Text
-Hiya love, Hope you had a good day. Just wanted to write you and send you love and Kisses.
-
-Teo
-~
-Sender  Teotwawki~
-Date    Thu Dec  9 20:51:31 2004~
-Stamp   1102643491
-To      Navarre~
-Subject Reply please~
-Text
-I am waiting on a reply from my last letter please.  Thanks darlin.  
-~
-Sender  Teotwawki~
-Date    Thu Dec  9 21:41:55 2004~
-Stamp   1102646515
-To      asmadi~
-Subject what imms do~
-Text
-Well lets start with shell access...  I am guessing the following imms have
-access You, Me, Vegita, Outsider, Monty, Xenith, Liriel(shouldn't but prolly
-does), Possibly Tarrant (which is Nylan btw), Possibly Viro, and I pray to
-GOD not Alara.  Plus Porthios, whom I have never met.  I never see Urza aka
-Blackmage but he is a quest imm, Navarre is a quest imm.  Now for Elders.  I
-covered Liriel, Viro, Xenith, Tarrant....  Kismet was a kick ass quest imm,
-Jubei sucked but was a quest imm, and ebony was a beginner builder that never
-built me anything.  Out of the departed....  Well hmmm Alara, Azreal and Qaz
-I think had shell at one point in time.  Now to be honest..  I thought they
-were all locked out when we changed password.  Oh and then there is
-Kenneth...  He was my admin help.  Me, I build and I admin but I really would
-like some help with building but I am not a great teacher so I need someone
-that knows how to build.  Navarre is a quest imm.  And I think that wraps it
-up.  Anything else you want to know?  Just note me.  
-
-Your humble servent.
-Teo
-~
-Sender  Navarre~
-Date    Fri Dec 10 01:39:27 2004~
-Stamp   1102660767
-To      Teotwawki~
-Subject re: Reply~
-Text
-Right...  what's the meeting to be about?
-~
-Sender  BigSexy~
-Date    Fri Dec 10 04:24:42 2004~
-Stamp   1102670682
-To      vegita montrey~
-Subject rage~
-Text
-one of you guys been screwin with rage? it has no 3 round lag anymore, i can do it as much as i want... would make levelin a little easier no?
-me
-~
-Sender  Teotwawki~
-Date    Fri Dec 10 10:44:10 2004~
-Stamp   1102693450
-To      navarre~
-Subject meeting~
-Text
-I just want to go over a few things with you...  When is a good time for you?
-It is IMPERITIVE we get together.  
-
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 10 11:13:14 2004~
-Stamp   1102695194
-To      vegita outsider asmadi~
-Subject yahoo group~
-Text
-I have made you Moderators on the Legacy yahoo group.  You are free to change
-the appearence or what ever as long as you don't step on eachother's toes
-*wink* Maybe a more attractive appearence will bring more members.  *hugs* 
-
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 10 11:17:45 2004~
-Stamp   1102695465
-To      imm~
-Subject question~
-Text
-What would you guys think about letting the Mortals make a help file once
-they remort at lease once?  I am willing to put them in *once I get use to
-this new way lol* but I wanted to know what you thought.  OHHH and btw if YOU
-do not have a help file yet you should make one.  If you need an idea of what
-to say type 'help montrey' or teotwawk or vegi ta 
-
-Let me know please.
-
-Your humble servant,
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 10 11:25:49 2004~
-Stamp   1102695949
-To      outsider ~
-Subject porthios~
-Text
-Ok so last night you said to take him off the wizlist...  What is the scoop
-with him.  Should we make him departed or what?  Let me know please honey :)
-Thank you.  
-
-Dreaming of you,
-Teo
+I remade the char and made sure I did a backup and save before levelling
+and it didn't crash 
+e mud and wiped the pfile for the character
 ~
 Sender  Montrey~
-Date    Fri Dec 10 13:21:48 2004~
-Stamp   1102702908
-To      vegita bigsexy~
-Subject rage~
+Date    Sun Oct 16 04:33:31 2016~
+Stamp   1476617611
+To      xenithy~
+Subject debugging and core dumps~
 Text
-i just looked, somehow the lag and the stamina cost had been removed *growls*
-fixed it, it's back to normal now.  thanks for pointing it out, now i'm trying
-to track down who's wussifying the mud.
+I noticed that the mud isn't core dumping on a sigsegv?  I think ulimit needs to be changed:
+http://stackoverflow.com/questions/17965/how-to-generate-a-core-dump-in-linux-when-a-process-gets-a-segmentation-fault
+:)
 ~
-Sender  Teotwawki~
-Date    Fri Dec 10 17:21:38 2004~
-Stamp   1102717298
-To      sturm ~
-Subject pic~
-Text
-Thanks darlin.
-~
-Sender  Vegita~
-Date    Fri Dec 10 19:42:07 2004~
-Stamp   1102725727
-To      imm~
-Subject bug message~
-Text
-This just spammed the hell outta me
-<WizNet> [*****] BUG: count_clan_members: Commands out of sync
-You can't run this command now
-*stupid command stacking alias*
-then I seen this:
-<WizNet> [*****] BUG: do_clanlist: Commands out of sync You can't run this command now
-~
-Sender  Vegita~
-Date    Fri Dec 10 19:44:55 2004~
-Stamp   1102725895
-To      imm~
-Subject my previous bug note~
-Text
-its doing it when you execute clanpower command
-~
-Sender  Teotwawki~
-Date    Fri Dec 10 20:03:45 2004~
-Stamp   1102727025
-To      clans~
-Subject clantalk, clanlist, clanpower~
-Text
-Disabled due to crashes sorry for any inconvenience...  Oh so is followerlist
-if anyone ever uses it.  
-~
-Sender  Tia~
-Date    Fri Dec 10 20:59:43 2004~
-Stamp   1102730383
-To      imms~
-Subject divorce~
-Text
-How do I get divorced from someone that is never on anymore?
-~
-Sender  Jasper~
-Date    Fri Dec 10 22:23:45 2004~
-Stamp   1102735425
-To      kindred~
-Subject joining~
-Text
-I'd like to possibly join your clan if you'd find me worthy
-
-~
-Sender  Ami~
-Date    Fri Dec 10 22:37:46 2004~
-Stamp   1102736266
-To      Order~
-Subject Returning member~
-Text
-Let us all welcome Maro back to our ranks:)
-~
-Sender  BigSexy~
-Date    Fri Dec 10 22:38:16 2004~
-Stamp   1102736296
-To      laurana~
-Subject blah!~
-Text
-where did you go! everyone else is back except you
-There are 7 characters on, the most since last reboot is 11.
-me
-~
-Sender  Ami~
-Date    Fri Dec 10 22:56:05 2004~
-Stamp   1102737365
-To      Order~
-Subject Starlight~
-Text
-Let us all extend a warm welcome to Starlight, who has joined our ranks today:)
-~
-Sender  Vegita~
-Date    Fri Dec 10 23:13:44 2004~
-Stamp   1102738424
-To      outsider~
-Subject ranged~
-Text
-its not shooting into other rooms
-and you need to set it where not everyone cause use it at level 1
-*ducks*
-I did fix a bug message with set_fighting, you don't need it in there, it auto sets the mob fighting
-~
-Sender  Vegita~
-Date    Fri Dec 10 23:28:12 2004~
-Stamp   1102739292
-To      outsider~
-Subject do_bow in fight.c~
-Text
-erm you never get better at it, there is no check_improve in the function
-~
-Sender  Leviathan~
-Date    Sat Dec 11 03:27:06 2004~
-Stamp   1102753626
+Sender  Montrey~
+Date    Sun Oct 16 16:03:53 2016~
+Stamp   1476659033
 To      vegita imm~
-Subject create bows~
+Subject re: large bugey~
 Text
-Razor Bow  Lv. 20  pierce  3d10
-Sharp Flag  +1 dam
-weight 5  material steel
-
-Abalest  Lv 25 sratch 3d10 
-2-handed  +3 hit +1 dam +1 dex
-weight 15 material oak
-
-Drow Composition Bow Lv 40 sting 5d10
-+2 str +2hit +1 dam
-weight 8 material adamantite
-
-Seraphim Bow Lv 45 'divine power' 5d10
-Glowing Humming Flag  +1 Wis/Int  +10 mana -1 Save
-weight 9  material mithril
-
-Bow of Darkness Lv 50 'life drain' 6d10
-Vampiric Flag  +2 str  +2 hit/dam
-Weight 11   material adamantite
-
-Ballista  Lv 70  sting   8d10
-2-handed  +4 hit  +2dam  -3 AC  +2 dex +1 str
-weight 17  material maple
-
-Windforce  Lv 80 thrust  9d10
-vorpal +2 dex +2 hit/dam  -6AC
-weight 10 material titanium
-
-Eaglehorn Lv. 90 sting 9d10
-Sharp Vorpal +2 dam  +2str +1 dex -3AC
-Weight 9  material obsidian
-
-As for the price, I have to leave that up to you
+Ok, i think i got that fixed.  Hopefully the change i made for that will
+repair some other rare bugs with text strings.  
 ~
-Sender  Outsider~
-Date    Sat Dec 11 09:38:13 2004~
-Stamp   1102775893
-To      teotwawki~
-Subject Porthios and Mortals~
-Text
-1. Porthios was just brought in as a temp for me a while back. As far as I know he never logged in after that or edited any code. As such, yes, he should probably be made departed.
-He sertainly shouldn't have imm status anymore.
-
-2. Sure, let's give mortals help files. It might be nice for them.
-I'll get on making one of my own asap.
-
-Your snuggle whore,
-Outsider
-~
-Sender  Outsider~
-Date    Sat Dec 11 10:29:25 2004~
-Stamp   1102778965
-To      tia~
-Subject Divorce~
-Text
-Well, you send a note to me and I perform the divorce. You needn't be on when I do this. Also, you must have 25 quest points for me to take.
-Please note me when you're ready.
-~
-Sender  Outsider~
-Date    Sat Dec 11 10:32:50 2004~
-Stamp   1102779170
-To      vegita~
-Subject More ranged weapons~
-Text
-Yes, you do get better at it. This is handled in the combat section.
-~
-Sender  Outsider~
-Date    Sat Dec 11 10:35:08 2004~
-Stamp   1102779308
-To      Sturm~
-Subject marry~
-Text
-So, who is the lucky lady? ;)
-~
-Sender  Sturm~
-Date    Sat Dec 11 13:33:52 2004~
-Stamp   1102790032
-To      outsider~
-Subject hey~
-Text
-Her name is Tia she is from BlClaw
-~
-Sender  Montrey~
-Date    Sat Dec 11 14:58:56 2004~
-Stamp   1102795136
-To      vegita~
-Subject mana drain weapons~
-Text
-it's called 'soul blade', we were gonna do it as a remort spell for necros, but
-went with bone wall for the next set.  maybe their 5th one
-~
-Sender  Outsider~
-Date    Sat Dec 11 09:38:13 2004~
-Stamp   1102795485
-To      mont~
-Subject {VFORWARD{W({VTeotwawki{W){x: Porthios and Mortals~
-Text
-1. Porthios was just brought in as a temp for me a while back. As far as I know he never logged in after that or edited any code. As such, yes, he should probably be made departed.
-He sertainly shouldn't have imm status anymore.
-
-2. Sure, let's give mortals help files. It might be nice for them.
-I'll get on making one of my own asap.
-
-Your snuggle whore,
-Outsider
-~
-Sender  Teotwawki~
-Date    Sat Dec 11 15:30:13 2004~
-Stamp   1102797013
-To      imm~
-Subject elder/departed~
-Text
-Ok I have a reasonable question.  Some of our imms that have left that we are
-aware will most likely never return here as imms are departed.  From doing
-some checking on this that means they are either stripped of their mortal
-powers and put as mortals OR they have deleted or been fried.  Regardless, we
-know they will not be returning here.  Sooooo my understanding of elder is an
-imm that left on decent terms that may sign on once in a while and in some
-cases may even return as an imm.  Some examples of this are Kenneth when he
-came back and personally I woud not mind talking him into coming back to
-build again lol, or Vegita who as we all know is back coding for us and we
-are very greatful to have him here, Urza who has come and gone and come and
-gone and now is apparently due to circumstances beyond his control using an
-new name but in Balance, not sure if he signs in often or not but anyway back
-to my point.  Some of our elders such as Tarrent we are pretty sure will not
-be back, Porthios will most likely not be back ect...  Same goes for Liriel,
-Xenith, Jubei and I assume Ebony so is there any reason we keep them as an
-imm instead of making them departed?  Liriel for example has not signed on
-since September 2, 2002.  So do we expire them after a set period of time or
-do we leave them elders forever and ever and ever?  Part 2 of my question is
-does it matter?  The only thing I see that may matter is we keep the elders
-on the Wizlist and if there are gonna be that many of them maybe we shoud
-consider taking them off the wizlist.  Anyway I just wanted to throw that out
-there and see what you all thought.  
-
-Your humble servant,
-Teo
-~
-Sender  Outsider~
-Date    Sat Dec 11 16:16:52 2004~
-Stamp   1102799812
-To      imms~
-Subject Elder Imms~
-Text
-I think that an ex-imm or an imm that hasn't logged in after
-a set amount of time (say 6 months or so) should become an Elder.
-If they do not return after another year (past the original time)
-I think we should remove them entirely.
-
-We only keep mortal player files around for a year...why keep builders, coders, etc around for longer?
-~
-Sender  Teotwawki~
-Date    Sat Dec 11 20:56:12 2004~
-Stamp   1102816572
-To      outsider montrey asmadi~
-Subject logs~
-Text
-I have cleared the Slog after checking it.  I was wondering if there was a
-reason not to clear all those other logs with the exception of recent ones? 
-Do they serve a prupose ..  Do they stick around forever and ever and ever
-taking up space?  Or can we clear them out?  Just wondering.  
-Teo
-~
-Sender  Teotwawki~
-Date    Sat Dec 11 20:57:50 2004~
-Stamp   1102816670
-To      asmadi~
-Subject question~
-Text
-I need to talk to you about something in the near future.  Do you still have
-yahoo?  Please let me know so I can pop you a chat.  Thank you soooooooooo
-much :) 
-
-Teo
-~
-Sender  Teotwawki~
-Date    Sat Dec 11 21:58:50 2004~
-Stamp   1102820330
-To      imm~
-Subject team work~
-Text
-Hi gang, You all know I adore each and every one of you.  I would really like
-to take the time to let you know where I would like to see us be as
-immortals.  Every immortal here including myself would not be here if we were
-not trusted.  Now I am not a dreamer therefore I do not have the unrealistic
-fantasy that we will never have squables and disagreements.  And yes
-sometimes we will get really frustrated with eachother.  HOWEVER I would like
-to see us all remember that 1, Immortal issues belong with imms not with the
-mortals.  I do not want to see mortals being dragged into personal squables. 
-I would love to see us work together and be a strong unit.  Everyone here is
-here because they possess a quality that makes them unique to Legacy.  So my
-goal is that we all work together and do what we do best.  If anyone has a
-problem I would like to see you try to work it out amongst yourselves but if
-you cannot Asmadi and I are more than happy to talk.  
-
-So Thank you each for everything you do and have done and will do.  You all
-are the best.  
-
-Your humble servant,
-Teo
-~
-Sender  Outsider~
-Date    Sun Dec 12 11:02:05 2004~
-Stamp   1102867325
-To      imms~
-Subject Log Files~
-Text
-I usually clean out the log files about once a week.
-There usually isn't a reason to keep them around longer than that.
-~
-Sender  Outsider~
-Date    Sun Dec 12 11:30:56 2004~
-Stamp   1102869056
-To      vegita~
-Subject Ranged Problems~
-Text
-I think the reason we were having trouble targeting some mobs (like the cityguard) was that there were other mobs with thenme name.
-To get around this, I started searching fortrgets by room, rather than by name.
-I think I've got the targeting fixed. Thanks for testing this for me.
-~
-Sender  Asmadi~
-Date    Sun Dec 12 17:15:54 2004~
-Stamp   1102889754
-To      outsider~
-Subject cross mud socials~
-Text
-I have a preliminary code for crossmud socials working.
-I'll put the code in on legacy when I get some free time.
-~
-Sender  Teotwawki~
-Date    Sun Dec 12 18:50:56 2004~
-Stamp   1102895456
-To      asmadi~
-Subject Danny~
-Text
-Maldrak (12/12/2004 5:27:44 PM): But how else ya gonna make sure that your
-fire extinguisher works?  And tell Howie and Stacy to Yahoo me sometime soon,
-so I can talk to em 
-
-Ummm Danny said yahoo him sometime  *wink*.
-Teo
-~
-Sender  Vegita~
-Date    Mon Dec 13 03:54:50 2004~
-Stamp   1102928090
-To      imm~
-Subject SERIOUS PROBLEM~
-Text
-mortals can see imm notes, see immtalk, see lurked and even WIZIED imms...
-mont you broke something big or someone did....
-mortals can also see other clan chans...
-~
-Sender  BigSexy~
-Date    Mon Dec 13 04:00:35 2004~
-Stamp   1102928435
-To      imm~
-Subject SERIOUS PROBLEM~
-Text
-oh yeah we can also wear 2 weapons, a held item and a shield and see vnums and all thats good stuff
-me
-~
-Sender  BigSexy~
-Date    Mon Dec 13 04:11:48 2004~
-Stamp   1102929108
-To      imms~
-Subject SERIOUS PROBLEM!~
-Text
-oh and i have fry freeze and force... kinda neat
-me
-~
-Sender  Xenith~
-Date    Mon Dec 13 04:18:17 2004~
-Stamp   1102929497
-To      imms~
-Subject Silly Monty, command groups are for imms!~
-Text
-Ok, it appears Monty made a boo-boo.  Now all mortals have the security
-wizgroup.  Which means they have access to a few imm commands *and* have
-imm-level privledges.  So, basically, just remove the security wizgroup from
-people and they will be normal players again .  
-~
-Sender  Xenith~
-Date    Mon Dec 13 04:23:50 2004~
-Stamp   1102929830
-To      imms~
-Subject How to fix current problems~
-Text
-The command is:
-wizgroup rem <player> security
-
-So far, I have only seen the security group, but the others might show up.
-You can find out using the stat command.
-~
-Sender  Teotwawki~
-Date    Mon Dec 13 05:59:32 2004~
-Stamp   1102935572
-To      imm~
-Subject Log~
-Text
-LOG ALL HAS BEEN SET!!! :)
-~
-Sender  Asmadi~
-Date    Mon Dec 13 08:44:38 2004~
-Stamp   1102945478
-To      imms~
-Subject commands~
-Text
-Security commands have been disabled for the time being.
-~
-Sender  Asmadi~
-Date    Mon Dec 13 09:08:11 2004~
-Stamp   1102946891
-To      imms~
-Subject Hack fix~
-Text
-I have to leave for work in 2 minutes.
-Added a hack fix to correct players logging in with imm commands and arn't imms.
-The fix was done in nanny.c
-Feel free to undo once the fix is made.
-~
-Sender  Vegita~
-Date    Mon Dec 13 15:41:21 2004~
-Stamp   1102970481
-To      imm~
-Subject evolves~
-Text
-okay well yeah, morts can evolve EVERYTHING
-just noticed it when I checked to see if my forge evolve was in right
-they can evolve like everythin
-
-I tried to disable evolve but
-I don't have disable for some reason *boggles*
-~
-Sender  Vegita~
-Date    Mon Dec 13 15:42:02 2004~
-Stamp   1102970522
-To      imm~
-Subject notes~
-Text
-morts are still seeing imm notes as well
-~
-Sender  Vegita~
-Date    Mon Dec 13 15:47:20 2004~
-Stamp   1102970840
-To      imm~
-Subject serious problem~
-Text
-I have like no freaking imm commands none at all
-wth is going on?
-~
-Sender  Montrey~
-Date    Mon Dec 13 18:33:22 2004~
-Stamp   1102980802
-To      vegita~
-Subject your commands~
-Text
-they're fixed :)  added you to is_special
-~
-Sender  Montrey~
-Date    Mon Dec 13 20:15:57 2004~
-Stamp   1102986957
-To      jubei~
-Subject your title~
-Text
-changed from "want a quest? TS bring more people first" to what it is now
-because it's rather unbecoming of an imm.  plus i hate you.
-~
-Sender  Outsider~
-Date    Mon Dec 13 22:25:06 2004~
-Stamp   1102994706
-To      asmadi~
-Subject Talking to MUDs~
-Text
-I think I've worked out most of the bugs for simple connetiosn between MUDs.
-I logged onto the SoE server, but I can't get the source to compile. It keeps giving me odd errors. Thinking I might be outdated, I updated the CVS. Lots of dates were made. Still no joy on the compile.
-Would you please take a look at this. I think we're one step closer.
-~
-Sender  Vegita~
-Date    Mon Dec 13 23:35:33 2004~
-Stamp   1102998933
-To      imm~
-Subject racial skills?~
-Text
-okay we have racial perm spells
-what about racial skills?
-like a wolf woul for sure have bite?
-seraph would have like a wing buffet
-dragons have like bite, vampires bite you get the picture
-
-note me back your ideas please? thnx
-~
-Sender  Asmadi~
-Date    Tue Dec 14 00:12:27 2004~
-Stamp   1103001147
-To      outsider~
-Subject soe's code~
-Text
-Compiles fine now, had a problem with the way the prototype in your phone.  H
-was being read.  Moved it to interp.  H and all is well.  For the sake of
-your head I'll start cleaning up the warnings that pop up during compilation
-since it never really bothered me that much.  
-Again you'll have to update and gcc/g++ to compile.
-~
-Sender  Leviathan~
-Date    Sat Dec 11 03:27:06 2004~
-Stamp   1103006091
-To      montrey~
-Subject {VFORWARD{W({VVegita{W){x: create bows~
-Text
-Razor Bow  Lv. 20  pierce  3d10
-Sharp Flag  +1 dam
-weight 5  material steel
-
-Abalest  Lv 25 sratch 3d10 
-2-handed  +3 hit +1 dam +1 dex
-weight 15 material oak
-
-Drow Composition Bow Lv 40 sting 5d10
-+2 str +2hit +1 dam
-weight 8 material adamantite
-
-Seraphim Bow Lv 45 'divine power' 5d10
-Glowing Humming Flag  +1 Wis/Int  +10 mana -1 Save
-weight 9  material mithril
-
-Bow of Darkness Lv 50 'life drain' 6d10
-Vampiric Flag  +2 str  +2 hit/dam
-Weight 11   material adamantite
-
-Ballista  Lv 70  sting   8d10
-2-handed  +4 hit  +2dam  -3 AC  +2 dex +1 str
-weight 17  material maple
-
-Windforce  Lv 80 thrust  9d10
-vorpal +2 dex +2 hit/dam  -6AC
-weight 10 material titanium
-
-Eaglehorn Lv. 90 sting 9d10
-Sharp Vorpal +2 dam  +2str +1 dex -3AC
-Weight 9  material obsidian
-
-As for the price, I have to leave that up to you
-~
-Sender  Vegita~
-Date    Mon Dec 13 23:35:33 2004~
-Stamp   1103009784
-To      all~
-Subject {VFORWARD{W({VVegita{W){x: racial skills?~
-Text
-okay we have racial perm spells
-what about racial skills?
-like a wolf woul for sure have bite?
-seraph would have like a wing buffet
-dragons have like bite, vampires bite you get the picture
-
-note me back your ideas please? thnx
-~
-Sender  Vegita~
-Date    Tue Dec 14 06:08:58 2004~
-Stamp   1103022538
-To      montrey~
-Subject lore skill~
-Text
-its not lagging wtf I looked thru bot it and do_cast and neither act like there should be no lag
-do_cast has the wait state just fine in it
-look at it and hollar at me with what I'm missing?
-~
-Sender  Vegita~
-Date    Tue Dec 14 17:42:46 2004~
-Stamp   1103064166
-To      leviathan~
-Subject AWARDS!~
-Text
-I have so far awarded you 2 triva token since we don't have quest tokens lol
-check the bowyer to see the bows I've added so far
-~
-Sender  Teotwawki~
-Date    Tue Dec 14 21:14:39 2004~
-Stamp   1103076879
-To      asmadi~
-Subject talking to immortals~
-Text
-Thus far I have spoken to Outsider, Xenith and Montrey.  And so far it has
-gone great.  I have told Vegita I wanted to talk to him but I was in the
-hospital yesterday so have not had time to catch him.  Thus far Outsider has
-agreed that he is to focus all his energy on cross mud activities.  This task
-is a tadd bit difficult for him being as he wants to fix all the problems he
-gets easily destracted but I will continue to try and refocus him to cross
-mud activities.  Montrey has agreed to be our stabilizer, keeping up on bugs
-and cutting down on the amount of down time.  As for Xenith when we talked he
-told me plain out he is not sure if he wants to be back to help or not.  That
-Monty keeps bugging him.  He said he helps Monty if and when Mont asks for
-help.  Monty said that Xenith is more of a shell admin coder.  I left that
-alone.  Monty also said he will work closely with Vegita to enhance Vegita's
-coding ability and keep us updated on his progress.  I told mont I was going
-to keep Vegita concentrating on evolve for now until Monty feels he is ready
-for more.  Monty and I had a wonderful conversation.  SO so far so good.  I
-still need to catch up with Urza aka Blackmage, Vegita and Navarre.  SO far
-noone feels anything is in their way of working their potential.  
-~
-Sender  Asmadi~
-Date    Tue Dec 14 21:15:48 2004~
-Stamp   1103076948
-To      imms~
-Subject New Years Resolutions~
-Text
-With increasing activity and broader abilities with the crossmud code
-I would like to have us each set our goals for next year. What do each
-of you see yourselves devoting your time to? What would you like to
-accomplish and how can I or Teo better help to reach those goals? By
-next year I want us to have a good proposal to present to the mortals
-giving a decent timeline to what we hope to accomplish. Please keep
-your goals to personal ones relating to Legacy. Feel free to just note
-myself or Teo if you feel more comfortable. This is not manadatory,
-it's just a request which I think helps us communicate our wishes
-better with the mortals. 
-Thank you for your assistance, 
-Asmadi
-~
-Sender  Leviathan~
-Date    Tue Dec 14 21:45:59 2004~
-Stamp   1103078759
-To      vegita~
-Subject thank you~
-Text
-For trivial tokes.  LOL
-~
-Sender  Outsider~
-Date    Wed Dec 15 15:33:02 2004~
-Stamp   1103142782
-To      asmadi~
-Subject Cross Mud Socials~
-Text
-Do socials work differently on SoE?
-when I login to try to test the remote social code, I keep getting the message: "You do not have a crystal ball to scry with."
-Why do I get this when trying something like "soc smile"?
-
-Would you please tell me what the "social" command is on SoE?
-~
-Sender  Puissance~
-Date    Wed Dec 15 15:56:20 2004~
-Stamp   1103144180
-To      imm~
-Subject Mud School sign~
-Text
-Hullo all,
-I just noticed that the first sign in the Mud School says:
-
-"If you are a new character, you should go 'WEST' from here, train your abilities, and then come back here and go 'NORTH'.
-
-There's nothing mentioned about going East to practice your skills.
-
-Faithfully yours,
-Puissance
-~
-Sender  Teotwawki~
-Date    Wed Dec 15 18:39:45 2004~
-Stamp   1103153985
-To      imm puissance ~
-Subject Mud school sign~
-Text
-Thank you for finding that I will put it on my to do list :)
-
-Your humble builder,
-Teo
-~
-Sender  Puissance~
-Date    Wed Dec 15 19:05:49 2004~
-Stamp   1103155549
-To      imm~
-Subject Improper immortalization~
-Text
-Hia, I made a new character, and the second time I logged in I got the IMM welcome note.
-
-I was talking to Outsider a little while ago and he thought it might just be a temporary thing, but it persists, so I thought I'd write a general note to get it fixed.
-
-Puissance
-~
-Sender  Teotwawki~
-Date    Wed Dec 15 19:56:33 2004~
-Stamp   1103158593
-To      imms~
-Subject PARTY/MEETING~
-Text
-Asmadi and I would like to formally invite you to show up here on New Years
-day which is a Saturday.  What's a more wonderful way to celebrate the New
-Year than to come meet with us and brainstorm about the future of our world. 
-Asmadi and I are looking forward to a bright new start with the merge of SOE
-and Legacy and the staff members.  Please bring your brains with you :).  
-
-We will be meeting from 10AM to 12 PM PST which is 1PM to 3 PM EST.  Those
-who cannot attend please note Asmadi and I to let us know.  We would really
-like to see as many of you as possible.  
-
-Remember each and every one of you matter and so do your opinions and ideas.
-
-Humbly yours,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Wed Dec 15 20:05:43 2004~
-Stamp   1103159143
-To      asmadi~
-Subject Xenith~
-Text
-I had a very long discussion with Xenith.  He is back as an immortal with
-Legacy full force.  He is dedicated to his work here.  I believe part of his
-hesitation was fear of committing and having things not work so it was easier
-to say he was here for Mont.  So for now, due to all the coders and stability
-problems I have asked him to help Monty in keeping the mud up and finding
-stability.  He explained his passion for coding to me and I believe what he
-has said.  He has shown to be a good coder in the past and I believe he is a
-valuable asset for Legacy at this time.  Legacy definently has some flaws in
-the codes that we need to get under control..  Example newbies getting imm
-commands.  There are a few more issues I think we need to talk about but here
-and now is not the time lol.  
-
-Your humble servant,
-Teo
-~
-Sender  Teotwawki~
-Date    Wed Dec 15 20:10:27 2004~
-Stamp   1103159427
-To      blackmage~
-Subject Contact me~
-Text
-We need to talk please note me of a good time to talk.  Thank you 
-~
-Sender  Outsider~
-Date    Wed Dec 15 22:23:47 2004~
-Stamp   1103167427
-To      imms~
-Subject Versioning System~
-Text
-Having not used the subversion program before, I thought it would
-be a good idea to read up on it, before commenting either way whether
-Legacy should use cvs or subversion.
-
-What I found is that, in debates, some people perfer subversion.
-Others perfer cvs, some randomly threw in that bitkeeper is better.
-A few even like arch over everything else. So, the polls come out about even there.
-
-Some more reading uncovered that subversion is written and
-maintained by the same people who wrote/maintain cvs.
-What we have here, in their own view, are two programs
-which are designed to do the same thing, with a similar interface
-with similar capabilties. The difference?
-Subversion is supposed to be better at handling mutiple branches of projects
-from which we would not benefit, having only one branch.
-
-My conclusion: I don't think it'll matter which one we use,
-they should work, interface and perform the same.
-While cvs has some (minor) problems, I do not think it warrents a
-move to subversion.
-Or to arch, or bitkeeper, or...
-~
-Sender  Puissance~
-Date    Thu Dec 16 00:47:44 2004~
-Stamp   1103176064
-To      imm~
-Subject Expired command?~
-Text
-Hullo, hope you guys don't mind being bothered by so many small things
-
-I was perusing the 'command' command, and noticed that the command 'showraff' ('command 6') has no help listing, and doesn't seem to exist.  A typo perhaps?
-
-Faithfully yours,
-Puissance
-~
-Sender  Montrey~
-Date    Thu Dec 16 09:36:39 2004~
-Stamp   1103207799
-To      teotwawki asmadi~
-Subject new years meeting~
-Text
-i don't know more than an hour in advance whether i'll be able to be somewhere
-or not, due to the nature of my job and internet access.  but, being a
-saturday, it seems likely.  i'll forget though, so remind me, teo :)
-~
-Sender  Outsider~
-Date    Thu Dec 16 11:24:06 2004~
-Stamp   1103214246
-To      Puissance~
-Subject ShowRaff~
-Text
-The command you are inquiring about, showraff, stands for
-Show Remort Affects. It's a command for remorts only, those
-characters who have reached level 91 and been reborn.
-You are correct that there was no help for this command
-(though help affect) would give you a hint.
-
-I have added a help file for showraff and made the command
-a little more user friendly. The changed command should appear in the
-next copyover. The help file is in place now.
-
-Thank you for bringing this to my attention. You get 1qp.
-~
-Sender  Teotwawki~
-Date    Thu Dec 16 21:09:28 2004~
-Stamp   1103249368
-To      imm~
-Subject Censor~
-Text
-I want to broach this subject with you all before I broach it with the
-mortals.  SOE has a really different way of censor that you all should take
-the time to check out.  Anyway it kinda conflicts with our current censor . 
-My thought is this...  I think that maybe it would be a good idea to conform
-with their censor code.  What I want to know is how you all think about that.
-Basically in a nutshell they can say what ever they want on any channel .. 
-They don't have a flame..  If you are rated r you would see the real words
-used...  But if you were rated g you would see different words..  Example
-shit and crud.  I do however feel if we take this on we would need to add
-racial and sexual slurs because legacy has had some problems and complaints
-about the use of them in the past.  
-
-I am gonna leave this up for discussion until Monday then I am going to
-present it to our mortals and let them have input before we all come to a
-conclusion.  Please put your 2 cents in because we all should be happy with
-the world we are in ...  Imms and Mortals.  
-
-Your humble servant,
-Teo
-~
-Sender  Outsider~
-Date    Thu Dec 16 21:37:08 2004~
-Stamp   1103251028
-To      imms~
-Subject Censor~
-Text
-Censorship is a touchy subject which I think we're going to take flak for..from both sides.
-I'm going to approach my response on how I feel about this (A) personally and (B) proffessionally.
-
-A) Personally, I am against censorship. If people don't like the subject matter discussed on remote channels, it is fairly easy to block all remote text.
-The same goes for most channels. If one doesn't like them, they can be blocked. I think this is our best and first weapon against inappropriate messages.
-I know it's harsh, but I think people are used to (or should be used to) most of what people around here throw around.
-Most of our players are mild-mouthed and I thik we owe them the repect to say what they wish without changing their messages.
-
-B) On a more business-like note, it would be impossible to catch all racial, sexual or poor-taste messages. It just can't be done.
-Consider the word fck or bytch. It's going to get through. Or even f u c, k will get through most censors.
-My point is that we have some simple censors in place to catch random messages. However, if people _want_ to use improper language here, the only cure is an imm.
-
-With that out of the way, I think our time would be better spent trying to keep an imm all most of the time and checking convo logs when they aren't....or even just waiting for a complaint.
-If we respond quickly and harshly to any complaints, I'm sure everyone''s virgin ears will be kept clean.
-
-So, to sum up: Time spent coding censorship bad. Clear rules and firm application good.
-~
-Sender  Outsider~
-Date    Thu Dec 16 22:39:34 2004~
-Stamp   1103254774
-To      imms~
-Subject Legacy Source~
-Text
-I would like to ask all of the other coders to please make sure your changes compile
-before commiting them to CVS?
-I often find the source doesn't compile after performing an update.
-
-Thank you,
-Outsider
-~
-Sender  Montrey~
-Date    Fri Dec 17 03:59:33 2004~
-Stamp   1103273973
-To      outsider imm~
-Subject commits~
-Text
-i use tortoise cvs on my computer, in which i check out a working copy of
-the src to my winxp comp.  when i make changes, i commit, just like any cvs
-setup, except the problem is that i can't test locally.  i've had crazy
-amounts of problems trying to configure cygwin on my computer in the past,
-and would rather not mess with it.  but, there is a solution, since i can't
-afford to set up a separate computer as a linux box, and i really don't
-want to dual boot.  as you pointed out, one of the distinguishing features
-of SVN from CVS is working with multiple project branches.  if we were to
-change over to svn, i would simply branch the repository when i'm working
-on something more significant than a typo fix, and then when i'm finished
-with all my stuff and have the branch compilable and debugged, i'd merge
-it back into the main repository.
-
-also, just in case anyone is wondering, the learning curve of switching from
-cvs to svn if you haven't used svn is very slight.  the common commands are
-nearly identical, just replace 'cvs' with 'svn' in command line use.
-plus when you update you get to type 'svn up' (yes, i'm easily amused)
-~
-Sender  Xenith~
-Date    Fri Dec 17 04:05:05 2004~
-Stamp   1103274305
-To      imms~
-Subject Subversion~
-Text
-By the way, I'll handle all the conversion if we decide to switch.
-~
-Sender  Teotwawki~
-Date    Fri Dec 17 06:55:57 2004~
-Stamp   1103284557
-To      asmadi~
-Subject subversion~
-Text
-Uttt ohh...  Sounds like we have a tie between coders...  Let me add a bit of
-fuel lol 
-~
-Sender  Teotwawki~
-Date    Fri Dec 17 06:57:11 2004~
-Stamp   1103284631
-To      imm~
-Subject svn vs cvs~
-Text
-Will this affect anything other than the coders and how things are coded?  
-~
-Sender  Eusaebius~
-Date    Fri Dec 17 12:50:47 2004~
-Stamp   1103305847
-To      imms~
-Subject (Im)mortal bug~
-Text
-I seem to still be labouring under it. I can see imms, even when they're wizi,
-and I am not shown as having a deity when I kill a mob (making "loyal sacrifices").
-Also, I am seeing the imm channel. Just thought you should know so that,
-hopefully, this can be sorted out.
-~
-Sender  Eusaebius~
-Date    Fri Dec 17 13:29:21 2004~
-Stamp   1103308161
-To      imms~
-Subject Addendum~
-Text
-Also, I see the room numbers etc as an imm would.
-~
-Sender  Outsider~
-Date    Fri Dec 17 13:53:28 2004~
-Stamp   1103309608
-To      teotwawki~
-Subject Subversion and CVS~
-Text
-Such a switch would affect the coders only.
-~
-Sender  Jasper~
-Date    Fri Dec 17 23:18:34 2004~
-Stamp   1103343514
-To      kindred~
-Subject joining...~
-Text
-still waiting to hear if I'm worthy enough to join kindred
-~
-Sender  Asmadi~
-Date    Sat Dec 18 02:44:04 2004~
-Stamp   1103355844
-To      immortals~
-Subject coding~
-Text
-Until further notice, please do not commit changes to the code.
-That is all,
-Asmadi
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:28:55 2004~
-Stamp   1103362135
-To      Asmadi Xenith Vegita Montrey~
-Subject It Is all Good~
-Text
-I am sure by now most of you have realized that shell is locked.  Please do
-not get excited this is a good thing.  Asmadi and I had a wonderful
-discussion tonight and have some Great plans to present to you as to how we
-would like to proceed with coding projects.  As we all know change is
-inevitable in life and this is one of those times.  I will ask you all to sit
-back and read the plan before jumping .  Please take time to let it sink in
-before you respond.  
-
-That being said, as you all know we have had a lot of down time lately.  Part
-of this we believe may be the fact that we are fortunate enough to have so
-many wonderful coders.  However, we needed to come up with a plan as to how
-to cut our down time and increase our stability.  What is in the paragraphs
-to come is what we have devised as our plan of action and we sincerely hope
-you all agree.  First all projects will be requested in writing to myself and
-your fellow coders before any work is done.  This is a multi part function. 
-We have come up with 3 different sinerios in which each assignment will fall.
-We are calling it our 1-2-3 plan.  When you note you will include what you
-are coding, the severity of the code (which I will explain momentarily) and
-what file you will be using to work on that code.  Severity will be 1, 2 or
-3.  Lets start with 1.  A 1 severity is a simple change, or easy change that
-only needs to be tested for one day before you can announce it as complete. 
-That would include something simple such as text.  Severity 2 would be
-somethings such as a spell which would need to be tested for 3 days before it
-would be announced as complete.  And Severity 3 would include the more
-difficult tasks such as writing new code which would have to be tested and
-proven stable for 1 week before anounced completed.  So lets give you an
-example.  I want to add more cross mud socials.  My note would say I would
-like to add more cross mud socials.  I believe it will be a level 2
-difficulty and will only require me to write 2 new functions, not alter any
-existing ones, and will only use act_comm.  C file.  
-
-Ok from there you will need to wait a day to get my approval.  This will give
-your co-coders a chance to comment or make suggestions and will give me a
-chance to accept or deny the request.  You may ONLY work on {COne{x code at a
-time.  Also any deviations from the initial requet must be resubmitted and
-approved.  While your code is being tested is the time to submit your next
-request however it will not be approved until the one in testing is finished
-testing and announced complete.  
-
-How is this going to happen you ask.  Well the test port is to remain open at
-all times.  It is not to be shut down by anyone for any reason.  That is
-where all your work will be done.  When Asmadi or I are sure it is a safe
-time we will do a copyover.  Noone else is to copyover on port 3000 for any
-reason.  Now I know this sounds like a lot to digest and it is.  But if you
-really sit back and think about it the stability of Legacy will keep us
-players.  A mud that is constantly down does not keep players.  
-
-Any coder that does NOT know how to test without committing needs to note
-Asmadi immediately so he can go over the process with you.  Asmadi and I want
-to keep each and every one of you .  You are all very valuable to us.  We are
-hoping to have your complete cooperation in this change.  We encourage you to
-note us with your replys.  
-
-A note on shell password is to follow.  Thank you for your time and patience.
-
-
-Humbly yours,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:53:04 2004~
-Stamp   1103363584
-To      Asmadi Vegita Xenith Montrey~
-Subject Shell Password~
-Text
-Ok as you all know the password in shell was changed.  This is not a negative
-thing and is not aimed at anyone.  But there are a few reasons we are doing
-this and a few things that need to be cleared up before we hand out the new
-password.  
-
-In order to get the new password you must agree to the following in writing
-via note to Asmadi and I.  1) All code belongs to legacy and should be used
-for legacy purposes only.  If you want to use it for any other reason you
-must get prior authorization in writing from Asmadi.  2) You must agree to
-the previous note about how we plan on conducting coding from here on out. 
-3) NOBODY is to give out the shell password to anyone else other than Asmadi
-and Myself.  We are trying to moniter who has access to the shell at all
-times.  If for some reason you feel someone needs shell please ask for prior
-authorization and wait for an approval or denial from one of us.  
-
-I know you all will agree that your work as well as the work of your fellow
-imms should be protected at all times.  We all put countless number of hours
-into Legacy and we do not want to see that go by the wasteside.  4) Noone is
-to keep a backup of Legacy on their hard drive.  If you need a file..  Take
-the file..  Then return it to shell and delete it from your hard drive after
-it has been tested and implimented.  
-
-I am sure that you are all here for the same reason to protect and improve
-Legacy and to see that the best thing for Legacy is what is done.  If Asmadi
-and I did not believe that then you would not be here.  So as I stated before
-once we have a note from you agreeing to the terms listed we will issue you
-the password.  If any of you have a problem or concern with the terms listed
-please feel free to note Asmadi and I so we can discuss it further.  
-
-Thank you for your time and cooperation,
-
-Humbly,
-Teotwawki
-~
-Sender  Vegita~
-Date    Sat Dec 18 06:02:04 2004~
-Stamp   1103367724
-To      teotwawki asmadi~
-Subject agreement to terms set forth~
-Text
-I hereby agree to the terms set forth in the note
-sent  Sat Dec 18 at 04:53:04 in the year 2004 Entitled: Shell Password
-~
-Sender  Jasper~
-Date    Sat Dec 18 06:09:36 2004~
-Stamp   1103368176
+Sender  Error~
+Date    Wed Oct 19 10:39:33 2016~
+Stamp   1476898773
 To      imm~
 Subject bug~
 Text
-crossposted on the bug board as well
-You dodge Ambrose Spike's hilt strike.
-erm didn't think they were supposed to be hilt striking me
-~
-Sender  Jasper~
-Date    Sat Dec 18 06:28:35 2004~
-Stamp   1103369315
-To      kindred~
-Subject my first pk win~
-Text
-I challenge sturm and won
-~
-Sender  Lidda~
-Date    Sat Dec 18 10:05:12 2004~
-Stamp   1103382312
-To      kindred~
-Subject Re: Jasper's note~
-Text
-Weeeeeee! Go you! *claps*
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 10:40:01 2004~
-Stamp   1103384401
-To      asmadi vegita~
-Subject password~
-Text
-I will email it to you, Vegita, if you tell me what the best email to use is
-:).  
-~
-Sender  Montrey~
-Date    Sat Dec 18 11:09:48 2004~
-Stamp   1103386188
-To      teotwawki asmadi~
-Subject concerns~
-Text
-so if we have a bug that crashes the mud, one of us writes a note saying we
-want to try and find it, wait a day for approval, if we get approved we
-then download all 2 megs of the source code since we pretty much have to
-have the entire thing available to us to do *anything* (which, by the way,
-takes a while because some of us are cursed with dial up), then when we
-find it we submit, wait a day for it to be tested, and in the meantime we
-just crash?
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 11:18:10 2004~
-Stamp   1103386690
-To      asmadi ~
-Subject bugs~
-Text
-Hmm what about that?  Do we handle bugs differently?  At least the ones that
-crash the mud?  Or do we assign one person to them?  What do you think?  
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 11:22:18 2004~
-Stamp   1103386938
-To      asmadi~
-Subject concern~
-Text
-When Monty came on he said "and not one of us is gonna delete our copies of
-Legacy, I guarantee it :P " 
-~
-Sender  Montrey~
-Date    Sat Dec 18 12:49:36 2004~
-Stamp   1103392176
-To      asmadi teotwawki~
-Subject comments again~
-Text
-four things that i need to address.  first off is in reference to my previous
-note, what to do if we have a major bug.  the obvious solution, of course, is
-just how any software company would handle it.  the users (players) have to
-just deal with it until proper procedure is followed and the bug is fixed.  it
-is the safest way, although easily the shittiest to the players.
-
-secondly, i will not delete anything i have on my hard drive.  i wrote a rather
-large portion of legacy, i have personally modified nearly every single source
-file, with the exception of outsider's stuff and a few files like ansi_compat.h.
-i keep my copy current, i make frequent backups of my hard drive, and before i
-mess with *any* kind of coding project i plan out what i need to do using the
-source files as reference.  when i need to look up how something works, i do it.
-i don't do it in shell because pico blows, and all other unix editors blow
-harder.  so, if i'm not trusted to keep my copy of the code to myself, so be it.
-
-thirdly, i fully understand the need for organization of projects.  i have no
-problem at all keeping you, teo, or anyone else appraised of what i'm working on,
-with the exception of small bug fixes.  if something is on the bug list, i just
-do it, and it'll be made into a change note to inform everyone else, even though
-most people either didn't know it existed or didn't care.  but for anything more
-major than that, of course i can keep the imms informed.  if someone has a
-problem with what i'm working on, then i need to be told.  but i think this only
-applies to changes that are visible, or have an effect on game balance.  if i
-need to add a unique index to the pc_data mysql table and change INSERTs and
-REPLACEs into REPLACE INTOs, why do i need to ask permission to do it?  would
-anyone understand what i'm talking about?  what about if i'm adjusting the block
-sizes on the semiperm string hash table?  to ask permission is to presume that
-anyone alive knows legacy's source code better than me.  this is not an ego
-issue.  i simply do not have the time or the patience to explain most of the
-changes i do, since most of them are behind the scenes.
-
-finally, we don't even have enough memory available for the mud and it's related
-processes, the sand server, startup script, and mysql connection.  kyndig said
-that our problems with the mysql server connection were due to timeout, but it
-came a little late because i had already put in something to ping the server
-every 20 seconds. (a mysql connection times out after 8 hours of inactivity)
-i'm almost positive that the server has some kind of script running to kill
-processes when we're over our memory limit.  the evidence can be seen when we
-try to run spawn at all.  usually it receives SIGKILL after about 30 seconds of
-being up.  in order to run spawn at all, we need about 40 megs of ram, 45
-preferably to be on the safe side.  i'm not sure what it costs, but it's what
-is needed.
-~
-Sender  Teotwawki~
-Date    Sun Dec 19 01:13:09 2004~
-Stamp   1103436789
-To      asmadi~
-Subject crash~
-Text
-We crashed I don't know why ...  But hehe I brought us back up.  GO ME :) 
-~
-Sender  Freiza~
-Date    Sun Dec 19 02:55:59 2004~
-Stamp   1103442959
-To      imm~
-Subject my hours~
-Text
-somehow I lost like 200 some odd hours
-I should be like around 280, but for some reason I'm only at 48 
-can you please look into this?
-thnx
-~
-Sender  Teotwawki~
-Date    Sun Dec 19 03:37:36 2004~
-Stamp   1103445456
-To      asmadi~
-Subject Vegita ~
-Text
-I emailed vegita shell pwd since he agreed to the terms and understands he is
-not to give it out.  
-~
-Sender  Teotwawki~
-Date    Sun Dec 19 04:03:36 2004~
-Stamp   1103447016
-To      asmadi~
-Subject just a passing thought~
-Text
-I was thinking ...  Our pbase is rather small yet the player file is rather
-large.  What if come January 1 we did a pwipe of all players that did not
-sign onto the mud in 2004.  This would mean they had not as much as logged in
-for over a year?  I think a year is plenty of time to come log in.  What do
-you think?  Anyway let me know.  
-
-Your humble Servant
-Teo
-~
-Sender  Porthios~
-Date    Sun Dec 19 05:21:39 2004~
-Stamp   1103451699
-To      Outsider~
-Subject My $12.42~
-Text
-Hia,
-
-Well, I didn't really want to make a big deal out of it, so I thought I'd just send you a message.
-
-I don't really know how much time and effort the other Imms have put into this, I can imagine it's been quite a bit, but having seen your prompt and decisive reacions to problems and ideas, I can do nothing other than give praise, in heaps and hea
-I don't really know how much time and effort the other Imms have put into this, I can imagine it's been quite a bit,
-but having seen your prompt and decisive reacions to problems and ideas, I can do nothing other than give praise, in heaps and heaps.
-
-I'm hoping to become a little more active in the imm business, like I had planned before to not much avail, but I don't think there's much that can be done to fill the void.
-
-All I can say is that I hope you'll keep at least a little active in the community that's starting to grow again.  We both know it's more fun with you here ;)
-
-Anyway, this just sounds silly (Now you know why I didn't do it more publicly, I get embarrassed easily), no I'll stop typing.  I probably sound like I'm drunk or something, so here goes!  I love you man!  *sob*
-
-Your faithful and eternal subject,
-Porthios
-~
-Sender  Asmadi~
-Date    Sun Dec 19 13:55:14 2004~
-Stamp   1103482514
-To      teotwawki~
-Subject concerns/bugs etc.~
-Text
-Right now we need to get some control over our process.  We don't have a
-process and unfortunately it's costing us dearly.  Our downtime has increased
-dramatically and the strife between a few people is increasing.  The next
-portion regarding backups is questionable.  The questions regarding backups
-can be aleviated with a few things, but until we get a few more protections
-irl in place for the code we will need to request that backups be restricted
-to only the source files you use...  And nothing more.  There is no need for
-a programmer to have the area files, misc files, or anything else that isn't
-code specific.  We could probably come up with a few exceptions to our 1 2 3
-process by adding something which is even less prevelent like a 0.  These
-could be buffer size increases, typo fixes, etc.  Which would still need to
-follow the process but the authorization would be assumed.  You made the
-statement that you simply do not have the time or patience to explain what
-you do, that is similar to a doctor stating to a patient...  I don't have the
-patience to explain to you what I just did.  I don't think that is a
-reasonable statement, but you are welcome to agree to disagree.  As far as
-resources, we can work at moving a copy of legacy over to another server or
-increase our ram usage.  That will be something I will work on.  And I
-disagree that your statement assuming no one alive knows the code better than
-you is not a matter of ego.  I believe statements like that are quite cocky,
-but you are welcome to demonstrate your knowledge not through your words but
-through your actions.  We need to do what is best for legacy and it's
-players, not what is best for us or our own motivations.  This is not just
-your work anymore, this is the work and livelihood of several people and I
-need to know that you understand that before we move on.  
-~
-Sender  Asmadi~
-Date    Sun Dec 19 13:55:14 2004~
-Stamp   1103482738
-To      montrey~
-Subject {VFORWARD{W({VAsmadi{W){x: concerns/bugs etc.~
-Text
-Right now we need to get some control over our process.  We don't have a
-process and unfortunately it's costing us dearly.  Our downtime has increased
-dramatically and the strife between a few people is increasing.  The next
-portion regarding backups is questionable.  The questions regarding backups
-can be aleviated with a few things, but until we get a few more protections
-irl in place for the code we will need to request that backups be restricted
-to only the source files you use...  And nothing more.  There is no need for
-a programmer to have the area files, misc files, or anything else that isn't
-code specific.  We could probably come up with a few exceptions to our 1 2 3
-process by adding something which is even less prevelent like a 0.  These
-could be buffer size increases, typo fixes, etc.  Which would still need to
-follow the process but the authorization would be assumed.  You made the
-statement that you simply do not have the time or patience to explain what
-you do, that is similar to a doctor stating to a patient...  I don't have the
-patience to explain to you what I just did.  I don't think that is a
-reasonable statement, but you are welcome to agree to disagree.  As far as
-resources, we can work at moving a copy of legacy over to another server or
-increase our ram usage.  That will be something I will work on.  And I
-disagree that your statement assuming no one alive knows the code better than
-you is not a matter of ego.  I believe statements like that are quite cocky,
-but you are welcome to demonstrate your knowledge not through your words but
-through your actions.  We need to do what is best for legacy and it's
-players, not what is best for us or our own motivations.  This is not just
-your work anymore, this is the work and livelihood of several people and I
-need to know that you understand that before we move on.  
-~
-Sender  Teotwawki~
-Date    Sun Dec 19 15:09:58 2004~
-Stamp   1103486998
-To      montrey~
-Subject your note/our conversation~
-Text
-Mont, I feel the need to express some concerns regarding our conversation the
-other night and the note you wrote me and Asmadi.  I was obvously very laid
-back when we were talking and I want to tell you why.  In all honesty you
-floored me with your comments.  Yes you were a founder of Legacy, and yes you
-put a lot of work and money and time in while you were here.  That was a year
-and a half ago that you left and went to Dizzy.  Since you left I have had
-some wonderful coders help me along the way.  Legacy now is NOT primarly your
-code.  It is a mixture of your code and Viro, Nylan, Geralt, Vegita, Xenith
-and very much a lot of Outsider.  To come at us like this is still your mud
-is just wrong.  Now I am sure you are regret handing it over to me at this
-point but you did.  And with the help of some wonderful people I have been
-trudging along.  You said something to me the other day which is what I think
-the bottom line is, you said you are so use to being the head coder.  I know
-that this is a blow to your ego but as much as you are a fantastic coder and
-we appreciate your help legacy and SOE are going to go on and move forward
-with or without you.  Now, to say that you know better than us regarding
-Legacy is just plain out disrespectful.  Asmadi and I have been working hard
-to improve Legacy and we have both put a lot of money and time in here also. 
-At this stage in the game I am questioning all I have ever known about you
-also.  I am having a real hard time putting my trust in you when you can not
-put your trust in me.  Trust is a two way streat.  Now Asmadi and I laid out
-what we are looking for and what we expect from our coders.  Weather you
-believe it or not and weather you agree to it or not is up to you.  But
-please if you do stay try to keep in mind that Asmadi and I are not brainless
-twits and please refrain from treating us or talking to us as such.  
-
-I really hope we can work this out and find a way to all be happy.  As I
-stated before you are a wonderful coder, I just don't think that gives you
-the room to attempt to walk on me or anyone else.  
-
-Teo
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:28:55 2004~
-Stamp   1103490119
-To      port~
-Subject {VFORWARD{W({VTeotwawki{W){x: It Is all Good~
-Text
-I am sure by now most of you have realized that shell is locked.  Please do
-not get excited this is a good thing.  Asmadi and I had a wonderful
-discussion tonight and have some Great plans to present to you as to how we
-would like to proceed with coding projects.  As we all know change is
-inevitable in life and this is one of those times.  I will ask you all to sit
-back and read the plan before jumping .  Please take time to let it sink in
-before you respond.  
-
-That being said, as you all know we have had a lot of down time lately.  Part
-of this we believe may be the fact that we are fortunate enough to have so
-many wonderful coders.  However, we needed to come up with a plan as to how
-to cut our down time and increase our stability.  What is in the paragraphs
-to come is what we have devised as our plan of action and we sincerely hope
-you all agree.  First all projects will be requested in writing to myself and
-your fellow coders before any work is done.  This is a multi part function. 
-We have come up with 3 different sinerios in which each assignment will fall.
-We are calling it our 1-2-3 plan.  When you note you will include what you
-are coding, the severity of the code (which I will explain momentarily) and
-what file you will be using to work on that code.  Severity will be 1, 2 or
-3.  Lets start with 1.  A 1 severity is a simple change, or easy change that
-only needs to be tested for one day before you can announce it as complete. 
-That would include something simple such as text.  Severity 2 would be
-somethings such as a spell which would need to be tested for 3 days before it
-would be announced as complete.  And Severity 3 would include the more
-difficult tasks such as writing new code which would have to be tested and
-proven stable for 1 week before anounced completed.  So lets give you an
-example.  I want to add more cross mud socials.  My note would say I would
-like to add more cross mud socials.  I believe it will be a level 2
-difficulty and will only require me to write 2 new functions, not alter any
-existing ones, and will only use act_comm.  C file.  
-
-Ok from there you will need to wait a day to get my approval.  This will give
-your co-coders a chance to comment or make suggestions and will give me a
-chance to accept or deny the request.  You may ONLY work on {COne{x code at a
-time.  Also any deviations from the initial requet must be resubmitted and
-approved.  While your code is being tested is the time to submit your next
-request however it will not be approved until the one in testing is finished
-testing and announced complete.  
-
-How is this going to happen you ask.  Well the test port is to remain open at
-all times.  It is not to be shut down by anyone for any reason.  That is
-where all your work will be done.  When Asmadi or I are sure it is a safe
-time we will do a copyover.  Noone else is to copyover on port 3000 for any
-reason.  Now I know this sounds like a lot to digest and it is.  But if you
-really sit back and think about it the stability of Legacy will keep us
-players.  A mud that is constantly down does not keep players.  
-
-Any coder that does NOT know how to test without committing needs to note
-Asmadi immediately so he can go over the process with you.  Asmadi and I want
-to keep each and every one of you .  You are all very valuable to us.  We are
-hoping to have your complete cooperation in this change.  We encourage you to
-note us with your replys.  
-
-A note on shell password is to follow.  Thank you for your time and patience.
-
-
-Humbly yours,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:53:04 2004~
-Stamp   1103490127
-To      port~
-Subject {VFORWARD{W({VTeotwawki{W){x: Shell Password~
-Text
-Ok as you all know the password in shell was changed.  This is not a negative
-thing and is not aimed at anyone.  But there are a few reasons we are doing
-this and a few things that need to be cleared up before we hand out the new
-password.  
-
-In order to get the new password you must agree to the following in writing
-via note to Asmadi and I.  1) All code belongs to legacy and should be used
-for legacy purposes only.  If you want to use it for any other reason you
-must get prior authorization in writing from Asmadi.  2) You must agree to
-the previous note about how we plan on conducting coding from here on out. 
-3) NOBODY is to give out the shell password to anyone else other than Asmadi
-and Myself.  We are trying to moniter who has access to the shell at all
-times.  If for some reason you feel someone needs shell please ask for prior
-authorization and wait for an approval or denial from one of us.  
-
-I know you all will agree that your work as well as the work of your fellow
-imms should be protected at all times.  We all put countless number of hours
-into Legacy and we do not want to see that go by the wasteside.  4) Noone is
-to keep a backup of Legacy on their hard drive.  If you need a file..  Take
-the file..  Then return it to shell and delete it from your hard drive after
-it has been tested and implimented.  
-
-I am sure that you are all here for the same reason to protect and improve
-Legacy and to see that the best thing for Legacy is what is done.  If Asmadi
-and I did not believe that then you would not be here.  So as I stated before
-once we have a note from you agreeing to the terms listed we will issue you
-the password.  If any of you have a problem or concern with the terms listed
-please feel free to note Asmadi and I so we can discuss it further.  
-
-Thank you for your time and cooperation,
-
-Humbly,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sun Dec 19 17:58:27 2004~
-Stamp   1103497107
-To      vegita~
-Subject Test port~
-Text
-The Test port is up and running.  Please note me ASAP with what specifically
-you would like to work on.  Thank you 
-
-Teo
-~
-Sender  Vegita~
-Date    Sun Dec 19 23:58:22 2004~
-Stamp   1103518702
-To      teotwawki~
-Subject necromancy group evolves~
-Text
-I'd like to work on them
-but looking thru the code
-I'll need atleast 3 different version of each animate made
-with each version being a little stronger than the previous
-
-questions lemme know
-~
-Sender  Leviathan~
-Date    Mon Dec 20 01:06:42 2004~
-Stamp   1103522802
-To      imm~
-Subject something~
-Text
-Did you forget to put the codes that let people of SoE to see who
-logged in and out of the Legacy.
-~
-Sender  Montrey~
-Date    Mon Dec 20 10:42:53 2004~
-Stamp   1103557373
-To      asmadi teotwawki~
-Subject ok~
-Text
-alright, first off, i owe you guys an apology.  i wrote the previous note
-while angry, i should have taken some time to cool off and think about it
-first.  most of it *was* just ego talking.  so, i'm sorry for that, and
-now i'll try to take a more sensible approach.  as i pointed out, i've
-been the head coder everywhere i've worked for a long time.  that actually
-wasn't meant to imply 'i know it all, i have to be in charge'.  what it
-meant was that my coding style and practices have developed with me
-typically being the *only* person coding, where i don't have to worry about
-stepping on other people's toes when i need to change something.  so, i'm
-going to have to adapt, and so far i'm having a difficult time of it.  i
-will get used to it, though.
-
-first off, the permission on projects.  yes, i can deal with that.  it
-makes sense.  if i need to work on something technical, i'll submit it as
-such, and explain more if asked.  but, i do have an idea for something to
-help make it easier for everyone, i'll post it in a note following this.
-
-as far as having copies of the mud, i'm perfectly fine with it as long as
-it doesn't apply to coders having a copy of the source.  i can't speak for
-everyone else, but i personally open a lot of files when i code something,
-most of which aren't changed.  they're just for reference, i.e. when i need
-to see how a function i'm calling works, or i need to look up a variable
-name, etc.  i can't be online a lot, so i need to keep a local copy rather
-than fetching a file when i need it.
-
-the only problem i have right now is stating in a request to make a change
-what files i'll need to work on.  that's really what cvs is for.  it makes
-a log of what files are changed, and it prevents us from making changes to
-the same line of the same file by two different people (it'll request us to
-merge the conflicts, easily done).  on a bug fix it can be relatively easy,
-provided it's simple.  like, if there's a bug with something, i may request
-to fix it, thinking that it'll be a simple fix in one file, but it may turn
-into a more major thing because the original coding is bad.  i really believe
-that having to request permission to change more files to fulfill the goal
-that we've been approved for will only slow down our work with no real
-benefit.  i'd be more than happy to post a list of the changed files *after*
-i get done fixing and before i request a copyover, i'd simply cut and paste
-the commit log.  or, better yet, i'd stick whoever wants to know on the cvs
-commit mailing list.
-
-so... i guess that's it.  the problem above i'd like to discuss further,
-but it can wait, for the moment i can deal with it.  this is my letter of
-acceptance of the new system, i agree to abide by the guidelines laid out
-for coders.  now can i get to work on these crash bugs? :)
-
-Montrey
-~
-Sender  Montrey~
-Date    Mon Dec 20 11:30:32 2004~
-Stamp   1103560232
-To      imm~
-Subject project stuff~
-Text
-ok, this is the first project i'd like to work on.  it is designed to help
-us manage the projects that have been requested, or are underway, or have
-been implemented.  i feel that requesting projects by note will be hard to
-manage, and get spammy, and things will get lost and we'll waste a lot of
-time trying to do it.  so, here's the outline:
-
-we retain our text files like bug, typo, ridea, work, etc.  these help to
-keep track of stuff that needs to be worked on.  we would get rid of two
-files, hbi and hbb.  (this project system could be adapted to builders
-very easily)  what would happen is this:  there would be a command called
-'project', available to all imms.  to start the process, the coder or
-builder would type 'project request (name of project)'.
-
-project request:
-to start the process, the coder or builder would type
-'project request (name of project)'.  this would make a new entry to the
-project list, showing their name, name of the project, date requested,
-and stage of completion, maybe like this:
-{x   [1] [R] [Montrey] [12/20/04] new project management system
-the 'R' stands for 'requested'.  there would be a few codes that can go
-here, like 'G' for 'granted', 'C' for 'completed', and 'I' for 'implemented'.
-of course, easy to look at and stuff, some use of colors.  the '1' is just
-the number of the project, for use in referring to it, as described below.
-
-project define:
-after creating a new project with 'project request', the person would use
-'project define' to make an explanation.  example:
-{x   project define 1 + this is the first line of the explanation.  if i want
-{x   project define 1 + to make more lines, i just do it like this.  if i
-{x   project define 1 + wanted to erase lines, i'd just use '-'.
-just like fingerinfo stuff.  you could only add definitions to *your*
-projects.  this isn't meant to be a discussion panel, just as a quick
-reference in case the project name isn't detailed enough.
-
-after that, the project is awaiting approval.  when an imm logs on, they
-get right beneath notes:
-{x   Montrey has 2 projects awaiting approval.
-{x   Vegita has 439 projects awaiting approval.
-*duck vegita*  anyway, that would display to all imms, so that everyone can
-see what has been requested.  to see them, people would use the following
-
-project list:
-just project list by itself would give a list of all projects and their
-completion status, laid out in lines like
-{x   [1] [R] [Montrey] [12/20/04] new project management system
-{x   [2] [A] [ Vegita] [12/19/04] evolved smokescreen
-they could also use things like the person's name or 'complete' or 'request'
-to see projects by that person or meeting that completion status.  or, they
-could use 'project define (number)' as in the above command to see the
-definition for that project.  as said above, only the person who requested
-the project could change the definition, but the same command would be used
-to see the definition.
-
-project approve:
-once the project has gone through the discussion phase, teo or asmadi would
-then use 'project approve (number)' to give their approval on the project.
-it can be seen in the 'A' in vegita's project, above.  when the person who
-requested the project logged on, they would see:
-{x   You have 2 new projects that have been approved.
-{x   Montrey has 1 new project that has been approved.
-after that, permission has been granted, time to get to work.
-
-(continued)
-~
-Sender  Montrey~
-Date    Mon Dec 20 11:32:01 2004~
-Stamp   1103560321
-To      imm~
-Subject project stuff 2~
-Text
-project complete:
-when the coder or builder has finished doing their changes, they would use:
-'project complete (number)' to signify that it is now ready for testing.
-
-project tested:
-after the testing phase if finished, the coder or builder uses 'project
-tested (number)' to let the imps know that it is ready to put in.  after
-that, imms get a message when they log on like:
-{x   Montrey has 2 new projects that are ready to be implemented.
-then, teo or asmadi would update the main src, compile, and copyover the
-mud.  then, they would use
-
-project implemented:
-'project implemented (number)' for the final phase of the project.  the
-project would then only show on the list when it is not spammed off by other
-newer projects.  imms logging on would see:
-{x   Montrey has 1 new project that has been implemented.
-
-and that's it :)  input?
-~
-Sender  Vegita~
-Date    Mon Dec 20 12:16:32 2004~
-Stamp   1103562992
-To      imm~
-Subject project stuff~
-Text
-honestly I see it as a very good method, it will keep everyone up to date
-as to the current status of the projects
-nothing I can really comment on as jas actually laid it out 
-pretty straight forward
-~
-Sender  Asmadi~
-Date    Mon Dec 20 14:28:02 2004~
-Stamp   1103570882
-To      imm~
-Subject project stuff~
-Text
-I like the idea too, it was similar to something I was trying to think up. 
-As far as detailing the files you are going to use...  It would be a good
-idea to atleast give a quick idea of the files you believe might be changed. 
-This would allow other coders the ability to atleast avoid conflicts ahead of
-time.  I'm glad we can open the doors of communication and work for a
-resolution.  I'd ideally like to sit down and more throughly detail a new
-management system with all of us so we can make sure we correct any anomolies
-ahead of time.  At this point...  Once Teo has given the Ok, we can move
-ahead on this project management stuff.  I think it's critical for us all to
-work as smoothly as feasible.  
-It's truly a learning curve for us all.
-- Asmadi
-~
-Sender  Teotwawki~
-Date    Mon Dec 20 16:38:08 2004~
-Stamp   1103578688
-To      imm~
-Subject project management~
-Text
-PROJECT APPROVED *WINK* Nice job Monty.
-~
-Sender  Teotwawki~
-Date    Mon Dec 20 16:40:22 2004~
-Stamp   1103578822
-To      montrey~
-Subject apology~
-Text
-I want to apologize to you also.  I am sorry if I came of harsh in my last
-note.  I want you to know I have a lot of respect for you and I felt in an
-awkward position.  This truely is a learning experience for us all and I
-adore you dearly.  
-
-I hope you accept my apology.
-
-Teo
-~
-Sender  Teotwawki~
-Date    Mon Dec 20 17:13:12 2004~
-Stamp   1103580792
-To      imm~
-Subject be careful please~
-Text
-Hay since we still have mortals *cough* that have security group.  For now
-lets keep notes to imm REAL basic.  If you have a note that needs to be
-detailed for now please name each imm.  
-Thank you
-Teo
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:28:55 2004~
-Stamp   1103582474
-To      port~
-Subject {VFORWARD{W({VTeotwawki{W){x: It Is all Good~
-Text
-I am sure by now most of you have realized that shell is locked.  Please do
-not get excited this is a good thing.  Asmadi and I had a wonderful
-discussion tonight and have some Great plans to present to you as to how we
-would like to proceed with coding projects.  As we all know change is
-inevitable in life and this is one of those times.  I will ask you all to sit
-back and read the plan before jumping .  Please take time to let it sink in
-before you respond.  
-
-That being said, as you all know we have had a lot of down time lately.  Part
-of this we believe may be the fact that we are fortunate enough to have so
-many wonderful coders.  However, we needed to come up with a plan as to how
-to cut our down time and increase our stability.  What is in the paragraphs
-to come is what we have devised as our plan of action and we sincerely hope
-you all agree.  First all projects will be requested in writing to myself and
-your fellow coders before any work is done.  This is a multi part function. 
-We have come up with 3 different sinerios in which each assignment will fall.
-We are calling it our 1-2-3 plan.  When you note you will include what you
-are coding, the severity of the code (which I will explain momentarily) and
-what file you will be using to work on that code.  Severity will be 1, 2 or
-3.  Lets start with 1.  A 1 severity is a simple change, or easy change that
-only needs to be tested for one day before you can announce it as complete. 
-That would include something simple such as text.  Severity 2 would be
-somethings such as a spell which would need to be tested for 3 days before it
-would be announced as complete.  And Severity 3 would include the more
-difficult tasks such as writing new code which would have to be tested and
-proven stable for 1 week before anounced completed.  So lets give you an
-example.  I want to add more cross mud socials.  My note would say I would
-like to add more cross mud socials.  I believe it will be a level 2
-difficulty and will only require me to write 2 new functions, not alter any
-existing ones, and will only use act_comm.  C file.  
-
-Ok from there you will need to wait a day to get my approval.  This will give
-your co-coders a chance to comment or make suggestions and will give me a
-chance to accept or deny the request.  You may ONLY work on {COne{x code at a
-time.  Also any deviations from the initial requet must be resubmitted and
-approved.  While your code is being tested is the time to submit your next
-request however it will not be approved until the one in testing is finished
-testing and announced complete.  
-
-How is this going to happen you ask.  Well the test port is to remain open at
-all times.  It is not to be shut down by anyone for any reason.  That is
-where all your work will be done.  When Asmadi or I are sure it is a safe
-time we will do a copyover.  Noone else is to copyover on port 3000 for any
-reason.  Now I know this sounds like a lot to digest and it is.  But if you
-really sit back and think about it the stability of Legacy will keep us
-players.  A mud that is constantly down does not keep players.  
-
-Any coder that does NOT know how to test without committing needs to note
-Asmadi immediately so he can go over the process with you.  Asmadi and I want
-to keep each and every one of you .  You are all very valuable to us.  We are
-hoping to have your complete cooperation in this change.  We encourage you to
-note us with your replys.  
-
-A note on shell password is to follow.  Thank you for your time and patience.
-
-
-Humbly yours,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:53:04 2004~
-Stamp   1103582502
-To      port~
-Subject {VFORWARD{W({VTeotwawki{W){x: Shell Password~
-Text
-Ok as you all know the password in shell was changed.  This is not a negative
-thing and is not aimed at anyone.  But there are a few reasons we are doing
-this and a few things that need to be cleared up before we hand out the new
-password.  
-
-In order to get the new password you must agree to the following in writing
-via note to Asmadi and I.  1) All code belongs to legacy and should be used
-for legacy purposes only.  If you want to use it for any other reason you
-must get prior authorization in writing from Asmadi.  2) You must agree to
-the previous note about how we plan on conducting coding from here on out. 
-3) NOBODY is to give out the shell password to anyone else other than Asmadi
-and Myself.  We are trying to moniter who has access to the shell at all
-times.  If for some reason you feel someone needs shell please ask for prior
-authorization and wait for an approval or denial from one of us.  
-
-I know you all will agree that your work as well as the work of your fellow
-imms should be protected at all times.  We all put countless number of hours
-into Legacy and we do not want to see that go by the wasteside.  4) Noone is
-to keep a backup of Legacy on their hard drive.  If you need a file..  Take
-the file..  Then return it to shell and delete it from your hard drive after
-it has been tested and implimented.  
-
-I am sure that you are all here for the same reason to protect and improve
-Legacy and to see that the best thing for Legacy is what is done.  If Asmadi
-and I did not believe that then you would not be here.  So as I stated before
-once we have a note from you agreeing to the terms listed we will issue you
-the password.  If any of you have a problem or concern with the terms listed
-please feel free to note Asmadi and I so we can discuss it further.  
-
-Thank you for your time and cooperation,
-
-Humbly,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:28:55 2004~
-Stamp   1103582643
-To      porthios~
-Subject {VFORWARD{W({VTeotwawki{W){x: It Is all Good~
-Text
-I am sure by now most of you have realized that shell is locked.  Please do
-not get excited this is a good thing.  Asmadi and I had a wonderful
-discussion tonight and have some Great plans to present to you as to how we
-would like to proceed with coding projects.  As we all know change is
-inevitable in life and this is one of those times.  I will ask you all to sit
-back and read the plan before jumping .  Please take time to let it sink in
-before you respond.  
-
-That being said, as you all know we have had a lot of down time lately.  Part
-of this we believe may be the fact that we are fortunate enough to have so
-many wonderful coders.  However, we needed to come up with a plan as to how
-to cut our down time and increase our stability.  What is in the paragraphs
-to come is what we have devised as our plan of action and we sincerely hope
-you all agree.  First all projects will be requested in writing to myself and
-your fellow coders before any work is done.  This is a multi part function. 
-We have come up with 3 different sinerios in which each assignment will fall.
-We are calling it our 1-2-3 plan.  When you note you will include what you
-are coding, the severity of the code (which I will explain momentarily) and
-what file you will be using to work on that code.  Severity will be 1, 2 or
-3.  Lets start with 1.  A 1 severity is a simple change, or easy change that
-only needs to be tested for one day before you can announce it as complete. 
-That would include something simple such as text.  Severity 2 would be
-somethings such as a spell which would need to be tested for 3 days before it
-would be announced as complete.  And Severity 3 would include the more
-difficult tasks such as writing new code which would have to be tested and
-proven stable for 1 week before anounced completed.  So lets give you an
-example.  I want to add more cross mud socials.  My note would say I would
-like to add more cross mud socials.  I believe it will be a level 2
-difficulty and will only require me to write 2 new functions, not alter any
-existing ones, and will only use act_comm.  C file.  
-
-Ok from there you will need to wait a day to get my approval.  This will give
-your co-coders a chance to comment or make suggestions and will give me a
-chance to accept or deny the request.  You may ONLY work on {COne{x code at a
-time.  Also any deviations from the initial requet must be resubmitted and
-approved.  While your code is being tested is the time to submit your next
-request however it will not be approved until the one in testing is finished
-testing and announced complete.  
-
-How is this going to happen you ask.  Well the test port is to remain open at
-all times.  It is not to be shut down by anyone for any reason.  That is
-where all your work will be done.  When Asmadi or I are sure it is a safe
-time we will do a copyover.  Noone else is to copyover on port 3000 for any
-reason.  Now I know this sounds like a lot to digest and it is.  But if you
-really sit back and think about it the stability of Legacy will keep us
-players.  A mud that is constantly down does not keep players.  
-
-Any coder that does NOT know how to test without committing needs to note
-Asmadi immediately so he can go over the process with you.  Asmadi and I want
-to keep each and every one of you .  You are all very valuable to us.  We are
-hoping to have your complete cooperation in this change.  We encourage you to
-note us with your replys.  
-
-A note on shell password is to follow.  Thank you for your time and patience.
-
-
-Humbly yours,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:53:04 2004~
-Stamp   1103582650
-To      porthios~
-Subject {VFORWARD{W({VTeotwawki{W){x: Shell Password~
-Text
-Ok as you all know the password in shell was changed.  This is not a negative
-thing and is not aimed at anyone.  But there are a few reasons we are doing
-this and a few things that need to be cleared up before we hand out the new
-password.  
-
-In order to get the new password you must agree to the following in writing
-via note to Asmadi and I.  1) All code belongs to legacy and should be used
-for legacy purposes only.  If you want to use it for any other reason you
-must get prior authorization in writing from Asmadi.  2) You must agree to
-the previous note about how we plan on conducting coding from here on out. 
-3) NOBODY is to give out the shell password to anyone else other than Asmadi
-and Myself.  We are trying to moniter who has access to the shell at all
-times.  If for some reason you feel someone needs shell please ask for prior
-authorization and wait for an approval or denial from one of us.  
-
-I know you all will agree that your work as well as the work of your fellow
-imms should be protected at all times.  We all put countless number of hours
-into Legacy and we do not want to see that go by the wasteside.  4) Noone is
-to keep a backup of Legacy on their hard drive.  If you need a file..  Take
-the file..  Then return it to shell and delete it from your hard drive after
-it has been tested and implimented.  
-
-I am sure that you are all here for the same reason to protect and improve
-Legacy and to see that the best thing for Legacy is what is done.  If Asmadi
-and I did not believe that then you would not be here.  So as I stated before
-once we have a note from you agreeing to the terms listed we will issue you
-the password.  If any of you have a problem or concern with the terms listed
-please feel free to note Asmadi and I so we can discuss it further.  
-
-Thank you for your time and cooperation,
-
-Humbly,
-Teotwawki
-~
-Sender  Porthios~
-Date    Mon Dec 20 17:52:06 2004~
-Stamp   1103583126
-To      Asmadi~
-Subject Coding agreement~
-Text
-Hullo,
-I have just read over and agreed to the coding agreement sent to me by Teo.
-
-Porthios
-~
-Sender  Porthios~
-Date    Mon Dec 20 17:52:06 2004~
-Stamp   1103583446
-To      teo~
-Subject {VFORWARD{W({VPorthios{W){x: Coding agreement~
-Text
-Hullo,
-I have just read over and agreed to the coding agreement sent to me by Teo.
-
-Porthios
-~
-Sender  Porthios~
-Date    Mon Dec 20 17:52:06 2004~
-Stamp   1103583492
-To      Teotwawki~
-Subject {VFORWARD{W({VPorthios{W){x: Coding agreement~
-Text
-Hullo,
-I have just read over and agreed to the coding agreement sent to me by Teo.
-
-Porthios
-~
-Sender  Teotwawki~
-Date    Mon Dec 20 18:08:54 2004~
-Stamp   1103584134
-To      asmadi~
-Subject pwd~
-Text
-I emailed it to Porthios.  I will give it to Mont later...  Xenith has not
-agreed yet and Mont's email is at xenith.  Org.  
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:28:55 2004~
-Stamp   1103597215
-To      outsider~
-Subject {VFORWARD{W({VTeotwawki{W){x: It Is all Good~
-Text
-I am sure by now most of you have realized that shell is locked.  Please do
-not get excited this is a good thing.  Asmadi and I had a wonderful
-discussion tonight and have some Great plans to present to you as to how we
-would like to proceed with coding projects.  As we all know change is
-inevitable in life and this is one of those times.  I will ask you all to sit
-back and read the plan before jumping .  Please take time to let it sink in
-before you respond.  
-
-That being said, as you all know we have had a lot of down time lately.  Part
-of this we believe may be the fact that we are fortunate enough to have so
-many wonderful coders.  However, we needed to come up with a plan as to how
-to cut our down time and increase our stability.  What is in the paragraphs
-to come is what we have devised as our plan of action and we sincerely hope
-you all agree.  First all projects will be requested in writing to myself and
-your fellow coders before any work is done.  This is a multi part function. 
-We have come up with 3 different sinerios in which each assignment will fall.
-We are calling it our 1-2-3 plan.  When you note you will include what you
-are coding, the severity of the code (which I will explain momentarily) and
-what file you will be using to work on that code.  Severity will be 1, 2 or
-3.  Lets start with 1.  A 1 severity is a simple change, or easy change that
-only needs to be tested for one day before you can announce it as complete. 
-That would include something simple such as text.  Severity 2 would be
-somethings such as a spell which would need to be tested for 3 days before it
-would be announced as complete.  And Severity 3 would include the more
-difficult tasks such as writing new code which would have to be tested and
-proven stable for 1 week before anounced completed.  So lets give you an
-example.  I want to add more cross mud socials.  My note would say I would
-like to add more cross mud socials.  I believe it will be a level 2
-difficulty and will only require me to write 2 new functions, not alter any
-existing ones, and will only use act_comm.  C file.  
-
-Ok from there you will need to wait a day to get my approval.  This will give
-your co-coders a chance to comment or make suggestions and will give me a
-chance to accept or deny the request.  You may ONLY work on {COne{x code at a
-time.  Also any deviations from the initial requet must be resubmitted and
-approved.  While your code is being tested is the time to submit your next
-request however it will not be approved until the one in testing is finished
-testing and announced complete.  
-
-How is this going to happen you ask.  Well the test port is to remain open at
-all times.  It is not to be shut down by anyone for any reason.  That is
-where all your work will be done.  When Asmadi or I are sure it is a safe
-time we will do a copyover.  Noone else is to copyover on port 3000 for any
-reason.  Now I know this sounds like a lot to digest and it is.  But if you
-really sit back and think about it the stability of Legacy will keep us
-players.  A mud that is constantly down does not keep players.  
-
-Any coder that does NOT know how to test without committing needs to note
-Asmadi immediately so he can go over the process with you.  Asmadi and I want
-to keep each and every one of you .  You are all very valuable to us.  We are
-hoping to have your complete cooperation in this change.  We encourage you to
-note us with your replys.  
-
-A note on shell password is to follow.  Thank you for your time and patience.
-
-
-Humbly yours,
-Teotwawki
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:53:04 2004~
-Stamp   1103597223
-To      outsider~
-Subject {VFORWARD{W({VTeotwawki{W){x: Shell Password~
-Text
-Ok as you all know the password in shell was changed.  This is not a negative
-thing and is not aimed at anyone.  But there are a few reasons we are doing
-this and a few things that need to be cleared up before we hand out the new
-password.  
-
-In order to get the new password you must agree to the following in writing
-via note to Asmadi and I.  1) All code belongs to legacy and should be used
-for legacy purposes only.  If you want to use it for any other reason you
-must get prior authorization in writing from Asmadi.  2) You must agree to
-the previous note about how we plan on conducting coding from here on out. 
-3) NOBODY is to give out the shell password to anyone else other than Asmadi
-and Myself.  We are trying to moniter who has access to the shell at all
-times.  If for some reason you feel someone needs shell please ask for prior
-authorization and wait for an approval or denial from one of us.  
-
-I know you all will agree that your work as well as the work of your fellow
-imms should be protected at all times.  We all put countless number of hours
-into Legacy and we do not want to see that go by the wasteside.  4) Noone is
-to keep a backup of Legacy on their hard drive.  If you need a file..  Take
-the file..  Then return it to shell and delete it from your hard drive after
-it has been tested and implimented.  
-
-I am sure that you are all here for the same reason to protect and improve
-Legacy and to see that the best thing for Legacy is what is done.  If Asmadi
-and I did not believe that then you would not be here.  So as I stated before
-once we have a note from you agreeing to the terms listed we will issue you
-the password.  If any of you have a problem or concern with the terms listed
-please feel free to note Asmadi and I so we can discuss it further.  
-
-Thank you for your time and cooperation,
-
-Humbly,
-Teotwawki
-~
-Sender  Montrey~
-Date    Tue Dec 21 04:01:04 2004~
-Stamp   1103619664
-To      asmadi teotwawki~
-Subject project~
-Text
-i believe that most of it will be in a new file, project.c.  but, there
-may be a few minor changes in other files, merc.h, the interps, nanny.c,
-recycle.c and .h... that's all i can think of at the moment
-~
-Sender  Montrey~
-Date    Tue Dec 21 04:02:03 2004~
-Stamp   1103619723
-To      teotwawki~
-Subject hey~
-Text
-i meant to write a note to you about that, my apology too, but i gotta sleep
-cuz i got work tomorrow :(  i'll write tomorrow.  btw, i'm gonna need the
-shell pass to update my source files.  ttyl hon :)
-~
-Sender  Teotwawki~
-Date    Tue Dec 21 06:12:09 2004~
-Stamp   1103627529
-To      montrey~
-Subject password~
-Text
-I can't get in my "f-ing" email.  Please ask asmadi to send it to you.  Btw
-have you heard from Xenith?  Or catch me when I get home please.  All my
-love, 
-Teo
-~
-Sender  Asmadi~
-Date    Tue Dec 21 08:49:57 2004~
-Stamp   1103636997
-To      porthios teotwawki~
-Subject in game helpfile editor~
-Text
-Hello Porthios, I don't know if you have a project going yet, but thought
-that it might be good to have you work on an in game helpfile editor.  I
-already have the code working for SoE and could send you that code to be
-modified for Legacy if needed.  
-Let me know what you think about the project,
-- Asmadi
-~
-Sender  Porthios~
-Date    Tue Dec 21 13:07:17 2004~
-Stamp   1103652437
-To      Asmadi~
-Subject SoE Help files~
-Text
-Hullo,
-I might not have time to look over that code until tonight, but it would help somewhat if I could get a sample of a help file from SoE to compare.
-
-If there are no huge differences in formatting, I can't see it being too difficult to port the editor to Legacy.
-
-Porthios
-~
-Sender  Fedora~
-Date    Tue Dec 21 16:10:01 2004~
-Stamp   1103663401
-To      imms~
-Subject Another skill idea.~
-Text
-How about a skill that lets a player attack two attackers at once.
-Like, if I attack a poodle and a guard attacks me, I think there should be a skill so I can fight both at once.
-~
-Sender  Montrey~
-Date    Tue Dec 21 23:40:52 2004~
-Stamp   1103690452
-To      asmadi~
-Subject password~
-Text
-teo asked me to ask you to send me the password, she can't get in her
-email.  my addy is montrey@xenith.org.  thanks :)
-~
-Sender  Montrey~
-Date    Tue Dec 21 23:49:26 2004~
-Stamp   1103690966
-To      teotwawki~
-Subject password~
-Text
-i noted asmadi, hopefully i'll have it soon so i can get to work.  as
-far as xenith, no, i haven't talked to him, but we might as well forget
-about it.  i know him pretty well, and i'm 99.9% sure that if he hasn't
-read the note about stuff already, when he does he'll simply never log on
-the mud again.  nothing i can do to convince him otherwise.
-~
-Sender  Teotwawki~
-Date    Wed Dec 22 06:07:19 2004~
-Stamp   1103713639
-To      montrey~
-Subject password~
-Text
-I will be online tonight until 9 or 10 EST if you are on I will IM you with
-it.  I don't think I should leave it in a note.  
-*hugs* Teo
-~
-Sender  Montrey~
-Date    Wed Dec 22 09:01:52 2004~
-Stamp   1103724112
-To      teotwawki~
-Subject password~
-Text
-notes are as secure as anything else, you have to *have* shell to read
-them :)  but asmadi gave it to me already
-~
-Sender  Vegita~
-Date    Wed Dec 22 11:58:02 2004~
-Stamp   1103734682
-To      imm~
-Subject we were crashed~
-Text
-I brought us back up
-backtrace on the core showed something with chunk_alloc in malloc.c as last thing
-came really quickly after a remote who request was recieved from soe to show legacy's who list 
-do_remote_who came from bear
-~
-Sender  Asmadi~
-Date    Wed Dec 22 14:54:21 2004~
-Stamp   1103745261
-To      imm~
-Subject re: crash~
-Text
-Do you happen to know how many players were on legacy at the time?  I brought
-us up from a crash at 11:50 AM pst, don't have time to debug at this moment. 
-~
-Sender  Teotwawki~
-Date    Wed Dec 22 19:43:10 2004~
-Stamp   1103762590
-To      asmadi~
-Subject Lidda~
-Text
-I immed her because after hefty discussion we agreed that she would make a
-new character to level.  She did not like Lidda's stats and Lidda is known to
-the mortals.  So she made Tempest to level with and I immed Lidda...  It is
-my best judgement that this is for the best and will help mortals accept her
-better.  Since your concern was that she continue to play a mortal I hope
-this is ok with you.  
-
-Teo
-~
-Sender  Teotwawki~
-Date    Wed Dec 22 20:04:52 2004~
-Stamp   1103763892
-To      imms~
-Subject clan democracy~
-Text
-Ok I have not gotten any notes regarding this.  SO it is your turn.  Opinions
-please?  
-~
-Sender  Asmadi~
-Date    Wed Dec 22 23:42:55 2004~
-Stamp   1103776975
-To      montrey xenith vegita porthios outsider teotwawki~
-Subject Program Process Improvement~
-Text
-This entire system with multiple coders will take some time to thoroughly
-refine, as such I'll propose my first change to our system.  When a crash bug
-is identified, any coder can go and attempt to fix the bug immediately after
-posting a note quickly alerting the other coders they are working on it. 
-Also a followup note once the fix is made should be posted detailing the
-cause and fix for the bug.  Once one coder has identified that they are
-fixing the bug, no other coder should manipulate the code to fix the bug. 
-The copyover will be handled by Teo or myself, or in the event we are not
-here you may take the steps needed to remedy the situation.  
-Please let me know if there are any concerns with this idea/process change,
-Asmadi
-~
-Sender  Fedora~
-Date    Thu Dec 23 12:57:39 2004~
-Stamp   1103824659
-To      lidda~
-Subject Welcome Aboard~
-Text
-Welcome aboard, Lidda. Happy building.
-~
-Sender  Fedora~
-Date    Thu Dec 23 13:14:10 2004~
-Stamp   1103825650
-To      imms~
-Subject Clanrecall~
-Text
-clanrecall doesn't seem to be working.
-~
-Sender  Teotwawki~
-Date    Thu Dec 23 13:30:19 2004~
-Stamp   1103826619
-To      imm~
-Subject clanrecal~
-Text
-I tried it with Tia and it said it did not understand what I was requesting, could someone please look into it
-Thank you
-Teo
-~
-Sender  Xenith~
-Date    Thu Dec 23 13:57:58 2004~
-Stamp   1103828278
-To      imms~
-Subject re: clanrecall~
-Text
-For the last time, you *can't* remove all command groups from the players.
-Removing the 'clan' group will do exactly what Teo and Fedora are reporting.
-Player groups are Player, Clan, Avatar, and Hero. (depending on level and clan)
-The problem with players being able to see immortal notes/chat/etc is because they
-have the Security command group. That is the *only* one you need to remove.
-If you remove the rest, they get screwed up. So Asmadi, you need to remove or change
-your fix to only remove the security group. (which is probably bit 5)
-
-Xenith
-~
-Sender  Fedora~
-Date    Thu Dec 23 14:35:50 2004~
-Stamp   1103830550
-To      Teotwawki~
-Subject A Token~
-Text
-I found a 2qp token. May I have two quest points?
-
-Your biggest fan,
-Fedora
-~
-Sender  Teotwawki~
-Date    Thu Dec 23 16:29:17 2004~
-Stamp   1103837357
-To      fedora~
-Subject token~
-Text
-Darlin all you need to do is go give the token to the questor and he will
-give you the 2 qp.  
-Your biggest admirer,
-Teo
-~
-Sender  Asmadi~
-Date    Thu Dec 23 20:58:42 2004~
-Stamp   1103853522
-To      xenith imms~
-Subject CVS Stale Lock?~
-Text
-CVS Stale Lock?  We appear to have a cvs stale lock which is preventing the
-updating of the code via cvs.  Xenith could you confirm my suspicions?  A cvs
-update should show you what I mean.  
-~
-Sender  Xenith~
-Date    Mon Dec 13 04:23:50 2004~
-Stamp   1103857086
-To      asmadi~
-Subject {VFORWARD{W({VTeotwawki{W){x: How to fix current problems~
-Text
-The command is:
-wizgroup rem <player> security
-
-So far, I have only seen the security group, but the others might show up.
-You can find out using the stat command.
-~
-Sender  Asmadi~
-Date    Thu Dec 23 23:01:39 2004~
-Stamp   1103860899
-To      imms~
-Subject cvs stale lock~
-Text
-I've remedied the stale lock, if this occures again please let me know and I
-can explain the solution.  
-~
-Sender  Fedora~
-Date    Thu Dec 23 23:02:09 2004~
-Stamp   1103860929
-To      teotwawki~
-Subject rp token~
-Text
-I gave the token to the wrong quest master.
-Oops. I feel so silly. Thanks for the advice. I guess I'll have to go find more.
-
-Thanks, dear,
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 00:56:39 2004~
-Stamp   1103867799
-To      outsider~
-Subject leaving so fast~
-Text
-I guess I chased you off..  I am sorry..  I should not have told you so much.
-Please accept my apology.  
-~
-Sender  Puissance~
-Date    Fri Dec 24 03:40:20 2004~
-Stamp   1103877620
-To      imm ~
-Subject Imm Status~
-Text
-Hullo, feared and revered Gods.
-Just a note to let everyone know that I'm seeing the Imm welcome note when logging in.
-
-Puissance
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 11:46:12 2004~
-Stamp   1103906772
-To      imms~
-Subject double quest~
-Text
-Please type time when you are on and make sure it says Quest points are
-currently being doubled!  If for some reason it is not please type 'quest
-double' and that should give you a message that they are being doubled.  I
-will be out most of the day and part of the night.  I will sign on when I am
-here to check.  Thanks and Happy holidays.  You are all the best.  
-
-Teo
-~
-Sender  Fedora~
-Date    Fri Dec 24 17:20:53 2004~
-Stamp   1103926853
-To      imms~
-Subject clanrecall~
-Text
-I still can't clanrecall. Could someone please get back to me on this?
-~
-Sender  Outsider~
-Date    Fri Dec 24 17:38:04 2004~
-Stamp   1103927884
-To      teotwawki~
-Subject Happy~
-Text
-Are you kidding, girl? I was just up past my bedtime.
-I really liked the fact you shared with me.
-I'm touched, happy and like you all the more.
-
-To be honest, it was a big turn on. *wink*
-Outsider
-
-PS. Tell me more?
-~
-Sender  Outsider~
-Date    Fri Dec 24 19:29:35 2004~
-Stamp   1103934575
-To      asmadi~
-Subject Inter-mud connection~
-Text
-I was just wondering if you have root access on your SoE box?
-I'm thinking that using tcpdump might help us figure out why the MUDs don't maintain a connection.
-But, as I recall, tcpdump requires a root account.
-
-Thinking out loud,
-Outsider
-~
-Sender  Outsider~
-Date    Fri Dec 24 19:40:40 2004~
-Stamp   1103935240
-To      imms~
-Subject WizGroup Update~
-Text
-I would like to submit for your approval, the following bug fix:
-Wizgroup is a command for adding or removing groups which players begon to.
-We now have several new groups, such as clan, player, etc.
-I would like to update the command and the help files to display all of the new group names.
-
-I think this is a level 1 issue. It should only require changing a few strings in the code.
-
-Outsider
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 20:46:03 2004~
-Stamp   1103939163
-To      imms~
-Subject Wizgoup ~
-Text
-Questions or comments before I approve this project?
-
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 20:48:27 2004~
-Stamp   1103939307
-To      outsider~
-Subject WHEW~
-Text
-I was really worried I told you TMI.  Anyway trust me more shall be revealed
-in time.  I really like you and enjoy your companionship.  I would like us to
-learn more about eachother and become better friends if that is ok with you
-:) 
-
-We gonna set a date for the wedding soon?
-Your future Spouse,
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 21:00:28 2004~
-Stamp   1103940028
-To      imms~
-Subject PARTY/MEETING~
-Text
-Ok it is crunch time gang....  I have not had any replys to our Party /
-Meeting on New Years other than Montrey.  I also have had not heard any any
-goals for the upcoming year.  We would like to hear from each of you. 
-Although the party / meeting is not mandatory it is suggested if you want to
-be heard about the direction we are going in.  
-
-Humbly Yours,
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 21:11:24 2004~
-Stamp   1103940684
-To      coders~
-Subject projects~
-Text
-I have only received 2 proposed projects.  Montrey is working on an approved
-project and Outsider has one on the table.  Anyone else gonna note us a
-project?  Just a reminder that no work should be being done without
-authorization other than bug fixes and thoses should be noted to imms.  Thank
-you for your cooperation.  I know this is an adjustment but it will get
-easier with time.  
-
-Thank you all for all your hard work.
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 21:14:20 2004~
-Stamp   1103940860
-To      Navarre~
-Subject Goals~
-Text
-I need a note from you also regarding upcoming quests you would like to run. 
-Please only note myself and asmadi and imms if you like.  We need to start
-brain storming on how to entertain our mortals.  So please take some time to
-do this in the near future.  
-Thanks darlin,
-
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 21:17:02 2004~
-Stamp   1103941022
-To      Blackmage~
-Subject active?~
-Text
-I need to hear from you.  I never see you on and I have not heard you do any
-quests.  If you are not going to be active we need to get rid of this
-character and let you just keep Urza as an elder.  Let me know what is up. 
-If you plan to be here I need some form of proposal written to myself and
-asmadi and imms if you like describing some of the type of quests you are
-gonna run in the near future.  Thank you very much and thank you for your
-time.  
-
-Teo
-~
-Sender  Vegita~
-Date    Sun Dec 19 23:58:22 2004~
-Stamp   1103942249
-To      builders~
-Subject {VFORWARD{W({VTeotwawki{W){x: necromancy group evolves~
-Text
-I'd like to work on them
-but looking thru the code
-I'll need atleast 3 different version of each animate made
-with each version being a little stronger than the previous
-
-questions lemme know
-~
-Sender  Vegita~
-Date    Sun Dec 19 23:58:22 2004~
-Stamp   1103942256
-To      coders~
-Subject {VFORWARD{W({VTeotwawki{W){x: necromancy group evolves~
-Text
-I'd like to work on them
-but looking thru the code
-I'll need atleast 3 different version of each animate made
-with each version being a little stronger than the previous
-
-questions lemme know
-~
-Sender  Teotwawki~
-Date    Sat Dec 18 04:28:55 2004~
-Stamp   1103942817
-To      outsider~
-Subject {VFORWARD{W({VTeotwawki{W){x: It Is all Good~
-Text
-I am sure by now most of you have realized that shell is locked.  Please do
-not get excited this is a good thing.  Asmadi and I had a wonderful
-discussion tonight and have some Great plans to present to you as to how we
-would like to proceed with coding projects.  As we all know change is
-inevitable in life and this is one of those times.  I will ask you all to sit
-back and read the plan before jumping .  Please take time to let it sink in
-before you respond.  
-
-That being said, as you all know we have had a lot of down time lately.  Part
-of this we believe may be the fact that we are fortunate enough to have so
-many wonderful coders.  However, we needed to come up with a plan as to how
-to cut our down time and increase our stability.  What is in the paragraphs
-to come is what we have devised as our plan of action and we sincerely hope
-you all agree.  First all projects will be requested in writing to myself and
-your fellow coders before any work is done.  This is a multi part function. 
-We have come up with 3 different sinerios in which each assignment will fall.
-We are calling it our 1-2-3 plan.  When you note you will include what you
-are coding, the severity of the code (which I will explain momentarily) and
-what file you will be using to work on that code.  Severity will be 1, 2 or
-3.  Lets start with 1.  A 1 severity is a simple change, or easy change that
-only needs to be tested for one day before you can announce it as complete. 
-That would include something simple such as text.  Severity 2 would be
-somethings such as a spell which would need to be tested for 3 days before it
-would be announced as complete.  And Severity 3 would include the more
-difficult tasks such as writing new code which would have to be tested and
-proven stable for 1 week before anounced completed.  So lets give you an
-example.  I want to add more cross mud socials.  My note would say I would
-like to add more cross mud socials.  I believe it will be a level 2
-difficulty and will only require me to write 2 new functions, not alter any
-existing ones, and will only use act_comm.  C file.  
-
-Ok from there you will need to wait a day to get my approval.  This will give
-your co-coders a chance to comment or make suggestions and will give me a
-chance to accept or deny the request.  You may ONLY work on {COne{x code at a
-time.  Also any deviations from the initial requet must be resubmitted and
-approved.  While your code is being tested is the time to submit your next
-request however it will not be approved until the one in testing is finished
-testing and announced complete.  
-
-How is this going to happen you ask.  Well the test port is to remain open at
-all times.  It is not to be shut down by anyone for any reason.  That is
-where all your work will be done.  When Asmadi or I are sure it is a safe
-time we will do a copyover.  Noone else is to copyover on port 3000 for any
-reason.  Now I know this sounds like a lot to digest and it is.  But if you
-really sit back and think about it the stability of Legacy will keep us
-players.  A mud that is constantly down does not keep players.  
-
-Any coder that does NOT know how to test without committing needs to note
-Asmadi immediately so he can go over the process with you.  Asmadi and I want
-to keep each and every one of you .  You are all very valuable to us.  We are
-hoping to have your complete cooperation in this change.  We encourage you to
-note us with your replys.  
-
-A note on shell password is to follow.  Thank you for your time and patience.
-
-
-Humbly yours,
-Teotwawki
-~
-Sender  Vegita~
-Date    Sun Dec 19 23:58:22 2004~
-Stamp   1103942838
-To      lidda~
-Subject {VFORWARD{W({VTeotwawki{W){x: necromancy group evolves~
-Text
-I'd like to work on them
-but looking thru the code
-I'll need atleast 3 different version of each animate made
-with each version being a little stronger than the previous
-
-questions lemme know
-~
-Sender  Vegita~
-Date    Sun Dec 19 23:58:22 2004~
-Stamp   1103942967
-To      outsider~
-Subject {VFORWARD{W({VTeotwawki{W){x: necromancy group evolves~
-Text
-I'd like to work on them
-but looking thru the code
-I'll need atleast 3 different version of each animate made
-with each version being a little stronger than the previous
-
-questions lemme know
-~
-Sender  Vegita~
-Date    Sun Dec 19 23:58:22 2004~
-Stamp   1103942979
-To      imm~
-Subject {VFORWARD{W({VTeotwawki{W){x: necromancy group evolves~
-Text
-I'd like to work on them
-but looking thru the code
-I'll need atleast 3 different version of each animate made
-with each version being a little stronger than the previous
-
-questions lemme know
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 21:50:56 2004~
-Stamp   1103943056
-To      imm~
-Subject Necro~
-Text
-Now is the time to ask questions or put input in before I approve this
-project.  Thank you, Teo This is your chance to comment or question this
-project before I approve it.  
-Thank you 
-Teo
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 21:56:04 2004~
-Stamp   1103943364
-To      imms~
-Subject Reminder~
-Text
-You should all be noting me with projects.  I have projects from Outsider and
-Vegita that are in the discussion process and Monty has one approved.  I need
-to be hearing some input gang.  Also a reminder that if you are going into
-fix a crash bug it does not need approval but it does require notes.  
-Thank you all,
-Teo
-~
-Sender  Vegita~
-Date    Fri Dec 24 22:25:02 2004~
-Stamp   1103945102
-To      imm~
-Subject NEcro project~
-Text
-first attempt at "group" evolutions from myself
-kinda experimental but so far the logic behind it is good.
-Basically all it will take is a builder to make me 3 versions of the current animate mobs, 
-one for evo 2, one for evo 3, one for evo 4
-simple level 1 project shouldnt' take more than a day for testing,
-and not more than maybe 30 mins IF THAT for coding
-plz as teo has asked discuss?
-~
-Sender  Teotwawki~
-Date    Fri Dec 24 22:28:08 2004~
-Stamp   1103945288
-To      imms~
-Subject Wizgroup~
-Text
-I am making an adjustment to the project Outsider wants to work on.  I am
-asking that he takes out the option to remove all or add all.  The only thing
-this will affect is people will have to add and remove groups individually . 
-This will eliminate the problem we were having that was frustrating Xenith
-also.  
-Problems , Questions, comments?
-Teo
-~
-Sender  Outsider~
-Date    Fri Dec 24 22:38:24 2004~
-Stamp   1103945904
-To      imms~
-Subject meeting~
-Text
-I'm going to try to pop by for the new years day meeting.
-I don't think I have to work....and hopefully, I won't have to clean up too much that day.
-So, 1pm system time?
-~
-Sender  Vegita~
-Date    Fri Dec 24 22:39:02 2004~
-Stamp   1103945942
-To      imm~
-Subject meeting~
-Text
-not sure think I may be getting drunk the night before *cackles*
-not sure If I can be here in the morning
-will try tho
-
-{WVegita{x {WP{Cu{Wr{Cv{We{Cy{Wo{Cr{x of {PD{Re{Ya{Rt{Ph{x and {CD{Wi{Vs{Mm{Ne{Pm{Yb{Te{Gr{Hm{Ce{Wn{Bt{x{x{a{W 
-~
-Sender  Asmadi~
-Date    Sat Dec 25 03:02:04 2004~
-Stamp   1103961724
-To      imm~
-Subject meeting~
-Text
-I'll be partying the night before, but will be here for the meeting.  So
-forgive my tiredness.  
-~
-Sender  Outsider~
-Date    Sun Dec 26 11:30:37 2004~
-Stamp   1104078637
-To      imms~
-Subject Bug Fixes~
-Text
-I would like to propose a project.
-On and off for the past year I have been hunting down memory
-leaks, seg faults and exit() calls in Legacy's code.
-I think I've close to being finished (especially with the exit calls) and
-I would like permission to hunt down and fix the last of these errors.
-
-This would probably be a level 2 job, taking a day or two to find all the bugs.
-Due to their nature, they would be hard to test, as they are only triggered by massive memory use or long uptime.
-What I am doing, in percise terms, is finding memory allocation calls that
-are not followed by checks to see if the call was sucessful or not.
-I add a check and, if the check fails, an error message to help us track down future bugs.
-
-Outsider
-~
-Sender  Outsider~
-Date    Thu Dec 16 22:39:34 2004~
-Stamp   1104104454
-To      teotwawki~
-Subject {VFORWARD{W({VTeotwawki{W){x: Legacy Source~
-Text
-I would like to ask all of the other coders to please make sure your changes compile
-before commiting them to CVS?
-I often find the source doesn't compile after performing an update.
-
-Thank you,
-Outsider
-~
-Sender  Teotwawki~
-Date    Sun Dec 26 18:43:31 2004~
-Stamp   1104104611
-To      vegita~
-Subject Necro~
-Text
-Approved.  Please get with Lidda for the building part of what you wish to
-do.  Happy coding.  
-~
-Sender  Teotwawki~
-Date    Sun Dec 26 18:43:31 2004~
-Stamp   1104104638
-To      lidda~
-Subject {VFORWARD{W({VTeotwawki{W){x: Necro~
-Text
-Approved.  Please get with Lidda for the building part of what you wish to
-do.  Happy coding.  
-~
-Sender  Teotwawki~
-Date    Sun Dec 26 18:47:12 2004~
-Stamp   1104104832
-To      Outsider ~
-Subject Wizgroup~
-Text
-Approved.  If it has been tested properly you may commit it to game just note
-us but do NOT copyover.  Thank you.  Asmadi or I will commit.  You need to
-wait one more day before I can approve your bugs project so please do not
-begin until I note you tomorrow.  
-Thank you
-~
-Sender  Teotwawki~
-Date    Sun Dec 26 18:51:40 2004~
-Stamp   1104105100
-To      imms~
-Subject Coders/builder projects~
-Text
-Just to update everyone about what people are doing, Montrey is currently
-working on a project to make this whole system of how we do project requests
-and approvals easier.  Vegita and Lidda are working on the Necro project. 
-And Outsider is done working on the wizgroup project he will note us it is
-ready to commit then he has a request on the table for a bug project.  Thank
-you everyone for how well you have been adjusting to this new way of doing
-projects.  You guys are the BEST!!!!!  
-~
-Sender  Teotwawki~
-Date    Sun Dec 26 18:58:06 2004~
-Stamp   1104105486
-To      Lidda~
-Subject Necro project~
-Text
-Let me know if you need an area file to help you with the necro project.  And
-make sure your email address is up to date.  
-~
-Sender  Outsider~
-Date    Mon Dec 27 20:40:22 2004~
-Stamp   1104198022
-To      teotwawki asmadi~
-Subject WizGroup~
-Text
-I have updated the wizgroup helpfile and
-commited my changes to wizgroup to cvs.
-A copy of the up-to-date Legacy binary is in /home/legacy/outsider/src/
-
-I am awaiting approval for the bug fixes and sitting on my hands.
-Outsider
-~
-Sender  Teotwawki~
-Date    Mon Dec 27 22:05:55 2004~
-Stamp   1104203155
-To      outsider imms~
-Subject bug fixes~
-Text
-Project Approved.  
-
-Teo
-~
-Sender  Teotwawki~
-Date    Tue Dec 28 06:22:36 2004~
-Stamp   1104232956
-To      outsider~
-Subject wizgroup~
-Text
-Please re-examin this.  I copied over and nothing seems to have changed.  
-
-Teo
-~
-Sender  Outsider~
-Date    Tue Dec 28 20:32:25 2004~
-Stamp   1104283945
-To      teotwawki~
-Subject WizGroup Copyover~
-Text
-I get the impression that you just performed a copyover, rather than copying my changes into place and then performing a copyover.
-The binary with my changes is /home/legacy/outsider/src/legacy
-The running version of Legacy is /home/legacy/legacy/src/legacy
-I have also commited my changes to cvs in the case you wish to re-compile Legacy yourself before making the switch.
-
-I did not replace the current Legacy binary because we still experience crashes and a reboot would have been the same as me doing the copyover.
-~
-Sender  Outsider~
-Date    Tue Dec 28 21:06:51 2004~
-Stamp   1104286011
-To      imms~
-Subject Memory Bug Project~
-Text
-The memory bug project has been completed.
-Calls to the functions get_mob_index get_room_index and get_obj_index are now checked for valid values.
-Bug reports are sent on memory errors, rather than crashing the MUD.
-
-I will hold off commiting these changes until more testing can be completed.
-Also took out error message from save.c that reports a memory bug where one does no exist.
-~
-Sender  Outsider~
-Date    Tue Dec 28 20:32:25 2004~
-Stamp   1104286811
-To      asmadi~
-Subject {VFORWARD{W({VTeotwawki{W){x: WizGroup Copyover~
-Text
-I get the impression that you just performed a copyover, rather than copying my changes into place and then performing a copyover.
-The binary with my changes is /home/legacy/outsider/src/legacy
-The running version of Legacy is /home/legacy/legacy/src/legacy
-I have also commited my changes to cvs in the case you wish to re-compile Legacy yourself before making the switch.
-
-I did not replace the current Legacy binary because we still experience crashes and a reboot would have been the same as me doing the copyover.
-~
-Sender  Teotwawki~
-Date    Tue Dec 28 21:21:42 2004~
-Stamp   1104286902
-To      asmadi~
-Subject committing /copyover~
-Text
-So am I to take it that I am suppose to go into their file ...  Add it to
-Legacy..  THEN copyover...  Can't they add it to Legacy but not copyover?  
-
-Teo
-~
-Sender  Asmadi~
-Date    Tue Dec 28 21:47:24 2004~
-Stamp   1104288444
-To      montrey outsider porthios vegita teotwawki~
-Subject project completion~
-Text
-Once your project goes into the testing phase, feel free to shut down the
-current running version of the tp assuming no one else is testing...  And run
-your version of legacy as the tp on port 3001.  Once you obtain the required
-uptime for the tp with your code changes...  Feel free to get authorization
-to commit to the main code.  After it is commited, teo or myself will update
-the live program and perform a copyover once each week.  Just wanted to clear
-up any confusion there might have been regarding commiting changes.  
-- Asmadi
-
-Any suggestions or comments?
-~
-Sender  Outsider~
-Date    Wed Dec 29 17:27:00 2004~
-Stamp   1104359220
-To      imms~
-Subject Uptime comment~
-Text
-subject Uptime
-Since most of our changes involve players and since most players don't log in to port 3001, doesn't the uptime of the test program seem unimportant?
-I agree that if it crashes inside five minutes, that's a bad sign. However, if it doesn't crash after five minutes, it's not likely to crash (without stress testing) after a week.
-
-Also: Anyone else testing right now?
-~
-Sender  Teotwawki~
-Date    Wed Dec 29 17:34:47 2004~
-Stamp   1104359687
-To      asmadi~
-Subject Outsider's note~
-Text
-This one is yours *wink*
-~
-Sender  Outsider~
-Date    Wed Dec 29 23:00:25 2004~
-Stamp   1104379225
-To      imms~
-Subject Crash From Memory Error~
-Text
-As some of you have notcied in the past few days, we've been crashing from calloc() calls.
-This only seems to happen in the Write_To_Server function (which makes sense, since it's one of the few places that uses calloc.
-My temporary solution is to comment out the calloc call and set aside a large amount of space on the stack. This makes the code, in my opinion, less flexible, but it should avoid the calloc issue.
-So we're trading some efficentcy for Just Works.
-
-Since we're not able to connect to the Chat server at the moment, I'm going to put this aside for now. The only altered code is my copy of chit.c (/home/legacy/outsider/src/chit.c)
-
-~
-Sender  Lidda~
-Date    Wed Dec 29 23:24:57 2004~
-Stamp   1104380697
-To      imms~
-Subject Montrey~
-Text
-Montrey asked me to write a note explaining why he's not been around. 
-Apparently he's having some phone issues and can't get online as of now, but
-he thinks he can around saturday (hopefully) 
-~
-Sender  Teotwawki~
-Date    Thu Dec 30 06:10:25 2004~
-Stamp   1104405025
-To      imms~
-Subject chit.c~
-Text
-Since I don't know jack about code.... sounds good to me lol.
-~
-Sender  Teotwawki~
-Date    Thu Dec 30 06:11:08 2004~
-Stamp   1104405068
-To      imms~
-Subject Montrey~
-Text
-Thanks Lidda... and tell him we miss him :) 
-~
-Sender  Teotwawki~
-Date    Thu Dec 30 06:16:52 2004~
-Stamp   1104405412
-To      imm~
-Subject {YPARTY/MEETING{x~
-Text
-Come one Come all Join us in this joyous celebration of a new year, a new
-beginning at our New Years Day Party/Meeting.  It will be held here on Legacy
-from 10AM to 12PM PST or 1PM to 3PM EST.  BYOB.  This will mark a beautiful
-start to a new year between SOE and Legacy and give us a chance to guide and
-direct Legacy in a direction that is right for everyone.  Remember to mark
-your calanders.  That it is this Saturday Jan 1, 2005 ....  Don't miss out :)
-~
-Sender  Asmadi~
-Date    Thu Dec 30 08:49:30 2004~
-Stamp   1104414570
-To      imms~
-Subject re: uptime~
-Text
-I thought about that issue of uptime as well and am not sure how better to
-define testing time at this point.  Since it would be easy to just test the
-change once and just wait for the uptime to reach 3 days, you really wouldn't
-be accomplishing the level of testing needed.  Any suggestions on how to
-better manage the testing phase and setting requirements for it?  
-Asmadi
-~
-Sender  Outsider~
-Date    Thu Dec 30 22:32:30 2004~
-Stamp   1104463950
-To      imms~
-Subject Testing new Code~
-Text
-Okay, I'm brain storming here...
-1. WE want to make sure Legacy keeps good uptimes. So new versions should be able to stay up for long periods of time.
-2. We should be able to test specific changes, like certain command output, etc.
-3. Many of our current issues take a while before they show up.
-
-I have been running my test programs from screen and checking back in on it. That way I see any output without logfiles. this has the added bonus of showing my why the program died (like segfault).
-
-Perhaps a test program is in order, like they use in extreme coding. A program that would log in as a player and perform random commands (and LOTS of 'em) for several hours.
-If the game crashes or bad output is returned, the test client can log it.
-Most of us have a test ALT (I assume) so the test program could be setup to login as them, perform some commands and logout again...repeat N times...
-
-Thoughts?
-~
-Sender  Vegita~
-Date    Fri Dec 31 15:39:16 2004~
-Stamp   1104525556
-To      imm outsider~
-Subject test programs~
-Text
-Thats a rather nice idea actually
-*cheers for outsider*
-~
-Sender  Porthios~
-Date    Sat Jan  1 07:54:13 2005~
-Stamp   1104584053
-To      imm~
-Subject Meeting~
-Text
-Hello all,
-
-Unfortunately I wasn't able to get home until 6:00 am, so I think I might end up sleeping through the meeting.
-
-Hope you all had a safe and happy new year's eve.
-
-Porthios
-~
-Sender  Teotwawki~
-Date    Sat Jan  1 13:17:08 2005~
-Stamp   1104603428
-To      imm~
-Subject PARTY/MEETING~
-Text
-First and foremost I would like to thank Vegita for showing up for the
-meeting.  
-
-That being said Asmadi and I agreed that we may have poorly chosen the day
-and time for the meeting.  Soooo you are all off the hook for not showing up
-lol.  
-
-But we have WONDERFUL news to share with you all.  We have rescheduled the
-meeting for next Saturday January 8th.  We will begin at 12PM PST or 3PM EST.
-Please make an effort to come join us if it is possible.  We have joyous and
-wonderful things we would like to share with you and we would like to here
-your input.  
-
-So come one come all join us next saturday afternoon for fun and excitement. 
-
-
-Teo 
-P.  S.  I have not received any notes or emails as to goals and personal
-plans from anyone.  Please get them in.  
-~
-Sender  Outsider~
-Date    Sun Jan  2 16:29:20 2005~
-Stamp   1104701360
-To      imms~
-Subject Test Program~
-Text
-I am happy to report that my test program containing the changes/fixes I've made to Legacy managed to stay up and running for a week without issues.
-I'd like to go-ahead to commit these changes to cvs.
-~
-Sender  Teotwawki~
-Date    Mon Jan  3 16:40:35 2005~
-Stamp   1104788435
-To      outsider~
-Subject last project~
-Text
-Can you look into the last project you did and commit your work so all I need
-to do is copyover.  Thank you.  
-
-Teo
-~
-Sender  Teotwawki~
-Date    Mon Jan  3 21:06:46 2005~
-Stamp   1104804406
-To      imm~
-Subject testing~
-Text
-Please feel free to have another immortal or a mortal help you in testing new
-codes or building projects.  You do not need me to test them.  If all is good
-and it withstands the test of time...  Note imms and commit work I will
-copyover once a week I will let you know what day I will be doing copyovers
-shortly.  If by chance you would really like me to test something for you I
-can do that just ask and I will attempt to make time to do so.  When you have
-committed work you may submit a new project for approval.  Please remember to
-tell me if you need a builder's help for your projects.  
-
-Teo
-~
-Sender  Lidda~
-Date    Mon Jan  3 22:08:34 2005~
-Stamp   1104808114
-To      teotwawki~
-Subject Tokens for rooms~
-Text
-Someone's asking if they can trade immquest tokens for a room, I said i
-didn't think so, but I would double check, what's the policy on this? 
-Thanks, - Lidda.  
-~
-Sender  Fedora~
-Date    Mon Jan  3 22:57:55 2005~
-Stamp   1104811075
-To      imms~
-Subject Idea~
-Text
-Would it be possible to have a corpse take on the keyword/name of its ... previous owner.
-For example, if I kill John The Baker, I'd like to be able to look in John or look in Baker as well as look in corpse.
-
-I think this would make the kill, loot, sac process a little more straight forward.
-~
-Sender  Teotwawki~
-Date    Tue Jan  4 06:57:43 2005~
-Stamp   1104839863
-To      lidda~
-Subject in short No~
-Text
-The help file is under Help Legacy set.  However I do think we should revisit
-this whole idea.  But for now No to the rooms.  
-
-Teo
-~
-Sender  Leviathan~
-Date    Tue Jan  4 09:55:48 2005~
-Stamp   1104850548
-To      outsider imm~
-Subject commands~
-Text
-Please put 'newscore' command below the 'news' commands because when I
-only type 'news', it end up to be 'newscore'. Please fix it asap.
-Thank you.
-
-I only do that for "news list" and "news read #".
-~
-Sender  Fedora~
-Date    Tue Jan  4 16:29:48 2005~
-Stamp   1104874188
-To      imms~
-Subject Is this a bug?~
-Text
-I am fighting with two weapons, a knife in one hand and a sword in my off hand (probably looks funny, but anyway...)
-If I remove the knife (primary weapon) I stop fighting with my sword (off hand).
-I think I should mention that I have the unarmed skill. So, shouldn't I punch with my primary hand and continue to cleave with my offhand?
-
-Please get back to me on this.
-Fedora
-~
-Sender  Outsider~
-Date    Tue Jan  4 16:38:58 2005~
-Stamp   1104874738
-To      teotwawki sturm~
-Subject Invites~
-Text
-I was in charge of the invites.
-But I believe in small weddings, with only close family and friends.
-~
-Sender  Sturm~
-Date    Tue Jan  4 16:50:13 2005~
-Stamp   1104875413
-To      teotwawki~
-Subject heya~
-Text
-just checking up on you hon, I know you have been sick lately and I hope you feel better
-I was pretty upset I didnt get invited to your wedding
-and I thought that even in small weddings you have 1 witness to see it other than the priest guy
-but oh well not like it matters now Ill see you on again sometime :)
-~
-Sender  Outsider~
-Date    Tue Jan  4 16:59:49 2005~
-Stamp   1104875989
-To      imms~
-Subject A crashing bug.~
-Text
-We crashed this morning because a file that wasn't open was being closed.
-This was happening in the save.c file where characters and objects are saved/loaded. I did two things to fix this:
-
-1. Set fpReserve (the file handle in question) to NULL when the MUD first starts.
-
-2. Put in checks in all save.c functions to make sure the file was open before closing it.
-
-I would like permission to hunt down other file errors and fix them to avoid similar problems in the future.
-I expect this to take a few hours only and should be a level 1 change.
-~
-Sender  Vegita~
-Date    Tue Jan  4 18:05:46 2005~
-Stamp   1104879946
-To      imm~
-Subject Necromancy Evolve Project~
-Text
-Just a little update...
-I went ahead and recoded the whole animate mob function.
-now the mobs arn't made by what is set inside the hardcoded vnum
-they are more dynamic and change according to stats of the caster
-
-I only have a couple more small bugs to work out and then I will be preparing for the final testing phase.
-
-Questions? note me
-*ps I didn't need lidda after all *Ducks**
-~
-Sender  Teotwawki~
-Date    Wed Jan  5 06:13:18 2005~
-Stamp   1104923598
-To      syntra~
-Subject commands~
-Text
-Please do not use your immortal commands here to benefit your imm as well as any of your mortal alts. This includes Marriage. 
-Thank you.
-Teo
-~
-Sender  Montrey~
-Date    Wed Jan  5 22:50:54 2005~
-Stamp   1104983454
-To      leviathan imm~
-Subject news and newscore~
-Text
-um... there is no 'news' command.  sorry :)
-~
-Sender  Montrey~
-Date    Thu Jan  6 00:44:10 2005~
-Stamp   1104990250
-To      imm~
-Subject me~
-Text
-i'm back :)
-
-ph34r
-~
-Sender  Sturm~
-Date    Thu Jan  6 03:52:47 2005~
-Stamp   1105001567
-To      teotwawki~
-Subject hi~
-Text
-Heya I got your IM...I must have left it up when I went out bowling or with my friend picking up his son
-well hopefully I talk to you soon :)..got a day off coming up? :P...hehe
-
-GET WELL SOON TEO I LOVE YOU BYE BYE
-~
-Sender  Teotwawki~
-Date    Thu Jan  6 06:06:50 2005~
-Stamp   1105009610
-To      montrey~
-Subject you back~
-Text
-WOOOOOOOOOOOOOOOOOOHOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!
-~
-Sender  Leviathan~
-Date    Thu Jan  6 10:00:22 2005~
-Stamp   1105023622
-To      montrey~
-Subject Uhhh~
-Text
-What the hell...? I recalled that Legacy have a 'news' command for
-note-related command. It look like someone removed that commands
-unless it's for an immortal command only. Whatever!
-~
-Sender  Montrey~
-Date    Thu Jan  6 13:20:23 2005~
-Stamp   1105035623
-To      leviathan~
-Subject news~
-Text
-it was removed about 3 years ago, we found it pretty unnecessary.  and
-the color blue that it was using is now immquest notes
-~
-Sender  Vegita~
-Date    Thu Jan  6 21:26:11 2005~
-Stamp   1105064771
-To      imm~
-Subject me~
-Text
-kinda outta commission for right now 
-setting up linux on my laptop and its taking a while
-but soon as thats done I can get back to doing some coding
-
-~
-Sender  Teotwawki~
-Date    Fri Jan  7 22:42:58 2005~
-Stamp   1105155778
-To      imm~
-Subject crash~
-Text
-Help
-~
-Sender  Vegita~
-Date    Sat Jan  8 02:45:36 2005~
-Stamp   1105170336
-To      asmadi~
-Subject my place~
-Text
-systemerror.servegame.com 4221 
-that is the addy
-most the coding done by either me and/or system my co-owner
-~
-Sender  Montrey~
-Date    Sat Jan  8 12:44:34 2005~
-Stamp   1105206274
-To      asmadi outsider xenith vegita~
-Subject autoboot.sh~
-Text
-i was trying to hunt down what's been killing the mud process, cuz very
-frequently when i start spawn i get a 'killed' message and it dies, which
-i assume to mean it received sigkill.  our reboot.sh script (ran by
-autoboot.sh) performs a killall, and i'm not sure if it's working like it
-should.  well, actually, i know it's not working, because the mud was down
-when i got here this morning, i left it for half an hour and it didn't come
-back up, so i went into shell and booted it.  since the autoboot cron job
-isn't working anyway, i went ahead and disabled it in the admin panel.
-xenith wrote the thing originally, so i'm gonna try to get him to take a
-look at it, but if anyone wants to tinker with it have a blast.
-~
-Sender  Teotwawki~
-Date    Sat Jan  8 15:41:06 2005~
-Stamp   1105216866
-To      navarre~
-Subject imming~
-Text
-Are you still wanting to be a quest imm here?  I need to talk to you soon
-ok...  Love ya lots.  
-Teo
-~
-Sender  Asmadi~
-Date    Sat Jan  8 23:58:56 2005~
-Stamp   1105246736
-To      teotwawki~
-Subject couple proposed ideas from xenith~
-Text
-He suggests making the testing system go from 1-4... 1 would be a very simple change like changing a word or color of a channel which would only require loading the testport and testing for like 10 minutes.
-A level 2 would be tested for 3 days
-A level 3 would be 5 days
-and a level 4 would be 7 days.
-Also, I'm going to allow him to post a note on switching svn for the coders, this should prevent people from messing up each others code.
-~
-Sender  Teotwawki~
-Date    Sun Jan  9 08:44:53 2005~
-Stamp   1105278293
-To      outsider ~
-Subject project ~
-Text
-Approved
-~
-Sender  Montrey~
-Date    Sun Jan  9 13:05:21 2005~
-Stamp   1105293921
-To      imm~
-Subject idea~
-Text
-i'm not posting this to mortals for reasons which will become clear in a
-minute.  first off, i'm fully expecting your first reaction as you read this
-to be 'thats insane!'.  but the concept is good, because it's not mine.  wikipedia
-does this with excellent results.  what i'm suggesting is that when Porthios
-finishes with his helpfile editor, we make it available to *everyone* on the
-mud.  players could create or edit helps at will.  by now you're probably ready
-to beat me with a hammer, so let me explain.  every help that would be modified
-shows up on wiznet when it happens, *and* it shows up in a log of help
-changes that we are expected to review often.  that way if they do something
-stupid like fill up a help file full of swearing, it won't be around long before
-an imm sees it and fixes the problem.  at that point we would also revoke their
-note editing priviledges.  the reason for all this is, that notes are a means
-of writing down general mud knowledge for other players to use.  since we
-seldom have time to do it, and some players get bored so easily, we let them
-do it as they feel like it.  we might even award prizes for well written
-and useful help files.  also, i was thinking that for every person that logs in,
-a message like '2 new helps have been added.' or '5 helps have been changed
-since your last visit.'  "help list" might give you a list of recently modified
-help files, in fact it would be the same list we imms use to proofread.
-as a little bit of incentive, we might also put in a line at the bottom of
-the help, 'Last edited by: whoever'.  or if that seems like it might cause
-problems, it wouldn't be a big deal to have the mud compare old and new files
-when it's editing, and only change the 'last edited' line when there's more than
-like, 10% change.  anyway, don't write it off completely, talk to me first
-about it :)
-
-Montrey
-~
-Sender  Teotwawki~
-Date    Sun Jan  9 14:10:36 2005~
-Stamp   1105297836
-To      imms~
-Subject note editing~
-Text
-I half way agree with this idea.  There are a few issues I have with it
-though.  One is we are going to set ourselves up for help files full of
-spelling errors.  So am I correct in assuming that we will then have to go in
-catch the errors and correct them?  Also who is going to check this log
-regularrly?  Sounds to me like that is going to be a full time job in itself.
-
-
-
-One other issue I have with it is communicating mis information to the
-players.  It is one thing to grant this to say Bigsexy who has been here
-forever, or Sturm and let them create helpfiles if they choose but I am not
-sure I think this is something that everyone should have access too.  
-
-I am open minded though so I am willing to hear more about this and see what
-everybody else thinks.  
-
-Teo
-~
-Sender  Lidda~
-Date    Sun Jan  9 14:32:43 2005~
-Stamp   1105299163
-To      imms montrey~
-Subject Note/help editing~
-Text
-I think it's a good idea, but maybe something like a permanent newbie message
-board instead of actual help files?  I think there should be an official
-place morts can go to learn things set up strictly by the imms, and a
-seperate place for game tips/tricks offered by fellow mortals.  Mixing the
-two may cause lots of confusion for newer players.  Make sense?  If not, find
-me and make me explain better...  - Lidda.  
-~
-Sender  Xenith~
-Date    Sun Jan  9 19:16:42 2005~
-Stamp   1105316202
-To      imms~
-Subject Subversion discussion~
-Text
-Ok, so here's your chance to speak up with your opinions about moving to
-subversion.  Basically, the idea is to switch from CVS to subversion for all
-the code.  This change requires no effort on your part, as I'll handle the
-conversion.  The difference being that you'll use 'svn co' or 'svn commit' or
-whatever instead of 'cvs commit'.  It operates in almost the exact same
-method.  One of the main benefits is branching.  This would allow you to do
-all your work in a branch (for big changes) and be able to commit whenever
-you want.  When you are done, the changes would be merged back in to the
-'trunk', the core code.  This helps prevent the "stepping on toes" that seems
-to be rampent.  Another added bonus is that there is a windows client for
-subversion that integrates with windows explorer, so you could checkout the
-code to your system and work with it there, and then commit and test, instead
-of downloading the file via ftp, editing, then uploading again.  (though I
-hear ultraedit makes that easy) There are a bunch of other benefits, such as
-less HD space required, etc.  
-And now I've lost my train of thought. Any questions, just ask me.
-So go ahead and voice your opinions, and Teo will make the final decision.
-
-Xenith
-~
-Sender  Teotwawki~
-Date    Sun Jan  9 19:42:42 2005~
-Stamp   1105317762
-To      blackmage navarre asmadi~
-Subject quest requirements~
-Text
-Now I will start by saying that nothing is written in stone and everything is
-negotiable however this is the only way I have of assureing that quests are
-being done.  I am concerned because currently it is not the quest imms that
-have been running quests.  You guys are our front line.  I need a few things
-from you.  One , I need quest imms to be visible at all times when they are
-signed in.  You are not only questors you are our public relations.  Two, I
-need you to have one quest night a week where you are committed to certain
-times to be on to run quests.  I do not think it is a lot to ask for you to
-commit an hour or two of your time to attempt to run quests.  Three, I would
-like to see one note quest per week ran by each of you.  So that is really
-only 2 things you need to do per week to keep your imm status here.  This is
-your opportunity to tell me if you think this is unreasonable.  I am not
-saying you can not get sick and inform me you are sick with ____ and will not
-be on for a week.  I am saying on average this is what I need to see from you
-on a regular basis.  If you cannot handle this small request you may want to
-consider stepping down and giving someone else a shot.  Now I know we are
-short on mortals right now and quest nights may not be exciting but you can
-at least set them up and see if anyone shows up for them and be here if they
-do.  
-Again I stress this is totally open for discussion , I would like to hear any objections or concerns by next weekend Jan 16th. I also will accept any resignations by that date also.
-
-Humbly yours, 
-Teo
-~
-Sender  Teotwawki~
-Date    Sun Jan  9 19:45:16 2005~
-Stamp   1105317916
-To      outsider xenith porthios~
-Subject elderstatus~
-Text
-I am about to revamp elder commands and status'.  In order for this to not
-affect you I ask you to please guild yourselves in balance.  This is for your
-own protection.  
-Thank you
-Teo
-~
-Sender  Teotwawki~
-Date    Sun Jan  9 20:44:41 2005~
-Stamp   1105321481
-To      imms~
-Subject elders and guest imms~
-Text
-I am cutting back on the number of commands they have to access.  They wil be
-given the MINIMAL in order to have immstatus.  If for some reason an elder or
-guest imm finds they need more commands please note me as to what commands
-and why.  This IS n egototiable 
-~
-Sender  Lidda~
-Date    Sun Jan  9 21:22:32 2005~
-Stamp   1105323752
-To      imms xenith~
-Subject Re: Subversion~
-Text
-I got familiar (well, as familiar as I had to) when we were working on chaos,
-and I really liked the system, a lot.  It was easy to use and it was *really*
-helpful to the coders which made them happy, and when your coders are happy,
-everyone's happy *grins*.  I highly suggest, for what my little ole opinion
-is worth, that you guys at least try it.  It's rare that anyone can get me to
-change from what I'm used to, (example, CVS).  It's even more rare that I
-thoroughly enjoy the new change as much.  I think it will help yall out lots.
-Anywho...  Ya.  
-~
-Sender  Xenith~
-Date    Sun Jan  9 23:34:49 2005~
-Stamp   1105331689
-To      imms~
-Subject Prospective project~
-Text
-Ok, for my first project, I wish to remove IS_SPECIAL.  And in the process
-fix a few problem commands such as leader and deputize.  This will basically
-revert it back to rank checks like it should be.  
-
-Also, I wish to propose adding 8 more mortal levels (making hero level 99)
-and making all immortals level 100.  It shouldn't matter in terms of immortal
-levels because everything is done with rank checks now.  So I thought it'd be
-nice to give the mortals those 8 unsed levels.  
-
-
-As always, I'm available for clarifications and degredation.
-
-Xenith
-~
-Sender  Montrey~
-Date    Sun Jan  9 23:46:20 2005~
-Stamp   1105332380
-To      imm~
-Subject help files~
-Text
-oh yeah, after i posted that, asmadi suggested something like, where all editing
-to helps is done and then waits for an imm approval before it actually becomes
-visible to other players.  not hard to do, and the imm that is looking over it
-could just send it back for more work if it's full of typos or whatever.
-also, with that, content could be monitored easily also.  if someone decides
-to write a help that just lists a whole bunch of locations for pills, we
-might say 'no, people can just go exploring' and reject it.  i didn't really
-imagine this as a way for the players to put together an encyclopedia of mud
-hints, but a way for them to work on the documentation for commands and features
-and concepts that might not have such documention yet
-~
-Sender  Teotwawki~
-Date    Mon Jan 10 06:03:26 2005~
-Stamp   1105355006
-To      imm xenith~
-Subject project proposal~
-Text
-Project approved
-~
-Sender  Outsider~
-Date    Mon Jan 10 11:44:10 2005~
-Stamp   1105375450
-To      imms~
-Subject Autoboot~
-Text
-The killall command in the autoboot cron job kills any previous
-running copies of the startup script. It doesn't effect the Legacy program.
-In fact, if Legacy is still running, the startup script isn't killed anyway.
-If a new spawn is being killed it is probably due to an over-use of resources.
-~
-Sender  Outsider~
-Date    Mon Jan 10 11:46:25 2005~
-Stamp   1105375585
-To      imms~
-Subject Fclose project.~
-Text
-While hunting down nasty fclose bugs, it occured to me that the
-the use of fpReserve is probably useless on any system made after 1975.
-...
-However, I've narrowed down my search to just the closing of files which may not be open.
-I think I've found them all and I've started running a test program on port 3001.
-If anyone would care to login and poke at it, that would be great.
-~
-Sender  Montrey~
-Date    Mon Jan 10 13:29:49 2005~
-Stamp   1105381789
-To      outsider~
-Subject fpReserve~
-Text
-i've removed the reserved file handle from a couple of muds completely
-with no adverse affects, if anything it just saves a few lines of code that
-aren't doing anything useful
-~
-Sender  Teotwawki~
-Date    Mon Jan 10 17:01:35 2005~
-Stamp   1105394495
-To      imm xenith~
-Subject subversion~
-Text
-Well I gave it 24 hours and I know most have at least signed on once to have
-a shot at this idea.  Since I have only heard possitive comments I am
-approving this project.  Xenith when you finish your current project you are
-approved to move onto switching us to subversion.  
-
-Humbly yours,
-Teo
-~
-Sender  Teotwawki~
-Date    Mon Jan 10 17:07:04 2005~
-Stamp   1105394824
-To      montrey asmadi~
-Subject Help files / mortals~
-Text
-As much as I would like to revisit this idea in the future and I think we can
-work together to weed through the knots I believe right now we would like
-your focus on your current project.  If you would like to add this to the wbi
-file so we are reminded to revisit it that would be ok with me.  There are a
-few details I think needed to bend and adjust in order to sell this but I
-believe that the idea as a whole is not a bad one.  
-
-Again this is not a rejection of your project it is a "finish the one you are
-on and then bring it back up" 
-
-Humbly,
-Teo
-~
-Sender  Montrey~
-Date    Tue Jan 11 01:15:18 2005~
-Stamp   1105424118
-To      teotwawki asmadi~
-Subject wikihelps~
-Text
-sure thing :)  it'll go in the work file actually, wbi is for stuff that is
-sure to be done, and is just waiting for someone to do it
-~
-Sender  Teotwawki~
-Date    Tue Jan 11 06:07:58 2005~
-Stamp   1105441678
-To      montrey~
-Subject workfile ~
-Text
-Ok *wink*
-~
-Sender  Outsider~
-Date    Tue Jan 11 14:41:28 2005~
-Stamp   1105472488
-To      imms~
-Subject fpReserve~
-Text
-I would like to extend my fclose project to include the complete removal of fpReserve.
-As already pointed out, it no longer serves any purpose and just takes up extra code and game resources.
-This would be about a level 2 change.
-~
-Sender  Outsider~
-Date    Tue Jan 11 23:12:36 2005~
-Stamp   1105503156
-To      imms~
-Subject fpReserve~
-Text
-I have removed fpReserve from my source tree and set my test program up on port 3001.
-Please login, poke at it, run some commands, etc.
-I don't image we'll see any problems, since fpReserve isn't actually used for anything, but I just want to make sure.
-
-Hoping he didn't break anything,
-Outsider
-~
-Sender  Asmadi~
-Date    Wed Jan 12 00:04:56 2005~
-Stamp   1105506296
-To      imms~
-Subject subversion revisted~
-Text
-Currently our server is one of the older that kyndig/mudmagic offers, and as
-such it does not have the capability to run subversion.  However, Kyndig is
-willing to move us to a newer server at no additional cost but there may be
-some downtime.  I'm not possitive what other effects there might be moving to
-a newer server, so if anyone else would like to chime in and give their input
-that would help me make the decision.  
-Asmadi
-~
-Sender  Teotwawki~
-Date    Wed Jan 12 06:16:57 2005~
-Stamp   1105528617
-To      imm~
-Subject move~
-Text
-Well coders ....  Subverson v some down time...  Is it worth it?  
-~
-Sender  Montrey~
-Date    Wed Jan 12 08:21:16 2005~
-Stamp   1105536076
-To      imm~
-Subject move~
-Text
-sounds fine to me.  how will this affect how we connect to ageoflegacy.com?
-will there be some time before it works everywhere again?
-~
-Sender  Outsider~
-Date    Wed Jan 12 10:11:51 2005~
-Stamp   1105542711
-To      imms~
-Subject Subversion vs. Down Time~
-Text
-Personally, I think that our uptime should take priority.
-That being said, I find it interesting that Kyndig claims subversion won't run on this server.
-Especially since I configured and compiled a copy of subversion on the pilot server last night, just to see if it could be done.
-
-Pretty much happy either way,
-Outsider
-~
-Sender  Xenith~
-Date    Wed Jan 12 13:05:37 2005~
-Stamp   1105553137
-To      imms~
-Subject Downtown~
-Text
-There will most likely be very little if any downtime.  (And personally I
-think you all put way too my emphasis on downtime anyways :) I was planning
-to leave the mud running on pilot for a couple days before and after the
-move, pointing people to the new IP.  And I can have ageoflegacy.  Com moved
-over as soon as I have the IP of the new server.  
-~
-Sender  Teotwawki~
-Date    Wed Jan 12 17:59:25 2005~
-Stamp   1105570765
-To      imm~
-Subject personal opinion~
-Text
-This is not a final note...  I am putting my two cents in because...  Well
-because I can.  I am up for the move and I think that down time IS important
-but I don't see it getting worse than what is has been here in the past
-couple weeks.  So I will give it another day for everyone to put their two
-cents in and then I will post a decision.  
-
-Humbly,
-Teo
-~
-Sender  Asmadi~
-Date    Wed Jan 12 20:29:03 2005~
-Stamp   1105579743
-To      imm~
-Subject subversion convo~
-Text
-I don't think the downtime will be that bad.  I also have a port redirection
-program in shell that we can run as soon as legacy is up and running on the
-other server to make sure everyone is at the right place.  I'm in support of
-the change as long as there isn't anything detrimental we are forgetting.  
-~
-Sender  Asmadi~
-Date    Wed Jan 12 20:29:57 2005~
-Stamp   1105579797
-To      teotwawki~
-Subject discussion~
-Text
-I'd like to sit down and try and cordinate a meeting between edge, you, and
-myself.  Let me know when is a good date and time so we can get together and
-punch out a few advertising details.  
-~
-Sender  Montrey~
-Date    Wed Jan 12 20:37:21 2005~
-Stamp   1105580241
-To      imm~
-Subject command group adding~
-Text
-requesting project to figure out why the mud is giving people the security
-group, along with others.  hopefully a fix tonight
-~
-Sender  Montrey~
-Date    Wed Jan 12 21:26:26 2005~
-Stamp   1105583186
-To      imm~
-Subject bug fix~
-Text
-i found the bug with command groups, why players keep getting set with
-the security group among other things.  there was an old thing in save.c
-that would set cgroups to the character 'A' if they were less than 'A',
-outdated since cgroups were made into a bitvector.  anyway, 'A' is 41,
-and when a player logged on that had 0 command groups, they were given
-that.  since 32 is the security group, the mud would see them as having that,
-and then add hero, avatar, and clan, thinking they were an imm.  it's hard
-to really describe without detailing how command groups work, how they used
-to work, and how it was changed over a couple of months ago, so i'll just
-leave it at 'this is the problem'.  easy fix, 30 seconds testing, although
-i can leave it up on the test port overnight and watch nothing happen while
-players keep logging on with the security group, hero commands, clan stuff,
-etc, but i'd rather just get it in so we can avoid any more problems.
-i won't be here when anyone gets around to approving, so i'd like to
-do this and put it in the running mud tomorrow night.  i think this
-qualifies as major bug priority.
-~
-Sender  Montrey~
-Date    Wed Jan 12 21:58:45 2005~
-Stamp   1105585125
-To      imm~
-Subject previous note~
-Text
-disregard the urgency of it, i found a way to fix the mud without removing
-the bug.  i still need to modify the code though, just that it will be a non
-issue in a little while
-~
-Sender  Asmadi~
-Date    Thu Jan 13 00:59:40 2005~
-Stamp   1105595980
-To      imm~
-Subject approval~
-Text
-The giving of immortal abilities to mortals does need a fix...  Approval
-granted.  
-~
-Sender  Teotwawki~
-Date    Thu Jan 13 16:57:36 2005~
-Stamp   1105653456
-To      imm~
-Subject moving~
-Text
-Well it has been 24 hours and there have been more possitive input than
-objection so ....  Lets do it :) 
-~
-Sender  Asmadi~
-Date    Thu Jan 13 17:48:17 2005~
-Stamp   1105656497
-To      imm~
-Subject re: server change~
-Text
-I'll email kyndig and see what we need to do on our end.
-~
-Sender  Montrey~
-Date    Sat Jan 15 23:27:09 2005~
-Stamp   1105849629
-To      imm~
-Subject bug fix with command groups~
-Text
-it's tested, but i'm going to wait for the move to subversion before i
-commit the change.  files modified were nanny.c and save.c
-~
-Sender  Vegita~
-Date    Sun Jan 16 20:21:02 2005~
-Stamp   1105924862
-To      imm~
-Subject me~
-Text
-sorry everyone I've been really really sick lately.
-coughing up lungs, ect you get the idea...
-
-hopefully it passes soon....
-
-~
-Sender  Teotwawki~
-Date    Mon Jan 17 19:18:18 2005~
-Stamp   1106007498
-To      asmadi~
-Subject Blackmage~
-Text
-He needs to be either denied, fried, or eldered but he can't remain in
-balance.  I have noted him, emailed him, noted both questors with my
-expectations and got no reply.  I have given him every opportunity to step up
-to the plate and he has not.  
-You said I need your permission to demote..... well permission requested.
-
-Teo
-~
-Sender  Asmadi~
-Date    Tue Jan 18 08:56:19 2005~
-Stamp   1106056579
-To      teotwawki~
-Subject meeting time~
-Text
-I haven't heard back about when a good time to meet with both you and edge
-would be.  I'd like to discuss advertising techniques and ideas with you and
-edge and perhaps find a way to combine SoE and Legacy's efforts.  
-Please let me know when you would like to meet,
-Asmadi
-~
-Sender  Teotwawki~
-Date    Wed Jan 19 05:53:30 2005~
-Stamp   1106132010
-To      asmadi ~
-Subject meeting time~
-Text
-How about sunday afternoon.  Unfortunately school starts aback this week
-which limits my times and days.  If Sunday is not good I can do Tuesday
-evening 7-9EST.  
-~
-Sender  Asmadi~
-Date    Thu Jan 20 00:46:14 2005~
-Stamp   1106199974
-To      imms~
-Subject legacy account and subversion~
-Text
-Our new account is setup on the server and I've forwarded a copy of the email
-to teo and xenith.  
-
-Xenith let us know when you have everything setup and keep us up to date.
-~
-Sender  Montrey~
-Date    Mon Jul 28 08:25:31 2014~
-Stamp   1406561131
-To      bigsexy~
-Subject bash~
-Text
-fixed, should be much better now.  i had some things backwards
-~
-Sender  Montrey~
-Date    Tue Jul 29 06:04:35 2014~
-Stamp   1406639075
-To      lidda~
-Subject sector type and regen~
-Text
-First step to making it work would be to let players know what sector type
-they're in.  I was thinking that the 'scan' command would work well for it,
-because most people use it all the time anyway.  It also kinda overlaps with
-the 'exits' command.  What if we just combined the two, and had it show
-something meaningful?  Like this: 
-
-{PLooking around you see:
-{G(HERE) {x Entrance to Mud School {B(City){x
-{G(North){x A Room in Mud School {B(City){x
-{G(East) {x The Questmaster's Quarters {B(City){x
-{G   Annabus the Questmaster, nearby to the east.{x
-{G(South){x {Y(CLOSED){x
-{G(Down) {x The Temple of Mota (City)
-{G   Super Helga, nearby to the down.{x
-
-we would of course color it nicely so that the important info is highlighted.  for oldbies,
-keeping the 'nearby to the east' at the end would help, and indenting the list of mobs
-would be a lot more clear than scan right now.  having all the sector types at the end of lines
-would make it fast to read.
-we could also align the flags (sector type, closed, etc) on the right to make it faster to read.
-~
-Sender  Sturm~
-Date    Wed Jul 30 17:39:22 2014~
-Stamp   1406767162
-To      montrey ~
-Subject terrains~
-Text
-how about bonuses for races in certain terrains
-or also have hindurances so it's balanced
-
-
-Sturm
-~
-Sender  Montrey~
-Date    Thu Jul 31 10:29:17 2014~
-Stamp   1406827757
-To      sturm~
-Subject terrains~
-Text
-That would be cool.  Right now faeries kidn of suck at regen because of perm
-haste.  I put in a hack so they regen like normal (for now), although they
-can't slow themselves for double regen.  We were thinking about doing
-something so that faeries can regen quickly in nature areas, maybe something
-like vampire hp regen or mage mana regen, but outside of combat 
+mud crashed right after I levelled. when It came back up 
+the autosave somehow didn't work
+I was still my fresh level 20 but my qp and gold silver were gone
+tried to level again and it crash right when I would have levelled
 ~
 Sender  Error~
-Date    Sat Aug  2 15:27:19 2014~
-Stamp   1407018439
+Date    Thu Oct 20 13:32:19 2016~
+Stamp   1476995539
+To      montrey~
+Subject bug with faerie class~
+Text
+the mud auto removes the racial fly
+and the racial haste appears to work at times
+~
+Sender  Montrey~
+Date    Sat Oct 22 08:41:08 2016~
+Stamp   1477150868
+To      kith~
+Subject damage~
+Text
+no, i don't think things should even be doing acid breath at level 6, what were you fighting?
+~
+Sender  Kith~
+Date    Sat Oct 22 13:01:49 2016~
+Stamp   1477166509
+To      imms~
+Subject Cave dweller~
+Text
+he's in Moria, fight starts and then instakilled 
+
+
+Kith
+~
+Sender  Error~
+Date    Sun Oct 23 16:07:57 2016~
+Stamp   1477264077
 To      montrey~
 Subject faeries~
 Text
-just some observations
-wondering how at levle 8 my hit/dam is only 3/10 with my str being 15(19) and dex 24(25)
-the hit roll is hella low considering my dex is damn near max....
-just honestly doesn't make since that a faerie with almost max dex can't hit damn near anything
-~
-Sender  Montrey~
-Date    Tue Aug  5 05:31:55 2014~
-Stamp   1407241915
-To      xenith vegita~
-Subject code~
-Text
-please 'git pull' when you can, it should be the last of sweeping changes across all code.
-all warnings should be fixed now, let me know if your compiler shows you any.
-~
+everythimg wiznet says fixing immortal effects its dropping off my equipment 
+effects.....
+~
 Sender  Vegita~
-Date    Wed Aug  6 14:32:03 2014~
-Stamp   1407360723
+Date    Sun Oct 23 18:14:04 2016~
+Stamp   1477271644
+To      lidda~
+Subject direction update for webpage~
+Text
+need dylans area changed to:
+Dylans Area  2s,6e,4s,2e,s,2e,d,3n,e,s,n,2s,w,s,e,3s,d,4s,e,2s,2u,3w,u
+
+thanks
+~
+Sender  Error~
+Date    Sun Oct 23 19:20:39 2016~
+Stamp   1477275639
 To      imm~
-Subject will be gone for a little~
+Subject player room showed up in a quest~
 Text
-going to hospital tonight, wife is being induced. due to blood pressure problems
-the ob said no matter what he will be born tomorrow
-wish us luck!
+outsiders house is showing up in quests
 
-~
-Sender  Havoc~
-Date    Mon Aug 11 15:54:36 2014~
-Stamp   1407797676
-To      Montrey~
-Subject Urza~
-Text
-Hey brother, for whatever reason I can't log into Urza using the only pws I know he could have. the email that I used to have no longer exists...
-
-{WUrza{x
-~
-Sender  Urza~
-Date    Mon Aug 11 16:44:36 2014~
-Stamp   1407800676
-To      Montrey~
-Subject Me~
-Text
-Well Xenith helped me with my pword...
-But my pfile is... a clusterfuck...
-
-{WUrza{x
-~
-Sender  BlackMage~
-Date    Mon Aug 11 16:54:03 2014~
-Stamp   1407801243
-To      Montrey~
-Subject Havoc/Urza/Me...~
-Text
-Well it seems Urza is redundant... and should probably be nuked, I'd delete him myself but because he's a mortal with immtalk and such and I don't know what else it may screw stuff up...
-This also explains why none of my passwords would work with Urza.. maybe.. i don't know but he can go.
-
-BlackMage.
 ~
 Sender  Montrey~
-Date    Tue Aug 12 06:27:25 2014~
-Stamp   1407850045
+Date    Sun Oct 23 21:25:14 2016~
+Stamp   1477283114
+To      vegita~
+Subject spam connect attempt~
+Text
+hey, went back and looked at immtalk.  i checked the logs, the site was:
+min-extra-grab-22-de-prod.binaryedge.ninja
+
+let me know if you see that happen again?  i only saw 33 attempts, so it doesn't
+look like an attempted denial of service, but i can ask justin to put in a firewall
+rule if it continues.
+
+Jason
+~
+Sender  Error~
+Date    Mon Oct 24 23:52:21 2016~
+Stamp   1477378341
+To      imm~
+Subject mobs and bash~
+Text
+at this time there is no punishment for a mob missing their bash
+they in the same pulse get right back up to their feet
+~
+Sender  Montrey~
+Date    Tue Oct 25 20:52:05 2016~
+Stamp   1477453925
+To      imm~
+Subject mobs and bash~
+Text
+i'll take a look at that tomorrow.  for now, i fixed the pit saving stuff.
+~
+Sender  Montrey~
+Date    Wed Oct 26 04:16:21 2016~
+Stamp   1477480581
+To      xenith~
+Subject new imm?~
+Text
+Hey, I think I mentioned this last week when we talked about area chopping
+and re-themeing, but Kelley on the dev group is the person who was interested
+in adding some Smaug areas to Dizzy, and I convinced her to come over here
+and make some suggestions about what would fit.  She has a *lot* of
+experience in many kinds of muds since the early 90s.  She seems pretty
+excited to have something to contribute.  Would you mind if I made her an
+imm?  She has a fair amount of imm experience on other muds (not Dizzy) as
+well.  
+~
+Sender  Montrey~
+Date    Thu Oct 27 06:57:31 2016~
+Stamp   1477576651
+To      xenith~
+Subject git repo access~
+Text
+Hey, what would be the best way to go about splitting up the repository for
+multiple access?  I'd like to be able to allow access to the area files and
+enough stuff to run the mud, while keeping the source code, player files,
+notes, and maybe some other things separate.  I'd like a builder to be able
+to clone the building repository, and have it come with a copy of the
+executable and whatever misc files are needed to boot the mud.  We can send
+them their pfile separately.  
+
+Also, i guess we need add the rest of the mud stuff like notes, pfiles, and
+the sqlite database to the repo, and maybe do some kind of nightly commit. 
+I'd hate to lose the mud because of a hard drive failure or something :) 
+
+On a related note, wouldn't it be nice if the backup command just did a
+commit of the pfile?  
+
+On second thought, for most builders a copy of the executable is unlikely to
+run on their machine, unless sometime in the future we have it run in a
+Docker container or something.  Oh well.  Maybe just area files and help
+files in a builder repo.  
+~
+Sender  Montrey~
+Date    Mon Oct 31 12:54:28 2016~
+Stamp   1477943668
+To      dyne~
+Subject cat~
+Text
+https://twitter.com/mirrorweirdnews/status/608223154922610688
+~
+Sender  Dyne~
+Date    Mon Oct 31 12:59:36 2016~
+Stamp   1477943976
+To      montrey~
+Subject re:cat~
+Text
+that's great lmao
+~
+Sender  Vegita~
+Date    Wed Nov  2 06:58:22 2016~
+Stamp   1478095102
+To      imm~
+Subject bash~
+Text
+was bash tweaked more? noticing it connecting alot more
+~
+Sender  Error~
+Date    Thu Nov  3 13:53:17 2016~
+Stamp   1478206397
+To      montrey~
+Subject bug with dual wield evo 3~
+Text
+when I parry with offhand instead of my char doing the hilt strike
+the mob tries to do it
+~
+Sender  Montrey~
+Date    Thu Nov  3 21:14:47 2016~
+Stamp   1478232887
+To      sturm~
+Subject extraclass~
+Text
+fixed :)
+~
+Sender  Montrey~
+Date    Thu Nov  3 21:15:10 2016~
+Stamp   1478232910
+To      dyne~
+Subject exits and scan~
+Text
+fixed :)
+~
+Sender  Vegita~
+Date    Mon Nov  7 11:20:20 2016~
+Stamp   1478546420
+To      montrey~
+Subject poison damage killing a mob doesn't give quest credit~
+Text
+~
+Sender  Montrey~
+Date    Mon Nov  7 11:27:48 2016~
+Stamp   1478546868
+To      imm~
+Subject various log files~
+Text
+The log files associated with bug, wbi, hbi, wbb, hbb, ridea, and work have
+been cleaned up.  I have some things to add to hbi, but later.  
+~
+Sender  Dyne~
+Date    Wed Nov  9 11:54:23 2016~
+Stamp   1478721263
+To      montrey~
+Subject exits broken~
+Text
+this is just to remind me what area I notice it in - ACME
+~
+Sender  Montrey~
+Date    Wed Nov  9 16:45:47 2016~
+Stamp   1478738747
+To      dyne sturm~
+Subject bags of trading cards~
+Text
+i'm really sorry, i think i'm going to have to sleep before i fix your cards, but i'll get it done tomorrow.  Mont
+~
+Sender  Vegita~
+Date    Wed Nov  9 18:22:58 2016~
+Stamp   1478744578
+To      montrey~
+Subject bug~
+Text
+[*****] BUG: affect_add_sn_to_char: affect with sn 90 not found in table
+~
+Sender  Sturm~
+Date    Thu Nov 10 13:42:55 2016~
+Stamp   1478814175
+To      montrey~
+Subject missing card tokens~
+Text
+I'd say I'm missing about 26 regulars and 0 rares
+
+
+Sturm
+
+ps I'll screenshot my bag contents from now on lol
+~
+Sender  Montrey~
+Date    Thu Nov 10 16:40:21 2016~
+Stamp   1478824821
+To      xenith~
+Subject random number generator~
+Text
+I was telling you about the streak-reducing random number stuff the other
+day.  I just put it in, but i don't want to actually tell the players,
+because if i do, everyone will be super sensitive to noticing failed skill
+rolls (cognitive bias).  It's only applied to casting spells (the 'losing
+concentration' stuff) and the lore skill right now.  So, let me know if
+anyone complains about skill rolls please?  Thanks :) 
+
+The code and explanation is at the bottom of random.c, if you're interested.
+~
+Sender  Vegita~
+Date    Fri Nov 11 21:13:14 2016~
+Stamp   1478927594
+To      imm~
+Subject evolved magic missile~
+Text
+I almost have it done the swarm chance is messing with me a little
+lol
+~
+Sender  Montrey~
+Date    Sat Nov 12 05:22:19 2016~
+Stamp   1478956939
+To      sturm ok, i put a pile of cards in your inventory :)  sorry bout the mess.~
+Subject lost cards~
+Text
+~
+Sender  Vegita~
+Date    Sun Nov 13 14:40:56 2016~
+Stamp   1479076856
+To      montrey~
+Subject magic.c error~
+Text
+corrected, committed and pushed
+~
+Sender  Dyne~
+Date    Mon Nov 14 06:35:26 2016~
+Stamp   1479134126
+To      montrey~
+Subject issue with plague~
+Text
+Check out Western Common in Holy City...I don't think that should be happening :P
+~
+Sender  Vegita~
+Date    Mon Nov 14 07:41:35 2016~
+Stamp   1479138095
+To      imm~
+Subject buglist and stuff~
+Text
+will be going thru the bug list either today or tomorrow and fixing the simple bugs
+~
+Sender  Vegita~
+Date    Mon Nov 14 22:20:22 2016~
+Stamp   1479190822
+To      arcannos~
+Subject your bug submission~
+Text
+you submitted a bug that said cure can cure way above max hp
+is this a healer casted spell or a player casted version?
+thanks for your reply
+~
+Sender  Vegita~
+Date    Mon Nov 14 22:36:00 2016~
+Stamp   1479191760
+To      imm~
+Subject changes~
+Text
+
+switched to mobs no long auto-afk or disappear into the void.
+moved order above oclone in interp.
+Quest double affects Skill quests 
+IMMS can recall from no recall areas
+IMMS no longer can disenchant or implode equipment with shrink.
+IMMS are no longer affected by anti-evil/good/neutral on equipment
+
+these were from the bug list (some on the list need clarification)
+any questions lemme know.
+
+I've already pushed my local branch to my origin branch
+~
+Sender  Vegita~
+Date    Mon Nov 14 23:04:22 2016~
+Stamp   1479193462
+To      montrey~
+Subject lore~
+Text
+when you lore a piece of equipment its repeating the stats on it making it look
+like it has a ton of affects
+
+also an etched piece of equipment is showing and applyign the acid breath affect on characters
+~
+Sender  Lidda~
+Date    Tue Nov 15 06:00:20 2016~
+Stamp   1479218420
+To      imm ~
+Subject Re: Changes~
+Text
+YAY! Thanks Vegita :) 
+~
+Sender  Tempest~
+Date    Thu Nov 17 07:02:52 2016~
+Stamp   1479394972
+To      vegita ~
+Subject MM~
+Text
+Swarm happens a lot more often than 15% of the time. At least every other cast, usually more than 1 time during the cast. Also the message is getting tacked on the end of a fight after the mob is dead under the amount of coins you get from the mob
+~
+Sender  Lidda~
+Date    Thu Nov 17 08:03:46 2016~
+Stamp   1479398626
+To      montrey vegita~
+Subject Scan2~
+Text
+{WNorth - Room Name 
+{k...........{CMob Name
+{k...........{CMob Name
+{WEast - Room Name
+{k...........{CMob Name
+{WWest - Room Name
+{WSouth - Room Name 
+{k...........{CMob Name
+{WUp - Room Name {Y(Closed){x
+{k...........{CMob Name
+{k...........{CMob Name
+{k...........{CMob Name
+{WDown - Room Name {Y(Closed){x
+{k...........{CMob Name
+
+
+There's a start. Just imagine that everything is in rows and lined up, which was too damn hard to do on note. 
+~
+Sender  Tempest~
+Date    Thu Nov 17 12:47:02 2016~
+Stamp   1479415622
+To      sturm~
+Subject Resistance~
+Text
+HC resistance area is through a portal in the bar.  Go to the beer cellar in
+demon's inn and enter bar.  
+~
+Sender  BigSexy~
+Date    Thu Nov 17 12:50:35 2016~
+Stamp   1479415835
+To      montrey~
+Subject prompt~
+Text
+any news on getting me one?
+me
+~
+Sender  Tempest~
+Date    Thu Nov 17 17:27:14 2016~
+Stamp   1479432434
+To      vegita~
+Subject Fig Pills~
+Text
+The fig pills are still level 15 but now have level 1 spells :P
+~
+Sender  Vegita~
+Date    Thu Nov 17 19:07:49 2016~
+Stamp   1479438469
+To      lidda~
+Subject mm and fig pills~
+Text
+will fix asap
+~
+Sender  Montrey~
+Date    Fri Nov 18 18:15:30 2016~
+Stamp   1479521730
 To      bigsexy~
 Subject prompt~
 Text
-you said your prompt is missing?  have you tried typing 'prompt'?
+If you had asked me a few days ago, what's the least buggy thing on this mud?
+I'd answer, "the prompt is pretty bulletproof, hard to imagine that screwing
+up."  
+well, i'd have been wrong.  i'm looking into it now :)
+~
+Sender  Montrey~
+Date    Fri Nov 18 18:24:29 2016~
+Stamp   1479522269
+To      bigsexy~
+Subject prompt~
+Text
+ok, so if i log in as you on the test mud, the prompt looks fine.  other imms were
+trying to see your prompt with snoop, and that doesn't actually work for seeing
+a prompt.  so, next thing to check is, what client are you using?  maybe there's
+something weird that the mud is doing to cause it to eat the prompt line?
 ~
 Sender  Vegita~
-Date    Fri Aug 15 21:58:00 2014~
-Stamp   1408165080
-To      imm~
-Subject un used areas~
-Text
-I proposed this awhile back before legacy went down
-basically all the excess areas get removed
-there are only a handful of areas that are even used
-obviously the levelling areas and the areas that equipment is being used from would stay
-but some of the other areas would go away
-it would help with new players when we get them 
-it would make a more welcoming environment where they wouldn't have to root 
-around in areas
-it would also help to make it more compact for the time being
-
-~
-Sender  Xenith~
-Date    Fri Aug 15 22:14:08 2014~
-Stamp   1408166048
-To      imm~
-Subject Area cleanup~
-Text
-Really, I think all the areas need to be rewritten. Make a theme and then build
-all your areas around it to create a seamless world.
-All the merc/rom/godwars/etc areas are just built up of random ideas from random
-builders over time. There's no cohesion to it.
-
-But then again, I'm not a builder, and I suck at building areas.
-And I'm lazy. :)
-~
-Sender  Vegita~
-Date    Fri Aug 15 23:32:42 2014~
-Stamp   1408170762
-To      imm~
-Subject xen's note~
-Text
-I agree with you
-building towns isn't that bad and can be done rather fast
-the thing we gotta decide is are we continueing with the current code or what?
-cause honestly any changes will be useless if we jump
-to another code
-
-and honestly I'm almost past the point of caring if we
-end up having to pwipe only cause only a couple oldbies
-that I know of have shown back up.
-and a rip and rebuild will strip them of all their gear
-
-part of the reason I havn't really advertised Legacy.
-don't wanna get people to play to only alienate their work and time
-with changes
-
-now if we stay with this code I'm honestly down to 
-hire builders to help with the reconstruction
-you'd only really need a couple towns, and an area or two for each level range
-so at most 2 areas per range being around 18 areas needing to be built for actual levelling
-and thats just to restore it back to functioning
-~
-Sender  Vegita~
-Date    Sat Aug 16 10:01:50 2014~
-Stamp   1408208510
+Date    Fri Nov 18 19:11:32 2016~
+Stamp   1479525092
 To      montrey~
-Subject my stuff~
+Subject git~
 Text
-can I get access back to all commands plox?
-thanks
-~
-Sender  Havoc~
-Date    Wed Aug 20 20:07:38 2014~
-Stamp   1408590458
-To      imm~
-Subject prompt length~
-Text
-If I could get someone to extend the maximum number of characters used in a
-prompt, that'd be great.  I've reached the limit and have half of my color
-imbedded into my prompt By my estimation I need approx 80 more characters to
-color the rest of my prompt.  
-
-
-{WMe{x.
+I did git checkout and added the 2 files I need to push
+but when I did git commit again it complained about untracked files and didn't let me put 
+commit comments in
+so the last push from me was fixing the fig (messed up the spell level) and 
+fixing some bugs with magic missile
 ~
 Sender  Montrey~
-Date    Tue Sep  2 12:15:17 2014~
-Stamp   1409685317
-To      imm~
-Subject areas and such~
+Date    Sun Nov 20 18:09:19 2016~
+Stamp   1479694159
+To      bigsexy chimaira~
+Subject gmud prompts~
 Text
-I'm fine with removing some areas, but to be honest, we've been talking about
-creating something new for a while now.  Xenith and I have been working on a
-new pretty awesome codebase that will make creating new mud code as simple as
-mobprog scripting.  It's nowhere near ready, but I think that if we're going
-to put any kind of real effort in, it should be there.  
-
-However, I've been occupied with this real life thing lately, with family,
-work, school, and moving taking up most of my waking hours.  It will probably
-be that way for the next couple of weeks until things settle down a bit, and
-I can put a little time into hobbies.  If there's something someone wants to
-do to *this* mud, I'll probably be fine with it.  
+fixed!
+~
+Sender  Montrey~
+Date    Wed Nov 23 19:17:37 2016~
+Stamp   1479957457
+To      xenith~
+Subject weird connections~
+Text
+hey, just letting you know we saw about 30 of these in a row, over about 10 seconds.
+<WizNet> Init_descriptor: host name = min-08-31-5132-de-d-prod.binaryedge.ninja
+It happened once a few weeks ago, too, maybe more since then.  Not if it's just a port scan or what :)
+~
+Sender  BigSexy~
+Date    Tue Nov 29 04:41:21 2016~
+Stamp   1480423281
+To      chimaira~
+Subject prompt~
+Text
+<G%h/R%Hhp B%m/%Mm c%v/%Vmv W%Xxp Y%qq N%jsk>
 ~
 Sender  Vegita~
-Date    Tue Sep  2 19:34:11 2014~
-Stamp   1409711651
+Date    Fri Dec  2 19:31:35 2016~
+Stamp   1480735895
 To      imm~
-Subject monty's note~
+Subject new character creation~
 Text
-yeah I've been out of comission with Will
-I've been looking over the code you guys are working on
-and once I get more time to study I'll probably help
-out where I can.
+had bigsexy telling me that when he tried to make a new char
+it wasn't showing him the retype your password prompt
+it was just showing him a blank line
+he said he is using gmud
+~
+Sender  Ragnok~
+Date    Sun Dec 11 08:11:38 2016~
+Stamp   1481472698
+To      Lidda~
+Subject directions~
+Text
+
+Mighty Lidda,
+I noticed the directions for Moria are not correct
+it has directions to Mob Factory.. should be
+2S, 6e, 6n for Moria
+respectfully, Ragnok
+~
+Sender  Vegita~
+Date    Sun Dec 11 14:37:21 2016~
+Stamp   1481495841
+To      vegita~
+Subject zyloch qp~
+Text
+23 qp
+~
+Sender  Zyloch~
+Date    Sun Dec 11 14:40:09 2016~
+Stamp   1481496009
+To      vegita~
+Subject Hey, I recreated.~
+Text
+This is my new character, can I get 23 qp reimbursed. Thanks :)
+~
+Sender  Lidda~
+Date    Mon Dec 12 08:16:27 2016~
+Stamp   1481559387
+To      ragnok ~
+Subject Moria Directions~
+Text
+Thank you for letting me know, I've fixed it on the site! :) 
+Lidda
+I put a token in your inventory for the help
+~
+Sender  Vegita~
+Date    Mon Dec 12 16:15:23 2016~
+Stamp   1481588123
+To      lidda montrey~
+Subject strongbox stuff~
+Text
+if (get_obj_number(obj) + get_strongbox_number(ch) > 45 + ch->pcdata->remort_count) {
+
+in act_obj.c line 837
+and line 857
+~
+Sender  Dyne~
+Date    Wed Dec 14 08:58:32 2016~
+Stamp   1481734712
+To      vegita~
+Subject re: Color quest~
+Text
+Solar -   {GS{Co{Yl{Ca{Gr{x
+Hearty -   {RH{Pe{bar{Pt{Ry{x
+Lucky -   {HL{Gu{gc{Gk{Hy{x
+Precise -   {TPr{Pe{Yc{Pi{Tse{x
+Angelic -   {NA{Bn{gg{We{gl{Bi{Nc{x
+Misty -   {CM{gi{Cst{gy{x
+Icy -   {BI{Cc{By{x
+Honed -   {gH{bo{gn{be{gd{x
+Astral -   {MA{Bs{Ctr{Ba{Ml{x
+Stalwart -   {HSt{ca{Hlw{ca{Hrt{x
+Fortuitous -   {GFo{Hr{ct{Gui{Ht{co{Gus{x
+Skilled -   {MS{Vk{Bi{Ml{Vl{Be{Md{x
+Satanic -   {cS{Ra{ct{Ra{cn{Ri{cc{x
+Armored -   {cA{Nr{cm{No{cr{Ne{cd{x
+Thirsty -   {TT{Bh{Ci{gr{Ts{Bt{Cy{x
+Toxic -   {bTo{Hx{bic{x
+Lunar -   {WL{gu{gn{ca{cr{x
+Mystical -   {YM{by{Ps{ct{Ni{Bc{Ta{gl{x
+Sturdy -   {bSt{Pu{brd{Py{x
+Jagged -   {WJ{ga{cg{Wg{ge{cd{x
+Pure -   {TPure{x
+Swift -   {CS{Tw{Bi{Cf{Tt{x
+Arcing -   {NA{Cr{Wc{Ni{Cn{Wg{x
+Windy -   {cWi{gnd{Wy{x
+Magical -   {CM{Ba{Ng{Mi{Nc{Ba{Cl{x
+Reinforced -   {WR{ge{Ti{Wn{gf{To{Wr{gc{Te{gd{x
+Brutal -   {RB{br{Hu{Rt{ba{Hl{x
+Tainted -   {RT{ba{Mi{Bn{Ht{be{Rd{x
+Flaming -   {cF{Pl{Yami{Pn{cg{x
+Vorpal -   {gVo{Rrp{gal{x
+Healthy -   {HH{Pe{Halt{Ph{Hy{x
+~
+Sender  Vegita~
+Date    Thu Dec 15 17:17:48 2016~
+Stamp   1481851068
+To      zyloch~
+Subject bug report~
+Text
+compulsive liar is immune to magic, 
+and the spy from the dwarfen kingdom is the same
+
+we do have some mobs that are immune magic, vuln weapons, and vice versa
+~
+Sender  Dyne~
+Date    Mon Dec 19 12:46:51 2016~
+Stamp   1482180411
+To      montrey xenith~
+Subject bug~
+Text
+snake-oil huckster is immune to weapon, but my HFK blood flag and vorpal flag animation still go off and i am healing
+~
+Sender  Vegita~
+Date    Mon Jan  2 13:41:04 2017~
+Stamp   1483393264
+To      montrey~
+Subject adding a value line to objects~
+Text
+how hard would it be to add a v5 for use with the 
+dynamic loot system
+would make doing the suffixes easier
+~
+Sender  Vegita~
+Date    Mon Jan 16 22:52:32 2017~
+Stamp   1484635952
+To      imm~
+Subject bots~
+Text
+whats the stance on it currently?
+at this point in time I don't really care personally
+aslong as they arn't like levelling or questing bots
+
+only asking cause had a mortal using a bot to practice spells
 ~
 Sender  Montrey~
-Date    Wed Oct  5 19:06:13 2016~
-Stamp   1475719573
-To      xenith~
-Subject mudlet 3~
+Date    Tue Jan 17 19:00:57 2017~
+Stamp   1484708457
+To      lidda~
+Subject vortex~
 Text
-use the version i linked you to, it fixes the problem of resizing the window every time your input line gets longer than the text box on the bottom.
+n w 2n 2e n
 ~
 Sender  Montrey~
-Date    Thu Oct  6 05:51:01 2016~
-Stamp   1475758261
-To      xenith~
-Subject mudlet link~
+Date    Fri Jan 20 07:14:20 2017~
+Stamp   1484925260
+To      vegita imm~
+Subject bots~
 Text
-https://github.com/Nyyrazzilyss/NyyLIB/blob/master/Mudlet.app.zip
+I don't care.  I personally find writing good bot scripts just as fun as
+actually playing.  I think the argument against them is that it may be unfair
+for people who don't bot, if we think of the game as some kind of
+competition.  Maybe true.  Maybe weshouldnn't *encorage* botting, and this
+all may change if peoplle complain.  But I think as long as they aren't
+actively messing up the game for someone else, we can ignore it.  
+~
+Sender  Theutus~
+Date    Tue Jan 24 13:45:27 2017~
+Stamp   1485294327
+To      imm~
+Subject necro evolve~
+Text
+Almighty ones,
+I noticed that necromancer is only able to evolve 5 where mage can evolve 7 spells..
+One was sanctuary and there was another one that I was not able to evolve
+the fireball spell to the third lvl that mage is able to reach
+.
+I have much to learn but really love The Age of Legacy and thank you for all your work.
+It may be the case that necro is able to evolve magic missle or another spell that mage can not..
+but if the necro does not have anything for specific class I would like to request
+that there be a maladictions spell that can be evolved onlu by necromancers or that one of the
+animate pet spells be selected to even up the evolution chart for Necromancer.
+Again I am very sorry if I have bad information due to my inexperience.
+.
+Respectfully,
+Theutus PDW of The Rebel Alliance
+~
+Sender  Vegita~
+Date    Tue Jan 24 20:40:14 2017~
+Stamp   1485319214
+To      theutus imm~
+Subject necro evolve~
+Text
+necros are actually on my list for classes to get evolves done for
+I had a long time ago started working on making their animate spells
+evolvable, I will probably do that along with thief's backstab once
+I get done with the dynamic loot code
+
+also been mulling over making an animate corpse spell
+that would allow you to animate the corpse of a slain monster
+to fight along side of you for a period of time before
+it would ultimately decay.
+~
+Sender  Montrey~
+Date    Fri Feb 24 06:38:24 2017~
+Stamp   1487947104
+To      korian~
+Subject riposte~
+Text
+I see you have riposte at 90% now, was there a bug?
+~
+Sender  Montrey~
+Date    Fri Feb 24 07:31:29 2017~
+Stamp   1487950289
+To      lidda~
+Subject I can't see where imm shrink is destroying things, show me?~
+Text
+~
+Sender  Vegita~
+Date    Sat Feb 25 20:33:04 2017~
+Stamp   1488083584
+To      imm~
+Subject prior notes ect....~
+Text
+noticed for some reason note list doesnt show prior notes for some reason same with pers list
+last change note besides the one mont sent about the ninor fixes is the addition of vortex
+~
+Sender  Montrey~
+Date    Wed Mar  1 08:18:00 2017~
+Stamp   1488385080
+To      imm~
+Subject prior notes~
+Text
+Yeah, i noticed that too, it seems like the notes are aging off too quickly. 
+I'll either fix it or adjust the aging to reflect our low note volume :) 
+~
+Sender  Vegita~
+Date    Tue Mar 21 19:57:23 2017~
+Stamp   1490151443
+To      imm~
+Subject odd bug~
+Text
+<WizNet> [*****] BUG: db_query: near "a": syntax error
+<WizNet> [*****] BUG: db_query: near "b": syntax error
+not sure what was going on during this
+came back to the screen and it was there
+~
+Sender  Asgoth~
+Date    Mon Apr 17 09:25:30 2017~
+Stamp   1492446330
+To      Vegita~
+Subject Obj Names~
+Text
+Here's my addition to the contest.
+Light "A Flaming Skull"
+finger "Despair" & "Decay"
+neck  "A Steel Gorget"
+torso "Crest Of The Templars"
+head "The Horned Helmet"
+legs "Flaming Greaves"
+feet  "Tormented Feet"
+hands "Forgemaster's Gloves"
+arms "Black Burnt Underarms"
+shield "Blood-Stained Barrier" 
+waist  "Links Of Dragonscales"
+wrist  "Runed Viking Bracer"
+hold "A Meerschaum Pipe"
+floating "A Swarm Of Bees"
+axe "Two-Lugged Beard Axe"
+dagger "A Dragons Tooth"
+exotic "Mjlnir, The Hammer Of The Sky's"
+flail "The Ye Olde Ball & Chain"
+mace "Giant Bone"
+polearm "Crowhead, The War Scythe"
+spear "The Dragon Stabber"
+sword "The Moro Kris"
+whip "A Sadistic Looking Leather Whip"
+Please Forgive any spelling/grammar errors.
+Best Regards //Asgoth
+~
+Sender  Vegita~
+Date    Wed Apr 19 09:03:49 2017~
+Stamp   1492617829
+To      montrey~
+Subject loot system~
+Text
+very close to having it done, just have some testing
+to do, and to integrate it to my test port.
+I'll work on suffixes later since they are slightly more involved
+but the base system is done for now
+~
+Sender  Vegita~
+Date    Fri Apr 21 14:08:52 2017~
+Stamp   1492808932
+To      imm~
+Subject bows~
+Text
+show up as unknown weapon type
+just figured I'd let yall know lol
+~
+Sender  Montrey~
+Date    Fri May 12 18:06:14 2017~
+Stamp   1494637574
+To      montrey~
+Subject detects~
+Text
+fix them to 35
+~
+Sender  Vegita~
+Date    Wed Jun 21 20:54:16 2017~
+Stamp   1498103656
+To      montrey~
+Subject vegita branch~
+Text
+I think I have it fixed
+no errors, I just need my vegita branch merged in with the master I think?
+basically my branch needs merged in
+~
+Sender  Montrey~
+Date    Thu Jun 22 06:13:32 2017~
+Stamp   1498137212
+To      imm~
+Subject mud state~
+Text
+Last night I changed the mud over to the new C++ version, this morning I
+reverted it :) Not quite ready.  Had a couple of bugs with reconnecting after
+a timeout that I need to track down.  
+~
+Sender  Montrey~
+Date    Sat Jun 24 10:18:27 2017~
+Stamp   1498324707
+To      xenith~
+Subject proxy~
+Text
+I was playing around with zeromq and built a telnet proxy in Python.  Took
+about 15 lines of code and works well with the simple mud server I made (also
+python).  Clients survive server crashes, and even queue their messages until
+it comes back.  The proxy and server can also be started in any order, so the
+system doesnt break with a crash from either.  
+
+My plan is to add a few lines to the mud to allow connections from both the
+proxy and traditional direct telnet, until we're happy with it.  It will also
+be relatively simple to support multiple proxies (theyre just clients of an
+IPC bound "socket" to the game), so we can add another proxy to support
+websockets or whatever.  I'll make an initial commit once i put very basic
+support in the game for testing, hopefully this afternoon.  
+~
+Sender  Montrey~
+Date    Sun Jun 25 04:41:30 2017~
+Stamp   1498390890
+To      montrey~
+Subject test~
+Text
+test
+~
+Sender  Montrey~
+Date    Sun Jun 25 04:42:01 2017~
+Stamp   1498390921
+To      rakurai~
+Subject test~
+Text
+test
+~
+Sender  Vegita~
+Date    Sun Jun 25 17:01:52 2017~
+Stamp   1498435312
+To      imm~
+Subject a good read~
+Text
+came across this the other night when I was pondering the remodeling of the newbie school
+http://journal.imaginary-realities.com/volume-07/issue-01/what-i-do-now/index.html
+the part that had me interested is under Passive Tutorial Mode
+~
+Sender  Montrey~
+Date    Thu Jun 29 19:23:31 2017~
+Stamp   1498789411
+To      vegita~
+Subject affect bug~
+Text
+So on lines 298-378, it figures out 'loc' and 'mod' for ITEM_ARMOR
+and ITEM_WEAPON. Then below it it checks to see if 'loc' is 0, if not, it
+adds the affect.  Two things:  for both armor and weapon, there are 3
+if statements that can set 'loc' and 'mod'.  Should that be "if - else if - else if"?
+Also, what if none of those happen?  Is it possible for the item to not
+be ITEM_ARMOR or ITEM_WEAPON (need a default case)?
+
+Checking for 'loc' == 0 down below is fine, but you need to set 'loc = 0'
+up above.  Just declaring 'int loc' could have random garbage in the variable.
+I expect that's why you have weird affects, it just made a new affect
+with loc = 16000 or whatever.
 ~

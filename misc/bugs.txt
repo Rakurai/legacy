@@ -29,11 +29,9 @@ Bug File, clear when fixed.
 {Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: same thing happens in ctest, the white/grey/grey line is dark black bg, the ones under it are dark grey (except red), and charcoal is just weird (dark blue background)
 {Y[{x10/10/16{Y]{x {C[{x 1290{C]{x Montrey: in character creation, 'help lay' brings up the help for slay, but not repeatable in game
 {Y[{x10/10/16{Y]{x {C[{x 3014{C]{x Celes: auto afk is too auto
-{Y[{x10/11/16{Y]{x {C[{x10292{C]{x Montrey: editing a help seems to have some garbage left over in a buffer, it had another help file appended to my text
 {Y[{x10/13/16{Y]{x {C[{x10292{C]{x Montrey: move order above oclone in the interp list
 {Y[{x10/15/16{Y]{x {C[{x 1290{C]{x Montrey: "change -" cleared my whole note?
 {Y[{x10/16/16{Y]{x {C[{x 3743{C]{x Fiddle: can't see exp to level at level 1?  is it the color?
-{Y[{x10/17/16{Y]{x {C[{x 1290{C]{x Montrey: still weird with helps.  i'm trying to edit 'help multi', and line 3 exists (shows in edit) but after saving, not in help.  is it getting sent to the database right away?
 {Y[{x10/21/16{Y]{x {C[{x 1290{C]{x Montrey: loadhelps is really really slow, even on one file
 {Y[{x10/21/16{Y]{x {C[{x 1290{C]{x Montrey: if i switch to a mob, it can auto-afk
 {Y[{x10/24/16{Y]{x {C[{x14200{C]{x Lidda: make room non-quest. 
@@ -56,7 +54,6 @@ Bug File, clear when fixed.
 {Y[{x11/06/16{Y]{x {C[{x24600{C]{x Sariah: you cannot search for a helpfile with part of the word (ie help truth will not show light of truth spell helpfile)
 {Y[{x11/06/16{Y]{x {C[{x 3365{C]{x Tempest: Double qp does not give double sp
 {Y[{x11/07/16{Y]{x {C[{x16250{C]{x Montrey: look still checks inventory before room extra descriptions
-{Y[{x11/07/16{Y]{x {C[{x16250{C]{x Montrey: why does rebel have a cape with +8/8 hit/dam?
 {Y[{x11/07/16{Y]{x {C[{x 5382{C]{x Montrey: move order before oclone on interp, jeez
 {Y[{x11/07/16{Y]{x {C[{x 5382{C]{x Montrey: flying mobs don't show as flying in look
 {Y[{x11/07/16{Y]{x {C[{x 5382{C]{x Montrey: can't undo spells on your charmed mob? is that a bug or a feature?
@@ -89,24 +86,16 @@ Bug File, clear when fixed.
 {Y[{x01/27/17{Y]{x {C[{x 3365{C]{x Celes: when you can't undo something, the message should be clear
 {Y[{x02/07/17{Y]{x {C[{x 3370{C]{x Celes: remort skills aren't improving very quickly
 {Y[{x02/14/17{Y]{x {C[{x 3365{C]{x Celes: still weird visibility shit with some channels, like social.  Tempest was invis and it said 'someone'
-{Y[{x02/16/17{Y]{x {C[{x32009{C]{x Celes: make undo spell, remove curse, cure disease, etc take off a random number of levels on failure, maybe 1-4, not just 1 level at a time
 {Y[{x02/16/17{Y]{x {C[{x 3365{C]{x Celes: the wedding ring slot shouldn't show up if you're not married, unless there's a ring there
 {Y[{x02/16/17{Y]{x {C[{x14005{C]{x Celes: make sure that the effect caching stores the highest evolution of the effect?
 {Y[{x02/16/17{Y]{x {C[{x 3365{C]{x Celes: undo spell should work on mobs for targetted dismantling of spells.  nongrouped victims should still get a save vs spell and level save, but better chance than dispel magic
 {Y[{x02/16/17{Y]{x {C[{x 3365{C]{x Celes: when you are fighting multiple things, killing one will set your fighting to none.  it should check if something is fighting you and set fighting again immediately
 {Y[{x02/17/17{Y]{x {C[{x 7635{C]{x Celes: make faerie fire and hex do something on mobs
-{Y[{x02/20/17{Y]{x {C[{x32041{C]{x Tempest: why the fuck is there a limit on aliases?
 {Y[{x02/24/17{Y]{x {C[{x 1290{C]{x Montrey: imms shouldn't prevent zones from repop
 {Y[{x02/24/17{Y]{x {C[{x 1290{C]{x Montrey: <WizNet> Log Tempest: remort tempest
 {Y[{x02/24/17{Y]{x {C[{x 1290{C]{x Montrey: <WizNet> [*****] BUG: raff_add_to_char: invalid raffect ID 16
 {Y[{x02/25/17{Y]{x {C[{x 1290{C]{x Lidda: Why are we limiting the amount of aliases people can have?
-{Y[{x02/26/17{Y]{x {C[{x 3054{C]{x Asgoth: Hello, i have been dissconnected several times in a row, happens every time i try to kill a mob. When i get the mob to awfull condition i get dissconected and when i connect again i am at my last save. //Asgoth
-{Y[{x03/01/17{Y]{x {C[{x 3001{C]{x Tempest: twice in a row I've crashed the mud by almost killing a mob. Crashes right before it dies.
-{Y[{x03/17/17{Y]{x {C[{x 3054{C]{x Noctuar: In the Legion area there is a no exit room with Icewing the dragon?  You have to kill him to get a key to escape (I'm guessing, he whooped me).  The bug here is that your corpse does not go the corpse area (2d).  Not sure if that is intentional.  Tha
 {Y[{x03/17/17{Y]{x {C[{x 3054{C]{x Noctuar: In the Legion area there is a no exit room with Icewing the dragon?
 {Y[{x03/17/17{Y]{x {C[{x 3054{C]{x Noctuar: The bug here is that your corpse does not go the corpse area (2d).  Not sure if that is intentional.  Thank you.
 {Y[{x03/20/17{Y]{x {C[{x 1290{C]{x Lidda: re-entering a room with your skill quest target gives a weird bug and spams the player again. 
-{Y[{x04/03/17{Y]{x {C[{x 1290{C]{x Lidda: list
-{Y[{x04/17/17{Y]{x {C[{x 1290{C]{x Lidda: bows don't show weapon damage
-{Y[{x04/17/17{Y]{x {C[{x 3054{C]{x Tempest: showlost doens't come on automatically
-{Y[{x04/19/17{Y]{x {C[{x 3033{C]{x Lidda: Reciting identify scrolls does not work.
+{Y[{x06/13/17{Y]{x {C[{x10100{C]{x Korian: faeries don't resume flying when they recover from a bash

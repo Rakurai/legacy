@@ -2978,3 +2978,316 @@ Subject xsocials~
 Text
 are not a thing anymore
 ~
+Sender  Montrey~
+Date    Sat Oct 15 04:01:47 2016~
+Stamp   1476529307
+To      all~
+Subject recent changes~
+Text
+Just an update on what's been going on.  We have some big plans for the
+relatively near future, so I've been working on some backend changes to make
+that possible.  
+
+- we changed our database from MySQL to SQLite, mostly for portability.
+- Player files have been changed from the old custom ROM format to a widely used
+{x  file format called JSON, which lets us make additions *much* more easily
+
+While these changes won't be visible to most users, they will make the fun
+changes much easier to do.  Thanks for the patience, everyone.
+~
+Sender  Montrey~
+Date    Sat Oct 15 04:07:36 2016~
+Stamp   1476529656
+To      imm~
+Subject new feature~
+Text
+At Lidda's request, I shamelessly stole a feature from Dizzy called
+'immprefix', which lets imms change how their name looks in immtalk.  To
+change yours, use the new config group 'immortal': 
+
+config imm immprefix {{WM{{go{{Wn{{Ct{{Wr{{ge{{Wy{{g:
+
+You can also use the new group to view and change your immname.
+~
+Sender  Montrey~
+Date    Mon Oct 24 21:47:03 2016~
+Stamp   1477370823
+To      all~
+Subject Periodic performance and usability enhancements!~
+Text
+^ That's what I'm going to call bug fixes from now on.  Like Facebook does.
+
+There have been a lot of minor fixes behind the scenes, but I won't bore
+you with details on those.  I'm in the middle of a big rework of how the
+mud handles character and EQ affects.  Soon I hope to be doing some more
+visible stuff.  In the meantime, here's what's happened since the last note:
+
+* New login screen!  Old one was looking a little stale after 15 years.
+* Quests and skill quests now give 100-300 exp, and the wait time is halved.
+* The quest prompt 'item' options how show the room name.
+* The old score and affects have been removed, it was hard to maintain.
+* The pit now saves items through a copyover.
+* Dodge rate has been adjusted - haste and slow are (slightly) more important,
+{x  and level difference matters less.  This may be a work in progress.
+
+More to come soon!
+~
+Sender  Montrey~
+Date    Mon Oct 24 21:49:30 2016~
+Stamp   1477370970
+To      imm~
+Subject imm change additions~
+Text
+* vlist has been fixed
+* builders can now add comments to area.lst with '#', to disable area loading.
+* the set command can no longer change v4 on a weapon, use flag instead.
+~
+Sender  Montrey~
+Date    Sat Oct 29 13:05:36 2016~
+Stamp   1477771536
+To      all~
+Subject Regeneration~
+Text
+This may be the biggest change to combat and exp grinding that has ever
+happened to this mud.  From now on, whenever you are out of combat for a
+short time, you will start recovering your consumable stats (hp, mana,
+stamina) very quickly, and you should completely recover within 45 seconds of
+leaving combat.  
+
+What this means is, you will never again have to go and rest or sleep to
+regen after a leveling run.  As long as you have things to kill, you
+shouldn't have to stop and wait for recovery.  It also means that some of our
+skills/spells such regeneration, fast healing, divine regen, and meditation
+currently don't have a purpose, unless you evolve them so that you regenerate
+*during* combat.  We'll figure out what to do with those later - this is part
+of a larger plan to make combat more exciting with less boring downtime.  
+
+The particulars of this change, such as the amount of time before regenning
+and the speed of recovery, may change somewhat as we balance everything. 
+Have fun :) 
+~
+Sender  Montrey~
+Date    Mon Oct 31 06:39:03 2016~
+Stamp   1477921143
+To      all~
+Subject Magic damage~
+Text
+Back when ROM muds were first made, bonuses to stats like 'damage roll' were
+more rare and not so generous.  Over time, EQ inflation, the change to 91
+levels, the 'enchant weapon' spell, and other things and other things have
+raised damage bonuses far more than the original intent.  This is fine, we've
+adjusted to the new balance over time.  However, magic spells have, for the
+most part, retained the old damage that they were programmed with.  For
+example, 'burning hands' does from 0 to 48 damage, and maxes out at level 51.
+Way back when, that might have been a decent spell.  However, it is currently
+useless at any level compared to the damage a player can do with a weapon.  
+
+To address this, I've put in a very experimental fix: your damage roll now
+affects spell damage in the same way it adds to weapon damage.  This is
+probably the sloppiest thing I've ever programmed.  It affects every spell -
+magic missile (including multi hit), chain spells, breath spells, sap, etc. 
+Some of these are probably horribly unbalanced.  However, reworking the spell
+damage system is a large project, and for now, this will make spellcasting
+more worthwhile at low levels.  Please let me know if there are any things
+about this you see that you feel are unbalanced, and I'll work on some fixes
+in the near future.  
+~
+Sender  Montrey~
+Date    Thu Nov  3 11:36:17 2016~
+Stamp   1478198177
+To      all~
+Subject Level 92+ mobs, disarm~
+Text
+* Clan info now shows up in fingerinfo.
+* I can slay mobs now.  That was annoying.
+* Level 92+ mobs are no longer incorrectly counted as immortals in some aspects,
+{x  such as spell/skill lag and being knocked down.  This means bash works
+{x  again on those mobs.
+* Disarm has been reworked.  Both mobs and players now disarm at about 70%
+{x  chance when fighting an equal opponent and 100% disarm skill, and mobs
+{x  don't have 100% disarm at level 27 anymore.  Level difference counts
+{x  less as well.
+~
+Sender  Montrey~
+Date    Mon Nov  7 15:23:54 2016~
+Stamp   1478561034
+To      all~
+Subject Bug fixes and minor changes~
+Text
+Let me start off with the minor stuff:
+* Hilt strikes don't have backwards dodging now.
+* The infravision spell and racial 'night vision' affect both work correctly
+{x  in the exits and scan commands.  Darkness may actually work too well for scan,
+{x  we'll see if it needs adjusting.
+* Extraclass remort skills work right now instead of everyone having 'scry'.
+* Flying is now a position instead of a flag, and anyone with the 'fly' spell
+{x  or racial ability can fly or land at will.  Plus, the mud will remember your
+{x  preference, and you'll go back to flying or walking after sleeping or combat.
+* Many things like 'unlock', 'open', and others will now check the room you're
+{x  in before your inventory, which was annoying and broke some area puzzles.
+* Grouped players and pets will now correctly start combat together.
+* The donation pit is now limited to 8000 items, and will clean itself.
+* Clan eq now shows as such in identify/lore, and ownered eq is more obvious.
+* Mobs should now aggress on players again.  Sorry :)
+
+The next note will detail changes that are coming as soon as we finish playtesting
+the new affects system, which will hopefully be in the next day or two.
+~
+Sender  Montrey~
+Date    Tue Nov  8 19:42:16 2016~
+Stamp   1478662936
+To      all~
+Subject New affects/attributes system~
+Text
+Well, its take a lot longer than I thought, but the new affects system is
+finally finished and ready to go.  Thanks to everyone who helped to playtest
+and debug this.  Here's a rundown of the most significant changes: 
+
+* Equipment affects have been reworked in a way that makes it much
+{x  easier to add new features, such as the upcoming socketed EQ and
+{x  gem system, among other things.
+* The old way of doing 'affect bits' has been removed, you'll see
+{x  a lot more of real spells on mobs rather than affects that you
+{x  can't remove.
+* Imm/res/vuln bits are also gone, replaced with resistance percentages
+{x  that will be used in future improvements.
+* Not really a feature, but it is now practically impossible for your
+{x  racial or other permanent affects and resistances to get messed
+{x  up.  This is an old fundamental ROM mud problem.
+* Plague now actually works right.  Have fun watching mobs slowly die.
+* The 'affects' list, as well as 'con' and 'stat', have been changed
+{x  quite a bit.
+* 'lore' and 'identify' now show more concise affects.
+* dispel magic, cancellation, undo spell, and the various cure spells
+{x  have undergone changes.  I'll add a list to the help file later,
+{x  but the rule of thumb is that cancellation only cancels good spells,
+{x  dispel magic only dispels good spells (no more dispelling your
+{x  maladictions), affects lke poison, plague, and curse are fixed
+{x  with the appropriate 'cure' or 'remove', and 'undo spell' works
+{x  for everything else.
+
+There are other little things that likely no one will ever notice,
+but please feel free to bug me if you see anything strange.
+Thanks all!
+~
+Sender  Vegita~
+Date    Wed Nov 16 20:36:46 2016~
+Stamp   1479357406
+To      all~
+Subject Bug fixes and new features~
+Text
+
+Bug Fixes (Mortal Affecting)
+* Quest double affects Skill quest gains now.
+
+Bug Fixes (Immortal Afffecting)
+* Immortal casted shrink can no longer implode equipment
+* Immortals can recall out of no-recall areas
+* Immortals can wear eqipment no matter alignment affects
+anti-evil/good/neutral ect..
+* Switched mobs no longer auto-afk and cannot disappear into
+the void.
+
+New Features
+* Magic Missile is now evolvable.
+Evolve 1 (base) max missiles casted are 3
+Evolve 2 max missiles casted are 4
+Evolve 3 max missiles caster are 5
+At evolve 3 each missile casted has a chance to swarm
+your target hitting one additional time.
+All magical classes can evolve to 2, only Mages can evolve to 3.
+
+~
+Sender  Montrey~
+Date    Tue Jan 17 19:14:04 2017~
+Stamp   1484709244
+To      all~
+Subject new area!~
+Text
+Just added a new(ish) area that you may enjoy.  "The Vortex" is intended for
+levels 75 and up, and can be much less tedious than some of the current
+leveling options.  The entrance is somewhere off of Elemental Canyon.  Have
+fun!  
+~
+Sender  Montrey~
+Date    Sat Feb 25 09:07:54 2017~
+Stamp   1488042474
+To      all~
+Subject recent changelog~
+Text
+Hi all, here is a list of minor updates that have happened recently.
+
+* The strongbox limit has been increased (a lot)
+* Imms can now use 'evolve info' to see information on evolved skill balance.
+* Talon is now more reliable, and evo 3 gives 100% protection from disarm
+* Magic missile has been tweaked some, but may still be worked on in the future
+* "note -" no longer clears the whole note
+* You can't give objects to yourself anymore
+* Death from poison or plague will award exp in combat now
+* The die hard skill will kick in more often now
+* Mobs that are supposed to assist alignment, race, vnum, etc should work again
+* Lore and identify can target objects in the room
+* The sap spell won't absorb hp from things immune to sap
+* You can't cast plague on something already diseased
+* Dispel/undo and the specific variants (cure disease etc) will wear down spells faster
+
+Like I said, minor stuff, but more interesting changes will come soon.  Thanks for playing!
+
+Montrey
+~
+Sender  Montrey~
+Date    Thu Apr 13 08:58:29 2017~
+Stamp   1492099109
+To      all~
+Subject a few recent changes~
+Text
+* New evolvable protection good/evil!  Evolved forms will stun/daze enemies of
+{x  the opposite alignment, much like lightning breath effects.
+* Changes to the 'pit' command, you can now filter results by a wear location
+{x  and by weapon type.  I'll update the help file later today to explain.
+~
+Sender  Montrey~
+Date    Tue Apr 18 19:59:36 2017~
+Stamp   1492570776
+To      all~
+Subject a few more changes~
+Text
+Minor followup to the other day:
+
+* Updated help files for 'pit', describing the new search syntax
+* Updated helps for 'protection good' and 'protection evil' with new evolves.
+* Remorts can now get an extra remort skill for every 10 remorts instead of every 20.
+* Ranged weapons can now shoot up to 3 rooms away, with a new syntax.  See the 'ranged' helpfile.
+* Forged bows now do an 'arrow' damage type, and hopefully I'll get other bows on the mud fixed soon.
+
+Thanks for playing :)
+~
+Sender  Montrey~
+Date    Tue Jun 27 08:16:25 2017~
+Stamp   1498576585
+To      all~
+Subject big changes~
+Text
+    Two changes, really.  Most of it is backend - we changed to a C++
+compiler, and a portion of the game's structure has been rewritten to take
+advantage of the object-oriented features.  It's an ongoing project, but
+eventually it will result in a game that is more stable and easier to work
+on.
+
+    The other (more visible) change is that we now have a fast travel system.
+Overnight, some mystical blue glowing shards or whatever have popped out of
+the ground.  Right now they have been spotted in Midgaard and in New Thalos
+to the east.  If you touch one, you'll forever be able to '{Cwarp{x' back to that
+crystal.  Type 'help warp' for more details.  Have fun!
+~
+Sender  Montrey~
+Date    Fri Jun 30 06:47:55 2017~
+Stamp   1498830475
+To      all~
+Subject exp calculations~
+Text
+To encourage exploration of alternative leveling locations, we have
+removed 'alignment' as a factor in experience calculations.  Your
+alignment will still change based on what you kill, but you won't
+be penalized for killing things of the same or neutral alignment.
+~
