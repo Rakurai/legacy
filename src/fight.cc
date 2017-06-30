@@ -2927,24 +2927,20 @@ void group_gain(Character *ch, Character *victim)
 /* Compute xp for a kill, adjust alignment of killer.  Edit this function to change xp computations. */
 int xp_compute(Character *gch, Character *victim, int total_levels, int diff_classes)
 {
-	int xp, xp90, base_exp;
-	int align, level_range;
-	int change;
-	level_range = victim->level - gch->level;
+	int level_range = victim->level - gch->level;
 
 	/* force remorts to kill tougher mobs to avoid an exp drop off */
 	if (IS_REMORT(gch)) {
-		int remort_mod;
-		remort_mod = ((gch->pcdata->remort_count * gch->level) / 100);  /* none until r3 */
+		int remort_mod = ((gch->pcdata->remort_count * gch->level) / 100);  /* none until r3 */
 
 		if (level_range < remort_mod)
 			level_range -= ((remort_mod / 10) + 1);
 	}
 
+	int base_exp = 0;
+
 	/* compute the base exp */
 	switch (level_range) {
-	default :       base_exp =   0;         break;
-
 	case -9 :       base_exp =   1;         break;
 
 	case -8 :       base_exp =   2;         break;
@@ -2977,71 +2973,73 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	if (level_range > 4)
 		base_exp = 160 + 20 * (level_range - 4);
 
-	/* do alignment computations */
-	align = victim->alignment - gch->alignment;
+	// should the character change alignment?
+	// should this even be here?  needs to go before alignment checks for exp,
+	// but maybe should go in its own function
+	if (!victim->act_flags.has(ACT_NOALIGN)
+	    && victim->in_room->sector_type != SECT_ARENA
+	    && victim->in_room->sector_type != SECT_CLANARENA
+	    && (victim->in_room->area != Game::world().quest.area || !Game::world().quest.pk)
+	    && gch->cls != 5) /* Paladins */
+	{
+		/* do alignment computations */
+		int align = victim->alignment - gch->alignment;
+		int change;
 
-	if (victim->act_flags.has(ACT_NOALIGN)
-	    || victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->sector_type == SECT_CLANARENA
-	    || (victim->in_room->area == Game::world().quest.area && Game::world().quest.pk)
-	    || gch->cls == 5) /* Paladins */
-	{/* no change */}
-	else if (align > 500) { /* monster is more good than slayer */
-		change = (align - 500) * base_exp / 500 * gch->level / total_levels;
-		change = UMAX(1, change);
-		gch->alignment -= change;
-	}
-	else if (align < -500) { /* monster is more evil than slayer */
-		change = (-1 * align - 500) * base_exp / 500 * gch->level / total_levels;
-		change = UMAX(1, change);
-		gch->alignment += change;
-	}
-	else { /* improve this someday */
-		change =  gch->alignment * base_exp / 500 * gch->level / total_levels;
-		gch->alignment -= change;
+		if (align > 500) { /* monster is more good than slayer */
+			change = (align - 500) * base_exp / 500 * gch->level / total_levels;
+			change = UMAX(1, change);
+			gch->alignment -= change;
+		}
+		else if (align < -500) { /* monster is more evil than slayer */
+			change = (-1 * align - 500) * base_exp / 500 * gch->level / total_levels;
+			change = UMAX(1, change);
+			gch->alignment += change;
+		}
+		else { /* improve this someday */
+			change =  gch->alignment * base_exp / 500 * gch->level / total_levels;
+			gch->alignment -= change;
+		}
+
+		gch->alignment = URANGE(-1000, gch->alignment, 1000);
 	}
 
-	gch->alignment = URANGE(-1000, gch->alignment, 1000);
+	int xp = base_exp;
 
 	/* calculate exp multiplier */
-	if (victim->act_flags.has(ACT_NOALIGN))
-		xp = base_exp;
-	else if (gch->alignment > 500) { /* for goodie two shoes */
-		if (victim->alignment < -750)              xp = (base_exp * 4) / 3;
-		else if (victim->alignment < -500)              xp = (base_exp * 5) / 4;
-		else if (victim->alignment > 250)               xp = (base_exp * 3) / 4;
-		else if (victim->alignment > 750)               xp = base_exp / 4;
-		else if (victim->alignment > 500)               xp = base_exp / 2;
-		else                                            xp = base_exp;
+/*	if (!victim->act_flags.has(ACT_NOALIGN)) {
+		if (gch->alignment > 500) { // for goodie two shoes
+			     if (victim->alignment < -750)              xp = base_exp * 4 / 3;
+			else if (victim->alignment < -500)              xp = base_exp * 5 / 4;
+			else if (victim->alignment > 250)               xp = base_exp * 3 / 4;
+			else if (victim->alignment > 750)               xp = base_exp * 1 / 4;
+			else if (victim->alignment > 500)               xp = base_exp * 1 / 2;
+		}
+		else if (gch->alignment < -500) { // for baddies
+			     if (victim->alignment > 750)               xp = base_exp * 5 / 4;
+			else if (victim->alignment > 500)               xp = base_exp * 11/10;
+			else if (victim->alignment < -750)              xp = base_exp * 1 / 2;
+			else if (victim->alignment < -500)              xp = base_exp * 3 / 4;
+			else if (victim->alignment < -250)              xp = base_exp * 9 /10;
+		}
+		else if (gch->alignment > 200) { // a little good
+			     if (victim->alignment < -500)              xp = base_exp * 6 / 5;
+			else if (victim->alignment > 750)               xp = base_exp * 1 / 2;
+			else if (victim->alignment > 0)                 xp = base_exp * 3 / 4;
+		}
+		else if (gch->alignment < -200) { // a little bad
+			     if (victim->alignment > 500)               xp = base_exp * 6 / 5;
+			else if (victim->alignment < -750)              xp = base_exp * 1 / 2;
+			else if (victim->alignment < 0)                 xp = base_exp * 3 / 4;
+		}
+		else { // neutral
+			     if (victim->alignment > 500
+			      || victim->alignment < -500)              xp = base_exp * 4 / 3;
+			else if (victim->alignment < 200
+			      && victim->alignment > -200)              xp = base_exp * 1 / 2;
+		}
 	}
-	else if (gch->alignment < -500) { /* for baddies */
-		if (victim->alignment > 750)               xp = (base_exp * 5) / 4;
-		else if (victim->alignment > 500)               xp = (base_exp * 11) / 10;
-		else if (victim->alignment < -750)              xp = base_exp / 2;
-		else if (victim->alignment < -500)              xp = (base_exp * 3) / 4;
-		else if (victim->alignment < -250)              xp = (base_exp * 9) / 10;
-		else                                            xp = base_exp;
-	}
-	else if (gch->alignment > 200) { /* a little good */
-		if (victim->alignment < -500)              xp = (base_exp * 6) / 5;
-		else if (victim->alignment > 750)               xp = base_exp / 2;
-		else if (victim->alignment > 0)                 xp = (base_exp * 3) / 4;
-		else                                            xp = base_exp;
-	}
-	else if (gch->alignment < -200) { /* a little bad */
-		if (victim->alignment > 500)               xp = (base_exp * 6) / 5;
-		else if (victim->alignment < -750)              xp = base_exp / 2;
-		else if (victim->alignment < 0)                 xp = (base_exp * 3) / 4;
-		else                                            xp = base_exp;
-	}
-	else { /* neutral */
-		if (victim->alignment > 500
-		    || victim->alignment < -500)              xp = (base_exp * 4) / 3;
-		else if (victim->alignment < 200
-		         && victim->alignment > -200)              xp = base_exp / 2;
-		else                                            xp = base_exp;
-	}
-
+*/
 	/* more exp at the low levels */
 	if (gch->level < 6)
 		xp = 10 * xp / (gch->level + 4);
@@ -3067,15 +3065,15 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	xp = xp - (xp / 3) + ((xp / 3) * (URANGE(1, years, 50) / 50));
 
 	/* remort affect - favor of the gods */
-	if (HAS_RAFF(gch, RAFF_FAVORGOD) && chance(10)) {
+	if (HAS_RAFF(gch, RAFF_FAVORGOD) && chance(25)) {
 		stc("The gods smile upon you.\n", gch);
-		xp = (chance(10) ? (chance(10) ? (xp * 4) : (xp * 3)) : (xp * 2));
+		xp = (chance(25) ? (chance(25) ? (xp * 4) : (xp * 3)) : (xp * 2));
 	}
 
 	/* remort affect - laughter of the gods */
-	if (HAS_RAFF(gch, RAFF_LAUGHTERGOD) && chance(10)) {
+	if (HAS_RAFF(gch, RAFF_LAUGHTERGOD) && chance(25)) {
 		stc("The laughter of the gods falls upon your ears.\n", gch);
-		xp = (chance(10) ? (chance(10) ? (xp / 4) : (xp / 3)) : (xp / 2));
+		xp = (chance(25) ? (chance(25) ? (xp / 4) : (xp / 3)) : (xp / 2));
 	}
 
 	/* remort affect - more experience */
@@ -3088,7 +3086,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 
 	/* randomize the rewards */
 	xp = number_range(xp * 3 / 4, xp * 5 / 4);
-	xp90 = 90 * xp / 100; /* 90% limit for one grouped player   */
+	int xp90 = 90 * xp / 100; /* 90% limit for one grouped player   */
 	/* tried and true formula for group exp calc */
 	xp = xp * gch->level / (UMAX(1, total_levels - 1));
 
