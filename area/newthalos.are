@@ -2616,10 +2616,6 @@ D0
 ~
 gate~
 1 9501 9513
-D2
-~
-~
-0 -1 -1
 S
 #9512
 The Southern Bridge~
@@ -5384,18 +5380,10 @@ D0
 ~
 ~
 0 -1 9781
-D1
-~
-~
-0 -1 -1
 D2
 ~
 ~
 0 -1 9522
-D3
-~
-~
-0 -1 -1
 S
 #9668
 Outside the Eastern Gate of New Thalos~

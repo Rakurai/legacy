@@ -1001,6 +1001,11 @@ void load_rooms(FILE *fp)
 				case 4: pexit->exit_flags = EX_ISDOOR | EX_NOPASS | EX_PICKPROOF; break;
 				}
 
+				if (pexit->u1.vnum <= 0 || pexit->u1.vnum >= 32700) {
+					boot_bug("load_rooms: vnum %d has invalid exit", vnum);
+					exit(1);
+				}
+
 				pRoomIndex->exit[door] = pexit;
 				pRoomIndex->old_exit[door] = pexit;
 				top_exit++;
@@ -1057,6 +1062,12 @@ void load_shops(FILE *fp)
 		pShop->close_hour       = fread_number(fp);
 		fread_to_eol(fp);
 		pMobIndex               = get_mob_index(pShop->keeper);
+
+		if (pMobIndex == nullptr) {
+			boot_bug("Load_shops: NULL mob index %d", pShop->keeper);
+			exit(1);
+		}
+
 		pMobIndex->pShop        = pShop;
 
 		if (shop_first == nullptr)
@@ -1095,6 +1106,12 @@ void load_specials(FILE *fp)
 
 		case 'M':
 			pMobIndex           = get_mob_index(fread_number(fp));
+
+			if (!pMobIndex) {
+				boot_bug("Load_specials: 'M': vnum %d.", pMobIndex->vnum);
+				exit(1);
+			}
+
 			pMobIndex->spec_fun = spec_lookup(fread_word(fp));
 
 			if (pMobIndex->spec_fun == 0) {
@@ -1125,18 +1142,18 @@ void fix_exits(void)
 	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
 		RoomPrototype *pRoomIndex = it->second;
 
-		bool fexit;
-		fexit = FALSE;
+		bool fexit = FALSE;
 
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = pRoomIndex->exit[door]) != nullptr) {
-				if (pexit->u1.vnum <= 0
-				    || get_room_index(pexit->u1.vnum) == nullptr)
-					pexit->u1.to_room = nullptr;
-				else {
-					fexit = TRUE;
-					pexit->u1.to_room = get_room_index(pexit->u1.vnum);
+				pexit->u1.to_room = get_room_index(pexit->u1.vnum);
+
+				if (pexit->u1.to_room == nullptr) {
+					delete pexit;
+					pRoomIndex->exit[door] = nullptr;
 				}
+				else
+					fexit = TRUE;
 			}
 		}
 

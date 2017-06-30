@@ -2308,14 +2308,13 @@ Anyway it SEEMS darker down here than up there, if that is possible.
 ~
 ~
 0 -1 7015
-D5
+E
+down~
 Down there nothing at all can be spotted. The darkness that engulfs this
 descent seems utterly impossible in a mortal world. It's so thick that a 
 torch down there would be utterly useless.  You'd better not go down any
 further.
 ~
-~
-0 -1 -1
 E
 bars~
 These look like they're pretty slippery, and not very safe.  You'd better
@@ -2711,17 +2710,17 @@ Under the pit~
 You stand in a completely dark cavern leading west. The wall looks weird here.
 ~
 0 AD 0
-D1
-~
-crack wall rock~
-0 -1 -1
 D3
 ~
 ~
 0 -1 7112
 E
-wall~
+crack wall rock~
 There is a crack here that looks like it has been made recently.
+~
+E
+note~
+There was originally an exit leading east but with a bad vnum -- Montrey.
 ~
 S
 #7123
@@ -3654,15 +3653,12 @@ wall to the west you can see a huge torch stuck into the solid rock.
 A large portcullis blocks your way to the north.
 ~
 0 CD 2
-D0
+E
+note~
+There were originally rooms leading north:
 Through the portcullis, you can see a faintly lighted hallway leading east.
+and down (no desc) from here, but led to invalid vnums. -- Montrey
 ~
-~
-1 -1 -1
-D4
-~
-~
-0 -1 -1
 E
 stairs staircase~
 This looks as if it has been standing here for at least 12 centuries. It's 
@@ -4460,12 +4456,6 @@ nothing but darkness
 ~
 ~
 0 -1 7435
-D5
-A sign is blocking the way: 'This has not been implemented
-yet'.
-~
-~
-0 -1 -1
 S
 #7435
 Dark tunnel~

@@ -1359,11 +1359,6 @@ Dust fills your eyes as you disturb it, and chunks of mortar and stone
 mixed with a touch of sand fall on you as you scrape your way through.
 ~
 0 AD 0
-D0
-You see a musty chamber.
-~
-~
-0 -1 0
 D2
 You see a tomb.
 ~
@@ -1678,11 +1673,6 @@ The hallway proceeds to the east towards a strange smell.
 ~
 ~
 0 -1 8740
-D3
-The hallway proceeds towards the west towards a musty smell.
-~
-~
-0 -1 0
 S
 #8740
 A Smelly Chamber~

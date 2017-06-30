@@ -3905,22 +3905,10 @@ can be felt everywhere.
   The room seems much larger than it looks...
 ~
 0 D 0
-D0
-~
-~
-0 -1 -1
 D1
 ~
 ~
 0 -1 1417
-D2
-~
-~
-0 -1 -1
-D3
-~
-~
-0 -1 -1
 S
 #1419
 A hallway~
@@ -5064,11 +5052,6 @@ and there, discarded with total abandon. A few over full ashtrays can be seen
 on a desk.
 ~
 0 CDJ 0
-D5
-You can see mortals pitifully begging for help below.
-~
-~
-0 -1 -1
 S
 #0
 
