@@ -124,7 +124,7 @@ void act_format(const String& format, Character *ch,
 		/* The following needs a string describing a door. */
 
 		case 'd':
-			if (str2 == nullptr || str2->empty()) {
+			if (str2 == nullptr) {
                 act_bug("str2", *str, format);
 				i = "door";
             }
@@ -136,7 +136,7 @@ void act_format(const String& format, Character *ch,
 		/* The following codes need valid strings in str1/str2 */
 
 		case 't':
-			if (str1 == nullptr || str1->empty())
+			if (str1 == nullptr)
                 act_bug("str1", *str, format);
 			else
 				i = *str1;
@@ -144,7 +144,7 @@ void act_format(const String& format, Character *ch,
 			break;
 
 		case 'T':
-			if (str2 == nullptr || str2->empty())
+			if (str2 == nullptr)
                 act_bug("str2", *str, format);
 			else
 				i = *str2;
