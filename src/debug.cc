@@ -66,6 +66,48 @@ void do_debug(Character *ch, String argument)
 		return;
 	}
 
+	if (subfunc == "search_bfs") {
+		extern void get_paths(Character *,
+			RoomPrototype *start,
+			std::set<RoomPrototype *> &goals,
+			bool all_goals,
+			std::map<RoomPrototype *, RoomPrototype *> &paths);
+		RoomPrototype *goal = nullptr;
+
+		if (!argument.empty()) {
+			goal = get_room_index(atoi(argument));
+
+			if (!goal) {
+				stc("No such vnum.\n", ch);
+				return;
+			}
+		}
+
+		std::set<RoomPrototype *> goals({goal});
+		std::map<RoomPrototype *, RoomPrototype *> paths;
+		get_paths(ch, ch->in_room, goals, false, paths);
+
+
+		return;
+	}
+
+	if (subfunc == "search_spatial") {
+		extern void spatial_search(Character *, RoomPrototype *, RoomPrototype *);
+		RoomPrototype *goal = nullptr;
+
+		if (!argument.empty()) {
+			goal = get_room_index(atoi(argument));
+
+			if (!goal) {
+				stc("No such vnum.\n", ch);
+				return;
+			}
+		}
+
+		spatial_search(ch, ch->in_room, goal);
+		return;
+	}
+
 	if (subfunc == "strtest") {
 		for (int row = 0; row < 16; row++) {
 			for (int col = 0; col < 8; col++) {
