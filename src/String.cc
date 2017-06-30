@@ -312,10 +312,10 @@ const String String::
 center(std::size_t total_len) const {
 	String str(*this), space;
 
-	while (str.uncolor().size() > total_len)
+	while (str.uncolor().strip().size() > total_len)
 		str.pop_back();
 
-	for (int len = total_len - str.uncolor().size(); len > 0; len--)
+	for (int len = total_len - str.uncolor().strip().size(); len > 0; len--)
 		space += " ";
 
 	return space.insert(str, space.size()/2);

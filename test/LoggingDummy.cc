@@ -1,5 +1,5 @@
 
-#include "Logging.hpp"
+#include "Logging.hh"
 
 void Logging::
 bug(const String& str, int param)
@@ -8,7 +8,7 @@ bug(const String& str, int param)
 }
 
 void Logging::
-log_string(const String& str)
+log(const String& str)
 {
 	return;
 }

@@ -2,6 +2,7 @@
 
 #include "declare.hh"
 #include <bitset>
+#include <iostream>
 
 #define FLAGS_NBITS 32
 
@@ -92,12 +93,12 @@ inline bool operator== (const Flags& lhs, const Flags& rhs) {
 inline bool operator!= (const Flags& lhs, const Flags& rhs) {
 	return lhs.bits != rhs.bits;
 }
-/*
+
 inline std::ostream& operator<<(std::ostream& os, const Flags& f) {
 	os << f.to_ulong();
 	return os;
 }
-*/
+
 inline const Flags operator+ (const Flags::Bit& lhs, const Flags::Bit& rhs) {
 	return Flags(lhs) + rhs;
 }

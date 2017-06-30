@@ -2568,16 +2568,16 @@ void do_who(Character *ch, String argument)
 			/* copy immname without the brackets */
 			block1 = wch->pcdata->immname;
 
-			for (int i = 0; i < block1.size(); ++i) {
-				char c = block1[i];
-				block1[i] = ' ';
+			for (auto it = block1.begin(); it != block1.end(); ++it) {
+				char c = *it;
+				*it = ' ';
 				if (c == '[')
 					break;
 			}
 
-			for (int i = block1.size()-1; i >= 0; --i) {
-				char c = block1[i];
-				block1[i] = ' ';
+			for (auto it = block1.rbegin(); it != block1.rend(); ++it) {
+				char c = *it;
+				*it = ' ';
 				if (c == ']')
 					break;
 			}
