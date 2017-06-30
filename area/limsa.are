@@ -1,0 +1,1052 @@
+#AREA
+limsa.are~
+Limsa Lominsa~
+{H{{ ALL } {MMontrey {TLimsa Lominsa~
+5700 5799
+
+NOTE check ???
+ 35,36,40,50,51,53,54,56,57,59,60,61 removed
+
+#MOBILES
+
+#5799
+limsa_ambience_mob~
+the Limsa Lominsa ambience mob~
+You shouldn't be seeing this mob.
+~
+~
+human~
+BGVZ 0 0 S
+1 1 1d1+99 1d1+99 2d4+1 slap
+8 8 8 0
+0 ABCD 0 0
+stand stand male 10
+0 0 medium 0
+>rand_area_prog 50~
+say I'm working!
+~
+|
+
+#0
+
+
+#OBJECTS
+
+#5700
+map limsa lominsa lower decks~
+a map of the Lower Decks~
+A rolled up parchment lies here.~
+parchment~
+map S A
+0 0 0 0 0
+1 1 500 P
+E
+map lower decks~
+       Ferry - 
+       Docks
+~
+
+#0
+
+
+#ROOMS
+
+#5700
+The Drowning Wench~
+~
+0 S 1
+D0
+~
+~
+0 0 5705
+D2
+~
+~
+0 0 5701
+D3
+~
+~
+0 0 5703
+D5
+~
+~
+0 0 5739
+S
+
+#5701
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5700
+D2
+~
+~
+0 0 5713
+D3
+~
+~
+0 0 5702
+S
+
+#5702
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5703
+D1
+~
+~
+0 0 5701
+D3
+~
+~
+0 0 5722
+S
+
+#5703
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5704
+D1
+~
+~
+0 0 5700
+D2
+~
+~
+0 0 5702
+S
+
+#5704
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5705
+D2
+~
+~
+0 0 5703
+S
+
+#5705
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5706
+D2
+~
+~
+0 0 5700
+D3
+~
+~
+0 0 5704
+S
+
+#5706
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5707
+D2
+~
+~
+0 0 5705
+S
+
+#5707
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5708
+D2
+~
+~
+0 0 5706
+S
+
+#5708
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5709
+D2
+~
+~
+0 0 5707
+D3
+~
+~
+0 0 5711
+S
+
+#5709
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5710
+D2
+~
+~
+0 0 5708
+S
+
+#5710
+The Coral Tower~
+~
+0 S 1
+D2
+~
+~
+0 0 5709
+S
+
+#5711
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5708
+D3
+~
+~
+0 0 5712
+S
+
+#5712
+The Bismarck~
+~
+0 S 1
+D1
+~
+~
+0 0 5711
+D2
+~
+~
+0 0 5734
+S
+
+#5713
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5701
+D2
+~
+~
+0 0 5714
+S
+
+#5714
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5713
+D1
+~
+~
+0 0 5715
+D2
+~
+~
+0 0 5717
+S
+
+#5715
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5716
+D3
+~
+~
+0 0 5714
+S
+
+#5716
+Maelstrom Command~
+~
+0 S 1
+D3
+~
+~
+0 0 5715
+S
+
+#5717
+The Aftcastle~
+~
+0 S 1
+D0
+~
+~
+0 0 5714
+D1
+~
+~
+0 0 5718
+D2
+~
+~
+0 0 5721
+D3
+~
+~
+0 0 5726
+S
+
+#5718
+The Aftcastle~
+~
+0 S 1
+D1
+~
+~
+0 0 5719
+D2
+~
+~
+0 0 5720
+D3
+~
+~
+0 0 5717
+S
+
+#5719
+The Missing Member~
+~
+0 S 1
+D3
+~
+~
+0 0 5718
+S
+
+#5720
+The Aftcastle~
+~
+0 S 1
+D0
+~
+~
+0 0 5718
+D3
+~
+~
+0 0 5721
+S
+
+#5721
+The Aftcastle~
+~
+0 S 1
+D0
+~
+~
+0 0 5717
+D1
+~
+~
+0 0 5720
+D3
+~
+~
+0 0 5729
+S
+
+#5722
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5702
+D2
+~
+~
+0 0 5723
+S
+
+#5723
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5722
+D2
+~
+~
+0 0 5724
+S
+
+#5724
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5723
+D2
+~
+~
+0 0 5725
+S
+
+#5725
+The Hyaline~
+~
+0 S 1
+D0
+~
+~
+0 0 5724
+D1
+~
+~
+0 0 5726
+D2
+~
+~
+0 0 5727
+D3
+~
+~
+0 0 5730
+S
+
+#5726
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5717
+D3
+~
+~
+0 0 5725
+S
+
+#5727
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5725
+D2
+~
+~
+0 0 5728
+S
+
+#5728
+Naldiq and Vymelli's~
+~
+0 S 1
+D0
+~
+~
+0 0 5727
+D1
+~
+~
+0 0 5729
+S
+
+#5729
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5721
+D3
+~
+~
+0 0 5728
+S
+
+#5730
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5725
+D3
+~
+~
+0 0 5731
+S
+
+#5731
+~
+~
+0 S 1
+D1
+~
+~
+0 0 5730
+D2
+~
+~
+0 0 5732
+D5
+~
+~
+0 0 5753
+S
+
+#5732
+~
+~
+0 S 1
+D3
+~
+~
+0 0 5731
+S
+
+#5733
+Anchor Yard~
+~
+0 S 1
+D1
+~
+~
+0 0 5732
+S
+
+#5734
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5712
+D2
+~
+~
+0 0 5741
+S
+
+#5737
+Stables~
+~
+0 S 1
+D3
+~
+~
+0 0 5738
+S
+
+#5738
+Bulwark Hall~
+~
+0 S 1
+D1
+~
+~
+0 0 5737
+D2
+~
+~
+0 0 5739
+D3
+~
+~
+0 0 5741
+S
+
+#5739
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5738
+D4
+~
+~
+0 0 5701
+S
+
+#5741
+Aetheryte Plaza~
+~
+0 S 1
+D0
+~
+~
+0 0 5734
+D1
+~
+~
+0 0 5738
+D2
+~
+~
+0 0 5752
+D3
+~
+~
+0 0 5742
+S
+
+#5742
+East Hawkers' Alley~
+~
+0 S 1
+D1
+~
+~
+0 0 5741
+D3
+~
+~
+0 0 5743
+S
+
+#5743
+East Hawkers' Alley~
+~
+0 S 1
+D1
+~
+~
+0 0 5742
+D3
+~
+~
+0 0 5744
+S
+
+#5744
+Hawkers' Round~
+~
+0 S 1
+D1
+~
+~
+0 0 5743
+D2
+~
+~
+0 0 5762
+D3
+~
+~
+0 0 5745
+S
+
+#5745
+West Hawkers' Alley~
+~
+0 S 1
+D1
+~
+~
+0 0 5744
+D3
+~
+~
+0 0 5746
+S
+
+#5746
+West Hawkers' Alley~
+~
+0 S 1
+D1
+~
+~
+0 0 5745
+D3
+~
+~
+0 0 5747
+S
+
+#5747
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5748
+D1
+~
+~
+0 0 5746
+D3
+~
+~
+0 0 5749
+S
+
+#5748
+Mealvaan's Gate~
+~
+0 S 1
+D2
+~
+~
+0 0 5747
+S
+
+#5749
+Northern Ferry Docks~
+~
+0 S 1
+D1
+~
+~
+0 0 5747
+S
+
+#5752
+The Octant~
+This grand outdoor plaza situated below the Mizzenmast earned its name
+for the resemblance it bears to the revolutionary nautical instrument
+invented by maritime scientist and "father of modern navigation," Jovanni
+Gnonno.
+
+During daylight hours, the round resounds with the cries of mountebanks,
+the songs of bards, and the laughter of children marveling at the many
+talents of the mummers' troupes. Yet come nightfall, the plaza assumes
+quite another aspect. Bedraped by the soft light of the moon, its steps
+become a private theater for lovers seeking to gaze upon the timeless
+drama of the heavens.
+~
+0 S 1
+D0
+~
+~
+0 0 5741
+D2
+~
+~
+0 0 5753
+S
+
+#5753
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5752
+D4
+~
+~
+0 0 5731
+S
+
+#5758
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5762
+D1
+~
+~
+0 0 5753
+D3
+~
+~
+0 0 5764
+S
+
+#5762
+~
+~
+0 S 1
+D0
+~
+~
+0 0 5744
+D2
+~
+~
+0 0 5758
+S
+
+#5763
+The Fish Market~
+FISH!  Everywhere.  So much fish.  The deep tidal cave in this island
+reaches fifty feet high, with walls and stone floor worn smooth by wind,
+seawater, and a hundred years of foot traffic.  The natural stone floor
+extends from the entrance in a ring around the cavern, surrounding a
+small cove of seawater.  To the north, the cave opens to the Lominsian Sea,
+and the waves lap gently at the edges of the pool.  The air is cool due
+to the huge blocks of ice strategically placed around the cavern, despite
+the dozens of fish merchants and hundreds of fish customers.
+~
+0 S 1
+D2
+You can leave the fish market to the south.
+~
+~
+0 0 5764
+S
+
+#5764
+Fisherman's Bottom~
+The folk of the city bustle around you going about their work.  Boxes
+of cargo from faraway lands, carts of fish fresh from the ocean, and
+the merchants selling their goods to local shops are all around.  You
+hastily step out of the way of a cart carrying large blocks of salt.
+You hear merchant's advertising from the indoor Fish Market to the
+north, while you can see local fishermen on the pier to the south.
+West of here is a long dock teeming with boats, with the largest ship
+you have ever seen berthed at the end.
+~
+0 S 1
+D0
+North of here is the Fish Market.
+~
+~
+0 0 5763
+D1
+To the east is the bridge leading to ???
+~
+~
+0 0 5758
+D2
+South will take you to the Fisherman's Pier.
+~
+~
+0 0 5765
+D3
+Many boats are docked at the pier to the west.
+~
+~
+0 0 5767
+S
+
+#5765
+Fishermans' Pier~
+Wooden planks creak beneath your feet as you walk out on the pier.
+Around you, fishermen from around the city try their luck on the
+gently lapping waters of the cove.  Far across the water to the south,
+you can make out the northern cliffs of Haon Dor, with the ancient
+forest just beyond.
+~
+0 S 1
+D0
+You can return to Limsa Lominsa to the north.
+~
+~
+0 0 5764
+D2
+The pier continues out onto the water to the south.
+~
+~
+0 0 5766
+S
+
+#5766
+Fishermans' Pier~
+Wooden planks creak beneath your feet as you walk out on the pier.
+Around you, fishermen from around the city try their luck on the
+gently lapping waters of the cove.  Far across the water to the south,
+you can make out the northern cliffs of Haon Dor, with the ancient
+forest just beyond.
+~
+0 S 1
+D0
+You can return to Limsa Lominsa to the north.
+~
+~
+0 0 5765
+S
+
+#5767
+Docks~
+You stand on the wooden planks of the primary pier in Limsa Lominsa.
+Farther down the dock to the west is the largest warship you have ever
+seen - the Astalacia.
+~
+0 S 1
+D1
+East of here are the lower decks of Limsa Lominsa.~
+~
+0 0 5764
+D3
+The pier continues to the west toward the warship.
+~
+~
+0 0 5768
+S
+
+#5768
+Docks~
+You stand on the wooden planks of the primary pier in Limsa Lominsa.
+Several smaller ships are berthed to the north, but to the south is the
+largest warship you have ever seen - the Astalacia.  You can see a
+gangplank to board her farther to the west.
+~
+0 S 1
+D1
+The pier continues to the east toward Limsa Lominsa.
+~
+~
+0 0 5767
+D3
+The pier continues to the west toward the warship.
+~
+~
+0 0 5769
+S
+
+#5769
+Docks~
+You stand on the wooden planks of the primary pier in Limsa Lominsa.
+Several smaller ships are berthed to the north, but to the south is the
+largest warship you have ever seen - the Astalacia.  There is a
+gangplank here you can use to board the ship.
+~
+0 S 1
+D1
+The pier continues to the east toward Limsa Lominsa.
+~
+~
+0 0 5768
+D2
+A gangplank to the south will let you board the Astalacia.
+~
+~
+0 0 5771
+S
+
+#5770
+The Astalicia~
+You stand at the stern of the mighty Astalacia.  The ship's three masts
+tower over you as she rocks subtly with the waves.  Around you, shady
+looking folk go about their work tending to the ship.  From here you can
+look out across the Lominsian Sea.
+~
+0 S 1
+D1
+East of here is the main deck of the ship.
+~
+~
+0 0 5771
+S
+
+#5771
+The Astalicia~
+You step off the gangplank onto the oaken deck of the mighty Astalacia.
+Registered as a trade vessel hailing from foreign waters, this battle-
+scarred warship captained by the lord of the region's underworld, 
+One-eyed Hyllfyr, serves as a gathering place for brigands, cut-throats,
+and the purveyors of sundry other breeds of villainy. It is here that
+the city-state's many pirate crews find new recruits to join their ranks.
+~
+0 S 1
+D0
+You can leave the ship via the gangplank to the north.
+~
+~
+0 0 5769
+D1
+East of here is the bow of the ship.
+~
+~
+0 0 5772
+D3
+West of here is the stern of the ship.
+~
+~
+0 0 5770
+S
+
+#5772
+The Astalicia~
+You stand at the bow of the mighty Astalacia.  The ship's three masts
+tower over you as she rocks subtly with the waves.  The deck is clean
+except for a few neatly arranged coils of rope.  From this vantage
+point high above the waves, you can see all of Limsa Lominsa's majestic
+white towers and iron bridges.
+~
+0 S 1
+D3
+West of here is the main deck of the ship.
+~
+~
+0 0 5771
+S
+
+#5799
+Utility Room~
+~
+0 PT 1
+S
+
+#0
+
+
+#RESETS
+
+M 0 5799  1 5799  1 * Ambience mob to utility room
+
+S
+
+#$
