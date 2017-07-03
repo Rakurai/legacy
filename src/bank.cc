@@ -227,7 +227,7 @@ void find_money(Character *ch)
 		ch->silver_in_bank = max_silver;
 }
 
-void do_balance(Character *ch, void *vo)
+void do_balance(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 

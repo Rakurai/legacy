@@ -40,6 +40,7 @@
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "Player.hh"
+#include "random.hh"
 #include "RoomPrototype.hh"
 #include "sql.hh"
 #include "StoredPlayer.hh"
@@ -3353,6 +3354,84 @@ void do_setgamein(Character *ch, String argument)
 void do_setgameout(Character *ch, String argument)
 {
 	setgameinout(ch, argument, "exit", 'O');
+}
+
+void
+write_smack(Character *victim)
+{
+	if (victim->act_flags.has(PLR_COLOR)) {
+		set_color(victim, RED, NOBOLD);
+		set_color(victim, GREY, REVERSE);
+		stc("Oh Crap!! You've gone and pissed off the Imms =).\n", victim);
+		set_color(victim, WHITE, NOBOLD);
+		stc("\n", victim);
+		set_color(victim, WHITE, BLINK);
+		set_color(victim, RED, BOLD);
+		stc(" SSSS    MMMM  MMMM    AAAA    CCCC   KK  KK  |||\n", victim);
+		set_color(victim, YELLOW, BOLD);
+		stc("SSS SS  MMMMMMMMMMMM  AAAAAA  CCCCCC  KK KK   |||\n", victim);
+		set_color(victim, GREEN, BOLD);
+		stc("SSS     MM   MM   MM  AA  AA  CC      KKKK    |||\n", victim);
+		set_color(victim, CYAN, BOLD);
+		stc("   SSS  MM   MM   MM  AAAAAA  CC      KKKK    |||\n", victim);
+		set_color(victim, BLUE, BOLD);
+		stc("SS SSS  MM   MM   MM  AA  AA  CCCCCC  KK KK   |||\n", victim);
+		set_color(victim, PURPLE, BOLD);
+		stc(" SSSS   MM   MM   MM  AA  AA   CCCC   KK  KK  OOO\n", victim);
+		set_color(victim, WHITE, NOBOLD);
+	} else {
+		stc("Oh Crap!! You've gone and pissed off the Imms =).\n", victim);
+		stc("\n", victim);
+		stc(" SSSS    MMMM  MMMM    AAAA    CCCC   KK  KK  |||\n", victim);
+		stc("SSS SS  MMMMMMMMMMMM  AAAAAA  CCCCCC  KK KK   |||\n", victim);
+		stc("SSS     MM   MM   MM  AA  AA  CC      KKKK    |||\n", victim);
+		stc("   SSS  MM   MM   MM  AAAAAA  CC      KKKK    |||\n", victim);
+		stc("SS SSS  MM   MM   MM  AA  AA  CCCCCC  KK KK   |||\n", victim);
+		stc(" SSSS   MM   MM   MM  AA  A   CCCC   KK  KK  OOO\n", victim);
+	}
+
+}
+
+/* Smite by Lotus */
+void
+do_smite(Character *ch, String argument)
+{
+	Character *victim;
+
+	if (argument.empty()) {
+		stc("Who deserves to be smitten?.\n", ch);
+		return;
+	}
+	if ((victim = get_char_world(ch, argument, TRUE)) == nullptr) {
+		stc("They are not here, *sigh*.\n", ch);
+		return;
+	}
+	/* smite is a joke with imm vs imm, no need for this level crap
+	if (!IS_NPC(victim) && (get_trust(victim) >= get_trust(ch)) && ch->level != IMPLEMENTOR) {
+		stc("They wouldn't like that.\n", ch);
+		return;
+	}*/
+
+	if (victim->fighting != nullptr)
+		stop_fighting(victim, TRUE);
+
+	act("$n smacks the crap out of $N.", ch, nullptr, victim, TO_NOTVICT);
+	act("$n smacks the crap out of you!", ch, nullptr, victim, TO_VICT);
+
+	write_smack(victim);
+	stc("Ouch!! That had to hurt!\n", ch);
+
+	victim->position = POS_RESTING;
+
+	String name = IS_NPC(victim) ? victim->short_descr : victim->name;
+	Object *doo = create_object(get_obj_index(OBJ_VNUM_DOO), 0);
+	doo->timer = number_range(8, 14);
+	doo->value[3] = 1;
+
+	doo->short_descr = Format::format(doo->short_descr, name);
+	doo->description = Format::format(doo->description, name);
+
+	obj_to_room(doo, victim->in_room);
 }
 
 void do_sockets(Character *ch, String argument)
