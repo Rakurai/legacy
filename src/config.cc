@@ -40,8 +40,6 @@
 #include "tables.hh"
 #include "typename.hh"
 
-#define TITLEBLOCK                  14
-
 /* TEMPLATE
 void config_wiznet(Character *ch, const char *argument)
 {
@@ -582,14 +580,10 @@ void config_immortal(Character *ch, String argument)
 			stc("Your immname has been removed.\n", ch);
 		}
 		else {
-			if (strlen(argument.uncolor()) > TITLEBLOCK)
-				stc("Your immname can be no longer than 13 printed characters.\n", ch);
+			if (strlen(argument.uncolor()) > 15)
+				ptc(ch, "Your immname can be no longer than %d printed characters.\n", 15);
 			else {
-				String buf;
-				buf += "{W[{x";
-				buf += argument.center(TITLEBLOCK);
-				buf += "{W]{x";
-				ch->pcdata->immname = buf;
+				ch->pcdata->immname = argument;
 				ptc(ch, "Your immname is now: %s{x\n", ch->pcdata->immname);
 			}
 		}

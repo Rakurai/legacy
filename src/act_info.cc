@@ -2565,10 +2565,7 @@ void do_who(Character *ch, String argument)
 			remort = "  ";
 
 		if (IS_IMMORTAL(wch) && !wch->pcdata->immname.empty()) {
-			/* copy immname without the brackets */
-			block1 = wch->pcdata->immname;
-			block1 = block1.substr(block1.find("[")+1);
-			block1 = block1.substr(0, block1.find("]")-1);
+			block1 = wch->pcdata->immname.center(15);
 		}
 		else {
 			if (char_at_war(wch)) {

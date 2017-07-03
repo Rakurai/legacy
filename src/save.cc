@@ -59,7 +59,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
 extern void     set_window      args((Character *ch, int top, int bottom));
 
-#define CURRENT_VERSION         18   /* version number for pfiles */
+#define CURRENT_VERSION         19   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -764,6 +764,13 @@ bool load_char_obj(Descriptor *d, const String& name)
 		/* removed holylight at 12 -- Montrey */
 		if (version < 12 && ch->act_flags.has(Flags::N))
 			ch->act_flags -= Flags::N;
+
+		// removed padding and brackets in immname in version 19
+		if (version < 19 && !ch->pcdata->immname.empty())
+			ch->pcdata->immname = ch->pcdata->immname
+				.replace("{W[{x", "")
+				.replace("{W]{x", "")
+				.strip();
 
 		// removed old score at 16 and new_score flag -- Montrey
 		if (version < 16 && ch->pcdata->plr_flags.has(Flags::U))
