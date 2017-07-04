@@ -418,6 +418,7 @@ int init_socket(int port)
 	}
 
 #if defined(SO_NOSIGPIPE)
+	printf("setting SO_NOSIGPIPE\n");
 	if (setsockopt(fd, SOL_SOCKET, SO_NOSIGPIPE, (char *) &x, sizeof(x)) < 0) {
 		perror("Init_socket: SO_NOSIGPIPE");
 		close(fd);
@@ -429,6 +430,7 @@ int init_socket(int port)
 // this used to use SO_DONTLINGER, which isn't universally supported
 // and is semantically the opposite of SO_LINGER -- Montrey
 #if defined(SO_LINGER)
+	printf("setting SO_LINGER\n");
 	{
 		struct  linger  ld;
 //		ld.l_onoff  = 1;
@@ -445,6 +447,17 @@ int init_socket(int port)
 		}
 	}
 #endif
+
+#if defined(SO_KEEPALIVE)
+	printf("setting SO_KEEPALIVE\n");
+	if (setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, (char *) &x, sizeof(x)) < 0) {
+		perror("Init_socket: SO_KEEPALIVE");
+		close(fd);
+		EXIT_REASON(536, "setsockopt(SO_KEEPALIVE) failed");
+		exit(1);
+	}
+#endif
+
 	sa              = sa_zero;
 #ifdef IPV6
 	sa.sin6_family   = AF_INET6;
