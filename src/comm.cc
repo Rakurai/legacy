@@ -390,7 +390,7 @@ int main(int argc, char **argv)
 
 int init_socket(int port)
 {
-	int x = 1;
+	const int x = 1;
 	int fd;
 #ifdef IPV6
 	static struct sockaddr_in6 sa_zero;
@@ -418,26 +418,29 @@ int init_socket(int port)
 	}
 
 #if defined(SO_NOSIGPIPE)
-
 	if (setsockopt(fd, SOL_SOCKET, SO_NOSIGPIPE, (char *) &x, sizeof(x)) < 0) {
 		perror("Init_socket: SO_NOSIGPIPE");
 		close(fd);
 		EXIT_REASON(536, "setsockopt(SO_NOSIGPIPE) failed");
 		exit(1);
 	}
-
 #endif
-#if defined(SO_DONTLINGER)
+
+// this used to use SO_DONTLINGER, which isn't universally supported
+// and is semantically the opposite of SO_LINGER -- Montrey
+#if defined(SO_LINGER)
 	{
 		struct  linger  ld;
-		ld.l_onoff  = 1;
-		ld.l_linger = 1000;
+//		ld.l_onoff  = 1;
+//		ld.l_linger = 1000; // this was meaningless with l_onoff = 1?
+		ld.l_onoff  = 0;
+		ld.l_linger = 0;
 
-		if (setsockopt(fd, SOL_SOCKET, SO_DONTLINGER,
+		if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 		               (char *) &ld, sizeof(ld)) < 0) {
-			perror("Init_socket: SO_DONTLINGER");
+			perror("Init_socket: SO_LINGER");
 			close(fd);
-			EXIT_REASON(552, "SO_DONTLINGER failed");
+			EXIT_REASON(552, "SO_LINGER failed");
 			exit(1);
 		}
 	}
