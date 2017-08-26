@@ -115,6 +115,7 @@ void do_debug(Character *ch, String argument)
 			victim = d->character;
 			victim->next = char_list;
 			char_list    = victim;
+			victim->validate();
 			victim->pcdata->next = pc_list;
 			pc_list = victim->pcdata;
 			victim->desc = nullptr;

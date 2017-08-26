@@ -7,6 +7,7 @@
 #include "String.hh"
 #include "Format.hh" // ptc inline
 #include "Player.hh"
+#include "Valid.hh"
 
 /*
  * One character (PC or NPC).
@@ -18,7 +19,8 @@
 
 class Character :
 public Pooled<Character>, // must be first inherited
-public Actable
+public Actable,
+public Valid
 {
 public:
     Character();

@@ -1050,6 +1050,8 @@ void extract_char(Character *ch, bool fPull)
 		}
 	}
 
+	ch->invalidate();
+
 	if (ch->pcdata) {
 		if (ch->pcdata == pc_list)
 			pc_list = ch->pcdata->next;

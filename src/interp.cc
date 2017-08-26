@@ -716,7 +716,7 @@ void interpret(Character *ch, String argument)
 	(*cmd_table[cmd].do_fun)(ch, argument);
 
 	/* VT100 Stuff */
-	if (ch && ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
+	if (ch && ch->valid() && ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
 		goto_line(ch, ch->lines, 1);
 		stc(VT_CLEAR_LINE, ch);
 	}

@@ -1081,6 +1081,8 @@ void nanny(Descriptor *d, String argument)
 
 		ch->next                = char_list;
 		char_list               = ch;
+		ch->validate();
+		
 		ch->pcdata->next        = pc_list;
 		pc_list                 = ch->pcdata;
 		d->connected = CON_PLAYING;

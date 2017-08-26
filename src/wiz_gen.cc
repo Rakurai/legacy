@@ -1914,6 +1914,8 @@ void do_linkload(Character *ch, String argument)
 		victim = dnew->character;
 		victim->next = char_list;
 		char_list    = victim;
+		victim->validate();
+
 		victim->pcdata->next = pc_list;
 		pc_list = victim->pcdata;
 		victim->desc = nullptr;
