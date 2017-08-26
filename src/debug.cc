@@ -76,6 +76,12 @@ void do_debug(Character *ch, String argument)
 		}
 		return;
 	}
+
+	if (subfunc == "crash") {
+		Character *v = nullptr;
+		v->name = "test";
+		return;
+	}
 /*
 	if (!strcmp(subfunc, "fullupdate")) {
 		MYSQL_RES *result;
