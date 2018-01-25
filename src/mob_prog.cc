@@ -1708,23 +1708,16 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
 void mprog_act_trigger(const char *buf, Character *mob, Character *ch,
                        Object *obj, void *vo)
 {
-	MobProgActList *tmp_act;
-
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtype_flags.has(ACT_PROG))) {
-		tmp_act = new MobProgActList;
+		MobProgActList *tmp_act = new MobProgActList;
 
+		tmp_act->next	= mob->mpact;
 		mob->mpact      = tmp_act;
 		mob->mpact->buf = buf;
 		mob->mpact->ch  = ch;
 		mob->mpact->obj = obj;
 		mob->mpact->vo  = vo;
-
-		tmp_act->next = mob->mpact->next;
-		mob->mpact->next = tmp_act;
-		/*
-		      free_mem(tmp_act, sizeof( MobProgActList ) );
-		 */
 	}
 
 	return;

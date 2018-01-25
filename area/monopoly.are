@@ -603,8 +603,8 @@ GO TO JAIL
 7603 CDKNLTWY 0
 E
 tele~
-The nice officer escorts you, bound and gagged to your new home in
-the BIG HOUSE!
+Officer O'Donnell suggests you just leave the soap if you drop it in the
+shower from now on.
 ~
 S
 
@@ -615,8 +615,8 @@ GO DIRECTLY TO JAIL
 7604 CDKNLTWY 0
 E
 tele~
-Officer O'Donnell suggests you just leave the soap if you drop it in the
-shower from now on.
+The nice officer escorts you, bound and gagged to your new home in
+the BIG HOUSE!
 ~
 S
 
@@ -1429,6 +1429,11 @@ You see {HPacific Avenue{x.
 ~
 ~
 0 0 7635
+E
+tele~
+Officer O'Donnell grabs you by the back of the neck, slams you against a
+nearby wall, ties your hands, and yells "YER COMIN WITH ME!" in your ear.
+~
 S
 
 #7635

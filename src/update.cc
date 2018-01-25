@@ -1169,22 +1169,23 @@ void aggr_update(void)
 		   list of player-inhabited rooms and the loop thereover. */
 		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
 			if (IS_NPC(ch) && ch->mpact != nullptr) {
-				MobProgActList *tmp_act, *tmp2_act;
+				// go through acts and handle them.  this could conceivably generate new
+				// acts attached to the character!  just start a new list for the char and
+				// we'll blow this one away
+				MobProgActList *start = ch->mpact;
+				ch->mpact = nullptr;
 
-				// go through acts and handle them
-				for (tmp_act = ch->mpact; tmp_act != nullptr;
-				     tmp_act = tmp_act->next) {
+				for (MobProgActList *tmp_act = start; tmp_act != nullptr; tmp_act = tmp_act->next) {
 					mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
 					                     tmp_act->obj, tmp_act->vo, ACT_PROG);
 				}
 
 				// delete the list
-				for (tmp_act = ch->mpact; tmp_act != nullptr; tmp_act = tmp2_act) {
-					tmp2_act = tmp_act->next;
-					delete tmp_act;
+				while (start != nullptr) {
+					MobProgActList *tmp_act = start->next;
+					delete start;
+					start = tmp_act;
 				}
-
-				ch->mpact    = nullptr;
 			}
 		}
 
