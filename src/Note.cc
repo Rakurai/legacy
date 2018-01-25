@@ -256,6 +256,7 @@ void save_notes(int type)
 
 void load_notes(void)
 {
+/*
 	load_thread(NOTE_FILE, &note_list, NOTE_NOTE, 10 * 24 * 60 * 60);
 	load_thread(IDEA_FILE, &idea_list, NOTE_IDEA, 30 * 24 * 60 * 60);
 	load_thread(ROLEPLAY_FILE, &roleplay_list, NOTE_ROLEPLAY, 10 * 24 * 60 * 60);
@@ -263,6 +264,14 @@ void load_notes(void)
 	load_thread(CHANGES_FILE, &changes_list, NOTE_CHANGES, 90 * 24 * 60 * 60);
 	load_thread(PERSONAL_FILE, &personal_list, NOTE_PERSONAL, 10 * 24 * 60 * 60);
 	load_thread(TRADE_FILE, &trade_list, NOTE_TRADE, 10 * 24 * 60 * 60);
+*/
+	load_thread(NOTE_FILE, &note_list, NOTE_NOTE, 0);
+	load_thread(IDEA_FILE, &idea_list, NOTE_IDEA, 0);
+	load_thread(ROLEPLAY_FILE, &roleplay_list, NOTE_ROLEPLAY, 0);
+	load_thread(IMMQUEST_FILE, &immquest_list, NOTE_IMMQUEST, 0);
+	load_thread(CHANGES_FILE, &changes_list, NOTE_CHANGES, 0);
+	load_thread(PERSONAL_FILE, &personal_list, NOTE_PERSONAL, 0);
+	load_thread(TRADE_FILE, &trade_list, NOTE_TRADE, 0);
 }
 
 void load_thread(char *name, Note **list, int type, time_t free_time)
