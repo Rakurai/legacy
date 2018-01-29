@@ -66,6 +66,9 @@ public:
 	const String lsplit(String& word, const String& chars = " ") const;
 	const String rsplit(String& word, const String& chars = " ") const;
 
+	// wraps std::string::erase to silently ignore out of bounds, for convenience erasing
+	String& erase (size_t pos = 0, size_t len = npos);
+
 	// replace some or all occurrences of "what" with "with", -1 is all
 	const String replace(const String& what, const String& with, int times = -1) const;
 

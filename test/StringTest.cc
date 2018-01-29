@@ -196,6 +196,20 @@ BOOST_AUTO_TEST_CASE(erase)
 	a.erase();
 	BOOST_TEST( a.empty() );
 
+	// out of bounds
+	a = "qwerty";
+	a.erase(4, 20);
+	BOOST_TEST( a == "qwer" );
+	a.erase(5);
+	BOOST_TEST( a == "qwer" );
+	a.erase(5, 1);
+	BOOST_TEST( a == "qwer" );
+	a.clear();
+	a.erase(0);
+	BOOST_TEST( a.empty() );
+	a.erase(1);
+	BOOST_TEST( a.empty() );
+
 	a = "foo";
 	a.clear();
 	BOOST_TEST( a.empty() );

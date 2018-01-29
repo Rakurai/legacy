@@ -284,6 +284,14 @@ rsplit(String& word, const String& chars) const {
 	return substr(0, start_pos + 1).rstrip();
 }
 
+String& String::
+erase(size_t pos, size_t len) {
+	if (pos < (*this).size())
+		(*this).std::string::erase(pos, len);
+
+	return *this;
+}
+
 const String String::
 replace(const String& what, const String& with, int times) const {
 	if (what.empty())
