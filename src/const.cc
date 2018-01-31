@@ -2069,7 +2069,7 @@ const std::vector<skill_type> skill_table = {
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_STANDING,
 		&gsn_backstab,          SLOT(0),        30,     24,
 		"backstab",             "!Backstab!",           "",     0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+		{ 0, 0, 200, 0, 0, 0, 275, 0 },     { 0, 0, 425, 0, 0, 0, 475, 0 }
 	},
 	{
 		"bash",                 { 65, 58, 60,  1, 65, 15, 60,  1 },

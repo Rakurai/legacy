@@ -1055,6 +1055,22 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			dam *= 2 + (ch->level / 10);
 		else
 			dam *= 2 + (ch->level / 8);           /* daggers do more */
+		/*Vegita - evolved backstab damage bonuses*/
+		switch (get_evolution(ch, gsn_backstab)) {
+			case 1:							//no bonus
+				break;
+			
+			case 2:
+				dam += ((10 * dam ) / 100); //%10 bonus
+				break;
+			
+			case 3:
+				dam += ((20 * dam ) / 100); //%20 bonus
+				break;
+				
+			default:
+				break;
+		}
 	}
 
 	if (dt == gsn_circle && wield != nullptr) {
@@ -4095,7 +4111,7 @@ void do_backstab(Character *ch, String argument)
 {
 	Character *victim;
 	Object *obj;
-	//int evo = get_evolution(ch, gsn_backstab);
+	int evo = get_evolution(ch, gsn_backstab);
 
 	if (!get_skill(ch, gsn_backstab)) {
 		do_huh(ch);
@@ -4171,8 +4187,8 @@ void do_backstab(Character *ch, String argument)
 	    || (get_skill(ch, gsn_backstab) >= 2 && !IS_AWAKE(victim))) {
 		check_improve(ch, gsn_backstab, TRUE, 4);
 		multi_hit(ch, victim, gsn_backstab);
-		//if (evo >=3 && chance(15)) /*vegita - extra backstab run at evo 3, 15% chance. damage bonuses under one_hit*/
-		//	multi_hit(ch, victim, gsn_backstab);
+		if (evo >=3) /*&& chance(15)) /*vegita - extra backstab run at evo 3, 15% chance. damage bonuses under one_hit*/
+			multi_hit(ch, victim, gsn_backstab);
 	}
 	else {
 		check_improve(ch, gsn_backstab, FALSE, 4);
