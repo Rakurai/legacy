@@ -47,6 +47,7 @@
 #include "interp.hh"
 #include "Logging.hh"
 #include "macros.hh"
+#include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -4187,8 +4188,18 @@ void do_backstab(Character *ch, String argument)
 	    || (get_skill(ch, gsn_backstab) >= 2 && !IS_AWAKE(victim))) {
 		check_improve(ch, gsn_backstab, TRUE, 4);
 		multi_hit(ch, victim, gsn_backstab);
-		if (evo >=3) /*&& chance(15)) /*vegita - extra backstab run at evo 3, 15% chance. damage bonuses under one_hit*/
-			multi_hit(ch, victim, gsn_backstab);
+		if (evo >=3 && chance(50)) { /*vegita - 15% chance to put paralyze on target at evo 3*/
+			//multi_hit(ch, victim, gsn_backstab);
+			stc("{YYour skillful blow strikes a nerve on your opponent\n", ch);
+			int level = (ch->level);
+			affect_add_sn_to_char(victim,
+				gsn_paralyze,
+				level,
+				2,
+				1,
+				FALSE
+			);
+		}
 	}
 	else {
 		check_improve(ch, gsn_backstab, FALSE, 4);
