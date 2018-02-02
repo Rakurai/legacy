@@ -35,6 +35,7 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "Game.hh"
+#include "interp.hh"
 #include "macros.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -87,6 +88,7 @@ void do_flag(Character *ch, String argument)
 
 	if (arg3.empty()) {
 		stc("You need to specify a field to modify.\n", ch);
+		do_flaglist(ch, "");
 		return;
 	}
 
@@ -96,11 +98,13 @@ void do_flag(Character *ch, String argument)
 
 	if (fieldptr == flag_fields.size()) {
 		stc("That is not a valid flag field.\n", ch);
+		do_flaglist(ch, "");
 		return;
 	}
 
 	if (argument.empty()) {
 		stc("Which flags do you wish to change?\n", ch);
+		do_flaglist(ch, arg3);
 		return;
 	}
 
@@ -146,6 +150,7 @@ void do_flag(Character *ch, String argument)
 
 			default:
 				ptc(ch, "That is not an acceptable %s flag.\n", arg1);
+				do_flaglist(ch, arg3);
 				return;
 			}
 		}
@@ -171,6 +176,7 @@ void do_flag(Character *ch, String argument)
 
 			default:
 				ptc(ch, "That is not an acceptable %s flag.\n", arg1);
+				do_flaglist(ch, arg3);
 				return;
 			}
 		}
@@ -199,17 +205,19 @@ void do_flag(Character *ch, String argument)
 		case FIELD_EXTRA:       flag = &object->extra_flags;    break;
 
 		case FIELD_WEAR:        flag = &object->wear_flags;     break;
-/* temporarily removed until I can figure out how I want to do it
 		case FIELD_WEAPON:
 			if (object->item_type != ITEM_WEAPON) {
 				stc("That is not a weapon.\n", ch);
 				return;
 			}
 
-			flag = (unsigned long *) & (object->value[4]);            break;
-*/
+//			flag = (unsigned long *) & (object->value[4]);            break;
+			stc("Weapon flagging has been temporarily removed.\n", ch);
+			return;
+
 		default:
 			stc("That's not an acceptable object flag.\n", ch);
+			do_flaglist(ch, arg3);
 			return;
 		}
 	}
@@ -239,6 +247,7 @@ void do_flag(Character *ch, String argument)
 		if (fieldptr == FIELD_ROOM)     flag = &room->room_flags;
 		else {
 			stc("That's not an acceptable room flag.\n", ch);
+			do_flaglist(ch, arg3);
 			return;
 		}
 	}
@@ -265,6 +274,7 @@ void do_flag(Character *ch, String argument)
 
 			if (flag.empty()) {
 				stc("That flag doesn't exist!\n", ch);
+				do_flaglist(ch, arg3);
 				return;
 			}
 
@@ -275,6 +285,7 @@ void do_flag(Character *ch, String argument)
 
 		if (pos == -1) {
 			stc("That flag doesn't exist!\n", ch);
+			do_flaglist(ch, arg3);
 			return;
 		}
 		else
