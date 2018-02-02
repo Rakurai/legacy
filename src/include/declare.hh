@@ -421,6 +421,9 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define DAM_CHARM               18
 #define DAM_SOUND               19
 #define DAM_WATER               20
+#define DAM_WOOD                21
+#define DAM_SILVER              22
+#define DAM_IRON                23
 
 /* OFF bits for mobiles */
 #define OFF_AREA_ATTACK         (Flags::A)

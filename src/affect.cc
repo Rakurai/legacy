@@ -282,6 +282,9 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case IMM_DROWNING    : paf->location = DAM_DROWNING; break;
 			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
 			case IMM_SOUND       : paf->location = DAM_SOUND; break;
+			case IMM_WOOD        : paf->location = DAM_WOOD; break;
+			case IMM_SILVER      : paf->location = DAM_SILVER; break;
+			case IMM_IRON        : paf->location = DAM_IRON; break;
 			default: {
 //				Logging::bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
 				return FALSE;
