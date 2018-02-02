@@ -131,7 +131,7 @@ elf~
 BG 0 -400 S
 35 6 5d10+1300 1d1+99 5d6+1 beating
 -26 -27 -27 -15
-HFCDK VK Q B
+HFCDK K Q B
 stand stand male 25
 0 0 small 0
 >death_prog 100~

@@ -252,7 +252,7 @@ void affect_add_sn_to_char(Character *ch, sh_int sn, sh_int level, sh_int durati
 		Logging::bug("affect_add_sn_to_char: affect with sn %d not found in table", sn);
 }
 
-void remort_affect_modify_char(Character *ch, int where, Flags bits, bool fAdd) {
+void remort_affect_modify_char(Character *ch, int where, Flags bitvector, bool fAdd) {
 	Affect af;
 	af.type = 0;
 	af.level = ch->level;
@@ -265,8 +265,10 @@ void remort_affect_modify_char(Character *ch, int where, Flags bits, bool fAdd) 
 		where == TO_RESIST ? 'R' : 
 		where == TO_VULN ? 'V' : '?'; // let parse handle error
 
-	while (affect_parse_flags(letter, &af, bits))
-		affect_modify_char(ch, &af, fAdd);
+	while (!bitvector.empty()) {
+		if (affect_parse_flags(letter, &af, bitvector))
+			affect_modify_char(ch, &af, fAdd);
+	}
 }
 
 /* hinges on af.where:
@@ -288,7 +290,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 
 	if (paf->where == TO_DEFENSE) {
 		if (paf->location < 1 || paf->location > 32) {
-			Logging::bugf("affect_modify_char: bad location %d in TO_DEFENSE", paf->location);
+			Logging::bugf("affect_modify_char (%s): bad location %d in TO_DEFENSE", ch->name, paf->location);
 			return;
 		}
 
@@ -306,7 +308,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 		}
 		else {
 			if (ch->defense_mod == nullptr) {
-				Logging::bug("affect_modify_char: attempt to remove from nullptr defense_mod", 0);
+				Logging::bugf("affect_modify_char (%s): attempt to remove from nullptr defense_mod", ch->name);
 				return;
 			}
 
@@ -324,7 +326,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 
 	if (paf->where == TO_AFFECTS) {
 		if (paf->type < 1 || paf->type >= skill_table.size()) {
-			Logging::bugf("affect_modify_char: bad type %d in TO_AFFECTS", paf->type);
+			Logging::bugf("affect_modify_char (%s): bad type %d in TO_AFFECTS", ch->name, paf->type);
 			return;
 		}
 
@@ -339,7 +341,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 
 	if (paf->location != APPLY_NONE) {
 		if (paf->location < 1 || paf->location > 32) {
-			Logging::bugf("affect_modify_char: bad location %d when modifier is %d", paf->location, paf->modifier);
+			Logging::bugf("affect_modify_char (%s): bad location %d when modifier is %d", ch->name, paf->location, paf->modifier);
 			return;
 		}
 
@@ -354,7 +356,7 @@ void affect_modify_char(void *owner, const Affect *paf, bool fAdd) {
 		}
 		else {
 			if (ch->apply_cache == nullptr) {
-				Logging::bug("affect_modify_char: attempt to remove from nullptr apply_cache", 0);
+				Logging::bugf("affect_modify_char (%s): attempt to remove from nullptr apply_cache", ch->name);
 				return;
 			}
 
