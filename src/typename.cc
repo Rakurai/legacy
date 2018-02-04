@@ -133,6 +133,9 @@ String dam_type_name(int type)
 		case DAM_DROWNING    : return "drowning";
 		case DAM_LIGHT       : return "light";
 		case DAM_SOUND       : return "sound";
+		case DAM_WOOD        : return "wood";
+		case DAM_SILVER      : return "silver";
+		case DAM_IRON        : return "iron";
 	}
 
 	Logging::bug("dam_type_name: unknown type %d.", type);

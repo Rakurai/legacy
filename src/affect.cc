@@ -200,6 +200,11 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	}
 
 	if (paf->where == TO_DEFENSE) {
+		if (paf->modifier == 0) {
+			Logging::bug("affect_parse_flags: TO_DEFENSE with modifier of 0", 0);
+			return FALSE;
+		}
+
 		// weird case, defense flag Flags::A used to be *_SUMMON, changed to a ACT_NOSUMMON.
 		// wouldn't be a concern except the index is repurposed to a cache counter.
 		bitvector -= Flags::A;
@@ -236,33 +241,27 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	// treat the bitvector as an array, find the lowest index with a set bit, remove it from
 	// the vector, and use the index to match against new constants
-	unsigned long bit_val = 1;
 	Flags::Bit bit = Flags::none;
-	int index = 0;
 
-	while (index < 32 && !bitvector.has(static_cast<Flags::Bit>(bit_val))) {
-		bit_val <<= 1;
-		index++;
-	}
+	if (!bitvector.empty()) {
+		unsigned long bit_val = 1;
+		int index = 0;
 
-	if (index < 32) {
-		bit = static_cast<Flags::Bit>(bit_val);
-		bitvector -= bit;
+		while (index < 32 && !bitvector.has(static_cast<Flags::Bit>(bit_val))) {
+			bit_val <<= 1;
+			index++;
+		}
+
+		if (index < 32) {
+			bit = static_cast<Flags::Bit>(bit_val);
+			bitvector -= bit;
+		}
 	}
 
 	// if the bit wasn't found, still continue for the TO_OBJECT.  the loop will
 	// stop when bitvector is 0
 
 	if (paf->where == TO_DEFENSE) {
-		if (index == 0) { // skip, that field is reserved
-			Logging::bug("affect_parse_flags: TO_DEFENSE with bit A", 0);
-			return FALSE;
-		}
-
-		if (bit == Flags::none) { // no bits, maybe defunct flag?
-//			Logging::bugf("affect_parse_flags: TO_DEFENSE with no bit");
-			return FALSE;
-		}
 
 		switch (bit) {
 			case IMM_CHARM       : paf->location = DAM_CHARM; break;
@@ -282,10 +281,19 @@ bool affect_parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case IMM_DROWNING    : paf->location = DAM_DROWNING; break;
 			case IMM_LIGHT       : paf->location = DAM_LIGHT; break;
 			case IMM_SOUND       : paf->location = DAM_SOUND; break;
+			case IMM_WOOD        : paf->location = DAM_WOOD; break;
+			case IMM_SILVER      : paf->location = DAM_SILVER; break;
+			case IMM_IRON        : paf->location = DAM_IRON; break;
+			case Flags::none     : /* location already set */ break;
 			default: {
-//				Logging::bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
+				Logging::bugf("affect_parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
 				return FALSE;
 			}
+		}
+
+		if (paf->location == 0) {
+			Logging::bug("affect_parse_flags: TO_DEFENSE with location 0", 0);
+			return FALSE;
 		}
 
 		// modifier was already set or done above
