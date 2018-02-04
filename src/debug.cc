@@ -66,6 +66,11 @@ void do_debug(Character *ch, String argument)
 		return;
 	}
 
+	if (subfunc == "objstate") {
+		objstate_save_items();
+		return;
+	}
+
 	if (subfunc == "strtest") {
 		for (int row = 0; row < 16; row++) {
 			for (int col = 0; col < 8; col++) {

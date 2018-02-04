@@ -139,14 +139,14 @@ void fwrite_objstate(Object *obj, FILE *fp, int *count)
 			if (paf->type < 0 || paf->type >= skill_table.size())
 				continue;
 
-			Format::fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %10d %d\n",
+			Format::fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %s %d\n",
 			        skill_table[paf->type].name,
 			        paf->where,
 			        paf->level,
 			        paf->duration,
 			        paf->modifier,
 			        paf->location,
-			        paf->bitvector(),
+			        paf->bitvector().to_string(),
 			        paf->evolution ? paf->evolution : 1);
 		}
 	}
