@@ -1263,7 +1263,7 @@ void do_oset(Character *ch, String argument)
 		stc("  set obj <object> <field> <value>\n", ch);
 		stc("  Field being one of:\n",                               ch);
 		stc("    value0 value1 value2 value3 value4 (v1-v4)\n",      ch);
-		stc("    condition level weight cost timer\n",          ch);
+		stc("    condition level weight cost timer settings\n",      ch);
 		return;
 	}
 
