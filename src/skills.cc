@@ -1384,6 +1384,7 @@ void do_gain(Character *ch, String argument)
 
 		if (foundsect) {
 			page_to_char(output, ch);
+			output.erase();
 			foundall = TRUE;
 		}
 
