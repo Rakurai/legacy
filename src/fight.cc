@@ -732,7 +732,12 @@ void mob_hit(Character *ch, Character *victim, int dt)
 	Character *vch, *vch_next;
 	int chance, number;
 
-	if (ch->fighting == nullptr
+	// this is a weird way to make mobs with OFF_BACKSTAB start fights with do_backstab.
+	// we call do_backstab here, which in turn calls mob_hit (this function).  the
+	// difference is that do_backstab will call with dt == gsn_backstab, and we avoid
+	// a loop.
+	if (dt != gsn_backstab // avoid loop
+		&& ch->fighting == nullptr
 	    && victim->hit == GET_MAX_HIT(victim)
 	    && (get_eq_char(ch, WEAR_WIELD) != nullptr)
 	    && ch->off_flags.has(OFF_BACKSTAB)
@@ -4168,7 +4173,7 @@ void do_backstab(Character *ch, String argument)
 	}
 
 	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
-		stc("Morphed players cannot backstab pets or lirs.\n", ch);
+		stc("Morphed players cannot backstab pets.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
 	}
@@ -4190,7 +4195,7 @@ void do_backstab(Character *ch, String argument)
 		multi_hit(ch, victim, gsn_backstab);
 		if (evo >=3 && chance(50)) { /*vegita - 15% chance to put paralyze on target at evo 3*/
 			//multi_hit(ch, victim, gsn_backstab);
-			stc("{YYour skillful blow strikes a nerve on your opponent\n", ch);
+			stc("{YYour skillful blow strikes a nerve on your opponent!{x\n", ch);
 			int level = (ch->level);
 			affect_add_sn_to_char(victim,
 				gsn_paralyze,
