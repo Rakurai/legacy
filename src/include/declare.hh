@@ -735,7 +735,7 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define ITEM_MAP                     28
 #define ITEM_PORTAL                  29
 #define ITEM_WARP_STONE              30
-#define ITEM_ROOM_KEY                31
+//#define ITEM_ROOM_KEY                31
 #define ITEM_GEM                     32
 #define ITEM_JEWELRY                 33
 #define ITEM_JUKEBOX                 34

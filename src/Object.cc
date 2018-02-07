@@ -41,7 +41,6 @@ void unique_item(Object *item)
 	    || item->item_type == ITEM_PORTAL
 	    || item->item_type == ITEM_TRASH
 	    || item->item_type == ITEM_KEY
-	    || item->item_type == ITEM_ROOM_KEY
 	    || item->item_type == ITEM_WEDDINGRING
 	    || item->item_type == ITEM_TOKEN
 	    || item->item_type == ITEM_JUKEBOX

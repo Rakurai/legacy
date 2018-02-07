@@ -362,7 +362,6 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	case ITEM_PORTAL:
 	case ITEM_TREASURE:
 	case ITEM_WARP_STONE:
-	case ITEM_ROOM_KEY:
 	case ITEM_GEM:
 	case ITEM_JEWELRY:
 	case ITEM_WEDDINGRING:

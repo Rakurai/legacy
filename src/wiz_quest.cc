@@ -816,7 +816,6 @@ bool setup_obj(Character *ch, Object *obj, String argument)
 	case ITEM_PORTAL:
 	case ITEM_TREASURE:
 	case ITEM_WARP_STONE:
-	case ITEM_ROOM_KEY:
 	case ITEM_GEM:
 	case ITEM_JEWELRY:
 	case ITEM_WEDDINGRING:

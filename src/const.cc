@@ -58,7 +58,6 @@ const std::vector<item_type> item_table = {
 	{       ITEM_MAP,       "map"           },
 	{       ITEM_PORTAL,    "portal"        },
 	{       ITEM_WARP_STONE, "warp_stone"    },
-	{       ITEM_ROOM_KEY,  "room_key"      },
 	{       ITEM_GEM,       "gem"           },
 	{       ITEM_JEWELRY,   "jewelry"       },
 	{       ITEM_JUKEBOX,   "jukebox"       },
