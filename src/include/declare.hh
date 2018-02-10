@@ -1429,6 +1429,8 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define LOG_DIR         "../log/"
 #define SLOG_FILE       LOG_DIR "slog.txt" /* Secure Logs */
 
+#define TABLE_DIR       "../table/"
+
 /*
  * Holiday specials
  */

@@ -31,6 +31,7 @@
 #include "Character.hh"
 #include "declare.hh"
 #include "find.hh"
+#include "Format.hh"
 #include "Flags.hh"
 #include "Game.hh"
 #include "GameTime.hh"
@@ -42,6 +43,7 @@
 #include "random.hh"
 #include "RoomPrototype.hh"
 #include "String.hh"
+#include "tables.hh"
 #include "Weather.hh"
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
@@ -62,7 +64,49 @@ void do_debug(Character *ch, String argument)
 		    "  aversion - lists all areas and their versions\n"
 		    "  define   - lists all defines that the preprocessor checks for\n"
 		    "  objstate - save all objects lying on the ground\n"
+		    "  writetables - write out mud tables\n"
 		    "  affcall  - iterate through affects\n", ch);
+		return;
+	}
+
+
+	if (subfunc == "writetables") {
+		FILE *fp;
+
+		fp = fopen(TABLE_DIR "item_type_table.csv", "w");
+		Format::fprintf(fp, "name\n");
+		for (auto v : item_table)
+			Format::fprintf(fp, "%s\n", v.name);
+		fclose(fp);
+
+		fp = fopen(TABLE_DIR "position_table.csv", "w");
+		Format::fprintf(fp, "name\n");
+		for (auto v : position_table)
+			Format::fprintf(fp, "%s\n", v.name);
+		fclose(fp);
+
+		fp = fopen(TABLE_DIR "sex_table.csv", "w");
+		Format::fprintf(fp, "name\n");
+		for (auto v : sex_table)
+			Format::fprintf(fp, "%s\n", v.name);
+		fclose(fp);
+
+		fp = fopen(TABLE_DIR "size_table.csv", "w");
+		Format::fprintf(fp, "name\n");
+		for (auto v : size_table)
+			Format::fprintf(fp, "%s\n", v.name);
+		fclose(fp);
+
+		fp = fopen(TABLE_DIR "race_table.csv", "w");
+		Format::fprintf(fp, "name,pc_race,act,aff_by,off,imm,res,vuln,form,parts\n");
+		for (auto v : race_table)
+			Format::fprintf(fp, "%s,%d,%s,%s,%s,%s,%s,%s,%s,%s\n",
+				v.name, v.pc_race,
+				v.act.to_string(), v.aff.to_string(), v.off.to_string(),
+				v.imm.to_string(), v.res.to_string(), v.vuln.to_string(),
+				v.form.to_string(), v.parts.to_string());
+		fclose(fp);
+
 		return;
 	}
 
