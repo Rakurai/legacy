@@ -68,7 +68,7 @@ public:
 
 private:
 	Object(const String&);
-	String& operator=(const String&);
+	Object& operator=(const Object&);
 };
 
 void    destroy_obj     args(( Object *obj ));
