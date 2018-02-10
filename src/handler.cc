@@ -958,6 +958,9 @@ void extract_obj(Object *obj)
 		}
 	}
 
+	if (obj == donation_pit)
+		donation_pit = nullptr;
+
 	--obj->pIndexData->count;
 	delete obj;
 	return;

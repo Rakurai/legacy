@@ -59,7 +59,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
 extern void     set_window      args((Character *ch, int top, int bottom));
 
-#define CURRENT_VERSION         20   /* version number for pfiles */
+int CURRENT_VERSION = 20;   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -72,7 +72,7 @@ int rename(const char *oldfname, const char *newfname);
  */
 cJSON * fwrite_player     args((Character *ch));
 cJSON * fwrite_char     args((Character *ch));
-cJSON * fwrite_objects  args((Character *ch,  Object *head, bool strongbox));
+cJSON * fwrite_objects  args((Object *head));
 cJSON * fwrite_pet      args((Character *pet));
 void    fread_char      args((Character *ch,  cJSON *json, int version));
 void    fread_player      args((Character *ch,  cJSON *json, int version));
@@ -108,13 +108,13 @@ void save_char_obj(Character *ch)
 	cJSON_AddItemToObject(root, "player", fwrite_player(ch));
 	cJSON_AddItemToObject(root, "character", fwrite_char(ch));
 
-	cJSON_AddItemToObject(root, "inventory", fwrite_objects(ch, ch->carrying, FALSE));
-	cJSON_AddItemToObject(root, "locker", fwrite_objects(ch, ch->pcdata->locker, FALSE));
-	cJSON_AddItemToObject(root, "strongbox", fwrite_objects(ch, ch->pcdata->strongbox, TRUE));
+	cJSON_AddItemToObject(root, "inventory", fwrite_objects(ch->carrying));
+	cJSON_AddItemToObject(root, "locker", fwrite_objects(ch->pcdata->locker));
+	cJSON_AddItemToObject(root, "strongbox", fwrite_objects(ch->pcdata->strongbox));
 
 	if (ch->pet) {
 		cJSON_AddItemToObject(root, "pet", fwrite_pet(ch->pet));
-		cJSON_AddItemToObject(root, "pet_inventory", fwrite_objects(ch, ch->pet->carrying, FALSE));
+		cJSON_AddItemToObject(root, "pet_inventory", fwrite_objects(ch->pet->carrying));
 	}
 
 	char *JSONstring = cJSON_Print(root);
@@ -562,17 +562,8 @@ cJSON *fwrite_pet(Character *pet)
 /*
  * Write an object and its contents.
  */
-cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
+cJSON *fwrite_obj(Object *obj)
 {
-	/*
-	 * Castrate storage characters.
-	 */
-/*	if (!IS_IMMORTAL(ch))
-		if ((!strongbox && (obj->level > get_holdable_level(ch)))
-		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
-		    || (obj->item_type == ITEM_MAP && !obj->value[0]))
-			return nullptr;
-*/
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject();
 
@@ -655,14 +646,14 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		cJSON_AddNumberToObject(o,	"Wt",			obj->weight);
 
 	// does nothing if the contains is nullptr
-	cJSON_AddItemToObject(o, "contains", fwrite_objects(ch, obj->contains, strongbox));
+	cJSON_AddItemToObject(o, "contains", fwrite_objects(obj->contains));
 
-	cJSON_AddItemToObject(o, "gems", fwrite_objects(ch, obj->gems, strongbox));
+	cJSON_AddItemToObject(o, "gems", fwrite_objects(obj->gems));
 
 	return o;
 } /* end fwrite_obj() */
 
-cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
+cJSON *fwrite_objects(Object *head) {
 	cJSON *array = cJSON_CreateArray();
 
 	// old way was to use recursion to write items in reverse order, so loading would
@@ -672,7 +663,7 @@ cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 	for (Object *obj = head; obj; obj = obj->next_content) {
 		// unlike adding an item, inserting an item crashes with a NULL item
 		// and fwrite_obj could return NULL because of obj pruning
-		cJSON *item = fwrite_obj(ch, obj, strongbox);
+		cJSON *item = fwrite_obj(obj);
 
 		if (item)
 			cJSON_InsertItemInArray(array, 0, item);
