@@ -173,6 +173,30 @@ warp_crystal AGORSTY P
 E
 warp_loc~
 Wyvern's Tower, Hidden Keep~
+
+#2114
+aetheryte crystal~
+aetheryte crystal~
+A huge {Bb{Clu{We-white crys{Cta{Bl{x emerges from the ground here, glowing with power.~
+crystal~
+warp_crystal AGORSTY P
+0 0 0 0 0
+100 20000 0 P
+E
+warp_loc~
+Divided Souls~
+
+#2115
+aetheryte crystal~
+aetheryte crystal~
+A huge {Bb{Clu{We-white crys{Cta{Bl{x emerges from the ground here, glowing with power.~
+crystal~
+warp_crystal AGORSTY P
+0 0 0 0 0
+100 20000 0 P
+E
+warp_loc~
+Arctic Wood~
 #0
 
 #RESETS
@@ -190,6 +214,8 @@ O 0 2110 1  9201  * Elemental Canyon
 O 0 2111 1  9301  * Galaxy, Budo School, High Tower
 O 0 2112 1  5600  * Ruins of Oran
 O 0 2113 1  1702  * Wyvern's Tower, Hidden Keep
+O 0 2114 1  11633 * Divided Souls
+O 0 2115 1  3800  * Arctic Wood
 S
 
 #$
