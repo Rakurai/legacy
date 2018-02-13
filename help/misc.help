@@ -352,19 +352,15 @@ break any of the below rules - EVEN IF you do not agree with what they say.
 Ignorance is not an excuse, and violation of the rules is an indication
 that you do not wish to play, and the immortals will act accordingly.
 
-{Y*{x Discussion of alts is strictly prohibited on Legacy. This is a roleplay
-  environment and revealing alts damages this atmosphere so {WDON'T DO IT{x
 {Y*{x Harassment of players, especially newbies, in any form is not tolerated.
 {Y*{x Do not use clients or triggers to do any of the following:  bot, auto-
   reconnect, or keep your character idle.  If you are suspected of such
   activity and do not respond, your character shall be punished.
-{Y*{x Multiple playing and logins is strictly limited to characters level 
-  14 and below. These people may have 2 low level characters on at once.
-  For levels 15 and above helping your own  characters by ANY method is 
-  considered cheating: this includes but is not limited to giving gold to 
-  your other chars, spelling them, grouping with them, weakening mobs, or 
-  transferring eq in any way (as in dropping it and logging on to an alt 
-  to go pick it up).
+{Y*{x Multiple playing and logins is strictly prohibited.  Helping your own 
+  characters by ANY method is considered cheating: this includes but is not
+  limited to giving gold to your other chars, spelling them, grouping with
+  them, weakening mobs, or transferring eq in any way (as in dropping it
+  and logging on to an alt to go pick it up).
 {Y*{x Spam is rude and disrespectful to everybody else on the mud.  Do not do
   it.  Repeating anything 3 times in quick succession is one way spam will 
   be identified, but not the only way.  Also, conflicts inevitably arise on 
@@ -545,7 +541,6 @@ a {Crestring{x, please provide the following information:
 0 SHOWLAST FINGER FINGERINFO~
 Syntax:
    {Vfinger{x <{Ycharacter{x>
-   {Vfinger{x <{Ycharacter{x>@<{Ymud{x>
    {Vfinger private{x
    {Vfingerinfo{x
    {vshowlast{x
@@ -553,10 +548,6 @@ Syntax:
 This command will display the last time a character was playing on
 {bL{Ye{Wga{Yc{by{x along with several items of other useful unformation.
 Abbreviations cannot be used for character names.
-
-You can also use finger to get information on characters from
-other MUDs. For example:
-finger bob@soe
 
 The {Vfinger private{x command will toggle the appearance of your {Yemail{x
 {Yaddress{x in the {Vfinger data{x.  This setting defaults to off.
@@ -723,7 +714,14 @@ Clears the screen.
 
 0 MULTIPLAY MULTIPLAYING MULTIPLAYERS MULTI~
 The act of simultaneously playing more than one character at the same time
-is called multiplaying.  We understand that many people share an IP address
+is call Multiplaying. This is an illegal act here on Legacy.  Playing more
+than one character makes it easier for you to level, true, but it takes
+away from the roleplaying experience and fun you can have when you just
+try and flesh out one character.  It also gives you an unfair advantage
+over those who try to follow the rules.  Having two characters on at the
+same time, even if they aren't interacting with each other.  Even if one
+is playing while the other is recovering (sleeping) is still multiplaying.
+The point is, no logging on with multiple Characters.
 ~
 
 0 SUMMARY~

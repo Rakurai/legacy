@@ -122,7 +122,6 @@ acceptable synonym for {Cgtell{x.
 
 0 TELL REPLY DEAF~
 Syntax: {Ctell{x  <{Yplayer{x> <{Ymessage{x>
-        {Ctell{x  <{Yplayer@mud{x> <{Ymessage{x>
         {Creply{x <{Ymessage{x>
         {Creply lock{x
         {Cdeaf{x
@@ -135,10 +134,6 @@ immortal players.  You can type {Creply lock{x after receiving a tell to keep
 all your replies set to a certain player.  If you don't want to receive
 tells from other players, type '{Cdeaf{x'.  You can type {Cdeaf{x again to turn
 tells back on.
-
-You can also send tell messages to players on other connected MUDs.
-This is done by placing an "@" in the player's name. For example:
-tell bob@soe Nice day, isn't it?
 ~
 
 0 SAY~
@@ -579,12 +574,13 @@ there are {Rc{Pensor rules{x.
   the censor shall be punished immediately and harshly.
 
 {T*{x {PFlame{x is a {Bfree-for-all channel{x.  Period.  If you do not like what
-  is being said on {Pflame{x, you may turn it off. 
+  is being said on {Pflame{x, you may turn it off.  However, please note
+  the last rule ...
 
-{T* Racial, gender, sexual, and sexual orientation slurs will NOT be
-  tolerated on Legacy.  This encompasses ALL public and private channels
-  (excluding Flame,see above statement) 
-  and anybody found harassing in such a manner shall be punished.{x
+{T* Racial, gender, or sexual slurs will NOT be tolerated on Legacy.
+  This encompasses ALL public and private channels (including Flame!)
+  and anybody found harassing in such a manner shall not be welcome
+  on this mud.{x
 
 {VNOTE:{x Punishments for violators of the {Rc{Pensor rules{x will be determined
       on a case by case basis, but generally will be as follows:  1) 
@@ -608,23 +604,6 @@ overdone it, whatever you did. You really should stop it at this point.
 Remember that if courtesy is not enough to help keep you from spamming, then
 the {YImmortals{x may have to take action against you. You can be warned, have
 your communication channels turned off or even be banned. {CTake heed!{x
-~
-
-0 REMOTE~
-Syntax: {premote{x [{Yon|off{x]
-
-The remote command turns incoming messages (from other MUDs) on or off.
-You may use Remote in the following ways:
-Remote on      -- Turns the remote channel on
-Remote off     -- blocks incoming messages from other MUDs
-Remote         -- Show the remote channel's status.
-~
-
-0 RENAME~
-Syntax: {prename{x <{Ypet name{x>
-
-The Rename command allows you to name your pet at any time.
-You have a pet? Don't like its name? Change it using Rename.
 ~
 
 -2

@@ -283,7 +283,6 @@ In order of power, the {Rcombat spell group{x contains the following magics:
 0 'MAGIC MISSILE'~
 Syntax: {Ccast {x'{Ymagic missile{x' <{Ytarget{x>
 
-
 {CMagic missile{x is first spell available to any student of combat magic,
 being the simplest and most direct conversion of magical power into
 an offensive attack.  The caster conjures a small bolt of force which
@@ -293,7 +292,7 @@ casting.  As with all combat spells, specifiying a target is optional
 when in combat; if you are fighting, casting without a target will direct
 the spell at your primary opponent.
 
-
+GROUP: {RCombat{x
 ~
 
 0 'CHILL TOUCH'~
