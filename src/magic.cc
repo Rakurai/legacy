@@ -112,27 +112,6 @@ int find_spell(Character *ch, const String& name)
 	return found;
 } /* end find_spell */
 
-/* Lookup a skill by slot number.  Used for object loading. */
-int slot_lookup(int slot)
-{
-	extern bool fBootDb;
-	int sn;
-
-	if (slot <= 0)
-		return -1;
-
-	for (sn = 0; sn < skill_table.size(); sn++)
-		if (slot == skill_table[sn].slot)
-			return sn;
-
-	if (fBootDb) {
-		Logging::bug("Slot_lookup: bad slot %d.", slot);
-		abort();
-	}
-
-	return -1;
-} /* end slot_lookup */
-
 /* Utter mystical words for an sn. */
 void say_spell(Character *ch, int sn)
 {

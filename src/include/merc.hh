@@ -200,7 +200,6 @@ struct  skill_type
 	sh_int      target;                 /* Legal targets                */
 	sh_int      minimum_position;       /* Position for caster / user   */
 	sh_int *    pgsn;                   /* Pointer to associated gsn    */
-	sh_int      slot;                   /* Slot for #OBJECT loading     */
 	sh_int      min_mana;               /* Minimum mana used            */
 	sh_int      beats;                  /* Waiting time after use       */
 	String      noun_damage;            /* Damage message               */
