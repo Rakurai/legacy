@@ -1,172 +1,172 @@
 0 NOFOLLOW~
 Syntax: {Cnofollow{x
 
-This command sets your {Ynofollow{x flag, which prevents other characters
-from following you. If you are being followed at the time you issue this
-command, your followers will stop following you.
+This command sets your {Ynofollow{x flag, which prevents other characters
+from following you. If you are being followed at the time you issue this
+command, your followers will stop following you.
 
-Typing {Cnofollow{x when your {Ynofollow{x flag is set turns it back off,
-and lets people follow you again. If you broke the link to a follower
-using {Cnofollow{x, that person will have to {Cfollow{x you again if they
-want to.
+Typing {Cnofollow{x when your {Ynofollow{x flag is set turns it back off,
+and lets people follow you again. If you broke the link to a follower
+using {Cnofollow{x, that person will have to {Cfollow{x you again if they
+want to.
 
-You can check your current {Ynofollow{x status either by typing
-{Rnofollow{x once or twice, or by looking in the output from {Rautolist{x.
-~
+You can check your current {Ynofollow{x status either by typing
+{Rnofollow{x once or twice, or by looking in the output from {Rautolist{x.
+~
 
 0 NOSUMMON~
 Syntax: {Cnosummon{x
 
-This command sets or unsets your {Cnosummon{x flag, which keeps you safe
-from being summoned as long as it is set. Many player-killing attacks are
-started by summoning the victim, and this measure can thwart such
-attempts. However, if you ever ask a friend to summon you, do remember
-to unset the flag or they will waste a lot of mana trying.
+This command sets or unsets your {Cnosummon{x flag, which keeps you safe
+from being summoned as long as it is set. Many player-killing attacks are
+started by summoning the victim, and this measure can thwart such
+attempts. However, if you ever ask a friend to summon you, do remember
+to unset the flag or they will waste a lot of mana trying.
 
-You can check your current {Cnosummon{x status either by typing
-{Cnosummon{x once or twice, or by looking in the output from {Cautolist{x.
-~
+You can check your current {Cnosummon{x status either by typing
+{Cnosummon{x once or twice, or by looking in the output from {Cautolist{x.
+~
 
 0 ENTER~
 Syntax: {Renter{x {Yportal-name{x
 
-There are many {Yportals{x in the game, mysterious gateways that allow you
-to move by magical means from one room to another although those rooms
-are not physically connected. To use a portal, you must {Renter{x it.
-~
+There are many {Yportals{x in the game, mysterious gateways that allow you
+to move by magical means from one room to another although those rooms
+are not physically connected. To use a portal, you must {Renter{x it.
+~
 
 0 NORTH SOUTH EAST WEST UP DOWN~
 Syntax: north
-Syntax: south
-Syntax: east
-Syntax: west
-Syntax: up
-Syntax: down
+Syntax: south
+Syntax: east
+Syntax: west
+Syntax: up
+Syntax: down
 
-Use these commands to walk in a particular direction.
-~
+Use these commands to walk in a particular direction.
+~
 
 0 EXITS~
 Syntax: {Cexits{x
 
-Tells you the {Yvisible{x {Cexits{x of the room you are in, but not all {Cexits{x
-are visible. You can use {CSCAN{x to find those that are not, however :)
-~
+Tells you the {Yvisible{x {Cexits{x of the room you are in, but not all {Cexits{x
+are visible. You can use {CSCAN{x to find those that are not, however :)
+~
 
 0 SLEEP WAKE REST SIT STAND WAKE~
 Syntax: {Prest{x      or {Prest{x  <{Yfurniture{x>
-        {Psleep{x     or {Psleep{x <{Yfurniture{x>
-        {Psit{x	      or {Psit{x   <{Yfurniture{x>
-        {Ystand{x
-        {Ywake{x      or {Ywake{x {Ccharacter{x
+        {Psleep{x     or {Psleep{x <{Yfurniture{x>
+        {Psit{x	      or {Psit{x   <{Yfurniture{x>
+        {Ystand{x
+        {Ywake{x      or {Ywake{x {Ccharacter{x
 
-These commands change your position.  When you {Prest{x or {Psleep{x, you
-regenerate hit points, mana points, and movement points faster.
-However, you are more vulnerable to attack, and if you {Psleep{x,
-you won't hear many things happen.
+These commands change your position.  When you {Prest{x or {Psleep{x, you
+regenerate hit points, mana points, and movement points faster.
+However, you are more vulnerable to attack, and if you {Psleep{x,
+you won't hear many things happen.
 
-You may choose to {Ysit{x when talking with a friend.
+You may choose to {Ysit{x when talking with a friend.
 
-If there is furniture available that supports sleeping, resting or
-sitting on, then you can specify the name of that item with your
-{Prest{x, {Psleep{x or {Psit{x command. You may sleep better in a bed
-than on the floor :)
+If there is furniture available that supports sleeping, resting or
+sitting on, then you can specify the name of that item with your
+{Prest{x, {Psleep{x or {Psit{x command. You may sleep better in a bed
+than on the floor :)
 
-Use {Ystand{x or {Ywake{x to come back to a standing position.  You can also
-{Ywake{x to wake up other sleeping characters.
-~
+Use {Ystand{x or {Ywake{x to come back to a standing position.  You can also
+{Ywake{x to wake up other sleeping characters.
+~
 
 0 WHERE~
 Syntax: {Cwhere{x
-        {Cwhere{x <{Ycharacter{x>
+        {Cwhere{x <{Ycharacter{x>
 
-{CWhere{x without an argument tells you the location of visible players in the
-same area as you are.
+{CWhere{x without an argument tells you the location of visible players in the
+same area as you are.
 
-{CWhere{x with an argument tells you the location of one character with that
-name within your area, including monsters.
-~
+{CWhere{x with an argument tells you the location of one character with that
+name within your area, including monsters.
+~
 
 0 OPEN CLOSE LOCK UNLOCK~
 Syntax: {Copen{x  <{Yobject|direction{x>
-        {Vclose{x  <{Yobject|direction{x>
-        {Glock{x   <{Yobject|direction{x>
-        {Gunlock{x <{Yobject|direction{x>
+        {Vclose{x  <{Yobject|direction{x>
+        {Glock{x   <{Yobject|direction{x>
+        {Gunlock{x <{Yobject|direction{x>
 
-{COpen{x and {Vclose{x open and closes an object or a door.
+{COpen{x and {Vclose{x open and closes an object or a door.
 
-{GLock{x and {Gunlock{x lock and unlock a closed object or door, and you
-must have the appropriate key to {Glock{x or {Gunlock{x.
-~
+{GLock{x and {Gunlock{x lock and unlock a closed object or door, and you
+must have the appropriate key to {Glock{x or {Gunlock{x.
+~
 
 0 FOLLOW GROUP~
 Syntax: {Cfollow{x <{Ycharacter{x>
-        {Cgroup{x
-        {Cgroup{x <{Ycharacter{x>
+        {Cgroup{x
+        {Cgroup{x <{Ycharacter{x>
 
-{CFollow{x starts you following another character.  To stop following anyone else,
-just {Cfollow{x <{Yyourself{x>.
+{CFollow{x starts you following another character.  To stop following anyone else,
+just {Cfollow{x <{Yyourself{x>.
 
-{CGroup{x <{Ycharacter{x> makes someone who is following you a member of your group.
-Group members share experience points from kills and may use the {Cgtell{x and
-{Csplit{x commands.  If anyone in your group is attacked, you will automatically
-join the fight if they have {CautoassistPx on.
+{CGroup{x <{Ycharacter{x> makes someone who is following you a member of your group.
+Group members share experience points from kills and may use the {Cgtell{x and
+{Csplit{x commands.  If anyone in your group is attacked, you will automatically
+join the fight if they have {CautoassistPx on.
 
-If the <{Ycharacter{x> is already a member of your group, then {Cgroup{x will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
+If the <{Ycharacter{x> is already a member of your group, then {Cgroup{x will
+kick out the <{Ycharacter{x> from your group.  Characters can also leave your
+group by using a {Cfollow{x command to stop following you.
 
-{CGroup{x with no argument shows statistics for each character in your group.
+{CGroup{x with no argument shows statistics for each character in your group.
 
-You only provides experience as long as no member of your group is more
-than six levels above you.
+You only provides experience as long as no member of your group is more
+than six levels above you.
 
-{YSEE ALSO:{x nofollow
-~
+{YSEE ALSO:{x nofollow
+~
 
 0 RECALL /~
 Syntax: {Crecall{x
 
-{CRecall{x prays to Mota for miraculous transportation from where you are
-back to the Temple of Midgaard.  '{C/{x' is a synonym for {Crecall{x.
+{CRecall{x prays to Mota for miraculous transportation from where you are
+back to the Temple of Midgaard.  '{C/{x' is a synonym for {Crecall{x.
 
-If you {Crecall{x during combat, you will lose experience (more than for
-fleeing), and you will have a chance of failing (again, more than for
-fleeing).  This chance is based on your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-~
+If you {Crecall{x during combat, you will lose experience (more than for
+fleeing), and you will have a chance of failing (again, more than for
+fleeing).  This chance is based on your recall skill, although a 100%
+{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
+{CRecall{x doesn't work in certain god-forsaken rooms, and characters
+afflicted by a curse may not {Crecall{x at all.
+~
 
 0 SCAN~
 Syntax: {Cscan{x
-        {Cscan{x <{Ydirection{x>
+        {Cscan{x <{Ydirection{x>
 
-{CScan{x will tell you the location of players and mobs that are within
-one room distance from your location.  It will also show who is
-currectly in the room with you.  Scanning in one direction will show
-you what is off in the distance, and also will show closed doors.
-~
+{CScan{x will tell you the location of players and mobs that are within
+one room distance from your location.  It will also show who is
+currectly in the room with you.  Scanning in one direction will show
+you what is off in the distance, and also will show closed doors.
+~
 
 0 FLY LAND~
 Synxtax: {Cfly{x
-         {Cland{x
+         {Cland{x
 
-The Fly and Land commands allow your character to takeoff or
-land. This is mostly for roleplaying purposes. Only characters
-who can naturally fly can takeoff at will. Any flying character
-can land.
-Note: You land automatically if you sit or lie down.
-~
+The Fly and Land commands allow your character to takeoff or
+land. This is mostly for roleplaying purposes. Only characters
+who can naturally fly can takeoff at will. Any flying character
+can land.
+Note: You land automatically if you sit or lie down.
+~
 
 0 SPOUSE SPOUSEGATE~
 Syntax: {Cspousegate{x
 
-Spousegate allows you to travel instantly to where your spouse
-is currently located. There are some restrictions to this transportation.
-Neither of you may be in an arena, in a quest area, in a no-recall
-room. Also, you may not be fighting. Your spouse must also be
-visable to you.
-~
+Spousegate allows you to travel instantly to where your spouse
+is currently located. There are some restrictions to this transportation.
+Neither of you may be in an arena, in a quest area, in a no-recall
+room. Also, you may not be fighting. Your spouse must also be
+visable to you.
+~
 
 -2
