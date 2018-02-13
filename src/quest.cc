@@ -700,7 +700,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		return;
 	}
 
-	ATTR_BASE(ch, APPLY_SEX) = number_range(1, 2);
+	ATTR_BASE(questmob, APPLY_SEX) = number_range(1, 2);
 	questmob->level = ch->level;
 
 	/* generate name */
