@@ -1,738 +1,738 @@
 92 AURA~
 Syntax: {Caura{x <{Yplayername{x> <{Yaura{x>
-        {Caura{x <{Yplayername{x> {Ynone{x
-        {Caura{x <{Yplayername{x>
+        {Caura{x <{Yplayername{x> {Ynone{x
+        {Caura{x <{Yplayername{x>
 
-Self explanatory; {Caura{x <{Yplayername{x> will give you the person's aura.
-~
+Self explanatory; {Caura{x <{Yplayername{x> will give you the person's aura.
+~
 
 92 CLANQP~
 Syntax: {Cclanqp donate {x<{Yamount{x> <{Yclanname{x>
 
-This allows an imm to donate questpoints to a clan. (e.g. as a reward for
-a quest.)
+This allows an imm to donate questpoints to a clan. (e.g. as a reward for
+a quest.)
 
-~
+~
 
 92 JUKEBOX PLAY~
 Immortal additions to the {VJukeBox{x interface:
 
-Syntax: {Cplay loud{x <{Ysongname{x>  ({YImmortal Only{x)
-        {Cplay stop{x           ({YImmortal Only{x)
+Syntax: {Cplay loud{x <{Ysongname{x>  ({YImmortal Only{x)
+        {Cplay stop{x           ({YImmortal Only{x)
 
-These commands are pretty straight forward.  Play loud plays a song such
-that everyone on the entire mud hears it, as long as their music channel
-is on.  Play stop will stop any and all global songs being played at the
-time.  {PNOTE: You must be in a room with a jukebox to do either.{x
-~
+These commands are pretty straight forward.  Play loud plays a song such
+that everyone on the entire mud hears it, as long as their music channel
+is on.  Play stop will stop any and all global songs being played at the
+time.  {PNOTE: You must be in a room with a jukebox to do either.{x
+~
 
 92 INVITE~
 Immortal addition to the {Cinvite{x command:
 
-Syntax: {Cinvite{x    ({YImmortal Only{x)
+Syntax: {Cinvite{x    ({YImmortal Only{x)
 
-Invite without an argument will display a list of all the current invitations on
-the mud.
-~
+Invite without an argument will display a list of all the current invitations on
+the mud.
+~
 
 92 POOFIN POOFOUT~
 Syntax: {Cpoofin{x  <{Ymessage{x>
-        {Cpoofout{x <{Ymessage{x>
+        {Cpoofout{x <{Ymessage{x>
 
-The standard messages for goto are 'arrives in a swirling mist' and
-'leaves in a swirling mist'.  You can replace these with messages of
-your own choosing using the {Cpoofin{x and {Cpoofout{x commands.  These messages
-must include your name somewhere in the string.
+The standard messages for goto are 'arrives in a swirling mist' and
+'leaves in a swirling mist'.  You can replace these with messages of
+your own choosing using the {Cpoofin{x and {Cpoofout{x commands.  These messages
+must include your name somewhere in the string.
 
-{Cpoofin{x and {Cpoofout{x only show to characters who can see you.
+{Cpoofin{x and {Cpoofout{x only show to characters who can see you.
 
-{YSEE ALSO:{x goto
-~
+{YSEE ALSO:{x goto
+~
 
 92 LURK~
 Syntax: {Clurk{x
 
-Immortals may {Clurk{x to only allow themselves to be seen by mortals
-in the same room.
-~
+Immortals may {Clurk{x to only allow themselves to be seen by mortals
+in the same room.
+~
 
 92 TESTPOSE~
 Syntax: {Ctestpose{x <{Yclass{x>
-	{Ctestpose{x <{Yclass{x> <{Ynumber{x>
+	{Ctestpose{x <{Yclass{x> <{Ynumber{x>
 
-As the name implies, {Ctestpose{x can be used to test poses before they
-are inflicted on the MUD in general.
+As the name implies, {Ctestpose{x can be used to test poses before they
+are inflicted on the MUD in general.
 
-{Ctestpose{x <{Yclass{x> tells you how many poses are available for the
-given class. You can then use a number from 1 to that number in
-{Ctestpose{x <{Yclass{x> <{Ynumber{x> to demonstrate the pose to yourself.
-~
+{Ctestpose{x <{Yclass{x> tells you how many poses are available for the
+given class. You can then use a number from 1 to that number in
+{Ctestpose{x <{Yclass{x> <{Ynumber{x> to demonstrate the pose to yourself.
+~
 
 92 SITES ALTERNATE~
 Syntax: {Calternate{x <{Yplayer{x>
 
-By using this command, you can obtain a list of possible alternate
-characters that one player might have.  This is by no means a complete
-or accurate list.  However, it does list off all players who are in the
-database and have similar host addresses.
+By using this command, you can obtain a list of possible alternate
+characters that one player might have.  This is by no means a complete
+or accurate list.  However, it does list off all players who are in the
+database and have similar host addresses.
 
-This list is only updated when a player logs into the mud for the first
-time.  It is not updated when a player returns from being link-dead or
-when a player deletes.
-~
+This list is only updated when a player logs into the mud for the first
+time.  It is not updated when a player returns from being link-dead or
+when a player deletes.
+~
 
 92 BATTLE ARENA~
 Immortal Notes:
-Syntax: {Cbattle{x <{Ylow level{x> <{Yhigh level{x> <{Yentry fee{x>
-        {Cbattle start{x
-        {Cbattle stop{x
-        {Cbattle status{x
+Syntax: {Cbattle{x <{Ylow level{x> <{Yhigh level{x> <{Yentry fee{x>
+        {Cbattle start{x
+        {Cbattle stop{x
+        {Cbattle status{x
 
-{CBattle start{x and {Cstop{x will determine when mortals may attack each other
-while within the arena.  {CBattle status{x will display the values set for
-levels, fee, and combat progress.  Also, be sure you are {PVISIBLE{x when
-using the {Cbattle{x command, otherwise, it will not display the {Cbattle{x
-{Cstatus{x over the FYI channel.
-~
+{CBattle start{x and {Cstop{x will determine when mortals may attack each other
+while within the arena.  {CBattle status{x will display the values set for
+levels, fee, and combat progress.  Also, be sure you are {PVISIBLE{x when
+using the {Cbattle{x command, otherwise, it will not display the {Cbattle{x
+{Cstatus{x over the FYI channel.
+~
 
 92 FLAG FLAGLIST TYPELIST~
 Syntax: {Cflaglist{x
-        {Cflaglist{x <{Yflag group{x>
-        {Cflag char{x <{Yvictim{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
-        {Cflag obj{x  <{Yobject{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
-        {Cflag room{x   <{Yroom{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
-        {Ctypelist{x
+        {Cflaglist{x <{Yflag group{x>
+        {Cflag char{x <{Yvictim{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
+        {Cflag obj{x  <{Yobject{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
+        {Cflag room{x   <{Yroom{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
+        {Ctypelist{x
 
-The {Cflaglist{x command can be used to obtain all the flags located
-within a {Cflag{x group.
+The {Cflaglist{x command can be used to obtain all the flags located
+within a {Cflag{x group.
 
-The {Cflag{x command can be used to change flags for an individual, object,
-or room. The ? can be substituted with a -, +, or =.
+The {Cflag{x command can be used to change flags for an individual, object,
+or room. The ? can be substituted with a -, +, or =.
 
-- : Remove the {Cflag{x,  + : Add the {Cflag{x
-= : Set all other flags {Poff{x except for the selected {Cflag{x
+- : Remove the {Cflag{x,  + : Add the {Cflag{x
+= : Set all other flags {Poff{x except for the selected {Cflag{x
 
-If you leave the {Y?{x blank, the {Cflag{x will just be toggled on/off.
+If you leave the {Y?{x blank, the {Cflag{x will just be toggled on/off.
 
-{Ctypelist{x has a few other tables that are useful at times.
-~
+{Ctypelist{x has a few other tables that are useful at times.
+~
 
 92 HBI WBI~
 Syntax: {Cwbi{x {Y<message>{x
-        {Chbi{x {Y<message>{x
+        {Chbi{x {Y<message>{x
 
-WBI is used to send a one line message to the coder(s) to remind
-them of things the other Immortals would like to see implemented. It's
-basically a to-do list and wish list. The items on this list are checked
-for feasibility by the coder(s) and need to be approved by the Imp before
-they are added to the code.
+WBI is used to send a one line message to the coder(s) to remind
+them of things the other Immortals would like to see implemented. It's
+basically a to-do list and wish list. The items on this list are checked
+for feasibility by the coder(s) and need to be approved by the Imp before
+they are added to the code.
 
-HBI is used to send a one line message from the coder(s) to let others
-know of ideas that were implemented, but the mortals have not been notified
-about yet.  Usually because of an impending copyover.  {Chbi{x or {Cwbi{x without
-an argument will show the hbi or wbi file, respectively.
+HBI is used to send a one line message from the coder(s) to let others
+know of ideas that were implemented, but the mortals have not been notified
+about yet.  Usually because of an impending copyover.  {Chbi{x or {Cwbi{x without
+an argument will show the hbi or wbi file, respectively.
 
-Sorry if all this sounds very formal, but it helps avoid losing good ideas.
-Coders need all the organizational help they can get :)
-~
+Sorry if all this sounds very formal, but it helps avoid losing good ideas.
+Coders need all the organizational help they can get :)
+~
 
 92 INVIS WIZINVIS~
 Syntax: {Cwizinvis{x
 
-{CWizinvis{x makes you completely invisible to mortal players.
-~
+{CWizinvis{x makes you completely invisible to mortal players.
+~
 
 92 GOTO~
 Syntax: {Cgoto{x <{Yvnum of room{x>
-        {Cgoto{x <{Ycharacter or object name{x>
-        {Cgoto{x obj <{Yobject name{x>
+        {Cgoto{x <{Ycharacter or object name{x>
+        {Cgoto{x obj <{Yobject name{x>
 
-{CGoto{x takes you to a location.  The location may be specified as a vnum,
-as the name of a mobile, or as the name of an object.
+{CGoto{x takes you to a location.  The location may be specified as a vnum,
+as the name of a mobile, or as the name of an object.
 
-You may not {Cgoto{x a room if it is {RPRIVATE{x and has two (or more) characters
-already present, or if it is {RSOLITARY{x and has one (or more) characters
-already present. Some other rooms are barred to players below a certain
-god level.
+You may not {Cgoto{x a room if it is {RPRIVATE{x and has two (or more) characters
+already present, or if it is {RSOLITARY{x and has one (or more) characters
+already present. Some other rooms are barred to players below a certain
+god level.
 
-Implementors can use the violate command to get into private rooms.
-~
+Implementors can use the violate command to get into private rooms.
+~
 
 92 IMMNAME~
 Syntax: {Cimmname{x <{Yargument{x>
-        {Cimmname none{x
+        {Cimmname none{x
 
-This changes the block of text appearing before your name in the wholist
-to the argument.  The none argument clears your {Cimmname{x.
-~
+This changes the block of text appearing before your name in the wholist
+to the argument.  The none argument clears your {Cimmname{x.
+~
 
 92 IMMTALK :~
 Syntax: {Cimmtalk{x <{Ymessage{x>
-        {Cimmtalk{x
+        {Cimmtalk{x
 
-{CImmtalk{x sends a message to all immortals.  {C:{x is a synonym for {Cimmtalk{x.
-Using this command with no argument turns off the immortal channel (or
-turns it back on).
-~
+{CImmtalk{x sends a message to all immortals.  {C:{x is a synonym for {Cimmtalk{x.
+Using this command with no argument turns off the immortal channel (or
+turns it back on).
+~
 
 92 WIZNET~
 Syntax: {Cwiznet{x
-        {Cwiznet show{x
-        {Cwiznet status{x
-        {Cwiznet{x <{Yfield{x>
+        {Cwiznet show{x
+        {Cwiznet status{x
+        {Cwiznet{x <{Yfield{x>
 
-{CWiznet{x is sort of an immortal news service, to show important events to
-the wiznetted immortal.  {CWiznet{x by itself turns {Wwiznet{x on and off,
-{Cwiznet show{x lists all settable flags (they are not detailed here),
-{Cwiznet status{x shows your current {Wwiznet{x settings, and {Cwiznet{x <{Yfield{x>
-toggles a field on and off.  The events should be self-explanatory, if
-they are not, use the {Cwiznet{x <{Yfield{x> {G?{x command.  More events can be seen
-at higher levels.
+{CWiznet{x is sort of an immortal news service, to show important events to
+the wiznetted immortal.  {CWiznet{x by itself turns {Wwiznet{x on and off,
+{Cwiznet show{x lists all settable flags (they are not detailed here),
+{Cwiznet status{x shows your current {Wwiznet{x settings, and {Cwiznet{x <{Yfield{x>
+toggles a field on and off.  The events should be self-explanatory, if
+they are not, use the {Cwiznet{x <{Yfield{x> {G?{x command.  More events can be seen
+at higher levels.
 
-{YSEE ALSO:{x wizhelp
-~
+{YSEE ALSO:{x wizhelp
+~
 
 92 WIZHELP~
 Syntax: {Cwizhelp{x <{Ylevel{x>
 
-{CWizhelp{x provides a list of all the immortal commands available to your
-level (or trust level).
+{CWizhelp{x provides a list of all the immortal commands available to your
+level (or trust level).
 
-The level argument is optional. When provided you'll see only immortal
-commands that are of the specified level.
-~
+The level argument is optional. When provided you'll see only immortal
+commands that are of the specified level.
+~
 
 92 HEED~
 Syntax: {Cheed{x <{Yplayername{x> <{Ymessage{x>
-        {Cheed{x
+        {Cheed{x
 
-This is the preferred way for Imms to answer to {Cprayers{x from mortals.
-{CHeed{x sends a message to the named mortal:
+This is the preferred way for Imms to answer to {Cprayers{x from mortals.
+{CHeed{x sends a message to the named mortal:
 
-   {RAn immortal enlightens you with:{x
-      "<{Ymessage{x>"
+   {RAn immortal enlightens you with:{x
+      "<{Ymessage{x>"
 
-which is as handy as {Ctell{x but more impressive, and anonymous even if
-the imm happens to be visible. Also, it informs all other imms of what
-was said, and to whom. This way, all imms partake in both sides of
-the conversation.  Note that {Cpray{x no longer informs other mortals of
-the fact that one of them is praying, so a conversation can be held
-without spamming all mortals.
+which is as handy as {Ctell{x but more impressive, and anonymous even if
+the imm happens to be visible. Also, it informs all other imms of what
+was said, and to whom. This way, all imms partake in both sides of
+the conversation.  Note that {Cpray{x no longer informs other mortals of
+the fact that one of them is praying, so a conversation can be held
+without spamming all mortals.
 
-{CHeed{x without an argument will toggle whether or not your name appears in
-the heed message.
-~
+{CHeed{x without an argument will toggle whether or not your name appears in
+the heed message.
+~
 
 92 GAMEIN GAMEOUT~
 Syntax: {Cgamein{x <{Yplayer name{x>
 
-Immortals can use {Cgamein{x and {Cgameout{x to check any player's game entry
-and exit messages.
-~
+Immortals can use {Cgamein{x and {Cgameout{x to check any player's game entry
+and exit messages.
+~
 
 92 GROUPLIST~
 Syntax: {Cgrouplist{x
 
-Lists all the groups currently on the mud.  The name in {Yyellow{x shows the
-group leader.
-~
+Lists all the groups currently on the mud.  The name in {Yyellow{x shows the
+group leader.
+~
 
 92 MARRY MARRIAGE SPOUSE SPOUSETALK DIVORCE~
 Immortal MARRIAGE commands:
 
-Syntax: {Cmarry{x <{Yspouse1{x> <{Yspouse2{x>
-        {Cdivorce{x <{Yspouse1{x> <{Yspouse2{x>
+Syntax: {Cmarry{x <{Yspouse1{x> <{Yspouse2{x>
+        {Cdivorce{x <{Yspouse1{x> <{Yspouse2{x>
 
-The {Cmarry{x command can be used either spouse first, and is not gender
-specific in any way.  The {Cdivorce{x command is the same, as well.
+The {Cmarry{x command can be used either spouse first, and is not gender
+specific in any way.  The {Cdivorce{x command is the same, as well.
 
 
-{cMarriage code written by Ryouga (ryouga@jessi.indstate.edu){x
-~
+{cMarriage code written by Ryouga (ryouga@jessi.indstate.edu){x
+~
 
 92 VLIST~
 Syntax: {Cvlist{x <{Ybeginning number{x> <{Yending number{x>
 
-{CVlist{x displays the names for both object and mobile for a given vnum range.
-The ending number is optional.
-~
+{CVlist{x displays the names for both object and mobile for a given vnum range.
+The ending number is optional.
+~
 
 92 VNUM~
 Syntax: {Cvnum{x <{Yname{x>
-        {Cvnum{x <{Yobj or mob{x> <{Yname{x>
-        {Cvnum skill{x <{Yname{x>
+        {Cvnum{x <{Yobj or mob{x> <{Yname{x>
+        {Cvnum skill{x <{Yname{x>
 
-{CVnum{x finds all objects and mobiles with a particular name, and prints out
-the results.  Use {Cvnum obj{x or {Cvnum mob{x to limit the search.  This {Cvnum{x is
-very useful for loading. {CVnum{x skill returns the skill number (for set) and
-the slot number (for making new zones) of a skill name.
-~
+{CVnum{x finds all objects and mobiles with a particular name, and prints out
+the results.  Use {Cvnum obj{x or {Cvnum mob{x to limit the search.  This {Cvnum{x is
+very useful for loading. {CVnum{x skill returns the skill number (for set) and
+the slot number (for making new zones) of a skill name.
+~
 
 92 STAT~
 Syntax: {Cstat{x <{Yname{x>
-        {Cstat mob{x  <{Yname{x>
-        {Cstat obj{x  <{Yname{x>
-        {Cstat room{x <{Ynumber{x>
+        {Cstat mob{x  <{Yname{x>
+        {Cstat obj{x  <{Yname{x>
+        {Cstat room{x <{Ynumber{x>
 
-The {Cstat{x command gives you detailed information on a player, mobile, object
-or room within the game.  Without a class argument, the command will return
-a player (if found), a mobile (if no player exists, but a mobile does),
-an object or a room (if a number is given).  {CStat room{x with no argument
-stats the room you are standing in.  {CStat{x can be used to find room vnums
-for goto.
+The {Cstat{x command gives you detailed information on a player, mobile, object
+or room within the game.  Without a class argument, the command will return
+a player (if found), a mobile (if no player exists, but a mobile does),
+an object or a room (if a number is given).  {CStat room{x with no argument
+stats the room you are standing in.  {CStat{x can be used to find room vnums
+for goto.
 
-{YSEE ALSO:{x pstat
-~
+{YSEE ALSO:{x pstat
+~
 
 92 PSTAT~
 Syntax: {Cpstat{x <{Yname{x>
 
-The {Cpstat{x command will tell you the most commonly needed information about
-any player in the game. It is colored and formatted for your reading pleasure.
+The {Cpstat{x command will tell you the most commonly needed information about
+any player in the game. It is colored and formatted for your reading pleasure.
 
-{YSEE ALSO:{x stat
-~
+{YSEE ALSO:{x stat
+~
 
 92 MLEVEL OLEVEL~
 Syntax: {Cmlevel{x <{Ybeginning level{x> <{Yending level{x>
-        {Colevel{x <{Ybeginning level{x> <{Yending level{x>
+        {Colevel{x <{Ybeginning level{x> <{Yending level{x>
 
-These commands find objects/mobiles that match the levels given.  If no
-ending level is given, it will only print items for the beginning level.
-~
+These commands find objects/mobiles that match the levels given.  If no
+ending level is given, it will only print items for the beginning level.
+~
 
 92 NOREPLY~
 Syntax: {Cnoreply{x
 
-This command will clear the reply buffer for anyone on the mud who might
-have you as their reply victim.
-~
+This command will clear the reply buffer for anyone on the mud who might
+have you as their reply victim.
+~
 
 92 ALLSAVE~
 Syntax: {Callsave{x
 
-{WSAVE{xs all players in the game, immediately and with no lag and no message
-to the players. Use this command if you anticipate a game crash or other
-instability and you want the players to avoid experience and/or equipment
-losses.
-There is nothing to be gained from doing this for no good reason. It does
-strain the server's resources a bit and lags the game slightly.
-~
+{WSAVE{xs all players in the game, immediately and with no lag and no message
+to the players. Use this command if you anticipate a game crash or other
+instability and you want the players to avoid experience and/or equipment
+losses.
+There is nothing to be gained from doing this for no good reason. It does
+strain the server's resources a bit and lags the game slightly.
+~
 
 92 SECURE~
 Syntax: {Csecure{x
-        {Csecure{x <{Ylevel{x>
+        {Csecure{x <{Ylevel{x>
 
-{CSecure{x without an argument sets your {Csecure{x {Mlevel{x to {Y92{x.  Only {CImmortals{x
-with a trust level greater than or equal to your {Csecure {Mlevel{x can see
-the immtalk messages you send.
-~
+{CSecure{x without an argument sets your {Csecure{x {Mlevel{x to {Y92{x.  Only {CImmortals{x
+with a trust level greater than or equal to your {Csecure {Mlevel{x can see
+the immtalk messages you send.
+~
 
 92 OWHERE~
 Syntax: {Cowhere{x {Yobject{x
-        {Cowhere{x {Yobject{x {Y2nd keyword{x
-        {Cowhere{x {Yobject{x {Ylevel{x
+        {Cowhere{x {Yobject{x {Y2nd keyword{x
+        {Cowhere{x {Yobject{x {Ylevel{x
 
-Gives you the room vnum, the object's short description and vnum, and
-the name of the object's carrier or the name of the room it's in, as
-appropriate.
+Gives you the room vnum, the object's short description and vnum, and
+the name of the object's carrier or the name of the room it's in, as
+appropriate.
 
-To narrow your selection down, you may enter 2 object name keywords
-(e.g. {Cowhere dragon sword{x), or you can enter a level as the second
-search term, which will show you only objects of exactly that level.
-~
+To narrow your selection down, you may enter 2 object name keywords
+(e.g. {Cowhere dragon sword{x), or you can enter a level as the second
+search term, which will show you only objects of exactly that level.
+~
 
 92 ROOMLIST RLIST~
 Syntax: {Crlist{x <{Ystarting-vnum{x> <{Yending-vnum{x>
 
-Gives a list of area and room name, where available, for each vnumber
-in the given range. If you just want the name of a single room given
-its vnum, you need to specify that vnumber twice.
+Gives a list of area and room name, where available, for each vnumber
+in the given range. If you just want the name of a single room given
+its vnum, you need to specify that vnumber twice.
 
-Note that this command will spam you badly if the range you specify
-is too large. Above about 400 lines, the in-game spam protection will
-temporarily throw you out of the game.
-~
+Note that this command will spam you badly if the range you specify
+is too large. Above about 400 lines, the in-game spam protection will
+temporarily throw you out of the game.
+~
 
 92 RWHERE~
 Syntax: {Crwhere{x <{Ystring{x>
 
-Lists all rooms whose short titles match {Ystring{x by vnum, area, and
-full name.
-~
+Lists all rooms whose short titles match {Ystring{x by vnum, area, and
+full name.
+~
 
 92 FORCE~
 Syntax: {Cforce{x <{Ycharacter{x> <{Ycommand{x>
-        {Cforce all{x <{Ycommand{x>
+        {Cforce all{x <{Ycommand{x>
 
-{CFORCE{x forces one character to execute a command, except of course delete.
+{CFORCE{x forces one character to execute a command, except of course delete.
 
-Below level 97 (Deity) {Cforce{x can only be used on mobiles, and {Cforce all{x is
-unavailable.  You also cannot '{Cforce{x {Yorc murder hugo{x', for example.
+Below level 97 (Deity) {Cforce{x can only be used on mobiles, and {Cforce all{x is
+unavailable.  You also cannot '{Cforce{x {Yorc murder hugo{x', for example.
 
-{CForce all{x forces all player characters to execute a command.
-This is typically used for '{Cforce all{x {Ysave{x'.
-~
+{CForce all{x forces all player characters to execute a command.
+This is typically used for '{Cforce all{x {Ysave{x'.
+~
 
 92 SOCKETS~
 Syntax: {Csockets{x
-        {Csockets{x <{Yname{x>
+        {Csockets{x <{Yname{x>
 
-{CSockets{x reports all of the visible users connected to the server,
-including users in the process of logging in.  The two numbers inside
-brackets are the channel number and the 'connected' state.  The
-'connected' states are listed in merc.h: 0 is CON_PLAYING; non-zero
-values are various states of logging in.
+{CSockets{x reports all of the visible users connected to the server,
+including users in the process of logging in.  The two numbers inside
+brackets are the channel number and the 'connected' state.  The
+'connected' states are listed in merc.h: 0 is CON_PLAYING; non-zero
+values are various states of logging in.
 
-The optional name argument shows the site of a player, or optional can
-be used to identify switched gods (i.e. socket orc shows the name of
-anyone switched into an orc).
-~
+The optional name argument shows the site of a player, or optional can
+be used to identify switched gods (i.e. socket orc shows the name of
+anyone switched into an orc).
+~
 
 92 MWHERE~
 Syntax: {Cmwhere{x <{Yname{x>
 
-{CMwhere{x shows you the locations of all mobiles with a particular name.
-~
+{CMwhere{x shows you the locations of all mobiles with a particular name.
+~
 
 92 ICLAN~
 Syntax: {Ciclan{x <{Yclan name{x> <{Ymessage{x>
 
-This is a command for immortals to broadcast messages to specific clans.
-~
+This is a command for immortals to broadcast messages to specific clans.
+~
 
 92 AT~
 Syntax: {Cat{x <{Ylocation{x> <{Ycommand{x>
 
-{CAt{x executes the given command (which may have arguments) at the given
-location.  The location may be specified as a vnum, as the name of a
-mobile, or as the name of an object.
+{CAt{x executes the given command (which may have arguments) at the given
+location.  The location may be specified as a vnum, as the name of a
+mobile, or as the name of an object.
 
-{CAt{x works by temporarily moving you to that location, executing the
-command, and then moving you back (if the command didn't change your
-location).
-~
+{CAt{x works by temporarily moving you to that location, executing the
+command, and then moving you back (if the command didn't change your
+location).
+~
 
 92 SWITCH RETURN~
 Syntax: {Cswitch{x <{Ycharacter{x>
-        {Creturn{x
+        {Creturn{x
 
-{CSwitch{x switches you into the body of another character (who must not
-already have a descriptor, e.g., you can't switch into a PC). You also cannot
-switch into linkdead PCs.
+{CSwitch{x switches you into the body of another character (who must not
+already have a descriptor, e.g., you can't switch into a PC). You also cannot
+switch into linkdead PCs.
 
-{CReturn{x returns you to your original body.
-~
+{CReturn{x returns you to your original body.
+~
 
 92 PEACE~
 Syntax:  {Cpeace{x
 
-{CPeace{x causes all characters in a room to stop fighting. It also strips the
-AGGRESSIVE bit from mobiles.
-~
+{CPeace{x causes all characters in a room to stop fighting. It also strips the
+AGGRESSIVE bit from mobiles.
+~
 
 92 LOAD~
 Syntax: {Cload mob{x <{Yvnum{x>
-        {Cload obj{x <{Yvnum{x> <{Ylevel{x>
+        {Cload obj{x <{Yvnum{x> <{Ylevel{x>
 
-The {Cload{x command is used to load new objects or mobiles (use clone to
-duplicate strung items and mobs).  The vnums can be found with the vnum
-command, or by stat'ing an existing mob or object.
+The {Cload{x command is used to load new objects or mobiles (use clone to
+duplicate strung items and mobs).  The vnums can be found with the vnum
+command, or by stat'ing an existing mob or object.
 
-{CLoad{x puts objects in inventory if they can be carried, otherwise they are
-put in the room.  Mobiles are always put into the same room as the god. Old
-format objects must be given a level argument to determine their power, new
-format objects have a preset level that cannot be changed without set.
+{CLoad{x puts objects in inventory if they can be carried, otherwise they are
+put in the room.  Mobiles are always put into the same room as the god. Old
+format objects must be given a level argument to determine their power, new
+format objects have a preset level that cannot be changed without set.
 
-{YSEE ALSO:{x vnum
-~
+{YSEE ALSO:{x vnum
+~
 
 92 REMORT~
 Syntax: {Cremort{x <{Yplayer{x> <{Yrace{x> <{Ydeity{x> <{Ytitle{x>
 
-Turns a mortal hero into a remorted level 1, i.e. sets him up for
-another round of 90 levels. The mortal's hp, mana and mv are set to
-20, 100 and 100 respectively. His trust stays at 91 so he can do the
-level 80 CONSIDER and use the hero channel, among other things.
+Turns a mortal hero into a remorted level 1, i.e. sets him up for
+another round of 90 levels. The mortal's hp, mana and mv are set to
+20, 100 and 100 respectively. His trust stays at 91 so he can do the
+level 80 CONSIDER and use the hero channel, among other things.
 
-{YRace{x is the name of the race the player is remorting into.  Any
-playable race is acceptable, although some races require the player to
-be of a certain remort count or higher.
+{YRace{x is the name of the race the player is remorting into.  Any
+playable race is acceptable, although some races require the player to
+be of a certain remort count or higher.
 
-{Ydeity{x should be the name of an immortal of whom the player becomes
-a follower. {Ytitle{x becomes the player's new remort title, which
-shows up in {WWHOIS{x.
+{Ydeity{x should be the name of an immortal of whom the player becomes
+a follower. {Ytitle{x becomes the player's new remort title, which
+shows up in {WWHOIS{x.
 
-Because of the way stats are handled in this command, the player has
-to remove all equipment before {Cremort{x will work.
+Because of the way stats are handled in this command, the player has
+to remove all equipment before {Cremort{x will work.
 
-Remorting will roll the player a new set of remort affects.
-~
+Remorting will roll the player a new set of remort affects.
+~
 
 100 FYI~
 Syntax: {CFYI{x <{Ymessage{x>
 
-This command simulates an in-game FYI message.  It's meant to announce
-general information and to warn players of possible problems.
-~
+This command simulates an in-game FYI message.  It's meant to announce
+general information and to warn players of possible problems.
+~
 
 92 LOWER~
 Syntax: {Clower{x <{Yitem{x> <{Yplayer{x>
 
-This command will set the level of a Drakyri Isle object to level 91,
-owner the item to the player, and automatically deduct the appropriate
-amount of qp.
-~
+This command will set the level of a Drakyri Isle object to level 91,
+owner the item to the player, and automatically deduct the appropriate
+amount of qp.
+~
 
 92 STRING RESTRING~
 The string commands works as follows:
 
-{VShort{x:    Description seen when you type "{YInventory{x" or "{YEquipment{x"
-          or pet's basic name.
-{Cstring obj{x <{Ykeyword for object{x> short <{Ynew string for short{x>
-{Cstring mob{x <{Ykeyword for mob{x>    short <{Ynew string for short{x>
+{VShort{x:    Description seen when you type "{YInventory{x" or "{YEquipment{x"
+          or pet's basic name.
+{Cstring obj{x <{Ykeyword for object{x> short <{Ynew string for short{x>
+{Cstring mob{x <{Ykeyword for mob{x>    short <{Ynew string for short{x>
 
 
-{VLong{x:     Description of something {Ysitting in a room or on the ground{x
-{Cstring obj{x <{Ykeyword for object{x> long <{Ynew string for long{x>
-{Cstring mob{x <{Yobject's keyword{x>   long <{Ynew string for long{x>
+{VLong{x:     Description of something {Ysitting in a room or on the ground{x
+{Cstring obj{x <{Ykeyword for object{x> long <{Ynew string for long{x>
+{Cstring mob{x <{Yobject's keyword{x>   long <{Ynew string for long{x>
 
-{VExtended{x: *{GObjects Only{x* Extra Keywords and Descriptions for stuff
-          that you have to {Yexplicitly look at{x.
-{Cstring obj{x <{Yobject's keyword{x> extended <{Ynew look keyword{x> <{Yextended string{x>
+{VExtended{x: *{GObjects Only{x* Extra Keywords and Descriptions for stuff
+          that you have to {Yexplicitly look at{x.
+{Cstring obj{x <{Yobject's keyword{x> extended <{Ynew look keyword{x> <{Yextended string{x>
 
-{VKeywords{x: {YWords that identify{x the item/pet
-{Cstring obj{x <{Yone of the object's current keyword{x> name <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
+{VKeywords{x: {YWords that identify{x the item/pet
+{Cstring obj{x <{Yone of the object's current keyword{x> name <{Ynew keywords{x>
+{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
 
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-~
+{PNote: {WYou can also string room names:{x
+{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
+~
 
 92 CLONE~
 Syntax: {Cclone obj{x <{Yobject{x>
-        {Cclone mob{x <{Ymobile{x>
-        {Cclone{x <{Yname{x>
+        {Cclone mob{x <{Ymobile{x>
+        {Cclone{x <{Yname{x>
 
-The {Cclone{x command duplicates an object or mobile.  The level of item or
-mobile that may be {Ccloned{x depends on your level.  The target object or
-mob must be in the same room as you, or in your possession.  Strung and
-set information is preserved by {Cclone{x, as well as any spell effects and
-container contents or mobile inventory, except for items which are too
-high for you to {Cclone{x.
-~
+The {Cclone{x command duplicates an object or mobile.  The level of item or
+mobile that may be {Ccloned{x depends on your level.  The target object or
+mob must be in the same room as you, or in your possession.  Strung and
+set information is preserved by {Cclone{x, as well as any spell effects and
+container contents or mobile inventory, except for items which are too
+high for you to {Cclone{x.
+~
 
 92 TRANSFER~
 Syntax: {Ctransfer{x <{Ycharacter{x>
-        {Ctransfer all{x
-        {Ctransfer{x <{Ycharacter{x> <{Ylocation{x>
-        {Ctransfer all{x         <{Ylocation{x>
+        {Ctransfer all{x
+        {Ctransfer{x <{Ycharacter{x> <{Ylocation{x>
+        {Ctransfer all{x         <{Ylocation{x>
 
-{CTransfer{x transfers the target character, or ALL player characters,
-to your current location (default) or to a specified location. Trans all
-should almost never be used, as 100 players popping into one room can have
-horrible affects on slow links.
-~
+{CTransfer{x transfers the target character, or ALL player characters,
+to your current location (default) or to a specified location. Trans all
+should almost never be used, as 100 players popping into one room can have
+horrible affects on slow links.
+~
 
 92 SETGAMEIN SETGAMEOUT ENTRY EXIT~
 Syntax: {Csetgamein{x  <{Yplayer name{x> <{Ygame entry message{x>
-        {Csetgameout{x <{Yplayer name{x> <{Ygame exit message{x>
+        {Csetgameout{x <{Yplayer name{x> <{Ygame exit message{x>
 
-This will set the player's game entry and exit messages as specified.
-If you specify no message, the player's entry and/or exit message will
-revert to its default text. Do not include the [FYI] when setting gamein/
-gameout messages; they are included automatically, and they are {Ggreen{x.
-~
+This will set the player's game entry and exit messages as specified.
+If you specify no message, the player's entry and/or exit message will
+revert to its default text. Do not include the [FYI] when setting gamein/
+gameout messages; they are included automatically, and they are {Ggreen{x.
+~
 
 92 QPCONV~
 Syntax: {Cqpconv {g<{Ycharacter{g> <{Ytrain{g|{Ypractice{g> <{Yamount{g>
 
-The {Cqpconv{g command will convert questpoints into trains or practices. The 
-amount given is the amount of trains|practices that need to be converted.
-The questpoints will automaticly be deducted from the characters. A maximum
-of 10 trains|practices is allowed at a time.
-~
+The {Cqpconv{g command will convert questpoints into trains or practices. The 
+amount given is the amount of trains|practices that need to be converted.
+The questpoints will automaticly be deducted from the characters. A maximum
+of 10 trains|practices is allowed at a time.
+~
 
 92 GUILD~
 Syntax: {Cguild{x <{Ycharacter{x> <{Yclanname{x>
 
-Sets a character's clan to one of the clans listed in Clanlist.
-~
+Sets a character's clan to one of the clans listed in Clanlist.
+~
 
 92 CHOWN~
 Syntax:  {Cchown{x <{Yobject{x> <{Yvictim{x>
 
-This command transfers the ownership of an item on a subject or in their
-inventory to your invetory.  All checks are ignored.
-~
+This command transfers the ownership of an item on a subject or in their
+inventory to your invetory.  All checks are ignored.
+~
 
 92 CLANQP~
 Syntax: {Cclanqp deduct {x<{Yamount{x> <{Yclanname{x> <{Yreason{x>
 
-This allows an immortal to deduct questpoints from a clan. For example as
-price for a clan anvil.
+This allows an immortal to deduct questpoints from a clan. For example as
+price for a clan anvil.
 
-{cSeptember 18th, 1999 by Clerve{x
-~
+{cSeptember 18th, 1999 by Clerve{x
+~
 
 92 JOIN UNJOIN LEADER RANK~
 Immortal additions to the {CClanleader Functions{x:
 
-Syntax: {Cleader{x <{Yplayername{x>
+Syntax: {Cleader{x <{Yplayername{x>
 
--Gives a player of level {P50 or higher{V(and remorts){x a leader flag.
-~
+-Gives a player of level {P50 or higher{V(and remorts){x a leader flag.
+~
 
 92 NEWBIEMAKER~
 Syntax: {Cnewbiemaker{x {Yplayer{x
 
-Gives {Yplayer{x a newbie helper flag (visible in {WWHO{x).  This flag enables
-the newbie helper to use the command {Cnewbiekit{x to create a newbie bag.
-~
+Gives {Yplayer{x a newbie helper flag (visible in {WWHO{x).  This flag enables
+the newbie helper to use the command {Cnewbiekit{x to create a newbie bag.
+~
 
 92 PURGE~
 Syntax: {Cpurge{x
-        {Cpurge{x <{Ycharacter{x>
+        {Cpurge{x <{Ycharacter{x>
 
-{CPurge{x is used to clean up the world.  {CPurge{x with no arguments removes all the
-NPCs and objects in the current room.  {CPurge{x with an argument purges one
-character from anywhere in the world.
+{CPurge{x is used to clean up the world.  {CPurge{x with no arguments removes all the
+NPCs and objects in the current room.  {CPurge{x with an argument purges one
+character from anywhere in the world.
 
-{CPurge{x will not get rid of PCs, objects, or mobiles with a {PNOPURGE{x flag
-set (i.e. the pit, the fountain, shopkeepers, Helga).  Mobiles may be
-purged if they are called directly by name.
-~
+{CPurge{x will not get rid of PCs, objects, or mobiles with a {PNOPURGE{x flag
+set (i.e. the pit, the fountain, shopkeepers, Helga).  Mobiles may be
+purged if they are called directly by name.
+~
 
 92 RESTORE~
 Syntax: {Crestore{x <{Ycharacter{x>
-        {Crestore room{x
-        {Crestore all{x
+        {Crestore room{x
+        {Crestore all{x
 
-{CRestore{x restores full hit points, mana points, and movement points to the
-target character.  It also heals poison, plague, and blindness.  Because
-restore is so powerful, it should rarely be used.
+{CRestore{x restores full hit points, mana points, and movement points to the
+target character.  It also heals poison, plague, and blindness.  Because
+restore is so powerful, it should rarely be used.
 
-{CRestore room{x (or {Crestore{x with no argument) performs a restore on every
-player in the room, and {Crestore all{x does the same for all connected
-players.  {CRestore all{x is only usable by immortals with trust 97 or
-greater.  Do not restore your mortal alts!  (This includes using the
-{Crestore all{x command while an alt is logged on.)
-~
+{CRestore room{x (or {Crestore{x with no argument) performs a restore on every
+player in the room, and {Crestore all{x does the same for all connected
+players.  {CRestore all{x is only usable by immortals with trust 97 or
+greater.  Do not restore your mortal alts!  (This includes using the
+{Crestore all{x command while an alt is logged on.)
+~
 
 92 FOR~
 Syntax: {Cfor all{x <{Yaction{x>
-        {Cfor mortals{x <{Yaction{x>
-        {Cfor gods{x <{Yaction{x>
+        {Cfor mortals{x <{Yaction{x>
+        {Cfor gods{x <{Yaction{x>
 
-Executes an action several times, either on all players (not including
-yourself), mortals (including trusted characters), or gods.
+Executes an action several times, either on all players (not including
+yourself), mortals (including trusted characters), or gods.
 
-If you insert a {Y#{x in the action, it will be replaced by the name of the target.
+If you insert a {Y#{x in the action, it will be replaced by the name of the target.
 
-If {Y#{x is a part of the action, the action will be executed for every target
-in game. If there is no {Y#{x, the action will be executed for every room containg
-at least one target, but only once per room. {Y#{x can be anywhere in the action.
+If {Y#{x is a part of the action, the action will be executed for every target
+in game. If there is no {Y#{x, the action will be executed for every room containg
+at least one target, but only once per room. {Y#{x can be anywhere in the action.
 
-Example:
+Example:
 
-{Cfor all smile{x -> you will only smile once in a room with 2 players.
-{Cfor all smile #{x -> In a room with A and B, you will smile A then B.
+{Cfor all smile{x -> you will only smile once in a room with 2 players.
+{Cfor all smile #{x -> In a room with A and B, you will smile A then B.
 
-The command works by transporting the character to each of the rooms with a
-target in them. Private rooms are not violated.
-~
+The command works by transporting the character to each of the rooms with a
+target in them. Private rooms are not violated.
+~
 
 92 DISCONNECT~
 Syntax: {Cdisconnect{x <{Ysocket number{x>
 
-Given a socket number from the leftmost column in the output from SOCKETS,
-this command can be used to {Cdisconnect{x the individual shown on that line
-from Legacy. This command is meant to deal with people stuck in mid-login
-or at the '{Yask name{x' phase, which often prevents them from logging
-in again successfully. {CDisconnect{x does not work on active (playing)
-players.
-~
+Given a socket number from the leftmost column in the output from SOCKETS,
+this command can be used to {Cdisconnect{x the individual shown on that line
+from Legacy. This command is meant to deal with people stuck in mid-login
+or at the '{Yask name{x' phase, which often prevents them from logging
+in again successfully. {CDisconnect{x does not work on active (playing)
+players.
+~
 
 92 OWNER~
 Syntax: {Cowner{x <{Yitem{x> {Yplayer{x
-Syntax: {Cowner{x <{Yitem{x> none
+Syntax: {Cowner{x <{Yitem{x> none
 
-This command makes an item personally owned by {Yplayer{x.
-This means that only {Yplayer{x can wield/wear/hold the {Yitem{x.
-'none' makes the object public again.
-~
+This command makes an item personally owned by {Yplayer{x.
+This means that only {Yplayer{x can wield/wear/hold the {Yitem{x.
+'none' makes the object public again.
+~
 
 92 NEWPASSWORD~
 Syntax: {Cnewpassword{x <{Yplayer{x> <{Ypassword{x>
 
-This command will reset a player's {Ypassword{x.
-~
+This command will reset a player's {Ypassword{x.
+~
 
 92 SET~
 Syntax: {Cset mob{x      <{Ymobile{x> <{Yfield{x> <{Yvalue{x>
-        {Cset obj{x      <{Yobject{x> <{Yfield{x> <{Yvalue{x>
-        {Cset room{x     <{Ynumber{x> <{Yfield{x> <{Yvalue{x>
-        {Cset clan{x     <{Yclan{x>   <{Yfield{x> <{Yvalue{x>
-        {Cset skill{x    <{Ychar{x>   <{Yname{x>  <{Yrating{x>
-        {Cset skill{x    <{Ychar{x>   {Call{x     <{Yrating{x>
-        {Cset raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
+        {Cset obj{x      <{Yobject{x> <{Yfield{x> <{Yvalue{x>
+        {Cset room{x     <{Ynumber{x> <{Yfield{x> <{Yvalue{x>
+        {Cset clan{x     <{Yclan{x>   <{Yfield{x> <{Yvalue{x>
+        {Cset skill{x    <{Ychar{x>   <{Yname{x>  <{Yrating{x>
+        {Cset skill{x    <{Ychar{x>   {Call{x     <{Yrating{x>
+        {Cset raff{x     <{Ychar{x>   <{Yoption{x>
+        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
 
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
+The {Cset{x command is used to change the numerical values of the various data
+structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
+{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
+given.	Use string to change the strings on an object or mobile.
 
-{YSEE ALSO:{x string, stat
-~
+{YSEE ALSO:{x string, stat
+~
 
 100 WIZIFY~
 Syntax: {Cwizify{x <{Yvictim{x>
 
-It sets the victim's hitpoints/mana/move to 30k, all his stats to 25, all
-his skills at 100%, and restores his hp/mana/moves.
-~
+It sets the victim's hitpoints/mana/move to 30k, all his stats to 25, all
+his skills at 100%, and restores his hp/mana/moves.
+~
 
 100 SUPERWIZ~
 Syntax: {Csuperwiz{x
 
-This command makes you invisible to everyone in the game, including
-immortals up to 100 trust.
+This command makes you invisible to everyone in the game, including
+immortals up to 100 trust.
 
-This command is restricted to LEVEL 100 immortals (implementors).
-~
+This command is restricted to LEVEL 100 immortals (implementors).
+~
 
 100 VIOLATE~
 Syntax: {Cviolate{x {Ycharacter{x
-	{Cviolate{x {Yroom-vnum{x
+	{Cviolate{x {Yroom-vnum{x
 
-For those times when you want to be with a couple of people standing in
-a private room, this command will enable you to. Unless you were invited
-or doing some kind of police work, this is considered rude :)
+For those times when you want to be with a couple of people standing in
+a private room, this command will enable you to. Unless you were invited
+or doing some kind of police work, this is considered rude :)
 
-{CViolate{x works exactly like {Cgoto{x, except it works *only* for
-private rooms occupied by 2 or more characters.
-~
+{CViolate{x works exactly like {Cgoto{x, except it works *only* for
+private rooms occupied by 2 or more characters.
+~
 
 92 GRANT~
 Syntax: {Cgrant{x <{Yplayer{x> <{Yadd/remove{x> <{Ycommand{x>
 
-This command allows you to grant access to a single command
-to a player. At this time any one player can have special
-access to 32 commands.
+This command allows you to grant access to a single command
+to a player. At this time any one player can have special
+access to 32 commands.
 
-Please note that {Ycommand{x must be spelled out. Please
-use "wizhelp", for example, rather than "wizh".
+Please note that {Ycommand{x must be spelled out. Please
+use "wizhelp", for example, rather than "wizh".
 
-Access to the command may be revoked using the {Yremove{x flag.
-~
+Access to the command may be revoked using the {Yremove{x flag.
+~
 
 0 GRANTLIST~
 Syntax: {Cgrantlist{x [{Yplayer{x]
 
-This command displays the commands which have been granted to
-you. If you are an immortal, you may check the granted commands
-of other players.
-~
+This command displays the commands which have been granted to
+you. If you are an immortal, you may check the granted commands
+of other players.
+~
 
 -2

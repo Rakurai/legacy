@@ -1,630 +1,630 @@
 0 GLOBAL SOCIAL SOCIALS~
 Syntax: {Ysocial-command{x
-	{Ysocial-command player{x
-	{Ysocial-command mobile{x
-	{RSOCIAL{x {Ysocial-command{x
-	{RSOCIAL{x {Ysocial-command player{x
+	{Ysocial-command player{x
+	{Ysocial-command mobile{x
+	{RSOCIAL{x {Ysocial-command{x
+	{RSOCIAL{x {Ysocial-command player{x
 
-Socials are commands that describe you, the player, doing some action.
-You type one of a large list of these commands and it expands to some
-nicely descriptive message.
+Socials are commands that describe you, the player, doing some action.
+You type one of a large list of these commands and it expands to some
+nicely descriptive message.
 
-Example: {Rmakeout liriel{x
-   You see:    {GYou steam up the windows with Liriel.{x
-   She sees:   {GMontrey steams up the windows with you.  Wow baby.{x
-   Others see: {GMontrey's steaming up the windows with Liriel.  *whistle*{x
+Example: {Rmakeout lidda{x
+   You see:    {GYou steam up the windows with Lidda.{x
+   She sees:   {GMontrey steams up the windows with you.  Wow baby.{x
+   Others see: {GMontrey's steaming up the windows with Lidda.  *whistle*{x
 
-Most socials will work with or without a subject. E.g. '{Rsmile{x' will
-show you smiling happily. '{Rsmile{x {Yplayer{x' will show you smiling at
-that player.
+Most socials will work with or without a subject. E.g. '{Rsmile{x' will
+show you smiling happily. '{Rsmile{x {Yplayer{x' will show you smiling at
+that player.
 
-If you type {RSOCIAL{x (or {RSOC{x) before one of the social-commands,
-your social will be visible to everyone in the game. That's called a
-global social.
+If you type {RSOCIAL{x (or {RSOC{x) before one of the social-commands,
+your social will be visible to everyone in the game. That's called a
+global social.
 
-At last count, Legacy had almost 300 socials to choose from.
-Type {RSOCIALS{x if you want to see the list.
-If you want to know what they do, try them out!
+At last count, Legacy had almost 300 socials to choose from.
+Type {RSOCIALS{x if you want to see the list.
+If you want to know what they do, try them out!
 
-Type {RHELP MORESOCIALS{x if you want to contribute new socials.
-Type {RHELP GLOBAL{x if you wanted to see the HELP on {RSOCIAL{x.
-~
+Type {RHELP MORESOCIALS{x if you want to contribute new socials.
+Type {RHELP GLOBAL{x if you wanted to see the HELP on {RSOCIAL{x.
+~
 
 0 MARRY MARRIAGE SPOUSE SPOUSETALK DIVORCE~
 Syntax:
-   {Vspousetalk{x <{Ymessage{x>
+   {Vspousetalk{x <{Ymessage{x>
 
-Ah, the beautiful {Cceremony{x that occurs when someone loves another so much
-that they wish to spend the rest of their lives together.  Unfortunately...
-it turns {Ysour{x sometimes.  Whether you're wanting to marry, or be divorced,
-it must be performed by an {CImmortal{x.  With marriage comes the ability
-to communicate exclusively to your spouse via your own private channel.
+Ah, the beautiful {Cceremony{x that occurs when someone loves another so much
+that they wish to spend the rest of their lives together.  Unfortunately...
+it turns {Ysour{x sometimes.  Whether you're wanting to marry, or be divorced,
+it must be performed by an {CImmortal{x.  With marriage comes the ability
+to communicate exclusively to your spouse via your own private channel.
 
-Getting married is now free of charge.  Getting divorced now costs QPs,
-25 for the player wanting the divorce or 10 each if it's mutual.
-~
+Getting married is now free of charge.  Getting divorced now costs QPs,
+25 for the player wanting the divorce or 10 each if it's mutual.
+~
 
 0 EMAIL~
 Syntax:
-   {Vemail{x
-   {Vemail{x <{Yaddress{x>
+   {Vemail{x
+   {Vemail{x <{Yaddress{x>
 
 
-Without an argument, {Vemail{x will display your {Vemail {Yaddress{x.
-With an argument, {Vemail{x will change your {Vemail {Yaddress{x.
-This address is kept in confidence and will be used in notifying you
-of important mud information.
+Without an argument, {Vemail{x will display your {Vemail {Yaddress{x.
+With an argument, {Vemail{x will change your {Vemail {Yaddress{x.
+This address is kept in confidence and will be used in notifying you
+of important mud information.
 
-This address will also be used if you forget your password and need
-help remembering it.
-~
+This address will also be used if you forget your password and need
+help remembering it.
+~
 
 0 NEXT~
 Syntax: {Cnext{x
-        {Cnext{x {Gunread{x
+        {Cnext{x {Gunread{x
 
-The {Cnext{x command is a convenient way to read all your unread notes, ideas,
-roleplay notes, changes, personals, trade notes, and news. Every time you
-type {Cnext{x, the next item (in chronological order) will be shown.  This
-command freely mixes the different types of messages, moving forward from
-the earliest unread (by you) message to the latest.
+The {Cnext{x command is a convenient way to read all your unread notes, ideas,
+roleplay notes, changes, personals, trade notes, and news. Every time you
+type {Cnext{x, the next item (in chronological order) will be shown.  This
+command freely mixes the different types of messages, moving forward from
+the earliest unread (by you) message to the latest.
 
-If you specify another word with {Cnext{x (we recommend {Cnext unread{x), then
-your unread messages will be shown to you grouped by message type, so that
-each board is finish before moving on to the next one.  The notes board is
-first and trade note board is last.
-~
+If you specify another word with {Cnext{x (we recommend {Cnext unread{x), then
+your unread messages will be shown to you grouped by message type, so that
+each board is finish before moving on to the next one.  The notes board is
+first and trade note board is last.
+~
 
 0 AFK REPLAY~
 Syntax: {Cafk{x <{Ymessage{x>
-        {Creplay{x
+        {Creplay{x
 
-Typing {Cafk{x puts your character in a tell-saving mode so that any tell
-to you is stored in a special buffer, and can be seen later by typing
-{Greplay{x.  This is useful when you need to leave the mud for 5 or 10
-minutes, but don't want to miss tells.  {CAFK{x shows up in your prompt
-until it is turned off.
+Typing {Cafk{x puts your character in a tell-saving mode so that any tell
+to you is stored in a special buffer, and can be seen later by typing
+{Greplay{x.  This is useful when you need to leave the mud for 5 or 10
+minutes, but don't want to miss tells.  {CAFK{x shows up in your prompt
+until it is turned off.
 
-Tells to linkdead players are stored in a similar fashion, and can also
-be seen by typing {Greplay{x (unless, of course, the character logs off
-before reading them).
+Tells to linkdead players are stored in a similar fashion, and can also
+be seen by typing {Greplay{x (unless, of course, the character logs off
+before reading them).
 
-After {Y7{x ticks of inactivity, you will be set Auto-AFK by the mud.  After
-{Y14{x ticks, you are transfered to the void.  After {Y30{x ticks, you are forced
-to quit.
-~
+After {Y7{x ticks of inactivity, you will be set Auto-AFK by the mud.  After
+{Y14{x ticks, you are transfered to the void.  After {Y30{x ticks, you are forced
+to quit.
+~
 
 0 ORDER PET~
 Syntax: {Corder{x <{Ycharacter{x> <{Ycommand{x>
-        {Corder all{x <{Ycommand{x>
-        {Corder{x <{Ypet{x> {Ystay{x
-        {Corder{x <{Ypet{x> {Yfollow{x
-          {Cpet{x <{Ycommand{x>
+        {Corder all{x <{Ycommand{x>
+        {Corder{x <{Ypet{x> {Ystay{x
+        {Corder{x <{Ypet{x> {Yfollow{x
+          {Cpet{x <{Ycommand{x>
 
-{COrder{x orders one or all of your charmed followers (including pets) to
-perform any command.  The command may have arguments.  You are responsible
-for the actions of your followers.
+{COrder{x orders one or all of your charmed followers (including pets) to
+perform any command.  The command may have arguments.  You are responsible
+for the actions of your followers.
 
-Most charmed creatures lose their aggressive nature (while charmed).
+Most charmed creatures lose their aggressive nature (while charmed).
 
-By ordering your pet to stay or follow, you can control your pet's location.
+By ordering your pet to stay or follow, you can control your pet's location.
 
-You can also use the PET command in place of "order pet ...".
-~
+You can also use the PET command in place of "order pet ...".
+~
 
 0 GTELL~
 Syntax:  {Cgtell{x <{Ymessage{x>
 
-{CGtell{x sends a message to all of the characters in your group, wherever
-they are, even if they are sleeping or stunned or dying.  '{C;{x' is an
-acceptable synonym for {Cgtell{x.
-~
+{CGtell{x sends a message to all of the characters in your group, wherever
+they are, even if they are sleeping or stunned or dying.  '{C;{x' is an
+acceptable synonym for {Cgtell{x.
+~
 
 0 TELL REPLY DEAF~
 Syntax: {Ctell{x  <{Yplayer{x> <{Ymessage{x>
-        {Ctell{x  <{Yplayer@mud{x> <{Ymessage{x>
-        {Creply{x <{Ymessage{x>
-        {Creply lock{x
-        {Cdeaf{x
+        {Ctell{x  <{Yplayer@mud{x> <{Ymessage{x>
+        {Creply{x <{Ymessage{x>
+        {Creply lock{x
+        {Cdeaf{x
 
-{CTell{x sends a message to one player anywhere in the world, providing you
-can see them.  {CReply{x sends a message to the last player who sent you a
-{Ctell{x.  {CReply{x will work even if you can't see the player, and without
-revealing their identity.  This is handy for talking to unseen or switched
-immortal players.  You can type {Creply lock{x after receiving a tell to keep
-all your replies set to a certain player.  If you don't want to receive
-tells from other players, type '{Cdeaf{x'.  You can type {Cdeaf{x again to turn
-tells back on.
+{CTell{x sends a message to one player anywhere in the world, providing you
+can see them.  {CReply{x sends a message to the last player who sent you a
+{Ctell{x.  {CReply{x will work even if you can't see the player, and without
+revealing their identity.  This is handy for talking to unseen or switched
+immortal players.  You can type {Creply lock{x after receiving a tell to keep
+all your replies set to a certain player.  If you don't want to receive
+tells from other players, type '{Cdeaf{x'.  You can type {Cdeaf{x again to turn
+tells back on.
 
-You can also send tell messages to players on other connected MUDs.
-This is done by placing an "@" in the player's name. For example:
-tell bob@soe Nice day, isn't it?
-~
+You can also send tell messages to players on other connected MUDs.
+This is done by placing an "@" in the player's name. For example:
+tell bob@soe Nice day, isn't it?
+~
 
 0 SAY~
 Syntax: {Csay{x <{Ymessage{x>
 
-{CSay{x sends a message to all awake players in your room.  The single quote
-'{C'{x' is a synonym for {Vsay{x.
-~
+{CSay{x sends a message to all awake players in your room.  The single quote
+'{C'{x' is a synonym for {Vsay{x.
+~
 
 0 IGNORE~
 Syntax: {CIgnore
-        {CIgnore {x<{Yplayer{x>
+        {CIgnore {x<{Yplayer{x>
 
-The {Cignore{x command can be used to ignore all comments made by a certain
-player over most of the channels.  The only channels that are not covered
-by ignore are say, emote, and pmote.  Ignore by itself will show you a
-list of players who are currently being ignored.
-~
+The {Cignore{x command can be used to ignore all comments made by a certain
+player over most of the channels.  The only channels that are not covered
+by ignore are say, emote, and pmote.  Ignore by itself will show you a
+list of players who are currently being ignored.
+~
 
 0 QUERY QTELL~
 Syntax: {CQuery list{x           : Lists names in your query.
-        {CQuery +{x <{Yname{x>   : Adds a name to your query.
-        {CQuery -{x <{Yname{x>   : Removes a name from query.
-        {CQuery clear{x          : Clears your query.
-        {CQtell {x<{Ymessage{x>  : Sends a message to your query list.
+        {CQuery +{x <{Yname{x>   : Adds a name to your query.
+        {CQuery -{x <{Yname{x>   : Removes a name from query.
+        {CQuery clear{x          : Clears your query.
+        {CQtell {x<{Ymessage{x>  : Sends a message to your query list.
 
-The {CQuery{x channel is similar to the {Cgtell{x channel.  However, you do
-not have to be following another player or be grouped with them to use the
-channel.  Whoever is in your {Cquery{x will receive your message when you
-use {Cqtell{x, but it is important to remember that if you are replying to
-someone with the {Cqtell{x channel, ensure that they are in your {Cquery list{x.
-~
+The {CQuery{x channel is similar to the {Cgtell{x channel.  However, you do
+not have to be following another player or be grouped with them to use the
+channel.  Whoever is in your {Cquery{x will receive your message when you
+use {Cqtell{x, but it is important to remember that if you are replying to
+someone with the {Cqtell{x channel, ensure that they are in your {Cquery list{x.
+~
 
 0 NOTIFY~
 Syntax: {Cnotify{x
 
-Toggles the broadcast messages for new notes.
-~
+Toggles the broadcast messages for new notes.
+~
 
 0 NOTE NOTES PERSONAL NEWS ROLEPLAY IDEA CHANGES TRADE UNREAD~
 The notes on ROM replace the bulletin boards and mail systems found on many
-other MUDs.  The following options are usable:
+other MUDs.  The following options are usable:
 
-{Vreading notes:{x
-{c----------------
-{Rnote {Hlist{x       : show all notes (unread notes are marked with an N)
-{Rnote {Hlist new{x   : show all unread notes
-{Rnote {Hlist all{x   : show all notes in one continuous list
-{Rnote {Hlist {Y<name>{x: show all notes that are from the given name
-{Rnote {Hread{x       : either by number, or read next to read unread notes
-{Rnote {Hremove{x     : removes a note that you wrote or are the only target of
-{Rnote {Hcatchup{x    : marks all notes as read
-{Rnote {Hwipe{x       : marks all messages on all boards as read
-{Rnote {Hforward{x    : forwards a note (note forward 'forward list' number)
-{Rnote {Hrepost{x     : forwards a note to immortals
-{Rnote {Hmove{x       : moves a note you have written from its current board to
-                : another, eg. {RNOTE MOVE 69 IDEAS{x .
+{Vreading notes:{x
+{c----------------
+{Rnote {Hlist{x       : show all notes (unread notes are marked with an N)
+{Rnote {Hlist new{x   : show all unread notes
+{Rnote {Hlist all{x   : show all notes in one continuous list
+{Rnote {Hlist {Y<name>{x: show all notes that are from the given name
+{Rnote {Hread{x       : either by number, or read next to read unread notes
+{Rnote {Hremove{x     : removes a note that you wrote or are the only target of
+{Rnote {Hcatchup{x    : marks all notes as read
+{Rnote {Hwipe{x       : marks all messages on all boards as read
+{Rnote {Hforward{x    : forwards a note (note forward 'forward list' number)
+{Rnote {Hrepost{x     : forwards a note to immortals
+{Rnote {Hmove{x       : moves a note you have written from its current board to
+                : another, eg. {RNOTE MOVE 69 IDEAS{x .
 
-{YSEE ALSO:{x note2 and tolerance
-~
+{YSEE ALSO:{x note2 and tolerance
+~
 
 0 NOTE2 NOTES2 PERSONAL2 NEWS2 ROLEPLAY2 IDEA2 CHANGES2 TRADE2 UNREAD2~
 {Vwriting new notes:
-{c--------------------
-{Rnote {Hto{x         : sets the TO line (see below)
-{Rnote {Hsubject{x    : sets the SUBJECT for a new note
-{Rnote {H+{x          : adds a line to a new note (e.g. {Rnote + hi guys!{x)
-{Rnote {H-{x          : remove a line from a note in progress
-{Rnote {Hclear{x      : erase a note in progress
-{Rnote {Hshow{x       : shows the note you are working on
-{Rnote {Hpost{x       : posts a new note. This MUST be done to post a note.
-{Rnote {Hformat{x     : capitalizes sentences, spaces sentences, word wrap
-{Rnote {Hreplace{x    : replace one string with another
+{c--------------------
+{Rnote {Hto{x         : sets the TO line (see below)
+{Rnote {Hsubject{x    : sets the SUBJECT for a new note
+{Rnote {H+{x          : adds a line to a new note (e.g. {Rnote + hi guys!{x)
+{Rnote {H-{x          : remove a line from a note in progress
+{Rnote {Hclear{x      : erase a note in progress
+{Rnote {Hshow{x       : shows the note you are working on
+{Rnote {Hpost{x       : posts a new note. This MUST be done to post a note.
+{Rnote {Hformat{x     : capitalizes sentences, spaces sentences, word wrap
+{Rnote {Hreplace{x    : replace one string with another
 
-{YSEE ALSO:{x note3 and tolerance
-~
+{YSEE ALSO:{x note3 and tolerance
+~
 
 0 NOTE3 NOTES3 PERSONAL3 NEWS3 ROLEPLAY3 IDEA3 CHANGES3 TRADE3 UNREAD3~
 When you log in, you will be informed if there are unread notes waiting. Type
-{Rnote read{x or {Rnext{x to scroll through them one at a time.
+{Rnote read{x or {Rnext{x to scroll through them one at a time.
 
-Six other note directories exist, these are IDEAS, NEWS, CHANGES, PERSONAL,
-TRADE and ROLEPLAY.  They are used the exact same way, for example idea read
-5 will read idea #5.  Posting to the news and changes boards is
-restricted. The 'unread' command can be used to show your unread notes on
-all the note spools. See also {RHELP NEXT{x.
+Six other note directories exist, these are IDEAS, NEWS, CHANGES, PERSONAL,
+TRADE and ROLEPLAY.  They are used the exact same way, for example idea read
+5 will read idea #5.  Posting to the news and changes boards is
+restricted. The 'unread' command can be used to show your unread notes on
+all the note spools. See also {RHELP NEXT{x.
 
-The personal message board is slightly special.  If a note's recipient is
-strictly personal(playername, clanname, remort, or immortal), then it will
-automatically post to the personal message board.  If a personal message
-recipient includes "all" in it, then it will be automatically posted to the
-note message board.
+The personal message board is slightly special.  If a note's recipient is
+strictly personal(playername, clanname, remort, or immortal), then it will
+automatically post to the personal message board.  If a personal message
+recipient includes "all" in it, then it will be automatically posted to the
+note message board.
 
-{YSEE ALSO:{x tolerance
-~
+{YSEE ALSO:{x tolerance
+~
 
 0 TOLERANCE~
 {P*****Tolerance*****{x
 
-{YIf you wish to ramble, post your notes to {Vspam{Y.{x
-Posting mindless, spammy notes to everyone on the mud is a waste of space,
-time, and patience.  If you are unsure if your note fits into the useless spam
-category, you probably don't want to post it.  If you really want to post it,
-then check with the Immortals.  Note that we have other things on our list of
-chores, and will be bothered by repeated queries.  Notes in poor taste will
-be removed.
+{YIf you wish to ramble, post your notes to {Vspam{Y.{x
+Posting mindless, spammy notes to everyone on the mud is a waste of space,
+time, and patience.  If you are unsure if your note fits into the useless spam
+category, you probably don't want to post it.  If you really want to post it,
+then check with the Immortals.  Note that we have other things on our list of
+chores, and will be bothered by repeated queries.  Notes in poor taste will
+be removed.
 
-{PExcessive swearing on global note boards (ie. {YNOT{P personal) is strictly
-prohibited.{x
+{PExcessive swearing on global note boards (ie. {YNOT{P personal) is strictly
+prohibited.{x
 
-If you swear in a personal note, be sure the person receiving the note 
-will not be offended, as none of the note boards are censored.  The Immortals
-will use their judgment as to how much swearing is tolerable.  If an Immortal
-tells you to remove a note, remove it, and note the Imp if you have any
-concerns.
+If you swear in a personal note, be sure the person receiving the note 
+will not be offended, as none of the note boards are censored.  The Immortals
+will use their judgment as to how much swearing is tolerable.  If an Immortal
+tells you to remove a note, remove it, and note the Imp if you have any
+concerns.
 
-~
+~
 
 0 CLANNOTES LEADERNOTES DEPUTYNOTES~
 {WNotes to Clans:{x
-      {Cnote to clan             {Y(only to your clan){x
-      {Cnote to clans            {Y(all clans){x
-      {Cnote to {x<{Yclan name{x>      {Y(only to the clan specified){x
+      {Cnote to clan             {Y(only to your clan){x
+      {Cnote to clans            {Y(all clans){x
+      {Cnote to {x<{Yclan name{x>      {Y(only to the clan specified){x
 
-You may also specify '{Yleaders{x' or '{Bdeputies{x' to limit the recipients.
-~
+You may also specify '{Yleaders{x' or '{Bdeputies{x' to limit the recipients.
+~
 
 0 IMMNOTES IMMORTALNOTES~
 {WNoting Immortals{x:
 
-     {Cnote to {Yimms{x
-     {Cnote to {Yimmortals{x
+     {Cnote to {Yimms{x
+     {Cnote to {Yimmortals{x
 
-Both will work.
-~
+Both will work.
+~
 
 0 OOC RP ROLEPLAY~
 Syntax: {Cooc{x
 
-This will toggle on and off a flag within the who/whois list. It is used
-for verifying "out of character"/"role playing" characters from other
-individuals.
-~
+This will toggle on and off a flag within the who/whois list. It is used
+for verifying "out of character"/"role playing" characters from other
+individuals.
+~
 
 0 GOSSIP . YELL~
 Syntax:
-   {Ggossip{x  <{Ymessage{x>
-   {Cyell{x   <{Ymessage{x>
+   {Ggossip{x  <{Ymessage{x>
+   {Cyell{x   <{Ymessage{x>
 
-{GGOSsip{x is a variant of {Rshout{x (without the delay).  '{G.{x' is a
-synonym for {GGOSssip{x.
+{GGOSsip{x is a variant of {Rshout{x (without the delay).  '{G.{x' is a
+synonym for {GGOSssip{x.
 
-{CYell{x sends a message to all awake players within your area.
+{CYell{x sends a message to all awake players within your area.
 
-Type a channel name by itself to turn it off.
-~
+Type a channel name by itself to turn it off.
+~
 
 0 EMOTE POSE~
 Syntax: {Cemote{x <{Yaction{x>
-        {Csocial emote{x <{Yaction{x>
-        {Cpose{x
+        {Csocial emote{x <{Yaction{x>
+        {Cpose{x
 
-{CEmote{x is used to express emotions or actions. Whatever you type
-in as the <{Yaction{x> will be seen by people in the room (or all over
-the MUD if you use {Csocial emote{x) with your name in front of it.
+{CEmote{x is used to express emotions or actions. Whatever you type
+in as the <{Yaction{x> will be seen by people in the room (or all over
+the MUD if you use {Csocial emote{x) with your name in front of it.
 
-Whatever action you want to show, chances are it's already available
-as a pre-built {Csocial{x. Type {Whelp socials{x for information about
-these 'canned' actions and {Wsocials{x to see the list.
+Whatever action you want to show, chances are it's already available
+as a pre-built {Csocial{x. Type {Whelp socials{x for information about
+these 'canned' actions and {Wsocials{x to see the list.
 
-{CPose{x produces a random message to your room depending on your class
-and level. The message generally shows off your prowess at whatever
-your class does.
-~
+{CPose{x produces a random message to your room depending on your class
+and level. The message generally shows off your prowess at whatever
+your class does.
+~
 
 0 MORESOCIALS~
 Although {bL{Ye{Wga{Yc{by{x has {GMANY{x socials at present, people keep thinking up new
-ones. There is room for some more, but the implementor must keep watching
-the socials count in {VMEMORY{x and check it against {YMAX_SOCIALS{x in the code.
-{PAn overabundance of socials caused the Great Crash of July 1997 :({x
+ones. There is room for some more, but the implementor must keep watching
+the socials count in {VMEMORY{x and check it against {YMAX_SOCIALS{x in the code.
+{PAn overabundance of socials caused the Great Crash of July 1997 :({x
 
-Assuming that '{Ychar{x' is the one who performs the social,
-'{Yvictim{x' is the one 'char' does it to (if anybody), and
-'{Yroom{x' means third parties in the room observing the social,
-a complete definition of a social consists of 8 strings:
+Assuming that '{Ychar{x' is the one who performs the social,
+'{Yvictim{x' is the one 'char' does it to (if anybody), and
+'{Yroom{x' means third parties in the room observing the social,
+a complete definition of a social consists of 8 strings:
 
-{c/=============================================================================\
-{c|{N(1){c| {Gsocial name                   {c| {Ylaugh                                   {c|
-{c|{N(2){c| {Gmsg to char if done to nobody {c| {YYou fall down laughing.                 {c|
-{c|{N(3){c| {Gmsg to room if done to nobody {c| {Y$n falls down laughing.                 {c|
-{c|{N(4){c| {Gmsg to char if victim found   {c| {YYou laugh at $N mercilessly.            {c|
-{c|{N(5){c| {Gmsg to room if victim found   {c| {Y$n laughs at $N mercilessly.            {c|
-{c|{N(6){c| {Gmsg to victim                 {c| {Y$n laughs at you mercilessly. Hmmph.    {c|
-{c|{N(7){c| {Gmsg to char if victim=char    {c| {YYou laugh at yourself. I would, too.    {c|
-{c|{N(8){c| {Gmsg to room if victim=char    {c| {Y$n laughs at $mself. Let's all join in! {c|
-{c\=============================================================================/
+{c/=============================================================================\
+{c|{N(1){c| {Gsocial name                   {c| {Ylaugh                                   {c|
+{c|{N(2){c| {Gmsg to char if done to nobody {c| {YYou fall down laughing.                 {c|
+{c|{N(3){c| {Gmsg to room if done to nobody {c| {Y$n falls down laughing.                 {c|
+{c|{N(4){c| {Gmsg to char if victim found   {c| {YYou laugh at $N mercilessly.            {c|
+{c|{N(5){c| {Gmsg to room if victim found   {c| {Y$n laughs at $N mercilessly.            {c|
+{c|{N(6){c| {Gmsg to victim                 {c| {Y$n laughs at you mercilessly. Hmmph.    {c|
+{c|{N(7){c| {Gmsg to char if victim=char    {c| {YYou laugh at yourself. I would, too.    {c|
+{c|{N(8){c| {Gmsg to room if victim=char    {c| {Y$n laughs at $mself. Let's all join in! {c|
+{c\=============================================================================/
 
-Social name must always be in lower case. Social text should be no longer
-than 70 chars. Here are the definitions of the $ characters:
+Social name must always be in lower case. Social text should be no longer
+than 70 chars. Here are the definitions of the $ characters:
 
-{c/{GItem      {c/{BFor Char    {c/{PFor Victim
-{c===================================
-{c={Gname       {B$n           {P$N       {c=
-{c={Ghe/she     {B$e           {P$E       {c=
-{c={Ghim/her    {B$m           {P$M       {c=
-{c={Ghis/hers   {B$s           {P$S       {c=
-{c={G(his/her)                        {c=
-{c===================================
-~
+{c/{GItem      {c/{BFor Char    {c/{PFor Victim
+{c===================================
+{c={Gname       {B$n           {P$N       {c=
+{c={Ghe/she     {B$e           {P$E       {c=
+{c={Ghim/her    {B$m           {P$M       {c=
+{c={Ghis/hers   {B$s           {P$S       {c=
+{c={G(his/her)                        {c=
+{c===================================
+~
 
 0 SEMOTE~
 Syntax: {Csemote{x <{Yaction{x>
 
-{CSemote{x works exactly like emote, except you must place your name somewhere
-in the string, and it will show that string to everyone in the room.
-~
+{CSemote{x works exactly like emote, except you must place your name somewhere
+in the string, and it will show that string to everyone in the room.
+~
 
 0 AUCTION~
 Syntax: {Cauction{x
-        {Cauction{x <{Yitem{x>
-        {Cauction{x <{Yitem{x> <{Yminimum bid{x>
-        {Cauction status{x
-        {Cauction bid{x <{Yamount{x> (in gold)
-        {Cauction stop{x               ({PImmortal Only{x)
+        {Cauction{x <{Yitem{x>
+        {Cauction{x <{Yitem{x> <{Yminimum bid{x>
+        {Cauction status{x
+        {Cauction bid{x <{Yamount{x> (in gold)
+        {Cauction stop{x               ({PImmortal Only{x)
 
-{CAuction{x without an argument will toggle the auction channel off and on.
-{CAuction{x with an argument will select an item for auction.
-{CAuction status{x will display some information about the object
-        including the current bids.
-{VAuction bid{x will place your bid.  You must bid at least 1 gold if the
-        auction has just started, or 10% more than the previous bidder.
-        Note that all amounts are numbers of {Ygold{x coins, and you must
-        be carrying the actual number of gold coins you wish to bid; the
-        auction mechanism will not exchange coinage for you.
-{VAuction{x with a minimum bid prevents your item for being sold too
-        cheaply.  The minimum bid cannot be greater than 10,000.
-{VAuction stop{x can be used by {PImmortals{x to confiscate auctioned items.
-~
+{CAuction{x without an argument will toggle the auction channel off and on.
+{CAuction{x with an argument will select an item for auction.
+{CAuction status{x will display some information about the object
+        including the current bids.
+{VAuction bid{x will place your bid.  You must bid at least 1 gold if the
+        auction has just started, or 10% more than the previous bidder.
+        Note that all amounts are numbers of {Ygold{x coins, and you must
+        be carrying the actual number of gold coins you wish to bid; the
+        auction mechanism will not exchange coinage for you.
+{VAuction{x with a minimum bid prevents your item for being sold too
+        cheaply.  The minimum bid cannot be greater than 10,000.
+{VAuction stop{x can be used by {PImmortals{x to confiscate auctioned items.
+~
 
 0 GLOBAL SOCIAL~
 Syntax: {Csocial{x
-        {Csocial{x <{Ymessage{x>
-        {Csocial{x <{Ysocial{x>           (see {WSOCIALS{x and {WHELP SOCIALS{x)
-        {Csocial emote{x <{Ymessage{x>    (see {WHELP EMOTE{x)
+        {Csocial{x <{Ymessage{x>
+        {Csocial{x <{Ysocial{x>           (see {WSOCIALS{x and {WHELP SOCIALS{x)
+        {Csocial emote{x <{Ymessage{x>    (see {WHELP EMOTE{x)
 
-The {Csocial{x channel is used for displaying your actions across the MUD.
-Typing {Vsocial{x by itself will toggle the channel on and off.
-{Csocial{x <{Ymessage{x> shows everyone in the MUD:
-     {G[S] {Yyour-name{x {Gsocializes {x'<{Ymessage{x>{G'{x
-{Vsocial{x <{Ysocial{x> shows the given social to everyone in the MUD.
-     {Vsoc hop{x yields:
-     {G[S] {Yyour-name{x {Ghops around like a little kid.{x
-{Vsocial emote {x<{Ymessage{x> allows you to show an emote to everyone:
-     {G[E]{x <{Yyour-name{x> <{Yyour-message{x>{G.{x
-~
+The {Csocial{x channel is used for displaying your actions across the MUD.
+Typing {Vsocial{x by itself will toggle the channel on and off.
+{Csocial{x <{Ymessage{x> shows everyone in the MUD:
+     {G[S] {Yyour-name{x {Gsocializes {x'<{Ymessage{x>{G'{x
+{Vsocial{x <{Ysocial{x> shows the given social to everyone in the MUD.
+     {Vsoc hop{x yields:
+     {G[S] {Yyour-name{x {Ghops around like a little kid.{x
+{Vsocial emote {x<{Ymessage{x> allows you to show an emote to everyone:
+     {G[E]{x <{Yyour-name{x> <{Yyour-message{x>{G.{x
+~
 
 0 FLAME~
 Syntax: {Cflame{x <{Ymessage{x>
-        {Cflame{x {Gwho{x
-        {Cflame{x
+        {Cflame{x {Gwho{x
+        {Cflame{x
 
-Flame is a channel intended for complaints, frustrations, and otherwise 
-inappropriate language that you are free to air here.  Foul language and
-swearing otherwise not allowed should be used here, where people have the
-option to turn the channel off if they do not feel like listening.  
+Flame is a channel intended for complaints, frustrations, and otherwise 
+inappropriate language that you are free to air here.  Foul language and
+swearing otherwise not allowed should be used here, where people have the
+option to turn the channel off if they do not feel like listening.  
 
-Typing {Cflame{x without any arguments will toggle the channel on and off.
-{Cflame who{x will tell you who is tuned in to this channel at the moment.
+Typing {Cflame{x without any arguments will toggle the channel on and off.
+{Cflame who{x will tell you who is tuned in to this channel at the moment.
 
-{YSEE ALSO:{x censor
-~
+{YSEE ALSO:{x censor
+~
 
 0 QWEST @~
 Syntax: {Cqwest{x <{Ymessage{x>
-        {Cqwest{x {Gwho{x
-        {Cqwest{x
+        {Cqwest{x {Gwho{x
+        {Cqwest{x
 
-This command lets you communicate quest-related information to others
-in the game.  It's spelled funny so as not to conflict with the {Cquest{x
-command, which is already used for something else. This channel is
-typically used to communicate questions and answers for trivia quests,
-or to issue instructions for major quests.
+This command lets you communicate quest-related information to others
+in the game.  It's spelled funny so as not to conflict with the {Cquest{x
+command, which is already used for something else. This channel is
+typically used to communicate questions and answers for trivia quests,
+or to issue instructions for major quests.
 
-'@' is a valid short form for the {Cqwest{x command.
+'@' is a valid short form for the {Cqwest{x command.
 
-Typing {Cqwest{x without any arguments toggles the channel on and off.
-{Cqwest who{x will tell you who is tuned in to this channel at the moment.
-~
+Typing {Cqwest{x without any arguments toggles the channel on and off.
+{Cqwest who{x will tell you who is tuned in to this channel at the moment.
+~
 
 0 PRAY~
 Syntax: {Cpray{x <{Ymessage{x>
-	{Cpray{x {Gwho{x
-	{Cpray{x
+	{Cpray{x {Gwho{x
+	{Cpray{x
 
-This command is for communication between mortals and immortals. When you
-{Cpray{x, chances are that some immortal will hear you and answer your.  Note
-that the immortals are pretty busy folk and often don't have time to chat
-about trivial things with everyone in the game.  Try not to take up TOO
-much of their time.
+This command is for communication between mortals and immortals. When you
+{Cpray{x, chances are that some immortal will hear you and answer your.  Note
+that the immortals are pretty busy folk and often don't have time to chat
+about trivial things with everyone in the game.  Try not to take up TOO
+much of their time.
 
-Typing {Cpray{x without any arguments toggles this channel on and off.
-{Cpray who{x will tell you who is tuned in to this channel at the moment.
-~
+Typing {Cpray{x without any arguments toggles this channel on and off.
+{Cpray who{x will tell you who is tuned in to this channel at the moment.
+~
 
 0 ANNOUNCE FYI~
 Syntax: {Cannounce{x
 
-The {Cannounce{x command lets you toggle your reception of game announcements
-(they start with [FYI]) on and off.
-~
+The {Cannounce{x command lets you toggle your reception of game announcements
+(they start with [FYI]) on and off.
+~
 
 0 MUSIC~
 Syntax: {Cmusic{x <{Ymessage{x>
-	{Cmusic{x {Gwho{x
-	{Cmusic{x
+	{Cmusic{x {Gwho{x
+	{Cmusic{x
 
-This command lets you pretend to be singing or making music to the entire
-population of Thera.
+This command lets you pretend to be singing or making music to the entire
+population of Thera.
 
-Typing {Cmusic{x without any arguments toggles the channel on and off.
-{Cmusic who{x will tell you who is tuned in to this channel at the moment.
-~
+Typing {Cmusic{x without any arguments toggles the channel on and off.
+{Cmusic who{x will tell you who is tuned in to this channel at the moment.
+~
 
 0 QUESTION ANSWER Q/A~
 Syntax: {Cquestion/answer{x
-        {Cquestion/answer{x <{Ymessage{x>
-        {Cquestion/answer{x {Gwho{x
+        {Cquestion/answer{x <{Ymessage{x>
+        {Cquestion/answer{x {Gwho{x
 
-The Question/Answer channel, called Q/A, actually has two commands to
-operate it: {Cquestion{x and {Canswer{x.  They do the same thing, so you can ask
-a question with {Canswer{x and answer one with {Cquestion{x.  Your questions and
-answers will be heard all over the MUD.  This  channel is typically used
-by players who have a tricky problem and are looking for other players
-with a good answer to the problem.
+The Question/Answer channel, called Q/A, actually has two commands to
+operate it: {Cquestion{x and {Canswer{x.  They do the same thing, so you can ask
+a question with {Canswer{x and answer one with {Cquestion{x.  Your questions and
+answers will be heard all over the MUD.  This  channel is typically used
+by players who have a tricky problem and are looking for other players
+with a good answer to the problem.
 
-Typing {Cquestion{x or {Canswer{x without any arguments toggles the channel on
-and off.  {Cquestion who{x or {Canswer who{x will tell you who else is tuned in
-to this channel at the moment.
-~
+Typing {Cquestion{x or {Canswer{x without any arguments toggles the channel on
+and off.  {Cquestion who{x or {Canswer who{x will tell you who else is tuned in
+to this channel at the moment.
+~
 
 0 GRATS~
 Syntax: {Cgrats{x <{Ymessage{x>
-	{Cgrats{x {Gwho{x
-	{Cgrats{x
+	{Cgrats{x {Gwho{x
+	{Cgrats{x
 
-{W-{Cgrats{W-{x is a channel dedicated to congratulating other players, usually
-for levelling. Yes, 'grats' is short for 'congratulations'.
+{W-{Cgrats{W-{x is a channel dedicated to congratulating other players, usually
+for levelling. Yes, 'grats' is short for 'congratulations'.
 
-Typing {Cgrats{x without any arguments toggles the channel on and off.
-{Cgrats who{x will tell you who is tuned in to this channel at the moment.
-~
+Typing {Cgrats{x without any arguments toggles the channel on and off.
+{Cgrats who{x will tell you who is tuned in to this channel at the moment.
+~
 
 0 PMOTE~
 Syntax: {Cpmote{x {Gmessage{x
 
-{Cpmote{x works a lot like {Cemote{x, but if you do it correctly, any
-full-name references to other people in the room (properly spelled and
-capitalized) will be translated to 'you' and 'your' for the person
-so named.
+{Cpmote{x works a lot like {Cemote{x, but if you do it correctly, any
+full-name references to other people in the room (properly spelled and
+capitalized) will be translated to 'you' and 'your' for the person
+so named.
 
-Example: Elrac types: {Ypmote slaps Vicky.{x
-         Vicky sees:  {CElrac slaps you.{x
-         Ronja sees:  {CElrac slaps Vicky.{x
+Example: Elrac types: {Ypmote slaps Vicky.{x
+         Vicky sees:  {CElrac slaps you.{x
+         Ronja sees:  {CElrac slaps Vicky.{x
 
-In other words, {Cpmote{x is a way to do {Cemote{xs with a better chance
-of naming people correctly so that nobody in the room (including the
-target) can tell the difference between a real action and an emoted one.
-~
+In other words, {Cpmote{x is a way to do {Cemote{xs with a better chance
+of naming people correctly so that nobody in the room (including the
+target) can tell the difference between a real action and an emoted one.
+~
 
 0 PAGE~
 Syntax: {Cpage{x <{Yplayer{x> {Gmessage{x
-        {Cpage{x
+        {Cpage{x
 
-{W*{Cpage{W*{x is a message channel you can use if you're desparate to get the
-attention of another player. It sends a message to a particular player,
-just like {Ctell{x does, but is accompanied by a bell sound if the person's
-terminal supports sound. You can see it being a bit loud and bothersome
-to some people, so please don't overuse it.
+{W*{Cpage{W*{x is a message channel you can use if you're desparate to get the
+attention of another player. It sends a message to a particular player,
+just like {Ctell{x does, but is accompanied by a bell sound if the person's
+terminal supports sound. You can see it being a bit loud and bothersome
+to some people, so please don't overuse it.
 
-{Cpage{x is a good way to get people back to their terminals if they are AFK
-(away from keyboard), as it goes through the AFK state, unlike {Ctell{x.
+{Cpage{x is a good way to get people back to their terminals if they are AFK
+(away from keyboard), as it goes through the AFK state, unlike {Ctell{x.
 
-Typing {Cpage{x by itself toggles your pager on and off.
-~
+Typing {Cpage{x by itself toggles your pager on and off.
+~
 
 0 CHANNELS QUIET~
 Syntax: {x<{Ychannelname{x>
-        {x<{Ychannelname{x> {Gwho{x
-        {Cchannels{x
-        {Cquiet{x
+        {x<{Ychannelname{x> {Gwho{x
+        {Cchannels{x
+        {Cquiet{x
 
-Simply entering the channel's name will toggle it on or off. Entering
-the channel and adding {Gwho{x will list the people who currently have the
-channel enabled.  To turn off all channels, type: {Cquiet{x.
+Simply entering the channel's name will toggle it on or off. Entering
+the channel and adding {Gwho{x will list the people who currently have the
+channel enabled.  To turn off all channels, type: {Cquiet{x.
 
-{CChannels{x alone will list your channels, label them on or off, tell you
-if you're quiet, give your prompt string, and display your aura, among
-other things.
+{CChannels{x alone will list your channels, label them on or off, tell you
+if you're quiet, give your prompt string, and display your aura, among
+other things.
 
-The current channels available to mortals:
-Gossip, Auction, Music, Q/A (Question / Answer), Grats, Flame, Clantalk,
-Query, Qwest, IC (for roleplaying), Pray,  Music, Social, Page and Tell.
+The current channels available to mortals:
+Gossip, Auction, Music, Q/A (Question / Answer), Grats, Flame, Clantalk,
+Query, Qwest, IC (for roleplaying), Pray,  Music, Social, Page and Tell.
 
-Other channels with status restrictions:
-The Announce (FYI) Channel shows you detailed info on:
-     {Wplayers leveling{x, {Wleaving{x, {Wjoining{x, {Wdying{x, and {WPKing{x.
-Immtalk is an Imm only channel.
+Other channels with status restrictions:
+The Announce (FYI) Channel shows you detailed info on:
+     {Wplayers leveling{x, {Wleaving{x, {Wjoining{x, {Wdying{x, and {WPKing{x.
+Immtalk is an Imm only channel.
 
-More help is available for specific channels.
-~
+More help is available for specific channels.
+~
 
 0 CHATMODE~
 Syntax: {Cchatmode{x
 
-This toggles on and off the hunger/thirst/sober messages that can get
-annoying if you are conversing instead of playing.
-~
+This toggles on and off the hunger/thirst/sober messages that can get
+annoying if you are conversing instead of playing.
+~
 
 0 CENSOR LANGUAGE FILTH SWEARING SPAM~
 Syntax: {Rc{Pensor{x
 
-{RC{Pensor{x shows the types of words currently being filtered.
+{RC{Pensor{x shows the types of words currently being filtered.
 
-{bL{Ye{Wga{Yc{by{x is a mud oriented and open to all ages, and because of this, 
-there are {Rc{Pensor rules{x.  
+{bL{Ye{Wga{Yc{by{x is a mud oriented and open to all ages, and because of this, 
+there are {Rc{Pensor rules{x.  
 
-{T*{x All characters start out on {GPG{x mode, which censors swear words and 
-  has the {P*FlAmE*{x channel off.  If you set yourself to {PR{x mode, do not 
-  complain about language or swearing.
+{T*{x All characters start out on {GPG{x mode, which censors swear words and 
+  has the {P*FlAmE*{x channel off.  If you set yourself to {PR{x mode, do not 
+  complain about language or swearing.
 
-{T*{x {YGossip{x, {Hsocial{x, and {Vpray{x are {Cno-swear channels{x.  Notes are also {Cno-
-  swear zones{x.  Because these are the primary channels / methods of 
-  communication, a certain modicum of courtesy and respect should be
-  maintained.
+{T*{x {YGossip{x, {Hsocial{x, and {Vpray{x are {Cno-swear channels{x.  Notes are also {Cno-
+  swear zones{x.  Because these are the primary channels / methods of 
+  communication, a certain modicum of courtesy and respect should be
+  maintained.
 
-{T*{x On all other channels, be wary of what you say.  Swear words used
-  to insult another player, or swear words disguised that slip past
-  the censor shall be punished immediately and harshly.
+{T*{x On all other channels, be wary of what you say.  Swear words used
+  to insult another player, or swear words disguised that slip past
+  the censor shall be punished immediately and harshly.
 
-{T*{x {PFlame{x is a {Bfree-for-all channel{x.  Period.  If you do not like what
-  is being said on {Pflame{x, you may turn it off. 
+{T*{x {PFlame{x is a {Bfree-for-all channel{x.  Period.  If you do not like what
+  is being said on {Pflame{x, you may turn it off. 
 
-{T* Racial, gender, sexual, and sexual orientation slurs will NOT be
-  tolerated on Legacy.  This encompasses ALL public and private channels
-  (excluding Flame,see above statement) 
-  and anybody found harassing in such a manner shall be punished.{x
+{T* Racial, gender, sexual, and sexual orientation slurs will NOT be
+  tolerated on Legacy.  This encompasses ALL public and private channels
+  (excluding Flame,see above statement) 
+  and anybody found harassing in such a manner shall be punished.{x
 
-{VNOTE:{x Punishments for violators of the {Rc{Pensor rules{x will be determined
-      on a case by case basis, but generally will be as follows:  1) 
-      a warning {YFOD{x  2) a {bnochan{x/{bnonote{x  3) {G1{H2{G1{H2{x, {Tf{Creeze{x, or {Pf{Rr{Py{x.
-~
+{VNOTE:{x Punishments for violators of the {Rc{Pensor rules{x will be determined
+      on a case by case basis, but generally will be as follows:  1) 
+      a warning {YFOD{x  2) a {bnochan{x/{bnonote{x  3) {G1{H2{G1{H2{x, {Tf{Creeze{x, or {Pf{Rr{Py{x.
+~
 
 0 SPAM~
 '{PSpam{x' is the name of a brand of canned meat, but that's irrelevant here.
-Here in the MUD, '{Pspam{x' means unnecessary and annoying information. If
-you {WGOSSIP{x something, then the whole MUD has to hear what you say. If you
-{WGOSSIP{x the same thing repeatedly, then all those people have to listen to
-all those things. Chances are you will be {Mannoying{x them. Remember that you
-are not alone in the MUD, and consider what a mess your screen would be if all
-the players were to do things that produce messages to the whole MUD. The same
-thing applies if you {WSOCIAL{x a lot, or {WAUCTION{x all kinds of useless things.
+Here in the MUD, '{Pspam{x' means unnecessary and annoying information. If
+you {WGOSSIP{x something, then the whole MUD has to hear what you say. If you
+{WGOSSIP{x the same thing repeatedly, then all those people have to listen to
+all those things. Chances are you will be {Mannoying{x them. Remember that you
+are not alone in the MUD, and consider what a mess your screen would be if all
+the players were to do things that produce messages to the whole MUD. The same
+thing applies if you {WSOCIAL{x a lot, or {WAUCTION{x all kinds of useless things.
 
-If you bother a lot of people and don't notice it, chances are someone will
-complain to you about it. When people complain, this should tell you you have
-overdone it, whatever you did. You really should stop it at this point.
+If you bother a lot of people and don't notice it, chances are someone will
+complain to you about it. When people complain, this should tell you you have
+overdone it, whatever you did. You really should stop it at this point.
 
-Remember that if courtesy is not enough to help keep you from spamming, then
-the {YImmortals{x may have to take action against you. You can be warned, have
-your communication channels turned off or even be banned. {CTake heed!{x
-~
+Remember that if courtesy is not enough to help keep you from spamming, then
+the {YImmortals{x may have to take action against you. You can be warned, have
+your communication channels turned off or even be banned. {CTake heed!{x
+~
 
 0 REMOTE~
 Syntax: {premote{x [{Yon|off{x]
 
-The remote command turns incoming messages (from other MUDs) on or off.
-You may use Remote in the following ways:
-Remote on      -- Turns the remote channel on
-Remote off     -- blocks incoming messages from other MUDs
-Remote         -- Show the remote channel's status.
-~
+The remote command turns incoming messages (from other MUDs) on or off.
+You may use Remote in the following ways:
+Remote on      -- Turns the remote channel on
+Remote off     -- blocks incoming messages from other MUDs
+Remote         -- Show the remote channel's status.
+~
 
 0 RENAME~
 Syntax: {prename{x <{Ypet name{x>
 
-The Rename command allows you to name your pet at any time.
-You have a pet? Don't like its name? Change it using Rename.
-~
+The Rename command allows you to name your pet at any time.
+You have a pet? Don't like its name? Change it using Rename.
+~
 
 -2
