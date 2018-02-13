@@ -1247,11 +1247,17 @@ GROUP: {RProtective{x
 
 0 'PROTECTION GOOD' 'PROTECTION EVIL'~
 Syntax: {Ccast{x '{Yprotection evil{x'
-	{Ccast{x '{Yprotection good{x'
+	{C       cast{x '{Yprotection good{x'
 
 The {Cprotection{x spells reduce the amount of damage taken from attackers
 of the appropriate ethos, and improve saving throws against all forms of
 magic. They may not be cast on others.
+
+{GEvolved:
+{xWhen evolved, the {Cprotection{x spells can {Ydaze{x your enemies, lowering
+their chances of successful spellcasting and skill usage.  At higher
+evolution, {Cprotection{x can even {Ystun{x your opponent, preventing them
+from taking action at all.
 
 GROUP: {RProtective{x
 ~

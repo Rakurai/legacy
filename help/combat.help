@@ -88,28 +88,11 @@ will be outlined in {Pred brackets{x on the wholist if your pk is on.  You
 can also see who has a pk flag by typing {Ywho pk{x.
 ~
 
-0 PAINTBALL RELOAD SHOOT~
+0 PAINTBOW PAINTBALL~
 Syntax:
-   {Vshoot{x <{Yvictim{x>
-   {Vreload{x
-   {Wp{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x
+{C   paintbow{x
 
-{WP{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x turns your PB flag {Gon{x and {Roff{x.  It signifies whether you are
-participating in the forever ongoing game of {Wp{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x on the mud.
-
-{VReload{x will take a {Ttube from{x your inventoy and {Mload{x it {Minto{x your gun.
-You must be {Yholding{x your paintgun for this to work.
-
-{VShoot{x will shoot your victim.  It is basically a random chance, but some
-guns are better than others.  Also, you have to wait a few seconds after
-each shot, so beware!  If you cast identify on a paintgun, here is what
-the rating numbers stand for:
-
-    {Bwait time{x/{Bhow damaged your gun is{x/{Phow good the gun is{x
-
-The {Bfirst two{x you want to be as {Blow{x as possible.  The {Pthird one{x you want
-to be {Phigh{x.  If your gun jams in combat it will be damaged, and eventually,
-damaged guns must be replaced.
+Coming soon!
 ~
 
 0 CRUSH~
@@ -218,8 +201,7 @@ being the target of certain spells, and dying.
 
 The experience you get from a kill depends on several things: how many
 players are in your group; your level versus the level of the monster;
-your alignment versus the monster's alignment; how many of this monster
-have been killed lately; and some random variation.
+how many of this monster have been killed lately, and some random variation.
 ~
 
 0 FLEE~

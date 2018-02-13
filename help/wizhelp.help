@@ -116,22 +116,9 @@ The "{Y-{x" will subtract lines, and the "{Y+{x" will add lines to the {Cmotd{x.
 ~
 
 92 EVOLVE 'EVOLUTION TABLE'~
-The purpose of this helpfile is to aid in policy decisions.
-Maximum evolutions allowed:
+Immortal additions to the 'evolve' command:
 
-{PSpell/Skill{x    Mag   Cle   Thi   War   Nec   Pld   Bar   Ran
---------------------------------------------------------------
-{PDivine Reg{x      2     3     1     1     1     2     1     1
-{PFireball{x        3     1     1     1     2     1     1     1
-{PRegen{x           2     3     2     2     2     2     2     3
-{PSanctuary{x       2     3     1     1     1     2     1     1
-{PTalon{x           3     2     1     1     2     1     1     1
-{PDisarm{x          1     1     2     3     1     2     1     2
-{PDual Wield{x      1     1     2     2     1     2     3     3
-{PFast Healing{x    1     1     2     3     1     2     2     2
-{PMeditation{x      2     3     1     1     2     2     1     1
-{PPeek{x            1     1     3     1     1     1     2     1
---------------------------------------------------------------
+{C    evolve {Yinfo{x - display global evolve limits
 ~
 
 92 TOKENRULES~
@@ -174,8 +161,8 @@ if you have any questions, ask!
 
 0 LIRIEL~
 Liriel was one of the original three founders of the realm of Legacy, and
-served as head of all Administration.  Unfortunately, due to her many
-pursuits, she is no longer active on Legacy. 
+served as head of Administration.  Due to her many pursuits, she is no
+longer active on Legacy. 
 ~
 
 0 LIRIATI~
@@ -238,8 +225,12 @@ Oh, good god, what broke this time?!?
 ~
 
 0 XENITH~
-Xenith doesn't work here anymore.  But we owe a lot of our code to her
-incredible genius, so we still love her. :)
+Xenith is the Goddess of Knowledge and Forger of Worlds. She was instrumental
+in the creation of the world during the First Age. She works to improve the world
+and its inhabitants. She is the first Thief, and if you are lucky, you can
+catch a glimpse of her sneaking around as she gathers all knowledge to her library.
+
+Xenith is the server admin and coder for Age of Legacy. She works with Montrey and Lidda.
 ~
 
 0 KENNETH~
@@ -253,11 +244,11 @@ laziness was interesting, and, after a long period, talked Kenneth into
 becoming an Imm. Ever since, Kenneth has been scratching his itch to 
 build things and amusing people with his wacky antics.  
 
-Kenneth is the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He just 
-finished his new area, Twilight.  His current projects include the 
-battle arenas, mapping Thera, continuity, guilds, the building 
-guide, and maybe a new zone.
+Kenneth served as the main builder for Legacy during the First Age.
+During that time, he created many of the amazing original areas that
+we cherish, such as Mossflower, Twilight, and Deadly Treasure, among
+others.  We owe him a debt of gratitude, and he will always be revered
+as the master Builder of Legacy.
 ~
 
 0 NEFFERTINI~
@@ -291,28 +282,6 @@ Small Admin jobs and enforcement
 Washing and caring for Teo's and Alara's pets. :(
 ~
 
-0 TEOTWAWKI~
-{PT{Ye{Po{x is the Building Implementor (watch your heads) and helps with Admin. 
- She is currently the only builder immortal for Legacy so she is usually way 
- over her head in stuff to do.  She loves helping mortals with every aspect 
- of the mud that she can.  She runs trivia if and when she has spare time, 
- and is generally a nice person as long as she is not being attacked. *egrin*
-
-{PT{Ye{Po'{Ys{x current projects:
-     Any and all Admin work
-     Maintaining all clanhalls
-     Any and all building upgrades
-     Finishing touches on prison.are and thedead.are
-     Verifying any and all building projects that come in from others
-     Revamping areas and doing minor tweaks
-     Evaluating current areas, eq, pills, and armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-~
-
 0 SIVAT~
 Sivat, known as the maintainer, preserver or simply immortal of life, is
 one of the immortals that cherish life, creation and love. As one 
@@ -321,11 +290,7 @@ marriages and maintaining good relations between all mortals. Along
 with sustaining relationships, Sivat enjoys challenging his mortal 
 friends to quick games of intellect and adventure.
 
-Sivat's current projects include:
-Overseeing Marriages
-Promoting a Role-playing Environment with Vegita
-Web Page
-{bM{Yu{bd{GL{He{Gm{x's
+Sivat has departed this realm, but remains forever welcome here.
 ~
 
 0 VEGITA~
@@ -363,10 +328,15 @@ venture out into the realm, and the flapping of her wings can clearly
 be heard. But watch out for her razor sharp Halo, which has been 
 known to fly aimless around the realm.
 
-Sorsha's current projects include:
-  City of Pintula
-  Roads
-  Oceans
+Sorsha has departed this realm, but remains forever welcome here.
+~
+
+0 VIRO~
+Viro's our coder and Admin.  He's the God of Honour and Fate, and he's got 
+some sort of yin and yang thing going.  He has yet to write a helpfile for
+me to post for him, so for now, this is all that he gets. ;)
+
+Viro has departed this realm, but remains forever welcome here.
 ~
 
 92 WIZGROUP~

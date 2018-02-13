@@ -619,28 +619,22 @@ The output is messy at this time, but may come in handy
 when giving level rank to an IMM.
 ~
 
-0 BOW RANGED~
-Syntax: {Cranged{x <{Ytarget{x> [{Ydirection{x]
+0 BOW ARROW RANGED ARCHERY SHOOT~
+Syntax: {Cshoot {g<{Ydistance.direction{g> <{Ytarget{g>
 
-This command allows you to fire your bow at a creature
-in another room. Your {Ytarget{x must be the name of
-the creature you wish to shoot. {YDirection{x may
-be North, South, East, West, Up or Down.
+This command allows you to fire your bow at a creature in another room.
+Your {Ytarget{x should be the name of the creature you wish to shoot. 
+{YDirection{x may be north, south, east, west, up, or down.  To shoot
+farther than the next room, use {C2.{x or {C3.{x
 
-Be warned that most creatures react poorly to being
-shot.
-~
+Examples:
+{C   shoot              {g- shoot your current opponent with your bow.
+{C   shoot fido         {g- shoot a fido right here.
+{C   shoot north fido   {g- shoot the nearest fido to the north.
+{C   shoot 2.north fido {g- shoot the fido 2 rooms to the north.
+{C   shoot 3.north fido {g- shoot the fido 3 rooms to the north.
 
-0 OUTSIDER~
-Outsider (that's me) has been coding for Legacy since the fall of 2003.
-His main (and on-going) goals are to:
-1. Make sure everyone has fun.
-2. Make Legacy a stable and user-friendly game.
-3. Connecting Legacy with the game Shadow of Eternity.
-
-You may send questions, comments and complaints to Outsider at
-slicer69@hotmail.com with the subject line "Legacy".
-For more information please see http://slicer69.tripod.com/
+Be warned that most creatures react negatively to being shot.
 ~
 
 0 MAP~

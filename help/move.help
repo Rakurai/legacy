@@ -1,3 +1,14 @@
+0 WARP AETHERYTE CRYSTAL TRAVEL~
+Syntax: {Cwarp{x
+{C        warp {g<{Ylocation{g>{x
+
+{CWarp{x allows you to instantly travel to an {Ba{Cet{Wheryte crys{Cta{Bl{x that you
+have attuned yourself to by {Ytouching{x it. Once you have found and
+{Ytouched{x a {Bc{Cr{Wyst{Ca{Bl{x, simply type {Cwarp{x by itself to look at a list of the
+locations of crystals, and then {Cwarp {g<{Ylocation{g>{x to travel there. You
+may refer to a location by its name or its number.
+~
+
 0 NOFOLLOW~
 Syntax: {Cnofollow{x
 

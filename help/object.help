@@ -145,7 +145,7 @@ that amount of gold/silver from your account.
 {Gbalance{x: Shows how much gold and silver you currently have in the bank.
 ~
 
-0 DROP GET GIVE PUT TAKE~
+0 DROP GET GIVE PUT TAKE TOUCH~
 Syntax: {Cdrop{x <{Yobject{x>
         {Cdrop{x <{Ynumber{x>*{x<{Yobject{x>
         {Cdrop{x <{Yamount{x> {Ccoins{x
@@ -155,8 +155,9 @@ Syntax: {Cdrop{x <{Yobject{x>
         {Ggive{x <{Ynumber{x>*{x<{Yobject{x> <{Ycharacter{x>
         {Ggive{x <{Yamount{x> {Gcoins{x <{Ycharacter{x>
         {Vput{x  <{Yobject{x> <{Ycontainer{x>
+{P        touch {g<{Yobject{g>{x
 
-{CDrop{x drops an object, or some coins, on the ground.
+Drop{x drops an object, or somome coins, on the ground.
 
 {MGet{x gets an object, either lying on the ground, or from a container, or
 even from a corpse.  TAKE is a synonym for get.
@@ -171,6 +172,9 @@ even from a corpse.  TAKE is a synonym for get.
 You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
 if you put a number and an asterisk ({C*{x) in front of the object's name.
 Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
+
+You can {Ptouch{x an object for fun.  If you {Ptouch{x an {Caetheryte crystal{x,
+you will be able to {Ywarp{x to that crystal in the future.
 ~
 
 0 EQUIPMENT INVENTORY~
@@ -349,17 +353,30 @@ engraved message.
 0 PIT~
 Syntax: {Cpit{x
         {Cpit{x <{Ymin_level max_level{x> <{Ykeyword(s){x>
+{x        {Cpit {Ywear{g <{Ybody part{g>{x
+{x        {Cpit {Yweapon{g <{Yweapon type{g>{x
 
 The {Cpit{x command allows you to look into the donation pit.  Just as with
 {Clook in pit{x, you must be standing by the pit in order to see inside.
 
+Valid {Ybody parts{x are:
+{Y  finger neck torso head legs feet hands arms shield body waist wrist wield hold float{x
+
+Valid {Yweapon types{x are:
+{Y  sword mace dagger axe staff flail whip polearm bow{x
+
 Syntax examples:
-   {Cpit{x           - shows you items around your level.
-   {Cpit 15{x        - shows you items around level 15 ( 5 - 25, actually )
-   {Cpit 10 20{x     - shows you items between levels 10 and 20.
-   {Cpit axe{x       - shows you all items called 'axe' in the pit.
-   {Cpit 45 sword{x  - shows you swords in the pit around level 45.
-   {Cpit 20 40 axe{x - shows you axes between levels 20 and 40.
+   {Cpit{x                    - shows you items around your level.
+   {Cpit 15{x                 - shows you items around level 15 ( 5 - 25, actually )
+   {Cpit 10 20{x              - shows you items between levels 10 and 20.
+{C   pit ring      {g         - shows you all items called 'ring' in the pit.
+   {Cpit 45 ring {x           - shows you items called 'ring' in the pit around level 45.
+   {Cpit 20 40 axe{x          - shows you items called 'axe' between levels 20 and 40.
+{C   pit wear      {g         - shows you all items that can be worn.
+{C   pit wear legs {g         - shows you all items that can be worn on your legs.
+{C   pit weapon     {g        - shows you all weapons in the pit.
+{C   pit weapon sword {g      - shows you all swords in the pit.
+{C   pit 20 40 weapon sword {g- shows you all swords between levels 20 and 40.
 
 {YSEE ALSO:{x donate
 ~

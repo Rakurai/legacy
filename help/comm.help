@@ -9,10 +9,10 @@ Socials are commands that describe you, the player, doing some action.
 You type one of a large list of these commands and it expands to some
 nicely descriptive message.
 
-Example: {Rmakeout liriel{x
-   You see:    {GYou steam up the windows with Liriel.{x
+Example: {Rmakeout lidda{x
+   You see:    {GYou steam up the windows with Lidda.{x
    She sees:   {GMontrey steams up the windows with you.  Wow baby.{x
-   Others see: {GMontrey's steaming up the windows with Liriel.  *whistle*{x
+   Others see: {GMontrey's steaming up the windows with Lidda.  *whistle*{x
 
 Most socials will work with or without a subject. E.g. '{Rsmile{x' will
 show you smiling happily. '{Rsmile{x {Yplayer{x' will show you smiling at
@@ -577,10 +577,9 @@ there are {Rc{Pensor rules{x.
   is being said on {Pflame{x, you may turn it off.  However, please note
   the last rule ...
 
-{T* Racial, gender, or sexual slurs will NOT be tolerated on Legacy.
-  This encompasses ALL public and private channels (including Flame!)
-  and anybody found harassing in such a manner shall not be welcome
-  on this mud.{x
+{T* Racial, gender, sexual, and sexual orientation slurs will NOT be
+  tolerated on Legacy.  This encompasses ALL public and private channels
+  and anybody found harassing in such a manner shall be punished.{x
 
 {VNOTE:{x Punishments for violators of the {Rc{Pensor rules{x will be determined
       on a case by case basis, but generally will be as follows:  1) 
@@ -604,6 +603,13 @@ overdone it, whatever you did. You really should stop it at this point.
 Remember that if courtesy is not enough to help keep you from spamming, then
 the {YImmortals{x may have to take action against you. You can be warned, have
 your communication channels turned off or even be banned. {CTake heed!{x
+~
+
+0 RENAME~
+Syntax: {prename{x <{Ypet name{x>
+
+The Rename command allows you to name your pet at any time.
+You have a pet? Don't like its name? Change it using Rename.
 ~
 
 -2
