@@ -1,9 +1,9 @@
 #include "gem/gem.hh"
 
 #include "act.hh"
-#include "affect_list.hh"
+#include "affect/affect_list.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "find.hh"
 #include "Flags.hh"
@@ -110,19 +110,19 @@ void compile_effects(Object *eq) {
 
 	// TODO: this needs to be redone
 	// blow away affects and rebuild
-	affect_clear_list(&eq->gem_affected);
+	affect::clear_list(&eq->gem_affected);
 
 	for (Object *gem = eq->gems; gem != nullptr; gem = gem->next_content) {
-		Affect af;
+		affect::Affect af;
 		af.where              = TO_OBJECT;
-		af.type               = 0;
+		af.type               = affect::none;
 		af.level              = gem->level;
 		af.duration           = -1;
 		af.location           = type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;
 		af.modifier           = type_table[gem->value[GEM_VALUE_TYPE]].modifier[gem->value[GEM_VALUE_QUALITY]];
 		af.bitvector(0);
 		af.evolution          = 1;
-		affect_copy_to_list(&eq->gem_affected, &af);
+		affect::copy_to_list(&eq->gem_affected, &af);
 	}
 }
 

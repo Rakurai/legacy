@@ -18,7 +18,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -3216,14 +3216,14 @@ void do_qpconv(Character *ch, String argument)
 
 void restore_char(Character *ch, Character *victim)
 {
-	affect_remove_sn_from_char(victim, gsn_plague);
-	affect_remove_sn_from_char(victim, gsn_poison);
-	affect_remove_sn_from_char(victim, gsn_blindness);
-	affect_remove_sn_from_char(victim, gsn_dirt_kicking);
-	affect_remove_sn_from_char(victim, gsn_fire_breath);
-	affect_remove_sn_from_char(victim, gsn_sleep);
-	affect_remove_sn_from_char(victim, gsn_curse);
-	affect_remove_sn_from_char(victim, gsn_fear);
+	affect::remove_type_from_char(victim, affect::plague);
+	affect::remove_type_from_char(victim, affect::poison);
+	affect::remove_type_from_char(victim, affect::blindness);
+	affect::remove_type_from_char(victim, affect::dirt_kicking);
+	affect::remove_type_from_char(victim, affect::fire_breath);
+	affect::remove_type_from_char(victim, affect::sleep);
+	affect::remove_type_from_char(victim, affect::curse);
+	affect::remove_type_from_char(victim, affect::fear);
 	victim->hit     = GET_MAX_HIT(victim);
 	victim->mana    = GET_MAX_MANA(victim);
 	victim->stam    = GET_MAX_STAM(victim);
@@ -3956,7 +3956,6 @@ void do_wizify(Character *ch, String argument)
 	char strsave[MAX_INPUT_LENGTH];
 	FILE *fp;
 	Character *victim;
-	int sn;
 
 	String arg1;
 	one_argument(argument, arg1);
@@ -4003,8 +4002,8 @@ void do_wizify(Character *ch, String argument)
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(victim, stat_to_attr(stat)) = 25;
 
-	for (sn = 0; sn < skill_table.size(); sn++)
-		victim->pcdata->learned[sn] = 100;
+	for (int i = skill::first; i < skill::size; i++)
+		victim->pcdata->learned[i] = 100;
 
 	victim->remove_cgroup(GROUP_LEADER);
 	victim->remove_cgroup(GROUP_DEPUTY);

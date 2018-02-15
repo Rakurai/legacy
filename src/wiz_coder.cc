@@ -17,7 +17,7 @@
 #include <vector>
 
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -53,7 +53,7 @@ extern  Object        *obj_free;
 extern  Character       *char_free;
 extern  Descriptor *descriptor_free;
 extern  Player         *pcdata_free;
-extern  Affect     *affect_free;
+extern  affect::Affect     *affect_free;
 
 void do_autoboot(Character *ch, String argument)
 {
@@ -304,7 +304,7 @@ void do_shutdown(Character *ch, String argument)
 
 void do_slookup(Character *ch, String argument)
 {
-	int sn;
+	skill::Type sn;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -317,22 +317,24 @@ void do_slookup(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (sn = 0; sn < skill_table.size(); sn++)
+		for (int i = skill::first; i < skill::size; i++)
+			sn = (skill::Type)i;
+
 			ptc(ch, "Sn: %3d  Skill/spell: '%s'\n",
 			    sn,
-			    skill_table[sn].name);
+			    skill::lookup(sn).name);
 
 		return;
 	}
 
-	if ((sn = skill_lookup(arg)) < 0) {
+	if ((sn = skill::lookup(arg)) == skill::unknown) {
 		stc("No such skill or spell.\n", ch);
 		return;
 	}
 
 	ptc(ch, "Sn: %3d  Skill/spell: '%s'\n",
 	    sn,
-	    skill_table[sn].name);
+	    skill::lookup(sn).name);
 }
 
 void do_advance(Character *ch, String argument)
@@ -570,7 +572,7 @@ void do_sectchange(Character *ch, String argument)
 
 void do_memory(Character *ch, String argument)
 {
-	ptc(ch, "Affects %5d allocated, %5d free, %5d B each\n", Affect::pool_allocated(), Affect::pool_free(), sizeof(Affect));
+	ptc(ch, "Affects %5d allocated, %5d free, %5d B each\n", affect::Affect::pool_allocated(), affect::Affect::pool_free(), sizeof(affect::Affect));
 	ptc(ch, "Areas   %5d,                       %5d B each\n", Game::world().areas.size(), sizeof(Area));
 	ptc(ch, "ExDes   %5d allocated, %5d free, %5d B each\n", ExtraDescr::pool_allocated(), ExtraDescr::pool_free(), sizeof(ExtraDescr));
 	ptc(ch, "Exits   %5d,                       %5d B each\n", top_exit, sizeof(Exit));
@@ -616,7 +618,7 @@ void do_dump(Character *ch, String argument)
 		if (fch->pcdata != nullptr)
 			num_pcs++;
 
-		for (const Affect *af = affect_list_char(fch); af != nullptr; af = af->next)
+		for (const affect::Affect *af = affect::list_char(fch); af != nullptr; af = af->next)
 			aff_count++;
 	}
 
@@ -638,7 +640,7 @@ void do_dump(Character *ch, String argument)
 	/* object prototypes */
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
 		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
-			for (const Affect *af = pObjIndex->affected; af != nullptr; af = af->next)
+			for (const affect::Affect *af = pObjIndex->affected; af != nullptr; af = af->next)
 				aff_count++;
 
 			nMatch++;
@@ -652,7 +654,7 @@ void do_dump(Character *ch, String argument)
 	for (obj = object_list; obj != nullptr; obj = obj->next) {
 		count++;
 
-		for (const Affect *af = affect_list_obj(obj); af != nullptr; af = af->next)
+		for (const affect::Affect *af = affect::list_obj(obj); af != nullptr; af = af->next)
 			aff_count++;
 	}
 
@@ -660,7 +662,7 @@ void do_dump(Character *ch, String argument)
 	        count, count * (sizeof(*obj)));
 	/* affects */
 	Format::fprintf(fp, "Affects %4d (%8ld bytes)\n",
-	        aff_count, aff_count * (sizeof(Affect)));
+	        aff_count, aff_count * (sizeof(affect::Affect)));
 	/* rooms */
 	Format::fprintf(fp, "Rooms   %4d (%8ld bytes)\n",
 	        top_room, top_room * (sizeof(*room)));

@@ -28,8 +28,9 @@
 #include <vector>
 #include <map>
 
-#include "affect_list.hh"
-#include "Affect.hh"
+#include "affect/affect_list.hh"
+//#include "affect/Affect.hh"
+//#include "AffectKey.hh"
 #include "Area.hh"
 #include "Auction.hh"
 #include "Clan.hh"
@@ -56,11 +57,12 @@
 #include "RoomPrototype.hh"
 #include "sql.hh"
 #include "Shop.hh"
+#include "skill/skill.hh"
 #include "String.hh"
 #include "World.hh"
 
 extern  int     _filbuf         args((FILE *));
-extern void          affect_copy_to_list         args(( Affect **list_head, const Affect *paf ));
+extern void          affect::copy_to_list         args(( Affect **list_head, const affect::Affect *paf ));
 
 /*
  * Globals.
@@ -84,240 +86,6 @@ unsigned long   record_logins = 0;
 int             record_players = 0;
 int             record_players_since_boot = 0;
 
-/* skill table global skill numbers.  skill_lookup will return a sn of a
-   skill from it's name, but these are fast :) */
-sh_int  gsn_reserved;
-sh_int  gsn_acid_blast;
-sh_int  gsn_acid_breath;
-sh_int  gsn_acid_rain;
-sh_int  gsn_age;
-sh_int  gsn_animate_skeleton;
-sh_int  gsn_animate_wraith;
-sh_int  gsn_animate_gargoyle;
-sh_int  gsn_animate_zombie;
-sh_int  gsn_armor;
-sh_int  gsn_bless;
-sh_int  gsn_blind_fight;
-sh_int  gsn_blindness;
-sh_int  gsn_blizzard;
-sh_int  gsn_blood_blade;
-sh_int  gsn_blood_moon;
-sh_int  gsn_burning_hands;
-sh_int  gsn_call_lightning;
-sh_int  gsn_calm;
-sh_int  gsn_cancellation;
-sh_int  gsn_cause_light;
-sh_int  gsn_cause_serious;
-sh_int  gsn_cause_critical;
-sh_int  gsn_chain_lightning;
-sh_int  gsn_change_sex;
-sh_int  gsn_channel;
-sh_int  gsn_charm_person;
-sh_int  gsn_chill_touch;
-sh_int  gsn_colour_spray;
-sh_int  gsn_continual_light;
-sh_int  gsn_control_weather;
-sh_int  gsn_create_food;
-sh_int  gsn_create_parchment;
-sh_int  gsn_create_rose;
-sh_int  gsn_create_sign;
-sh_int  gsn_create_spring;
-sh_int  gsn_create_vial;
-sh_int  gsn_create_water;
-sh_int  gsn_cure_blindness;
-sh_int  gsn_cure_critical;
-sh_int  gsn_cure_disease;
-sh_int  gsn_cure_light;
-sh_int  gsn_cure_poison;
-sh_int  gsn_cure_serious;
-sh_int  gsn_curse;
-sh_int  gsn_darkness;
-sh_int  gsn_dazzling_light;
-sh_int  gsn_demonfire;
-sh_int  gsn_detect_evil;
-sh_int  gsn_detect_good;
-sh_int  gsn_detect_hidden;
-sh_int  gsn_detect_invis;
-sh_int  gsn_detect_magic;
-sh_int  gsn_detect_poison;
-sh_int  gsn_dispel_evil;
-sh_int  gsn_dispel_good;
-sh_int  gsn_dispel_magic;
-sh_int  gsn_divine_healing;
-sh_int  gsn_divine_regeneration;
-sh_int  gsn_earthquake;
-sh_int  gsn_encampment;
-sh_int  gsn_enchant_armor;
-sh_int  gsn_enchant_weapon;
-sh_int  gsn_energy_drain;
-sh_int  gsn_faerie_fire;
-sh_int  gsn_faerie_fog;
-sh_int  gsn_farsight;
-sh_int  gsn_fear;
-sh_int  gsn_fire_breath;
-sh_int  gsn_fireball;
-sh_int  gsn_fireproof;
-sh_int  gsn_firestorm;
-sh_int  gsn_flame_blade;
-sh_int  gsn_flameshield;
-sh_int  gsn_flamestrike;
-sh_int  gsn_fly;
-sh_int  gsn_floating_disc;
-sh_int  gsn_frenzy;
-sh_int  gsn_frost_blade;
-sh_int  gsn_frost_breath;
-sh_int  gsn_gas_breath;
-sh_int  gsn_gate;
-sh_int  gsn_general_purpose;
-sh_int  gsn_giant_strength;
-sh_int  gsn_harm;
-sh_int  gsn_haste;
-sh_int  gsn_heal;
-sh_int  gsn_heat_metal;
-sh_int  gsn_high_explosive;
-sh_int  gsn_holy_word;
-sh_int  gsn_identify;
-sh_int  gsn_night_vision;
-sh_int  gsn_invis;
-//sh_int  gsn_ironskin;
-sh_int  gsn_know_alignment;
-sh_int  gsn_light_of_truth;
-sh_int  gsn_lightning_bolt;
-sh_int  gsn_lightning_breath;
-sh_int  gsn_locate_life;
-sh_int  gsn_locate_object;
-sh_int  gsn_magic_missile;
-sh_int  gsn_mass_healing;
-sh_int  gsn_mass_invis;
-sh_int  gsn_nexus;
-sh_int  gsn_pass_door;
-sh_int  gsn_plague;
-sh_int  gsn_poison;
-sh_int  gsn_power_word;
-sh_int  gsn_polymorph;
-sh_int  gsn_portal;
-sh_int  gsn_protect_container;
-sh_int  gsn_protection_evil;
-sh_int  gsn_protection_good;
-sh_int  gsn_rayban;
-sh_int  gsn_ray_of_truth;
-sh_int  gsn_recharge;
-sh_int  gsn_refresh;
-sh_int  gsn_resurrect;
-sh_int  gsn_regeneration;
-sh_int  gsn_remove_alignment;
-sh_int  gsn_remove_invis;
-sh_int  gsn_remove_curse;
-sh_int  gsn_sanctuary;
-sh_int   gsn_scry;
-sh_int  gsn_shield;
-sh_int  gsn_shock_blade;
-sh_int  gsn_shocking_grasp;
-sh_int  gsn_shrink;
-sh_int  gsn_sleep;
-sh_int  gsn_slow;
-sh_int  gsn_smokescreen;
-sh_int  gsn_starve;
-sh_int  gsn_steel_mist;
-sh_int  gsn_stone_skin;
-sh_int  gsn_summon;
-sh_int  gsn_summon_object;
-sh_int  gsn_sunray;
-sh_int  gsn_talon;
-sh_int  gsn_teleport;
-sh_int  gsn_teleport_object;
-sh_int  gsn_undo_spell;
-sh_int  gsn_ventriloquate;
-sh_int  gsn_vision;
-sh_int  gsn_weaken;
-sh_int  gsn_word_of_recall;
-sh_int  gsn_wrath;
-sh_int  gsn_axe;
-sh_int  gsn_dagger;
-sh_int  gsn_flail;
-sh_int  gsn_mace;
-sh_int  gsn_polearm;
-sh_int  gsn_spear;
-sh_int  gsn_sword;
-sh_int  gsn_whip;
-sh_int  gsn_archery;
-sh_int  gsn_shield_block;
-sh_int  gsn_brew;
-sh_int  gsn_scribe;
-sh_int  gsn_backstab;
-sh_int  gsn_bash;
-sh_int  gsn_berserk;
-sh_int  gsn_circle;
-sh_int  gsn_crush;
-sh_int  gsn_dirt_kicking;
-sh_int  gsn_disarm;
-sh_int  gsn_dodge;
-sh_int  gsn_enhanced_damage;
-sh_int  gsn_envenom;
-sh_int  gsn_hand_to_hand;
-sh_int  gsn_kick;
-sh_int  gsn_roundhouse; /*evo 2+ kick*/
-sh_int  gsn_footsweep;
-sh_int  gsn_necromancy;
-sh_int  gsn_parry;
-sh_int  gsn_rescue;
-sh_int  gsn_trip;
-sh_int  gsn_second_attack;
-sh_int  gsn_third_attack;
-sh_int  gsn_dual_wield;
-sh_int  gsn_hunt;
-sh_int   gsn_unarmed;
-sh_int  gsn_swimming;
-sh_int  gsn_fast_healing;
-sh_int  gsn_firebuilding;
-sh_int  gsn_forge;
-sh_int  gsn_repair;
-sh_int  gsn_rotate;
-sh_int  gsn_languages;
-sh_int  gsn_haggle;
-sh_int  gsn_hide;
-sh_int  gsn_lore;
-sh_int  gsn_meditation;
-sh_int  gsn_peek;
-sh_int  gsn_pick_lock;
-sh_int  gsn_scan;
-sh_int  gsn_sneak;
-sh_int  gsn_steal;
-sh_int  gsn_sing;
-sh_int  gsn_scrolls;
-sh_int  gsn_spousegate;
-sh_int  gsn_staves;
-sh_int  gsn_wands;
-sh_int  gsn_recall;
-sh_int   gsn_lay_on_hands;
-sh_int   gsn_familiar;
-sh_int   gsn_die_hard;
-sh_int  gsn_sheen;
-sh_int  gsn_focus;
-sh_int  gsn_paralyze;
-sh_int  gsn_barrier;
-sh_int  gsn_dazzle;
-sh_int  gsn_full_heal;
-sh_int  gsn_midnight;
-sh_int  gsn_shadow_form;
-sh_int  gsn_hone;
-sh_int  gsn_riposte;
-sh_int  gsn_fourth_attack;
-sh_int  gsn_rage;
-sh_int  gsn_sap;
-sh_int  gsn_pain;
-sh_int  gsn_hex;
-sh_int  gsn_bone_wall;
-sh_int  gsn_hammerstrike;
-sh_int  gsn_force_shield;
-sh_int  gsn_holy_sword;
-sh_int  gsn_align;
-sh_int  gsn_blur;
-sh_int  gsn_dual_second;
-sh_int  gsn_quick;
-sh_int  gsn_standfast;
-sh_int  gsn_mark;
-sh_int  gsn_critical_blow;
 
 /*
  * Locals.
@@ -382,6 +150,27 @@ void boot_db()
 		init_mm();
 	}
 
+	// ensure our tables are in order
+	{
+		for (int i = skill::first; i < skill::size; i++) {
+			const auto unknown = skill::lookup(skill::unknown);
+
+			if (skill::lookup((skill::Type)i).name == unknown.name) {
+				boot_bug("boot_db: unable to find definition for skill enum %d.", 0);
+				exit(1);
+			}
+		}
+
+		for (int i = affect::first; i < affect::size; i++) {
+			auto unknown = affect::lookup(affect::unknown);
+
+			if (affect::lookup((affect::Type)i).name == unknown.name) {
+				boot_bug("boot_db: unable to find definition for affect enum %d.", 0);
+				exit(1);
+			}
+		}
+	}
+
 	/* Load the clan info, needs to be done before the areas due to clanrooms */
 	{
 		load_clan_table();
@@ -391,14 +180,7 @@ void boot_db()
 	{
 		auction.init();
 	}
-	/* Assign gsn's for skills which have them */
-	{
-		int sn;
 
-		for (sn = 0; sn < skill_table.size(); sn++)
-			if (skill_table[sn].pgsn != nullptr)
-				*skill_table[sn].pgsn = sn;
-	}
 	/* Read in all the area files */
 	{
 		FILE *fpList;
@@ -679,7 +461,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
 			break;
 
 		default:
@@ -704,7 +486,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
 			break;
 
 		case ITEM_FURNITURE:
@@ -730,7 +512,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
 			break;
 
 		case ITEM_DRINK_CON:
@@ -754,7 +536,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill_lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
 			break;
 
 		default:
@@ -794,8 +576,8 @@ void load_objects(FILE *fp)
 			letter = fread_letter(fp);
 
 			if (letter == 'A') { // apply
-				Affect af;
-				af.type               = 0;
+				affect::Affect af;
+				af.type               = affect::none;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.location           = fread_number(fp);
@@ -805,13 +587,13 @@ void load_objects(FILE *fp)
 				af.permanent          = TRUE;
 
 				Flags bitvector = 0;
-				if (affect_parse_flags('O', &af, bitvector)) {
-					affect_copy_to_list(&pObjIndex->affected, &af);
+				if (affect::parse_flags('O', &af, bitvector)) {
+					affect::copy_to_list(&pObjIndex->affected, &af);
 				}
 			}
 			else if (letter == 'F') { // flag, can add bits or do other ->where types
-				Affect af;
-				af.type               = 0;
+				affect::Affect af;
+				af.type               = affect::none;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.evolution          = 1;
@@ -825,15 +607,15 @@ void load_objects(FILE *fp)
 
 				// do at least once even if no bitvector
 				do {
-					if (affect_parse_flags(letter, &af, bitvector)) {
-						affect_copy_to_list(&pObjIndex->affected, &af); 
+					if (affect::parse_flags(letter, &af, bitvector)) {
+						affect::copy_to_list(&pObjIndex->affected, &af); 
 
 						// don't multiply the modifier, just apply to the first bit
 						af.location = 0;
 						af.modifier = 0;
 					}
 
-					af.type = 0; // reset every time
+					af.type = affect::none; // reset every time
 				} while (!bitvector.empty());
 			}
 			else if (letter == 'E') {
@@ -851,7 +633,7 @@ void load_objects(FILE *fp)
 		}
 
 		// affects are immutable, compute the checksum now
-		pObjIndex->affect_checksum = affect_checksum_list(&pObjIndex->affected);
+		pObjIndex->affect_checksum = affect::checksum_list(&pObjIndex->affected);
 
 		iHash                   = vnum % MAX_KEY_HASH;
 		pObjIndex->next         = obj_index_hash[iHash];

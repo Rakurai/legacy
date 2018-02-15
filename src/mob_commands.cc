@@ -28,7 +28,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "declare.hh"
 #include "Exit.hh"
@@ -230,7 +230,7 @@ void do_mpkill(Character *ch, String argument)
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect::exists_on_char(ch, affect::charm_person) && ch->master == victim) {
 		Logging::bug("MpKill - Charmed mob attacking master: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;

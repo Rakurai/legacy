@@ -30,7 +30,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -60,6 +60,7 @@
 #include "random.hh"
 #include "RoomPrototype.hh"
 #include "Shop.hh"
+#include "skill/skill.hh"
 #include "String.hh"
 #include "tables.hh"
 #include "World.hh"
@@ -238,7 +239,7 @@ void do_second(Character *ch, String argument)
 {
 	Object *obj;
 
-	if (!get_skill(ch, gsn_dual_wield) && !IS_NPC(ch)) {
+	if (!get_learned(ch, skill::dual_wield) && !IS_NPC(ch)) {
 		stc("You are not able to wield two weapons.\n", ch);
 		return;
 	}
@@ -1595,12 +1596,12 @@ void do_envenom(Character *ch, String argument)
 		return;
 	}
 
-	if ((skill = get_skill(ch, gsn_envenom)) < 1) {
+	if ((skill = get_learned(ch, skill::envenom)) < 1) {
 		stc("Are you crazy? You'd poison yourself!\n", ch);
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_envenom))
+	if (!deduct_stamina(ch, skill::envenom))
 		return;
 
 	if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON) {
@@ -1615,19 +1616,19 @@ void do_envenom(Character *ch, String argument)
 
 			if (!obj->value[3]) {
 				obj->value[3] = 1;
-				check_improve(ch, gsn_envenom, TRUE, 4);
+				check_improve(ch, skill::envenom, TRUE, 4);
 			}
 
-			WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			WAIT_STATE(ch, skill::lookup(skill::envenom).beats);
 			return;
 		}
 
 		act("You fail to poison $p.", ch, obj, nullptr, TO_CHAR);
 
 		if (!obj->value[3])
-			check_improve(ch, gsn_envenom, FALSE, 4);
+			check_improve(ch, skill::envenom, FALSE, 4);
 
-		WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+		WAIT_STATE(ch, skill::lookup(skill::envenom).beats);
 		return;
 	}
 
@@ -1659,26 +1660,26 @@ void do_envenom(Character *ch, String argument)
 		percent = number_percent();
 
 		if (percent < skill) {
-			Affect af;
+			affect::Affect af;
 			af.where     = TO_WEAPON;
-			af.type      = gsn_poison;
+			af.type      = affect::poison;
 			af.level     = ch->level;
 			af.duration  = ch->level * 5;
 			af.location  = 0;
 			af.modifier  = 0;
 			af.bitvector(WEAPON_POISON);
-			af.evolution = get_evolution(ch, gsn_envenom);
-			affect_copy_to_obj(obj, &af);
+			af.evolution = get_evolution(ch, skill::envenom);
+			affect::copy_to_obj(obj, &af);
 			act("$n coats $p with deadly venom.", ch, obj, nullptr, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, nullptr, TO_CHAR);
-			check_improve(ch, gsn_envenom, TRUE, 3);
-			WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			check_improve(ch, skill::envenom, TRUE, 3);
+			WAIT_STATE(ch, skill::lookup(skill::envenom).beats);
 			return;
 		}
 		else {
 			act("You fail to envenom $p.", ch, obj, nullptr, TO_CHAR);
-			check_improve(ch, gsn_envenom, FALSE, 3);
-			WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			check_improve(ch, skill::envenom, FALSE, 3);
+			WAIT_STATE(ch, skill::lookup(skill::envenom).beats);
 			return;
 		}
 	}
@@ -1701,12 +1702,12 @@ void do_firebuilding(Character *ch, String argument)
 		return;
 	}
 
-	if (!get_skill(ch, gsn_firebuilding)) {
+	if (!get_learned(ch, skill::firebuilding)) {
 		stc("You lack the knowledge it takes to make a torch!\n", ch);
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_firebuilding))
+	if (!deduct_stamina(ch, skill::firebuilding))
 		return;
 
 	if ((ch->in_room->sector_type == SECT_CITY)
@@ -1718,11 +1719,11 @@ void do_firebuilding(Character *ch, String argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_firebuilding].beats);
+	WAIT_STATE(ch, skill::lookup(skill::firebuilding).beats);
 
-	if (number_percent() > get_skill(ch, gsn_firebuilding)) {
+	if (number_percent() > get_learned(ch, skill::firebuilding)) {
 		stc("You burn yourself.\n", ch);
-		check_improve(ch, gsn_firebuilding, FALSE, 8);
+		check_improve(ch, skill::firebuilding, FALSE, 8);
 		return;
 	}
 
@@ -1739,7 +1740,7 @@ void do_firebuilding(Character *ch, String argument)
 	act("$n gathers some twigs and creates $p.", ch, torch, nullptr, TO_ROOM);
 	act("You gather some twigs and create $p.", ch, torch, nullptr, TO_CHAR);
 	torch->value[2] = -1;
-	check_improve(ch, gsn_firebuilding, TRUE, 8);
+	check_improve(ch, skill::firebuilding, TRUE, 8);
 	return;
 }
 
@@ -2033,8 +2034,8 @@ void do_drink(Character *ch, String argument)
 		act("$n turns six shades of green and collapses.", ch, nullptr, nullptr, TO_ROOM);
 		stc("You turn six shades of green and collapse.\n", ch);
 
-		affect_add_sn_to_char(ch,
-			gsn_poison,
+		affect::add_type_to_char(ch,
+			affect::poison,
 			number_fuzzy(amount),
 			amount * 3,
 			1,
@@ -2146,10 +2147,10 @@ void do_eat(Character *ch, String argument)
 
 			act("$n eats $p.", ch, op, nullptr, TO_ROOM);
 			act("You eat $p.", ch, op, nullptr, TO_CHAR);
-			obj_cast_spell(op->value[1], op->value[0], ch, ch, nullptr);
-			obj_cast_spell(op->value[2], op->value[0], ch, ch, nullptr);
-			obj_cast_spell(op->value[3], op->value[0], ch, ch, nullptr);
-			obj_cast_spell(op->value[4], op->value[0], ch, ch, nullptr);
+			obj_cast_spell((skill::Type)(int)op->value[1], op->value[0], ch, ch, nullptr);
+			obj_cast_spell((skill::Type)(int)op->value[2], op->value[0], ch, ch, nullptr);
+			obj_cast_spell((skill::Type)(int)op->value[3], op->value[0], ch, ch, nullptr);
+			obj_cast_spell((skill::Type)(int)op->value[4], op->value[0], ch, ch, nullptr);
 		}
 		else if (op->item_type == ITEM_FOOD) {
 			if (ch->level < op->level && !IS_IMMORTAL(ch)) {
@@ -2159,8 +2160,8 @@ void do_eat(Character *ch, String argument)
 
 			if (op->value[3] != 0) {
 				/* The food was poisoned! */
-				affect_add_sn_to_char(ch,
-					gsn_poison,
+				affect::add_type_to_char(ch,
+					affect::poison,
 					number_fuzzy(op->level),
 					op->level,
 					1,
@@ -2494,7 +2495,8 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 	}
 
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
-		int sn, skill;
+		skill::Type sn;
+		int skill;
 
 		if (!remove_obj(ch, WEAR_WIELD, fReplace))
 			return;
@@ -2522,12 +2524,12 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		act("$n wields $p{x.", ch, obj, nullptr, TO_ROOM);
 		act("You wield $p{x.", ch, obj, nullptr, TO_CHAR);
 		equip_char(ch, obj, WEAR_WIELD);
-		sn = get_weapon_sn(ch, FALSE);
+		sn = get_weapon_skill(ch, FALSE);
 
-		if (sn == gsn_hand_to_hand)
+		if (sn == skill::hand_to_hand)
 			return;
 
-		skill = get_weapon_skill(ch, sn);
+		skill = get_weapon_learned(ch, sn);
 
 		if (skill >= 100)
 			act("You feel at one with $p{x.", ch, obj, nullptr, TO_CHAR);
@@ -2916,10 +2918,10 @@ void do_quaff(Character *ch, String argument)
 
 	act("$n quaffs $p.", ch, obj, nullptr, TO_ROOM);
 	act("You quaff $p.", ch, obj, nullptr, TO_CHAR);
-	obj_cast_spell(obj->value[1], obj->value[0], ch, ch, nullptr);
-	obj_cast_spell(obj->value[2], obj->value[0], ch, ch, nullptr);
-	obj_cast_spell(obj->value[3], obj->value[0], ch, ch, nullptr);
-	obj_cast_spell(obj->value[4], obj->value[0], ch, ch, nullptr);
+	obj_cast_spell((skill::Type)(int)obj->value[1], obj->value[0], ch, ch, nullptr);
+	obj_cast_spell((skill::Type)(int)obj->value[2], obj->value[0], ch, ch, nullptr);
+	obj_cast_spell((skill::Type)(int)obj->value[3], obj->value[0], ch, ch, nullptr);
+	obj_cast_spell((skill::Type)(int)obj->value[4], obj->value[0], ch, ch, nullptr);
 	extract_obj(obj);
 }
 
@@ -2958,14 +2960,14 @@ void do_recite(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_scrolls))
+	if (!deduct_stamina(ch, skill::scrolls))
 		return;
 
 	if (arg2.empty()) {
 		/* Smart Targetting -- Montrey */
 		/* target according to first spell on the scroll */
-		if (skill_table[scroll->value[1]].target == TAR_CHAR_OFFENSIVE
-		    || skill_table[scroll->value[1]].target == TAR_OBJ_CHAR_OFF) {
+		if (skill::lookup((skill::Type)((int)scroll->value[1])).target == TAR_CHAR_OFFENSIVE
+		    || skill::lookup((skill::Type)((int)scroll->value[1])).target == TAR_OBJ_CHAR_OFF) {
 			if (ch->fighting != nullptr)
 				victim = ch->fighting;
 			else {
@@ -2987,22 +2989,22 @@ void do_recite(Character *ch, String argument)
 	act("$n recites $p.", ch, scroll, nullptr, TO_ROOM);
 	act("You recite $p.", ch, scroll, nullptr, TO_CHAR);
 
-	if (number_percent() >= 20 + get_skill(ch, gsn_scrolls) * 4 / 5) {
+	if (number_percent() >= 20 + get_learned(ch, skill::scrolls) * 4 / 5) {
 		stc("You mispronounce a syllable.\n", ch);
-		check_improve(ch, gsn_scrolls, FALSE, 2);
+		check_improve(ch, skill::scrolls, FALSE, 2);
 	}
 	else {
-		obj_cast_spell(scroll->value[1], scroll->value[0], ch, victim, obj);
-		obj_cast_spell(scroll->value[2], scroll->value[0], ch, victim, obj);
-		obj_cast_spell(scroll->value[3], scroll->value[0], ch, victim, obj);
-		obj_cast_spell(scroll->value[4], scroll->value[0], ch, victim, obj);
-		check_improve(ch, gsn_scrolls, TRUE, 2);
+		obj_cast_spell((skill::Type)(int)scroll->value[1], scroll->value[0], ch, victim, obj);
+		obj_cast_spell((skill::Type)(int)scroll->value[2], scroll->value[0], ch, victim, obj);
+		obj_cast_spell((skill::Type)(int)scroll->value[3], scroll->value[0], ch, victim, obj);
+		obj_cast_spell((skill::Type)(int)scroll->value[4], scroll->value[0], ch, victim, obj);
+		check_improve(ch, skill::scrolls, TRUE, 2);
 	}
 
 	/* delay on scrolls -- Elrac */
 	WAIT_STATE(ch, (ch->cls == 0 || ch->cls == 1 || ch->cls == 4)
-	           ? (skill_table[gsn_scrolls].beats * 4) / 5
-	           : skill_table[gsn_scrolls].beats);
+	           ? (skill::lookup(skill::scrolls).beats * 4) / 5
+	           : skill::lookup(skill::scrolls).beats);
 	extract_obj(scroll);
 }
 
@@ -3011,7 +3013,6 @@ void do_brandish(Character *ch, String argument)
 	Character *vch;
 	Character *vch_next;
 	Object *staff;
-	int sn;
 
 	if ((staff = get_eq_char(ch, WEAR_HOLD)) == nullptr) {
 		stc("You hold nothing in your hand.\n", ch);
@@ -3023,34 +3024,34 @@ void do_brandish(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = staff->value[3]) < 0
-	    ||   sn >= skill_table.size()
-	    ||   skill_table[sn].spell_fun == 0) {
-		Logging::bug("Do_brandish: bad sn %d.", sn);
+	auto entry = skill::lookup((skill::Type)(int)staff->value[3]);
+
+	if (entry.spell_fun == 0) {
+		Logging::bug("Do_brandish: bad sn %d.", staff->value[3]);
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_staves))
+	if (!deduct_stamina(ch, skill::staves))
 		return;
 
-	WAIT_STATE(ch, skill_table[gsn_staves].beats);
+	WAIT_STATE(ch, skill::lookup(skill::staves).beats);
 
 	if (staff->value[2] > 0) {
 		act("$n lifts up and brandishes $p.", ch, staff, nullptr, TO_ROOM);
 		act("You brandish $p.",  ch, staff, nullptr, TO_CHAR);
 
 		if (get_usable_level(ch) < staff->level
-		    ||   number_percent() >= 20 + get_skill(ch, gsn_staves) * 4 / 5) {
+		    ||   number_percent() >= 20 + get_learned(ch, skill::staves) * 4 / 5) {
 			act("You fail to invoke $p.", ch, staff, nullptr, TO_CHAR);
 			act("...and nothing happens.", ch, nullptr, nullptr, TO_ROOM);
-			check_improve(ch, gsn_staves, FALSE, 2);
+			check_improve(ch, skill::staves, FALSE, 2);
 		}
 		else for (vch = ch->in_room->people; vch; vch = vch_next) {
 				vch_next    = vch->next_in_room;
 
-				switch (skill_table[sn].target) {
+				switch (entry.target) {
 				default:
-					Logging::bug("Do_brandish: bad target for sn %d.", sn);
+					Logging::bug("Do_brandish: bad target for sn %d.", staff->value[3]);
 					return;
 
 				case TAR_IGNORE:
@@ -3078,8 +3079,8 @@ void do_brandish(Character *ch, String argument)
 					break;
 				}
 
-				obj_cast_spell(staff->value[3], staff->value[0], ch, vch, nullptr);
-				check_improve(ch, gsn_staves, TRUE, 2);
+				obj_cast_spell((skill::Type)(int)staff->value[3], staff->value[0], ch, vch, nullptr);
+				check_improve(ch, skill::staves, TRUE, 2);
 			}
 	}
 
@@ -3128,7 +3129,7 @@ void do_zap(Character *ch, String argument)
 	else {  /* target given, see if it is valid */
 		if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr
 		    && (obj    = get_obj_here(ch, arg)) == nullptr
-		    && (wand->value[3] != gsn_summon || (victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr)) {
+		    && (wand->value[3] != skill::summon || (victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr)) {
 			stc("You can't find it.\n", ch);
 			return;
 		}
@@ -3140,10 +3141,10 @@ void do_zap(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_wands))
+	if (!deduct_stamina(ch, skill::wands))
 		return;
 
-	WAIT_STATE(ch, skill_table[gsn_wands].beats);
+	WAIT_STATE(ch, skill::lookup(skill::wands).beats);
 
 	if (wand->value[2] > 0) {
 		if (victim != nullptr) {
@@ -3162,19 +3163,19 @@ void do_zap(Character *ch, String argument)
 		}
 
 		if (get_usable_level(ch) < wand->level
-		    ||  number_percent() >= 20 + get_skill(ch, gsn_wands) * 4 / 5) {
+		    ||  number_percent() >= 20 + get_learned(ch, skill::wands) * 4 / 5) {
 			act("Your efforts with $p produce only sparks and smoke.",
 			    ch, wand, nullptr, TO_CHAR);
 			act("$n's efforts with $p produce only sparks and smoke.",
 			    ch, wand, nullptr, TO_ROOM);
-			check_improve(ch, gsn_wands, FALSE, 2);
+			check_improve(ch, skill::wands, FALSE, 2);
 		}
 		else {
 			/* Wand does not work on target, unless we set target_name.
 			   target_name is a global variable in magic.c --Outsider */
 			target_name = arg;
-			obj_cast_spell(wand->value[3], wand->value[0], ch, victim, obj);
-			check_improve(ch, gsn_wands, TRUE, 2);
+			obj_cast_spell((skill::Type)(int)wand->value[3], wand->value[0], ch, victim, obj);
+			check_improve(ch, skill::wands, TRUE, 2);
 		}
 	}
 
@@ -3190,11 +3191,11 @@ void do_zap(Character *ch, String argument)
 void do_brew(Character *ch, String argument)
 {
 	Object *obj;
-	int sn;
+	skill::Type sn;
 	int target_level = 0;    /* what level should we brew at? */
 
 	if (!IS_NPC(ch)
-	    && ch->level < skill_table[gsn_brew].skill_level[ch->cls]) {
+	    && ch->level < skill::lookup(skill::brew).skill_level[ch->cls]) {
 		stc("You do not know how to brew potions.\n", ch);
 		return;
 	}
@@ -3236,12 +3237,12 @@ void do_brew(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = skill_lookup(arg))  < 0) {
+	if ((sn = skill::lookup(arg)) == skill::unknown) {
 		stc("There is no such spell.\n", ch);
 		return;
 	}
 
-	if (!get_skill(ch, sn)) {
+	if (!get_learned(ch, sn)) {
 		stc("You don't know any spells by that name.\n", ch);
 		return;
 	}
@@ -3250,11 +3251,11 @@ void do_brew(Character *ch, String argument)
 	   when you quaff a gas breath potion, and then the mobs in the room are
 	   hurt. Those TAR_IGNORE spells are a mixed blessing. - JH */
 
-	if (((skill_table[sn].target != TAR_CHAR_DEFENSIVE) &&
-	     (skill_table[sn].target != TAR_CHAR_SELF) &&
-	     (skill_table[sn].target != TAR_OBJ_CHAR_DEF))
+	if (((skill::lookup(sn).target != TAR_CHAR_DEFENSIVE) &&
+	     (skill::lookup(sn).target != TAR_CHAR_SELF) &&
+	     (skill::lookup(sn).target != TAR_OBJ_CHAR_DEF))
 	    ||
-	    (skill_table[sn].remort_class > 0)) {
+	    (skill::lookup(sn).remort_class > 0)) {
 		stc("You cannot brew that spell.\n", ch);
 		return;
 	}
@@ -3270,7 +3271,7 @@ void do_brew(Character *ch, String argument)
 		target_level = atoi(arg);
 
 		/* make sure the new level is high enough */
-		if (target_level < skill_table[sn].skill_level[ch->cls]) {
+		if (target_level < skill::lookup(sn).skill_level[ch->cls]) {
 			stc("You cannot brew the spell at that low a level.\n", ch);
 			return;
 		}
@@ -3282,21 +3283,21 @@ void do_brew(Character *ch, String argument)
 		}
 	}
 
-	if (!deduct_stamina(ch, gsn_brew))
+	if (!deduct_stamina(ch, skill::brew))
 		return;
 
 	act("$n begins preparing a potion.", ch, obj, nullptr, TO_ROOM);
-	check_improve(ch, gsn_brew, TRUE, 2);
-	WAIT_STATE(ch, skill_table[gsn_brew].beats);
+	check_improve(ch, skill::brew, TRUE, 2);
+	WAIT_STATE(ch, skill::lookup(skill::brew).beats);
 
 	/* Check the skill percentage, fcn(wis,int,skill) */
 	if (!IS_NPC(ch)
-	    && (number_percent() > ch->pcdata->learned[gsn_brew] ||
+	    && (number_percent() > ch->pcdata->learned[skill::brew] ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p explodes violently!", ch, obj, nullptr, TO_CHAR);
 		act("$p explodes violently!", ch, obj, nullptr, TO_ROOM);
-		check_improve(ch, gsn_brew, FALSE, 2);
+		check_improve(ch, skill::brew, FALSE, 2);
 		destroy_obj(obj);
 		return;
 	}
@@ -3319,11 +3320,11 @@ void do_brew(Character *ch, String argument)
 void do_scribe(Character *ch, String argument)
 {
 	Object *obj;
-	int sn;
+	skill::Type sn;
 	int target_level = 0;   /* let caster make items of lower level */
 
 	if (!IS_NPC(ch)
-	    && ch->level < skill_table[gsn_scribe].skill_level[ch->cls]) {
+	    && ch->level < skill::lookup(skill::scribe).skill_level[ch->cls]) {
 		stc("You do not know how to scribe scrolls.\n", ch);
 		return;
 	}
@@ -3352,17 +3353,17 @@ void do_scribe(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = skill_lookup(arg))  < 0) {
+	if ((sn = skill::lookup(arg)) == skill::unknown) {
 		stc("There is no such spell.\n", ch);
 		return;
 	}
 
-	if (!get_skill(ch, sn)) {
+	if (!get_learned(ch, sn)) {
 		stc("You don't know any spells by that name.\n", ch);
 		return;
 	}
 
-	if (skill_table[sn].remort_class > 0) {
+	if (skill::lookup(sn).remort_class > 0) {
 		stc("You cannot scribe that spell.\n", ch);
 		return;
 	}
@@ -3379,7 +3380,7 @@ void do_scribe(Character *ch, String argument)
 		target_level = atoi(arg);
 
 		/* Keep the spell level from dropping too low. */
-		if (target_level < skill_table[sn].skill_level[ch->cls]) {
+		if (target_level < skill::lookup(sn).skill_level[ch->cls]) {
 			stc("You cannot scribe that spell at that level.", ch);
 			return;
 		}
@@ -3391,21 +3392,21 @@ void do_scribe(Character *ch, String argument)
 		}
 	}
 
-	if (!deduct_stamina(ch, gsn_scribe))
+	if (!deduct_stamina(ch, skill::scribe))
 		return;
 
 	act("$n begins writing a scroll.", ch, obj, nullptr, TO_ROOM);
-	check_improve(ch, gsn_scribe, TRUE, 2);
-	WAIT_STATE(ch, skill_table[gsn_scribe].beats);
+	check_improve(ch, skill::scribe, TRUE, 2);
+	WAIT_STATE(ch, skill::lookup(skill::scribe).beats);
 
 	/* Check the skill percentage, fcn(int,wis,skill) */
 	if (!IS_NPC(ch)
-	    && (number_percent() > ch->pcdata->learned[gsn_scribe] ||
+	    && (number_percent() > ch->pcdata->learned[skill::scribe] ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p bursts in flames!", ch, obj, nullptr, TO_CHAR);
 		act("$p bursts in flames!", ch, obj, nullptr, TO_ROOM);
-		check_improve(ch, gsn_scribe, FALSE, 2);
+		check_improve(ch, skill::scribe, FALSE, 2);
 		destroy_obj(obj);
 		return;
 	}
@@ -3433,7 +3434,7 @@ void do_steal(Character *ch, String argument)
 	Object *obj;
 	int percent;
 
-	if (get_skill(ch, gsn_steal) == 0) {
+	if (get_learned(ch, skill::steal) == 0) {
 		stc("You don't know how to steal.\n", ch);
 		return;
 	}
@@ -3478,7 +3479,7 @@ void do_steal(Character *ch, String argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	if (!deduct_stamina(ch, gsn_steal))
+	if (!deduct_stamina(ch, skill::steal))
 		return;
 
 	if (IS_NPC(victim) && victim->fighting) {
@@ -3486,10 +3487,10 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_steal].beats);
+	WAIT_STATE(ch, skill::lookup(skill::steal).beats);
 	percent  = number_percent();
 
-	if (get_skill(ch, gsn_steal) >= 1)
+	if (get_learned(ch, skill::steal) >= 1)
 		percent  += (IS_AWAKE(victim) ? 10 : -50);
 
 	if ((!IS_NPC(victim) && !IS_NPC(ch) && !IS_IMMORTAL(ch))
@@ -3511,7 +3512,7 @@ void do_steal(Character *ch, String argument)
 		}
 	}
 
-	if (!IS_NPC(ch) && percent > get_skill(ch, gsn_steal)) {
+	if (!IS_NPC(ch) && percent > get_learned(ch, skill::steal)) {
 		/*
 		 * Failure.
 		 */
@@ -3542,7 +3543,7 @@ void do_steal(Character *ch, String argument)
 
 		if (!IS_NPC(ch)) {
 			if (IS_NPC(victim)) {
-				check_improve(ch, gsn_steal, FALSE, 2);
+				check_improve(ch, skill::steal, FALSE, 2);
 				multi_hit(victim, ch, TYPE_UNDEFINED);
 			}
 			else {
@@ -3593,7 +3594,7 @@ void do_steal(Character *ch, String argument)
 			        silver, gold);
 
 		stc(buf, ch);
-		check_improve(ch, gsn_steal, TRUE, 2);
+		check_improve(ch, skill::steal, TRUE, 2);
 		return;
 	}
 
@@ -3628,7 +3629,7 @@ void do_steal(Character *ch, String argument)
 
 	obj_from_char(obj);
 	obj_to_char(obj, ch);
-	check_improve(ch, gsn_steal, TRUE, 2);
+	check_improve(ch, skill::steal, TRUE, 2);
 	stc("Got it!\n", ch);
 
 	/* Did they pick up their quest item? */
@@ -3851,7 +3852,7 @@ int get_cost(Character *keeper, Object *obj, bool fBuy)
 
 void make_pet(Character *ch, Character *pet) {
 	pet->act_flags += ACT_PET;
-	affect_add_perm_to_char(pet, gsn_charm_person);
+	affect::add_perm_to_char(pet, affect::charm_person);
 	pet->comm_flags = COMM_NOCHANNELS;
 	add_follower(pet, ch);
 	pet->leader = ch;
@@ -3961,10 +3962,10 @@ void do_buy(Character *ch, String argument)
 
 		if (roll < 1) roll = 1;
 
-		if (roll < get_skill(ch, gsn_haggle)) {
+		if (roll < get_learned(ch, skill::haggle)) {
 			cost -= cost / 2 * roll / 100;
 			ptc(ch, "You haggle the price down to %d coins.\n", cost);
-			check_improve(ch, gsn_haggle, TRUE, 4);
+			check_improve(ch, skill::haggle, TRUE, 4);
 		}
 
 		/* need to replace this now that we can use bank credit -- Outsider
@@ -4127,11 +4128,11 @@ void do_buy(Character *ch, String argument)
 			if (roll < 1) roll = 1;
 
 			if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
-			    && roll < get_skill(ch, gsn_haggle)
+			    && roll < get_learned(ch, skill::haggle)
 			    && obj->pIndexData->item_type != ITEM_MONEY) { /* to prevent buying money for less than value */
 				cost -= obj->cost / 2 * roll / 100;
 				act("You haggle with $N.", ch, nullptr, keeper, TO_CHAR);
-				check_improve(ch, gsn_haggle, TRUE, 4);
+				check_improve(ch, skill::haggle, TRUE, 4);
 			}
 
 			if (number > 1) {
@@ -4405,13 +4406,13 @@ void do_sell(Character *ch, String argument)
 		if (roll < 1) roll = 1;
 
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
-		    && roll < get_skill(ch, gsn_haggle)
+		    && roll < get_learned(ch, skill::haggle)
 		    && obj->pIndexData->item_type != ITEM_MONEY) {
 			stc("You haggle with the shopkeeper.\n", ch);
 			cost += obj->cost / 2 * roll / 100;
 			cost = UMIN(cost, 95 * get_cost(keeper, obj, TRUE) / 100);
 			cost = UMIN(cost, (keeper->silver + 100 * keeper->gold));
-			check_improve(ch, gsn_haggle, TRUE, 4);
+			check_improve(ch, skill::haggle, TRUE, 4);
 		}
 
 		Format::sprintf(buf, "You sell $p for %d silver and %d gold piece%s.",
@@ -4531,7 +4532,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 {
 	Object *weapon;
 	int flag_table_num, flag_count = 0, evo, qpcost;
-	evo = get_evolution(ch, gsn_forge);
+	evo = get_evolution(ch, skill::forge);
 
 	/* are they wielding a weapon? */
 	if ((weapon = get_eq_char(ch, WEAR_WIELD)) == nullptr) {
@@ -4680,7 +4681,7 @@ void do_hone(Character *ch, String argument)
 	whetstone = get_eq_char(ch, WEAR_HOLD);
 	weapon = get_eq_char(ch, WEAR_WIELD);
 
-	if (IS_NPC(ch) || (get_skill(ch, gsn_hone) < 1)) {
+	if (IS_NPC(ch) || (get_learned(ch, skill::hone) < 1)) {
 		stc("You lack the skill to hone weapons.\n", ch);
 		return;
 	}
@@ -4706,11 +4707,11 @@ void do_hone(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_hone))
+	if (!deduct_stamina(ch, skill::hone))
 		return;
 
 	if (!IS_IMMORTAL(ch)) {
-		if (number_percent() > UMIN(get_skill(ch, gsn_hone), 95)) {
+		if (number_percent() > UMIN(get_learned(ch, skill::hone), 95)) {
 			Format::sprintf(buf, "You fail to hone your weapon, and you gouge %s deeply, ruining it.\n",
 			        whetstone->short_descr);
 			stc(buf, ch);
@@ -4735,14 +4736,14 @@ void do_forge(Character *ch, String argument)
 	char sdesc[MSL], costbuf[MSL];
 	ExtraDescr *ed;
 	int is_owner, cost, cost_gold, cost_silver, evo;
-	evo = get_evolution(ch, gsn_forge);
+	evo = get_evolution(ch, skill::forge);
 	/* check arguments */
 
 	String type;
 	argument = one_argument(argument, type);
 
 	if (argument.empty() || type.empty()) {
-		if (get_skill(ch, gsn_forge))
+		if (get_learned(ch, skill::forge))
 			stc("Syntax: {Rforge{x <weapon type> <weapon name>\n"
 			    "        {Rforge flag{x <flag type>\n", ch);
 		else
@@ -4769,7 +4770,7 @@ void do_forge(Character *ch, String argument)
 
 	/* check for FORGE FLAG */
 	if (type.is_prefix_of("flag")) {
-		if (!deduct_stamina(ch, gsn_forge))
+		if (!deduct_stamina(ch, skill::forge))
 			return;
 
 		forge_flag(ch, argument, anvil);
@@ -4777,7 +4778,7 @@ void do_forge(Character *ch, String argument)
 	}
 
 	/* not FORGE FLAG, so check skill */
-	if (!get_skill(ch, gsn_forge)) {
+	if (!get_learned(ch, skill::forge)) {
 		stc("You stand before the anvil, feeling foolish.\n"
 		    "Lacking the skill to forge, you would only ruin the material.\n", ch);
 		return;
@@ -4820,15 +4821,15 @@ void do_forge(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_forge))
+	if (!deduct_stamina(ch, skill::forge))
 		return;
 
-	WAIT_STATE(ch, skill_table[gsn_forge].beats);
+	WAIT_STATE(ch, skill::lookup(skill::forge).beats);
 
-	if (!IS_IMMORTAL(ch) && number_percent() > (get_skill(ch, gsn_forge) + material->value[0])) {
+	if (!IS_IMMORTAL(ch) && number_percent() > (get_learned(ch, skill::forge) + material->value[0])) {
 		stc("You fail to forge a useful weapon.\n", ch);
 		act("$n tries but fails to forge a useful weapon.\n", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, gsn_forge, FALSE, 1);
+		check_improve(ch, skill::forge, FALSE, 1);
 		destroy_obj(material);
 		return;
 	}
@@ -4847,8 +4848,8 @@ void do_forge(Character *ch, String argument)
 
 	obj->extra_flags = material->extra_flags;
 
-	for (const Affect *paf = affect_list_obj(material); paf; paf = paf->next)
-		affect_copy_to_obj(obj, paf);
+	for (const affect::Affect *paf = affect::list_obj(material); paf; paf = paf->next)
+		affect::copy_to_obj(obj, paf);
 
 	obj->value[0] = get_weapon_type(type);
 	Format::sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, argument.uncolor());
@@ -4921,7 +4922,7 @@ void do_forge(Character *ch, String argument)
 	        weapon_table[weapon_lookup(type)].name, obj->short_descr);
 	act(buf, ch, obj, nullptr, TO_ROOM);
 	destroy_obj(material);
-	check_improve(ch, gsn_forge, TRUE, 1);
+	check_improve(ch, skill::forge, TRUE, 1);
 
 	/* Charge player for forging -- Elrac */
 	if (cost > 0) {
@@ -5219,7 +5220,7 @@ void do_lore(Character *ch, String argument)
 {
 	Object *obj;
 
-	if (!get_skill(ch, gsn_lore)) {
+	if (!get_learned(ch, skill::lore)) {
 		stc("You aren't trained in the lore of items.\n", ch);
 		return;
 	}
@@ -5238,15 +5239,15 @@ void do_lore(Character *ch, String argument)
 		return;
 	}
 
-	if (!prd_chance(&ch->skill_fails, get_skill(ch, gsn_lore))) {
+	if (!prd_chance(&ch->skill_fails, get_learned(ch, skill::lore))) {
 		act("You look at $p, but you can't find out any additional information.", ch, obj, nullptr, TO_CHAR);
 		act("$n looks at $p but cannot find out anything.", ch, obj, nullptr, TO_ROOM);
 		return;
 	}
 	else {
 		act("$n studies $p, discovering all of its hidden powers.", ch, obj, nullptr, TO_ROOM);
-		spell_identify(gsn_lore, (4 * obj->level) / 3, ch, obj, TARGET_OBJ, get_evolution(ch, gsn_lore));
-		check_improve(ch, gsn_lore, TRUE, 4);
+		spell_identify(skill::lore, (4 * obj->level) / 3, ch, obj, TARGET_OBJ, get_evolution(ch, skill::lore));
+		check_improve(ch, skill::lore, TRUE, 4);
 	}
 }
 

@@ -3,8 +3,8 @@
 #include "merc.hh"
 
 Player::Player() :
-	learned(skill_table.size(), 0),
-	evolution(skill_table.size(), 0),
+	learned(skill::size, 0),
+	evolution(skill::size, 0),
 	group_known(group_table.size(), FALSE)
 {
 	static long last_id;

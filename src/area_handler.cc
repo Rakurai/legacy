@@ -9,7 +9,7 @@
 *************************************************/
 
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
 #include "db.hh"
@@ -161,12 +161,12 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	ATTR_BASE(mob, APPLY_STR) += mob->size - SIZE_MEDIUM;
 	ATTR_BASE(mob, APPLY_CON) += (mob->size - SIZE_MEDIUM) / 2;
 
-	affect_add_racial_to_char(mob);
+	affect::add_racial_to_char(mob);
 
-	affect_copy_flags_to_char(mob, 'A', pMobIndex->affect_flags, FALSE); // dispellable
-	affect_copy_flags_to_char(mob, 'I', pMobIndex->imm_flags, TRUE);
-	affect_copy_flags_to_char(mob, 'R', pMobIndex->res_flags, TRUE);
-	affect_copy_flags_to_char(mob, 'V', pMobIndex->vuln_flags, TRUE);
+	affect::copy_flags_to_char(mob, 'A', pMobIndex->affect_flags, FALSE); // dispellable
+	affect::copy_flags_to_char(mob, 'I', pMobIndex->imm_flags, TRUE);
+	affect::copy_flags_to_char(mob, 'R', pMobIndex->res_flags, TRUE);
+	affect::copy_flags_to_char(mob, 'V', pMobIndex->vuln_flags, TRUE);
 
 	/* give em some stamina -- Montrey */
 	ATTR_BASE(mob, APPLY_STAM) = 100;
@@ -263,11 +263,11 @@ void clone_mobile(Character *parent, Character *clone)
 	for (int i = 0; i < 3; i++)
 		clone->damage[i]        = parent->damage[i];
 
-	affect_remove_all_from_char(clone, TRUE);
-	affect_remove_all_from_char(clone, FALSE);
+	affect::remove_all_from_char(clone, TRUE);
+	affect::remove_all_from_char(clone, FALSE);
 
-	for (const Affect *paf = affect_list_char(parent); paf != nullptr; paf = paf->next)
-		affect_copy_to_char(clone, paf);
+	for (const affect::Affect *paf = affect::list_char(parent); paf != nullptr; paf = paf->next)
+		affect::copy_to_char(clone, paf);
 }
 
 /*
@@ -370,8 +370,8 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 		break;
 	}
 
-	for (const Affect *paf = pObjIndex->affected; paf != nullptr; paf = paf->next)
-		affect_copy_to_obj(obj, paf);
+	for (const affect::Affect *paf = pObjIndex->affected; paf != nullptr; paf = paf->next)
+		affect::copy_to_obj(obj, paf);
 
 	obj->next           = object_list;
 	object_list         = obj;
@@ -406,10 +406,10 @@ void clone_object(Object *parent, Object *clone)
 		clone->value[i] = parent->value[i];
 
 	/* affects */
-	affect_remove_all_from_obj(clone, TRUE);
+	affect::remove_all_from_obj(clone, TRUE);
 
-	for (const Affect *paf = affect_list_obj(parent); paf; paf = paf->next)
-		affect_copy_to_obj(clone, paf);
+	for (const affect::Affect *paf = affect::list_obj(parent); paf; paf = paf->next)
+		affect::copy_to_obj(clone, paf);
 
 	/* extended desc */
 	for (ed = parent->extra_descr; ed != nullptr; ed = ed->next) {

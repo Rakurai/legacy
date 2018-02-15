@@ -47,7 +47,8 @@ void do_heal(Character *ch, String argument)
 	Character *mob;
 	Character *rch;
 	SPELL_FUN *spell;
-	int cost, sn;
+	int cost;
+	skill::Type sn = skill::unknown;
 
 	/* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
@@ -81,61 +82,61 @@ void do_heal(Character *ch, String argument)
 
 	if (arg.is_prefix_of("light")) {
 		spell = spell_cure_light;
-		sn    = gsn_cure_light;
+		sn    = skill::cure_light;
 		words = "judicandus dies";
 		cost  = 500;
 	}
 	else if (arg.is_prefix_of("serious")) {
 		spell = spell_cure_serious;
-		sn    = gsn_cure_serious;
+		sn    = skill::cure_serious;
 		words = "judicandus gzfuajg";
 		cost  = 1000;
 	}
 	else if (arg.is_prefix_of("critical")) {
 		spell = spell_cure_critical;
-		sn    = gsn_cure_critical;
+		sn    = skill::cure_critical;
 		words = "judicandus qfuhuqar";
 		cost  = 2000;
 	}
 	else if (arg.is_prefix_of("heal")) {
 		spell = spell_heal;
-		sn = gsn_heal;
+		sn = skill::heal;
 		words = "Parr";
 		cost  = 3000;
 	}
 	else if (arg.is_prefix_of("blindness")) {
 		spell = spell_cure_blindness;
-		sn    = gsn_cure_blindness;
+		sn    = skill::cure_blindness;
 		words = "judicandus noselacri";
 		cost  = 100;
 	}
 	else if (arg.is_prefix_of("disease")) {
 		spell = spell_cure_disease;
-		sn    = gsn_cure_disease;
+		sn    = skill::cure_disease;
 		words = "judicandus eugzagz";
 		cost = 100;
 	}
 	else if (arg.is_prefix_of("poison")) {
 		spell = spell_cure_poison;
-		sn    = gsn_cure_poison;
+		sn    = skill::cure_poison;
 		words = "judicandus sausabru";
 		cost  = 100;
 	}
 	else if (arg.is_prefix_of("uncurse") || arg.is_prefix_of("curse")) {
 		spell = spell_remove_curse;
-		sn    = gsn_remove_curse;
+		sn    = skill::remove_curse;
 		words = "candussido judifgz";
 		cost  = 100;
 	}
 	else if (arg.is_prefix_of("mana") || arg.is_prefix_of("energize")) {
 		spell = nullptr;
-		sn = -1;
+		sn = skill::unknown;
 		words = "energizer";
 		cost = 3500;
 	}
 	else if (arg.is_prefix_of("refresh") || arg.is_prefix_of("stamina")) {
 		spell =  spell_refresh;
-		sn    = gsn_refresh;
+		sn    = skill::refresh;
 		words = "candusima";
 		cost  = 1500;
 	}
@@ -154,17 +155,17 @@ void do_heal(Character *ch, String argument)
 	mob->gold += cost / 100;
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
-		if (number_percent() < get_skill(rch, gsn_languages)) {
+		if (number_percent() < get_learned(rch, skill::languages)) {
 			Format::sprintf(buf, "$n utters the words '%s'.", arg);
 			act(buf, mob, nullptr, rch, TO_VICT);
-			check_improve(rch, gsn_languages, TRUE, 8);
+			check_improve(rch, skill::languages, TRUE, 8);
 		}
 		else {
 			Format::sprintf(buf, "$n utters the words '%s'.", words);
 			act(buf, mob, nullptr, rch, TO_VICT);
 
-			if (get_skill(rch, gsn_languages))
-				check_improve(rch, gsn_languages, FALSE, 8);
+			if (get_learned(rch, skill::languages))
+				check_improve(rch, skill::languages, FALSE, 8);
 		}
 	}
 
@@ -175,7 +176,7 @@ void do_heal(Character *ch, String argument)
 		return;
 	}
 
-	if (sn == -1) return;
+	if (sn == skill::unknown) return;
 
 	/* healer casts at evolution 1 currently */
 	spell(sn, mob->level, mob, ch, TARGET_CHAR, 1);

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "affect/Affect.hh"
 #include "declare.hh"
 #include "Actable.hh"
 #include "String.hh"
@@ -57,12 +58,12 @@ public:
        the object's index data separately from the affects given by inset gems, we
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
  //   Affect *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
-    Affect *   affected = nullptr; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
+    affect::Affect *   affected = nullptr; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
     bool            affects_modified = FALSE; // set TRUE if an affect changes, so they can be recompiled in the update loop
 
     char            num_settings = 0;
     Object *      gems = nullptr; // gems in settings
-    Affect *   gem_affected = nullptr;
+    affect::Affect *   gem_affected = nullptr;
 
     virtual const std::string identifier() const { return this->name; }
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "affect/Affect.hh"
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
@@ -13,7 +14,7 @@ public:
 
     ObjectPrototype *    next = nullptr;
     ExtraDescr *        extra_descr = nullptr;
-    Affect *       affected = nullptr;
+    affect::Affect *       affected = nullptr;
     unsigned long       affect_checksum = 0; // for comparing to instances on saving
     String              name;
     String              short_descr;

@@ -6,7 +6,7 @@
 
 #include <vector>
 
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "declare.hh"
 #include "ExtraDescr.hh"
 #include "file.hh"
@@ -79,7 +79,7 @@ void fwrite_objstate(Object *obj, FILE *fp, int *count)
 	Object *cobj;
 	ExtraDescr *ed;
 	int i = 0;
-	bool enchanted = affect_enchanted_obj(obj); // whether to write affects or not
+	bool enchanted = affect::enchanted_obj(obj); // whether to write affects or not
 
 	(*count)++;
 
@@ -135,12 +135,12 @@ void fwrite_objstate(Object *obj, FILE *fp, int *count)
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
 	if (enchanted) {
-		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
-			if (paf->type < 0 || paf->type >= skill_table.size())
+		for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next) {
+			if (paf->type <= affect::unknown || paf->type >= affect::size)
 				continue;
 
 			Format::fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %s %d\n",
-			        skill_table[paf->type].name,
+			        affect::lookup(paf->type).name,
 			        paf->where,
 			        paf->level,
 			        paf->duration,
@@ -230,7 +230,7 @@ Object *fload_objstate(FILE *fp, int *count)
 	nests           = fread_number(fp);
 
 	if (enchanted)
-		affect_remove_all_from_obj(obj, TRUE); // read them from the file
+		affect::remove_all_from_obj(obj, TRUE); // read them from the file
 
 	if (ovnum == OBJ_VNUM_PIT && donation_pit == nullptr) {
 		donation_pit = obj;
@@ -240,9 +240,9 @@ Object *fload_objstate(FILE *fp, int *count)
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
 		case 'A': {
-				Affect af;
+				affect::Affect af;
 
-				af.type = skill_lookup(fread_word(fp));
+				af.type = affect::lookup(fread_word(fp));
 
 				if (af.type < 0) {
 					fread_to_eol(fp);
@@ -256,7 +256,7 @@ Object *fload_objstate(FILE *fp, int *count)
 				af.location   = fread_number(fp);
 				af.bitvector(fread_flag(fp));
 				af.evolution  = fread_number(fp);
-				affect_copy_to_obj(obj, &af);
+				affect::copy_to_obj(obj, &af);
 				break;
 			}
 

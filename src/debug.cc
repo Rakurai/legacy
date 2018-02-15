@@ -26,7 +26,7 @@
 ***************************************************************************/
 
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
 #include "declare.hh"
@@ -201,14 +201,6 @@ void do_debug(Character *ch, String argument)
 		for (Area *area: Game::world().areas)
 			ptc(ch, "%-20s%d\n", area->file_name, area->version);
 
-		return;
-	}
-
-	if (!strcmp(subfunc, "affcall")) {
-		int count = 0;
-		extern int affect_fn_debug(Affect *node, void *data);
-		affect_iterate_over_char(ch, affect_fn_debug, &count);
-		ptc(ch, "count: %d", count);
 		return;
 	}
 

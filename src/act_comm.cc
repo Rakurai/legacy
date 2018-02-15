@@ -31,7 +31,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Auction.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -817,7 +817,7 @@ void do_autopeek(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) return;
 
-	if (!get_skill(ch, gsn_peek)) return;
+	if (!get_learned(ch, skill::peek)) return;
 
 	if (ch->pcdata->plr_flags.has(PLR_AUTOPEEK)) {
 		stc("You will no longer PEEK automatically.\n", ch);
@@ -1327,7 +1327,7 @@ void do_follow(Character *ch, String argument)
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master != nullptr) {
+	if (affect::exists_on_char(ch, affect::charm_person) && ch->master != nullptr) {
 		act("But you'd rather follow $N!", ch, nullptr, ch->master, TO_CHAR);
 		return;
 	}
@@ -1381,8 +1381,8 @@ void stop_follower(Character *ch)
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person)) {
-		affect_remove_sn_from_char(ch, gsn_charm_person);
+	if (affect::exists_on_char(ch, affect::charm_person)) {
+		affect::remove_type_from_char(ch, affect::charm_person);
 	}
 
 	if (can_see_char(ch->master, ch) && ch->in_room != nullptr) {
@@ -1479,7 +1479,7 @@ void do_order(Character *ch, String argument)
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person)) {
+	if (affect::exists_on_char(ch, affect::charm_person)) {
 		stc("You feel like taking, not giving, orders.\n", ch);
 		return;
 	}
@@ -1539,7 +1539,7 @@ void do_order(Character *ch, String argument)
 			return;
 		}
 
-		if (!affect_exists_on_char(victim, gsn_charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
+		if (!affect::exists_on_char(victim, affect::charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
 			stc("Do it yourself!\n", ch);
 			return;
 		}
@@ -1550,7 +1550,7 @@ void do_order(Character *ch, String argument)
 	for (och = ch->in_room->people; och != nullptr; och = och_next) {
 		och_next = och->next_in_room;
 
-		if (affect_exists_on_char(och, gsn_charm_person) &&
+		if (affect::exists_on_char(och, affect::charm_person) &&
 		    och->master == ch &&
 		    (fAll || och == victim)) {
 			if (! found) {
@@ -1679,12 +1679,12 @@ void do_group(Character *ch, String argument)
 		return;
 	}
 
-	if (affect_exists_on_char(victim, gsn_charm_person)) {
+	if (affect::exists_on_char(victim, affect::charm_person)) {
 		stc("You can't remove charmed mobs from your group.\n", ch);
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person)) {
+	if (affect::exists_on_char(ch, affect::charm_person)) {
 		act("You like your master too much to leave $m!", ch, nullptr, victim, TO_VICT);
 		return;
 	}
@@ -1752,7 +1752,7 @@ void do_split(Character *ch, String argument)
 	members = 0;
 
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
-		if (is_same_group(gch, ch) && !affect_exists_on_char(gch, gsn_charm_person))
+		if (is_same_group(gch, ch) && !affect::exists_on_char(gch, affect::charm_person))
 			members++;
 	}
 
@@ -1831,18 +1831,18 @@ void align(Character *ch, int new_align, char *align_str)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (!deduct_stamina(ch, gsn_align))
+	if (!deduct_stamina(ch, skill::align))
 		return;
 
-	if (get_skill(ch, gsn_align) < number_percent()) {
+	if (get_learned(ch, skill::align) < number_percent()) {
 		stc("You fail to change your alignment.\n", ch);
-		check_improve(ch, gsn_align, FALSE, 20);
+		check_improve(ch, skill::align, FALSE, 20);
 	}
 	else {
 		ch->alignment = new_align;
 		Format::sprintf(buf, "You are now %s.\n", align_str);
 		stc(buf, ch);
-		check_improve(ch, gsn_align, TRUE, 20);
+		check_improve(ch, skill::align, TRUE, 20);
 	}
 
 	WAIT_STATE(ch, 4 * PULSE_PER_SECOND);
@@ -1855,7 +1855,7 @@ void do_align(Character *ch, String argument)
 		return;
 	}
 
-	if (!CAN_USE_RSKILL(ch, gsn_align)) {
+	if (!CAN_USE_RSKILL(ch, skill::align)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -1884,7 +1884,7 @@ void do_align(Character *ch, String argument)
 void do_outfit(Character *ch, String argument)
 {
 	Object *obj;
-	int i, sn, vnum;
+	int i, vnum;
 
 	if (ch->level > 5 || IS_NPC(ch)) {
 		stc("Find it yourself.\n", ch);
@@ -1919,13 +1919,13 @@ void do_outfit(Character *ch, String argument)
 
 	/* do the weapon thing */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr) {
-		sn = 0;
+		skill::Type sn = skill::dagger; // default
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
 		for (i = 0; i < weapon_table.size(); i++) {
 			if (ch->pcdata->learned[sn] <
-			    ch->pcdata->learned[*weapon_table[i].gsn]) {
-				sn = *weapon_table[i].gsn;
+			    ch->pcdata->learned[weapon_table[i].skill]) {
+				sn = weapon_table[i].skill;
 				vnum = weapon_table[i].vnum;
 			}
 		}

@@ -28,7 +28,7 @@
 #include <vector>
 
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "declare.hh"
 #include "find.hh"
@@ -42,6 +42,7 @@
 #include "merc.hh"
 #include "Player.hh"
 #include "random.hh"
+#include "skill/skill.hh"
 #include "String.hh"
 #include "tables.hh"
 
@@ -92,9 +93,9 @@ void rem_raff_affect(Character *ch, int index)
 {
 	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			remort_affect_modify_char(ch, TO_VULN, raffects[index].add, FALSE);
+			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, FALSE);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, FALSE);
+			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, FALSE);
 	}
 
 	return;
@@ -141,15 +142,15 @@ void raff_add_to_char(Character *ch, int raff_id) {
 			break;
 
 	if (index == MAX_RAFFECTS) {
-		Logging::bugf("raff_add_to_char: invalid raffect ID %d", raff_id);
+		Logging::bugf("raffect::add_to_char: invalid raffect ID %d", raff_id);
 		return;
 	}
 
 	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			remort_affect_modify_char(ch, TO_VULN, raffects[index].add, TRUE);
+			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, TRUE);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, TRUE);
+			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, TRUE);
 	}
 }
 
@@ -218,7 +219,7 @@ void roll_raffects(Character *ch, Character *victim)
  Extraclass Stuff
  *****/
 
-bool HAS_EXTRACLASS(Character *ch, int sn)
+bool HAS_EXTRACLASS(Character *ch, skill::Type sn)
 {
 	int i;
 
@@ -236,10 +237,10 @@ bool HAS_EXTRACLASS(Character *ch, int sn)
 	return FALSE;
 }
 
-bool CAN_USE_RSKILL(Character *ch, int sn)
+bool CAN_USE_RSKILL(Character *ch, skill::Type sn)
 {
 	if (IS_NPC(ch)) {
-		if (skill_table[sn].spell_fun == spell_null)
+		if (skill::lookup(sn).spell_fun == spell_null)
 			return FALSE;
 
 		return TRUE;
@@ -251,10 +252,10 @@ bool CAN_USE_RSKILL(Character *ch, int sn)
 	if (!IS_REMORT(ch))
 		return FALSE;
 
-	if (!get_skill(ch, sn))
+	if (!get_learned(ch, sn))
 		return FALSE;
 
-	if ((ch->cls + 1 != skill_table[sn].remort_class) && (!HAS_EXTRACLASS(ch, sn)))
+	if ((ch->cls + 1 != skill::lookup(sn).remort_class) && (!HAS_EXTRACLASS(ch, sn)))
 		return FALSE;
 
 	return TRUE;
@@ -263,30 +264,33 @@ bool CAN_USE_RSKILL(Character *ch, int sn)
 void list_extraskill(Character *ch)
 {
 	String output;
-	int sn, cn, col;
 	output += "\n                      {BExtraclass Remort Skills{x\n";
 
-	for (cn = 0; cn < MAX_CLASS; cn++) {
+	for (int cn = 0; cn < MAX_CLASS; cn++) {
 		if (!IS_IMMORTAL(ch))
 			if (cn == ch->cls)
 				continue;
 
 		output += Format::format("\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
+		int col = 0;
 
-		for (sn = 0, col = 0; sn < skill_table.size(); sn++) {
-			if (skill_table[sn].remort_class != cn + 1)
+		for (int i = skill::first; i < skill::size; i++) {
+			skill::Type type = (skill::Type)i;
+			auto entry = skill::lookup(type);
+
+			if (entry.remort_class != cn + 1)
 				continue;
 
 			if (!IS_IMMORTAL(ch)
-			    && (skill_table[sn].remort_class == ch->cls + 1
-			        || skill_table[sn].skill_level[ch->cls] <= 0
-			        || skill_table[sn].skill_level[ch->cls] > LEVEL_HERO))
+			    && (entry.remort_class == ch->cls + 1
+			        || entry.skill_level[ch->cls] <= 0
+			        || entry.skill_level[ch->cls] > LEVEL_HERO))
 				continue;
 
 			output += Format::format("%-15s %s%-8d{x",
-			    skill_table[sn].name,
-			    ch->train >= skill_table[sn].rating[ch->cls] ? "{C" : "{T",
-			    skill_table[sn].rating[ch->cls]);
+			    entry.name,
+			    ch->train >= entry.rating[ch->cls] ? "{C" : "{T",
+			    entry.rating[ch->cls]);
 
 			if (++col % 3 == 0)
 				output += "\n";
@@ -304,7 +308,8 @@ void list_extraskill(Character *ch)
 void do_eremort(Character *ch, String argument)
 {
 	String output;
-	int x, sn = 0;
+	int x;
+	skill::Type sn;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -338,12 +343,12 @@ void do_eremort(Character *ch, String argument)
 
 			if (ch->pcdata->extraclass[0])
 				output += Format::format(" %s",
-				    skill_table[ch->pcdata->extraclass[0]].name);
+				    skill::lookup(ch->pcdata->extraclass[0]).name);
 
 			for (x = 1; x < ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++)
 				if (ch->pcdata->extraclass[x])
 					output += Format::format(", %s",
-					    skill_table[ch->pcdata->extraclass[x]].name);
+					    skill::lookup(ch->pcdata->extraclass[x]).name);
 
 			output += ".\n";
 			page_to_char(output, ch);
@@ -353,26 +358,26 @@ void do_eremort(Character *ch, String argument)
 	}
 
 	/* Ok, now we check to see if the skill is a remort skill */
-	if ((sn = skill_lookup(arg1)) < 0) {
+	if ((sn = skill::lookup(arg1)) == skill::unknown) {
 		stc("That is not even a valid skill, much less a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it a remort skill? */
-	if (skill_table[sn].remort_class == 0) {
+	if (skill::lookup(sn).remort_class == 0) {
 		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill_table[sn].remort_class == ch->cls + 1) {
+	if (skill::lookup(sn).remort_class == ch->cls + 1) {
 		stc("You have knowledge of this skill already, pick one outside your class.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
-	if (skill_table[sn].skill_level[ch->cls] <= 0
-	    || skill_table[sn].skill_level[ch->cls] > LEVEL_HERO) {
+	if (skill::lookup(sn).skill_level[ch->cls] <= 0
+	    || skill::lookup(sn).skill_level[ch->cls] > LEVEL_HERO) {
 		stc("Your class cannot gain that skill.\n", ch);
 		return;
 	}
@@ -383,7 +388,7 @@ void do_eremort(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->train < skill_table[sn].rating[ch->cls]) {
+	if (ch->train < skill::lookup(sn).rating[ch->cls]) {
 		stc("You do not have enough training to master this skill.\n", ch);
 		return;
 	}
@@ -396,9 +401,9 @@ void do_eremort(Character *ch, String argument)
 			if (!ch->pcdata->learned[sn])
 				ch->pcdata->learned[sn] = 1;
 
-			ch->train -= skill_table[sn].rating[ch->cls];
+			ch->train -= skill::lookup(sn).rating[ch->cls];
 			ptc(ch, "You have gained %s as an extraclass remort skill.\n",
-			    skill_table[sn].name);
+			    skill::lookup(sn).name);
 			return;
 		}
 	}
@@ -489,12 +494,12 @@ void do_remort(Character *ch, String argument)
 		}
 	}
 
-	affect_remove_all_from_char(victim, TRUE); // racial and remort affect
-	affect_remove_all_from_char(victim, FALSE); // everything else
+	affect::remove_all_from_char(victim, TRUE); // racial and remort affect
+	affect::remove_all_from_char(victim, FALSE); // everything else
 
 	victim->race                    = race;
 
-	affect_add_racial_to_char(victim);
+	affect::add_racial_to_char(victim);
 
 	victim->level                   = 1;
 
@@ -519,7 +524,7 @@ void do_remort(Character *ch, String argument)
 	victim->exp = exp_per_level(victim, victim->pcdata->points);
 
 	if (victim->pet != nullptr) {
-		affect_remove_all_from_char(victim->pet, FALSE);
+		affect::remove_all_from_char(victim->pet, FALSE);
 
 		/* About the same stats as a Kitten */
 		victim->pet->level                      = 1;
@@ -548,7 +553,7 @@ void do_remort(Character *ch, String argument)
 
 	/* clear all old extraclass skills */
 	for (c = 0; c < 5; c++)
-		victim->pcdata->extraclass[c] = 0;
+		victim->pcdata->extraclass[c] = skill::unknown;
 
 	stc("Your deity bestows upon you...\n", victim);
 	roll_raffects(ch, victim);

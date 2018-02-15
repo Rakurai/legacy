@@ -26,11 +26,14 @@
 ***************************************************************************/
 
 #include <vector>
+#include <map>
 
+#include "affect/Affect.hh"
 #include "declare.hh"
 #include "Flags.hh"
 #include "magic.hh"
 #include "merc.hh"
+#include "skill/skill.hh"
 
 /* item type list */
 const std::vector<item_type> item_table = {
@@ -73,16 +76,16 @@ const std::vector<item_type> item_table = {
 
 /* weapon selection table */
 
-const std::vector<weapon_type> weapon_table = {
-	{       "sword",        OBJ_VNUM_SCHOOL_SWORD,  WEAPON_SWORD,   &gsn_sword      },
-	{       "mace",         OBJ_VNUM_SCHOOL_MACE,   WEAPON_MACE,    &gsn_mace       },
-	{       "dagger",       OBJ_VNUM_SCHOOL_DAGGER, WEAPON_DAGGER,  &gsn_dagger     },
-	{       "axe",          OBJ_VNUM_SCHOOL_AXE,    WEAPON_AXE,     &gsn_axe        },
-	{       "staff",        OBJ_VNUM_SCHOOL_STAFF,  WEAPON_SPEAR,   &gsn_spear      },
-	{       "flail",        OBJ_VNUM_SCHOOL_FLAIL,  WEAPON_FLAIL,   &gsn_flail      },
-	{       "whip",         OBJ_VNUM_SCHOOL_WHIP,   WEAPON_WHIP,    &gsn_whip       },
-	{       "polearm",      OBJ_VNUM_SCHOOL_POLEARM, WEAPON_POLEARM, &gsn_polearm    },
-	{       "bow",          OBJ_VNUM_SCHOOL_BOW,    WEAPON_BOW,     &gsn_archery     },
+const std::vector<weapon_table_t> weapon_table = {
+	{       "sword",        OBJ_VNUM_SCHOOL_SWORD,   WEAPON_SWORD,   skill::sword      },
+	{       "mace",         OBJ_VNUM_SCHOOL_MACE,    WEAPON_MACE,    skill::mace       },
+	{       "dagger",       OBJ_VNUM_SCHOOL_DAGGER,  WEAPON_DAGGER,  skill::dagger     },
+	{       "axe",          OBJ_VNUM_SCHOOL_AXE,     WEAPON_AXE,     skill::axe        },
+	{       "staff",        OBJ_VNUM_SCHOOL_STAFF,   WEAPON_SPEAR,   skill::spear      },
+	{       "flail",        OBJ_VNUM_SCHOOL_FLAIL,   WEAPON_FLAIL,   skill::flail      },
+	{       "whip",         OBJ_VNUM_SCHOOL_WHIP,    WEAPON_WHIP,    skill::whip       },
+	{       "polearm",      OBJ_VNUM_SCHOOL_POLEARM, WEAPON_POLEARM, skill::polearm    },
+	{       "bow",          OBJ_VNUM_SCHOOL_BOW,     WEAPON_BOW,     skill::archery     },
 };
 
 /* attack table  -- not very organized :( */
@@ -136,7 +139,7 @@ const std::vector<race_type> race_table = {
 	/*
 	        {
 	                name,           pc_race?,
-	                act bits,       aff_by bits,    off bits,
+	                act bits,       affect::by bits,    off bits,
 	                imm,            res,            vuln,
 	                form,           parts
 	        },
@@ -763,1685 +766,1477 @@ const std::vector<liq_type> liq_table = {
  * The skill and spell table.
  */
 
-const std::vector<skill_type> skill_table = {
+const std::map<skill::Type, skill::skill_type> skill_table = {
 
-	/*
-	 * Magic spells.
-	 */
-	/*
-	        Legend:
+/*
+ * Magic spells.
+ */
+/*
+    Legend:
 
-	        {
-	                "acid blast",           { 28, 33, 35, 32, 28, 33, 35, 32 },
-	                                        { 1, 1, 2, 2, 1, 1, 2, 2 },
-	                spell_acid_blast,       TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-	                nullptr,                20,     12,
-	                "acid blast",           "!Acid Blast!",         "",     0,
-	                { 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	        },
+    {	skill::acid_blast		{
+        "acid blast",
+        { 28, 33, 35, 32, 28, 33, 35, 32 }, { 1, 1, 2, 2, 1, 1, 2, 2 },
+        spell_acid_blast,       TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
+        20,     12,	"acid blast",           0,
+        { 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+    }},
 
-	                1,                      2,
-	                                        3,
-	                4,                      5,                      6,
-	                7,                      9,      10,
-	                11,                     12,                     13,     14,
-	                15,                             16
+		1,
+        2,
+        3,                                  4,
+        5,                      6,                      7,
+        8,       9, 10,                    11,
+        12,                             13
 
-	        1. name, referred to in skill_lookup, various other places.
-	        2. skill_level[], level at which a class gets a skill/spell.
-	        3. rating[], how much it costs, in trains for skills and pracs for spells.
-	                mage, cleric, thief, warrior, necro, paladin, bard, ranger
-	        4. spell_fun, use spell_null for non-spells, and the function's name otherwise.
-	        5. target, used in do_cast.  Determines legal targets.  For skills, used
-	           to determine stamina cost, TAR_CHAR_OFFENSIVE is variable cost skills
-	        6. minimum_position, sets required position for use.
-	        7. pgsn, names associated gsn.
-	        9. min_mana, minimum mana cost to cast.
-	        10. beats, amount of lag in quarter seconds.
-	        11. noun_damage, damage message in combat.
-	        12. msg_off, message when affect wears off.
-	        13. msg_obj, message when affect wears off objects.
-	        14. remort_class, sets what class gets it as a remort spell.  Use -1 to make it inaccessible.
-	        15. evocost_sec, cost for secondary or higher class to evolve to 2.  Use 0 for tertiary classes.
-	        16. evocost_pri, cost for primary class to evolve to 3.  Use 0 for secondary classes.
-	*/
+    1. skill number
+    2. name, referred to in skill_lookup, various other places.
+    3. skill_level[], level at which a class gets a skill/spell.
+    4. rating[], how much it costs, in trains for skills and pracs for spells.
+            mage, cleric, thief, warrior, necro, paladin, bard, ranger
+    5. spell_fun, use spell_null for non-spells, and the function's name otherwise.
+    6. target, used in do_cast.  Determines legal targets.  For skills, used
+       to determine stamina cost, TAR_CHAR_OFFENSIVE is variable cost skills
+    7. minimum_position, sets required position for use.
+    8. min_mana, minimum mana cost to cast.
+    9. beats, amount of lag in quarter seconds.
+    10. noun_damage, damage message in combat.
+    11. remort_class, sets what class gets it as a remort spell.  Use -1 to make it inaccessible.
+    12. evocost_sec, cost for secondary or higher class to evolve to 2.  Use 0 for tertiary classes.
+    13. evocost_pri, cost for primary class to evolve to 3.  Use 0 for secondary classes.
+*/
 
-	{
-		"reserved",             { 999, 999, 999, 999, 999, 999, 999, 999 },
-		{ 999, 999, 999, 999, 999, 999, 999, 999 },
+	{	skill::unknown,          {
+		"unknown",
+		{ 999, 999, 999, 999, 999, 999, 999, 999 }, { 999, 999, 999, 999, 999, 999, 999, 999 },		
 		0,                      TAR_IGNORE,             POS_STANDING,
-		&gsn_reserved,          0,      0,
-		"",                     "",                     "",     -1,
+		0,      0,	"",                     -1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"acid blast",           { 28, 33, 35, 32, 28, 33, 35, 32 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
-		spell_acid_blast,       TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_acid_blast,        20,     12,
-		"acid blast",           "!Acid Blast!",         "",     0,
-		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
-	{
-		"acid breath",          { 31, 32, 33, 34, 31, 32, 33, 34 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	{	skill::acid_blast,        {
+		"acid blast",
+		{ 28, 33, 35, 32, 28, 33, 35, 32 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
+		spell_acid_blast,       TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
+		20,     12,	"acid blast",           0,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	}},
+	{	skill::acid_breath,       {
+		"acid breath",
+		{ 31, 32, 33, 34, 31, 32, 33, 34 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_acid_breath,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_acid_breath,       50,     12,
-		"blast of acid",        "!Acid Breath!",        "",     0,
+		50,     12,	"blast of acid",        0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"acid rain",            { 51, 49, 54, 53, 52, 49, 48, 50 },
-		{  1,  1,  2,  2,  1,  1,  1,  1 },
+	}},
+	{	skill::acid_rain,         {
+		"acid rain",
+		{ 51, 49, 54, 53, 52, 49, 48, 50 }, {  1,  1,  2,  2,  1,  1,  1,  1 },		
 		spell_acid_rain,        TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_acid_rain,         30,     12,
-		"acid rain",            "!Acid Rain!",          "",     0,
+		30,     12,	"acid rain",            0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"age",                  { 53, 54, 65, 63, 51, 54, 59, 68 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::age,               {
+		"age",
+		{ 53, 54, 65, 63, 51, 54, 59, 68 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_age,              TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_age,               35,     12,
-		"spell",                "You feel younger.",    "",     0,
+		35,     12,	"spell",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"animate skeleton",     { 32, 43, 70, 70, 25, 70, 70, 70 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::animate_skeleton,  {
+		"animate skeleton",
+		{ 32, 43, 70, 70, 25, 70, 70, 70 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_animate_skeleton, TAR_IGNORE,             POS_STANDING,
-		&gsn_animate_skeleton,  50,     12,
-		"",                     "!Animate Skeleton!",   "",     0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"animate wraith",       { 55, 66, 75, 75, 52, 75, 75, 75 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::animate_wraith,    {
+		"animate wraith",
+		{ 55, 66, 75, 75, 52, 75, 75, 75 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_animate_wraith,   TAR_IGNORE,             POS_STANDING,
-		&gsn_animate_wraith,    50,     12,
-		"",                     "!Animate Wraith!",     "",     0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"animate gargoyle",     { 70, 78, 80, 80, 63, 80, 80, 80 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::animate_gargoyle,  {
+		"animate gargoyle",
+		{ 70, 78, 80, 80, 63, 80, 80, 80 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_animate_gargoyle, TAR_IGNORE,             POS_STANDING,
-		&gsn_animate_gargoyle,  50,     12,
-		"",                     "!Animate Gargoyle!",   "",     0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"animate zombie",       { 46, 54, 73, 73, 37, 73, 73, 73 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::animate_zombie,    {
+		"animate zombie",
+		{ 46, 54, 73, 73, 37, 73, 73, 73 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_animate_zombie,   TAR_IGNORE,             POS_STANDING,
-		&gsn_animate_zombie,    50,     12,
-		"",                     "!Animate Zombie!",     "",     0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"armor",                {  5,  2, 10,  5,  5,  2, 10,  5 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::armor,             {
+		"armor",
+		{  5,  2, 10,  5,  5,  2, 10,  5 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_armor,            TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_armor,             5,      12,
-		"",                     "You feel less armored.",       "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"bless",                { 10,  2, 60,  8, 44,  4, 10,  8 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::bless,             {
+		"bless",
+		{ 10,  2, 60,  8, 44,  4, 10,  8 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_bless,            TAR_OBJ_CHAR_DEF,       POS_STANDING,
-		&gsn_bless,             5,      12,
-		"",                     "You feel less righteous.",     "$p's holy aura fades.",        0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"blindness",            { 12,  8, 17, 15, 12,  8, 17, 15 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::blindness,         {
+		"blindness",
+		{ 12,  8, 17, 15, 12,  8, 17, 15 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_blindness,        TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_blindness,         5,      12,
-		"",                     "You can see again.",   "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"blizzard",             { 51, 49, 54, 53, 52, 49, 48, 50 },
-		{  1,  1,  2,  2,  1,  1,  1,  1 },
+	}},
+	{	skill::blizzard,          {
+		"blizzard",
+		{ 51, 49, 54, 53, 52, 49, 48, 50 }, {  1,  1,  2,  2,  1,  1,  1,  1 },		
 		spell_blizzard,         TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_blizzard,          30,     12,
-		"snow flurry",          "!Blizzard!",           "",     0,
+		30,     12,	"snow flurry",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"blood moon",           { 33, 38, 68, 68, 12, 75, 68, 68 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::blood_moon,        {
+		"blood moon",
+		{ 33, 38, 68, 68, 12, 75, 68, 68 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_blood_moon,       TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_blood_moon,        5,      12,
-		"",                     "You feel less bloodthirsty.",  "$p's evil aura fades.",        0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"blood blade",          { 30, 58, 60, 78, 35, 70, 63, 70 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::blood_blade,       {
+		"blood blade",
+		{ 30, 58, 60, 78, 35, 70, 63, 70 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_blood_blade,      TAR_OBJ_INV,            POS_STANDING,
-		&gsn_blood_blade,       100,    12,
-		"",                     "!Blood Blade!",        "$p is no longer a bloodthirsty weapon.",       0,
+		100,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"burning hands",        {  7, 11, 10,  9,  7, 11, 10,  9 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::burning_hands,     {
+		"burning hands",
+		{  7, 11, 10,  9,  7, 11, 10,  9 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_burning_hands,    TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_burning_hands,     6,      12,
-		"burning hands",        "!Burning Hands!",      "",     0,
+		6,      12,	"burning hands",        0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"call lightning",       { 26, 16, 31, 22, 26, 18, 31, 22 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::call_lightning,    {
+		"call lightning",
+		{ 26, 16, 31, 22, 26, 18, 31, 22 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_call_lightning,   TAR_IGNORE,             POS_FIGHTING,
-		&gsn_call_lightning,    10,     12,
-		"lightning bolt",       "!Call Lightning!",     "",     0,
+		10,     12,	"lightning bolt",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"calm",                 { 20, 16, 60, 20, 20, 16, 20, 20 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::calm,              {
+		"calm",
+		{ 20, 16, 60, 20, 20, 16, 20, 20 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_calm,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_calm,              30,     12,
-		"",                     "You have lost your peace of mind.",    "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cancellation",         { 18, 26, 34, 34, 18, 26, 34, 34 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cancellation,      {
+		"cancellation",
+		{ 18, 26, 34, 34, 18, 26, 34, 34 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cancellation,     TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_cancellation,      20,     12,
-		"",                     "!Cancellation!",       "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cause light",          {  5,  6,  5,  5,  1,  6,  5,  5 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cause_light,       {
+		"cause light",
+		{  5,  6,  5,  5,  1,  6,  5,  5 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cause_light,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_cause_light,       5,      12,
-		"spell",                "!Cause Light!",        "",     0,
+		5,      12,	"spell",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cause serious",        { 10, 12, 13, 13,  7,  7, 13, 13 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cause_serious,     {
+		"cause serious",
+		{ 10, 12, 13, 13,  7,  7, 13, 13 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cause_serious,    TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_cause_serious,     7,      12,
-		"spell",                "!Cause Serious!",      "",     0,
+		7,      12,	"spell",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cause critical",       { 21, 18, 23, 23, 13, 18, 23, 23 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cause_critical,    {
+		"cause critical",
+		{ 21, 18, 23, 23, 13, 18, 23, 23 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cause_critical,   TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_cause_critical,    10,     12,
-		"spell",                "!Cause Critical!",     "",     0,
+		10,     12,	"spell",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"chain lightning",      { 33, 35, 39, 36, 33, 35, 39, 36 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::chain_lightning,   {
+		"chain lightning",
+		{ 33, 35, 39, 36, 33, 35, 39, 36 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_chain_lightning,  TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_chain_lightning,   25,     12,
-		"lightning",            "!Chain Lightning!",    "",     0,
+		25,     12,	"lightning",            0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"change sex",           { 60, 60, 60, 60, 60, 60, 60, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::change_sex,        {
+		"change sex",
+		{ 60, 60, 60, 60, 60, 60, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_change_sex,       TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_change_sex,        15,     12,
-		"",                     "Your body feels familiar again.",      "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"channel",              { 63, 65, 77, 78, 65, 66, 76, 78 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::channel,           {
+		"channel",
+		{ 63, 65, 77, 78, 65, 66, 76, 78 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_channel,          TAR_IGNORE,             POS_STANDING,
-		&gsn_channel,           10,     12,
-		"",                     "You feel revived.",    "",     0,
+		10,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"charm person",         { 20, 26, 25, 60, 20, 23, 25, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::charm_person,      {
+		"charm person",
+		{ 20, 26, 25, 60, 20, 23, 25, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_charm_person,     TAR_CHAR_OFFENSIVE,     POS_STANDING,
-		&gsn_charm_person,      5,      12,
-		"",                     "You feel more self-confident.",        "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"chill touch",          {  4,  7,  6,  6,  4,  7,  6,  6 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::chill_touch,       {
+		"chill touch",
+		{  4,  7,  6,  6,  4,  7,  6,  6 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_chill_touch,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_chill_touch,       5,      12,
-		"chilling touch",       "You feel less cold.",  "",     0,
+		5,      12,	"chilling touch",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"colour spray",         { 16, 24, 22, 20, 16, 24, 22, 20 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::colour_spray,      {
+		"colour spray",
+		{ 16, 24, 22, 20, 16, 24, 22, 20 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_colour_spray,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_colour_spray,      11,     12,
-		"colour spray",         "!Colour Spray!",       "",     0,
+		11,     12,	"colour spray",         0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"continual light",      {  5,  4,  6,  9,  6,  4,  6,  9 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::continual_light,   {
+		"continual light",
+		{  5,  4,  6,  9,  6,  4,  6,  9 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_continual_light,  TAR_IGNORE,             POS_STANDING,
-		&gsn_continual_light,   7,      12,
-		"",                     "!Continual Light!",    "",     0,
+		7,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"control weather",      { 15, 19, 28, 22, 15, 19, 28, 22 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::control_weather,   {
+		"control weather",
+		{ 15, 19, 28, 22, 15, 19, 28, 22 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_control_weather,  TAR_IGNORE,             POS_STANDING,
-		&gsn_control_weather,   25,     12,
-		"",                     "!Control Weather!",    "",     0,
+		25,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create food",          { 10,  5, 11, 12, 10,  5, 11, 12 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_food,       {
+		"create food",
+		{ 10,  5, 11, 12, 10,  5, 11, 12 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_food,      TAR_IGNORE,             POS_STANDING,
-		&gsn_create_food,       5,      12,
-		"",                     "!Create Food!",        "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create parchment",     { 16, 11, 60, 60, 16, 11, 60, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_parchment,  {
+		"create parchment",
+		{ 16, 11, 60, 60, 16, 11, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_parchment, TAR_IGNORE,             POS_STANDING,
-		&gsn_create_parchment,  30,     12,
-		"",                     "!Create Parchment!",   "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create rose",          { 16, 11, 10, 24, 16, 11, 10, 24 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_rose,       {
+		"create rose",
+		{ 16, 11, 10, 24, 16, 11, 10, 24 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_rose,      TAR_IGNORE,             POS_STANDING,
-		&gsn_create_rose,       30,     12,
-		"",                     "!Create Rose!",        "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create sign",          { 25, 20, 23, 22, 26, 21, 22, 21 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_sign,       {
+		"create sign",
+		{ 25, 20, 23, 22, 26, 21, 22, 21 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_sign,      TAR_IGNORE,             POS_STANDING,
-		&gsn_create_sign,       45,     12,
-		"",                     "!Create Sign!",        "",     0,
+		45,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create spring",        { 14, 16, 23, 20, 14, 16, 23, 20 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_spring,     {
+		"create spring",
+		{ 14, 16, 23, 20, 14, 16, 23, 20 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_spring,    TAR_IGNORE,             POS_STANDING,
-		&gsn_create_spring,     20,     12,
-		"",                     "!Create Spring!",      "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create vial",          { 16, 11, 60, 60, 16, 11, 60, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_vial,       {
+		"create vial",
+		{ 16, 11, 60, 60, 16, 11, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_vial,      TAR_IGNORE,             POS_STANDING,
-		&gsn_create_vial,       30,     12,
-		"",                     "!Create Vial!",        "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"create water",         {  8,  3, 12, 11,  8,  3, 12, 11 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::create_water,      {
+		"create water",
+		{  8,  3, 12, 11,  8,  3, 12, 11 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_create_water,     TAR_OBJ_INV,            POS_STANDING,
-		&gsn_create_water,      5,      12,
-		"",                     "!Create Water!",       "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cure blindness",       { 10,  6, 60,  8, 27,  6, 60,  8 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cure_blindness,    {
+		"cure blindness",
+		{ 10,  6, 60,  8, 27,  6, 60,  8 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cure_blindness,   TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_cure_blindness,    5,      12,
-		"",                     "!Cure Blindness!",     "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cure critical",        { 18, 13, 28, 19, 26, 13, 21, 19 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cure_critical,                     {
+		"cure critical",
+		{ 18, 13, 28, 19, 26, 13, 21, 19 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cure_critical,    TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_cure_critical,                     20,     12,
-		"",                     "!Cure Critical!",      "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cure disease",         { 19, 13, 60, 14, 34, 13, 60, 14 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cure_disease,      {
+		"cure disease",
+		{ 19, 13, 60, 14, 34, 13, 60, 14 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cure_disease,     TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_cure_disease,      20,     12,
-		"",                     "!Cure Disease!",       "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cure light",           {  2,  1, 10,  3,  9,  1,  6,  3 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cure_light,        {
+		"cure light",
+		{  2,  1, 10,  3,  9,  1,  6,  3 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cure_light,       TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_cure_light,        10,     12,
-		"",                     "!Cure Light!",         "",     0,
+		10,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cure poison",          { 21, 14, 51, 16, 38, 14, 48, 16 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cure_poison,       {
+		"cure poison",
+		{ 21, 14, 51, 16, 38, 14, 48, 16 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cure_poison,      TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_cure_poison,       5,      12,
-		"",                     "!Cure Poison!",        "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"cure serious",         {  9,  7, 15, 10, 15,  7, 12, 10 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::cure_serious,      {
+		"cure serious",
+		{  9,  7, 15, 10, 15,  7, 12, 10 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_cure_serious,     TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_cure_serious,      15,     12,
-		"",                     "!Cure Serious!",       "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"curse",                { 18, 18, 26, 22, 17, 18, 26, 22 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::curse,             {
+		"curse",
+		{ 18, 18, 26, 22, 17, 18, 26, 22 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_curse,            TAR_OBJ_CHAR_OFF,       POS_FIGHTING,
-		&gsn_curse,             20,     12,
-		"curse",                "The curse wears off.",         "$p is no longer impure.",      0,
+		20,     12,	"curse",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"darkness",             { 31, 39, 58, 68, 26, 53, 61, 57 },
-		{  2,  2,  4,  4,  2,  3,  4,  4 },
+	}},
+	{	skill::darkness,          {
+		"darkness",
+		{ 31, 39, 58, 68, 26, 53, 61, 57 }, {  2,  2,  4,  4,  2,  3,  4,  4 },		
 		spell_darkness,         TAR_IGNORE,             POS_STANDING,
-		&gsn_darkness,          60,     18,
-		"",                     "",     "The room is no longer so dark.",       0,
+		60,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dazzling light",       { 10, 18, 30, 30, 12, 18, 25, 30 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::dazzling_light,    {
+		"dazzling light",
+		{ 10, 18, 30, 30, 12, 18, 25, 30 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_dazzling_light,   TAR_OBJ_INV,            POS_STANDING,
-		&gsn_dazzling_light,    50,     12,
-		"",                     "!Dazzling Light!",     "$p's light seems less penetrating.",   0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"demonfire",            { 38, 34, 60, 45, 30, 34, 60, 45 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::demonfire,         {
+		"demonfire",
+		{ 38, 34, 60, 45, 30, 34, 60, 45 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_demonfire,        TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_demonfire,         18,     12,
-		"torments",             "!Demonfire!",          "",     0,
+		18,     12,	"torments",             0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"detect evil",          { 11,  4, 12, 60, 11,  4, 12, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::detect_evil,       {
+		"detect evil",
+		{ 11,  4, 12, 60, 11,  4, 12, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_detect_evil,      TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_detect_evil,       5,      12,
-		"",                     "The red in your vision disappears.",   "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"detect good",          { 11,  4, 12, 60, 11,  4, 12, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::detect_good,       {
+		"detect good",
+		{ 11,  4, 12, 60, 11,  4, 12, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_detect_good,      TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_detect_good,       5,      12,
-		"",                     "The gold in your vision disappears.",  "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"detect hidden",        { 15, 11, 12, 60, 15, 11, 12, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::detect_hidden,     {
+		"detect hidden",
+		{ 15, 11, 12, 60, 15, 11, 12, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_detect_hidden,    TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_detect_hidden,     5,      12,
-		"",                     "You feel less aware of your surroundings.",    "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"detect invis",         {  3,  8,  6, 60,  3,  8,  6, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::detect_invis,      {
+		"detect invis",
+		{  3,  8,  6, 60,  3,  8,  6, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_detect_invis,     TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_detect_invis,      5,      12,
-		"",                     "You no longer see the invisible.",     "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"detect magic",         {  2,  6,  5, 60,  2,  6,  5, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::detect_magic,      {
+		"detect magic",
+		{  2,  6,  5, 60,  2,  6,  5, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_detect_magic,     TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_detect_magic,      5,      12,
-		"",                     "The detect magic wears off.",  "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"detect poison",        { 15,  7,  9, 60, 15,  7,  9, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::detect_poison,     {
+		"detect poison",
+		{ 15,  7,  9, 60, 15,  7,  9, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_detect_poison,    TAR_OBJ_INV,            POS_STANDING,
-		&gsn_detect_poison,     5,      12,
-		"",                     "!Detect Poison!",      "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dispel evil",          { 18, 15, 60, 23, 20, 15, 45, 24 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::dispel_evil,       {
+		"dispel evil",
+		{ 18, 15, 60, 23, 20, 15, 45, 24 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_dispel_evil,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_dispel_evil,       10,     12,
-		"dispel evil",          "!Dispel Evil!",        "",     0,
+		10,     12,	"dispel evil",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dispel good",          { 18, 15, 35, 24, 18, 15, 35, 24 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::dispel_good,       {
+		"dispel good",
+		{ 18, 15, 35, 24, 18, 15, 35, 24 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_dispel_good,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_dispel_good,       10,     12,
-		"dispel good",          "!Dispel Good!",        "",     0,
+		10,     12,	"dispel good",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dispel magic",         { 16, 24, 30, 30, 16, 24, 30, 30 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::dispel_magic,      {
+		"dispel magic",
+		{ 16, 24, 30, 30, 16, 24, 30, 30 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_dispel_magic,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_dispel_magic,      15,     12,
-		"",                     "!Dispel Magic!",       "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"divine healing",       { 55, 51, 62, 61, 75, 46, 62, 62 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::divine_healing,    {
+		"divine healing",
+		{ 55, 51, 62, 61, 75, 46, 62, 62 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_divine_healing,   TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_divine_healing,    150,    12,
-		"",                     "!Divine Healing!",     "",     0,
+		150,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"divine regeneration",  { 87, 88, 88, 89, 87, 86, 88, 89 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::divine_regeneration, {
+		"divine regeneration",
+		{ 87, 88, 88, 89, 87, 86, 88, 89 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_divine_regeneration, TAR_CHAR_DEFENSIVE,   POS_STANDING,
-		&gsn_divine_regeneration, 50,     12,
-		"",                     "You no longer feel so vibrant.",       "",     0,
+		50,     12,	"",                     0,
 		{ 470, 220, 0, 0, 0, 420, 0, 0 },       { 0, 410, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"earthquake",           { 19, 10, 21, 14, 18, 10, 20, 14 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::earthquake,        {
+		"earthquake",
+		{ 19, 10, 21, 14, 18, 10, 20, 14 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_earthquake,       TAR_IGNORE,             POS_FIGHTING,
-		&gsn_earthquake,        8,      12,
-		"earthquake",           "!Earthquake!",         "",     0,
+		8,      12,	"earthquake",           0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"encampment",           { 26, 18, 32, 29,  6, 18, 32, 29 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::encampment,        {
+		"encampment",
+		{ 26, 18, 32, 29,  6, 18, 32, 29 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_encampment,       TAR_IGNORE,             POS_STANDING,
-		&gsn_encampment,        28,     12,
-		"",                     "!Encampment!",         "",     0,
+		28,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"enchant armor",        { 16, 40, 60, 60, 16, 40, 60, 60 },
-		{  2,  2,  4,  4,  2,  2,  4,  4 },
+	}},
+	{	skill::enchant_armor,     {
+		"enchant armor",
+		{ 16, 40, 60, 60, 16, 40, 60, 60 }, {  2,  2,  4,  4,  2,  2,  4,  4 },		
 		spell_enchant_armor,    TAR_OBJ_INV,            POS_STANDING,
-		&gsn_enchant_armor,     100,    24,
-		"",                     "!Enchant Armor!",      "",     0,
+		100,    24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"enchant weapon",       { 17, 40, 60, 60, 17, 40, 60, 60 },
-		{  2,  2,  4,  4,  2,  2,  4,  4 },
+	}},
+	{	skill::enchant_weapon,    {
+		"enchant weapon",
+		{ 17, 40, 60, 60, 17, 40, 60, 60 }, {  2,  2,  4,  4,  2,  2,  4,  4 },		
 		spell_enchant_weapon,   TAR_OBJ_INV,            POS_STANDING,
-		&gsn_enchant_weapon,    100,    24,
-		"",                     "!Enchant Weapon!",     "",     0,
+		100,    24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"energy drain",         { 20, 35, 29, 29, 9, 60, 24, 29 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::energy_drain,      {
+		"energy drain",
+		{ 20, 35, 29, 29, 9, 60, 24, 29 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_energy_drain,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_energy_drain,      40,     12,
-		"energy drain",         "!Energy Drain!",       "",     0,
+		40,     12,	"energy drain",         0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"faerie fire",          {  6,  3,  5,  8,  6,  3,  5,  8 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::faerie_fire,       {
+		"faerie fire",
+		{  6,  3,  5,  8,  6,  3,  5,  8 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_faerie_fire,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_faerie_fire,       5,      12,
-		"faerie fire",          "The pink aura around you fades away.", "",     0,
+		5,      12,	"faerie fire",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"faerie fog",           { 14, 21, 16, 24, 14, 21, 16, 24 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::faerie_fog,        {
+		"faerie fog",
+		{ 14, 21, 16, 24, 14, 21, 16, 24 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_faerie_fog,       TAR_IGNORE,             POS_STANDING,
-		&gsn_faerie_fog,        12,     12,
-		"faerie fog",           "!Faerie Fog!",         "",     0,
+		12,     12,	"faerie fog",           0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"farsight",             { 14, 16, 16, 60, 14, 16, 16, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::farsight,          {
+		"farsight",
+		{ 14, 16, 16, 60, 14, 16, 16, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_farsight,         TAR_IGNORE,             POS_STANDING,
-		&gsn_farsight,          36,     20,
-		"farsight",             "!Farsight!",           "",     0,
+		36,     20,	"farsight",             0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fear",                 { 17, 20, 24, 21, 12, 20, 23, 23 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::fear,              {
+		"fear",
+		{ 17, 20, 24, 21, 12, 20, 23, 23 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_fear,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_fear,              20,     12,
-		"fear",                 "You are no longer afraid.",    "$p is no longer afraid.",      0,
+		20,     12,	"fear",                 0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fire breath",          { 40, 45, 50, 51, 40, 45, 50, 51 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::fire_breath,       {
+		"fire breath",
+		{ 40, 45, 50, 51, 40, 45, 50, 51 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_fire_breath,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_fire_breath,       60,     12,
-		"blast of flame",       "The smoke leaves your eyes.",  "",     0,
+		60,     12,	"blast of flame",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fireball",             { 22, 32, 30, 26, 22, 32, 30, 26 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::fireball,          {
+		"fireball",
+		{ 22, 32, 30, 26, 22, 32, 30, 26 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_fireball,         TAR_IGNORE,             POS_FIGHTING,
-		&gsn_fireball,          10,     12,
-		"fireball",             "!Fireball!",           "",     0,
+		10,     12,	"fireball",             0,
 		{ 220, 0, 0, 0, 380, 0, 0, 0 }, { 460, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fireproof",            { 13, 12, 19, 18, 13, 12, 19, 18 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::fireproof,         {
+		"fireproof",
+		{ 13, 12, 19, 18, 13, 12, 19, 18 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_fireproof,        TAR_OBJ_INV,            POS_STANDING,
-		&gsn_fireproof,         10,     12,
-		"",                     "",     "$p's protective aura fades.",  0,
+		10,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"firestorm",            { 78, 78, 80, 80, 78, 79, 80, 80 },
-		{  2,  2,  2,  2,  2,  2,  2,  2 },
+	}},
+	{	skill::firestorm,         {
+		"firestorm",
+		{ 78, 78, 80, 80, 78, 79, 80, 80 }, {  2,  2,  2,  2,  2,  2,  2,  2 },		
 		spell_firestorm,        TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_firestorm,         35,     12,
-		"firestorm",            "!Firestorm!",          "",     0,
+		35,     12,	"firestorm",            0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"flame blade",          { 30, 58, 60, 78, 35, 54, 63, 70 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::flame_blade,       {
+		"flame blade",
+		{ 30, 58, 60, 78, 35, 54, 63, 70 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_flame_blade,      TAR_OBJ_INV,            POS_STANDING,
-		&gsn_flame_blade,       100,    12,
-		"",                     "!Flame Blade!",        "$p's flame diminishes.",       0,
+		100,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"flameshield",          { 50, 65, 65, 70, 60, 55, 65, 55 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::flameshield,               {
+		"flameshield",
+		{ 50, 65, 65, 70, 60, 55, 65, 55 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_flameshield,      TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_flameshield,               45,     12,
-		"flameshield",          "The circle of flames around your body dissipates.",
-		"$p's flameshield dissipates.", 0,
+		45,     12,	"flameshield",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"flamestrike",          { 29, 20, 39, 27, 29, 20, 39, 27 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::flamestrike,       {
+		"flamestrike",
+		{ 29, 20, 39, 27, 29, 20, 39, 27 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_flamestrike,      TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_flamestrike,       12,     12,
-		"flamestrike",          "!Flamestrike!",        "",     0,
+		12,     12,	"flamestrike",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fly",                  { 10, 18, 20, 22, 10, 18, 20, 22 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::fly,               {
+		"fly",
+		{ 10, 18, 20, 22, 10, 18, 20, 22 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_fly,              TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_fly,               10,     12,
-		"",                     "You slowly float to the ground.",      "",     0,
+		10,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"floating disc",        {  4, 10,  7, 16,  4, 10,  7, 16 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::floating_disc,     {
+		"floating disc",
+		{  4, 10,  7, 16,  4, 10,  7, 16 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_floating_disc,    TAR_IGNORE,             POS_STANDING,
-		&gsn_floating_disc,     40,     24,
-		"",                     "!Floating Disc!",      "",     0,
+		40,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"frenzy",               { 26, 24, 60, 26, 60, 24, 60, 26 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::frenzy,            {
+		"frenzy",
+		{ 26, 24, 60, 26, 60, 24, 60, 26 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_frenzy,           TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_frenzy,            30,     12,
-		"",                     "Your rage ebbs.",      "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"frost blade",          { 30, 58, 60, 78, 35, 54, 63, 70 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::frost_blade,       {
+		"frost blade",
+		{ 30, 58, 60, 78, 35, 54, 63, 70 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_frost_blade,      TAR_OBJ_INV,            POS_STANDING,
-		&gsn_frost_blade,       100,    12,
-		"",                     "!Frost Blade!",        "$p is no longer so cold to the touch.",        0,
+		100,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"frost breath",         { 34, 36, 38, 40, 34, 36, 38, 40 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::frost_breath,      {
+		"frost breath",
+		{ 34, 36, 38, 40, 34, 36, 38, 40 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_frost_breath,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_frost_breath,      50,     12,
-		"blast of frost",       "!Frost Breath!",       "",     0,
+		50,     12,	"blast of frost",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"gas breath",           { 29, 33, 37, 40, 29, 33, 37, 40 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::gas_breath,        {
+		"gas breath",
+		{ 29, 33, 37, 40, 29, 33, 37, 40 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_gas_breath,       TAR_IGNORE,             POS_FIGHTING,
-		&gsn_gas_breath,        45,     12,
-		"blast of gas",         "!Gas Breath!",         "",     0,
+		45,     12,	"blast of gas",         0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"gate",                 { 22, 17, 32, 28, 22, 17, 32, 28 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::gate,              {
+		"gate",
+		{ 22, 17, 32, 28, 22, 17, 32, 28 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_gate,             TAR_IGNORE,             POS_STANDING,
-		&gsn_gate,              80,     12,
-		"",                     "!Gate!",               "",     0,
+		80,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{   /* Spell for mega1.are from Glop/Erkenbrand. */
-		"general purpose",      { -1, -1, -1, -1, -1, -1, -1, -1 },
-		{ -1, -1, -1, -1, -1, -1, -1, -1 },
+	}},
+	{	skill::general_purpose,   {
+		"general purpose",
+		{ -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1 },		
 		spell_general_purpose,  TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_general_purpose,   5,      12,
-		"general purpose ammo", "!General Purpose Ammo!",       "",     -1,
+		5,      12,	"general purpose ammo", -1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"giant strength",       { 11, 15, 22, 20, 11, 15, 22, 20 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::giant_strength,    {
+		"giant strength",
+		{ 11, 15, 22, 20, 11, 15, 22, 20 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_giant_strength,   TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_giant_strength,    20,     12,
-		"",                     "You feel weaker.",     "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"harm",                 { 30, 23, 30, 28, 30, 23, 30, 28 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::harm,              {
+		"harm",
+		{ 30, 23, 30, 28, 30, 23, 30, 28 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_harm,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_harm,              20,     12,
-		"harm spell",           "!Harm!",               "",     0,
+		20,     12,	"harm spell",           0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"haste",                { 21, 30, 26, 29, 21, 30, 26, 29 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::haste,             {
+		"haste",
+		{ 21, 30, 26, 29, 21, 30, 26, 29 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_haste,            TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_haste,             30,     12,
-		"",                     "You feel yourself slow down.", "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"heal",                 { 28, 21, 33, 30, 35, 21, 33, 30 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::heal,              {
+		"heal",
+		{ 28, 21, 33, 30, 35, 21, 33, 30 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_heal,             TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_heal,              50,     12,
-		"",                     "!Heal!",               "",     0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"heat metal",           { 25, 16, 60, 23, 20, 16, 41, 23 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::heat_metal,        {
+		"heat metal",
+		{ 25, 16, 60, 23, 20, 16, 41, 23 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_heat_metal,       TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_heat_metal,        25,     18,
-		"spell",                "!Heat Metal!",         "",     0,
+		25,     18,	"spell",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{   /* Spell for mega1.are from Glop/Erkenbrand. */
-		"high explosive",       { -1, -1, -1, -1, -1, -1, -1, -1 },
-		{ -1, -1, -1, -1, -1, -1, -1, -1 },
+	}},
+	{	skill::high_explosive,    {
+		"high explosive",
+		{ -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1 },		
 		spell_high_explosive,   TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_high_explosive,    5,      12,
-		"high explosive ammo",  "!High Explosive Ammo!",        "",     -1,
+		5,      12,	"high explosive ammo",  -1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"holy word",            { 60, 36, 60, 42, 60, 36, 60, 42 },
-		{  2,  2,  4,  4,  2,  2,  4,  4 },
+	}},
+	{	skill::holy_word,         {
+		"holy word",
+		{ 60, 36, 60, 42, 60, 36, 60, 42 }, {  2,  2,  4,  4,  2,  2,  4,  4 },		
 		spell_holy_word,        TAR_IGNORE,             POS_FIGHTING,
-		&gsn_holy_word,         200,    24,
-		"divine wrath",         "!Holy Word!",          "",     0,
+		200,    24,	"divine wrath",         0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"identify",             { 15, 16, 18, 58, 15, 16, 18, 58 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::identify,          {
+		"identify",
+		{ 15, 16, 18, 58, 15, 16, 18, 58 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_identify,         TAR_OBJ_HERE,            POS_STANDING,
-		&gsn_identify,          12,     12,
-		"",                     "!Identify!",           "",     0,
+		12,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"infravision",          {  9, 13, 10, 16,  9, 13, 10, 16 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::night_vision,       {
+		"infravision",
+		{  9, 13, 10, 16,  9, 13, 10, 16 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_infravision,      TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_night_vision,       5,      18,
-		"",                     "You no longer see in the dark.",       "",     0,
+		5,      18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"invisibility",         {  5, 12,  9, 60,  5, 12,  9, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::invis,             {
+		"invisibility",
+		{  5, 12,  9, 60,  5, 12,  9, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_invis,            TAR_OBJ_CHAR_DEF,       POS_STANDING,
-		&gsn_invis,             5,      12,
-		"",                     "You are no longer invisible.", "$p fades into view.",  0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"know alignment",       { 12,  9, 20, 59, 12,  9, 20, 59 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::know_alignment,    {
+		"know alignment",
+		{ 12,  9, 20, 59, 12,  9, 20, 59 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_know_alignment,   TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_know_alignment,    9,      12,
-		"",                     "!Know Alignment!",     "",     0,
+		9,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"light of truth",       { 30, 20, 45, 60, 31, 19, 42, 60 },
-		{  2,  1,  2,  3,  2,  1,  2,  3 },
+	}},
+	{	skill::light_of_truth,    {
+		"light of truth",
+		{ 30, 20, 45, 60, 31, 19, 42, 60 }, {  2,  1,  2,  3,  2,  1,  2,  3 },		
 		spell_light_of_truth,   TAR_OBJ_INV,            POS_STANDING,
-		&gsn_light_of_truth,    100,    12,
-		"",                     "!Light of Truth!",
-		"$p no longer shows you the world in the harsh light of truth.",        0,
+		100,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"lightning bolt",       { 13, 20, 18, 16, 13, 20, 18, 16 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::lightning_bolt,    {
+		"lightning bolt",
+		{ 13, 20, 18, 16, 13, 20, 18, 16 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_lightning_bolt,   TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_lightning_bolt,    8,      12,
-		"lightning bolt",       "!Lightning Bolt!",     "",     0,
+		8,      12,	"lightning bolt",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"lightning breath",     { 37, 40, 43, 46, 37, 40, 43, 46 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::lightning_breath,  {
+		"lightning breath",
+		{ 37, 40, 43, 46, 37, 40, 43, 46 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_lightning_breath, TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_lightning_breath,  65,     12,
-		"blast of lightning",   "!Lightning Breath!",   "",     0,
+		65,     12,	"blast of lightning",   0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"locate life",          {  9, 15, 11, 45,  9, 15, 11, 44 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::locate_life,       {
+		"locate life",
+		{  9, 15, 11, 45,  9, 15, 11, 44 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_locate_life,      TAR_IGNORE,             POS_STANDING,
-		&gsn_locate_life,       20,     18,
-		"",                     "!Locate Life!",        "",     0,
+		20,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"locate object",        {  9, 15, 11, 40,  9, 15, 11, 40 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::locate_object,     {
+		"locate object",
+		{  9, 15, 11, 40,  9, 15, 11, 40 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_locate_object,    TAR_IGNORE,             POS_STANDING,
-		&gsn_locate_object,     20,     18,
-		"",                     "!Locate Object!",      "",     0,
+		20,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{ /*mod vegita*/
-		"magic missile",        {  1,  3,  2,  2,  1,  3,  2,  2 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::magic_missile,     {
+		"magic missile",
+		{  1,  3,  2,  2,  1,  3,  2,  2 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_magic_missile,    TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_magic_missile,     5,      12,
-		"magic missile",        "!Magic Missile!",      "",     0,
+		5,      12,	"magic missile",        0,
 		{ 220, 220, 0, 0, 220, 220, 0, 0 },     { 440, 0, 0, 0, 440, 0, 0, 0 }
-	},
-	{
-		"mass healing",         { 38, 32, 60, 46, 60, 32, 60, 46 },
-		{  2,  2,  4,  4,  2,  2,  4,  4 },
+	}},
+	{	skill::mass_healing,      {
+		"mass healing",
+		{ 38, 32, 60, 46, 60, 32, 60, 46 }, {  2,  2,  4,  4,  2,  2,  4,  4 },		
 		spell_mass_healing,     TAR_IGNORE,             POS_STANDING,
-		&gsn_mass_healing,      100,    36,
-		"",                     "!Mass Healing!",       "",     0,
+		100,    36,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"mass invis",           { 22, 28, 31, 60, 22, 28, 31, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::mass_invis,        {
+		"mass invis",
+		{ 22, 28, 31, 60, 22, 28, 31, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_mass_invis,       TAR_IGNORE,             POS_STANDING,
-		&gsn_mass_invis,        20,     24,
-		"",                     "You are no longer invisible.", "",     0,
+		20,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"nexus",                { 40, 35, 50, 45, 40, 35, 50, 45 },
-		{  2,  2,  4,  4,  2,  2,  4,  4 },
+	}},
+	{	skill::nexus,             {
+		"nexus",
+		{ 40, 35, 50, 45, 40, 35, 50, 45 }, {  2,  2,  4,  4,  2,  2,  4,  4 },		
 		spell_nexus,            TAR_IGNORE,             POS_STANDING,
-		&gsn_nexus,             150,    36,
-		"",                     "!Nexus!",              "",     0,
+		150,    36,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"pass door",            { 24, 32, 25, 37, 24, 32, 25, 37 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::pass_door,         {
+		"pass door",
+		{ 24, 32, 25, 37, 24, 32, 25, 37 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_pass_door,        TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_pass_door,         20,     12,
-		"",                     "You feel solid again.",        "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"plague",               { 23, 17, 36, 26, 20, 17, 36, 26 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::plague,            {
+		"plague",
+		{ 23, 17, 36, 26, 20, 17, 36, 26 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_plague,           TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_plague,            20,     12,
-		"sickness",             "Your sores vanish.",   "",     0,
+		20,     12,	"sickness",             0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"poison",               { 17, 12, 15, 21,  7, 12, 15, 21 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::poison,            {
+		"poison",
+		{ 17, 12, 15, 21,  7, 12, 15, 21 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_poison,           TAR_OBJ_CHAR_OFF,       POS_FIGHTING,
-		&gsn_poison,            10,     12,
-		"poison",               "You feel less sick.",  "The poison on $p dries up.",   0,
+		10,     12,	"poison",               0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"power word",           { 70, 80, 85, 88, 68, 82, 83, 89 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::power_word,        {
+		"power word",
+		{ 70, 80, 85, 88, 68, 82, 83, 89 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_power_word,       TAR_CHAR_OFFENSIVE,     POS_STANDING,
-		&gsn_power_word,        50,     12,
-		"power word",           "!Power Word!",         "",     0,
+		50,     12,	"power word",           0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"polymorph",            { 82, 84, 88, 89, 83, 85, 87, 88 },
-		{  2,  2,  2,  2,  2,  2,  2,  2 },
+	}},
+	{	skill::polymorph,         {
+		"polymorph",
+		{ 82, 84, 88, 89, 83, 85, 87, 88 }, {  2,  2,  2,  2,  2,  2,  2,  2 },		
 		spell_polymorph,        TAR_IGNORE,             POS_STANDING,
-		&gsn_polymorph,         100,    18,
-		"",                     "!Polymorph!",          "",     0,
+		100,    18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"portal",               { 35, 30, 45, 40, 35, 30, 45, 40 },
-		{  2,  2,  4,  4,  2,  2,  4,  4 },
+	}},
+	{	skill::portal,            {
+		"portal",
+		{ 35, 30, 45, 40, 35, 30, 45, 40 }, {  2,  2,  4,  4,  2,  2,  4,  4 },		
 		spell_portal,           TAR_IGNORE,             POS_STANDING,
-		&gsn_portal,            100,    24,
-		"",                     "!Portal!",             "",     0,
+		100,    24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"protect container",    { 53, 51, 55, 57, 53, 51, 55, 57 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::protect_container, {
+		"protect container",
+		{ 53, 51, 55, 57, 53, 51, 55, 57 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_protect_container, TAR_OBJ_INV,            POS_STANDING,
-		&gsn_protect_container, 50,     18,
-		"",                     "!Protect Container!",  "",     0,
+		50,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"protection evil",      { 12,  9, 17, 11, 12,  9, 17, 11 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::protection_evil,   {
+		"protection evil",
+		{ 12,  9, 17, 11, 12,  9, 17, 11 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_protection_evil,  TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_protection_evil,   5,      12,
-		"",                     "You feel less protected from evil.",   "",     0,
+		5,      12,	"",                     0,
 		{ 0, 220, 0, 0, 0, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"protection good",      { 12,  9, 17, 11, 12,  9, 17, 11 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::protection_good,   {
+		"protection good",
+		{ 12,  9, 17, 11, 12,  9, 17, 11 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_protection_good,  TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_protection_good,   5,      12,
-		"",                     "You feel less protected from good.",   "",     0,
+		5,      12,	"",                     0,
 		{ 0, 220, 0, 0, 240, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"rayban",              { 35, 30, 60, 60, 38, 40, 60, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::rayban,            {
+		"rayban",
+		{ 35, 30, 60, 60, 38, 40, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_rayban,           TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_rayban,            5,      12,
-		"",                     "You blink as your eye protection fades.",   "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"ray of truth",         { 40, 35, 60, 47, 33, 35, 60, 47 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::ray_of_truth,      {
+		"ray of truth",
+		{ 40, 35, 60, 47, 33, 35, 60, 47 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_ray_of_truth,     TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_ray_of_truth,      18,     12,
-		"ray of truth",         "!Ray of Truth!",       "",     0,
+		18,     12,	"ray of truth",         0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"recharge",             {  9, 20, 60, 60,  9, 25, 60, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::recharge,          {
+		"recharge",
+		{  9, 20, 60, 60,  9, 25, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_recharge,         TAR_OBJ_INV,            POS_STANDING,
-		&gsn_recharge,          60,     24,
-		"",                     "!Recharge!",           "",     0,
+		60,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"refresh",              {  8,  5, 12,  9,  8,  5, 12,  9 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::refresh,           {
+		"refresh",
+		{  8,  5, 12,  9,  8,  5, 12,  9 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_refresh,          TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_refresh,           12,     18,
-		"refresh",              "!Refresh!",            "",     0,
+		12,     18,	"refresh",              0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"resurrect",            { 83, 82, 90, 90, 70, 81, 90, 90 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::resurrect,         {
+		"resurrect",
+		{ 83, 82, 90, 90, 70, 81, 90, 90 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_resurrect,        TAR_IGNORE,             POS_STANDING,
-		&gsn_resurrect,         100,    15,
-		"",                     "!Resurrect!",          "",     0,
+		100,    15,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"regeneration",         { 20, 25, 35, 40, 20, 25, 35, 40 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::regeneration,      {
+		"regeneration",
+		{ 20, 25, 35, 40, 20, 25, 35, 40 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_regeneration,     TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_regeneration,      20,     12,
-		"",                     "You no longer feel so vibrant.",       "",     0,
+		20,     12,	"",                     0,
 		{ 320, 220, 370, 400, 330, 310, 360, 280 },     { 0, 340, 0, 0, 0, 0, 0, 400 }
-	},
-	{
-		"remove alignment",     { 40, 23, 60, 60, 40, 23, 60, 60 },
-		{  4,  2,  4,  4,  4,  2,  4,  4 },
+	}},
+	{	skill::remove_alignment,  {
+		"remove alignment",
+		{ 40, 23, 60, 60, 40, 23, 60, 60 }, {  4,  2,  4,  4,  4,  2,  4,  4 },		
 		spell_remove_alignment, TAR_OBJ_INV,            POS_STANDING,
-		&gsn_remove_alignment,  75,     18,
-		"",                     "!Remove Alignment!",   "",     0,
+		75,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"remove invisibility",  { 30, 23, 60, 60, 30, 23, 60, 60 },
-		{  4,  2,  4,  4,  4,  2,  4,  4 },
+	}},
+	{	skill::remove_invis,      {
+		"remove invisibility",
+		{ 30, 23, 60, 60, 30, 23, 60, 60 }, {  4,  2,  4,  4,  4,  2,  4,  4 },		
 		spell_remove_invis,     TAR_OBJ_INV,            POS_STANDING,
-		&gsn_remove_invis,      40,     18,
-		"",                     "!Remove Invisibility!",        "",     0,
+		40,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"remove curse",         { 20, 18, 60, 22, 25, 18, 60, 22 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::remove_curse,      {
+		"remove curse",
+		{ 20, 18, 60, 22, 25, 18, 60, 22 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_remove_curse,     TAR_OBJ_CHAR_DEF,       POS_STANDING,
-		&gsn_remove_curse,      5,      12,
-		"",                     "!Remove Curse!",       "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"sanctuary",            { 25, 20, 42, 30, 32, 20, 42, 30 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::sanctuary,         {
+		"sanctuary",
+		{ 25, 20, 42, 30, 32, 20, 42, 30 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_sanctuary,        TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_sanctuary,         75,     12,
-		"sanctuary",            "The white aura around your body fades.",       "",     0,
+		75,     12,	"sanctuary",            0,
 		{ 400, 250, 0, 0, 0, 400, 0, 0 },       { 0, 500, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"scry",        { 30, 50, 60, 70, 40, 50, 50, 30 },
-		{ 1, 1, 2, 2, 1, 2, 1, 1},
+	}},
+	{	skill::scry, {
+		"scry",
+		{ 30, 50, 60, 70, 40, 50, 50, 30 }, { 1, 1, 2, 2, 1, 2, 1, 1},		
 		spell_scry,  TAR_IGNORE,  POS_RESTING,
-		&gsn_scry, 30, 20,
-		"", "", "", 0,
+		30, 20,	"", 0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0}
-	},
-	{
-		"shield",               { 20, 35, 35, 40, 20, 35, 35, 40 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::shield,            {
+		"shield",
+		{ 20, 35, 35, 40, 20, 35, 35, 40 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_shield,           TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_shield,            12,     12,
-		"",                     "Your force shield shimmers then fades away.",  "",     0,
+		12,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"shock blade",          { 30, 58, 60, 78, 35, 54, 63, 70 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::shock_blade,       {
+		"shock blade",
+		{ 30, 58, 60, 78, 35, 54, 63, 70 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_shock_blade,      TAR_OBJ_INV,            POS_STANDING,
-		&gsn_shock_blade,       100,    12,
-		"",                     "!Flame Blade!",        "$p's energy fizzles out.",     0,
+		100,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"shocking grasp",       { 10, 15, 14, 13, 10, 15, 14, 13 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::shocking_grasp,    {
+		"shocking grasp",
+		{ 10, 15, 14, 13, 10, 15, 14, 13 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_shocking_grasp,   TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_shocking_grasp,    7,      12,
-		"shocking grasp",       "!Shocking Grasp!",     "",     0,
+		7,      12,	"shocking grasp",       0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"shrink",               { 22, 35, 60, 60, 22, 40, 60, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::shrink,            {
+		"shrink",
+		{ 22, 35, 60, 60, 22, 40, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_shrink,           TAR_OBJ_INV,            POS_STANDING,
-		&gsn_shrink,            100,    12,
-		"",                     "!Shrink!",             "",     0,
+		100,    12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"sleep",                { 10, 31, 11, 60, 10, 31, 11, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::sleep,             {
+		"sleep",
+		{ 10, 31, 11, 60, 10, 31, 11, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_sleep,            TAR_CHAR_OFFENSIVE,     POS_STANDING,
-		&gsn_sleep,             15,     12,
-		"",                     "You feel less tired.", "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"slow",                 { 23, 30, 29, 32, 23, 30, 29, 32 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::slow,              {
+		"slow",
+		{ 23, 30, 29, 32, 23, 30, 29, 32 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_slow,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_slow,              30,     12,
-		"",                     "You feel yourself speed up.",  "",     0,
+		30,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"smokescreen",          { 21, 28, 23, 33, 21, 28, 23, 33 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::smokescreen,       {
+		"smokescreen",
+		{ 21, 28, 23, 33, 21, 28, 23, 33 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_smokescreen,      TAR_IGNORE,             POS_STANDING,
-		&gsn_smokescreen,       25,     12,
-		"",                     "Smoke no longer clouds your vision.",  "",     0,
+		25,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"starve",               { 30, 25, 40, 45, 22, 52, 40, 26 },
-		{ 1, 1, 2, 2, 1, 2, 2, 1 },
+	}},
+	{	skill::starve,            {
+		"starve",
+		{ 30, 25, 40, 45, 22, 52, 40, 26 }, { 1, 1, 2, 2, 1, 2, 2, 1 },		
 		spell_starve,           TAR_CHAR_OFFENSIVE,         POS_STANDING,
-		&gsn_starve,            10,    8,
-		"",                     "", "", 0,
+		10,    8,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"steel mist",           { 17, 12, 20, 15, 17, 12, 20, 15 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::steel_mist,        {
+		"steel mist",
+		{ 17, 12, 20, 15, 17, 12, 20, 15 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_steel_mist,       TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_steel_mist,        35,     12,
-		"",                     "The steel mist fades from your armor.",        "",     0,
+		35,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"stone skin",           { 25, 40, 40, 45, 25, 40, 40, 45 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::stone_skin,        {
+		"stone skin",
+		{ 25, 40, 40, 45, 25, 40, 40, 45 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_stone_skin,       TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_stone_skin,        12,     12,
-		"",                     "Your skin feels soft again.",  "",     0,
+		12,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"summon",               { 23, 15, 29, 22, 23, 15, 29, 22 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::summon,            {
+		"summon",
+		{ 23, 15, 29, 22, 23, 15, 29, 22 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_summon,           TAR_IGNORE,             POS_STANDING,
-		&gsn_summon,            50,     12,
-		"",                     "!Summon!",     "",     0,
+		50,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"summon object",        { 74, 72, 89, 82, 74, 78, 89, 82 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::summon_object,     {
+		"summon object",
+		{ 74, 72, 89, 82, 74, 78, 89, 82 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_summon_object,    TAR_IGNORE,             POS_STANDING,
-		&gsn_summon_object,     65,     12,
-		"",                     "!Summon Object!",      "",     0,
+		65,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"sunray",               { 79, 70, 82, 84, 79, 75, 80, 83 },
-		{  2,  2,  2,  2,  2,  2 , 2,  2 },
+	}},
+	{	skill::sunray,            {
+		"sunray",
+		{ 79, 70, 82, 84, 79, 75, 80, 83 }, {  2,  2,  2,  2,  2,  2 , 2,  2 },		
 		spell_sunray,           TAR_CHAR_OFFENSIVE,    POS_FIGHTING,
-		&gsn_sunray,            40, 12,
-		"sunray",               "!Sunray!",             "",     0,
+		40, 12,	"sunray",               0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },    { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"talon",                { 53, 51, 55, 57, 53, 51, 55, 57 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::talon,             {
+		"talon",
+		{ 53, 51, 55, 57, 53, 51, 55, 57 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_talon,            TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_talon,             25,     12,
-		"",                     "You no longer hold your weapon so tightly.",   "",     0,
+		25,     12,	"",                     0,
 		{ 250, 400, 0, 0, 400, 0, 0, 0 },       { 500, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"teleport",             { 13, 22, 25, 36, 13, 22, 25, 36 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::teleport,          {
+		"teleport",
+		{ 13, 22, 25, 36, 13, 22, 25, 36 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_teleport,         TAR_CHAR_SELF,          POS_FIGHTING,
-		&gsn_teleport,          35,     12,
-		"",                     "!Teleport!",           "",     0,
+		35,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"teleport object",      { 52, 53, 55, 56, 52, 53, 55, 56 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::teleport_object,   {
+		"teleport object",
+		{ 52, 53, 55, 56, 52, 53, 55, 56 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_teleport_object,  TAR_IGNORE,             POS_STANDING,
-		&gsn_teleport_object,   25,     18,
-		"",                     "!Teleport Object!",    "",     0,
+		25,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"undo spell",           { 38, 40, 45, 45, 38, 38, 45, 45 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::undo_spell,        {
+		"undo spell",
+		{ 38, 40, 45, 45, 38, 38, 45, 45 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_undo_spell,       TAR_IGNORE,             POS_FIGHTING,
-		&gsn_undo_spell,        15,     18,
-		"",                     "!Undo Spell!",         "",     0,
+		15,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"ventriloquate",        {  1, 60,  2, 60,  1, 60,  2, 60 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::ventriloquate,     {
+		"ventriloquate",
+		{  1, 60,  2, 60,  1, 60,  2, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_ventriloquate,    TAR_IGNORE,             POS_STANDING,
-		&gsn_ventriloquate,     5,      12,
-		"",                     "!Ventriloquate!",      "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"vision",               { 29, 37, 62, 58, 29, 37, 62, 48 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::vision,            {
+		"vision",
+		{ 29, 37, 62, 58, 29, 37, 62, 48 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_vision,           TAR_IGNORE,             POS_FIGHTING,
-		&gsn_vision,            80,     12,
-		"",                     "!Vision!",             "",     0,
+		80,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"weaken",               { 11, 14, 16, 17, 11, 14, 16, 17 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::weaken,            {
+		"weaken",
+		{ 11, 14, 16, 17, 11, 14, 16, 17 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_weaken,           TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_weaken,            20,     12,
-		"spell",                "You feel stronger.",   "",     0,
+		20,     12,	"spell",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"word of recall",       { 32, 28, 40, 30, 32, 28, 40, 30 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	}},
+	{	skill::word_of_recall,    {
+		"word of recall",
+		{ 32, 28, 40, 30, 32, 28, 40, 30 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_word_of_recall,   TAR_CHAR_SELF,          POS_RESTING,
-		&gsn_word_of_recall,    5,      12,
-		"",                     "!Word of Recall!",     "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"wrath",                { 85, 86, 87, 88, 85, 86, 87, 88 },
-		{  2,  2,  2,  2,  2,  2,  2,  2 },
+	}},
+	{	skill::wrath,             {
+		"wrath",
+		{ 85, 86, 87, 88, 85, 86, 87, 88 }, {  2,  2,  2,  2,  2,  2,  2,  2 },		
 		spell_wrath,            TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_wrath,             30,     12,
-		"wrath",                "!Wrath!",              "",     0,
+		30,     12,	"wrath",                0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* combat and weapons skills */
 
-	{
-		"axe",                  {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  6,  6,  5,  4,  6,  5,  5,  4 },
+	{	skill::axe,               {
+		"axe",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  6,  6,  5,  4,  6,  5,  5,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_axe,               0,      0,
-		"",                     "!Axe!",                "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dagger",               {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  3,  2,  2,  2,  3,  2,  2 },
+	}},
+	{	skill::dagger,            {
+		"dagger",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  3,  2,  2,  2,  3,  2,  2 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_dagger,            0,      0,
-		"",                     "!Dagger!",             "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"flail",                {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  6,  3,  6,  4,  6,  4,  6,  4 },
+	}},
+	{	skill::flail,             {
+		"flail",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  6,  3,  6,  4,  6,  4,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_flail,             0,      0,
-		"",                     "!Flail!",              "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"mace",                 {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  5,  2,  3,  3,  5,  2,  3,  3 },
+	}},
+	{	skill::mace,              {
+		"mace",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  5,  2,  3,  3,  5,  2,  3,  3 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_mace,              0,      0,
-		"",                     "!Mace!",               "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"polearm",              {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  6,  6,  6,  4,  6,  5,  6,  4 },
+	}},
+	{	skill::polearm,           {
+		"polearm",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  6,  6,  6,  4,  6,  5,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_polearm,           0,      0,
-		"",                     "!Polearm!",            "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"spear",                {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  4,  4,  4,  3,  4,  4,  4,  3 },
+	}},
+	{	skill::spear,             {
+		"spear",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  4,  4,  4,  3,  4,  4,  4,  3 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_spear,             0,      0,
-		"",                     "!Spear!",              "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"sword",                {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  5,  6,  3,  2,  5,  2,  3,  2 },
+	}},
+	{	skill::sword,             {
+		"sword",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  5,  6,  3,  2,  5,  2,  3,  2 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_sword,             0,      0,
-		"",                     "!Sword!",              "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"whip",                 {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  6,  5,  5,  4,  6,  5,  5,  4 },
+	}},
+	{	skill::whip,              {
+		"whip",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  6,  5,  5,  4,  6,  5,  5,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_whip,              0,      0,
-		"",                     "!Whip!",               "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"archery",                     { 61, 41, 35, 5, 61, 25, 1, 1 },
-		{ 6, 5, 5, 4, 6, 5, 5, 4 },
+	}},
+	{	skill::archery,                  {
+		"archery",
+		{ 61, 41, 35, 5, 61, 25, 1, 1 }, { 6, 5, 5, 4, 6, 5, 5, 4 },		
 		spell_null,                TAR_IGNORE,            POS_STANDING,
-		&gsn_archery,                  0,      0,
-		"",                        "!Bow!",               "",     0,
+		0,      0,	"",                        0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },       { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"shield block",         {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  6,  4,  6,  2,  6,  3,  6,  2 },
+	}},
+	{	skill::shield_block,      {
+		"shield block",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  6,  4,  6,  2,  6,  3,  6,  2 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_shield_block,      0,      0,
-		"",                     "!Shield!",             "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"brew",                 {  1,  1, 60, 60,  1, 40, 60, 60 },
-		{  3,  3, 15, 15,  3, 10, 15, 15 },
+	}},
+	{	skill::brew,              {
+		"brew",
+		{  1,  1, 60, 60,  1, 40, 60, 60 }, {  3,  3, 15, 15,  3, 10, 15, 15 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_brew,              15,     24,
-		"",                     "!Brew!",               "",     0,
+		15,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"scribe",               {  1,  1, 60, 60,  1, 40, 60, 60 },
-		{  3,  3, 15, 15,  3, 10, 15, 15 },
+	}},
+	{	skill::scribe,            {
+		"scribe",
+		{  1,  1, 60, 60,  1, 40, 60, 60 }, {  3,  3, 15, 15,  3, 10, 15, 15 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_scribe,            15,     24,
-		"",                     "!Scribe!",             "",     0,
+		15,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"backstab",             { 60, 60,  1, 63, 56, 70,  5, 63 },
-		{ 22, 24,  5, 20, 22, 25,  5, 20 },
+	}},
+	{	skill::backstab,          {
+		"backstab",
+		{ 60, 60,  1, 63, 56, 70,  5, 63 }, { 22, 24,  5, 20, 22, 25,  5, 20 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_STANDING,
-		&gsn_backstab,          30,     24,
-		"backstab",             "!Backstab!",           "",     0,
+		30,     24,	"backstab",             0,
 		{ 0, 0, 200, 0, 0, 0, 275, 0 },     { 0, 0, 425, 0, 0, 0, 475, 0 }
-	},
-	{
-		"bash",                 { 65, 58, 60,  1, 65, 15, 60,  1 },
-		{  8,  6,  5,  4,  8,  5,  5,  4 },
+	}},
+	{	skill::bash,              {
+		"bash",
+		{ 65, 58, 60,  1, 65, 15, 60,  1 }, {  8,  6,  5,  4,  8,  5,  5,  4 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-		&gsn_bash,              15,     24,
-		"bash",                 "!Bash!",               "",     0,
+		15,     24,	"bash",                 0,
 		{ 0, 0, 0, 200, 0, 0, 0, 0 },   { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"berserk",              { 60, 60, 60, 18, 60, 27, 60, 18 },
-		{ 14, 13, 10,  5, 14,  8, 10,  5 },
+	}},
+	{	skill::berserk,           {
+		"berserk",
+		{ 60, 60, 60, 18, 60, 27, 60, 18 }, { 14, 13, 10,  5, 14,  8, 10,  5 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_berserk,           30,     24,
-		"",                     "You feel your pulse slow down.",       "",     0,
+		30,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"circle",               { 66, 66, 31, 66, 66, 68, 40, 66 },
-		{ 22, 24,  6, 20, 22, 24, 10, 20 },
+	}},
+	{	skill::circle,            {
+		"circle",
+		{ 66, 66, 31, 66, 66, 68, 40, 66 }, { 22, 24,  6, 20, 22, 24, 10, 20 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-		&gsn_circle,            20,     36,
-		"circle",               "!Circle!",             "",     0,
+		20,     36,	"circle",               0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"crush",                { -1, -1, -1, -1, -1, -1, -1, -1 },
-		{ -1, -1, -1, -1, -1, -1, -1, -1 },
+	}},
+	{	skill::crush,             {
+		"crush",
+		{ -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_crush,             15,     12,
-		"crushing blow",        "!Crushing Blow!",      "",     -1,
+		15,     12,	"crushing blow",        -1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dirt kicking",         { 60, 60,  3,  3, 60, 14,  3,  3 },
-		{  6,  6,  4,  4,  6,  5,  4,  4 },
+	}},
+	{	skill::dirt_kicking,      {
+		"dirt kicking",
+		{ 60, 60,  3,  3, 60, 14,  3,  3 }, {  6,  6,  4,  4,  6,  5,  4,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_dirt_kicking,      10,     24,
-		"kicked dirt",          "You rub the dirt out of your eyes.",   "",     0,
+		10,     24,	"kicked dirt",          0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"disarm",               { 60, 60, 12, 11, 60, 27, 12, 11 },
-		{  8,  8,  6,  4,  8,  7,  6,  4 },
+	}},
+	{	skill::disarm,            {
+		"disarm",
+		{ 60, 60, 12, 11, 60, 27, 12, 11 }, {  8,  8,  6,  4,  8,  7,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_disarm,            15,     24,
-		"",                     "!Disarm!",             "",     0,
+		15,     24,	"",                     0,
 		{0, 0, 500, 350, 0, 500, 0, 500 },      { 0, 0, 0, 700, 0, 0, 0, 0 }
-	},
-	{
-		"dodge",                { 20, 22,  1, 13, 20, 13,  1, 13 },
-		{  8,  8,  4,  6,  8,  6,  4,  6 },
+	}},
+	{	skill::dodge,             {
+		"dodge",
+		{ 20, 22,  1, 13, 20, 13,  1, 13 }, {  8,  8,  4,  6,  8,  6,  4,  6 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_dodge,             0,      0,
-		"",                     "!Dodge!",              "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"enhanced damage",      { 45, 30, 25,  1, 45, 15, 25,  1 },
-		{ 20, 20,  5,  3, 20,  4,  5,  3 },
+	}},
+	{	skill::enhanced_damage,   {
+		"enhanced damage",
+		{ 45, 30, 25,  1, 45, 15, 25,  1 }, { 20, 20,  5,  3, 20,  4,  5,  3 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_enhanced_damage,   0,      0,
-		"",                     "!Enhanced Damage!",    "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"envenom",              { 55, 55, 10, 60, 50, 60, 10, 60 },
-		{ 10, 10,  4,  8, 10, 12,  4,  8 },
+	}},
+	{	skill::envenom,           {
+		"envenom",
+		{ 55, 55, 10, 60, 50, 60, 10, 60 }, { 10, 10,  4,  8, 10, 12,  4,  8 },		
 		spell_null,             TAR_IGNORE,             POS_RESTING,
-		&gsn_envenom,           10,     36,
-		"",                     "!Envenom!",            "",     0,
+		10,     36,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"hand to hand",         { 25, 10, 15,  6, 25,  6, 15,  6 },
-		{  8,  5,  6,  4,  8,  5,  6,  4 },
+	}},
+	{	skill::hand_to_hand,      {
+		"hand to hand",
+		{ 25, 10, 15,  6, 25,  6, 15,  6 }, {  8,  5,  6,  4,  8,  5,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_hand_to_hand,      0,      0,
-		"",                     "!Hand to Hand!",       "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"kick",                 { 48, 12, 14,  8, 48, 10, 14,  8 },
-		{  8,  4,  6,  3,  8,  4,  6,  3 },
+	}},
+	{	skill::kick,              {
+		"kick",
+		{ 48, 12, 14,  8, 48, 10, 14,  8 }, {  8,  4,  6,  3,  8,  4,  6,  3 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_kick,              15,     12,
-		"kick",                 "!Kick!",               "",     0,
+		15,     12,	"kick",                 0,
 		{ 0, 0, 300, 250, 0, 300, 0, 250 },     { 0, 0, 0, 425, 0, 0, 0, 425 }
-	},
+	}},
 	/*wchange added for evo 2+ kick's second hit*/
-	{
-		"roundhouse",                 { 0, 0, 0,  0, 0, 0, 0,  0 },
-		{  0,  0,  0,  0,  0,  0,  0,  0 },
+	{	skill::roundhouse,         {
+		"roundhouse",
+		{ 0, 0, 0,  0, 0, 0, 0,  0 }, {  0,  0,  0,  0,  0,  0,  0,  0 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_roundhouse,         15,     12,
-		"roundhouse",                 "!Roundhouse!",               "",     0,
+		15,     12,	"roundhouse",                 0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 	/* wchange evo 3 kick's foot sweep*/
-	{
-		"footsweep",                 { 0, 0, 0,  0, 0, 0, 0,  0 },
-		{  0,  0,  0,  0,  0,  0,  0,  0 },
+	{	skill::footsweep,         {
+		"footsweep",
+		{ 0, 0, 0,  0, 0, 0, 0,  0 }, {  0,  0,  0,  0,  0,  0,  0,  0 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_footsweep,         15,     12,
-		"footsweep",                 "!FootSweep!",               "",     0,
+		15,     12,	"footsweep",                 0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
-	{
-		"parry",                { 22, 20, 13,  1, 22, 10, 13,  1 },
-		{  8,  8,  6,  4,  8,  5,  6,  4 },
+	{	skill::parry,             {
+		"parry",
+		{ 22, 20, 13,  1, 22, 10, 13,  1 }, {  8,  8,  6,  4,  8,  5,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_parry,             0,      0,
-		"",                     "!Parry!",              "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"rescue",               { 60, 60, 60,  1, 60,  1, 60,  1 },
-		{  8,  7,  6,  4,  8,  2,  6,  4 },
+	}},
+	{	skill::rescue,            {
+		"rescue",
+		{ 60, 60, 60,  1, 60,  1, 60,  1 }, {  8,  7,  6,  4,  8,  2,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_rescue,            5,      12,
-		"",                     "!Rescue!",             "",     0,
+		5,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"trip",                 { 60, 60,  1, 15, 60, 60,  1, 15 },
-		{ 10, 10,  4,  8, 10, 10,  4,  8 },
+	}},
+	{	skill::trip,              {
+		"trip",
+		{ 60, 60,  1, 15, 60, 60,  1, 15 }, { 10, 10,  4,  8, 10, 10,  4,  8 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-		&gsn_trip,              15,     24,
-		"trip",                 "!Trip!",               "",     0,
+		15,     24,	"trip",                 0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"second attack",        { 30, 24, 12,  5, 30, 12, 12,  5 },
-		{ 10,  8,  5,  3, 10,  5,  5,  3 },
+	}},
+	{	skill::second_attack,     {
+		"second attack",
+		{ 30, 24, 12,  5, 30, 12, 12,  5 }, { 10,  8,  5,  3, 10,  5,  5,  3 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_second_attack,     0,      0,
-		"",                     "!Second Attack!",      "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"third attack",         { 60, 60, 24, 12, 60, 25, 24, 12 },
-		{ 14, 12, 10,  4, 14,  8, 10,  4 },
+	}},
+	{	skill::third_attack,      {
+		"third attack",
+		{ 60, 60, 24, 12, 60, 25, 24, 12 }, { 14, 12, 10,  4, 14,  8, 10,  4 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_third_attack,      0,      0,
-		"",                     "!Third Attack!",       "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dual wield",           { 53, 53, 24, 12, 53, 14,  1, 12 },
-		{ 15, 13, 11,  5, 15,  6, 11,  5 },
+	}},
+	{	skill::dual_wield,        {
+		"dual wield",
+		{ 53, 53, 24, 12, 53, 14,  1, 12 }, { 15, 13, 11,  5, 15,  6, 11,  5 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_dual_wield,        0,      0,
-		"",                     "!Dual Wield!",         "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 550, 470, 0, 510, 280, 300 },   { 0, 0, 0, 0, 0, 0, 550, 600 }
-	},
-	{
-		"hunt",                 { 53, 53, 15, 20, 53, 50, 17,  3 },
-		{  8,  8,  4,  4,  8,  8,  4,  4 },
+	}},
+	{	skill::hunt,              {
+		"hunt",
+		{ 53, 53, 15, 20, 53, 50, 17,  3 }, {  8,  8,  4,  4,  8,  8,  4,  4 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_hunt,              20,     12,
-		"",                     "!Hunt!",               "",     0,
+		20,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"unarmed",    { 45, 20, 18, 2, 45, 6, 8, 18 },
-		{ 2, 2, 1, 1, 2, 1, 1, 1 },
+	}},
+	{	skill::unarmed,  {
+		"unarmed",
+		{ 45, 20, 18, 2, 45, 6, 8, 18 }, { 2, 2, 1, 1, 2, 1, 1, 1 },		
 		spell_null,  TAR_IGNORE, POS_FIGHTING,
-		&gsn_unarmed,  0, 0,
-		"smash",   "!Unarmed!", "", 0,
+		0, 0,	"smash",   0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0},   { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* non-combat skills */
 
-	{
-		"swimming",             {  8,  8,  8,  8,  8,  8,  8,  8 },
-		{  1,  1,  2,  2,  1,  1,  2,  2 },
+	{	skill::swimming,          {
+		"swimming",
+		{  8,  8,  8,  8,  8,  8,  8,  8 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_swimming,          0,      0,
-		"swimming",             "!Swimming!",           "",     0,
+		0,      0,	"swimming",             0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fast healing",         { 15,  9, 16,  6, 15,  4, 16,  6 },
-		{  8,  5,  6,  4,  8,  3,  6,  4 },
+	}},
+	{	skill::fast_healing,      {
+		"fast healing",
+		{ 15,  9, 16,  6, 15,  4, 16,  6 }, {  8,  5,  6,  4,  8,  3,  6,  4 },		
 		spell_null,             TAR_IGNORE,             POS_SLEEPING,
-		&gsn_fast_healing,      0,      0,
-		"",                     "!Fast Healing!",       "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 520, 280, 0, 500, 510, 480 },   { 0, 0, 0, 560, 0, 0, 0, 0 }
-	},
-	{
-		"firebuilding",         {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  2,  1,  1,  2,  1,  1,  1 },
+	}},
+	{	skill::firebuilding,      {
+		"firebuilding",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  2,  1,  1,  2,  1,  1,  1 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_firebuilding,      5,      24,
-		"",                     "!Firebuilding!",       "",     0,
+		5,      24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"forge",                { 20, 20, 15, 16, 26, 16, 10, 15 },
-		{ 16, 12,  2,  3, 16,  3,  1,  3 },
+	}},
+	{	skill::forge,             {
+		"forge",
+		{ 20, 20, 15, 16, 26, 16, 10, 15 }, { 16, 12,  2,  3, 16,  3,  1,  3 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_forge,             20,     24,
-		"",                     "!Forge!",              "",     0,
+		20,     24,	"",                     0,
 		{ 0, 0, 0, 300, 0, 0, 300, 300 },       { 0, 0, 0, 400, 0, 0, 0, 0 }
-	},
-	{
-		"repair",               { 25, 30,  5, 10, 35, 20,  5, 12 },
-		{  2,  2,  1,  1,  2,  2,  1,  1 },
+	}},
+	{	skill::repair,            {
+		"repair",
+		{ 25, 30,  5, 10, 35, 20,  5, 12 }, {  2,  2,  1,  1,  2,  2,  1,  1 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_repair,            15,     24,
-		"",                     "!Repair!",             "",     0,
+		15,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"rotate",               {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  2,  1,  1,  2,  1,  1,  1 },
+	}},
+	{	skill::rotate,            {
+		"rotate",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  2,  1,  1,  2,  1,  1,  1 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_rotate,            5,      24,
-		"",                     "!Rotate!",             "",     0,
+		5,      24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"languages",            {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  1,  1,  2,  2,  1,  2,  2,  2 },
+	}},
+	{	skill::languages,         {
+		"languages",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  1,  1,  2,  2,  1,  2,  2,  2 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_languages,         0,      24,
-		"",                     "!Languages!",          "",     0,
+		0,      24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"haggle",               {  7, 18,  1, 14,  7, 18,  1, 14 },
-		{  5,  8,  3,  6,  5,  8,  3,  6 },
+	}},
+	{	skill::haggle,            {
+		"haggle",
+		{  7, 18,  1, 14,  7, 18,  1, 14 }, {  5,  8,  3,  6,  5,  8,  3,  6 },		
 		spell_null,             TAR_IGNORE,             POS_RESTING,
-		&gsn_haggle,            0,      0,
-		"",                     "!Haggle!",             "",     0,
+		0,      0,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"hide",                 { 60, 60,  1, 12, 60, 60,  1, 12 },
-		{ 10,  8,  4,  6, 10,  8,  4,  6 },
+	}},
+	{	skill::hide,              {
+		"hide",
+		{ 60, 60,  1, 12, 60, 60,  1, 12 }, { 10,  8,  4,  6, 10,  8,  4,  6 },		
 		spell_null,             TAR_IGNORE,             POS_RESTING,
-		&gsn_hide,              15,     12,
-		"",                     "You are no longer hidden.",    "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"lore",                 { 10, 10,  6, 20, 10, 20,  6, 20 },
-		{  6,  6,  4,  8,  6,  8,  4,  8 },
+	}},
+	{	skill::lore,              {
+		"lore",
+		{ 10, 10,  6, 20, 10, 20,  6, 20 }, {  6,  6,  4,  8,  6,  8,  4,  8 },		
 		spell_null,             TAR_IGNORE,             POS_RESTING,
-		&gsn_lore,              5,      36,
-		"",                     "!Lore!",               "",     0,
+		5,      36,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"meditation",           {  6,  6, 15, 15,  6,  6, 15, 15 },
-		{  5,  5,  8,  8,  5,  5,  8,  8 },
+	}},
+	{	skill::meditation,        {
+		"meditation",
+		{  6,  6, 15, 15,  6,  6, 15, 15 }, {  5,  5,  8,  8,  5,  5,  8,  8 },		
 		spell_null,             TAR_IGNORE,             POS_SLEEPING,
-		&gsn_meditation,        0,      0,
-		"",                     "Meditation",           "",     0,
+		0,      0,	"",                     0,
 		{ 440, 300, 0, 0, 460, 480, 0, 0 },     { 0, 600, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"peek",                 {  8, 21,  1, 14,  8, 21,  1, 14 },
-		{  8,  7,  3,  6,  8,  7,  3,  6 },
+	}},
+	{	skill::peek,              {
+		"peek",
+		{  8, 21,  1, 14,  8, 21,  1, 14 }, {  8,  7,  3,  6,  8,  7,  3,  6 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_peek,              5,      0,
-		"",                     "!Peek!",               "",     0,
+		5,      0,	"",                     0,
 		{ 0, 0, 320, 0, 0, 0, 480, 0 }, { 0, 0, 580, 0, 0, 0, 0, 0 }
-	},
-	{
-		"pick lock",            { 25, 25,  7, 25, 25, 30,  7, 25 },
-		{  8,  8,  4,  8,  8,  9,  4,  8 },
+	}},
+	{	skill::pick_lock,         {
+		"pick lock",
+		{ 25, 25,  7, 25, 25, 30,  7, 25 }, {  8,  8,  4,  8,  8,  9,  4,  8 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_pick_lock,         15,     12,
-		"",                     "!Pick Lock!",          "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"scan",                 {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  1,  1,  1,  1,  1,  1,  1,  1 },
+	}},
+	{	skill::scan,              {
+		"scan",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  1,  1,  1,  1,  1,  1,  1,  1 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_scan,              0,      12,
-		"",                     "!Scan!",               "",     0,
+		0,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"sneak",                { 60, 60,  4, 10, 60, 60,  4, 10 },
-		{ 10,  8,  4,  6, 10,  8,  4,  6 },
+	}},
+	{	skill::sneak,             {
+		"sneak",
+		{ 60, 60,  4, 10, 60, 60,  4, 10 }, { 10,  8,  4,  6, 10,  8,  4,  6 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_sneak,             15,     12,
-		"",                     "You no longer feel stealthy.", "",     0,
+		15,     12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"steal",                { 60, 60,  5, 60, 60, 60,  5, 60 },
-		{ 10,  9,  4,  8, 10, 15,  4,  8 },
+	}},
+	{	skill::steal,             {
+		"steal",
+		{ 60, 60,  5, 60, 60, 60,  5, 60 }, { 10,  9,  4,  8, 10, 15,  4,  8 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_steal,             10,     24,
-		"",                     "!Steal!",              "",     0,
+		10,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"sing",                 { 60, 60, 60, 60, 60, 60, 12, 60 },
-		{  6,  6,  4,  6,  7,  6,  2,  5 },
+	}},
+	{	skill::sing,              {
+		"sing",
+		{ 60, 60, 60, 60, 60, 60, 12, 60 }, {  6,  6,  4,  6,  7,  6,  2,  5 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_sing,              15,     24,
-		"",                     "!Sing!",               "",     0,
+		15,     24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"scrolls",              {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  3,  5,  8,  2,  4,  5,  8 },
+	}},
+	{	skill::scrolls,           {
+		"scrolls",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  3,  5,  8,  2,  4,  5,  8 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_scrolls,           10,     18,
-		"",                     "!Scrolls!",            "",     0,
+		10,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"spousegate",           { 19, 16, 20, 18, 25, 13, 16, 14 },
-		{ 2, 2, 3, 3, 4, 2, 2, 1 },
+	}},
+	{	skill::spousegate,        {
+		"spousegate",
+		{ 19, 16, 20, 18, 25, 13, 16, 14 }, { 2, 2, 3, 3, 4, 2, 2, 1 },		
 		spell_null,             TAR_IGNORE, POS_STANDING,
-		&gsn_spousegate,        25, 12,
-		"",                     "!SpouseGate!",        "", 0,
+		25, 12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"staves",               {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  3,  5,  8,  2,  5,  5,  8 },
+	}},
+	{	skill::staves,            {
+		"staves",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  3,  5,  8,  2,  5,  5,  8 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_staves,            10,     18,
-		"",                     "!Staves!",             "",     0,
+		10,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"wands",                {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  3,  5,  8,  2,  5,  5,  8 },
+	}},
+	{	skill::wands,             {
+		"wands",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  3,  5,  8,  2,  5,  5,  8 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_wands,             10,     18,
-		"",                     "!Wands!",              "",     0,
+		10,     18,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"recall",               {  1,  1,  1,  1,  1,  1,  1,  1 },
-		{  2,  2,  2,  2,  2,  2,  2,  2 },
+	}},
+	{	skill::recall,            {
+		"recall",
+		{  1,  1,  1,  1,  1,  1,  1,  1 }, {  2,  2,  2,  2,  2,  2,  2,  2 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_recall,            0,      12,
-		"",                     "!Recall!",             "",     0,
+		0,      12,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"lay",                  { 92, 92, 92, 92, 92, 10, 92, 92 },
-		{ 2, 1, 2, 2, 2, 1, 2, 2},
+	}},
+	{	skill::lay_on_hands,      {
+		"lay",
+		{ 92, 92, 92, 92, 92, 10, 92, 92 }, { 2, 1, 2, 2, 2, 1, 2, 2},		
 		spell_null,             TAR_IGNORE,             POS_RESTING,
-		&gsn_lay_on_hands,      0,      24,
-		"",                     "",                             "", 0,
+		0,      24,	"",                     0,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"familiar",        { 25, 35, 45, 45, 35, 35, 35, 25 },
-		{ 1, 1, 1, 1, 1, 1, 1, 1},
+	}},
+	{	skill::familiar, {
+		"familiar",
+		{ 25, 35, 45, 45, 35, 35, 35, 25 }, { 1, 1, 1, 1, 1, 1, 1, 1},		
 		spell_null, TAR_IGNORE, POS_RESTING,
-		&gsn_familiar, 0, 20,
-		"", "", "", 0,
+		0, 20,	"", 0,
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
-	},
-	{
-		"die hard",        { 22, 16, 16, 10, 21, 12, 16, 14 },
-		{ 2, 1, 2, 1, 2, 1, 2, 1 },
+	}},
+	{	skill::die_hard, {
+		"die hard",
+		{ 22, 16, 16, 10, 21, 12, 16, 14 }, { 2, 1, 2, 1, 2, 1, 2, 1 },		
 		spell_null, TAR_IGNORE, POS_DEAD,
-		&gsn_die_hard, 0, 4,
-		"", "", "", 0,
+		0, 4,	"", 0,
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
-	},
+	}},
 
 	/* Remort spells and skills, originally by Elrac */
 	/* Subdivided by Class */
@@ -2449,251 +2244,223 @@ const std::vector<skill_type> skill_table = {
 
 	/* Mages */
 
-	{
-		"sheen",                { 10, 30, 50, 50, 20, 40, 50, 50 },
-		{ 40, 55, 70, 70, 50, 60, 70, 70 },
+	{	skill::sheen,             {
+		"sheen",
+		{ 10, 30, 50, 50, 20, 40, 50, 50 }, { 40, 55, 70, 70, 50, 60, 70, 70 },		
 		spell_sheen,            TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_sheen,             80,     12,
-		"sheen",                "Your armor loses its sheen.",          "",     1,
+		80,     12,	"sheen",                1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"focus",                { 40, 60, 80, 80, 50, 80, 80, 80 },
-		{ 50, 70, 80, 80, 60, 80, 80, 80 },
+	}},
+	{	skill::focus,             {
+		"focus",
+		{ 40, 60, 80, 80, 50, 80, 80, 80 }, { 50, 70, 80, 80, 60, 80, 80, 80 },		
 		spell_focus,            TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_focus,             200,     12,
-		"focus",                "Your spells lose their focus.",        "",     1,
+		200,     12,	"focus",                1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"paralyze",             { 30, 60, 70, 70, 50, 70, 70, 70 },
-		{ 50, 80, 100, 100, 70, 100, 100, 100 },
+	}},
+	{	skill::paralyze,          {
+		"paralyze",
+		{ 30, 60, 70, 70, 50, 70, 70, 70 }, { 50, 80, 100, 100, 70, 100, 100, 100 },		
 		spell_paralyze,         TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_paralyze,          50,     12,
-		"paralyze",             "You can feel your limbs again!",       "",     1,
+		50,     12,	"paralyze",             1,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	/*    {
-	        "ironskin",             { 20, 20, 60, 60, 20, 20, 60, 60 },
-	                                { 30, 30, 30, 30, 30, 30, 30, 30 },
+	}},
+	/*    {	skill::ironskin,          {
+	        "ironskin",
+		{ 20, 20, 60, 60, 20, 20, 60, 60 }, { 30, 30, 30, 30, 30, 30, 30, 30 },		
 	        spell_ironskin,         TAR_CHAR_SELF,          POS_STANDING,
-	        &gsn_ironskin,          100,     12,
-	        "iron skin",            "Your skin softens considerably.",
-	        "", 1, { 0, 0, 0 }
-	    }, */
+	        100,     12,	"iron skin",            1,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	    }}, */
 
 	/* Clerics */
 
-	{
-		"barrier",              { 55, 40, 70, 70, 60, 65, 70, 70 },
-		{ 60, 50, 90, 90, 70, 80, 90, 90 },
+	{	skill::barrier,           {
+		"barrier",
+		{ 55, 40, 70, 70, 60, 65, 70, 70 }, { 60, 50, 90, 90, 70, 80, 90, 90 },		
 		spell_barrier,          TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_barrier,           150,     12,
-		"barrier",              "The barrier around you crumbles.",     "",     2,
+		150,     12,	"barrier",              2,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dazzle",               { 30, 10, 50, 50, 40, 40, 50, 50 },
-		{ 60, 40, 80, 80, 70, 70, 80, 80 },
+	}},
+	{	skill::dazzle,            {
+		"dazzle",
+		{ 30, 10, 50, 50, 40, 40, 50, 50 }, { 60, 40, 80, 80, 70, 70, 80, 80 },		
 		spell_dazzle,           TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
-		&gsn_dazzle,            50,     12,
-		"dazzle",               "The spots in your vision fade.",       "",     2,
+		50,     12,	"dazzle",               2,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"full heal",            { 55, 30, 70, 70, 70, 50, 70, 70 },
-		{ 80, 60, 100, 100, 100, 70, 100, 100 },
+	}},
+	{	skill::full_heal,         {
+		"full heal",
+		{ 55, 30, 70, 70, 70, 50, 70, 70 }, { 80, 60, 100, 100, 100, 70, 100, 100 },		
 		spell_full_heal,        TAR_CHAR_DEFENSIVE,     POS_STANDING,
-		&gsn_full_heal,         100,     12,
-		"full heal",            "!Full Heal!",          "",     2,
+		100,     12,	"full heal",            2,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* Thieves */
 
-	{
-		"midnight",             { 50, 50, 25, 50, 50, 50, 40, 40 },
-		{ 80, 80, 50, 80, 80, 80, 70, 80 },
+	{	skill::midnight,          {
+		"midnight",
+		{ 50, 50, 25, 50, 50, 50, 40, 40 }, { 80, 80, 50, 80, 80, 80, 70, 80 },		
 		spell_midnight,         TAR_CHAR_SELF,     POS_STANDING,
-		&gsn_midnight,          100,     12,
-		"midnight",             "You step out of the shadows.",         "",     3,
+		100,     12,	"midnight",             3,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"shadow form",          { 70, 80, 50, 80, 65, 80, 60, 80 },
-		{ 80, 90, 60, 90, 75, 90, 70, 90 },
+	}},
+	{	skill::shadow_form,       {
+		"shadow form",
+		{ 70, 80, 50, 80, 65, 80, 60, 80 }, { 80, 90, 60, 90, 75, 90, 70, 90 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-		&gsn_shadow_form,       50,     36,
-		"shadow form",          "!Shadow Form!",        "",     3,
+		50,     36,	"shadow form",          3,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"hone",                 { 35, 40, 10, 25, 35, 25, 25, 25 },
-		{ 65, 70, 40, 55, 65, 55, 55, 55 },
+	}},
+	{	skill::hone,              {
+		"hone",
+		{ 35, 40, 10, 25, 35, 25, 25, 25 }, { 65, 70, 40, 55, 65, 55, 55, 55 },		
 		spell_null,             TAR_IGNORE,             POS_STANDING,
-		&gsn_hone,              40,     24,
-		"",                     "!Hone!",               "",     3,
+		40,     24,	"",                     3,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* Warriors */
 
-	{
-		"riposte",              { 70, 65, 55, 25, 70, 40, 55, 40 },
-		{ 90, 90, 80, 50, 90, 70, 80, 70 },
+	{	skill::riposte,           {
+		"riposte",
+		{ 70, 65, 55, 25, 70, 40, 55, 40 }, { 90, 90, 80, 50, 90, 70, 80, 70 },		
 		spell_null,             TAR_IGNORE,          POS_STANDING,
-		&gsn_riposte,           0,      0,
-		"riposte",              "!Riposte!",            "",     4,
+		0,      0,	"riposte",              4,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"fourth attack",        { 80, 80, 75, 50, 80, 70, 75, 70 },
-		{ 100, 100, 90, 60, 100, 80, 90, 80 },
+	}},
+	{	skill::fourth_attack,     {
+		"fourth attack",
+		{ 80, 80, 75, 50, 80, 70, 75, 70 }, { 100, 100, 90, 60, 100, 80, 90, 80 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_fourth_attack,     0,      0,
-		"",                     "!Fourth Attack!",      "",     4,
+		0,      0,	"",                     4,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"rage",                 { 70, 70, 60, 40, 70, 55, 60, 55 },
-		{ 80, 80, 70, 50, 80, 60, 70, 60 },
+	}},
+	{	skill::rage,              {
+		"rage",
+		{ 70, 70, 60, 40, 70, 55, 60, 55 }, { 80, 80, 70, 50, 80, 60, 70, 60 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_rage,              40,     36,
-		"rage",                 "!RAGE!",               "",     4,
+		40,     36,	"rage",                 4,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"blind fight",           { 70, 61, 55, 28, 85, 36, 55, 60 },
-		{ 60, 60, 50, 30, 60, 40, 40, 40 },
+	}},
+	{	skill::blind_fight,        {
+		"blind fight",
+		{ 70, 61, 55, 28, 85, 36, 55, 60 }, { 60, 60, 50, 30, 60, 40, 40, 40 },		
 		spell_null,              TAR_IGNORE,   POS_STANDING,
-		&gsn_blind_fight,        0, 0,
-		"",                      "!Blind Fight!", "", 4,
+		0, 0,	"",                      4,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },   { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* Necromancers */
 
-	{
-		"sap",                  { 65, 75, 80, 80, 50, 80, 75, 80 },
-		{ 70, 80, 90, 90, 60, 90, 80, 90 },
+	{	skill::sap,               {
+		"sap",
+		{ 65, 75, 80, 80, 50, 80, 75, 80 }, { 70, 80, 90, 90, 60, 90, 80, 90 },		
 		spell_sap,              TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_sap,               80,     12,
-		"sap",                  "!Sap!",                "",     5,
+		80,     12,	"sap",                  5,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"pain",                 { 45, 55, 70, 70, 30, 60, 70, 70 },
-		{ 60, 70, 80, 80, 50, 70, 80, 80 },
+	}},
+	{	skill::pain,              {
+		"pain",
+		{ 45, 55, 70, 70, 30, 60, 70, 70 }, { 60, 70, 80, 80, 50, 70, 80, 80 },		
 		spell_pain,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_pain,              50,     12,
-		"torments",             "!Pain!",               "",     5,
+		50,     12,	"torments",             5,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"hex",                  { 40, 50, 60, 60, 20, 50, 60, 60 },
-		{ 60, 70, 80, 80, 50, 70, 80, 80 },
+	}},
+	{	skill::hex,               {
+		"hex",
+		{ 40, 50, 60, 60, 20, 50, 60, 60 }, { 60, 70, 80, 80, 50, 70, 80, 80 },		
 		spell_hex,              TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-		&gsn_hex,               100,     12,
-		"hex",                  "You feel again the warmth of light.",  "",     5,
+		100,     12,	"hex",                  5,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"bone wall",            { -1, -1, -1, -1, -1, -1, -1, -1 },
-		{ -1, -1, -1, -1, -1, -1, -1, -1 },
+	}},
+	{	skill::bone_wall,         {
+		"bone wall",
+		{ -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1 },		
 		spell_bone_wall,                TAR_CHAR_SELF,          POS_STANDING,
-		&gsn_bone_wall,         80,     12,
-		"wall of bones",        "The swirling bones fall to the ground.", "",    5,
+		80,     12,	"wall of bones",        5,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* Paladins */
 
-	{
-		"hammerstrike",         { 70, 45, 60, 50, 70, 30, 60, 50 },
-		{ 90, 65, 80, 70, 90, 50, 80, 70 },
+	{	skill::hammerstrike,      {
+		"hammerstrike",
+		{ 70, 45, 60, 50, 70, 30, 60, 50 }, { 90, 65, 80, 70, 90, 50, 80, 70 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_hammerstrike,      0,     36,
-		"hammerstrike",         "The power of the gods has left you.",  "",     6,
+		0,     36,	"hammerstrike",         6,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"force shield",         { 70, 60, 80, 80, 70, 50, 80, 80 },
-		{ 70, 60, 80, 80, 70, 50, 80, 80 },
+	}},
+	{	skill::force_shield,      {
+		"force shield",
+		{ 70, 60, 80, 80, 70, 50, 80, 80 }, { 70, 60, 80, 80, 70, 50, 80, 80 },		
 		spell_force,            TAR_CHAR_SELF,          POS_FIGHTING,
-		&gsn_force_shield,      150,     12,
-		"force shield",         "Your mystical aura fades.",            "",     6,
+		150,     12,	"force shield",         6,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"holy sword",           { 70, 50, 70, 70, 70, 10, 70, 70 },
-		{ 100, 70, 100, 100, 100, 40, 100, 100 },
+	}},
+	{	skill::holy_sword,        {
+		"holy sword",
+		{ 70, 50, 70, 70, 70, 10, 70, 70 }, { 100, 70, 100, 100, 100, 40, 100, 100 },		
 		spell_holy_sword,       TAR_IGNORE,             POS_STANDING,
-		&gsn_holy_sword,        40,     36,
-		"",                     "!Holy Sword!",         "",     6,
+		40,     36,	"",                     6,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* Bards */
 
-	{
-		"align",                { 30, 40, 30, 35, 40, -1 /*40*/, 10, 30 },
-		{ 70, 80, 70, 75, 80, -1 /*80*/, 50, 70 },
+	{	skill::align,             {
+		"align",
+		{ 30, 40, 30, 35, 40, -1 /*40*/, 10, 30 }, { 70, 80, 70, 75, 80, -1 /*80*/, 50, 70 },		
 		spell_null,             TAR_IGNORE,          POS_STANDING,
-		&gsn_align,             5,      0,
-		"",                     "!Align!",              "",     7,
+		5,      0,	"",                     7,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"blur",                 { 70, 70, 45, 60, 70, 60, 30, 60 },
-		{ 100, 100, 75, 90, 100, 90, 60, 90 },
+	}},
+	{	skill::blur,              {
+		"blur",
+		{ 70, 70, 45, 60, 70, 60, 30, 60 }, { 100, 100, 75, 90, 100, 90, 60, 90 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_blur,              0,      0,
-		"",                     "!Blur!",               "",     7,
+		0,      0,	"",                     7,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"dual second",          { 80, 80, 70, 60, 80, 80, 30, 60 },
-		{ 90, 90, 80, 70, 90, 90, 50, 70 },
+	}},
+	{	skill::dual_second,       {
+		"dual second",
+		{ 80, 80, 70, 60, 80, 80, 30, 60 }, { 90, 90, 80, 70, 90, 90, 50, 70 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_dual_second,       0,      0,
-		"",                     "!Dual Second!",        "",     7,
+		0,      0,	"",                     7,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"quick",                { -1, -1, -1, -1, -1, -1, -1, -1 },
-		{ -1, -1, -1, -1, -1, -1, -1, -1 },
+	}},
+	{	skill::quick,             {
+		"quick",
+		{ -1, -1, -1, -1, -1, -1, -1, -1 }, { -1, -1, -1, -1, -1, -1, -1, -1 },		
 		spell_quick,            TAR_IGNORE,             POS_FIGHTING,
-		&gsn_quick,             60,     12,
-		"quick",                "!Quick!",              "",     7,
+		60,     12,	"quick",                7,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* Rangers */
 
-	{
-		"standfast",            { 40, 35, 25, 20, 40, 10, 25, 20 },
-		{ 70, 65, 55, 40, 70, 65, 55, 50 },
+	{	skill::standfast,         {
+		"standfast",
+		{ 40, 35, 25, 20, 40, 10, 25, 20 }, { 70, 65, 55, 40, 70, 65, 55, 50 },		
 		spell_null,             TAR_IGNORE,             POS_FIGHTING,
-		&gsn_standfast,         0,      0,
-		"",                     "!Standfast!",          "",     8,
+		0,      0,	"",                     8,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"mark",                 { 60, 60, 50, 50, 60, 50, 40, 30 },
-		{ 80, 80, 70, 70, 80, 70, 60, 50 },
+	}},
+	{	skill::mark,              {
+		"mark",
+		{ 60, 60, 50, 50, 60, 50, 40, 30 }, { 80, 80, 70, 70, 80, 70, 60, 50 },		
 		spell_null,             TAR_IGNORE,          POS_STANDING,
-		&gsn_mark,              50,      0,
-		"",                     "!Mark!",               "",     8,
+		50,      0,	"",                     8,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
-	{
-		"critical blow",        { 80, 80, 60, 70, 80, 65, 70, 50 },
-		{ 100, 100, 75, 90, 100, 70, 75, 60 },
+	}},
+	{	skill::critical_blow,     {
+		"critical blow",
+		{ 80, 80, 60, 70, 80, 65, 70, 50 }, { 100, 100, 75, 90, 100, 70, 75, 60 },		
 		spell_null,             TAR_CHAR_OFFENSIVE,             POS_FIGHTING,
-		&gsn_critical_blow,     30,     36,
-		"critical blow",        "!Critical Blow!",      "",     8,
+		30,     36,	"critical blow",        8,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
-	},
+	}},
 
 	/* End Remort Skills/Spells */
 };

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "affect/Affect.hh"
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
@@ -21,7 +22,7 @@ public:
 	String 		owner;
 	sh_int			vnum = 0;
 	sh_int			version = 0;	/* Room versioning -- Montrey */
-	Affect *		affected = nullptr;		/* Montrey */
+	affect::Affect *		affected = nullptr;		/* Montrey */
 
 	Flags           room_flags;
     Flags           cached_room_flags;

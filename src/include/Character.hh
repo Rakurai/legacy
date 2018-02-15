@@ -1,5 +1,6 @@
 #pragma once
 
+#include "affect/Affect.hh"
 #include "declare.hh"
 #include "Pooled.hh"
 #include "Flags.hh"
@@ -42,7 +43,7 @@ public:
     SPEC_FUN *          spec_fun = nullptr;
     MobilePrototype *   pIndexData = nullptr;
     Descriptor *        desc = nullptr;
-    Affect *       affected = nullptr;
+    affect::Affect *    affected = nullptr;
     Note      *         pnote = nullptr;
     Object *            carrying = nullptr;
     Object *            on = nullptr;

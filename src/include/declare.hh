@@ -10,7 +10,6 @@ typedef int sh_int;
 // Forward declarations of all major classes on the mud.  This may disappear as
 // things become less tightly coupled.
 class Actable;
-class Affect;
 class Area;
 class Battle;
 class Character;
@@ -55,12 +54,9 @@ class World;
  */
 typedef void DO_FUN     args( ( Character *ch, String argument ) );
 typedef bool SPEC_FUN   args( ( Character *ch ) );
-typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
-                                int target, int evolution) );
 
 #define DECLARE_DO_FUN( fun )           DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )         SPEC_FUN  fun
-#define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
 
 #define DIZZYPORT 3000
 

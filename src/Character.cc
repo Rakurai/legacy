@@ -1,8 +1,8 @@
 #include "Character.hh"
 
 #include "act.hh"
-#include "affect_list.hh"
-#include "Affect.hh"
+#include "affect/affect_list.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "Edit.hh"
 #include "Exit.hh"
@@ -50,7 +50,7 @@ Character::~Character() {
 		}
 	}
 
-	affect_clear_list(&affected);
+	affect::clear_list(&affected);
 
 	/* stop active TAILs, if any -- Elrac */
 	if (!IS_NPC(this) && pcdata && pcdata->tailing)
@@ -77,13 +77,13 @@ Character::~Character() {
 	if (defense_mod)
 		delete[] defense_mod;
 	if (affect_cache)
-		free_affect_cache(this);
+		affect::free_cache(this);
 }
 
 void Character::update() {
 	Character *ch = this;
 
-	if (!IS_NPC(ch) || ch->in_room == nullptr || affect_exists_on_char(ch, gsn_charm_person))
+	if (!IS_NPC(ch) || ch->in_room == nullptr || affect::exists_on_char(ch, affect::charm_person))
 		return;
 
 	if (get_position(ch) <= POS_SITTING)

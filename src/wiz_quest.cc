@@ -17,7 +17,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -110,16 +110,16 @@ void do_addapply(Character *ch, String argument)
 
 	stc("Ok.\n", ch);
 
-	Affect af;
+	affect::Affect af;
 	af.where      = TO_OBJECT;
-	af.type       = 0;
+	af.type       = affect::none;
 	af.level      = ch->level;
 	af.duration   = duration;
 	af.location   = enchant_type;
 	af.modifier   = affect_modify;
 	af.bitvector(0);
 	af.evolution  = 1;
-	affect_join_to_obj(obj, &af);
+	affect::join_to_obj(obj, &af);
 }
 
 /* Morph Command by Lotus */
