@@ -2173,7 +2173,7 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 	    || !get_skill(victim, gsn_parry)
 	    || !get_eq_char(victim, WEAR_SECONDARY)
 	    || get_evolution(victim, gsn_dual_wield) < 2
-	    || (dt == gsn_riposte && get_evolution(victim, gsn_dual_wield < 3)))
+	    || (dt == gsn_riposte && get_evolution(victim, gsn_dual_wield) < 3))
 		return FALSE;
 
 	chance = get_skill(victim, gsn_dual_wield) / 3;
