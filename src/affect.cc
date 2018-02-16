@@ -77,7 +77,7 @@ unsigned long affect_checksum(const Affect *paf) {
 	int start = 0           // 0-index
 	 + sizeof(Affect *) // next
 	 + sizeof(Affect *) // prev
-	 + sizeof(bool)          // valid
+//	 + sizeof(bool)          // valid
 	 + sizeof(bool);         // mark
 	int end = sizeof(Affect);
 
