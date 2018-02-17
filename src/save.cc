@@ -59,7 +59,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
 extern void     set_window      args((Character *ch, int top, int bottom));
 
-#define CURRENT_VERSION         19   /* version number for pfiles */
+#define CURRENT_VERSION         20   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -1359,6 +1359,23 @@ Object * fread_obj(cJSON *json, int version) {
 		obj = new Object();
 	}
 
+	// version 20 changed weapon flags to affects on the object, and only uses the flags
+	// for loading area files.  clear any weapon flag effects we got from the prototype
+	// and we'll re-add them based on the bits in value[4], which we preserved from the
+	// area file on the prototype
+	if (version < 20
+	 && obj->item_type == ITEM_WEAPON) {
+	 	affect::remove_type_from_obj(obj, affect::weapon_flaming);
+	 	affect::remove_type_from_obj(obj, affect::weapon_frost);
+	 	affect::remove_type_from_obj(obj, affect::weapon_shocking);
+	 	affect::remove_type_from_obj(obj, affect::weapon_vampiric);
+//	 	affect::remove_type_from_obj(obj, affect::weapon_acidic); // acidic added with version 20
+	 	affect::remove_type_from_obj(obj, affect::poison);
+	 	affect::remove_type_from_obj(obj, affect::weapon_sharp);
+	 	affect::remove_type_from_obj(obj, affect::weapon_vorpal);
+	 	affect::remove_type_from_obj(obj, affect::weapon_two_hands);
+	}
+
 	for (cJSON *o = json->child; o; o = o->next) {
 		String key = o->string;
 		bool fMatch = FALSE;
@@ -1381,16 +1398,10 @@ Object * fread_obj(cJSON *json, int version) {
 					affect::remove_all_from_obj(obj, TRUE);
 
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						affect::Type type = affect::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
-
-						if (type == affect::unknown) {
-							Logging::bugf("Fread_obj: unknown affect type '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
-							continue;
-						}
-
 						affect::Affect af;
-						af.type = type;
+						af.type = affect::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
+						// go ahead and read the whole affect before error checking, we need to fix up
 						JSON::get_short(item, &af.where, "where");
 						JSON::get_short(item, &af.level, "level");
 						JSON::get_short(item, &af.duration, "dur");
@@ -1408,6 +1419,17 @@ Object * fread_obj(cJSON *json, int version) {
 						// obj name might not be read yet, use vnum
 						if (af.where == TO_AFFECTS && af.type == 0 && af.bitvector().empty())
 							af.where = TO_OBJECT; // try making it an object apply
+
+						if (af.type == affect::unknown) {
+							Logging::bugf("Fread_obj: unknown affect type '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
+
+							// newish pfiles (>17?) don't save temp weapon flags to v4, but older
+							// ones might.  strip it just in case
+							if (af.where == TO_WEAPON)
+								obj->value[4] -= Flags(af.bitvector());
+
+							continue;
+						}
 
 						// let the parsing handle TO_OBJECT with no modifiers
 
@@ -1515,6 +1537,7 @@ Object * fread_obj(cJSON *json, int version) {
 					int slot = 0;
 					for (cJSON *item = o->child; item; item = item->next, slot++)
 						obj->value[slot] = item->valueint;
+
 					fMatch = TRUE; break;
 				}
 
@@ -1531,6 +1554,35 @@ Object * fread_obj(cJSON *json, int version) {
 
 		if (!fMatch)
 			Logging::bugf("fread_obj: unknown key %s", key);
+	}
+
+	// version 20 changed weapon flags to affects on the object, and only uses the flags
+	// for loading area files.  we cleared the effects from the prototype above, and
+	// since we preserved the bits in value[4] from the area file, we can re-add them
+	// here.
+	if (version < 20
+	 && obj->item_type == ITEM_WEAPON) {
+		Flags bitvector = obj->value[4];
+
+		affect::Affect af;
+		af.level              = obj->level;
+		af.duration           = -1;
+		af.evolution          = 1;
+		af.permanent          = TRUE;
+		af.location           = 0;
+		af.modifier           = 0;
+
+		while (!bitvector.empty()) {
+			af.type = affect::none; // reset every time
+
+			if (affect::parse_flags('W', &af, bitvector)) {
+				// could exist as envenom or bladecraft spell, don't add a new perm
+				if (!affect::exists_on_obj(obj, af.type))
+					affect::copy_to_obj(obj, &af); 
+			}
+		}
+
+		obj->value[4] = 0; // clear, we won't write it back
 	}
 
 	return obj;

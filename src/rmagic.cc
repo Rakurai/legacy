@@ -431,19 +431,31 @@ void spell_holy_sword(skill::Type sn, int level, Character *ch, void *vo, int ta
 	sword->level            = level;
 	sword->extra_flags += ITEM_INVENTORY;    /* so it vapes on death */
 
-	if (sword->level >= 20)
-		sword->value[4] += WEAPON_SHOCKING;
-
-	if (sword->level >= 45)
-		sword->value[4] += WEAPON_VORPAL;
-
-	if (sword->level >= 70)
-		sword->value[4] += WEAPON_FLAMING;
-
 	affect::Affect af;
+	af.where      = TO_WEAPON;
+	af.level      = level;
+	af.duration   = -1;
+	af.location   = 0;
+	af.modifier   = 0;
+	af.evolution  = evolution;
+
+	if (sword->level >= 20) {
+		af.type = affect::weapon_shocking;
+		affect::copy_to_obj(sword, &af);
+	}
+
+	if (sword->level >= 45){
+		af.type = affect::weapon_vorpal;
+		affect::copy_to_obj(sword, &af);
+	}
+
+	if (sword->level >= 70){
+		af.type = affect::weapon_flaming;
+		affect::copy_to_obj(sword, &af);
+	}
+
 	af.where      = TO_OBJECT;
 	af.type       = affect::enchant_weapon;
-	af.level      = level;
 	af.duration   = -1;
 	af.modifier   = level / 10 + 1;
 	af.bitvector(0);

@@ -1034,7 +1034,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 				dam = dam * 11 / 10;
 
 			/* sharpness! */
-			if (IS_WEAPON_STAT(wield, WEAPON_SHARP)) {
+			if (affect::exists_on_obj(wield, affect::weapon_sharp)) {
 				int percent;
 
 				if ((percent = number_percent()) <= (skill / 8))
@@ -1108,15 +1108,10 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 		const affect::Affect *weaponaff;
 		int dam, level, evolution;
 
-		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
-			if ((weaponaff = affect::find_on_obj(wield, affect::poison)) == nullptr) {
-				level = wield->level;
-				evolution = 1;
-			}
-			else {
-				level = weaponaff->level;
-				evolution = weaponaff->evolution;
-			}
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::poison)) != nullptr) {
+			level = weaponaff->level;
+			evolution = weaponaff->evolution;
 
 			if (!saves_spell(level / 2, victim, DAM_POISON)) {
 				stc("You feel poison coursing through your veins.\n", victim);
@@ -1145,11 +1140,9 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			}
 		}
 
-		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_VAMPIRIC)) {
-			if ((weaponaff = affect::find_on_obj(wield, affect::blood_blade)) == nullptr)
-				evolution = 1;
-			else
-				evolution = weaponaff->evolution;
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_vampiric)) != nullptr) {
+			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 5 + 1);
 
@@ -1170,18 +1163,33 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			ch->hit += dam / 2;
 		}
 
-		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_vorpal)) != nullptr) {
 			dam = number_range(1, wield->level / 4 + 1);
 			act("$n is impaled by $p.", victim, wield, nullptr, TO_ROOM);
 			act("$p impales your body.", victim, wield, nullptr, TO_CHAR);
 			damage(ch, victim, dam, 0, DAM_PIERCE, FALSE, FALSE);
 		}
 
-		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FLAMING)) {
-			if ((weaponaff = affect::find_on_obj(wield, affect::flame_blade)) == nullptr)
-				evolution = 1;
-			else
-				evolution = weaponaff->evolution;
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_acidic)) != nullptr) {
+			evolution = weaponaff->evolution;
+
+			dam = number_range(1, wield->level / 4 + 2);
+			act("$n is burned by the acid $p.", victim, wield, nullptr, TO_ROOM);
+			act("The acid on $p starts to burn your flesh.", victim, wield, nullptr, TO_CHAR);
+
+			if (victim->in_room->sector_type != SECT_ARENA
+			    && ch->in_room->sector_type != SECT_CLANARENA
+			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+				acid_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
+
+			damage(ch, victim, dam, 0, DAM_ACID, FALSE, FALSE);
+		}
+
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_flaming)) != nullptr) {
+			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 4 + 1);
 			act("$n is burned by $p.", victim, wield, nullptr, TO_ROOM);
@@ -1195,11 +1203,9 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			damage(ch, victim, dam, 0, DAM_FIRE, FALSE, FALSE);
 		}
 
-		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FROST)) {
-			if ((weaponaff = affect::find_on_obj(wield, affect::frost_blade)) == nullptr)
-				evolution = 1;
-			else
-				evolution = weaponaff->evolution;
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_frost)) != nullptr) {
+			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 6 + 2);
 			act("$p freezes $n.", victim, wield, nullptr, TO_ROOM);
@@ -1213,11 +1219,9 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			damage(ch, victim, dam, 0, DAM_COLD, FALSE, FALSE);
 		}
 
-		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_SHOCKING)) {
-			if ((weaponaff = affect::find_on_obj(wield, affect::shock_blade)) == nullptr)
-				evolution = 1;
-			else
-				evolution = weaponaff->evolution;
+		if (ch->fighting == victim
+		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_shocking)) != nullptr) {
+			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 5 + 2);
 			act("$n is struck by lightning from $p.", victim, wield, nullptr, TO_ROOM);

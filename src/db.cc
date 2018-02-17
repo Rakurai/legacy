@@ -529,9 +529,29 @@ void load_objects(FILE *fp)
 
 		val = 4;
 		switch (pObjIndex->item_type) {
-		case ITEM_WEAPON:
-			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
+		case ITEM_WEAPON: {
+			Flags bitvector               = fread_flag(fp);
+
+			// preserve the bits, we use them for loading old versions of players
+			pObjIndex->value[val] = ObjectValue(bitvector);
+
+			affect::Affect af;
+			af.level              = pObjIndex->level;
+			af.duration           = -1;
+			af.evolution          = 1;
+			af.permanent          = TRUE;
+			af.location           = 0;
+			af.modifier           = 0;
+
+			while (!bitvector.empty()) {
+				af.type = affect::none; // reset every time
+
+				if (affect::parse_flags('W', &af, bitvector))
+					affect::copy_to_list(&pObjIndex->affected, &af); 
+			}
+
 			break;
+		}
 
 		case ITEM_POTION:
 		case ITEM_PILL:
@@ -546,6 +566,20 @@ void load_objects(FILE *fp)
 
 
 		pObjIndex->level                = fread_number(fp);
+
+		// this is annoying.  since v0-v4 come before level in an object section,
+		// we had to create any affects (like weapon flags) at level 0.
+		// fix them up now.
+		affect::fn_params params;
+		params.owner = nullptr;
+		params.data = &pObjIndex->level;
+
+		affect::iterate_over_list(
+			&pObjIndex->affected,
+			affect::fn_set_level,
+			&params
+		);
+
 		pObjIndex->weight               = fread_number(fp);
 		pObjIndex->cost                 = fread_number(fp);
 		/* condition */

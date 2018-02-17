@@ -93,6 +93,7 @@ int           comparator_permanent args(( const Affect *lhs, const Affect *rhs )
 
 // callbacks (reusable ones, it's ok to create one within a compilation unit)
 int           fn_fade_spell        args(( Affect *node, void *data ));
+int           fn_set_level         args(( Affect *node, void *data ));
 
 // single affect operations
 void          update               args(( Affect *paf, const Affect *aff_template ));

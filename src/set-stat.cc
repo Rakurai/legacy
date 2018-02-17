@@ -1772,10 +1772,10 @@ void format_ostat(Character *ch, Object *obj)
 
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
-
-		if (obj->value[4] || !obj->cached_weapon_flags.empty())  /* weapon flags */
+/*
+		if (obj->value[4] || !obj->cached_weapon_flags.empty())
 			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4] + obj->cached_weapon_flags));
-
+*/
 		break;
 
 	case ITEM_ARMOR:

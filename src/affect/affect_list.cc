@@ -110,14 +110,16 @@ void iterate_over_list(Affect **list_head, affect_fn fn, fn_params *params) {
 		// unlink the item from the list to call the modifier function
 		if (paf->prev) paf->prev->next = paf->next;
 		if (paf->next) paf->next->prev = paf->prev;
-		(params->modifier)(params->owner, paf, FALSE);
+
+		if (params->owner) (params->modifier)(params->owner, paf, FALSE);
 
 		(*fn)(paf, params->data); // should return value indicate break?
 
 		// relink the item into the list
 		if (paf->prev) paf->prev->next = paf;
 		if (paf->next) paf->next->prev = paf;
-		(params->modifier)(params->owner, paf, TRUE);
+
+		if (params->owner) (params->modifier)(params->owner, paf, TRUE);
 	}
 }
 

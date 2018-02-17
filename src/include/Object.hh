@@ -52,7 +52,6 @@ public:
 	sh_int			clean_timer = 0;		/* Montrey */
 
     Flags           cached_extra_flags;
-    Flags           cached_weapon_flags;
 
     /* ugly way to do this: rather than everywhere cycling through the affects given by
        the object's index data separately from the affects given by inset gems, we

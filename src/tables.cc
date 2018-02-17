@@ -594,7 +594,7 @@ const std::vector<field_type> flag_fields = {
 	{ "group",              group_flags,    CAND_MOB,       MTL,    999,    IMM,    999     },
 	{ "extra",              extra_flags,    CAND_OBJ,       MTL,    999,    IMM,    999     },
 	{ "wear",               wear_flags,     CAND_OBJ,       MTL,    999,    IMM,    999     },
-	{ "weapon",             weapon_flags,   CAND_OBJ,       MTL,    999,    IMM,    999     },
+//	{ "weapon",             weapon_flags,   CAND_OBJ,       MTL,    999,    IMM,    999     },
 	{ "room",               room_flags,     CAND_ROOM,      IMM,    999,    IMM,    999     },
 };
 
@@ -979,15 +979,16 @@ const std::vector<flag_type> revoke_flags = {
 	{   "qtell",               REVOKE_QTELL,            TRUE    },
 };
 
-const std::vector<flag_type> weapon_flags = {
-	{   "flaming",              WEAPON_FLAMING,      TRUE    },
-	{   "frost",                WEAPON_FROST,      TRUE    },
-	{   "vampiric",             WEAPON_VAMPIRIC,      TRUE    },
-	{   "sharp",                WEAPON_SHARP,      TRUE    },
-	{   "vorpal",               WEAPON_VORPAL,      TRUE    },
-	{   "twohanded",            WEAPON_TWO_HANDS,      TRUE    },
-	{   "shocking",             WEAPON_SHOCKING,      TRUE    },
-	{   "poison",               WEAPON_POISON,      TRUE    },
+const std::vector<affect_table_type> weapon_affects = {
+	{   "acidic",              affect::weapon_acidic,   TRUE    },
+	{   "flaming",             affect::weapon_flaming,  TRUE    },
+	{   "frost",               affect::weapon_frost,    TRUE    },
+	{   "vampiric",            affect::weapon_vampiric, TRUE    },
+	{   "sharp",               affect::weapon_sharp,    TRUE    },
+	{   "vorpal",              affect::weapon_vorpal,   TRUE    },
+	{   "twohanded",           affect::weapon_two_hands,TRUE    },
+	{   "shocking",            affect::weapon_shocking, TRUE    },
+	{   "poison",              affect::poison,   TRUE    },
 };
 
 const std::vector<color_type> color_table = {
@@ -1118,12 +1119,21 @@ const std::vector<csetting_type> csetting_table = {
 
 int flag_index_lookup(const String& name, const std::vector<flag_type>& flag_table)
 {
-	int flag;
-
-	for (flag = 0; flag < flag_table.size(); flag++) {
+	for (int flag = 0; flag < flag_table.size(); flag++) {
 		if (LOWER(name[0]) == LOWER(flag_table[flag].name[0])
 		    &&  name.is_prefix_of(flag_table[flag].name))
 			return flag;
+	}
+
+	return -1;
+}
+
+int affect_index_lookup(const String& name, const std::vector<affect_table_type>& affect_table)
+{
+	for (int i = 0; i < affect_table.size(); i++) {
+		if (LOWER(name[0]) == LOWER(affect_table[i].name[0])
+		    &&  name.is_prefix_of(affect_table[i].name))
+			return i;
 	}
 
 	return -1;

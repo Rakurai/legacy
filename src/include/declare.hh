@@ -829,6 +829,7 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define WEAPON_TWO_HANDS        (Flags::F)
 #define WEAPON_SHOCKING         (Flags::G)
 #define WEAPON_POISON           (Flags::H)
+#define WEAPON_ACIDIC           (Flags::I)
 
 /* gate flags */
 #define GATE_NORMAL_EXIT        (Flags::A)

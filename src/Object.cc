@@ -265,15 +265,31 @@ void unique_item(Object *item)
 					--item->value[2];
 			}
 			else { /* flags, 20% chance */
+				affect::Type type;
+
 				switch (number_range(1, 8)) {
-				case 1: item->value[4] ^= WEAPON_FLAMING;	break;
-				case 2: item->value[4] ^= WEAPON_FROST;		break;
-				case 3: item->value[4] ^= WEAPON_VAMPIRIC;	break;
-				case 4: item->value[4] ^= WEAPON_SHARP;		break;
-				case 5: item->value[4] ^= WEAPON_VORPAL;	break;
-				case 6: item->value[4] ^= WEAPON_TWO_HANDS;	break;
-				case 7: item->value[4] ^= WEAPON_SHOCKING;	break;
-				case 8: item->value[4] ^= WEAPON_POISON;	break;
+//				case 0: type = affect::weapon_acidic;   break;
+				case 1: type = affect::weapon_flaming;	break;
+				case 2: type = affect::weapon_frost;		break;
+				case 3: type = affect::weapon_vampiric;	break;
+				case 4: type = affect::weapon_sharp;		break;
+				case 5: type = affect::weapon_vorpal;	break;
+				case 6: type = affect::weapon_two_hands;	break;
+				case 7: type = affect::weapon_shocking;	break;
+				case 8: type = affect::poison;	break;
+				}
+
+				if (!affect::exists_on_obj(item, type)) {
+					affect::Affect af;
+					af.where        = TO_WEAPON;
+					af.type         = type;
+					af.level        = item->level;
+					af.duration     = -1;
+					af.location     = 0;
+					af.modifier     = 0;
+					af.bitvector(0);
+					af.evolution    = 1;
+					affect::copy_to_obj(item, &af);
 				}
 			}
 

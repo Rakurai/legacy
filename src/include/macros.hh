@@ -105,7 +105,6 @@
  */
 #define CAN_WEAR(obj, part)     ((obj)->wear_flags.has((part)))
 #define IS_OBJ_STAT(obj, stat)  (((obj)->extra_flags + (obj)->cached_extra_flags).has((stat)))
-#define IS_WEAPON_STAT(obj,stat)(((obj)->value[4] + (obj)->cached_weapon_flags).flags().has((stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
 		(obj)->value[4] : 100)
 

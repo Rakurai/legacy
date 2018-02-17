@@ -2,6 +2,7 @@
 
 #include <vector>
 
+#include "affect/Type.hh"
 #include "declare.hh"
 #include "Flags.hh"
 #include "String.hh"
@@ -86,6 +87,12 @@ struct field_type
 	int				see_plr;
 	int				mod_mob;
 	int				mod_plr;
+};
+
+struct affect_table_type {
+	String name;
+	affect::Type type;
+	bool settable;
 };
 
 struct position_type
@@ -175,7 +182,6 @@ extern  const   std::vector<flag_type> censor_flags;
 extern  const   std::vector<flag_type> revoke_flags;
 extern  const   std::vector<flag_type> extra_flags;
 extern  const   std::vector<flag_type> wear_flags;
-extern  const   std::vector<flag_type> weapon_flags;
 extern  const   std::vector<flag_type> container_flags;
 extern  const   std::vector<flag_type> portal_flags;
 extern  const   std::vector<flag_type> room_flags;
@@ -183,4 +189,7 @@ extern  const   std::vector<flag_type> exit_flags;
 extern  const   std::vector<flag_type> cgroup_flags;
 extern  const   std::vector<flag_type> cont_flags;
 
+extern  const   std::vector<affect_table_type> weapon_affects;
+
 int flag_index_lookup(const String& name, const std::vector<flag_type>& flag_table);
+int affect_index_lookup(const String& name, const std::vector<affect_table_type>& affect_table);

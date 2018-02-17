@@ -1942,7 +1942,7 @@ void do_outfit(Character *ch, String argument)
 	}
 
 	if (((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr
-	     ||   !IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS))
+	     ||   !affect::exists_on_obj(obj, affect::weapon_two_hands))
 	    && (obj = get_eq_char(ch, WEAR_SHIELD)) == nullptr) {
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
 

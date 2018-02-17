@@ -149,17 +149,12 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	/* flags for temp weapon affects -- Elrac */
 	if (obj->item_type == ITEM_WEAPON) {
-		Flags bits;
-
-		for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next)
-			if (paf->duration)
-				bits += paf->bitvector();
-
-		if (bits.has(WEAPON_FLAMING) )   buf += "{Y(Fl) ";
-		if (bits.has(WEAPON_FROST)   )   buf += "{C(Fr) ";
-		if (bits.has(WEAPON_VAMPIRIC))   buf += "{P(Bl) ";
-		if (bits.has(WEAPON_SHOCKING))   buf += "{V(Sh) ";
-		if (bits.has(WEAPON_POISON)  )   buf += "{G(Po) ";
+		if (affect::exists_on_obj(obj, affect::weapon_acidic))    buf += "{G(Ac) ";
+		if (affect::exists_on_obj(obj, affect::weapon_flaming))   buf += "{Y(Fl) ";
+		if (affect::exists_on_obj(obj, affect::weapon_frost))     buf += "{C(Fr) ";
+		if (affect::exists_on_obj(obj, affect::weapon_vampiric))  buf += "{P(Bl) ";
+		if (affect::exists_on_obj(obj, affect::weapon_shocking))  buf += "{V(Sh) ";
+		if (affect::exists_on_obj(obj, affect::poison))           buf += "{H(Po) ";
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
@@ -202,8 +197,8 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 {
 	String buf;
 
-		buf = Format::format("Spell '%s'", affect::lookup(paf->type).name);
 	if (paf->type > affect::none)
+		buf = Format::format("Effect '%s'", affect::lookup(paf->type).name);
 
 	if (paf->location != 0 && paf->modifier != 0) {
 		if (paf->where == TO_DEFENSE)
@@ -234,11 +229,12 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 			buf += Format::format(" Adds %s object flag%s.",
 				extra_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
-
+/*
 		case TO_WEAPON:
 			buf += Format::format(" Adds %s weapon flag%s.",
 				weapon_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
+*/
 		}
 	}
 

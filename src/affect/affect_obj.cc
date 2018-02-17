@@ -124,7 +124,6 @@ void modify_flag_cache_obj(Object *obj, sh_int where, const Flags& flags, bool f
 	// them all, so just rebuild the bit vectors
 	if (!fAdd) {
 		obj->cached_extra_flags.clear();
-		obj->cached_weapon_flags.clear();
 
 		for (const Affect *paf = obj->affected; paf; paf = paf->next)
 			modify_flag_cache_obj(obj, paf->where, paf->bitvector(), TRUE);
@@ -136,10 +135,6 @@ void modify_flag_cache_obj(Object *obj, sh_int where, const Flags& flags, bool f
 		switch (where) {
 		case TO_OBJECT:
 			obj->cached_extra_flags += flags;
-			break;
-		case TO_WEAPON:
-			if (obj->item_type == ITEM_WEAPON)
-				obj->cached_weapon_flags += flags;
 			break;
 		}
 	}

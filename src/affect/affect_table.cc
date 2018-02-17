@@ -33,7 +33,6 @@ const std::map<Type, const table_entry> affect_table = {
 	{ armor,             { "armor",                "You feel less armored.",       "" }},
 	{ bless,             { "bless",                "You feel less righteous.",     "$p's holy aura fades." }},
 	{ blindness,         { "blindness",            "You can see again.",   "" }},
-	{ blood_blade,       { "blood blade",          "!Blood Blade!",        "$p is no longer a bloodthirsty weapon." }},
 	{ blood_moon,        { "blood moon",           "You feel less bloodthirsty.",  "$p's evil aura fades." }},
 	{ calm,              { "calm",                 "You have lost your peace of mind.",    "" }},
 	{ change_sex,        { "change sex",           "Your body feels familiar again.",      "" }},
@@ -55,11 +54,9 @@ const std::map<Type, const table_entry> affect_table = {
 	{ fear,              { "fear",                 "You are no longer afraid.",    "$p is no longer afraid." }},
 	{ fire_breath,       { "fire breath",          "The smoke leaves your eyes.",  "" }},
 	{ fireproof,         { "fireproof",            "",     "$p's protective aura fades." }},
-	{ flame_blade,       { "flame blade",          "!Flame Blade!",        "$p's flame diminishes." }},
 	{ flameshield,       { "flameshield",          "The circle of flames around your body dissipates.", "$p's flameshield dissipates." }},
 	{ fly,               { "fly",                  "You slowly float to the ground.",      "" }},
 	{ frenzy,            { "frenzy",               "Your rage ebbs.",      "" }},
-	{ frost_blade,       { "frost blade",          "!Frost Blade!",        "$p is no longer so cold to the touch." }},
 	{ giant_strength,    { "giant strength",       "You feel weaker.",     "" }},
 	{ haste,             { "haste",                "You feel yourself slow down.", "" }},
 	{ invis,             { "invisibility",         "You are no longer invisible.", "$p fades into view." }},
@@ -74,7 +71,6 @@ const std::map<Type, const table_entry> affect_table = {
 	{ regeneration,      { "regeneration",         "You no longer feel so vibrant.",       "" }},
 	{ sanctuary,         { "sanctuary",            "The white aura around your body fades.",       "" }},
 	{ shield,            { "shield",               "Your force shield shimmers then fades away.",  "" }},
-	{ shock_blade,       { "shock blade",          "!Flame Blade!",        "$p's energy fizzles out." }},
 	{ sleep,             { "sleep",                "You feel less tired.", "" }},
 	{ slow,              { "slow",                 "You feel yourself speed up.",  "" }},
 	{ smokescreen,       { "smokescreen",          "Smoke no longer clouds your vision.",  "" }},
@@ -99,6 +95,17 @@ const std::map<Type, const table_entry> affect_table = {
 	{ bone_wall,         { "bone wall",            "The swirling bones fall to the ground.", "" }},
 	{ hammerstrike,      { "hammerstrike",         "The power of the gods has left you.",  "" }},
 	{ force_shield,      { "force shield",         "Your mystical aura fades.",            "" }},
+
+	// weapon effects
+	{ weapon_acidic,     { "acidic",            "",        "The sizzling sound from $p quiets." }},
+	{ weapon_vampiric,   { "vampiric",          "",        "$p is no longer a bloodthirsty weapon." }},
+	{ weapon_flaming,    { "flaming",           "",        "$p's flame diminishes." }},
+	{ weapon_frost,      { "frost",             "",        "$p is no longer so cold to the touch." }},
+	{ weapon_shocking,   { "shocking",          "",        "$p's energy fizzles out." }},
+	{ weapon_two_hands,  { "two-handed",        "",        "$p suddenly feels lighter." }},
+	{ weapon_sharp,      { "sharp",             "",        "$p no longer looks so sharp." }},
+	{ weapon_vorpal,     { "vorpal",            "",        "$p feels less drawn to severing necks." }},
+
 };
 
 } // namespace affect

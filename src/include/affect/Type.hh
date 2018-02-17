@@ -11,7 +11,6 @@ enum Type {
     armor,
     bless,
     blindness,
-    blood_blade,
     blood_moon,
     calm,
     change_sex,
@@ -33,11 +32,9 @@ enum Type {
     fear,
     fire_breath,
     fireproof,
-    flame_blade,
     flameshield,
     fly,
     frenzy,
-    frost_blade,
     giant_strength,
     haste,
     invis,
@@ -52,7 +49,6 @@ enum Type {
     regeneration,
     sanctuary,
     shield,
-    shock_blade,
     sleep,
     slow,
     smokescreen,
@@ -77,6 +73,16 @@ enum Type {
     bone_wall,
     hammerstrike,
     force_shield,
+
+    // weapon flags
+    weapon_acidic,
+    weapon_flaming,
+    weapon_frost,
+    weapon_vampiric,
+    weapon_sharp,
+    weapon_vorpal,
+    weapon_two_hands,
+    weapon_shocking,
 
     size, // don't touch
     first = 0 // don't touch

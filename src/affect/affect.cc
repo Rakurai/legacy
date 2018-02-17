@@ -37,6 +37,11 @@ int fn_fade_spell(Affect *node, void *data) {
 	return 0; // keep going
 }
 
+int fn_set_level(Affect *node, void *data) {
+	int level = *(int *)data;
+	node->level = level;
+	return 0; // keep going
+}
 
 // comparators (remember equality returns 0, like strcmp)
 
@@ -236,7 +241,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 		bitvector.clear();
 		paf->bitvector(0);
 	}
-	else if (paf->where == TO_OBJECT || paf->where == TO_WEAPON) {
+	else if (paf->where == TO_OBJECT) {
 	 	// or, just quit the outside loop and leave paf->bitvector alone
 	 	bitvector.clear();
 	}
@@ -265,6 +270,32 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	// if the bit wasn't found, still continue for the TO_OBJECT.  the loop will
 	// stop when bitvector is 0
+
+	if (paf->where == TO_WEAPON) {
+		switch (bit) {
+			case WEAPON_ACIDIC     : paf->type = weapon_acidic; break;
+			case WEAPON_FLAMING    : paf->type = weapon_flaming; break;
+			case WEAPON_FROST      : paf->type = weapon_frost; break;
+			case WEAPON_VAMPIRIC   : paf->type = weapon_vampiric; break;
+			case WEAPON_SHOCKING   : paf->type = weapon_shocking; break;
+			case WEAPON_SHARP      : paf->type = weapon_sharp; break;
+			case WEAPON_VORPAL     : paf->type = weapon_vorpal; break;
+			case WEAPON_POISON     : paf->type = poison; break;
+			case WEAPON_TWO_HANDS  : paf->type = weapon_two_hands; break;
+			case Flags::none       : break; // type already set
+			default: {
+				Logging::bugf("parse_flags: TO_WEAPON with unknown defense bit %d", bit);
+				return FALSE;
+			}
+		}
+
+		if (paf->type == none) {
+			Logging::bug("parse_flags: TO_WEAPON with no bits and no type", 0);
+			return FALSE;
+		}
+
+		return TRUE;
+	}
 
 	if (paf->where == TO_DEFENSE) {
 

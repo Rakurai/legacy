@@ -2921,15 +2921,26 @@ void spell_enchant_weapon(skill::Type sn, int level, Character *ch, void *vo, in
 		act("$p glows brightly, then fades...oops.", ch, obj, nullptr, TO_CHAR);
 		act("$p glows brightly, then fades.", ch, obj, nullptr, TO_ROOM);
 
+		const affect::Affect *two_handed_aff = affect::find_on_obj(obj, affect::weapon_two_hands);
+		affect::Affect two_handed_copy;
+		bool two_handed = two_handed_aff != nullptr;
+
+		if (two_handed && obj->item_type == ITEM_WEAPON) {
+			two_handed_copy.where     = two_handed_aff->where;
+			two_handed_copy.type      = two_handed_aff->type;
+			two_handed_copy.level     = two_handed_aff->level;
+			two_handed_copy.duration  = two_handed_aff->duration;
+			two_handed_copy.location  = two_handed_aff->location;
+			two_handed_copy.modifier  = two_handed_aff->modifier;
+			two_handed_copy.evolution = two_handed_aff->evolution;
+			two_handed_copy.bitvector(two_handed_aff->bitvector());
+		}
+
 		/* remove all affects */
 		affect::remove_all_from_obj(obj, TRUE);
 
-		if (obj->item_type == ITEM_WEAPON) {
-			if (obj->value[4].flags().has(WEAPON_TWO_HANDS))
-				obj->value[4] = WEAPON_TWO_HANDS;
-			else
-				obj->value[4] = 0;
-		}
+		if (two_handed)
+			affect::copy_to_obj(obj, &two_handed_copy);
 
 		obj->extra_flags.clear();
 		return;
@@ -3304,10 +3315,8 @@ void spell_fireproof(skill::Type sn, int level, Character *ch, void *vo, int tar
 }
 
 /* function for bladecraft spells -- Montrey */
-bool enhance_blade(Character *ch, Object *obj, affect::Type type, int level, Flags::Bit bit, int evolution)
+bool enhance_blade(Character *ch, Object *obj, affect::Type type, int level, int evolution)
 {
-	affect::Affect af;
-
 	if (obj->item_type != ITEM_WEAPON) {
 		stc("This spell can only enhance weapons.\n", ch);
 		return FALSE;
@@ -3318,21 +3327,22 @@ bool enhance_blade(Character *ch, Object *obj, affect::Type type, int level, Fla
 		return FALSE;
 	}
 
-	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
-	    || IS_WEAPON_STAT(obj, WEAPON_FROST)
-	    || IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
-	    || IS_WEAPON_STAT(obj, WEAPON_SHOCKING)) {
+	if (affect::exists_on_obj(obj, affect::weapon_flaming)
+	 || affect::exists_on_obj(obj, affect::weapon_frost)
+	 || affect::exists_on_obj(obj, affect::weapon_vampiric)
+	 || affect::exists_on_obj(obj, affect::weapon_shocking)) {
 		act("$p is already an enhanced weapon.", ch, obj, nullptr, TO_CHAR);
 		return FALSE;
 	}
 
+	affect::Affect af;
 	af.where        = TO_WEAPON;
 	af.type         = type;
 	af.level        = level;
 	af.duration     = (number_percent() + (level / 2));
 	af.location     = 0;
 	af.modifier     = 0;
-	af.bitvector(bit);
+	af.bitvector(0);
 	af.evolution    = evolution;
 	affect::copy_to_obj(obj, &af);
 	return TRUE;
@@ -3346,7 +3356,7 @@ void spell_flame_blade(skill::Type sn, int level, Character *ch, void *vo, int t
 	if (ch == vo)
 		return;
 
-	if (enhance_blade(ch, obj, affect::flame_blade, level, WEAPON_FLAMING, evolution)) {
+	if (enhance_blade(ch, obj, affect::weapon_flaming, level, evolution)) {
 		act("$p bursts into a glorious flame!", ch, obj, nullptr, TO_CHAR);
 		act("$p bursts into a glorious flame!", ch, obj, nullptr, TO_ROOM);
 	}
@@ -3360,7 +3370,7 @@ void spell_frost_blade(skill::Type sn, int level, Character *ch, void *vo, int t
 	if (ch == vo)
 		return;
 
-	if (enhance_blade(ch, obj, affect::frost_blade, level, WEAPON_FROST, evolution)) {
+	if (enhance_blade(ch, obj, affect::weapon_frost, level, evolution)) {
 		act("$p is now cold to the touch.", ch, obj, nullptr, TO_CHAR);
 		act("$p fills the room with a bitter cold!", ch, obj, nullptr, TO_ROOM);
 	}
@@ -3374,7 +3384,7 @@ void spell_blood_blade(skill::Type sn, int level, Character *ch, void *vo, int t
 	if (ch == vo)
 		return;
 
-	if (enhance_blade(ch, obj, affect::blood_blade, level, WEAPON_VAMPIRIC, evolution)) {
+	if (enhance_blade(ch, obj, affect::weapon_vampiric, level, evolution)) {
 		act("$p glows with an evil aura.", ch, obj, nullptr, TO_CHAR);
 		act("$p glows with an evil aura.", ch, obj, nullptr, TO_ROOM);
 	}
@@ -3387,7 +3397,7 @@ void spell_shock_blade(skill::Type sn, int level, Character *ch, void *vo, int t
 	/* Avoid casting this on characters. -- Outsider */
 	if (ch == vo) return;
 
-	if (enhance_blade(ch, obj, affect::shock_blade, level, WEAPON_SHOCKING, evolution)) {
+	if (enhance_blade(ch, obj, affect::weapon_shocking, level, evolution)) {
 		act("$p crackles with pure energy.", ch, obj, nullptr, TO_CHAR);
 		act("$p fills the room with sparks of electricity!", ch, obj, nullptr, TO_ROOM);
 	}
@@ -3779,7 +3789,7 @@ void spell_heat_metal(skill::Type sn, int level, Character *ch, void *vo, int ta
 
 		case ITEM_WEAPON:
 			if (obj_lose->wear_loc != -1) { /* try to drop it */
-				if (IS_WEAPON_STAT(obj_lose, WEAPON_FLAMING))
+				if (affect::exists_on_obj(obj_lose, affect::weapon_flaming))
 					continue;
 
 				if (can_drop_obj(victim, obj_lose)
@@ -3803,7 +3813,7 @@ void spell_heat_metal(skill::Type sn, int level, Character *ch, void *vo, int ta
 			else { /* drop it if we can */
 				if (can_drop_obj(victim, obj_lose)) {
 					act("$n throws a burning hot $p to the ground!", victim, obj_lose, nullptr, TO_ROOM);
-					act("You and drop $p before it burns you.", victim, obj_lose, nullptr, TO_CHAR);
+					act("You drop $p before it burns you.", victim, obj_lose, nullptr, TO_CHAR);
 					dam += (number_range(1, obj_lose->level) / 6);
 					obj_from_char(obj_lose);
 
@@ -4127,10 +4137,10 @@ void spell_identify(skill::Type sn, int level, Character *ch, void *vo, int targ
 
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
-
-		if (obj->value[4] || !obj->cached_weapon_flags.empty())  /* weapon flags */
+/*
+		if (obj->value[4] || !obj->cached_weapon_flags.empty())
 			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]+obj->cached_weapon_flags));
-
+*/
 		break;
 
 	case ITEM_ARMOR:
@@ -4788,7 +4798,7 @@ void spell_poison(skill::Type sn, int level, Character *ch, void *vo, int target
 		}
 
 		if (obj->item_type == ITEM_WEAPON) {
-			if (IS_WEAPON_STAT(obj, WEAPON_POISON)) {
+			if (affect::exists_on_obj(obj, affect::poison)) {
 				act("$p is already envenomed.", ch, obj, nullptr, TO_CHAR);
 				return;
 			}
@@ -4799,7 +4809,7 @@ void spell_poison(skill::Type sn, int level, Character *ch, void *vo, int target
 			af.duration  = level / 4;
 			af.location  = 0;
 			af.modifier  = 0;
-			af.bitvector(WEAPON_POISON);
+			af.bitvector(0);
 			af.evolution = evolution;
 			affect::copy_to_obj(obj, &af);
 			act("$p is coated with deadly venom.", ch, obj, nullptr, TO_ALL);
