@@ -202,8 +202,8 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 {
 	String buf;
 
-	if (paf->type >= affect::none)
 		buf = Format::format("Spell '%s'", affect::lookup(paf->type).name);
+	if (paf->type > affect::none)
 
 	if (paf->location != 0 && paf->modifier != 0) {
 		if (paf->where == TO_DEFENSE)
