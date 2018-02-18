@@ -250,7 +250,10 @@ void do_evoset(Character *ch, String argument)
 		int can;
 		buffer += "They have the following skills and spells evolved:\n\n";
 
-		for (const auto&[type, entry] : skill_table) {
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
 			if (type == skill::type::unknown)
 				continue;
 
@@ -511,7 +514,10 @@ void do_extraset(Character *ch, String argument)
 			output += buf;
 			col = 0;
 
-			for (const auto&[type, entry] : skill_table) {
+			for (const auto& pair : skill_table) {
+				skill::type type = pair.first;
+				const auto& entry = pair.second;
+
 				if (type == skill::type::unknown)
 					continue;
 

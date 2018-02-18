@@ -3562,7 +3562,10 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	argument = one_argument(argument, arg);
 
 	/* loop thru all skills */
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 

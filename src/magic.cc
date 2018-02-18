@@ -90,7 +90,10 @@ skill::type find_spell(Character *ch, const String& name)
 	if (IS_NPC(ch))
 		return skill::lookup(name);
 
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 

@@ -239,7 +239,10 @@ void do_spells(Character *ch, String argument)
 	}
 	else {
 		/* select spells from player's repertoire or by name */
-		for (const auto&[type, entry] : skill_table) {
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
 			if (type == skill::type::unknown)
 				continue;
 
@@ -419,7 +422,10 @@ void do_skills(Character *ch, String argument)
 	}
 
 	/* select skills from player's repertoire or by name */
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 
@@ -552,7 +558,10 @@ void do_levels(Character *ch, String argument)
 		else {
 			stc("Skill/Spell           Mag Cle Thi War Nec Pdn Bar Ran\n\n", ch);
 
-			for (const auto&[type, entry] : skill_table) {
+			for (const auto& pair : skill_table) {
+				skill::type type = pair.first;
+				const auto& entry = pair.second;
+
 				if (type == skill::type::unknown)
 					continue;
 
@@ -591,7 +600,10 @@ void do_levels(Character *ch, String argument)
 			Format::sprintf(buf, "{W%s Skills:{x\n", class_table[x].name.capitalize());
 			buffer += buf;
 
-			for (const auto&[type, entry] : skill_table) {
+			for (const auto& pair : skill_table) {
+				skill::type type = pair.first;
+				const auto& entry = pair.second;
+
 				if (type == skill::type::unknown)
 					continue;
 
@@ -632,7 +644,10 @@ void do_levels(Character *ch, String argument)
 		return;
 	}
 
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 
@@ -668,7 +683,10 @@ void do_levels(Character *ch, String argument)
 		list[lev].clear();
 	}
 
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 
@@ -1112,7 +1130,10 @@ void evolve_list(Character *ch)
 	buffer += "{GSkill or spell      {C| {GPct {C| {GEvo {C| {GNext{x\n";
 	buffer += "{C--------------------+-----+-----+-----{x\n";
 
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 
@@ -1161,7 +1182,10 @@ void evolve_info(Character *ch)
 
 	buffer += "{C--------------------+---+---+---+---+---+---+---+---+{x\n";
 
-	for (const auto&[type, entry] : skill_table) {
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
 		if (type == skill::type::unknown)
 			continue;
 
@@ -1432,7 +1456,10 @@ void do_gain(Character *ch, String argument)
 		col = 0;
 		foundsect = FALSE;
 
-		for (const auto&[type, entry] : skill_table) {
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
 			if (type == skill::type::unknown)
 				continue;
 
@@ -1482,7 +1509,10 @@ void do_gain(Character *ch, String argument)
 		col = 0;
 		foundsect = FALSE;
 
-		for (const auto&[type, entry] : skill_table) {
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
 			if (type == skill::type::unknown)
 				continue;
 

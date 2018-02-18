@@ -274,7 +274,10 @@ void list_extraskill(Character *ch)
 		output += Format::format("\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
 		int col = 0;
 
-		for (const auto&[type, entry] : skill_table) {
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
 			if (type == skill::type::unknown)
 				continue;
 

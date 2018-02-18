@@ -317,7 +317,10 @@ void do_slookup(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (const auto&[type, entry] : skill_table) {
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
 			if (type == skill::type::unknown)
 				continue;
 
