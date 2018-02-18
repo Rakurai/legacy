@@ -4504,28 +4504,29 @@ void do_rescue(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(ch) && IS_NPC(victim)) {
-		stc("Doesn't need your help!\n", ch);
-		return;
-	}
-
 	if (ch->fighting == victim) {
-		stc("Too late.\n", ch);
+		stc("You don't need to rescue them from yourself.\n", ch);
 		return;
 	}
 
-	if ((fch = victim->fighting) == nullptr) {
-		stc("That person is not fighting right now.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(fch) && !is_same_group(ch, victim)) {
+	if (!is_same_group(ch, victim)) {
 		stc("Kill stealing is not permitted.\n", ch);
 		return;
 	}
 
-	if (!IS_NPC(fch)) {
-		stc("Thou shalt not interfere with this PK match.\n", ch);
+	if (victim->fighting == nullptr) {
+		stc("That person is not fighting right now.\n", ch);
+		return;
+	}
+
+	// old way was to get the char  that your 'victim' is currently attacking.
+	// new way is to get the first opponent that is fighting the victim.
+	for (fch = ch->in_room->people; fch != nullptr; fch = fch->next_in_room)
+		if (fch->fighting == victim)
+			break;
+
+	if (fch == nullptr) {
+		stc("No one is attacking that person right now.\n", ch);
 		return;
 	}
 
