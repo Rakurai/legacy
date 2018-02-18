@@ -13,6 +13,7 @@ sand_server
 *.log
 *.pid
 copyover.item
+copyover.item.json
 copyover.data
 .project
 .cproject
