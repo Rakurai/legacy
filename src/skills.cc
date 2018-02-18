@@ -988,8 +988,15 @@ void set_learned(Character *ch, skill::type sn, int value) {
 	ch->pcdata->learned[(int)sn] = URANGE(0, value, 100);
 }
 
+int get_learned(const Character *ch, skill::type sn) {
+	if (IS_NPC(ch) || sn == skill::type::unknown)
+		return 0;
+
+	return ch->pcdata->learned[(int)sn];
+}
+
 /* for returning skill information */
-int get_learned(const Character *ch, skill::type sn)
+int get_skill_level(const Character *ch, skill::type sn)
 {
 	int skill = 0;
 
@@ -999,7 +1006,7 @@ int get_learned(const Character *ch, skill::type sn)
 		if (ch->level < skill::lookup(sn).skill_level[ch->cls])
 			skill = 0;
 		else
-			skill = ch->pcdata->learned[(int)sn];
+			skill = get_learned(ch, sn);
 	}
 	else { /* mobiles */
 		switch (sn) {

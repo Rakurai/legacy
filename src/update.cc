@@ -260,7 +260,7 @@ int hit_gain(Character *ch)
 		gain += class_table[ch->cls].hp_max - 10;
 		number = number_percent();
 
-		if (number < get_learned(ch, skill::type::fast_healing)) {
+		if (number < get_skill_level(ch, skill::type::fast_healing)) {
 			gain += number * gain / 100;
 
 			if (ch->hit < GET_MAX_HIT(ch))
@@ -334,7 +334,7 @@ int mana_gain(Character *ch)
 		gain = (GET_ATTR_WIS(ch) + GET_ATTR_INT(ch) + ch->level) / 2;
 		number = number_percent();
 
-		if (number < get_learned(ch, skill::type::meditation)) {
+		if (number < get_skill_level(ch, skill::type::meditation)) {
 			gain += number * gain / 100;
 
 			if (ch->mana < GET_MAX_MANA(ch))
@@ -1510,7 +1510,7 @@ void underwater_update(void)
 		ch_next = ch->next;
 
 		if (!IS_NPC(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
-			skill = get_learned(ch, skill::type::swimming);
+			skill = get_skill_level(ch, skill::type::swimming);
 
 			if (skill == 100)
 				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n", ch);

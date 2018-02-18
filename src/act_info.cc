@@ -353,7 +353,7 @@ void do_peek(Character *ch, String argument)
 	Character *victim;
 	bool all = FALSE;
 
-	if (IS_NPC(ch) || !get_learned(ch, skill::type::peek)) {
+	if (IS_NPC(ch) || !get_skill_level(ch, skill::type::peek)) {
 		stc("You are not skilled at peeking.\n", ch);
 		return;
 	}
@@ -385,7 +385,7 @@ void do_peek(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::peek))
 		return;
 
-	if (!chance(get_learned(ch, skill::type::peek))) {
+	if (!chance(get_skill_level(ch, skill::type::peek))) {
 		stc("You can't seem to find a good angle...\n", ch);
 		return;
 	}
@@ -394,7 +394,7 @@ void do_peek(Character *ch, String argument)
 		if (arg2 == "lore") {
 			Object *obj;
 
-			if (!get_learned(ch, skill::type::lore)) {
+			if (!get_skill_level(ch, skill::type::lore)) {
 				stc("You aren't trained in the lore of items.\n", ch);
 				return;
 			}
@@ -411,7 +411,7 @@ void do_peek(Character *ch, String argument)
 
 			WAIT_STATE(ch, skill::lookup(skill::type::lore).beats);
 
-			if (!IS_NPC(ch) && !chance(get_learned(ch, skill::type::lore)))
+			if (!IS_NPC(ch) && !chance(get_skill_level(ch, skill::type::lore)))
 				act("You look at $p, but you can't find out any additional information.",
 				    ch, obj, nullptr, TO_CHAR);
 			else {
@@ -768,7 +768,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	    &&   !IS_NPC(ch)
 	    &&   ch->pcdata->plr_flags.has(PLR_AUTOPEEK)
 	    && (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
-	    &&   number_percent() < get_learned(ch, skill::type::peek)) {
+	    &&   number_percent() < get_skill_level(ch, skill::type::peek)) {
 		set_color(ch, YELLOW, NOBOLD);
 		stc("\nYou peek at the inventory:\n", ch);
 		show_list_to_char(victim->carrying, ch, TRUE, TRUE, FALSE);

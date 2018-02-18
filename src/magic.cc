@@ -102,7 +102,7 @@ skill::type find_spell(Character *ch, const String& name)
 				found = type;
 
 			if (ch->level >= entry.skill_level[ch->cls]
-			 && get_learned(ch, type) > 0)
+			 && get_skill_level(ch, type) > 0)
 				return type;
 		}
 	}
@@ -180,14 +180,14 @@ void say_spell(Character *ch, skill::type sn)
 				continue;
 			}
 
-			if (number_percent() < get_learned(rch, skill::type::languages)) {
+			if (number_percent() < get_skill_level(rch, skill::type::languages)) {
 				act(buf, ch, nullptr, rch, TO_VICT);
 				check_improve(rch, skill::type::languages, TRUE, 8);
 			}
 			else {
 				act(buf2, ch, nullptr, rch, TO_VICT);
 
-				if (get_learned(rch, skill::type::languages))
+				if (get_skill_level(rch, skill::type::languages))
 					check_improve(rch, skill::type::languages, FALSE, 8);
 			}
 		}
@@ -235,7 +235,7 @@ void do_cast(Character *ch, String argument)
 
 	if ((sn = find_spell(ch, arg1)) == skill::type::unknown
 	    || (!IS_NPC(ch) && (ch->level < skill::lookup(sn).skill_level[ch->cls]
-	                        || get_learned(ch, sn) == 0))) {
+	                        || get_skill_level(ch, sn) == 0))) {
 		stc("You don't know any spells of that name.\n", ch);
 		return;
 	}
@@ -469,7 +469,7 @@ void do_cast(Character *ch, String argument)
 	WAIT_STATE(ch, wait);
 
 	// use probability random distribution here, for limiting fail streaks
-	if (!prd_chance(&ch->skill_fails, get_learned(ch, sn))) {
+	if (!prd_chance(&ch->skill_fails, get_skill_level(ch, sn))) {
 		stc("You lost your concentration.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
@@ -1411,7 +1411,7 @@ void spell_light_of_truth(skill::type sn, int level, Character *ch, void *vo, in
 	af.bitvector(0);
 	af.evolution = evolution;
 
-	int learned = get_learned(ch, sn);
+	int learned = get_skill_level(ch, sn);
 
 	if ((number_percent() + 5) < learned) {
 		af.type = affect::detect_evil;
@@ -3107,7 +3107,7 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 		chance -= 15;
 
 	chance -= ((victim->stam * 20) / GET_MAX_STAM(victim));
-	chance -= get_learned(victim, skill::type::dodge) / 7;
+	chance -= get_skill_level(victim, skill::type::dodge) / 7;
 
 	if (!can_see_char(victim, ch))
 		chance += 20;
@@ -3126,7 +3126,7 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 	chance /= 4;
 
 	if (CAN_USE_RSKILL(victim, skill::type::standfast)) {
-		chance = chance * (100 - get_learned(victim, skill::type::standfast));
+		chance = chance * (100 - get_skill_level(victim, skill::type::standfast));
 		chance /= 100;
 		standfast = TRUE;
 	}
@@ -3932,7 +3932,7 @@ void spell_imprint(skill::type sn, int level, Character *ch, void *vo)
 		return;
 	}
 
-	if (number_percent() > get_learned(ch, sn)) {
+	if (number_percent() > get_skill_level(ch, sn)) {
 		stc("You lost your concentration.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;

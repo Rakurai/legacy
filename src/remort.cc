@@ -252,7 +252,7 @@ bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 	if (!IS_REMORT(ch))
 		return FALSE;
 
-	if (!get_learned(ch, sn))
+	if (!get_skill_level(ch, sn))
 		return FALSE;
 
 	if ((ch->cls + 1 != skill::lookup(sn).remort_class) && (!HAS_EXTRACLASS(ch, sn)))

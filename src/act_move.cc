@@ -158,7 +158,7 @@ void move_char(Character *ch, int door, bool follow)
 	  || to_room->sector_type == SECT_WATER_NOSWIM)
 	 && !IS_FLYING(ch)
 	 && !IS_IMMORTAL(ch)
-	 && !get_learned(ch, skill::type::swimming)) {
+	 && !get_skill_level(ch, skill::type::swimming)) {
 		// try to find a boat first
 		bool found = FALSE;
 
@@ -878,7 +878,7 @@ void do_pick(Character *ch, String argument)
 		}
 	}
 
-	if (!get_learned(ch, skill::type::pick_lock)) {
+	if (!get_skill_level(ch, skill::type::pick_lock)) {
 		stc("Hmm. You seem to lack the knowledge on how to picklocks.\n", ch);
 		return;
 	}
@@ -886,7 +886,7 @@ void do_pick(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::pick_lock))
 		return;
 
-	if (!IS_NPC(ch) && number_percent() > get_learned(ch, skill::type::pick_lock)) {
+	if (!IS_NPC(ch) && number_percent() > get_skill_level(ch, skill::type::pick_lock)) {
 		stc("You failed.\n", ch);
 		check_improve(ch, skill::type::pick_lock, FALSE, 2);
 		return;
@@ -1490,7 +1490,7 @@ void do_sneak(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::sneak).beats);
 
-	if (!get_learned(ch, skill::type::sneak)) {
+	if (!get_skill_level(ch, skill::type::sneak)) {
 		stc("But you don't know how to sneak!\n", ch);
 		return;
 	}
@@ -1498,7 +1498,7 @@ void do_sneak(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::sneak))
 		return;
 
-	if (number_percent() < get_learned(ch, skill::type::sneak)) {
+	if (number_percent() < get_skill_level(ch, skill::type::sneak)) {
 		affect::add_type_to_char(ch,
 			affect::sneak,
 			ch->level,
@@ -1524,7 +1524,7 @@ void do_hide(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::hide).beats);
 
-	if (!get_learned(ch, skill::type::hide)) {
+	if (!get_skill_level(ch, skill::type::hide)) {
 		stc("But you don't know how to hide!\n", ch);
 		return;
 	}
@@ -1532,7 +1532,7 @@ void do_hide(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::hide))
 		return;
 
-	if (number_percent() < get_learned(ch, skill::type::hide)) {
+	if (number_percent() < get_skill_level(ch, skill::type::hide)) {
 		affect::add_type_to_char(ch,
 			affect::hide,
 			ch->level,
@@ -1699,7 +1699,7 @@ void recall(Character *ch, bool clan)
 	}
 
 	if (ch->fighting != nullptr) {
-		if (number_percent() < 80 * get_learned(ch, skill::type::recall) / 100) {
+		if (number_percent() < 80 * get_skill_level(ch, skill::type::recall) / 100) {
 			check_improve(ch, skill::type::recall, FALSE, 6);
 			WAIT_STATE(ch, 4);
 			stc("The Gods ignore your hasty prayers.\n", ch);
@@ -2660,7 +2660,7 @@ void do_relocate(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::mark))
 		return;
 
-	if (number_percent() > get_learned(ch, skill::type::mark)) {
+	if (number_percent() > get_skill_level(ch, skill::type::mark)) {
 		stc("You fail to relocate.\n", ch);
 		check_improve(ch, skill::type::mark, FALSE, 4);
 		return;
@@ -3131,7 +3131,7 @@ void do_spousegate(Character *ch, String argument)
 		return;
 
 	/* We should make sure the character has this skill. -- Outsider */
-	if (get_learned(ch, skill::type::spousegate) < 50) {
+	if (get_skill_level(ch, skill::type::spousegate) < 50) {
 		stc("You do not know how to gate to your spouse.\n", ch);
 		return;
 	}

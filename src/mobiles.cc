@@ -155,7 +155,7 @@ void do_heal(Character *ch, String argument)
 	mob->gold += cost / 100;
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
-		if (number_percent() < get_learned(rch, skill::type::languages)) {
+		if (number_percent() < get_skill_level(rch, skill::type::languages)) {
 			Format::sprintf(buf, "$n utters the words '%s'.", arg);
 			act(buf, mob, nullptr, rch, TO_VICT);
 			check_improve(rch, skill::type::languages, TRUE, 8);
@@ -164,7 +164,7 @@ void do_heal(Character *ch, String argument)
 			Format::sprintf(buf, "$n utters the words '%s'.", words);
 			act(buf, mob, nullptr, rch, TO_VICT);
 
-			if (get_learned(rch, skill::type::languages))
+			if (get_skill_level(rch, skill::type::languages))
 				check_improve(rch, skill::type::languages, FALSE, 8);
 		}
 	}

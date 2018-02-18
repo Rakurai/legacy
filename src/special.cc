@@ -1208,13 +1208,13 @@ void obj_repair(Character *ch, Object *obj)
 	}
 
 	if (!rch) {
-		if (get_learned(ch, skill::type::repair)) {
+		if (get_skill_level(ch, skill::type::repair)) {
 			if (!deduct_stamina(ch, skill::type::repair))
 				return;
 
 			WAIT_STATE(ch, skill::lookup(skill::type::repair).beats);
 
-			if (number_percent() > get_learned(ch, skill::type::repair)) {
+			if (number_percent() > get_skill_level(ch, skill::type::repair)) {
 				stc("You accidentally damage it more!\n", ch);
 				check_improve(ch, skill::type::repair, FALSE, 8);
 				obj->condition -= number_range(10, 15);
@@ -1354,7 +1354,7 @@ void do_familiar(Character *ch, String argument)
 		return;
 
 	/* make sure we have the skill */
-	if (get_learned(ch, skill::type::familiar) < 1) {
+	if (get_skill_level(ch, skill::type::familiar) < 1) {
 		stc("You don't know how to create a familiar.\n", ch);
 		return;
 	}

@@ -239,7 +239,7 @@ void do_second(Character *ch, String argument)
 {
 	Object *obj;
 
-	if (!get_learned(ch, skill::type::dual_wield) && !IS_NPC(ch)) {
+	if (!get_skill_level(ch, skill::type::dual_wield) && !IS_NPC(ch)) {
 		stc("You are not able to wield two weapons.\n", ch);
 		return;
 	}
@@ -1596,7 +1596,7 @@ void do_envenom(Character *ch, String argument)
 		return;
 	}
 
-	if ((skill = get_learned(ch, skill::type::envenom)) < 1) {
+	if ((skill = get_skill_level(ch, skill::type::envenom)) < 1) {
 		stc("Are you crazy? You'd poison yourself!\n", ch);
 		return;
 	}
@@ -1689,7 +1689,7 @@ void do_firebuilding(Character *ch, String argument)
 		return;
 	}
 
-	if (!get_learned(ch, skill::type::firebuilding)) {
+	if (!get_skill_level(ch, skill::type::firebuilding)) {
 		stc("You lack the knowledge it takes to make a torch!\n", ch);
 		return;
 	}
@@ -1708,7 +1708,7 @@ void do_firebuilding(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::firebuilding).beats);
 
-	if (number_percent() > get_learned(ch, skill::type::firebuilding)) {
+	if (number_percent() > get_skill_level(ch, skill::type::firebuilding)) {
 		stc("You burn yourself.\n", ch);
 		check_improve(ch, skill::type::firebuilding, FALSE, 8);
 		return;
@@ -2976,7 +2976,7 @@ void do_recite(Character *ch, String argument)
 	act("$n recites $p.", ch, scroll, nullptr, TO_ROOM);
 	act("You recite $p.", ch, scroll, nullptr, TO_CHAR);
 
-	if (number_percent() >= 20 + get_learned(ch, skill::type::scrolls) * 4 / 5) {
+	if (number_percent() >= 20 + get_skill_level(ch, skill::type::scrolls) * 4 / 5) {
 		stc("You mispronounce a syllable.\n", ch);
 		check_improve(ch, skill::type::scrolls, FALSE, 2);
 	}
@@ -3035,7 +3035,7 @@ void do_brandish(Character *ch, String argument)
 		act("You brandish $p.",  ch, staff, nullptr, TO_CHAR);
 
 		if (get_usable_level(ch) < staff->level
-		    ||   number_percent() >= 20 + get_learned(ch, skill::type::staves) * 4 / 5) {
+		    ||   number_percent() >= 20 + get_skill_level(ch, skill::type::staves) * 4 / 5) {
 			act("You fail to invoke $p.", ch, staff, nullptr, TO_CHAR);
 			act("...and nothing happens.", ch, nullptr, nullptr, TO_ROOM);
 			check_improve(ch, skill::type::staves, FALSE, 2);
@@ -3157,7 +3157,7 @@ void do_zap(Character *ch, String argument)
 		}
 
 		if (get_usable_level(ch) < wand->level
-		    ||  number_percent() >= 20 + get_learned(ch, skill::type::wands) * 4 / 5) {
+		    ||  number_percent() >= 20 + get_skill_level(ch, skill::type::wands) * 4 / 5) {
 			act("Your efforts with $p produce only sparks and smoke.",
 			    ch, wand, nullptr, TO_CHAR);
 			act("$n's efforts with $p produce only sparks and smoke.",
@@ -3236,7 +3236,7 @@ void do_brew(Character *ch, String argument)
 		return;
 	}
 
-	if (!get_learned(ch, sn)) {
+	if (!get_skill_level(ch, sn)) {
 		stc("You don't know any spells by that name.\n", ch);
 		return;
 	}
@@ -3286,7 +3286,7 @@ void do_brew(Character *ch, String argument)
 
 	/* Check the skill percentage, fcn(wis,int,skill) */
 	if (!IS_NPC(ch)
-	    && (number_percent() > get_learned(ch, skill::type::brew) ||
+	    && (number_percent() > get_skill_level(ch, skill::type::brew) ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p explodes violently!", ch, obj, nullptr, TO_CHAR);
@@ -3352,7 +3352,7 @@ void do_scribe(Character *ch, String argument)
 		return;
 	}
 
-	if (!get_learned(ch, sn)) {
+	if (!get_skill_level(ch, sn)) {
 		stc("You don't know any spells by that name.\n", ch);
 		return;
 	}
@@ -3395,7 +3395,7 @@ void do_scribe(Character *ch, String argument)
 
 	/* Check the skill percentage, fcn(int,wis,skill) */
 	if (!IS_NPC(ch)
-	    && (number_percent() > get_learned(ch, skill::type::scribe) ||
+	    && (number_percent() > get_skill_level(ch, skill::type::scribe) ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p bursts in flames!", ch, obj, nullptr, TO_CHAR);
@@ -3428,7 +3428,7 @@ void do_steal(Character *ch, String argument)
 	Object *obj;
 	int percent;
 
-	if (get_learned(ch, skill::type::steal) == 0) {
+	if (get_skill_level(ch, skill::type::steal) == 0) {
 		stc("You don't know how to steal.\n", ch);
 		return;
 	}
@@ -3484,7 +3484,7 @@ void do_steal(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::steal).beats);
 	percent  = number_percent();
 
-	if (get_learned(ch, skill::type::steal) >= 1)
+	if (get_skill_level(ch, skill::type::steal) >= 1)
 		percent  += (IS_AWAKE(victim) ? 10 : -50);
 
 	if ((!IS_NPC(victim) && !IS_NPC(ch) && !IS_IMMORTAL(ch))
@@ -3506,7 +3506,7 @@ void do_steal(Character *ch, String argument)
 		}
 	}
 
-	if (!IS_NPC(ch) && percent > get_learned(ch, skill::type::steal)) {
+	if (!IS_NPC(ch) && percent > get_skill_level(ch, skill::type::steal)) {
 		/*
 		 * Failure.
 		 */
@@ -3956,7 +3956,7 @@ void do_buy(Character *ch, String argument)
 
 		if (roll < 1) roll = 1;
 
-		if (roll < get_learned(ch, skill::type::haggle)) {
+		if (roll < get_skill_level(ch, skill::type::haggle)) {
 			cost -= cost / 2 * roll / 100;
 			ptc(ch, "You haggle the price down to %d coins.\n", cost);
 			check_improve(ch, skill::type::haggle, TRUE, 4);
@@ -4122,7 +4122,7 @@ void do_buy(Character *ch, String argument)
 			if (roll < 1) roll = 1;
 
 			if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
-			    && roll < get_learned(ch, skill::type::haggle)
+			    && roll < get_skill_level(ch, skill::type::haggle)
 			    && obj->pIndexData->item_type != ITEM_MONEY) { /* to prevent buying money for less than value */
 				cost -= obj->cost / 2 * roll / 100;
 				act("You haggle with $N.", ch, nullptr, keeper, TO_CHAR);
@@ -4400,7 +4400,7 @@ void do_sell(Character *ch, String argument)
 		if (roll < 1) roll = 1;
 
 		if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
-		    && roll < get_learned(ch, skill::type::haggle)
+		    && roll < get_skill_level(ch, skill::type::haggle)
 		    && obj->pIndexData->item_type != ITEM_MONEY) {
 			stc("You haggle with the shopkeeper.\n", ch);
 			cost += obj->cost / 2 * roll / 100;
@@ -4688,7 +4688,7 @@ void do_hone(Character *ch, String argument)
 	whetstone = get_eq_char(ch, WEAR_HOLD);
 	weapon = get_eq_char(ch, WEAR_WIELD);
 
-	if (IS_NPC(ch) || (get_learned(ch, skill::type::hone) < 1)) {
+	if (IS_NPC(ch) || (get_skill_level(ch, skill::type::hone) < 1)) {
 		stc("You lack the skill to hone weapons.\n", ch);
 		return;
 	}
@@ -4718,7 +4718,7 @@ void do_hone(Character *ch, String argument)
 		return;
 
 	if (!IS_IMMORTAL(ch)) {
-		if (number_percent() > UMIN(get_learned(ch, skill::type::hone), 95)) {
+		if (number_percent() > UMIN(get_skill_level(ch, skill::type::hone), 95)) {
 			Format::sprintf(buf, "You fail to hone your weapon, and you gouge %s deeply, ruining it.\n",
 			        whetstone->short_descr);
 			stc(buf, ch);
@@ -4760,7 +4760,7 @@ void do_forge(Character *ch, String argument)
 	argument = one_argument(argument, type);
 
 	if (argument.empty() || type.empty()) {
-		if (get_learned(ch, skill::type::forge))
+		if (get_skill_level(ch, skill::type::forge))
 			stc("Syntax: {Rforge{x <weapon type> <weapon name>\n"
 			    "        {Rforge flag{x <flag type>\n", ch);
 		else
@@ -4795,7 +4795,7 @@ void do_forge(Character *ch, String argument)
 	}
 
 	/* not FORGE FLAG, so check skill */
-	if (!get_learned(ch, skill::type::forge)) {
+	if (!get_skill_level(ch, skill::type::forge)) {
 		stc("You stand before the anvil, feeling foolish.\n"
 		    "Lacking the skill to forge, you would only ruin the material.\n", ch);
 		return;
@@ -4843,7 +4843,7 @@ void do_forge(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::forge).beats);
 
-	if (!IS_IMMORTAL(ch) && number_percent() > (get_learned(ch, skill::type::forge) + material->value[0])) {
+	if (!IS_IMMORTAL(ch) && number_percent() > (get_skill_level(ch, skill::type::forge) + material->value[0])) {
 		stc("You fail to forge a useful weapon.\n", ch);
 		act("$n tries but fails to forge a useful weapon.\n", ch, nullptr, nullptr, TO_ROOM);
 		check_improve(ch, skill::type::forge, FALSE, 1);
@@ -5237,7 +5237,7 @@ void do_lore(Character *ch, String argument)
 {
 	Object *obj;
 
-	if (!get_learned(ch, skill::type::lore)) {
+	if (!get_skill_level(ch, skill::type::lore)) {
 		stc("You aren't trained in the lore of items.\n", ch);
 		return;
 	}
@@ -5256,7 +5256,7 @@ void do_lore(Character *ch, String argument)
 		return;
 	}
 
-	if (!prd_chance(&ch->skill_fails, get_learned(ch, skill::type::lore))) {
+	if (!prd_chance(&ch->skill_fails, get_skill_level(ch, skill::type::lore))) {
 		act("You look at $p, but you can't find out any additional information.", ch, obj, nullptr, TO_CHAR);
 		act("$n looks at $p but cannot find out anything.", ch, obj, nullptr, TO_ROOM);
 		return;

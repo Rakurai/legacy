@@ -817,7 +817,7 @@ void do_autopeek(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) return;
 
-	if (!get_learned(ch, skill::type::peek)) return;
+	if (!get_skill_level(ch, skill::type::peek)) return;
 
 	if (ch->pcdata->plr_flags.has(PLR_AUTOPEEK)) {
 		stc("You will no longer PEEK automatically.\n", ch);
@@ -1834,7 +1834,7 @@ void align(Character *ch, int new_align, char *align_str)
 	if (!deduct_stamina(ch, skill::type::align))
 		return;
 
-	if (get_learned(ch, skill::type::align) < number_percent()) {
+	if (get_skill_level(ch, skill::type::align) < number_percent()) {
 		stc("You fail to change your alignment.\n", ch);
 		check_improve(ch, skill::type::align, FALSE, 20);
 	}
@@ -1923,8 +1923,8 @@ void do_outfit(Character *ch, String argument)
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
 		for (i = 0; i < weapon_table.size(); i++) {
-			if (get_learned(ch, sn) <
-			    get_learned(ch, weapon_table[i].skill)) {
+			if (get_skill_level(ch, sn) <
+			    get_skill_level(ch, weapon_table[i].skill)) {
 				sn = weapon_table[i].skill;
 				vnum = weapon_table[i].vnum;
 			}

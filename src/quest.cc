@@ -428,8 +428,8 @@ skill::type get_random_skill(Character *ch)
 		for (const auto& pair : skill_table) {
 			sn = pair.first;
 
-			if (get_learned(ch, sn) <= 0
-			 || get_learned(ch, sn) >= 100)
+			if (get_skill_level(ch, sn) <= 0
+			 || get_skill_level(ch, sn) >= 100)
 				continue;
 
 			const auto &entry = pair.second;

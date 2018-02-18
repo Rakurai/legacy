@@ -535,7 +535,8 @@ void    gn_add          args( ( Character *ch, int gn) );
 void    gn_remove       args( ( Character *ch, int gn) );
 void    group_add       args( ( Character *ch, const String& name, bool deduct) );
 void    group_remove    args( ( Character *ch, const String& name) );
-int	get_skill_cost  args( ( Character *ch, skill::type ) );
+int	    get_skill_cost  args(( Character *ch, skill::type ) );
+int     get_skill_level args(( const Character *ch, skill::type type ) );
 bool	deduct_stamina  args( ( Character *ch, skill::type ) );
 
 /* special.c */

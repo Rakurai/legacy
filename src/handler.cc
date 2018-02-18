@@ -192,7 +192,7 @@ int get_weapon_learned(Character *ch, skill::type sn)
 		if (sn == skill::type::unknown)
 			skill = 3 * ch->level;
 		else
-			skill = get_learned(ch, sn);
+			skill = get_skill_level(ch, sn);
 	}
 
 	return URANGE(0, skill, 100);
@@ -1441,7 +1441,7 @@ bool can_see_char(const Character *ch, const Character *victim)
 	    &&   !affect::exists_on_char(ch, affect::detect_hidden)
 	    &&   victim->fighting == nullptr) {
 		int chance;
-		chance = get_learned(victim, skill::type::sneak);
+		chance = get_skill_level(victim, skill::type::sneak);
 		chance += GET_ATTR_DEX(ch) * 3 / 2;
 		chance -= GET_ATTR_INT(ch) * 2;
 		chance += ch->level - victim->level * 3 / 2;

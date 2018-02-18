@@ -186,7 +186,7 @@ void do_hunt(Character *ch, String argument)
 	bool same_area;
 	int steps;
 
-	if (!IS_NPC(ch) && !get_learned(ch, skill::type::hunt)) {
+	if (!IS_NPC(ch) && !get_skill_level(ch, skill::type::hunt)) {
 		stc("You are not able to hunt.\n", ch);
 		return;
 	}
@@ -257,7 +257,7 @@ void do_hunt(Character *ch, String argument)
 	}
 
 	/* Give a random direction if the player misses the die roll. */
-	if (number_percent() > get_learned(ch, skill::type::hunt)) {
+	if (number_percent() > get_skill_level(ch, skill::type::hunt)) {
 		check_improve(ch, skill::type::hunt, FALSE, 4);
 
 		do {
