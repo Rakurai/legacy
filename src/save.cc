@@ -32,7 +32,7 @@
 #include "../deps/cJSON/cJSON.h"
 #include "argument.hh"
 #include "affect/Affect.hh"
-#include "cJSON.hh"
+#include "JSON/cJSON.hh"
 #include "Character.hh"
 #include "Clan.hh"
 #include "declare.hh"

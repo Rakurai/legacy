@@ -1,5 +1,5 @@
 #include "../deps/cJSON/cJSON.h"
-#include "cJSON.hh"
+#include "JSON/cJSON.hh"
 #include "Format.hh"
 #include "Logging.hh"
 

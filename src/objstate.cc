@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "affect/Affect.hh"
+#include "JSON/cJSON.hh"
 #include "declare.hh"
 #include "ExtraDescr.hh"
 #include "file.hh"
