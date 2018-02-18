@@ -231,7 +231,7 @@ void spell_full_heal(skill::Type sn, int level, Character *ch, void *vo, int tar
 		ch->mana += mana;
 		return;
 	}
-
+/*
 	if (victim->fighting) {
 		if (victim == ch)
 			stc("The fury of battle prevents a full healing.\n", ch);
@@ -246,7 +246,7 @@ void spell_full_heal(skill::Type sn, int level, Character *ch, void *vo, int tar
 			stc("You can't cast this so soon after combat.\n", ch);
 			return;
 		}
-
+*/
 	victim->hit = GET_MAX_HIT(victim);
 	ch->mana -= mana_cost;
 	act("$n looks revived as $s wounds vanish completely.", victim, nullptr, nullptr, TO_ROOM);
