@@ -201,7 +201,7 @@ bool spec_troll_member(Character *ch)
 	}
 
 	act(message, ch, nullptr, victim, TO_ALL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, skill::type::unknown);
 	return TRUE;
 }
 
@@ -259,7 +259,7 @@ bool spec_ogre_member(Character *ch)
 	}
 
 	act(message, ch, nullptr, victim, TO_ALL);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, skill::type::unknown);
 	return TRUE;
 }
 
@@ -339,7 +339,7 @@ bool spec_patrolman(Character *ch)
 	if (message != nullptr)
 		act(message, ch, nullptr, nullptr, TO_ALL);
 
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, skill::type::unknown);
 	return TRUE;
 }
 bool spec_questmaster(Character *ch)
@@ -422,7 +422,7 @@ bool spec_nasty(Character *ch)
 }
 
 /* Core procedure for dragons. */
-bool dragon(Character *ch, skill::Type sn)
+bool dragon(Character *ch, skill::type sn)
 {
 	Character *victim;
 
@@ -452,17 +452,17 @@ bool spec_breath_any(Character *ch)
 {
 	switch (number_bits(3)) {
 	case 0:
-	case 1: return dragon(ch, skill::lightning_breath);
+	case 1: return dragon(ch, skill::type::lightning_breath);
 
 	case 2:
 	case 3:
-	case 4: return dragon(ch, skill::frost_breath);
+	case 4: return dragon(ch, skill::type::frost_breath);
 
-	case 5: return dragon(ch, skill::fire_breath);
+	case 5: return dragon(ch, skill::type::fire_breath);
 
-	case 6: return dragon(ch, skill::gas_breath);
+	case 6: return dragon(ch, skill::type::gas_breath);
 
-	case 7: return dragon(ch, skill::acid_breath);
+	case 7: return dragon(ch, skill::type::acid_breath);
 	}
 
 	return FALSE;
@@ -470,27 +470,27 @@ bool spec_breath_any(Character *ch)
 
 bool spec_breath_acid(Character *ch)
 {
-	return dragon(ch, skill::acid_breath);
+	return dragon(ch, skill::type::acid_breath);
 }
 
 bool spec_breath_fire(Character *ch)
 {
-	return dragon(ch, skill::fire_breath);
+	return dragon(ch, skill::type::fire_breath);
 }
 
 bool spec_breath_frost(Character *ch)
 {
-	return dragon(ch, skill::frost_breath);
+	return dragon(ch, skill::type::frost_breath);
 }
 
 bool spec_breath_gas(Character *ch)
 {
-	return dragon(ch, skill::gas_breath);
+	return dragon(ch, skill::type::gas_breath);
 }
 
 bool spec_breath_lightning(Character *ch)
 {
-	return dragon(ch, skill::lightning_breath);
+	return dragon(ch, skill::type::lightning_breath);
 }
 
 bool spec_cast_adept(Character *ch)
@@ -516,49 +516,49 @@ bool spec_cast_adept(Character *ch)
 	case 0:
 #if (defined(HALLOWEEN))
 		act("$n utters the word 'bhiae waai'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_blood_moon(skill::blood_moon, ch->level, ch, victim, TARGET_CHAR,
-		                 get_evolution(ch, skill::blood_moon));
+		spell_blood_moon(skill::type::blood_moon, ch->level, ch, victim, TARGET_CHAR,
+		                 get_evolution(ch, skill::type::blood_moon));
 #else
 		act("$n utters the word 'abrazak'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_armor(skill::armor, ch->level, ch, victim, TARGET_CHAR,
-		            get_evolution(ch, skill::armor));
+		spell_armor(skill::type::armor, ch->level, ch, victim, TARGET_CHAR,
+		            get_evolution(ch, skill::type::armor));
 #endif
 		return TRUE;
 
 	case 1:
 		act("$n utters the word 'fido'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_bless(skill::bless, ch->level, ch, victim, TARGET_CHAR,
-		            get_evolution(ch, skill::bless));
+		spell_bless(skill::type::bless, ch->level, ch, victim, TARGET_CHAR,
+		            get_evolution(ch, skill::type::bless));
 		return TRUE;
 
 	case 2:
 		act("$n utters the words 'judicandus noselacri'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_cure_blindness(skill::cure_blindness,
-		                     ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::cure_blindness));
+		spell_cure_blindness(skill::type::cure_blindness,
+		                     ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_blindness));
 		return TRUE;
 
 	case 3:
 		act("$n utters the words 'judicandus dies'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_cure_light(skill::cure_light,
-		                 ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::cure_light));
+		spell_cure_light(skill::type::cure_light,
+		                 ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_light));
 		return TRUE;
 
 	case 4:
 		act("$n utters the words 'judicandus sausabru'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_cure_poison(skill::cure_poison,
-		                  ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::cure_poison));
+		spell_cure_poison(skill::type::cure_poison,
+		                  ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_poison));
 		return TRUE;
 
 	case 5:
 		act("$n utters the word 'candusima'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_refresh(skill::refresh, ch->level, ch, victim, TARGET_CHAR,
-		              get_evolution(ch, skill::refresh));
+		spell_refresh(skill::type::refresh, ch->level, ch, victim, TARGET_CHAR,
+		              get_evolution(ch, skill::type::refresh));
 		return TRUE;
 
 	case 6:
 		act("$n utters the words 'judicandus eugzagz'.", ch, nullptr, nullptr, TO_ROOM);
-		spell_cure_disease(skill::cure_disease,
-		                   ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::cure_disease));
+		spell_cure_disease(skill::type::cure_disease,
+		                   ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_disease));
 	}
 
 	return FALSE;
@@ -569,7 +569,7 @@ bool spec_cast_judge(Character *ch)
 	Character *victim;
 	Character *v_next;
 	char *spell;
-	skill::Type sn;
+	skill::type sn;
 
 	if (get_position(ch) != POS_FIGHTING)
 		return FALSE;
@@ -586,7 +586,7 @@ bool spec_cast_judge(Character *ch)
 
 	spell = "high explosive";
 
-	if ((sn = skill::lookup(spell)) == skill::unknown)
+	if ((sn = skill::lookup(spell)) == skill::type::unknown)
 		return FALSE;
 
 	(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
@@ -596,7 +596,7 @@ bool spec_cast_judge(Character *ch)
 bool spec_cast_cleric(Character *ch)
 {
 	Character *victim;
-	skill::Type sn;
+	skill::type sn;
 	int i;
 
 	if (get_position(ch) != POS_FIGHTING)
@@ -614,29 +614,29 @@ bool spec_cast_cleric(Character *ch)
 			return FALSE;
 
 		switch (number_bits(4)) {
-		case  0:        sn = skill::blindness;     break;
+		case  0:        sn = skill::type::blindness;     break;
 
-		case  1:        sn = skill::cause_serious; break;
+		case  1:        sn = skill::type::cause_serious; break;
 
-		case  2:        sn = skill::earthquake;    break;
+		case  2:        sn = skill::type::earthquake;    break;
 
-		case  3:        sn = skill::cause_critical; break;
+		case  3:        sn = skill::type::cause_critical; break;
 
-		case  4:        sn = skill::dispel_evil;   break;
+		case  4:        sn = skill::type::dispel_evil;   break;
 
-		case  5:        sn = skill::curse;         break;
+		case  5:        sn = skill::type::curse;         break;
 
-		case  6:        sn = skill::change_sex;    break;
+		case  6:        sn = skill::type::change_sex;    break;
 
-		case  7:        sn = skill::flamestrike;   break;
+		case  7:        sn = skill::type::flamestrike;   break;
 
 		case  8:
 		case  9:
-		case 10:        sn = skill::harm;          break;
+		case 10:        sn = skill::type::harm;          break;
 
-		case 11:        sn = skill::plague;        break;
+		case 11:        sn = skill::type::plague;        break;
 
-		default:        sn = skill::dispel_magic;  break;
+		default:        sn = skill::type::dispel_magic;  break;
 		}
 
 		if (ch->level < skill::lookup(sn).skill_level[1]
@@ -653,7 +653,7 @@ bool spec_cast_cleric(Character *ch)
 bool spec_cast_mage(Character *ch)
 {
 	Character *victim;
-	skill::Type sn;
+	skill::type sn;
 	int i;
 
 	if (get_position(ch) != POS_FIGHTING)
@@ -671,28 +671,28 @@ bool spec_cast_mage(Character *ch)
 			return FALSE;
 
 		switch (number_bits(4)) {
-		case  0:        sn = skill::blindness;     break;
+		case  0:        sn = skill::type::blindness;     break;
 
-		case  1:        sn = skill::chill_touch;   break;
+		case  1:        sn = skill::type::chill_touch;   break;
 
-		case  2:        sn = skill::weaken;        break;
+		case  2:        sn = skill::type::weaken;        break;
 
-		case  3:        sn = skill::teleport;      break;
+		case  3:        sn = skill::type::teleport;      break;
 
-		case  4:        sn = skill::colour_spray;  break;
+		case  4:        sn = skill::type::colour_spray;  break;
 
-		case  5:        sn = skill::change_sex;    break;
+		case  5:        sn = skill::type::change_sex;    break;
 
-		case  6:        sn = skill::energy_drain;  break;
+		case  6:        sn = skill::type::energy_drain;  break;
 
 		case  7:
 		case  8:
-		case  9:        sn = skill::fireball;      break;
+		case  9:        sn = skill::type::fireball;      break;
 
 		case 10:
-		case 11:        sn = skill::acid_blast;    break;
+		case 11:        sn = skill::type::acid_blast;    break;
 
-		default:        sn = skill::plague;        break;
+		default:        sn = skill::type::plague;        break;
 		}
 
 		if (ch->level < skill::lookup(sn).skill_level[0]
@@ -709,7 +709,7 @@ bool spec_cast_mage(Character *ch)
 bool spec_cast_undead(Character *ch)
 {
 	Character *victim;
-	skill::Type sn;
+	skill::type sn;
 	int i;
 
 	if (get_position(ch) != POS_FIGHTING)
@@ -727,27 +727,27 @@ bool spec_cast_undead(Character *ch)
 			return FALSE;
 
 		switch (number_bits(4)) {
-		case  0:        sn = skill::curse;         break;
+		case  0:        sn = skill::type::curse;         break;
 
 		case  1:
-		case  2:        sn = skill::chill_touch;   break;
+		case  2:        sn = skill::type::chill_touch;   break;
 
-		case  3:        sn = skill::blindness;     break;
+		case  3:        sn = skill::type::blindness;     break;
 
-		case  4:        sn = skill::energy_drain;  break;
+		case  4:        sn = skill::type::energy_drain;  break;
 
-		case  5:        sn = skill::teleport;      break;
+		case  5:        sn = skill::type::teleport;      break;
 
 		case  6:
-		case  7:        sn = skill::poison;        break;
+		case  7:        sn = skill::type::poison;        break;
 
 		case  8:
-		case  9:        sn = skill::plague;        break;
+		case  9:        sn = skill::type::plague;        break;
 
 		case 10:
-		case 11:        sn = skill::harm;          break;
+		case 11:        sn = skill::type::harm;          break;
 
-		default:        sn = skill::weaken;        break;
+		default:        sn = skill::type::weaken;        break;
 		}
 
 		if ((ch->level < skill::lookup(sn).skill_level[1]
@@ -793,7 +793,7 @@ bool spec_executioner(Character *ch)
 	        victim->name, crime);
 	ch->comm_flags -= COMM_NOCHANNELS;
 	do_yell(ch, buf);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, skill::type::unknown);
 	return TRUE;
 }
 
@@ -861,14 +861,14 @@ bool spec_guard(Character *ch)
 		        victim->name, crime);
 		ch->comm_flags -= COMM_NOCHANNELS;
 		do_yell(ch, buf);
-		multi_hit(ch, victim, TYPE_UNDEFINED);
+		multi_hit(ch, victim, skill::type::unknown);
 		return TRUE;
 	}
 
 	if (ech != nullptr) {
 		act("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
 		    ch, nullptr, nullptr, TO_ROOM);
-		multi_hit(ch, ech, TYPE_UNDEFINED);
+		multi_hit(ch, ech, skill::type::unknown);
 		return TRUE;
 	}
 
@@ -1012,7 +1012,7 @@ bool spec_poison(Character *ch)
 	act("You bite $N!",  ch, nullptr, victim, TO_CHAR);
 	act("$n bites $N!",  ch, nullptr, victim, TO_NOTVICT);
 	act("$n bites you!", ch, nullptr, victim, TO_VICT);
-	spell_poison(skill::poison, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::poison));
+	spell_poison(skill::type::poison, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::poison));
 	return TRUE;
 }
 
@@ -1089,7 +1089,7 @@ void do_identify(Character *ch, String argument)
 
 	act("$n fondles $p and ponders its purpose.",
 	    rch, obj, nullptr, TO_ROOM);
-	spell_identify(skill::identify, 0, ch, obj, TAR_OBJ_INV, 1);
+	spell_identify(skill::type::identify, 0, ch, obj, TAR_OBJ_INV, 1);
 }
 
 bool spec_charm(Character *ch)
@@ -1130,8 +1130,8 @@ bool spec_charm(Character *ch)
 
 	act("$n begins playing a new, beautiful song.",
 	    ch, nullptr, nullptr, TO_ROOM);
-	spell_charm_person(skill::charm_person, ch->level, ch, victim,
-	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, skill::charm_person));
+	spell_charm_person(skill::type::charm_person, ch->level, ch, victim,
+	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, skill::type::charm_person));
 
 	if (affect::exists_on_char(victim, affect::charm_person))
 		stop_fighting(victim, TRUE);
@@ -1208,15 +1208,15 @@ void obj_repair(Character *ch, Object *obj)
 	}
 
 	if (!rch) {
-		if (get_learned(ch, skill::repair)) {
-			if (!deduct_stamina(ch, skill::repair))
+		if (get_learned(ch, skill::type::repair)) {
+			if (!deduct_stamina(ch, skill::type::repair))
 				return;
 
-			WAIT_STATE(ch, skill::lookup(skill::repair).beats);
+			WAIT_STATE(ch, skill::lookup(skill::type::repair).beats);
 
-			if (number_percent() > get_learned(ch, skill::repair)) {
+			if (number_percent() > get_learned(ch, skill::type::repair)) {
 				stc("You accidentally damage it more!\n", ch);
-				check_improve(ch, skill::repair, FALSE, 8);
+				check_improve(ch, skill::type::repair, FALSE, 8);
 				obj->condition -= number_range(10, 15);
 
 				if (obj->condition < 0)
@@ -1237,7 +1237,7 @@ void obj_repair(Character *ch, Object *obj)
 			Format::sprintf(buf, "You repair $p to %s condition.",
 			        condition_lookup(obj->condition));
 			act(buf, ch, obj, nullptr, TO_CHAR);
-			check_improve(ch, skill::repair, TRUE, 8);
+			check_improve(ch, skill::type::repair, TRUE, 8);
 			return;
 		}
 
@@ -1304,7 +1304,7 @@ bool spec_clanguard(Character *ch)
 			do_yell(ch, "Invaders!  KILL THE INFIDELS!!");
 		}
 
-		multi_hit(ch, victim, TYPE_UNDEFINED);
+		multi_hit(ch, victim, skill::type::unknown);
 		found = TRUE;
 	}
 
@@ -1354,7 +1354,7 @@ void do_familiar(Character *ch, String argument)
 		return;
 
 	/* make sure we have the skill */
-	if (get_learned(ch, skill::familiar) < 1) {
+	if (get_learned(ch, skill::type::familiar) < 1) {
 		stc("You don't know how to create a familiar.\n", ch);
 		return;
 	}
@@ -1373,6 +1373,6 @@ void do_familiar(Character *ch, String argument)
 
 	ch->pcdata->familiar = TRUE;
 	stc("You feel at one with your pet.\n", ch);
-	check_improve(ch, skill::familiar, TRUE, 1);
+	check_improve(ch, skill::type::familiar, TRUE, 1);
 	return;
 }

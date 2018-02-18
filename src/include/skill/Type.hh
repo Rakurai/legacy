@@ -2,7 +2,7 @@
 
 namespace skill {
 
-enum Type {
+enum class type {
     unknown = -1, // don't touch
 
     // starts at 0

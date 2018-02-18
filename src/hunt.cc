@@ -186,7 +186,7 @@ void do_hunt(Character *ch, String argument)
 	bool same_area;
 	int steps;
 
-	if (!IS_NPC(ch) && !get_learned(ch, skill::hunt)) {
+	if (!IS_NPC(ch) && !get_learned(ch, skill::type::hunt)) {
 		stc("You are not able to hunt.\n", ch);
 		return;
 	}
@@ -221,12 +221,12 @@ void do_hunt(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::hunt))
+	if (!deduct_stamina(ch, skill::type::hunt))
 		return;
 
 	act("$n kneels down and checks for tracks.",
 	    ch, nullptr, nullptr, TO_ROOM);
-	WAIT_STATE(ch, skill::lookup(skill::hunt).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::hunt).beats);
 	/* set up hunt conditions */
 	cond.hunter     = ch;
 	cond.from_room  = ch->in_room;
@@ -257,10 +257,8 @@ void do_hunt(Character *ch, String argument)
 	}
 
 	/* Give a random direction if the player misses the die roll. */
-	if ((IS_NPC(ch) && number_percent() > 75)           /* NPC @ 25% */
-	    || (!IS_NPC(ch) && number_percent() >            /* PC @ norm */
-	        ch->pcdata->learned[skill::hunt])) {
-		check_improve(ch, skill::hunt, FALSE, 4);
+	if (number_percent() > get_learned(ch, skill::type::hunt)) {
+		check_improve(ch, skill::type::hunt, FALSE, 4);
 
 		do {
 			direction = number_door();
@@ -274,7 +272,7 @@ void do_hunt(Character *ch, String argument)
 			stc(buffer, ch);
 		}
 
-		check_improve(ch, skill::hunt, TRUE, 4);
+		check_improve(ch, skill::type::hunt, TRUE, 4);
 	}
 
 	/* Display the results of the search. */
@@ -315,12 +313,12 @@ void hunt_victim(Character *ch)
 		    ch, nullptr, ch->hunting, TO_VICT);
 		act("You glare at $N and say, 'Ye shall DIE!",
 		    ch, nullptr, ch->hunting, TO_CHAR);
-		multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
+		multi_hit(ch, ch->hunting, skill::type::unknown);
 		ch->hunting = nullptr;
 		return;
 	}
 
-	WAIT_STATE(ch, skill::lookup(skill::hunt).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::hunt).beats);
 	/* set up hunt conditions */
 	cond.hunter     = ch;
 	cond.from_room  = ch->in_room;

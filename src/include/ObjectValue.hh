@@ -1,6 +1,7 @@
 #pragma once
 
 #include "declare.hh"
+#include "skill/Type.hh"
 
 class ObjectValue {
 public:

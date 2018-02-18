@@ -4002,8 +4002,12 @@ void do_wizify(Character *ch, String argument)
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(victim, stat_to_attr(stat)) = 25;
 
-	for (int i = skill::first; i < skill::size; i++)
-		victim->pcdata->learned[i] = 100;
+	for (const auto& pair : skill_table) {
+		if (pair.first == skill::type::unknown)
+			continue;
+
+		set_learned(victim, pair.first, 100);
+	}
 
 	victim->remove_cgroup(GROUP_LEADER);
 	victim->remove_cgroup(GROUP_DEPUTY);

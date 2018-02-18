@@ -77,7 +77,6 @@ String print_cache(Character *ch) {
 				buf += " ";
 
 			buf += Format::format("%s(%d)", lookup((Type)type_n).name, count);
-//			str += skill_table[sn].name;
 		}
 	}
 

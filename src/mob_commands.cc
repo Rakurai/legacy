@@ -242,7 +242,7 @@ void do_mpkill(Character *ch, String argument)
 		return;
 	}
 
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, skill::type::unknown);
 	return;
 }
 

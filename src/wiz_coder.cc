@@ -304,7 +304,7 @@ void do_shutdown(Character *ch, String argument)
 
 void do_slookup(Character *ch, String argument)
 {
-	skill::Type sn;
+	skill::type sn;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -317,17 +317,19 @@ void do_slookup(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (int i = skill::first; i < skill::size; i++)
-			sn = (skill::Type)i;
+		for (const auto&[type, entry] : skill_table) {
+			if (type == skill::type::unknown)
+				continue;
 
 			ptc(ch, "Sn: %3d  Skill/spell: '%s'\n",
-			    sn,
-			    skill::lookup(sn).name);
+			    (int)type,
+			    entry.name);
+		}
 
 		return;
 	}
 
-	if ((sn = skill::lookup(arg)) == skill::unknown) {
+	if ((sn = skill::lookup(arg)) == skill::type::unknown) {
 		stc("No such skill or spell.\n", ch);
 		return;
 	}

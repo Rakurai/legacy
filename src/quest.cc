@@ -414,10 +414,10 @@ void quest_info(Character *ch)
 	return;
 }
 
-skill::Type get_random_skill(Character *ch)
+skill::type get_random_skill(Character *ch)
 {
 	int count;
-	skill::Type sn;
+	skill::type sn;
 	int pass = 1;
 	int target = 0;
 
@@ -425,14 +425,14 @@ skill::Type get_random_skill(Character *ch)
 	while (pass != 0) {
 		count = 0;
 
-		for (int i = skill::first; i < skill::size; i++) {
-			sn = (skill::Type)i;
+		for (const auto& pair : skill_table) {
+			sn = pair.first;
 
-			if (ch->pcdata->learned[sn] <= 0
-			 || ch->pcdata->learned[sn] >= 100)
+			if (get_learned(ch, sn) <= 0
+			 || get_learned(ch, sn) >= 100)
 				continue;
 
-			auto entry = skill::lookup(sn);
+			const auto &entry = pair.second;
 
 			if (entry.remort_class > 0 && !CAN_USE_RSKILL(ch, sn))
 				continue;
@@ -450,7 +450,7 @@ skill::Type get_random_skill(Character *ch)
 
 		if (count == 0) { /* no skills or spells found */
 			pass = 0;
-			sn = skill::unknown;
+			sn = skill::type::unknown;
 		}
 
 		if (pass != 0) {
@@ -1247,9 +1247,9 @@ void do_quest(Character *ch, String argument)
         	                gain_exp(ch, xp);
 			}
 
-			skill::Type sn = get_random_skill(ch);
+			skill::type sn = get_random_skill(ch);
 
-			if (chance(20) && sn != -1) {
+			if (chance(20) && sn != skill::type::unknown) {
 				Format::sprintf(buf, "I will also teach you some of the finer points of %s.", skill::lookup(sn).name);
 				do_say(questman, buf);
 				ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill::lookup(sn).name);

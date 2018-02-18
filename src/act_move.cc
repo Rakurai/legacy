@@ -158,7 +158,7 @@ void move_char(Character *ch, int door, bool follow)
 	  || to_room->sector_type == SECT_WATER_NOSWIM)
 	 && !IS_FLYING(ch)
 	 && !IS_IMMORTAL(ch)
-	 && !get_learned(ch, skill::swimming)) {
+	 && !get_learned(ch, skill::type::swimming)) {
 		// try to find a boat first
 		bool found = FALSE;
 
@@ -867,7 +867,7 @@ void do_pick(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	WAIT_STATE(ch, skill::lookup(skill::pick_lock).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::pick_lock).beats);
 
 	/* look for guards */
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
@@ -878,17 +878,17 @@ void do_pick(Character *ch, String argument)
 		}
 	}
 
-	if (!get_learned(ch, skill::pick_lock)) {
+	if (!get_learned(ch, skill::type::pick_lock)) {
 		stc("Hmm. You seem to lack the knowledge on how to picklocks.\n", ch);
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::pick_lock))
+	if (!deduct_stamina(ch, skill::type::pick_lock))
 		return;
 
-	if (!IS_NPC(ch) && number_percent() > get_learned(ch, skill::pick_lock)) {
+	if (!IS_NPC(ch) && number_percent() > get_learned(ch, skill::type::pick_lock)) {
 		stc("You failed.\n", ch);
-		check_improve(ch, skill::pick_lock, FALSE, 2);
+		check_improve(ch, skill::type::pick_lock, FALSE, 2);
 		return;
 	}
 
@@ -918,7 +918,7 @@ void do_pick(Character *ch, String argument)
 			obj->value[1] -= EX_LOCKED;
 			act("You pick the lock on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n picks the lock on $p.", ch, obj, nullptr, TO_ROOM);
-			check_improve(ch, skill::pick_lock, TRUE, 2);
+			check_improve(ch, skill::type::pick_lock, TRUE, 2);
 			return;
 		}
 
@@ -949,7 +949,7 @@ void do_pick(Character *ch, String argument)
 		obj->value[1] -= CONT_LOCKED;
 		act("You pick the lock on $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n picks the lock on $p.", ch, obj, nullptr, TO_ROOM);
-		check_improve(ch, skill::pick_lock, TRUE, 2);
+		check_improve(ch, skill::type::pick_lock, TRUE, 2);
 		return;
 	}
 
@@ -975,7 +975,7 @@ void do_pick(Character *ch, String argument)
 		pexit->exit_flags -= EX_LOCKED;
 		stc("You pick it!!\n", ch);
 		act("$n picks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
-		check_improve(ch, skill::pick_lock, TRUE, 2);
+		check_improve(ch, skill::type::pick_lock, TRUE, 2);
 
 		/* pick the other side */
 		if ((to_room   = pexit->u1.to_room) != nullptr
@@ -1488,30 +1488,30 @@ void do_sneak(Character *ch, String argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill::lookup(skill::sneak).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::sneak).beats);
 
-	if (!get_learned(ch, skill::sneak)) {
+	if (!get_learned(ch, skill::type::sneak)) {
 		stc("But you don't know how to sneak!\n", ch);
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::sneak))
+	if (!deduct_stamina(ch, skill::type::sneak))
 		return;
 
-	if (number_percent() < get_learned(ch, skill::sneak)) {
+	if (number_percent() < get_learned(ch, skill::type::sneak)) {
 		affect::add_type_to_char(ch,
 			affect::sneak,
 			ch->level,
 			ch->level,
-			get_evolution(ch, skill::sneak),
+			get_evolution(ch, skill::type::sneak),
 			FALSE
 		);
 		stc("You feel more stealthy.\n", ch);
-		check_improve(ch, skill::sneak, TRUE, 3);
+		check_improve(ch, skill::type::sneak, TRUE, 3);
 	}
 	else {
 		stc("You feel like a klutz.\n", ch);
-		check_improve(ch, skill::sneak, FALSE, 3);
+		check_improve(ch, skill::type::sneak, FALSE, 3);
 	}
 }
 
@@ -1522,30 +1522,30 @@ void do_hide(Character *ch, String argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill::lookup(skill::hide).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::hide).beats);
 
-	if (!get_learned(ch, skill::hide)) {
+	if (!get_learned(ch, skill::type::hide)) {
 		stc("But you don't know how to hide!\n", ch);
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::hide))
+	if (!deduct_stamina(ch, skill::type::hide))
 		return;
 
-	if (number_percent() < get_learned(ch, skill::hide)) {
+	if (number_percent() < get_learned(ch, skill::type::hide)) {
 		affect::add_type_to_char(ch,
 			affect::hide,
 			ch->level,
 			ch->level,
-			get_evolution(ch, skill::hide),
+			get_evolution(ch, skill::type::hide),
 			FALSE
 		);
 		stc("You blend into the surroundings.\n", ch);
-		check_improve(ch, skill::hide, TRUE, 3);
+		check_improve(ch, skill::type::hide, TRUE, 3);
 	}
 	else {
 		stc("You attempt to be inconspicuous.\n", ch);
-		check_improve(ch, skill::hide, FALSE, 3);
+		check_improve(ch, skill::type::hide, FALSE, 3);
 	}
 }
 
@@ -1699,8 +1699,8 @@ void recall(Character *ch, bool clan)
 	}
 
 	if (ch->fighting != nullptr) {
-		if (number_percent() < 80 * get_learned(ch, skill::recall) / 100) {
-			check_improve(ch, skill::recall, FALSE, 6);
+		if (number_percent() < 80 * get_learned(ch, skill::type::recall) / 100) {
+			check_improve(ch, skill::type::recall, FALSE, 6);
 			WAIT_STATE(ch, 4);
 			stc("The Gods ignore your hasty prayers.\n", ch);
 			return;
@@ -1712,7 +1712,7 @@ void recall(Character *ch, bool clan)
 
 		combat = TRUE;
 		gain_exp(ch, 0 - lose);
-		check_improve(ch, skill::recall, TRUE, 4);
+		check_improve(ch, skill::type::recall, TRUE, 4);
 		stop_fighting(ch, TRUE);
 	}
 
@@ -2057,7 +2057,7 @@ void do_push(Character *ch, String argument)
 			act("$N looks at you with contempt and ignores you.", ch, nullptr, victim, TO_CHAR);
 
 			if (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+				multi_hit(victim, ch, skill::type::unknown);
 
 			return;
 		}
@@ -2288,7 +2288,7 @@ void do_drag(Character *ch, String argument)
 				act("$n tries to drag you, but is not strong enough.", ch, nullptr, victim, TO_VICT);
 
 				if (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
-					multi_hit(victim, ch, TYPE_UNDEFINED);
+					multi_hit(victim, ch, skill::type::unknown);
 			}
 
 			return;
@@ -2584,7 +2584,7 @@ void do_mark(Character *ch, String argument)
 		return;
 	}
 
-	if (!CAN_USE_RSKILL(ch, skill::mark)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::mark)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -2602,7 +2602,7 @@ void do_mark(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::mark))
+	if (!deduct_stamina(ch, skill::type::mark))
 		return;
 
 	ch->pcdata->mark_room = ch->in_room->vnum;
@@ -2619,7 +2619,7 @@ void do_relocate(Character *ch, String argument)
 		return;
 	}
 
-	if (!CAN_USE_RSKILL(ch, skill::mark)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::mark)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -2657,12 +2657,12 @@ void do_relocate(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::mark))
+	if (!deduct_stamina(ch, skill::type::mark))
 		return;
 
-	if (number_percent() > get_learned(ch, skill::mark)) {
+	if (number_percent() > get_learned(ch, skill::type::mark)) {
 		stc("You fail to relocate.\n", ch);
-		check_improve(ch, skill::mark, FALSE, 4);
+		check_improve(ch, skill::type::mark, FALSE, 4);
 		return;
 	}
 
@@ -2684,9 +2684,9 @@ void do_relocate(Character *ch, String argument)
 
 	char_to_room(ch, target_room);
 	act("$n appears in a puff of smoke.", ch, nullptr, nullptr, TO_ROOM);
-	check_improve(ch, skill::mark, TRUE, 4);
+	check_improve(ch, skill::type::mark, TRUE, 4);
 	do_look(ch, "auto");
-	WAIT_STATE(ch, skill::lookup(skill::mark).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::mark).beats);
 } /* end do_relocate() */
 
 const String get_warp_loc_string(const Object *obj) {
@@ -3131,7 +3131,7 @@ void do_spousegate(Character *ch, String argument)
 		return;
 
 	/* We should make sure the character has this skill. -- Outsider */
-	if (get_learned(ch, skill::spousegate) < 50) {
+	if (get_learned(ch, skill::type::spousegate) < 50) {
 		stc("You do not know how to gate to your spouse.\n", ch);
 		return;
 	}

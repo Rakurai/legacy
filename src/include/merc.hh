@@ -124,7 +124,7 @@ struct weapon_table_t
 	String      name;
 	sh_int      vnum;
 	sh_int      type;
-	skill::Type skill;
+	skill::type skill;
 };
 
 struct wiznet_type
@@ -382,12 +382,12 @@ void    shock_effect    args( (void *vo, int level, int dam, int target, int evo
 /* fight.c */
 void    check_killer    args( ( Character *ch, Character *victim) );
 bool    damage          args( ( Character *ch, Character *victim, int dam,
-								int dt, int cls, bool show, bool spell ) );
+								skill::type attack_skill, int attack_type, int damage_type, bool show, bool spell ) );
 void    death_cry       args( ( Character *ch ) );
 bool    is_safe         args( (Character *ch, Character *victim, bool showmsg ) );
 bool    is_safe_spell   args( (Character *ch, Character *victim, bool area ) );
 bool	is_safe_char	args((Character *ch, Character *victim, bool showmsg));		/* Montrey */
-void    multi_hit       args( ( Character *ch, Character *victim, int dt ) );
+void    multi_hit       args( ( Character *ch, Character *victim, skill::type ) );
 void    raw_kill        args( ( Character *victim ) );
 void    stop_fighting   args( ( Character *ch, bool fBoth ) );
 void    update_pos      args( ( Character *victim ) );
@@ -437,9 +437,8 @@ int     count_users     args( (Object *obj) );
 int     get_weapon_type     args( ( const String& name) );
 bool    is_clan         args((Character *ch) );
 bool    is_same_clan    args((Character *ch, Character *victim));
-int     get_learned       args(( const Character *ch, skill::Type type ) );
-skill::Type     get_weapon_skill   args(( Character *ch, bool secondary ) );
-int     get_weapon_learned args(( Character *ch, skill::Type type ) );
+skill::type     get_weapon_skill   args(( Character *ch, bool secondary ) );
+int     get_weapon_learned args(( Character *ch, skill::type type ) );
 void    reset_char      args(( Character *ch )  );
 int     get_max_train   args(( Character *ch, int stat ) );
 int     can_carry_n     args(( Character *ch ) );
@@ -508,10 +507,10 @@ void	do_huh		args( ( Character *ch ) );	/* Xenith */
 
 
 /* magic.c */
-skill::Type    find_spell      args( ( Character *ch, const String& name) );
-void    obj_cast_spell  args( ( skill::Type, int level, Character *ch,
+skill::type    find_spell      args( ( Character *ch, const String& name) );
+void    obj_cast_spell  args( ( skill::type, int level, Character *ch,
 									Character *victim, Object *obj ) );
-void spell_imprint      args( ( skill::Type, int level, Character *ch, void *vo ));
+void spell_imprint      args( ( skill::type, int level, Character *ch, void *vo ));
 
 /* quest.c */
 void    sq_cleanup	 args( ( Character *ch ) );
@@ -524,17 +523,20 @@ const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const String& ctime ) );
 
 /* skills.c */
+void    set_learned       args(( Character *ch, skill::type type, int value ) );
+void    set_evolution     args(( Character *ch, skill::type type, int value ) );
+int     get_learned       args(( const Character *ch, skill::type type ) );
+int     get_evolution     args(( const Character *ch, skill::type ) );
 long    exp_per_level   args( ( Character *ch, int points ) );
-void    check_improve   args( ( Character *ch, skill::Type, bool success,
+void    check_improve   args( ( Character *ch, skill::type, bool success,
 									int multiplier ) );
 int     group_lookup    args( (const String& name) );
 void    gn_add          args( ( Character *ch, int gn) );
 void    gn_remove       args( ( Character *ch, int gn) );
 void    group_add       args( ( Character *ch, const String& name, bool deduct) );
 void    group_remove    args( ( Character *ch, const String& name) );
-int     get_evolution   args( ( Character *ch, skill::Type ) );
-int	get_skill_cost  args( ( Character *ch, skill::Type ) );
-bool	deduct_stamina  args( ( Character *ch, skill::Type ) );
+int	get_skill_cost  args( ( Character *ch, skill::type ) );
+bool	deduct_stamina  args( ( Character *ch, skill::type ) );
 
 /* special.c */
 SPEC_FUN *    spec_lookup     args( ( const String& name ) );
@@ -563,7 +565,7 @@ void    update_handler  args( ( void ) );
 int     raff_lookup     args( ( int index ) );
 bool    HAS_RAFF	args( ( Character *ch, int flag ) );
 bool    HAS_RAFF_GROUP  args( ( Character *ch, int flag ) );
-bool    HAS_EXTRACLASS	args( ( Character *ch, skill::Type ) );
-bool    CAN_USE_RSKILL  args( ( Character *ch, skill::Type ) );
+bool    HAS_EXTRACLASS	args( ( Character *ch, skill::type ) );
+bool    CAN_USE_RSKILL  args( ( Character *ch, skill::type ) );
 void    list_extraskill args( ( Character *ch ) );
 

@@ -319,24 +319,22 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
 
 	item = nullptr;
-	for (int i = skill::first; i < skill::size; i++) {
-		skill::Type type = (skill::Type)i;
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
 
-		if (ch->pcdata->learned[type] <= 0)
+		if (type == skill::type::unknown)
+			continue;
+
+		if (get_learned(ch, type) <= 0)
 			continue;
 
 		if (item == nullptr)
 			item = cJSON_CreateArray();
 
-		if (ch->pcdata->evolution[type] < 1)
-			ch->pcdata->evolution[type] = 1;
-		else if (ch->pcdata->evolution[type] > 4)
-			ch->pcdata->evolution[type] = 4;
-
 		cJSON *sk = cJSON_CreateObject();
 		JSON::addStringToObject(sk, "name", skill::lookup(type).name);
-		cJSON_AddNumberToObject(sk, "prac", ch->pcdata->learned[type]);
-		cJSON_AddNumberToObject(sk, "evol", ch->pcdata->evolution[type]);
+		cJSON_AddNumberToObject(sk, "prac", get_learned(ch, type));
+		cJSON_AddNumberToObject(sk, "evol", get_evolution(ch, type));
 		cJSON_AddItemToArray(item, sk);
 	}
 	if (item != nullptr)
@@ -361,7 +359,7 @@ cJSON *fwrite_player(Character *ch)
 
 		item = nullptr;
 		for (int i = 0; i < (ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS) + 1; i++) {
-			if (ch->pcdata->extraclass[i] == skill::unknown)
+			if (ch->pcdata->extraclass[i] == skill::type::unknown)
 				break;
 
 			if (item == nullptr)
@@ -983,9 +981,9 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "ExSk") {
 					count = 0;
 					for (cJSON *item = o->child; item != nullptr && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
-						skill::Type sn = skill::lookup(item->valuestring);
+						skill::type sn = skill::lookup(item->valuestring);
 
-						if (sn <= 0) {
+						if (sn == skill::type::unknown) {
 							Logging::bugf("unknown extraclass skill '%s'", item->valuestring);
 							continue;
 						}
@@ -1099,15 +1097,15 @@ void fread_player(Character *ch, cJSON *json, int version) {
 			case 'S':
 				if (key == "Sk") {
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						skill::Type sn = skill::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+						skill::type sn = skill::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-						if (sn < 0) {
+						if (sn == skill::type::unknown) {
 							Logging::bugf("Fread_char: unknown skill '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
 							continue;
 						}
 
-						ch->pcdata->learned[sn] = cJSON_GetObjectItem(item, "prac")->valueint;
-						ch->pcdata->evolution[sn] = cJSON_GetObjectItem(item, "evol")->valueint;
+						set_learned(ch, sn, cJSON_GetObjectItem(item, "prac")->valueint);
+						set_evolution(ch, sn, cJSON_GetObjectItem(item, "evol")->valueint);
 					}
 					fMatch = TRUE; break;
 				}

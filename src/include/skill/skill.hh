@@ -11,7 +11,7 @@ namespace skill {
 /*
  * Skills include spells as a particular case.
  */
-struct  skill_type
+struct  skill_table_t
 {
 	String      name;                   /* Name of skill                */
 	sh_int      skill_level[MAX_CLASS]; /* Level needed by class        */
@@ -27,9 +27,11 @@ struct  skill_type
 	int		evocost_pri[MAX_CLASS];	/* Class cost to evolve to 3    */
 };
 
-Type lookup(const String& name);
-const skill_type& lookup(Type type);
+type lookup(const String& name);
+const skill_table_t& lookup(type t);
+int num_skills();
+type from_int(int);
 
 } // namespace skill
 
-extern const std::map<skill::Type, skill::skill_type> skill_table;
+extern const std::map<skill::type, skill::skill_table_t> skill_table;

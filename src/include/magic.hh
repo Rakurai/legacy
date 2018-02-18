@@ -3,7 +3,7 @@
 #include "declare.hh"
 #include "skill/Type.hh"
 
-typedef void SPELL_FUN args(( skill::Type sn, int level, Character *ch, void *vo, int target, int evolution));
+typedef void SPELL_FUN args(( skill::type sn, int level, Character *ch, void *vo, int target, int evolution));
 
 #define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
 

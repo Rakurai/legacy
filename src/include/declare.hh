@@ -1290,16 +1290,6 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define AREA_TYPE_NORM  ' '
 
 /*
- * Types of attacks.
- * Must be non-overlapping with spell/skill types,
- * but may be arbitrary beyond that.
- */
-#define TYPE_UNDEFINED               -1
-#define TYPE_HIT                     1000
-
-
-
-/*
  *  Target types.
  */
 #define TAR_IGNORE                  0

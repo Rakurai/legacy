@@ -587,7 +587,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	}
 #if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
 	if (!strcmp(buf, "isaffected")) {
-		skill::Type sn = skill::lookup(arg);
+		skill::type sn = skill::lookup(arg);
 
 		if (sn <= 0) {
 			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);

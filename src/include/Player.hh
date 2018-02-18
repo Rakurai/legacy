@@ -89,7 +89,7 @@ public:
     String              status;
     String              deity;
     sh_int              remort_count = 0;
-    skill::Type	        extraclass     [MAX_EXTRACLASS_SLOTS] = {skill::unknown};
+    skill::type	        extraclass     [MAX_EXTRACLASS_SLOTS] = {skill::type::unknown};
     int			        raffect        [MAX_RAFFECT_SLOTS] = {0};
     Object *            locker = nullptr;
     Object *            strongbox = nullptr;

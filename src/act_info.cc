@@ -353,7 +353,7 @@ void do_peek(Character *ch, String argument)
 	Character *victim;
 	bool all = FALSE;
 
-	if (IS_NPC(ch) || !get_learned(ch, skill::peek)) {
+	if (IS_NPC(ch) || !get_learned(ch, skill::type::peek)) {
 		stc("You are not skilled at peeking.\n", ch);
 		return;
 	}
@@ -382,19 +382,19 @@ void do_peek(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::peek))
+	if (!deduct_stamina(ch, skill::type::peek))
 		return;
 
-	if (!chance(get_learned(ch, skill::peek))) {
+	if (!chance(get_learned(ch, skill::type::peek))) {
 		stc("You can't seem to find a good angle...\n", ch);
 		return;
 	}
 
-	if (!arg2.empty() && get_evolution(ch, skill::peek) > 1) {
+	if (!arg2.empty() && get_evolution(ch, skill::type::peek) > 1) {
 		if (arg2 == "lore") {
 			Object *obj;
 
-			if (!get_learned(ch, skill::lore)) {
+			if (!get_learned(ch, skill::type::lore)) {
 				stc("You aren't trained in the lore of items.\n", ch);
 				return;
 			}
@@ -409,26 +409,26 @@ void do_peek(Character *ch, String argument)
 				return;
 			}
 
-			WAIT_STATE(ch, skill::lookup(skill::lore).beats);
+			WAIT_STATE(ch, skill::lookup(skill::type::lore).beats);
 
-			if (!IS_NPC(ch) && !chance(get_learned(ch, skill::lore)))
+			if (!IS_NPC(ch) && !chance(get_learned(ch, skill::type::lore)))
 				act("You look at $p, but you can't find out any additional information.",
 				    ch, obj, nullptr, TO_CHAR);
 			else {
-				spell_identify(skill::lore, (4 * obj->level) / 3, ch, obj,
-				               TARGET_OBJ, get_evolution(ch, skill::lore));
-				check_improve(ch, skill::lore, TRUE, 4);
+				spell_identify(skill::type::lore, (4 * obj->level) / 3, ch, obj,
+				               TARGET_OBJ, get_evolution(ch, skill::type::lore));
+				check_improve(ch, skill::type::lore, TRUE, 4);
 			}
 
 			return;
 		}
-		else if (arg2 == "all" && get_evolution(ch, skill::peek) > 2)
+		else if (arg2 == "all" && get_evolution(ch, skill::type::peek) > 2)
 			all = TRUE;
 	}
 
 	act("You peek at $S inventory:", ch, nullptr, victim, TO_CHAR);
 	show_list_to_char(victim->carrying, ch, TRUE, TRUE, all);
-	check_improve(ch, skill::peek, TRUE, 4);
+	check_improve(ch, skill::type::peek, TRUE, 4);
 }
 
 void show_char_to_char_0(Character *victim, Character *ch)
@@ -768,13 +768,13 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	    &&   !IS_NPC(ch)
 	    &&   ch->pcdata->plr_flags.has(PLR_AUTOPEEK)
 	    && (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
-	    &&   number_percent() < get_learned(ch, skill::peek)) {
+	    &&   number_percent() < get_learned(ch, skill::type::peek)) {
 		set_color(ch, YELLOW, NOBOLD);
 		stc("\nYou peek at the inventory:\n", ch);
 		show_list_to_char(victim->carrying, ch, TRUE, TRUE, FALSE);
-		check_improve(ch, skill::peek, TRUE, 4);
+		check_improve(ch, skill::type::peek, TRUE, 4);
 		/* Don't forget to deduct stamina for peeking. -- Outsider */
-		deduct_stamina(ch, skill::peek);
+		deduct_stamina(ch, skill::type::peek);
 	}
 
 	set_color(ch, WHITE, NOBOLD);
@@ -3474,7 +3474,7 @@ void prac_by_group(Character *ch, const String& argument)
 	const struct group_type *gp;
 	int js;
 	bool group_first;
-	skill::Type sn;
+	skill::type sn;
 	char buf[50];
 	String line;
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
@@ -3497,13 +3497,15 @@ void prac_by_group(Character *ch, const String& argument)
 		for (js = 0; js < gp->spells.size(); js++) { /* loop thru skills/spells */
 			sn = skill::lookup(gp->spells[js]);
 
-			if (sn == -1)
+			if (sn == skill::type::unknown)
 				continue;
 
 			if (skill::lookup(sn).skill_level[ch->cls] > ch->level)
 				continue; /* skill beyond player's level */
 
-			if (ch->pcdata->learned[sn] <= 0)
+			int learned = get_learned(ch, sn);
+
+			if (learned <= 0)
 				continue;
 
 			/* finally, a skill he knows. */
@@ -3525,7 +3527,7 @@ void prac_by_group(Character *ch, const String& argument)
 				line_cols = 0;
 			}
 
-			Format::sprintf(buf, "%3d%% %-20.20s ", ch->pcdata->learned[sn],
+			Format::sprintf(buf, "%3d%% %-20.20s ", learned,
 			        gp->spells[js]);
 			line += buf;
 			line_cols++;
@@ -3547,7 +3549,7 @@ void prac_by_group(Character *ch, const String& argument)
 /* PRACTICE list of skills and spells, sorted by percentage and/or name -- Elrac */
 void prac_by_key(Character *ch, const String& key, const char *argument)
 {
-	int slist[skill::size];
+	skill::type slist[skill::num_skills()];
 	int nskills = 0;
 	int js;
 	int ip;
@@ -3560,9 +3562,9 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	argument = one_argument(argument, arg);
 
 	/* loop thru all skills */
-	for (int type_n = skill::first; type_n < skill::size; type_n++) {
-		skill::Type type = (skill::Type)type_n;
-		auto entry = skill::lookup(type);
+	for (const auto&[type, entry] : skill_table) {
+		if (type == skill::type::unknown)
+			continue;
 
 		if (entry.remort_class > 0)
 			if (!CAN_USE_RSKILL(ch, type))
@@ -3571,7 +3573,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 		if (entry.skill_level[ch->cls] > ch->level)
 			continue; /* skill beyond player's level */
 
-		if (ch->pcdata->learned[type] <= 0)
+		if (get_learned(ch, type) <= 0)
 			continue; /* player doesn't know skill */
 
 		if (!arg.empty() && !arg.is_prefix_of(entry.name))
@@ -3582,18 +3584,18 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 
 		if (key[0] == '%') {
 			while (ip > 0 &&
-			       (ch->pcdata->learned[slist[ip - 1]] <
-			        ch->pcdata->learned[type] ||
-			        (ch->pcdata->learned[slist[ip - 1]] ==
-			         ch->pcdata->learned[type] &&
-			         strcmp(skill::lookup((skill::Type)slist[ip - 1]).name,
+			       (get_learned(ch, slist[ip - 1]) <
+			        get_learned(ch, type) ||
+			        (get_learned(ch, slist[ip - 1]) ==
+			         get_learned(ch, type) &&
+			         strcmp(skill::lookup(slist[ip - 1]).name,
 			                entry.name) > 0))) {
 				slist[ip] = slist[ip - 1];
 				ip--;
 			}
 		}
 		else {
-			while (ip > 0 && strcmp(skill::lookup((skill::Type)slist[ip - 1]).name,
+			while (ip > 0 && strcmp(skill::lookup(slist[ip - 1]).name,
 			                        entry.name) > 0) {
 				slist[ip] = slist[ip - 1];
 				ip--;
@@ -3608,8 +3610,10 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	line_cols = 0;
 
 	for (js = 0; js < nskills; js++) {
-		if (skill::lookup((skill::Type)slist[js]).remort_class > 0) {
-			if (skill::lookup((skill::Type)slist[js]).remort_class == ch->cls + 1)
+		auto entry = skill::lookup(slist[js]);
+
+		if (entry.remort_class > 0) {
+			if (entry.remort_class == ch->cls + 1)
 				adept = 65;
 			else
 				adept = 50;
@@ -3618,9 +3622,9 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 			adept = class_table[ch->cls].skill_adept;
 
 		output += Format::format("%s%3d%% %-20.20s{x ",
-		    ch->pcdata->learned[slist[js]] >= adept ? "{g" : "{C",
-		    ch->pcdata->learned[slist[js]],
-		    skill::lookup((skill::Type)slist[js]).name);
+		    get_learned(ch, slist[js]) >= adept ? "{g" : "{C",
+		    get_learned(ch, slist[js]),
+		    entry.name);
 		line_cols++;
 
 		if (line_cols >= 3) {
@@ -3640,7 +3644,6 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 void do_practice(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	skill::Type sn;
 	Character *mob;
 	int adept, increase;
 
@@ -3688,16 +3691,19 @@ void do_practice(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = find_spell(ch, argument)) < 0
+	skill::type sn = find_spell(ch, argument);
+	auto entry = skill::lookup(sn);
+
+	if (sn == skill::type::unknown
 	    || (!IS_NPC(ch)
-	        && (ch->level < skill::lookup(sn).skill_level[ch->cls]
-	            ||    ch->pcdata->learned[sn] < 1 /* skill is not known */
-	            ||    skill::lookup(sn).rating[ch->cls] == 0))) {
+	        && (ch->level < entry.skill_level[ch->cls]
+	            ||    get_learned(ch, sn) < 1 /* skill is not known */
+	            ||    entry.rating[ch->cls] == 0))) {
 		stc("You can't practice that.\n", ch);
 		return;
 	}
 
-	if (skill::lookup(sn).remort_class > 0)
+	if (entry.remort_class > 0)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You can't practice that.\n", ch);
 			return;
@@ -3705,8 +3711,8 @@ void do_practice(Character *ch, String argument)
 
 	adept = 0;
 
-	if (skill::lookup(sn).remort_class > 0) {
-		if (skill::lookup(sn).remort_class == ch->cls + 1)
+	if (entry.remort_class > 0) {
+		if (entry.remort_class == ch->cls + 1)
 			adept = 65;
 		else if (HAS_EXTRACLASS(ch, sn))
 			adept = 50;
@@ -3714,33 +3720,33 @@ void do_practice(Character *ch, String argument)
 	else
 		adept = IS_NPC(ch) ? 100 : class_table[ch->cls].skill_adept;
 
-	if (ch->pcdata->learned[sn] >= adept) {
+	if (get_learned(ch, sn) >= adept) {
 		Format::sprintf(buf, "You are already learned at %s.\n",
-		        skill::lookup(sn).name);
+		        entry.name);
 		stc(buf, ch);
 		return;
 	}
 
 	ch->practice--;
-	increase = (int_app[GET_ATTR_INT(ch)].learn / skill::lookup(sn).rating[ch->cls]);
+	increase = (int_app[GET_ATTR_INT(ch)].learn / entry.rating[ch->cls]);
 
 	if (increase < 1)
 		increase = 1;
 
-	ch->pcdata->learned[sn] += increase;
+	set_learned(ch, sn, get_learned(ch, sn) + increase);
 
-	if (ch->pcdata->learned[sn] < adept) {
+	if (get_learned(ch, sn) < adept) {
 		act("You practice $T.",
-		    ch, nullptr, skill::lookup(sn).name, TO_CHAR);
+		    ch, nullptr, entry.name, TO_CHAR);
 		act("$n practices $T.",
-		    ch, nullptr, skill::lookup(sn).name, TO_ROOM);
+		    ch, nullptr, entry.name, TO_ROOM);
 	}
 	else {
-		ch->pcdata->learned[sn] = adept;
+		set_learned(ch, sn, adept);
 		act("You are now learned at $T.",
-		    ch, nullptr, skill::lookup(sn).name, TO_CHAR);
+		    ch, nullptr, entry.name, TO_CHAR);
 		act("$n is now learned at $T.",
-		    ch, nullptr, skill::lookup(sn).name, TO_ROOM);
+		    ch, nullptr, entry.name, TO_ROOM);
 	}
 } /* end do_practice() */
 
@@ -5238,7 +5244,7 @@ pet is currently standing in. The room may, however, be
 dark.
 -- Outsider
 */
-void spell_scry(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_scry(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *pet;
 

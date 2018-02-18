@@ -219,11 +219,11 @@ void roll_raffects(Character *ch, Character *victim)
  Extraclass Stuff
  *****/
 
-bool HAS_EXTRACLASS(Character *ch, skill::Type sn)
+bool HAS_EXTRACLASS(Character *ch, skill::type sn)
 {
 	int i;
 
-	if (sn <= 0)
+	if (sn == skill::type::unknown)
 		return FALSE;
 
 	if (IS_NPC(ch))
@@ -237,7 +237,7 @@ bool HAS_EXTRACLASS(Character *ch, skill::Type sn)
 	return FALSE;
 }
 
-bool CAN_USE_RSKILL(Character *ch, skill::Type sn)
+bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 {
 	if (IS_NPC(ch)) {
 		if (skill::lookup(sn).spell_fun == spell_null)
@@ -274,9 +274,9 @@ void list_extraskill(Character *ch)
 		output += Format::format("\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
 		int col = 0;
 
-		for (int i = skill::first; i < skill::size; i++) {
-			skill::Type type = (skill::Type)i;
-			auto entry = skill::lookup(type);
+		for (const auto&[type, entry] : skill_table) {
+			if (type == skill::type::unknown)
+				continue;
 
 			if (entry.remort_class != cn + 1)
 				continue;
@@ -309,7 +309,7 @@ void do_eremort(Character *ch, String argument)
 {
 	String output;
 	int x;
-	skill::Type sn;
+	skill::type sn;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -333,20 +333,20 @@ void do_eremort(Character *ch, String argument)
 	if (arg1.empty()) {
 		list_extraskill(ch);
 
-		if (ch->pcdata->extraclass[0] +
-		    ch->pcdata->extraclass[1] +
-		    ch->pcdata->extraclass[2] +
-		    ch->pcdata->extraclass[3] +
-		    ch->pcdata->extraclass[4] > 0) {
+		if (ch->pcdata->extraclass[0] != skill::type::unknown
+		 || ch->pcdata->extraclass[1] != skill::type::unknown
+		 || ch->pcdata->extraclass[2] != skill::type::unknown
+		 || ch->pcdata->extraclass[3] != skill::type::unknown
+		 || ch->pcdata->extraclass[4] != skill::type::unknown) {
 			output += Format::format("\nYour current extraclass skill%s",
-			    ch->pcdata->extraclass[1] ? "s are" : " is");
+			    ch->pcdata->extraclass[1] != skill::type::unknown ? "s are" : " is");
 
-			if (ch->pcdata->extraclass[0])
+			if (ch->pcdata->extraclass[0] != skill::type::unknown)
 				output += Format::format(" %s",
 				    skill::lookup(ch->pcdata->extraclass[0]).name);
 
 			for (x = 1; x < ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++)
-				if (ch->pcdata->extraclass[x])
+				if (ch->pcdata->extraclass[x] != skill::type::unknown)
 					output += Format::format(", %s",
 					    skill::lookup(ch->pcdata->extraclass[x]).name);
 
@@ -358,7 +358,7 @@ void do_eremort(Character *ch, String argument)
 	}
 
 	/* Ok, now we check to see if the skill is a remort skill */
-	if ((sn = skill::lookup(arg1)) == skill::unknown) {
+	if ((sn = skill::lookup(arg1)) == skill::type::unknown) {
 		stc("That is not even a valid skill, much less a remort skill.\n", ch);
 		return;
 	}
@@ -395,11 +395,11 @@ void do_eremort(Character *ch, String argument)
 
 	/* find the first blank spot, and add the skill */
 	for (x = 0; x < ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
-		if (!ch->pcdata->extraclass[x]) {
+		if (ch->pcdata->extraclass[x] == skill::type::unknown) {
 			ch->pcdata->extraclass[x] = sn;
 
-			if (!ch->pcdata->learned[sn])
-				ch->pcdata->learned[sn] = 1;
+			if (get_learned(ch, sn) == 0)
+				set_learned(ch, sn, 1);
 
 			ch->train -= skill::lookup(sn).rating[ch->cls];
 			ptc(ch, "You have gained %s as an extraclass remort skill.\n",
@@ -553,7 +553,7 @@ void do_remort(Character *ch, String argument)
 
 	/* clear all old extraclass skills */
 	for (c = 0; c < 5; c++)
-		victim->pcdata->extraclass[c] = skill::unknown;
+		victim->pcdata->extraclass[c] = skill::type::unknown;
 
 	stc("Your deity bestows upon you...\n", victim);
 	roll_raffects(ch, victim);

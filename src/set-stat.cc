@@ -140,7 +140,7 @@ void do_sset(Character *ch, String argument)
 	char buf[1024];
 	Character *victim;
 	int value;
-	skill::Type sn;
+	skill::type sn;
 	bool fAll;
 
 	String arg1, arg2, arg3;
@@ -170,7 +170,7 @@ void do_sset(Character *ch, String argument)
 
 	fAll = arg2 == "all";
 
-	if (!fAll && (sn = skill::lookup(arg2)) < 0) {
+	if (!fAll && (sn = skill::lookup(arg2)) == skill::type::unknown) {
 		Format::sprintf(buf, "%s is not a valid skill or spell.\n", arg2);
 		stc(buf, ch);
 		return;
@@ -194,13 +194,17 @@ void do_sset(Character *ch, String argument)
 	}
 
 	if (fAll) {
-		for (int i = skill::first; i < skill::size; i++)
-			victim->pcdata->learned[i] = value;
+		for (const auto& pair : skill_table) {
+			if (pair.first == skill::type::unknown)
+				continue;
+
+			set_learned(victim, pair.first, value);
+		}
 
 		Format::sprintf(buf, "All of %s's skills and spells set to %d.\n", victim->name, value);
 	}
 	else {
-		victim->pcdata->learned[sn] = value;
+		set_learned(victim, sn, value);
 		Format::sprintf(buf, "%s's %s %s set to %d.\n",
 		        victim->name,
 		        skill::lookup(sn).name,
@@ -241,32 +245,31 @@ void do_evoset(Character *ch, String argument)
 	}
 
 	if (arg2.empty()) {
-		extern int can_evolve args((Character * ch, skill::Type sn));
+		extern int can_evolve args((Character * ch, skill::type sn));
 		String buffer;
 		int can;
 		buffer += "They have the following skills and spells evolved:\n\n";
 
-		for (int i = skill::first; i < skill::size; i++) {
-			skill::Type type = (skill::Type)i;
+		for (const auto&[type, entry] : skill_table) {
+			if (type == skill::type::unknown)
+				continue;
 
 			if ((can = can_evolve(victim, type)) == -1)
 				continue;
 
-			auto entry = skill::lookup(type);
-
 			Format::sprintf(buf, "They have %s at %d%%, evolution %d.\n",
 			        entry.name,
-			        victim->pcdata->learned[type],
-			        victim->pcdata->evolution[type]);
+			        get_learned(victim, type),
+			        get_evolution(victim, type));
 			buffer += buf;
 
 			if (can == 1)
 				Format::sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
-				        victim->pcdata->evolution[type] == 1 ?
+				        get_evolution(victim, type) == 1 ?
 				        entry.evocost_sec[victim->cls] :
 				        entry.evocost_pri[victim->cls],
 				        entry.name,
-				        victim->pcdata->evolution[type] + 1);
+				        get_evolution(victim, type) + 1);
 
 			buffer += buf;
 			buffer += "\n";
@@ -276,9 +279,9 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	skill::Type type = skill::lookup(arg2);
+	skill::type type = skill::lookup(arg2);
 
-	if (type == skill::unknown) {
+	if (type == skill::type::unknown) {
 		ptc(ch, "%s is not a valid skill or spell.\n", arg2);
 		return;
 	}
@@ -308,7 +311,7 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	victim->pcdata->evolution[type] = value;
+	set_evolution(victim, type, value);
 	ptc(ch, "%s's %s %s has been set to evolution %d.\n", victim->name, entry.name,
 	    entry.spell_fun != spell_null ? "spell" : "skill", value);
 } /* end do_evoset() */
@@ -481,7 +484,7 @@ void do_extraset(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	String output;
 	Character *victim;
-	skill::Type sn;
+	skill::type sn;
 	int x, i, cn, col = 0;
 
 	String arg1, arg2;
@@ -508,8 +511,10 @@ void do_extraset(Character *ch, String argument)
 			output += buf;
 			col = 0;
 
-			for (int i = skill::first; i < skill::size; i++) {
-				auto entry = skill::lookup((skill::Type)i);
+			for (const auto&[type, entry] : skill_table) {
+				if (type == skill::type::unknown)
+					continue;
+
 				if (entry.remort_class > 0
 				 && entry.remort_class == cn + 1) {
 					Format::sprintf(buf, "%-15s %-8d", entry.name, entry.rating[ch->cls]);
@@ -551,21 +556,22 @@ void do_extraset(Character *ch, String argument)
 	/*    fix_blank_extraclass(victim,0); */
 
 	if (arg2.empty()) {
-		if ((victim->pcdata->extraclass[0] +
-		     victim->pcdata->extraclass[1] +
-		     victim->pcdata->extraclass[2] +
-		     victim->pcdata->extraclass[3] +
-		     victim->pcdata->extraclass[4]) > 0) {
-			Format::sprintf(buf, "Their current extraclass skill%s", victim->pcdata->extraclass[1] ? "s are" : " is");
+		if (victim->pcdata->extraclass[0] != skill::type::unknown
+		 || victim->pcdata->extraclass[1] != skill::type::unknown
+		 || victim->pcdata->extraclass[2] != skill::type::unknown
+		 || victim->pcdata->extraclass[3] != skill::type::unknown
+		 || victim->pcdata->extraclass[4] != skill::type::unknown) {
+	  		Format::sprintf(buf, "Their current extraclass skill%s",
+	  			victim->pcdata->extraclass[1] != skill::type::unknown ? "s are" : " is");
 			output += buf;
 
-			if (victim->pcdata->extraclass[0] != skill::unknown) {
+			if (victim->pcdata->extraclass[0] != skill::type::unknown) {
 				Format::sprintf(buf, " %s", skill::lookup(victim->pcdata->extraclass[0]).name);
 				output += buf;
 			}
 
 			for (x = 1; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
-				if (victim->pcdata->extraclass[x] != skill::unknown) {
+				if (victim->pcdata->extraclass[x] != skill::type::unknown) {
 					Format::sprintf(buf, ", %s", skill::lookup(victim->pcdata->extraclass[x]).name);
 					output += buf;
 				}
@@ -583,14 +589,14 @@ void do_extraset(Character *ch, String argument)
 	if (arg2 == "none") {
 		/* loop through and set all exsks to 0 */
 		for (i = 0; i < 5; i++)
-			victim->pcdata->extraclass[i] = skill::unknown;
+			victim->pcdata->extraclass[i] = skill::type::unknown;
 
 		stc("The player's extraclass skills have been cleared.\n", ch);
 		return;
 	}
 
 	/* Ok, now we check to see if the skill is a remort skill */
-	if ((sn = skill::lookup(arg2)) == skill::unknown) {
+	if ((sn = skill::lookup(arg2)) == skill::type::unknown) {
 		stc("That is not even a valid skill, much less a remort skill.\n", ch);
 		return;
 	}
@@ -599,7 +605,7 @@ void do_extraset(Character *ch, String argument)
 	if (HAS_EXTRACLASS(victim, sn)) {
 		for (x = 0; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 			if (victim->pcdata->extraclass[x] == sn) {
-				victim->pcdata->extraclass[x] = skill::unknown;
+				victim->pcdata->extraclass[x] = skill::type::unknown;
 				stc("Extraclass skill removed.\n", ch);
 				/*              fix_blank_extraclass(victim,0); */
 			}
@@ -630,11 +636,11 @@ void do_extraset(Character *ch, String argument)
 
 	/* they don't have it, let's put it in the first blank spot */
 	for (x = 0; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
-		if (victim->pcdata->extraclass[x] <= 0) {
+		if (victim->pcdata->extraclass[x] == skill::type::unknown) {
 			victim->pcdata->extraclass[x] = sn;
 
-			if (!victim->pcdata->learned[sn])
-				victim->pcdata->learned[sn] = 1;
+			if (get_learned(victim, sn) == 0)
+				set_learned(victim, sn, 1);
 
 			stc("Extraclass skill added.\n", ch);
 			ptc(victim, "You have been given %s as an extraclass remort skill.\n", skill::lookup(sn).name);
@@ -1706,17 +1712,12 @@ void format_ostat(Character *ch, Object *obj)
 	case ITEM_PILL:
 		ptc(ch, "Level %d spells of:", obj->value[0]);
 
-		if (obj->value[1] >= skill::first && obj->value[1] < skill::size)
-			ptc(ch, " '%s'", skill::lookup((skill::Type)(int)obj->value[1]).name);
+		for (int i = 1; i <= 4; i++) {
+			skill::type type = skill::from_int(obj->value[i]);
 
-		if (obj->value[2] >= skill::first && obj->value[2] < skill::size)
-			ptc(ch, " '%s'", skill::lookup((skill::Type)(int)obj->value[2]).name);
-
-		if (obj->value[3] >= skill::first && obj->value[3] < skill::size)
-			ptc(ch, " '%s'", skill::lookup((skill::Type)(int)obj->value[3]).name);
-
-		if (obj->value[4] >= skill::first && obj->value[4] < skill::size)
-			ptc(ch, " '%s'", skill::lookup((skill::Type)(int)obj->value[4]).name);
+			if (type != skill::type::unknown)
+				ptc(ch, " '%s'", skill::lookup(type).name);
+		}
 
 		stc(".\n", ch);
 		break;
@@ -1724,9 +1725,7 @@ void format_ostat(Character *ch, Object *obj)
 	case ITEM_WAND:
 	case ITEM_STAFF:
 		ptc(ch, "Has %d charges of level %d", obj->value[2], obj->value[0]);
-
-		if (obj->value[3] >= skill::first && obj->value[3] < skill::size)
-			ptc(ch, " '%s'", skill::lookup((skill::Type)(int)obj->value[3]).name);
+		ptc(ch, " '%s'", skill::lookup(skill::from_int(obj->value[3])).name);
 
 		stc(".\n", ch);
 		break;

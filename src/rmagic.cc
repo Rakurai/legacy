@@ -27,7 +27,7 @@ extern bool     global_quick;
 
 /*** MAGE ***/
 
-void spell_sheen(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_sheen(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -47,7 +47,7 @@ void spell_sheen(skill::Type sn, int level, Character *ch, void *vo, int target,
 	stc("A protective sheen covers your armor.\n", victim);
 }
 
-void spell_focus(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_focus(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -67,7 +67,7 @@ void spell_focus(skill::Type sn, int level, Character *ch, void *vo, int target,
 	stc("You focus on your magic -- you feel more deadly!\n", victim);
 }
 
-void spell_paralyze(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_paralyze(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -98,7 +98,7 @@ void spell_paralyze(skill::Type sn, int level, Character *ch, void *vo, int targ
 	act("$n seems paralyzed!", victim, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_ironskin(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_ironskin(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -120,7 +120,7 @@ void spell_ironskin(skill::Type sn, int level, Character *ch, void *vo, int targ
 
 /*** CLERIC ***/
 
-void spell_barrier(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_barrier(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -141,7 +141,7 @@ void spell_barrier(skill::Type sn, int level, Character *ch, void *vo, int targe
 }
 
 /* Dazzle by Montrey */
-void spell_dazzle(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_dazzle(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int chance;
@@ -213,7 +213,7 @@ void spell_dazzle(skill::Type sn, int level, Character *ch, void *vo, int target
 }
 
 /* Full Heal by Montrey */
-void spell_full_heal(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_full_heal(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int mana, mana_cost;
@@ -255,7 +255,7 @@ void spell_full_heal(skill::Type sn, int level, Character *ch, void *vo, int tar
 
 /*** THIEF ***/
 
-void spell_midnight(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_midnight(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -278,7 +278,7 @@ void spell_midnight(skill::Type sn, int level, Character *ch, void *vo, int targ
 
 /*** NECRO ***/
 
-void spell_sap(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_sap(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam, mult;
@@ -301,11 +301,11 @@ void spell_sap(skill::Type sn, int level, Character *ch, void *vo, int target, i
 		stc("You are instantly revitalized!\n", ch);
 	}
 
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_NEGATIVE, TRUE, TRUE);
 }
 
 /* Pain by Montrey */
-void spell_pain(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_pain(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -319,19 +319,19 @@ void spell_pain(skill::Type sn, int level, Character *ch, void *vo, int target, 
 	act("$N writhes in agony as the pain of $S wounds overtakes $M.", ch, nullptr, victim, TO_NOTVICT);
 	act("You scream in agony as the pain of your wounds increases.", ch, nullptr, victim, TO_VICT);
 	dam = (UMIN(victim->hit, (4 * level))) + number_range(1, (level * 2));
-	damage(ch, (Character *) vo, dam, sn, DAM_HARM, TRUE, TRUE);
+	damage(ch, (Character *) vo, dam, sn, -1, DAM_HARM, TRUE, TRUE);
 
 	if (ch->fighting != nullptr) {
-		spell_slow(skill::slow,   level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-		spell_weaken(skill::weaken, level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-		spell_plague(skill::plague, level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+		spell_slow(skill::type::slow,   level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+		spell_weaken(skill::type::weaken, level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+		spell_plague(skill::type::plague, level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
 	}
 
 	return;
 }
 
 /* Hex by Montrey */
-void spell_hex(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_hex(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -359,7 +359,7 @@ void spell_hex(skill::Type sn, int level, Character *ch, void *vo, int target, i
 }
 
 /* Bone Wall */
-void spell_bone_wall(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_bone_wall(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -377,7 +377,7 @@ void spell_bone_wall(skill::Type sn, int level, Character *ch, void *vo, int tar
 
 /*** PALADIN ***/
 
-void spell_force(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_force(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -399,7 +399,7 @@ void spell_force(skill::Type sn, int level, Character *ch, void *vo, int target,
 }
 
 /* Holy Sword by Montrey */
-void spell_holy_sword(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_holy_sword(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *sword, *wielded;
 
@@ -489,12 +489,12 @@ void spell_holy_sword(skill::Type sn, int level, Character *ch, void *vo, int ta
 /*** BARD ***/
 
 /* Quick */
-void spell_quick(skill::Type sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_quick(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	/* how simple could it be? */
 	act("$n blazes into a wild flurry of attacks!", ch, nullptr, nullptr, TO_ROOM);
 	stc("You blaze into a wild flurry of attacks!\n", ch);
 	global_quick = TRUE;
-	multi_hit(ch, ch->fighting, TYPE_UNDEFINED);
+	multi_hit(ch, ch->fighting, skill::type::unknown);
 	global_quick = FALSE;
 }

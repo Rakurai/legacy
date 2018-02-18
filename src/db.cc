@@ -152,10 +152,10 @@ void boot_db()
 
 	// ensure our tables are in order
 	{
-		for (int i = skill::first; i < skill::size; i++) {
-			const auto unknown = skill::lookup(skill::unknown);
+		for (int i = (int)skill::type::first; i < (int)skill::type::size; i++) {
+			const auto unknown = skill::lookup(skill::type::unknown);
 
-			if (skill::lookup((skill::Type)i).name == unknown.name) {
+			if (skill::lookup((skill::type)i).name == unknown.name) {
 				boot_bug("boot_db: unable to find definition for skill enum %d.", 0);
 				exit(1);
 			}
@@ -461,7 +461,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
 			break;
 
 		default:
@@ -486,7 +486,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
 			break;
 
 		case ITEM_FURNITURE:
@@ -512,7 +512,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
 			break;
 
 		case ITEM_DRINK_CON:
@@ -556,7 +556,7 @@ void load_objects(FILE *fp)
 		case ITEM_POTION:
 		case ITEM_PILL:
 		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue(skill::lookup(fread_word(fp)));
+			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
 			break;
 
 		default:

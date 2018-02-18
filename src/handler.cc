@@ -134,86 +134,6 @@ bool is_same_clan(Character *ch, Character *victim)
 		return (ch->clan == victim->clan);
 }
 
-/* for returning skill information */
-int get_learned(const Character *ch, skill::Type sn)
-{
-	int skill = 0;
-
-	if (sn < skill::first) /* shorthand for level based skills */
-		skill = ch->level * 5 / 2;
-	else if (sn >= skill::size) {
-		Logging::bug("Bad sn %d in get_skill.", sn);
-		skill = 0;
-	}
-	else if (!IS_NPC(ch)) {
-		if (ch->level < skill::lookup(sn).skill_level[ch->cls])
-			skill = 0;
-		else
-			skill = ch->pcdata->learned[sn];
-	}
-	else { /* mobiles */
-		if ((sn == skill::dodge && ch->off_flags.has(OFF_DODGE))
-		    || (sn == skill::parry && ch->off_flags.has(OFF_PARRY))
-		    || (sn == skill::kick && ch->off_flags.has(OFF_KICK)))
-			skill = 10 + ch->level;
-		else if (sn == skill::shield_block)
-			skill = 15 + ch->level;
-		else if (sn == skill::second_attack
-		         && (ch->act_flags.has(ACT_WARRIOR) || ch->act_flags.has(ACT_THIEF)))
-			skill = 25 + ch->level;
-		else if (sn == skill::third_attack && ch->act_flags.has(ACT_WARRIOR))
-			skill = 15 + ch->level;
-		else if (sn == skill::fourth_attack && ch->act_flags.has(ACT_WARRIOR))
-			skill = 2 * (ch->level - 60);
-		else if (sn == skill::hand_to_hand)
-			skill = ch->level * 3 / 2;
-		else if ((sn == skill::trip && ch->off_flags.has(OFF_TRIP))
-		         || (sn == skill::dirt_kicking && ch->off_flags.has(OFF_KICK_DIRT)))
-			skill = 10 + (ch->level * 3 / 2);
-		else if (sn == skill::bash && ch->off_flags.has(OFF_BASH))
-			skill = 10 + (ch->level * 5 / 4);
-		else if (sn == skill::crush && ch->off_flags.has(OFF_CRUSH))
-			skill = ch->level;
-		else if (sn == skill::disarm
-		         && (ch->off_flags.has(OFF_DISARM)
-		             ||       ch->act_flags.has(ACT_WARRIOR)
-		             ||       ch->act_flags.has(ACT_THIEF)))
-			skill = 20 + (ch->level * 2 / 3);
-		else if (sn == skill::berserk && ch->off_flags.has(OFF_BERSERK))
-			skill = 3 * ch->level;
-		else if (sn == skill::backstab && ch->act_flags.has(ACT_THIEF))
-			skill = 20 + (ch->level * 2);
-		else if (sn == skill::rescue)
-			skill = 40 + (ch->level / 2);
-		else if (sn == skill::recall)
-			skill = 40 + ch->level;
-		else if (sn == skill::sword
-		         ||       sn == skill::dagger
-		         ||       sn == skill::spear
-		         ||       sn == skill::mace
-		         ||       sn == skill::axe
-		         ||       sn == skill::flail
-		         ||       sn == skill::whip
-		         ||       sn == skill::polearm)
-			skill = 40 + (5 * ch->level / 2);
-		else if (sn == skill::scrolls)
-			skill = ch->level;
-		else
-			skill = 0;
-	}
-
-	if (ch->daze > 0) {
-		if (skill::lookup(sn).spell_fun != spell_null)
-			skill /= 2;
-		else
-			skill = 2 * skill / 3;
-	}
-
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
-		skill = 9 * skill / 10;
-
-	return URANGE(0, skill, 100);
-}
 /* returns deity number */
 int deity_lookup(const String& name)
 {
@@ -228,10 +148,10 @@ int deity_lookup(const String& name)
 }
 
 /* for returning weapon information */
-skill::Type get_weapon_skill(Character *ch, bool secondary)
+skill::type get_weapon_skill(Character *ch, bool secondary)
 {
 	Object *wield;
-	skill::Type sn;
+	skill::type sn;
 
 	if (secondary)
 		wield = get_eq_char(ch, WEAR_SECONDARY);
@@ -239,40 +159,40 @@ skill::Type get_weapon_skill(Character *ch, bool secondary)
 		wield = get_eq_char(ch, WEAR_WIELD);
 
 	if (wield == nullptr || wield->item_type != ITEM_WEAPON)
-		sn = skill::hand_to_hand;
+		sn = skill::type::hand_to_hand;
 	else switch (wield->value[0]) {
-		default :                sn = skill::unknown;       break;
-		case (WEAPON_SWORD):     sn = skill::sword;         break;
-		case (WEAPON_DAGGER):    sn = skill::dagger;        break;
-		case (WEAPON_SPEAR):     sn = skill::spear;         break;
-		case (WEAPON_MACE):      sn = skill::mace;          break;
-		case (WEAPON_AXE):       sn = skill::axe;           break;
-		case (WEAPON_FLAIL):     sn = skill::flail;         break;
-		case (WEAPON_WHIP):      sn = skill::whip;          break;
-		case (WEAPON_POLEARM):   sn = skill::polearm;       break;
+		default :                sn = skill::type::unknown;       break;
+		case (WEAPON_SWORD):     sn = skill::type::sword;         break;
+		case (WEAPON_DAGGER):    sn = skill::type::dagger;        break;
+		case (WEAPON_SPEAR):     sn = skill::type::spear;         break;
+		case (WEAPON_MACE):      sn = skill::type::mace;          break;
+		case (WEAPON_AXE):       sn = skill::type::axe;           break;
+		case (WEAPON_FLAIL):     sn = skill::type::flail;         break;
+		case (WEAPON_WHIP):      sn = skill::type::whip;          break;
+		case (WEAPON_POLEARM):   sn = skill::type::polearm;       break;
 	}
 
 	return sn;
 } /* end get_weapon_skill() */
 
-int get_weapon_learned(Character *ch, skill::Type sn)
+int get_weapon_learned(Character *ch, skill::type sn)
 {
 	int skill;
 
 	/* -1 is exotic */
 	if (IS_NPC(ch)) {
-		if (sn == -1)
+		if (sn == skill::type::unknown)
 			skill = 3 * ch->level;
-		else if (sn == skill::hand_to_hand)
+		else if (sn == skill::type::hand_to_hand)
 			skill = 40 + 2 * ch->level;
 		else
 			skill = 40 + 5 * ch->level / 2;
 	}
 	else {
-		if (sn == -1)
+		if (sn == skill::type::unknown)
 			skill = 3 * ch->level;
 		else
-			skill = ch->pcdata->learned[sn];
+			skill = get_learned(ch, sn);
 	}
 
 	return URANGE(0, skill, 100);
@@ -1521,7 +1441,7 @@ bool can_see_char(const Character *ch, const Character *victim)
 	    &&   !affect::exists_on_char(ch, affect::detect_hidden)
 	    &&   victim->fighting == nullptr) {
 		int chance;
-		chance = get_learned(victim, skill::sneak);
+		chance = get_learned(victim, skill::type::sneak);
 		chance += GET_ATTR_DEX(ch) * 3 / 2;
 		chance -= GET_ATTR_INT(ch) * 2;
 		chance += ch->level - victim->level * 3 / 2;

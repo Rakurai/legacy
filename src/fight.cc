@@ -63,7 +63,6 @@
 #include "Weather.hh"
 #include "World.hh"
 
-#define MAX_DAMAGE_MESSAGE 41
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
 
 /* Maybe this will help me compile. -- Outsider */
@@ -76,13 +75,13 @@ void    check_assist    args((Character *ch, Character *victim));
 void    check_cond      args((Character *ch, Object *obj));
 void    check_all_cond  args((Character *ch));
 void    check_killer    args((Character *ch, Character *victim));
-bool    check_dodge     args((Character *ch, Character *victim, int dt));
-bool    check_blur      args((Character *ch, Character *victim, int dt));
-bool    check_shblock   args((Character *ch, Character *victim, int dt));
-bool    check_parry     args((Character *ch, Character *victim, int dt));
-bool    check_dual_parry args((Character *ch, Character *victim, int dt));    /* not a skill, evo dual wield */
+bool    check_dodge     args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
+bool    check_blur      args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
+bool    check_shblock   args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
+bool    check_parry     args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
+bool    check_dual_parry args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));    /* not a skill, evo dual wield */
 void    do_riposte      args((Character *ch, Character *victim));
-void    dam_message     args((Character *ch, Character *victim, int dam, int dt, bool immune, bool sanc_immune));
+void    dam_message     args((Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, bool immune, bool sanc_immune));
 void    death_cry       args((Character *ch));
 void    group_gain      args((Character *ch, Character *victim));
 int     xp_compute      args((Character *gch, Character *victim, int total_levels, int diff_classes));
@@ -90,8 +89,8 @@ bool    is_safe         args((Character *ch, Character *victim, bool showmsg));
 void    make_corpse     args((Character *ch));
 bool    check_pulse     args((Character *victim));
 void    kill_off        args((Character *ch, Character *victim));
-void    one_hit         args((Character *ch, Character *victim, int dt, bool secondary));
-void    mob_hit         args((Character *ch, Character *victim, int dt));
+void    one_hit         args((Character *ch, Character *victim, skill::type attack_skill, bool secondary));
+void    mob_hit         args((Character *ch, Character *victim, skill::type attack_skill));
 void    raw_kill        args((Character *victim));
 void    set_fighting    args((Character *ch, Character *victim));
 void    combat_regen    args((Character *ch));
@@ -188,7 +187,7 @@ void violence_update(void)
 		}
 
 		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
-			multi_hit(ch, victim, TYPE_UNDEFINED);
+			multi_hit(ch, victim, skill::type::unknown);
 		else
 			stop_fighting(ch, FALSE);
 
@@ -305,7 +304,7 @@ void combat_regen(Character *ch)
 			sun_damage -= sun_damage * GET_DEFENSE_MOD(ch, DAM_LIGHT) / 100;
 
 			if (sun_damage > 0) {
-				damage(ch->fighting, ch, sun_damage, 0, DAM_NONE, FALSE, TRUE);
+				damage(ch->fighting, ch, sun_damage, skill::type::unknown, -1, DAM_NONE, FALSE, TRUE);
 
 				if (ch == nullptr)
 					return;
@@ -332,8 +331,8 @@ void combat_regen(Character *ch)
 		default:                                break;
 		}
 
-	if (get_learned(ch, skill::meditation) && ch->mana < GET_MAX_MANA(ch))
-		switch (get_evolution(ch, skill::meditation)) {
+	if (get_learned(ch, skill::type::meditation) && ch->mana < GET_MAX_MANA(ch))
+		switch (get_evolution(ch, skill::type::meditation)) {
 		case 2: managain += ch->level / 30 + 2;   break;
 
 		case 3: managain += ch->level / 15 + 3;   break;
@@ -343,8 +342,8 @@ void combat_regen(Character *ch)
 		default:                                break;
 		}
 
-	if (get_learned(ch, skill::fast_healing) && ch->hit < GET_MAX_HIT(ch))
-		switch (get_evolution(ch, skill::fast_healing)) {
+	if (get_learned(ch, skill::type::fast_healing) && ch->hit < GET_MAX_HIT(ch))
+		switch (get_evolution(ch, skill::type::fast_healing)) {
 		case 2: hitgain += ch->level / 30 + 2;    break;
 
 		case 3: hitgain += ch->level / 15 + 3;    break;
@@ -524,7 +523,7 @@ void check_assist(Character *ch, Character *victim)
 		if (IS_NPC(rch))
 			do_emote(rch, "screams and attacks!");
 
-		multi_hit(rch, target, TYPE_UNDEFINED);
+		multi_hit(rch, target, skill::type::unknown);
 	}
 } /* end check_assist */
 
@@ -576,7 +575,7 @@ void check_protection_aura(Character *ch, Character *victim) {
 	}
 }
 
-void multi_hit(Character *ch, Character *victim, int dt)
+void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 {
 	Object *obj;
 	int chance;
@@ -592,107 +591,107 @@ void multi_hit(Character *ch, Character *victim, int dt)
 		return;
 
 	if (IS_NPC(ch)) {
-		mob_hit(ch, victim, dt);
+		mob_hit(ch, victim, attack_skill);
 		return;
 	}
 
-	one_hit(ch, victim, dt, FALSE);
+	one_hit(ch, victim, attack_skill, FALSE);
 
 	if (!ch->fighting)
 		return;
 
 	if (get_eq_char(ch, WEAR_SECONDARY)) {
-		chance = get_learned(ch, skill::dual_wield);
+		chance = get_learned(ch, skill::type::dual_wield);
 
-		if (CAN_USE_RSKILL(ch, skill::dual_second))
-			chance += get_learned(ch, skill::dual_second) / 10;
+		if (CAN_USE_RSKILL(ch, skill::type::dual_second))
+			chance += get_learned(ch, skill::type::dual_second) / 10;
 
-		chance += ((get_evolution(ch, skill::dual_wield) - 1) * 5);
+		chance += ((get_evolution(ch, skill::type::dual_wield) - 1) * 5);
 
 		if (chance(chance)) {
-			one_hit(ch, victim, dt, TRUE);
-			check_improve(ch, skill::dual_wield, TRUE, 6);
+			one_hit(ch, victim, attack_skill, TRUE);
+			check_improve(ch, skill::type::dual_wield, TRUE, 6);
 
 			if (!ch->fighting)
 				return;
 		}
 		else
-			check_improve(ch, skill::dual_wield, FALSE, 6);
+			check_improve(ch, skill::type::dual_wield, FALSE, 6);
 	}
 
 	if (affect::exists_on_char(ch, affect::haste))
-		one_hit(ch, victim, dt, FALSE);
+		one_hit(ch, victim, attack_skill, FALSE);
 
-	if (!ch->fighting || dt == skill::backstab)
+	if (!ch->fighting || attack_skill == skill::type::backstab)
 		return;
 
-	chance = get_learned(ch, skill::second_attack) / 2;
+	chance = get_learned(ch, skill::type::second_attack) / 2;
 
-	if (CAN_USE_RSKILL(ch, skill::fourth_attack))
-		chance += get_learned(ch, skill::fourth_attack) / 10;
+	if (CAN_USE_RSKILL(ch, skill::type::fourth_attack))
+		chance += get_learned(ch, skill::type::fourth_attack) / 10;
 
 	if (affect::exists_on_char(ch, affect::slow))
 		chance /= 2;
 
 	if (chance(chance)) {
-		one_hit(ch, victim, dt, FALSE);
-		check_improve(ch, skill::second_attack, TRUE, 5);
+		one_hit(ch, victim, attack_skill, FALSE);
+		check_improve(ch, skill::type::second_attack, TRUE, 5);
 
 		if (!ch->fighting)
 			return;
 	}
 
-	chance = get_learned(ch, skill::third_attack) / 4;
+	chance = get_learned(ch, skill::type::third_attack) / 4;
 
-	if (CAN_USE_RSKILL(ch, skill::fourth_attack))
-		chance += get_learned(ch, skill::fourth_attack) / 10;
+	if (CAN_USE_RSKILL(ch, skill::type::fourth_attack))
+		chance += get_learned(ch, skill::type::fourth_attack) / 10;
 
 	if (affect::exists_on_char(ch, affect::slow))
 		chance = 0;
 
 	if (chance(chance)) {
-		one_hit(ch, victim, dt, FALSE);
-		check_improve(ch, skill::third_attack, TRUE, 6);
+		one_hit(ch, victim, attack_skill, FALSE);
+		check_improve(ch, skill::type::third_attack, TRUE, 6);
 
 		if (!ch->fighting)
 			return;
 	}
 
-	chance = get_learned(ch, skill::fourth_attack) / 2;
+	chance = get_learned(ch, skill::type::fourth_attack) / 2;
 
-	if (affect::exists_on_char(ch, affect::slow) || !CAN_USE_RSKILL(ch, skill::fourth_attack))
+	if (affect::exists_on_char(ch, affect::slow) || !CAN_USE_RSKILL(ch, skill::type::fourth_attack))
 		chance = 0;
 
 	if (chance(chance)) {
-		one_hit(ch, victim, dt, FALSE);
-		check_improve(ch, skill::fourth_attack, TRUE, 6);
+		one_hit(ch, victim, attack_skill, FALSE);
+		check_improve(ch, skill::type::fourth_attack, TRUE, 6);
 
 		if (!ch->fighting)
 			return;
 	}
 
 	if (get_eq_char(ch, WEAR_SECONDARY)) {
-		chance = get_learned(ch, skill::dual_second) / 2;
+		chance = get_learned(ch, skill::type::dual_second) / 2;
 
-		if (affect::exists_on_char(ch, affect::slow) || !CAN_USE_RSKILL(ch, skill::dual_second))
+		if (affect::exists_on_char(ch, affect::slow) || !CAN_USE_RSKILL(ch, skill::type::dual_second))
 			chance = 0;
 
-		chance += ((get_evolution(ch, skill::dual_wield) - 1) * 5);
+		chance += ((get_evolution(ch, skill::type::dual_wield) - 1) * 5);
 
 		if (chance(chance)) {
-			one_hit(ch, victim, dt, TRUE);
-			check_improve(ch, skill::dual_second, TRUE, 6);
+			one_hit(ch, victim, attack_skill, TRUE);
+			check_improve(ch, skill::type::dual_second, TRUE, 6);
 
 			if (!ch->fighting)
 				return;
 		}
 		else
-			check_improve(ch, skill::dual_second, FALSE, 6);
+			check_improve(ch, skill::type::dual_second, FALSE, 6);
 	}
 
 	check_protection_aura(ch, victim);
 
-	if (dt == skill::shadow_form || dt == skill::circle)
+	if (attack_skill == skill::type::shadow_form || attack_skill == skill::type::circle)
 		return;
 
 	/* remort affect - clumsiness */
@@ -729,32 +728,32 @@ void multi_hit(Character *ch, Character *victim, int dt)
 } /* end multi_hit */
 
 /* procedure for all mobile attacks */
-void mob_hit(Character *ch, Character *victim, int dt)
+void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 {
 	Character *vch, *vch_next;
 	int chance, number;
 
 	// this is a weird way to make mobs with OFF_BACKSTAB start fights with do_backstab.
 	// we call do_backstab here, which in turn calls mob_hit (this function).  the
-	// difference is that do_backstab will call with dt == skill::backstab, and we avoid
+	// difference is that do_backstab will call with attack_skill == skill::type::backstab, and we avoid
 	// a loop.
-	if (dt != skill::backstab // avoid loop
+	if (attack_skill != skill::type::backstab // avoid loop
 		&& ch->fighting == nullptr
 	    && victim->hit == GET_MAX_HIT(victim)
 	    && (get_eq_char(ch, WEAR_WIELD) != nullptr)
 	    && ch->off_flags.has(OFF_BACKSTAB)
-	    && get_learned(ch, skill::backstab)) {
+	    && get_learned(ch, skill::type::backstab)) {
 		do_backstab(ch, victim->name);
 		return;
 	}
 
-	one_hit(ch, victim, dt, FALSE);
+	one_hit(ch, victim, attack_skill, FALSE);
 
 	if (!ch->fighting)
 		return;
 
 	if (get_eq_char(ch, WEAR_SECONDARY) && (number_percent() < (ch->level * 2))) {
-		one_hit(ch, victim, dt, TRUE);
+		one_hit(ch, victim, attack_skill, TRUE);
 
 		if (!ch->fighting)
 			return;
@@ -766,48 +765,48 @@ void mob_hit(Character *ch, Character *victim, int dt)
 			vch_next = vch->next;
 
 			if ((vch != victim && vch->fighting == ch && chance(33)))
-				one_hit(ch, vch, dt, FALSE);
+				one_hit(ch, vch, attack_skill, FALSE);
 		}
 	}
 
 	if (affect::exists_on_char(ch, affect::haste)
 	    || (ch->off_flags.has(OFF_FAST) && !affect::exists_on_char(ch, affect::slow)))
-		one_hit(ch, victim, dt, FALSE);
+		one_hit(ch, victim, attack_skill, FALSE);
 
-	if (!ch->fighting || dt == skill::backstab)
+	if (!ch->fighting || attack_skill == skill::type::backstab)
 		return;
 
-	chance = get_learned(ch, skill::second_attack) / 2;
+	chance = get_learned(ch, skill::type::second_attack) / 2;
 
 	if (affect::exists_on_char(ch, affect::slow) && !ch->off_flags.has(OFF_FAST))
 		chance /= 2;
 
 	if (chance(chance)) {
-		one_hit(ch, victim, dt, FALSE);
+		one_hit(ch, victim, attack_skill, FALSE);
 
 		if (!ch->fighting)
 			return;
 	}
 
-	chance = get_learned(ch, skill::third_attack) / 4;
+	chance = get_learned(ch, skill::type::third_attack) / 4;
 
 	if (affect::exists_on_char(ch, affect::slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
-		one_hit(ch, victim, dt, FALSE);
+		one_hit(ch, victim, attack_skill, FALSE);
 
 		if (!ch->fighting)
 			return;
 	}
 
-	chance = get_learned(ch, skill::fourth_attack) / 6;
+	chance = get_learned(ch, skill::type::fourth_attack) / 6;
 
 	if (affect::exists_on_char(ch, affect::slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
-		one_hit(ch, victim, dt, FALSE);
+		one_hit(ch, victim, attack_skill, FALSE);
 
 		if (!ch->fighting)
 			return;
@@ -836,7 +835,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 
 	case (2) :
 		if (ch->off_flags.has(OFF_DISARM)
-		    || (get_weapon_skill(ch, FALSE) != skill::hand_to_hand
+		    || (get_weapon_skill(ch, FALSE) != skill::type::hand_to_hand
 		        && (ch->act_flags.has(ACT_WARRIOR)
 		            ||  ch->act_flags.has(ACT_THIEF))))
 			do_disarm(ch, "");
@@ -870,7 +869,7 @@ void mob_hit(Character *ch, Character *victim, int dt)
 } /* end mob_hit */
 
 /* Hit one guy once */
-void one_hit(Character *ch, Character *victim, int dt, bool secondary)
+void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool secondary)
 {
 	Object *wield;
 	int victim_ac;
@@ -880,7 +879,6 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	int dam;
 	int diceroll;
 	int skill;
-	int dam_type;
 	int bonus = 0;
 	bool result;
 	bool riposte = FALSE;
@@ -895,13 +893,13 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	if (get_position(victim) == POS_DEAD || ch->in_room != victim->in_room)
 		return;
 
-	if (dt == skill::riposte)
+	if (attack_skill == skill::type::riposte)
 		riposte = TRUE;
 
-	if (dt == skill::shadow_form) {
+	if (attack_skill == skill::type::shadow_form) {
 		shadow = TRUE;
 		bonus = ((ch->level * 2) + (victim->level * 2));
-		dt = skill::backstab;
+		attack_skill = skill::type::backstab;
 	}
 
 	/* Figure out the type of damage message. */
@@ -910,39 +908,40 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	else
 		wield = get_eq_char(ch, WEAR_SECONDARY);
 
-	if (dt == TYPE_UNDEFINED) {
-		dt = TYPE_HIT;
+	/* reworked the old confusing way of overloading the 'dt' variable to represent
+	   either a skill (<1000) or an attack table lookup (1000-1030).  The skill is
+	   already set, it could be skill::type::unknown which is just a regular hit.
+	   Next we need to figure out the index into the attack table, which will give
+	   us a damage noun (if no skill) and a damage type.
+	 */
 
-		if (wield != nullptr && wield->item_type == ITEM_WEAPON)
-			dt += wield->value[3];
-		else {
-			dt += ch->dam_type;
-			no_weapon = TRUE;     /* check if unarmed -- Outsider */
-		}
+	int attack_type = 0; // index into attack table, where we get a damage noun and damage type
+
+	if (wield != nullptr && wield->item_type == ITEM_WEAPON)
+		attack_type = wield->value[3];
+	else {
+		attack_type = ch->dam_type;
+		no_weapon = TRUE;     /* check if unarmed -- Outsider */
 	}
 
-	if (dt < TYPE_HIT) {
-		if (wield != nullptr)
-			dam_type = attack_table[wield->value[3]].damage;
-		else
-			dam_type = attack_table[ch->dam_type].damage;
+	// constrain to the table size
+	if (attack_type < 0 || attack_type > attack_table.size()) {
+		Logging::bugf("damage(): unknown attack type %d", attack_type);
+		attack_type = 0;
 	}
-	else
-		dam_type = attack_table[dt - TYPE_HIT].damage;
 
-	if (dam_type == -1)
-		dam_type = DAM_BASH;
+	int dam_type = attack_table[attack_type].damage;
 
 	/* get the weapon skill */
-	skill::Type sn = get_weapon_skill(ch, secondary);
+	skill::type sn = get_weapon_skill(ch, secondary);
 	skill = 20 + get_weapon_learned(ch, sn);
 
 	/* If the char is unarmed and has the Unarmed skill, add that in.
 	   -- Outsider
 	*/
-	if ((no_weapon) && (get_learned(ch, skill::unarmed) > 1)) {
-		skill += get_learned(ch, skill::unarmed);
-		check_improve(ch, skill::unarmed, TRUE, 1);
+	if ((no_weapon) && (get_learned(ch, skill::type::unarmed) > 1)) {
+		skill += get_learned(ch, skill::type::unarmed);
+		check_improve(ch, skill::type::unarmed, TRUE, 1);
 	}
 
 	/* Calculate to-hit-armor-class-0 versus armor. */
@@ -975,14 +974,14 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	thac0 -= (GET_ATTR_HITROLL(ch) * skill) / 100;
 	thac0 += (5 * (100 - skill)) / 100;
 
-	if (dt == skill::backstab)
-		thac0 -= 10 * (100 - get_learned(ch, skill::backstab));
+	if (attack_skill == skill::type::backstab)
+		thac0 -= 10 * (100 - get_learned(ch, skill::type::backstab));
 
-	if (dt == skill::circle)
-		thac0 -= 10 * (100 - get_learned(ch, skill::circle));
+	if (attack_skill == skill::type::circle)
+		thac0 -= 10 * (100 - get_learned(ch, skill::type::circle));
 
-	if (dt == skill::rage)
-		thac0 -= 10 * (100 - get_learned(ch, skill::rage));
+	if (attack_skill == skill::type::rage)
+		thac0 -= 10 * (100 - get_learned(ch, skill::type::rage));
 
 	switch (dam_type) {
 	case (DAM_PIERCE):       victim_ac = GET_AC(victim, AC_PIERCE) / 10;        break;
@@ -1014,7 +1013,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	if (!riposte && !shadow) {
 		if (diceroll == 0 || (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 			/* Miss. */
-			damage(ch, victim, 0, dt, dam_type, TRUE, FALSE);
+			damage(ch, victim, 0, attack_skill, attack_type, dam_type, TRUE, FALSE);
 			tail_chain();
 			return;
 		}
@@ -1024,7 +1023,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	if (IS_NPC(ch) && wield == nullptr)
 		dam = dice(ch->damage[DICE_NUMBER], ch->damage[DICE_TYPE]);
 	else {
-		if (sn != -1)
+		if (sn != skill::type::unknown)
 			check_improve(ch, sn, TRUE, 5);
 
 		if (wield != nullptr) {
@@ -1046,9 +1045,9 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	}
 
 	/* Bonuses. */
-	if (get_learned(ch, skill::enhanced_damage)
-	    && (diceroll = number_percent()) <= get_learned(ch, skill::enhanced_damage)) {
-		check_improve(ch, skill::enhanced_damage, TRUE, 6);
+	if (get_learned(ch, skill::type::enhanced_damage)
+	    && (diceroll = number_percent()) <= get_learned(ch, skill::type::enhanced_damage)) {
+		check_improve(ch, skill::type::enhanced_damage, TRUE, 6);
 		dam += 2 * (dam * diceroll / 300);
 	}
 
@@ -1057,13 +1056,13 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 	else if (get_position(victim) < POS_FIGHTING)
 		dam = dam * 3 / 2;
 
-	if (dt == skill::backstab && wield != nullptr) {
+	if (attack_skill == skill::type::backstab && wield != nullptr) {
 		if (wield->value[0] != 2)
 			dam *= 2 + (ch->level / 10);
 		else
 			dam *= 2 + (ch->level / 8);           /* daggers do more */
 		/*Vegita - evolved backstab damage bonuses*/
-		switch (get_evolution(ch, skill::backstab)) {
+		switch (get_evolution(ch, skill::type::backstab)) {
 			case 1:							//no bonus
 				break;
 			
@@ -1080,14 +1079,14 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 		}
 	}
 
-	if (dt == skill::circle && wield != nullptr) {
+	if (attack_skill == skill::type::circle && wield != nullptr) {
 		if (wield->value[0] != 2)
 			dam *= 2 + ((ch->level - 30) / 30);
 		else
 			dam *= 2 + ((ch->level - 30) / 24);   /* daggers do more */
 	}
 
-	if (dt == skill::rage && wield != nullptr) {
+	if (attack_skill == skill::type::rage && wield != nullptr) {
 		if (wield->value[0] != 1
 		    && wield->value[0] != 5)
 			dam *= 2 + ((ch->level - 30) / 30);
@@ -1101,7 +1100,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 		dam = 1;
 
 	dam += bonus;  /* Shadow Form Bonus */
-	result = damage(ch, victim, dam, dt, dam_type, TRUE, FALSE);
+	result = damage(ch, victim, dam, attack_skill, attack_type, dam_type, TRUE, FALSE);
 
 	/* but do we have a funky weapon? */
 	if (result && wield != nullptr) {
@@ -1159,7 +1158,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 
 			act("$p draws life from $n.", victim, wield, nullptr, TO_ROOM);
 			act("You feel $p drawing your life away.", victim, wield, nullptr, TO_CHAR);
-			damage(ch, victim, dam, 0, DAM_NEGATIVE, FALSE, TRUE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_NEGATIVE, FALSE, TRUE);
 			ch->hit += dam / 2;
 		}
 
@@ -1168,7 +1167,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			dam = number_range(1, wield->level / 4 + 1);
 			act("$n is impaled by $p.", victim, wield, nullptr, TO_ROOM);
 			act("$p impales your body.", victim, wield, nullptr, TO_CHAR);
-			damage(ch, victim, dam, 0, DAM_PIERCE, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_PIERCE, FALSE, FALSE);
 		}
 
 		if (ch->fighting == victim
@@ -1184,7 +1183,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
 				acid_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, 0, DAM_ACID, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ACID, FALSE, FALSE);
 		}
 
 		if (ch->fighting == victim
@@ -1200,7 +1199,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
 				fire_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, 0, DAM_FIRE, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_FIRE, FALSE, FALSE);
 		}
 
 		if (ch->fighting == victim
@@ -1216,7 +1215,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
 				cold_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, 0, DAM_COLD, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_COLD, FALSE, FALSE);
 		}
 
 		if (ch->fighting == victim
@@ -1232,7 +1231,7 @@ void one_hit(Character *ch, Character *victim, int dt, bool secondary)
 			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
 				shock_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, 0, DAM_ELECTRICITY, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, FALSE, FALSE);
 		}
 	}
 
@@ -1253,7 +1252,7 @@ int affect_callback_weaken_bonewall(affect::Affect *node, void *null) {
 
 /* Inflict damage from a hit.
    damage and damage consolidated, bool added to determine whether it's a magic spell or not -- Montrey */
-bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, bool show, bool spell)
+bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, int dam_type, bool show, bool spell)
 {
 	bool immune, sanc_immune;
 
@@ -1280,14 +1279,14 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 	if (spell) {
 		int damroll = get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
 		
-		if (dt == skill::magic_missile) {
+		if (attack_skill == skill::type::magic_missile) {
 			dam += damroll;
 		}
 		else if (
-			dt == skill::chain_lightning
-		 || dt == skill::blizzard
-		 || dt == skill::acid_rain
-		 || dt == skill::firestorm) {
+			attack_skill == skill::type::chain_lightning
+		 || attack_skill == skill::type::blizzard
+		 || attack_skill == skill::type::acid_rain
+		 || attack_skill == skill::type::firestorm) {
 			dam += damroll/5;
 		}
 		else {
@@ -1432,21 +1431,23 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* Check for parry, blur, shield block, and dodge. */
-	if (dt >= TYPE_HIT && ch != victim) {
+	// the only things that should get through here are weapon hits, so anything coded with
+	// an attack_skill or an attack_type of -1 will bypass this section
+	if (attack_skill == skill::type::unknown && attack_type >= 0 && ch != victim) {
 		if (IS_AWAKE(victim) && !global_quick) {
-			if (check_dodge(ch, victim, dt))
+			if (check_dodge(ch, victim, attack_skill, attack_type))
 				return FALSE;
 
-			if (check_blur(ch, victim, dt))
+			if (check_blur(ch, victim, attack_skill, attack_type))
 				return FALSE;
 
-			if (check_shblock(ch, victim, dt))
+			if (check_shblock(ch, victim, attack_skill, attack_type))
 				return FALSE;
 
-			if (check_parry(ch, victim, dt))
+			if (check_parry(ch, victim, attack_skill, attack_type))
 				return FALSE;
 
-			if (check_dual_parry(ch, victim, dt))
+			if (check_dual_parry(ch, victim, attack_skill, attack_type))
 				return FALSE;
 		}
 
@@ -1454,21 +1455,21 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 			if (get_eq_char(ch, WEAR_WIELD) != nullptr)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
-			if (affect::exists_on_char(victim, affect::flameshield) && !saves_spell(victim->level, ch, DAM_FIRE))
-				damage(victim, ch, 5, find_spell(victim, "flameshield"),
-				       DAM_FIRE, TRUE, TRUE);
+			if (affect::exists_on_char(victim, affect::flameshield) && !saves_spell(victim->level, ch, DAM_FIRE)) {
+				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, TRUE, TRUE);
+			}
 
 			if (affect::exists_on_char(victim, affect::sanctuary)
 			    && get_affect_evolution(victim, affect::sanctuary) >= 3
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
-				damage(victim, ch, 5, skill::sanctuary, DAM_HOLY, TRUE, TRUE);
+				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, TRUE, TRUE);
 
 			const affect::Affect *paf;
 			if ((paf = affect::find_on_char(victim, affect::bone_wall)) != nullptr
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
 				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
-				       skill::bone_wall, DAM_PIERCE, TRUE, TRUE);
+				       skill::type::bone_wall, -1, DAM_PIERCE, TRUE, TRUE);
 
 				affect::iterate_over_char(ch, affect_callback_weaken_bonewall, nullptr);
 			}
@@ -1520,7 +1521,7 @@ bool damage(Character *ch, Character *victim, int dam, int dt, int dam_type, boo
 	}
 
 	if (show)
-		dam_message(ch, victim, dam, dt, immune, sanc_immune);
+		dam_message(ch, victim, dam, attack_skill, attack_type, immune, sanc_immune);
 
 //	if (dam == 0)
 //		return FALSE;
@@ -1571,7 +1572,7 @@ bool check_pulse(Character *victim)
 	   a chance to recover a little.
 	   -- Outsider
 	*/
-	int die_hard_skill = get_learned(victim, skill::die_hard);
+	int die_hard_skill = get_learned(victim, skill::type::die_hard);
 
 	if (die_hard_skill >= 1 && victim->hit < 1) {
 		if (chance(die_hard_skill)) {
@@ -1583,10 +1584,10 @@ bool check_pulse(Character *victim)
 
 			stc("You make an effort to pull yourself together!\n", victim);
 			act("$n pulls themself together!\n", victim, nullptr, nullptr, TO_ROOM);
-			check_improve(victim, skill::die_hard, TRUE, 2);
+			check_improve(victim, skill::type::die_hard, TRUE, 2);
 		}
 		else
-			check_improve(victim, skill::die_hard, FALSE, 2);
+			check_improve(victim, skill::type::die_hard, FALSE, 2);
 	}  /* end of die hard */
 
 	update_pos(victim);
@@ -2073,17 +2074,17 @@ void check_killer(Character *ch, Character *victim)
 } /* end check_killer */
 
 /* Check for parry. */
-bool check_parry(Character *ch, Character *victim, int dt)
+bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	String attack;
 
-	if (!get_learned(victim, skill::parry))
+	if (!get_learned(victim, skill::type::parry))
 		return FALSE;
 
-	chance = get_learned(victim, skill::parry) * 2 / 3;
+	chance = get_learned(victim, skill::type::parry) * 2 / 3;
 
 	if (get_eq_char(victim, WEAR_WIELD) == nullptr) {
 		if (IS_NPC(victim))
@@ -2097,23 +2098,23 @@ bool check_parry(Character *ch, Character *victim, int dt)
 		int skill;
 
 		switch (obj->value[0]) {
-		case WEAPON_SWORD:      skill = get_learned(victim, skill::sword);   break;
+		case WEAPON_SWORD:      skill = get_learned(victim, skill::type::sword);   break;
 
-		case WEAPON_DAGGER:     skill = get_learned(victim, skill::dagger);  break;
+		case WEAPON_DAGGER:     skill = get_learned(victim, skill::type::dagger);  break;
 
-		case WEAPON_SPEAR:      skill = get_learned(victim, skill::spear);   break;
+		case WEAPON_SPEAR:      skill = get_learned(victim, skill::type::spear);   break;
 
-		case WEAPON_MACE:       skill = get_learned(victim, skill::mace);    break;
+		case WEAPON_MACE:       skill = get_learned(victim, skill::type::mace);    break;
 
-		case WEAPON_AXE:        skill = get_learned(victim, skill::axe);     break;
+		case WEAPON_AXE:        skill = get_learned(victim, skill::type::axe);     break;
 
-		case WEAPON_FLAIL:      skill = get_learned(victim, skill::flail);   break;
+		case WEAPON_FLAIL:      skill = get_learned(victim, skill::type::flail);   break;
 
-		case WEAPON_WHIP:       skill = get_learned(victim, skill::whip);    break;
+		case WEAPON_WHIP:       skill = get_learned(victim, skill::type::whip);    break;
 
-		case WEAPON_POLEARM:    skill = get_learned(victim, skill::polearm); break;
+		case WEAPON_POLEARM:    skill = get_learned(victim, skill::type::polearm); break;
 
-		case WEAPON_BOW:        skill = get_learned(victim, skill::archery);     break;
+		case WEAPON_BOW:        skill = get_learned(victim, skill::type::archery);     break;
 
 		default:                skill = UMIN(100, victim->level * 3);   break;
 		}
@@ -2134,19 +2135,20 @@ bool check_parry(Character *ch, Character *victim, int dt)
 #endif
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::parry, FALSE, 10);
+		check_improve(victim, skill::type::parry, FALSE, 10);
 		return FALSE;
 	}
 
 	/* parry is good, let's figure out the damage message */
-	if (dt >= skill::first && dt < skill::size)
-		attack = skill::lookup((skill::Type)dt).noun_damage;
-	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
+	if (attack_skill != skill::type::unknown)
+		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		Logging::bug("Dam_message: bad dt %d.", dt);
-		dt = TYPE_HIT;
-		attack = attack_table[0].name;
+		if (attack_type < 0 && attack_type >= attack_table.size()) {
+			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
+			attack_type = 0;
+		}
+
+		attack = attack_table[attack_type].noun;
 	}
 
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
@@ -2162,54 +2164,54 @@ bool check_parry(Character *ch, Character *victim, int dt)
 	if (get_eq_char(victim, WEAR_WIELD) != nullptr)
 		check_cond(victim, get_eq_char(victim, WEAR_WIELD));
 
-	check_improve(victim, skill::parry, TRUE, 6);
+	check_improve(victim, skill::type::parry, TRUE, 6);
 
 	/* for remorts, do riposte */
-	if (CAN_USE_RSKILL(victim, skill::riposte))
+	if (CAN_USE_RSKILL(victim, skill::type::riposte))
 		do_riposte(victim, ch);
 
 	return TRUE;
 } /* end check_parry */
 
 /* Check for parry from the off hand. */
-bool check_dual_parry(Character *ch, Character *victim, int dt)
+bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	Object *obj;
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	String attack;
 
-	if (!get_learned(victim, skill::dual_wield)
-	    || !get_learned(victim, skill::parry)
+	if (!get_learned(victim, skill::type::dual_wield)
+	    || !get_learned(victim, skill::type::parry)
 	    || !get_eq_char(victim, WEAR_SECONDARY)
-	    || get_evolution(victim, skill::dual_wield) < 2
-	    || (dt == skill::riposte && get_evolution(victim, skill::dual_wield) < 3))
+	    || get_evolution(victim, skill::type::dual_wield) < 2
+	    || (attack_skill == skill::type::riposte && get_evolution(victim, skill::type::dual_wield) < 3))
 		return FALSE;
 
-	chance = get_learned(victim, skill::dual_wield) / 3;
+	chance = get_learned(victim, skill::type::dual_wield) / 3;
 
 	/* skill with your opponent's weapon */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) != nullptr) {
 		int skill;
 
 		switch (obj->value[0]) {
-		case WEAPON_SWORD:      skill = get_learned(victim, skill::sword);   break;
+		case WEAPON_SWORD:      skill = get_learned(victim, skill::type::sword);   break;
 
-		case WEAPON_DAGGER:     skill = get_learned(victim, skill::dagger);  break;
+		case WEAPON_DAGGER:     skill = get_learned(victim, skill::type::dagger);  break;
 
-		case WEAPON_SPEAR:      skill = get_learned(victim, skill::spear);   break;
+		case WEAPON_SPEAR:      skill = get_learned(victim, skill::type::spear);   break;
 
-		case WEAPON_MACE:       skill = get_learned(victim, skill::mace);    break;
+		case WEAPON_MACE:       skill = get_learned(victim, skill::type::mace);    break;
 
-		case WEAPON_AXE:        skill = get_learned(victim, skill::axe);     break;
+		case WEAPON_AXE:        skill = get_learned(victim, skill::type::axe);     break;
 
-		case WEAPON_FLAIL:      skill = get_learned(victim, skill::flail);   break;
+		case WEAPON_FLAIL:      skill = get_learned(victim, skill::type::flail);   break;
 
-		case WEAPON_WHIP:       skill = get_learned(victim, skill::whip);    break;
+		case WEAPON_WHIP:       skill = get_learned(victim, skill::type::whip);    break;
 
-		case WEAPON_POLEARM:    skill = get_learned(victim, skill::polearm); break;
+		case WEAPON_POLEARM:    skill = get_learned(victim, skill::type::polearm); break;
 
-		case WEAPON_BOW:        skill = get_learned(victim, skill::archery);     break;
+		case WEAPON_BOW:        skill = get_learned(victim, skill::type::archery);     break;
 
 		default:                skill = UMIN(100, victim->level * 3);   break;
 		}
@@ -2230,19 +2232,20 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 #endif
 
 	if (!chance(chance)) {
-		check_improve(victim, skill::dual_wield, FALSE, 10);
+		check_improve(victim, skill::type::dual_wield, FALSE, 10);
 		return FALSE;
 	}
 
 	/* parry is good, let's figure out the damage message */
-	if (dt >= skill::first && dt < skill::size)
-		attack = skill::lookup((skill::Type)dt).noun_damage;
-	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
+	if (attack_skill != skill::type::unknown)
+		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		Logging::bug("Dam_message: bad dt %d.", dt);
-		dt = TYPE_HIT;
-		attack = attack_table[0].name;
+		if (attack_type < 0 && attack_type >= attack_table.size()) {
+			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
+			attack_type = 0;
+		}
+
+		attack = attack_table[attack_type].noun;
 	}
 
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
@@ -2256,14 +2259,14 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 	}
 
 	check_cond(victim, get_eq_char(victim, WEAR_SECONDARY));
-	check_improve(victim, skill::dual_wield, TRUE, 10);
+	check_improve(victim, skill::type::dual_wield, TRUE, 10);
 
 	/* hilt strike! */
-	if (get_evolution(victim, skill::dual_wield) < 3
-	    || (dt == skill::riposte && get_evolution(victim, skill::dual_wield) < 4))
+	if (get_evolution(victim, skill::type::dual_wield) < 3
+	    || (attack_skill == skill::type::riposte && get_evolution(victim, skill::type::dual_wield) < 4))
 		return TRUE;
 
-	chance = ((get_learned(victim, skill::dual_wield) + get_learned(victim, skill::hand_to_hand)) / 3);
+	chance = ((get_learned(victim, skill::type::dual_wield) + get_learned(victim, skill::type::hand_to_hand)) / 3);
 
 	if (!can_see_char(victim, ch))
 		chance /= 2;
@@ -2271,36 +2274,46 @@ bool check_dual_parry(Character *ch, Character *victim, int dt)
 	if (!chance(chance + victim->level - ch->level))
 		return TRUE; /* for dual parry */
 
+	// get our hilt strike type, probably at the end so go backwards
+	for (attack_type = attack_table.size() - 1; attack_type >= 0; attack_type--)
+		if (attack_table[attack_type].name == "hstrike")
+			break;
+
+	if (attack_type < 0) {
+		Logging::bug("check_dual_parry: unable to find hilt strike damage type", 0);
+		return TRUE;
+	}
+
 	/* gonna riposte, last check for dodging/blurring/shield blocking it */
-	if (check_dodge(victim, ch, TYPE_HIT + 40))
+	if (check_dodge(victim, ch, skill::type::unknown, attack_type))
 		return TRUE;
 
-	if (check_blur(victim, ch, TYPE_HIT + 40))
+	if (check_blur(victim, ch, skill::type::unknown, attack_type))
 		return TRUE;
 
-	if (check_shblock(victim, ch, TYPE_HIT + 40))
+	if (check_shblock(victim, ch, skill::type::unknown, attack_type))
 		return TRUE;
 
 	damage(victim, ch, (number_range(1, victim->level) + GET_ATTR_DAMROLL(victim)) / 2,
-	       TYPE_HIT + 40, DAM_BASH, TRUE, FALSE);
-	check_improve(victim, skill::hand_to_hand, TRUE, 8);
+	       skill::type::unknown, attack_type, DAM_BASH, TRUE, FALSE);
+	check_improve(victim, skill::type::hand_to_hand, TRUE, 8);
 	return TRUE;
 } /* end check_dual_parry */
 
 /* Check for shield block. */
-bool check_shblock(Character *ch, Character *victim, int dt)
+bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	String attack;
 
-	if (!get_learned(victim, skill::shield_block))
+	if (!get_learned(victim, skill::type::shield_block))
 		return FALSE;
 
 	if (get_eq_char(victim, WEAR_SHIELD) == nullptr)
 		return FALSE;
 
-	chance = get_learned(victim, skill::shield_block) * 2 / 5;
+	chance = get_learned(victim, skill::type::shield_block) * 2 / 5;
 
 	if (affect::exists_on_char(victim, affect::paralyze))
 		chance /= 2;
@@ -2312,19 +2325,20 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 #endif
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::shield_block, FALSE, 10);
+		check_improve(victim, skill::type::shield_block, FALSE, 10);
 		return FALSE;
 	}
 
 	/* shield block is good, let's figure out the damage message */
-	if (dt >= skill::first && dt < skill::size)
-		attack = skill::lookup((skill::Type)dt).noun_damage;
-	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
+	if (attack_skill != skill::type::unknown)
+		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		Logging::bug("Dam_message: bad dt %d.", dt);
-		dt  = TYPE_HIT;
-		attack  = attack_table[0].name;
+		if (attack_type < 0 && attack_type >= attack_table.size()) {
+			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
+			attack_type = 0;
+		}
+
+		attack = attack_table[attack_type].noun;
 	}
 
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
@@ -2338,21 +2352,21 @@ bool check_shblock(Character *ch, Character *victim, int dt)
 	}
 
 	check_cond(victim, get_eq_char(victim, WEAR_SHIELD));
-	check_improve(victim, skill::shield_block, TRUE, 6);
+	check_improve(victim, skill::type::shield_block, TRUE, 6);
 	return TRUE;
 } /* end check_shblock */
 
 /* Check for dodge. */
-bool check_dodge(Character *ch, Character *victim, int dt)
+bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	String attack;
 
-	if (!get_learned(victim, skill::dodge))
+	if (!get_learned(victim, skill::type::dodge))
 		return FALSE;
 
-	chance = get_learned(victim, skill::dodge) / 2;
+	chance = get_learned(victim, skill::type::dodge) / 2;
 	// size affects dodge rate - Montrey (2014)
 	chance -= (victim->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 	// evasion checks moved to general dodge/blur - Montrey (2014)
@@ -2395,21 +2409,20 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 //for testing   chance = 0;
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::dodge, FALSE, 10);
+		check_improve(victim, skill::type::dodge, FALSE, 10);
 		return FALSE;
 	}
 
-//	if (dt != skill::bash) {
 	/* dodge is good, let's figure out the damage message */
-	if (dt >= skill::first && dt < skill::size)
-		attack = skill::lookup((skill::Type)dt).noun_damage;
-	// hack to get a specific damage type in here without making it a skill
-	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
+	if (attack_skill != skill::type::unknown)
+		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		Logging::bug("Dam_message: bad dt %d.", dt);
-		dt  = TYPE_HIT;
-		attack  = attack_table[0].name;
+		if (attack_type < 0 && attack_type >= attack_table.size()) {
+			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
+			attack_type = 0;
+		}
+
+		attack = attack_table[attack_type].noun;
 	}
 
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
@@ -2423,21 +2436,21 @@ bool check_dodge(Character *ch, Character *victim, int dt)
 	}
 
 //	}
-	check_improve(victim, skill::dodge, TRUE, 6);
+	check_improve(victim, skill::type::dodge, TRUE, 6);
 	return TRUE;
 } /* end check_dodge */
 
 /* Check for Blur - Montrey */
-bool check_blur(Character *ch, Character *victim, int dt)
+bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	char buf[MAX_STRING_LENGTH];
 	int chance;
 	String attack;
 
-	if (!CAN_USE_RSKILL(victim, skill::blur))
+	if (!CAN_USE_RSKILL(victim, skill::type::blur))
 		return FALSE;
 
-	chance = get_learned(victim, skill::blur) / 3;
+	chance = get_learned(victim, skill::type::blur) / 3;
 	// size affects dodge rate - Montrey (2014)
 	chance -= (victim->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 	// evasion checks moved to general dodge/blur - Montrey (2014)
@@ -2478,20 +2491,20 @@ bool check_blur(Character *ch, Character *victim, int dt)
 	chance = URANGE(5, chance, 95);
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::blur, FALSE, 10);
+		check_improve(victim, skill::type::blur, FALSE, 10);
 		return FALSE;
 	}
 
-//	if (dt != skill::bash) {
 	/* blur is good, let's figure out the damage message */
-	if (dt >= skill::first && dt < skill::size)
-		attack = skill::lookup((skill::Type)dt).noun_damage;
-	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
+	if (attack_skill != skill::type::unknown)
+		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		Logging::bug("Dam_message: bad dt %d.", dt);
-		dt = TYPE_HIT;
-		attack = attack_table[0].name;
+		if (attack_type < 0 && attack_type >= attack_table.size()) {
+			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
+			attack_type = 0;
+		}
+
+		attack = attack_table[attack_type].noun;
 	}
 
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
@@ -2505,7 +2518,7 @@ bool check_blur(Character *ch, Character *victim, int dt)
 	}
 
 //	}
-	check_improve(victim, skill::blur, TRUE, 6);
+	check_improve(victim, skill::type::blur, TRUE, 6);
 	return TRUE;
 }  /* end check_blur */
 
@@ -3134,7 +3147,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 } /* end xp_compute */
 
 // TODO: fix this for defense % modifiers
-void dam_message(Character *ch, Character *victim, int dam, int dt, bool immune, bool sanc_immune)
+void dam_message(Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, bool immune, bool sanc_immune)
 {
 	char buf1[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH], buf3[MAX_INPUT_LENGTH];
 	const char *vs;
@@ -3178,60 +3191,48 @@ void dam_message(Character *ch, Character *victim, int dam, int dt, bool immune,
 
 	punct   = (dam <= 24) ? '.' : '!';
 
-	if (dt == TYPE_HIT) {
+	if (attack_skill != skill::type::unknown)
+		attack = skill::lookup(attack_skill).noun_damage;
+	else {
+		if (attack_type < 0 && attack_type >= attack_table.size()) {
+			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
+			attack_type = 0;
+		}
+
+		attack = attack_table[attack_type].noun;
+	}
+
+	if (immune) {
 		if (ch == victim) {
-			Format::sprintf(buf1, "$n %s $melf%c", vp, punct);
-			Format::sprintf(buf2, "You %s yourself%c", vs, punct);
+			Format::sprintf(buf1, "$n is unaffected by $s own %s.", attack);
+			Format::sprintf(buf2, "Luckily, you are immune to that.");
 		}
 		else {
-			Format::sprintf(buf1, "$n %s $N%c",  vp, punct);
-			Format::sprintf(buf2, "You %s $N%c", vs, punct);
-			Format::sprintf(buf3, "$n %s you%c", vp, punct);
+			Format::sprintf(buf1, "$N is unaffected by $n's %s!", attack);
+			Format::sprintf(buf2, "$N is unaffected by your %s!", attack);
+			Format::sprintf(buf3, "$n's %s is powerless against you.", attack);
+		}
+	}
+	else if (sanc_immune) {
+		if (ch == victim) {
+			Format::sprintf(buf1, "$n's holy aura protects $m from $s own %s.", attack);
+			Format::sprintf(buf2, "Your sanctuary protects you from your own %s.", attack);
+		}
+		else {
+			Format::sprintf(buf1, "$N's sanctuary repels $n's cursed %s!", attack);
+			Format::sprintf(buf2, "$N's sanctuary repels your cursed %s!", attack);
+			Format::sprintf(buf3, "$n's %s fails to penetrate your sanctuary.", attack);
 		}
 	}
 	else {
-		if (dt >= skill::first && dt < skill::size)
-			attack = skill::lookup((skill::Type)dt).noun_damage;
-		else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-			attack = attack_table[dt - TYPE_HIT].noun;
-		else {
-			Logging::bug("Dam_message: bad dt %d.", dt);
-			dt  = TYPE_HIT;
-			attack  = attack_table[0].name;
-		}
-
-		if (immune) {
-			if (ch == victim) {
-				Format::sprintf(buf1, "$n is unaffected by $s own %s.", attack);
-				Format::sprintf(buf2, "Luckily, you are immune to that.");
-			}
-			else {
-				Format::sprintf(buf1, "$N is unaffected by $n's %s!", attack);
-				Format::sprintf(buf2, "$N is unaffected by your %s!", attack);
-				Format::sprintf(buf3, "$n's %s is powerless against you.", attack);
-			}
-		}
-		else if (sanc_immune) {
-			if (ch == victim) {
-				Format::sprintf(buf1, "$n's holy aura protects $m from $s own %s.", attack);
-				Format::sprintf(buf2, "Your sanctuary protects you from your own %s.", attack);
-			}
-			else {
-				Format::sprintf(buf1, "$N's sanctuary repels $n's cursed %s!", attack);
-				Format::sprintf(buf2, "$N's sanctuary repels your cursed %s!", attack);
-				Format::sprintf(buf3, "$n's %s fails to penetrate your sanctuary.", attack);
-			}
+		if (ch == victim) {
+			Format::sprintf(buf1, "$n's %s %s $m%c [%d]" , attack, vp, punct, dam);
+			Format::sprintf(buf2, "Your %s %s you%c [%d]", attack, vp, punct, dam);
 		}
 		else {
-			if (ch == victim) {
-				Format::sprintf(buf1, "$n's %s %s $m%c [%d]" , attack, vp, punct, dam);
-				Format::sprintf(buf2, "Your %s %s you%c [%d]", attack, vp, punct, dam);
-			}
-			else {
-				Format::sprintf(buf1, "$n's %s %s $N%c [%d]" , attack, vp, punct, dam);
-				Format::sprintf(buf2, "Your %s %s $N%c [%d]" , attack, vp, punct, dam);
-				Format::sprintf(buf3, "$n's %s %s you%c [%d]", attack, vp, punct, dam);
-			}
+			Format::sprintf(buf1, "$n's %s %s $N%c [%d]" , attack, vp, punct, dam);
+			Format::sprintf(buf2, "Your %s %s $N%c [%d]" , attack, vp, punct, dam);
+			Format::sprintf(buf3, "$n's %s %s you%c [%d]", attack, vp, punct, dam);
 		}
 	}
 
@@ -3254,7 +3255,7 @@ void do_berserk(Character *ch, String argument)
 {
 	int chance, hp_percent;
 
-	if ((chance = get_learned(ch, skill::berserk)) == 0) {
+	if ((chance = get_learned(ch, skill::type::berserk)) == 0) {
 		stc("You turn red in the face, but nothing happens.\n", ch);
 		return;
 	}
@@ -3269,7 +3270,7 @@ void do_berserk(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::berserk))
+	if (!deduct_stamina(ch, skill::type::berserk))
 		return;
 
 	/* modifiers */
@@ -3289,20 +3290,20 @@ void do_berserk(Character *ch, String argument)
 		ch->hit = UMIN(ch->hit, GET_MAX_HIT(ch));
 		stc("Your pulse races as you are consumed by rage!\n", ch);
 		act("$n gets a wild look in $s eyes.", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::berserk, TRUE, 2);
+		check_improve(ch, skill::type::berserk, TRUE, 2);
 
 		affect::add_type_to_char(ch,
 			affect::berserk,
 			ch->level,
 			number_fuzzy(ch->level / 8),
-			get_evolution(ch, skill::berserk),
+			get_evolution(ch, skill::type::berserk),
 			FALSE
 		);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 		stc("Your pulse speeds up, but nothing happens.\n", ch);
-		check_improve(ch, skill::berserk, FALSE, 2);
+		check_improve(ch, skill::type::berserk, FALSE, 2);
 	}
 } /* end do_berserk */
 
@@ -3313,7 +3314,7 @@ void do_bash(Character *ch, String argument)
 	int kdtime;
 	int evolution_level;
 
-	if (get_learned(ch, skill::bash) == 0) {
+	if (get_learned(ch, skill::type::bash) == 0) {
 		stc("Bashing? What's that?\n", ch);
 		return;
 	}
@@ -3366,11 +3367,11 @@ void do_bash(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::bash))
+	if (!deduct_stamina(ch, skill::type::bash))
 		return;
 
 	/* see how much the bash skill was evolved -- Outsider */
-	evolution_level = get_evolution(ch, skill::bash);
+	evolution_level = get_evolution(ch, skill::type::bash);
 	/* modifiers */
 	// new bash mods - Montrey (2014)
 	// split now into two checks.  we first check for evasion (dodge/blur), and then
@@ -3382,8 +3383,8 @@ void do_bash(Character *ch, String argument)
 		set_fighting(ch, victim);
 
 	/*check for successful hit*/
-	if (check_dodge(ch, victim, skill::bash)
-	    || check_blur(ch, victim, skill::bash)) {
+	if (check_dodge(ch, victim, skill::type::bash, 0)
+	    || check_blur(ch, victim, skill::type::bash, 0)) {
 		/* We missed. However, if bash is evolved, we keep our footing. -- Outsider */
 		if (evolution_level < 2) { /* fail */
 			act("You fall flat on your face!", ch, nullptr, victim, TO_CHAR);
@@ -3397,13 +3398,13 @@ void do_bash(Character *ch, String argument)
 			act("You evade $n's bash, but $m keeps $s feet.", ch, nullptr, victim, TO_VICT);
 		}
 
-		WAIT_STATE(ch, skill::lookup(skill::bash).beats * 3 / 2);
-		check_improve(ch, skill::bash, FALSE, 1);
+		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats * 3 / 2);
+		check_improve(ch, skill::type::bash, FALSE, 1);
 		return;
 	}
 
 	// connect, check to see if knocked down
-	chance = get_learned(ch, skill::bash) / 2;
+	chance = get_learned(ch, skill::type::bash) / 2;
 	// size is a factor twice - here for knockdown, and in dodge/blur for evasion
 //	if (ch->size > victim->size)
 	chance += (ch->size - victim->size) * 10;
@@ -3436,8 +3437,8 @@ void do_bash(Character *ch, String argument)
 	chance += (evolution_level - 1) * 10;
 
 	/* a 100% standfast skill eliminates bashing */
-	if (CAN_USE_RSKILL(victim, skill::standfast)) {
-		chance = chance * (100 - get_learned(victim, skill::standfast));
+	if (CAN_USE_RSKILL(victim, skill::type::standfast)) {
+		chance = chance * (100 - get_learned(victim, skill::type::standfast));
 		chance /= 100;
 	}
 
@@ -3454,15 +3455,15 @@ void do_bash(Character *ch, String argument)
 		act("$n sends you sprawling with a powerful bash!", ch, nullptr, victim, TO_VICT);
 		act("You slam into $N, and send $M flying!", ch, nullptr, victim, TO_CHAR);
 		act("$n sends $N sprawling with a powerful bash.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::bash, TRUE, 1);
+		check_improve(ch, skill::type::bash, TRUE, 1);
 		DAZE_STATE(victim, kdtime);
 		WAIT_STATE(victim, kdtime);
-		WAIT_STATE(ch, skill::lookup(skill::bash).beats);
-		damage(ch, victim, number_range(ch->level * 2 / 3, (ch->level * 3 / 2) + chance / 10), skill::bash, DAM_BASH, TRUE, FALSE);
+		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats);
+		damage(ch, victim, number_range(ch->level * 2 / 3, (ch->level * 3 / 2) + chance / 10), skill::type::bash, -1, DAM_BASH, TRUE, FALSE);
 		victim->position = POS_RESTING;
 
-		if (CAN_USE_RSKILL(victim, skill::standfast))
-			check_improve(victim, skill::standfast, FALSE, 1);
+		if (CAN_USE_RSKILL(victim, skill::type::standfast))
+			check_improve(victim, skill::type::standfast, FALSE, 1);
 	}
 	else {
 		if (ch->fighting == nullptr) set_fighting(ch, victim);
@@ -3470,12 +3471,12 @@ void do_bash(Character *ch, String argument)
 		act("$n crashes into you, but fails to accomplish anything!", ch, nullptr, victim, TO_VICT);
 		act("You throw yourself into $N, but fail to knock them down!", ch, nullptr, victim, TO_CHAR);
 		act("$n slams into $N, but neither of them loses their footing.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::bash, TRUE, 1);
+		check_improve(ch, skill::type::bash, TRUE, 1);
 		DAZE_STATE(victim, PULSE_VIOLENCE);
-		WAIT_STATE(ch, skill::lookup(skill::bash).beats);
+		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats);
 
-		if (CAN_USE_RSKILL(victim, skill::standfast))
-			check_improve(victim, skill::standfast, TRUE, 1);
+		if (CAN_USE_RSKILL(victim, skill::type::standfast))
+			check_improve(victim, skill::type::standfast, TRUE, 1);
 	}
 } /* end do_bash */
 
@@ -3487,7 +3488,7 @@ void do_dirt(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((chance = get_learned(ch, skill::dirt_kicking)) == 0) {
+	if ((chance = get_learned(ch, skill::type::dirt_kicking)) == 0) {
 		stc("You get your feet dirty.\n", ch);
 		return;
 	}
@@ -3538,7 +3539,7 @@ void do_dirt(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::dirt_kicking))
+	if (!deduct_stamina(ch, skill::type::dirt_kicking))
 		return;
 
 	/* modifiers */
@@ -3599,30 +3600,30 @@ void do_dirt(Character *ch, String argument)
 		else {
 			act("$n is blinded by the dirt in $s eyes!", victim, nullptr, nullptr, TO_ROOM);
 			act("$n kicks dirt in your eyes!", ch, nullptr, victim, TO_VICT);
-			damage(ch, victim, number_range(2, 5), skill::dirt_kicking, DAM_NONE, FALSE, FALSE);
+			damage(ch, victim, number_range(2, 5), skill::type::dirt_kicking, -1, DAM_NONE, FALSE, FALSE);
 			stc("You can't see a thing!\n", victim);
 
 			affect::add_type_to_char(victim,
 				affect::dirt_kicking,
 				ch->level,
 				0,
-				get_evolution(ch, skill::dirt_kicking),
+				get_evolution(ch, skill::type::dirt_kicking),
 				FALSE
 			);
 		}
 
-		check_improve(ch, skill::dirt_kicking, TRUE, 2);
-		WAIT_STATE(ch, skill::lookup(skill::dirt_kicking).beats);
+		check_improve(ch, skill::type::dirt_kicking, TRUE, 2);
+		WAIT_STATE(ch, skill::lookup(skill::type::dirt_kicking).beats);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, nullptr, victim, TO_CHAR);
-		check_improve(ch, skill::dirt_kicking, FALSE, 2);
-		WAIT_STATE(ch, skill::lookup(skill::dirt_kicking).beats);
+		check_improve(ch, skill::type::dirt_kicking, FALSE, 2);
+		WAIT_STATE(ch, skill::lookup(skill::type::dirt_kicking).beats);
 	}
 } /* end do_dirt */
 
 // pulled out to use for evolved kick as well as do_trip
-bool trip(Character *ch, Character *victim, int chance, int dam_type)
+bool trip(Character *ch, Character *victim, int chance, skill::type attack_skill)
 {
 	/* modifiers */
 	/* size */
@@ -3646,8 +3647,8 @@ bool trip(Character *ch, Character *victim, int chance, int dam_type)
 	check_killer(ch, victim);
 
 	/* a 100% standfast skill eliminates tripping */
-	if (CAN_USE_RSKILL(victim, skill::standfast)) {
-		chance = chance * (100 - get_learned(victim, skill::standfast));
+	if (CAN_USE_RSKILL(victim, skill::type::standfast)) {
+		chance = chance * (100 - get_learned(victim, skill::type::standfast));
 		chance /= 100;
 	}
 
@@ -3655,18 +3656,18 @@ bool trip(Character *ch, Character *victim, int chance, int dam_type)
 		DAZE_STATE(victim, 2 * PULSE_VIOLENCE);
 		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
 		victim->position = POS_RESTING;
-		damage(ch, victim, number_range(2, 2 +  2 * victim->size), dam_type, DAM_BASH, TRUE, FALSE);
+		damage(ch, victim, number_range(2, 2 +  2 * victim->size), attack_skill, -1, DAM_BASH, TRUE, FALSE);
 
-		if (CAN_USE_RSKILL(victim, skill::standfast))
-			check_improve(victim, skill::standfast, FALSE, 1);
+		if (CAN_USE_RSKILL(victim, skill::type::standfast))
+			check_improve(victim, skill::type::standfast, FALSE, 1);
 
 		return TRUE;
 	}
 	else {
-		damage(ch, victim, 0, dam_type, DAM_BASH, TRUE, FALSE);
+		damage(ch, victim, 0, attack_skill, -1, DAM_BASH, TRUE, FALSE);
 
-		if (CAN_USE_RSKILL(victim, skill::standfast))
-			check_improve(victim, skill::standfast, TRUE, 1);
+		if (CAN_USE_RSKILL(victim, skill::type::standfast))
+			check_improve(victim, skill::type::standfast, TRUE, 1);
 
 		return FALSE;
 	}
@@ -3680,7 +3681,7 @@ void do_trip(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if ((chance = get_learned(ch, skill::trip)) == 0) {
+	if ((chance = get_learned(ch, skill::type::trip)) == 0) {
 		stc("Tripping?  What's that?\n", ch);
 		return;
 	}
@@ -3729,24 +3730,24 @@ void do_trip(Character *ch, String argument)
 
 	if (victim == ch) {
 		stc("You fall flat on your face!\n", ch);
-		WAIT_STATE(ch, 2 * skill::lookup(skill::trip).beats);
+		WAIT_STATE(ch, 2 * skill::lookup(skill::type::trip).beats);
 		act("$n trips over $s own feet!", ch, nullptr, nullptr, TO_ROOM);
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::trip))
+	if (!deduct_stamina(ch, skill::type::trip))
 		return;
 
-	if (trip(ch, victim, chance, skill::trip)) {
+	if (trip(ch, victim, chance, skill::type::trip)) {
 		act("$n trips you and you go down!", ch, nullptr, victim, TO_VICT);
 		act("You trip $N and $E goes down!", ch, nullptr, victim, TO_CHAR);
 		act("$n trips $N, sending $M to the ground.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::trip, TRUE, 1);
-		WAIT_STATE(ch, skill::lookup(skill::trip).beats);
+		check_improve(ch, skill::type::trip, TRUE, 1);
+		WAIT_STATE(ch, skill::lookup(skill::type::trip).beats);
 	}
 	else {
-		check_improve(ch, skill::trip, FALSE, 1);
-		WAIT_STATE(ch, skill::lookup(skill::trip).beats * 2 / 3);
+		check_improve(ch, skill::type::trip, FALSE, 1);
+		WAIT_STATE(ch, skill::lookup(skill::type::trip).beats * 2 / 3);
 	}
 } /* end do_trip */
 
@@ -3808,7 +3809,7 @@ void do_kill(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	/* Check to see if we have blind fight -- Outsider */
-	if (CAN_USE_RSKILL(ch, skill::blind_fight)) {
+	if (CAN_USE_RSKILL(ch, skill::type::blind_fight)) {
 		victim = get_char_here(ch, arg, 0);
 
 		if (!victim) {
@@ -3833,7 +3834,7 @@ void do_kill(Character *ch, String argument)
 
 	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
 	check_killer(ch, victim);
-	multi_hit(ch, victim, TYPE_UNDEFINED);
+	multi_hit(ch, victim, skill::type::unknown);
 } /* end do_kill */
 
 /* Battle/Arena by Lotus */
@@ -4057,19 +4058,19 @@ void do_sing(Character *ch, String argument)
 
 	stc("You sing a beautiful melody.\n", ch);
 
-	if (!get_learned(ch, skill::sing))
+	if (!get_learned(ch, skill::type::sing))
 		return;
 
-	if (!deduct_stamina(ch, skill::sing))
+	if (!deduct_stamina(ch, skill::type::sing))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::sing).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::sing).beats);
 
 	if (affect::exists_on_char(victim, affect::charm_person)
 	    || affect::exists_on_char(ch, affect::charm_person))
 		return;
 
-	singchance = get_learned(ch, skill::sing) / 2;
+	singchance = get_learned(ch, skill::type::sing) / 2;
 
 	/* Level modifiers */
 	if (ch->level < victim->level)
@@ -4094,11 +4095,11 @@ void do_sing(Character *ch, String argument)
 	/*Final calculation*/
 	if (!chance(singchance)) {
 		/*Chance for something bad in the future, based on victim level, ch's CHR*/
-		check_improve(ch, skill::sing, FALSE, 8);
+		check_improve(ch, skill::type::sing, FALSE, 8);
 		return;
 	}
 
-	check_improve(ch, skill::sing, TRUE, 8);
+	check_improve(ch, skill::type::sing, TRUE, 8);
 
 	/*End calculation, sing is successful, now check final legality and apply*/
 	if (victim->master)
@@ -4111,7 +4112,7 @@ void do_sing(Character *ch, String argument)
 		affect::charm_person,
 		ch->level,
 		number_fuzzy(ch->level/4),
-		get_evolution(ch, skill::charm_person),
+		get_evolution(ch, skill::type::charm_person),
 		FALSE
 	);
 
@@ -4127,9 +4128,9 @@ void do_backstab(Character *ch, String argument)
 {
 	Character *victim;
 	Object *obj;
-	int evo = get_evolution(ch, skill::backstab);
+	int evo = get_evolution(ch, skill::type::backstab);
 
-	if (!get_learned(ch, skill::backstab)) {
+	if (!get_learned(ch, skill::type::backstab)) {
 		do_huh(ch);
 		return;
 	}
@@ -4188,23 +4189,23 @@ void do_backstab(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::backstab))
+	if (!deduct_stamina(ch, skill::type::backstab))
 		return;
 
 	if (IS_NPC(ch)) {
-		mob_hit(ch, victim, skill::backstab);
+		mob_hit(ch, victim, skill::type::backstab);
 		return;
 	}
 
 	check_killer(ch, victim);
-	WAIT_STATE(ch, skill::lookup(skill::backstab).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::backstab).beats);
 
-	if (number_percent() < get_learned(ch, skill::backstab)
-	    || (get_learned(ch, skill::backstab) >= 2 && !IS_AWAKE(victim))) {
-		check_improve(ch, skill::backstab, TRUE, 4);
-		multi_hit(ch, victim, skill::backstab);
+	if (number_percent() < get_learned(ch, skill::type::backstab)
+	    || (get_learned(ch, skill::type::backstab) >= 2 && !IS_AWAKE(victim))) {
+		check_improve(ch, skill::type::backstab, TRUE, 4);
+		multi_hit(ch, victim, skill::type::backstab);
 		if (evo >=3 && chance(50)) { /*vegita - 15% chance to put paralyze on target at evo 3*/
-			//multi_hit(ch, victim, skill::backstab);
+			//multi_hit(ch, victim, skill::type::backstab);
 			stc("{YYour skillful blow strikes a nerve on your opponent!{x\n", ch);
 			int level = (ch->level);
 			affect::add_type_to_char(victim,
@@ -4217,8 +4218,8 @@ void do_backstab(Character *ch, String argument)
 		}
 	}
 	else {
-		check_improve(ch, skill::backstab, FALSE, 4);
-		damage(ch, victim, 0, skill::backstab, DAM_NONE, TRUE, FALSE);
+		check_improve(ch, skill::type::backstab, FALSE, 4);
+		damage(ch, victim, 0, skill::type::backstab, -1, DAM_NONE, TRUE, FALSE);
 	}
 } /* end do_backstab */
 
@@ -4228,7 +4229,7 @@ void do_shadow(Character *ch, String argument)
 	Character *victim;
 	Object *obj;
 
-	if (!CAN_USE_RSKILL(ch, skill::shadow_form)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::shadow_form)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -4267,26 +4268,26 @@ void do_shadow(Character *ch, String argument)
 
 	check_killer(ch, victim);
 
-	if (!deduct_stamina(ch, skill::shadow_form))
+	if (!deduct_stamina(ch, skill::type::shadow_form))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::shadow_form).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::shadow_form).beats);
 
-	if (number_percent() < get_learned(ch, skill::shadow_form)) {
-		check_improve(ch, skill::shadow_form, TRUE, 1);
-		multi_hit(ch, victim, skill::shadow_form);
+	if (number_percent() < get_learned(ch, skill::type::shadow_form)) {
+		check_improve(ch, skill::type::shadow_form, TRUE, 1);
+		multi_hit(ch, victim, skill::type::shadow_form);
 	}
 	else {
 		stc("You enter shadow form, but your target avoids your strike.\n", ch);
-		check_improve(ch, skill::shadow_form, FALSE, 1);
-		damage(ch, victim, 0, skill::shadow_form, DAM_NONE, TRUE, FALSE);
+		check_improve(ch, skill::type::shadow_form, FALSE, 1);
+		damage(ch, victim, 0, skill::type::shadow_form, -1, DAM_NONE, TRUE, FALSE);
 	}
 
 	affect::add_type_to_char(victim,
 		affect::shadow_form,
 		ch->level,
 		-1,
-		get_evolution(ch, skill::shadow_form),
+		get_evolution(ch, skill::type::shadow_form),
 		FALSE
 	);
 } /* end do_shadow */
@@ -4296,7 +4297,7 @@ void do_circle(Character *ch, String argument)
 	Character *victim;
 	Object *obj;
 
-	if (!get_learned(ch, skill::circle)) {
+	if (!get_learned(ch, skill::type::circle)) {
 		stc("You twirl around is a circle! wheeee!!!!\n", ch);
 		return;
 	}
@@ -4330,19 +4331,19 @@ void do_circle(Character *ch, String argument)
 
 	check_killer(ch, victim);
 
-	if (!deduct_stamina(ch, skill::circle))
+	if (!deduct_stamina(ch, skill::type::circle))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::circle).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::circle).beats);
 
-	if (number_percent() < get_learned(ch, skill::circle)) {
-		check_improve(ch, skill::circle, TRUE, 1);
-		multi_hit(ch, victim, skill::circle);
+	if (number_percent() < get_learned(ch, skill::type::circle)) {
+		check_improve(ch, skill::type::circle, TRUE, 1);
+		multi_hit(ch, victim, skill::type::circle);
 	}
 	else {
 		stc("You circle your opponent, but your hasty strike misses.\n", ch);
-		check_improve(ch, skill::circle, FALSE, 1);
-		damage(ch, victim, 0, skill::circle, DAM_NONE, TRUE, FALSE);
+		check_improve(ch, skill::type::circle, FALSE, 1);
+		damage(ch, victim, 0, skill::type::circle, -1, DAM_NONE, TRUE, FALSE);
 	}
 } /* end do_circle */
 
@@ -4530,21 +4531,21 @@ void do_rescue(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::rescue))
+	if (!deduct_stamina(ch, skill::type::rescue))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::rescue).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::rescue).beats);
 
-	if (number_percent() > get_learned(ch, skill::rescue)) {
+	if (number_percent() > get_learned(ch, skill::type::rescue)) {
 		stc("You fail the rescue.\n", ch);
-		check_improve(ch, skill::rescue, FALSE, 1);
+		check_improve(ch, skill::type::rescue, FALSE, 1);
 		return;
 	}
 
 	act("You rescue $N!",  ch, nullptr, victim, TO_CHAR);
 	act("$n rescues you!", ch, nullptr, victim, TO_VICT);
 	act("$n rescues $N!",  ch, nullptr, victim, TO_NOTVICT);
-	check_improve(ch, skill::rescue, TRUE, 1);
+	check_improve(ch, skill::type::rescue, TRUE, 1);
 	stop_fighting(fch, FALSE);
 	stop_fighting(victim, FALSE);
 	stop_fighting(ch, FALSE);
@@ -4558,7 +4559,7 @@ void do_kick(Character *ch, String argument)
 	Character *victim;
 	int skill, amount;
 
-	if ((skill = get_learned(ch, skill::kick)) == 0) {
+	if ((skill = get_learned(ch, skill::type::kick)) == 0) {
 		stc("You'd better leave the martial arts to fighters.\n", ch);
 		return;
 	}
@@ -4568,10 +4569,10 @@ void do_kick(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::kick))
+	if (!deduct_stamina(ch, skill::type::kick))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::kick).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::kick).beats);
 	check_killer(ch, victim);
 
 	if (skill >= number_percent()) {
@@ -4581,16 +4582,16 @@ void do_kick(Character *ch, String argument)
 		if (get_position(victim) < POS_FIGHTING)
 			amount = amount * 5 / 4;
 
-		damage(ch, victim, amount, skill::kick, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::kick, TRUE, 1);
-		int evo = get_evolution(ch, skill::kick);
+		damage(ch, victim, amount, skill::type::kick, -1, DAM_BASH, TRUE, FALSE);
+		check_improve(ch, skill::type::kick, TRUE, 1);
+		int evo = get_evolution(ch, skill::type::kick);
 
 		if (evo >= 2) {
 			if (get_position(victim) == POS_FIGHTING
 			    && chance((evo - 1) * 20 + 10)) { // evo 2: 30, evo 3, 50
 				stc("You bring your foot around for a second hit.\n", ch);
-				damage(ch, victim, amount, skill::roundhouse, DAM_BASH, TRUE, FALSE);
-				check_improve(ch, skill::kick, TRUE, 1);
+				damage(ch, victim, amount, skill::type::roundhouse, -1, DAM_BASH, TRUE, FALSE);
+				check_improve(ch, skill::type::kick, TRUE, 1);
 			}
 		}
 
@@ -4598,7 +4599,7 @@ void do_kick(Character *ch, String argument)
 			if (get_position(victim) == POS_FIGHTING
 			    && !IS_FLYING(victim)
 			    && chance(30)) {
-				if (trip(ch, victim, skill, skill::footsweep)) {
+				if (trip(ch, victim, skill, skill::type::footsweep)) {
 					act("$n sweeps your feet out from under you!", ch, nullptr, victim, TO_VICT);
 					act("You sweep $N's feet and $E goes down!", ch, nullptr, victim, TO_CHAR);
 					act("$n trips $N, sending $M to the ground.", ch, nullptr, victim, TO_NOTVICT);
@@ -4612,8 +4613,8 @@ void do_kick(Character *ch, String argument)
 	}
 	else {
 		// miss for 0
-		damage(ch, victim, 0, skill::kick, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::kick, FALSE, 1);
+		damage(ch, victim, 0, skill::type::kick, -1, DAM_BASH, TRUE, FALSE);
+		check_improve(ch, skill::type::kick, FALSE, 1);
 	}
 } /* end do_kick */
 
@@ -4621,7 +4622,7 @@ void do_crush(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!get_learned(ch, skill::crush)) {
+	if (!get_learned(ch, skill::type::crush)) {
 		stc("You are not skilled at grappling.\n", ch);
 		return;
 	}
@@ -4631,15 +4632,15 @@ void do_crush(Character *ch, String argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill::lookup(skill::crush).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::crush).beats);
 
-	if (get_learned(ch, skill::crush) > number_percent()) {
-		damage(ch, victim, number_range(3, 3 * ch->level), skill::crush, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::crush, TRUE, 1);
+	if (get_learned(ch, skill::type::crush) > number_percent()) {
+		damage(ch, victim, number_range(3, 3 * ch->level), skill::type::crush, -1, DAM_BASH, TRUE, FALSE);
+		check_improve(ch, skill::type::crush, TRUE, 1);
 	}
 	else {
-		damage(ch, victim, 0, skill::crush, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::crush, FALSE, 1);
+		damage(ch, victim, 0, skill::type::crush, -1, DAM_BASH, TRUE, FALSE);
+		check_improve(ch, skill::type::crush, FALSE, 1);
 	}
 
 	check_killer(ch, victim);
@@ -4649,7 +4650,7 @@ void do_disarm(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (get_learned(ch, skill::disarm) <= 0) {
+	if (get_learned(ch, skill::type::disarm) <= 0) {
 		stc("You don't know how to disarm opponents.\n", ch);
 		return;
 	}
@@ -4675,10 +4676,10 @@ void do_disarm(Character *ch, String argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	int evo = get_evolution(ch, skill::disarm);
+	int evo = get_evolution(ch, skill::type::disarm);
 
 	/* check to see if we can fight blind */
-	int blind_fight_skill = CAN_USE_RSKILL(ch, skill::blind_fight) ? get_learned(ch, skill::blind_fight) : 0;
+	int blind_fight_skill = CAN_USE_RSKILL(ch, skill::type::blind_fight) ? get_learned(ch, skill::type::blind_fight) : 0;
 	int sight_modifier = 0;
 
 	/* if they're not facing you, can't disarm, unless evo 3 or higher.  evo 4 has no penalty */
@@ -4727,16 +4728,16 @@ void do_disarm(Character *ch, String argument)
 
 	/* need a weapon to disarm, unless you're npc or you have skill in hand to hand */
 	if (get_eq_char(ch, WEAR_WIELD) == nullptr
-	 && get_learned(ch, skill::hand_to_hand) == 0) { // note: not the same as get_weapon_learned
+	 && get_learned(ch, skill::type::hand_to_hand) == 0) { // note: not the same as get_weapon_learned
 		stc("You must wield a weapon to disarm.\n", ch);
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::disarm))
+	if (!deduct_stamina(ch, skill::type::disarm))
 		return;
 
-	damage(ch, victim, 0, skill::disarm, DAM_BASH, FALSE, FALSE);
-	WAIT_STATE(ch, skill::lookup(skill::disarm).beats);
+	damage(ch, victim, 0, skill::type::disarm, -1, DAM_BASH, FALSE, FALSE);
+	WAIT_STATE(ch, skill::lookup(skill::type::disarm).beats);
 
 	/* evo 1 talon give 60% save, 70% at 2, 80% at 3, 90% at 4 */
 	if (affect::exists_on_char(victim, affect::talon)) {
@@ -4754,7 +4755,7 @@ void do_disarm(Character *ch, String argument)
 			act("$N's vice-like grip prevents you from disarming $M!", ch, nullptr, victim, TO_CHAR);
 			act("$N's vice-like grip prevents $M from being disarmed!", ch, nullptr, victim, TO_NOTVICT);
 			act("Your vice-like grip prevents $n from disarming you!", ch, nullptr, victim, TO_VICT);
-			check_improve(ch, skill::disarm, FALSE, 1);
+			check_improve(ch, skill::type::disarm, FALSE, 1);
 			return;
 		}
 	}
@@ -4765,13 +4766,13 @@ void do_disarm(Character *ch, String argument)
 			act("$S weapon won't budge!", ch, nullptr, victim, TO_CHAR);
 			act("$n tries to disarm you, but your weapon won't budge!", ch, nullptr, victim, TO_VICT);
 			act("$n tries to disarm $N, but fails.", ch, nullptr, victim, TO_NOTVICT);
-			check_improve(ch, skill::disarm, FALSE, 1);
+			check_improve(ch, skill::type::disarm, FALSE, 1);
 			return;
 		}
 	}
 
 	// base disarm chance of 70% of disarm skill
-	int chance = get_learned(ch, skill::disarm) * 7 / 10;
+	int chance = get_learned(ch, skill::type::disarm) * 7 / 10;
 
 	/* find weapon skills */
 	int ch_weapon_skill = get_weapon_learned(ch, get_weapon_skill(ch, FALSE)); // your skill with your weapon
@@ -4906,18 +4907,18 @@ void do_disarm(Character *ch, String argument)
 			}
 		}
 
-		check_improve(ch, skill::disarm, TRUE, 1);
+		check_improve(ch, skill::type::disarm, TRUE, 1);
 	}
 	else {
-		WAIT_STATE(ch, skill::lookup(skill::disarm).beats);
+		WAIT_STATE(ch, skill::lookup(skill::type::disarm).beats);
 		act("You fail to disarm $N.", ch, nullptr, victim, TO_CHAR);
 		act("$n tries to disarm you, but fails.", ch, nullptr, victim, TO_VICT);
 		act("$n tries to disarm $N, but fails.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::disarm, FALSE, 1);
+		check_improve(ch, skill::type::disarm, FALSE, 1);
 	}
 
 	if (is_blinded(ch) && (blind_fight_skill > 0))
-		check_improve(ch, skill::blind_fight, FALSE, 1);
+		check_improve(ch, skill::type::blind_fight, FALSE, 1);
 }
 
 void do_sla(Character *ch, String argument)
@@ -4973,7 +4974,7 @@ void do_rotate(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (get_learned(ch, skill::rotate) == 0) {
+	if (get_learned(ch, skill::type::rotate) == 0) {
 		stc("Do what?", ch);
 		return;
 	}
@@ -5004,19 +5005,19 @@ void do_rotate(Character *ch, String argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	if (!deduct_stamina(ch, skill::rotate))
+	if (!deduct_stamina(ch, skill::type::rotate))
 		return;
 
 	check_killer(ch, victim);
-	WAIT_STATE(ch, skill::lookup(skill::rotate).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::rotate).beats);
 
-	if (number_percent() < get_learned(ch, skill::rotate)) {
+	if (number_percent() < get_learned(ch, skill::type::rotate)) {
 		stc("You deftly shift the focus of your blows.\n", ch);
-		check_improve(ch, skill::rotate, TRUE, 4);
+		check_improve(ch, skill::type::rotate, TRUE, 4);
 		ch->fighting = victim;
 	}
 	else {
-		check_improve(ch, skill::rotate, FALSE, 4);
+		check_improve(ch, skill::type::rotate, FALSE, 4);
 		stc("You fail to switch dancing partners.\n", ch);
 	}
 } /* end do_rotate */
@@ -5025,12 +5026,12 @@ void do_hammerstrike(Character *ch, String argument)
 {
 	int chance;
 
-	if (!CAN_USE_RSKILL(ch, skill::hammerstrike)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::hammerstrike)) {
 		stc("Huh?\n", ch);
 		return;
 	}
 
-	chance = get_learned(ch, skill::hammerstrike);
+	chance = get_learned(ch, skill::type::hammerstrike);
 
 	if (affect::exists_on_char(ch, affect::hammerstrike)) {
 		stc("Are you insane?!?\n", ch);
@@ -5042,13 +5043,13 @@ void do_hammerstrike(Character *ch, String argument)
 		ch->stam -= ch->stam / 3;
 		stc("The gods strike you with a lightning bolt of power!\n", ch);
 		act("$n is lit on fire by a blue bolt of godly power.", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::hammerstrike, TRUE, 2);
+		check_improve(ch, skill::type::hammerstrike, TRUE, 2);
 
 		affect::add_type_to_char(ch,
 			affect::hammerstrike,
 			ch->level,
 			number_fuzzy(ch->level/15),
-			get_evolution(ch, skill::hammerstrike),
+			get_evolution(ch, skill::type::hammerstrike),
 			FALSE
 		);
 	}
@@ -5056,7 +5057,7 @@ void do_hammerstrike(Character *ch, String argument)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 		ch->stam = ch->stam / 3;
 		stc("You call for power from the gods, but you get no answer.\n", ch);
-		check_improve(ch, skill::hammerstrike, FALSE, 2);
+		check_improve(ch, skill::type::hammerstrike, FALSE, 2);
 	}
 } /* end do_hammerstrike */
 
@@ -5065,7 +5066,7 @@ void do_critical_blow(Character *ch, String argument)
 	Object *weapon;
 	int chance;
 
-	if (!CAN_USE_RSKILL(ch, skill::critical_blow)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::critical_blow)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -5080,20 +5081,20 @@ void do_critical_blow(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::critical_blow))
+	if (!deduct_stamina(ch, skill::type::critical_blow))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::critical_blow).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::critical_blow).beats);
 
 	if (!IS_NPC(ch->fighting) && IS_IMMORTAL(ch->fighting)) {
 		stc("You fail miserably.\n", ch);
 		return;
 	}
 
-	if (number_percent() > get_learned(ch, skill::critical_blow)) {
-		check_improve(ch, skill::critical_blow, FALSE, 2);
+	if (number_percent() > get_learned(ch, skill::type::critical_blow)) {
+		check_improve(ch, skill::type::critical_blow, FALSE, 2);
 		stc("Your opponent spotted your move, and your strike misses.\n", ch);
-		WAIT_STATE(ch, skill::lookup(skill::critical_blow).beats);
+		WAIT_STATE(ch, skill::lookup(skill::type::critical_blow).beats);
 		return;
 	}
 
@@ -5106,12 +5107,12 @@ void do_critical_blow(Character *ch, String argument)
 		ptc(ch, "You thrust your weapon through %s's chest, killing them instantly!\n",
 		    ch->fighting->short_descr);
 		ch->fighting->hit = -10;
-		check_improve(ch, skill::critical_blow, TRUE, 2);
+		check_improve(ch, skill::type::critical_blow, TRUE, 2);
 	}
 	else {
 		ptc(ch, "You try to give %s the blow of death, but you fail.\n",
 		    ch->fighting->short_descr);
-		check_improve(ch, skill::critical_blow, FALSE, 2);
+		check_improve(ch, skill::type::critical_blow, FALSE, 2);
 
 		/* Crit Blow failed, let's damage their weapon */
 		if (weapon->condition != -1 && number_range(0, 10) == 5) {
@@ -5120,7 +5121,7 @@ void do_critical_blow(Character *ch, String argument)
 			if (weapon-> condition <= 0) {
 				stc("Your failed attack has {Pdestroyed{x your weapon!\n", ch);
 				destroy_obj(weapon);
-				WAIT_STATE(ch, skill::lookup(skill::critical_blow).beats);
+				WAIT_STATE(ch, skill::lookup(skill::type::critical_blow).beats);
 				return;
 			}
 
@@ -5128,13 +5129,13 @@ void do_critical_blow(Character *ch, String argument)
 		}
 	}
 
-	one_hit(ch, ch->fighting, skill::critical_blow, FALSE);
+	one_hit(ch, ch->fighting, skill::type::critical_blow, FALSE);
 } /* end do_critical_blow */
 
 /* Riposte, originally by Elrac */
 void do_riposte(Character *victim, Character *ch)
 {
-	int chance = (get_learned(victim, skill::riposte));
+	int chance = (get_learned(victim, skill::type::riposte));
 
 	if (!chance)
 		return;
@@ -5142,27 +5143,27 @@ void do_riposte(Character *victim, Character *ch)
 	chance += (victim->level - ch->level);
 
 	if (number_percent() > chance) {
-		check_improve(victim, skill::riposte, FALSE, 6);
+		check_improve(victim, skill::type::riposte, FALSE, 6);
 		return;
 	}
 
 	/* gonna riposte, last check for dodging/blurring/shield blocking it */
-	if (check_dodge(victim, ch, skill::riposte))
+	if (check_dodge(victim, ch, skill::type::riposte, 0))
 		return;
 
-	if (check_blur(victim, ch, skill::riposte))
+	if (check_blur(victim, ch, skill::type::riposte, 0))
 		return;
 
-	if (check_shblock(victim, ch, skill::riposte))
+	if (check_shblock(victim, ch, skill::type::riposte, 0))
 		return;
 
-	if (check_dual_parry(victim, ch, skill::riposte))
+	if (check_dual_parry(victim, ch, skill::type::riposte, 0))
 		return;
 
 	/* success, do the riposte */
 	act("{GIn a brilliant riposte, you strike back at $n{G!{x", ch, nullptr, victim, TO_VICT);
-	one_hit(victim, ch, skill::riposte, FALSE);
-	check_improve(victim, skill::riposte, TRUE, 6);
+	one_hit(victim, ch, skill::type::riposte, FALSE);
+	check_improve(victim, skill::type::riposte, TRUE, 6);
 } /* end do_riposte */
 
 /* RAGE by Montrey */
@@ -5172,7 +5173,7 @@ void do_rage(Character *ch, String argument)
 	Character *vch_next;
 	int pplhit = 0;
 
-	if (!CAN_USE_RSKILL(ch, skill::rage)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::rage)) {
 		stc("Your meager skill with weapons prevents it.\n", ch);
 		return;
 	}
@@ -5182,15 +5183,15 @@ void do_rage(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::rage))
+	if (!deduct_stamina(ch, skill::type::rage))
 		return;
 
-	WAIT_STATE(ch, skill::lookup(skill::rage).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::rage).beats);
 
-	if (number_percent() > get_learned(ch, skill::rage)) {
+	if (number_percent() > get_learned(ch, skill::type::rage)) {
 		stc("You scream a battlecry but fail to unleash your inner rage.\n", ch);
 		act("$n starts into a wild series of attacks, but $s timing is off.", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::rage, FALSE, 2);
+		check_improve(ch, skill::type::rage, FALSE, 2);
 		return;
 	}
 
@@ -5215,14 +5216,14 @@ void do_rage(Character *ch, String argument)
 
 		if (vch->in_room == ch->in_room) {
 			check_killer(ch, vch);
-			multi_hit(ch, vch, skill::rage);
+			multi_hit(ch, vch, skill::type::rage);
 
 			if (++pplhit > 4)
 				break;
 		}
 	}
 
-	check_improve(ch, skill::rage, TRUE, 2);
+	check_improve(ch, skill::type::rage, TRUE, 2);
 }
 
 void do_lay_on_hands(Character *ch, String argument)
@@ -5233,7 +5234,7 @@ void do_lay_on_hands(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	skill = get_learned(ch, skill::lay_on_hands);
+	skill = get_learned(ch, skill::type::lay_on_hands);
 
 	if (skill <= 1) {
 		stc("You don't know how to use Lay on Hands.\n", ch);
@@ -5278,21 +5279,21 @@ void do_lay_on_hands(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, skill::lay_on_hands))
+	if (!deduct_stamina(ch, skill::type::lay_on_hands))
 		return;
 
 	act("$n lays $s hands on $N.", ch, nullptr, victim, TO_NOTVICT);
 	act("You lay your hands on $N.", ch, nullptr, victim, TO_CHAR);
 	act("$n lays $s hands on you.", ch, nullptr, victim, TO_VICT);
 	ch->pcdata->lays--;
-	WAIT_STATE(ch, skill::lookup(skill::lay_on_hands).beats);
+	WAIT_STATE(ch, skill::lookup(skill::type::lay_on_hands).beats);
 	heal = ch->level;
 	heal = (heal * skill) / 100;
 	victim->hit = UMIN(victim->hit + heal, GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel better.\n", victim);
 	stc("Your hands glow softly as a sense of divine power travels through you.\n", ch);
-	check_improve(ch, skill::lay_on_hands, TRUE, 1);
+	check_improve(ch, skill::type::lay_on_hands, TRUE, 1);
 	return;
 }
 
@@ -5444,7 +5445,7 @@ void do_shoot(Character *ch, String argument)
 	}
 
 	// do the hit
-	one_hit(ch, victim, TYPE_UNDEFINED, FALSE);
+	one_hit(ch, victim, skill::type::unknown, FALSE);
 
 	// move them back
 	if (old_room != victim->in_room) {
@@ -5461,7 +5462,7 @@ void do_shoot(Character *ch, String argument)
 		}
 	}
 
-	WAIT_STATE(ch, skill::lookup(skill::backstab).beats);
-	check_improve(ch, skill::archery, TRUE, 5); /* change added for gains on shooting now damnit leave it*/
+	WAIT_STATE(ch, skill::lookup(skill::type::backstab).beats);
+	check_improve(ch, skill::type::archery, TRUE, 5); /* change added for gains on shooting now damnit leave it*/
 }   /* end of do bow */
 

@@ -260,11 +260,11 @@ int hit_gain(Character *ch)
 		gain += class_table[ch->cls].hp_max - 10;
 		number = number_percent();
 
-		if (number < get_learned(ch, skill::fast_healing)) {
+		if (number < get_learned(ch, skill::type::fast_healing)) {
 			gain += number * gain / 100;
 
 			if (ch->hit < GET_MAX_HIT(ch))
-				check_improve(ch, skill::fast_healing, TRUE, 8);
+				check_improve(ch, skill::type::fast_healing, TRUE, 8);
 		}
 
 		switch (get_position(ch)) {
@@ -334,11 +334,11 @@ int mana_gain(Character *ch)
 		gain = (GET_ATTR_WIS(ch) + GET_ATTR_INT(ch) + ch->level) / 2;
 		number = number_percent();
 
-		if (number < get_learned(ch, skill::meditation)) {
+		if (number < get_learned(ch, skill::type::meditation)) {
 			gain += number * gain / 100;
 
 			if (ch->mana < GET_MAX_MANA(ch))
-				check_improve(ch, skill::meditation, TRUE, 8);
+				check_improve(ch, skill::type::meditation, TRUE, 8);
 		}
 
 		/* compare to mages mana regen, mages get full (class 0) */
@@ -811,7 +811,7 @@ void char_update(void)
 			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
-			damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::plague, DAM_DISEASE, FALSE, TRUE);
+			damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::plague, -1, DAM_DISEASE, FALSE, TRUE);
 		}
 
 		if (ch != nullptr
@@ -822,15 +822,15 @@ void char_update(void)
 			if (poison != nullptr) {
 				act("$n shivers and suffers.", ch, nullptr, nullptr, TO_ROOM);
 				stc("You shiver and suffer.\n", ch);
-				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, skill::poison,
-				       DAM_POISON, FALSE, TRUE);
+				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, skill::type::poison,
+				       -1, DAM_POISON, FALSE, TRUE);
 			}
 		}
 		
 		if (ch != nullptr && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
-			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
+			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, FALSE, FALSE);
 		else if (ch != nullptr && get_position(ch) == POS_MORTAL)
-			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
+			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, FALSE, FALSE);
 	}
 
 	/*
@@ -1277,7 +1277,7 @@ void aggr_update(void)
 			continue;
 
 		/* rumble! */
-		multi_hit(mob, victim, TYPE_UNDEFINED);
+		multi_hit(mob, victim, skill::type::unknown);
 	}
 } /* end aggr_update() */
 
@@ -1510,7 +1510,7 @@ void underwater_update(void)
 		ch_next = ch->next;
 
 		if (!IS_NPC(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
-			skill = get_learned(ch, skill::swimming);
+			skill = get_learned(ch, skill::type::swimming);
 
 			if (skill == 100)
 				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n", ch);
@@ -1527,15 +1527,15 @@ void underwater_update(void)
 
 					if (skill > 0) {
 						stc("{HYour skill helps slow your drowning.{x\n", ch);
-						check_improve(ch, skill::swimming, TRUE, 1);
+						check_improve(ch, skill::type::swimming, TRUE, 1);
 					}
 
-					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::swimming, DAM_WATER, FALSE, TRUE);
+					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::swimming, -1, DAM_WATER, FALSE, TRUE);
 				}
 				else {
 					stc("{PYou cannot hold your breath any more!{x\n", ch);
 					stc("{CYour lungs fill with water and you lose consciousness...{x\n", ch);
-					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::swimming, DAM_WATER, FALSE, TRUE);
+					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::type::swimming, -1, DAM_WATER, FALSE, TRUE);
 				}
 			}
 		}

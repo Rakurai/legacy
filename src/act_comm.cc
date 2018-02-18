@@ -817,7 +817,7 @@ void do_autopeek(Character *ch, String argument)
 {
 	if (IS_NPC(ch)) return;
 
-	if (!get_learned(ch, skill::peek)) return;
+	if (!get_learned(ch, skill::type::peek)) return;
 
 	if (ch->pcdata->plr_flags.has(PLR_AUTOPEEK)) {
 		stc("You will no longer PEEK automatically.\n", ch);
@@ -1831,18 +1831,18 @@ void align(Character *ch, int new_align, char *align_str)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (!deduct_stamina(ch, skill::align))
+	if (!deduct_stamina(ch, skill::type::align))
 		return;
 
-	if (get_learned(ch, skill::align) < number_percent()) {
+	if (get_learned(ch, skill::type::align) < number_percent()) {
 		stc("You fail to change your alignment.\n", ch);
-		check_improve(ch, skill::align, FALSE, 20);
+		check_improve(ch, skill::type::align, FALSE, 20);
 	}
 	else {
 		ch->alignment = new_align;
 		Format::sprintf(buf, "You are now %s.\n", align_str);
 		stc(buf, ch);
-		check_improve(ch, skill::align, TRUE, 20);
+		check_improve(ch, skill::type::align, TRUE, 20);
 	}
 
 	WAIT_STATE(ch, 4 * PULSE_PER_SECOND);
@@ -1855,7 +1855,7 @@ void do_align(Character *ch, String argument)
 		return;
 	}
 
-	if (!CAN_USE_RSKILL(ch, skill::align)) {
+	if (!CAN_USE_RSKILL(ch, skill::type::align)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -1919,12 +1919,12 @@ void do_outfit(Character *ch, String argument)
 
 	/* do the weapon thing */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr) {
-		skill::Type sn = skill::dagger; // default
+		skill::type sn = skill::type::dagger; // default
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
 		for (i = 0; i < weapon_table.size(); i++) {
-			if (ch->pcdata->learned[sn] <
-			    ch->pcdata->learned[weapon_table[i].skill]) {
+			if (get_learned(ch, sn) <
+			    get_learned(ch, weapon_table[i].skill)) {
 				sn = weapon_table[i].skill;
 				vnum = weapon_table[i].vnum;
 			}
