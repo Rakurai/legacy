@@ -91,7 +91,7 @@ struct field_type
 
 struct affect_table_type {
 	String name;
-	affect::Type type;
+	affect::type type;
 	bool settable;
 };
 

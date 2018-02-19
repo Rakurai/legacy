@@ -143,8 +143,8 @@ void violence_update(void)
 			if (!IS_NPC(ch)) {
 				if (ch->pcdata->pktimer
 				 && --ch->pcdata->pktimer == 0
-				 && affect::exists_on_char(ch, affect::shadow_form))
-					affect::remove_type_from_char(ch, affect::shadow_form);
+				 && affect::exists_on_char(ch, affect::type::shadow_form))
+					affect::remove_type_from_char(ch, affect::type::shadow_form);
 
 				if (ch->pcdata->combattimer > 0)
 					ch->pcdata->combattimer--;
@@ -204,7 +204,7 @@ void violence_update(void)
 			if ((ch->act_flags.has(ACT_WIMPY)
 			     && number_bits(2) == 0
 			     && ch->hit < GET_MAX_HIT(ch) / 5)
-			    || (affect::exists_on_char(ch, affect::charm_person)
+			    || (affect::exists_on_char(ch, affect::type::charm_person)
 			        && ch->master != nullptr
 			        && ch->master->in_room != ch->in_room))
 				do_flee(ch, "");
@@ -215,7 +215,7 @@ void violence_update(void)
 		if (ch->fighting == nullptr)
 			continue;
 
-		if (affect::exists_on_char(ch, affect::fear))
+		if (affect::exists_on_char(ch, affect::type::fear))
 			do_flee(ch, "");
 
 		if ((victim = ch->fighting) == nullptr)
@@ -224,7 +224,7 @@ void violence_update(void)
 		/* Mobs switch to master, no longer do multihits every round :P -- Montrey */
 		if (IS_NPC(ch)
 		    && IS_NPC(victim)
-		    && affect::exists_on_char(victim, affect::charm_person)
+		    && affect::exists_on_char(victim, affect::type::charm_person)
 		    && victim->master != nullptr
 		    && victim->master->in_room == ch->in_room
 		    && chance(15)) {
@@ -320,8 +320,8 @@ void combat_regen(Character *ch)
 	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < GET_MAX_HIT(ch))
 		hitgain += (ch->level / 20) + 1;
 
-	if (affect::exists_on_char(ch, affect::regeneration) && ch->stam < GET_MAX_STAM(ch))
-		switch (get_affect_evolution(ch, affect::regeneration)) {
+	if (affect::exists_on_char(ch, affect::type::regeneration) && ch->stam < GET_MAX_STAM(ch))
+		switch (get_affect_evolution(ch, affect::type::regeneration)) {
 		case 2: stamgain += ch->level / 30 + 2;   break;
 
 		case 3: stamgain += ch->level / 15 + 3;   break;
@@ -353,10 +353,10 @@ void combat_regen(Character *ch)
 		default:                                break;
 		}
 
-	if (affect::exists_on_char(ch, affect::divine_regeneration)) {
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration)) {
 		int gain = 0;
 
-		switch (get_affect_evolution(ch, affect::divine_regeneration)) {
+		switch (get_affect_evolution(ch, affect::type::divine_regeneration)) {
 		case 2: gain = ch->level / 30;            break;
 
 		case 3: gain = ch->level / 15;            break;
@@ -386,7 +386,7 @@ void check_all_cond(Character *ch)
 	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return;
 
-	if (affect::exists_on_char(ch, affect::sheen))
+	if (affect::exists_on_char(ch, affect::type::sheen))
 		return;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
@@ -406,13 +406,13 @@ void check_cond(Character *ch, Object *obj)
 		return;
 
 	/* sheen protects absolutely */
-	if (affect::exists_on_char(ch, affect::sheen))
+	if (affect::exists_on_char(ch, affect::type::sheen))
 		return;
 
 	if ((number_range(0, 500)) != 100)
 		return;
 
-	if (affect::exists_on_char(ch, affect::steel_mist))
+	if (affect::exists_on_char(ch, affect::type::steel_mist))
 		obj->condition -= number_range(1, 4);
 	else
 		obj->condition -= number_range(1, 8);
@@ -458,8 +458,8 @@ void check_assist(Character *ch, Character *victim)
 				// BOTH NPC
 
 				// NPC assisting NPC is ok if all are charmed (is this necessary?)
-				if (affect::exists_on_char(ch, affect::charm_person)) {
-					if (affect::exists_on_char(rch, affect::charm_person)
+				if (affect::exists_on_char(ch, affect::type::charm_person)) {
+					if (affect::exists_on_char(rch, affect::type::charm_person)
 					 && is_same_group(ch, rch))
 						target = victim;
 				}
@@ -490,7 +490,7 @@ void check_assist(Character *ch, Character *victim)
 			}
 			else { // ch is a PC
 				if (rch->act_flags.has(PLR_AUTOASSIST)
-				 && affect::exists_on_char(ch, affect::charm_person)
+				 && affect::exists_on_char(ch, affect::type::charm_person)
 				 && is_same_group(ch, rch))
 					target = victim;
 			}
@@ -501,7 +501,7 @@ void check_assist(Character *ch, Character *victim)
 				 && rch->level + 6 > victim->level) {
 					target = victim;
 				}
-				else if (affect::exists_on_char(rch, affect::charm_person)
+				else if (affect::exists_on_char(rch, affect::type::charm_person)
 				 && is_same_group(ch, rch))
 					target = victim;
 			}
@@ -530,12 +530,12 @@ void check_assist(Character *ch, Character *victim)
 void check_protection_aura(Character *ch, Character *victim) {
 
 	if ((IS_EVIL(ch)
-	  && affect::exists_on_char(victim, affect::protection_evil))
+	  && affect::exists_on_char(victim, affect::type::protection_evil))
 	 || (IS_GOOD(ch)
-	  && affect::exists_on_char(victim, affect::protection_good))) {
+	  && affect::exists_on_char(victim, affect::type::protection_good))) {
 		const affect::Affect *paf = IS_EVIL(ch) ?
-			affect::find_on_char(victim, affect::protection_evil) :
-			affect::find_on_char(victim, affect::protection_good);
+			affect::find_on_char(victim, affect::type::protection_evil) :
+			affect::find_on_char(victim, affect::type::protection_good);
 
 		if (paf != nullptr) {
 			if (paf->evolution >= 2) {
@@ -619,7 +619,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 			check_improve(ch, skill::type::dual_wield, FALSE, 6);
 	}
 
-	if (affect::exists_on_char(ch, affect::haste))
+	if (affect::exists_on_char(ch, affect::type::haste))
 		one_hit(ch, victim, attack_skill, FALSE);
 
 	if (!ch->fighting || attack_skill == skill::type::backstab)
@@ -630,7 +630,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (CAN_USE_RSKILL(ch, skill::type::fourth_attack))
 		chance += get_skill_level(ch, skill::type::fourth_attack) / 10;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -646,7 +646,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (CAN_USE_RSKILL(ch, skill::type::fourth_attack))
 		chance += get_skill_level(ch, skill::type::fourth_attack) / 10;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -659,7 +659,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	chance = get_skill_level(ch, skill::type::fourth_attack) / 2;
 
-	if (affect::exists_on_char(ch, affect::slow) || !CAN_USE_RSKILL(ch, skill::type::fourth_attack))
+	if (affect::exists_on_char(ch, affect::type::slow) || !CAN_USE_RSKILL(ch, skill::type::fourth_attack))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -673,7 +673,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (get_eq_char(ch, WEAR_SECONDARY)) {
 		chance = get_skill_level(ch, skill::type::dual_second) / 2;
 
-		if (affect::exists_on_char(ch, affect::slow) || !CAN_USE_RSKILL(ch, skill::type::dual_second))
+		if (affect::exists_on_char(ch, affect::type::slow) || !CAN_USE_RSKILL(ch, skill::type::dual_second))
 			chance = 0;
 
 		chance += ((get_evolution(ch, skill::type::dual_wield) - 1) * 5);
@@ -707,7 +707,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	/* remort affect - weak grip */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) != nullptr
-	    && !affect::exists_on_char(ch, affect::talon)
+	    && !affect::exists_on_char(ch, affect::type::talon)
 	    && !IS_OBJ_STAT(obj, ITEM_NOREMOVE)
 	    && HAS_RAFF(ch, RAFF_WEAKGRIP)) {
 		if (number_range(1, 100) == 1) {
@@ -769,8 +769,8 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 		}
 	}
 
-	if (affect::exists_on_char(ch, affect::haste)
-	    || (ch->off_flags.has(OFF_FAST) && !affect::exists_on_char(ch, affect::slow)))
+	if (affect::exists_on_char(ch, affect::type::haste)
+	    || (ch->off_flags.has(OFF_FAST) && !affect::exists_on_char(ch, affect::type::slow)))
 		one_hit(ch, victim, attack_skill, FALSE);
 
 	if (!ch->fighting || attack_skill == skill::type::backstab)
@@ -778,7 +778,7 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	chance = get_skill_level(ch, skill::type::second_attack) / 2;
 
-	if (affect::exists_on_char(ch, affect::slow) && !ch->off_flags.has(OFF_FAST))
+	if (affect::exists_on_char(ch, affect::type::slow) && !ch->off_flags.has(OFF_FAST))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -790,7 +790,7 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	chance = get_skill_level(ch, skill::type::third_attack) / 4;
 
-	if (affect::exists_on_char(ch, affect::slow) && !ch->off_flags.has(OFF_FAST))
+	if (affect::exists_on_char(ch, affect::type::slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -802,7 +802,7 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	chance = get_skill_level(ch, skill::type::fourth_attack) / 6;
 
-	if (affect::exists_on_char(ch, affect::slow) && !ch->off_flags.has(OFF_FAST))
+	if (affect::exists_on_char(ch, affect::type::slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -828,7 +828,7 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 		break;
 
 	case (1) :
-		if (ch->off_flags.has(OFF_BERSERK) && !affect::exists_on_char(ch, affect::berserk))
+		if (ch->off_flags.has(OFF_BERSERK) && !affect::exists_on_char(ch, affect::type::berserk))
 			do_berserk(ch, "");
 
 		break;
@@ -1033,7 +1033,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 				dam = dam * 11 / 10;
 
 			/* sharpness! */
-			if (affect::exists_on_obj(wield, affect::weapon_sharp)) {
+			if (affect::exists_on_obj(wield, affect::type::weapon_sharp)) {
 				int percent;
 
 				if ((percent = number_percent()) <= (skill / 8))
@@ -1108,7 +1108,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		int dam, level, evolution;
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::poison)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::poison)) != nullptr) {
 			level = weaponaff->level;
 			evolution = weaponaff->evolution;
 
@@ -1117,7 +1117,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 				act("$n is poisoned by the venom on $p.", victim, wield, nullptr, TO_ROOM);
 
 				affect::add_type_to_char(victim,
-					affect::poison,
+					affect::type::poison,
 					level,
 					level / 2,
 					evolution,
@@ -1127,7 +1127,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 
 			/* weaken the poison if it's temporary */
 			if (weaponaff != nullptr) {
-				affect::fn_data_container_type container = { affect::poison };
+				affect::fn_data_container_type container = { affect::type::poison };
 				affect::iterate_over_obj(
 					wield,
 					affect::fn_fade_spell,
@@ -1140,7 +1140,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_vampiric)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::weapon_vampiric)) != nullptr) {
 			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 5 + 1);
@@ -1163,7 +1163,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_vorpal)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::weapon_vorpal)) != nullptr) {
 			dam = number_range(1, wield->level / 4 + 1);
 			act("$n is impaled by $p.", victim, wield, nullptr, TO_ROOM);
 			act("$p impales your body.", victim, wield, nullptr, TO_CHAR);
@@ -1171,7 +1171,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_acidic)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::weapon_acidic)) != nullptr) {
 			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 4 + 2);
@@ -1187,7 +1187,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_flaming)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::weapon_flaming)) != nullptr) {
 			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 4 + 1);
@@ -1203,7 +1203,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_frost)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::weapon_frost)) != nullptr) {
 			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 6 + 2);
@@ -1219,7 +1219,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 
 		if (ch->fighting == victim
-		 && (weaponaff = affect::find_on_obj(wield, affect::weapon_shocking)) != nullptr) {
+		 && (weaponaff = affect::find_on_obj(wield, affect::type::weapon_shocking)) != nullptr) {
 			evolution = weaponaff->evolution;
 
 			dam = number_range(1, wield->level / 5 + 2);
@@ -1240,7 +1240,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 
 // called on a hit from bone wall
 int affect_callback_weaken_bonewall(affect::Affect *node, void *null) {
-	if (node->type == affect::bone_wall) {
+	if (node->type == affect::type::bone_wall) {
 		node->duration = UMAX(0, node->duration - 1);
 
 		if (node->level > 5)
@@ -1293,7 +1293,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				dam += damroll;
 		}
 
-		if (focus && affect::exists_on_char(ch, affect::focus))
+		if (focus && affect::exists_on_char(ch, affect::type::focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
 	}
 
@@ -1349,10 +1349,10 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	}
 
 	/* Inviso attacks ... not. */
-	if (affect::exists_on_char(ch, affect::invis)
-	 || affect::exists_on_char(ch, affect::midnight)) {
-		affect::remove_type_from_char(ch, affect::invis);
-		affect::remove_type_from_char(ch, affect::midnight);
+	if (affect::exists_on_char(ch, affect::type::invis)
+	 || affect::exists_on_char(ch, affect::type::midnight)) {
+		affect::remove_type_from_char(ch, affect::type::invis);
+		affect::remove_type_from_char(ch, affect::type::midnight);
 		act("$n fades into existence.", ch, nullptr, nullptr, TO_ROOM);
 	}
 
@@ -1368,19 +1368,19 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	}
 
 	/* BARRIER reduces damage by (currently) 25% -- Elrac */
-	if (dam > 1 && affect::exists_on_char(victim, affect::barrier))
+	if (dam > 1 && affect::exists_on_char(victim, affect::type::barrier))
 		dam -= dam / 4;
 
 	sanc_immune = FALSE;
 
-	if (dam > 1 && affect::exists_on_char(victim, affect::sanctuary)) {
-		switch (get_affect_evolution(victim, affect::sanctuary)) {
+	if (dam > 1 && affect::exists_on_char(victim, affect::type::sanctuary)) {
+		switch (get_affect_evolution(victim, affect::type::sanctuary)) {
 		case 1:
 			dam = (dam * 60) / 100;
 			break;
 
 		case 2:
-			if (affect::exists_on_char(ch, affect::curse))
+			if (affect::exists_on_char(ch, affect::type::curse))
 				dam = (dam * 45) / 100;
 			else
 				dam = (dam * 55) / 100;
@@ -1388,7 +1388,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			break;
 
 		case 3:
-			if (affect::exists_on_char(ch, affect::curse))
+			if (affect::exists_on_char(ch, affect::type::curse))
 				dam = (dam * 40) / 100;
 			else
 				dam = (dam * 50) / 100;
@@ -1396,7 +1396,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			break;
 
 		case 4:
-			if (affect::exists_on_char(ch, affect::curse)) {
+			if (affect::exists_on_char(ch, affect::type::curse)) {
 				dam = (dam * 35) / 100;
 
 				if (dam % 10 == 0) {
@@ -1411,8 +1411,8 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		}
 	}
 
-	if ((affect::exists_on_char(victim, affect::protection_evil) && IS_EVIL(ch))
-	    || (affect::exists_on_char(victim, affect::protection_good) && IS_GOOD(ch)))
+	if ((affect::exists_on_char(victim, affect::type::protection_evil) && IS_EVIL(ch))
+	    || (affect::exists_on_char(victim, affect::type::protection_good) && IS_GOOD(ch)))
 		dam -= dam / 4;
 
 	/* remort affect - more damage */
@@ -1425,7 +1425,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 	immune = FALSE;
 
-	if (affect::exists_on_char(victim, affect::force_shield) && (dam % 4 == 0) && !sanc_immune) {
+	if (affect::exists_on_char(victim, affect::type::force_shield) && (dam % 4 == 0) && !sanc_immune) {
 		immune = TRUE;
 		dam = 0;
 	}
@@ -1455,17 +1455,17 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			if (get_eq_char(ch, WEAR_WIELD) != nullptr)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
-			if (affect::exists_on_char(victim, affect::flameshield) && !saves_spell(victim->level, ch, DAM_FIRE)) {
+			if (affect::exists_on_char(victim, affect::type::flameshield) && !saves_spell(victim->level, ch, DAM_FIRE)) {
 				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, TRUE, TRUE);
 			}
 
-			if (affect::exists_on_char(victim, affect::sanctuary)
-			    && get_affect_evolution(victim, affect::sanctuary) >= 3
+			if (affect::exists_on_char(victim, affect::type::sanctuary)
+			    && get_affect_evolution(victim, affect::type::sanctuary) >= 3
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, TRUE, TRUE);
 
 			const affect::Affect *paf;
-			if ((paf = affect::find_on_char(victim, affect::bone_wall)) != nullptr
+			if ((paf = affect::find_on_char(victim, affect::type::bone_wall)) != nullptr
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
 				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
@@ -1776,7 +1776,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (victim->act_flags.has(ACT_PET) && affect::exists_on_char(victim, affect::charm_person)) {
+			if (victim->act_flags.has(ACT_PET) && affect::exists_on_char(victim, affect::type::charm_person)) {
 				if (showmsg)
 					act("But $N looks so cute and cuddly.", ch, nullptr, victim, TO_CHAR);
 
@@ -1784,7 +1784,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 			}
 
 			/* no charmed creatures unless owner */
-			if (affect::exists_on_char(victim, affect::charm_person) && ch != victim->master) {
+			if (affect::exists_on_char(victim, affect::type::charm_person) && ch != victim->master) {
 				if (showmsg)
 					stc("That is not your charmed creature!\n", ch);
 
@@ -1793,7 +1793,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 		}
 		else {
 			/* mob killing mob */
-			if (affect::exists_on_char(victim, affect::charm_person)
+			if (affect::exists_on_char(victim, affect::type::charm_person)
 			    && ch->master != nullptr && victim->master != nullptr
 			    && !IS_NPC(ch->master) && !IS_NPC(victim->master)
 			    && ch->master != victim->master
@@ -1810,7 +1810,7 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 		/* NPC doing the killing */
 		if (IS_NPC(ch)) {
 			/* charmed mobs and pets cannot attack players while owned */
-			if (affect::exists_on_char(ch, affect::charm_person) && ch->master != nullptr
+			if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master != nullptr
 			    && ch->master->fighting != victim) {
 				if (showmsg)
 					stc("Players are your friends!\n", ch);
@@ -1919,7 +1919,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim))
 		return TRUE;
 
-	if (affect::exists_on_char(ch, affect::fear))
+	if (affect::exists_on_char(ch, affect::type::fear))
 		return TRUE;
 
 	/* killing mobiles */
@@ -1944,7 +1944,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 				return TRUE;
 
 			/* no charmed creatures unless owner */
-			if (affect::exists_on_char(victim, affect::charm_person) && (area || ch != victim->master))
+			if (affect::exists_on_char(victim, affect::type::charm_person) && (area || ch != victim->master))
 				return TRUE;
 
 			/* legal kill? -- cannot hit mob fighting non-group member */
@@ -1963,7 +1963,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 		/* NPC doing the killing */
 		if (IS_NPC(ch)) {
 			/* charmed mobs and pets cannot attack players while owned */
-			if (affect::exists_on_char(ch, affect::charm_person) && ch->master != nullptr
+			if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master != nullptr
 			    && ch->master->fighting != victim)
 				return TRUE;
 
@@ -2009,7 +2009,7 @@ void check_killer(Character *ch, Character *victim)
 {
 	/* Follow charm thread to responsible character.  Attacking someone's charmed char is hostile!
 	   Beware, this will cause a loop if master->pet->master - Lotus */
-	while (affect::exists_on_char(victim, affect::charm_person) && victim->master != nullptr)
+	while (affect::exists_on_char(victim, affect::type::charm_person) && victim->master != nullptr)
 		victim = victim->master;
 
 	/* NPC's are fair game.  So are killers and thieves. */
@@ -2034,12 +2034,12 @@ void check_killer(Character *ch, Character *victim)
 		return;
 
 	/* Charm-o-rama, you can attack your charmed player */
-	if (affect::exists_on_char(ch, affect::charm_person)) {
+	if (affect::exists_on_char(ch, affect::type::charm_person)) {
 		if (ch->master == nullptr) {
 			char buf[MAX_STRING_LENGTH];
 			Format::sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
 			Logging::bug(buf, 0);
-			affect::remove_type_from_char(ch, affect::charm_person);
+			affect::remove_type_from_char(ch, affect::type::charm_person);
 			return;
 		}
 
@@ -2063,7 +2063,7 @@ void check_killer(Character *ch, Character *victim)
 		return;
 
 	/* It's okay unless they were sleeping and haven't been attacked recently */
-	if ((get_position(victim) >= POS_RESTING) || (affect::exists_on_char(ch, affect::sleep)))
+	if ((get_position(victim) >= POS_RESTING) || (affect::exists_on_char(ch, affect::type::sleep)))
 		return;
 
 	stc("{P*** You are now a KILLER!! ***{x\n", ch);
@@ -2125,7 +2125,7 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	if (!can_see_char(victim, ch))
 		chance /= 2;
 
-	if (affect::exists_on_char(victim, affect::paralyze))
+	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2222,7 +2222,7 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	if (!can_see_char(victim, ch))
 		chance /= 2;
 
-	if (affect::exists_on_char(victim, affect::paralyze))
+	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2315,7 +2315,7 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 
 	chance = get_skill_level(victim, skill::type::shield_block) * 2 / 5;
 
-	if (affect::exists_on_char(victim, affect::paralyze))
+	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 	chance += (victim->level - ch->level);
@@ -2374,16 +2374,16 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
-	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::haste))
+	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::type::haste))
 		chance += 15;
 
-	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::haste))
+	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::type::haste))
 		chance -= 15;
 
-	if (affect::exists_on_char(victim, affect::slow))
+	if (affect::exists_on_char(victim, affect::type::slow))
 		chance -= 15;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		chance += 15;
 
 	if (!can_see_char(victim, ch))
@@ -2396,7 +2396,7 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (affect::exists_on_char(victim, affect::paralyze))
+	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2458,16 +2458,16 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 	chance += 3 * ((GET_ATTR_DEX(victim)) - (GET_ATTR_DEX(ch)));
 
 	// speed and spells
-	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::haste))
+	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::type::haste))
 		chance += 10;
 
-	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::haste))
+	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::type::haste))
 		chance -= 10;
 
-	if (affect::exists_on_char(victim, affect::slow))
+	if (affect::exists_on_char(victim, affect::type::slow))
 		chance -= 10;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		chance += 10;
 
 	if (!can_see_char(victim, ch))
@@ -2480,7 +2480,7 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (affect::exists_on_char(victim, affect::paralyze))
+	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2548,8 +2548,8 @@ void set_fighting(Character *ch, Character *victim)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::sleep))
-		affect::remove_type_from_char(ch, affect::sleep);
+	if (affect::exists_on_char(ch, affect::type::sleep))
+		affect::remove_type_from_char(ch, affect::type::sleep);
 
 	ch->fighting = victim;
 
@@ -3260,12 +3260,12 @@ void do_berserk(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::berserk) || affect::exists_on_char(ch, affect::berserk) || affect::exists_on_char(ch, affect::frenzy)) {
+	if (affect::exists_on_char(ch, affect::type::berserk) || affect::exists_on_char(ch, affect::type::berserk) || affect::exists_on_char(ch, affect::type::frenzy)) {
 		stc("You get a little madder.\n", ch);
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::calm)) {
+	if (affect::exists_on_char(ch, affect::type::calm)) {
 		stc("You're feeling to mellow to berserk.\n", ch);
 		return;
 	}
@@ -3293,7 +3293,7 @@ void do_berserk(Character *ch, String argument)
 		check_improve(ch, skill::type::berserk, TRUE, 2);
 
 		affect::add_type_to_char(ch,
-			affect::berserk,
+			affect::type::berserk,
 			ch->level,
 			number_fuzzy(ch->level / 8),
 			get_evolution(ch, skill::type::berserk),
@@ -3362,7 +3362,7 @@ void do_bash(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person) && ch->master == victim) {
+	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 		act("But $N is your friend!", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -3421,7 +3421,7 @@ void do_bash(Character *ch, String argument)
 	        chance += ((GET_ATTR_HITROLL(ch) - 120) / 16);
 	}*/
 	/* less bashable if translucent -- Elrac */
-//	if ( affect::exists_on_char(victim, affect::pass_door) )
+//	if ( affect::exists_on_char(victim, affect::type::pass_door) )
 //		chance -= chance / 3;
 	/*Change in chance based on STR and score and stamina*/
 	chance += 3 * (GET_ATTR_STR(ch) - GET_ATTR_STR(victim));
@@ -3534,7 +3534,7 @@ void do_dirt(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person) && ch->master == victim) {
+	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 		act("But $N is such a good friend!", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -3548,10 +3548,10 @@ void do_dirt(Character *ch, String argument)
 	chance -= 2 * GET_ATTR_DEX(victim);
 
 	/* speed  */
-	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::haste))
+	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::type::haste))
 		chance += 10;
 
-	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::haste))
+	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::type::haste))
 		chance -= 25;
 
 	/* level */
@@ -3593,7 +3593,7 @@ void do_dirt(Character *ch, String argument)
 	check_killer(ch, victim);
 
 	if (number_percent() < chance) {
-		if (affect::exists_on_char(victim, affect::rayban)) {
+		if (affect::exists_on_char(victim, affect::type::rayban)) {
 			act("You kick dirt in $n's eyes, but it doesn't affect $m!", ch, nullptr, victim, TO_CHAR);
 			act("$n kicks dirt in your eyes, but your eye protection saves your vision!", ch, nullptr, victim, TO_VICT);
 		}
@@ -3604,7 +3604,7 @@ void do_dirt(Character *ch, String argument)
 			stc("You can't see a thing!\n", victim);
 
 			affect::add_type_to_char(victim,
-				affect::dirt_kicking,
+				affect::type::dirt_kicking,
 				ch->level,
 				0,
 				get_evolution(ch, skill::type::dirt_kicking),
@@ -3635,10 +3635,10 @@ bool trip(Character *ch, Character *victim, int chance, skill::type attack_skill
 	chance -= GET_ATTR_DEX(victim) * 3 / 2;
 
 	/* speed */
-	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::haste))
+	if (ch->off_flags.has(OFF_FAST) || affect::exists_on_char(ch, affect::type::haste))
 		chance += 10;
 
-	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::haste))
+	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::type::haste))
 		chance -= 20;
 
 	/* level */
@@ -3723,7 +3723,7 @@ void do_trip(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person) && ch->master == victim) {
+	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -3769,7 +3769,7 @@ bool check_attack_ok(Character *ch, Character *victim) {
 		return FALSE;
 	}
 
-	if (affect::exists_on_char(ch, affect::fear)) {
+	if (affect::exists_on_char(ch, affect::type::fear)) {
 		stc("But they would beat the stuffing out of you!!\n", ch);
 		return FALSE;
 	}
@@ -3788,7 +3788,7 @@ bool check_attack_ok(Character *ch, Character *victim) {
 		return FALSE;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person) && ch->master == victim) {
+	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, nullptr, victim, TO_CHAR);
 		return FALSE;
 	}
@@ -4066,8 +4066,8 @@ void do_sing(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::sing).beats);
 
-	if (affect::exists_on_char(victim, affect::charm_person)
-	    || affect::exists_on_char(ch, affect::charm_person))
+	if (affect::exists_on_char(victim, affect::type::charm_person)
+	    || affect::exists_on_char(ch, affect::type::charm_person))
 		return;
 
 	singchance = get_skill_level(ch, skill::type::sing) / 2;
@@ -4109,7 +4109,7 @@ void do_sing(Character *ch, String argument)
 	victim->leader = ch;
 
 	affect::add_type_to_char(victim,
-		affect::charm_person,
+		affect::type::charm_person,
 		ch->level,
 		number_fuzzy(ch->level/4),
 		get_evolution(ch, skill::type::charm_person),
@@ -4209,7 +4209,7 @@ void do_backstab(Character *ch, String argument)
 			stc("{YYour skillful blow strikes a nerve on your opponent!{x\n", ch);
 			int level = (ch->level);
 			affect::add_type_to_char(victim,
-				affect::paralyze,
+				affect::type::paralyze,
 				level,
 				2,
 				1,
@@ -4256,7 +4256,7 @@ void do_shadow(Character *ch, String argument)
 		}
 	}
 
-	if (affect::exists_on_char(victim, affect::shadow_form)) {
+	if (affect::exists_on_char(victim, affect::type::shadow_form)) {
 		act("$N has seen shadow form before and could easily avoid the attack.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -4284,7 +4284,7 @@ void do_shadow(Character *ch, String argument)
 	}
 
 	affect::add_type_to_char(victim,
-		affect::shadow_form,
+		affect::type::shadow_form,
 		ch->level,
 		-1,
 		get_evolution(ch, skill::type::shadow_form),
@@ -4410,7 +4410,7 @@ void do_flee(Character *ch, String argument)
 		    || pexit->u1.to_room == nullptr
 		    || !can_see_room(ch, pexit->u1.to_room)
 		    || (pexit->exit_flags.has(EX_CLOSED)
-		        && (!affect::exists_on_char(ch, affect::pass_door)
+		        && (!affect::exists_on_char(ch, affect::type::pass_door)
 		            || pexit->exit_flags.has(EX_NOPASS)))
 		    || (IS_NPC(ch) && GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)))
 			continue;
@@ -4433,7 +4433,7 @@ void do_flee(Character *ch, String argument)
 		    || pexit->u1.to_room == nullptr
 		    || !can_see_room(ch, pexit->u1.to_room)
 		    || (pexit->exit_flags.has(EX_CLOSED)
-		        && (!affect::exists_on_char(ch, affect::pass_door)
+		        && (!affect::exists_on_char(ch, affect::type::pass_door)
 		            || pexit->exit_flags.has(EX_NOPASS)))
 		    || (IS_NPC(ch) && GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)))
 			continue;
@@ -4740,10 +4740,10 @@ void do_disarm(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::disarm).beats);
 
 	/* evo 1 talon give 60% save, 70% at 2, 80% at 3, 90% at 4 */
-	if (affect::exists_on_char(victim, affect::talon)) {
+	if (affect::exists_on_char(victim, affect::type::talon)) {
 		int talonchance = 75;
 
-		switch (get_affect_evolution(victim, affect::talon)) {
+		switch (get_affect_evolution(victim, affect::type::talon)) {
 		case 2: talonchance += 10;      break;
 
 		case 3: talonchance += 25;      break;
@@ -5033,7 +5033,7 @@ void do_hammerstrike(Character *ch, String argument)
 
 	chance = get_skill_level(ch, skill::type::hammerstrike);
 
-	if (affect::exists_on_char(ch, affect::hammerstrike)) {
+	if (affect::exists_on_char(ch, affect::type::hammerstrike)) {
 		stc("Are you insane?!?\n", ch);
 		return;
 	}
@@ -5046,7 +5046,7 @@ void do_hammerstrike(Character *ch, String argument)
 		check_improve(ch, skill::type::hammerstrike, TRUE, 2);
 
 		affect::add_type_to_char(ch,
-			affect::hammerstrike,
+			affect::type::hammerstrike,
 			ch->level,
 			number_fuzzy(ch->level/15),
 			get_evolution(ch, skill::type::hammerstrike),

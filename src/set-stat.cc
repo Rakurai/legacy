@@ -2118,12 +2118,12 @@ void do_pstat(Character *ch, String argument)
 	ptc(ch, "%s%s%s%s%s%s%s%s%s%s{x\n",
 	    victim->pcdata->plr_flags.has(PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
 	    victim->comm_flags.has(COMM_AFK) ?             "{b[AFK] "      : "",
-	    affect::exists_on_char(victim, affect::invis) ?        "{C(Invis) "    : "",
-	    affect::exists_on_char(victim, affect::hide) ?             "{B(Hide) "     : "",
-	    affect::exists_on_char(victim, affect::midnight) ?            "{c(Shadowy) "  : "",
+	    affect::exists_on_char(victim, affect::type::invis) ?        "{C(Invis) "    : "",
+	    affect::exists_on_char(victim, affect::type::hide) ?             "{B(Hide) "     : "",
+	    affect::exists_on_char(victim, affect::type::midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
-	    affect::exists_on_char(victim, affect::charm_person) ?                        "{M(Charmed) "  : "",
+	    affect::exists_on_char(victim, affect::type::charm_person) ?                        "{M(Charmed) "  : "",
 	    victim->act_flags.has(PLR_KILLER) ?                       "{R(KILLER) "   : "",
 	    victim->act_flags.has(PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */

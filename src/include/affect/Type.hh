@@ -2,7 +2,7 @@
 
 namespace affect {
 
-enum Type {
+enum class type {
     unknown = -1, // don't touch
     none = 0, // don't touch
 

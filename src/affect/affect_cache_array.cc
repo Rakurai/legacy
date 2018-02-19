@@ -10,24 +10,24 @@
 namespace affect {
 
 #define get_cache(ch) ((ch)->affect_cache == nullptr ? nullptr : (sh_int *)(ch)->affect_cache)
-#define cache_size Type::size
+#define cache_size (int)::affect::type::size
 
 void free_cache(Character *ch) {
 	delete[] (sh_int *)ch->affect_cache;
 	ch->affect_cache = nullptr;
 }
 
-bool in_cache(const Character *ch, Type type) {
+bool in_cache(const Character *ch, ::affect::type type) {
 	return (
-		type > none
-	 && type < cache_size
+		type > type::none
+	 && (int)type < cache_size
 	 && ch->affect_cache
-	 && get_cache(ch)[type] > 0);
+	 && get_cache(ch)[(int)type] > 0);
 }
 
-void update_cache(Character *ch, Type type, bool fAdd) {
-	if (type <= none /* 0 */ || type >= cache_size) {
-		Logging::bug("update_cache: called with type = %d", type);
+void update_cache(Character *ch, ::affect::type type, bool fAdd) {
+	if (type <= type::none /* 0 */ || (int)type >= cache_size) {
+		Logging::bug("update_cache: called with type = %d", (int)type);
 		return;
 	}
 
@@ -39,7 +39,7 @@ void update_cache(Character *ch, Type type, bool fAdd) {
 				get_cache(ch)[i] = 0;
 		}
 
-		get_cache(ch)[type]++;
+		get_cache(ch)[(int)type]++;
 		get_cache(ch)[0]++;
 	}
 	else {
@@ -49,13 +49,13 @@ void update_cache(Character *ch, Type type, bool fAdd) {
 			return;
 		}
 
-		if (get_cache(ch)[type] == 0) {
+		if (get_cache(ch)[(int)type] == 0) {
 			Logging::bugf("update_cache: illegal removal of uncounted value at type %d (%s)",
 				type, lookup(type).name);
 			return;
 		}
 
-		get_cache(ch)[type]--;
+		get_cache(ch)[(int)type]--;
 		get_cache(ch)[0]--;
 
 		if (get_cache(ch)[0] == 0)
@@ -76,7 +76,7 @@ String print_cache(Character *ch) {
 			if (!buf.empty())
 				buf += " ";
 
-			buf += Format::format("%s(%d)", lookup((Type)type_n).name, count);
+			buf += Format::format("%s(%d)", lookup((::affect::type)type_n).name, count);
 		}
 	}
 

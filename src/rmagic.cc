@@ -31,13 +31,13 @@ void spell_sheen(skill::type sn, int level, Character *ch, void *vo, int target,
 {
 	Character *victim = (Character *) vo;
 
-	if (affect::exists_on_char(victim, affect::sheen)) {
+	if (affect::exists_on_char(victim, affect::type::sheen)) {
 		stc("Your armor is already coated with magical steel.\n", ch);
 		return;
 	}
 
 	affect::add_type_to_char(victim,
-		affect::sheen,
+		affect::type::sheen,
 		level,
 		level,
 		evolution,
@@ -51,13 +51,13 @@ void spell_focus(skill::type sn, int level, Character *ch, void *vo, int target,
 {
 	Character *victim = (Character *) vo;
 
-	if (affect::exists_on_char(victim, affect::focus)) {
+	if (affect::exists_on_char(victim, affect::type::focus)) {
 		stc("Your spells are already focused.\n", ch);
 		return;
 	}
 
 	affect::add_type_to_char(victim,
-		affect::focus,
+		affect::type::focus,
 		level,
 		level / 3,
 		evolution,
@@ -76,7 +76,7 @@ void spell_paralyze(skill::type sn, int level, Character *ch, void *vo, int targ
 		return;
 	}
 
-	if (affect::exists_on_char(victim, affect::paralyze)) {
+	if (affect::exists_on_char(victim, affect::type::paralyze)) {
 		act("$N is already paralyzed.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -87,7 +87,7 @@ void spell_paralyze(skill::type sn, int level, Character *ch, void *vo, int targ
 	}
 
 	affect::add_type_to_char(victim,
-		affect::paralyze,
+		affect::type::paralyze,
 		level,
 		level / 20,
 		evolution,
@@ -102,13 +102,13 @@ void spell_ironskin(skill::type sn, int level, Character *ch, void *vo, int targ
 {
 	Character *victim = (Character *) vo;
 
-	if (affect::exists_on_char(victim, affect::ironskin)) {
+	if (affect::exists_on_char(victim, affect::type::ironskin)) {
 		stc("Your skin is already hard as iron.\n", ch);
 		return;
 	}
 
 	affect::add_type_to_char(victim,
-		affect::ironskin,
+		affect::type::ironskin,
 		level,
 		level,
 		evolution,
@@ -124,13 +124,13 @@ void spell_barrier(skill::type sn, int level, Character *ch, void *vo, int targe
 {
 	Character *victim = (Character *) vo;
 
-	if (affect::exists_on_char(victim, affect::barrier)) {
+	if (affect::exists_on_char(victim, affect::type::barrier)) {
 		stc("You are already surrounded by a barrier.\n", ch);
 		return;
 	}
 
 	affect::add_type_to_char(victim,
-		affect::barrier,
+		affect::type::barrier,
 		level,
 		level / 5,
 		evolution,
@@ -163,7 +163,7 @@ void spell_dazzle(skill::type sn, int level, Character *ch, void *vo, int target
 	chance = 70 - (victim->level - level) * 2 + GET_ATTR_SAVES(victim);
 
 	/* berserking isn't as good as normal saves */
-	if (affect::exists_on_char(victim, affect::berserk))
+	if (affect::exists_on_char(victim, affect::type::berserk))
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */
@@ -193,7 +193,7 @@ void spell_dazzle(skill::type sn, int level, Character *ch, void *vo, int target
 		    ch, nullptr, victim, TO_VICT);
 
 		affect::add_type_to_char(victim,
-			affect::dazzle,
+			affect::type::dazzle,
 			level,
 			0,
 			evolution,
@@ -259,7 +259,7 @@ void spell_midnight(skill::type sn, int level, Character *ch, void *vo, int targ
 {
 	Character *victim = (Character *) vo;
 
-	if (affect::exists_on_char(victim, affect::midnight) && (victim == ch)) {
+	if (affect::exists_on_char(victim, affect::type::midnight) && (victim == ch)) {
 		stc("You fail to invade the shadows further.\n", ch);
 		return;
 	}
@@ -268,7 +268,7 @@ void spell_midnight(skill::type sn, int level, Character *ch, void *vo, int targ
 	act("$n vanishes into the shadows.", victim, nullptr, nullptr, TO_ROOM);
 
 	affect::add_type_to_char(victim,
-		affect::midnight,
+		affect::type::midnight,
 		level,
 		2,
 		evolution,
@@ -340,7 +340,7 @@ void spell_hex(skill::type sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	if (affect::exists_on_char(victim, affect::hex)) {
+	if (affect::exists_on_char(victim, affect::type::hex)) {
 		act("The dark gods have already cursed $N.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -350,7 +350,7 @@ void spell_hex(skill::type sn, int level, Character *ch, void *vo, int target, i
 	act("An unholy mist surrounds you.", ch, nullptr, victim, TO_VICT);
 
 	affect::add_type_to_char(victim,
-		affect::hex,
+		affect::type::hex,
 		level,
 		level / 30,
 		evolution,
@@ -364,7 +364,7 @@ void spell_bone_wall(skill::type sn, int level, Character *ch, void *vo, int tar
 	Character *victim = (Character *) vo;
 
 	affect::add_type_to_char(victim,
-		affect::bone_wall,
+		affect::type::bone_wall,
 		level,
 		level,
 		evolution,
@@ -381,7 +381,7 @@ void spell_force(skill::type sn, int level, Character *ch, void *vo, int target,
 {
 	Character *victim = (Character *) vo;
 
-	if (affect::exists_on_char(victim, affect::force_shield)) {
+	if (affect::exists_on_char(victim, affect::type::force_shield)) {
 		stc("You are already protected by the force.\n", ch);
 		return;
 	}
@@ -390,7 +390,7 @@ void spell_force(skill::type sn, int level, Character *ch, void *vo, int target,
 	stc("You are surrounded by a mystical aura.\n", victim);
 
 	affect::add_type_to_char(victim,
-		affect::force_shield,
+		affect::type::force_shield,
 		level,
 		2,
 		evolution,
@@ -440,22 +440,22 @@ void spell_holy_sword(skill::type sn, int level, Character *ch, void *vo, int ta
 	af.evolution  = evolution;
 
 	if (sword->level >= 20) {
-		af.type = affect::weapon_shocking;
+		af.type = affect::type::weapon_shocking;
 		affect::copy_to_obj(sword, &af);
 	}
 
 	if (sword->level >= 45){
-		af.type = affect::weapon_vorpal;
+		af.type = affect::type::weapon_vorpal;
 		affect::copy_to_obj(sword, &af);
 	}
 
 	if (sword->level >= 70){
-		af.type = affect::weapon_flaming;
+		af.type = affect::type::weapon_flaming;
 		affect::copy_to_obj(sword, &af);
 	}
 
 	af.where      = TO_OBJECT;
-	af.type       = affect::enchant_weapon;
+	af.type       = affect::type::enchant_weapon;
 	af.duration   = -1;
 	af.modifier   = level / 10 + 1;
 	af.bitvector(0);

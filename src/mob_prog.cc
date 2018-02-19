@@ -487,18 +487,18 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect::exists_on_char(mob, affect::charm_person) ? 1 : 0;
+		case 'i': return affect::exists_on_char(mob, affect::type::charm_person) ? 1 : 0;
 
 		case 'n': if (actor)
-				return affect::exists_on_char(actor, affect::charm_person) ? 1 : 0;
+				return affect::exists_on_char(actor, affect::type::charm_person) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return affect::exists_on_char(vict, affect::charm_person) ? 1 : 0;
+				return affect::exists_on_char(vict, affect::type::charm_person) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return affect::exists_on_char(rndm, affect::charm_person) ? 1 : 0;
+				return affect::exists_on_char(rndm, affect::type::charm_person) ? 1 : 0;
 			else return -1;
 
 		default:
@@ -1569,7 +1569,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	Character *vch   = nullptr;
 	int        count = 0;
 
-	/*    if affect::exists_on_char( mob, affect::charm_person )
+	/*    if affect::exists_on_char( mob, affect::type::charm_person )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */

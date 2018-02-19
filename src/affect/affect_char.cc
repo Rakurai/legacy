@@ -22,11 +22,11 @@ const Affect *list_char(Character *ch) {
 	return ch->affected;
 }
 
-bool exists_on_char(const Character *ch, Type type) {
+bool exists_on_char(const Character *ch, ::affect::type type) {
 	return in_cache(ch, type);
 }
 
-const Affect *find_on_char(Character *ch, Type type) {
+const Affect *find_on_char(Character *ch, ::affect::type type) {
 	return find_in_list(&ch->affected, type);
 }
 
@@ -50,7 +50,7 @@ void join_to_char(Character *ch, Affect *paf)
 	copy_to_char(ch, paf);
 }
 
-void add_perm_to_char(Character *ch, Type type) {
+void add_perm_to_char(Character *ch, ::affect::type type) {
 	add_type_to_char(ch, type, ch->level, -1, 1, TRUE);
 }
 
@@ -63,7 +63,7 @@ void copy_flags_to_char(Character *ch, char letter, Flags bitvector, bool perman
 	af.permanent = permanent;
 
 	while (!bitvector.empty()) {
-		af.type = none; // reset every time
+		af.type = type::none; // reset every time
 		if (parse_flags(letter, &af, bitvector)) {
 			if (letter == 'A') // special to come up with modifiers
 				add_type_to_char(ch, af.type, ch->level, -1, 1, permanent);
@@ -106,7 +106,7 @@ void remove_marked_from_char(Character *ch) {
 	remove_matching_from_char(ch, comparator_mark, &pattern);
 }
 
-void remove_type_from_char(Character *ch, Type type) {
+void remove_type_from_char(Character *ch, ::affect::type type) {
 	Affect pattern;
 	pattern.type = type;
 
@@ -138,89 +138,89 @@ void sort_char(Character *ch, comparator comp) {
 
 // utility
 
-void add_type_to_char(Character *ch, Type type, sh_int level, sh_int duration, sh_int evolution, bool permanent) {
+void add_type_to_char(Character *ch, ::affect::type type, sh_int level, sh_int duration, sh_int evolution, bool permanent) {
 	struct aff_st {
-		Type type;
+		::affect::type type;
 		sh_int  location;
 		int  modifier;
 		sh_int  evolution;
 	};
 
 	static const std::vector<aff_st> aff_table = {
-		{ age,                 APPLY_STR,     -level/20,           1 },
-		{ age,                 APPLY_CON,     -level/20,           1 },
-		{ age,                 APPLY_WIS,     level/50,           1 },
-		{ age,                 APPLY_AGE,     level,           1 },
-		{ armor,               APPLY_AC,      -20,             1 },
-		{ barrier,             APPLY_NONE,    0,               1 },
-		{ berserk,             APPLY_HITROLL, IS_NPC(ch) ? level/8 : GET_ATTR_HITROLL(ch)/5, 1 },
-		{ berserk,             APPLY_DAMROLL, IS_NPC(ch) ? level/8 : GET_ATTR_DAMROLL(ch)/5, 1 },
-		{ berserk,             APPLY_AC,      UMAX(10, 10 * (ch->level / 5)), 1 },
-		{ bless,               APPLY_HITROLL, level/8,         1 },
-		{ bless,               APPLY_SAVES,   -level/8,        1 },
-		{ blindness,           APPLY_HITROLL, -4,              1 },
-		{ blood_moon,          APPLY_HITROLL, level/20,        1 },
-		{ blood_moon,          APPLY_DAMROLL, level/12,        1 },
-		{ bone_wall,           APPLY_NONE,    0,               1 },
-		{ calm,                APPLY_HITROLL, -5,              1 },
-		{ calm,                APPLY_DAMROLL, -5,              1 },
-		{ charm_person,        APPLY_NONE,    0,               1 },
-		{ change_sex,          APPLY_SEX,     number_range(1,2), 1 }, // count on modulo 3 sex, 1 or 2 are different
-		{ channel,             APPLY_STR,     -1,              1 },
-		{ channel,             APPLY_CON,     -2,              1 },
-		{ chill_touch,         APPLY_STR,     -1,              1 },
-		{ curse,               APPLY_HITROLL, -level / 8,      1 },
-		{ curse,               APPLY_SAVES,   level / 8,       1 },
-		{ dazzle,              APPLY_HITROLL, -4,              1 },
-		{ detect_evil,         APPLY_NONE,    0,               1 },
-		{ detect_good,         APPLY_NONE,    0,               1 },
-		{ detect_magic,        APPLY_NONE,    0,               1 },
-		{ detect_invis,        APPLY_NONE,    0,               1 },
-		{ detect_hidden,       APPLY_NONE,    0,               1 },
-		{ dirt_kicking,        APPLY_HITROLL, -4,              1 },
-		{ divine_regeneration, APPLY_NONE,    0,               1 },
-		{ faerie_fire,         APPLY_AC,      level * 2,       1 },
-		{ fear,                APPLY_HITROLL, -level / 10,     1 },
-		{ fear,                APPLY_DAMROLL, -level / 16,     1 },
-		{ fear,                APPLY_SAVES,   -level / 14,     1 },
-		{ fire_breath,         APPLY_HITROLL, -4,              1 },
-		{ flameshield,         APPLY_AC,      -20,             1 },
-		{ fly,                 APPLY_NONE,    0,               1 },
-		{ focus,               APPLY_NONE,    0,               1 },
-		{ force_shield,        APPLY_NONE,    0,               1 },
-		{ frenzy,              APPLY_HITROLL, level/6,         1 },
-		{ frenzy,              APPLY_DAMROLL, level/6,         1 },
-		{ frenzy,              APPLY_AC,      10*(level/12),   1 },
-		{ giant_strength,      APPLY_STR,     level/25+2,      1 },
-		{ haste,               APPLY_DEX,     0,               1 },
-		{ hammerstrike,        APPLY_HITROLL, get_unspelled_hitroll(ch)/4, 1 },
-		{ hammerstrike,        APPLY_DAMROLL, get_unspelled_damroll(ch)/4, 1 },
-		{ hex,                 APPLY_AC,      level * 3,       1 },
-		{ hide,                APPLY_NONE,    0,               1 },
-		{ invis,               APPLY_NONE,    0,               1 },
-//		{ ironskin,            APPLY_AC,      -100,            1 },
-		{ midnight,            APPLY_NONE,    0,               1 },
-		{ night_vision,        APPLY_NONE,    0,               1 },
-		{ paralyze,            APPLY_NONE,    0,               1 },
-		{ pass_door,           APPLY_NONE,    0,               1 },
-		{ plague,              APPLY_STR,     -level / 20 - 1, 1 },
-		{ poison,              APPLY_STR,     -2,              1 },
-		{ protection_evil,     APPLY_SAVES,   -1,              1 },
-		{ protection_good,     APPLY_SAVES,   -1,              1 },
-		{ rayban,              APPLY_NONE,    0,               1 },
-		{ regeneration,        APPLY_NONE,    0,               1 },
-		{ sanctuary,           APPLY_NONE,    0,               1 },
-		{ shadow_form,         APPLY_NONE,    0,               1 },
-		{ sheen,               APPLY_NONE,    0,               1 },
-		{ shield,              APPLY_AC,      -20,             1 },
-		{ sleep,               APPLY_NONE,    0,               1 },
-		{ slow,                APPLY_DEX,     0,               1 },
-		{ smokescreen,         APPLY_HITROLL, -4,              1 },
-		{ sneak,               APPLY_NONE,    0,               1 },
-		{ steel_mist,          APPLY_AC,      -level / 10,     1 },
-		{ stone_skin,          APPLY_AC,      -40,             1 },
-		{ talon,               APPLY_NONE,    0,               1 },
-		{ weaken,              APPLY_STR,     -level/5,        1 },
+		{ type::age,                 APPLY_STR,     -level/20,           1 },
+		{ type::age,                 APPLY_CON,     -level/20,           1 },
+		{ type::age,                 APPLY_WIS,     level/50,           1 },
+		{ type::age,                 APPLY_AGE,     level,           1 },
+		{ type::armor,               APPLY_AC,      -20,             1 },
+		{ type::barrier,             APPLY_NONE,    0,               1 },
+		{ type::berserk,             APPLY_HITROLL, IS_NPC(ch) ? level/8 : GET_ATTR_HITROLL(ch)/5, 1 },
+		{ type::berserk,             APPLY_DAMROLL, IS_NPC(ch) ? level/8 : GET_ATTR_DAMROLL(ch)/5, 1 },
+		{ type::berserk,             APPLY_AC,      UMAX(10, 10 * (ch->level / 5)), 1 },
+		{ type::bless,               APPLY_HITROLL, level/8,         1 },
+		{ type::bless,               APPLY_SAVES,   -level/8,        1 },
+		{ type::blindness,           APPLY_HITROLL, -4,              1 },
+		{ type::blood_moon,          APPLY_HITROLL, level/20,        1 },
+		{ type::blood_moon,          APPLY_DAMROLL, level/12,        1 },
+		{ type::bone_wall,           APPLY_NONE,    0,               1 },
+		{ type::calm,                APPLY_HITROLL, -5,              1 },
+		{ type::calm,                APPLY_DAMROLL, -5,              1 },
+		{ type::charm_person,        APPLY_NONE,    0,               1 },
+		{ type::change_sex,          APPLY_SEX,     number_range(1,2), 1 }, // count on modulo 3 sex, 1 or 2 are different
+		{ type::channel,             APPLY_STR,     -1,              1 },
+		{ type::channel,             APPLY_CON,     -2,              1 },
+		{ type::chill_touch,         APPLY_STR,     -1,              1 },
+		{ type::curse,               APPLY_HITROLL, -level / 8,      1 },
+		{ type::curse,               APPLY_SAVES,   level / 8,       1 },
+		{ type::dazzle,              APPLY_HITROLL, -4,              1 },
+		{ type::detect_evil,         APPLY_NONE,    0,               1 },
+		{ type::detect_good,         APPLY_NONE,    0,               1 },
+		{ type::detect_magic,        APPLY_NONE,    0,               1 },
+		{ type::detect_invis,        APPLY_NONE,    0,               1 },
+		{ type::detect_hidden,       APPLY_NONE,    0,               1 },
+		{ type::dirt_kicking,        APPLY_HITROLL, -4,              1 },
+		{ type::divine_regeneration, APPLY_NONE,    0,               1 },
+		{ type::faerie_fire,         APPLY_AC,      level * 2,       1 },
+		{ type::fear,                APPLY_HITROLL, -level / 10,     1 },
+		{ type::fear,                APPLY_DAMROLL, -level / 16,     1 },
+		{ type::fear,                APPLY_SAVES,   -level / 14,     1 },
+		{ type::fire_breath,         APPLY_HITROLL, -4,              1 },
+		{ type::flameshield,         APPLY_AC,      -20,             1 },
+		{ type::fly,                 APPLY_NONE,    0,               1 },
+		{ type::focus,               APPLY_NONE,    0,               1 },
+		{ type::force_shield,        APPLY_NONE,    0,               1 },
+		{ type::frenzy,              APPLY_HITROLL, level/6,         1 },
+		{ type::frenzy,              APPLY_DAMROLL, level/6,         1 },
+		{ type::frenzy,              APPLY_AC,      10*(level/12),   1 },
+		{ type::giant_strength,      APPLY_STR,     level/25+2,      1 },
+		{ type::haste,               APPLY_DEX,     0,               1 },
+		{ type::hammerstrike,        APPLY_HITROLL, get_unspelled_hitroll(ch)/4, 1 },
+		{ type::hammerstrike,        APPLY_DAMROLL, get_unspelled_damroll(ch)/4, 1 },
+		{ type::hex,                 APPLY_AC,      level * 3,       1 },
+		{ type::hide,                APPLY_NONE,    0,               1 },
+		{ type::invis,               APPLY_NONE,    0,               1 },
+//		{ type::ironskin,            APPLY_AC,      -100,            1 },
+		{ type::midnight,            APPLY_NONE,    0,               1 },
+		{ type::night_vision,        APPLY_NONE,    0,               1 },
+		{ type::paralyze,            APPLY_NONE,    0,               1 },
+		{ type::pass_door,           APPLY_NONE,    0,               1 },
+		{ type::plague,              APPLY_STR,     -level / 20 - 1, 1 },
+		{ type::poison,              APPLY_STR,     -2,              1 },
+		{ type::protection_evil,     APPLY_SAVES,   -1,              1 },
+		{ type::protection_good,     APPLY_SAVES,   -1,              1 },
+		{ type::rayban,              APPLY_NONE,    0,               1 },
+		{ type::regeneration,        APPLY_NONE,    0,               1 },
+		{ type::sanctuary,           APPLY_NONE,    0,               1 },
+		{ type::shadow_form,         APPLY_NONE,    0,               1 },
+		{ type::sheen,               APPLY_NONE,    0,               1 },
+		{ type::shield,              APPLY_AC,      -20,             1 },
+		{ type::sleep,               APPLY_NONE,    0,               1 },
+		{ type::slow,                APPLY_DEX,     0,               1 },
+		{ type::smokescreen,         APPLY_HITROLL, -4,              1 },
+		{ type::sneak,               APPLY_NONE,    0,               1 },
+		{ type::steel_mist,          APPLY_AC,      -level / 10,     1 },
+		{ type::stone_skin,          APPLY_AC,      -40,             1 },
+		{ type::talon,               APPLY_NONE,    0,               1 },
+		{ type::weaken,              APPLY_STR,     -level/5,        1 },
 	};
 
 	Affect af;
@@ -251,12 +251,12 @@ void add_type_to_char(Character *ch, Type type, sh_int level, sh_int duration, s
 	}
 
 	if (!found)
-		Logging::bug("add_type_to_char: affect with type %d not found in table", type);
+		Logging::bug("add_type_to_char: affect with type %d not found in table", (int)type);
 }
 
 void remort_affect_modify_char(Character *ch, int where, Flags bitvector, bool fAdd) {
 	Affect af;
-	af.type = none;
+	af.type = type::none;
 	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
@@ -329,7 +329,7 @@ void modify_char(Character *ch, const Affect *paf, bool fAdd) {
 	}
 
 	if (paf->where == TO_AFFECTS) {
-		if (paf->type == none) {
+		if (paf->type == type::none) {
 			Logging::bugf("modify_char (%s): bad type %d in TO_AFFECTS", ch->name, paf->type);
 			return;
 		}

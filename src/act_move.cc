@@ -97,7 +97,7 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	if (pexit->exit_flags.has(EX_CLOSED)
-	    && (!affect::exists_on_char(ch, affect::pass_door) || pexit->exit_flags.has(EX_NOPASS))
+	    && (!affect::exists_on_char(ch, affect::type::pass_door) || pexit->exit_flags.has(EX_NOPASS))
 	    &&  !IS_IMMORTAL(ch)) {
 		act("The $d is closed.", ch, nullptr, pexit->keyword, TO_CHAR);
 		return;
@@ -110,7 +110,7 @@ void move_char(Character *ch, int door, bool follow)
 	his pet "away" or "home" or otherwise out of the room.
 	-- Outsider
 
-	if (affect::exists_on_char(ch, affect::charm_person)
+	if (affect::exists_on_char(ch, affect::type::charm_person)
 	 && ch->master != nullptr
 	 && in_room == ch->master->in_room)
 	{
@@ -185,10 +185,10 @@ void move_char(Character *ch, int door, bool follow)
 	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]) / 2;
 
 	/* conditional effects */
-	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::haste))
+	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::type::haste))
 		cost /= 2;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		cost *= 2;
 
 	/* remort affect - light feet */
@@ -208,7 +208,7 @@ void move_char(Character *ch, int door, bool follow)
 
 	ch->stam -= cost;
 
-	if (affect::exists_on_char(ch, affect::sneak) || ch->invis_level
+	if (affect::exists_on_char(ch, affect::type::sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
 		act("$n leaves $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
@@ -224,7 +224,7 @@ void move_char(Character *ch, int door, bool follow)
 	else
 		Format::sprintf(dir_buf, "the %s", Exit::dir_name(door, true));
 
-	if (affect::exists_on_char(ch, affect::sneak) || ch->invis_level
+	if (affect::exists_on_char(ch, affect::type::sneak) || ch->invis_level
 	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
 		act("$n has arrived from $T.", ch, nullptr, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
@@ -245,7 +245,7 @@ void move_char(Character *ch, int door, bool follow)
 	for (fch = in_room->people; fch != nullptr; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
-		if (fch->master == ch && affect::exists_on_char(fch, affect::charm_person) && get_position(fch) < POS_STANDING) {
+		if (fch->master == ch && affect::exists_on_char(fch, affect::type::charm_person) && get_position(fch) < POS_STANDING) {
 			if (fch->start_pos == POS_FLYING && CAN_FLY(fch))
 				do_fly(fch, "");
 			else
@@ -1031,7 +1031,7 @@ void do_stand(Character *ch, String argument)
 
 	switch (get_position(ch)) {
 	case POS_SLEEPING:
-		if (affect::exists_on_char(ch, affect::sleep)) {
+		if (affect::exists_on_char(ch, affect::type::sleep)) {
 			stc("You don't seem to want to wake up!\n", ch);
 			return;
 		}
@@ -1141,7 +1141,7 @@ void do_rest(Character *ch, String argument)
 
 	switch (get_position(ch)) {
 	case POS_SLEEPING:
-		if (affect::exists_on_char(ch, affect::sleep)) {
+		if (affect::exists_on_char(ch, affect::type::sleep)) {
 			stc("You don't seem to want to wake up!\n", ch);
 			return;
 		}
@@ -1233,7 +1233,7 @@ void do_sit(Character *ch, String argument)
 {
 	Object *obj = nullptr;
 
-	if (affect::exists_on_char(ch, affect::sleep)) {
+	if (affect::exists_on_char(ch, affect::type::sleep)) {
 		stc("You don't seem to want to wake up!\n", ch);
 		return;
 	}
@@ -1469,7 +1469,7 @@ void do_wake(Character *ch, String argument)
 	if (IS_AWAKE(victim))
 	{ act("$N is as awake as you are.", ch, nullptr, victim, TO_CHAR); return; }
 
-	if (affect::exists_on_char(victim, affect::sleep))
+	if (affect::exists_on_char(victim, affect::type::sleep))
 	{ act("$E doesn't seem to WANT to wake up!",   ch, nullptr, victim, TO_CHAR);  return; }
 
 	act("$n rudely awakes you from your peaceful slumber.",
@@ -1483,7 +1483,7 @@ void do_wake(Character *ch, String argument)
 
 void do_sneak(Character *ch, String argument)
 {
-	if (affect::exists_on_char(ch, affect::sneak)) {
+	if (affect::exists_on_char(ch, affect::type::sneak)) {
 		stc("You already surpass the wind in stealth.\n", ch);
 		return;
 	}
@@ -1500,7 +1500,7 @@ void do_sneak(Character *ch, String argument)
 
 	if (number_percent() < get_skill_level(ch, skill::type::sneak)) {
 		affect::add_type_to_char(ch,
-			affect::sneak,
+			affect::type::sneak,
 			ch->level,
 			ch->level,
 			get_evolution(ch, skill::type::sneak),
@@ -1517,7 +1517,7 @@ void do_sneak(Character *ch, String argument)
 
 void do_hide(Character *ch, String argument)
 {
-	if (affect::exists_on_char(ch, affect::hide)) {
+	if (affect::exists_on_char(ch, affect::type::hide)) {
 		stc("You find an even better hiding place.\n", ch);
 		return;
 	}
@@ -1534,7 +1534,7 @@ void do_hide(Character *ch, String argument)
 
 	if (number_percent() < get_skill_level(ch, skill::type::hide)) {
 		affect::add_type_to_char(ch,
-			affect::hide,
+			affect::type::hide,
 			ch->level,
 			ch->level,
 			get_evolution(ch, skill::type::hide),
@@ -1554,10 +1554,10 @@ void do_hide(Character *ch, String argument)
  */
 void do_visible(Character *ch, String argument)
 {
-	affect::remove_type_from_char(ch, affect::invis);
-	affect::remove_type_from_char(ch, affect::sneak);
-	affect::remove_type_from_char(ch, affect::hide);
-	affect::remove_type_from_char(ch, affect::midnight);
+	affect::remove_type_from_char(ch, affect::type::invis);
+	affect::remove_type_from_char(ch, affect::type::sneak);
+	affect::remove_type_from_char(ch, affect::type::hide);
+	affect::remove_type_from_char(ch, affect::type::midnight);
 	ch->act_flags -= PLR_SUPERWIZ;
 	ch->invis_level = 0;
 	ch->lurk_level = 0;
@@ -1693,7 +1693,7 @@ void recall(Character *ch, bool clan)
 		return;
 	}
 
-	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::curse)) {
+	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::type::curse)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
@@ -2088,7 +2088,7 @@ void do_push(Character *ch, String argument)
 
 	/* exit is impassible? */
 	if (pexit->exit_flags.has(EX_CLOSED)
-	    && (!affect::exists_on_char(victim, affect::pass_door)
+	    && (!affect::exists_on_char(victim, affect::type::pass_door)
 	        || pexit->exit_flags.has(EX_NOPASS))) {
 		Format::sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword);
 		act(buf, ch, nullptr, victim, TO_CHAR);
@@ -2253,7 +2253,7 @@ void do_drag(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person)
+	if (affect::exists_on_char(ch, affect::type::charm_person)
 	    && ch->master != nullptr
 	    && victim->in_room == ch->master->in_room) {
 		stc("What?  And leave your beloved master?\n", ch);
@@ -2349,10 +2349,10 @@ void do_drag(Character *ch, String argument)
 	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]);
 
 	/* conditional effects */
-	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::haste))
+	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::type::haste))
 		cost /= 2;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		cost *= 2;
 
 	/* remort affect - light feet */
@@ -2371,7 +2371,7 @@ void do_drag(Character *ch, String argument)
 
 	/* exit is impassible? */
 	if (pexit->exit_flags.has(EX_CLOSED)) {
-		if (!affect::exists_on_char(ch, affect::pass_door)
+		if (!affect::exists_on_char(ch, affect::type::pass_door)
 		    || pexit->exit_flags.has(EX_NOPASS)) {
 			ptc(ch, "You back into the %s.\n", pexit->keyword);
 			Format::sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword);
@@ -2385,7 +2385,7 @@ void do_drag(Character *ch, String argument)
 			return;
 		}
 
-		if (!affect::exists_on_char(victim, affect::pass_door)
+		if (!affect::exists_on_char(victim, affect::type::pass_door)
 		    || pexit->exit_flags.has(EX_NOPASS)) {
 			ptc(ch, "You try to drag them through the %s, but they are too solid.\n", pexit->keyword);
 			Format::sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword);
@@ -2446,9 +2446,9 @@ void do_drag(Character *ch, String argument)
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
 
 			if (!IS_AWAKE(victim)) {
-				if (affect::exists_on_char(victim, affect::sleep)) {
+				if (affect::exists_on_char(victim, affect::type::sleep)) {
 					if (chance(40)) {
-						affect::remove_type_from_char(victim, affect::sleep);
+						affect::remove_type_from_char(victim, affect::type::sleep);
 						victim->position = POS_STANDING;
 					}
 				}
@@ -2552,7 +2552,7 @@ void do_drag(Character *ch, String argument)
 					act("$n crash lands HARD on the ground.", victim, nullptr, nullptr, TO_ROOM);
 				}
 
-				affect::remove_type_from_char(victim, affect::sleep); // removes a sleep spell
+				affect::remove_type_from_char(victim, affect::type::sleep); // removes a sleep spell
 				victim->position = POS_STANDING;
 			}
 		}
@@ -2793,7 +2793,7 @@ void do_warp(Character *ch, String argument)
 		return;
 	}
 
-	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::curse)) {
+	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::type::curse)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
@@ -2882,7 +2882,7 @@ void do_enter(Character *ch, String argument)
 				return;
 			}
 
-			if (affect::exists_on_char(ch, affect::curse)
+			if (affect::exists_on_char(ch, affect::type::curse)
 			    && (portal->value[2].flags().has(GATE_NOCURSE) || CAN_WEAR(portal, ITEM_TAKE))) {
 				stc("You step through and are spat violently back out.  Hmmm..\n", ch);
 				return;
@@ -3016,7 +3016,7 @@ void do_enter(Character *ch, String argument)
 			if (portal == nullptr || portal->value[0] == -1)
 				continue;
 
-			if (fch->master == ch && affect::exists_on_char(fch, affect::charm_person) && get_position(fch) < POS_STANDING) {
+			if (fch->master == ch && affect::exists_on_char(fch, affect::type::charm_person) && get_position(fch) < POS_STANDING) {
 				if (fch->start_pos == POS_FLYING && CAN_FLY(fch))
 					do_fly(fch, "");
 				else

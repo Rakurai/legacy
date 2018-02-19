@@ -16,6 +16,6 @@ void          affect_dedup_in_list        args(( Affect **list_head, Affect *paf
 void          affect_clear_list           args(( Affect **list_head ));
 void          affect_swap                 args(( Affect *a, Affect *b ));
 void          affect_update               args(( Affect *paf, const Affect *aff_template ));
-Affect * affect_find_in_list         args(( Affect *list_head, Type type ));
+Affect * affect_find_in_list         args(( Affect *list_head, ::affect::type type ));
 
 } // namespace affect

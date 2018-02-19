@@ -83,7 +83,7 @@ Character::~Character() {
 void Character::update() {
 	Character *ch = this;
 
-	if (!IS_NPC(ch) || ch->in_room == nullptr || affect::exists_on_char(ch, affect::charm_person))
+	if (!IS_NPC(ch) || ch->in_room == nullptr || affect::exists_on_char(ch, affect::type::charm_person))
 		return;
 
 	if (get_position(ch) <= POS_SITTING)

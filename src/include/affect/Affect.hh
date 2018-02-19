@@ -24,7 +24,7 @@ public:
 
     // fields included in checksum
     sh_int              where = 0;
-    Type                type = none;
+    type                type = type::none;
     sh_int              level = 0;
     sh_int              duration = 0;
     sh_int              location = 0;
@@ -61,9 +61,9 @@ struct table_entry
     String        msg_obj;                /* Wear off message for obects  */
 };
 
-extern  const   std::map<Type, const table_entry>     affect_table;
-const table_entry& lookup(Type type);
-const Type lookup(const String& name);
+extern  const   std::map<::affect::type, const table_entry>     affect_table;
+const table_entry& lookup(::affect::type type);
+const ::affect::type lookup(const String& name);
 
 // function pointer definitions for callback functions, for safe list iteration
 
@@ -79,7 +79,7 @@ typedef struct fn_params {
 
 // handy little container to pass an affect enum value as a data parameter by pointer
 struct fn_data_container_type {
-    Type type;
+    ::affect::type type;
 };
 
 // comparators return negative if lhs < rhs (i.e. return lhs.field - rhs.field)
@@ -101,8 +101,8 @@ void          swap                 args(( Affect *a, Affect *b ));
 unsigned long checksum             args(( const Affect *paf ));
 bool          parse_flags          args(( char letter, Affect *paf, Flags& bitvector ));
 String        print_cache          args(( Character *ch ));
-bool          in_cache             args(( const Character *ch, Type type ));
-void          update_cache         args(( Character *ch, Type type, bool fAdd ));
+bool          in_cache             args(( const Character *ch, ::affect::type type ));
+void          update_cache         args(( Character *ch, ::affect::type type, bool fAdd ));
 void          free_cache           args(( Character *ch ));
 
 // outward facing interface, all calls to obj/char/room affects should be through
@@ -117,12 +117,12 @@ bool                enchanted_obj             args(( Object *obj ));
 const Affect * list_obj                       args(( Object *obj ));
 const Affect * list_char                      args(( Character *ch ));
 const Affect * list_room                      args(( RoomPrototype *room ));
-bool                exists_on_obj             args(( Object *obj, Type type ));
-bool                exists_on_char            args(( const Character *ch, Type type ));
-bool                exists_on_room            args(( RoomPrototype *room, Type type ));
-const Affect * find_on_obj                    args(( Object *obj, Type type ));
-const Affect * find_on_char                   args(( Character *ch, Type type ));
-const Affect * find_on_room                   args(( RoomPrototype *room, Type type ));
+bool                exists_on_obj             args(( Object *obj, ::affect::type type ));
+bool                exists_on_char            args(( const Character *ch, ::affect::type type ));
+bool                exists_on_room            args(( RoomPrototype *room, ::affect::type type ));
+const Affect * find_on_obj                    args(( Object *obj, ::affect::type type ));
+const Affect * find_on_char                   args(( Character *ch, ::affect::type type ));
+const Affect * find_on_room                   args(( RoomPrototype *room, ::affect::type type ));
 
 // adding
 void                copy_to_obj               args(( Object *obj, const Affect *paf ));
@@ -131,9 +131,9 @@ void                copy_to_room              args(( RoomPrototype *room, const 
 void                join_to_obj               args(( Object *obj, Affect *paf ));
 void                join_to_char              args(( Character *ch, Affect *paf ));
 void                join_to_room              args(( RoomPrototype *room, Affect *paf ));
-void                add_perm_to_char          args(( Character *ch, Type type ));
+void                add_perm_to_char          args(( Character *ch, ::affect::type type ));
 void                copy_flags_to_char        args(( Character *ch, char letter, Flags flags, bool permanent ));
-void                add_type_to_char          args(( Character *ch, Type type, sh_int level, sh_int duration, sh_int evolution, bool permanent ));
+void                add_type_to_char          args(( Character *ch, ::affect::type type, sh_int level, sh_int duration, sh_int evolution, bool permanent ));
 void                add_racial_to_char        args(( Character *ch ));
 
 // removing
@@ -146,9 +146,9 @@ void                remove_matching_from_room args(( RoomPrototype *room, compar
 void                remove_marked_from_obj    args(( Object *obj ));
 void                remove_marked_from_char   args(( Character *ch ));
 void                remove_marked_from_room   args(( RoomPrototype *room ));
-void	            remove_type_from_obj      args(( Object *obj, Type type ));
-void	            remove_type_from_char     args(( Character *ch, Type type ));
-void	            remove_type_from_room     args(( RoomPrototype *room, Type type ));
+void	            remove_type_from_obj      args(( Object *obj, ::affect::type type ));
+void	            remove_type_from_char     args(( Character *ch, ::affect::type type ));
+void	            remove_type_from_room     args(( RoomPrototype *room, ::affect::type type ));
 void                remove_all_from_obj       args(( Object *obj, bool permanent ));
 void                remove_all_from_char      args(( Character *ch, bool permanent ));
 void                remove_all_from_room      args(( RoomPrototype *room, bool permanent ));

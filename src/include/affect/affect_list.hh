@@ -12,7 +12,7 @@ void                remove_from_list           args(( Affect **list_head, Affect
 void                copy_to_list               args(( Affect **list_head, const Affect *paf ));
 void                dedup_in_list              args(( Affect **list_head, Affect *paf, fn_params *params ));
 void                clear_list                 args(( Affect **list_head ));
-const Affect *      find_in_list               args(( Affect **list_head, Type type ));
+const Affect *      find_in_list               args(( Affect **list_head, ::affect::type type ));
 void                remove_matching_from_list  args(( Affect **list_head, comparator comp, const Affect *pattern, affect_fn_params *params ));
 void                iterate_over_list          args(( Affect **list_head, affect_fn fn, fn_params *params ));
 unsigned long       checksum_list              args(( Affect **list_head ));

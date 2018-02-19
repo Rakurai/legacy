@@ -129,15 +129,15 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		buf += "{W(Invis) ";
 
-	if (affect::exists_on_char(ch, affect::detect_evil)
+	if (affect::exists_on_char(ch, affect::type::detect_evil)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
 		buf += "{R(Red Aura) ";
 
-	if (affect::exists_on_char(ch, affect::detect_good)
+	if (affect::exists_on_char(ch, affect::type::detect_good)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
 		buf += "{B(Blue Aura) ";
 
-	if (affect::exists_on_char(ch, affect::detect_magic)
+	if (affect::exists_on_char(ch, affect::type::detect_magic)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		buf += "{G(Magical) ";
 
@@ -149,16 +149,16 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	/* flags for temp weapon affects -- Elrac */
 	if (obj->item_type == ITEM_WEAPON) {
-		if (affect::exists_on_obj(obj, affect::weapon_acidic))    buf += "{G(Ac) ";
-		if (affect::exists_on_obj(obj, affect::weapon_flaming))   buf += "{Y(Fl) ";
-		if (affect::exists_on_obj(obj, affect::weapon_frost))     buf += "{C(Fr) ";
-		if (affect::exists_on_obj(obj, affect::weapon_vampiric))  buf += "{P(Bl) ";
-		if (affect::exists_on_obj(obj, affect::weapon_shocking))  buf += "{V(Sh) ";
-		if (affect::exists_on_obj(obj, affect::poison))           buf += "{H(Po) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_acidic))    buf += "{G(Ac) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_flaming))   buf += "{Y(Fl) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_frost))     buf += "{C(Fr) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_vampiric))  buf += "{P(Bl) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_shocking))  buf += "{V(Sh) ";
+		if (affect::exists_on_obj(obj, affect::type::poison))           buf += "{H(Po) ";
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
-	if (affect::exists_on_obj(obj, affect::dazzling_light))
+	if (affect::exists_on_obj(obj, affect::type::dazzling_light))
 		buf += "{W{f(Dazzling){x ";
 
 	if (obj->condition <= 9 && obj->condition >= 0)         buf += "{b(Ruined) ";
@@ -197,7 +197,7 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 {
 	String buf;
 
-	if (paf->type > affect::none)
+	if (paf->type > affect::type::none)
 		buf = Format::format("Effect '%s'", affect::lookup(paf->type).name);
 
 	if (paf->location != 0 && paf->modifier != 0) {
@@ -450,13 +450,13 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	if (victim->comm_flags.has(COMM_AFK))
 		buf += "{b[AFK] ";
 
-	if (affect::exists_on_char(victim, affect::invis))
+	if (affect::exists_on_char(victim, affect::type::invis))
 		buf += "{C(Invis) ";
 
-	if (affect::exists_on_char(victim, affect::midnight))
+	if (affect::exists_on_char(victim, affect::type::midnight))
 		buf += "{c(Shadowy) ";
 
-	if (affect::exists_on_char(victim, affect::hex))
+	if (affect::exists_on_char(victim, affect::type::hex))
 		buf += "{c(Dark Aura) ";
 
 	if (victim->invis_level)
@@ -471,21 +471,21 @@ void show_char_to_char_0(Character *victim, Character *ch)
 		buf += string;
 	}
 
-	if (affect::exists_on_char(victim, affect::hide)) buf += "{B(Hide) ";
+	if (affect::exists_on_char(victim, affect::type::hide)) buf += "{B(Hide) ";
 
-	if (affect::exists_on_char(victim, affect::charm_person)) buf += "{M(Charmed) ";
+	if (affect::exists_on_char(victim, affect::type::charm_person)) buf += "{M(Charmed) ";
 
-	if (affect::exists_on_char(victim, affect::pass_door)) buf += "{c(Translucent) ";
+	if (affect::exists_on_char(victim, affect::type::pass_door)) buf += "{c(Translucent) ";
 
-	if (affect::exists_on_char(victim, affect::faerie_fire)) buf += "{P(Pink Aura) ";
+	if (affect::exists_on_char(victim, affect::type::faerie_fire)) buf += "{P(Pink Aura) ";
 
-	if (affect::exists_on_char(victim, affect::flameshield)) buf += "{b(Flaming Aura) ";
+	if (affect::exists_on_char(victim, affect::type::flameshield)) buf += "{b(Flaming Aura) ";
 
-	if (IS_EVIL(victim) && affect::exists_on_char(ch, affect::detect_evil)) buf += "{R(Red Aura) ";
+	if (IS_EVIL(victim) && affect::exists_on_char(ch, affect::type::detect_evil)) buf += "{R(Red Aura) ";
 
-	if (IS_GOOD(victim) && affect::exists_on_char(ch, affect::detect_good)) buf += "{Y(Golden Aura) ";
+	if (IS_GOOD(victim) && affect::exists_on_char(ch, affect::type::detect_good)) buf += "{Y(Golden Aura) ";
 
-	if (affect::exists_on_char(victim, affect::sanctuary)) buf += "{W(White Aura) ";
+	if (affect::exists_on_char(victim, affect::type::sanctuary)) buf += "{W(White Aura) ";
 
 	if (!IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)) buf += "{R(KILLER) ";
 
@@ -793,7 +793,7 @@ void show_char_to_char(Character *list, Character *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && affect::exists_on_char(rch, affect::night_vision))
+		         && affect::exists_on_char(rch, affect::type::night_vision))
 			stc("You see glowing eyes watching YOU!\n", ch);
 	}
 }
@@ -2188,7 +2188,7 @@ void do_exits(Character *ch, String argument)
 			else {
 				buf += Format::format("%-5s - %s",
 				        Exit::dir_name(door).capitalize(),
-				        (room_is_dark(pexit->u1.to_room) && !affect::exists_on_char(ch, affect::night_vision)) || room_is_very_dark(pexit->u1.to_room)
+				        (room_is_dark(pexit->u1.to_room) && !affect::exists_on_char(ch, affect::type::night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
 				        : pexit->u1.to_room->name
 				       );
@@ -3006,7 +3006,7 @@ void do_where(Character *ch, String argument)
 		for (victim = char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
 			    && victim->in_room->area == ch->in_room->area
-			    && !affect::exists_on_char(victim, affect::hide)
+			    && !affect::exists_on_char(victim, affect::type::hide)
 			    && can_see_char(ch, victim)
 			    && victim->name.has_words(arg)) {
 				found = TRUE;

@@ -487,7 +487,7 @@ int	get_carry_weight	args((Character *ch));
 int	get_position		args((Character *ch));
 int	get_play_hours		args((Character *ch));
 int	get_play_seconds	args((Character *ch));
-int	get_affect_evolution	args((Character *ch, affect::Type type));
+int	get_affect_evolution	args((Character *ch, affect::type type));
 int	interpolate		args((int level, int value_00, int value_32));
 ExtraDescr *get_extra_descr		args((const String& name, ExtraDescr *ed));
 

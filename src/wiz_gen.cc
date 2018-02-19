@@ -3216,14 +3216,14 @@ void do_qpconv(Character *ch, String argument)
 
 void restore_char(Character *ch, Character *victim)
 {
-	affect::remove_type_from_char(victim, affect::plague);
-	affect::remove_type_from_char(victim, affect::poison);
-	affect::remove_type_from_char(victim, affect::blindness);
-	affect::remove_type_from_char(victim, affect::dirt_kicking);
-	affect::remove_type_from_char(victim, affect::fire_breath);
-	affect::remove_type_from_char(victim, affect::sleep);
-	affect::remove_type_from_char(victim, affect::curse);
-	affect::remove_type_from_char(victim, affect::fear);
+	affect::remove_type_from_char(victim, affect::type::plague);
+	affect::remove_type_from_char(victim, affect::type::poison);
+	affect::remove_type_from_char(victim, affect::type::blindness);
+	affect::remove_type_from_char(victim, affect::type::dirt_kicking);
+	affect::remove_type_from_char(victim, affect::type::fire_breath);
+	affect::remove_type_from_char(victim, affect::type::sleep);
+	affect::remove_type_from_char(victim, affect::type::curse);
+	affect::remove_type_from_char(victim, affect::type::fear);
 	victim->hit     = GET_MAX_HIT(victim);
 	victim->mana    = GET_MAX_MANA(victim);
 	victim->stam    = GET_MAX_STAM(victim);

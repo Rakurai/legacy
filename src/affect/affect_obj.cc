@@ -21,11 +21,11 @@ const Affect *list_obj(Object *obj) {
 	return obj->affected;
 }
 
-bool exists_on_obj(Object *obj, Type type) {
+bool exists_on_obj(Object *obj, ::affect::type type) {
 	return find_on_obj(obj, type) ? TRUE : FALSE;
 }
 
-const Affect *find_on_obj(Object *obj, Type type) {
+const Affect *find_on_obj(Object *obj, ::affect::type type) {
 	return find_in_list(&obj->affected, type);
 }
 
@@ -74,7 +74,7 @@ void remove_marked_from_obj(Object *obj) {
 	remove_matching_from_obj(obj, comparator_mark, &pattern);
 }
 
-void remove_type_from_obj(Object *obj, Type type) {
+void remove_type_from_obj(Object *obj, ::affect::type type) {
 	Affect pattern;
 	pattern.type = type;
 
@@ -108,7 +108,7 @@ void sort_obj(Object *obj, comparator comp) {
 // utility
 
 // test if an object has an affect
-bool obj_has_affect(Object *obj, Type type) {
+bool obj_has_affect(Object *obj, ::affect::type type) {
 	return find_in_list(&obj->affected, type) ? TRUE : FALSE;
 }
 

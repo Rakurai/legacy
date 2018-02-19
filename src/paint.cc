@@ -152,7 +152,7 @@ void do_splat(Character *ch, String argument)
 		if ((victim->in_room->sector_type != SECT_ARENA) &&
 		    (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL)) &&
 		    !char_in_duel_room(victim) &&
-		    (!affect::exists_on_char(victim, affect::curse))) {
+		    (!affect::exists_on_char(victim, affect::type::curse))) {
 			char_from_room(victim);
 			char_to_room(victim, location);
 

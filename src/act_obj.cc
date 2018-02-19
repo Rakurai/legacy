@@ -260,13 +260,13 @@ void do_second(Character *ch, String argument)
 	}
 
 	if (!IS_IMMORTAL(ch)) {
-		if (affect::exists_on_obj(obj, affect::weapon_two_hands) && ch->size < SIZE_HUGE) {
+		if (affect::exists_on_obj(obj, affect::type::weapon_two_hands) && ch->size < SIZE_HUGE) {
 			stc("You can not dual-wield a two handed weapon.\n", ch);
 			return;
 		}
 
 		if (get_eq_char(ch, WEAR_WIELD) != nullptr
-		    && affect::exists_on_obj(get_eq_char(ch, WEAR_WIELD), affect::weapon_two_hands)
+		    && affect::exists_on_obj(get_eq_char(ch, WEAR_WIELD), affect::type::weapon_two_hands)
 		    && ch->size < SIZE_LARGE) {
 			stc("Your primary weapon is taking both of your hands.\n", ch);
 			return;
@@ -1639,7 +1639,7 @@ void do_envenom(Character *ch, String argument)
 			return;
 		}
 
-		if (affect::exists_on_obj(obj, affect::poison)) {
+		if (affect::exists_on_obj(obj, affect::type::poison)) {
 			act("$p is already envenomed.", ch, obj, nullptr, TO_CHAR);
 			return;
 		}
@@ -1649,7 +1649,7 @@ void do_envenom(Character *ch, String argument)
 		if (percent < skill) {
 			affect::Affect af;
 			af.where     = TO_WEAPON;
-			af.type      = affect::poison;
+			af.type      = affect::type::poison;
 			af.level     = ch->level;
 			af.duration  = ch->level * 5;
 			af.location  = 0;
@@ -2022,7 +2022,7 @@ void do_drink(Character *ch, String argument)
 		stc("You turn six shades of green and collapse.\n", ch);
 
 		affect::add_type_to_char(ch,
-			affect::poison,
+			affect::type::poison,
 			number_fuzzy(amount),
 			amount * 3,
 			1,
@@ -2148,7 +2148,7 @@ void do_eat(Character *ch, String argument)
 			if (op->value[3] != 0) {
 				/* The food was poisoned! */
 				affect::add_type_to_char(ch,
-					affect::poison,
+					affect::type::poison,
 					number_fuzzy(op->level),
 					op->level,
 					1,
@@ -2470,7 +2470,7 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		weapon = get_eq_char(ch, WEAR_WIELD);
 
 		if (weapon != nullptr && ch->size < SIZE_LARGE
-		    && affect::exists_on_obj(weapon, affect::weapon_two_hands)) {
+		    && affect::exists_on_obj(weapon, affect::type::weapon_two_hands)) {
 			stc("You need another hand free to do that.\n", ch);
 			return;
 		}
@@ -2496,13 +2496,13 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		}
 
 		if (!IS_NPC(ch) && ch->size < SIZE_LARGE
-		    &&  affect::exists_on_obj(obj, affect::weapon_two_hands)
+		    &&  affect::exists_on_obj(obj, affect::type::weapon_two_hands)
 		    &&  get_eq_char(ch, WEAR_SHIELD) != nullptr) {
 			stc("You need two hands free for that weapon.\n", ch);
 			return;
 		}
 
-		if (!IS_NPC(ch) && affect::exists_on_obj(obj, affect::weapon_two_hands) &&
+		if (!IS_NPC(ch) && affect::exists_on_obj(obj, affect::type::weapon_two_hands) &&
 		    get_eq_char(ch, WEAR_SECONDARY) != nullptr) {
 			stc("You can not use a two handed weapon when dual-wielding.\n", ch);
 			return;
@@ -3846,7 +3846,7 @@ int get_cost(Character *keeper, Object *obj, bool fBuy)
 
 void make_pet(Character *ch, Character *pet) {
 	pet->act_flags += ACT_PET;
-	affect::add_perm_to_char(pet, affect::charm_person);
+	affect::add_perm_to_char(pet, affect::type::charm_person);
 	pet->comm_flags = COMM_NOCHANNELS;
 	add_follower(pet, ch);
 	pet->leader = ch;
@@ -4549,13 +4549,13 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 		return;
 	}
 
-	affect::Type type = weapon_affects[table_num].type;
+	affect::type type = weapon_affects[table_num].type;
 
 	/* have to be evo 2 to forge vorpal, otherwise, can forge everything but sharp and poison */
-	if (type == affect::poison
-	 || type == affect::weapon_sharp
-	 || type == affect::weapon_acidic
-	 || (type == affect::weapon_vorpal && evo < 2)) {
+	if (type == affect::type::poison
+	 || type == affect::type::weapon_sharp
+	 || type == affect::type::weapon_acidic
+	 || (type == affect::type::weapon_vorpal && evo < 2)) {
 		stc("You cannot forge that flag.\n", ch);
 		return;
 	}
@@ -4564,15 +4564,15 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 	/* you can always forge vorpal or two handed, no matter how many flags it has,
 	   so those are taken care of above.  now we only care about preventing them
 	   from forging too many magic flags */
-	if (affect::exists_on_obj(weapon, affect::weapon_acidic))   flag_count++;
-	if (affect::exists_on_obj(weapon, affect::weapon_flaming))  flag_count++;
-	if (affect::exists_on_obj(weapon, affect::weapon_frost))    flag_count++;
-	if (affect::exists_on_obj(weapon, affect::weapon_vampiric)) flag_count++;
-	if (affect::exists_on_obj(weapon, affect::weapon_shocking)) flag_count++;
+	if (affect::exists_on_obj(weapon, affect::type::weapon_acidic))   flag_count++;
+	if (affect::exists_on_obj(weapon, affect::type::weapon_flaming))  flag_count++;
+	if (affect::exists_on_obj(weapon, affect::type::weapon_frost))    flag_count++;
+	if (affect::exists_on_obj(weapon, affect::type::weapon_vampiric)) flag_count++;
+	if (affect::exists_on_obj(weapon, affect::type::weapon_shocking)) flag_count++;
 
 	if ((flag_count >= 2 || (flag_count >= 1 && evo < 3))
-	    && type != affect::weapon_two_hands
-	    && type != affect::weapon_vorpal) {
+	    && type != affect::type::weapon_two_hands
+	    && type != affect::type::weapon_vorpal) {
 		stc("You cannot forge any more magical flags on that weapon.\n", ch);
 		return;
 	}
@@ -4580,37 +4580,37 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 	/* now we check to see if it already has the weapon flag they are trying to forge
 	 * to prevent duplicate weapon flags being forged on the same weapon.
 	 */
-	if (type == affect::weapon_two_hands && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_two_hands && affect::exists_on_obj(weapon, type)) {
 		act("$p is already a two-handed weapon.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (type == affect::weapon_acidic && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_acidic && affect::exists_on_obj(weapon, type)) {
 		act("$p is already dripping with acid.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (type == affect::weapon_flaming && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_flaming && affect::exists_on_obj(weapon, type)) {
 		act("$p is already a flaming weapon.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (type == affect::weapon_frost && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_frost && affect::exists_on_obj(weapon, type)) {
 		act("$p's is already coated with ice.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (type == affect::weapon_vampiric && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_vampiric && affect::exists_on_obj(weapon, type)) {
 		act("$p already drinks the blood of its victim.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (type == affect::weapon_shocking && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_shocking && affect::exists_on_obj(weapon, type)) {
 		act("$p is already imbued with lightning.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (type == affect::weapon_vorpal && affect::exists_on_obj(weapon, type)) {
+	if (type == affect::type::weapon_vorpal && affect::exists_on_obj(weapon, type)) {
 		act("$p is already sharp enough to sever limbs.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
@@ -4659,7 +4659,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 		af.evolution    = evo;
 		affect::copy_to_obj(weapon, &af);
 
-		if (type == affect::weapon_two_hands) {
+		if (type == affect::type::weapon_two_hands) {
 			++weapon->value[1];
 			remove_obj(ch, WEAR_WIELD, TRUE);
 		}
@@ -4698,7 +4698,7 @@ void do_hone(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_obj(weapon, affect::weapon_sharp)) {
+	if (affect::exists_on_obj(weapon, affect::type::weapon_sharp)) {
 		act("$p could not possibly be any sharper.", ch, weapon, nullptr, TO_CHAR);
 		return;
 	}
@@ -4734,7 +4734,7 @@ void do_hone(Character *ch, String argument)
 
 	affect::Affect af;
 	af.where     = TO_WEAPON;
-	af.type      = affect::weapon_sharp;
+	af.type      = affect::type::weapon_sharp;
 	af.level     = ch->level;
 	af.duration  = ch->level * 5;
 	af.location  = 0;

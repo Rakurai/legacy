@@ -792,7 +792,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 		act(iterator->vict_found,    ch, nullptr, victim, TO_VICT);
 
 		if (!IS_NPC(ch) && IS_NPC(victim)
-		    &&   !affect::exists_on_char(victim, affect::charm_person)
+		    &&   !affect::exists_on_char(victim, affect::type::charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == nullptr
 		    && (!victim->pIndexData->progtype_flags.has(ACT_PROG))) {

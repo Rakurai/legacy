@@ -76,7 +76,7 @@ bool is_friend(Character *ch, Character *victim)
 			return FALSE;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person))
+	if (affect::exists_on_char(ch, affect::type::charm_person))
 		return FALSE;
 
 	if (ch->off_flags.has(ASSIST_ALL))
@@ -334,7 +334,7 @@ void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
 	    &&   obj->value[2] != 0)
 		++ch->in_room->light;
 
-	const affect::Affect *plague = affect::find_on_char(ch, affect::plague);
+	const affect::Affect *plague = affect::find_on_char(ch, affect::type::plague);
 	if (plague)
 		spread_plague(ch->in_room, plague, 6);
 }
@@ -1391,11 +1391,11 @@ bool is_blinded(const Character *ch) {
 	if (IS_IMMORTAL(ch))
 		return FALSE;
 
-	if (affect::exists_on_char(ch, affect::blindness)
-	 || affect::exists_on_char(ch, affect::dirt_kicking)
-	 || affect::exists_on_char(ch, affect::fire_breath)
-	 || affect::exists_on_char(ch, affect::smokescreen)
-	 || affect::exists_on_char(ch, affect::dazzle))
+	if (affect::exists_on_char(ch, affect::type::blindness)
+	 || affect::exists_on_char(ch, affect::type::dirt_kicking)
+	 || affect::exists_on_char(ch, affect::type::fire_breath)
+	 || affect::exists_on_char(ch, affect::type::smokescreen)
+	 || affect::exists_on_char(ch, affect::type::dazzle))
 		return TRUE;
 
 	return FALSE;
@@ -1421,7 +1421,7 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (IS_NPC(victim) && victim->act_flags.has(ACT_SUPERMOB))
 		return FALSE;
 
-	if (affect::exists_on_char(victim, affect::midnight))
+	if (affect::exists_on_char(victim, affect::type::midnight))
 		return FALSE;
 
 	if (!IS_IMMORTAL(ch) && victim->lurk_level && ch->in_room != victim->in_room)
@@ -1433,17 +1433,17 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (is_blinded(ch))
 		return FALSE;
 
-	if ((room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::night_vision))
+	if ((room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
 	 || room_is_very_dark(ch->in_room))
 		return FALSE;
 
-	if (affect::exists_on_char(victim, affect::invis)
-	    &&   !affect::exists_on_char(ch, affect::detect_invis))
+	if (affect::exists_on_char(victim, affect::type::invis)
+	    &&   !affect::exists_on_char(ch, affect::type::detect_invis))
 		return FALSE;
 
 	/* sneaking */
-	if (affect::exists_on_char(victim, affect::sneak)
-	    &&   !affect::exists_on_char(ch, affect::detect_hidden)
+	if (affect::exists_on_char(victim, affect::type::sneak)
+	    &&   !affect::exists_on_char(ch, affect::type::detect_hidden)
 	    &&   victim->fighting == nullptr) {
 		int chance;
 		chance = get_skill_level(victim, skill::type::sneak);
@@ -1455,8 +1455,8 @@ bool can_see_char(const Character *ch, const Character *victim)
 			return FALSE;
 	}
 
-	if (affect::exists_on_char(victim, affect::hide)
-	    &&   !affect::exists_on_char(ch, affect::detect_hidden)
+	if (affect::exists_on_char(victim, affect::type::hide)
+	    &&   !affect::exists_on_char(ch, affect::type::detect_hidden)
 	    &&   victim->fighting == nullptr)
 		return FALSE;
 
@@ -1500,7 +1500,7 @@ bool can_see_in_room(Character *ch, RoomPrototype *room)
 	if (is_blinded(ch))
 		return FALSE;
 
-	if (room_is_dark(room) && !affect::exists_on_char(ch, affect::night_vision))
+	if (room_is_dark(room) && !affect::exists_on_char(ch, affect::type::night_vision))
 		return FALSE;
 
 	return TRUE;
@@ -1536,7 +1536,7 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	}
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS)
-	    && !affect::exists_on_char(ch, affect::detect_invis))
+	    && !affect::exists_on_char(ch, affect::type::detect_invis))
 		return FALSE;
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
@@ -1545,7 +1545,7 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::night_vision))
+	if (room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
 		return FALSE;
 
 	return TRUE;
@@ -1705,7 +1705,7 @@ int get_play_seconds(Character *ch)
 
 // TODO: this doesn't take eq affects into account, but short of looping through those...
 /* used with affect::exists_on_char, checks to see if the Affect.hppas an evolution rating, returns 1 if not */
-int get_affect_evolution(Character *ch, affect::Type type)
+int get_affect_evolution(Character *ch, affect::type type)
 {
 	int evo = 1;
 

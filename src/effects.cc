@@ -76,7 +76,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect::exists_on_char(owner, affect::sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -261,7 +261,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 			act("A chill sinks deep into your bones.", victim, nullptr, nullptr, TO_CHAR);
 
 			affect::add_type_to_char(victim,
-				affect::chill_touch,
+				affect::type::chill_touch,
 				level,
 				6,
 				URANGE(1, evolution - 1, 4),
@@ -292,7 +292,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect::exists_on_char(owner, affect::sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -436,7 +436,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			    victim, nullptr, nullptr, TO_CHAR);
 
 			affect::add_type_to_char(victim,
-				affect::fire_breath,
+				affect::type::fire_breath,
 				level,
 				number_range(0, 2),
 				URANGE(1, evolution - 1, 4),
@@ -467,7 +467,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect::exists_on_char(owner, affect::sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -631,7 +631,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 			act("$n looks very ill.", victim, nullptr, nullptr, TO_ROOM);
 
 			affect::add_type_to_char(victim,
-				affect::poison,
+				affect::type::poison,
 				level,
 				level / 2,
 				URANGE(1, evolution - 1, 4),
@@ -736,7 +736,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect::exists_on_char(owner, affect::sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)

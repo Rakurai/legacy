@@ -980,15 +980,15 @@ const std::vector<flag_type> revoke_flags = {
 };
 
 const std::vector<affect_table_type> weapon_affects = {
-	{   "acidic",              affect::weapon_acidic,   TRUE    },
-	{   "flaming",             affect::weapon_flaming,  TRUE    },
-	{   "frost",               affect::weapon_frost,    TRUE    },
-	{   "vampiric",            affect::weapon_vampiric, TRUE    },
-	{   "sharp",               affect::weapon_sharp,    TRUE    },
-	{   "vorpal",              affect::weapon_vorpal,   TRUE    },
-	{   "twohanded",           affect::weapon_two_hands,TRUE    },
-	{   "shocking",            affect::weapon_shocking, TRUE    },
-	{   "poison",              affect::poison,   TRUE    },
+	{   "acidic",              affect::type::weapon_acidic,   TRUE    },
+	{   "flaming",             affect::type::weapon_flaming,  TRUE    },
+	{   "frost",               affect::type::weapon_frost,    TRUE    },
+	{   "vampiric",            affect::type::weapon_vampiric, TRUE    },
+	{   "sharp",               affect::type::weapon_sharp,    TRUE    },
+	{   "vorpal",              affect::type::weapon_vorpal,   TRUE    },
+	{   "twohanded",           affect::type::weapon_two_hands,TRUE    },
+	{   "shocking",            affect::type::weapon_shocking, TRUE    },
+	{   "poison",              affect::type::poison,   TRUE    },
 };
 
 const std::vector<color_type> color_table = {

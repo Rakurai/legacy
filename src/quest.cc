@@ -905,7 +905,7 @@ void generate_quest(Character *ch, Character *questman)
 			    || victim->act_flags.has(ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
-			    || affect::exists_on_char(victim, affect::charm_person)
+			    || affect::exists_on_char(victim, affect::type::charm_person)
 			    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
 			    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
@@ -1569,7 +1569,7 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (affect::exists_on_char(ch, affect::curse)) {
+		if (affect::exists_on_char(ch, affect::type::curse)) {
 			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}

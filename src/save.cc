@@ -414,7 +414,7 @@ cJSON *fwrite_char(Character *ch)
 
 	item = nullptr;
 	for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
-		if (paf->type <= affect::unknown || paf->type >= affect::size)
+		if (paf->type <= affect::type::unknown || paf->type >= affect::type::size)
 			continue;
 
 		// don't write permanent affects, rebuild them from race and raffects on load
@@ -577,7 +577,7 @@ cJSON *fwrite_obj(Object *obj)
 		item = cJSON_CreateArray();
 
 		for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
-			if (paf->type <= affect::unknown || paf->type >= affect::size)
+			if (paf->type <= affect::type::unknown || paf->type >= affect::type::size)
 				continue;
 
 			cJSON *aff = cJSON_CreateObject();
@@ -853,7 +853,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 		percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 		percent = UMIN(percent, 100);
 
-		if (percent > 0 && !affect::exists_on_char(ch, affect::poison) && !affect::exists_on_char(ch, affect::plague)) {
+		if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison) && !affect::exists_on_char(ch, affect::type::plague)) {
 			ch->hit         += (GET_MAX_HIT(ch) - ch->hit) * percent / 100;
 			ch->mana        += (GET_MAX_MANA(ch) - ch->mana) * percent / 100;
 			ch->stam        += (GET_MAX_STAM(ch) - ch->stam) * percent / 100;
@@ -1186,9 +1186,9 @@ void fread_char(Character *ch, cJSON *json, int version)
 					// these are the non-permanent affects (not racial or remort affect),
 					// those are added after the character is loaded
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						affect::Type type = affect::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+						affect::type type = affect::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-						if (type == affect::unknown) {
+						if (type == affect::type::unknown) {
 							Logging::bugf("Fread_char: unknown affect '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
 							continue;
 						}
@@ -1356,15 +1356,15 @@ Object * fread_obj(cJSON *json, int version) {
 	// area file on the prototype
 	if (version < 20
 	 && obj->item_type == ITEM_WEAPON) {
-	 	affect::remove_type_from_obj(obj, affect::weapon_flaming);
-	 	affect::remove_type_from_obj(obj, affect::weapon_frost);
-	 	affect::remove_type_from_obj(obj, affect::weapon_shocking);
-	 	affect::remove_type_from_obj(obj, affect::weapon_vampiric);
-//	 	affect::remove_type_from_obj(obj, affect::weapon_acidic); // acidic added with version 20
-	 	affect::remove_type_from_obj(obj, affect::poison);
-	 	affect::remove_type_from_obj(obj, affect::weapon_sharp);
-	 	affect::remove_type_from_obj(obj, affect::weapon_vorpal);
-	 	affect::remove_type_from_obj(obj, affect::weapon_two_hands);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_flaming);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_frost);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_shocking);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_vampiric);
+//	 	affect::remove_type_from_obj(obj, affect::type::weapon_acidic); // acidic added with version 20
+	 	affect::remove_type_from_obj(obj, affect::type::poison);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_sharp);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_vorpal);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_two_hands);
 	}
 
 	for (cJSON *o = json->child; o; o = o->next) {
@@ -1408,10 +1408,10 @@ Object * fread_obj(cJSON *json, int version) {
 						// under the old system could have bitvectors storing affects. clean up here,
 						// hopefully remove someday.
 						// obj name might not be read yet, use vnum
-						if (af.where == TO_AFFECTS && af.type == 0 && af.bitvector().empty())
+						if (af.where == TO_AFFECTS && af.type == affect::type::none && af.bitvector().empty())
 							af.where = TO_OBJECT; // try making it an object apply
 
-						if (af.type == affect::unknown) {
+						if (af.type == affect::type::unknown) {
 							Logging::bugf("Fread_obj: unknown affect type '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
 
 							// newish pfiles (>17?) don't save temp weapon flags to v4, but older
@@ -1437,7 +1437,7 @@ Object * fread_obj(cJSON *json, int version) {
 								af.modifier = 0;
 							}
 
-							af.type = affect::none; // reset, in case we're parsing multiple TO_AFFECTS bits
+							af.type = affect::type::none; // reset, in case we're parsing multiple TO_AFFECTS bits
 						} while (!bitvector.empty());
 					}
 					fMatch = TRUE; break;
@@ -1564,7 +1564,7 @@ Object * fread_obj(cJSON *json, int version) {
 		af.modifier           = 0;
 
 		while (!bitvector.empty()) {
-			af.type = affect::none; // reset every time
+			af.type = affect::type::none; // reset every time
 
 			if (affect::parse_flags('W', &af, bitvector)) {
 				// could exist as envenom or bladecraft spell, don't add a new perm
@@ -1655,8 +1655,8 @@ void fread_pet(Character *ch, cJSON *json, int version)
 	percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 	percent = UMIN(percent, 100);
 
-	if (percent > 0 && !affect::exists_on_char(ch, affect::poison)
-	    &&  !affect::exists_on_char(ch, affect::plague)) {
+	if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison)
+	    &&  !affect::exists_on_char(ch, affect::type::plague)) {
 		pet->hit    += (GET_MAX_HIT(pet) - pet->hit) * percent / 100;
 		pet->mana   += (GET_MAX_MANA(pet) - pet->mana) * percent / 100;
 		pet->stam   += (GET_MAX_STAM(pet) - pet->stam) * percent / 100;

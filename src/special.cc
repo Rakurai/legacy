@@ -153,8 +153,8 @@ bool spec_troll_member(Character *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::calm) || ch->in_room == nullptr
-	    || affect::exists_on_char(ch, affect::charm_person) || ch->fighting != nullptr)
+	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::type::calm) || ch->in_room == nullptr
+	    || affect::exists_on_char(ch, affect::type::charm_person) || ch->fighting != nullptr)
 		return FALSE;
 
 	/* find an ogre to beat up */
@@ -211,8 +211,8 @@ bool spec_ogre_member(Character *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::calm) || ch->in_room == nullptr
-	    ||  affect::exists_on_char(ch, affect::charm_person) || ch->fighting != nullptr)
+	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::type::calm) || ch->in_room == nullptr
+	    ||  affect::exists_on_char(ch, affect::type::charm_person) || ch->fighting != nullptr)
 		return FALSE;
 
 	/* find an troll to beat up */
@@ -270,8 +270,8 @@ bool spec_patrolman(Character *ch)
 	char *message;
 	int count = 0;
 
-	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::calm) || ch->in_room == nullptr
-	    ||  affect::exists_on_char(ch, affect::charm_person) || ch->fighting != nullptr)
+	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::type::calm) || ch->in_room == nullptr
+	    ||  affect::exists_on_char(ch, affect::type::charm_person) || ch->fighting != nullptr)
 		return FALSE;
 
 	/* look for a fight in the room */
@@ -1133,7 +1133,7 @@ bool spec_charm(Character *ch)
 	spell_charm_person(skill::type::charm_person, ch->level, ch, victim,
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, skill::type::charm_person));
 
-	if (affect::exists_on_char(victim, affect::charm_person))
+	if (affect::exists_on_char(victim, affect::type::charm_person))
 		stop_fighting(victim, TRUE);
 
 	return TRUE;
@@ -1152,7 +1152,7 @@ void do_repair(Character *ch, String argument)
 			if ((obj = get_eq_char(ch, iWear)) == nullptr)
 				continue;
 
-			etched = affect::exists_on_obj(obj, affect::acid_breath) ? TRUE : FALSE;
+			etched = affect::exists_on_obj(obj, affect::type::acid_breath) ? TRUE : FALSE;
 
 			Format::sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
 			        , condition_lookup(obj->condition),
@@ -1199,7 +1199,7 @@ void obj_repair(Character *ch, Object *obj)
 	}
 
 	const affect::Affect *paf;
-	if ((paf = affect::find_on_obj(obj, affect::acid_breath)) != nullptr)
+	if ((paf = affect::find_on_obj(obj, affect::type::acid_breath)) != nullptr)
 		max = 100 - (5 * paf->modifier);
 
 	if (obj->condition >= max) {
@@ -1276,8 +1276,8 @@ bool spec_clanguard(Character *ch)
 
 	if (!IS_NPC(ch)
 	    || !IS_AWAKE(ch)
-	    || affect::exists_on_char(ch, affect::calm)
-	    || affect::exists_on_char(ch, affect::charm_person)
+	    || affect::exists_on_char(ch, affect::type::calm)
+	    || affect::exists_on_char(ch, affect::type::charm_person)
 	    || ch->in_room == nullptr)
 		return FALSE;
 

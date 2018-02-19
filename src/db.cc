@@ -161,10 +161,10 @@ void boot_db()
 			}
 		}
 
-		for (int i = affect::first; i < affect::size; i++) {
-			auto unknown = affect::lookup(affect::unknown);
+		for (int i = (int)affect::type::first; i < (int)affect::type::size; i++) {
+			const auto unknown = affect::lookup(affect::type::unknown);
 
-			if (affect::lookup((affect::Type)i).name == unknown.name) {
+			if (affect::lookup((affect::type)i).name == unknown.name) {
 				boot_bug("boot_db: unable to find definition for affect enum %d.", 0);
 				exit(1);
 			}
@@ -544,7 +544,7 @@ void load_objects(FILE *fp)
 			af.modifier           = 0;
 
 			while (!bitvector.empty()) {
-				af.type = affect::none; // reset every time
+				af.type = affect::type::none; // reset every time
 
 				if (affect::parse_flags('W', &af, bitvector))
 					affect::copy_to_list(&pObjIndex->affected, &af); 
@@ -611,7 +611,7 @@ void load_objects(FILE *fp)
 
 			if (letter == 'A') { // apply
 				affect::Affect af;
-				af.type               = affect::none;
+				af.type               = affect::type::none;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.location           = fread_number(fp);
@@ -627,7 +627,7 @@ void load_objects(FILE *fp)
 			}
 			else if (letter == 'F') { // flag, can add bits or do other ->where types
 				affect::Affect af;
-				af.type               = affect::none;
+				af.type               = affect::type::none;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.evolution          = 1;
@@ -649,7 +649,7 @@ void load_objects(FILE *fp)
 						af.modifier = 0;
 					}
 
-					af.type = affect::none; // reset every time
+					af.type = affect::type::none; // reset every time
 				} while (!bitvector.empty());
 			}
 			else if (letter == 'E') {

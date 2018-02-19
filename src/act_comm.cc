@@ -1327,7 +1327,7 @@ void do_follow(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person) && ch->master != nullptr) {
+	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master != nullptr) {
 		act("But you'd rather follow $N!", ch, nullptr, ch->master, TO_CHAR);
 		return;
 	}
@@ -1381,8 +1381,8 @@ void stop_follower(Character *ch)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person)) {
-		affect::remove_type_from_char(ch, affect::charm_person);
+	if (affect::exists_on_char(ch, affect::type::charm_person)) {
+		affect::remove_type_from_char(ch, affect::type::charm_person);
 	}
 
 	if (can_see_char(ch->master, ch) && ch->in_room != nullptr) {
@@ -1479,7 +1479,7 @@ void do_order(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person)) {
+	if (affect::exists_on_char(ch, affect::type::charm_person)) {
 		stc("You feel like taking, not giving, orders.\n", ch);
 		return;
 	}
@@ -1539,7 +1539,7 @@ void do_order(Character *ch, String argument)
 			return;
 		}
 
-		if (!affect::exists_on_char(victim, affect::charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
+		if (!affect::exists_on_char(victim, affect::type::charm_person) || victim->master != ch ||  IS_IMMORTAL(victim)) {
 			stc("Do it yourself!\n", ch);
 			return;
 		}
@@ -1550,7 +1550,7 @@ void do_order(Character *ch, String argument)
 	for (och = ch->in_room->people; och != nullptr; och = och_next) {
 		och_next = och->next_in_room;
 
-		if (affect::exists_on_char(och, affect::charm_person) &&
+		if (affect::exists_on_char(och, affect::type::charm_person) &&
 		    och->master == ch &&
 		    (fAll || och == victim)) {
 			if (! found) {
@@ -1679,12 +1679,12 @@ void do_group(Character *ch, String argument)
 		return;
 	}
 
-	if (affect::exists_on_char(victim, affect::charm_person)) {
+	if (affect::exists_on_char(victim, affect::type::charm_person)) {
 		stc("You can't remove charmed mobs from your group.\n", ch);
 		return;
 	}
 
-	if (affect::exists_on_char(ch, affect::charm_person)) {
+	if (affect::exists_on_char(ch, affect::type::charm_person)) {
 		act("You like your master too much to leave $m!", ch, nullptr, victim, TO_VICT);
 		return;
 	}
@@ -1752,7 +1752,7 @@ void do_split(Character *ch, String argument)
 	members = 0;
 
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
-		if (is_same_group(gch, ch) && !affect::exists_on_char(gch, affect::charm_person))
+		if (is_same_group(gch, ch) && !affect::exists_on_char(gch, affect::type::charm_person))
 			members++;
 	}
 
@@ -1942,7 +1942,7 @@ void do_outfit(Character *ch, String argument)
 	}
 
 	if (((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr
-	     ||   !affect::exists_on_obj(obj, affect::weapon_two_hands))
+	     ||   !affect::exists_on_obj(obj, affect::type::weapon_two_hands))
 	    && (obj = get_eq_char(ch, WEAR_SHIELD)) == nullptr) {
 		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
 

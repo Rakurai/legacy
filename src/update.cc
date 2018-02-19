@@ -242,7 +242,7 @@ int hit_gain(Character *ch)
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
 
-		if (affect::exists_on_char(ch, affect::regeneration))
+		if (affect::exists_on_char(ch, affect::type::regeneration))
 			gain *= 2;
 
 		switch (get_position(ch)) {
@@ -289,22 +289,22 @@ int hit_gain(Character *ch)
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (affect::exists_on_char(ch, affect::poison))
+	if (affect::exists_on_char(ch, affect::type::poison))
 		gain /= 4;
 
-	if (affect::exists_on_char(ch, affect::plague))
+	if (affect::exists_on_char(ch, affect::type::plague))
 		gain /= 8;
 
-	if (affect::exists_on_char(ch, affect::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect::exists_on_char(ch, affect::type::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2 ;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		gain *= 2 ;
 
-	if (affect::exists_on_char(ch, affect::regeneration))
+	if (affect::exists_on_char(ch, affect::type::regeneration))
 		gain *= 2;
 
-	if (affect::exists_on_char(ch, affect::divine_regeneration))
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 4;
 
 	return UMIN(gain, GET_MAX_HIT(ch) - ch->hit);
@@ -367,19 +367,19 @@ int mana_gain(Character *ch)
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
-	if (affect::exists_on_char(ch, affect::poison))
+	if (affect::exists_on_char(ch, affect::type::poison))
 		gain /= 4;
 
-	if (affect::exists_on_char(ch, affect::plague))
+	if (affect::exists_on_char(ch, affect::type::plague))
 		gain /= 8;
 
-	if (affect::exists_on_char(ch, affect::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect::exists_on_char(ch, affect::type::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		gain *= 2;
 
-	if (affect::exists_on_char(ch, affect::divine_regeneration))
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 2;
 
 	return UMIN(gain, GET_MAX_MANA(ch) - ch->mana);
@@ -433,22 +433,22 @@ int stam_gain(Character *ch)
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (affect::exists_on_char(ch, affect::poison))
+	if (affect::exists_on_char(ch, affect::type::poison))
 		gain /= 4;
 
-	if (affect::exists_on_char(ch, affect::plague))
+	if (affect::exists_on_char(ch, affect::type::plague))
 		gain /= 8;
 
-	if (affect::exists_on_char(ch, affect::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect::exists_on_char(ch, affect::type::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
-	if (affect::exists_on_char(ch, affect::slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		gain *= 2;
 
-	if (affect::exists_on_char(ch, affect::regeneration))
+	if (affect::exists_on_char(ch, affect::type::regeneration))
 		gain *= 2;
 
-	if (affect::exists_on_char(ch, affect::divine_regeneration))
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 2;
 
 	return UMIN(gain, GET_MAX_STAM(ch) - ch->stam);
@@ -765,7 +765,7 @@ void char_update(void)
 				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
-					if (paf->type >= affect::first && !affect::lookup(paf->type).msg_off.empty())
+					if (paf->type >= affect::type::first && !affect::lookup(paf->type).msg_off.empty())
 						ptc(ch, "%s\n", affect::lookup(paf->type).msg_off);
 				}
 			}
@@ -798,8 +798,8 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != nullptr && affect::exists_on_char(ch, affect::plague)) {
-		 	const affect::Affect *plague = affect::find_on_char(ch, affect::plague);
+		if (ch != nullptr && affect::exists_on_char(ch, affect::type::plague)) {
+		 	const affect::Affect *plague = affect::find_on_char(ch, affect::type::plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
 			    ch, nullptr, nullptr, TO_ROOM);
@@ -815,9 +815,9 @@ void char_update(void)
 		}
 
 		if (ch != nullptr
-		 && affect::exists_on_char(ch, affect::poison)
-		 && !affect::exists_on_char(ch, affect::slow)) {
-			const affect::Affect *poison = affect::find_on_char(ch, affect::poison);
+		 && affect::exists_on_char(ch, affect::type::poison)
+		 && !affect::exists_on_char(ch, affect::type::slow)) {
+			const affect::Affect *poison = affect::find_on_char(ch, affect::type::poison);
 
 			if (poison != nullptr) {
 				act("$n shivers and suffers.", ch, nullptr, nullptr, TO_ROOM);
@@ -882,7 +882,7 @@ void obj_update(void)
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
 					/* for addapplied objects with a duration */
-					if (paf->type == 0) {
+					if (paf->type == affect::type::none) {
 						if (obj->carried_by != nullptr) {
 							rch = obj->carried_by;
 							act("The magic of $p diminishes.", rch, obj, nullptr, TO_CHAR);
@@ -1085,8 +1085,8 @@ bool eligible_aggressor(Character *ch)
 	        && IS_AWAKE(ch)
 	        && ch->act_flags.has_any_of(ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == nullptr
-	        && !affect::exists_on_char(ch, affect::calm)
-	        && !affect::exists_on_char(ch, affect::charm_person)
+	        && !affect::exists_on_char(ch, affect::type::calm)
+	        && !affect::exists_on_char(ch, affect::type::charm_person)
 	       );
 }
 

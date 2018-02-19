@@ -16,11 +16,11 @@ const Affect *list_room(RoomPrototype *room) {
 	return room->affected;
 }
 
-bool exists_on_room(RoomPrototype *room, Type type) {
+bool exists_on_room(RoomPrototype *room, ::affect::type type) {
 	return find_on_room(room, type) ? TRUE : FALSE;
 }
 
-const Affect *find_on_room(RoomPrototype *room, Type type) {
+const Affect *find_on_room(RoomPrototype *room, ::affect::type type) {
 	return find_in_list(&room->affected, type);
 }
 
@@ -69,7 +69,7 @@ void remove_marked_from_room(RoomPrototype *room) {
 	remove_matching_from_room(room, comparator_mark, &pattern);
 }
 
-void remove_type_from_room(RoomPrototype *room, Type type) {
+void remove_type_from_room(RoomPrototype *room, ::affect::type type) {
 	Affect pattern;
 	pattern.type = type;
 

@@ -78,7 +78,7 @@ void clear_list(Affect **list_head) {
 	*list_head = nullptr;
 }
 
-const Affect *find_in_list(Affect **list_head, Type type) {
+const Affect *find_in_list(Affect **list_head, ::affect::type type) {
 	for (const Affect *paf = *list_head; paf; paf = paf->next)
 		if (paf->type == type)
 			return paf;
