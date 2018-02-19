@@ -859,6 +859,7 @@ void extract_obj(Object *obj)
 		extract_obj(obj_content);
 	}
 
+	// fish the object out of the linked list
 	if (object_list == obj)
 		object_list = obj->next;
 	else {
@@ -870,18 +871,22 @@ void extract_obj(Object *obj)
 				break;
 			}
 		}
-
+/* this is fine, fread_obj will load up dummy objects for extraction
+ * without adding to the list
 		if (prev == nullptr) {
-			Logging::bug("Extract_obj: obj %d not found.",
+			Logging::bug("Extract_obj: obj %d not found in objects list.",
 				obj->pIndexData ? obj->pIndexData->vnum : 0);
 			return;
 		}
+ */
 	}
 
 	if (obj == donation_pit)
 		donation_pit = nullptr;
 
-	--obj->pIndexData->count;
+	if (obj->pIndexData)
+		--obj->pIndexData->count;
+
 	delete obj;
 	return;
 }

@@ -1341,10 +1341,12 @@ Object * fread_obj(cJSON *json, int version) {
 	else
 		Logging::bug("fread_obj: no vnum field in JSON object", 0);
 
-//	Logging::bug("reading an object", 0);
-
 	if (obj == nullptr) { /* either not found or old style */
-		Logging::bug("obj is null!", 0);
+		// if the vnum is missing or isn't found in the game anymore,
+		// we don't want to just skip loading it because it could have
+		// been a container with stuff in it.  instead, we'll create a
+		// dummy object that we can blow up later and extract the contents
+		// into the next containing object or inventory.
 		obj = new Object();
 	}
 
@@ -1592,7 +1594,7 @@ void fread_objects(Character *ch, cJSON *contains, void (*obj_to)(Object *, Char
 			(*obj_to)(content, ch);
 		}
 		else {
-			// deal with contents and extract
+			// vnum not found, deal with contents and extract
 			while (content->contains) {
 				Object *c = content->contains;
 				content->contains = c->next_content;
