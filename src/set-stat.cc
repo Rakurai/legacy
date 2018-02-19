@@ -294,7 +294,7 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	auto entry = skill::lookup(type);
+	const auto& entry = skill::lookup(type);
 
 	if (entry.evocost_sec[victim->cls] <= 0 && !IS_IMMORTAL(victim)) {
 		ptc(ch, "%ss cannot evolve %s.\n",

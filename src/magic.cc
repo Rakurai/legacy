@@ -653,7 +653,7 @@ void obj_cast_spell(skill::type sn, int level, Character *ch, Character *victim,
 	if (sn <= skill::type::unknown || sn >= skill::type::size)
 		return;
 
-	auto entry = skill::lookup(sn);
+	const auto& entry = skill::lookup(sn);
 
 	if (entry.spell_fun == 0) {
 		Logging::bugf("Obj_cast_spell: bad spell '%s'.", entry.name);
@@ -3907,7 +3907,7 @@ void spell_imprint(skill::type sn, int level, Character *ch, void *vo)
 	if (ch == vo)
 		return;
 
-	auto entry = skill::lookup(sn);
+	const auto& entry = skill::lookup(sn);
 
 	if (entry.spell_fun == spell_null) {
 		stc("That is not a spell.\n", ch);

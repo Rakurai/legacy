@@ -3613,7 +3613,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	line_cols = 0;
 
 	for (js = 0; js < nskills; js++) {
-		auto entry = skill::lookup(slist[js]);
+		const auto& entry = skill::lookup(slist[js]);
 
 		if (entry.remort_class > 0) {
 			if (entry.remort_class == ch->cls + 1)
@@ -3695,7 +3695,7 @@ void do_practice(Character *ch, String argument)
 	}
 
 	skill::type sn = find_spell(ch, argument);
-	auto entry = skill::lookup(sn);
+	const auto& entry = skill::lookup(sn);
 
 	if (sn == skill::type::unknown
 	    || (!IS_NPC(ch)

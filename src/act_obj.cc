@@ -3018,7 +3018,7 @@ void do_brandish(Character *ch, String argument)
 		return;
 	}
 
-	auto entry = skill::lookup(type);
+	const auto& entry = skill::lookup(type);
 
 	if (entry.spell_fun == 0) {
 		Logging::bugf("Do_brandish: bad spell '%s'.", entry.name);

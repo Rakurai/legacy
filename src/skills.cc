@@ -323,7 +323,7 @@ void do_spells(Character *ch, String argument)
 		}
 
 		skill::type type = spell_list[j].type;
-		auto entry = skill::lookup(type);
+		const auto& entry = skill::lookup(type);
 
 		if (get_learned(ch, type) <= 0
 		    || (entry.remort_class != 0 && !IS_IMMORTAL(ch)
@@ -502,7 +502,7 @@ void do_skills(Character *ch, String argument)
 		}
 
 		skill::type type = skill_list[j].type;
-		auto entry = skill::lookup(type);
+		const auto& entry = skill::lookup(type);
 
 		if (get_learned(ch, type) <= 0
 		    || (entry.remort_class != 0 && !IS_IMMORTAL(ch)
@@ -1272,7 +1272,7 @@ void do_evolve(Character *ch, String argument)
 		return;
 	}
 
-	auto entry = skill::lookup(type);
+	const auto& entry = skill::lookup(type);
 
 	if (entry.spell_fun == spell_null)
 		which = "skill";

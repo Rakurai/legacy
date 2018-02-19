@@ -232,7 +232,7 @@ bool dispel_char(Character *victim, int level, bool cancellation)
 {
 	bool found = FALSE;
 
-	for (auto entry : dispel_table) {
+	for (const auto& entry : dispel_table) {
 		if (cancellation && !entry.second.can_cancel)
 			continue;
 
