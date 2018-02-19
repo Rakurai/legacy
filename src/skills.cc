@@ -1325,7 +1325,7 @@ void do_evolve(Character *ch, String argument)
 
 	if (get_learned(ch, type) < perc && special < 1) {
 		ptc(ch, "You only have that %s at %d%%, you need %d%% to evolve.\n",
-		    type, get_learned(ch, type), perc);
+		    which, get_learned(ch, type), perc);
 		return;
 	}
 
