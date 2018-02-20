@@ -20,21 +20,21 @@ public:
 	String 		name;
 	String 		description;
 	String 		owner;
-	sh_int			vnum = 0;
-	sh_int			version = 0;	/* Room versioning -- Montrey */
+	int			vnum = 0;
+	int			version = 0;	/* Room versioning -- Montrey */
 	affect::Affect *		affected = nullptr;		/* Montrey */
 
 	Flags           room_flags;
     Flags           cached_room_flags;
 
-	sh_int			light = 0;
-	sh_int			sector_type = 0;
-	sh_int			heal_rate = 0;
-	sh_int			mana_rate = 0;
+	int			light = 0;
+	int			sector_type = 0;
+	int			heal_rate = 0;
+	int			mana_rate = 0;
 	Clan *		clan = nullptr;
-	sh_int			guild = 0;		/* guild room, class number+1, 0 none -- Montrey */
-	sh_int			tele_dest = 0;
-	sh_int			hunt_id = 0;  /* Unique ID for current hunt */
+	int			guild = 0;		/* guild room, class number+1, 0 none -- Montrey */
+	int			tele_dest = 0;
+	int			hunt_id = 0;  /* Unique ID for current hunt */
 	RoomPrototype *	hunt_next = nullptr;  /* next room in search circle */
 	RoomPrototype *	hunt_back = nullptr;  /* pointer back toward origin */
 

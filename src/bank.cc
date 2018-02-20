@@ -202,7 +202,7 @@ void do_clandeposit(Character *ch, String argument)
 
 void find_money(Character *ch)
 {
-	sh_int j;
+	int j;
 	long max_gold, max_silver;
 
 	if (IS_NPC(ch))

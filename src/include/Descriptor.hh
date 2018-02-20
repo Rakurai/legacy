@@ -21,8 +21,8 @@ public:
     Character *         original = nullptr;
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
     String              host;           /* text addr */
-    sh_int              descriptor = 0;
-    sh_int              connected = CON_GET_NAME;
+    int              descriptor = 0;
+    int              connected = CON_GET_NAME;
     bool                fcommand = FALSE;
     char                inbuf           [4 * MAX_INPUT_LENGTH] = {0};
     char                incomm          [MAX_INPUT_LENGTH] = {0};
@@ -32,7 +32,7 @@ public:
     int                 port = 0;
     int                 ip = 0;
     String              showstr_head;
-    sh_int              timer = 0;
+    int              timer = 0;
 
 private:
     Descriptor(const Descriptor&);

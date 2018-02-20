@@ -67,33 +67,33 @@ public:
     int                 skill_fails = 0; // number of times they have failed a skill in a row
 
     /* stats */
-//    sh_int              base_stat[MAX_STATS];
-//    sh_int              mod_stat[MAX_STATS];
+//    int              base_stat[MAX_STATS];
+//    int              mod_stat[MAX_STATS];
 
     int                 attr_base[MAX_ATTR] = {0};
     int *               apply_cache = nullptr; // maximum stat without eq/affects
     void *              affect_cache = nullptr;
-    sh_int *            defense_mod = nullptr;
+    int *            defense_mod = nullptr;
 //    long                affect_bits;
 //    long      drain_flags;
 //    long                imm_flags;
 //    long                res_flags;
 //    long                vuln_flags;
 
-    sh_int              hit = 0;
-    sh_int              mana = 0;
-    sh_int              stam = 0;
+    int              hit = 0;
+    int              mana = 0;
+    int              stam = 0;
 
-    sh_int              cls = 0; // was 'class'
-    sh_int              race = 0;
-    sh_int              level = 0;
+    int              cls = 0; // was 'class'
+    int              race = 0;
+    int              level = 0;
     int                 lines = 0;  /* for the pager */
     time_t              logon = 0;
     time_t              last_bank = 0;  /* For Bank, duh */
-    sh_int              timer = 0;  /* Main timer is now part of descriptor */
-    sh_int              wait = 0;
-    sh_int              daze = 0;
-    sh_int              fightpulse = 0;
+    int              timer = 0;  /* Main timer is now part of descriptor */
+    int              wait = 0;
+    int              daze = 0;
+    int              fightpulse = 0;
     long                gold = 0;
     long                silver = 0;
     long                gold_in_bank = 0;
@@ -104,40 +104,40 @@ public:
     Flags               revoke_flags;  /* New Revoke stuff */
     Flags               wiznet_flags; /* wiz stuff */
     Flags               censor_flags;			/* New censor flags -- Montrey */
-    sh_int              invis_level = 0;
-    sh_int              lurk_level = 0;
-    sh_int              position = 0;
-    sh_int              practice = 0;
-    sh_int              train = 0;
-    sh_int              alignment = 0;
-	sh_int		        armor_base[4] = {0};
-    sh_int              wimpy = 0;
+    int              invis_level = 0;
+    int              lurk_level = 0;
+    int              position = 0;
+    int              practice = 0;
+    int              train = 0;
+    int              alignment = 0;
+	int		        armor_base[4] = {0};
+    int              wimpy = 0;
     /* parts stuff */
     Flags               form_flags;
     Flags               parts_flags;
-    sh_int              size = 0;
+    int              size = 0;
     String              material;
     /* mobile stuff */
     Flags               off_flags;
-    sh_int              damage[3] = {0};
-    sh_int              dam_type = 0;
-    sh_int              start_pos = 0;
-    sh_int              default_pos = 0;
+    int              damage[3] = {0};
+    int              dam_type = 0;
+    int              start_pos = 0;
+    int              default_pos = 0;
     Character *         hunting = nullptr;
-    sh_int              nectimer = 0;
-    sh_int              secure_level = 0;
+    int              nectimer = 0;
+    int              secure_level = 0;
     MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
     int                 quest_giver = 0;  /* Elrac */
     int                 questpoints = 0;  /* Vassago */
     int			        questpoints_donated = 0; /* Clerve */
     long		        gold_donated = 0; /* Montrey */
-    sh_int              nextquest = 0;    /* Vassago */
-    sh_int              countdown = 0;    /* Vassago */
-    sh_int              questobj = 0;     /* Vassago */
-    sh_int              questmob = 0;     /* Vassago */
-    sh_int              questloc = 0;     /* -- Elrac */
-    sh_int              questobf = 0;     /* Lotus */
+    int              nextquest = 0;    /* Vassago */
+    int              countdown = 0;    /* Vassago */
+    int              questobj = 0;     /* Vassago */
+    int              questmob = 0;     /* Vassago */
+    int              questloc = 0;     /* -- Elrac */
+    int              questobf = 0;     /* Lotus */
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */
 

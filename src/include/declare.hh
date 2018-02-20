@@ -3,8 +3,6 @@
 #define FALSE false
 #define TRUE  true
 
-typedef int sh_int;
-
 #define args( list )                    list
 
 // Forward declarations of all major classes on the mud.  This may disappear as

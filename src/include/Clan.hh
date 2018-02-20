@@ -11,9 +11,9 @@ public:
 
     String  name;
     String  who_name;
-    sh_int      hall = 0;
-    sh_int      area_minvnum = 0;
-    sh_int      area_maxvnum = 0;
+    int      hall = 0;
+    int      area_minvnum = 0;
+    int      area_maxvnum = 0;
     bool        independent = FALSE; /* true for loners and imm clans */
     long        clanqp = 0;
     long        gold_balance = 0;

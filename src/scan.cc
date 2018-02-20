@@ -45,16 +45,16 @@ char *const distance[4] = {
 	"off in the distance "
 };
 
-void    scan_list       args((RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int door));
+void    scan_list       args((RoomPrototype *scan_room, Character *ch, int depth, int door));
 void    scan_room       args((RoomPrototype *room, Character *ch, int depth, int door, Exit *pexit));
-void    scan_char       args((Character *victim, Character *ch, sh_int depth, sh_int door));
+void    scan_char       args((Character *victim, Character *ch, int depth, int door));
 
 void do_scan2(Character *ch, String argument)
 {
 	char buf[MIL];
 	RoomPrototype *room;
 	Exit *pExit;
-	sh_int door, depth;
+	int door, depth;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -130,7 +130,7 @@ void do_scan(Character *ch, String argument)
 	char buf[MIL];
 	RoomPrototype *scan_room;
 	Exit *pExit;
-	sh_int door, depth;
+	int door, depth;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -211,7 +211,7 @@ void scan_room(RoomPrototype *room, Character *ch, int depth, int door, Exit *pe
 	scan_list(room, ch, depth, door);
 }
 
-void scan_list(RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int door)
+void scan_list(RoomPrototype *scan_room, Character *ch, int depth, int door)
 {
 	Character *rch;
 
@@ -233,7 +233,7 @@ void scan_list(RoomPrototype *scan_room, Character *ch, sh_int depth, sh_int doo
 	}
 }
 
-void scan_char(Character *victim, Character *ch, sh_int depth, sh_int door)
+void scan_char(Character *victim, Character *ch, int depth, int door)
 {
 	extern char *const distance[];
 	ptc(ch, "  {C%s, %s%s.\n{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? Exit::dir_name(door) : "");

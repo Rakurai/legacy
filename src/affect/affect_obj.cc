@@ -112,7 +112,7 @@ bool obj_has_affect(Object *obj, ::affect::type type) {
 	return find_in_list(&obj->affected, type) ? TRUE : FALSE;
 }
 
-void modify_flag_cache_obj(Object *obj, sh_int where, const Flags& flags, bool fAdd) {
+void modify_flag_cache_obj(Object *obj, int where, const Flags& flags, bool fAdd) {
 	if (flags.empty())
 		return;
 

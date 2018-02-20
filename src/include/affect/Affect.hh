@@ -23,14 +23,14 @@ public:
     bool                mark = FALSE; // mark for deletion from list, other uses
 
     // fields included in checksum
-    sh_int              where = 0;
-    ::affect::type      type = ::affect::type::none;
-    sh_int              level = 0;
-    sh_int              duration = 0;
-    sh_int              location = 0;
-    sh_int              modifier = 0;
+    int              where = 0;
+    ::affect::type                type = ::affect::type::none;
+    int              level = 0;
+    int              duration = 0;
+    int              location = 0;
+    int              modifier = 0;
     int                 _bitvector = 0; // only for weapon flags now
-    sh_int              evolution = 0;
+    int              evolution = 0;
     bool                permanent = FALSE;
 
     const Flags bitvector() const { return Flags(_bitvector); }
@@ -133,7 +133,7 @@ void                join_to_char              args(( Character *ch, Affect *paf 
 void                join_to_room              args(( RoomPrototype *room, Affect *paf ));
 void                add_perm_to_char          args(( Character *ch, ::affect::type type ));
 void                copy_flags_to_char        args(( Character *ch, char letter, Flags flags, bool permanent ));
-void                add_type_to_char          args(( Character *ch, ::affect::type type, sh_int level, sh_int duration, sh_int evolution, bool permanent ));
+void                add_type_to_char          args(( Character *ch, ::affect::type type, int level, int duration, int evolution, bool permanent ));
 void                add_racial_to_char        args(( Character *ch ));
 
 // removing

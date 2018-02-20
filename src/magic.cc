@@ -1298,7 +1298,7 @@ void spell_burning_hands(skill::type sn, int level, Character *ch, void *vo, int
 {
 	Character *victim = (Character *) vo;
 	int dam;
-	static const sh_int dam_each[] = {
+	static const int dam_each[] = {
 		0,
 		0,  0,  0,  0, 14,     17, 20, 23, 26, 29,
 		29, 29, 30, 30, 31,     31, 32, 32, 33, 33,
@@ -1736,7 +1736,7 @@ void spell_chill_touch(skill::type sn, int level, Character *ch, void *vo, int t
 {
 	Character *victim = (Character *) vo;
 
-	static const sh_int dam_each[] = {
+	static const int dam_each[] = {
 		0,
 		0,  0,  6,  7,  8,      9, 12, 13, 13, 13,
 		14, 14, 14, 15, 15,     15, 16, 16, 16, 17,
@@ -1770,7 +1770,7 @@ void spell_colour_spray(skill::type sn, int level, Character *ch, void *vo, int 
 {
 	Character *victim = (Character *) vo;
 	int dam;
-	static const sh_int dam_each[] = {
+	static const int dam_each[] = {
 		0,
 		0,  0,  0,  0,  0,      0,  0,  0,  0,  0,
 		30, 35, 40, 45, 50,     55, 55, 55, 56, 57,
@@ -4265,7 +4265,7 @@ void spell_lightning_bolt(skill::type sn, int level, Character *ch, void *vo, in
 {
 	Character *victim = (Character *) vo;
 	int dam;
-	static const sh_int dam_each[] = {
+	static const int dam_each[] = {
 		0,
 		0,  0,  0,  0,  0,      0,  0,  0, 25, 28,
 		31, 34, 37, 40, 40,     41, 42, 42, 43, 44,
@@ -4375,7 +4375,7 @@ void spell_magic_missile(skill::type sn, int level, Character *ch, void *vo, int
 
 /*
 	// replaced this with simple dam = level / 5 + 4
-	static const sh_int dam_each[] = {
+	static const int dam_each[] = {
 		0,
 		3,  3,  4,  4,  5,      6,  6,  6,  6,  6,
 		7,  7,  7,  7,  7,      8,  8,  8,  8,  8,
@@ -5368,7 +5368,7 @@ void spell_remove_alignment(skill::type sn, int level, Character *ch, void *vo, 
 {
 	Object *obj = (Object *) vo;
 	int result, fail;
-	sh_int align;
+	int align;
 
 	/* Make sure the target is not a character. -- Outsider */
 	if (ch == vo)

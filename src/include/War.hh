@@ -15,8 +15,8 @@ public:
         String  name;
         String  clanname;
         bool        inwar = FALSE;
-        sh_int      start_score = 0;
-        sh_int      final_score = 0;
+        int      start_score = 0;
+        int      final_score = 0;
 
         Opponent *  next = nullptr;
 
@@ -31,10 +31,10 @@ public:
         Event() {}
         virtual ~Event() {}
 
-        sh_int      type = 0;
+        int      type = 0;
         String  astr;
         String  bstr;
-        sh_int      number = 0;
+        int      number = 0;
         time_t      time = 0;
 
         Event *    next = nullptr;

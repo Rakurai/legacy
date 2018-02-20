@@ -9,11 +9,11 @@
 
 namespace affect {
 
-#define get_cache(ch) ((ch)->affect_cache == nullptr ? nullptr : (sh_int *)(ch)->affect_cache)
+#define get_cache(ch) ((ch)->affect_cache == nullptr ? nullptr : (int *)(ch)->affect_cache)
 #define cache_size (int)::affect::type::size
 
 void free_cache(Character *ch) {
-	delete[] (sh_int *)ch->affect_cache;
+	delete[] (int *)ch->affect_cache;
 	ch->affect_cache = nullptr;
 }
 
@@ -33,7 +33,7 @@ void update_cache(Character *ch, ::affect::type type, bool fAdd) {
 
 	if (fAdd) {
 		if (get_cache(ch) == nullptr) {
-			ch->affect_cache = new sh_int[cache_size]; // every type
+			ch->affect_cache = new int[cache_size]; // every type
 
 			for (int i = 0; i < cache_size; i++)
 				get_cache(ch)[i] = 0;
@@ -70,7 +70,7 @@ String print_cache(Character *ch) {
 		return buf;
 
 	for (int type_n = 1; type_n < cache_size; type_n++) {
-		sh_int count = get_cache(ch)[type_n];
+		int count = get_cache(ch)[type_n];
 
 		if (count > 0) {
 			if (!buf.empty())

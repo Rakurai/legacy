@@ -1682,7 +1682,7 @@ For example: "convert 20" will change 20 SP into 2 practices.
 */
 void do_convert(Character *ch, String argument)
 {
-	sh_int use_points;
+	int use_points;
 	char buffer[MAX_INPUT_LENGTH];
 
 	if (argument.empty()) {

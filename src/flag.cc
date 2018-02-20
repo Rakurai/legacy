@@ -380,8 +380,6 @@ void do_flaglist(Character *ch, String argument)
 
 	ptc(ch, "Flags in the %s field:\n", flag_fields[x].name);
 
-	const std::vector<flag_type>& flag_table = flag_fields[x].flag_table;
-
 	for (const auto& entry : flag_fields[x].flag_table)
 		ptc(ch, "[%2s] %s\n", Flags(entry.bit).to_string(), entry.name);
 }

@@ -20,7 +20,7 @@
 #define PAGELEN                    22
 
 // for character stats
-#define DEFENSE_MOD_MEM_SIZE (sizeof(sh_int) * 32)
+#define DEFENSE_MOD_MEM_SIZE (sizeof(int) * 32)
 #define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
 
 extern	int	top_exit;

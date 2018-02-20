@@ -102,7 +102,7 @@ void sort_room(RoomPrototype *room, comparator comp) {
 
 // utility
 
-void modify_flag_cache_room(RoomPrototype *room, sh_int where, const Flags& flags, bool fAdd) {
+void modify_flag_cache_room(RoomPrototype *room, int where, const Flags& flags, bool fAdd) {
 	if (flags.empty())
 		return;
 

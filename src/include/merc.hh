@@ -51,38 +51,38 @@ extern int port;
  */
 struct  str_app_type
 {
-	sh_int      tohit;
-	sh_int      todam;
-	sh_int      carry;
-	sh_int      wield;
-	sh_int	stp;		/* bonus to stamina -- Montrey */
+	int      tohit;
+	int      todam;
+	int      carry;
+	int      wield;
+	int	stp;		/* bonus to stamina -- Montrey */
 };
 
 struct  int_app_type
 {
-	sh_int      learn;
-	sh_int	manap;		/* bonus to mana -- Montrey */
+	int      learn;
+	int	manap;		/* bonus to mana -- Montrey */
 };
 
 struct  wis_app_type
 {
-	sh_int      practice;
+	int      practice;
 };
 
 struct  dex_app_type
 {
-	sh_int      defensive;
+	int      defensive;
 };
 
 struct  con_app_type
 {
-	sh_int      hitp;
-	sh_int      shock;
+	int      hitp;
+	int      shock;
 };
 
 struct  chr_app_type
 {
-	sh_int      chance;
+	int      chance;
 };
 
 
@@ -98,19 +98,19 @@ struct  class_type
 {
 	String      name;                   /* the full name of the class */
 	String      who_name;               /* Three-letter name for 'who'  */
-	sh_int      stat_prime;             /* Prime attribute              */
-	sh_int      weapon;                 /* First weapon                 */
-	sh_int      skill_adept;            /* Maximum skill level          */
-	sh_int      thac0_00;               /* Thac0 for level  0           */
-	sh_int      thac0_32;               /* Thac0 for level 32           */
+	int      stat_prime;             /* Prime attribute              */
+	int      weapon;                 /* First weapon                 */
+	int      skill_adept;            /* Maximum skill level          */
+	int      thac0_00;               /* Thac0 for level  0           */
+	int      thac0_32;               /* Thac0 for level 32           */
 	String      base_group;             /* base skills gained           */
 	String      default_group;          /* default skills gained        */
-	sh_int      hp_min;                 /* Min hp gained on leveling    */
-	sh_int      hp_max;                 /* Max hp gained on leveling    */
-	sh_int	mana_min;		/* Min mana gained on leveling  */
-	sh_int	mana_max;		/* Max mana gained on leveling  */
-	sh_int	stam_min;		/* Min stamina gained on leveling */
-	sh_int	stam_max;		/* Max stamina gained on leveling */
+	int      hp_min;                 /* Min hp gained on leveling    */
+	int      hp_max;                 /* Max hp gained on leveling    */
+	int	mana_min;		/* Min mana gained on leveling  */
+	int	mana_max;		/* Max mana gained on leveling  */
+	int	stam_min;		/* Min stamina gained on leveling */
+	int	stam_max;		/* Max stamina gained on leveling */
 };
 
 struct item_type
@@ -122,8 +122,8 @@ struct item_type
 struct weapon_table_t
 {
 	String      name;
-	sh_int      vnum;
-	sh_int      type;
+	int      vnum;
+	int      type;
 	skill::type skill;
 };
 
@@ -161,12 +161,12 @@ struct pc_race_type  /* additional data for pc races */
 {
 	String      name;                   /* MUST be in race_type */
 	String      who_name;		/* first 3 characters are used in 'who' */
-	sh_int	    base_age;		/* the base age for the race */
-	sh_int      points;                 /* cost in points of the race */
-	sh_int      class_mult[MAX_CLASS];  /* exp multiplier for class, * 100 */
-	sh_int      stats[MAX_STATS];       /* starting stats */
-	sh_int      max_stats[MAX_STATS];   /* maximum stats */
-	sh_int      size;                   /* aff bits for the race */
+	int	    base_age;		/* the base age for the race */
+	int      points;                 /* cost in points of the race */
+	int      class_mult[MAX_CLASS];  /* exp multiplier for class, * 100 */
+	int      stats[MAX_STATS];       /* starting stats */
+	int      max_stats[MAX_STATS];   /* maximum stats */
+	int      size;                   /* aff bits for the race */
 	int         remort_level;           /* remort level of race */
 	String      skills[5];              /* bonus skills for the race */
 };
@@ -187,7 +187,7 @@ struct  liq_type
 {
 	String      name;
 	String      color;
-	sh_int      affect[5];
+	int      affect[5];
 };
 
 
@@ -195,7 +195,7 @@ struct  liq_type
 struct  group_type
 {
 	String      name;
-	sh_int      rating[MAX_CLASS];
+	int      rating[MAX_CLASS];
 	std::vector<String> spells;
 };
 

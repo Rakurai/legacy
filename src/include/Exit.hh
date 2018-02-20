@@ -13,24 +13,24 @@ public:
     union
     {
         RoomPrototype *       to_room;
-        sh_int                  vnum;
+        int                  vnum;
     } u1 = {0};
     Flags               exit_flags;
-    sh_int              key = 0;
+    int              key = 0;
     String              keyword;
     String              description;
 
-    static const String& dir_name(unsigned short dir, bool reverse = false);
-    static unsigned short rev_dir(unsigned short dir);
+    static const String& dir_name(unsigned int dir, bool reverse = false);
+    static unsigned int rev_dir(unsigned int dir);
 
 private:
 	Exit(const Exit&);
 	Exit& operator=(const Exit&);
 };
 
-inline unsigned short Exit::
-rev_dir(unsigned short dir) {
-    static const short rdir[] = {
+inline unsigned int Exit::
+rev_dir(unsigned int dir) {
+    static const int rdir[] = {
         2, 3, 0, 1, 5, 4
     };
 
@@ -38,7 +38,7 @@ rev_dir(unsigned short dir) {
 }
 
 inline const String& Exit::
-dir_name(unsigned short dir, bool reverse) {
+dir_name(unsigned int dir, bool reverse) {
     static const String dir_name[] = {
         "north", "east", "south", "west", "up", "down"
     };

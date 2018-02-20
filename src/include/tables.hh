@@ -129,7 +129,7 @@ struct color_type
 // sector types - Montrey (2014)
 struct sector_type {
     String name;
-    sh_int type;
+    int type;
 };
 
 struct raffects

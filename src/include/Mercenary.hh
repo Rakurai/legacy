@@ -27,7 +27,7 @@ public:
     int     minimum = 0;
 
     Offer *    offer = nullptr;
-    sh_int      num_offers = 0;
+    int      num_offers = 0;
     String  employer;
 
     Mercenary * previous = nullptr;

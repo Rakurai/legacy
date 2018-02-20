@@ -57,7 +57,7 @@
 
 DECLARE_SPEC_FUN(spec_clanguard);
 
-const   sh_int  stamina_loss   [SECT_MAX]      = {
+const   int  stamina_loss   [SECT_MAX]      = {
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
 
@@ -1757,7 +1757,7 @@ void do_train(Character *ch, String argument)
 {
 	String buf;
 	Character *mob;
-	sh_int stat = - 1;
+	int stat = - 1;
 	char *pOutput = nullptr;
 	int cost, add;
 

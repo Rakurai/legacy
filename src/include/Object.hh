@@ -39,17 +39,17 @@ public:
 	String 	        material;
 	String 	        owner;
 	ExtraDescr *	extra_descr = nullptr;
-	sh_int			item_type = 0;
+	int			item_type = 0;
 	Flags           extra_flags;
 	Flags           wear_flags;
 	ObjectValue     value[5];
-	sh_int			weight = 0;
+	int			weight = 0;
 	int			cost = 0;
-	sh_int			level = 0;
-	sh_int			condition = 0;
-	sh_int			wear_loc = 0;
-	sh_int			timer = 0;
-	sh_int			clean_timer = 0;		/* Montrey */
+	int			level = 0;
+	int			condition = 0;
+	int			wear_loc = 0;
+	int			timer = 0;
+	int			clean_timer = 0;		/* Montrey */
 
     Flags           cached_extra_flags;
 

@@ -1203,7 +1203,7 @@ void do_drop(Character *ch, String argument)
 		return;
 	}
 	else {
-		sh_int obj_vnum;
+		int obj_vnum;
 		Object *op, *obj_next;
 		int count = 1;
 		/* drop <number> items, where <number> > 1. */
@@ -2043,7 +2043,7 @@ void do_eat(Character *ch, String argument)
 {
 	Object *obj, *op, *obj_next;
 	int number, count;
-	sh_int obj_vnum;
+	int obj_vnum;
 	bool fFull = FALSE, fNoLongerHungry = FALSE, fPoisoned = FALSE, found = FALSE;
 	Object *to_extract = nullptr;
 
@@ -3300,8 +3300,8 @@ void do_brew(Character *ch, String argument)
 	   do_scribe; basically, setting potion level and spell level --- JH */
 
 	if (target_level) {
-		obj->level = (sh_int) target_level;
-		obj->value[0] = (sh_int) target_level;
+		obj->level = (int) target_level;
+		obj->value[0] = (int) target_level;
 	}
 	else {
 		obj->level = ch->level;
@@ -3410,8 +3410,8 @@ void do_scribe(Character *ch, String argument)
 	   has no analogs in potion forms --- JH */
 
 	if (target_level) {
-		obj->level = (sh_int) target_level;
-		obj->value[0] = (sh_int) target_level;
+		obj->level = (int) target_level;
+		obj->value[0] = (int) target_level;
 	}
 	else {
 		obj->level = ch->level;

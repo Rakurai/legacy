@@ -911,7 +911,7 @@ skillpoint <award|deduct> <player> <amount>
 void do_skillpoint(Character *ch, String argument)
 {
 	Character *victim;
-	sh_int new_points;
+	int new_points;
 	char buffer[MAX_INPUT_LENGTH];
 
 	String char_name, give_or_take;

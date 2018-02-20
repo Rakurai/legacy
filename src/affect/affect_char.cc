@@ -138,12 +138,12 @@ void sort_char(Character *ch, comparator comp) {
 
 // utility
 
-void add_type_to_char(Character *ch, ::affect::type type, sh_int level, sh_int duration, sh_int evolution, bool permanent) {
+void add_type_to_char(Character *ch, ::affect::type type, int level, int duration, int evolution, bool permanent) {
 	struct aff_st {
 		::affect::type type;
-		sh_int  location;
+		int  location;
 		int  modifier;
-		sh_int  evolution;
+		int  evolution;
 	};
 
 	static const std::vector<aff_st> aff_table = {
@@ -303,7 +303,7 @@ void modify_char(Character *ch, const Affect *paf, bool fAdd) {
 
 		if (fAdd) {
 			if (ch->defense_mod == nullptr) {
-				ch->defense_mod = new sh_int[DEFENSE_MOD_MEM_SIZE];
+				ch->defense_mod = new int[DEFENSE_MOD_MEM_SIZE];
 				memset(ch->defense_mod, 0, DEFENSE_MOD_MEM_SIZE);
 			}
 

@@ -14,13 +14,13 @@ namespace skill {
 struct  skill_table_t
 {
 	String      name;                   /* Name of skill                */
-	sh_int      skill_level[MAX_CLASS]; /* Level needed by class        */
-	sh_int      rating[MAX_CLASS];      /* How hard it is to learn      */
+	int      skill_level[MAX_CLASS]; /* Level needed by class        */
+	int      rating[MAX_CLASS];      /* How hard it is to learn      */
 	SPELL_FUN * spell_fun;              /* Spell pointer (for spells)   */
-	sh_int      target;                 /* Legal targets                */
-	sh_int      minimum_position;       /* Position for caster / user   */
-	sh_int      min_mana;               /* Minimum mana used            */
-	sh_int      beats;                  /* Waiting time after use       */
+	int      target;                 /* Legal targets                */
+	int      minimum_position;       /* Position for caster / user   */
+	int      min_mana;               /* Minimum mana used            */
+	int      beats;                  /* Waiting time after use       */
 	String      noun_damage;            /* Damage message               */
 	int         remort_class;           /* Required remort level or 0   */
 	int		evocost_sec[MAX_CLASS];	/* Class cost to evolve to 2    */

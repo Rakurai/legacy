@@ -11,8 +11,8 @@ public:
 
 	bool open = false;
 	bool pk = true; // unlimited pk
-	sh_int min_level = 0;
-	sh_int max_level = MAX_LEVEL;
+	int min_level = 0;
+	int max_level = MAX_LEVEL;
 
 	RoomPrototype *startroom = nullptr;
 	Area *area = nullptr;

@@ -980,9 +980,9 @@ void do_clanlist(Character *ch, String argument)
 		char    name[20];
 		char    title[150];
 		char    rank[20];
-		sh_int  level;
-		sh_int  remort;
-		sh_int  status;
+		int  level;
+		int  remort;
+		int  status;
 		bool    printed;
 	};
 	struct clan_clan clan_list[500];

@@ -20,16 +20,16 @@ public:
     String              author;     /* -- Elrac */
     String              title;      /* -- Elrac */
     String              keywords;   /* -- Elrac */
-    sh_int              version = 1;    /* Area file versioning -- Montrey */
+    int              version = 1;    /* Area file versioning -- Montrey */
     char                area_type = 0;  /* -- Elrac */
-    sh_int              low_range = 0;
-    sh_int              high_range = 0;
-    sh_int              min_vnum = 0;
-    sh_int              max_vnum = 0;
+    int              low_range = 0;
+    int              high_range = 0;
+    int              min_vnum = 0;
+    int              max_vnum = 0;
 
     // state
-    sh_int              age = 15;
-    sh_int              nplayer = 0;
+    int              age = 15;
+    int              nplayer = 0;
     bool                empty = FALSE;
 
     // components

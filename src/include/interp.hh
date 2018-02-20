@@ -17,9 +17,9 @@ struct  cmd_type
 {
     String              name;
     DO_FUN *            do_fun;
-    sh_int              position;
-    sh_int              log;
-    sh_int              show;
+    int              position;
+    int              log;
+    int              show;
     Flags group;
 };
 

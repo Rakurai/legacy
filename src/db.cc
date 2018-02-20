@@ -111,7 +111,7 @@ long                    quest_double = 0;
 bool                    fBootDb;
 FILE                   *fpArea;
 char                    strArea[MAX_INPUT_LENGTH];
-sh_int                  aVersion = 1;
+int                  aVersion = 1;
 Area *area_last; // currently loading area
 
 /*
@@ -344,7 +344,7 @@ void load_resets(FILE *fp)
 void load_mobiles(FILE *fp)
 {
 	MobilePrototype *pMobIndex;
-	sh_int vnum;
+	int vnum;
 	char letter;
 	int iHash;
 
@@ -390,7 +390,7 @@ void load_mobiles(FILE *fp)
 void load_objects(FILE *fp)
 {
 	ObjectPrototype *pObjIndex;
-	sh_int vnum;
+	int vnum;
 	char letter;
 	int iHash;
 
@@ -688,7 +688,7 @@ void load_rooms(FILE *fp)
 	Exit *pexit;
 	int locks;
 	char log_buf[MAX_STRING_LENGTH];
-	sh_int vnum;
+	int vnum;
 	char letter;
 	int door;
 

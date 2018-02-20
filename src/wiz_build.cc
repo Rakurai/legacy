@@ -30,7 +30,7 @@
 #include "String.hh"
 
 /* The following locals are for the checkexit command - Lotus */
-const sh_int opposite_dir [6] =
+const int opposite_dir [6] =
 { DIR_SOUTH, DIR_WEST, DIR_NORTH, DIR_EAST, DIR_DOWN, DIR_UP };
 
 typedef enum {exit_from, exit_to, exit_both} exit_status;

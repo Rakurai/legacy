@@ -487,7 +487,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 	bool found;
 	struct conq {
 		String  clanname;
-		sh_int  scored;
+		int  scored;
 	};
 	std::vector<conq> conqlist;
 	war = war_table_head;
