@@ -19,14 +19,14 @@ void free_cache(Character *ch) {
 
 bool in_cache(const Character *ch, ::affect::type type) {
 	return (
-		type > type::none
+		type > ::affect::type::none
 	 && (int)type < cache_size
 	 && ch->affect_cache
 	 && get_cache(ch)[(int)type] > 0);
 }
 
 void update_cache(Character *ch, ::affect::type type, bool fAdd) {
-	if (type <= type::none /* 0 */ || (int)type >= cache_size) {
+	if (type <= ::affect::type::none /* 0 */ || (int)type >= cache_size) {
 		Logging::bug("update_cache: called with type = %d", (int)type);
 		return;
 	}

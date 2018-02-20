@@ -24,7 +24,7 @@ public:
 
     // fields included in checksum
     sh_int              where = 0;
-    type                type = type::none;
+    ::affect::type      type = ::affect::type::none;
     sh_int              level = 0;
     sh_int              duration = 0;
     sh_int              location = 0;

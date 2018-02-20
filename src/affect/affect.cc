@@ -19,7 +19,7 @@ int fn_debug(Affect *node, void *data) {
 }
 
 int fn_fade_spell(Affect *node, void *data) {
-	::affect::type type = type::none;
+	::affect::type type = ::affect::type::none;
 
 	if (data != nullptr) {
 		fn_data_container_type *container = (fn_data_container_type *)data;
@@ -27,7 +27,7 @@ int fn_fade_spell(Affect *node, void *data) {
 	}
 
 	if (node->duration > 0
-	 && (type == type::none || node->type == type)) {
+	 && (type == ::affect::type::none || node->type == type)) {
 		node->duration--;
 
 		if (node->level > 0 && number_range(0, 4))
@@ -120,42 +120,42 @@ void swap(Affect *a, Affect *b) {
 
 ::affect::type bit_to_type(Flags::Bit bit) {
 	switch (bit) {
-		case AFF_BLIND: return type::blindness;
-		case AFF_INVISIBLE: return type::invis;
-		case AFF_DETECT_EVIL: return type::detect_evil;
-		case AFF_DETECT_GOOD: return type::detect_good;
-		case AFF_DETECT_INVIS: return type::detect_invis;
-		case AFF_DETECT_MAGIC: return type::detect_magic;
-		case AFF_DETECT_HIDDEN: return type::detect_hidden;
-		case AFF_SANCTUARY: return type::sanctuary;
-		case AFF_FAERIE_FIRE: return type::faerie_fire;
-		case AFF_INFRARED: return type::night_vision;
-		case AFF_CURSE: return type::curse;
-		case AFF_FEAR: return type::fear;
-		case AFF_POISON: return type::poison;
-		case AFF_PROTECT_EVIL: return type::protection_evil;
-		case AFF_PROTECT_GOOD: return type::protection_good;
-		case AFF_NIGHT_VISION: return type::night_vision;
-		case AFF_SNEAK: return type::sneak;
-		case AFF_HIDE: return type::hide;
-		case AFF_CHARM: return type::charm_person;
-		case AFF_FLYING: return type::fly;
-		case AFF_PASS_DOOR: return type::pass_door;
-		case AFF_BERSERK: return type::berserk;
-		case AFF_CALM: return type::calm;
-		case AFF_HASTE: return type::haste;
-		case AFF_SLOW: return type::slow;
-		case AFF_PLAGUE: return type::plague;
-		case AFF_DIVINEREGEN: return type::divine_regeneration;
-		case AFF_FLAMESHIELD: return type::flameshield;
-		case AFF_REGENERATION: return type::regeneration;
-		case AFF_TALON: return type::talon;
-		case AFF_STEEL: return type::steel_mist;
+		case AFF_BLIND: return ::affect::type::blindness;
+		case AFF_INVISIBLE: return ::affect::type::invis;
+		case AFF_DETECT_EVIL: return ::affect::type::detect_evil;
+		case AFF_DETECT_GOOD: return ::affect::type::detect_good;
+		case AFF_DETECT_INVIS: return ::affect::type::detect_invis;
+		case AFF_DETECT_MAGIC: return ::affect::type::detect_magic;
+		case AFF_DETECT_HIDDEN: return ::affect::type::detect_hidden;
+		case AFF_SANCTUARY: return ::affect::type::sanctuary;
+		case AFF_FAERIE_FIRE: return ::affect::type::faerie_fire;
+		case AFF_INFRARED: return ::affect::type::night_vision;
+		case AFF_CURSE: return ::affect::type::curse;
+		case AFF_FEAR: return ::affect::type::fear;
+		case AFF_POISON: return ::affect::type::poison;
+		case AFF_PROTECT_EVIL: return ::affect::type::protection_evil;
+		case AFF_PROTECT_GOOD: return ::affect::type::protection_good;
+		case AFF_NIGHT_VISION: return ::affect::type::night_vision;
+		case AFF_SNEAK: return ::affect::type::sneak;
+		case AFF_HIDE: return ::affect::type::hide;
+		case AFF_CHARM: return ::affect::type::charm_person;
+		case AFF_FLYING: return ::affect::type::fly;
+		case AFF_PASS_DOOR: return ::affect::type::pass_door;
+		case AFF_BERSERK: return ::affect::type::berserk;
+		case AFF_CALM: return ::affect::type::calm;
+		case AFF_HASTE: return ::affect::type::haste;
+		case AFF_SLOW: return ::affect::type::slow;
+		case AFF_PLAGUE: return ::affect::type::plague;
+		case AFF_DIVINEREGEN: return ::affect::type::divine_regeneration;
+		case AFF_FLAMESHIELD: return ::affect::type::flameshield;
+		case AFF_REGENERATION: return ::affect::type::regeneration;
+		case AFF_TALON: return ::affect::type::talon;
+		case AFF_STEEL: return ::affect::type::steel_mist;
 		default:
 			Logging::bugf("bit_to_sn: wierd bit %d", bit);
 	}
 
-	return type::none;
+	return ::affect::type::none;
 }
 
 int attr_location_check(int location) {
@@ -236,7 +236,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	// the whole original affect, after passing through sanity checks.  set local bitvector = 0
 	// to fall through the bit conversions
 
-	if (paf->where == TO_AFFECTS && paf->type != type::none) {
+	if (paf->where == TO_AFFECTS && paf->type != ::affect::type::none) {
 		// if we passed an sn in, don't parse bits
 		bitvector.clear();
 		paf->bitvector(0);
@@ -273,15 +273,15 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	if (paf->where == TO_WEAPON) {
 		switch (bit) {
-			case WEAPON_ACIDIC     : paf->type = type::weapon_acidic; break;
-			case WEAPON_FLAMING    : paf->type = type::weapon_flaming; break;
-			case WEAPON_FROST      : paf->type = type::weapon_frost; break;
-			case WEAPON_VAMPIRIC   : paf->type = type::weapon_vampiric; break;
-			case WEAPON_SHOCKING   : paf->type = type::weapon_shocking; break;
-			case WEAPON_SHARP      : paf->type = type::weapon_sharp; break;
-			case WEAPON_VORPAL     : paf->type = type::weapon_vorpal; break;
-			case WEAPON_POISON     : paf->type = type::poison; break;
-			case WEAPON_TWO_HANDS  : paf->type = type::weapon_two_hands; break;
+			case WEAPON_ACIDIC     : paf->type = ::affect::type::weapon_acidic; break;
+			case WEAPON_FLAMING    : paf->type = ::affect::type::weapon_flaming; break;
+			case WEAPON_FROST      : paf->type = ::affect::type::weapon_frost; break;
+			case WEAPON_VAMPIRIC   : paf->type = ::affect::type::weapon_vampiric; break;
+			case WEAPON_SHOCKING   : paf->type = ::affect::type::weapon_shocking; break;
+			case WEAPON_SHARP      : paf->type = ::affect::type::weapon_sharp; break;
+			case WEAPON_VORPAL     : paf->type = ::affect::type::weapon_vorpal; break;
+			case WEAPON_POISON     : paf->type = ::affect::type::poison; break;
+			case WEAPON_TWO_HANDS  : paf->type = ::affect::type::weapon_two_hands; break;
 			case Flags::none       : break; // type already set
 			default: {
 				Logging::bugf("parse_flags: TO_WEAPON with unknown defense bit %d", bit);
@@ -289,7 +289,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			}
 		}
 
-		if (paf->type == type::none) {
+		if (paf->type == ::affect::type::none) {
 			Logging::bug("parse_flags: TO_WEAPON with no bits and no type", 0);
 			return FALSE;
 		}
@@ -337,7 +337,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 		return TRUE;
 	} // done with TO_DEFENSE
 
-	if (paf->where == TO_AFFECTS && paf->type == type::none) {
+	if (paf->where == TO_AFFECTS && paf->type == ::affect::type::none) {
 		if (bit == Flags::none) {
 			Logging::bug("parse_flags: TO_AFFECTS with no type and no bit", 0);
 			return FALSE;
@@ -345,7 +345,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 		::affect::type type = bit_to_type(bit);
 
-		if (type == type::none) {
+		if (type == ::affect::type::none) {
 			Logging::bugf("parse_flags: TO_AFFECTS: sn not found for bit %d", bit);
 			return FALSE;
 		}
