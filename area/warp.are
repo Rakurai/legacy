@@ -148,7 +148,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Galaxy, Budo School, High Tower~
+Galaxy~
 
 #2112
 aetheryte crystal~
@@ -172,7 +172,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Wyvern's Tower, Hidden Keep~
+Wyvern's Tower~
 
 #2114
 aetheryte crystal~
@@ -244,7 +244,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-ACME~
+ACME Weapon Factory~
 
 #2120
 aetheryte crystal~
@@ -316,7 +316,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Hell~
+Descent Hell~
 
 #2126
 aetheryte crystal~
@@ -400,7 +400,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Gilligan~
+Gilligan's Island~
 
 #2133
 aetheryte crystal~
@@ -424,7 +424,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Gnome Villiage~
+Gnome Village~
 
 #2135
 aetheryte crystal~
@@ -460,7 +460,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-High Tower~
+High Tower of Sorcery~
 
 #2138
 aetheryte crystal~
@@ -484,7 +484,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Holyl Grove~
+Holy Grove~
 
 #2140
 aetheryte crystal~
@@ -520,7 +520,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Legion~
+Legion's Battlefield~
 
 #2143
 aetheryte crystal~
@@ -556,7 +556,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Mega City One~
+Mega-City One~
 
 #2146
 aetheryte crystal~
@@ -700,7 +700,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Portals~
+Portals (Ripper's Cavern)~
 
 #2158
 aetheryte crystal~
@@ -856,7 +856,7 @@ warp_crystal AGORSTY P
 100 20000 0 P
 E
 warp_loc~
-Solace~
+Town of Solace~
 
 #2171
 aetheryte crystal~
@@ -893,6 +893,18 @@ warp_crystal AGORSTY P
 E
 warp_loc~
 Rainbow Collimator~
+
+#2174
+aetheryte crystal~
+aetheryte crystal~
+A huge {Bb{Clu{We-white crys{Cta{Bl{x emerges from the ground here, glowing with power.~
+crystal~
+warp_crystal AGORSTY P
+0 0 0 0 0
+100 20000 0 P
+E
+warp_loc~
+Monopoly~
 
 #0
 
@@ -947,7 +959,7 @@ O 0 2146 1  3501  * Miden'nir
 O 0 2147 1  9400  * Mob Factory
 O 0 2148 1  4000  * Moria
 O 0 2149 1  601   * New Ofcal
-O 0 2150 1  8299  * Nataris Castle
+O 0 2150 1  8200  * Nataris Castle
 O 0 2151 1  9000  * Nivana
 O 0 2152 1  5550  * Ofcal
 O 0 2153 1  8301  * Old Marsh
@@ -971,7 +983,7 @@ O 0 2170 1  10201 * Solace
 O 0 2171 1  2801  * Troll Den
 O 0 2172 1  7805  * Valley of Elves
 O 0 2173 1  4201  * Rainbow Collimator
-
+O 0 2174 1  7644  * Monopoly
 S 
 
 #$
