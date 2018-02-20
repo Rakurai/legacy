@@ -67,7 +67,7 @@ public:
     virtual const std::string identifier() const { return this->name; }
 
 private:
-	Object(const String&);
+	Object(const Object&);
 	Object& operator=(const Object&);
 };
 
