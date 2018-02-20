@@ -26,7 +26,7 @@
 ***************************************************************************/
 
 #include "act.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Auction.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -242,7 +242,7 @@ int hit_gain(Character *ch)
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
 
-		if (affect_exists_on_char(ch, gsn_regeneration))
+		if (affect::exists_on_char(ch, affect::type::regeneration))
 			gain *= 2;
 
 		switch (get_position(ch)) {
@@ -260,11 +260,11 @@ int hit_gain(Character *ch)
 		gain += class_table[ch->cls].hp_max - 10;
 		number = number_percent();
 
-		if (number < get_skill(ch, gsn_fast_healing)) {
+		if (number < get_skill_level(ch, skill::type::fast_healing)) {
 			gain += number * gain / 100;
 
 			if (ch->hit < GET_MAX_HIT(ch))
-				check_improve(ch, gsn_fast_healing, TRUE, 8);
+				check_improve(ch, skill::type::fast_healing, TRUE, 8);
 		}
 
 		switch (get_position(ch)) {
@@ -289,22 +289,22 @@ int hit_gain(Character *ch)
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (affect_exists_on_char(ch, gsn_poison))
+	if (affect::exists_on_char(ch, affect::type::poison))
 		gain /= 4;
 
-	if (affect_exists_on_char(ch, gsn_plague))
+	if (affect::exists_on_char(ch, affect::type::plague))
 		gain /= 8;
 
-	if (affect_exists_on_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect::exists_on_char(ch, affect::type::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2 ;
 
-	if (affect_exists_on_char(ch, gsn_slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		gain *= 2 ;
 
-	if (affect_exists_on_char(ch, gsn_regeneration))
+	if (affect::exists_on_char(ch, affect::type::regeneration))
 		gain *= 2;
 
-	if (affect_exists_on_char(ch, gsn_divine_regeneration))
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 4;
 
 	return UMIN(gain, GET_MAX_HIT(ch) - ch->hit);
@@ -334,11 +334,11 @@ int mana_gain(Character *ch)
 		gain = (GET_ATTR_WIS(ch) + GET_ATTR_INT(ch) + ch->level) / 2;
 		number = number_percent();
 
-		if (number < get_skill(ch, gsn_meditation)) {
+		if (number < get_skill_level(ch, skill::type::meditation)) {
 			gain += number * gain / 100;
 
 			if (ch->mana < GET_MAX_MANA(ch))
-				check_improve(ch, gsn_meditation, TRUE, 8);
+				check_improve(ch, skill::type::meditation, TRUE, 8);
 		}
 
 		/* compare to mages mana regen, mages get full (class 0) */
@@ -367,19 +367,19 @@ int mana_gain(Character *ch)
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
-	if (affect_exists_on_char(ch, gsn_poison))
+	if (affect::exists_on_char(ch, affect::type::poison))
 		gain /= 4;
 
-	if (affect_exists_on_char(ch, gsn_plague))
+	if (affect::exists_on_char(ch, affect::type::plague))
 		gain /= 8;
 
-	if (affect_exists_on_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect::exists_on_char(ch, affect::type::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
-	if (affect_exists_on_char(ch, gsn_slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		gain *= 2;
 
-	if (affect_exists_on_char(ch, gsn_divine_regeneration))
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 2;
 
 	return UMIN(gain, GET_MAX_MANA(ch) - ch->mana);
@@ -433,22 +433,22 @@ int stam_gain(Character *ch)
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (affect_exists_on_char(ch, gsn_poison))
+	if (affect::exists_on_char(ch, affect::type::poison))
 		gain /= 4;
 
-	if (affect_exists_on_char(ch, gsn_plague))
+	if (affect::exists_on_char(ch, affect::type::plague))
 		gain /= 8;
 
-	if (affect_exists_on_char(ch, gsn_haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect::exists_on_char(ch, affect::type::haste) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
-	if (affect_exists_on_char(ch, gsn_slow))
+	if (affect::exists_on_char(ch, affect::type::slow))
 		gain *= 2;
 
-	if (affect_exists_on_char(ch, gsn_regeneration))
+	if (affect::exists_on_char(ch, affect::type::regeneration))
 		gain *= 2;
 
-	if (affect_exists_on_char(ch, gsn_divine_regeneration))
+	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 2;
 
 	return UMIN(gain, GET_MAX_STAM(ch) - ch->stam);
@@ -757,30 +757,30 @@ void char_update(void)
 		// should get all the grouped spells together.
 		// this will usually already be sorted this way, unless it was sorted by
 		// duration for the show_affects player command, so only O(n) hit here.
-		affect_sort_char(ch, affect_comparator_duration);
-		affect_sort_char(ch, affect_comparator_type);
+		affect::sort_char(ch, affect::comparator_duration);
+		affect::sort_char(ch, affect::comparator_type);
 
-		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next) {
+		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
-					if (paf->type > 0 && !skill_table[paf->type].msg_off.empty())
-						ptc(ch, "%s\n", skill_table[paf->type].msg_off);
+					if (paf->type >= affect::type::first && !affect::lookup(paf->type).msg_off.empty())
+						ptc(ch, "%s\n", affect::lookup(paf->type).msg_off);
 				}
 			}
 		}
 
 		// now remove spells with duration 0
-		Affect pattern;
+		affect::Affect pattern;
 		pattern.duration = 0;
-		affect_remove_matching_from_char(ch, affect_comparator_duration, &pattern);
+		affect::remove_matching_from_char(ch, affect::comparator_duration, &pattern);
 
 		// decrement duration and sometimes decrement level.  this is done after
 		// the wearing off of spells with duration 0, because we use -1 to mean
 		// indefinite and players are used to having spell counters go down to 0
 		// before they wear off.
-		affect_iterate_over_char(ch, affect_fn_fade_spell, nullptr);
+		affect::iterate_over_char(ch, affect::fn_fade_spell, nullptr);
 
 		/* MOBprogram tick trigger -- Montrey */
 		if (IS_NPC(ch)) {
@@ -798,8 +798,8 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != nullptr && affect_exists_on_char(ch, gsn_plague)) {
-		 	const Affect *plague = affect_find_on_char(ch, gsn_plague);
+		if (ch != nullptr && affect::exists_on_char(ch, affect::type::plague)) {
+		 	const affect::Affect *plague = affect::find_on_char(ch, affect::type::plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
 			    ch, nullptr, nullptr, TO_ROOM);
@@ -811,24 +811,26 @@ void char_update(void)
 			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
-			damage(ch->fighting ? ch->fighting : ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
+			damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::plague, -1, DAM_DISEASE, FALSE, TRUE);
 		}
 
-		if (ch != nullptr && affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_slow)) {
-			const Affect *poison = affect_find_on_char(ch, gsn_poison);
+		if (ch != nullptr
+		 && affect::exists_on_char(ch, affect::type::poison)
+		 && !affect::exists_on_char(ch, affect::type::slow)) {
+			const affect::Affect *poison = affect::find_on_char(ch, affect::type::poison);
 
 			if (poison != nullptr) {
 				act("$n shivers and suffers.", ch, nullptr, nullptr, TO_ROOM);
 				stc("You shiver and suffer.\n", ch);
-				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, gsn_poison,
-				       DAM_POISON, FALSE, TRUE);
+				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, skill::type::poison,
+				       -1, DAM_POISON, FALSE, TRUE);
 			}
 		}
 		
 		if (ch != nullptr && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
-			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
+			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, FALSE, FALSE);
 		else if (ch != nullptr && get_position(ch) == POS_MORTAL)
-			damage(ch->fighting ? ch->fighting : ch, ch, 1, TYPE_UNDEFINED, DAM_NONE, FALSE, FALSE);
+			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, FALSE, FALSE);
 	}
 
 	/*
@@ -871,16 +873,16 @@ void obj_update(void)
 		// are duplicated (for some reason).  so, the hackish solution is to sort
 		// the list twice: once by duration, and then by skill number.  this
 		// should get all the grouped spells together.
-		affect_sort_obj(obj, affect_comparator_duration);
-		affect_sort_obj(obj, affect_comparator_type);
+		affect::sort_obj(obj, affect::comparator_duration);
+		affect::sort_obj(obj, affect::comparator_type);
 
-		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
+		for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
 					/* for addapplied objects with a duration */
-					if (paf->type == 0) {
+					if (paf->type == affect::type::none) {
 						if (obj->carried_by != nullptr) {
 							rch = obj->carried_by;
 							act("The magic of $p diminishes.", rch, obj, nullptr, TO_CHAR);
@@ -892,15 +894,17 @@ void obj_update(void)
 						}
 					}
 
-					if (paf->type > 0 && !skill_table[paf->type].msg_obj.empty()) {
+					String message = affect::lookup(paf->type).msg_obj;
+
+					if (!message.empty()) {
 						if (obj->carried_by != nullptr) {
 							rch = obj->carried_by;
-							act(skill_table[paf->type].msg_obj, rch, obj, nullptr, TO_CHAR);
+							act(message, rch, obj, nullptr, TO_CHAR);
 						}
 
 						if (obj->in_room != nullptr && obj->in_room->people != nullptr) {
 							rch = obj->in_room->people;
-							act(skill_table[paf->type].msg_obj, rch, obj, nullptr, TO_ALL);
+							act(message, rch, obj, nullptr, TO_ALL);
 						}
 					}
 				}
@@ -908,15 +912,15 @@ void obj_update(void)
 		}
 
 		// now remove spells with duration 0
-		Affect pattern;
+		affect::Affect pattern;
 		pattern.duration = 0;
-		affect_remove_matching_from_obj(obj, affect_comparator_duration, &pattern);
+		affect::remove_matching_from_obj(obj, affect::comparator_duration, &pattern);
 
 		// decrement duration and sometimes decrement level.  this is done after
 		// the wearing off of spells with duration 0, because we use -1 to mean
 		// indefinite and players are used to having spell counters go down to 0
 		// before they wear off.
-		affect_iterate_over_obj(obj, affect_fn_fade_spell, nullptr);
+		affect::iterate_over_obj(obj, affect::fn_fade_spell, nullptr);
 
 		/* do not decay items being auctioned -- Elrac */
 		if (auction.is_participant(obj))
@@ -1023,34 +1027,40 @@ void room_update(void)
 		// are duplicated (for some reason).  so, the hackish solution is to sort
 		// the list twice: once by duration, and then by skill number.  this
 		// should get all the grouped spells together.
-		affect_sort_room(room, affect_comparator_duration);
-		affect_sort_room(room, affect_comparator_type);
+		affect::sort_room(room, affect::comparator_duration);
+		affect::sort_room(room, affect::comparator_type);
 
-		for (const Affect *paf = affect_list_room(room); paf; paf = paf->next) {
+		for (const affect::Affect *paf = affect::list_room(room); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
+
+					if (!room->people)
+						continue;
+
 					/* there is no msg_room for spells, so we'll use msg_obj for
 					   room affect spells.  might change this later, but i really
 					   don't feel like adding another ,"" to all those entries
 					   right now :P -- Montrey */
-					if (paf->type > 0 && !skill_table[paf->type].msg_obj.empty() && room->people)
-						act(skill_table[paf->type].msg_obj, nullptr, nullptr, nullptr, TO_ALL);
+					String message = affect::lookup(paf->type).msg_obj;
+
+					if (!message.empty())
+						act(message, nullptr, nullptr, nullptr, TO_ALL);
 				}
 			}
 		}
 
 		// now remove spells with duration 0
-		Affect pattern;
+		affect::Affect pattern;
 		pattern.duration = 0;
-		affect_remove_matching_from_room(room, affect_comparator_duration, &pattern);
+		affect::remove_matching_from_room(room, affect::comparator_duration, &pattern);
 
 		// decrement duration and sometimes decrement level.  this is done after
 		// the wearing off of spells with duration 0, because we use -1 to mean
 		// indefinite and players are used to having spell counters go down to 0
 		// before they wear off.
-		affect_iterate_over_room(room, affect_fn_fade_spell, nullptr);
+		affect::iterate_over_room(room, affect::fn_fade_spell, nullptr);
 	}
 }
 
@@ -1075,8 +1085,8 @@ bool eligible_aggressor(Character *ch)
 	        && IS_AWAKE(ch)
 	        && ch->act_flags.has_any_of(ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == nullptr
-	        && !affect_exists_on_char(ch, gsn_calm)
-	        && !affect_exists_on_char(ch, gsn_charm_person)
+	        && !affect::exists_on_char(ch, affect::type::calm)
+	        && !affect::exists_on_char(ch, affect::type::charm_person)
 	       );
 }
 
@@ -1267,7 +1277,7 @@ void aggr_update(void)
 			continue;
 
 		/* rumble! */
-		multi_hit(mob, victim, TYPE_UNDEFINED);
+		multi_hit(mob, victim, skill::type::unknown);
 	}
 } /* end aggr_update() */
 
@@ -1500,7 +1510,7 @@ void underwater_update(void)
 		ch_next = ch->next;
 
 		if (!IS_NPC(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
-			skill = get_skill(ch, gsn_swimming);
+			skill = get_skill_level(ch, skill::type::swimming);
 
 			if (skill == 100)
 				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n", ch);
@@ -1517,15 +1527,15 @@ void underwater_update(void)
 
 					if (skill > 0) {
 						stc("{HYour skill helps slow your drowning.{x\n", ch);
-						check_improve(ch, gsn_swimming, TRUE, 1);
+						check_improve(ch, skill::type::swimming, TRUE, 1);
 					}
 
-					damage(ch->fighting ? ch->fighting : ch, ch, dam, gsn_swimming, DAM_WATER, FALSE, TRUE);
+					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::swimming, -1, DAM_WATER, FALSE, TRUE);
 				}
 				else {
 					stc("{PYou cannot hold your breath any more!{x\n", ch);
 					stc("{CYour lungs fill with water and you lose consciousness...{x\n", ch);
-					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, gsn_swimming, DAM_WATER, FALSE, TRUE);
+					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::type::swimming, -1, DAM_WATER, FALSE, TRUE);
 				}
 			}
 		}

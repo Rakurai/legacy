@@ -29,7 +29,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -61,6 +61,7 @@
 #include "Player.hh"
 #include "random.hh"
 #include "RoomPrototype.hh"
+#include "skill/skill.hh"
 #include "sql.hh"
 #include "Social.hh"
 #include "String.hh"
@@ -128,15 +129,15 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		buf += "{W(Invis) ";
 
-	if (affect_exists_on_char(ch, gsn_detect_evil)
+	if (affect::exists_on_char(ch, affect::type::detect_evil)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
 		buf += "{R(Red Aura) ";
 
-	if (affect_exists_on_char(ch, gsn_detect_good)
+	if (affect::exists_on_char(ch, affect::type::detect_good)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
 		buf += "{B(Blue Aura) ";
 
-	if (affect_exists_on_char(ch, gsn_detect_magic)
+	if (affect::exists_on_char(ch, affect::type::detect_magic)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		buf += "{G(Magical) ";
 
@@ -148,21 +149,16 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	/* flags for temp weapon affects -- Elrac */
 	if (obj->item_type == ITEM_WEAPON) {
-		Flags bits;
-
-		for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next)
-			if (paf->duration)
-				bits += paf->bitvector();
-
-		if (bits.has(WEAPON_FLAMING) )   buf += "{Y(Fl) ";
-		if (bits.has(WEAPON_FROST)   )   buf += "{C(Fr) ";
-		if (bits.has(WEAPON_VAMPIRIC))   buf += "{P(Bl) ";
-		if (bits.has(WEAPON_SHOCKING))   buf += "{V(Sh) ";
-		if (bits.has(WEAPON_POISON)  )   buf += "{G(Po) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_acidic))    buf += "{G(Ac) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_flaming))   buf += "{Y(Fl) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_frost))     buf += "{C(Fr) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_vampiric))  buf += "{P(Bl) ";
+		if (affect::exists_on_obj(obj, affect::type::weapon_shocking))  buf += "{V(Sh) ";
+		if (affect::exists_on_obj(obj, affect::type::poison))           buf += "{H(Po) ";
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
-	if (affect_exists_on_obj(obj, gsn_dazzling_light))
+	if (affect::exists_on_obj(obj, affect::type::dazzling_light))
 		buf += "{W{f(Dazzling){x ";
 
 	if (obj->condition <= 9 && obj->condition >= 0)         buf += "{b(Ruined) ";
@@ -197,12 +193,12 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 	return buf;
 }
 
-void show_affect_to_char(const Affect *paf, Character *ch)
+void show_affect_to_char(const affect::Affect *paf, Character *ch)
 {
 	String buf;
 
-	if (paf->type > 0)
-		buf = Format::format("Spell '%s'", skill_table[paf->type].name);
+	if (paf->type > affect::type::none)
+		buf = Format::format("Effect '%s'", affect::lookup(paf->type).name);
 
 	if (paf->location != 0 && paf->modifier != 0) {
 		if (paf->where == TO_DEFENSE)
@@ -233,11 +229,12 @@ void show_affect_to_char(const Affect *paf, Character *ch)
 			buf += Format::format(" Adds %s object flag%s.",
 				extra_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
-
+/*
 		case TO_WEAPON:
 			buf += Format::format(" Adds %s weapon flag%s.",
 				weapon_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
+*/
 		}
 	}
 
@@ -356,7 +353,7 @@ void do_peek(Character *ch, String argument)
 	Character *victim;
 	bool all = FALSE;
 
-	if (IS_NPC(ch) || !get_skill(ch, gsn_peek)) {
+	if (IS_NPC(ch) || !get_skill_level(ch, skill::type::peek)) {
 		stc("You are not skilled at peeking.\n", ch);
 		return;
 	}
@@ -385,19 +382,19 @@ void do_peek(Character *ch, String argument)
 		return;
 	}
 
-	if (!deduct_stamina(ch, gsn_peek))
+	if (!deduct_stamina(ch, skill::type::peek))
 		return;
 
-	if (!chance(get_skill(ch, gsn_peek))) {
+	if (!chance(get_skill_level(ch, skill::type::peek))) {
 		stc("You can't seem to find a good angle...\n", ch);
 		return;
 	}
 
-	if (!arg2.empty() && get_evolution(ch, gsn_peek) > 1) {
+	if (!arg2.empty() && get_evolution(ch, skill::type::peek) > 1) {
 		if (arg2 == "lore") {
 			Object *obj;
 
-			if (!get_skill(ch, gsn_lore)) {
+			if (!get_skill_level(ch, skill::type::lore)) {
 				stc("You aren't trained in the lore of items.\n", ch);
 				return;
 			}
@@ -412,26 +409,26 @@ void do_peek(Character *ch, String argument)
 				return;
 			}
 
-			WAIT_STATE(ch, skill_table[gsn_lore].beats);
+			WAIT_STATE(ch, skill::lookup(skill::type::lore).beats);
 
-			if (!IS_NPC(ch) && !chance(get_skill(ch, gsn_lore)))
+			if (!IS_NPC(ch) && !chance(get_skill_level(ch, skill::type::lore)))
 				act("You look at $p, but you can't find out any additional information.",
 				    ch, obj, nullptr, TO_CHAR);
 			else {
-				spell_identify(gsn_lore, (4 * obj->level) / 3, ch, obj,
-				               TARGET_OBJ, get_evolution(ch, gsn_lore));
-				check_improve(ch, gsn_lore, TRUE, 4);
+				spell_identify(skill::type::lore, (4 * obj->level) / 3, ch, obj,
+				               TARGET_OBJ, get_evolution(ch, skill::type::lore));
+				check_improve(ch, skill::type::lore, TRUE, 4);
 			}
 
 			return;
 		}
-		else if (arg2 == "all" && get_evolution(ch, gsn_peek) > 2)
+		else if (arg2 == "all" && get_evolution(ch, skill::type::peek) > 2)
 			all = TRUE;
 	}
 
 	act("You peek at $S inventory:", ch, nullptr, victim, TO_CHAR);
 	show_list_to_char(victim->carrying, ch, TRUE, TRUE, all);
-	check_improve(ch, gsn_peek, TRUE, 4);
+	check_improve(ch, skill::type::peek, TRUE, 4);
 }
 
 void show_char_to_char_0(Character *victim, Character *ch)
@@ -453,13 +450,13 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	if (victim->comm_flags.has(COMM_AFK))
 		buf += "{b[AFK] ";
 
-	if (affect_exists_on_char(victim, gsn_invis))
+	if (affect::exists_on_char(victim, affect::type::invis))
 		buf += "{C(Invis) ";
 
-	if (affect_exists_on_char(victim, gsn_midnight))
+	if (affect::exists_on_char(victim, affect::type::midnight))
 		buf += "{c(Shadowy) ";
 
-	if (affect_exists_on_char(victim, gsn_hex))
+	if (affect::exists_on_char(victim, affect::type::hex))
 		buf += "{c(Dark Aura) ";
 
 	if (victim->invis_level)
@@ -474,21 +471,21 @@ void show_char_to_char_0(Character *victim, Character *ch)
 		buf += string;
 	}
 
-	if (affect_exists_on_char(victim, gsn_hide)) buf += "{B(Hide) ";
+	if (affect::exists_on_char(victim, affect::type::hide)) buf += "{B(Hide) ";
 
-	if (affect_exists_on_char(victim, gsn_charm_person)) buf += "{M(Charmed) ";
+	if (affect::exists_on_char(victim, affect::type::charm_person)) buf += "{M(Charmed) ";
 
-	if (affect_exists_on_char(victim, gsn_pass_door)) buf += "{c(Translucent) ";
+	if (affect::exists_on_char(victim, affect::type::pass_door)) buf += "{c(Translucent) ";
 
-	if (affect_exists_on_char(victim, gsn_faerie_fire)) buf += "{P(Pink Aura) ";
+	if (affect::exists_on_char(victim, affect::type::faerie_fire)) buf += "{P(Pink Aura) ";
 
-	if (affect_exists_on_char(victim, gsn_flameshield)) buf += "{b(Flaming Aura) ";
+	if (affect::exists_on_char(victim, affect::type::flameshield)) buf += "{b(Flaming Aura) ";
 
-	if (IS_EVIL(victim) && affect_exists_on_char(ch, gsn_detect_evil)) buf += "{R(Red Aura) ";
+	if (IS_EVIL(victim) && affect::exists_on_char(ch, affect::type::detect_evil)) buf += "{R(Red Aura) ";
 
-	if (IS_GOOD(victim) && affect_exists_on_char(ch, gsn_detect_good)) buf += "{Y(Golden Aura) ";
+	if (IS_GOOD(victim) && affect::exists_on_char(ch, affect::type::detect_good)) buf += "{Y(Golden Aura) ";
 
-	if (affect_exists_on_char(victim, gsn_sanctuary)) buf += "{W(White Aura) ";
+	if (affect::exists_on_char(victim, affect::type::sanctuary)) buf += "{W(White Aura) ";
 
 	if (!IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)) buf += "{R(KILLER) ";
 
@@ -771,13 +768,13 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	    &&   !IS_NPC(ch)
 	    &&   ch->pcdata->plr_flags.has(PLR_AUTOPEEK)
 	    && (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
-	    &&   number_percent() < get_skill(ch, gsn_peek)) {
+	    &&   number_percent() < get_skill_level(ch, skill::type::peek)) {
 		set_color(ch, YELLOW, NOBOLD);
 		stc("\nYou peek at the inventory:\n", ch);
 		show_list_to_char(victim->carrying, ch, TRUE, TRUE, FALSE);
-		check_improve(ch, gsn_peek, TRUE, 4);
+		check_improve(ch, skill::type::peek, TRUE, 4);
 		/* Don't forget to deduct stamina for peeking. -- Outsider */
-		deduct_stamina(ch, gsn_peek);
+		deduct_stamina(ch, skill::type::peek);
 	}
 
 	set_color(ch, WHITE, NOBOLD);
@@ -796,7 +793,7 @@ void show_char_to_char(Character *list, Character *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && affect_exists_on_char(rch, gsn_night_vision))
+		         && affect::exists_on_char(rch, affect::type::night_vision))
 			stc("You see glowing eyes watching YOU!\n", ch);
 	}
 }
@@ -1469,7 +1466,7 @@ void do_showflags(Character *ch, String argument)
 		stc(buf, ch);
 	}
 
-	ptc(ch, "Aff  : %s\n", affect_print_cache(victim));
+	ptc(ch, "Aff  : %s\n", affect::print_cache(victim));
 	ptc(ch, "Drn  : %s\n", print_defense_modifiers(victim, TO_ABSORB));
 	ptc(ch, "Imm  : %s\n", print_defense_modifiers(victim, TO_IMMUNE));
 	ptc(ch, "Res  : %s\n", print_defense_modifiers(victim, TO_RESIST));
@@ -2191,7 +2188,7 @@ void do_exits(Character *ch, String argument)
 			else {
 				buf += Format::format("%-5s - %s",
 				        Exit::dir_name(door).capitalize(),
-				        (room_is_dark(pexit->u1.to_room) && !affect_exists_on_char(ch, gsn_night_vision)) || room_is_very_dark(pexit->u1.to_room)
+				        (room_is_dark(pexit->u1.to_room) && !affect::exists_on_char(ch, affect::type::night_vision)) || room_is_very_dark(pexit->u1.to_room)
 				        ?  "Too dark to tell"
 				        : pexit->u1.to_room->name
 				       );
@@ -3009,7 +3006,7 @@ void do_where(Character *ch, String argument)
 		for (victim = char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
 			    && victim->in_room->area == ch->in_room->area
-			    && !affect_exists_on_char(victim, gsn_hide)
+			    && !affect::exists_on_char(victim, affect::type::hide)
 			    && can_see_char(ch, victim)
 			    && victim->name.has_words(arg)) {
 				found = TRUE;
@@ -3065,7 +3062,7 @@ void do_scon(Character *ch, String argument)
 		if (!buf.empty()) ptc(ch, " Resist: %s\n", buf);
 		buf = print_defense_modifiers(victim, TO_VULN);
 		if (!buf.empty()) ptc(ch, " Vuln:   %s\n", buf);
-		buf = affect_print_cache(victim);
+		buf = affect::print_cache(victim);
 		if (!buf.empty()) ptc(ch, " Affect:  %s\n", buf);
 
 		set_color(ch, WHITE, NOBOLD);
@@ -3142,7 +3139,7 @@ void do_consider(Character *ch, String argument)
 		if (!buf.empty()) ptc(ch, "Resist: %s\n", buf);
 		buf = print_defense_modifiers(victim, TO_VULN);
 		if (!buf.empty()) ptc(ch, "Vuln:   %s\n", buf);
-		buf = affect_print_cache(victim);
+		buf = affect::print_cache(victim);
 		if (!buf.empty()) ptc(ch, "Affect: %s\n", buf);
 
 		ptc(ch, "{gForm: %s\n{gParts: %s\n",
@@ -3155,11 +3152,11 @@ void do_consider(Character *ch, String argument)
 		if (IS_NPC(victim) && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
-		for (const Affect *paf = affect_list_char(victim); paf != nullptr; paf = paf->next) {
+		for (const affect::Affect *paf = affect::list_char(victim); paf != nullptr; paf = paf->next) {
 			if (paf->permanent)
 				continue;
 
-			ptc(ch, "{bSpell: '%s'", skill_table[(int) paf->type].name);
+			ptc(ch, "{bSpell: '%s'", affect::lookup(paf->type).name);
 
 			if (paf->where == TO_AFFECTS) {
 				if (paf->location != APPLY_NONE && paf->modifier != 0)
@@ -3447,17 +3444,17 @@ void do_report(Character *ch, String argument)
 	act(buf, ch, nullptr, nullptr, TO_ROOM);
 
 	if (!strcmp(arg, "all")) {
-		if (affect_list_char(ch) != nullptr) {
+		if (affect::list_char(ch) != nullptr) {
 			stc("You say 'I am affected by the following spells:'\n", ch);
 			act("$n says 'I am affected by the following spells:'", ch, nullptr, nullptr, TO_ROOM);
 
-			const Affect *paf_last = nullptr;
-			for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
+			const affect::Affect *paf_last = nullptr;
+			for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
 				if (paf_last != nullptr && paf->type == paf_last->type)
 					continue;
 
-				ptc(ch, "You say 'Spell: %-15s'\n", skill_table[paf->type].name);
-				Format::sprintf(buf, "$n says 'Spell: %-15s'", skill_table[paf->type].name);
+				ptc(ch, "You say 'Spell: %-15s'\n", affect::lookup(paf->type).name);
+				Format::sprintf(buf, "$n says 'Spell: %-15s'", affect::lookup(paf->type).name);
 				act(buf, ch, nullptr, nullptr, TO_ROOM);
 			}
 		}
@@ -3477,7 +3474,7 @@ void prac_by_group(Character *ch, const String& argument)
 	const struct group_type *gp;
 	int js;
 	bool group_first;
-	int sn;
+	skill::type sn;
 	char buf[50];
 	String line;
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
@@ -3498,15 +3495,17 @@ void prac_by_group(Character *ch, const String& argument)
 		group_first = TRUE;
 
 		for (js = 0; js < gp->spells.size(); js++) { /* loop thru skills/spells */
-			sn = skill_lookup(gp->spells[js]);
+			sn = skill::lookup(gp->spells[js]);
 
-			if (sn == -1)
+			if (sn == skill::type::unknown)
 				continue;
 
-			if (skill_table[sn].skill_level[ch->cls] > ch->level)
+			if (skill::lookup(sn).skill_level[ch->cls] > ch->level)
 				continue; /* skill beyond player's level */
 
-			if (ch->pcdata->learned[sn] <= 0)
+			int learned = get_learned(ch, sn);
+
+			if (learned <= 0)
 				continue;
 
 			/* finally, a skill he knows. */
@@ -3528,7 +3527,7 @@ void prac_by_group(Character *ch, const String& argument)
 				line_cols = 0;
 			}
 
-			Format::sprintf(buf, "%3d%% %-20.20s ", ch->pcdata->learned[sn],
+			Format::sprintf(buf, "%3d%% %-20.20s ", learned,
 			        gp->spells[js]);
 			line += buf;
 			line_cols++;
@@ -3550,8 +3549,7 @@ void prac_by_group(Character *ch, const String& argument)
 /* PRACTICE list of skills and spells, sorted by percentage and/or name -- Elrac */
 void prac_by_key(Character *ch, const String& key, const char *argument)
 {
-	int sn;             /* skill number */
-	int slist[skill_table.size()];
+	skill::type slist[skill::num_skills()];
 	int nskills = 0;
 	int js;
 	int ip;
@@ -3564,18 +3562,24 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	argument = one_argument(argument, arg);
 
 	/* loop thru all skills */
-	for (sn = 0; sn < skill_table.size(); sn++) {
-		if (skill_table[sn].remort_class > 0)
-			if (!CAN_USE_RSKILL(ch, sn))
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
+
+		if (type == skill::type::unknown)
+			continue;
+
+		if (entry.remort_class > 0)
+			if (!CAN_USE_RSKILL(ch, type))
 				continue;
 
-		if (skill_table[sn].skill_level[ch->cls] > ch->level)
+		if (entry.skill_level[ch->cls] > ch->level)
 			continue; /* skill beyond player's level */
 
-		if (ch->pcdata->learned[sn] <= 0)
+		if (get_learned(ch, type) <= 0)
 			continue; /* player doesn't know skill */
 
-		if (!arg.empty() && !arg.is_prefix_of(skill_table[sn].name))
+		if (!arg.empty() && !arg.is_prefix_of(entry.name))
 			continue;
 
 		/* skill is known. Insertion sort into slist by appropriate key. */
@@ -3583,25 +3587,25 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 
 		if (key[0] == '%') {
 			while (ip > 0 &&
-			       (ch->pcdata->learned[slist[ip - 1]] <
-			        ch->pcdata->learned[sn] ||
-			        (ch->pcdata->learned[slist[ip - 1]] ==
-			         ch->pcdata->learned[sn] &&
-			         strcmp(skill_table[slist[ip - 1]].name,
-			                skill_table[sn].name) > 0))) {
+			       (get_learned(ch, slist[ip - 1]) <
+			        get_learned(ch, type) ||
+			        (get_learned(ch, slist[ip - 1]) ==
+			         get_learned(ch, type) &&
+			         strcmp(skill::lookup(slist[ip - 1]).name,
+			                entry.name) > 0))) {
 				slist[ip] = slist[ip - 1];
 				ip--;
 			}
 		}
 		else {
-			while (ip > 0 && strcmp(skill_table[slist[ip - 1]].name,
-			                        skill_table[sn].name) > 0) {
+			while (ip > 0 && strcmp(skill::lookup(slist[ip - 1]).name,
+			                        entry.name) > 0) {
 				slist[ip] = slist[ip - 1];
 				ip--;
 			}
 		}
 
-		slist[ip] = sn;
+		slist[ip] = type;
 		nskills++;
 	}
 
@@ -3609,8 +3613,10 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	line_cols = 0;
 
 	for (js = 0; js < nskills; js++) {
-		if (skill_table[slist[js]].remort_class > 0) {
-			if (skill_table[slist[js]].remort_class == ch->cls + 1)
+		const auto& entry = skill::lookup(slist[js]);
+
+		if (entry.remort_class > 0) {
+			if (entry.remort_class == ch->cls + 1)
 				adept = 65;
 			else
 				adept = 50;
@@ -3619,9 +3625,9 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 			adept = class_table[ch->cls].skill_adept;
 
 		output += Format::format("%s%3d%% %-20.20s{x ",
-		    ch->pcdata->learned[slist[js]] >= adept ? "{g" : "{C",
-		    ch->pcdata->learned[slist[js]],
-		    skill_table[slist[js]].name);
+		    get_learned(ch, slist[js]) >= adept ? "{g" : "{C",
+		    get_learned(ch, slist[js]),
+		    entry.name);
 		line_cols++;
 
 		if (line_cols >= 3) {
@@ -3641,7 +3647,6 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 void do_practice(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	int sn;
 	Character *mob;
 	int adept, increase;
 
@@ -3689,16 +3694,19 @@ void do_practice(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = find_spell(ch, argument)) < 0
+	skill::type sn = find_spell(ch, argument);
+	const auto& entry = skill::lookup(sn);
+
+	if (sn == skill::type::unknown
 	    || (!IS_NPC(ch)
-	        && (ch->level < skill_table[sn].skill_level[ch->cls]
-	            ||    ch->pcdata->learned[sn] < 1 /* skill is not known */
-	            ||    skill_table[sn].rating[ch->cls] == 0))) {
+	        && (ch->level < entry.skill_level[ch->cls]
+	            ||    get_learned(ch, sn) < 1 /* skill is not known */
+	            ||    entry.rating[ch->cls] == 0))) {
 		stc("You can't practice that.\n", ch);
 		return;
 	}
 
-	if (skill_table[sn].remort_class > 0)
+	if (entry.remort_class > 0)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You can't practice that.\n", ch);
 			return;
@@ -3706,8 +3714,8 @@ void do_practice(Character *ch, String argument)
 
 	adept = 0;
 
-	if (skill_table[sn].remort_class > 0) {
-		if (skill_table[sn].remort_class == ch->cls + 1)
+	if (entry.remort_class > 0) {
+		if (entry.remort_class == ch->cls + 1)
 			adept = 65;
 		else if (HAS_EXTRACLASS(ch, sn))
 			adept = 50;
@@ -3715,33 +3723,33 @@ void do_practice(Character *ch, String argument)
 	else
 		adept = IS_NPC(ch) ? 100 : class_table[ch->cls].skill_adept;
 
-	if (ch->pcdata->learned[sn] >= adept) {
+	if (get_learned(ch, sn) >= adept) {
 		Format::sprintf(buf, "You are already learned at %s.\n",
-		        skill_table[sn].name);
+		        entry.name);
 		stc(buf, ch);
 		return;
 	}
 
 	ch->practice--;
-	increase = (int_app[GET_ATTR_INT(ch)].learn / skill_table[sn].rating[ch->cls]);
+	increase = (int_app[GET_ATTR_INT(ch)].learn / entry.rating[ch->cls]);
 
 	if (increase < 1)
 		increase = 1;
 
-	ch->pcdata->learned[sn] += increase;
+	set_learned(ch, sn, get_learned(ch, sn) + increase);
 
-	if (ch->pcdata->learned[sn] < adept) {
+	if (get_learned(ch, sn) < adept) {
 		act("You practice $T.",
-		    ch, nullptr, skill_table[sn].name, TO_CHAR);
+		    ch, nullptr, entry.name, TO_CHAR);
 		act("$n practices $T.",
-		    ch, nullptr, skill_table[sn].name, TO_ROOM);
+		    ch, nullptr, entry.name, TO_ROOM);
 	}
 	else {
-		ch->pcdata->learned[sn] = adept;
+		set_learned(ch, sn, adept);
 		act("You are now learned at $T.",
-		    ch, nullptr, skill_table[sn].name, TO_CHAR);
+		    ch, nullptr, entry.name, TO_CHAR);
 		act("$n is now learned at $T.",
-		    ch, nullptr, skill_table[sn].name, TO_ROOM);
+		    ch, nullptr, entry.name, TO_ROOM);
 	}
 } /* end do_practice() */
 
@@ -4818,14 +4826,14 @@ void print_new_affects(Character *ch)
 	Format::sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	Format::sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
 
-	if (affect_list_char(ch) != nullptr)
-		affect_sort_char(ch, affect_comparator_duration);
+	if (affect::list_char(ch) != nullptr)
+		affect::sort_char(ch, affect::comparator_duration);
 
 	// spells
-	if (affect_list_char(ch) != nullptr) {
+	if (affect::list_char(ch) != nullptr) {
 		int affcount = 0;
 
-		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
+		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && !paf->permanent)
 				affcount++;
 
@@ -4834,8 +4842,8 @@ void print_new_affects(Character *ch)
 			    torch, torch);
 			buffer += breakline;
 
-			const Affect *paf_last = nullptr;
-			for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
+			const affect::Affect *paf_last = nullptr;
+			for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
 				if (paf->where != TO_AFFECTS || paf->permanent)
 					continue;
 
@@ -4848,7 +4856,7 @@ void print_new_affects(Character *ch)
 						continue;
 				}
 				else
-					Format::sprintf(namebuf, "%-19s", skill_table[paf->type].name);
+					Format::sprintf(namebuf, "%-19s", affect::lookup(paf->type).name);
 
 				if (ch->level >= 20) {
 					if (paf->location != APPLY_NONE && paf->modifier != 0)
@@ -4882,7 +4890,7 @@ void print_new_affects(Character *ch)
 		Object *obj;
 
 		if ((obj = get_eq_char(ch, iWear)) != nullptr) {
-			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
+			for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next) {
 				if (paf->where != TO_AFFECTS)
 					continue;
 
@@ -4899,7 +4907,7 @@ void print_new_affects(Character *ch)
 
 				String namebuf, eqbuf, timebuf;
 
-				namebuf = skill_table[paf->type].name;
+				namebuf = affect::lookup(paf->type).name;
 				eqbuf = obj->short_descr.uncolor().substr(0, 38);
 
 				if (paf->duration != -1)
@@ -4918,10 +4926,10 @@ void print_new_affects(Character *ch)
 		}
 	}
 
-	if (affect_list_char(ch) != nullptr) {
+	if (affect::list_char(ch) != nullptr) {
 		int affcount = 0;
 
-		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
+		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && paf->permanent)
 				affcount++;
 
@@ -4933,8 +4941,8 @@ void print_new_affects(Character *ch)
 			    torch, torch);
 			buffer += breakline;
 
-			const Affect *paf_last = nullptr;
-			for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
+			const affect::Affect *paf_last = nullptr;
+			for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
 				if (paf->where != TO_AFFECTS || !paf->permanent)
 					continue;
 
@@ -4947,7 +4955,7 @@ void print_new_affects(Character *ch)
 						continue;
 				}
 				else
-					Format::sprintf(namebuf, "%-19s", skill_table[paf->type].name);
+					Format::sprintf(namebuf, "%-19s", affect::lookup(paf->type).name);
 
 				if (ch->level >= 20) {
 					if (paf->location != APPLY_NONE && paf->modifier != 0)
@@ -5239,7 +5247,7 @@ pet is currently standing in. The room may, however, be
 dark.
 -- Outsider
 */
-void spell_scry(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_scry(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *pet;
 

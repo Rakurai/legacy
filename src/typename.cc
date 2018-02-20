@@ -238,11 +238,6 @@ const String part_bit_name(const Flags& flags) {
 	return print_bit_names(part_flags, flags);
 }
 
-const String weapon_bit_name(const Flags& flags) {
-	return print_bit_names(weapon_flags, flags);
-}
-
-
 const String cont_bit_name(const Flags& flags) {
 	return print_bit_names(cont_flags, flags);
 }

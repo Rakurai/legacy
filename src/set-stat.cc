@@ -28,7 +28,7 @@
 #include <vector>
 
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
 #include "Clan.hh"
@@ -140,7 +140,7 @@ void do_sset(Character *ch, String argument)
 	char buf[1024];
 	Character *victim;
 	int value;
-	int sn;
+	skill::type sn;
 	bool fAll;
 
 	String arg1, arg2, arg3;
@@ -169,9 +169,8 @@ void do_sset(Character *ch, String argument)
 	}
 
 	fAll = arg2 == "all";
-	sn   = 0;
 
-	if (!fAll && (sn = skill_lookup(arg2)) < 0) {
+	if (!fAll && (sn = skill::lookup(arg2)) == skill::type::unknown) {
 		Format::sprintf(buf, "%s is not a valid skill or spell.\n", arg2);
 		stc(buf, ch);
 		return;
@@ -195,17 +194,21 @@ void do_sset(Character *ch, String argument)
 	}
 
 	if (fAll) {
-		for (sn = 0; sn < skill_table.size(); sn++)
-			victim->pcdata->learned[sn] = value;
+		for (const auto& pair : skill_table) {
+			if (pair.first == skill::type::unknown)
+				continue;
+
+			set_learned(victim, pair.first, value);
+		}
 
 		Format::sprintf(buf, "All of %s's skills and spells set to %d.\n", victim->name, value);
 	}
 	else {
-		victim->pcdata->learned[sn] = value;
+		set_learned(victim, sn, value);
 		Format::sprintf(buf, "%s's %s %s set to %d.\n",
 		        victim->name,
-		        skill_table[sn].name,
-		        skill_table[sn].spell_fun != spell_null ? "Spell" : "Skill",
+		        skill::lookup(sn).name,
+		        skill::lookup(sn).spell_fun != spell_null ? "Spell" : "Skill",
 		        value);
 	}
 
@@ -216,7 +219,7 @@ void do_evoset(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	Character *victim;
-	int value, sn;
+	int value;
 
 	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
@@ -242,28 +245,34 @@ void do_evoset(Character *ch, String argument)
 	}
 
 	if (arg2.empty()) {
-		extern int can_evolve args((Character * ch, int sn));
+		extern int can_evolve args((Character * ch, skill::type sn));
 		String buffer;
-		int x, can;
+		int can;
 		buffer += "They have the following skills and spells evolved:\n\n";
 
-		for (x = 0; x < skill_table.size(); x++) {
-			if ((can = can_evolve(victim, x)) == -1)
+		for (const auto& pair : skill_table) {
+			skill::type type = pair.first;
+			const auto& entry = pair.second;
+
+			if (type == skill::type::unknown)
+				continue;
+
+			if ((can = can_evolve(victim, type)) == -1)
 				continue;
 
 			Format::sprintf(buf, "They have %s at %d%%, evolution %d.\n",
-			        skill_table[x].name,
-			        victim->pcdata->learned[x],
-			        victim->pcdata->evolution[x]);
+			        entry.name,
+			        get_learned(victim, type),
+			        get_evolution(victim, type));
 			buffer += buf;
 
 			if (can == 1)
 				Format::sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
-				        victim->pcdata->evolution[x] == 1 ?
-				        skill_table[x].evocost_sec[victim->cls] :
-				        skill_table[x].evocost_pri[victim->cls],
-				        skill_table[x].name,
-				        victim->pcdata->evolution[x] + 1);
+				        get_evolution(victim, type) == 1 ?
+				        entry.evocost_sec[victim->cls] :
+				        entry.evocost_pri[victim->cls],
+				        entry.name,
+				        get_evolution(victim, type) + 1);
 
 			buffer += buf;
 			buffer += "\n";
@@ -273,7 +282,9 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = skill_lookup(arg2)) < 0) {
+	skill::type type = skill::lookup(arg2);
+
+	if (type == skill::type::unknown) {
 		ptc(ch, "%s is not a valid skill or spell.\n", arg2);
 		return;
 	}
@@ -283,9 +294,11 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if (skill_table[sn].evocost_sec[victim->cls] <= 0 && !IS_IMMORTAL(victim)) {
+	const auto& entry = skill::lookup(type);
+
+	if (entry.evocost_sec[victim->cls] <= 0 && !IS_IMMORTAL(victim)) {
 		ptc(ch, "%ss cannot evolve %s.\n",
-		    class_table[victim->cls].name.capitalize(), skill_table[sn].name);
+		    class_table[victim->cls].name.capitalize(), entry.name);
 		return;
 	}
 
@@ -296,14 +309,14 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if (skill_table[sn].evocost_pri[victim->cls] <= 0 && value > 2 && !IS_IMMORTAL(victim)) {
+	if (entry.evocost_pri[victim->cls] <= 0 && value > 2 && !IS_IMMORTAL(victim)) {
 		stc("Secondary classes cannot evolve a skill or spell past 2.\n", ch);
 		return;
 	}
 
-	victim->pcdata->evolution[sn] = value;
-	ptc(ch, "%s's %s %s has been set to evolution %d.\n", victim->name, skill_table[sn].name,
-	    skill_table[sn].spell_fun != spell_null ? "spell" : "skill", value);
+	set_evolution(victim, type, value);
+	ptc(ch, "%s's %s %s has been set to evolution %d.\n", victim->name, entry.name,
+	    entry.spell_fun != spell_null ? "spell" : "skill", value);
 } /* end do_evoset() */
 
 void do_raffset(Character *ch, String argument)
@@ -474,7 +487,8 @@ void do_extraset(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	String output;
 	Character *victim;
-	int sn, x, i, gn, cn, col = 0;
+	skill::type sn;
+	int x, i, cn, col = 0;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -500,9 +514,16 @@ void do_extraset(Character *ch, String argument)
 			output += buf;
 			col = 0;
 
-			for (gn = 0; gn < skill_table.size(); gn++) {
-				if (skill_table[gn].remort_class > 0 && skill_table[gn].remort_class == cn + 1) {
-					Format::sprintf(buf, "%-15s %-8d", skill_table[gn].name, skill_table[gn].rating[ch->cls]);
+			for (const auto& pair : skill_table) {
+				skill::type type = pair.first;
+				const auto& entry = pair.second;
+
+				if (type == skill::type::unknown)
+					continue;
+
+				if (entry.remort_class > 0
+				 && entry.remort_class == cn + 1) {
+					Format::sprintf(buf, "%-15s %-8d", entry.name, entry.rating[ch->cls]);
 					output += buf;
 				}
 			}
@@ -541,22 +562,23 @@ void do_extraset(Character *ch, String argument)
 	/*    fix_blank_extraclass(victim,0); */
 
 	if (arg2.empty()) {
-		if ((victim->pcdata->extraclass[0] +
-		     victim->pcdata->extraclass[1] +
-		     victim->pcdata->extraclass[2] +
-		     victim->pcdata->extraclass[3] +
-		     victim->pcdata->extraclass[4]) > 0) {
-			Format::sprintf(buf, "Their current extraclass skill%s", victim->pcdata->extraclass[1] ? "s are" : " is");
+		if (victim->pcdata->extraclass[0] != skill::type::unknown
+		 || victim->pcdata->extraclass[1] != skill::type::unknown
+		 || victim->pcdata->extraclass[2] != skill::type::unknown
+		 || victim->pcdata->extraclass[3] != skill::type::unknown
+		 || victim->pcdata->extraclass[4] != skill::type::unknown) {
+	  		Format::sprintf(buf, "Their current extraclass skill%s",
+	  			victim->pcdata->extraclass[1] != skill::type::unknown ? "s are" : " is");
 			output += buf;
 
-			if (victim->pcdata->extraclass[0]) {
-				Format::sprintf(buf, " %s", skill_table[victim->pcdata->extraclass[0]].name);
+			if (victim->pcdata->extraclass[0] != skill::type::unknown) {
+				Format::sprintf(buf, " %s", skill::lookup(victim->pcdata->extraclass[0]).name);
 				output += buf;
 			}
 
 			for (x = 1; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
-				if (victim->pcdata->extraclass[x]) {
-					Format::sprintf(buf, ", %s", skill_table[victim->pcdata->extraclass[x]].name);
+				if (victim->pcdata->extraclass[x] != skill::type::unknown) {
+					Format::sprintf(buf, ", %s", skill::lookup(victim->pcdata->extraclass[x]).name);
 					output += buf;
 				}
 			}
@@ -573,14 +595,14 @@ void do_extraset(Character *ch, String argument)
 	if (arg2 == "none") {
 		/* loop through and set all exsks to 0 */
 		for (i = 0; i < 5; i++)
-			victim->pcdata->extraclass[i] = 0;
+			victim->pcdata->extraclass[i] = skill::type::unknown;
 
 		stc("The player's extraclass skills have been cleared.\n", ch);
 		return;
 	}
 
 	/* Ok, now we check to see if the skill is a remort skill */
-	if (!(sn = skill_lookup(arg2))) {
+	if ((sn = skill::lookup(arg2)) == skill::type::unknown) {
 		stc("That is not even a valid skill, much less a remort skill.\n", ch);
 		return;
 	}
@@ -589,7 +611,7 @@ void do_extraset(Character *ch, String argument)
 	if (HAS_EXTRACLASS(victim, sn)) {
 		for (x = 0; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
 			if (victim->pcdata->extraclass[x] == sn) {
-				victim->pcdata->extraclass[x] = 0;
+				victim->pcdata->extraclass[x] = skill::type::unknown;
 				stc("Extraclass skill removed.\n", ch);
 				/*              fix_blank_extraclass(victim,0); */
 			}
@@ -600,34 +622,34 @@ void do_extraset(Character *ch, String argument)
 
 	/* for debugging, put the checks for oddball stuff after the removal part */
 	/* Is it a remort skill? */
-	if (skill_table[sn].remort_class == 0) {
+	if (skill::lookup(sn).remort_class == 0) {
 		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill_table[sn].remort_class == victim->cls + 1) {
+	if (skill::lookup(sn).remort_class == victim->cls + 1) {
 		stc("They cannot have an extraclass skill within their class.  Pick another.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
-	if ((skill_table[sn].skill_level[victim->cls] < 0)
-	    || (skill_table[sn].rating[victim->cls] < 0)) {
+	if ((skill::lookup(sn).skill_level[victim->cls] < 0)
+	    || (skill::lookup(sn).rating[victim->cls] < 0)) {
 		stc("Their class cannot gain that skill.\n", ch);
 		return;
 	}
 
 	/* they don't have it, let's put it in the first blank spot */
 	for (x = 0; x < victim->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS + 1; x++) {
-		if (victim->pcdata->extraclass[x] <= 0) {
+		if (victim->pcdata->extraclass[x] == skill::type::unknown) {
 			victim->pcdata->extraclass[x] = sn;
 
-			if (!victim->pcdata->learned[sn])
-				victim->pcdata->learned[sn] = 1;
+			if (get_learned(victim, sn) == 0)
+				set_learned(victim, sn, 1);
 
 			stc("Extraclass skill added.\n", ch);
-			ptc(victim, "You have been given %s as an extraclass remort skill.\n", skill_table[sn].name);
+			ptc(victim, "You have been given %s as an extraclass remort skill.\n", skill::lookup(sn).name);
 			return;
 		}
 	}
@@ -1566,7 +1588,7 @@ void format_mstat(Character *ch, Character *victim)
 		if (!buf.empty()) ptc(ch, "Res : %s\n", buf);
 		buf = print_defense_modifiers(victim, TO_VULN);
 		if (!buf.empty()) ptc(ch, "Vuln: %s\n", buf);
-		buf = affect_print_cache(victim);
+		buf = affect::print_cache(victim);
 		if (!buf.empty()) ptc(ch, "Aff : %s\n", buf);
 	}
 
@@ -1608,11 +1630,11 @@ void format_mstat(Character *ch, Character *victim)
 		stc(buf, ch);
 	}
 
-	for (const Affect *paf = affect_list_char(victim); paf != nullptr; paf = paf->next) {
+	for (const affect::Affect *paf = affect::list_char(victim); paf != nullptr; paf = paf->next) {
 		if (paf->permanent)
 			continue;
 
-		ptc(ch, "{bSpell: '%s'", skill_table[(int) paf->type].name);
+		ptc(ch, "{bSpell: '%s'", affect::lookup(paf->type).name);
 
 		if (paf->where == TO_AFFECTS) {
 			if (paf->location != APPLY_NONE && paf->modifier != 0)
@@ -1696,17 +1718,12 @@ void format_ostat(Character *ch, Object *obj)
 	case ITEM_PILL:
 		ptc(ch, "Level %d spells of:", obj->value[0]);
 
-		if (obj->value[1] >= 0 && obj->value[1] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[1]].name);
+		for (int i = 1; i <= 4; i++) {
+			skill::type type = skill::from_int(obj->value[i]);
 
-		if (obj->value[2] >= 0 && obj->value[2] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[2]].name);
-
-		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
-
-		if (obj->value[4] >= 0 && obj->value[4] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[4]].name);
+			if (type != skill::type::unknown)
+				ptc(ch, " '%s'", skill::lookup(type).name);
+		}
 
 		stc(".\n", ch);
 		break;
@@ -1714,9 +1731,7 @@ void format_ostat(Character *ch, Object *obj)
 	case ITEM_WAND:
 	case ITEM_STAFF:
 		ptc(ch, "Has %d charges of level %d", obj->value[2], obj->value[0]);
-
-		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
+		ptc(ch, " '%s'", skill::lookup(skill::from_int(obj->value[3])).name);
 
 		stc(".\n", ch);
 		break;
@@ -1762,10 +1777,10 @@ void format_ostat(Character *ch, Object *obj)
 
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
-
-		if (obj->value[4] || !obj->cached_weapon_flags.empty())  /* weapon flags */
+/*
+		if (obj->value[4] || !obj->cached_weapon_flags.empty())
 			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4] + obj->cached_weapon_flags));
-
+*/
 		break;
 
 	case ITEM_ARMOR:
@@ -1779,10 +1794,10 @@ void format_ostat(Character *ch, Object *obj)
 		break;
 	}
 
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
 		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
 			paf->where, paf->type, paf->level, paf->duration, paf->location,
-			paf->modifier, paf->evolution, paf->bitvector(), affect_checksum(paf));
+			paf->modifier, paf->evolution, paf->bitvector(), affect::checksum(paf));
 		show_affect_to_char(paf, ch);
 	}
 
@@ -1796,7 +1811,7 @@ void format_ostat(Character *ch, Object *obj)
 	if (obj->gems) {
 		stc("Gems are adding:", ch);
 
-		for (const Affect *paf = obj->gem_affected; paf != nullptr; paf = paf->next)
+		for (const affect::Affect *paf = obj->gem_affected; paf != nullptr; paf = paf->next)
 			show_affect_to_char(paf, ch);
 	}
 
@@ -1863,9 +1878,9 @@ void format_rstat(Character *ch, RoomPrototype *location)
 		}
 	}
 
-	for (const Affect *paf = affect_list_room(location); paf != nullptr; paf = paf->next)
+	for (const affect::Affect *paf = affect::list_room(location); paf != nullptr; paf = paf->next)
 		ptc(ch, "{bAffect: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
-		    skill_table[(int) paf->type].name,
+		    affect::lookup(paf->type).name,
 		    affect_loc_name(paf->location),
 		    paf->modifier,
 		    paf->duration + 1,
@@ -2103,12 +2118,12 @@ void do_pstat(Character *ch, String argument)
 	ptc(ch, "%s%s%s%s%s%s%s%s%s%s{x\n",
 	    victim->pcdata->plr_flags.has(PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
 	    victim->comm_flags.has(COMM_AFK) ?             "{b[AFK] "      : "",
-	    affect_exists_on_char(victim, gsn_invis) ?        "{C(Invis) "    : "",
-	    affect_exists_on_char(victim, gsn_hide) ?             "{B(Hide) "     : "",
-	    affect_exists_on_char(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
+	    affect::exists_on_char(victim, affect::type::invis) ?        "{C(Invis) "    : "",
+	    affect::exists_on_char(victim, affect::type::hide) ?             "{B(Hide) "     : "",
+	    affect::exists_on_char(victim, affect::type::midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
-	    affect_exists_on_char(victim, gsn_charm_person) ?                        "{M(Charmed) "  : "",
+	    affect::exists_on_char(victim, affect::type::charm_person) ?                        "{M(Charmed) "  : "",
 	    victim->act_flags.has(PLR_KILLER) ?                       "{R(KILLER) "   : "",
 	    victim->act_flags.has(PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */

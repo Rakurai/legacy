@@ -1,227 +1,227 @@
 -1 'CLASS HELP'~
 {BL{Ce{gg{Wa{Cc{By{x has several classes avialable.  The help files listed after the
-class name will give more information pertaining to each class.
+class name will give more information pertaining to each class.
 
-Mage, a magic user            '{RHELP MAGE{x'
-Cleric, a healer              '{RHELP CLERIC{x'
-Thief, a rogue                '{RHELP THIEF{x'
-Warrior, a fighter            '{RHELP WARRIOR{x'
-Necromancer, a magic user     '{RHELP NECROMANCER{x'
-Paladin, a holy knight        '{RHELP PALADIN{x'
-Bard, a rogue                 '{RHELP BARD{x'
-Ranger, a fighter             '{RHELP RANGER{x'
-~
+Mage, a magic user            '{RHELP MAGE{x'
+Cleric, a healer              '{RHELP CLERIC{x'
+Thief, a rogue                '{RHELP THIEF{x'
+Warrior, a fighter            '{RHELP WARRIOR{x'
+Necromancer, a magic user     '{RHELP NECROMANCER{x'
+Paladin, a holy knight        '{RHELP PALADIN{x'
+Bard, a rogue                 '{RHELP BARD{x'
+Ranger, a fighter             '{RHELP RANGER{x'
+~
 
 0 MAGE 'MAGIC-USER' 'MAGE BASICS' 'MAGE DEFAULT'~
 {RMages{x specialize in the casting of spells, offensive ones in particular.
-{RMages{x have the highest-powered magic of any class.  They are also very
-skilled at the use of magical items, though their combat skills are the
-weakest of any class.
+{RMages{x have the highest-powered magic of any class.  They are also very
+skilled at the use of magical items, though their combat skills are the
+weakest of any class.
 
-All {Rmages{x begin with skills in {Gdagger{x and {Gbrew{x. Any other skill must be
-purchased, many of them at a very high rate.  
-The {Cdefault skill selection{x for mages is as follows:
+All {Rmages{x begin with skills in {Gdagger{x and {Gbrew{x. Any other skill must be
+purchased, many of them at a very high rate.  
+The {Cdefault skill selection{x for mages is as follows:
 
-skills:
-{Clore{x           the lore of magical items
+skills:
+{Clore{x           the lore of magical items
 
-spell groups:
-{Cbeguiling{x      spells that control the mind
-{Ccombat{x         offensive magics, such as fireball and chill touch
-{Cdetection{x      informational magics, such as detect magic and identify
-{Cenhancement{x    spells that maximize physical potential, such as haste
-{Cillusion{x       magics for concealing and deceiving
-{Cmaladictions{x   a selection of curses fit for any witch
-{Cprotective{x     defensive magics, ranging from armor to stone skin
-{Ctransporation{x  spells for getting from here to there
-{Cweather{x        spells for conjuring and mastering the elements
-~
+spell groups:
+{Cbeguiling{x      spells that control the mind
+{Ccombat{x         offensive magics, such as fireball and chill touch
+{Cdetection{x      informational magics, such as detect magic and identify
+{Cenhancement{x    spells that maximize physical potential, such as haste
+{Cillusion{x       magics for concealing and deceiving
+{Cmaladictions{x   a selection of curses fit for any witch
+{Cprotective{x     defensive magics, ranging from armor to stone skin
+{Ctransporation{x  spells for getting from here to there
+{Cweather{x        spells for conjuring and mastering the elements
+~
 
 0 CLERIC 'CLERIC BASICS' 'CLERIC DEFAULT'~
 {RClerics{x are the most defensively orientated of all the classes.  Most of their
-spells focus on healing or defending the faithful, with their few combat spells
-being far less powerful than those of mages. However, clerics are the best
-class by far at healing magics, and they posess an impressive area of
-protective magics, as well as fair combat prowess.
+spells focus on healing or defending the faithful, with their few combat spells
+being far less powerful than those of mages. However, clerics are the best
+class by far at healing magics, and they posess an impressive area of
+protective magics, as well as fair combat prowess.
 
-All {Rclerics{x begin with skills in {Gmace{x and {Gscribe{x.  Other skills must
-be purchased, many at a very dear cost.  The {Cdefault skill selection{x for
-clerics is as follows:
+All {Rclerics{x begin with skills in {Gmace{x and {Gscribe{x.  Other skills must
+be purchased, many at a very dear cost.  The {Cdefault skill selection{x for
+clerics is as follows:
 
-skills:
-{Cflail{x           the proper use of flails
+skills:
+{Cflail{x           the proper use of flails
 
-spell groups:
-{Cattack{x          a selection of offensive magics
-{Ccreation{x        the making of physical objects, such as food and water
-{Ccurative{x        spells that cure the sick and feeble of their ailments
-{Cbenedictions{x    powerful magics that grant the blessings of the gods
-{Cdetection{x       informational magics, such as detect magic and identify
-{Chealing{x         spells for treating wounds, from scratches to death blows
-{Cmaladictions{x    an assortment of curses
-{Cprotective{x      defensive magics, including the powerful sanctuary spell
-{Ctransportation{x  spells for getting from here to there
-{Cweather{x         spells for conjuring and mastering the elements
-~
+spell groups:
+{Cattack{x          a selection of offensive magics
+{Ccreation{x        the making of physical objects, such as food and water
+{Ccurative{x        spells that cure the sick and feeble of their ailments
+{Cbenedictions{x    powerful magics that grant the blessings of the gods
+{Cdetection{x       informational magics, such as detect magic and identify
+{Chealing{x         spells for treating wounds, from scratches to death blows
+{Cmaladictions{x    an assortment of curses
+{Cprotective{x      defensive magics, including the powerful sanctuary spell
+{Ctransportation{x  spells for getting from here to there
+{Cweather{x         spells for conjuring and mastering the elements
+~
 
 0 THIEF 'THIEF BASICS' 'THIEF DEFAULT'~
 {RThieves{x are a marginal class. They do few things better than any other class,
-but have the widest range of skills available.  {RThieves{x are specialists at
-thievery and covert actions, being capable of entering areas undetected where
-more powerful adventurers would fear to tread.  They are better fighters than
-clerics, but lack the wide weapon selection of warriors.
+but have the widest range of skills available.  {RThieves{x are specialists at
+thievery and covert actions, being capable of entering areas undetected where
+more powerful adventurers would fear to tread.  They are better fighters than
+clerics, but lack the wide weapon selection of warriors.
 
-All {Rthieves{x begin with the {Gdagger{x combat skill, and are learned in {Gsteal{x as
-well.  Any other weapon skills must be purchased, unless the default selection
-is chosen.  This {Cdefault skill package{x includes:
+All {Rthieves{x begin with the {Gdagger{x combat skill, and are learned in {Gsteal{x as
+well.  Any other weapon skills must be purchased, unless the default selection
+is chosen.  This {Cdefault skill package{x includes:
 
-skills:
-{Cmace{x           the use of maces and other blunt weapons
-{Csword{x          swordplay and fencing
-{Cbackstab{x       the art of hitting your opponent by surprise
-{Cdisarm{x         used to deprive your opponent of his weapon
-{Cdodge{x          the best way to take a punch is not to be there
-{Csecond attack{x  with training, the skilled thief can hit twice as fast
-{Ctrip{x           a good way to introduce an opponent to the floor
-{Chide{x           the art of remaining undetected in a room
-{Cpeek{x           used to look into a person's belongings
-{Cpick lock{x      a useful skill for breaking and entering
-{Csneak{x          with this skill, a thief can walk into a room undetected
-{Ccircle{x         the art of circling around a victim for repeated backstabs
-~
+skills:
+{Cmace{x           the use of maces and other blunt weapons
+{Csword{x          swordplay and fencing
+{Cbackstab{x       the art of hitting your opponent by surprise
+{Cdisarm{x         used to deprive your opponent of his weapon
+{Cdodge{x          the best way to take a punch is not to be there
+{Csecond attack{x  with training, the skilled thief can hit twice as fast
+{Ctrip{x           a good way to introduce an opponent to the floor
+{Chide{x           the art of remaining undetected in a room
+{Cpeek{x           used to look into a person's belongings
+{Cpick lock{x      a useful skill for breaking and entering
+{Csneak{x          with this skill, a thief can walk into a room undetected
+{Ccircle{x         the art of circling around a victim for repeated backstabs
+~
 
 0 WARRIOR 'WARRIOR BASICS' 'WARRIOR DEFAULT'~
 {RWarriors{x live for combat and the thrill of battle. They are the best fighters
-of all the classes, but lack the subtle skills of thieves and the magical
-talents of mages and priests.  {RWarriors{x are best for those who don't mind
-taking the direct approach, even when another method might be called for.
+of all the classes, but lack the subtle skills of thieves and the magical
+talents of mages and priests.  {RWarriors{x are best for those who don't mind
+taking the direct approach, even when another method might be called for.
 
-{RWarriors{x begin with skill in the {Gsword{x, and gain a {Gsecond attack{x in combat.
-Other weapon skills may be purchased cheaply, or gained in the {Cdefault skill
-package{x, which includes the following:
+{RWarriors{x begin with skill in the {Gsword{x, and gain a {Gsecond attack{x in combat.
+Other weapon skills may be purchased cheaply, or gained in the {Cdefault skill
+package{x, which includes the following:
 
-skills:
-{Cweaponsmaster{x    this group provides knowledge of all weapon types
-{Cshield block{x     the art of parrying with a shield
-{Cbash{x             a forceful rush with the body, designed to flatten your foes
-{Cenhanced damage{x  this skill multiplies your damage in battle
-{Cparry{x            the art of parrying with weapons
-{Crescue{x           allows you to take the blows aimed for a companion
-{Cthird attack{x     allows the skilled warrior to land three blows in one round
-~
+skills:
+{Cweaponsmaster{x    this group provides knowledge of all weapon types
+{Cshield block{x     the art of parrying with a shield
+{Cbash{x             a forceful rush with the body, designed to flatten your foes
+{Cenhanced damage{x  this skill multiplies your damage in battle
+{Cparry{x            the art of parrying with weapons
+{Crescue{x           allows you to take the blows aimed for a companion
+{Cthird attack{x     allows the skilled warrior to land three blows in one round
+~
 
 0 NECROMANCERS~
 Since ancient times, scholars and priests have devoted their entire lives
-to studying, explaining, and revering the final chapter in human life.
-For some individuals, however, death has become an obsession, a source
-of magical power, or even an object or religious adoration.
-These beings are {Rnecromancers{x, and they are universally feared and loathed
-as the purbeyors of unremitting evil.
+to studying, explaining, and revering the final chapter in human life.
+For some individuals, however, death has become an obsession, a source
+of magical power, or even an object or religious adoration.
+These beings are {Rnecromancers{x, and they are universally feared and loathed
+as the purbeyors of unremitting evil.
 
-Popular myth tells about {Rnecromancers{x practicing vile and forbidden arts.
-He is the macabre sorcerer who roots about in graveyards, searching
-out moldering components for his obscene spells.  She is the evil
-priestess who calls upon restless, tormented spirits of the long
-deceased, seeking their immortal arcana.  In their dark secluded
-lairs, the mute undead, the monstrous familiar, and the ravening fiend
-serve the necromancers in their ghoulish endeavors.
+Popular myth tells about {Rnecromancers{x practicing vile and forbidden arts.
+He is the macabre sorcerer who roots about in graveyards, searching
+out moldering components for his obscene spells.  She is the evil
+priestess who calls upon restless, tormented spirits of the long
+deceased, seeking their immortal arcana.  In their dark secluded
+lairs, the mute undead, the monstrous familiar, and the ravening fiend
+serve the necromancers in their ghoulish endeavors.
 
-{RNecromancers{x begin with skills in {Gpolearm{x, {Gdagger{x and {Gscribe{x.  
-Other spellgroups may be purchased seperately or as a group.  
-The {Cdefault{x is as follows:
+{RNecromancers{x begin with skills in {Gpolearm{x, {Gdagger{x and {Gscribe{x.  
+Other spellgroups may be purchased seperately or as a group.  
+The {Cdefault{x is as follows:
 
-spells:
-{Cbeguiling{x      spells that control the mind
-{Ccombat{x         offensive magics, such as fireball and chill touch
-{Cdetection{x      informational magics, such as detect magic and identify
-{Cnecromancy{x     the ability to animate and control the dead
-{Cillusion{x       magics for concealing and deceiving
-{Cmaladictions{x   a selection of curses fit for any witch
-{Cprotective{x     defensive magics, ranging from armor to stone skin
-{Ctransporation{x  spells for getting from here to there
-{Cweather{x        spells for conjuring and mastering the elements
-~
+spells:
+{Cbeguiling{x      spells that control the mind
+{Ccombat{x         offensive magics, such as fireball and chill touch
+{Cdetection{x      informational magics, such as detect magic and identify
+{Cnecromancy{x     the ability to animate and control the dead
+{Cillusion{x       magics for concealing and deceiving
+{Cmaladictions{x   a selection of curses fit for any witch
+{Cprotective{x     defensive magics, ranging from armor to stone skin
+{Ctransporation{x  spells for getting from here to there
+{Cweather{x        spells for conjuring and mastering the elements
+~
 
 0 PALADINS~
 {RPaladins{x are the defenders of law and justice in this land of chaos.
-They are sworn to defend the weak and fight evil wherever they find
-it, which is never far.  Combining the righteousness of knighthood 
-with a touch of the holy clerical arts, a paladin is a worthy
-opponent in battle. Paladins start with rescue and shield block, as 
-well as a proficiency in swords.
+They are sworn to defend the weak and fight evil wherever they find
+it, which is never far.  Combining the righteousness of knighthood 
+with a touch of the holy clerical arts, a paladin is a worthy
+opponent in battle. Paladins start with rescue and shield block, as 
+well as a proficiency in swords.
 
-The default paladin package includes:
+The default paladin package includes:
 
-skills:
-{Cmace{x            for beating down evil
-{Csecond attack{x   ... quickly
-{Cthird attack{x    ... very quickly
-{Crotate{x          giving you the choice of which opponent to fight
-{Cparry{x           the art of parrying with weapons
-{cscribe{x          the clerical art of scribing
+skills:
+{Cmace{x            for beating down evil
+{Csecond attack{x   ... quickly
+{Cthird attack{x    ... very quickly
+{Crotate{x          giving you the choice of which opponent to fight
+{Cparry{x           the art of parrying with weapons
+{cscribe{x          the clerical art of scribing
 
-spells:
-{Ccreation{x        basic conjuration
-{cbenedictions{x    spells that channel the divine power of gods
-{Cdetection{x       providing the ability to discern a good or evil nature
-{Chealing{x         spells that restore health to the sick and weak
-~
+spells:
+{Ccreation{x        basic conjuration
+{cbenedictions{x    spells that channel the divine power of gods
+{Cdetection{x       providing the ability to discern a good or evil nature
+{Chealing{x         spells that restore health to the sick and weak
+~
 
 0 BARDS~
 In historical terms, the title '{Rbard{x' applies only to certain Celtic poets
-who sand the history of their tribes in long, recitative poems.
-These {Rbards{x, found mainly in Ireland, Wales, and Scotland, filled many
-important roles in their society.  They were storehouses of tribal
-history, reporters of news, messengers, and even ambassadors to other
-tribes. Indeed, every culture has its storyteller or poet, whether he is
-called a {Rbard{x, or something else.
+who sand the history of their tribes in long, recitative poems.
+These {Rbards{x, found mainly in Ireland, Wales, and Scotland, filled many
+important roles in their society.  They were storehouses of tribal
+history, reporters of news, messengers, and even ambassadors to other
+tribes. Indeed, every culture has its storyteller or poet, whether he is
+called a {Rbard{x, or something else.
 
-A {Rbard{x, by his nature, tends to learn many different skills.  He is a jack
-of all trades but master of none.  {RBards{x can lighten your day, or can steal
-your purse.  They can be treated as friends or enemies.
+A {Rbard{x, by his nature, tends to learn many different skills.  He is a jack
+of all trades but master of none.  {RBards{x can lighten your day, or can steal
+your purse.  They can be treated as friends or enemies.
 
-All {Rbards{x begin with the {Gaxe{x and {Gflail{x combat skills, and are learned in
-{Gsing{x as well.  Any other weapon skills must be purchased, unless the default 
-selection is chosen.  This {Cdefault skill package{x includes:
+All {Rbards{x begin with the {Gaxe{x and {Gflail{x combat skills, and are learned in
+{Gsing{x as well.  Any other weapon skills must be purchased, unless the default 
+selection is chosen.  This {Cdefault skill package{x includes:
 
-skills:
-{Cweaponsmaster{x  this group provides knowledge of all weapon types
-{Chaggle{x         the art of saving and making money
-{Cdisarm{x         used to deprive your opponent of his weapon
-{Cdodge{x          the best way to take a punch is not to be there
-{Csecond attack{x  with training, the skilled bard can hit twice as fast
-{Ctrip{x           a good way to introduce an opponent to the floor
-{Chide{x           the art of remaining undetected in a room
-{Csneak{x          with this skill, a bard can walk around undetected
-{Cparry{x          the art of parrying with weapons
-{Csing{x           the right song will make your listeners follow you
-~
+skills:
+{Cweaponsmaster{x  this group provides knowledge of all weapon types
+{Chaggle{x         the art of saving and making money
+{Cdisarm{x         used to deprive your opponent of his weapon
+{Cdodge{x          the best way to take a punch is not to be there
+{Csecond attack{x  with training, the skilled bard can hit twice as fast
+{Ctrip{x           a good way to introduce an opponent to the floor
+{Chide{x           the art of remaining undetected in a room
+{Csneak{x          with this skill, a bard can walk around undetected
+{Cparry{x          the art of parrying with weapons
+{Csing{x           the right song will make your listeners follow you
+~
 
 0 RANGERS~
 A woodsman and tracker, as well as a dangerous fighter, he combines good
-combat skills with a few extra abilities that give him many options and
-decisions during play.  He boasts the courage and strength of a warrior
-and the stealth and self-reliance of a thief.  He combines the druids
-affinity for the outdoors with  the devotion and magical aptitude of a
-priest.  He's a hunter, tracker, and survivalist.  By temperament and
-by choice, he's a loner, often prefering the company of animals to people.
-Without question, he's one with nature, sworn to protect the inhabitants of
-the wilderness.
+combat skills with a few extra abilities that give him many options and
+decisions during play.  He boasts the courage and strength of a warrior
+and the stealth and self-reliance of a thief.  He combines the druids
+affinity for the outdoors with  the devotion and magical aptitude of a
+priest.  He's a hunter, tracker, and survivalist.  By temperament and
+by choice, he's a loner, often prefering the company of animals to people.
+Without question, he's one with nature, sworn to protect the inhabitants of
+the wilderness.
 
-{RRangers{x begin with skills in {Gaxe{x, {Gflail{x, and gain {Gdual wield{x so they can
-use two weapons in combat.  Other weapon skills may be purchased cheaply,
-or gained in the {Cdefault skillpackage{x, which includes the following:
+{RRangers{x begin with skills in {Gaxe{x, {Gflail{x, and gain {Gdual wield{x so they can
+use two weapons in combat.  Other weapon skills may be purchased cheaply,
+or gained in the {Cdefault skillpackage{x, which includes the following:
 
-skills:
-{Cweaponsmaster{x     this group provides knowledge of all weapon types
-{Cshield block{x      the art of parrying with a shield
-{Cenhanced damage{x   this skill multiplies your damage in battle
-{Cparry{x             the art of parrying with weapons
-{Cdisarm{x            used to deprive your opponent of his weapon
-{Csecond attack{x     with training, the skilled thief can hit twice as fast
-{Ctrip{x              a good way to introduce an opponent to the floor
-{Chunt{x              helps you to track down mobs and other characters
-{Ckick{x              it is just what it says an extra attack in combat
-~
+skills:
+{Cweaponsmaster{x     this group provides knowledge of all weapon types
+{Cshield block{x      the art of parrying with a shield
+{Cenhanced damage{x   this skill multiplies your damage in battle
+{Cparry{x             the art of parrying with weapons
+{Cdisarm{x            used to deprive your opponent of his weapon
+{Csecond attack{x     with training, the skilled thief can hit twice as fast
+{Ctrip{x              a good way to introduce an opponent to the floor
+{Chunt{x              helps you to track down mobs and other characters
+{Ckick{x              it is just what it says an extra attack in combat
+~
 
 -2

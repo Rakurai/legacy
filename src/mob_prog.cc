@@ -29,7 +29,7 @@
 #include <cstring>
 
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
 #include "declare.hh"
@@ -487,18 +487,18 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect_exists_on_char(mob, gsn_charm_person) ? 1 : 0;
+		case 'i': return affect::exists_on_char(mob, affect::type::charm_person) ? 1 : 0;
 
 		case 'n': if (actor)
-				return affect_exists_on_char(actor, gsn_charm_person) ? 1 : 0;
+				return affect::exists_on_char(actor, affect::type::charm_person) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return affect_exists_on_char(vict, gsn_charm_person) ? 1 : 0;
+				return affect::exists_on_char(vict, affect::type::charm_person) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return affect_exists_on_char(rndm, gsn_charm_person) ? 1 : 0;
+				return affect::exists_on_char(rndm, affect::type::charm_person) ? 1 : 0;
 			else return -1;
 
 		default:
@@ -587,7 +587,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	}
 #if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
 	if (!strcmp(buf, "isaffected")) {
-		int sn = skill_lookup(arg);
+		skill::type sn = skill::lookup(arg);
 
 		if (sn <= 0) {
 			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
@@ -1569,7 +1569,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	Character *vch   = nullptr;
 	int        count = 0;
 
-	/*    if affect_exists_on_char( mob, gsn_charm_person )
+	/*    if affect::exists_on_char( mob, affect::type::charm_person )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */

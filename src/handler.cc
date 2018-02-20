@@ -29,8 +29,8 @@
 #include <vector>
 
 #include "act.hh"
-#include "affect_int.hh"
-#include "Affect.hh"
+#include "affect/affect_int.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
 #include "Clan.hh"
@@ -56,11 +56,9 @@
 #include "Player.hh"
 #include "random.hh"
 #include "RoomPrototype.hh"
+#include "skill/skill.hh"
 #include "String.hh"
 #include "World.hh"
-
-// TODO: temporary access, remove when possible
-extern void affect_modify_char args((void *owner, const Affect *paf, bool fAdd));
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(Character *ch, Character *victim)
@@ -78,7 +76,7 @@ bool is_friend(Character *ch, Character *victim)
 			return FALSE;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person))
+	if (affect::exists_on_char(ch, affect::type::charm_person))
 		return FALSE;
 
 	if (ch->off_flags.has(ASSIST_ALL))
@@ -136,86 +134,6 @@ bool is_same_clan(Character *ch, Character *victim)
 		return (ch->clan == victim->clan);
 }
 
-/* for returning skill information */
-int get_skill(const Character *ch, int sn)
-{
-	int skill = 0;
-
-	if (sn == -1) /* shorthand for level based skills */
-		skill = ch->level * 5 / 2;
-	else if (sn < -1 || sn > skill_table.size()) {
-		Logging::bug("Bad sn %d in get_skill.", sn);
-		skill = 0;
-	}
-	else if (!IS_NPC(ch)) {
-		if (ch->level < skill_table[sn].skill_level[ch->cls])
-			skill = 0;
-		else
-			skill = ch->pcdata->learned[sn];
-	}
-	else { /* mobiles */
-		if ((sn == gsn_dodge && ch->off_flags.has(OFF_DODGE))
-		    || (sn == gsn_parry && ch->off_flags.has(OFF_PARRY))
-		    || (sn == gsn_kick && ch->off_flags.has(OFF_KICK)))
-			skill = 10 + ch->level;
-		else if (sn == gsn_shield_block)
-			skill = 15 + ch->level;
-		else if (sn == gsn_second_attack
-		         && (ch->act_flags.has(ACT_WARRIOR) || ch->act_flags.has(ACT_THIEF)))
-			skill = 25 + ch->level;
-		else if (sn == gsn_third_attack && ch->act_flags.has(ACT_WARRIOR))
-			skill = 15 + ch->level;
-		else if (sn == gsn_fourth_attack && ch->act_flags.has(ACT_WARRIOR))
-			skill = 2 * (ch->level - 60);
-		else if (sn == gsn_hand_to_hand)
-			skill = ch->level * 3 / 2;
-		else if ((sn == gsn_trip && ch->off_flags.has(OFF_TRIP))
-		         || (sn == gsn_dirt_kicking && ch->off_flags.has(OFF_KICK_DIRT)))
-			skill = 10 + (ch->level * 3 / 2);
-		else if (sn == gsn_bash && ch->off_flags.has(OFF_BASH))
-			skill = 10 + (ch->level * 5 / 4);
-		else if (sn == gsn_crush && ch->off_flags.has(OFF_CRUSH))
-			skill = ch->level;
-		else if (sn == gsn_disarm
-		         && (ch->off_flags.has(OFF_DISARM)
-		             ||       ch->act_flags.has(ACT_WARRIOR)
-		             ||       ch->act_flags.has(ACT_THIEF)))
-			skill = 20 + (ch->level * 2 / 3);
-		else if (sn == gsn_berserk && ch->off_flags.has(OFF_BERSERK))
-			skill = 3 * ch->level;
-		else if (sn == gsn_backstab && ch->act_flags.has(ACT_THIEF))
-			skill = 20 + (ch->level * 2);
-		else if (sn == gsn_rescue)
-			skill = 40 + (ch->level / 2);
-		else if (sn == gsn_recall)
-			skill = 40 + ch->level;
-		else if (sn == gsn_sword
-		         ||       sn == gsn_dagger
-		         ||       sn == gsn_spear
-		         ||       sn == gsn_mace
-		         ||       sn == gsn_axe
-		         ||       sn == gsn_flail
-		         ||       sn == gsn_whip
-		         ||       sn == gsn_polearm)
-			skill = 40 + (5 * ch->level / 2);
-		else if (sn == gsn_scrolls)
-			skill = ch->level;
-		else
-			skill = 0;
-	}
-
-	if (ch->daze > 0) {
-		if (skill_table[sn].spell_fun != spell_null)
-			skill /= 2;
-		else
-			skill = 2 * skill / 3;
-	}
-
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
-		skill = 9 * skill / 10;
-
-	return URANGE(0, skill, 100);
-}
 /* returns deity number */
 int deity_lookup(const String& name)
 {
@@ -230,10 +148,10 @@ int deity_lookup(const String& name)
 }
 
 /* for returning weapon information */
-int get_weapon_sn(Character *ch, bool secondary)
+skill::type get_weapon_skill(Character *ch, bool secondary)
 {
 	Object *wield;
-	int sn;
+	skill::type sn;
 
 	if (secondary)
 		wield = get_eq_char(ch, WEAR_SECONDARY);
@@ -241,48 +159,40 @@ int get_weapon_sn(Character *ch, bool secondary)
 		wield = get_eq_char(ch, WEAR_WIELD);
 
 	if (wield == nullptr || wield->item_type != ITEM_WEAPON)
-		sn = gsn_hand_to_hand;
+		sn = skill::type::hand_to_hand;
 	else switch (wield->value[0]) {
-		default :               sn = -1;                break;
-
-		case (WEAPON_SWORD):     sn = gsn_sword;         break;
-
-		case (WEAPON_DAGGER):    sn = gsn_dagger;        break;
-
-		case (WEAPON_SPEAR):     sn = gsn_spear;         break;
-
-		case (WEAPON_MACE):      sn = gsn_mace;          break;
-
-		case (WEAPON_AXE):       sn = gsn_axe;           break;
-
-		case (WEAPON_FLAIL):     sn = gsn_flail;         break;
-
-		case (WEAPON_WHIP):      sn = gsn_whip;          break;
-
-		case (WEAPON_POLEARM):   sn = gsn_polearm;       break;
-		}
+		default :                sn = skill::type::unknown;       break;
+		case (WEAPON_SWORD):     sn = skill::type::sword;         break;
+		case (WEAPON_DAGGER):    sn = skill::type::dagger;        break;
+		case (WEAPON_SPEAR):     sn = skill::type::spear;         break;
+		case (WEAPON_MACE):      sn = skill::type::mace;          break;
+		case (WEAPON_AXE):       sn = skill::type::axe;           break;
+		case (WEAPON_FLAIL):     sn = skill::type::flail;         break;
+		case (WEAPON_WHIP):      sn = skill::type::whip;          break;
+		case (WEAPON_POLEARM):   sn = skill::type::polearm;       break;
+	}
 
 	return sn;
-} /* end get_weapon_sn() */
+} /* end get_weapon_skill() */
 
-int get_weapon_skill(Character *ch, int sn)
+int get_weapon_learned(Character *ch, skill::type sn)
 {
 	int skill;
 
 	/* -1 is exotic */
 	if (IS_NPC(ch)) {
-		if (sn == -1)
+		if (sn == skill::type::unknown)
 			skill = 3 * ch->level;
-		else if (sn == gsn_hand_to_hand)
+		else if (sn == skill::type::hand_to_hand)
 			skill = 40 + 2 * ch->level;
 		else
 			skill = 40 + 5 * ch->level / 2;
 	}
 	else {
-		if (sn == -1)
+		if (sn == skill::type::unknown)
 			skill = 3 * ch->level;
 		else
-			skill = ch->pcdata->learned[sn];
+			skill = get_skill_level(ch, sn);
 	}
 
 	return URANGE(0, skill, 100);
@@ -424,7 +334,7 @@ void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
 	    &&   obj->value[2] != 0)
 		++ch->in_room->light;
 
-	const Affect *plague = affect_find_on_char(ch, gsn_plague);
+	const affect::Affect *plague = affect::find_on_char(ch, affect::type::plague);
 	if (plague)
 		spread_plague(ch->in_room, plague, 6);
 }
@@ -663,8 +573,8 @@ void equip_char(Character *ch, Object *obj, int iWear)
 
 	obj->wear_loc = iWear;
 
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next)
-		affect_modify_char(ch, paf, TRUE);
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
+		affect::modify_char(ch, paf, TRUE);
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0 && ch->in_room != nullptr)
 		++ch->in_room->light;
@@ -685,8 +595,8 @@ void unequip_char(Character *ch, Object *obj)
 
 	obj->wear_loc        = -1;
 
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next)
-		affect_modify_char(ch, paf, FALSE);
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
+		affect::modify_char(ch, paf, FALSE);
 
 	if (obj->item_type == ITEM_LIGHT
 	    &&   obj->value[2] != 0
@@ -949,6 +859,7 @@ void extract_obj(Object *obj)
 		extract_obj(obj_content);
 	}
 
+	// fish the object out of the linked list
 	if (object_list == obj)
 		object_list = obj->next;
 	else {
@@ -960,15 +871,22 @@ void extract_obj(Object *obj)
 				break;
 			}
 		}
-
+/* this is fine, fread_obj will load up dummy objects for extraction
+ * without adding to the list
 		if (prev == nullptr) {
-			Logging::bug("Extract_obj: obj %d not found.",
+			Logging::bug("Extract_obj: obj %d not found in objects list.",
 				obj->pIndexData ? obj->pIndexData->vnum : 0);
 			return;
 		}
+ */
 	}
 
-	--obj->pIndexData->count;
+	if (obj == donation_pit)
+		donation_pit = nullptr;
+
+	if (obj->pIndexData)
+		--obj->pIndexData->count;
+
 	delete obj;
 	return;
 }
@@ -1473,11 +1391,11 @@ bool is_blinded(const Character *ch) {
 	if (IS_IMMORTAL(ch))
 		return FALSE;
 
-	if (affect_exists_on_char(ch, gsn_blindness)
-	 || affect_exists_on_char(ch, gsn_dirt_kicking)
-	 || affect_exists_on_char(ch, gsn_fire_breath)
-	 || affect_exists_on_char(ch, gsn_smokescreen)
-	 || affect_exists_on_char(ch, gsn_dazzle))
+	if (affect::exists_on_char(ch, affect::type::blindness)
+	 || affect::exists_on_char(ch, affect::type::dirt_kicking)
+	 || affect::exists_on_char(ch, affect::type::fire_breath)
+	 || affect::exists_on_char(ch, affect::type::smokescreen)
+	 || affect::exists_on_char(ch, affect::type::dazzle))
 		return TRUE;
 
 	return FALSE;
@@ -1503,7 +1421,7 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (IS_NPC(victim) && victim->act_flags.has(ACT_SUPERMOB))
 		return FALSE;
 
-	if (affect_exists_on_char(victim, gsn_midnight))
+	if (affect::exists_on_char(victim, affect::type::midnight))
 		return FALSE;
 
 	if (!IS_IMMORTAL(ch) && victim->lurk_level && ch->in_room != victim->in_room)
@@ -1515,20 +1433,20 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (is_blinded(ch))
 		return FALSE;
 
-	if ((room_is_dark(ch->in_room) && !affect_exists_on_char(ch, gsn_night_vision))
+	if ((room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
 	 || room_is_very_dark(ch->in_room))
 		return FALSE;
 
-	if (affect_exists_on_char(victim, gsn_invis)
-	    &&   !affect_exists_on_char(ch, gsn_detect_invis))
+	if (affect::exists_on_char(victim, affect::type::invis)
+	    &&   !affect::exists_on_char(ch, affect::type::detect_invis))
 		return FALSE;
 
 	/* sneaking */
-	if (affect_exists_on_char(victim, gsn_sneak)
-	    &&   !affect_exists_on_char(ch, gsn_detect_hidden)
+	if (affect::exists_on_char(victim, affect::type::sneak)
+	    &&   !affect::exists_on_char(ch, affect::type::detect_hidden)
 	    &&   victim->fighting == nullptr) {
 		int chance;
-		chance = get_skill(victim, gsn_sneak);
+		chance = get_skill_level(victim, skill::type::sneak);
 		chance += GET_ATTR_DEX(ch) * 3 / 2;
 		chance -= GET_ATTR_INT(ch) * 2;
 		chance += ch->level - victim->level * 3 / 2;
@@ -1537,8 +1455,8 @@ bool can_see_char(const Character *ch, const Character *victim)
 			return FALSE;
 	}
 
-	if (affect_exists_on_char(victim, gsn_hide)
-	    &&   !affect_exists_on_char(ch, gsn_detect_hidden)
+	if (affect::exists_on_char(victim, affect::type::hide)
+	    &&   !affect::exists_on_char(ch, affect::type::detect_hidden)
 	    &&   victim->fighting == nullptr)
 		return FALSE;
 
@@ -1582,7 +1500,7 @@ bool can_see_in_room(Character *ch, RoomPrototype *room)
 	if (is_blinded(ch))
 		return FALSE;
 
-	if (room_is_dark(room) && !affect_exists_on_char(ch, gsn_night_vision))
+	if (room_is_dark(room) && !affect::exists_on_char(ch, affect::type::night_vision))
 		return FALSE;
 
 	return TRUE;
@@ -1618,7 +1536,7 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	}
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS)
-	    && !affect_exists_on_char(ch, gsn_detect_invis))
+	    && !affect::exists_on_char(ch, affect::type::detect_invis))
 		return FALSE;
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
@@ -1627,7 +1545,7 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !affect_exists_on_char(ch, gsn_night_vision))
+	if (room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
 		return FALSE;
 
 	return TRUE;
@@ -1786,13 +1704,13 @@ int get_play_seconds(Character *ch)
 }
 
 // TODO: this doesn't take eq affects into account, but short of looping through those...
-/* used with affect_exists_on_char, checks to see if the Affect.hppas an evolution rating, returns 1 if not */
-int get_affect_evolution(Character *ch, int sn)
+/* used with affect::exists_on_char, checks to see if the Affect.hppas an evolution rating, returns 1 if not */
+int get_affect_evolution(Character *ch, affect::type type)
 {
 	int evo = 1;
 
-	for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next)
-		if (paf->type == sn && paf->evolution > evo)            /* returns the evolution of the highest */
+	for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next)
+		if (paf->type == type && paf->evolution > evo)            /* returns the evolution of the highest */
 			evo = paf->evolution;
 
 	return URANGE(1, evo, 3);

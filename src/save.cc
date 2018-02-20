@@ -31,8 +31,8 @@
 
 #include "../deps/cJSON/cJSON.h"
 #include "argument.hh"
-#include "Affect.hh"
-#include "cJSON.hh"
+#include "affect/Affect.hh"
+#include "JSON/cJSON.hh"
 #include "Character.hh"
 #include "Clan.hh"
 #include "declare.hh"
@@ -59,7 +59,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((Character *ch, int row, int column));
 extern void     set_window      args((Character *ch, int top, int bottom));
 
-#define CURRENT_VERSION         19   /* version number for pfiles */
+int CURRENT_VERSION = 20;   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -72,7 +72,7 @@ int rename(const char *oldfname, const char *newfname);
  */
 cJSON * fwrite_player     args((Character *ch));
 cJSON * fwrite_char     args((Character *ch));
-cJSON * fwrite_objects  args((Character *ch,  Object *head, bool strongbox));
+cJSON * fwrite_objects  args((Object *head));
 cJSON * fwrite_pet      args((Character *pet));
 void    fread_char      args((Character *ch,  cJSON *json, int version));
 void    fread_player      args((Character *ch,  cJSON *json, int version));
@@ -108,13 +108,13 @@ void save_char_obj(Character *ch)
 	cJSON_AddItemToObject(root, "player", fwrite_player(ch));
 	cJSON_AddItemToObject(root, "character", fwrite_char(ch));
 
-	cJSON_AddItemToObject(root, "inventory", fwrite_objects(ch, ch->carrying, FALSE));
-	cJSON_AddItemToObject(root, "locker", fwrite_objects(ch, ch->pcdata->locker, FALSE));
-	cJSON_AddItemToObject(root, "strongbox", fwrite_objects(ch, ch->pcdata->strongbox, TRUE));
+	cJSON_AddItemToObject(root, "inventory", fwrite_objects(ch->carrying));
+	cJSON_AddItemToObject(root, "locker", fwrite_objects(ch->pcdata->locker));
+	cJSON_AddItemToObject(root, "strongbox", fwrite_objects(ch->pcdata->strongbox));
 
 	if (ch->pet) {
 		cJSON_AddItemToObject(root, "pet", fwrite_pet(ch->pet));
-		cJSON_AddItemToObject(root, "pet_inventory", fwrite_objects(ch, ch->pet->carrying, FALSE));
+		cJSON_AddItemToObject(root, "pet_inventory", fwrite_objects(ch->pet->carrying));
 	}
 
 	char *JSONstring = cJSON_Print(root);
@@ -319,22 +319,22 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
 
 	item = nullptr;
-	for (int sn = 0; sn < skill_table.size(); sn++) {
-		if (ch->pcdata->learned[sn] <= 0)
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+
+		if (type == skill::type::unknown)
+			continue;
+
+		if (get_learned(ch, type) <= 0)
 			continue;
 
 		if (item == nullptr)
 			item = cJSON_CreateArray();
 
-		if (ch->pcdata->evolution[sn] < 1)
-			ch->pcdata->evolution[sn] = 1;
-		else if (ch->pcdata->evolution[sn] > 4)
-			ch->pcdata->evolution[sn] = 4;
-
 		cJSON *sk = cJSON_CreateObject();
-		JSON::addStringToObject(sk, "name", skill_table[sn].name);
-		cJSON_AddNumberToObject(sk, "prac", ch->pcdata->learned[sn]);
-		cJSON_AddNumberToObject(sk, "evol", ch->pcdata->evolution[sn]);
+		JSON::addStringToObject(sk, "name", skill::lookup(type).name);
+		cJSON_AddNumberToObject(sk, "prac", get_learned(ch, type));
+		cJSON_AddNumberToObject(sk, "evol", get_evolution(ch, type));
 		cJSON_AddItemToArray(item, sk);
 	}
 	if (item != nullptr)
@@ -359,14 +359,14 @@ cJSON *fwrite_player(Character *ch)
 
 		item = nullptr;
 		for (int i = 0; i < (ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS) + 1; i++) {
-			if (ch->pcdata->extraclass[i] == 0)
+			if (ch->pcdata->extraclass[i] == skill::type::unknown)
 				break;
 
 			if (item == nullptr)
 				item = cJSON_CreateArray();
 
 			cJSON_AddItemToArray(item,
-				cJSON_CreateString(skill_table[ch->pcdata->extraclass[i]].name.c_str()));
+				cJSON_CreateString(skill::lookup(ch->pcdata->extraclass[i]).name.c_str()));
 		}
 
 		if (item != nullptr)
@@ -413,8 +413,8 @@ cJSON *fwrite_char(Character *ch)
 	JSON::addStringToObject(o,		"Act",			ch->act_flags.to_string());
 
 	item = nullptr;
-	for (const Affect *paf = affect_list_char(ch); paf != nullptr; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= skill_table.size())
+	for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
+		if (paf->type <= affect::type::unknown || paf->type >= affect::type::size)
 			continue;
 
 		// don't write permanent affects, rebuild them from race and raffects on load
@@ -425,7 +425,7 @@ cJSON *fwrite_char(Character *ch)
 			item = cJSON_CreateArray();
 
 		cJSON *aff = cJSON_CreateObject();
-		JSON::addStringToObject(aff, "name", skill_table[paf->type].name);
+		JSON::addStringToObject(aff, "name", affect::lookup(paf->type).name);
 		cJSON_AddNumberToObject(aff, "where", paf->where);
 		cJSON_AddNumberToObject(aff, "level", paf->level);
 		cJSON_AddNumberToObject(aff, "dur", paf->duration);
@@ -515,6 +515,7 @@ cJSON *fwrite_char(Character *ch)
 	        ? 3001
 	        : ch->in_room->vnum);
 
+	cJSON_AddNumberToObject(o,		"Scro",			ch->lines);
 	cJSON_AddNumberToObject(o,		"Sex",			ATTR_BASE(ch, APPLY_SEX));
 	cJSON_AddNumberToObject(o,		"Silv",			ch->silver);
 
@@ -559,17 +560,8 @@ cJSON *fwrite_pet(Character *pet)
 /*
  * Write an object and its contents.
  */
-cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
+cJSON *fwrite_obj(Object *obj)
 {
-	/*
-	 * Castrate storage characters.
-	 */
-/*	if (!IS_IMMORTAL(ch))
-		if ((!strongbox && (obj->level > get_holdable_level(ch)))
-		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
-		    || (obj->item_type == ITEM_MAP && !obj->value[0]))
-			return nullptr;
-*/
 	cJSON *item;
 	cJSON *o = cJSON_CreateObject();
 
@@ -580,16 +572,16 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 	if (obj->description != obj->pIndexData->description)
 		JSON::addStringToObject(o,	"Desc",			obj->description);
 
-	if (affect_enchanted_obj(obj)) {
+	if (affect::enchanted_obj(obj)) {
 		// we could write an empty list here, for a disenchanted item
 		item = cJSON_CreateArray();
 
-		for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
-			if (paf->type >= skill_table.size())
+		for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
+			if (paf->type <= affect::type::unknown || paf->type >= affect::type::size)
 				continue;
 
 			cJSON *aff = cJSON_CreateObject();
-			JSON::addStringToObject(aff, "name", skill_table[paf->type].name);
+			JSON::addStringToObject(aff, "name", affect::lookup(paf->type).name);
 			cJSON_AddNumberToObject(aff, "where", paf->where);
 			cJSON_AddNumberToObject(aff, "level", paf->level);
 			cJSON_AddNumberToObject(aff, "dur", paf->duration);
@@ -652,14 +644,14 @@ cJSON *fwrite_obj(Character *ch, Object *obj, bool strongbox)
 		cJSON_AddNumberToObject(o,	"Wt",			obj->weight);
 
 	// does nothing if the contains is nullptr
-	cJSON_AddItemToObject(o, "contains", fwrite_objects(ch, obj->contains, strongbox));
+	cJSON_AddItemToObject(o, "contains", fwrite_objects(obj->contains));
 
-	cJSON_AddItemToObject(o, "gems", fwrite_objects(ch, obj->gems, strongbox));
+	cJSON_AddItemToObject(o, "gems", fwrite_objects(obj->gems));
 
 	return o;
 } /* end fwrite_obj() */
 
-cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
+cJSON *fwrite_objects(Object *head) {
 	cJSON *array = cJSON_CreateArray();
 
 	// old way was to use recursion to write items in reverse order, so loading would
@@ -669,7 +661,7 @@ cJSON *fwrite_objects(Character *ch, Object *head, bool strongbox) {
 	for (Object *obj = head; obj; obj = obj->next_content) {
 		// unlike adding an item, inserting an item crashes with a NULL item
 		// and fwrite_obj could return NULL because of obj pruning
-		cJSON *item = fwrite_obj(ch, obj, strongbox);
+		cJSON *item = fwrite_obj(obj);
 
 		if (item)
 			cJSON_InsertItemInArray(array, 0, item);
@@ -828,7 +820,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 		// permanent affects from race and raffects aren't saved (in case of changes),
 		// rebuild them now
-		affect_add_racial_to_char(ch);
+		affect::add_racial_to_char(ch);
 
 		extern void raff_add_to_char(Character *ch, int raff);
 		if (ch->pcdata->remort_count > 0)
@@ -861,7 +853,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 		percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 		percent = UMIN(percent, 100);
 
-		if (percent > 0 && !affect_exists_on_char(ch, gsn_poison) && !affect_exists_on_char(ch, gsn_plague)) {
+		if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison) && !affect::exists_on_char(ch, affect::type::plague)) {
 			ch->hit         += (GET_MAX_HIT(ch) - ch->hit) * percent / 100;
 			ch->mana        += (GET_MAX_MANA(ch) - ch->mana) * percent / 100;
 			ch->stam        += (GET_MAX_STAM(ch) - ch->stam) * percent / 100;
@@ -989,9 +981,9 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "ExSk") {
 					count = 0;
 					for (cJSON *item = o->child; item != nullptr && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
-						int sn = skill_lookup(item->valuestring);
+						skill::type sn = skill::lookup(item->valuestring);
 
-						if (sn <= 0) {
+						if (sn == skill::type::unknown) {
 							Logging::bugf("unknown extraclass skill '%s'", item->valuestring);
 							continue;
 						}
@@ -1105,17 +1097,15 @@ void fread_player(Character *ch, cJSON *json, int version) {
 			case 'S':
 				if (key == "Sk") {
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
-						int sn = skill_lookup(temp);
+						skill::type sn = skill::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-						if (sn < 0) {
-							Format::fprintf(stderr, "%s", temp);
-							Logging::bug("Fread_char: unknown skill. ", 0);
+						if (sn == skill::type::unknown) {
+							Logging::bugf("Fread_char: unknown skill '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
 							continue;
 						}
 
-						ch->pcdata->learned[sn] = cJSON_GetObjectItem(item, "prac")->valueint;
-						ch->pcdata->evolution[sn] = cJSON_GetObjectItem(item, "evol")->valueint;
+						set_learned(ch, sn, cJSON_GetObjectItem(item, "prac")->valueint);
+						set_evolution(ch, sn, cJSON_GetObjectItem(item, "evol")->valueint);
 					}
 					fMatch = TRUE; break;
 				}
@@ -1196,15 +1186,15 @@ void fread_char(Character *ch, cJSON *json, int version)
 					// these are the non-permanent affects (not racial or remort affect),
 					// those are added after the character is loaded
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+						affect::type type = affect::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-						if (sn < 0) {
-							Logging::bug("Fread_char: unknown skill.", 0);
+						if (type == affect::type::unknown) {
+							Logging::bugf("Fread_char: unknown affect '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
 							continue;
 						}
 
-						Affect af;
-						af.type = sn;
+						affect::Affect af;
+						af.type = type;
 						JSON::get_short(item, &af.where, "where");
 						JSON::get_short(item, &af.level, "level");
 						JSON::get_short(item, &af.duration, "dur");
@@ -1216,7 +1206,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 						JSON::get_short(item, &af.evolution, "evo");
 						af.permanent = FALSE;
 
-						affect_copy_to_char(ch, &af);
+						affect::copy_to_char(ch, &af);
 					}
 					fMatch = TRUE; break;
 				}
@@ -1351,11 +1341,30 @@ Object * fread_obj(cJSON *json, int version) {
 	else
 		Logging::bug("fread_obj: no vnum field in JSON object", 0);
 
-//	Logging::bug("reading an object", 0);
-
 	if (obj == nullptr) { /* either not found or old style */
-		Logging::bug("obj is null!", 0);
+		// if the vnum is missing or isn't found in the game anymore,
+		// we don't want to just skip loading it because it could have
+		// been a container with stuff in it.  instead, we'll create a
+		// dummy object that we can blow up later and extract the contents
+		// into the next containing object or inventory.
 		obj = new Object();
+	}
+
+	// version 20 changed weapon flags to affects on the object, and only uses the flags
+	// for loading area files.  clear any weapon flag effects we got from the prototype
+	// and we'll re-add them based on the bits in value[4], which we preserved from the
+	// area file on the prototype
+	if (version < 20
+	 && obj->item_type == ITEM_WEAPON) {
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_flaming);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_frost);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_shocking);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_vampiric);
+//	 	affect::remove_type_from_obj(obj, affect::type::weapon_acidic); // acidic added with version 20
+	 	affect::remove_type_from_obj(obj, affect::type::poison);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_sharp);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_vorpal);
+	 	affect::remove_type_from_obj(obj, affect::type::weapon_two_hands);
 	}
 
 	for (cJSON *o = json->child; o; o = o->next) {
@@ -1377,19 +1386,13 @@ Object * fread_obj(cJSON *json, int version) {
 					}
 
 					// this object has different affects than the index, free the old ones
-					affect_remove_all_from_obj(obj, TRUE);
+					affect::remove_all_from_obj(obj, TRUE);
 
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
-						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+						affect::Affect af;
+						af.type = affect::lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-						if (sn < 0) {
-							Logging::bug("Fread_obj: unknown skill.", 0);
-							continue;
-						}
-
-						Affect af;
-						af.type = sn;
-
+						// go ahead and read the whole affect before error checking, we need to fix up
 						JSON::get_short(item, &af.where, "where");
 						JSON::get_short(item, &af.level, "level");
 						JSON::get_short(item, &af.duration, "dur");
@@ -1405,8 +1408,19 @@ Object * fread_obj(cJSON *json, int version) {
 						// under the old system could have bitvectors storing affects. clean up here,
 						// hopefully remove someday.
 						// obj name might not be read yet, use vnum
-						if (af.where == TO_AFFECTS && af.type == 0 && af.bitvector().empty())
+						if (af.where == TO_AFFECTS && af.type == affect::type::none && af.bitvector().empty())
 							af.where = TO_OBJECT; // try making it an object apply
+
+						if (af.type == affect::type::unknown) {
+							Logging::bugf("Fread_obj: unknown affect type '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
+
+							// newish pfiles (>17?) don't save temp weapon flags to v4, but older
+							// ones might.  strip it just in case
+							if (af.where == TO_WEAPON)
+								obj->value[4] -= Flags(af.bitvector());
+
+							continue;
+						}
 
 						// let the parsing handle TO_OBJECT with no modifiers
 
@@ -1415,15 +1429,15 @@ Object * fread_obj(cJSON *json, int version) {
 						// run bitvector down to 0 (unless certain cases)
 						// do at least once even if no bitvector
 						do {
-							if (affect_parse_flags(0, &af, bitvector)) {
-								affect_copy_to_obj(obj, &af);
+							if (affect::parse_flags(0, &af, bitvector)) {
+								affect::copy_to_obj(obj, &af);
 								
 								// don't multiply the modifier, just apply to the first bit
 								af.location = 0;
 								af.modifier = 0;
 							}
 
-							af.type = 0; // reset, in case we're parsing multiple TO_AFFECTS bits
+							af.type = affect::type::none; // reset, in case we're parsing multiple TO_AFFECTS bits
 						} while (!bitvector.empty());
 					}
 					fMatch = TRUE; break;
@@ -1514,6 +1528,7 @@ Object * fread_obj(cJSON *json, int version) {
 					int slot = 0;
 					for (cJSON *item = o->child; item; item = item->next, slot++)
 						obj->value[slot] = item->valueint;
+
 					fMatch = TRUE; break;
 				}
 
@@ -1530,6 +1545,35 @@ Object * fread_obj(cJSON *json, int version) {
 
 		if (!fMatch)
 			Logging::bugf("fread_obj: unknown key %s", key);
+	}
+
+	// version 20 changed weapon flags to affects on the object, and only uses the flags
+	// for loading area files.  we cleared the effects from the prototype above, and
+	// since we preserved the bits in value[4] from the area file, we can re-add them
+	// here.
+	if (version < 20
+	 && obj->item_type == ITEM_WEAPON) {
+		Flags bitvector = obj->value[4];
+
+		affect::Affect af;
+		af.level              = obj->level;
+		af.duration           = -1;
+		af.evolution          = 1;
+		af.permanent          = TRUE;
+		af.location           = 0;
+		af.modifier           = 0;
+
+		while (!bitvector.empty()) {
+			af.type = affect::type::none; // reset every time
+
+			if (affect::parse_flags('W', &af, bitvector)) {
+				// could exist as envenom or bladecraft spell, don't add a new perm
+				if (!affect::exists_on_obj(obj, af.type))
+					affect::copy_to_obj(obj, &af); 
+			}
+		}
+
+		obj->value[4] = 0; // clear, we won't write it back
 	}
 
 	return obj;
@@ -1550,7 +1594,7 @@ void fread_objects(Character *ch, cJSON *contains, void (*obj_to)(Object *, Char
 			(*obj_to)(content, ch);
 		}
 		else {
-			// deal with contents and extract
+			// vnum not found, deal with contents and extract
 			while (content->contains) {
 				Object *c = content->contains;
 				content->contains = c->next_content;
@@ -1598,7 +1642,7 @@ void fread_pet(Character *ch, cJSON *json, int version)
 	}
 
 	// blow away any affects that are not permanent, from non-racial affect flags
-	affect_remove_all_from_char(pet, FALSE);
+	affect::remove_all_from_char(pet, FALSE);
 
 	fread_char(pet, json, version);
 
@@ -1611,8 +1655,8 @@ void fread_pet(Character *ch, cJSON *json, int version)
 	percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 	percent = UMIN(percent, 100);
 
-	if (percent > 0 && !affect_exists_on_char(ch, gsn_poison)
-	    &&  !affect_exists_on_char(ch, gsn_plague)) {
+	if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison)
+	    &&  !affect::exists_on_char(ch, affect::type::plague)) {
 		pet->hit    += (GET_MAX_HIT(pet) - pet->hit) * percent / 100;
 		pet->mana   += (GET_MAX_MANA(pet) - pet->mana) * percent / 100;
 		pet->stam   += (GET_MAX_STAM(pet) - pet->stam) * percent / 100;

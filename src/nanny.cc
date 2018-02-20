@@ -2,7 +2,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
@@ -740,7 +740,7 @@ void nanny(Descriptor *d, String argument)
 		for (int stat = 0; stat < MAX_STATS; stat++)
 			ATTR_BASE(ch, stat_to_attr(stat)) = pc_race_table[race].stats[stat];
 
-		affect_add_racial_to_char(ch);
+		affect::add_racial_to_char(ch);
 
 		ch->form_flags                = race_table[race].form;
 		ch->parts_flags               = race_table[race].parts;
@@ -898,8 +898,8 @@ void nanny(Descriptor *d, String argument)
 		write_to_buffer(d, "\n");
 		group_add(ch, "rom basics", FALSE);
 		group_add(ch, class_table[ch->cls].base_group, FALSE);
-		ch->pcdata->learned[gsn_recall] = 50;
-		ch->pcdata->learned[gsn_scan]   = 100;
+		set_learned(ch, skill::type::recall, 50);
+		set_learned(ch, skill::type::scan, 100);
 		buf = "Select a deity:\n";
 
 		for (deity = 0; deity < deity_table.size(); deity++) {
@@ -982,7 +982,7 @@ void nanny(Descriptor *d, String argument)
 			buf.clear();
 
 			for (i = 0; i < weapon_table.size(); i++)
-				if (ch->pcdata->learned[*weapon_table[i].gsn] > 0) {
+				if (get_learned(ch, weapon_table[i].skill) > 0) {
 					buf += weapon_table[i].name;
 					buf += " ";
 				}
@@ -1003,12 +1003,12 @@ void nanny(Descriptor *d, String argument)
 		write_to_buffer(d, "\n");
 		weapon = weapon_lookup(argument);
 
-		if (weapon == -1 || ch->pcdata->learned[*weapon_table[weapon].gsn] <= 0) {
+		if (weapon == -1 || get_learned(ch, weapon_table[weapon].skill) <= 0) {
 			write_to_buffer(d, "That is not a valid selection.  You choice? \n");
 			return;
 		}
 
-		ch->pcdata->learned[*weapon_table[weapon].gsn] = 40;
+		set_learned(ch, weapon_table[weapon].skill, 40);
 		write_to_buffer(d, "\n");
 		set_color(ch, CYAN, BOLD);
 		help(ch, "automotd");

@@ -1,0 +1,92 @@
+#pragma once
+
+namespace affect {
+
+enum class type {
+    unknown = -1, // don't touch
+    none = 0, // don't touch
+
+    acid_breath,
+    age,
+    armor,
+    bless,
+    blindness,
+    blood_moon,
+    calm,
+    change_sex,
+    channel,
+    charm_person,
+    chill_touch,
+    curse,
+    darkness,
+    dazzling_light,
+    detect_evil,
+    detect_good,
+    detect_hidden,
+    detect_invis,
+    detect_magic,
+    divine_regeneration,
+    enchant_armor,
+    enchant_weapon,
+    faerie_fire,
+    fear,
+    fire_breath,
+    fireproof,
+    flameshield,
+    fly,
+    frenzy,
+    giant_strength,
+    haste,
+    invis,
+    mass_invis,
+    night_vision,
+    pass_door,
+    plague,
+    poison,
+    protection_evil,
+    protection_good,
+    rayban,
+    regeneration,
+    sanctuary,
+    shield,
+    sleep,
+    slow,
+    smokescreen,
+    steel_mist,
+    stone_skin,
+    talon,
+    weaken,
+    berserk,
+    dirt_kicking,
+    hide,
+    meditation,
+    sneak,
+    sheen,
+    focus,
+    paralyze,
+    ironskin,
+    barrier,
+    dazzle,
+    midnight,
+    shadow_form,
+    hex,
+    bone_wall,
+    hammerstrike,
+    force_shield,
+
+    // weapon flags
+    weapon_acidic,
+    weapon_flaming,
+    weapon_frost,
+    weapon_vampiric,
+    weapon_sharp,
+    weapon_vorpal,
+    weapon_two_hands,
+    weapon_shocking,
+
+    size, // don't touch
+    first = 0 // don't touch
+};
+
+} // namespace affect
+

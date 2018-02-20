@@ -7,6 +7,7 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "Pooled.hh"
+#include "skill/skill.hh"
 
 /*
  * Data which only PC's have.
@@ -88,7 +89,7 @@ public:
     String              status;
     String              deity;
     sh_int              remort_count = 0;
-    int			        extraclass     [MAX_EXTRACLASS_SLOTS] = {0};
+    skill::type	        extraclass     [MAX_EXTRACLASS_SLOTS] = {skill::type::unknown};
     int			        raffect        [MAX_RAFFECT_SLOTS] = {0};
     Object *            locker = nullptr;
     Object *            strongbox = nullptr;

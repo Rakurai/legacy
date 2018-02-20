@@ -1,5 +1,5 @@
 #include "act.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "declare.hh"
 #include "Flags.hh"
@@ -91,7 +91,7 @@ int get_unspelled_hitroll(Character *ch)
 
 	for (Object *obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE)
-			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next)
+			for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next)
 				if (paf->location == APPLY_HITROLL)
 					sum += paf->modifier;
 
@@ -104,7 +104,7 @@ int get_unspelled_damroll(Character *ch)
 
 	for (Object *obj = ch->carrying; obj; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE)
-			for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next)
+			for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next)
 				if (paf->location == APPLY_DAMROLL)
 					sum += paf->modifier;
 
@@ -135,7 +135,7 @@ void attribute_check(Character *ch) {
 
 		// only do this if they have a strength reducing spell affect (not from EQ)
 		bool found = FALSE;
-		for (const Affect *paf = affect_list_char(ch); paf; paf = paf->next)
+		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && paf->location == APPLY_STR && paf->modifier < 0) {
 				found = TRUE;
 				break;

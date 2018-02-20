@@ -28,7 +28,10 @@
 ***************************************************************************/
 
 #include <vector>
+#include <map>
 
+#include "skill/Type.hh"
+#include "affect/Type.hh"
 #include "String.hh"
 #include "Flags.hh"
 
@@ -116,12 +119,12 @@ struct item_type
 	String      name;
 };
 
-struct weapon_type
+struct weapon_table_t
 {
 	String      name;
 	sh_int      vnum;
 	sh_int      type;
-	sh_int      *gsn;
+	skill::type skill;
 };
 
 struct wiznet_type
@@ -188,28 +191,6 @@ struct  liq_type
 };
 
 
-/*
- * Skills include spells as a particular case.
- */
-struct  skill_type
-{
-	String      name;                   /* Name of skill                */
-	sh_int      skill_level[MAX_CLASS]; /* Level needed by class        */
-	sh_int      rating[MAX_CLASS];      /* How hard it is to learn      */
-	SPELL_FUN * spell_fun;              /* Spell pointer (for spells)   */
-	sh_int      target;                 /* Legal targets                */
-	sh_int      minimum_position;       /* Position for caster / user   */
-	sh_int *    pgsn;                   /* Pointer to associated gsn    */
-	sh_int      slot;                   /* Slot for #OBJECT loading     */
-	sh_int      min_mana;               /* Minimum mana used            */
-	sh_int      beats;                  /* Waiting time after use       */
-	String      noun_damage;            /* Damage message               */
-	String      msg_off;                /* Wear off message             */
-	String      msg_obj;                /* Wear off message for obects  */
-	int         remort_class;           /* Required remort level or 0   */
-	int		evocost_sec[MAX_CLASS];	/* Class cost to evolve to 2    */
-	int		evocost_pri[MAX_CLASS];	/* Class cost to evolve to 3    */
-};
 
 struct  group_type
 {
@@ -233,7 +214,7 @@ extern  const   struct  chr_app_type    chr_app         [26];
 
 extern  const   std::vector<class_type>      class_table;
 extern  const   std::vector<deity_type>      deity_table;
-extern  const   std::vector<weapon_type>     weapon_table;
+extern  const   std::vector<weapon_table_t>     weapon_table;
 extern  const   std::vector<item_type>       item_table;
 extern  const   std::vector<wiznet_type>     wiznet_table;
 extern  const   std::vector<attack_type>     attack_table;
@@ -241,7 +222,6 @@ extern  const   std::vector<race_type>       race_table;
 extern  const   std::vector<pc_race_type>    pc_race_table;
 extern  const   std::vector<spec_type>       spec_table;
 extern  const   std::vector<liq_type>        liq_table;
-extern  const   std::vector<skill_type>      skill_table;
 extern  const   std::vector<group_type>      group_table;
 
 /* new social system by Clerve */
@@ -283,241 +263,7 @@ extern	int		record_players;
 extern	int		record_players_since_boot;
 
 extern long	       quest_double;
-/*
- * These are skill_lookup return values for common skills and spells.
- */
-extern sh_int   gsn_reserved;
-extern sh_int   gsn_acid_blast;
-extern sh_int   gsn_acid_breath;
-extern sh_int   gsn_acid_rain;
-extern sh_int   gsn_age;
-extern sh_int   gsn_animate_skeleton;
-extern sh_int   gsn_animate_wraith;
-extern sh_int   gsn_animate_gargoyle;
-extern sh_int   gsn_animate_zombie;
-extern sh_int   gsn_armor;
-extern sh_int   gsn_bless;
-extern sh_int   gsn_blind_fight;
-extern sh_int   gsn_blindness;
-extern sh_int   gsn_blizzard;
-extern sh_int   gsn_blood_blade;
-extern sh_int   gsn_blood_moon;
-extern sh_int   gsn_burning_hands;
-extern sh_int   gsn_call_lightning;
-extern sh_int   gsn_calm;
-extern sh_int   gsn_cancellation;
-extern sh_int   gsn_cause_light;
-extern sh_int   gsn_cause_serious;
-extern sh_int   gsn_cause_critical;
-extern sh_int   gsn_chain_lightning;
-extern sh_int   gsn_change_sex;
-extern sh_int   gsn_channel;
-extern sh_int   gsn_charm_person;
-extern sh_int   gsn_chill_touch;
-extern sh_int   gsn_colour_spray;
-extern sh_int   gsn_continual_light;
-extern sh_int   gsn_control_weather;
-extern sh_int   gsn_create_food;
-extern sh_int   gsn_create_parchment;
-extern sh_int   gsn_create_rose;
-extern sh_int   gsn_create_sign;
-extern sh_int   gsn_create_spring;
-extern sh_int   gsn_create_vial;
-extern sh_int   gsn_create_water;
-extern sh_int   gsn_cure_blindness;
-extern sh_int   gsn_cure_critical;
-extern sh_int   gsn_cure_disease;
-extern sh_int   gsn_cure_light;
-extern sh_int   gsn_cure_poison;
-extern sh_int   gsn_cure_serious;
-extern sh_int   gsn_curse;
-extern sh_int   gsn_darkness;
-extern sh_int   gsn_dazzling_light;
-extern sh_int   gsn_demonfire;
-extern sh_int   gsn_detect_evil;
-extern sh_int   gsn_detect_good;
-extern sh_int   gsn_detect_hidden;
-extern sh_int   gsn_detect_invis;
-extern sh_int   gsn_detect_magic;
-extern sh_int   gsn_detect_poison;
-extern sh_int   gsn_dispel_evil;
-extern sh_int   gsn_dispel_good;
-extern sh_int   gsn_dispel_magic;
-extern sh_int   gsn_divine_healing;
-extern sh_int   gsn_divine_regeneration;
-extern sh_int   gsn_earthquake;
-extern sh_int   gsn_encampment;
-extern sh_int   gsn_enchant_armor;
-extern sh_int   gsn_enchant_weapon;
-extern sh_int   gsn_energy_drain;
-extern sh_int   gsn_faerie_fire;
-extern sh_int   gsn_faerie_fog;
-extern sh_int   gsn_farsight;
-extern sh_int   gsn_fear;
-extern sh_int   gsn_fire_breath;
-extern sh_int   gsn_fireball;
-extern sh_int   gsn_fireproof;
-extern sh_int   gsn_firestorm;
-extern sh_int   gsn_flame_blade;
-extern sh_int   gsn_flameshield;
-extern sh_int   gsn_flamestrike;
-extern sh_int   gsn_fly;
-extern sh_int   gsn_floating_disc;
-extern sh_int   gsn_frenzy;
-extern sh_int   gsn_frost_blade;
-extern sh_int   gsn_frost_breath;
-extern sh_int   gsn_gas_breath;
-extern sh_int   gsn_gate;
-extern sh_int   gsn_general_purpose;
-extern sh_int   gsn_giant_strength;
-extern sh_int   gsn_harm;
-extern sh_int   gsn_haste;
-extern sh_int   gsn_heal;
-extern sh_int   gsn_heat_metal;
-extern sh_int   gsn_high_explosive;
-extern sh_int   gsn_holy_word;
-extern sh_int   gsn_identify;
-extern sh_int   gsn_invis;
-extern sh_int   gsn_know_alignment;
-extern sh_int   gsn_light_of_truth;
-extern sh_int   gsn_lightning_bolt;
-extern sh_int   gsn_lightning_breath;
-extern sh_int   gsn_locate_life;
-extern sh_int   gsn_locate_object;
-extern sh_int   gsn_magic_missile;
-extern sh_int   gsn_mass_healing;
-extern sh_int   gsn_mass_invis;
-extern sh_int   gsn_nexus;
-extern sh_int   gsn_night_vision;
-extern sh_int   gsn_pass_door;
-extern sh_int   gsn_plague;
-extern sh_int   gsn_poison;
-extern sh_int   gsn_power_word;
-extern sh_int   gsn_polymorph;
-extern sh_int   gsn_portal;
-extern sh_int   gsn_protect_container;
-extern sh_int   gsn_protection_evil;
-extern sh_int   gsn_protection_good;
-extern sh_int   gsn_rayban;
-extern sh_int   gsn_ray_of_truth;
-extern sh_int   gsn_recharge;
-extern sh_int   gsn_refresh;
-extern sh_int   gsn_resurrect;
-extern sh_int   gsn_regeneration;
-extern sh_int   gsn_remove_alignment;
-extern sh_int   gsn_remove_invis;
-extern sh_int   gsn_remove_curse;
-extern sh_int   gsn_sanctuary;
-extern sh_int   gsn_scry;
-extern sh_int   gsn_shield;
-extern sh_int   gsn_shock_blade;
-extern sh_int   gsn_shocking_grasp;
-extern sh_int   gsn_shrink;
-extern sh_int   gsn_sleep;
-extern sh_int   gsn_slow;
-extern sh_int   gsn_smokescreen;
-extern sh_int   gsn_starve;
-extern sh_int   gsn_steel_mist;
-extern sh_int   gsn_stone_skin;
-extern sh_int   gsn_summon;
-extern sh_int   gsn_summon_object;
-extern sh_int   gsn_sunray;
-extern sh_int   gsn_talon;
-extern sh_int   gsn_teleport;
-extern sh_int   gsn_teleport_object;
-extern sh_int   gsn_undo_spell;
-extern sh_int   gsn_ventriloquate;
-extern sh_int   gsn_vision;
-extern sh_int   gsn_weaken;
-extern sh_int   gsn_word_of_recall;
-extern sh_int   gsn_wrath;
-extern sh_int   gsn_axe;
-extern sh_int   gsn_dagger;
-extern sh_int   gsn_flail;
-extern sh_int   gsn_mace;
-extern sh_int   gsn_polearm;
-extern sh_int   gsn_spear;
-extern sh_int   gsn_sword;
-extern sh_int   gsn_whip;
-extern sh_int   gsn_archery;
-extern sh_int   gsn_shield_block;
-extern sh_int   gsn_brew;
-extern sh_int   gsn_scribe;
-extern sh_int   gsn_backstab;
-extern sh_int   gsn_bash;
-extern sh_int   gsn_berserk;
-extern sh_int   gsn_circle;
-extern sh_int   gsn_crush;
-extern sh_int   gsn_dirt_kicking;
-extern sh_int   gsn_disarm;
-extern sh_int   gsn_dodge;
-extern sh_int   gsn_enhanced_damage;
-extern sh_int   gsn_envenom;
-extern sh_int   gsn_hand_to_hand;
-extern sh_int   gsn_kick;
-extern sh_int   gsn_roundhouse; /*wchange added for evo 2+'s second hit*/
-extern sh_int   gsn_footsweep;
-extern sh_int gsn_necromancy;
-extern sh_int   gsn_parry;
-extern sh_int   gsn_rescue;
-extern sh_int   gsn_trip;
-extern sh_int   gsn_second_attack;
-extern sh_int   gsn_third_attack;
-extern sh_int   gsn_dual_wield;
-extern sh_int   gsn_hunt;
-extern sh_int  gsn_unarmed;
-extern sh_int   gsn_swimming;
-extern sh_int   gsn_fast_healing;
-extern sh_int   gsn_firebuilding;
-extern sh_int   gsn_forge;
-extern sh_int   gsn_repair;
-extern sh_int   gsn_rotate;
-extern sh_int   gsn_languages;
-extern sh_int   gsn_haggle;
-extern sh_int   gsn_hide;
-extern sh_int   gsn_lore;
-extern sh_int   gsn_meditation;
-extern sh_int   gsn_peek;
-extern sh_int   gsn_pick_lock;
-extern sh_int   gsn_scan;
-extern sh_int   gsn_sneak;
-extern sh_int   gsn_steal;
-extern sh_int   gsn_sing;
-extern sh_int   gsn_scrolls;
-extern sh_int   gsn_spousegate;
-extern sh_int   gsn_staves;
-extern sh_int   gsn_wands;
-extern sh_int   gsn_recall;
-extern sh_int  gsn_lay_on_hands;
-extern sh_int  gsn_familiar;
-extern sh_int  gsn_die_hard;
-extern sh_int   gsn_sheen;
-extern sh_int   gsn_focus;
-extern sh_int   gsn_paralyze;
-extern sh_int   gsn_barrier;
-extern sh_int   gsn_dazzle;
-extern sh_int   gsn_full_heal;
-extern sh_int   gsn_midnight;
-extern sh_int   gsn_shadow_form;
-extern sh_int   gsn_hone;
-extern sh_int   gsn_riposte;
-extern sh_int   gsn_fourth_attack;
-extern sh_int   gsn_rage;
-extern sh_int  gsn_blind_fight;
-extern sh_int   gsn_sap;
-extern sh_int   gsn_pain;
-extern sh_int   gsn_hex;
-extern sh_int   gsn_bone_wall;
-extern sh_int   gsn_hammerstrike;
-extern sh_int   gsn_force_shield;
-extern sh_int   gsn_holy_sword;
-extern sh_int   gsn_align;
-extern sh_int   gsn_blur;
-extern sh_int   gsn_dual_second;
-extern sh_int   gsn_quick;
-extern sh_int   gsn_standfast;
-extern sh_int   gsn_mark;
-extern sh_int   gsn_critical_blow;
+
 
 /* act_comm.c */
 void    add_follower    args( ( Character *ch, Character *master ) );
@@ -574,7 +320,6 @@ bool has_departed(const String&);
 void    set_title       args( ( Character *ch, const String& title ) );
 void	set_color	args((Character *ch, int color, int bold));
 void	new_color	args((Character *ch, int custom));
-void    show_affect_to_char  args((const Affect *paf, Character *ch));
 
 /* act_move.c */
 void    move_char       args( ( Character *ch, int door, bool follow ) );
@@ -637,12 +382,12 @@ void    shock_effect    args( (void *vo, int level, int dam, int target, int evo
 /* fight.c */
 void    check_killer    args( ( Character *ch, Character *victim) );
 bool    damage          args( ( Character *ch, Character *victim, int dam,
-								int dt, int cls, bool show, bool spell ) );
+								skill::type attack_skill, int attack_type, int damage_type, bool show, bool spell ) );
 void    death_cry       args( ( Character *ch ) );
 bool    is_safe         args( (Character *ch, Character *victim, bool showmsg ) );
 bool    is_safe_spell   args( (Character *ch, Character *victim, bool area ) );
 bool	is_safe_char	args((Character *ch, Character *victim, bool showmsg));		/* Montrey */
-void    multi_hit       args( ( Character *ch, Character *victim, int dt ) );
+void    multi_hit       args( ( Character *ch, Character *victim, skill::type ) );
 void    raw_kill        args( ( Character *victim ) );
 void    stop_fighting   args( ( Character *ch, bool fBoth ) );
 void    update_pos      args( ( Character *victim ) );
@@ -676,7 +421,6 @@ void    mprog_speech_trigger    args ( ( const String& txt, Character* mob ) );
 
 
 // attribute.c
-int affect_bit_to_sn args((Flags::Bit bit));
 int stat_to_attr args((int stat));
 int     get_max_stat   args(( const Character *ch, int stat ) );
 int get_age         args((Character *ch));
@@ -693,9 +437,8 @@ int     count_users     args( (Object *obj) );
 int     get_weapon_type     args( ( const String& name) );
 bool    is_clan         args((Character *ch) );
 bool    is_same_clan    args((Character *ch, Character *victim));
-int     get_skill       args(( const Character *ch, int sn ) );
-int     get_weapon_sn   args(( Character *ch, bool secondary ) );
-int     get_weapon_skill args(( Character *ch, int sn ) );
+skill::type     get_weapon_skill   args(( Character *ch, bool secondary ) );
+int     get_weapon_learned args(( Character *ch, skill::type type ) );
 void    reset_char      args(( Character *ch )  );
 int     get_max_train   args(( Character *ch, int stat ) );
 int     can_carry_n     args(( Character *ch ) );
@@ -744,7 +487,7 @@ int	get_carry_weight	args((Character *ch));
 int	get_position		args((Character *ch));
 int	get_play_hours		args((Character *ch));
 int	get_play_seconds	args((Character *ch));
-int	get_affect_evolution	args((Character *ch, int sn));
+int	get_affect_evolution	args((Character *ch, affect::type type));
 int	interpolate		args((int level, int value_00, int value_32));
 ExtraDescr *get_extra_descr		args((const String& name, ExtraDescr *ed));
 
@@ -764,21 +507,10 @@ void	do_huh		args( ( Character *ch ) );	/* Xenith */
 
 
 /* magic.c */
-void    spread_plague   args(( RoomPrototype *room, const Affect *plague, int chance));
-int     find_spell      args( ( Character *ch, const String& name) );
-int     skill_lookup    args( ( const String& name ) );
-int     slot_lookup     args( ( int slot ) );
-void    obj_cast_spell  args( ( int sn, int level, Character *ch,
+skill::type    find_spell      args( ( Character *ch, const String& name) );
+void    obj_cast_spell  args( ( skill::type, int level, Character *ch,
 									Character *victim, Object *obj ) );
-void spell_imprint      args( ( int sn, int level, Character *ch, void *vo ));
-
-// dispel.c
-bool    saves_spell       args(( int level, Character *victim, int dam_type ) );
-bool    check_dispel_char args(( int dis_level, Character *victim, int sn, bool save ));
-bool    check_dispel_obj  args(( int dis_level, Object *obj, int sn, bool save ));
-bool    undo_spell        args(( int dis_level, Character *victim, int sn, bool save ));
-bool    dispel_char       args(( Character *victim, int level, bool cancellation ));
-bool    level_save        args(( int dis_level, int save_level));
+void spell_imprint      args( ( skill::type, int level, Character *ch, void *vo ));
 
 /* quest.c */
 void    sq_cleanup	 args( ( Character *ch ) );
@@ -791,17 +523,21 @@ const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const String& ctime ) );
 
 /* skills.c */
+void    set_learned       args(( Character *ch, skill::type type, int value ) );
+void    set_evolution     args(( Character *ch, skill::type type, int value ) );
+int     get_learned       args(( const Character *ch, skill::type type ) );
+int     get_evolution     args(( const Character *ch, skill::type ) );
 long    exp_per_level   args( ( Character *ch, int points ) );
-void    check_improve   args( ( Character *ch, int sn, bool success,
+void    check_improve   args( ( Character *ch, skill::type, bool success,
 									int multiplier ) );
 int     group_lookup    args( (const String& name) );
 void    gn_add          args( ( Character *ch, int gn) );
 void    gn_remove       args( ( Character *ch, int gn) );
 void    group_add       args( ( Character *ch, const String& name, bool deduct) );
 void    group_remove    args( ( Character *ch, const String& name) );
-int     get_evolution   args( ( Character *ch, int sn ) );
-int	get_skill_cost  args( ( Character *ch, int sn ) );
-bool	deduct_stamina  args( ( Character *ch, int sn ) );
+int	    get_skill_cost  args(( Character *ch, skill::type ) );
+int     get_skill_level args(( const Character *ch, skill::type type ) );
+bool	deduct_stamina  args( ( Character *ch, skill::type ) );
 
 /* special.c */
 SPEC_FUN *    spec_lookup     args( ( const String& name ) );
@@ -830,7 +566,7 @@ void    update_handler  args( ( void ) );
 int     raff_lookup     args( ( int index ) );
 bool    HAS_RAFF	args( ( Character *ch, int flag ) );
 bool    HAS_RAFF_GROUP  args( ( Character *ch, int flag ) );
-bool    HAS_EXTRACLASS	args( ( Character *ch, int sn ) );
-bool    CAN_USE_RSKILL  args( ( Character *ch, int sn ) );
+bool    HAS_EXTRACLASS	args( ( Character *ch, skill::type ) );
+bool    CAN_USE_RSKILL  args( ( Character *ch, skill::type ) );
 void    list_extraskill args( ( Character *ch ) );
 

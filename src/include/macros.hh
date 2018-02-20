@@ -97,7 +97,7 @@
 #define IS_SQUESTOR(ch)    (!IS_NPC(ch) && (ch)->pcdata->plr_flags.has(PLR_SQUESTOR))
 #define IS_KILLER(ch)		((ch)->act_flags.has(PLR_KILLER))
 #define IS_THIEF(ch)		((ch)->act_flags.has(PLR_THIEF))
-#define CAN_FLY(ch)         (affect_exists_on_char((ch), gsn_fly))
+#define CAN_FLY(ch)         (affect::exists_on_char((ch), affect::type::fly))
 #define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
 
 /*
@@ -105,7 +105,6 @@
  */
 #define CAN_WEAR(obj, part)     ((obj)->wear_flags.has((part)))
 #define IS_OBJ_STAT(obj, stat)  (((obj)->extra_flags + (obj)->cached_extra_flags).has((stat)))
-#define IS_WEAPON_STAT(obj,stat)(((obj)->value[4] + (obj)->cached_weapon_flags).flags().has((stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
 		(obj)->value[4] : 100)
 

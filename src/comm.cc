@@ -429,6 +429,7 @@ int init_socket(int port)
 
 // this used to use SO_DONTLINGER, which isn't universally supported
 // and is semantically the opposite of SO_LINGER -- Montrey
+// see http://developerweb.net/viewtopic.php?id=2982
 #if defined(SO_LINGER)
 	printf("setting SO_LINGER\n");
 	{
@@ -447,7 +448,7 @@ int init_socket(int port)
 		}
 	}
 #endif
-
+/*
 #if defined(SO_KEEPALIVE)
 	printf("setting SO_KEEPALIVE\n");
 	if (setsockopt(fd, SOL_SOCKET, SO_KEEPALIVE, (char *) &x, sizeof(x)) < 0) {
@@ -457,7 +458,7 @@ int init_socket(int port)
 		exit(1);
 	}
 #endif
-
+*/
 	sa              = sa_zero;
 #ifdef IPV6
 	sa.sin6_family   = AF_INET6;

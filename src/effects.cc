@@ -26,9 +26,10 @@
 ***************************************************************************/
 
 #include "act.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "declare.hh"
+#include "dispel.hh"
 #include "Flags.hh"
 #include "macros.hh"
 #include "merc.hh"
@@ -75,7 +76,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect_exists_on_char(owner, gsn_sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -259,8 +260,8 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 			act("$n turns blue and shivers.", victim, nullptr, nullptr, TO_ROOM);
 			act("A chill sinks deep into your bones.", victim, nullptr, nullptr, TO_CHAR);
 
-			affect_add_sn_to_char(victim,
-				gsn_chill_touch,
+			affect::add_type_to_char(victim,
+				affect::type::chill_touch,
 				level,
 				6,
 				URANGE(1, evolution - 1, 4),
@@ -291,7 +292,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect_exists_on_char(owner, gsn_sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -434,8 +435,8 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			act("Your eyes tear up from smoke...you can't see a thing!",
 			    victim, nullptr, nullptr, TO_CHAR);
 
-			affect_add_sn_to_char(victim,
-				gsn_fire_breath,
+			affect::add_type_to_char(victim,
+				affect::type::fire_breath,
 				level,
 				number_range(0, 2),
 				URANGE(1, evolution - 1, 4),
@@ -466,7 +467,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect_exists_on_char(owner, gsn_sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
@@ -629,8 +630,8 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 			    victim);
 			act("$n looks very ill.", victim, nullptr, nullptr, TO_ROOM);
 
-			affect_add_sn_to_char(victim,
-				gsn_poison,
+			affect::add_type_to_char(victim,
+				affect::type::poison,
 				level,
 				level / 2,
 				URANGE(1, evolution - 1, 4),
@@ -735,7 +736,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* sheen protects absolutely */
 		if ((owner = obj->carried_by) != nullptr
-		    && affect_exists_on_char(owner, gsn_sheen))
+		    && affect::exists_on_char(owner, affect::type::sheen))
 			return;
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)

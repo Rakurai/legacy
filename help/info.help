@@ -1,731 +1,725 @@
 0 Newbie Helper~
 Newbie helpers (denoted by an H in the HR* in the who display) are usually 
-very experienced players who will take it upon themselves to assist new players 
-as needed, so that they can better get along in the mud. The object is to teach 
-the newbies so that they may do things themselves or teach others. Newbie helper 
-flags are granted to mortals by the immortals this is not a flag you can put up and 
-take down.They are empowered to create Newbie Kits (Newbie Helpers type Newbie to 
-create one) for newbies as needed, as well as to go into the MUD School to "show 
-them the ropes". NO OTHER MORTAL PLAYER CAN DO THIS! At times, the Newbie Helper  may 
-render other assistance, like spells and finding equipment.
+very experienced players who will take it upon themselves to assist new players 
+as needed, so that they can better get along in the mud. The object is to teach 
+the newbies so that they may do things themselves or teach others. Newbie helper 
+flags are granted to mortals by the immortals this is not a flag you can put up and 
+take down.They are empowered to create Newbie Kits (Newbie Helpers type Newbie to 
+create one) for newbies as needed, as well as to go into the MUD School to "show 
+them the ropes". NO OTHER MORTAL PLAYER CAN DO THIS! At times, the Newbie Helper  may 
+render other assistance, like spells and finding equipment.
 
-1. Newbie Helpers generally do their job via imparting bits of supplemental 
-information. This means that they may fill in pieces of the puzzle for 
-newbies .. Newbie Helpers may or may not, at their option, spell newbies 
-up. {CIf you are a newbie please understand that spell ups are not an obligation 
-they are a gift and you should thank the person spelling you up.{x
+1. Newbie Helpers generally do their job via imparting bits of supplemental 
+information. This means that they may fill in pieces of the puzzle for 
+newbies .. Newbie Helpers may or may not, at their option, spell newbies 
+up. {CIf you are a newbie please understand that spell ups are not an obligation 
+they are a gift and you should thank the person spelling you up.{x
 
-2. NH assistance is only intended as a SUPPLEMENT for player efforts, not a 
-substitute. This means that Helpers may lend the occasional helping hand and 
-coaching but they will not do all the work; contrary to what some people 
-seem to think everyone is STILL responsible for their own successes and 
-failures. Newbie Helpers are more than welcome to lend a hand upon request, 
-but we do ask that they not make a habit of doing all the work; this can 
-lead to mooching and newbie helpers are not doing anyone a favor by playing the 
-game for them.. Your duties do not excuse anyone from earning their own crust.
+2. NH assistance is only intended as a SUPPLEMENT for player efforts, not a 
+substitute. This means that Helpers may lend the occasional helping hand and 
+coaching but they will not do all the work; contrary to what some people 
+seem to think everyone is STILL responsible for their own successes and 
+failures. Newbie Helpers are more than welcome to lend a hand upon request, 
+but we do ask that they not make a habit of doing all the work; this can 
+lead to mooching and newbie helpers are not doing anyone a favor by playing the 
+game for them.. Your duties do not excuse anyone from earning their own crust.
 
-One other thing to remember: those of you who are Newbie Helpers must remember 
-that people look up to you. Therefore, do your best to be friendly and courteous 
-with other people, especially newbies. Whether you like to think of it that way or not, 
-you ARE rolemodels for the mud to see. So, please make sure that your advice is as good 
-as you can make it; treat others with respect; show them the proper uses of channels, eq etc. 
-do NOT act better than... we have all been newbies at one time or another. In short, just be 
-the nice friendly mortals we know you are. And by all means do NOT ignore newbies completely. 
-If you are busy at least respond letting them know your busy.
+One other thing to remember: those of you who are Newbie Helpers must remember 
+that people look up to you. Therefore, do your best to be friendly and courteous 
+with other people, especially newbies. Whether you like to think of it that way or not, 
+you ARE rolemodels for the mud to see. So, please make sure that your advice is as good 
+as you can make it; treat others with respect; show them the proper uses of channels, eq etc. 
+do NOT act better than... we have all been newbies at one time or another. In short, just be 
+the nice friendly mortals we know you are. And by all means do NOT ignore newbies completely. 
+If you are busy at least respond letting them know your busy.
 
-{WNote to newbies: Please remember that these players are also playing the game. They may not 
-always have time right when you want it. And remember that pestering them for things will only 
-cause them to ignore you or resent their flag.{x
-~
+{WNote to newbies: Please remember that these players are also playing the game. They may not 
+always have time right when you want it. And remember that pestering them for things will only 
+cause them to ignore you or resent their flag.{x
+~
 
 0 SKILLS SPELLS~
 The {Cskills{x and {Cspells{x commands are used to display your character's list
-of available {Cskills{x (or {Cspells{x, as the case may be).  They are listed in
-order of level, with {Ymana cost{x (for {Cspells{x) or {Ypercentage{x (for {Cskills{x)
-listed where applicable. See {YHELP SPELLS{x for details on the {CSPELLS{x command.
+of available {Cskills{x (or {Cspells{x, as the case may be).  They are listed in
+order of level, with {Ymana cost{x (for {Cspells{x) or {Ypercentage{x (for {Cskills{x)
+listed where applicable. See {YHELP SPELLS{x for details on the {CSPELLS{x command.
 
-If you want to see the levels at which various skills and spells are
-*potentially* available to you, type {CLEVELS{x class-name. Example:
-{Clevels warrior{x will show you the levels at which warriors get skills
-and spells. You can substitute any other class.
-~
+If you want to see the levels at which various skills and spells are
+*potentially* available to you, type {CLEVELS{x class-name. Example:
+{Clevels warrior{x will show you the levels at which warriors get skills
+and spells. You can substitute any other class.
+~
 
 0 SKILLS SPELLS~
 The {Cskills{x and {Cspells{x commands tell you about the skills and spells
-you have, will have or could gain. Here are some things you can do with it:
+you have, will have or could gain. Here are some things you can do with it:
 
-{Cspells{x        -- gives you a list of all the spells for which you have
-                 gained the spell groups, and the levels at which you got
-                 them or will get them.
-{Cspells 75{x     -- lists all spells in your spell groups from level 75 up.
-{Cspells 10 20{x  -- lists all spells in your spell groups from level 10
-                 to 20 inclusive.
-{Cspells c{x      -- lists ALL spells starting with C, including two-word
-		 spell names whose 2nd word starts with a 'C'
-{Cspells breath{x -- lists all breath spells.
-{Cspells weather{x - lists all the spells in the {CWEATHER{x group. You must
-                 give the full name of the group for this to work.
-{Cspells groups{x -- lists all available spell groups, showing which ones
-                 you already have.
+{Cspells{x        -- gives you a list of all the spells for which you have
+                 gained the spell groups, and the levels at which you got
+                 them or will get them.
+{Cspells 75{x     -- lists all spells in your spell groups from level 75 up.
+{Cspells 10 20{x  -- lists all spells in your spell groups from level 10
+                 to 20 inclusive.
+{Cspells c{x      -- lists ALL spells starting with C, including two-word
+		 spell names whose 2nd word starts with a 'C'
+{Cspells breath{x -- lists all breath spells.
+{Cspells weather{x - lists all the spells in the {CWEATHER{x group. You must
+                 give the full name of the group for this to work.
+{Cspells groups{x -- lists all available spell groups, showing which ones
+                 you already have.
 
-All but the first and last of these variations display output in a new,
-colorful and more informative format which tells you not only how much
-mana the spell costs but also how skilled you are at it. For spells which
-are not in any spell group you have gained, it shows you this fact too.
-~
+All but the first and last of these variations display output in a new,
+colorful and more informative format which tells you not only how much
+mana the spell costs but also how skilled you are at it. For spells which
+are not in any spell group you have gained, it shows you this fact too.
+~
 
 99 Quest Double~
 This is a reward that we are offering to mortals on special occasions. Due
-to the over use of this command it is temporarily limited to the following 
-events:
+to the over use of this command it is temporarily limited to the following 
+events:
 
-{CHiring of a new immortal
-Major Holidays example: Thanksgiving, Christmas, Easter, etc.....{x
+{CHiring of a new immortal
+Major Holidays example: Thanksgiving, Christmas, Easter, etc.....{x
 
-We are working on other ideas regarding this command. Do NOT turn it on for
-birthdays or personal joys or celebrations. 
-Thank you
-~
+We are working on other ideas regarding this command. Do NOT turn it on for
+birthdays or personal joys or celebrations. 
+Thank you
+~
 
 0 LEVELS~
 Syntax: {Clevels{x <{Yclassname{x>
 
-This command will provide information on spell levels for a specific class.
-It will then follow the spell levels with a listing of skill levels.
-~
+This command will provide information on spell levels for a specific class.
+It will then follow the spell levels with a listing of skill levels.
+~
 
 0 Rpp~
 Rpp points are awarded to mortals for roleplaying. Although we are not a
-roleplay enforced mud we do strongly encourage it. We have created a way of
-rewarding mortals for their roleplay efforts. 
+roleplay enforced mud we do strongly encourage it. We have created a way of
+rewarding mortals for their roleplay efforts. 
 
-Generally if you are seen using IC channel for roleplay or you write roleplay
-notes we award you with rpp points (the amount is up to the immortals).
+Generally if you are seen using IC channel for roleplay or you write roleplay
+notes we award you with rpp points (the amount is up to the immortals).
 
-You may then purchase double quest time with these rpp points.
-1 rpp = 5 minutes double quest time
+You may then purchase double quest time with these rpp points.
+1 rpp = 5 minutes double quest time
 
-This could be used in many ways to enhance the game play. You may use these
-as individual rewards orrrr you could get together as a clan and group your 
-time together to maybe promote your clan. Really it is up to you when and how
-and when you use these points. All you need is an available immortal to turn
-on and off the double quest and the rpp to pay for it :) 
+This could be used in many ways to enhance the game play. You may use these
+as individual rewards orrrr you could get together as a clan and group your 
+time together to maybe promote your clan. Really it is up to you when and how
+and when you use these points. All you need is an available immortal to turn
+on and off the double quest and the rpp to pay for it :) 
 
-{W* We are in the process of working on more options for you to choose from.{x
-~
+{W* We are in the process of working on more options for you to choose from.{x
+~
 
 0 PRACTICE~
 Syntax: {Cpractice{x
-        {Cpractice abc{x <{Yskill{x/{Yspell or abbreviation{x>
-        {Cpractice %{x
-        {Cpractice groups{x
-        {Cpractice groups{x <{Ygroup name or abbreviation{x>
-        {Cpractice{x <{Yskill{x/{Yspell{x>
+        {Cpractice abc{x <{Yskill{x/{Yspell or abbreviation{x>
+        {Cpractice %{x
+        {Cpractice groups{x
+        {Cpractice groups{x <{Ygroup name or abbreviation{x>
+        {Cpractice{x <{Yskill{x/{Yspell{x>
 
-{CPractice{x without an argument or {Cpractice abc{x tells you your
-current ability level in all the skills and spells available to you.
-You can check this anywhere. The list is sorted in alphabetical order.
+{CPractice{x without an argument or {Cpractice abc{x tells you your
+current ability level in all the skills and spells available to you.
+You can check this anywhere. The list is sorted in alphabetical order.
 
-{CPractice abc{x and one or more letters will restrict the list to
-spells and skills beginning with those letters.
+{CPractice abc{x and one or more letters will restrict the list to
+spells and skills beginning with those letters.
 
-{CPractice %{x will show your skills and spells sorted in decreasing
-order of proficiency.
+{CPractice %{x will show your skills and spells sorted in decreasing
+order of proficiency.
 
-{CPractice groups{x will show you your skills and spells by skill/
-spell groups. If you type a group name after the {Rgroups{x, the list
-will be limited to that group or those groups matching what you typed.
+{CPractice groups{x will show you your skills and spells by skill/
+spell groups. If you type a group name after the {Rgroups{x, the list
+will be limited to that group or those groups matching what you typed.
 
-{CPractice{x with an argument practices that skill or spell.  Your learning
-percentage varies from 1% (unlearned) to a maximum between 80% and 100%,
-depending on your class.  You must be at a guildmaster to practice, and
-you can practice to a maximum of 75% with practice sessions; beyond that
-you must learn in combat.
+{CPractice{x with an argument practices that skill or spell.  Your learning
+percentage varies from 1% (unlearned) to a maximum between 80% and 100%,
+depending on your class.  You must be at a guildmaster to practice, and
+you can practice to a maximum of 75% with practice sessions; beyond that
+you must learn in combat.
 
-The higher your intelligence, the more you will learn at each practice
-session.  The higher your wisdom, the more practice sessions you will
-have each time you gain a level.  Unused sessions are saved until you
-use them.
-~
+The higher your intelligence, the more you will learn at each practice
+session.  The higher your wisdom, the more practice sessions you will
+have each time you gain a level.  Unused sessions are saved until you
+use them.
+~
 
 0 TRAIN~
 Syntax: {Ctrain{x <{Ystr int wis dex con chr hp mana{x>
 
-{CTRAIN{x increases one of your attributes.  When you start the game, your
-character has standard attributes based on your class, and several
-initial training sessions.  You can increase your attributes by
-using these sessions at a trainer (there are several in town).
+{CTRAIN{x increases one of your attributes.  When you start the game, your
+character has standard attributes based on your class, and several
+initial training sessions.  You can increase your attributes by
+using these sessions at a trainer (there are several in town).
 
-It takes one training session to improve an attribute, or to increase
-mana, hp, or movement by 10.  You receive one session per level.
+It takes one training session to improve an attribute, or to increase
+mana, hp, or movement by 10.  You receive one session per level.
 
-The best attributes to train first are {PWIS{x and {PCON{x.  {PWIS{x gives you more
-practice when you gain a level.  {PCON{x gives you more hit points.
-In the long run, your character will be more powerful if you train
-{PWIS{x and {PCON{x both to 18 before practicing or training anything else.
-~
+The best attributes to train first are {PWIS{x and {PCON{x.  {PWIS{x gives you more
+practice when you gain a level.  {PCON{x gives you more hit points.
+In the long run, your character will be more powerful if you train
+{PWIS{x and {PCON{x both to 18 before practicing or training anything else.
+~
 
 0 EVOLVE~
 Syntax: {CEvolve{x
-        {CEvolve{x <{Yskill/spell name{x>
+        {CEvolve{x <{Yskill/spell name{x>
 
-Evolution of spells and skills is a relatively new addition to Legacy,
-where the players, through use of skill points are able to upgrade and
-boost in power and effectiveness the skills and spells they have. Not
-all evolutions will be able to occur in each class, as some are specific
-to a given class due to the nature of the spell/skill. Typing evolve
-will show the current status of your evolvable skills and spells, also
-including any further skill points you may require to upgrade said skill.
-Typing evolve with an argument will upgrade the chosen spell/skill if you
-have enough skill points to do it. Please note, that you require a base
-of 85% in the skill originally before you can evolve it further, and even
-higher to evolve it again.  After evolving, you will need to practice
-up the skill in question again.
-~
+Evolution of spells and skills is a relatively new addition to Legacy,
+where the players, through use of skill points are able to upgrade and
+boost in power and effectiveness the skills and spells they have. Not
+all evolutions will be able to occur in each class, as some are specific
+to a given class due to the nature of the spell/skill. Typing evolve
+will show the current status of your evolvable skills and spells, also
+including any further skill points you may require to upgrade said skill.
+Typing evolve with an argument will upgrade the chosen spell/skill if you
+have enough skill points to do it. Please note, that you require a base
+of 85% in the skill originally before you can evolve it further, and even
+higher to evolve it again.  After evolving, you will need to practice
+up the skill in question again.
+~
 
 0 COUNT~
 The {Ccount{x command displays the number of people (that you can see) logged
-into the mud.  It also displays the highest number observed that day, if
-it is higher.
-~
+into the mud.  It also displays the highest number observed that day, if
+it is higher.
+~
 
 0 AFFECTS AFFECT~
 This command is used to show all the spells affecting your character. At
-low levels, only the spell name will be displayed, at higher levels the
-affects and duration of the spell will also be shown.  Spell affects
-are no longer shown on score (this can be changed by using 'show' command).
-Remorts can toggle whether or not their remort affects show up with the
-'{Vshowraff{x' command.
-~
+low levels, only the spell name will be displayed, at higher levels the
+affects and duration of the spell will also be shown.  Spell affects
+are no longer shown on score (this can be changed by using 'show' command).
+Remorts can toggle whether or not their remort affects show up with the
+'{Vshowraff{x' command.
+~
 
 0 SHOWRAFF~
 This command toggles whether to print Remort Affects in the
-Affects table. Please see "help affects" for more information.
-~
+Affects table. Please see "help affects" for more information.
+~
 
 0 AREAS~
 Syntax: {Careas{x
-        {Careas{x <{Ylevel{x>
-        {Careas{x <{Ysearch-string{x>
+        {Careas{x <{Ylevel{x>
+        {Careas{x <{Ysearch-string{x>
 
-This command shows you the areas of {bL{Ye{Wga{Yc{by{x.  Areas are shown with level
-range, area name and author. Areas are sorted alphabetically by area
-name.  For some areas, the range is replaced by {YALL, CLANS, HERO or IMM{x,
-meaning this area is open to every one, members of their clans only,
-heroes or immortals, respectively.
+This command shows you the areas of {bL{Ye{Wga{Yc{by{x.  Areas are shown with level
+range, area name and author. Areas are sorted alphabetically by area
+name.  For some areas, the range is replaced by {YALL, CLANS, HERO or IMM{x,
+meaning this area is open to every one, members of their clans only,
+heroes or immortals, respectively.
 
-{CAreas{x by itself shows far too many areas to be readable.  As of this
-writing, there are almost 100 areas in {bL{Ye{Wga{Yc{by{x and the number is growing.
-So, if you are looking for an area appropriate for your level, type
-{Careas 5{x (for example).  If you remember part of the name of an area or
-its author, type something like {Careas the{x or {Careas elrac{x or {Careas clan{x.
-~
+{CAreas{x by itself shows far too many areas to be readable.  As of this
+writing, there are almost 100 areas in {bL{Ye{Wga{Yc{by{x and the number is growing.
+So, if you are looking for an area appropriate for your level, type
+{Careas 5{x (for example).  If you remember part of the name of an area or
+its author, type something like {Careas the{x or {Careas elrac{x or {Careas clan{x.
+~
 
 0 SHOWFLAGS~
 Syntax: {Cshowflags{x
 
-{CShowflags{x shows you which game flags are set for your character.
-Alas, the format is a bit hard to read and nobody is likely to explain
-the names and values of the flags for you. Consider this an interesting
-curiosity or an arcane command for the advanced player.
-~
+{CShowflags{x shows you which game flags are set for your character.
+Alas, the format is a bit hard to read and nobody is likely to explain
+the names and values of the flags for you. Consider this an interesting
+curiosity or an arcane command for the advanced player.
+~
 
 0 WORTH~
 Syntax: {Cworth{x
 
-{CWorth{x tells you how much gold, silver and experience you have on you,
-as well as how many quest points and skill points you have accumulated.
-If you only want to know this, it's much more convenient than {Cscore{x.
+{CWorth{x tells you how much gold, silver and experience you have on you,
+as well as how many quest points and skill points you have accumulated.
+If you only want to know this, it's much more convenient than {Cscore{x.
 
-{YSEE ALSO:{x bank
-~
+{YSEE ALSO:{x bank
+~
 
 0 COMBINE~
 Syntax: {Ccombine{x
 
-If you are looking at a lot of items and many of those items are of the
-same type, you will probably prefer to have the repeated items shown
-on only one line, with the number of items given. If you are carrying
-3 long thin daggers, for example, you could see either:
+If you are looking at a lot of items and many of those items are of the
+same type, you will probably prefer to have the repeated items shown
+on only one line, with the number of items given. If you are carrying
+3 long thin daggers, for example, you could see either:
 
-long thin dagger
-long thin dagger
-long thin dagger
+long thin dagger
+long thin dagger
+long thin dagger
 
-or (3) long thin dagger .
+or (3) long thin dagger .
 
-Type {Ccombine{x once to switch from the full listing to the summary,
-and {Ccombine{x again to switch back to full if you want.
+Type {Ccombine{x once to switch from the full listing to the summary,
+and {Ccombine{x again to switch back to full if you want.
 
-The effects of {Ccombine{x apply to the output you see from
-{Cinventory{x, {Clook{x, {Cexamine{x and a few others.
-~
+The effects of {Ccombine{x apply to the output you see from
+{Cinventory{x, {Clook{x, {Cexamine{x and a few others.
+~
 
 0 SHOWFLAG~
 Syntax: {Cshowflag{x
-        {Cshowflag{x <{Yvictim{x> ({YImmortal Only{x)
+        {Cshowflag{x <{Yvictim{x> ({YImmortal Only{x)
 
-This command will display your current flag status.  If you are an
-immortal, it can also display flag status for mobiles and other players.
-~
+This command will display your current flag status.  If you are an
+immortal, it can also display flag status for mobiles and other players.
+~
 
 0 BRIEF COMPACT~
 {GBrief{x and {YCompact{x help set your display options for the game. Typing brief
-toggles on and off the showing of room descriptions when you move around
-(considerably reducing the text to be processed) and player's descriptions
-when you look at them.
+toggles on and off the showing of room descriptions when you move around
+(considerably reducing the text to be processed) and player's descriptions
+when you look at them.
 
-Typing {Ycompact{x removes the extra blank line before your prompt.
-~
+Typing {Ycompact{x removes the extra blank line before your prompt.
+~
 
 0 PROMPTTYPES~
 In all cases the short version of a selected prompt does not show
-the max values for things like hp or mana since people would tend
-to know what the max value is by heart and be more concerned with
-what the current value is so they can keep it above zero.
+the max values for things like hp or mana since people would tend
+to know what the max value is by heart and be more concerned with
+what the current value is so they can keep it above zero.
 
-Default  - {W<{C30{Thp {G30{Hma {B30{Nmv {W[{gNeSw{W] {R728{W>{x
-           The {Vdefault{x prompt shows hit points, mana, movement, exits,
-           and experience until next level.
+Default  - {W<{C30{Thp {G30{Hma {B30{Nmv {W[{gNeSw{W] {R728{W>{x
+           The {Vdefault{x prompt shows hit points, mana, movement, exits,
+           and experience until next level.
 
-Short    - {W<{C30{Thp {G30{Hma {B30{Nmv{W>{x
-           The {Vshort{x prompt shows hit points, mana, and movement.
+Short    - {W<{C30{Thp {G30{Hma {B30{Nmv{W>{x
+           The {Vshort{x prompt shows hit points, mana, and movement.
 
-Long     - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {W[{cNeSw{W] {Y24{C/{g34 {W( {gMidgaard {W) {R734{W>{x
-           The {Vlong{x prompt shows hit points, mana, movement, exits, gold,
-           silver, area name, and experience until next level.
+Long     - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {W[{cNeSw{W] {Y24{C/{g34 {W( {gMidgaard {W) {R734{W>{x
+           The {Vlong{x prompt shows hit points, mana, movement, exits, gold,
+           silver, area name, and experience until next level.
 
-Quest    - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {Y({bNone 0{Y){W>{x
-           The {Vquest{x prompt shows hit points, mana, movement and the
-           quest target and quest time.
+Quest    - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {Y({bNone 0{Y){W>{x
+           The {Vquest{x prompt shows hit points, mana, movement and the
+           quest target and quest time.
 
-Riches   - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Tmv {W[{gNeSw{W] {Y24{bg {W34{gs{W>{x
-           The {Vriches{x prompt shows the hit points, mana, movement, gold,
-           and silver.
+Riches   - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Tmv {W[{gNeSw{W] {Y24{bg {W34{gs{W>{x
+           The {Vriches{x prompt shows the hit points, mana, movement, gold,
+           and silver.
 
-Align    - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {W[{cNeSw{W] {R728 {V({M-1000{V){W>{x
-           The {Valign{x prompt shows hit points, mana, movement, exits,
-           experience until next level, and alignment.
+Align    - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {W[{cNeSw{W] {R728 {V({M-1000{V){W>{x
+           The {Valign{x prompt shows hit points, mana, movement, exits,
+           experience until next level, and alignment.
 
-Immortal - {W<{Y({W1223{Y) {T-{CImm Room{T- {H[{GNeSw{H] {WIMM-Zone {N[{B0/92{N]{W>{x
-           The {Vimmortal{x prompt shows room vnum, name, exits, area, wizi,
-           and incog status.  This prompt will not display properly if you are
-           not immortal.
-~
+Immortal - {W<{Y({W1223{Y) {T-{CImm Room{T- {H[{GNeSw{H] {WIMM-Zone {N[{B0/92{N]{W>{x
+           The {Vimmortal{x prompt shows room vnum, name, exits, area, wizi,
+           and incog status.  This prompt will not display properly if you are
+           not immortal.
+~
 
 0 PROMPT PREFIX~
 Syntax: {Cprompt{x
-        {Cprompt <{Ytype{x>{x
-        {YSee PROMPTTYPES for a list of prompts{x
-        {Cprompt{x <{Y%*{x>
-        {Vprefix{x <{Yprefix message{x>
+        {Cprompt <{Ytype{x>{x
+        {YSee PROMPTTYPES for a list of prompts{x
+        {Cprompt{x <{Y%*{x>
+        {Vprefix{x <{Yprefix message{x>
 
-{VPrefix{x allows you to start every command with the {Vprefix{x message.
-To turn {VPrefix{x off, just type {VPrefix{x without an argument.
+{VPrefix{x allows you to start every command with the {Vprefix{x message.
+To turn {VPrefix{x off, just type {VPrefix{x without an argument.
 
-{CPrompt{x without an argument will turn your prompt on or off.
-{CPrompt default{x will give you the standard "<hits mana moves>" prompt.
-{CPrompt{x <{Y%*{x> where the %* are the various variables you may set yourself.
+{CPrompt{x without an argument will turn your prompt on or off.
+{CPrompt default{x will give you the standard "<hits mana moves>" prompt.
+{CPrompt{x <{Y%*{x> where the %* are the various variables you may set yourself.
 
-        %h :  Display your current hits
-        %H :  Display your maximum hits
-        %m :  Display your current mana
-        %M :  Display your maximum mana
-        %v :  Display your current moves
-        %V :  Display your maximum moves
-        %x :  Display your current experience
-        %X :  Display experience to level
-        %l :  Display your level
-        %g :  Display your gold held
-        %s :  Display silver carried
-        %a :  Display your alignment
-        %p :  Display your questpoints
-        %k :  Display your skillpoints
-        %r :  Display the room name you are in
-        %e :  Display the exits from the room in NESWDU style
-        %c :  Display a carriage return (useful for multi-line prompts)
-        %R :  Display the vnum you are in (IMMORTAL ONLY)
-        %w :  Display your invis/lurk status (IMMORTAL ONLY)
-        %z :  Display the area name you are in
-        %q :  Display your quest timer
-        %Q :  Display the purpose of your quest
-        %j :  Display your skill quest timer
-        %J :  Display the purpose of your skill quest
+        %h :  Display your current hits
+        %H :  Display your maximum hits
+        %m :  Display your current mana
+        %M :  Display your maximum mana
+        %v :  Display your current moves
+        %V :  Display your maximum moves
+        %x :  Display your current experience
+        %X :  Display experience to level
+        %l :  Display your level
+        %g :  Display your gold held
+        %s :  Display silver carried
+        %a :  Display your alignment
+        %p :  Display your questpoints
+        %k :  Display your skillpoints
+        %r :  Display the room name you are in
+        %e :  Display the exits from the room in NESWDU style
+        %c :  Display a carriage return (useful for multi-line prompts)
+        %R :  Display the vnum you are in (IMMORTAL ONLY)
+        %w :  Display your invis/lurk status (IMMORTAL ONLY)
+        %z :  Display the area name you are in
+        %q :  Display your quest timer
+        %Q :  Display the purpose of your quest
+        %j :  Display your skill quest timer
+        %J :  Display the purpose of your skill quest
 
-Example:  prompt <%hhp %mm %vmv>
-        Will set your prompt to "<10hp 100m 100mv>"
+Example:  prompt <%hhp %mm %vmv>
+        Will set your prompt to "<10hp 100m 100mv>"
 
-{YSEE ALSO:{x prompttypes
-~
+{YSEE ALSO:{x prompttypes
+~
 
 0 EXAMINE LOOK READ~
 Syntax: {Clook{x
-        {Clook{x    <{Yobject{x>
-        {Clook{x    <{Ycharacter{x>
-        {Clook{x    <{Ydirection{x>
-        {Clook{x    <{Ykeyword{x>
-        {Clook in{x <{Ycontainer{x>
-        {Clook in{x <{Ycorpse{x>
-        {Vexamine{x <{Ycontainer{x>
-        {Vexamine{x <{Ycorpse{x>
+        {Clook{x    <{Yobject{x>
+        {Clook{x    <{Ycharacter{x>
+        {Clook{x    <{Ydirection{x>
+        {Clook{x    <{Ykeyword{x>
+        {Clook in{x <{Ycontainer{x>
+        {Clook in{x <{Ycorpse{x>
+        {Vexamine{x <{Ycontainer{x>
+        {Vexamine{x <{Ycorpse{x>
 
-{CLook{x looks at something and sees what you can see.
+{CLook{x looks at something and sees what you can see.
 
-{CRead{x does exactly the same as {CLook{x. People like to use it with books,
-maps and signs.
+{CRead{x does exactly the same as {CLook{x. People like to use it with books,
+maps and signs.
 
-{VExamine{x is short for '{Clook{x {Ycontainer{x' followed by '{Clook in{x {Ycontainer{x'.
-~
+{VExamine{x is short for '{Clook{x {Ycontainer{x' followed by '{Clook in{x {Ycontainer{x'.
+~
 
 0 COMMANDS~
 Syntax: {Ccommands{x
-        {Ccommands{x <{Ygroup-name{x>
-        {Ccommands{x <{Ygroup-number{x>
+        {Ccommands{x <{Ygroup-name{x>
+        {Ccommands{x <{Ygroup-number{x>
 
-{CCommands{x without an argument will display the groups of commands.
+{CCommands{x without an argument will display the groups of commands.
 
-{CCommands{x with an argument will display the contents of the specified
-group.	The contents will be a listing of all commands pertaining
-to that particular group.
+{CCommands{x with an argument will display the contents of the specified
+group.	The contents will be a listing of all commands pertaining
+to that particular group.
 
-To get more information about a particular command, type
-     {Chelp{x <{Ycommand-name{x>.
-~
+To get more information about a particular command, type
+     {Chelp{x <{Ycommand-name{x>.
+~
 
 0 WEATHER~
 Syntax: {Cweather{x
 
-{CWeather{x shows the current weather of the room you are in.
-~
+{CWeather{x shows the current weather of the room you are in.
+~
 
 0 REPORT~
 Syntax: {Creport{x
-        {Creport all{x
+        {Creport all{x
 
-{CReport{x shows your current statistics to you and also announces them to
-other players in the room.  {CReport all{x reports those statistics, as well
-as what spells are currently affecting you.
-~
+{CReport{x shows your current statistics to you and also announces them to
+other players in the room.  {CReport all{x reports those statistics, as well
+as what spells are currently affecting you.
+~
 
 0 TIME~
 Syntax: {Ctime{x
 
-{CTime{x shows the game time, as well as the time the mud was last started,
-and the current local time for the host computer.  If quest points are
-being doubled, {ctime{x will also show this information.
-~
+{CTime{x shows the game time, as well as the time the mud was last started,
+and the current local time for the host computer.  If quest points are
+being doubled, {ctime{x will also show this information.
+~
 
 0 WHO~
 Syntax: {Cwho{x
-        {Cwho{x <{Ylevel-range{x>
-        {Cwho{x <{Yclass or race{x>
-        {Cwho{x <{Yclan name{x>
-        {Cwho{x <{Yclass or race{x> <{Ylevel-range{x> <{Yclan name{x>
+        {Cwho{x <{Ylevel-range{x>
+        {Cwho{x <{Yclass or race{x>
+        {Cwho{x <{Yclan name{x>
+        {Cwho{x <{Yclass or race{x> <{Ylevel-range{x> <{Yclan name{x>
 
-{CWho{x shows the people currently in the game.  Some people may choose to
-remain unseen and won't appear on the {Cwho{x list.
+{CWho{x shows the people currently in the game.  Some people may choose to
+remain unseen and won't appear on the {Cwho{x list.
 
-{CWho{x without any arguments shows all of the (visible) people currently playing.
+{CWho{x without any arguments shows all of the (visible) people currently playing.
 
-With arguments, {Cwho{x can show players of certain classes or levels.
-For example:
+With arguments, {Cwho{x can show players of certain classes or levels.
+For example:
 
-        {Cwho 10{x	    lists all players of level 10 or above
-        {Cwho 15 20{x       lists all players between level 15 and 20
-        {Cwho cleric{x      lists all clerics playing
-        {Cwho immortal{x    lists all immortals playing
-        {Cwho cleric 1 5{x  lists all clerics between levels 1 and 5
-        {Cwho elf cleric{x  lists all elven clerics
-        {Cwho kindred e m{x lists all elven mages in Kindred
+        {Cwho 10{x	    lists all players of level 10 or above
+        {Cwho 15 20{x       lists all players between level 15 and 20
+        {Cwho cleric{x      lists all clerics playing
+        {Cwho immortal{x    lists all immortals playing
+        {Cwho cleric 1 5{x  lists all clerics between levels 1 and 5
+        {Cwho elf cleric{x  lists all elven clerics
+        {Cwho kindred e m{x lists all elven mages in Kindred
 
-Classes and races may be abbreviated.
-~
+Classes and races may be abbreviated.
+~
 
 0 WHOIS SWHO SHORTWHO PRIVATE~
 Syntax: {Cwhois{x <{Yname{x>
-        {CSwho{x
-        {Cshortwho{x
-        {Cprivate{x
+        {CSwho{x
+        {Cshortwho{x
+        {Cprivate{x
 
-The {Cwhois{x command identifies any user who matches the name given. For
-example, 'whois a' shows all characters whose name begins with A.
+The {Cwhois{x command identifies any user who matches the name given. For
+example, 'whois a' shows all characters whose name begins with A.
 
-The {Cshortwho{x command is similar to who, but it displays some different
-information.
+The {Cshortwho{x command is similar to who, but it displays some different
+information.
 
-The {Cprivate{x command will toggle having your room name displayed in the
-{Cshortwho{x command.
-~
+The {Cprivate{x command will toggle having your room name displayed in the
+{Cshortwho{x command.
+~
 
 0 HELP~
 Syntax: {Chelp{x
-        {Chelp{x <{Ykeyword{x>
-        {Chelp{x <{Yletter{x>
+        {Chelp{x <{Ykeyword{x>
+        {Chelp{x <{Yletter{x>
 
-{CHelp{x without any arguments shows a one-page command summary.
+{CHelp{x without any arguments shows a one-page command summary.
 
-{CHelp{x <{Ykeyword{x> shows a page of help on that keyword.  The keywords include
-all the commands, spells, and skills listed in the game.  If more than one
-match is found, a list of keywords will be displayed after the first match
-is shown.  If only partial matches are found to your keywords, you will
-still get a list of files with partially matching keywords.
+{CHelp{x <{Ykeyword{x> shows a page of help on that keyword.  The keywords include
+all the commands, spells, and skills listed in the game.  If more than one
+match is found, a list of keywords will be displayed after the first match
+is shown.  If only partial matches are found to your keywords, you will
+still get a list of files with partially matching keywords.
 
-{CHelp{x <{Yletter{x> will show all the help files that contain at least one
-keyword starting with that letter.
-~
+{CHelp{x <{Yletter{x> will show all the help files that contain at least one
+keyword starting with that letter.
+~
 
 0 DESCRIPTION~
 Syntax: {Cdescription{x <{Ystring{x>
-        {Cdescription{x '{Y+{x' <{Ystring{x>
-        {Cdescription{x '{Y-{x'
+        {Cdescription{x '{Y+{x' <{Ystring{x>
+        {Cdescription{x '{Y-{x'
 
-Sets your long description to the given string.  If the description string
-starts with a '{Y+{x', the part after the '{Y+{x' is appended to your current
-description, so that you can make multi-line descriptions. You can delete
-lines by using description '{Y-{x'.
-~
+Sets your long description to the given string.  If the description string
+starts with a '{Y+{x', the part after the '{Y+{x' is appended to your current
+description, so that you can make multi-line descriptions. You can delete
+lines by using description '{Y-{x'.
+~
 
 0 PASSWORD~
 Syntax: {Cpassword{x <{Yold-password{x> <{Ynew-password{x>
 
-{CPassword{x changes your character's password.  The first argument must be
-your {Pold{x password.	The second argument is your {Rnew{x password. The {Cpassword{x
-command is protected against being snooped or logged.
-~
+{CPassword{x changes your character's password.  The first argument must be
+your {Pold{x password.	The second argument is your {Rnew{x password. The {Cpassword{x
+command is protected against being snooped or logged.
+~
 
 0 TITLE~
 Syntax: {Ctitle{x <{Ystring{x>
-        {Ctitle {xnone
+        {Ctitle {xnone
 
-Sets your {Ctitle {xto a given string. Using 'none' sets your title to an empty string.
-~
+Sets your {Ctitle {xto a given string. Using 'none' sets your title to an empty string.
+~
 
 0 SCROLL~
 Syntax: {Cscroll{x
-        {Cscroll{x <{Ynumber{x>
+        {Cscroll{x <{Ynumber{x>
 
-This command changes the maximum number of lines that can be sent to your
-screen at once.  If you look at something longer than your scroll number,
-(a long description, note, or inventory, for instance) you will have to
-[Hit enter to continue] for each page.  The default value is 24 lines.
-~
+This command changes the maximum number of lines that can be sent to your
+screen at once.  If you look at something longer than your scroll number,
+(a long description, note, or inventory, for instance) you will have to
+[Hit enter to continue] for each page.  The default value is 24 lines.
+~
 
 0 VISIBLE~
 {CVisible{x cancels any hide, sneak, invisibility, lurk, or wizinvis affects
-you might have.
-~
+you might have.
+~
 
 0 'CRAZY COLOR' COLOR CTEST~
 {WSyntax: Color
-Toggles Color on and off (Nuff Said).  'Color' is a synonym for
-'config color'.
+Toggles Color on and off (Nuff Said).  'Color' is a synonym for
+'config color'.
 
-{GSyntax: color channel <channelname> <colorname>
-Channelname is the name listed in your channel list and color is the
-color name listed in ctest.
+{GSyntax: color channel <channelname> <colorname>
+Channelname is the name listed in your channel list and color is the
+color name listed in ctest.
 
-{YSyntax: color score <scoreitem> <colorname>
-Scoreitem is one of the names listed in 'HELP SCORE' and color is the
-color name listed in ctest.
+{YSyntax: color score <scoreitem> <colorname>
+Scoreitem is one of the names listed in 'HELP SCORE' and color is the
+color name listed in ctest.
 
-{CSyntax: color reset
-Resets to the default color scheme that we have all grown attached to =)
+{CSyntax: color reset
+Resets to the default color scheme that we have all grown attached to =)
 
-{PSyntax: ctest
-Shows a list of colors and their names that can be used for custom color.
-The letters within the ()'s are for the prompt colors.  The letters tend
-to be the first character in the color's name.  However, "earth" tones
-(brown, black, charcoal, and grey) are lower case letters.
+{PSyntax: ctest
+Shows a list of colors and their names that can be used for custom color.
+The letters within the ()'s are for the prompt colors.  The letters tend
+to be the first character in the color's name.  However, "earth" tones
+(brown, black, charcoal, and grey) are lower case letters.
 
-{VSyntax: color crazy
-Toggles Crazy Color on and off.
-Crazy color is a feature at Legacy that allows you to use you own personal
-color codes anywhere you desire.  This is done by placing a {{ before the
-color code letter listed in ctest.  Therefore, you can get a very colorful
-message by using the following sequence:
+{VSyntax: color crazy
+Toggles Crazy Color on and off.
+Crazy color is a feature at Legacy that allows you to use you own personal
+color codes anywhere you desire.  This is done by placing a {{ before the
+color code letter listed in ctest.  Therefore, you can get a very colorful
+message by using the following sequence:
 
-               {R{{RH{Y{{Ye{G{{Gl{B{{Bl{V{{Vo{W{{W!!{x{{x
+               {R{{RH{Y{{Ye{G{{Gl{B{{Bl{V{{Vo{W{{W!!{x{{x
 
-The code: {{x will return your color back to the default color (or custom
-          color that is normally used.
-~
+The code: {{x will return your color back to the default color (or custom
+          color that is normally used.
+~
 
 0 'COLORABLE THINGS'~
 Syntax:  {Cconfig color{x
-         {Cconfig color{x <{Yoption{x> <{Yitem{x> <{Ycolor{x>
-All {Wchannel{x colors can be customized.  Type: channels for current settings.
-{WScore{x items can be customized.  Type: {Ccolor score{x for current settings.
+         {Cconfig color{x <{Yoption{x> <{Yitem{x> <{Ycolor{x>
+All {Wchannel{x colors can be customized.  Type: channels for current settings.
+{WScore{x items can be customized.  Type: {Ccolor score{x for current settings.
 
-Here are some miscellaneous things that can be color customized:
-      Roomname      Mobiles      Objects      Players      Inventory
-~
+Here are some miscellaneous things that can be color customized:
+      Roomname      Mobiles      Objects      Players      Inventory
+~
 
 0 SCORE NEWSCORE~
 Syntax: {Cscore{x
-        {Cnewscore{x
+        {Cnewscore{x
 
-{CScore{x is a command that lists various important data about your character.
+{CScore{x is a command that lists various important data about your character.
 
-{CNewscore{x can be used to toggle between the old and new versions of {Cscore{x.
-To customize the colors in your score, use the {Ccolor score{x command to see
-the coloring options available.
-~
+{CNewscore{x can be used to toggle between the old and new versions of {Cscore{x.
+To customize the colors in your score, use the {Ccolor score{x command to see
+the coloring options available.
+~
 
 0 GAMEIN GAMEOUT~
 You can use {CGAMEIN{x and {CGAMEOUT{x to check your current game entry and exit
-messages. These messages can be set for you by an imm, at a cost of 50 qp
-which entitles you both the gamein and gameout.
-~
+messages. These messages can be set for you by an imm, at a cost of 50 qp
+which entitles you both the gamein and gameout.
+~
 
 0 ALIAS UNALIAS~
 Syntax: {Ralias{x
-	{Ralias{x <{Yword{x>
-	{Ralias{x <{Yword{x> <{Ysubstitution{x>
-	{Runalias{x <{Yword{x>
+	{Ralias{x <{Yword{x>
+	{Ralias{x <{Yword{x> <{Ysubstitution{x>
+	{Runalias{x <{Yword{x>
 
-The {Ralias{x command allows limited shortening of command names.  At this time,
-aliases cannot call other aliases, and cannot generate more than one command.
-{RAlias{x by itself lists your current aliases, {RAlias{x <{Yword{x> lists the alias with
-that name (if such exist), and {Ralias{x with both a {Yword{x and an {Yargument{x
-produces a new alias.  You cannot alias either alias or unalias to a new
-command.  Examples of use:
+The {Ralias{x command allows limited shortening of command names.  At this time,
+aliases cannot call other aliases, and cannot generate more than one command.
+{RAlias{x by itself lists your current aliases, {RAlias{x <{Yword{x> lists the alias with
+that name (if such exist), and {Ralias{x with both a {Yword{x and an {Yargument{x
+produces a new alias.  You cannot alias either alias or unalias to a new
+command.  Examples of use:
 
-alias gc get all corpse --> typing gc will equal typing 'get all corpse'
-alias ff cast 'fireball' --> ff orc will equal 'cast 'fireball' orc'
+alias gc get all corpse --> typing gc will equal typing 'get all corpse'
+alias ff cast 'fireball' --> ff orc will equal 'cast 'fireball' orc'
 
-Only the first word on the line will be subsituted at this time.
-~
+Only the first word on the line will be subsituted at this time.
+~
 
 0 PROPOSE ACCEPT REJECT BREAKUP ENGAGEMENT~
 Syntax: {Cpropose{x <{Yplayer{x>
-        {Caccept{x
-        {Creject{x
-        {Cbreakup{x <{Yplayer{x>
+        {Caccept{x
+        {Creject{x
+        {Cbreakup{x <{Yplayer{x>
 
-Before you can enter and enjoy the holy bonds of matrimony, you and 
-your loved one must first become engaged.  The engagement can take 
-place without the aid of an Immortal, and only requires you to first 
-{Cpropose{x to the character in question.  They must then either {Caccept{x
-or {Creject{x your proposal, depending on how they feel about the idea. 
-If either person changes their mind, they may {Cbreakup{x at any time.
-~
+Before you can enter and enjoy the holy bonds of matrimony, you and 
+your loved one must first become engaged.  The engagement can take 
+place without the aid of an Immortal, and only requires you to first 
+{Cpropose{x to the character in question.  They must then either {Caccept{x
+or {Creject{x your proposal, depending on how they feel about the idea. 
+If either person changes their mind, they may {Cbreakup{x at any time.
+~
 
 0 COMMANDLIST~
 Syntax: {Ccommandlist{x
 
-This command lists all commands (except commands EVERYONE can perform)
-and the level required to perform the command.
-The output is messy at this time, but may come in handy
-when giving level rank to an IMM.
-~
+This command lists all commands (except commands EVERYONE can perform)
+and the level required to perform the command.
+The output is messy at this time, but may come in handy
+when giving level rank to an IMM.
+~
 
-0 BOW RANGED~
-Syntax: {Cranged{x <{Ytarget{x> [{Ydirection{x]
+0 BOW ARROW RANGED ARCHERY SHOOT~
+Syntax: {Cshoot {g<{Ydistance.direction{g> <{Ytarget{g>
 
-This command allows you to fire your bow at a creature
-in another room. Your {Ytarget{x must be the name of
-the creature you wish to shoot. {YDirection{x may
-be North, South, East, West, Up or Down.
+This command allows you to fire your bow at a creature in another room.
+Your {Ytarget{x should be the name of the creature you wish to shoot. 
+{YDirection{x may be north, south, east, west, up, or down.  To shoot
+farther than the next room, use {C2.{x or {C3.{x
 
-Be warned that most creatures react poorly to being
-shot.
-~
+Examples:
+{C   shoot              {g- shoot your current opponent with your bow.
+{C   shoot fido         {g- shoot a fido right here.
+{C   shoot north fido   {g- shoot the nearest fido to the north.
+{C   shoot 2.north fido {g- shoot the fido 2 rooms to the north.
+{C   shoot 3.north fido {g- shoot the fido 3 rooms to the north.
 
-0 OUTSIDER~
-Outsider (that's me) has been coding for Legacy since the fall of 2003.
-His main (and on-going) goals are to:
-1. Make sure everyone has fun.
-2. Make Legacy a stable and user-friendly game.
-3. Connecting Legacy with the game Shadow of Eternity.
-
-You may send questions, comments and complaints to Outsider at
-slicer69@hotmail.com with the subject line "Legacy".
-For more information please see http://slicer69.tripod.com/
-~
+Be warned that most creatures react negatively to being shot.
+~
 
 0 MAP~
 {YSyntax:{x {Pmap{x
 
-This command displays a small map of the local area. At
-the centre of the map is the {Y*{x symbol. That's you!
-Around the {Y*{x you will find a few symbols relating
-the surrounding environment.
+This command displays a small map of the local area. At
+the centre of the map is the {Y*{x symbol. That's you!
+Around the {Y*{x you will find a few symbols relating
+the surrounding environment.
 
-The numbers represent the number of people (mobs and players) in a given room.
-The {YD{x symbols represent doors.
-The {Y.{x symbols represent ... well, they're the background.
-The lines are open door ways to other rooms.
+The numbers represent the number of people (mobs and players) in a given room.
+The {YD{x symbols represent doors.
+The {Y.{x symbols represent ... well, they're the background.
+The lines are open door ways to other rooms.
 
-Below is an example map showing just one room. The
-room has three people in it, has exits to the North
-and Up. Closed doors are to the West and Down.
-There are no exits to the East or South.
+Below is an example map showing just one room. The
+room has three people in it, has exits to the North
+and Up. Closed doors are to the West and Down.
+There are no exits to the East or South.
 
-   \|
-   D3
-     D
+   \|
+   D3
+     D
 
-~
+~
 
 0 EDIT~
 The {REDIT{x command provides you with a small but powerful editor for notes
-(this includes {YNOTE{xs, {YIDEA{xs, {YROLEPLAY{x notes, etc.) and your {Ydescription{x.
+(this includes {YNOTE{xs, {YIDEA{xs, {YROLEPLAY{x notes, etc.) and your {Ydescription{x.
 
-You can't use {REDIT{x to *create* a new text, you have to start it with
-{RNOTE SUBJECT{x (etc.) or {RDESC +{x . Once there is something there, you can
-switch into the editor with {REDIT NOTE{x or {REDIT DESCRIPTION{x. {REDIT NOTE{x will
-figure out which {Ykind{x of note you've started and go to work on it.
+You can't use {REDIT{x to *create* a new text, you have to start it with
+{RNOTE SUBJECT{x (etc.) or {RDESC +{x . Once there is something there, you can
+switch into the editor with {REDIT NOTE{x or {REDIT DESCRIPTION{x. {REDIT NOTE{x will
+figure out which {Ykind{x of note you've started and go to work on it.
 
-You then use the {CEDIT{x commands to work on your text. For your convenience,
-most commands abbreviate to {RED{x and a single character. Here's the list.
-All numbers given are {P*examples*{x.
+You then use the {CEDIT{x commands to work on your text. For your convenience,
+most commands abbreviate to {RED{x and a single character. Here's the list.
+All numbers given are {P*examples*{x.
 
-{RED{xIT             - gives you your current status and a little bit of
-                   helpful information, including a reference here.
+{RED{xIT             - gives you your current status and a little bit of
+                   helpful information, including a reference here.
 
-{RED{xIT {RNOTE{x        - starts editing a note, idea, roleplay, etc.
-{RED{xIT {RDESC{xRIPTION - starts editing your description.
-{PED{xIT {YHELP{x <ID>     - start editing a help file (IMM only)
+{RED{xIT {RNOTE{x        - starts editing a note, idea, roleplay, etc.
+{RED{xIT {RDESC{xRIPTION - starts editing your description.
+{PED{xIT {YHELP{x <ID>     - start editing a help file (IMM only)
 
-{RED{xIT {RDO{xNE        - finishes editing and saves the changes to your text.
-{RED{xIT {RCANCEL{x      - stops editing and discards any changes edited.
+{RED{xIT {RDO{xNE        - finishes editing and saves the changes to your text.
+{RED{xIT {RCANCEL{x      - stops editing and discards any changes edited.
 
-{RED{xIT {RL{xIST        - prints out your whole text
-{RED{xIT {R3 9 L{xIST    - prints out lines 3 through 9 of your text.
-   When you do something, {CEDIT{x only shows you a few of the lines around
-   the current line. But you can use {RED{xIT {RL{xIST any time to see all text.
+{RED{xIT {RL{xIST        - prints out your whole text
+{RED{xIT {R3 9 L{xIST    - prints out lines 3 through 9 of your text.
+   When you do something, {CEDIT{x only shows you a few of the lines around
+   the current line. But you can use {RED{xIT {RL{xIST any time to see all text.
 
-{RED{xIT {R8{x               - moves the {W<current line>{x to line 8.
+{RED{xIT {R8{x               - moves the {W<current line>{x to line 8.
 
-{RED{xIT {RI{xNSERT {RHello!{x   - inserts 'Hello!' after the {W<current line>{x.
-{RED{xIT {R0 I{xNSERT {RHello!{x - inserts 'Hello!' after line 0 (the beginning).
-{RED{xIT {R6 I{xNSERT        - inserts a blank line after line 6.
-   The {W<current line>{x moves to the line you just inserted, so you can
-   quickly enter multiple lines of text by typing
-      {RED I blah blah blah{x
-      {RED I blah blah blah{x
+{RED{xIT {RI{xNSERT {RHello!{x   - inserts 'Hello!' after the {W<current line>{x.
+{RED{xIT {R0 I{xNSERT {RHello!{x - inserts 'Hello!' after line 0 (the beginning).
+{RED{xIT {R6 I{xNSERT        - inserts a blank line after line 6.
+   The {W<current line>{x moves to the line you just inserted, so you can
+   quickly enter multiple lines of text by typing
+      {RED I blah blah blah{x
+      {RED I blah blah blah{x
 
-{RED{xIT {RD{xELETE          - deletes the {W<current line>{x.
-{RED{xIT {R1 D{xELETE        - deletes line 1.
-{RED{xIT {R2 4 D{xELETE      - deletes lines 2 through 4.
+{RED{xIT {RD{xELETE          - deletes the {W<current line>{x.
+{RED{xIT {R1 D{xELETE        - deletes line 1.
+{RED{xIT {R2 4 D{xELETE      - deletes lines 2 through 4.
 
-{RED{xIT {RC{xHANGE {Rmox magic{x         - changes 'mox' to 'magic' on {W<current line>{x.
-{RED{xIT {R8 C{xHANGE {Rtwo six{x                   - changes 'two' to 'six' on line 8.
-{RED{xIT {RC{xHANGE {Rgarbage{x            - changes 'garbage' to nothing (removes it).
-{RED{xIT {RC{xHANGE {{{g{ggrey{x{{{x {{{C{Ccyan{x{{{x         - of course color codes work too.
-{RED{xIT {RC{xHANGE {R'3 blind mice' '7 seas'{x              - use quotes where needed.
+{RED{xIT {RC{xHANGE {Rmox magic{x         - changes 'mox' to 'magic' on {W<current line>{x.
+{RED{xIT {R8 C{xHANGE {Rtwo six{x                   - changes 'two' to 'six' on line 8.
+{RED{xIT {RC{xHANGE {Rgarbage{x            - changes 'garbage' to nothing (removes it).
+{RED{xIT {RC{xHANGE {{{g{ggrey{x{{{x {{{C{Ccyan{x{{{x         - of course color codes work too.
+{RED{xIT {RC{xHANGE {R'3 blind mice' '7 seas'{x              - use quotes where needed.
 
-{RED{xIT {RS{xPLIT {Rbrown{x    - splits 'how now brown cow' into 'how now'
-                                                      'brown cow'
-{RED{xIT {R2 S{xPLIT {Rbrown{x  - ditto, at line 2.
+{RED{xIT {RS{xPLIT {Rbrown{x    - splits 'how now brown cow' into 'how now'
+                                                      'brown cow'
+{RED{xIT {R2 S{xPLIT {Rbrown{x  - ditto, at line 2.
 
-{RED{xIT {RW{xRAP   - word-wraps the current paragraph (lines between blank lines).
-{RED{xIT {R2 6 W{xRAP - word-wraps lines 2 through 6.
-   {CEDIT{x knows about color codes. Colored lines get the correct length.
+{RED{xIT {RW{xRAP   - word-wraps the current paragraph (lines between blank lines).
+{RED{xIT {R2 6 W{xRAP - word-wraps lines 2 through 6.
+   {CEDIT{x knows about color codes. Colored lines get the correct length.
 
-{RED{xIT {RUNDO{x - undoes your most recent change, in case you goofed.
-            {PWARNING{x: There is no 'multiple undo'. This will only work
-                     {Yonce{x to undo {Yone{x change.
-~
+{RED{xIT {RUNDO{x - undoes your most recent change, in case you goofed.
+            {PWARNING{x: There is no 'multiple undo'. This will only work
+                     {Yonce{x to undo {Yone{x change.
+~
 
 -2

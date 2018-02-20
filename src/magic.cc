@@ -31,12 +31,13 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
 #include "Descriptor.hh"
+#include "dispel.hh"
 #include "Exit.hh"
 #include "ExtraDescr.hh"
 #include "find.hh"
@@ -57,6 +58,7 @@
 #include "QuestArea.hh"
 #include "random.hh"
 #include "RoomPrototype.hh"
+#include "skill/skill.hh"
 #include "String.hh"
 #include "typename.hh"
 #include "Weather.hh"
@@ -71,70 +73,45 @@ String target_name;
 void    kill_off        args((Character *ch, Character *victim));
 
 /* Local functions. */
-void    say_spell       args((Character *ch, int sn));
+void    say_spell       args((Character *ch, skill::type sn));
 
 /* imported functions */
 bool    remove_obj      args((Character *ch, int iWear, bool fReplace));
 void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
 int     find_exit       args((Character *ch, const String& arg));
 
-/* Lookup a skill by name. */
-int skill_lookup(const String& name)
-{
-	int sn;
 
-	for (sn = 0; sn < skill_table.size(); sn++) {
-		if (name.is_prefix_of(skill_table[sn].name))
-			return sn;
-	}
-
-	return -1;
-} /* end skill_lookup */
-
-int find_spell(Character *ch, const String& name)
+skill::type find_spell(Character *ch, const String& name)
 {
 	/* finds a spell the character can cast if possible */
-	int sn, found = -1;
+	skill::type found = skill::type::unknown;
 
+	// mobs have all skills learned to some degree, don't bother looping
 	if (IS_NPC(ch))
-		return skill_lookup(name);
+		return skill::lookup(name);
 
-	for (sn = 0; sn < skill_table.size(); sn++) {
-		if (name.is_prefix_of(skill_table[sn].name)) {
-			if (found == -1)
-				found = sn;
+	for (const auto& pair : skill_table) {
+		skill::type type = pair.first;
+		const auto& entry = pair.second;
 
-			if (ch->level >= skill_table[sn].skill_level[ch->cls] && ch->pcdata->learned[sn] > 0)
-				return sn;
+		if (type == skill::type::unknown)
+			continue;
+
+		if (name.is_prefix_of(entry.name)) {
+			if (found == skill::type::unknown)
+				found = type;
+
+			if (ch->level >= entry.skill_level[ch->cls]
+			 && get_skill_level(ch, type) > 0)
+				return type;
 		}
 	}
 
 	return found;
 } /* end find_spell */
 
-/* Lookup a skill by slot number.  Used for object loading. */
-int slot_lookup(int slot)
-{
-	extern bool fBootDb;
-	int sn;
-
-	if (slot <= 0)
-		return -1;
-
-	for (sn = 0; sn < skill_table.size(); sn++)
-		if (slot == skill_table[sn].slot)
-			return sn;
-
-	if (fBootDb) {
-		Logging::bug("Slot_lookup: bad slot %d.", slot);
-		abort();
-	}
-
-	return -1;
-} /* end slot_lookup */
-
 /* Utter mystical words for an sn. */
-void say_spell(Character *ch, int sn)
+void say_spell(Character *ch, skill::type sn)
 {
 	String buf;
 	char buf2[MAX_STRING_LENGTH];
@@ -178,7 +155,7 @@ void say_spell(Character *ch, int sn)
 		{ "", "" }
 	};
 
-	for (const char *pName = skill_table[sn].name.c_str(); *pName != '\0'; pName += length) {
+	for (const char *pName = skill::lookup(sn).name.c_str(); *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)) != 0; iSyl++) {
 			if (syl_table[iSyl].old.is_prefix_of(pName)) {
 				buf += syl_table[iSyl].nw;
@@ -191,7 +168,7 @@ void say_spell(Character *ch, int sn)
 	}
 
 	Format::sprintf(buf2, "$n utters the words, '%s'.", buf);
-	Format::sprintf(buf,  "$n utters the words, '%s'.", skill_table[sn].name);
+	Format::sprintf(buf,  "$n utters the words, '%s'.", skill::lookup(sn).name);
 
 	if (char_in_darena_room(ch))
 		act(buf, ch, nullptr, nullptr, TO_VIEW);      /* for viewing rooms */
@@ -203,15 +180,15 @@ void say_spell(Character *ch, int sn)
 				continue;
 			}
 
-			if (number_percent() < get_skill(rch, gsn_languages)) {
+			if (number_percent() < get_skill_level(rch, skill::type::languages)) {
 				act(buf, ch, nullptr, rch, TO_VICT);
-				check_improve(rch, gsn_languages, TRUE, 8);
+				check_improve(rch, skill::type::languages, TRUE, 8);
 			}
 			else {
 				act(buf2, ch, nullptr, rch, TO_VICT);
 
-				if (get_skill(rch, gsn_languages))
-					check_improve(rch, gsn_languages, FALSE, 8);
+				if (get_skill_level(rch, skill::type::languages))
+					check_improve(rch, skill::type::languages, FALSE, 8);
 			}
 		}
 	}
@@ -235,7 +212,8 @@ void do_cast(Character *ch, String argument)
 	Character *victim;
 	Object *obj;
 	void *vo;
-	int mana, sn, target, wait;
+	int mana, target, wait;
+	skill::type sn;
 
 	/* Switched NPC's can cast spells, but others can't. */
 	if (IS_NPC(ch) && ch->desc == nullptr)
@@ -255,27 +233,27 @@ void do_cast(Character *ch, String argument)
 	target_name = one_argument(argument, arg1);
 	one_argument(target_name, arg2);
 
-	if ((sn = find_spell(ch, arg1)) < 0
-	    || (!IS_NPC(ch) && (ch->level < skill_table[sn].skill_level[ch->cls]
-	                        || ch->pcdata->learned[sn] == 0))) {
+	if ((sn = find_spell(ch, arg1)) == skill::type::unknown
+	    || (!IS_NPC(ch) && (ch->level < skill::lookup(sn).skill_level[ch->cls]
+	                        || get_skill_level(ch, sn) == 0))) {
 		stc("You don't know any spells of that name.\n", ch);
 		return;
 	}
 
-	if (skill_table[sn].spell_fun == spell_null) {
+	if (skill::lookup(sn).spell_fun == spell_null) {
 		stc("That's not a spell.\n", ch);
 		wiznet("$N is attempting to use the cast skill as spell cheat.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
 	}
 
-	if (skill_table[sn].remort_class > 0)
+	if (skill::lookup(sn).remort_class > 0)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You don't know any spells of that name.\n", ch);
 			return;
 		}
 
 	if (!IS_IMMORTAL(ch)
-	    && (get_position(ch) < skill_table[sn].minimum_position)) {
+	    && (get_position(ch) < skill::lookup(sn).minimum_position)) {
 		stc("You can't concentrate enough.\n", ch);
 		return;
 	}
@@ -287,9 +265,9 @@ void do_cast(Character *ch, String argument)
 	vo          = nullptr;
 	target      = TARGET_NONE;
 
-	switch (skill_table[sn].target) {
+	switch (skill::lookup(sn).target) {
 	default:
-		Logging::bug("Do_cast: bad target for sn %d.", sn);
+		Logging::bugf("Do_cast: bad target for spell '%s'.", skill::lookup(sn).name);
 		return;
 
 	case TAR_IGNORE:
@@ -320,7 +298,7 @@ void do_cast(Character *ch, String argument)
 
 		if (!IS_NPC(ch)) {
 			/* hack to make SLOW OK on follower players and yourself in safe rooms */
-			if (skill_table[sn].spell_fun == spell_slow
+			if (skill::lookup(sn).spell_fun == spell_slow
 			    && (victim->master == ch || victim == ch))
 			{} /* Don't do anything - Poor programming, but I'm too tired to think clearly */
 			else {
@@ -333,7 +311,7 @@ void do_cast(Character *ch, String argument)
 			}
 		}
 
-		if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
+		if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 			stc("You can't do that on your own follower.\n", ch);
 			return;
 		}
@@ -421,7 +399,7 @@ void do_cast(Character *ch, String argument)
 				if (help_mob(ch, victim))
 					return;
 
-			if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
+			if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 				stc("You can't do that on your own follower.\n", ch);
 				return;
 			}
@@ -472,10 +450,10 @@ void do_cast(Character *ch, String argument)
 		return;
 	}
 
-	if (sn != gsn_ventriloquate)
+	if (sn != skill::type::ventriloquate)
 		say_spell(ch, sn);
 
-	wait = skill_table[sn].beats;
+	wait = skill::lookup(sn).beats;
 
 	if ((ch->cls == 0) || (ch->cls == 1) || (ch->cls == 4))
 		wait -= wait / 4;
@@ -491,19 +469,19 @@ void do_cast(Character *ch, String argument)
 	WAIT_STATE(ch, wait);
 
 	// use probability random distribution here, for limiting fail streaks
-	if (!prd_chance(&ch->skill_fails, get_skill(ch, sn))) {
+	if (!prd_chance(&ch->skill_fails, get_skill_level(ch, sn))) {
 		stc("You lost your concentration.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 	}
 	else {
 		ch->mana -= mana;
-		(*skill_table[sn].spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
+		(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
 		check_improve(ch, sn, TRUE, 1);
 	}
 
-	if ((skill_table[sn].target == TAR_CHAR_OFFENSIVE
-	     || (skill_table[sn].target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
+	if ((skill::lookup(sn).target == TAR_CHAR_OFFENSIVE
+	     || (skill::lookup(sn).target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	    && victim != ch
 	    && victim->master != ch) {
 		Character *vch;
@@ -514,7 +492,7 @@ void do_cast(Character *ch, String argument)
 
 			if (victim == vch && victim->fighting == nullptr) {
 				check_killer(victim, ch);
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+				multi_hit(victim, ch, skill::type::unknown);
 				break;
 			}
 		}
@@ -532,7 +510,8 @@ void do_mpcast(Character *ch, String argument)
 	Character *victim;
 	Object *obj;
 	void *vo;
-	int mana, sn, target;
+	int mana, target;
+	skill::type sn;
 
 	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
@@ -548,12 +527,12 @@ void do_mpcast(Character *ch, String argument)
 		return;
 	}
 
-	if ((sn = find_spell(ch, arg1)) < 0) {
+	if ((sn = find_spell(ch, arg1)) < skill::type::unknown) {
 		stc("You don't know any spells of that name.\n", ch);
 		return;
 	}
 
-	if (get_position(ch) < skill_table[sn].minimum_position) {
+	if (get_position(ch) < skill::lookup(sn).minimum_position) {
 		stc("You can't concentrate enough.\n", ch);
 		return;
 	}
@@ -565,9 +544,9 @@ void do_mpcast(Character *ch, String argument)
 	vo          = nullptr;
 	target      = TARGET_NONE;
 
-	switch (skill_table[sn].target) {
+	switch (skill::lookup(sn).target) {
 	default:
-		Logging::bug("mpcast: bad target for sn %d.", sn);
+		Logging::bugf("mpcast: bad target for spell '%s'.", skill::lookup(sn).name);
 		return;
 
 	case TAR_IGNORE:
@@ -576,7 +555,7 @@ void do_mpcast(Character *ch, String argument)
 	case TAR_CHAR_OFFENSIVE:
 		if ((arg2.empty() && ch->fighting == nullptr)
 		    || (victim = get_char_here(ch, target_name, VIS_CHAR)) == nullptr
-		    || (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
+		    || (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim))
 			return;
 
 		vo = (void *) victim;
@@ -621,7 +600,7 @@ void do_mpcast(Character *ch, String argument)
 
 		if (target == TARGET_CHAR) { /* check the sanity of the attack */
 			if ((is_safe_spell(ch, victim, FALSE) && victim != ch)
-			    || (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
+			    || (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim))
 				return;
 
 			vo = (void *) victim;
@@ -657,31 +636,33 @@ void do_mpcast(Character *ch, String argument)
 	if (ch->mana < mana)
 		return;
 
-	if (sn != gsn_ventriloquate)
+	if (sn != skill::type::ventriloquate)
 		say_spell(ch, sn);
 
 	ch->mana -= mana;
 	/* right now mobs cast spells at evolution 1 */
-	(*skill_table[sn].spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
+	(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
 } /* end do_mpcast */
 
 /* Cast spells at targets using a magical object. */
-void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object *obj)
+void obj_cast_spell(skill::type sn, int level, Character *ch, Character *victim, Object *obj)
 {
 	void *vo;
 	int target = TARGET_NONE;
 
-	if (sn <= 0)
+	if (sn <= skill::type::unknown || sn >= skill::type::size)
 		return;
 
-	if (sn >= skill_table.size() || skill_table[sn].spell_fun == 0) {
-		Logging::bug("Obj_cast_spell: bad sn %d.", sn);
+	const auto& entry = skill::lookup(sn);
+
+	if (entry.spell_fun == 0) {
+		Logging::bugf("Obj_cast_spell: bad spell '%s'.", entry.name);
 		return;
 	}
 
-	switch (skill_table[sn].target) {
+	switch (entry.target) {
 	default:
-		Logging::bug("Obj_cast_spell: bad target for sn %d.", sn);
+		Logging::bugf("Obj_cast_spell: bad target for spell '%s'.", entry.name);
 		return;
 
 	case TAR_IGNORE:
@@ -699,7 +680,7 @@ void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object 
 
 		if (!IS_NPC(ch)) {
 			/* hack to make SLOW OK on follower players and yourself in safe rooms */
-			if (skill_table[sn].spell_fun == spell_slow
+			if (skill::lookup(sn).spell_fun == spell_slow
 			    && (victim->master == ch || victim == ch))
 			{} /* Don't do anything - Poor programming, but I'm too tired to think clearly */
 			else {
@@ -830,11 +811,11 @@ void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object 
 
 	/* right now objects cast spells at evolution 1 */
 	focus = FALSE;
-	(*skill_table[sn].spell_fun)(sn, level, ch, vo, target, 1);
+	(*skill::lookup(sn).spell_fun)(sn, level, ch, vo, target, 1);
 	focus = TRUE;
 
-	if ((skill_table[sn].target == TAR_CHAR_OFFENSIVE
-	     || (skill_table[sn].target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
+	if ((skill::lookup(sn).target == TAR_CHAR_OFFENSIVE
+	     || (skill::lookup(sn).target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	    && victim != ch
 	    && victim->master != ch) {
 		Character *vch;
@@ -845,7 +826,7 @@ void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object 
 
 			if (victim == vch && victim->fighting == nullptr) {
 				check_killer(victim, ch);
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+				multi_hit(victim, ch, skill::type::unknown);
 				break;
 			}
 		}
@@ -854,7 +835,7 @@ void obj_cast_spell(int sn, int level, Character *ch, Character *victim, Object 
 
 /* Spell functions. */
 
-void spell_acid_blast(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_acid_blast(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -863,7 +844,7 @@ void spell_acid_blast(int sn, int level, Character *ch, void *vo, int target, in
 	if (saves_spell(level, victim, DAM_ACID))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_ACID, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_ACID, TRUE, TRUE);
 }
 
 /* Necromancy spells by Lotus */
@@ -926,31 +907,31 @@ void animate_mob(Character *ch, int level, const char *name, long vnum)
 	}
 }
 
-void spell_animate_zombie(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_animate_zombie(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	animate_mob(ch, level, "zombie", MOB_VNUM_ZOMBIE);
 }
 
-void spell_animate_skeleton(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_animate_skeleton(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	animate_mob(ch, level, "skeleton", MOB_VNUM_SKELETON);
 }
 
-void spell_animate_wraith(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_animate_wraith(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	animate_mob(ch, level, "wraith", MOB_VNUM_WRAITH);
 }
 
-void spell_animate_gargoyle(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_animate_gargoyle(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	animate_mob(ch, level, "gargoyle", MOB_VNUM_GARGOYLE);
 }
 
-void spell_armor(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_armor(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::armor)) {
 		if (victim == ch)
 			stc("You are already armored.\n", ch);
 		else
@@ -959,8 +940,8 @@ void spell_armor(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::armor,
 		level,
 		24,
 		evolution,
@@ -973,11 +954,11 @@ void spell_armor(int sn, int level, Character *ch, void *vo, int target, int evo
 		act("$N is protected by your magic.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_steel_mist(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_steel_mist(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::steel_mist)) {
 		if (victim == ch)
 			stc("Your armor is already coated with magical steel.\n", ch);
 		else
@@ -986,8 +967,8 @@ void spell_steel_mist(int sn, int level, Character *ch, void *vo, int target, in
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::steel_mist,
 		level,
 		36,
 		evolution,
@@ -1001,11 +982,11 @@ void spell_steel_mist(int sn, int level, Character *ch, void *vo, int target, in
 }
 
 /* Blood Moon by Lotus */
-void spell_blood_moon(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_blood_moon(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::blood_moon)) {
 		if (victim == ch)
 			stc("You are already bloodthirsty.\n", ch);
 		else
@@ -1023,8 +1004,8 @@ void spell_blood_moon(int sn, int level, Character *ch, void *vo, int target, in
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::blood_moon,
 		level,
 		level,
 		evolution,
@@ -1041,11 +1022,11 @@ void spell_blood_moon(int sn, int level, Character *ch, void *vo, int target, in
 		act("$N is now thirsting for blood.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_bless(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *obj;
-	Affect af;
+	affect::Affect af;
 
 	if (target == TARGET_OBJ) {
 		obj = (Object *) vo;
@@ -1057,8 +1038,8 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 
 		if (IS_OBJ_STAT(obj, ITEM_EVIL)) {
 			// is it cursed or just evil?
-			if (affect_exists_on_obj(obj, gsn_curse))
-				check_dispel_obj(level, obj, gsn_curse, TRUE);
+			if (affect::exists_on_obj(obj, affect::type::curse))
+				check_dispel_obj(level, obj, affect::type::curse, TRUE);
 			else if (!level_save(level, obj->level))
 				obj->extra_flags -= ITEM_EVIL;
 
@@ -1071,14 +1052,14 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 		}
 
 		af.where        = TO_OBJECT;
-		af.type         = sn;
+		af.type         = affect::type::bless;
 		af.level        = level;
 		af.duration     = 6 + level;
 		af.location     = APPLY_SAVES;
 		af.modifier     = -1;
 		af.bitvector(ITEM_BLESS);
 		af.evolution = evolution;
-		affect_copy_to_obj(obj, &af);
+		affect::copy_to_obj(obj, &af);
 		act("$p glows with a holy aura.", ch, obj, nullptr, TO_ALL);
 		return;
 	}
@@ -1104,7 +1085,7 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::bless)) {
 		if (victim == ch)
 			stc("You are already blessed.\n", ch);
 		else
@@ -1113,8 +1094,8 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::bless,
 		level,
 		level + 6,
 		evolution,
@@ -1127,13 +1108,13 @@ void spell_bless(int sn, int level, Character *ch, void *vo, int target, int evo
 		act("You grant $N the favor of your god.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_blindness(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_blindness(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
 	// intentionally allow blindness even in addition to other (dirt kicking etc)
 
-	if (affect_exists_on_char(victim, gsn_blindness)) {
+	if (affect::exists_on_char(victim, affect::type::blindness)) {
 		stc("Your victim doesn't have any sight to lose.\n", ch);
 		return;
 	}
@@ -1143,8 +1124,8 @@ void spell_blindness(int sn, int level, Character *ch, void *vo, int target, int
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::blindness,
 		level,
 		level + 1,
 		evolution,
@@ -1156,7 +1137,7 @@ void spell_blindness(int sn, int level, Character *ch, void *vo, int target, int
 }
 
 /* chain spell function -- Montrey */
-void chain_spell(Character *ch, void *vo, int sn, int type, int level)
+void chain_spell(Character *ch, void *vo, skill::type sn, int type, int level)
 {
 	Character *victim = (Character *) vo;
 	Character *tmp_vict, *last_vict, *next_vict;
@@ -1237,7 +1218,7 @@ void chain_spell(Character *ch, void *vo, int sn, int type, int level)
 	if (saves_spell(level, victim, chain_table[type].elem_type))
 		dam /= 3;
 
-	damage(ch, victim, dam, sn, chain_table[type].elem_type, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, chain_table[type].elem_type, TRUE, TRUE);
 	last_vict = victim;
 	level -= 4;
 
@@ -1261,7 +1242,7 @@ void chain_spell(Character *ch, void *vo, int sn, int type, int level)
 				if (saves_spell(level, tmp_vict, chain_table[type].elem_type))
 					dam /= 3;
 
-				damage(ch, tmp_vict, dam, sn, chain_table[type].elem_type, TRUE, TRUE);
+				damage(ch, tmp_vict, dam, sn, -1, chain_table[type].elem_type, TRUE, TRUE);
 				level -= 4;
 			}
 		}
@@ -1284,7 +1265,7 @@ void chain_spell(Character *ch, void *vo, int sn, int type, int level)
 			if (saves_spell(level, ch, chain_table[type].elem_type))
 				dam /= 3;
 
-			damage(ch, ch, dam, sn, chain_table[type].elem_type, TRUE, TRUE);
+			damage(ch, ch, dam, sn, -1, chain_table[type].elem_type, TRUE, TRUE);
 			level -= 4;
 
 			if (ch == nullptr)
@@ -1293,27 +1274,27 @@ void chain_spell(Character *ch, void *vo, int sn, int type, int level)
 	}
 }
 
-void spell_chain_lightning(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_chain_lightning(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	chain_spell(ch, vo, sn, 0, level);
 }
 
-void spell_blizzard(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_blizzard(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	chain_spell(ch, vo, sn, 1, level);
 }
 
-void spell_acid_rain(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_acid_rain(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	chain_spell(ch, vo, sn, 2, level);
 }
 
-void spell_firestorm(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_firestorm(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	chain_spell(ch, vo, sn, 3, level);
 }
 
-void spell_burning_hands(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_burning_hands(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -1332,11 +1313,11 @@ void spell_burning_hands(int sn, int level, Character *ch, void *vo, int target,
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_FIRE, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_FIRE, TRUE, TRUE);
 	return;
 }
 
-void spell_dazzling_light(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_dazzling_light(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int add, dur, i;
@@ -1356,7 +1337,7 @@ void spell_dazzling_light(int sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	if (affect_exists_on_obj(obj, sn)) {
+	if (affect::exists_on_obj(obj, affect::type::dazzling_light)) {
 		stc("That light is already quite dazzling.\n", ch);
 		return;
 	}
@@ -1371,22 +1352,22 @@ void spell_dazzling_light(int sn, int level, Character *ch, void *vo, int target
 			add++;
 	}
 
-	Affect af;
+	affect::Affect af;
 	af.where     = TO_OBJECT;
-	af.type      = sn;
+	af.type      = affect::type::dazzling_light;
 	af.level     = level;
 	af.duration  = dur;
 	af.location  = APPLY_HITROLL;
 	af.modifier  = add;
 	af.bitvector(0);
 	af.evolution = evolution;
-	affect_copy_to_obj(obj, &af);
+	affect::copy_to_obj(obj, &af);
 
 	af.location  = APPLY_DAMROLL;
-	affect_copy_to_obj(obj, &af);
+	affect::copy_to_obj(obj, &af);
 }
 
-void spell_light_of_truth(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_light_of_truth(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -1405,23 +1386,23 @@ void spell_light_of_truth(int sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	// having gsn_light_of_truth in the affects list is annoyingly redundant, so rather than
+	// having skill::type::light_of_truth in the affects list is annoyingly redundant, so rather than
 	// adding that affect and checking for it here, just check for temporary detects
-	for (const Affect *paf = affect_list_obj(obj); paf; paf = paf->next) {
+	for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next) {
 		if (paf->permanent || paf->duration == -1)
 			continue;
 
-		if (paf->type == gsn_detect_magic
-		 || paf->type == gsn_detect_evil
-		 || paf->type == gsn_detect_good
-		 || paf->type == gsn_detect_invis
-		 || paf->type == gsn_detect_hidden) {
+		if (paf->type == affect::type::detect_magic
+		 || paf->type == affect::type::detect_evil
+		 || paf->type == affect::type::detect_good
+		 || paf->type == affect::type::detect_invis
+		 || paf->type == affect::type::detect_hidden) {
 			stc("That light is already somewhat enhanced.\n", ch);
 			return;
 		}
 	}
 
-	Affect af;
+	affect::Affect af;
 	af.where     = TO_AFFECTS;
 	af.level     = level;
 	af.duration  = level;
@@ -1430,38 +1411,40 @@ void spell_light_of_truth(int sn, int level, Character *ch, void *vo, int target
 	af.bitvector(0);
 	af.evolution = evolution;
 
-	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
-		af.type = gsn_detect_evil;
-		affect_copy_to_obj(obj, &af);
+	int learned = get_skill_level(ch, sn);
+
+	if ((number_percent() + 5) < learned) {
+		af.type = affect::type::detect_evil;
+		affect::copy_to_obj(obj, &af);
 		act("$p throws a red aura around your evil surroundings.", ch, obj, nullptr, TO_CHAR);
 	}
 
-	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
-		af.type = gsn_detect_good;
-		affect_copy_to_obj(obj, &af);
+	if ((number_percent() + 5) < learned) {
+		af.type = affect::type::detect_good;
+		affect::copy_to_obj(obj, &af);
 		act("$p shows you good things with a golden aura.", ch, obj, nullptr, TO_CHAR);
 	}
 
-	if ((number_percent() + 15) < ch->pcdata->learned[sn]) {
-		af.type = gsn_detect_invis;
-		affect_copy_to_obj(obj, &af);
+	if ((number_percent() + 15) < learned) {
+		af.type = affect::type::detect_invis;
+		affect::copy_to_obj(obj, &af);
 		act("$p suddenly reveals invisible objects!", ch, obj, nullptr, TO_CHAR);
 	}
 
-	if ((number_percent() + 15) < ch->pcdata->learned[sn]) {
-		af.type = gsn_detect_hidden;
-		affect_copy_to_obj(obj, &af);
+	if ((number_percent() + 15) < learned) {
+		af.type = affect::type::detect_hidden;
+		affect::copy_to_obj(obj, &af);
 		act("$p shines into every nook and cranny about you.", ch, obj, nullptr, TO_CHAR);
 	}
 
-	if ((number_percent() + 25) < ch->pcdata->learned[sn]) {
-		af.type = gsn_detect_magic;
-		affect_copy_to_obj(obj, &af);
+	if ((number_percent() + 25) < learned) {
+		af.type = affect::type::detect_magic;
+		affect::copy_to_obj(obj, &af);
 		act("$p reflects strangely off some of your better equipment.", ch, obj, nullptr, TO_CHAR);
 	}
 }
 
-void spell_call_lightning(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_call_lightning(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *vch;
 	Character *vch_next;
@@ -1490,7 +1473,7 @@ void spell_call_lightning(int sn, int level, Character *ch, void *vo, int target
 		if (vch->in_room == ch->in_room) {
 			if (vch != ch)
 				damage(ch, vch, saves_spell(level, vch, DAM_ELECTRICITY) ? dam / 2 : dam,
-				       sn, DAM_ELECTRICITY, TRUE, TRUE);
+				       sn, -1, DAM_ELECTRICITY, TRUE, TRUE);
 
 			continue;
 		}
@@ -1500,7 +1483,7 @@ void spell_call_lightning(int sn, int level, Character *ch, void *vo, int target
 	}
 }
 
-void spell_calm(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_calm(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *vch;
 	int mlevel = 0;
@@ -1535,9 +1518,9 @@ void spell_calm(int sn, int level, Character *ch, void *vo, int target, int evol
 				    && (GET_DEFENSE_MOD(vch, DAM_CHARM) >= 100 // TODO: this should check chance individually?
 				        || vch->act_flags.has(ACT_UNDEAD)))
 					failure = TRUE;
-				else if (affect_exists_on_char(vch, gsn_calm)
-				         || affect_exists_on_char(vch, gsn_berserk)
-				         || affect_exists_on_char(vch, gsn_frenzy))
+				else if (affect::exists_on_char(vch, affect::type::calm)
+				         || affect::exists_on_char(vch, affect::type::berserk)
+				         || affect::exists_on_char(vch, affect::type::frenzy))
 					failure = TRUE;
 			}
 		}
@@ -1558,8 +1541,8 @@ void spell_calm(int sn, int level, Character *ch, void *vo, int target, int evol
 		if (vch->fighting)
 			stop_fighting(vch, FALSE);
 
-		affect_add_sn_to_char(vch,
-			sn,
+		affect::add_type_to_char(vch,
+			affect::type::calm,
 			level,
 			level/4,
 			evolution,
@@ -1568,12 +1551,12 @@ void spell_calm(int sn, int level, Character *ch, void *vo, int target, int evol
 	}
 }
 
-void spell_cancellation(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cancellation(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	level += 2;
 
-	if ((!IS_NPC(ch) && IS_NPC(victim) && !(affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
+	if ((!IS_NPC(ch) && IS_NPC(victim) && !(affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim))
 	    || (!IS_NPC(victim) && ch != victim)) {
 		stc("You failed, try dispel magic.\n", ch);
 		return;
@@ -1585,26 +1568,26 @@ void spell_cancellation(int sn, int level, Character *ch, void *vo, int target, 
 		stc("Spell failed.\n", ch);
 }
 
-void spell_cause_light(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cause_light(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	damage(ch, (Character *) vo, (dice(level / 3, 4) + (level / 2)), sn, DAM_HARM, TRUE, TRUE);
+	damage(ch, (Character *) vo, (dice(level / 3, 4) + (level / 2)), sn, -1, DAM_HARM, TRUE, TRUE);
 }
 
-void spell_cause_critical(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cause_critical(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	damage(ch, (Character *) vo, (dice(level / 3, 10) + (level * 3 / 2)), sn, DAM_HARM, TRUE, TRUE);
+	damage(ch, (Character *) vo, (dice(level / 3, 10) + (level * 3 / 2)), sn, -1, DAM_HARM, TRUE, TRUE);
 }
 
-void spell_cause_serious(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cause_serious(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	damage(ch, (Character *) vo, (dice(level / 3, 6) + level), sn, DAM_HARM, TRUE, TRUE);
+	damage(ch, (Character *) vo, (dice(level / 3, 6) + level), sn, -1, DAM_HARM, TRUE, TRUE);
 }
 
-void spell_change_sex(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_change_sex(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::change_sex)) {
 		if (victim == ch)
 			stc("You've already been changed.\n", ch);
 		else
@@ -1622,8 +1605,8 @@ void spell_change_sex(int sn, int level, Character *ch, void *vo, int target, in
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::change_sex,
 		level,
 		level * 3,
 		evolution,
@@ -1636,7 +1619,7 @@ void spell_change_sex(int sn, int level, Character *ch, void *vo, int target, in
 }
 
 /* Channel spell by Lotus */
-void spell_channel(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_channel(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	int amount, max;
@@ -1667,8 +1650,8 @@ void spell_channel(int sn, int level, Character *ch, void *vo, int target, int e
 
 	ch->mana -= (2 * amount);
 
-	affect_add_sn_to_char(ch,
-		sn,
+	affect::add_type_to_char(ch,
+		affect::type::channel,
 		level,
 		level / 10,
 		evolution,
@@ -1680,7 +1663,7 @@ void spell_channel(int sn, int level, Character *ch, void *vo, int target, int e
 }
 
 /* Mass Charm by Lotus */
-void spell_charm_person(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_charm_person(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -1694,12 +1677,12 @@ void spell_charm_person(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person)) {
+	if (affect::exists_on_char(ch, affect::type::charm_person)) {
 		stc("You are charmed yourself, and thus unable to charm others.\n", ch);
 		return;
 	}
 
-	if (affect_exists_on_char(victim, gsn_charm_person)) {
+	if (affect::exists_on_char(victim, affect::type::charm_person)) {
 		act("$E is already charmed, there is nothing more you can do!", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -1737,8 +1720,8 @@ void spell_charm_person(int sn, int level, Character *ch, void *vo, int target, 
 	add_follower(victim, ch);
 	victim->leader = ch;
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::charm_person,
 		level,
 		number_fuzzy(level / 4),
 		evolution,
@@ -1749,7 +1732,7 @@ void spell_charm_person(int sn, int level, Character *ch, void *vo, int target, 
 	act("$N looks at you with adoring eyes.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_chill_touch(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_chill_touch(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -1769,8 +1752,8 @@ void spell_chill_touch(int sn, int level, Character *ch, void *vo, int target, i
 	if (!saves_spell(level, victim, DAM_COLD)) {
 		act("$n turns blue and shivers.", victim, nullptr, nullptr, TO_ROOM);
 
-		affect_add_sn_to_char(victim,
-			sn,
+		affect::add_type_to_char(victim,
+			affect::type::chill_touch,
 			level,
 			6,
 			evolution,
@@ -1780,10 +1763,10 @@ void spell_chill_touch(int sn, int level, Character *ch, void *vo, int target, i
 	else
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_COLD, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_COLD, TRUE, TRUE);
 }
 
-void spell_colour_spray(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_colour_spray(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -1802,12 +1785,12 @@ void spell_colour_spray(int sn, int level, Character *ch, void *vo, int target, 
 	if (saves_spell(level, victim, DAM_LIGHT))
 		dam /= 2;
 	else
-		spell_blindness(gsn_blindness, level / 3, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+		spell_blindness(skill::type::blindness, level / 3, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
 
-	damage(ch, victim, dam, sn, DAM_LIGHT, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_LIGHT, TRUE, TRUE);
 }
 
-void spell_continual_light(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_continual_light(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *light;
 
@@ -1840,7 +1823,7 @@ void spell_continual_light(int sn, int level, Character *ch, void *vo, int targe
 	act("You twiddle your thumbs and $p appears.", ch, light, nullptr, TO_CHAR);
 }
 
-void spell_control_weather(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_control_weather(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	if (target_name == "better")
 		ch->in_room->area->world.weather.change += dice(level / 3, 4);
@@ -1852,7 +1835,7 @@ void spell_control_weather(int sn, int level, Character *ch, void *vo, int targe
 	stc("Ok.\n", ch);
 }
 
-void spell_create_food(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_food(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *food = nullptr;
 	char buf[MAX_STRING_LENGTH];
@@ -1902,7 +1885,7 @@ void spell_create_food(int sn, int level, Character *ch, void *vo, int target, i
 	act("$p suddenly appears.", ch, food, nullptr, TO_CHAR);
 }
 
-void spell_create_rose(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_rose(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *rose;
 	char color[MIL];
@@ -1953,7 +1936,7 @@ void spell_create_rose(int sn, int level, Character *ch, void *vo, int target, i
 }
 
 /* Create Camp Site by Lotus */
-void spell_encampment(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_encampment(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *camp;
 	camp = create_object(get_obj_index(OBJ_VNUM_CAMP), 0);
@@ -1971,7 +1954,7 @@ void spell_encampment(int sn, int level, Character *ch, void *vo, int target, in
 }
 
 /* Create Sign by Lotus */
-void spell_create_sign(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_sign(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *sign;
 	char buf[MAX_STRING_LENGTH];
@@ -2005,7 +1988,7 @@ void spell_create_sign(int sn, int level, Character *ch, void *vo, int target, i
 }
 
 /* Create Vial by Lotus */
-void spell_create_vial(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_vial(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *vial;
 
@@ -2034,7 +2017,7 @@ void spell_create_vial(int sn, int level, Character *ch, void *vo, int target, i
 }
 
 /* Create Parchment by Lotus */
-void spell_create_parchment(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_parchment(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *parch;
 
@@ -2062,7 +2045,7 @@ void spell_create_parchment(int sn, int level, Character *ch, void *vo, int targ
 	return;
 }
 
-void spell_create_spring(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_spring(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *spring;
 	spring = create_object(get_obj_index(OBJ_VNUM_SPRING), 0);
@@ -2081,7 +2064,7 @@ void spell_create_spring(int sn, int level, Character *ch, void *vo, int target,
 	return;
 }
 
-void spell_create_water(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_create_water(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -2116,11 +2099,11 @@ void spell_create_water(int sn, int level, Character *ch, void *vo, int target, 
 	}
 }
 
-void spell_cure_blindness(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cure_blindness(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (!affect_exists_on_char(victim, gsn_blindness)) {
+	if (!affect::exists_on_char(victim, affect::type::blindness)) {
 		if (victim == ch)
 			stc("You aren't blind.\n", ch);
 		else
@@ -2129,11 +2112,11 @@ void spell_cure_blindness(int sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	if (!check_dispel_char(level, victim, gsn_blindness, FALSE))
+	if (!check_dispel_char(level, victim, affect::type::blindness, FALSE))
 		stc("Spell failed.\n", ch);
 }
 
-void spell_cure_light(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cure_light(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	victim->hit = UMIN(victim->hit + (dice(1, 8) + level / 3), GET_MAX_HIT(victim));
@@ -2144,7 +2127,7 @@ void spell_cure_light(int sn, int level, Character *ch, void *vo, int target, in
 		stc("Ok.\n", ch);
 }
 
-void spell_cure_serious(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cure_serious(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	victim->hit = UMIN(victim->hit + (dice(2, 8) + level / 2), GET_MAX_HIT(victim));
@@ -2155,7 +2138,7 @@ void spell_cure_serious(int sn, int level, Character *ch, void *vo, int target, 
 		stc("Ok.\n", ch);
 }
 
-void spell_cure_critical(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cure_critical(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	victim->hit = UMIN(victim->hit + (dice(3, 8) + level - 6), GET_MAX_HIT(victim));
@@ -2167,10 +2150,10 @@ void spell_cure_critical(int sn, int level, Character *ch, void *vo, int target,
 }
 
 /* Darkness - Montrey */
-void spell_darkness(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_darkness(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	RoomPrototype *room;
-	Affect af;
+	affect::Affect af;
 
 	if ((room = ch->in_room) == nullptr) {
 		stc("You fail.\n", ch);
@@ -2198,18 +2181,18 @@ void spell_darkness(int sn, int level, Character *ch, void *vo, int target, int 
 		stc("Inky black darkness surrounds you.\n", ch);
 
 	af.where     = TO_ROOMFLAGS;
-	af.type      = sn;
+	af.type      = affect::type::darkness;
 	af.level     = level;
 	af.duration  = level / 20;
 	af.location  = 0;
 	af.modifier  = 0;
 	af.bitvector(ROOM_NOLIGHT);
 	af.evolution = evolution;
-	affect_copy_to_room(room, &af);
+	affect::copy_to_room(room, &af);
 }
 
 /* Divine Healing by Lotus */
-void spell_divine_healing(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_divine_healing(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	victim->hit = UMIN(victim->hit + (dice(15, 15) + (level * 2)), GET_MAX_HIT(victim));
@@ -2220,11 +2203,11 @@ void spell_divine_healing(int sn, int level, Character *ch, void *vo, int target
 		stc("Ok.\n", ch);
 }
 
-void spell_cure_disease(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cure_disease(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (!affect_exists_on_char(victim, gsn_plague)) {
+	if (!affect::exists_on_char(victim, affect::type::plague)) {
 		if (victim == ch)
 			stc("You aren't ill.\n", ch);
 		else
@@ -2233,15 +2216,15 @@ void spell_cure_disease(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	if (!check_dispel_char(level, victim, gsn_plague, FALSE))
+	if (!check_dispel_char(level, victim, affect::type::plague, FALSE))
 		stc("Spell failed.\n", ch);
 }
 
-void spell_cure_poison(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_cure_poison(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (!affect_exists_on_char(victim, gsn_poison)) {
+	if (!affect::exists_on_char(victim, affect::type::poison)) {
 		if (victim == ch)
 			stc("You aren't poisoned.\n", ch);
 		else
@@ -2250,18 +2233,18 @@ void spell_cure_poison(int sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	if (check_dispel_char(level, victim, gsn_poison, FALSE)) {
+	if (check_dispel_char(level, victim, affect::type::poison, FALSE)) {
 		stc("A warm feeling runs through your body.\n", victim); // in addition to msg_off
 	}
 	else
 		stc("Spell failed.\n", ch);
 }
 
-void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_curse(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *obj;
-	Affect af;
+	affect::Affect af;
 
 	/* deal with the object case first */
 	if (target == TARGET_OBJ) {
@@ -2274,8 +2257,8 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)) {
 			// is it cursed or just evil?
-			if (affect_exists_on_obj(obj, gsn_bless))
-				check_dispel_obj(level, obj, gsn_bless, TRUE);
+			if (affect::exists_on_obj(obj, affect::type::bless))
+				check_dispel_obj(level, obj, affect::type::bless, TRUE);
 			else if (!level_save(level, obj->level))
 				obj->extra_flags -= ITEM_BLESS;
 
@@ -2288,14 +2271,14 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 		}
 
 		af.where        = TO_OBJECT;
-		af.type         = sn;
+		af.type         = affect::type::curse;
 		af.level        = level;
 		af.duration     = 2 * level;
 		af.location     = APPLY_SAVES;
 		af.modifier     = +1;
 		af.bitvector(ITEM_EVIL);
 		af.evolution = evolution;
-		affect_copy_to_obj(obj, &af);
+		affect::copy_to_obj(obj, &af);
 		act("$p glows with a malevolent aura.", ch, obj, nullptr, TO_ALL);
 		return;
 	}
@@ -2303,7 +2286,7 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 	/* character curses */
 	victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_curse)) {
+	if (affect::exists_on_char(victim, affect::type::curse)) {
 		if (ch == victim)
 			stc("You are already cursed. You don't need a double whammy.\n", ch);
 		else
@@ -2321,8 +2304,8 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::curse,
 		level,
 		level * 2,
 		evolution,
@@ -2335,7 +2318,7 @@ void spell_curse(int sn, int level, Character *ch, void *vo, int target, int evo
 		act("$N looks very uncomfortable.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_demonfire(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_demonfire(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -2363,17 +2346,17 @@ void spell_demonfire(int sn, int level, Character *ch, void *vo, int target, int
 	align = victim->alignment;
 	align += 1200;
 	dam = (dam * align) / 600;
-	damage(ch, victim, dam, sn, DAM_NEGATIVE , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_NEGATIVE , TRUE, TRUE);
 
 	if (ch->fighting != nullptr)
-		spell_curse(gsn_curse, 3 * level / 4, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+		spell_curse(skill::type::curse, 3 * level / 4, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
 }
 
-void spell_detect_evil(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_detect_evil(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_detect_evil)) {
+	if (affect::exists_on_char(victim, affect::type::detect_evil)) {
 		if (victim == ch)
 			stc("You can already sense evil.\n", ch);
 		else
@@ -2382,8 +2365,8 @@ void spell_detect_evil(int sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::detect_evil,
 		level,
 		level,
 		evolution,
@@ -2396,11 +2379,11 @@ void spell_detect_evil(int sn, int level, Character *ch, void *vo, int target, i
 		stc("Ok.\n", ch);
 }
 
-void spell_detect_good(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_detect_good(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_detect_good)) {
+	if (affect::exists_on_char(victim, affect::type::detect_good)) {
 		if (victim == ch)
 			stc("You can already sense good.\n", ch);
 		else
@@ -2409,8 +2392,8 @@ void spell_detect_good(int sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::detect_good,
 		level,
 		level,
 		evolution,
@@ -2423,11 +2406,11 @@ void spell_detect_good(int sn, int level, Character *ch, void *vo, int target, i
 		stc("Ok.\n", ch);
 }
 
-void spell_detect_hidden(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_detect_hidden(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_detect_hidden)) {
+	if (affect::exists_on_char(victim, affect::type::detect_hidden)) {
 		if (victim == ch)
 			stc("You are already as alert as you can be. \n", ch);
 		else
@@ -2436,8 +2419,8 @@ void spell_detect_hidden(int sn, int level, Character *ch, void *vo, int target,
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::detect_hidden,
 		level,
 		level,
 		evolution,
@@ -2450,11 +2433,11 @@ void spell_detect_hidden(int sn, int level, Character *ch, void *vo, int target,
 		stc("Ok.\n", ch);
 }
 
-void spell_detect_invis(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_detect_invis(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_detect_invis)) {
+	if (affect::exists_on_char(victim, affect::type::detect_invis)) {
 		if (victim == ch)
 			stc("You can already see invisible.\n", ch);
 		else
@@ -2463,8 +2446,8 @@ void spell_detect_invis(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::detect_invis,
 		level,
 		level,
 		evolution,
@@ -2477,11 +2460,11 @@ void spell_detect_invis(int sn, int level, Character *ch, void *vo, int target, 
 		stc("Ok.\n", ch);
 }
 
-void spell_detect_magic(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_detect_magic(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_detect_magic)) {
+	if (affect::exists_on_char(victim, affect::type::detect_magic)) {
 		if (victim == ch)
 			stc("You can already sense magical auras.\n", ch);
 		else
@@ -2490,8 +2473,8 @@ void spell_detect_magic(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::detect_magic,
 		level,
 		level,
 		evolution,
@@ -2504,7 +2487,7 @@ void spell_detect_magic(int sn, int level, Character *ch, void *vo, int target, 
 		stc("Ok.\n", ch);
 }
 
-void spell_detect_poison(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_detect_poison(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -2524,7 +2507,7 @@ void spell_detect_poison(int sn, int level, Character *ch, void *vo, int target,
 		stc("It doesn't look poisoned.\n", ch);
 }
 
-void spell_dispel_evil(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_dispel_evil(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	char buf[MAX_STRING_LENGTH];
@@ -2560,10 +2543,10 @@ void spell_dispel_evil(int sn, int level, Character *ch, void *vo, int target, i
 	if (saves_spell(level, victim, DAM_HOLY))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_HOLY , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_HOLY, TRUE, TRUE);
 }
 
-void spell_dispel_good(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_dispel_good(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -2589,10 +2572,10 @@ void spell_dispel_good(int sn, int level, Character *ch, void *vo, int target, i
 	if (saves_spell(level, victim, DAM_NEGATIVE))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_NEGATIVE , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_NEGATIVE, TRUE, TRUE);
 }
 
-void spell_dispel_magic(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_dispel_magic(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -2609,7 +2592,7 @@ void spell_dispel_magic(int sn, int level, Character *ch, void *vo, int target, 
 		stc("Spell failed.\n", ch);
 }
 
-void spell_earthquake(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_earthquake(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *vch;
 	Character *vch_next;
@@ -2625,9 +2608,9 @@ void spell_earthquake(int sn, int level, Character *ch, void *vo, int target, in
 		if (vch->in_room == ch->in_room) {
 			if (vch != ch && !is_safe_spell(ch, vch, TRUE)) {
 				if (IS_FLYING(vch))
-					damage(ch, vch, 0, sn, DAM_BASH, TRUE, TRUE);
+					damage(ch, vch, 0, sn, -1, DAM_BASH, TRUE, TRUE);
 				else
-					damage(ch, vch, level + dice(2, 8), sn, DAM_BASH, TRUE, TRUE);
+					damage(ch, vch, level + dice(2, 8), sn, -1, DAM_BASH, TRUE, TRUE);
 			}
 
 			continue;
@@ -2639,7 +2622,7 @@ void spell_earthquake(int sn, int level, Character *ch, void *vo, int target, in
 }
 
 /* Shrink by Lotus */
-void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_shrink(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int result, fail;
@@ -2661,7 +2644,7 @@ void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int ev
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses, only in perm affects */
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next)
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
 		fail += 20;
 
 	/* apply other modifiers */
@@ -2692,7 +2675,7 @@ void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int ev
 		act("$p glows slightly, then dims.", ch, obj, nullptr, TO_ROOM);
 
 		/* remove all affects */
-		affect_remove_all_from_obj(obj, TRUE);
+		affect::remove_all_from_obj(obj, TRUE);
 		obj->extra_flags.clear();
 		return;
 	}
@@ -2737,7 +2720,7 @@ void spell_shrink(int sn, int level, Character *ch, void *vo, int target, int ev
 	obj_to_char(obj, ch);
 }
 
-void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_enchant_armor(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int result, fail;
@@ -2767,7 +2750,7 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 
 	/* find the bonuses */
 	// only in perm affects, don't count gems
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
 		if (paf->location == APPLY_AC) {
 			ac_bonus = paf->modifier;
 			fail += 5 * (ac_bonus * ac_bonus);
@@ -2807,7 +2790,7 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 		act("$p glows brightly, then fades.", ch, obj, nullptr, TO_ROOM);
 
 		/* remove all affects */
-		affect_remove_all_from_obj(obj, TRUE);
+		affect::remove_all_from_obj(obj, TRUE);
 		obj->extra_flags.clear();
 		return;
 	}
@@ -2853,19 +2836,19 @@ void spell_enchant_armor(int sn, int level, Character *ch, void *vo, int target,
 	if (obj->level < LEVEL_HERO)
 		obj->level = UMIN(LEVEL_HERO - 1, obj->level + 1);
 
-	Affect af;
+	affect::Affect af;
 	af.where      = TO_OBJECT;
-	af.type       = sn;
+	af.type       = affect::type::enchant_armor;
 	af.level      = level;
 	af.duration   = -1;
 	af.location   = APPLY_AC;
 	af.modifier   =  added;
 	af.bitvector(0);
 	af.evolution  = evolution;
-	affect_join_to_obj(obj, &af);
+	affect::join_to_obj(obj, &af);
 }
 
-void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_enchant_weapon(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int result, fail;
@@ -2895,7 +2878,7 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses, only in perm affects */
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next) {
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
 		if (paf->location == APPLY_HITROLL) {
 			hit_bonus = paf->modifier;
 			fail += 2 * (hit_bonus * hit_bonus);
@@ -2944,15 +2927,26 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 		act("$p glows brightly, then fades...oops.", ch, obj, nullptr, TO_CHAR);
 		act("$p glows brightly, then fades.", ch, obj, nullptr, TO_ROOM);
 
-		/* remove all affects */
-		affect_remove_all_from_obj(obj, TRUE);
+		const affect::Affect *two_handed_aff = affect::find_on_obj(obj, affect::type::weapon_two_hands);
+		affect::Affect two_handed_copy;
+		bool two_handed = two_handed_aff != nullptr;
 
-		if (obj->item_type == ITEM_WEAPON) {
-			if (obj->value[4].flags().has(WEAPON_TWO_HANDS))
-				obj->value[4] = WEAPON_TWO_HANDS;
-			else
-				obj->value[4] = 0;
+		if (two_handed && obj->item_type == ITEM_WEAPON) {
+			two_handed_copy.where     = two_handed_aff->where;
+			two_handed_copy.type      = two_handed_aff->type;
+			two_handed_copy.level     = two_handed_aff->level;
+			two_handed_copy.duration  = two_handed_aff->duration;
+			two_handed_copy.location  = two_handed_aff->location;
+			two_handed_copy.modifier  = two_handed_aff->modifier;
+			two_handed_copy.evolution = two_handed_aff->evolution;
+			two_handed_copy.bitvector(two_handed_aff->bitvector());
 		}
+
+		/* remove all affects */
+		affect::remove_all_from_obj(obj, TRUE);
+
+		if (two_handed)
+			affect::copy_to_obj(obj, &two_handed_copy);
 
 		obj->extra_flags.clear();
 		return;
@@ -3005,30 +2999,24 @@ void spell_enchant_weapon(int sn, int level, Character *ch, void *vo, int target
 	if (obj->level < LEVEL_HERO - 1)
 		obj->level = UMIN(LEVEL_HERO - 1, obj->level + 1);
 
-	Affect af;
+	affect::Affect af;
 	af.where      = TO_OBJECT;
-	af.type       = sn;
+	af.type       = affect::type::enchant_weapon;
 	af.level      = level;
 	af.duration   = -1;
-	af.location   = APPLY_DAMROLL;
-	af.modifier   =  added;
+	af.modifier   = added;
 	af.bitvector(0);
 	af.evolution  = evolution;
-	affect_join_to_obj(obj, &af);
 
-	af.where      = TO_OBJECT;
-	af.type       = sn;
-	af.level      = level;
-	af.duration   = -1;
+	af.location   = APPLY_DAMROLL;
+	affect::join_to_obj(obj, &af);
+
 	af.location   = APPLY_HITROLL;
-	af.modifier   =  added;
-	af.bitvector(0);
-	af.evolution  = evolution;
-	affect_join_to_obj(obj, &af);
+	affect::join_to_obj(obj, &af);
 }
 
 /* Drain XP, MANA, HP, stamina.  Caster gains portions. */
-void spell_energy_drain(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_energy_drain(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam, manadrain, stamdrain;
@@ -3073,15 +3061,15 @@ void spell_energy_drain(int sn, int level, Character *ch, void *vo, int target, 
 
 	stc("You feel your life slipping away!\n", victim);
 	stc("Wow....what a rush!\n", ch);
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_NEGATIVE, TRUE, TRUE);
 }
 
 /* Fear by Lotus */
-void spell_fear(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_fear(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_fear)) {
+	if (affect::exists_on_char(victim, affect::type::fear)) {
 		act("Your attack is senseless, $N is already shaking in $S boots!", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -3091,8 +3079,8 @@ void spell_fear(int sn, int level, Character *ch, void *vo, int target, int evol
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::faerie_fire,
 		level,
 		level / 3,
 		evolution,
@@ -3115,11 +3103,11 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 	chance += (level - victim->level) / 2;
 	chance += (evolution - 1) * 10;
 
-	if (victim->off_flags.has(OFF_FAST) || affect_exists_on_char(victim, gsn_haste))
+	if (victim->off_flags.has(OFF_FAST) || affect::exists_on_char(victim, affect::type::haste))
 		chance -= 15;
 
 	chance -= ((victim->stam * 20) / GET_MAX_STAM(victim));
-	chance -= get_skill(victim, gsn_dodge) / 7;
+	chance -= get_skill_level(victim, skill::type::dodge) / 7;
 
 	if (!can_see_char(victim, ch))
 		chance += 20;
@@ -3127,7 +3115,7 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 	if (!can_see_char(ch, victim))
 		chance -= 20;
 
-	if (affect_exists_on_char(victim, gsn_pass_door))
+	if (affect::exists_on_char(victim, affect::type::pass_door))
 		chance -= chance / 4;
 
 	if (spread)
@@ -3137,8 +3125,8 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 	   cut the chances of the bash to 1/4 */
 	chance /= 4;
 
-	if (CAN_USE_RSKILL(victim, gsn_standfast)) {
-		chance = chance * (100 - get_skill(victim, gsn_standfast));
+	if (CAN_USE_RSKILL(victim, skill::type::standfast)) {
+		chance = chance * (100 - get_skill_level(victim, skill::type::standfast));
 		chance /= 100;
 		standfast = TRUE;
 	}
@@ -3165,15 +3153,15 @@ void fireball_bash(Character *ch, Character *victim, int level, int evolution, b
 		victim->position = POS_RESTING;
 
 		if (standfast)
-			check_improve(victim, gsn_standfast, FALSE, 1);
+			check_improve(victim, skill::type::standfast, FALSE, 1);
 	}
 	else if (standfast)
-		check_improve(victim, gsn_standfast, TRUE, 1);
+		check_improve(victim, skill::type::standfast, TRUE, 1);
 }
 
 /* evolved fireball -- Montrey */
 /* fireball_bash above is used for evolved form */
-void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_fireball(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	int dam;
@@ -3238,7 +3226,7 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 
 			newdam = number_range(dam / 2, dam + dam / 2);
 			damage(ch, victim, saves_spell(level, victim, DAM_FIRE) ? newdam / 2 : newdam,
-			       sn, DAM_FIRE, TRUE, TRUE);
+			       sn, -1, DAM_FIRE, TRUE, TRUE);
 
 			if (evolution == 3
 			    && victim != nullptr
@@ -3258,7 +3246,7 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 			   Fireball works oddly, so this isn't handled
 			   by the do_cast() function. -- Outsider
 			*/
-			ch->mana += get_skill_cost(ch, gsn_fireball);
+			ch->mana += get_skill_cost(ch, skill::type::fireball);
 
 			if (ch->mana > GET_MAX_MANA(ch))
 				ch->mana = GET_MAX_MANA(ch);
@@ -3282,12 +3270,12 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 				return;
 	}
 
-	if (affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim) {
+	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 		stc("You can't do that on your own follower.\n", ch);
 		return;
 	}
 
-	damage(ch, victim, saves_spell(level, victim, DAM_FIRE) ? dam / 2 : dam, sn, DAM_FIRE, TRUE, TRUE);
+	damage(ch, victim, saves_spell(level, victim, DAM_FIRE) ? dam / 2 : dam, sn, -1, DAM_FIRE, TRUE, TRUE);
 
 	if (evolution == 3
 	    && victim != nullptr
@@ -3296,10 +3284,10 @@ void spell_fireball(int sn, int level, Character *ch, void *vo, int target, int 
 		fireball_bash(ch, victim, level, evolution, FALSE);
 }
 
-void spell_fireproof(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_fireproof(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
-	Affect af;
+	affect::Affect af;
 
 	/* This sounds really stupid....but....Here goes.
 	   If an object is Fireproof AND a character equips it,
@@ -3320,23 +3308,21 @@ void spell_fireproof(int sn, int level, Character *ch, void *vo, int target, int
 	}
 
 	af.where     = TO_OBJECT;
-	af.type      = sn;
+	af.type      = affect::type::fireproof;
 	af.level     = level;
 	af.duration  = number_fuzzy(level / 4);
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector(ITEM_BURN_PROOF);
 	af.evolution = evolution;
-	affect_copy_to_obj(obj, &af);
+	affect::copy_to_obj(obj, &af);
 	act("You protect $p from fire.", ch, obj, nullptr, TO_CHAR);
 	act("$p is surrounded by a protective aura.", ch, obj, nullptr, TO_ROOM);
 }
 
 /* function for bladecraft spells -- Montrey */
-bool enhance_blade(Character *ch, Object *obj, int sn, int level, Flags::Bit bit)
+bool enhance_blade(Character *ch, Object *obj, affect::type type, int level, int evolution)
 {
-	Affect af;
-
 	if (obj->item_type != ITEM_WEAPON) {
 		stc("This spell can only enhance weapons.\n", ch);
 		return FALSE;
@@ -3347,27 +3333,28 @@ bool enhance_blade(Character *ch, Object *obj, int sn, int level, Flags::Bit bit
 		return FALSE;
 	}
 
-	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
-	    || IS_WEAPON_STAT(obj, WEAPON_FROST)
-	    || IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
-	    || IS_WEAPON_STAT(obj, WEAPON_SHOCKING)) {
+	if (affect::exists_on_obj(obj, affect::type::weapon_flaming)
+	 || affect::exists_on_obj(obj, affect::type::weapon_frost)
+	 || affect::exists_on_obj(obj, affect::type::weapon_vampiric)
+	 || affect::exists_on_obj(obj, affect::type::weapon_shocking)) {
 		act("$p is already an enhanced weapon.", ch, obj, nullptr, TO_CHAR);
 		return FALSE;
 	}
 
+	affect::Affect af;
 	af.where        = TO_WEAPON;
-	af.type         = sn;
+	af.type         = type;
 	af.level        = level;
 	af.duration     = (number_percent() + (level / 2));
 	af.location     = 0;
 	af.modifier     = 0;
-	af.bitvector(bit);
-	af.evolution    = get_evolution(ch, sn);
-	affect_copy_to_obj(obj, &af);
+	af.bitvector(0);
+	af.evolution    = evolution;
+	affect::copy_to_obj(obj, &af);
 	return TRUE;
 }
 
-void spell_flame_blade(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_flame_blade(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -3375,13 +3362,13 @@ void spell_flame_blade(int sn, int level, Character *ch, void *vo, int target, i
 	if (ch == vo)
 		return;
 
-	if (enhance_blade(ch, obj, sn, level, WEAPON_FLAMING)) {
+	if (enhance_blade(ch, obj, affect::type::weapon_flaming, level, evolution)) {
 		act("$p bursts into a glorious flame!", ch, obj, nullptr, TO_CHAR);
 		act("$p bursts into a glorious flame!", ch, obj, nullptr, TO_ROOM);
 	}
 }
 
-void spell_frost_blade(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_frost_blade(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -3389,13 +3376,13 @@ void spell_frost_blade(int sn, int level, Character *ch, void *vo, int target, i
 	if (ch == vo)
 		return;
 
-	if (enhance_blade(ch, obj, sn, level, WEAPON_FROST)) {
+	if (enhance_blade(ch, obj, affect::type::weapon_frost, level, evolution)) {
 		act("$p is now cold to the touch.", ch, obj, nullptr, TO_CHAR);
 		act("$p fills the room with a bitter cold!", ch, obj, nullptr, TO_ROOM);
 	}
 }
 
-void spell_blood_blade(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_blood_blade(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -3403,26 +3390,26 @@ void spell_blood_blade(int sn, int level, Character *ch, void *vo, int target, i
 	if (ch == vo)
 		return;
 
-	if (enhance_blade(ch, obj, sn, level, WEAPON_VAMPIRIC)) {
+	if (enhance_blade(ch, obj, affect::type::weapon_vampiric, level, evolution)) {
 		act("$p glows with an evil aura.", ch, obj, nullptr, TO_CHAR);
 		act("$p glows with an evil aura.", ch, obj, nullptr, TO_ROOM);
 	}
 }
 
-void spell_shock_blade(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_shock_blade(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
 	/* Avoid casting this on characters. -- Outsider */
 	if (ch == vo) return;
 
-	if (enhance_blade(ch, obj, sn, level, WEAPON_SHOCKING)) {
+	if (enhance_blade(ch, obj, affect::type::weapon_shocking, level, evolution)) {
 		act("$p crackles with pure energy.", ch, obj, nullptr, TO_CHAR);
 		act("$p fills the room with sparks of electricity!", ch, obj, nullptr, TO_ROOM);
 	}
 }
 
-void spell_flamestrike(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_flamestrike(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -3431,20 +3418,20 @@ void spell_flamestrike(int sn, int level, Character *ch, void *vo, int target, i
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_FIRE , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_FIRE, TRUE, TRUE);
 }
 
-void spell_faerie_fire(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_faerie_fire(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_faerie_fire)) {
+	if (affect::exists_on_char(victim, affect::type::faerie_fire)) {
 		act("$N is already glowing pink!", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::faerie_fire,
 		level,
 		level,
 		evolution,
@@ -3455,7 +3442,7 @@ void spell_faerie_fire(int sn, int level, Character *ch, void *vo, int target, i
 	act("$n is surrounded by a pink outline.", victim, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_faerie_fog(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_faerie_fog(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *ich;
 	act("$n conjures a cloud of purple smoke.", ch, nullptr, nullptr, TO_ROOM);
@@ -3468,22 +3455,22 @@ void spell_faerie_fog(int sn, int level, Character *ch, void *vo, int target, in
 		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
 			continue;
 
-		if (!affect_exists_on_char(ich, gsn_hide)
-		    && !affect_exists_on_char(ich, gsn_sneak)
-		    && !affect_exists_on_char(ich, gsn_invis)
-		    && !affect_exists_on_char(ich, gsn_midnight))
+		if (!affect::exists_on_char(ich, affect::type::hide)
+		    && !affect::exists_on_char(ich, affect::type::sneak)
+		    && !affect::exists_on_char(ich, affect::type::invis)
+		    && !affect::exists_on_char(ich, affect::type::midnight))
 			continue;
 
-		affect_remove_sn_from_char(ich, gsn_invis);
-		affect_remove_sn_from_char(ich, gsn_sneak);
-		affect_remove_sn_from_char(ich, gsn_hide);
-		affect_remove_sn_from_char(ich, gsn_midnight);
+		affect::remove_type_from_char(ich, affect::type::invis);
+		affect::remove_type_from_char(ich, affect::type::sneak);
+		affect::remove_type_from_char(ich, affect::type::hide);
+		affect::remove_type_from_char(ich, affect::type::midnight);
 		act("$n is revealed!", ich, nullptr, nullptr, TO_ROOM);
 		stc("You are revealed!\n", ich);
 	}
 }
 
-void spell_farsight(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_farsight(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	if (is_blinded(ch)) {
 		stc("Maybe it would help if you could see?\n", ch);
@@ -3493,7 +3480,7 @@ void spell_farsight(int sn, int level, Character *ch, void *vo, int target, int 
 	do_scan(ch, target_name);
 }
 
-void spell_floating_disc(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_floating_disc(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *disc, *floating;
 	floating = get_eq_char(ch, WEAR_FLOAT);
@@ -3520,7 +3507,7 @@ void spell_floating_disc(int sn, int level, Character *ch, void *vo, int target,
 	wear_obj(ch, disc, TRUE);
 }
 
-void spell_fly(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_fly(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -3533,8 +3520,8 @@ void spell_fly(int sn, int level, Character *ch, void *vo, int target, int evolu
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::fly,
 		level,
 		level + 3,
 		evolution,
@@ -3544,11 +3531,12 @@ void spell_fly(int sn, int level, Character *ch, void *vo, int target, int evolu
 	do_fly(victim, "");
 }
 
-void spell_frenzy(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_frenzy(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_berserk)) {
+	if (affect::exists_on_char(victim, affect::type::frenzy)
+	 || affect::exists_on_char(victim, affect::type::berserk)) {
 		if (victim == ch)
 			stc("You are already in a frenzy.\n", ch);
 		else
@@ -3557,7 +3545,7 @@ void spell_frenzy(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	if (affect_exists_on_char(victim, gsn_calm)) {
+	if (affect::exists_on_char(victim, affect::type::calm)) {
 		if (victim == ch)
 			stc("Why don't you just relax for a while?\n", ch);
 		else
@@ -3573,8 +3561,8 @@ void spell_frenzy(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::frenzy,
 		level,
 		level / 3,
 		evolution,
@@ -3585,7 +3573,7 @@ void spell_frenzy(int sn, int level, Character *ch, void *vo, int target, int ev
 	act("$n gets a wild look in $s eyes!", victim, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_gate(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	bool gate_pet;
@@ -3645,11 +3633,11 @@ void spell_gate(int sn, int level, Character *ch, void *vo, int target, int evol
 	}
 }
 
-void spell_giant_strength(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_giant_strength(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::giant_strength)) {
 		if (victim == ch)
 			stc("You are already as strong as you can get!\n", ch);
 		else
@@ -3658,8 +3646,8 @@ void spell_giant_strength(int sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::giant_strength,
 		level,
 		level,
 		evolution,
@@ -3670,7 +3658,7 @@ void spell_giant_strength(int sn, int level, Character *ch, void *vo, int target
 	act("$n's muscles surge with heightened power.", victim, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_harm(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_harm(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -3686,14 +3674,15 @@ void spell_harm(int sn, int level, Character *ch, void *vo, int target, int evol
 
 	aligndiff /= 200;
 	dam = dice(level / 2, aligndiff);
-	damage(ch, victim, dam, sn, DAM_HARM , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_HARM, TRUE, TRUE);
 }
 
-void spell_haste(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_haste(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_haste) || victim->off_flags.has(OFF_FAST)) {
+	if (affect::exists_on_char(victim, affect::type::haste)
+	 || victim->off_flags.has(OFF_FAST)) {
 		if (victim == ch)
 			stc("You can't move any faster!\n", ch);
 		else
@@ -3702,8 +3691,8 @@ void spell_haste(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (affect_exists_on_char(victim, gsn_slow)) {
-		if (!check_dispel_char(level, victim, gsn_slow, FALSE)) {
+	if (affect::exists_on_char(victim, affect::type::slow)) {
+		if (!check_dispel_char(level, victim, affect::type::slow, FALSE)) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
 
@@ -3714,8 +3703,8 @@ void spell_haste(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::haste,
 		level,
 		victim == ch ? level/2 : level/4,
 		evolution,
@@ -3729,7 +3718,7 @@ void spell_haste(int sn, int level, Character *ch, void *vo, int target, int evo
 		stc("Ok.\n", ch);
 }
 
-void spell_heal(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_heal(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	victim->hit = UMIN(victim->hit + 100, GET_MAX_HIT(victim));
@@ -3740,7 +3729,7 @@ void spell_heal(int sn, int level, Character *ch, void *vo, int target, int evol
 		stc("Ok.\n", ch);
 }
 
-void spell_heat_metal(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_heat_metal(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	Object *obj_lose, *obj_next;
@@ -3806,7 +3795,7 @@ void spell_heat_metal(int sn, int level, Character *ch, void *vo, int target, in
 
 		case ITEM_WEAPON:
 			if (obj_lose->wear_loc != -1) { /* try to drop it */
-				if (IS_WEAPON_STAT(obj_lose, WEAPON_FLAMING))
+				if (affect::exists_on_obj(obj_lose, affect::type::weapon_flaming))
 					continue;
 
 				if (can_drop_obj(victim, obj_lose)
@@ -3830,7 +3819,7 @@ void spell_heat_metal(int sn, int level, Character *ch, void *vo, int target, in
 			else { /* drop it if we can */
 				if (can_drop_obj(victim, obj_lose)) {
 					act("$n throws a burning hot $p to the ground!", victim, obj_lose, nullptr, TO_ROOM);
-					act("You and drop $p before it burns you.", victim, obj_lose, nullptr, TO_CHAR);
+					act("You drop $p before it burns you.", victim, obj_lose, nullptr, TO_CHAR);
 					dam += (number_range(1, obj_lose->level) / 6);
 					obj_from_char(obj_lose);
 
@@ -3858,11 +3847,11 @@ void spell_heat_metal(int sn, int level, Character *ch, void *vo, int target, in
 		if (saves_spell(level, victim, DAM_FIRE))
 			dam = 2 * dam / 3;
 
-		damage(ch, victim, dam, sn, DAM_FIRE, TRUE, TRUE);
+		damage(ch, victim, dam, sn, -1, DAM_FIRE, TRUE, TRUE);
 	}
 }
 
-void spell_holy_word(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_holy_word(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *vch;
 	Character *vch_next;
@@ -3882,24 +3871,24 @@ void spell_holy_word(int sn, int level, Character *ch, void *vo, int target, int
 		    || (IS_EVIL(ch) && IS_EVIL(vch))
 		    || (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
 			stc("You feel more powerful.\n", vch);
-			spell_frenzy(gsn_frenzy, level, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
-			spell_bless(gsn_bless, level, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
+			spell_frenzy(skill::type::frenzy, level, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
+			spell_bless(skill::type::bless, level, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
 		}
 		else if ((IS_GOOD(ch) && IS_EVIL(vch))
 		         || (IS_EVIL(ch) && IS_GOOD(vch))) {
 			if (!is_safe_spell(ch, vch, TRUE)) {
-				spell_curse(gsn_curse, level, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
+				spell_curse(skill::type::curse, level, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
 				stc("You are struck down!\n", vch);
-				damage(ch, vch, dice(level, 20), sn, DAM_ENERGY, TRUE, TRUE);
+				damage(ch, vch, dice(level, 20), sn, -1, DAM_ENERGY, TRUE, TRUE);
 			}
 		}
 		else if ((IS_NEUTRAL(ch) && !IS_NEUTRAL(vch))
 		         || (IS_EVIL(ch) && IS_NEUTRAL(vch))
 		         || (IS_GOOD(ch) && IS_NEUTRAL(vch))) {
 			if (!is_safe_spell(ch, vch, TRUE)) {
-				spell_curse(gsn_curse, level / 2, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
+				spell_curse(skill::type::curse, level / 2, ch, (void *) vch, TARGET_CHAR, get_evolution(ch, sn));
 				stc("You are struck down!\n", vch);
-				damage(ch, vch, dice(level, 6), sn, DAM_ENERGY, TRUE, TRUE);
+				damage(ch, vch, dice(level, 6), sn, -1, DAM_ENERGY, TRUE, TRUE);
 			}
 		}
 	}
@@ -3908,7 +3897,7 @@ void spell_holy_word(int sn, int level, Character *ch, void *vo, int target, int
 	ch->hit -= (ch->hit / 3);
 }
 
-void spell_imprint(int sn, int level, Character *ch, void *vo)
+void spell_imprint(skill::type sn, int level, Character *ch, void *vo)
 {
 	Object *obj = (Object *) vo;
 	String buf;
@@ -3918,7 +3907,9 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 	if (ch == vo)
 		return;
 
-	if (skill_table[sn].spell_fun == spell_null) {
+	const auto& entry = skill::lookup(sn);
+
+	if (entry.spell_fun == spell_null) {
 		stc("That is not a spell.\n", ch);
 		return;
 	}
@@ -3941,7 +3932,7 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 		return;
 	}
 
-	if (number_percent() > ch->pcdata->learned[sn]) {
+	if (number_percent() > get_skill_level(ch, sn)) {
 		stc("You lost your concentration.\n", ch);
 		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
@@ -3950,7 +3941,6 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 
 	/* executing the imprinting process */
 	ch->mana -= mana;
-	obj->value[sp_slot] = sn;
 
 	/* Making it successively harder to pack more spells into potions or scrolls - JH */
 	switch (sp_slot) {
@@ -3980,12 +3970,15 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 		break;
 	}
 
+	// the actual imprint
+	obj->value[sp_slot] = (int)sn;
+
 	/* labeling the item */
 	Format::sprintf(buf, "a %s of ", item_type_name(obj));
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
-			buf += skill_table[obj->value[i]].name;
+			buf += entry.name;
 			buf += (i != sp_slot) ? ", " : "";
 		}
 
@@ -3994,7 +3987,7 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
-			buf += skill_table[obj->value[i]].name;
+			buf += entry.name;
 			buf += (i != sp_slot) ? ", " : " lies here.\n";
 		}
 
@@ -4004,14 +3997,14 @@ void spell_imprint(int sn, int level, Character *ch, void *vo)
 	for (i = 1; i <= sp_slot ; i++)
 		if (obj->value[i] != -1) {
 			buf += " ";
-			buf += skill_table[obj->value[i]].name;
+			buf += entry.name;
 		}
 
 	obj->name = buf;
 	ptc(ch, "You have imbued a new spell to the %s.\n", item_type_name(obj));
 }
 
-void spell_identify(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_identify(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	char buf[MAX_STRING_LENGTH];
@@ -4082,17 +4075,12 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 	case ITEM_PILL:
 		ptc(ch, "Level %d spells of:", obj->value[0]);
 
-		if (obj->value[1] >= 0 && obj->value[1] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[1]].name);
+		for (int i = 1; i <= 4; i++) {
+			skill::type type = skill::from_int(obj->value[i]);
 
-		if (obj->value[2] >= 0 && obj->value[2] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[2]].name);
-
-		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
-
-		if (obj->value[4] >= 0 && obj->value[4] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[4]].name);
+			if (type != skill::type::unknown)
+				ptc(ch, " '%s'", skill::lookup(type).name);
+		}
 
 		stc(".\n", ch);
 		break;
@@ -4100,9 +4088,7 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 	case ITEM_WAND:
 	case ITEM_STAFF:
 		ptc(ch, "Has %d charges of level %d", obj->value[2], obj->value[0]);
-
-		if (obj->value[3] >= 0 && obj->value[3] < skill_table.size())
-			ptc(ch, " '%s'", skill_table[obj->value[3]].name);
+		ptc(ch, " '%s'", skill::lookup(skill::from_int(obj->value[3])).name);
 
 		stc(".\n", ch);
 		break;
@@ -4150,10 +4136,10 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
-
-		if (obj->value[4] || !obj->cached_weapon_flags.empty())  /* weapon flags */
+/*
+		if (obj->value[4] || !obj->cached_weapon_flags.empty())
 			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]+obj->cached_weapon_flags));
-
+*/
 		break;
 
 	case ITEM_ARMOR:
@@ -4167,7 +4153,7 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 		break;
 	}
 
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next)
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
 		show_affect_to_char(paf, ch);
 
     if (obj->gems) {
@@ -4177,16 +4163,16 @@ void spell_identify(int sn, int level, Character *ch, void *vo, int target, int 
 
         stc("Gems are adding:", ch);
 
-        for (const Affect *paf = obj->gem_affected; paf != nullptr; paf = paf->next)
+        for (const affect::Affect *paf = obj->gem_affected; paf != nullptr; paf = paf->next)
                 show_affect_to_char(paf, ch);
     }
 }
 
-void spell_infravision(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_infravision(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::night_vision)) {
 		if (victim == ch)
 			stc("You can already see in the dark.\n", ch);
 		else
@@ -4195,8 +4181,8 @@ void spell_infravision(int sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::night_vision,
 		level,
 		level * 2,
 		evolution,
@@ -4207,11 +4193,11 @@ void spell_infravision(int sn, int level, Character *ch, void *vo, int target, i
 	act("$n's eyes glow red.\n", ch, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_invis(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_invis(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *obj;
-	Affect af;
+	affect::Affect af;
 
 	/* object invisibility */
 	if (target == TARGET_OBJ) {
@@ -4223,14 +4209,14 @@ void spell_invis(int sn, int level, Character *ch, void *vo, int target, int evo
 		}
 
 		af.where        = TO_OBJECT;
-		af.type         = sn;
+		af.type         = affect::type::invis;
 		af.level        = level;
 		af.duration     = level + 12;
 		af.location     = APPLY_NONE;
 		af.modifier     = 0;
 		af.bitvector(ITEM_INVIS);
 		af.evolution = evolution;
-		affect_copy_to_obj(obj, &af);
+		affect::copy_to_obj(obj, &af);
 		act("$p fades out of sight.", ch, obj, nullptr, TO_ALL);
 		return;
 	}
@@ -4238,7 +4224,7 @@ void spell_invis(int sn, int level, Character *ch, void *vo, int target, int evo
 	/* character invisibility */
 	victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_invis)) {
+	if (affect::exists_on_char(victim, affect::type::invis)) {
 		if (victim == ch)
 			stc("You are already invisible!\n", ch);
 		else
@@ -4247,8 +4233,8 @@ void spell_invis(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::invis,
 		level,
 		level + 12,
 		evolution,
@@ -4259,7 +4245,7 @@ void spell_invis(int sn, int level, Character *ch, void *vo, int target, int evo
 	act("$n fades out of existence.", victim, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_know_alignment(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_know_alignment(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	char *msg;
@@ -4276,7 +4262,7 @@ void spell_know_alignment(int sn, int level, Character *ch, void *vo, int target
 	act(msg, ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_lightning_bolt(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_lightning_bolt(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -4295,11 +4281,11 @@ void spell_lightning_bolt(int sn, int level, Character *ch, void *vo, int target
 	if (saves_spell(level, victim, DAM_ELECTRICITY))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_ELECTRICITY , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_ELECTRICITY , TRUE, TRUE);
 }
 
 /* Locate Life by Lotus */
-void spell_locate_life(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_locate_life(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	char buf[MAX_STRING_LENGTH];
 	String buffer;
@@ -4336,7 +4322,7 @@ void spell_locate_life(int sn, int level, Character *ch, void *vo, int target, i
 
 }
 
-void spell_locate_object(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_locate_object(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	char buf[MAX_STRING_LENGTH];
 	/*      String buffer;*/
@@ -4384,7 +4370,7 @@ void spell_locate_object(int sn, int level, Character *ch, void *vo, int target,
 
 /* New magic missile -- Montrey */
 /* evolved version -- Vegita */
-void spell_magic_missile(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_magic_missile(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -4452,13 +4438,13 @@ void spell_magic_missile(int sn, int level, Character *ch, void *vo, int target,
 		if (saves_spell(level, victim, DAM_ENERGY))
 			dam /= 2;
 		
-		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE, TRUE);
+		damage(ch, victim, dam, sn, -1, DAM_ENERGY, TRUE, TRUE);
 
 		if (ch->fighting != nullptr) { /*don't display message if mob dead/no fight*/
 			if (evolution >= 3 && number_percent() > 85) {
 				stc("Your magic missile swarms its target!!!!\n", ch);
 				act("$n magic missile swarms the target!", ch, nullptr, nullptr, TO_ROOM);
-				damage(ch, victim, dam / 2, sn, DAM_ENERGY, TRUE, TRUE);
+				damage(ch, victim, dam / 2, sn, -1, DAM_ENERGY, TRUE, TRUE);
 			}
 		}
 
@@ -4467,32 +4453,32 @@ void spell_magic_missile(int sn, int level, Character *ch, void *vo, int target,
 	}
 }
 
-void spell_mass_healing(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_mass_healing(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *gch;
 
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
 		if ((IS_NPC(ch) && IS_NPC(gch))
 		    || (!IS_NPC(ch) && !IS_NPC(gch))) {
-			spell_heal(gsn_heal, level, ch, (void *) gch, TARGET_CHAR, get_evolution(ch, sn));
-			spell_refresh(gsn_refresh, level, ch, (void *) gch, TARGET_CHAR, get_evolution(ch, sn));
+			spell_heal(skill::type::heal, level, ch, (void *) gch, TARGET_CHAR, get_evolution(ch, sn));
+			spell_refresh(skill::type::refresh, level, ch, (void *) gch, TARGET_CHAR, get_evolution(ch, sn));
 		}
 	}
 }
 
-void spell_mass_invis(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_mass_invis(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *gch;
 
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
-		if (!is_same_group(gch, ch) || affect_exists_on_char(gch, gsn_invis))
+		if (!is_same_group(gch, ch) || affect::exists_on_char(gch, affect::type::invis))
 			continue;
 
 		act("$n slowly fades out of existence.", gch, nullptr, nullptr, TO_ROOM);
 		stc("You slowly fade out of existence.\n", gch);
 
-		affect_add_sn_to_char(gch,
-			gsn_invis,
+		affect::add_type_to_char(gch,
+			affect::type::invis,
 			level/2,
 			24,
 			evolution,
@@ -4503,7 +4489,7 @@ void spell_mass_invis(int sn, int level, Character *ch, void *vo, int target, in
 	stc("Ok.\n", ch);
 }
 
-void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *portal, *stone;
@@ -4607,13 +4593,13 @@ void spell_nexus(int sn, int level, Character *ch, void *vo, int target, int evo
 	}
 }
 
-void spell_null(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_null(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	stc("That's not a spell!\n", ch);
 }
 
 /* Polymorph by Lotus */
-void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_polymorph(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Character *mobile;
@@ -4708,11 +4694,11 @@ void spell_polymorph(int sn, int level, Character *ch, void *vo, int target, int
 	char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
 }
 
-void spell_pass_door(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_pass_door(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_pass_door)) {
+	if (affect::exists_on_char(victim, affect::type::pass_door)) {
 		if (victim == ch)
 			stc("You are already out of phase.\n", ch);
 		else
@@ -4721,8 +4707,8 @@ void spell_pass_door(int sn, int level, Character *ch, void *vo, int target, int
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::pass_door,
 		level,
 		number_fuzzy(level/4),
 		evolution,
@@ -4733,7 +4719,7 @@ void spell_pass_door(int sn, int level, Character *ch, void *vo, int target, int
 	stc("You turn translucent.\n", victim);
 }
 
-void spread_plague(RoomPrototype *room, const Affect *plague, int chance) {
+void spread_plague(RoomPrototype *room, const affect::Affect *plague, int chance) {
 	if (room == nullptr || plague == nullptr)
 		return;
 
@@ -4743,13 +4729,13 @@ void spread_plague(RoomPrototype *room, const Affect *plague, int chance) {
 	for (Character *vch = room->people; vch; vch = vch->next_in_room) {
 		if (!saves_spell(plague->level - 2, vch, DAM_DISEASE)
 		 && !IS_IMMORTAL(vch)
-		 && !affect_exists_on_char(vch, gsn_plague)
+		 && !affect::exists_on_char(vch, affect::type::plague)
 		 && number_bits(chance) == 0) {
 			stc("You feel hot and feverish.\n", vch);
 			act("$n shivers and looks very ill.", vch, nullptr, nullptr, TO_ROOM);
 
-			affect_add_sn_to_char(vch,
-				gsn_plague,
+			affect::add_type_to_char(vch,
+				affect::type::plague,
 				plague->level - 1,
 				number_range(1, 2 * (plague->level - 1)),
 				plague->evolution,
@@ -4759,11 +4745,11 @@ void spread_plague(RoomPrototype *room, const Affect *plague, int chance) {
 	}
 }
 
-void spell_plague(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_plague(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_plague)) {
+	if (affect::exists_on_char(victim, affect::type::plague)) {
 		act("$N is already diseased.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -4781,8 +4767,8 @@ void spell_plague(int sn, int level, Character *ch, void *vo, int target, int ev
 	stc("You scream in agony as plague sores erupt from your skin.\n", victim);
 	act("$n screams in agony as plague sores erupt from $s skin.", victim, nullptr, nullptr, TO_ROOM);
 
-	affect_add_sn_to_char(victim,
-		gsn_plague,
+	affect::add_type_to_char(victim,
+		affect::type::plague,
 		level * 3 / 4,
 		level,
 		evolution,
@@ -4790,11 +4776,11 @@ void spell_plague(int sn, int level, Character *ch, void *vo, int target, int ev
 	);
 }
 
-void spell_poison(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_poison(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *obj;
-	Affect af;
+	affect::Affect af;
 
 	if (target == TARGET_OBJ) {
 		obj = (Object *) vo;
@@ -4811,20 +4797,20 @@ void spell_poison(int sn, int level, Character *ch, void *vo, int target, int ev
 		}
 
 		if (obj->item_type == ITEM_WEAPON) {
-			if (IS_WEAPON_STAT(obj, WEAPON_POISON)) {
+			if (affect::exists_on_obj(obj, affect::type::poison)) {
 				act("$p is already envenomed.", ch, obj, nullptr, TO_CHAR);
 				return;
 			}
 
 			af.where     = TO_WEAPON;
-			af.type      = sn;
+			af.type      = affect::type::poison;
 			af.level     = level / 2;
 			af.duration  = level / 4;
 			af.location  = 0;
 			af.modifier  = 0;
-			af.bitvector(WEAPON_POISON);
+			af.bitvector(0);
 			af.evolution = evolution;
-			affect_copy_to_obj(obj, &af);
+			affect::copy_to_obj(obj, &af);
 			act("$p is coated with deadly venom.", ch, obj, nullptr, TO_ALL);
 			return;
 		}
@@ -4844,8 +4830,8 @@ void spell_poison(int sn, int level, Character *ch, void *vo, int target, int ev
 	stc("You feel very sick.\n", victim);
 	act("$n looks very ill.", victim, nullptr, nullptr, TO_ROOM);
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::poison,
 		level,
 		level,
 		evolution,
@@ -4853,7 +4839,7 @@ void spell_poison(int sn, int level, Character *ch, void *vo, int target, int ev
 	);
 }
 
-void spell_portal(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_portal(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *portal, *stone;
@@ -4933,7 +4919,7 @@ void spell_portal(int sn, int level, Character *ch, void *vo, int target, int ev
 	act("$p rises up before you.", ch, portal, nullptr, TO_CHAR);
 }
 
-void spell_power_word(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_power_word(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -4954,7 +4940,7 @@ void spell_power_word(int sn, int level, Character *ch, void *vo, int target, in
 	kill_off(ch, victim);
 }
 
-void spell_protect_container(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_protect_container(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int cost, fail, result;
@@ -5003,11 +4989,11 @@ void spell_protect_container(int sn, int level, Character *ch, void *vo, int tar
 	act("$p is covered with a thin sheen of adamantine.", ch, obj, nullptr, TO_ROOM);
 }
 
-void spell_protection_evil(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_protection_evil(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_protection_evil)) {
+	if (affect::exists_on_char(victim, affect::type::protection_evil)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5016,8 +5002,8 @@ void spell_protection_evil(int sn, int level, Character *ch, void *vo, int targe
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::protection_evil,
 		level,
 		24,
 		evolution,
@@ -5030,11 +5016,11 @@ void spell_protection_evil(int sn, int level, Character *ch, void *vo, int targe
 		act("$N is protected from evil.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_protection_good(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_protection_good(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_protection_good)) {
+	if (affect::exists_on_char(victim, affect::type::protection_good)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5043,8 +5029,8 @@ void spell_protection_good(int sn, int level, Character *ch, void *vo, int targe
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::protection_good,
 		level,
 		24,
 		evolution,
@@ -5057,11 +5043,11 @@ void spell_protection_good(int sn, int level, Character *ch, void *vo, int targe
 		act("$N is protected from good.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_rayban(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_rayban(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_rayban)) {
+	if (affect::exists_on_char(victim, affect::type::rayban)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5070,8 +5056,8 @@ void spell_rayban(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::rayban,
 		level,
 		24,
 		evolution,
@@ -5084,7 +5070,7 @@ void spell_rayban(int sn, int level, Character *ch, void *vo, int target, int ev
 		act("$N's eyes are protected.", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_resurrect(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_resurrect(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj;
 	Character *mob;
@@ -5160,7 +5146,7 @@ void spell_resurrect(int sn, int level, Character *ch, void *vo, int target, int
 	do_say(mob, "How may I serve you, master?");
 }
 
-void spell_ray_of_truth(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_ray_of_truth(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam, align;
@@ -5196,13 +5182,13 @@ void spell_ray_of_truth(int sn, int level, Character *ch, void *vo, int target, 
 	else
 		dam = 0;
 
-	damage(ch, victim, dam, sn, DAM_HOLY , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_HOLY , TRUE, TRUE);
 
 	if (ch->fighting != nullptr)
-		spell_blindness(gsn_blindness, 3 * level / 4, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+		spell_blindness(skill::type::blindness, 3 * level / 4, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
 }
 
-void spell_recharge(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_recharge(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int chance, percent;
@@ -5269,7 +5255,7 @@ void spell_recharge(int sn, int level, Character *ch, void *vo, int target, int 
 	}
 }
 
-void spell_refresh(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_refresh(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	victim->stam = UMIN(victim->stam + level, GET_MAX_STAM(victim));
@@ -5284,7 +5270,7 @@ void spell_refresh(int sn, int level, Character *ch, void *vo, int target, int e
 }
 
 /* Divine Regeneration by Lotus */
-void spell_divine_regeneration(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_divine_regeneration(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
@@ -5293,9 +5279,8 @@ void spell_divine_regeneration(int sn, int level, Character *ch, void *vo, int t
 		return;
 	}
 
-	if ((affect_exists_on_char(victim, sn))
-	    || (affect_exists_on_char(victim, gsn_regeneration))
-	    || (affect_exists_on_char(victim, gsn_divine_regeneration))) {
+	if (affect::exists_on_char(victim, affect::type::divine_regeneration)
+	 || affect::exists_on_char(victim, affect::type::regeneration)) {
 		if (victim == ch)
 			stc("You can't possibly feel any more vibrant!\n", ch);
 		else
@@ -5304,8 +5289,8 @@ void spell_divine_regeneration(int sn, int level, Character *ch, void *vo, int t
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::divine_regeneration,
 		level,
 		level,
 		evolution,
@@ -5335,13 +5320,12 @@ void spell_divine_regeneration(int sn, int level, Character *ch, void *vo, int t
 	}
 }
 
-void spell_regeneration(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_regeneration(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)
-	    || affect_exists_on_char(victim, gsn_regeneration)
-	    || affect_exists_on_char(victim, gsn_divine_regeneration)) {
+	if (affect::exists_on_char(victim, affect::type::regeneration)
+	 || affect::exists_on_char(victim, affect::type::divine_regeneration)) {
 		if (victim == ch)
 			stc("You can't possibly feel any more vibrant!\n", ch);
 		else
@@ -5350,8 +5334,8 @@ void spell_regeneration(int sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::regeneration,
 		level,
 		level / 2,
 		evolution,
@@ -5381,7 +5365,7 @@ void spell_regeneration(int sn, int level, Character *ch, void *vo, int target, 
 	}
 }
 
-void spell_remove_alignment(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_remove_alignment(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 	int result, fail;
@@ -5414,7 +5398,7 @@ void spell_remove_alignment(int sn, int level, Character *ch, void *vo, int targ
 	fail = 15;  /* base 15% chance of failure */
 
 	/* find the bonuses (Its harder to remove align from a powerful object) */
-	for (const Affect *paf = affect_list_obj(obj); paf != nullptr; paf = paf->next)
+	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
 		fail += 15;
 
 	/* apply other modifiers */
@@ -5468,7 +5452,7 @@ void spell_remove_alignment(int sn, int level, Character *ch, void *vo, int targ
 	act("$n removes $p's alignment!", ch, obj, nullptr, TO_ROOM);
 }
 
-void spell_remove_invis(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_remove_invis(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj = (Object *) vo;
 
@@ -5491,7 +5475,7 @@ void spell_remove_invis(int sn, int level, Character *ch, void *vo, int target, 
 	act("$p appears out of thin air!", ch, obj, nullptr, TO_ALL);
 }
 
-void spell_remove_curse(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_remove_curse(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *obj;
@@ -5522,10 +5506,10 @@ void spell_remove_curse(int sn, int level, Character *ch, void *vo, int target, 
 	/* characters */
 	victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_curse)) {
+	if (affect::exists_on_char(victim, affect::type::curse)) {
 		affected = TRUE;
 
-		if (check_dispel_char(level, victim, gsn_curse, FALSE)) {
+		if (check_dispel_char(level, victim, affect::type::curse, FALSE)) {
 			return;
 		}
 	}
@@ -5563,11 +5547,11 @@ void spell_remove_curse(int sn, int level, Character *ch, void *vo, int target, 
 		act("Neither $E nor anything $E is wearing is cursed!\n", ch, nullptr, victim, TO_CHAR);
 }
 
-void spell_sanctuary(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_sanctuary(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_sanctuary)) {
+	if (affect::exists_on_char(victim, affect::type::sanctuary)) {
 		if (victim == ch)
 			stc("You are already in sanctuary.\n", ch);
 		else
@@ -5599,8 +5583,8 @@ void spell_sanctuary(int sn, int level, Character *ch, void *vo, int target, int
 		break;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::sanctuary,
 		level,
 		level / 6,
 		evolution,
@@ -5608,11 +5592,11 @@ void spell_sanctuary(int sn, int level, Character *ch, void *vo, int target, int
 	);
 }
 
-void spell_shield(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_shield(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::shield)) {
 		if (victim == ch)
 			stc("You are already shielded from harm.\n", ch);
 		else
@@ -5621,8 +5605,8 @@ void spell_shield(int sn, int level, Character *ch, void *vo, int target, int ev
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::shield,
 		level,
 		level + 8,
 		evolution,
@@ -5634,7 +5618,7 @@ void spell_shield(int sn, int level, Character *ch, void *vo, int target, int ev
 	return;
 }
 
-void spell_sunray(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_sunray(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -5645,14 +5629,14 @@ void spell_sunray(int sn, int level, Character *ch, void *vo, int target, int ev
 	if (victim->alignment > 350)
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_LIGHT, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_LIGHT, TRUE, TRUE);
 }
 
-void spell_flameshield(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_flameshield(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::flameshield)) {
 		if (victim == ch)
 			stc("You are already circled by flames.\n", ch);
 		else
@@ -5661,8 +5645,8 @@ void spell_flameshield(int sn, int level, Character *ch, void *vo, int target, i
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::flameshield,
 		level,
 		level / 2,
 		evolution,
@@ -5675,7 +5659,7 @@ void spell_flameshield(int sn, int level, Character *ch, void *vo, int target, i
 	return;
 }
 
-void spell_shocking_grasp(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_shocking_grasp(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	static const int dam_each[] = {
@@ -5694,18 +5678,18 @@ void spell_shocking_grasp(int sn, int level, Character *ch, void *vo, int target
 	if (saves_spell(level, victim, DAM_ELECTRICITY))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_ELECTRICITY , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_ELECTRICITY , TRUE, TRUE);
 	return;
 }
 
-void spell_sleep(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_sleep(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
 	if (number_percent() < (GET_ATTR_CHR(ch) * 3))
 		level += 5;
 
-	if (affect_exists_on_char(victim, gsn_sleep)) {
+	if (affect::exists_on_char(victim, affect::type::sleep)) {
 		act("$E isn't awake enough to be affected by your spell.",
 		    ch, nullptr, victim, TO_CHAR);
 		return;
@@ -5724,8 +5708,8 @@ void spell_sleep(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::sleep,
 		level,
 		level + 4,
 		evolution,
@@ -5739,11 +5723,11 @@ void spell_sleep(int sn, int level, Character *ch, void *vo, int target, int evo
 	}
 } /* end spell_sleep() */
 
-void spell_slow(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_slow(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn) || affect_exists_on_char(victim, gsn_slow)) {
+	if (affect::exists_on_char(victim, affect::type::slow)) {
 		if (victim == ch)
 			stc("You can't move any slower!\n", ch);
 		else
@@ -5753,8 +5737,8 @@ void spell_slow(int sn, int level, Character *ch, void *vo, int target, int evol
 		return;
 	}
 
-	if (affect_exists_on_char(victim, gsn_haste)) {
-		if (!check_dispel_char(level, victim, gsn_haste, (ch != victim))) {
+	if (affect::exists_on_char(victim, affect::type::haste)) {
+		if (!check_dispel_char(level, victim, affect::type::haste, (ch != victim))) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
 
@@ -5771,8 +5755,8 @@ void spell_slow(int sn, int level, Character *ch, void *vo, int target, int evol
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::slow,
 		level,
 		level / 2,
 		evolution,
@@ -5785,7 +5769,7 @@ void spell_slow(int sn, int level, Character *ch, void *vo, int target, int evol
 }
 
 /* Smokescreen by Corwyn */
-void spell_smokescreen(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_smokescreen(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *vch;
 	RoomPrototype *in_room;
@@ -5814,8 +5798,8 @@ void spell_smokescreen(int sn, int level, Character *ch, void *vo, int target, i
 	}
 
 	if (number_percent() < 5) {
-		affect_add_sn_to_char(ch,
-			sn,
+		affect::add_type_to_char(ch,
+			affect::type::smokescreen,
 			level + 5,
 			number_range(0, level / 2),
 			evolution,
@@ -5840,8 +5824,8 @@ void spell_smokescreen(int sn, int level, Character *ch, void *vo, int target, i
 				stc("Smoke momentarily clouds your vision.\n", vch);
 		}
 		else {
-			affect_add_sn_to_char(vch,
-				sn,
+			affect::add_type_to_char(vch,
+				affect::type::smokescreen,
 				level,
 				number_range(0, level / 10),
 				evolution,
@@ -5859,11 +5843,11 @@ void spell_smokescreen(int sn, int level, Character *ch, void *vo, int target, i
 	act("$n conjures up a smokescreen to confound $s enemies.", ch, nullptr, nullptr, TO_ROOM);
 }
 
-void spell_stone_skin(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_stone_skin(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(ch, sn)) {
+	if (affect::exists_on_char(ch, affect::type::stone_skin)) {
 		if (victim == ch)
 			stc("Your skin is already as hard as a rock.\n", ch);
 		else
@@ -5872,8 +5856,8 @@ void spell_stone_skin(int sn, int level, Character *ch, void *vo, int target, in
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::stone_skin,
 		level,
 		level,
 		evolution,
@@ -5885,7 +5869,7 @@ void spell_stone_skin(int sn, int level, Character *ch, void *vo, int target, in
 	return;
 }
 
-void spell_summon(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_summon(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Character *rch;
@@ -5974,7 +5958,7 @@ void spell_summon(int sn, int level, Character *ch, void *vo, int target, int ev
 }
 
 /* summon object spell by Lotus */
-void spell_summon_object(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *obj;
 	int number, count = 0;
@@ -6168,11 +6152,11 @@ void spell_summon_object(int sn, int level, Character *ch, void *vo, int target,
 
 /* Code by Corwyn ... Idea from MadROM */
 
-void spell_talon(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_talon(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, gsn_talon)) {
+	if (affect::exists_on_char(victim, affect::type::talon)) {
 		if (victim == ch)
 			stc("If you hold your weapon any tighter people will start to wonder...\n"
 			    , ch);
@@ -6183,8 +6167,8 @@ void spell_talon(int sn, int level, Character *ch, void *vo, int target, int evo
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::talon,
 		level,
 		level / 8,
 		evolution,
@@ -6197,7 +6181,7 @@ void spell_talon(int sn, int level, Character *ch, void *vo, int target, int evo
 }
 
 /* Code by Corwyn ... Idea from MadROM */
-void spell_teleport_object(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_teleport_object(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	Object *obj;
@@ -6295,7 +6279,7 @@ void spell_teleport_object(int sn, int level, Character *ch, void *vo, int targe
 		    , victim, obj, ch, TO_ROOM);
 }
 
-void spell_teleport(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_teleport(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	RoomPrototype *room;
@@ -6334,20 +6318,19 @@ void spell_teleport(int sn, int level, Character *ch, void *vo, int target, int 
 
 /* Code by Corwyn ... Idea from MadROM */
 
-void spell_undo_spell(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_undo_spell(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
-	int undo_sn;
 	/* target_name is a global in magic.c */
 
 	String spell, name;
 	target_name = one_argument(target_name, spell);
 	one_argument(target_name, name);
 
-	/* find undo_sn */
-	if ((undo_sn = skill_lookup(spell)) < 1
-	    || (skill_table[undo_sn].spell_fun == spell_null)) {
-		stc("You failed.\n", ch);
+	affect::type undo_type = affect::lookup(spell);
+
+	if (undo_type == affect::type::unknown) {
+		stc("You've never even heard of that spell.\n", ch);
 		return;
 	}
 
@@ -6372,13 +6355,13 @@ void spell_undo_spell(int sn, int level, Character *ch, void *vo, int target, in
 	}
 
 	if ((!IS_NPC(ch) && IS_NPC(victim)
-	     && !(affect_exists_on_char(ch, gsn_charm_person) && ch->master == victim))
+	     && !(affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim))
 	    || (IS_NPC(ch) && !IS_NPC(victim))) {
 		stc("You failed, try dispel magic.\n", ch);
 		return;
 	}
 
-	if (undo_spell(level, victim, undo_sn, (ch != victim))) {
+	if (undo_spell(level, victim, undo_type, (ch != victim))) {
 		stc("Ok.\n", ch);
 	}
 	else
@@ -6386,7 +6369,7 @@ void spell_undo_spell(int sn, int level, Character *ch, void *vo, int target, in
 }
 
 /* Vision spell by Lotus */
-void spell_vision(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_vision(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim;
 	RoomPrototype *original_room;
@@ -6415,7 +6398,7 @@ void spell_vision(int sn, int level, Character *ch, void *vo, int target, int ev
 	char_to_room(ch, original_room);
 }
 
-void spell_ventriloquate(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_ventriloquate(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	char buf1[MAX_STRING_LENGTH];
 	char buf2[MAX_STRING_LENGTH];
@@ -6436,17 +6419,17 @@ void spell_ventriloquate(int sn, int level, Character *ch, void *vo, int target,
 }
 
 /* Wrath by Lotus */
-void spell_wrath(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_wrath(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
-	damage(ch, victim, dice(level, 23), sn, DAM_ENERGY, TRUE, TRUE);
+	damage(ch, victim, dice(level, 23), sn, -1, DAM_ENERGY, TRUE, TRUE);
 }
 
-void spell_weaken(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_weaken(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::weaken)) {
 		act("Your spell comes too late. $N is already weak.",
 		    ch, nullptr, victim, TO_CHAR);
 		return;
@@ -6461,8 +6444,8 @@ void spell_weaken(int sn, int level, Character *ch, void *vo, int target, int ev
 	stc("You feel your strength slip away.\n", victim);
 	act("$n looks tired and weak.", victim, nullptr, nullptr, TO_ROOM);
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::weaken,
 		level,
 		level / 2,
 		evolution,
@@ -6471,7 +6454,7 @@ void spell_weaken(int sn, int level, Character *ch, void *vo, int target, int ev
 } /* end spell_weaken() */
 
 /* RT recall spell is back */
-void spell_word_of_recall(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_word_of_recall(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	RoomPrototype *location;
@@ -6499,7 +6482,7 @@ void spell_word_of_recall(int sn, int level, Character *ch, void *vo, int target
 		}
 
 	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL) ||
-	    affect_exists_on_char(victim, gsn_curse) || char_in_duel_room(ch)) {
+	    affect::exists_on_char(victim, affect::type::curse) || char_in_duel_room(ch)) {
 		stc("Spell failed.\n", victim);
 		return;
 	}
@@ -6520,7 +6503,7 @@ void spell_word_of_recall(int sn, int level, Character *ch, void *vo, int target
 /*
  * NPC spells.
  */
-void spell_acid_breath(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_acid_breath(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam, hp_dam, dice_dam, hpch;
@@ -6547,17 +6530,17 @@ void spell_acid_breath(int sn, int level, Character *ch, void *vo, int target, i
 		if (victim->in_room->sector_type != SECT_ARENA)
 			acid_effect(victim, level / 2, dam / 4, TARGET_CHAR, evolution);
 
-		damage(ch, victim, dam / 2, sn, DAM_ACID, TRUE, TRUE);
+		damage(ch, victim, dam / 2, sn, -1, DAM_ACID, TRUE, TRUE);
 	}
 	else {
 		if (victim->in_room->sector_type != SECT_ARENA)
 			acid_effect(victim, level, dam, TARGET_CHAR, evolution);
 
-		damage(ch, victim, dam, sn, DAM_ACID, TRUE, TRUE);
+		damage(ch, victim, dam, sn, -1, DAM_ACID, TRUE, TRUE);
 	}
 }
 
-void spell_fire_breath(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_fire_breath(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	Character *vch, *vch_next;
@@ -6602,27 +6585,27 @@ void spell_fire_breath(int sn, int level, Character *ch, void *vo, int target, i
 		if (vch == victim) { /* full damage */
 			if (saves_spell(level, vch, DAM_FIRE)) {
 				fire_effect(vch, level / 2, dam / 4, TARGET_CHAR, evolution);
-				damage(ch, vch, 2 * dam / 2, sn, DAM_FIRE, TRUE, TRUE);
+				damage(ch, vch, 2 * dam / 2, sn, -1, DAM_FIRE, TRUE, TRUE);
 			}
 			else {
 				fire_effect(vch, level, dam, TARGET_CHAR, evolution);
-				damage(ch, vch, 2 * dam, sn, DAM_FIRE, TRUE, TRUE);
+				damage(ch, vch, 2 * dam, sn, -1, DAM_FIRE, TRUE, TRUE);
 			}
 		}
 		else { /* partial damage */
 			if (saves_spell(level - 2, vch, DAM_FIRE)) {
 				fire_effect(vch, level / 4, dam / 8, TARGET_CHAR, evolution);
-				damage(ch, vch, dam / 4, sn, DAM_FIRE, TRUE, TRUE);
+				damage(ch, vch, dam / 4, sn, -1, DAM_FIRE, TRUE, TRUE);
 			}
 			else {
 				fire_effect(vch, level / 2, dam / 4, TARGET_CHAR, evolution);
-				damage(ch, vch, dam / 2, sn, DAM_FIRE, TRUE, TRUE);
+				damage(ch, vch, dam / 2, sn, -1, DAM_FIRE, TRUE, TRUE);
 			}
 		}
 	}
 }
 
-void spell_frost_breath(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_frost_breath(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	Character *vch, *vch_next;
@@ -6665,27 +6648,27 @@ void spell_frost_breath(int sn, int level, Character *ch, void *vo, int target, 
 		if (vch == victim) { /* full damage */
 			if (saves_spell(level, vch, DAM_COLD)) {
 				cold_effect(vch, level / 2, dam / 4, TARGET_CHAR, evolution);
-				damage(ch, vch, 2 * dam / 2, sn, DAM_COLD, TRUE, TRUE);
+				damage(ch, vch, 2 * dam / 2, sn, -1, DAM_COLD, TRUE, TRUE);
 			}
 			else {
 				cold_effect(vch, level, dam, TARGET_CHAR, evolution);
-				damage(ch, vch, 2 * dam, sn, DAM_COLD, TRUE, TRUE);
+				damage(ch, vch, 2 * dam, sn, -1, DAM_COLD, TRUE, TRUE);
 			}
 		}
 		else {
 			if (saves_spell(level - 2, vch, DAM_COLD)) {
 				cold_effect(vch, level / 4, dam / 8, TARGET_CHAR, evolution);
-				damage(ch, vch, dam / 4, sn, DAM_COLD, TRUE, TRUE);
+				damage(ch, vch, dam / 4, sn, -1, DAM_COLD, TRUE, TRUE);
 			}
 			else {
 				cold_effect(vch, level / 2, dam / 4, TARGET_CHAR, evolution);
-				damage(ch, vch, dam / 2, sn, DAM_COLD, TRUE, TRUE);
+				damage(ch, vch, dam / 2, sn, -1, DAM_COLD, TRUE, TRUE);
 			}
 		}
 	}
 }
 
-void spell_gas_breath(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_gas_breath(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *vch;
 	Character *vch_next;
@@ -6720,16 +6703,16 @@ void spell_gas_breath(int sn, int level, Character *ch, void *vo, int target, in
 
 		if (saves_spell(level, vch, DAM_POISON)) {
 			poison_effect(vch, level / 2, dam / 4, TARGET_CHAR, evolution);
-			damage(ch, vch, 2 * dam / 2, sn, DAM_POISON, TRUE, TRUE);
+			damage(ch, vch, 2 * dam / 2, sn, -1, DAM_POISON, TRUE, TRUE);
 		}
 		else {
 			poison_effect(vch, level, dam, TARGET_CHAR, evolution);
-			damage(ch, vch, 2 * dam, sn, DAM_POISON, TRUE, TRUE);
+			damage(ch, vch, 2 * dam, sn, -1, DAM_POISON, TRUE, TRUE);
 		}
 	}
 }
 
-void spell_lightning_breath(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_lightning_breath(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam, hp_dam, dice_dam, hpch;
@@ -6754,18 +6737,18 @@ void spell_lightning_breath(int sn, int level, Character *ch, void *vo, int targ
 
 	if (saves_spell(level, victim, DAM_ELECTRICITY)) {
 		shock_effect(victim, level / 2, dam / 4, TARGET_CHAR, evolution);
-		damage(ch, victim, dam / 2, sn, DAM_ELECTRICITY, TRUE, TRUE);
+		damage(ch, victim, dam / 2, sn, -1, DAM_ELECTRICITY, TRUE, TRUE);
 	}
 	else {
 		shock_effect(victim, level, dam, TARGET_CHAR, evolution);
-		damage(ch, victim, dam, sn, DAM_ELECTRICITY, TRUE, TRUE);
+		damage(ch, victim, dam, sn, -1, DAM_ELECTRICITY, TRUE, TRUE);
 	}
 }
 
 /*
  * Spells for mega1.are from Glop/Erkenbrand.
  */
-void spell_general_purpose(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_general_purpose(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -6774,11 +6757,11 @@ void spell_general_purpose(int sn, int level, Character *ch, void *vo, int targe
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_PIERCE , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_PIERCE, TRUE, TRUE);
 	return;
 }
 
-void spell_high_explosive(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_high_explosive(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 	int dam;
@@ -6787,16 +6770,16 @@ void spell_high_explosive(int sn, int level, Character *ch, void *vo, int target
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_PIERCE , TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_PIERCE, TRUE, TRUE);
 	return;
 }
 
 /* age by Lotus */
-void spell_age(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_age(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 
-	if (affect_exists_on_char(victim, sn)) {
+	if (affect::exists_on_char(victim, affect::type::age)) {
 		act("$N is already aged beyond $S years.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -6806,8 +6789,8 @@ void spell_age(int sn, int level, Character *ch, void *vo, int target, int evolu
 		return;
 	}
 
-	affect_add_sn_to_char(victim,
-		sn,
+	affect::add_type_to_char(victim,
+		affect::type::age,
 		level,
 		level / 4,
 		evolution,
@@ -6825,7 +6808,7 @@ It's more of an annoyance than anything else.
 
 -- Outsider
 */
-void spell_starve(int sn, int level, Character *ch, void *vo, int target, int evolution)
+void spell_starve(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
 

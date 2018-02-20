@@ -5,7 +5,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "Clan.hh"
 #include "declare.hh"
@@ -542,7 +542,7 @@ void prepare_char(Character *ch, Duel *duel)
 		char_to_room(ch, duel->arena->defprep);
 
 	// strip spells
-	affect_remove_all_from_char(ch, FALSE);
+	affect::remove_all_from_char(ch, FALSE);
 
 	ch->hit  = GET_MAX_HIT(ch);
 	ch->mana = GET_MAX_MANA(ch);

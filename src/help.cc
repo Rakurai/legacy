@@ -25,12 +25,11 @@
 #include "sql.hh"
 #include "String.hh"
 
+const String stupidassline =
 #ifdef SEASON_CHRISTMAS
-char stupidassline[1000] =
-        "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-=-=-{f{P*{x{H-=-=-{f{Y*{x{H-=-=-{f{W*{x{H-=-=-{f{Y*{x{H-=-=-{f{P*{x{H-=-=-{f{V*{x{H-=-=-{f{B*{x{H-=-=-{f{C*{x{H-=-=-{f{G*{x\n\0";
+        "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-=-=-{f{P*{x{H-=-=-{f{Y*{x{H-=-=-{f{W*{x{H-=-=-{f{Y*{x{H-=-=-{f{P*{x{H-=-=-{f{V*{x{H-=-=-{f{B*{x{H-=-=-{f{C*{x{H-=-=-{f{G*{x\n";
 #else
-char stupidassline[1000] =
-        "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n\0";
+        "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n";
 #endif
 
 #define HTABLE "helps"

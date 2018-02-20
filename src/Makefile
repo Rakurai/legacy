@@ -9,7 +9,7 @@ $(shell mkdir -p $(DEPDIR) >/dev/null)
 $(shell mkdir -p $(OBJDIR) >/dev/null)
 
 CXX      = g++
-STD      = -std=c++0x
+STD      = -std=c++14
 WARNING  = -Wall -Winline -Wno-write-strings -Wno-format-security -Wno-sign-compare
 DEBUG    = -ggdb
 DEFINE   = -Dunix -DSQL -DDEBUG -DIPV6

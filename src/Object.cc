@@ -1,15 +1,15 @@
 #include "Object.hh"
 
-#include "affect_list.hh"
-#include "Affect.hh"
+#include "affect/affect_list.hh"
+#include "affect/Affect.hh"
 #include "ExtraDescr.hh"
 #include "macros.hh"
 #include "random.hh"
 
 Object::~Object() {
 	// data wholly owned by this obj
-	affect_clear_list(&this->affected);
-	affect_clear_list(&this->gem_affected);
+	affect::clear_list(&this->affected);
+	affect::clear_list(&this->gem_affected);
 
 	ExtraDescr *ed, *ed_next;
 	for (ed = this->extra_descr; ed != nullptr; ed = ed_next) {
@@ -41,7 +41,6 @@ void unique_item(Object *item)
 	    || item->item_type == ITEM_PORTAL
 	    || item->item_type == ITEM_TRASH
 	    || item->item_type == ITEM_KEY
-	    || item->item_type == ITEM_ROOM_KEY
 	    || item->item_type == ITEM_WEDDINGRING
 	    || item->item_type == ITEM_TOKEN
 	    || item->item_type == ITEM_JUKEBOX
@@ -150,16 +149,16 @@ void unique_item(Object *item)
 				mod = -1;
 		}
 
-		Affect af;
+		affect::Affect af;
 		af.where      = TO_OBJECT;
-		af.type       = 0;
+		af.type       = affect::type::none;
 		af.level      = item->level;
 		af.duration   = -1;
 		af.location   = loc;
 		af.modifier   = mod;
 		af.bitvector(0);
 		af.evolution  = 1;
-		affect_join_to_obj(item, &af);
+		affect::join_to_obj(item, &af);
 
 		added = TRUE;
 	}
@@ -266,15 +265,31 @@ void unique_item(Object *item)
 					--item->value[2];
 			}
 			else { /* flags, 20% chance */
+				affect::type type;
+
 				switch (number_range(1, 8)) {
-				case 1: item->value[4] ^= WEAPON_FLAMING;	break;
-				case 2: item->value[4] ^= WEAPON_FROST;		break;
-				case 3: item->value[4] ^= WEAPON_VAMPIRIC;	break;
-				case 4: item->value[4] ^= WEAPON_SHARP;		break;
-				case 5: item->value[4] ^= WEAPON_VORPAL;	break;
-				case 6: item->value[4] ^= WEAPON_TWO_HANDS;	break;
-				case 7: item->value[4] ^= WEAPON_SHOCKING;	break;
-				case 8: item->value[4] ^= WEAPON_POISON;	break;
+//				case 0: type = affect::type::weapon_acidic;   break;
+				case 1: type = affect::type::weapon_flaming;	break;
+				case 2: type = affect::type::weapon_frost;		break;
+				case 3: type = affect::type::weapon_vampiric;	break;
+				case 4: type = affect::type::weapon_sharp;		break;
+				case 5: type = affect::type::weapon_vorpal;	break;
+				case 6: type = affect::type::weapon_two_hands;	break;
+				case 7: type = affect::type::weapon_shocking;	break;
+				case 8: type = affect::type::poison;	break;
+				}
+
+				if (!affect::exists_on_obj(item, type)) {
+					affect::Affect af;
+					af.where        = TO_WEAPON;
+					af.type         = type;
+					af.level        = item->level;
+					af.duration     = -1;
+					af.location     = 0;
+					af.modifier     = 0;
+					af.bitvector(0);
+					af.evolution    = 1;
+					affect::copy_to_obj(item, &af);
 				}
 			}
 

@@ -18,11 +18,11 @@ inline void get_boolean(cJSON *obj, bool *target, const String& key) {
 		*target = (val->valueint != 0);
 }
 
-inline void get_short(cJSON *obj, sh_int *target, const String& key) {
+inline void get_short(cJSON *obj, void *target, const String& key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key.c_str());
 
 	if (val != nullptr)
-		*target = val->valueint;
+		*(sh_int *)target = val->valueint;
 }
 
 inline void get_int(cJSON *obj, int *target, const String& key) {

@@ -14,7 +14,7 @@
 
 #include "act.hh"
 #include "argument.hh"
-#include "Affect.hh"
+#include "affect/Affect.hh"
 #include "Area.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -37,6 +37,7 @@
 #include "QuestArea.hh"
 #include "random.hh"
 #include "RoomPrototype.hh"
+#include "skill/skill.hh"
 #include "String.hh"
 #include "tables.hh"
 
@@ -413,10 +414,10 @@ void quest_info(Character *ch)
 	return;
 }
 
-int get_random_skill(Character *ch)
+skill::type get_random_skill(Character *ch)
 {
 	int count;
-	int sn = 0;
+	skill::type sn;
 	int pass = 1;
 	int target = 0;
 
@@ -424,15 +425,19 @@ int get_random_skill(Character *ch)
 	while (pass != 0) {
 		count = 0;
 
-		for (sn = 0; sn < skill_table.size(); sn++) {
-			if (ch->pcdata->learned[sn] <= 0
-			    || ch->pcdata->learned[sn] >= 100)
+		for (const auto& pair : skill_table) {
+			sn = pair.first;
+
+			if (get_skill_level(ch, sn) <= 0
+			 || get_skill_level(ch, sn) >= 100)
 				continue;
 
-			if (skill_table[sn].remort_class > 0 && !CAN_USE_RSKILL(ch, sn))
+			const auto &entry = pair.second;
+
+			if (entry.remort_class > 0 && !CAN_USE_RSKILL(ch, sn))
 				continue;
 
-			if (skill_table[sn].skill_level[ch->cls] > ch->level)
+			if (entry.skill_level[ch->cls] > ch->level)
 				continue;
 
 			if (pass == 2 && count == target) {
@@ -445,7 +450,7 @@ int get_random_skill(Character *ch)
 
 		if (count == 0) { /* no skills or spells found */
 			pass = 0;
-			sn = -1;
+			sn = skill::type::unknown;
 		}
 
 		if (pass != 0) {
@@ -700,7 +705,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		return;
 	}
 
-	ATTR_BASE(ch, APPLY_SEX) = number_range(1, 2);
+	ATTR_BASE(questmob, APPLY_SEX) = number_range(1, 2);
 	questmob->level = ch->level;
 
 	/* generate name */
@@ -900,7 +905,7 @@ void generate_quest(Character *ch, Character *questman)
 			    || victim->act_flags.has(ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
-			    || affect_exists_on_char(victim, gsn_charm_person)
+			    || affect::exists_on_char(victim, affect::type::charm_person)
 			    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
 			    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
@@ -1127,7 +1132,6 @@ void do_quest(Character *ch, String argument)
 		int pointreward = 0;
 		int reward = 0;
 		int pracreward = 0;
-		int sn = 0;
 
 		if (get_position(ch) < POS_RESTING) {
 			stc("You are too busy sleeping.\n", ch);
@@ -1243,12 +1247,12 @@ void do_quest(Character *ch, String argument)
         	                gain_exp(ch, xp);
 			}
 
-			sn = get_random_skill(ch);
+			skill::type sn = get_random_skill(ch);
 
-			if (chance(20) && sn != -1) {
-				Format::sprintf(buf, "I will also teach you some of the finer points of %s.", skill_table[sn].name);
+			if (chance(20) && sn != skill::type::unknown) {
+				Format::sprintf(buf, "I will also teach you some of the finer points of %s.", skill::lookup(sn).name);
 				do_say(questman, buf);
-				ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill_table[sn].name);
+				ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill::lookup(sn).name);
 				check_improve(ch, sn, TRUE, -1); /* always improve */
 			}
 
@@ -1565,7 +1569,7 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (affect_exists_on_char(ch, gsn_curse)) {
+		if (affect::exists_on_char(ch, affect::type::curse)) {
 			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}

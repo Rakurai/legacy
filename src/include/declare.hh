@@ -10,7 +10,6 @@ typedef int sh_int;
 // Forward declarations of all major classes on the mud.  This may disappear as
 // things become less tightly coupled.
 class Actable;
-class Affect;
 class Area;
 class Battle;
 class Character;
@@ -55,12 +54,9 @@ class World;
  */
 typedef void DO_FUN     args( ( Character *ch, String argument ) );
 typedef bool SPEC_FUN   args( ( Character *ch ) );
-typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
-                                int target, int evolution) );
 
 #define DECLARE_DO_FUN( fun )           DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )         SPEC_FUN  fun
-#define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
 
 #define DIZZYPORT 3000
 
@@ -735,7 +731,7 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define ITEM_MAP                     28
 #define ITEM_PORTAL                  29
 #define ITEM_WARP_STONE              30
-#define ITEM_ROOM_KEY                31
+//#define ITEM_ROOM_KEY                31
 #define ITEM_GEM                     32
 #define ITEM_JEWELRY                 33
 #define ITEM_JUKEBOX                 34
@@ -833,6 +829,7 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define WEAPON_TWO_HANDS        (Flags::F)
 #define WEAPON_SHOCKING         (Flags::G)
 #define WEAPON_POISON           (Flags::H)
+#define WEAPON_ACIDIC           (Flags::I)
 
 /* gate flags */
 #define GATE_NORMAL_EXIT        (Flags::A)
@@ -1291,16 +1288,6 @@ typedef void SPELL_FUN  args( ( int sn, int level, Character *ch, void *vo,
 #define AREA_TYPE_ARENA 'R'
 #define AREA_TYPE_XXX   'X'
 #define AREA_TYPE_NORM  ' '
-
-/*
- * Types of attacks.
- * Must be non-overlapping with spell/skill types,
- * but may be arbitrary beyond that.
- */
-#define TYPE_UNDEFINED               -1
-#define TYPE_HIT                     1000
-
-
 
 /*
  *  Target types.
