@@ -1,0 +1,91 @@
+#AREA
+testarea.are~
+Test Area~
+{H{{ ALL } {MMontrey {TTest Area~
+300 350
+
+#REGION
+testarea.png~
+10 10
+R 300   0 200   0  * field
+R 301   0 100   0  * edge of field
+R 302 255 255 100  * beach
+R 303   0 100 200  * lake
+R 310 255   0   0  * entrance
+S
+
+#ROOMS
+
+#300
+Field~
+You are in a field.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#301
+Edge of the field~
+You are at the edge of a field, near some rocks.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#302
+The beach~
+You are on a sandy beach near the lake.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#303
+On the lake~
+You are out on the lake, in a boat or something.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#310
+Entrance~
+The entrance to the field.
+~
+0 0 1
+D0 ~ ~ 0 0 3365
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#0
+
+#MOBILES
+#0
+
+#OBJECTS
+#0
+
+#RESETS
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$

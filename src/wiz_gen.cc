@@ -1559,9 +1559,9 @@ void do_goto(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.is_number())
-		location = get_room(atoi(arg));
-	else {
+	location = get_room_world(ch, argument);
+
+	if (location == nullptr) {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != nullptr)
 			location = rch->in_room;
 

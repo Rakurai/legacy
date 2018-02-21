@@ -19,6 +19,8 @@
 #include "random.hh"
 #include "Reset.hh"
 #include "Room.hh"
+#include "RoomPrototype.hh"
+#include "worldmap/Region.hh"
 
 Area::Area(World& w, FILE *fp) :
 	world(w),
@@ -61,6 +63,17 @@ Area::
 
 	for (auto pair : obj_prototypes)
 		delete pair.second;
+
+	if (region != nullptr)
+		delete region;
+}
+
+void Area::
+load_region(FILE *fp) {
+	if (region != nullptr)
+		delete region;
+
+	region = new worldmap::Region(*this, fp);
 }
 
 void Area::

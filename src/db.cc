@@ -61,6 +61,8 @@
 #include "skill/skill.hh"
 #include "String.hh"
 #include "World.hh"
+#include "worldmap/Region.hh"
+#include "worldmap/MapColor.hh"
 
 extern  int     _filbuf         args((FILE *));
 extern void          affect::copy_to_list         args(( Affect **list_head, const affect::Affect *paf ));
@@ -125,6 +127,7 @@ void            mprog_read_programs     args((FILE *fp,
 */
 void    init_mm         args((void));
 void    load_area       args((FILE *fp));
+void    load_region     args((FILE *fp));
 void    load_mobiles    args((FILE *fp));
 void    load_objects    args((FILE *fp));
 void    load_resets     args((FILE *fp));
@@ -218,6 +221,7 @@ void boot_db()
 
 				if (word[0] == '$')  break;
 				else if (word == "AREA")  load_area(fpArea);
+				else if (word == "REGION")   load_region(fpArea);
 				else if (word == "MOBILES")  load_mobiles(fpArea);
 				else if (word == "OBJECTS")  load_objects(fpArea);
 				else if (word == "RESETS")  load_resets(fpArea);
@@ -308,6 +312,15 @@ void load_area(FILE *fp)
 {
 	area_last = new Area(Game::world(), fp);
 	Game::world().areas.push_back(area_last);
+}
+
+void load_region(FILE *fp) {
+	if (area_last == nullptr) {
+		boot_bug("Load_region: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	area_last->load_region(fp);
 }
 
 /*
@@ -469,6 +482,11 @@ void create_rooms() {
 			const auto& vnum = pair.first;
 			const auto prototype = pair.second;
 
+			// skip rooms associated with a region color
+			if (area->region != nullptr 
+			 && area->region->vnum_to_color(vnum) != worldmap::MapColor::uncolored)
+				continue;
+
 			Room *room = new Room(*prototype);
 
 			if (room == nullptr) {
@@ -478,6 +496,10 @@ void create_rooms() {
 
 			prototype->rooms.push_back(room);
 		}
+
+		// load rooms in region
+		if (area->region != nullptr)
+			area->region->load_rooms();
 	}
 }
 
@@ -499,6 +521,35 @@ void fix_exits(void)
 				for (int door = 0; door <= 5; door++) {
 					if (room->prototype.exit[door] == nullptr)
 						continue;
+
+					if (room->is_on_map() && room->prototype.exit[door]->to_vnum == 0) {
+						// an auto-exit to connect up rooms on the map
+						int from_x = room->coord.x;
+						int from_y = room->coord.y;
+						int to_x, to_y;
+
+						switch (door) {
+							case 0: to_x = from_x;   to_y = from_y-1; break;
+							case 1: to_x = from_x+1; to_y = from_y;   break;
+							case 2: to_x = from_x;   to_y = from_y+1; break;
+							case 3: to_x = from_x-1; to_y = from_y;   break;
+							default:
+								Logging::bugf("fix_exits: room %d has bad auto-exit in direction %d",
+									vnum, door);
+								continue;
+						}
+
+						Room *dest = area->world.maptree.get(to_x, to_y);
+
+						if (dest == nullptr)
+							continue; // no error, just no rooms in that direction
+fBootDb = FALSE;
+						room->exit[door] = new Exit(*room->prototype.exit[door]);
+fBootDb = TRUE;
+						room->exit[door]->to_room = dest;
+						found_exit = TRUE;
+						continue;
+					}
 
 					room->exit[door] = new Exit(*room->prototype.exit[door]);
 

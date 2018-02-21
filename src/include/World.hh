@@ -4,6 +4,8 @@
 #include "GameTime.hh"
 #include "Weather.hh"
 #include "QuestArea.hh"
+#include "worldmap/Quadtree.hh"
+#include "Room.hh"
 #include <vector>
 
 class World
@@ -20,6 +22,8 @@ public:
 	std::vector<Area *> areas;
 
 	Area *get_area(const Vnum&) const;
+
+	worldmap::Quadtree<Room> maptree{128};
 
 private:
 	World();

@@ -5,11 +5,15 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "RoomPrototype.hh"
+#include "worldmap/Coordinate.hh"
 
 class Room
 {
 public:
-	Room(const RoomPrototype& p) : prototype(p), room_flags(p.room_flags) {}
+	Room(const RoomPrototype& p) : 
+		prototype(p), room_flags(p.room_flags) {}
+	Room(const RoomPrototype& p, const worldmap::Coordinate& c) : 
+		prototype(p), room_flags(p.room_flags), coord(c) {}
 	virtual ~Room() {}
 
 	Character *		people = nullptr;
@@ -38,8 +42,11 @@ public:
 	int mana_rate() const { return prototype.mana_rate; }
 	const Vnum& tele_dest() const { return prototype.tele_dest; }
 
+	bool is_on_map() const { return coord.is_valid(); }
+
 	const RoomPrototype& prototype;
     Flags           room_flags; // copied from the prototype for room-specific things, such as NO_MOB from fix_exits
+	worldmap::Coordinate coord;
 
 private:
 	Room(const Room&);

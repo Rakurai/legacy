@@ -15,6 +15,7 @@ public:
     void load_rooms(FILE *fp);
     void load_mobiles(FILE *fp);
     void load_objects(FILE *fp);
+    void load_region(FILE *fp);// { region = new worldmap::Region(*this, fp); }
 
     ObjectPrototype *get_obj_prototype(const Vnum&);
     MobilePrototype *get_mob_prototype(const Vnum&);
@@ -28,6 +29,7 @@ public:
 
     // components
     World& world;
+
     String              file_name;
     String              name;
     String              credits;
@@ -51,6 +53,7 @@ public:
     // state
     int              age = 15;
 
+    worldmap::Region *region = nullptr;
 
     friend bool operator==(const Area&, const Area&);
     friend bool operator!=(const Area&, const Area&);
@@ -61,6 +64,7 @@ private:
     Area& operator=(const Area&);
 
     int scan_credits();
+
     /* pick a random room to reset into -- Montrey */
     Room *get_random_reset_room() const;
 };

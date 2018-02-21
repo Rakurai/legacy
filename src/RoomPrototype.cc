@@ -81,6 +81,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 			}
 
 			ExitPrototype *pexit = new ExitPrototype(fp);
+
 			exit[door] = pexit;
 			top_exit++;
 			break;

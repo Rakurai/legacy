@@ -8,13 +8,13 @@
 
 class Vnum {
 public:
-	Vnum(unsigned long v) : _value(constrain_value(v)) {}
+	Vnum(int v) : _value(v) {}
 
 	virtual ~Vnum() {}
-	Vnum(const Vnum& v) : _value(constrain_value(v._value)) {}
-	Vnum& operator=(const Vnum& v) { _value = constrain_value(v._value); return *this; }
+	Vnum(const Vnum& v) : _value(v._value) {}
+	Vnum& operator=(const Vnum& v) { _value = v._value; return *this; }
 
-	long value() const { return _value; }
+	int value() const { return _value; }
 
 	inline friend bool  operator<(const Vnum& lhs, const Vnum& rhs) { return lhs._value < rhs._value; }
 	inline friend bool  operator>(const Vnum& lhs, const Vnum& rhs) { return rhs < lhs; }
@@ -24,7 +24,5 @@ public:
 	inline friend bool operator!=(const Vnum& lhs, const Vnum& rhs) { return !(lhs == rhs); }
 
 private:
-	static unsigned long constrain_value(unsigned long v);
-
-	long _value = 0;
+	int _value = 0;
 };

@@ -3,3 +3,44 @@ go through and start eliminating things that look at a room's vnum, replacing se
 see if we can make area.num_players() do some kind of caching, and rebuild on an event like a player moving in
 
 figure out why -1 is special for an exit key, why can't 0 work?  maybe convert negateives to 0 on reading
+
+
+these are AREAs, each has its own set of obj vnums, mob vnums, etc
+could be small, allocate small chunks of vnums (~50?)
+generated rooms don't count against vnums, have special coding
+generated rooms have prototypes with real vnums
+	prototype vnum corresponds to a RGB value on the region map
+	new exit type 'auto', autoconnects to a generated room if exists
+	use real exits to connect to real vnums
+new area file section MAP
+	no need to specify file, use filename.png
+	need upper-left coordinate for alignment with world map
+	color mappings for rooms : vnum R G B
+
+player walks into room
+if it's a world map room:
+	update all NEW rooms within the player's visibility (visible_to++)
+	update all OLD rooms moving out of visibility (visible_to--)
+
+
+region is_needed() - prevents unloading rooms
+	check all rooms for visible_to > 0
+
+update()
+	loop over all regions
+		if !is_needed
+			increment unload_timer
+
+			if unload_timer > threshold (15min?)
+				unload region
+		else
+			set unload_timer to 0
+
+		**what to do with objects on ground?
+			objstate file?  bring them in next time region loads?  would be difficult on locate obj/summon etc, or stat
+			keep rooms with objects loaded?  can reuse is_worth_saving to determine
+				probably the simplest, region loading can just skip rooms already loaded
+	if unload timers counted down, unload
+
+
+** rework quadtree to use void pointers for children, they can store room pointers too to save space

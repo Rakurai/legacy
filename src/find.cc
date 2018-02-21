@@ -564,3 +564,22 @@ Object *get_obj_world(Character *ch, const String& argument)
 
 	return obj;
 }
+
+Room *get_room_world(Character *ch, const String& argument)
+{
+	String arg;
+	unsigned int number = number_argument(argument, arg);
+
+	if (!arg.is_number())
+		return nullptr;
+
+	Vnum vnum = atoi(arg);
+
+	auto proto = get_room_prototype(vnum);
+
+	if (proto != nullptr)
+		if (number <= proto->rooms.size())
+			return proto->rooms[number-1];
+
+	return nullptr;
+}

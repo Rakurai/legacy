@@ -50,6 +50,14 @@ class Game;
 class World;
 class Vnum;
 
+namespace worldmap {
+class Region;
+}
+
+namespace util {
+class Image;
+}
+
 /*
  * Function types.
  */
