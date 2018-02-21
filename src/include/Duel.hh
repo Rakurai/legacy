@@ -16,11 +16,11 @@ public:
         String  name;
         String  desc;
 
-        int     minvnum = 0;    /* actual arena, not prep rooms or view room */
-        int     maxvnum = 0;
-        RoomPrototype *chalprep = nullptr;
-        RoomPrototype *defprep = nullptr;
-        RoomPrototype *viewroom = nullptr;
+        Vnum minvnum = 0;    /* actual arena, not prep rooms or view room */
+        Vnum maxvnum = 0;
+        Room *chalprep = nullptr;
+        Room *defprep = nullptr;
+        Room *viewroom = nullptr;
 
         Duel::Arena *    previous = nullptr;
         Duel::Arena *    next = nullptr;

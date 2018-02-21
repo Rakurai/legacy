@@ -49,7 +49,7 @@
 #include "ObjectPrototype.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "tables.hh"
 #include "typename.hh"
@@ -1413,7 +1413,7 @@ void do_oset(Character *ch, String argument)
 void do_rset(Character *ch, String argument)
 {
 	char buf [MAX_STRING_LENGTH];
-	RoomPrototype *location;
+	Room *location;
 	int value;
 
 	String arg1, arg2, arg3;
@@ -1421,7 +1421,7 @@ void do_rset(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 	arg3 = argument;
 
-	if (arg1.empty() || arg2.empty() || arg3.empty()) {
+	if (arg1.empty() || arg2.empty()) {
 		stc("Syntax:\n", ch);
 		stc("  set room <location> <field> <value>\n", ch);
 		stc("  Field being one of:\n",                ch);
@@ -1437,8 +1437,32 @@ void do_rset(Character *ch, String argument)
 
 	if (!is_room_owner(ch, location) && ch->in_room != location
 	    &&  room_is_private(location) && !IS_IMP(ch)) {
-		Format::sprintf(buf, "I'm sorry, but %s is a private room.\n", location->name);
+		Format::sprintf(buf, "I'm sorry, but %s is a private room.\n", location->name());
 		stc(buf, ch);
+		return;
+	}
+
+	if (arg3.empty()) {
+		// this needs to reworked into a dynamic table to test values below
+		if (arg2.is_prefix_of("sector")) {
+			stc("Current sector types are:\n"
+			    "  0  inside\n"
+			    "  1  city\n"
+			    "  2  field\n"
+			    "  3  forest\n"
+			    "  4  hills\n"
+			    "  5  mountain\n"
+			    "  6  water_swim\n"
+			    "  7  water_noswim\n"
+			    "  8  (unused, don't pick)\n"
+			    "  9  air\n"
+			    " 10  desert\n"
+			    " 20  arena\n"
+			    " 21  clanarena\n", ch);
+			return;
+		}
+
+		do_rset(ch, "");
 		return;
 	}
 
@@ -1458,9 +1482,10 @@ void do_rset(Character *ch, String argument)
 	 */
 
 	if (arg2.is_prefix_of("sector")) {
-		location->sector_type   = value;
-		Format::sprintf(buf, "%s's sector type has been changed to %d.\n", location->name, value);
-		stc(buf, ch);
+		stc("Sorry, setting sector value is currently disabled.\n", ch);
+//		location->sector_type()   = value;
+//		Format::sprintf(buf, "%s's sector type has been changed to %d.\n", location->name, value);
+//		stc(buf, ch);
 		return;
 	}
 
@@ -1480,7 +1505,7 @@ void format_mstat(Character *ch, Character *victim)
 		    victim->pIndexData->count, victim->pIndexData->killed);
 
 	ptc(ch, "{WRoom: %d {CName: %s{x\n",
-	    victim->in_room == nullptr ? 0 : victim->in_room->vnum, victim->name);
+	    victim->in_room == nullptr ? 0 : victim->in_room->vnum(), victim->name);
 
 	if (!IS_NPC(victim))
 		ptc(ch, "{CRemort %d, {x", victim->pcdata->remort_count);
@@ -1688,7 +1713,7 @@ void format_ostat(Character *ch, Object *obj)
 
 	stc("\n", ch);
 	ptc(ch, "{PValue0 : %-7d{BCost     : %-13d{GIn room   : %d\n",
-	    obj->value[0], obj->cost, obj->in_room == nullptr ? 0 : obj->in_room->vnum);
+	    obj->value[0], obj->cost, obj->in_room == nullptr ? 0 : obj->in_room->vnum());
 	ptc(ch, "{PValue1 : %-7d{BCondition: %-13d{GIn object : %s\n",
 	    obj->value[1], obj->condition, obj->in_obj == nullptr ? "(none)" : obj->in_obj->short_descr);
 	ptc(ch, "{PValue2 : %-7d{BType     : %-13s{GIn %s : %s\n",
@@ -1817,34 +1842,34 @@ void format_ostat(Character *ch, Object *obj)
 
 }
 
-void format_rstat(Character *ch, RoomPrototype *location)
+void format_rstat(Character *ch, Room *location)
 {
 	String buf;
 	Object *obj;
 	Character *rch;
 	int door;
-	ptc(ch, "{W[%d] {gName: {P%s {W(%s){x\n", location->vnum, location->name, location->area->name);
+	ptc(ch, "{W[%d] {gName: {P%s {W(%s){x\n", location->vnum(), location->name(), location->area().name);
 	ptc(ch, "{YSector: %d\tLight: %d\tHealing: %d\tMana: %d{x\n",
-	    location->sector_type, location->light, location->heal_rate, location->mana_rate);
+	    location->sector_type(), location->light, location->heal_rate(), location->mana_rate());
 
-	if (location->clan)
-		ptc(ch, "{VClan: %s{x\n", location->clan->who_name);
+	if (location->clan())
+		ptc(ch, "{VClan: %s{x\n", location->clan()->who_name);
 
-	if (location->guild)
-		ptc(ch, "{VGuild: %s{x\n", class_table[location->guild].name);
+	if (location->guild())
+		ptc(ch, "{VGuild: %s{x\n", class_table[location->guild()].name);
 
-	ptc(ch, "{BDescription:{x\n%s\n", location->description);
+	ptc(ch, "{BDescription:{x\n%s\n", location->description());
 
-	if (location->extra_descr != nullptr) {
-		ExtraDescr *ed;
+	if (location->extra_descr() != nullptr) {
+		const ExtraDescr *ed;
 		stc("{BExtra description keywords: '{x", ch);
 
-		for (ed = location->extra_descr; ed; ed = ed->next)
+		for (ed = location->extra_descr(); ed; ed = ed->next)
 			ptc(ch, "%s{x%s", ed->keyword, ed->next == nullptr ? "{B.{x\n" : " ");
 	}
 
-	if (!GET_ROOM_FLAGS(location).empty())
-		ptc(ch, "{CRoom flags: %s{x\n", room_bit_name(GET_ROOM_FLAGS(location)));
+	if (!location->flags().empty())
+		ptc(ch, "{CRoom flags: %s{x\n", room_bit_name(location->flags()));
 
 	if (location->people) {
 		stc("{GCharacters:{x ", ch);
@@ -1870,11 +1895,11 @@ void format_rstat(Character *ch, RoomPrototype *location)
 
 		if ((pexit = location->exit[door]) != nullptr) {
 			ptc(ch, "{WDoor: %d -> %d{c (Key: %d) Exit flags: %d. Keyword: '%s'{x\n",
-			    door, (pexit->u1.to_room == nullptr ? -1 : pexit->u1.to_room->vnum),
-			    pexit->key, pexit->exit_flags, pexit->keyword);
+			    door, (pexit->to_room == nullptr ? -1 : pexit->to_room->vnum()),
+			    pexit->key(), pexit->exit_flags, pexit->keyword());
 
-			if (!pexit->description.empty())
-				ptc(ch, "{cDescription: %s{x", pexit->description);
+			if (!pexit->description().empty())
+				ptc(ch, "{cDescription: %s{x", pexit->description());
 		}
 	}
 
@@ -1892,7 +1917,7 @@ void format_rstat(Character *ch, RoomPrototype *location)
 /* main stat function */
 void do_stat(Character *ch, String argument)
 {
-	RoomPrototype *room;
+	Room *room;
 	Object *obj;
 	Character *vch;
 
@@ -1967,7 +1992,7 @@ void do_stat(Character *ch, String argument)
 	else if (arg1 == "room")        /* 'stat room' (current room) */
 		format_rstat(ch, ch->in_room);
 	else if (arg1.is_number()) {
-		if ((room = get_room_index(atoi(arg1))) == nullptr) {
+		if ((room = get_room(atoi(arg1))) == nullptr) {
 			stc("There is no room with that vnum.\n", ch);
 			return;
 		}
@@ -2129,7 +2154,7 @@ void do_pstat(Character *ch, String argument)
 	/* fighting in room 3001, in combat with Super Helga */
 	ptc(ch, "{W%s in room [%d]",
 	    position_table[victim->position].name,
-	    victim->in_room ? victim->in_room->vnum : 0);
+	    victim->in_room ? victim->in_room->vnum() : 0);
 
 	if (victim->fighting)
 		ptc(ch, ", {Rin combat{x with %s", victim->fighting->name);

@@ -41,7 +41,7 @@
 #include "Object.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 
 int channel_songs[MAX_GLOBAL + 1];
 std::vector<struct song_data> song_table;
@@ -50,7 +50,7 @@ void song_update(void)
 {
 	Object *obj;
 	Character *victim;
-	RoomPrototype *room;
+	Room *room;
 	Descriptor *d;
 	char buf[MAX_STRING_LENGTH];
 	String line;

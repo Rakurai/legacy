@@ -41,6 +41,7 @@
 #include "ExtraDescr.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "GameTime.hh"
 #include "interp.hh"
 #include "lookup.hh"
@@ -55,7 +56,7 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "skill/skill.hh"
 #include "String.hh"
 #include "World.hh"
@@ -258,10 +259,10 @@ void char_from_room(Character *ch)
 		Logging::bug("Char_from_room: nullptr.", 0);
 		return;
 	}
-
+/* possible place for an event for area.num_players
 	if (!IS_NPC(ch))
-		--ch->in_room->area->nplayer;
-
+		--ch->in_room->area()->nplayer;
+*/
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
 	    &&   obj->item_type == ITEM_LIGHT
 	    &&   obj->value[2] != 0
@@ -295,37 +296,37 @@ void char_from_room(Character *ch)
 /*
  * Move a char into a room.
  */
-void char_to_room(Character *ch, RoomPrototype *pRoomIndex)
+void char_to_room(Character *ch, Room *room)
 {
 	Object *obj;
 
 	if (ch == nullptr)
 		return;
 
-	if (pRoomIndex == nullptr) {
-		RoomPrototype *room;
+	if (room == nullptr) {
+		Room *room;
 		Logging::bug("Char_to_room: nullptr.", 0);
 		Logging::bug(ch->name, 0);
 
-		if ((room = get_room_index(ROOM_VNUM_TEMPLE)) != nullptr)
+		if ((room = get_room(ROOM_VNUM_TEMPLE)) != nullptr)
 			char_to_room(ch, room);
 
 		return;
 	}
 
-	ch->in_room         = pRoomIndex;
-	ch->next_in_room    = pRoomIndex->people;
-	pRoomIndex->people  = ch;
-
+	ch->in_room         = room;
+	ch->next_in_room    = room->people;
+	room->people  = ch;
+/* possible place for an event that affects area.num_players()
 	if (!IS_NPC(ch)) {
-		if (ch->in_room->area->empty) {
-			ch->in_room->area->empty = FALSE;
-			ch->in_room->area->age = 0;
+		if (ch->in_room->area()->empty) {
+			ch->in_room->area()->empty = FALSE;
+			ch->in_room->area()->age = 0;
 		}
 
-		++ch->in_room->area->nplayer;
+		++ch->in_room->area()->nplayer;
 	}
-
+*/
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
 	    &&   obj->item_type == ITEM_LIGHT
 	    &&   obj->value[2] != 0)
@@ -626,7 +627,7 @@ int count_obj_list(ObjectPrototype *pObjIndex, Object *list)
  */
 void obj_from_room(Object *obj)
 {
-	RoomPrototype *in_room;
+	Room *in_room;
 	Character *ch;
 
 	if ((in_room = obj->in_room) == nullptr) {
@@ -665,28 +666,28 @@ void obj_from_room(Object *obj)
 /*
  * Move an obj into a room.
  */
-void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
+void obj_to_room(Object *obj, Room *room)
 {
 	/* make sure there is a room to put the object in -- Elrac */
-	if (pRoomIndex == nullptr) {
+	if (room == nullptr) {
 		Logging::bug("obj_to_room: nullptr room", 0);
 		return;
 	}
 
 	/* Floating Rooms by Lotus - Idea from WWW site */
-	while (pRoomIndex->sector_type == SECT_AIR &&
+	while (room->sector_type() == SECT_AIR &&
 	       obj->wear_flags.has(ITEM_TAKE) &&
-	       pRoomIndex->exit[DIR_DOWN] &&
-	       pRoomIndex->exit[DIR_DOWN]->u1.to_room) {
-		RoomPrototype *new_room =
-		        pRoomIndex->exit[DIR_DOWN]->u1.to_room;
+	       room->exit[DIR_DOWN] &&
+	       room->exit[DIR_DOWN]->to_room) {
+		Room *new_room =
+		        room->exit[DIR_DOWN]->to_room;
 
 		if (new_room == nullptr)
 			break;
 
 		Character *rch;
 
-		if ((rch = pRoomIndex->people) != nullptr) {
+		if ((rch = room->people) != nullptr) {
 			act("$p falls away.", rch, obj, nullptr, TO_ROOM);
 			act("$p falls away.", rch, obj, nullptr, TO_CHAR);
 		}
@@ -696,12 +697,12 @@ void obj_to_room(Object *obj, RoomPrototype *pRoomIndex)
 			act("$p floats by.", rch, obj, nullptr, TO_CHAR);
 		}
 
-		pRoomIndex = new_room;
+		room = new_room;
 	}
 
-	obj->next_content           = pRoomIndex->contents;
-	pRoomIndex->contents        = obj;
-	obj->in_room                = pRoomIndex;
+	obj->next_content           = room->contents;
+	room->contents        = obj;
+	obj->in_room                = room;
 	obj->carried_by             = nullptr;
 	obj->in_obj                 = nullptr;
 	return;
@@ -817,7 +818,7 @@ void spill_contents(Object *obj, Object *contents) {
 		else if (obj->carried_by) {
 			if (number_range(0, 3) != 0
 			 || obj->carried_by->in_room == nullptr
-			 || obj->carried_by->in_room->sector_type == SECT_ARENA
+			 || obj->carried_by->in_room->sector_type() == SECT_ARENA
 			 || char_in_darena_room(obj->carried_by))
 				obj_to_char(t_obj, obj->carried_by);
 			else
@@ -919,7 +920,7 @@ void extract_char(Character *ch, bool fPull)
 
 	/* Death room is set in the clan table now */
 	if (!fPull) {
-		char_to_room(ch, get_room_index((ch->clan != nullptr) ? ch->clan->hall : ROOM_VNUM_ALTAR));
+		char_to_room(ch, get_room((ch->clan != nullptr) ? ch->clan->hall : ROOM_VNUM_ALTAR));
 		return;
 	}
 
@@ -1002,13 +1003,9 @@ void extract_char(Character *ch, bool fPull)
  */
 bool mob_exists(const char *name)
 {
-	MobilePrototype *index;
-	int i;
-	extern MobilePrototype *mob_index_hash[MAX_KEY_HASH];
-
-	for (i = 0; i < MAX_KEY_HASH; i++)
-		for (index = mob_index_hash[i]; index != nullptr; index = index->next)
-			if (index->player_name.has_exact_words(name))
+	for (const auto area : Game::world().areas)
+		for (const auto& pair : area->mob_prototypes)
+			if (pair.second->player_name.has_exact_words(name))
 				return TRUE;
 
 	return FALSE;
@@ -1255,7 +1252,7 @@ int get_true_weight(Object *obj)
 /*
  * True if room is dark.
  */
-bool room_is_dark(RoomPrototype *room)
+bool room_is_dark(Room *room)
 {
 	if (room == nullptr)
 		return TRUE;
@@ -1266,67 +1263,67 @@ bool room_is_dark(RoomPrototype *room)
 	if (room->light > 0)
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(room).has(ROOM_DARK))
+	if (room->flags().has(ROOM_DARK))
 		return TRUE;
 
-	if (room->sector_type == SECT_INSIDE
-	    || room->sector_type == SECT_CITY)
+	if (room->sector_type() == SECT_INSIDE
+	    || room->sector_type() == SECT_CITY)
 		return FALSE;
 
-	if (room->area->world.time.sunlight == GameTime::Night)
+	if (Game::world().time.sunlight == GameTime::Night)
 		return TRUE;
 
 	return FALSE;
 }
 
-bool room_is_very_dark(RoomPrototype *room)
+bool room_is_very_dark(Room *room)
 {
 	if (room == nullptr)
 		return TRUE;
 
-	if (GET_ROOM_FLAGS(room).has(ROOM_NOLIGHT))
+	if (room->flags().has(ROOM_NOLIGHT))
 		return TRUE;
 
 	return FALSE;
 }
 
-bool is_room_owner(Character *ch, RoomPrototype *room)
+bool is_room_owner(Character *ch, Room *room)
 {
-	if (room->owner.empty())
+	if (room->owner().empty())
 		return FALSE;
 
-	return room->owner.has_words(ch->name);
+	return room->owner().has_words(ch->name);
 }
 
 /*
  * True if room is private.
  */
-bool room_is_private(RoomPrototype *pRoomIndex)
+bool room_is_private(Room *room)
 {
 	Character *rch;
 	int count;
 
-	if (!pRoomIndex->owner.empty())
+	if (!room->owner().empty())
 		return TRUE;
 
 	count = 0;
 
-	for (rch = pRoomIndex->people; rch != nullptr; rch = rch->next_in_room)
+	for (rch = room->people; rch != nullptr; rch = rch->next_in_room)
 		count++;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_PRIVATE)  && count >= 2)
+	if (room->flags().has(ROOM_PRIVATE)  && count >= 2)
 		return TRUE;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_SOLITARY) && count >= 1)
+	if (room->flags().has(ROOM_SOLITARY) && count >= 1)
 		return TRUE;
 
 	return FALSE;
 }
 
 /* visibility on a room -- for entering and exits */
-bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
+bool can_see_room(Character *ch, Room *room)
 {
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_IMP_ONLY)
+	if (room->flags().has(ROOM_IMP_ONLY)
 	    &&  GET_RANK(ch) < RANK_IMP)
 		return FALSE;
 
@@ -1335,27 +1332,27 @@ bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 
 	/* restrictions below this line do not apply to immortals of any level. */
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_GODS_ONLY))
+	if (room->flags().has(ROOM_GODS_ONLY))
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_REMORT_ONLY)
+	if (room->flags().has(ROOM_REMORT_ONLY)
 	    && !IS_REMORT(ch))
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_HEROES_ONLY)
+	if (room->flags().has(ROOM_HEROES_ONLY)
 	    &&  !IS_HEROIC(ch))
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_NEWBIES_ONLY)
+	if (room->flags().has(ROOM_NEWBIES_ONLY)
 	    &&  ch->level > 5 && !ch->act_flags.has(PLR_MAKEBAG))
 		return FALSE;
 
 	/* can see other clanhall in times of war */
-	if (pRoomIndex->clan) {
+	if (room->clan()) {
 		/*
 		if (ch->clan)
 		  {
-		          if (clan->opponents(ch->clan, pRoomIndex->clan))
+		          if (clan->opponents(ch->clan, room->clan()))
 		                  return TRUE;
 		  }
 		*/
@@ -1363,22 +1360,22 @@ bool can_see_room(Character *ch, RoomPrototype *pRoomIndex)
 		/* Check if character has a master in the clan -- Outsider */
 		/* but only if they're a mob.  a pc following someone in a group has a master too -- Montrey */
 		if (IS_NPC(ch) && ch->master) {
-			if (ch->master->clan != pRoomIndex->clan)
+			if (ch->master->clan != room->clan())
 				return FALSE;
 		}
 		/* Only check if we have no master -- Outsider */
-		else if (ch->clan != pRoomIndex->clan && ch->inviters != pRoomIndex->clan)
+		else if (ch->clan != room->clan() && ch->inviters != room->clan())
 			return FALSE;
 	}
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_LEADER_ONLY)
+	if (room->flags().has(ROOM_LEADER_ONLY)
 	    && !ch->has_cgroup(GROUP_LEADER))
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)
+	if (room->flags().has(ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_FEMALE_ONLY) && GET_ATTR_SEX(ch) != SEX_FEMALE)
+	if (room->flags().has(ROOM_FEMALE_ONLY) && GET_ATTR_SEX(ch) != SEX_FEMALE)
 		return FALSE;
 
 	return TRUE;
@@ -1486,7 +1483,7 @@ bool can_see_who(const Character *ch, const Character *victim)
  * True if char can see characters and objects inside a room.  Not a permission thing,
  * but for darkness and vision.
  */
-bool can_see_in_room(Character *ch, RoomPrototype *room)
+bool can_see_in_room(Character *ch, Room *room)
 {
 	if (IS_IMMORTAL(ch))
 		return TRUE;
@@ -1718,7 +1715,7 @@ int interpolate(int level, int value_00, int value_32)
 }
 
 /* Get an extra description from a list. */
-ExtraDescr *get_extra_descr(const String& name, ExtraDescr *ed)
+const ExtraDescr *get_extra_descr(const String& name, const ExtraDescr *ed)
 {
 	for (; ed != nullptr; ed = ed->next)
 		if (ed->keyword.has_words(name))

@@ -65,7 +65,7 @@
 #include "memory.hh"
 #include "Note.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "sql.hh"
 #include "String.hh"
 
@@ -502,7 +502,7 @@ static void edit_done(Character *ch, const String& argument)
 		stc("OK, I'm saving {Yyour description{x.\n", ch);
 		ch->description = ed->edit_string;
 		break;
-
+/*
 	case EDIT_TYPE_ROOM:
 		if (ch->in_room == nullptr) {
 			stc("{PI'm sorry, you don't seem to be in a room.{x\n", ch);
@@ -510,9 +510,9 @@ static void edit_done(Character *ch, const String& argument)
 		}
 
 		stc("OK, I'm saving your {Yroom description{x.\n", ch);
-		ch->in_room->description = ed->edit_string;
+		ch->in_room->prototype.description = ed->edit_string;
 		break;
-
+*/
 	case EDIT_TYPE_HELP:
 		if (db_commandf("edit_done", "update helps set text='%s' where id=%d", db_esc(ed->edit_string), ed->edit_id))
 			ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n", ed->edit_id);
@@ -599,7 +599,7 @@ static void edit_note(Character *ch, const String& argument)
 	edit_goto1(ch, 1);
 	edit_status(ch, "");
 } /* end edit_note() */
-
+/*
 static void edit_room(Character *ch, const String& argument)
 {
 	if (ch->edit != nullptr) {
@@ -616,12 +616,13 @@ static void edit_room(Character *ch, const String& argument)
 	ed = new Edit;
 	ch->edit = ed;
 	ed->edit_type = EDIT_TYPE_ROOM;
-	strcpy(ed->edit_string, ch->in_room->description);
+	strcpy(ed->edit_string, ch->in_room->description());
 	backup();
 	ed->edit_nlines = count_lines();
 	edit_goto1(ch, 1);
 	edit_status(ch, "");
-} /* end edit_room() */
+} */
+ /* end edit_room() */
 
 static void edit_help(Character *ch, const String& argument)
 {
@@ -903,7 +904,8 @@ void do_edit(Character *ch, String argument)
 	}
 
 	if (IS_IMMORTAL(ch) && arg.is_prefix_of("room")) {
-		edit_room(ch, argument);
+		stc("Sorry, editing rooms is currently disabled.\n", ch);
+//		edit_room(ch, argument);
 		return;
 	}
 

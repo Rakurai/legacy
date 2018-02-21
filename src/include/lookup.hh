@@ -2,7 +2,7 @@
 
 #include "declare.hh"
 
-Clan *clan_vnum_lookup	args((int vnum));
+Clan *clan_vnum_lookup	args((const Vnum& vnum));
 Clan *	clan_lookup		args((const String& name));
 int		position_lookup		args((const String& name));
 int 	sex_lookup		args((const String& name));

@@ -12,7 +12,7 @@
 #include "MobProg.hh"
 #include "Object.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "Tail.hh"
 
@@ -291,8 +291,8 @@ void act_parse(
     /* viewing room stuff */
     if (!censor && (type == TO_ROOM || type == TO_NOTVICT || type == TO_VIEW)) {
         while (arena != arena_table_tail) {
-            if (ch->in_room->vnum >= arena->minvnum
-                && ch->in_room->vnum <= arena->maxvnum)
+            if (ch->in_room->vnum() >= arena->minvnum
+                && ch->in_room->vnum() <= arena->maxvnum)
                 break;
 
             arena = arena->next;
@@ -326,7 +326,7 @@ void act_parse(
 
     if (format.has_prefix("$n has arrived.")) {
         Format::sprintf(fake_message, "$n has arrived at %s (%s).",
-                ch->in_room->name, ch->in_room->area->file_name);
+                ch->in_room->name(), ch->in_room->area().file_name);
         format = fake_message;
     }
 

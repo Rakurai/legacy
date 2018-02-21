@@ -51,7 +51,7 @@
 #include "ObjectPrototype.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "gem/gem.hh"
 
@@ -280,8 +280,8 @@ cJSON *fwrite_player(Character *ch)
 	JSON::addStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
 	JSON::addStringToObject(o,		"LSav",			dizzy_ctime(&ch->pcdata->last_saved));
 
-	if (ch->pcdata->mark_room)
-		cJSON_AddNumberToObject(o,	"Mark",			ch->pcdata->mark_room);
+	if (ch->pcdata->mark_room > 0)
+		cJSON_AddNumberToObject(o,	"Mark",			ch->pcdata->mark_room.value());
 
 	cJSON_AddNumberToObject(o,		"Mexp",			ch->pcdata->mud_exp);
 
@@ -509,11 +509,11 @@ cJSON *fwrite_char(Character *ch)
 	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
 	JSON::addStringToObject(o,		"Revk",			ch->revoke_flags.to_string());
 	cJSON_AddNumberToObject(o,		"Room",			
-		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != nullptr)
-	        ? ch->was_in_room->vnum
+		(ch->in_room == get_room(ROOM_VNUM_LIMBO) && ch->was_in_room != nullptr)
+	        ? ch->was_in_room->vnum().value()
 	        : ch->in_room == nullptr
 	        ? 3001
-	        : ch->in_room->vnum);
+	        : ch->in_room->vnum().value());
 
 	cJSON_AddNumberToObject(o,		"Scro",			ch->lines);
 	cJSON_AddNumberToObject(o,		"Sex",			ATTR_BASE(ch, APPLY_SEX));
@@ -543,7 +543,7 @@ cJSON *fwrite_pet(Character *pet)
 {
 	cJSON *o = fwrite_char(pet);
 
-	cJSON_AddNumberToObject(o, "Vnum", pet->pIndexData->vnum);
+	cJSON_AddNumberToObject(o, "Vnum", pet->pIndexData->vnum.value());
 
 	if (ATTR_BASE(pet, APPLY_SAVES) != 0)
 		cJSON_AddNumberToObject(o, "Save", ATTR_BASE(pet, APPLY_SAVES));
@@ -633,7 +633,7 @@ cJSON *fwrite_obj(Object *obj)
 	    cJSON_AddItemToObject(o,	"Val",			cJSON_CreateIntArray(arr, 5));
 	}
 
-	cJSON_AddNumberToObject(o,		"Vnum",			obj->pIndexData->vnum);
+	cJSON_AddNumberToObject(o,		"Vnum",			obj->pIndexData->vnum.value());
 
 	if (obj->wear_loc != WEAR_NONE)
 		cJSON_AddNumberToObject(o,	"Wear",			obj->wear_loc);
@@ -748,7 +748,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 		// fix up character stuff here
 		if (ch->in_room == nullptr)
-			ch->in_room = get_room_index(ROOM_VNUM_LIMBO);
+			ch->in_room = get_room(ROOM_VNUM_LIMBO);
 
 		if (ch->secure_level > GET_RANK(ch))
 			ch->secure_level = GET_RANK(ch);
@@ -1289,7 +1289,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 				break;
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));
-				INTKEY("Room",			ch->in_room,				get_room_index(o->valueint));
+				INTKEY("Room",			ch->in_room,				get_room(o->valueint));
 				FLAGKEY("Revk",			ch->revoke_flags,					o->valuestring);
 				break;
 			case 'S':

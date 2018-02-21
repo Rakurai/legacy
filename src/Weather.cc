@@ -8,7 +8,7 @@
 #include "macros.hh"
 #include "merc.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 
 Weather::
 Weather(const GameTime& t) :

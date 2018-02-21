@@ -2,6 +2,7 @@
 
 #include "declare.hh"
 #include "String.hh"
+#include "Vnum.hh"
 
 class Clan
 {
@@ -12,8 +13,8 @@ public:
     String  name;
     String  who_name;
     int      hall = 0;
-    int      area_minvnum = 0;
-    int      area_maxvnum = 0;
+    Vnum      area_minvnum = 0;
+    Vnum      area_maxvnum = 0;
     bool        independent = FALSE; /* true for loners and imm clans */
     long        clanqp = 0;
     long        gold_balance = 0;

@@ -390,7 +390,7 @@ void unique_item(Object *item)
 		*/
 
 		/* enable below 2 lines for testing */
-		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == nullptr ? 0 : item->in_room->vnum);
+		/*              Format::sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == nullptr ? 0 : item->in_room->vnum());
 		                Logging::bug(buf,0); */
 	}
 }

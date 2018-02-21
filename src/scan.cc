@@ -35,7 +35,7 @@
 #include "lookup.hh"
 #include "macros.hh"
 #include "merc.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 char *const distance[4] = {
@@ -45,14 +45,14 @@ char *const distance[4] = {
 	"off in the distance "
 };
 
-void    scan_list       args((RoomPrototype *scan_room, Character *ch, int depth, int door));
-void    scan_room       args((RoomPrototype *room, Character *ch, int depth, int door, Exit *pexit));
+void    scan_list       args((Room *scan_room, Character *ch, int depth, int door));
+void    scan_room       args((Room *room, Character *ch, int depth, int door, Exit *pexit));
 void    scan_char       args((Character *victim, Character *ch, int depth, int door));
 
 void do_scan2(Character *ch, String argument)
 {
 	char buf[MIL];
-	RoomPrototype *room;
+	Room *room;
 	Exit *pExit;
 	int door, depth;
 
@@ -67,12 +67,12 @@ void do_scan2(Character *ch, String argument)
 
 		for (door = 0; door < 6; door++) {
 			if ((pExit = ch->in_room->exit[door]) == nullptr
-			    || (pExit->u1.to_room) == nullptr
-			    || !can_see_room(ch, pExit->u1.to_room)
-			    || !can_see_in_room(ch, pExit->u1.to_room))
+			    || (pExit->to_room) == nullptr
+			    || !can_see_room(ch, pExit->to_room)
+			    || !can_see_in_room(ch, pExit->to_room))
 				continue;
 
-			scan_room(pExit->u1.to_room, ch, 1, door, pExit);
+			scan_room(pExit->to_room, ch, 1, door, pExit);
 			/*
 			                        if (pExit->exit_flags.has(EX_CLOSED))
 			                        {
@@ -81,8 +81,8 @@ void do_scan2(Character *ch, String argument)
 			                                continue;
 			                        }
 
-			                        scan_room(pExit->u1.to_room, ch, door);
-			                        scan_list(pExit->u1.to_room, ch, 1, door);
+			                        scan_room(pExit->to_room, ch, door);
+			                        scan_list(pExit->to_room, ch, 1, door);
 			*/
 		}
 
@@ -106,11 +106,11 @@ void do_scan2(Character *ch, String argument)
 
 	for (depth = 1; depth < 4; depth++) {
 		if ((pExit = room->exit[door]) == nullptr
-		    || (pExit->u1.to_room) == nullptr
-		    || !can_see_room(ch, pExit->u1.to_room))
+		    || (pExit->to_room) == nullptr
+		    || !can_see_room(ch, pExit->to_room))
 			continue;
 
-		if (!can_see_in_room(ch, pExit->u1.to_room)) {
+		if (!can_see_in_room(ch, pExit->to_room)) {
 			stc("It is too dark to see any farther in that direction.\n", ch);
 			break;
 		}
@@ -120,15 +120,15 @@ void do_scan2(Character *ch, String argument)
 			break;
 		}
 
-		room = pExit->u1.to_room;
-		scan_list(pExit->u1.to_room, ch, depth, door);
+		room = pExit->to_room;
+		scan_list(pExit->to_room, ch, depth, door);
 	}
 }
 
 void do_scan(Character *ch, String argument)
 {
 	char buf[MIL];
-	RoomPrototype *scan_room;
+	Room *scan_room;
 	Exit *pExit;
 	int door, depth;
 
@@ -142,9 +142,9 @@ void do_scan(Character *ch, String argument)
 
 		for (door = 0; door < 6; door++) {
 			if ((pExit = ch->in_room->exit[door]) == nullptr
-			    || (pExit->u1.to_room) == nullptr
-			    || !can_see_room(ch, pExit->u1.to_room)
-			    || !can_see_in_room(ch, pExit->u1.to_room))
+			    || (pExit->to_room) == nullptr
+			    || !can_see_room(ch, pExit->to_room)
+			    || !can_see_in_room(ch, pExit->to_room))
 				continue;
 
 			if (pExit->exit_flags.has(EX_CLOSED)) {
@@ -152,7 +152,7 @@ void do_scan(Character *ch, String argument)
 				continue;
 			}
 
-			scan_list(pExit->u1.to_room, ch, 1, door);
+			scan_list(pExit->to_room, ch, 1, door);
 		}
 
 		return;
@@ -175,11 +175,11 @@ void do_scan(Character *ch, String argument)
 
 	for (depth = 1; depth < 4; depth++) {
 		if ((pExit = scan_room->exit[door]) == nullptr
-		    || (pExit->u1.to_room) == nullptr
-		    || !can_see_room(ch, pExit->u1.to_room))
+		    || (pExit->to_room) == nullptr
+		    || !can_see_room(ch, pExit->to_room))
 			continue;
 
-		if (!can_see_in_room(ch, pExit->u1.to_room)) {
+		if (!can_see_in_room(ch, pExit->to_room)) {
 			stc("It is too dark to see any farther in that direction.\n", ch);
 			break;
 		}
@@ -189,12 +189,12 @@ void do_scan(Character *ch, String argument)
 			break;
 		}
 
-		scan_room = pExit->u1.to_room;
-		scan_list(pExit->u1.to_room, ch, depth, door);
+		scan_room = pExit->to_room;
+		scan_list(pExit->to_room, ch, depth, door);
 	}
 }
 
-void scan_room(RoomPrototype *room, Character *ch, int depth, int door, Exit *pexit)
+void scan_room(Room *room, Character *ch, int depth, int door, Exit *pexit)
 {
 	ptc(ch, "{G(%5s){x ",
 	    door == -1 ? "here" : Exit::dir_name(door)
@@ -204,14 +204,14 @@ void scan_room(RoomPrototype *room, Character *ch, int depth, int door, Exit *pe
 		stc("{Y(closed){x\n", ch);
 	else
 		ptc(ch, "%s {B(%s){x\n",
-		    room->name,
-		    sector_lookup(room->sector_type)
+		    room->name(),
+		    sector_lookup(room->sector_type())
 		   );
 
 	scan_list(room, ch, depth, door);
 }
 
-void scan_list(RoomPrototype *scan_room, Character *ch, int depth, int door)
+void scan_list(Room *scan_room, Character *ch, int depth, int door)
 {
 	Character *rch;
 

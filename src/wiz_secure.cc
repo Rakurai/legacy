@@ -42,7 +42,7 @@ void do_fod(Character *ch, String argument)
 	char buf[MSL];
 	Character *victim = nullptr;
 	char *msg = "In the distance you hear the thundering roar of a Finger Of Death!";
-	RoomPrototype *ch_room, *victim_room;
+	Room *ch_room, *victim_room;
 	Object *on;
 
 	if (argument.empty()) {

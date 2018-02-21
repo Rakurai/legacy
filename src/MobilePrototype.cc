@@ -7,8 +7,10 @@
 #include "merc.hh"
 
 MobilePrototype::
-MobilePrototype(FILE *fp, int vnum) {
-	this->vnum           = vnum;
+MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
+	area(area),
+	vnum(vnum)
+{
 	player_name          = fread_string(fp);
 	short_descr          = fread_string(fp);
 	long_descr           = fread_string(fp).capitalize();
@@ -80,7 +82,7 @@ MobilePrototype(FILE *fp, int vnum) {
 	sex              = sex_lookup(fread_word(fp));
 
 	if (sex < 0) {
-		Logging::bug("Load_mobiles: bad sex for vnum %d.", vnum);
+		Logging::bugf("Load_mobiles: bad sex for vnum %d.", vnum);
 		exit(1);
 	}
 
@@ -91,7 +93,7 @@ MobilePrototype(FILE *fp, int vnum) {
 	size                 = size_lookup(fread_word(fp));
 
 	if (size < 0) {
-		Logging::bug("Load_mobiles: bad size for vnum %d.", vnum);
+		Logging::bugf("Load_mobiles: bad size for vnum %d.", vnum);
 		exit(1);
 	}
 

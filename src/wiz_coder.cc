@@ -40,7 +40,7 @@
 #include "ObjectPrototype.hh"
 #include "Player.hh"
 #include "Reset.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "Shop.hh"
 #include "Social.hh"
 #include "String.hh"
@@ -453,6 +453,8 @@ void do_relevel(Character *ch, String argument)
 
 void do_addexit(Character *ch, String argument)
 {
+	stc("Sorry, adding and removing exits is currently disabled.\n", ch);
+	/*
 	Exit *exit;
 	int dir;
 
@@ -469,7 +471,7 @@ void do_addexit(Character *ch, String argument)
 		return;
 	}
 
-	if (get_room_index(atoi(arg1)) == nullptr) {
+	if (get_room(atoi(arg1)) == nullptr) {
 		stc("No such room with that vnum exists.\n", ch);
 		return;
 	}
@@ -493,15 +495,17 @@ void do_addexit(Character *ch, String argument)
 	exit = new Exit;
 	exit->key                       = -1;
 	exit->u1.vnum                   = atoi(arg1);
-	exit->u1.to_room                = get_room_index(exit->u1.vnum);
+	exit->to_room                = get_room(exit->u1.vnum);
 	ch->in_room->exit[dir]          = exit;
-	ch->in_room->old_exit[dir]      = exit;
 	top_exit++;
 	stc("Exit added.\n", ch);
+	*/
 }
 
 void do_remexit(Character *ch, String argument)
 {
+	stc("Sorry, adding and removing exits is currently disabled.\n", ch);
+	/*
 	int dir;
 
 	if (ch->in_room == nullptr)
@@ -532,47 +536,12 @@ void do_remexit(Character *ch, String argument)
 		return;
 	}
 
-	/* this is sloppy, but this command will be used once in a blue moon.
-	   just abandon the exit :P */
+	// this is sloppy, but this command will be used once in a blue moon.
+	// just abandon the exit :P 
 	ch->in_room->exit[dir] = nullptr;
-	ch->in_room->old_exit[dir] = nullptr;
 	top_exit--;
 	stc("Exit removed.\n", ch);
-}
-
-void do_sectchange(Character *ch, String argument)
-{
-	int sect;
-
-	if (ch->in_room == nullptr)
-		return;
-
-	if (argument.empty()
-	    || !argument.is_number()
-	    || (sect = atoi(argument)) < 0
-	    || (sect > 10 && sect < 20)
-	    || sect > 21) {
-		stc("Syntax:\n"
-		    "  sectchange <sector type number>\n\n"
-		    "Current sector types are:\n"
-		    "  0  inside\n"
-		    "  1  city\n"
-		    "  2  field\n"
-		    "  3  forest\n"
-		    "  4  hills\n"
-		    "  5  mountain\n"
-		    "  6  water_swim\n"
-		    "  7  water_noswim\n"
-		    "  8  (unused, don't pick)\n"
-		    "  9  air\n"
-		    " 10  desert\n"
-		    " 20  arena\n"
-		    " 21  clanarena\n", ch);
-		return;
-	}
-
-	ch->in_room->sector_type = sect;
-	stc("Sector type changed.\n", ch);
+*/
 }
 
 void do_memory(Character *ch, String argument)
@@ -586,7 +555,7 @@ void do_memory(Character *ch, String argument)
 	ptc(ch, "Descrs  %5d allocated, %5d free, %5d B each\n", Descriptor::pool_allocated(), Descriptor::pool_free(), sizeof(Descriptor));
 	ptc(ch, "Objs    %5d allocated, %5d free, %5d B each\n", Object::pool_allocated(), Object::pool_free(), sizeof(Object));
 	ptc(ch, "Resets  %5d,                       %5d B each\n", top_reset, sizeof(Reset));
-	ptc(ch, "Rooms   %5d,                       %5d B each\n", top_room, sizeof(RoomPrototype));
+	ptc(ch, "Rooms   %5d,                       %5d B each\n", top_room, sizeof(Room));
 	ptc(ch, "Shops   %5d,                       %5d B each\n", top_shop, sizeof(Shop));
 	ptc(ch, "Clans   %5d,                       %5d B each\n", count_clans(), sizeof(Clan));
 	ptc(ch, "Characters in storage  %5d\n", count_stored_characters());
@@ -601,7 +570,7 @@ void do_dump(Character *ch, String argument)
 	Player *pc;
 	Object *obj;
 	ObjectPrototype *pObjIndex;
-	RoomPrototype *room;
+	Room *room;
 	Exit *exit;
 	Descriptor *d;
 	FILE *fp;

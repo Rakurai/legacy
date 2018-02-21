@@ -58,7 +58,7 @@
 #include "Player.hh"
 #include "QuestArea.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "Shop.hh"
 #include "skill/skill.hh"
 #include "String.hh"
@@ -156,7 +156,7 @@ bool clan_eq_ok(Character *ch, Object *obj, const String& action)
 */
 bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 {
-	ExtraDescr *pdesc;
+	const ExtraDescr *pdesc;
 	char owner[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 
@@ -185,7 +185,7 @@ bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 		return TRUE;
 
 	if (obj->short_descr.empty()) {
-		Logging::bug("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
+		Logging::bugf("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
 		obj->short_descr = "something";
 	}
 
@@ -579,7 +579,7 @@ void do_get(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
-			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LOCKER)) {
+			if (ch->in_room->flags().has(ROOM_LOCKER)) {
 				if (ch->act_flags.has(PLR_CLOSED)) {
 					int number = get_locker_number(ch);
 
@@ -646,7 +646,7 @@ void do_get(Character *ch, String argument)
 				return;
 			}
 
-			if (!ch->in_room || ch->in_room->vnum != ROOM_VNUM_STRONGBOX) {
+			if (!ch->in_room || ch->in_room->vnum() != ROOM_VNUM_STRONGBOX) {
 				stc("You do not see your strongbox here.\n", ch);
 				return;
 			}
@@ -828,7 +828,7 @@ void do_put(Character *ch, String argument)
 
 	/* locker stuff */
 	if (!IS_NPC(ch) && arg2.is_prefix_of("locker")) {
-		if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_LOCKER)) {
+		if (!ch->in_room->flags().has(ROOM_LOCKER)) {
 			stc("You do not see a locker in this room.\n", ch);
 			return;
 		}
@@ -894,7 +894,7 @@ void do_put(Character *ch, String argument)
 			return;
 		}
 
-		if (!ch->in_room || ch->in_room->vnum != ROOM_VNUM_STRONGBOX) {
+		if (!ch->in_room || ch->in_room->vnum() != ROOM_VNUM_STRONGBOX) {
 			stc("There is no strongbox here.\n", ch);
 			return;
 		}
@@ -1203,13 +1203,12 @@ void do_drop(Character *ch, String argument)
 		return;
 	}
 	else {
-		int obj_vnum;
 		Object *op, *obj_next;
 		int count = 1;
 		/* drop <number> items, where <number> > 1. */
 		/* obtain vnum for the first object and count how many more of the
 		   same vnum the character has available and is able to drop. */
-		obj_vnum = obj->pIndexData->vnum;
+		const Vnum& obj_vnum = obj->pIndexData->vnum;
 
 		for (op = obj->next_content; op; op = op->next_content) {
 			if (op->pIndexData->vnum != obj_vnum)
@@ -1697,11 +1696,11 @@ void do_firebuilding(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::firebuilding))
 		return;
 
-	if ((ch->in_room->sector_type == SECT_CITY)
-	    || (ch->in_room->sector_type == SECT_WATER_SWIM)
-	    || (ch->in_room->sector_type == SECT_WATER_NOSWIM)
-	    || (ch->in_room->sector_type == SECT_DESERT)
-	    || (ch->in_room->sector_type == SECT_AIR)) {
+	if ((ch->in_room->sector_type() == SECT_CITY)
+	    || (ch->in_room->sector_type() == SECT_WATER_SWIM)
+	    || (ch->in_room->sector_type() == SECT_WATER_NOSWIM)
+	    || (ch->in_room->sector_type() == SECT_DESERT)
+	    || (ch->in_room->sector_type() == SECT_AIR)) {
 		stc("You cannot find any twigs to make a torch.\n", ch);
 		return;
 	}
@@ -2031,7 +2030,7 @@ void do_drink(Character *ch, String argument)
 	}
 
 	if (obj->value[0] > 0) {
-		obj->value[1] = UMAX(obj->value[1] - amount, 0);
+		obj->value[1] = UMAX((int)obj->value[1] - amount, 0);
 
 		/* if container is now empty, remove the poison */
 		if (obj->value[1] == 0)
@@ -2043,7 +2042,6 @@ void do_eat(Character *ch, String argument)
 {
 	Object *obj, *op, *obj_next;
 	int number, count;
-	int obj_vnum;
 	bool fFull = FALSE, fNoLongerHungry = FALSE, fPoisoned = FALSE, found = FALSE;
 	Object *to_extract = nullptr;
 
@@ -2117,7 +2115,7 @@ void do_eat(Character *ch, String argument)
 	}
 
 	/* They have enough. Loop thru <number> items with that vnum and gobble. */
-	obj_vnum = obj->pIndexData->vnum;
+	const Vnum& obj_vnum = obj->pIndexData->vnum;
 	count = 0;
 
 	for (op = obj; op && !fFull; op = obj_next) {
@@ -2654,7 +2652,7 @@ void do_donate(Character *ch, String argument)
 			return;
 		}
 
-		obj_to_room(donation_pit, get_room_index(ROOM_VNUM_ALTAR));
+		obj_to_room(donation_pit, get_room(ROOM_VNUM_ALTAR));
 	}
 
 	if (argument.empty()) {
@@ -3452,9 +3450,9 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->sector_type == SECT_CLANARENA
-	    || (victim->in_room->area == Game::world().quest.area && !Game::world().quest.pk)
+	if (victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->sector_type() == SECT_CLANARENA
+	    || (victim->in_room->area() == Game::world().quest.area() && !Game::world().quest.pk)
 	    || char_in_duel_room(victim)) {
 		stc("You are here to do battle, not to steal!\n", ch);
 		return;
@@ -3705,12 +3703,12 @@ Character *find_keeper(Character *ch)
 	/*
 	 * Shop hours.
 	 */
-	if (keeper->in_room->area->world.time.hour < pShop->open_hour) {
+	if (keeper->in_room->area().world.time.hour < pShop->open_hour) {
 		do_say(keeper, "Sorry, I am closed.");
 		return nullptr;
 	}
 
-	if (keeper->in_room->area->world.time.hour > pShop->close_hour) {
+	if (keeper->in_room->area().world.time.hour > pShop->close_hour) {
 		do_say(keeper, "Sorry, I am closed.");
 		return nullptr;
 	}
@@ -3871,12 +3869,12 @@ void do_buy(Character *ch, String argument)
 		return;
 	}
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_PET_SHOP)) {
+	if (ch->in_room->flags().has(ROOM_PET_SHOP)) {
 		/* PETS */
 		char buf[MAX_STRING_LENGTH];
 		Character *pet;
-		RoomPrototype *pRoomIndexNext;
-		RoomPrototype *in_room;
+		Room *roomNext;
+		Room *in_room;
 
 		if (IS_NPC(ch))
 			return;
@@ -3885,23 +3883,23 @@ void do_buy(Character *ch, String argument)
 		argument = one_argument(argument, arg);
 
 		/* hack to make new thalos pets work */
-		if (ch->in_room->vnum == 9621)
-			pRoomIndexNext = get_room_index(9706);
+		if (ch->in_room->vnum() == 9621)
+			roomNext = get_room(9706);
 		else
-			pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
+			roomNext = get_room(ch->in_room->vnum().value() + 1);
 
-		if (pRoomIndexNext == nullptr) {
-			Logging::bug("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum);
+		if (roomNext == nullptr) {
+			Logging::bugf("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum());
 			stc("Sorry, we don't sell those.  If you'd like to see my manager...\n", ch);
 			return;
 		}
 
 		in_room     = ch->in_room;
-		ch->in_room = pRoomIndexNext;
+		ch->in_room = roomNext;
 		pet         = get_char_here(ch, arg, VIS_CHAR);
 		ch->in_room = in_room;
 
-		if (ch->in_room->guild && ch->in_room->guild != ch->cls + 1 && !IS_IMMORTAL(ch)) {
+		if (ch->in_room->guild() && ch->in_room->guild() != ch->cls + 1 && !IS_IMMORTAL(ch)) {
 			stc("Sorry, members only.\n", ch);
 			return;
 		}
@@ -4021,7 +4019,7 @@ void do_buy(Character *ch, String argument)
 		if ((keeper = find_keeper(ch)) == nullptr)
 			return;
 
-		if (keeper->in_room->guild && keeper->in_room->guild != ch->cls + 1 && !IS_IMMORTAL(ch)) {
+		if (keeper->in_room->guild() && keeper->in_room->guild() != ch->cls + 1 && !IS_IMMORTAL(ch)) {
 			act("$n tells you 'Sorry, members only.'", keeper, nullptr, ch, TO_VICT);
 			return;
 		}
@@ -4204,7 +4202,7 @@ void do_buy(Character *ch, String argument)
 			}
 
 			/* owner items bought in guild rooms to purchaser -- Montrey */
-			if (keeper->in_room->guild) {
+			if (keeper->in_room->guild()) {
 				String owner;
 				ExtraDescr *ed;
 				bool foundold = FALSE;
@@ -4240,26 +4238,26 @@ void do_list(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_PET_SHOP)) {
-		RoomPrototype *pRoomIndexNext;
+	if (ch->in_room->flags().has(ROOM_PET_SHOP)) {
+		Room *roomNext;
 		Character *pet;
 		bool found;
 
 		/* hack to make new thalos pets work */
-		if (ch->in_room->vnum == 9621)
-			pRoomIndexNext = get_room_index(9706);
+		if (ch->in_room->vnum() == 9621)
+			roomNext = get_room(9706);
 		else
-			pRoomIndexNext = get_room_index(ch->in_room->vnum + 1);
+			roomNext = get_room(ch->in_room->vnum().value() + 1);
 
-		if (pRoomIndexNext == nullptr) {
-			Logging::bug("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum);
+		if (roomNext == nullptr) {
+			Logging::bugf("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum());
 			stc("You can't do that here.\n", ch);
 			return;
 		}
 
 		found = FALSE;
 
-		for (pet = pRoomIndexNext->people; pet; pet = pet->next_in_room) {
+		for (pet = roomNext->people; pet; pet = pet->next_in_room) {
 			if (pet->act_flags.has(ACT_PET)) {
 				if (!found) {
 					found = TRUE;
@@ -4503,7 +4501,7 @@ String anvil_owner_name(Object *anvil)
 
 	/* anvil name must begin with "anvil private " */
 	if (!anvil->name.has_prefix("anvil private ")) {
-		Logging::bug("anvil_owner_name: anvil %d has a private flag but incorrect name",
+		Logging::bugf("anvil_owner_name: anvil %d has a private flag but incorrect name",
 		    anvil->pIndexData->vnum);
 		return "";
 	}
@@ -4879,7 +4877,7 @@ void do_forge(Character *ch, String argument)
 	        "It was created in the Month of %s by %s %s\n"
 	        "named %s.  Legend holds that this %s was a great weaponsmith.\n",
 	        weapon_table[weapon_lookup(type)].name, obj->material,
-	        ch->in_room->area->world.time.month_name(),
+	        ch->in_room->area().world.time.month_name(),
 	        (ch->level > LEVEL_HERO) ? "an immortal" : (ch->level > 75) ? "a master" :
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
 	        "a newbie", class_table[ch->cls].name, ch->name,
@@ -5150,8 +5148,8 @@ void do_engrave(Character *ch, String argument)
 
 	if (IS_NPC(ch)) {
 		Format::sprintf(buf, "{Y%s{x, {Mcitizen of %s,", ch->short_descr,
-		        ch->in_room && ch->in_room->area && !ch->in_room->area->name.empty() ?
-		        ch->in_room->area->name : "Thera");
+		        ch->in_room && !ch->in_room->area().name.empty() ?
+		        ch->in_room->area().name : "Thera");
 	}
 	else {
 		Format::sprintf(buf, "{Y%s{W%s{x ", ch->name,

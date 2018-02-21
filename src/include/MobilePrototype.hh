@@ -3,6 +3,7 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "Vnum.hh"
 
 /*
  * Prototype for a mob.
@@ -11,13 +12,14 @@
 class MobilePrototype
 {
 public:
-    MobilePrototype(FILE *fp, int vnum);
+    MobilePrototype(Area&, const Vnum&, FILE *);
     virtual ~MobilePrototype() {}
 
+    Area&                   area;
+    const Vnum                vnum;
     MobilePrototype *   next = nullptr;
     SPEC_FUN *          spec_fun = nullptr;
     Shop *              pShop = nullptr;
-    int              vnum = 0;
     Flags               group_flags;
     int              count = 0;
     int              killed = 0;

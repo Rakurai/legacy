@@ -14,7 +14,7 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 void do_paintbow(Character *ch, String argument)
@@ -79,7 +79,7 @@ void do_reload(Character *ch)
 void do_splat(Character *ch, String argument)
 {
 	Object *gun;
-	RoomPrototype *location;
+	Room *location;
 	Character *victim;
 
 	if ((gun = get_eq_char(ch, WEAR_HOLD)) == nullptr) {
@@ -116,7 +116,7 @@ void do_splat(Character *ch, String argument)
 	if (ch->in_room == nullptr || victim->in_room == nullptr)
 		return;
 
-	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)) {
+	if (victim->in_room->flags().has(ROOM_SAFE)) {
 		stc("Oddly enough, in this room you feel peaceful.\n", ch);
 		return;
 	}
@@ -139,7 +139,7 @@ void do_splat(Character *ch, String argument)
 	}
 
 	if (number_percent() > (75 - gun->value[4])) {
-		if ((location = get_room_index(ROOM_VNUM_ALTAR)) == nullptr)
+		if ((location = get_room(ROOM_VNUM_ALTAR)) == nullptr)
 			return;
 
 		act("{P$n nails $N with a bullseye paintball shot! {HSPLAT!{x",
@@ -149,8 +149,8 @@ void do_splat(Character *ch, String argument)
 		act("{PA pellet from $n's gun soars through the air and hits you! {HSPLAT!{x",
 		    ch, nullptr, victim, TO_VICT);
 
-		if ((victim->in_room->sector_type != SECT_ARENA) &&
-		    (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_NO_RECALL)) &&
+		if ((victim->in_room->sector_type() != SECT_ARENA) &&
+		    (!victim->in_room->flags().has(ROOM_NO_RECALL)) &&
 		    !char_in_duel_room(victim) &&
 		    (!affect::exists_on_char(victim, affect::type::curse))) {
 			char_from_room(victim);

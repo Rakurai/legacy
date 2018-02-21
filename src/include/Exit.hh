@@ -3,29 +3,27 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "ExitPrototype.hh"
 
 class Exit
 {
 public:
-	Exit() {}
+	Exit(const ExitPrototype& p);
 	virtual ~Exit() {}
 
-    union
-    {
-        RoomPrototype *       to_room;
-        int                  vnum;
-    } u1 = {0};
-    Flags               exit_flags;
-    int              key = 0;
-    String              keyword;
-    String              description;
+    Room *to_room = nullptr;
+    Flags exit_flags; // current state, this resets to the prototype's values on area resets
 
     static const String& dir_name(unsigned int dir, bool reverse = false);
     static unsigned int rev_dir(unsigned int dir);
 
+    int key() const { return prototype.key; }
+    const String& keyword() const { return prototype.keyword; }
+    const String& description() const { return prototype.description; }
+
 private:
-	Exit(const Exit&);
 	Exit& operator=(const Exit&);
+    const ExitPrototype& prototype;
 };
 
 inline unsigned int Exit::

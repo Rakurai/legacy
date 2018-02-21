@@ -84,8 +84,7 @@
 #define IS_NEUTRAL(ch)          (!IS_GOOD(ch) && !IS_EVIL(ch))
 
 #define IS_AWAKE(ch)            (ch->position > POS_SLEEPING)
-#define GET_ROOM_FLAGS(room)    ((room)->room_flags + (room)->cached_room_flags)
-#define IS_OUTSIDE(ch)          (!GET_ROOM_FLAGS((ch)->in_room).has(ROOM_INDOORS))
+#define IS_OUTSIDE(ch)          (!(ch)->in_room->flags().has(ROOM_INDOORS))
 
 #define WAIT_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
 	(ch->wait = UMAX(ch->wait, npulse)) : (ch->wait = 0))

@@ -43,7 +43,7 @@
 #include "MobProg.hh"
 #include "Object.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 /*
@@ -164,7 +164,7 @@ void do_mpstat(Character *ch, String argument)
 
 void do_mpasound(Character *ch, String argument)
 {
-	RoomPrototype *was_in_room;
+	Room *was_in_room;
 	int              door;
 	bool save_mobtrigger;
 
@@ -174,7 +174,7 @@ void do_mpasound(Character *ch, String argument)
 	}
 
 	if (argument.empty()) {
-		Logging::bug("Mpasound - No argument: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpasound - No argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -184,9 +184,9 @@ void do_mpasound(Character *ch, String argument)
 		Exit       *pexit;
 
 		if ((pexit = was_in_room->exit[door]) != nullptr
-		    &&   pexit->u1.to_room != nullptr
-		    &&   pexit->u1.to_room != was_in_room) {
-			ch->in_room = pexit->u1.to_room;
+		    &&   pexit->to_room != nullptr
+		    &&   pexit->to_room != was_in_room) {
+			ch->in_room = pexit->to_room;
 			save_mobtrigger = MOBtrigger;
 			MOBtrigger  = FALSE;
 			act(argument, ch, nullptr, nullptr, TO_ROOM);
@@ -213,31 +213,31 @@ void do_mpkill(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.empty()) {
-		Logging::bug("MpKill - no argument: vnum %d.",
+		Logging::bugf("MpKill - no argument: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
-		Logging::bug("MpKill - Victim not in room: vnum %d.",
+		Logging::bugf("MpKill - Victim not in room: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
 
 	if (victim == ch) {
-		Logging::bug("MpKill - Bad victim to attack: vnum %d.",
+		Logging::bugf("MpKill - Bad victim to attack: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
 
 	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
-		Logging::bug("MpKill - Charmed mob attacking master: vnum %d.",
+		Logging::bugf("MpKill - Charmed mob attacking master: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
 
 	if (ch->fighting) {
-		Logging::bug("MpKill - Already fighting: vnum %d",
+		Logging::bugf("MpKill - Already fighting: vnum %d",
 		    ch->pIndexData->vnum);
 		return;
 	}
@@ -264,7 +264,7 @@ void do_mpjunk(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.empty()) {
-		Logging::bug("Mpjunk - No argument: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpjunk - No argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -310,12 +310,12 @@ void do_mpechoaround(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (arg.empty()) {
-		Logging::bug("Mpechoaround - No argument:  vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpechoaround - No argument:  vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
 	if (!(victim = get_char_here(ch, arg, VIS_CHAR))) {
-		Logging::bug("Mpechoaround - victim does not exist: vnum %d.",
+		Logging::bugf("Mpechoaround - victim does not exist: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
@@ -339,13 +339,13 @@ void do_mpechoat(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (arg.empty() || argument.empty()) {
-		Logging::bug("Mpechoat - No argument:  vnum %d.",
+		Logging::bugf("Mpechoat - No argument:  vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
 
 	if (!(victim = get_char_here(ch, arg, VIS_CHAR))) {
-		Logging::bug("Mpechoat - victim does not exist: vnum %d.",
+		Logging::bugf("Mpechoat - victim does not exist: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
@@ -364,7 +364,7 @@ void do_mpecho(Character *ch, String argument)
 	}
 
 	if (argument.empty()) {
-		Logging::bug("Mpecho - called w/o argument: vnum %d.",
+		Logging::bugf("Mpecho - called w/o argument: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
@@ -403,12 +403,12 @@ void do_mpmload(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.empty() || !arg.is_number()) {
-		Logging::bug("Mpmload - Bad vnum as arg: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpmload - Bad vnum as arg: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
 	if ((pMobIndex = get_mob_index(atoi(arg))) == nullptr) {
-		Logging::bug("Mpmload - Bad mob vnum: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpmload - Bad mob vnum: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -438,13 +438,13 @@ void do_mpoload(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1.empty() || !arg1.is_number()) {
-		Logging::bug("Mpoload - Bad syntax: vnum %d.",
+		Logging::bugf("Mpoload - Bad syntax: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;
 	}
 
 	if ((pObjIndex = get_obj_index(atoi(arg1))) == nullptr) {
-		Logging::bug("Mpoload - Bad vnum arg: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpoload - Bad vnum arg: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -503,7 +503,7 @@ void do_mppurge(Character *ch, String argument)
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) != nullptr) {
 		if (!IS_NPC(victim)) {
-			Logging::bug("Mppurge - Purging a PC: vnum %d.", ch->pIndexData->vnum);
+			Logging::bugf("Mppurge - Purging a PC: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
 
@@ -513,14 +513,14 @@ void do_mppurge(Character *ch, String argument)
 	else if ((obj = get_obj_here(ch, arg)) != nullptr)
 		extract_obj(obj);
 	else
-		Logging::bug("Mppurge - Bad argument: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mppurge - Bad argument: vnum %d.", ch->pIndexData->vnum);
 } /* end do_mppurge() */
 
 /* lets the mobile goto any location it wishes that is not private */
 
 void do_mpgoto(Character *ch, String argument)
 {
-	RoomPrototype *location;
+	Room *location;
 
 	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
@@ -531,12 +531,12 @@ void do_mpgoto(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.empty()) {
-		Logging::bug("Mpgoto - No argument: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpgoto - No argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
 	if ((location = find_location(ch, arg)) == nullptr) {
-		Logging::bug("Mpgoto - No such location: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpgoto - No such location: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -552,8 +552,8 @@ void do_mpgoto(Character *ch, String argument)
 
 void do_mpat(Character *ch, String argument)
 {
-	RoomPrototype *location;
-	RoomPrototype *original;
+	Room *location;
+	Room *original;
 	Character       *wch;
 
 	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
@@ -565,12 +565,12 @@ void do_mpat(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (arg.empty() || argument.empty()) {
-		Logging::bug("Mpat - Bad argument: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpat - Bad argument: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
 	if ((location = find_location(ch, arg)) == nullptr) {
-		Logging::bug("Mpat - No such location: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpat - No such location: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -599,7 +599,7 @@ void do_mpat(Character *ch, String argument)
 
 void do_mptransfer(Character *ch, String argument)
 {
-	RoomPrototype *location;
+	Room *location;
 //	Descriptor *d;
 	Character *victim;
 
@@ -613,7 +613,7 @@ void do_mptransfer(Character *ch, String argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1.empty()) {
-		Logging::bug("Mptransfer - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mptransfer - Bad syntax: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -641,12 +641,12 @@ void do_mptransfer(Character *ch, String argument)
 		location = ch->in_room;
 	else {
 		if ((location = find_location(ch, arg2)) == nullptr) {
-			Logging::bug("Mptransfer - No such location: vnum %d.", ch->pIndexData->vnum);
+			Logging::bugf("Mptransfer - No such location: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
 
 		if (room_is_private(location)) {
-			Logging::bug("Mptransfer - Private room: vnum %d.", ch->pIndexData->vnum);
+			Logging::bugf("Mptransfer - Private room: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
 	}
@@ -656,12 +656,12 @@ void do_mptransfer(Character *ch, String argument)
 			break;
 
 	if (victim == nullptr) {
-		Logging::bug("Mptransfer - No such person: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mptransfer - No such person: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
 	if (victim->in_room == nullptr) {
-		Logging::bug("Mptransfer - Victim in nullptr room: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mptransfer - Victim in nullptr room: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -686,7 +686,7 @@ void do_mpforce(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (arg.empty() || argument.empty()) {
-		Logging::bug("Mpforce - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		Logging::bugf("Mpforce - Bad syntax: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
@@ -710,12 +710,12 @@ void do_mpforce(Character *ch, String argument)
 				break;
 
 		if (victim == nullptr) {
-			Logging::bug("Mpforce - No such victim: vnum %d.", ch->pIndexData->vnum);
+			Logging::bugf("Mpforce - No such victim: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
 
 		if (victim == ch) {
-			Logging::bug("Mpforce - Forcing oneself: vnum %d.", ch->pIndexData->vnum);
+			Logging::bugf("Mpforce - Forcing oneself: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
 

@@ -21,14 +21,14 @@
 #include "merc.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"
 
 void remove_duel(Duel *c);
-RoomPrototype *get_random_arena_room(Duel::Arena *arena, int notvnum);
+Room *get_random_arena_room(Duel::Arena *arena, const Vnum& notvnum);
 void duel_announce(char *buf, Duel *duel);
 void clear_arena(Duel::Arena *arena);
 
@@ -42,7 +42,7 @@ void duel_update()
 {
 	char buf[MSL];
 	Duel *c, *c_next;
-	RoomPrototype *room;
+	Room *room;
 	c = duel_table_head->next;
 
 	while (c != duel_table_tail) {
@@ -73,7 +73,7 @@ void duel_update()
 				char_from_room(c->challenger);
 				char_to_room(c->challenger, room);
 				do_look(c->challenger, "auto");
-				room = get_random_arena_room(c->arena, room->vnum);
+				room = get_random_arena_room(c->arena, room->vnum());
 				char_from_room(c->defender);
 				char_to_room(c->defender, room);
 				do_look(c->defender, "auto");
@@ -110,9 +110,9 @@ void load_arena_table()
 			new_arena->desc         = fread_string(fp);
 			new_arena->minvnum      = atoi(fread_string(fp));
 			new_arena->maxvnum      = atoi(fread_string(fp));
-			new_arena->chalprep     = get_room_index(atoi(fread_string(fp)));
-			new_arena->defprep      = get_room_index(atoi(fread_string(fp)));
-			new_arena->viewroom     = get_room_index(atoi(fread_string(fp)));
+			new_arena->chalprep     = get_room(atoi(fread_string(fp)));
+			new_arena->defprep      = get_room(atoi(fread_string(fp)));
+			new_arena->viewroom     = get_room(atoi(fread_string(fp)));
 
 			if (new_arena->chalprep == nullptr
 			    || new_arena->defprep  == nullptr
@@ -180,8 +180,8 @@ bool char_in_darena_room(Character *ch)
 		return FALSE;
 
 	while (arena != arena_table_tail) {
-		if (ch->in_room->vnum >= arena->minvnum
-		    && ch->in_room->vnum <= arena->maxvnum)
+		if (ch->in_room->vnum() >= arena->minvnum
+		    && ch->in_room->vnum() <= arena->maxvnum)
 			return TRUE;
 
 		arena = arena->next;
@@ -200,8 +200,8 @@ bool char_in_duel_room(Character *ch)
 	while (arena != arena_table_tail) {
 		if (ch->in_room == arena->chalprep
 		    || ch->in_room == arena->defprep
-		    || (ch->in_room->vnum >= arena->minvnum
-		        && ch->in_room->vnum <= arena->maxvnum))
+		    || (ch->in_room->vnum() >= arena->minvnum
+		        && ch->in_room->vnum() <= arena->maxvnum))
 			return TRUE;
 
 		arena = arena->next;
@@ -296,14 +296,14 @@ Duel *get_duel(Character *ch)
 
 	if (duel->accept_timer == 0) {
 		if (duel->prep_timer == 0) {
-			if (ch->in_room->vnum > duel->arena->maxvnum
-			    || ch->in_room->vnum < duel->arena->minvnum) {
+			if (ch->in_room->vnum() > duel->arena->maxvnum
+			    || ch->in_room->vnum() < duel->arena->minvnum) {
 				Logging::bug("get_duel: timers 0, ch not in arena", 0);
 				goto bombout;
 			}
 
-			if (opp->in_room->vnum > duel->arena->maxvnum
-			    || opp->in_room->vnum < duel->arena->minvnum) {
+			if (opp->in_room->vnum() > duel->arena->maxvnum
+			    || opp->in_room->vnum() < duel->arena->minvnum) {
 				Logging::bug("get_duel: timers 0, opp not in arena", 0);
 				goto bombout;
 			}
@@ -365,14 +365,14 @@ Duel::Arena *get_random_arena()
 	return arena;
 }
 
-RoomPrototype *get_random_arena_room(Duel::Arena *arena, int notvnum)
+Room *get_random_arena_room(Duel::Arena *arena, const Vnum& notvnum)
 {
-	RoomPrototype *room;
+	Room *room;
 
 	do {
-		room = get_room_index(number_range(arena->minvnum, arena->maxvnum));
+		room = get_room(number_range(arena->minvnum.value(), arena->maxvnum.value()));
 	}
-	while (room == nullptr || room->vnum == notvnum);
+	while (room == nullptr || room->vnum() == notvnum);
 
 	return room;
 }
@@ -448,12 +448,11 @@ void view_room_hpbar(Character *ch)
 
 void clear_arena(Duel::Arena *arena)
 {
-	RoomPrototype *room;
+	Room *room;
 	Character *wch;
-	int i;
 
-	for (i = arena->minvnum; i != arena->maxvnum + 1; i++)
-		if ((room = get_room_index(i)) != nullptr && room->people)
+	for (Vnum i = arena->minvnum; i <= arena->maxvnum; i = i.value()+1)
+		if ((room = get_room(i)) != nullptr && room->people)
 			for (wch = room->people; wch != nullptr; wch = wch->next_in_room)
 				if (!IS_IMMORTAL(wch))
 					extract_char(wch, !IS_NPC(wch));
@@ -474,8 +473,7 @@ void duel_kill(Character *victim)
 	char buf[MSL];
 	Character *ch, *wch;
 	Duel *duel;
-	RoomPrototype *room;
-	int room_vnum;
+	Room *room;
 	duel = get_duel(victim);
 
 	if (duel->challenger == victim)
@@ -487,29 +485,29 @@ void duel_kill(Character *victim)
 	char_from_room(victim);
 
 	if (ch->clan) {
-		char_to_room(ch, get_room_index(ch->clan->hall));
+		char_to_room(ch, get_room(ch->clan->hall));
 		stc("You find yourself back in your clanhall.\n", ch);
 	}
 	else {
-		char_to_room(ch, get_room_index(ROOM_VNUM_ALTAR));
+		char_to_room(ch, get_room(ROOM_VNUM_ALTAR));
 		stc("You find yourself at the altar of Mota.\n", ch);
 	}
 
 	if (victim->clan) {
-		char_to_room(victim, get_room_index(victim->clan->hall));
+		char_to_room(victim, get_room(victim->clan->hall));
 		stc("You find yourself back in your clanhall.\n", victim);
 	}
 	else {
-		char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
+		char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
 		stc("You find yourself at the altar of Mota.\n", victim);
 	}
 
 	/* go get their pets */
-	for (room_vnum = duel->arena->minvnum; room_vnum != duel->arena->maxvnum + 1; room_vnum++) {
-		room = get_room_index(room_vnum);
+	for (Vnum room_vnum = duel->arena->minvnum; room_vnum <= duel->arena->maxvnum; room_vnum = room_vnum.value()+1) {
+		room = get_room(room_vnum);
 
 		if (! room)
-			Logging::bug("Error with get_room_index() in duel_kill() in duel.c.", 0);
+			Logging::bug("Error with get_room() in duel_kill() in duel.c.", 0);
 
 		if (room->people)
 			for (wch = room->people; wch != nullptr; wch = wch->next)
@@ -639,7 +637,7 @@ void do_duel(Character *ch, String argument)
 		return;
 	}
 
-	if (!arg1.empty() && ch->in_room != nullptr && ch->in_room->vnum == 1212) {
+	if (!arg1.empty() && ch->in_room != nullptr && ch->in_room->vnum() == 1212) {
 		stc("Put your nose back in the corner, you don't need to duel.\n", ch);
 		return;
 	}

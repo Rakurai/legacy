@@ -2,22 +2,28 @@
 
 #include "declare.hh"
 #include "skill/Type.hh"
+#include "Vnum.hh"
 
 class ObjectValue {
 public:
 	ObjectValue() {}
 	explicit ObjectValue(int v) : _value(v) {}
+	explicit ObjectValue(long v) : _value(v) {}
+//	explicit ObjectValue(const Vnum& v) : _value(v.value()) {}
 	explicit ObjectValue(const Flags& v);
 	ObjectValue(const ObjectValue& v) : _value(v._value), _as_flags(v._as_flags) {}
 	virtual ~ObjectValue() {}
 
-	const int value() const { return _value; }
+	const long value() const { return _value; }
 	const Flags flags() const;
 
-	operator int() const { return value(); }
+//	operator int() const { return value(); }
+	operator long() const { return value(); }
 	operator Flags() const;
+	operator Vnum() const { return Vnum(value()); }
 
-	ObjectValue& operator=(int rhs) { this->_value = rhs; return *this; }
+	ObjectValue& operator=(long rhs) { this->_value = rhs; return *this; }
+	ObjectValue& operator=(const Vnum& rhs) { this->_value = rhs.value(); return *this; }
 	ObjectValue& operator=(const Flags& rhs);
 
 	// the only way to change _as_flags once constructed.  used in area loading
@@ -29,11 +35,11 @@ public:
 		return *this;
 	}
 
-	ObjectValue& operator+=(int rhs) { *this += ObjectValue(rhs); return *this; }
+	ObjectValue& operator+=(long rhs) { *this += ObjectValue(rhs); return *this; }
 	ObjectValue& operator+=(const Flags& rhs) { *this += ObjectValue(rhs); return *this; }
 	ObjectValue& operator+=(const ObjectValue &rhs);
 
-	ObjectValue& operator-=(int rhs) { *this -= ObjectValue(rhs); return *this; }
+	ObjectValue& operator-=(long rhs) { *this -= ObjectValue(rhs); return *this; }
 	ObjectValue& operator-=(const Flags& rhs) { *this -= ObjectValue(rhs); return *this; }
 	ObjectValue& operator-=(const ObjectValue &rhs);
 
@@ -44,21 +50,21 @@ public:
 	ObjectValue& operator--() { --_value; return *this; }
 	const ObjectValue operator--(int) { ObjectValue copy(*this); --_value; return copy; }
 
-	const ObjectValue operator+(int rhs) { return ObjectValue(*this) += rhs; }
+	const ObjectValue operator+(long rhs) { return ObjectValue(*this) += rhs; }
 	const ObjectValue operator+(const Flags& rhs) { return ObjectValue(*this) += rhs; }
 	const ObjectValue operator+(const ObjectValue& rhs) { return ObjectValue(*this) += rhs; }
 
-	const ObjectValue operator-(int rhs) { return ObjectValue(*this) -= rhs; }
+	const ObjectValue operator-(long rhs) { return ObjectValue(*this) -= rhs; }
 	const ObjectValue operator-(const Flags& rhs) { return ObjectValue(*this) -= rhs; }
 	const ObjectValue operator-(const ObjectValue& rhs) { return ObjectValue(*this) -= rhs; }
 
 	friend bool operator== (const ObjectValue&, const ObjectValue&);
 	friend bool operator!= (const ObjectValue&, const ObjectValue&);
-	friend bool operator== (const ObjectValue&, int);
-	friend bool operator!= (const ObjectValue&, int);
+//	friend bool operator== (const ObjectValue&, long);
+//	friend bool operator!= (const ObjectValue&, long);
 
 private:
-	int _value = 0;
+	long _value = 0;
 	bool _as_flags = false;
 };
 
@@ -69,10 +75,11 @@ inline bool operator==(const ObjectValue& lhs, const ObjectValue& rhs) {
 inline bool operator!=(const ObjectValue& lhs, const ObjectValue& rhs) {
 	return !(lhs == rhs);
 }
-
-inline bool operator==(const ObjectValue& lhs, int rhs) {
+/*
+inline bool operator==(const ObjectValue& lhs, long rhs) {
 	return lhs._value == rhs;
 }
-inline bool operator!=(const ObjectValue& lhs, int rhs) {
+inline bool operator!=(const ObjectValue& lhs, long rhs) {
 	return !(lhs._value == rhs);
 }
+*/

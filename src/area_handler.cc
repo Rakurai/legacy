@@ -28,7 +28,7 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 
@@ -319,7 +319,7 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	 */
 	switch (obj->item_type) {
 	default:
-		Logging::bug("Read_object: vnum %d bad type.", pObjIndex->vnum);
+		Logging::bugf("Read_object: vnum %d bad type.", pObjIndex->vnum);
 		break;
 
 	case ITEM_LIGHT:
@@ -423,63 +423,57 @@ void clone_object(Object *parent, Object *clone)
  * Translates mob virtual number to its mob index struct.
  * Hash table lookup.
  */
-MobilePrototype *get_mob_index(int vnum)
+MobilePrototype *get_mob_index(const Vnum& vnum)
 {
-	MobilePrototype *pMobIndex;
+	Area *area = Game::world().get_area(vnum);
+	MobilePrototype *proto = nullptr;
 
-	for (pMobIndex  = mob_index_hash[vnum % MAX_KEY_HASH];
-	     pMobIndex != nullptr;
-	     pMobIndex  = pMobIndex->next) {
-		if (pMobIndex->vnum == vnum)
-			return pMobIndex;
-	}
+	if (area != nullptr)
+		proto = area->get_mob_prototype(vnum);
 
-	if (fBootDb) {
-		Logging::bug("Get_mob_index: bad vnum %d.", vnum);
+	if (proto == nullptr && fBootDb) {
+		Logging::bugf("Get_mob_index: bad vnum %d.", vnum);
 		/* Don't do this, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
 	}
 
-	return nullptr;
+	return proto;
 }
 
 /*
  * Translates mob virtual number to its obj index struct.
  * Hash table lookup.
  */
-ObjectPrototype *get_obj_index(int vnum)
+ObjectPrototype *get_obj_index(const Vnum& vnum)
 {
-	ObjectPrototype *pObjIndex;
+	Area *area = Game::world().get_area(vnum);
+	ObjectPrototype *proto = nullptr;
 
-	for (pObjIndex  = obj_index_hash[vnum % MAX_KEY_HASH];
-	     pObjIndex != nullptr;
-	     pObjIndex  = pObjIndex->next) {
-		if (pObjIndex->vnum == vnum)
-			return pObjIndex;
-	}
+	if (area != nullptr)
+		proto = area->get_obj_prototype(vnum);
 
-	if (fBootDb) {
-		Logging::bug("Get_obj_index: bad vnum %d.", vnum);
+	if (proto == nullptr && fBootDb) {
+		Logging::bugf("Get_obj_index: bad vnum %d.", vnum);
 		/* Don't exit, we already return nullptr on error. -- Outsider
 		exit( 1 );
 		*/
 	}
 
-	return nullptr;
+	return proto;
 }
 
 /*
  * Translates mob virtual number to its room index struct.
  * Hash table lookup.
  */
-RoomPrototype *get_room_index(int vnum)
+Room *get_room(const Vnum& vnum)
 {
 	auto search = room_index_map.find(vnum);
 
 	if (search == room_index_map.end()) {
 		if (fBootDb) {
-			Logging::bug("Get_room_index: bad vnum %d.", vnum);
+			Logging::bugf("Get_room: bad vnum %d.", vnum);
 			/* Don't exit here, we already return nullptr on error. -- Outsider
 			exit( 1 );
 			*/
@@ -488,6 +482,23 @@ RoomPrototype *get_room_index(int vnum)
 	}
 
 	return search->second;
+}
+
+RoomPrototype *get_room_prototype(const Vnum& vnum) {
+	Area *area = Game::world().get_area(vnum);
+	RoomPrototype *proto = nullptr;
+
+	if (area != nullptr)
+		proto = area->get_room_prototype(vnum);
+
+	if (proto == nullptr && fBootDb) {
+		Logging::bugf("get_room_prototype: bad vnum %d.", vnum);
+		/* Don't exit, we already return nullptr on error. -- Outsider
+		exit( 1 );
+		*/
+	}
+
+	return proto;
 }
 
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */
@@ -557,7 +568,7 @@ void do_areas(Character *ch, String argument)
 			continue;
 
 		if (star) {
-			if (ap->nplayer <= 0)
+			if (ap->is_empty())
 				continue;
 		}
 
@@ -646,13 +657,13 @@ void do_areas(Character *ch, String argument)
 		if (IS_IMMORTAL(ch)) {
 			String filename = ap->file_name.lsplit(".");
 
-			if (ap->nplayer == 0) {
+			if (count == 0) {
 				dbuf += Format::format("%-8.8s [%5d-%5d]%3s ",
 				        filename, ap->min_vnum, ap->max_vnum, " ");
 			}
 			else {
 				dbuf += Format::format("%-8.8s [%5d-%5d]{Y%3d{x ",
-				        filename, ap->min_vnum, ap->max_vnum, ap->nplayer);
+				        filename, ap->min_vnum, ap->max_vnum, count);
 			}
 		}
 

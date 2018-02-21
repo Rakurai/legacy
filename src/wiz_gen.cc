@@ -41,7 +41,7 @@
 #include "ObjectPrototype.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "sql.hh"
 #include "StoredPlayer.hh"
 #include "String.hh"
@@ -342,8 +342,8 @@ void do_alternate(Character *ch, String argument)
 
 void do_at(Character *ch, String argument)
 {
-	RoomPrototype *location;
-	RoomPrototype *original;
+	Room *location;
+	Room *original;
 	Object *on;
 	Character *wch;
 
@@ -1204,7 +1204,7 @@ void do_zecho(Character *ch, String argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (IS_PLAYING(d)
 		    &&  d->character->in_room != nullptr && ch->in_room != nullptr
-		    &&  d->character->in_room->area == ch->in_room->area) {
+		    &&  d->character->in_room->area() == ch->in_room->area()) {
 			if (IS_IMMORTAL(d->character))
 				stc("zone> ", d->character);
 
@@ -1409,7 +1409,7 @@ const String name_expand(Character *ch)
 
 void do_for(Character *ch, String argument)
 {
-	RoomPrototype *room, *old_room = nullptr;
+	Room *room, *old_room = nullptr;
 	Character *p, *p_next;
 	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
 
@@ -1538,7 +1538,7 @@ void do_for(Character *ch, String argument)
 
 void do_goto(Character *ch, String argument)
 {
-	RoomPrototype *location = nullptr;
+	Room *location = nullptr;
 	Character *rch;
 	Object *obj;
 	int count = 0;
@@ -1556,7 +1556,7 @@ void do_goto(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.is_number())
-		location = get_room_index(atoi(arg));
+		location = get_room(atoi(arg));
 	else {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != nullptr)
 			location = rch->in_room;
@@ -1926,10 +1926,10 @@ void do_linkload(Character *ch, String argument)
 		}
 		else {
 			Format::sprintf(buf, "You reach into the pfile and link-load %s from room %d.\n",
-			        victim->name, victim->in_room->vnum);
+			        victim->name, victim->in_room->vnum());
 			stc(buf, ch);
 			act("$n reaches into the pfiles and link-loads $N.", ch, nullptr, victim, TO_NOTVICT);
-			Format::sprintf(buf, "$N has link-loaded %s from room %d.", victim->name, victim->in_room->vnum);
+			Format::sprintf(buf, "$N has link-loaded %s from room %d.", victim->name, victim->in_room->vnum());
 			wiznet(buf, ch, nullptr, WIZ_LOAD, WIZ_SECURE, 0);
 			char_to_room(victim, ch->in_room);
 
@@ -2496,8 +2496,8 @@ void do_owhere(Character *ch, String argument)
 	Object *obj, *in_obj;
 	int count = 1, vnum = 0;
 	bool fGround = FALSE;
-	int place_last_found = 0;   /* the vnum of the place where we last found an item */
-	int item_last_found = 0;    /* the vnum of the last item displayed */
+	Vnum place_last_found = 0;   /* the vnum of the place where we last found an item */
+	Vnum item_last_found = 0;    /* the vnum of the last item displayed */
 
 	String arg, arg2;
 	argument = one_argument(argument, arg);
@@ -2550,18 +2550,18 @@ void do_owhere(Character *ch, String argument)
 			/* keep multiple hits on the same person from being displayed
 			   -- Outsider
 			*/
-			if ((place_last_found == in_obj->carried_by->in_room->vnum) &&
+			if ((place_last_found == in_obj->carried_by->in_room->vnum()) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
 			        count,
-			        in_obj->carried_by->in_room->vnum,
+			        in_obj->carried_by->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->carried_by, ch, VIS_PLR));
 			/* mark down this item as the last one found -- Outsider */
-			place_last_found = in_obj->carried_by->in_room->vnum;
+			place_last_found = in_obj->carried_by->in_room->vnum();
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else if (in_obj->in_locker) {
@@ -2573,18 +2573,18 @@ void do_owhere(Character *ch, String argument)
 			/* keep multiple hits on the same locker from being displayed
 			   -- Outsider
 			*/
-			if ((place_last_found == in_obj->in_locker->in_room->vnum) &&
+			if ((place_last_found == in_obj->in_locker->in_room->vnum()) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
 			        count,
-			        in_obj->in_locker->in_room->vnum,
+			        in_obj->in_locker->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_locker, ch, VIS_PLR));
 			/* mark this down as the last one found */
-			place_last_found = in_obj->in_locker->in_room->vnum;
+			place_last_found = in_obj->in_locker->in_room->vnum();
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else if (in_obj->in_strongbox) {
@@ -2596,18 +2596,18 @@ void do_owhere(Character *ch, String argument)
 			/* try not to get same items in the same place multiple times
 			   -- Outsider
 			*/
-			if ((place_last_found == in_obj->in_strongbox->in_room->vnum) &&
+			if ((place_last_found == in_obj->in_strongbox->in_room->vnum()) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
 			        count,
-			        in_obj->in_strongbox->in_room->vnum,
+			        in_obj->in_strongbox->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_strongbox, ch, VIS_PLR));
 			/* mark the last item and place we found it  -- Outsider */
-			place_last_found = in_obj->in_strongbox->in_room->vnum;
+			place_last_found = in_obj->in_strongbox->in_room->vnum();
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else if (in_obj->in_room) {
@@ -2615,18 +2615,18 @@ void do_owhere(Character *ch, String argument)
 				continue;
 
 			/* avoid printing duplicate items in the same place -- Outsider */
-			if ((place_last_found == in_obj->in_room->vnum) &&
+			if ((place_last_found == in_obj->in_room->vnum()) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
 			        count,
-			        in_obj->in_room->vnum,
+			        in_obj->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
-			        in_obj->in_room->name);
+			        in_obj->in_room->name());
 			/* mark the last place and item we found -- Outsider */
-			place_last_found = in_obj->in_room->vnum;
+			place_last_found = in_obj->in_room->vnum();
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else    /* what's left? */
@@ -2695,8 +2695,8 @@ void do_mwhere(Character *ch, String argument)
 		        victim->short_descr,
 		        28 - victim->short_descr.uncolor().size(),
 		        " ",
-		        victim->in_room->vnum,
-		        victim->in_room->name);
+		        victim->in_room->vnum(),
+		        victim->in_room->name());
 		output += buf;
 	}
 
@@ -2715,35 +2715,33 @@ void do_mwhere(Character *ch, String argument)
 /* find a room, given its name */
 void do_rwhere(Character *ch, String argument)
 {
-	RoomPrototype *room;
+	Room *room;
 	String dbuf, rbuf;
 	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH];
 	char *cp;
 	bool found = FALSE;
-	int vnum;
 
 	if (argument.empty()) {
 		stc("rwhere which room?\n", ch);
 		return;
 	}
 
-
 	for (const auto area: Game::world().areas) {
-		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
-			room = get_room_index(vnum);
+		for (Vnum vnum = area->min_vnum; vnum <= area->max_vnum; vnum = vnum.value()+1) {
+			room = get_room(vnum);
 
 			if (room != nullptr) {
-				rbuf = room->name;
+				rbuf = room->name();
 
 				if (rbuf.uncolor().has_words(argument)) {
 					found = TRUE;
-					strcpy(fname, room->area->file_name);
+					strcpy(fname, room->area().file_name);
 					cp = strchr(fname, '.');
 
 					if (cp != nullptr)
 						*cp = '\0';
 
-					Format::sprintf(buf, "[%5d] <%-8.8s> %s{x\n", vnum, fname, room->name);
+					Format::sprintf(buf, "[%5d] <%-8.8s> %s{x\n", vnum, fname, room->name());
 					dbuf += buf;
 				}
 			}
@@ -3072,7 +3070,7 @@ void do_purge(Character *ch, String argument)
 				extract_obj(obj);
 		}
 
-		Format::sprintf(buf, "$N has purged room: %d.", ch->in_room->vnum);
+		Format::sprintf(buf, "$N has purged room: %d.", ch->in_room->vnum());
 		wiznet(buf, ch, nullptr, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 		act("$n purges the room of all objects!", ch, nullptr, nullptr, TO_ROOM);
 		stc("The room has been purged.\n", ch);
@@ -3245,7 +3243,7 @@ void do_restore(Character *ch, String argument)
 		for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 			restore_char(ch, victim);
 
-		Format::sprintf(buf, "$N has restored room: %d.", ch->in_room->vnum);
+		Format::sprintf(buf, "$N has restored room: %d.", ch->in_room->vnum());
 		wiznet(buf, ch, nullptr, WIZ_RESTORE, WIZ_SECURE, GET_RANK(ch));
 		stc("Room restored.\n", ch);
 		return;
@@ -3725,13 +3723,13 @@ void do_superwiz(Character *ch, String argument)
 	}
 }
 
-RoomPrototype *find_location(Character *ch, const String& arg)
+Room *find_location(Character *ch, const String& arg)
 {
 	Character *victim;
 	Object *obj;
 
 	if (arg.is_number())
-		return get_room_index(atoi(arg));
+		return get_room(atoi(arg));
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) != nullptr)
 		return victim->in_room;
@@ -3744,7 +3742,7 @@ RoomPrototype *find_location(Character *ch, const String& arg)
 
 void do_transfer(Character *ch, String argument)
 {
-	RoomPrototype *location;
+	Room *location;
 	Descriptor *d;
 	Character *victim;
 
@@ -3823,7 +3821,7 @@ void do_transfer(Character *ch, String argument)
 void do_violate(Character *ch, String argument)
 {
 	Object *obj;
-	RoomPrototype *location = nullptr;
+	Room *location = nullptr;
 	Character *rch;
 
 	if (argument.empty()) {
@@ -3835,7 +3833,7 @@ void do_violate(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.is_number())
-		location = get_room_index(atoi(arg));
+		location = get_room(atoi(arg));
 	else {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != nullptr)
 			location = rch->in_room;

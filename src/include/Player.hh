@@ -8,6 +8,7 @@
 #include "Flags.hh"
 #include "Pooled.hh"
 #include "skill/skill.hh"
+#include "Vnum.hh"
 
 /*
  * Data which only PC's have.
@@ -58,15 +59,15 @@ public:
 	std::vector<int> learned;
 	std::vector<int> evolution;
 	int			        skillpoints = 0;
-	int                 squest_giver = 0;
+	Vnum                 squest_giver = 0;
 	int              nextsquest = 0;
 	int              sqcountdown = 0;
 	Object  *           squestobj = nullptr;
 	Character *         squestmob = nullptr;
 	bool                squestobjf = FALSE;
 	bool		        squestmobf = FALSE;
-	int			        squestloc1 = 0; /* obj */
-	int			        squestloc2 = 0;	/* mob */
+	Vnum		        squestloc1 = 0; /* obj */
+	Vnum		        squestloc2 = 0;	/* mob */
 	std::vector<bool>   group_known;
 	int			        rolepoints = 0;
 	int              points = 0;
@@ -105,7 +106,7 @@ public:
     String              whisper;
     Flags               video_flags;
     int              tailing = 0;
-    int                 mark_room = 0;
+    Vnum                 mark_room = 0;
     String              aura;
     Duel *	        duel = nullptr;
     int              lays = 0;

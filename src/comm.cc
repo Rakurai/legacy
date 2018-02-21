@@ -71,7 +71,7 @@
 #include "MobilePrototype.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "sql.hh"
 #include "String.hh"
 #include "vt100.hh" /* VT100 Stuff */
@@ -232,7 +232,7 @@ void copyover_recover()
 
 		/* Just In Case */
 		if (!d->character->in_room)
-			d->character->in_room = get_room_index(ROOM_VNUM_TEMPLE);
+			d->character->in_room = get_room(ROOM_VNUM_TEMPLE);
 
 		/* Insert in the char_list */
 		d->character->next = char_list;
@@ -868,10 +868,10 @@ void close_socket(Descriptor *dclose)
 
 				if (ch->act_flags.has(ACT_MORPH)) {
 					if (ch->desc->original != nullptr) {
-						RoomPrototype *location;
+						Room *location;
 
 						if (ch->in_room == nullptr)
-							location = get_room_index(ROOM_VNUM_MORGUE);
+							location = get_room(ROOM_VNUM_MORGUE);
 						else
 							location = ch->in_room;
 
@@ -1279,9 +1279,9 @@ void bust_a_prompt(Character *ch)
 				Exit *pexit;
 
 				if ((pexit = ch->in_room->exit[door]) != nullptr
-				    && pexit ->u1.to_room != nullptr
-				    && can_see_room(ch, pexit->u1.to_room)
-				    && can_see_in_room(ch, pexit->u1.to_room)) {
+				    && pexit ->to_room != nullptr
+				    && can_see_room(ch, pexit->to_room)
+				    && can_see_in_room(ch, pexit->to_room)) {
 					found = TRUE;
 
 					if (!pexit->exit_flags.has(EX_CLOSED))
@@ -1321,28 +1321,28 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'r':
 			if (ch->in_room != nullptr)
-				buf += can_see_in_room(ch, ch->in_room) ? ch->in_room->name.uncolor() : "darkness";
+				buf += can_see_in_room(ch, ch->in_room) ? ch->in_room->name().uncolor() : "darkness";
 			else
 				buf += ' ';
 
 			break;
 		case 'R':
 			if (IS_IMMORTAL(ch) && ch->in_room != nullptr)
-				buf += Format::format("%d", ch->in_room->vnum);
+				buf += Format::format("%d", ch->in_room->vnum());
 			else
 				buf += ' ';
 
 			break;
 		case 'z':
 			if (ch->in_room != nullptr)
-				buf += ch->in_room->area->name;
+				buf += ch->in_room->area().name;
 			else
 				buf += ' ';
 
 			break;
 		case 't':
 			if (ch->in_room != nullptr)
-				buf += sector_lookup(ch->in_room->sector_type);
+				buf += sector_lookup(ch->in_room->sector_type());
 			else
 				buf += ' ';
 
@@ -1364,8 +1364,8 @@ void bust_a_prompt(Character *ch)
 				else if (ch->questobj > 0) {
 //					if ((questinfoobj = get_obj_index(ch->questobj)) != nullptr)
 //						Format::sprintf(buf2, "%s", questinfoobj->name);
-					if (ch->questloc)
-						buf += get_room_index(ch->questloc)->name.uncolor();
+					if (ch->questloc > 0)
+						buf += get_room(ch->questloc)->name().uncolor();
 					else
 						buf += "Unknown";
 				}
@@ -1401,7 +1401,7 @@ void bust_a_prompt(Character *ch)
 				if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob == nullptr) {
 					if (!ch->pcdata->squestobjf)
 //						buf += ch->pcdata->squestobj->short_descr;
-						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
+						buf += get_room(ch->pcdata->squestloc1)->name().uncolor();
 					else
 						buf += "*report!*";
 				}
@@ -1420,7 +1420,7 @@ void bust_a_prompt(Character *ch)
 					}
 					else
 //						buf += ch->pcdata->squestobj->short_descr;
-						buf += get_room_index(ch->pcdata->squestloc1)->name.uncolor();
+						buf += get_room(ch->pcdata->squestloc1)->name().uncolor();
 				}
 				else
 					buf += "Unknown";
@@ -1570,7 +1570,7 @@ void stop_idling(Character *ch)
 	if (ch == nullptr
 	    ||   !IS_PLAYING(ch->desc)
 	    ||   ch->was_in_room == nullptr
-	    ||   ch->in_room != get_room_index(ROOM_VNUM_LIMBO))
+	    ||   ch->in_room != get_room(ROOM_VNUM_LIMBO))
 		return;
 
 	ch->desc->timer = 0;

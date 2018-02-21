@@ -12,7 +12,7 @@
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "Tail.hh"
 
 Character::Character() {
@@ -91,7 +91,7 @@ void Character::update() {
 
 	/* Why check for resting mobiles? */
 
-	if (ch->in_room->area->empty)
+	if (ch->in_room->area().is_empty())
 		/* && !ch->act_flags.has(ACT_UPDATE_ALWAYS)) */
 		return;
 
@@ -108,7 +108,7 @@ void Character::update() {
 		}
 
 	/* MOBprogram random trigger */
-	if (ch->in_room->area->nplayer > 0) {
+	if (!ch->in_room->area().is_empty()) {
 		mprog_random_trigger(ch);
 
 		/* If ch dies or changes
@@ -165,15 +165,15 @@ void Character::update() {
 	    && number_bits(3) == 0
 	    && (door = number_bits(5)) <= 5
 	    && (pexit = ch->in_room->exit[door]) != nullptr
-	    &&   pexit->u1.to_room != nullptr
+	    &&   pexit->to_room != nullptr
 	    &&   !pexit->exit_flags.has(EX_CLOSED)
-	    &&   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)
+	    &&   !pexit->to_room->flags().has(ROOM_NO_MOB)
 	    && (!ch->act_flags.has(ACT_STAY_AREA)
-	        ||   pexit->u1.to_room->area == ch->in_room->area)
+	        ||   pexit->to_room->area() == ch->in_room->area())
 	    && (!ch->act_flags.has(ACT_OUTDOORS)
-	        ||   !GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))
+	        ||   !pexit->to_room->flags().has(ROOM_INDOORS))
 	    && (!ch->act_flags.has(ACT_INDOORS)
-	        ||   GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_INDOORS))) {
+	        ||   pexit->to_room->flags().has(ROOM_INDOORS))) {
 		move_char(ch, door, FALSE);
 
 		/* If ch changes position due

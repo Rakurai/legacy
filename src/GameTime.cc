@@ -5,7 +5,7 @@
 #include "Format.hh"
 #include "macros.hh"
 #include "merc.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 GameTime::

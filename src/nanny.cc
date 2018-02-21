@@ -17,7 +17,7 @@
 #include "macros.hh"
 #include "merc.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "sql.hh"
 #include "String.hh"
 #include "telnet.hh"
@@ -265,27 +265,7 @@ bool check_parse_name(const String& name)
 		if (cleancaps || (total_caps > (strlen(name)) / 2 && strlen(name) < 3))
 			return FALSE;
 	}
-	/*
-	 * Prevent players from naming themselves after mobs.
-	 */
-	/* Yeah, but do it somewhere else -- Elrac
-	{
-	    extern MobilePrototype *mob_index_hash[MAX_KEY_HASH];
-	    MobilePrototype *pMobIndex;
-	    int iHash;
 
-	    for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
-	    {
-	        for ( pMobIndex  = mob_index_hash[iHash];
-	              pMobIndex != nullptr;
-	              pMobIndex  = pMobIndex->next )
-	        {
-	            if ( pMobIndex->player_name .has_words(name) )
-	                return FALSE;
-	        }
-	    }
-	}
-	*/
 	return TRUE;
 }
 
@@ -295,7 +275,7 @@ bool check_parse_name(const String& name)
 bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 {
 	Character *ch;
-	RoomPrototype *room;
+	Room *room;
 
 	for (ch = char_list; ch != nullptr; ch = ch->next) {
 		if (!IS_NPC(ch)
@@ -1120,7 +1100,7 @@ void nanny(Descriptor *d, String argument)
 			else
 				obj_to_char(obj, ch);
 
-			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
+			char_to_room(ch, get_room(ROOM_VNUM_SCHOOL));
 			stc("\n", ch);
 			set_color(ch, PURPLE, BOLD);
 			help(ch, "NEWBIE INFO");
@@ -1130,9 +1110,9 @@ void nanny(Descriptor *d, String argument)
 		else if (ch->in_room != nullptr)
 			char_to_room(ch, ch->in_room);
 		else if (IS_IMMORTAL(ch))
-			char_to_room(ch, get_room_index(ROOM_VNUM_CHAT));
+			char_to_room(ch, get_room(ROOM_VNUM_CHAT));
 		else
-			char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
+			char_to_room(ch, get_room(ROOM_VNUM_TEMPLE));
 
 		if (ch->pcdata->email.empty()) {
 			set_color(ch, RED, BOLD);

@@ -26,7 +26,7 @@
 #include "merc.hh"
 #include "MobilePrototype.hh"
 #include "ObjectPrototype.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 /* The following locals are for the checkexit command - Lotus */
@@ -36,7 +36,7 @@ const int opposite_dir [6] =
 typedef enum {exit_from, exit_to, exit_both} exit_status;
 
 /* depending on status print > or < or <> between the 2 rooms */
-String room_pair(RoomPrototype *left, RoomPrototype *right, exit_status ex) {
+String room_pair(Room *left, Room *right, exit_status ex) {
 	String sExit;
 
 	switch (ex) {
@@ -53,18 +53,18 @@ String room_pair(RoomPrototype *left, RoomPrototype *right, exit_status ex) {
 		sExit = "<>"; break;
 	}
 
-	String leftname = left->name.uncolor();
-	String rightname = right->name.uncolor();
+	String leftname = left->name().uncolor();
+	String rightname = right->name().uncolor();
 	return Format::format("%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
-	        left->vnum, leftname,
+	        left->vnum(), leftname,
 	        sExit,
-	        right->vnum, rightname,
-	        right->area->name);
+	        right->vnum(), rightname,
+	        right->area().name);
 }
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
-String checkexits(RoomPrototype *room, Area *pArea) {
+String checkexits(Room *room, const Area *pArea) {
 	String buf;
 
 	for (int i = 0; i < 6; i++) {
@@ -73,22 +73,22 @@ String checkexits(RoomPrototype *room, Area *pArea) {
 		if (!exit)
 			continue;
 
-		RoomPrototype *to_room = exit->u1.to_room;
+		Room *to_room = exit->to_room;
 
 		if (to_room) { /* there is something on the other side */
-			if ((room->area == pArea) && (to_room->area != pArea)) {
+			if ((room->area() == *pArea) && (to_room->area() != *pArea)) {
 				/* an exit from our area to another area */
 				/* check first if it is a two-way exit */
 				if (to_room->exit[opposite_dir[i]] &&
-				    to_room->exit[opposite_dir[i]]->u1.to_room == room)
+				    to_room->exit[opposite_dir[i]]->to_room == room)
 					buf += room_pair(room, to_room, exit_both); /* <> */
 				else
 					buf += room_pair(room, to_room, exit_to); /* > */
 			}
-			else if ((room->area != pArea) && (exit->u1.to_room->area == pArea)) {
+			else if ((room->area() != *pArea) && (exit->to_room->area() == *pArea)) {
 				/* an exit from another area to our area */
 				if (!(to_room->exit[opposite_dir[i]] &&
-				      to_room->exit[opposite_dir[i]]->u1.to_room == room))
+				      to_room->exit[opposite_dir[i]]->to_room == room))
 					/* two-way exits are handled in the other if */
 				{
 					buf += room_pair(to_room, room, exit_from);
@@ -103,7 +103,7 @@ String checkexits(RoomPrototype *room, Area *pArea) {
 /* for now, no arguments, just list the current area */
 void do_exlist(Character *ch, String argument)
 {
-	Area *pArea = ch->in_room->area; /* this is the area we want info on */
+	const Area *pArea = &ch->in_room->area(); /* this is the area we want info on */
 
 	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
 		/* run through all the rooms on the MUD */
@@ -113,7 +113,7 @@ void do_exlist(Character *ch, String argument)
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
-String checkexitstoroom(RoomPrototype *room, RoomPrototype *dest)
+String checkexitstoroom(Room *room, Room *dest)
 {
 	String buf;
 
@@ -123,21 +123,21 @@ String checkexitstoroom(RoomPrototype *room, RoomPrototype *dest)
 		if (!exit)
 			continue;
 
-		RoomPrototype *to_room = exit->u1.to_room;
+		Room *to_room = exit->to_room;
 
 		if (to_room) { /* there is something on the other side */
 			if (room == dest) {
 				/* an exit  from the room we're looking for */
 				/* check first if it is a two-way exit */
 				if (to_room->exit[opposite_dir[i]] &&
-				    to_room->exit[opposite_dir[i]]->u1.to_room == room)
+				    to_room->exit[opposite_dir[i]]->to_room == room)
 					buf += room_pair(room, to_room, exit_both); /* <> */
 				else
 					buf += room_pair(room, to_room, exit_to); /* > */
 			}
 			else if (to_room == dest) {
 				if (!(to_room->exit[opposite_dir[i]] &&
-				      to_room->exit[opposite_dir[i]]->u1.to_room == room))
+				      to_room->exit[opposite_dir[i]]->to_room == room))
 					/* two-way exits are handled in the other if */
 				{
 					buf += room_pair(to_room, room, exit_from);
@@ -152,7 +152,7 @@ String checkexitstoroom(RoomPrototype *room, RoomPrototype *dest)
 /* for now, no arguments, just list the current room */
 void do_roomexits(Character *ch, String argument)
 {
-	RoomPrototype *dest = ch->in_room; /* this is the room we want info on */
+	Room *dest = ch->in_room; /* this is the room we want info on */
 
 	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
 		/* run through all the rooms on the MUD */
@@ -197,7 +197,7 @@ void do_roomlist(Character *ch, String argument)
 {
 	int first, last, counter;
 	bool found = FALSE;
-	RoomPrototype *room;
+	Room *room;
 	String buffer;
 
 	String arg;
@@ -227,10 +227,10 @@ void do_roomlist(Character *ch, String argument)
 	}
 
 	for (counter = first; counter <= last; counter++) {
-		if ((room = get_room_index(counter)) != nullptr) {
+		if ((room = get_room(counter)) != nullptr) {
 			Format::sprintf(arg, "[%5d] (%s{x) %s{X\n",
-			        room->vnum, room->area->name,
-			        room->name);
+			        room->vnum(), room->area().name,
+			        room->name());
 			buffer += arg;
 			found = TRUE;
 		}

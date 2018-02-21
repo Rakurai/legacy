@@ -5,13 +5,16 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
+#include "Vnum.hh"
 
 class ObjectPrototype
 {
 public:
-    ObjectPrototype() {}
+    ObjectPrototype(Area&, const Vnum&, FILE *);
     virtual ~ObjectPrototype() {}
 
+    Area&                   area;
+    const Vnum              vnum;
     ObjectPrototype *    next = nullptr;
     ExtraDescr *        extra_descr = nullptr;
     affect::Affect *       affected = nullptr;
@@ -19,9 +22,7 @@ public:
     String              name;
     String              short_descr;
     String              description;
-    int              vnum = 0;
     int              reset_num = 0;
-    int	            version = 0;
     String              material;
     int              item_type = 0;
     Flags               extra_flags; /* Formerly INT */

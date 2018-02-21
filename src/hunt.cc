@@ -14,8 +14,8 @@
     structure:
 
     int                 hunt_id;    // unique id for current hunt
-    RoomPrototype *   hunt_next;  // next room in search circle
-    RoomPrototype *   hunt_back;  // pointer back toward origin
+    Room *   hunt_next;  // next room in search circle
+    Room *   hunt_back;  // pointer back toward origin
 
     'hunt_next' is used to connect rooms in concentric rings growing
     outward from the origin and having equal distance from the origin.
@@ -32,6 +32,7 @@
 */
 
 #include "act.hh"
+#include "Area.hh"
 #include "Character.hh"
 #include "declare.hh"
 #include "Exit.hh"
@@ -44,7 +45,7 @@
 #include "merc.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "skill/skill.hh"
 #include "String.hh"
 
@@ -59,24 +60,24 @@ static const int exit_num = 6;
 struct hunt_conditions {
 	/* first few fields set up by caller of find_path */
 	Character *hunter;
-	RoomPrototype *from_room;
-	RoomPrototype *to_room;
+	Room *from_room;
+	Room *to_room;
 	int same_area;
 	int thru_doors;
 	int  steps;
 	/* these fields completed by find_path */
-	Area *area;
+	const Area *area;
 };
 typedef struct hunt_conditions HUNT_CONDITIONS;
 
 /* Returns the room accessible via exit 'ex' or nullptr. */
-static RoomPrototype *access_room(HUNT_CONDITIONS *cond, Exit *ex)
+static Room *access_room(HUNT_CONDITIONS *cond, Exit *ex)
 {
-	RoomPrototype *new_room;
+	Room *new_room;
 
 	if ((ex == nullptr) ||
-	    ((new_room = ex->u1.to_room) == nullptr) ||
-	    (cond->same_area && new_room->area != cond->area) ||
+	    ((new_room = ex->to_room) == nullptr) ||
+	    (cond->same_area && new_room->area() != *cond->area) ||
 	    (!cond->thru_doors && ex->exit_flags.has(EX_CLOSED)) ||
 	    (!can_see_room(cond->hunter, new_room)))
 		return nullptr;
@@ -88,15 +89,15 @@ static RoomPrototype *access_room(HUNT_CONDITIONS *cond, Exit *ex)
    and return the direction of the first step or -1. */
 static int find_path(HUNT_CONDITIONS *cond)
 {
-	RoomPrototype *this_ring;
-	RoomPrototype *next_ring;
+	Room *this_ring;
+	Room *next_ring;
 	int jdir;
 	Exit *pexit;
-	RoomPrototype *new_room;
-	RoomPrototype *step;
+	Room *new_room;
+	Room *step;
 	static int hunt_id = 1;
 	hunt_id++;
-	cond->area      = cond->from_room->area;
+	cond->area      = &cond->from_room->area();
 	cond->from_room->hunt_id   = hunt_id;
 	cond->from_room->hunt_back = nullptr;
 	cond->from_room->hunt_next = nullptr;
@@ -264,7 +265,7 @@ void do_hunt(Character *ch, String argument)
 			direction = number_door();
 		}
 		while ((ch->in_room->exit[direction] == nullptr)
-		       || (ch->in_room->exit[direction]->u1.to_room == nullptr));
+		       || (ch->in_room->exit[direction]->to_room == nullptr));
 	}
 	else {
 		if (IS_IMMORTAL(ch)) {
@@ -342,7 +343,7 @@ void hunt_victim(Character *ch)
 			dir = number_door();
 		}
 		while ((ch->in_room->exit[dir] == nullptr) ||
-		       (ch->in_room->exit[dir]->u1.to_room == nullptr));
+		       (ch->in_room->exit[dir]->to_room == nullptr));
 	}
 
 	if (cond.thru_doors &&

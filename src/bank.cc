@@ -17,7 +17,7 @@
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 void do_deposit(Character *ch, String argument)
@@ -35,7 +35,7 @@ void do_deposit(Character *ch, String argument)
 		return;
 	}
 
-	if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_BANK)) {
+	if (!ch->in_room->flags().has(ROOM_BANK)) {
 		stc("Funny, this doesn't look like a bank...\n", ch);
 		return;
 	}
@@ -113,7 +113,7 @@ void do_clandeposit(Character *ch, String argument)
 
 	/* Take care of mortals first */
 	if (!IS_IMMORTAL(ch)) {
-		if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_BANK)) {
+		if (!ch->in_room->flags().has(ROOM_BANK)) {
 			stc("Funny, this doesn't look like a bank...\n", ch);
 			return;
 		}
@@ -236,7 +236,7 @@ void do_balance(Character *ch, String argument)
 		return;
 	}
 
-	if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_BANK)) {
+	if (!ch->in_room->flags().has(ROOM_BANK)) {
 		stc("There is no bank here.\n", ch);
 		return;
 	}
@@ -260,7 +260,7 @@ void do_withdraw(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_BANK)) {
+	if (!ch->in_room->flags().has(ROOM_BANK)) {
 		stc("Funny, this doesn't look like a bank...\n", ch);
 		return;
 	}
@@ -332,7 +332,7 @@ void do_clanwithdraw(Character *ch, String argument)
 
 	/* do the mortal case first */
 	if (!IS_IMMORTAL(ch)) {
-		if (!GET_ROOM_FLAGS(ch->in_room).has(ROOM_BANK)) {
+		if (!ch->in_room->flags().has(ROOM_BANK)) {
 			stc("Funny, this doesn't look like a bank...\n", ch);
 			return;
 		}

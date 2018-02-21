@@ -4,39 +4,36 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "Vnum.hh"
+#include "ExitPrototype.hh"
 
 class RoomPrototype
 {
 public:
-	RoomPrototype() {}
-	virtual ~RoomPrototype() {}
+	RoomPrototype(Area&, const Vnum&, FILE *);
+	virtual ~RoomPrototype();
 
-	Character *		people = nullptr;
-	Object *		contents = nullptr;
-	ExtraDescr *	extra_descr = nullptr;
-	Area *		area = nullptr;
-	Exit *		exit    [6] = {nullptr};
-	Exit *		old_exit[6] = {nullptr};
+	Area&		area;
+	const Vnum  vnum;
 	String 		name;
 	String 		description;
-	String 		owner;
-	int			vnum = 0;
-	int			version = 0;	/* Room versioning -- Montrey */
-	affect::Affect *		affected = nullptr;		/* Montrey */
-
-	Flags           room_flags;
-    Flags           cached_room_flags;
-
-	int			light = 0;
-	int			sector_type = 0;
-	int			heal_rate = 0;
-	int			mana_rate = 0;
-	Clan *		clan = nullptr;
+	const Vnum	tele_dest;
+	Flags       room_flags;
+	int			sector_type;
+	int			heal_rate = 100;
+	int			mana_rate = 100;
 	int			guild = 0;		/* guild room, class number+1, 0 none -- Montrey */
-	int			tele_dest = 0;
-	int			hunt_id = 0;  /* Unique ID for current hunt */
-	RoomPrototype *	hunt_next = nullptr;  /* next room in search circle */
-	RoomPrototype *	hunt_back = nullptr;  /* pointer back toward origin */
+
+	String 		owner = "";
+	Clan *		clan = nullptr;
+
+	// pointers owned here
+	ExtraDescr *	extra_descr = nullptr;
+	ExitPrototype *		exit    [6] = {nullptr}; // prototypes for building rooms
+
+	bool operator==(const RoomPrototype& rhs) const {
+		return this->vnum == rhs.vnum;
+	}
 
 private:
 	RoomPrototype(const RoomPrototype&);

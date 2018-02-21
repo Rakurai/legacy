@@ -51,7 +51,7 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "vt100.hh"
 
@@ -962,7 +962,7 @@ void update_text_file(Character *ch, const String& file, const String& str)
 	strftime(timebuf, sizeof(timebuf), time_format, localtime(&current_time));
 
 	String buf = Format::format("{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
-	        timebuf, ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
+	        timebuf, ch->in_room ? ch->in_room->vnum() : 0, ch->name, str);
 
 	fappend(file, buf);
 }
@@ -1147,7 +1147,7 @@ void do_quit(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type == SECT_ARENA) {
+	if (ch->in_room->sector_type() == SECT_ARENA) {
 		stc("You're not getting out of this that easy.\n", ch);
 		return;
 	}

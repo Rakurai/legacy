@@ -38,7 +38,7 @@
 #include "Player.hh"
 #include "QuestArea.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 void do_addapply(Character *ch, String argument)
@@ -179,7 +179,7 @@ void do_morph(Character *ch, String argument)
 	char_to_room(mobile, victim->in_room);
 	do_switch(victim, mobile->name);
 	char_from_room(victim);
-	char_to_room(victim, get_room_index(ROOM_VNUM_LIMBO));
+	char_to_room(victim, get_room(ROOM_VNUM_LIMBO));
 	stc("Successful Morph!\n", ch);
 }
 
@@ -268,28 +268,28 @@ void do_rppaward(Character *ch, String argument)
 	stc("Use 'deduct' or 'award'.\n", ch);
 }
 
-RoomPrototype *get_scatter_room(Character *ch)
+Room *get_scatter_room(Character *ch)
 {
-	RoomPrototype *room;
+	Room *room;
 
 	for (; ;) {
-		room = get_room_index(number_range(0, 32767));
+		room = get_room(number_range(0, 32767));
 
 		if (room == nullptr
 		    || room == ch->in_room
 		    || !can_see_room(ch, room)
-		    || room->area == Game::world().quest.area
-		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
-		        && room->area->min_vnum <= 26999)
-		    || room->guild
-		    || room->area->name == "Playpen"
-		    || room->area->name == "IMM-Zone"
-		    || room->area->name == "Limbo"
-		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
-		    || room->area->name == "Torayna Cri"
-		    || room->area->name == "Battle Arenas"
-		    || room->sector_type == SECT_ARENA
-		    || GET_ROOM_FLAGS(room).has_any_of(
+		    || room->area() == Game::world().quest.area()
+		    || (room->area().min_vnum >= 24000      /* clanhall vnum ranges */
+		        && room->area().min_vnum <= 26999)
+		    || room->guild()
+		    || room->area().name == "Playpen"
+		    || room->area().name == "IMM-Zone"
+		    || room->area().name == "Limbo"
+		    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+		    || room->area().name == "Torayna Cri"
+		    || room->area().name == "Battle Arenas"
+		    || room->sector_type() == SECT_ARENA
+		    || room->flags().has_any_of(
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE
@@ -308,7 +308,7 @@ RoomPrototype *get_scatter_room(Character *ch)
 void do_scatter(Character *ch, String argument)
 {
 	Object *obj, *obj_next;
-	RoomPrototype *room;
+	Room *room;
 	bool scattered = FALSE;
 
 	if (ch->in_room == nullptr)
@@ -337,7 +337,6 @@ void do_string(Character *ch, String argument)
 	String buf;
 	Character *victim;
 	Object *obj;
-	RoomPrototype *room;
 
 	String type, arg1, arg2, arg3;
 	argument = one_argument(argument, type);
@@ -600,7 +599,11 @@ void do_string(Character *ch, String argument)
 
 	/* Room Strings by Lotus */
 	if (type.is_prefix_of("room")) {
-		if ((room = get_room_index(atoi(arg1))) == nullptr) {
+		stc("Sorry, room stringing is temporarily disabled.\n", ch);
+		return;
+/*
+		Room *room;
+		if ((room = get_room(atoi(arg1))) == nullptr) {
 			Format::sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
 			stc(buf, ch);
 			return;
@@ -613,6 +616,7 @@ void do_string(Character *ch, String argument)
 			stc(buf, ch);
 			return;
 		}
+*/
 	}
 
 	/* echo bad use message */
@@ -684,7 +688,7 @@ void do_switch(Character *ch, String argument)
 void do_return(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	RoomPrototype *location;
+	Room *location;
 
 	if (ch->desc == nullptr)
 		return;
@@ -703,7 +707,7 @@ void do_return(Character *ch, String argument)
 
 	if (ch->desc->character->act_flags.has(ACT_MORPH)) {
 		if (ch->desc->character->in_room == nullptr)
-			location = get_room_index(ROOM_VNUM_MORGUE);
+			location = get_room(ROOM_VNUM_MORGUE);
 		else
 			location = ch->desc->character->in_room;
 

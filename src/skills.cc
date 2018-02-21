@@ -41,7 +41,7 @@
 #include "merc.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "tables.hh"
 

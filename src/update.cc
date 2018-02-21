@@ -49,7 +49,7 @@
 #include "Player.hh"
 #include "random.hh"
 #include "Reset.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "Weather.hh"
 #include "World.hh"
@@ -284,7 +284,7 @@ int hit_gain(Character *ch)
 			gain /= 2;
 	}
 
-	gain = gain * ch->in_room->heal_rate / 100;
+	gain = gain * ch->in_room->heal_rate() / 100;
 
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
@@ -362,7 +362,7 @@ int mana_gain(Character *ch)
 			gain /= 2;
 	}
 
-	gain = gain * ch->in_room->mana_rate / 100;
+	gain = gain * ch->in_room->mana_rate() / 100;
 
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
@@ -428,7 +428,7 @@ int stam_gain(Character *ch)
 			gain /= 2;
 	}
 
-	gain = gain * ch->in_room->heal_rate / 100;
+	gain = gain * ch->in_room->heal_rate() / 100;
 
 	if (ch->on != nullptr && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
@@ -553,7 +553,7 @@ void descrip_update(void)
 							save_char_obj(ch);
 
 						char_from_room(ch);
-						char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+						char_to_room(ch, get_room(ROOM_VNUM_LIMBO));
 					}
 				}
 			}
@@ -704,7 +704,7 @@ void char_update(void)
 						save_char_obj(ch);
 
 					char_from_room(ch);
-					char_to_room(ch, get_room_index(ROOM_VNUM_LIMBO));
+					char_to_room(ch, get_room(ROOM_VNUM_LIMBO));
 				}
 			}
 
@@ -1014,11 +1014,11 @@ void obj_update(void)
 /* Update all rooms -- Montrey */
 void room_update(void)
 {
-	RoomPrototype *room;
+	Room *room;
 	int x;
 
 	for (x = 1; x < 32600; x++) {
-		if ((room = get_room_index(x)) == nullptr)
+		if ((room = get_room(x)) == nullptr)
 			continue;
 
 		// print the affects that are wearing off.  this is complicated because
@@ -1111,7 +1111,7 @@ void aggr_update(void)
 	int jroom, room_count;
 	int jvictim, victim_count, victim_num;
 	int jmob, mob_count, mob_num;
-	RoomPrototype *room;
+	Room *room;
 	Character *ch, *plr, *mob, *victim;
 	bool duplicate;
 	/* Count players. There can't possibly be more player-
@@ -1122,7 +1122,7 @@ void aggr_update(void)
 		player_count++;
 
 	/* allocate stack memory for pointers to <player_count> rooms */
-	RoomPrototype *room_list[player_count];
+	Room *room_list[player_count];
 
 	for (jroom = 0; jroom < player_count; jroom++)
 		room_list[jroom] = nullptr;
@@ -1200,8 +1200,8 @@ void aggr_update(void)
 		}
 
 		/* no aggression in safe rooms */
-		if (GET_ROOM_FLAGS(room).has(ROOM_SAFE)
-		 || GET_ROOM_FLAGS(room).has(ROOM_LAW))
+		if (room->flags().has(ROOM_SAFE)
+		 || room->flags().has(ROOM_LAW))
 			continue;
 
 		/* only aggression below this point */
@@ -1284,7 +1284,7 @@ void aggr_update(void)
 void tele_update(void)
 {
 	Character *ch, *ch_next;
-	RoomPrototype *pRoomIndex;
+	Room *room;
 
 	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
@@ -1292,16 +1292,16 @@ void tele_update(void)
 		if (ch->in_room == nullptr)
 			continue;
 
-		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_TELEPORT)) {
+		if (ch->in_room->flags().has(ROOM_TELEPORT)) {
 			do_look(ch, "tele");
 
-			if (ch->in_room->tele_dest == 0)
-				pRoomIndex = get_random_room(ch);
+			if (ch->in_room->tele_dest() == 0)
+				room = get_random_room(ch);
 			else
-				pRoomIndex = get_room_index(ch->in_room->tele_dest);
+				room = get_room(ch->in_room->tele_dest());
 
 			char_from_room(ch);
-			char_to_room(ch, pRoomIndex);
+			char_to_room(ch, room);
 			act("$n slowly fades into existence.\n", ch, nullptr, nullptr, TO_ROOM);
 			do_look(ch, "auto");
 		}
@@ -1469,7 +1469,7 @@ void janitor_update()
 			continue;
 
 		if (obj->reset && obj->reset->command == 'O')
-			if (obj->reset->arg3 == obj->in_room->vnum)
+			if (obj->reset->arg3 == obj->in_room->vnum())
 				continue;
 
 		for (rch = obj->in_room->people; rch; rch = rch->next_in_room)
@@ -1509,7 +1509,7 @@ void underwater_update(void)
 	for (ch = char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
+		if (!IS_NPC(ch) && ch->in_room->flags().has(ROOM_UNDER_WATER)) {
 			skill = get_skill_level(ch, skill::type::swimming);
 
 			if (skill == 100)

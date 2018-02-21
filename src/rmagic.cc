@@ -7,6 +7,7 @@
 #include "declare.hh"
 #include "dispel.hh"
 #include "Flags.hh"
+#include "Game.hh"
 #include "GameTime.hh"
 #include "Logging.hh"
 #include "macros.hh"
@@ -16,7 +17,7 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "World.hh"
 
@@ -167,13 +168,13 @@ void spell_dazzle(skill::type sn, int level, Character *ch, void *vo, int target
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */
-	if (ch->in_room->sector_type != SECT_INSIDE
-	    && ch->in_room->sector_type != SECT_CITY) {
-		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_DARK))
+	if (ch->in_room->sector_type() != SECT_INSIDE
+	    && ch->in_room->sector_type() != SECT_CITY) {
+		if (ch->in_room->flags().has(ROOM_DARK))
 			chance += 25;
-		else if (ch->in_room->area->world.time.sunlight == GameTime::Night)
+		else if (Game::world().time.sunlight == GameTime::Night)
 			chance += 20;
-		else if (ch->in_room->area->world.time.sunlight == GameTime::Sunset)
+		else if (Game::world().time.sunlight == GameTime::Sunset)
 			chance += 15;
 	}
 

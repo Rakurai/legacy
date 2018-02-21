@@ -42,7 +42,7 @@
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "tables.hh"
 
@@ -51,7 +51,7 @@ void do_flag(Character *ch, String argument)
 	char what[MIL];
 	Character *victim = nullptr;
 	Object *object;
-	RoomPrototype *room;
+	Room *room;
 	Flags *flag, old, nw, marked;
 	unsigned int fieldptr;
 	char type;
@@ -237,12 +237,12 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 
-		if ((room = get_room_index(atoi(arg2))) == nullptr) {
+		if ((room = get_room(atoi(arg2))) == nullptr) {
 			ptc(ch, "Room %d does not exist.\n", atoi(arg1));
 			return;
 		}
 
-		Format::sprintf(what, "%s", room->name);
+		Format::sprintf(what, "%s", room->name());
 
 		if (fieldptr == FIELD_ROOM)     flag = &room->room_flags;
 		else {
@@ -431,7 +431,7 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 
 		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{x %s{x.\n",
 		        count,
-		        victim->in_room->vnum,
+		        victim->in_room->vnum(),
 		        victim->short_descr);
 		output += buf;
 	}
@@ -485,7 +485,7 @@ int fsearch_mobile(Character *ch, int fieldptr, const Flags& marked)
 
 		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x.\n",
 		        count,
-		        victim->in_room->vnum,
+		        victim->in_room->vnum(),
 		        victim->pIndexData->vnum,
 		        victim->short_descr);
 		output += buf;
@@ -539,19 +539,19 @@ void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
-	RoomPrototype *room;
-	int count = 0, vnum;
+	Room *room;
+	int count = 0;
 	Flags flag;
 	output += "{VCount {GVnum{x\n";
 
 	for (Area *area: Game::world().areas) {
-		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
-			if ((room = get_room_index(vnum)) == nullptr
+		for (Vnum vnum = area->min_vnum; vnum <= area->max_vnum; vnum = vnum.value()+1) {
+			if ((room = get_room(vnum)) == nullptr
 			    || !can_see_room(ch, room))
 				continue;
 
 			switch (fieldptr) {
-			case FIELD_ROOM:        flag = GET_ROOM_FLAGS(room);        break;
+			case FIELD_ROOM:        flag = room->flags();        break;
 
 			default:                                                return;
 			}
@@ -565,7 +565,7 @@ void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 			Format::sprintf(buf, "{M[{V%3d{M]{H[{G%5d{H]{x %s{x.\n",
 			        count,
 			        vnum,
-			        room->name);
+			        room->name());
 			output += buf;
 		}
 	}
@@ -619,7 +619,7 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
 			        count,
-			        in_obj->carried_by->in_room->vnum,
+			        in_obj->carried_by->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->carried_by, ch, VIS_PLR));
@@ -632,7 +632,7 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
 			        count,
-			        in_obj->in_locker->in_room->vnum,
+			        in_obj->in_locker->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_locker, ch, VIS_PLR));
@@ -645,7 +645,7 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
 			        count,
-			        in_obj->in_strongbox->in_room->vnum,
+			        in_obj->in_strongbox->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_strongbox, ch, VIS_PLR));
@@ -656,10 +656,10 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 
 			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
 			        count,
-			        in_obj->in_room->vnum,
+			        in_obj->in_room->vnum(),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
-			        in_obj->in_room->name);
+			        in_obj->in_room->name());
 		}
 		else    /* what's left? */
 			continue;

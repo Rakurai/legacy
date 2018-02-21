@@ -7,13 +7,11 @@
 #include "macros.hh"
 #include "merc.hh"
 #include "ObjectPrototype.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 
 Reset::
 Reset(FILE *fp) {
 	ObjectPrototype *temp_index;
-	RoomPrototype *pRoomIndex;
-	Exit *pexit;
 
 	command = fread_letter(fp);
 	          fread_number(fp); // 'if' flag
@@ -43,7 +41,7 @@ Reset(FILE *fp) {
 
 		/* make sure the room exists, vnum 0 means it's a random reset */
 		if (arg3 != 0)
-			get_room_index(arg3);
+			get_room_prototype(arg3);
 
 		/* on a random reset, local limit is percentage chance, limit to 0 to 100 */
 		if (arg3 == 0)
@@ -54,7 +52,7 @@ Reset(FILE *fp) {
 	case 'O':
 		temp_index = get_obj_index(arg1);
 		temp_index->reset_num++;
-		get_room_index(arg3);
+		get_room_prototype(arg3);
 		break;
 
 	case 'P':
@@ -76,11 +74,12 @@ Reset(FILE *fp) {
 		temp_index->reset_num++;
 		break;
 
-	case 'D':
-		pRoomIndex = get_room_index(arg1);
+	case 'D': {
+		RoomPrototype *room = get_room_prototype(arg1);
+		ExitPrototype *pexit;
 
 		if (arg2 < 0 || arg2 > 5
-		    || (pexit = pRoomIndex->exit[arg2]) == nullptr
+		    || (pexit = room->exit[arg2]) == nullptr
 		    || !pexit->exit_flags.has(EX_ISDOOR)) {
 			boot_bug("Load_resets: 'D': exit %d not door.", arg2);
 			exit(1);
@@ -92,9 +91,10 @@ Reset(FILE *fp) {
 		}
 
 		break;
+	}
 
 	case 'R':
-		pRoomIndex = get_room_index(arg1);
+		get_room_prototype(arg1);
 
 		if (arg2 < 0 || arg2 > 6) {
 			boot_bug("Load_resets: 'R': bad exit %d.", arg2);

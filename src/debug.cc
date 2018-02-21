@@ -41,7 +41,7 @@
 #include "ObjectPrototype.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "Weather.hh"
 
@@ -127,7 +127,7 @@ void do_debug(Character *ch, String argument)
 			pc_list = victim->pcdata;
 			victim->desc = nullptr;
 			free_descriptor(d);
-			char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
+			char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
 			db_commandf("do_debug:fullupdate",
 			            "INSERT INTO pc_index VALUES('%s','%s','%s','%s',%ld,%d,%d,'%s','%s')",
 			            db_esc(victim->name),
@@ -254,17 +254,17 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck")) {
-		RoomPrototype *room = nullptr;
+		Room *room = nullptr;
 		int x, vnum;
 		bool found;
 
 		for (vnum = 1; vnum < 32600; vnum++) {
 			found = FALSE;
 
-			if ((room = get_room_index(vnum)) == nullptr)
+			if ((room = get_room(vnum)) == nullptr)
 				continue;
 
-			if (!GET_ROOM_FLAGS(room).has(ROOM_NO_RECALL))
+			if (!room->flags().has(ROOM_NO_RECALL))
 				continue;
 
 			for (x = 0; x <= 5; x++)
@@ -272,22 +272,22 @@ void do_debug(Character *ch, String argument)
 					found = TRUE;
 
 			if (!found)
-				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
+				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name());
 		}
 
 		return;
 	}
 
 	if (!strcmp(subfunc, "rcheck2")) {
-		RoomPrototype *room = nullptr;
+		Room *room = nullptr;
 		int vnum;
 
 		for (vnum = 1; vnum < 32600; vnum++) {
-			if ((room = get_room_index(vnum)) == nullptr)
+			if ((room = get_room(vnum)) == nullptr)
 				continue;
 
-			if (GET_ROOM_FLAGS(room).has(ROOM_NOLIGHT))
-				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
+			if (room->flags().has(ROOM_NOLIGHT))
+				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name());
 		}
 
 		return;

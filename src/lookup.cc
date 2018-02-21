@@ -34,7 +34,7 @@
 #include "String.hh"
 #include "tables.hh"
 
-Clan *clan_vnum_lookup(int vnum)
+Clan *clan_vnum_lookup(const Vnum& vnum)
 {
 	Clan *c;
 

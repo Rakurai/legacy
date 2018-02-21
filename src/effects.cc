@@ -37,12 +37,12 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 
 void acid_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		RoomPrototype *room = (RoomPrototype *) vo;
+		Room *room = (Room *) vo;
 		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != nullptr; obj = obj_next) {
@@ -240,7 +240,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 void cold_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		RoomPrototype *room = (RoomPrototype *) vo;
+		Room *room = (Room *) vo;
 		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != nullptr; obj = obj_next) {
@@ -413,7 +413,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 void fire_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		RoomPrototype *room = (RoomPrototype *) vo;
+		Room *room = (Room *) vo;
 		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != nullptr; obj = obj_next) {
@@ -609,7 +609,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 void poison_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
-		RoomPrototype *room = (RoomPrototype *) vo;
+		Room *room = (Room *) vo;
 		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != nullptr; obj = obj_next) {
@@ -696,7 +696,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 void shock_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) {
-		RoomPrototype *room = (RoomPrototype *) vo;
+		Room *room = (Room *) vo;
 		Object *obj, *obj_next;
 
 		for (obj = room->contents; obj != nullptr; obj = obj_next) {

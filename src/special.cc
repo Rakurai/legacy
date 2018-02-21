@@ -35,6 +35,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "GameTime.hh"
 #include "interp.hh"
 #include "lookup.hh"
@@ -47,7 +48,7 @@
 #include "ObjectPrototype.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 #include "World.hh"
 
@@ -297,7 +298,7 @@ bool spec_patrolman(Character *ch)
 				continue;
 
 			if (vch->in_room != ch->in_room
-			    &&  vch->in_room->area == ch->in_room->area)
+			    &&  vch->in_room->area() == ch->in_room->area())
 				stc("You hear a shrill whistling sound.\n", vch);
 		}
 	}
@@ -910,13 +911,13 @@ bool spec_mayor(Character *ch)
 	static bool move;
 
 	if (!move) {
-		if (ch->in_room->area->world.time.hour ==  6) {
+		if (Game::world().time.hour ==  6) {
 			path = open_path;
 			move = TRUE;
 			pos  = 0;
 		}
 
-		if (ch->in_room->area->world.time.hour == 20) {
+		if (Game::world().time.hour == 20) {
 			path = close_path;
 			move = TRUE;
 			pos  = 0;
@@ -1278,7 +1279,7 @@ bool spec_clanguard(Character *ch)
 	if ((clan = clan_vnum_lookup(ch->pIndexData->vnum)) == nullptr)
 		return FALSE;
 
-	if (ch->in_room->clan != clan)
+	if (ch->in_room->clan() != clan)
 		return FALSE;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {

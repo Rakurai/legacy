@@ -3,10 +3,12 @@
 #include "argument.hh"
 #include "channels.hh"
 #include "Character.hh"
+#include "db.hh"
 #include "Exit.hh"
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "macros.hh"
 #include "merc.hh"
@@ -16,11 +18,16 @@
 #include "ObjectValue.hh"
 #include "random.hh"
 #include "Reset.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 
-Area::Area(World& w, FILE *fp) : world(w) {
-	file_name        = fread_string(fp);
-
+Area::Area(World& w, FILE *fp) :
+	world(w),
+	file_name(fread_string(fp)),
+	name(fread_string(fp)),
+	credits(fread_string(fp)),
+	min_vnum(fread_number(fp)),
+	max_vnum(fread_number(fp))
+{
 	String line = file_name;
 	String num;
 	line = one_argument(line, num);
@@ -30,10 +37,13 @@ Area::Area(World& w, FILE *fp) : world(w) {
 		file_name = line;
 	}
 
-	name             = fread_string(fp);
-	credits          = fread_string(fp);
-	min_vnum         = fread_number(fp);
-	max_vnum         = fread_number(fp);
+	// test for overlapping vnum ranges with already-loaded areas
+	for (const auto area : Game::world().areas)
+		if ((min_vnum >= area->min_vnum && min_vnum <= area->max_vnum)
+		 || (max_vnum >= area->min_vnum && max_vnum <= area->max_vnum)) {
+			boot_bug(Format::format("Load_area: vnum range overlaps with area file '%s'", area->file_name), 0);
+			exit(1);
+		}
 
 	scan_credits();
 }
@@ -42,27 +52,182 @@ Area::
 ~Area() {
 	for (Reset *reset: resets)
 		delete reset;
+
+	for (auto pair : room_prototypes)
+		delete pair.second;
+
+	for (auto pair : mob_prototypes)
+		delete pair.second;
+
+	for (auto pair : obj_prototypes)
+		delete pair.second;
+}
+
+void Area::
+load_rooms(FILE *fp) {
+	while (true) {
+		char letter = fread_letter(fp);
+
+		if (letter != '#') {
+			boot_bug("Load_rooms: # not found.", 0);
+			exit(1);
+		}
+
+		Vnum vnum = fread_number(fp);
+
+		if (vnum.value() == 0)
+			break;
+
+		if (vnum < min_vnum || vnum > max_vnum) {
+			boot_bug("Load_rooms: room vnum %d out of range.", vnum);
+			exit(1);
+		}
+
+		if (room_prototypes.find(vnum) != room_prototypes.end()) {
+			boot_bug("Load_rooms: vnum %d duplicated.", vnum);
+			exit(1);
+		}
+
+		room_prototypes[vnum] = new RoomPrototype(*this, vnum, fp);
+		top_room++;
+	}
+}
+
+void Area::
+load_mobiles(FILE *fp)
+{
+	while (true) {
+		char letter = fread_letter(fp);
+
+		if (letter != '#') {
+			boot_bug("Load_mobiles: # not found.", 0);
+			exit(1);
+		}
+
+		Vnum vnum = fread_number(fp);
+
+		if (vnum.value() == 0)
+			break;
+
+		if (vnum < min_vnum || vnum > max_vnum) {
+			boot_bug("Load_mobiles: room vnum %d out of range.", vnum);
+			exit(1);
+		}
+
+		if (mob_prototypes.find(vnum) != mob_prototypes.end()) {
+			boot_bug("Load_mobiles: vnum %d duplicated.", vnum);
+			exit(1);
+		}
+
+		mob_prototypes[vnum] = new MobilePrototype(*this, vnum, fp);
+		top_mob_index++;
+	}
+}
+
+void Area::
+load_objects(FILE *fp)
+{
+	while (true) {
+		char letter = fread_letter(fp);
+
+		if (letter != '#') {
+			boot_bug("Load_objects: # not found.", 0);
+			exit(1);
+		}
+
+		Vnum vnum = fread_number(fp);
+
+		if (vnum.value() == 0)
+			break;
+
+		if (vnum < min_vnum || vnum > max_vnum) {
+			boot_bug("Load_objects: room vnum %d out of range.", vnum);
+			exit(1);
+		}
+
+		if (obj_prototypes.find(vnum) != obj_prototypes.end()) {
+			boot_bug("Load_objects: vnum %d duplicated.", vnum);
+			exit(1);
+		}
+
+		obj_prototypes[vnum] = new ObjectPrototype(*this, vnum, fp);
+		top_obj_index++;
+	}
+}
+
+MobilePrototype * Area::
+get_mob_prototype(const Vnum& vnum) {
+	const auto& pair = mob_prototypes.find(vnum);
+
+	if (pair != mob_prototypes.cend())
+		return pair->second;
+
+	return nullptr;
+}
+
+ObjectPrototype * Area::
+get_obj_prototype(const Vnum& vnum) {
+	const auto& pair = obj_prototypes.find(vnum);
+
+	if (pair != obj_prototypes.cend())
+		return pair->second;
+
+	return nullptr;
+}
+
+RoomPrototype * Area::
+get_room_prototype(const Vnum& vnum) {
+	const auto& pair = room_prototypes.find(vnum);
+
+	if (pair != room_prototypes.cend())
+		return pair->second;
+
+	return nullptr;
+}
+
+int Area::
+num_players(bool count_all) const {
+	int count = 0;
+
+	for (const auto& pair : room_prototypes) {
+		const auto& vnum = pair.first;
+
+		const Room *room = room_index_map.find(vnum)->second;
+
+		for (Character *ch = room->people; ch; ch = ch->next_in_room)
+			if (!IS_NPC(ch)) {
+				if (count_all)
+					count++;
+				else
+					return 1;
+			}
+
+	}
+
+	return count;
+}
+
+bool Area::
+is_empty() const {
+	return num_players(false) == 0;
 }
 
 void Area::
 update() {
-	if (++age < 3)
+	if (++age < 15)
 		return;
 
 	/*
 	 * Check age and reset.
 	 * Note: Mud School resets every 3 minutes (not 15).
 	 */
-	if ((!empty && (nplayer == 0 || age >= 15))
-	    || age >= 31) {
+	if (age >= 31 || (is_empty() && age >= 15)) {
 		reset();
 		age = number_range(0, 3);
 
 		if (min_vnum <= ROOM_VNUM_SCHOOL
 		 && max_vnum >= ROOM_VNUM_SCHOOL)
-			age = 15 - 2;
-		else if (nplayer == 0)
-			empty = TRUE;
+			age = 15 - 2; // mud school gets a boost
 	}
 }
 
@@ -74,9 +239,10 @@ reset() {
 	mob         = nullptr;
 	last        = TRUE;
 	level       = 0;
+	bool empty = is_empty();
 
 	for (const Reset *pReset: resets) {
-		RoomPrototype *pRoomIndex;
+		Room *room;
 		MobilePrototype *pMobIndex;
 		ObjectPrototype *pObjIndex;
 		ObjectPrototype *pObjToIndex;
@@ -105,18 +271,18 @@ reset() {
 				if (!chance(pReset->arg4))
 					continue;
 
-				if ((pRoomIndex = get_random_reset_room()) == nullptr) {
+				if ((room = get_random_reset_room()) == nullptr) {
 					Logging::bug("Reset_area: 'R': no random room found.", 0);
 					continue;
 				}
 			}
 			else {
-				if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
+				if ((room = get_room(pReset->arg3)) == nullptr) {
 					Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 					continue;
 				}
 
-				for (mob = pRoomIndex->people, count = 0; mob != nullptr; mob = mob->next_in_room)
+				for (mob = room->people, count = 0; mob != nullptr; mob = mob->next_in_room)
 					if (mob->pIndexData == pMobIndex) {
 						count++;
 
@@ -141,16 +307,15 @@ reset() {
 			mob->reset = pReset;    /* keep track of what reset it -- Montrey */
 			/* Check for pet shop. */
 			{
-				RoomPrototype *pRoomIndexPrev;
-				pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
+				Room *roomPrev;
+				roomPrev = get_room(room->vnum().value() - 1);
 
-				if (pRoomIndexPrev != nullptr
-				    && GET_ROOM_FLAGS(pRoomIndexPrev).has(ROOM_PET_SHOP))
+				if (roomPrev != nullptr
+				    && roomPrev->flags().has(ROOM_PET_SHOP))
 					mob->act_flags += ACT_PET;
 			}
 			/* set area */
-			mob->zone = pRoomIndex->area;
-			char_to_room(mob, pRoomIndex);
+			char_to_room(mob, room);
 			level = URANGE(0, mob->level - 2, LEVEL_HERO - 1);
 			last  = TRUE;
 			break;
@@ -162,7 +327,7 @@ reset() {
 				break;
 			}
 
-			if (nplayer > 0 && pReset->arg1 != OBJ_VNUM_PIT) {
+			if (!empty && pReset->arg1 != OBJ_VNUM_PIT) {
 				last = FALSE;
 				break;
 			}
@@ -172,12 +337,12 @@ reset() {
 				continue;
 			}
 
-			if ((pRoomIndex = get_room_index(pReset->arg3)) == nullptr) {
+			if ((room = get_room(pReset->arg3)) == nullptr) {
 				Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
 				continue;
 			}
 
-			if (count_obj_list(pObjIndex, pRoomIndex->contents) > 0) {
+			if (count_obj_list(pObjIndex, room->contents) > 0) {
 				last = FALSE;
 				break;
 			}
@@ -191,7 +356,7 @@ reset() {
 			}
 
 			obj->reset = pReset;    /* keep track of what reset it -- Montrey */
-			obj_to_room(obj, pRoomIndex);
+			obj_to_room(obj, room);
 
 			if (pObjIndex->vnum == OBJ_VNUM_PIT)
 				donation_pit = obj;
@@ -219,7 +384,7 @@ reset() {
 			else
 				limit = pReset->arg2;
 
-			if (nplayer > 0
+			if (!empty
 			    || (obj_to = get_obj_type(pObjToIndex)) == nullptr
 			    || (obj_to->in_room == nullptr && !last)
 			    || (pObjIndex->count >= limit && number_range(0, 4) != 0)
@@ -317,12 +482,12 @@ reset() {
 			break;
 
 		case 'D':
-			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
+			if ((room = get_room(pReset->arg1)) == nullptr) {
 				Logging::bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
 				continue;
 			}
 
-			if ((pexit = pRoomIndex->exit[pReset->arg2]) == nullptr)
+			if ((pexit = room->exit[pReset->arg2]) == nullptr)
 				break;
 
 			switch (pReset->arg3) {
@@ -346,7 +511,7 @@ reset() {
 			break;
 
 		case 'R':
-			if ((pRoomIndex = get_room_index(pReset->arg1)) == nullptr) {
+			if ((room = get_room(pReset->arg1)) == nullptr) {
 				Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg1);
 				continue;
 			}
@@ -357,9 +522,9 @@ reset() {
 
 				for (d0 = 0; d0 < pReset->arg2 - 1; d0++) {
 					d1                   = number_range(d0, pReset->arg2 - 1);
-					pexit                = pRoomIndex->exit[d0];
-					pRoomIndex->exit[d0] = pRoomIndex->exit[d1];
-					pRoomIndex->exit[d1] = pexit;
+					pexit                = room->exit[d0];
+					room->exit[d0] = room->exit[d1];
+					room->exit[d1] = pexit;
 				}
 			}
 
@@ -540,18 +705,19 @@ scan_credits()
 
 /* pick a random room to reset into -- Montrey */
 
-RoomPrototype * Area::
+Room * Area::
 get_random_reset_room() const
 {
-	RoomPrototype *room;
-	int i, count, pick = 0, pass = 1;
+	Room *room;
+	int count, pick = 0, pass = 1;
 
 	while (pass <= 2) {
-		for (i = min_vnum, count = 0; i <= max_vnum; i++) {
-			if ((room = get_room_index(i)) == nullptr)
+		count = 0;
+		for (Vnum vnum = min_vnum; vnum <= max_vnum; vnum = vnum.value()+1) {
+			if ((room = get_room(vnum)) == nullptr)
 				continue;
 
-			if (GET_ROOM_FLAGS(room).has_any_of(ROOM_NO_MOB
+			if (room->flags().has_any_of(ROOM_NO_MOB
 			           | ROOM_PRIVATE
 			           | ROOM_SAFE
 			           | ROOM_SOLITARY

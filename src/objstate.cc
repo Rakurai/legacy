@@ -19,7 +19,7 @@
 #include "ObjectPrototype.hh"
 #include "ObjectValue.hh"
 #include "Reset.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 extern int CURRENT_VERSION;
@@ -71,7 +71,7 @@ bool is_worth_saving(Object *obj)
 
 	/* let's see if the item resets in this room */
 	if (obj->reset && obj->reset->command == 'O')
-		if (obj->reset->arg3 == obj->in_room->vnum)
+		if (obj->reset->arg3 == obj->in_room->vnum())
 			if (!obj->contains || !has_modified_contents(obj))
 				return FALSE;
 
@@ -94,7 +94,7 @@ int objstate_save_items()
 	for (Object *obj = object_list; obj != nullptr; obj = obj->next) {
 		if (is_worth_saving(obj)) {
 			cJSON *o = cJSON_CreateObject();
-			cJSON_AddNumberToObject(o, "room", obj->in_room->vnum);
+			cJSON_AddNumberToObject(o, "room", obj->in_room->vnum().value());
 			cJSON_AddItemToObject(o, "obj", fwrite_obj(obj));
 			cJSON_AddItemToArray(objects, o);
 		}
@@ -141,7 +141,7 @@ int objstate_load_items() {
 	for (cJSON *o = objects->child; o; o = o->next) {
 		int room_vnum;
 		JSON::get_int(o, &room_vnum, "room");
-		RoomPrototype *room = get_room_index(room_vnum);
+		Room *room = get_room(room_vnum);
 
 		if (room == nullptr)
 			continue;

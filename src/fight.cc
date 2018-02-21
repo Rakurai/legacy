@@ -58,7 +58,7 @@
 #include "Player.hh"
 #include "QuestArea.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "skill/skill.hh"
 #include "String.hh"
 #include "tables.hh"
@@ -280,12 +280,12 @@ void combat_regen(Character *ch)
 	/* for real vampires, regen or damage */
 	if (ch->race == 6 && !IS_NPC(ch)) {
 		int sun_damage;
-		GameTime::Sun sun = ch->in_room->area->world.time.sunlight;
-		Weather::Sky sky = ch->in_room->area->world.weather.sky;
+		GameTime::Sun sun = ch->in_room->area().world.time.sunlight;
+		Weather::Sky sky = ch->in_room->area().world.weather.sky;
 
 		/* handle the regen first */
-		if (GET_ROOM_FLAGS(ch->in_room).has_any_of(ROOM_DARK | ROOM_INDOORS)
-		    || ch->in_room->sector_type == SECT_INSIDE
+		if (ch->in_room->flags().has_any_of(ROOM_DARK | ROOM_INDOORS)
+		    || ch->in_room->sector_type() == SECT_INSIDE
 		    || sun == GameTime::Night)
 			hitgain += (ch->level / 10) + 1;
 		/* now damage from exposure to the sun */
@@ -423,7 +423,7 @@ void check_cond(Character *ch, Object *obj)
 	if (obj->condition <= 0) {
 		act("{W$p{x has been {Wdestroyed{x in combat!", ch, obj, nullptr, TO_CHAR);
 
-		if (ch->in_room->sector_type != SECT_ARENA && !char_in_darena_room(ch)) {
+		if (ch->in_room->sector_type() != SECT_ARENA && !char_in_darena_room(ch)) {
 			if (obj->contains) { /* dump contents */
 				act("$p scatters it's contents on the ground.", ch, obj, nullptr, TO_CHAR);
 				act("$n's $p breaks, scattering it's contents on the ground.", ch, obj, nullptr, TO_ROOM);
@@ -721,7 +721,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 			if (IS_OBJ_STAT(obj, ITEM_NODROP)
 			    || IS_OBJ_STAT(obj, ITEM_INVENTORY)
 			    || ch->in_room == nullptr
-			    || ch->in_room->sector_type == SECT_ARENA
+			    || ch->in_room->sector_type() == SECT_ARENA
 			    || char_in_darena_room(ch))
 				obj_to_char(obj, ch);
 			else
@@ -1148,14 +1148,14 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 
 			dam = number_range(1, wield->level / 5 + 1);
 
-			if (ch->in_room->sector_type != SECT_ARENA
-			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+			if (ch->in_room->sector_type() != SECT_ARENA
+			    && ch->in_room->sector_type() != SECT_CLANARENA
+			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				gain_exp(victim, 0 - number_range(ch->level / 20, 3 * ch->level / 20));
 
-			if (ch->in_room->sector_type != SECT_ARENA
-			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk)
+			if (ch->in_room->sector_type() != SECT_ARENA
+			    && ch->in_room->sector_type() != SECT_CLANARENA
+			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
 			    && ch->cls != PALADIN_CLASS) /* Paladins */
 				ch->alignment = UMAX(-1000, ch->alignment - 1);
 
@@ -1190,9 +1190,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			act("$n is burned by the acid $p.", victim, wield, nullptr, TO_ROOM);
 			act("The acid on $p starts to burn your flesh.", victim, wield, nullptr, TO_CHAR);
 
-			if (victim->in_room->sector_type != SECT_ARENA
-			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+			if (victim->in_room->sector_type() != SECT_ARENA
+			    && ch->in_room->sector_type() != SECT_CLANARENA
+			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				acid_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ACID, FALSE, FALSE);
@@ -1206,9 +1206,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			act("$n is burned by $p.", victim, wield, nullptr, TO_ROOM);
 			act("$p sears your flesh.", victim, wield, nullptr, TO_CHAR);
 
-			if (victim->in_room->sector_type != SECT_ARENA
-			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+			if (victim->in_room->sector_type() != SECT_ARENA
+			    && ch->in_room->sector_type() != SECT_CLANARENA
+			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				fire_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_FIRE, FALSE, FALSE);
@@ -1222,9 +1222,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			act("$p freezes $n.", victim, wield, nullptr, TO_ROOM);
 			act("The cold touch of $p surrounds you with ice.", victim, wield, nullptr, TO_CHAR);
 
-			if (victim->in_room->sector_type != SECT_ARENA
-			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+			if (victim->in_room->sector_type() != SECT_ARENA
+			    && ch->in_room->sector_type() != SECT_CLANARENA
+			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				cold_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_COLD, FALSE, FALSE);
@@ -1238,9 +1238,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			act("$n is struck by lightning from $p.", victim, wield, nullptr, TO_ROOM);
 			act("You are shocked by $p.", victim, wield, nullptr, TO_CHAR);
 
-			if (victim->in_room->sector_type != SECT_ARENA
-			    && ch->in_room->sector_type != SECT_CLANARENA
-			    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+			if (victim->in_room->sector_type() != SECT_ARENA
+			    && ch->in_room->sector_type() != SECT_CLANARENA
+			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				shock_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, FALSE, FALSE);
@@ -1667,11 +1667,11 @@ void kill_off(Character *ch, Character *victim)
 	// announcements
 	if (!IS_NPC(victim)) {
 		Format::sprintf(log_buf, "%s killed by %s at %d", victim->name,
-		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->vnum);
+		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->vnum());
 		Logging::log(log_buf);
 		Format::sprintf(log_buf, "<PK> %s was slain by %s at [{W%d{x] [{W%d Exp{x]",
 		        victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name),
-		        ch->in_room->vnum, IS_NPC(ch) ? 0 : gxp);
+		        ch->in_room->vnum(), IS_NPC(ch) ? 0 : gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_DEATHS, 0, 0);
 		Format::sprintf(buf, "%s has been slain by %s.",  victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
@@ -1679,7 +1679,7 @@ void kill_off(Character *ch, Character *victim)
 	else {
 		Format::sprintf(log_buf, "%s got ToAsTeD by %s at [{W%d{x] [{W%d Exp{x]",
 		        (IS_NPC(victim) ? victim->short_descr : victim->name),
-		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->vnum, gxp);
+		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->vnum(), gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_MOBDEATHS, 0, 0);
 	}
 
@@ -1698,7 +1698,7 @@ void kill_off(Character *ch, Character *victim)
 	if (is_suicide)
 		return;
 
-	if ((ch->in_room->sector_type == SECT_ARENA) && !was_NPC && (battle.start))
+	if ((ch->in_room->sector_type() == SECT_ARENA) && !was_NPC && (battle.start))
 		deduct_cost(ch, -battle.fee);
 
 	// looting NPC corpse that was just made in raw_kill
@@ -1750,17 +1750,17 @@ void kill_off(Character *ch, Character *victim)
 
 	/* 2/3 of the way back to previous level */
 	if (victim->exp > exp_per_level(victim, victim->pcdata->points) * victim->level
-	    && victim->in_room->sector_type != SECT_ARENA
-	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (ch->in_room->area != Game::world().quest.area || !Game::world().quest.pk))
+	    && victim->in_room->sector_type() != SECT_ARENA
+	    && victim->in_room->sector_type() != SECT_CLANARENA
+	    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 		gain_exp(victim,
 		         (2 * (exp_per_level(victim, victim->pcdata->points)*victim->level - victim->exp) / 3));
 
 	if (!IS_NPC(ch)) {
 
-		if (ch->in_room->sector_type == SECT_ARENA
-		    || ch->in_room->sector_type == SECT_CLANARENA
-		    || (ch->in_room->area == Game::world().quest.area && Game::world().quest.pk)) {
+		if (ch->in_room->sector_type() == SECT_ARENA
+		    || ch->in_room->sector_type() == SECT_CLANARENA
+		    || (ch->in_room->area() == Game::world().quest.area() && Game::world().quest.pk)) {
 			ch->pcdata->arenakills++;
 
 			if (!IS_IMMORTAL(ch))
@@ -1910,22 +1910,22 @@ bool is_safe(Character *ch, Character *victim, bool showmsg)
 //		return TRUE;
 
 	/* safe room? */
-	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)) {
+	if (victim->in_room->flags().has(ROOM_SAFE)) {
 		if (showmsg)
 			stc("Oddly enough, in this room you feel peaceful.\n", ch);
 
 		return TRUE;
 	}
 
-	if (victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->sector_type == SECT_CLANARENA
+	if (victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->sector_type() == SECT_CLANARENA
 	    || char_in_darena_room(victim))
 		return FALSE;
 
 	/* almost anything goes in the quest area if UPK is on */
 	if (Game::world().quest.pk
-	    && victim->in_room->area == Game::world().quest.area
-	    && ch->in_room->area == Game::world().quest.area)
+	    && victim->in_room->area() == Game::world().quest.area()
+	    && ch->in_room->area() == Game::world().quest.area())
 		return FALSE;
 
 	return is_safe_char(ch, victim, showmsg);
@@ -1942,7 +1942,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	if (IS_IMMORTAL(ch) && !area)
 		return FALSE;
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE))
+	if (ch->in_room->flags().has(ROOM_SAFE))
 		return TRUE;
 
 	if (victim == ch && area)
@@ -1957,8 +1957,8 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	if (!IS_IMMORTAL(ch) && victim->invis_level > ch->level)
 		return TRUE;
 
-	if ((victim->in_room->sector_type == SECT_ARENA
-	     || victim->in_room->sector_type == SECT_CLANARENA)
+	if ((victim->in_room->sector_type() == SECT_ARENA
+	     || victim->in_room->sector_type() == SECT_CLANARENA)
 	    && (battle.start))
 		return FALSE;
 
@@ -1974,7 +1974,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 	/* killing mobiles */
 	if (IS_NPC(victim)) {
 		/* safe room? */
-		if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
+		if (victim->in_room->flags().has(ROOM_SAFE))
 			return TRUE;
 
 		if (victim->pIndexData->pShop != nullptr)
@@ -2017,7 +2017,7 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 				return TRUE;
 
 			/* safe room? */
-			if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
+			if (victim->in_room->flags().has(ROOM_SAFE))
 				return TRUE;
 
 			/* legal kill? -- mobs only hit players grouped with opponent*/
@@ -2026,13 +2026,13 @@ bool is_safe_spell(Character *ch, Character *victim, bool area)
 		}
 		/* player doing the killing */
 		else {
-			if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
+			if (victim->in_room->flags().has(ROOM_SAFE))
 				return TRUE;
 
 			/* almost anything goes in questland if UPK is up */
 			if (Game::world().quest.pk
-			    && ch->in_room->area == Game::world().quest.area
-			    && victim->in_room->area == Game::world().quest.area)
+			    && ch->in_room->area() == Game::world().quest.area()
+			    && victim->in_room->area() == Game::world().quest.area())
 				return FALSE;
 
 			if (victim->act_flags.has(PLR_KILLER) || victim->act_flags.has(PLR_THIEF))
@@ -2065,17 +2065,17 @@ void check_killer(Character *ch, Character *victim)
 	if (IS_NPC(victim)
 	    || victim->act_flags.has(PLR_KILLER)
 	    || victim->act_flags.has(PLR_THIEF)
-	    || victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->sector_type == SECT_CLANARENA
+	    || victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->sector_type() == SECT_CLANARENA
 	    || char_in_darena(victim))
 		return;
 
 	/* if in questlands and UPK flag is up, all is fair */
 	if (Game::world().quest.pk
 	    && victim->in_room != nullptr
-	    && victim->in_room->area == Game::world().quest.area
+	    && victim->in_room->area() == Game::world().quest.area()
 	    && ch->in_room != nullptr
-	    && ch->in_room->area == Game::world().quest.area)
+	    && ch->in_room->area() == Game::world().quest.area())
 		return;
 
 	/* all's fair in war */
@@ -2734,17 +2734,17 @@ void make_corpse(Character *ch)
 	}
 
 	if (char_at_war(ch))
-		obj_to_room(corpse, get_room_index(ch->clan->hall));
+		obj_to_room(corpse, get_room(ch->clan->hall));
 	else if (IS_NPC(ch) || ch->level >= 50)
 		obj_to_room(corpse, ch->in_room);
 	else
-		obj_to_room(corpse, get_room_index(ROOM_VNUM_MORGUE));
+		obj_to_room(corpse, get_room(ROOM_VNUM_MORGUE));
 } /* end make_corpse */
 
 /* Improved Death_cry contributed by Diavolo. */
 void death_cry(Character *ch)
 {
-	RoomPrototype *was_in_room;
+	Room *was_in_room;
 	char *msg;
 	int door, vnum;
 	vnum = 0;
@@ -2846,9 +2846,9 @@ void death_cry(Character *ch)
 		Exit *pexit;
 
 		if ((pexit = was_in_room->exit[door]) != nullptr
-		    && pexit->u1.to_room != nullptr
-		    && pexit->u1.to_room != was_in_room) {
-			ch->in_room = pexit->u1.to_room;
+		    && pexit->to_room != nullptr
+		    && pexit->to_room != was_in_room) {
+			ch->in_room = pexit->to_room;
 			act(msg, ch, nullptr, nullptr, TO_NOTVIEW);
 		}
 	}
@@ -2861,9 +2861,9 @@ void raw_kill(Character *victim)
 	stop_fighting(victim, TRUE);
 	mprog_death_trigger(victim);
 
-	if (victim->in_room->sector_type != SECT_ARENA
-	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (victim->in_room->area != Game::world().quest.area || !Game::world().quest.pk)
+	if (victim->in_room->sector_type() != SECT_ARENA
+	    && victim->in_room->sector_type() != SECT_CLANARENA
+	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
 	    && !char_in_duel_room(victim))
 		make_corpse(victim);
 
@@ -2879,9 +2879,9 @@ void raw_kill(Character *victim)
 
 	affect::remove_all_from_char(victim, FALSE);
 
-	if (victim->in_room->sector_type != SECT_ARENA
-	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (victim->in_room->area != Game::world().quest.area || !Game::world().quest.pk)
+	if (victim->in_room->sector_type() != SECT_ARENA
+	    && victim->in_room->sector_type() != SECT_CLANARENA
+	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
 	    && !char_in_duel_room(victim)) {
 		extract_char(victim, FALSE);
 
@@ -2894,7 +2894,7 @@ void raw_kill(Character *victim)
 			duel_kill(victim);
 		else {
 			char_from_room(victim);
-			char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
+			char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
 		}
 	}
 
@@ -2985,9 +2985,9 @@ int group_gain(Character *ch, Character *victim)
 		xp = xp_compute(gch, victim, group_levels, diff_classes);
 		gxp = xp;                                   /* Bad bad global*/
 
-		if (ch->in_room->sector_type == SECT_ARENA
-		    || ch->in_room->sector_type == SECT_CLANARENA
-		    || (ch->in_room->area == Game::world().quest.area && Game::world().quest.pk))
+		if (ch->in_room->sector_type() == SECT_ARENA
+		    || ch->in_room->sector_type() == SECT_CLANARENA
+		    || (ch->in_room->area() == Game::world().quest.area() && Game::world().quest.pk))
 			xp = 0;
 
 		// at this point xp is real
@@ -3090,9 +3090,9 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	// should this even be here?  needs to go before alignment checks for exp,
 	// but maybe should go in its own function
 	if (!victim->act_flags.has(ACT_NOALIGN)
-	    && victim->in_room->sector_type != SECT_ARENA
-	    && victim->in_room->sector_type != SECT_CLANARENA
-	    && (victim->in_room->area != Game::world().quest.area || !Game::world().quest.pk)
+	    && victim->in_room->sector_type() != SECT_ARENA
+	    && victim->in_room->sector_type() != SECT_CLANARENA
+	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
 	    && gch->cls != 5) /* Paladins */
 	{
 		/* do alignment computations */
@@ -3627,7 +3627,7 @@ void do_dirt(Character *ch, String argument)
 		chance += 1;
 
 	/* terrain */
-	switch (ch->in_room->sector_type) {
+	switch (ch->in_room->sector_type()) {
 	case (SECT_INSIDE):              chance -= 20;   break;
 
 	case (SECT_CITY):                chance -= 10;   break;
@@ -3817,7 +3817,7 @@ void do_trip(Character *ch, String argument)
 } /* end do_trip */
 
 bool check_attack_ok(Character *ch, Character *victim) {
-	if ((ch->in_room->sector_type == SECT_ARENA) && (!battle.start)) {
+	if ((ch->in_room->sector_type() == SECT_ARENA) && (!battle.start)) {
 		stc("Hold your horses, the battle hasn't begun yet!\n", ch);
 		return FALSE;
 	}
@@ -3907,7 +3907,7 @@ void do_battle(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int low, high, fee;
-	RoomPrototype *location;
+	Room *location;
 	Descriptor *d;
 	Character *ach;
 
@@ -3974,7 +3974,7 @@ void do_battle(Character *ch, String argument)
 				if (IS_PLAYING(d)
 				    && !IS_NPC(ach)
 				    && ach->in_room != nullptr
-				    && ach->in_room->sector_type == SECT_ARENA
+				    && ach->in_room->sector_type() == SECT_ARENA
 				    && can_see_char(ch, ach))
 					ptc(ch, "{G[%3d] {P%s{x\n", ach->level, ach->name);
 			}
@@ -3997,13 +3997,14 @@ void do_battle(Character *ch, String argument)
 			return;
 		}
 
-		if ((location = get_room_index(ROOM_VNUM_ARENACENTER)) == nullptr) {
+		if ((location = get_room(ROOM_VNUM_ARENACENTER)) == nullptr) {
 			stc("The arena is missing.\n", ch);
 			return;
 		}
 
-		if (location->area->nplayer != 0) {
-			ptc(ch, "You need to clear %d character from the arena first.\n", location->area->nplayer);
+		int count = location->area().num_players();
+		if (count > 0) {
+			ptc(ch, "You need to clear %d character from the arena first.\n", count);
 			return;
 		}
 
@@ -4037,7 +4038,7 @@ void do_battle(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->in_room->sector_type == SECT_ARENA) {
+		if (ch->in_room->sector_type() == SECT_ARENA) {
 			stc("You are already within the walls of the arena.\n", ch);
 			return;
 		}
@@ -4062,7 +4063,7 @@ void do_battle(Character *ch, String argument)
 			return;
 		}
 
-		if ((location = get_room_index(ROOM_VNUM_ARENACENTER)) == nullptr) {
+		if ((location = get_room(ROOM_VNUM_ARENACENTER)) == nullptr) {
 			stc("The arena is missing.\n", ch);
 			return;
 		}
@@ -4106,7 +4107,7 @@ void do_sing(Character *ch, String argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_LAW)) {
+	if (victim->in_room->flags().has(ROOM_LAW)) {
 		stc("The mayor does not approve of your playing style.\n", ch);
 		return;
 	}
@@ -4415,8 +4416,8 @@ void do_circle(Character *ch, String argument)
 void do_flee(Character *ch, String argument)
 {
 	Exit *pexit;
-	RoomPrototype *was_in;
-	RoomPrototype *now_in;
+	Room *was_in;
+	Room *now_in;
 	Character *victim, *vch;
 	Character *hunted;
 	int dex, topp = 0, chance, dir;
@@ -4472,12 +4473,12 @@ void do_flee(Character *ch, String argument)
 	/* count the possible exits */
 	for (dir = 0; dir < 6; dir++) {
 		if ((pexit = was_in->exit[dir]) == 0
-		    || pexit->u1.to_room == nullptr
-		    || !can_see_room(ch, pexit->u1.to_room)
+		    || pexit->to_room == nullptr
+		    || !can_see_room(ch, pexit->to_room)
 		    || (pexit->exit_flags.has(EX_CLOSED)
 		        && (!affect::exists_on_char(ch, affect::type::pass_door)
 		            || pexit->exit_flags.has(EX_NOPASS)))
-		    || (IS_NPC(ch) && GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)))
+		    || (IS_NPC(ch) && pexit->to_room->flags().has(ROOM_NO_MOB)))
 			continue;
 
 		topp++;
@@ -4495,12 +4496,12 @@ void do_flee(Character *ch, String argument)
 
 	for (dir = 0; dir < 6; dir++) {
 		if ((pexit = was_in->exit[dir]) == 0
-		    || pexit->u1.to_room == nullptr
-		    || !can_see_room(ch, pexit->u1.to_room)
+		    || pexit->to_room == nullptr
+		    || !can_see_room(ch, pexit->to_room)
 		    || (pexit->exit_flags.has(EX_CLOSED)
 		        && (!affect::exists_on_char(ch, affect::type::pass_door)
 		            || pexit->exit_flags.has(EX_NOPASS)))
-		    || (IS_NPC(ch) && GET_ROOM_FLAGS(pexit->u1.to_room).has(ROOM_NO_MOB)))
+		    || (IS_NPC(ch) && pexit->to_room->flags().has(ROOM_NO_MOB)))
 			continue;
 
 		if (!chance(chance))
@@ -4867,7 +4868,7 @@ void do_disarm(Character *ch, String argument)
 
 	/* and now the attack */
 	if (chance(chance)) {
-		RoomPrototype *next_room = nullptr;
+		Room *next_room = nullptr;
 		Exit *pexit = nullptr;
 		char buf[MAX_STRING_LENGTH];
 		int door;
@@ -4902,8 +4903,8 @@ void do_disarm(Character *ch, String argument)
 
 		if (IS_OBJ_STAT(weapon, ITEM_NODROP)
 		    || IS_OBJ_STAT(weapon, ITEM_INVENTORY)
-		    || victim->in_room->sector_type == SECT_ARENA
-		    || victim->in_room->sector_type == SECT_CLANARENA)
+		    || victim->in_room->sector_type() == SECT_ARENA
+		    || victim->in_room->sector_type() == SECT_CLANARENA)
 			obj_to_char(weapon, victim);
 		else {
 			/* knock the weapon into the next room! */
@@ -4913,13 +4914,13 @@ void do_disarm(Character *ch, String argument)
 				door = number_range(0, 5);
 
 				if ((pexit = victim->in_room->exit[door]) != 0
-				    && (next_room = pexit->u1.to_room) != nullptr
+				    && (next_room = pexit->to_room) != nullptr
 				    && can_see_room(victim, next_room)) {
 					if (pexit->exit_flags.has(EX_CLOSED)) {
 						Format::sprintf(buf, "$p slams against the $d and clatters to the %s!",
-						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
-						act(buf, ch, weapon, pexit->keyword, TO_CHAR);
-						act(buf, ch, weapon, pexit->keyword, TO_ROOM);
+						        victim->in_room->sector_type() == SECT_INSIDE ? "floor" : "ground");
+						act(buf, ch, weapon, pexit->keyword(), TO_CHAR);
+						act(buf, ch, weapon, pexit->keyword(), TO_ROOM);
 						obj_to_room(weapon, victim->in_room);
 					}
 					else {
@@ -4931,7 +4932,7 @@ void do_disarm(Character *ch, String argument)
 						if (next_room->people != nullptr) {
 							Format::sprintf(buf, "$p flies in from %s%s and clatters to the %s!",
 							        Exit::rev_dir(door) < 4 ? "the " : "", Exit::dir_name(door, true),
-							        next_room->sector_type == SECT_INSIDE ? "floor" : "ground");
+							        next_room->sector_type() == SECT_INSIDE ? "floor" : "ground");
 							act(buf, next_room->people, weapon, nullptr, TO_CHAR);
 							act(buf, next_room->people, weapon, nullptr, TO_ROOM);
 						}
@@ -4943,12 +4944,12 @@ void do_disarm(Character *ch, String argument)
 					if (door < 4)
 						Format::sprintf(buf, "$p slams against the %s wall and clatters to the %s!",
 						        Exit::dir_name(door),
-						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
+						        victim->in_room->sector_type() == SECT_INSIDE ? "floor" : "ground");
 					else if (door < 5)
 						Format::sprintf(buf, "$p clatters to the %s.",
-						        victim->in_room->sector_type == SECT_INSIDE ? "floor" : "ground");
+						        victim->in_room->sector_type() == SECT_INSIDE ? "floor" : "ground");
 					else {
-						if (victim->in_room->sector_type == SECT_INSIDE)
+						if (victim->in_room->sector_type() == SECT_INSIDE)
 							Format::sprintf(buf, "$p flies up and strikes the ceiling, then clatters to the floor!");
 						else
 							Format::sprintf(buf, "$p flies into the air, and falls hard to the ground!");
@@ -5243,7 +5244,7 @@ void do_rage(Character *ch, String argument)
 		return;
 	}
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SAFE) && !IS_IMMORTAL(ch)) {
+	if (ch->in_room->flags().has(ROOM_SAFE) && !IS_IMMORTAL(ch)) {
 		stc("Oddly enough, in this room you feel peaceful.", ch);
 		return;
 	}
@@ -5394,7 +5395,7 @@ void do_shoot(Character *ch, String argument)
 	else { // if any arguments, try parsing the first one for a direction
 		String dir_str, dir_arg;
 		String target_str = one_argument(argument, dir_arg);
-		RoomPrototype *target_room = nullptr;
+		Room *target_room = nullptr;
 		int distance = MAX_BOW_DISTANCE;
 		bool nearest = FALSE;
 
@@ -5424,8 +5425,8 @@ void do_shoot(Character *ch, String argument)
 				return;
 			}
 
-			RoomPrototype *room = ch->in_room;
-			RoomPrototype *to_room;
+			Room *room = ch->in_room;
+			Room *to_room;
 			Exit *pexit;
 
 			if (nearest) {
@@ -5433,7 +5434,7 @@ void do_shoot(Character *ch, String argument)
 				// because of different messages to the archer
 				for (int i = 0; i < MAX_BOW_DISTANCE; i++) {
 					if ((pexit = room->exit[dir]) == nullptr
-			         || (to_room = pexit->u1.to_room) == nullptr
+			         || (to_room = pexit->to_room) == nullptr
 			         || !can_see_room(ch, to_room)
 					 || (pexit->exit_flags.has(EX_ISDOOR)
 				      && pexit->exit_flags.has(EX_CLOSED)))
@@ -5450,7 +5451,7 @@ void do_shoot(Character *ch, String argument)
 			else {
 				for (int i = 0; i < distance; i++) {
 					if ((pexit = room->exit[dir]) == nullptr
-			         || (to_room = pexit->u1.to_room) == nullptr
+			         || (to_room = pexit->to_room) == nullptr
 			         || !can_see_room(ch, to_room)) {
 						ptc(ch, "Alas, you cannot shoot%s in that direction.\n", i == 0 ? "" : " that far");
 						return;
@@ -5500,7 +5501,7 @@ void do_shoot(Character *ch, String argument)
 
 	// temporarily move the shooter to the victim, makes damage messages easier
 	// don't give away the shooter to the victim, make them temp superwiz
-	RoomPrototype *old_room = ch->in_room;
+	Room *old_room = ch->in_room;
 	bool was_superwiz = ch->act_flags.has(PLR_SUPERWIZ);
 
 	if (old_room != victim->in_room) {

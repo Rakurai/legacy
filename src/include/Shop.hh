@@ -11,7 +11,6 @@ public:
     virtual ~Shop() {}
 
     Shop *      next = nullptr;                   /* Next shop in list            */
-    int	    version = 0;		/* Shop versioning -- Montrey */
     int      keeper = 0;                 /* Vnum of shop keeper mob      */
     int      buy_type [MAX_TRADE] = {0};   /* Item types shop will buy     */
     int      profit_buy = 0;             /* Cost multiplier for buying   */

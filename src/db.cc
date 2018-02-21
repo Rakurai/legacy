@@ -35,6 +35,7 @@
 #include "Auction.hh"
 #include "Clan.hh"
 #include "declare.hh"
+#include "db.hh"
 #include "Disabled.hh"
 #include "Exit.hh"
 #include "ExtraDescr.hh"
@@ -54,7 +55,7 @@
 #include "ObjectValue.hh"
 #include "QuestArea.hh"
 #include "Reset.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "sql.hh"
 #include "Shop.hh"
 #include "skill/skill.hh"
@@ -90,9 +91,7 @@ int             record_players_since_boot = 0;
 /*
  * Locals.
  */
-MobilePrototype         *mob_index_hash          [MAX_KEY_HASH];
-ObjectPrototype         *obj_index_hash          [MAX_KEY_HASH];
-std::map<int, RoomPrototype *> room_index_map;
+std::map<Vnum, Room *> room_index_map;
 
 long                    quest_double = 0;
 
@@ -111,14 +110,11 @@ long                    quest_double = 0;
 bool                    fBootDb;
 FILE                   *fpArea;
 char                    strArea[MAX_INPUT_LENGTH];
-int                  aVersion = 1;
 Area *area_last; // currently loading area
 
 /*
  * MOBprogram locals
 */
-
-void boot_bug(const String& str, int param);
 
 //int             mprog_name_to_type      args((const String& name));
 MobProg     *mprog_file_read         args((const String& f, MobProg *mprg,
@@ -138,6 +134,7 @@ void    load_rooms      args((FILE *fp));
 void    load_shops      args((FILE *fp));
 void    load_specials   args((FILE *fp));
 void    load_notes      args((void));
+void    create_rooms    args((void));
 void    fix_exits       args((void));
 
 /* Big mama top level function */
@@ -245,15 +242,19 @@ void boot_db()
 
 		fclose(fpList);
 	}
+
+	create_rooms(); // translate room prototypes to real rooms
+	Format::printf("survived create_rooms\n");
+	fix_exits(); // test all real room exits
+	Format::printf("survived fix_exits\n");
+
 	/* initialize quest stuff after areas loaded, maybe areas are needed */
 	Game::world().quest.init();
 
 	int itemsloaded = objstate_load_items();   /* load our list of items from disk, before resets! */
 	Format::printf("survived objstate_load_items (%d)\n", itemsloaded);
 
-	/* Perform various loading procedures, reset all areas once, fix up exits */
-	fix_exits();
-	Format::printf("survived fix_exits\n");
+	/* Perform various loading procedures, reset all areas once */
 	load_war_table();
 	Format::printf("survived load_war_table\n");
 	load_war_events();
@@ -338,517 +339,34 @@ void load_resets(FILE *fp)
 	}
 }
 
-/*
- * Snarf a mob section.  new style
- */
 void load_mobiles(FILE *fp)
 {
-	MobilePrototype *pMobIndex;
-	int vnum;
-	char letter;
-	int iHash;
-
-	for (; ;) {
-		letter                          = fread_letter(fp);
-
-		if (letter != '#') {
-			boot_bug("Load_mobiles: # not found.", 0);
-			exit(1);
-		}
-
-		vnum                            = fread_number(fp);
-
-		if (vnum == 0)
-			break;
-
-		if (vnum < area_last->min_vnum ||
-		    vnum > area_last->max_vnum)
-			boot_bug("mobile vnum %d out of range.", vnum);
-
-		fBootDb = FALSE;
-
-		if (get_mob_index(vnum) != nullptr) {
-			boot_bug("Load_mobiles: vnum %d duplicated.", vnum);
-			exit(1);
-		}
-
-		fBootDb = TRUE;
-		pMobIndex = new MobilePrototype(fp, vnum);
-
-		iHash                   = vnum % MAX_KEY_HASH;
-		pMobIndex->next         = mob_index_hash[iHash];
-		mob_index_hash[iHash]   = pMobIndex;
-		top_mob_index++;
-	}
-
-	return;
-}
-
-/*
- * Snarf an obj section. new style
- */
-void load_objects(FILE *fp)
-{
-	ObjectPrototype *pObjIndex;
-	int vnum;
-	char letter;
-	int iHash;
-
-	for (; ;) {
-		letter                          = fread_letter(fp);
-
-		if (letter != '#') {
-			boot_bug("Load_objects: # not found.", 0);
-			exit(1);
-		}
-
-		vnum                            = fread_number(fp);
-
-		if (vnum == 0)
-			break;
-
-		if (vnum < area_last->min_vnum ||
-		    vnum > area_last->max_vnum)
-			boot_bug("object vnum %d out of range.", vnum);
-
-		fBootDb = FALSE;
-
-		if (get_obj_index(vnum) != nullptr) {
-			boot_bug("Load_objects: vnum %d duplicated.", vnum);
-			exit(1);
-		}
-
-		fBootDb = TRUE;
-		pObjIndex = new ObjectPrototype;
-		pObjIndex->vnum                 = vnum;
-		pObjIndex->reset_num            = 0;
-		pObjIndex->version              = aVersion;
-		pObjIndex->name                 = fread_string(fp);
-		pObjIndex->short_descr          = fread_string(fp);
-		pObjIndex->description          = fread_string(fp);
-		pObjIndex->material             = fread_string(fp);
-		pObjIndex->item_type            = item_lookup(fread_word(fp));
-		pObjIndex->extra_flags          = fread_flag(fp);
-		pObjIndex->wear_flags           = fread_flag(fp);
-		pObjIndex->num_settings			= 0;
-		
-
-
-		int val = 0; // prevent accidents in altering below switches
-		switch (pObjIndex->item_type) {
-		case ITEM_WEAPON:
-			pObjIndex->value[val]         = ObjectValue(get_weapon_type(fread_word(fp)));
-			break;
-
-		case ITEM_KEY:
-			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
-			break;
-
-		default:
-			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
-			break;
-		}
-
-
-		val = 1;
-		switch (pObjIndex->item_type) {
-		case ITEM_CONTAINER:
-		case ITEM_CORPSE_NPC:
-		case ITEM_CORPSE_PC:
-		case ITEM_PORTAL:
-			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
-			break;
-
-		case ITEM_POTION:
-		case ITEM_PILL:
-		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
-			break;
-
-		default:
-			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
-			break;
-		}
-
-
-		val = 2;
-		switch (pObjIndex->item_type) {
-		case ITEM_DRINK_CON:
-		case ITEM_FOUNTAIN:
-			pObjIndex->value[val]         = ObjectValue(liq_lookup(fread_word(fp)));
-
-			if (pObjIndex->value[val] == -1) {
-				pObjIndex->value[val] = 0;
-				boot_bug("Unknown liquid type", 0);
-			}
-
-			break;
-
-		case ITEM_POTION:
-		case ITEM_PILL:
-		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
-			break;
-
-		case ITEM_FURNITURE:
-		case ITEM_PORTAL:
-		case ITEM_ANVIL:
-			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
-			break;
-
-		default:
-			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
-			break;
-		}
-
-
-		val = 3;
-		switch (pObjIndex->item_type) {
-		case ITEM_WEAPON:
-			pObjIndex->value[val]         = ObjectValue(attack_lookup(fread_word(fp)));
-			break;
-
-		case ITEM_WAND:
-		case ITEM_STAFF:
-		case ITEM_POTION:
-		case ITEM_PILL:
-		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
-			break;
-
-		case ITEM_DRINK_CON:
-		case ITEM_FOUNTAIN:
-		case ITEM_FOOD:
-			pObjIndex->value[val]         = ObjectValue(fread_flag(fp));
-			break;
-
-		default:
-			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
-			break;
-		}
-
-
-		val = 4;
-		switch (pObjIndex->item_type) {
-		case ITEM_WEAPON: {
-			Flags bitvector               = fread_flag(fp);
-
-			// preserve the bits, we use them for loading old versions of players
-			pObjIndex->value[val] = ObjectValue(bitvector);
-
-			affect::Affect af;
-			af.level              = pObjIndex->level;
-			af.duration           = -1;
-			af.evolution          = 1;
-			af.permanent          = TRUE;
-			af.location           = 0;
-			af.modifier           = 0;
-
-			while (!bitvector.empty()) {
-				af.type = affect::type::none; // reset every time
-
-				if (affect::parse_flags('W', &af, bitvector))
-					affect::copy_to_list(&pObjIndex->affected, &af); 
-			}
-
-			break;
-		}
-
-		case ITEM_POTION:
-		case ITEM_PILL:
-		case ITEM_SCROLL:
-			pObjIndex->value[val]         = ObjectValue((int)skill::lookup(fread_word(fp)));
-			break;
-
-		default:
-			pObjIndex->value[val]         = ObjectValue(fread_number(fp));
-			break;
-		}
-
-
-		pObjIndex->level                = fread_number(fp);
-
-		// this is annoying.  since v0-v4 come before level in an object section,
-		// we had to create any affects (like weapon flags) at level 0.
-		// fix them up now.
-		affect::fn_params params;
-		params.owner = nullptr;
-		params.data = &pObjIndex->level;
-
-		affect::iterate_over_list(
-			&pObjIndex->affected,
-			affect::fn_set_level,
-			&params
-		);
-
-		pObjIndex->weight               = fread_number(fp);
-		pObjIndex->cost                 = fread_number(fp);
-		/* condition */
-		letter                          = fread_letter(fp);
-
-		switch (letter) {
-		case ('P') :                pObjIndex->condition = 100; break;
-
-		case ('G') :                pObjIndex->condition =  90; break;
-
-		case ('A') :                pObjIndex->condition =  75; break;
-
-		case ('W') :                pObjIndex->condition =  50; break;
-
-		case ('D') :                pObjIndex->condition =  25; break;
-
-		case ('B') :                pObjIndex->condition =  10; break;
-
-		case ('R') :                pObjIndex->condition =   5; break;
-
-		case ('I') :                pObjIndex->condition =  -1; break;
-
-		default:                    pObjIndex->condition = 100; break;
-		}
-
-		for (; ;) {
-			char letter;
-			letter = fread_letter(fp);
-
-			if (letter == 'A') { // apply
-				affect::Affect af;
-				af.type               = affect::type::none;
-				af.level              = pObjIndex->level;
-				af.duration           = -1;
-				af.location           = fread_number(fp);
-				af.modifier           = fread_number(fp);
-				af.evolution          = 1;
-				af.bitvector(0);
-				af.permanent          = TRUE;
-
-				Flags bitvector = 0;
-				if (affect::parse_flags('O', &af, bitvector)) {
-					affect::copy_to_list(&pObjIndex->affected, &af);
-				}
-			}
-			else if (letter == 'F') { // flag, can add bits or do other ->where types
-				affect::Affect af;
-				af.type               = affect::type::none;
-				af.level              = pObjIndex->level;
-				af.duration           = -1;
-				af.evolution          = 1;
-				af.permanent          = TRUE;
-
-				letter          = fread_letter(fp);
-				af.location     = fread_number(fp);
-				af.modifier     = fread_number(fp);
-
-				Flags bitvector    = fread_flag(fp);
-
-				// do at least once even if no bitvector
-				do {
-					if (affect::parse_flags(letter, &af, bitvector)) {
-						affect::copy_to_list(&pObjIndex->affected, &af); 
-
-						// don't multiply the modifier, just apply to the first bit
-						af.location = 0;
-						af.modifier = 0;
-					}
-
-					af.type = affect::type::none; // reset every time
-				} while (!bitvector.empty());
-			}
-			else if (letter == 'E') {
-				ExtraDescr *ed = new ExtraDescr(fread_string(fp), fread_string(fp));
-				ed->next                = pObjIndex->extra_descr;
-				pObjIndex->extra_descr  = ed;
-			}
-			else if (letter == 'S') {
-				pObjIndex->num_settings = fread_number(fp);
-			}
-			else {
-				ungetc(letter, fp);
-				break;
-			}
-		}
-
-		// affects are immutable, compute the checksum now
-		pObjIndex->affect_checksum = affect::checksum_list(&pObjIndex->affected);
-
-		iHash                   = vnum % MAX_KEY_HASH;
-		pObjIndex->next         = obj_index_hash[iHash];
-		obj_index_hash[iHash]   = pObjIndex;
-		top_obj_index++;
-	}
-
-	return;
-}
-
-/*
- * Snarf a room section.
- */
-void load_rooms(FILE *fp)
-{
-	RoomPrototype *pRoomIndex;
-	ExtraDescr *ed;
-	Exit *pexit;
-	int locks;
-	char log_buf[MAX_STRING_LENGTH];
-	int vnum;
-	char letter;
-	int door;
-
 	if (area_last == nullptr) {
-		boot_bug("Load_resets: no #AREA seen yet.", 0);
+		boot_bug("Load_mobiles: no #AREA seen yet.", 0);
 		exit(1);
 	}
 
-	for (; ;) {
-		letter                          = fread_letter(fp);
+	area_last->load_mobiles(fp);
+}
 
-		if (letter != '#') {
-			boot_bug("Load_rooms: # not found.", 0);
-			exit(1);
-		}
-
-		vnum                            = fread_number(fp);
-
-		if (vnum == 0)
-			break;
-
-		if (vnum < area_last->min_vnum ||
-		    vnum > area_last->max_vnum)
-			boot_bug("room   vnum %d out of range.", vnum);
-
-		fBootDb = FALSE;
-
-		if (get_room_index(vnum) != nullptr) {
-			boot_bug("Load_rooms: vnum %d duplicated.", vnum);
-			exit(1);
-		}
-
-		fBootDb = TRUE;
-		pRoomIndex = new RoomPrototype;
-		pRoomIndex->version             = aVersion;
-		pRoomIndex->people              = nullptr;
-		pRoomIndex->contents            = nullptr;
-		pRoomIndex->extra_descr         = nullptr;
-		pRoomIndex->area                = area_last;
-		pRoomIndex->vnum                = vnum;
-		pRoomIndex->name                = fread_string(fp);
-		pRoomIndex->description         = fread_string(fp);
-		pRoomIndex->tele_dest           = fread_number(fp);
-		pRoomIndex->room_flags          = fread_flag(fp);
-
-		/* horrible hack */
-		if (3000 <= vnum && vnum < 3400)
-			pRoomIndex->room_flags += ROOM_LAW;
-
-		pRoomIndex->sector_type         = fread_number(fp);
-		pRoomIndex->light               = 0;
-
-		for (door = 0; door <= 5; door++)
-			pRoomIndex->exit[door] = nullptr;
-
-		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_FEMALE_ONLY)) {
-			Format::sprintf(log_buf, "Room %d is FEMALE_ONLY", pRoomIndex->vnum);
-			Logging::log(log_buf);
-		}
-
-		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_MALE_ONLY)) {
-			Format::sprintf(log_buf, "Room %d is MALE_ONLY", pRoomIndex->vnum);
-			Logging::log(log_buf);
-		}
-
-		if (GET_ROOM_FLAGS(pRoomIndex).has(ROOM_LOCKER)) {
-			Format::sprintf(log_buf, "Room %d is LOCKER", pRoomIndex->vnum);
-			Logging::log(log_buf);
-		}
-
-		/* defaults */
-		pRoomIndex->heal_rate = 100;
-		pRoomIndex->mana_rate = 100;
-		pRoomIndex->guild = 0;
-
-		for (; ;) {
-			letter = fread_letter(fp);
-
-			if (letter == 'S')
-				break;
-
-			switch (letter) {
-			case 'H':       /* healing room */
-				pRoomIndex->heal_rate = fread_number(fp);
-				break;
-
-			case 'M':       /* mana room */
-				pRoomIndex->mana_rate = fread_number(fp);
-				break;
-
-			case 'C':       /* clan */
-				pRoomIndex->clan = clan_lookup(fread_string(fp));
-				break;
-
-			case 'G':       /* guild */
-				if (!(pRoomIndex->guild = class_lookup(fread_string(fp)) + 1)) {
-					boot_bug("Load_rooms: invalid class in guild", 0);
-					exit(1);
-				}
-
-				break;
-
-			case 'D':       /* door */
-				door = fread_number(fp);
-
-				if (door < 0 || door > 5) {
-					boot_bug("Fread_rooms: vnum %d has bad door number.", vnum);
-					exit(1);
-				}
-
-				pexit = new Exit;
-				pexit->description      = fread_string(fp);
-				pexit->keyword          = fread_string(fp);
-				pexit->exit_flags        = Flags::none;
-				locks                   = fread_number(fp);
-				pexit->key              = fread_number(fp);
-				pexit->u1.vnum          = fread_number(fp);
-
-				switch (locks) {
-				case 1: pexit->exit_flags = EX_ISDOOR;                   break;
-
-				case 2: pexit->exit_flags = EX_ISDOOR | EX_PICKPROOF;      break;
-
-				case 3: pexit->exit_flags = EX_ISDOOR | EX_NOPASS;         break;
-
-				case 4: pexit->exit_flags = EX_ISDOOR | EX_NOPASS | EX_PICKPROOF; break;
-				}
-
-				if (pexit->u1.vnum <= 0 || pexit->u1.vnum >= 32700) {
-					boot_bug("load_rooms: vnum %d has invalid exit", vnum);
-					exit(1);
-				}
-
-				pRoomIndex->exit[door] = pexit;
-				pRoomIndex->old_exit[door] = pexit;
-				top_exit++;
-				break;
-
-			case 'E':       /* extended desc */
-				ed = new ExtraDescr(fread_string(fp), fread_string(fp));
-				ed->next                = pRoomIndex->extra_descr;
-				pRoomIndex->extra_descr = ed;
-				break;
-
-			case 'O':
-				pRoomIndex->owner = fread_string(fp);
-				break;
-
-			default:
-				boot_bug("Load_rooms: vnum %d has flag not 'CDEHMOS'.", vnum);
-				exit(1);
-			}
-		}
-
-		room_index_map[vnum] = pRoomIndex;
-		top_room++;
+void load_objects(FILE *fp)
+{
+	if (area_last == nullptr) {
+		boot_bug("Load_objects: no #AREA seen yet.", 0);
+		exit(1);
 	}
 
-	return;
+	area_last->load_objects(fp);
+}
+
+void load_rooms(FILE *fp)
+{
+	if (area_last == nullptr) {
+		boot_bug("Load_rooms: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	area_last->load_rooms(fp);
 }
 
 /*
@@ -867,7 +385,6 @@ void load_shops(FILE *fp)
 
 		pShop = new Shop;
 		pShop->next             = nullptr;
-		pShop->version          = aVersion;
 		pShop->keeper           = shopkeeper;
 
 		for (iTrade = 0; iTrade < MAX_TRADE; iTrade++)
@@ -943,6 +460,29 @@ void load_specials(FILE *fp)
 	}
 }
 
+// create rooms from prototypes, place into hash map for fast lookup
+// this is a temporary data structure, needs to be reworked for new room IDs.
+// possibly a map<vnum, vector<Room *>>, but only if looking up by vnum is
+// worthwhile (possibly true because of searching by area, only have to look
+// up each prototype vnum)
+void create_rooms() {
+	for (const Area *area : Game::world().areas) {
+		for (const auto& pair : area->room_prototypes) {
+			const auto& vnum = pair.first;
+			const auto prototype = pair.second;
+
+			Room *room = new Room(*prototype);
+
+			if (room == nullptr) {
+				boot_bug("Create_rooms: unable to create room from prototype %d.", vnum);
+				exit(1);
+			}
+
+			room_index_map[vnum] = room;
+		}
+	}
+}
+
 /*
  * Translate all room exits from virtual to real.
  * Has to be done after all rooms are read in.
@@ -950,61 +490,29 @@ void load_specials(FILE *fp)
  */
 void fix_exits(void)
 {
-//    char buf[MAX_STRING_LENGTH];
-//    RoomPrototype *to_room;
-	Exit *pexit;
-//    Exit *pexit_rev;
-	int door;
-
 	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
-		RoomPrototype *pRoomIndex = it->second;
+		Room *room = it->second;
+		bool found_exit = FALSE;
 
-		bool fexit = FALSE;
+		for (int door = 0; door <= 5; door++) {
+			if (room->prototype.exit[door] != nullptr) {
+				room->exit[door] = new Exit(*room->prototype.exit[door]);
 
-		for (door = 0; door <= 5; door++) {
-			if ((pexit = pRoomIndex->exit[door]) != nullptr) {
-				pexit->u1.to_room = get_room_index(pexit->u1.vnum);
-
-				if (pexit->u1.to_room == nullptr) {
-					delete pexit;
-					pRoomIndex->exit[door] = nullptr;
+				if (room->exit[door]->to_room == nullptr) {
+					delete room->exit[door]->to_room;
+					room->exit[door] = nullptr;
+					Logging::bugf("fix_exits: room %d has unknown exit vnum %d.",
+						it->first, room->prototype.exit[door]->to_vnum);
 				}
-				else
-					fexit = TRUE;
 			}
+
+			if (room->exit[door])
+				found_exit = TRUE;
 		}
 
-		if (!fexit)
-			pRoomIndex->room_flags += ROOM_NO_MOB;
+		if (!found_exit)
+			room->room_flags += ROOM_NO_MOB;
 	}
-
-	/* nobody cares about the Fix_exits() messages -- Elrac
-	  for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
-	  {
-	      for ( pRoomIndex  = room_index_hash[iHash];
-	            pRoomIndex != nullptr;
-	            pRoomIndex  = pRoomIndex->next )
-	      {
-	          for ( door = 0; door <= 5; door++ )
-	          {
-	              if ( ( pexit     = pRoomIndex->exit[door]       ) != nullptr
-	              &&   ( to_room   = pexit->u1.to_room            ) != nullptr
-	              &&   ( pexit_rev = to_room->exit[Exit::rev_dir(door)] ) != nullptr
-	              &&   pexit_rev->u1.to_room != pRoomIndex
-	              &&   (pRoomIndex->vnum < 1200 || pRoomIndex->vnum > 1299))
-	              {
-	                  Format::sprintf( buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
-	                      pRoomIndex->vnum, door,
-	                      to_room->vnum,    Exit::rev_dir(door),
-	                      (pexit_rev->u1.to_room == nullptr)
-	                          ? 0 : pexit_rev->u1.to_room->vnum );
-	                  boot_bug( buf, 0 );
-	              }
-	          }
-	      }
-	  }
-	*/
-	return;
 }
 
 /*
@@ -1032,6 +540,10 @@ void boot_bug(const String& str, int param)
 	}
 
 	Logging::bugf(str, param);
+}
+
+void boot_bug(const String& str, const Vnum& vnum) {
+	boot_bug(str, vnum.value());
 }
 
 /* This routine transfers between alpha and numeric forms of the

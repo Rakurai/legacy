@@ -3,7 +3,7 @@
 #include "affect/Affect.hh"
 #include "declare.hh"
 #include "Flags.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 
 namespace affect {
 
@@ -12,27 +12,27 @@ void modify_room(void *owner, const Affect *paf, bool fAdd);
 
 // searching
 
-const Affect *list_room(RoomPrototype *room) {
+const Affect *list_room(Room *room) {
 	return room->affected;
 }
 
-bool exists_on_room(RoomPrototype *room, ::affect::type type) {
+bool exists_on_room(Room *room, ::affect::type type) {
 	return find_on_room(room, type) ? TRUE : FALSE;
 }
 
-const Affect *find_on_room(RoomPrototype *room, ::affect::type type) {
+const Affect *find_on_room(Room *room, ::affect::type type) {
 	return find_in_list(&room->affected, type);
 }
 
 // adding
 
-void copy_to_room(RoomPrototype *room, const Affect *aff_template)
+void copy_to_room(Room *room, const Affect *aff_template)
 {
 	copy_to_list(&room->affected, aff_template);
 	modify_room(room, aff_template, TRUE);
 }
 
-void join_to_room(RoomPrototype *room, Affect *paf) {
+void join_to_room(Room *room, Affect *paf) {
 	fn_params params;
 
 	params.owner = room;
@@ -45,14 +45,14 @@ void join_to_room(RoomPrototype *room, Affect *paf) {
 
 // removing
 
-void remove_from_room(RoomPrototype *room, Affect *paf)
+void remove_from_room(Room *room, Affect *paf)
 {
 	remove_from_list(&room->affected, paf);
 	modify_room(room, paf, FALSE);
 	delete paf;
 }
 
-void remove_matching_from_room(RoomPrototype *room, comparator comp, const Affect *pattern) {
+void remove_matching_from_room(Room *room, comparator comp, const Affect *pattern) {
 	fn_params params;
 
 	params.owner = room;
@@ -62,21 +62,21 @@ void remove_matching_from_room(RoomPrototype *room, comparator comp, const Affec
 	remove_matching_from_list(&room->affected, comp, pattern, &params);
 }
 
-void remove_marked_from_room(RoomPrototype *room) {
+void remove_marked_from_room(Room *room) {
 	Affect pattern;
 	pattern.mark = TRUE;
 
 	remove_matching_from_room(room, comparator_mark, &pattern);
 }
 
-void remove_type_from_room(RoomPrototype *room, ::affect::type type) {
+void remove_type_from_room(Room *room, ::affect::type type) {
 	Affect pattern;
 	pattern.type = type;
 
 	remove_matching_from_room(room, comparator_type, &pattern);
 }
 
-void remove_all_from_room(RoomPrototype *room, bool permanent)
+void remove_all_from_room(Room *room, bool permanent)
 {
 	Affect pattern;
 	pattern.permanent = permanent;
@@ -86,7 +86,7 @@ void remove_all_from_room(RoomPrototype *room, bool permanent)
 
 // modifying
 
-void iterate_over_room(RoomPrototype *room, affect_fn fn, void *data) {
+void iterate_over_room(Room *room, affect_fn fn, void *data) {
 	fn_params params;
 
 	params.owner = room;
@@ -96,13 +96,13 @@ void iterate_over_room(RoomPrototype *room, affect_fn fn, void *data) {
 	iterate_over_list(&room->affected, fn, &params);
 }
 
-void sort_room(RoomPrototype *room, comparator comp) {
+void sort_room(Room *room, comparator comp) {
 	sort_list(&room->affected, comp);
 }
 
 // utility
 
-void modify_flag_cache_room(RoomPrototype *room, int where, const Flags& flags, bool fAdd) {
+void modify_flag_cache_room(Room *room, int where, const Flags& flags, bool fAdd) {
 	if (flags.empty())
 		return;
 
@@ -128,21 +128,24 @@ void modify_flag_cache_room(RoomPrototype *room, int where, const Flags& flags, 
 // it is important that owner->affected reflects the new state of the affects, i.e.
 // the Affect.hppas already been inserted or removed, and paf is not a member of the set.
 void modify_room(void *owner, const Affect *paf, bool fAdd) {
-	modify_room((RoomPrototype *)owner, paf, fAdd);
+	modify_room((Room *)owner, paf, fAdd);
 }
 
-void modify_room(RoomPrototype *room, const Affect *paf, bool fAdd) {
+void modify_room(Room *room, const Affect *paf, bool fAdd) {
 	switch (paf->where) {
 	case TO_ROOMFLAGS:
 		modify_flag_cache_room(room, paf->where, paf->bitvector(), fAdd);
 		break;
 
 	case TO_HPREGEN:
-		room->heal_rate += paf->modifier * (fAdd ? 1 : -1);
+// can't do this right now because i dont want two more ints in a room, supposed to be
+// a flyweight.  maybe the room's can lookup against a map of rooms that have altered
+// heal/mana rates than their prototypes?
+//		room->heal_rate += paf->modifier * (fAdd ? 1 : -1);
 		break;
 
 	case TO_MPREGEN:
-		room->mana_rate += paf->modifier * (fAdd ? 1 : -1);
+//		room->mana_rate += paf->modifier * (fAdd ? 1 : -1);
 		break;
 	}
 }

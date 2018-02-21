@@ -6,6 +6,7 @@
 ***********************/
 
 #include "argument.hh"
+#include "Area.hh"
 #include "Character.hh"
 #include "declare.hh"
 #include "Flags.hh"
@@ -15,7 +16,7 @@
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "Player.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "String.hh"
 
 /* character finding functions */
@@ -106,7 +107,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 		if (etype != 0 && !CHARTYPE_MATCH(ach, etype))
 			continue;
 
-		if (ach->in_room->area != ch->in_room->area
+		if (ach->in_room->area() != ch->in_room->area()
 		    || (!arg.empty() && !ach->name.has_words(arg)))
 			continue;
 
@@ -229,7 +230,7 @@ it searches a given room, rather than the one the
 player is in.
 -- Outsider
 */
-Character *get_char_room(Character *ch, RoomPrototype *room, const String& argument, int vis)
+Character *get_char_room(Character *ch, Room *room, const String& argument, int vis)
 {
 	Character *rch;
 	int count = 0, vnum = 0;
@@ -295,7 +296,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 		if (etype != 0 && !CHARTYPE_MATCH(ach, etype))
 			continue;
 
-		if (ach->in_room->area != ch->in_room->area
+		if (ach->in_room->area() != ch->in_room->area()
 		    || (!arg.empty() && !ach->name.has_words(arg)))
 			continue;
 
@@ -425,7 +426,7 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 		}
 
 		if (ach->in_room != nullptr
-		    && ach->in_room->area == ch->in_room->area
+		    && ach->in_room->area() == ch->in_room->area()
 		    && ach->name.has_words(argument))
 			return ach;
 	}

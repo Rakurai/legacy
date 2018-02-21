@@ -53,7 +53,7 @@
 #include "Player.hh"
 #include "QuestArea.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "skill/skill.hh"
 #include "String.hh"
 
@@ -73,7 +73,7 @@ int     find_exit       args((Character *ch, const String& arg));
 void move_char(Character *ch, int door, bool follow)
 {
 	Character *fch, *fch_next;
-	RoomPrototype *in_room, *to_room;
+	Room *in_room, *to_room;
 	Exit *pexit;
 	int cost;
 	char dir_buf[128];
@@ -86,13 +86,13 @@ void move_char(Character *ch, int door, bool follow)
 	in_room = ch->in_room;
 
 	if ((pexit   = in_room->exit[door]) == nullptr
-	    || (to_room = pexit->u1.to_room) == nullptr
-	    || !can_see_room(ch, pexit->u1.to_room)) {
+	    || (to_room = pexit->to_room) == nullptr
+	    || !can_see_room(ch, pexit->to_room)) {
 		stc("Alas, you cannot go that way.\n", ch);
 		return;
 	}
 
-	if (GET_ROOM_FLAGS(to_room).has(ROOM_LAW)
+	if (to_room->flags().has(ROOM_LAW)
 	    && (IS_NPC(ch) && ch->act_flags.has(ACT_AGGRESSIVE))) {
 		stc("They don't seem to want your 'type' here.", ch);
 		return;
@@ -101,7 +101,7 @@ void move_char(Character *ch, int door, bool follow)
 	if (pexit->exit_flags.has(EX_CLOSED)
 	    && (!affect::exists_on_char(ch, affect::type::pass_door) || pexit->exit_flags.has(EX_NOPASS))
 	    &&  !IS_IMMORTAL(ch)) {
-		act("The $d is closed.", ch, nullptr, pexit->keyword, TO_CHAR);
+		act("The $d is closed.", ch, nullptr, pexit->keyword(), TO_CHAR);
 		return;
 	}
 
@@ -127,24 +127,24 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	if (!IS_NPC(ch)) {
-		if (to_room->guild && to_room->guild != ch->cls + 1 && !IS_IMMORTAL(ch)) {
+		if (to_room->guild() && to_room->guild() != ch->cls + 1 && !IS_IMMORTAL(ch)) {
 			stc("You must be a guild member to enter.\n", ch);
 			return;
 		}
 
 		/* don't care about mobs getting messages */
-		if (GET_ROOM_FLAGS(in_room).has(ROOM_UNDER_WATER)) {
-			if (GET_ROOM_FLAGS(to_room).has(ROOM_UNDER_WATER))
+		if (in_room->flags().has(ROOM_UNDER_WATER)) {
+			if (to_room->flags().has(ROOM_UNDER_WATER))
 				stc("{CYou continue to hold your breath...{x\n", ch);
 			else
 				stc("{CYou gasp for air!{x\n", ch);
 		}
-		else if (GET_ROOM_FLAGS(to_room).has(ROOM_UNDER_WATER))
+		else if (to_room->flags().has(ROOM_UNDER_WATER))
 			stc("{CYou begin to hold your breath.{x\n", ch);
 	}
 
-	if ((in_room->sector_type == SECT_AIR
-	  || to_room->sector_type == SECT_AIR)
+	if ((in_room->sector_type() == SECT_AIR
+	  || to_room->sector_type() == SECT_AIR)
 	 && !IS_FLYING(ch) 
 	 && !IS_IMMORTAL(ch)) {
 		if (CAN_FLY(ch))
@@ -156,8 +156,8 @@ void move_char(Character *ch, int door, bool follow)
 			return;
 	}
 
-	if ((in_room->sector_type == SECT_WATER_NOSWIM
-	  || to_room->sector_type == SECT_WATER_NOSWIM)
+	if ((in_room->sector_type() == SECT_WATER_NOSWIM
+	  || to_room->sector_type() == SECT_WATER_NOSWIM)
 	 && !IS_FLYING(ch)
 	 && !IS_IMMORTAL(ch)
 	 && !get_skill_level(ch, skill::type::swimming)) {
@@ -183,8 +183,8 @@ void move_char(Character *ch, int door, bool follow)
 		}
 	}
 
-	cost = (stamina_loss[UMIN(SECT_MAX - 1, in_room->sector_type)]
-	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]) / 2;
+	cost = (stamina_loss[UMIN(SECT_MAX - 1, in_room->sector_type())]
+	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type())]) / 2;
 
 	/* conditional effects */
 	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::type::haste))
@@ -258,7 +258,7 @@ void move_char(Character *ch, int door, bool follow)
 			if (IS_NPC(fch) && fch->act_flags.has(ACT_STAY))
 				continue;
 
-			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LAW) && (IS_NPC(fch)
+			if (ch->in_room->flags().has(ROOM_LAW) && (IS_NPC(fch)
 			                && fch->act_flags.has(ACT_AGGRESSIVE))) {
 				act("You can't bring $N into the city.", ch, nullptr, fch, TO_CHAR);
 				act("They don't seem to want your 'type' here.", fch, nullptr, nullptr, TO_CHAR);
@@ -325,7 +325,7 @@ int find_door(Character *ch, const String& arg)
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != nullptr
 			    && pexit->exit_flags.has(EX_ISDOOR)
-			    && pexit->keyword.has_words(arg))
+			    && pexit->keyword().has_words(arg))
 				return door;
 		}
 
@@ -362,7 +362,7 @@ int find_exit(Character *ch, const String& arg)
 		for (door = 0; door <= 5; door++) {
 			if ((pexit = ch->in_room->exit[door]) != nullptr
 			    &&   pexit->exit_flags.has(EX_ISDOOR)
-			    &&   pexit->keyword.has_words(arg))
+			    &&   pexit->keyword().has_words(arg))
 				return door;
 		}
 
@@ -456,7 +456,7 @@ void do_open(Character *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'open door' */
-		RoomPrototype *to_room;
+		Room *to_room;
 		Exit *pexit;
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
@@ -468,18 +468,18 @@ void do_open(Character *ch, String argument)
 		{ stc("It's locked.\n",            ch); return; }
 
 		pexit->exit_flags -= EX_CLOSED;
-		act("$n opens the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
+		act("$n opens the $d.", ch, nullptr, pexit->keyword(), TO_ROOM);
 		stc("You open it.\n", ch);
 
 		/* open the other side */
-		if ((to_room   = pexit->u1.to_room) != nullptr
+		if ((to_room   = pexit->to_room) != nullptr
 		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != nullptr
-		    &&   pexit_rev->u1.to_room == ch->in_room) {
+		    &&   pexit_rev->to_room == ch->in_room) {
 			Character *rch;
 			pexit_rev->exit_flags -= EX_CLOSED;
 
 			for (rch = to_room->people; rch != nullptr; rch = rch->next_in_room)
-				act("The $d opens.", rch, nullptr, pexit_rev->keyword, TO_CHAR);
+				act("The $d opens.", rch, nullptr, pexit_rev->keyword(), TO_CHAR);
 		}
 	}
 
@@ -555,7 +555,7 @@ void do_close(Character *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'close door' */
-		RoomPrototype *to_room;
+		Room *to_room;
 		Exit *pexit;
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
@@ -566,18 +566,18 @@ void do_close(Character *ch, String argument)
 		}
 
 		pexit->exit_flags += EX_CLOSED;
-		act("$n closes the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
+		act("$n closes the $d.", ch, nullptr, pexit->keyword(), TO_ROOM);
 		stc("You close it.\n", ch);
 
 		/* close the other side */
-		if ((to_room  = pexit->u1.to_room) != nullptr
+		if ((to_room  = pexit->to_room) != nullptr
 		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != 0
-		    && pexit_rev->u1.to_room == ch->in_room) {
+		    && pexit_rev->to_room == ch->in_room) {
 			Character *rch;
 			pexit_rev->exit_flags += EX_CLOSED;
 
 			for (rch = to_room->people; rch != nullptr; rch = rch->next_in_room)
-				act("The $d closes.", rch, nullptr, pexit_rev->keyword, TO_CHAR);
+				act("The $d closes.", rch, nullptr, pexit_rev->keyword(), TO_CHAR);
 		}
 	}
 }
@@ -688,7 +688,7 @@ void do_lock(Character *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'lock door' */
-		RoomPrototype *to_room;
+		Room *to_room;
 		Exit *pexit;
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
@@ -698,12 +698,12 @@ void do_lock(Character *ch, String argument)
 			return;
 		}
 
-		if (pexit->key < 0) {
+		if (pexit->key() < 0) {
 			stc("It can't be locked.\n", ch);
 			return;
 		}
 
-		if (!has_key(ch, pexit->key)) {
+		if (!has_key(ch, pexit->key())) {
 			stc("You lack the key.\n", ch);
 			return;
 		}
@@ -715,12 +715,12 @@ void do_lock(Character *ch, String argument)
 
 		pexit->exit_flags += EX_LOCKED;
 		stc("You lock the door.\n", ch);
-		act("$n locks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
+		act("$n locks the $d.", ch, nullptr, pexit->keyword(), TO_ROOM);
 
 		/* lock the other side */
-		if ((to_room = pexit->u1.to_room) != nullptr
+		if ((to_room = pexit->to_room) != nullptr
 		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != 0
-		    && pexit_rev->u1.to_room == ch->in_room)
+		    && pexit_rev->to_room == ch->in_room)
 			pexit_rev->exit_flags += EX_LOCKED;
 	}
 }
@@ -818,7 +818,7 @@ void do_unlock(Character *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'unlock door' */
-		RoomPrototype *to_room;
+		Room *to_room;
 		Exit *pexit;
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
@@ -828,12 +828,12 @@ void do_unlock(Character *ch, String argument)
 			return;
 		}
 
-		if (pexit->key < 0) {
+		if (pexit->key() < 0) {
 			stc("It can't be unlocked.\n", ch);
 			return;
 		}
 
-		if (!has_key(ch, pexit->key)) {
+		if (!has_key(ch, pexit->key())) {
 			stc("You lack the key.\n", ch);
 			return;
 		}
@@ -845,12 +845,12 @@ void do_unlock(Character *ch, String argument)
 
 		pexit->exit_flags -= EX_LOCKED;
 		stc("You unlock it.\n", ch);
-		act("$n unlocks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
+		act("$n unlocks the $d.", ch, nullptr, pexit->keyword(), TO_ROOM);
 
 		/* unlock the other side */
-		if ((to_room = pexit->u1.to_room) != nullptr
+		if ((to_room = pexit->to_room) != nullptr
 		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != nullptr
-		    && pexit_rev->u1.to_room == ch->in_room)
+		    && pexit_rev->to_room == ch->in_room)
 			pexit_rev->exit_flags -= EX_LOCKED;
 	}
 }
@@ -957,7 +957,7 @@ void do_pick(Character *ch, String argument)
 
 	if ((door = find_door(ch, arg)) >= 0) {
 		/* 'pick door' */
-		RoomPrototype *to_room;
+		Room *to_room;
 		Exit *pexit;
 		Exit *pexit_rev;
 		pexit = ch->in_room->exit[door];
@@ -965,7 +965,7 @@ void do_pick(Character *ch, String argument)
 		if (!pexit->exit_flags.has(EX_CLOSED) && !IS_IMMORTAL(ch))
 		{ stc("It's not closed.\n",        ch); return; }
 
-		if (pexit->key < 0 && !IS_IMMORTAL(ch))
+		if (pexit->key() < 0 && !IS_IMMORTAL(ch))
 		{ stc("It can't be picked.\n",     ch); return; }
 
 		if (!pexit->exit_flags.has(EX_LOCKED))
@@ -976,13 +976,13 @@ void do_pick(Character *ch, String argument)
 
 		pexit->exit_flags -= EX_LOCKED;
 		stc("You pick it!!\n", ch);
-		act("$n picks the $d.", ch, nullptr, pexit->keyword, TO_ROOM);
+		act("$n picks the $d.", ch, nullptr, pexit->keyword(), TO_ROOM);
 		check_improve(ch, skill::type::pick_lock, TRUE, 2);
 
 		/* pick the other side */
-		if ((to_room   = pexit->u1.to_room) != nullptr
+		if ((to_room   = pexit->to_room) != nullptr
 		    && (pexit_rev = to_room->exit[Exit::rev_dir(door)]) != nullptr
-		    &&   pexit_rev->u1.to_room == ch->in_room)
+		    &&   pexit_rev->to_room == ch->in_room)
 			pexit_rev->exit_flags -= EX_LOCKED;
 	}
 
@@ -1357,7 +1357,7 @@ void do_sleep(Character *ch, String argument)
 {
 	Object *obj = nullptr;
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NOSLEEP)) {
+	if (ch->in_room->flags().has(ROOM_NOSLEEP)) {
 		stc("Hmmm...you can't seem to fall asleep in this room.\n", ch);
 		return;
 	}
@@ -1599,7 +1599,7 @@ void do_clan_recall(Character *ch, String argument)
 
 void recall(Character *ch, bool clan)
 {
-	RoomPrototype *location;
+	Room *location;
 	bool pet = FALSE, combat = FALSE;
 	int lose = 0;
 
@@ -1631,24 +1631,24 @@ void recall(Character *ch, bool clan)
 	/* default locations, can be changed in the following ifs */
 	if (clan) {
 		if (pet)
-			location = get_room_index(ch->master->clan->hall);
+			location = get_room(ch->master->clan->hall);
 		else
-			location = get_room_index(ch->clan->hall);
+			location = get_room(ch->clan->hall);
 	}
 	else
-		location = get_room_index(ROOM_VNUM_TEMPLE);
+		location = get_room(ROOM_VNUM_TEMPLE);
 
 	/* Recall from Clan's Arena */
-	if (ch->in_room->sector_type == SECT_CLANARENA && !clan && ch->fighting) {
+	if (ch->in_room->sector_type() == SECT_CLANARENA && !clan && ch->fighting) {
 		if (pet)
-			location = get_room_index(ch->master->clan->hall);
+			location = get_room(ch->master->clan->hall);
 		else
-			location = get_room_index(ch->clan->hall);
+			location = get_room(ch->clan->hall);
 
 		if (location == nullptr)
-			location = get_room_index(ROOM_VNUM_TEMPLE);
+			location = get_room(ROOM_VNUM_TEMPLE);
 	}
-	else if (ch->in_room->sector_type == SECT_ARENA) {
+	else if (ch->in_room->sector_type() == SECT_ARENA) {
 		Descriptor *d;
 		bool empty = TRUE;
 
@@ -1658,7 +1658,7 @@ void recall(Character *ch, bool clan)
 			    && d->character != ch->pet     /* just in case */
 			    && !IS_IMMORTAL(d->character)  /* exclude imms */
 			    && d->character->in_room != nullptr
-			    && d->character->in_room->area == ch->in_room->area)
+			    && d->character->in_room->area() == ch->in_room->area())
 				empty = FALSE;
 
 		if (empty && ch->fighting == nullptr && (battle.start || !battle.issued)) { /* last person in arena? */
@@ -1682,7 +1682,7 @@ void recall(Character *ch, bool clan)
 			return;
 		}
 
-		location = get_room_index(ROOM_VNUM_ARENACENTER);
+		location = get_room(ROOM_VNUM_ARENACENTER);
 	}
 
 	if (location == nullptr) {
@@ -1695,7 +1695,7 @@ void recall(Character *ch, bool clan)
 		return;
 	}
 
-	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::type::curse)) {
+	if ((!IS_IMMORTAL(ch) && ch->in_room->flags().has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::type::curse)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
@@ -1708,8 +1708,8 @@ void recall(Character *ch, bool clan)
 			return;
 		}
 
-		if (ch->in_room->sector_type != SECT_ARENA
-		    && ch->in_room->sector_type != SECT_CLANARENA)
+		if (ch->in_room->sector_type() != SECT_ARENA
+		    && ch->in_room->sector_type() != SECT_CLANARENA)
 			lose = (ch->desc != nullptr ? 25 : (clan ? 50 : 25));
 
 		combat = TRUE;
@@ -1722,7 +1722,7 @@ void recall(Character *ch, bool clan)
 	if (HAS_RAFF(ch, RAFF_BUGGYREC) && chance(5))
 		location = get_random_room(ch);
 
-	if (!ch->in_room->clan || ch->in_room->clan != ch->clan)
+	if (!ch->in_room->clan() || ch->in_room->clan() != ch->clan)
 		ch->stam = (ch->stam * 3) / 4;
 
 	if (clan)
@@ -1981,21 +1981,21 @@ bool is_safe_drag(Character *ch, Character *victim)
 		return FALSE;
 
 	/* safe room? */
-	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE)
+	if (victim->in_room->flags().has(ROOM_SAFE)
 	    && (IS_NPC(victim) || victim->pcdata->pktimer <= 0)) {
 		stc("Oddly enough, in this room you feel peaceful.\n", ch);
 		return TRUE;
 	}
 
-	if (victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->sector_type == SECT_CLANARENA
+	if (victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->sector_type() == SECT_CLANARENA
 	    || char_in_darena_room(victim))
 		return FALSE;
 
 	/* almost anything goes in the quest area if UPK is on */
 	if (Game::world().quest.pk
-	    && victim->in_room->area == Game::world().quest.area
-	    && ch->in_room->area == Game::world().quest.area)
+	    && victim->in_room->area() == Game::world().quest.area()
+	    && ch->in_room->area() == Game::world().quest.area())
 		return FALSE;
 
 	return is_safe_char(ch, victim, TRUE);
@@ -2004,7 +2004,7 @@ bool is_safe_drag(Character *ch, Character *victim)
 void do_push(Character *ch, String argument)
 {
 	char buf[MIL], dir_buf[MSL];
-	RoomPrototype *to_room;
+	Room *to_room;
 	Exit *pexit;
 	Character *victim;
 	int dir;
@@ -2058,7 +2058,7 @@ void do_push(Character *ch, String argument)
 			act("$n tries to push you.", ch, nullptr, victim, TO_VICT);
 			act("$N looks at you with contempt and ignores you.", ch, nullptr, victim, TO_CHAR);
 
-			if (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
+			if (!victim->in_room->flags().has(ROOM_SAFE))
 				multi_hit(victim, ch, skill::type::unknown);
 
 			return;
@@ -2067,23 +2067,23 @@ void do_push(Character *ch, String argument)
 
 	/* no exit from the room? */
 	if ((pexit   = ch->in_room->exit[dir]) == nullptr
-	    || (to_room = pexit->u1.to_room) == nullptr
-	    || !can_see_room(ch, pexit->u1.to_room)) {
+	    || (to_room = pexit->to_room) == nullptr
+	    || !can_see_room(ch, pexit->to_room)) {
 		act("You shove $M up against a wall and threaten $M.", ch, nullptr, victim, TO_CHAR);
 		act("$n shoves you up against a wall and threatens you.", ch, nullptr, victim, TO_VICT);
 		act("$n shoves $N up against a wall and threatens $M.", ch, nullptr, victim, TO_NOTVICT);
 		return;
 	}
 
-	if (GET_ROOM_FLAGS(to_room).has(ROOM_LAW)
+	if (to_room->flags().has(ROOM_LAW)
 	    && (IS_NPC(victim) && victim->act_flags.has(ACT_AGGRESSIVE))) {
 		stc("They are too ill-tempered to have in the city.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(ch)
-	    && to_room->guild
-	    && to_room->guild != victim->cls + 1) {
+	    && to_room->guild()
+	    && to_room->guild() != victim->cls + 1) {
 		stc("They are not a member, they cannot enter.\n", ch);
 		return;
 	}
@@ -2092,11 +2092,11 @@ void do_push(Character *ch, String argument)
 	if (pexit->exit_flags.has(EX_CLOSED)
 	    && (!affect::exists_on_char(victim, affect::type::pass_door)
 	        || pexit->exit_flags.has(EX_NOPASS))) {
-		Format::sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword);
+		Format::sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword());
 		act(buf, ch, nullptr, victim, TO_CHAR);
-		Format::sprintf(buf, "$n shoves you up against the %s and threatens you.", pexit->keyword);
+		Format::sprintf(buf, "$n shoves you up against the %s and threatens you.", pexit->keyword());
 		act(buf, ch, nullptr, victim, TO_VICT);
-		Format::sprintf(buf, "$n shoves $N up against the %s and threatens $M.", pexit->keyword);
+		Format::sprintf(buf, "$n shoves $N up against the %s and threatens $M.", pexit->keyword());
 		act(buf, ch, nullptr, victim, TO_NOTVICT);
 		return;
 	}
@@ -2123,12 +2123,12 @@ void do_push(Character *ch, String argument)
 	else
 		Format::sprintf(dir_buf, "the %s", Exit::dir_name(dir, true));
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)
-	    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER))
+	if (ch->in_room->flags().has(ROOM_UNDER_WATER)
+	    && !victim->in_room->flags().has(ROOM_UNDER_WATER))
 		stc("{CYou gasp for air!{x\n", victim);
 
-	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
-		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_UNDER_WATER)) {
+	if (victim->in_room->flags().has(ROOM_UNDER_WATER)) {
+		if (ch->in_room->flags().has(ROOM_UNDER_WATER)) {
 			stc("{CYou continue to hold your breath...{x\n", victim);
 			Format::sprintf(buf, "$N floats in from %s.", dir_buf);
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
@@ -2139,7 +2139,7 @@ void do_push(Character *ch, String argument)
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
 		}
 	}
-	else if (victim->in_room->sector_type == SECT_AIR) {
+	else if (victim->in_room->sector_type() == SECT_AIR) {
 		if (!IS_FLYING(victim)
 		    && victim->in_room->exit[DIR_DOWN]) {
 
@@ -2155,12 +2155,12 @@ void do_push(Character *ch, String argument)
 				long brief = victim->comm_flags.has(COMM_BRIEF);
 				victim->comm_flags += COMM_BRIEF;
 
-				while (victim->in_room->sector_type == SECT_AIR
-				       && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)
+				while (victim->in_room->sector_type() == SECT_AIR
+				       && !victim->in_room->flags().has(ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
-				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
+				       && (to_room = victim->in_room->exit[DIR_DOWN]->to_room)
 				       && count++ < 10) {
-					RoomPrototype *around, *old = victim->in_room;
+					Room *around, *old = victim->in_room;
 					act("$n screams and falls down...", victim, nullptr, nullptr, TO_ROOM);
 					do_look(victim, "auto");
 					char_from_room(victim);
@@ -2168,12 +2168,12 @@ void do_push(Character *ch, String argument)
 					/* echo in the cardinal directions */
 					for (dir = 0; dir < 4; dir++) {
 						if (old->exit[dir] == nullptr
-						    || (around = old->exit[dir]->u1.to_room) == nullptr
+						    || (around = old->exit[dir]->to_room) == nullptr
 						    || around->exit[Exit::rev_dir(dir)] == nullptr
-						    || around->exit[Exit::rev_dir(dir)]->u1.to_room != old)
+						    || around->exit[Exit::rev_dir(dir)]->to_room != old)
 							continue;
 
-						char_to_room(victim, old->exit[dir]->u1.to_room);
+						char_to_room(victim, old->exit[dir]->to_room);
 						Format::sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
 						        Exit::dir_name(dir, true));
 						act(buf, victim, nullptr, nullptr, TO_ROOM);
@@ -2196,13 +2196,13 @@ void do_push(Character *ch, String argument)
 				if (!brief)
 					victim->comm_flags -= COMM_BRIEF;
 
-				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
-				    || victim->in_room->sector_type == SECT_WATER_SWIM
-				    || GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
+				if (victim->in_room->sector_type() == SECT_WATER_NOSWIM
+				    || victim->in_room->sector_type() == SECT_WATER_SWIM
+				    || victim->in_room->flags().has(ROOM_UNDER_WATER)) {
 					stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					act("$n spashes down HARD in the water.", victim, nullptr, nullptr, TO_ROOM);
 
-					if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER))
+					if (victim->in_room->flags().has(ROOM_UNDER_WATER))
 						stc("{CYou begin to hold your breath.{x\n", victim);
 				}
 				else {
@@ -2229,7 +2229,7 @@ void do_push(Character *ch, String argument)
 void do_drag(Character *ch, String argument)
 {
 	char buf[MIL], dir_buf[MSL];
-	RoomPrototype *to_room, *from_room;
+	Room *to_room, *from_room;
 	Exit *pexit;
 	Character *victim;
 	int dir, cost;
@@ -2289,7 +2289,7 @@ void do_drag(Character *ch, String argument)
 			if (IS_AWAKE(victim)) {
 				act("$n tries to drag you, but is not strong enough.", ch, nullptr, victim, TO_VICT);
 
-				if (!GET_ROOM_FLAGS(victim->in_room).has(ROOM_SAFE))
+				if (!victim->in_room->flags().has(ROOM_SAFE))
 					multi_hit(victim, ch, skill::type::unknown);
 			}
 
@@ -2299,8 +2299,8 @@ void do_drag(Character *ch, String argument)
 
 	/* no exit from the room? */
 	if ((pexit   = ch->in_room->exit[dir]) == nullptr
-	    || (to_room = pexit->u1.to_room) == nullptr
-	    || !can_see_room(ch, pexit->u1.to_room)) {
+	    || (to_room = pexit->to_room) == nullptr
+	    || !can_see_room(ch, pexit->to_room)) {
 		act("You drag $M around the room.", ch, nullptr, victim, TO_CHAR);
 		act("$n drags $N around the room!", ch, nullptr, victim, TO_NOTVICT);
 
@@ -2317,12 +2317,12 @@ void do_drag(Character *ch, String argument)
 		return;
 	}
 
-	if (to_room->guild) {
+	if (to_room->guild()) {
 		stc("You cannot drag people into a guild room.\n", ch);
 		return;
 	}
 
-	if (to_room->sector_type == SECT_AIR
+	if (to_room->sector_type() == SECT_AIR
 	 && !IS_FLYING(ch)
 	 && !IS_IMMORTAL(ch)) {
 		if (CAN_FLY(ch))
@@ -2334,7 +2334,7 @@ void do_drag(Character *ch, String argument)
 			return;
 	}
 
-	if (GET_ROOM_FLAGS(to_room).has(ROOM_LAW)) {
+	if (to_room->flags().has(ROOM_LAW)) {
 		if (IS_NPC(ch) && ch->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("They don't want your 'type' in there.\n", ch);
 			return;
@@ -2347,8 +2347,8 @@ void do_drag(Character *ch, String argument)
 	}
 
 	from_room = ch->in_room;
-	cost = (stamina_loss[UMIN(SECT_MAX - 1, from_room->sector_type)]
-	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]);
+	cost = (stamina_loss[UMIN(SECT_MAX - 1, from_room->sector_type())]
+	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type())]);
 
 	/* conditional effects */
 	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::type::haste))
@@ -2375,12 +2375,12 @@ void do_drag(Character *ch, String argument)
 	if (pexit->exit_flags.has(EX_CLOSED)) {
 		if (!affect::exists_on_char(ch, affect::type::pass_door)
 		    || pexit->exit_flags.has(EX_NOPASS)) {
-			ptc(ch, "You back into the %s.\n", pexit->keyword);
-			Format::sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword);
+			ptc(ch, "You back into the %s.\n", pexit->keyword());
+			Format::sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword());
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
 
 			if (IS_AWAKE(victim)) {
-				Format::sprintf(buf, "$n tries to drag you, but backs into the %s.", pexit->keyword);
+				Format::sprintf(buf, "$n tries to drag you, but backs into the %s.", pexit->keyword());
 				act(buf, ch, nullptr, victim, TO_VICT);
 			}
 
@@ -2389,12 +2389,12 @@ void do_drag(Character *ch, String argument)
 
 		if (!affect::exists_on_char(victim, affect::type::pass_door)
 		    || pexit->exit_flags.has(EX_NOPASS)) {
-			ptc(ch, "You try to drag them through the %s, but they are too solid.\n", pexit->keyword);
-			Format::sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword);
+			ptc(ch, "You try to drag them through the %s, but they are too solid.\n", pexit->keyword());
+			Format::sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword());
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
 
 			if (IS_AWAKE(victim)) {
-				Format::sprintf(buf, "$n tries to drag you, but you are too solid to pass through the %s.", pexit->keyword);
+				Format::sprintf(buf, "$n tries to drag you, but you are too solid to pass through the %s.", pexit->keyword());
 				act(buf, ch, nullptr, victim, TO_VICT);
 			}
 			else
@@ -2429,14 +2429,14 @@ void do_drag(Character *ch, String argument)
 	else
 		Format::sprintf(dir_buf, "the %s", Exit::dir_name(dir, true));
 
-	if (GET_ROOM_FLAGS(from_room).has(ROOM_UNDER_WATER)
-	    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
+	if (from_room->flags().has(ROOM_UNDER_WATER)
+	    && !victim->in_room->flags().has(ROOM_UNDER_WATER)) {
 		act("{CYou gasp for air!{x\n", ch, nullptr, victim, TO_CHAR);
 		act("{CYou gasp for air!{x\n", ch, nullptr, victim, TO_VICT);
 	}
 
-	if (GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
-		if (GET_ROOM_FLAGS(from_room).has(ROOM_UNDER_WATER)) {
+	if (victim->in_room->flags().has(ROOM_UNDER_WATER)) {
+		if (from_room->flags().has(ROOM_UNDER_WATER)) {
 			stc("{CYou continue to hold your breath...{x\n", ch);
 			act("{CYou continue to hold your breath...{x", victim, nullptr, nullptr, TO_CHAR);
 			Format::sprintf(buf, "$n swims in from %s, dragging $N behind.", dir_buf);
@@ -2465,7 +2465,7 @@ void do_drag(Character *ch, String argument)
 			act("{CYou begin to hold your breath.{x", victim, nullptr, nullptr, TO_CHAR);
 		}
 	}
-	else if (victim->in_room->sector_type == SECT_AIR) {
+	else if (victim->in_room->sector_type() == SECT_AIR) {
 		if (!IS_FLYING(victim)
 		 && victim->in_room->exit[DIR_DOWN]) {
 
@@ -2481,13 +2481,13 @@ void do_drag(Character *ch, String argument)
 				long brief = victim->comm_flags.has(COMM_BRIEF);
 				victim->comm_flags += COMM_BRIEF;
 
-				while (victim->in_room->sector_type == SECT_AIR
-				       && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)
+				while (victim->in_room->sector_type() == SECT_AIR
+				       && !victim->in_room->flags().has(ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
-				       && (to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room)
+				       && (to_room = victim->in_room->exit[DIR_DOWN]->to_room)
 				       && count++ < 10) {
 					if (IS_AWAKE(victim)) {
-						RoomPrototype *around, *old = victim->in_room;
+						Room *around, *old = victim->in_room;
 						act("$n screams and falls down...", victim, nullptr, nullptr, TO_ROOM);
 						do_look(victim, "auto");
 						char_from_room(victim);
@@ -2495,12 +2495,12 @@ void do_drag(Character *ch, String argument)
 						/* echo in the cardinal directions */
 						for (dir = 0; dir < 4; dir++) {
 							if (old->exit[dir] == nullptr
-							    || (around = old->exit[dir]->u1.to_room) == nullptr
+							    || (around = old->exit[dir]->to_room) == nullptr
 							    || around->exit[Exit::rev_dir(dir)] == nullptr
-							    || around->exit[Exit::rev_dir(dir)]->u1.to_room != old)
+							    || around->exit[Exit::rev_dir(dir)]->to_room != old)
 								continue;
 
-							char_to_room(victim, old->exit[dir]->u1.to_room);
+							char_to_room(victim, old->exit[dir]->to_room);
 							Format::sprintf(buf, "You hear a scream from the %s, as if someone were falling...",
 							        Exit::dir_name(dir, true));
 							act(buf, victim, nullptr, nullptr, TO_ROOM);
@@ -2521,7 +2521,7 @@ void do_drag(Character *ch, String argument)
 							stc("You have an unsettling dream about falling...\n", victim);
 					}
 
-					to_room = victim->in_room->exit[DIR_DOWN]->u1.to_room;
+					to_room = victim->in_room->exit[DIR_DOWN]->to_room;
 					char_from_room(victim);
 					char_to_room(victim, to_room);
 
@@ -2535,9 +2535,9 @@ void do_drag(Character *ch, String argument)
 				if (!brief)
 					victim->comm_flags -= COMM_BRIEF;
 
-				if (victim->in_room->sector_type == SECT_WATER_NOSWIM
-				    || victim->in_room->sector_type == SECT_WATER_SWIM
-				    || GET_ROOM_FLAGS(victim->in_room).has(ROOM_UNDER_WATER)) {
+				if (victim->in_room->sector_type() == SECT_WATER_NOSWIM
+				    || victim->in_room->sector_type() == SECT_WATER_SWIM
+				    || victim->in_room->flags().has(ROOM_UNDER_WATER)) {
 					if (IS_AWAKE(victim))
 						stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					else
@@ -2591,14 +2591,14 @@ void do_mark(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room == nullptr || ch->in_room->vnum == 0) {
+	if (ch->in_room == nullptr || ch->in_room->vnum() == 0) {
 		stc("You are lost! You would not want to return here.\n", ch);
 		return;
 	}
 
-	if (ch->in_room->sector_type == SECT_ARENA
-	    || ch->in_room->area == Game::world().quest.area
-	    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_GODS_ONLY) && !IS_IMMORTAL(ch))
+	if (ch->in_room->sector_type() == SECT_ARENA
+	    || ch->in_room->area() == Game::world().quest.area()
+	    || (ch->in_room->flags().has(ROOM_GODS_ONLY) && !IS_IMMORTAL(ch))
 	    || char_in_duel_room(ch)) {
 		stc("Access to this room must be gained anew each time!\n", ch);
 		return;
@@ -2607,14 +2607,14 @@ void do_mark(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::mark))
 		return;
 
-	ch->pcdata->mark_room = ch->in_room->vnum;
+	ch->pcdata->mark_room = ch->in_room->vnum();
 	stc("You mark this location. RELOCATE will get you back here.\n", ch);
 } /* end do_mark() */
 
 /* RELOCATE: return to previously MARKed location - Elrac */
 void do_relocate(Character *ch, String argument)
 {
-	RoomPrototype *target_room;
+	Room *target_room;
 
 	if (IS_NPC(ch)) {
 		stc("It's a nice day out, you would rather walk.\n", ch);
@@ -2631,7 +2631,7 @@ void do_relocate(Character *ch, String argument)
 		return;
 	}
 
-	target_room = get_room_index(ch->pcdata->mark_room);
+	target_room = get_room(ch->pcdata->mark_room);
 
 	if (target_room == nullptr) {
 		stc("The way back to the room you marked has been lost.\n", ch);
@@ -2639,7 +2639,7 @@ void do_relocate(Character *ch, String argument)
 	}
 
 	/* Hack to prevent players from relocating out of 1212 */
-	if (ch->in_room->vnum == 1212) {
+	if (ch->in_room->vnum() == 1212) {
 		stc("You cannot relocate out of this room.\n", ch);
 		return;
 	}
@@ -2668,8 +2668,8 @@ void do_relocate(Character *ch, String argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type == SECT_ARENA)
-	    || (ch->in_room->area == Game::world().quest.area)) {
+	if ((ch->in_room->sector_type() == SECT_ARENA)
+	    || (ch->in_room->area() == Game::world().quest.area())) {
 		stc("You aren't getting out of here that easily!\n", ch);
 		return;
 	}
@@ -2695,7 +2695,7 @@ const String get_warp_loc_string(const Object *obj) {
 	if (!obj || obj->item_type != ITEM_WARP_CRYSTAL)
 		return "";
 
-	ExtraDescr *ed = get_extra_descr("warp_loc", obj->extra_descr);
+	const ExtraDescr *ed = get_extra_descr("warp_loc", obj->extra_descr);
 
 	if (!ed && obj->pIndexData)
 		ed = get_extra_descr("warp_loc", obj->pIndexData->extra_descr);
@@ -2717,9 +2717,9 @@ const Object *get_warp_crystal(const String& str) {
 
 void do_warp(Character *ch, String argument)
 {
-	RoomPrototype *target_room;
 	String arg;
 	bool forget = false;
+	Room *target_room;
 
 	if (IS_NPC(ch)) {
 		stc("It's a nice day out, you would rather walk.\n", ch);
@@ -2809,7 +2809,7 @@ void do_warp(Character *ch, String argument)
 	target_room = crystal->in_room;
 
 	/* Hack to prevent players from relocating out of 1212 */
-	if (ch->in_room->vnum == 1212) {
+	if (ch->in_room->vnum() == 1212) {
 		stc("You cannot warp out of this room.\n", ch);
 		return;
 	}
@@ -2829,13 +2829,13 @@ void do_warp(Character *ch, String argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type == SECT_ARENA)
-	    || (ch->in_room->area == Game::world().quest.area)) {
+	if ((ch->in_room->sector_type() == SECT_ARENA)
+	    || (ch->in_room->area() == Game::world().quest.area())) {
 		stc("You aren't getting out of here that easily!\n", ch);
 		return;
 	}
 
-	if ((!IS_IMMORTAL(ch) && GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::type::curse)) {
+	if ((!IS_IMMORTAL(ch) && ch->in_room->flags().has(ROOM_NO_RECALL)) || affect::exists_on_char(ch, affect::type::curse)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
@@ -2856,31 +2856,31 @@ void do_warp(Character *ch, String argument)
 } /* end do_relocate() */
 
 /* random room generation procedure */
-RoomPrototype *get_random_room(Character *ch)
+Room *get_random_room(Character *ch)
 {
-	RoomPrototype *room, *prev;
+	Room *room, *prev;
 
 	for (; ;) {
-		room = get_room_index(number_range(0, 32767));
+		room = get_room(number_range(0, 32767));
 
 		if (room == nullptr
 		    || !can_see_room(ch, room)
-		    || room->area == Game::world().quest.area
-		    || room->clan
-		    || room->guild
-		    || room->area->name == "Playpen"
-		    || room->area->name == "IMM-Zone"
-		    || room->area->name == "Limbo"
-		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
-		    || room->area->name == "Torayna Cri"
-		    || GET_ROOM_FLAGS(room).has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
-		    || (IS_NPC(ch) && GET_ROOM_FLAGS(room).has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
-		    || room->sector_type == SECT_ARENA)
+		    || room->area() == Game::world().quest.area()
+		    || room->clan()
+		    || room->guild()
+		    || room->area().name == "Playpen"
+		    || room->area().name == "IMM-Zone"
+		    || room->area().name == "Limbo"
+		    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+		    || room->area().name == "Torayna Cri"
+		    || room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
+		    || (IS_NPC(ch) && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
+		    || room->sector_type() == SECT_ARENA)
 			continue;
 
 		/* no pet shops */
-		if ((prev = get_room_index(room->vnum - 1)) != nullptr)
-			if (GET_ROOM_FLAGS(prev).has(ROOM_PET_SHOP))
+		if ((prev = get_room(room->vnum().value() - 1)) != nullptr)
+			if (prev->flags().has(ROOM_PET_SHOP))
 				continue;
 
 		return room;
@@ -2889,11 +2889,11 @@ RoomPrototype *get_random_room(Character *ch)
 
 void do_enter(Character *ch, String argument)
 {
-	RoomPrototype *location;
+	Room *location;
 
 	/* nifty portal stuff */
 	if (!argument.empty()) {
-		RoomPrototype *old_room;
+		Room *old_room;
 		Object *portal;
 		Character *fch, *fch_next;
 		bool fighting = FALSE;
@@ -2911,15 +2911,15 @@ void do_enter(Character *ch, String argument)
 		}
 
 		if (!IS_IMMORTAL(ch)) {
-			if (ch->in_room->sector_type == SECT_ARENA || char_in_duel_room(ch)) {
+			if (ch->in_room->sector_type() == SECT_ARENA || char_in_duel_room(ch)) {
 				stc("The gods have restricted the use of portals in the arena.\n", ch);
 				return;
 			}
 
 			/* Added by Lotus 6-22-98 */
 			/* make it so you can't use portable portals to get out of norecall areas -- Montrey */
-			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NOPORTAL)
-			    || (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL) && CAN_WEAR(portal, ITEM_TAKE))) {
+			if (ch->in_room->flags().has(ROOM_NOPORTAL)
+			    || (ch->in_room->flags().has(ROOM_NO_RECALL) && CAN_WEAR(portal, ITEM_TAKE))) {
 				stc("The Lord of Evil has denied you access to your portal...muahahaha...\n", ch);
 				return;
 			}
@@ -2933,12 +2933,12 @@ void do_enter(Character *ch, String argument)
 
 		if (portal->value[2].flags().has(GATE_RANDOM) || portal->value[3] == -1) {
 			location = get_random_room(ch);
-			portal->value[3] = location->vnum; /* for record keeping :) */
+			portal->value[3] = location->vnum(); /* for record keeping :) */
 		}
 		else if (portal->value[2].flags().has(GATE_BUGGY) && (number_percent() < 5))
 			location = get_random_room(ch);
 		else
-			location = get_room_index(portal->value[3]);
+			location = get_room(portal->value[3]);
 
 		if (location == nullptr
 		    || location == old_room
@@ -2948,7 +2948,7 @@ void do_enter(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(ch) && GET_ROOM_FLAGS(location).has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE)) {
+		if (IS_NPC(ch) && location->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("As soon as you enter, you are spat violently out again.\n", ch);
 			return;
 		}
@@ -3066,7 +3066,7 @@ void do_enter(Character *ch, String argument)
 			}
 
 			if (fch->master == ch && get_position(fch) == POS_STANDING) {
-				if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LAW)
+				if (ch->in_room->flags().has(ROOM_LAW)
 				    && (IS_NPC(fch) && fch->act_flags.has(ACT_AGGRESSIVE))) {
 					act("You can't bring $N into the city!! Are you DAFT?!", ch, nullptr, fch, TO_CHAR);
 					act("Get yer aggressive butt outta town buddy...", fch, nullptr, nullptr, TO_CHAR);
@@ -3101,7 +3101,7 @@ void do_enter(Character *ch, String argument)
 
 void do_land(Character *ch, String argument)
 {
-	if (ch->in_room->sector_type == SECT_AIR) {
+	if (ch->in_room->sector_type() == SECT_AIR) {
 		stc("There is nowhere to put your feet!\n", ch);
 		return;
 	}
@@ -3111,8 +3111,8 @@ void do_land(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type == SECT_WATER_SWIM
-	 || ch->in_room->sector_type == SECT_WATER_NOSWIM) {
+	if (ch->in_room->sector_type() == SECT_WATER_SWIM
+	 || ch->in_room->sector_type() == SECT_WATER_NOSWIM) {
 		stc("You land in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n", ch);
 		act("$n lands in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n",
 			ch, nullptr, nullptr, TO_ROOM);
@@ -3178,12 +3178,12 @@ void do_spousegate(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->area == Game::world().quest.area) {
+	if (ch->in_room->area() == Game::world().quest.area()) {
 		stc("You may not gate in the quest area.\n", ch);
 		return;
 	}
 
-	if ((ch->in_room->sector_type == SECT_ARENA) || (char_in_duel_room(ch))) {
+	if ((ch->in_room->sector_type() == SECT_ARENA) || (char_in_duel_room(ch))) {
 		stc("You may not gate while in the arena.\n", ch);
 		return;
 	}
@@ -3205,16 +3205,16 @@ void do_spousegate(Character *ch, String argument)
 		return;
 	}
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)
+	if (ch->in_room->flags().has(ROOM_NO_RECALL)
 	    || victim == ch
 	    || victim->in_room == nullptr
 	    || !can_see_room(ch, victim->in_room)
-	    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
-	    || victim->in_room->sector_type == SECT_ARENA
-	    || victim->in_room->area == Game::world().quest.area
+	    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
+	    || victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->area() == Game::world().quest.area()
 	    || char_in_duel_room(victim)
-	    || victim->in_room->clan
-	    || victim->in_room->guild
+	    || victim->in_room->clan()
+	    || victim->in_room->guild()
 	    || (IS_NPC(victim))) {
 		stc("You failed.\n", ch);
 		return;

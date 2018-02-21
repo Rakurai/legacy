@@ -8,14 +8,15 @@ public:
 	virtual ~QuestArea() {}
 
 	void init();
+	const Area& area() const;
 
 	bool open = false;
 	bool pk = true; // unlimited pk
 	int min_level = 0;
 	int max_level = MAX_LEVEL;
 
-	RoomPrototype *startroom = nullptr;
-	Area *area = nullptr;
+	Room *startroom = nullptr;
+//	const Area *area = nullptr;
 
 private:
 	QuestArea(const QuestArea&);

@@ -116,21 +116,21 @@ void          free_cache           args(( Character *ch ));
 bool                enchanted_obj             args(( Object *obj ));
 const Affect * list_obj                       args(( Object *obj ));
 const Affect * list_char                      args(( Character *ch ));
-const Affect * list_room                      args(( RoomPrototype *room ));
+const Affect * list_room                      args(( Room *room ));
 bool                exists_on_obj             args(( Object *obj, ::affect::type type ));
 bool                exists_on_char            args(( const Character *ch, ::affect::type type ));
-bool                exists_on_room            args(( RoomPrototype *room, ::affect::type type ));
+bool                exists_on_room            args(( Room *room, ::affect::type type ));
 const Affect * find_on_obj                    args(( Object *obj, ::affect::type type ));
 const Affect * find_on_char                   args(( Character *ch, ::affect::type type ));
-const Affect * find_on_room                   args(( RoomPrototype *room, ::affect::type type ));
+const Affect * find_on_room                   args(( Room *room, ::affect::type type ));
 
 // adding
 void                copy_to_obj               args(( Object *obj, const Affect *paf ));
 void                copy_to_char              args(( Character *ch, const Affect *paf ));
-void                copy_to_room              args(( RoomPrototype *room, const Affect *paf ));
+void                copy_to_room              args(( Room *room, const Affect *paf ));
 void                join_to_obj               args(( Object *obj, Affect *paf ));
 void                join_to_char              args(( Character *ch, Affect *paf ));
-void                join_to_room              args(( RoomPrototype *room, Affect *paf ));
+void                join_to_room              args(( Room *room, Affect *paf ));
 void                add_perm_to_char          args(( Character *ch, ::affect::type type ));
 void                copy_flags_to_char        args(( Character *ch, char letter, Flags flags, bool permanent ));
 void                add_type_to_char          args(( Character *ch, ::affect::type type, int level, int duration, int evolution, bool permanent ));
@@ -139,30 +139,30 @@ void                add_racial_to_char        args(( Character *ch ));
 // removing
 void                remove_from_obj           args(( Object *obj, Affect *paf ));
 void                remove_from_char          args(( Character *ch, Affect *paf ));
-void                remove_from_room          args(( RoomPrototype *room, Affect *paf ));
+void                remove_from_room          args(( Room *room, Affect *paf ));
 void                remove_matching_from_obj  args(( Object *obj, comparator comp, const Affect *pattern ));
 void                remove_matching_from_char args(( Character *ch, comparator comp, const Affect *pattern ));
-void                remove_matching_from_room args(( RoomPrototype *room, comparator comp, const Affect *pattern ));
+void                remove_matching_from_room args(( Room *room, comparator comp, const Affect *pattern ));
 void                remove_marked_from_obj    args(( Object *obj ));
 void                remove_marked_from_char   args(( Character *ch ));
-void                remove_marked_from_room   args(( RoomPrototype *room ));
+void                remove_marked_from_room   args(( Room *room ));
 void	            remove_type_from_obj      args(( Object *obj, ::affect::type type ));
 void	            remove_type_from_char     args(( Character *ch, ::affect::type type ));
-void	            remove_type_from_room     args(( RoomPrototype *room, ::affect::type type ));
+void	            remove_type_from_room     args(( Room *room, ::affect::type type ));
 void                remove_all_from_obj       args(( Object *obj, bool permanent ));
 void                remove_all_from_char      args(( Character *ch, bool permanent ));
-void                remove_all_from_room      args(( RoomPrototype *room, bool permanent ));
+void                remove_all_from_room      args(( Room *room, bool permanent ));
 
 // modifying
 void                modify_obj                args(( Object *obj, const Affect *paf, bool fAdd ));
 void                modify_char               args(( Character *ch, const Affect *paf, bool fAdd ));
-void                modify_room               args(( RoomPrototype *obj, const Affect *paf, bool fAdd ));
+void                modify_room               args(( Room *obj, const Affect *paf, bool fAdd ));
 void                iterate_over_obj          args(( Object *obj, affect_fn fn, void *data ));
 void                iterate_over_char         args(( Character *ch, affect_fn fn, void *data ));
-void                iterate_over_room         args(( RoomPrototype *room, affect_fn fn, void *data ));
+void                iterate_over_room         args(( Room *room, affect_fn fn, void *data ));
 void                sort_obj                  args(( Object *ch, comparator comp ));
 void                sort_char                 args(( Character *ch, comparator comp ));
-void                sort_room                 args(( RoomPrototype *ch, comparator comp ));
+void                sort_room                 args(( Room *ch, comparator comp ));
 
 void                remort_affect_modify_char args(( Character *ch, int where, Flags bitvector, bool fAdd ));
 
@@ -170,4 +170,4 @@ void                remort_affect_modify_char args(( Character *ch, int where, F
 
 // weird things out of namespace, fix up when possible
 void show_affect_to_char  args((const affect::Affect *paf, Character *ch));
-void spread_plague  args((RoomPrototype *room, const affect::Affect *plague, int chance ));
+void spread_plague  args((Room *room, const affect::Affect *plague, int chance ));

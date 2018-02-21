@@ -37,7 +37,7 @@
 #include "Player.hh"
 #include "QuestArea.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "skill/skill.hh"
 #include "String.hh"
 #include "tables.hh"
@@ -172,35 +172,30 @@ Character *find_squestmaster(Character *ch)
 /* Obtain additional location information about sought item/mob */
 void quest_where(Character *ch, char *what)
 {
-	RoomPrototype *room;
+	Room *room;
 
 	if (ch->questloc <= 0) {
-		Logging::bug("QUEST INFO: ch->questloc = %d", ch->questloc);
+		Logging::bugf("QUEST INFO: ch->questloc = %d", ch->questloc);
 		return;
 	}
 
 	if (ch->in_room == nullptr)
 		return;
 
-	room = get_room_index(ch->questloc);
+	room = get_room(ch->questloc);
 
-	if (room->area == nullptr) {
-		Logging::bug("QUEST INFO: room(%d)->area == nullptr", ch->questloc);
-		return;
-	}
+	ptc(ch, "Rumor has it this %s was last seen in the area known as %s", what, room->area().name);
 
-	ptc(ch, "Rumor has it this %s was last seen in the area known as %s", what, room->area->name);
-
-	if (room->name.empty())
+	if (room->name().empty())
 		ptc(ch, ".\n");
 	else
-		ptc(ch, ",\nnear %s.\n", room->name);
+		ptc(ch, ",\nnear %s.\n", room->name());
 } /* end quest_where */
 
 void squest_info(Character *ch)
 {
 	MobilePrototype *questman;
-	RoomPrototype *questroom_obj, *questroom_mob;
+	Room *questroom_obj, *questroom_mob;
 
 	if (!ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
 		stc("You aren't currently on a skill quest.\n", ch);
@@ -208,7 +203,7 @@ void squest_info(Character *ch)
 	}
 
 	if (ch->pcdata->squest_giver < 1) {
-		Logging::bug("QUEST INFO: quest giver = %d", ch->pcdata->squest_giver);
+		Logging::bugf("QUEST INFO: quest giver = %d", ch->pcdata->squest_giver);
 		stc("It seems the questmistress died of old age waiting for you.\n", ch);
 		ch->pcdata->plr_flags -= PLR_SQUESTOR;
 		return;
@@ -217,7 +212,7 @@ void squest_info(Character *ch)
 	questman = get_mob_index(ch->pcdata->squest_giver);
 
 	if (questman == nullptr) {
-		Logging::bug("QUEST INFO: skill quest giver %d has no MobilePrototype!", ch->quest_giver);
+		Logging::bugf("QUEST INFO: skill quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmistress has fallen very ill. Please contact an imm!\n", ch);
 		ch->pcdata->plr_flags -= PLR_SQUESTOR;
 		return;
@@ -240,15 +235,8 @@ void squest_info(Character *ch)
 			return;
 		}
 
-		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == nullptr) {
+		if ((questroom_obj = get_room(ch->pcdata->squestloc1)) == nullptr) {
 			Logging::bug("QUEST INFO: sqobj quest with no location", 0);
-			stc("You've forgotten where your quest object is.\n", ch);
-			sq_cleanup(ch);
-			return;
-		}
-
-		if (questroom_obj->area == nullptr) {
-			Logging::bug("QUEST INFO: sqobj location with no area", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
@@ -256,8 +244,8 @@ void squest_info(Character *ch)
 
 		ptc(ch, "You are on a quest to recover the legendary %s!\n",
 		    ch->pcdata->squestobj->short_descr);
-		ptc(ch, "The artifact was last known to be in %s{x,\n", questroom_obj->name);
-		ptc(ch, "in the area known as %s{x.\n", questroom_obj->area->name);
+		ptc(ch, "The artifact was last known to be in %s{x,\n", questroom_obj->name());
+		ptc(ch, "in the area known as %s{x.\n", questroom_obj->area().name);
 		return;
 	}
 
@@ -269,15 +257,8 @@ void squest_info(Character *ch)
 			return;
 		}
 
-		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == nullptr) {
+		if ((questroom_mob = get_room(ch->pcdata->squestloc2)) == nullptr) {
 			Logging::bug("QUEST INFO: sqmob quest with no location", 0);
-			stc("You've forgotten where your quest mob is.\n", ch);
-			sq_cleanup(ch);
-			return;
-		}
-
-		if (questroom_mob->area == nullptr) {
-			Logging::bug("QUEST INFO: sqmob location with no area", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
@@ -286,35 +267,21 @@ void squest_info(Character *ch)
 		ptc(ch, "You are on a quest to learn from the legendary %s!\n",
 		    ch->pcdata->squestmob->short_descr);
 		ptc(ch, "%s can usually be found in %s{x,\n",
-		    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
-		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
+		    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name());
+		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area().name);
 		return;
 	}
 
 	if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr) { /* mob and obj */
-		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == nullptr) {
+		if ((questroom_obj = get_room(ch->pcdata->squestloc1)) == nullptr) {
 			Logging::bug("QUEST INFO: sqobj/mob quest with no obj location", 0);
 			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		if (questroom_obj->area == nullptr) {
-			Logging::bug("QUEST INFO: sqobj location with no area", 0);
-			stc("You've forgotten where your quest object is.\n", ch);
-			sq_cleanup(ch);
-			return;
-		}
-
-		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == nullptr) {
+		if ((questroom_mob = get_room(ch->pcdata->squestloc2)) == nullptr) {
 			Logging::bug("QUEST INFO: sqobj/mob quest with no mob location", 0);
-			stc("You've forgotten where your quest mob is.\n", ch);
-			sq_cleanup(ch);
-			return;
-		}
-
-		if (questroom_mob->area == nullptr) {
-			Logging::bug("QUEST INFO: sqmob location with no area", 0);
 			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
@@ -331,17 +298,17 @@ void squest_info(Character *ch)
 			ptc(ch, "You must return the %s to %s.\n",
 			    ch->pcdata->squestobj->short_descr, ch->pcdata->squestmob->short_descr);
 			ptc(ch, "%s can usually be found in %s{x,\n",
-			    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
-			ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
+			    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name());
+			ptc(ch, "in the area known as %s{x.\n", questroom_mob->area().name);
 			return;
 		}
 
 		ptc(ch, "You are on a quest to recover the legendary %s,\n", ch->pcdata->squestobj->short_descr);
-		ptc(ch, "from %s{x, in the area known as %s{x,\n", questroom_obj->name, questroom_obj->area->name);
+		ptc(ch, "from %s{x, in the area known as %s{x,\n", questroom_obj->name(), questroom_obj->area().name);
 		ptc(ch, "and return it to it's rightful owner, %s.\n", ch->pcdata->squestmob->short_descr);
 		ptc(ch, "%s can usually be found in %s{x,\n",
-		    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name);
-		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
+		    GET_ATTR_SEX(ch->pcdata->squestmob) == 1 ? "He" : "She", questroom_mob->name());
+		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area().name);
 	}
 }
 
@@ -356,7 +323,7 @@ void quest_info(Character *ch)
 	}
 
 	if (ch->quest_giver < 1) {
-		Logging::bug("QUEST INFO: quest giver = %d", ch->quest_giver);
+		Logging::bugf("QUEST INFO: quest giver = %d", ch->quest_giver);
 		stc("It seems the questmaster died of old age waiting for you.\n", ch);
 		ch->act_flags -= PLR_QUESTOR;
 		return;
@@ -365,7 +332,7 @@ void quest_info(Character *ch)
 	questman = get_mob_index(ch->quest_giver);
 
 	if (questman == nullptr) {
-		Logging::bug("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
+		Logging::bugf("QUEST INFO: quest giver %d has no MobilePrototype!", ch->quest_giver);
 		stc("The questmaster has fallen very ill. Please contact an imm!\n", ch);
 		ch->act_flags -= PLR_QUESTOR;
 		return;
@@ -388,7 +355,7 @@ void quest_info(Character *ch)
 		}
 
 		/* quest object not found! */
-		Logging::bug("No info for quest object %d", ch->questobj);
+		Logging::bugf("No info for quest object %d", ch->questobj);
 		ch->questobj = 0;
 		ch->questobf = 0;
 		ch->act_flags -= PLR_QUESTOR;
@@ -404,7 +371,7 @@ void quest_info(Character *ch)
 		}
 
 		/* quest mob not found! */
-		Logging::bug("No info for quest mob %d", ch->questmob);
+		Logging::bugf("No info for quest mob %d", ch->questmob);
 		ch->questmob = 0;
 		ch->act_flags -= PLR_QUESTOR;
 		/* no RETURN -- fall thru to 'no quest', below */
@@ -646,31 +613,31 @@ Object *generate_skillquest_obj(Character *ch, int level)
 	return questobj;
 }
 
-RoomPrototype *generate_skillquest_room(Character *ch, int level)
+Room *generate_skillquest_room(Character *ch, int level)
 {
-	RoomPrototype *room, *prev;
+	Room *room, *prev;
 
 	for (; ;) {
-		room = get_room_index(number_range(0, 32767));
+		room = get_room(number_range(0, 32767));
 
 		if (room == nullptr
 		    || !can_see_room(ch, room)
-		    || room->area == Game::world().quest.area
-		    || room->area->low_range > level
-		    || room->area->high_range < level
-		    || (room->area->min_vnum >= 24000      /* clanhall vnum ranges */
-		        && room->area->min_vnum <= 26999)
-		    || room->guild
-		    || room->area->name == "Playpen"
-		    || room->area->name == "IMM-Zone"
-		    || room->area->name == "Limbo"
-		    || room->area->name == "Midgaard"
-		    || room->area->name == "New Thalos"
-		    || room->area->name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
-		    || room->area->name == "Torayna Cri"
-		    || room->area->name == "Battle Arenas"
-		    || room->sector_type == SECT_ARENA
-		    || GET_ROOM_FLAGS(room).has_any_of(
+		    || room->area() == Game::world().quest.area()
+		    || room->area().low_range > level
+		    || room->area().high_range < level
+		    || (room->area().min_vnum >= 24000      /* clanhall vnum ranges */
+		        && room->area().min_vnum <= 26999)
+		    || room->guild()
+		    || room->area().name == "Playpen"
+		    || room->area().name == "IMM-Zone"
+		    || room->area().name == "Limbo"
+		    || room->area().name == "Midgaard"
+		    || room->area().name == "New Thalos"
+		    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+		    || room->area().name == "Torayna Cri"
+		    || room->area().name == "Battle Arenas"
+		    || room->sector_type() == SECT_ARENA
+		    || room->flags().has_any_of(
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE
@@ -679,8 +646,8 @@ RoomPrototype *generate_skillquest_room(Character *ch, int level)
 			continue;
 
 		/* no pet shops */
-		if ((prev = get_room_index(room->vnum - 1)) != nullptr)
-			if (GET_ROOM_FLAGS(prev).has(ROOM_PET_SHOP))
+		if ((prev = get_room(room->vnum().value() - 1)) != nullptr)
+			if (prev->flags().has(ROOM_PET_SHOP))
 				continue;
 
 		return room;
@@ -691,7 +658,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 {
 	Object  *questobj;
 	Character *questmob;
-	RoomPrototype *questroom;
+	Room *questroom;
 	int x;
 	char buf[MAX_STRING_LENGTH];
 	char longdesc[MAX_STRING_LENGTH];
@@ -770,9 +737,9 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	if (type == 1) { /* mob quest */
 		Format::sprintf(buf, "Seek out the %s, %s, for teachings in %s!", title, questmob->short_descr, quest);
 		do_say(questman, buf);
-		Format::sprintf(buf, "%s resides somewhere in the area of %s{x,", questmob->short_descr, questmob->in_room->area->name);
+		Format::sprintf(buf, "%s resides somewhere in the area of %s{x,", questmob->short_descr, questmob->in_room->area().name);
 		do_say(questman, buf);
-		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
+		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name());
 		do_say(questman, buf);
 	}
 	else if (type == 2) {   /* obj to mob quest */
@@ -787,7 +754,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 				return;
 			}
 
-			if (questroom->area == questmob->in_room->area)
+			if (questroom->area() == questmob->in_room->area())
 				continue;
 
 			obj_to_room(questobj, questroom);
@@ -798,15 +765,15 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 		        title, questmob->short_descr);
 		do_say(questman, buf);
 		Format::sprintf(buf, "the %s{x!  %s{x resides somewhere in %s{x,",
-		        questobj->short_descr, questmob->short_descr, questmob->in_room->area->name);
+		        questobj->short_descr, questmob->short_descr, questmob->in_room->area().name);
 		do_say(questman, buf);
-		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name);
+		Format::sprintf(buf, "and can usually be found in %s{x.", questmob->in_room->name());
 		do_say(questman, buf);
 		Format::sprintf(buf, "%s last recalls travelling through %s{x, in the",
-		        GET_ATTR_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name);
+		        GET_ATTR_SEX(questmob) == 1 ? "He" : "She", questobj->in_room->name());
 		do_say(questman, buf);
 		Format::sprintf(buf, "area of %s{x, when %s lost the treasure.",
-		        questobj->in_room->area->name, GET_ATTR_SEX(questmob) == 1 ? "he" : "she");
+		        questobj->in_room->area().name, GET_ATTR_SEX(questmob) == 1 ? "he" : "she");
 		do_say(questman, buf);
 	}
 }
@@ -814,7 +781,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 void generate_skillquest(Character *ch, Character *questman)
 {
 	Object *questobj;
-	RoomPrototype *questroom;
+	Room *questroom;
 	char buf[MAX_STRING_LENGTH];
 
 	int level = URANGE(1, ch->level, LEVEL_HERO);
@@ -834,34 +801,34 @@ void generate_skillquest(Character *ch, Character *questman)
 		}
 
 		obj_to_room(questobj, questroom);
-		ch->pcdata->squestloc1 = questroom->vnum;
+		ch->pcdata->squestloc1 = questroom->vnum();
 		ch->pcdata->squestobj = questobj;
 		Format::sprintf(buf, "The legendary artifact, the %s{x, has been reported stolen!", questobj->short_descr);
 		do_say(questman, buf);
-		Format::sprintf(buf, "The thieves were seen heading in the direction of %s{x,", questroom->area->name);
+		Format::sprintf(buf, "The thieves were seen heading in the direction of %s{x,", questroom->area().name);
 		do_say(questman, buf);
 		do_say(questman, "and witnesses in that area say that they travelled");
-		Format::sprintf(buf, "through %s{x.", questroom->name);
+		Format::sprintf(buf, "through %s{x.", questroom->name());
 		do_say(questman, buf);
 		return;
 	}
 	/* 40% chance of a mob quest */
 	else if (chance(66)) {
 		generate_skillquest_mob(ch, questman, level, 1);
-		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum;
+		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum();
 	}
 	/* 20% chance of a obj to mob quest */
 	else {
 		generate_skillquest_mob(ch, questman, level, 2);
-		ch->pcdata->squestloc1 = ch->pcdata->squestobj->in_room->vnum;
-		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum;
+		ch->pcdata->squestloc1 = ch->pcdata->squestobj->in_room->vnum();
+		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum();
 	}
 }
 
 void generate_quest(Character *ch, Character *questman)
 {
 	Character *victim;
-	RoomPrototype *room;
+	Room *room;
 	Object *questitem;
 	char buf [MAX_STRING_LENGTH];
 	/*  Randomly selects a mob from the world mob list. If you don't
@@ -896,11 +863,11 @@ void generate_quest(Character *ch, Character *questman)
 			    || victim->pIndexData->pShop != nullptr
 			    || victim->act_flags.has(ACT_NOSUMMON)
 			    || victim->act_flags.has(ACT_PET)
-			    || !strcmp(victim->in_room->area->name, "Playpen")
-			    || victim->in_room->clan
+			    || !strcmp(victim->in_room->area().name, "Playpen")
+			    || victim->in_room->clan()
 			    || affect::exists_on_char(victim, affect::type::charm_person)
-			    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
-			    || GET_ROOM_FLAGS(victim->in_room).has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
+			    || victim->in_room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
+			    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
 				continue;
 
@@ -947,7 +914,7 @@ void generate_quest(Character *ch, Character *questman)
 	/* at this point the player is sure to get a quest */
 	room = victim->in_room;
 	ch->quest_giver = questman->pIndexData->vnum;
-	ch->questloc = room->vnum;
+	ch->questloc = room->vnum();
 
 	/*  40% chance it will send the player on a 'recover item' quest. */
 	if (chance(40)) {
@@ -986,7 +953,7 @@ void generate_quest(Character *ch, Character *questman)
 		Format::sprintf(buf, "Vile pilferers have stolen %s from the royal treasury!", questitem->short_descr);
 		do_say(questman, buf);
 		do_say(questman, "My court wizardess, with her magic mirror, has pinpointed its location.");
-		Format::sprintf(buf, "Look in the general area of %s for %s!", room->area->name, room->name);
+		Format::sprintf(buf, "Look in the general area of %s for %s!", room->area().name, room->name());
 		do_say(questman, buf);
 		return;
 	}
@@ -1029,11 +996,11 @@ void generate_quest(Character *ch, Character *questman)
 			break;
 		}
 
-		if (!room->name.empty()) {
+		if (!room->name().empty()) {
 			Format::sprintf(buf, "Seek %s out somewhere in the vicinity of %s!",
-			        victim->short_descr, room->name);
+			        victim->short_descr, room->name());
 			do_say(questman, buf);
-			Format::sprintf(buf, "That location is in the general area of %s.", room->area->name);
+			Format::sprintf(buf, "That location is in the general area of %s.", room->area().name);
 			do_say(questman, buf);
 		}
 
@@ -1400,7 +1367,7 @@ void do_quest(Character *ch, String argument)
 		int num_in_area;
 		int num_to_oust = 0;
 		Character *victim;
-		RoomPrototype *temple;
+		Room *temple;
 
 		if (!Game::world().quest.open) {
 			stc("The quest area is not currently open.\n", ch);
@@ -1413,7 +1380,7 @@ void do_quest(Character *ch, String argument)
 		if (!num_arg.empty() && num_arg.is_number())
 			num_to_oust = atoi(num_arg);
 
-		num_in_area = Game::world().quest.area->nplayer;
+		num_in_area = Game::world().quest.area().num_players();
 
 		if (num_in_area > 0) {
 			if (num_to_oust < num_in_area - 1 || num_to_oust > num_in_area + 1) {
@@ -1422,14 +1389,14 @@ void do_quest(Character *ch, String argument)
 				return;
 			}
 
-			temple = get_room_index(ROOM_VNUM_TEMPLE);
+			temple = get_room(ROOM_VNUM_TEMPLE);
 
 			if (temple == nullptr)
 				Logging::bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
 			else {
 				for (victim = char_list; victim != nullptr; victim = victim->next) {
 					if (!IS_NPC(victim) && victim->in_room != nullptr
-					    && victim->in_room->area == Game::world().quest.area) {
+					    && victim->in_room->area() == Game::world().quest.area()) {
 						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);
 						stc("You are expelled from the quest area.\n", victim);
 						char_from_room(victim);
@@ -1540,7 +1507,7 @@ void do_quest(Character *ch, String argument)
 
 	/*** INFO ***/
 	if (arg1.is_prefix_of("info")) {
-		if (ch->in_room == nullptr || ch->in_room->area == nullptr) {
+		if (ch->in_room == nullptr) {
 			stc("You cannot recall your quest from this location.\n", ch);
 			return;
 		}
@@ -1573,7 +1540,7 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_NO_RECALL)) {
+		if (ch->in_room->flags().has(ROOM_NO_RECALL)) {
 			stc("You cannot join the quest from this location.\n", ch);
 			return;
 		}
@@ -1709,8 +1676,6 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		Game::world().quest.area = Game::world().quest.startroom->area;
-
 		if (Game::world().quest.open) {
 			ptc(ch, "The quest area is already open, to levels %d to %d\n", Game::world().quest.min_level, Game::world().quest.max_level);
 			return;
@@ -1748,7 +1713,7 @@ void do_quest(Character *ch, String argument)
 	/*** PK ***/
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("pk")) {
 		Character *salesgnome;
-		RoomPrototype *to_room;
+		Room *to_room;
 		salesgnome = get_mob_world(ch, "salesgnome", VIS_CHAR);
 
 		if (salesgnome == nullptr)
@@ -1762,7 +1727,7 @@ void do_quest(Character *ch, String argument)
 			wiznet("{Y:QUEST:{x $N has opened Questlands for Open Arena", ch, nullptr, WIZ_QUEST, 0, 0);
 
 			if (salesgnome != nullptr) {
-				to_room = get_room_index(ROOM_VNUM_ARENATICKET);
+				to_room = get_room(ROOM_VNUM_ARENATICKET);
 
 				if (to_room == nullptr) {
 					Logging::bug("QUEST PK: Can't find ticket booth", 0);
@@ -1778,7 +1743,7 @@ void do_quest(Character *ch, String argument)
 			wiznet("{Y:QUEST:{x $N has restricted PK in Questlands", ch, nullptr, WIZ_QUEST, 0, 0);
 
 			if (salesgnome != nullptr) {
-				to_room = get_room_index(ROOM_VNUM_TICKETBACKROOM);
+				to_room = get_room(ROOM_VNUM_TICKETBACKROOM);
 
 				if (to_room == nullptr) {
 					Logging::bug("QUEST PK: Can't find ticket booth back room", 0);

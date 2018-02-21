@@ -19,6 +19,8 @@ public:
 
 	std::vector<Area *> areas;
 
+	Area *get_area(const Vnum&) const;
+
 private:
 	World();
 	World(const World&);

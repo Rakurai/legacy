@@ -436,7 +436,6 @@ const std::vector<cmd_type> cmd_table = {
 	{ "scroll",                     do_scroll,              POS_DEAD,               LOG_NORMAL,     6,      0                       },
 	{ "second",                     do_second,              POS_RESTING,    LOG_NORMAL,     2,      0                       },
 	{ "secure",                     do_secure,              POS_DEAD,               LOG_NORMAL,     5,      GD | GWG        },
-	{ "sectchange",         do_sectchange,  POS_DEAD,               LOG_ALWAYS,     5,      GWC                     },
 	{ "sedit",                      do_sedit,               POS_DEAD,               LOG_ALWAYS,     5,      GWB                     },
 	{ "sell",                       do_sell,                POS_RESTING,    LOG_NORMAL,     9,      0                       },
 	{ "semote",                     do_smote,               POS_DEAD,               LOG_NORMAL,     1,      0                       },

@@ -47,11 +47,10 @@ public:
     Note      *         pnote = nullptr;
     Object *            carrying = nullptr;
     Object *            on = nullptr;
-    RoomPrototype *   in_room = nullptr;
-    RoomPrototype *   was_in_room = nullptr;
+    Room *   in_room = nullptr;
+    Room *   was_in_room = nullptr;
     Clan *         clan = nullptr;
     Clan *         inviters = nullptr;
-    Area *         zone = nullptr;
     Player *            pcdata = nullptr;
     String              name;
     String              short_descr;
@@ -128,15 +127,15 @@ public:
     int              secure_level = 0;
     MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
-    int                 quest_giver = 0;  /* Elrac */
+    Vnum                quest_giver = 0;  /* Elrac */
     int                 questpoints = 0;  /* Vassago */
     int			        questpoints_donated = 0; /* Clerve */
     long		        gold_donated = 0; /* Montrey */
     int              nextquest = 0;    /* Vassago */
     int              countdown = 0;    /* Vassago */
-    int              questobj = 0;     /* Vassago */
-    int              questmob = 0;     /* Vassago */
-    int              questloc = 0;     /* -- Elrac */
+    Vnum             questobj = 0;     /* Vassago */
+    Vnum             questmob = 0;     /* Vassago */
+    Vnum             questloc = 0;     /* -- Elrac */
     int              questobf = 0;     /* Lotus */
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */

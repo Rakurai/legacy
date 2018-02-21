@@ -34,6 +34,7 @@
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
+#include "db.hh"
 #include "declare.hh"
 #include "DepartedPlayer.hh"
 #include "Descriptor.hh"
@@ -60,7 +61,7 @@
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "skill/skill.hh"
 #include "sql.hh"
 #include "Social.hh"
@@ -1621,7 +1622,7 @@ void do_look(Character *ch, String argument)
 	Exit *pexit;
 	Character *victim;
 	Object *obj;
-	ExtraDescr *pdesc;
+	const ExtraDescr *pdesc;
 	int door;
 	int number, count;
 
@@ -1659,14 +1660,14 @@ void do_look(Character *ch, String argument)
 
 		/* 'look' or 'look auto' */
 		new_color(ch, CSLOT_MISC_ROOM);
-		stc(ch->in_room->name, ch);
+		stc(ch->in_room->name(), ch);
 		set_color(ch, WHITE, NOBOLD);
 
 		if (IS_IMMORTAL(ch)) {
 			Format::sprintf(buf, " [%d] (%s) (%d)",
-			        ch->in_room->vnum,
-			        ch->in_room->area->name,
-			        ch->in_room->area->nplayer);
+			        ch->in_room->vnum(),
+			        ch->in_room->area().name,
+			        ch->in_room->area().num_players());
 			set_color(ch, WHITE, BOLD);
 			stc(buf, ch);
 			set_color(ch, WHITE, NOBOLD);
@@ -1677,7 +1678,7 @@ void do_look(Character *ch, String argument)
 		if (arg1.empty()
 		    || (!IS_NPC(ch) && !ch->comm_flags.has(COMM_BRIEF))) {
 			stc("  ", ch);
-			stc(ch->in_room->description, ch);
+			stc(ch->in_room->description(), ch);
 		}
 
 		if (!IS_NPC(ch) && ch->act_flags.has(PLR_AUTOEXIT)) {
@@ -1709,7 +1710,7 @@ void do_look(Character *ch, String argument)
 		    && ch != duel->challenger
 		    && ch != duel->defender) {
 			if (can_see_char(ch, duel->challenger)
-			    && !GET_ROOM_FLAGS(duel->challenger->in_room).has(ROOM_NOWHERE)
+			    && !duel->challenger->in_room->flags().has(ROOM_NOWHERE)
 			    && arg1.is_prefix_of(duel->challenger->name)) {
 				char_from_room(ch);
 				char_to_room(ch, duel->challenger->in_room);
@@ -1720,7 +1721,7 @@ void do_look(Character *ch, String argument)
 			}
 
 			if (can_see_char(ch, duel->defender)
-			    && !GET_ROOM_FLAGS(duel->defender->in_room).has(ROOM_NOWHERE)
+			    && !duel->defender->in_room->flags().has(ROOM_NOWHERE)
 			    && arg1.is_prefix_of(duel->defender->name)) {
 				char_from_room(ch);
 				char_to_room(ch, duel->defender->in_room);
@@ -1733,7 +1734,7 @@ void do_look(Character *ch, String argument)
 	}
 
 	if (arg1 == "i" || arg1 == "in" || arg1 == "on") {
-		RoomPrototype *location;
+		Room *location;
 
 		/* 'look in' */
 		if (arg2.empty()) {
@@ -1743,7 +1744,7 @@ void do_look(Character *ch, String argument)
 
 		/* Stuff for Lockers */
 		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
-			if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_LOCKER)) {
+			if (ch->in_room->flags().has(ROOM_LOCKER)) {
 				stc("Your locker contains:\n", ch);
 				ch->act_flags += PLR_LOOKINPIT;
 				show_list_to_char(ch->pcdata->locker, ch, TRUE, TRUE, FALSE);
@@ -1762,7 +1763,7 @@ void do_look(Character *ch, String argument)
 				return;
 			}
 
-			if (ch->in_room && ch->in_room->vnum == ROOM_VNUM_STRONGBOX) {
+			if (ch->in_room && ch->in_room->vnum() == ROOM_VNUM_STRONGBOX) {
 				stc("Your strongbox contains:\n", ch);
 				ch->act_flags += PLR_LOOKINPIT;
 				show_list_to_char(ch->pcdata->strongbox, ch, TRUE, TRUE, FALSE);
@@ -1830,7 +1831,7 @@ void do_look(Character *ch, String argument)
 			break;
 
 		case ITEM_PORTAL:
-			if ((location = get_room_index(obj->value[3])) == nullptr) {
+			if ((location = get_room(obj->value[3])) == nullptr) {
 				if (!obj->contains)
 					stc("It looks very empty..\n", ch);
 
@@ -1839,11 +1840,11 @@ void do_look(Character *ch, String argument)
 
 			stc("\n", ch);
 			new_color(ch, CSLOT_MISC_ROOM);
-			stc(location->name, ch);
+			stc(location->name(), ch);
 			set_color(ch, WHITE, NOBOLD);
 
 			if (IS_IMMORTAL(ch)) {
-				Format::sprintf(buf, " [Room %d]", location->vnum);
+				Format::sprintf(buf, " [Room %d]", location->vnum());
 				set_color(ch, RED, NOBOLD);
 				stc(buf, ch);
 				set_color(ch, WHITE, NOBOLD);
@@ -1853,14 +1854,14 @@ void do_look(Character *ch, String argument)
 
 			if (!IS_NPC(ch) && !ch->comm_flags.has(COMM_BRIEF)) {
 				stc("  ", ch);
-				stc(location->description, ch);
+				stc(location->description(), ch);
 			}
 
 			stc("\n", ch);
 
 			if (!IS_NPC(ch) && ch->act_flags.has(PLR_AUTOEXIT)) {
 				char showexit[100];
-				Format::sprintf(showexit, "%d exits auto", location->vnum);
+				Format::sprintf(showexit, "%d exits auto", location->vnum());
 				do_at(ch, showexit);
 			}
 
@@ -1959,7 +1960,7 @@ void do_look(Character *ch, String argument)
 			}
 	}
 
-	pdesc = get_extra_descr(arg3, ch->in_room->extra_descr);
+	pdesc = get_extra_descr(arg3, ch->in_room->extra_descr());
 
 	if (pdesc != nullptr) {
 		if (++count == number) {
@@ -1995,17 +1996,17 @@ void do_look(Character *ch, String argument)
 		return;
 	}
 
-	if (!pexit->description.empty())
-		stc(pexit->description, ch);
+	if (!pexit->description().empty())
+		stc(pexit->description(), ch);
 	else
 		stc("Nothing special there.\n", ch);
 
-	if (!pexit->keyword.empty()
-	    &&   pexit->keyword[0] != ' ') {
+	if (!pexit->keyword().empty()
+	    &&   pexit->keyword()[0] != ' ') {
 		if (pexit->exit_flags.has(EX_CLOSED))
-			act("The $d is closed.", ch, nullptr, pexit->keyword, TO_CHAR);
+			act("The $d is closed.", ch, nullptr, pexit->keyword(), TO_CHAR);
 		else if (pexit->exit_flags.has(EX_ISDOOR))
-			act("The $d is open.",   ch, nullptr, pexit->keyword, TO_CHAR);
+			act("The $d is open.",   ch, nullptr, pexit->keyword(), TO_CHAR);
 	}
 
 	return;
@@ -2087,43 +2088,35 @@ void do_examine(Character *ch, String argument)
 */
 void exits_in(Character *ch)
 {
-	RoomPrototype *room;
 	Exit *exit;
 	Object *obj;
 	String output;
 	char buf[1024];
-	int vnum, in_room_vnum, i;
 	bool found = FALSE;
 
 	if (ch->in_room == nullptr)
 		return;
 
-	in_room_vnum = ch->in_room->vnum;                                   /* Save our current rooms vnum */
+	for (const auto& pair : room_index_map) {
+		const Room *room = pair.second;
 
-	for (Area *pArea: Game::world().areas) {
-		for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) { /* Every vnum in the area */
-			room = get_room_index(vnum);
+		for (int i = 0; i < 6; i++) {                               /* Every exit in the current room */
+			exit = room->exit[i];
 
-			if (room != nullptr) {
-				for (i = 0; i < 6; i++) {                               /* Every exit in the current room */
-					exit = room->exit[i];
+			if (exit != nullptr) {
+				if (exit->to_room == nullptr)
+					continue;
 
-					if (exit != nullptr) {
-						if (exit->u1.to_room == nullptr)
-							continue;
-
-						if (exit->u1.to_room->vnum == in_room_vnum) {   /* Does the exit lead to our room? */
-							found = TRUE;
-							Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
-							        Exit::dir_name(i),
-							        room->name,
-							        room->vnum,
-							        room->area->name);
-							output += buf;
-						} /* End if */
-					} /* End else */
-				} /* End for */
-			} /* End if */
+				if (exit->to_room == ch->in_room) {   /* Does the exit lead to our room? */
+					found = TRUE;
+					Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
+					        Exit::dir_name(i),
+					        room->name(),
+					        room->vnum(),
+					        room->area().name);
+					output += buf;
+				} /* End if */
+			} /* End else */
 		} /* End for */
 	} /* End for */
 
@@ -2137,13 +2130,13 @@ void exits_in(Character *ch)
 			if (obj->in_room == nullptr)
 				continue;
 
-			if (obj->value[3] == in_room_vnum) {
+			if ((unsigned int)obj->value[3].value() == ch->in_room->vnum()) {
 				found = TRUE;
 				Format::sprintf(buf, "( Portal ) %s in %s (%d) in (%s)\n",
 				        obj->name,
-				        obj->in_room->name,
-				        obj->in_room->vnum,
-				        obj->in_room->area->name);
+				        obj->in_room->name(),
+				        obj->in_room->vnum(),
+				        obj->in_room->area().name);
 				output += buf;
 			}                                                          /* End if */
 		}
@@ -2179,7 +2172,7 @@ void do_exits(Character *ch, String argument)
 	if (fAuto)
 		Format::sprintf(buf, "[Exits:");
 	else if (IS_IMMORTAL(ch))
-		Format::sprintf(buf, "Obvious exits from room %d:\n", ch->in_room->vnum);
+		Format::sprintf(buf, "Obvious exits from room %d:\n", ch->in_room->vnum());
 	else
 		Format::sprintf(buf, "Obvious exits:\n");
 
@@ -2187,8 +2180,8 @@ void do_exits(Character *ch, String argument)
 
 	for (door = 0; door <= 5; door++) {
 		if ((pexit = ch->in_room->exit[door]) != nullptr
-		    &&   pexit->u1.to_room != nullptr
-		    &&   can_see_room(ch, pexit->u1.to_room)
+		    &&   pexit->to_room != nullptr
+		    &&   can_see_room(ch, pexit->to_room)
 		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
 			found = TRUE;
 
@@ -2199,13 +2192,13 @@ void do_exits(Character *ch, String argument)
 			else {
 				buf += Format::format("%-5s - %s",
 				        Exit::dir_name(door).capitalize(),
-				        (room_is_dark(pexit->u1.to_room) && !affect::exists_on_char(ch, affect::type::night_vision)) || room_is_very_dark(pexit->u1.to_room)
+				        (room_is_dark(pexit->to_room) && !affect::exists_on_char(ch, affect::type::night_vision)) || room_is_very_dark(pexit->to_room)
 				        ?  "Too dark to tell"
-				        : pexit->u1.to_room->name
+				        : pexit->to_room->name()
 				       );
 
 				if (IS_IMMORTAL(ch))
-					buf += Format::format(" (room %d)\n", pexit->u1.to_room->vnum);
+					buf += Format::format(" (room %d)\n", pexit->to_room->vnum());
 				else
 					buf += "\n";
 			}
@@ -2246,7 +2239,7 @@ void do_worth(Character *ch, String argument)
 
 void do_time(Character *ch, String argument)
 {
-	const World& world = ch->in_room->area->world;
+	const World& world = ch->in_room->area().world;
 
 	ptc(ch, "{WIt is %d o'clock %s, Day of %s, %s of the Month of %s.{x\n",
 		(world.time.hour % 12 == 0) ? 12 : world.time.hour % 12,
@@ -2296,7 +2289,7 @@ void do_weather(Character *ch, String argument)
 		return;
 	}
 
-	ptc(ch, "%s\n", ch->in_room->area->world.weather.describe());
+	ptc(ch, "%s\n", ch->in_room->area().world.weather.describe());
 }
 
 /* new whois by Montrey */
@@ -2716,7 +2709,7 @@ void do_swho(Character *ch, String argument)
 
 		/* Imms can now see rooms of privated mortals -- Elrac */
 		if (!wch->pcdata->plr_flags.has(PLR_PRIVATE)) {
-			roombuf = wch->in_room->name;
+			roombuf = wch->in_room->name();
 
 			while (roombuf.uncolor().size() > 37)
 				roombuf.pop_back();
@@ -2724,7 +2717,7 @@ void do_swho(Character *ch, String argument)
 		else if (!IS_IMMORTAL(ch) || IS_IMMORTAL(wch))
 			Format::sprintf(roombuf, "Private");
 		else {
-			roombuf = Format::format("~%s", wch->in_room->name);
+			roombuf = Format::format("~%s", wch->in_room->name());
 
 			while (roombuf.uncolor().size() > 36)
 				roombuf.pop_back();
@@ -2966,8 +2959,8 @@ void do_where(Character *ch, String argument)
 		return;
 
 	while (arena != arena_table_tail) {
-		if (ch->in_room->vnum >= arena->minvnum
-		    && ch->in_room->vnum <= arena->maxvnum)
+		if (ch->in_room->vnum() >= arena->minvnum
+		    && ch->in_room->vnum() <= arena->maxvnum)
 			break;
 
 		arena = arena->next;
@@ -2976,12 +2969,12 @@ void do_where(Character *ch, String argument)
 	if (arena != arena_table_tail) {
 		for (victim = char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
-			    && victim->in_room->vnum >= arena->minvnum
-			    && victim->in_room->vnum <= arena->maxvnum
-			    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_NOWHERE)
+			    && victim->in_room->vnum() >= arena->minvnum
+			    && victim->in_room->vnum() <= arena->maxvnum
+			    && !victim->in_room->flags().has(ROOM_NOWHERE)
 			    && can_see_char(ch, victim)) {
 				found = TRUE;
-				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name);
+				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name());
 			}
 		}
 
@@ -2999,11 +2992,11 @@ void do_where(Character *ch, String argument)
 
 			if (IS_PLAYING(d)
 			    && victim->in_room != nullptr
-			    && !GET_ROOM_FLAGS(victim->in_room).has(ROOM_NOWHERE)
-			    && victim->in_room->area == ch->in_room->area
+			    && !victim->in_room->flags().has(ROOM_NOWHERE)
+			    && victim->in_room->area() == ch->in_room->area()
 			    && can_see_char(ch, victim)) {
 				found = TRUE;
-				ptc(ch, "%-28s{x %s{x\n", victim->name, victim->in_room->name);
+				ptc(ch, "%-28s{x %s{x\n", victim->name, victim->in_room->name());
 			}
 		}
 
@@ -3016,12 +3009,12 @@ void do_where(Character *ch, String argument)
 
 		for (victim = char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
-			    && victim->in_room->area == ch->in_room->area
+			    && victim->in_room->area() == ch->in_room->area()
 			    && !affect::exists_on_char(victim, affect::type::hide)
 			    && can_see_char(ch, victim)
 			    && victim->name.has_words(arg)) {
 				found = TRUE;
-				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name);
+				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name());
 				break;
 			}
 		}
@@ -4268,10 +4261,10 @@ void do_unjoin(Character *ch, String argument)
 	victim->clan = nullptr;
 
 	/* boot them from the clanhall */
-	if (victim->in_room->vnum >= clan->area_minvnum
-	    && victim->in_room->vnum <= clan->area_maxvnum) {
+	if (victim->in_room->vnum() >= clan->area_minvnum
+	    && victim->in_room->vnum() <= clan->area_maxvnum) {
 		char_from_room(victim);
-		char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
+		char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
 		do_look(ch, "auto");
 		stc("You have been removed from the clanhall.\n", victim);
 	}
@@ -5275,7 +5268,7 @@ void spell_scry(skill::type sn, int level, Character *ch, void *vo, int target, 
 	}
 	else {  /* we can see */
 		stc("You see...\n  ", ch);
-		stc(pet->in_room->description, ch);
+		stc(pet->in_room->description(), ch);
 		show_list_to_char(pet->in_room->contents, ch, FALSE, FALSE, FALSE);
 		show_char_to_char(pet->in_room->people, ch);
 		return;

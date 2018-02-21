@@ -31,6 +31,7 @@
 
 #include "act.hh"
 #include "argument.hh"
+#include "Area.hh"
 #include "Character.hh"
 #include "Clan.hh"
 #include "declare.hh"
@@ -45,7 +46,7 @@
 #include "Object.hh"
 #include "Player.hh"
 #include "random.hh"
-#include "RoomPrototype.hh"
+#include "Room.hh"
 #include "Social.hh"
 #include "String.hh"
 #include "tables.hh"
@@ -1047,7 +1048,7 @@ void do_say(Character *ch, String argument)
 		return;
 	}
 
-	if (GET_ROOM_FLAGS(ch->in_room).has(ROOM_SILENT)) {
+	if (ch->in_room->flags().has(ROOM_SILENT)) {
 		stc("A heavy mist dampens all sound in the room.\n", ch);
 		return;
 	}
@@ -1347,7 +1348,7 @@ void do_yell(Character *ch, String argument)
 		if (IS_PLAYING(d)
 		    &&   d->character != ch
 		    &&   d->character->in_room != nullptr
-		    &&   d->character->in_room->area == ch->in_room->area
+		    &&   d->character->in_room->area() == ch->in_room->area()
 		    &&   !is_ignoring(victim, ch)
 		    &&   !d->character->comm_flags.has(COMM_QUIET))
 			act("$n yells '$t{x'", ch, argument, d->character, TO_VICT);

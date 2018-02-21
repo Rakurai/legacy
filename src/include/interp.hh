@@ -399,7 +399,6 @@ DECLARE_DO_FUN( do_scribe       );
 DECLARE_DO_FUN( do_scroll       );
 DECLARE_DO_FUN( do_second       );
 DECLARE_DO_FUN( do_secure       );
-DECLARE_DO_FUN( do_sectchange	);
 DECLARE_DO_FUN( do_sedit        );
 DECLARE_DO_FUN( do_sell         );
 DECLARE_DO_FUN( do_send_announce);

@@ -1,0 +1,5 @@
+go through and start eliminating things that look at a room's vnum, replacing searches with searches of the room struct.  maybe need a function to iterate over the list constrained to an area?  anyway, point is to be able to look at all rooms that are part of an area without using the prototypes
+
+see if we can make area.num_players() do some kind of caching, and rebuild on an event like a player moving in
+
+figure out why -1 is special for an exit key, why can't 0 work?  maybe convert negateives to 0 on reading

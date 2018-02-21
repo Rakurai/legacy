@@ -324,7 +324,7 @@ void	new_color	args((Character *ch, int custom));
 /* act_move.c */
 void    move_char       args( ( Character *ch, int door, bool follow ) );
 void    recall		args( ( Character *ch, bool clan ) );
-RoomPrototype  *get_random_room   args( ( Character *ch ) );
+Room  *get_random_room   args( ( Character *ch ) );
 
 /* act_obj.c */
 void    make_pet        args((Character *ch, Character *pet));
@@ -333,7 +333,7 @@ void    get_obj         args( ( Character *ch, Object *obj,
 							Object *container ) );
 
 /* act_wiz.c */
-RoomPrototype *find_location      args( (Character *ch, const String& argument) );
+Room *find_location      args( (Character *ch, const String& argument) );
 int  set_tail           args( (Character *ch, Character *victim, Flags::Bit tail_flags) );
 
 /* alias.c */
@@ -360,9 +360,10 @@ Character *    create_mobile   args( ( MobilePrototype *pMobIndex ) );
 void    clone_mobile    args( ( Character *parent, Character *clone) );
 Object *    create_object   args( ( ObjectPrototype *pObjIndex, int level ) );
 void    clone_object    args( ( Object *parent, Object *clone ) );
-MobilePrototype *   get_mob_index   args( ( int vnum ) );
-ObjectPrototype *   get_obj_index   args( ( int vnum ) );
-RoomPrototype *   get_room_index  args( ( int vnum ) );
+MobilePrototype *   get_mob_index   args( ( const Vnum& vnum ) );
+ObjectPrototype *   get_obj_index   args( ( const Vnum& vnum ) );
+RoomPrototype *   get_room_prototype   args( ( const Vnum& vnum ) );
+Room *   get_room  args( ( const Vnum& vnum ) );
 
 
 /* load_config.c */
@@ -444,14 +445,14 @@ int     get_max_train   args(( Character *ch, int stat ) );
 int     can_carry_n     args(( Character *ch ) );
 int     can_carry_w     args(( Character *ch ) );
 void    char_from_room  args(( Character *ch ) );
-void    char_to_room    args(( Character *ch, RoomPrototype *pRoomIndex ) );
+void    char_to_room    args(( Character *ch, Room *room ) );
 int     apply_ac        args(( Object *obj, int iWear, int type ) );
 Object *    get_eq_char     args(( Character *ch, int iWear ) );
 void    equip_char      args(( Character *ch, Object *obj, int iWear ) );
 void    unequip_char    args(( Character *ch, Object *obj ) );
 int     count_obj_list  args(( ObjectPrototype *obj, Object *list ) );
 void    obj_from_room   args(( Object *obj ) );
-void    obj_to_room     args(( Object *obj, RoomPrototype *pRoomIndex ) );
+void    obj_to_room     args(( Object *obj, Room *room ) );
 void    obj_to_obj      args(( Object *obj, Object *obj_to ) );
 void    obj_from_obj    args(( Object *obj ) );
 void    extract_char    args(( Character *ch, bool fPull ) );
@@ -460,16 +461,16 @@ Object *    create_money    args(( int gold, int silver ) );
 int     get_obj_number  args(( Object *obj ) );
 int     get_obj_weight  args(( Object *obj ) );
 int     get_true_weight args(( Object *obj ) );
-bool    room_is_dark    args(( RoomPrototype *room));
-bool    room_is_very_dark args((RoomPrototype *room));
-bool    is_room_owner   args(( Character *ch, RoomPrototype *room) );
-bool    room_is_private args(( RoomPrototype *pRoomIndex ) );
+bool    room_is_dark    args(( Room *room));
+bool    room_is_very_dark args((Room *room));
+bool    is_room_owner   args(( Character *ch, Room *room) );
+bool    room_is_private args(( Room *room ) );
 bool    is_blinded      args(( const Character *ch ));
 bool    can_see_char    args(( const Character *ch, const Character *victim ) );
 bool    can_see_who     args(( const Character *ch, const Character *victim ) );
 bool    can_see_obj     args(( const Character *ch, const Object *obj ) );
-bool    can_see_room    args(( Character *ch, RoomPrototype *pRoomIndex) );
-bool    can_see_in_room args(( Character *ch, RoomPrototype *room));
+bool    can_see_room    args(( Character *ch, Room *room) );
+bool    can_see_in_room args(( Character *ch, Room *room));
 //const char *  first_arg       args(( const char *argument, char *arg_first, bool fCase ) );
 const char *  get_who_line    args(( Character *ch, Character *victim ) );
 bool    mob_exists      args(( const char *name ) );
@@ -489,7 +490,7 @@ int	get_play_hours		args((Character *ch));
 int	get_play_seconds	args((Character *ch));
 int	get_affect_evolution	args((Character *ch, affect::type type));
 int	interpolate		args((int level, int value_00, int value_32));
-ExtraDescr *get_extra_descr		args((const String& name, ExtraDescr *ed));
+const ExtraDescr *get_extra_descr		args((const String& name, const ExtraDescr *ed));
 
 /* objstate.c */
 int     objstate_load_items		args((void));
@@ -548,7 +549,7 @@ String spec_name       args( ( SPEC_FUN *function ) );
 bool    IS_SPECIAL      args( ( Character *ch) );
 
 /* teleport.c */
-RoomPrototype *   room_by_name    args( ( const char *target, int level, bool error) );
+Room *   room_by_name    args( ( const char *target, int level, bool error) );
 
 /* tour.c */
 //void    do_alight       args( ( Character *ch, const char *argument ) );

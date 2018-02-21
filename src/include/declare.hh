@@ -20,6 +20,7 @@ class Duel;
 class Edit;
 class EQSocket;
 class Exit;
+class ExitPrototype;
 class ExtraDescr;
 class Flags;
 class Game;
@@ -36,6 +37,7 @@ class ObjectValues;
 class Player;
 class QuestArea;
 class Reset;
+class Room;
 class RoomPrototype;
 class Shop;
 class Social;
@@ -46,6 +48,7 @@ class War;
 class Weather;
 class Game;
 class World;
+class Vnum;
 
 /*
  * Function types.

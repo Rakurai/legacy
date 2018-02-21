@@ -26,7 +26,7 @@ public:
 	Object *            next_content = nullptr;
 	Object *            in_obj = nullptr;
 	Object *            on = nullptr;
-	RoomPrototype *	in_room = nullptr;
+	Room *	in_room = nullptr;
 	Character *		carried_by = nullptr;
 	Character *		in_locker = nullptr;
 	Character *		in_strongbox = nullptr;
