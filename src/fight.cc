@@ -3150,7 +3150,6 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 void dam_message(Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, bool immune, bool sanc_immune)
 {
 	char buf1[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH], buf3[MAX_INPUT_LENGTH];
-	const char *vs;
 	const char *vp;
 	String attack;
 	char punct;
@@ -3158,36 +3157,32 @@ void dam_message(Character *ch, Character *victim, int dam, skill::type attack_s
 	if (ch == nullptr || victim == nullptr)
 		return;
 
-	if (dam < 0)         { vs = "{Ghit{x";                              vp = "{Gheals{x"; }
-	else if (dam ==   0) { vs = "{Ymiss{x";                         vp = "{Ymisses{x";                      }
-	else if (dam <=   4) { vs = "{bscratch{x";                      vp = "{bscratches{x";                   }
-	else if (dam <=   8) { vs = "{Ggraze{x";                        vp = "{Ggrazes{x";                      }
-	else if (dam <=  12) { vs = "{Hhit{x";                          vp = "{Hhits{x";                        }
-	else if (dam <=  16) { vs = "{Ninjure{x";                       vp = "{Ninjures{x";                     }
-	else if (dam <=  20) { vs = "{Cwound{x";                        vp = "{Cwounds{x";                      }
-	else if (dam <=  24) { vs = "{Bmaul{x";                         vp = "{Bmauls{x";                       }
-	else if (dam <=  28) { vs = "{Mdecimate{x";                     vp = "{Mdecimates{x";                   }
-	else if (dam <=  32) { vs = "{Vdevastate{x";                    vp = "{Vdevastates{x";                  }
-	else if (dam <=  36) { vs = "{Pmaim{x";                         vp = "{Pmaims{x";                       }
-	else if (dam <=  40) { vs = "{PM{cU{PT{cI{PL{cA{PT{cE{x";       vp = "{PM{cU{PT{cI{PL{cA{PT{cE{PS{x";   }
-	else if (dam <=  44) { vs = "{BDI{NSE{BMB{NOW{BEL{x";           vp = "{BDI{NSE{BMB{NOW{BEL{NS{x";       }
-	else if (dam <=  48) { vs = "{MDI{YSM{MEM{YBE{MR{x";            vp = "{MDI{YSM{MEM{YBE{MRS{x";          }
-	else if (dam <=  52) { vs = "{BDE{bCA{BPI{bTA{BTE{x";           vp = "{BDE{bCA{BPI{bTA{BTE{bS{x";       }
-	else if (dam <=  56) { vs = "{c::: {RDEMOLISH {c:::{x";         vp = "{c::: {RDEMOLISHES {c:::{x";      }
-	else if (dam <=  60) { vs = "{T*** {CSTOMP {T***{x";            vp = "{T*** {CSTOMPS {T***{x";          }
-	else if (dam <=  75) { vs = "{M@@@ {VINCINERATE {M@@@{x";       vp = "{M@@@ {VINCINERATES {M@@@{x";     }
-	else if (dam <= 100) { vs = "{N=== {BOBLITERATE {N==={x";       vp = "{N=== {BOBLITERATES {N==={x";     }
-	else if (dam <= 125) { vs = "{H>>> {GANNIHILATE {H<<<{x";       vp = "{H>>> {GANNIHILATES {H<<<{x";     }
-	else if (dam <= 150) { vs = "{b<<< {YERADICATE {b>>>{x";        vp = "{b<<< {YERADICATES {b>>>{x";      }
-	else if (dam <= 170) { vs = "{R[#[ {PVAPORIZE {R]#]{x";         vp = "{R[#[ {PVAPORIZES {R]#]{x";       }
-	else if (dam <= 200) {
-		vs = "{cdo {PUN{RSP{PEA{RKA{PBL{RE {cthings {cto{x";
+	if (dam < 0)          vp = "{Gheals{x";
+	else if (dam ==   0)  vp = "{Ymisses{x";                      
+	else if (dam <=   4)  vp = "{bscratches{x";                   
+	else if (dam <=   8)  vp = "{Ggrazes{x";                      
+	else if (dam <=  12)  vp = "{Hhits{x";                        
+	else if (dam <=  16)  vp = "{Ninjures{x";                     
+	else if (dam <=  20)  vp = "{Cwounds{x";                      
+	else if (dam <=  24)  vp = "{Bmauls{x";                       
+	else if (dam <=  28)  vp = "{Mdecimates{x";                   
+	else if (dam <=  32)  vp = "{Vdevastates{x";                  
+	else if (dam <=  36)  vp = "{Pmaims{x";                       
+	else if (dam <=  40)  vp = "{PM{cU{PT{cI{PL{cA{PT{cE{PS{x";   
+	else if (dam <=  44)  vp = "{BDI{NSE{BMB{NOW{BEL{NS{x";       
+	else if (dam <=  48)  vp = "{MDI{YSM{MEM{YBE{MRS{x";          
+	else if (dam <=  52)  vp = "{BDE{bCA{BPI{bTA{BTE{bS{x";       
+	else if (dam <=  56)  vp = "{c::: {RDEMOLISHES {c:::{x";      
+	else if (dam <=  60)  vp = "{T*** {CSTOMPS {T***{x";          
+	else if (dam <=  75)  vp = "{M@@@ {VINCINERATES {M@@@{x";     
+	else if (dam <= 100)  vp = "{N=== {BOBLITERATES {N==={x";     
+	else if (dam <= 125)  vp = "{H>>> {GANNIHILATES {H<<<{x";     
+	else if (dam <= 150)  vp = "{b<<< {YERADICATES {b>>>{x";      
+	else if (dam <= 170)  vp = "{R[#[ {PVAPORIZES {R]#]{x";       
+	else if (dam <= 200) 
 		vp = "{cdoes {PUN{RSP{PEA{RKA{PBL{RE {cthings to{x";
-	}
-	else                 {
-		vs = "{Tbring a touch of {RD{cE{RA{cT{RH {Tto{x";
+	else
 		vp = "{Tbrings a touch of {RD{cE{RA{cT{RH {Tto{x";
-	}
 
 	punct   = (dam <= 24) ? '.' : '!';
 
