@@ -2143,7 +2143,7 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	if (attack_skill != skill::type::unknown)
 		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		if (attack_type < 0 && attack_type >= attack_table.size()) {
+		if (attack_type < 0 || attack_type >= attack_table.size()) {
 			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
 			attack_type = 0;
 		}
@@ -2240,7 +2240,7 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	if (attack_skill != skill::type::unknown)
 		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		if (attack_type < 0 && attack_type >= attack_table.size()) {
+		if (attack_type < 0 || attack_type >= attack_table.size()) {
 			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
 			attack_type = 0;
 		}
@@ -2333,7 +2333,7 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	if (attack_skill != skill::type::unknown)
 		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		if (attack_type < 0 && attack_type >= attack_table.size()) {
+		if (attack_type < 0 || attack_type >= attack_table.size()) {
 			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
 			attack_type = 0;
 		}
@@ -2417,7 +2417,7 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 	if (attack_skill != skill::type::unknown)
 		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		if (attack_type < 0 && attack_type >= attack_table.size()) {
+		if (attack_type < 0 || attack_type >= attack_table.size()) {
 			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
 			attack_type = 0;
 		}
@@ -2499,7 +2499,7 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 	if (attack_skill != skill::type::unknown)
 		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		if (attack_type < 0 && attack_type >= attack_table.size()) {
+		if (attack_type < 0 || attack_type >= attack_table.size()) {
 			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
 			attack_type = 0;
 		}
@@ -3194,7 +3194,7 @@ void dam_message(Character *ch, Character *victim, int dam, skill::type attack_s
 	if (attack_skill != skill::type::unknown)
 		attack = skill::lookup(attack_skill).noun_damage;
 	else {
-		if (attack_type < 0 && attack_type >= attack_table.size()) {
+		if (attack_type < 0 || attack_type >= attack_table.size()) {
 			Logging::bug("Dam_message: bad attack_type %d.", attack_type);
 			attack_type = 0;
 		}
