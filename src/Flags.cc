@@ -31,12 +31,14 @@ Flags(const String& str) {
 			continue;
 		}
 
-		if (c >= 'A' && c <= 'Z' && (c - 'A') < bits.size()) {
+		// c - 'A' is unsigned because we test that c >= 'A', silences warning
+		if (c >= 'A' && c <= 'Z' && (c - 'A') < (unsigned char)bits.size()) {
 			bits.set(c - 'A');
 			continue;
 		}
 
-		if (c >= 'a' && c <= 'z' && (c - 'a') < bits.size() - 26) {
+		// c - 'a' is unsigned because we test that c >= 'a', silences warning
+		if (c >= 'a' && c <= 'z' && (c - 'a') < (unsigned char)bits.size() - 26) {
 			bits.set((c - 'a') + 26);
 			continue;
 		}
