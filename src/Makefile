@@ -13,10 +13,11 @@ STD      = -std=c++14
 WARNING  = -Wall -Winline -Wno-write-strings -Wno-format-security -Wsign-compare
 DEBUG    = -ggdb
 DEFINE   = -Dunix -DSQL -DDEBUG -DIPV6
-INCLUDE  = -I$(INCDIR) -I/usr/include -I/usr/local/include
+INCLUDE  = -I$(INCDIR) -I/usr/include -I/usr/local/include -I/opt/local/include
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.Td
 CPPFLAGS = ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
-L_FLAGS  = -lsqlite3 -lm
+LIB      = -L/opt/local/lib
+L_FLAGS  = ${LIB} -lsqlite3 -lm -lpng16
 
 COMPILE.c  = $(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c
 COMPILE.cc = $(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c

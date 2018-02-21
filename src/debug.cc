@@ -44,6 +44,7 @@
 #include "Room.hh"
 #include "String.hh"
 #include "Weather.hh"
+#include "util/Image.hh"
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(Character *ch, String argument)
@@ -64,7 +65,34 @@ void do_debug(Character *ch, String argument)
 		    "  define   - lists all defines that the preprocessor checks for\n"
 		    "  objstate - save all objects lying on the ground\n"
 		    "  geneq    - generate a piece of eq\n"
+		    "  printimg - print an image file from the area dir\n"
 		    "  affcall  - iterate through affects\n", ch);
+		return;
+	}
+
+	if (subfunc == "printimg") {
+		if (argument.empty()) {
+			ptc(ch, "Need a filename.\n");
+			return;
+		}
+
+		util::Image image;
+		if (!image.load(argument)) {
+			ptc(ch, "Couldn't load it.\n");
+			return;
+		}
+
+		String buf;
+		for (int rgb = util::Image::red; rgb <= util::Image::alpha; rgb++) {
+			buf += Format::format("rgb = %d, x = %d, y = %d\n", rgb, image.width(), image.height());
+			for (unsigned int y = 0; y < image.height(); y++) {
+				for (unsigned int x = 0; x < image.width(); x++)
+					buf += Format::format("%3d ", image.value((util::Image::RGB)rgb, x, y));
+				buf += "\n";
+			}
+		}
+
+		ptc(ch, buf);
 		return;
 	}
 
