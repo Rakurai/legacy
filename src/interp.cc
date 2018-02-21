@@ -542,7 +542,7 @@ const std::vector<cmd_type> cmd_table = {
  */
 void interpret(Character *ch, String argument)
 {
-	int cmd;
+	unsigned int cmd;
 	bool found;
 
 	/*
@@ -832,7 +832,6 @@ bool check_social(Character *ch, const String& command, const String& argument)
 void do_commands(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	int cmd;
 	int col;
 	int x;
 	int arg;
@@ -886,29 +885,29 @@ void do_commands(Character *ch, String argument)
 
 	col = 0;
 
-	for (cmd = 0, counter = 1; cmd < cmd_table.size(); cmd++) {
-		if (IS_IMM_GROUP(cmd_table[cmd].group))
+	for (const auto& entry : cmd_table) {
+		if (IS_IMM_GROUP(entry.group))
 			continue;
 
 		/* if it's a mob only command, there should be no multiple cgroup flags */
 		if (IS_NPC(ch)) {
-			if (!cmd_table[cmd].group.empty()
-			    && !cmd_table[cmd].group.has(GROUP_MOBILE))
+			if (!entry.group.empty()
+			    && !entry.group.has(GROUP_MOBILE))
 				continue;
 		}
 		else {
 			/* players can't do any kind of mob only command */
-			if (cmd_table[cmd].group.has(GROUP_MOBILE))
+			if (entry.group.has(GROUP_MOBILE))
 				continue;
 
 			/* check for ALL cgroups being present */
-			if (!cmd_table[cmd].group.empty()
-			 && !ch->pcdata->cgroup_flags.has_all_of(cmd_table[cmd].group))
+			if (!entry.group.empty()
+			 && !ch->pcdata->cgroup_flags.has_all_of(entry.group))
 				continue;
 		}
 
-		if (cmd_table[cmd].show == fields[x].number) {
-			Format::sprintf(buf, "[%2d] %-14s", counter, cmd_table[cmd].name);
+		if (entry.show == fields[x].number) {
+			Format::sprintf(buf, "[%2d] %-14s", counter, entry.name);
 			stc(buf, ch);
 
 			if (++col % 4 == 0)
@@ -946,44 +945,49 @@ void do_huh(Character *ch)
 
 void do_wizhelp(Character *ch, String argument)
 {
-	int cmd, col, i;
+	String buf;
 
 	/* temp give them a deputy group */
 	if (ch->has_cgroup(GROUP_LEADER))
 		ch->add_cgroup(GROUP_DEPUTY);
 
-	for (i = 0; i < cgroup_flags.size(); i++) {
-		if (!IS_IMM_GROUP(cgroup_flags[i].bit))
+	for (const auto& group : cgroup_flags) {
+		if (!IS_IMM_GROUP(group.bit))
 			continue;
 
-		if (!ch->has_cgroup(cgroup_flags[i].bit))
+		if (!ch->has_cgroup(group.bit))
 			continue;
 
-		ptc(ch, "%s{G%s{x\n", i > 0 ? "\n" : "", cgroup_flags[i].name);
-		col = 0;
+		if (!buf.empty())
+			buf += "\n";
 
-		for (cmd = 0; cmd < cmd_table.size(); cmd++) {
-			if (cmd_table[cmd].group.has(cgroup_flags[i].bit)
-				&& ch->pcdata->cgroup_flags.has_all_of(cmd_table[cmd].group)
-			    && cmd_table[cmd].show) {
+		buf += Format::format("{G%s{x\n", group.name);
+		int col = 0;
+
+		for (const auto& command : cmd_table) {
+			if (command.group.has(group.bit)
+				&& ch->pcdata->cgroup_flags.has_all_of(command.group)
+			    && command.show) {
 				if (col % 5 == 0)
-					stc("        ", ch);
+					buf += "        ";
 
-				ptc(ch, "%s%-14s{x",
-				    cmd_table[cmd].group.has(GROUP_LEADER) ? "{Y" :
-				    cmd_table[cmd].group.has(GROUP_DEPUTY) ? "{C" : "",
-				    cmd_table[cmd].name);
+				buf += Format::format("%s%-14s{x",
+				    command.group.has(GROUP_LEADER) ? "{Y" :
+				    command.group.has(GROUP_DEPUTY) ? "{C" : "",
+				    command.name);
 
 				if (++col % 5 == 0)
-					stc("\n", ch);
+					buf += "\n";
 			}
 		}
 
 		if (col % 5 != 0)
-			stc("\n", ch);
+			buf += "\n";
 	}
 
 	/* now remove it */
 	if (ch->has_cgroup(GROUP_LEADER))
 		ch->remove_cgroup(GROUP_DEPUTY);
+
+	stc(buf, ch);
 }

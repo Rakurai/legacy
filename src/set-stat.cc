@@ -885,21 +885,18 @@ void do_mset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("race")) {
-		int race, loop = 0;
-		race = race_lookup(arg3);
+		unsigned int race = race_lookup(arg3);
 
 		if (race == 0 || (!IS_NPC(victim) && !race_table[race].pc_race)) {
 			ptc(ch, "%s is not a valid %s race.\n", arg3, !IS_NPC(victim) ? "PC" : "NPC");
 			stc("Valid races are :\n\n", ch);
 
-			while (loop < race_table.size()) {
-				loop++;
-
-				if ((!IS_NPC(victim) && !race_table[loop].pc_race)
-				    || (IS_NPC(victim) && race_table[loop].pc_race))
+			for (const auto& entry : race_table) {
+				if ((!IS_NPC(victim) && !entry.pc_race)
+				    || (IS_NPC(victim) && entry.pc_race))
 					continue;
 
-				ptc(ch, "%-10.10s\n", race_table[loop].name);
+				ptc(ch, "%-10.10s\n", entry.name);
 			}
 
 			stc("\n", ch);
@@ -960,7 +957,7 @@ void do_mset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("damtype")) {
-		int i;
+		unsigned int i;
 
 		if (!IS_NPC(victim)) {
 			stc("You cannot set a player's damage type.\n", ch);
@@ -1322,7 +1319,7 @@ void do_oset(Character *ch, String argument)
 		/* Hack to keep Crush from crashing the mud */
 		if ((obj->item_type == ITEM_FOUNTAIN
 		     || obj->item_type == ITEM_DRINK_CON)
-		    && value >= liq_table.size()) {
+		    && (unsigned int)value >= liq_table.size()) {
 			ptc(ch, "The max for drinks and fountains is %d.\n", liq_table.size()-1);
 			return;
 		}
@@ -1334,7 +1331,7 @@ void do_oset(Character *ch, String argument)
 
 	if (arg2 == "value3" || arg2 == "v3") {
 		/* Hack to keep Crush from crashing the mud */
-		if (obj->item_type == ITEM_WEAPON && value >= attack_table.size()) {
+		if (obj->item_type == ITEM_WEAPON && (unsigned int)value >= attack_table.size()) {
 			ptc(ch, "The max for weapons is %d.\n", attack_table.size()-1);
 			return;
 		}

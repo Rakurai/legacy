@@ -232,7 +232,7 @@ void add_type_to_char(Character *ch, ::affect::type type, sh_int level, sh_int d
 	af.permanent = permanent;
 	bool found = FALSE;
 
-	for (int i = 0; i < aff_table.size(); i++) {
+	for (unsigned int i = 0; i < aff_table.size(); i++) {
 		if (aff_table[i].type != type) {
 			if (found)
 				break;

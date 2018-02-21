@@ -265,8 +265,8 @@ void do_sedit(Character *ch, String argument)
 			return;
 		}
 
-		for (int x = 0; x < cmd_table.size(); x++) {
-			if (social.is_prefix_of(cmd_table[x].name)) {
+		for (const auto& entry : cmd_table) {
+			if (social.is_prefix_of(entry.name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
 			}
@@ -289,8 +289,8 @@ void do_sedit(Character *ch, String argument)
 			return;
 		}
 
-		for (int x = 0; x < cmd_table.size(); x++) {
-			if (argument.is_prefix_of(cmd_table[x].name)) {
+		for (const auto& entry : cmd_table) {
+			if (argument.is_prefix_of(entry.name)) {
 				stc("A command with that name already exists.\n", ch);
 				return;
 			}

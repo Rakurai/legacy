@@ -1119,7 +1119,7 @@ const std::vector<csetting_type> csetting_table = {
 
 int flag_index_lookup(const String& name, const std::vector<flag_type>& flag_table)
 {
-	for (int flag = 0; flag < flag_table.size(); flag++) {
+	for (unsigned int flag = 0; flag < flag_table.size(); flag++) {
 		if (LOWER(name[0]) == LOWER(flag_table[flag].name[0])
 		    &&  name.is_prefix_of(flag_table[flag].name))
 			return flag;
@@ -1130,7 +1130,7 @@ int flag_index_lookup(const String& name, const std::vector<flag_type>& flag_tab
 
 int affect_index_lookup(const String& name, const std::vector<affect_table_type>& affect_table)
 {
-	for (int i = 0; i < affect_table.size(); i++) {
+	for (unsigned int i = 0; i < affect_table.size(); i++) {
 		if (LOWER(name[0]) == LOWER(affect_table[i].name[0])
 		    &&  name.is_prefix_of(affect_table[i].name))
 			return i;

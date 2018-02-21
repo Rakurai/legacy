@@ -9,7 +9,7 @@ Flags(const char *str) : Flags(String(str)) {}
 Flags::
 Flags(const String& str) {
 	for (const char *p = str.c_str(); *p; p++) {
-		char c = *p;
+		unsigned char c = *p;
 
 		if (c == '|') {
 			*this += Flags(String(p + 1));

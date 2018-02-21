@@ -26,7 +26,7 @@ bool check_disabled(const struct cmd_type *command)
 void load_disabled()
 {
 	Disabled *p;
-	int i;
+	unsigned long i;
 	disabled_first = nullptr;
 
 	if (db_query("load_disabled", "SELECT command, immortal, reason FROM disabled") != SQL_OK)
@@ -54,7 +54,7 @@ void load_disabled()
 void do_disable(Character *ch, String argument)
 {
 	Disabled *p;
-	int i;
+	unsigned long i;
 
 	String cmd;
 	argument = one_argument(argument, cmd);

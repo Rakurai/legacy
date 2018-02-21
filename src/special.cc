@@ -125,24 +125,18 @@ const std::vector<spec_type> spec_table = {
 /* Given a name, return the appropriate spec fun. */
 SPEC_FUN *spec_lookup(const String& name)
 {
-	int i;
-
-	for (i = 0; i < spec_table.size(); i++) {
-		if (LOWER(name[0]) == LOWER(spec_table[i].name[0]) && name.is_prefix_of(spec_table[i].name))
-			return spec_table[i].function;
-	}
+	for (const auto& entry : spec_table)
+		if (LOWER(name[0]) == LOWER(entry.name[0]) && name.is_prefix_of(entry.name))
+			return entry.function;
 
 	return 0;
 }
 
 String spec_name(SPEC_FUN *function)
 {
-	int i;
-
-	for (i = 0; i < spec_table.size(); i++) {
-		if (function == spec_table[i].function)
-			return spec_table[i].name;
-	}
+	for (const auto& entry : spec_table)
+		if (function == entry.function)
+			return entry.name;
 
 	return "(none)";
 }

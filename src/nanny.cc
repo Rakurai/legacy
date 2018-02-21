@@ -351,7 +351,8 @@ void nanny(Descriptor *d, String argument)
 	String buf, arg;
 	Character *ch, *victim;
 	const char *pwdnew, *p;
-	int iClass, race, i, weapon, deity;
+	int iClass, i, weapon, deity;
+	unsigned int race;
 	bool fOld, logon_lurk;
 
 	argument = argument.lstrip();
@@ -902,23 +903,23 @@ void nanny(Descriptor *d, String argument)
 		set_learned(ch, skill::type::scan, 100);
 		buf = "Select a deity:\n";
 
-		for (deity = 0; deity < deity_table.size(); deity++) {
+		for (const auto& entry : deity_table) {
 			if (ch->cls == PALADIN_CLASS) { /* Paladins */
-				if (deity_table[deity].value > 0 && ch->alignment > 0) {
-					buf += deity_table[deity].align;
-					buf += deity_table[deity].name;
+				if (entry.value > 0 && ch->alignment > 0) {
+					buf += entry.align;
+					buf += entry.name;
 					buf += "\n";
 				}
-				else if (deity_table[deity].value < 0 && ch->alignment < 0) {
-					buf += deity_table[deity].align;
-					buf += deity_table[deity].name;
+				else if (entry.value < 0 && ch->alignment < 0) {
+					buf += entry.align;
+					buf += entry.name;
 					buf += "\n";
 				}
 			}
-			else if (deity_table[deity].value == ch->alignment
-			         ||       deity_table[deity].value == -1) {
-				buf += deity_table[deity].align;
-				buf += deity_table[deity].name;
+			else if (entry.value == ch->alignment
+			         ||       entry.value == -1) {
+				buf += entry.align;
+				buf += entry.name;
 				buf += "\n";
 			}
 		}
@@ -981,9 +982,9 @@ void nanny(Descriptor *d, String argument)
 			write_to_buffer(d, "Please pick a weapon from the following choices:\n");
 			buf.clear();
 
-			for (i = 0; i < weapon_table.size(); i++)
-				if (get_learned(ch, weapon_table[i].skill) > 0) {
-					buf += weapon_table[i].name;
+			for (const auto& entry : weapon_table)
+				if (get_learned(ch, entry.skill) > 0) {
+					buf += entry.name;
 					buf += " ";
 				}
 

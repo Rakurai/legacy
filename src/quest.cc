@@ -691,7 +691,7 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	Object  *questobj;
 	Character *questmob;
 	RoomPrototype *questroom;
-	int x, maxnoun;
+	int x;
 	char buf[MAX_STRING_LENGTH];
 	char longdesc[MAX_STRING_LENGTH];
 	char shortdesc[MAX_STRING_LENGTH];
@@ -727,36 +727,28 @@ void generate_skillquest_mob(Character *ch, Character *questman, int level, int 
 	/* generate title */
 	switch (number_range(1, 4)) {
 	case 1:
-		for (maxnoun = 0; maxnoun < MagT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
+		x = number_range(0, MagT_table.size()-1);
 		title = GET_ATTR_SEX(questmob) == 1 ? MagT_table[x].male : MagT_table[x].female;
 		quest = "the powers of magic";
 		questmob->act_flags += ACT_MAGE;
 		break;
 
 	case 2:
-		for (maxnoun = 0; maxnoun < CleT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
+		x = number_range(0, CleT_table.size()-1);
 		title = GET_ATTR_SEX(questmob) == 1 ? CleT_table[x].male : CleT_table[x].female;
 		quest = "the wisdom of holiness";
 		questmob->act_flags += ACT_CLERIC;
 		break;
 
 	case 3:
-		for (maxnoun = 0; maxnoun < ThiT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
+		x = number_range(0, ThiT_table.size()-1);
 		title = GET_ATTR_SEX(questmob) == 1 ? ThiT_table[x].male : ThiT_table[x].female;
 		quest = "the art of thievery";
 		questmob->act_flags += ACT_THIEF;
 		break;
 
 	case 4:
-		for (maxnoun = 0; maxnoun < WarT_table.size(); maxnoun++);
-
-		x = number_range(0, --maxnoun);
+		x = number_range(0, WarT_table.size()-1);
 		title = GET_ATTR_SEX(questmob) == 1 ? WarT_table[x].male : WarT_table[x].female;
 		quest = "the ways of weaponcraft";
 		questmob->act_flags += ACT_WARRIOR;

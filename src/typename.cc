@@ -13,22 +13,18 @@
 
 String item_name(int item_type)
 {
-	int type;
-
-	for (type = 0; type < item_table.size(); type++)
-		if (item_type == item_table[type].type)
-			return item_table[type].name;
+	for (const auto& entry : item_table)
+		if (item_type == entry.type)
+			return entry.name;
 
 	return "none";
 }
 
 String weapon_name(int weapon_type)
 {
-	int type;
-
-	for (type = 0; type < weapon_table.size(); type++)
-		if (weapon_type == weapon_table[type].type)
-			return weapon_table[type].name;
+	for (const auto& entry : weapon_table)
+		if (weapon_type == entry.type)
+			return entry.name;
 
 	return "exotic";
 }
@@ -250,10 +246,10 @@ String wiz_bit_name(const Flags& flags)
 {
 	String buf;
 
-	for (int flag = 0; flag < wiznet_table.size(); flag++)
-		if (flags.has(wiznet_table[flag].flag)) {
+	for (const auto& entry : wiznet_table)
+		if (flags.has(entry.flag)) {
 			buf += ' ';
-			buf += wiznet_table[flag].name;
+			buf += entry.name;
 		}
 
 	return buf.empty() ? "none" : buf.substr(1);
@@ -261,24 +257,20 @@ String wiz_bit_name(const Flags& flags)
 
 String get_color_name(int color, int bold)
 {
-	int i;
-
-	for (i = 0; i < color_table.size(); i++)
-		if (color_table[i].color == color
-		    && color_table[i].bold  == bold)
-			return color_table[i].name;
+	for (const auto& entry : color_table)
+		if (entry.color == color
+		 && entry.bold == bold)
+			return entry.name;
 
 	return "";
 }
 
 String get_color_code(int color, int bold)
 {
-	int i;
-
-	for (i = 0; i < color_table.size(); i++)
-		if (color_table[i].color == color
-		    && color_table[i].bold  == bold)
-			return color_table[i].code;
+	for (const auto& entry : color_table)
+		if (entry.color == color
+		 && entry.bold == bold)
+			return entry.code;
 
 	return "";
 }

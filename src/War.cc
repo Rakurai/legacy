@@ -483,7 +483,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 	Clan *tclan;
 	War *war;
 	War::Event *event;
-	int i = 0, x = 0, dealt = 0, loss, highest, award, numpower, cp = 0, qploss, qpaward;
+	int dealt = 0, loss, highest, award, numpower, cp = 0, qploss, qpaward;
 	bool found;
 	struct conq {
 		String  clanname;
@@ -522,17 +522,14 @@ void war_power_adjust(Clan *vclan, bool surrender)
 
 				if (event->astr == tclan->clanname) {
 					/* found em */
-					i = 0;
 
 					/* see if they're on our list already */
-					while (i < conqlist.size()) {
-						if (conqlist[i].clanname == tclan->clanname) {
-							conqlist[i].scored += event->number;
+					for (auto& entry : conqlist) {
+						if (entry.clanname == tclan->clanname) {
+							entry.scored += event->number;
 							found = TRUE;
 							break;
 						}
-
-						i++;
 					}
 
 					/* nope, add a new entry */
@@ -591,23 +588,19 @@ void war_power_adjust(Clan *vclan, bool surrender)
 	}
 
 	/* sort the list */
-	i = 0;
 
-	while (i < conqlist.size()) {
+	for (unsigned long i = 0; i < conqlist.size(); i++) {
 		highest = 0;
-		x = 0;
 
 		/* find the next highest */
-		while (x < conqlist.size()) {
-			if (conqlist[x].scored > highest)
-				highest = conqlist[x].scored;
+		for (const auto& entry : conqlist)
+			if (entry.scored > highest)
+				highest = entry.scored;
 
-			x++;
-		}
+		for (unsigned long x = 0; x < conqlist.size(); x++) {
+			if (loss <= 0)
+				break;
 
-		x = 0;
-
-		while (x < conqlist.size() && loss > 0) {
 			if (conqlist[x].scored == highest) {
 				if (x == conqlist.size()-1) {
 					qpaward = qploss;
@@ -650,11 +643,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 				conqlist[x].scored = 0;
 				break;
 			}
-
-			x++;
 		}
-
-		i++;
 	}
 }
 

@@ -339,17 +339,17 @@ bool swearcheck(const String& argument)
 		{       "dick",         2       },
 		{       "slut",         2       },
 	};
-	int x;  /* Our lovely counter */
+
 	String tobechecked = argument.uncolor();
 
-	for (x = 0; x < swear_table.size(); x++) {
-		switch (swear_table[x].level) {
+	for (const auto& entry : swear_table) {
+		switch (entry.level) {
 		case 1:
-			if (tobechecked.has_exact_words(swear_table[x].word))
+			if (tobechecked.has_exact_words(entry.word))
 				return TRUE;
 
 		case 2:
-			if (tobechecked.has_words(swear_table[x].word))
+			if (tobechecked.has_words(entry.word))
 				return TRUE;
 		}
 	}

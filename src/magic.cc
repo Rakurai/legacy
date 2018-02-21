@@ -4008,7 +4008,6 @@ void spell_identify(skill::type sn, int level, Character *ch, void *vo, int targ
 {
 	Object *obj = (Object *) vo;
 	char buf[MAX_STRING_LENGTH];
-	int i;
 	struct wear_type {
 		String loc;
 		Flags::Bit bit;
@@ -4042,9 +4041,9 @@ void spell_identify(skill::type sn, int level, Character *ch, void *vo, int targ
 	    obj->weight / 10, obj->cost, obj->level, obj->material);
 	Format::sprintf(buf, ".");
 
-	for (i = 0; i < wearloc_table.size(); i++)
-		if (CAN_WEAR(obj, wearloc_table[i].bit)) {
-			Format::sprintf(buf, ", and can %s.", wearloc_table[i].loc);
+	for (const auto& entry : wearloc_table)
+		if (CAN_WEAR(obj, entry.bit)) {
+			Format::sprintf(buf, ", and can %s.", entry.loc);
 			break;
 		}
 

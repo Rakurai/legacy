@@ -236,7 +236,7 @@ void add_help(int group, int order, int level, const String& keywords, const Str
 void do_loadhelps(Character *ch, String argument)
 {
 	FILE *fp;
-	int tablenum, count = 0;
+	int count = 0;
 	struct help_struct {
 		int level;
 		String keywords;
@@ -250,8 +250,8 @@ void do_loadhelps(Character *ch, String argument)
 		    "  loadhelps all\n\n"
 		    "File names are:\n", ch);
 
-		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
-			ptc(ch, "%s\n", helpfile_table[tablenum].name);
+		for (const auto& entry : helpfile_table)
+			ptc(ch, "%s\n", entry.name);
 
 		return;
 	}
@@ -265,14 +265,15 @@ void do_loadhelps(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
-			do_loadhelps(ch, helpfile_table[tablenum].name);
+		for (const auto& entry : helpfile_table)
+			do_loadhelps(ch, entry.name);
 
 		stc("All help files in the " HELP_DIR " directory loaded.\n", ch);
 		stc("Please remember to clean up, remove the help files with rm *.help!\n", ch);
 		return;
 	}
 
+	unsigned int tablenum;
 	for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 		if (helpfile_table[tablenum].name.is_prefix_of(arg))
 			break;
@@ -280,8 +281,8 @@ void do_loadhelps(Character *ch, String argument)
 	if (tablenum >= helpfile_table.size()) {
 		stc("That is not a valid help file name.  Help file names are:\n\n", ch);
 
-		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
-			ptc(ch, "%s\n", helpfile_table[tablenum].name);
+		for (const auto& entry : helpfile_table)
+			ptc(ch, "%s\n", entry.name);
 
 		return;
 	}
@@ -364,7 +365,7 @@ void do_printhelps(Character *ch, String argument)
 {
 	String buf;
 	FILE *fp;
-	int tablenum, count = 0;
+	int count = 0;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -372,8 +373,8 @@ void do_printhelps(Character *ch, String argument)
 		    "  printhelps all\n\n"
 		    "Filenames are:\n", ch);
 
-		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
-			ptc(ch, "%s\n", helpfile_table[tablenum].name);
+		for (const auto& entry : helpfile_table)
+			ptc(ch, "%s\n", entry.name);
 
 		return;
 	}
@@ -387,13 +388,14 @@ void do_printhelps(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
-			do_printhelps(ch, helpfile_table[tablenum].name);
+		for (const auto& entry : helpfile_table)
+			do_printhelps(ch, entry.name);
 
 		stc("All helps have been printed to file in the " HELP_DIR " directory.\n", ch);
 		return;
 	}
 
+	unsigned int tablenum;
 	for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
 		if (helpfile_table[tablenum].name.is_prefix_of(arg))
 			break;
@@ -401,8 +403,8 @@ void do_printhelps(Character *ch, String argument)
 	if (tablenum >= helpfile_table.size()) {
 		stc("That is not a valid help file name.  Help file names are:\n\n", ch);
 
-		for (tablenum = 0; tablenum < helpfile_table.size(); tablenum++)
-			ptc(ch, "%s\n", helpfile_table[tablenum].name);
+		for (const auto& entry : helpfile_table)
+			ptc(ch, "%s\n", entry.name);
 
 		return;
 	}
@@ -446,7 +448,7 @@ void do_help(Character *ch, String argument)
 	String query;
 	const char *p;
 	String output;
-	int result_count = 0, partial_count = 0, result_num = 0, i;
+	int result_count = 0, partial_count = 0, result_num = 0;
 	struct help_struct {
 		int type;
 		int hgroup;
@@ -523,7 +525,7 @@ void do_help(Character *ch, String argument)
 		else
 			continue;
 
-		for (i = 0; i < helpfile_table.size(); i++)
+		for (unsigned int i = 0; i < helpfile_table.size(); i++)
 			if (helpfile_table[i].group == group) {
 				temp_help[result_count].hgroup = i;
 				break;

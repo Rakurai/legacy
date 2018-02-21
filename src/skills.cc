@@ -46,13 +46,13 @@
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(Character *ch, int gn)
 {
-	int i, ngn;
-
 	if (ch->pcdata->group_known[gn])
 		return TRUE;
 
-	for (i = 0; i < group_table[gn].spells.size(); i++) {
-		if ((ngn = group_lookup(group_table[gn].spells[i])) >= 0) {
+	for (const auto& spell : group_table[gn].spells) {
+		int ngn = group_lookup(spell);
+
+		if (ngn >= 0) {
 			if (group_table[ngn].rating[ch->cls] <= 0)
 				continue;
 
@@ -62,7 +62,7 @@ bool completed_group(Character *ch, int gn)
 			continue;
 		}
 
-		if (get_learned(ch, skill::lookup(group_table[gn].spells[i])) <= 0)
+		if (get_learned(ch, skill::lookup(spell)) <= 0)
 			return FALSE;
 	}
 
@@ -109,7 +109,6 @@ void do_spells(Character *ch, String argument)
 	int min_level = 1;
 	int max_level = LEVEL_HERO;
 	int group = -1;
-	int gn;
 	int j;
 	int group_list[group_table.size()];
 	int ngroups = 0;
@@ -137,7 +136,7 @@ void do_spells(Character *ch, String argument)
 	/* kludge to build a list of only spell groups:
 	   spell groups are mixed with skill groups,
 	   but currently 'attack' is the first one. */
-	for (gn = group_lookup("attack"); gn < group_table.size(); gn++) {
+	for (unsigned int gn = group_lookup("attack"); gn < group_table.size(); gn++) {
 		group_list[ngroups++] = gn;
 	}
 
@@ -150,7 +149,7 @@ void do_spells(Character *ch, String argument)
 		    "--------------------------\n", ch);
 
 		for (j = 0; j < ngroups; j++) {
-			gn = group_list[j];
+			int gn = group_list[j];
 
 			if (cols > 0)
 				stc("  ", ch);
@@ -171,7 +170,7 @@ void do_spells(Character *ch, String argument)
 
 	/* Check for complete name of a spell group. */
 	for (j = 0; j < ngroups; j++) {
-		gn = group_list[j];
+		int gn = group_list[j];
 
 		if (argument == group_table[gn].name) {
 			/* discard group name argument */
@@ -220,8 +219,8 @@ void do_spells(Character *ch, String argument)
 	/* build a list of spells satisfying the given criteria. */
 	if (group != -1) {
 		/* select spells from given group */
-		for (j = 0; j < group_table[group].spells.size(); j++) {
-			skill::type type = skill::lookup(group_table[group].spells[j]);
+		for (const auto& spell : group_table[group].spells) {
+			skill::type type = skill::lookup(spell);
 
 			if (type == skill::type::unknown)
 				continue;
@@ -763,16 +762,15 @@ long exp_per_level(Character *ch, int points)
 void do_groups(Character *ch, String argument)
 {
 	char buf[100];
-	int gn, col;
 
 	if (IS_NPC(ch))
 		return;
 
-	col = 0;
+	int col = 0;
 
 	if (argument.empty()) {
 		/* show all groups */
-		for (gn = 0; gn < group_table.size(); gn++) {
+		for (unsigned int gn = 0; gn < group_table.size(); gn++) {
 			if (ch->pcdata->group_known[gn]) {
 				Format::sprintf(buf, "%-18s ", group_table[gn].name);
 				stc(buf, ch);
@@ -791,7 +789,7 @@ void do_groups(Character *ch, String argument)
 	}
 
 	if (argument == "all") { /* show all groups */
-		for (gn = 0; gn < group_table.size(); gn++) {
+		for (unsigned int gn = 0; gn < group_table.size(); gn++) {
 			Format::sprintf(buf, "%-18s ", group_table[gn].name);
 			stc(buf, ch);
 
@@ -806,7 +804,7 @@ void do_groups(Character *ch, String argument)
 	}
 
 	/* show the sub-members of a group */
-	gn = group_lookup(argument);
+	int gn = group_lookup(argument);
 
 	if (gn == -1) {
 		stc("No group of that name exist.\n", ch);
@@ -894,9 +892,7 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 /* returns a group index number given the name */
 int group_lookup(const String& name)
 {
-	int gn;
-
-	for (gn = 0; gn < group_table.size(); gn++)
+	for (unsigned int gn = 0; gn < group_table.size(); gn++)
 		if (name == group_table[gn].name)
 			return gn;
 
@@ -906,23 +902,19 @@ int group_lookup(const String& name)
 /* recursively adds a group given its number -- uses group_add */
 void gn_add(Character *ch, int gn)
 {
-	int i;
 	ch->pcdata->group_known[gn] = TRUE;
 
-	for (i = 0; i < group_table[gn].spells.size(); i++) {
-		group_add(ch, group_table[gn].spells[i], FALSE);
-	}
+	for (const auto& spell : group_table[gn].spells)
+		group_add(ch, spell, FALSE);
 }
 
 /* recusively removes a group given its number -- uses group_remove */
 void gn_remove(Character *ch, int gn)
 {
-	int i;
 	ch->pcdata->group_known[gn] = FALSE;
 
-	for (i = 0; i < group_table[gn].spells.size(); i ++) {
-		group_remove(ch, group_table[gn].spells[i]);
-	}
+	for (const auto& spell : group_table[gn].spells)
+		group_remove(ch, spell);
 }
 
 /* use for processing a skill or group for addition  */
@@ -1431,7 +1423,7 @@ void do_gain(Character *ch, String argument)
 		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "group", "cost", "group", "cost", "group", "cost");
 
-		for (int gn = 0; gn < group_table.size(); gn++) {
+		for (unsigned int gn = 0; gn < group_table.size(); gn++) {
 			if (completed_group(ch, gn)
 			    || group_table[gn].rating[ch->cls] <= 0)
 				continue;

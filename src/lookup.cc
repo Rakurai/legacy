@@ -66,7 +66,7 @@ Clan *clan_lookup(const String& name)
 
 int position_lookup(const String& name)
 {
-	int pos;
+	unsigned int pos;
 
 	for (pos = 0; pos < position_table.size(); pos++) {
 		if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
@@ -79,7 +79,7 @@ int position_lookup(const String& name)
 
 int sex_lookup(const String& name)
 {
-	int sex;
+	unsigned int sex;
 
 	for (sex = 0; sex < sex_table.size(); sex++) {
 		if (LOWER(name[0]) == LOWER(sex_table[sex].name[0])
@@ -92,7 +92,7 @@ int sex_lookup(const String& name)
 
 int size_lookup(const String& name)
 {
-	int size;
+	unsigned int size;
 
 	for (size = 0; size < size_table.size(); size++) {
 		if (LOWER(name[0]) == LOWER(size_table[size].name[0])
@@ -127,7 +127,7 @@ String condition_lookup(int condition)
 
 String sector_lookup(int type)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; i < sector_table.size(); i++)
 		if (sector_table[i].type == type)
@@ -139,7 +139,7 @@ String sector_lookup(int type)
 /* returns race number */
 int race_lookup(const String& name)
 {
-	int race;
+	unsigned int race;
 
 	for (race = 0; race < race_table.size(); race++) {
 		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
@@ -152,7 +152,7 @@ int race_lookup(const String& name)
 
 int weapon_lookup(const String& name)
 {
-	int type;
+	unsigned int type;
 
 	for (type = 0; type < weapon_table.size(); type++) {
 		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
@@ -165,7 +165,7 @@ int weapon_lookup(const String& name)
 
 int get_weapon_type(const String& name)
 {
-	int type;
+	unsigned int type;
 
 	for (type = 0; type < weapon_table.size(); type++) {
 		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
@@ -178,7 +178,7 @@ int get_weapon_type(const String& name)
 
 int item_lookup(const String& name)
 {
-	int type;
+	unsigned int type;
 
 	for (type = 0; type < item_table.size(); type++) {
 		if (LOWER(name[0]) == LOWER(item_table[type].name[0])
@@ -191,7 +191,7 @@ int item_lookup(const String& name)
 
 int attack_lookup(const String& name)
 {
-	int att;
+	unsigned int att;
 
 	for (att = 0; att < attack_table.size(); att++) {
 		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
@@ -217,7 +217,7 @@ int class_lookup(const String& name)
 
 int liq_lookup(const String& name)
 {
-	int liq;
+	unsigned int liq;
 
 	for (liq = 0; liq < liq_table.size(); liq++)
 		if (LOWER(name[0]) == LOWER(liq_table[liq].name[0])

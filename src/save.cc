@@ -238,7 +238,7 @@ cJSON *fwrite_player(Character *ch)
 		JSON::addStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
 	item = nullptr;
-	for (int gn = 0; gn < group_table.size(); gn++) {
+	for (unsigned int gn = 0; gn < group_table.size(); gn++) {
 		if (ch->pcdata->group_known[gn] == 0)
 			continue;
 
@@ -844,9 +844,9 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 		/* nuke wiznet flags beyond their level, in case they were temp trusted */
 		if (!ch->wiznet_flags.empty())
-			for (i = 0; i < wiznet_table.size(); i++)
-				if (ch->wiznet_flags.has(wiznet_table[i].flag) && GET_RANK(ch) < wiznet_table[i].level)
-					ch->wiznet_flags -= wiznet_table[i].flag;
+			for (const auto& entry : wiznet_table)
+				if (ch->wiznet_flags.has(entry.flag) && GET_RANK(ch) < entry.level)
+					ch->wiznet_flags -= entry.flag;
 
 //		reset_char(ch);
 		/* adjust hp mana stamina up  -- here for speed's sake */

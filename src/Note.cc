@@ -1037,7 +1037,7 @@ void parse_note(Character *ch, String argument, int type)
 	/* message move: e.g. NOTE MOVE 10 IDEA -- Elrac */
 	if (arg.is_prefix_of("move")) {
 		Note *thenote, *newnote, *newlist;
-		int newtype = 0, j;
+		int newtype = 0;
 		/* get message number */
 		argument = one_argument(argument, arg);
 
@@ -1073,7 +1073,7 @@ void parse_note(Character *ch, String argument, int type)
 		newlist = nullptr;
 		argument = one_argument(argument, arg);
 
-		for (j = 0; j < board_index.size(); j++) {
+		for (unsigned long j = 0; j < board_index.size(); j++) {
 			if (arg.is_prefix_of(board_index[j].board_plural)) {
 				newtype = j;
 				newlist = *(board_index[j].board_list);
@@ -1659,9 +1659,9 @@ void do_next(Character *ch, String argument)
 } /* end do_next */
 
 // wrap a line of text, aware of color codes
-const String wrap_string(const String& s, int wrap_len) {
+const String wrap_string(const String& s, unsigned long wrap_len) {
 	String str(s), output;
-	int color_pos = 0, uncolor_pos = 0, last_space_pos = 0;
+	unsigned long color_pos = 0, uncolor_pos = 0, last_space_pos = 0;
 
 	while (color_pos < str.size()) {
 		switch (str[color_pos]) {
@@ -1702,7 +1702,7 @@ const String format_paragraph(const String& orig_paragraph) {
 		return "";
 
 	String buf;
-	int pos;
+	unsigned long pos;
 
 	// take out double spacing so we can normalize it
 	while ((pos = paragraph.find("  ")) != std::string::npos)
@@ -1714,7 +1714,7 @@ const String format_paragraph(const String& orig_paragraph) {
 	paragraph = paragraph.replace("? )", "?)");
 
 	// capitalize first letter after sentence end
-	for (int pos = 0; pos < paragraph.size()-2; pos++)
+	for (unsigned long pos = 0; pos < paragraph.size()-2; pos++)
 		if (paragraph[pos+1] == ' '
 		 && (paragraph[pos] == '.'
 		  || paragraph[pos] == '!'
@@ -1742,7 +1742,7 @@ const String format_page(const String& orig_page, int wrap_len) {
 
 	// break on a double newline
 	while (!page.empty()) {
-		int pos = page.find("\n\n");
+		unsigned long pos = page.find("\n\n");
 
 		if (pos == std::string::npos) {
 			paragraph = page;

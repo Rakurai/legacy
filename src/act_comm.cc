@@ -509,7 +509,7 @@ void do_testpose(Character *ch, String argument)
 		return;
 	}
 
-	int pose = atoi(arg); // 1-indexed
+	unsigned int pose = atoi(arg); // 1-indexed
 
 	if (pose < 1 || pose > new_pose_table[cls].size()) {
 		stc("Pose number out of range!\n", ch);
@@ -1884,7 +1884,7 @@ void do_align(Character *ch, String argument)
 void do_outfit(Character *ch, String argument)
 {
 	Object *obj;
-	int i, vnum;
+	int vnum;
 
 	if (ch->level > 5 || IS_NPC(ch)) {
 		stc("Find it yourself.\n", ch);
@@ -1922,11 +1922,11 @@ void do_outfit(Character *ch, String argument)
 		skill::type sn = skill::type::dagger; // default
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
-		for (i = 0; i < weapon_table.size(); i++) {
+		for (const auto& entry : weapon_table) {
 			if (get_skill_level(ch, sn) <
-			    get_skill_level(ch, weapon_table[i].skill)) {
-				sn = weapon_table[i].skill;
-				vnum = weapon_table[i].vnum;
+			    get_skill_level(ch, entry.skill)) {
+				sn = entry.skill;
+				vnum = entry.vnum;
 			}
 		}
 

@@ -482,7 +482,10 @@ void do_remort(Character *ch, String argument)
 		    || !race_table[race].pc_race) {
 			stc("That is not a valid race.  Please choose from:\n", ch);
 
-			for (race = 1; race < race_table.size() && race_table[race].pc_race; race++) {
+			for (const auto& entry : race_table) {
+				if (!entry.pc_race)
+					continue;
+
 				stc(race_table[race].name, ch);
 				stc(" ", ch);
 			}

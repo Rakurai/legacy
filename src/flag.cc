@@ -53,7 +53,7 @@ void do_flag(Character *ch, String argument)
 	Object *object;
 	RoomPrototype *room;
 	Flags *flag, old, nw, marked;
-	int pos, fieldptr;
+	unsigned int fieldptr;
 	char type;
 
 	String arg1, arg2, arg3, word;
@@ -281,9 +281,9 @@ void do_flag(Character *ch, String argument)
 			marked += flag;
 		}
 
-		pos = flag_index_lookup(word, flag_table);
+		int pos = flag_index_lookup(word, flag_table);
 
-		if (pos == -1) {
+		if (pos < 0) {
 			stc("That flag doesn't exist!\n", ch);
 			do_flaglist(ch, arg3);
 			return;
@@ -292,37 +292,37 @@ void do_flag(Character *ch, String argument)
 			marked += flag_table[pos].bit;
 	}
 
-	for (pos = 0; pos < flag_table.size(); pos++) {
-		if (!flag_table[pos].settable && old.has(flag_table[pos].bit)) {
-			nw += flag_table[pos].bit;
+	for (const auto& entry : flag_table) {
+		if (!entry.settable && old.has(entry.bit)) {
+			nw += entry.bit;
 			continue;
 		}
 
-		if (marked.has(flag_table[pos].bit)) {
+		if (marked.has(entry.bit)) {
 			switch (type) {
 			case '=':
 			case '+':
-				nw += flag_table[pos].bit;
+				nw += entry.bit;
 				ptc(ch, "%s %s bit set on %s.\n",
-				    flag_table[pos].name, arg3, what);
+				    entry.name, arg3, what);
 				break;
 
 			case '-':
-				nw -= flag_table[pos].bit;
+				nw -= entry.bit;
 				ptc(ch, "%s %s bit removed from %s.\n",
-				    flag_table[pos].name, arg3, what);
+				    entry.name, arg3, what);
 				break;
 
 			default:
-				if (nw.has(flag_table[pos].bit)) {
-					nw -= flag_table[pos].bit;
+				if (nw.has(entry.bit)) {
+					nw -= entry.bit;
 					ptc(ch, "%s %s bit removed from %s.\n",
-					    flag_table[pos].name, arg3, what);
+					    entry.name, arg3, what);
 				}
 				else {
-					nw += flag_table[pos].bit;
+					nw += entry.bit;
 					ptc(ch, "%s %s bit set on %s.\n",
-					    flag_table[pos].name, arg3, what);
+					    entry.name, arg3, what);
 				}
 
 				break;
@@ -335,19 +335,17 @@ void do_flag(Character *ch, String argument)
 
 void do_typelist(Character *ch, String argument)
 {
-	int x;
-
 	if (argument.empty()) {
 		stc("Valid lists: liquid, attack\n", ch);
 		return;
 	}
 
 	if (argument.is_prefix_of("liquid")) {
-		for (x = 0; x < liq_table.size(); x++)
+		for (unsigned int x = 0; x < liq_table.size(); x++)
 			ptc(ch, "[%2d][%20s][%20s]\n", x, liq_table[x].name, liq_table[x].color);
 	}
 	else if (argument.is_prefix_of("attack")) {
-		for (x = 0; x < attack_table.size(); x++)
+		for (unsigned int x = 0; x < attack_table.size(); x++)
 			ptc(ch, "[%2d][%20s][%20s]\n", x, attack_table[x].name, attack_table[x].noun);
 	}
 	else
@@ -356,20 +354,19 @@ void do_typelist(Character *ch, String argument)
 
 void do_flaglist(Character *ch, String argument)
 {
-	int x;
-	
 	if (argument.empty()) {
 		stc("Flag fields are:\n", ch);
 
-		for (x = 0; x < flag_fields.size(); x++)
-			if (GET_RANK(ch) >= flag_fields[x].see_mob
-			    || GET_RANK(ch) >= flag_fields[x].see_plr)
-				ptc(ch, "%-30s%s\n", flag_fields[x].name,
-				    field_cand[flag_fields[x].cand]);
+		for (const auto& entry : flag_fields)
+			if (GET_RANK(ch) >= entry.see_mob
+			    || GET_RANK(ch) >= entry.see_plr)
+				ptc(ch, "%-30s%s\n", entry.name,
+				    field_cand[entry.cand]);
 
 		return;
 	}
 
+	unsigned int x;
 	for (x = 0; x < flag_fields.size(); x++)
 		if (GET_RANK(ch) >= flag_fields[x].see_mob
 		    || GET_RANK(ch) >= flag_fields[x].see_plr)
@@ -385,8 +382,8 @@ void do_flaglist(Character *ch, String argument)
 
 	const std::vector<flag_type>& flag_table = flag_fields[x].flag_table;
 
-	for (x = 0; x < flag_table.size(); x++)
-		ptc(ch, "[%2s] %s\n", Flags(flag_table[x].bit).to_string(), flag_table[x].name);
+	for (const auto& entry : flag_fields[x].flag_table)
+		ptc(ch, "[%2s] %s\n", Flags(entry.bit).to_string(), entry.name);
 }
 
 /*** FLAG SEARCHING ***/
@@ -688,7 +685,7 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 
 void do_flagsearch(Character *ch, String argument)
 {
-	int fieldptr;
+	unsigned int fieldptr;
 	Flags marked;
 	long pos;
 	bool player = TRUE, mobile = TRUE, toolowmobile = FALSE, toolowplayer = FALSE;

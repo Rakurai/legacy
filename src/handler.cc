@@ -137,12 +137,9 @@ bool is_same_clan(Character *ch, Character *victim)
 /* returns deity number */
 int deity_lookup(const String& name)
 {
-	int deity;
-
-	for (deity = 0; deity < deity_table.size(); deity++) {
+	for (unsigned int deity = 0; deity < deity_table.size(); deity++)
 		if (name.is_prefix_of(deity_table[deity].name))
 			return deity;
-	}
 
 	return -1;
 }
@@ -1587,12 +1584,10 @@ bool can_drop_obj(Character *ch, Object *obj)
 /* take a deity string, pull out a valid deity -- Montrey */
 int parse_deity(const String& dstring)
 {
-	int i;
-
 	if (dstring.empty())
 		return -1;
 
-	for (i = 0; i < deity_table.size(); i++)
+	for (unsigned int i = 0; i < deity_table.size(); i++)
 		if (strstr(dstring.uncolor(), deity_table[i].name))
 			return i;
 

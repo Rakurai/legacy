@@ -3891,7 +3891,6 @@ void do_violate(Character *ch, String argument)
 void do_wizgroup(Character *ch, String argument)
 {
 	Character *victim;
-	int count = 0;
 	bool add = FALSE, all = FALSE, found = FALSE;
 
 	String arg1, arg2, arg3;
@@ -3927,23 +3926,21 @@ void do_wizgroup(Character *ch, String argument)
 	}
 
 	/* loops == good!  else ifs == bad! :) */
-	while (count < cgroup_flags.size()) {
-		if (arg3.is_prefix_of(cgroup_flags[count].name) || all) {
+	for (const auto& entry : cgroup_flags) {
+		if (arg3.is_prefix_of(entry.name) || all) {
 			found = TRUE;
 
 			if (add)
-				victim->add_cgroup(cgroup_flags[count].bit);
+				victim->add_cgroup(entry.bit);
 			else
-				victim->remove_cgroup(cgroup_flags[count].bit);
+				victim->remove_cgroup(entry.bit);
 
 			ptc(ch, "%s group %sed for %s.\n",
-			    cgroup_flags[count].name, add ? "add" : "remov", victim->name);
+			    entry.name, add ? "add" : "remov", victim->name);
 
 			if (!all)
 				break;
 		}
-
-		count++;
 	}
 
 	if (!found)

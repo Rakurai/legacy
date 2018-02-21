@@ -2417,7 +2417,7 @@ void do_who(Character *ch, String argument)
 	char rbuf[32];
 	String output;
 	Descriptor *d;
-	int iClass, iRace, iLevelLower = 0, iLevelUpper = MAX_LEVEL;
+	int iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
 	bool rgfClass[MAX_CLASS], rgfRace[pc_race_table.size()];
@@ -2429,11 +2429,11 @@ void do_who(Character *ch, String argument)
 	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
-	for (iClass = 0; iClass < MAX_CLASS; iClass++)
-		rgfClass[iClass] = FALSE;
+	for (unsigned long i = 0; i < MAX_CLASS; i++)
+		rgfClass[i] = FALSE;
 
-	for (iRace = 0; iRace < pc_race_table.size(); iRace++)
-		rgfRace[iRace] = FALSE;
+	for (unsigned long i = 0; i < pc_race_table.size(); i++)
+		rgfRace[i] = FALSE;
 
 	/* Parse arguments. */
 	for (; ;) {
@@ -2463,10 +2463,10 @@ void do_who(Character *ch, String argument)
 			else if (arg == "clan")
 				fClanRestrict = TRUE;
 			else {
-				iClass = class_lookup(arg);
+				int iClass = class_lookup(arg);
 
 				if (iClass == -1) {
-					iRace = race_lookup(arg);
+					unsigned long iRace = race_lookup(arg);
 
 					if (iRace == 0 || iRace >= pc_race_table.size()) {
 						if ((cch = clan_lookup(arg)) != nullptr)
@@ -3470,9 +3470,7 @@ void do_report(Character *ch, String argument)
 /* PRACTICE list of skills and spells, sorted by group -- Elrac */
 void prac_by_group(Character *ch, const String& argument)
 {
-	int gt;
 	const struct group_type *gp;
-	int js;
 	bool group_first;
 	skill::type sn;
 	char buf[50];
@@ -3480,7 +3478,7 @@ void prac_by_group(Character *ch, const String& argument)
 	int line_cols = 0;  /* number of filled data columns (19 char each) */
 	String output;
 
-	for (gt = 0; gt < group_table.size(); gt++) { /* loop thru groups */
+	for (unsigned int gt = 0; gt < group_table.size(); gt++) { /* loop thru groups */
 		if (!ch->pcdata->group_known[gt])   /* ignore groups the player doesn't have */
 			continue;
 
@@ -3494,7 +3492,7 @@ void prac_by_group(Character *ch, const String& argument)
 
 		group_first = TRUE;
 
-		for (js = 0; js < gp->spells.size(); js++) { /* loop thru skills/spells */
+		for (unsigned int js = 0; js < gp->spells.size(); js++) { /* loop thru skills/spells */
 			sn = skill::lookup(gp->spells[js]);
 
 			if (sn == skill::type::unknown)
@@ -4593,8 +4591,8 @@ void do_pit(Character *ch, String argument)
 			if (index == -1) {
 				stc("That is not a weapon type you can search for in the pit.\n", ch);
 				stc("Searchable weapon types are:\n  ", ch);
-				for (int i = 0; i < weapon_table.size(); i++)
-					ptc(ch, "%s ", weapon_table[i].name);
+				for (const auto& entry : weapon_table)
+					ptc(ch, "%s ", entry.name);
 				stc("\n", ch);
 				return;
 			}

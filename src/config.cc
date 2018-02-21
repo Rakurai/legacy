@@ -75,7 +75,7 @@ void config_wiznet(Character *ch, const char *argument)
 void config_color_func(Character *ch, String argument, int type)
 {
 	String typestr;
-	int low, high, mod, slot, i;
+	int low, high, mod, slot;
 
 	switch (type) {
 	case 3: Format::sprintf(typestr, "channel");            low = 0; high = 29; mod = 1;    break;
@@ -143,6 +143,7 @@ void config_color_func(Character *ch, String argument, int type)
 		return;
 	}
 
+	unsigned int i;
 	for (i = 0; i < color_table.size(); i++)
 		if (arg2.is_prefix_of(color_table[i].name))
 			break;
@@ -597,7 +598,6 @@ void config_immortal(Character *ch, String argument)
 void config_wiznet(Character *ch, String argument)
 {
 	int argnum = -1;
-	int flag;
 
 	String arg1;
 	argument = one_argument(argument, arg1);
@@ -626,7 +626,7 @@ void config_wiznet(Character *ch, String argument)
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);
 
-		for (flag = 0; flag < wiznet_table.size(); flag++)
+		for (unsigned int flag = 0; flag < wiznet_table.size(); flag++)
 			if (GET_RANK(ch) >= wiznet_table[flag].level)
 				ptc(ch, "  %2d.  %-15s({Y%4s{x)                        %s\n",
 				    flag, wiznet_table[flag].name.capitalize(),
@@ -644,19 +644,19 @@ void config_wiznet(Character *ch, String argument)
 		stc("Special for Wiznet: {Con{x, {Coff{x, {Cstatus{x, {Cshow{x\n", ch);
 		stc("Wiznet options:\n\n", ch);
 
-		for (flag = 0; flag < wiznet_table.size(); flag++)
-			if (GET_RANK(ch) >= wiznet_table[flag].level)
-				ptc(ch, "%-10s - %s\n", wiznet_table[flag].name, wiznet_table[flag].desc);
+		for (const auto& entry : wiznet_table)
+			if (GET_RANK(ch) >= entry.level)
+				ptc(ch, "%-10s - %s\n", entry.name, entry.desc);
 
 		return;
 	}
 
 	if (arg1.is_number()) {
-		if (atoi(arg1) < wiznet_table.size())
+		if ((unsigned int)atoi(arg1) < wiznet_table.size())
 			argnum = atoi(arg1);
 	}
 	else
-		for (flag = 0; flag < wiznet_table.size(); flag++)
+		for (unsigned int flag = 0; flag < wiznet_table.size(); flag++)
 			if (arg1.is_prefix_of(wiznet_table[flag].name))
 				argnum = flag;
 
@@ -664,7 +664,7 @@ void config_wiznet(Character *ch, String argument)
 		if (GET_RANK(ch) < wiznet_table[argnum].level)
 			argnum = -1;
 
-	if (argnum == -1) {
+	if (argnum < 0) {
 		stc("That is not a valid wiznet option.\n", ch);
 		return;
 	}

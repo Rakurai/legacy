@@ -57,7 +57,7 @@ void song_update(void)
 	int i;
 
 	/* do the global song, if any */
-	if (channel_songs[1] >= song_table.size())
+	if ((unsigned int)channel_songs[1] >= song_table.size())
 		channel_songs[1] = -1;
 
 	if (channel_songs[1] > -1) {
@@ -102,7 +102,7 @@ void song_update(void)
 		if (obj->item_type != ITEM_JUKEBOX || obj->value[1] < 0)
 			continue;
 
-		if (obj->value[1] >= song_table.size()) {
+		if ((unsigned int) obj->value[1] >= song_table.size()) {
 			obj->value[1] = -1;
 			continue;
 		}
@@ -210,7 +210,6 @@ void do_play(Character *ch, String argument)
 {
 	Object *juke;
 	const char *str;
-	int song, i;
 	bool global = FALSE;
 
 	String arg;
@@ -254,14 +253,13 @@ void do_play(Character *ch, String argument)
 
 		buffer += Format::format("%s has the following songs available:\n", juke->short_descr.capitalize());
 
-		for (i = 0; i < song_table.size(); i++) {
-			if (artist && (!match
-			               ||             argument.is_prefix_of(song_table[i].group)))
-				Format::sprintf(buf, "%-39s %-39s\n",
-				        song_table[i].group, song_table[i].name);
-			else if (!artist && (!match
-			                     ||                   argument.is_prefix_of(song_table[i].name)))
-				Format::sprintf(buf, "%-35s ", song_table[i].name);
+		for (const auto& entry : song_table) {
+			if (artist
+			 && (!match || argument.is_prefix_of(entry.group)))
+				Format::sprintf(buf, "%-39s %-39s\n", entry.group, entry.name);
+			else if (!artist
+			 && (!match || argument.is_prefix_of(entry.name)))
+				Format::sprintf(buf, "%-35s ", entry.name);
 			else
 				continue;
 
@@ -294,7 +292,7 @@ void do_play(Character *ch, String argument)
 
 			ptc(ch, "You stop %s.\n", juke->short_descr);
 
-			for (i = 0; i < 5; i++)
+			for (int i = 0; i < 5; i++)
 				juke->value[i] = -1;
 
 			return;
@@ -305,7 +303,7 @@ void do_play(Character *ch, String argument)
 			return;
 		}
 
-		for (i = 0; i <= MAX_GLOBAL; i++)
+		for (int i = 0; i <= MAX_GLOBAL; i++)
 			channel_songs[i] = -1;
 
 		return;
@@ -322,6 +320,7 @@ void do_play(Character *ch, String argument)
 		return;
 	}
 
+	unsigned int song;
 	for (song = 0; song < song_table.size(); song++) {
 		if (argument.is_prefix_of(song_table[song].name))
 			break;
@@ -335,7 +334,7 @@ void do_play(Character *ch, String argument)
 	stc("Coming right up.\n", ch);
 
 	if (global) {
-		for (i = 1; i <= MAX_GLOBAL; i++)
+		for (int i = 1; i <= MAX_GLOBAL; i++)
 			if (channel_songs[i] < 0) {
 				if (i == 1)
 					channel_songs[0] = -1;
@@ -345,7 +344,7 @@ void do_play(Character *ch, String argument)
 			}
 	}
 	else {
-		for (i = 1; i < 5; i++)
+		for (int i = 1; i < 5; i++)
 			if (juke->value[i] < 0) {
 				if (i == 1)
 					juke->value[0] = -1;

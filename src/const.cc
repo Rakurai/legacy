@@ -2562,6 +2562,8 @@ const std::vector<group_type> group_table = {
 		"weaponsmaster",        { 40, 40, 40, 20, 40, 25, 10, 20 },
 		{ "axe", "dagger", "flail", "mace", "polearm", "spear", "sword", "whip" }
 	},
+
+	// only spell groups past here
 	{
 		"attack",               { 8, 5, 12, 8, 10, 9, 12, 8 },
 		{

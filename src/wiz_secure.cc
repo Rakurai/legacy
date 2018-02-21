@@ -586,7 +586,6 @@ void do_revoke(Character *ch, String argument)
 {
 	char buf1[MSL], buf2[MSL];
 	Character *victim;
-	int i;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -598,13 +597,13 @@ void do_revoke(Character *ch, String argument)
 		/* print a list of revokable stuff */
 		stc("Current REVOKE options:\n\n", ch);
 
-		for (i = 0; i < revoke_table.size(); i++) {
+		for (const auto& entry : revoke_table) {
 			/* don't print the same one twice :) */
-			if (printed.has(revoke_table[i].bit))
+			if (printed.has(entry.bit))
 				continue;
 
-			ptc(ch, "  %s\n", revoke_table[i].name);
-			printed += revoke_table[i].bit;
+			ptc(ch, "  %s\n", entry.name);
+			printed += entry.bit;
 		}
 
 		stc("\nSyntax:\n"
@@ -622,22 +621,22 @@ void do_revoke(Character *ch, String argument)
 		return;
 	}
 
-	for (i = 0; i < revoke_table.size(); i++) {
-		if (!arg2.is_prefix_of(revoke_table[i].name))
+	for (const auto& entry : revoke_table) {
+		if (!arg2.is_prefix_of(entry.name))
 			continue;
 
-		if (victim->revoke_flags.has(revoke_table[i].bit)) {
-			victim->revoke_flags -= revoke_table[i].bit;
+		if (victim->revoke_flags.has(entry.bit)) {
+			victim->revoke_flags -= entry.bit;
 			Format::sprintf(buf1, "restore");
 		}
 		else {
-			victim->revoke_flags += revoke_table[i].bit;
+			victim->revoke_flags += entry.bit;
 			Format::sprintf(buf1, "revoke");
 		}
 
-		ptc(victim, "The Gods have %sd your %s.\n", buf1, revoke_table[i].message);
-		ptc(ch, "You %s their %s.\n", buf1, revoke_table[i].message);
-		Format::sprintf(buf2, "$N has %sd %s's %s", buf1, victim->name, revoke_table[i].message);
+		ptc(victim, "The Gods have %sd your %s.\n", buf1, entry.message);
+		ptc(ch, "You %s their %s.\n", buf1, entry.message);
+		Format::sprintf(buf2, "$N has %sd %s's %s", buf1, victim->name, entry.message);
 		wiznet(buf2, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 		return;
 	}
