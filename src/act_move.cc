@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <math.h>
+
 #include "act.hh"
 #include "argument.hh"
 #include "affect/Affect.hh"
@@ -2716,10 +2718,18 @@ const Object *get_warp_crystal(const String& str) {
 void do_warp(Character *ch, String argument)
 {
 	RoomPrototype *target_room;
+	String arg;
+	bool forget = false;
 
 	if (IS_NPC(ch)) {
 		stc("It's a nice day out, you would rather walk.\n", ch);
 		return;
+	}
+
+	if (argument.lsplit() == "forget") {
+		forget = true;
+		argument = argument.lsplit(arg).strip();
+		arg.clear();
 	}
 
 	if (argument.empty()) {
@@ -2728,16 +2738,37 @@ void do_warp(Character *ch, String argument)
 			return;
 		}
 
+		if (forget)
+			stc("Which crystal do you want to forget?\n", ch);
+
 		stc("You have touched aetheryte crystals in:\n", ch);
-		int count = 1, max_count = ch->pcdata->warp_locs.size();
+		int count = 1;
+		int max_count = ch->pcdata->warp_locs.size();
+		unsigned int number_space = log10(max_count) + 1; // that was easy!
+		unsigned int string_space = 0;
 
 		for (const String& str: ch->pcdata->warp_locs)
-			ptc(ch, "  %*d) %s\n", max_count, count++, str);
+			if (str.length() > string_space)
+				string_space = str.length();
+
+		int columns = UMAX(1, 90 / (2 + number_space + 2 + string_space));
+
+		for (const String& str: ch->pcdata->warp_locs) {
+			ptc(ch, "  %*d) %s", number_space, count++, str);
+
+			for (unsigned int i = str.length(); i < string_space; i++)
+				ptc(ch, " ");
+
+			if ((count-1) % columns == 0)
+				ptc(ch, "\n");
+		}
+
+		ptc(ch, "\n");
 
 		return;
 	}
 
-	String arg, target_loc;
+	String target_loc;
 	int number;
 
 	if (argument.is_number())
@@ -2753,6 +2784,17 @@ void do_warp(Character *ch, String argument)
 	if (target_loc.empty()) {
 		stc("You have never been anywhere like that.\n", ch);
 		do_warp(ch, "");
+		return;
+	}
+
+	if (forget) {
+		for (auto it = ch->pcdata->warp_locs.begin(); it != ch->pcdata->warp_locs.end(); it++)
+			if (*it == target_loc) {
+				ch->pcdata->warp_locs.erase(it);
+				break;
+			}
+
+		ptc(ch, "You feel less attuned to the crystal in %s.\n", target_loc);
 		return;
 	}
 
