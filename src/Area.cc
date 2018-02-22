@@ -190,17 +190,18 @@ num_players(bool count_all) const {
 	int count = 0;
 
 	for (const auto& pair : room_prototypes) {
-		const auto& vnum = pair.first;
+		const auto proto = pair.second;
 
-		const Room *room = room_index_map.find(vnum)->second;
-
-		for (Character *ch = room->people; ch; ch = ch->next_in_room)
-			if (!IS_NPC(ch)) {
-				if (count_all)
-					count++;
-				else
-					return 1;
+		for (auto room : proto->rooms) {
+			for (Character *ch = room->people; ch; ch = ch->next_in_room) {
+				if (!IS_NPC(ch)) {
+					if (count_all)
+						count++;
+					else
+						return 1;
+				}
 			}
+		}
 
 	}
 

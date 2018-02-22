@@ -469,19 +469,13 @@ ObjectPrototype *get_obj_index(const Vnum& vnum)
  */
 Room *get_room(const Vnum& vnum)
 {
-	auto search = room_index_map.find(vnum);
+	auto proto = get_room_prototype(vnum);
 
-	if (search == room_index_map.end()) {
-		if (fBootDb) {
-			Logging::bugf("Get_room: bad vnum %d.", vnum);
-			/* Don't exit here, we already return nullptr on error. -- Outsider
-			exit( 1 );
-			*/
-		}
-		return nullptr;
-	}
+	if (proto != nullptr)
+		if (!proto->rooms.empty())
+			return proto->rooms[0];
 
-	return search->second;
+	return nullptr;
 }
 
 RoomPrototype *get_room_prototype(const Vnum& vnum) {

@@ -5,7 +5,6 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "Vnum.hh"
-#include "ExitPrototype.hh"
 
 class RoomPrototype
 {
@@ -31,7 +30,9 @@ public:
 	ExtraDescr *	extra_descr = nullptr;
 	ExitPrototype *		exit    [6] = {nullptr}; // prototypes for building rooms
 
-	bool operator==(const RoomPrototype& rhs) const {
+	std::vector<Room *> rooms;
+
+	inline bool operator==(const RoomPrototype& rhs) const {
 		return this->vnum == rhs.vnum;
 	}
 
@@ -39,3 +40,4 @@ private:
 	RoomPrototype(const RoomPrototype&);
 	RoomPrototype& operator=(const RoomPrototype&);
 };
+

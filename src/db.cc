@@ -91,8 +91,6 @@ int             record_players_since_boot = 0;
 /*
  * Locals.
  */
-std::map<Vnum, Room *> room_index_map;
-
 long                    quest_double = 0;
 
 /*
@@ -478,7 +476,7 @@ void create_rooms() {
 				exit(1);
 			}
 
-			room_index_map[vnum] = room;
+			prototype->rooms.push_back(room);
 		}
 	}
 }
@@ -490,28 +488,35 @@ void create_rooms() {
  */
 void fix_exits(void)
 {
-	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
-		Room *room = it->second;
-		bool found_exit = FALSE;
+	for (const Area *area : Game::world().areas) {
+		for (const auto& pair : area->room_prototypes) {
+			const auto& vnum = pair.first;
+			const auto prototype = pair.second;
 
-		for (int door = 0; door <= 5; door++) {
-			if (room->prototype.exit[door] != nullptr) {
-				room->exit[door] = new Exit(*room->prototype.exit[door]);
+			for (auto room : prototype->rooms) {
+				bool found_exit = FALSE;
 
-				if (room->exit[door]->to_room == nullptr) {
-					delete room->exit[door]->to_room;
-					room->exit[door] = nullptr;
-					Logging::bugf("fix_exits: room %d has unknown exit vnum %d.",
-						it->first, room->prototype.exit[door]->to_vnum);
+				for (int door = 0; door <= 5; door++) {
+					if (room->prototype.exit[door] == nullptr)
+						continue;
+
+					room->exit[door] = new Exit(*room->prototype.exit[door]);
+
+					if (room->exit[door]->to_room == nullptr) {
+						delete room->exit[door]->to_room;
+						room->exit[door] = nullptr;
+						Logging::bugf("fix_exits: room %d has unknown exit vnum %d.",
+							vnum, room->prototype.exit[door]->to_vnum);
+					}
+
+					if (room->exit[door])
+						found_exit = TRUE;
 				}
+
+				if (!found_exit)
+					room->room_flags += ROOM_NO_MOB;
 			}
-
-			if (room->exit[door])
-				found_exit = TRUE;
 		}
-
-		if (!found_exit)
-			room->room_flags += ROOM_NO_MOB;
 	}
 }
 

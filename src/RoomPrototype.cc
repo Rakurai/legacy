@@ -6,6 +6,7 @@
 #include "Format.hh"
 #include "Logging.hh"
 #include "lookup.hh"
+#include "Room.hh"
 
 RoomPrototype::
 RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
@@ -115,4 +116,7 @@ RoomPrototype::
 	for (int door = 0; door < 6; door++)
 		if (exit[door] != nullptr)
 			delete exit[door];
+
+	for (auto room : rooms)
+		delete room;
 }

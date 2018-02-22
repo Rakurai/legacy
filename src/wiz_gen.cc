@@ -1409,7 +1409,7 @@ const String name_expand(Character *ch)
 
 void do_for(Character *ch, String argument)
 {
-	Room *room, *old_room = nullptr;
+	Room *old_room = nullptr;
 	Character *p, *p_next;
 	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
 
@@ -1501,37 +1501,41 @@ void do_for(Character *ch, String argument)
 			return;
 		}
 
-		for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
-			room = it->second;
-			found = FALSE;
+		for (const auto from_area : Game::world().areas) {
+			for (const auto& pair : from_area->room_prototypes) {
+				for (const auto room : pair.second->rooms) {
 
-			/* Anyone in here at all? */
-			if (!room->people) /* Skip it if room is empty */
-				continue;
+					found = FALSE;
 
-			/* Check if there is anyone here of the requried type */
-			for (p = room->people; p; p = p->next_in_room) {
-				if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
-					continue;
-				else if (IS_NPC(p) && !fRoom)
-					continue;
-				else if (IS_IMMORTAL(p) && fGods)
-					found = TRUE;
-				else if (!IS_IMMORTAL(p) && fMortals)
-					found = TRUE;
-			}
+					/* Anyone in here at all? */
+					if (!room->people) /* Skip it if room is empty */
+						continue;
 
-			if (found) {
-				old_room = ch->in_room;
-				char_from_room(ch);
-				char_to_room(ch, room);
-				interpret(ch, argument);
+					/* Check if there is anyone here of the requried type */
+					for (p = room->people; p; p = p->next_in_room) {
+						if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
+							continue;
+						else if (IS_NPC(p) && !fRoom)
+							continue;
+						else if (IS_IMMORTAL(p) && fGods)
+							found = TRUE;
+						else if (!IS_IMMORTAL(p) && fMortals)
+							found = TRUE;
+					}
 
-				if (ch) {
-					char_from_room(ch);
-					char_to_room(ch, old_room);
+					if (found) {
+						old_room = ch->in_room;
+						char_from_room(ch);
+						char_to_room(ch, room);
+						interpret(ch, argument);
+
+						if (ch) {
+							char_from_room(ch);
+							char_to_room(ch, old_room);
+						}
+					} /* if found */
 				}
-			} /* if found */
+			}
 		} /* for every room in a bucket */
 	} /* if strchr */
 } /* do_for */

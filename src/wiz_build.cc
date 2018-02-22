@@ -26,6 +26,7 @@
 #include "merc.hh"
 #include "MobilePrototype.hh"
 #include "ObjectPrototype.hh"
+#include "RoomPrototype.hh"
 #include "Room.hh"
 #include "String.hh"
 
@@ -103,12 +104,13 @@ String checkexits(Room *room, const Area *pArea) {
 /* for now, no arguments, just list the current area */
 void do_exlist(Character *ch, String argument)
 {
-	const Area *pArea = &ch->in_room->area(); /* this is the area we want info on */
+	const Area *to_area = &ch->in_room->area(); /* this is the area we want info on */
 
-	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
-		/* run through all the rooms on the MUD */
-		stc(checkexits(it->second, pArea), ch);
-	}
+	/* run through all the rooms on the MUD */
+	for (const auto from_area : Game::world().areas)
+		for (const auto& pair : from_area->room_prototypes)
+			for (const auto from_room : pair.second->rooms)
+				stc(checkexits(from_room, to_area), ch);
 }
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
@@ -154,10 +156,10 @@ void do_roomexits(Character *ch, String argument)
 {
 	Room *dest = ch->in_room; /* this is the room we want info on */
 
-	for (auto it = room_index_map.begin(); it != room_index_map.end(); ++it) {
-		/* run through all the rooms on the MUD */
-		stc(checkexitstoroom(it->second, dest), ch);
-	}
+	for (const auto from_area : Game::world().areas)
+		for (const auto& pair : from_area->room_prototypes)
+			for (const auto from_room : pair.second->rooms)
+				stc(checkexitstoroom(from_room, dest), ch);
 }
 
 /* find pockets of unused vnums equal to or greater than the argument */

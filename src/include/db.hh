@@ -7,7 +7,6 @@
 
 /* vals from db.c */
 extern bool fBootDb;
-extern std::map<Vnum, Room *> room_index_map;
 extern int		top_mob_index;
 extern int		top_obj_index;
 extern int  		top_affect;

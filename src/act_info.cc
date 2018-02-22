@@ -2097,28 +2097,33 @@ void exits_in(Character *ch)
 	if (ch->in_room == nullptr)
 		return;
 
-	for (const auto& pair : room_index_map) {
-		const Room *room = pair.second;
+	for (const auto area : Game::world().areas) {
+		for (const auto& pair : area->room_prototypes) {
+			const auto proto = pair.second;
 
-		for (int i = 0; i < 6; i++) {                               /* Every exit in the current room */
-			exit = room->exit[i];
+			for (auto room : proto->rooms) {
+				for (int i = 0; i < 6; i++) { /* Every exit in the current room */
+					exit = room->exit[i];
 
-			if (exit != nullptr) {
-				if (exit->to_room == nullptr)
-					continue;
+					if (exit == nullptr)
+						continue;
 
-				if (exit->to_room == ch->in_room) {   /* Does the exit lead to our room? */
-					found = TRUE;
-					Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
-					        Exit::dir_name(i),
-					        room->name(),
-					        room->vnum(),
-					        room->area().name);
-					output += buf;
-				} /* End if */
-			} /* End else */
+					if (exit->to_room == nullptr)
+						continue;
+
+					if (exit->to_room == ch->in_room) {   /* Does the exit lead to our room? */
+						found = TRUE;
+						Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
+						        Exit::dir_name(i),
+						        room->name(),
+						        room->vnum(),
+						        room->area().name);
+						output += buf;
+					} /* End if */
+				} /* End for */
+			}
 		} /* End for */
-	} /* End for */
+	}
 
 	if (!found)
 		output += "No rooms lead into this one.\n";
