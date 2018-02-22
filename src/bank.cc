@@ -55,7 +55,7 @@ void do_deposit(Character *ch, String argument)
 			return;
 		}
 
-		max_gold = ((ch->pcdata->remort_count * 1000) + 50000);
+		max_gold = ((ch->pcdata->remort_count * 10000) + 50000);
 
 		if ((ch->gold_in_bank + atoi(arg1)) > max_gold) {
 			ptc(ch, "You can't put more than %ld gold in the bank.\n", max_gold);
@@ -75,7 +75,7 @@ void do_deposit(Character *ch, String argument)
 			return;
 		}
 
-		max_silver = ((ch->pcdata->remort_count * 100000) + 1000000);
+		max_silver = ((ch->pcdata->remort_count * 1000000) + 1000000);
 
 		if ((ch->silver_in_bank + atoi(arg1)) > max_silver) {
 			ptc(ch, "You can't put more than %ld silver in the bank.\n", max_silver);
