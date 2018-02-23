@@ -1008,29 +1008,6 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 
 
 /*
- * Sector types.
- * Used in #ROOMS.
- */
-#define SECT_INSIDE                   0
-#define SECT_CITY                     1
-#define SECT_FIELD                    2
-#define SECT_FOREST                   3
-#define SECT_HILLS                    4
-#define SECT_MOUNTAIN                 5
-#define SECT_WATER_SWIM               6
-#define SECT_WATER_NOSWIM             7
-#define SECT_UNUSED                   8
-#define SECT_AIR                      9
-#define SECT_DESERT                  10
-#define SECT_MAX                     11
-#define SECT_ARENA                   20
-#define SECT_CLANARENA	             21
-#define SECT_NULL                   99
-
-
-
-
-/*
  * Equpiment wear locations.
  * Used in #RESETS.
  */

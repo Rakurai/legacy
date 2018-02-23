@@ -5,6 +5,7 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "Vnum.hh"
+#include "Sector.hh"
 
 class RoomPrototype
 {
@@ -18,7 +19,7 @@ public:
 	String 		description;
 	const Vnum	tele_dest;
 	Flags       room_flags;
-	int			sector_type;
+	Sector		sector_type;
 	int			heal_rate = 100;
 	int			mana_rate = 100;
 	int			guild = 0;		/* guild room, class number+1, 0 none -- Montrey */

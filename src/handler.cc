@@ -675,7 +675,7 @@ void obj_to_room(Object *obj, Room *room)
 	}
 
 	/* Floating Rooms by Lotus - Idea from WWW site */
-	while (room->sector_type() == SECT_AIR &&
+	while (room->sector_type() == Sector::air &&
 	       obj->wear_flags.has(ITEM_TAKE) &&
 	       room->exit[DIR_DOWN] &&
 	       room->exit[DIR_DOWN]->to_room) {
@@ -818,7 +818,7 @@ void spill_contents(Object *obj, Object *contents) {
 		else if (obj->carried_by) {
 			if (number_range(0, 3) != 0
 			 || obj->carried_by->in_room == nullptr
-			 || obj->carried_by->in_room->sector_type() == SECT_ARENA
+			 || obj->carried_by->in_room->sector_type() == Sector::arena
 			 || char_in_darena_room(obj->carried_by))
 				obj_to_char(t_obj, obj->carried_by);
 			else
@@ -1266,8 +1266,8 @@ bool room_is_dark(Room *room)
 	if (room->flags().has(ROOM_DARK))
 		return TRUE;
 
-	if (room->sector_type() == SECT_INSIDE
-	    || room->sector_type() == SECT_CITY)
+	if (room->sector_type() == Sector::inside
+	    || room->sector_type() == Sector::city)
 		return FALSE;
 
 	if (Game::world().time.sunlight == GameTime::Night)

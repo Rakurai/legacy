@@ -6,6 +6,7 @@
 #include "declare.hh"
 #include "Flags.hh"
 #include "String.hh"
+#include "Sector.hh"
 
 struct MagT_type
 {
@@ -129,7 +130,7 @@ struct color_type
 // sector types - Montrey (2014)
 struct sector_type {
     String name;
-    int type;
+    Sector type;
 };
 
 struct raffects

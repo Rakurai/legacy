@@ -149,7 +149,7 @@ void do_splat(Character *ch, String argument)
 		act("{PA pellet from $n's gun soars through the air and hits you! {HSPLAT!{x",
 		    ch, nullptr, victim, TO_VICT);
 
-		if ((victim->in_room->sector_type() != SECT_ARENA) &&
+		if ((victim->in_room->sector_type() != Sector::arena) &&
 		    (!victim->in_room->flags().has(ROOM_NO_RECALL)) &&
 		    !char_in_duel_room(victim) &&
 		    (!affect::exists_on_char(victim, affect::type::curse))) {

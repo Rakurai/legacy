@@ -636,7 +636,7 @@ Room *generate_skillquest_room(Character *ch, int level)
 		    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
 		    || room->area().name == "Torayna Cri"
 		    || room->area().name == "Battle Arenas"
-		    || room->sector_type() == SECT_ARENA
+		    || room->sector_type() == Sector::arena
 		    || room->flags().has_any_of(
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY

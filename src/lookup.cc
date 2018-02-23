@@ -125,7 +125,7 @@ String condition_lookup(int condition)
 		return "unknown";
 }
 
-String sector_lookup(int type)
+String sector_lookup(Sector type)
 {
 	unsigned int i;
 

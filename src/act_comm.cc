@@ -1147,7 +1147,7 @@ void do_quit(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type() == SECT_ARENA) {
+	if (ch->in_room->sector_type() == Sector::arena) {
 		stc("You're not getting out of this that easy.\n", ch);
 		return;
 	}

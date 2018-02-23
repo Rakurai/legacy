@@ -1696,11 +1696,11 @@ void do_firebuilding(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::firebuilding))
 		return;
 
-	if ((ch->in_room->sector_type() == SECT_CITY)
-	    || (ch->in_room->sector_type() == SECT_WATER_SWIM)
-	    || (ch->in_room->sector_type() == SECT_WATER_NOSWIM)
-	    || (ch->in_room->sector_type() == SECT_DESERT)
-	    || (ch->in_room->sector_type() == SECT_AIR)) {
+	if ((ch->in_room->sector_type() == Sector::city)
+	    || (ch->in_room->sector_type() == Sector::water_swim)
+	    || (ch->in_room->sector_type() == Sector::water_noswim)
+	    || (ch->in_room->sector_type() == Sector::desert)
+	    || (ch->in_room->sector_type() == Sector::air)) {
 		stc("You cannot find any twigs to make a torch.\n", ch);
 		return;
 	}
@@ -3450,8 +3450,8 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->in_room->sector_type() == SECT_ARENA
-	    || victim->in_room->sector_type() == SECT_CLANARENA
+	if (victim->in_room->sector_type() == Sector::arena
+	    || victim->in_room->sector_type() == Sector::clanarena
 	    || (victim->in_room->area() == Game::world().quest.area() && !Game::world().quest.pk)
 	    || char_in_duel_room(victim)) {
 		stc("You are here to do battle, not to steal!\n", ch);

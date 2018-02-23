@@ -600,20 +600,18 @@ const std::vector<field_type> flag_fields = {
 };
 
 const std::vector<sector_type> sector_table = {
-	{       "indoors",      SECT_INSIDE             },
-	{       "city",         SECT_CITY               },
-	{       "field",        SECT_FIELD              },
-	{       "forest",       SECT_FOREST             },
-	{       "hills",        SECT_HILLS              },
-	{       "mountain",     SECT_MOUNTAIN   },
-	{       "water",        SECT_WATER_SWIM },
-	{       "ocean",        SECT_WATER_NOSWIM       },
-	{       "unused",       SECT_UNUSED             },
-	{       "air",          SECT_AIR                },
-	{       "desert",       SECT_DESERT             },
-	{       "MAX",          SECT_MAX                },
-	{       "arena",        SECT_ARENA              },
-	{       "clan arena",   SECT_CLANARENA  },
+	{       "indoors",      Sector::inside             },
+	{       "city",         Sector::city               },
+	{       "field",        Sector::field              },
+	{       "forest",       Sector::forest             },
+	{       "hills",        Sector::hills              },
+	{       "mountain",     Sector::mountain   },
+	{       "water",        Sector::water_swim },
+	{       "ocean",        Sector::water_noswim       },
+	{       "air",          Sector::air                },
+	{       "desert",       Sector::desert             },
+	{       "arena",        Sector::arena              },
+	{       "clan arena",   Sector::clanarena  },
 };
 
 /* various flag tables */

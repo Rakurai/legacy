@@ -55,12 +55,25 @@
 #include "random.hh"
 #include "Room.hh"
 #include "skill/skill.hh"
+#include "Sector.hh"
 #include "String.hh"
 
 DECLARE_SPEC_FUN(spec_clanguard);
 
-const   int  stamina_loss   [SECT_MAX]      = {
-	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
+const std::map<Sector, int> stamina_loss = {
+	{ Sector::none,          0 },
+	{ Sector::inside,        1 },
+	{ Sector::city,          2 },
+	{ Sector::field,         2 },
+	{ Sector::forest,        3 },
+	{ Sector::hills,         4 },
+	{ Sector::mountain,      6 },
+	{ Sector::water_swim,    4 },
+	{ Sector::water_noswim,  1 },
+	{ Sector::air,           6 },
+	{ Sector::desert,       10 },
+	{ Sector::arena,         1 },
+	{ Sector::clanarena,    1 },
 };
 
 /*
@@ -75,7 +88,6 @@ void move_char(Character *ch, int door, bool follow)
 	Character *fch, *fch_next;
 	Room *in_room, *to_room;
 	Exit *pexit;
-	int cost;
 	char dir_buf[128];
 
 	if (door < 0 || door > 5) {
@@ -143,8 +155,8 @@ void move_char(Character *ch, int door, bool follow)
 			stc("{CYou begin to hold your breath.{x\n", ch);
 	}
 
-	if ((in_room->sector_type() == SECT_AIR
-	  || to_room->sector_type() == SECT_AIR)
+	if ((in_room->sector_type() == Sector::air
+	  || to_room->sector_type() == Sector::air)
 	 && !IS_FLYING(ch) 
 	 && !IS_IMMORTAL(ch)) {
 		if (CAN_FLY(ch))
@@ -156,8 +168,8 @@ void move_char(Character *ch, int door, bool follow)
 			return;
 	}
 
-	if ((in_room->sector_type() == SECT_WATER_NOSWIM
-	  || to_room->sector_type() == SECT_WATER_NOSWIM)
+	if ((in_room->sector_type() == Sector::water_noswim
+	  || to_room->sector_type() == Sector::water_noswim)
 	 && !IS_FLYING(ch)
 	 && !IS_IMMORTAL(ch)
 	 && !get_skill_level(ch, skill::type::swimming)) {
@@ -183,8 +195,10 @@ void move_char(Character *ch, int door, bool follow)
 		}
 	}
 
-	cost = (stamina_loss[UMIN(SECT_MAX - 1, in_room->sector_type())]
-	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type())]) / 2;
+	const auto& loss_entry1 = stamina_loss.find(in_room->sector_type());
+	const auto& loss_entry2 = stamina_loss.find(to_room->sector_type());
+	int cost = (loss_entry1 == stamina_loss.cend() ? 0 : loss_entry1->second)
+	         + (loss_entry2 == stamina_loss.cend() ? 0 : loss_entry2->second);
 
 	/* conditional effects */
 	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::type::haste))
@@ -1639,7 +1653,7 @@ void recall(Character *ch, bool clan)
 		location = get_room(ROOM_VNUM_TEMPLE);
 
 	/* Recall from Clan's Arena */
-	if (ch->in_room->sector_type() == SECT_CLANARENA && !clan && ch->fighting) {
+	if (ch->in_room->sector_type() == Sector::clanarena && !clan && ch->fighting) {
 		if (pet)
 			location = get_room(ch->master->clan->hall);
 		else
@@ -1648,7 +1662,7 @@ void recall(Character *ch, bool clan)
 		if (location == nullptr)
 			location = get_room(ROOM_VNUM_TEMPLE);
 	}
-	else if (ch->in_room->sector_type() == SECT_ARENA) {
+	else if (ch->in_room->sector_type() == Sector::arena) {
 		Descriptor *d;
 		bool empty = TRUE;
 
@@ -1708,8 +1722,8 @@ void recall(Character *ch, bool clan)
 			return;
 		}
 
-		if (ch->in_room->sector_type() != SECT_ARENA
-		    && ch->in_room->sector_type() != SECT_CLANARENA)
+		if (ch->in_room->sector_type() != Sector::arena
+		    && ch->in_room->sector_type() != Sector::clanarena)
 			lose = (ch->desc != nullptr ? 25 : (clan ? 50 : 25));
 
 		combat = TRUE;
@@ -1987,8 +2001,8 @@ bool is_safe_drag(Character *ch, Character *victim)
 		return TRUE;
 	}
 
-	if (victim->in_room->sector_type() == SECT_ARENA
-	    || victim->in_room->sector_type() == SECT_CLANARENA
+	if (victim->in_room->sector_type() == Sector::arena
+	    || victim->in_room->sector_type() == Sector::clanarena
 	    || char_in_darena_room(victim))
 		return FALSE;
 
@@ -2139,7 +2153,7 @@ void do_push(Character *ch, String argument)
 			act(buf, ch, nullptr, victim, TO_NOTVICT);
 		}
 	}
-	else if (victim->in_room->sector_type() == SECT_AIR) {
+	else if (victim->in_room->sector_type() == Sector::air) {
 		if (!IS_FLYING(victim)
 		    && victim->in_room->exit[DIR_DOWN]) {
 
@@ -2155,7 +2169,7 @@ void do_push(Character *ch, String argument)
 				long brief = victim->comm_flags.has(COMM_BRIEF);
 				victim->comm_flags += COMM_BRIEF;
 
-				while (victim->in_room->sector_type() == SECT_AIR
+				while (victim->in_room->sector_type() == Sector::air
 				       && !victim->in_room->flags().has(ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->to_room)
@@ -2196,8 +2210,8 @@ void do_push(Character *ch, String argument)
 				if (!brief)
 					victim->comm_flags -= COMM_BRIEF;
 
-				if (victim->in_room->sector_type() == SECT_WATER_NOSWIM
-				    || victim->in_room->sector_type() == SECT_WATER_SWIM
+				if (victim->in_room->sector_type() == Sector::water_noswim
+				    || victim->in_room->sector_type() == Sector::water_swim
 				    || victim->in_room->flags().has(ROOM_UNDER_WATER)) {
 					stc("You spash down HARD in the water.  OW!!\n\n", victim);
 					act("$n spashes down HARD in the water.", victim, nullptr, nullptr, TO_ROOM);
@@ -2232,7 +2246,7 @@ void do_drag(Character *ch, String argument)
 	Room *to_room, *from_room;
 	Exit *pexit;
 	Character *victim;
-	int dir, cost;
+	int dir;
 
 	if (argument.empty()) {
 		stc("Whom do you want to drag?\n", ch);
@@ -2322,7 +2336,7 @@ void do_drag(Character *ch, String argument)
 		return;
 	}
 
-	if (to_room->sector_type() == SECT_AIR
+	if (to_room->sector_type() == Sector::air
 	 && !IS_FLYING(ch)
 	 && !IS_IMMORTAL(ch)) {
 		if (CAN_FLY(ch))
@@ -2347,8 +2361,11 @@ void do_drag(Character *ch, String argument)
 	}
 
 	from_room = ch->in_room;
-	cost = (stamina_loss[UMIN(SECT_MAX - 1, from_room->sector_type())]
-	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type())]);
+
+	const auto& loss_entry1 = stamina_loss.find(from_room->sector_type());
+	const auto& loss_entry2 = stamina_loss.find(to_room->sector_type());
+	int cost = (loss_entry1 == stamina_loss.cend() ? 0 : loss_entry1->second)
+	         + (loss_entry2 == stamina_loss.cend() ? 0 : loss_entry2->second);
 
 	/* conditional effects */
 	if (IS_FLYING(ch) || affect::exists_on_char(ch, affect::type::haste))
@@ -2465,7 +2482,7 @@ void do_drag(Character *ch, String argument)
 			act("{CYou begin to hold your breath.{x", victim, nullptr, nullptr, TO_CHAR);
 		}
 	}
-	else if (victim->in_room->sector_type() == SECT_AIR) {
+	else if (victim->in_room->sector_type() == Sector::air) {
 		if (!IS_FLYING(victim)
 		 && victim->in_room->exit[DIR_DOWN]) {
 
@@ -2481,7 +2498,7 @@ void do_drag(Character *ch, String argument)
 				long brief = victim->comm_flags.has(COMM_BRIEF);
 				victim->comm_flags += COMM_BRIEF;
 
-				while (victim->in_room->sector_type() == SECT_AIR
+				while (victim->in_room->sector_type() == Sector::air
 				       && !victim->in_room->flags().has(ROOM_UNDER_WATER)
 				       && victim->in_room->exit[DIR_DOWN]
 				       && (to_room = victim->in_room->exit[DIR_DOWN]->to_room)
@@ -2535,8 +2552,8 @@ void do_drag(Character *ch, String argument)
 				if (!brief)
 					victim->comm_flags -= COMM_BRIEF;
 
-				if (victim->in_room->sector_type() == SECT_WATER_NOSWIM
-				    || victim->in_room->sector_type() == SECT_WATER_SWIM
+				if (victim->in_room->sector_type() == Sector::water_noswim
+				    || victim->in_room->sector_type() == Sector::water_swim
 				    || victim->in_room->flags().has(ROOM_UNDER_WATER)) {
 					if (IS_AWAKE(victim))
 						stc("You spash down HARD in the water.  OW!!\n\n", victim);
@@ -2596,7 +2613,7 @@ void do_mark(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type() == SECT_ARENA
+	if (ch->in_room->sector_type() == Sector::arena
 	    || ch->in_room->area() == Game::world().quest.area()
 	    || (ch->in_room->flags().has(ROOM_GODS_ONLY) && !IS_IMMORTAL(ch))
 	    || char_in_duel_room(ch)) {
@@ -2668,7 +2685,7 @@ void do_relocate(Character *ch, String argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type() == SECT_ARENA)
+	if ((ch->in_room->sector_type() == Sector::arena)
 	    || (ch->in_room->area() == Game::world().quest.area())) {
 		stc("You aren't getting out of here that easily!\n", ch);
 		return;
@@ -2829,7 +2846,7 @@ void do_warp(Character *ch, String argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type() == SECT_ARENA)
+	if ((ch->in_room->sector_type() == Sector::arena)
 	    || (ch->in_room->area() == Game::world().quest.area())) {
 		stc("You aren't getting out of here that easily!\n", ch);
 		return;
@@ -2875,7 +2892,7 @@ Room *get_random_room(Character *ch)
 		    || room->area().name == "Torayna Cri"
 		    || room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
 		    || (IS_NPC(ch) && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
-		    || room->sector_type() == SECT_ARENA)
+		    || room->sector_type() == Sector::arena)
 			continue;
 
 		/* no pet shops */
@@ -2911,7 +2928,7 @@ void do_enter(Character *ch, String argument)
 		}
 
 		if (!IS_IMMORTAL(ch)) {
-			if (ch->in_room->sector_type() == SECT_ARENA || char_in_duel_room(ch)) {
+			if (ch->in_room->sector_type() == Sector::arena || char_in_duel_room(ch)) {
 				stc("The gods have restricted the use of portals in the arena.\n", ch);
 				return;
 			}
@@ -3101,7 +3118,7 @@ void do_enter(Character *ch, String argument)
 
 void do_land(Character *ch, String argument)
 {
-	if (ch->in_room->sector_type() == SECT_AIR) {
+	if (ch->in_room->sector_type() == Sector::air) {
 		stc("There is nowhere to put your feet!\n", ch);
 		return;
 	}
@@ -3111,8 +3128,8 @@ void do_land(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type() == SECT_WATER_SWIM
-	 || ch->in_room->sector_type() == SECT_WATER_NOSWIM) {
+	if (ch->in_room->sector_type() == Sector::water_swim
+	 || ch->in_room->sector_type() == Sector::water_noswim) {
 		stc("You land in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n", ch);
 		act("$n lands in the water with a big {B*{CS{BP{CL{BA{CS{BH{C*{x!\n",
 			ch, nullptr, nullptr, TO_ROOM);
@@ -3183,7 +3200,7 @@ void do_spousegate(Character *ch, String argument)
 		return;
 	}
 
-	if ((ch->in_room->sector_type() == SECT_ARENA) || (char_in_duel_room(ch))) {
+	if ((ch->in_room->sector_type() == Sector::arena) || (char_in_duel_room(ch))) {
 		stc("You may not gate while in the arena.\n", ch);
 		return;
 	}
@@ -3210,7 +3227,7 @@ void do_spousegate(Character *ch, String argument)
 	    || victim->in_room == nullptr
 	    || !can_see_room(ch, victim->in_room)
 	    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
-	    || victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->sector_type() == Sector::arena
 	    || victim->in_room->area() == Game::world().quest.area()
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan()

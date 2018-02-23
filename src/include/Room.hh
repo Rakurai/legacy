@@ -34,7 +34,7 @@ public:
 	const String& description() const { return prototype.description; }
 	const ExtraDescr *extra_descr() const { return prototype.extra_descr; }
 	const Flags flags() const { return cached_room_flags + room_flags; }
-	int sector_type() const { return prototype.sector_type; }
+	Sector sector_type() const { return prototype.sector_type; }
 	int guild() const { return prototype.guild; }
 	const String& owner() const { return prototype.owner; }
 	const Clan *clan() const { return prototype.clan; }

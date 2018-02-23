@@ -168,8 +168,8 @@ void spell_dazzle(skill::type sn, int level, Character *ch, void *vo, int target
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */
-	if (ch->in_room->sector_type() != SECT_INSIDE
-	    && ch->in_room->sector_type() != SECT_CITY) {
+	if (ch->in_room->sector_type() != Sector::inside
+	    && ch->in_room->sector_type() != Sector::city) {
 		if (ch->in_room->flags().has(ROOM_DARK))
 			chance += 25;
 		else if (Game::world().time.sunlight == GameTime::Night)

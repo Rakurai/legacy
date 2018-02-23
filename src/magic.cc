@@ -3042,8 +3042,8 @@ void spell_energy_drain(skill::type sn, int level, Character *ch, void *vo, int 
 		return;
 	}
 
-	if (victim->in_room->sector_type() != SECT_ARENA
-	    && victim->in_room->sector_type() != SECT_CLANARENA)
+	if (victim->in_room->sector_type() != Sector::arena
+	    && victim->in_room->sector_type() != Sector::clanarena)
 		gain_exp(victim, 0 - number_range(10 + level / 2, 10 + (3 * level / 2)));
 
 	if (victim->mana > 0) {
@@ -3598,7 +3598,7 @@ void spell_gate(skill::type sn, int level, Character *ch, void *vo, int target, 
 		return;
 	}
 
-	if (ch->in_room->sector_type() == SECT_ARENA || char_in_duel_room(ch)) {
+	if (ch->in_room->sector_type() == Sector::arena || char_in_duel_room(ch)) {
 		stc("You cannot gate while in the arena.\n", ch);
 		return;
 	}
@@ -3610,7 +3610,7 @@ void spell_gate(skill::type sn, int level, Character *ch, void *vo, int target, 
 	    || victim->in_room == nullptr
 	    || !can_see_room(ch, victim->in_room)
 	    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
-	    || victim->in_room->sector_type() == SECT_ARENA
+	    || victim->in_room->sector_type() == Sector::arena
 	    || victim->in_room->area() == Game::world().quest.area()
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan()
@@ -3773,7 +3773,7 @@ void spell_heat_metal(skill::type sn, int level, Character *ch, void *vo, int ta
 					dam += (number_range(1, obj_lose->level) / 3);
 					obj_from_char(obj_lose);
 
-					if (victim->in_room->sector_type() == SECT_ARENA
+					if (victim->in_room->sector_type() == Sector::arena
 					    || char_in_darena_room(victim))
 						obj_to_char(obj_lose, victim);
 					else
@@ -3791,7 +3791,7 @@ void spell_heat_metal(skill::type sn, int level, Character *ch, void *vo, int ta
 					dam += (number_range(1, obj_lose->level) / 6);
 					obj_from_char(obj_lose);
 
-					if (victim->in_room->sector_type() == SECT_ARENA
+					if (victim->in_room->sector_type() == Sector::arena
 					    || char_in_darena_room(victim))
 						obj_to_char(obj_lose, victim);
 					else
@@ -3817,7 +3817,7 @@ void spell_heat_metal(skill::type sn, int level, Character *ch, void *vo, int ta
 					dam += 1;
 					obj_from_char(obj_lose);
 
-					if (victim->in_room->sector_type() == SECT_ARENA
+					if (victim->in_room->sector_type() == Sector::arena
 					    || char_in_darena_room(victim))
 						obj_to_char(obj_lose, victim);
 					else
@@ -3835,7 +3835,7 @@ void spell_heat_metal(skill::type sn, int level, Character *ch, void *vo, int ta
 					dam += (number_range(1, obj_lose->level) / 6);
 					obj_from_char(obj_lose);
 
-					if (victim->in_room->sector_type() == SECT_ARENA
+					if (victim->in_room->sector_type() == Sector::arena
 					    || char_in_darena_room(victim))
 						obj_to_char(obj_lose, victim);
 					else
@@ -4528,7 +4528,7 @@ void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target,
 			return;
 		}
 
-		if (from_room->sector_type() == SECT_ARENA || char_in_duel_room(ch)) {
+		if (from_room->sector_type() == Sector::arena || char_in_duel_room(ch)) {
 			stc("You cannot nexus while in the arena.\n", ch);
 			return;
 		}
@@ -4543,7 +4543,7 @@ void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target,
 		    || !can_see_room(ch, to_room)
 		    || !can_see_room(ch, from_room)
 		    || to_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
-		    || to_room->sector_type() == SECT_ARENA
+		    || to_room->sector_type() == Sector::arena
 		    || char_in_duel_room(victim)
 		    || to_room->clan()  || from_room->clan()
 		    || to_room->guild() || from_room->guild()
@@ -4874,7 +4874,7 @@ void spell_portal(skill::type sn, int level, Character *ch, void *vo, int target
 			return;
 		}
 
-		if (ch->in_room->sector_type() == SECT_ARENA || char_in_duel_room(ch)) {
+		if (ch->in_room->sector_type() == Sector::arena || char_in_duel_room(ch)) {
 			stc("You cannot portal while in the arena.\n", ch);
 			return;
 		}
@@ -4886,7 +4886,7 @@ void spell_portal(skill::type sn, int level, Character *ch, void *vo, int target
 		    || victim->in_room == nullptr
 		    || !can_see_room(ch, victim->in_room)
 		    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY)
-		    || victim->in_room->sector_type() == SECT_ARENA
+		    || victim->in_room->sector_type() == Sector::arena
 		    || victim->in_room->area() == Game::world().quest.area()
 		    || char_in_duel_room(victim)
 		    || victim->in_room->clan()
@@ -5896,7 +5896,7 @@ void spell_summon(skill::type sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	if (ch->in_room->sector_type() == SECT_ARENA && !IS_NPC(victim)) {
+	if (ch->in_room->sector_type() == Sector::arena && !IS_NPC(victim)) {
 		stc("You cannot summon players while in the arena.\n", ch);
 		return;
 	}
@@ -5912,7 +5912,7 @@ void spell_summon(skill::type sn, int level, Character *ch, void *vo, int target
 		return;
 	}
 
-	if (victim->in_room->sector_type() == SECT_ARENA || char_in_duel_room(victim)) {
+	if (victim->in_room->sector_type() == Sector::arena || char_in_duel_room(victim)) {
 		stc("Your target is in the arena. You cannot summon from there.\n",
 		    ch);
 		return;
@@ -6064,7 +6064,7 @@ void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int
 			/* object in someone's hands */
 			if ((obj->carried_by->in_room == nullptr)
 			    || obj->carried_by->in_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
-			    || obj->carried_by->in_room->sector_type() == SECT_ARENA
+			    || obj->carried_by->in_room->sector_type() == Sector::arena
 			    || obj->carried_by->in_room->area() == Game::world().quest.area()
 			    || (!IS_NPC(obj->carried_by))
 			    || (obj->carried_by->level > ch->level + 3)
@@ -6082,7 +6082,7 @@ void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int
 		else if (obj->in_room != nullptr) {
 			/* lying around somewhere */
 			if (obj->in_room->flags().has_any_of(ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY | ROOM_NO_RECALL)
-			    || obj->in_room->sector_type() == SECT_ARENA
+			    || obj->in_room->sector_type() == Sector::arena
 			    || obj->in_room->area() == Game::world().quest.area()
 			    || (!CAN_WEAR(obj, ITEM_TAKE))) {
 				if (number == 1)
@@ -6123,7 +6123,7 @@ void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int
 		    || ch->in_room->area().name == "Eilyndrae"      /* hack to make eilyndrae and torayna cri unquestable */
 		    || ch->in_room->area().name == "Torayna Cri"
 		    || ch->in_room->area().name == "Battle Arenas"
-		    || ch->in_room->sector_type() == SECT_ARENA
+		    || ch->in_room->sector_type() == Sector::arena
 		    || ch->in_room->flags().has_any_of(
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
@@ -6254,8 +6254,8 @@ void spell_teleport_object(skill::type sn, int level, Character *ch, void *vo, i
 		}
 	}
 
-	if (ch->in_room->sector_type() == SECT_ARENA
-	    || victim->in_room->sector_type() == SECT_ARENA
+	if (ch->in_room->sector_type() == Sector::arena
+	    || victim->in_room->sector_type() == Sector::arena
 	    || char_in_darena_room(victim)) {
 		stc("You failed.\n", ch);
 		return;
@@ -6300,11 +6300,11 @@ void spell_teleport(skill::type sn, int level, Character *ch, void *vo, int targ
 	if (victim->in_room == nullptr
 //	    || (victim->on && victim->on->pIndexData->item_type == ITEM_COACH)
 	    || victim->in_room->flags().has(ROOM_NO_RECALL)
-	    || victim->in_room->sector_type() == SECT_ARENA
-	    || victim->in_room->sector_type() == SECT_CLANARENA
+	    || victim->in_room->sector_type() == Sector::arena
+	    || victim->in_room->sector_type() == Sector::clanarena
 	    || char_in_duel_room(ch)
 	    || char_in_duel_room(victim)
-	    || ch->in_room->sector_type() == SECT_ARENA
+	    || ch->in_room->sector_type() == Sector::arena
 	    || (victim != ch && victim->act_flags.has(ACT_NOSUMMON))
 	    || (!IS_NPC(ch) && victim->fighting != nullptr)
 	    || (victim != ch && saves_spell(level, victim, DAM_OTHER))) {
@@ -6470,7 +6470,7 @@ void spell_word_of_recall(skill::type sn, int level, Character *ch, void *vo, in
 	if (IS_NPC(victim))
 		return;
 
-	if (ch->in_room->sector_type() != SECT_ARENA) {
+	if (ch->in_room->sector_type() != Sector::arena) {
 		if ((location = get_room(ROOM_VNUM_TEMPLE)) == nullptr) {
 			stc("You are completely lost.\n", victim);
 			return;
@@ -6515,7 +6515,7 @@ void spell_acid_breath(skill::type sn, int level, Character *ch, void *vo, int t
 {
 	Character *victim = (Character *) vo;
 	int dam, hp_dam, dice_dam, hpch;
-	/*    if (victim->in_room->sector_type() == SECT_ARENA)
+	/*    if (victim->in_room->sector_type() == Sector::arena)
 	    {
 	        stc("You cannot use this spell in the Arena.\n",ch);
 	        return;
@@ -6535,13 +6535,13 @@ void spell_acid_breath(skill::type sn, int level, Character *ch, void *vo, int t
 		dam *= 4 / 3;
 
 	if (saves_spell(level, victim, DAM_ACID)) {
-		if (victim->in_room->sector_type() != SECT_ARENA)
+		if (victim->in_room->sector_type() != Sector::arena)
 			acid_effect(victim, level / 2, dam / 4, TARGET_CHAR, evolution);
 
 		damage(ch, victim, dam / 2, sn, -1, DAM_ACID, TRUE, TRUE);
 	}
 	else {
-		if (victim->in_room->sector_type() != SECT_ARENA)
+		if (victim->in_room->sector_type() != Sector::arena)
 			acid_effect(victim, level, dam, TARGET_CHAR, evolution);
 
 		damage(ch, victim, dam, sn, -1, DAM_ACID, TRUE, TRUE);
@@ -6554,7 +6554,7 @@ void spell_fire_breath(skill::type sn, int level, Character *ch, void *vo, int t
 	Character *vch, *vch_next;
 	int dam, hp_dam, dice_dam;
 	int hpch;
-	/*    if (victim->in_room->sector_type() == SECT_ARENA)
+	/*    if (victim->in_room->sector_type() == Sector::arena)
 	    {
 	        stc("You cannot use this spell in the Arena.\n",ch);
 	        return;
@@ -6618,7 +6618,7 @@ void spell_frost_breath(skill::type sn, int level, Character *ch, void *vo, int 
 	Character *victim = (Character *) vo;
 	Character *vch, *vch_next;
 	int dam, hp_dam, dice_dam, hpch;
-	/*    if (victim->in_room->sector_type() == SECT_ARENA)
+	/*    if (victim->in_room->sector_type() == Sector::arena)
 	    {
 	        stc("You cannot use this spell in the Arena.\n",ch);
 	        return;
@@ -6681,7 +6681,7 @@ void spell_gas_breath(skill::type sn, int level, Character *ch, void *vo, int ta
 	Character *vch;
 	Character *vch_next;
 	int dam, hp_dam, dice_dam, hpch;
-	/*    if (ch->in_room->sector_type() == SECT_ARENA)
+	/*    if (ch->in_room->sector_type() == Sector::arena)
 	    {
 	        stc("You cannot use this spell in the Arena.\n",ch);
 	        return;
@@ -6724,7 +6724,7 @@ void spell_lightning_breath(skill::type sn, int level, Character *ch, void *vo, 
 {
 	Character *victim = (Character *) vo;
 	int dam, hp_dam, dice_dam, hpch;
-	/*    if (victim->in_room->sector_type() == SECT_ARENA)
+	/*    if (victim->in_room->sector_type() == Sector::arena)
 	    {
 	        stc("You cannot use this spell in the Arena.\n",ch);
 	        return;
