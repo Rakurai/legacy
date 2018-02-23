@@ -250,8 +250,6 @@ int can_carry_w(Character *ch)
  */
 void char_from_room(Character *ch)
 {
-	Object *obj;
-
 	if (ch == nullptr)
 		return;
 
@@ -259,38 +257,8 @@ void char_from_room(Character *ch)
 		Logging::bug("Char_from_room: nullptr.", 0);
 		return;
 	}
-/* possible place for an event for area.num_players
-	if (!IS_NPC(ch))
-		--ch->in_room->area()->nplayer;
-*/
-	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
-	    &&   obj->item_type == ITEM_LIGHT
-	    &&   obj->value[2] != 0
-	    &&   ch->in_room->light > 0)
-		--ch->in_room->light;
 
-	if (ch == ch->in_room->people)
-		ch->in_room->people = ch->next_in_room;
-	else {
-		Character *prev;
-
-		for (prev = ch->in_room->people; prev; prev = prev->next_in_room) {
-			if (prev->next_in_room == ch) {
-				prev->next_in_room = ch->next_in_room;
-				break;
-			}
-		}
-
-		if (prev == nullptr) {
-			Logging::bug("Char_from_room: ch not found.", 0);
-			Logging::bug(ch->name, 0);
-		}
-	}
-
-	ch->in_room      = nullptr;
-	ch->next_in_room = nullptr;
-	ch->on           = nullptr;  /* sanity check! */
-	return;
+	ch->in_room->remove_char(ch);
 }
 
 /*
@@ -298,8 +266,6 @@ void char_from_room(Character *ch)
  */
 void char_to_room(Character *ch, Room *room)
 {
-	Object *obj;
-
 	if (ch == nullptr)
 		return;
 
@@ -308,33 +274,13 @@ void char_to_room(Character *ch, Room *room)
 		Logging::bug("Char_to_room: nullptr.", 0);
 		Logging::bug(ch->name, 0);
 
-		if ((room = get_room(ROOM_VNUM_TEMPLE)) != nullptr)
+		if ((room = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)))) != nullptr)
 			char_to_room(ch, room);
 
 		return;
 	}
 
-	ch->in_room         = room;
-	ch->next_in_room    = room->people;
-	room->people  = ch;
-/* possible place for an event that affects area.num_players()
-	if (!IS_NPC(ch)) {
-		if (ch->in_room->area()->empty) {
-			ch->in_room->area()->empty = FALSE;
-			ch->in_room->area()->age = 0;
-		}
-
-		++ch->in_room->area()->nplayer;
-	}
-*/
-	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
-	    &&   obj->item_type == ITEM_LIGHT
-	    &&   obj->value[2] != 0)
-		++ch->in_room->light;
-
-	const affect::Affect *plague = affect::find_on_char(ch, affect::type::plague);
-	if (plague)
-		spread_plague(ch->in_room, plague, 6);
+	room->add_char(ch);
 }
 
 /* Locker Code */
@@ -920,7 +866,7 @@ void extract_char(Character *ch, bool fPull)
 
 	/* Death room is set in the clan table now */
 	if (!fPull) {
-		char_to_room(ch, get_room((ch->clan != nullptr) ? ch->clan->hall : ROOM_VNUM_ALTAR));
+		char_to_room(ch, Game::world().get_room((ch->clan != nullptr) ? ch->clan->recall : Location(Vnum(ROOM_VNUM_ALTAR))));
 		return;
 	}
 
@@ -1092,7 +1038,7 @@ Object *create_money(int gold, int silver)
 		else                                    amt = 0;
 	}
 
-	if ((obj = create_object(get_obj_index(GEN_OBJ_MONEY), 0)) == nullptr) {
+	if ((obj = create_object(Game::world().get_obj_prototype(GEN_OBJ_MONEY), 0)) == nullptr) {
 		Logging::bug("create_money: no generic money object", 0);
 		return nullptr;
 	}
@@ -1252,7 +1198,7 @@ int get_true_weight(Object *obj)
 /*
  * True if room is dark.
  */
-bool room_is_dark(Room *room)
+bool room_is_dark(const Room *room)
 {
 	if (room == nullptr)
 		return TRUE;
@@ -1276,7 +1222,7 @@ bool room_is_dark(Room *room)
 	return FALSE;
 }
 
-bool room_is_very_dark(Room *room)
+bool room_is_very_dark(const Room *room)
 {
 	if (room == nullptr)
 		return TRUE;
@@ -1321,7 +1267,7 @@ bool room_is_private(Room *room)
 }
 
 /* visibility on a room -- for entering and exits */
-bool can_see_room(Character *ch, Room *room)
+bool can_see_room(const Character *ch, const Room *room)
 {
 	if (room->flags().has(ROOM_IMP_ONLY)
 	    &&  GET_RANK(ch) < RANK_IMP)
@@ -1483,7 +1429,7 @@ bool can_see_who(const Character *ch, const Character *victim)
  * True if char can see characters and objects inside a room.  Not a permission thing,
  * but for darkness and vision.
  */
-bool can_see_in_room(Character *ch, Room *room)
+bool can_see_in_room(const Character *ch, const Room *room)
 {
 	if (IS_IMMORTAL(ch))
 		return TRUE;

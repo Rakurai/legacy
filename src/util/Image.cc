@@ -27,6 +27,9 @@ namespace util {
 bool Image::load(const String& filename) {
 	FILE *fp = fopen(filename.c_str(), "rb");
 
+	if (fp == nullptr)
+		return false;
+
 	png_structp png = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, NULL, NULL);
 
 	if (png == nullptr)

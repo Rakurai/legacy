@@ -3,6 +3,7 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Vnum.hh"
+#include "Location.hh"
 
 class Clan
 {
@@ -10,9 +11,9 @@ public:
     Clan() {}
     virtual ~Clan() {}
 
+    Location      recall{Vnum(3001)};
     String  name;
     String  who_name;
-    int      hall = 0;
     Vnum      area_minvnum = 0;
     Vnum      area_maxvnum = 0;
     bool        independent = FALSE; /* true for loners and imm clans */

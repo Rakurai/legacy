@@ -18,5 +18,3 @@ Object *	get_obj_carry		args((Character *ch, const String& argument));
 Object *	get_obj_wear		args((Character *ch, const String& argument));
 Object *	get_obj_here		args((Character *ch, const String& argument));
 Object *	get_obj_world		args((Character *ch, const String& argument));
-
-Room *      get_room_world      args((Character *ch, const String& argument));

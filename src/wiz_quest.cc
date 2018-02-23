@@ -165,7 +165,7 @@ void do_morph(Character *ch, String argument)
 		return;
 	}
 
-	mobile = create_mobile(get_mob_index(morph->pIndexData->vnum));
+	mobile = create_mobile(Game::world().get_mob_prototype(morph->pIndexData->vnum));
 
 	if (!mobile) {  /* Make sure it works. -- Outsider */
 		Logging::bug("Memory error creating mob in do_morph().", 0);
@@ -179,7 +179,7 @@ void do_morph(Character *ch, String argument)
 	char_to_room(mobile, victim->in_room);
 	do_switch(victim, mobile->name);
 	char_from_room(victim);
-	char_to_room(victim, get_room(ROOM_VNUM_LIMBO));
+	char_to_room(victim, Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))));
 	stc("Successful Morph!\n", ch);
 }
 
@@ -270,35 +270,56 @@ void do_rppaward(Character *ch, String argument)
 
 Room *get_scatter_room(Character *ch)
 {
-	Room *room;
+	int pick = 0, pass = 1;
 
-	for (; ;) {
-		room = get_room(number_range(0, 32767));
+	while (pass <= 2) {
+		int count = 0;
 
-		if (room == nullptr
-		    || room == ch->in_room
-		    || !can_see_room(ch, room)
-		    || room->area() == Game::world().quest.area()
-		    || (room->area().min_vnum >= 24000      /* clanhall vnum ranges */
-		        && room->area().min_vnum <= 26999)
-		    || room->guild()
-		    || room->area().name == "Playpen"
-		    || room->area().name == "IMM-Zone"
-		    || room->area().name == "Limbo"
-		    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
-		    || room->area().name == "Torayna Cri"
-		    || room->area().name == "Battle Arenas"
-		    || room->sector_type() == Sector::arena
-		    || room->flags().has_any_of(
-		              ROOM_MALE_ONLY
-		              | ROOM_FEMALE_ONLY
-		              | ROOM_PRIVATE
-		              | ROOM_SOLITARY
-		              | ROOM_NOQUEST
-		              | ROOM_PET_SHOP))
-			continue;
+		for (auto area : Game::world().areas) {
+			for (auto& entry : area->rooms) {
 
-		return room;
+				Room *room = entry.second;
+
+				if (room == nullptr
+				    || room == ch->in_room
+				    || !can_see_room(ch, room)
+				    || room->area() == Game::world().quest.area()
+				    || (room->area().min_vnum >= 24000      /* clanhall vnum ranges */
+				        && room->area().min_vnum <= 26999)
+				    || room->guild()
+				    || room->area().name == "Playpen"
+				    || room->area().name == "IMM-Zone"
+				    || room->area().name == "Limbo"
+				    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+				    || room->area().name == "Torayna Cri"
+				    || room->area().name == "Battle Arenas"
+				    || room->sector_type() == Sector::arena
+				    || room->flags().has_any_of(
+				              ROOM_MALE_ONLY
+				              | ROOM_FEMALE_ONLY
+				              | ROOM_PRIVATE
+				              | ROOM_SOLITARY
+				              | ROOM_NOQUEST
+				              | ROOM_PET_SHOP))
+					continue;
+
+				/* no pet shops */
+				Room *prev;
+				if ((prev = Game::world().get_room(Location(Vnum(room->prototype.vnum.value() - 1)))) != nullptr)
+					if (prev->flags().has(ROOM_PET_SHOP))
+						continue;
+
+				count++;
+
+				if (pass == 2 && count == pick)
+					return room;
+			}
+		}
+
+		if (pass++ == 2 || count == 0)
+			break;
+
+		pick = number_range(0, count);
 	}
 
 	return nullptr;
@@ -603,7 +624,7 @@ void do_string(Character *ch, String argument)
 		return;
 /*
 		Room *room;
-		if ((room = get_room(atoi(arg1))) == nullptr) {
+		if ((room = Game::world().get_room(atoi(arg1))) == nullptr) {
 			Format::sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
 			stc(buf, ch);
 			return;
@@ -707,7 +728,7 @@ void do_return(Character *ch, String argument)
 
 	if (ch->desc->character->act_flags.has(ACT_MORPH)) {
 		if (ch->desc->character->in_room == nullptr)
-			location = get_room(ROOM_VNUM_MORGUE);
+			location = Game::world().get_room(Location(Vnum(ROOM_VNUM_MORGUE)));
 		else
 			location = ch->desc->character->in_room;
 
@@ -869,7 +890,7 @@ void do_create(Character *ch, String argument)
 
 		for (const auto& entry : item_table) {
 			if (arg2 == entry.name) {
-				pObjIndex = get_obj_index(entry.type + 100);
+				pObjIndex = Game::world().get_obj_prototype(entry.type + 100);
 				
 				if (pObjIndex == nullptr) {
 					Format::sprintf(buf, "[create] Cannot find item vnum %d.\n", entry.type + 100);

@@ -87,7 +87,7 @@ void do_debug(Character *ch, String argument)
 			buf += Format::format("rgb = %d, x = %d, y = %d\n", rgb, image.width(), image.height());
 			for (unsigned int y = 0; y < image.height(); y++) {
 				for (unsigned int x = 0; x < image.width(); x++)
-					buf += Format::format("%3d ", image.value((util::Image::RGB)rgb, x, y));
+					buf += Format::format("%02x", image.value((util::Image::Channel)rgb, x, y));
 				buf += "\n";
 			}
 		}
@@ -102,10 +102,10 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (subfunc == "strtest") {
-		for (int row = 0; row < 16; row++) {
+		for (int row = 4; row < 16; row++) {
 			for (int col = 0; col < 8; col++) {
-				unsigned char v = row * 8 + col + 128;
-				ptc(ch, "%d: %c  ", v, v);
+				unsigned char v = row * 8 + col;
+				ptc(ch, "%3d: {Y%1c{x  ", v, v);
 			}
 			stc("\n", ch);
 		}
@@ -155,7 +155,7 @@ void do_debug(Character *ch, String argument)
 			pc_list = victim->pcdata;
 			victim->desc = nullptr;
 			free_descriptor(d);
-			char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
+			char_to_room(victim, Game::world().get_room(ROOM_VNUM_ALTAR));
 			db_commandf("do_debug:fullupdate",
 			            "INSERT INTO pc_index VALUES('%s','%s','%s','%s',%ld,%d,%d,'%s','%s')",
 			            db_esc(victim->name),
@@ -282,40 +282,36 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck")) {
-		Room *room = nullptr;
-		int x, vnum;
-		bool found;
+		for (const auto area : Game::world().areas) {
+			for (const auto& pair : area->rooms) {
+				const auto& room_id = pair.first;
+				const Room *room = pair.second;
 
-		for (vnum = 1; vnum < 32600; vnum++) {
-			found = FALSE;
+				if (!room->flags().has(ROOM_NO_RECALL))
+					continue;
 
-			if ((room = get_room(vnum)) == nullptr)
-				continue;
+				bool found = FALSE;
+				for (int x = 0; x <= 5; x++)
+					if (room->exit[x] != nullptr)
+						found = TRUE;
 
-			if (!room->flags().has(ROOM_NO_RECALL))
-				continue;
-
-			for (x = 0; x <= 5; x++)
-				if (room->exit[x] != nullptr)
-					found = TRUE;
-
-			if (!found)
-				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name());
+				if (!found)
+					ptc(ch, "{W[{P%5d{W]{x %s\n", room_id.to_string(), room->name());
+			}
 		}
 
 		return;
 	}
 
 	if (!strcmp(subfunc, "rcheck2")) {
-		Room *room = nullptr;
-		int vnum;
+		for (const auto area : Game::world().areas) {
+			for (const auto& pair : area->rooms) {
+				const auto& room_id = pair.first;
+				const Room *room = pair.second;
 
-		for (vnum = 1; vnum < 32600; vnum++) {
-			if ((room = get_room(vnum)) == nullptr)
-				continue;
-
-			if (room->flags().has(ROOM_NOLIGHT))
-				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name());
+				if (room->flags().has(ROOM_NOLIGHT))
+					ptc(ch, "{W[{P%5d{W]{x %s\n", room_id.to_string(), room->name());
+			}
 		}
 
 		return;

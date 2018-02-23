@@ -888,7 +888,7 @@ void animate_mob(Character *ch, int level, const char *name, long vnum)
 		return;
 	}
 
-	mob = create_mobile(get_mob_index(vnum));
+	mob = create_mobile(Game::world().get_mob_prototype(vnum));
 
 	/* Check for memory error. -- Outsider */
 	if (! mob) {
@@ -1822,7 +1822,7 @@ void spell_continual_light(skill::type sn, int level, Character *ch, void *vo, i
 		return;
 	}
 
-	light = create_object(get_obj_index(OBJ_VNUM_LIGHT_BALL), 0);
+	light = create_object(Game::world().get_obj_prototype(OBJ_VNUM_LIGHT_BALL), 0);
 
 	if (! light) {
 		Logging::bug("Memory error in spell_continual_light.", 0);
@@ -1868,7 +1868,7 @@ void spell_create_food(skill::type sn, int level, Character *ch, void *vo, int t
 		}
 	}
 
-	food = create_object(get_obj_index(GEN_OBJ_FOOD), 0);
+	food = create_object(Game::world().get_obj_prototype(GEN_OBJ_FOOD), 0);
 
 	if (! food) {
 		Logging::bug("Memory error creating food.", 0);
@@ -1919,7 +1919,7 @@ void spell_create_rose(skill::type sn, int level, Character *ch, void *vo, int t
 	else
 		strcpy(color, target_name);
 
-	rose = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
+	rose = create_object(Game::world().get_obj_prototype(GEN_OBJ_TREASURE), 0);
 
 	if (! rose) {
 		Logging::bug("Memory error creating a rose.", 0);
@@ -1951,7 +1951,7 @@ void spell_create_rose(skill::type sn, int level, Character *ch, void *vo, int t
 void spell_encampment(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *camp;
-	camp = create_object(get_obj_index(OBJ_VNUM_CAMP), 0);
+	camp = create_object(Game::world().get_obj_prototype(OBJ_VNUM_CAMP), 0);
 
 	if (! camp) {
 		Logging::bug("Memory error creating an encampment.", 0);
@@ -1971,7 +1971,7 @@ void spell_create_sign(skill::type sn, int level, Character *ch, void *vo, int t
 	Object *sign;
 	char buf[MAX_STRING_LENGTH];
 	ExtraDescr *ed, *owner;
-	sign = create_object(get_obj_index(OBJ_VNUM_SIGN), 0);
+	sign = create_object(Game::world().get_obj_prototype(OBJ_VNUM_SIGN), 0);
 
 	if (! sign) {
 		Logging::bug("Memory error trying to create sign.", 0);
@@ -2014,7 +2014,7 @@ void spell_create_vial(skill::type sn, int level, Character *ch, void *vo, int t
 		return;
 	}
 
-	vial = create_object(get_obj_index(OBJ_VNUM_VIAL), 0);
+	vial = create_object(Game::world().get_obj_prototype(OBJ_VNUM_VIAL), 0);
 
 	if (! vial) {
 		Logging::bug("Memory error creating vial.", 0);
@@ -2043,7 +2043,7 @@ void spell_create_parchment(skill::type sn, int level, Character *ch, void *vo, 
 		return;
 	}
 
-	parch = create_object(get_obj_index(OBJ_VNUM_PARCH), 0);
+	parch = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PARCH), 0);
 
 	if (! parch) {
 		Logging::bug("Memory error trying to create parchment.", 0);
@@ -2060,7 +2060,7 @@ void spell_create_parchment(skill::type sn, int level, Character *ch, void *vo, 
 void spell_create_spring(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Object *spring;
-	spring = create_object(get_obj_index(OBJ_VNUM_SPRING), 0);
+	spring = create_object(Game::world().get_obj_prototype(OBJ_VNUM_SPRING), 0);
 
 	/* Make sure we have enough memory. -- Outsider */
 	if (! spring) {
@@ -3502,7 +3502,7 @@ void spell_floating_disc(skill::type sn, int level, Character *ch, void *vo, int
 		return;
 	}
 
-	disc = create_object(get_obj_index(OBJ_VNUM_DISC), 0);
+	disc = create_object(Game::world().get_obj_prototype(OBJ_VNUM_DISC), 0);
 
 	if (! disc) {
 		Logging::bug("Memory error in spell_floating_disc", 0);
@@ -4357,8 +4357,8 @@ void spell_locate_object(skill::type sn, int level, Character *ch, void *vo, int
 			Format::sprintf(buf, "%s is carried by %s\n", obj->short_descr, PERS(in_obj->carried_by, ch, VIS_CHAR));
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != nullptr)
-				Format::sprintf(buf, "%s is in %s [Room %d]\n",
-				        obj->short_descr, in_obj->in_room->name(), in_obj->in_room->vnum());
+				Format::sprintf(buf, "%s is in %s [Room %s]\n",
+				        obj->short_descr, in_obj->in_room->name(), in_obj->in_room->location.to_string());
 			else
 				Format::sprintf(buf, "%s is in %s\n",
 				        obj->short_descr, in_obj->in_room == nullptr ? "somewhere" : in_obj->in_room->name());
@@ -4569,7 +4569,7 @@ void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target,
 	}
 
 	/* portal one */
-	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
+	portal = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PORTAL), 0);
 
 	if (! portal) {
 		Logging::bug("Memory error in spell_nexus -- portal one.", 0);
@@ -4578,12 +4578,12 @@ void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target,
 	}
 
 	portal->timer = 1 + level / 10;
-	portal->value[3] = to_room->vnum();
+	portal->value[3] = to_room->location.to_int();
 	obj_to_room(portal, from_room);
 	act("$p rises up from the ground.", ch, portal, nullptr, TO_ROOM);
 	act("$p rises up before you.", ch, portal, nullptr, TO_CHAR);
 	/* portal two */
-	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
+	portal = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PORTAL), 0);
 
 	if (! portal) {
 		Logging::bug("Memory error in spell_nexus -- portal two.", 0);
@@ -4592,7 +4592,7 @@ void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target,
 	}
 
 	portal->timer = 1 + level / 10;
-	portal->value[3] = from_room->vnum();
+	portal->value[3] = from_room->location.to_int();
 	obj_to_room(portal, to_room);
 
 	if (to_room->people != nullptr) {
@@ -4670,7 +4670,7 @@ void spell_polymorph(skill::type sn, int level, Character *ch, void *vo, int tar
 		return;
 	}
 
-	mobile = create_mobile(get_mob_index(victim->pIndexData->vnum));
+	mobile = create_mobile(Game::world().get_mob_prototype(victim->pIndexData->vnum));
 
 	if (! mobile) { /* Check for memory error. -- Outsider */
 		Logging::bug("Memory error creating mob in spell_polymorph().", 0);
@@ -4699,7 +4699,7 @@ void spell_polymorph(skill::type sn, int level, Character *ch, void *vo, int tar
 	char_to_room(mobile, ch->in_room);
 	do_switch(ch, mobile->name);
 	char_from_room(ch);
-	char_to_room(ch, get_room(ROOM_VNUM_LIMBO));
+	char_to_room(ch, Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))));
 }
 
 void spell_pass_door(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
@@ -4912,7 +4912,7 @@ void spell_portal(skill::type sn, int level, Character *ch, void *vo, int target
 		destroy_obj(stone);
 	}
 
-	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL), 0);
+	portal = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PORTAL), 0);
 
 	if (! portal) {
 		Logging::bug("Memory error creating a portal.", 0);
@@ -4921,7 +4921,7 @@ void spell_portal(skill::type sn, int level, Character *ch, void *vo, int target
 	}
 
 	portal->timer = 2 + level / 25;
-	portal->value[3] = victim->in_room->vnum();
+	portal->value[3] = victim->in_room->location.to_int();
 	obj_to_room(portal, ch->in_room);
 	act("$p rises up from the ground.", ch, portal, nullptr, TO_ROOM);
 	act("$p rises up before you.", ch, portal, nullptr, TO_CHAR);
@@ -5110,7 +5110,7 @@ void spell_resurrect(skill::type sn, int level, Character *ch, void *vo, int tar
 		return;
 	}
 
-	mob = create_mobile(get_mob_index(MOB_VNUM_RESZOMBIE));
+	mob = create_mobile(Game::world().get_mob_prototype(MOB_VNUM_RESZOMBIE));
 
 	if (! mob) {  /* Check for memory errors. -- Outsider */
 		Logging::bug("Memory error creating mob in spell_resurrect().", 0);
@@ -6471,13 +6471,13 @@ void spell_word_of_recall(skill::type sn, int level, Character *ch, void *vo, in
 		return;
 
 	if (ch->in_room->sector_type() != Sector::arena) {
-		if ((location = get_room(ROOM_VNUM_TEMPLE)) == nullptr) {
+		if ((location = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)))) == nullptr) {
 			stc("You are completely lost.\n", victim);
 			return;
 		}
 	}
 	else {
-		if ((location = get_room(ROOM_VNUM_ARENACENTER)) == nullptr) {
+		if ((location = Game::world().get_room(Location(Vnum(ROOM_VNUM_ARENACENTER)))) == nullptr) {
 			stc("You are completely lost.\n", ch);
 			return;
 		}

@@ -1083,24 +1083,24 @@ void nanny(Descriptor *d, String argument)
 			do_outfit(ch, "");
 			/* This is ugly and doesn't error check. -- Outsider
 			   I'm re-writing it underneath.
-			       obj_to_char(create_object(get_obj_index(OBJ_VNUM_MAP), 0), ch);
-			       obj_to_char(create_object(get_obj_index(OBJ_VNUM_TOKEN), 0), ch);
+			       obj_to_char(create_object(Game::world().get_obj_prototype(OBJ_VNUM_MAP), 0), ch);
+			       obj_to_char(create_object(Game::world().get_obj_prototype(OBJ_VNUM_TOKEN), 0), ch);
 			*/
-			obj = create_object(get_obj_index(OBJ_VNUM_MAP), 0);
+			obj = create_object(Game::world().get_obj_prototype(OBJ_VNUM_MAP), 0);
 
 			if (! obj)
 				Logging::bug("Error creating object in nanny.c", 0);
 			else
 				obj_to_char(obj, ch);
 
-			obj = create_object(get_obj_index(OBJ_VNUM_TOKEN), 0);
+			obj = create_object(Game::world().get_obj_prototype(OBJ_VNUM_TOKEN), 0);
 
 			if (! obj)
 				Logging::bug("Error creating object in nanny.c", 0);
 			else
 				obj_to_char(obj, ch);
 
-			char_to_room(ch, get_room(ROOM_VNUM_SCHOOL));
+			char_to_room(ch, Game::world().get_room(Location(Vnum(ROOM_VNUM_SCHOOL))));
 			stc("\n", ch);
 			set_color(ch, PURPLE, BOLD);
 			help(ch, "NEWBIE INFO");
@@ -1110,9 +1110,9 @@ void nanny(Descriptor *d, String argument)
 		else if (ch->in_room != nullptr)
 			char_to_room(ch, ch->in_room);
 		else if (IS_IMMORTAL(ch))
-			char_to_room(ch, get_room(ROOM_VNUM_CHAT));
+			char_to_room(ch, Game::world().get_room(Location(Vnum(ROOM_VNUM_CHAT))));
 		else
-			char_to_room(ch, get_room(ROOM_VNUM_TEMPLE));
+			char_to_room(ch, Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE))));
 
 		if (ch->pcdata->email.empty()) {
 			set_color(ch, RED, BOLD);

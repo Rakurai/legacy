@@ -56,10 +56,10 @@ String room_pair(Room *left, Room *right, exit_status ex) {
 
 	String leftname = left->name().uncolor();
 	String rightname = right->name().uncolor();
-	return Format::format("%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
-	        left->vnum(), leftname,
+	return Format::format("%9s %-26.26s %s%9s %-26.26s(%-8.8s)\n",
+	        left->location.to_string(false), leftname,
 	        sExit,
-	        right->vnum(), rightname,
+	        right->location.to_string(false), rightname,
 	        right->area().name);
 }
 
@@ -108,9 +108,8 @@ void do_exlist(Character *ch, String argument)
 
 	/* run through all the rooms on the MUD */
 	for (const auto from_area : Game::world().areas)
-		for (const auto& pair : from_area->room_prototypes)
-			for (const auto from_room : pair.second->rooms)
-				stc(checkexits(from_room, to_area), ch);
+		for (const auto& pair : from_area->rooms)
+			stc(checkexits(pair.second, to_area), ch);
 }
 
 /* for every exit in 'room' which leads to or from pArea but NOT both,
@@ -157,9 +156,8 @@ void do_roomexits(Character *ch, String argument)
 	Room *dest = ch->in_room; /* this is the room we want info on */
 
 	for (const auto from_area : Game::world().areas)
-		for (const auto& pair : from_area->room_prototypes)
-			for (const auto from_room : pair.second->rooms)
-				stc(checkexitstoroom(from_room, dest), ch);
+		for (const auto& pair : from_area->rooms)
+			stc(checkexitstoroom(pair.second, dest), ch);
 }
 
 /* find pockets of unused vnums equal to or greater than the argument */
@@ -229,9 +227,9 @@ void do_roomlist(Character *ch, String argument)
 	}
 
 	for (counter = first; counter <= last; counter++) {
-		if ((room = get_room(counter)) != nullptr) {
-			Format::sprintf(arg, "[%5d] (%s{x) %s{X\n",
-			        room->vnum(), room->area().name,
+		if ((room = Game::world().get_room(Location(Vnum(counter)))) != nullptr) {
+			Format::sprintf(arg, "[%5s] (%s{x) %s{X\n",
+			        room->prototype.vnum, room->area().name,
 			        room->name());
 			buffer += arg;
 			found = TRUE;
@@ -297,7 +295,7 @@ void do_vlist(Character *ch, String argument)
 		foundmobile = FALSE;
 		totalbuf = Format::format("[%5d] ", vnum);
 
-		if ((mobile = get_mob_index(vnum)) != nullptr) {
+		if ((mobile = Game::world().get_mob_prototype(vnum)) != nullptr) {
 			if (!printed)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 
@@ -311,7 +309,7 @@ void do_vlist(Character *ch, String argument)
 			founddata = TRUE;
 		}
 
-		if ((object = get_obj_index(vnum)) != nullptr) {
+		if ((object = Game::world().get_obj_prototype(vnum)) != nullptr) {
 			if (!printed)
 				stc("[ Vnum] Mobile                        Object\n", ch);
 

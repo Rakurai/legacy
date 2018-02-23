@@ -890,29 +890,29 @@ S
 
 #RESETS
 M 0 351 1 356 1   * Reset Librarian into Entrance room
-O 0 351 1 351     * Reset table into Drama room
-O 0 351 1 352     * Reset table into Horror room
-O 0 351 1 353     * Reset table into Fantasy room
-O 0 351 1 354     * Reset table into Comedy room
-O 0 351 1 355     * Reset table into Mystery room
-O 0 351 1 358     * Reset table into Poetry room
-O 0 351 1 359     * Reset table into Science Fiction room
-O 0 352 1 351     * Reset chair into Drama room
-O 0 352 1 352     * Reset chair into Horror room
-O 0 352 1 353     * Reset chair into Fantasy room
-O 0 352 1 354     * Reset chair into Comedy room
-O 0 352 1 355     * Reset chair into Mystery room
-O 0 352 1 358     * Reset chair into Poetry room
-O 0 352 1 359     * Reset chair into Sci-Fi room
-O 0 353 1 351     * Reset bookshelf into Drama room
-O 0 353 1 352     * Reset bookshelf into Horror room
-O 0 353 1 353     * Reset bookshelf into Fantasy room
-O 0 353 1 354     * Reset bookshelf into Comedy room
-O 0 353 1 355     * Reset bookshelf into Mystery room
+O 0 351 1 351     * Reset table into Drama room
+O 0 351 1 352     * Reset table into Horror room
+O 0 351 1 353     * Reset table into Fantasy room
+O 0 351 1 354     * Reset table into Comedy room
+O 0 351 1 355     * Reset table into Mystery room
+O 0 351 1 358     * Reset table into Poetry room
+O 0 351 1 359     * Reset table into Science Fiction room
+O 0 352 1 351     * Reset chair into Drama room
+O 0 352 1 352     * Reset chair into Horror room
+O 0 352 1 353     * Reset chair into Fantasy room
+O 0 352 1 354     * Reset chair into Comedy room
+O 0 352 1 355     * Reset chair into Mystery room
+O 0 352 1 358     * Reset chair into Poetry room
+O 0 352 1 359     * Reset chair into Sci-Fi room
+O 0 353 1 351     * Reset bookshelf into Drama room
+O 0 353 1 352     * Reset bookshelf into Horror room
+O 0 353 1 353     * Reset bookshelf into Fantasy room
+O 0 353 1 354     * Reset bookshelf into Comedy room
+O 0 353 1 355     * Reset bookshelf into Mystery room
 O 0 353 1 357     * Reset bookshelf into Miscellaneous room
-O 0 353 1 358	  * Reset bookshelf into Poetry room
-O 0 353 1 359	  * Reset bookshelf into Sci-fi room
-O 0 354 1 353	  * Reset globe into Fantasy room
-O 0 355 1 357	  * Reset fountain into Miscellaneous room
+O 0 353 1 358     * Reset bookshelf into Poetry room
+O 0 353 1 359     * Reset bookshelf into Sci-fi room
+O 0 354 1 353     * Reset globe into Fantasy room
+O 0 355 1 357     * Reset fountain into Miscellaneous room
 S
 #$

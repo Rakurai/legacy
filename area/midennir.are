@@ -205,93 +205,7 @@ with a stylized ivory hilt.
 #0
 
 #ROOMS
-#3500
-The Plains~
-You are standing on the plains. This is a vast desolate place where the
-wind can howl undisturbed since nothing but you bars its way. However you
-are not the first to wander here. Before you somebody has left a small path.
-The path looks rather bewildered and is not the kind of path to lead to
-anywhere significant or important but it seems to have made up its mind to
-enter the hills far away north.
-~
-0 0 1
-D0
-~
-~
-0 0 4000
-D2
-~
-~
-0 0 3501
-S
-#3501
-The Lane~
-You are strolling along a pleasant, shady lane. The road is lined on both
-sides by tall, stately trees which lend the scene with a sense of quiet
-serenity. You can follow the road north or south.
-~
-0 0 1
-D0
-~
-~
-0 0 3500
-D2
-~
-~
-0 0 3502
-S
-#3502
-The Cross Roads~
-Here, the great eastern road intersects with an older road between the mines
-of Moria and the ruined city of Thalos.  The outskirts of Midgaard lie to your
-west, and the highway continues the the east.  An old northern road leads to
-the dwarven kingdom and the abandoned mines of Moria, while the southern road
-shows the scars of the war which destroyed Thalos.
-~
-0 0 1
-D0
-An old road leads towards the abandoned mines of Moria and the Dwarven Kingom.
-~
-~
-0 0 3501
-D1
-The road continues east, where you hear faint singing.
-~
-~
-0 0 3525
-D2
-A once mighty road leads through the dwarf forest towards ruined Thalos.
-~
-~
-0 0 5261
-D3
-The road leads west towards Midgaard.
-~
-~
-0 0 3503
-S
-#3503
-City Entrance~
-You stand on the outskirts of a large city - Midgaard; the capital of this
-land. The road leads east into the peace and quiet - and dangers - of the
-forest; and to the west it becomes the main street of the town; surrounded by
-a confusion of shops, bars, and market places.  Through a heavy iron grate
-to the south lies the graveyard.
-~
-0 C 1
-D1
-~
-~
-0 0 3502
-D2
-~
-grate~
-1 -1 3600
-D3
-~
-~
-0 0 3053
-S
+
 #3505
 The Trail to Miden'nir~
 You are in a light forest. A path leads south, but the passage to the
@@ -738,58 +652,7 @@ The sky becomes lighter in this direction.
 ~
 0 0 3521
 S
-#3525
-Along the Eastern Road~
-You are walking along a well-travelled road between Midgaard and lands
-east.  A northern road crosses this one to the west, towards Midgaard.  You
-hear faint, happy singing to the north.
-~
-0 0 1
-D0
-You see a faint trail, covered with tiny footprints. The singing grows louder.
-~
-~
-0 -1 2401
-D1
-The road continues to the east.
-~
-~
-0 -1 3526
-D3
-You can see the crossroads.
-~
-~
-0 -1 3502
-S
-#3526
-Along the Eastern Road~
-You are travelling down the eastern road between Midgaard and the eastern
-lands.  The road back to Midgaard is west of you, and a heavily guarded
-checkpoint is east.  A beautiful grove of trees is north, and a dirt path
-wanders off to the south.
-~
-0 0 1
-D0
-You see a beautiful, shady grove -- it looks like a peaceful place to relax.
-~
-~
-0 -1 8950
-D1
-The road continues west towards a guarded checkpoint.
-~
-~
-0 -1 3527
-D2
-A dirt path leads to the gnome village.
-~
-~
-0 -1 1501
-D3
-The road continues west towards Midgaard.
-~
-~
-0 -1 3525
-S
+
 #3527
 The Checkpoint~
 You are met by a group of heavily armored knights.  They check you over
@@ -806,7 +669,7 @@ D3
 The road continues west towards Midgaard.
 ~
 ~
-0 -1 3526
+0 -1 301
 S
 #3528
 Along the Eastern Road~
@@ -1350,7 +1213,6 @@ E 1 3022  -1   16	*   a long sword
 M 0 3505   4 3584  2	* the dark horseman
 E 1 3504   4   14	*   an enchanted leather bracer
 E 1 3022  -1   16	*   a long sword
-D 0 3503   2    1	* Outside the gate, south to graveyard
 S
 
 #SHOPS

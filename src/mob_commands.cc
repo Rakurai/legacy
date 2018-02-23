@@ -35,6 +35,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -407,7 +408,7 @@ void do_mpmload(Character *ch, String argument)
 		return;
 	}
 
-	if ((pMobIndex = get_mob_index(atoi(arg))) == nullptr) {
+	if ((pMobIndex = Game::world().get_mob_prototype(atoi(arg))) == nullptr) {
 		Logging::bugf("Mpmload - Bad mob vnum: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
@@ -443,7 +444,7 @@ void do_mpoload(Character *ch, String argument)
 		return;
 	}
 
-	if ((pObjIndex = get_obj_index(atoi(arg1))) == nullptr) {
+	if ((pObjIndex = Game::world().get_obj_prototype(atoi(arg1))) == nullptr) {
 		Logging::bugf("Mpoload - Bad vnum arg: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}

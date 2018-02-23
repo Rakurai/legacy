@@ -41,6 +41,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
@@ -651,7 +652,7 @@ void do_newbiekit(Character *ch, String argument)
 		return;
 	}
 
-	kit = create_object(get_obj_index(kitvnum), 0);
+	kit = create_object(Game::world().get_obj_prototype(kitvnum), 0);
 
 	if (! kit) {
 		Logging::bug("Error creating kit in do_newbiekit.", 0);
@@ -661,7 +662,7 @@ void do_newbiekit(Character *ch, String argument)
 
 	/* Newbie kit items are coded in consecutive OBJ VNUMs 73 to 83 in LIMBO.ARE */
 	for (i = 73; i <= 83 ; i++) {
-		obj = create_object(get_obj_index(i), 0);
+		obj = create_object(Game::world().get_obj_prototype(i), 0);
 
 		if (! obj) {
 			Logging::bug("Error creating object in do_newbiekit.", 0);
@@ -961,8 +962,11 @@ void update_text_file(Character *ch, const String& file, const String& str)
 	char timebuf[100];
 	strftime(timebuf, sizeof(timebuf), time_format, localtime(&current_time));
 
-	String buf = Format::format("{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
-	        timebuf, ch->in_room ? ch->in_room->vnum() : 0, ch->name, str);
+	String buf = Format::format("{Y[{x%8s{Y]{x {C[{x%s{C]{x %s: %s\n",
+	        timebuf,
+	        ch->in_room ? ch->in_room->location.to_string(false) : "    0",
+	        ch->name,
+	        str);
 
 	fappend(file, buf);
 }
@@ -1892,7 +1896,7 @@ void do_outfit(Character *ch, String argument)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == nullptr) {
-		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
+		obj = create_object(Game::world().get_obj_prototype(OBJ_VNUM_SCHOOL_BANNER), 0);
 
 		if (! obj) {
 			Logging::bug("Error making light in do_outfit.", 0);
@@ -1905,7 +1909,7 @@ void do_outfit(Character *ch, String argument)
 	}
 
 	if ((obj = get_eq_char(ch, WEAR_BODY)) == nullptr) {
-		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
+		obj = create_object(Game::world().get_obj_prototype(OBJ_VNUM_SCHOOL_VEST), 0);
 
 		if (! obj) {
 			Logging::bug("Error making vest in do_outfit.", 0);
@@ -1930,7 +1934,7 @@ void do_outfit(Character *ch, String argument)
 			}
 		}
 
-		obj = create_object(get_obj_index(vnum), 0);
+		obj = create_object(Game::world().get_obj_prototype(vnum), 0);
 
 		if (! obj) {
 			Logging::bug("Error creating weapon object in do_outfit.", 0);
@@ -1944,7 +1948,7 @@ void do_outfit(Character *ch, String argument)
 	if (((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr
 	     ||   !affect::exists_on_obj(obj, affect::type::weapon_two_hands))
 	    && (obj = get_eq_char(ch, WEAR_SHIELD)) == nullptr) {
-		obj = create_object(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
+		obj = create_object(Game::world().get_obj_prototype(OBJ_VNUM_SCHOOL_SHIELD), 0);
 
 		if (! obj) {
 			Logging::bug("Error creating shield in do_outfit.", 0);

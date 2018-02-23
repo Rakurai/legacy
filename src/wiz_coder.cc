@@ -471,7 +471,7 @@ void do_addexit(Character *ch, String argument)
 		return;
 	}
 
-	if (get_room(atoi(arg1)) == nullptr) {
+	if (Game::world().get_room(atoi(arg1)) == nullptr) {
 		stc("No such room with that vnum exists.\n", ch);
 		return;
 	}
@@ -495,7 +495,7 @@ void do_addexit(Character *ch, String argument)
 	exit = new Exit;
 	exit->key                       = -1;
 	exit->u1.vnum                   = atoi(arg1);
-	exit->to_room                = get_room(exit->u1.vnum);
+	exit->to_room                = Game::world().get_room(exit->u1.vnum);
 	ch->in_room->exit[dir]          = exit;
 	top_exit++;
 	stc("Exit added.\n", ch);
@@ -613,7 +613,7 @@ void do_dump(Character *ch, String argument)
 
 	/* object prototypes */
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
+		if ((pObjIndex = Game::world().get_obj_prototype(vnum)) != nullptr) {
 			for (const affect::Affect *af = pObjIndex->affected; af != nullptr; af = af->next)
 				aff_count++;
 
@@ -651,7 +651,7 @@ void do_dump(Character *ch, String argument)
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_mob_index; vnum++)
-		if ((pMobIndex = get_mob_index(vnum)) != nullptr) {
+		if ((pMobIndex = Game::world().get_mob_prototype(vnum)) != nullptr) {
 			nMatch++;
 			Format::fprintf(fp, "#%-4d %3d active %3d killed     %s\n",
 			        pMobIndex->vnum, pMobIndex->count,
@@ -666,7 +666,7 @@ void do_dump(Character *ch, String argument)
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_obj_index; vnum++)
-		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
+		if ((pObjIndex = Game::world().get_obj_prototype(vnum)) != nullptr) {
 			nMatch++;
 			Format::fprintf(fp, "#%-4d %3d active %3d reset      %s\n",
 			        pObjIndex->vnum, pObjIndex->count,

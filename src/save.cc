@@ -40,6 +40,7 @@
 #include "ExtraDescr.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
@@ -280,8 +281,8 @@ cJSON *fwrite_player(Character *ch)
 	JSON::addStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
 	JSON::addStringToObject(o,		"LSav",			dizzy_ctime(&ch->pcdata->last_saved));
 
-	if (ch->pcdata->mark_room > 0)
-		cJSON_AddNumberToObject(o,	"Mark",			ch->pcdata->mark_room.value());
+	if (ch->pcdata->mark_room.is_valid())
+		cJSON_AddNumberToObject(o,	"Mark",			ch->pcdata->mark_room.to_int());
 
 	cJSON_AddNumberToObject(o,		"Mexp",			ch->pcdata->mud_exp);
 
@@ -509,11 +510,11 @@ cJSON *fwrite_char(Character *ch)
 	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
 	JSON::addStringToObject(o,		"Revk",			ch->revoke_flags.to_string());
 	cJSON_AddNumberToObject(o,		"Room",			
-		(ch->in_room == get_room(ROOM_VNUM_LIMBO) && ch->was_in_room != nullptr)
-	        ? ch->was_in_room->vnum().value()
+		(ch->in_room == Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))) && ch->was_in_room != nullptr)
+	        ? ch->was_in_room->location.to_int()
 	        : ch->in_room == nullptr
 	        ? 3001
-	        : ch->in_room->vnum().value());
+	        : ch->in_room->location.to_int());
 
 	cJSON_AddNumberToObject(o,		"Scro",			ch->lines);
 	cJSON_AddNumberToObject(o,		"Sex",			ATTR_BASE(ch, APPLY_SEX));
@@ -748,7 +749,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 		// fix up character stuff here
 		if (ch->in_room == nullptr)
-			ch->in_room = get_room(ROOM_VNUM_LIMBO);
+			ch->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO)));
 
 		if (ch->secure_level > GET_RANK(ch))
 			ch->secure_level = GET_RANK(ch);
@@ -1050,7 +1051,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				INTKEY("Lsav",			ch->pcdata->last_saved,		dizzy_scantime(o->valuestring));
 				break;
 			case 'M':
-				INTKEY("Mark",			ch->pcdata->mark_room,		o->valueint);
+				INTKEY("Mark",          ch->pcdata->mark_room,      Location(o->valueint));
 				INTKEY("Mexp",			ch->pcdata->mud_exp,		o->valueint);
 				break;
 			case 'N':
@@ -1289,7 +1290,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 				break;
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));
-				INTKEY("Room",			ch->in_room,				get_room(o->valueint));
+				INTKEY("Room",			ch->in_room,				Game::world().get_room(Location(o->valueint)));
 				FLAGKEY("Revk",			ch->revoke_flags,					o->valuestring);
 				break;
 			case 'S':
@@ -1327,7 +1328,7 @@ Object * fread_obj(cJSON *json, int version) {
 	cJSON *o;
 
 	if ((o = cJSON_GetObjectItem(json, "Vnum")) != nullptr) {
-		ObjectPrototype *index = get_obj_index(o->valueint);
+		ObjectPrototype *index = Game::world().get_obj_prototype(o->valueint);
 
 		if (index == nullptr)
 			Logging::bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
@@ -1626,11 +1627,11 @@ void fread_pet(Character *ch, cJSON *json, int version)
 		vnum = MOB_VNUM_FIDO;
 	}
 
-	MobilePrototype *index = get_mob_index(vnum);
+	MobilePrototype *index = Game::world().get_mob_prototype(vnum);
 
 	if (index == nullptr) {
 		Logging::bug("Fread_pet: bad vnum %d in fread_pet().", vnum);
-		index = get_mob_index(MOB_VNUM_FIDO);
+		index = Game::world().get_mob_prototype(MOB_VNUM_FIDO);
 	}
 
 	Character *pet = create_mobile(index);

@@ -13,6 +13,7 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "merc.hh"
 #include "Object.hh"
@@ -71,7 +72,7 @@ bool is_worth_saving(Object *obj)
 
 	/* let's see if the item resets in this room */
 	if (obj->reset && obj->reset->command == 'O')
-		if (obj->reset->arg3 == obj->in_room->vnum())
+		if (Location((int)obj->reset->arg3) == obj->in_room->location)
 			if (!obj->contains || !has_modified_contents(obj))
 				return FALSE;
 
@@ -94,7 +95,7 @@ int objstate_save_items()
 	for (Object *obj = object_list; obj != nullptr; obj = obj->next) {
 		if (is_worth_saving(obj)) {
 			cJSON *o = cJSON_CreateObject();
-			cJSON_AddNumberToObject(o, "room", obj->in_room->vnum().value());
+			cJSON_AddNumberToObject(o, "room", obj->in_room->location.to_int());
 			cJSON_AddItemToObject(o, "obj", fwrite_obj(obj));
 			cJSON_AddItemToArray(objects, o);
 		}
@@ -139,9 +140,9 @@ int objstate_load_items() {
 	int total_count = 0;
 
 	for (cJSON *o = objects->child; o; o = o->next) {
-		int room_vnum;
-		JSON::get_int(o, &room_vnum, "room");
-		Room *room = get_room(room_vnum);
+		int room_loc_int;
+		JSON::get_int(o, &room_loc_int, "room");
+		Room *room = Game::world().get_room(Location(room_loc_int));
 
 		if (room == nullptr)
 			continue;

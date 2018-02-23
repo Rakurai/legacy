@@ -1,0 +1,601 @@
+#AREA
+eastmidennir.are~
+Eastern Miden'nir~
+{H{{ 1 15 } {MCopper/{CM{go{Tn{Ct{gr{Cey{x {TEastern Miden'nir~
+300 350
+
+
+
+#REGION
+eastmidennir.png~
+520 207            * alignment with world map, upper left corner
+
+* restrict the mobs that can reset in this region to these vnums:
+M 300 301 302 303 304 305 306   0
+
+* restrict mob resets to these room vnum types
+R 320 321 324   0
+
+* assign these room vnums to RGB colors
+*  rm   R   G   B
+C 300 239 238   1  * exit to midgaard
+C 301 244 208   0  * exit to checkpoint
+C 302 204 255   0  * exit to smurf village
+C 303 204 194   0  * exit to dwarven kingdom
+C 304 201 148   0  * exit to holy grove
+C 305 156 154   0  * exit to gnome village
+C 306 147 188   0  * exit to thalos
+C 307 244 144   0  * exit to north midgaard trail
+C 308 206 142   0  * exit to graveyard
+C 320  58  11  13  * clearing edge
+C 321 109   3   0  * clearing
+C 322 198   9   0  * northern NS road
+C 323 240   7   0  * western EW road
+C 324 156   3   0  * outside midgaard
+C 325 149  95   0  * crossroads
+C 326 249  49   0  * eastern EW road
+C 327 207  52   0  * southern NS road
+C 328 160  85   0  * approach to midgaard
+
+* end of REGION
+S
+
+
+
+#ROOMS
+
+#300
+Outside the East Gate of Midgaard~
+You are by two small towers that have been built
+into the city wall and connected with a
+footbridge across the heavy wooden gate.  To the
+east the wooded Miden'nir stretches out in the
+distance. To the north a small dusty trail
+follows the city wall.
+~
+0 S 1
+D0
+The trail continues around the City of Midgaard.
+~
+~
+0 0 0
+D1
+You see the woods.~
+~
+0 0 0
+D2
+The woods become more dense as they encroach on the city wall.~
+~
+0 0 0
+D3
+You see the city gate.
+~
+gate~
+1 3133 3041
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+E
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+E
+bridge footbridge~
+It is too high up to reach, but it looks as if one easily could walk across
+it from one tower to the other.
+~
+S
+
+#301
+Along the Eastern Road~
+You are travelling down the eastern road between
+Midgaard and the eastern lands.  The road back to
+Midgaard is west of you, and a heavily guarded
+checkpoint is east.  A beautiful grove of trees is
+north, and a dirt path wanders off to the south.
+~
+0 0 1
+D0
+You see a beautiful, shady grove -- it looks like a peaceful place to relax.
+~
+~
+0 -1 0
+D1
+The road continues east towards a guarded checkpoint.
+~
+~
+0 -1 3527
+D2
+~
+~
+0 -1 0
+D3
+The road continues west towards Midgaard.
+~
+~
+0 -1 0
+S
+
+#302
+The Miden'nir~
+Tall, sparse trees rise above you as you wander
+through the woods. Smells of pine and smurf
+droppings permeate the air.  You can hear faint,
+happy singing coming from the north.
+~
+0 0 1
+D0
+You see a faint trail, covered with tiny footprints. The singing grows louder.
+~
+~
+0 0 2401
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#303
+The Miden'nir~
+You are strolling along a pleasant, shady lane.
+The road is lined on both sides by tall,
+stately trees which lend the scene with a sense
+of quiet serenity. To the north, dark,
+foreboding hills climb from the forest.
+~
+0 0 1
+D0 ~ ~ 0 0 4000
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#304
+The Miden'nir~
+Tall, sparse trees rise above you as you wander
+through the woods.  Smells of pine and smurf
+droppings permeate the air.  Looking around,
+you can see for hundreds of feet in any
+direction.  A beautiful grove of trees is
+visible north of here.
+~
+0 0 1
+D0 ~ ~ 0 0 8950
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#305
+The Miden'nir~
+Tall, sparse trees rise above you as you wander
+through the woods.  Smells of pine and smurf
+droppings permeate the air.  Looking around,
+you can see for hundreds of feet in any direction.
+A dirt path wanders off to the south.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D2 ~ ~ 0 0 1501
+D3 ~ ~ 0 0 0
+S
+
+#306
+The Ruined Road~
+You stand on the remnants of the once well-
+traveled road between the abandoned mines of
+Moria and the ruined city of Thalos.  You can see
+the scars of the war which destroyed Thalos on
+the ruined flagstones and markers along the road.
+To the north is a crossroads with the great
+eastern road, while Thalos lies through the
+forest to the south.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 5261
+D3 ~ ~ 0 0 0
+S
+
+#307
+Outside the Walls~
+The high gray wall of Midgaard looms above you.
+Much too tall to climb, this wall once protected
+Midgaard from the forces that destroyed Thalos to
+the south.  To the east, the woods of the
+Miden'nir stretch out, and you can see the great
+eastern road leading to New Thalos.  North of
+here, a dusty trail countinues around the city.
+~
+0 0 1
+D0 ~ ~ 0 0 3906
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+S
+
+#308
+The Miden'nir~
+Tall, sparse trees rise above you as you wander
+through the woods.  Smells of pine and smurf
+droppings permeate the air.  Through a heavy iron
+grate to the south lies the graveyard.
+~
+0 C 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2
+~
+grate~
+1 -1 3600
+S
+
+#320
+The Miden'nir~
+Tall, sparse trees rise above you as you wander
+through the woods.  Smells of pine and smurf
+droppings permeate the air.  Nearby, the trees
+and undergrowth thicken and make travel impossible
+in that direction.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#321
+The Miden'nir~
+Tall, sparse trees rise above you as you wander
+through the woods.  Smells of pine and smurf 
+droppings permeate the air.  Looking around,
+you can see for hundreds of feet in any direction.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+
+#322
+The Lane~
+You are strolling along a pleasant, shady lane.
+The road is lined on both sides by tall, stately
+trees which lend the scene with a sense of quiet
+serenity. You can follow the road north or south.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#323
+Along the Eastern Road~
+You are walking along a well-travelled road
+between Midgaard and lands east.  A northern road
+crosses this one to the east, towards New Thalos.
+You hear faint, happy singing to the north.
+~
+0 0 1
+D0
+The woods continue to the north.
+~
+~
+0 -1 0
+D1
+The road continues to the east.
+~
+~
+0 -1 0
+D2
+The woods continue to the south.
+~
+~
+0 -1 0
+D3
+The road continues to the west.
+~
+~
+0 -1 0
+S
+
+#324
+Outside the Walls~
+The high gray wall of Midgaard looms above you.
+Much too tall to climb, this wall once protected
+Midgaard from the forces that destroyed Thalos to
+the south.  To the east, the woods of the
+Miden'nir stretch out, and you can see the great
+eastern road leading to New Thalos.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+S
+
+#325
+The Cross Roads~
+Here, the great eastern road intersects with an
+older road between the mines of Moria and the
+ruined city of Thalos.  The outskirts of Midgaard
+lie to your west, and the highway continues the
+the east.  An old northern road leads to the
+dwarven kingdom and the abandoned mines of Moria,
+while the southern road shows the scars of the
+war which destroyed Thalos.
+~
+0 0 1
+D0
+An old road leads towards the abandoned mines of Moria and the Dwarven Kingom.
+~
+~
+0 0 0
+D1
+The road continues east.
+~
+~
+0 0 0
+D2
+A once mighty road leads through the dwarf forest towards ruined Thalos.
+~
+~
+0 0 0
+D3
+The road leads west towards Midgaard.
+~
+~
+0 0 0
+S
+
+#326
+Along the Eastern Road~
+You are walking along a well-travelled road
+between Midgaard and lands east.  A northern road
+crosses this one to the west, towards Midgaard.
+~
+0 0 1
+D0
+Far in the distance you see a charming grove of trees.
+~
+~
+0 -1 0
+D1
+The road continues to the east.
+~
+~
+0 -1 0
+D2
+The woods continue to the south.
+~
+~
+0 -1 0
+D3
+The road continues to the west.
+~
+~
+0 -1 0
+S
+
+#327
+The Ruined Road~
+You stand on the remnants of the once well-
+traveled road between the abandoned mines of Moria
+and the ruined city of Thalos.  You can see the
+scars of the war which destroyed Thalos on the
+ruined flagstones and markers along the road.  To
+the north is a crossroads with the great eastern
+road, while Thalos lies through the forest to the
+south.
+~
+0 0 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+#328
+City Entrance~
+You stand on the outskirts of a large city -
+Midgaard; the capital of this land. The road leads
+east into the peace and quiet - and dangers - of
+the forest; and to the west it becomes the main
+street of the town; surrounded by a confusion of
+shops, bars, and market places.  Through a heavy
+iron grate to the south lies the graveyard.
+~
+0 C 1
+D0 ~ ~ 0 0 0
+D1 ~ ~ 0 0 0
+D2 ~ ~ 0 0 0
+D3 ~ ~ 0 0 0
+S
+
+
+
+#0
+
+#MOBILES
+
+#300
+snail~
+the snail~
+A snail is trying to get out of your way.
+~
+You don't see much but slime about it.
+~
+unique~
+AGU 0 0 0
+0 0 1d1+0 1d1+99 1d1+0 digestion
+10 10 10 10
+0 0 0 0
+stand stand none 0
+AGQc AFHM tiny 0
+
+#301
+rabbit~
+the rabbit~
+A rabbit is bouncing around here.
+~
+The rabbit smiles at you, completely harmless!
+~
+rabbit~
+AGHU 0 100 0
+1 0 1d1+10 1d1+99 1d3+0 bite
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 tiny 0
+
+#302
+fox~
+the fox~
+A fox is here staring at you.
+~
+It's fur might be worth money.
+~
+fox~
+AGHU 0 100 0
+1 1 1d1+12 1d1+99 1d3+1 bite
+8 8 8 10
+NR 0 0 0
+stand stand either 0
+0 0 small 0
+
+#303
+lizard~
+the lizard~
+A lizard slithers up to you.
+~
+It smiles at you, and tries to eat your leg.
+~
+lizard~
+AGU 0 -100 0
+2 0 2d2+20 1d1+99 1d4+1 bite
+8 8 8 10
+R 0 0 0
+stand stand either 0
+0 0 small 0
+
+#304
+boar~
+the boar~
+A boar tries to run you over.
+~
+It grunts at you.
+~
+pig~
+AGU 0 0 0
+3 1 3d3+30 1d1+99 1d6+1 charge
+7 7 7 9
+CDFR 0 0 0
+stand stand either 0
+0 0 medium 0
+
+#305
+bear~
+the bear~
+A bear is here growling at you.
+~
+The bear must be bigger than you!  It wants to rip your head off.
+~
+bear~
+AGU 0 0 0
+4 1 4d4+44 1d1+99 1d6+2 claw
+6 5 6 7
+CR 0 0 0
+stand stand either 0
+0 0 large 0
+
+#306
+wolf~
+the wolf~
+A wolf is here snarling at you.
+~
+The wolf doesn't want to be bothered.
+~
+wolf~
+AGU 0 0 0
+4 0 4d4+44 1d1+99 1d6+2 bite
+7 7 7 10
+NR 0 0 0
+stand stand either 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#300
+road sign~
+a road sign~
+You see a big road sign beckoning you to read it.~
+wood~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+road sign~
+The sign is wooden and well weathered.  Arrows pointing in the
+four cardinal directions seem to indicate what lies along each road:
+
+  West  - Midgaard
+  North - DWARVES
+  East  - New Thalos
+  South - DEATH
+~
+
+#0
+
+#RESETS
+O 0 300   1  325     * a sign to the crossroads
+
+M 0 300   7    0 100 * the snail
+M 0 301   7    0 100 * the rabbit
+M 0 302   7    0 100 * the fox
+M 0 303   7    0 100 * the lizard
+M 0 304   7    0 100 * the boar
+M 0 305   7    0 100 * the bear
+M 0 306   7    0 100 * the wolf
+
+M 0 300   7    0 100 * the snail
+M 0 301   7    0 100 * the rabbit
+M 0 302   7    0 100 * the fox
+M 0 303   7    0 100 * the lizard
+M 0 304   7    0 100 * the boar
+M 0 305   7    0 100 * the bear
+M 0 306   7    0 100 * the wolf
+
+M 0 300   7    0 100 * the snail
+M 0 301   7    0 100 * the rabbit
+M 0 302   7    0 100 * the fox
+M 0 303   7    0 100 * the lizard
+M 0 304   7    0 100 * the boar
+M 0 305   7    0 100 * the bear
+M 0 306   7    0 100 * the wolf
+
+D 0 308   2    1     * Outside the gate, south to graveyard
+
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$

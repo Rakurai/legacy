@@ -9,6 +9,7 @@
 #include "Pooled.hh"
 #include "skill/skill.hh"
 #include "Vnum.hh"
+#include "Location.hh"
 
 /*
  * Data which only PC's have.
@@ -66,8 +67,8 @@ public:
 	Character *         squestmob = nullptr;
 	bool                squestobjf = FALSE;
 	bool		        squestmobf = FALSE;
-	Vnum		        squestloc1 = 0; /* obj */
-	Vnum		        squestloc2 = 0;	/* mob */
+	Location	        squestloc1; /* obj */
+	Location	        squestloc2;	/* mob */
 	std::vector<bool>   group_known;
 	int			        rolepoints = 0;
 	int              points = 0;
@@ -106,7 +107,7 @@ public:
     String              whisper;
     Flags               video_flags;
     int              tailing = 0;
-    Vnum                 mark_room = 0;
+    Location                 mark_room;
     String              aura;
     Duel *	        duel = nullptr;
     int              lays = 0;

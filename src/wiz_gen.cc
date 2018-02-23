@@ -1502,39 +1502,38 @@ void do_for(Character *ch, String argument)
 		}
 
 		for (const auto from_area : Game::world().areas) {
-			for (const auto& pair : from_area->room_prototypes) {
-				for (const auto room : pair.second->rooms) {
+			for (const auto& pair : from_area->rooms) {
 
-					found = FALSE;
+				Room *room = pair.second;
+				found = FALSE;
 
-					/* Anyone in here at all? */
-					if (!room->people) /* Skip it if room is empty */
+				/* Anyone in here at all? */
+				if (!room->people) /* Skip it if room is empty */
+					continue;
+
+				/* Check if there is anyone here of the requried type */
+				for (p = room->people; p; p = p->next_in_room) {
+					if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
 						continue;
-
-					/* Check if there is anyone here of the requried type */
-					for (p = room->people; p; p = p->next_in_room) {
-						if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
-							continue;
-						else if (IS_NPC(p) && !fRoom)
-							continue;
-						else if (IS_IMMORTAL(p) && fGods)
-							found = TRUE;
-						else if (!IS_IMMORTAL(p) && fMortals)
-							found = TRUE;
-					}
-
-					if (found) {
-						old_room = ch->in_room;
-						char_from_room(ch);
-						char_to_room(ch, room);
-						interpret(ch, argument);
-
-						if (ch) {
-							char_from_room(ch);
-							char_to_room(ch, old_room);
-						}
-					} /* if found */
+					else if (IS_NPC(p) && !fRoom)
+						continue;
+					else if (IS_IMMORTAL(p) && fGods)
+						found = TRUE;
+					else if (!IS_IMMORTAL(p) && fMortals)
+						found = TRUE;
 				}
+
+				if (found) {
+					old_room = ch->in_room;
+					char_from_room(ch);
+					char_to_room(ch, room);
+					interpret(ch, argument);
+
+					if (ch) {
+						char_from_room(ch);
+						char_to_room(ch, old_room);
+					}
+				} /* if found */
 			}
 		} /* for every room in a bucket */
 	} /* if strchr */
@@ -1550,7 +1549,7 @@ void do_goto(Character *ch, String argument)
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
-		    "  goto <room vnum>\n"
+		    "  goto <room vnum or coordinate>\n"
 		    "  goto <character name or object name>\n"
 		    "  goto obj <object name>\n", ch);
 		return;
@@ -1559,7 +1558,8 @@ void do_goto(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	location = get_room_world(ch, argument);
+	// try to interpret the argument as a location, Game::world().get_room will fail on invalid location
+	location = Game::world().get_room(Location(argument));
 
 	if (location == nullptr) {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != nullptr)
@@ -1929,11 +1929,11 @@ void do_linkload(Character *ch, String argument)
 			extract_char(victim, TRUE);
 		}
 		else {
-			Format::sprintf(buf, "You reach into the pfile and link-load %s from room %d.\n",
-			        victim->name, victim->in_room->vnum());
+			Format::sprintf(buf, "You reach into the pfile and link-load %s from room %s.\n",
+			        victim->name, victim->in_room->location.to_string());
 			stc(buf, ch);
 			act("$n reaches into the pfiles and link-loads $N.", ch, nullptr, victim, TO_NOTVICT);
-			Format::sprintf(buf, "$N has link-loaded %s from room %d.", victim->name, victim->in_room->vnum());
+			Format::sprintf(buf, "$N has link-loaded %s from room %s.", victim->name, victim->in_room->location.to_string());
 			wiznet(buf, ch, nullptr, WIZ_LOAD, WIZ_SECURE, 0);
 			char_to_room(victim, ch->in_room);
 
@@ -1965,7 +1965,7 @@ void do_mload(Character *ch, String argument)
 		return;
 	}
 
-	if ((pMobIndex = get_mob_index(atoi(arg))) == nullptr) {
+	if ((pMobIndex = Game::world().get_mob_prototype(atoi(arg))) == nullptr) {
 		stc("No mob has that vnum.\n", ch);
 		return;
 	}
@@ -1999,7 +1999,7 @@ void do_oload(Character *ch, String argument)
 		return;
 	}
 
-	if ((pObjIndex = get_obj_index(atoi(arg1))) == nullptr) {
+	if ((pObjIndex = Game::world().get_obj_prototype(atoi(arg1))) == nullptr) {
 		stc("No object has that vnum.\n", ch);
 		return;
 	}
@@ -2315,7 +2315,7 @@ void do_olevel(Character *ch, String argument)
 	matches = 0;
 
 	for (vnum = 0; nMatch < top_obj_index; vnum++) {
-		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
+		if ((pObjIndex = Game::world().get_obj_prototype(vnum)) != nullptr) {
 			nMatch++;
 			found = FALSE;
 
@@ -2400,7 +2400,7 @@ void do_mlevel(Character *ch, String argument)
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_mob_index; vnum++) {
-		if ((pMobIndex = get_mob_index(vnum)) != nullptr) {
+		if ((pMobIndex = Game::world().get_mob_prototype(vnum)) != nullptr) {
 			nMatch++;
 
 			if ((blevel <= pMobIndex->level) && (elevel >= pMobIndex->level)) {
@@ -2500,7 +2500,7 @@ void do_owhere(Character *ch, String argument)
 	Object *obj, *in_obj;
 	int count = 1, vnum = 0;
 	bool fGround = FALSE;
-	Vnum place_last_found = 0;   /* the vnum of the place where we last found an item */
+	Location place_last_found;   /* the vnum of the place where we last found an item */
 	Vnum item_last_found = 0;    /* the vnum of the last item displayed */
 
 	String arg, arg2;
@@ -2554,18 +2554,18 @@ void do_owhere(Character *ch, String argument)
 			/* keep multiple hits on the same person from being displayed
 			   -- Outsider
 			*/
-			if ((place_last_found == in_obj->carried_by->in_room->vnum()) &&
+			if ((place_last_found == in_obj->carried_by->in_room->location) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
 			        count,
-			        in_obj->carried_by->in_room->vnum(),
+			        in_obj->carried_by->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->carried_by, ch, VIS_PLR));
 			/* mark down this item as the last one found -- Outsider */
-			place_last_found = in_obj->carried_by->in_room->vnum();
+			place_last_found = in_obj->carried_by->in_room->location;
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else if (in_obj->in_locker) {
@@ -2577,18 +2577,18 @@ void do_owhere(Character *ch, String argument)
 			/* keep multiple hits on the same locker from being displayed
 			   -- Outsider
 			*/
-			if ((place_last_found == in_obj->in_locker->in_room->vnum()) &&
+			if ((place_last_found == in_obj->in_locker->in_room->location) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
 			        count,
-			        in_obj->in_locker->in_room->vnum(),
+			        in_obj->in_locker->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_locker, ch, VIS_PLR));
 			/* mark this down as the last one found */
-			place_last_found = in_obj->in_locker->in_room->vnum();
+			place_last_found = in_obj->in_locker->in_room->location;
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else if (in_obj->in_strongbox) {
@@ -2600,18 +2600,18 @@ void do_owhere(Character *ch, String argument)
 			/* try not to get same items in the same place multiple times
 			   -- Outsider
 			*/
-			if ((place_last_found == in_obj->in_strongbox->in_room->vnum()) &&
+			if ((place_last_found == in_obj->in_strongbox->in_room->location) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
 			        count,
-			        in_obj->in_strongbox->in_room->vnum(),
+			        in_obj->in_strongbox->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_strongbox, ch, VIS_PLR));
 			/* mark the last item and place we found it  -- Outsider */
-			place_last_found = in_obj->in_strongbox->in_room->vnum();
+			place_last_found = in_obj->in_strongbox->in_room->location;
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else if (in_obj->in_room) {
@@ -2619,18 +2619,18 @@ void do_owhere(Character *ch, String argument)
 				continue;
 
 			/* avoid printing duplicate items in the same place -- Outsider */
-			if ((place_last_found == in_obj->in_room->vnum()) &&
+			if ((place_last_found == in_obj->in_room->location) &&
 			    (item_last_found == obj->pIndexData->vnum))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x in %s.\n",
 			        count,
-			        in_obj->in_room->vnum(),
+			        in_obj->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        in_obj->in_room->name());
 			/* mark the last place and item we found -- Outsider */
-			place_last_found = in_obj->in_room->vnum();
+			place_last_found = in_obj->in_room->location;
 			item_last_found = obj->pIndexData->vnum;
 		}
 		else    /* what's left? */
@@ -2694,12 +2694,12 @@ void do_mwhere(Character *ch, String argument)
 		}
 
 		found = TRUE;
-		Format::sprintf(buf, "[%5d] %s%*s[%5d] %s\n",
+		Format::sprintf(buf, "[%5d] %s%*s[%9s] %s\n",
 		        victim->pIndexData->vnum,
 		        victim->short_descr,
 		        28 - victim->short_descr.uncolor().size(),
 		        " ",
-		        victim->in_room->vnum(),
+		        victim->in_room->location.to_string(false),
 		        victim->in_room->name());
 		output += buf;
 	}
@@ -2719,7 +2719,6 @@ void do_mwhere(Character *ch, String argument)
 /* find a room, given its name */
 void do_rwhere(Character *ch, String argument)
 {
-	Room *room;
 	String dbuf, rbuf;
 	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH];
 	char *cp;
@@ -2731,23 +2730,22 @@ void do_rwhere(Character *ch, String argument)
 	}
 
 	for (const auto area: Game::world().areas) {
-		for (Vnum vnum = area->min_vnum; vnum <= area->max_vnum; vnum = vnum.value()+1) {
-			room = get_room(vnum);
+		for (const auto& pair : area->rooms) {
+			const RoomID& location = pair.first;
+			const Room *room = pair.second;
 
-			if (room != nullptr) {
-				rbuf = room->name();
+			rbuf = room->name();
 
-				if (rbuf.uncolor().has_words(argument)) {
-					found = TRUE;
-					strcpy(fname, room->area().file_name);
-					cp = strchr(fname, '.');
+			if (rbuf.uncolor().has_words(argument)) {
+				found = TRUE;
+				strcpy(fname, room->area().file_name);
+				cp = strchr(fname, '.');
 
-					if (cp != nullptr)
-						*cp = '\0';
+				if (cp != nullptr)
+					*cp = '\0';
 
-					Format::sprintf(buf, "[%5d] <%-8.8s> %s{x\n", vnum, fname, room->name());
-					dbuf += buf;
-				}
+				Format::sprintf(buf, "[%s] <%-8.8s> %s{x\n", location.to_string(false), fname, room->name());
+				dbuf += buf;
 			}
 		}
 	}
@@ -2788,7 +2786,7 @@ void do_mfind(Character *ch, String argument)
 	 * -- Furey
 	 */
 	for (vnum = 0; nMatch < top_mob_index; vnum++) {
-		if ((pMobIndex = get_mob_index(vnum)) != nullptr) {
+		if ((pMobIndex = Game::world().get_mob_prototype(vnum)) != nullptr) {
 			nMatch++;
 
 			if (fAll || pMobIndex->player_name.has_words(argument)) {
@@ -2839,7 +2837,7 @@ void do_ofind(Character *ch, String argument)
 	 * -- Furey
 	 */
 	for (vnum = 0; nMatch < top_obj_index; vnum++) {
-		if ((pObjIndex = get_obj_index(vnum)) != nullptr) {
+		if ((pObjIndex = Game::world().get_obj_prototype(vnum)) != nullptr) {
 			nMatch++;
 
 			if (fAll || pObjIndex->name.has_words(argument)) {
@@ -3074,7 +3072,7 @@ void do_purge(Character *ch, String argument)
 				extract_obj(obj);
 		}
 
-		Format::sprintf(buf, "$N has purged room: %d.", ch->in_room->vnum());
+		Format::sprintf(buf, "$N has purged room: %s.", ch->in_room->location.to_string());
 		wiznet(buf, ch, nullptr, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 		act("$n purges the room of all objects!", ch, nullptr, nullptr, TO_ROOM);
 		stc("The room has been purged.\n", ch);
@@ -3247,7 +3245,7 @@ void do_restore(Character *ch, String argument)
 		for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 			restore_char(ch, victim);
 
-		Format::sprintf(buf, "$N has restored room: %d.", ch->in_room->vnum());
+		Format::sprintf(buf, "$N has restored room: %s.", ch->in_room->location.to_string());
 		wiznet(buf, ch, nullptr, WIZ_RESTORE, WIZ_SECURE, GET_RANK(ch));
 		stc("Room restored.\n", ch);
 		return;
@@ -3428,7 +3426,7 @@ do_smite(Character *ch, String argument)
 	victim->position = POS_RESTING;
 
 	String name = IS_NPC(victim) ? victim->short_descr : victim->name;
-	Object *doo = create_object(get_obj_index(OBJ_VNUM_DOO), 0);
+	Object *doo = create_object(Game::world().get_obj_prototype(OBJ_VNUM_DOO), 0);
 	doo->timer = number_range(8, 14);
 	doo->value[3] = 1;
 
@@ -3732,8 +3730,10 @@ Room *find_location(Character *ch, const String& arg)
 	Character *victim;
 	Object *obj;
 
-	if (arg.is_number())
-		return get_room(atoi(arg));
+	Room *room = Game::world().get_room(Location(arg));
+
+	if (room != nullptr)
+		return room;
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) != nullptr)
 		return victim->in_room;
@@ -3836,9 +3836,9 @@ void do_violate(Character *ch, String argument)
 	String arg;
 	one_argument(argument, arg);
 
-	if (arg.is_number())
-		location = get_room(atoi(arg));
-	else {
+	location = Game::world().get_room(Location(argument));
+
+	if (location == nullptr) {
 		if ((rch = get_char_world(ch, argument, VIS_CHAR)) != nullptr)
 			location = rch->in_room;
 

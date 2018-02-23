@@ -652,29 +652,29 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "inroom")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->in_room->vnum().value();
-			rhsvl = atoi(val);
+		case 'i': lhsvl = mob->in_room->location.to_int();
+			rhsvl = Location(val).to_int();
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = actor->in_room->vnum().value();
-				rhsvl = atoi(val);
+				lhsvl = actor->in_room->location.to_int();
+				rhsvl = Location(val).to_int();
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
 			else
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = vict->in_room->vnum().value();
-				rhsvl = atoi(val);
+				lhsvl = vict->in_room->location.to_int();
+				rhsvl = Location(val).to_int();
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
 			else
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = rndm->in_room->vnum().value();
-				rhsvl = atoi(val);
+				lhsvl = rndm->in_room->location.to_int();
+				rhsvl = Location(val).to_int();
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
 			else

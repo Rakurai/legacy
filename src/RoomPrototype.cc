@@ -14,7 +14,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 	vnum(v),
 	name(fread_string(fp)),
 	description(fread_string(fp)),
-	tele_dest(fread_number(fp)),
+	tele_dest(Vnum(fread_number(fp))),
 	room_flags(fread_flag(fp)) {
 
 	int old_sector_type = fread_number(fp);
@@ -23,7 +23,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 		case  0: /* SECT_INSIDE       */ sector_type = Sector::inside; break;
 		case  1: /* SECT_CITY         */ sector_type = Sector::city; break;
 		case  2: /* SECT_FIELD        */ sector_type = Sector::field; break;
-		case  3: /* SECT_FOREST       */ sector_type = Sector::forest; break;
+		case  3: /* SECT_FOREST       */ sector_type = Sector::forest_sparse; break;
 		case  4: /* SECT_HILLS        */ sector_type = Sector::hills; break;
 		case  5: /* SECT_MOUNTAIN     */ sector_type = Sector::mountain; break;
 		case  6: /* SECT_WATER_SWIM   */ sector_type = Sector::water_swim; break;
@@ -136,7 +136,4 @@ RoomPrototype::
 	for (int door = 0; door < 6; door++)
 		if (exit[door] != nullptr)
 			delete exit[door];
-
-	for (auto room : rooms)
-		delete room;
 }

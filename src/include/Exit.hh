@@ -8,11 +8,12 @@
 class Exit
 {
 public:
-	Exit(const ExitPrototype& p);
+	Exit(const ExitPrototype& p, Room *to_room);
 	virtual ~Exit() {}
 
-    Room *to_room = nullptr;
+    const ExitPrototype& prototype;
     Flags exit_flags; // current state, this resets to the prototype's values on area resets
+    Room *to_room;
 
     static const String& dir_name(unsigned int dir, bool reverse = false);
     static unsigned int rev_dir(unsigned int dir);
@@ -23,7 +24,6 @@ public:
 
 private:
 	Exit& operator=(const Exit&);
-    const ExitPrototype& prototype;
 };
 
 inline unsigned int Exit::

@@ -6,6 +6,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -139,7 +140,7 @@ void do_splat(Character *ch, String argument)
 	}
 
 	if (number_percent() > (75 - gun->value[4])) {
-		if ((location = get_room(ROOM_VNUM_ALTAR)) == nullptr)
+		if ((location = Game::world().get_room(Location(Vnum(ROOM_VNUM_ALTAR)))) == nullptr)
 			return;
 
 		act("{P$n nails $N with a bullseye paintball shot! {HSPLAT!{x",

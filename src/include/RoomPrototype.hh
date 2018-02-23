@@ -6,6 +6,7 @@
 #include "Flags.hh"
 #include "Vnum.hh"
 #include "Sector.hh"
+#include "Location.hh"
 
 class RoomPrototype
 {
@@ -17,7 +18,7 @@ public:
 	const Vnum  vnum;
 	String 		name;
 	String 		description;
-	const Vnum	tele_dest;
+	const Location tele_dest;
 	Flags       room_flags;
 	Sector		sector_type;
 	int			heal_rate = 100;
@@ -26,12 +27,11 @@ public:
 
 	String 		owner = "";
 	Clan *		clan = nullptr;
+	int         count = 0; // number of rooms created from this prototype, incremented by Room
 
 	// pointers owned here
 	ExtraDescr *	extra_descr = nullptr;
 	ExitPrototype *		exit    [6] = {nullptr}; // prototypes for building rooms
-
-	std::vector<Room *> rooms;
 
 	inline bool operator==(const RoomPrototype& rhs) const {
 		return this->vnum == rhs.vnum;

@@ -419,7 +419,7 @@ void spell_holy_sword(skill::type sn, int level, Character *ch, void *vo, int ta
 	}
 
 	/* makes a sword, Xd12 damage, adds shocking at 20+, vorpal at 45+, flaming at 70+ */
-	sword = create_object(get_obj_index(OBJ_VNUM_HOLYSWORD), 0);
+	sword = create_object(Game::world().get_obj_prototype(OBJ_VNUM_HOLYSWORD), 0);
 
 	if (! sword) {
 		Logging::bug("Memory error while creating holy sword.", 0);

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <set>
 
 #include "declare.hh"
 #include "worldmap/MapColor.hh"
@@ -24,7 +25,9 @@ public:
 	const MapColor get_color(unsigned int x, unsigned int y) const;
 	const Vnum get_vnum(unsigned int x, unsigned int y) const;
 
-	void load_rooms() const;
+	void create_rooms() const;
+	std::set<Vnum> allowed_mob_resets; // list of mob vnums that can reset in this region
+	std::set<Vnum> allowed_room_resets; // list of room vnums that can have mobs reset into
 
 private:
 	Region(const Region&);

@@ -38,6 +38,7 @@ class Player;
 class QuestArea;
 class Reset;
 class Room;
+class RoomID;
 class RoomPrototype;
 class Shop;
 class Social;
@@ -49,9 +50,13 @@ class Weather;
 class Game;
 class World;
 class Vnum;
+class Location;
 
 namespace worldmap {
 class Region;
+class MapColor;
+class Worldmap;
+class Coordinate;
 }
 
 namespace util {
@@ -1364,6 +1369,8 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define AREA_LIST       "area.lst"  /* List of areas*/
 #define CHVNUM_FILE     AREA_DIR "chvnum.txt"	/* list of changed object vnums -- Montrey (in progress) */
 #define MOB_DIR         AREA_DIR "MOBProgs/"     /* MOBProg files                */
+#define WORLDMAP_DIR    AREA_DIR "worldmap/"
+#define WORLDMAP_IMAGE_FILE  WORLDMAP_DIR "worldmap.png"
 
 #define BIN_DIR         "../bin/"
 #define EXE_FILE        BIN_DIR "legacy"

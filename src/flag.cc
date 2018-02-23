@@ -233,12 +233,12 @@ void do_flag(Character *ch, String argument)
 		}
 
 		if (!arg2.is_number()) {
-			stc("Use the room's vnum.\n", ch);
+			stc("Use the room's vnum or coordinates.\n", ch);
 			return;
 		}
 
-		if ((room = get_room(atoi(arg2))) == nullptr) {
-			ptc(ch, "Room %d does not exist.\n", atoi(arg1));
+		if ((room = Game::world().get_room(Location(arg2))) == nullptr) {
+			ptc(ch, "Room %s does not exist.\n", arg2);
 			return;
 		}
 
@@ -429,9 +429,9 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 		if (++count > 500)
 			continue;
 
-		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{x %s{x.\n",
+		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{x %s{x.\n",
 		        count,
-		        victim->in_room->vnum(),
+		        victim->in_room->location.to_string(false),
 		        victim->short_descr);
 		output += buf;
 	}
@@ -483,9 +483,9 @@ int fsearch_mobile(Character *ch, int fieldptr, const Flags& marked)
 		if (++count > 500)
 			continue;
 
-		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x.\n",
+		Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x.\n",
 		        count,
-		        victim->in_room->vnum(),
+		        victim->in_room->location.to_string(false),
 		        victim->pIndexData->vnum,
 		        victim->short_descr);
 		output += buf;
@@ -539,15 +539,16 @@ void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
-	Room *room;
 	int count = 0;
 	Flags flag;
 	output += "{VCount {GVnum{x\n";
 
 	for (Area *area: Game::world().areas) {
-		for (Vnum vnum = area->min_vnum; vnum <= area->max_vnum; vnum = vnum.value()+1) {
-			if ((room = get_room(vnum)) == nullptr
-			    || !can_see_room(ch, room))
+		for (const auto& pair : area->rooms) {
+			const RoomID& location = pair.first;
+			const Room* room = pair.second;
+
+			if (!can_see_room(ch, room))
 				continue;
 
 			switch (fieldptr) {
@@ -564,7 +565,7 @@ void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 
 			Format::sprintf(buf, "{M[{V%3d{M]{H[{G%5d{H]{x %s{x.\n",
 			        count,
-			        vnum,
+			        location.to_string(),
 			        room->name());
 			output += buf;
 		}
@@ -617,9 +618,9 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 			    || !can_see_char(ch, in_obj->carried_by))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x is carried by %s.\n",
 			        count,
-			        in_obj->carried_by->in_room->vnum(),
+			        in_obj->carried_by->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->carried_by, ch, VIS_PLR));
@@ -630,9 +631,9 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 			    || !can_see_char(ch, in_obj->in_locker))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n",
 			        count,
-			        in_obj->in_locker->in_room->vnum(),
+			        in_obj->in_locker->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_locker, ch, VIS_PLR));
@@ -643,9 +644,9 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 			    || !can_see_char(ch, in_obj->in_strongbox))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n",
 			        count,
-			        in_obj->in_strongbox->in_room->vnum(),
+			        in_obj->in_strongbox->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        PERS(in_obj->in_strongbox, ch, VIS_PLR));
@@ -654,9 +655,9 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 			if (!can_see_room(ch, in_obj->in_room))
 				continue;
 
-			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n",
+			Format::sprintf(buf, "{M[{V%3d{M]{b[{Y%9s{b]{H[{G%5d{H]{x %s{x in %s.\n",
 			        count,
-			        in_obj->in_room->vnum(),
+			        in_obj->in_room->location.to_string(false),
 			        obj->pIndexData->vnum,
 			        obj->short_descr,
 			        in_obj->in_room->name());

@@ -91,7 +91,8 @@ void Character::update() {
 
 	/* Why check for resting mobiles? */
 
-	if (ch->in_room->area().is_empty())
+	if (ch->in_room->area().num_players() == 0
+	 && ch->in_room->area().num_imms() == 0)
 		/* && !ch->act_flags.has(ACT_UPDATE_ALWAYS)) */
 		return;
 
@@ -108,7 +109,7 @@ void Character::update() {
 		}
 
 	/* MOBprogram random trigger */
-	if (!ch->in_room->area().is_empty()) {
+//	if (!ch->in_room->area().is_empty()) {
 		mprog_random_trigger(ch);
 
 		/* If ch dies or changes
@@ -121,7 +122,7 @@ void Character::update() {
 
 		if (get_position(ch) < POS_STANDING)
 			return;
-	}
+//	}
 
 	/* That's all for sleeping / busy monster, and empty zones */
 	if (get_position(ch) != POS_STANDING)

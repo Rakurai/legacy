@@ -135,7 +135,7 @@ public:
     int              countdown = 0;    /* Vassago */
     Vnum             questobj = 0;     /* Vassago */
     Vnum             questmob = 0;     /* Vassago */
-    Vnum             questloc = 0;     /* -- Elrac */
+    Location             questloc;     /* -- Elrac */
     int              questobf = 0;     /* Lotus */
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */

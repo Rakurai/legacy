@@ -291,8 +291,8 @@ void act_parse(
     /* viewing room stuff */
     if (!censor && (type == TO_ROOM || type == TO_NOTVICT || type == TO_VIEW)) {
         while (arena != arena_table_tail) {
-            if (ch->in_room->vnum() >= arena->minvnum
-                && ch->in_room->vnum() <= arena->maxvnum)
+            if (ch->in_room->prototype.vnum >= arena->minvnum
+                && ch->in_room->prototype.vnum <= arena->maxvnum)
                 break;
 
             arena = arena->next;

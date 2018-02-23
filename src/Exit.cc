@@ -2,8 +2,9 @@
 #include "merc.hh"
 
 Exit::
-Exit(const ExitPrototype& proto) :
-	prototype(proto)
+Exit(const ExitPrototype& proto, Room *to_room) :
+	prototype(proto),
+	exit_flags(proto.exit_flags),
+	to_room(to_room)
 {
-	to_room = get_room(prototype.to_vnum); // could be nullptr, deal with it outside
 }

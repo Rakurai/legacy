@@ -646,7 +646,7 @@ void do_get(Character *ch, String argument)
 				return;
 			}
 
-			if (!ch->in_room || ch->in_room->vnum() != ROOM_VNUM_STRONGBOX) {
+			if (!ch->in_room || ch->in_room->location != Location(Vnum(ROOM_VNUM_STRONGBOX))) {
 				stc("You do not see your strongbox here.\n", ch);
 				return;
 			}
@@ -894,7 +894,7 @@ void do_put(Character *ch, String argument)
 			return;
 		}
 
-		if (!ch->in_room || ch->in_room->vnum() != ROOM_VNUM_STRONGBOX) {
+		if (!ch->in_room || ch->in_room->location != Location(Vnum(ROOM_VNUM_STRONGBOX))) {
 			stc("There is no strongbox here.\n", ch);
 			return;
 		}
@@ -1713,7 +1713,7 @@ void do_firebuilding(Character *ch, String argument)
 		return;
 	}
 
-	torch = create_object(get_obj_index(OBJ_VNUM_TORCH), 0);
+	torch = create_object(Game::world().get_obj_prototype(OBJ_VNUM_TORCH), 0);
 
 	if (! torch) {
 		Logging::bug("Error creating a torch in firebuilding.", 0);
@@ -2644,7 +2644,7 @@ void do_donate(Character *ch, String argument)
 
 	/* can't find it?  make one */
 	if (donation_pit == nullptr) {
-		donation_pit = create_object(get_obj_index(OBJ_VNUM_PIT), 0);
+		donation_pit = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PIT), 0);
 
 		if (! donation_pit) {
 			Logging::bug("Error creating donation pit in do_donate.", 0);
@@ -2652,7 +2652,7 @@ void do_donate(Character *ch, String argument)
 			return;
 		}
 
-		obj_to_room(donation_pit, get_room(ROOM_VNUM_ALTAR));
+		obj_to_room(donation_pit, Game::world().get_room(Location(Vnum(ROOM_VNUM_ALTAR))));
 	}
 
 	if (argument.empty()) {
@@ -3883,13 +3883,13 @@ void do_buy(Character *ch, String argument)
 		argument = one_argument(argument, arg);
 
 		/* hack to make new thalos pets work */
-		if (ch->in_room->vnum() == 9621)
-			roomNext = get_room(9706);
+		if (ch->in_room->location == Location(Vnum(9621)))
+			roomNext = Game::world().get_room(Location(Vnum(9706)));
 		else
-			roomNext = get_room(ch->in_room->vnum().value() + 1);
+			roomNext = Game::world().get_room(Location(Vnum(ch->in_room->prototype.vnum.value() + 1)));
 
 		if (roomNext == nullptr) {
-			Logging::bugf("Do_buy: bad pet shop at vnum %d.", ch->in_room->vnum());
+			Logging::bugf("Do_buy: bad pet shop at vnum %d.", ch->in_room->prototype.vnum);
 			stc("Sorry, we don't sell those.  If you'd like to see my manager...\n", ch);
 			return;
 		}
@@ -4244,13 +4244,13 @@ void do_list(Character *ch, String argument)
 		bool found;
 
 		/* hack to make new thalos pets work */
-		if (ch->in_room->vnum() == 9621)
-			roomNext = get_room(9706);
+		if (ch->in_room->location == Location(Vnum(9621)))
+			roomNext = Game::world().get_room(Location(Vnum(9706)));
 		else
-			roomNext = get_room(ch->in_room->vnum().value() + 1);
+			roomNext = Game::world().get_room(Location(Vnum(ch->in_room->prototype.vnum.value() + 1)));
 
 		if (roomNext == nullptr) {
-			Logging::bugf("Do_list: bad pet shop at vnum %d.", ch->in_room->vnum());
+			Logging::bugf("Do_list: bad pet shop at vnum %d.", ch->in_room->prototype.vnum);
 			stc("You can't do that here.\n", ch);
 			return;
 		}
@@ -4849,7 +4849,7 @@ void do_forge(Character *ch, String argument)
 		return;
 	}
 
-	obj = create_object(get_obj_index(OBJ_VNUM_WEAPON), 0);
+	obj = create_object(Game::world().get_obj_prototype(OBJ_VNUM_WEAPON), 0);
 
 	if (!obj) {
 		Logging::bug("Memory error in do_forge.", 0);

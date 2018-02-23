@@ -360,11 +360,6 @@ Character *    create_mobile   args( ( MobilePrototype *pMobIndex ) );
 void    clone_mobile    args( ( Character *parent, Character *clone) );
 Object *    create_object   args( ( ObjectPrototype *pObjIndex, int level ) );
 void    clone_object    args( ( Object *parent, Object *clone ) );
-MobilePrototype *   get_mob_index   args( ( const Vnum& vnum ) );
-ObjectPrototype *   get_obj_index   args( ( const Vnum& vnum ) );
-RoomPrototype *   get_room_prototype   args( ( const Vnum& vnum ) );
-Room *   get_room  args( ( const Vnum& vnum ) );
-
 
 /* load_config.c */
 int     load_config     args((const char *filename));
@@ -461,16 +456,16 @@ Object *    create_money    args(( int gold, int silver ) );
 int     get_obj_number  args(( Object *obj ) );
 int     get_obj_weight  args(( Object *obj ) );
 int     get_true_weight args(( Object *obj ) );
-bool    room_is_dark    args(( Room *room));
-bool    room_is_very_dark args((Room *room));
+bool    room_is_dark    args(( const Room *room));
+bool    room_is_very_dark args((const Room *room));
 bool    is_room_owner   args(( Character *ch, Room *room) );
 bool    room_is_private args(( Room *room ) );
 bool    is_blinded      args(( const Character *ch ));
 bool    can_see_char    args(( const Character *ch, const Character *victim ) );
 bool    can_see_who     args(( const Character *ch, const Character *victim ) );
 bool    can_see_obj     args(( const Character *ch, const Object *obj ) );
-bool    can_see_room    args(( Character *ch, Room *room) );
-bool    can_see_in_room args(( Character *ch, Room *room));
+bool    can_see_room    args(( const Character *ch, const Room *room) );
+bool    can_see_in_room args(( const Character *ch, const Room *room));
 //const char *  first_arg       args(( const char *argument, char *arg_first, bool fCase ) );
 const char *  get_who_line    args(( Character *ch, Character *victim ) );
 bool    mob_exists      args(( const char *name ) );

@@ -5,6 +5,7 @@
 #include "skill/skill.hh"
 #include "affect/affect_list.hh"
 #include "ExtraDescr.hh"
+#include "Location.hh"
 
 ObjectPrototype::
 ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
@@ -108,6 +109,10 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 	case ITEM_FOUNTAIN:
 	case ITEM_FOOD:
 		value[val]         = ObjectValue(fread_flag(fp));
+		break;
+
+	case ITEM_PORTAL:
+		value[val]         = ObjectValue(Location(Vnum(fread_number(fp))).to_int());
 		break;
 
 	default:

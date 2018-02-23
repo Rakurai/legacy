@@ -5,6 +5,7 @@
 #include "declare.hh"
 #include "String.hh"
 #include "Vnum.hh"
+#include "Location.hh"
 
 class Area
 {
@@ -16,16 +17,22 @@ public:
     void load_mobiles(FILE *fp);
     void load_objects(FILE *fp);
     void load_region(FILE *fp);// { region = new worldmap::Region(*this, fp); }
+    void create_rooms();
 
     ObjectPrototype *get_obj_prototype(const Vnum&);
     MobilePrototype *get_mob_prototype(const Vnum&);
     RoomPrototype *get_room_prototype(const Vnum&);
 
+    Room *get_room(const RoomID& id) {
+        auto entry = rooms.find(id);
+        return entry == rooms.end() ? nullptr : entry->second;
+    }
+
     void update();
     void reset();
 
-    int num_players(bool count_all = true) const;
-    bool is_empty() const;
+    int num_players() const { return _num_players; }
+    int num_imms() const { return _num_imms; }
 
     // components
     World& world;
@@ -41,6 +48,9 @@ public:
     std::map<Vnum, MobilePrototype *> mob_prototypes;
     std::map<Vnum, ObjectPrototype *> obj_prototypes;
 
+    std::map<RoomID, Room *> rooms;
+
+
     // descriptive vars
     String              author;     /* -- Elrac */
     String              title;      /* -- Elrac */
@@ -55,6 +65,9 @@ public:
 
     worldmap::Region *region = nullptr;
 
+    void add_char(Character *ch);
+    void remove_char(Character *ch);
+
     friend bool operator==(const Area&, const Area&);
     friend bool operator!=(const Area&, const Area&);
 
@@ -66,7 +79,13 @@ private:
     int scan_credits();
 
     /* pick a random room to reset into -- Montrey */
-    Room *get_random_reset_room() const;
+    Room *get_random_reset_room(const MobilePrototype *);
+
+    // keep track of both imms and players.  imms shouldn't prevent an
+    // area from resetting, but we also want the area to animate while
+    // only an imm is there.
+    int _num_players = 0;
+    int _num_imms = 0;
 };
 
 

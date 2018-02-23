@@ -66,6 +66,9 @@ Area::
 
 	if (region != nullptr)
 		delete region;
+
+	for (auto& entry : rooms)
+		delete entry.second;
 }
 
 void Area::
@@ -198,34 +201,6 @@ get_room_prototype(const Vnum& vnum) {
 	return nullptr;
 }
 
-int Area::
-num_players(bool count_all) const {
-	int count = 0;
-
-	for (const auto& pair : room_prototypes) {
-		const auto proto = pair.second;
-
-		for (auto room : proto->rooms) {
-			for (Character *ch = room->people; ch; ch = ch->next_in_room) {
-				if (!IS_NPC(ch)) {
-					if (count_all)
-						count++;
-					else
-						return 1;
-				}
-			}
-		}
-
-	}
-
-	return count;
-}
-
-bool Area::
-is_empty() const {
-	return num_players(false) == 0;
-}
-
 void Area::
 update() {
 	if (++age < 15)
@@ -235,7 +210,7 @@ update() {
 	 * Check age and reset.
 	 * Note: Mud School resets every 3 minutes (not 15).
 	 */
-	if (age >= 31 || (is_empty() && age >= 15)) {
+	if (age >= 31 || (num_players() == 0 && age >= 15)) {
 		reset();
 		age = number_range(0, 3);
 
@@ -253,7 +228,7 @@ reset() {
 	mob         = nullptr;
 	last        = TRUE;
 	level       = 0;
-	bool empty = is_empty();
+	bool empty = num_players() == 0;
 
 	for (const Reset *pReset: resets) {
 		Room *room;
@@ -267,12 +242,12 @@ reset() {
 
 		switch (pReset->command) {
 		default:
-			Logging::bug("Reset_area: bad command %c.", pReset->command);
+			Logging::bugf("(%s) Reset_area: bad command %c.", file_name, pReset->command);
 			break;
 
 		case 'M':
-			if ((pMobIndex = get_mob_index(pReset->arg1)) == nullptr) {
-				Logging::bug("Reset_area: 'M': bad vnum %d.", pReset->arg1);
+			if ((pMobIndex = Game::world().get_mob_prototype(pReset->arg1)) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'M': bad vnum %d.", file_name, pReset->arg1);
 				continue;
 			}
 
@@ -285,14 +260,14 @@ reset() {
 				if (!chance(pReset->arg4))
 					continue;
 
-				if ((room = get_random_reset_room()) == nullptr) {
-					Logging::bug("Reset_area: 'R': no random room found.", 0);
+				if ((room = get_random_reset_room(pMobIndex)) == nullptr) {
+					Logging::bugf("(%s) Reset_area: 'M': no random room found for mob %d.", file_name, pReset->arg1);
 					continue;
 				}
 			}
 			else {
-				if ((room = get_room(pReset->arg3)) == nullptr) {
-					Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
+				if ((room = Game::world().get_room(Location(pReset->arg3))) == nullptr) {
+					Logging::bugf("(%s) Reset_area: 'M': bad location %s.", file_name, Location(pReset->arg3));
 					continue;
 				}
 
@@ -311,18 +286,11 @@ reset() {
 			}
 
 			mob = create_mobile(pMobIndex);
-
-			/* Check for memory error. -- Outsider */
-			if (! mob) {
-				Logging::bug("Memory error creating mob in reset_area().", 0);
-				break;
-			}
-
 			mob->reset = pReset;    /* keep track of what reset it -- Montrey */
 			/* Check for pet shop. */
 			{
 				Room *roomPrev;
-				roomPrev = get_room(room->vnum().value() - 1);
+				roomPrev = Game::world().get_room(Location(Vnum(room->prototype.vnum.value() - 1)));
 
 				if (roomPrev != nullptr
 				    && roomPrev->flags().has(ROOM_PET_SHOP))
@@ -346,13 +314,13 @@ reset() {
 				break;
 			}
 
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
-				Logging::bug("Reset_area: 'O': bad vnum %d.", pReset->arg1);
+			if ((pObjIndex = Game::world().get_obj_prototype(pReset->arg1)) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'O': bad vnum %d.", file_name, pReset->arg1);
 				continue;
 			}
 
-			if ((room = get_room(pReset->arg3)) == nullptr) {
-				Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg3);
+			if ((room = Game::world().get_room(Location(pReset->arg3))) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'O': bad location %s.", file_name, Location(pReset->arg3));
 				continue;
 			}
 
@@ -361,14 +329,7 @@ reset() {
 				break;
 			}
 
-			obj = create_object(pObjIndex, UMIN(number_fuzzy(level),
-			                                    LEVEL_HERO - 1));
-
-			if (! obj) {
-				Logging::bug("Error creating object in area_reset.", 0);
-				return;
-			}
-
+			obj = create_object(pObjIndex, UMIN(number_fuzzy(level), LEVEL_HERO - 1));
 			obj->reset = pReset;    /* keep track of what reset it -- Montrey */
 			obj_to_room(obj, room);
 
@@ -381,13 +342,13 @@ reset() {
 			break;
 
 		case 'P':
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
-				Logging::bug("Reset_area: 'P': bad vnum %d.", pReset->arg1);
+			if ((pObjIndex = Game::world().get_obj_prototype(pReset->arg1)) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'P': bad vnum %d.", file_name, pReset->arg1);
 				continue;
 			}
 
-			if ((pObjToIndex = get_obj_index(pReset->arg3)) == nullptr) {
-				Logging::bug("Reset_area: 'P': bad vnum %d.", pReset->arg3);
+			if ((pObjToIndex = Game::world().get_obj_prototype(pReset->arg3)) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'P': bad vnum %d.", file_name, pReset->arg3);
 				continue;
 			}
 
@@ -410,12 +371,6 @@ reset() {
 
 			while (count < pReset->arg4) {
 				obj = create_object(pObjIndex, number_fuzzy(obj_to->level));
-
-				if (! obj) {
-					Logging::bug("Memory error creating object.", 0);
-					return;
-				}
-
 				obj->reset = pReset;    /* keep track of what reset it -- Montrey */
 				unique_item(obj);
 				obj_to_obj(obj, obj_to);
@@ -432,8 +387,8 @@ reset() {
 
 		case 'G':
 		case 'E':
-			if ((pObjIndex = get_obj_index(pReset->arg1)) == nullptr) {
-				Logging::bug("Reset_area: 'E' or 'G': bad vnum %d.", pReset->arg1);
+			if ((pObjIndex = Game::world().get_obj_prototype(pReset->arg1)) == nullptr) {
+				Logging::bugf("(%s) Reset_area: '%c': bad vnum %d.", file_name, pReset->command, pReset->arg1);
 				continue;
 			}
 
@@ -441,8 +396,8 @@ reset() {
 				break;
 
 			if (mob == nullptr) {
-				Logging::bug("Reset_area: 'E' or 'G': null mob for vnum %d.",
-				    pReset->arg1);
+				Logging::bugf("(%s) Reset_area: '%c': null mob for vnum %d.",
+				    file_name, pReset->command, pReset->arg1);
 				last = FALSE;
 				break;
 			}
@@ -450,12 +405,6 @@ reset() {
 			if (mob->pIndexData->pShop != nullptr) {
 				int olevel = 0;
 				obj = create_object(pObjIndex, olevel);
-
-				if (! obj) {
-					Logging::bug("Error making object for mob inventory.", 0);
-					return;
-				}
-
 				obj->extra_flags += ITEM_INVENTORY;
 			}
 			else {
@@ -468,18 +417,12 @@ reset() {
 					obj = create_object(pObjIndex, UMIN(number_fuzzy(level),
 					                                    LEVEL_HERO - 1));
 
-					if (! obj) {
-						Logging::bug("Memory error creating object to equip mob.", 0);
-						return;
-					}
-
 					unique_item(obj);
 
 					/* error message if it is too high */
 					if (obj->level > mob->level + 3)
-						Format::fprintf(stderr,
-						        "Err: obj %s (%d) -- %d, mob %s (%d) -- %d\n",
-						        obj->short_descr, obj->pIndexData->vnum, obj->level,
+						Logging::bugf("(%s) Reset_area: '%c': obj %s (%d) -- %d, mob %s (%d) -- %d\n",
+						        file_name, pReset->command, obj->short_descr, obj->pIndexData->vnum, obj->level,
 						        mob->short_descr, mob->pIndexData->vnum, mob->level);
 				}
 				else
@@ -496,13 +439,17 @@ reset() {
 			break;
 
 		case 'D':
-			if ((room = get_room(pReset->arg1)) == nullptr) {
-				Logging::bug("Reset_area: 'D': bad vnum %d.", pReset->arg1);
+			if ((room = Game::world().get_room(Location(pReset->arg1))) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'D': bad location %s.", file_name, Location(pReset->arg1));
 				continue;
 			}
 
-			if ((pexit = room->exit[pReset->arg2]) == nullptr)
+			if ((pexit = room->exit[pReset->arg2]) == nullptr
+			 || !pexit->exit_flags.has(EX_ISDOOR)) {
+//				Logging::bugf("(%s) Reset_area: 'D': bad exit %d from location %s.",
+//					file_name, pReset->arg2, Location(pReset->arg1));
 				break;
+			}
 
 			switch (pReset->arg3) {
 			case 0:
@@ -525,8 +472,8 @@ reset() {
 			break;
 
 		case 'R':
-			if ((room = get_room(pReset->arg1)) == nullptr) {
-				Logging::bug("Reset_area: 'R': bad vnum %d.", pReset->arg1);
+			if ((room = Game::world().get_room(Location(pReset->arg1))) == nullptr) {
+				Logging::bugf("(%s) Reset_area: 'R': bad location %s.", file_name, Location(pReset->arg1));
 				continue;
 			}
 
@@ -717,18 +664,87 @@ scan_credits()
 	return area_type;
 } /* end scan_credits() */
 
+void Area::
+create_rooms() {
+	for (const auto& pair : room_prototypes) {
+		const auto& vnum = pair.first;
+		const auto prototype = pair.second;
+
+		// skip rooms associated with a region color
+		if (region != nullptr 
+		 && region->vnum_to_color(vnum) != worldmap::MapColor::uncolored)
+			continue;
+
+		Room *room = new Room(*prototype);
+
+		if (room == nullptr) {
+			boot_bug("Create_rooms: unable to create room from prototype %d.", vnum);
+			exit(1);
+		}
+
+		rooms.emplace(room->location.room_id, room);
+	}
+
+	// load rooms in region
+	if (region != nullptr)
+		region->create_rooms();
+}
+
+void Area::
+add_char(Character *ch) {
+/*
+	if (!IS_NPC(ch)) {
+		if (ch->in_room->area()->empty) {
+			ch->in_room->area()->empty = FALSE;
+			ch->in_room->area()->age = 0;
+		}
+
+		++ch->in_room->area()->nplayer;
+	}
+*/
+	if (IS_NPC(ch))
+		return;
+
+	if (IS_IMMORTAL(ch))
+		_num_imms++;
+	else
+		_num_players++;
+}
+
+void Area::
+remove_char(Character *ch) {
+	if (IS_NPC(ch))
+		return;
+
+	// very slim chance of someone entering a room as a mortal
+	// and leaving as an immortal, or vice versa.  rather than
+	// complicated extra logic, just limit the potential damage
+	// and fix it with a reboot.
+	if (IS_IMMORTAL(ch))
+		_num_imms = UMAX(0, _num_imms-1);
+	else
+		_num_players = UMAX(0, _num_players-1);
+}
+
 /* pick a random room to reset into -- Montrey */
 
 Room * Area::
-get_random_reset_room() const
+get_random_reset_room(const MobilePrototype *mob)
 {
-	Room *room;
-	int count, pick = 0, pass = 1;
+	if (region == nullptr
+	 || region->allowed_mob_resets.count(mob->vnum) == 0)
+		return nullptr;
+
+	int pick = 0, pass = 1;
 
 	while (pass <= 2) {
-		count = 0;
-		for (Vnum vnum = min_vnum; vnum <= max_vnum; vnum = vnum.value()+1) {
-			if ((room = get_room(vnum)) == nullptr)
+		int count = 0;
+
+		for (auto& entry : rooms) {
+
+			Room *room = entry.second;
+
+			if (region->allowed_room_resets.count(room->prototype.vnum) == 0)
 				continue;
 
 			if (room->flags().has_any_of(ROOM_NO_MOB

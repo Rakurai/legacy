@@ -5,6 +5,7 @@
 #include "Weather.hh"
 #include "QuestArea.hh"
 #include "worldmap/Quadtree.hh"
+#include "worldmap/Worldmap.hh"
 #include "Room.hh"
 #include <vector>
 
@@ -22,8 +23,22 @@ public:
 	std::vector<Area *> areas;
 
 	Area *get_area(const Vnum&) const;
+	bool valid() const {
+		return (
+			overworld.height() > 0
+		 && overworld.width() > 0
+		);
+	}
 
-	worldmap::Quadtree<Room> maptree{128};
+	worldmap::Worldmap overworld;
+	worldmap::Quadtree<Room> maptree;
+
+	void get_minimap(Character *ch, std::vector<String>& v) const;
+
+    ObjectPrototype *get_obj_prototype(const Vnum&);
+    MobilePrototype *get_mob_prototype(const Vnum&);
+    RoomPrototype *get_room_prototype(const Vnum&);
+	Room *get_room(const Location&);
 
 private:
 	World();

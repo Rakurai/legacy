@@ -1066,54 +1066,18 @@ D2
 The dusty trail leads south towards the gate.
 ~
 ~
-0 -1 3907
+0 -1 307
 D3
 The dusty trail winds close up to the north wall of Midgaard.
 ~
 ~
 0 -1 3905
 S
-#3907
-East trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
-To the west the wall towers over you and far to the east you see
-some mountains. The trail leads north and south along the wall. 
-~
-0 0 2
-D0
-To the north you notice the path makes a turn, following the City wall. 
-~
-~
-0 -1 3906
-D2
-The dusty trail continues towards the south.
-~
-~
-0 -1 3908
-S
-#3908
-East trail around Midgaard~
-You are on a dusty trail following the outside wall of Midgaard.
-To the west the wall towers over you and far to the east you see
-some mountains. The trail leads north and south along the wall. 
-~
-0 0 2
-D0
-The dusty trail winds north closely to the wall.
-~
-~
-0 -1 3907
-D2
-The dusty trail leads to outside the east gate of Midgaard.
-~
-~
-0 -1 3053
-S
 #4000
 The hills~
 You are on a small bewildered path winding its way between the hills in
 lack of better things to do. To the south you have a splendid view over the
-flat, vast, desolate plains. To the north the hills grow steadily darker and
+Miden'nir forest. To the north the hills grow steadily darker and
 foreboding. This is the cause of no sunset, it is rather the power of evil
 penetrating these quiet hills. Glancing around you notice only a single bird.
 The mountains of the dwarven kingdom rise up to your east, you can barely
@@ -1132,7 +1096,7 @@ You see the mountains of the dwarven kingdom.
 D2
 ~
 ~
-0 0 3500
+0 0 303
 S
 #4001
 The hills~

@@ -1666,20 +1666,20 @@ void kill_off(Character *ch, Character *victim)
 
 	// announcements
 	if (!IS_NPC(victim)) {
-		Format::sprintf(log_buf, "%s killed by %s at %d", victim->name,
-		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->vnum());
+		Format::sprintf(log_buf, "%s killed by %s at %s", victim->name,
+		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->location.to_string());
 		Logging::log(log_buf);
-		Format::sprintf(log_buf, "<PK> %s was slain by %s at [{W%d{x] [{W%d Exp{x]",
+		Format::sprintf(log_buf, "<PK> %s was slain by %s at [{W%s{x] [{W%d Exp{x]",
 		        victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name),
-		        ch->in_room->vnum(), IS_NPC(ch) ? 0 : gxp);
+		        ch->in_room->location.to_string(), IS_NPC(ch) ? 0 : gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_DEATHS, 0, 0);
 		Format::sprintf(buf, "%s has been slain by %s.",  victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
 	}
 	else {
-		Format::sprintf(log_buf, "%s got ToAsTeD by %s at [{W%d{x] [{W%d Exp{x]",
+		Format::sprintf(log_buf, "%s got ToAsTeD by %s at [{W%s{x] [{W%d Exp{x]",
 		        (IS_NPC(victim) ? victim->short_descr : victim->name),
-		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->vnum(), gxp);
+		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->location.to_string(), gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_MOBDEATHS, 0, 0);
 	}
 
@@ -2634,7 +2634,7 @@ void make_corpse(Character *ch)
 
 	if (IS_NPC(ch)) {
 		name          = ch->short_descr;
-		corpse        = create_object(get_obj_index(OBJ_VNUM_CORPSE_NPC), 0);
+		corpse        = create_object(Game::world().get_obj_prototype(OBJ_VNUM_CORPSE_NPC), 0);
 
 		if (! corpse) {
 			Logging::bug("Error creating corpse in make_corpse.", 0);
@@ -2653,7 +2653,7 @@ void make_corpse(Character *ch)
 	}
 	else {
 		name            = ch->name;
-		corpse          = create_object(get_obj_index(OBJ_VNUM_CORPSE_PC), 0);
+		corpse          = create_object(Game::world().get_obj_prototype(OBJ_VNUM_CORPSE_PC), 0);
 
 		if (! corpse) {
 			Logging::bug("Memory error making corpse in make_corpse.", 0);
@@ -2734,11 +2734,11 @@ void make_corpse(Character *ch)
 	}
 
 	if (char_at_war(ch))
-		obj_to_room(corpse, get_room(ch->clan->hall));
+		obj_to_room(corpse, Game::world().get_room(ch->clan->recall));
 	else if (IS_NPC(ch) || ch->level >= 50)
 		obj_to_room(corpse, ch->in_room);
 	else
-		obj_to_room(corpse, get_room(ROOM_VNUM_MORGUE));
+		obj_to_room(corpse, Game::world().get_room(Location(Vnum(ROOM_VNUM_MORGUE))));
 } /* end make_corpse */
 
 /* Improved Death_cry contributed by Diavolo. */
@@ -2814,7 +2814,7 @@ void death_cry(Character *ch)
 		Object *obj;
 		String name;
 		name       = IS_NPC(ch) ? ch->short_descr : ch->name;
-		obj        = create_object(get_obj_index(vnum), 0);
+		obj        = create_object(Game::world().get_obj_prototype(vnum), 0);
 
 		if (! obj) {
 			Logging::bug("Memory error creating object in death_cry.", 0);
@@ -2894,7 +2894,7 @@ void raw_kill(Character *victim)
 			duel_kill(victim);
 		else {
 			char_from_room(victim);
-			char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
+			char_to_room(victim, Game::world().get_room(Location(Vnum(ROOM_VNUM_ALTAR))));
 		}
 	}
 
@@ -3988,7 +3988,7 @@ void do_battle(Character *ch, String argument)
 			return;
 		}
 
-		if ((location = get_room(ROOM_VNUM_ARENACENTER)) == nullptr) {
+		if ((location = Game::world().get_room(Location(Vnum(ROOM_VNUM_ARENACENTER)))) == nullptr) {
 			stc("The arena is missing.\n", ch);
 			return;
 		}
@@ -4054,7 +4054,7 @@ void do_battle(Character *ch, String argument)
 			return;
 		}
 
-		if ((location = get_room(ROOM_VNUM_ARENACENTER)) == nullptr) {
+		if ((location = Game::world().get_room(Location(Vnum(ROOM_VNUM_ARENACENTER)))) == nullptr) {
 			stc("The arena is missing.\n", ch);
 			return;
 		}

@@ -64,8 +64,11 @@ const std::map<Sector, int> stamina_loss = {
 	{ Sector::none,          0 },
 	{ Sector::inside,        1 },
 	{ Sector::city,          2 },
+	{ Sector::road,          2 },
 	{ Sector::field,         2 },
-	{ Sector::forest,        3 },
+	{ Sector::forest_sparse, 3 },
+	{ Sector::forest_medium, 4 },
+	{ Sector::forest_dense,  6 },
 	{ Sector::hills,         4 },
 	{ Sector::mountain,      6 },
 	{ Sector::water_swim,    4 },
@@ -1645,22 +1648,22 @@ void recall(Character *ch, bool clan)
 	/* default locations, can be changed in the following ifs */
 	if (clan) {
 		if (pet)
-			location = get_room(ch->master->clan->hall);
+			location = Game::world().get_room(ch->master->clan->recall);
 		else
-			location = get_room(ch->clan->hall);
+			location = Game::world().get_room(ch->clan->recall);
 	}
 	else
-		location = get_room(ROOM_VNUM_TEMPLE);
+		location = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
 
 	/* Recall from Clan's Arena */
 	if (ch->in_room->sector_type() == Sector::clanarena && !clan && ch->fighting) {
 		if (pet)
-			location = get_room(ch->master->clan->hall);
+			location = Game::world().get_room(ch->master->clan->recall);
 		else
-			location = get_room(ch->clan->hall);
+			location = Game::world().get_room(ch->clan->recall);
 
 		if (location == nullptr)
-			location = get_room(ROOM_VNUM_TEMPLE);
+			location = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
 	}
 	else if (ch->in_room->sector_type() == Sector::arena) {
 		Descriptor *d;
@@ -1696,7 +1699,7 @@ void recall(Character *ch, bool clan)
 			return;
 		}
 
-		location = get_room(ROOM_VNUM_ARENACENTER);
+		location = Game::world().get_room(Location(Vnum(ROOM_VNUM_ARENACENTER)));
 	}
 
 	if (location == nullptr) {
@@ -2608,7 +2611,7 @@ void do_mark(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->in_room == nullptr || ch->in_room->vnum() == 0) {
+	if (ch->in_room == nullptr) {
 		stc("You are lost! You would not want to return here.\n", ch);
 		return;
 	}
@@ -2624,7 +2627,7 @@ void do_mark(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::mark))
 		return;
 
-	ch->pcdata->mark_room = ch->in_room->vnum();
+	ch->pcdata->mark_room = ch->in_room->location;
 	stc("You mark this location. RELOCATE will get you back here.\n", ch);
 } /* end do_mark() */
 
@@ -2643,12 +2646,12 @@ void do_relocate(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->pcdata->mark_room == 0) {
+	if (!ch->pcdata->mark_room.is_valid()) {
 		stc("You do not remember marking any room.\n", ch);
 		return;
 	}
 
-	target_room = get_room(ch->pcdata->mark_room);
+	target_room = Game::world().get_room(ch->pcdata->mark_room);
 
 	if (target_room == nullptr) {
 		stc("The way back to the room you marked has been lost.\n", ch);
@@ -2656,7 +2659,7 @@ void do_relocate(Character *ch, String argument)
 	}
 
 	/* Hack to prevent players from relocating out of 1212 */
-	if (ch->in_room->vnum() == 1212) {
+	if (ch->in_room->location == Location(Vnum(1212))) {
 		stc("You cannot relocate out of this room.\n", ch);
 		return;
 	}
@@ -2826,7 +2829,7 @@ void do_warp(Character *ch, String argument)
 	target_room = crystal->in_room;
 
 	/* Hack to prevent players from relocating out of 1212 */
-	if (ch->in_room->vnum() == 1212) {
+	if (ch->in_room->location == Location(Vnum(1212))) {
 		stc("You cannot warp out of this room.\n", ch);
 		return;
 	}
@@ -2875,33 +2878,51 @@ void do_warp(Character *ch, String argument)
 /* random room generation procedure */
 Room *get_random_room(Character *ch)
 {
-	Room *room, *prev;
+	int pick = 0, pass = 1;
 
-	for (; ;) {
-		room = get_room(number_range(0, 32767));
+	while (pass <= 2) {
+		int count = 0;
 
-		if (room == nullptr
-		    || !can_see_room(ch, room)
-		    || room->area() == Game::world().quest.area()
-		    || room->clan()
-		    || room->guild()
-		    || room->area().name == "Playpen"
-		    || room->area().name == "IMM-Zone"
-		    || room->area().name == "Limbo"
-		    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
-		    || room->area().name == "Torayna Cri"
-		    || room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
-		    || (IS_NPC(ch) && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
-		    || room->sector_type() == Sector::arena)
-			continue;
+		for (auto area : Game::world().areas) {
+			for (auto& entry : area->rooms) {
 
-		/* no pet shops */
-		if ((prev = get_room(room->vnum().value() - 1)) != nullptr)
-			if (prev->flags().has(ROOM_PET_SHOP))
-				continue;
+				Room *room = entry.second;
 
-		return room;
+				if (room == nullptr
+				    || !can_see_room(ch, room)
+				    || room->area() == Game::world().quest.area()
+				    || room->clan()
+				    || room->guild()
+				    || room->area().name == "Playpen"
+				    || room->area().name == "IMM-Zone"
+				    || room->area().name == "Limbo"
+				    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
+				    || room->area().name == "Torayna Cri"
+				    || room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
+				    || (IS_NPC(ch) && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
+				    || room->sector_type() == Sector::arena)
+					continue;
+
+				/* no pet shops */
+				Room *prev;
+				if ((prev = Game::world().get_room(Location(Vnum(room->prototype.vnum.value() - 1)))) != nullptr)
+					if (prev->flags().has(ROOM_PET_SHOP))
+						continue;
+
+				count++;
+
+				if (pass == 2 && count == pick)
+					return room;
+			}
+		}
+
+		if (pass++ == 2 || count == 0)
+			break;
+
+		pick = number_range(0, count);
 	}
+
+	return nullptr;
 }
 
 void do_enter(Character *ch, String argument)
@@ -2950,12 +2971,12 @@ void do_enter(Character *ch, String argument)
 
 		if (portal->value[2].flags().has(GATE_RANDOM) || portal->value[3] == -1) {
 			location = get_random_room(ch);
-			portal->value[3] = location->vnum(); /* for record keeping :) */
+			portal->value[3] = location->location.to_int(); /* for record keeping :) */
 		}
 		else if (portal->value[2].flags().has(GATE_BUGGY) && (number_percent() < 5))
 			location = get_random_room(ch);
 		else
-			location = get_room(portal->value[3]);
+			location = Game::world().get_room(Location((int)portal->value[3]));
 
 		if (location == nullptr
 		    || location == old_room

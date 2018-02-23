@@ -602,8 +602,11 @@ const std::vector<field_type> flag_fields = {
 const std::vector<sector_type> sector_table = {
 	{       "indoors",      Sector::inside             },
 	{       "city",         Sector::city               },
+	{       "road",         Sector::road               },
 	{       "field",        Sector::field              },
-	{       "forest",       Sector::forest             },
+	{       "sparse forest",Sector::forest_sparse      },
+	{       "forest",       Sector::forest_medium      },
+	{       "dense forest", Sector::forest_dense       },
 	{       "hills",        Sector::hills              },
 	{       "mountain",     Sector::mountain   },
 	{       "water",        Sector::water_swim },
@@ -612,6 +615,7 @@ const std::vector<sector_type> sector_table = {
 	{       "desert",       Sector::desert             },
 	{       "arena",        Sector::arena              },
 	{       "clan arena",   Sector::clanarena  },
+	{       "area entrance",Sector::area_entrance      },
 };
 
 /* various flag tables */

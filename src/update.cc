@@ -27,6 +27,7 @@
 
 #include "act.hh"
 #include "affect/Affect.hh"
+#include "Area.hh"
 #include "Auction.hh"
 #include "channels.hh"
 #include "Character.hh"
@@ -553,7 +554,7 @@ void descrip_update(void)
 							save_char_obj(ch);
 
 						char_from_room(ch);
-						char_to_room(ch, get_room(ROOM_VNUM_LIMBO));
+						char_to_room(ch, Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))));
 					}
 				}
 			}
@@ -704,7 +705,7 @@ void char_update(void)
 						save_char_obj(ch);
 
 					char_from_room(ch);
-					char_to_room(ch, get_room(ROOM_VNUM_LIMBO));
+					char_to_room(ch, Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))));
 				}
 			}
 
@@ -1012,55 +1013,52 @@ void obj_update(void)
 }
 
 /* Update all rooms -- Montrey */
-void room_update(void)
-{
-	Room *room;
-	int x;
+void room_update(void) {
+	for (auto area : Game::world().areas) {
+		for (auto& pair : area->rooms) {
+			Room *room = pair.second;
 
-	for (x = 1; x < 32600; x++) {
-		if ((room = get_room(x)) == nullptr)
-			continue;
+			// print the affects that are wearing off.  this is complicated because
+			// we may have more than one affect that is part of the same group, and
+			// we also don't want to print a 'wearing off' message for affects that
+			// are duplicated (for some reason).  so, the hackish solution is to sort
+			// the list twice: once by duration, and then by skill number.  this
+			// should get all the grouped spells together.
+			affect::sort_room(room, affect::comparator_duration);
+			affect::sort_room(room, affect::comparator_type);
 
-		// print the affects that are wearing off.  this is complicated because
-		// we may have more than one affect that is part of the same group, and
-		// we also don't want to print a 'wearing off' message for affects that
-		// are duplicated (for some reason).  so, the hackish solution is to sort
-		// the list twice: once by duration, and then by skill number.  this
-		// should get all the grouped spells together.
-		affect::sort_room(room, affect::comparator_duration);
-		affect::sort_room(room, affect::comparator_type);
+			for (const affect::Affect *paf = affect::list_room(room); paf; paf = paf->next) {
+				if (paf->duration == 0) {
+					if (paf->next == nullptr
+					 || paf->next->type != paf->type
+					 || paf->next->duration > 0) {
 
-		for (const affect::Affect *paf = affect::list_room(room); paf; paf = paf->next) {
-			if (paf->duration == 0) {
-				if (paf->next == nullptr
-				 || paf->next->type != paf->type
-				 || paf->next->duration > 0) {
+						if (!room->people)
+							continue;
 
-					if (!room->people)
-						continue;
+						/* there is no msg_room for spells, so we'll use msg_obj for
+						   room affect spells.  might change this later, but i really
+						   don't feel like adding another ,"" to all those entries
+						   right now :P -- Montrey */
+						String message = affect::lookup(paf->type).msg_obj;
 
-					/* there is no msg_room for spells, so we'll use msg_obj for
-					   room affect spells.  might change this later, but i really
-					   don't feel like adding another ,"" to all those entries
-					   right now :P -- Montrey */
-					String message = affect::lookup(paf->type).msg_obj;
-
-					if (!message.empty())
-						act(message, nullptr, nullptr, nullptr, TO_ALL);
+						if (!message.empty())
+							act(message, nullptr, nullptr, nullptr, TO_ALL);
+					}
 				}
 			}
+
+			// now remove spells with duration 0
+			affect::Affect pattern;
+			pattern.duration = 0;
+			affect::remove_matching_from_room(room, affect::comparator_duration, &pattern);
+
+			// decrement duration and sometimes decrement level.  this is done after
+			// the wearing off of spells with duration 0, because we use -1 to mean
+			// indefinite and players are used to having spell counters go down to 0
+			// before they wear off.
+			affect::iterate_over_room(room, affect::fn_fade_spell, nullptr);
 		}
-
-		// now remove spells with duration 0
-		affect::Affect pattern;
-		pattern.duration = 0;
-		affect::remove_matching_from_room(room, affect::comparator_duration, &pattern);
-
-		// decrement duration and sometimes decrement level.  this is done after
-		// the wearing off of spells with duration 0, because we use -1 to mean
-		// indefinite and players are used to having spell counters go down to 0
-		// before they wear off.
-		affect::iterate_over_room(room, affect::fn_fade_spell, nullptr);
 	}
 }
 
@@ -1295,10 +1293,10 @@ void tele_update(void)
 		if (ch->in_room->flags().has(ROOM_TELEPORT)) {
 			do_look(ch, "tele");
 
-			if (ch->in_room->tele_dest() == 0)
+			if (!ch->in_room->tele_dest().is_valid())
 				room = get_random_room(ch);
 			else
-				room = get_room(ch->in_room->tele_dest());
+				room = Game::world().get_room(ch->in_room->tele_dest());
 
 			char_from_room(ch);
 			char_to_room(ch, room);
@@ -1469,7 +1467,7 @@ void janitor_update()
 			continue;
 
 		if (obj->reset && obj->reset->command == 'O')
-			if (obj->reset->arg3 == obj->in_room->vnum())
+			if (Location((int)obj->reset->arg3) == obj->in_room->location)
 				continue;
 
 		for (rch = obj->in_room->people; rch; rch = rch->next_in_room)
@@ -1568,7 +1566,7 @@ void quest_update(void)
 					ch->quest_giver = 0;
 					ch->countdown = 0;
 					ch->questmob = 0;
-					ch->questloc = 0;
+					ch->questloc = Location();
 				}
 
 				if (ch->countdown > 0 && ch->countdown < 6)

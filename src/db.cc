@@ -169,6 +169,11 @@ void boot_db()
 		}
 	}
 
+	// go ahead and preload the world, although the first call would do it too
+	if (!Game::world().valid()) {
+		exit(1);
+	}
+
 	/* Load the clan info, needs to be done before the areas due to clanrooms */
 	{
 		load_clan_table();
@@ -406,7 +411,7 @@ void load_shops(FILE *fp)
 		pShop->open_hour        = fread_number(fp);
 		pShop->close_hour       = fread_number(fp);
 		fread_to_eol(fp);
-		pMobIndex               = get_mob_index(pShop->keeper);
+		pMobIndex               = Game::world().get_mob_prototype(pShop->keeper);
 
 		if (pMobIndex == nullptr) {
 			boot_bug("Load_shops: NULL mob index %d", pShop->keeper);
@@ -450,7 +455,7 @@ void load_specials(FILE *fp)
 			break;
 
 		case 'M':
-			pMobIndex           = get_mob_index(fread_number(fp));
+			pMobIndex           = Game::world().get_mob_prototype(fread_number(fp));
 
 			if (!pMobIndex) {
 				boot_bug("Load_specials: 'M': vnum %d.", pMobIndex->vnum);
@@ -477,29 +482,8 @@ void load_specials(FILE *fp)
 // worthwhile (possibly true because of searching by area, only have to look
 // up each prototype vnum)
 void create_rooms() {
-	for (const Area *area : Game::world().areas) {
-		for (const auto& pair : area->room_prototypes) {
-			const auto& vnum = pair.first;
-			const auto prototype = pair.second;
-
-			// skip rooms associated with a region color
-			if (area->region != nullptr 
-			 && area->region->vnum_to_color(vnum) != worldmap::MapColor::uncolored)
-				continue;
-
-			Room *room = new Room(*prototype);
-
-			if (room == nullptr) {
-				boot_bug("Create_rooms: unable to create room from prototype %d.", vnum);
-				exit(1);
-			}
-
-			prototype->rooms.push_back(room);
-		}
-
-		// load rooms in region
-		if (area->region != nullptr)
-			area->region->load_rooms();
+	for (Area *area : Game::world().areas) {
+		area->create_rooms();
 	}
 }
 
@@ -511,62 +495,61 @@ void create_rooms() {
 void fix_exits(void)
 {
 	for (const Area *area : Game::world().areas) {
-		for (const auto& pair : area->room_prototypes) {
-			const auto& vnum = pair.first;
-			const auto prototype = pair.second;
+		for (const auto& pair : area->rooms) {
+			const auto& location = pair.first;
+			Room* room = pair.second;
 
-			for (auto room : prototype->rooms) {
-				bool found_exit = FALSE;
+			bool found_exit = FALSE;
 
-				for (int door = 0; door <= 5; door++) {
-					if (room->prototype.exit[door] == nullptr)
-						continue;
+			for (int door = 0; door <= 5; door++) {
+				if (room->prototype.exit[door] == nullptr)
+					continue;
 
-					if (room->is_on_map() && room->prototype.exit[door]->to_vnum == 0) {
-						// an auto-exit to connect up rooms on the map
-						int from_x = room->coord.x;
-						int from_y = room->coord.y;
-						int to_x, to_y;
+				if (room->is_on_map() && room->prototype.exit[door]->to_vnum == 0) {
+					// an auto-exit to connect up rooms on the map
+					worldmap::Coordinate from = room->location.coord;
+					int to_x, to_y;
 
-						switch (door) {
-							case 0: to_x = from_x;   to_y = from_y-1; break;
-							case 1: to_x = from_x+1; to_y = from_y;   break;
-							case 2: to_x = from_x;   to_y = from_y+1; break;
-							case 3: to_x = from_x-1; to_y = from_y;   break;
-							default:
-								Logging::bugf("fix_exits: room %d has bad auto-exit in direction %d",
-									vnum, door);
-								continue;
-						}
+					switch (door) {
+						case 0: to_x = from.x;   to_y = from.y-1; break;
+						case 1: to_x = from.x+1; to_y = from.y;   break;
+						case 2: to_x = from.x;   to_y = from.y+1; break;
+						case 3: to_x = from.x-1; to_y = from.y;   break;
+						default:
+							Logging::bugf("fix_exits: room at %s has bad auto-exit in direction %d",
+								location.to_string(), door);
+							continue;
+					}
 
-						Room *dest = area->world.maptree.get(to_x, to_y);
+					Room *dest = area->world.maptree.get(worldmap::Coordinate(to_x, to_y));
 
-						if (dest == nullptr)
-							continue; // no error, just no rooms in that direction
+					if (dest == nullptr) {
+//							Logging::bugf("room %d, direction %d, no room", vnum, door);
+						continue; // no error, just no rooms in that direction
+					}
 fBootDb = FALSE;
-						room->exit[door] = new Exit(*room->prototype.exit[door]);
+					room->exit[door] = new Exit(*room->prototype.exit[door], dest);
 fBootDb = TRUE;
-						room->exit[door]->to_room = dest;
-						found_exit = TRUE;
-						continue;
-					}
-
-					room->exit[door] = new Exit(*room->prototype.exit[door]);
-
-					if (room->exit[door]->to_room == nullptr) {
-						delete room->exit[door]->to_room;
-						room->exit[door] = nullptr;
-						Logging::bugf("fix_exits: room %d has unknown exit vnum %d.",
-							vnum, room->prototype.exit[door]->to_vnum);
-					}
-
-					if (room->exit[door])
-						found_exit = TRUE;
+					found_exit = TRUE;
+					continue;
 				}
 
-				if (!found_exit)
-					room->room_flags += ROOM_NO_MOB;
+				Room *dest = Game::world().get_room(Location(Vnum(room->prototype.exit[door]->to_vnum)));
+				room->exit[door] = new Exit(*room->prototype.exit[door], dest);
+
+				if (room->exit[door]->to_room == nullptr) {
+					delete room->exit[door]->to_room;
+					room->exit[door] = nullptr;
+					Logging::bugf("fix_exits: room at %s has unknown exit vnum %d.",
+						location.to_string(), room->prototype.exit[door]->to_vnum);
+				}
+
+				if (room->exit[door])
+					found_exit = TRUE;
 			}
+
+			if (!found_exit)
+				room->room_flags += ROOM_NO_MOB;
 		}
 	}
 }

@@ -29,6 +29,7 @@
 #include <map>
 
 #include "affect/Affect.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "lootv2.hh"
 #include "Object.hh"
@@ -148,7 +149,7 @@ Object *generate_eq(int objlevel){
 
 
 	// create the object
-	Object *obj = create_object(get_obj_index(vnum), objlevel);
+	Object *obj = create_object(Game::world().get_obj_prototype(vnum), objlevel);
 
 	if (obj == nullptr) {
 		Logging::bug("Error making obj with vnum %d in generate_eq.", vnum);

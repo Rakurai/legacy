@@ -62,6 +62,7 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
@@ -232,7 +233,7 @@ void copyover_recover()
 
 		/* Just In Case */
 		if (!d->character->in_room)
-			d->character->in_room = get_room(ROOM_VNUM_TEMPLE);
+			d->character->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
 
 		/* Insert in the char_list */
 		d->character->next = char_list;
@@ -871,7 +872,7 @@ void close_socket(Descriptor *dclose)
 						Room *location;
 
 						if (ch->in_room == nullptr)
-							location = get_room(ROOM_VNUM_MORGUE);
+							location = Game::world().get_room(Location(Vnum(ROOM_VNUM_MORGUE)));
 						else
 							location = ch->in_room;
 
@@ -1328,7 +1329,7 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'R':
 			if (IS_IMMORTAL(ch) && ch->in_room != nullptr)
-				buf += Format::format("%d", ch->in_room->vnum());
+				buf += Format::format("%s", ch->in_room->location.to_string());
 			else
 				buf += ' ';
 
@@ -1362,15 +1363,15 @@ void bust_a_prompt(Character *ch)
 				if (ch->questmob == -1 || ch->questobf == -1)
 					buf += "*report!*";
 				else if (ch->questobj > 0) {
-//					if ((questinfoobj = get_obj_index(ch->questobj)) != nullptr)
+//					if ((questinfoobj = Game::world().get_obj_prototype(ch->questobj)) != nullptr)
 //						Format::sprintf(buf2, "%s", questinfoobj->name);
-					if (ch->questloc > 0)
-						buf += get_room(ch->questloc)->name().uncolor();
+					if (ch->questloc.is_valid())
+						buf += Game::world().get_room(ch->questloc)->name().uncolor();
 					else
 						buf += "Unknown";
 				}
 				else if (ch->questmob > 0) {
-					if ((questinfo = get_mob_index(ch->questmob)) != nullptr)
+					if ((questinfo = Game::world().get_mob_prototype(ch->questmob)) != nullptr)
 						buf += questinfo->short_descr.uncolor();
 					else
 						buf += "Unknown";
@@ -1401,7 +1402,7 @@ void bust_a_prompt(Character *ch)
 				if (ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob == nullptr) {
 					if (!ch->pcdata->squestobjf)
 //						buf += ch->pcdata->squestobj->short_descr;
-						buf += get_room(ch->pcdata->squestloc1)->name().uncolor();
+						buf += Game::world().get_room(ch->pcdata->squestloc1)->name().uncolor();
 					else
 						buf += "*report!*";
 				}
@@ -1420,7 +1421,7 @@ void bust_a_prompt(Character *ch)
 					}
 					else
 //						buf += ch->pcdata->squestobj->short_descr;
-						buf += get_room(ch->pcdata->squestloc1)->name().uncolor();
+						buf += Game::world().get_room(ch->pcdata->squestloc1)->name().uncolor();
 				}
 				else
 					buf += "Unknown";
@@ -1570,7 +1571,7 @@ void stop_idling(Character *ch)
 	if (ch == nullptr
 	    ||   !IS_PLAYING(ch->desc)
 	    ||   ch->was_in_room == nullptr
-	    ||   ch->in_room != get_room(ROOM_VNUM_LIMBO))
+	    ||   ch->in_room != Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))))
 		return;
 
 	ch->desc->timer = 0;

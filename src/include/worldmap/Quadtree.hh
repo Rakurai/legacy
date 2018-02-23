@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Coordinate.hh"
+
 namespace worldmap {
 
 template<class T>
@@ -15,53 +17,53 @@ public:
 		// data is not owned here
 	}
 
-	void put(T *data, unsigned int x, unsigned int y) {
+	void put(T *data, const Coordinate& coord) {
 		if (capacity == 1) {
 			this->data = data;
 			return;
 		}
 
-		unsigned int index = get_child_index(x, y);
+		unsigned int index = get_child_index(coord);
 
 		if (children[index] == nullptr)
 			children[index] = new Quadtree<T>(capacity/2);
 
-		children[index]->put(data,
-			x % (capacity/2),
-			y % (capacity/2)
-		);
+		children[index]->put(data, Coordinate(
+			coord.x % (capacity/2),
+			coord.y % (capacity/2)
+		));
 	}
 
-	T *get(unsigned int x, unsigned int y) const {
+	T *get(const Coordinate& coord) const {
 		if (capacity == 1)
 			return data;
 
-		unsigned int index = get_child_index(x, y);
+		unsigned int index = get_child_index(coord);
 
 		if (children[index] == nullptr)
 			return nullptr;
 
-		return children[index]->get(
-			x % (capacity/2),
-			y % (capacity/2)
-		);
+		return children[index]->get(Coordinate(
+			coord.x % (capacity/2),
+			coord.y % (capacity/2)
+		));
 	}
 
-	void remove(unsigned int x, unsigned int y) {
+	void remove(const Coordinate& coord) {
 		if (capacity == 1) {
 			data = nullptr;
 			return;
 		}
 
-		unsigned int index = get_child_index(x, y);
+		unsigned int index = get_child_index(coord);
 
 		if (children[index] == nullptr)
 			return;
 
-		children[index]->remove(
-			x % (capacity/2),
-			y % (capacity/2)
-		);
+		children[index]->remove(Coordinate(
+			coord.x % (capacity/2),
+			coord.y % (capacity/2)
+		));
 
 		if (!children[index]->is_used()) {
 			delete children[index];
@@ -74,9 +76,9 @@ private:
 	Quadtree(const Quadtree&);
 	Quadtree& operator=(const Quadtree&);
 
-	unsigned int get_child_index(unsigned int x, unsigned int y) const {
-		unsigned int xchild = 2 * x / capacity; //  west = 0,  east = 1
-		unsigned int ychild = 2 * y / capacity; // north = 0, south = 1
+	unsigned int get_child_index(const Coordinate& coord) const {
+		unsigned int xchild = 2 * coord.x / capacity; //  west = 0,  east = 1
+		unsigned int ychild = 2 * coord.y / capacity; // north = 0, south = 1
 		return xchild + ychild * 2;
 	}
 

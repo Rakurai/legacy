@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include <vector>
+#include <sstream>
 
 #include "act.hh"
 #include "argument.hh"
@@ -71,6 +72,7 @@
 #include "Weather.hh"
 #include "World.hh"
 #include "gem/gem.hh"
+#include "Location.hh"
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 
@@ -106,6 +108,7 @@ void    show_char_to_char_0     args((Character *victim, Character *ch));
 void    show_char_to_char_1     args((Character *victim, Character *ch));
 void    show_char_to_char       args((Character *list, Character *ch));
 bool    check_blind             args((Character *ch));
+const String list_exits(Character *ch, bool fAuto);
 
 String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 {
@@ -1658,14 +1661,21 @@ void do_look(Character *ch, String argument)
 		if (ch->in_room == nullptr)
 			return;
 
+		std::vector<String> minimap;
+		Game::world().get_minimap(ch, minimap); // fill it, could be empty
+		unsigned int map_line = 0;
+
+		if (minimap.size() > map_line)
+			stc(minimap[map_line++] + "  ", ch);
+
 		/* 'look' or 'look auto' */
 		new_color(ch, CSLOT_MISC_ROOM);
 		stc(ch->in_room->name(), ch);
 		set_color(ch, WHITE, NOBOLD);
 
 		if (IS_IMMORTAL(ch)) {
-			Format::sprintf(buf, " [%d] (%s) (%d)",
-			        ch->in_room->vnum(),
+			Format::sprintf(buf, " [%s] (%s) (%d)",
+			        ch->in_room->location.to_string(),
 			        ch->in_room->area().name,
 			        ch->in_room->area().num_players());
 			set_color(ch, WHITE, BOLD);
@@ -1675,16 +1685,30 @@ void do_look(Character *ch, String argument)
 
 		stc("\n", ch);
 
+		String text;
+
 		if (arg1.empty()
 		    || (!IS_NPC(ch) && !ch->comm_flags.has(COMM_BRIEF))) {
-			stc("  ", ch);
-			stc(ch->in_room->description(), ch);
+			text = "  " + ch->in_room->description();
 		}
 
 		if (!IS_NPC(ch) && ch->act_flags.has(PLR_AUTOEXIT)) {
-			stc("\n", ch);
-			do_exits(ch, "auto");
+			text += "\n" + list_exits(ch, TRUE);
 		}
+
+		std::istringstream textstream(text);
+		String line;
+
+		while (std::getline(textstream, line)) {
+			if (minimap.size() > map_line)
+				stc(minimap[map_line++] + "  ", ch);
+
+			set_color(ch, WHITE, NOBOLD);
+			stc(line + "\n", ch);
+		}
+
+		while (minimap.size() > map_line)
+			stc(minimap[map_line++] + "\n", ch);
 
 		new_color(ch, CSLOT_MISC_OBJECTS);
 		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE, FALSE);
@@ -1763,7 +1787,7 @@ void do_look(Character *ch, String argument)
 				return;
 			}
 
-			if (ch->in_room && ch->in_room->vnum() == ROOM_VNUM_STRONGBOX) {
+			if (ch->in_room && ch->in_room->location == Location(Vnum(ROOM_VNUM_STRONGBOX))) {
 				stc("Your strongbox contains:\n", ch);
 				ch->act_flags += PLR_LOOKINPIT;
 				show_list_to_char(ch->pcdata->strongbox, ch, TRUE, TRUE, FALSE);
@@ -1831,7 +1855,7 @@ void do_look(Character *ch, String argument)
 			break;
 
 		case ITEM_PORTAL:
-			if ((location = get_room(obj->value[3])) == nullptr) {
+			if ((location = Game::world().get_room(Location((int)obj->value[3]))) == nullptr) {
 				if (!obj->contains)
 					stc("It looks very empty..\n", ch);
 
@@ -1844,7 +1868,7 @@ void do_look(Character *ch, String argument)
 			set_color(ch, WHITE, NOBOLD);
 
 			if (IS_IMMORTAL(ch)) {
-				Format::sprintf(buf, " [Room %d]", location->vnum());
+				Format::sprintf(buf, " [Room %s]", location->location.to_string());
 				set_color(ch, RED, NOBOLD);
 				stc(buf, ch);
 				set_color(ch, WHITE, NOBOLD);
@@ -1861,7 +1885,7 @@ void do_look(Character *ch, String argument)
 
 			if (!IS_NPC(ch) && ch->act_flags.has(PLR_AUTOEXIT)) {
 				char showexit[100];
-				Format::sprintf(showexit, "%d exits auto", location->vnum());
+				Format::sprintf(showexit, "%s exits auto", location->location.to_string());
 				do_at(ch, showexit);
 			}
 
@@ -2098,30 +2122,28 @@ void exits_in(Character *ch)
 		return;
 
 	for (const auto area : Game::world().areas) {
-		for (const auto& pair : area->room_prototypes) {
-			const auto proto = pair.second;
+		for (const auto& pair : area->rooms) {
+			const Room *room = pair.second;
 
-			for (auto room : proto->rooms) {
-				for (int i = 0; i < 6; i++) { /* Every exit in the current room */
-					exit = room->exit[i];
+			for (int i = 0; i < 6; i++) { /* Every exit in the current room */
+				exit = room->exit[i];
 
-					if (exit == nullptr)
-						continue;
+				if (exit == nullptr)
+					continue;
 
-					if (exit->to_room == nullptr)
-						continue;
+				if (exit->to_room == nullptr)
+					continue;
 
-					if (exit->to_room == ch->in_room) {   /* Does the exit lead to our room? */
-						found = TRUE;
-						Format::sprintf(buf, "( %-6.6s ) from %s (%d) in (%s)\n",
-						        Exit::dir_name(i),
-						        room->name(),
-						        room->vnum(),
-						        room->area().name);
-						output += buf;
-					} /* End if */
-				} /* End for */
-			}
+				if (exit->to_room == ch->in_room) {   /* Does the exit lead to our room? */
+					found = TRUE;
+					Format::sprintf(buf, "( %-6.6s ) from %s (%s) in (%s)\n",
+					        Exit::dir_name(i),
+					        room->name(),
+					        room->location.to_string(),
+					        room->area().name);
+					output += buf;
+				} /* End if */
+			} /* End for */
 		} /* End for */
 	}
 
@@ -2135,12 +2157,12 @@ void exits_in(Character *ch)
 			if (obj->in_room == nullptr)
 				continue;
 
-			if ((unsigned int)obj->value[3].value() == ch->in_room->vnum()) {
+			if (Location((int)obj->value[3].value()) == ch->in_room->location) {
 				found = TRUE;
-				Format::sprintf(buf, "( Portal ) %s in %s (%d) in (%s)\n",
+				Format::sprintf(buf, "( Portal ) %s in %s (%s) in (%s)\n",
 				        obj->name,
 				        obj->in_room->name(),
-				        obj->in_room->vnum(),
+				        obj->in_room->location.to_string(),
 				        obj->in_room->area().name);
 				output += buf;
 			}                                                          /* End if */
@@ -2153,41 +2175,26 @@ void exits_in(Character *ch)
 	page_to_char(output, ch);
 } /* End do_exits_in */
 
-/*
- * Thanks to Zrin for auto-exit part.
- */
-void do_exits(Character *ch, String argument)
-{
+const String list_exits(Character *ch, bool fAuto) {
 	String buf;
-	Exit *pexit;
-	bool found;
-	bool fAuto;
-	int door;
-
-	if (!check_blind(ch))
-		return;
-
-	if (argument == "in" && IS_IMMORTAL(ch)) {
-		exits_in(ch);
-		return;
-	}
-
-	fAuto  = argument == "auto";
 
 	if (fAuto)
 		Format::sprintf(buf, "[Exits:");
 	else if (IS_IMMORTAL(ch))
-		Format::sprintf(buf, "Obvious exits from room %d:\n", ch->in_room->vnum());
+		Format::sprintf(buf, "Obvious exits from room %s:\n", ch->in_room->location.to_string());
 	else
 		Format::sprintf(buf, "Obvious exits:\n");
 
-	found = FALSE;
+	bool found = FALSE;
 
-	for (door = 0; door <= 5; door++) {
+	for (int door = 0; door <= 5; door++) {
+		const Exit *pexit;
+
 		if ((pexit = ch->in_room->exit[door]) != nullptr
 		    &&   pexit->to_room != nullptr
 		    &&   can_see_room(ch, pexit->to_room)
 		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
+
 			found = TRUE;
 
 			if (fAuto) {
@@ -2203,7 +2210,7 @@ void do_exits(Character *ch, String argument)
 				       );
 
 				if (IS_IMMORTAL(ch))
-					buf += Format::format(" (room %d)\n", pexit->to_room->vnum());
+					buf += Format::format(" (room %s)\n", pexit->to_room->location.to_string());
 				else
 					buf += "\n";
 			}
@@ -2215,6 +2222,24 @@ void do_exits(Character *ch, String argument)
 
 	if (fAuto)
 		buf += "]\n";
+
+	return buf;
+}
+/*
+ * Thanks to Zrin for auto-exit part.
+ */
+void do_exits(Character *ch, String argument)
+{
+	if (!check_blind(ch))
+		return;
+
+	if (argument == "in" && IS_IMMORTAL(ch)) {
+		exits_in(ch);
+		return;
+	}
+
+	bool fAuto = argument == "auto";
+	String buf = list_exits(ch, fAuto);
 
 	set_color(ch, WHITE, BOLD);
 	stc(buf, ch);
@@ -2964,8 +2989,8 @@ void do_where(Character *ch, String argument)
 		return;
 
 	while (arena != arena_table_tail) {
-		if (ch->in_room->vnum() >= arena->minvnum
-		    && ch->in_room->vnum() <= arena->maxvnum)
+		if (ch->in_room->prototype.vnum >= arena->minvnum
+		    && ch->in_room->prototype.vnum <= arena->maxvnum)
 			break;
 
 		arena = arena->next;
@@ -2974,8 +2999,8 @@ void do_where(Character *ch, String argument)
 	if (arena != arena_table_tail) {
 		for (victim = char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
-			    && victim->in_room->vnum() >= arena->minvnum
-			    && victim->in_room->vnum() <= arena->maxvnum
+			    && victim->in_room->prototype.vnum >= arena->minvnum
+			    && victim->in_room->prototype.vnum <= arena->maxvnum
 			    && !victim->in_room->flags().has(ROOM_NOWHERE)
 			    && can_see_char(ch, victim)) {
 				found = TRUE;
@@ -4266,10 +4291,10 @@ void do_unjoin(Character *ch, String argument)
 	victim->clan = nullptr;
 
 	/* boot them from the clanhall */
-	if (victim->in_room->vnum() >= clan->area_minvnum
-	    && victim->in_room->vnum() <= clan->area_maxvnum) {
+	if (victim->in_room->prototype.vnum >= clan->area_minvnum
+	    && victim->in_room->prototype.vnum <= clan->area_maxvnum) {
 		char_from_room(victim);
-		char_to_room(victim, get_room(ROOM_VNUM_ALTAR));
+		char_to_room(victim, Game::world().get_room(Location(Vnum(ROOM_VNUM_ALTAR))));
 		do_look(ch, "auto");
 		stc("You have been removed from the clanhall.\n", victim);
 	}

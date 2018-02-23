@@ -38,6 +38,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "lookup.hh"
 #include "Logging.hh"
 #include "macros.hh"
@@ -1336,6 +1337,19 @@ void do_oset(Character *ch, String argument)
 			return;
 		}
 
+		if (obj->item_type == ITEM_PORTAL) {
+			const Room *room = Game::world().get_room(Location(arg3));
+
+			if (room == nullptr) {
+				ptc(ch, "There is no such location.\n");
+				return;
+			}
+
+			obj->value[3] = room->location.to_int();
+			ptc(ch, "%s's v3 has been set to %s.\n", obj->short_descr, room->location);
+			return;
+		}
+
 		obj->value[3] = value;
 		ptc(ch, "%s's v3 has been set to %d.\n", obj->short_descr, value);
 		return;
@@ -1414,7 +1428,7 @@ void do_rset(Character *ch, String argument)
 {
 	char buf [MAX_STRING_LENGTH];
 	Room *location;
-	int value;
+//	int value;
 
 	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
@@ -1475,7 +1489,7 @@ void do_rset(Character *ch, String argument)
 		return;
 	}
 
-	value = atoi(arg3);
+//	value = atoi(arg3);
 
 	/*
 	 * Set something.
@@ -1504,8 +1518,8 @@ void format_mstat(Character *ch, Character *victim)
 		    victim->group_flags,
 		    victim->pIndexData->count, victim->pIndexData->killed);
 
-	ptc(ch, "{WRoom: %d {CName: %s{x\n",
-	    victim->in_room == nullptr ? 0 : victim->in_room->vnum(), victim->name);
+	ptc(ch, "{WRoom: %s {CName: %s{x\n",
+	    victim->in_room == nullptr ? "0" : victim->in_room->location.to_string(), victim->name);
 
 	if (!IS_NPC(victim))
 		ptc(ch, "{CRemort %d, {x", victim->pcdata->remort_count);
@@ -1620,8 +1634,8 @@ void format_mstat(Character *ch, Character *victim)
 	    victim->leader  ? victim->leader->name  : "(none)",
 	    victim->pet     ? victim->pet->name     : "(none)");
 
-	if (!IS_NPC(victim) && victim->pcdata->mark_room != 0)
-		ptc(ch, "MARKed room: %d\n", victim->pcdata->mark_room);
+	if (!IS_NPC(victim) && victim->pcdata->mark_room.is_valid())
+		ptc(ch, "MARKed room: %s\n", victim->pcdata->mark_room.to_string());
 
 	if (IS_NPC(victim) && victim->spec_fun != 0)
 		ptc(ch, "Mobile has special procedure %s.\n", spec_name(victim->spec_fun));
@@ -1712,19 +1726,26 @@ void format_ostat(Character *ch, Object *obj)
 	}
 
 	stc("\n", ch);
-	ptc(ch, "{PValue0 : %-7d{BCost     : %-13d{GIn room   : %d\n",
-	    obj->value[0], obj->cost, obj->in_room == nullptr ? 0 : obj->in_room->vnum());
-	ptc(ch, "{PValue1 : %-7d{BCondition: %-13d{GIn object : %s\n",
+	ptc(ch, "{PValue0 : %-9d{BCost     : %-13d{GIn room   : %s\n",
+	    obj->value[0], obj->cost, obj->in_room == nullptr ? "0" : obj->in_room->location.to_string());
+	ptc(ch, "{PValue1 : %-9d{BCondition: %-13d{GIn object : %s\n",
 	    obj->value[1], obj->condition, obj->in_obj == nullptr ? "(none)" : obj->in_obj->short_descr);
-	ptc(ch, "{PValue2 : %-7d{BType     : %-13s{GIn %s : %s\n",
+	ptc(ch, "{PValue2 : %-9d{BType     : %-13s{GIn %s : %s\n",
 	    obj->value[2], item_type_name(obj),
 	    obj->in_strongbox ? "StrBox" : "Locker",
 	    obj->in_locker    ? PERS(obj->in_locker, ch, VIS_PLR) :
 	    obj->in_strongbox ? PERS(obj->in_strongbox, ch, VIS_PLR) : "(none)");
-	ptc(ch, "{PValue3 : %-7d{BResets   : %-13d{GCarried by: %s\n",
-	    obj->value[3], obj->pIndexData->reset_num,
+
+	ptc(ch, "{PValue3 : ");
+	if (obj->item_type == ITEM_PORTAL)
+		ptc(ch, "%-9s", Location(obj->value[3]));
+	else
+		ptc(ch, "%-9d", obj->value[3]);
+
+	ptc(ch, "{BResets   : %-13d{GCarried by: %s\n",
+	    obj->pIndexData->reset_num,
 	    obj->carried_by == nullptr ? "(none)" : PERS(obj->carried_by, ch, VIS_PLR));
-	ptc(ch, "{PValue4 : %-7d{BTimer    : %-13d{GOwned by  : %s\n",
+	ptc(ch, "{PValue4 : %-9d{BTimer    : %-13d{GOwned by  : %s\n",
 	    obj->value[4], obj->timer, get_owner(ch, obj));
 	ptc(ch, "\t\t{BNumber   : %d/%-11d{GWear Loc. : %d\n",
 	    1, get_obj_number(obj), obj->wear_loc);
@@ -1848,7 +1869,7 @@ void format_rstat(Character *ch, Room *location)
 	Object *obj;
 	Character *rch;
 	int door;
-	ptc(ch, "{W[%d] {gName: {P%s {W(%s){x\n", location->vnum(), location->name(), location->area().name);
+	ptc(ch, "{W[%s] {gName: {P%s {W(%s){x\n", location->location.to_string(), location->name(), location->area().name);
 	ptc(ch, "{YSector: %d\tLight: %d\tHealing: %d\tMana: %d{x\n",
 	    location->sector_type(), location->light, location->heal_rate(), location->mana_rate());
 
@@ -1894,8 +1915,8 @@ void format_rstat(Character *ch, Room *location)
 		Exit *pexit;
 
 		if ((pexit = location->exit[door]) != nullptr) {
-			ptc(ch, "{WDoor: %d -> %d{c (Key: %d) Exit flags: %d. Keyword: '%s'{x\n",
-			    door, (pexit->to_room == nullptr ? -1 : pexit->to_room->vnum()),
+			ptc(ch, "{WDoor: %d -> %s{c (Key: %d) Exit flags: %d. Keyword: '%s'{x\n",
+			    door, (pexit->to_room == nullptr ? "-1" : pexit->to_room->location.to_string()),
 			    pexit->key(), pexit->exit_flags, pexit->keyword());
 
 			if (!pexit->description().empty())
@@ -1923,7 +1944,8 @@ void do_stat(Character *ch, String argument)
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
-		    "  stat <name or room vnum>\n"
+		    "  stat <name or room location>\n"
+		    "  stat room\n"
 		    "  stat char   <name>\n"
 		    "  stat mob    <name>\n"
 		    "  stat player <name>\n"
@@ -1991,11 +2013,7 @@ void do_stat(Character *ch, String argument)
 	}
 	else if (arg1 == "room")        /* 'stat room' (current room) */
 		format_rstat(ch, ch->in_room);
-	else if (arg1.is_number()) {
-		if ((room = get_room(atoi(arg1))) == nullptr) {
-			stc("There is no room with that vnum.\n", ch);
-			return;
-		}
+	else if ((room = Game::world().get_room(Location(arg1))) != nullptr) {
 
 		if (!is_room_owner(ch, room)
 		    && ch->in_room != room
@@ -2152,9 +2170,9 @@ void do_pstat(Character *ch, String argument)
 	    victim->act_flags.has(PLR_KILLER) ?                       "{R(KILLER) "   : "",
 	    victim->act_flags.has(PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */
-	ptc(ch, "{W%s in room [%d]",
+	ptc(ch, "{W%s in room [%s]",
 	    position_table[victim->position].name,
-	    victim->in_room ? victim->in_room->vnum() : 0);
+	    victim->in_room ? victim->in_room->location.to_string() : "0");
 
 	if (victim->fighting)
 		ptc(ch, ", {Rin combat{x with %s", victim->fighting->name);

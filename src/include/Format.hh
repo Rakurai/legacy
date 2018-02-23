@@ -13,6 +13,7 @@
 #include "Flags.hh"
 #include "ObjectValue.hh"
 #include "Vnum.hh"
+#include "Location.hh"
 
 /* Variadic template for overloading the *printf functions to use C++ strings.
  * Lets us keep our old C-style printfs and get nice modern strings. */
@@ -32,6 +33,8 @@ inline int to_c(const ObjectValue& v) { return v.value(); }
 inline int to_c(ObjectValue& v) { return v.value(); }
 inline unsigned long to_c(const Vnum& v) { return v.value(); }
 inline unsigned long to_c(Vnum& v) { return v.value(); }
+inline const char *to_c(const Location& v) { return v.to_string().c_str(); }
+inline const char *to_c(Location& v) { return v.to_string().c_str(); }
 
 // wrappers around standard functions that accept objects with to_c functions (above)
 template<class... Params>

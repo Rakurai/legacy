@@ -105,7 +105,7 @@ void load_clan_table()
 		clan->who_name          = db_get_column_str(2);
 		clan->clanname          = db_get_column_str(3);
 		clan->creator           = db_get_column_str(4);
-		clan->hall              = db_get_column_int(5);
+		clan->recall              = Location(Vnum(db_get_column_int(5)));
 		clan->area_minvnum      = db_get_column_int(6);
 		clan->area_maxvnum      = db_get_column_int(7);
 		clan->independent       = db_get_column_int(8);
@@ -140,7 +140,7 @@ void save_clan_table()
 			            db_esc(clan->who_name),
 			            db_esc(clan->clanname),
 			            db_esc(clan->creator),
-			            clan->hall,
+			            clan->recall,
 			            clan->area_minvnum,
 			            clan->area_maxvnum,
 			            clan->independent,
@@ -158,7 +158,7 @@ void save_clan_table()
 		            db_esc(clan->who_name),
 		            db_esc(clan->clanname),
 		            db_esc(clan->creator),
-		            clan->hall,
+		            clan->recall,
 		            clan->area_minvnum,
 		            clan->area_maxvnum,
 		            clan->independent,
@@ -293,7 +293,6 @@ void do_cedit(Character *ch, String argument)
 
 		new_clan->name = clanname;
 		new_clan->who_name = "         ";
-		new_clan->hall = 3001;
 		new_clan->area_minvnum = 0;
 		new_clan->area_maxvnum = 0;
 		new_clan->independent = FALSE;
@@ -313,8 +312,8 @@ void do_cedit(Character *ch, String argument)
 		ptc(ch,     "{HClan: %s\n"
 		    "{G[whoname]{c    The name that shows in the who-list:\n"
 		    "{Y             %s\n"
-		    "{G[hall]{c       The vnum of clanrecall:\n"
-		    "{Y             %d\n"
+		    "{G[hall]{c       The location of clanrecall:\n"
+		    "{Y             %s\n"
 		    "{G[areamin]{c    The lower vnum of the clanhall:\n"
 		    "{Y             %d\n"
 		    "{G[areamax]{c    The upper vnum of the clanhall:\n"
@@ -335,7 +334,7 @@ void do_cedit(Character *ch, String argument)
 		    "{Y             %d\n",
 		    cdata->name,
 		    cdata->who_name,
-		    cdata->hall,
+		    cdata->recall.to_string(),
 		    cdata->area_minvnum,
 		    cdata->area_maxvnum,
 		    cdata->independent ? "Yes" : "No",
@@ -363,14 +362,14 @@ void do_cedit(Character *ch, String argument)
 	if (cmd == "hall") {
 		if (argument.empty() || !argument.is_number()) {
 			stc("Clanrecall set to normal recall.\n", ch);
-			cdata->hall = 3001;
+			cdata->recall = Location(Vnum(3001));
 		}
 		else {
 			if (!find_location(ch, argument))
 				stc("No such location.\n", ch);
 			else {
-				cdata->hall = atoi(argument);
-				ptc(ch, "Clanrecall set to %d.\n", cdata->hall);
+				cdata->recall = Location(argument);
+				ptc(ch, "Clanrecall set to %s.\n", cdata->recall.to_string());
 			}
 		}
 

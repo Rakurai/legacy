@@ -6,7 +6,7 @@ namespace util {
 
 class Image {
 public:
-	enum RGB { red = 0, green, blue, alpha };
+	enum Channel { red = 0, green, blue, alpha };
 
 	Image() {}
 	virtual ~Image() {
@@ -18,7 +18,7 @@ public:
 		}
 	}
 
-	unsigned int value(RGB rgb, unsigned int x, unsigned int y) const {
+	unsigned int value(Channel rgb, unsigned int x, unsigned int y) const {
 		if (rows == nullptr || x > width() || y > height())
 			return 0;
 

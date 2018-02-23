@@ -419,82 +419,6 @@ void clone_object(Object *parent, Object *clone)
 	}
 }
 
-/*
- * Translates mob virtual number to its mob index struct.
- * Hash table lookup.
- */
-MobilePrototype *get_mob_index(const Vnum& vnum)
-{
-	Area *area = Game::world().get_area(vnum);
-	MobilePrototype *proto = nullptr;
-
-	if (area != nullptr)
-		proto = area->get_mob_prototype(vnum);
-
-	if (proto == nullptr && fBootDb) {
-		Logging::bugf("Get_mob_index: bad vnum %d.", vnum);
-		/* Don't do this, we already return nullptr on error. -- Outsider
-		exit( 1 );
-		*/
-	}
-
-	return proto;
-}
-
-/*
- * Translates mob virtual number to its obj index struct.
- * Hash table lookup.
- */
-ObjectPrototype *get_obj_index(const Vnum& vnum)
-{
-	Area *area = Game::world().get_area(vnum);
-	ObjectPrototype *proto = nullptr;
-
-	if (area != nullptr)
-		proto = area->get_obj_prototype(vnum);
-
-	if (proto == nullptr && fBootDb) {
-		Logging::bugf("Get_obj_index: bad vnum %d.", vnum);
-		/* Don't exit, we already return nullptr on error. -- Outsider
-		exit( 1 );
-		*/
-	}
-
-	return proto;
-}
-
-/*
- * Translates mob virtual number to its room index struct.
- * Hash table lookup.
- */
-Room *get_room(const Vnum& vnum)
-{
-	auto proto = get_room_prototype(vnum);
-
-	if (proto != nullptr)
-		if (!proto->rooms.empty())
-			return proto->rooms[0];
-
-	return nullptr;
-}
-
-RoomPrototype *get_room_prototype(const Vnum& vnum) {
-	Area *area = Game::world().get_area(vnum);
-	RoomPrototype *proto = nullptr;
-
-	if (area != nullptr)
-		proto = area->get_room_prototype(vnum);
-
-	if (proto == nullptr && fBootDb) {
-		Logging::bugf("get_room_prototype: bad vnum %d.", vnum);
-		/* Don't exit, we already return nullptr on error. -- Outsider
-		exit( 1 );
-		*/
-	}
-
-	return proto;
-}
-
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */
 /* new, improved AREAS command -- Elrac */
 void do_areas(Character *ch, String argument)
@@ -562,7 +486,7 @@ void do_areas(Character *ch, String argument)
 			continue;
 
 		if (star) {
-			if (ap->is_empty())
+			if (ap->num_players() == 0)
 				continue;
 		}
 
