@@ -212,7 +212,7 @@ const String String::
 uppercase() const {
 	String str(*this);
 
-	for (std::size_t pos = 0; pos != std::string::npos; pos++)
+	for (std::size_t pos = 0; pos < str.length(); pos++)
 		if (str[pos] >= 'a' && str[pos] <= 'z')
 			str[pos] = toupper(str[pos]);
 
@@ -223,7 +223,7 @@ const String String::
 lowercase() const {
 	String str(*this);
 
-	for (std::size_t pos = 0; pos != std::string::npos; pos++)
+	for (std::size_t pos = 0; pos < str.length(); pos++)
 		if (str[pos] >= 'A' && str[pos] <= 'Z')
 			str[pos] = tolower(str[pos]);
 
