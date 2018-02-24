@@ -123,7 +123,7 @@ void save_char_obj(Character *ch)
 	// added if to avoid closing invalid file
 	String buf;
 	one_argument(ch->name, buf);
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.capitalize());
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.lowercase().capitalize());
 
 	if ((fp = fopen(TEMP_FILE, "w")) != nullptr) {
 		fputs(JSONstring, fp);
@@ -146,8 +146,8 @@ void backup_char_obj(Character *ch)
 	String buf;
 	one_argument(ch->name, buf);
 
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.capitalize());
-	Format::sprintf(strback, "%s%s", BACKUP_DIR, buf.capitalize());
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, buf.lowercase().capitalize());
+	Format::sprintf(strback, "%s%s", BACKUP_DIR, buf.lowercase().capitalize());
 
 	Format::sprintf(buf, "cp %s %s", strsave, strback);
 	system(buf.c_str());
@@ -715,7 +715,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 	ch->pcdata->last_logoff         = current_time;
 	found = FALSE;
 
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, name.capitalize());
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, name.lowercase().capitalize());
 
 	cJSON *root = JSON::read_file(strsave);
 
@@ -1785,7 +1785,7 @@ void do_finger(Character *ch, String argument)
 		return;
 	}
 
-	Format::sprintf(filename, "%s%s", PLAYER_DIR, arg.capitalize());
+	Format::sprintf(filename, "%s%s", PLAYER_DIR, arg.lowercase().capitalize());
 
 	cJSON *root = JSON::read_file(filename);
 

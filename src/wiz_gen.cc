@@ -3635,8 +3635,8 @@ void do_storage(Character *ch, String argument)
 			return;
 		}
 
-		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, argument.capitalize());
-		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, argument.capitalize());
+		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, argument.lowercase().capitalize());
+		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, argument.lowercase().capitalize());
 
 		if ((fp = fopen(pfile_buf, "r")) == nullptr) {
 			stc("No such character!\n", ch);
@@ -3680,8 +3680,8 @@ void do_storage(Character *ch, String argument)
 			return;
 		}
 
-		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, argument.capitalize());
-		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, argument.capitalize());
+		Format::sprintf(pfile_buf, "%s%s", PLAYER_DIR, argument.lowercase().capitalize());
+		Format::sprintf(storage_buf, "%s%s", STORAGE_DIR, argument.lowercase().capitalize());
 		Format::sprintf(command_buf, "mv %s %s", storage_buf, pfile_buf);
 
 		if (system(command_buf) == 0) {

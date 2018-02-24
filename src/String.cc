@@ -209,6 +209,28 @@ capitalize() const {
 }
 
 const String String::
+uppercase() const {
+	String str(*this);
+
+	for (std::size_t pos = 0; pos != std::string::npos; pos++)
+		if (str[pos] >= 'a' && str[pos] <= 'z')
+			str[pos] = toupper(str[pos]);
+
+	return str;
+}
+
+const String String::
+lowercase() const {
+	String str(*this);
+
+	for (std::size_t pos = 0; pos != std::string::npos; pos++)
+		if (str[pos] >= 'A' && str[pos] <= 'Z')
+			str[pos] = tolower(str[pos]);
+
+	return str;
+}
+
+const String String::
 uncolor() const {
 	String buf;
 
