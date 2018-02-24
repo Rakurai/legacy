@@ -594,7 +594,7 @@ void do_delete(Character *ch, String argument)
 			return;
 		}
 
-		Format::sprintf(strsave, "%s%s", PLAYER_DIR, String(ch->name).capitalize());
+		Format::sprintf(strsave, "%s%s", PLAYER_DIR, String(ch->name).lowercase().capitalize());
 		wiznet("$N has wiped $Mself from these realms.", ch, nullptr, 0, 0, 0);
 		update_pc_index(ch, TRUE);
 		id = ch->pcdata->id;

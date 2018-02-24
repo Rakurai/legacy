@@ -51,6 +51,8 @@ public:
 
 	// capitalize the first letter of a string, skips non-alphanumerics
 	const String capitalize() const;
+	const String uppercase() const;
+	const String lowercase() const;
 	const String uncolor() const;
 
 	// trim the whitespace (or user-defined characters) from the front, back, or both

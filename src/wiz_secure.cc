@@ -290,7 +290,7 @@ void do_fry(Character *ch, String argument)
 	act("A huge bolt of {Wlightning{x strikes $N, utterly {Pdestroying{x $M.", ch, nullptr, victim, TO_NOTVICT);
 	act("You look up, just in time to see the {Pflaming{x {Wlightning{x bolt strike your head. C-ya!", ch, nullptr, victim,
 	    TO_VICT);
-	Format::sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.capitalize());
+	Format::sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.lowercase().capitalize());
 	do_echo(ch, "You hear the rumble of thunder in the distance.");
 	update_pc_index(victim, TRUE);
 	do_fuckoff(victim, "");
