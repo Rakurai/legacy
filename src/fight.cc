@@ -1169,7 +1169,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			*/ 
 			 
 			// draining effect adds hp
-			ch->hit += (dam / 2) * GET_ATTR(ch, APPLY_VAMP_BONUS_PCT) / 100;
+			int gain = (dam / 2);
+			gain += gain * GET_ATTR(ch, APPLY_VAMP_BONUS_PCT) / 100;
+			ch->hit += gain;
 		}
 
 		if (ch->fighting == victim
@@ -1323,7 +1325,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		 * MYSTICALPOWER is +10% bonus spell damage
 		 *
 		 */
-		 dam = dam * GET_ATTR(ch, APPLY_SPELL_DAMAGE_PCT) / 100;
+		 dam += dam * GET_ATTR(ch, APPLY_SPELL_DAMAGE_PCT) / 100;
 	}
 
 	/* damage reduction */
@@ -1554,7 +1556,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	 * DEVASTATION is +5% bonus to damage.
 	 * ANNIHILATION is +10% bonus to damage.
 	 */
-	dam = dam * GET_ATTR(ch, APPLY_WPN_DAMAGE_PCT) / 100;
+	dam += dam * GET_ATTR(ch, APPLY_WPN_DAMAGE_PCT) / 100;
 	
 	if (show)
 		dam_message(ch, victim, dam, attack_skill, attack_type, immune, sanc_immune);
@@ -2996,7 +2998,7 @@ int group_gain(Character *ch, Character *victim)
 		 *placeholder for suffix affecting exp
 		 *of The Experienced			+40 to exp gain
 		 */
-		xp = xp * GET_ATTR(gch, APPLY_EXP_PCT) / 100;
+		xp += xp * GET_ATTR(gch, APPLY_EXP_PCT) / 100;
 
 		ptc(gch, "{PYou receive %d experience points.{x\n", xp);
 

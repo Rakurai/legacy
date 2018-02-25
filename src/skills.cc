@@ -1387,7 +1387,7 @@ bool deduct_stamina(Character *ch, skill::type type)
 	 
 	 replace section between snips with the following:
 	*/
-	stam_cost = stam_cost - stam_cost * GET_ATTR(ch, APPLY_STAM_COST_PCT) / 100;
+	stam_cost -= stam_cost * GET_ATTR(ch, APPLY_STAM_COST_PCT) / 100;
 
 	if (ch->stam < stam_cost) {
 		ptc(ch, "You are too tired to %s.\n", skill::lookup(type).name);
