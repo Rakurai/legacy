@@ -85,6 +85,7 @@ struct mod_t {
 	int af_loc;
 	int af_mod_min;
 	int af_mod_max;
+	bool scaling;
 };
 
 // prefix/suffix tables

@@ -109,9 +109,9 @@ struct eq_meta_t {
 // these are ordered by rarity, it will first roll for the first entry then
 // keep rolling as it fails to get each level.  leave bottom one at 100%
 const std::vector<eq_meta_t> eq_meta_table {
-	{ 15, accessory_eq_rolls },
-	{ 20, weapon_eq_rolls },
-	{ 100, armor_eq_rolls  }, // leave at 100%
+	{ 15, accessory_eq_rolls }, // 15% of 100% = 15%
+	{ 35, weapon_eq_rolls },    // 35% of  85% = 30%
+	{ 100, armor_eq_rolls  },   // leave at 100%
 };
 
 Object *generate_eq(int objlevel){
@@ -136,7 +136,7 @@ Object *generate_eq(int objlevel){
 	// figure out our eq set to choose from
 	// tries successive rolls from most rare to least
 	for (meta_index = 0;                           // start with trying for most rare
-	     meta_index < eq_quality_table.size()-1;   // stop at the last entry (common)
+	     meta_index < eq_meta_table.size()-1;      // stop at the last entry (common)
 	     meta_index++)                             // move down by one each time
 		if (chance(eq_meta_table[meta_index].chance)) // try getting this level
 			break;
@@ -286,6 +286,15 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 	af.type         = mod_type;
 	af.location     = mod.af_loc;
 	af.modifier     = number_range(mod.af_mod_min, mod.af_mod_max);
+
+	if (mod.scaling) {
+		float scalar = obj->level / 75.0; // range 1/75 to 100/75, constrain below
+		if (af.modifier > 0)
+			af.modifier = URANGE(1, af.modifier * scalar, mod.af_mod_max);
+		else if (af.modifier < 0)
+			af.modifier = URANGE(mod.af_mod_max, af.modifier * scalar, -1);
+	}
+
 	af.duration     = -1;
 	af.evolution    = 1;
 	af.level        = obj->level;

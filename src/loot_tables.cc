@@ -980,222 +980,222 @@ const std::map<affect::type, mod_t> mod_table = {
     /*
     {   type,                           {
         text,                           group, rarity,
-        af_where,   af_loc,     af_mod_min, af_mod_max
+        af_where,   af_loc,     af_mod_min, af_mod_max, scaling
     }}
     */
     {   affect::type::obj_prefix_solar,       {
         "{YS{bo{Rl{ba{Yr",              1,  100,
-        TO_OBJECT,  APPLY_STR,  1,  5   
+        TO_OBJECT,  APPLY_STR,  1,  5, true   
     }},
     {   affect::type::obj_prefix_astral,      {
         "{gA{Ws{Ttr{Wa{gl",             1,  100,
-        TO_OBJECT,  APPLY_INT,  1,  5   
+        TO_OBJECT,  APPLY_INT,  1,  5, true   
     }},
     {   affect::type::obj_prefix_lunar,       {
         "{WL{gu{gn{ca{cr",              1,  100,
-        TO_OBJECT,  APPLY_WIS,  1,  5   
+        TO_OBJECT,  APPLY_WIS,  1,  5, true   
     }},
     {   affect::type::obj_prefix_windy,       {
         "{cWi{gnd{Wy",                  1,  100,
-        TO_OBJECT,  APPLY_DEX,  1,  5   
+        TO_OBJECT,  APPLY_DEX,  1,  5, true   
     }},
     {   affect::type::obj_prefix_healthy,     {
         "{HH{Pe{Halt{Ph{Hy",            1,  100,
-        TO_OBJECT,  APPLY_CON,  1,  5   
+        TO_OBJECT,  APPLY_CON,  1,  5, true   
     }},
     /*  Defense Group (Group 2)
         Contains HP, Mana, Saves, and AC prefixes
     */
     {   affect::type::obj_prefix_hearty,      {
         "Hearty",                           2,  100,
-        TO_OBJECT,  APPLY_HIT,  10, 40  
+        TO_OBJECT,  APPLY_HIT,  10, 40, true  
     }},
     {   affect::type::obj_prefix_stalwart,    {
         "{HSt{ca{Hlw{ca{Hrt",               2,  100,
-        TO_OBJECT,  APPLY_HIT,  45, 75  
+        TO_OBJECT,  APPLY_HIT,  41, 75, true  
     }},
     {   affect::type::obj_prefix_mystical,    {
         "{YM{by{Ps{ct{Ni{Bc{Ta{gl",         2,  100,
-        TO_OBJECT,  APPLY_MANA, 10, 40  
+        TO_OBJECT,  APPLY_MANA, 10, 40, true  
     }},
     {   affect::type::obj_prefix_magical,     {
         "{CM{Ba{Ng{Mi{Nc{Ba{Cl",            2,  100,
-        TO_OBJECT,  APPLY_MANA, 45, 75  
+        TO_OBJECT,  APPLY_MANA, 41, 75, true  
     }},
     {   affect::type::obj_prefix_lucky,       {
         "{HL{Gu{gc{Gk{Hy",                  2,  100,
-        TO_OBJECT,  APPLY_SAVES,1,  2   
+        TO_OBJECT,  APPLY_SAVES, -1,  -2, false   
     }},
     {   affect::type::obj_prefix_fortuitous,  {
         "{GFo{Hr{ct{Gui{Ht{co{Gus",         2,  100,
-        TO_OBJECT,  APPLY_SAVES,3,  4   
+        TO_OBJECT,  APPLY_SAVES, -3,  -4, false   
     }},
     {   affect::type::obj_prefix_sturdy,      {
         "{bSt{Pu{brd{Py",                   2,  100,
-        TO_OBJECT,  APPLY_AC,   -1,  -5   
+        TO_OBJECT,  APPLY_AC,   -1,  -5, true   
     }},
     {   affect::type::obj_prefix_reinforced,  {
         "{WR{ge{Ti{Wn{gf{To{Wr{gc{Te{gd",   2,  100,
-        TO_OBJECT,  APPLY_AC,   -5,  -10  
+        TO_OBJECT,  APPLY_AC,   -6,  -10, true  
     }},
     /*  Offense Group (Group 3)
         Contains hit and dam roll prefixes
     */
     {   affect::type::obj_prefix_precise,     {
         "{TPr{Pe{Yc{Pi{Tse",              3,  100,
-        TO_OBJECT,  APPLY_HITROLL,  1,  2   
+        TO_OBJECT,  APPLY_HITROLL,  1,  3, true   
     }},
     {   affect::type::obj_prefix_skilled,     {
         "{MS{Vk{Bi{Ml{Vl{Be{Md",          3,  100,
-        TO_OBJECT,  APPLY_HITROLL,  3,  6   
+        TO_OBJECT,  APPLY_HITROLL,  4,  6, true   
     }},
     {   affect::type::obj_prefix_jagged,      {
         "{WJ{ga{cg{Wg{ge{cd",             3,  100,
-        TO_OBJECT,  APPLY_DAMROLL,  1,  2   
+        TO_OBJECT,  APPLY_DAMROLL,  1,  3, true   
     }},
     {   affect::type::obj_prefix_brutal,      {
         "{RB{br{Hu{Rt{ba{Hl",             3,  100,
-        TO_OBJECT,  APPLY_DAMROLL,  3,  6   
+        TO_OBJECT,  APPLY_DAMROLL,  4,  6, true   
     }},
     /*  Misc. Group (Group 4)
         Contains misc prefixes (spells on armor ect....)
     */
     {   affect::type::sanctuary,              {
         "{NA{Bn{gg{We{gl{Bi{Nc",          4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::sneak,                  {
         "{WSt{gea{Wlt{ghy",               4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::protection_evil,        {
         "{TPure",                         4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::protection_good,        {
         "{RT{ba{Mi{Bn{Ht{be{Rd",          4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::flameshield,            {
         "Flaming",                        4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::pass_door,              {
         "{CM{gi{Cst{gy",                  4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::regeneration,           {
         "Regenerative",                   4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
     {   affect::type::haste,                  {
         "{CS{Tw{Bi{Cf{Tt",                4,  100,
-        TO_AFFECTS, 0,  0,  0   
+        TO_AFFECTS, 0,  0,  0, false   
     }},
 
     //weapon flags
     {   affect::type::weapon_acidic,          {
         "{cC{Gor{Hr{Go{Hs{Giv{ce",        3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::weapon_flaming,         {
         "{cF{Pl{Yami{Pn{cg",              3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::weapon_frost,           {
         "{BI{Cc{By",                      3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::weapon_vampiric,        {
         "{TT{Bh{Ci{gr{Ts{Bt{Cy",          3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::weapon_shocking,        {
         "{NA{Cr{Wc{Ni{Cn{Wg",             3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::weapon_vorpal,          {
         "{gVo{Rrp{gal",                   3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::weapon_sharp,           {
         "{gH{bo{gn{be{gd",                3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false   
     }},
     {   affect::type::poison,                 {
         "{bTo{Hx{bic",                    3,  100,
-        TO_WEAPON,  0,  0,  0   
+        TO_WEAPON,  0,  0,  0, false 
     }},
 
 
     // SUFFIXES
     {   affect::type::obj_suffix_initiate_questor, {
         "of the Initiate Questor",      1,  100,
-        TO_OBJECT,  APPLY_QUESTPOINTS,      1,  1,
+        TO_OBJECT,  APPLY_QUESTPOINTS,      1,  1, false
     }},
     {   affect::type::obj_suffix_advanced_questor, {
         "of the Advanced Questor",  1,  100,
-        TO_OBJECT,  APPLY_QUESTPOINTS,  2,  2,
+        TO_OBJECT,  APPLY_QUESTPOINTS,  2,  2, false
     }},
     {   affect::type::obj_suffix_master_questor, {
         "of the Master Questor",    1,  100,
-        TO_OBJECT,  APPLY_QUESTPOINTS,  3,  3,
+        TO_OBJECT,  APPLY_QUESTPOINTS,  3,  3, false
     }},
     {   affect::type::obj_suffix_skilled, {
         "of the Skilled",   1,  100,
-        TO_OBJECT,  APPLY_SKILLPOINTS,  1,  1,
+        TO_OBJECT,  APPLY_SKILLPOINTS,  1,  1, false
     }},
     {   affect::type::obj_suffix_skillful, {
         "of the Skillful",  1,  100,
-        TO_OBJECT,  APPLY_SKILLPOINTS,  2,  2,
+        TO_OBJECT,  APPLY_SKILLPOINTS,  2,  2, false
     }},
     {   affect::type::obj_suffix_experienced, {
         "of the Experienced",   1,  100,
-        TO_OBJECT,  APPLY_EXP_PCT,  1,  3,
+        TO_OBJECT,  APPLY_EXP_PCT,  1,  3, false
     }},
     {   affect::type::obj_suffix_initiate_mage, {
         "of the Initiate Mage", 1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    1,  2,
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    1,  2, false
     }},
     {   affect::type::obj_suffix_advanced_mage, {
         "of the Advanced Mage", 1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    3,  4,
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    3,  4, false
     }},
     {   affect::type::obj_suffix_master_mage, {
         "of the Master Mage",   1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    5,  6,
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    5,  6, false
     }},
     {   affect::type::obj_suffix_swallow, {
         "of the Swallow",   1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    1,  2,
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    1,  2, false
     }},
     {   affect::type::obj_suffix_hawk, {
         "of the Hawk",  1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    3,  4,
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    3,  4, false
     }},
     {   affect::type::obj_suffix_falcon, {
         "of the Falcon",    1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    5,  6,
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    5,  6, false
     }},
     {   affect::type::obj_suffix_devastation, {
         "of Devastation",   1,  100,
-        TO_OBJECT,  APPLY_WPN_DAMAGE_PCT,   1,  5,
+        TO_OBJECT,  APPLY_WPN_DAMAGE_PCT,   1,  5, false
     }},
     {   affect::type::obj_suffix_annihilation, {
         "of Annihilation",  1,  100,
-        TO_OBJECT,  APPLY_WPN_DAMAGE_PCT,   6,10,
+        TO_OBJECT,  APPLY_WPN_DAMAGE_PCT,   6,10, false
     }},
     {   affect::type::obj_suffix_arcane_power, {
         "of Arcane Power",  1,  100,
-        TO_OBJECT,  APPLY_SPELL_DAMAGE_PCT, 1,  5,
+        TO_OBJECT,  APPLY_SPELL_DAMAGE_PCT, 1,  5, false
     }},
     {   affect::type::obj_suffix_mystical_power, {
         "of Mystical Power",    1,  100,
-        TO_OBJECT,  APPLY_SPELL_DAMAGE_PCT, 6,10,
+        TO_OBJECT,  APPLY_SPELL_DAMAGE_PCT, 6,10, false
     }},
     {   affect::type::obj_suffix_hexxing, {
         "of Hexxing",   1,  100,
-        TO_OBJECT,  APPLY_VAMP_BONUS_PCT,   1,10,
+        TO_OBJECT,  APPLY_VAMP_BONUS_PCT,   1,10, false
     }}
 
 };
