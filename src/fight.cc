@@ -2352,6 +2352,8 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+	
 	int chance;
 	String attack;
 
@@ -2392,6 +2394,48 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou block $n's {B%s with your shield.{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
+		/* Shield block specific suffixes */
+		int hp_block = GET_ATTR(victim, APPLY_HP_BLOCK_PCT);
+		int mana_block = GET_ATTR(victim, APPLY_MANA_BLOCK_PCT);
+		Logging::bug("GET_ATTR HP_BLOCK: %d.", hp_block);
+		Logging::bug("GET_ATTR MANA_BLOCK: %d", mana_block);
+		if (GET_ATTR(victim, APPLY_HP_BLOCK_PCT) != 0){
+			int life_restored = (GET_MAX_HIT(victim) * GET_ATTR(victim, APPLY_HP_BLOCK_PCT) / 100);
+			victim->hit += life_restored;
+			//debug stuff
+			Logging::bug("HP_BLOCK_PCT  HEALED: %d.", life_restored);
+			Format::sprintf(buf2, "{BYour block restores %d of your life.{x", life_restored);
+			stc(buf2, ch);
+		}
+		if (GET_ATTR(ch, APPLY_MANA_BLOCK_PCT) != 0){
+			int mana_restored = (GET_MAX_MANA(ch) * GET_ATTR(ch, APPLY_MANA_BLOCK_PCT) / 100);
+			ch->mana += mana_restored;
+			Logging::bug("HP_BLOCK_PCT  HEALED: %d.", mana_restored);
+			Format::sprintf(buf2, "{BYour block restores %d of your mana.{x", mana_restored);
+			stc(buf2, ch);
+		}*/				
+	}
+	
+	/* Shield block specific suffixes */
+	int hp_block = GET_ATTR(victim, APPLY_HP_BLOCK_PCT);
+	int mana_block = GET_ATTR(victim, APPLY_MANA_BLOCK_PCT);
+	Logging::bug("GET_ATTR HP_BLOCK: %d.", hp_block);
+	Logging::bug("GET_ATTR MANA_BLOCK: %d", mana_block);
+	if (GET_ATTR(victim, APPLY_HP_BLOCK_PCT) != 0){
+		int life_restored = (GET_MAX_HIT(victim) * GET_ATTR(victim, APPLY_HP_BLOCK_PCT) / 100);
+		victim->hit += life_restored;
+		//debug stuff
+		Logging::bug("HP_BLOCK_PCT  HEALED: %d.", life_restored);
+		//end debug stuff
+		Format::sprintf(buf2, "{BYour block restores %d of your life.{x", life_restored);
+		stc(buf2, victim);
+	}
+	if (GET_ATTR(victim, APPLY_MANA_BLOCK_PCT) != 0){
+		int mana_restored = (GET_MAX_MANA(victim) * GET_ATTR(victim, APPLY_MANA_BLOCK_PCT) / 100);
+		victim->mana += mana_restored;
+		Logging::bug("MANA_BLOCK_PCT  HEALED: %d.", mana_restored);
+		Format::sprintf(buf2, "{BYour block restores %d of your mana.{x", mana_restored);
+		stc(buf2, victim);
 	}
 
 	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
