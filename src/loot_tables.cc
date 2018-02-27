@@ -1216,38 +1216,13 @@ const std::map<affect::type, mod_t> mod_table = {
     {   affect::type::obj_suffix_hexxing, {
         "of Hexxing",   1,  100,
         TO_OBJECT,  APPLY_VAMP_BONUS_PCT,   1,10, false
-    }}
+    }},
 	{   affect::type::obj_suffix_retorative, {
         "of Restoration",   1,  100,
         TO_OBJECT,  APPLY_HP_BLOCK_PCT,   1,10, false
-    }}
+    }},
 	{   affect::type::obj_suffix_mystic, {
         "of Mystic Energy",   1,  100,
         TO_OBJECT,  APPLY_MANA_BLOCK_PCT,   1,10, false
-    }}
-	{   affect::type::obj_suffix_retorative, {
-        "of Restoration",   1,  100,
-        TO_OBJECT,  APPLY_HP_BLOCK_PCT,   1,10, false
-    }}
-	{   affect::type::obj_suffix_mystic, {
-        "of Mystic Energy",   1,  100,
-        TO_OBJECT,  APPLY_MANA_BLOCK_PCT,   1,10, false
-    }}
-	{   affect::type::obj_suffix_retorative, {
-        "of Restoration",   1,  100,
-        TO_OBJECT,  APPLY_HP_BLOCK_PCT,   1,10, false
-    }}
-	{   affect::type::obj_suffix_mystic, {
-        "of Mystic Energy",   1,  100,
-        TO_OBJECT,  APPLY_MANA_BLOCK_PCT,   1,10, false
-    }}
-	{   affect::type::obj_suffix_retorative, {
-        "of Restoration",   1,  100,
-        TO_OBJECT,  APPLY_HP_BLOCK_PCT,   1,10, false
-    }}
-	{   affect::type::obj_suffix_mystic, {
-        "of Mystic Energy",   1,  100,
-        TO_OBJECT,  APPLY_MANA_BLOCK_PCT,   1,10, false
-    }}
-
+    }},
 };
