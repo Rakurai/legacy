@@ -218,7 +218,9 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 			 || paf->location == APPLY_STAM_COST_PCT
 			 || paf->location == APPLY_WPN_DAMAGE_PCT
 			 || paf->location == APPLY_SPELL_DAMAGE_PCT
-			 || paf->location == APPLY_VAMP_BONUS_PCT)
+			 || paf->location == APPLY_VAMP_BONUS_PCT
+			 || paf->location == APPLY_HP_BLOCK_PCT
+			 || paf->location == APPLY_MANA_BLOCK_PCT)
 				buf += "%";
 		}
 	}

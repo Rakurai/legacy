@@ -913,6 +913,8 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define APPLY_WPN_DAMAGE_PCT		31
 #define APPLY_SPELL_DAMAGE_PCT		32
 #define APPLY_VAMP_BONUS_PCT		33
+#define APPLY_HP_BLOCK_PCT			34
+#define APPLY_MANA_BLOCK_PCT		35
 
 
 /*

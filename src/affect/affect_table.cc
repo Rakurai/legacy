@@ -142,6 +142,8 @@ const std::map<::affect::type, const table_entry> affect_table = {
     { type::obj_suffix_arcane_power, { "arcane power", "", "" }},
     { type::obj_suffix_mystical_power, { "mystical power", "", "" }},
     { type::obj_suffix_hexxing, { "hexxing", "", "" }},
+	{ type::obj_suffix_restorative, { "restorative", "", "" }}, //shield specific 
+	{ type::obj_suffix_mystic, { "mystic", "", "" }},			//shield specific
 
 };
 

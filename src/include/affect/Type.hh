@@ -120,6 +120,8 @@ enum class type {
     obj_suffix_arcane_power,
     obj_suffix_mystical_power,
     obj_suffix_hexxing,
+	obj_suffix_restorative,
+	obj_suffix_mystic,
 
     size, // don't touch
     first = 0 // don't touch
