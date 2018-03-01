@@ -116,6 +116,7 @@ The "{Y-{x" will subtract lines, and the "{Y+{x" will add lines to the {Cmotd{x.
 ~
 
 92 EVOLVE 'EVOLUTION TABLE'~
+
 Immortal additions to the 'evolve' command:
 
 {C    evolve {Yinfo{x - display global evolve limits
@@ -161,8 +162,8 @@ if you have any questions, ask!
 
 0 LIRIEL~
 Liriel was one of the original three founders of the realm of Legacy, and
-served as head of Administration.  Due to her many pursuits, she is no
-longer active on Legacy. 
+served as head of all Administration.  Unfortunately, due to her many
+pursuits, she is no longer active on Legacy. 
 ~
 
 0 LIRIATI~
@@ -225,12 +226,8 @@ Oh, good god, what broke this time?!?
 ~
 
 0 XENITH~
-Xenith is the Goddess of Knowledge and Forger of Worlds. She was instrumental
-in the creation of the world during the First Age. She works to improve the world
-and its inhabitants. She is the first Thief, and if you are lucky, you can
-catch a glimpse of her sneaking around as she gathers all knowledge to her library.
-
-Xenith is the server admin and coder for Age of Legacy. She works with Montrey and Lidda.
+Xenith doesn't work here anymore.  But we owe a lot of our code to her
+incredible genius, so we still love her. :)
 ~
 
 0 KENNETH~
@@ -244,11 +241,17 @@ laziness was interesting, and, after a long period, talked Kenneth into
 becoming an Imm. Ever since, Kenneth has been scratching his itch to 
 build things and amusing people with his wacky antics.  
 
-Kenneth served as the main builder for Legacy during the First Age.
-During that time, he created many of the amazing original areas that
-we cherish, such as Mossflower, Twilight, and Deadly Treasure, among
-others.  We owe him a debt of gratitude, and he will always be revered
-as the master Builder of Legacy.
+Kenneth was the main builder for Legacy, mainly working with clans to
+create, maintain, or update their clanhalls or equipment.  He is now
+part of our Admin team, having left the responsibilities of building to
+our new head builder, Teotwawki. Kenneth's main responsibility is balancing
+out Teotwawki.
+
+Current Projects:
+Listening to Teo and giving her a swift kick when needed
+Helping to maintain a pleasant atmosphere for the mortals
+Admin stuff
+
 ~
 
 0 NEFFERTINI~
@@ -282,15 +285,32 @@ Small Admin jobs and enforcement
 Washing and caring for Teo's and Alara's pets. :(
 ~
 
-0 SIVAT~
-Sivat, known as the maintainer, preserver or simply immortal of life, is
-one of the immortals that cherish life, creation and love. As one 
-appreciating creation and love, Sivat prides himself on performing 
-marriages and maintaining good relations between all mortals. Along
-with sustaining relationships, Sivat enjoys challenging his mortal 
-friends to quick games of intellect and adventure.
+0 TEOTWAWKI~
+{PT{Ye{Po{x is the Building Implementor (watch your heads) and helps with Admin. 
+ She is currently the only builder immortal for Legacy so she is usually way 
+ over her head in stuff to do.  She loves helping mortals with every aspect 
+ of the mud that she can.  She runs trivia if and when she has spare time, 
+ and is generally a nice person as long as she is not being attacked. *egrin*
 
-Sivat has departed this realm, but remains forever welcome here.
+{PT{Ye{Po'{Ys{x current projects:
+     Any and all Admin work
+     Maintaining all clanhalls
+     Any and all building upgrades
+     Finishing touches on prison.are and thedead.are
+     Verifying any and all building projects that come in from others
+     Revamping areas and doing minor tweaks
+     Evaluating current areas, eq, pills, and armor
+
+{PT{Ye{Po'{Ys{x future projects:
+     Help any and all mortals interested in building learn
+     Run more quests
+     Remodel the realm
+~
+
+0 URZA~
+See Urza.
+See Urza run.
+Run, Urza, run!
 ~
 
 0 VEGITA~
@@ -312,23 +332,8 @@ he has been here since practically the beginning.
   {WRaces will affect different things, like elfs will be better at
     magic then humans, a superhuman will hit harder, seraphs will be
     better at all things paladin and so on and so forth.{x
-~
 
-0 SORSHA~
-Sorsha is a beautiful Seraph that came down from the heavens. As a 
-mortal she wandered the realm with a curious mind, and search for 
-adventure. Her sense for adventure, and gift of working with people, 
-is what made her stand out. After a short while, Sorsha was honored
-by the Immortals of the realm, and ascended into the heavens where 
-she lives today. Her castle is built upon the clouds with move freely 
-around the realm. Sorsha is good at heart, but she is an Seraph with 
-a temper. She is one to let the realm know about her wrath. It is 
-wise to let her be, and not push your luck with her. She loves to 
-venture out into the realm, and the flapping of her wings can clearly
-be heard. But watch out for her razor sharp Halo, which has been 
-known to fly aimless around the realm.
 
-Sorsha has departed this realm, but remains forever welcome here.
 ~
 
 0 VIRO~
@@ -336,7 +341,9 @@ Viro's our coder and Admin.  He's the God of Honour and Fate, and he's got
 some sort of yin and yang thing going.  He has yet to write a helpfile for
 me to post for him, so for now, this is all that he gets. ;)
 
-Viro has departed this realm, but remains forever welcome here.
+Current projects:
+     Any and all coding
+     Any and all Admin
 ~
 
 92 WIZGROUP~
