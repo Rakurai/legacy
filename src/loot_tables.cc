@@ -882,6 +882,8 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_LIGHT,      affect::type::obj_suffix_skillful },
 
 //  { ARMOR_FINGER,     affect::type::obj_suffix_initiate_questor },
+	{ ARMOR_FINGER,      	affect::type::obj_suffix_devastation },
+    { ARMOR_FINGER,      	affect::type::obj_suffix_annihilation },
 //  { ARMOR_NECK,       affect::type::obj_suffix_initiate_questor },
 
     { ARMOR_TORSO,      affect::type::obj_suffix_initiate_questor },
@@ -892,6 +894,9 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_HEAD,       affect::type::obj_suffix_advanced_mage },
     { ARMOR_HEAD,       affect::type::obj_suffix_master_mage },
     { ARMOR_HEAD,       affect::type::obj_suffix_experienced },
+    { ARMOR_HEAD,      	affect::type::obj_suffix_arcane_power },
+    { ARMOR_HEAD,      	affect::type::obj_suffix_mystical_power },
+	
 
     { ARMOR_LEGS,       affect::type::obj_suffix_initiate_mage },
     { ARMOR_LEGS,       affect::type::obj_suffix_advanced_mage },
@@ -916,6 +921,10 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_HANDS,      affect::type::obj_suffix_hawk },
     { ARMOR_HANDS,      affect::type::obj_suffix_falcon },
     { ARMOR_HANDS,      affect::type::obj_suffix_experienced },
+	{ ARMOR_HANDS,      affect::type::obj_suffix_devastation },
+    { ARMOR_HANDS,      affect::type::obj_suffix_annihilation },
+    { ARMOR_HANDS,      affect::type::obj_suffix_arcane_power },
+    { ARMOR_HANDS,      affect::type::obj_suffix_mystical_power },
 
     { ARMOR_ARMS,       affect::type::obj_suffix_initiate_questor },
     { ARMOR_ARMS,       affect::type::obj_suffix_advanced_questor },
@@ -930,7 +939,10 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_BODY,       affect::type::obj_suffix_master_questor },
 
 //  { ARMOR_WAIST,      affect::type::obj_suffix_initiate_questor },
+
 //  { ARMOR_WRIST,      affect::type::obj_suffix_initiate_questor },
+	{ ARMOR_WRIST,      affect::type::obj_suffix_arcane_power },
+    { ARMOR_WRIST,      affect::type::obj_suffix_mystical_power },
 
     { ARMOR_FLOATING,   affect::type::obj_suffix_skilled },
     { ARMOR_FLOATING,   affect::type::obj_suffix_skillful },
