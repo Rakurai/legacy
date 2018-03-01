@@ -1199,15 +1199,15 @@ const std::map<affect::type, mod_t> mod_table = {
     }},
     {   affect::type::obj_suffix_swallow, {
         "of the Swallow",   1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    1,  2, false
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    1,  3, false
     }},
     {   affect::type::obj_suffix_hawk, {
         "of the Hawk",  1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    3,  4, false
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    3,  6, false
     }},
     {   affect::type::obj_suffix_falcon, {
         "of the Falcon",    1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    5,  6, false
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    6,  10, false
     }},
     {   affect::type::obj_suffix_devastation, {
         "of Devastation",   1,  100,
