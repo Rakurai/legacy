@@ -722,4 +722,45 @@ All numbers given are {P*examples*{x.
                      {Yonce{x to undo {Yone{x change.
 ~
 
+
+0 LOOT DYNAMIC PREFIX SUFFIX~
+Legacy now has a dynamic loot system in place. This means that
+you are no longer constrained by what the areas have built into
+them in terms of equipment and weapons.
+
+How it works:
+On killing a monster that rewards you exp, there is a chance
+that a piece of eq will be created on the spot. This piece of 
+equipment will be placed in the corpse of the monster so it is
+important that you have autoloot set to on.
+
+
+The equipment and stats on the equipment will roll based on your
+character's level. There are some base stats (such as hp, mana,
+stam, hitroll and damroll) that have a chance of rolling. 
+
+There are 4 Qualities the equipment can roll:
+ Normal
+ {x({GUn{Hcomm{Gon{x){x
+ {x({BR{Nar{Be{x){x
+ {x({CLe{Tge{gn{Tda{Cry{x){x
+ 
+Beginning at {x({GUn{Hcomm{Gon{x){x, a piece can roll a {Rprefix{x.
+These prefixes will add additional power to the piece of gear.
+An example would be a {x({GUn{Hcomm{Gon{x){x Sword rolls 
+{CM{Ba{Ng{Mi{Nc{Ba{Cl{x. This {Rprefix{x will add between 41 to 
+75 mana to the piece of gear. {x({GUn{Hcomm{Gon{x){x can roll 
+{R1 prefix{x, {x({BR{Nar{Be{x){x can roll {R2 prefixes{x, and 
+{x({CLe{Tge{gn{Tda{Cry{x){x can roll {R3 prefixes{x. These
+prefixes can be seen when you {Vlore{x or {Yidentify{x the
+gear.
+
+At qualities of {x({BR{Nar{Be{x){x and higher, a piece of gear
+can roll 1 {Rsuffix{x. These suffixes bestow powerful affects to
+the gear including the ability to lower the mana cost of a spell,
+or increase your spell or weapon damage. These suffixes can also 
+be seen when you {Vlore{x or {Yidentify{x the gear as well.
+~
+
+
 -2
