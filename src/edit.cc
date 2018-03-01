@@ -69,8 +69,6 @@
 #include "sql.hh"
 #include "String.hh"
 
-extern struct board_index_struct board_index[];
-
 #define MAX_EDIT_LENGTH 4000
 #define WRAP_WIDTH      70
 #define ARG_1 Flags::A

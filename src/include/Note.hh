@@ -35,12 +35,14 @@ private:
 
 struct board_index_struct
 {
-    char *board_hdr;
+    const String board_hdr;
     Note **board_list;
-    char *board_short;
-    char *board_plural;
-    char *board_long;
+    const String board_short;
+    const String board_plural;
+    const String board_long;
 };
+
+extern const std::vector<board_index_struct> board_index;
 
 /* note.c */
 /* note recycling */

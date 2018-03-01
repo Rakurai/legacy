@@ -63,7 +63,7 @@ Note *trade_list;
 
 /* Names for note types. Keep these in line with the
    #define names NOTE_NOTE, NOTE_IDEA etc. in merc.h !!! */
-std::vector<board_index_struct> board_index = {
+const std::vector<board_index_struct> board_index = {
 	{ "{PN", &note_list,    "note",                 "notes",                "note"                  },
 	{ "{YI", &idea_list,    "idea",                 "ideas",                "idea"                  },
 	{ "{VR", &roleplay_list, "roleplay",             "roleplays",            "roleplaying note"      },
@@ -690,8 +690,7 @@ void notify_note_post(Note *pnote, Character *vch, int type)
 {
 	Character *ch;
 	String buf;
-	char *list_name;
-	list_name = board_index[type].board_long;
+	const String& list_name = board_index[type].board_long;
 
 	for (ch = char_list; ch != nullptr; ch = ch->next) {
 		if (IS_NPC(ch))
@@ -727,11 +726,11 @@ void parse_note(Character *ch, String argument, int type)
 	char buf[MSL];
 	Note *pnote;
 	Note **list;
-	char *list_name;
+	
 	int vnum = 0, anum = 0;
 	/* NOTE: Mobs CAN currently do notes. Don't do anything player-specific! */
 	list = board_index[type].board_list;
-	list_name = board_index[type].board_plural;
+	const String& list_name = board_index[type].board_plural;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -1597,7 +1596,7 @@ void do_old_next(Character *ch)
 /* Chronological NEXT -- Elrac */
 void do_next(Character *ch, String argument)
 {
-	struct board_index_struct *obis = nullptr;
+	const board_index_struct *obis = nullptr;
 	time_t ostamp = (time_t) 0;
 	Note *pnote, *onote = nullptr;
 	Note **plist;
