@@ -35,7 +35,7 @@ const std::multimap<int, String> base_name_table = {
     
     { ARMOR_NECK, "Gold Amulet" },
     { ARMOR_NECK, "Amber Amulet" },
-    { ARMOR_NECK, "Turquoise Amule" },
+    { ARMOR_NECK, "Turquoise Amulet" },
     { ARMOR_NECK, "Agate Amulet" },
     { ARMOR_NECK, "Citrine Amulet" },
     { ARMOR_NECK, "Onyx Amulet" },

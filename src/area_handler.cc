@@ -505,11 +505,9 @@ void do_areas(Character *ch, String argument)
 	size_t ptrs_size;
 	int    count = 0;
 	Area *ap;
-	char filename[9];    /* 12345678    + '\0' */
 	char range[12];      /* {xnnn-nnn{x + '\0' */
 	String dbuf;
 	/* misc */
-	char *p;
 	int j, k;
 	/* scan syntax: [lvl] {[keywd|'*'|'#'] ... } */
 	String arg;
@@ -646,16 +644,7 @@ void do_areas(Character *ch, String argument)
 		} /* end switch */
 
 		if (IS_IMMORTAL(ch)) {
-			char buf2[MAX_STRING_LENGTH];
-			strcpy(buf2, ap->file_name);
-
-			p = strchr(buf2, '.');
-
-			if (p)
-				*p = '\0';
-
-			buf2[sizeof(filename)] = '\0';
-			strcpy(filename, buf2);
+			String filename = ap->file_name.lsplit(".");
 
 			if (ap->nplayer == 0) {
 				dbuf += Format::format("%-8.8s [%5d-%5d]%3s ",

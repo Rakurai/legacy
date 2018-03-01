@@ -637,7 +637,9 @@ void do_hedit(Character *ch, String argument)
 			return;
 		}
 
-		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS "," HCOL_TEXT ") values('%s','')",
+		if (!db_commandf("do_hedit", "insert into " HTABLE " (" 
+				HCOL_KEYS "," HCOL_TEXT "," HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL 
+				") values('%s','',0,0,0)",
 		                 db_esc(argument))) {
 			stc("Could not create a help with those keywords.\n", ch);
 			return;
