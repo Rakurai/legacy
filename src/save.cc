@@ -1515,7 +1515,7 @@ Object * fread_obj(cJSON *json, int version) {
 				STRKEY("Mat",			obj->material,				o->valuestring);
 				break;
 			case 'N':
-				STRKEY("Name",			obj->name,					o->valuestring);
+				STRKEY("Name",			obj->name,		String(o->valuestring).uncolor().replace("(", "").replace(")", ""));
 				break;
 			case 'S':
 				STRKEY("ShD",			obj->short_descr,			o->valuestring);
