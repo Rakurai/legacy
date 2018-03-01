@@ -207,6 +207,8 @@ Object *generate_eq(int objlevel){
 	obj->description = obj->name;
 	obj->short_descr = obj->name;
 
+	obj->name = obj->name.uncolor().replace("(", "").replace(")", "");
+
 	return obj;
 }
 
