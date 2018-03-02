@@ -99,9 +99,12 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 				::exit(1);
 			}
 
-			ExitPrototype *pexit = new ExitPrototype(fp);
+			if (exit[door] != nullptr) {
+				boot_bug("Fread_rooms: vnum %d has two exits in same direction.", vnum);
+				::exit(1);
+			}
 
-			exit[door] = pexit;
+			exit[door] = new ExitPrototype(fp);
 			top_exit++;
 			break;
 		}
