@@ -718,6 +718,11 @@ void mprog_read_programs(FILE *fp, MobilePrototype *pMobIndex)
 		exit(1);
 	}
 
+	if (pMobIndex->mobprogs != nullptr) {
+		boot_bug("Load_mobiles: vnum %d already has a mobprog", pMobIndex->vnum);
+		exit(1);
+	}
+
 	pMobIndex->mobprogs = new MobProg;
 	mprg = pMobIndex->mobprogs;
 

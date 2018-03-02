@@ -1549,7 +1549,7 @@ void mprog_process_cmnd(const String& cmnd, Character *mob, Character *actor,
 		str++;
 	}
 
-	interpret(mob, buf.c_str());
+	interpret(mob, buf);
 	return;
 }
 

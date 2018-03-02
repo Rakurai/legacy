@@ -16,6 +16,31 @@ class Affect
 // : public Pooled<Affect>
 {
 public:
+    Affect() {}
+    Affect(const Affect& af) :
+        where(af.where),
+        type(af.type),
+        level(af.level),
+        duration(af.duration),
+        location(af.location),
+        modifier(af.modifier),
+        _bitvector(af._bitvector),
+        evolution(af.evolution),
+        permanent(af.permanent) {}
+    Affect& operator=(const Affect& af) {
+        where = af.where;
+        type = af.type;
+        level = af.level;
+        duration = af.duration;
+        location = af.location;
+        modifier = af.modifier;
+        _bitvector = af._bitvector;
+        evolution = af.evolution;
+        permanent = af.permanent;
+        return *this;
+    }
+    virtual ~Affect() {}
+
     // note: the grouping of these fields is important for computing checksums.
     // if any of these change (especially these first 4) the checksum function will need updating.
     Affect *       next = nullptr;
