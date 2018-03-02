@@ -155,7 +155,7 @@ get_minimap(Character *ch, std::vector<String>& vec) const {
 					case Sector::field:     buf += "{G."; break;
 
 					case Sector::forest_medium:    buf += "{GI"; break;
-					case Sector::forest_dense:    buf += "{HI"; break;
+					case Sector::forest_dense:    buf += ((x + (y%2)) % 2 == 0) ? "{HI" : "{H&"; break;
 					case Sector::road:            buf += "{b%"; break;
 					case Sector::area_entrance:   buf += "{Y#"; break;
 					case Sector::city:            buf += "{gM"; break;
