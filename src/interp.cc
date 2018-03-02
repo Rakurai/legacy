@@ -142,6 +142,7 @@ const std::vector<cmd_type> cmd_table = {
 	{ "bash",                       do_bash,                POS_FIGHTING,   LOG_NORMAL,     2,      0                       },
 	{ "battle",                     do_battle,              POS_FIGHTING,   LOG_NORMAL,     2,      0                       },
 	{ "berserk",            do_berserk,             POS_FIGHTING,   LOG_NORMAL,     2,      0                       },
+	{ "bonus",            do_bonus,             POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
 	{ "brandish",           do_brandish,    POS_RESTING,    LOG_NORMAL,     7,      0                       },
 	{ "breakup",            do_breakup,             POS_STANDING,   LOG_NORMAL,     8,      0                       },
 	{ "brew",                       do_brew,                POS_STANDING,   LOG_NORMAL,     7,      0                       },

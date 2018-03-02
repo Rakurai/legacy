@@ -363,6 +363,96 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 			}
 } /* end show_list_to_char() */
 
+void do_bonus(Character *ch, String argument) {
+	String outbuf, tempbuf;
+	bool found;
+
+	outbuf +=
+	"  ,                                                                  ,\n"
+	" '`,                                                                '`,\n"
+	" `,                                                                 `,\n"
+	" .:.                                                                .:.\n"
+	" )X(                                                                )X(\n"
+	"[%%%]==============================================================[%%%]\n";
+
+	found = false;
+	tempbuf =
+	" |#| You are affected by the following bonuses:                     |#|\n"
+	" |#|----------------------------------------------------------------|#|\n";
+
+	for (int index = 1; index < MAX_ATTR; index++) {
+		// skip these
+		if (index == 7
+		 || index == 8
+		 || index == 10
+		 || index == 11
+		 || index == 25)
+			continue;
+
+		if ((GET_ATTR_MOD(ch, index)) == 0)
+			continue;
+
+		found = true;
+
+		tempbuf += Format::format(" |#| %-30s                          %5d",
+			affect_loc_name(index), GET_ATTR_MOD(ch, index));
+
+		if (index == APPLY_EXP_PCT
+		 || index == APPLY_MANA_COST_PCT
+		 || index == APPLY_STAM_COST_PCT
+		 || index == APPLY_WPN_DAMAGE_PCT
+		 || index == APPLY_SPELL_DAMAGE_PCT
+		 || index == APPLY_VAMP_BONUS_PCT)
+			tempbuf += "%";
+		else
+			tempbuf += " ";
+
+		tempbuf += " |#|\n";
+	}
+
+	if (found)
+		outbuf += tempbuf;
+
+	if (found)
+		tempbuf = 
+		" |#|----------------------------------------------------------------|#|\n";
+
+	found = false;
+	tempbuf +=
+	" |#| Your defense against damage is modified by:                    |#|\n"
+	" |#|----------------------------------------------------------------|#|\n";
+
+	for (int index = 1; index <= DAM_IRON; index++) {
+		// skip these
+		if (index == 16
+		 || index == 17
+		 || index == 20)
+			continue;
+
+		if ((GET_DEFENSE_MOD(ch, index)) == 0)
+			continue;
+
+		found = true;
+
+		tempbuf += Format::format(" |#| %-30s                          %5d%%",
+			dam_type_name(index), GET_DEFENSE_MOD(ch, index));
+
+		tempbuf += " |#|\n";
+	}
+
+	if (found)
+		outbuf += tempbuf;
+
+	outbuf += 
+	" |#|================================================================|#|\n"
+	" |#|                                                                |#|\n"
+	"[[|]]                                                              [[|]]\n";
+
+	new_color(ch, CSLOT_SCORE_BORDER);
+	page_to_char(outbuf, ch);
+	set_color(ch, WHITE, NOBOLD);
+}
+
 void do_peek(Character *ch, String argument)
 {
 	Character *victim;
