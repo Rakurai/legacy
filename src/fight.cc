@@ -1505,6 +1505,10 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				affect::iterate_over_char(ch, affect_callback_weaken_bonewall, nullptr);
 			}
 		}
+
+		// did the defense kill the attacker?
+		if (!ch->fighting)
+			return FALSE;
 	}
 
 	int def_mod = GET_DEFENSE_MOD(victim, dam_type);
