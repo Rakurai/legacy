@@ -1589,7 +1589,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	cmnd         = command_list;
 	command_list = mprog_next_command(command_list);
 
-	String buf;
+	char buf[MSL];
 
 	while (*cmnd != '\0') {
 		morebuf = one_argument(cmnd, buf);
