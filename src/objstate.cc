@@ -115,6 +115,7 @@ int objstate_save_items()
 		Logging::bugf("Could not write to copyover file: %s", COPYOVER_ITEMS);
 	}
 
+	free(JSONstring);
 	return 0;
 }
 

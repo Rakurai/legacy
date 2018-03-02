@@ -136,6 +136,7 @@ void save_char_obj(Character *ch)
 		perror(strsave);
 	}
 
+	free(JSONstring);
 	update_pc_index(ch, FALSE);
 }
 
