@@ -21,6 +21,7 @@
 #include <png.h>
 
 #include "util/Image.hh"
+#include "String.hh"
 
 namespace util {
 
@@ -79,10 +80,10 @@ bool Image::load(const String& filename) {
 
 	png_read_update_info(png, info);
 
-	rows = (png_bytep*)malloc(sizeof(png_bytep) * height());
+	rows = new png_bytep [height()];
 
 	for(unsigned int y = 0; y < height(); y++) {
-		rows[y] = (png_byte*)malloc(png_get_rowbytes(png,info));
+		rows[y] = new png_byte [png_get_rowbytes(png,info)];
 	}
 
 	png_read_image(png, rows);
@@ -91,6 +92,25 @@ bool Image::load(const String& filename) {
 	fclose(fp);
 	return true;
 }
+
+Image::
+~Image() {
+	if (rows != nullptr) {
+		for (unsigned int h = 0; h < height(); h++)
+			delete[] rows[h];
+
+		delete[] rows;
+	}
+}
+
+unsigned int Image::
+value(Channel rgb, unsigned int x, unsigned int y) const {
+	if (rows == nullptr || x > width() || y > height())
+		return 0;
+
+	return rows[y][x*4+rgb];
+}
+
 /*
 void write_png_file(char *filename) {
 	int y;

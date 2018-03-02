@@ -38,10 +38,10 @@ Worldmap() {
 	_width = image.width();
 
 	if (height() > 0 && width() > 0) {
-		rows = (unsigned char **)malloc(sizeof(unsigned char *) * height());
+		rows = new unsigned char *[height()];
 
 		for(unsigned int y = 0; y < height(); y++) {
-			rows[y] = (unsigned char *)malloc(sizeof(unsigned char) * width());
+			rows[y] = new unsigned char[width()];
 
 			for (unsigned int x = 0; x < width(); x++) {
 				Sector sector(Sector::none);
@@ -72,9 +72,9 @@ Worldmap::
 ~Worldmap() {
 	if (rows != nullptr) {
 		for (unsigned int h = 0; h < height(); h++)
-			delete rows[h];
+			delete[] rows[h];
 
-		delete rows;
+		delete[] rows;
 	}
 }
 
