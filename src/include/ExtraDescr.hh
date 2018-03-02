@@ -7,8 +7,8 @@
 /*
  * Extra description data for a room or object.
  */
-class ExtraDescr :
-public Pooled<ExtraDescr>
+class ExtraDescr
+// : public Pooled<ExtraDescr>
 {
 public:
 	ExtraDescr() {}

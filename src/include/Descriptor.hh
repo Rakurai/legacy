@@ -8,8 +8,8 @@
 /*
  * Descriptor (channel) structure.
  */
-class Descriptor :
-public Pooled<Descriptor>
+class Descriptor
+// : public Pooled<Descriptor>
 {
 public:
     Descriptor() {}

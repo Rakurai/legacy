@@ -1,6 +1,6 @@
 #pragma once
 
-#include "String.hh"
+class String;
 
 namespace util {
 
@@ -9,21 +9,9 @@ public:
 	enum Channel { red = 0, green, blue, alpha };
 
 	Image() {}
-	virtual ~Image() {
-		if (rows != nullptr) {
-			for (unsigned int h = 0; h < height(); h++)
-				delete rows[h];
+	virtual ~Image();
 
-			delete rows;
-		}
-	}
-
-	unsigned int value(Channel rgb, unsigned int x, unsigned int y) const {
-		if (rows == nullptr || x > width() || y > height())
-			return 0;
-
-		return rows[y][x*4+rgb];
-	}
+	unsigned int value(Channel rgb, unsigned int x, unsigned int y) const;
 
 	unsigned int height() const { return _height; }
 	unsigned int width() const { return _width; }

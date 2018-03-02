@@ -12,7 +12,7 @@
  * One object.
  */
 class Object :
-public Pooled<Object>,
+//public Pooled<Object>,
 public Actable
 {
 public:
