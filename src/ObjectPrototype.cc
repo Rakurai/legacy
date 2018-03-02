@@ -112,7 +112,7 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 		break;
 
 	case ITEM_PORTAL:
-		value[val]         = ObjectValue(Location(Vnum(fread_number(fp))).to_int());
+		value[val]         = ObjectValue(Location(fread_word(fp)).to_int());
 		break;
 
 	default:

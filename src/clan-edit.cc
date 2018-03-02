@@ -105,7 +105,7 @@ void load_clan_table()
 		clan->who_name          = db_get_column_str(2);
 		clan->clanname          = db_get_column_str(3);
 		clan->creator           = db_get_column_str(4);
-		clan->recall              = Location(Vnum(db_get_column_int(5)));
+		clan->recall            = Location(db_get_column_int(5));
 		clan->area_minvnum      = db_get_column_int(6);
 		clan->area_maxvnum      = db_get_column_int(7);
 		clan->independent       = db_get_column_int(8);
@@ -140,7 +140,7 @@ void save_clan_table()
 			            db_esc(clan->who_name),
 			            db_esc(clan->clanname),
 			            db_esc(clan->creator),
-			            clan->recall,
+			            clan->recall.to_int(),
 			            clan->area_minvnum,
 			            clan->area_maxvnum,
 			            clan->independent,
@@ -158,7 +158,7 @@ void save_clan_table()
 		            db_esc(clan->who_name),
 		            db_esc(clan->clanname),
 		            db_esc(clan->creator),
-		            clan->recall,
+		            clan->recall.to_int(),
 		            clan->area_minvnum,
 		            clan->area_maxvnum,
 		            clan->independent,
