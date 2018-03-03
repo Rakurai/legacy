@@ -14,8 +14,8 @@
 /*
  * Data which only PC's have.
  */
-class Player
-// : public Pooled<Player>
+class Player :
+public Pooled<Player>
 {
 public:
 	Player();

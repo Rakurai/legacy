@@ -12,8 +12,8 @@
 #define NOTE_PERSONAL   5
 #define NOTE_TRADE      6
 
-class Note
-// : public Pooled<Note>
+class Note :
+public Pooled<Note>
 {
 public:
     Note() {}

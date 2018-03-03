@@ -546,14 +546,14 @@ void do_remexit(Character *ch, String argument)
 
 void do_memory(Character *ch, String argument)
 {
-//	ptc(ch, "Affects %5d allocated, %5d free, %5d B each\n", affect::Affect::pool_allocated(), affect::Affect::pool_free(), sizeof(affect::Affect));
+	ptc(ch, "Affects %5d allocated, %5d free, %5d B each\n", affect::Affect::pool_allocated(), affect::Affect::pool_free(), sizeof(affect::Affect));
 	ptc(ch, "Areas   %5d,                       %5d B each\n", Game::world().areas.size(), sizeof(Area));
-//	ptc(ch, "ExDes   %5d allocated, %5d free, %5d B each\n", ExtraDescr::pool_allocated(), ExtraDescr::pool_free(), sizeof(ExtraDescr));
+	ptc(ch, "ExDes   %5d allocated, %5d free, %5d B each\n", ExtraDescr::pool_allocated(), ExtraDescr::pool_free(), sizeof(ExtraDescr));
 	ptc(ch, "Exits   %5d,                       %5d B each\n", top_exit, sizeof(Exit));
 	ptc(ch, "Socials %5d,                       %5d B each\n", count_socials(), sizeof(Social));
-//	ptc(ch, "Chars   %5d allocated, %5d free, %5d B each\n", Character::pool_allocated(), Character::pool_free(), sizeof(Character));
-//	ptc(ch, "Descrs  %5d allocated, %5d free, %5d B each\n", Descriptor::pool_allocated(), Descriptor::pool_free(), sizeof(Descriptor));
-//	ptc(ch, "Objs    %5d allocated, %5d free, %5d B each\n", Object::pool_allocated(), Object::pool_free(), sizeof(Object));
+	ptc(ch, "Chars   %5d allocated, %5d free, %5d B each\n", Character::pool_allocated(), Character::pool_free(), sizeof(Character));
+	ptc(ch, "Descrs  %5d allocated, %5d free, %5d B each\n", Descriptor::pool_allocated(), Descriptor::pool_free(), sizeof(Descriptor));
+	ptc(ch, "Objs    %5d allocated, %5d free, %5d B each\n", Object::pool_allocated(), Object::pool_free(), sizeof(Object));
 	ptc(ch, "Resets  %5d,                       %5d B each\n", top_reset, sizeof(Reset));
 	ptc(ch, "Rooms   %5d,                       %5d B each\n", top_room, sizeof(Room));
 	ptc(ch, "Shops   %5d,                       %5d B each\n", top_shop, sizeof(Shop));

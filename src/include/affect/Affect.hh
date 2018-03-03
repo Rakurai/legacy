@@ -12,8 +12,8 @@ namespace affect {
 /*
  * An affect.
  */
-class Affect
-// : public Pooled<Affect>
+class Affect :
+public Pooled<Affect>
 {
 public:
     // note: the grouping of these fields is important for computing checksums.
