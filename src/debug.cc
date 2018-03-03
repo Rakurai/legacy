@@ -148,11 +148,11 @@ void do_debug(Character *ch, String argument)
 			}
 
 			victim = d->character;
-			victim->next = char_list;
-			char_list    = victim;
+			victim->next = Game::world().char_list;
+			Game::world().char_list    = victim;
 			victim->validate();
-			victim->pcdata->next = pc_list;
-			pc_list = victim->pcdata;
+			victim->pcdata->next = Game::world().pc_list;
+			Game::world().pc_list = victim->pcdata;
 			victim->desc = nullptr;
 			free_descriptor(d);
 			char_to_room(victim, Game::world().get_room(ROOM_VNUM_ALTAR));
@@ -262,7 +262,7 @@ void do_debug(Character *ch, String argument)
 	if (!strcmp(subfunc, "compart")) {
 		Object *container, *obj;
 
-		for (obj = object_list; obj != nullptr; obj = obj->next) {
+		for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 			if ((container = obj->in_obj) == nullptr)
 				continue;
 
@@ -325,7 +325,7 @@ void do_debug(Character *ch, String argument)
 		argument = one_argument(argument, arg);
 
 		if (arg == "all") {
-			for (questor = char_list; questor; questor = questor->next)
+			for (questor = Game::world().char_list; questor; questor = questor->next)
 				if (!IS_NPC(questor) && !IS_IMMORTAL(questor)) {
 					questor->nextquest = 0;
 					questor->pcdata->nextsquest = 0;

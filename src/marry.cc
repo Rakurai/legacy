@@ -45,6 +45,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -184,7 +185,7 @@ void do_spousetalk(Character *ch, String argument)
 
 		/* Us married folk wanna see our spouses - Lotus */
 
-		for (victim = char_list; victim != nullptr ; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr ; victim = victim->next) {
 			if (victim->in_room != nullptr &&
 			    !IS_NPC(victim) &&
 			    victim->name.has_words(ch->pcdata->spouse))

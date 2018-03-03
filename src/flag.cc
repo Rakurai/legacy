@@ -396,7 +396,7 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 	Flags flag;
 	output += "{VCount {YRoom{x\n";
 
-	for (vpc = pc_list; vpc != nullptr; vpc = vpc->next) {
+	for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
 		if ((victim = vpc->ch) == nullptr
 		    || IS_NPC(victim)
 		    || victim->in_room == nullptr
@@ -451,7 +451,7 @@ int fsearch_mobile(Character *ch, int fieldptr, const Flags& marked)
 	Flags flag;
 	output += "{VCount  {YRoom   {GMob{x\n";
 
-	for (victim = char_list; victim != nullptr; victim = victim->next) {
+	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 		if (!IS_NPC(victim)
 		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
@@ -594,7 +594,7 @@ void fsearch_obj(Character *ch, int fieldptr, const Flags& marked)
 	output += "{VCount {YRoom  {GObject{x\n";
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		/* take care of flag comparison first */
 		switch (fieldptr) {
 		case FIELD_EXTRA:       flag = obj->extra_flags;        break;

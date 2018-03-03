@@ -293,7 +293,7 @@ bool spec_patrolman(Character *ch)
 		act("You blow down hard on $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n blows on $p, ***WHEEEEEEEEEEEET***", ch, obj, nullptr, TO_ROOM);
 
-		for (vch = char_list; vch != nullptr; vch = vch->next) {
+		for (vch = Game::world().char_list; vch != nullptr; vch = vch->next) {
 			if (vch->in_room == nullptr)
 				continue;
 

@@ -115,11 +115,11 @@ void violence_update(void)
 	Character *victim;
 
 	// go through first and make sure everybody is fighting who should be fighting
-	for (ch = char_list; ch != nullptr; ch = ch->next)
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next)
 		if (ch->fighting)
 			check_assist(ch, ch->fighting);
 
-	for (ch = char_list; ch != nullptr; ch = ch->next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
 		if (ch->in_room == nullptr)
 			continue;
 
@@ -1017,7 +1017,6 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		if (diceroll == 0 || (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 			/* Miss. */
 			damage(ch, victim, 0, attack_skill, attack_type, dam_type, TRUE, FALSE);
-			tail_chain();
 			return;
 		}
 	}
@@ -1246,8 +1245,6 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, FALSE, FALSE);
 		}
 	}
-
-	tail_chain();
 } /* end one_hit */
 
 // called on a hit from bone wall
@@ -1601,7 +1598,6 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		}
 	}
 
-	tail_chain();
 	return TRUE;
 } /* end damage() */
 
@@ -1670,10 +1666,9 @@ void kill_off(Character *ch, Character *victim)
 
 	// announcements
 	if (!IS_NPC(victim)) {
-		Format::sprintf(log_buf, "%s killed by %s at %s", victim->name,
+		Logging::logf("%s killed by %s at %s", victim->name,
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->location.to_string());
-		Logging::log(log_buf);
-		Format::sprintf(log_buf, "<PK> %s was slain by %s at [{W%s{x] [{W%d Exp{x]",
+		String log_buf = Format::format("<PK> %s was slain by %s at [{W%s{x] [{W%d Exp{x]",
 		        victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name),
 		        ch->in_room->location.to_string(), IS_NPC(ch) ? 0 : gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_DEATHS, 0, 0);
@@ -1681,7 +1676,7 @@ void kill_off(Character *ch, Character *victim)
 		do_send_announce(victim, buf);
 	}
 	else {
-		Format::sprintf(log_buf, "%s got ToAsTeD by %s at [{W%s{x] [{W%d Exp{x]",
+		String log_buf = Format::format("%s got ToAsTeD by %s at [{W%s{x] [{W%d Exp{x]",
 		        (IS_NPC(victim) ? victim->short_descr : victim->name),
 		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->location.to_string(), gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_MOBDEATHS, 0, 0);
@@ -2619,7 +2614,7 @@ void stop_fighting(Character *ch, bool fBoth)
 {
 	Character *fch;
 
-	for (fch = char_list; fch != nullptr; fch = fch->next) {
+	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
 		if (fch == ch || (fBoth && fch->fighting == ch)) {
 			fch->fighting = nullptr;
 			fch->position = IS_NPC(fch) ? fch->default_pos : fch->start_pos;
@@ -5260,7 +5255,7 @@ void do_rage(Character *ch, String argument)
 	act("You scream a battle cry and unleash your rage!", ch, nullptr, nullptr, TO_CHAR);
 	act("$n screams a battle cry, and goes into a wild series of attacks!", ch, nullptr, nullptr, TO_ROOM);
 
-	for (vch = char_list; vch != nullptr; vch = vch_next) {
+	for (vch = Game::world().char_list; vch != nullptr; vch = vch_next) {
 		vch_next = vch->next;
 
 		if (ch == vch)

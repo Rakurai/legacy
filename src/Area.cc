@@ -3,7 +3,6 @@
 #include "argument.hh"
 #include "channels.hh"
 #include "Character.hh"
-#include "db.hh"
 #include "Exit.hh"
 #include "file.hh"
 #include "Flags.hh"
@@ -21,33 +20,59 @@
 #include "Room.hh"
 #include "RoomPrototype.hh"
 #include "worldmap/Region.hh"
+#include "Shop.hh"
 
-Area::Area(World& w, FILE *fp) :
-	world(w),
-	file_name(fread_string(fp)),
-	name(fread_string(fp)),
-	credits(fread_string(fp)),
-	min_vnum(fread_number(fp)),
-	max_vnum(fread_number(fp))
-{
-	String line = file_name;
-	String num;
-	line = one_argument(line, num);
+Area::
+Area(World& w, const String& file_name) : world(w), file_name(file_name) {
+	// separated from loading so that the area is valid in the world, for error checking lookups
+}
 
-	if (num.is_number()) {
-		version = atoi(num);
-		file_name = line;
+void Area::
+load() {
+	FILE *fpArea = fopen(String(String(AREA_DIR) + file_name).c_str(), "r");
+
+	if (fpArea == nullptr) {
+		perror(file_name.c_str());
+		exit(1);
 	}
 
-	// test for overlapping vnum ranges with already-loaded areas
-	for (const auto area : Game::world().areas)
-		if ((min_vnum >= area->min_vnum && min_vnum <= area->max_vnum)
-		 || (max_vnum >= area->min_vnum && max_vnum <= area->max_vnum)) {
-			boot_bug(Format::format("Load_area: vnum range overlaps with area file '%s'", area->file_name), 0);
+	Format::printf("Now loading area: %s\n", file_name);
+
+	for (; ;) {
+		if (fread_letter(fpArea) != '#') {
+			Logging::file_bug(fpArea, "Load_area: # not found.", 0);
 			exit(1);
 		}
 
-	scan_credits();
+		String word = fread_word(fpArea);
+
+		if (name.empty()) {
+			if (word != "AREA") {
+				Logging::file_bug(fpArea, "Load_area: AREA section not seen yet", 0);
+				exit(1);
+			}
+
+			load_header(fpArea);
+			continue;
+		}
+
+		if (word[0] == '$')  break;
+		else if (word == "REGION")   load_region(fpArea);
+		else if (word == "MOBILES")  load_mobiles(fpArea);
+		else if (word == "OBJECTS")  load_objects(fpArea);
+		else if (word == "RESETS")  load_resets(fpArea);
+		else if (word == "ROOMS")  load_rooms(fpArea);
+		else if (word == "SHOPS")  load_shops(fpArea);
+		else if (word == "SPECIALS")  load_specials(fpArea);
+//				else if (word == "TOURSTARTS")  load_tourstarts(fp);
+//				else if (word == "TOURROUTES")  load_tourroutes(fp);
+		else {
+			Logging::file_bug(fpArea, "Load_area: bad section name.", 0);
+			exit(1);
+		}
+	}
+
+	fclose(fpArea);
 }
 
 Area::
@@ -72,6 +97,38 @@ Area::
 }
 
 void Area::
+load_header(FILE *fp) {
+	fread_string(fp); //	file_name = fread_string(fp);
+	name = fread_string(fp);
+	credits = fread_string(fp);
+	min_vnum = Vnum(fread_number(fp));
+	max_vnum = Vnum(fread_number(fp));
+
+	String line = file_name;
+	String num;
+	line = one_argument(line, num);
+
+	if (num.is_number()) {
+		version = atoi(num);
+		file_name = line;
+	}
+
+	// test for overlapping vnum ranges with already-loaded areas
+	for (const auto area : Game::world().areas) {
+		if (area == this)
+			continue;
+
+		if ((min_vnum >= area->min_vnum && min_vnum <= area->max_vnum)
+		 || (max_vnum >= area->min_vnum && max_vnum <= area->max_vnum)) {
+			Logging::file_bug(fp, Format::format("Load_area: vnum range overlaps with area file '%s'", area->file_name), 0);
+			exit(1);
+		}
+	}
+
+	scan_credits();
+}
+
+void Area::
 load_region(FILE *fp) {
 	if (region != nullptr)
 		delete region;
@@ -85,7 +142,7 @@ load_rooms(FILE *fp) {
 		char letter = fread_letter(fp);
 
 		if (letter != '#') {
-			boot_bug("Load_rooms: # not found.", 0);
+			Logging::file_bug(fp, "Load_rooms: # not found.", 0);
 			exit(1);
 		}
 
@@ -95,12 +152,12 @@ load_rooms(FILE *fp) {
 			break;
 
 		if (vnum < min_vnum || vnum > max_vnum) {
-			boot_bug("Load_rooms: room vnum %d out of range.", vnum);
+			Logging::file_bug(fp, "Load_rooms: room vnum %d out of range.", vnum);
 			exit(1);
 		}
 
 		if (room_prototypes.find(vnum) != room_prototypes.end()) {
-			boot_bug("Load_rooms: vnum %d duplicated.", vnum);
+			Logging::file_bug(fp, "Load_rooms: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 
@@ -116,7 +173,7 @@ load_mobiles(FILE *fp)
 		char letter = fread_letter(fp);
 
 		if (letter != '#') {
-			boot_bug("Load_mobiles: # not found.", 0);
+			Logging::file_bug(fp, "Load_mobiles: # not found.", 0);
 			exit(1);
 		}
 
@@ -126,12 +183,12 @@ load_mobiles(FILE *fp)
 			break;
 
 		if (vnum < min_vnum || vnum > max_vnum) {
-			boot_bug("Load_mobiles: room vnum %d out of range.", vnum);
+			Logging::file_bug(fp, "Load_mobiles: room vnum %d out of range.", vnum);
 			exit(1);
 		}
 
 		if (mob_prototypes.find(vnum) != mob_prototypes.end()) {
-			boot_bug("Load_mobiles: vnum %d duplicated.", vnum);
+			Logging::file_bug(fp, "Load_mobiles: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 
@@ -147,7 +204,7 @@ load_objects(FILE *fp)
 		char letter = fread_letter(fp);
 
 		if (letter != '#') {
-			boot_bug("Load_objects: # not found.", 0);
+			Logging::file_bug(fp, "Load_objects: # not found.", 0);
 			exit(1);
 		}
 
@@ -157,17 +214,135 @@ load_objects(FILE *fp)
 			break;
 
 		if (vnum < min_vnum || vnum > max_vnum) {
-			boot_bug("Load_objects: room vnum %d out of range.", vnum);
+			Logging::file_bug(fp, "Load_objects: room vnum %d out of range.", vnum);
 			exit(1);
 		}
 
 		if (obj_prototypes.find(vnum) != obj_prototypes.end()) {
-			boot_bug("Load_objects: vnum %d duplicated.", vnum);
+			Logging::file_bug(fp, "Load_objects: vnum %d duplicated.", vnum);
 			exit(1);
 		}
 
 		obj_prototypes[vnum] = new ObjectPrototype(*this, vnum, fp);
 		top_obj_index++;
+	}
+}
+
+void Area::
+load_shops(FILE *fp)
+{
+	for (; ;) {
+		int shopkeeper = fread_number(fp);
+
+		if (shopkeeper == 0)
+			break;
+
+		MobilePrototype *pMobIndex = Game::world().get_mob_prototype(shopkeeper);
+
+		if (pMobIndex == nullptr) {
+			Logging::file_bug(fp, "Load_shops: NULL mob index %d", shopkeeper);
+			exit(1);
+		}
+
+		pMobIndex->pShop = new Shop(fp);
+		top_shop++;
+	}
+
+	return;
+}
+
+void Area::
+load_resets(FILE *fp)
+{
+	for (; ;) {
+		char letter = fread_letter(fp);
+
+		if (letter == 'S')
+			break;
+
+		if (letter == '*') {
+			fread_to_eol(fp);
+			continue;
+		}
+
+		ungetc(letter, fp);
+		Reset *pReset = new Reset(fp);
+		resets.push_back(pReset);
+	}
+}
+
+/*
+void load_mobiles(FILE *fp)
+{
+	if (area_last == nullptr) {
+		Logging::file_bug(fp, "Load_mobiles: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	area_last->load_mobiles(fp);
+}
+
+void load_objects(FILE *fp)
+{
+	if (area_last == nullptr) {
+		Logging::file_bug(fp, "Load_objects: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	area_last->load_objects(fp);
+}
+
+void load_rooms(FILE *fp)
+{
+	if (area_last == nullptr) {
+		Logging::file_bug(fp, "Load_rooms: no #AREA seen yet.", 0);
+		exit(1);
+	}
+
+	area_last->load_rooms(fp);
+}
+*/
+
+/*
+ * Snarf spec proc declarations.
+ */
+void Area::
+load_specials(FILE *fp)
+{
+	MobilePrototype *pMobIndex;
+	char letter;
+
+	for (; ;) {
+		switch (letter = fread_letter(fp)) {
+		default:
+			Logging::file_bug(fp, "Load_specials: letter '%c' not *MS.", letter);
+			exit(1);
+
+		case 'S':
+			return;
+
+		case '*':
+			break;
+
+		case 'M':
+			pMobIndex           = Game::world().get_mob_prototype(fread_number(fp));
+
+			if (!pMobIndex) {
+				Logging::file_bug(fp, "Load_specials: 'M': vnum %d.", pMobIndex->vnum);
+				exit(1);
+			}
+
+			pMobIndex->spec_fun = spec_lookup(fread_word(fp));
+
+			if (pMobIndex->spec_fun == 0) {
+				Logging::file_bug(fp, "Load_specials: 'M': vnum %d.", pMobIndex->vnum);
+				exit(1);
+			}
+
+			break;
+		}
+
+		fread_to_eol(fp);
 	}
 }
 
@@ -304,7 +479,7 @@ reset() {
 
 		case 'O':
 			// might have loaded the pit from the copyover recovery file
-			if (pReset->arg1 == OBJ_VNUM_PIT && donation_pit != nullptr) {
+			if (pReset->arg1 == OBJ_VNUM_PIT && Game::world().donation_pit != nullptr) {
 				last = FALSE;
 				break;
 			}
@@ -334,7 +509,7 @@ reset() {
 			obj_to_room(obj, room);
 
 			if (pObjIndex->vnum == OBJ_VNUM_PIT)
-				donation_pit = obj;
+				Game::world().donation_pit = obj;
 			else
 				unique_item(obj);
 
@@ -678,7 +853,7 @@ create_rooms() {
 		Room *room = new Room(*prototype);
 
 		if (room == nullptr) {
-			boot_bug("Create_rooms: unable to create room from prototype %d.", vnum);
+			Logging::bugf("Create_rooms: unable to create room from prototype %d.", vnum);
 			exit(1);
 		}
 

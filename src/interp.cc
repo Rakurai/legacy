@@ -39,6 +39,7 @@
 #include "file.hh"
 #include "find.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -53,7 +54,6 @@
 #include "vt100.hh" /* VT100 Stuff */
 
 extern void     goto_line    args((Character *ch, int row, int column));
-extern void     set_window   args((Character *ch, int top, int bottom));
 
 char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 
@@ -65,11 +65,6 @@ char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 #define LOG_NORMAL      0
 #define LOG_ALWAYS      1
 #define LOG_NEVER       2
-
-/*
- * Log-all switch.
- */
-bool                            fLogAll         = FALSE;
 
 /*
  * Command table.
@@ -630,9 +625,9 @@ void interpret(Character *ch, String argument)
 		strcpy(logline, "");
 
 	if ((!IS_NPC(ch) && ch->act_flags.has(PLR_LOG))
-	    ||   fLogAll
+	    ||   Game::log_all
 	    ||   cmd_table[cmd].log == LOG_ALWAYS) {
-		Format::sprintf(log_buf, "Log %s: %s", ch->name, logline);
+		String log_buf = Format::format("Log %s: %s", ch->name, logline);
 
 		if (cmd_table[cmd].log == LOG_ALWAYS)
 			wiznet(log_buf, ch, nullptr, WIZ_SECURE, 0, GET_RANK(ch));
@@ -640,7 +635,7 @@ void interpret(Character *ch, String argument)
 		if (ch->act_flags.has(PLR_LOG)) {
 			char *strtime;
 			char tmp[MAX_STRING_LENGTH];
-			strtime = ctime(&current_time);
+			strtime = ctime(&Game::current_time);
 			strtime[strlen(strtime) - 1] = '\0';
 			Format::sprintf(tmp, "%s :: %s\n", strtime, log_buf);
 			fappend(SLOG_FILE, tmp);
@@ -721,7 +716,6 @@ void interpret(Character *ch, String argument)
 		stc(VT_CLEAR_LINE, ch);
 	}
 
-	tail_chain();
 	return;
 }
 

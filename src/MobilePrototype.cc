@@ -1,7 +1,7 @@
 #include "MobilePrototype.hh"
 
-#include "db.hh" // boot_bug
 #include "file.hh"
+#include "Area.hh"
 #include "lookup.hh"
 #include "Logging.hh"
 #include "merc.hh"
@@ -117,7 +117,7 @@ MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
 			else if (word.is_prefix_of("for"))  form_flags -= vector;
 			else if (word.is_prefix_of("par"))  parts_flags -= vector;
 			else {
-				boot_bug("Flag remove: flag not found.", 0);
+				Logging::file_bug(fp, "Flag remove: flag not found.", 0);
 				exit(1);
 			}
 		}
@@ -151,7 +151,7 @@ read_mobprogs(FILE *fp) {
 		MobProg *mprg = new MobProg(fp);
 
 		if (mprg->type == ERROR_PROG) {
-			boot_bug("Load_mobiles: vnum %d invalid MOBPROG type.", vnum);
+			Logging::file_bug(fp, "Load_mobiles: vnum %d invalid MOBPROG type.", vnum);
 			exit(1);
 		}
 

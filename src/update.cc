@@ -225,8 +225,6 @@ void gain_exp(Character *ch, int gain)
 
 		save_char_obj(ch);
 	}        /* end of while leveling */
-
-	tail_chain();
 }
 
 /*
@@ -509,7 +507,7 @@ void mobile_update(void)
 	Character *ch_next;
 
 	/* Examine all mobs. */
-	for (ch = char_list; ch != nullptr; ch = ch_next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		ch->update();
@@ -589,7 +587,7 @@ void char_update(void)
 	if (save_number > 29)
 		save_number = 0;
 
-	for (ch = char_list; ch != nullptr; ch = ch_next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		if (!IS_IMMORTAL(ch) && !char_in_duel_room(ch)) {
@@ -838,7 +836,7 @@ void char_update(void)
 	 * Autosave and autoquit.
 	 * Check that these chars still exist.
 	 */
-	for (ch = char_list; ch != nullptr; ch = ch_next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		if (ch->desc != nullptr && ch->desc->descriptor % 30 == save_number)
@@ -860,7 +858,7 @@ void obj_update(void)
 	Object *obj;
 	Object *obj_next;
 
-	for (obj = object_list; obj != nullptr; obj = obj_next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj_next) {
 		Character *rch;
 		char *message;
 		obj_next = obj->next;
@@ -1284,7 +1282,7 @@ void tele_update(void)
 	Character *ch, *ch_next;
 	Room *room;
 
-	for (ch = char_list; ch != nullptr; ch = ch_next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		if (ch->in_room == nullptr)
@@ -1318,9 +1316,9 @@ void age_update(void)
 	Descriptor *d;
 	Character *wch;
 
-	/* leech our quest_double counter here too */
-	if (quest_double)
-		quest_double++;
+	/* leech our Game::quest_double counter here too */
+	if (Game::quest_double)
+		Game::quest_double++;
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (!IS_PLAYING(d))
@@ -1354,7 +1352,7 @@ void wait_update(void)
 {
 	Character *ch;
 
-	for (ch = char_list; ch != nullptr; ch = ch->next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
 		if (ch->daze > 0)       --ch->daze;
 
 		if (ch->wait > 0)       --ch->wait;
@@ -1417,7 +1415,7 @@ void update_handler(void)
 		room_update();
 
 		if (reboot_time != 0) {
-			if (current_time == reboot_time) {
+			if (Game::current_time == reboot_time) {
 				int count = 0;
 				Descriptor *d;
 
@@ -1447,7 +1445,6 @@ void update_handler(void)
 	wait_update();
 	auction.update();
 	aggr_update();
-	tail_chain();
 } /* end update_handler() */
 
 /* worldwide cleanup of objects */
@@ -1456,10 +1453,10 @@ void janitor_update()
 	Character *rch;
 	Object *obj;
 
-	if (port != DIZZYPORT)
+	if (Game::port != DIZZYPORT)
 		return;
 
-	for (obj = object_list; obj; obj = obj->next) {
+	for (obj = Game::world().object_list; obj; obj = obj->next) {
 		if (!obj->in_room
 		    || obj->contains
 		    || obj->timer
@@ -1504,7 +1501,7 @@ void underwater_update(void)
 	Character *ch, *ch_next;
 	int skill, dam;
 
-	for (ch = char_list; ch != nullptr; ch = ch_next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
 		if (!IS_NPC(ch) && ch->in_room->flags().has(ROOM_UNDER_WATER)) {

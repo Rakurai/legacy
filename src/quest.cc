@@ -79,11 +79,11 @@ void sq_cleanup(Character *ch)
 	ch->pcdata->squest_giver = 0;
 	ch->pcdata->sqcountdown = 0;
 
-	for (obj = object_list; obj != nullptr; obj = obj->next)
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next)
 		if (obj == ch->pcdata->squestobj)
 			extract_obj(obj);
 
-	for (mob = char_list; mob != nullptr ; mob = mob->next)
+	for (mob = Game::world().char_list; mob != nullptr ; mob = mob->next)
 		if (mob == ch->pcdata->squestmob)
 			extract_char(mob, TRUE);
 
@@ -853,7 +853,7 @@ void generate_quest(Character *ch, Character *questman)
 		aligned = 0;
 		total = 0;
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (!IS_NPC(victim)
 			    || victim->pIndexData == nullptr
 			    || victim->in_room == nullptr
@@ -1176,7 +1176,7 @@ void do_quest(Character *ch, String argument)
 			// set the next quest time here so it is based on the base award, not modifiers
 			ch->pcdata->nextsquest = pointreward;
 
-			if (quest_double)
+			if (Game::quest_double)
 				pointreward += number_range(0, 10);
 
 			/*suffix
@@ -1294,7 +1294,7 @@ void do_quest(Character *ch, String argument)
 			// set the next quest time here so it is based on the base award, not modifiers
 			ch->nextquest = pointreward;
 
-			if (quest_double)
+			if (Game::quest_double)
 				pointreward += number_range(0, 5);
 
 			/*suffix
@@ -1380,7 +1380,7 @@ void do_quest(Character *ch, String argument)
 			if (temple == nullptr)
 				Logging::bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
 			else {
-				for (victim = char_list; victim != nullptr; victim = victim->next) {
+				for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 					if (!IS_NPC(victim) && victim->in_room != nullptr
 					    && victim->in_room->area() == Game::world().quest.area()) {
 						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);
@@ -1442,17 +1442,17 @@ void do_quest(Character *ch, String argument)
 
 	/*** DOUBLE ***/
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("double")) {
-		if (!quest_double) {
+		if (!Game::quest_double) {
 			stc("You declare double QP for all!\n", ch);
 			wiznet("{Y:QUEST:{x $N has declared double QP", ch, nullptr, WIZ_QUEST, 0, 0);
 			do_send_announce(ch, "The Gods have declared Double QP for all!  Happy Questing!");
-			quest_double = 1;
+			Game::quest_double = 1;
 		}
 		else {
 			stc("You declare normal QP for all.\n", ch);
 			wiznet("{Y:QUEST:{x $N has declared normal QP", ch, nullptr, WIZ_QUEST, 0, 0);
 			do_send_announce(ch, "The Gods have declared normal questing.");
-			quest_double = 0;
+			Game::quest_double = 0;
 		}
 
 		return;

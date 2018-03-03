@@ -6,6 +6,7 @@
 #include "Area.hh"
 #include "Edit.hh"
 #include "Exit.hh"
+#include "Game.hh"
 #include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -16,7 +17,7 @@
 #include "Tail.hh"
 
 Character::Character() {
-	logon = current_time;
+	logon = Game::current_time;
 	lines = PAGELEN;
 
 	for (int i = 0; i < 4; i++)

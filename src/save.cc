@@ -56,9 +56,6 @@
 #include "String.hh"
 #include "gem/gem.hh"
 
-extern  int     _filbuf         args((FILE *));
-extern void     goto_line       args((Character *ch, int row, int column));
-extern void     set_window      args((Character *ch, int top, int bottom));
 
 int CURRENT_VERSION = 20;   /* version number for pfiles */
 
@@ -101,7 +98,7 @@ void save_char_obj(Character *ch)
 	if (ch->desc != nullptr && ch->desc->original != nullptr)
 		ch = ch->desc->original;
 
-	ch->pcdata->last_saved = current_time;
+	ch->pcdata->last_saved = Game::current_time;
 
 	cJSON *root = cJSON_CreateObject();
 
@@ -274,7 +271,7 @@ cJSON *fwrite_player(Character *ch)
 	}
 
 	cJSON_AddNumberToObject(o,		"LLev",			ch->pcdata->last_level);
-	cJSON_AddNumberToObject(o,		"LogO",			current_time);
+	cJSON_AddNumberToObject(o,		"LogO",			Game::current_time);
 
 	if (!ch->pcdata->last_lsite.empty())
 		JSON::addStringToObject(o,	"Lsit",			ch->pcdata->last_lsite);
@@ -714,7 +711,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 	ATTR_BASE(ch, APPLY_HIT)            = 20;
 	ATTR_BASE(ch, APPLY_MANA)           = 100;
 	ATTR_BASE(ch, APPLY_STAM)           = 100;
-	ch->pcdata->last_logoff         = current_time;
+	ch->pcdata->last_logoff         = Game::current_time;
 	found = FALSE;
 
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, name.lowercase().capitalize());
@@ -852,7 +849,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 //		reset_char(ch);
 		/* adjust hp mana stamina up  -- here for speed's sake */
-		percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
+		percent = (Game::current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 		percent = UMIN(percent, 100);
 
 		if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison) && !affect::exists_on_char(ch, affect::type::plague)) {
@@ -1654,7 +1651,7 @@ void fread_pet(Character *ch, cJSON *json, int version)
 
 	/* adjust hp mana stamina up  -- here for speed's sake */
 	int percent;
-	percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
+	percent = (Game::current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
 	percent = UMIN(percent, 100);
 
 	if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison)
@@ -1714,7 +1711,7 @@ time_t dizzy_scantime(const String& ctime)
 	char msg[MAX_INPUT_LENGTH];
 	struct tm loc_tm;
 	/* this helps initialize local-dependent stuff like TZ, etc. */
-	loc_tm = *localtime(&current_time);
+	loc_tm = *localtime(&Game::current_time);
 
 	if (sscanf(ctime.c_str(), " %3s %3s %d %d:%d:%d %d",
 	           cdow, cmon, &day, &hour, &minute, &second, &year) < 7) {

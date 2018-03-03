@@ -12,7 +12,6 @@
 #include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
-#include "db.hh"
 #include "declare.hh"
 #include "ExtraDescr.hh"
 #include "Flags.hh"
@@ -191,8 +190,8 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 
 	mob->position = mob->start_pos;
 	/* link the mob to the world list */
-	mob->next           = char_list;
-	char_list           = mob;
+	mob->next           = Game::world().char_list;
+	Game::world().char_list           = mob;
 	pMobIndex->count++;
 	return mob;
 }
@@ -373,8 +372,8 @@ Object *create_object(ObjectPrototype *pObjIndex, int level)
 	for (const affect::Affect *paf = pObjIndex->affected; paf != nullptr; paf = paf->next)
 		affect::copy_to_obj(obj, paf);
 
-	obj->next           = object_list;
-	object_list         = obj;
+	obj->next           = Game::world().object_list;
+	Game::world().object_list         = obj;
 	pObjIndex->count++;
 	return obj;
 }

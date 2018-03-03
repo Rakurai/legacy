@@ -16,6 +16,7 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "Logging.hh"
 #include "macros.hh"
@@ -92,8 +93,6 @@ const std::vector<helpfile_table_type> helpfile_table = {
 	{       "combat",       HELP_COMBAT     },
 	{       "misc",         HELP_MISC       },
 };
-
-extern String help_greeting;
 
 /*** UTILITY FUNCTIONS ***/
 
@@ -217,7 +216,7 @@ void add_help(int group, int order, int level, const String& keywords, const Str
 	String query;
 
 	if (keywords == "GREETING") {
-		help_greeting = text;
+		Game::help_greeting = text;
 	}
 
 	Format::sprintf(query, "INSERT INTO " HTABLE " (" HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
@@ -256,7 +255,7 @@ void do_loadhelps(Character *ch, String argument)
 		return;
 	}
 
-	if (port != DIZZYPORT) {
+	if (Game::port != DIZZYPORT) {
 		ptc(ch, "Please perform loading and printing commands on the port %d copy.\n", DIZZYPORT);
 		return;
 	}
@@ -379,7 +378,7 @@ void do_printhelps(Character *ch, String argument)
 		return;
 	}
 
-	if (port != DIZZYPORT) {
+	if (Game::port != DIZZYPORT) {
 		stc("Please perform loading and printing commands on the port 3000 copy.\n", ch);
 		return;
 	}

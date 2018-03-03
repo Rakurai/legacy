@@ -534,7 +534,7 @@ void do_mpat(Character *ch, String argument)
 	 * See if 'ch' still exists before continuing!
 	 * Handles 'at XXXX quit' case.
 	 */
-	for (wch = char_list; wch != nullptr; wch = wch->next) {
+	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
 		if (wch == ch) {
 			char_from_room(ch);
 			char_to_room(ch, original);
@@ -602,7 +602,7 @@ void do_mptransfer(Character *ch, String argument)
 		}
 	}
 
-	for (victim = char_list; victim != nullptr; victim = victim->next)
+	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next)
 		if (victim->name.has_words(arg1))
 			break;
 

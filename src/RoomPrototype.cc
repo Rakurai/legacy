@@ -1,5 +1,5 @@
 #include "RoomPrototype.hh"
-#include "db.hh"
+#include "Area.hh"
 #include "Exit.hh"
 #include "ExtraDescr.hh"
 #include "file.hh"
@@ -33,7 +33,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 		case 20: /* SECT_ARENA        */ sector_type = Sector::arena; break;
 		case 21: /* SECT_CLANARENA	  */ sector_type = Sector::clanarena; break;
 		default:
-			boot_bug("Load_rooms(): unknown sector type %d.", old_sector_type);
+			Logging::file_bug(fp, "Load_rooms(): unknown sector type %d.", old_sector_type);
 			sector_type = Sector::none;
 	}
 
@@ -42,28 +42,17 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 		room_flags += ROOM_LAW;
 
 	if (room_flags.has(ROOM_FEMALE_ONLY)) {
-		Format::sprintf(log_buf, "Room %d is FEMALE_ONLY", vnum);
-		Logging::log(log_buf);
+		Logging::logf("Room %d is FEMALE_ONLY", vnum);
 	}
 
 	if (room_flags.has(ROOM_MALE_ONLY)) {
-		Format::sprintf(log_buf, "Room %d is MALE_ONLY", vnum);
-		Logging::log(log_buf);
+		Logging::logf("Room %d is MALE_ONLY", vnum);
 	}
 
 	if (room_flags.has(ROOM_LOCKER)) {
-		Format::sprintf(log_buf, "Room %d is LOCKER", vnum);
-		Logging::log(log_buf);
+		Logging::logf("Room %d is LOCKER", vnum);
 	}
-/*
-	ExtraDescr *ed;
-	Exit *pexit;
-	int locks;
-	char log_buf[MAX_STRING_LENGTH];
-	int vnum;
-	char letter;
-	int door;
-*/
+
 	for (; ;) {
 		char letter = fread_letter(fp);
 
@@ -85,7 +74,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 
 		case 'G':       /* guild */
 			if (!(guild = class_lookup(fread_string(fp)) + 1)) {
-				boot_bug("Load_rooms: invalid class in guild", 0);
+				Logging::file_bug(fp, "Load_rooms: invalid class in guild", 0);
 				::exit(1);
 			}
 
@@ -95,12 +84,12 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 			int door = fread_number(fp);
 
 			if (door < 0 || door > 5) {
-				boot_bug("Fread_rooms: vnum %d has bad door number.", vnum);
+				Logging::file_bug(fp, "Fread_rooms: vnum %d has bad door number.", vnum);
 				::exit(1);
 			}
 
 			if (exit[door] != nullptr) {
-				boot_bug("Fread_rooms: vnum %d has two exits in same direction.", vnum);
+				Logging::file_bug(fp, "Fread_rooms: vnum %d has two exits in same direction.", vnum);
 				::exit(1);
 			}
 
@@ -121,7 +110,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 			break;
 
 		default:
-			boot_bug("Load_rooms: vnum %d has flag not 'CDEHMOS'.", vnum);
+			Logging::file_bug(fp, "Load_rooms: vnum %d has flag not 'CDEHMOS'.", vnum);
 			::exit(1);
 		}
 	}

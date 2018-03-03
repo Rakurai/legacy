@@ -39,6 +39,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -294,7 +295,7 @@ void hunt_victim(Character *ch)
 		return;
 
 	/* Make sure the victim still exists. */
-	for (found = 0, tmp = char_list; tmp && !found; tmp = tmp->next) {
+	for (found = 0, tmp = Game::world().char_list; tmp && !found; tmp = tmp->next) {
 		if (ch->hunting == tmp) {
 			found = 1;
 			break;  /* -- Elrac */

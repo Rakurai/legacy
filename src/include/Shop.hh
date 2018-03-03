@@ -1,17 +1,15 @@
 #pragma once
 
-#include "declare.hh"
+#include <cstdio>
 
 #define MAX_TRADE        5
 
 class Shop
 {
 public:
-    Shop() {}
+    Shop(FILE *fp);
     virtual ~Shop() {}
 
-    Shop *      next = nullptr;                   /* Next shop in list            */
-    int      keeper = 0;                 /* Vnum of shop keeper mob      */
     int      buy_type [MAX_TRADE] = {0};   /* Item types shop will buy     */
     int      profit_buy = 0;             /* Cost multiplier for buying   */
     int      profit_sell = 0;            /* Cost multiplier for selling  */
@@ -22,5 +20,3 @@ private:
 	Shop(const Shop&);
 	Shop& operator=(const Shop&);
 };
-
-extern          Shop         *     shop_first; // db.c

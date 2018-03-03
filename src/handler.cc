@@ -659,18 +659,18 @@ void obj_to_room(Object *obj, Room *room)
  */
 void obj_to_obj(Object *obj, Object *obj_to)
 {
-	if (obj_to == donation_pit) {
+	if (obj_to == Game::world().donation_pit) {
 		obj->cost = 0;
 
 		// don't *always* set, because do_pit temporarily removes items
 		if (obj->donated == 0) { // new object going in
-			obj->donated = current_time;
+			obj->donated = Game::current_time;
 
 			// count items in the pit, if there are too many, remove the oldest
 			Object *oldest = nullptr;
 			int count = 0;
 
-			for (Object *c = donation_pit->contains; c; c = c->next_content) {
+			for (Object *c = Game::world().donation_pit->contains; c; c = c->next_content) {
 				count++;
 				if (oldest == nullptr || oldest->donated > c->donated)
 					oldest = c;
@@ -804,12 +804,12 @@ void extract_obj(Object *obj)
 	}
 
 	// fish the object out of the linked list
-	if (object_list == obj)
-		object_list = obj->next;
+	if (Game::world().object_list == obj)
+		Game::world().object_list = obj->next;
 	else {
 		Object *prev;
 
-		for (prev = object_list; prev != nullptr; prev = prev->next) {
+		for (prev = Game::world().object_list; prev != nullptr; prev = prev->next) {
 			if (prev->next == obj) {
 				prev->next = obj->next;
 				break;
@@ -825,8 +825,8 @@ void extract_obj(Object *obj)
  */
 	}
 
-	if (obj == donation_pit)
-		donation_pit = nullptr;
+	if (obj == Game::world().donation_pit)
+		Game::world().donation_pit = nullptr;
 
 	if (obj->pIndexData)
 		--obj->pIndexData->count;
@@ -890,16 +890,16 @@ void extract_char(Character *ch, bool fPull)
 		ch->desc = nullptr;
 	}
 
-	for (wch = char_list; wch != nullptr; wch = wch->next)
+	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next)
 		if (! strcasecmp(wch->reply, ch->name))
 			wch->reply.clear();
 
-	if (ch == char_list)
-		char_list = ch->next;
+	if (ch == Game::world().char_list)
+		Game::world().char_list = ch->next;
 	else {
 		Character *prev;
 
-		for (prev = char_list; prev != nullptr; prev = prev->next) {
+		for (prev = Game::world().char_list; prev != nullptr; prev = prev->next) {
 			if (prev->next == ch) {
 				prev->next = ch->next;
 				break;
@@ -907,7 +907,7 @@ void extract_char(Character *ch, bool fPull)
 		}
 
 		if (prev == nullptr) {
-			Logging::bug("extract_char: char not found in char_list", 0);
+			Logging::bug("extract_char: char not found in Game::world().char_list", 0);
 			return;
 		}
 	}
@@ -915,12 +915,12 @@ void extract_char(Character *ch, bool fPull)
 	ch->invalidate();
 
 	if (ch->pcdata) {
-		if (ch->pcdata == pc_list)
-			pc_list = ch->pcdata->next;
+		if (ch->pcdata == Game::world().pc_list)
+			Game::world().pc_list = ch->pcdata->next;
 		else {
 			Player *prev;
 
-			for (prev = pc_list; prev != nullptr; prev = prev->next) {
+			for (prev = Game::world().pc_list; prev != nullptr; prev = prev->next) {
 				if (prev->next == ch->pcdata) {
 					prev->next = ch->pcdata->next;
 					break;
@@ -928,7 +928,7 @@ void extract_char(Character *ch, bool fPull)
 			}
 
 			if (prev == nullptr)
-				Logging::bug("extract_char: pc_data not found in pc_list", 0);
+				Logging::bug("extract_char: pc_data not found in Game::world().pc_list", 0);
 		}
 	}
 
@@ -965,7 +965,7 @@ Object *get_obj_type(ObjectPrototype *pObjIndex)
 {
 	Object *obj;
 
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (obj->pIndexData == pObjIndex)
 			return obj;
 	}

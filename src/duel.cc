@@ -150,7 +150,7 @@ void remove_duel(Duel *c)
 	c->previous->next       = c->next;
 	c->next->previous       = c->previous;
 
-	for (ch = char_list; ch != nullptr; ch = ch->next)
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next)
 		if (!IS_NPC(ch) && ch->pcdata->duel == c)
 			ch->pcdata->duel = nullptr;
 

@@ -19,6 +19,11 @@ public:
 	GameTime time;
 	Weather weather;
 	QuestArea quest;
+	Character *char_list = nullptr;
+	Player *pc_list = nullptr;
+	Object *object_list = nullptr;
+
+	Object *donation_pit = nullptr;;
 
 	std::vector<Area *> areas;
 
@@ -39,6 +44,10 @@ public:
     MobilePrototype *get_mob_prototype(const Vnum&);
     RoomPrototype *get_room_prototype(const Vnum&);
 	Room *get_room(const Location&);
+
+	void load_areas();
+	void create_rooms();
+	void create_exits();
 
 private:
 	World();

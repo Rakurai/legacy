@@ -54,7 +54,7 @@ bool is_worth_saving(Object *obj)
 		return FALSE;
 
 	// save the donation pit, can be uncommented in case of problems -- Montrey
-//	if (obj == donation_pit)
+//	if (obj == Game::world().donation_pit)
 //		return FALSE;
 
 	switch (obj->item_type) {
@@ -84,7 +84,7 @@ bool is_worth_saving(Object *obj)
    from some parts of get_obj and drop_obj */
 int objstate_save_items()
 {
-	if (port != DIZZYPORT)
+	if (Game::port != DIZZYPORT)
 		return 0;
 
 	cJSON *root = cJSON_CreateObject();
@@ -92,7 +92,7 @@ int objstate_save_items()
 
 	cJSON *objects = cJSON_CreateArray();
 
-	for (Object *obj = object_list; obj != nullptr; obj = obj->next) {
+	for (Object *obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (is_worth_saving(obj)) {
 			cJSON *o = cJSON_CreateObject();
 			cJSON_AddNumberToObject(o, "room", obj->in_room->location.to_int());
@@ -165,8 +165,8 @@ int objstate_load_items() {
 
 		int count = count_items(obj);
 
-		if (obj->pIndexData->vnum == OBJ_VNUM_PIT && donation_pit == nullptr) {
-			donation_pit = obj;
+		if (obj->pIndexData->vnum == OBJ_VNUM_PIT && Game::world().donation_pit == nullptr) {
+			Game::world().donation_pit = obj;
 			Format::printf("Loaded donation pit with %d items.\n", count);
 		}
 

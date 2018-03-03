@@ -34,6 +34,7 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -98,7 +99,7 @@ void song_update(void)
 		}
 	}
 
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (obj->item_type != ITEM_JUKEBOX || obj->value[1] < 0)
 			continue;
 

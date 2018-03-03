@@ -12,6 +12,7 @@
 #include "declare.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "lookup.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -208,8 +209,8 @@ void find_money(Character *ch)
 	if (IS_NPC(ch))
 		return;
 
-	if ((ch->last_bank - current_time) > 86400) {
-		for (j = (ch->last_bank - current_time) / 86400; j != 0 ; j--) {
+	if ((ch->last_bank - Game::current_time) > 86400) {
+		for (j = (ch->last_bank - Game::current_time) / 86400; j != 0 ; j--) {
 			ch->gold_in_bank += ch->gold_in_bank * .02;
 			ch->silver_in_bank += ch->silver_in_bank * .02;
 		}

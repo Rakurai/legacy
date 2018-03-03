@@ -167,7 +167,7 @@ unsigned long update_records()
 	Descriptor *d;
 	int count = 0;
 
-	if (port != DIZZYPORT)
+	if (Game::port != DIZZYPORT)
 		return 0;
 
 	db_command("update_records", "UPDATE records SET logins=logins+1");
@@ -176,14 +176,14 @@ unsigned long update_records()
 		if (IS_PLAYING(d))
 			count++;
 
-	record_players_since_boot = UMAX(count, record_players_since_boot);
+	Game::record_players_since_boot = UMAX(count, Game::record_players_since_boot);
 
-	if (record_players_since_boot > record_players) {
-		record_players = record_players_since_boot;
-		db_commandf("update_records", "UPDATE records SET players=%d", record_players_since_boot);
+	if (Game::record_players_since_boot > Game::record_players) {
+		Game::record_players = Game::record_players_since_boot;
+		db_commandf("update_records", "UPDATE records SET players=%d", Game::record_players_since_boot);
 	}
 
-	return ++record_logins;
+	return ++Game::record_logins;
 }
 
 void update_pc_index(Character *ch, bool remove)
@@ -277,7 +277,7 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 	Character *ch;
 	Room *room;
 
-	for (ch = char_list; ch != nullptr; ch = ch->next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
 		if (!IS_NPC(ch)
 		    && d->character != ch
 		    && (!fConn || ch->desc == nullptr)
@@ -301,8 +301,7 @@ bool check_reconnect(Descriptor *d, const String& name, bool fConn)
 					if (ch != rch && can_see_char(rch, ch))
 						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
 
-				Format::sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
-				Logging::log(log_buf);
+				Logging::logf("%s@%s reconnected.", ch->name, d->host);
 				wiznet("$N reclaims the fullness of $S link.",
 				       ch, nullptr, WIZ_LINKS, 0, 0);
 
@@ -334,6 +333,7 @@ void nanny(Descriptor *d, String argument)
 	int iClass, i, weapon, deity;
 	unsigned int race;
 	bool fOld, logon_lurk;
+	String log_buf;
 
 	argument = argument.lstrip();
 
@@ -395,15 +395,14 @@ void nanny(Descriptor *d, String argument)
 		}
 
 		if (check_deny(ch->name)) {
-			Format::sprintf(log_buf, "Denying access to %s@%s.", ch->name, d->host);
-			Logging::log(log_buf);
+			Logging::logf("Denying access to %s@%s.", ch->name, d->host);
 			write_to_buffer(d, "You are denied access to Legacy.\n");
 			close_socket(d);
 			return;
 		}
 
 		if (check_ban(d->host, BAN_ALL) && !ch->act_flags.has(PLR_PERMIT)) {
-			Format::sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
+			log_buf = Format::format("Disconnecting because BANned: %s", d->host);
 			Logging::log(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 			write_to_buffer(d, "Your site has been banned from this mud.\n"
@@ -440,7 +439,7 @@ void nanny(Descriptor *d, String argument)
 		}
 
 		if (check_ban(d->host, BAN_NEWBIES)) {
-			Format::sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
+			log_buf = Format::format("Disconnecting because NewbieBANned: %s", d->host);
 			Logging::log(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
 			write_to_buffer(d, "New players are not allowed from your site.\n"
@@ -476,12 +475,15 @@ void nanny(Descriptor *d, String argument)
 		ch->pcdata->plr_flags -= PLR_LINK_DEAD;
 		ch->pcdata->plr_flags -= PLR_SQUESTOR;
 		ch->act_flags -= PLR_QUESTOR;
-		Format::sprintf(log_buf, "%s@%s has connected.", ch->name, d->host);
+
+		log_buf = Format::format("%s@%s has connected.", ch->name, d->host);
 		Logging::log(log_buf);
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
-		Format::sprintf(log_buf, "Last Site: %s",
+
+		log_buf = Format::format("Last Site: %s",
 		        !ch->pcdata->last_lsite.empty() ? ch->pcdata->last_lsite : "Not Available");
 		wiznet(log_buf, nullptr, nullptr, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
+
 		update_site(ch);
 
 		if (IS_IMMORTAL(ch)) {
@@ -826,10 +828,10 @@ void nanny(Descriptor *d, String argument)
 		}
 
 		ch->cls = iClass;
-		Format::sprintf(log_buf, "%s@%s new player.", ch->name, d->host);
+		log_buf = Format::format("%s@%s new player.", ch->name, d->host);
 		wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 		Logging::log(log_buf);
-		Format::sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
+		log_buf = Format::format("Newbie alert!  %s sighted.", ch->name);
 		wiznet(log_buf, ch, nullptr, WIZ_NEWBIE, 0, 0);
 		write_to_buffer(d, "\n");
 		/* paladins can't be neutral */
@@ -1060,12 +1062,12 @@ void nanny(Descriptor *d, String argument)
 			write_to_buffer(d, "Type 'password null <new password>' to fix.\n");
 		}
 
-		ch->next                = char_list;
-		char_list               = ch;
+		ch->next                = Game::world().char_list;
+		Game::world().char_list               = ch;
 		ch->validate();
 		
-		ch->pcdata->next        = pc_list;
-		pc_list                 = ch->pcdata;
+		ch->pcdata->next        = Game::world().pc_list;
+		Game::world().pc_list                 = ch->pcdata;
 		d->connected = CON_PLAYING;
 
 		if (ch->level == 0) {
@@ -1175,7 +1177,7 @@ void nanny(Descriptor *d, String argument)
 		ptc(ch, "\nYour last login was from [{W%s{x] %s",
 		    !ch->pcdata->last_lsite.empty() ? ch->pcdata->last_lsite : "Not Available",
 		    ch->pcdata->last_ltime != (time_t) 0 ? dizzy_ctime(&ch->pcdata->last_ltime) : "00:00:00");
-		ch->pcdata->last_ltime = current_time;
+		ch->pcdata->last_ltime = Game::current_time;
 		ch->pcdata->last_lsite = d->host;
 		ptc(ch, "\n{VYou are traveler [%lu] of Legacy!!!{x\n", update_records());
 		update_pc_index(ch, FALSE);

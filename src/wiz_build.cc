@@ -17,7 +17,6 @@
 #include "argument.hh"
 #include "Area.hh"
 #include "Character.hh"
-#include "db.hh"
 #include "declare.hh"
 #include "Exit.hh"
 #include "Format.hh"

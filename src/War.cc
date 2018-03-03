@@ -14,6 +14,7 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
@@ -701,7 +702,7 @@ void rec_event(War *war, int type, const String& astr, const String& bstr, int n
 	n_event->bstr = bstr;
 
 	n_event->number = number;
-	n_event->time   = current_time;
+	n_event->time   = Game::current_time;
 
 	if (war->events == nullptr) /* first event? */
 		war->events = n_event;

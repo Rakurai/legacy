@@ -2728,7 +2728,7 @@ const String get_warp_loc_string(const Object *obj) {
 
 // search for an exact match on a warp crystal
 const Object *get_warp_crystal(const String& str) {
-	for (Object *obj = object_list; obj; obj = obj->next)
+	for (Object *obj = Game::world().object_list; obj; obj = obj->next)
 		if (get_warp_loc_string(obj).uncolor() == str.uncolor())
 				return obj;
 

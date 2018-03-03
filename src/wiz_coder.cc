@@ -92,7 +92,7 @@ void do_autoboot(Character *ch, String argument)
 		return;
 	}
 
-	tm = localtime(&current_time);
+	tm = localtime(&Game::current_time);
 
 	if ((hours < tm->tm_hour) || (hours == tm->tm_hour && minutes < tm->tm_min)) {
 		stc("That time has already passed.\n"
@@ -100,7 +100,7 @@ void do_autoboot(Character *ch, String argument)
 		hours = hours + 24;
 	}
 
-	reboot_time = current_time;
+	reboot_time = Game::current_time;
 	reboot_time = reboot_time + ((hours - tm->tm_hour) * 3600);
 	reboot_time = reboot_time + ((minutes - tm->tm_min) * 60);
 	ptc(ch, "Legacy is now scheduled to reboot at %s\n", (char *)ctime(&reboot_time));
@@ -271,7 +271,7 @@ void do_shutdown(Character *ch, String argument)
 	extern bool merc_down;
 	Descriptor *d, *d_next;
 
-	if (port == DIZZYPORT && !IS_IMP(ch)) {
+	if (Game::port == DIZZYPORT && !IS_IMP(ch)) {
 		stc("You must be an implementor to shutdown Legacy.\n", ch);
 		return;
 	}
@@ -284,8 +284,8 @@ void do_shutdown(Character *ch, String argument)
 	Format::sprintf(buf, "%s has SHUTDOWN the system.  Back after these messages!\n", ch->name);
 	do_echo(ch, buf);
 
-	if (port == DIZZYPORT) {
-		strtime                    = ctime(&current_time);
+	if (Game::port == DIZZYPORT) {
+		strtime                    = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1] = '\0';
 		Format::sprintf(buf2, "%s :SHUTDOWN", strtime);
 		fappend(SHUTDOWN_FILE, buf2);
@@ -586,7 +586,7 @@ void do_dump(Character *ch, String argument)
 	/* mobs */
 	count = 0;
 
-	for (fch = char_list; fch != nullptr; fch = fch->next) {
+	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
 		count++;
 
 		if (fch->pcdata != nullptr)
@@ -625,7 +625,7 @@ void do_dump(Character *ch, String argument)
 	/* objects */
 	count = 0;
 
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		count++;
 
 		for (const affect::Affect *af = affect::list_obj(obj); af != nullptr; af = af->next)

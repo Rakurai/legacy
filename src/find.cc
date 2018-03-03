@@ -10,6 +10,7 @@
 #include "Character.hh"
 #include "declare.hh"
 #include "Flags.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "macros.hh"
 #include "merc.hh"
@@ -97,7 +98,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
-	for (ach = char_list; ach != nullptr; ach = ach->next) {
+	for (ach = Game::world().char_list; ach != nullptr; ach = ach->next) {
 		if (!IS_NPC(ach))
 			continue;
 
@@ -143,7 +144,7 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = char_list; wch != nullptr ; wch = wch->next) {
+	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next) {
 		if (!IS_NPC(wch))
 			continue;
 
@@ -289,7 +290,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
-	for (ach = char_list; ach != nullptr; ach = ach->next) {
+	for (ach = Game::world().char_list; ach != nullptr; ach = ach->next) {
 		if (ach->in_room == nullptr)
 			continue;
 
@@ -332,7 +333,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = char_list; wch != nullptr ; wch = wch->next) {
+	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next) {
 		if (wch->in_room == nullptr)
 			continue;
 
@@ -406,7 +407,7 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 		return nullptr;
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (apc = pc_list; apc != nullptr; apc = apc->next) {
+	for (apc = Game::world().pc_list; apc != nullptr; apc = apc->next) {
 		if ((ach = apc->ch) == nullptr) {
 			Logging::bug("get_player_area: pc_data without char_data", 0);
 			continue;
@@ -448,7 +449,7 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 		return nullptr;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (wpc = pc_list; wpc != nullptr; wpc = wpc->next) {
+	for (wpc = Game::world().pc_list; wpc != nullptr; wpc = wpc->next) {
 		if ((wch = wpc->ch) == nullptr) {
 			Logging::bug("get_player_world: pc_data without char_data", 0);
 			continue;
@@ -556,7 +557,7 @@ Object *get_obj_world(Character *ch, const String& argument)
 	String arg;
 	number = number_argument(argument, arg);
 
-	for (obj = object_list; obj; obj = obj->next)
+	for (obj = Game::world().object_list; obj; obj = obj->next)
 		if (can_see_obj(ch, obj)
 		    && (arg.empty() || obj->name.has_words(arg)))
 			if (++count == number)

@@ -39,6 +39,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "lookup.hh"
 #include "macros.hh"
 #include "memory.hh"
@@ -493,9 +494,9 @@ void channel_who(Character *ch, const String& channelname, const Flags::Bit& cha
 the query list are on, and then sends the mesg to them */
 void send_to_query(Character *ch, const char *string)
 {
-	// really hate directly accessing the pc_list, but I don't want multiple
+	// really hate directly accessing the Game::world().pc_list, but I don't want multiple
 	// calls to get_player_world.
-	for (Player *pc = pc_list; pc; pc = pc->next) {
+	for (Player *pc = Game::world().pc_list; pc; pc = pc->next) {
 		if (!pc->ch
 		    || IS_NPC(pc->ch)
 		    || pc->ch->comm_flags.has(COMM_NOQUERY)
@@ -1155,7 +1156,7 @@ void do_tell(Character *ch, String argument)
 	}
 
 	if (victim->desc == nullptr && !IS_NPC(victim)) {
-		strtime                         = ctime(&current_time);
+		strtime                         = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E has lost $S link, but your message will go through when $E returns.",
@@ -1176,7 +1177,7 @@ void do_tell(Character *ch, String argument)
 			return;
 		}
 
-		strtime                         = ctime(&current_time);
+		strtime                         = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E is AFK, but your tell will go through when $E returns.",
@@ -1229,7 +1230,7 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	for (victim = char_list; victim != nullptr ; victim = victim->next)
+	for (victim = Game::world().char_list; victim != nullptr ; victim = victim->next)
 		if (! strcmp(ch->reply, victim->name)) {
 			found = TRUE;
 			break;
@@ -1273,7 +1274,7 @@ void do_reply(Character *ch, String argument)
 	}
 
 	if (victim->desc == nullptr && !IS_NPC(victim)) {
-		strtime = ctime(&current_time);
+		strtime = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1] = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$N seems to have misplaced $S link...try again later.", ch, nullptr, victim, TO_CHAR);
@@ -1293,7 +1294,7 @@ void do_reply(Character *ch, String argument)
 			return;
 		}
 
-		strtime = ctime(&current_time);
+		strtime = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1] = '\0';
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$E is AFK, but your tell will go through when $E returns.",
@@ -1602,7 +1603,7 @@ void do_page(Character *ch, String argument)
 	}
 
 	if (victim->desc == nullptr) {
-		strtime                         = ctime(&current_time);
+		strtime                         = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		new_color(ch, CSLOT_CHAN_PAGE);
 		act("$N seems to have misplaced $S link...try again later.",
@@ -1726,7 +1727,7 @@ void do_gtell(Character *ch, String argument)
 
 	/* would be more efficient to find leader and step thru all his group members
 	-- Elrac */
-	for (gch = char_list; gch != nullptr; gch = gch->next) {
+	for (gch = Game::world().char_list; gch != nullptr; gch = gch->next) {
 		if (is_same_group(gch, ch)) {
 			new_color(gch, CSLOT_CHAN_GTELL);
 			stc(buf, gch);

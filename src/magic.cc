@@ -1476,7 +1476,7 @@ void spell_call_lightning(skill::type sn, int level, Character *ch, void *vo, in
 	stc("Heaven's lightning strikes your foes!\n", ch);
 	act("$n calls heaven's lightning to strike $s foes!", ch, nullptr, nullptr, TO_ROOM);
 
-	for (vch = char_list; vch != nullptr; vch = vch_next) {
+	for (vch = Game::world().char_list; vch != nullptr; vch = vch_next) {
 		vch_next = vch->next;
 
 		if (vch->in_room == nullptr)
@@ -2611,7 +2611,7 @@ void spell_earthquake(skill::type sn, int level, Character *ch, void *vo, int ta
 	stc("The earth trembles beneath your feet!\n", ch);
 	act("$n makes the earth tremble and shiver.", ch, nullptr, nullptr, TO_ROOM);
 
-	for (vch = char_list; vch != nullptr; vch = vch_next) {
+	for (vch = Game::world().char_list; vch != nullptr; vch = vch_next) {
 		vch_next = vch->next;
 
 		if (vch->in_room == nullptr)
@@ -4301,7 +4301,7 @@ void spell_locate_life(skill::type sn, int level, Character *ch, void *vo, int t
 	bool found = FALSE;
 	int number = 0, max_found = 2 * level;
 
-	for (victim = char_list; victim != nullptr; victim = victim->next) {
+	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 		if (!can_see_char(ch , victim)        /* NOT can_see_who */
 		    || !victim->name.has_words(target_name)
 		    || victim->in_room == nullptr
@@ -4339,7 +4339,7 @@ void spell_locate_object(skill::type sn, int level, Character *ch, void *vo, int
 	int number = 0, max_found = 2 * level;
 
 
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
 		    || !obj->name.has_words(target_name)
 		    ||   IS_OBJ_STAT(obj, ITEM_NOLOCATE)
@@ -5981,7 +5981,7 @@ void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int
 
 	/* imms don't need all the checking below */
 	if (IS_IMMORTAL(ch)) {
-		for (obj = object_list; obj != nullptr; obj = obj->next) {
+		for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 			if (!can_see_obj(ch, obj)
 			    || !obj->name.has_words(arg))
 				continue;
@@ -6038,7 +6038,7 @@ void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int
 		return;
 	}
 
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
 		    || !obj->name.has_words(arg)
 		    || IS_OBJ_STAT(obj, ITEM_NOLOCATE))

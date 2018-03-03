@@ -39,12 +39,6 @@
 //int unlink();
 int system();
 
-/* global access to our port number, set in comm.c */
-extern int port;
-
-
-
-
 
 /*
  * Attribute bonus structures.
@@ -243,27 +237,6 @@ extern 		War		*war_table_tail;
 extern		Mercenary	*merc_table_head;
 extern		Mercenary	*merc_table_tail;
 
-/*
- * Global variables.
- */
-extern          Character         *     char_list;
-extern          Object          *     object_list;
-
-extern		Player *		pc_list;	/* Montrey */
-
-extern          char                    bug_buf         [];
-extern          time_t                  current_time;
-extern          bool                    fLogAll;
-extern          char                    log_buf         [];
-extern		Object	  *	donation_pit;
-
-/* records */
-extern	unsigned long	record_logins;
-extern	int		record_players;
-extern	int		record_players_since_boot;
-
-extern long	       quest_double;
-
 
 /* act_comm.c */
 void    add_follower    args( ( Character *ch, Character *master ) );
@@ -349,11 +322,6 @@ void    write_to_buffer args( ( Descriptor *d, const String& txt ) );
 
 /* nanny.c */
 void	update_pc_index		args((Character *ch, bool remove));
-
-/* db.c */
-void    boot_db         args( ( void ) );
-void    clear_char      args( ( Character *ch ) );
-void    tail_chain      args( ( void ) );
 
 /* area_handler.c */
 Character *    create_mobile   args( ( MobilePrototype *pMobIndex ) );

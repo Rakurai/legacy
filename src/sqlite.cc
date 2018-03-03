@@ -7,7 +7,7 @@
 
 #include <sqlite3.h>
 
-#include "db.hh"
+#include "Game.hh"
 #include "declare.hh"
 #include "Flags.hh"
 #include "Logging.hh"
@@ -45,7 +45,7 @@ void db_error(const String& func, const String& query)
 	else
 		Logging::bugf("%s: %s", func, sqlite3_errmsg(_db));
 
-	if (fBootDb) {
+	if (Game::booting) {
 		db_close();
 		exit(1);
 	}

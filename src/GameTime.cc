@@ -3,6 +3,7 @@
 #include "Character.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "macros.hh"
 #include "merc.hh"
 #include "Room.hh"
@@ -121,7 +122,7 @@ update() {
 		break;
 	}
 
-	for (Character *ch = char_list; ch != nullptr; ch = ch->next)
+	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
 		/* why send it to mobs? */
 		if (!IS_NPC(ch)
 		 && IS_OUTSIDE(ch)

@@ -49,3 +49,4 @@ extern const std::vector<board_index_struct> board_index;
 Note *new_note();
 void    free_note(Note *note);
 String  format_string( const String& oldstring );
+void    load_notes      args((void));

@@ -1,11 +1,12 @@
 #include "ObjectPrototype.hh"
-#include "db.hh"
+#include "Area.hh"
 #include "file.hh"
 #include "lookup.hh"
 #include "skill/skill.hh"
 #include "affect/affect_list.hh"
 #include "ExtraDescr.hh"
 #include "Location.hh"
+#include "Logging.hh"
 
 ObjectPrototype::
 ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
@@ -68,7 +69,7 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 
 		if (value[val] == -1) {
 			value[val] = 0;
-			boot_bug("Unknown liquid type", 0);
+			Logging::file_bug(fp, "Unknown liquid type", 0);
 		}
 
 		break;

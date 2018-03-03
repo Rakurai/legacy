@@ -3,14 +3,14 @@
 #include "Area.hh"
 #include "Character.hh"
 #include "worldmap/Coordinate.hh"
+#include "Game.hh"
 #include "Logging.hh"
-#include "db.hh"
-
-extern std::time_t current_time;
+#include "file.hh"
+#include "Exit.hh"
 
 World::
 World() :
-	time(current_time),
+	time(Game::current_time),
 	weather(time),
 	overworld(),
 	maptree(overworld.width())
@@ -49,7 +49,7 @@ get_mob_prototype(const Vnum& vnum)
 	if (area != nullptr)
 		proto = area->get_mob_prototype(vnum);
 
-	if (proto == nullptr && fBootDb) {
+	if (proto == nullptr && Game::booting) {
 		Logging::bugf("Get_mob_index: bad vnum %d.", vnum);
 	}
 
@@ -65,7 +65,7 @@ get_obj_prototype(const Vnum& vnum)
 	if (area != nullptr)
 		proto = area->get_obj_prototype(vnum);
 
-	if (proto == nullptr && fBootDb) {
+	if (proto == nullptr && Game::booting) {
 		Logging::bugf("Get_obj_index: bad vnum %d.", vnum);
 	}
 
@@ -80,7 +80,7 @@ get_room_prototype(const Vnum& vnum) {
 	if (area != nullptr)
 		proto = area->get_room_prototype(vnum);
 
-	if (proto == nullptr && fBootDb) {
+	if (proto == nullptr && Game::booting) {
 		Logging::bugf("Game::world().get_room_prototype: bad vnum %d.", vnum);
 	}
 
@@ -172,5 +172,113 @@ get_minimap(Character *ch, std::vector<String>& vec) const {
 
 		buf += "{x";
 		vec.push_back(buf);
+	}
+}
+
+void World::
+load_areas() {
+	/* Read in all the area files */
+	FILE *fpList = fopen(AREA_LIST, "r");
+
+	if (fpList == nullptr) {
+		perror(AREA_LIST);
+		exit(1);
+	}
+
+	for (; ;) {
+		String file_name = fread_word(fpList);
+
+		if (file_name[0] == '$')
+			break;
+
+		if (file_name[0] == '#')
+			continue;
+
+		Area *area = new Area(*this, file_name);
+		areas.push_back(area);
+
+		area->load();
+	}
+
+	fclose(fpList);
+}
+
+// create rooms from prototypes, place into hash map for fast lookup
+// this is a temporary data structure, needs to be reworked for new room IDs.
+// possibly a map<vnum, vector<Room *>>, but only if looking up by vnum is
+// worthwhile (possibly true because of searching by area, only have to look
+// up each prototype vnum)
+void World::
+create_rooms() {
+	for (Area *area : areas) {
+		area->create_rooms();
+	}
+}
+
+/*
+ * Translate all room exits from virtual to real.
+ * Has to be done after all rooms are read in.
+ * Check for bad reverse exits.
+ */
+void World::
+create_exits(void)
+{
+	for (const Area *area : areas) {
+		for (const auto& pair : area->rooms) {
+			const auto& location = pair.first;
+			Room* room = pair.second;
+
+			bool found_exit = FALSE;
+
+			for (int door = 0; door <= 5; door++) {
+				if (room->prototype.exit[door] == nullptr)
+					continue;
+
+				if (room->is_on_map() && room->prototype.exit[door]->to_vnum == 0) {
+					// an auto-exit to connect up rooms on the map
+					worldmap::Coordinate from = room->location.coord;
+					int to_x, to_y;
+
+					switch (door) {
+						case 0: to_x = from.x;   to_y = from.y-1; break;
+						case 1: to_x = from.x+1; to_y = from.y;   break;
+						case 2: to_x = from.x;   to_y = from.y+1; break;
+						case 3: to_x = from.x-1; to_y = from.y;   break;
+						default:
+							Logging::bugf("fix_exits: room at %s has bad auto-exit in direction %d",
+								location.to_string(), door);
+							continue;
+					}
+
+					Room *dest = area->world.maptree.get(worldmap::Coordinate(to_x, to_y));
+
+					if (dest == nullptr) {
+//							Logging::bugf("room %d, direction %d, no room", vnum, door);
+						continue; // no error, just no rooms in that direction
+					}
+Game::booting = FALSE;
+					room->exit[door] = new Exit(*room->prototype.exit[door], dest);
+Game::booting = TRUE;
+					found_exit = TRUE;
+					continue;
+				}
+
+				Room *dest = get_room(Location(Vnum(room->prototype.exit[door]->to_vnum)));
+				room->exit[door] = new Exit(*room->prototype.exit[door], dest);
+
+				if (room->exit[door]->to_room == nullptr) {
+					delete room->exit[door]->to_room;
+					room->exit[door] = nullptr;
+					Logging::bugf("fix_exits: room at %s has unknown exit vnum %d.",
+						location.to_string(), room->prototype.exit[door]->to_vnum);
+				}
+
+				if (room->exit[door])
+					found_exit = TRUE;
+			}
+
+			if (!found_exit)
+				room->room_flags += ROOM_NO_MOB;
+		}
 	}
 }

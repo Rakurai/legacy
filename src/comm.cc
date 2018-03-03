@@ -101,8 +101,6 @@ bool                god;                /* All new chars are gods!      */
 bool            merc_down;              /* shutdown */
 char                str_boot_time[MAX_INPUT_LENGTH];
 time_t              reboot_time = 0;
-time_t              current_time;       /* time of this pulse */
-int                 port = 0;           /* telnet port for this MUD */
 int                 control;
 char                command[MAX_STRING_LENGTH];
 int                                     last_signal = -1;
@@ -235,11 +233,11 @@ void copyover_recover()
 		if (!d->character->in_room)
 			d->character->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
 
-		/* Insert in the char_list */
-		d->character->next = char_list;
-		char_list = d->character;
-		d->character->pcdata->next = pc_list;
-		pc_list = d->character->pcdata;
+		/* Insert in the Game::world().char_list */
+		d->character->next = Game::world().char_list;
+		Game::world().char_list = d->character;
+		d->character->pcdata->next = Game::world().pc_list;
+		Game::world().pc_list = d->character->pcdata;
 		write_to_descriptor(desc, msg2, 0);
 		char_to_room(d->character, d->character->in_room);
 		do_look(d->character, "auto");
@@ -251,7 +249,7 @@ void copyover_recover()
 			act("$n materializes!", d->character->pet, nullptr, nullptr, TO_ROOM);
 		}
 
-		record_players_since_boot++;
+		Game::record_players_since_boot++;
 	}
 
 	fclose(fp);
@@ -281,8 +279,8 @@ int main(int argc, char **argv)
 
 	/* Init time. */
 	gettimeofday(&now_time, nullptr);
-	current_time = (time_t) now_time.tv_sec;
-	strcpy(str_boot_time, ctime(&current_time));
+	Game::current_time = (time_t) now_time.tv_sec;
+	strcpy(str_boot_time, ctime(&Game::current_time));
 
 	/* Create boot file for script control -- Elrac
 	   This file is created here and deleted after boot_db
@@ -293,7 +291,7 @@ int main(int argc, char **argv)
 		fclose(fpBoot);
 
 	/* Get the port number. */
-	port = DIZZYPORT;
+	Game::port = DIZZYPORT;
 
 	if (argc > 1) {
 		if (!String(argv[1]).is_number()) {
@@ -301,14 +299,14 @@ int main(int argc, char **argv)
 			EXIT_REASON(433, "bad Legacy port arg");
 			exit(1);
 		}
-		else if ((port = atoi(argv[1])) <= 1024) {
+		else if ((Game::port = atoi(argv[1])) <= 1024) {
 			Format::fprintf(stderr, "Port number must be above 1024.\n");
 			EXIT_REASON(439, "bad Legacy port number");
 			exit(1);
 		}
 	}
 
-	if (port != DIZZYPORT) {
+	if (Game::port != DIZZYPORT) {
 		/* not running on Dizzy port, so no need for boot control */
 		unlink(BOOT_FILE);
 	}
@@ -335,7 +333,7 @@ int main(int argc, char **argv)
 	}
 
 	if (!fCopyOver)
-		control = init_socket(port);
+		control = init_socket(Game::port);
 
 #if defined(SAND)
 	/* simple asynchronous name daemon support -- Elrac */
@@ -347,9 +345,8 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	boot_db();
-	Format::sprintf(log_buf, "Legacy is ready to rock on port %d.", port);
-	Logging::log(log_buf);
+	Game::boot();
+	Logging::logf("Legacy is ready to rock on port %d.", Game::port);
 
 	if (fCopyOver)
 		copyover_recover();
@@ -357,12 +354,12 @@ int main(int argc, char **argv)
 	/* At this point, boot was successful. */
 	unlink(BOOT_FILE);
 
-	for (tempchars = char_list; tempchars; tempchars = tempchars->next) {
+	for (tempchars = Game::world().char_list; tempchars; tempchars = tempchars->next) {
 		if (IS_NPC(tempchars))
 			mprog_boot_trigger(tempchars);
 	}
 
-	if (port == DIZZYPORT) {
+	if (Game::port == DIZZYPORT) {
 		FILE *pidfile;
 		int pid = getpid();
 
@@ -491,7 +488,7 @@ void game_loop_unix(int control)
 	static struct timeval null_time;
 	struct timeval last_time;
 	gettimeofday(&last_time, nullptr);
-	current_time = (time_t) last_time.tv_sec;
+	Game::current_time = (time_t) last_time.tv_sec;
 
 	/* Main loop */
 	while (!merc_down) {
@@ -550,12 +547,13 @@ void game_loop_unix(int control)
 				Character *ch = d->character;
 //				Character *ch = d->original ? d->original : d->character;
 
+				String log_buf;
 				if (ch && ch->level > 1) {
 					save_char_obj(ch);
-					Format::sprintf(log_buf, "Kicking out char %s", ch->name);
+					log_buf = Format::format("Kicking out char %s", ch->name);
 				}
 				else
-					strcpy(log_buf, "Kicking out unknown char");
+					log_buf = "Kicking out unknown char";
 
 				Logging::log(log_buf);
 				wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
@@ -585,7 +583,7 @@ void game_loop_unix(int control)
 
 					if (d->character != nullptr && d->character->level > 1) {
 						save_char_obj(d->character);
-						Format::sprintf(log_buf, "Char %s disconnected", d->character->name);
+						String log_buf = Format::format("Char %s disconnected", d->character->name);
 						Logging::log(log_buf);
 						wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 					}
@@ -674,7 +672,7 @@ void game_loop_unix(int control)
 				stall_time.tv_sec  = secDelta;
 
 				if (select(0, nullptr, nullptr, nullptr, &stall_time) < 0) {
-					if (port == DIZZYPORT) { // don't count a stall on the debugger -- Montrey
+					if (Game::port == DIZZYPORT) { // don't count a stall on the debugger -- Montrey
 						perror("Game_loop: select: stall");
 						EXIT_REASON(979, "game_loop select() stall");
 						exit(1);
@@ -683,7 +681,7 @@ void game_loop_unix(int control)
 			}
 		}
 		gettimeofday(&last_time, nullptr);
-		current_time = (time_t) last_time.tv_sec;
+		Game::current_time = (time_t) last_time.tv_sec;
 	}
 
 	return;
@@ -756,7 +754,7 @@ void init_descriptor(int control)
 #endif
 //        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 		{
-			Format::sprintf(log_buf, "init_descriptor: sock.sinaddr  = %s", buf);
+			String log_buf = Format::format("init_descriptor: sock.sinaddr  = %s", buf);
 			Logging::log(log_buf);
 			wiznet(log_buf, nullptr, nullptr, WIZ_MALLOC, 0, 0);
 		}
@@ -767,8 +765,7 @@ void init_descriptor(int control)
 		tmp_name = sand_query(addr);
 
 		if (tmp_name == nullptr) {
-			Format::sprintf(log_buf, "name not available");
-			Logging::log(log_buf);
+			Logging::log("name not available");
 			dnew->host = buf;
 		}
 		else {
@@ -776,7 +773,7 @@ void init_descriptor(int control)
 //                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
-					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
+					String log_buf = Format::format("init_descriptor: host name = %s", dnew->host);
 					Logging::log(log_buf);
 					wiznet(log_buf, nullptr, nullptr, WIZ_SITES, 0, 0);
 				}
@@ -791,8 +788,7 @@ void init_descriptor(int control)
 #endif
 
 		if (from == nullptr || from->h_name == nullptr) {
-			Format::sprintf(log_buf, "name not available");
-			Logging::log(log_buf);
+			Logging::log("name not available");
 			dnew->host = buf;
 		}
 		else {
@@ -800,7 +796,7 @@ void init_descriptor(int control)
 //                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
 			{
 				if (strcmp("kyndig.com", dnew->host)) {
-					Format::sprintf(log_buf, "init_descriptor: host name = %s", dnew->host);
+					String log_buf = Format::format("init_descriptor: host name = %s", dnew->host);
 					Logging::log(log_buf);
 					wiznet(log_buf, nullptr, nullptr, WIZ_SITES, 0, 0);
 				}
@@ -816,8 +812,7 @@ void init_descriptor(int control)
 	dnew->next                  = descriptor_list;
 	descriptor_list             = dnew;
 	{
-		extern String help_greeting;
-		cwtb(dnew, help_greeting[0] == '.' ? help_greeting.substr(1) : help_greeting);
+		cwtb(dnew, Game::help_greeting[0] == '.' ? Game::help_greeting.substr(1) : Game::help_greeting);
 	}
 	return;
 }
@@ -838,12 +833,11 @@ void close_socket(Descriptor *dclose)
 			d->snoop_by = nullptr;
 
 	if ((ch = dclose->character) == nullptr) {
-		Format::sprintf(log_buf, "Closing link to phantom at socket %d.", dclose->descriptor);
+		Logging::logf("Closing link to phantom at socket %d.", dclose->descriptor);
 		/* log_string( log_buf ); */
 	}
 	else {
-		Format::sprintf(log_buf, "Closing link to %s.", ch->name);
-		Logging::log(log_buf);
+		Logging::logf("Closing link to %s.", ch->name);
 
 		if (dclose->connected == CON_PLAYING) {
 			Character *rch;
@@ -926,8 +920,7 @@ bool read_from_descriptor(Descriptor *d)
 	iStart = strlen(d->inbuf);
 
 	if (iStart >= sizeof(d->inbuf) - 10) {
-		Format::sprintf(log_buf, "%s input overflow!", d->host);
-		Logging::log(log_buf);
+		Logging::logf("%s input overflow!", d->host);
 		write_to_descriptor(d->descriptor,
 		                    "\n*** PUT A LID ON IT!!! ***\n", 0);
 		return FALSE;
@@ -948,13 +941,12 @@ bool read_from_descriptor(Descriptor *d)
 		}
 		else if (nRead == 0) {
 			if (d->character && d->character->level > 0)
-				Format::sprintf(log_buf, "EOF on read from char %s", d->character->name);
+				Logging::logf("EOF on read from char %s", d->character->name);
 			else if (!strcmp(d->host, "localhost"))
 				return FALSE;
 			else
-				Format::sprintf(log_buf, "EOF on read from host %s", d->host);
+				Logging::logf("EOF on read from host %s", d->host);
 
-			Logging::log(log_buf);
 			return FALSE;
 		}
 		else if (errno == EWOULDBLOCK)
@@ -1031,8 +1023,7 @@ void read_from_buffer(Descriptor *d)
 			d->repeat = 0;
 		else {
 			if (++d->repeat >= 25) {
-				Format::sprintf(log_buf, "%s: input spamming!", d->host);
-				Logging::log(log_buf);
+				Logging::logf("%s: input spamming!", d->host);
 				wiznet("And the spammer of the year is:  $N!!!",
 				       d->character, nullptr, WIZ_SPAM, 0, GET_RANK(d->character));
 
@@ -1905,7 +1896,7 @@ void do_copyover(Character *ch, String argument)
 
 	/* exec - descriptors are inherited */
 	char portbuf[MSL], controlbuf[MSL];
-	Format::sprintf(portbuf,  "%d", port);
+	Format::sprintf(portbuf,  "%d", Game::port);
 	Format::sprintf(controlbuf, "%d", control);
 	execl(exe_file.c_str(), exe_file.c_str(), portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */

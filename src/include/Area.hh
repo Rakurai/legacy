@@ -7,16 +7,22 @@
 #include "Vnum.hh"
 #include "Location.hh"
 
+/*
+ * Credits defines stuff
+ */
+
+#define RANGE_OK   0
+#define RANGE_ALL  1
+#define RANGE_CLAN 2
+#define RANGE_IMM  3
+
 class Area
 {
 public:
-    Area(World& w, FILE *fp);
+    Area(World& w, const String& file_name);
     virtual ~Area();
 
-    void load_rooms(FILE *fp);
-    void load_mobiles(FILE *fp);
-    void load_objects(FILE *fp);
-    void load_region(FILE *fp);// { region = new worldmap::Region(*this, fp); }
+    void load();
     void create_rooms();
 
     ObjectPrototype *get_obj_prototype(const Vnum&);
@@ -40,8 +46,8 @@ public:
     String              file_name;
     String              name;
     String              credits;
-    const Vnum          min_vnum;
-    const Vnum          max_vnum;
+    Vnum                min_vnum = 0;
+    Vnum                max_vnum = 0;
 
     std::vector<Reset *> resets;
     std::map<Vnum, RoomPrototype *> room_prototypes;
@@ -76,6 +82,14 @@ private:
     Area(const Area&);
     Area& operator=(const Area&);
 
+    void load_header(FILE *fp);
+    void load_rooms(FILE *fp);
+    void load_mobiles(FILE *fp);
+    void load_objects(FILE *fp);
+    void load_resets(FILE *fp);
+    void load_shops(FILE *fp);
+    void load_specials(FILE *fp);
+    void load_region(FILE *fp);// { region = new worldmap::Region(*this, fp); }
     int scan_credits();
 
     /* pick a random room to reset into -- Montrey */

@@ -1,6 +1,5 @@
 #include "ExitPrototype.hh"
 #include "file.hh"
-#include "db.hh"
 
 ExitPrototype::
 ExitPrototype(FILE *fp) :

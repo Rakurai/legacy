@@ -906,7 +906,7 @@ void do_afk(Character *ch, String argument)
 		wiznet("$N has returned to $S keyboard.", ch, nullptr, WIZ_MISC, 0, 0);
 	}
 	else {
-		strtime                         = ctime(&current_time);
+		strtime                         = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		set_color(ch, YELLOW, NOBOLD);
 		stc("You are now in AFK mode.\n", ch);
@@ -954,13 +954,9 @@ void update_text_file(Character *ch, const String& file, const String& str)
 	if (IS_NPC(ch) || str.empty())
 		return;
 
-	struct timeval now_time;
-	gettimeofday(&now_time, nullptr);
-	time_t current_time = (time_t) now_time.tv_sec;
-
 	const char *time_format = "%m/%d/%y";
 	char timebuf[100];
-	strftime(timebuf, sizeof(timebuf), time_format, localtime(&current_time));
+	strftime(timebuf, sizeof(timebuf), time_format, localtime(&Game::current_time));
 
 	String buf = Format::format("{Y[{x%8s{Y]{x {C[{x%s{C]{x %s: %s\n",
 	        timebuf,
@@ -1223,7 +1219,6 @@ void do_quit(Character *ch, String argument)
 		}
 	}
 
-	Logging::log(log_buf);
 	wiznet("$N rejoins the real world.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 	save_char_obj(ch);
 	id = ch->pcdata->id;
@@ -1261,7 +1256,7 @@ void do_fuckoff(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	Format::sprintf(log_buf, "%s has been fried.", ch->name);
+	String log_buf = Format::format("%s has been fried.", ch->name);
 	do_send_announce(ch, log_buf);
 	Logging::log(log_buf);
 	wiznet("$N has been terminated.", ch, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
@@ -1447,7 +1442,7 @@ void die_follower(Character *ch)
 
 	ch->leader = nullptr;
 
-	for (fch = char_list; fch != nullptr; fch = fch->next) {
+	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
 		if (fch->master == ch)
 			stop_follower(fch);
 
@@ -1642,7 +1637,7 @@ void do_group(Character *ch, String argument)
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
 
-		for (gch = char_list; gch != nullptr; gch = gch->next) {
+		for (gch = Game::world().char_list; gch != nullptr; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
 				Format::sprintf(buf,
 				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",

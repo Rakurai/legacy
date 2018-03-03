@@ -25,6 +25,7 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "interp.hh"
 #include "macros.hh"
 #include "merc.hh"
@@ -135,7 +136,7 @@ void do_force(Character *ch, String argument)
 		bool found = FALSE;
 
 		if (arg == "all") {
-			for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
+			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
 				vpc_next = vpc->next;
 
 				if (vpc->ch == ch)
@@ -152,7 +153,7 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "players") {
-			for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
+			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
 				vpc_next = vpc;
 
 				if (vpc->ch != ch && !IS_IMMORTAL(vpc->ch)) {
@@ -168,7 +169,7 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "gods") {
-			for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
+			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
 				vpc_next = vpc;
 
 				if (vpc->ch != ch && IS_IMMORTAL(vpc->ch) && !IS_IMP(vpc->ch)) {
@@ -440,8 +441,8 @@ void do_log(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg == "all") {
-		fLogAll = !fLogAll;
-		ptc(ch, "Log ALL %s.\n", fLogAll ? "on" : "off");
+		Game::log_all = !Game::log_all;
+		ptc(ch, "Log ALL %s.\n", Game::log_all ? "on" : "off");
 		return;
 	}
 
@@ -654,7 +655,7 @@ int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
 	if (victim == nullptr) {
 		int count = 0;
 
-		for (wch = char_list; wch; wch = wch->next)
+		for (wch = Game::world().char_list; wch; wch = wch->next)
 			if (wch->tail)
 				count += set_tail(ch, wch, TAIL_NONE);
 

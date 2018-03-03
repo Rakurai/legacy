@@ -216,7 +216,7 @@ bool can_loot(Character *ch, Object *obj)
 	if (obj->owner.empty())
 		return TRUE;
 
-	for (wch = char_list; wch != nullptr ; wch = wch->next)
+	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next)
 		if (wch->name == obj->owner)
 			owner = wch;
 
@@ -352,7 +352,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 	}
 
 	if (container != nullptr) {
-		if (container == donation_pit) {
+		if (container == Game::world().donation_pit) {
 			if (!IS_HEROIC(ch)
 		    && ((obj->level >= LEVEL_IMMORTAL && obj->level > get_holdable_level(ch))
 		        || (obj->level < LEVEL_IMMORTAL && obj->level > get_usable_level(ch)))) {
@@ -750,7 +750,7 @@ void do_get(Character *ch, String argument)
 				if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
 					found = TRUE;
 
-					if (container == donation_pit && !IS_IMMORTAL(ch)) {
+					if (container == Game::world().donation_pit && !IS_IMMORTAL(ch)) {
 						stc("Don't be so greedy!\n", ch);
 						return;
 					}
@@ -2637,22 +2637,22 @@ void do_donate(Character *ch, String argument)
 	Object *item;
 
 	/* try to find the pit */
-	if (donation_pit == nullptr)
-		for (donation_pit = object_list; donation_pit != nullptr; donation_pit = donation_pit->next)
-			if (donation_pit->pIndexData->vnum == OBJ_VNUM_PIT)
+	if (Game::world().donation_pit == nullptr)
+		for (Game::world().donation_pit = Game::world().object_list; Game::world().donation_pit != nullptr; Game::world().donation_pit = Game::world().donation_pit->next)
+			if (Game::world().donation_pit->pIndexData->vnum == OBJ_VNUM_PIT)
 				break;
 
 	/* can't find it?  make one */
-	if (donation_pit == nullptr) {
-		donation_pit = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PIT), 0);
+	if (Game::world().donation_pit == nullptr) {
+		Game::world().donation_pit = create_object(Game::world().get_obj_prototype(OBJ_VNUM_PIT), 0);
 
-		if (! donation_pit) {
+		if (! Game::world().donation_pit) {
 			Logging::bug("Error creating donation pit in do_donate.", 0);
 			stc("There is no donation pit.\n", ch);
 			return;
 		}
 
-		obj_to_room(donation_pit, Game::world().get_room(Location(Vnum(ROOM_VNUM_ALTAR))));
+		obj_to_room(Game::world().donation_pit, Game::world().get_room(Location(Vnum(ROOM_VNUM_ALTAR))));
 	}
 
 	if (argument.empty()) {
@@ -2680,7 +2680,7 @@ void do_donate(Character *ch, String argument)
 	act("$n donates $p to the donation pit.", ch, item, nullptr, TO_ROOM);
 	act("You donate $p to the donation pit.", ch, item, nullptr, TO_CHAR);
 	obj_from_char(item);
-	obj_to_obj(item, donation_pit);
+	obj_to_obj(item, Game::world().donation_pit);
 }
 
 /* Junk by Lotus */
@@ -2763,7 +2763,7 @@ void do_sacrifice(Character *ch, String argument)
 				continue;
 
 			/* Make sure no one is resting on the item. -- Outsider */
-			person = char_list;
+			person = Game::world().char_list;
 			being_used = FALSE;
 
 			while ((person) && (! being_used)) {
@@ -2814,7 +2814,7 @@ void do_sacrifice(Character *ch, String argument)
 			return;
 
 		/* Make sure no one is sleeping on/in the item. -- Outsider */
-		person = char_list;
+		person = Game::world().char_list;
 
 		while (person) {
 			if (person->on == obj) {
@@ -5001,8 +5001,6 @@ void do_engrave(Character *ch, String argument)
 	char c0;
 	String dbuf;
 	char *eng_line;
-	struct timeval now_time;
-	time_t current_time;
 
 	if (!IS_IMMORTAL(ch) &&
 	    (jeweler = get_mob_here(ch, "jeweler", VIS_CHAR)) == nullptr &&
@@ -5141,9 +5139,7 @@ void do_engrave(Character *ch, String argument)
 	else
 		dbuf += eng_desc->description;
 
-	gettimeofday(&now_time, nullptr);
-	current_time = (time_t) now_time.tv_sec;
-	strftime(buf, 9, "[%m/%d] ", localtime(&current_time));
+	strftime(buf, 9, "[%m/%d] ", localtime(&Game::current_time));
 	dbuf += buf;
 
 	if (IS_NPC(ch)) {

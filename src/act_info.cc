@@ -35,7 +35,6 @@
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
-#include "db.hh"
 #include "declare.hh"
 #include "DepartedPlayer.hh"
 #include "Descriptor.hh"
@@ -1931,7 +1930,7 @@ void do_look(Character *ch, String argument)
 				break;
 			}
 
-			if (obj == donation_pit)
+			if (obj == Game::world().donation_pit)
 				ch->act_flags += PLR_LOOKINPIT;
 
 			new_color(ch, CSLOT_MISC_OBJECTS);
@@ -1939,7 +1938,7 @@ void do_look(Character *ch, String argument)
 			show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
 			set_color(ch, WHITE, NOBOLD);
 
-			if (obj == donation_pit)
+			if (obj == Game::world().donation_pit)
 				ch->act_flags -= PLR_LOOKINPIT;
 
 			break;
@@ -2242,7 +2241,7 @@ void exits_in(Character *ch)
 
 	found = FALSE;
 
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (obj->item_type == ITEM_PORTAL) {
 			if (obj->in_room == nullptr)
 				continue;
@@ -2368,15 +2367,15 @@ void do_time(Character *ch, String argument)
 		world.time.day_string(),
 		world.time.month_name());
 
-	if (quest_double) {
+	if (Game::quest_double) {
 		stc("{gQuest points are currently being doubled!", ch);
 
 		if (IS_IMMORTAL(ch)) {
-			int hours       = quest_double / 3600,
-			    minutes     = (quest_double - (hours * 3600)) / 60,
-			    seconds     = (quest_double - (hours * 3600)) - (minutes * 60);
+			int hours       = Game::quest_double / 3600,
+			    minutes     = (Game::quest_double - (hours * 3600)) / 60,
+			    seconds     = (Game::quest_double - (hours * 3600)) - (minutes * 60);
 
-			if (quest_double > 1200)
+			if (Game::quest_double > 1200)
 				stc("{Y", ch);
 
 			stc(" (", ch);
@@ -2399,7 +2398,7 @@ void do_time(Character *ch, String argument)
 	extern char str_boot_time[];
 
 	ptc(ch, "{gLegacy started up %s\nThe system time is: %s{x\n",
-		str_boot_time, (char *) ctime(&current_time));
+		str_boot_time, (char *) ctime(&Game::current_time));
 }
 
 void do_weather(Character *ch, String argument)
@@ -2510,11 +2509,11 @@ char *count_players(Character *ch)
 		if (IS_PLAYING(d) && can_see_who(ch, d->character))
 			count++;
 
-	if (record_players_since_boot == count)
+	if (Game::record_players_since_boot == count)
 		Format::sprintf(buf, "There are %d characters on, the most since last reboot.\n", count);
 	else
 		Format::sprintf(buf, "There are %d characters on, the most since last reboot is %d.\n",
-		        count, record_players_since_boot);
+		        count, Game::record_players_since_boot);
 
 	return buf;
 }
@@ -2523,7 +2522,7 @@ void do_count(Character *ch, String argument)
 {
 	set_color(ch, WHITE, BOLD);
 	stc(count_players(ch), ch);
-	ptc(ch, "The most players ever on at once is %d.\n", record_players);
+	ptc(ch, "The most players ever on at once is %d.\n", Game::record_players);
 	set_color(ch, WHITE, NOBOLD);
 }
 
@@ -3087,7 +3086,7 @@ void do_where(Character *ch, String argument)
 	}
 
 	if (arena != arena_table_tail) {
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
 			    && victim->in_room->prototype.vnum >= arena->minvnum
 			    && victim->in_room->prototype.vnum <= arena->maxvnum
@@ -3127,7 +3126,7 @@ void do_where(Character *ch, String argument)
 		String arg;
 		one_argument(argument, arg);
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (victim->in_room != nullptr
 			    && victim->in_room->area() == ch->in_room->area()
 			    && !affect::exists_on_char(victim, affect::type::hide)
@@ -4613,7 +4612,7 @@ void do_pit(Character *ch, String argument)
 		return;
 	}
 
-	if (pit != donation_pit) {
+	if (pit != Game::world().donation_pit) {
 		stc("You seem to be looking at the wrong pit.\n", ch);
 		return;
 	}

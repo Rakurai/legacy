@@ -37,16 +37,13 @@
 #include "file.hh"
 #include "Flags.hh"
 #include "Format.hh"
+#include "Game.hh"
 #include "Logging.hh"
 #include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
 
-/* globals from db.c for load_notes */
-extern  int     _filbuf         args((FILE *));
-extern FILE                   *fpArea;
-extern char                    strArea[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, Note **list, int type, time_t free_time);
@@ -330,7 +327,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 
 		pnote->text     = fread_string(fp);
 
-		if (free_time && (pnote->date_stamp < current_time - free_time)) {
+		if (free_time && (pnote->date_stamp < Game::current_time - free_time)) {
 			delete pnote;
 			continue;
 		}
@@ -347,14 +344,9 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 
 	// getting here means last note was unreadable
 	delete pnote;
-	strcpy(strArea, NOTE_FILE);
-	fpArea = fp;
-	Logging::bug("Load_notes: bad key word.", 0);
-	/* We probably should not crash the program over a
-	   bad note entry. Simply return to the calling function.
-	   Outsider <slicer69@hotmail.com> Feb 7, 2004
-	*/
-	/* exit( 1 ); */
+
+	Logging::file_bug(fp, "Load_notes: bad key word.", 0);
+	exit( 1 );
 	return;
 }
 
@@ -692,7 +684,7 @@ void notify_note_post(Note *pnote, Character *vch, int type)
 	String buf;
 	const String& list_name = board_index[type].board_long;
 
-	for (ch = char_list; ch != nullptr; ch = ch->next) {
+	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
 		if (IS_NPC(ch))
 			continue;
 
@@ -922,7 +914,7 @@ void parse_note(Character *ch, String argument, int type)
 				newnote = new Note();
 				newnote->sender   = pnote->sender;
 				newnote->date     = pnote->date;
-				newnote->date_stamp           = current_time;
+				newnote->date_stamp           = Game::current_time;
 				newnote->to_list  = forward;
 				/* is_note_to relies on the text before the forwarding person's name
 				   to be 14 characters, including color codes.  change it if you
@@ -960,7 +952,7 @@ void parse_note(Character *ch, String argument, int type)
 				newnote = new Note();
 				newnote->sender   = pnote->sender;
 				newnote->date     = pnote->date;
-				newnote->date_stamp           = current_time;
+				newnote->date_stamp           = Game::current_time;
 				newnote->to_list  = "Immortal";
 				Format::sprintf(buf, "{PIMM REPOST{W({P%s{W){x: %s", ch->name,
 				        pnote->subject);
@@ -981,13 +973,13 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("wipe")) {
-		ch->pcdata->last_note = current_time;
-		ch->pcdata->last_idea = current_time;
-		ch->pcdata->last_roleplay = current_time;
-		ch->pcdata->last_changes = current_time;
-		ch->pcdata->last_immquest = current_time;
-		ch->pcdata->last_personal = current_time;
-		ch->pcdata->last_trade = current_time;
+		ch->pcdata->last_note = Game::current_time;
+		ch->pcdata->last_idea = Game::current_time;
+		ch->pcdata->last_roleplay = Game::current_time;
+		ch->pcdata->last_changes = Game::current_time;
+		ch->pcdata->last_immquest = Game::current_time;
+		ch->pcdata->last_personal = Game::current_time;
+		ch->pcdata->last_trade = Game::current_time;
 		stc("You are now caught up on all messages.\n", ch);
 		return;
 	}
@@ -995,37 +987,37 @@ void parse_note(Character *ch, String argument, int type)
 	if (arg.is_prefix_of("catchup")) {
 		switch (type) {
 		case NOTE_NOTE:
-			ch->pcdata->last_note = current_time;
+			ch->pcdata->last_note = Game::current_time;
 			stc("You are now caught up on notes.\n", ch);
 			break;
 
 		case NOTE_IDEA:
-			ch->pcdata->last_idea = current_time;
+			ch->pcdata->last_idea = Game::current_time;
 			stc("You are now caught up on ideas.\n", ch);
 			break;
 
 		case NOTE_ROLEPLAY:
-			ch->pcdata->last_roleplay = current_time;
+			ch->pcdata->last_roleplay = Game::current_time;
 			stc("You are now caught up on roleplay notes.\n", ch);
 			break;
 
 		case NOTE_IMMQUEST:
-			ch->pcdata->last_immquest = current_time;
+			ch->pcdata->last_immquest = Game::current_time;
 			stc("You are now caught up on quest notes.\n", ch);
 			break;
 
 		case NOTE_CHANGES:
-			ch->pcdata->last_changes = current_time;
+			ch->pcdata->last_changes = Game::current_time;
 			stc("You are now caught up on changes.\n", ch);
 			break;
 
 		case NOTE_PERSONAL:
-			ch->pcdata->last_personal = current_time;
+			ch->pcdata->last_personal = Game::current_time;
 			stc("You are now caught up on personal messages.\n", ch);
 			break;
 
 		case NOTE_TRADE:
-			ch->pcdata->last_trade = current_time;
+			ch->pcdata->last_trade = Game::current_time;
 			stc("You are now caught up on trade notes.\n", ch);
 			break;
 		}
@@ -1099,7 +1091,7 @@ void parse_note(Character *ch, String argument, int type)
 		newnote                 = new Note();
 		newnote->sender         = pnote->sender;
 		newnote->date           = pnote->date;
-		newnote->date_stamp     = current_time;
+		newnote->date_stamp     = Game::current_time;
 		newnote->to_list        = pnote->to_list;
 		newnote->subject        = pnote->subject;
 		newnote->text           = pnote->text;
@@ -1373,10 +1365,10 @@ void parse_note(Character *ch, String argument, int type)
 		}
 
 		ch->pnote->next                 = nullptr;
-		strtime                         = ctime(&current_time);
+		strtime                         = ctime(&Game::current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		ch->pnote->date                 = strtime;
-		ch->pnote->date_stamp           = current_time;
+		ch->pnote->date_stamp           = Game::current_time;
 		Format::sprintf(buf2, "%s has just posted a %s to: %s", ch->name,
 		        board_index[type].board_long, ch->pnote->to_list);
 		wiznet(buf2, ch, nullptr, WIZ_MAIL, 0, GET_RANK(ch));

@@ -23,7 +23,6 @@
 #include "channels.hh"
 #include "Character.hh"
 #include "Clan.hh"
-#include "db.hh"
 #include "Descriptor.hh"
 #include "ExtraDescr.hh"
 #include "find.hh"
@@ -376,7 +375,7 @@ void do_at(Character *ch, String argument)
 	 * See if 'ch' still exists before continuing!
 	 * Handles 'at XXXX quit' case.
 	 */
-	for (wch = char_list; wch != nullptr; wch = wch->next) {
+	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
 		if (wch == ch) {
 			char_from_room(ch);
 			char_to_room(ch, original);
@@ -404,7 +403,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.empty() || arg.is_prefix_of("gods")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
@@ -413,8 +412,8 @@ void do_check(Character *ch, String argument)
 
 			Format::sprintf(buf, "{W[%12s] Level {C%3d{W connected since %d hours {C(%d total hours){x\n",
 			        victim->name, victim->level,
-			        ((int)(current_time - victim->logon)) / 3600,
-			        (get_play_seconds(victim) + (int)(current_time - victim->logon)) / 3600);
+			        ((int)(Game::current_time - victim->logon)) / 3600,
+			        (get_play_seconds(victim) + (int)(Game::current_time - victim->logon)) / 3600);
 			buffer += buf;
 		}
 
@@ -424,7 +423,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("stats")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
@@ -450,7 +449,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("eq")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim)
 			    || !can_see_char(ch, victim))
 				continue;
@@ -473,7 +472,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("absorb")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
@@ -492,7 +491,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("immune")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
@@ -512,7 +511,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("resistance")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
@@ -532,7 +531,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("vulnerable")) {
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim) || !can_see_char(ch, victim))
 				continue;
 
@@ -557,7 +556,7 @@ void do_check(Character *ch, String argument)
 		}
 
 
-		for (victim = char_list; victim != nullptr; victim = victim->next) {
+		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 			if (IS_NPC(victim)
 			    || victim->desc == nullptr
 			    || !IS_PLAYING(victim->desc))
@@ -1455,7 +1454,7 @@ void do_for(Character *ch, String argument)
 	}
 
 	if (strchr(argument, '#')) { /* replace # ? */
-		for (p = char_list; p; p = p_next) {
+		for (p = Game::world().char_list; p; p = p_next) {
 			p_next = p->next;
 			found = FALSE;
 
@@ -1802,7 +1801,7 @@ void do_heed(Character *ch, String argument)
 	}
 
 	/* find a player to talk to. Only REAL players are eligible. */
-	for (tpc = pc_list; tpc; tpc = tpc->next)
+	for (tpc = Game::world().pc_list; tpc; tpc = tpc->next)
 		if (tpc->ch->name.has_words(arg1))
 			break;
 
@@ -1916,12 +1915,12 @@ void do_linkload(Character *ch, String argument)
 
 	if (load_char_obj(dnew, cname) == TRUE) {
 		victim = dnew->character;
-		victim->next = char_list;
-		char_list    = victim;
+		victim->next = Game::world().char_list;
+		Game::world().char_list    = victim;
 		victim->validate();
 
-		victim->pcdata->next = pc_list;
-		pc_list = victim->pcdata;
+		victim->pcdata->next = Game::world().pc_list;
+		Game::world().pc_list = victim->pcdata;
 		victim->desc = nullptr;
 
 		if (OUTRANKS(victim, ch)) {
@@ -2522,7 +2521,7 @@ void do_owhere(Character *ch, String argument)
 	output += "{VCount {YRoom  {GObject{x\n";
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
-	for (obj = object_list; obj != nullptr; obj = obj->next) {
+	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (fGround && !obj->in_room)
 			continue;
 
@@ -2673,7 +2672,7 @@ void do_mwhere(Character *ch, String argument)
 
 	found = FALSE;
 
-	for (victim = char_list; victim != nullptr; victim = victim->next) {
+	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
 		if (!IS_NPC(victim) || victim->in_room == nullptr)
 			continue;
 
@@ -2930,7 +2929,7 @@ void do_noreply(Character *ch, String argument)
 	if (IS_NPC(ch))
 		return;
 
-	for (wch = char_list; wch != nullptr; wch = wch->next) {
+	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
 		if (! strcasecmp(wch->reply, ch->name))
 			wch->reply.clear();
 	}
@@ -3546,7 +3545,7 @@ void do_sockets(Character *ch, String argument)
 	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	/* now list linkdead ppl */
-	for (vpc = pc_list; vpc != nullptr; vpc = vpc_next) {
+	for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
 		vpc_next = vpc->next;
 
 		if (vpc->ch != ch
@@ -3654,7 +3653,7 @@ void do_storage(Character *ch, String argument)
 		newdata = new StoredPlayer;
 		newdata->name = argument.capitalize();
 		newdata->by_who = ch->name;
-		newdata->date = ctime(&current_time);
+		newdata->date = ctime(&Game::current_time);
 		newdata->date[strlen(newdata->date) - 1] = '\0';
 		insert_storagedata(newdata);
 		save_storage_list();

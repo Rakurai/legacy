@@ -1,6 +1,6 @@
 #include "Reset.hh"
 
-#include "db.hh" // boot_bug
+#include "Area.hh"
 #include "Exit.hh"
 #include "file.hh"
 #include "Flags.hh"
@@ -29,7 +29,7 @@ Reset(FILE *fp) {
 	/* Validate parameters.  We're calling the index functions for the side effect. */
 	switch (command) {
 	default:
-		boot_bug("Load_resets: bad command '%c'.", command);
+		Logging::file_bug(fp, "Load_resets: bad command '%c'.", command);
 		exit(1);
 		break;
 
@@ -121,12 +121,12 @@ Reset(FILE *fp) {
 		arg4    = 0;
 
 		if (arg2 < 0 || arg2 > 5) {
-			boot_bug("Load_resets: 'D': exit %d not door.", arg2);
+			Logging::file_bug(fp, "Load_resets: 'D': exit %d not door.", arg2);
 			exit(1);
 		}
 
 		if (arg3 < 0 || arg3 > 2) {
-			boot_bug("Load_resets: 'D': bad 'locks': %d.", arg3);
+			Logging::file_bug(fp, "Load_resets: 'D': bad 'locks': %d.", arg3);
 			exit(1);
 		}
 
@@ -141,13 +141,13 @@ Reset(FILE *fp) {
 			ExitPrototype *pexit;
 
 			if (room == nullptr) {
-				boot_bug("Load_resets: 'D': no such room %d.", arg1);
+				Logging::file_bug(fp, "Load_resets: 'D': no such room %d.", arg1);
 				exit(1);
 			}
 
 			if ((pexit = room->exit[arg2]) == nullptr
 			    || !pexit->exit_flags.has(EX_ISDOOR)) {
-				boot_bug("Load_resets: 'D': exit %d not door.", arg2);
+				Logging::file_bug(fp, "Load_resets: 'D': exit %d not door.", arg2);
 				exit(1);
 			}
 		}
@@ -165,7 +165,7 @@ Reset(FILE *fp) {
 		arg1 = Location(tmp_buf).to_int();
 
 		if (arg2 < 0 || arg2 > 6) {
-			boot_bug("Load_resets: 'R': bad exit %d.", arg2);
+			Logging::file_bug(fp, "Load_resets: 'R': bad exit %d.", arg2);
 			exit(1);
 		}
 
