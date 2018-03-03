@@ -1622,7 +1622,6 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
-	MobProg *mprg;
 	const char       *list;
 	char       *start;
 	char       *dupl;
@@ -1630,7 +1629,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 
 	String word;
 
-	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
+	for (const auto mprg : mob->pIndexData->mobprogs) {
 		if (mprg->type == type) {
 			strcpy(temp1, mprg->arglist);
 
@@ -1676,6 +1675,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 							dupl = start + 1;
 			}
 		}
+	}
 
 	return;
 }
@@ -1683,9 +1683,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 void mprog_percent_check(Character *mob, Character *actor, Object *obj,
                          void *vo, Flags::Bit type)
 {
-	MobProg *mprg;
-
-	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
+	for (const auto mprg : mob->pIndexData->mobprogs) {
 		if ((mprg->type == type)
 		    && (number_percent() < atoi(mprg->arglist))) {
 			mprog_driver(mprg->comlist, mob, actor, obj, vo);
@@ -1693,6 +1691,7 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
 			if (type != GREET_PROG && type != ALL_GREET_PROG)
 				break;
 		}
+	}
 
 	return;
 }
@@ -1725,13 +1724,12 @@ void mprog_act_trigger(const char *buf, Character *mob, Character *ch,
 
 void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 {
-	MobProg *mprg;
 	Object *obj;
 
 	if (!IS_NPC(mob))
 		return;
 
-	for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
+	for (const auto mprg : mob->pIndexData->mobprogs)
 		if (mprg->type == BRIBE_PROG) {
 			if ((obj = create_money(0, amount)) == nullptr)
 				return;
@@ -1784,12 +1782,11 @@ void mprog_buy_trigger(Character *mob, Character *ch)
 
 void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 {
-	MobProg *mprg;
 	String buf;
 
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtype_flags.has(GIVE_PROG)))
-		for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next) {
+		for (const auto mprg : mob->pIndexData->mobprogs) {
 			one_argument(mprg->arglist, buf);
 
 			if ((mprg->type == GIVE_PROG)
@@ -1828,11 +1825,9 @@ void mprog_greet_trigger(Character *ch)
 
 void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 {
-	MobProg *mprg;
-
 	if (IS_NPC(mob)
 	    && (mob->pIndexData->progtype_flags.has(HITPRCNT_PROG)))
-		for (mprg = mob->pIndexData->mobprogs; mprg != nullptr; mprg = mprg->next)
+		for (const auto mprg : mob->pIndexData->mobprogs)
 			if ((mprg->type == HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
 				mprog_driver(mprg->comlist, mob, ch, nullptr, nullptr);

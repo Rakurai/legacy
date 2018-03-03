@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
@@ -13,7 +15,7 @@ class MobilePrototype
 {
 public:
     MobilePrototype(Area&, const Vnum&, FILE *);
-    virtual ~MobilePrototype() {}
+    virtual ~MobilePrototype();
 
     Area&                   area;
     const Vnum                vnum;
@@ -51,8 +53,10 @@ public:
     Flags               parts_flags;
     int              size = 0;
     String              material;
-    MobProg *           mobprogs = nullptr;
+    std::vector<MobProg *> mobprogs;
     Flags               progtype_flags;
+
+    void read_mobprogs(FILE *fp);
 
 private:
     MobilePrototype();

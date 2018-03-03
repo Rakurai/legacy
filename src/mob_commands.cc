@@ -47,54 +47,6 @@
 #include "Room.hh"
 #include "String.hh"
 
-/*
- * Local functions.
- */
-
-char                   *mprog_type_to_name      args((int type));
-
-/* This routine transfers between alpha and numeric forms of the
- *  mob_prog bitvector types. It allows the words to show up in mpstat to
- *  make it just a hair bit easier to see what a mob should be doing.
- */
-
-char *mprog_type_to_name(int type)
-{
-	switch (type) {
-	case IN_FILE_PROG:          return "in_file_prog";
-
-	case ACT_PROG:              return "act_prog";
-
-	case SPEECH_PROG:           return "speech_prog";
-
-	case RAND_PROG:             return "rand_prog";
-	case RAND_AREA_PROG:        return "rand_area_prog";
-
-	case BOOT_PROG:             return "boot_prog";
-
-	case FIGHT_PROG:            return "fight_prog";
-
-	case BUY_PROG:              return "buy_prog";
-
-	case HITPRCNT_PROG:         return "hitprcnt_prog";
-
-	case DEATH_PROG:            return "death_prog";
-
-	case ENTRY_PROG:            return "entry_prog";
-
-	case GREET_PROG:            return "greet_prog";
-
-	case ALL_GREET_PROG:        return "all_greet_prog";
-
-	case GIVE_PROG:             return "give_prog";
-
-	case BRIBE_PROG:            return "bribe_prog";
-
-	case TICK_PROG:             return "tick_prog";
-
-	default:                    return "ERROR_PROG";
-	}
-}
 
 /* A trivial rehack of do_mstat.  This doesnt show all the data, but just
  * enough to identify the mob and give its basic condition.  It does however,
@@ -104,7 +56,6 @@ char *mprog_type_to_name(int type)
 void do_mpstat(Character *ch, String argument)
 {
 	char        buf[ MAX_STRING_LENGTH ];
-	MobProg *mprg;
 	Character  *victim;
 
 	String arg;
@@ -149,10 +100,9 @@ void do_mpstat(Character *ch, String argument)
 	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
 	stc(buf, ch);
 
-	for (mprg = victim->pIndexData->mobprogs; mprg != nullptr;
-	     mprg = mprg->next) {
+	for (const auto mprg : victim->pIndexData->mobprogs) {
 		Format::sprintf(buf, ">%s %s\n%s\n",
-		        mprog_type_to_name(mprg->type),
+		        MobProg::type_to_name(mprg->type),
 		        mprg->arglist,
 		        mprg->comlist);
 		stc(buf, ch);

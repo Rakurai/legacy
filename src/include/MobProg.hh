@@ -7,15 +7,17 @@
 class MobProg
 {
 public:
-	MobProg() {}
+	MobProg(FILE *fp);
 	virtual ~MobProg() {}
 
-    MobProg *next = nullptr;
     Flags::Bit         type;
     String      arglist;
     String      comlist;
 
+	static Flags::Bit name_to_type(const String&);
+	static const String type_to_name(Flags::Bit);
 private:
+
 	MobProg(const MobProg&);
 	MobProg& operator=(const MobProg&);
 };

@@ -5,6 +5,7 @@
 #include "lookup.hh"
 #include "Logging.hh"
 #include "merc.hh"
+#include "MobProg.hh"
 
 MobilePrototype::
 MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
@@ -126,14 +127,35 @@ MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
 		}
 	}
 
-	char letter = fread_letter(fp);
+	read_mobprogs(fp);
+}
 
-	if (letter == '>') {
-		ungetc(letter, fp);
-void            mprog_read_programs     args((FILE *fp,
-                MobilePrototype *pMobIndex));
-		mprog_read_programs(fp, this);
+MobilePrototype::
+~MobilePrototype() {
+	for (auto mobprog : mobprogs)
+		delete mobprog;
+}
+
+void MobilePrototype::
+read_mobprogs(FILE *fp) {
+	while (true) {
+		char letter = fread_letter(fp);
+
+		if (letter != '>') {
+			if (letter != '|')
+				ungetc(letter, fp);
+
+			break;
+		}
+
+		MobProg *mprg = new MobProg(fp);
+
+		if (mprg->type == ERROR_PROG) {
+			boot_bug("Load_mobiles: vnum %d invalid MOBPROG type.", vnum);
+			exit(1);
+		}
+
+		mobprogs.push_back(mprg);
+		progtype_flags += mprg->type;
 	}
-	else ungetc(letter, fp);
-	
 }
