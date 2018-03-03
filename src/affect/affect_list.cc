@@ -34,7 +34,10 @@ void insert_in_list(Affect **list_head, Affect *paf) {
 
 void copy_to_list(Affect **list_head, const Affect *aff_template)
 {
-	Affect *paf_new = new Affect(*aff_template);
+	Affect *paf_new = new Affect();
+	*paf_new            = *aff_template;
+	paf_new->next = nullptr;
+	paf_new->prev = nullptr;
 	insert_in_list(list_head, paf_new);
 }
 
