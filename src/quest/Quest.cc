@@ -1,11 +1,11 @@
-#include "quest/Data.hh"
+#include "quest/Quest.hh"
 #include "file.hh"
 #include "Logging.hh"
 
 namespace quest {
 
-Data::
-Data(const String& filename, FILE *fp) :
+Quest::
+Quest(const String& filename, FILE *fp) :
 	filename(filename)
 {
 	while (true) {
@@ -22,18 +22,18 @@ Data(const String& filename, FILE *fp) :
 		else if (key == "reward")   rewards.push_back(Reward(fp));
 		else if (key == "end")      break;
 		else {
-			Logging::bugf("Quests::Data: invalid keyword '%s' in header.", key);
+			Logging::bugf("Quests::Quest: invalid keyword '%s' in header.", key);
 			exit(1);
 		}
 	}
 }
 
-Data::Step::
+Quest::Step::
 Step(FILE *fp) :
 	description(fread_string(fp))
 {}
 
-Data::Reward::
+Quest::Reward::
 Reward(FILE *fp) :
 	type(fread_word(fp)),
 	what(fread_number(fp)),
@@ -50,17 +50,17 @@ Reward(FILE *fp) :
 	 && type != "obj"
 	 && type != "prac"
 	 && type != "train") {
-		Logging::bugf("Quests::Data::Reward: unknown reward type '%s'.", type);
+		Logging::bugf("Quests::Quest::Reward: unknown reward type '%s'.", type);
 		exit(1);
 	}
 
 	if (amount_min < 1 || amount_max < amount_min) {
-		Logging::bugf("Quests::Data::Reward: invalid min/max amounts '%d' and '%d'.", amount_min, amount_max);
+		Logging::bugf("Quests::Quest::Reward: invalid min/max amounts '%d' and '%d'.", amount_min, amount_max);
 		exit(1);
 	}
 
 	if (pct_chance < 0 || pct_chance > 100) {
-		Logging::bugf("Quests::Data::Reward: invalid chance '%d'.", pct_chance);
+		Logging::bugf("Quests::Quest::Reward: invalid chance '%d'.", pct_chance);
 		exit(1);
 	}
 }

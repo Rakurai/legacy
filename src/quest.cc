@@ -42,8 +42,8 @@
 #include "tables.hh"
 #include "World.hh"
 #include "RoomPrototype.hh"
-#include "quest/Data.hh"
 #include "progs/triggers.hh"
+#include "quest/functions.hh"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -1478,7 +1478,7 @@ void do_quest(Character *ch, String argument)
 			}
 
 			stc("You abandon your quest.\n", ch);
-			ch->pcdata->quests.erase(ch->pcdata->quests.begin() + num);
+			quest::remove(ch->pcdata, num);
 			return;
 		}
 
@@ -1510,17 +1510,7 @@ void do_quest(Character *ch, String argument)
 	/*** INFO ***/
 	if (arg1.is_prefix_of("info")) {
 		if (!ch->is_npc() && ch->pcdata->quests.size() > 0) {
-			int index = 1;
-			for (const auto& state : ch->pcdata->quests) {
-				ptc(ch, "%2d) (%8s) %-30s - %s (step %d)\n",
-					index++,
-					state.quest->id,
-					state.quest->name,
-					state.quest->steps[state.step].description,
-					state.step
-				);
-			}
-			stc("\n", ch);
+			ptc(ch, quest::list(ch->pcdata));
 		}
 
 		if (ch->in_room == nullptr) {
