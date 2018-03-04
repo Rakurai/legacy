@@ -18,6 +18,7 @@ Quest(const String& filename, FILE *fp) :
 
 		     if (key == "name")     name = fread_string(fp);
 		else if (key == "id")       id = fread_string(fp);
+		else if (key == "require")  prereqs.push_back(Prereq(fp));
 		else if (key == "step")     steps.push_back(Step(fp));
 		else if (key == "reward")   rewards.push_back(Reward(fp));
 		else if (key == "end")      break;
@@ -25,6 +26,31 @@ Quest(const String& filename, FILE *fp) :
 			Logging::bugf("Quests::Quest: invalid keyword '%s' in header.", key);
 			exit(1);
 		}
+	}
+}
+
+Quest::Prereq::
+Prereq(FILE *fp) :
+	type(fread_word(fp)),
+	value(fread_word(fp))
+{
+	if (type != "minlevel"
+	 && type != "maxlevel"
+	 && type != "minremort"
+	 && type != "maxremort"
+	 && type != "quest_com"
+	 && type != "quest_not") {
+		Logging::bugf("Quests::Quest::Prereq: unknown prereq type '%s'.", type);
+		exit(1);
+	}
+
+	if ((type == "minlevel"
+	 || type == "maxlevel"
+	 || type == "minremort"
+	 || type == "maxremort")
+	  && !value.is_number()) {
+		Logging::bugf("Quests::Quest::Prereq: prereq type '%s' needs a numeric argument.", type);
+		exit(1);
 	}
 }
 

@@ -8,6 +8,13 @@ namespace quest {
 
 class Quest {
 public:
+	struct Prereq {
+		Prereq(FILE *fp);
+
+		const String type;
+		const String value;
+	};
+
 	struct Step {
 		Step(FILE *fp);
 
@@ -32,7 +39,8 @@ public:
 	String id;
 	String name;
 
-	std::vector<Step> steps;
+	std::vector<Prereq> prereqs;
+	std::vector<Step>   steps;
 	std::vector<Reward> rewards;
 
 	inline friend bool operator==(const Quest& lhs, const Quest& rhs) { return lhs.id == rhs.id; }
