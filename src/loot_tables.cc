@@ -1187,15 +1187,15 @@ const std::map<affect::type, mod_t> mod_table = {
     }},
     {   affect::type::obj_suffix_initiate_mage, {
         "of the Initiate Mage", 1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    1,  2, false
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    1,  3, false
     }},
     {   affect::type::obj_suffix_advanced_mage, {
         "of the Advanced Mage", 1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    3,  4, false
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    3,  6, false
     }},
     {   affect::type::obj_suffix_master_mage, {
         "of the Master Mage",   1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    5,  6, false
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    6,  10, false
     }},
     {   affect::type::obj_suffix_swallow, {
         "of the Swallow",   1,  100,
