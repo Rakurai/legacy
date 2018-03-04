@@ -2398,25 +2398,15 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	}
 	
 	/* Shield block specific suffixes */
-	int hp_block = GET_ATTR(victim, APPLY_HP_BLOCK_PCT);
-	int mana_block = GET_ATTR(victim, APPLY_MANA_BLOCK_PCT);
-	Logging::bug("GET_ATTR HP_BLOCK: %d.", hp_block);
-	Logging::bug("GET_ATTR MANA_BLOCK: %d", mana_block);
 	if (GET_ATTR(victim, APPLY_HP_BLOCK_PCT) != 0){
 		int life_restored = (number_range(1, obj->level / 2) + GET_ATTR(victim, APPLY_HP_BLOCK_PCT));
-		//int life_restored = (GET_MAX_HIT(victim) * GET_ATTR(victim, APPLY_HP_BLOCK_PCT) / 100);
 		victim->hit += life_restored;
-		//debug stuff
-		Logging::bug("HP_BLOCK_PCT  HEALED: %d.", life_restored);
-		//end debug stuff
 		Format::sprintf(buf2, "{BYour block restores %d of your life.{x\n", life_restored);
 		stc(buf2, victim);
 	}
 	if (GET_ATTR(victim, APPLY_MANA_BLOCK_PCT) != 0){
-		//int mana_restored = (GET_MAX_MANA(victim) * GET_ATTR(victim, APPLY_MANA_BLOCK_PCT) / 100);
 		int mana_restored = (number_range(1, obj->level / 2) + GET_ATTR(victim, APPLY_MANA_BLOCK_PCT));
 		victim->mana += mana_restored;
-		Logging::bug("MANA_BLOCK_PCT  HEALED: %d.", mana_restored);
 		Format::sprintf(buf2, "{BYour block restores %d of your mana.{x\n", mana_restored);
 		stc(buf2, victim);
 	}
