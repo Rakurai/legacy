@@ -6,7 +6,7 @@
 
 namespace quest {
 
-class Data {
+class Quest {
 public:
 	struct Step {
 		Step(FILE *fp);
@@ -25,8 +25,8 @@ public:
 		const int pct_chance;
 	};
 
-	Data(const String& f, FILE *fp);
-	virtual ~Data() {}
+	Quest(const String& f, FILE *fp);
+	virtual ~Quest() {}
 
 	String filename;
 	String id;
@@ -35,11 +35,11 @@ public:
 	std::vector<Step> steps;
 	std::vector<Reward> rewards;
 
-	inline friend bool operator==(const Data& lhs, const Data& rhs) { return lhs.id == rhs.id; }
+	inline friend bool operator==(const Quest& lhs, const Quest& rhs) { return lhs.id == rhs.id; }
 
 private:
-//	Data(const Data&);
-	Data& operator=(const Data&);
+//	Quest(const Quest&);
+	Quest& operator=(const Quest&);
 };
 
 } // namespace quest

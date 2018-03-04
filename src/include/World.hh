@@ -9,8 +9,7 @@
 #include "worldmap/Quadtree.hh"
 #include "worldmap/Worldmap.hh"
 #include "GarbageCollectingList.hh"
-#include "Vnum.hh"
-#include "quest/Data.hh"
+#include "quest/Quest.hh"
 
 class Area;
 class Character;
@@ -47,7 +46,7 @@ public:
 	Object *donation_pit = nullptr;;
 
 	std::map<VnumRange, Area *> areas;
-	std::map<String, quest::Data> quests;
+	std::map<String, quest::Quest> quests;
 
 	Area *get_area(const Vnum&) const;
 	bool valid() const {

@@ -2,14 +2,14 @@
 
 namespace quest {
 
-class Data;
+class Quest;
 
 class State {
 public:
-	State(const Data& q) : quest(&q), step(0) {}
+	State(const Quest& q) : quest(&q), step(0) {}
 	virtual ~State() {}
 
-	const Data* quest;
+	const Quest* quest;
 	unsigned char step;
 
 	// no data owned here, copy and assignment are implicit

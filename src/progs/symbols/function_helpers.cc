@@ -9,6 +9,7 @@
 #include "argument.hh"
 #include "Logging.hh"
 #include "progs/contexts/Context.hh"
+#include "quest/functions.hh"
 
 namespace progs {
 namespace symbols {
@@ -130,16 +131,15 @@ void fn_helper_quest_assign(Character *victim, const String& quest_id) {
 	if (quest_id.empty())
 		throw String("empty quest ID");
 
-	const auto& entry = Game::world().quests.find(quest_id);
+	const quest::Quest* quest = quest::lookup(quest_id);
 
-	if (entry == Game::world().quests.cend())
+	if (quest == nullptr)
 		throw Format::format("no such quest ID '%s'", quest_id);
 
-	for (const auto& state: victim->pcdata->quests)
-		if (state.quest == &entry->second)
-			throw Format::format("player '%s' already has quest '%s'", victim->name, quest_id);
+	if (get_state(victim->pcdata, quest) != nullptr)
+		throw Format::format("player '%s' already has quest '%s'", victim->name, quest_id);
 
-	victim->pcdata->quests.push_back(entry->second);
+	quest::assign(victim->pcdata, quest);
 }
 
 void fn_helper_quest_progress(Character *victim, const String& quest_id) {
@@ -152,36 +152,15 @@ void fn_helper_quest_progress(Character *victim, const String& quest_id) {
 	if (quest_id.empty())
 		throw String("empty quest ID");
 
-	const auto& entry = Game::world().quests.find(quest_id);
+	const quest::Quest* quest = quest::lookup(quest_id);
 
-	if (entry == Game::world().quests.cend())
+	if (quest == nullptr)
 		throw Format::format("no such quest ID '%s'", quest_id);
 
-	for (auto it = victim->pcdata->quests.begin(); it != victim->pcdata->quests.end(); it++) {
-		quest::State& state = *it;
-		const quest::Data *quest = &entry->second;
+	if (quest::get_state(victim->pcdata, quest) == nullptr)
+		throw Format::format("player '%s' isn't on quest '%s'", victim->name, quest_id);
 
-		if (state.quest == quest) {
-			state.step++;
-
-			if (state.step < quest->steps.size())
-				return;
-
-			if (state.step > quest->steps.size()) {
-				Logging::bugf("Mpquest_progress: player '%s' has quest '%s' on step %d/%d.",
-					victim->name, quest_id, state.step+1, quest->steps.size());
-			}
-
-			// roll some loot!
-			for (const auto& reward : quest->rewards) {
-				Logging::bugf("rolling reward");
-			}
-
-			// remove the quest
-			victim->pcdata->quests.erase(it);
-			return;
-		}
-	}
+    quest::progress(victim->pcdata, quest);
 }
 
 } // namespace symbols

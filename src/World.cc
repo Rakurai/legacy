@@ -10,7 +10,7 @@
 #include "ExitPrototype.hh"
 #include "RoomPrototype.hh"
 #include "Room.hh"
-#include "quest/Data.hh"
+#include "quest/Quest.hh"
 
 World::
 World() :
@@ -264,7 +264,7 @@ load_quests() {
 
 			if (word[0] == '$')  break;
 			else if (word == "QUEST") {
-				quest::Data quest(file_name, fp);
+				quest::Quest quest(file_name, fp);
 				quests.emplace(quest.id, quest);
 			}
 			else if (word == "PROGS")  Area::load_progs(fp);
