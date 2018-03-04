@@ -67,7 +67,7 @@ public:
     int              high_range = 0;
 
     // state
-    int              age = 15;
+    int              age = 0;
 
     worldmap::Region *region = nullptr;
 

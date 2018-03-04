@@ -359,6 +359,7 @@ void do_debug(Character *ch, String argument)
 		for (count = 0; count < number; count++) {
 			Game::world().time.update();
 			Game::world().weather.update();
+			Game::world().update();
 			char_update();
 			obj_update();
 			room_update();

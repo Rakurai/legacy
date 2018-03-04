@@ -378,20 +378,10 @@ get_room_prototype(const Vnum& vnum) {
 
 void Area::
 update() {
-	if (++age < 15)
-		return;
-
-	/*
-	 * Check age and reset.
-	 * Note: Mud School resets every 3 minutes (not 15).
-	 */
-	if (age >= 31 || (num_players() == 0 && age >= 15)) {
+	// Check age and reset.
+	if (--age <= 0) {
 		reset();
-		age = number_range(0, 3);
-
-		if (min_vnum <= ROOM_VNUM_SCHOOL
-		 && max_vnum >= ROOM_VNUM_SCHOOL)
-			age = 15 - 2; // mud school gets a boost
+		age = number_range(3, 5);
 	}
 }
 
@@ -867,16 +857,6 @@ create_rooms() {
 
 void Area::
 add_char(Character *ch) {
-/*
-	if (!IS_NPC(ch)) {
-		if (ch->in_room->area()->empty) {
-			ch->in_room->area()->empty = FALSE;
-			ch->in_room->area()->age = 0;
-		}
-
-		++ch->in_room->area()->nplayer;
-	}
-*/
 	if (IS_NPC(ch))
 		return;
 
