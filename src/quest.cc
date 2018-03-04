@@ -1580,7 +1580,7 @@ void do_quest(Character *ch, String argument)
 					}
 					else {                          /* item has not been found */
 						oblock = Format::format("{T<{Y%5d{T>{x", wch->questobj);
-						lblock = Format::format("{T<{Y%5d{T>{x", wch->questloc);
+						lblock = Format::format("{T<{Y%5s{T>{x", wch->questloc);
 					}
 				}
 				else {                                  /* a mob quest */
@@ -1592,7 +1592,7 @@ void do_quest(Character *ch, String argument)
 					}
 					else {                          /* mob has not been killed */
 						mblock = Format::format("{T<{Y%5d{T>{x", wch->questmob);
-						lblock = Format::format("{T<{Y%5d{T>{x", wch->questloc);
+						lblock = Format::format("{T<{Y%5s{T>{x", wch->questloc);
 					}
 				}
 
@@ -1611,7 +1611,7 @@ void do_quest(Character *ch, String argument)
 					if (wch->pcdata->squestobjf)    /* item has been found */
 						oblock = Format::format("{C<{Gfound{C>{x");
 					else
-						oblock = Format::format("{T<{G%5d{T>{x", wch->pcdata->squestloc1);
+						oblock = Format::format("{T<{G%5s{T>{x", wch->pcdata->squestloc1);
 				}
 				else if (wch->pcdata->squestobj == nullptr /* mob quest */
 				         && wch->pcdata->squestmob != nullptr) {
@@ -1620,19 +1620,19 @@ void do_quest(Character *ch, String argument)
 					if (wch->pcdata->squestmobf)    /* mob has been found */
 						mblock = Format::format("{C<{Gfound{C>{x");
 					else
-						mblock = Format::format("{T<{G%5d{T>{x", wch->pcdata->squestloc2);
+						mblock = Format::format("{T<{G%5s{T>{x", wch->pcdata->squestloc2);
 				}
 				else if (wch->pcdata->squestobj != nullptr /* item to mob quest */
 				         && wch->pcdata->squestmob != nullptr) {
 					if (wch->pcdata->squestobjf)    /* item has been found */
 						oblock = Format::format("{C<{Gfound{C>{x");
 					else
-						oblock = Format::format("{T<{G%5d{T>{x", wch->pcdata->squestloc1);
+						oblock = Format::format("{T<{G%5s{T>{x", wch->pcdata->squestloc1);
 
 					if (wch->pcdata->squestmobf)    /* mob has been found */
 						mblock = Format::format("{C<{Gfound{C>{x");
 					else
-						mblock = Format::format("{T<{G%5d{T>{x", wch->pcdata->squestloc2);
+						mblock = Format::format("{T<{G%5s{T>{x", wch->pcdata->squestloc2);
 				}
 				else {                                  /* shouldn't be here */
 					oblock = Format::format("{P<? ? ? ? ?>{x");
