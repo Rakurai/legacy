@@ -2,9 +2,9 @@
 Seraph.are~
 Divinity Hall~
 {H{{CLANS} {MDarkAvatar  {TDivinity Clanhall~
-24200 24349
+25200 25349
 #MOBILES
-#24200
+#25200
 sakura shinguuji~
 Sakura Shinguuji~
 Sakura Shinguuji is here with a sweet smile on her face.
@@ -22,7 +22,7 @@ CEFJKN ABCD 0 0
 stand stand female 100000
 0 0 medium 0
 
-#24201
+#25201
 drizzt do'urden urden drow~
 Drizzt Do' Urden~
 Drizzt Do' Urden stands here conferring with Guenhwyvar.
@@ -44,7 +44,7 @@ stand stand male 10000
 0 0 medium 0
 
 
-#24202
+#25202
 Chibi-dragon~
 Chibi-Dragon~
 A mystical chibi-dragon flutters about the room.
@@ -61,7 +61,7 @@ F 0 0 0
 stand stand either 0
 0 0 tiny 0
 
-#24203
+#25203
 Mesa Pegasus~
 {WMesa Pegasus{x~
 A large {WMesa Pegasus{x stamps its hoof and rears its head to gain your 
@@ -80,7 +80,7 @@ CF 0 0 0
 stand stand either 0
 0 0 large 0
 
-#24204
+#25204
 Holy dragon~
 {WHoly Dragon{x~
 A {Wholy and pure dragon{x sits here, looking regal and majestic.
@@ -97,7 +97,7 @@ CDFK 0 0 0
 stand stand either 0
 0 0 huge 0
 
-#24206
+#25206
 wilmae deering vendor~
 {WWilma Deering{x~
 {WWilma Deering{x still looks a little confused!
@@ -115,7 +115,7 @@ stand stand female 200000
 0 0 medium 0
 
 
-#24207
+#25207
 aleric elf healer~
 {WAleric{x~
 Aleric is standing here waiting to be of assistance to you
@@ -132,7 +132,7 @@ stand stand male 0
 0 0 medium 0
 
 
-#24208
+#25208
 albert einstein trainer~
 {WAlbert Einstein{x~
 {WAlbert Einstein{x is here.
@@ -148,7 +148,7 @@ ABJKb DFH 1000 S
 FG ABCD 0 0
 stand stand male 0
 0 0 medium 0
-#24210
+#25210
 citan~
 Citan~
 Citan is here mixing drinks with his katana at his side.
@@ -164,7 +164,7 @@ AB DFH 1000 S
 FHIK ABCD 0 0
 stand stand male 0
 0 0 medium 0
-#24213
+#25213
 mygas wizard~
 Mygas~
 Mygas is here waiting to be of service to you.
@@ -179,7 +179,7 @@ AB DFH 1000 S
 FHIK ABCD 0 0
 stand stand male 10000
 0 0 medium 0
-#24214
+#25214
 casanova librarian~
 Casanova~
 Your very handsome hormone crazed librarian who likes to check out more than books.
@@ -195,7 +195,7 @@ AB DFH 1000 S
 FG ABCD 0 0
 stand stand male 0
 0 0 medium 0
-#24217
+#25217
 Galileo Galilei~
 Galileo Galilei~
 Galileo Galilei is waiting to see why you have intruded upon his research.
@@ -211,7 +211,7 @@ FG ABCD 0 0
 stand stand male 0
 0 0 medium 0
 
-#24223
+#25223
 cat anastacia~
 Anastacia~
 A small grey cat is curled up on the bed.
@@ -229,7 +229,7 @@ FG ABCD 0 0
 stand stand female 0
 0 0 small 0 
 
-#24224
+#25224
 adam smith~
 Adam Smith~
 Adam Smith is here waiting to help you with your financing.
@@ -244,7 +244,7 @@ ABd DFH 1000 S
 FG ABCD 0 0
 stand stand male 500000
 0 0 medium 0
-#24233
+#25233
 kawaii chibi-dragon dragon~
 Kawai Chibi-Dragon~
 Awww, it's the cutest dragon you have ever seen its so small and you just want to hug it.
@@ -258,7 +258,7 @@ AB DFH 1000 S
 FHIK ABCD 0 0
 stand stand female 0
 0 0 small 0
-#24234
+#25234
 skie khellendros serpent~
 {CA {BSapphire {Gserpent{x~
 {CA {BSapphire {Gserpent{x with unblinking {Yamber{x eyes watches you.
@@ -280,7 +280,7 @@ stand stand male 0
 
 #OBJECTS
 
-#24200
+#25200
 angel ring~
 {WAngel {YRing{x~
 An {WAngelic {YRing{x sits here.~
@@ -316,7 +316,7 @@ bought 4 points
 This eq is maxed
 ~
 
-#24201
+#25201
 angel wing~
 {WAngel Wing{x~
 A pair of {WAngel Wings{x hover here.~
@@ -353,7 +353,7 @@ This eq is maxed
 ~
 
 
-#24202
+#25202
 bracelet zoe~
 {CBracelet {Wof Zoe{x~
 The {CBracelet {Wof Zoe{x lies here.~
@@ -382,7 +382,7 @@ bought 2 points
 =7 points
 ~
 
-#24203
+#25203
 blessed aura~
 {WBlessed {CAura{x~
 A {WBlessed {CAura{x floats here.~
@@ -415,7 +415,7 @@ bought 1 points
 ~
 
 
-#24204
+#25204
 holy plate~
 {WHoly Plate{x~
 A suit of {WHoly Plate{x rests here.~
@@ -445,7 +445,7 @@ bought 1 points
 ~
 
 
-#24205
+#25205
 heavenly helm~
 {YHeavenly {BHelm{x~
 A {YHeavenly {BHelm{x lies here.~
@@ -477,7 +477,7 @@ bought 5 points
 ~
 
 
-#24206
+#25206
 holy sandals~
 {WHoly {CSandals{x~
 A pair of {WHoly {CSandals{x sit here.~
@@ -504,7 +504,7 @@ bought 0 points
 ~
 
 
-#24207
+#25207
 seraphic garb~
 {RSeraphic {WGarb{x~
 Some {RSeraphic {WGarb{x lies here.~
@@ -530,7 +530,7 @@ bought 1 points
 ~
 
 
-#24208
+#25208
 angel armband~
 {WAngel Armband{x~
 An {WAngelic Armband{x sits here.~
@@ -557,7 +557,7 @@ bought 1 points
 ~
 
 
-#24209
+#25209
 band gods~
 {WBand {Cof {WThe {CGods{x~
 The {WBand {Cof {WThe {CGods{x lies here.~
@@ -583,7 +583,7 @@ bought 0 points
 ~
 
 
-#24210
+#25210
 ivory fountain~
 An {WIvory{x fountain~
 A massive fountain of an angel reaching towards the heavens. It stretches almost twenty feet into the air.~
@@ -593,7 +593,7 @@ fountain O P
 1 1000 10 P
 
 
-#24211
+#25211
 ginger bread cookie~
 {bGinger Bread Cookie{x~
 A {bGinger Bread Cookie{x lies here.~
@@ -603,7 +603,7 @@ food 0 A
 1 3 4 P
 
 
-#24212
+#25212
 devils food cake~
 {RDevils {bfood Cake{x~
 Some {RDevils {bfood Cake{x is here.~
@@ -613,7 +613,7 @@ food 0 A
 1 3 8 P
 
 
-#24213
+#25213
 cheesecake cake~
 {YCheeseCake{x~
 A slice of {YCheeseCake{x is here.~
@@ -623,7 +623,7 @@ food 0 A
 1 3 16 P
 
 
-#24214
+#25214
 angels food cake~
 {WAngels Food Cake{x~
 A slice of {WAngels Food Cake{x sits here.~
@@ -633,7 +633,7 @@ food 0 A
 1 3 20 P
 
 
-#24215
+#25215
 blueberry angels food cake~
 {BB{Wl{Bu{We{Bb{We{Br{Wr{By {WAngels Food Cake{x~
 A large slice of {BB{Wl{Bu{We{Bb{We{Br{Wr{By {WAngels Food Cake{x lies 
@@ -644,7 +644,7 @@ food 0 A
 1 4 24 P
 
 
-#24216
+#25216
 cranberry juice cocktail~
 {Pc{Rr{Pa{Rn{Pb{Re{Pr{Rr{Py {Rjuice cocktail{x~
 A delightful blend of different cranberries mixed together.~
@@ -654,7 +654,7 @@ drink 0 A
 1 4 4 P
 
 
-#24217
+#25217
 kiwi lime shooter~
 {HKiwi {GLime {YShooter{x~
 A mixed drink of Kiwi and Lime.~
@@ -664,7 +664,7 @@ drink 0 A
 1 4 16 P
 
 
-#24218
+#25218
 apple juice cocktail~
 {YApple Juice cocktail{x~
 It's apple juice.~
@@ -674,7 +674,7 @@ drink 0 A
 1 4 24 P
 
 
-#24219
+#25219
 root beer~
 {bRoot beer{x~
 Nice and bubbly root beer.~
@@ -684,7 +684,7 @@ drink 0 A
 1 4 8 P
 
 
-#24220
+#25220
 strawberry daquiri~
 {PStrawberry {RDaquiri{x~
 A smooth tasty daquiri.  Leigh's favorite.~
@@ -694,7 +694,7 @@ drink 0 A
 1 4 20 P
 
 
-#24221
+#25221
 jukebox~
 a laser jukebox~
 It's a laser jukebox playing all kinds of CD's.~
@@ -710,7 +710,7 @@ is really AMAZING!
 ~
 
 
-#24222
+#25222
 anvil power~
 An anvil of power~
 A privately owned Anvil of Power rests here, no doubt a great clan's heirloom.~
@@ -728,7 +728,7 @@ to good use.
 ~
 
 
-#24224
+#25224
 conductors baton~
 Conductors baton~
 Conductors baton is here.~
@@ -742,7 +742,7 @@ Its a conductors baton that you can use to create beautiful music.
 ~
 
 
-#24225
+#25225
 angel grail~
 {WAngel Grail{x~
 An {WAngel Grail{x lies here.~
@@ -752,7 +752,7 @@ drink ABSY A
 1 5 400 P
 
 
-#24226
+#25226
 fluffy cloud~
 {WFluffy Cloud{x~
 A {WFluffy Cloud{x floats along here.~
@@ -762,7 +762,7 @@ furniture SY A
 1 10 400 P
 
 
-#24227
+#25227
 blessed parchment~
 {WBlessed {bParchment{x~
 A scrap of {WBlessed {bParchment{x has slipped to the floor.~
@@ -772,7 +772,7 @@ scroll G AO
 1 5 750 P
 
 
-#24228
+#25228
 crystal vial~
 {CCrystal Vial{x~
 A {CCrystal Vial{x has landed here.~
@@ -782,7 +782,7 @@ potion G AO
 1 5 750 P
 
 
-#24229
+#25229
 bag miracles~
 {WBag{x of {CMiracles{x~
 A {WBag{x of {CMiracles{x rests here.~
@@ -792,7 +792,7 @@ container SY A
 20 50 2400 P
 
 
-#24230
+#25230
 holy light~
 {WHoly Light{x~
 A {WHoly Light{x emanates from this room.~
@@ -802,7 +802,7 @@ light SY AO
 20 40 2400 P
 
 
-#24231
+#25231
 water fountain~
 A water fountain~
 You see a strange looking water fountain before you with a button that makes water spring forth from it.~
@@ -817,7 +817,7 @@ It is made out of steel and looks a little old.
 ~
 
 
-#24232
+#25232
 angel tear crystal vial~
 {CAngel {BTear{x~
 You see a small {Ccrystal{x vial with {Bblue{x water in it.~
@@ -827,7 +827,7 @@ potion 0 A
 15 10 10 P
 
 
-#24233
+#25233
 canopy bed~
 A comfy canopy bed~
 You see a comfy canopy bed with a grey cat sleeping on it.~
@@ -844,7 +844,7 @@ upon them.
 ~
 
 
-#24234
+#25234
 can jolt cola~
 {YJ{Go{Yl{Gt {YC{Go{Yl{Ga{x~
 A cold can of cola is lying here.~
@@ -859,7 +859,7 @@ your head may explode.
 ~
 
 
-#24235
+#25235
 waterbed bed~
 A big waterbed~
 A big water bed covered in black sheets lies here.~
@@ -874,7 +874,7 @@ DarkAvatar and Leigh sewn into them.
 ~
 
 
-#24236
+#25236
 featherbed bed~
 A featherbed~
 A featherbed that looks like a {Ww{Ta{Wt{Te{Wr{Tb{We{Td{x.~
@@ -892,7 +892,7 @@ give a romantic appeal to the atmosphere.
 ~
 
 
-#24237
+#25237
 nectar goblets~
 A pair of {BBlue Crystal Goblets{x~
 {bE{Hl{bv{Hi{bs{Hh{x nectar floats in twin goblets.~
@@ -908,7 +908,7 @@ known to drown the drinker in waves of ecstasy.
 ~
 
 
-#24238
+#25238
 wild berries batch~
 A batch of {TW{Vi{Tl{Vd {TB{Ve{Tr{Vr{Ti{Ve{Ts{x~
 A batch of {TW{Vi{Tl{Vd {TB{Ve{Tr{Vr{Ti{Ve{Ts{x has been plucked and laid 
@@ -919,13 +919,13 @@ pill 0 A
 15 5 10 P
 
 
-#24239
+#25239
 mirror arena portal~
 A {Cshimmering{x mirror~
 A {Cshimmering{x mirror that looks like an Arena is on the other side.~
 glass~
 portal O P
-0 0 A 24235 0
+0 0 A 25235 0
 1 10 10 P
 E
 mirror arena portal~
@@ -933,7 +933,7 @@ This portal lead to the small arena under the clan hall.
 ~
 
 
-#24240
+#25240
 portal oran~
 Portal to Oran~
 You see a portal shimmering here agaisnt the wall that leads to the Ruins of Oran.~
@@ -943,7 +943,7 @@ portal O P
 1 10 10 P
 
 
-#24241
+#25241
 portal looney tunes~
 Portal to Looney Tunes~
 This portal leads to Looney Tunes.~
@@ -953,7 +953,7 @@ portal O P
 1 10 10 P
 
 
-#24242
+#25242
 portal divided souls~
 Portal to Divided Souls~
 A portal to the region of Divided souls.~
@@ -961,7 +961,7 @@ glass~
 portal O P
 0 0 A 11623 0
 1 10 10 P
-#24243
+#25243
 fluffy cloud bed~
 A big fluffy cloud~
 A big fluffy cloud is sitting here floating in mid air it looks extremely 
@@ -975,7 +975,7 @@ fluffy cloud bed~
 The cloud is actually a big queen sized bed. The sheets on it are a white silky
 satin with a lot of fluffy pillows on it.
 ~
-#24244
+#25244
 crystal fountain~
 A crystal fountain~
 You see a fountain made of pure crystal sitting in the middle of the air shooting forth streams of water with {Rr{Ba{Gi{Yn{Rb{Bo{Gw{x hues.~
@@ -988,7 +988,7 @@ crystal fountain~
 The fountain is made out of crystal. It has water shooting out of the middle and
 goes down into a little pool. Oddly enough the water sounds like a harp is being played.
 ~
-#24245
+#25245
 strawberry cotton candy stick~
 {PS{Wt{Pr{Wa{Pw{Wb{Pe{Wr{Pr{Wy {CCotton {WCandy{x~
 There is a very yummy looking stick of {PS{Wt{Pr{Wa{Pw{Wb{Pe{Wr{Pr{Wy {CCotton {WCandy{x floating here in the air.~
@@ -997,7 +997,7 @@ pill 0 A
 15 'bless' 'sanc' 'talon' 'frenzy'
 15 5 10 P
 
-#24246
+#25246
 heavenly mana~
 {Wsome {Che{Tav{Cen{Tly {Wmana{x~
 {WMana from {Che{Tav{Cen {Wis in a silver bowl on the table near the bed.{x~
@@ -1011,7 +1011,7 @@ mana~
 ~
 
 
-#24247
+#25247
 bed featherbed~
 a soft featherbed~
 {WA large 4-poster featherbed is against the far wall.{x~
@@ -1025,7 +1025,7 @@ featherbed~
 is not rivaled by any within the realms.{x
 ~
 
-#24248
+#25248
 cello~
 A maple cello~
 You see a cello on its side and a music stand near it.~
@@ -1039,7 +1039,7 @@ Its made out of maple. The color is a golden ground color. The bow lays on
 the side. The sound is deep and mellow. 
 ~
 
-#24249
+#25249
 dresser~
 An old-fashioned dresser~
 You see a old fashioned dresser with two pictures and a lone rose on top of it.~
@@ -1048,7 +1048,7 @@ container O P
 10 A 0 5 100
 1 10 10 P
 
-#24250
+#25250
 gold belt~
 {YA gold <<*><*>> belt{x~
 Someone from {CDivinity{x has dropped their belt on the ground.~
@@ -1086,7 +1086,7 @@ bought: 2
 ~
 
 
-#24251
+#25251
 sleeves~
 {WSleeves {Tof {CDivinity{x~
 Someone from {CDivinity{x dropped their sleeves on the ground.~
@@ -1121,7 +1121,7 @@ A
 A 
 19 4
 
-#24252
+#25252
 boots brave~
 {WBoots {Tof {Cthe {WBrave{x~
 Someone from {CDivinity{x has left their boots on the ground.~
@@ -1159,7 +1159,7 @@ bought: 2 points
 ~
 
 
-#24253
+#25253
 robe devotion~
 {WRobe {Cof {TDevotion{x~
 Someone from {CDivinity{x left their robe laying on the ground.~
@@ -1194,7 +1194,7 @@ bought: 3 points
 ~
 
 
-#24254
+#25254
 sacred heart cross~
 {WSacred {CHeart {TCross{x~
 Someone from {CDivinity{x left their cross laying on the ground.~
@@ -1226,7 +1226,7 @@ bought: 4 points
 ~
 
 
-#24255
+#25255
 glass frosted crystal~
 a frosted crystal glass~
 {WA {Tfr{Costed {Wcr{Cyst{Wal {Tgl{Ca{Tss {Wof wine is on the sideboard.{x~
@@ -1245,7 +1245,7 @@ by the fireside.
 
 #0
 #ROOMS
-#24201
+#25201
 {WGates of Heaven{x~
 Looking upon the incredible tower from the outside your gaze looks up to the sky
 in hopes to find the top of the grand spire. Alas the top of the tower vanishes
@@ -1260,9 +1260,9 @@ C divinity~
 D0
 North is center room of {HLevel 1{x.~
 ~
-0 -1 24202
+0 -1 25202
 S
-#24202
+#25202
 {WTower Level 1{x~
 You are now on the lowest level of the heavenly spire that reaches far past
 the clouds. The air in the room is fresh smelling from the  open archway of
@@ -1275,25 +1275,25 @@ C divinity~
 D0
 ~
 ~
-0 -1 24205
+0 -1 25205
 D1
 ~
 ~
-0 -1 24204
+0 -1 25204
 D2
 ~
 ~
-0 -1 24201
+0 -1 25201
 D3
 ~
 ~
-0 -1 24203
+0 -1 25203
 D4
 ~
 ~
-0 -1 24206
+0 -1 25206
 S
-#24203
+#25203
 {WDivinity Cathedral{x~
 As you enter this room you appear to be in a cathedral. It has huge stained
 glass windows that stretch high into the air on the side of the huge walls.
@@ -1309,9 +1309,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24202
+0 -1 25202
 S
-#24204
+#25204
 {NThe {BTraining {HFields {Yof {RGlory{x~
 This training facility was kept after the great change because of its popularity
 amongst the {RVamphyri{x. This trainer whom you may recognize hails from a world
@@ -1323,9 +1323,9 @@ C divinity~
 D3
 ~
 ~
-0 -1 24202
+0 -1 25202
 S
-#24205
+#25205
 {WBlessed {RCrisis {BArmory{x~
 As you enter upon this room strangely enough two glass doors slide open 
 as you step near them you gaze all around seeing shelves scattering across 
@@ -1339,10 +1339,10 @@ C divinity~
 D2
 ~
 ~
-0 -1 24202
+0 -1 25202
 S
 
-#24206
+#25206
 {WTower Level 2{x~
 You ascend the huge stairwell from the first level and you climb for what 
 seems like forever. Finally you reach the second floor of the grand tower 
@@ -1356,29 +1356,29 @@ C divinity~
 D0
 ~
 ~
-0 -1 24207
+0 -1 25207
 D1
 ~
 ~
-0 -1 24208
+0 -1 25208
 D2
 ~
 ~
-0 -1 24209
+0 -1 25209
 D3
 ~
 ~
-0 -1 24210
+0 -1 25210
 D4
 ~
 ~
-0 -1 24211
+0 -1 25211
 D5
 ~
 ~
-0 -1 24202
+0 -1 25202
 S
-#24207
+#25207
 {WA{Yn{Wg{Ye{Wl{Y'{Ws {YD{We{Yn{x~
 As you enter this room you see a {Wcloud{x and a crystalline fountain in the air. 
 As you look down you don't even see a floor! In fact your up in the 
@@ -1394,9 +1394,9 @@ C divinity~
 D2
 ~
 ~
-0 -1 24206
+0 -1 25206
 S
-#24208
+#25208
 {WDivinity Bakery{x~
 As you walk into this clean little bakery the smell of fresh baking 
 cookies and cakes make your mouth begin to water. You see breads, cakes,  
@@ -1409,9 +1409,9 @@ C divinity~
 D3
 ~
 ~
-0 -1 24206
+0 -1 25206
 S
-#24209
+#25209
 {WDivinity Health Care Center{x~
 This room is spotless and completely covered in all kinds of hospital 
 equipment, along with the small bed with the paper sheet and extremely 
@@ -1424,9 +1424,9 @@ C divinity~
 D0
 ~
 ~
-0 -1 24206
+0 -1 25206
 S
-#24210
+#25210
 {RJuice Bar{x~
 As you walk towards the room you hear music playing off in the
 back of the room. Drawing closer to the room you hear the music more 
@@ -1443,9 +1443,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24206
+0 -1 25206
 S
-#24211
+#25211
 {WTower Level 3{x~
 You ascend yet another huge case of stairs only this time you use the 
 common sense to fly up instead of circling the winding staircase up. You  
@@ -1457,29 +1457,29 @@ C divinity~
 D0
 ~
 ~
-0 -1 24212
+0 -1 25212
 D1
 ~
 ~
-0 -1 24213
+0 -1 25213
 D2
 ~
 ~
-0 -1 24214
+0 -1 25214
 D3
 ~
 ~
-0 -1 24215
+0 -1 25215
 D4
 ~
 ~
-0 -1 24216
+0 -1 25216
 D5
 ~
 ~
-0 -1 24206
+0 -1 25206
 S
-#24212
+#25212
 {YPanama Beach{x~
 As you enter this room you notice that this room looks like you are on a 
 {Ybeach{x. You notice that where you came from isn't there anymore. As you 
@@ -1495,9 +1495,9 @@ C divinity~
 D2
 ~
 ~
-0 -1 24211
+0 -1 25211
 S
-#24213
+#25213
 {WDivinity Magic Shop{x~
 Intricate talismans hang from the walls of this small shop and the smell
 of fresh herbs circle the room.  There are stacks of parchments and vials
@@ -1510,9 +1510,9 @@ C divinity~
 D3
 ~
 ~
-0 -1 24211
+0 -1 25211
 S
-#24214
+#25214
 {bThe Great Library{x~
 You enter upon a room that looks like an ancient library. It is very tall 
 and full of knowledge. You see Casanova at the check out desk. You notice 
@@ -1527,7 +1527,7 @@ C divinity~
 D0
 ~
 ~
-0 -1 24211
+0 -1 25211
 E
 book~
 History of the Vamphyri.
@@ -1538,7 +1538,7 @@ You find one of DarkAvatar's Porn mags shoved in-between one of the
 encyclopaedias titled "Hot Anime Babes".
 ~
 S
-#24215
+#25215
 {PThe {CM{Ry{Cs{Rt{Ci{Rc {PSmithy{x~
 Another one of the rooms that was kept after the great change. The heat in 
 this room is well-nigh unbearable.  Created by the combined {Ye{Rn{Ye{Rr{Yg{Ri{Ye{Rs{x of the
@@ -1552,9 +1552,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24211
+0 -1 25211
 S
-#24216
+#25216
 {WTower Level 4{x~
 You reach the fourth floor of the tower, the air is getting very thin and 
 you feel like you are miles above the surface of Thera. This room is covered
@@ -1566,29 +1566,29 @@ C divinity~
 D0
 ~
 ~
-0 -1 24217
+0 -1 25217
 D1
 ~
 ~
-0 -1 24218
+0 -1 25218
 D2
 ~
 ~
-0 -1 24219
+0 -1 25219
 D3
 ~
 ~
-0 -1 24220
+0 -1 25220
 D4
 ~
 ~
-0 -1 24221
+0 -1 25221
 D5
 ~
 ~
-0 -1 24211
+0 -1 25211
 S
-#24217
+#25217
 {CGalileo's Observatory{x~
 As you enter the room you see a huge base of a telescope that stretches out
 of the tower pointing towards the heavens. An elderly gentleman looks away
@@ -1600,9 +1600,9 @@ C divinity~
 D2
 ~
 ~
-0 -1 24216
+0 -1 25216
 S
-#24218
+#25218
 {CResearch Lab{x~
 This large room must be one of the many research facilities of the 
 {WDivinity{x. As you look around the room you see vials of chemicals on 
@@ -1616,9 +1616,9 @@ C divinity~
 D3
 ~
 ~
-0 -1 24216
+0 -1 25216
 S
-#24219
+#25219
 {WGateway of the Unseen{x~
 Inside this room you see {CShimmering{x mirrors against the wall. As you 
 come closer to the mirrors expecting your reflection instead you see what
@@ -1633,9 +1633,9 @@ D0
 North is {HThe Fourth Level{x.
 ~
 ~
-0 -1 24216
+0 -1 25216
 S
-#24220
+#25220
 {WMeditation Chamber{x~
 This room enters into a darkness. You look back to see the door way fade 
 far from reality leaving you in nothingness. Your feet seem to be light 
@@ -1649,9 +1649,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24216
+0 -1 25216
 S
-#24221
+#25221
 {WTower Level 5{x~
 Ascending yet another long set of stairs you reach the fifth floor of the 
 tower. This floor is fairly simple in structure. It has the familar {Wivory{x
@@ -1666,29 +1666,29 @@ C divinity~
 D0
 ~
 ~
-0 -1 24222
+0 -1 25222
 D1
 ~
 ~
-0 -1 24241
+0 -1 25241
 D2
 ~
 ~
-0 -1 24225
+0 -1 25225
 D3
 ~
 ~
-0 -1 24224
+0 -1 25224
 D4
 ~
 ~
-0 -1 24226
+0 -1 25226
 D5
 ~
 ~
-0 -1 24216
+0 -1 25216
 S
-#24222
+#25222
 {YGrand Ball Room{x~
 The size and pure beauty of this room is breath taking. The floor is made of 
 a magnificently polished {bhard wood{x that you can see your reflection in. 
@@ -1707,9 +1707,9 @@ C divinity~
 D2
 ~
 ~
-0 -1 24221
+0 -1 25221
 S
-#24223
+#25223
 A Little Piece of Heaven~
 As you enter this room you see a canopy bed with black soft satin sheets and 
 comforter with fluffy pillows also in black satin. You then notice a cat 
@@ -1728,7 +1728,7 @@ C divinity~
 D2
 ~
 ~
-0 -1 24227
+0 -1 25227
 E
 picture~
 DarkAvatar sure looks happy and proud as he is inducted into the Vamphyri as 
@@ -1740,7 +1740,7 @@ These two sure look happy and in love :) Its a good thing that DarkAvatar
 and Leigh make a cute couple :)
 ~
 S
-#24224
+#25224
 {WDivinity {CBank {Wand {CTrust{x~
 Across the room you see a man in a business suit sitting at a desk awaiting 
 your needs with several parchments and contracts stacked on the desk. Several
@@ -1751,9 +1751,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24221
+0 -1 25221
 S
-#24225
+#25225
 {WDojo{x~
 Its your typical martial arts dojo. Here you can spar with your clan mates 
 and perfect your battle skills so that you will be more proficent in the
@@ -1765,9 +1765,9 @@ C divinity~
 D0
 ~
 ~
-0 -1 24221
+0 -1 25221
 S
-#24226
+#25226
 {WTower Level 6{x~
 Reaching level six you glance out a window to see the view. But all you see
 is a sea of {Wclouds{x stretching far off into the distance and out of site.
@@ -1777,17 +1777,17 @@ C divinity~
 D4
 ~
 ~
-0 -1 24227
+0 -1 25227
 D5
 ~
 ~
-0 -1 24221
+0 -1 25221
 D3
 ~
 ~
-0 -1 24240
+0 -1 25240
 S
-#24227
+#25227
 {WTower Level 7{x~
 This floor is coverd in ancient runes and enchantments and the walls and 
 floor seem to radiate energy. You feel the draw of raw magical power 
@@ -1798,25 +1798,25 @@ C divinity~
 D0
 ~
 ~
-0 -1 24223
+0 -1 25223
 D2
 ~
 ~
-0 -1 24233
+0 -1 25233
 D3
 ~
 ~
-0 -1 24234
+0 -1 25234
 D4
 ~
 ~
-0 -1 24228
+0 -1 25228
 D5
 ~
 ~
-0 -1 24226
+0 -1 25226
 S
-#24228
+#25228
 {PThe {WDivinity {GGardens{x~
 This room exits out into four separate gardens from many different worlds 
 that The Vamphyri and the Divinity have visited. Leigh insisted in keeping 
@@ -1830,25 +1830,25 @@ D5
 Down is the {HThe Seventh Level{x.
 ~
 ~
-0 -1 24227
+0 -1 25227
 D1
 ~
 ~
-0 -1 24232
+0 -1 25232
 D3
 ~
 ~
-0 -1 24230
+0 -1 25230
 D0
 ~
 ~
-0 -1 24231
+0 -1 25231
 D2
 ~
 ~
-0 -1 24229
+0 -1 25229
 S
-#24229
+#25229
 {RThe {YSouthern {GGardens{x~
 The sound of crickets are everywhere and the evening is brilliantly lit by 
 {Yfireflies{x. A warm breeze blows through this garden bringing with it many of
@@ -1865,9 +1865,9 @@ C divinity~
 D0
 ~
 ~
-0 -1 24228
+0 -1 25228
 S
-#24230
+#25230
 {RThe {HV{Ge{Hn{Gu{Hs{Gi{Ha{Gn {HG{Ga{Hr{Gd{He{Gn{Hs{x~
 This garden is composed of almost nothing but greens.  {HOnce again...
 very little is {Gknown about{x these gardens.  {PWe hope to have a
@@ -1885,9 +1885,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24228
+0 -1 25228
 S
-#24231
+#25231
 {RThe {WArctic {GGarden{x~
 This garden comes from a world with a colder climate than that of Thera's. 
 There is {PF{Ri{Pr{Re{Pw{Re{Pe{Rd{c, {TLovelocks{x, {GC{Hl{Go{Hv{Ge{Hr{x, and {HPine{x in this plot. Over here 
@@ -1900,9 +1900,9 @@ C divinity~
 D2
 ~
 ~
-0 -1 24228
+0 -1 25228
 S
-#24232
+#25232
 {PThe {MOrbital {WGardens{x~
 This is an {Codd{x place filled with {Hmany{x plants from a world that
 had so overgrown with {Ytechnology{x and artificial creations {Vthat{x the
@@ -1920,9 +1920,9 @@ C divinity~
 D3
 ~
 ~
-0 -1 24228
+0 -1 25228
 S
-#24233
+#25233
 {REdge of Heaven{x~
 This rooms walls are completely covered in black and the carpet is a dark 
 grey. The wall is covered in {Ymedals{x and {Ywar trophies{x. Including certificates
@@ -1941,7 +1941,7 @@ C divinity~
 D0
 ~
 ~
-0 -1 24227
+0 -1 25227
 E
 picture~
 Its a picture of Darky and Leigh on their {Wwedding{x day. Leigh looks so 
@@ -1953,7 +1953,7 @@ Darky is trying on a {Vpurple hat with a feather{x in it while giving the
 camera a peace sign, Leigh is just laughing at him.
 ~
 S
-#24234
+#25234
 {WA Cloud {TG{Va{Tz{Ve{Tb{Vo{x~
 You feel intense {Rh{Yea{Rt{x, then a calm peaceful presence as the holy 
 fires burn away any {Wimp{Ver{Tfec{Vti{Wons{x cleansing your soul. You enter an airy
@@ -1977,9 +1977,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24227
+0 -1 25227
 S
-#24235
+#25235
 {RThe Divinity Battle Arena{x~
 You find yourself in the center of a huge arena surrounded by walls on all
 sides of you. All around the walls are spectators screaming and cheering you
@@ -1992,21 +1992,21 @@ C divinity~
 D1
 ~
 ~
-0 -1 24236
+0 -1 25236
 D2
 ~
 ~
-0 -1 24238
+0 -1 25238
 D3
 ~
 ~
-0 -1 24237
+0 -1 25237
 D0
 ~
 ~
-0 -1 24239
+0 -1 25239
 S
-#24236
+#25236
 {REast Arena{x~
 You are now on the east side of the arena.
 ~
@@ -2015,9 +2015,9 @@ C divinity~
 D3
 ~
 ~
-0 -1 24235
+0 -1 25235
 S
-#24237
+#25237
 {RWest Arena{x~
 You are now on the west side of the arena.
 ~
@@ -2026,9 +2026,9 @@ C divinity~
 D1
 ~
 ~
-0 -1 24235
+0 -1 25235
 S
-#24238
+#25238
 {RSouth Arena{x~
 You are now south of the center of the arena.
 ~
@@ -2037,9 +2037,9 @@ C divinity~
 D0
 ~
 ~
-0 -1 24235
+0 -1 25235
 S
-#24239
+#25239
 {RNorth Arena{x~
 You are now north of the center of the arena.
 ~
@@ -2048,10 +2048,10 @@ C divinity~
 D2
 ~
 ~
-0 -1 24235
+0 -1 25235
 S
 
-#24240
+#25240
 {TT{Ca{Wy{gl{To{Cr{W'{gs {WTo{gw{Wer {go{Wf {TV{Ci{Ws{gi{Co{Tn{x~
 {gHigh within the tower's spire, you can look out across the lush 
 verdent Valley of the Elves. The visions of the valley sing a song of hope 
@@ -2075,7 +2075,7 @@ C ~
 D1 
 ~
 ~
-0 -1 24226
+0 -1 25226
 E
 collection book books~
 May your bright and shining star be transformed into words for all to
@@ -2194,7 +2194,7 @@ black eyelashes in a coy manner, don't believe it ;){x
 ~
 S
 
-#24241
+#25241
 The {TKawaii Pet Shop{x~
 This is a kawaii pet shop! A pink glow of faerie fire is used to 
 illuminate the room. In the spectral light you can see assorted 
@@ -2210,10 +2210,10 @@ C divinity~
 D3
 ~
 ~
-0 -1 24221
+0 -1 25221
 S
 
-#24242
+#25252
 The Pet Storeroom~
 This is where the Divinity Pets are stored.
 ~
@@ -2223,88 +2223,88 @@ S
 
 #0
 #RESETS
-M 0 24208 1 24204 1   * Albert Einstein to the Training Room
-M 0 24206 1 24205 1   * Wilma Deering to her shop
-G 0 24200 50          * claneq
-G 0 24201 50          * claneq
-G 0 24202 50          * claneq
-G 0 24203 50          * claneq
-G 0 24204 50          * claneq
-G 0 24205 50          * claneq
-G 0 24206 50          * claneq
-G 0 24207 50          * claneq
-G 0 24208 50          * claneq
-G 0 24209 50          * claneq
-G 0 24250 50          * claneq
-G 0 24251 50          * claneq
-G 0 24252 50          * claneq
-G 0 24253 50          * claneq
-G 0 24254 50          * claneq
-M 0 24207 1 24209 1   * Aleric to healer room
-O 0 24210 1 24206     * milk fountain to tower level 2
-M 0 24200 1 24208 1   * Sakura to food shop
-G 0 24211 60          * food
-G 0 24212 60          * food
-G 0 24213 60          * food
-G 0 24214 60          * food
-G 0 24215 60          * food
-M 0 24210 1 24210 1   * Citan to the juice bar
-G 0 24216 50          * drink
-G 0 24217 50          * drink
-G 0 24218 50          * drink
-G 0 24219 50          * drink
-G 0 24220 50          * drink
-O 0 24221 1 24210     * jukebox to juice bar
-M 0 24214 1 24214 1   * casanova to the library
-O 0 24222 1 24215     * anvil to the smithy
-M 0 24217 1 24217 1   * Galileo to the observatory
-M 0 24224 1 24224 1   * adam smith to the bank
-O 0 24224 40 24222    * wand to grand ballroom
-M 0 24213 1 24213 1   * Mygas to the magic shop
-G 0 24225 50          * eq
-G 0 24226 50          * eq
-G 0 24227 50          * eq
-G 0 24228 50          * eq
-G 0 24229 50          * eq
-G 0 24230 50          * eq
-M 0 24234 1 24234 1   * khellendros
-M 0 24233 1 24233 1   * kawaii dragon
-O 0 24231 1 24212     * fountain
-O 0 24232 50 24212    * potion
-O 0 24233 1 24223     * bed
-O 0 24234 50 24233    * potion
-O 0 24235 1 24233     * bed
-O 0 24236 1 24234     * bed
-O 0 24237 1 24234     * fountain
-O 0 24238 50 24234    * pill
-O 0 24239 1 24225     * arena portal
-O 0 24240 1 24219     * portal
-O 0 24241 1 24219     * portal
-O 0 24242 1 24219     * portal
-O 0 24243 1 24207     * bed
-O 0 24244 1 24207     * fountain
-O 0 24245 50 24207    * pill
-O 0 24246 50 24240    * pill
-O 0 24247 1 24240     * bed
-O 0 24255 1 24240     * fountain
-O 0 24248 1 24223     * cello
-O 0 24249 1 24223     * dresser
-M 0 24223 1 24223 1   * cat
-M 0 24201 1 24241 1   * Drizzt to the pet shop
-M 0 24202 20 24242 1  * chibi dragon to pet shop
-M 0 24203 20 24242 1  * mesa pegasus to pet shop
-M 0 24204 20 24242 1  * holy dragon to pet shop
+M 0 25208 1 25204 1   * Albert Einstein to the Training Room
+M 0 25206 1 25205 1   * Wilma Deering to her shop
+G 0 25200 50          * claneq
+G 0 25201 50          * claneq
+G 0 25202 50          * claneq
+G 0 25203 50          * claneq
+G 0 25204 50          * claneq
+G 0 25205 50          * claneq
+G 0 25206 50          * claneq
+G 0 25207 50          * claneq
+G 0 25208 50          * claneq
+G 0 25209 50          * claneq
+G 0 25250 50          * claneq
+G 0 25251 50          * claneq
+G 0 25252 50          * claneq
+G 0 25253 50          * claneq
+G 0 25254 50          * claneq
+M 0 25207 1 25209 1   * Aleric to healer room
+O 0 25210 1 25206     * milk fountain to tower level 2
+M 0 25200 1 25208 1   * Sakura to food shop
+G 0 25211 60          * food
+G 0 25212 60          * food
+G 0 25213 60          * food
+G 0 25214 60          * food
+G 0 25215 60          * food
+M 0 25210 1 25210 1   * Citan to the juice bar
+G 0 25216 50          * drink
+G 0 25217 50          * drink
+G 0 25218 50          * drink
+G 0 25219 50          * drink
+G 0 25220 50          * drink
+O 0 25221 1 25210     * jukebox to juice bar
+M 0 25214 1 25214 1   * casanova to the library
+O 0 25222 1 25215     * anvil to the smithy
+M 0 25217 1 25217 1   * Galileo to the observatory
+M 0 25224 1 25224 1   * adam smith to the bank
+O 0 25224 40 25222    * wand to grand ballroom
+M 0 25213 1 25213 1   * Mygas to the magic shop
+G 0 25225 50          * eq
+G 0 25226 50          * eq
+G 0 25227 50          * eq
+G 0 25228 50          * eq
+G 0 25229 50          * eq
+G 0 25230 50          * eq
+M 0 25234 1 25234 1   * khellendros
+M 0 25233 1 25233 1   * kawaii dragon
+O 0 25231 1 25212     * fountain
+O 0 25232 50 25212    * potion
+O 0 25233 1 25223     * bed
+O 0 25234 50 25233    * potion
+O 0 25235 1 25233     * bed
+O 0 25236 1 25234     * bed
+O 0 25237 1 25234     * fountain
+O 0 25238 50 25234    * pill
+O 0 25239 1 25225     * arena portal
+O 0 25240 1 25219     * portal
+O 0 25241 1 25219     * portal
+O 0 25242 1 25219     * portal
+O 0 25243 1 25207     * bed
+O 0 25244 1 25207     * fountain
+O 0 25245 50 25207    * pill
+O 0 25246 50 25240    * pill
+O 0 25247 1 25240     * bed
+O 0 25255 1 25240     * fountain
+O 0 25248 1 25223     * cello
+O 0 25249 1 25223     * dresser
+M 0 25223 1 25223 1   * cat
+M 0 25201 1 25241 1   * Drizzt to the pet shop
+M 0 25202 20 25242 1  * chibi dragon to pet shop
+M 0 25203 20 25242 1  * mesa pegasus to pet shop
+M 0 25204 20 25242 1  * holy dragon to pet shop
 S
 
 #SHOPS
-24206 9 1 0 0 0 125 50 0 23  * wilma
-24200 19 0 0 0 0 125 50 0 23 * sakura
-24210 17 0 0 0 0 125 50 0 23 *citan
-24213 2 3 4 10 0 125 50 0 23 * mygas
+25206 9 1 0 0 0 125 50 0 23  * wilma
+25200 19 0 0 0 0 125 50 0 23 * sakura
+25210 17 0 0 0 0 125 50 0 23 *citan
+25213 2 3 4 10 0 125 50 0 23 * mygas
 0
 
 #SPECIALS
-M 24217 spec_sage * Galileo
+M 25217 spec_sage * Galileo
 S
 #$
 
