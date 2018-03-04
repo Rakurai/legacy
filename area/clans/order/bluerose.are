@@ -2,11 +2,11 @@
 bluerose.are~
 Castle BlueRose~
 {H{{CLANS} {MKungFusmurf {TCastle BlueRose~
-24400 24599
+12800 12999
 
 #MOBILES
 
-#24451
+#12851
 Guard~
 Blue Rose Guard~
 A Guardian of the {BBlue {TRose{x.
@@ -24,7 +24,7 @@ stand stand male 0
 0 0 medium 0
 
 
-#24454
+#12854
 sally owens healer~
 Sally Owens~
 Sally Owens smiles at you knowingly.
@@ -41,7 +41,7 @@ stand stand female 0
 0 0 huge 0
 
 
-#24455
+#12855
 sergeant zim trainer~
 Sergeant Zim~
 Sergeant Zim is going to make a soldier out of you or kill you trying.
@@ -61,7 +61,7 @@ stand stand male 0
 0 0 huge 0
 
 
-#24456
+#12856
 zoltek dwarf armorer~
 Zoltek~
 Zoltek, an ancient dwarf, stands here pondering at new ideas.
@@ -78,7 +78,7 @@ stand stand male 0
 0 0 huge 0
 
 
-#24459
+#12859
 Apparition of a past god~
 Apparition Of A Past God~
 An appariton of a past god doesn't seem to notice you enter.
@@ -95,7 +95,7 @@ stand stand male 0
 0 0 medium 0
 
 
-#24461
+#12861
 little spirit~
 The {WL{Bi{Wt{Bt{Wl{Be {WSpirit{x~
 A {WL{Bi{Wt{Bt{Wl{Be {WSpirit{x is boldly peeking back at you.
@@ -111,7 +111,7 @@ stand stand female 0
 0 0 small 0
 
 
-#24462
+#12862
 large wolf~
 A large wolf~
 A large wolf is peacefully asleep in front of the {Pfire{xplace.
@@ -127,7 +127,7 @@ sleep sleep male 0
 0 0 large 0
 
 
-#24473
+#12873
 old mage koontz~
 Old Mage Koontz~
 Old Mage Koontz holds his finger up to his lips signaling for you to be quiet.
@@ -150,7 +150,7 @@ stand stand male 0
 
 #OBJECTS
 
-#24400
+#12800
 tabi traveller~
 {MT{Vab{Mi {Rof {Gthe {NT{Br{Ca{Wvel{Cl{Be{Nr{x~
 These split-toed boots look quite colourful.~
@@ -191,7 +191,7 @@ for travel.
 ~
 
 
-#24401
+#12801
 sleeves destiny travels~
 {cS{gl{Weev{ge{cs of {MD{Ve{Wsti{Vn{My's {NT{Br{Ca{Wv{Ce{Bl{Ns{x~
 Some sleeves lie here.~
@@ -226,7 +226,7 @@ bought: 2 points
 ~
 
 
-#24402
+#12802
 wizardly illumination~
 {NW{Bi{Cz{War{Cd{Bl{Ny {MIl{Vlu{Wmina{Vti{Mon{x~
 A light hovers here.~
@@ -258,7 +258,7 @@ bought: 1 point
 ~
 
 
-#24403
+#12803
 focus discipline~
 {RF{Po{Wc{Pu{Rs and {cDi{gsc{Wip{gli{cne{x~
 Focus and discipline floats here.~
@@ -290,7 +290,7 @@ bought: 1 point
 ~
 
 
-#24404
+#12804
 talons black thorn~
 {MT{Va{Wlo{Vn{Ms of the {cB{gl{Wa{gc{ck {cT{gh{Wo{gr{cn{x~
 These black gloves look as deadly as they do beautiful.~
@@ -327,7 +327,7 @@ objects...or rending flesh and steel!
 ~
 
 
-#24405
+#12805
 medallion blue rose~
 {HMe{Gda{Wl{Gli{Hon of {Nt{Bh{Ne B{Blu{Ne R{Bos{Ne{x~
 A medallion lies here.~
@@ -363,7 +363,7 @@ bought: 4 points
 -2 points: -2 age
 = 0 points
 ~
-#24406
+#12806
 honour first prince~
 {RH{Po{Wno{Pu{Rr of the {HF{Gi{Wr{Gs{Ht {NP{Br{Cin{Bc{Ne{x~
 A bracer radiates power here.~
@@ -399,7 +399,7 @@ all the {Rc{Mo{Vl{Bo{Nu{Cr{Ts{x in the {Gr{Ha{bi{Yn{Pb{Ro{Mw{x.
 ~
 
 
-#24407
+#12807
 boots elvish stealth~
 {HB{Go{Wo{Gt{Hs of {ME{Vl{Wvi{Vs{Mh {cS{gt{Weal{gt{ch{x~
 These black boots appear to be of elvish design.~
@@ -436,7 +436,7 @@ bought: 3 points
 ~
 
 
-#24408
+#12808
 combat fatigues~
 {NC{Bo{Cmb{Ba{Nt F{Ba{Ct{Wig{Cu{Be{Ns{x~
 Some fatigues lie here.~
@@ -471,7 +471,7 @@ bought: 5 points
 ~
 
 
-#24409
+#12809
 signet guardian~
 {HS{Gi{Wgn{Ge{Ht of {Nt{Bh{Ne G{Bu{Ca{Wrd{Ci{Ba{Nn{x~
 A signet ring lies here.~
@@ -508,7 +508,7 @@ bought: 5 points
 ~
 
 
-#24410
+#12810
 blue beret~
 {NB{Blu{Ne B{Be{Cr{Be{Nt{x~
 A {NB{Blu{Ne B{Be{Cr{Be{Nt{x with the insignia of the Order of the Blue Rose.~
@@ -552,7 +552,7 @@ brute soldier.
 ~
 
 
-#24411
+#12811
 pair hakama shimmering~
 {MSh{Vim{Wme{Vri{Mng {cH{ga{Wka{gm{ca{x~
 A pair of {ch{ga{Wka{gm{ca {Ms{Vh{Wimm{Ve{Mr{x here.~
@@ -597,7 +597,7 @@ A
 5 1
 
 
-#24412
+#12812
 buttercup seal allegiance~
 {NB{Bu{Ct{Wter{Cc{Bu{Nps {cS{gea{cl of {RAl{Ple{Wgi{Pan{Rce{x~
 Buttercups Seal of Allegiance is here.~
@@ -629,7 +629,7 @@ _________________________________
 
 
 
-#24466
+#12866
 tree bush~
 A {GTree{x in the {GGarden{x~
 There is a {Gtree{x here, growing fruits for the DizzyKnights.~
@@ -644,7 +644,7 @@ goodies to grab!
 ~
 
 
-#24467
+#12867
 cranberry~
 {Pcranberry{x~
 There is a {Pcranberry{x here.~
@@ -654,7 +654,7 @@ pill GI A
 15 1 0 P
 
 
-#24468
+#12868
 ambrosia~
 {YAmbrosia{x~
 The fruit of the gods lies here, for you to pick!~
@@ -664,7 +664,7 @@ pill GI A
 15 1 0 P
 
 
-#24469
+#12869
 glade~
 the clear {GGlade{x~
 A relaxing {GGlade{x is here for you to rest in.~
@@ -674,7 +674,7 @@ furniture SG 0
 1 9999 9999 P
 
 
-#24470
+#12870
 fountain~
 {WA {YGolden{W Fountain{x~
 There is a {YGolden {Wfountain {x here, flowing with fruit juice.~
@@ -684,7 +684,7 @@ fountain BOT 0
 0 500 50 P
 
 
-#24472
+#12872
 orb imperial wisdom leadereq~
 {CO{Wr{Cb {Yof {NI{Bm{Cp{Wer{Ci{Ba{Nl {HW{Gi{Wsd{Go{Hm{x~
 A lantern with the crest of the {BBlue {TRose{x lies here.~
@@ -712,7 +712,7 @@ A
 17 -23
 
 
-#24473
+#12873
 chair~
 A chair~
 A chair is here for you to rest in if you so {Td{Ce{Ts{Ci{Tr{Ce{x.~
@@ -722,7 +722,7 @@ furniture O P
 1 100 10 P
 
 
-#24474
+#12874
 elixir potion healing~
 A healing potion~
 A potion of healing.~
@@ -732,7 +732,7 @@ potion 0 A
 15 6 10 P
 
 
-#24481
+#12881
 enlightened pedestal~
 An Enlightened Pedestal~
 An Enlightened Pedestal is here, warm to the touch.~
@@ -742,7 +742,7 @@ furniture A 0
 15 0 7 I
 
 
-#24482
+#12882
 fountain~
 Everful Fountain~
 A table with an everful cup of wine on it stand to the right of the stairwell.~
@@ -756,7 +756,7 @@ The cup on the table contains magnificent wine.
 ~
 
 
-#24483
+#12883
 pill godly gift~
 Godly Gift~
 A small pill sits here looking somewhat holy.~
@@ -766,7 +766,7 @@ pill AB AO
 15 1 1 P
 
 
-#24491
+#12891
 portal catapult pirate cave~
 catapult to pirate cave.~
 This Catapult seems to be aimed at the Pirate Cave.~
@@ -776,7 +776,7 @@ portal 0 0
 0 0 0 P
 
 
-#24492
+#12892
 portal catapult chessboard~
 catapult to chessboard~
 This Catapults seems to be aimed at the Chessboard.~
@@ -786,7 +786,7 @@ portal 0 0
 0 0 0 P
 
 
-#24493
+#12893
 portal catapult oran~
 catapult to Oran~
 This Catapult seems to be aimed at the Ruins Of Oran.~
@@ -796,7 +796,7 @@ portal 0 0
 0 0 0 P
 
 
-#24494
+#12894
 anvil private dizzy~
 Dizzyknight anvil~
 The {WDizzy{MKnight{x Anvil is sitting here in the center of the room.~
@@ -806,7 +806,7 @@ anvil 0 0
 0 0 0 P
 
 
-#24495
+#12895
 cosmic power elements presence~
 {x{cC{go{Wsm{gi{cc{x {BP{Co{Ww{Ce{Br{x~
 The very elements seem focussed on this powerful cosmic presence.~
@@ -833,7 +833,7 @@ A
 
 #ROOMS
 
-#24451
+#12851
 {BT{Th{We {BG{Ta{Wt{Be{Ts{x~
 You stand before the {BO{Tr{Wd{Be{Tr {Wo{Bf {Tt{Wh{Be {TB{Wl{Bu{Te {WR{Bo{Ts{We{x.  
 You see before you the imposing gates, which lead southward 
@@ -849,23 +849,23 @@ D0
 The path to the north leads back into the dwarf forest.
 ~
 ~
-1 -1 24452 
+1 -1 12852 
 D3
 ~
 ~
-0 -1 24452
+0 -1 12852
 D1
 ~
 ~
-0 -1 24452
+0 -1 12852
 D2
 ~
 ~
-0 -1 24453
+0 -1 12853
 S
 
 
-#24452
+#12852
 {BBefore {Tthe {Whall {Tof {BHeroes{x~
 You stand before the Hall of Heros.  Off in the distance you can see the
 personal residences of the {BKnights{Tof {Wthe{BBlue {TRose{x .... Quite 
@@ -876,15 +876,15 @@ C order~
 D3
 ~
 ~
-0 -1 24451
+0 -1 12851
 D2
 ~
 ~
-0 -1 24462
+0 -1 12862
 S
 
 
-#24453
+#12853
 {BThe Entrance Hall{x~
 You enter into a darkened room. In the distance you see the flicker of a dim 
 {BBlue {xlight. To the east and west are fields of {Bblue {xroses. 
@@ -895,23 +895,23 @@ C order~
 D0
 ~
 ~
-0 -1 24451
+0 -1 12851
 D1
 ~
 ~
-0 -1 24454
+0 -1 12854
 D2
 ~
 ~
-0 -1 24457
+0 -1 12857
 D3
 ~
 ~
-0 -1 24455
+0 -1 12855
 S
 
 
-#24454
+#12854
 The {BGarden{x~
 You stand in a field of {BBlue{xroses, how did they come to be in such
 a terrible climate? It is unknown...  As you stand in the roses, you see several trees and bushes bearing some {Todd{x-looking fruits!
@@ -921,11 +921,11 @@ C order~
 D1
 ~
 ~
-0 0 24469
+0 0 12869
 D3
 ~
 ~
-0 -1 24453
+0 -1 12853
 E
 roses~
 The roses fleet into the sky, as the wind howls
@@ -933,7 +933,7 @@ The roses fleet into the sky, as the wind howls
 S
 
 
-#24455
+#12855
 The {BGarden{x~
 You stand in a field of {BBlue{xroses, how did they come to be in such
 a terrible climate? It is unknown...  As you stand in the roses, you see several 
@@ -945,11 +945,11 @@ C order~
 D3
 ~
 ~
-0 -1 24456
+0 -1 12856
 D1
 ~
 ~
-0 -1 24453
+0 -1 12853
 E
 roses~
 The roses fleet into the sky, as the wind howls
@@ -957,7 +957,7 @@ The roses fleet into the sky, as the wind howls
 S
 
 
-#24456
+#12856
 {HW{Gi{Wcc{Ga{Hn {RS{Ph{Wop{Pp{Re of {HH{Ge{Wr{Gb{Hs and {NM{Be{Cd{Wic{Ci{Bn{Ne{x~
 This bright, airy shop is stocked with herbs, potions and anything else you could
 Think of to heal the body, mind and spirit. At a corner of the shoppe, a bush grows
@@ -968,11 +968,11 @@ C order~
 D0
 ~
 ~
-0 -1 24473
+0 -1 12873
 D1
 ~
 ~
-0 -1 24455
+0 -1 12855
 E
 rose bush~
 Including the pot, this beautifully tended houseplant stands about a metre tall -- a
@@ -983,7 +983,7 @@ delight to the senses!
 S
 
 
-#24457
+#12857
 {BThe Tomb of the Fallen{x~
 You stand and gaze in wonder and fear at the large glass chamber
 in the middle of the room. The once beautiful princess lies in a solem silence
@@ -996,27 +996,27 @@ C order~
 D0
 ~
 ~
-0 -1 24453
+0 -1 12853
 D1
 ~
 ~
-0 -1 24458
+0 -1 12858
 D2
 ~
 ~
-0 -1 24460
+0 -1 12860
 D3
 ~
 ~
-0 -1 24459
+0 -1 12859
 D4
 ~
 ~
-0 0 24466
+0 0 12866
 S
 
 
-#24458
+#12858
 The {BBlue {TRose {PB{Rl{Pa{Rc{Pk{RS{Pm{Ri{Pt{Rh {x~
 {xThis room smells on materials used to forge weapons,
 and armors. Steel, Iron, mithril, tin, gold, and adamantite 
@@ -1029,15 +1029,15 @@ C order~
 D2
 ~
 ~
-0 0 24472
+0 0 12872
 D3
 ~
 ~
-0 -1 24457
+0 -1 12857
 S
 
 
-#24459
+#12859
 {NT{Ba{Crm{Ba{Nc{x~
 Under the sharp, critical scrutiny of the drill instructors, recruits putting
 in their various services for the {NO{Br{Cd{Be{Nr of the B{Blu{Ne R{Blu{Ne{x practise
@@ -1053,15 +1053,15 @@ C order~
 D1
 ~
 ~
-0 -1 24457
+0 -1 12857
 D3
 ~
 ~ 
-0 -1 24461
+0 -1 12861
 S
 
 
-#24460
+#12860
 {TThe Order of the {BBlue {TRose{x~
 You stand before a giant table, where many descions of {Pwar
 {xand {Rtrade{x are made. At the end of this hall there is a picture
@@ -1075,15 +1075,15 @@ C order~
 D0
 ~
 ~
-0 -1 24457
+0 -1 12857
 D4
 ~
 ~
-0 0 24470
+0 0 12870
 S
 
 
-#24461 
+#12861 
 {cD{Ha{cr{Hk {cF{Ho{cr{He{cs{Ht{x~ 
 You enter into a clearing surrounded by large {Gtrees{x that block out all 
 {Ylight{x. {GL{be{Ga{bv{Ge{bs{x rustle beneath your feet and fearsome howls fill the
@@ -1099,7 +1099,7 @@ C order~
 D1
 ~
 ~
-0 -1 24459
+0 -1 12859
 E
 trees light moon~
 The canopy formed by the trees soars overhead blocking out the sky and
@@ -1125,7 +1125,7 @@ A chill breeze blows through.  Could it be preceding an as yet unseen evil?
 ~
 S
 
-#24462
+#12862
 Hall of Heroes~
 This road leads to the personal manors of the Lords of the Order of the
 {BBlue {TRose{x.
@@ -1135,14 +1135,14 @@ C order~
 D0
 ~
 ~
-0 -1 24452
+0 -1 12852
 E
 ~
 ~
 S
 
 
-#24466
+#12866
 Banon's Room Of Guard~
 As you enter, you hear a gentle lute musique from the walls. In this room
 you feel VERY safe. There are twin altars at each side of the room and a
@@ -1158,11 +1158,11 @@ D5
 stairwell down to the hall of knights.
 ~
 ~
-0 0 24457
+0 0 12857
 S
 
 
-#24469
+#12869
 The {BBlue {xRose Catapults{x~
 Upon entering this room you {Bmarvel{x at the three extremely large {Bcatapults{x 
 drawn taut, facing different directions in the room. You conclude that they 
@@ -1174,11 +1174,11 @@ C order~
 D3
 ~
 ~
-0 0 24454
+0 0 12854
 S
 
 
-#24470
+#12870
 {WThe {TOrder {Bof {Tthe {WRoses{x ~
 This room leads off in all directions, each exit has a different colored rose incrested
 above it. The smell in this room is wonderful and the air is thick with the sweet smell
@@ -1189,15 +1189,15 @@ C order~
 D5
 ~
 ~
-0 0 24460
+0 0 12860
 D4
 ~
 ~
-0 0 24471
+0 0 12871
 S
 
 
-#24471
+#12871
 The {BBlue {TRose{x {PStairway{x ~
 Up and down, all around, {BBlue {TRoses{x abound! Look {Wup{x! Look 
 {Gdown{x, {bEast{x, and {gWest{x, you will get no {Brest{x, the {Rstairs{x 
@@ -1209,11 +1209,11 @@ C order~
 D5
 ~
 ~
-0 0 24470
+0 0 12870
 S
 
 
-#24472
+#12872
 {BBlue {TRose{x {PForging Hall{x~
 {xYour first impression of this room is the {Psearing {Rheat {xthat assults you as
 you enter. This is where many a {BBlue {TRose{x {xhas forged a weapon and made
@@ -1227,11 +1227,11 @@ C order~
 D0
 ~
 ~
-0 0 24458
+0 0 12858
 S
 
 
-#24473
+#12873
 {RL{Pi{Rb{Pr{Ra{Pr{Ry{x~
 As you step through {Yw{bi{Yd{be {Ya{br{Yc{bh{Ye{bs {xleading into a
 library, your eyes widen at its sheer size. In the
@@ -1251,68 +1251,68 @@ C order~
 D2
 ~
 ~
-0 -1 24456
+0 -1 12856
 S
 
 #0
 
 
 #RESETS
-M 0 24451 12 24451 3     * Load Gaurd to the Moat
-M 0 24451 12 24451 3
-M 0 24451 12 24451 3
-M 0 24451 12 24452 3     * Load Gaurd to Before Manor Row
-M 0 24451 12 24452 3
-M 0 24451 12 24452 3
-M 0 24454 1 24456 1      * Load Father Spinn to the Sanctuary
-M 0 24455 1 24459 1      * Load Lord Whurl to the Training yard
-M 0 24456 1 24458 1      * Load Zoltek to the Armory
-G 0 24400 100            * level 20 boots
-G 0 24401 100            * level 20 sleeves
-G 0 24402 100            * level 30 ring
-G 0 24403 100            * level 30 floater
-G 0 24410 100            * level 30 hat
-G 0 24404 100            * level 30 gloves
-G 0 24411 100            * level 30 rings
-G 0 24412 100            * level 40 rings
-G 0 24405 100            * level 40 medallion
-G 0 24406 100            * level 40 bracer
-G 0 24407 100            * level 50 boots
-G 0 24408 100            * level 60 greaves
-G 0 24409 100            * level 60 ring
-G 0 24495 100            * level 60 cosmic power
+M 0 12851 12 12851 3     * Load Gaurd to the Moat
+M 0 12851 12 12851 3
+M 0 12851 12 12851 3
+M 0 12851 12 12852 3     * Load Gaurd to Before Manor Row
+M 0 12851 12 12852 3
+M 0 12851 12 12852 3
+M 0 12854 1 12856 1      * Load Father Spinn to the Sanctuary
+M 0 12855 1 12859 1      * Load Lord Whurl to the Training yard
+M 0 12856 1 12858 1      * Load Zoltek to the Armory
+G 0 12800 100            * level 20 boots
+G 0 12801 100            * level 20 sleeves
+G 0 12802 100            * level 30 ring
+G 0 12803 100            * level 30 floater
+G 0 12810 100            * level 30 hat
+G 0 12804 100            * level 30 gloves
+G 0 12811 100            * level 30 rings
+G 0 12812 100            * level 40 rings
+G 0 12805 100            * level 40 medallion
+G 0 12806 100            * level 40 bracer
+G 0 12807 100            * level 50 boots
+G 0 12808 100            * level 60 greaves
+G 0 12809 100            * level 60 ring
+G 0 12895 100            * level 60 cosmic power
 
-O 0 24470 3 24454        * Load the Fountain to both gardens
-O 0 24470 3 24455
-O 0 24466 2 24454        * Load the trees to the garden 1
-P 0 24467 30 24466 1      * The tree bears cranberry
-P 0 24468 30 24466 1      * The tree bears ambrosia
-O 0 24469 1 24456        * load the glade to the sanctuary
+O 0 12870 3 12854        * Load the Fountain to both gardens
+O 0 12870 3 12855
+O 0 12866 2 12854        * Load the trees to the garden 1
+P 0 12867 30 12866 1      * The tree bears cranberry
+P 0 12868 30 12866 1      * The tree bears ambrosia
+O 0 12869 1 12856        * load the glade to the sanctuary
 
-O 0 24491 1 24469        * portal to portal room
-O 0 24492 1 24469        *  "     "      "
-O 0 24493 1 24469        *  "     "      "
-O 0 24494 1 24472        * anvil to forge room
+O 0 12891 1 12869        * portal to portal room
+O 0 12892 1 12869        *  "     "      "
+O 0 12893 1 12869        *  "     "      "
+O 0 12894 1 12872        * anvil to forge room
 
-M 0 24459 1 24466 1      * lesser god to Banon's room
-O 0 24481 1 24466        * pedestal to banon's room
-O 0 24482 1 24466        * fountain to banon's room
-O 0 24483 30 24466        * pill        "        " 
+M 0 12859 1 12866 1      * lesser god to Banon's room
+O 0 12881 1 12866        * pedestal to banon's room
+O 0 12882 1 12866        * fountain to banon's room
+O 0 12883 30 12866        * pill        "        " 
 
-M 0 24473 1 24473 1      * koontz to Malenna's room
-O 0 24473 1 24473        * chair
-O 0 24474 50 24473       * potion
+M 0 12873 1 12873 1      * koontz to Malenna's room
+O 0 12873 1 12873        * chair
+O 0 12874 50 12873       * potion
 S
 
 #SHOPS
 
-24456 0 0 0 0 0  125 50 0 23                *Zoltec
+12856 0 0 0 0 0  125 50 0 23                *Zoltec
 
 0
 
 #SPECIALS
 
-M 24456 spec_blacksmith   *Zoltek
+M 12856 spec_blacksmith   *Zoltek
 
 S
 
