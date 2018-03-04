@@ -190,6 +190,8 @@ int attr_location_check(int location) {
 		case APPLY_WPN_DAMAGE_PCT   : return APPLY_WPN_DAMAGE_PCT;
 		case APPLY_SPELL_DAMAGE_PCT : return APPLY_SPELL_DAMAGE_PCT;
 		case APPLY_VAMP_BONUS_PCT   : return APPLY_VAMP_BONUS_PCT;
+		case APPLY_HP_BLOCK_PCT		: return APPLY_HP_BLOCK_PCT;
+		case APPLY_MANA_BLOCK_PCT	: return APPLY_MANA_BLOCK_PCT;
 	}
 
 	Logging::bugf("attr_location_check: bad location %d", location);

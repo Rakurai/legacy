@@ -882,6 +882,8 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_LIGHT,      affect::type::obj_suffix_skillful },
 
 //  { ARMOR_FINGER,     affect::type::obj_suffix_initiate_questor },
+	{ ARMOR_FINGER,      	affect::type::obj_suffix_devastation },
+    { ARMOR_FINGER,      	affect::type::obj_suffix_annihilation },
 //  { ARMOR_NECK,       affect::type::obj_suffix_initiate_questor },
 
     { ARMOR_TORSO,      affect::type::obj_suffix_initiate_questor },
@@ -892,6 +894,9 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_HEAD,       affect::type::obj_suffix_advanced_mage },
     { ARMOR_HEAD,       affect::type::obj_suffix_master_mage },
     { ARMOR_HEAD,       affect::type::obj_suffix_experienced },
+    { ARMOR_HEAD,      	affect::type::obj_suffix_arcane_power },
+    { ARMOR_HEAD,      	affect::type::obj_suffix_mystical_power },
+	
 
     { ARMOR_LEGS,       affect::type::obj_suffix_initiate_mage },
     { ARMOR_LEGS,       affect::type::obj_suffix_advanced_mage },
@@ -916,19 +921,28 @@ const std::multimap<int, affect::type> suffixes_allowed = {
     { ARMOR_HANDS,      affect::type::obj_suffix_hawk },
     { ARMOR_HANDS,      affect::type::obj_suffix_falcon },
     { ARMOR_HANDS,      affect::type::obj_suffix_experienced },
+	{ ARMOR_HANDS,      affect::type::obj_suffix_devastation },
+    { ARMOR_HANDS,      affect::type::obj_suffix_annihilation },
+    { ARMOR_HANDS,      affect::type::obj_suffix_arcane_power },
+    { ARMOR_HANDS,      affect::type::obj_suffix_mystical_power },
 
     { ARMOR_ARMS,       affect::type::obj_suffix_initiate_questor },
     { ARMOR_ARMS,       affect::type::obj_suffix_advanced_questor },
     { ARMOR_ARMS,       affect::type::obj_suffix_master_questor },
 
 //  { ARMOR_SHIELD,     affect::type::obj_suffix_initiate_questor },
-
+	{ ARMOR_SHIELD,     affect::type::obj_suffix_restorative }, //shield only
+	{ ARMOR_SHIELD,     affect::type::obj_suffix_mystic },		//shield only
+	
     { ARMOR_BODY,       affect::type::obj_suffix_initiate_questor },
     { ARMOR_BODY,       affect::type::obj_suffix_advanced_questor },
     { ARMOR_BODY,       affect::type::obj_suffix_master_questor },
 
 //  { ARMOR_WAIST,      affect::type::obj_suffix_initiate_questor },
+
 //  { ARMOR_WRIST,      affect::type::obj_suffix_initiate_questor },
+	{ ARMOR_WRIST,      affect::type::obj_suffix_arcane_power },
+    { ARMOR_WRIST,      affect::type::obj_suffix_mystical_power },
 
     { ARMOR_FLOATING,   affect::type::obj_suffix_skilled },
     { ARMOR_FLOATING,   affect::type::obj_suffix_skillful },
@@ -1173,27 +1187,27 @@ const std::map<affect::type, mod_t> mod_table = {
     }},
     {   affect::type::obj_suffix_initiate_mage, {
         "of the Initiate Mage", 1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    1,  2, false
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    1,  3, false
     }},
     {   affect::type::obj_suffix_advanced_mage, {
         "of the Advanced Mage", 1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    3,  4, false
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    3,  6, false
     }},
     {   affect::type::obj_suffix_master_mage, {
         "of the Master Mage",   1,  100,
-        TO_OBJECT,  APPLY_MANA_COST_PCT,    5,  6, false
+        TO_OBJECT,  APPLY_MANA_COST_PCT,    6,  10, false
     }},
     {   affect::type::obj_suffix_swallow, {
         "of the Swallow",   1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    1,  2, false
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    1,  3, false
     }},
     {   affect::type::obj_suffix_hawk, {
         "of the Hawk",  1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    3,  4, false
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    3,  6, false
     }},
     {   affect::type::obj_suffix_falcon, {
         "of the Falcon",    1,  100,
-        TO_OBJECT,  APPLY_STAM_COST_PCT,    5,  6, false
+        TO_OBJECT,  APPLY_STAM_COST_PCT,    6,  10, false
     }},
     {   affect::type::obj_suffix_devastation, {
         "of Devastation",   1,  100,
@@ -1214,6 +1228,14 @@ const std::map<affect::type, mod_t> mod_table = {
     {   affect::type::obj_suffix_hexxing, {
         "of Hexxing",   1,  100,
         TO_OBJECT,  APPLY_VAMP_BONUS_PCT,   1,10, false
+    }},
+	{   affect::type::obj_suffix_restorative, {
+        "of Restoration",   1,  100,
+        TO_OBJECT,  APPLY_HP_BLOCK_PCT,   1,5, false
+    }},
+	{   affect::type::obj_suffix_mystic, {
+        "of Mystic Energy",   1,  100,
+        TO_OBJECT,  APPLY_MANA_BLOCK_PCT,   1,5, false
     }}
 
 };

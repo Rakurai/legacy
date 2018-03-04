@@ -174,6 +174,8 @@ String affect_loc_name(int location)
 	case APPLY_WPN_DAMAGE_PCT:  return "weapon damage dealt";
 	case APPLY_SPELL_DAMAGE_PCT:return "spell damage dealt";
 	case APPLY_VAMP_BONUS_PCT:  return "vampiric weapon leeching";
+	case APPLY_HP_BLOCK_PCT:	return "HP healed when blocking";
+	case APPLY_MANA_BLOCK_PCT:	return "MANA healed when blocking";
 	}
 
 	Logging::bug("Affect_location_name: unknown location %d.", location);

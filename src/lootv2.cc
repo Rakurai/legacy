@@ -202,14 +202,16 @@ Object *generate_eq(int objlevel){
 
 	// stick the rarity string on the front
 	obj->name = eq_quality_table[item_qual].str + obj->name; // before prefixes
-
+<<<<<<< HEAD
+	
+=======
+>>>>>>> shield suffix works correctly now
 
 	// finish up
 	obj->description = obj->name;
 	obj->short_descr = obj->name;
 
 	obj->name = obj->name.uncolor().replace("(", "").replace(")", "");
-
 	return obj;
 }
 

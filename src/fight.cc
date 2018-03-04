@@ -2352,6 +2352,9 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, int attack_type)
 {
 	char buf[MAX_STRING_LENGTH];
+	char buf2[MAX_STRING_LENGTH];
+	Object *obj = (get_eq_char(victim, WEAR_SHIELD));
+	
 	int chance;
 	String attack;
 
@@ -2388,10 +2391,24 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 
 		attack = attack_table[attack_type].noun;
 	}
-
+	
 	if (!victim->act_flags.has(PLR_DEFENSIVE)) {
 		Format::sprintf(buf, "{BYou block $n's {B%s with your shield.{x", attack);
 		act(buf, ch, nullptr, victim, TO_VICT);
+	}
+	
+	/* Shield block specific suffixes */
+	if (GET_ATTR(victim, APPLY_HP_BLOCK_PCT) != 0){
+		int life_restored = (number_range(1, obj->level / 2) + GET_ATTR(victim, APPLY_HP_BLOCK_PCT));
+		victim->hit += life_restored;
+		Format::sprintf(buf2, "{BYour block restores %d of your life.{x\n", life_restored);
+		stc(buf2, victim);
+	}
+	if (GET_ATTR(victim, APPLY_MANA_BLOCK_PCT) != 0){
+		int mana_restored = (number_range(1, obj->level / 2) + GET_ATTR(victim, APPLY_MANA_BLOCK_PCT));
+		victim->mana += mana_restored;
+		Format::sprintf(buf2, "{BYour block restores %d of your mana.{x\n", mana_restored);
+		stc(buf2, victim);
 	}
 
 	if (!ch->act_flags.has(PLR_DEFENSIVE)) {
