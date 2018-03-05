@@ -399,19 +399,19 @@ void get_obj(Character *ch, Object *obj, Object *container)
 
 		if (!IS_NPC(ch)) {
 			/* Did they pick up their quest item? */
-			if (ch->act_flags.has(PLR_QUESTOR)) {
-				if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
+			if (IS_QUESTOR(ch)) {
+				if (ch->pcdata->questobj == obj->pIndexData->vnum && ch->pcdata->questobf != -1) {
 					char buf[MAX_STRING_LENGTH];
 					stc("{YYou have almost completed your QUEST!{x\n", ch);
 					stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-					ch->questobf = -1;
+					ch->pcdata->questobf = -1;
 					Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
 					wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 				}
 			}
 
 			/* or skill quest item? */
-			if (ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
+			if (IS_SQUESTOR(ch)) {
 				if (ch->pcdata->squestobj == obj && !ch->pcdata->squestobjf) {
 					char buf[MAX_STRING_LENGTH];
 
@@ -1556,7 +1556,7 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, obj, victim, TO_CHAR);
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
+	if (IS_SQUESTOR(ch)
 	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {
 		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
 			extern void squestobj_to_squestmob args((Character * ch, Object * obj, Character * mob));
@@ -3625,19 +3625,19 @@ void do_steal(Character *ch, String argument)
 	stc("Got it!\n", ch);
 
 	/* Did they pick up their quest item? */
-	if (ch->act_flags.has(PLR_QUESTOR)) {
-		if (ch->questobj == obj->pIndexData->vnum && ch->questobf != -1) {
+	if (IS_QUESTOR(ch)) {
+		if (ch->pcdata->questobj == obj->pIndexData->vnum && ch->pcdata->questobf != -1) {
 			char buf[MAX_STRING_LENGTH];
 			stc("{YYou have almost completed your QUEST!{x\n", ch);
 			stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-			ch->questobf = -1;
+			ch->pcdata->questobf = -1;
 			Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
 			wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 		}
 	}
 
 	/* or skill quest item? */
-	if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
+	if (IS_SQUESTOR(ch)) {
 		if (ch->pcdata->squestobj == obj && !ch->pcdata->squestobjf) {
 			char buf[MAX_STRING_LENGTH];
 
@@ -4063,7 +4063,7 @@ void do_buy(Character *ch, String argument)
 		}
 
 		if (IS_QUESTSHOPKEEPER(keeper)) {
-			if (ch->questpoints < cost * number) {
+			if (IS_NPC(ch) || ch->pcdata->questpoints < cost * number) {
 				act("$n tell you 'Sorry, but you don't have enough quest points!'",
 				    keeper, nullptr, ch, TO_VICT);
 				ch->reply = keeper->name;
@@ -4181,7 +4181,7 @@ void do_buy(Character *ch, String argument)
 				act(buf, ch, obj, nullptr, TO_CHAR);
 			}
 
-			ch->questpoints -= cost;
+			ch->pcdata->questpoints -= cost;
 		}
 
 		mprog_buy_trigger(keeper, ch);
@@ -4375,13 +4375,18 @@ void do_sell(Character *ch, String argument)
 		return;
 	}
 
+	if (IS_QUESTSHOPKEEPER(keeper) && IS_NPC(ch)) {
+		stc("Mobiles can't sell quest items.\n", ch);
+		return;
+	}
+
 	if ((cost = get_cost(keeper, obj, FALSE)) <= 0) {
 		act("$n laughs at $p and suggests a novel use for it.", keeper, obj, ch, TO_VICT);
 		return;
 	}
 
 	if (!IS_QUESTSHOPKEEPER(keeper) && cost > (keeper->silver + 100 * keeper->gold)) {
-		act("$n tells you 'The shop has fallen upon hard times. I cant afford $p'",
+		act("$n tells you 'The shop has fallen upon hard times. I cant afford $p.'",
 		    keeper, obj, ch, TO_VICT);
 		return;
 	}
@@ -4424,7 +4429,7 @@ void do_sell(Character *ch, String argument)
 		Format::sprintf(buf, "You sell $p for %d Quest Point%s.",
 		        cost, cost == 1 ? "" : "s");
 		act(buf, ch, obj, nullptr, TO_CHAR);
-		ch->questpoints += cost;
+		ch->pcdata->questpoints += cost;
 	}
 
 	if (obj->item_type == ITEM_TRASH
@@ -4627,7 +4632,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 		qpcost = 0;
 
 	/* check for required QP */
-	if (ch->questpoints < qpcost) {
+	if (ch->pcdata->questpoints < qpcost) {
 		ptc(ch, "You lack the required %d quest points to forge flags on this anvil.\n", qpcost);
 		return;
 	}
@@ -4635,7 +4640,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 	/* deduct quest points */
 	if (qpcost > 0) {
 		ptc(ch, "In a hasty prayer, you offer %d points of your questing experience as a sacrifice.\n", qpcost);
-		ch->questpoints -= qpcost;
+		ch->pcdata->questpoints -= qpcost;
 	}
 
 	ptc(ch, "You grab the smith hammer next to the anvil, lay %s down upon the anvil, and strike it with a mighty blow! *CLING!*\n",
@@ -4784,7 +4789,7 @@ void do_forge(Character *ch, String argument)
 	}
 
 	/* check for FORGE FLAG */
-	if (type.is_prefix_of("flag")) {
+	if (type.is_prefix_of("flag") && !IS_NPC(ch)) {
 		if (!deduct_stamina(ch, skill::type::forge))
 			return;
 

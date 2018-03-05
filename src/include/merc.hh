@@ -480,6 +480,7 @@ void spell_imprint      args( ( skill::type, int level, Character *ch, void *vo 
 void generate_eq		  args(( Character *ch));
 
 /* quest.c */
+void    quest_cleanup	 args( ( Character *ch ) );
 void    sq_cleanup	 args( ( Character *ch ) );
 
 /* save.c */

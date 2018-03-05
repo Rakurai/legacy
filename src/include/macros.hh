@@ -92,7 +92,7 @@
 	(ch->daze = UMAX(ch->daze, npulse)) : (ch->daze = 0))
 #define gold_weight(amount)  ((amount) * 2 / 5)
 #define silver_weight(amount) ((amount)/ 10)
-#define IS_QUESTOR(ch)     ((ch)->act_flags.has(PLR_QUESTOR))
+#define IS_QUESTOR(ch)     (!IS_NPC(ch) && (ch)->pcdata->plr_flags.has(PLR_QUESTOR))
 #define IS_SQUESTOR(ch)    (!IS_NPC(ch) && (ch)->pcdata->plr_flags.has(PLR_SQUESTOR))
 #define IS_KILLER(ch)		((ch)->act_flags.has(PLR_KILLER))
 #define IS_THIEF(ch)		((ch)->act_flags.has(PLR_THIEF))

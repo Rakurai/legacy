@@ -473,8 +473,8 @@ void nanny(Descriptor *d, String argument)
 			return;
 
 		ch->pcdata->plr_flags -= PLR_LINK_DEAD;
-		ch->pcdata->plr_flags -= PLR_SQUESTOR;
-		ch->act_flags -= PLR_QUESTOR;
+		quest_cleanup(ch);
+		sq_cleanup(ch);
 
 		log_buf = Format::format("%s@%s has connected.", ch->name, d->host);
 		Logging::log(log_buf);

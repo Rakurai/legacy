@@ -127,16 +127,6 @@ public:
     int              secure_level = 0;
     MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
-    Vnum                quest_giver = 0;  /* Elrac */
-    int                 questpoints = 0;  /* Vassago */
-    int			        questpoints_donated = 0; /* Clerve */
-    long		        gold_donated = 0; /* Montrey */
-    int              nextquest = 0;    /* Vassago */
-    int              countdown = 0;    /* Vassago */
-    Vnum             questobj = 0;     /* Vassago */
-    Vnum             questmob = 0;     /* Vassago */
-    Location             questloc;     /* -- Elrac */
-    int              questobf = 0;     /* Lotus */
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */
 

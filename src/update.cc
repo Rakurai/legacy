@@ -1156,8 +1156,7 @@ void aggr_update(void)
 		   mobprog and aggression checking to prevent other mobs jumping the
 		   player before they can complete their quest, may change for realism, tho -- Montrey */
 		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
-			if (!IS_NPC(ch)
-			    && ch->pcdata->plr_flags.has(PLR_SQUESTOR)
+			if (IS_SQUESTOR(ch)
 			    && ch->pcdata->squestmob != nullptr
 			    && ch->pcdata->squestobj == nullptr) {
 				/* look for quest mob */
@@ -1549,24 +1548,20 @@ void quest_update(void)
 			if (IS_NPC(ch))
 				continue;
 
-			if (ch->nextquest > 0) {
-				ch->nextquest--;
+			if (ch->pcdata->nextquest > 0) {
+				ch->pcdata->nextquest--;
 
-				if (ch->nextquest == 0)
+				if (ch->pcdata->nextquest == 0)
 					stc("You may now quest again.\n", ch);
 			}
-			else if (ch->act_flags.has(PLR_QUESTOR)) {
-				if (--ch->countdown <= 0) {
-					ch->nextquest = 0;
+			else if (IS_QUESTOR(ch)) {
+				if (--ch->pcdata->countdown <= 0) {
+					ch->pcdata->nextquest = 0;
 					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
-					ch->act_flags -= PLR_QUESTOR;
-					ch->quest_giver = 0;
-					ch->countdown = 0;
-					ch->questmob = 0;
-					ch->questloc = Location();
+					quest_cleanup(ch);
 				}
 
-				if (ch->countdown > 0 && ch->countdown < 6)
+				if (ch->pcdata->countdown > 0 && ch->pcdata->countdown < 6)
 					stc("Better hurry, you're almost out of time for your quest!\n", ch);
 			}
 
@@ -1577,7 +1572,7 @@ void quest_update(void)
 				if (ch->pcdata->nextsquest == 0)
 					stc("You may now skill quest again.\n", ch);
 			}
-			else if (ch->pcdata->plr_flags.has(PLR_SQUESTOR)) {
+			else if (IS_SQUESTOR(ch)) {
 				if (--ch->pcdata->sqcountdown <= 0) {
 					ch->pcdata->nextsquest = 0;
 					stc("You have run out of time for your skill quest!\n"

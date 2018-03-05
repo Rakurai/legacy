@@ -59,6 +59,18 @@ public:
 	int              condition      [4] = {0};
 	std::vector<int> learned;
 	std::vector<int> evolution;
+
+    Vnum                quest_giver = 0;  /* Elrac */
+    int                 questpoints = 0;  /* Vassago */
+    int			        questpoints_donated = 0; /* Clerve */
+    long		        gold_donated = 0; /* Montrey */
+    int              nextquest = 0;    /* Vassago */
+    int              countdown = 0;    /* Vassago */
+    Vnum             questobj = 0;     /* Vassago */
+    Vnum             questmob = 0;     /* Vassago */
+    Location             questloc;     /* -- Elrac */
+    int              questobf = 0;     /* Lotus */
+
 	int			        skillpoints = 0;
 	Vnum                 squest_giver = 0;
 	int              nextsquest = 0;
@@ -69,6 +81,7 @@ public:
 	bool		        squestmobf = FALSE;
 	Location	        squestloc1; /* obj */
 	Location	        squestloc2;	/* mob */
+
 	std::vector<bool>   group_known;
 	int			        rolepoints = 0;
 	int              points = 0;

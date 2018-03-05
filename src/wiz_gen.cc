@@ -438,7 +438,7 @@ void do_check(Character *ch, String argument)
 			        ATTR_BASE(victim, APPLY_DEX), ATTR_BASE(victim, APPLY_CON),
 			        ATTR_BASE(victim, APPLY_CHR),
 			        victim->gold + victim->silver / 100,
-			        victim->questpoints,
+			        victim->pcdata->questpoints,
 			        !IS_NPC(victim) ? victim->pcdata->skillpoints : 0);
 			buffer += buf;
 		}
@@ -1744,8 +1744,12 @@ void do_guild(Character *ch, String argument)
 		}
 
 		victim->clan = nullptr;
-		victim->questpoints_donated = 0;
-		victim->gold_donated = 0;
+
+		if (!IS_NPC(victim)) {
+			victim->pcdata->questpoints_donated = 0;
+			victim->pcdata->gold_donated = 0;
+		}
+
 		save_char_obj(victim);
 		return;
 	}
@@ -1770,8 +1774,12 @@ void do_guild(Character *ch, String argument)
 
 	victim->add_cgroup(GROUP_CLAN);
 	victim->clan = clan;
-	victim->questpoints_donated = 0;
-	victim->gold_donated = 0;
+
+	if (!IS_NPC(victim)) {
+		victim->pcdata->questpoints_donated = 0;
+		victim->pcdata->gold_donated = 0;
+	}
+
 	save_char_obj(victim);
 }
 
@@ -2128,7 +2136,7 @@ void do_lower(Character *ch, String argument)
 		return;
 	}
 
-	if (qp > victim->questpoints && !IS_IMMORTAL(victim)) {
+	if (qp > victim->pcdata->questpoints && !IS_IMMORTAL(victim)) {
 		stc("They do not have enough quest points for that.\n"
 		    , ch);
 		return;
@@ -3128,7 +3136,10 @@ void do_purge(Character *ch, String argument)
 
 int has_enough_qps(Character *ch, int number_of)
 {
-	if (ch->questpoints >= number_of || IS_IMMORTAL(ch))
+	if (IS_NPC(ch))
+		return 0;
+
+	if (ch->pcdata->questpoints >= number_of || IS_IMMORTAL(ch))
 		return 1;
 
 	return 0;
@@ -3194,7 +3205,7 @@ void do_qpconv(Character *ch, String argument)
 	}
 
 	if (!IS_IMMORTAL(ch))
-		victim->questpoints -= qpcost;
+		victim->pcdata->questpoints -= qpcost;
 
 	switch (what) {
 	case 1:
@@ -4192,8 +4203,8 @@ void do_clanqp(Character *ch, String argument)
 				return;
 			}
 
-			ch->questpoints -= qp_amount;
-			ch->questpoints_donated += qp_amount;
+			ch->pcdata->questpoints -= qp_amount;
+			ch->pcdata->questpoints_donated += qp_amount;
 		}
 
 		target->clanqp += qp_amount;

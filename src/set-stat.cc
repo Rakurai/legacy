@@ -1047,7 +1047,7 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		victim->nextquest = value;
+		victim->pcdata->nextquest = value;
 		ptc(ch, "%s can now quest again in %d minutes.\n", victim->name, value);
 		return;
 	}
@@ -1069,7 +1069,7 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		victim->questpoints = value;
+		victim->pcdata->questpoints = value;
 		ptc(ch, "%s now has %d quest points.\n", victim->name, value);
 		return;
 	}
@@ -2133,7 +2133,7 @@ void do_pstat(Character *ch, String argument)
 	ptc(ch, "Dex %-2d(%-2d)",
 	    ATTR_BASE(victim, APPLY_DEX), GET_ATTR_DEX(victim));
 	new_color(ch, CSLOT_OLDSCORE_QP);
-	ptc(ch, "                         QP:  %-5d\n", victim->questpoints);
+	ptc(ch, "                         QP:  %-5d\n", victim->pcdata->questpoints);
 	/* Con 25(25)   Gold 7481204   SP:  12345 */
 	new_color(ch, CSLOT_OLDSCORE_STAT);
 	ptc(ch, "Con %-2d(%-2d)",

@@ -125,7 +125,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	/* Color additions by Lotus */
 	if (!IS_NPC(ch)
-	    && ((ch->questobj > 0 && obj->pIndexData->vnum == ch->questobj)
+	    && ((ch->pcdata->questobj > 0 && obj->pIndexData->vnum == ch->pcdata->questobj)
 	        || (ch->pcdata->squestobj != nullptr && ch->pcdata->squestobj == obj)))
 		buf += "{f{R[TARGET] {x";
 
@@ -547,7 +547,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	}
 
 	if (IS_NPC(victim)
-	    && ((ch->questmob > 0 && victim->pIndexData->vnum == ch->questmob)
+	    && ((ch->pcdata->questmob > 0 && victim->pIndexData->vnum == ch->pcdata->questmob)
 	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
 
@@ -2351,7 +2351,7 @@ void do_worth(Character *ch, String argument)
 
 	ptc(ch, "You have %ld gold and %ld silver in the bank.\n", ch->gold_in_bank, ch->silver_in_bank);
 	ptc(ch, "You have earned %d quest points, %d skill points, %d roleplay points,\n",
-	    ch->questpoints, ch->pcdata->skillpoints, ch->pcdata->rolepoints);
+	    ch->pcdata->questpoints, ch->pcdata->skillpoints, ch->pcdata->rolepoints);
 	ptc(ch, "%d trains, and %d practices.\n", ch->train, ch->practice);
 	return;
 }
@@ -2849,8 +2849,8 @@ void do_swho(Character *ch, String argument)
 		        wch->pcdata->plr_flags.has(PLR_PK) ? "{G*{b" : " ",
 		        wch->act_flags.has(PLR_MAKEBAG) ? "{T*{b" : " ",
 		        wch->pcdata->plr_flags.has(PLR_PAINT) ? "{P*{b" : " ",
-		        wch->act_flags.has(PLR_QUESTOR) ? "{V*{b" : " ",
-		        wch->pcdata->plr_flags.has(PLR_SQUESTOR) ? "{B*{b" : " ",
+		        IS_QUESTOR(wch)                         ? "{V*{b" : " ",
+		        IS_SQUESTOR(wch)                        ? "{B*{b" : " ",
 		        (wch->pnote != nullptr) ?
 		        wch->pnote->type == NOTE_NOTE           ? "{P*" :
 		        wch->pnote->type == NOTE_IDEA           ? "{Y*" :
@@ -4218,8 +4218,8 @@ void do_join(Character *ch, String argument)
 	victim->remove_cgroup(GROUP_DEPUTY);
 	victim->add_cgroup(GROUP_CLAN);
 	victim->clan = ch->clan;
-	victim->questpoints_donated = 0;
-	victim->gold_donated = 0;
+	victim->pcdata->questpoints_donated = 0;
+	victim->pcdata->gold_donated = 0;
 	save_char_obj(victim);
 	ptc(ch, "The character is now a member of %s.\n", ch->clan->clanname);
 	ptc(victim, "You are now a member of %s.\n", ch->clan->clanname);
@@ -4392,8 +4392,8 @@ void do_unjoin(Character *ch, String argument)
 	victim->remove_cgroup(GROUP_LEADER);
 	victim->remove_cgroup(GROUP_DEPUTY);
 	victim->remove_cgroup(GROUP_CLAN);
-	victim->questpoints_donated = 0;
-	victim->gold_donated = 0;
+	victim->pcdata->questpoints_donated = 0;
+	victim->pcdata->gold_donated = 0;
 	save_char_obj(victim);
 }
 
@@ -4787,6 +4787,11 @@ void do_claninfo(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
+	if (IS_NPC(ch)) {
+		stc("You just leave worrying about clans for players.\n", ch);
+		return;
+	}
+
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->clan == nullptr) {
 			stc("You're not even in a clan!\n", ch);
@@ -4805,10 +4810,10 @@ void do_claninfo(Character *ch, String argument)
 		        ch->clan->name);
 		stc(buf, ch);
 		Format::sprintf(buf, "The clan has %ld questpoints, of which %d came from you.\n",
-		        ch->clan->clanqp, ch->questpoints_donated);
+		        ch->clan->clanqp, ch->pcdata->questpoints_donated);
 		stc(buf, ch);
 		Format::sprintf(buf, "The clan has %ld gold coins, of which %ld came from you.\n",
-		        ch->clan->gold_balance, ch->gold_donated);
+		        ch->clan->gold_balance, ch->pcdata->gold_donated);
 		stc(buf, ch);
 	}
 	else {
@@ -5239,7 +5244,7 @@ void score_new(Character *ch)
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x QuestPoints  ", torch);
 	new_color(ch, CSLOT_SCORE_POINTNUM);
-	ptc(ch, "%5d %s|{x", ch->questpoints, border);
+	ptc(ch, "%5d %s|{x", IS_NPC(ch) ? 0 : ch->pcdata->questpoints, border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "     Slash    %6d  %s|{x", GET_AC(ch, AC_SLASH), border);
 	new_color(ch, CSLOT_SCORE_DICENAME);

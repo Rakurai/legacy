@@ -1341,9 +1341,9 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'q':
 			if (!IS_QUESTOR(ch))
-				buf += Format::format("%d", ch->nextquest);
+				buf += Format::format("%d", ch->pcdata->nextquest);
 			else
-				buf += Format::format("%d", ch->countdown);
+				buf += Format::format("%d", ch->pcdata->countdown);
 
 			break;
 		case 'Q':
@@ -1351,18 +1351,18 @@ void bust_a_prompt(Character *ch)
 //				ObjectPrototype *questinfoobj;
 				MobilePrototype *questinfo;
 
-				if (ch->questmob == -1 || ch->questobf == -1)
+				if (ch->pcdata->questmob == -1 || ch->pcdata->questobf == -1)
 					buf += "*report!*";
-				else if (ch->questobj > 0) {
+				else if (ch->pcdata->questobj > 0) {
 //					if ((questinfoobj = Game::world().get_obj_prototype(ch->questobj)) != nullptr)
 //						Format::sprintf(buf2, "%s", questinfoobj->name);
-					if (ch->questloc.is_valid())
-						buf += Game::world().get_room(ch->questloc)->name().uncolor();
+					if (ch->pcdata->questloc.is_valid())
+						buf += Game::world().get_room(ch->pcdata->questloc)->name().uncolor();
 					else
 						buf += "Unknown";
 				}
-				else if (ch->questmob > 0) {
-					if ((questinfo = Game::world().get_mob_prototype(ch->questmob)) != nullptr)
+				else if (ch->pcdata->questmob > 0) {
+					if ((questinfo = Game::world().get_mob_prototype(ch->pcdata->questmob)) != nullptr)
 						buf += questinfo->short_descr.uncolor();
 					else
 						buf += "Unknown";
@@ -1374,7 +1374,7 @@ void bust_a_prompt(Character *ch)
 			break;
 		case 'p':
 			if (!IS_NPC(ch))
-				buf += Format::format("%d", ch->questpoints);
+				buf += Format::format("%d", ch->pcdata->questpoints);
 
 			break;
 		case 'j':

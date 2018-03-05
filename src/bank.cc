@@ -119,6 +119,11 @@ void do_clandeposit(Character *ch, String argument)
 			return;
 		}
 
+		if (IS_NPC(ch)) {
+			stc("You don't need to worry about clans.\n", ch);
+			return;
+		}
+
 		if (ch->clan == nullptr) {
 			stc("You are not in a clan.\n", ch);
 			return;
@@ -146,7 +151,7 @@ void do_clandeposit(Character *ch, String argument)
 		}
 
 		ch->gold -= atoi(arg1);
-		ch->gold_donated += atoi(arg1);
+		ch->pcdata->gold_donated += atoi(arg1);
 		ch->clan->gold_balance += atoi(arg1);
 		save_clan_table();
 		save_char_obj(ch);

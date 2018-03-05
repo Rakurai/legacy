@@ -1095,7 +1095,6 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define PLR_AUTOSPLIT           (Flags::H)
 #define PLR_DEFENSIVE           (Flags::I)
 #define PLR_WIMPY               (Flags::J)
-#define PLR_QUESTOR             (Flags::K)
 
 /* RT personal flags */
 #define PLR_COLOR2              (Flags::L)
@@ -1123,6 +1122,7 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define PLR_PRIVATE             (Flags::C)
 #define PLR_STOPCRASH           (Flags::D)
 #define PLR_PK                  (Flags::E)
+#define PLR_QUESTOR             (Flags::F)
 #define PLR_SHOWEMAIL           (Flags::G)
 #define PLR_LINK_DEAD           (Flags::H)
 #define PLR_PAINT               (Flags::I)

@@ -57,7 +57,7 @@
 #include "gem/gem.hh"
 
 
-int CURRENT_VERSION = 20;   /* version number for pfiles */
+int CURRENT_VERSION = 21;   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -236,6 +236,9 @@ cJSON *fwrite_player(Character *ch)
 	if (!ch->pcdata->gameout.empty())
 		JSON::addStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
+	if (ch->pcdata->gold_donated)
+		cJSON_AddNumberToObject(o,	"GlDonated",	ch->pcdata->gold_donated);
+
 	item = nullptr;
 	for (unsigned int gn = 0; gn < group_table.size(); gn++) {
 		if (ch->pcdata->group_known[gn] == 0)
@@ -310,6 +313,17 @@ cJSON *fwrite_player(Character *ch)
 
 		cJSON_AddItemToObject(o,	"Query",		item);
 	}
+
+	if (ch->pcdata->questpoints_donated)
+		cJSON_AddNumberToObject(o,	"QpDonated",	ch->pcdata->questpoints_donated);
+
+	if (ch->pcdata->questpoints)
+		cJSON_AddNumberToObject(o,	"QuestPnts",	ch->pcdata->questpoints);
+
+	if (ch->pcdata->nextquest)
+		cJSON_AddNumberToObject(o,	"QuestNext",	ch->pcdata->nextquest);
+	else if (ch->pcdata->countdown)
+		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
 	if (!ch->pcdata->rank.empty())
 		JSON::addStringToObject(o,	"Rank",			ch->pcdata->rank);
@@ -461,9 +475,6 @@ cJSON *fwrite_char(Character *ch)
 
 	cJSON_AddNumberToObject(o,		"Exp",			ch->exp);
 
-	if (ch->gold_donated)
-		cJSON_AddNumberToObject(o,	"GlDonated",	ch->gold_donated);
-
 	cJSON_AddNumberToObject(o,		"Gold",			ch->gold);
 
 	if (ch->gold_in_bank > 0)
@@ -493,17 +504,6 @@ cJSON *fwrite_char(Character *ch)
 
 	if (!ch->prompt.empty())
 		JSON::addStringToObject(o,	"Prom",			ch->prompt);
-
-	if (ch->questpoints_donated)
-		cJSON_AddNumberToObject(o,	"QpDonated",	ch->questpoints_donated);
-
-	if (ch->questpoints)
-		cJSON_AddNumberToObject(o,	"QuestPnts",	ch->questpoints);
-
-	if (ch->nextquest)
-		cJSON_AddNumberToObject(o,	"QuestNext",	ch->nextquest);
-	else if (ch->countdown)
-		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
 	JSON::addStringToObject(o,		"Race",			race_table[ch->race].name);
 	JSON::addStringToObject(o,		"Revk",			ch->revoke_flags.to_string());
@@ -784,6 +784,11 @@ bool load_char_obj(Descriptor *d, const String& name)
 			ch->act_flags += PLR_NOSUMMON;
 		}
 
+		// moved PLR_QUESTOR from act_flags to plr_flags at 21, shouldn't have been saved anyway
+		if (version < 21) {
+			ch->act_flags -= (Flags::K); // PLR_QUESTOR
+		}
+
 		if (ch->pcdata->remort_count > 0) {
 			ch->add_cgroup(GROUP_AVATAR);
 			ch->add_cgroup(GROUP_HERO);
@@ -1018,6 +1023,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 				STRKEY("GameIn",		ch->pcdata->gamein,			o->valuestring);
 				STRKEY("GameOut",		ch->pcdata->gameout,		o->valuestring);
+				INTKEY("GlDonated",		ch->pcdata->gold_donated,	o->valueint);
 				break;
 			case 'H':
 				if (key == "HMSP") { // removed in version 16, moved to fread_char
@@ -1081,6 +1087,9 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
+				INTKEY("QuestPnts",		ch->pcdata->questpoints,			o->valueint);
+				INTKEY("QpDonated",		ch->pcdata->questpoints_donated,	o->valueint);
+				INTKEY("QuestNext",		ch->pcdata->nextquest,				o->valueint);
 				break;
 			case 'R':
 				if (key == "Raff") {
@@ -1239,9 +1248,13 @@ void fread_char(Character *ch, cJSON *json, int version)
 			case 'F':
 				break;
 			case 'G':
+				if (key == "GlDonated" && !IS_NPC(ch)) { // moved to pcdata in version 21
+					ch->pcdata->gold_donated = o->valueint;
+					fMatch = TRUE; break;
+				}
+
 				INTKEY("Gold_in_bank",	ch->gold_in_bank,			o->valueint);
 				INTKEY("Gold",			ch->gold,					o->valueint);
-				INTKEY("GlDonated",		ch->gold_donated,			o->valueint);
 				break;
 			case 'H':
 				if (key == "HMS") {
@@ -1282,9 +1295,18 @@ void fread_char(Character *ch, cJSON *json, int version)
 				STRKEY("Prom",			ch->prompt,					o->valuestring);
 				break;
 			case 'Q':
-				INTKEY("QuestPnts",		ch->questpoints,			o->valueint);
-				INTKEY("QpDonated",		ch->questpoints_donated,	o->valueint);
-				INTKEY("QuestNext",		ch->nextquest,				o->valueint);
+				if (key == "QuestPnts" && !IS_NPC(ch)) { // moved to pcdata in version 21
+					ch->pcdata->questpoints = o->valueint;
+					fMatch = TRUE; break;
+				}
+				if (key == "QpDonated" && !IS_NPC(ch)) { // moved to pcdata in version 21
+					ch->pcdata->questpoints_donated = o->valueint;
+					fMatch = TRUE; break;
+				}
+				if (key == "QuestNext" && !IS_NPC(ch)) { // moved to pcdata in version 21
+					ch->pcdata->nextquest = o->valueint;
+					fMatch = TRUE; break;
+				}
 				break;
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));

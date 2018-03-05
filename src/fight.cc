@@ -3039,11 +3039,11 @@ int group_gain(Character *ch, Character *victim)
 			}
 		}
 
-		if (gch->act_flags.has(PLR_QUESTOR) && IS_NPC(victim)) {
-			if (gch->questmob == victim->pIndexData->vnum) {
+		if (IS_QUESTOR(gch) && IS_NPC(victim)) {
+			if (gch->pcdata->questmob == victim->pIndexData->vnum) {
 				stc("{YYou have almost completed your QUEST!{x\n", gch);
 				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
-				gch->questmob = -1;
+				gch->pcdata->questmob = -1;
 				Format::sprintf(buf, "{Y:QUEST: {x$N has slain %s", victim->short_descr);
 				wiznet(buf, gch, nullptr, WIZ_QUEST, 0, 0);
 			}
