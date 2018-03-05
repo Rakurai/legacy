@@ -70,7 +70,7 @@ Reward(FILE *fp) :
 {
 	if (type != "gold"
 	 && type != "silver"
-	 && type != "xp"
+	 && type != "exp"
 	 && type != "qp"
 	 && type != "sp"
 	 && type != "obj"
