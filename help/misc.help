@@ -237,15 +237,11 @@ Developed at: DIKU -- The Department of Computer Science
 -1 MOTD~
 {WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
 
-{Y* {BPlease look over the rules before you begin playing. These can be 
-    seen by typing {Whelp rules{B.{x
-{Y* {BVisit our website at {Cwww.ageoflegacy.com {Bfor area directions and helpful
-    tips.{x
-{Y* {BFollow us on {WFacebook {Bat {Cwww.facebook.com/ageoflegacy/ {Bfor game updates, 
-    news, and discussions. 
-{Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
-{Y* {BIf you have any questions/comments/suggestions, please contact the
-    immortals via notes, or at the sites listed above.
+{Y* {BPlease look over the rules before you begin playing. These can be seen by typing {Whelp rules{B.{x
+{Y* {BVisit our website at {Cwww.ageoflegacy.com {Bfor area directions and helpful tips.{x
+{Y* {BFollow us on {WFacebook {Bat {Cwww.facebook.com/ageoflegacy/ {Bfor game updates, news, and discussions. 
+{Y* {BYou can return to this message by typing {Whelp motd{B at any time.
+{Y* {BIf you have any questions/comments/suggestions, please contact the immortals via notes, or at the sites listed above.
 
 {CFind more information and area directions at {Ywww.ageoflegacy.com!{x
 
@@ -253,7 +249,11 @@ Developed at: DIKU -- The Department of Computer Science
 
 92 IMOTD~
 {C--------------------------------------------------------------------------------{x
+
 Welcome Immortal!
+
+{C--------------------------------------------------------------------------------{x
+{W[Hit Enter to continue]{x
 
 ~
 
