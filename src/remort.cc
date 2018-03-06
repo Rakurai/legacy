@@ -286,8 +286,8 @@ void list_extraskill(Character *ch)
 
 			if (!IS_IMMORTAL(ch)
 			    && (entry.remort_guild == ch->guild
-			        || entry.skill_level[ch->guild] <= 0
-			        || entry.skill_level[ch->guild] > LEVEL_HERO))
+			        || get_usable_level(type, ch->guild) <= 0
+			        || get_usable_level(type, ch->guild) > LEVEL_HERO))
 				continue;
 
 			output += Format::format("%-15s %s%-8d{x",
@@ -379,8 +379,8 @@ void do_eremort(Character *ch, String argument)
 	}
 
 	/* is it barred from that class? */
-	if (skill::lookup(sn).skill_level[ch->guild] <= 0
-	    || skill::lookup(sn).skill_level[ch->guild] > LEVEL_HERO) {
+	if (get_usable_level(sn, ch->guild) <= 0
+	    || get_usable_level(sn, ch->guild) > LEVEL_HERO) {
 		stc("Your class cannot gain that skill.\n", ch);
 		return;
 	}

@@ -634,7 +634,7 @@ bool spec_cast_cleric(Character *ch)
 		default:        sn = skill::type::dispel_magic;  break;
 		}
 
-		if (ch->level < skill::lookup(sn).skill_level[1]
+		if (ch->level < get_usable_level(sn, Guild::cleric)
 		    || ch->mana < skill::lookup(sn).min_mana)
 			continue;
 
@@ -690,7 +690,7 @@ bool spec_cast_mage(Character *ch)
 		default:        sn = skill::type::plague;        break;
 		}
 
-		if (ch->level < skill::lookup(sn).skill_level[0]
+		if (ch->level < get_usable_level(sn, Guild::mage)
 		    || ch->mana < skill::lookup(sn).min_mana)
 			continue;
 
@@ -745,8 +745,8 @@ bool spec_cast_undead(Character *ch)
 		default:        sn = skill::type::weaken;        break;
 		}
 
-		if ((ch->level < skill::lookup(sn).skill_level[1]
-		     && ch->level < skill::lookup(sn).skill_level[0])
+		if ((ch->level < get_usable_level(sn, Guild::cleric)
+		     && ch->level < get_usable_level(sn, Guild::mage))
 		    || ch->mana < skill::lookup(sn).min_mana)
 			continue;
 

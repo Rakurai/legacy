@@ -3263,7 +3263,7 @@ void do_brew(Character *ch, String argument)
 		target_level = atoi(arg);
 
 		/* make sure the new level is high enough */
-		if (target_level < skill::lookup(sn).skill_level[ch->guild]) {
+		if (target_level < get_usable_level(sn, ch->guild)) {
 			stc("You cannot brew the spell at that low a level.\n", ch);
 			return;
 		}
@@ -3372,7 +3372,7 @@ void do_scribe(Character *ch, String argument)
 		target_level = atoi(arg);
 
 		/* Keep the spell level from dropping too low. */
-		if (target_level < skill::lookup(sn).skill_level[ch->guild]) {
+		if (target_level < get_usable_level(sn, ch->guild)) {
 			stc("You cannot scribe that spell at that level.", ch);
 			return;
 		}

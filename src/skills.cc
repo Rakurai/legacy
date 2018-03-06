@@ -107,7 +107,6 @@ int comp_spells(const void *sn1, const void *sn2)
 */
 void do_spells(Character *ch, String argument)
 {
-	int level;
 	int min_level = 1;
 	int max_level = LEVEL_HERO;
 	int group = -1;
@@ -227,7 +226,7 @@ void do_spells(Character *ch, String argument)
 			if (type == skill::type::unknown)
 				continue;
 
-			level = skill::lookup(type).skill_level[ch->guild];
+			int level = get_usable_level(type, ch->guild);
 
 			if (level < min_level || max_level < level)
 				continue;
@@ -247,7 +246,7 @@ void do_spells(Character *ch, String argument)
 			if (type == skill::type::unknown)
 				continue;
 
-			level = entry.skill_level[ch->guild];
+			int level = get_usable_level(type, ch->guild);
 
 			if (level < min_level
 			    || max_level < level
@@ -291,7 +290,7 @@ void do_spells(Character *ch, String argument)
 		qsort(spell_list, nspells, sizeof(spell_list[0]), comp_spells);
 
 	/* output the spells found in spell_list */
-	level = -1;
+	int level = -1;
 
 	for (j = 0; j < nspells; j++) {
 		if (spell_list[j].level != level) {
@@ -363,7 +362,6 @@ void do_spells(Character *ch, String argument)
 */
 void do_skills(Character *ch, String argument)
 {
-	int level;
 	int min_level = 1;
 	int max_level = LEVEL_HERO;
 	int j;
@@ -430,7 +428,7 @@ void do_skills(Character *ch, String argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		level = entry.skill_level[ch->guild];
+		int level = get_usable_level(type, ch->guild);
 
 		if (level < min_level
 		    || max_level < level
@@ -468,7 +466,7 @@ void do_skills(Character *ch, String argument)
 		qsort(skill_list, nskills, sizeof(skill_list[0]), comp_spells);
 
 	/* output the skills found in skill_list */
-	level = -1;
+	int level = -1;
 
 	for (j = 0; j < nskills; j++) {
 		if (skill_list[j].level != level) {
@@ -540,9 +538,8 @@ void do_levels(Character *ch, String argument)
 {
 	String list[LEVEL_HERO];
 	char columns[LEVEL_HERO] = {0};
-	int lev, x, y;
+	int x, y;
 	char buf[MAX_STRING_LENGTH];
-	int guild;
 	String buffer;
 
 	if (IS_NPC(ch))
@@ -572,7 +569,7 @@ void do_levels(Character *ch, String argument)
 				// if ungainable by any class, skip it
 				bool gainable = false;
 				for (int i = Guild::first; i < Guild::size; i++)
-					if (entry.skill_level[i] >= 0) {
+					if (get_usable_level(type, (Guild)i) >= 0) {
 						gainable = true;
 						break;
 					}
@@ -584,10 +581,11 @@ void do_levels(Character *ch, String argument)
 				buffer += buf;
 
 				for (x = Guild::first; x < Guild::size; x++) {
-					if (entry.skill_level[x] < 0 || entry.skill_level[x] > LEVEL_HERO)
+					int level = get_usable_level(type, (Guild)x);
+					if (level < 0 || level > LEVEL_HERO)
 						Format::sprintf(buf, "{c  NA{x");
 					else
-						Format::sprintf(buf, "%4d", entry.skill_level[x]);
+						Format::sprintf(buf, "%4d", level);
 
 					buffer += buf;
 				}
@@ -623,10 +621,11 @@ void do_levels(Character *ch, String argument)
 				buffer += buf;
 
 				for (y = Guild::first; y < Guild::size; y++) {
-					if (entry.skill_level[y] < 0 || entry.skill_level[y] > LEVEL_HERO)
+					int level = get_usable_level(type, (Guild)y);
+					if (level < 0 || level > LEVEL_HERO)
 						Format::sprintf(buf, " {TNA{c/{HNA {x");
 					else
-						Format::sprintf(buf, "{C%3d{c/{G%-3d{x", entry.skill_level[y], entry.rating[y]);
+						Format::sprintf(buf, "{C%3d{c/{G%-3d{x", level, entry.rating[y]);
 
 					buffer += buf;
 				}
@@ -660,34 +659,35 @@ void do_levels(Character *ch, String argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		if (entry.skill_level[guild] < 0)
+		int level = get_usable_level(type, guild);
+
+		if (level < 0)
 			continue;
 
-		if (entry.skill_level[guild] < LEVEL_HERO &&
+		if (level < LEVEL_HERO &&
 		    entry.spell_fun != spell_null) {
-			lev = entry.skill_level[guild];
 			Format::sprintf(buf, "{G%-20s  {C%3d{x {Tmana{x  ", entry.name,
 			        entry.min_mana);
 
-			if (list[lev].empty())
-				Format::sprintf(list[lev], "\n{HLevel %2d: %s", lev, buf);
+			if (list[level].empty())
+				Format::sprintf(list[level], "\n{HLevel %2d: %s", level, buf);
 			else { /* append */
-				if (++columns[lev] % 2 == 0)
-					list[lev] += "\n          ";
+				if (++columns[level] % 2 == 0)
+					list[level] += "\n          ";
 
-				list[lev] += buf;
+				list[level] += buf;
 			}
 		}
 	}
 
-	for (lev = 0; lev < LEVEL_HERO; lev++)
+	for (int lev = 0; lev < LEVEL_HERO; lev++)
 //		if (!list[lev].empty())
 			buffer += list[lev];
 
 	buffer += "\n";
 
 	/* Initialize the data */
-	for (lev = 0; lev < LEVEL_HERO; lev++) {
+	for (int lev = 0; lev < LEVEL_HERO; lev++) {
 		columns[lev] = 0;
 		list[lev].clear();
 	}
@@ -699,12 +699,13 @@ void do_levels(Character *ch, String argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		if (entry.skill_level[ch->guild] < 0)
+		int lev = get_usable_level(type, ch->guild);
+
+		if (lev < 0)
 			continue;
 
-		if (entry.skill_level[guild] < LEVEL_HERO &&
+		if (lev < LEVEL_HERO &&
 		    entry.spell_fun == spell_null) {
-			lev = entry.skill_level[guild];
 			Format::sprintf(buf, "{G%-20s   {x        ", entry.name);
 
 			if (list[lev].empty())
@@ -718,7 +719,7 @@ void do_levels(Character *ch, String argument)
 		}
 	}
 
-	for (lev = 0; lev < LEVEL_HERO; lev++)
+	for (int lev = 0; lev < LEVEL_HERO; lev++)
 //		if (!list[lev].empty())
 			buffer += list[lev];
 
@@ -845,7 +846,7 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	if (IS_NPC(ch))
 		return;
 
-	if (ch->level < skill::lookup(type).skill_level[ch->guild]
+	if (ch->level < get_usable_level(type, ch->guild)
 	    ||  skill::lookup(type).rating[ch->guild] == 0
 	    ||  get_learned(ch, type) == 0
 	    ||  get_learned(ch, type) == 100)
@@ -997,6 +998,28 @@ int get_learned(const Character *ch, skill::type sn) {
 	return ch->pcdata->learned[(int)sn];
 }
 
+int get_usable_level(skill::type sn, Guild guild) {
+	const auto& sk = skill::lookup(sn);
+
+	if (guild == Guild::none) {
+		int highest = 0;
+
+		// return the highest level
+		for (int i = Guild::first; i < Guild::size; i++) {
+			// if any guild cant use it, neither can unguilded
+			if (sk.skill_level[i] == -1)
+				return -1;
+
+			if (sk.skill_level[i] > highest)
+				highest = sk.skill_level[i];
+		}
+
+		return highest;
+	}
+
+	return sk.skill_level[guild];
+}
+
 /* for returning skill information */
 int get_skill_level(const Character *ch, skill::type sn)
 {
@@ -1005,7 +1028,7 @@ int get_skill_level(const Character *ch, skill::type sn)
 	if (sn == skill::type::unknown) /* shorthand for level based skills */
 		skill = ch->level * 5 / 2;
 	else if (!IS_NPC(ch)) {
-		if (ch->level < skill::lookup(sn).skill_level[ch->guild])
+		if (ch->level < get_usable_level(sn, ch->guild))
 			skill = 0;
 		else
 			skill = get_learned(ch, sn);
@@ -1348,17 +1371,17 @@ int get_skill_cost(Character *ch, skill::type type)
 	/*      if (!skill::lookup(type).min_mana)
 	                return 0;
 
-	        if (ch->level + 2 == skill::lookup(type).skill_level[ch->guild])
+	        if (ch->level + 2 == get_usable_level(type, ch->guild))
 	                cost = 50;
 	        else
 	                cost = UMAX(skill::lookup(type).min_mana,
-	                        100 / (2 + ch->level - skill::lookup(type).skill_level[ch->guild]));
+	                        100 / (2 + ch->level - get_usable_level(type, ch->guild));
 
 	        return cost; */
 
 	if (skill::lookup(type).spell_fun == spell_null) {
 		if (/*skill::lookup(type).target == TAR_CHAR_OFFENSIVE && */ch->level <= 50) {
-			int pct_max, level = skill::lookup(type).skill_level[ch->guild];
+			int pct_max, level = get_usable_level(type, ch->guild);
 			pct_max = 100 * (ch->level - level) / UMAX(50 - level, 1);
 			cost = (cost / 2) + (((cost / 2) * pct_max) / 100);
 		}
@@ -1491,7 +1514,7 @@ void do_gain(Character *ch, String argument)
 			    && entry.remort_guild == Guild::none) {
 				foundsect = TRUE;
 				output += Format::format("%s%-18s %s%-5d{x ",
-				    entry.skill_level[ch->guild] > ch->level ? "{c" : "{g",
+				    get_usable_level(type, ch->guild) > ch->level ? "{c" : "{g",
 				    entry.name,
 				    entry.rating[ch->guild] > ch->train ? "{T" : "{C",
 				    entry.rating[ch->guild]);
@@ -1544,7 +1567,7 @@ void do_gain(Character *ch, String argument)
 			    && entry.remort_guild == ch->guild) {
 				foundsect = TRUE;
 				output += Format::format("%s%-18s %s%-5d{x ",
-				    entry.skill_level[ch->guild] > ch->level ? "{c" : "{g",
+				    get_usable_level(type, ch->guild) > ch->level ? "{c" : "{g",
 				    entry.name,
 				    entry.rating[ch->guild] > ch->train ? "{T" : "{C",
 				    entry.rating[ch->guild]);

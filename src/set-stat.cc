@@ -635,7 +635,7 @@ void do_extraset(Character *ch, String argument)
 	}
 
 	/* is it barred from that class? */
-	if ((skill::lookup(sn).skill_level[victim->guild] < 0)
+	if ((get_usable_level(sn, victim->guild) < 0)
 	    || (skill::lookup(sn).rating[victim->guild] < 0)) {
 		stc("Their class cannot gain that skill.\n", ch);
 		return;

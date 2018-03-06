@@ -3621,7 +3621,7 @@ void prac_by_group(Character *ch, const String& argument)
 			if (sn == skill::type::unknown)
 				continue;
 
-			if (skill::lookup(sn).skill_level[ch->guild] > ch->level)
+			if (get_usable_level(sn, ch->guild) > ch->level)
 				continue; /* skill beyond player's level */
 
 			int learned = get_learned(ch, sn);
@@ -3694,7 +3694,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 			if (!CAN_USE_RSKILL(ch, type))
 				continue;
 
-		if (entry.skill_level[ch->guild] > ch->level)
+		if (get_usable_level(type, ch->guild) > ch->level)
 			continue; /* skill beyond player's level */
 
 		if (get_learned(ch, type) <= 0)
@@ -3820,7 +3820,7 @@ void do_practice(Character *ch, String argument)
 
 	if (sn == skill::type::unknown
 	    || (!IS_NPC(ch)
-	        && (ch->level < entry.skill_level[ch->guild]
+	        && (ch->level < get_usable_level(sn, ch->guild)
 	            ||    get_learned(ch, sn) < 1 /* skill is not known */
 	            ||    entry.rating[ch->guild] == 0))) {
 		stc("You can't practice that.\n", ch);

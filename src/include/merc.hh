@@ -505,6 +505,7 @@ void    gn_remove       args( ( Character *ch, int gn) );
 void    group_add       args( ( Character *ch, const String& name, bool deduct) );
 void    group_remove    args( ( Character *ch, const String& name) );
 int	    get_skill_cost  args(( Character *ch, skill::type ) );
+int     get_usable_level args(( skill::type sn, Guild guild ));
 int     get_skill_level args(( const Character *ch, skill::type type ) );
 bool	deduct_stamina  args( ( Character *ch, skill::type ) );
 
