@@ -44,7 +44,8 @@ int get_max_stat(const Character *ch, int stat)
 	else if (!IS_IMMORTAL(ch)) {
 		max = pc_race_table[ch->race].max_stats[stat] + 4;
 
-		if (guild_table[ch->guild].stat_prime == stat)
+		if (ch->guild != Guild::none
+		 && guild_table[ch->guild].stat_prime == stat)
 			max += 2;
 	}
 

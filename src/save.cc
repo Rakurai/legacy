@@ -1883,7 +1883,8 @@ void do_finger(Character *ch, String argument)
 
 	Format::sprintf(buf, "{C%s ", race.capitalize());
 	dbuf += buf;
-	Format::sprintf(buf, "{C%s, follower of %s{x\n", guild_table[guild].name.capitalize(), deity);
+	Format::sprintf(buf, "{C%s, follower of %s{x\n",
+		(Guild)guild == Guild::none ? "adventurer" : guild_table[guild].name.capitalize(), deity);
 	dbuf += buf;
 	Format::sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
 	dbuf += buf;

@@ -1782,8 +1782,15 @@ void do_train(Character *ch, String argument)
 	char *pOutput = nullptr;
 	int cost, add;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		stc("You don't need to train yourself.\n", ch);
 		return;
+	}
+
+	if (ch->guild == Guild::none) {
+		stc("Join a guild if you want to train yourself.\n", ch);
+		return;
+	}
 
 	/*
 	 * Check for trainer.

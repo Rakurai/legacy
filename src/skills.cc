@@ -34,6 +34,7 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "interp.hh"
+#include "lookup.hh"
 #include "lootv2.hh"
 #include "macros.hh"
 #include "magic.hh"
@@ -48,6 +49,9 @@
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(Character *ch, int gn)
 {
+	if (ch->guild == Guild::none)
+		return FALSE;
+
 	if (ch->pcdata->group_known[gn])
 		return TRUE;
 
@@ -639,15 +643,9 @@ void do_levels(Character *ch, String argument)
 		return;
 	}
 
-	if (arg.is_prefix_of("mage"))             guild = 0;
-	else if (arg.is_prefix_of("cleric"))      guild = 1;
-	else if (arg.is_prefix_of("thief"))       guild = 2;
-	else if (arg.is_prefix_of("warrior"))     guild = 3;
-	else if (arg.is_prefix_of("necromancer")) guild = 4;
-	else if (arg.is_prefix_of("paladin"))     guild = 5;
-	else if (arg.is_prefix_of("bard"))        guild = 6;
-	else if (arg.is_prefix_of("ranger"))      guild = 7;
-	else {
+	Guild guild = guild_lookup(arg);
+
+	if (guild == Guild::none) {
 		stc("Invalid class.\n", ch);
 		return;
 	}
@@ -757,8 +755,11 @@ long exp_per_level(Character *ch, int points)
 		expl += points * inc / 10;
 	}
 
-	expl *= pc_race_table[ch->race].guild_mult[ch->guild];
-	expl /= 100;
+	if (ch->guild != Guild::none) {
+		expl *= pc_race_table[ch->race].guild_mult[ch->guild];
+		expl /= 100;
+	}
+
 	/* New remort system - 7/2, Ian
 	   Taken out per new requirements
 	if ( ch->pcdata->remort_count > 1 )
@@ -844,6 +845,9 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	int xp;
 
 	if (IS_NPC(ch))
+		return;
+
+	if (ch->guild == Guild::none)
 		return;
 
 	if (ch->level < get_usable_level(type, ch->guild)
@@ -932,6 +936,9 @@ void gn_remove(Character *ch, int gn)
 void group_add(Character *ch, const String& name, bool deduct)
 {
 	if (IS_NPC(ch)) /* NPCs do not have skills */
+		return;
+
+	if (ch->guild == Guild::none)
 		return;
 
 	skill::type type = skill::lookup(name);
@@ -1436,6 +1443,11 @@ void do_gain(Character *ch, String argument)
 
 	if (IS_NPC(ch)) {
 		stc("Trust me, you know all you need.\n", ch);
+		return;
+	}
+
+	if (ch->guild == Guild::none) {
+		stc("You must join a guild to learn new skills.\n", ch);
 		return;
 	}
 

@@ -2458,7 +2458,7 @@ void do_whois(Character *ch, String argument)
 	        remort,
 	        victim->level,
 	        pc_race_table[victim->race].who_name,
-	        guild_table[victim->guild].who_name,
+	        victim->guild == Guild::none ? "---" : guild_table[victim->guild].who_name,
 	        (victim->pcdata->plr_flags.has(PLR_PK)) ? "{P]{x" : "{g]{x");
 	output += block;
 	/* third block "name title" */
@@ -2675,7 +2675,7 @@ void do_who(Character *ch, String argument)
 		/*** Block 1 stuff ***/
 		/* Imm:    Immname */
 		/* Mortal: [lvl race class] */
-		String guild = guild_table[wch->guild].who_name;
+		String guild = wch->guild == Guild::none ? "---" : guild_table[wch->guild].who_name;
 
 		if (IS_REMORT(wch)) {
 			Format::sprintf(rbuf, "{G%2d{x", wch->pcdata->remort_count);
@@ -3211,13 +3211,17 @@ void do_consider(Character *ch, String argument)
 		return;
 	}
 
+	String guild = IS_NPC(victim) ? "mobile" :
+	               victim->guild == Guild::none ? "none" :
+	               guild_table[victim->guild].name;
+
 	/* New Consider by Clerve */
 	if (ch->has_cgroup(GROUP_AVATAR)) {
 		ptc(ch, "{CYou see %s (level %d)\n", victim->name, victim->level);
 		ptc(ch, "{TRace: %s  Sex: %s  Class: %s  Size: %s\n",
 		    race_table[victim->race].name,
 		    sex_table[GET_ATTR_SEX(victim)].name,
-		    IS_NPC(victim) ? "mobile" : guild_table[victim->guild].name,
+		    guild,
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
 		    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
@@ -3771,8 +3775,15 @@ void do_practice(Character *ch, String argument)
 	Character *mob;
 	int adept, increase;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		stc("You don't need to practice anything.\n", ch);
 		return;
+	}
+
+	if (ch->guild == Guild::none) {
+		stc("Join a guild if you want to learn some skills.\n", ch);
+		return;
+	}
 
 	/*** PRACTICE (the info command) ***/
 	String arg;
@@ -5153,7 +5164,7 @@ void score_new(Character *ch)
 	Format::sprintf(buf, "%s ", sex_table[GET_ATTR_SEX(ch)].name.capitalize());
 	buf += race_table[ch->race].name.capitalize();
 	buf += " ";
-	buf += guild_table[ch->guild].name.capitalize();
+	buf += ch->guild == Guild::none ? "None" : guild_table[ch->guild].name.capitalize();
 	new_color(ch, CSLOT_SCORE_CLASS);
 	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", buf.center(62));
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(

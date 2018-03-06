@@ -103,8 +103,7 @@ skill::type find_spell(Character *ch, const String& name)
 			if (found == skill::type::unknown)
 				found = type;
 
-			if (ch->level >= entry.skill_level[ch->guild]
-			 && get_skill_level(ch, type) > 0)
+			if (get_skill_level(ch, type) > 0)
 				return type;
 		}
 	}
@@ -236,8 +235,8 @@ void do_cast(Character *ch, String argument)
 	one_argument(target_name, arg2);
 
 	if ((sn = find_spell(ch, arg1)) == skill::type::unknown
-	    || (!IS_NPC(ch) && (ch->level < skill::lookup(sn).skill_level[ch->guild]
-	                        || get_skill_level(ch, sn) == 0))) {
+	 || (!IS_NPC(ch)
+	  && (get_skill_level(ch, sn) == 0))) {
 		stc("You don't know any spells of that name.\n", ch);
 		return;
 	}

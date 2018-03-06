@@ -448,8 +448,8 @@ int select_pose(Character *ch)
 		return -1;
 	}
 
-	if (ch->guild >= Guild::size) {
-		Logging::bug("do_new_pose: Player has invalid class!", 0);
+	if (ch->guild == Guild::none) {
+		stc("You don't feel confident enough in your skills to pose.\n", ch);
 		return -1;
 	}
 
@@ -1639,10 +1639,15 @@ void do_group(Character *ch, String argument)
 
 		for (gch = Game::world().char_list; gch != nullptr; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
+				String guild =
+					IS_NPC(gch) ? "Mob" :
+					gch->guild == Guild::none ? "---" :
+					guild_table[gch->guild].who_name;
+
 				Format::sprintf(buf,
 				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",
 				        gch->level,
-				        IS_NPC(gch) ? "Mob" : guild_table[gch->guild].who_name,
+				        guild,
 				        PERS(gch, ch, VIS_PLR),
 				        gch->hit,   GET_MAX_HIT(gch),
 				        gch->mana,  GET_MAX_MANA(gch),

@@ -245,6 +245,11 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
+	if (victim->guild == Guild::none) {
+		stc("A player must join a guild before evolving skills.\n", ch);
+		return;
+	}
+
 	if (arg2.empty()) {
 		extern int can_evolve args((Character * ch, skill::type sn));
 		String buffer;
@@ -546,6 +551,11 @@ void do_extraset(Character *ch, String argument)
 
 	if (IS_NPC(victim)) {
 		stc("Mobiles do not have extraclass skills.\n", ch);
+		return;
+	}
+
+	if (victim->guild == Guild::none) {
+		stc("Only players with guilds can have extraclass skills.\n", ch);
 		return;
 	}
 
@@ -1532,7 +1542,7 @@ void format_mstat(Character *ch, Character *victim)
 	stc("\n", ch);
 	ptc(ch, "{MRace: %s  Sex: %s  Guild: %s  Size: %s{x\n",
 	    race_table[victim->race].name, sex_table[GET_ATTR_SEX(victim)].name,
-	    IS_NPC(victim) ? "mobile" : guild_table[victim->guild].name,
+	    IS_NPC(victim) ? "mobile" : victim->guild == Guild::none ? "none" : guild_table[victim->guild].name,
 	    size_table[victim->size].name);
 
 	if (!IS_NPC(victim))
@@ -2079,7 +2089,7 @@ void do_pstat(Character *ch, String argument)
 	ptc(ch, " %s %s %s",
 	    race_table[victim->race].name,
 	    sex_table[GET_ATTR_SEX(ch)].name,
-	    guild_table[victim->guild].name);
+	    victim->guild == Guild::none ? "none" : guild_table[victim->guild].name);
 
 	if (victim->clan) {
 		stc(", ", ch);

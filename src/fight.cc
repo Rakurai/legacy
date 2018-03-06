@@ -962,8 +962,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			thac0_32 = 6;
 	}
 	else {
-		thac0_00 = guild_table[ch->guild].thac0_00;
-		thac0_32 = guild_table[ch->guild].thac0_32;
+		int index = ch->guild == Guild::none ? Guild::warrior : ch->guild;
+		thac0_00 = guild_table[index].thac0_00;
+		thac0_32 = guild_table[index].thac0_32;
 	}
 
 	thac0 = interpolate(ch->level, thac0_00, thac0_32);
@@ -2954,7 +2955,8 @@ int group_gain(Character *ch, Character *victim)
 		lowest_xp = 0;
 	}
 
-	vary_int += vary_bit[ch->guild];
+	if (ch->guild != Guild::none)
+		vary_int += vary_bit[ch->guild];
 
 	/* calculate number of group members present and the sum of their levels */
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
@@ -2963,7 +2965,8 @@ int group_gain(Character *ch, Character *victim)
 			group_levels += IS_NPC(gch) ? gch->level / 2 : gch->level;
 
 			/* figure out how varied the group is -- Montrey */
-			if (!vary_int.has(vary_bit[gch->guild])) {
+			if (gch->guild != Guild::none
+			 && !vary_int.has(vary_bit[gch->guild])) {
 				vary_int += vary_bit[gch->guild];
 				diff_classes++;
 			}

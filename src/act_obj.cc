@@ -3186,14 +3186,18 @@ void do_brew(Character *ch, String argument)
 	skill::type sn;
 	int target_level = 0;    /* what level should we brew at? */
 
-	if (!IS_NPC(ch)
-	    && ch->level < skill::lookup(skill::type::brew).skill_level[ch->guild]) {
+	if (IS_NPC(ch)) {
+		stc("Mobiles can't brew!.\n", ch);
+		return;
+	}
+
+	if (!get_skill_level(ch, skill::type::brew)) {
 		stc("You do not know how to brew potions.\n", ch);
 		return;
 	}
 
-	if (IS_NPC(ch)) {
-		stc("Mobiles can't brew!.\n", ch);
+	if (ch->guild == Guild::none) {
+		stc("Only guild members can brew potions.\n", ch);
 		return;
 	}
 
@@ -3315,14 +3319,18 @@ void do_scribe(Character *ch, String argument)
 	skill::type sn;
 	int target_level = 0;   /* let caster make items of lower level */
 
-	if (!IS_NPC(ch)
-	    && ch->level < skill::lookup(skill::type::scribe).skill_level[ch->guild]) {
+	if (IS_NPC(ch)) {
+		stc("Mobiles can't scribe!.\n", ch);
+		return;
+	}
+
+	if (!get_skill_level(ch, skill::type::scribe)) {
 		stc("You do not know how to scribe scrolls.\n", ch);
 		return;
 	}
 
-	if (IS_NPC(ch)) {
-		stc("Mobiles can't scribe!.\n", ch);
+	if (ch->guild == Guild::none) {
+		stc("Only guild members can scribe scrolls.\n", ch);
 		return;
 	}
 
@@ -4888,9 +4896,9 @@ void do_forge(Character *ch, String argument)
 	        weapon_table[weapon_lookup(type)].name, obj->material,
 	        ch->in_room->area().world.time.month_name(),
 	        (ch->level > LEVEL_HERO) ? "an immortal" : (ch->level > 75) ? "a master" :
-	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
-	        "a newbie", guild_table[ch->guild].name, ch->name,
-	        race_table[ch->race].name);
+	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" : "a newbie",
+	        ch->guild == Guild::none ? "adventurer" : guild_table[ch->guild].name,
+	        ch->name, race_table[ch->race].name);
 	ed = new ExtraDescr(obj->name, buf);
 	ed->next           = obj->extra_descr;
 	obj->extra_descr   = ed;

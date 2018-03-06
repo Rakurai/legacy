@@ -252,6 +252,9 @@ bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 	if (!IS_REMORT(ch))
 		return FALSE;
 
+	if (ch->guild == Guild::none)
+		return FALSE;
+
 	if (!get_skill_level(ch, sn))
 		return FALSE;
 
@@ -263,6 +266,9 @@ bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 
 void list_extraskill(Character *ch)
 {
+	if (ch->guild == Guild::none)
+		return;
+
 	String output;
 	output += "\n                      {BExtraclass Remort Skills{x\n";
 
