@@ -182,7 +182,7 @@ void help(Character *ch, const String& argument)
 	while (*p != '\0') {
 		char word[MIL];
 		p = one_keyword(p, word);
-		query += HCOL_KEYS " LIKE '%";
+		query += HCOL_KEYS " LIKE '";
 		query += db_esc(word);
 		query += "%'";
 
@@ -208,7 +208,7 @@ void help(Character *ch, const String& argument)
 	}
 
 	output += text + (text[0] == '.' ? 1 : 0);
-	page_to_char(output, ch);
+	stc(output, ch);
 }
 
 void add_help(int group, int order, int level, const String& keywords, const String& text)
