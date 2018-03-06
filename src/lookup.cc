@@ -33,6 +33,7 @@
 #include "merc.hh"
 #include "String.hh"
 #include "tables.hh"
+#include "lookup.hh"
 
 Clan *clan_vnum_lookup(const Vnum& vnum)
 {
@@ -203,16 +204,14 @@ int attack_lookup(const String& name)
 }
 
 /* returns class number */
-int class_lookup(const String& name)
+Class class_lookup(const String& name)
 {
-	int cls;
-
-	for (cls = 0; cls < MAX_CLASS; cls++) {
+	for (int cls = Class::first; cls < Class::size; cls++) {
 		if (name.is_prefix_of(class_table[cls].name))
-			return cls;
+			return (Class)cls;
 	}
 
-	return -1;
+	return Class::none;
 }
 
 int liq_lookup(const String& name)

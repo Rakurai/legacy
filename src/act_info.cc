@@ -2543,7 +2543,7 @@ void do_who(Character *ch, String argument)
 	int iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
-	bool rgfClass[MAX_CLASS], rgfRace[pc_race_table.size()];
+	bool rgfClass[Class::size], rgfRace[pc_race_table.size()];
 	bool fClassRestrict = FALSE, fClanRestrict = FALSE, fRaceRestrict = FALSE, fImmortalOnly = FALSE;
 	bool fClan = FALSE;
 	bool fPK = FALSE;
@@ -2552,7 +2552,7 @@ void do_who(Character *ch, String argument)
 	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
-	for (unsigned long i = 0; i < MAX_CLASS; i++)
+	for (unsigned long i = 0; i < Class::size; i++)
 		rgfClass[i] = FALSE;
 
 	for (unsigned long i = 0; i < pc_race_table.size(); i++)

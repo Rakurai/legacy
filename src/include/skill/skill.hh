@@ -4,6 +4,7 @@
 #include "String.hh"
 #include "declare.hh"
 #include "magic.hh"
+#include "Class.hh"
 
 
 namespace skill {
@@ -14,8 +15,8 @@ namespace skill {
 struct  skill_table_t
 {
 	String      name;                   /* Name of skill                */
-	int      skill_level[MAX_CLASS]; /* Level needed by class        */
-	int      rating[MAX_CLASS];      /* How hard it is to learn      */
+	int      skill_level[Class::size]; /* Level needed by class        */
+	int      rating[Class::size];      /* How hard it is to learn      */
 	SPELL_FUN * spell_fun;              /* Spell pointer (for spells)   */
 	int      target;                 /* Legal targets                */
 	int      minimum_position;       /* Position for caster / user   */
@@ -23,8 +24,8 @@ struct  skill_table_t
 	int      beats;                  /* Waiting time after use       */
 	String      noun_damage;            /* Damage message               */
 	int         remort_class;           /* Required remort level or 0   */
-	int		evocost_sec[MAX_CLASS];	/* Class cost to evolve to 2    */
-	int		evocost_pri[MAX_CLASS];	/* Class cost to evolve to 3    */
+	int		evocost_sec[Class::size];	/* Class cost to evolve to 2    */
+	int		evocost_pri[Class::size];	/* Class cost to evolve to 3    */
 };
 
 type lookup(const String& name);

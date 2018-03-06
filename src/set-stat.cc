@@ -510,7 +510,7 @@ void do_extraset(Character *ch, String argument)
 	if (arg1 == "list") {
 		output += "\n                      {BExtraclass Remort Skills{x\n";
 
-		for (cn = 0; cn < MAX_CLASS; cn++) {
+		for (cn = Class::first; cn < Class::size; cn++) {
 			Format::sprintf(buf, "\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
 			output += buf;
 			col = 0;
@@ -991,16 +991,16 @@ void do_mset(Character *ch, String argument)
 	 *********************************************************/
 
 	if (arg2.is_prefix_of("class")) {
-		int cls = class_lookup(arg3);
+		Class cls = class_lookup(arg3);
 
-		if (cls == -1) {
+		if (cls == Class::none) {
 			Format::sprintf(buf, "Possible classes are: ");
 
-			for (cls = 0; cls < MAX_CLASS; cls++) {
-				if (cls > 0)
+			for (int i = Class::first; i < Class::size; i++) {
+				if (i > Class::first)
 					buf += " ";
 
-				buf += class_table[cls].name;
+				buf += class_table[i].name;
 			}
 
 			buf += ".\n";

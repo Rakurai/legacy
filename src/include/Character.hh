@@ -9,6 +9,7 @@
 #include "Format.hh" // ptc inline
 #include "Player.hh"
 #include "Valid.hh"
+#include "Class.hh"
 
 /*
  * One character (PC or NPC).
@@ -83,7 +84,7 @@ public:
     int              mana = 0;
     int              stam = 0;
 
-    int              cls = 0; // was 'class'
+    Class              cls = Class::none; // was 'class'
     int              race = 0;
     int              level = 0;
     int                 lines = 0;  /* for the pager */

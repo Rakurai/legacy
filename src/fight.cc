@@ -1155,7 +1155,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			if (ch->in_room->sector_type() != Sector::arena
 			    && ch->in_room->sector_type() != Sector::clanarena
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
-			    && ch->cls != PALADIN_CLASS) /* Paladins */
+			    && ch->cls != Class::paladin) /* Paladins */
 				ch->alignment = UMAX(-1000, ch->alignment - 1);
 
 			act("$p draws life from $n.", victim, wield, nullptr, TO_ROOM);
@@ -4527,10 +4527,10 @@ void do_flee(Character *ch, String argument)
 		if (!IS_NPC(ch)) {
 			act("You flee $T from combat!", ch, nullptr, Exit::dir_name(dir), TO_CHAR);
 
-			if (ch->cls == THIEF_CLASS)
+			if (ch->cls == Class::thief)
 				stc("You snuck away safely.\n", ch);
 			else {
-				if (ch->cls == PALADIN_CLASS) { /* Paladins */
+				if (ch->cls == Class::paladin) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);
 				}

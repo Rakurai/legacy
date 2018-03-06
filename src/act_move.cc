@@ -3066,7 +3066,7 @@ void do_enter(Character *ch, String argument)
 
 		if (!IS_NPC(ch) && fighting) {
 			if (ch->cls != 2) {
-				if (ch->cls == PALADIN_CLASS) { /* Paladins */
+				if (ch->cls == Class::paladin) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);
 				}

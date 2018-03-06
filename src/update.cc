@@ -628,7 +628,7 @@ void char_update(void)
 
 			/* If the character is a Paladin and not an NPC
 			   then check their Lay on Hands status. -- Outsider */
-			if (!IS_NPC(ch) && ch->cls == PALADIN_CLASS) {
+			if (!IS_NPC(ch) && ch->cls == Class::paladin) {
 				/* keep it in the limits */
 				if (ch->pcdata->lays > 10) ch->pcdata->lays = 10;
 

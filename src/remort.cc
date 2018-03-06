@@ -266,7 +266,7 @@ void list_extraskill(Character *ch)
 	String output;
 	output += "\n                      {BExtraclass Remort Skills{x\n";
 
-	for (int cn = 0; cn < MAX_CLASS; cn++) {
+	for (int cn = Class::first; cn < Class::size; cn++) {
 		if (!IS_IMMORTAL(ch))
 			if (cn == ch->cls)
 				continue;

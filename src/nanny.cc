@@ -330,7 +330,8 @@ void nanny(Descriptor *d, String argument)
 	String buf, arg;
 	Character *ch, *victim;
 	const char *pwdnew, *p;
-	int iClass, i, weapon, deity;
+	Class iClass; 
+	int i, weapon, deity;
 	unsigned int race;
 	bool fOld, logon_lurk;
 	String log_buf;
@@ -795,11 +796,11 @@ void nanny(Descriptor *d, String argument)
 		write_to_buffer(d, "\n");
 		buf = "Select a class [";
 
-		for (iClass = 0; iClass < MAX_CLASS; iClass++) {
-			if (iClass > 0)
+		for (int i = Class::first; i < Class::size; i++) {
+			if (i > Class::first)
 				buf += " ";
 
-			buf += class_table[iClass].name;
+			buf += class_table[i].name;
 		}
 
 		buf += "]\nHelp file: class\nWhat is your class? ";
@@ -822,7 +823,7 @@ void nanny(Descriptor *d, String argument)
 			break;
 		}
 
-		if ((iClass = class_lookup(argument)) == -1) {
+		if ((iClass = class_lookup(argument)) == Class::none) {
 			write_to_buffer(d, "That is not a class.\nWhat is your class? ");
 			return;
 		}
@@ -836,8 +837,8 @@ void nanny(Descriptor *d, String argument)
 		write_to_buffer(d, "\n");
 		/* paladins can't be neutral */
 		Format::sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
-		        ch->cls == PALADIN_CLASS ? "" : ", neutral,",
-		        ch->cls == PALADIN_CLASS ? "" : "/N");
+		        ch->cls == Class::paladin ? "" : ", neutral,",
+		        ch->cls == Class::paladin ? "" : "/N");
 		write_to_buffer(d, buf);
 		d->connected = CON_GET_ALIGNMENT;
 		break;
@@ -846,7 +847,7 @@ void nanny(Descriptor *d, String argument)
 		switch (argument[0]) {
 		case 'g':
 		case 'G':
-			if (ch->cls == PALADIN_CLASS)
+			if (ch->cls == Class::paladin)
 				ch->alignment = 1000;
 			else
 				ch->alignment = 750;
@@ -855,7 +856,7 @@ void nanny(Descriptor *d, String argument)
 
 		case 'e':
 		case 'E':
-			if (ch->cls == PALADIN_CLASS)
+			if (ch->cls == Class::paladin)
 				ch->alignment = -1000;
 			else
 				ch->alignment = -750;
@@ -866,14 +867,14 @@ void nanny(Descriptor *d, String argument)
 		case 'N':
 
 			/* paladins drop through to default */
-			if (ch->cls != PALADIN_CLASS) {
+			if (ch->cls != Class::paladin) {
 				ch->alignment = 0;
 				break;
 			}
 
 		default:
 			Format::sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
-			        ch->cls == PALADIN_CLASS ? "" : "/N");
+			        ch->cls == Class::paladin ? "" : "/N");
 			write_to_buffer(d, buf);
 			return;
 		}
@@ -886,7 +887,7 @@ void nanny(Descriptor *d, String argument)
 		buf = "Select a deity:\n";
 
 		for (const auto& entry : deity_table) {
-			if (ch->cls == PALADIN_CLASS) { /* Paladins */
+			if (ch->cls == Class::paladin) { /* Paladins */
 				if (entry.value > 0 && ch->alignment > 0) {
 					buf += entry.align;
 					buf += entry.name;

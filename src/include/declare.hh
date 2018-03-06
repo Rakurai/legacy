@@ -87,7 +87,6 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
 #define MAX_QUERY                  20
-#define MAX_CLASS                   8
 #define MAX_LEVEL                 100
 // max items in show_list_to_char is 8000
 #define MAX_DONATED              8000 // max number of items in the pit, affects do_pit performance
@@ -192,18 +191,6 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 //#define PULSE_TOURHALFSTEP		(6 * PULSE_PER_SECOND)
 //#define PULSE_TOURSTART			(120 * PULSE_PER_SECOND)
 //#define PULSE_TOURBOARD			(30 * PULSE_PER_SECOND)
-
-/*
-  Character classes  -- Outsider
-*/
-#define MAGE_CLASS 0
-#define CLERIC_CLASS 1
-#define THIEF_CLASS 2
-#define WARRIOR_CLASS 3
-#define NECROMANCER_CLASS 4
-#define PALADIN_CLASS 5
-#define BARD_CLASS 6
-#define RANGER_CLASS 7
 
 
 /* there are 2 types of invisibility, all encompassing (wizi, superwiz, lurk)

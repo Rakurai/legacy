@@ -34,6 +34,7 @@
 #include "affect/Type.hh"
 #include "String.hh"
 #include "Flags.hh"
+#include "Class.hh"
 
 /* system calls */
 //int unlink();
@@ -157,7 +158,7 @@ struct pc_race_type  /* additional data for pc races */
 	String      who_name;		/* first 3 characters are used in 'who' */
 	int	    base_age;		/* the base age for the race */
 	int      points;                 /* cost in points of the race */
-	int      class_mult[MAX_CLASS];  /* exp multiplier for class, * 100 */
+	int      class_mult[Class::size];  /* exp multiplier for class, * 100 */
 	int      stats[MAX_STATS];       /* starting stats */
 	int      max_stats[MAX_STATS];   /* maximum stats */
 	int      size;                   /* aff bits for the race */
@@ -189,7 +190,7 @@ struct  liq_type
 struct  group_type
 {
 	String      name;
-	int      rating[MAX_CLASS];
+	int      rating[Class::size];
 	std::vector<String> spells;
 };
 

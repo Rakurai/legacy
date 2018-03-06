@@ -268,7 +268,7 @@ cJSON *fwrite_player(Character *ch)
 	if (!ch->pcdata->immprefix.empty())
 		JSON::addStringToObject(o,	"Immp",			ch->pcdata->immprefix);
 
-	if (ch->cls == PALADIN_CLASS) {
+	if (ch->cls == Class::paladin) {
 		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
 		cJSON_AddNumberToObject(o,	"Lay_Next",		ch->pcdata->next_lay_countdown);
 	}
@@ -1234,7 +1234,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 				break;
 			case 'C':
 				INTKEY("Clan",			ch->clan,					clan_lookup(o->valuestring));
-				INTKEY("Cla",			ch->cls,					o->valueint);
+				INTKEY("Cla",			ch->cls,					(Class)o->valueint);
 				FLAGKEY("Comm",			ch->comm_flags,					o->valuestring);
 				FLAGKEY("Cnsr",			ch->censor_flags,					o->valuestring);
 				break;

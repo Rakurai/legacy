@@ -575,7 +575,7 @@ void do_levels(Character *ch, String argument)
 				Format::sprintf(buf, "%-21s", entry.name);
 				buffer += buf;
 
-				for (x = 0; x < MAX_CLASS; x++) {
+				for (x = Class::first; x < Class::size; x++) {
 					if (entry.skill_level[x] < 0 || entry.skill_level[x] > LEVEL_HERO)
 						Format::sprintf(buf, "{c  NA{x");
 					else
@@ -597,7 +597,7 @@ void do_levels(Character *ch, String argument)
 		stc("                                           Level/Trains\n", ch);
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
-		for (x = 0; x < MAX_CLASS; x++) {
+		for (x = Class::first; x < Class::size; x++) {
 			Format::sprintf(buf, "{W%s Skills:{x\n", class_table[x].name.capitalize());
 			buffer += buf;
 
@@ -614,7 +614,7 @@ void do_levels(Character *ch, String argument)
 				Format::sprintf(buf, "  {g%-19s{x", entry.name);
 				buffer += buf;
 
-				for (y = 0; y < MAX_CLASS; y++) {
+				for (y = Class::first; y < Class::size; y++) {
 					if (entry.skill_level[y] < 0 || entry.skill_level[y] > LEVEL_HERO)
 						Format::sprintf(buf, " {TNA{c/{HNA {x");
 					else

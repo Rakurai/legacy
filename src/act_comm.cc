@@ -448,7 +448,7 @@ int select_pose(Character *ch)
 		return -1;
 	}
 
-	if (ch->cls + 1 > MAX_CLASS) {
+	if (ch->cls >= Class::size) {
 		Logging::bug("do_new_pose: Player has invalid class!", 0);
 		return -1;
 	}
