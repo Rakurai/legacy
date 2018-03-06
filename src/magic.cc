@@ -248,7 +248,7 @@ void do_cast(Character *ch, String argument)
 		return;
 	}
 
-	if (skill::lookup(sn).remort_guild > 0)
+	if (skill::lookup(sn).remort_guild != Guild::none)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You don't know any spells of that name.\n", ch);
 			return;

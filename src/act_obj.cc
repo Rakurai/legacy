@@ -3247,7 +3247,7 @@ void do_brew(Character *ch, String argument)
 	     (skill::lookup(sn).target != TAR_CHAR_SELF) &&
 	     (skill::lookup(sn).target != TAR_OBJ_CHAR_DEF))
 	    ||
-	    (skill::lookup(sn).remort_guild > 0)) {
+	    (skill::lookup(sn).remort_guild != Guild::none)) {
 		stc("You cannot brew that spell.\n", ch);
 		return;
 	}
@@ -3355,7 +3355,7 @@ void do_scribe(Character *ch, String argument)
 		return;
 	}
 
-	if (skill::lookup(sn).remort_guild > 0) {
+	if (skill::lookup(sn).remort_guild != Guild::none) {
 		stc("You cannot scribe that spell.\n", ch);
 		return;
 	}

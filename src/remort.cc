@@ -255,7 +255,7 @@ bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 	if (!get_skill_level(ch, sn))
 		return FALSE;
 
-	if ((ch->guild + 1 != skill::lookup(sn).remort_guild) && (!HAS_EXTRACLASS(ch, sn)))
+	if ((ch->guild != skill::lookup(sn).remort_guild) && (!HAS_EXTRACLASS(ch, sn)))
 		return FALSE;
 
 	return TRUE;
@@ -281,11 +281,11 @@ void list_extraskill(Character *ch)
 			if (type == skill::type::unknown)
 				continue;
 
-			if (entry.remort_guild != cn + 1)
+			if (entry.remort_guild != cn)
 				continue;
 
 			if (!IS_IMMORTAL(ch)
-			    && (entry.remort_guild == ch->guild + 1
+			    && (entry.remort_guild == ch->guild
 			        || entry.skill_level[ch->guild] <= 0
 			        || entry.skill_level[ch->guild] > LEVEL_HERO))
 				continue;
@@ -367,13 +367,13 @@ void do_eremort(Character *ch, String argument)
 	}
 
 	/* Is it a remort skill? */
-	if (skill::lookup(sn).remort_guild == 0) {
+	if (skill::lookup(sn).remort_guild == Guild::none) {
 		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill::lookup(sn).remort_guild == ch->guild + 1) {
+	if (skill::lookup(sn).remort_guild == ch->guild) {
 		stc("You have knowledge of this skill already, pick one outside your class.\n", ch);
 		return;
 	}

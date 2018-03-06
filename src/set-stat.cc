@@ -522,8 +522,8 @@ void do_extraset(Character *ch, String argument)
 				if (type == skill::type::unknown)
 					continue;
 
-				if (entry.remort_guild > 0
-				 && entry.remort_guild == cn + 1) {
+				if (entry.remort_guild != Guild::none
+				 && entry.remort_guild == cn) {
 					Format::sprintf(buf, "%-15s %-8d", entry.name, entry.rating[ch->guild]);
 					output += buf;
 				}
@@ -623,13 +623,13 @@ void do_extraset(Character *ch, String argument)
 
 	/* for debugging, put the checks for oddball stuff after the removal part */
 	/* Is it a remort skill? */
-	if (skill::lookup(sn).remort_guild == 0) {
+	if (skill::lookup(sn).remort_guild == Guild::none) {
 		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill::lookup(sn).remort_guild == victim->guild + 1) {
+	if (skill::lookup(sn).remort_guild == victim->guild) {
 		stc("They cannot have an extraclass skill within their class.  Pick another.\n", ch);
 		return;
 	}

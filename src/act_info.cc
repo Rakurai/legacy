@@ -3690,7 +3690,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		if (entry.remort_guild > 0)
+		if (entry.remort_guild != Guild::none)
 			if (!CAN_USE_RSKILL(ch, type))
 				continue;
 
@@ -3736,8 +3736,8 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	for (js = 0; js < nskills; js++) {
 		const auto& entry = skill::lookup(slist[js]);
 
-		if (entry.remort_guild > 0) {
-			if (entry.remort_guild == ch->guild + 1)
+		if (entry.remort_guild != Guild::none) {
+			if (entry.remort_guild == ch->guild)
 				adept = 65;
 			else
 				adept = 50;
@@ -3827,7 +3827,7 @@ void do_practice(Character *ch, String argument)
 		return;
 	}
 
-	if (entry.remort_guild > 0)
+	if (entry.remort_guild != Guild::none)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You can't practice that.\n", ch);
 			return;
@@ -3835,8 +3835,8 @@ void do_practice(Character *ch, String argument)
 
 	adept = 0;
 
-	if (entry.remort_guild > 0) {
-		if (entry.remort_guild == ch->guild + 1)
+	if (entry.remort_guild != Guild::none) {
+		if (entry.remort_guild == ch->guild)
 			adept = 65;
 		else if (HAS_EXTRACLASS(ch, sn))
 			adept = 50;

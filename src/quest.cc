@@ -419,7 +419,7 @@ skill::type get_random_skill(Character *ch)
 
 			const auto &entry = pair.second;
 
-			if (entry.remort_guild > 0 && !CAN_USE_RSKILL(ch, sn))
+			if (entry.remort_guild != Guild::none && !CAN_USE_RSKILL(ch, sn))
 				continue;
 
 			if (entry.skill_level[ch->guild] > ch->level)

@@ -256,8 +256,8 @@ void do_spells(Character *ch, String argument)
 
 			if (spell_name.empty()) {
 				if (get_learned(ch, type) <= 0
-				    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
-				        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
+				    || (entry.remort_guild != Guild::none && !IS_IMMORTAL(ch)
+				        && ch->guild != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 					continue;
 			}
 			else if (!entry.name.has_words(spell_name))
@@ -327,8 +327,8 @@ void do_spells(Character *ch, String argument)
 		const auto& entry = skill::lookup(type);
 
 		if (get_learned(ch, type) <= 0
-		    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
-		        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
+		    || (entry.remort_guild != Guild::none && !IS_IMMORTAL(ch)
+		        && ch->guild != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 			buffer += "[not  gained] ";
 		else if (ch->level < level)
 			buffer += "[           ] ";
@@ -439,8 +439,8 @@ void do_skills(Character *ch, String argument)
 
 		if (skill_name.empty()) {
 			if (get_learned(ch, type) <= 0
-			    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
-			        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
+			    || (entry.remort_guild != Guild::none && !IS_IMMORTAL(ch)
+			        && ch->guild != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 				continue;
 		}
 		else if (!entry.name.has_words(skill_name))
@@ -506,8 +506,8 @@ void do_skills(Character *ch, String argument)
 		const auto& entry = skill::lookup(type);
 
 		if (get_learned(ch, type) <= 0
-		    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
-		        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
+		    || (entry.remort_guild != Guild::none && !IS_IMMORTAL(ch)
+		        && ch->guild != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 			Format::sprintf(buf, "[not  gained] ");
 		else if (ch->level < level)
 			Format::sprintf(buf, "[           ] ");
@@ -566,10 +566,18 @@ void do_levels(Character *ch, String argument)
 				if (type == skill::type::unknown)
 					continue;
 
-				if (entry.remort_guild < 0) /* for completely ungainable spells/skills */
+				if (entry.remort_guild != Guild::none) /* list of remort skills is through 'levels remort' */
 					continue;
 
-				if (entry.remort_guild > 0) /* list of remort skills is through 'levels remort' */
+				// if ungainable by any class, skip it
+				bool gainable = false;
+				for (int i = Guild::first; i < Guild::size; i++)
+					if (entry.skill_level[i] >= 0) {
+						gainable = true;
+						break;
+					}
+
+				if (!gainable)
 					continue;
 
 				Format::sprintf(buf, "%-21s", entry.name);
@@ -608,7 +616,7 @@ void do_levels(Character *ch, String argument)
 				if (type == skill::type::unknown)
 					continue;
 
-				if (entry.remort_guild != x + 1)
+				if (entry.remort_guild != x)
 					continue;
 
 				Format::sprintf(buf, "  {g%-19s{x", entry.name);
@@ -850,7 +858,7 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	           *       4);
 	chance += ch->level;
 
-	if (skill::lookup(type).remort_guild > 0)
+	if (skill::lookup(type).remort_guild != Guild::none)
 	{   chance *= 2; chance /= 3; }
 
 	/* -1 multiplier means auto success -- Montrey */
@@ -1480,7 +1488,7 @@ void do_gain(Character *ch, String argument)
 			if (get_learned(ch, type) == 0
 			    && entry.rating[ch->guild] > 0
 			    && entry.spell_fun == spell_null
-			    && entry.remort_guild == 0) {
+			    && entry.remort_guild == Guild::none) {
 				foundsect = TRUE;
 				output += Format::format("%s%-18s %s%-5d{x ",
 				    entry.skill_level[ch->guild] > ch->level ? "{c" : "{g",
@@ -1532,8 +1540,8 @@ void do_gain(Character *ch, String argument)
 
 			if (get_learned(ch, type) == 0
 			    && entry.rating[ch->guild] > 0
-			    && entry.remort_guild > 0
-			    && entry.remort_guild == ch->guild + 1) {
+			    && entry.remort_guild != Guild::none
+			    && entry.remort_guild == ch->guild) {
 				foundsect = TRUE;
 				output += Format::format("%s%-18s %s%-5d{x ",
 				    entry.skill_level[ch->guild] > ch->level ? "{c" : "{g",
@@ -1641,19 +1649,19 @@ void do_gain(Character *ch, String argument)
 
 	if (type > skill::type::unknown) {
 		if (skill::lookup(type).spell_fun != spell_null
-		    && skill::lookup(type).remort_guild == 0) {
+		    && skill::lookup(type).remort_guild == Guild::none) {
 			act("$N tells you 'You must learn the full group.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		if (skill::lookup(type).remort_guild > 0) {
+		if (skill::lookup(type).remort_guild != Guild::none) {
 			if (ch->pcdata->remort_count < 1) {
 				act("$N tells you 'That skill is available only to remorts.'",
 				    ch, nullptr, trainer, TO_CHAR);
 				return;
 			}
 
-			if (ch->guild + 1 != skill::lookup(type).remort_guild) {
+			if (ch->guild != skill::lookup(type).remort_guild) {
 				act("$N tells you 'Use extraclass for skills and spells outside your class.'",
 				    ch, nullptr, trainer, TO_CHAR);
 				return;
