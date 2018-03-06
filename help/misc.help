@@ -237,59 +237,43 @@ Developed at: DIKU -- The Department of Computer Science
 -1 MOTD~
 {WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
 
-{Y* {BMake sure you know and understand the {Yrules{B which govern your characters
-  before you start playing.  It will help you tremendously.
-{Y* {BPlease read {Vhelp censor{B.  If you are punished for disregarding them,
-  there is NO excuse!
+{Y* {BPlease look over the rules before you begin playing. These can be 
+    seen by typing {Whelp rules{B.{x
+{Y* {BVisit our website at {Cwww.ageoflegacy.com {Bfor area directions and helpful
+    tips.{x
+{Y* {BFollow us on {WFacebook {Bat {Cwww.facebook.com/ageoflegacy/ {Bfor game updates, 
+    news, and discussions. 
 {Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
 {Y* {BIf you have any questions/comments/suggestions, please contact the
-  immortals via notes, or at {CLegacy@xenith.org{B.
-{Y* {BThere will be absolutly no revealing of a person's alt identity. To 
-  do so will result in being 1212'd, then fried.
+    immortals via notes, or at the sites listed above.
 
-{CMore informatition and area directions at {Ywww.ageoflegacy.com!{x
+{CFind more information and area directions at {Ywww.ageoflegacy.com!{x
 
-{WRemember ...
-{BRespect both immortals and mortals, for only by working together do we 
-make this happen.  All ideas, comments, and constructive criticism is 
-appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
-
-NOTE: If you have copies of these, please send them to the immortals.
-{WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
-{WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
 ~
 
 92 IMOTD~
 {C--------------------------------------------------------------------------------{x
 Welcome Immortal!
 
-You are responsible for following the laws of immortal behavior. These can
-be found by typing 'help laws' or 'help commandments'.
-
-* Your actions represent the entire immstaff, remember that.
-
-* If at any time you have no clue what you're doing, ask.
-
-{C----------------------------------------------------------------------------------{x
-[Hit Return to Continue]
 ~
 
 -1 AUTOMOTD~
 {C--------------------------------------------------------------------------------
 {WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
 
-{Y* {BMake sure you know and understand the {Yrules{B which govern your characters
-  before you start playing.  It will help you tremendously.
-{Y* {BPlease read {Vhelp censor{B.  If you are punished for disregarding them,
-  there is NO excuse!
-{Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
-{Y* {BIf you have any questions/comments/suggestions, please contact the
-  immortals via notes, or at {CLegacy@xenith.org{B.
 
-{WRemember ...
-{BRespect both immortals and mortals, for only by working together do we 
-make this happen.  All ideas, comments, and constructive criticism are 
-appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
+{C* {BPlease look over the rules before you begin playing. These can be 
+    seen by typing {Whelp rules{B.{x
+{C* {BVisit our website at {Cwww.ageoflegacy.com {Bfor area directions and helpful
+    tips.{x
+{C* {BFollow us on {WFacebook {Bat {Cwww.facebook.com/ageoflegacy/ {Bfor game updates, 
+    news, and discussions. 
+{C* {BYou can return to this message by typing {Ghelp motd{B at any time.
+{C* {BIf you have any questions/comments/suggestions, please contact the
+    immortals via notes, or at the sites listed above.
+
+{CFind more information and area directions at {Ywww.ageoflegacy.com!{x
+
 {C--------------------------------------------------------------------------------
 ~
 
@@ -342,58 +326,24 @@ SEE ALSO: HELP VERSION
 0 RULE RULES~
 {gThe {BRules {gof {BL{Ce{Wg{ga{Cc{By{x
 
-These are the rules of Legacy.  They are here to ensure that this mud is
-fair and enjoyable for everybody.  As a player of Legacy, you agree not to
-break any of the below rules - EVEN IF you do not agree with what they say.
-Ignorance is not an excuse, and violation of the rules is an indication
-that you do not wish to play, and the immortals will act accordingly.
-
-{Y*{x Discussion of alts is strictly prohibited on Legacy. This is a roleplay
-  environment and revealing alts damages this atmosphere so {WDON'T DO IT{x
-{Y*{x Harassment of players, especially newbies, in any form is not tolerated.
-{Y*{x Do not use clients or triggers to do any of the following:  bot, auto-
-  reconnect, or keep your character idle.  If you are suspected of such
-  activity and do not respond, your character shall be punished.
+{Y*{x Harassment of players in any form is not tolerated.
 {Y*{x Multiple playing and logins is strictly prohibited.  Helping your own 
-  characters by ANY method is considered cheating: this includes but is not
-  limited to giving gold to your other chars, spelling them, grouping with
-  them, weakening mobs, or transferring eq in any way (as in dropping it
-  and logging on to an alt to go pick it up).
-{Y*{x Spam is rude and disrespectful to everybody else on the mud.  Do not do
-  it.  Repeating anything 3 times in quick succession is one way spam will 
-  be identified, but not the only way.  Also, conflicts inevitably arise on 
-  muds between players.  Please keep it to private channels or tells.
-{Y*{x Do not advertise other muds on Legacy.  There are many places to do so,
-  such as www.mudconnect.com as well as usenet groups.  Logging on just to
-  advertise your own mud is frowned upon everywhere, and will get you a
-  quick nochannel.
-{Y*{x If you find a bug, please report it, and do not use it.  The immortals 
-  will get back to you.  
-{Y*{x If you have any questions regarding these rules, ASK THE IMMS!  We will
-  be more than happy to answer them.  If you go ahead and do something
-  without asking us, do not blame us if you are punished.
-
-Lastly, just because a rule is not posted here does not mean that it is not
-cheating or harrassment. Any person having reasonable complaints should feel
-free to respectfully note the immortals.
-
-{YSEE ALSO:{x  Help Censor
+  characters by any method is considered cheating.
+{Y*{x Please don't spam the game or players. 
+{Y*{x Do not advertise other muds on Legacy.  
+{Y*{x If you find a bug, please report it.
+{Y*{x If you have any questions regarding these rules, just ask the imms.
 ~
 
 0 IMMORTALS STAFF~
 The term "Immortals" (or Imms) refers to the staff of Legacy who work
 hard to provide a great mudding experience for you, the player.  The
 Imms run the mud, and are here to help you, but please do not ask any
-imms to assist you in any way that might interfere with game balance,
-for example: killing a mob, gathering EQ, locating objects, etc ... 
-Because the Imms have much more power than ordinary mortals, they have 
-many more rules they must follow.
+imms to assist you in any way that might interfere with game balance.
 
 If you have a question or concern regarding the game or your character,
-you may address it to the Imms - that is what they are here for.  You
-can either note to Imms or use the pray channel.  Also, if an Immortal
-requests you to do something (or to stop doing something), please obey
-them immediately.  An Immortal's word is final in every case.
+you may address it to the Imms.  You
+can either note to Imms or use the pray channel.
 
 {YSEE ALSO:{x Wizlist, Help Deity, Help Pray
 ~
@@ -888,90 +838,6 @@ When you see a message saying
 then you can start playing as soon as you can move again.
 ~
 
-0 MOOCHING~
-As in real life, there are players who accomplish a lot on their own through
-hard work and using their head, and there are the {Ymoochers{x who loudly (and
-often obnoxiously) beg everyone for help in getting experience, equipment,
-gold or spell-ups. The clever workers and explorers get a lot more out of the
-game, believe me! It's OK to ask for help if you get into unexpected trouble,
-the helpful folks at Legacy will be happy to assist if they can. You can ask
-for the occasional bit of information if you've tried to come by it on your
-own and can't seem to find it. It's {Pnot{x OK to try to get people to help
-you with every step because you're {Ytoo lazy!{x Check all these resources
-before {Ywhining{x for help:
-- You are born with a token for a {Cnewbie bag{x in your hand. If you give
-  it to Deirdre, the Healer 1 north of the Temple of Mota (Recall), she will
-  give you a newbie bag with useful equipment and helpful hints in it, even
-  some food and drink.
-- Other equipment and some silver can be gotten by killing mobs in MUD school
-  and the Fair. The directions to the Fair are in the {CNewbie Bag{x.
-- You are born with a map of Midgaard in your hand. There is also a {Cmap shop{x
-  at the west end of Poor Alley, which runs a bit south of Main Street.
-- Before you ask '{GWhere can I go to level?{x', try exploring on your own
-  for a while! Check the list from the {RAREAS{x command for reference.
-- If you do need to ask for help, be polite. People have their own characters
-  to level here, and are doing you a favor by helping you.
-~
-
-91 APPLICATION~
-Applying for Immortality
-
-The final step for any mortal is the assumption of immortal power. In order
-to climb the last few steps to immortality, you must submit an application.
-This help file will give you some direction as to the content of that
-application.
-
-First, what this application should not be:
-Too long
-Too short
-A glorification of you
-A diatribe of us
-and, most importantly,
-DO NOT BE VAGUE
-
-What your submission must include:
-
-1. Tell us what you have done.
-Have you been a Clan leader? Can you code? Can you build? Have you coded
-for us already? Have you been building for us in your spare time? Knowing
-what you have done can help us picture what you will accomplish in your
-immortality.
-
-2. Tell us what you want to do.
-Everyone has plans for the mud. Many applications address this point, but
-we want you to understand the importance of your ideas. We want highly
-motivated imms who know what they want to do and to not need to be told
-what to do. If you do not tell us what you want to do, then it seems you do
-not want to do anything.
-
-3. Tell us how you want to do it.
-This is the section where everyone has problems. Applicants talk about
-changing the mud. They weave fine tapestries of gold and light to produce a
-picture of the mud as it would be if they were an immortal. Then, they
-forget to tell us how they plan to make their dream real. Every good idea
-has a workable plan. You must tell us your plan or suffer from the sad
-reality that we cannot read your mind.
-
-Something your application can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
-
 0 LEGACY SET IMMLEGACIES~
 Besides the Questmaster, the immortals also will hold frequently hold
 quests for your enjoyment.  You can collect a legacy set from any imm
@@ -999,30 +865,6 @@ choice of {BL{Cegacy {BS{Cet{x.
    pre-designed eq, if you choose this option)
 
 {VGood luck!{x :)
-~
-
-0 ALTERNATE ALTERNATES ALT ALTS~
-An {Calternate{x, or '{Calt{x', is a character played by the same person as
-another character.  This is allowed, and even encouraged, as part of the
-fun is trying out classes and races that you may be unfamiliar with.  Many
-players have more than one character, and most try to roleplay them
-separately from their other characters.  This too is encouraged, many
-find the challenge of roleplaying different characters stimulating.
-
-Roleplay is not forced on {BL{Ce{gg{Wa{Cc{By{x, but this should not be confused with
-tolerance of making it difficult to roleplay.  Players work hard to keep
-their alts separate, but alas, it is natural to blur the difference
-between player and character.  People tend to familiarize themselves with
-the player, and in doing so, often fail to treat their characters as
-individuals.  Thus, many players do not reveal the identities of all their
-characters.
-
-If you know who a player's alts are, do NOT reveal them to others without
-express permission from that player.  It is considered rude and extremely
-bad etiquette, and is not tolerated on Legacy.  This applies to any form
-of communication on the mud, including notes and channels.  {PPunishment{x for
-revealing alts is swift and harsh.  Please, respect your fellow players,
-don't destroy the possibility of roleplay for others.
 ~
 
 -2
