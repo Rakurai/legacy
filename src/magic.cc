@@ -3614,7 +3614,7 @@ void spell_gate(skill::type sn, int level, Character *ch, void *vo, int target, 
 	    || victim->in_room->area() == Game::world().quest.area()
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan()
-	    || victim->in_room->guild()
+	    || (victim->in_room->guild() != Guild::none && victim->in_room->guild() != ch->guild)
 	    || victim->level > level + (IS_NPC(victim) ? 3 : 8)
 	    || (IS_NPC(victim)
 	        && (victim->act_flags.has(ACT_NOSUMMON)
@@ -4546,7 +4546,8 @@ void spell_nexus(skill::type sn, int level, Character *ch, void *vo, int target,
 		    || to_room->sector_type() == Sector::arena
 		    || char_in_duel_room(victim)
 		    || to_room->clan()  || from_room->clan()
-		    || to_room->guild() || from_room->guild()
+		    || to_room->guild() != Guild::none
+		    || from_room->guild() != Guild::none
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
 		        && (victim->act_flags.has(ACT_NOSUMMON)
@@ -4890,7 +4891,7 @@ void spell_portal(skill::type sn, int level, Character *ch, void *vo, int target
 		    || victim->in_room->area() == Game::world().quest.area()
 		    || char_in_duel_room(victim)
 		    || victim->in_room->clan()
-		    || victim->in_room->guild()
+		    || victim->in_room->guild() != Guild::none
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
 		        && (victim->act_flags.has(ACT_NOSUMMON)
@@ -6116,7 +6117,7 @@ void spell_summon_object(skill::type sn, int level, Character *ch, void *vo, int
 	/* no summoning pc corpses to clanhalls!  little bastards -- Montrey */
 	if (obj->item_type == ITEM_CORPSE_PC) {
 		if (ch->in_room->clan()
-		    || ch->in_room->guild()
+		    || ch->in_room->guild() != Guild::none
 		    || ch->in_room->area().name == "Playpen"
 		    || ch->in_room->area().name == "IMM-Zone"
 		    || ch->in_room->area().name == "Limbo"

@@ -23,7 +23,7 @@ public:
 	Sector		sector_type;
 	int			heal_rate = 100;
 	int			mana_rate = 100;
-	int			guild = 0;		/* guild room, class number+1, 0 none -- Montrey */
+	Guild			guild = Guild::none;		/* guild-only room -- Montrey */
 
 	String 		owner = "";
 	Clan *		clan = nullptr;

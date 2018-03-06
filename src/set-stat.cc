@@ -1876,7 +1876,7 @@ void format_rstat(Character *ch, Room *location)
 	if (location->clan())
 		ptc(ch, "{VClan: %s{x\n", location->clan()->who_name);
 
-	if (location->guild())
+	if (location->guild() != Guild::none)
 		ptc(ch, "{VGuild: %s{x\n", guild_table[location->guild()].name);
 
 	ptc(ch, "{BDescription:{x\n%s\n", location->description());

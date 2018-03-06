@@ -3899,7 +3899,9 @@ void do_buy(Character *ch, String argument)
 		pet         = get_char_here(ch, arg, VIS_CHAR);
 		ch->in_room = in_room;
 
-		if (ch->in_room->guild() && ch->in_room->guild() != ch->guild + 1 && !IS_IMMORTAL(ch)) {
+		if (ch->in_room->guild() != Guild::none
+		 && ch->in_room->guild() != ch->guild
+		 && !IS_IMMORTAL(ch)) {
 			stc("Sorry, members only.\n", ch);
 			return;
 		}
@@ -4019,7 +4021,9 @@ void do_buy(Character *ch, String argument)
 		if ((keeper = find_keeper(ch)) == nullptr)
 			return;
 
-		if (keeper->in_room->guild() && keeper->in_room->guild() != ch->guild + 1 && !IS_IMMORTAL(ch)) {
+		if (keeper->in_room->guild() != Guild::none
+		 && keeper->in_room->guild() != ch->guild
+		 && !IS_IMMORTAL(ch)) {
 			act("$n tells you 'Sorry, members only.'", keeper, nullptr, ch, TO_VICT);
 			return;
 		}
@@ -4202,7 +4206,7 @@ void do_buy(Character *ch, String argument)
 			}
 
 			/* owner items bought in guild rooms to purchaser -- Montrey */
-			if (keeper->in_room->guild()) {
+			if (keeper->in_room->guild() != Guild::none) {
 				String owner;
 				ExtraDescr *ed;
 				bool foundold = FALSE;

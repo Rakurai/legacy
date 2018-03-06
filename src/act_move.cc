@@ -142,7 +142,9 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	if (!IS_NPC(ch)) {
-		if (to_room->guild() && to_room->guild() != ch->guild + 1 && !IS_IMMORTAL(ch)) {
+		if (to_room->guild() != Guild::none
+		 && to_room->guild() != ch->guild
+		 && !IS_IMMORTAL(ch)) {
 			stc("You must be a guild member to enter.\n", ch);
 			return;
 		}
@@ -2099,8 +2101,8 @@ void do_push(Character *ch, String argument)
 	}
 
 	if (!IS_NPC(ch)
-	    && to_room->guild()
-	    && to_room->guild() != victim->guild + 1) {
+	    && to_room->guild() != Guild::none
+	    && to_room->guild() != victim->guild) {
 		stc("They are not a member, they cannot enter.\n", ch);
 		return;
 	}
@@ -2334,7 +2336,7 @@ void do_drag(Character *ch, String argument)
 		return;
 	}
 
-	if (to_room->guild()) {
+	if (to_room->guild() != Guild::none) {
 		stc("You cannot drag people into a guild room.\n", ch);
 		return;
 	}
@@ -2892,7 +2894,7 @@ Room *get_random_room(Character *ch)
 				    || !can_see_room(ch, room)
 				    || room->area() == Game::world().quest.area()
 				    || room->clan()
-				    || room->guild()
+				    || room->guild() != Guild::none
 				    || room->area().name == "Playpen"
 				    || room->area().name == "IMM-Zone"
 				    || room->area().name == "Limbo"
@@ -3252,7 +3254,7 @@ void do_spousegate(Character *ch, String argument)
 	    || victim->in_room->area() == Game::world().quest.area()
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan()
-	    || victim->in_room->guild()
+	    || victim->in_room->guild() != Guild::none
 	    || (IS_NPC(victim))) {
 		stc("You failed.\n", ch);
 		return;

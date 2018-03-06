@@ -647,7 +647,7 @@ Room *generate_skillquest_room(Character *ch, int level)
 				    || room->area().high_range < level
 				    || (room->area().min_vnum >= 24000      /* clanhall vnum ranges */
 				        && room->area().min_vnum <= 26999)
-				    || room->guild()
+				    || room->guild() != Guild::none
 				    || room->area().name == "Playpen"
 				    || room->area().name == "IMM-Zone"
 				    || room->area().name == "Limbo"

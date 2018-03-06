@@ -73,7 +73,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 			break;
 
 		case 'G':       /* guild */
-			if (!(guild = guild_lookup(fread_string(fp)) + 1)) {
+			if ((guild = guild_lookup(fread_string(fp))) == Guild::none) {
 				Logging::file_bug(fp, "Load_rooms: invalid class in guild", 0);
 				::exit(1);
 			}
