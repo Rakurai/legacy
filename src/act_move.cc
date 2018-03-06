@@ -3065,7 +3065,7 @@ void do_enter(Character *ch, String argument)
 		do_look(ch, "auto");
 
 		if (!IS_NPC(ch) && fighting) {
-			if (ch->guild != 2) {
+			if (ch->guild != Guild::thief) {
 				if (ch->guild == Guild::paladin) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);

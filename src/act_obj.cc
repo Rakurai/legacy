@@ -2987,7 +2987,7 @@ void do_recite(Character *ch, String argument)
 	}
 
 	/* delay on scrolls -- Elrac */
-	WAIT_STATE(ch, (ch->guild == 0 || ch->guild == 1 || ch->guild == 4)
+	WAIT_STATE(ch, (ch->guild == Guild::mage || ch->guild == Guild::cleric || ch->guild == Guild::necromancer)
 	           ? (skill::lookup(skill::type::scrolls).beats * 4) / 5
 	           : skill::lookup(skill::type::scrolls).beats);
 	extract_obj(scroll);

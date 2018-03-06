@@ -1389,7 +1389,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		if (dam > 1 && victim->pcdata->condition[COND_DRUNK] > 10)
 			dam = 9 * dam / 10;
 
-		if (dam > 1 && victim->guild == 5) /* enhanced protection for paladins */
+		if (dam > 1 && victim->guild == Guild::paladin) /* enhanced protection for paladins */
 			if ((IS_GOOD(victim) && IS_EVIL(ch))
 			    || (IS_EVIL(victim) && IS_GOOD(ch)))
 				dam -= dam / 4;
@@ -3109,7 +3109,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	    && victim->in_room->sector_type() != Sector::arena
 	    && victim->in_room->sector_type() != Sector::clanarena
 	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
-	    && gch->guild != 5) /* Paladins */
+	    && gch->guild != Guild::paladin) /* Paladins */
 	{
 		/* do alignment computations */
 		int align = victim->alignment - gch->alignment;
@@ -4157,7 +4157,7 @@ void do_sing(Character *ch, String argument)
 	singchance += (GET_ATTR_CHR(ch));
 	singchance -= (GET_ATTR_INT(victim) + GET_ATTR_WIS(victim)) / 2;
 
-	if (!IS_NPC(ch) && ch->guild == 6)      /* bards */
+	if (!IS_NPC(ch) && ch->guild == Guild::bard)      /* bards */
 		singchance += singchance / 3;
 
 	singchance -= singchance * GET_DEFENSE_MOD(victim, DAM_CHARM) / 100;

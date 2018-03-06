@@ -457,7 +457,7 @@ void do_cast(Character *ch, String argument)
 
 	wait = skill::lookup(sn).beats;
 
-	if ((ch->guild == 0) || (ch->guild == 1) || (ch->guild == 4))
+	if ((ch->guild == Guild::mage) || (ch->guild == Guild::cleric) || (ch->guild == Guild::necromancer))
 		wait -= wait / 4;
 
 	/* remort affect - fast casting */
@@ -2341,7 +2341,7 @@ void spell_demonfire(skill::type sn, int level, Character *ch, void *vo, int tar
 		stc("The demons turn upon you!\n", ch);
 	}
 
-	if (ch->guild != 5) /* Paladins */
+	if (ch->guild != Guild::paladin) /* Paladins */
 		ch->alignment = UMAX(-1000, ch->alignment - 50);
 
 	if (victim != ch) {
@@ -3033,7 +3033,7 @@ void spell_energy_drain(skill::type sn, int level, Character *ch, void *vo, int 
 	Character *victim = (Character *) vo;
 	int dam, manadrain, stamdrain;
 
-	if (victim != ch && ch->guild != 5) /*Paladin*/
+	if (victim != ch && ch->guild != Guild::paladin) /*Paladin*/
 		ch->alignment = UMAX(-1000, ch->alignment - 50);
 
 	if (saves_spell(level, victim, DAM_NEGATIVE)) {
@@ -5396,7 +5396,7 @@ void spell_remove_alignment(skill::type sn, int level, Character *ch, void *vo, 
 	}
 
 	/* remove some of the character's alignment, if not a Paladin */
-	if (ch->guild != 5) { /* Paladins */
+	if (ch->guild != Guild::paladin) { /* Paladins */
 		align = 25 * ch->alignment / 1000;
 		ch->alignment = URANGE(-1000, (ch->alignment - align), 1000);
 		stc("The powerful nature of the spell removes some of your alignment!\n", ch);
@@ -5433,7 +5433,7 @@ void spell_remove_alignment(skill::type sn, int level, Character *ch, void *vo, 
 
 	/* Removes more of the caster's alignment, if not a Paladin */
 	if (result < (fail / 3)) {
-		if (ch->guild != 5) {
+		if (ch->guild != Guild::paladin) {
 			align = 25 * ch->alignment / 1000;
 			ch->alignment = URANGE(-1000, (ch->alignment - align), 1000);
 			stc("The spell backfires and removes some of YOUR alignment!\n", ch);

@@ -2586,9 +2586,9 @@ void do_who(Character *ch, String argument)
 			else if (arg == "clan")
 				fClanRestrict = TRUE;
 			else {
-				int iClass = guild_lookup(arg);
+				Guild guild = guild_lookup(arg);
 
-				if (iClass == -1) {
+				if (guild == Guild::none) {
 					unsigned long iRace = race_lookup(arg);
 
 					if (iRace == 0 || iRace >= pc_race_table.size()) {
@@ -2606,7 +2606,7 @@ void do_who(Character *ch, String argument)
 				}
 				else {
 					fClassRestrict = TRUE;
-					rgfClass[iClass] = TRUE;
+					rgfClass[guild] = TRUE;
 				}
 			}
 		}

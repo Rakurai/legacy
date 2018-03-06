@@ -489,9 +489,9 @@ void do_testpose(Character *ch, String argument)
 
 	String arg;
 	argument = one_argument(argument, arg);
-	int guild = guild_lookup(arg);
+	Guild guild = guild_lookup(arg);
 
-	if (guild == -1) {
+	if (guild == Guild::none) {
 		stc("That's not a valid class\n", ch);
 		return;
 	}
