@@ -422,47 +422,6 @@ endif
 |
 
 
-#3013
-gatekeeper keeper~
-the gatekeeper~
-Your gatekeeper is standing here.
-~
-The gatekeeper is here, looking for signs of trouble.  She eyes you warily.
-~
-elf~
-ABJKRVb DEFZ 1000 0
-36 0 1d1+1999 1d1+999 3d8+24 magic
--15 -15 -15 -15
-FG ABCD 0 0
-stand stand female 0
-0 0 medium 0
->all_greet_prog 99~
-if $actor.is_pc()
-   if $actor.level()==1
-      say Greetings adventurer!  Tell me, are you new to our fair city?
-   endif
-endif
-~
->speech_prog p yes~
-smile $actor
-say Excellent!  You will no doubt be looking for gainful employment, then.
-say Here is a complimentary map, courtesy of the Midgaard Tourism Board.
-$self.load_obj(3162)
-give map $actor
-say Your first destination should be Grebe's tavern.  Good luck!
-~
->speech_prog p no~
-if $actor.is_good()
-    nod $actor
-    say On your way then, young adventurer.
-else
-    frown $actor
-    say Be sure to stay out of trouble while you're in our city.
-endif
-~
-|
-
-
 #3020
 guildmaster master~
 the guildmaster~
@@ -7666,7 +7625,6 @@ S
 #0
 
 #RESETS
-M 0 3013   1 3052  1    * gatekeeper
 M 0 3011   1 3001  1    * Hassan
 E 1 3005   1   16       *   Hassan's scimitar
 O 0 3010   1 3054       * the donation pit

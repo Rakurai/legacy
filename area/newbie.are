@@ -1,0 +1,702 @@
+#AREA	
+newbie.are~
+Newbie Training~
+{H{{ XXX } {MMontrey   {TNewbie Training~
+4250 4399
+
+
+#MOBILES
+#4250
+pixie juniper~
+{CJu{Wnip{Cer{x~
+A pixie flits about, trailing {Cbl{Wu{Ce s{Wp{Ca{Wrk{Cl{We{Cs{x.
+~
+~
+faerie~
+BZ DFR 0 S
+1 1 1d1+99 1d1+99 1d1+1 scratch
+-10 -10 -10 -10
+H ABCD 0 0
+fly fly female 0
+0 0 tiny 0
+
+#4251
+pixie juniper~
+{CJu{Wnip{Cer{x~
+A pixie flits about, trailing {Cbl{Wu{Ce s{Wp{Ca{Wrk{Cl{We{Cs{x.
+~
+~
+faerie~
+BZ DFR 0 S
+1 1 1d1+99 1d1+99 1d1+1 scratch
+-10 -10 -10 -10
+H ABCD 0 0
+fly fly female 0
+0 0 tiny 0
+
+#4252
+pixie juniper~
+{CJu{Wnip{Cer{x~
+A pixie flits about, trailing {Cbl{Wu{Ce s{Wp{Ca{Wrk{Cl{We{Cs{x.
+~
+~
+faerie~
+BZ DFPR 0 S
+1 1 1d1+99 1d1+99 1d1+1 scratch
+-10 -10 -10 -10
+H ABCD 0 0
+fly fly female 0
+0 0 tiny 0
+
+#4300
+gatekeeper keeper~
+the gatekeeper~
+The gatekeeper is standing here.
+~
+The gatekeeper is here, looking for signs of trouble.  She eyes you warily.
+~
+elf~
+ABJKRVb DEFZ 1000 0
+36 0 1d1+1999 1d1+999 3d8+24 magic
+-15 -15 -15 -15
+FG ABCD 0 0
+stand stand female 0
+0 0 medium 0
+>rand_prog 3~
+emote paces back and forth, keep an eye out for trouble.
+~
+|
+
+#4301
+dialogue jukebox mob~
+the dialogue jukebox mob~
+This mob is just for making some background dialogue.
+~
+~
+unique~
+BGZ DF 0 S
+100 0 1d1+9999 1d1+1 1d1+1 scratch
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand none 0
+0 0 medium 0
+>rand_prog 100~
+if $self.gold() == 0
+  break
+endif
+say here1
+if $self.gold() == 20
+  MPAT 4313 MPECHO You hear voices from the other side of the gate...
+endif
+if $self.gold() == 19
+  MPAT 4313 MPECHO "Morning Tom, how's guard duty today?"
+endif
+if $self.gold() == 18
+  MPAT 4313 MPECHO "Hey Bill, you know, same old.  I was just about to start my rounds."
+endif
+if $self.gold() == 17
+  MPAT 4313 MPECHO "Well, somebody has to keep the riffraff out.  Glad you're on it."
+endif
+if $self.gold() == 16
+  MPAT 4313 MPECHO "What are you doing out so early?"
+endif
+if $self.gold() == 15
+  MPAT 4313 MPECHO "Headed over to the Mage Guild, I've got some new apprentices to train."
+endif
+if $self.gold() == 14
+  MPAT 4313 MPECHO "Did I see you leaving Grebe's last night with that girl from the temple?"
+endif
+if $self.gold() == 13
+  MPAT 4313 MPECHO "Oh, yeah, she was cute, right?  We went back to my place."
+endif
+if $self.gold() == 12
+  MPAT 4313 MPECHO "No way!  How did that go?"
+endif
+if $self.gold() == 11
+  MPAT 4313 MPECHO "Well, I thought it was going well.  We sat and talked for a while."
+endif
+if $self.gold() == 10
+  MPAT 4313 MPECHO "Yeah?"
+endif
+if $self.gold() == 9
+  MPAT 4313 MPECHO "Then she told said she wanted to get more comfortable..."
+endif
+if $self.gold() == 8
+  MPAT 4313 MPECHO "Go on..."
+endif
+if $self.gold() == 7
+  MPAT 4313 MPECHO "Then she told ME to get more comfortable..."
+endif
+if $self.gold() == 6
+  MPAT 4313 MPECHO "Yeah??"
+endif
+if $self.gold() == 5
+  MPAT 4313 MPECHO "So I put on my robe and wizard hat."
+endif
+if $self.gold() == 4
+  MPAT 4313 MPECHO "Oh no, Bill!  Not again!"
+endif
+if $self.gold() == 3
+  MPAT 4313 MPECHO "I know, I know, I don't know why I keep doing that!"
+endif
+if $self.gold() == 2
+  MPAT 4313 MPECHO "You think she'll ever speak to you again?"
+endif
+if $self.gold() == 1
+  MPAT 4313 MPECHO You hear footsteps, and the voices fade into the distance.
+endif
+drop 1 gold
+sac gold
+~
+
+#4302
+ambience mob~
+the ambience mob~
+This mob is just for doing some random stuff in rooms.
+~
+~
+unique~
+BGZ DF 0 S
+100 0 1d1+9999 1d1+1 1d1+1 scratch
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand none 0
+0 0 medium 0
+>rand_prog 5~
+if rand(50)
+  MPAT 4312 MPECHO You catch a glimpse of a rat scurrying across the damp floor.
+  MPAT 4313 MPECHO You catch a glimpse of a rat scurrying across the damp floor.
+  MPAT 4314 MPECHO You catch a glimpse of a rat scurrying across the damp floor.
+  break
+endif
+~
+|
+
+#4310
+gatekeeper keeper2~
+the gatekeeper~
+The gatekeeper is standing here.
+~
+The gatekeeper is here, looking for signs of trouble.  She eyes you warily.
+~
+elf~
+ABJKRVb DEFZ 1000 0
+36 0 1d1+1999 1d1+999 3d8+24 magic
+-15 -15 -15 -15
+FG ABCD 0 0
+stand stand female 0
+0 0 medium 0
+>all_greet_prog 99~
+if $actor.is_pc()
+   if $actor.level()==1
+      say Greetings adventurer!  Tell me, are you new to our fair city?
+   endif
+endif
+~
+>speech_prog p yes~
+smile $actor
+say Excellent!  You will no doubt be looking for gainful employment, then.
+say Here is a complimentary map, courtesy of the Midgaard Tourism Board.
+mpoload 3162
+give map $actor
+say Your first destination should be Grebe's tavern.  Good luck!
+~
+>speech_prog p no~
+if $actor.is_good()
+    nod $actor
+    say On your way then, young adventurer.
+else
+    frown $actor
+    say Be sure to stay out of trouble while you're in our city.
+endif
+~
+|
+
+#0
+
+#OBJECTS
+
+#4300
+secret entrance hole big giant huge cave~
+the hole in the wall~
+~
+darkness~
+portal O P
+0 0 1 4312 0
+0 0 0 P
+E
+secret entrance hole big giant huge cave~
+Moving some of the grass aside, you see a small hole in the dirt at
+the base of the wall.  Juniper could walk inside easily.  You might
+be able to squeeze through it, but what's on the other side?
+
+Type {Center hole{x to find out!
+~
+
+#4301
+wooden chest~
+the chest~
+An ordinary looking wooden chest sits in a corner.~
+wood~
+container Y P
+100 AC 0 100 100
+0 1 0 P
+E
+wooden chest~
+The chest is made of wood and pretty well used.  The lid doesn't
+look too heavy, and there is no lock.  Nothing is preventing you
+from {Copening{x this chest and {Clooking{x inside, or even
+{Cgetting{x the contents {Cfrom{x within.
+~
+
+
+#4302
+heavy iron key~
+a heavy iron key~
+A heavy iron key is hanging on the wall here.
+~
+iron~
+key 0 A
+1 0 0 0 0
+0 1 0 P
+E
+heavy iron key~
+This key looks like it might fit the heavy wooden door in the
+guard room.
+~
+
+#0
+
+#ROOMS
+
+#4300
+West trail around Midgaard~
+You are on a dusty trail following the outside wall of Midgaard.
+To the east the wall towers over you and to the west you see the
+forest of Haon-Dor. The trail leads north and south along the wall. 
+~
+0 KNRS 1
+D0
+The dusty trail winds north closely to the wall.
+~
+~
+0 -1 4301
+D2
+The dusty trail leads to outside the west gate of Midgaard.
+~
+~
+0 -1 4310
+S
+
+#4301
+West trail around Midgaard~
+You are on a dusty trail following the outside wall of Midgaard.
+To the east the wall towers over you and to the west you see the
+forest of Haon-Dor. The trail leads north and south along the wall. 
+~
+0 KNRS 1
+D0
+To the north you notice the path makes a turn, following the City wall. 
+~
+~
+0 -1 4302
+D2
+The dusty trail continues towards the south.
+~
+~
+0 -1 4300
+S
+
+#4302
+Northwest corner of dusty trail.~
+You are standing outside the northwestern corner of the city wall.
+The trail leads east following the north wall and south towards the gate.  
+~
+0 KNRS 1
+D1
+The dusty trail winds close up to the north wall of Midgaard.
+~
+~
+0 -1 4303
+D2
+The dusty trail leads south towards the gate.
+~
+~
+0 -1 4301
+S
+
+#4303
+Dusty trail along north wall.~
+You are walking on the trail following the outside of Midgaard's
+northern wall.  You notice that some of the {Ggrass{x near the wall
+hasn't been cut in a long time.
+~
+0 KNRS 1
+D1
+The dusty trail is winding along the north wall of Midgaard.
+~
+~
+0 -1 4304
+D3
+The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
+~
+~
+0 -1 4302
+E
+clump grass base wall~
+You look more closely and there seems to be a {Wh{gol{We{x in the wall behind the grass.
+~
+S
+
+#4304
+The long dusty trail following the north wall.~
+You are just outside the northern gate of Midgaard.  You can continue along
+the trail to the east or west, head onwards to the plains of the north, or
+enter Midgaard to the south.  You can just barely make out the buildings of
+Midgaard from here, the Temple of Mota looks impressive even from this
+distance.
+~
+0 KNRS 1
+D1
+The dusty trail is winding along the north wall of Midgaard. 
+~
+~
+0 -1 4305
+D2
+You see the south gate of Midgaard.
+~
+~
+0 -1 4311
+D3
+The dusty trail is winding along the north wall of Midgaard.
+~
+~
+0 -1 4303
+E
+north plains~
+A small path extends into the plains.  They look way to scary until
+you get yourself some gear in Midgaard.
+~
+S
+
+#4305
+Dusty trail along north wall.~
+You are walking on the trail following the outside of Midgaard's
+northern wall.  
+~
+0 KNRS 1
+D1
+The dusty trail turns right around the corner of the wall. 
+You notice some mountains in the distance.
+~
+~
+0 -1 4306
+D3
+The dusty trail is winding along the north wall of Midgaard.
+~
+~
+0 -1 4304
+S
+
+#4306
+Northeast corner of dusty trail.~
+You are standing outside the northeastern corner of the city wall.
+The trail leads west following the north wall and south towards the gate.  
+~
+0 KNRS 1
+D2
+The dusty trail leads south towards the gate.
+~
+~
+0 -1 4307
+D3
+The dusty trail winds close up to the north wall of Midgaard.
+~
+~
+0 -1 4305
+S
+
+#4307
+Outside the Walls~
+The high gray wall of Midgaard looms above you.  Much too tall to
+climb, this wall once protected Midgaard from the forces that
+destroyed Thalos to the south.  To the east, the woods of the
+Miden'nir stretch out, and you can see the great eastern road
+leading to New Thalos.  North of here, a dusty trail countinues
+around the city.
+~
+0 KNRS 1
+D0
+To the north you notice the path makes a turn, following the City wall. 
+~
+~
+0 -1 4306
+D2
+The dusty trail leads south along the wall.
+~
+~
+0 -1 4308
+E
+east woods miden'nir~
+The woods stretch out to the east.  It's way scary in there without
+some gear from the city.
+~
+S
+
+#4308
+Outside the Walls~
+The high gray wall of Midgaard looms above you.  Much too tall to
+climb, this wall once protected Midgaard from the forces that
+destroyed Thalos to the south.  To the east, the woods of the
+Miden'nir stretch out, and you can see the great eastern road
+leading to New Thalos.  North of here, a dusty trail countinues
+around the city.
+~
+0 KNRS 1
+D0
+The dusty trail follows the wall to the north.
+~
+~
+0 -1 4307
+D2
+The dusty trail leads south towards the gate.
+~
+~
+0 -1 4309
+E
+east woods miden'nir~
+The woods stretch out to the east.  It's way scary in there without
+some gear from the city.
+~
+S
+
+#4309
+Outside the East Gate of Midgaard~
+You are by two small towers that have been built into the city wall
+and connected with a footbridge across the heavy wooden gate.  To the
+east the wooded Miden'nir stretches out in the distance. To the north
+a small dusty trail follows the city wall.
+~
+0 KNRS 1
+D0
+The trail continues around the City of Midgaard.
+~
+~
+0 -1 4308
+D3
+You see the city gate.
+~
+gate~
+4 -1 3041
+E
+east woods miden'nir~
+The woods stretch out to the east.  It's way scary in there without
+some gear from the city.
+~
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+E
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+E
+bridge footbridge~
+It is too high up to reach, but it looks as if one easily could walk across
+it from one tower to the other.
+~
+S
+
+#4310
+Outside the West Gate of Midgaard~
+You are by two small towers that have been built into the city wall and
+connected with a footbridge across the heavy wooden gate.  To the west you
+can see the edge of a big forest. A small dusty trail leads north along the
+wall.
+~
+0 KNRS 1
+D0
+The trail continues around the City of Midgaard.
+~
+~
+0 -1 4300
+D1
+The city gate is to the east.
+~
+gate~
+4 -1 3040
+E
+forest west~
+The big forest is to the west, which you just passed through to get to
+the city.  No sense going back that way.
+~
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+E
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+E
+bridge footbridge~
+It is too high up to reach, but it looks as if one easily could walk across
+it from one tower to the other.
+~
+S
+
+#4311
+Outside the North Gate of Midgaard~
+You stand outside the north gate of the walled city of Midgaard.  A dusty
+trail is visibile to the north, it stretches around the walls of the city.
+Further north are the wide expanses of the northern plains, leading to the
+village of Ofcol.  You can return to Midgaard to the south.
+~
+0 KNRS 1
+D0
+You see a dusty trail leading around the city.
+~
+~
+0 -1 4304
+D2
+You see the north gate of Midgaard.
+~
+~
+4 -1 3262
+S
+
+#4312
+The Closet~
+You stand in a small dirty closet.  The only light comes from the tiny
+hole near the ceiling that you just squeezed yourself through.  The damp
+stone walls and floor smell musty, and you look around to see nothing
+of value.  There is a shabby looking {bwooden door{x in the south wall.
+~
+0 DKNRS 1
+D2
+The {bdoor{x is small, yet far larger than the other entrance to the room.
+Maybe you could {Copen{x it?
+~
+closet door~
+1 -1 4313
+E
+wooden door~
+The {bdoor{x is small, yet far larger than the other entrance to the room.
+Maybe you could {Copen{x it?
+~
+S
+
+#4313
+The Old Barracks~
+This room is much larger than the closet, but is nearly as dark.  You can
+make out the shapes of a few bunks along the walls, and a table in the
+center.  Everything is coated in dirt, and it looks like this place hasn't
+been used in a long time.  At the top of some stone steps on the south wall
+is a heavy {giron gate{x, which appears to lead out onto the streets of the
+city.  There is another {bdoor{x on the west wall.
+~
+0 DKNRS 1
+D0
+~
+closet door~
+1 -1 4312
+D2
+The south gate is made of thick iron bars.
+~
+iron gate~
+4 4302 3261
+D3
+The west door is made of wood and leads to another room.
+~
+door~
+1 -1 4314
+E
+south iron gate~
+The iron gate in the south wall sits at the top of six stone steps that
+lead up to street level.  Its position in a small alcove off the city
+street doesn't allow much light into the room.
+~
+E
+west door~
+The door in the west wall might lead to another room.
+~
+S
+
+#4314
+The Storage Room~
+This is where the city guards used to keep weapons and pieces of armor.
+Unfortunately for you, most of the armory seems to be somewhere else at
+the moment.  Empty shelves line the walls, and the only exit is the
+door you just walked through.
+~
+0 ADKNRS 1
+D1
+~
+door~
+1 -1 4313
+E
+door~
+The door in the east wall leads out to the barracks.
+~
+S
+
+#4315
+mob utility room~
+This room is just for helper mobs to do stuff.
+~
+0 DKNRS 1
+S
+
+#0
+
+#RESETS
+D 0 4309 3 2 * east gate into city
+D 0 4311 2 2 * north gate into city
+D 0 4310 1 2 * west gate into city
+D 0 4312 2 1 * south door of closet
+D 0 4313 0 1 * north door of guard room
+D 0 4313 2 2 * south door of guard room
+D 0 4313 3 1 * west door of guard room
+D 0 4314 1 1 * east door of storage room
+
+O 0 4300 1 4303   * secret entrance portal
+O 0 3030 1 4313   * torch in the barracks
+O 0 4301 1 4314   * chest to storage room
+P 0 4302 -1 4301 1 * key into chest
+P 0 3023 -1 4301 1 * club into chest
+P 0 3020 -1 4301 1 * dagger into chest
+P 0 3021 -1 4301 1 * sword into chest
+P 0 3025 -1 4301 1 * axe into chest
+
+
+M 0 4300   3 4309  1    * gatekeeper to outside east gate
+M 0 4300   3 4310  1    * gatekeeper to outside west gate
+M 0 4300   3 4311  1    * gatekeeper to outside north gate
+M 0 4301   1 4315  1    * dialog mob to mob utility room
+M 0 4302   1 4315  1    * ambience mob to mob utility room
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$
