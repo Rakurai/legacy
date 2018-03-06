@@ -216,7 +216,7 @@ void clone_mobile(Character *parent, Character *clone)
 
 	clone->group_flags  = parent->group_flags;
 //	clone->sex          = parent->sex;
-	clone->cls        = parent->cls;
+	clone->guild        = parent->guild;
 	clone->race         = parent->race;
 	clone->level        = parent->level;
 	clone->timer        = parent->timer;

@@ -2458,7 +2458,7 @@ void do_whois(Character *ch, String argument)
 	        remort,
 	        victim->level,
 	        pc_race_table[victim->race].who_name,
-	        class_table[victim->cls].who_name,
+	        guild_table[victim->guild].who_name,
 	        (victim->pcdata->plr_flags.has(PLR_PK)) ? "{P]{x" : "{g]{x");
 	output += block;
 	/* third block "name title" */
@@ -2543,7 +2543,7 @@ void do_who(Character *ch, String argument)
 	int iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
-	bool rgfClass[Class::size], rgfRace[pc_race_table.size()];
+	bool rgfClass[Guild::size], rgfRace[pc_race_table.size()];
 	bool fClassRestrict = FALSE, fClanRestrict = FALSE, fRaceRestrict = FALSE, fImmortalOnly = FALSE;
 	bool fClan = FALSE;
 	bool fPK = FALSE;
@@ -2552,7 +2552,7 @@ void do_who(Character *ch, String argument)
 	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
-	for (unsigned long i = 0; i < Class::size; i++)
+	for (unsigned long i = 0; i < Guild::size; i++)
 		rgfClass[i] = FALSE;
 
 	for (unsigned long i = 0; i < pc_race_table.size(); i++)
@@ -2586,7 +2586,7 @@ void do_who(Character *ch, String argument)
 			else if (arg == "clan")
 				fClanRestrict = TRUE;
 			else {
-				int iClass = class_lookup(arg);
+				int iClass = guild_lookup(arg);
 
 				if (iClass == -1) {
 					unsigned long iRace = race_lookup(arg);
@@ -2635,7 +2635,7 @@ void do_who(Character *ch, String argument)
 		    || wch->level > iLevelUpper
 		    || (fImmortalOnly && !IS_IMMORTAL(wch))
 		    || (fPK && !wch->pcdata->plr_flags.has(PLR_PK))
-		    || (fClassRestrict && !rgfClass[wch->cls])
+		    || (fClassRestrict && !rgfClass[wch->guild])
 		    || (fRaceRestrict && !rgfRace[wch->race])
 		    || (fClan && wch->clan != cch)
 		    || (fClanRestrict && !wch->clan))
@@ -2675,7 +2675,7 @@ void do_who(Character *ch, String argument)
 		/*** Block 1 stuff ***/
 		/* Imm:    Immname */
 		/* Mortal: [lvl race class] */
-		String cls = class_table[wch->cls].who_name;
+		String guild = guild_table[wch->guild].who_name;
 
 		if (IS_REMORT(wch)) {
 			Format::sprintf(rbuf, "{G%2d{x", wch->pcdata->remort_count);
@@ -2703,7 +2703,7 @@ void do_who(Character *ch, String argument)
 			        remort,
 			        wch->level,
 			        pc_race_table[wch->race].who_name,
-			        cls,
+			        guild,
 			        wch->pcdata->plr_flags.has(PLR_PK) ? "{P" : "{W",
 			        rbrk);
 		}
@@ -3217,7 +3217,7 @@ void do_consider(Character *ch, String argument)
 		ptc(ch, "{TRace: %s  Sex: %s  Class: %s  Size: %s\n",
 		    race_table[victim->race].name,
 		    sex_table[GET_ATTR_SEX(victim)].name,
-		    IS_NPC(victim) ? "mobile" : class_table[victim->cls].name,
+		    IS_NPC(victim) ? "mobile" : guild_table[victim->guild].name,
 		    size_table[victim->size].name);
 		ptc(ch, "{PStr: %-2d(%-2d)\t{BAC Pierce : %-10d{YHit Points: %d/%d\n",
 		    ATTR_BASE(victim, APPLY_STR), GET_ATTR_STR(victim),
@@ -3607,7 +3607,7 @@ void prac_by_group(Character *ch, const String& argument)
 
 		gp = &group_table[gt];
 
-		if (gp->rating[ch->cls] < 0)      /* ignore things not in class */
+		if (gp->rating[ch->guild] < 0)      /* ignore things not in class */
 			continue;
 
 		if (!argument.empty() && !argument.is_prefix_of(gp->name))
@@ -3621,7 +3621,7 @@ void prac_by_group(Character *ch, const String& argument)
 			if (sn == skill::type::unknown)
 				continue;
 
-			if (skill::lookup(sn).skill_level[ch->cls] > ch->level)
+			if (skill::lookup(sn).skill_level[ch->guild] > ch->level)
 				continue; /* skill beyond player's level */
 
 			int learned = get_learned(ch, sn);
@@ -3690,11 +3690,11 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		if (entry.remort_class > 0)
+		if (entry.remort_guild > 0)
 			if (!CAN_USE_RSKILL(ch, type))
 				continue;
 
-		if (entry.skill_level[ch->cls] > ch->level)
+		if (entry.skill_level[ch->guild] > ch->level)
 			continue; /* skill beyond player's level */
 
 		if (get_learned(ch, type) <= 0)
@@ -3736,14 +3736,14 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	for (js = 0; js < nskills; js++) {
 		const auto& entry = skill::lookup(slist[js]);
 
-		if (entry.remort_class > 0) {
-			if (entry.remort_class == ch->cls + 1)
+		if (entry.remort_guild > 0) {
+			if (entry.remort_guild == ch->guild + 1)
 				adept = 65;
 			else
 				adept = 50;
 		}
 		else
-			adept = class_table[ch->cls].skill_adept;
+			adept = guild_table[ch->guild].skill_adept;
 
 		output += Format::format("%s%3d%% %-20.20s{x ",
 		    get_learned(ch, slist[js]) >= adept ? "{g" : "{C",
@@ -3820,14 +3820,14 @@ void do_practice(Character *ch, String argument)
 
 	if (sn == skill::type::unknown
 	    || (!IS_NPC(ch)
-	        && (ch->level < entry.skill_level[ch->cls]
+	        && (ch->level < entry.skill_level[ch->guild]
 	            ||    get_learned(ch, sn) < 1 /* skill is not known */
-	            ||    entry.rating[ch->cls] == 0))) {
+	            ||    entry.rating[ch->guild] == 0))) {
 		stc("You can't practice that.\n", ch);
 		return;
 	}
 
-	if (entry.remort_class > 0)
+	if (entry.remort_guild > 0)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You can't practice that.\n", ch);
 			return;
@@ -3835,14 +3835,14 @@ void do_practice(Character *ch, String argument)
 
 	adept = 0;
 
-	if (entry.remort_class > 0) {
-		if (entry.remort_class == ch->cls + 1)
+	if (entry.remort_guild > 0) {
+		if (entry.remort_guild == ch->guild + 1)
 			adept = 65;
 		else if (HAS_EXTRACLASS(ch, sn))
 			adept = 50;
 	}
 	else
-		adept = IS_NPC(ch) ? 100 : class_table[ch->cls].skill_adept;
+		adept = IS_NPC(ch) ? 100 : guild_table[ch->guild].skill_adept;
 
 	if (get_learned(ch, sn) >= adept) {
 		Format::sprintf(buf, "You are already learned at %s.\n",
@@ -3852,7 +3852,7 @@ void do_practice(Character *ch, String argument)
 	}
 
 	ch->practice--;
-	increase = (int_app[GET_ATTR_INT(ch)].learn / entry.rating[ch->cls]);
+	increase = (int_app[GET_ATTR_INT(ch)].learn / entry.rating[ch->guild]);
 
 	if (increase < 1)
 		increase = 1;
@@ -5153,7 +5153,7 @@ void score_new(Character *ch)
 	Format::sprintf(buf, "%s ", sex_table[GET_ATTR_SEX(ch)].name.capitalize());
 	buf += race_table[ch->race].name.capitalize();
 	buf += " ";
-	buf += class_table[ch->cls].name.capitalize();
+	buf += guild_table[ch->guild].name.capitalize();
 	new_color(ch, CSLOT_SCORE_CLASS);
 	ptc(ch, " {Y.:.{x %s {Y.:.{x\n", buf.center(62));
 //	line  5:  )X(           Level 99 (Remort 0)     Age: 17 (130 Hours)          )X(

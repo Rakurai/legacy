@@ -448,12 +448,12 @@ int select_pose(Character *ch)
 		return -1;
 	}
 
-	if (ch->cls >= Class::size) {
+	if (ch->guild >= Guild::size) {
 		Logging::bug("do_new_pose: Player has invalid class!", 0);
 		return -1;
 	}
 
-	maxpose = new_pose_table[ch->cls].size();
+	maxpose = new_pose_table[ch->guild].size();
 
 	if (maxpose <= 0) {
 		stc("No poses implemented for your class, sorry!\n", ch);
@@ -474,8 +474,8 @@ void do_pose(Character *ch, String argument)
 	if (pose == -1)
 		return;
 
-	act(new_pose_table[ch->cls][pose].self_msg, ch, nullptr, nullptr, TO_CHAR);
-	act(new_pose_table[ch->cls][pose].room_msg, ch, nullptr, nullptr, TO_ROOM);
+	act(new_pose_table[ch->guild][pose].self_msg, ch, nullptr, nullptr, TO_CHAR);
+	act(new_pose_table[ch->guild][pose].room_msg, ch, nullptr, nullptr, TO_ROOM);
 	return;
 }
 
@@ -489,16 +489,16 @@ void do_testpose(Character *ch, String argument)
 
 	String arg;
 	argument = one_argument(argument, arg);
-	int cls = class_lookup(arg);
+	int guild = guild_lookup(arg);
 
-	if (cls == -1) {
+	if (guild == -1) {
 		stc("That's not a valid class\n", ch);
 		return;
 	}
 
 	if (argument.empty()) {
 		Format::sprintf(arg, "%d poses defined for class '%s'\n",
-		        new_pose_table[cls].size(), class_table[cls].name);
+		        new_pose_table[guild].size(), guild_table[guild].name);
 		stc(arg, ch);
 		return;
 	}
@@ -512,16 +512,16 @@ void do_testpose(Character *ch, String argument)
 
 	unsigned int pose = atoi(arg); // 1-indexed
 
-	if (pose < 1 || pose > new_pose_table[cls].size()) {
+	if (pose < 1 || pose > new_pose_table[guild].size()) {
 		stc("Pose number out of range!\n", ch);
 		return;
 	}
 
 	pose--;
 	stc("{Yto {Cyourself{x:\n", ch);
-	act(new_pose_table[cls][pose].self_msg, ch, nullptr, nullptr, TO_CHAR);
+	act(new_pose_table[guild][pose].self_msg, ch, nullptr, nullptr, TO_CHAR);
 	stc("{Yto {Cothers{x:\n", ch);
-	act(new_pose_table[cls][pose].room_msg, ch, nullptr, nullptr, TO_CHAR);
+	act(new_pose_table[guild][pose].room_msg, ch, nullptr, nullptr, TO_CHAR);
 } /* end do_testpose() */
 
 /* RT code to delete yourself */
@@ -1642,7 +1642,7 @@ void do_group(Character *ch, String argument)
 				Format::sprintf(buf,
 				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",
 				        gch->level,
-				        IS_NPC(gch) ? "Mob" : class_table[gch->cls].who_name,
+				        IS_NPC(gch) ? "Mob" : guild_table[gch->guild].who_name,
 				        PERS(gch, ch, VIS_PLR),
 				        gch->hit,   GET_MAX_HIT(gch),
 				        gch->mana,  GET_MAX_MANA(gch),

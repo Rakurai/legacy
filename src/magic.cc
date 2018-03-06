@@ -103,7 +103,7 @@ skill::type find_spell(Character *ch, const String& name)
 			if (found == skill::type::unknown)
 				found = type;
 
-			if (ch->level >= entry.skill_level[ch->cls]
+			if (ch->level >= entry.skill_level[ch->guild]
 			 && get_skill_level(ch, type) > 0)
 				return type;
 		}
@@ -177,7 +177,7 @@ void say_spell(Character *ch, skill::type sn)
 
 	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if (rch != ch) {
-			if (ch->cls == rch->cls) {
+			if (ch->guild == rch->guild) {
 				act(buf, ch, nullptr, rch, TO_VICT);
 				continue;
 			}
@@ -236,7 +236,7 @@ void do_cast(Character *ch, String argument)
 	one_argument(target_name, arg2);
 
 	if ((sn = find_spell(ch, arg1)) == skill::type::unknown
-	    || (!IS_NPC(ch) && (ch->level < skill::lookup(sn).skill_level[ch->cls]
+	    || (!IS_NPC(ch) && (ch->level < skill::lookup(sn).skill_level[ch->guild]
 	                        || get_skill_level(ch, sn) == 0))) {
 		stc("You don't know any spells of that name.\n", ch);
 		return;
@@ -248,7 +248,7 @@ void do_cast(Character *ch, String argument)
 		return;
 	}
 
-	if (skill::lookup(sn).remort_class > 0)
+	if (skill::lookup(sn).remort_guild > 0)
 		if (!CAN_USE_RSKILL(ch, sn)) {
 			stc("You don't know any spells of that name.\n", ch);
 			return;
@@ -457,7 +457,7 @@ void do_cast(Character *ch, String argument)
 
 	wait = skill::lookup(sn).beats;
 
-	if ((ch->cls == 0) || (ch->cls == 1) || (ch->cls == 4))
+	if ((ch->guild == 0) || (ch->guild == 1) || (ch->guild == 4))
 		wait -= wait / 4;
 
 	/* remort affect - fast casting */
@@ -2341,7 +2341,7 @@ void spell_demonfire(skill::type sn, int level, Character *ch, void *vo, int tar
 		stc("The demons turn upon you!\n", ch);
 	}
 
-	if (ch->cls != 5) /* Paladins */
+	if (ch->guild != 5) /* Paladins */
 		ch->alignment = UMAX(-1000, ch->alignment - 50);
 
 	if (victim != ch) {
@@ -3033,7 +3033,7 @@ void spell_energy_drain(skill::type sn, int level, Character *ch, void *vo, int 
 	Character *victim = (Character *) vo;
 	int dam, manadrain, stamdrain;
 
-	if (victim != ch && ch->cls != 5) /*Paladin*/
+	if (victim != ch && ch->guild != 5) /*Paladin*/
 		ch->alignment = UMAX(-1000, ch->alignment - 50);
 
 	if (saves_spell(level, victim, DAM_NEGATIVE)) {
@@ -5396,7 +5396,7 @@ void spell_remove_alignment(skill::type sn, int level, Character *ch, void *vo, 
 	}
 
 	/* remove some of the character's alignment, if not a Paladin */
-	if (ch->cls != 5) { /* Paladins */
+	if (ch->guild != 5) { /* Paladins */
 		align = 25 * ch->alignment / 1000;
 		ch->alignment = URANGE(-1000, (ch->alignment - align), 1000);
 		stc("The powerful nature of the spell removes some of your alignment!\n", ch);
@@ -5433,7 +5433,7 @@ void spell_remove_alignment(skill::type sn, int level, Character *ch, void *vo, 
 
 	/* Removes more of the caster's alignment, if not a Paladin */
 	if (result < (fail / 3)) {
-		if (ch->cls != 5) {
+		if (ch->guild != 5) {
 			align = 25 * ch->alignment / 1000;
 			ch->alignment = URANGE(-1000, (ch->alignment - align), 1000);
 			stc("The spell backfires and removes some of YOUR alignment!\n", ch);

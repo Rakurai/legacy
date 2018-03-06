@@ -480,7 +480,7 @@ const std::vector<deity_type> deity_table = {
 /*
  * Class table.
  */
-const std::vector<class_type> class_table = {
+const std::vector<guild_type> guild_table = {
 	/*
 	        {
 	                name,           whoname,prime_attr,     vnum of newbie weapon,
@@ -801,7 +801,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
     8. min_mana, minimum mana cost to cast.
     9. beats, amount of lag in quarter seconds.
     10. noun_damage, damage message in combat.
-    11. remort_class, sets what class gets it as a remort spell.  Use -1 to make it inaccessible.
+    11. remort_guild, sets what class gets it as a remort spell.  Use -1 to make it inaccessible.
     12. evocost_sec, cost for secondary or higher class to evolve to 2.  Use 0 for tertiary classes.
     13. evocost_pri, cost for primary class to evolve to 3.  Use 0 for secondary classes.
 */

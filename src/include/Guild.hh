@@ -1,6 +1,6 @@
 #pragma once
 
-enum Class {
+enum Guild {
 	none = -1,
 	mage = 0,
 	cleric,

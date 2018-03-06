@@ -330,7 +330,7 @@ void nanny(Descriptor *d, String argument)
 	String buf, arg;
 	Character *ch, *victim;
 	const char *pwdnew, *p;
-	Class iClass; 
+	Guild iGuild; 
 	int i, weapon, deity;
 	unsigned int race;
 	bool fOld, logon_lurk;
@@ -796,11 +796,11 @@ void nanny(Descriptor *d, String argument)
 		write_to_buffer(d, "\n");
 		buf = "Select a class [";
 
-		for (int i = Class::first; i < Class::size; i++) {
-			if (i > Class::first)
+		for (int i = Guild::first; i < Guild::size; i++) {
+			if (i > Guild::first)
 				buf += " ";
 
-			buf += class_table[i].name;
+			buf += guild_table[i].name;
 		}
 
 		buf += "]\nHelp file: class\nWhat is your class? ";
@@ -823,12 +823,12 @@ void nanny(Descriptor *d, String argument)
 			break;
 		}
 
-		if ((iClass = class_lookup(argument)) == Class::none) {
+		if ((iGuild = guild_lookup(argument)) == Guild::none) {
 			write_to_buffer(d, "That is not a class.\nWhat is your class? ");
 			return;
 		}
 
-		ch->cls = iClass;
+		ch->guild = iGuild;
 		log_buf = Format::format("%s@%s new player.", ch->name, d->host);
 		wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, GET_RANK(ch));
 		Logging::log(log_buf);
@@ -837,8 +837,8 @@ void nanny(Descriptor *d, String argument)
 		write_to_buffer(d, "\n");
 		/* paladins can't be neutral */
 		Format::sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
-		        ch->cls == Class::paladin ? "" : ", neutral,",
-		        ch->cls == Class::paladin ? "" : "/N");
+		        ch->guild == Guild::paladin ? "" : ", neutral,",
+		        ch->guild == Guild::paladin ? "" : "/N");
 		write_to_buffer(d, buf);
 		d->connected = CON_GET_ALIGNMENT;
 		break;
@@ -847,7 +847,7 @@ void nanny(Descriptor *d, String argument)
 		switch (argument[0]) {
 		case 'g':
 		case 'G':
-			if (ch->cls == Class::paladin)
+			if (ch->guild == Guild::paladin)
 				ch->alignment = 1000;
 			else
 				ch->alignment = 750;
@@ -856,7 +856,7 @@ void nanny(Descriptor *d, String argument)
 
 		case 'e':
 		case 'E':
-			if (ch->cls == Class::paladin)
+			if (ch->guild == Guild::paladin)
 				ch->alignment = -1000;
 			else
 				ch->alignment = -750;
@@ -867,27 +867,27 @@ void nanny(Descriptor *d, String argument)
 		case 'N':
 
 			/* paladins drop through to default */
-			if (ch->cls != Class::paladin) {
+			if (ch->guild != Guild::paladin) {
 				ch->alignment = 0;
 				break;
 			}
 
 		default:
 			Format::sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
-			        ch->cls == Class::paladin ? "" : "/N");
+			        ch->guild == Guild::paladin ? "" : "/N");
 			write_to_buffer(d, buf);
 			return;
 		}
 
 		write_to_buffer(d, "\n");
 		group_add(ch, "rom basics", FALSE);
-		group_add(ch, class_table[ch->cls].base_group, FALSE);
+		group_add(ch, guild_table[ch->guild].base_group, FALSE);
 		set_learned(ch, skill::type::recall, 50);
 		set_learned(ch, skill::type::scan, 100);
 		buf = "Select a deity:\n";
 
 		for (const auto& entry : deity_table) {
-			if (ch->cls == Class::paladin) { /* Paladins */
+			if (ch->guild == Guild::paladin) { /* Paladins */
 				if (entry.value > 0 && ch->alignment > 0) {
 					buf += entry.align;
 					buf += entry.name;
@@ -956,7 +956,7 @@ void nanny(Descriptor *d, String argument)
 		case 'n':
 		case 'N':
 */
-//			group_add(ch, class_table[ch->cls].default_group, TRUE);
+//			group_add(ch, guild_table[ch->guild].default_group, TRUE);
 
 			if (ch->pcdata->points < 40)
 				ch->train = 40 - ch->pcdata->points;
@@ -1073,7 +1073,7 @@ void nanny(Descriptor *d, String argument)
 
 		if (ch->level == 0) {
 			Object *obj;   /* a generic object variable */
-			ATTR_BASE(ch, stat_to_attr(class_table[ch->cls].stat_prime)) += 3;
+			ATTR_BASE(ch, stat_to_attr(guild_table[ch->guild].stat_prime)) += 3;
 			ch->level       = 1;
 			ch->exp         = exp_per_level(ch, ch->pcdata->points);
 			ch->hit         = GET_MAX_HIT(ch);

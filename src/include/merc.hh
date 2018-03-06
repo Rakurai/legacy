@@ -34,7 +34,7 @@
 #include "affect/Type.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "Class.hh"
+#include "Guild.hh"
 
 /* system calls */
 //int unlink();
@@ -89,7 +89,7 @@ struct deity_type
 	int         value;
 };
 
-struct  class_type
+struct  guild_type
 {
 	String      name;                   /* the full name of the class */
 	String      who_name;               /* Three-letter name for 'who'  */
@@ -158,7 +158,7 @@ struct pc_race_type  /* additional data for pc races */
 	String      who_name;		/* first 3 characters are used in 'who' */
 	int	    base_age;		/* the base age for the race */
 	int      points;                 /* cost in points of the race */
-	int      class_mult[Class::size];  /* exp multiplier for class, * 100 */
+	int      guild_mult[Guild::size];  /* exp multiplier for class, * 100 */
 	int      stats[MAX_STATS];       /* starting stats */
 	int      max_stats[MAX_STATS];   /* maximum stats */
 	int      size;                   /* aff bits for the race */
@@ -190,7 +190,7 @@ struct  liq_type
 struct  group_type
 {
 	String      name;
-	int      rating[Class::size];
+	int      rating[Guild::size];
 	std::vector<String> spells;
 };
 
@@ -207,7 +207,7 @@ extern  const   struct  dex_app_type    dex_app         [26];
 extern  const   struct  con_app_type    con_app         [26];
 extern  const   struct  chr_app_type    chr_app         [26];
 
-extern  const   std::vector<class_type>      class_table;
+extern  const   std::vector<guild_type>      guild_table;
 extern  const   std::vector<deity_type>      deity_table;
 extern  const   std::vector<weapon_table_t>     weapon_table;
 extern  const   std::vector<item_type>       item_table;

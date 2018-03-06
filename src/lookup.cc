@@ -204,14 +204,14 @@ int attack_lookup(const String& name)
 }
 
 /* returns class number */
-Class class_lookup(const String& name)
+Guild guild_lookup(const String& name)
 {
-	for (int cls = Class::first; cls < Class::size; cls++) {
-		if (name.is_prefix_of(class_table[cls].name))
-			return (Class)cls;
+	for (int guild = Guild::first; guild < Guild::size; guild++) {
+		if (name.is_prefix_of(guild_table[guild].name))
+			return (Guild)guild;
 	}
 
-	return Class::none;
+	return Guild::none;
 }
 
 int liq_lookup(const String& name)

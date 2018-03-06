@@ -2987,7 +2987,7 @@ void do_recite(Character *ch, String argument)
 	}
 
 	/* delay on scrolls -- Elrac */
-	WAIT_STATE(ch, (ch->cls == 0 || ch->cls == 1 || ch->cls == 4)
+	WAIT_STATE(ch, (ch->guild == 0 || ch->guild == 1 || ch->guild == 4)
 	           ? (skill::lookup(skill::type::scrolls).beats * 4) / 5
 	           : skill::lookup(skill::type::scrolls).beats);
 	extract_obj(scroll);
@@ -3187,7 +3187,7 @@ void do_brew(Character *ch, String argument)
 	int target_level = 0;    /* what level should we brew at? */
 
 	if (!IS_NPC(ch)
-	    && ch->level < skill::lookup(skill::type::brew).skill_level[ch->cls]) {
+	    && ch->level < skill::lookup(skill::type::brew).skill_level[ch->guild]) {
 		stc("You do not know how to brew potions.\n", ch);
 		return;
 	}
@@ -3247,7 +3247,7 @@ void do_brew(Character *ch, String argument)
 	     (skill::lookup(sn).target != TAR_CHAR_SELF) &&
 	     (skill::lookup(sn).target != TAR_OBJ_CHAR_DEF))
 	    ||
-	    (skill::lookup(sn).remort_class > 0)) {
+	    (skill::lookup(sn).remort_guild > 0)) {
 		stc("You cannot brew that spell.\n", ch);
 		return;
 	}
@@ -3263,7 +3263,7 @@ void do_brew(Character *ch, String argument)
 		target_level = atoi(arg);
 
 		/* make sure the new level is high enough */
-		if (target_level < skill::lookup(sn).skill_level[ch->cls]) {
+		if (target_level < skill::lookup(sn).skill_level[ch->guild]) {
 			stc("You cannot brew the spell at that low a level.\n", ch);
 			return;
 		}
@@ -3316,7 +3316,7 @@ void do_scribe(Character *ch, String argument)
 	int target_level = 0;   /* let caster make items of lower level */
 
 	if (!IS_NPC(ch)
-	    && ch->level < skill::lookup(skill::type::scribe).skill_level[ch->cls]) {
+	    && ch->level < skill::lookup(skill::type::scribe).skill_level[ch->guild]) {
 		stc("You do not know how to scribe scrolls.\n", ch);
 		return;
 	}
@@ -3355,7 +3355,7 @@ void do_scribe(Character *ch, String argument)
 		return;
 	}
 
-	if (skill::lookup(sn).remort_class > 0) {
+	if (skill::lookup(sn).remort_guild > 0) {
 		stc("You cannot scribe that spell.\n", ch);
 		return;
 	}
@@ -3372,7 +3372,7 @@ void do_scribe(Character *ch, String argument)
 		target_level = atoi(arg);
 
 		/* Keep the spell level from dropping too low. */
-		if (target_level < skill::lookup(sn).skill_level[ch->cls]) {
+		if (target_level < skill::lookup(sn).skill_level[ch->guild]) {
 			stc("You cannot scribe that spell at that level.", ch);
 			return;
 		}
@@ -3899,7 +3899,7 @@ void do_buy(Character *ch, String argument)
 		pet         = get_char_here(ch, arg, VIS_CHAR);
 		ch->in_room = in_room;
 
-		if (ch->in_room->guild() && ch->in_room->guild() != ch->cls + 1 && !IS_IMMORTAL(ch)) {
+		if (ch->in_room->guild() && ch->in_room->guild() != ch->guild + 1 && !IS_IMMORTAL(ch)) {
 			stc("Sorry, members only.\n", ch);
 			return;
 		}
@@ -4019,7 +4019,7 @@ void do_buy(Character *ch, String argument)
 		if ((keeper = find_keeper(ch)) == nullptr)
 			return;
 
-		if (keeper->in_room->guild() && keeper->in_room->guild() != ch->cls + 1 && !IS_IMMORTAL(ch)) {
+		if (keeper->in_room->guild() && keeper->in_room->guild() != ch->guild + 1 && !IS_IMMORTAL(ch)) {
 			act("$n tells you 'Sorry, members only.'", keeper, nullptr, ch, TO_VICT);
 			return;
 		}
@@ -4885,7 +4885,7 @@ void do_forge(Character *ch, String argument)
 	        ch->in_room->area().world.time.month_name(),
 	        (ch->level > LEVEL_HERO) ? "an immortal" : (ch->level > 75) ? "a master" :
 	        (ch->level > 50) ? "an experienced" : (ch->level > 25) ? "a young" :
-	        "a newbie", class_table[ch->cls].name, ch->name,
+	        "a newbie", guild_table[ch->guild].name, ch->name,
 	        race_table[ch->race].name);
 	ed = new ExtraDescr(obj->name, buf);
 	ed->next           = obj->extra_descr;

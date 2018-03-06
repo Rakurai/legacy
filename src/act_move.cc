@@ -142,7 +142,7 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	if (!IS_NPC(ch)) {
-		if (to_room->guild() && to_room->guild() != ch->cls + 1 && !IS_IMMORTAL(ch)) {
+		if (to_room->guild() && to_room->guild() != ch->guild + 1 && !IS_IMMORTAL(ch)) {
 			stc("You must be a guild member to enter.\n", ch);
 			return;
 		}
@@ -1805,42 +1805,42 @@ void do_train(Character *ch, String argument)
 	cost = 1;
 
 	if (argument == "str") {
-		if (class_table[ch->cls].stat_prime == STAT_STR)
+		if (guild_table[ch->guild].stat_prime == STAT_STR)
 			cost    = 1;
 
 		stat        = STAT_STR;
 		pOutput     = "strength";
 	}
 	else if (argument == "int") {
-		if (class_table[ch->cls].stat_prime == STAT_INT)
+		if (guild_table[ch->guild].stat_prime == STAT_INT)
 			cost    = 1;
 
 		stat        = STAT_INT;
 		pOutput     = "intelligence";
 	}
 	else if (argument == "wis") {
-		if (class_table[ch->cls].stat_prime == STAT_WIS)
+		if (guild_table[ch->guild].stat_prime == STAT_WIS)
 			cost    = 1;
 
 		stat        = STAT_WIS;
 		pOutput     = "wisdom";
 	}
 	else if (argument == "dex") {
-		if (class_table[ch->cls].stat_prime == STAT_DEX)
+		if (guild_table[ch->guild].stat_prime == STAT_DEX)
 			cost    = 1;
 
 		stat        = STAT_DEX;
 		pOutput     = "dexterity";
 	}
 	else if (argument == "con") {
-		if (class_table[ch->cls].stat_prime == STAT_CON)
+		if (guild_table[ch->guild].stat_prime == STAT_CON)
 			cost    = 1;
 
 		stat        = STAT_CON;
 		pOutput     = "constitution";
 	}
 	else if (argument == "chr") {
-		if (class_table[ch->cls].stat_prime == STAT_CHR)
+		if (guild_table[ch->guild].stat_prime == STAT_CHR)
 			cost    = 1;
 
 		stat        = STAT_CHR;
@@ -2100,7 +2100,7 @@ void do_push(Character *ch, String argument)
 
 	if (!IS_NPC(ch)
 	    && to_room->guild()
-	    && to_room->guild() != victim->cls + 1) {
+	    && to_room->guild() != victim->guild + 1) {
 		stc("They are not a member, they cannot enter.\n", ch);
 		return;
 	}
@@ -3065,8 +3065,8 @@ void do_enter(Character *ch, String argument)
 		do_look(ch, "auto");
 
 		if (!IS_NPC(ch) && fighting) {
-			if (ch->cls != 2) {
-				if (ch->cls == Class::paladin) { /* Paladins */
+			if (ch->guild != 2) {
+				if (ch->guild == Guild::paladin) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);
 				}

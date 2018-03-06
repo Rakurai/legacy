@@ -270,8 +270,8 @@ void do_evoset(Character *ch, String argument)
 			if (can == 1)
 				Format::sprintf(buf, "They need %d skill points to evolve %s to %d.\n",
 				        get_evolution(victim, type) == 1 ?
-				        entry.evocost_sec[victim->cls] :
-				        entry.evocost_pri[victim->cls],
+				        entry.evocost_sec[victim->guild] :
+				        entry.evocost_pri[victim->guild],
 				        entry.name,
 				        get_evolution(victim, type) + 1);
 
@@ -297,9 +297,9 @@ void do_evoset(Character *ch, String argument)
 
 	const auto& entry = skill::lookup(type);
 
-	if (entry.evocost_sec[victim->cls] <= 0 && !IS_IMMORTAL(victim)) {
+	if (entry.evocost_sec[victim->guild] <= 0 && !IS_IMMORTAL(victim)) {
 		ptc(ch, "%ss cannot evolve %s.\n",
-		    class_table[victim->cls].name.capitalize(), entry.name);
+		    guild_table[victim->guild].name.capitalize(), entry.name);
 		return;
 	}
 
@@ -310,7 +310,7 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if (entry.evocost_pri[victim->cls] <= 0 && value > 2 && !IS_IMMORTAL(victim)) {
+	if (entry.evocost_pri[victim->guild] <= 0 && value > 2 && !IS_IMMORTAL(victim)) {
 		stc("Secondary classes cannot evolve a skill or spell past 2.\n", ch);
 		return;
 	}
@@ -510,8 +510,8 @@ void do_extraset(Character *ch, String argument)
 	if (arg1 == "list") {
 		output += "\n                      {BExtraclass Remort Skills{x\n";
 
-		for (cn = Class::first; cn < Class::size; cn++) {
-			Format::sprintf(buf, "\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
+		for (cn = Guild::first; cn < Guild::size; cn++) {
+			Format::sprintf(buf, "\n{W%s Skills{x\n    ", guild_table[cn].name.capitalize());
 			output += buf;
 			col = 0;
 
@@ -522,9 +522,9 @@ void do_extraset(Character *ch, String argument)
 				if (type == skill::type::unknown)
 					continue;
 
-				if (entry.remort_class > 0
-				 && entry.remort_class == cn + 1) {
-					Format::sprintf(buf, "%-15s %-8d", entry.name, entry.rating[ch->cls]);
+				if (entry.remort_guild > 0
+				 && entry.remort_guild == cn + 1) {
+					Format::sprintf(buf, "%-15s %-8d", entry.name, entry.rating[ch->guild]);
 					output += buf;
 				}
 			}
@@ -623,20 +623,20 @@ void do_extraset(Character *ch, String argument)
 
 	/* for debugging, put the checks for oddball stuff after the removal part */
 	/* Is it a remort skill? */
-	if (skill::lookup(sn).remort_class == 0) {
+	if (skill::lookup(sn).remort_guild == 0) {
 		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill::lookup(sn).remort_class == victim->cls + 1) {
+	if (skill::lookup(sn).remort_guild == victim->guild + 1) {
 		stc("They cannot have an extraclass skill within their class.  Pick another.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
-	if ((skill::lookup(sn).skill_level[victim->cls] < 0)
-	    || (skill::lookup(sn).rating[victim->cls] < 0)) {
+	if ((skill::lookup(sn).skill_level[victim->guild] < 0)
+	    || (skill::lookup(sn).rating[victim->guild] < 0)) {
 		stc("Their class cannot gain that skill.\n", ch);
 		return;
 	}
@@ -991,16 +991,16 @@ void do_mset(Character *ch, String argument)
 	 *********************************************************/
 
 	if (arg2.is_prefix_of("class")) {
-		Class cls = class_lookup(arg3);
+		Guild guild = guild_lookup(arg3);
 
-		if (cls == Class::none) {
+		if (guild == Guild::none) {
 			Format::sprintf(buf, "Possible classes are: ");
 
-			for (int i = Class::first; i < Class::size; i++) {
-				if (i > Class::first)
+			for (int i = Guild::first; i < Guild::size; i++) {
+				if (i > Guild::first)
 					buf += " ";
 
-				buf += class_table[i].name;
+				buf += guild_table[i].name;
 			}
 
 			buf += ".\n";
@@ -1008,8 +1008,8 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		victim->cls = cls;
-		ptc(ch, "%s is now a %s.\n", victim->name, class_table[cls].name);
+		victim->guild = guild;
+		ptc(ch, "%s is now a %s.\n", victim->name, guild_table[guild].name);
 		return;
 	}
 
@@ -1530,9 +1530,9 @@ void format_mstat(Character *ch, Character *victim)
 		ptc(ch, "{C Age: %d (%d hours){x", get_age(victim), get_play_hours(victim));
 
 	stc("\n", ch);
-	ptc(ch, "{MRace: %s  Sex: %s  Class: %s  Size: %s{x\n",
+	ptc(ch, "{MRace: %s  Sex: %s  Guild: %s  Size: %s{x\n",
 	    race_table[victim->race].name, sex_table[GET_ATTR_SEX(victim)].name,
-	    IS_NPC(victim) ? "mobile" : class_table[victim->cls].name,
+	    IS_NPC(victim) ? "mobile" : guild_table[victim->guild].name,
 	    size_table[victim->size].name);
 
 	if (!IS_NPC(victim))
@@ -1877,7 +1877,7 @@ void format_rstat(Character *ch, Room *location)
 		ptc(ch, "{VClan: %s{x\n", location->clan()->who_name);
 
 	if (location->guild())
-		ptc(ch, "{VGuild: %s{x\n", class_table[location->guild()].name);
+		ptc(ch, "{VGuild: %s{x\n", guild_table[location->guild()].name);
 
 	ptc(ch, "{BDescription:{x\n%s\n", location->description());
 
@@ -2079,7 +2079,7 @@ void do_pstat(Character *ch, String argument)
 	ptc(ch, " %s %s %s",
 	    race_table[victim->race].name,
 	    sex_table[GET_ATTR_SEX(ch)].name,
-	    class_table[victim->cls].name);
+	    guild_table[victim->guild].name);
 
 	if (victim->clan) {
 		stc(", ", ch);

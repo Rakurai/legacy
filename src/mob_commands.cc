@@ -96,7 +96,7 @@ void do_mpstat(Character *ch, String argument)
 	stc(buf, ch);
 	Format::sprintf(buf,
 	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",
-	        victim->level,       victim->cls,        victim->alignment,
+	        victim->level,       victim->guild,        victim->alignment,
 	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
 	stc(buf, ch);
 

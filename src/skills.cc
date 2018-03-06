@@ -55,7 +55,7 @@ bool completed_group(Character *ch, int gn)
 		int ngn = group_lookup(spell);
 
 		if (ngn >= 0) {
-			if (group_table[ngn].rating[ch->cls] <= 0)
+			if (group_table[ngn].rating[ch->guild] <= 0)
 				continue;
 
 			if (!completed_group(ch, ngn))
@@ -227,7 +227,7 @@ void do_spells(Character *ch, String argument)
 			if (type == skill::type::unknown)
 				continue;
 
-			level = skill::lookup(type).skill_level[ch->cls];
+			level = skill::lookup(type).skill_level[ch->guild];
 
 			if (level < min_level || max_level < level)
 				continue;
@@ -247,7 +247,7 @@ void do_spells(Character *ch, String argument)
 			if (type == skill::type::unknown)
 				continue;
 
-			level = entry.skill_level[ch->cls];
+			level = entry.skill_level[ch->guild];
 
 			if (level < min_level
 			    || max_level < level
@@ -256,8 +256,8 @@ void do_spells(Character *ch, String argument)
 
 			if (spell_name.empty()) {
 				if (get_learned(ch, type) <= 0
-				    || (entry.remort_class != 0 && !IS_IMMORTAL(ch)
-				        && ch->cls + 1 != entry.remort_class && !HAS_EXTRACLASS(ch, type)))
+				    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
+				        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 					continue;
 			}
 			else if (!entry.name.has_words(spell_name))
@@ -327,8 +327,8 @@ void do_spells(Character *ch, String argument)
 		const auto& entry = skill::lookup(type);
 
 		if (get_learned(ch, type) <= 0
-		    || (entry.remort_class != 0 && !IS_IMMORTAL(ch)
-		        && ch->cls + 1 != entry.remort_class && !HAS_EXTRACLASS(ch, type)))
+		    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
+		        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 			buffer += "[not  gained] ";
 		else if (ch->level < level)
 			buffer += "[           ] ";
@@ -430,7 +430,7 @@ void do_skills(Character *ch, String argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		level = entry.skill_level[ch->cls];
+		level = entry.skill_level[ch->guild];
 
 		if (level < min_level
 		    || max_level < level
@@ -439,8 +439,8 @@ void do_skills(Character *ch, String argument)
 
 		if (skill_name.empty()) {
 			if (get_learned(ch, type) <= 0
-			    || (entry.remort_class != 0 && !IS_IMMORTAL(ch)
-			        && ch->cls + 1 != entry.remort_class && !HAS_EXTRACLASS(ch, type)))
+			    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
+			        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 				continue;
 		}
 		else if (!entry.name.has_words(skill_name))
@@ -506,8 +506,8 @@ void do_skills(Character *ch, String argument)
 		const auto& entry = skill::lookup(type);
 
 		if (get_learned(ch, type) <= 0
-		    || (entry.remort_class != 0 && !IS_IMMORTAL(ch)
-		        && ch->cls + 1 != entry.remort_class && !HAS_EXTRACLASS(ch, type)))
+		    || (entry.remort_guild != 0 && !IS_IMMORTAL(ch)
+		        && ch->guild + 1 != entry.remort_guild && !HAS_EXTRACLASS(ch, type)))
 			Format::sprintf(buf, "[not  gained] ");
 		else if (ch->level < level)
 			Format::sprintf(buf, "[           ] ");
@@ -542,7 +542,7 @@ void do_levels(Character *ch, String argument)
 	char columns[LEVEL_HERO] = {0};
 	int lev, x, y;
 	char buf[MAX_STRING_LENGTH];
-	int cls;
+	int guild;
 	String buffer;
 
 	if (IS_NPC(ch))
@@ -566,16 +566,16 @@ void do_levels(Character *ch, String argument)
 				if (type == skill::type::unknown)
 					continue;
 
-				if (entry.remort_class < 0) /* for completely ungainable spells/skills */
+				if (entry.remort_guild < 0) /* for completely ungainable spells/skills */
 					continue;
 
-				if (entry.remort_class > 0) /* list of remort skills is through 'levels remort' */
+				if (entry.remort_guild > 0) /* list of remort skills is through 'levels remort' */
 					continue;
 
 				Format::sprintf(buf, "%-21s", entry.name);
 				buffer += buf;
 
-				for (x = Class::first; x < Class::size; x++) {
+				for (x = Guild::first; x < Guild::size; x++) {
 					if (entry.skill_level[x] < 0 || entry.skill_level[x] > LEVEL_HERO)
 						Format::sprintf(buf, "{c  NA{x");
 					else
@@ -597,8 +597,8 @@ void do_levels(Character *ch, String argument)
 		stc("                                           Level/Trains\n", ch);
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
-		for (x = Class::first; x < Class::size; x++) {
-			Format::sprintf(buf, "{W%s Skills:{x\n", class_table[x].name.capitalize());
+		for (x = Guild::first; x < Guild::size; x++) {
+			Format::sprintf(buf, "{W%s Skills:{x\n", guild_table[x].name.capitalize());
 			buffer += buf;
 
 			for (const auto& pair : skill_table) {
@@ -608,13 +608,13 @@ void do_levels(Character *ch, String argument)
 				if (type == skill::type::unknown)
 					continue;
 
-				if (entry.remort_class != x + 1)
+				if (entry.remort_guild != x + 1)
 					continue;
 
 				Format::sprintf(buf, "  {g%-19s{x", entry.name);
 				buffer += buf;
 
-				for (y = Class::first; y < Class::size; y++) {
+				for (y = Guild::first; y < Guild::size; y++) {
 					if (entry.skill_level[y] < 0 || entry.skill_level[y] > LEVEL_HERO)
 						Format::sprintf(buf, " {TNA{c/{HNA {x");
 					else
@@ -632,14 +632,14 @@ void do_levels(Character *ch, String argument)
 		return;
 	}
 
-	if (arg.is_prefix_of("mage"))             cls = 0;
-	else if (arg.is_prefix_of("cleric"))      cls = 1;
-	else if (arg.is_prefix_of("thief"))       cls = 2;
-	else if (arg.is_prefix_of("warrior"))     cls = 3;
-	else if (arg.is_prefix_of("necromancer")) cls = 4;
-	else if (arg.is_prefix_of("paladin"))     cls = 5;
-	else if (arg.is_prefix_of("bard"))        cls = 6;
-	else if (arg.is_prefix_of("ranger"))      cls = 7;
+	if (arg.is_prefix_of("mage"))             guild = 0;
+	else if (arg.is_prefix_of("cleric"))      guild = 1;
+	else if (arg.is_prefix_of("thief"))       guild = 2;
+	else if (arg.is_prefix_of("warrior"))     guild = 3;
+	else if (arg.is_prefix_of("necromancer")) guild = 4;
+	else if (arg.is_prefix_of("paladin"))     guild = 5;
+	else if (arg.is_prefix_of("bard"))        guild = 6;
+	else if (arg.is_prefix_of("ranger"))      guild = 7;
 	else {
 		stc("Invalid class.\n", ch);
 		return;
@@ -652,12 +652,12 @@ void do_levels(Character *ch, String argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		if (entry.skill_level[cls] < 0)
+		if (entry.skill_level[guild] < 0)
 			continue;
 
-		if (entry.skill_level[cls] < LEVEL_HERO &&
+		if (entry.skill_level[guild] < LEVEL_HERO &&
 		    entry.spell_fun != spell_null) {
-			lev = entry.skill_level[cls];
+			lev = entry.skill_level[guild];
 			Format::sprintf(buf, "{G%-20s  {C%3d{x {Tmana{x  ", entry.name,
 			        entry.min_mana);
 
@@ -691,12 +691,12 @@ void do_levels(Character *ch, String argument)
 		if (type == skill::type::unknown)
 			continue;
 
-		if (entry.skill_level[ch->cls] < 0)
+		if (entry.skill_level[ch->guild] < 0)
 			continue;
 
-		if (entry.skill_level[cls] < LEVEL_HERO &&
+		if (entry.skill_level[guild] < LEVEL_HERO &&
 		    entry.spell_fun == spell_null) {
-			lev = entry.skill_level[cls];
+			lev = entry.skill_level[guild];
 			Format::sprintf(buf, "{G%-20s   {x        ", entry.name);
 
 			if (list[lev].empty())
@@ -748,7 +748,7 @@ long exp_per_level(Character *ch, int points)
 		expl += points * inc / 10;
 	}
 
-	expl *= pc_race_table[ch->race].class_mult[ch->cls];
+	expl *= pc_race_table[ch->race].guild_mult[ch->guild];
 	expl /= 100;
 	/* New remort system - 7/2, Ian
 	   Taken out per new requirements
@@ -837,8 +837,8 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	if (IS_NPC(ch))
 		return;
 
-	if (ch->level < skill::lookup(type).skill_level[ch->cls]
-	    ||  skill::lookup(type).rating[ch->cls] == 0
+	if (ch->level < skill::lookup(type).skill_level[ch->guild]
+	    ||  skill::lookup(type).rating[ch->guild] == 0
 	    ||  get_learned(ch, type) == 0
 	    ||  get_learned(ch, type) == 100)
 		return;  /* skill is not known */
@@ -846,11 +846,11 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	/* check to see if the character has a chance to learn */
 	chance = 10 * int_app[GET_ATTR_INT(ch)].learn;
 	chance /= (multiplier
-	           *       skill::lookup(type).rating[ch->cls]
+	           *       skill::lookup(type).rating[ch->guild]
 	           *       4);
 	chance += ch->level;
 
-	if (skill::lookup(type).remort_class > 0)
+	if (skill::lookup(type).remort_guild > 0)
 	{   chance *= 2; chance /= 3; }
 
 	/* -1 multiplier means auto success -- Montrey */
@@ -858,7 +858,7 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 		return;
 
 	/* pre-calculate the experience gain */
-	xp = 2 * skill::lookup(type).rating[ch->cls];
+	xp = 2 * skill::lookup(type).rating[ch->guild];
 	/*
 	if ( ch->pcdata->remort_count > 1 )
 	    xp /= ch->pcdata->remort_count;
@@ -933,7 +933,7 @@ void group_add(Character *ch, const String& name, bool deduct)
 			set_evolution(ch, type, 1);
 
 			if (deduct)
-				ch->pcdata->points += skill::lookup(type).rating[ch->cls];
+				ch->pcdata->points += skill::lookup(type).rating[ch->guild];
 		}
 
 		return;
@@ -947,7 +947,7 @@ void group_add(Character *ch, const String& name, bool deduct)
 			ch->pcdata->group_known[gn] = TRUE;
 
 			if (deduct)
-				ch->pcdata->points += group_table[gn].rating[ch->cls];
+				ch->pcdata->points += group_table[gn].rating[ch->guild];
 		}
 
 		gn_add(ch, gn); /* make sure all skills in the group are known */
@@ -997,7 +997,7 @@ int get_skill_level(const Character *ch, skill::type sn)
 	if (sn == skill::type::unknown) /* shorthand for level based skills */
 		skill = ch->level * 5 / 2;
 	else if (!IS_NPC(ch)) {
-		if (ch->level < skill::lookup(sn).skill_level[ch->cls])
+		if (ch->level < skill::lookup(sn).skill_level[ch->guild])
 			skill = 0;
 		else
 			skill = get_learned(ch, sn);
@@ -1100,14 +1100,14 @@ int can_evolve(Character *ch, skill::type type)
 			return 1;
 	}
 
-	if (skill::lookup(type).evocost_sec[ch->cls] <= 0)
+	if (skill::lookup(type).evocost_sec[ch->guild] <= 0)
 		return -1;
 
 	if (get_learned(ch, type) <= 0)
 		return 1;
 
 	/* skill is evolvable */
-	if (skill::lookup(type).evocost_pri[ch->cls] <= 0) {
+	if (skill::lookup(type).evocost_pri[ch->guild] <= 0) {
 		if (get_evolution(ch, type) >= 2)
 			return 0;
 		else
@@ -1144,7 +1144,7 @@ void evolve_list(Character *ch)
 		if (get_learned(ch, type) < 1) {
 			buffer += Format::format("{H%-20s{C|   {H0 {C|   {H0 {C| {H%4d{x\n",
 			    entry.name,
-			    entry.evocost_sec[ch->cls]);
+			    entry.evocost_sec[ch->guild]);
 			continue;
 		}
 
@@ -1156,8 +1156,8 @@ void evolve_list(Character *ch)
 		if (can == 1)
 			buffer += Format::format("%4d{x\n",
 			    get_evolution(ch, type) == 1 ?
-			    entry.evocost_sec[ch->cls] :
-			    entry.evocost_pri[ch->cls]);
+			    entry.evocost_sec[ch->guild] :
+			    entry.evocost_pri[ch->guild]);
 		else
 			buffer += "----{x\n";
 	}
@@ -1174,8 +1174,8 @@ void evolve_info(Character *ch)
 	buffer += "Currently evolvable skills and spells:\n\n";
 	buffer += "{GSkill or spell      {C|{G";
 
-	for (int cls = 0; cls < 8; cls++) {
-		buffer += class_table[cls].who_name;
+	for (int guild = 0; guild < 8; guild++) {
+		buffer += guild_table[guild].who_name;
 		buffer += "{C|{G";
 	}
 
@@ -1193,14 +1193,14 @@ void evolve_info(Character *ch)
 		int max_evo[8] = {0};
 		bool should_show = FALSE;
 
-		for (int cls = 0; cls < 8; cls++) {
-			if (entry.evocost_sec[cls] > 0) {
-				max_evo[cls]++;
+		for (int guild = 0; guild < 8; guild++) {
+			if (entry.evocost_sec[guild] > 0) {
+				max_evo[guild]++;
 				should_show = TRUE;
 			}
 
-			if (entry.evocost_pri[cls] > 0)
-				max_evo[cls]++;
+			if (entry.evocost_pri[guild] > 0)
+				max_evo[guild]++;
 		}
 
 		if (!should_show)
@@ -1208,15 +1208,15 @@ void evolve_info(Character *ch)
 
 		buffer += Format::format("{H%-20s{C|", entry.name);
 
-		for (int cls = 0; cls < 8; cls++) {
-			if (max_evo[cls] == 0)
+		for (int guild = 0; guild < 8; guild++) {
+			if (max_evo[guild] == 0)
 				buffer += "   |";
 			else {
 				buffer += Format::format("{%s %d {C|",
-					max_evo[cls] > 1 ? "Y" : "G",
-					max_evo[cls]+1);
+					max_evo[guild] > 1 ? "Y" : "G",
+					max_evo[guild]+1);
 
-				evo_sum[cls] += max_evo[cls]+1;
+				evo_sum[guild] += max_evo[guild]+1;
 			}
 		}
 
@@ -1228,8 +1228,8 @@ void evolve_info(Character *ch)
 
 	buffer += Format::format("{H%-20s{C|", "sum");
 
-	for (int cls = 0; cls < 8; cls++)
-		buffer += Format::format("{G%3d{C|", evo_sum[cls]);
+	for (int guild = 0; guild < 8; guild++)
+		buffer += Format::format("{G%3d{C|", evo_sum[guild]);
 
 	buffer += "\n";
 	page_to_char(buffer, ch);
@@ -1292,7 +1292,7 @@ void do_evolve(Character *ch, String argument)
 	}
 
 	if (special == 1) {
-		cost = entry.evocost_sec[ch->cls];
+		cost = entry.evocost_sec[ch->guild];
 		perc = 0;
 	}
 	else if (IS_IMMORTAL(ch) && special == 0) {
@@ -1300,15 +1300,15 @@ void do_evolve(Character *ch, String argument)
 		perc = 1;
 	}
 	else if (get_evolution(ch, type) == 1 && special == 0) {
-		cost = entry.evocost_sec[ch->cls];
+		cost = entry.evocost_sec[ch->guild];
 		perc = 85;
 	}
 	else if (get_evolution(ch, type) == 1 && special == 1) {
-		cost = entry.evocost_pri[ch->cls];
+		cost = entry.evocost_pri[ch->guild];
 		perc = 0;
 	}
 	else {
-		cost = entry.evocost_pri[ch->cls];
+		cost = entry.evocost_pri[ch->guild];
 		perc = 95;
 	}
 
@@ -1340,17 +1340,17 @@ int get_skill_cost(Character *ch, skill::type type)
 	/*      if (!skill::lookup(type).min_mana)
 	                return 0;
 
-	        if (ch->level + 2 == skill::lookup(type).skill_level[ch->cls])
+	        if (ch->level + 2 == skill::lookup(type).skill_level[ch->guild])
 	                cost = 50;
 	        else
 	                cost = UMAX(skill::lookup(type).min_mana,
-	                        100 / (2 + ch->level - skill::lookup(type).skill_level[ch->cls]));
+	                        100 / (2 + ch->level - skill::lookup(type).skill_level[ch->guild]));
 
 	        return cost; */
 
 	if (skill::lookup(type).spell_fun == spell_null) {
 		if (/*skill::lookup(type).target == TAR_CHAR_OFFENSIVE && */ch->level <= 50) {
-			int pct_max, level = skill::lookup(type).skill_level[ch->cls];
+			int pct_max, level = skill::lookup(type).skill_level[ch->guild];
 			pct_max = 100 * (ch->level - level) / UMAX(50 - level, 1);
 			cost = (cost / 2) + (((cost / 2) * pct_max) / 100);
 		}
@@ -1440,14 +1440,14 @@ void do_gain(Character *ch, String argument)
 
 		for (unsigned int gn = 0; gn < group_table.size(); gn++) {
 			if (completed_group(ch, gn)
-			    || group_table[gn].rating[ch->cls] <= 0)
+			    || group_table[gn].rating[ch->guild] <= 0)
 				continue;
 
 			foundsect = TRUE;
 			output += Format::format("%-18s %s%-5d{x ",
 			    group_table[gn].name,
-			    group_table[gn].rating[ch->cls] > ch->train ? "{T" : "{C",
-			    group_table[gn].rating[ch->cls]);
+			    group_table[gn].rating[ch->guild] > ch->train ? "{T" : "{C",
+			    group_table[gn].rating[ch->guild]);
 
 			if (++col % 3 == 0)
 				output += "\n";
@@ -1478,15 +1478,15 @@ void do_gain(Character *ch, String argument)
 				continue;
 
 			if (get_learned(ch, type) == 0
-			    && entry.rating[ch->cls] > 0
+			    && entry.rating[ch->guild] > 0
 			    && entry.spell_fun == spell_null
-			    && entry.remort_class == 0) {
+			    && entry.remort_guild == 0) {
 				foundsect = TRUE;
 				output += Format::format("%s%-18s %s%-5d{x ",
-				    entry.skill_level[ch->cls] > ch->level ? "{c" : "{g",
+				    entry.skill_level[ch->guild] > ch->level ? "{c" : "{g",
 				    entry.name,
-				    entry.rating[ch->cls] > ch->train ? "{T" : "{C",
-				    entry.rating[ch->cls]);
+				    entry.rating[ch->guild] > ch->train ? "{T" : "{C",
+				    entry.rating[ch->guild]);
 
 				if (++col % 3 == 0)
 					output += "\n";
@@ -1517,7 +1517,7 @@ void do_gain(Character *ch, String argument)
 			output += "\n";
 
 		output += Format::format("Remort specials for class %s\n",
-		    class_table[ch->cls].name);
+		    guild_table[ch->guild].name);
 		output += "---------------\n";
 
 		col = 0;
@@ -1531,15 +1531,15 @@ void do_gain(Character *ch, String argument)
 				continue;
 
 			if (get_learned(ch, type) == 0
-			    && entry.rating[ch->cls] > 0
-			    && entry.remort_class > 0
-			    && entry.remort_class == ch->cls + 1) {
+			    && entry.rating[ch->guild] > 0
+			    && entry.remort_guild > 0
+			    && entry.remort_guild == ch->guild + 1) {
 				foundsect = TRUE;
 				output += Format::format("%s%-18s %s%-5d{x ",
-				    entry.skill_level[ch->cls] > ch->level ? "{c" : "{g",
+				    entry.skill_level[ch->guild] > ch->level ? "{c" : "{g",
 				    entry.name,
-				    entry.rating[ch->cls] > ch->train ? "{T" : "{C",
-				    entry.rating[ch->cls]);
+				    entry.rating[ch->guild] > ch->train ? "{T" : "{C",
+				    entry.rating[ch->guild]);
 
 				if (++col % 3 == 0)
 					output += "\n";
@@ -1620,12 +1620,12 @@ void do_gain(Character *ch, String argument)
 			return;
 		}
 
-		if (group_table[gn].rating[ch->cls] <= 0) {
+		if (group_table[gn].rating[ch->guild] <= 0) {
 			act("$N tells you 'That group is beyond your powers.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		if (ch->train < group_table[gn].rating[ch->cls]) {
+		if (ch->train < group_table[gn].rating[ch->guild]) {
 			act("$N tells you 'You are not yet ready for that group.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
@@ -1633,7 +1633,7 @@ void do_gain(Character *ch, String argument)
 		/* add the group */
 		gn_add(ch, gn);
 		act("$N trains you in the art of $t.", ch, group_table[gn].name, trainer, TO_CHAR);
-		ch->train -= group_table[gn].rating[ch->cls];
+		ch->train -= group_table[gn].rating[ch->guild];
 		return;
 	}
 
@@ -1641,19 +1641,19 @@ void do_gain(Character *ch, String argument)
 
 	if (type > skill::type::unknown) {
 		if (skill::lookup(type).spell_fun != spell_null
-		    && skill::lookup(type).remort_class == 0) {
+		    && skill::lookup(type).remort_guild == 0) {
 			act("$N tells you 'You must learn the full group.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		if (skill::lookup(type).remort_class > 0) {
+		if (skill::lookup(type).remort_guild > 0) {
 			if (ch->pcdata->remort_count < 1) {
 				act("$N tells you 'That skill is available only to remorts.'",
 				    ch, nullptr, trainer, TO_CHAR);
 				return;
 			}
 
-			if (ch->cls + 1 != skill::lookup(type).remort_class) {
+			if (ch->guild + 1 != skill::lookup(type).remort_guild) {
 				act("$N tells you 'Use extraclass for skills and spells outside your class.'",
 				    ch, nullptr, trainer, TO_CHAR);
 				return;
@@ -1665,12 +1665,12 @@ void do_gain(Character *ch, String argument)
 			return;
 		}
 
-		if (skill::lookup(type).rating[ch->cls] <= 0) {
+		if (skill::lookup(type).rating[ch->guild] <= 0) {
 			act("$N tells you 'That skill is beyond your powers.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
 
-		if (ch->train < skill::lookup(type).rating[ch->cls]) {
+		if (ch->train < skill::lookup(type).rating[ch->guild]) {
 			act("$N tells you 'You are not yet ready for that skill.'", ch, nullptr, trainer, TO_CHAR);
 			return;
 		}
@@ -1679,7 +1679,7 @@ void do_gain(Character *ch, String argument)
 		set_learned(ch, type, 1);
 		set_evolution(ch, type, 1);
 		act("$N trains you in the art of $t.", ch, skill::lookup(type).name, trainer, TO_CHAR);
-		ch->train -= skill::lookup(type).rating[ch->cls];
+		ch->train -= skill::lookup(type).rating[ch->guild];
 		return;
 	}
 

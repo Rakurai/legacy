@@ -962,8 +962,8 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			thac0_32 = 6;
 	}
 	else {
-		thac0_00 = class_table[ch->cls].thac0_00;
-		thac0_32 = class_table[ch->cls].thac0_32;
+		thac0_00 = guild_table[ch->guild].thac0_00;
+		thac0_32 = guild_table[ch->guild].thac0_32;
 	}
 
 	thac0 = interpolate(ch->level, thac0_00, thac0_32);
@@ -1155,7 +1155,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			if (ch->in_room->sector_type() != Sector::arena
 			    && ch->in_room->sector_type() != Sector::clanarena
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
-			    && ch->cls != Class::paladin) /* Paladins */
+			    && ch->guild != Guild::paladin) /* Paladins */
 				ch->alignment = UMAX(-1000, ch->alignment - 1);
 
 			act("$p draws life from $n.", victim, wield, nullptr, TO_ROOM);
@@ -1389,7 +1389,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		if (dam > 1 && victim->pcdata->condition[COND_DRUNK] > 10)
 			dam = 9 * dam / 10;
 
-		if (dam > 1 && victim->cls == 5) /* enhanced protection for paladins */
+		if (dam > 1 && victim->guild == 5) /* enhanced protection for paladins */
 			if ((IS_GOOD(victim) && IS_EVIL(ch))
 			    || (IS_EVIL(victim) && IS_GOOD(ch)))
 				dam -= dam / 4;
@@ -2954,7 +2954,7 @@ int group_gain(Character *ch, Character *victim)
 		lowest_xp = 0;
 	}
 
-	vary_int += vary_bit[ch->cls];
+	vary_int += vary_bit[ch->guild];
 
 	/* calculate number of group members present and the sum of their levels */
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
@@ -2963,8 +2963,8 @@ int group_gain(Character *ch, Character *victim)
 			group_levels += IS_NPC(gch) ? gch->level / 2 : gch->level;
 
 			/* figure out how varied the group is -- Montrey */
-			if (!vary_int.has(vary_bit[gch->cls])) {
-				vary_int += vary_bit[gch->cls];
+			if (!vary_int.has(vary_bit[gch->guild])) {
+				vary_int += vary_bit[gch->guild];
 				diff_classes++;
 			}
 		}
@@ -3109,7 +3109,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	    && victim->in_room->sector_type() != Sector::arena
 	    && victim->in_room->sector_type() != Sector::clanarena
 	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
-	    && gch->cls != 5) /* Paladins */
+	    && gch->guild != 5) /* Paladins */
 	{
 		/* do alignment computations */
 		int align = victim->alignment - gch->alignment;
@@ -4157,7 +4157,7 @@ void do_sing(Character *ch, String argument)
 	singchance += (GET_ATTR_CHR(ch));
 	singchance -= (GET_ATTR_INT(victim) + GET_ATTR_WIS(victim)) / 2;
 
-	if (!IS_NPC(ch) && ch->cls == 6)      /* bards */
+	if (!IS_NPC(ch) && ch->guild == 6)      /* bards */
 		singchance += singchance / 3;
 
 	singchance -= singchance * GET_DEFENSE_MOD(victim, DAM_CHARM) / 100;
@@ -4527,10 +4527,10 @@ void do_flee(Character *ch, String argument)
 		if (!IS_NPC(ch)) {
 			act("You flee $T from combat!", ch, nullptr, Exit::dir_name(dir), TO_CHAR);
 
-			if (ch->cls == Class::thief)
+			if (ch->guild == Guild::thief)
 				stc("You snuck away safely.\n", ch);
 			else {
-				if (ch->cls == Class::paladin) { /* Paladins */
+				if (ch->guild == Guild::paladin) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
 					gain_exp(ch, -50);
 				}

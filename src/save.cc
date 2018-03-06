@@ -268,7 +268,7 @@ cJSON *fwrite_player(Character *ch)
 	if (!ch->pcdata->immprefix.empty())
 		JSON::addStringToObject(o,	"Immp",			ch->pcdata->immprefix);
 
-	if (ch->cls == Class::paladin) {
+	if (ch->guild == Guild::paladin) {
 		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
 		cJSON_AddNumberToObject(o,	"Lay_Next",		ch->pcdata->next_lay_countdown);
 	}
@@ -466,7 +466,7 @@ cJSON *fwrite_char(Character *ch)
 	if (ch->clan)
 		JSON::addStringToObject(o,	"Clan",			ch->clan->name);
 
-	cJSON_AddNumberToObject(o,		"Cla",			ch->cls);
+	cJSON_AddNumberToObject(o,		"Cla",			ch->guild);
 	JSON::addStringToObject(o,		"Cnsr",			ch->censor_flags.to_string());
 	JSON::addStringToObject(o,		"Comm",			ch->comm_flags.to_string());
 
@@ -1234,7 +1234,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 				break;
 			case 'C':
 				INTKEY("Clan",			ch->clan,					clan_lookup(o->valuestring));
-				INTKEY("Cla",			ch->cls,					(Class)o->valueint);
+				INTKEY("Cla",			ch->guild,					(Guild)o->valueint);
 				FLAGKEY("Comm",			ch->comm_flags,					o->valuestring);
 				FLAGKEY("Cnsr",			ch->censor_flags,					o->valuestring);
 				break;
@@ -1771,7 +1771,7 @@ void do_finger(Character *ch, String argument)
 
 	/* the following vars are read from the player file */
 	String email, fingerinfo, last_lsite, name, title, spouse, race, deity;
-	int cls, pks, pkd, pkr, aks, akd, level, rmct;
+	int guild, pks, pkd, pkr, aks, akd, level, rmct;
 	Flags cgroup, plr;
 	time_t last_ltime, last_saved;
 	Clan *clan = nullptr;
@@ -1817,14 +1817,14 @@ void do_finger(Character *ch, String argument)
 
 	/* initialize variables */
 	// strings are empty by default
-	cls = pks = pkd = pkr = aks = akd = level = rmct = 0;
+	guild = pks = pkd = pkr = aks = akd = level = rmct = 0;
 
 	cJSON *section, *item;
 	section = cJSON_GetObjectItem(root, "character");
 	JSON::get_string(section, &name, "Name");
 	JSON::get_string(section, &race, "Race");
 	JSON::get_int(section, &level, "Levl");
-	JSON::get_int(section, &cls, "Cla");
+	JSON::get_int(section, &guild, "Cla");
 
 	if ((item = cJSON_GetObjectItem(section, "Clan")) != nullptr)
 		clan = clan_lookup(item->valuestring);
@@ -1883,7 +1883,7 @@ void do_finger(Character *ch, String argument)
 
 	Format::sprintf(buf, "{C%s ", race.capitalize());
 	dbuf += buf;
-	Format::sprintf(buf, "{C%s, follower of %s{x\n", class_table[cls].name.capitalize(), deity);
+	Format::sprintf(buf, "{C%s, follower of %s{x\n", guild_table[guild].name.capitalize(), deity);
 	dbuf += buf;
 	Format::sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
 	dbuf += buf;

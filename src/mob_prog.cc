@@ -796,12 +796,12 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "class")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->cls;
+		case 'i': lhsvl = mob->guild;
 			rhsvl = atoi(val);
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				lhsvl = actor->cls;
+				lhsvl = actor->guild;
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -809,7 +809,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		case 't': if (vict) {
-				lhsvl = vict->cls;
+				lhsvl = vict->guild;
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}
@@ -817,7 +817,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				lhsvl = rndm->cls;
+				lhsvl = rndm->guild;
 				rhsvl = atoi(val);
 				return mprog_veval(lhsvl, opr, rhsvl);
 			}

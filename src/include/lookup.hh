@@ -2,7 +2,7 @@
 
 #include "declare.hh"
 #include "Sector.hh"
-#include "Class.hh"
+#include "Guild.hh"
 
 Clan *clan_vnum_lookup	args((const Vnum& vnum));
 Clan *	clan_lookup		args((const String& name));
@@ -17,5 +17,5 @@ int     weapon_lookup   args( ( const String& name) );
 int     item_lookup     args( ( const String& name) );
 int     attack_lookup   args(( const String& name) );
 int     race_lookup     args(( const String& name) );
-Class     class_lookup    args(( const String& name) );
+Guild     guild_lookup    args(( const String& name) );
 int     deity_lookup    args(( const String& name) );

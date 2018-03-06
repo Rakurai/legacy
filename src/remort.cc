@@ -255,7 +255,7 @@ bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 	if (!get_skill_level(ch, sn))
 		return FALSE;
 
-	if ((ch->cls + 1 != skill::lookup(sn).remort_class) && (!HAS_EXTRACLASS(ch, sn)))
+	if ((ch->guild + 1 != skill::lookup(sn).remort_guild) && (!HAS_EXTRACLASS(ch, sn)))
 		return FALSE;
 
 	return TRUE;
@@ -266,12 +266,12 @@ void list_extraskill(Character *ch)
 	String output;
 	output += "\n                      {BExtraclass Remort Skills{x\n";
 
-	for (int cn = Class::first; cn < Class::size; cn++) {
+	for (int cn = Guild::first; cn < Guild::size; cn++) {
 		if (!IS_IMMORTAL(ch))
-			if (cn == ch->cls)
+			if (cn == ch->guild)
 				continue;
 
-		output += Format::format("\n{W%s Skills{x\n    ", class_table[cn].name.capitalize());
+		output += Format::format("\n{W%s Skills{x\n    ", guild_table[cn].name.capitalize());
 		int col = 0;
 
 		for (const auto& pair : skill_table) {
@@ -281,19 +281,19 @@ void list_extraskill(Character *ch)
 			if (type == skill::type::unknown)
 				continue;
 
-			if (entry.remort_class != cn + 1)
+			if (entry.remort_guild != cn + 1)
 				continue;
 
 			if (!IS_IMMORTAL(ch)
-			    && (entry.remort_class == ch->cls + 1
-			        || entry.skill_level[ch->cls] <= 0
-			        || entry.skill_level[ch->cls] > LEVEL_HERO))
+			    && (entry.remort_guild == ch->guild + 1
+			        || entry.skill_level[ch->guild] <= 0
+			        || entry.skill_level[ch->guild] > LEVEL_HERO))
 				continue;
 
 			output += Format::format("%-15s %s%-8d{x",
 			    entry.name,
-			    ch->train >= entry.rating[ch->cls] ? "{C" : "{T",
-			    entry.rating[ch->cls]);
+			    ch->train >= entry.rating[ch->guild] ? "{C" : "{T",
+			    entry.rating[ch->guild]);
 
 			if (++col % 3 == 0)
 				output += "\n";
@@ -367,20 +367,20 @@ void do_eremort(Character *ch, String argument)
 	}
 
 	/* Is it a remort skill? */
-	if (skill::lookup(sn).remort_class == 0) {
+	if (skill::lookup(sn).remort_guild == 0) {
 		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
-	if (skill::lookup(sn).remort_class == ch->cls + 1) {
+	if (skill::lookup(sn).remort_guild == ch->guild + 1) {
 		stc("You have knowledge of this skill already, pick one outside your class.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
-	if (skill::lookup(sn).skill_level[ch->cls] <= 0
-	    || skill::lookup(sn).skill_level[ch->cls] > LEVEL_HERO) {
+	if (skill::lookup(sn).skill_level[ch->guild] <= 0
+	    || skill::lookup(sn).skill_level[ch->guild] > LEVEL_HERO) {
 		stc("Your class cannot gain that skill.\n", ch);
 		return;
 	}
@@ -391,7 +391,7 @@ void do_eremort(Character *ch, String argument)
 		return;
 	}
 
-	if (ch->train < skill::lookup(sn).rating[ch->cls]) {
+	if (ch->train < skill::lookup(sn).rating[ch->guild]) {
 		stc("You do not have enough training to master this skill.\n", ch);
 		return;
 	}
@@ -404,7 +404,7 @@ void do_eremort(Character *ch, String argument)
 			if (get_learned(ch, sn) == 0)
 				set_learned(ch, sn, 1);
 
-			ch->train -= skill::lookup(sn).rating[ch->cls];
+			ch->train -= skill::lookup(sn).rating[ch->guild];
 			ptc(ch, "You have gained %s as an extraclass remort skill.\n",
 			    skill::lookup(sn).name);
 			return;

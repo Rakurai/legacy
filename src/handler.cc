@@ -206,7 +206,7 @@ int get_max_train(Character *ch, int stat)
 
 	max = pc_race_table[ch->race].max_stats[stat];
 
-	if (class_table[ch->cls].stat_prime == stat) {
+	if (guild_table[ch->guild].stat_prime == stat) {
 		if (ch->race == race_lookup("human"))
 			max += 3;
 		else
