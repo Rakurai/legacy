@@ -55,6 +55,7 @@
 #include "Room.hh"
 #include "String.hh"
 #include "vt100.hh"
+#include "comm.hh"
 
 /*
  * All the posing stuff.
@@ -602,8 +603,8 @@ void do_delete(Character *ch, String argument)
 		d = ch->desc;
 
 		if (ch->pcdata && ch->pcdata->video_flags.has(VIDEO_VT100)) {
-			stc(VT_SETWIN_CLEAR, ch);
-			stc(VT_RESET_TERMINAL, ch);
+			clear_window(ch);
+			reset_terminal(ch);
 		}
 
 		extract_char(ch, TRUE);

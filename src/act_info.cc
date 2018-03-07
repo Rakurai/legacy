@@ -946,20 +946,6 @@ void new_color(Character *ch, int slot)
 		set_color(ch, csetting_table[slot].color, csetting_table[slot].bold);
 }
 
-void goto_line(Character *ch, int row, int column)
-{
-	char buf[MAX_INPUT_LENGTH];
-	Format::sprintf(buf, "\033[%d;%dH", row, column);
-	stc(buf, ch);
-}
-
-void set_window(Character *ch, int top, int bottom)
-{
-	char buf[MAX_INPUT_LENGTH];
-	Format::sprintf(buf, "\033[%d;%dr", top, bottom);
-	stc(buf, ch);
-}
-
 /* changes your scroll */
 void do_scroll(Character *ch, String argument)
 {

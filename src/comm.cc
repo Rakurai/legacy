@@ -75,16 +75,18 @@
 #include "Room.hh"
 #include "sql.hh"
 #include "String.hh"
+#include "telnet.hh" // echo off and echo on defines
 #include "vt100.hh" /* VT100 Stuff */
+#include "comm.hh"
 
 struct ka_struct;
 
 /* EPKA structure */
 struct ka_struct *ka;
 
-extern void     goto_line    args((Character *ch, int row, int column));
-extern void     set_window   args((Character *ch, int top, int bottom));
-extern void     roll_raffects   args((Character *ch, Character *victim));
+const unsigned char echo_off_str [] = { IAC, WILL, TELOPT_ECHO, '\0' };
+const unsigned char echo_on_str  [] = { IAC, WONT, TELOPT_ECHO, '\0' };
+//const   unsigned char    go_ahead_str    [] = { IAC, GA, '\0' };
 
 /*
  * Signal handling.
@@ -129,6 +131,14 @@ void    bust_a_prompt           args((Character *ch));
 int     roll_stat               args((Character *ch, int stat));
 char    *get_multi_command     args((Descriptor *d, const String& argument));
 String expand_color_codes(Character *ch, const String& str);
+
+void echo_off(Descriptor *d) {
+	write_to_buffer(d, (const char *)echo_off_str);
+}
+
+void echo_on(Descriptor *d) {
+	write_to_buffer(d, (const char *)echo_on_str);
+}
 
 /* Desparate debugging measure: A function to print a reason for exiting. */
 void exit_reason(const char *module, int line, const char *reason)
@@ -1724,6 +1734,28 @@ void page_to_char(const String& txt, Character *ch)
 
 	ch->desc->showstr_head += txt;
 	show_string(ch->desc, false);
+}
+
+void goto_line(Character *ch, int row, int column)
+{
+	char buf[MAX_INPUT_LENGTH];
+	Format::sprintf(buf, "\033[%d;%dH", row, column);
+	stc(buf, ch);
+}
+
+void clear_window(Character *ch) {
+	stc(VT_SETWIN_CLEAR, ch);
+}
+
+void set_window(Character *ch, int top, int bottom)
+{
+	char buf[MAX_INPUT_LENGTH];
+	Format::sprintf(buf, "\033[%d;%dr", top, bottom);
+	stc(buf, ch);
+}
+
+void reset_terminal(Character *ch) {
+	stc(VT_RESET_TERMINAL, ch);
 }
 
 char *get_multi_command(Descriptor *d, const String& argument)

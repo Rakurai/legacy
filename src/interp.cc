@@ -52,8 +52,8 @@
 #include "String.hh"
 #include "tables.hh"
 #include "vt100.hh" /* VT100 Stuff */
+#include "comm.hh"
 
-extern void     goto_line    args((Character *ch, int row, int column));
 
 char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 
