@@ -78,6 +78,7 @@
 #include "telnet.hh" // echo off and echo on defines
 #include "vt100.hh" /* VT100 Stuff */
 #include "comm.hh"
+#include "conn/State.hh"
 
 struct ka_struct;
 
@@ -120,15 +121,11 @@ bool    write_to_descriptor     args((int desc, const String& txt, int length));
  * Other local functions (OS-independent).
  */
 void show_string(Descriptor *d, bool clear_remainder);
-extern bool    check_parse_name        args((const String& name));
-bool    check_playing           args((Descriptor *d, const String& name));
 int     main                    args((int argc, char **argv));
-void    nanny                   args((Descriptor *d, String argument));
 bool    process_output          args((Descriptor *d, bool fPrompt));
 void    read_from_buffer        args((Descriptor *d));
 void    stop_idling             args((Character *ch));
 void    bust_a_prompt           args((Character *ch));
-int     roll_stat               args((Character *ch, int stat));
 char    *get_multi_command     args((Descriptor *d, const String& argument));
 String expand_color_codes(Character *ch, const String& str);
 
@@ -230,7 +227,7 @@ void copyover_recover()
 		d->host = host;
 		d->next = descriptor_list;
 		descriptor_list = d;
-		d->connected = CON_COPYOVER_RECOVER; /* -15, so close_socket frees the char */
+		d->state = &conn::State::copyoverRecover;
 
 		/* Now, find the pfile */
 		if (!load_char_obj(d, name)) {  /* Player file not found?! */
@@ -252,7 +249,8 @@ void copyover_recover()
 		char_to_room(d->character, d->character->in_room);
 		do_look(d->character, "auto");
 		act("$n materializes!", d->character, nullptr, nullptr, TO_ROOM);
-		d->connected = CON_PLAYING;
+
+		d->state = &conn::State::playing;
 
 		if (d->character->pet != nullptr) {
 			char_to_room(d->character->pet, d->character->in_room);
@@ -612,25 +610,15 @@ void game_loop_unix(int control)
 				read_from_buffer(d);
 
 			if (d->incomm[0] != '\0') {
-				char *command2;
 				d->fcommand = TRUE;
 				stop_idling(d->character);
-				command2 = get_multi_command(d, d->incomm);
+				String command2 = get_multi_command(d, d->incomm);
+				command2 = command2.lstrip();
 
 				if (!d->showstr_head.empty())
-					show_string(d, !String(command2).lstrip().empty()); // ugly, fix someday
-				else if (d->connected == CON_PLAYING) {
-					if (d->character == nullptr) {
-						Logging::bug("playing descriptor with null character, closing phantom socket", 0);
-						close_socket(d);
-						continue;
-					}
-
-					substitute_alias(d, command2);
-				}
+					show_string(d, !command2.empty()); // ugly, fix someday
 				else {
-					nanny(d, command2);
-					d->incomm[0] = '\0';
+					d->state = d->state->handleInput(d, command2);
 				}
 			}    /* end of have input */
 		} /* end of input loop */
@@ -849,7 +837,7 @@ void close_socket(Descriptor *dclose)
 	else {
 		Logging::logf("Closing link to %s.", ch->name);
 
-		if (dclose->connected == CON_PLAYING) {
+		if (dclose->state == &conn::State::playing) {
 			Character *rch;
 
 			for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
@@ -1542,31 +1530,6 @@ bool write_to_descriptor(int desc, const String& txt, int length)
 	return TRUE;
 }
 
-
-/*
- * Check if already playing.
- */
-bool check_playing(Descriptor *d, const String& name)
-{
-	Descriptor *dold;
-
-	for (dold = descriptor_list; dold; dold = dold->next) {
-		if (dold != d
-		    &&   dold->character != nullptr
-		    &&   dold->connected != CON_GET_NAME
-		    &&   dold->connected != CON_GET_OLD_PASSWORD
-		    &&   name == (dold->original
-		                  ? dold->original->name : dold->character->name)) {
-			write_to_buffer(d, "That character is already playing.\n");
-			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?");
-			d->connected = CON_BREAK_CONNECT;
-			return TRUE;
-		}
-	}
-
-	return FALSE;
-}
-
 void stop_idling(Character *ch)
 {
 	if (ch == nullptr
@@ -1781,25 +1744,6 @@ char *get_multi_command(Descriptor *d, const String& argument)
 	return command;
 } /* end get_multi_command() */
 
-int roll_stat(Character *ch, int stat)
-{
-	int percent, bonus, temp, low, high;
-	percent = number_percent();
-
-	if (percent > 99)
-		bonus = 2;
-	else if (percent > 95)
-		bonus = 1;
-	else if (percent < 5)
-		bonus = -1;
-	else
-		bonus = 0;
-
-	high = pc_race_table[ch->race].max_stats[stat] - (3 - bonus);
-	low = pc_race_table[ch->race].stats[stat] - (3 - bonus);
-	temp = (number_range(low, high));
-	return temp;
-}
 
 /* COPYOVER stuff is so very system dependent I decided
    to move it here from act_wiz.c, which is very full anyway.
@@ -1830,7 +1774,7 @@ void do_copyover(Character *ch, String argument)
 
 	/* save the socket state of all active players, only */
 	for (d = descriptor_list; d; d = d->next) {
-		Format::printf("found socket %d, host %s, conn %d\n", d->descriptor, d->host, d->connected);
+		Format::printf("found socket %d, host %s\n", d->descriptor, d->host);
 
 		if (IS_PLAYING(d)) {
 			Character *och = CH(d);
@@ -1893,13 +1837,7 @@ void do_copyover(Character *ch, String argument)
 		Character *och;
 		d_next = d->next;
 
-		if (d->connected < 0) {
-			/* we don't know what this descriptor is, just close it */
-			Format::printf("closing descriptor %d, conn stat %d\n",
-			       d->descriptor, d->connected);
-			close(d->descriptor);
-		}
-		else if (d->connected != CON_PLAYING) {
+		if (d->state != &conn::State::playing) {
 			/* drop those logging on */
 			Format::printf("closing socket %d from host %s\n",
 			       d->descriptor, d->host);

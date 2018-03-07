@@ -54,6 +54,7 @@
 #include "String.hh"
 #include "Weather.hh"
 #include "World.hh"
+#include "comm.hh"
 
 extern void     squestmob_found args((Character *ch, Character *mob));
 extern           time_t                  reboot_time;

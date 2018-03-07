@@ -52,6 +52,10 @@ class World;
 class Vnum;
 class Location;
 
+namespace conn {
+struct State;
+}
+
 namespace worldmap {
 class Region;
 class MapColor;
@@ -202,32 +206,6 @@ typedef bool SPEC_FUN   args( ( Character *ch ) );
 #define VIS_PLR		2
 
 
-
-/*
- * Connected state for a channel.
- */
-#define CON_PLAYING                      0
-#define CON_GET_NAME                     1
-#define CON_GET_OLD_PASSWORD             2
-#define CON_CONFIRM_NEW_NAME             3
-#define CON_GET_MUD_EXP			21	//
-#define CON_GET_NEW_PASSWORD             4
-#define CON_CONFIRM_NEW_PASSWORD         5
-#define CON_GET_NEW_RACE                 6
-#define CON_ROLL_STATS                   7
-#define CON_GET_NEW_SEX                  8
-#define CON_GET_NEW_CLASS                9
-#define CON_GET_ALIGNMENT               10
-#define CON_DEFAULT_CHOICE              11
-#define CON_GEN_GROUPS                  12
-#define CON_PICK_WEAPON                 13
-#define CON_READ_IMOTD                  14
-#define CON_READ_MOTD                   15
-#define CON_READ_NEWMOTD                16
-#define CON_BREAK_CONNECT               17
-#define CON_COPYOVER_RECOVER            18
-#define CON_GREETING                    19
-#define CON_DEITY                       20
 
 /*
  * TO types for act.

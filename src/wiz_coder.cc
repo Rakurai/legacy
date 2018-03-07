@@ -44,6 +44,7 @@
 #include "Shop.hh"
 #include "Social.hh"
 #include "String.hh"
+#include "comm.hh"
 
 extern  time_t  reboot_time;
 extern  int     top_exit;
@@ -422,10 +423,9 @@ void do_advance(Character *ch, String argument)
 
 void do_wizlock(Character *ch, String argument)
 {
-	extern bool wizlock;
-	wizlock = !wizlock;
+	Game::wizlock = !Game::wizlock;
 
-	if (wizlock) {
+	if (Game::wizlock) {
 		wiznet("$N has wizlocked the game.", ch, nullptr, 0, 0, 0);
 		stc("Game wizlocked.\n", ch);
 	}

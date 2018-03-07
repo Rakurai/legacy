@@ -55,6 +55,7 @@
 #include "Room.hh"
 #include "String.hh"
 #include "gem/gem.hh"
+#include "sql.hh"
 
 
 int CURRENT_VERSION = 21;   /* version number for pfiles */
@@ -76,9 +77,9 @@ void    fread_char      args((Character *ch,  cJSON *json, int version));
 void    fread_player      args((Character *ch,  cJSON *json, int version));
 void    fread_pet       args((Character *ch,  cJSON *json, int version));
 void	fread_objects	args((Character *ch, cJSON *json, void (*obj_to)(Object *, Character *), int version));
+bool check_parse_name(const String& name);
 
 // external
-bool check_parse_name(const String& name);
 const Object *get_warp_crystal(const String&);
 const String get_warp_loc_string(const Object *);
 
@@ -1685,6 +1686,24 @@ void fread_pet(Character *ch, cJSON *json, int version)
 }
 
 
+void update_pc_index(const Character *ch, bool remove)
+{
+	db_commandf("update_pc_index", "DELETE FROM pc_index WHERE name='%s'", db_esc(ch->name));
+
+	if (!remove)
+		db_commandf("update_pc_index",
+		            "INSERT INTO pc_index VALUES('%s','%s','%s','%s',%ld,%d,%d,'%s','%s')",
+		            db_esc(ch->name),
+		            db_esc(ch->pcdata->title),
+		            db_esc(ch->pcdata->deity),
+		            db_esc(ch->pcdata->deity.uncolor()),
+		            ch->pcdata->cgroup_flags.to_ulong(),
+		            ch->level,
+		            ch->pcdata->remort_count,
+		            ch->clan ? db_esc(ch->clan->name) : "",
+		            ch->clan && !ch->pcdata->rank.empty() ? db_esc(ch->pcdata->rank) : "");
+}
+
 
 /*
  * This function works just like ctime() does on current Linux systems.
@@ -1931,3 +1950,67 @@ void do_finger(Character *ch, String argument)
 	page_to_char(dbuf, ch);
 }
 
+/*
+ * Parse a name for acceptability.
+ */
+bool check_parse_name(const String& name)
+{
+	Clan *clan;
+
+	/*
+	 * Reserved words.
+	 */
+	if (String(
+		"all auto immortal self remort imms private someone something the you"
+		).has_words(name))
+		return FALSE;
+
+	if ((clan = clan_lookup(name)) != nullptr)
+		return FALSE;
+
+	/*
+	 * Length restrictions.
+	 */
+
+	if (strlen(name) <  2)
+		return FALSE;
+
+	if (strlen(name) > 12)
+		return FALSE;
+
+	/*
+	 * Alphanumerics only.
+	 * Lock out IllIll twits.
+	 */
+	{
+		bool fIll, adjcaps = FALSE, cleancaps = FALSE;
+		unsigned int total_caps = 0;
+		fIll = TRUE;
+
+		for (const char *pc = name.c_str(); *pc != '\0'; pc++) {
+			if (!isalpha(*pc))
+				return FALSE;
+
+			if (isupper(*pc)) { /* ugly anti-caps hack */
+				if (adjcaps)
+					cleancaps = TRUE;
+
+				total_caps++;
+				adjcaps = TRUE;
+			}
+			else
+				adjcaps = FALSE;
+
+			if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
+				fIll = FALSE;
+		}
+
+		if (fIll)
+			return FALSE;
+
+		if (cleancaps || (total_caps > (strlen(name)) / 2 && strlen(name) < 3))
+			return FALSE;
+	}
+
+	return TRUE;
+}

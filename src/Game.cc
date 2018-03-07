@@ -20,6 +20,8 @@ unsigned long Game::record_logins = 0;
 int Game::record_players = 0;
 int Game::record_players_since_boot = 0;
 int Game::quest_double = false;
+bool Game::wizlock = false;
+bool Game::newlock = false;
 
 /* Big mama top level function */
 void Game::

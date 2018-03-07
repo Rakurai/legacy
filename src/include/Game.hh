@@ -25,6 +25,9 @@ public:
 	static int record_players;
 	static int record_players_since_boot;
 	static int quest_double;
+	static bool wizlock;
+	static bool newlock;
+
 private:
 	Game() {} // static class
 	Game(const Game&);

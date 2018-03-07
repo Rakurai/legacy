@@ -46,6 +46,7 @@
 #include "String.hh"
 #include "tables.hh"
 #include "typename.hh"
+#include "comm.hh"
 
 
 extern bool    swearcheck              args((const String& argument));
@@ -1086,7 +1087,7 @@ void do_disconnect(Character *ch, String argument)
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
 		if (d->descriptor == desc) {
-			if (d->connected == 0) {
+			if (d->state == &conn::State::playing) {
 				Format::sprintf(buf,
 				        "But '%s' is playing! A simple QUIT would suffice.\n",
 				        d->original ? d->original->name : d->character->name);
@@ -1915,7 +1916,7 @@ void do_linkload(Character *ch, String argument)
 
 	dnew = new Descriptor();
 	dnew->descriptor    = desc;
-	dnew->connected     = CON_PLAYING;
+	dnew->state         = &conn::State::playing;
 
 	char cname[MIL];
 	strcpy(cname, argument);
@@ -3452,7 +3453,6 @@ void do_sockets(Character *ch, String argument)
 	Character *vch;
 	Player *vpc, *vpc_next;
 	String buffer;
-	char status[MAX_STRING_LENGTH];
 	char s[100];
 	bool multiplay = FALSE;
 	int count = 0, ldcount = 0;
@@ -3463,53 +3463,27 @@ void do_sockets(Character *ch, String argument)
 	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
-		switch (d->connected) {
-		case CON_PLAYING:               strcpy(status, "    Playing    "); break;
-
-		case CON_GET_NAME:              strcpy(status, "   Ask Name    "); break;
-
-		case CON_GET_OLD_PASSWORD:      strcpy(status, " Ask Password  "); break;
-
-		case CON_CONFIRM_NEW_NAME:      strcpy(status, " Confirm Name  "); break;
-
-		case CON_GET_MUD_EXP:           strcpy(status, "    Ask Exp    "); break;
-
-		case CON_GET_NEW_PASSWORD:      strcpy(status, " Ask New Pass  "); break;
-
-		case CON_CONFIRM_NEW_PASSWORD:  strcpy(status, " Confirm Pass  "); break;
-
-		case CON_GET_NEW_RACE:          strcpy(status, "   Ask Race    "); break;
-
-		case CON_ROLL_STATS:            strcpy(status, "  Roll Stats   "); break;
-
-		case CON_GET_NEW_SEX:           strcpy(status, "    Ask Sex    "); break;
-
-		case CON_GET_NEW_CLASS:         strcpy(status, "   Ask Class   "); break;
-
-		case CON_GET_ALIGNMENT:         strcpy(status, "   Ask Align   "); break;
-
-		case CON_DEITY:                 strcpy(status, "   Ask Deity   "); break;
-
-		case CON_DEFAULT_CHOICE:        strcpy(status, " Ask Customize "); break;
-
-		case CON_GEN_GROUPS:            strcpy(status, "  Customizing  "); break;
-
-		case CON_PICK_WEAPON:           strcpy(status, "  Pick Weapon  "); break;
-
-		case CON_READ_IMOTD:            strcpy(status, "     Imotd     "); break;
-
-		case CON_READ_MOTD:             strcpy(status, "     Motd      "); break;
-
-		case CON_READ_NEWMOTD:          strcpy(status, "   New Motd    "); break;
-
-		case CON_BREAK_CONNECT:         strcpy(status, " Break Connect "); break;
-
-		case CON_COPYOVER_RECOVER:      strcpy(status, "   Copyover    "); break;
-
-		case CON_GREETING:              strcpy(status, "   Greeting    "); break;
-
-		default:                        strcpy(status, "    Unknown    "); break;
-		}
+		String status;
+		     if (d->state == &conn::State::playing)         status = "    Playing    ";
+		else if (d->state == &conn::State::getName)         status = "   Ask Name    ";
+		else if (d->state == &conn::State::getOldPass)      status = " Ask Password  ";
+		else if (d->state == &conn::State::confirmNewName)  status = " Confirm Name  ";
+		else if (d->state == &conn::State::getMudExp)       status = "    Ask Exp    ";
+		else if (d->state == &conn::State::getNewPass)      status = " Ask New Pass  ";
+		else if (d->state == &conn::State::confirmNewPass)  status = " Confirm Pass  ";
+		else if (d->state == &conn::State::getRace)         status = "   Ask Race    ";
+		else if (d->state == &conn::State::rollStats)       status = "  Roll Stats   ";
+		else if (d->state == &conn::State::getSex)          status = "    Ask Sex    ";
+		else if (d->state == &conn::State::getGuild)        status = "   Ask Class   ";
+		else if (d->state == &conn::State::getAlignment)    status = "   Ask Align   ";
+		else if (d->state == &conn::State::getDeity)        status = "   Ask Deity   ";
+		else if (d->state == &conn::State::getWeapon)       status = "  Pick Weapon  ";
+		else if (d->state == &conn::State::readIMOTD)       status = "     Imotd     ";
+		else if (d->state == &conn::State::readMOTD)        status = "     Motd      ";
+		else if (d->state == &conn::State::readNewMOTD)     status = "   New Motd    ";
+		else if (d->state == &conn::State::breakConnect)    status = " Break Connect ";
+		else if (d->state == &conn::State::copyoverRecover) status = "   Copyover    ";
+		else                                                status = "    Unknown    ";
 
 		if (d->character == nullptr) {
 			/* no character known -- show it in SOCKETS anyway */
@@ -3529,9 +3503,9 @@ void do_sockets(Character *ch, String argument)
 			/* check for multiplayers -- Montrey */
 			multiplay = FALSE;
 
-			if (d->connected == 0)
+			if (d->state == &conn::State::playing)
 				for (dmult = descriptor_list; dmult != nullptr; dmult = dmult->next) {
-					if (dmult == d || dmult->connected != 0) /* if not playing */
+					if (dmult == d || dmult->state != &conn::State::playing) /* if not playing */
 						continue;
 
 					if (dmult->host == d->host)

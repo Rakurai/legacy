@@ -461,10 +461,9 @@ void do_log(Character *ch, String argument)
 
 void do_newlock(Character *ch, String argument)
 {
-	extern bool newlock;
-	newlock = !newlock;
+	Game::newlock = !Game::newlock;
 
-	if (newlock) {
+	if (Game::newlock) {
 		wiznet("$N locks out new characters.", ch, nullptr, 0, 0, 0);
 		stc("New characters have been locked out.\n", ch);
 	}

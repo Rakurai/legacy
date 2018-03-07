@@ -4,6 +4,7 @@
 #include "String.hh"
 #include "memory.hh"
 #include "Pooled.hh"
+#include "conn/State.hh"
 
 /*
  * Descriptor (channel) structure.
@@ -22,7 +23,6 @@ public:
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
     String              host;           /* text addr */
     int              descriptor = 0;
-    int              connected = CON_GET_NAME;
     bool                fcommand = FALSE;
     char                inbuf           [4 * MAX_INPUT_LENGTH] = {0};
     char                incomm          [MAX_INPUT_LENGTH] = {0};
@@ -33,6 +33,7 @@ public:
     int                 ip = 0;
     String              showstr_head;
     int              timer = 0;
+    conn::State         *state = &conn::State::getName;
 
 private:
     Descriptor(const Descriptor&);

@@ -316,14 +316,6 @@ void    substitute_alias args( (Descriptor *d, String input) );
 /* bank.c */
 void    find_money      args( ( Character *ch ) );
 
-/* comm.c */
-void    close_socket    args( ( Descriptor *dclose ) );
-void	cwtb		args((Descriptor *d, const String& txt));
-void    write_to_buffer args( ( Descriptor *d, const String& txt ) );
-
-/* nanny.c */
-void	update_pc_index		args((Character *ch, bool remove));
-
 /* area_handler.c */
 Character *    create_mobile   args( ( MobilePrototype *pMobIndex ) );
 void    clone_mobile    args( ( Character *parent, Character *clone) );
@@ -488,6 +480,7 @@ void    sq_cleanup	 args( ( Character *ch ) );
 void    save_char_obj    args( ( Character *ch ) );
 void    backup_char_obj  args( ( Character *ch ) );
 bool    load_char_obj    args( ( Descriptor *d, const String& name ) );
+void	update_pc_index		args((const Character *ch, bool remove));
 const char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( const String& ctime ) );
 
