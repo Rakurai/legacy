@@ -3154,6 +3154,8 @@ void do_enter(Character *ch, String argument)
 			extract_obj(portal);
 		}
 
+		mprog_entry_trigger(ch);
+		mprog_greet_trigger(ch);
 		return;
 	}
 
