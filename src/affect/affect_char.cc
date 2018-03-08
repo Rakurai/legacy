@@ -344,7 +344,7 @@ void modify_char(Character *ch, const Affect *paf, bool fAdd) {
 		return;
 
 	if (paf->location != APPLY_NONE) {
-		if (paf->location < 1 || paf->location > 34) {
+		if (paf->location < 1 || paf->location > 36) {
 			Logging::bugf("modify_char (%s): bad location %d when modifier is %d", ch->name, paf->location, paf->modifier);
 			return;
 		}
