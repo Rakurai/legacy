@@ -2127,7 +2127,8 @@ void spell_cure_blindness(skill::type sn, int level, Character *ch, void *vo, in
 void spell_cure_light(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
-	victim->hit = std::min(victim->hit + (dice(1, 8) + level / 3), GET_MAX_HIT(victim));
+	int hit = std::min(victim->hit + (dice(1, 8) + level / 3), GET_MAX_HIT(victim));
+	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel better!\n", victim);
 
@@ -2138,7 +2139,8 @@ void spell_cure_light(skill::type sn, int level, Character *ch, void *vo, int ta
 void spell_cure_serious(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
-	victim->hit = std::min(victim->hit + (dice(2, 8) + level / 2), GET_MAX_HIT(victim));
+	int hit = std::min(victim->hit + (dice(2, 8) + level / 2), GET_MAX_HIT(victim));
+	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel better!\n", victim);
 
@@ -2149,7 +2151,8 @@ void spell_cure_serious(skill::type sn, int level, Character *ch, void *vo, int 
 void spell_cure_critical(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
-	victim->hit = std::min(victim->hit + (dice(3, 8) + level - 6), GET_MAX_HIT(victim));
+	int hit = std::min(victim->hit + (dice(3, 8) + level - 6), GET_MAX_HIT(victim));
+	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel better!\n", victim);
 
@@ -2203,7 +2206,8 @@ void spell_darkness(skill::type sn, int level, Character *ch, void *vo, int targ
 void spell_divine_healing(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
-	victim->hit = std::min(victim->hit + (dice(15, 15) + (level * 2)), GET_MAX_HIT(victim));
+	int hit = std::min(victim->hit + (dice(15, 15) + (level * 2)), GET_MAX_HIT(victim));
+	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel much better!\n", victim);
 
@@ -3725,7 +3729,8 @@ void spell_haste(skill::type sn, int level, Character *ch, void *vo, int target,
 void spell_heal(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
 	Character *victim = (Character *) vo;
-	victim->hit = std::min(victim->hit + 100, GET_MAX_HIT(victim));
+	int hit = std::min(victim->hit + 100, GET_MAX_HIT(victim));
+	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("A warm feeling fills your body.\n", victim);
 
@@ -3947,6 +3952,9 @@ void spell_imprint(skill::type sn, int level, Character *ch, void *vo)
 	ch->mana -= mana;
 
 	/* Making it successively harder to pack more spells into potions or scrolls - JH */
+	/* 	letting the brew and scribe unique affects help with adding multiple spells
+		but cutting the effect by half for 2 spells and then in half again for 3 spells
+		-- Vegita*/
 	switch (sp_slot) {
 	default:
 		Logging::bug("sp_slot has more than %d spells.", sp_slot);
@@ -3956,7 +3964,8 @@ void spell_imprint(skill::type sn, int level, Character *ch, void *vo)
 		break;
 
 	case 2:
-		if (number_percent() > 25) {
+		if (number_percent() > (25 + ((GET_ATTR(ch, APPLY_BREW_UNIQUE) / 2) +
+									 GET_ATTR(ch, APPLY_SCRIBE_UNIQUE) / 2))) {
 			ptc(ch, "The magic enchantment has failed --- the %s vanishes.\n", item_type_name(obj));
 			destroy_obj(obj);
 			return;
@@ -3965,7 +3974,8 @@ void spell_imprint(skill::type sn, int level, Character *ch, void *vo)
 		break;
 
 	case 3:
-		if (number_percent() > 5) {
+		if (number_percent() > (5 + ((GET_ATTR(ch, APPLY_BREW_UNIQUE) / 4) +
+									 GET_ATTR(ch, APPLY_SCRIBE_UNIQUE) / 4))) {
 			ptc(ch, "The magic enchantment has failed --- the %s vanishes.\n", item_type_name(obj));
 			destroy_obj(obj);
 			return;
@@ -4057,6 +4067,11 @@ void spell_identify(skill::type sn, int level, Character *ch, void *vo, int targ
 	Clan *clan;
 	if ((clan = clan_vnum_lookup(obj->pIndexData->vnum)) != nullptr)
 		ptc(ch, "{YThis item belongs to %s{Y.{x\n", clan->clanname);
+	
+	if (obj->pIndexData->guild != Guild::none){
+		int guildname = obj->pIndexData->guild;
+		ptc(ch, "{YThis item can only be used by a %s{Y.{x\n", guild_table[guildname].name );
+	}
 
 	if (obj->extra_descr != nullptr) {
 		ExtraDescr *ed_next;

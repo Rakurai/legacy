@@ -30,24 +30,29 @@
 
 #include "affect/Affect.hh"
 #include "Game.hh"
+#include "Area.hh"
+#include "World.hh"
 #include "Logging.hh"
 #include "lootv2.hh"
 #include "Object.hh"
 #include "random.hh"
 #include "World.hh"
 #include "merc.hh"
+#include "ObjectPrototype.hh"
 
 Object *generate_armor(int ilevel, int objlevel, int item_qual, int& eq_type);
 Object *generate_weapon(int ilevel, int objlevel, int item_qual, int& eq_type);
+int gen_unique args(());
 void add_base_stats(Object *obj, int ilevel, int item_qual);
 const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect::type>& mods_allowed);
 const String get_base_name(int eq_type, int ilevel);
 const String get_legendary_name(int eq_type);
 
-#define EQ_QUALITY_LEGENDARY 0
-#define EQ_QUALITY_RARE      1
-#define EQ_QUALITY_UNCOMMON  2
-#define EQ_QUALITY_NORMAL    3
+#define EQ_QUALITY_UNIQUE	 0
+#define EQ_QUALITY_LEGENDARY 1
+#define EQ_QUALITY_RARE      2
+#define EQ_QUALITY_UNCOMMON  3
+#define EQ_QUALITY_NORMAL    4
 
 struct eq_quality_t {
 	int chance;
@@ -59,11 +64,11 @@ struct eq_quality_t {
 // these are ordered by rarity, it will first roll for the first entry then
 // keep rolling as it fails to get each level.  leave bottom one at 100%
 const std::vector<eq_quality_t> eq_quality_table {
-	{   3, "{x({CLe{Tge{gn{Tda{Cry{x){x ",  3,  1 }, // legendary
+	{   3, "{x({YUn{biq{Yue{x){x ",         0,  0 }, // unique, to be handles specially, they have unique powers.
+	{   4, "{x({CLe{Tge{gn{Tda{Cry{x){x ",  3,  1 }, // legendary
 	{  10, "{x({BR{Nar{Be{x){x ",           2,  1 }, // rare
 	{  25, "{x({GUn{Hcomm{Gon{x){x ",       1,  0 }, // uncommon
 	{ 100, "",                              0,  0 }, // normal, leave this at 100%
-//	{   5, "{x({YUn{biq{Yue{x){x ",         3,  1 }, // unique, to be handles specially, they have unique powers.
 };
 
 struct eq_roll_t {
@@ -150,16 +155,6 @@ Object *generate_eq(int objlevel){
 	int vnum    = eq_meta_table[meta_index].eq_rolls[roll].vnum;
 
 
-	// create the object
-	Object *obj = create_object(Game::world().get_obj_prototype(vnum), objlevel);
-
-	if (obj == nullptr) {
-		Logging::bug("Error making obj with vnum %d in generate_eq.", vnum);
-		return nullptr;
-	}
-
-	obj->level = objlevel;
-
 	/*quality chance.
 	Also sets prefix max based on quality
 	Suffix max is locked at one due to balancing.
@@ -172,16 +167,39 @@ Object *generate_eq(int objlevel){
 		if (roll_chance(eq_quality_table[item_qual].chance)) // try getting this level
 			break;
 
+	
+	// create the object
+	if (item_qual == EQ_QUALITY_UNIQUE){
+		vnum = gen_unique();
+		if (vnum == 0){
+			Logging::bug("generate_eq: gen_unique failed to pass vnum %d", vnum);
+			return nullptr;
+		}
+	}
+		
+	Object *obj = create_object(Game::world().get_obj_prototype(vnum), objlevel);
 
+	if (obj == nullptr) {
+		Logging::bug("Error making obj with vnum %d in generate_eq.", vnum);
+		return nullptr;
+	}
+
+	if (item_qual != EQ_QUALITY_UNIQUE)
+		obj->level = objlevel;
+
+	
 	// roll a name for the object
-	if (item_qual == EQ_QUALITY_LEGENDARY)
-		obj->name = get_legendary_name(eq_type);
-	else
-		obj->name = get_base_name(eq_type, ilevel);
+	if (item_qual != EQ_QUALITY_UNIQUE){
+		if (item_qual == EQ_QUALITY_LEGENDARY)
+			obj->name = get_legendary_name(eq_type);
+		else
+			obj->name = get_base_name(eq_type, ilevel);
+	}
 
 
 	// add some common stats for all eq
-	add_base_stats(obj, ilevel, item_qual);
+	if (item_qual != EQ_QUALITY_UNIQUE)
+		add_base_stats(obj, ilevel, item_qual);
 
 
 	// add prefixes
@@ -203,12 +221,17 @@ Object *generate_eq(int objlevel){
 
 
 	// stick the rarity string on the front
-	obj->name = eq_quality_table[item_qual].str + obj->name; // before prefixes
+	if (item_qual != EQ_QUALITY_UNIQUE)
+		obj->name = eq_quality_table[item_qual].str + obj->name; // before prefixes
 
 	// finish up
-	obj->description = obj->name;
-	obj->short_descr = obj->name;
+	if (item_qual != EQ_QUALITY_UNIQUE){
+		obj->description = obj->name;
+		obj->short_descr = obj->name;
+	}
 
+	if (item_qual == EQ_QUALITY_UNIQUE) //strip uniquegen keyword from item 
+		obj->name = obj->name.replace("uniquegen", "").strip();
 	obj->name = obj->name.uncolor().replace("(", "").replace(")", "");
 	return obj;
 }
@@ -311,6 +334,51 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 
 	affect::copy_to_obj(obj, &af);
 	return mod.text;
+}
+
+
+int gen_unique()
+{
+	//ObjectPrototype *pObjIndex;
+	//int total;
+	int pick = 0, pass = 0;
+	//int uniquevnum;
+	bool found;
+	//bool chosen;
+
+	found       = false;
+	//total 		= 0;
+
+	while (pass <= 2){
+		int count = 0;
+		
+		//for (const auto& area_pair : Game::world().areas) {
+		//	for (const auto& proto_pair : area_pair->second) {
+		for (const auto& area_pair : Game::world().areas){
+			for (const auto& proto_pair : area_pair.second->obj_prototypes){
+								
+				Vnum vnum = proto_pair.first;	//vnum
+				ObjectPrototype *proto = proto_pair.second; //ObjectPrototype
+			
+				if (proto->name.has_words("uniquegen")){ 	//does item have keywords?
+					found = true;							//it does so set found to true
+					count++;								//and increment total count
+				}
+				else
+					continue;								//doesn't have keyword continue on next loop
+
+				if (pass == 2 && count == pick)				//got our unique
+					return vnum.value();
+			}
+		}
+		
+		if (pass++ == 2 || count == 0)
+			break;
+
+		pick = number_range(0, count);					//pick is range between 0 and count it found above
+	}
+	
+	return 0;
 }
 
 void add_base_stats(Object *obj, int ilevel, int item_qual) {

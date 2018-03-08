@@ -255,6 +255,14 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 		else if (letter == 'S') {
 			num_settings = fread_number(fp);
 		}
+		else if (letter == 'G'){
+			//if ((guild = guild_lookup(fread_string(fp))) != Guild::none)
+			//	guild = guild_lookup(fread_string(fp)); 
+			if ((guild = guild_lookup(fread_string(fp))) == Guild::none) {
+				Logging::file_bug(fp, "Load_rooms: invalid class in guild", 0);
+				::exit(1);
+			}
+		}
 		else {
 			ungetc(letter, fp);
 			break;

@@ -219,7 +219,14 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 			 || paf->location == APPLY_STAM_COST_PCT
 			 || paf->location == APPLY_WPN_DAMAGE_PCT
 			 || paf->location == APPLY_SPELL_DAMAGE_PCT
-			 || paf->location == APPLY_VAMP_BONUS_PCT)
+			 || paf->location == APPLY_VAMP_BONUS_PCT
+			 || paf->location == APPLY_FORGE_UNIQUE
+			 || paf->location == APPLY_PRIESTESS_UNIQUE
+			 || paf->location == APPLY_BREW_UNIQUE
+			 || paf->location == APPLY_SCRIBE_UNIQUE
+			 || paf->location == APPLY_TANK_UNIQUE
+			 || paf->location == APPLY_NECRO_PIERCE_UNIQUE
+			 || paf->location == APPLY_LIDDA_AURA_UNIQUE)
 				buf += "%";
 		}
 	}
@@ -402,7 +409,14 @@ void do_bonus(Character *ch, String argument) {
 		 || index == APPLY_STAM_COST_PCT
 		 || index == APPLY_WPN_DAMAGE_PCT
 		 || index == APPLY_SPELL_DAMAGE_PCT
-		 || index == APPLY_VAMP_BONUS_PCT)
+		 || index == APPLY_VAMP_BONUS_PCT
+		 || index == APPLY_FORGE_UNIQUE
+		 || index == APPLY_PRIESTESS_UNIQUE
+		 || index == APPLY_BREW_UNIQUE
+	     || index == APPLY_SCRIBE_UNIQUE
+		 || index == APPLY_TANK_UNIQUE
+		 || index == APPLY_NECRO_PIERCE_UNIQUE
+		 || index == APPLY_LIDDA_AURA_UNIQUE)
 			tempbuf += "%";
 		else
 			tempbuf += " ";

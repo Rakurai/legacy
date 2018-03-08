@@ -212,6 +212,14 @@ const std::map<::affect::type, const table_entry> affect_table = {
     { type::obj_suffix_hexxing, { "hexxing", "", "", "" }},
 	{ type::obj_suffix_restorative, { "restorative", "", "", "" }}, //shield specific 
 	{ type::obj_suffix_mystic, { "mystic", "", "", "" }},			//shield specific
+	{ type::obj_forge_unique, { "expertise", "", "", "" }},			//forgemaster unique gloves
+	{ type::obj_priestess_unique, { "priestess", "", "", "" }},		//priestess unique helm
+	{ type::obj_brew_unique, { "brewmaster", "", "", "" }},			//brew unique floater
+	{ type::obj_scribe_unique, { "scriber", "", "", "" }},			//scribe unique held
+	{ type::obj_tank_unique, { "Shield's Defense", "", "", "" }},	//damage reduction chest
+	{ type::obj_necro_pierce_unique, { "Necromancer's Power", "", "", "" }},	//necro pierce unique dagger
+	{ type::obj_lidda_aura_unique, { "Lidda's Aura", "", "", "" }},
+	{ type::obj_set_mage_invoker, { "mage invoker set", "", "", "" }},
 
 };
 

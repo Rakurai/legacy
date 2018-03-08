@@ -1763,6 +1763,11 @@ void format_ostat(Character *ch, Object *obj)
 	    obj->weight, get_obj_weight(obj), get_true_weight(obj));
 	ptc(ch, "{W\nWear bits : %s\nExtra bits: %s{b\n\n",
 	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags + obj->cached_extra_flags));
+	if (obj->pIndexData->guild != Guild::none){
+		int guildname = obj->pIndexData->guild;
+		ptc(ch, "{WClass Restrictions: %s{Y.{x\n\n", guild_table[guildname].name );
+	}
+	
 	//ptc(ch, "{W\nEQ bits : %s\n\n",
 		//eq_bit_name(obj->eq_flags));
 	/* now give out vital statistics as per identify */

@@ -36,6 +36,379 @@ say I know I left that pile of wool somewhere!!!
 #0
 
 #OBJECTS
+#24000 
+griswald gloves unique uniquegen~ 
+{x({YUn{biq{Yue{x){x {bGr{His{bwa{Hld{b's {gGloves~ 
+The gloves of a great blacksmith have seen better days.~ 
+leather~ 
+armor ABST AH 
+20 20 20 20 0
+50 0 0 I
+E 
+griswald gloves~ 
+It is said these gloves were once used by the greatest blacksmith
+in the realm.
+~
+E
+flavor text~
+            Just one more clang!
+~ 
+A 
+1 2
+A
+2 2
+A
+18 5
+A
+19 5
+A
+36 50
+
+#24001
+kalana cowl unique uniquegen~ 
+{x({YUn{biq{Yue{x){x {CKa{Tl{Can{Ta{C's {WC{gow{Wl{x~ 
+A powerful priestess cowl is here.~ 
+leather~ 
+armor ABST AE 
+10 10 10 10 0
+25 0 0 I
+E 
+kalana cowl~ 
+This cowl radiates with restorative energy imbued to it from
+a powerful priestess.
+~ 
+E
+flavor text~
+        A healer's touch is one that is soft and gentle.   
+~
+A 
+3 2
+A
+4 2
+A
+12 35
+A
+13 35
+A
+37 25
+
+#24002
+witch cauldron unique uniquegen~ 
+{x({YUn{biq{Yue{x){x {xA {VWi{Mt{Vch{x's {WC{ga{Wu{gl{Wd{gr{Wo{gn{x~ 
+A bubbling cauldron is floating here.~ 
+metal~ 
+armor ABR AQ 
+0 0 0 0 0
+50 0 0 I
+E 
+cauldron witch~ 
+This cauldron bubbles with an arcane and mystical power~ 
+E
+flavor text~
+        Double Double Toil and Trouble
+~
+A 
+3 2
+A
+4 2
+A
+12 100
+A
+38 50
+
+#24003
+Targsys' quill unique uniquegen~ 
+{x({YUn{biq{Yue{x){x {PTar{Rg{Psys' {YQu{bi{Yll{x~ 
+The mighty Targys' quill is here waiting to write the next chronicle.~ 
+metal~ 
+armor ABR AQ
+0 0 0 0 0
+50 0 0 I
+E 
+scribe quill~ 
+This quill appears to write its own way ~ 
+E
+flavor text~
+        The pen that writes the tale.
+~
+A 
+3 2
+A
+4 2
+A
+12 100
+A
+39 50
+
+#24004
+lerylke girth unique uniquegen~ 
+{x({YUn{biq{Yue{x){x {gL{Rer{gy{Rlk{ge{x'{Rs {TG{Hirt{Th{x~ 
+a drakyri paladin's girth lays here.~ 
+metal~ 
+armor ABJKS AL 
+30 30 30 35 0
+75 0 0 I
+E 
+lerylke girth~
+This girth emanates peace and health. 
+~ 
+E
+flavor text~
+        Contrary to human beliefs, drakyri paladins do not 
+		need to be purely good.  In this case, Lerylke is 
+		the sequen of myr'vale Noriva, a neutral house.  
+		Hence, he is neutral and worships neutral gods 
+		and goddesses.
+~
+A 
+1 10
+A
+18 10
+A
+19 10
+A
+13 110
+
+#24005
+shield chestplate unique uniquegen~
+{x({YUn{biq{Yue{x) {WThe {TSh{Mie{Tld{x's {gCh{West{gpl{Wate{x~
+a drakyri knight's chestplate is here.~
+laerkai might~
+armor ABKY AD
+60 60 60 65 0
+95 0 0 I
+E
+shield chestplate~
+this chestplate was once used by the Shield, one of the 
+most devoted and powerful of the drakyri knights and 
+member of the Laerkai.
+~
+E
+flavor text~
+		for the might of the Laerkai!!!
+~
+A
+1 10
+A
+5 10
+A
+13 250
+A
+40 25
+
+#24006
+caress goddess lidda unique uniquegen~
+{x({YUn{biq{Yue{x){x {xSoft {CC{Ta{Wre{Ts{Cs {xof the {MG{Co{Td{Vd{Me{Vs{Ts {xLidda{x~
+a light feeling is here.~
+cloth~
+armor ABGT AI
+8 8 8 12 0
+15 0 0 I
+E
+caress goddess lidda~
+these sleeves emenate a feeling of arcanic control.
+~
+E
+flavor text~
+	She acts all rough, but inside she has a warm heart.
+~
+A
+3 2
+A
+4 2
+A
+12 25
+A
+29 45
+
+#24007
+robe experienced prophet unique uniquegen~
+{x({YUn{biq{Yue{x){x {xRobe of The {RE{bx{Ppe{Rr{bi{Penc{be{Pd {CP{Tr{goph{Te{Ct{x~
+a robe lays crumpled here, exuding experience.~
+exquisite cloth~
+armor ABGS AK
+5 5 5 4 0
+10 0 0 I
+E
+robe experienced prophet~
+You feel as if by wearing this robe you will experience life
+to the fullest!
+~
+E
+flavor text~
+	Did you really learn all you can?
+	Or is there yet more to experience?
+~
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 1
+A
+5 1
+A
+16 25
+
+#24008
+dagger pierce necromancer unique uniquegen~
+{x({YUn{biq{Yue{x){x {WNe{gcr{coman{gcer{W's {bPi{Yer{bce{x~
+a dagger embued with dark magic lays here~
+dark magic~
+weapon EGJ AN
+dagger 9 12 drain C
+60 0 0 I
+E
+necromancer pierce~
+This dagger makes you think evil sick thoughts. As you hold it
+voices course thru your head urging you to hurt others.
+~
+E
+flavor text~
+One day we shall bathe the world in glorious darkness.
+~
+A
+3 3
+A
+4 3
+A
+12 50
+A
+18 8
+A
+19 8
+A
+33 15
+A
+41 5
+
+#24009
+elemental aura lidda unique uniquegen~
+{x({YUn{biq{Yue{x){x {PE{Bl{Ge{Wm{Re{Nn{Ht{ga{bl{x Aura of The {MG{Co{Td{Vd{Me{Vs{Ts {VL{Ci{Td{Md{Va{x~
+there is an aura floating here that seems to switch elements.~
+elemental magic~
+light ABG AQ
+0 0 -1 0 0
+30 0 0 I
+E
+elemental aura lidda~
+This weird floating object appears to shift its elemental
+properties every so often. Looks like it might make a good
+light.
+~
+E
+flavor text~
+The elements know no bounds, neither should you
+~
+A
+5 5
+A
+18 5
+A
+19 5
+A
+32 10
+A
+42 15
+
+#24100
+mage only test~
+mage only gear test~
+just testing mage only gear.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G mage~
+
+#24101
+cleric only test~
+cleric only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G cleric~
+
+#24102
+thief only test~
+thief only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G thief~
+#24103
+warrior only test~
+warrior only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G warrior~
+
+#24104
+necro only test~
+necro only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G necromancer~
+
+#24105
+pally only test~
+pally only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G paladin~
+
+#24106
+bard only test~
+bard only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G bard~
+
+#24107
+ranger only test~
+ranger only gear test~
+just testing.~
+testing~
+armor ABG AI
+0 0 0 0 0
+1 0 0 I
+A
+43 1
+G ranger~
+
+
 #24350
 elven bow~
 A simple elven bow~

@@ -4,6 +4,7 @@
 #include "Flags.hh"
 #include "ObjectValue.hh"
 #include "Vnum.hh"
+#include "Guild.hh"
 
 class Area;
 class ExtraDescr;
@@ -37,6 +38,7 @@ public:
     ObjectValue         value[5];
 
     int                 num_settings = 0; // for socketed gems
+	Guild			guild = Guild::none;
 	//int					suffix[3];
 	
 private:

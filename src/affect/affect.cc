@@ -157,38 +157,48 @@ void swap(Affect *a, Affect *b) {
 
 int attr_location_check(int location) {
 	switch (location) {
-		case APPLY_NONE             : return APPLY_NONE;
-		case APPLY_STR              : return APPLY_STR;
-		case APPLY_DEX              : return APPLY_DEX;
-		case APPLY_INT              : return APPLY_INT;
-		case APPLY_WIS              : return APPLY_WIS;
-		case APPLY_CON              : return APPLY_CON;
-		case APPLY_SEX              : return APPLY_SEX;
-		case APPLY_AGE              : return APPLY_AGE;
-		case APPLY_MANA             : return APPLY_MANA;
-		case APPLY_HIT              : return APPLY_HIT;
-		case APPLY_STAM             : return APPLY_STAM;
-		case APPLY_GOLD             : return APPLY_GOLD;
-		case APPLY_EXP_PCT          : return APPLY_EXP_PCT;
-		case APPLY_AC               : return APPLY_AC;
-		case APPLY_HITROLL          : return APPLY_HITROLL;
-		case APPLY_DAMROLL          : return APPLY_DAMROLL;
-//		case APPLY_SAVES            : duplicate with an older one
-		case APPLY_SAVING_PARA      :
-		case APPLY_SAVING_ROD       :
-		case APPLY_SAVING_PETRI     :
-		case APPLY_SAVING_BREATH    :
-		case APPLY_SAVING_SPELL     : return APPLY_SAVES;
-		case APPLY_CHR              : return APPLY_CHR;
-		case APPLY_QUESTPOINTS      : return APPLY_QUESTPOINTS;
-		case APPLY_SKILLPOINTS      : return APPLY_SKILLPOINTS;
-		case APPLY_MANA_COST_PCT    : return APPLY_MANA_COST_PCT;
-		case APPLY_STAM_COST_PCT    : return APPLY_STAM_COST_PCT;
-		case APPLY_WPN_DAMAGE_PCT   : return APPLY_WPN_DAMAGE_PCT;
-		case APPLY_SPELL_DAMAGE_PCT : return APPLY_SPELL_DAMAGE_PCT;
-		case APPLY_VAMP_BONUS_PCT   : return APPLY_VAMP_BONUS_PCT;
-		case APPLY_HP_BLOCK_PCT		: return APPLY_HP_BLOCK_PCT;
-		case APPLY_MANA_BLOCK_PCT	: return APPLY_MANA_BLOCK_PCT;
+		case APPLY_NONE             	: return APPLY_NONE;
+		case APPLY_STR              	: return APPLY_STR;
+		case APPLY_DEX              	: return APPLY_DEX;
+		case APPLY_INT              	: return APPLY_INT;
+		case APPLY_WIS              	: return APPLY_WIS;
+		case APPLY_CON              	: return APPLY_CON;
+		case APPLY_SEX              	: return APPLY_SEX;
+		case APPLY_AGE              	: return APPLY_AGE;
+		case APPLY_MANA             	: return APPLY_MANA;
+		case APPLY_HIT              	: return APPLY_HIT;
+		case APPLY_STAM             	: return APPLY_STAM;
+		case APPLY_GOLD             	: return APPLY_GOLD;
+		case APPLY_EXP_PCT          	: return APPLY_EXP_PCT;
+		case APPLY_AC               	: return APPLY_AC;
+		case APPLY_HITROLL          	: return APPLY_HITROLL;
+		case APPLY_DAMROLL         	 	: return APPLY_DAMROLL;
+//		case APPLY_SAVES            	: duplicate with an older one
+		case APPLY_SAVING_PARA      	:
+		case APPLY_SAVING_ROD      	 	:
+		case APPLY_SAVING_PETRI     	:
+		case APPLY_SAVING_BREATH    	:
+		case APPLY_SAVING_SPELL     	: return APPLY_SAVES;
+		case APPLY_CHR              	: return APPLY_CHR;
+		case APPLY_QUESTPOINTS      	: return APPLY_QUESTPOINTS;
+		case APPLY_SKILLPOINTS      	: return APPLY_SKILLPOINTS;
+		case APPLY_MANA_COST_PCT    	: return APPLY_MANA_COST_PCT;
+		case APPLY_STAM_COST_PCT    	: return APPLY_STAM_COST_PCT;
+		case APPLY_WPN_DAMAGE_PCT   	: return APPLY_WPN_DAMAGE_PCT;
+		case APPLY_SPELL_DAMAGE_PCT 	: return APPLY_SPELL_DAMAGE_PCT;
+		case APPLY_VAMP_BONUS_PCT   	: return APPLY_VAMP_BONUS_PCT;
+		case APPLY_HP_BLOCK_PCT			: return APPLY_HP_BLOCK_PCT;
+		case APPLY_MANA_BLOCK_PCT		: return APPLY_MANA_BLOCK_PCT;
+		//beign unique gear
+		case APPLY_FORGE_UNIQUE			: return APPLY_FORGE_UNIQUE;
+		case APPLY_PRIESTESS_UNIQUE		: return APPLY_PRIESTESS_UNIQUE;
+		case APPLY_BREW_UNIQUE			: return APPLY_BREW_UNIQUE;
+		case APPLY_SCRIBE_UNIQUE		: return APPLY_SCRIBE_UNIQUE;
+		case APPLY_TANK_UNIQUE			: return APPLY_TANK_UNIQUE;
+		case APPLY_NECRO_PIERCE_UNIQUE	: return APPLY_NECRO_PIERCE_UNIQUE;
+		case APPLY_LIDDA_AURA_UNIQUE	: return APPLY_LIDDA_AURA_UNIQUE;
+		//begin set gear
+		case SET_MAGE_INVOKER			: return SET_MAGE_INVOKER;
 	}
 
 	Logging::bugf("attr_location_check: bad location %d", location);

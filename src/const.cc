@@ -90,48 +90,52 @@ const std::vector<weapon_table_t> weapon_table = {
 
 /* attack table  -- not very organized :( */
 const std::vector<attack_type> attack_table = {
-	{   "none",         "hit",          DAM_BASH        },  /*  0 */
-	{   "slice",        "slice",        DAM_SLASH       },
-	{   "stab",         "stab",         DAM_PIERCE      },
-	{   "slash",        "slash",        DAM_SLASH       },
-	{   "whip",         "whip",         DAM_SLASH       },
-	{   "claw",         "claw",         DAM_SLASH       },  /*  5 */
-	{   "blast",        "blast",        DAM_BASH        },
-	{   "pound",        "pound",        DAM_BASH        },
-	{   "crush",        "crush",        DAM_BASH        },
-	{   "grep",         "grep",         DAM_SLASH       },
-	{   "bite",         "bite",         DAM_PIERCE      },  /* 10 */
-	{   "pierce",       "pierce",       DAM_PIERCE      },
-	{   "suction",      "suction",      DAM_BASH        },
-	{   "beating",      "beating",      DAM_BASH        },
-	{   "digestion",    "digestion",    DAM_ACID        },
-	{   "charge",       "charge",       DAM_BASH        },  /* 15 */
-	{   "slap",         "slap",         DAM_BASH        },
-	{   "punch",        "punch",        DAM_BASH        },
-	{   "wrath",        "wrath",        DAM_ENERGY      },
-	{   "magic",        "magic",        DAM_ENERGY      },
-	{   "divine",       "divine power", DAM_HOLY        },  /* 20 */
-	{   "cleave",       "cleave",       DAM_SLASH       },
-	{   "scratch",      "scratch",      DAM_PIERCE      },
-	{   "peck",         "peck",         DAM_PIERCE      },
-	{   "peckb",        "peck",         DAM_BASH        },
-	{   "chop",         "chop",         DAM_SLASH       },  /* 25 */
-	{   "sting",        "sting",        DAM_PIERCE      },
-	{   "smash",        "smash",        DAM_BASH        },
-	{   "shbite",       "shocking bite", DAM_ELECTRICITY },
-	{   "flbite",       "flaming bite", DAM_FIRE        },
-	{   "frbite",       "freezing bite", DAM_COLD        }, /* 30 */
-	{   "acbite",       "acidic bite",  DAM_ACID        },
-	{   "chomp",        "chomp",        DAM_PIERCE      },
-	{   "drain",        "life drain",   DAM_NEGATIVE    },
-	{   "thrust",       "thrust",       DAM_PIERCE      },
-	{   "slime",        "slime",        DAM_ACID        },  /* 35 */
-	{   "shock",        "shock",        DAM_ELECTRICITY },
-	{   "thwack",       "thwack",       DAM_BASH        },
-	{   "flame",        "flame",        DAM_FIRE        },
-	{   "chill",        "chill",        DAM_COLD        },
-	{   "hstrike",      "hilt strike",  DAM_BASH        },  /* 40 */ /* no skill for hilt strike */
-	{   "arrow",        "arrow",        DAM_PIERCE      },
+	{   "none",         "hit",          	DAM_BASH        },  /*  0 */
+	{   "slice",        "slice",        	DAM_SLASH       },
+	{   "stab",         "stab",         	DAM_PIERCE      },
+	{   "slash",        "slash",        	DAM_SLASH       },
+	{   "whip",         "whip",         	DAM_SLASH       },
+	{   "claw",         "claw",         	DAM_SLASH       },  /*  5 */
+	{   "blast",        "blast",        	DAM_BASH        },
+	{   "pound",        "pound",        	DAM_BASH        },
+	{   "crush",        "crush",        	DAM_BASH        },
+	{   "grep",         "grep",         	DAM_SLASH       },
+	{   "bite",         "bite",         	DAM_PIERCE      },  /* 10 */
+	{   "pierce",       "pierce",       	DAM_PIERCE      },
+	{   "suction",      "suction",      	DAM_BASH        },
+	{   "beating",      "beating",      	DAM_BASH        },
+	{   "digestion",    "digestion",    	DAM_ACID        },
+	{   "charge",       "charge",       	DAM_BASH        },  /* 15 */
+	{   "slap",         "slap",         	DAM_BASH        },
+	{   "punch",        "punch",        	DAM_BASH        },
+	{   "wrath",        "wrath",        	DAM_ENERGY      },
+	{   "magic",        "magic",        	DAM_ENERGY      },
+	{   "divine",       "divine power", 	DAM_HOLY        },  /* 20 */
+	{   "cleave",       "cleave",       	DAM_SLASH       },
+	{   "scratch",      "scratch",      	DAM_PIERCE      },
+	{   "peck",         "peck",         	DAM_PIERCE      },
+	{   "peckb",        "peck",         	DAM_BASH        },
+	{   "chop",         "chop",         	DAM_SLASH       },  /* 25 */
+	{   "sting",        "sting",        	DAM_PIERCE      },
+	{   "smash",        "smash",        	DAM_BASH        },
+	{   "shbite",       "shocking bite", 	DAM_ELECTRICITY },
+	{   "flbite",       "flaming bite", 	DAM_FIRE        },
+	{   "frbite",       "freezing bite", 	DAM_COLD        }, /* 30 */
+	{   "acbite",       "acidic bite",  	DAM_ACID        },
+	{   "chomp",        "chomp",        	DAM_PIERCE      },
+	{   "drain",        "life drain",   	DAM_NEGATIVE    },
+	{   "thrust",       "thrust",       	DAM_PIERCE      },
+	{   "slime",        "slime",        	DAM_ACID        },  /* 35 */
+	{   "shock",        "shock",        	DAM_ELECTRICITY },
+	{   "thwack",       "thwack",       	DAM_BASH        },
+	{   "flame",        "flame",        	DAM_FIRE        },
+	{   "chill",        "chill",        	DAM_COLD        },
+	{   "hstrike",      "hilt strike",  	DAM_BASH        },  /* 40 */ /* no skill for hilt strike */
+	{   "arrow",        "arrow",        	DAM_PIERCE      },  
+	{   "acold",        "{Ci{Wc{Cy {ga{Wur{ga",     	DAM_COLD	    }, //next 4 are for elemental auras
+	{   "afire",        "{Pf{Ri{be{Rr{Py {ga{Wur{ga",   	DAM_FIRE        }, //for use with elemental aura of 
+	{   "alight",       "{Yli{bgh{Tt{bni{Yng {ga{Wur{ga",   DAM_ELECTRICITY }, //the goddess lidda unique
+	{   "awater",       "{Nw{Bat{Ner {ga{Wur{ga",       DAM_WATER       },	/* 45 */
 };
 
 /* all races, make sure pc races are in the same order as the pc race table, below */

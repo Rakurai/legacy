@@ -122,6 +122,16 @@ enum class type {
     obj_suffix_hexxing,
 	obj_suffix_restorative,
 	obj_suffix_mystic,
+	
+	obj_forge_unique,
+	obj_priestess_unique,
+	obj_brew_unique,
+	obj_scribe_unique,
+	obj_tank_unique,
+	obj_necro_pierce_unique,
+	obj_lidda_aura_unique,
+	
+	obj_set_mage_invoker,
 
     size, // don't touch
     first = 0 // don't touch

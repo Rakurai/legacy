@@ -1249,6 +1249,66 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, false, false);
 		}
 	}
+	/* 	This section is for any on hit affects from unique items
+		Each will need to be coded individually per item.
+		-- Vegita 2018
+	*/
+	//Pierce of necromancer unique dagger. 5% chance on hit to inflict random maladiction.
+	// 9 total maladictions (excluding energy drain)
+	if (result && (GET_ATTR(ch, APPLY_NECRO_PIERCE_UNIQUE)!= 0)) {
+		int unique_chance = GET_ATTR(ch, APPLY_NECRO_PIERCE_UNIQUE);
+		if ( number_percent() < unique_chance ){
+			switch(number_range (1,9)){
+				default:
+					act("$p glows dark towards $n {Rbut then brightens up{x.", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p {Rglow dark but then it subsides.{x", victim, wield, nullptr, TO_CHAR);
+					break;
+			
+				case 1:	//blindness
+					act("$p {Remits dark rays at $n{R's eyes.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p {Remit dark rays.{x", victim, wield, nullptr, TO_CHAR);
+					spell_blindness(skill::type::blindness,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 2: //weaken
+					act("$p {Rgrows dark tendrils that extend towards $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p grow dark tendrils that come after you.{x", victim, wield, nullptr, TO_CHAR);
+					spell_weaken(skill::type::weaken,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 3: //poison
+					act("$p {Rstarts emitting a greenish gas towards $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p {Rbecome covered in a greenish gas.{x", victim, wield, nullptr, TO_CHAR);
+					spell_poison(skill::type::poison,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 4: //curse
+					act("$p {Rstarts chanting ancient mutterings at $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou begin hearing dark chanting from $p.{x", victim, wield, nullptr, TO_CHAR);
+					spell_curse(skill::type::curse,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 5: //plague
+					act("$p {Rstarts spitting out black death at $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p {Rbegin to spew black death.{x", victim, wield, nullptr, TO_CHAR);
+					spell_plague(skill::type::plague,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 6: //slow
+					act("$p {Rdark glow forms a clock who's hands are slowing down while pointing at $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p's {Rglow form a clock who's hands are slowing down.{x", victim, wield, nullptr, TO_CHAR);
+					spell_slow(skill::type::slow,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 7: //starve
+					act("$p {Remits a high pitch towards $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou hear $p {Rhumming a high pitch.{x", victim, wield, nullptr, TO_CHAR);
+					spell_starve(skill::type::starve,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+				case 8: //age
+					act("$p {Rforms a dark glowing clock, its hands speeding up while pointing at $n.{x", victim, wield, nullptr, TO_ROOM);
+					act("{RYou see $p {Rform a dark glowing clock, its hands speeding up.{x", victim, wield, nullptr, TO_CHAR);
+					spell_age(skill::type::age,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+					break;
+			}
+		}
+	}
+		
+	
 } /* end one_hit */
 
 // called on a hit from bone wall
@@ -1402,7 +1462,11 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	/* BARRIER reduces damage by (currently) 25% -- Elrac */
 	if (dam > 1 && affect::exists_on_char(victim, affect::type::barrier))
 		dam -= dam / 4;
-
+	
+	/*Shield's Chestplate unique effect (25% damage reduction) */
+	if (dam > 1 && GET_ATTR(victim, APPLY_TANK_UNIQUE) != 0)
+		dam -= dam / 4;
+		
 	sanc_immune = false;
 
 	if (dam > 1 && affect::exists_on_char(victim, affect::type::sanctuary)) {
@@ -1465,7 +1529,13 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	/* Check for parry, blur, shield block, and dodge. */
 	// the only things that should get through here are weapon hits, so anything coded with
 	// an attack_skill or an attack_type of -1 will bypass this section
-	if (attack_skill == skill::type::unknown && attack_type >= 0 && ch != victim) {
+	if (attack_skill == skill::type::unknown 
+						&& attack_type >= 0 
+						&& attack_type != 42 	//hack to make elemental auras 
+						&& attack_type != 43	//bypass
+						&& attack_type != 44
+						&& attack_type != 45
+						&& ch != victim) {
 		if (IS_AWAKE(victim) && !global_quick) {
 			if (check_dodge(ch, victim, attack_skill, attack_type))
 				return false;
@@ -1504,7 +1574,43 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			if (get_eq_char(ch, WEAR_WIELD) != nullptr)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
-			if (affect::exists_on_char(victim, affect::type::flameshield) && !saves_spell(victim->level, ch, DAM_FIRE)) {
+			/* Elemental aura of Goddess Lidda unique affect
+			   cold, water, fire, lightning
+			 */
+			if (GET_ATTR(victim, APPLY_LIDDA_AURA_UNIQUE) > 1){
+				int damm = (number_range((victim->level / 2) , (victim->level / 4 + 3))); 
+				if (number_percent() < GET_ATTR(victim, APPLY_LIDDA_AURA_UNIQUE)){
+					switch (number_range(0, 3)){
+						case 0: //cold
+							stc("{GYour {ga{Wur{ga {Gflashes to an {Ci{Wc{Cy {Gappearance{x.\n", victim);
+							//if (!saves_spell(victim->level, ch, DAM_COLD))
+								damage(victim, ch, damm, skill::type::unknown, 42, DAM_COLD, true, false);
+							break;
+						case 1: //water
+							stc("{GYour {ga{Wur{ga {Gtakes on a {Nfl{Bu{Nid {Gappearance{x.\n", victim);
+							//if (!saves_spell(victim->level, ch, DAM_WATER))
+								damage(victim, ch, damm, skill::type::unknown, 45, DAM_WATER, true, false);
+							break;
+						case 2: //fire
+							stc("{GYour {ga{Wur{ga {Gbursts into a glorious {Pf{Rl{ba{Rm{Pe{x.\n", victim);
+							//if (!saves_spell(victim->level, ch, DAM_FIRE))
+								damage(victim, ch, damm, skill::type::unknown, 43, DAM_FIRE, true, false);
+							break;
+						case 3: //lightning
+							stc("{GYour {ga{Wur{ga {Gbegins to crackle with raw {Ye{bn{Ter{bg{Yy{x.\n", victim);
+							//if (!saves_spell(victim->level, ch, DAM_ELECTRICITY))
+								damage(victim, ch, damm, skill::type::unknown, 44, DAM_ELECTRICITY, true, false);
+							break;
+					}
+				}
+			}
+			
+			if (affect::exists_on_char(victim, affect::type::flameshield) 
+				&& !saves_spell(victim->level, ch, DAM_FIRE)
+				&& attack_type != 42 //ignores elemental aura
+				&& attack_type != 43 //attack_types as they shouldn't trigger
+				&& attack_type != 44 //flameshield
+				&& attack_type != 45) {
 				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, true, true);
 			}
 
@@ -1513,12 +1619,16 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 			if (affect::exists_on_char(victim, affect::type::sanctuary)
 			    && get_affect_evolution(victim, affect::type::sanctuary) >= 3
-			    && !saves_spell(victim->level, ch, DAM_HOLY))
+			    && !saves_spell(victim->level, ch, DAM_HOLY)
+				&& attack_type != 42 //ignores elemental aura
+				&& attack_type != 43 //attack_types as they shouldn't trigger
+				&& attack_type != 44 //sanctuary
+				&& attack_type != 45)
 				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, true, true);
 
 			if (ch->is_garbage())
 				return false;
-
+			
 			const affect::Affect *paf;
 			if ((paf = affect::find_on_char(victim, affect::type::bone_wall)) != nullptr
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)
@@ -2436,7 +2546,7 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	
 	/* Shield block specific suffixes */
 	if (GET_ATTR(victim, APPLY_HP_BLOCK_PCT) != 0){
-		int life_restored = (number_range(1, obj->level / 2) + GET_ATTR(victim, APPLY_HP_BLOCK_PCT));
+		int life_restored =  (number_range(1, obj->level / 2) + GET_ATTR(victim, APPLY_HP_BLOCK_PCT));
 		victim->hit += life_restored;
 		Format::sprintf(buf2, "{BYour block restores %d of your life.{x\n", life_restored);
 		stc(buf2, victim);

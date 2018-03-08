@@ -2278,7 +2278,17 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 			}
 		}
 	}
-
+	
+	/* check for class restricted equipment -- Vegita */
+	if (!IS_IMMORTAL(ch) 
+		&& obj->pIndexData->guild != Guild::none
+		&& obj->pIndexData->guild != ch->guild){
+			stc("This item cannot be used by your class.\n", ch);
+			act("$n tries to use $p, but is not the correct class.", ch, obj, nullptr, TO_ROOM);
+			return;
+	}
+	
+	
 	if (!IS_IMMORTAL(ch)) {
 		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)    && IS_EVIL(ch))
 	    || (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD)    && IS_GOOD(ch))
@@ -3309,7 +3319,8 @@ void do_brew(Character *ch, String argument)
 
 	/* Check the skill percentage, fcn(wis,int,skill) */
 	if (!ch->is_npc()
-	    && (number_percent() > get_skill_level(ch, skill::type::brew) ||
+	    && (number_percent() > (get_skill_level(ch, skill::type::brew) +
+								GET_ATTR(ch, APPLY_SCRIBE_UNIQUE))||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p explodes violently!", ch, obj, nullptr, TO_CHAR);
@@ -3422,7 +3433,8 @@ void do_scribe(Character *ch, String argument)
 
 	/* Check the skill percentage, fcn(int,wis,skill) */
 	if (!ch->is_npc()
-	    && (number_percent() > get_skill_level(ch, skill::type::scribe) ||
+	    && (number_percent() > ( get_skill_level(ch, skill::type::scribe) +
+								GET_ATTR(ch, APPLY_SCRIBE_UNIQUE)) ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p bursts in flames!", ch, obj, nullptr, TO_CHAR);
@@ -4882,7 +4894,8 @@ void do_forge(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::forge).beats);
 
-	if (!IS_IMMORTAL(ch) && number_percent() > (get_skill_level(ch, skill::type::forge) + material->value[0])) {
+	if (!IS_IMMORTAL(ch) && number_percent() > (get_skill_level(ch, skill::type::forge) + material->value[0] + 
+		GET_ATTR(ch, APPLY_FORGE_UNIQUE))) {
 		stc("You fail to forge a useful weapon.\n", ch);
 		act("$n tries but fails to forge a useful weapon.\n", ch, nullptr, nullptr, TO_ROOM);
 		check_improve(ch, skill::type::forge, false, 1);
