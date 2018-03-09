@@ -25,6 +25,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
+#include <list>
+
 #include "act.hh"
 #include "affect/Affect.hh"
 #include "Area.hh"
@@ -1161,31 +1163,6 @@ void aggr_update(void)
 			}
 		}
 
-		/* do mobprog updates where required.
-		   This has nothing to do with aggression but parasitizes on our
-		   list of player-inhabited rooms and the loop thereover. */
-		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
-			if (ch->is_npc() && ch->mpact != nullptr) {
-				// go through acts and handle them.  this could conceivably generate new
-				// acts attached to the character!  just start a new list for the char and
-				// we'll blow this one away
-				MobProgActList *start = ch->mpact;
-				ch->mpact = nullptr;
-
-				for (MobProgActList *tmp_act = start; tmp_act != nullptr; tmp_act = tmp_act->next) {
-					mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
-					                     tmp_act->obj, tmp_act->vo, ACT_PROG);
-				}
-
-				// delete the list
-				while (start != nullptr) {
-					MobProgActList *tmp_act = start->next;
-					delete start;
-					start = tmp_act;
-				}
-			}
-		}
-
 		/* no aggression in safe rooms */
 		if (room->flags().has(ROOM_SAFE)
 		 || room->flags().has(ROOM_LAW))
@@ -1345,6 +1322,66 @@ void wait_update(void)
 	}
 }
 
+/* Mobprog act triggers are different than others in that they are not processed
+   immediately, but instead each act trigger adds to a chain that is processed
+   once per pulse.  This is probably to avoid some potential looping with
+   mobs triggering eachother.  Anyway, this was parasiting on aggr_update,
+   which is called every pulse.  However, aggr_update is only called on player-
+   inhabited rooms.  Usually this is fine unless you're trying to do some
+   crazy things with mobprogs such as helper mobs in utility rooms or, in my
+   case, a pet mob that needed to execute an act prog as its master entered a
+   portal.  So, putting processing of these progs here, and we'll just see what
+   happens.  Technically this only needs to be called for player-occupied areas,
+   but maybe if we change from a game-wide character list to area-owned lists
+   it will make sense to do so. -- Montrey
+ */
+
+/* Slight problem: there are ways a mob can extract itself or other characters
+   in a mobprog, which can potentially trash the list we're trying to iterate
+   over.  Additionally, act_progs can result in new act_progs on characters that
+   we either iterated over already, are about to iterate over, or even the current
+   character.  I think the easiest solution is to build a list of characters
+   and progs that we'll execute in this pulse, and let the results be handled
+   next pulse.  Also check for extraction every step of the way.  -- Montrey
+ */
+void act_update(void) {
+	struct ch_act {
+		Character *ch;
+		MobProgActList *act_list;
+	};
+
+	std::list<ch_act> ch_acts;
+
+	// build a list of all characters with acts, set up their act lists for new content
+	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
+		if (ch->is_npc() && ch->mpact != nullptr) {
+			ch_acts.push_back({ch, ch->mpact});
+			ch->mpact = nullptr; // take ownership of the list
+		}
+
+	// execute all acts
+	for (auto entry : ch_acts) {
+		Character *ch = entry.ch;
+		MobProgActList *start = entry.act_list;
+
+		for (MobProgActList *tmp_act = start; tmp_act != nullptr; tmp_act = tmp_act->next) {
+			// did the mob get extracted?
+			if (ch->in_room == nullptr)
+				break;
+
+			mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
+			                     tmp_act->obj, tmp_act->vo, ACT_PROG);
+		}
+
+		// delete the list
+		while (start != nullptr) {
+			MobProgActList *tmp_act = start->next;
+			delete start;
+			start = tmp_act;
+		}
+	}
+}
+
 /*
  * Handle all kinds of updates.
  * Called once per pulse from game loop.
@@ -1428,6 +1465,7 @@ void update_handler(void)
 
 	wait_update();
 	auction.update();
+	act_update();
 	aggr_update();
 } /* end update_handler() */
 
