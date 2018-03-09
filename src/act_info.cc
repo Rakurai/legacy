@@ -547,7 +547,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 			buf += "{G(LinkDead) ";
 	}
 
-	if (victim->is_npc()
+	if (victim->is_npc() && !ch->is_npc()
 	    && ((ch->pcdata->questmob > 0 && victim->pIndexData->vnum == ch->pcdata->questmob)
 	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
