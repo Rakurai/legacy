@@ -484,7 +484,7 @@ DECLARE_DO_FUN( do_zecho        );
 DECLARE_DO_FUN( do_mpasound     );
 DECLARE_DO_FUN( do_mpat         );
 DECLARE_DO_FUN( do_mpcast       );
-DECLARE_DO_FUN( do_mpclearmoney );
+DECLARE_DO_FUN( do_mpmoney );
 DECLARE_DO_FUN( do_mpecho       );
 DECLARE_DO_FUN( do_mpechoaround );
 DECLARE_DO_FUN( do_mpechoat     );

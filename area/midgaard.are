@@ -390,7 +390,7 @@ if ispc($n)
    if level($n)<6
       say If you have a Newbie token to give me, I will trade it in for you.
    endif
-   mpclearmoney
+   mpmoney 0 0
 endif
 ~
 >give_prog newbie token~

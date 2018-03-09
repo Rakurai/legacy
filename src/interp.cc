@@ -516,7 +516,7 @@ const std::vector<cmd_type> cmd_table = {
 	{ "mpasound",           do_mpasound,    POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpat",                       do_mpat,                POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpcast",                     do_mpcast,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpclearmoney",       do_mpclearmoney, POS_DEAD,               LOG_NORMAL,     0,      GM                      },
+	{ "mpmoney",       do_mpmoney, POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpecho",                     do_mpecho,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpechoaround",       do_mpechoaround, POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpechoat",           do_mpechoat,    POS_DEAD,               LOG_NORMAL,     0,      GM                      },

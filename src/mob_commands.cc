@@ -324,15 +324,24 @@ void do_mpecho(Character *ch, String argument)
 	return;
 }
 
-void do_mpclearmoney(Character *ch, String argument)
+void do_mpmoney(Character *ch, String argument)
 {
 	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
 
-	ch->gold = 0;
-	ch->silver = 0;
+	String gold, silver;
+	argument = one_argument(argument, gold);
+	argument = one_argument(argument, silver);
+
+	if (gold.empty() || silver.empty() || !gold.is_number() || !silver.is_number()) {
+		Logging::bugf("Mpmoney: bad syntax '%s' gold and '%s' silver, vnum %d", gold, silver, ch->pIndexData->vnum);
+		return;
+	}
+
+	ch->gold = atoi(gold);
+	ch->silver = atoi(silver);
 	return;
 }
 
