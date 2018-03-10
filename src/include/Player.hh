@@ -3,7 +3,7 @@
 #include <vector>
 #include <map>
 #include <set>
-#include "declare.hh"
+#include "constants.hh"
 #include "String.hh"
 #include "Flags.hh"
 #include "Pooled.hh"
@@ -77,8 +77,8 @@ public:
 	int              sqcountdown = 0;
 	Object  *           squestobj = nullptr;
 	Character *         squestmob = nullptr;
-	bool                squestobjf = FALSE;
-	bool		        squestmobf = FALSE;
+	bool                squestobjf = false;
+	bool		        squestmobf = false;
 	Location	        squestloc1; /* obj */
 	Location	        squestloc2;	/* mob */
 
@@ -125,7 +125,7 @@ public:
     Duel *	        duel = nullptr;
     int              lays = 0;
     int              next_lay_countdown = 0;
-    bool                familiar = FALSE;
+    bool                familiar = false;
     std::set<String>    warp_locs;
 
 private:

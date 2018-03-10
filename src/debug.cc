@@ -35,7 +35,6 @@
 #include "Game.hh"
 #include "GameTime.hh"
 #include "lootv2.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
@@ -45,6 +44,7 @@
 #include "String.hh"
 #include "Weather.hh"
 #include "util/Image.hh"
+#include "World.hh"
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(Character *ch, String argument)
@@ -167,7 +167,7 @@ void do_debug(Character *ch, String argument)
 			            victim->pcdata->remort_count,
 			            victim->clan ? victim->clan->name : "",
 			            victim->clan && victim->pcdata->rank ? victim->pcdata->rank : "");
-			extract_char(victim, TRUE);
+			extract_char(victim, true);
 		}
 
 		stc("Done.\n", ch);
@@ -290,10 +290,10 @@ void do_debug(Character *ch, String argument)
 				if (!room->flags().has(ROOM_NO_RECALL))
 					continue;
 
-				bool found = FALSE;
+				bool found = false;
 				for (int x = 0; x <= 5; x++)
 					if (room->exit[x] != nullptr)
-						found = TRUE;
+						found = true;
 
 				if (!found)
 					ptc(ch, "{W[{P%5d{W]{x %s\n", room_id.to_string(), room->name());
@@ -326,7 +326,7 @@ void do_debug(Character *ch, String argument)
 
 		if (arg == "all") {
 			for (questor = Game::world().char_list; questor; questor = questor->next)
-				if (!IS_NPC(questor) && !IS_IMMORTAL(questor)) {
+				if (!questor->is_npc() && !IS_IMMORTAL(questor)) {
 					questor->pcdata->nextquest = 0;
 					questor->pcdata->nextsquest = 0;
 					stc("You may now quest again.\n", questor);

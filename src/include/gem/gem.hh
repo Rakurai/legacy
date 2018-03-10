@@ -1,6 +1,8 @@
 #pragma once
 
-#include "declare.hh"
+#include "String.hh"
+
+class Object;
 
 namespace gem {
 

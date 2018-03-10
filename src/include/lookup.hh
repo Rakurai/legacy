@@ -1,8 +1,12 @@
 #pragma once
 
-#include "declare.hh"
+//#include "declare.hh"
+#include "String.hh"
 #include "Sector.hh"
 #include "Guild.hh"
+
+class Clan;
+class Vnum;
 
 Clan *clan_vnum_lookup	args((const Vnum& vnum));
 Clan *	clan_lookup		args((const String& name));

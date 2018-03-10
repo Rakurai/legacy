@@ -34,6 +34,8 @@
 #include "lootv2.hh"
 #include "Object.hh"
 #include "random.hh"
+#include "World.hh"
+#include "merc.hh"
 
 Object *generate_armor(int ilevel, int objlevel, int item_qual, int& eq_type);
 Object *generate_weapon(int ilevel, int objlevel, int item_qual, int& eq_type);
@@ -139,7 +141,7 @@ Object *generate_eq(int objlevel){
 	for (meta_index = 0;                           // start with trying for most rare
 	     meta_index < eq_meta_table.size()-1;      // stop at the last entry (common)
 	     meta_index++)                             // move down by one each time
-		if (chance(eq_meta_table[meta_index].chance)) // try getting this level
+		if (roll_chance(eq_meta_table[meta_index].chance)) // try getting this level
 			break;
 
 	// now roll for a specific eq type within the set
@@ -167,7 +169,7 @@ Object *generate_eq(int objlevel){
 	for (item_qual = 0;                           // start with trying for legendary
 	     item_qual < eq_quality_table.size()-1;   // stop at the last entry (common)
 	     item_qual++)                             // move down by one each time
-		if (chance(eq_quality_table[item_qual].chance)) // try getting this level
+		if (roll_chance(eq_quality_table[item_qual].chance)) // try getting this level
 			break;
 
 
@@ -259,7 +261,7 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 	auto mods = mods_allowed.equal_range(eq_type);
 	affect::type mod_type;
 
-	while (TRUE) {
+	while (true) {
 		auto it = mods.first;
 		int index = number_range(0, count - 1); // choose a random mod
 
@@ -276,7 +278,7 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 		if (mod == mod_table.cend())
 			continue;
 
-		if (chance(mod->second.rarity))
+		if (roll_chance(mod->second.rarity))
 			break; // got it!
 	}
 
@@ -393,31 +395,31 @@ void add_base_stats(Object *obj, int ilevel, int item_qual) {
 		{ 100, 200,  100, 200,  100, 200,   10,  25,   10,  25 }, // level 90+
 	};
 
-	if (chance(30)){
+	if (roll_chance(30)){
 		af.location   = APPLY_HIT;
 		af.modifier   = number_range(base_stats_table[ilevel].hp_min, base_stats_table[ilevel].hp_max);
 		affect::join_to_obj(obj, &af);
 	}
 
-	if (chance(20)){
+	if (roll_chance(20)){
 		af.location   = APPLY_MANA;
 		af.modifier   = number_range(base_stats_table[ilevel].mana_min, base_stats_table[ilevel].mana_max);
 		affect::join_to_obj(obj, &af);
 	}
 
-	if (chance(20)){
+	if (roll_chance(20)){
 		af.location   = APPLY_STAM;
 		af.modifier   = number_range(base_stats_table[ilevel].stam_min, base_stats_table[ilevel].stam_max);
 		affect::join_to_obj(obj, &af);
 	}
 	
-	if (chance(30)){
+	if (roll_chance(30)){
 		af.location   = APPLY_HITROLL;
 		af.modifier   = number_range(base_stats_table[ilevel].hitroll_min, base_stats_table[ilevel].hitroll_max);
 		affect::join_to_obj(obj, &af);
 	}
 	
-	if (chance(30)){
+	if (roll_chance(30)){
 		af.location   = APPLY_DAMROLL;
 		af.modifier   = number_range(base_stats_table[ilevel].damroll_min, base_stats_table[ilevel].damroll_max);
 		affect::join_to_obj(obj, &af);

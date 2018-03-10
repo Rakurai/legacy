@@ -1,6 +1,9 @@
 #pragma once
 
-#include "declare.hh"
+#include "constants.hh"
+
+class Area;
+class Room;
 
 class QuestArea {
 public:

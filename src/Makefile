@@ -48,10 +48,12 @@ $(DEPDIR)/%.d: ;
 include $(wildcard $(patsubst %,$(DEPDIR)/%.d,$(basename $(CPP_SOURCES))))
 
 clean:
-	rm -f $(OBJDIR)/*.o *~ core $(INCDIR)/*~
+	find $(OBJDIR) -type f -name "*.o" -delete
+	find $(DEPDIR) -type f \( -name "*.d" -or -name "*.Td" \) -delete
+	find . -type f -name "*~" -delete
 
 cleaner: clean
-	rm -rf ${EXEFILE} $(DEPDIR)/*.d
+	rm -rf ${EXEFILE}
 	cd sand && make cleaner
 
 install:

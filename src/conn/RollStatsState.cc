@@ -3,6 +3,7 @@
 #include "String.hh"
 #include "Character.hh"
 #include "random.hh"
+#include "merc.hh"
 
 namespace conn {
 

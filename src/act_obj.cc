@@ -27,6 +27,7 @@
 
 #include <vector>
 #include <sys/time.h>
+#include <algorithm> // min and max
 
 #include "act.hh"
 #include "argument.hh"
@@ -47,10 +48,10 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
+#include "MobProg.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
@@ -64,6 +65,7 @@
 #include "String.hh"
 #include "tables.hh"
 #include "World.hh"
+#include "RoomPrototype.hh"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
@@ -106,18 +108,18 @@ char *ordinal_string(int n)
 /* Check to see if an object is non-holder clan equipment -- Elrac
    This code depends on the clan equipment being coded into the clan areas
    and the starting/ending vnums of the areas being coded into clan_table.
-   This function returns TRUE if <ch> is allowed to do stuff with <obj>
+   This function returns true if <ch> is allowed to do stuff with <obj>
    based on clan ownership and leadership. If not, it tells the player
-   he can't do that and the object is destroyed. Also, FALSE is returned.
+   he can't do that and the object is destroyed. Also, false is returned.
 */
 bool clan_eq_ok(Character *ch, Object *obj, const String& action)
 {
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	Clan *jclan;
 	if ((jclan = clan_vnum_lookup(obj->pIndexData->vnum)) == nullptr)
-		return TRUE;
+		return true;
 
 	if (ch->clan != jclan) {
 		if (!action.empty()) {
@@ -129,7 +131,7 @@ bool clan_eq_ok(Character *ch, Object *obj, const String& action)
 		        obj->short_descr);
 		stc("You are lucky you weren't {Phurt!{x\n", ch);
 		destroy_obj(obj);
-		return FALSE;
+		return false;
 	}
 
 	if (obj->name.has_words("leadereq") && !ch->has_cgroup(GROUP_LEADER)) {
@@ -142,17 +144,17 @@ bool clan_eq_ok(Character *ch, Object *obj, const String& action)
 		        obj->short_descr);
 		stc("Wait until the Leaders hear of this!\n", ch);
 		extract_obj(obj);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 /* Check for illegitimate use of personal equipment -- Elrac
    This code checks to make sure the given object is not personalized
-   to someone else. If all is OK, return TRUE, otherwise the player
+   to someone else. If all is OK, return true, otherwise the player
    gets a denial message with the intended action in it, and the
-   function returns FALSE.
+   function returns false.
 */
 bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 {
@@ -162,27 +164,27 @@ bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 
 	if (ch == nullptr) {
 		Logging::bug("pers_eq_ok: nullptr character", 0);
-		return TRUE;
+		return true;
 	}
 
 	if (obj == nullptr) {
 		Logging::bug("pers_eq_ok: nullptr object", 0);
-		return TRUE;
+		return true;
 	}
 
 	if (obj->pIndexData == nullptr) {
 		Logging::bug("pers_eq_ok: nullptr object->pIndexData", 0);
-		return TRUE;
+		return true;
 	}
 
 	if ((pdesc = get_extra_descr(KEYWD_OWNER, obj->extra_descr)) == nullptr
 	    && (pdesc = get_extra_descr(KEYWD_OWNER, obj->pIndexData->extra_descr)) == nullptr)
-		return TRUE;
+		return true;
 
 	sscanf(pdesc->description.c_str(), "%[^\n]", owner);
 
 	if (String(owner).has_words(ch->name))
-		return TRUE;
+		return true;
 
 	if (obj->short_descr.empty()) {
 		Logging::bugf("clan_eq_ok: object %d has no short_descr", obj->pIndexData->vnum);
@@ -197,11 +199,11 @@ bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 
 		if (IS_IMMORTAL(ch)) {
 			stc("   As an Immortal, you have the right.\n", ch);
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 } /* end pers_eq_ok() */
 
 /* RT part of the corpse looting code */
@@ -211,35 +213,35 @@ bool can_loot(Character *ch, Object *obj)
 	Character *owner = nullptr, *wch;
 
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	if (obj->owner.empty())
-		return TRUE;
+		return true;
 
 	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next)
 		if (wch->name == obj->owner)
 			owner = wch;
 
 	if (owner == nullptr)
-		return TRUE;
+		return true;
 
 	if (ch->name == owner->name)
-		return TRUE;
+		return true;
 
-	if (!IS_NPC(owner) && owner->act_flags.has(PLR_CANLOOT))
-		return TRUE;
+	if (!owner->is_npc() && owner->act_flags.has(PLR_CANLOOT))
+		return true;
 
 	if (is_same_group(ch, owner))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 void do_second(Character *ch, String argument)
 {
 	Object *obj;
 
-	if (!get_skill_level(ch, skill::type::dual_wield) && !IS_NPC(ch)) {
+	if (!get_skill_level(ch, skill::type::dual_wield) && !ch->is_npc()) {
 		stc("You are not able to wield two weapons.\n", ch);
 		return;
 	}
@@ -298,7 +300,7 @@ void do_second(Character *ch, String argument)
 		}
 	}
 
-	if (!remove_obj(ch, WEAR_SECONDARY, TRUE))
+	if (!remove_obj(ch, WEAR_SECONDARY, true))
 		return;
 
 	if (!clan_eq_ok(ch, obj, "equip yourself with"))
@@ -383,7 +385,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 
 			for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room)
 				if (is_same_group(gch, ch)
-				    && !IS_NPC(gch))       /* don't split with mobs :P */
+				    && !gch->is_npc())       /* don't split with mobs :P */
 					members++;
 
 			if (members > 1 && (obj->value[0] > 1 || obj->value[1])) {
@@ -397,7 +399,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 	else {
 		obj_to_char(obj, ch);
 
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			/* Did they pick up their quest item? */
 			if (IS_QUESTOR(ch)) {
 				if (ch->pcdata->questobj == obj->pIndexData->vnum && ch->pcdata->questobf != -1) {
@@ -426,7 +428,7 @@ void get_obj(Character *ch, Object *obj, Object *container)
 						stc(buf, ch);
 					}
 
-					ch->pcdata->squestobjf = TRUE;
+					ch->pcdata->squestobjf = true;
 					Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
 					wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 				}
@@ -441,26 +443,26 @@ bool from_box_ok(Character *ch, Object *obj, char *box_type)
 {
 	if (obj == nullptr) {
 		ptc(ch, "You do not see that in your %s.\n", box_type);
-		return FALSE;
+		return false;
 	}
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)) {
 		stc("You can't take that!\n", ch);
 		Logging::bugf("Item without ITEM_TAKE in %s's %s.", ch->name, box_type);
-		return FALSE;
+		return false;
 	}
 
 	if (get_carry_number(ch) + get_obj_number(obj) > can_carry_n(ch)) {
 		ptc(ch, "%s: you can't carry that many items.\n", obj->name);
-		return FALSE;
+		return false;
 	}
 
 	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
 		ptc(ch, "%s: you can't carry that much weight.\n", obj->name);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 void do_touch(Character *ch, String argument) {
@@ -480,7 +482,7 @@ void do_touch(Character *ch, String argument) {
 	}
 
 	if (obj->item_type == ITEM_WARP_CRYSTAL) {
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			stc("The gods have forbidden your kind from touching that.\n", ch);
 			return;
 		}
@@ -550,7 +552,7 @@ void do_get(Character *ch, String argument)
 		}
 		else {
 			/* 'get all' or 'get all.obj' */
-			found = FALSE;
+			found = false;
 
 			for (obj = ch->in_room->contents; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
@@ -558,7 +560,7 @@ void do_get(Character *ch, String argument)
 				if ((arg1.length() == 3 // 'all '
 				 || obj->name.has_words(arg1.substr(4)))
 				  && can_see_obj(ch, obj)) {
-					found = TRUE;
+					found = true;
 					get_obj(ch, obj, nullptr);
 				}
 			}
@@ -578,7 +580,7 @@ void do_get(Character *ch, String argument)
 			return;
 		}
 
-		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
+		if (arg2.is_prefix_of("locker") && !ch->is_npc()) {
 			if (ch->in_room->flags().has(ROOM_LOCKER)) {
 				if (ch->act_flags.has(PLR_CLOSED)) {
 					int number = get_locker_number(ch);
@@ -606,14 +608,14 @@ void do_get(Character *ch, String argument)
 					act("You get $p from your locker.", ch, obj, nullptr, TO_CHAR);
 				}
 				else {
-					found = FALSE;
+					found = false;
 
 					for (obj = ch->pcdata->locker; obj != nullptr; obj = obj_next) {
 						obj_next = obj->next_content;
 
 						if ((arg1.length() == 3
 						 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
-							found = TRUE;
+							found = true;
 
 							if (!from_box_ok(ch, obj, "locker"))
 								continue;
@@ -640,7 +642,7 @@ void do_get(Character *ch, String argument)
 		}
 
 		/* Strongbox stuff -- Elrac */
-		if (!IS_NPC(ch) && arg2.is_prefix_of("strongbox")) {
+		if (!ch->is_npc() && arg2.is_prefix_of("strongbox")) {
 			if (!IS_HEROIC(ch)) {
 				stc("Only heroes and former heroes have strongboxes.\n", ch);
 				return;
@@ -665,13 +667,13 @@ void do_get(Character *ch, String argument)
 			}
 
 			/* get all or all.something from strongbox */
-			found = FALSE;
+			found = false;
 
 			for (obj = ch->pcdata->strongbox; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 
 				if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
-					found = TRUE;
+					found = true;
 
 					if (!from_box_ok(ch, obj, "strongbox"))
 						continue;
@@ -742,13 +744,13 @@ void do_get(Character *ch, String argument)
 		}
 		else {
 			/* 'get all container' or 'get all.obj container' */
-			found = FALSE;
+			found = false;
 
 			for (obj = container->contains; obj != nullptr; obj = obj_next) {
 				obj_next = obj->next_content;
 
 				if ((arg1.length() == 3 || obj->name.has_words(arg1.substr(4))) && can_see_obj(ch, obj)) {
-					found = TRUE;
+					found = true;
 
 					if (container == Game::world().donation_pit && !IS_IMMORTAL(ch)) {
 						stc("Don't be so greedy!\n", ch);
@@ -795,19 +797,19 @@ bool will_fit(Object *obj, Object *container)
 	}
 
 	if (obj_weight > container_max_single)
-		return FALSE;
+		return false;
 
 	if (obj_weight + get_obj_weight(container) > container_max_total)
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 }
 
 void do_put(Character *ch, String argument)
 {
 	Object *container, *obj, *obj_next;
 	int weight;
-	bool found = FALSE, tooheavy = TRUE;
+	bool found = false, tooheavy = true;
 
 	String arg1, arg2;
 	argument = one_argument(argument, arg1);
@@ -827,7 +829,7 @@ void do_put(Character *ch, String argument)
 	}
 
 	/* locker stuff */
-	if (!IS_NPC(ch) && arg2.is_prefix_of("locker")) {
+	if (!ch->is_npc() && arg2.is_prefix_of("locker")) {
 		if (!ch->in_room->flags().has(ROOM_LOCKER)) {
 			stc("You do not see a locker in this room.\n", ch);
 			return;
@@ -877,7 +879,7 @@ void do_put(Character *ch, String argument)
 				obj_to_locker(obj, ch);
 				act("$n puts $p in $s locker.", ch, obj, nullptr, TO_ROOM);
 				act("You put $p in your locker.", ch, obj, nullptr, TO_CHAR);
-				found = TRUE;
+				found = true;
 			}
 		}
 
@@ -888,7 +890,7 @@ void do_put(Character *ch, String argument)
 	}
 
 	/* strongbox stuff -- Elrac */
-	if (!IS_NPC(ch) && arg2.is_prefix_of("strongbox")) {
+	if (!ch->is_npc() && arg2.is_prefix_of("strongbox")) {
 		if (!IS_HEROIC(ch)) {
 			stc("Only heroes and former heroes have strongboxes.\n", ch);
 			return;
@@ -936,7 +938,7 @@ void do_put(Character *ch, String argument)
 				obj_to_strongbox(obj, ch);
 				act("$n puts $p in $s strongbox.", ch, obj, nullptr, TO_ROOM);
 				act("You put $p in your strongbox.", ch, obj, nullptr, TO_CHAR);
-				found = TRUE;
+				found = true;
 			}
 		}
 
@@ -1021,12 +1023,12 @@ void do_put(Character *ch, String argument)
 		    && obj->wear_loc == WEAR_NONE
 		    && obj != container
 		    && can_drop_obj(ch, obj)) {
-			found = TRUE;
+			found = true;
 
 			if (!will_fit(obj, container))
 				continue;
 
-			tooheavy = FALSE;
+			tooheavy = false;
 			obj_from_char(obj);
 			obj_to_obj(obj, container);
 
@@ -1116,7 +1118,7 @@ void do_drop(Character *ch, String argument)
 
 	if (arg == "all" || arg.has_prefix("all.")) {
 		/* 'drop all' or 'drop all.obj' */
-		found = FALSE;
+		found = false;
 
 		for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
@@ -1124,7 +1126,7 @@ void do_drop(Character *ch, String argument)
 			if ((arg.length() == 3 || obj->name.has_words(arg.substr(4)))
 			    &&   can_see_obj(ch, obj)
 			    &&   obj->wear_loc == WEAR_NONE) {
-				found = TRUE;
+				found = true;
 
 				if (can_drop_obj(ch, obj)) {
 					obj_from_char(obj);
@@ -1324,7 +1326,7 @@ void do_give(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			if (!IS_IMMORTAL(ch) && victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 				Format::sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 				wiznet(buf, ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
@@ -1339,11 +1341,11 @@ void do_give(Character *ch, String argument)
 			}
 		}
 
-		if (IS_NPC(victim) && victim->act_flags.has(ACT_IS_CHANGER)) {
+		if (victim->is_npc() && victim->act_flags.has(ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
 
-			if (IS_NPC(ch) && ch->act_flags.has(ACT_IS_CHANGER)) {
+			if (ch->is_npc() && ch->act_flags.has(ACT_IS_CHANGER)) {
 				stc("You don't need more money.\n", ch);
 				return;
 			}
@@ -1390,7 +1392,7 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, nullptr, victim, TO_CHAR);
 		mprog_bribe_trigger(victim, ch, silver ? amount : amount * 100);
 
-		if (IS_NPC(victim) && victim->act_flags.has(ACT_IS_CHANGER)) {
+		if (victim->is_npc() && victim->act_flags.has(ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
 
@@ -1489,14 +1491,14 @@ void do_give(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && !IS_IMMORTAL(ch) && victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
+	if (!victim->is_npc() && !IS_IMMORTAL(ch) && victim->pcdata->plr_flags.has(PLR_LINK_DEAD)) {
 		Format::sprintf(buf, "$N is trying to give an object to the linkdead character %s.", victim->name);
 		wiznet(buf, ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		stc("Your recipient cannot receive objects in their current state.\n", ch);
 		return;
 	}
 
-	if (IS_NPC(victim) && victim->pIndexData->pShop != nullptr) {
+	if (victim->is_npc() && victim->pIndexData->pShop != nullptr) {
 		act("$N tells you 'Sorry, you'll have to sell that.'", ch, nullptr, victim, TO_CHAR);
 		ch->reply = victim->name;
 		return;
@@ -1509,7 +1511,7 @@ void do_give(Character *ch, String argument)
 
 	if (!can_see_obj(victim, obj)) {
 		/* hack so questmobs can take questobjs, easier than a bunch of reverse lookups in can_see_obj */
-		if (!(!IS_NPC(ch) && IS_NPC(victim)
+		if (!(!ch->is_npc() && victim->is_npc()
 		      && IS_SQUESTOR(ch) && ch->pcdata->squestobj != nullptr && ch->pcdata->squestmob != nullptr
 		      && obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob)) {
 			act("$N can't see it.", ch, nullptr, victim, TO_CHAR);
@@ -1563,7 +1565,7 @@ void do_give(Character *ch, String argument)
 
 			if (!ch->pcdata->squestobjf) {
 				Logging::bug("At give sqobj to sqmob without sqobj found, continuing...", 0);
-				ch->pcdata->squestobjf = TRUE;
+				ch->pcdata->squestobjf = true;
 			}
 
 			squestobj_to_squestmob(ch, obj, victim);
@@ -1615,7 +1617,7 @@ void do_envenom(Character *ch, String argument)
 
 			if (!obj->value[3]) {
 				obj->value[3] = 1;
-				check_improve(ch, skill::type::envenom, TRUE, 4);
+				check_improve(ch, skill::type::envenom, true, 4);
 			}
 
 			WAIT_STATE(ch, skill::lookup(skill::type::envenom).beats);
@@ -1625,7 +1627,7 @@ void do_envenom(Character *ch, String argument)
 		act("You fail to poison $p.", ch, obj, nullptr, TO_CHAR);
 
 		if (!obj->value[3])
-			check_improve(ch, skill::type::envenom, FALSE, 4);
+			check_improve(ch, skill::type::envenom, false, 4);
 
 		WAIT_STATE(ch, skill::lookup(skill::type::envenom).beats);
 		return;
@@ -1658,13 +1660,13 @@ void do_envenom(Character *ch, String argument)
 			affect::copy_to_obj(obj, &af);
 			act("$n coats $p with deadly venom.", ch, obj, nullptr, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, nullptr, TO_CHAR);
-			check_improve(ch, skill::type::envenom, TRUE, 3);
+			check_improve(ch, skill::type::envenom, true, 3);
 			WAIT_STATE(ch, skill::lookup(skill::type::envenom).beats);
 			return;
 		}
 		else {
 			act("You fail to envenom $p.", ch, obj, nullptr, TO_CHAR);
-			check_improve(ch, skill::type::envenom, FALSE, 3);
+			check_improve(ch, skill::type::envenom, false, 3);
 			WAIT_STATE(ch, skill::lookup(skill::type::envenom).beats);
 			return;
 		}
@@ -1709,7 +1711,7 @@ void do_firebuilding(Character *ch, String argument)
 
 	if (number_percent() > get_skill_level(ch, skill::type::firebuilding)) {
 		stc("You burn yourself.\n", ch);
-		check_improve(ch, skill::type::firebuilding, FALSE, 8);
+		check_improve(ch, skill::type::firebuilding, false, 8);
 		return;
 	}
 
@@ -1726,7 +1728,7 @@ void do_firebuilding(Character *ch, String argument)
 	act("$n gathers some twigs and creates $p.", ch, torch, nullptr, TO_ROOM);
 	act("You gather some twigs and create $p.", ch, torch, nullptr, TO_CHAR);
 	torch->value[2] = -1;
-	check_improve(ch, skill::type::firebuilding, TRUE, 8);
+	check_improve(ch, skill::type::firebuilding, true, 8);
 	return;
 }
 
@@ -1892,7 +1894,7 @@ void do_pour(Character *ch, String argument)
 		return;
 	}
 
-	amount = UMIN(out->value[1], in->value[0] - in->value[1]);
+	amount = std::min(out->value[1], in->value[0] - in->value[1]);
 	in->value[1] += amount;
 	out->value[1] -= amount;
 	in->value[2] = out->value[2];
@@ -1952,7 +1954,7 @@ void do_drink(Character *ch, String argument)
 		}
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
+	if (!ch->is_npc() && ch->pcdata->condition[COND_DRUNK] > 10) {
 		stc("The container fails to reach your mouth.  *Hic*\n", ch);
 		return;
 	}
@@ -1983,11 +1985,11 @@ void do_drink(Character *ch, String argument)
 		}
 
 		amount = liq_table[liquid].affect[4];
-		amount = UMIN(amount, obj->value[1]);
+		amount = std::min(amount, obj->value[1].value());
 		break;
 	}
 
-	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
+	if (!ch->is_npc() && !IS_IMMORTAL(ch)
 	    && ch->pcdata->condition[COND_FULL] > 45) {
 		stc("You're too full to drink more.\n", ch);
 		return;
@@ -2006,13 +2008,13 @@ void do_drink(Character *ch, String argument)
 
 	gain_condition(ch, COND_THIRST, amount * liqvalue / 10);
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10)
+	if (!ch->is_npc() && ch->pcdata->condition[COND_DRUNK] > 10)
 		stc("You're toasted. The room begins to spin!\n", ch);
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL]  > 40)
+	if (!ch->is_npc() && ch->pcdata->condition[COND_FULL]  > 40)
 		stc("You are full.\n", ch);
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] > 40)
+	if (!ch->is_npc() && ch->pcdata->condition[COND_THIRST] > 40)
 		stc("Your thirst is quenched.\n", ch);
 
 	if (obj->value[3] != 0) {
@@ -2025,12 +2027,12 @@ void do_drink(Character *ch, String argument)
 			number_fuzzy(amount),
 			amount * 3,
 			1,
-			FALSE
+			false
 		);
 	}
 
 	if (obj->value[0] > 0) {
-		obj->value[1] = UMAX((int)obj->value[1] - amount, 0);
+		obj->value[1] = std::max((int)obj->value[1] - amount, 0);
 
 		/* if container is now empty, remove the poison */
 		if (obj->value[1] == 0)
@@ -2042,7 +2044,7 @@ void do_eat(Character *ch, String argument)
 {
 	Object *obj, *op, *obj_next;
 	int number, count;
-	bool fFull = FALSE, fNoLongerHungry = FALSE, fPoisoned = FALSE, found = FALSE;
+	bool fFull = false, fNoLongerHungry = false, fPoisoned = false, found = false;
 	Object *to_extract = nullptr;
 
 	String buf, arg;
@@ -2062,7 +2064,7 @@ void do_eat(Character *ch, String argument)
 	if (arg.empty()) {
 		for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
 			if (obj->item_type == ITEM_FOOD) {
-				found = TRUE;
+				found = true;
 				break;
 			}
 		}
@@ -2083,7 +2085,7 @@ void do_eat(Character *ch, String argument)
 			return;
 		}
 
-		if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL] > 40) {
+		if (!ch->is_npc() && ch->pcdata->condition[COND_FULL] > 40) {
 			stc("You are too full to eat more.\n", ch);
 			return;
 		}
@@ -2150,24 +2152,24 @@ void do_eat(Character *ch, String argument)
 					number_fuzzy(op->level),
 					op->level,
 					1,
-					FALSE
+					false
 				);
 
-				fPoisoned    = TRUE;
+				fPoisoned    = true;
 			}
 		}
 
 		/* make it so you can get full on pills, 4 gives 11 or 12 pills on an empty stomach */
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			int condition;
 			condition = ch->pcdata->condition[COND_HUNGER];
 			gain_condition(ch, COND_FULL, op->item_type == ITEM_PILL ? 4 : obj->value[0]);
 			gain_condition(ch, COND_HUNGER, op->item_type == ITEM_PILL ? 2 : obj->value[1]);
 
 			if (condition == 0 && ch->pcdata->condition[COND_HUNGER] > 0)
-				fNoLongerHungry = TRUE;
+				fNoLongerHungry = true;
 			else if (ch->pcdata->condition[COND_FULL] > 40)
-				fFull = TRUE;
+				fFull = true;
 		}
 
 		/* delay extraction long enough to produce a valid message */
@@ -2213,20 +2215,20 @@ bool remove_obj(Character *ch, int iWear, bool fReplace)
 	Object *obj;
 
 	if ((obj = get_eq_char(ch, iWear)) == nullptr)
-		return TRUE;
+		return true;
 
 	if (!fReplace)
-		return FALSE;
+		return false;
 
 	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act("You can't seem to remove $p.", ch, obj, nullptr, TO_CHAR);
-		return FALSE;
+		return false;
 	}
 
 	unequip_char(ch, obj);
 	act("$n stops using $p.", ch, obj, nullptr, TO_ROOM);
 	act("You stop using $p.", ch, obj, nullptr, TO_CHAR);
-	return TRUE;
+	return true;
 }
 
 /*
@@ -2486,21 +2488,21 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_WIELD, fReplace))
 			return;
 
-		if (!IS_NPC(ch)
+		if (!ch->is_npc()
 		    && get_obj_weight(obj) > (str_app[GET_ATTR_STR(ch)].wield
 		                              * 10)) {
 			stc("It's too heavy for you to pick up.\n", ch);
 			return;
 		}
 
-		if (!IS_NPC(ch) && ch->size < SIZE_LARGE
+		if (!ch->is_npc() && ch->size < SIZE_LARGE
 		    &&  affect::exists_on_obj(obj, affect::type::weapon_two_hands)
 		    &&  get_eq_char(ch, WEAR_SHIELD) != nullptr) {
 			stc("You need two hands free for that weapon.\n", ch);
 			return;
 		}
 
-		if (!IS_NPC(ch) && affect::exists_on_obj(obj, affect::type::weapon_two_hands) &&
+		if (!ch->is_npc() && affect::exists_on_obj(obj, affect::type::weapon_two_hands) &&
 		    get_eq_char(ch, WEAR_SECONDARY) != nullptr) {
 			stc("You can not use a two handed weapon when dual-wielding.\n", ch);
 			return;
@@ -2509,7 +2511,7 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		act("$n wields $p{x.", ch, obj, nullptr, TO_ROOM);
 		act("You wield $p{x.", ch, obj, nullptr, TO_CHAR);
 		equip_char(ch, obj, WEAR_WIELD);
-		sn = get_weapon_skill(ch, FALSE);
+		sn = get_weapon_skill(ch, false);
 
 		if (sn == skill::type::hand_to_hand)
 			return;
@@ -2583,7 +2585,7 @@ void do_wear(Character *ch, String argument)
 			obj_next = obj->next_content;
 
 			if (obj->wear_loc == WEAR_NONE && can_see_obj(ch, obj))
-				wear_obj(ch, obj, FALSE);
+				wear_obj(ch, obj, false);
 		}
 
 		return;
@@ -2594,7 +2596,7 @@ void do_wear(Character *ch, String argument)
 			return;
 		}
 
-		wear_obj(ch, obj, TRUE);
+		wear_obj(ch, obj, true);
 	}
 
 	return;
@@ -2617,7 +2619,7 @@ void do_remove(Character *ch, String argument)
 		int x;
 
 		for (x = 0; x < 20; x++)
-			remove_obj(ch, x, TRUE);
+			remove_obj(ch, x, true);
 
 		return;
 	}
@@ -2627,7 +2629,7 @@ void do_remove(Character *ch, String argument)
 		return;
 	}
 
-	remove_obj(ch, obj->wear_loc, TRUE);
+	remove_obj(ch, obj->wear_loc, true);
 	return;
 }
 
@@ -2715,21 +2717,21 @@ void do_junk(Character *ch, String argument)
 bool acceptable_sac(Character *ch, Object *obj)
 {
 	if (!can_see_obj(ch, obj))
-		return FALSE;
+		return false;
 
 	if (obj->item_type == ITEM_CORPSE_PC) {
 		if (obj->contains) {
 			stc("The powers that be wouldn't like that.\n", ch);
-			return FALSE;
+			return false;
 		}
 	}
 
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC) || IS_OBJ_STAT(obj, ITEM_NOSAC)) {
 		ptc(ch, "%s is not an acceptable sacrifice.\n", obj->short_descr.capitalize());
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 /* sacrifice all by Montrey */
@@ -2737,7 +2739,7 @@ void do_sacrifice(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	Object *obj, *obj_next;
-	bool found = FALSE;
+	bool found = false;
 	int silver = 0;
 	Character *person;
 	bool being_used;
@@ -2764,21 +2766,21 @@ void do_sacrifice(Character *ch, String argument)
 
 			/* Make sure no one is resting on the item. -- Outsider */
 			person = Game::world().char_list;
-			being_used = FALSE;
+			being_used = false;
 
 			while ((person) && (! being_used)) {
 				if (person->on == obj)
-					being_used = TRUE;
+					being_used = true;
 				else
 					person = person->next;
 			}
 
-			if (!IS_NPC(ch) || !IS_IMMORTAL(ch))
+			if (!ch->is_npc() || !IS_IMMORTAL(ch))
 				silver += URANGE(1, obj->cost, (obj->level * 3));
 
 			act("$n sacrifices $p to the Gods.", ch, obj, nullptr, TO_ROOM);
 			extract_obj(obj);
-			found = TRUE;
+			found = true;
 		}
 
 		if (!found) {
@@ -2786,7 +2788,7 @@ void do_sacrifice(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(ch) || IS_IMMORTAL(ch)) {
+		if (ch->is_npc() || IS_IMMORTAL(ch)) {
 			stc("You sacrifice everything in the room.\n", ch);
 			return;
 		}
@@ -2825,7 +2827,7 @@ void do_sacrifice(Character *ch, String argument)
 			person = person->next;
 		}
 
-		if (IS_NPC(ch) || IS_IMMORTAL(ch))
+		if (ch->is_npc() || IS_IMMORTAL(ch))
 			stc("You make a loyal sacrifice.\n", ch);
 		else {
 			silver = URANGE(1, obj->cost, (obj->level * 3));
@@ -2853,7 +2855,7 @@ void do_sacrifice(Character *ch, String argument)
 
 		for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room)
 			if (is_same_group(gch, ch)
-			    && !IS_NPC(gch))
+			    && !gch->is_npc())
 				members++;
 
 		if (members > 1 && silver > 1) {
@@ -2892,7 +2894,7 @@ void do_quaff(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(ch)) {
+	if (!ch->is_npc()) {
 		if (ch->pcdata->condition[COND_FULL] > 45) {
 			stc("You are too full to quaff this.\n", ch);
 			return;
@@ -2976,14 +2978,14 @@ void do_recite(Character *ch, String argument)
 
 	if (number_percent() >= 20 + get_skill_level(ch, skill::type::scrolls) * 4 / 5) {
 		stc("You mispronounce a syllable.\n", ch);
-		check_improve(ch, skill::type::scrolls, FALSE, 2);
+		check_improve(ch, skill::type::scrolls, false, 2);
 	}
 	else {
 		obj_cast_spell(skill::from_int(scroll->value[1]), scroll->value[0], ch, victim, obj);
 		obj_cast_spell(skill::from_int(scroll->value[2]), scroll->value[0], ch, victim, obj);
 		obj_cast_spell(skill::from_int(scroll->value[3]), scroll->value[0], ch, victim, obj);
 		obj_cast_spell(skill::from_int(scroll->value[4]), scroll->value[0], ch, victim, obj);
-		check_improve(ch, skill::type::scrolls, TRUE, 2);
+		check_improve(ch, skill::type::scrolls, true, 2);
 	}
 
 	/* delay on scrolls -- Elrac */
@@ -3036,7 +3038,7 @@ void do_brandish(Character *ch, String argument)
 		    ||   number_percent() >= 20 + get_skill_level(ch, skill::type::staves) * 4 / 5) {
 			act("You fail to invoke $p.", ch, staff, nullptr, TO_CHAR);
 			act("...and nothing happens.", ch, nullptr, nullptr, TO_ROOM);
-			check_improve(ch, skill::type::staves, FALSE, 2);
+			check_improve(ch, skill::type::staves, false, 2);
 		}
 		else for (vch = ch->in_room->people; vch; vch = vch_next) {
 				vch_next    = vch->next_in_room;
@@ -3053,13 +3055,13 @@ void do_brandish(Character *ch, String argument)
 					break;
 
 				case TAR_CHAR_OFFENSIVE:
-					if (IS_NPC(ch) ? IS_NPC(vch) : !IS_NPC(vch))
+					if (ch->is_npc() ? vch->is_npc() : !vch->is_npc())
 						continue;
 
 					break;
 
 				case TAR_CHAR_DEFENSIVE:
-					if (IS_NPC(ch) ? !IS_NPC(vch) : IS_NPC(vch))
+					if (ch->is_npc() ? !vch->is_npc() : vch->is_npc())
 						continue;
 
 					break;
@@ -3072,7 +3074,7 @@ void do_brandish(Character *ch, String argument)
 				}
 
 				obj_cast_spell(type, staff->value[0], ch, vch, nullptr);
-				check_improve(ch, skill::type::staves, TRUE, 2);
+				check_improve(ch, skill::type::staves, true, 2);
 			}
 	}
 
@@ -3160,14 +3162,14 @@ void do_zap(Character *ch, String argument)
 			    ch, wand, nullptr, TO_CHAR);
 			act("$n's efforts with $p produce only sparks and smoke.",
 			    ch, wand, nullptr, TO_ROOM);
-			check_improve(ch, skill::type::wands, FALSE, 2);
+			check_improve(ch, skill::type::wands, false, 2);
 		}
 		else {
 			/* Wand does not work on target, unless we set target_name.
 			   target_name is a global variable in magic.c --Outsider */
 			target_name = arg;
 			obj_cast_spell(skill::from_int(wand->value[3]), wand->value[0], ch, victim, obj);
-			check_improve(ch, skill::type::wands, TRUE, 2);
+			check_improve(ch, skill::type::wands, true, 2);
 		}
 	}
 
@@ -3186,7 +3188,7 @@ void do_brew(Character *ch, String argument)
 	skill::type sn;
 	int target_level = 0;    /* what level should we brew at? */
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't brew!.\n", ch);
 		return;
 	}
@@ -3283,17 +3285,17 @@ void do_brew(Character *ch, String argument)
 		return;
 
 	act("$n begins preparing a potion.", ch, obj, nullptr, TO_ROOM);
-	check_improve(ch, skill::type::brew, TRUE, 2);
+	check_improve(ch, skill::type::brew, true, 2);
 	WAIT_STATE(ch, skill::lookup(skill::type::brew).beats);
 
 	/* Check the skill percentage, fcn(wis,int,skill) */
-	if (!IS_NPC(ch)
+	if (!ch->is_npc()
 	    && (number_percent() > get_skill_level(ch, skill::type::brew) ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p explodes violently!", ch, obj, nullptr, TO_CHAR);
 		act("$p explodes violently!", ch, obj, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::brew, FALSE, 2);
+		check_improve(ch, skill::type::brew, false, 2);
 		destroy_obj(obj);
 		return;
 	}
@@ -3319,7 +3321,7 @@ void do_scribe(Character *ch, String argument)
 	skill::type sn;
 	int target_level = 0;   /* let caster make items of lower level */
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't scribe!.\n", ch);
 		return;
 	}
@@ -3396,17 +3398,17 @@ void do_scribe(Character *ch, String argument)
 		return;
 
 	act("$n begins writing a scroll.", ch, obj, nullptr, TO_ROOM);
-	check_improve(ch, skill::type::scribe, TRUE, 2);
+	check_improve(ch, skill::type::scribe, true, 2);
 	WAIT_STATE(ch, skill::lookup(skill::type::scribe).beats);
 
 	/* Check the skill percentage, fcn(int,wis,skill) */
-	if (!IS_NPC(ch)
+	if (!ch->is_npc()
 	    && (number_percent() > get_skill_level(ch, skill::type::scribe) ||
 	        number_percent() > ((GET_ATTR_INT(ch) - 13) * 5 +
 	                            (GET_ATTR_WIS(ch) - 13) * 3))) {
 		act("$p bursts in flames!", ch, obj, nullptr, TO_CHAR);
 		act("$p bursts in flames!", ch, obj, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::scribe, FALSE, 2);
+		check_improve(ch, skill::type::scribe, false, 2);
 		destroy_obj(obj);
 		return;
 	}
@@ -3466,23 +3468,23 @@ void do_steal(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim)) {
+	if (ch->is_npc() && ch->act_flags.has(ACT_MORPH) && !victim->is_npc()) {
 		stc("Morphed players cannot attack PC's.\n", ch);
 		return;
 	}
 
-	if (!IS_NPC(victim) && IS_IMMORTAL(victim)) {
+	if (!victim->is_npc() && IS_IMMORTAL(victim)) {
 		stc("I'm sorry, but the gods wouldn't like that!\n", ch);
 		return;
 	}
 
-	if (is_safe(ch, victim, TRUE))
+	if (is_safe(ch, victim, true))
 		return;
 
 	if (!deduct_stamina(ch, skill::type::steal))
 		return;
 
-	if (IS_NPC(victim) && victim->fighting) {
+	if (victim->is_npc() && victim->fighting) {
 		stc("I don't think that is a good idea.\n", ch);
 		return;
 	}
@@ -3493,14 +3495,14 @@ void do_steal(Character *ch, String argument)
 	if (get_skill_level(ch, skill::type::steal) >= 1)
 		percent  += (IS_AWAKE(victim) ? 10 : -50);
 
-	if ((!IS_NPC(victim) && !IS_NPC(ch) && !IS_IMMORTAL(ch))
+	if ((!victim->is_npc() && !ch->is_npc() && !IS_IMMORTAL(ch))
 	    && ((ch->level + 8 < victim->level || ch->level - 8 > victim->level)
 	        || (!is_clan(victim) || !is_clan(ch)))) {
 		stc("You cannot steal from them.\n", ch);
 		return;
 	}
 
-	if (!IS_NPC(victim) && !IS_IMMORTAL(ch)) {
+	if (!victim->is_npc() && !IS_IMMORTAL(ch)) {
 		if (!victim->pcdata->plr_flags.has(PLR_PK)) {
 			stc("They are not in the mood to PSteal.\n", ch);
 			return;
@@ -3512,7 +3514,7 @@ void do_steal(Character *ch, String argument)
 		}
 	}
 
-	if (!IS_NPC(ch) && percent > get_skill_level(ch, skill::type::steal)) {
+	if (!ch->is_npc() && percent > get_skill_level(ch, skill::type::steal)) {
 		/*
 		 * Failure.
 		 */
@@ -3541,9 +3543,9 @@ void do_steal(Character *ch, String argument)
 
 		do_yell(victim, buf);
 
-		if (!IS_NPC(ch)) {
-			if (IS_NPC(victim)) {
-				check_improve(ch, skill::type::steal, FALSE, 2);
+		if (!ch->is_npc()) {
+			if (victim->is_npc()) {
+				check_improve(ch, skill::type::steal, false, 2);
 				multi_hit(victim, ch, skill::type::unknown);
 			}
 			else {
@@ -3594,7 +3596,7 @@ void do_steal(Character *ch, String argument)
 			        silver, gold);
 
 		stc(buf, ch);
-		check_improve(ch, skill::type::steal, TRUE, 2);
+		check_improve(ch, skill::type::steal, true, 2);
 		return;
 	}
 
@@ -3629,7 +3631,7 @@ void do_steal(Character *ch, String argument)
 
 	obj_from_char(obj);
 	obj_to_char(obj, ch);
-	check_improve(ch, skill::type::steal, TRUE, 2);
+	check_improve(ch, skill::type::steal, true, 2);
 	stc("Got it!\n", ch);
 
 	/* Did they pick up their quest item? */
@@ -3659,7 +3661,7 @@ void do_steal(Character *ch, String argument)
 				    ch->pcdata->squestmob->short_descr);
 			}
 
-			ch->pcdata->squestobjf = TRUE;
+			ch->pcdata->squestobjf = true;
 			Format::sprintf(buf, "{Y:SKILL QUEST: {x$N has found the %s", obj->short_descr);
 			wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 		}
@@ -3680,7 +3682,7 @@ Character *find_keeper(Character *ch)
 		if (keeper->act_flags.has(ACT_MORPH))
 			continue;
 
-		if (IS_NPC(keeper) && (pShop = keeper->pIndexData->pShop) != nullptr)
+		if (keeper->is_npc() && (pShop = keeper->pIndexData->pShop) != nullptr)
 			break;
 	}
 
@@ -3692,7 +3694,7 @@ Character *find_keeper(Character *ch)
 	/*
 	 * Undesirables.
 	 * REWORK PK, lets let them shop, Lotus
-	if ( !IS_NPC(ch) && ch->act_flags.has(PLR_KILLER) )
+	if ( !ch->is_npc() && ch->act_flags.has(PLR_KILLER) )
 	{
 	        do_say( keeper, "Killers are not welcome!" );
 	        Format::sprintf( buf, "%s the psycho KILLER is over here!\n", ch->name );
@@ -3700,7 +3702,7 @@ Character *find_keeper(Character *ch)
 	        return nullptr;
 	}
 
-	if ( !IS_NPC(ch) && ch->act_flags.has(PLR_THIEF) )
+	if ( !ch->is_npc() && ch->act_flags.has(PLR_THIEF) )
 	{
 	        do_say( keeper, "Thieves are not welcome!" );
 	        Format::sprintf( buf, "%s the gutless THIEF is over here!\n", ch->name );
@@ -3866,7 +3868,7 @@ void do_buy(Character *ch, String argument)
 	// char *x; /* for WIZ_CHEAT */
 	int level_buyable;
 	int cash_on_char, money_in_bank; /* these together is all our money */
-	int need_bank_credit = FALSE;    /* whether we need money from the bank */
+	int need_bank_credit = false;    /* whether we need money from the bank */
 	int total_cost;              /* cost of multiple items */
 	/* figure out how much moola we have -- Outsider */
 	cash_on_char = ch->silver + (ch->gold * 100);
@@ -3884,7 +3886,7 @@ void do_buy(Character *ch, String argument)
 		Room *roomNext;
 		Room *in_room;
 
-		if (IS_NPC(ch))
+		if (ch->is_npc())
 			return;
 
 		String arg;
@@ -3941,7 +3943,7 @@ void do_buy(Character *ch, String argument)
 
 		/* give us a chance to use bank credit */
 		if (cash_on_char < cost) {
-			need_bank_credit = TRUE;
+			need_bank_credit = true;
 			/* when using the bank, add 10% fee */
 			cost += cost / 10;
 
@@ -3967,7 +3969,7 @@ void do_buy(Character *ch, String argument)
 		if (roll < get_skill_level(ch, skill::type::haggle)) {
 			cost -= cost / 2 * roll / 100;
 			ptc(ch, "You haggle the price down to %d coins.\n", cost);
-			check_improve(ch, skill::type::haggle, TRUE, 4);
+			check_improve(ch, skill::type::haggle, true, 4);
 		}
 
 		/* need to replace this now that we can use bank credit -- Outsider
@@ -4040,7 +4042,7 @@ void do_buy(Character *ch, String argument)
 		number = mult_argument(argument, arg);
 
 		obj  = get_obj_keeper(ch, keeper, arg);
-		cost = get_cost(keeper, obj, TRUE);
+		cost = get_cost(keeper, obj, true);
 
 		if (cost <= 0 || !can_see_obj(ch, obj)) {
 			act("$n tells you 'I don't sell that -- try 'list''.",
@@ -4074,8 +4076,8 @@ void do_buy(Character *ch, String argument)
 			}
 		}
 
-		if (IS_QUESTSHOPKEEPER(keeper)) {
-			if (IS_NPC(ch) || ch->pcdata->questpoints < cost * number) {
+		if (keeper->pIndexData->pShop->is_questshop()) {
+			if (ch->is_npc() || ch->pcdata->questpoints < cost * number) {
 				act("$n tell you 'Sorry, but you don't have enough quest points!'",
 				    keeper, nullptr, ch, TO_VICT);
 				ch->reply = keeper->name;
@@ -4084,7 +4086,7 @@ void do_buy(Character *ch, String argument)
 		}
 		else if (cash_on_char < (cost * number)) {
 			/* give us the chance to use bank credit -- Outsider */
-			need_bank_credit = TRUE;
+			need_bank_credit = true;
 
 			/* since we use the bank, add service charge of 10% */
 			if ((cash_on_char + money_in_bank) < ((cost * number) + (cost * number / 10))) {
@@ -4123,7 +4125,7 @@ void do_buy(Character *ch, String argument)
 		}
 
 		/* haggle and sell for silver - unless it's a quest shop keeper */
-		if (!IS_QUESTSHOPKEEPER(keeper)) {
+		if (!keeper->pIndexData->pShop->is_questshop()) {
 			roll = number_percent();
 
 			if (number_percent() < (GET_ATTR_CHR(ch) * 3))
@@ -4136,7 +4138,7 @@ void do_buy(Character *ch, String argument)
 			    && obj->pIndexData->item_type != ITEM_MONEY) { /* to prevent buying money for less than value */
 				cost -= obj->cost / 2 * roll / 100;
 				act("You haggle with $N.", ch, nullptr, keeper, TO_CHAR);
-				check_improve(ch, skill::type::haggle, TRUE, 4);
+				check_improve(ch, skill::type::haggle, true, 4);
 			}
 
 			if (number > 1) {
@@ -4217,7 +4219,7 @@ void do_buy(Character *ch, String argument)
 			if (keeper->in_room->guild() != Guild::none) {
 				String owner;
 				ExtraDescr *ed;
-				bool foundold = FALSE;
+				bool foundold = false;
 
 				/* loop through and find previous owner, if any, and change */
 				if (t_obj->extra_descr != nullptr) {
@@ -4225,7 +4227,7 @@ void do_buy(Character *ch, String argument)
 						if (ed->keyword == KEYWD_OWNER) {
 							owner = ch->name;
 							ed->description = owner;
-							foundold = TRUE;
+							foundold = true;
 						}
 				}
 
@@ -4267,12 +4269,12 @@ void do_list(Character *ch, String argument)
 			return;
 		}
 
-		found = FALSE;
+		found = false;
 
 		for (pet = roomNext->people; pet; pet = pet->next_in_room) {
 			if (pet->act_flags.has(ACT_PET)) {
 				if (!found) {
-					found = TRUE;
+					found = true;
 					stc("Pets and Exotic Companions for sale:\n", ch);
 				}
 
@@ -4301,18 +4303,18 @@ void do_list(Character *ch, String argument)
 
 		String arg;
 		one_argument(argument, arg);
-		found = FALSE;
+		found = false;
 
 		for (obj = keeper->carrying; obj; obj = obj->next_content) {
 			if (obj->wear_loc == WEAR_NONE
 			    &&   can_see_obj(ch, obj)
-			    && (cost = get_cost(keeper, obj, TRUE)) > 0
+			    && (cost = get_cost(keeper, obj, true)) > 0
 			    && (arg.empty()
 			        ||  obj->name.has_words(arg))) {
 				if (!found) {
-					found = TRUE;
+					found = true;
 
-					if (IS_QUESTSHOPKEEPER(keeper))
+					if (keeper->pIndexData->pShop->is_questshop())
 						stc("{PAll prices in QUEST POINTS!{x\n", ch);
 
 					stc("[Lv Price Qty] Item\n", ch);
@@ -4342,7 +4344,7 @@ void do_list(Character *ch, String argument)
 		if (!found)
 			stc("You can't buy anything here.\n", ch);
 		else {
-			if (IS_QUESTSHOPKEEPER(keeper)) {
+			if (keeper->pIndexData->pShop->is_questshop()) {
 				stc("---------------------------\n", ch);
 				stc("{PAll prices in QUEST POINTS!{x\n", ch);
 			}
@@ -4387,17 +4389,17 @@ void do_sell(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_QUESTSHOPKEEPER(keeper) && IS_NPC(ch)) {
+	if (keeper->pIndexData->pShop->is_questshop() && ch->is_npc()) {
 		stc("Mobiles can't sell quest items.\n", ch);
 		return;
 	}
 
-	if ((cost = get_cost(keeper, obj, FALSE)) <= 0) {
+	if ((cost = get_cost(keeper, obj, false)) <= 0) {
 		act("$n laughs at $p and suggests a novel use for it.", keeper, obj, ch, TO_VICT);
 		return;
 	}
 
-	if (!IS_QUESTSHOPKEEPER(keeper) && cost > (keeper->silver + 100 * keeper->gold)) {
+	if (!keeper->pIndexData->pShop->is_questshop() && cost > (keeper->silver + 100 * keeper->gold)) {
 		act("$n tells you 'The shop has fallen upon hard times. I cant afford $p.'",
 		    keeper, obj, ch, TO_VICT);
 		return;
@@ -4405,7 +4407,7 @@ void do_sell(Character *ch, String argument)
 
 	act("$n sells $p.", ch, obj, nullptr, TO_ROOM);
 
-	if (!IS_QUESTSHOPKEEPER(keeper)) {
+	if (!keeper->pIndexData->pShop->is_questshop()) {
 		/* haggle */
 		roll = number_percent();
 
@@ -4419,9 +4421,9 @@ void do_sell(Character *ch, String argument)
 		    && obj->pIndexData->item_type != ITEM_MONEY) {
 			stc("You haggle with the shopkeeper.\n", ch);
 			cost += obj->cost / 2 * roll / 100;
-			cost = UMIN(cost, 95 * get_cost(keeper, obj, TRUE) / 100);
-			cost = UMIN(cost, (keeper->silver + 100 * keeper->gold));
-			check_improve(ch, skill::type::haggle, TRUE, 4);
+			cost = std::min(cost, 95 * get_cost(keeper, obj, true) / 100);
+			cost = std::min(cost, (keeper->silver + 100 * keeper->gold));
+			check_improve(ch, skill::type::haggle, true, 4);
 		}
 
 		Format::sprintf(buf, "You sell $p for %d silver and %d gold piece%s.",
@@ -4446,7 +4448,7 @@ void do_sell(Character *ch, String argument)
 
 	if (obj->item_type == ITEM_TRASH
 	    || IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
-	    || IS_QUESTSHOPKEEPER(keeper))
+	    || keeper->pIndexData->pShop->is_questshop())
 		extract_obj(obj);
 	else {
 		obj_from_char(obj);
@@ -4492,12 +4494,12 @@ void do_value(Character *ch, String argument)
 		return;
 	}
 
-	if ((cost = get_cost(keeper, obj, FALSE)) <= 0) {
+	if ((cost = get_cost(keeper, obj, false)) <= 0) {
 		act("$n laughs at $p.", keeper, obj, ch, TO_VICT);
 		return;
 	}
 
-	if (IS_QUESTSHOPKEEPER(keeper))
+	if (keeper->pIndexData->pShop->is_questshop())
 		Format::sprintf(buf, "$n tells you 'I'll give you %d quest points for $p'.", cost);
 	else {
 		Format::sprintf(buf,
@@ -4676,7 +4678,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 
 		if (type == affect::type::weapon_two_hands) {
 			++weapon->value[1];
-			remove_obj(ch, WEAR_WIELD, TRUE);
+			remove_obj(ch, WEAR_WIELD, true);
 		}
 	}
 	else {
@@ -4703,7 +4705,7 @@ void do_hone(Character *ch, String argument)
 	whetstone = get_eq_char(ch, WEAR_HOLD);
 	weapon = get_eq_char(ch, WEAR_WIELD);
 
-	if (IS_NPC(ch) || (get_skill_level(ch, skill::type::hone) < 1)) {
+	if (ch->is_npc() || (get_skill_level(ch, skill::type::hone) < 1)) {
 		stc("You lack the skill to hone weapons.\n", ch);
 		return;
 	}
@@ -4733,7 +4735,7 @@ void do_hone(Character *ch, String argument)
 		return;
 
 	if (!IS_IMMORTAL(ch)) {
-		if (number_percent() > UMIN(get_skill_level(ch, skill::type::hone), 95)) {
+		if (number_percent() > std::min(get_skill_level(ch, skill::type::hone), 95)) {
 			Format::sprintf(buf, "You fail to hone your weapon, and you gouge %s deeply, ruining it.\n",
 			        whetstone->short_descr);
 			stc(buf, ch);
@@ -4801,7 +4803,7 @@ void do_forge(Character *ch, String argument)
 	}
 
 	/* check for FORGE FLAG */
-	if (type.is_prefix_of("flag") && !IS_NPC(ch)) {
+	if (type.is_prefix_of("flag") && !ch->is_npc()) {
 		if (!deduct_stamina(ch, skill::type::forge))
 			return;
 
@@ -4861,7 +4863,7 @@ void do_forge(Character *ch, String argument)
 	if (!IS_IMMORTAL(ch) && number_percent() > (get_skill_level(ch, skill::type::forge) + material->value[0])) {
 		stc("You fail to forge a useful weapon.\n", ch);
 		act("$n tries but fails to forge a useful weapon.\n", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::forge, FALSE, 1);
+		check_improve(ch, skill::type::forge, false, 1);
 		destroy_obj(material);
 		return;
 	}
@@ -4954,7 +4956,7 @@ void do_forge(Character *ch, String argument)
 	        weapon_table[weapon_lookup(type)].name, obj->short_descr);
 	act(buf, ch, obj, nullptr, TO_ROOM);
 	destroy_obj(material);
-	check_improve(ch, skill::type::forge, TRUE, 1);
+	check_improve(ch, skill::type::forge, true, 1);
 
 	/* Charge player for forging -- Elrac */
 	if (cost > 0) {
@@ -5159,7 +5161,7 @@ void do_engrave(Character *ch, String argument)
 	strftime(buf, 9, "[%m/%d] ", localtime(&Game::current_time));
 	dbuf += buf;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		Format::sprintf(buf, "{Y%s{x, {Mcitizen of %s,", ch->short_descr,
 		        ch->in_room && !ch->in_room->area().name.empty() ?
 		        ch->in_room->area().name : "Thera");
@@ -5275,7 +5277,7 @@ void do_lore(Character *ch, String argument)
 	else {
 		act("$n studies $p, discovering all of its hidden powers.", ch, obj, nullptr, TO_ROOM);
 		spell_identify(skill::type::lore, (4 * obj->level) / 3, ch, obj, TARGET_OBJ, get_evolution(ch, skill::type::lore));
-		check_improve(ch, skill::type::lore, TRUE, 4);
+		check_improve(ch, skill::type::lore, true, 4);
 	}
 }
 

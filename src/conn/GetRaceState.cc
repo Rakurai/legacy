@@ -4,6 +4,8 @@
 #include "argument.hh"
 #include "Character.hh"
 #include "lookup.hh"
+#include "merc.hh"
+#include "affect/Affect.hh"
 
 namespace conn {
 
@@ -48,7 +50,7 @@ handleInput(Descriptor *d, const String& argument) {
 
 	/* add skills */
 	for (int i = 0; i < 5 && !pc_race_table[race].skills[i].empty(); i++)
-		group_add(ch, pc_race_table[race].skills[i], FALSE);
+		group_add(ch, pc_race_table[race].skills[i], false);
 
 	ptc(ch, "\n");
 	ptc(ch, "Here are your default stats:\n");

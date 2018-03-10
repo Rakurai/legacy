@@ -8,7 +8,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "interp.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Object.hh"
@@ -17,10 +16,12 @@
 #include "random.hh"
 #include "Room.hh"
 #include "String.hh"
+#include <algorithm> // min and max
+#include "World.hh"
 
 void do_paintbow(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles don't like to play paintball =).\n", ch);
 		return;
 	}
@@ -103,7 +104,7 @@ void do_splat(Character *ch, String argument)
 		return;
 	}
 
-	if ((IS_NPC(ch)) || (IS_NPC(victim))) {
+	if ((ch->is_npc()) || (victim->is_npc())) {
 		stc("Mobiles can't play paintball.\n", ch);
 		return;
 	}
@@ -135,7 +136,7 @@ void do_splat(Character *ch, String argument)
 	if (ch == victim) {
 		stc("OUCH!\n", ch);
 		gun->value[0] -= 1;
-		WAIT_STATE(ch, gun->value[2]);
+		WAIT_STATE(ch, gun->value[2].value());
 		return;
 	}
 
@@ -166,7 +167,7 @@ void do_splat(Character *ch, String argument)
 		}
 
 		gun->value[0] -= 1;
-		WAIT_STATE(ch, gun->value[2]);
+		WAIT_STATE(ch, gun->value[2].value());
 		return;
 	}
 	else if (number_percent() > (25 - gun->value[4])) {
@@ -177,7 +178,7 @@ void do_splat(Character *ch, String argument)
 		act("{B$n shoots at you and misses.  Whew!{x",
 		    ch, nullptr, victim, TO_VICT);
 		gun->value[0] -= 1;
-		WAIT_STATE(ch, gun->value[2]);
+		WAIT_STATE(ch, gun->value[2].value());
 		return;
 	}
 	else {

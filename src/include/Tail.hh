@@ -1,8 +1,9 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
+
+class Character;
 
 class Tail
 {
@@ -12,7 +13,7 @@ public:
 
     Character * tailed_by = nullptr;
     String      tailer_name;
-    int         flags = 0;
+    Flags       flags;
     Tail *      next = nullptr;
 
 private:

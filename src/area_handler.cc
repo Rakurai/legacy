@@ -18,7 +18,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -29,6 +28,7 @@
 #include "random.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
 
 
 /*
@@ -120,7 +120,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 
 	/* computed on the spot */
 	for (int stat = 0; stat < MAX_STATS; stat++)
-		ATTR_BASE(mob, stat_to_attr(stat)) = UMIN(25, number_fuzzy(8 + mob->level / 12));
+		ATTR_BASE(mob, stat_to_attr(stat)) = std::min(25, number_fuzzy(8 + mob->level / 12));
 
 	if (mob->act_flags.has(ACT_WARRIOR)) {
 		ATTR_BASE(mob, APPLY_STR) += 3;
@@ -149,7 +149,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 		ATTR_BASE(mob, APPLY_CON) -= 2;
 	}
 
-	if (race_table[mob->race].pc_race == TRUE)
+	if (race_table[mob->race].pc_race == true)
 		for (int stat = 0; stat < MAX_STATS; stat++)
 			ATTR_BASE(mob, stat_to_attr(stat)) += (pc_race_table[mob->race].stats[stat] - 13);
 
@@ -162,10 +162,10 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 
 	affect::add_racial_to_char(mob);
 
-	affect::copy_flags_to_char(mob, 'A', pMobIndex->affect_flags, FALSE); // dispellable
-	affect::copy_flags_to_char(mob, 'I', pMobIndex->imm_flags, TRUE);
-	affect::copy_flags_to_char(mob, 'R', pMobIndex->res_flags, TRUE);
-	affect::copy_flags_to_char(mob, 'V', pMobIndex->vuln_flags, TRUE);
+	affect::copy_flags_to_char(mob, 'A', pMobIndex->affect_flags, false); // dispellable
+	affect::copy_flags_to_char(mob, 'I', pMobIndex->imm_flags, true);
+	affect::copy_flags_to_char(mob, 'R', pMobIndex->res_flags, true);
+	affect::copy_flags_to_char(mob, 'V', pMobIndex->vuln_flags, true);
 
 	/* give em some stamina -- Montrey */
 	ATTR_BASE(mob, APPLY_STAM) = 100;
@@ -199,7 +199,7 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 /* duplicate a mobile exactly -- except inventory */
 void clone_mobile(Character *parent, Character *clone)
 {
-	if (parent == nullptr || clone == nullptr || !IS_NPC(parent))
+	if (parent == nullptr || clone == nullptr || !parent->is_npc())
 		return;
 
 	/* start fixing values */
@@ -262,8 +262,8 @@ void clone_mobile(Character *parent, Character *clone)
 	for (int i = 0; i < 3; i++)
 		clone->damage[i]        = parent->damage[i];
 
-	affect::remove_all_from_char(clone, TRUE);
-	affect::remove_all_from_char(clone, FALSE);
+	affect::remove_all_from_char(clone, true);
+	affect::remove_all_from_char(clone, false);
 
 	for (const affect::Affect *paf = affect::list_char(parent); paf != nullptr; paf = paf->next)
 		affect::copy_to_char(clone, paf);
@@ -405,7 +405,7 @@ void clone_object(Object *parent, Object *clone)
 		clone->value[i] = parent->value[i];
 
 	/* affects */
-	affect::remove_all_from_obj(clone, TRUE);
+	affect::remove_all_from_obj(clone, true);
 
 	for (const affect::Affect *paf = affect::list_obj(parent); paf; paf = paf->next)
 		affect::copy_to_obj(clone, paf);
@@ -423,12 +423,12 @@ void clone_object(Object *parent, Object *clone)
 void do_areas(Character *ch, String argument)
 {
 	/* user parameters */
-	bool showall = TRUE;
-	bool sortv = FALSE;
+	bool showall = true;
+	bool sortv = false;
 	int level = 0;
 	long vnum = 0;
 	String keywords;
-	bool star = FALSE;
+	bool star = false;
 	/* output data management */
 	size_t ptrs_size;
 	int    count = 0;
@@ -442,7 +442,7 @@ void do_areas(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (!arg.empty()) {
-		showall = FALSE;
+		showall = false;
 
 		if (arg.is_number()) {
 			level = atoi(arg);
@@ -461,9 +461,9 @@ void do_areas(Character *ch, String argument)
 
 		while (!arg.empty()) {
 			if (IS_IMMORTAL(ch) && !strcmp("*", arg))
-				star = TRUE;
+				star = true;
 			else if (IS_IMMORTAL(ch) && !strcmp("#", arg))
-				sortv = TRUE;
+				sortv = true;
 			else {
 				if (!keywords.empty())
 					keywords += " ";

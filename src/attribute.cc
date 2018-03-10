@@ -7,7 +7,6 @@
 #include "GameTime.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Object.hh"
 #include "Player.hh"
@@ -39,7 +38,7 @@ int get_max_stat(const Character *ch, int stat)
 {
 	int max = 25;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		max = ATTR_BASE(ch, stat_to_attr(stat)) + 4;
 	else if (!IS_IMMORTAL(ch)) {
 		max = pc_race_table[ch->race].max_stats[stat] + 4;
@@ -50,7 +49,7 @@ int get_max_stat(const Character *ch, int stat)
 	}
 
 	// if the player has a familiar, they get +1 in whatever the familiar's max stat is
-	if (!IS_NPC(ch) && ch->pcdata->familiar && ch->pet) {
+	if (!ch->is_npc() && ch->pcdata->familiar && ch->pet) {
 		int max_slot = 0;
 
 		for (int i = 0; i < MAX_STATS; i++)
@@ -73,7 +72,7 @@ int get_age(Character *ch)
 {
 	int age = 17;
 
-	if (!IS_NPC(ch))
+	if (!ch->is_npc())
 		age = pc_race_table[ch->race].base_age;
 
 	age += get_play_seconds(ch) / (MUD_YEAR * MUD_MONTH * MUD_DAY * MUD_HOUR);
@@ -135,10 +134,10 @@ void attribute_check(Character *ch) {
 	 && get_obj_weight(weapon) > (str_app[GET_ATTR_STR(ch)].wield * 10)) {
 
 		// only do this if they have a strength reducing spell affect (not from EQ)
-		bool found = FALSE;
+		bool found = false;
 		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
 			if (paf->where == TO_AFFECTS && paf->location == APPLY_STR && paf->modifier < 0) {
-				found = TRUE;
+				found = true;
 				break;
 			}
 
@@ -158,14 +157,14 @@ String print_defense_modifiers(Character *ch, int where) {
 		return buf;
 
 	for (int i = 1; i < 32; i++) {
-		bool print = FALSE;
+		bool print = false;
 
 		switch (where) {
-			case TO_ABSORB:  if (ch->defense_mod[i] > 100)  print = TRUE; break;
-			case TO_IMMUNE:  if (ch->defense_mod[i] == 100) print = TRUE; break;
+			case TO_ABSORB:  if (ch->defense_mod[i] > 100)  print = true; break;
+			case TO_IMMUNE:  if (ch->defense_mod[i] == 100) print = true; break;
 			case TO_RESIST:  if (ch->defense_mod[i] > 0 && ch->defense_mod[i] < 100)
-			    print = TRUE; break;
-			case TO_VULN:    if (ch->defense_mod[i] < 0)    print = TRUE; break;
+			    print = true; break;
+			case TO_VULN:    if (ch->defense_mod[i] < 0)    print = true; break;
 			default:
 				Logging::bugf("print_defense_modifiers: unknown where %d", where);
 		}

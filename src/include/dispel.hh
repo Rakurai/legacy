@@ -1,5 +1,8 @@
 #pragma once
 
+class Character;
+class Object;
+
 // dispel.c
 bool    saves_spell       args(( int level, Character *victim, int dam_type ) );
 bool    check_dispel_char args(( int dis_level, Character *victim, affect::type type, bool save ));

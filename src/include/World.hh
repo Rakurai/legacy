@@ -1,13 +1,24 @@
 #pragma once
 
-#include "declare.hh"
+#include <vector>
+
 #include "GameTime.hh"
 #include "Weather.hh"
 #include "QuestArea.hh"
 #include "worldmap/Quadtree.hh"
 #include "worldmap/Worldmap.hh"
-#include "Room.hh"
-#include <vector>
+
+class Area;
+class Character;
+class Player;
+class Object;
+class Room;
+class ObjectPrototype;
+class MobilePrototype;
+class RoomPrototype;
+class Game;
+class Vnum;
+class Location;
 
 class World
 {

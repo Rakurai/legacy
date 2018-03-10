@@ -1,7 +1,10 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
+#include "Vnum.hh"
+
+class Character;
+class Room;
 
 class Duel
 {

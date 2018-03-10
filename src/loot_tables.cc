@@ -6,6 +6,7 @@
 #include "Flags.hh"
 #include "lootv2.hh"
 #include "String.hh"
+#include "constants.hh"
 
 /************************************************************************************
  *                              Begin Tables                                        *

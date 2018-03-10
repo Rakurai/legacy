@@ -31,7 +31,6 @@
 #include "declare.hh"
 #include "dispel.hh"
 #include "Flags.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Object.hh"
 #include "ObjectValue.hh"
@@ -143,7 +142,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 			if (obj->condition > 0) {
 				int place = number_range(0, 3);
-				int amount = UMIN(obj->value[place], number_range(1, 4));
+				int amount = std::min(obj->value[place].value(), number_range(1, 4));
 
 				if (amount <= 0)
 					return;
@@ -265,12 +264,12 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 				level,
 				6,
 				URANGE(1, evolution - 1, 4),
-				FALSE
+				false
 			);
 		}
 
 		/* hunger! (warmth sucked out) */
-		if (!IS_NPC(victim))
+		if (!victim->is_npc())
 			gain_condition(victim, COND_HUNGER, dam / 20);
 
 		/* let's toast some gear */
@@ -440,12 +439,12 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 				level,
 				number_range(0, 2),
 				URANGE(1, evolution - 1, 4),
-				FALSE
+				false
 			);
 		}
 
 		/* getting thirsty */
-		if (!IS_NPC(victim))
+		if (!victim->is_npc())
 			gain_condition(victim, COND_THIRST, dam / 20);
 
 		/* let's toast some gear! */
@@ -635,7 +634,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 				level,
 				level / 2,
 				URANGE(1, evolution - 1, 4),
-				FALSE
+				false
 			);
 		}
 
@@ -714,7 +713,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 		/* daze and confused? */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_ELECTRICITY)) {
 			stc("Your muscles stop responding.\n", victim);
-			DAZE_STATE(victim, UMAX(12, level / 4 + dam / 20));
+			DAZE_STATE(victim, std::max(12, level / 4 + dam / 20));
 		}
 
 		/* toast some gear */

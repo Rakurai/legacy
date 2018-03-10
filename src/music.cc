@@ -36,13 +36,13 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Object.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
 #include "Room.hh"
+#include "World.hh"
 
 int channel_songs[MAX_GLOBAL + 1];
 std::vector<struct song_data> song_table;
@@ -88,11 +88,11 @@ void song_update(void)
 			for (d = descriptor_list; d != nullptr; d = d->next) {
 				victim = d->original ? d->original : d->character;
 
-				if (IS_PLAYING(d) &&
+				if (d->is_playing() &&
 				    !victim->comm_flags.has(COMM_NOMUSIC) &&
 				    !victim->comm_flags.has(COMM_QUIET)) {
 					new_color(victim, CSLOT_CHAN_MUSIC);
-					act("$t", d->character, buf, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
+					act("$t", d->character, buf, nullptr, TO_CHAR, POS_SLEEPING, false);
 					set_color(victim, WHITE, NOBOLD);
 				}
 			}
@@ -165,7 +165,7 @@ void load_songs(void)
 		return;
 	}
 
-	while (TRUE) {
+	while (true) {
 		letter = fread_letter(fp);
 
 		if (letter == '#') {
@@ -211,7 +211,7 @@ void do_play(Character *ch, String argument)
 {
 	Object *juke;
 	const char *str;
-	bool global = FALSE;
+	bool global = false;
 
 	String arg;
 	str = one_argument(argument, arg);
@@ -242,15 +242,15 @@ void do_play(Character *ch, String argument)
 		String buffer;
 		char buf[MAX_STRING_LENGTH];
 		int col = 0;
-		bool artist = FALSE, match = FALSE;
+		bool artist = false, match = false;
 		argument = str;
 		argument = one_argument(argument, arg);
 
 		if (arg == "artist")
-			artist = TRUE;
+			artist = true;
 
 		if (!argument.empty())
-			match = TRUE;
+			match = true;
 
 		buffer += Format::format("%s has the following songs available:\n", juke->short_descr.capitalize());
 
@@ -279,7 +279,7 @@ void do_play(Character *ch, String argument)
 
 	if (arg == "loud" && IS_IMMORTAL(ch)) {
 		argument = str;
-		global = TRUE;
+		global = true;
 	}
 
 	if (arg == "stop") {

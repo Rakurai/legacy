@@ -5,6 +5,7 @@
 #include "Flags.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
+#include "constants.hh"
 
 namespace affect {
 
@@ -22,7 +23,7 @@ const Affect *list_obj(Object *obj) {
 }
 
 bool exists_on_obj(Object *obj, ::affect::type type) {
-	return find_on_obj(obj, type) ? TRUE : FALSE;
+	return find_on_obj(obj, type) ? true : false;
 }
 
 const Affect *find_on_obj(Object *obj, ::affect::type type) {
@@ -34,7 +35,7 @@ const Affect *find_on_obj(Object *obj, ::affect::type type) {
 void copy_to_obj(Object *obj, const Affect *aff_template)
 {
 	copy_to_list(&obj->affected, aff_template);
-	modify_obj(obj, aff_template, TRUE);
+	modify_obj(obj, aff_template, true);
 }
 
 void join_to_obj(Object *obj, Affect *paf) {
@@ -53,7 +54,7 @@ void join_to_obj(Object *obj, Affect *paf) {
 void remove_from_obj(Object *obj, Affect *paf)
 {
 	remove_from_list(&obj->affected, paf);
-	modify_obj(obj, paf, FALSE);
+	modify_obj(obj, paf, false);
 	delete paf;
 }
 
@@ -69,7 +70,7 @@ void remove_matching_from_obj(Object *obj, comparator comp, const Affect *patter
 
 void remove_marked_from_obj(Object *obj) {
 	Affect pattern;
-	pattern.mark = TRUE;
+	pattern.mark = true;
 
 	remove_matching_from_obj(obj, comparator_mark, &pattern);
 }
@@ -109,7 +110,7 @@ void sort_obj(Object *obj, comparator comp) {
 
 // test if an object has an affect
 bool obj_has_affect(Object *obj, ::affect::type type) {
-	return find_in_list(&obj->affected, type) ? TRUE : FALSE;
+	return find_in_list(&obj->affected, type) ? true : false;
 }
 
 void modify_flag_cache_obj(Object *obj, int where, const Flags& flags, bool fAdd) {
@@ -126,10 +127,10 @@ void modify_flag_cache_obj(Object *obj, int where, const Flags& flags, bool fAdd
 		obj->cached_extra_flags.clear();
 
 		for (const Affect *paf = obj->affected; paf; paf = paf->next)
-			modify_flag_cache_obj(obj, paf->where, paf->bitvector(), TRUE);
+			modify_flag_cache_obj(obj, paf->where, paf->bitvector(), true);
 
 		for (const Affect *paf = obj->gem_affected; paf; paf = paf->next)
-			modify_flag_cache_obj(obj, paf->where, paf->bitvector(), TRUE);
+			modify_flag_cache_obj(obj, paf->where, paf->bitvector(), true);
 	}
 	else {
 		switch (where) {

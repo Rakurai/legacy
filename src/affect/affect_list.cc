@@ -1,7 +1,6 @@
 #include "affect/affect_list.hh"
 
 #include "Flags.hh"
-#include "macros.hh"
 
 namespace affect {
 
@@ -57,14 +56,14 @@ void dedup_in_list(Affect **list_head, Affect *paf, fn_params *params)
 		 || paf_old->permanent != paf->permanent)
 	 		continue;
 
-		paf->level     = UMAX(paf->level, paf_old->level);
-		paf->duration  = UMAX(paf->duration, paf_old->duration); // ok for -1 duration too
+		paf->level     = std::max(paf->level, paf_old->level);
+		paf->duration  = std::max(paf->duration, paf_old->duration); // ok for -1 duration too
 		paf->modifier  += paf_old->modifier;
 		paf->bitvector(paf->bitvector() + paf_old->bitvector());
-		paf->evolution = UMAX(paf->evolution, paf_old->evolution);
+		paf->evolution = std::max(paf->evolution, paf_old->evolution);
 
 		remove_from_list(list_head, paf_old);
-		(params->modifier)(params->owner, paf_old, FALSE);
+		(params->modifier)(params->owner, paf_old, false);
 		delete paf_old;
 	}
 }
@@ -99,7 +98,7 @@ void remove_matching_from_list(Affect **list_head, comparator comp, const Affect
 
 		if (comp == nullptr || (*comp)(paf, pattern) == 0) {
 			remove_from_list(list_head, paf);
-			(params->modifier)(params->owner, paf, FALSE);
+			(params->modifier)(params->owner, paf, false);
 			delete paf;
 		}
 	}
@@ -111,7 +110,7 @@ void iterate_over_list(Affect **list_head, affect_fn fn, fn_params *params) {
 		if (paf->prev) paf->prev->next = paf->next;
 		if (paf->next) paf->next->prev = paf->prev;
 
-		if (params->owner) (params->modifier)(params->owner, paf, FALSE);
+		if (params->owner) (params->modifier)(params->owner, paf, false);
 
 		(*fn)(paf, params->data); // should return value indicate break?
 
@@ -119,7 +118,7 @@ void iterate_over_list(Affect **list_head, affect_fn fn, fn_params *params) {
 		if (paf->prev) paf->prev->next = paf;
 		if (paf->next) paf->next->prev = paf;
 
-		if (params->owner) (params->modifier)(params->owner, paf, TRUE);
+		if (params->owner) (params->modifier)(params->owner, paf, true);
 	}
 }
 
@@ -136,10 +135,10 @@ unsigned long checksum_list(Affect **list_head) {
 }
 
 void sort_list(Affect **list_head, comparator comp) {
-	bool sorted = FALSE;
+	bool sorted = false;
 
 	while (!sorted) {
-		sorted = TRUE;
+		sorted = true;
 
 		// go through the list, looking for unsorted items
 		// TODO: there's a more efficient way to do this, we don't have to start at the beginning
@@ -150,7 +149,7 @@ void sort_list(Affect **list_head, comparator comp) {
 
 			if ((*comp)(paf, paf->next) > 0) { // bubble up
 				swap(paf, paf->next); // note that list_head doesn't move, we swapped contents
-				sorted = FALSE;
+				sorted = false;
 			}
 		}
 	}

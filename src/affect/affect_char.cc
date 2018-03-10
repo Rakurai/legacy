@@ -7,7 +7,6 @@
 #include "declare.hh"
 #include "Flags.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "random.hh"
 
@@ -35,7 +34,7 @@ const Affect *find_on_char(Character *ch, ::affect::type type) {
 void copy_to_char(Character *ch, const Affect *aff_template)
 {
 	copy_to_list(&ch->affected, aff_template);
-	modify_char(ch, aff_template, TRUE);
+	modify_char(ch, aff_template, true);
 }
 
 void join_to_char(Character *ch, Affect *paf)
@@ -51,7 +50,7 @@ void join_to_char(Character *ch, Affect *paf)
 }
 
 void add_perm_to_char(Character *ch, ::affect::type type) {
-	add_type_to_char(ch, type, ch->level, -1, 1, TRUE);
+	add_type_to_char(ch, type, ch->level, -1, 1, true);
 }
 
 // transform a bitvector into a set of affects or defense mods
@@ -74,10 +73,10 @@ void copy_flags_to_char(Character *ch, char letter, Flags bitvector, bool perman
 }
 
 void add_racial_to_char(Character *ch) {
-	copy_flags_to_char(ch, 'A', race_table[ch->race].aff, TRUE);
-	copy_flags_to_char(ch, 'I', race_table[ch->race].imm, TRUE);
-	copy_flags_to_char(ch, 'R', race_table[ch->race].res, TRUE);
-	copy_flags_to_char(ch, 'V', race_table[ch->race].vuln, TRUE);
+	copy_flags_to_char(ch, 'A', race_table[ch->race].aff, true);
+	copy_flags_to_char(ch, 'I', race_table[ch->race].imm, true);
+	copy_flags_to_char(ch, 'R', race_table[ch->race].res, true);
+	copy_flags_to_char(ch, 'V', race_table[ch->race].vuln, true);
 }
 
 // removing
@@ -85,7 +84,7 @@ void add_racial_to_char(Character *ch) {
 void remove_from_char(Character *ch, Affect *paf)
 {
 	remove_from_list(&ch->affected, paf);
-	modify_char(ch, paf, FALSE);
+	modify_char(ch, paf, false);
 	delete paf;
 }
 
@@ -101,7 +100,7 @@ void remove_matching_from_char(Character *ch, comparator comp, const Affect *pat
 
 void remove_marked_from_char(Character *ch) {
 	Affect pattern;
-	pattern.mark = TRUE;
+	pattern.mark = true;
 
 	remove_matching_from_char(ch, comparator_mark, &pattern);
 }
@@ -153,9 +152,9 @@ void add_type_to_char(Character *ch, ::affect::type type, int level, int duratio
 		{ ::affect::type::age,                 APPLY_AGE,     level,           1 },
 		{ ::affect::type::armor,               APPLY_AC,      -20,             1 },
 		{ ::affect::type::barrier,             APPLY_NONE,    0,               1 },
-		{ ::affect::type::berserk,             APPLY_HITROLL, IS_NPC(ch) ? level/8 : GET_ATTR_HITROLL(ch)/5, 1 },
-		{ ::affect::type::berserk,             APPLY_DAMROLL, IS_NPC(ch) ? level/8 : GET_ATTR_DAMROLL(ch)/5, 1 },
-		{ ::affect::type::berserk,             APPLY_AC,      UMAX(10, 10 * (ch->level / 5)), 1 },
+		{ ::affect::type::berserk,             APPLY_HITROLL, ch->is_npc() ? level/8 : GET_ATTR_HITROLL(ch)/5, 1 },
+		{ ::affect::type::berserk,             APPLY_DAMROLL, ch->is_npc() ? level/8 : GET_ATTR_DAMROLL(ch)/5, 1 },
+		{ ::affect::type::berserk,             APPLY_AC,      std::max(10, 10 * (ch->level / 5)), 1 },
 		{ ::affect::type::bless,               APPLY_HITROLL, level/8,         1 },
 		{ ::affect::type::bless,               APPLY_SAVES,   -level/8,        1 },
 		{ ::affect::type::blindness,           APPLY_HITROLL, -4,              1 },
@@ -230,7 +229,7 @@ void add_type_to_char(Character *ch, ::affect::type type, int level, int duratio
 	af.duration = duration;
 	af.evolution = evolution;
 	af.permanent = permanent;
-	bool found = FALSE;
+	bool found = false;
 
 	for (unsigned int i = 0; i < aff_table.size(); i++) {
 		if (aff_table[i].type != type) {
@@ -244,7 +243,7 @@ void add_type_to_char(Character *ch, ::affect::type type, int level, int duratio
 		if (aff_table[i].evolution > evolution)
 			continue;
 
-		found = TRUE;
+		found = true;
 		af.location = aff_table[i].location;
 		af.modifier = aff_table[i].modifier;
 		join_to_char(ch, &af);
@@ -260,7 +259,7 @@ void remort_affect_modify_char(Character *ch, int where, Flags bitvector, bool f
 	af.level = ch->level;
 	af.duration = -1;
 	af.evolution = 1;
-	af.permanent = TRUE;
+	af.permanent = true;
 	// where, location and modifier will be filled by parse
 
 	char letter = 

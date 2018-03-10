@@ -3,10 +3,11 @@
 #include <map>
 #include <set>
 
-#include "declare.hh"
 #include "worldmap/MapColor.hh"
 #include "Vnum.hh"
 #include "util/Image.hh"
+
+class Area;
 
 namespace worldmap {
 

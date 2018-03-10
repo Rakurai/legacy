@@ -32,7 +32,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "interp.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -45,6 +44,7 @@
 #include "Social.hh"
 #include "String.hh"
 #include "comm.hh"
+#include "World.hh"
 
 extern  time_t  reboot_time;
 extern  int     top_exit;
@@ -172,14 +172,14 @@ void do_mypipe(Character *ch, String argument)
 		unsigned long *reslengths = mysql_fetch_lengths(result);
 
 		for (i = 0; i < numfields; i++)
-			lengths[i] = UMAX(reslengths[i], lengths[i]);
+			lengths[i] = std::max(reslengths[i], lengths[i]);
 	}
 
 	fields = mysql_fetch_fields(result);
 	strcpy(divline, "{n ");
 
 	for (i = 0; i < numfields; i++) {
-		lengths[i] = UMAX(lengths[i], strlen(fields[i].name));
+		lengths[i] = std::max(lengths[i], strlen(fields[i].name));
 
 		for (x = 0; x <= lengths[i] + 2; x++)
 			divline += " ";
@@ -252,7 +252,7 @@ void do_reboot(Character *ch, String argument)
 	set_color(ch, WHITE, NOBOLD);
 	do_allsave(ch, "");
 	do_save(ch, "");
-	merc_down = TRUE;
+	merc_down = true;
 
 	for (d = descriptor_list; d != nullptr; d = d_next) {
 		d_next = d->next;
@@ -295,7 +295,7 @@ void do_shutdown(Character *ch, String argument)
 
 	do_allsave(ch, "");
 	do_save(ch, "");
-	merc_down = TRUE;
+	merc_down = true;
 
 	for (d = descriptor_list; d != nullptr; d = d_next) {
 		d_next = d->next;
@@ -417,7 +417,7 @@ void do_advance(Character *ch, String argument)
 		}
 	}
 
-	victim->exp = exp_per_level(victim, victim->pcdata->points) * UMAX(1, victim->level);
+	victim->exp = exp_per_level(victim, victim->pcdata->points) * std::max(1, victim->level);
 	save_char_obj(victim);
 }
 
@@ -437,7 +437,7 @@ void do_wizlock(Character *ch, String argument)
 
 void do_relevel(Character *ch, String argument)
 {
-	if (IS_NPC(ch) || !IS_SPECIAL(ch)) {
+	if (ch->is_npc() || !IS_SPECIAL(ch)) {
 		do_huh(ch);
 		return;
 	}

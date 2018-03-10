@@ -41,7 +41,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -559,7 +558,7 @@ void interpret(Character *ch, String argument)
 	/*
 	 * Implement freeze command.
 	 */
-	if (!IS_NPC(ch) && ch->act_flags.has(PLR_FREEZE)) {
+	if (!ch->is_npc() && ch->act_flags.has(PLR_FREEZE)) {
 		ptc(ch, "You try to {G%-100.100s{x\n", argument);
 		stc("A powerful force slams you up against the nearest object. YOU'RE FROZEN!\n", ch);
 		return;
@@ -584,7 +583,7 @@ void interpret(Character *ch, String argument)
 	/*
 	 * Look for command in command table.
 	 */
-	found = FALSE;
+	found = false;
 
 	/* temp give them a deputy group for command checking */
 	if (ch->has_cgroup(GROUP_LEADER))
@@ -592,7 +591,7 @@ void interpret(Character *ch, String argument)
 
 	for (cmd = 0; cmd < cmd_table.size(); cmd++) {
 		/* if it's a mob only command, there should be no multiple cgroup flags */
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			if (!cmd_table[cmd].group.empty()
 			    && !cmd_table[cmd].group.has(GROUP_MOBILE))
 				continue;
@@ -609,7 +608,7 @@ void interpret(Character *ch, String argument)
 		}
 
 		if (command.is_prefix_of(cmd_table[cmd].name)) {
-			found = TRUE;
+			found = true;
 			break;
 		}
 	}
@@ -624,7 +623,7 @@ void interpret(Character *ch, String argument)
 	if (cmd_table[cmd].log == LOG_NEVER)
 		strcpy(logline, "");
 
-	if ((!IS_NPC(ch) && ch->act_flags.has(PLR_LOG))
+	if ((!ch->is_npc() && ch->act_flags.has(PLR_LOG))
 	    ||   Game::log_all
 	    ||   cmd_table[cmd].log == LOG_ALWAYS) {
 		String log_buf = Format::format("Log %s: %s", ch->name, logline);
@@ -724,36 +723,36 @@ bool check_social(Character *ch, const String& command, const String& argument)
 	Character *victim;
 	Social *iterator;
 	bool found;
-	found  = FALSE;
+	found  = false;
 
 	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
 		if (command.is_prefix_of(iterator->name)) {
-			found = TRUE;
+			found = true;
 			break;
 		}
 	}
 
 	if (!found)
-		return FALSE;
+		return false;
 
-	if (!IS_NPC(ch) && ch->revoke_flags.has(REVOKE_EMOTE)) {
+	if (!ch->is_npc() && ch->revoke_flags.has(REVOKE_EMOTE)) {
 		stc("You are anti-social!\n", ch);
-		return TRUE;
+		return true;
 	}
 
 	switch (get_position(ch)) {
 	case POS_DEAD:
 		stc("This is NOT the night of the living DEAD.\n", ch);
-		return TRUE;
+		return true;
 
 	case POS_INCAP:
 	case POS_MORTAL:
 		stc("You are hurt far too bad for that.\n", ch);
-		return TRUE;
+		return true;
 
 	case POS_STUNNED:
 		stc("You are too stunned to do that.\n", ch);
-		return TRUE;
+		return true;
 
 	case POS_SLEEPING:
 
@@ -763,7 +762,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 			break;
 
 		stc("Stop fidgeting and get some sleep!\n", ch);
-		return TRUE;
+		return true;
 	}
 
 	String arg;
@@ -785,7 +784,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 		act(iterator->char_found,    ch, nullptr, victim, TO_CHAR);
 		act(iterator->vict_found,    ch, nullptr, victim, TO_VICT);
 
-		if (!IS_NPC(ch) && IS_NPC(victim)
+		if (!ch->is_npc() && victim->is_npc()
 		    &&   !affect::exists_on_char(victim, affect::type::charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == nullptr
@@ -817,7 +816,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 		stc(VT_CLEAR_LINE, ch);
 	}
 
-	return TRUE;
+	return true;
 }
 
 /*
@@ -884,7 +883,7 @@ void do_commands(Character *ch, String argument)
 			continue;
 
 		/* if it's a mob only command, there should be no multiple cgroup flags */
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			if (!entry.group.empty()
 			    && !entry.group.has(GROUP_MOBILE))
 				continue;

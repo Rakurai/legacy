@@ -1,7 +1,9 @@
 #pragma once
 
-#include "declare.hh"
-#include "Flags.hh"
+class Character;
+class Object;
+class String;
+class Flags;
 
 /* channel.c */
 void global_act(Character *ch, const String& message, int despite_invis, int color, const Flags& nocomm_bits);

@@ -33,7 +33,6 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "lookup.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Room.hh"
 #include "String.hh"
@@ -223,7 +222,7 @@ void scan_list(Room *scan_room, Character *ch, int depth, int door)
 			continue;
 
 		if (can_see_char(ch, rch)) {
-			if (IS_NPC(rch))
+			if (rch->is_npc())
 				new_color(ch, CSLOT_MISC_MOBILES);
 			else
 				new_color(ch, CSLOT_MISC_PLAYERS);

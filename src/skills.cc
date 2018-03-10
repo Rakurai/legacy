@@ -36,7 +36,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "lootv2.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -46,14 +45,14 @@
 #include "String.hh"
 #include "tables.hh"
 
-/* return TRUE if a player either has the group or has all skills in it */
+/* return true if a player either has the group or has all skills in it */
 bool completed_group(Character *ch, int gn)
 {
 	if (ch->guild == Guild::none)
-		return FALSE;
+		return false;
 
 	if (ch->pcdata->group_known[gn])
-		return TRUE;
+		return true;
 
 	for (const auto& spell : group_table[gn].spells) {
 		int ngn = group_lookup(spell);
@@ -63,16 +62,16 @@ bool completed_group(Character *ch, int gn)
 				continue;
 
 			if (!completed_group(ch, ngn))
-				return FALSE;
+				return false;
 
 			continue;
 		}
 
 		if (get_learned(ch, skill::lookup(spell)) <= 0)
-			return FALSE;
+			return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 /* function for qsort of group numbers by group name */
@@ -122,12 +121,12 @@ void do_spells(Character *ch, String argument)
 	String arg;
 	int cols = 0;
 	int pos = 18;
-	bool found = FALSE;
-	bool new_level = TRUE;
+	bool found = false;
+	bool new_level = true;
 	String buffer;
-	bool reached_player_level = FALSE;
+	bool reached_player_level = false;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You know all that you need, trust me. ;)\n", ch);
 		return;
 	}
@@ -181,7 +180,7 @@ void do_spells(Character *ch, String argument)
 			/* discard group name argument */
 			argument = one_argument(argument, arg);
 			group = gn;
-			found = TRUE;
+			found = true;
 			break;
 		}
 	}
@@ -238,7 +237,7 @@ void do_spells(Character *ch, String argument)
 			spell_list[nspells].type = type;
 			spell_list[nspells].level = level;
 			nspells++;
-			found = TRUE;
+			found = true;
 		}
 	}
 	else {
@@ -266,7 +265,7 @@ void do_spells(Character *ch, String argument)
 			else if (!entry.name.has_words(spell_name))
 				continue;
 
-			found = TRUE;
+			found = true;
 			spell_list[nspells].type = type;
 			spell_list[nspells].level = level;
 			nspells++;
@@ -298,7 +297,7 @@ void do_spells(Character *ch, String argument)
 
 	for (j = 0; j < nspells; j++) {
 		if (spell_list[j].level != level) {
-			new_level = TRUE;
+			new_level = true;
 			level = spell_list[j].level;
 
 			if (cols > 0) {
@@ -309,7 +308,7 @@ void do_spells(Character *ch, String argument)
 			if (level > ch->level && !reached_player_level) {
 				buffer += Format::format("Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
-				reached_player_level = TRUE;
+				reached_player_level = true;
 			}
 		}
 
@@ -319,7 +318,7 @@ void do_spells(Character *ch, String argument)
 			if (!new_level)
 				buf = Format::format("%*s", buf.size(), " "); // spaces
 
-			new_level = FALSE;
+			new_level = false;
 			buffer += buf;
 		}
 		else {
@@ -374,12 +373,12 @@ void do_skills(Character *ch, String argument)
 	String buf;
 	int cols = 0;
 	int pos = 18;
-	bool found = FALSE;
-	bool new_level = TRUE;
+	bool found = false;
+	bool new_level = true;
 	String buffer;
-	bool reached_player_level = FALSE;
+	bool reached_player_level = false;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You know all that you need, trust me. ;)\n", ch);
 		return;
 	}
@@ -448,7 +447,7 @@ void do_skills(Character *ch, String argument)
 		else if (!entry.name.has_words(skill_name))
 			continue;
 
-		found = TRUE;
+		found = true;
 		skill_list[nskills].type = type;
 		skill_list[nskills].level = level;
 		nskills++;
@@ -474,7 +473,7 @@ void do_skills(Character *ch, String argument)
 
 	for (j = 0; j < nskills; j++) {
 		if (skill_list[j].level != level) {
-			new_level = TRUE;
+			new_level = true;
 			level = skill_list[j].level;
 
 			if (cols > 0) {
@@ -486,7 +485,7 @@ void do_skills(Character *ch, String argument)
 				Format::sprintf(buf, "Level %3d: %s  (your level)\n", ch->level,
 				        "-------------------------------");
 				buffer += buf;
-				reached_player_level = TRUE;
+				reached_player_level = true;
 			}
 		}
 
@@ -496,7 +495,7 @@ void do_skills(Character *ch, String argument)
 			if (!new_level)
 				Format::sprintf(buf, "%*s", (int)strlen(buf), " ");
 
-			new_level = FALSE;
+			new_level = false;
 			buffer += buf;
 		}
 		else {
@@ -546,7 +545,7 @@ void do_levels(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	String buffer;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	String arg;
@@ -726,12 +725,12 @@ void do_levels(Character *ch, String argument)
 } /* end do_levels() */
 
 
-long exp_per_level(Character *ch, int points)
+int exp_per_level(Character *ch, int points)
 {
 	int  inc;
-	long expl;
+	int expl;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return 1000;
 
 	expl = 1000;
@@ -775,7 +774,7 @@ void do_groups(Character *ch, String argument)
 {
 	char buf[100];
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	int col = 0;
@@ -844,7 +843,7 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	char buf[100];
 	int xp;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->guild == Guild::none)
@@ -917,16 +916,16 @@ int group_lookup(const String& name)
 /* recursively adds a group given its number -- uses group_add */
 void gn_add(Character *ch, int gn)
 {
-	ch->pcdata->group_known[gn] = TRUE;
+	ch->pcdata->group_known[gn] = true;
 
 	for (const auto& spell : group_table[gn].spells)
-		group_add(ch, spell, FALSE);
+		group_add(ch, spell, false);
 }
 
 /* recusively removes a group given its number -- uses group_remove */
 void gn_remove(Character *ch, int gn)
 {
-	ch->pcdata->group_known[gn] = FALSE;
+	ch->pcdata->group_known[gn] = false;
 
 	for (const auto& spell : group_table[gn].spells)
 		group_remove(ch, spell);
@@ -935,7 +934,7 @@ void gn_remove(Character *ch, int gn)
 /* use for processing a skill or group for addition  */
 void group_add(Character *ch, const String& name, bool deduct)
 {
-	if (IS_NPC(ch)) /* NPCs do not have skills */
+	if (ch->is_npc()) /* NPCs do not have skills */
 		return;
 
 	if (ch->guild == Guild::none)
@@ -959,8 +958,8 @@ void group_add(Character *ch, const String& name, bool deduct)
 	int gn = group_lookup(name);
 
 	if (gn != -1) {
-		if (ch->pcdata->group_known[gn] == FALSE) {
-			ch->pcdata->group_known[gn] = TRUE;
+		if (ch->pcdata->group_known[gn] == false) {
+			ch->pcdata->group_known[gn] = true;
 
 			if (deduct)
 				ch->pcdata->points += group_table[gn].rating[ch->guild];
@@ -985,21 +984,21 @@ void group_remove(Character *ch, const String& name)
 	/* now check groups */
 	int gn = group_lookup(name);
 
-	if (gn != -1 && ch->pcdata->group_known[gn] == TRUE) {
-		ch->pcdata->group_known[gn] = FALSE;
+	if (gn != -1 && ch->pcdata->group_known[gn] == true) {
+		ch->pcdata->group_known[gn] = false;
 		gn_remove(ch, gn); /* be sure to call gn_add on all remaining groups */
 	}
 }
 
 void set_learned(Character *ch, skill::type sn, int value) {
-	if (IS_NPC(ch) || sn == skill::type::unknown)
+	if (ch->is_npc() || sn == skill::type::unknown)
 		return;
 
 	ch->pcdata->learned[(int)sn] = URANGE(0, value, 100);
 }
 
 int get_learned(const Character *ch, skill::type sn) {
-	if (IS_NPC(ch) || sn == skill::type::unknown)
+	if (ch->is_npc() || sn == skill::type::unknown)
 		return 0;
 
 	return ch->pcdata->learned[(int)sn];
@@ -1034,7 +1033,7 @@ int get_skill_level(const Character *ch, skill::type sn)
 
 	if (sn == skill::type::unknown) /* shorthand for level based skills */
 		skill = ch->level * 5 / 2;
-	else if (!IS_NPC(ch)) {
+	else if (!ch->is_npc()) {
 		if (ch->level < get_usable_level(sn, ch->guild))
 			skill = 0;
 		else
@@ -1094,14 +1093,14 @@ int get_skill_level(const Character *ch, skill::type sn)
 			skill = 2 * skill / 3;
 	}
 
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
+	if (!ch->is_npc() && ch->pcdata->condition[COND_DRUNK]  > 10)
 		skill = 9 * skill / 10;
 
 	return URANGE(0, skill, 100);
 }
 
 void set_evolution(Character *ch, skill::type sn, int value) {
-	if (IS_NPC(ch) || sn == skill::type::unknown)
+	if (ch->is_npc() || sn == skill::type::unknown)
 		return;
 
 	ch->pcdata->evolution[(int)sn] = URANGE(1, value, 4);
@@ -1111,7 +1110,7 @@ int get_evolution(const Character *ch, skill::type type)
 {
 	int evolution;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		evolution = 1;
 	else
 		evolution = URANGE(1, ch->pcdata->evolution[(int)type], 4);
@@ -1229,12 +1228,12 @@ void evolve_info(Character *ch)
 			continue;
 
 		int max_evo[8] = {0};
-		bool should_show = FALSE;
+		bool should_show = false;
 
 		for (int guild = 0; guild < 8; guild++) {
 			if (entry.evocost_sec[guild] > 0) {
 				max_evo[guild]++;
-				should_show = TRUE;
+				should_show = true;
 			}
 
 			if (entry.evocost_pri[guild] > 0)
@@ -1279,7 +1278,7 @@ void do_evolve(Character *ch, String argument)
 	int cost, can, perc;
 	int special = 0;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Sorry, your skills are limited.\n", ch);
 		return;
 	}
@@ -1381,7 +1380,7 @@ int get_skill_cost(Character *ch, skill::type type)
 	        if (ch->level + 2 == get_usable_level(type, ch->guild))
 	                cost = 50;
 	        else
-	                cost = UMAX(skill::lookup(type).min_mana,
+	                cost = std::max(skill::lookup(type).min_mana,
 	                        100 / (2 + ch->level - get_usable_level(type, ch->guild));
 
 	        return cost; */
@@ -1389,11 +1388,11 @@ int get_skill_cost(Character *ch, skill::type type)
 	if (skill::lookup(type).spell_fun == spell_null) {
 		if (/*skill::lookup(type).target == TAR_CHAR_OFFENSIVE && */ch->level <= 50) {
 			int pct_max, level = get_usable_level(type, ch->guild);
-			pct_max = 100 * (ch->level - level) / UMAX(50 - level, 1);
+			pct_max = 100 * (ch->level - level) / std::max(50 - level, 1);
 			cost = (cost / 2) + (((cost / 2) * pct_max) / 100);
 		}
 	}
-	else if (!IS_NPC(ch)) {
+	else if (!ch->is_npc()) {
 		/* remort affect - costly spells */
 		if (HAS_RAFF(ch, RAFF_COSTLYSPELLS))
 			cost += cost / 5;
@@ -1409,10 +1408,10 @@ int get_skill_cost(Character *ch, skill::type type)
 bool deduct_stamina(Character *ch, skill::type type)
 {
 	if (skill::lookup(type).spell_fun != spell_null)
-		return FALSE;
+		return false;
 
 	if (skill::lookup(type).min_mana <= 0)
-		return TRUE;
+		return true;
 
 	int stam_cost = get_skill_cost(ch, type);
 	
@@ -1429,11 +1428,11 @@ bool deduct_stamina(Character *ch, skill::type type)
 
 	if (ch->stam < stam_cost) {
 		ptc(ch, "You are too tired to %s.\n", skill::lookup(type).name);
-		return FALSE;
+		return false;
 	}
 	
 	ch->stam -= stam_cost;
-	return TRUE;
+	return true;
 }
 
 /* used to get new skills */
@@ -1441,7 +1440,7 @@ void do_gain(Character *ch, String argument)
 {
 	Character *trainer;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Trust me, you know all you need.\n", ch);
 		return;
 	}
@@ -1453,7 +1452,7 @@ void do_gain(Character *ch, String argument)
 
 	/* find a trainer */
 	for (trainer = ch->in_room->people; trainer; trainer = trainer->next_in_room)
-		if (IS_NPC(trainer) && trainer->act_flags.has(ACT_GAIN) && can_see_char(ch, trainer))
+		if (trainer->is_npc() && trainer->act_flags.has(ACT_GAIN) && can_see_char(ch, trainer))
 			break;
 
 	if (trainer == nullptr) {
@@ -1477,7 +1476,7 @@ void do_gain(Character *ch, String argument)
 	if (arg.is_prefix_of("list")) {
 		int col = 0;
 		String output;
-		bool foundsect = FALSE, foundall = FALSE;
+		bool foundsect = false, foundall = false;
 		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "group", "cost", "group", "cost", "group", "cost");
 
@@ -1486,7 +1485,7 @@ void do_gain(Character *ch, String argument)
 			    || group_table[gn].rating[ch->guild] <= 0)
 				continue;
 
-			foundsect = TRUE;
+			foundsect = true;
 			output += Format::format("%-18s %s%-5d{x ",
 			    group_table[gn].name,
 			    group_table[gn].rating[ch->guild] > ch->train ? "{T" : "{C",
@@ -1504,14 +1503,14 @@ void do_gain(Character *ch, String argument)
 		if (foundsect) {
 			page_to_char(output, ch);
 			output.erase();
-			foundall = TRUE;
+			foundall = true;
 		}
 
 		output += Format::format("%-18s %-5s %-18s %-5s %-18s %-5s\n",
 		    "skill", "cost", "skill", "cost", "skill", "cost");
 
 		col = 0;
-		foundsect = FALSE;
+		foundsect = false;
 
 		for (const auto& pair : skill_table) {
 			skill::type type = pair.first;
@@ -1524,7 +1523,7 @@ void do_gain(Character *ch, String argument)
 			    && entry.rating[ch->guild] > 0
 			    && entry.spell_fun == spell_null
 			    && entry.remort_guild == Guild::none) {
-				foundsect = TRUE;
+				foundsect = true;
 				output += Format::format("%s%-18s %s%-5d{x ",
 				    get_usable_level(type, ch->guild) > ch->level ? "{c" : "{g",
 				    entry.name,
@@ -1542,7 +1541,7 @@ void do_gain(Character *ch, String argument)
 		if (foundsect) {
 			page_to_char(output, ch);
 			output.erase();
-			foundall = TRUE;
+			foundall = true;
 		}
 
 
@@ -1564,7 +1563,7 @@ void do_gain(Character *ch, String argument)
 		output += "---------------\n";
 
 		col = 0;
-		foundsect = FALSE;
+		foundsect = false;
 
 		for (const auto& pair : skill_table) {
 			skill::type type = pair.first;
@@ -1577,7 +1576,7 @@ void do_gain(Character *ch, String argument)
 			    && entry.rating[ch->guild] > 0
 			    && entry.remort_guild != Guild::none
 			    && entry.remort_guild == ch->guild) {
-				foundsect = TRUE;
+				foundsect = true;
 				output += Format::format("%s%-18s %s%-5d{x ",
 				    get_usable_level(type, ch->guild) > ch->level ? "{c" : "{g",
 				    entry.name,
@@ -1595,7 +1594,7 @@ void do_gain(Character *ch, String argument)
 		if (foundsect) {
 			page_to_char(output, ch);
 			output.erase();
-			foundall = TRUE;
+			foundall = true;
 		}
 
 
@@ -1649,7 +1648,7 @@ void do_gain(Character *ch, String argument)
 		mod = ch->exp - (exp_per_level(ch, ch->pcdata->points) * ch->level);
 		ch->train--;
 		ch->pcdata->points--;
-		ch->exp = UMIN(exp_per_level(ch, ch->pcdata->points) * ch->level + mod,
+		ch->exp = std::min(exp_per_level(ch, ch->pcdata->points) * ch->level + mod,
 		               exp_per_level(ch, ch->pcdata->points) * (ch->level + 1) - 1);
 		return;
 	}

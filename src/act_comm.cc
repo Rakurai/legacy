@@ -45,7 +45,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Object.hh"
@@ -56,6 +55,7 @@
 #include "String.hh"
 #include "vt100.hh"
 #include "comm.hh"
+#include "World.hh"
 
 /*
  * All the posing stuff.
@@ -444,7 +444,7 @@ int select_pose(Character *ch)
 	int maxpose;
 	int pose;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Sorry, mobiles can't pose!\n", ch);
 		return -1;
 	}
@@ -536,9 +536,9 @@ void do_delete(Character *ch, String argument)
 	Descriptor *d, *d_next;
 	int id;
 	char strsave[MAX_INPUT_LENGTH];
-	bool important = TRUE;
+	bool important = true;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You're not getting out of here that easily!\n", ch);
 		return;
 	}
@@ -576,7 +576,7 @@ void do_delete(Character *ch, String argument)
 		else if (ch->level >= 30)
 			ptc(ch, "This is a level %d character.\n", ch->level);
 		else
-			important = FALSE;
+			important = false;
 
 		if (important) {
 			stc("You could still delay your decision, {RQUIT{x and think it over.\n", ch);
@@ -598,7 +598,7 @@ void do_delete(Character *ch, String argument)
 
 		Format::sprintf(strsave, "%s%s", PLAYER_DIR, String(ch->name).lowercase().capitalize());
 		wiznet("$N has wiped $Mself from these realms.", ch, nullptr, 0, 0, 0);
-		update_pc_index(ch, TRUE);
+		update_pc_index(ch, true);
 		id = ch->pcdata->id;
 		d = ch->desc;
 
@@ -607,7 +607,7 @@ void do_delete(Character *ch, String argument)
 			reset_terminal(ch);
 		}
 
-		extract_char(ch, TRUE);
+		extract_char(ch, true);
 
 		if (d != nullptr)
 			close_socket(d);
@@ -619,7 +619,7 @@ void do_delete(Character *ch, String argument)
 			tch = d->original ? d->original : d->character;
 
 			if (tch && tch->pcdata && tch->pcdata->id == id) {
-				extract_char(tch, TRUE);
+				extract_char(tch, true);
 				close_socket(d);
 			}
 		}
@@ -681,7 +681,7 @@ void do_newbiekit(Character *ch, String argument)
 /* OOC by Lotus */
 void do_ooc(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles don't care about RP =).\n", ch);
 		return;
 	}
@@ -702,7 +702,7 @@ void do_pk(Character *ch, String argument)
 {
 	Character *wch;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles don't care about PK =).\n", ch);
 		return;
 	}
@@ -738,7 +738,7 @@ void do_pk(Character *ch, String argument)
 /* Chatmode by Lotus */
 void do_chatmode(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->pcdata->plr_flags.has(PLR_CHATMODE)) {
@@ -754,7 +754,7 @@ void do_chatmode(Character *ch, String argument)
 /* Private for swho by Lotus */
 void do_private(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles don't care about privacy =).\n", ch);
 		return;
 	}
@@ -772,7 +772,7 @@ void do_private(Character *ch, String argument)
 /* showlast for finger by Lotus */
 void do_showlast(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles don't care about their showlast =).\n", ch);
 		return;
 	}
@@ -817,7 +817,7 @@ void do_autotick(Character *ch, String argument)
 /* AutoPeek -- Elrac */
 void do_autopeek(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) return;
+	if (ch->is_npc()) return;
 
 	if (!get_skill_level(ch, skill::type::peek)) return;
 
@@ -834,7 +834,7 @@ void do_autopeek(Character *ch, String argument)
 /* ShowRaff - shows raffects in 'aff' */
 void do_showraff(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -895,7 +895,7 @@ void do_afk(Character *ch, String argument)
 		set_color(ch, YELLOW, NOBOLD);
 		stc("AFK mode removed.\n", ch);
 
-		if (!IS_NPC(ch))
+		if (!ch->is_npc())
 			if (!ch->pcdata->buffer.empty())
 				stc("You have messages: Type 'replay'\n", ch);
 
@@ -918,7 +918,7 @@ void do_afk(Character *ch, String argument)
 		/*
 		     act( "$N has gone AFK.", ch, nullptr, nullptr, TO_ROOM );
 		*/
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			char buf[MAX_STRING_LENGTH];
 
 			if (!argument.empty())
@@ -937,7 +937,7 @@ void do_afk(Character *ch, String argument)
 /* Note notify by PwrDemon */
 void do_notify(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) return;
+	if (ch->is_npc()) return;
 
 	if (ch->pcdata->plr_flags.has(PLR_NONOTIFY)) {
 		stc("From now on, you will be notified of new notes.\n", ch);
@@ -952,7 +952,7 @@ void do_notify(Character *ch, String argument)
 /* Append a string to a file, used for our in game text files */
 void update_text_file(Character *ch, const String& file, const String& str)
 {
-	if (IS_NPC(ch) || str.empty())
+	if (ch->is_npc() || str.empty())
 		return;
 
 	const char *time_format = "%m/%d/%y";
@@ -1104,7 +1104,7 @@ bool showlost(Character *ch, Object *obj, bool found, bool locker)
 				ptc(ch, "{CThe following items in your %s will be lost if you quit:{x\n",
 				    locker ? "locker" : "inventory");
 
-			found = TRUE;
+			found = true;
 			ptc(ch, "%s\n", obj->short_descr);
 		}
 
@@ -1133,7 +1133,7 @@ void do_quit(Character *ch, String argument)
 		"Kefta boots you in the head on your way out.  OuCH!!!\n"
 	};
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Ha!  You are forever doomed to stay on Legacy, deal with it.\n", ch);
 		return;
 	}
@@ -1175,8 +1175,8 @@ void do_quit(Character *ch, String argument)
 /*
 	if (ch->pcdata->plr_flags.has(PLR_SHOWLOST) && argument.empty() && !IS_IMMORTAL(ch)) {
 		bool found_inv, found_loc;
-		found_inv = showlost(ch, ch->carrying, FALSE, FALSE);
-		found_loc = showlost(ch, ch->pcdata->locker,   FALSE, TRUE);
+		found_inv = showlost(ch, ch->carrying, false, false);
+		found_loc = showlost(ch, ch->pcdata->locker,   false, true);
 
 		if (found_inv || found_loc)
 			return;
@@ -1202,7 +1202,7 @@ void do_quit(Character *ch, String argument)
 	for (sd = descriptor_list; sd != nullptr; sd = sd->next) {
 		victim = sd->original ? sd->original : sd->character;
 
-		if (IS_PLAYING(sd)
+		if (sd->is_playing()
 		    && sd->character != ch
 		    && can_see_who(victim, ch)
 		    && !victim->comm_flags.has(COMM_NOANNOUNCE)
@@ -1230,7 +1230,7 @@ void do_quit(Character *ch, String argument)
 		stc(VT_RESET_TERMINAL, ch);
 	}
 
-	extract_char(ch, TRUE);
+	extract_char(ch, true);
 
 	/* After extract_char the ch is no longer valid! */
 	if (d != nullptr)
@@ -1243,7 +1243,7 @@ void do_quit(Character *ch, String argument)
 		tch = d->original ? d->original : d->character;
 
 		if (tch && tch->pcdata && tch->pcdata->id == id) {
-			extract_char(tch, TRUE);
+			extract_char(tch, true);
 			close_socket(d);
 		}
 	}
@@ -1254,7 +1254,7 @@ void do_fuckoff(Character *ch, String argument)
 	Descriptor *d, *d_next;
 	int id;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	String log_buf = Format::format("%s has been fried.", ch->name);
@@ -1267,7 +1267,7 @@ void do_fuckoff(Character *ch, String argument)
 	save_char_obj(ch);
 	id = ch->pcdata->id;
 	d = ch->desc;
-	extract_char(ch, TRUE);
+	extract_char(ch, true);
 
 	if (d != nullptr)
 		close_socket(d);
@@ -1279,7 +1279,7 @@ void do_fuckoff(Character *ch, String argument)
 		tch = d->original ? d->original : d->character;
 
 		if (tch && tch->pcdata && tch->pcdata->id == id) {
-			extract_char(tch, TRUE);
+			extract_char(tch, true);
 			close_socket(d);
 		}
 	}
@@ -1287,7 +1287,7 @@ void do_fuckoff(Character *ch, String argument)
 
 void do_backup(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	stc("Backing up pfile.\n", ch);
@@ -1300,7 +1300,7 @@ void do_backup(Character *ch, String argument)
 
 void do_save(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	save_char_obj(ch);
@@ -1342,7 +1342,7 @@ void do_follow(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && victim->act_flags.has(PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
+	if (!victim->is_npc() && victim->act_flags.has(PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
 		act("$N doesn't seem to want any followers.\n",
 		    ch, nullptr, victim, TO_CHAR);
 		return;
@@ -1409,7 +1409,7 @@ void nuke_pets(Character *ch)
 		if (pet->in_room != nullptr)
 			act("$N slowly fades away.", ch, nullptr, pet, TO_NOTVICT);
 
-		extract_char(pet, TRUE);
+		extract_char(pet, true);
 	}
 
 	ch->pet = nullptr;
@@ -1462,7 +1462,7 @@ void do_order(Character *ch, String argument)
 	Character *och_next;
 	bool found;
 	bool fAll;
-	bool remote_familiar = FALSE;
+	bool remote_familiar = false;
 
 	String arg, arg2;
 	argument = one_argument(argument, arg);
@@ -1485,11 +1485,11 @@ void do_order(Character *ch, String argument)
 	}
 
 	if (arg == "all") {
-		fAll   = TRUE;
+		fAll   = true;
 		victim = nullptr;
 	}
 	else {
-		fAll   = FALSE;
+		fAll   = false;
 
 		/* check for target in this room */
 		if ((victim = get_char_here(ch, arg, VIS_CHAR)) == nullptr) {
@@ -1505,30 +1505,30 @@ void do_order(Character *ch, String argument)
 			}
 			else {
 				stc("You remotely order your familiar...\n", ch);
-				remote_familiar = TRUE;
+				remote_familiar = true;
 			}
 		}
 
 		/* Stay/Follow code by Lotus */
-		if (arg2 == "stay" && IS_NPC(victim)) {
+		if (arg2 == "stay" && victim->is_npc()) {
 			stc("You order your pet to stay.\n", ch);
 			victim->act_flags += ACT_STAY;
 			return;
 		}
 
-		if (arg2 == "follow" && IS_NPC(victim)) {
+		if (arg2 == "follow" && victim->is_npc()) {
 			stc("You order your pet to follow you.\n", ch);
 			victim->act_flags -= ACT_STAY;
 			return;
 		}
 
-		if (arg2 == "wimpy" && IS_NPC(victim)) {
+		if (arg2 == "wimpy" && victim->is_npc()) {
 			stc("You order your pet to flee if injured.\n", ch);
 			victim->act_flags += ACT_WIMPY;
 			return;
 		}
 
-		if (arg2 == "courage" && IS_NPC(victim)) {
+		if (arg2 == "courage" && victim->is_npc()) {
 			stc("You order your pet fight to the finish.\n", ch);
 			victim->act_flags -= ACT_WIMPY;
 			return;
@@ -1545,7 +1545,7 @@ void do_order(Character *ch, String argument)
 		}
 	}
 
-	found = FALSE;
+	found = false;
 
 	for (och = ch->in_room->people; och != nullptr; och = och_next) {
 		och_next = och->next_in_room;
@@ -1555,7 +1555,7 @@ void do_order(Character *ch, String argument)
 		    (fAll || och == victim)) {
 			if (! found) {
 				stc("You give the order.\n", ch);
-				found = TRUE;
+				found = true;
 			}
 
 			Format::sprintf(buf, "$n orders you to '%s{x'.", argument);
@@ -1568,7 +1568,7 @@ void do_order(Character *ch, String argument)
 		Format::sprintf(buf, "$n orders you to '%s{x'.", argument);
 		act(buf, ch, nullptr, ch->pet, TO_VICT);
 		interpret(ch->pet, argument);
-		found = TRUE;
+		found = true;
 	}
 
 	if (found)
@@ -1641,7 +1641,7 @@ void do_group(Character *ch, String argument)
 		for (gch = Game::world().char_list; gch != nullptr; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
 				String guild =
-					IS_NPC(gch) ? "Mob" :
+					gch->is_npc() ? "Mob" :
 					gch->guild == Guild::none ? "---" :
 					guild_table[gch->guild].who_name;
 
@@ -1653,7 +1653,7 @@ void do_group(Character *ch, String argument)
 				        gch->hit,   GET_MAX_HIT(gch),
 				        gch->mana,  GET_MAX_MANA(gch),
 				        gch->stam,  GET_MAX_STAM(gch),
-				        ((gch->level >= LEVEL_HERO) || IS_NPC(gch)) ? 0 : (gch->level + 1) *
+				        ((gch->level >= LEVEL_HERO) || gch->is_npc()) ? 0 : (gch->level + 1) *
 				        exp_per_level(gch, gch->pcdata->points) - gch->exp);
 				set_color(ch, PURPLE, BOLD);
 				stc(buf, ch);
@@ -1804,7 +1804,7 @@ void do_split(Character *ch, String argument)
 	}
 
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
-		if (gch != ch && is_same_group(gch, ch) && !IS_NPC(gch)) {
+		if (gch != ch && is_same_group(gch, ch) && !gch->is_npc()) {
 			act(buf, ch, nullptr, gch, TO_VICT);
 			gch->gold += share_gold;
 			gch->silver += share_silver;
@@ -1823,7 +1823,7 @@ void do_split(Character *ch, String argument)
 bool is_same_group(Character *ach, Character *bch)
 {
 	if (ach == nullptr || bch == nullptr)
-		return FALSE;
+		return false;
 
 	if (ach->leader != nullptr) ach = ach->leader;
 
@@ -1841,13 +1841,13 @@ void align(Character *ch, int new_align, char *align_str)
 
 	if (get_skill_level(ch, skill::type::align) < number_percent()) {
 		stc("You fail to change your alignment.\n", ch);
-		check_improve(ch, skill::type::align, FALSE, 20);
+		check_improve(ch, skill::type::align, false, 20);
 	}
 	else {
 		ch->alignment = new_align;
 		Format::sprintf(buf, "You are now %s.\n", align_str);
 		stc(buf, ch);
-		check_improve(ch, skill::type::align, TRUE, 20);
+		check_improve(ch, skill::type::align, true, 20);
 	}
 
 	WAIT_STATE(ch, 4 * PULSE_PER_SECOND);
@@ -1855,7 +1855,7 @@ void align(Character *ch, int new_align, char *align_str)
 
 void do_align(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Silly, mobiles can't change their alignment!\n", ch);
 		return;
 	}
@@ -1891,7 +1891,7 @@ void do_outfit(Character *ch, String argument)
 	Object *obj;
 	int vnum;
 
-	if (ch->level > 5 || IS_NPC(ch)) {
+	if (ch->level > 5 || ch->is_npc()) {
 		stc("Find it yourself.\n", ch);
 		return;
 	}

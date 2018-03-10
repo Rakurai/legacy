@@ -22,13 +22,14 @@
 #include "Reset.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
 
 extern int CURRENT_VERSION;
 extern cJSON *fwrite_obj(Object *);
 extern Object *fread_obj(cJSON *, int);
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
-   TRUE if so.  we don't save normal objects that lie around */
+   true if so.  we don't save normal objects that lie around */
 bool has_modified_contents(Object *obj)
 {
 	Object *cobj;
@@ -37,9 +38,9 @@ bool has_modified_contents(Object *obj)
 		if (!cobj->reset
 		    || cobj->reset->command != 'P'
 		    || cobj->reset->arg3 != obj->pIndexData->vnum)
-			return TRUE;
+			return true;
 
-	return FALSE;
+	return false;
 }
 
 /* determine if it's worth writing this object to the list.  only things that
@@ -51,11 +52,11 @@ bool is_worth_saving(Object *obj)
 	if (!obj->in_room       /* only items laying around */
 	    || obj->carried_by     /* shouldn't be... */
 	    || obj->in_obj)        /* shouldn't be... */
-		return FALSE;
+		return false;
 
 	// save the donation pit, can be uncommented in case of problems -- Montrey
 //	if (obj == Game::world().donation_pit)
-//		return FALSE;
+//		return false;
 
 	switch (obj->item_type) {
 	case ITEM_POTION:       /* usually have timers, and trying to speed this up */
@@ -64,19 +65,19 @@ bool is_worth_saving(Object *obj)
 	case ITEM_STAFF:
 	case ITEM_WAND:
 	case ITEM_CORPSE_NPC:
-		return FALSE;
+		return false;
 	}
 
 	if ((obj->timer > 0 || obj->clean_timer > 0) && obj->item_type != ITEM_CORPSE_PC)
-		return FALSE;
+		return false;
 
 	/* let's see if the item resets in this room */
 	if (obj->reset && obj->reset->command == 'O')
 		if (Location((int)obj->reset->arg3) == obj->in_room->location)
 			if (!obj->contains || !has_modified_contents(obj))
-				return FALSE;
+				return false;
 
-	return TRUE;
+	return true;
 }
 
 /* loop through the object list, save all items that are lying on the ground

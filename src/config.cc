@@ -33,7 +33,6 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Player.hh"
 #include "String.hh"
@@ -705,7 +704,7 @@ void do_config(Character *ch, String argument)
 		stc("Configuration groups:\n\n", ch);
 //		stc("  1.  Channels\n", ch);
 
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			stc("  5.  Color\n", ch);
 			stc("  6.  Video\n", ch);
 		}
@@ -725,8 +724,8 @@ void do_config(Character *ch, String argument)
 
 	if (arg1.is_number())                       argnum = atoi(arg1);
 	else if (arg1.is_prefix_of("channels"))        argnum = 1;
-	else if (!IS_NPC(ch) &&          arg1.is_prefix_of("color"))           argnum = 5;
-	else if (!IS_NPC(ch) &&          arg1.is_prefix_of("video"))           argnum = 6;
+	else if (!ch->is_npc() &&          arg1.is_prefix_of("color"))           argnum = 5;
+	else if (!ch->is_npc() &&          arg1.is_prefix_of("video"))           argnum = 6;
 	else if (arg1.is_prefix_of("censor"))          argnum = 7;
 	else if (IS_IMMORTAL(ch) &&      arg1.is_prefix_of("immortal"))        argnum = 8;
 	else if (IS_IMMORTAL(ch) &&      arg1.is_prefix_of("wiznet"))          argnum = 9;
@@ -756,7 +755,7 @@ void do_color(Character *ch, String argument)
 {
 	char buf[MIL];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't see colors. :)\n", ch);
 		return;
 	}
@@ -773,7 +772,7 @@ void do_video(Character *ch, String argument)
 {
 	char buf[MIL];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't see colors anyway. :)\n", ch);
 		return;
 	}
@@ -793,7 +792,7 @@ void do_wiznet(Character *ch, String argument)
 {
 	char buf[MIL];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Tiny mobile brains would overload with the power of Wiznet.\n", ch);
 		return;
 	}

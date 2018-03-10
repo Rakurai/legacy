@@ -1,6 +1,6 @@
 #pragma once
 
-#include "declare.hh"
+#include "memory.hh"
 
 class Edit
 {
@@ -11,7 +11,7 @@ public:
     int edit_type = 0;
     int edit_line = 0;
     int edit_nlines = 0;
-    bool edit_undo_ok = FALSE;
+    bool edit_undo_ok = false;
     char edit_string[MAX_STRING_LENGTH] = {0};
     char edit_backup[MAX_STRING_LENGTH] = {0};
     int edit_id = 0;

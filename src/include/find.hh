@@ -1,6 +1,10 @@
 #pragma once
 
-#include "declare.hh"
+class Character;
+class Object;
+class Room;
+class String;
+
 
 /* find.c */
 Character *	get_mob_here		args((Character *ch, const String& argument, int vis));

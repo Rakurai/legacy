@@ -1,6 +1,6 @@
 #pragma once
 
-#include "declare.hh"
+#include "declare.hh" // DECLARE_DO_FUN
 #include "String.hh"
 #include "Flags.hh"
 #include <vector>

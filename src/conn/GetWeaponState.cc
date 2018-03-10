@@ -3,6 +3,7 @@
 #include "String.hh"
 #include "Character.hh"
 #include "lookup.hh"
+#include "merc.hh"
 
 namespace conn {
 

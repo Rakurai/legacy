@@ -10,7 +10,6 @@
 #include "Game.hh"
 #include "GameTime.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "merc.hh"
 #include "Object.hh"
@@ -42,7 +41,7 @@ void spell_sheen(skill::type sn, int level, Character *ch, void *vo, int target,
 		level,
 		level,
 		evolution,
-		FALSE
+		false
 	);
 
 	stc("A protective sheen covers your armor.\n", victim);
@@ -62,7 +61,7 @@ void spell_focus(skill::type sn, int level, Character *ch, void *vo, int target,
 		level,
 		level / 3,
 		evolution,
-		FALSE
+		false
 	);
 
 	stc("You focus on your magic -- you feel more deadly!\n", victim);
@@ -82,7 +81,7 @@ void spell_paralyze(skill::type sn, int level, Character *ch, void *vo, int targ
 		return;
 	}
 
-	if (!IS_NPC(victim) && saves_spell(level, victim, DAM_MENTAL)) {
+	if (!victim->is_npc() && saves_spell(level, victim, DAM_MENTAL)) {
 		act("$N slows, but only momentarily.  Your paralysis has failed.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
@@ -92,7 +91,7 @@ void spell_paralyze(skill::type sn, int level, Character *ch, void *vo, int targ
 		level,
 		level / 20,
 		evolution,
-		FALSE
+		false
 	);
 
 	stc("You can't move anymore!\n", victim);
@@ -113,7 +112,7 @@ void spell_ironskin(skill::type sn, int level, Character *ch, void *vo, int targ
 		level,
 		level,
 		evolution,
-		FALSE
+		false
 	);
 
 	stc("Your skin takes on the consistency of iron.\n", victim);
@@ -135,7 +134,7 @@ void spell_barrier(skill::type sn, int level, Character *ch, void *vo, int targe
 		level,
 		level / 5,
 		evolution,
-		FALSE
+		false
 	);
 
 	stc("You are surrounded by a protective barrier.\n", victim);
@@ -198,10 +197,10 @@ void spell_dazzle(skill::type sn, int level, Character *ch, void *vo, int target
 			level,
 			0,
 			evolution,
-			FALSE
+			false
 		);
 
-		stop_fighting(ch, TRUE);
+		stop_fighting(ch, true);
 		return;
 	}
 
@@ -242,7 +241,7 @@ void spell_full_heal(skill::type sn, int level, Character *ch, void *vo, int tar
 		return;
 	}
 
-	if (!IS_NPC(ch))
+	if (!ch->is_npc())
 		if (ch->pcdata->pktimer > 0) {
 			stc("You can't cast this so soon after combat.\n", ch);
 			return;
@@ -273,7 +272,7 @@ void spell_midnight(skill::type sn, int level, Character *ch, void *vo, int targ
 		level,
 		2,
 		evolution,
-		FALSE
+		false
 	);
 }
 
@@ -285,7 +284,7 @@ void spell_sap(skill::type sn, int level, Character *ch, void *vo, int target, i
 	int dam, mult;
 	dam = dice(level, 22);
 	mult = ((100 - (((ch->hit * 100) / GET_MAX_HIT(ch)) * 2)) * 2);
-	dam = UMAX(dam, dam + ((dam * mult) / 100));
+	dam = std::max(dam, dam + ((dam * mult) / 100));
 
 	if (ch->hit < 31000) {
 		int def_mod = GET_DEFENSE_MOD(victim, DAM_NEGATIVE);
@@ -302,7 +301,7 @@ void spell_sap(skill::type sn, int level, Character *ch, void *vo, int target, i
 		stc("You are instantly revitalized!\n", ch);
 	}
 
-	damage(ch, victim, dam, sn, -1, DAM_NEGATIVE, TRUE, TRUE);
+	damage(ch, victim, dam, sn, -1, DAM_NEGATIVE, true, true);
 }
 
 /* Pain by Montrey */
@@ -319,8 +318,8 @@ void spell_pain(skill::type sn, int level, Character *ch, void *vo, int target, 
 	act("You bestow pure agony upon $N!", ch, nullptr, victim, TO_CHAR);
 	act("$N writhes in agony as the pain of $S wounds overtakes $M.", ch, nullptr, victim, TO_NOTVICT);
 	act("You scream in agony as the pain of your wounds increases.", ch, nullptr, victim, TO_VICT);
-	dam = (UMIN(victim->hit, (4 * level))) + number_range(1, (level * 2));
-	damage(ch, (Character *) vo, dam, sn, -1, DAM_HARM, TRUE, TRUE);
+	dam = (std::min(victim->hit, (4 * level))) + number_range(1, (level * 2));
+	damage(ch, (Character *) vo, dam, sn, -1, DAM_HARM, true, true);
 
 	if (ch->fighting != nullptr) {
 		spell_slow(skill::type::slow,   level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
@@ -355,7 +354,7 @@ void spell_hex(skill::type sn, int level, Character *ch, void *vo, int target, i
 		level,
 		level / 30,
 		evolution,
-		FALSE
+		false
 	);
 }
 
@@ -369,7 +368,7 @@ void spell_bone_wall(skill::type sn, int level, Character *ch, void *vo, int tar
 		level,
 		level,
 		evolution,
-		FALSE
+		false
 	);
 
 	stc("Bones lift from the ground and begin to swirl around you.\n", ch);
@@ -395,7 +394,7 @@ void spell_force(skill::type sn, int level, Character *ch, void *vo, int target,
 		level,
 		2,
 		evolution,
-		FALSE
+		false
 	);
 }
 
@@ -482,7 +481,7 @@ void spell_holy_sword(skill::type sn, int level, Character *ch, void *vo, int ta
 	act("$n prays for a moment, and a holy sword materializes in $s hand.", ch, nullptr, nullptr, TO_ROOM);
 	stc("You summon a godly blade for your divine justice.\n", ch);
 	obj_to_char(sword, ch);
-	wear_obj(ch, sword, TRUE);
+	wear_obj(ch, sword, true);
 	ch->mana = 0;
 	return;
 }
@@ -495,7 +494,7 @@ void spell_quick(skill::type sn, int level, Character *ch, void *vo, int target,
 	/* how simple could it be? */
 	act("$n blazes into a wild flurry of attacks!", ch, nullptr, nullptr, TO_ROOM);
 	stc("You blaze into a wild flurry of attacks!\n", ch);
-	global_quick = TRUE;
+	global_quick = true;
 	multi_hit(ch, ch->fighting, skill::type::unknown);
-	global_quick = FALSE;
+	global_quick = false;
 }

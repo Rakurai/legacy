@@ -1,9 +1,8 @@
 #pragma once
 
-#include "Flags.hh"
-#include "Vnum.hh"
 #include "worldmap/Coordinate.hh"
 #include "RoomID.hh"
+#include "Vnum.hh"
 
 /* Overly complex looking Location type.
  * Needs to do a few things:

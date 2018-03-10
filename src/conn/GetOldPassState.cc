@@ -7,6 +7,8 @@
 #include "Logging.hh"
 #include "channels.hh"
 #include "sql.hh"
+#include "World.hh"
+#include "Room.hh"
 
 namespace conn {
 
@@ -26,11 +28,11 @@ bool check_playing(Descriptor *d, const String& name)
 		                  ? dold->original->name : dold->character->name)) {
 			write_to_buffer(d, "That character is already playing.\n");
 			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?");
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 /*
@@ -39,7 +41,7 @@ bool check_playing(Descriptor *d, const String& name)
 bool attempt_reconnect(Descriptor *d, const String& name)
 {
 	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
-		if (!IS_NPC(ch)
+		if (!ch->is_npc()
 		 && d->character != ch
 		 && ch->desc == nullptr
 		 && d->character->name == ch->name) {
@@ -50,7 +52,7 @@ bool attempt_reconnect(Descriptor *d, const String& name)
 			ch->desc->timer  = 0;
 			stc("Reconnecting...\n", ch);
 
-			if (!IS_NPC(ch))
+			if (!ch->is_npc())
 				if (!ch->pcdata->buffer.empty())
 					stc("You have messages: Type 'replay'\n", ch);
 
@@ -70,16 +72,16 @@ bool attempt_reconnect(Descriptor *d, const String& name)
 			}
 
 			ch->pcdata->plr_flags -= PLR_LINK_DEAD;
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 const String site_to_ssite(const String& site)
 {
-	bool alpha = FALSE;
+	bool alpha = false;
 	int dotcount = 0;
 
 	/* Parse the site, determine type.  For alphanumeric hosts, we
@@ -89,7 +91,7 @@ const String site_to_ssite(const String& site)
 		if (*p == '.')
 			dotcount++;
 		else if (!isdigit(*p))
-			alpha = TRUE;
+			alpha = true;
 	}
 
 	if (alpha) {

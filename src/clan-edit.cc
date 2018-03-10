@@ -27,7 +27,6 @@
 #include "Format.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Player.hh"
 #include "sql.hh"
@@ -295,7 +294,7 @@ void do_cedit(Character *ch, String argument)
 		new_clan->who_name = "         ";
 		new_clan->area_minvnum = 0;
 		new_clan->area_maxvnum = 0;
-		new_clan->independent = FALSE;
+		new_clan->independent = false;
 		new_clan->clanqp = 0;
 		new_clan->gold_balance = 1000;
 		new_clan->clanname = "";

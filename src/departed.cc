@@ -120,10 +120,10 @@ bool has_departed(const String& name)
 
 	while (iterator != departed_list_tail) {
 		if (!strcasecmp(name, iterator->name))
-			return TRUE;
+			return true;
 
 		iterator = iterator->next;
 	}
 
-	return FALSE;
+	return false;
 }

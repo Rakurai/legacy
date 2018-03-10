@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include <math.h>
+#include <algorithm> // min and max
 
 #include "act.hh"
 #include "argument.hh"
@@ -44,9 +45,9 @@
 #include "Game.hh"
 #include "interp.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
+#include "MobProg.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "ObjectValue.hh"
@@ -57,6 +58,8 @@
 #include "skill/skill.hh"
 #include "Sector.hh"
 #include "String.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
 
 DECLARE_SPEC_FUN(spec_clanguard);
 
@@ -108,7 +111,7 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	if (to_room->flags().has(ROOM_LAW)
-	    && (IS_NPC(ch) && ch->act_flags.has(ACT_AGGRESSIVE))) {
+	    && (ch->is_npc() && ch->act_flags.has(ACT_AGGRESSIVE))) {
 		stc("They don't seem to want your 'type' here.", ch);
 		return;
 	}
@@ -141,7 +144,7 @@ void move_char(Character *ch, int door, bool follow)
 		return;
 	}
 
-	if (!IS_NPC(ch)) {
+	if (!ch->is_npc()) {
 		if (to_room->guild() != Guild::none
 		 && to_room->guild() != ch->guild
 		 && !IS_IMMORTAL(ch)) {
@@ -179,11 +182,11 @@ void move_char(Character *ch, int door, bool follow)
 	 && !IS_IMMORTAL(ch)
 	 && !get_skill_level(ch, skill::type::swimming)) {
 		// try to find a boat first
-		bool found = FALSE;
+		bool found = false;
 
 		for (Object *obj = ch->carrying; obj != nullptr; obj = obj->next_content)
 			if (obj->item_type == ITEM_BOAT) {
-				found = TRUE;
+				found = true;
 				break;
 			}
 
@@ -230,8 +233,8 @@ void move_char(Character *ch, int door, bool follow)
 	ch->stam -= cost;
 
 	if (affect::exists_on_char(ch, affect::type::sneak) || ch->invis_level
-	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
-		act("$n leaves $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW, POS_SNEAK, FALSE);
+	    || (!ch->is_npc() && ch->act_flags.has(PLR_SUPERWIZ)))
+		act("$n leaves $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW, POS_SNEAK, false);
 	else
 		act("$n leaves $T.", ch, nullptr, Exit::dir_name(door), TO_NOTVIEW);
 
@@ -246,8 +249,8 @@ void move_char(Character *ch, int door, bool follow)
 		Format::sprintf(dir_buf, "the %s", Exit::dir_name(door, true));
 
 	if (affect::exists_on_char(ch, affect::type::sneak) || ch->invis_level
-	    || (!IS_NPC(ch) && ch->act_flags.has(PLR_SUPERWIZ)))
-		act("$n has arrived from $T.", ch, nullptr, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
+	    || (!ch->is_npc() && ch->act_flags.has(PLR_SUPERWIZ)))
+		act("$n has arrived from $T.", ch, nullptr, dir_buf, TO_NOTVIEW, POS_SNEAK, false);
 	else
 		act("$n has arrived from $T.", ch, nullptr, dir_buf, TO_NOTVIEW);
 
@@ -256,7 +259,7 @@ void move_char(Character *ch, int door, bool follow)
 	for (fch = to_room->people; fch != nullptr; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
-		if (IS_NPC(fch) && fch->spec_fun && fch->spec_fun == spec_lookup("spec_clanguard"))
+		if (fch->is_npc() && fch->spec_fun && fch->spec_fun == spec_lookup("spec_clanguard"))
 			spec_clanguard(fch);
 	}
 
@@ -274,10 +277,10 @@ void move_char(Character *ch, int door, bool follow)
 		}
 
 		if (fch->master == ch && get_position(fch) >= POS_STANDING && can_see_room(fch, to_room)) {
-			if (IS_NPC(fch) && fch->act_flags.has(ACT_STAY))
+			if (fch->is_npc() && fch->act_flags.has(ACT_STAY))
 				continue;
 
-			if (ch->in_room->flags().has(ROOM_LAW) && (IS_NPC(fch)
+			if (ch->in_room->flags().has(ROOM_LAW) && (fch->is_npc()
 			                && fch->act_flags.has(ACT_AGGRESSIVE))) {
 				act("You can't bring $N into the city.", ch, nullptr, fch, TO_CHAR);
 				act("They don't seem to want your 'type' here.", fch, nullptr, nullptr, TO_CHAR);
@@ -285,7 +288,7 @@ void move_char(Character *ch, int door, bool follow)
 			}
 
 			act("You follow $N.", fch, nullptr, ch, TO_CHAR);
-			move_char(fch, door, TRUE);
+			move_char(fch, door, true);
 		}
 	}
 
@@ -295,37 +298,37 @@ void move_char(Character *ch, int door, bool follow)
 
 void do_north(Character *ch, String argument)
 {
-	move_char(ch, DIR_NORTH, FALSE);
+	move_char(ch, DIR_NORTH, false);
 	return;
 }
 
 void do_east(Character *ch, String argument)
 {
-	move_char(ch, DIR_EAST, FALSE);
+	move_char(ch, DIR_EAST, false);
 	return;
 }
 
 void do_south(Character *ch, String argument)
 {
-	move_char(ch, DIR_SOUTH, FALSE);
+	move_char(ch, DIR_SOUTH, false);
 	return;
 }
 
 void do_west(Character *ch, String argument)
 {
-	move_char(ch, DIR_WEST, FALSE);
+	move_char(ch, DIR_WEST, false);
 	return;
 }
 
 void do_up(Character *ch, String argument)
 {
-	move_char(ch, DIR_UP, FALSE);
+	move_char(ch, DIR_UP, false);
 	return;
 }
 
 void do_down(Character *ch, String argument)
 {
-	move_char(ch, DIR_DOWN, FALSE);
+	move_char(ch, DIR_DOWN, false);
 	return;
 }
 
@@ -607,10 +610,10 @@ bool has_key(Character *ch, int key)
 
 	for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
 		if (obj->pIndexData->vnum == key)
-			return TRUE;
+			return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 void do_lock(Character *ch, String argument)
@@ -892,7 +895,7 @@ void do_pick(Character *ch, String argument)
 
 	/* look for guards */
 	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
-		if (IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level) {
+		if (gch->is_npc() && IS_AWAKE(gch) && ch->level + 5 < gch->level) {
 			act("$N appears to be protecting it.",
 			    ch, nullptr, gch, TO_CHAR);
 			return;
@@ -907,9 +910,9 @@ void do_pick(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::pick_lock))
 		return;
 
-	if (!IS_NPC(ch) && number_percent() > get_skill_level(ch, skill::type::pick_lock)) {
+	if (!ch->is_npc() && number_percent() > get_skill_level(ch, skill::type::pick_lock)) {
 		stc("You failed.\n", ch);
-		check_improve(ch, skill::type::pick_lock, FALSE, 2);
+		check_improve(ch, skill::type::pick_lock, false, 2);
 		return;
 	}
 
@@ -939,7 +942,7 @@ void do_pick(Character *ch, String argument)
 			obj->value[1] -= EX_LOCKED;
 			act("You pick the lock on $p.", ch, obj, nullptr, TO_CHAR);
 			act("$n picks the lock on $p.", ch, obj, nullptr, TO_ROOM);
-			check_improve(ch, skill::type::pick_lock, TRUE, 2);
+			check_improve(ch, skill::type::pick_lock, true, 2);
 			return;
 		}
 
@@ -970,7 +973,7 @@ void do_pick(Character *ch, String argument)
 		obj->value[1] -= CONT_LOCKED;
 		act("You pick the lock on $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n picks the lock on $p.", ch, obj, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::pick_lock, TRUE, 2);
+		check_improve(ch, skill::type::pick_lock, true, 2);
 		return;
 	}
 
@@ -996,7 +999,7 @@ void do_pick(Character *ch, String argument)
 		pexit->exit_flags -= EX_LOCKED;
 		stc("You pick it!!\n", ch);
 		act("$n picks the $d.", ch, nullptr, pexit->keyword(), TO_ROOM);
-		check_improve(ch, skill::type::pick_lock, TRUE, 2);
+		check_improve(ch, skill::type::pick_lock, true, 2);
 
 		/* pick the other side */
 		if ((to_room   = pexit->to_room) != nullptr
@@ -1045,7 +1048,7 @@ void do_stand(Character *ch, String argument)
 
 		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
 			act("There's no room to stand on $p.",
-			        ch, obj, nullptr, TO_ROOM, POS_DEAD, FALSE);
+			        ch, obj, nullptr, TO_ROOM, POS_DEAD, false);
 			return;
 		}
 	}
@@ -1064,15 +1067,15 @@ void do_stand(Character *ch, String argument)
 			ch->on = nullptr;
 		}
 		else if (obj->value[2].flags().has(STAND_AT)) {
-			act("You wake and stand at $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and stand at $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			act("$n wakes and stands at $p.", ch, obj, nullptr, TO_ROOM);
 		}
 		else if (obj->value[2].flags().has(STAND_ON)) {
-			act("You wake and stand on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and stand on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			act("$n wakes and stands on $p.", ch, obj, nullptr, TO_ROOM);
 		}
 		else {
-			act("You wake and stand in $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and stand in $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			act("$n wakes and stands in $p.", ch, obj, nullptr, TO_ROOM);
 		}
 
@@ -1153,7 +1156,7 @@ void do_rest(Character *ch, String argument)
 		}
 
 		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
-			act("There's no more room on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("There's no more room on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			return;
 		}
 
@@ -1173,17 +1176,17 @@ void do_rest(Character *ch, String argument)
 		}
 		else if (obj->value[2].flags().has(REST_AT)) {
 			act("You wake up and rest at $p.",
-			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
+			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, false);
 			act("$n wakes up and rests at $p.", ch, obj, nullptr, TO_ROOM);
 		}
 		else if (obj->value[2].flags().has(REST_ON)) {
 			act("You wake up and rest on $p.",
-			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
+			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, false);
 			act("$n wakes up and rests on $p.", ch, obj, nullptr, TO_ROOM);
 		}
 		else {
 			act("You wake up and rest in $p.",
-			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, FALSE);
+			        ch, obj, nullptr, TO_CHAR, POS_SLEEPING, false);
 			act("$n wakes up and rests in $p.", ch, obj, nullptr, TO_ROOM);
 		}
 
@@ -1289,7 +1292,7 @@ void do_sit(Character *ch, String argument)
 		}
 
 		if (ch->on != obj && count_users(obj) >= obj->value[0]) {
-			act("There's no more room on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("There's no more room on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			return;
 		}
 
@@ -1303,15 +1306,15 @@ void do_sit(Character *ch, String argument)
 			act("$n wakes and sits up.", ch, nullptr, nullptr, TO_ROOM);
 		}
 		else if (obj->value[2].flags().has(SIT_AT)) {
-			act("You wake and sit at $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and sit at $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			act("$n wakes and sits at $p.", ch, obj, nullptr, TO_ROOM);
 		}
 		else if (obj->value[2].flags().has(SIT_ON)) {
-			act("You wake and sit on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and sit on $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			act("$n wakes and sits at $p.", ch, obj, nullptr, TO_ROOM);
 		}
 		else {
-			act("You wake and sit in $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+			act("You wake and sit in $p.", ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 			act("$n wakes and sits in $p.", ch, obj, nullptr, TO_ROOM);
 		}
 
@@ -1419,7 +1422,7 @@ void do_sleep(Character *ch, String argument)
 
 			if (ch->on != obj && count_users(obj) >= obj->value[0]) {
 				act("There is no room on $p for you.",
-				        ch, obj, nullptr, TO_CHAR, POS_DEAD, FALSE);
+				        ch, obj, nullptr, TO_CHAR, POS_DEAD, false);
 				return;
 			}
 
@@ -1494,7 +1497,7 @@ void do_wake(Character *ch, String argument)
 	{ act("$E doesn't seem to WANT to wake up!",   ch, nullptr, victim, TO_CHAR);  return; }
 
 	act("$n rudely awakes you from your peaceful slumber.",
-	        ch, nullptr, victim, TO_VICT, POS_SLEEPING, FALSE);
+	        ch, nullptr, victim, TO_VICT, POS_SLEEPING, false);
 
 	if (victim->start_pos == POS_FLYING && CAN_FLY(victim))
 		do_fly(victim, "");
@@ -1525,14 +1528,14 @@ void do_sneak(Character *ch, String argument)
 			ch->level,
 			ch->level,
 			get_evolution(ch, skill::type::sneak),
-			FALSE
+			false
 		);
 		stc("You feel more stealthy.\n", ch);
-		check_improve(ch, skill::type::sneak, TRUE, 3);
+		check_improve(ch, skill::type::sneak, true, 3);
 	}
 	else {
 		stc("You feel like a klutz.\n", ch);
-		check_improve(ch, skill::type::sneak, FALSE, 3);
+		check_improve(ch, skill::type::sneak, false, 3);
 	}
 }
 
@@ -1559,14 +1562,14 @@ void do_hide(Character *ch, String argument)
 			ch->level,
 			ch->level,
 			get_evolution(ch, skill::type::hide),
-			FALSE
+			false
 		);
 		stc("You blend into the surroundings.\n", ch);
-		check_improve(ch, skill::type::hide, TRUE, 3);
+		check_improve(ch, skill::type::hide, true, 3);
 	}
 	else {
 		stc("You attempt to be inconspicuous.\n", ch);
-		check_improve(ch, skill::type::hide, FALSE, 3);
+		check_improve(ch, skill::type::hide, false, 3);
 	}
 }
 
@@ -1588,7 +1591,7 @@ void do_visible(Character *ch, String argument)
 
 void do_recall(Character *ch, String argument)
 {
-	recall(ch, FALSE);
+	recall(ch, false);
 }
 
 void do_clan_recall(Character *ch, String argument)
@@ -1605,7 +1608,7 @@ void do_clan_recall(Character *ch, String argument)
 	if (is_clan(ch) || ch->act_flags.has(ACT_PET)) {
 		/* Make sure we have a valid clan OR we are a pet */
 		if (ch->clan || ch->act_flags.has(ACT_PET)) {
-			recall(ch, TRUE);
+			recall(ch, true);
 			return;
 		}
 	}
@@ -1613,21 +1616,21 @@ void do_clan_recall(Character *ch, String argument)
 	/* We either aren't a clan memeber or not a pet. */
 	stc("You do not belong to a clan.\n", ch);
 	return;
-	/* recall(ch, TRUE); */
+	/* recall(ch, true); */
 }
 
 void recall(Character *ch, bool clan)
 {
 	Room *location;
-	bool pet = FALSE, combat = FALSE;
+	bool pet = false, combat = false;
 	int lose = 0;
 
 	if (ch->in_room == nullptr)
 		return;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		if (ch->act_flags.has(ACT_PET) && ch->master != nullptr)
-			pet = TRUE;
+			pet = true;
 		else {
 			ptc(ch, "Only players and pets can %srecall.\n", clan ? "clan" : "");
 			return;
@@ -1641,7 +1644,7 @@ void recall(Character *ch, bool clan)
 		return;
 	}
 
-	if (!IS_NPC(ch))
+	if (!ch->is_npc())
 		if (ch->pcdata->pktimer) {
 			stc("The gods laugh at your cowardice...\n", ch);
 			return;
@@ -1669,16 +1672,16 @@ void recall(Character *ch, bool clan)
 	}
 	else if (ch->in_room->sector_type() == Sector::arena) {
 		Descriptor *d;
-		bool empty = TRUE;
+		bool empty = true;
 
 		for (d = descriptor_list; d != nullptr; d = d->next)
-			if (IS_PLAYING(d)
+			if (d->is_playing()
 			    && d->character != ch
 			    && d->character != ch->pet     /* just in case */
 			    && !IS_IMMORTAL(d->character)  /* exclude imms */
 			    && d->character->in_room != nullptr
 			    && d->character->in_room->area() == ch->in_room->area())
-				empty = FALSE;
+				empty = false;
 
 		if (empty && ch->fighting == nullptr && (battle.start || !battle.issued)) { /* last person in arena? */
 			if (location == nullptr) {
@@ -1721,7 +1724,7 @@ void recall(Character *ch, bool clan)
 
 	if (ch->fighting != nullptr) {
 		if (number_percent() < 80 * get_skill_level(ch, skill::type::recall) / 100) {
-			check_improve(ch, skill::type::recall, FALSE, 6);
+			check_improve(ch, skill::type::recall, false, 6);
 			WAIT_STATE(ch, 4);
 			stc("The Gods ignore your hasty prayers.\n", ch);
 			return;
@@ -1731,14 +1734,14 @@ void recall(Character *ch, bool clan)
 		    && ch->in_room->sector_type() != Sector::clanarena)
 			lose = (ch->desc != nullptr ? 25 : (clan ? 50 : 25));
 
-		combat = TRUE;
+		combat = true;
 		gain_exp(ch, 0 - lose);
-		check_improve(ch, skill::type::recall, TRUE, 4);
-		stop_fighting(ch, TRUE);
+		check_improve(ch, skill::type::recall, true, 4);
+		stop_fighting(ch, true);
 	}
 
 	/* remort affect - buggy recall */
-	if (HAS_RAFF(ch, RAFF_BUGGYREC) && chance(5))
+	if (HAS_RAFF(ch, RAFF_BUGGYREC) && roll_chance(5))
 		location = get_random_room(ch);
 
 	if (!ch->in_room->clan() || ch->in_room->clan() != ch->clan)
@@ -1782,7 +1785,7 @@ void do_train(Character *ch, String argument)
 	char *pOutput = nullptr;
 	int cost, add;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You don't need to train yourself.\n", ch);
 		return;
 	}
@@ -1796,7 +1799,7 @@ void do_train(Character *ch, String argument)
 	 * Check for trainer.
 	 */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && mob->act_flags.has(ACT_TRAIN))
+		if (mob->is_npc() && mob->act_flags.has(ACT_TRAIN))
 			break;
 	}
 
@@ -1986,45 +1989,45 @@ void do_train(Character *ch, String argument)
 bool is_safe_drag(Character *ch, Character *victim)
 {
 	if (victim->in_room == nullptr || ch->in_room == nullptr)
-		return TRUE;
+		return true;
 
 	if (ch->fighting || victim->fighting) {
 		stc("Wait for the fight to finish!\n", ch);
-		return TRUE;
+		return true;
 	}
 
 	if (ch == victim) {
 		stc("You like playing with yourself?\n", ch);
-		return TRUE;
+		return true;
 	}
 
 	if (IS_IMMORTAL(victim)) {
 		stc("You cannot do that to immortals.\n", ch);
-		return TRUE;
+		return true;
 	}
 
 	if (IS_IMMORTAL(ch))
-		return FALSE;
+		return false;
 
 	/* safe room? */
 	if (victim->in_room->flags().has(ROOM_SAFE)
-	    && (IS_NPC(victim) || victim->pcdata->pktimer <= 0)) {
+	    && (victim->is_npc() || victim->pcdata->pktimer <= 0)) {
 		stc("Oddly enough, in this room you feel peaceful.\n", ch);
-		return TRUE;
+		return true;
 	}
 
 	if (victim->in_room->sector_type() == Sector::arena
 	    || victim->in_room->sector_type() == Sector::clanarena
 	    || char_in_darena_room(victim))
-		return FALSE;
+		return false;
 
 	/* almost anything goes in the quest area if UPK is on */
 	if (Game::world().quest.pk
 	    && victim->in_room->area() == Game::world().quest.area()
 	    && ch->in_room->area() == Game::world().quest.area())
-		return FALSE;
+		return false;
 
-	return is_safe_char(ch, victim, TRUE);
+	return is_safe_char(ch, victim, true);
 }
 
 void do_push(Character *ch, String argument)
@@ -2079,7 +2082,7 @@ void do_push(Character *ch, String argument)
 		chance += (GET_ATTR_STR(ch) - GET_ATTR_STR(victim)) * 5;
 		chance = URANGE(5, chance, 95);
 
-		if (!chance(chance)) {
+		if (!roll_chance(chance)) {
 			act("$n tries unsuccessfully to push $N.", ch, nullptr, victim, TO_NOTVICT);
 			act("$n tries to push you.", ch, nullptr, victim, TO_VICT);
 			act("$N looks at you with contempt and ignores you.", ch, nullptr, victim, TO_CHAR);
@@ -2102,12 +2105,12 @@ void do_push(Character *ch, String argument)
 	}
 
 	if (to_room->flags().has(ROOM_LAW)
-	    && (IS_NPC(victim) && victim->act_flags.has(ACT_AGGRESSIVE))) {
+	    && (victim->is_npc() && victim->act_flags.has(ACT_AGGRESSIVE))) {
 		stc("They are too ill-tempered to have in the city.\n", ch);
 		return;
 	}
 
-	if (!IS_NPC(ch)
+	if (!ch->is_npc()
 	    && to_room->guild() != Guild::none
 	    && to_room->guild() != victim->guild) {
 		stc("They are not a member, they cannot enter.\n", ch);
@@ -2308,7 +2311,7 @@ void do_drag(Character *ch, String argument)
 		/* unlike push, it is possible for there to be *no* chance of dragging */
 		chance = URANGE(0, chance, 95);
 
-		if (!chance(chance)) {
+		if (!roll_chance(chance)) {
 			act("You strain your muscles, but fail to move $N!", ch, nullptr, victim, TO_CHAR);
 			act("$n strains $s muscles, but can't seem to drag $N.", ch, nullptr, victim, TO_NOTVICT);
 
@@ -2361,12 +2364,12 @@ void do_drag(Character *ch, String argument)
 	}
 
 	if (to_room->flags().has(ROOM_LAW)) {
-		if (IS_NPC(ch) && ch->act_flags.has(ACT_AGGRESSIVE)) {
+		if (ch->is_npc() && ch->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("They don't want your 'type' in there.\n", ch);
 			return;
 		}
 
-		if (IS_NPC(victim) && victim->act_flags.has(ACT_AGGRESSIVE)) {
+		if (victim->is_npc() && victim->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("They are too ill-tempered to have in the city.\n", ch);
 			return;
 		}
@@ -2478,7 +2481,7 @@ void do_drag(Character *ch, String argument)
 
 			if (!IS_AWAKE(victim)) {
 				if (affect::exists_on_char(victim, affect::type::sleep)) {
-					if (chance(40)) {
+					if (roll_chance(40)) {
 						affect::remove_type_from_char(victim, affect::type::sleep);
 						victim->position = POS_STANDING;
 					}
@@ -2610,7 +2613,7 @@ void do_drag(Character *ch, String argument)
 /* MARK: remember the current location for RELOCATE - Elrac */
 void do_mark(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You feel so at home here, there is no need to MARK.\n", ch);
 		return;
 	}
@@ -2645,7 +2648,7 @@ void do_relocate(Character *ch, String argument)
 {
 	Room *target_room;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("It's a nice day out, you would rather walk.\n", ch);
 		return;
 	}
@@ -2693,7 +2696,7 @@ void do_relocate(Character *ch, String argument)
 
 	if (number_percent() > get_skill_level(ch, skill::type::mark)) {
 		stc("You fail to relocate.\n", ch);
-		check_improve(ch, skill::type::mark, FALSE, 4);
+		check_improve(ch, skill::type::mark, false, 4);
 		return;
 	}
 
@@ -2715,7 +2718,7 @@ void do_relocate(Character *ch, String argument)
 
 	char_to_room(ch, target_room);
 	act("$n appears in a puff of smoke.", ch, nullptr, nullptr, TO_ROOM);
-	check_improve(ch, skill::type::mark, TRUE, 4);
+	check_improve(ch, skill::type::mark, true, 4);
 	do_look(ch, "auto");
 	WAIT_STATE(ch, skill::lookup(skill::type::mark).beats);
 } /* end do_relocate() */
@@ -2750,7 +2753,7 @@ void do_warp(Character *ch, String argument)
 	bool forget = false;
 	Room *target_room;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("It's a nice day out, you would rather walk.\n", ch);
 		return;
 	}
@@ -2780,7 +2783,7 @@ void do_warp(Character *ch, String argument)
 			if (str.length() > string_space)
 				string_space = str.length();
 
-		int columns = UMAX(1, 90 / (2 + number_space + 2 + string_space));
+		int columns = std::max(1, 90 / (2 + (int)number_space + 2 + (int)string_space));
 
 		for (const String& str: ch->pcdata->warp_locs) {
 			ptc(ch, "  %*d) %s", number_space, count++, str);
@@ -2909,7 +2912,7 @@ Room *get_random_room(Character *ch)
 				    || room->area().name == "Torayna Cri"
 				    || room->area().name == "The Abyss"
 				    || room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
-				    || (IS_NPC(ch) && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
+				    || (ch->is_npc() && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
 				    || room->sector_type() == Sector::arena)
 					continue;
 
@@ -2944,7 +2947,7 @@ void do_enter(Character *ch, String argument)
 		Room *old_room;
 		Object *portal;
 		Character *fch, *fch_next;
-		bool fighting = FALSE;
+		bool fighting = false;
 		int dex, chance, topp = 0;
 		old_room = ch->in_room;
 
@@ -2996,7 +2999,7 @@ void do_enter(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(ch) && location->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE)) {
+		if (ch->is_npc() && location->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE)) {
 			stc("As soon as you enter, you are spat violently out again.\n", ch);
 			return;
 		}
@@ -3026,13 +3029,13 @@ void do_enter(Character *ch, String argument)
 			chance = URANGE(10, chance, 90);
 			WAIT_STATE(ch, PULSE_VIOLENCE);
 
-			if (!chance(chance)) {
+			if (!roll_chance(chance)) {
 				stc("You can't get close enough to jump in!\n", ch);
 				return;
 			}
 
-			fighting = TRUE;
-			stop_fighting(ch, TRUE);
+			fighting = true;
+			stop_fighting(ch, true);
 			act("$n jumps into $p!", ch, portal, nullptr, TO_ROOM);
 		}
 		else
@@ -3074,7 +3077,7 @@ void do_enter(Character *ch, String argument)
 
 		do_look(ch, "auto");
 
-		if (!IS_NPC(ch) && fighting) {
+		if (!ch->is_npc() && fighting) {
 			if (ch->guild != Guild::thief) {
 				if (ch->guild == Guild::paladin) { /* Paladins */
 					stc("You lose 50 exp.\n", ch);
@@ -3115,7 +3118,7 @@ void do_enter(Character *ch, String argument)
 
 			if (fch->master == ch && get_position(fch) == POS_STANDING) {
 				if (ch->in_room->flags().has(ROOM_LAW)
-				    && (IS_NPC(fch) && fch->act_flags.has(ACT_AGGRESSIVE))) {
+				    && (fch->is_npc() && fch->act_flags.has(ACT_AGGRESSIVE))) {
 					act("You can't bring $N into the city!! Are you DAFT?!", ch, nullptr, fch, TO_CHAR);
 					act("Get yer aggressive butt outta town buddy...", fch, nullptr, nullptr, TO_CHAR);
 					continue;
@@ -3212,9 +3215,9 @@ or in a non-teleport/recall area.
 void do_spousegate(Character *ch, String argument)
 {
 	Character *victim;   /* the spouse in question */
-	bool gate_pet = FALSE;   /* take pet with you */
+	bool gate_pet = false;   /* take pet with you */
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->in_room == nullptr)
@@ -3263,7 +3266,7 @@ void do_spousegate(Character *ch, String argument)
 	    || char_in_duel_room(victim)
 	    || victim->in_room->clan()
 	    || victim->in_room->guild() != Guild::none
-	    || (IS_NPC(victim))) {
+	    || (victim->is_npc())) {
 		stc("You failed.\n", ch);
 		return;
 	}
@@ -3271,7 +3274,7 @@ void do_spousegate(Character *ch, String argument)
 	/* check for pet */
 	if ((ch->pet) && (ch->in_room == ch->pet->in_room) &&
 	    (! ch->pet->act_flags.has(ACT_STAY)))
-		gate_pet = TRUE;
+		gate_pet = true;
 
 	/* transfer person and (perhaps) pet */
 	act("$n steps through a gate and vanishes.", ch, nullptr, nullptr, TO_ROOM);

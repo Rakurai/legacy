@@ -46,7 +46,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -65,42 +64,42 @@
 bool is_friend(Character *ch, Character *victim)
 {
 	if (is_same_group(ch, victim))
-		return TRUE;
+		return true;
 
-	if (!IS_NPC(ch))
-		return FALSE;
+	if (!ch->is_npc())
+		return false;
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		if (ch->off_flags.has(ASSIST_PLAYERS))
-			return TRUE;
+			return true;
 		else
-			return FALSE;
+			return false;
 	}
 
 	if (affect::exists_on_char(ch, affect::type::charm_person))
-		return FALSE;
+		return false;
 
 	if (ch->off_flags.has(ASSIST_ALL))
-		return TRUE;
+		return true;
 
 	if (ch->group_flags.has_any_of(victim->group_flags))
-		return TRUE;
+		return true;
 
 	if (ch->off_flags.has(ASSIST_VNUM)
 	    &&  ch->pIndexData == victim->pIndexData)
-		return TRUE;
+		return true;
 
 	if (ch->off_flags.has(ASSIST_RACE) && ch->race == victim->race)
-		return TRUE;
+		return true;
 
 	if (ch->off_flags.has(ASSIST_ALIGN)
 	    &&  !ch->act_flags.has(ACT_NOALIGN) && !victim->act_flags.has(ACT_NOALIGN)
 	    && ((IS_GOOD(ch) && IS_GOOD(victim))
 	        || (IS_EVIL(ch) && IS_EVIL(victim))
 	        || (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /* returns number of people on an object */
@@ -127,10 +126,10 @@ bool is_clan(Character *ch)
 bool is_same_clan(Character *ch, Character *victim)
 {
 	if (ch == nullptr || victim == nullptr || ch->clan == nullptr || victim->clan == nullptr)
-		return FALSE;
+		return false;
 
 	if (ch->clan->independent && !IS_IMMORTAL(ch))
-		return FALSE;
+		return false;
 	else
 		return (ch->clan == victim->clan);
 }
@@ -178,7 +177,7 @@ int get_weapon_learned(Character *ch, skill::type sn)
 	int skill;
 
 	/* -1 is exotic */
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		if (sn == skill::type::unknown)
 			skill = 3 * ch->level;
 		else if (sn == skill::type::hand_to_hand)
@@ -201,7 +200,7 @@ int get_max_train(Character *ch, int stat)
 {
 	int max;
 
-	if (IS_NPC(ch) || IS_IMMORTAL(ch))
+	if (ch->is_npc() || IS_IMMORTAL(ch))
 		return 25;
 
 	max = pc_race_table[ch->race].max_stats[stat];
@@ -214,7 +213,7 @@ int get_max_train(Character *ch, int stat)
 			max += 2;
 	}
 
-	return UMIN(max, 25);
+	return std::min(max, 25);
 }
 
 /*
@@ -225,7 +224,7 @@ int can_carry_n(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 9999;
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_PET))
+	if (ch->is_npc() && ch->act_flags.has(ACT_PET))
 		return 0;
 
 	return MAX_WEAR +  2 * GET_ATTR_DEX(ch) + ch->level;
@@ -239,7 +238,7 @@ int can_carry_w(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 10000000;
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_PET))
+	if (ch->is_npc() && ch->act_flags.has(ACT_PET))
 		return 0;
 
 	return str_app[GET_ATTR_STR(ch)].carry * 10 + ch->level * 25;
@@ -294,7 +293,7 @@ void obj_from_locker(Object *obj)
 		return;
 	}
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		Logging::bug("obj_from_locker: obj points to mobile", 0);
 		return;
 	}
@@ -327,7 +326,7 @@ void obj_from_strongbox(Object *obj)
 		return;
 	}
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		Logging::bug("obj_from_strongbox: obj points to a mobile", 0);
 		return;
 	}
@@ -354,7 +353,7 @@ void obj_from_strongbox(Object *obj)
 
 void obj_to_locker(Object *obj, Character *ch)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		Logging::bug("obj_to_locker: ch is a mobile", 0);
 		return;
 	}
@@ -369,7 +368,7 @@ void obj_to_locker(Object *obj, Character *ch)
 
 void obj_to_strongbox(Object *obj, Character *ch)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		Logging::bug("obj_to_strongbox: ch is a mobile", 0);
 		return;
 	}
@@ -519,7 +518,7 @@ void equip_char(Character *ch, Object *obj, int iWear)
 	obj->wear_loc = iWear;
 
 	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
-		affect::modify_char(ch, paf, TRUE);
+		affect::modify_char(ch, paf, true);
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0 && ch->in_room != nullptr)
 		++ch->in_room->light;
@@ -541,7 +540,7 @@ void unequip_char(Character *ch, Object *obj)
 	obj->wear_loc        = -1;
 
 	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
-		affect::modify_char(ch, paf, FALSE);
+		affect::modify_char(ch, paf, false);
 
 	if (obj->item_type == ITEM_LIGHT
 	    &&   obj->value[2] != 0
@@ -701,12 +700,12 @@ void obj_from_obj(Object *obj)
 		return;
 	}
 
-	bool found = FALSE;
+	bool found = false;
 
 	// look in contents first
 	if (obj == obj_from->contains) {
 		obj_from->contains = obj->next_content;
-		found = TRUE;
+		found = true;
 	}
 	else {
 		Object *prev;
@@ -719,14 +718,14 @@ void obj_from_obj(Object *obj)
 		}
 
 		if (prev != nullptr)
-			found = TRUE;
+			found = true;
 	}
 
 	if (!found) {
 		// try the gems
 		if (obj == obj_from->gems) {
 			obj_from->gems = obj->next_content;
-			found = TRUE;
+			found = true;
 		}
 		else {
 			Object *prev;
@@ -739,7 +738,7 @@ void obj_from_obj(Object *obj)
 			}
 
 			if (prev != NULL)
-				found = TRUE;
+				found = true;
 		}
 
 	}
@@ -856,7 +855,7 @@ void extract_char(Character *ch, bool fPull)
 	if (fPull)
 		die_follower(ch);
 
-	stop_fighting(ch, TRUE);
+	stop_fighting(ch, true);
 
 	for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
 		obj_next = obj->next_content;
@@ -871,7 +870,7 @@ void extract_char(Character *ch, bool fPull)
 		return;
 	}
 
-	if (!IS_NPC(ch)) {
+	if (!ch->is_npc()) {
 		for (obj = ch->pcdata->locker; obj != nullptr; obj = obj_next) {
 			obj_next = obj->next_content;
 			extract_obj(obj);
@@ -883,7 +882,7 @@ void extract_char(Character *ch, bool fPull)
 		}
 	}
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		--ch->pIndexData->count;
 
 	if (ch->desc != nullptr && ch->desc->original != nullptr) {
@@ -953,9 +952,9 @@ bool mob_exists(const char *name)
 	for (const auto area : Game::world().areas)
 		for (const auto& pair : area->mob_prototypes)
 			if (pair.second->player_name.has_exact_words(name))
-				return TRUE;
+				return true;
 
-	return FALSE;
+	return false;
 }
 
 /*
@@ -975,7 +974,7 @@ Object *get_obj_type(ObjectPrototype *pObjIndex)
 }
 
 /* deduct cost from a character */
-bool deduct_cost(Character *ch, long cost)
+bool deduct_cost(Character *ch, int cost)
 {
 	int silver, gold = 0;
 
@@ -985,13 +984,13 @@ bool deduct_cost(Character *ch, long cost)
 		silver = cost - (gold * 100);
 		ch->gold += gold;
 		ch->silver += silver;
-		return TRUE;
+		return true;
 	}
 
 	if (ch->silver + (100 * ch->gold) < cost)               /* not enough */
-		return FALSE;
+		return false;
 
-	silver = UMIN(ch->silver, cost);
+	silver = std::min(ch->silver, cost);
 
 	if (silver < cost) {
 		gold = ((cost - silver + 99) / 100);
@@ -1000,7 +999,7 @@ bool deduct_cost(Character *ch, long cost)
 
 	ch->gold -= gold;
 	ch->silver -= silver;
-	return TRUE;
+	return true;
 }
 
 /*
@@ -1024,8 +1023,8 @@ Object *create_money(int gold, int silver)
 
 	if (gold <= 0 && silver <= 0) {
 		Logging::bug("Create_money: zero or negative money.", 0);
-		gold = UMAX(1, gold);
-		silver = UMAX(1, silver);
+		gold = std::max(1, gold);
+		silver = std::max(1, silver);
 	}
 
 	if (gold + silver > 1) {
@@ -1099,7 +1098,7 @@ int get_locker_number(Character *ch)
 	Object *obj;
 	int number = 0;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return 0;
 
 	for (obj = ch->pcdata->locker; obj; obj = obj->next_content)
@@ -1113,7 +1112,7 @@ int get_strongbox_number(Character *ch)
 	Object *obj;
 	int number = 0;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return 0;
 
 	for (obj = ch->pcdata->strongbox; obj; obj = obj->next_content)
@@ -1152,7 +1151,7 @@ int get_locker_weight(Character *ch)
 	Object *obj;
 	int weight = 0;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return 0;
 
 	for (obj = ch->pcdata->locker; obj; obj = obj->next_content)
@@ -1202,42 +1201,42 @@ int get_true_weight(Object *obj)
 bool room_is_dark(const Room *room)
 {
 	if (room == nullptr)
-		return TRUE;
+		return true;
 
 	if (room_is_very_dark(room))
-		return TRUE;
+		return true;
 
 	if (room->light > 0)
-		return FALSE;
+		return false;
 
 	if (room->flags().has(ROOM_DARK))
-		return TRUE;
+		return true;
 
 	if (room->sector_type() == Sector::inside
 	    || room->sector_type() == Sector::city)
-		return FALSE;
+		return false;
 
 	if (Game::world().time.sunlight == GameTime::Night)
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 bool room_is_very_dark(const Room *room)
 {
 	if (room == nullptr)
-		return TRUE;
+		return true;
 
 	if (room->flags().has(ROOM_NOLIGHT))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 bool is_room_owner(Character *ch, Room *room)
 {
 	if (room->owner().empty())
-		return FALSE;
+		return false;
 
 	return room->owner().has_words(ch->name);
 }
@@ -1251,7 +1250,7 @@ bool room_is_private(Room *room)
 	int count;
 
 	if (!room->owner().empty())
-		return TRUE;
+		return true;
 
 	count = 0;
 
@@ -1259,12 +1258,12 @@ bool room_is_private(Room *room)
 		count++;
 
 	if (room->flags().has(ROOM_PRIVATE)  && count >= 2)
-		return TRUE;
+		return true;
 
 	if (room->flags().has(ROOM_SOLITARY) && count >= 1)
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /* visibility on a room -- for entering and exits */
@@ -1272,27 +1271,27 @@ bool can_see_room(const Character *ch, const Room *room)
 {
 	if (room->flags().has(ROOM_IMP_ONLY)
 	    &&  GET_RANK(ch) < RANK_IMP)
-		return FALSE;
+		return false;
 
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	/* restrictions below this line do not apply to immortals of any level. */
 
 	if (room->flags().has(ROOM_GODS_ONLY))
-		return FALSE;
+		return false;
 
 	if (room->flags().has(ROOM_REMORT_ONLY)
 	    && !IS_REMORT(ch))
-		return FALSE;
+		return false;
 
 	if (room->flags().has(ROOM_HEROES_ONLY)
 	    &&  !IS_HEROIC(ch))
-		return FALSE;
+		return false;
 
 	if (room->flags().has(ROOM_NEWBIES_ONLY)
 	    &&  ch->level > 5 && !ch->act_flags.has(PLR_MAKEBAG))
-		return FALSE;
+		return false;
 
 	/* can see other clanhall in times of war */
 	if (room->clan()) {
@@ -1300,46 +1299,46 @@ bool can_see_room(const Character *ch, const Room *room)
 		if (ch->clan)
 		  {
 		          if (clan->opponents(ch->clan, room->clan()))
-		                  return TRUE;
+		                  return true;
 		  }
 		*/
 
 		/* Check if character has a master in the clan -- Outsider */
 		/* but only if they're a mob.  a pc following someone in a group has a master too -- Montrey */
-		if (IS_NPC(ch) && ch->master) {
+		if (ch->is_npc() && ch->master) {
 			if (ch->master->clan != room->clan())
-				return FALSE;
+				return false;
 		}
 		/* Only check if we have no master -- Outsider */
 		else if (ch->clan != room->clan() && ch->inviters != room->clan())
-			return FALSE;
+			return false;
 	}
 
 	if (room->flags().has(ROOM_LEADER_ONLY)
 	    && !ch->has_cgroup(GROUP_LEADER))
-		return FALSE;
+		return false;
 
 	if (room->flags().has(ROOM_MALE_ONLY) && GET_ATTR_SEX(ch) != SEX_MALE)
-		return FALSE;
+		return false;
 
 	if (room->flags().has(ROOM_FEMALE_ONLY) && GET_ATTR_SEX(ch) != SEX_FEMALE)
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 }
 
 bool is_blinded(const Character *ch) {
 	if (IS_IMMORTAL(ch))
-		return FALSE;
+		return false;
 
 	if (affect::exists_on_char(ch, affect::type::blindness)
 	 || affect::exists_on_char(ch, affect::type::dirt_kicking)
 	 || affect::exists_on_char(ch, affect::type::fire_breath)
 	 || affect::exists_on_char(ch, affect::type::smokescreen)
 	 || affect::exists_on_char(ch, affect::type::dazzle))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /*
@@ -1348,39 +1347,39 @@ bool is_blinded(const Character *ch) {
 bool can_see_char(const Character *ch, const Character *victim)
 {
 	if (ch == victim)
-		return TRUE;
+		return true;
 
 	if (IS_IMP(ch))
-		return TRUE;
+		return true;
 
-	if (!IS_NPC(victim) && victim->act_flags.has(PLR_SUPERWIZ))
-		return FALSE;
+	if (!victim->is_npc() && victim->act_flags.has(PLR_SUPERWIZ))
+		return false;
 
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
-	if (IS_NPC(victim) && victim->act_flags.has(ACT_SUPERMOB))
-		return FALSE;
+	if (victim->is_npc() && victim->act_flags.has(ACT_SUPERMOB))
+		return false;
 
 	if (affect::exists_on_char(victim, affect::type::midnight))
-		return FALSE;
+		return false;
 
 	if (!IS_IMMORTAL(ch) && victim->lurk_level && ch->in_room != victim->in_room)
-		return FALSE;
+		return false;
 
 	if (victim->invis_level)
-		return FALSE;
+		return false;
 
 	if (is_blinded(ch))
-		return FALSE;
+		return false;
 
 	if ((room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
 	 || room_is_very_dark(ch->in_room))
-		return FALSE;
+		return false;
 
 	if (affect::exists_on_char(victim, affect::type::invis)
 	    &&   !affect::exists_on_char(ch, affect::type::detect_invis))
-		return FALSE;
+		return false;
 
 	/* sneaking */
 	if (affect::exists_on_char(victim, affect::type::sneak)
@@ -1393,15 +1392,15 @@ bool can_see_char(const Character *ch, const Character *victim)
 		chance += ch->level - victim->level * 3 / 2;
 
 		if (number_percent() < chance)
-			return FALSE;
+			return false;
 	}
 
 	if (affect::exists_on_char(victim, affect::type::hide)
 	    &&   !affect::exists_on_char(ch, affect::type::detect_hidden)
 	    &&   victim->fighting == nullptr)
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 } /* end can_see_char() */
 
 /*
@@ -1412,18 +1411,18 @@ bool can_see_who(const Character *ch, const Character *victim)
 {
 	/* wizi still rules */
 	if (victim->invis_level && !IS_IMMORTAL(ch))
-		return FALSE;
+		return false;
 
 	/* so does SUPERWIZ */
-	if (victim->act_flags.has(PLR_SUPERWIZ) && !IS_NPC(victim) && !IS_IMP(ch))
-		return FALSE;
+	if (victim->act_flags.has(PLR_SUPERWIZ) && !victim->is_npc() && !IS_IMP(ch))
+		return false;
 
 	/* so does LURK */
 	if (!IS_IMMORTAL(ch) && victim->lurk_level && ch->in_room != victim->in_room)
-		return FALSE;
+		return false;
 
 	/* Otherwise, I guess WHO should see them. */
-	return TRUE;
+	return true;
 }
 
 /*
@@ -1433,18 +1432,18 @@ bool can_see_who(const Character *ch, const Character *victim)
 bool can_see_in_room(const Character *ch, const Room *room)
 {
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	if (room_is_very_dark(room))
-		return FALSE;
+		return false;
 
 	if (is_blinded(ch))
-		return FALSE;
+		return false;
 
 	if (room_is_dark(room) && !affect::exists_on_char(ch, affect::type::night_vision))
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 }
 
 /*
@@ -1453,43 +1452,43 @@ bool can_see_in_room(const Character *ch, const Room *room)
 bool can_see_obj(const Character *ch, const Object *obj)
 {
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	if (room_is_very_dark(ch->in_room))
-		return FALSE;
+		return false;
 
 	if (is_blinded(ch))
-		return FALSE;
+		return false;
 
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH) && obj->carried_by != ch)
-		return FALSE;
+		return false;
 
-	if (obj->timer > 0 && !IS_NPC(ch) && obj->name.has_words("mox")
+	if (obj->timer > 0 && !ch->is_npc() && obj->name.has_words("mox")
 	    && !obj->name.substr(4).has_words(ch->name))
-		return FALSE;
+		return false;
 
 	if (obj->pIndexData->vnum == OBJ_VNUM_SQUESTOBJ) {
-		if (IS_NPC(ch))
-			return FALSE;
+		if (ch->is_npc())
+			return false;
 
 		if (!IS_SQUESTOR(ch) || ch->pcdata->squestobj == nullptr || obj != ch->pcdata->squestobj)
-			return FALSE;
+			return false;
 	}
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS)
 	    && !affect::exists_on_char(ch, affect::type::detect_invis))
-		return FALSE;
+		return false;
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
-		return TRUE;
+		return true;
 
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
-		return TRUE;
+		return true;
 
 	if (room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 }
 
 /*
@@ -1498,12 +1497,12 @@ bool can_see_obj(const Character *ch, const Object *obj)
 bool can_drop_obj(Character *ch, Object *obj)
 {
 	if (!IS_OBJ_STAT(obj, ITEM_NODROP))
-		return TRUE;
+		return true;
 
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /* round to the nearest whole number, in increments */
@@ -1545,15 +1544,15 @@ int get_usable_level(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 1000;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return ch->level;
 
 	if (IS_REMORT(ch))
-		level = ch->level + UMIN((ch->pcdata->remort_count / 3) + 6, 16);
+		level = ch->level + std::min((ch->pcdata->remort_count / 3) + 6, 16);
 	else
 		level = ch->level + 5;
 
-	return UMIN(level, LEVEL_HERO);
+	return std::min(level, LEVEL_HERO);
 }
 
 int get_holdable_level(Character *ch)
@@ -1563,11 +1562,11 @@ int get_holdable_level(Character *ch)
 	if (IS_IMMORTAL(ch))
 		return 1000;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return ch->level;
 
 	if (IS_REMORT(ch))
-		level = ch->level + UMIN((ch->pcdata->remort_count / 3) + 9, 19);
+		level = ch->level + std::min((ch->pcdata->remort_count / 3) + 9, 19);
 	else
 		level = ch->level + 8;
 
@@ -1633,13 +1632,13 @@ int get_position(Character *ch)
 /* retrieve a character's playing time in hours */
 int get_play_hours(Character *ch)
 {
-	return (IS_NPC(ch) ? 0 : ch->pcdata->played / 3600);
+	return (ch->is_npc() ? 0 : ch->pcdata->played / 3600);
 }
 
 /* retrieve a character's playing time in seconds */
 int get_play_seconds(Character *ch)
 {
-	return (IS_NPC(ch) ? 0 : ch->pcdata->played);
+	return (ch->is_npc() ? 0 : ch->pcdata->played);
 }
 
 // TODO: this doesn't take eq affects into account, but short of looping through those...

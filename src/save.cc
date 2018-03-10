@@ -29,6 +29,7 @@
 #include <utility>
 #include <vector>
 
+#include "file.hh"
 #include "../deps/cJSON/cJSON.h"
 #include "argument.hh"
 #include "affect/Affect.hh"
@@ -44,7 +45,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -56,11 +56,12 @@
 #include "String.hh"
 #include "gem/gem.hh"
 #include "sql.hh"
+#include "World.hh"
 
 
 int CURRENT_VERSION = 21;   /* version number for pfiles */
 
-bool debug_json = FALSE;
+bool debug_json = false;
 
 /* Locals */
 
@@ -93,7 +94,7 @@ void save_char_obj(Character *ch)
 	char strsave[MIL];
 	FILE *fp;
 
-	if (ch == nullptr || IS_NPC(ch))
+	if (ch == nullptr || ch->is_npc())
 		return;
 
 	if (ch->desc != nullptr && ch->desc->original != nullptr)
@@ -135,7 +136,7 @@ void save_char_obj(Character *ch)
 	}
 
 	free(JSONstring);
-	update_pc_index(ch, FALSE);
+	update_pc_index(ch, false);
 }
 
 void backup_char_obj(Character *ch)
@@ -713,7 +714,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 	ATTR_BASE(ch, APPLY_MANA)           = 100;
 	ATTR_BASE(ch, APPLY_STAM)           = 100;
 	ch->pcdata->last_logoff         = Game::current_time;
-	found = FALSE;
+	found = false;
 
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, name.lowercase().capitalize());
 
@@ -742,7 +743,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 			fread_objects(ch->pet, cJSON_GetObjectItem(root, "pet_inventory"), &obj_to_char, version);
 
 		cJSON_Delete(root); // finished with it
-		found = TRUE;
+		found = true;
 
 		// fix things up
 
@@ -812,7 +813,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 		if (!IS_IMMORTAL(ch)) {
 			for (int stat = 0; stat < MAX_STATS; stat++)
 				ATTR_BASE(ch, stat_to_attr(stat))
-				 = UMIN(ATTR_BASE(ch, stat_to_attr(stat)), get_max_train(ch, stat));
+				 = std::min(ATTR_BASE(ch, stat_to_attr(stat)), get_max_train(ch, stat));
 		}
 	}
 
@@ -839,7 +840,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 			if (pc_race_table[ch->race].skills[i].empty())
 				break;
 
-			group_add(ch, pc_race_table[ch->race].skills[i], FALSE);
+			group_add(ch, pc_race_table[ch->race].skills[i], false);
 		}
 
 		/* fix command groups */
@@ -856,7 +857,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 //		reset_char(ch);
 		/* adjust hp mana stamina up  -- here for speed's sake */
 		percent = (Game::current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
-		percent = UMIN(percent, 100);
+		percent = std::min(percent, 100);
 
 		if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison) && !affect::exists_on_char(ch, affect::type::plague)) {
 			ch->hit         += (GET_MAX_HIT(ch) - ch->hit) * percent / 100;
@@ -884,7 +885,7 @@ void setstr(String *field, const char* value) {
 	if (  key == literal  )        \
 	{                                       \
 		field = value;                      \
-		fMatch = TRUE;						\
+		fMatch = true;						\
 		break;                              \
 	}
 
@@ -896,7 +897,7 @@ void setstr(String *field, const char* value) {
 	if (  key == literal  )        \
 	{                                       \
 		field  = value;               \
-		fMatch = TRUE;                      \
+		fMatch = true;                      \
 		break;                              \
 	}
 
@@ -908,7 +909,7 @@ void setstr(String *field, const char* value) {
 	if (  key == literal  )        \
 	{                                       \
 		field  = Flags(value);               \
-		fMatch = TRUE;                      \
+		fMatch = true;                      \
 		break;                              \
 	}
 
@@ -919,7 +920,7 @@ void setstr(String *field, const char* value) {
 #define SKIPKEY( literal )                  \
 	if (  key == literal  )			\
 	{                                       \
-		fMatch = TRUE;                      \
+		fMatch = true;                      \
 		break;                              \
 	}	
 
@@ -936,7 +937,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 	for (cJSON *o = json->child; o; o = o->next) {
 		String key = o->string;
-		bool fMatch = FALSE;
+		bool fMatch = false;
 		int count = 0; // convenience variable to compact this list, resets with every item
 
 		switch (toupper(key[0])) {
@@ -946,7 +947,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					for (cJSON *item = o->child; item != nullptr; item = item->next, count++)
 						ch->pcdata->alias[item->child->valuestring] = item->child->next->valuestring;
 
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				STRKEY("Afk",			ch->pcdata->afk,			o->valuestring);
@@ -965,7 +966,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					JSON::get_short(o, &ch->pcdata->condition[COND_FULL], "full");
 					JSON::get_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
 					JSON::get_short(o, &ch->pcdata->condition[COND_HUNGER], "hunger");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				if (key == "Colr") { // array of dicts
@@ -974,7 +975,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 						JSON::get_short(item, &ch->pcdata->color[slot], "color");
 						JSON::get_short(item, &ch->pcdata->bold[slot], "bold");
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				FLAGKEY("Cgrp",			ch->pcdata->cgroup_flags,			o->valuestring);
@@ -995,7 +996,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 						ch->pcdata->extraclass[count++] = sn;
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				STRKEY("Email",			ch->pcdata->email,			o->valuestring);
@@ -1019,7 +1020,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 
 						gn_add(ch, gn);
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				STRKEY("GameIn",		ch->pcdata->gamein,			o->valuestring);
@@ -1031,7 +1032,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				break;
@@ -1039,7 +1040,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "Ignore") {
 					for (cJSON *item = o->child; item != nullptr; item = item->next)
 						ch->pcdata->ignore.push_back(item->valuestring);
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("Id",            ch->pcdata->id,             o->valueint); // moved from char in version 18
@@ -1068,7 +1069,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					JSON::get_long(o, &ch->pcdata->last_changes, "change");
 					JSON::get_long(o, &ch->pcdata->last_personal, "pers");
 					JSON::get_long(o, &ch->pcdata->last_trade, "trade");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				break;
@@ -1085,7 +1086,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "Query") {
 					for (cJSON *item = o->child; item != nullptr && count < MAX_QUERY; item = item->next)
 						ch->pcdata->query.push_back(item->valuestring);
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("QuestPnts",		ch->pcdata->questpoints,			o->valueint);
@@ -1096,7 +1097,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "Raff") {
 					for (cJSON *item = o->child; item != nullptr && count < MAX_RAFFECT_SLOTS; item = item->next)
 						ch->pcdata->raffect[count++] = item->valueint;
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				STRKEY("Rank",			ch->pcdata->rank,			o->valuestring);
@@ -1116,7 +1117,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 						set_learned(ch, sn, cJSON_GetObjectItem(item, "prac")->valueint);
 						set_evolution(ch, sn, cJSON_GetObjectItem(item, "evol")->valueint);
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("SkillPnts",		ch->pcdata->skillpoints,	o->valueint);
@@ -1129,12 +1130,12 @@ void fread_player(Character *ch, cJSON *json, int version) {
 					JSON::get_short(o, &ch->pcdata->trains_to_hit, "hit");
 					JSON::get_short(o, &ch->pcdata->trains_to_hit, "mana");
 					JSON::get_short(o, &ch->pcdata->trains_to_hit, "stam");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				if (key == "Titl") {
 					set_title(ch, o->valuestring);
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("TSex",			ATTR_BASE(ch, APPLY_SEX),	o->valueint); // removed in version 16
@@ -1153,7 +1154,7 @@ void fread_player(Character *ch, cJSON *json, int version) {
 						// use the object's string, in case it has been updated for color or caps
 						ch->pcdata->warp_locs.emplace(get_warp_loc_string(obj));
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				STRKEY("Wspr",			ch->pcdata->whisper,		o->valuestring);
@@ -1186,7 +1187,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 
 	for (cJSON *o = json->child; o; o = o->next) {
 		String key = o->string;
-		bool fMatch = FALSE;
+		bool fMatch = false;
 //		int count = 0; // convenience variable to compact this list, resets with every item
 
 		switch (toupper(key[0])) {
@@ -1213,11 +1214,11 @@ void fread_char(Character *ch, cJSON *json, int version)
 						JSON::get_int(item, &bitvector, "bitv");
 						af.bitvector(Flags(bitvector));
 						JSON::get_short(item, &af.evolution, "evo");
-						af.permanent = FALSE;
+						af.permanent = false;
 
 						affect::copy_to_char(ch, &af);
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				if (key == "Atrib") {
@@ -1227,7 +1228,7 @@ void fread_char(Character *ch, cJSON *json, int version)
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_DEX), "dex");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_CON), "con");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_CHR), "chr");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				FLAGKEY("Act",          ch->act_flags,              o->valuestring);
@@ -1249,9 +1250,9 @@ void fread_char(Character *ch, cJSON *json, int version)
 			case 'F':
 				break;
 			case 'G':
-				if (key == "GlDonated" && !IS_NPC(ch)) { // moved to pcdata in version 21
+				if (key == "GlDonated" && !ch->is_npc()) { // moved to pcdata in version 21
 					ch->pcdata->gold_donated = o->valueint;
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("Gold_in_bank",	ch->gold_in_bank,			o->valueint);
@@ -1262,22 +1263,22 @@ void fread_char(Character *ch, cJSON *json, int version)
 					JSON::get_short(o, &ch->hit, "hit");
 					JSON::get_short(o, &ch->mana, "mana");
 					JSON::get_short(o, &ch->stam, "stam");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				if (key == "HMSP") {
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_HIT), "hit");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_MANA), "mana");
 					JSON::get_int(o, &ATTR_BASE(ch, APPLY_STAM), "stam");
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("Hit",			ATTR_BASE(ch, APPLY_HITROLL), o->valueint); // NPC
 				break;
 			case 'I':
-				if (key == "Id" && !IS_NPC(ch)) { // moved to pcdata in version 18
+				if (key == "Id" && !ch->is_npc()) { // moved to pcdata in version 18
 					ch->pcdata->id = o->valueint;
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 				INTKEY("Invi",			ch->invis_level,			o->valueint);
 				break;
@@ -1296,17 +1297,17 @@ void fread_char(Character *ch, cJSON *json, int version)
 				STRKEY("Prom",			ch->prompt,					o->valuestring);
 				break;
 			case 'Q':
-				if (key == "QuestPnts" && !IS_NPC(ch)) { // moved to pcdata in version 21
+				if (key == "QuestPnts" && !ch->is_npc()) { // moved to pcdata in version 21
 					ch->pcdata->questpoints = o->valueint;
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
-				if (key == "QpDonated" && !IS_NPC(ch)) { // moved to pcdata in version 21
+				if (key == "QpDonated" && !ch->is_npc()) { // moved to pcdata in version 21
 					ch->pcdata->questpoints_donated = o->valueint;
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
-				if (key == "QuestNext" && !IS_NPC(ch)) { // moved to pcdata in version 21
+				if (key == "QuestNext" && !ch->is_npc()) { // moved to pcdata in version 21
 					ch->pcdata->nextquest = o->valueint;
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 				break;
 			case 'R':
@@ -1391,7 +1392,7 @@ Object * fread_obj(cJSON *json, int version) {
 
 	for (cJSON *o = json->child; o; o = o->next) {
 		String key = o->string;
-		bool fMatch = FALSE;
+		bool fMatch = false;
 //		int count = 0; // convenience variable to compact this list, resets with every item
 
 		switch (toupper(key[0])) {
@@ -1404,11 +1405,11 @@ Object * fread_obj(cJSON *json, int version) {
 					// i'm fixing gear for anyone who complains, but we only have like 4 players,
 					// so hopefully we can just get past this.
 					if (version > 15 && version < 17) {
-						fMatch = TRUE; break;
+						fMatch = true; break;
 					}
 
 					// this object has different affects than the index, free the old ones
-					affect::remove_all_from_obj(obj, TRUE);
+					affect::remove_all_from_obj(obj, true);
 
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						affect::Affect af;
@@ -1462,7 +1463,7 @@ Object * fread_obj(cJSON *json, int version) {
 							af.type = affect::type::none; // reset, in case we're parsing multiple TO_AFFECTS bits
 						} while (!bitvector.empty());
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 				break;
 			case 'C':
@@ -1489,7 +1490,7 @@ Object * fread_obj(cJSON *json, int version) {
 							extract_obj(content);
 						}
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				INTKEY("Cond",			obj->condition,				o->valueint);
@@ -1505,7 +1506,7 @@ Object * fread_obj(cJSON *json, int version) {
 						ed->next                = obj->extra_descr;
 						obj->extra_descr        = ed;
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 				
 				FLAGKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not string_to_flags
@@ -1524,7 +1525,7 @@ Object * fread_obj(cJSON *json, int version) {
 							extract_obj(gem);
 						}
 					}
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 				break;
 			case 'I':
@@ -1551,7 +1552,7 @@ Object * fread_obj(cJSON *json, int version) {
 					for (cJSON *item = o->child; item; item = item->next, slot++)
 						obj->value[slot] = item->valueint;
 
-					fMatch = TRUE; break;
+					fMatch = true; break;
 				}
 
 				SKIPKEY("Vnum");
@@ -1581,7 +1582,7 @@ Object * fread_obj(cJSON *json, int version) {
 		af.level              = obj->level;
 		af.duration           = -1;
 		af.evolution          = 1;
-		af.permanent          = TRUE;
+		af.permanent          = true;
 		af.location           = 0;
 		af.modifier           = 0;
 
@@ -1664,7 +1665,7 @@ void fread_pet(Character *ch, cJSON *json, int version)
 	}
 
 	// blow away any affects that are not permanent, from non-racial affect flags
-	affect::remove_all_from_char(pet, FALSE);
+	affect::remove_all_from_char(pet, false);
 
 	fread_char(pet, json, version);
 
@@ -1675,7 +1676,7 @@ void fread_pet(Character *ch, cJSON *json, int version)
 	/* adjust hp mana stamina up  -- here for speed's sake */
 	int percent;
 	percent = (Game::current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
-	percent = UMIN(percent, 100);
+	percent = std::min(percent, 100);
 
 	if (percent > 0 && !affect::exists_on_char(ch, affect::type::poison)
 	    &&  !affect::exists_on_char(ch, affect::type::plague)) {
@@ -1704,83 +1705,6 @@ void update_pc_index(const Character *ch, bool remove)
 		            ch->clan && !ch->pcdata->rank.empty() ? db_esc(ch->pcdata->rank) : "");
 }
 
-
-/*
- * This function works just like ctime() does on current Linux systems.
- * I am only implementing it to make sure that dizzy_scantime(), which
- * decodes the output from ctime() and dizzy_ctime(), will always work
- * even if the system on which this code is run implements ctime()
- * differently.
- *
- * The output format for dizzy_ctime() is like this:
- *      Wed Jun 30 21:49:08 1993\n
- *
- * Like ctime(), dizzy_ctime() writes to a static string which will change
- * with the next invocation of dizzy_ctime().
- */
-
-static const String day_names[] =
-{ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
-static const String month_names[] = {
-	"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-};
-
-const char *dizzy_ctime(time_t *timep)
-{
-	static char ctime_buf[40];
-	struct tm loc_tm;
-	loc_tm = *localtime(timep);
-	Format::sprintf(ctime_buf, "%s %s %02d %02d:%02d:%02d %04d\n",
-	        day_names[loc_tm.tm_wday],
-	        month_names[loc_tm.tm_mon],
-	        loc_tm.tm_mday,
-	        loc_tm.tm_hour, loc_tm.tm_min, loc_tm.tm_sec,
-	        1900 + loc_tm.tm_year);
-	return ctime_buf;
-} /* end dizzy_ctime() */
-
-/*
- * decode a time string as produced by dizzy_ctime()
- * Day of week is scanned in spite of not being needed so that the
- * return value from Format::sprintf() will be significant.
- */
-time_t dizzy_scantime(const String& ctime)
-{
-	char cdow[4], cmon[4];
-	int year, month, day, hour, minute, second;
-	char msg[MAX_INPUT_LENGTH];
-	struct tm loc_tm;
-	/* this helps initialize local-dependent stuff like TZ, etc. */
-	loc_tm = *localtime(&Game::current_time);
-
-	if (sscanf(ctime.c_str(), " %3s %3s %d %d:%d:%d %d",
-	           cdow, cmon, &day, &hour, &minute, &second, &year) < 7) {
-		Format::sprintf(msg, "dizzy_scantime(): Error scanning date/time: '%s'", ctime);
-		Logging::bug(msg, 0);
-		goto endoftime;
-	}
-
-	for (month = 0; month < 12; month++) {
-		if (month_names[month].is_prefix_of(ctime.substr(4)))
-			break;
-	}
-
-	if (month >= 12) {
-		Format::sprintf(msg, "dizzy_scantime(): Bad month in %s", ctime);
-		Logging::bug(msg, 0);
-		goto endoftime;
-	}
-
-	loc_tm.tm_mon  = month;
-	loc_tm.tm_mday = day;
-	loc_tm.tm_hour = hour;
-	loc_tm.tm_min  = minute;
-	loc_tm.tm_sec  = second;
-	loc_tm.tm_year = year - 1900;
-endoftime:
-	return mktime(&loc_tm);
-} /* end dizzy_scantime() */
 
 void do_finger(Character *ch, String argument)
 {
@@ -1963,54 +1887,54 @@ bool check_parse_name(const String& name)
 	if (String(
 		"all auto immortal self remort imms private someone something the you"
 		).has_words(name))
-		return FALSE;
+		return false;
 
 	if ((clan = clan_lookup(name)) != nullptr)
-		return FALSE;
+		return false;
 
 	/*
 	 * Length restrictions.
 	 */
 
 	if (strlen(name) <  2)
-		return FALSE;
+		return false;
 
 	if (strlen(name) > 12)
-		return FALSE;
+		return false;
 
 	/*
 	 * Alphanumerics only.
 	 * Lock out IllIll twits.
 	 */
 	{
-		bool fIll, adjcaps = FALSE, cleancaps = FALSE;
+		bool fIll, adjcaps = false, cleancaps = false;
 		unsigned int total_caps = 0;
-		fIll = TRUE;
+		fIll = true;
 
 		for (const char *pc = name.c_str(); *pc != '\0'; pc++) {
 			if (!isalpha(*pc))
-				return FALSE;
+				return false;
 
 			if (isupper(*pc)) { /* ugly anti-caps hack */
 				if (adjcaps)
-					cleancaps = TRUE;
+					cleancaps = true;
 
 				total_caps++;
-				adjcaps = TRUE;
+				adjcaps = true;
 			}
 			else
-				adjcaps = FALSE;
+				adjcaps = false;
 
-			if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
-				fIll = FALSE;
+			if (tolower(*pc) != 'i' && tolower(*pc) != 'l')
+				fIll = false;
 		}
 
 		if (fIll)
-			return FALSE;
+			return false;
 
 		if (cleancaps || (total_caps > (strlen(name)) / 2 && strlen(name) < 3))
-			return FALSE;
+			return false;
 	}
 
-	return TRUE;
+	return true;
 }

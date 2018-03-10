@@ -1,12 +1,17 @@
 #pragma once
 
-#include "affect/Affect.hh"
-#include "declare.hh"
 #include "Actable.hh"
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
 #include "Pooled.hh"
+
+class ObjectPrototype;
+class Reset;
+class Room;
+class Character;
+class ExtraDescr;
+namespace affect { class Affect; }
 
 /*
  * One object.
@@ -58,7 +63,7 @@ public:
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
  //   Affect *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
     affect::Affect *   affected = nullptr; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
-    bool            affects_modified = FALSE; // set TRUE if an affect changes, so they can be recompiled in the update loop
+    bool            affects_modified = false; // set true if an affect changes, so they can be recompiled in the update loop
 
     char            num_settings = 0;
     Object *      gems = nullptr; // gems in settings
@@ -71,6 +76,14 @@ private:
 	Object& operator=(const Object&);
 };
 
-void    destroy_obj     args(( Object *obj ));
-void    extract_obj     args(( Object *obj ) );
+/*
+ * Object macros.
+ */
+#define CAN_WEAR(obj, part)     ((obj)->wear_flags.has((part)))
+#define IS_OBJ_STAT(obj, stat)  (((obj)->extra_flags + (obj)->cached_extra_flags).has((stat)))
+#define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
+		(obj)->value[4] : 100)
+
+void    destroy_obj( Object *obj);
+void    extract_obj( Object *obj );
 void unique_item(Object *item);

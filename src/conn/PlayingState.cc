@@ -2,7 +2,7 @@
 #include "Descriptor.hh"
 #include "String.hh"
 
-extern void substitute_alias args( (Descriptor *d, String input) );
+extern void substitute_alias(Descriptor *d, String input);
 
 namespace conn {
 

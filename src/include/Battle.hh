@@ -1,7 +1,5 @@
 #pragma once
 
-#include "declare.hh"
-
 class Battle
 {
 public:
@@ -11,8 +9,8 @@ public:
     int         low = 0;
     int         high = 0;
     int         fee = 0;
-    bool        issued = FALSE;
-    bool        start = FALSE;
+    bool        issued = false;
+    bool        start = false;
 
 private:
 	Battle(const Battle&);

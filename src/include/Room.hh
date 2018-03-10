@@ -1,21 +1,20 @@
 #pragma once
 
-#include "affect/Affect.hh"
-#include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "RoomPrototype.hh"
 #include "Location.hh"
+#include "Sector.hh"
+
+class RoomPrototype;
+class Character;
+class Object;
+class Exit;
+namespace affect { class Affect; }
 
 class Room
 {
 public:
-	Room(RoomPrototype& p) : 
-		prototype(p), 
-		room_flags(p.room_flags), 
-		location(RoomID(p.vnum, ++p.count)) // increment the count for the prototype
-	{}
-
+	Room(RoomPrototype& p);
 	virtual ~Room() {}
 
 	Character *		people = nullptr;
@@ -31,20 +30,20 @@ public:
 	Room *	hunt_back = nullptr;  /* pointer back toward origin */
 
 //	const Vnum& vnum() const { return prototype.vnum; }
-	Area& area() const { return prototype.area; }
-	const String& name() const { return prototype.name; }
-	const String& description() const { return prototype.description; }
-	const ExtraDescr *extra_descr() const { return prototype.extra_descr; }
-	const Flags flags() const { return cached_room_flags + room_flags; }
-	Sector sector_type() const { return prototype.sector_type; }
-	int guild() const { return prototype.guild; }
-	const String& owner() const { return prototype.owner; }
-	const Clan *clan() const { return prototype.clan; }
-	int heal_rate() const { return prototype.heal_rate; }
-	int mana_rate() const { return prototype.mana_rate; }
-	const Location& tele_dest() const { return prototype.tele_dest; }
+	Area& area() const;
+	const String& name() const;
+	const String& description() const;
+	const ExtraDescr *extra_descr() const;
+	const Flags flags() const;
+	Sector sector_type() const;
+	int guild() const;
+	const String& owner() const;
+	const Clan *clan() const;
+	int heal_rate() const;
+	int mana_rate() const;
+	const Location& tele_dest() const;
 
-	bool is_on_map() const { return location.coord.is_valid(); }
+	bool is_on_map() const;
 
 	// modifiers
 	void add_char(Character *ch);

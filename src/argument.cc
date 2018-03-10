@@ -1,4 +1,5 @@
 #include "declare.hh"
+#include "argument.hh"
 #include "Flags.hh"
 #include "String.hh"
 
@@ -150,7 +151,7 @@ const char *one_argument(const char *argument, char *arg_first)
 			break;
 		}
 
-		*arg_first = /*LOWER(*/*argument/*)*/;
+		*arg_first = /*tolower(*/*argument/*)*/;
 		arg_first++;
 		argument++;
 	}

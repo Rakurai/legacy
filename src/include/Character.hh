@@ -1,15 +1,15 @@
 #pragma once
 
-#include "affect/Affect.hh"
-#include "declare.hh"
 #include "Pooled.hh"
 #include "Flags.hh"
 #include "Actable.hh"
 #include "String.hh"
 #include "Format.hh" // ptc inline
-#include "Player.hh"
 #include "Valid.hh"
 #include "Guild.hh"
+#include "Player.hh" // only for the macros here, remove when we get rid of them
+
+namespace affect { class Affect; }
 
 /*
  * One character (PC or NPC).
@@ -30,9 +30,11 @@ public:
 
     void update();
 
-    bool has_cgroup(const Flags& cg) const { return IS_NPC(this) ? false : pcdata->cgroup_flags.has_any_of(cg); }
-    void add_cgroup(const Flags& cg) { if (!IS_NPC(this)) pcdata->cgroup_flags += cg; }
-    void remove_cgroup(const Flags& cg) { if (!IS_NPC(this)) pcdata->cgroup_flags -= cg; }
+    bool has_cgroup(const Flags& cg) const;
+    void add_cgroup(const Flags& cg);
+    void remove_cgroup(const Flags& cg);
+
+    bool is_npc() const { return pcdata == nullptr; }
 
     Character *         next = nullptr;
     Character *         next_in_room = nullptr;
@@ -61,8 +63,8 @@ public:
     String              prefix;
     String              reply;
     Flags               group_flags; // mobs can be members of a group for spec_fun, like ogres/trolls
-    bool                replylock = FALSE;     /* <--- made this a bool to simplify */
-    bool		        invitation_accepted = FALSE;
+    bool                replylock = false;     /* <--- made this a bool to simplify */
+    bool		        invitation_accepted = false;
 
     int                 skill_fails = 0; // number of times they have failed a skill in a row
 
@@ -94,10 +96,10 @@ public:
     int              wait = 0;
     int              daze = 0;
     int              fightpulse = 0;
-    long                gold = 0;
-    long                silver = 0;
-    long                gold_in_bank = 0;
-    long                silver_in_bank = 0;
+    int                gold = 0;
+    int                silver = 0;
+    int                gold_in_bank = 0;
+    int                silver_in_bank = 0;
     int                 exp = 0;
     Flags               act_flags;
     Flags               comm_flags;   /* RT added to pad the vector */
@@ -138,6 +140,85 @@ private:
     Character& operator=(const Character&);
 };
 
+// macros that should be member functions!  someday
+// Character attribute accessors (see attribute.c for explanations)
+
+#define ATTR_BASE(ch, where) ((ch)->attr_base[where]) // intentionally settable
+#define GET_ATTR_MOD(ch, where)  ((ch)->apply_cache ? (ch)->apply_cache[where] : 0) // intentionally not settable
+#define GET_ATTR(ch, where) (ATTR_BASE(ch, where) + GET_ATTR_MOD(ch, where)) // intentionally not settable
+
+#define GET_ATTR_STR(ch) (URANGE(3, GET_ATTR(ch, APPLY_STR), get_max_stat(ch, STAT_STR)))
+#define GET_ATTR_INT(ch) (URANGE(3, GET_ATTR(ch, APPLY_INT), get_max_stat(ch, STAT_INT)))
+#define GET_ATTR_WIS(ch) (URANGE(3, GET_ATTR(ch, APPLY_WIS), get_max_stat(ch, STAT_WIS)))
+#define GET_ATTR_DEX(ch) (URANGE(3, GET_ATTR(ch, APPLY_DEX), get_max_stat(ch, STAT_DEX)))
+#define GET_ATTR_CON(ch) (URANGE(3, GET_ATTR(ch, APPLY_CON), get_max_stat(ch, STAT_CON)))
+#define GET_ATTR_CHR(ch) (URANGE(3, GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, STAT_CHR)))
+#define GET_ATTR_SEX(ch) (GET_ATTR((ch), APPLY_SEX) % 3) // gives range of 0-2
+#define GET_ATTR_AGE(ch) (get_age(ch))
+#define GET_ATTR_AC(ch)  (GET_ATTR(ch, APPLY_AC)                              \
+                        + ( IS_AWAKE(ch)                                      \
+                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           \
+                        - (( !(ch)->is_npc() && ch->pcdata->remort_count > 0 )    \
+                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
+                                                                                   -1 per 5 remorts -- Montrey */
+#define GET_ATTR_HITROLL(ch) \
+                (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
+#define GET_ATTR_DAMROLL(ch) \
+                (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR_STR((ch))].todam)
+#define GET_ATTR_SAVES(ch) (GET_ATTR((ch), APPLY_SAVES))
+#define GET_MAX_HIT(ch)    (URANGE(1, GET_ATTR((ch), APPLY_HIT), 30000))
+#define GET_MAX_MANA(ch)   (URANGE(1, GET_ATTR((ch), APPLY_MANA), 30000))
+#define GET_MAX_STAM(ch)   (URANGE(1, GET_ATTR((ch), APPLY_STAM), 30000))
+#define GET_DEFENSE_MOD(ch, dam_type) (dam_type == DAM_NONE ? 0 :             \
+                          (ch)->defense_mod ? (ch)->defense_mod[dam_type] : 0)
+#define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
+
+
+/* permission checking stuff */
+#define IS_HERO(ch)         (!(ch)->is_npc() && ch->level >= LEVEL_HERO)
+#define IS_REMORT(ch)       (!(ch)->is_npc() && ch->pcdata->remort_count > 0)
+#define IS_HEROIC(ch)       (IS_HERO(ch) || IS_REMORT(ch))
+#define IS_IMM_GROUP(flags) (Flags(GROUP_GEN|GROUP_QUEST|GROUP_BUILD|GROUP_CODE|GROUP_SECURE).has_any_of(flags))
+#define RANK(flags)         (IS_IMM_GROUP(flags) ?                                      \
+                            (flags.has(GROUP_LEADER) ?  RANK_IMP    :                   \
+                            (flags.has(GROUP_DEPUTY) ?  RANK_HEAD   : RANK_IMM))    :   \
+                            (flags.has(GROUP_PLAYER) ?  RANK_MORTAL : RANK_MOBILE))
+#define GET_RANK(ch)        ((ch)->is_npc() ? RANK_MOBILE : RANK(ch->pcdata->cgroup_flags))
+#define IS_IMMORTAL(ch)     (GET_RANK(ch) >= RANK_IMM)
+#define IS_IMP(ch)          (GET_RANK(ch) == RANK_IMP)
+#define IS_HEAD(ch)         (GET_RANK(ch) >= RANK_HEAD)
+#define OUTRANKS(ch, victim)    (GET_RANK(ch) > GET_RANK(victim))
+
+/* other shortcuts */
+#define IS_GOOD(ch)             (ch->alignment >= 350)
+#define IS_EVIL(ch)             (ch->alignment <= -350)
+#define IS_NEUTRAL(ch)          (!IS_GOOD(ch) && !IS_EVIL(ch))
+
+#define IS_AWAKE(ch)            (ch->position > POS_SLEEPING)
+#define IS_OUTSIDE(ch)          (!(ch)->in_room->flags().has(ROOM_INDOORS))
+
+#define WAIT_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
+    (ch->wait = std::max(ch->wait, npulse)) : (ch->wait = 0))
+#define DAZE_STATE(ch, npulse)  (!IS_IMMORTAL(ch) ? \
+    (ch->daze = std::max(ch->daze, npulse)) : (ch->daze = 0))
+#define gold_weight(amount)  ((amount) * 2 / 5)
+#define silver_weight(amount) ((amount)/ 10)
+#define IS_QUESTOR(ch)     (!(ch)->is_npc() && (ch)->pcdata->plr_flags.has(PLR_QUESTOR))
+#define IS_SQUESTOR(ch)    (!(ch)->is_npc() && (ch)->pcdata->plr_flags.has(PLR_SQUESTOR))
+#define IS_KILLER(ch)       ((ch)->act_flags.has(PLR_KILLER))
+#define IS_THIEF(ch)        ((ch)->act_flags.has(PLR_THIEF))
+#define CAN_FLY(ch)         (affect::exists_on_char((ch), affect::type::fly))
+#define IS_FLYING(ch)       ((ch)->position >= POS_FLYING)
+
+/*
+ * Description macros.
+ */
+#define PERS(ch, looker, vis)   (  (vis == VIS_ALL                  \
+                || (vis == VIS_CHAR && can_see_char(looker, ch))        \
+                || (vis == VIS_PLR && can_see_who(looker, ch))) ?   \
+                (ch)->is_npc() ? ch->short_descr : ch->name : "someone")
+
+
 void    obj_to_char     args(( Object *obj, Character *ch ) );
 void    obj_from_char   args(( Object *obj ) );
 void    obj_to_locker   args(( Object *obj, Character *ch ) );
@@ -145,7 +226,7 @@ void    obj_to_strongbox args(( Object *obj, Character *ch ) );
 void    obj_from_locker args(( Object *obj ) );
 void    obj_from_strongbox args(( Object *obj) );
 bool    can_drop_obj    args(( Character *ch, Object *obj ) );
-bool    deduct_cost     args( (Character *ch, long cost) );
+bool    deduct_cost     args( (Character *ch, int cost) );
 
 void    stc    args( ( const String& txt, Character *ch ) );
 void    page_to_char    args( ( const String& txt, Character *ch ) );

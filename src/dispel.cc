@@ -2,7 +2,6 @@
 #include "affect/Affect.hh"
 #include "Character.hh"
 #include "declare.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "random.hh"
 
@@ -23,56 +22,56 @@ struct dispel_type {
 // anything *NOT* in this table cannot be removed (only by time).  breath effects and dirt kicking, for example
 
 static const std::map<affect::type, const dispel_type> dispel_table = {
-	{ affect::type::age,                { TRUE,  FALSE, FALSE }},
-	{ affect::type::armor,              { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::barrier,            { TRUE,  FALSE, FALSE }},
-	{ affect::type::bless,              { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::blindness,          { FALSE, FALSE, FALSE }},
-	{ affect::type::blood_moon,         { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::bone_wall,          { TRUE,  FALSE, FALSE }},
-	{ affect::type::calm,               { TRUE,  FALSE, TRUE  }},
-	{ affect::type::change_sex,         { TRUE,  FALSE, FALSE }},
-	{ affect::type::charm_person,       { TRUE,  FALSE, TRUE  }},
-	{ affect::type::change_sex,         { TRUE,  FALSE, FALSE }},
-	{ affect::type::chill_touch,        { TRUE,  FALSE, FALSE }},
-	{ affect::type::curse,              { FALSE, FALSE, FALSE }},
-	{ affect::type::detect_evil,        { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::detect_good,        { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::detect_hidden,      { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::detect_invis,       { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::detect_magic,       { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::divine_regeneration,{ TRUE,  TRUE,  TRUE  }},
-	{ affect::type::faerie_fire,        { TRUE,  TRUE,  FALSE }},
-	{ affect::type::fear,               { TRUE,  FALSE, FALSE }},
-	{ affect::type::flameshield,        { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::fly,                { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::focus,              { TRUE,  FALSE, FALSE }},
-	{ affect::type::force_shield,       { TRUE,  FALSE, FALSE }},
-	{ affect::type::frenzy,             { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::giant_strength,     { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::haste,              { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::hex,                { TRUE,  FALSE, FALSE }},
-	{ affect::type::night_vision,       { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::invis,              { TRUE,  TRUE,  TRUE  }},
-//	{ affect::type::ironskin,           { TRUE,  FALSE, FALSE }},
-	{ affect::type::paralyze,           { TRUE,  FALSE, FALSE }},
-	{ affect::type::pass_door,          { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::plague,             { FALSE, FALSE, FALSE }},
-	{ affect::type::poison,             { FALSE, FALSE, FALSE }},
-	{ affect::type::protection_evil,    { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::protection_good,    { TRUE,  TRUE,  TRUE  }},
-    { affect::type::rayban,             { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::regeneration,       { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::sanctuary,          { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::sheen,              { TRUE,  FALSE, FALSE }},
-	{ affect::type::shield,             { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::sleep,              { TRUE,  TRUE,  FALSE }},
-	{ affect::type::slow,               { TRUE,  FALSE, FALSE }},
-	{ affect::type::smokescreen,        { TRUE,  FALSE, TRUE  }},
-	{ affect::type::steel_mist,         { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::stone_skin,         { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::talon,              { TRUE,  TRUE,  TRUE  }},
-	{ affect::type::weaken,             { TRUE,  FALSE, FALSE }}
+	{ affect::type::age,                { true,  false, false }},
+	{ affect::type::armor,              { true,  true,  true  }},
+	{ affect::type::barrier,            { true,  false, false }},
+	{ affect::type::bless,              { true,  true,  true  }},
+	{ affect::type::blindness,          { false, false, false }},
+	{ affect::type::blood_moon,         { true,  true,  true  }},
+	{ affect::type::bone_wall,          { true,  false, false }},
+	{ affect::type::calm,               { true,  false, true  }},
+	{ affect::type::change_sex,         { true,  false, false }},
+	{ affect::type::charm_person,       { true,  false, true  }},
+	{ affect::type::change_sex,         { true,  false, false }},
+	{ affect::type::chill_touch,        { true,  false, false }},
+	{ affect::type::curse,              { false, false, false }},
+	{ affect::type::detect_evil,        { true,  true,  true  }},
+	{ affect::type::detect_good,        { true,  true,  true  }},
+	{ affect::type::detect_hidden,      { true,  true,  true  }},
+	{ affect::type::detect_invis,       { true,  true,  true  }},
+	{ affect::type::detect_magic,       { true,  true,  true  }},
+	{ affect::type::divine_regeneration,{ true,  true,  true  }},
+	{ affect::type::faerie_fire,        { true,  true,  false }},
+	{ affect::type::fear,               { true,  false, false }},
+	{ affect::type::flameshield,        { true,  true,  true  }},
+	{ affect::type::fly,                { true,  true,  true  }},
+	{ affect::type::focus,              { true,  false, false }},
+	{ affect::type::force_shield,       { true,  false, false }},
+	{ affect::type::frenzy,             { true,  true,  true  }},
+	{ affect::type::giant_strength,     { true,  true,  true  }},
+	{ affect::type::haste,              { true,  true,  true  }},
+	{ affect::type::hex,                { true,  false, false }},
+	{ affect::type::night_vision,       { true,  true,  true  }},
+	{ affect::type::invis,              { true,  true,  true  }},
+//	{ affect::type::ironskin,           { true,  false, false }},
+	{ affect::type::paralyze,           { true,  false, false }},
+	{ affect::type::pass_door,          { true,  true,  true  }},
+	{ affect::type::plague,             { false, false, false }},
+	{ affect::type::poison,             { false, false, false }},
+	{ affect::type::protection_evil,    { true,  true,  true  }},
+	{ affect::type::protection_good,    { true,  true,  true  }},
+    { affect::type::rayban,             { true,  true,  true  }},
+	{ affect::type::regeneration,       { true,  true,  true  }},
+	{ affect::type::sanctuary,          { true,  true,  true  }},
+	{ affect::type::sheen,              { true,  false, false }},
+	{ affect::type::shield,             { true,  true,  true  }},
+	{ affect::type::sleep,              { true,  true,  false }},
+	{ affect::type::slow,               { true,  false, false }},
+	{ affect::type::smokescreen,        { true,  false, true  }},
+	{ affect::type::steel_mist,         { true,  true,  true  }},
+	{ affect::type::stone_skin,         { true,  true,  true  }},
+	{ affect::type::talon,              { true,  true,  true  }},
+	{ affect::type::weaken,             { true,  false, false }}
 };
 
 /* saving throw based on level only */
@@ -81,7 +80,7 @@ bool level_save(int dis_level, int save_level)
 	int save;
 	save = 50 + ((save_level - dis_level) * 3);
 	save = URANGE(5, save, 95);
-	return chance(save);
+	return roll_chance(save);
 }
 
 /* Compute a saving throw.  Negative apply's make saving throw better. */
@@ -96,12 +95,12 @@ bool saves_spell(int level, Character *victim, int dam_type)
 	int def = GET_DEFENSE_MOD(victim, dam_type);
 
 	if (def >= 100)
-		return TRUE;
+		return true;
 
 	save += 20 * def / 100; // could be negative, if vuln
 	save = URANGE(5, save, 95);
 
-	return chance(save);
+	return roll_chance(save);
 } /* end saves_spell */
 
 struct dispel_params {
@@ -129,7 +128,7 @@ int affect_fn_dispel_obj(affect::Affect *node, void *data) {
 
 	if (dis_level >= MAX_LEVEL
 	 || (!params->save && !level_save(dis_level, node->level))) {
-		node->mark = TRUE;
+		node->mark = true;
 		params->count++;
 	}
 	else
@@ -156,7 +155,7 @@ int affect_fn_dispel_char(affect::Affect *node, void *data) {
 	if (dis_level >= MAX_LEVEL
 	 || (params->save && !saves_spell(dis_level, victim, DAM_OTHER))
 	 || (!params->save && !level_save(dis_level, node->level))) {
-		node->mark = TRUE;
+		node->mark = true;
 		params->count++;
 	}
 	else
@@ -180,10 +179,10 @@ bool check_dispel_obj(int dis_level, Object *obj, affect::type type, bool save)
 	affect::iterate_over_obj(obj, affect_fn_dispel_obj, &params);
 
 	if (params.count == 0)
-		return FALSE;
+		return false;
 
 	affect::remove_marked_from_obj(obj);
-	return TRUE;
+	return true;
 }
 
 // try to remove all of a single affect from a character
@@ -201,7 +200,7 @@ bool check_dispel_char(int dis_level, Character *victim, affect::type type, bool
 	affect::iterate_over_char(victim, affect_fn_dispel_char, &params);
 
 	if (params.count == 0)
-		return FALSE;
+		return false;
 
 	affect::remove_marked_from_char(victim);
 
@@ -215,7 +214,7 @@ bool check_dispel_char(int dis_level, Character *victim, affect::type type, bool
 			ptc(victim, "%s\n", entry.msg_off);
 	}
 
-	return TRUE;
+	return true;
 }
 
 // dispel a single spell with undo spell
@@ -226,13 +225,13 @@ bool undo_spell(int dis_level, Character *victim, affect::type type, bool save) 
 	 && pair->second.can_undo)
 		return check_dispel_char(dis_level, victim, type, save);
 
-	return FALSE;
+	return false;
 }
 
 // dispel a list of spells with dispel magic or cancellation
 bool dispel_char(Character *victim, int level, bool cancellation)
 {
-	bool found = FALSE;
+	bool found = false;
 
 	for (const auto& entry : dispel_table) {
 		if (cancellation && !entry.second.can_cancel)
@@ -242,7 +241,7 @@ bool dispel_char(Character *victim, int level, bool cancellation)
 			continue;
 
 		if (check_dispel_char(level, victim, entry.first, !cancellation))
-			found = TRUE;
+			found = true;
 	}
 
 	return found;

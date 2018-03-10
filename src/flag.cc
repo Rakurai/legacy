@@ -36,7 +36,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "interp.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
@@ -45,6 +44,7 @@
 #include "Room.hh"
 #include "String.hh"
 #include "tables.hh"
+#include "World.hh"
 
 void do_flag(Character *ch, String argument)
 {
@@ -128,7 +128,7 @@ void do_flag(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(victim)) {
+		if (victim->is_npc()) {
 			if (flag_fields[fieldptr].cand == CAND_PLAYER) {
 				stc("That field may not be changed on mobiles.\n", ch);
 				return;
@@ -398,7 +398,7 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 
 	for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
 		if ((victim = vpc->ch) == nullptr
-		    || IS_NPC(victim)
+		    || victim->is_npc()
 		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))
@@ -452,7 +452,7 @@ int fsearch_mobile(Character *ch, int fieldptr, const Flags& marked)
 	output += "{VCount  {YRoom   {GMob{x\n";
 
 	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-		if (!IS_NPC(victim)
+		if (!victim->is_npc()
 		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))
@@ -687,7 +687,7 @@ void do_flagsearch(Character *ch, String argument)
 	unsigned int fieldptr;
 	Flags marked;
 	long pos;
-	bool player = TRUE, mobile = TRUE, toolowmobile = FALSE, toolowplayer = FALSE;
+	bool player = true, mobile = true, toolowmobile = false, toolowplayer = false;
 
 	String arg1, arg2, word;
 	argument = one_argument(argument, arg1);
@@ -738,13 +738,13 @@ void do_flagsearch(Character *ch, String argument)
 			return;
 		}
 
-		if (arg1.is_prefix_of("mobile"))                       player = FALSE;
+		if (arg1.is_prefix_of("mobile"))                       player = false;
 
-		if (arg1.is_prefix_of("player"))                       mobile = FALSE;
+		if (arg1.is_prefix_of("player"))                       mobile = false;
 
-		if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)       toolowmobile = TRUE;
+		if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)       toolowmobile = true;
 
-		if (GET_RANK(ch) < flag_fields[fieldptr].see_plr)       toolowplayer = TRUE;
+		if (GET_RANK(ch) < flag_fields[fieldptr].see_plr)       toolowplayer = true;
 
 		if (toolowmobile && toolowplayer) {
 			stc("You are not high enough level to search for that field.\n", ch);
@@ -785,12 +785,12 @@ void do_flagsearch(Character *ch, String argument)
 		case FIELD_PLAYER:
 		case FIELD_PCDATA:
 		case FIELD_CGROUP:
-		case FIELD_WIZNET:      mobile = FALSE;         break;
+		case FIELD_WIZNET:      mobile = false;         break;
 
 		case FIELD_ACT:
 		case FIELD_OFF:
 		case FIELD_FORM:
-		case FIELD_PART:        player = FALSE;         break;
+		case FIELD_PART:        player = false;         break;
 
 		case FIELD_REVOKE:
 		case FIELD_CENSOR:

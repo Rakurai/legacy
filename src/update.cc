@@ -39,7 +39,6 @@
 #include "GameTime.hh"
 #include "interp.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "music.hh"
 #include "MobilePrototype.hh"
@@ -84,11 +83,11 @@ void demote_level(Character *ch)
 {
 	int sub_hp, sub_mana, sub_stam, sub_prac, sub_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
-	sub_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
+	sub_hp          = std::max(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
 	                               guild_table[ch->guild].hp_min, guild_table[ch->guild].hp_max));
-	sub_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
+	sub_mana        = std::max(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
 	                               guild_table[ch->guild].mana_min, guild_table[ch->guild].mana_max));
-	sub_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
+	sub_stam        = std::max(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
 	                               guild_table[ch->guild].stam_min, guild_table[ch->guild].stam_max));
 	sub_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
@@ -97,9 +96,9 @@ void demote_level(Character *ch)
 
 	ch->practice            -= sub_prac;
 	ch->train               -= sub_train;
-	ATTR_BASE(ch, APPLY_HIT)    = UMAX(20, ATTR_BASE(ch, APPLY_HIT) - sub_hp);
-	ATTR_BASE(ch, APPLY_MANA)   = UMAX(100, ATTR_BASE(ch, APPLY_MANA) - sub_mana);
-	ATTR_BASE(ch, APPLY_STAM)   = UMAX(100, ATTR_BASE(ch, APPLY_STAM) - sub_stam);
+	ATTR_BASE(ch, APPLY_HIT)    = std::max(20, ATTR_BASE(ch, APPLY_HIT) - sub_hp);
+	ATTR_BASE(ch, APPLY_MANA)   = std::max(100, ATTR_BASE(ch, APPLY_MANA) - sub_mana);
+	ATTR_BASE(ch, APPLY_STAM)   = std::max(100, ATTR_BASE(ch, APPLY_STAM) - sub_stam);
 
 	ptc(ch, "{RYour loss is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.{x\n",
 	    sub_hp,         GET_MAX_HIT(ch),
@@ -113,11 +112,11 @@ void advance_level(Character *ch)
 {
 	int add_hp, add_mana, add_stam, add_prac, add_train = 1;
 	ch->pcdata->last_level = get_play_hours(ch);
-	add_hp          = UMAX(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
+	add_hp          = std::max(1, con_app[GET_ATTR_CON(ch)].hitp + number_range(
 	                               guild_table[ch->guild].hp_min, guild_table[ch->guild].hp_max));
-	add_mana        = UMAX(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
+	add_mana        = std::max(1, int_app[GET_ATTR_INT(ch)].manap + number_range(
 	                               guild_table[ch->guild].mana_min, guild_table[ch->guild].mana_max));
-	add_stam        = UMAX(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
+	add_stam        = std::max(1, str_app[GET_ATTR_STR(ch)].stp + number_range(
 	                               guild_table[ch->guild].stam_min, guild_table[ch->guild].stam_max));
 	add_prac        = wis_app[GET_ATTR_WIS(ch)].practice;
 
@@ -150,7 +149,7 @@ void npc_advance_level(Character *ch)
 {
 	int add_hit, add_mana, add_stam;
 
-	if (! IS_NPC(ch))
+	if (! ch->is_npc())
 		return;
 
 	add_hit = GET_ATTR_CON(ch);
@@ -165,13 +164,13 @@ void gain_exp(Character *ch, int gain)
 {
 	char buf[MSL];
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->level >= LEVEL_HERO)
 		return;
 
-	ch->exp = UMAX(exp_per_level(ch, ch->pcdata->points), ch->exp + gain);
+	ch->exp = std::max(exp_per_level(ch, ch->pcdata->points), ch->exp + gain);
 
 	while ((ch->exp >= exp_per_level(ch, ch->pcdata->points) * (ch->level + 1))
 	       && (ch->level < LEVEL_HERO)) {
@@ -193,7 +192,7 @@ void gain_exp(Character *ch, int gain)
 			stc("{MGratz from all the Immortals of Legacy!{x\n\n", ch);
 
 			for (d = descriptor_list; d; d = d->next)
-				if (IS_PLAYING(d)) {
+				if (d->is_playing()) {
 					victim = d->original ? d->original : d->character;
 					stc(msg, victim);
 					restore_char(ch, victim);
@@ -239,7 +238,7 @@ int hit_gain(Character *ch)
 	if (ch->in_room == nullptr)
 		return 0;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		gain =  5 + ch->level;
 
 		if (affect::exists_on_char(ch, affect::type::regeneration))
@@ -256,7 +255,7 @@ int hit_gain(Character *ch)
 		}
 	}
 	else {
-		gain = UMAX(3, GET_ATTR_CON(ch) - 3 + ch->level / 2);
+		gain = std::max(3, GET_ATTR_CON(ch) - 3 + ch->level / 2);
 		gain += guild_table[ch->guild].hp_max - 10;
 		number = number_percent();
 
@@ -264,7 +263,7 @@ int hit_gain(Character *ch)
 			gain += number * gain / 100;
 
 			if (ch->hit < GET_MAX_HIT(ch))
-				check_improve(ch, skill::type::fast_healing, TRUE, 8);
+				check_improve(ch, skill::type::fast_healing, true, 8);
 		}
 
 		switch (get_position(ch)) {
@@ -307,7 +306,7 @@ int hit_gain(Character *ch)
 	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 4;
 
-	return UMIN(gain, GET_MAX_HIT(ch) - ch->hit);
+	return std::min(gain, GET_MAX_HIT(ch) - ch->hit);
 }
 
 int mana_gain(Character *ch)
@@ -317,7 +316,7 @@ int mana_gain(Character *ch)
 	if (ch->in_room == nullptr)
 		return 0;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		gain = 5 + ch->level;
 
 		switch (get_position(ch)) {
@@ -338,7 +337,7 @@ int mana_gain(Character *ch)
 			gain += number * gain / 100;
 
 			if (ch->mana < GET_MAX_MANA(ch))
-				check_improve(ch, skill::type::meditation, TRUE, 8);
+				check_improve(ch, skill::type::meditation, true, 8);
 		}
 
 		/* compare to mages mana regen, mages get full (class 0) */
@@ -382,7 +381,7 @@ int mana_gain(Character *ch)
 	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, GET_MAX_MANA(ch) - ch->mana);
+	return std::min(gain, GET_MAX_MANA(ch) - ch->mana);
 }
 
 int stam_gain(Character *ch)
@@ -392,7 +391,7 @@ int stam_gain(Character *ch)
 	if (ch->in_room == nullptr)
 		return 0;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		gain = 5 + ch->level;
 
 		switch (get_position(ch)) {
@@ -451,14 +450,14 @@ int stam_gain(Character *ch)
 	if (affect::exists_on_char(ch, affect::type::divine_regeneration))
 		gain *= 2;
 
-	return UMIN(gain, GET_MAX_STAM(ch) - ch->stam);
+	return std::min(gain, GET_MAX_STAM(ch) - ch->stam);
 }
 
 void gain_condition(Character *ch, int iCond, int value)
 {
 	int condition;
 
-	if (value == 0 || IS_NPC(ch) || ch->pcdata == nullptr)
+	if (value == 0 || ch->is_npc() || ch->pcdata == nullptr)
 		return;
 
 	if (IS_IMMORTAL(ch)) {
@@ -528,7 +527,7 @@ void descrip_update(void)
 		d_next = d->next;
 		++d->timer;
 
-		if (IS_PLAYING(d)) {
+		if (d->is_playing()) {
 			ch = d->character;
 
 			if (IS_IMMORTAL(ch) || get_duel(ch)) {
@@ -543,9 +542,9 @@ void descrip_update(void)
 					ch->was_in_room = ch->in_room;
 
 					if (ch->fighting != nullptr)
-						stop_fighting(ch, TRUE);
+						stop_fighting(ch, true);
 					
-					if (!IS_NPC(ch)){
+					if (!ch->is_npc()){
 						act("$n disappears into the void...", ch, nullptr, nullptr, TO_ROOM);
 						stc("You disappear into the void.\n", ch);
 
@@ -559,7 +558,7 @@ void descrip_update(void)
 			}
 
 			if (d->timer == 7) {
-				if (!ch->comm_flags.has(COMM_AFK) && !IS_NPC(ch)) {
+				if (!ch->comm_flags.has(COMM_AFK) && !ch->is_npc()) {
 					act("$n is set to auto-afk...", ch, nullptr, nullptr, TO_ROOM);
 					do_afk(ch, "{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x");
 				}
@@ -601,18 +600,18 @@ void char_update(void)
 		}
 
 		/* Autotick stuff - Lotus */
-		if (!IS_NPC(ch) && ch->act_flags.has(PLR_TICKS))
+		if (!ch->is_npc() && ch->act_flags.has(PLR_TICKS))
 			stc("{Btick...{x\n", ch);
 
 		if (get_position(ch) >= POS_STUNNED) {
 			/* Nectimer for Necromancy spells */
-			if (IS_NPC(ch) && (ch->nectimer > 0)) {
+			if (ch->is_npc() && (ch->nectimer > 0)) {
 				ch->nectimer -= 1;
 
 				if (ch->nectimer <= 0) {
 					act("$n vanishes back into the nether void.", ch, nullptr, nullptr,
 					    TO_ROOM);
-					extract_char(ch, TRUE);
+					extract_char(ch, true);
 					continue;
 				}
 			}
@@ -621,15 +620,15 @@ void char_update(void)
 			   then the player loses the ability score benefit of the
 			   familiar. -- Outsider
 			*/
-			if (!IS_NPC(ch) && ch->pcdata->familiar) {
+			if (!ch->is_npc() && ch->pcdata->familiar) {
 				if (! ch->pet) {
-					ch->pcdata->familiar = FALSE;
+					ch->pcdata->familiar = false;
 				}
 			}    /* end of removed familiar */
 
 			/* If the character is a Paladin and not an NPC
 			   then check their Lay on Hands status. -- Outsider */
-			if (!IS_NPC(ch) && ch->guild == Guild::paladin) {
+			if (!ch->is_npc() && ch->guild == Guild::paladin) {
 				/* keep it in the limits */
 				if (ch->pcdata->lays > 10) ch->pcdata->lays = 10;
 
@@ -665,7 +664,7 @@ void char_update(void)
 		if (get_position(ch) == POS_STUNNED)
 			update_pos(ch);
 
-		if (!IS_NPC(ch) && !IS_IMMORTAL(ch)) {
+		if (!ch->is_npc() && !IS_IMMORTAL(ch)) {
 			Object *obj;
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
@@ -695,7 +694,7 @@ void char_update(void)
 					ch->was_in_room = ch->in_room;
 
 					if (ch->fighting != nullptr)
-						stop_fighting(ch, TRUE);
+						stop_fighting(ch, true);
 
 					act("$n disappears into the void...", ch, nullptr, nullptr, TO_ROOM);
 					stc("You disappear into the void.\n", ch);
@@ -783,7 +782,7 @@ void char_update(void)
 		affect::iterate_over_char(ch, affect::fn_fade_spell, nullptr);
 
 		/* MOBprogram tick trigger -- Montrey */
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			mprog_tick_trigger(ch);
 
 			/* If ch dies or changes position
@@ -808,10 +807,10 @@ void char_update(void)
 			spread_plague(ch->in_room, plague, 4);
 
 			// TODO: check for plague being nullptr only applies as long as plague bit exists
-			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
+			int dam = std::min(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
-			damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::plague, -1, DAM_DISEASE, FALSE, TRUE);
+			damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::plague, -1, DAM_DISEASE, false, true);
 		}
 
 		if (ch != nullptr
@@ -823,14 +822,14 @@ void char_update(void)
 				act("$n shivers and suffers.", ch, nullptr, nullptr, TO_ROOM);
 				stc("You shiver and suffer.\n", ch);
 				damage(ch->fighting ? ch->fighting : ch, ch, poison->level / 10 + 1, skill::type::poison,
-				       -1, DAM_POISON, FALSE, TRUE);
+				       -1, DAM_POISON, false, true);
 			}
 		}
 		
 		if (ch != nullptr && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
-			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, FALSE, FALSE);
+			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, false, false);
 		else if (ch != nullptr && get_position(ch) == POS_MORTAL)
-			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, FALSE, FALSE);
+			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, false, false);
 	}
 
 	/*
@@ -964,7 +963,7 @@ void obj_update(void)
 		}
 
 		if (obj->carried_by != nullptr) {
-			if (IS_NPC(obj->carried_by) && obj->carried_by->pIndexData->pShop != nullptr)
+			if (obj->carried_by->is_npc() && obj->carried_by->pIndexData->pShop != nullptr)
 				obj->carried_by->silver += obj->cost / 5;
 			else if (!obj->in_obj) { /* don't send messages if it's in another object */
 				act(message, obj->carried_by, obj, nullptr, TO_CHAR);
@@ -1078,7 +1077,7 @@ void room_update(void) {
 
 bool eligible_aggressor(Character *ch)
 {
-	return (IS_NPC(ch)
+	return (ch->is_npc()
 	        && IS_AWAKE(ch)
 	        && ch->act_flags.has_any_of(ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == nullptr
@@ -1089,16 +1088,16 @@ bool eligible_aggressor(Character *ch)
 
 bool eligible_victim(Character *ch)
 {
-	if (IS_NPC(ch))
-		return FALSE;
+	if (ch->is_npc())
+		return false;
 
 	if (IS_IMMORTAL(ch))
-		return FALSE;
+		return false;
 
 //	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
-//		return FALSE;
+//		return false;
 
-	return TRUE;
+	return true;
 }
 
 void aggr_update(void)
@@ -1128,23 +1127,23 @@ void aggr_update(void)
 	room_count = 0;
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
-		if (!IS_PLAYING(d) ||
+		if (!d->is_playing() ||
 		    d->original  != nullptr)
 			continue;
 
 		plr = d->character;
 
-		if (IS_NPC(plr)          ||
+		if (plr->is_npc()          ||
 		    plr->in_room == nullptr)
 			continue;
 
-		duplicate = FALSE;
+		duplicate = false;
 
 		for (jroom = 0; jroom < room_count; jroom++)
 			if (room_list[jroom] == plr->in_room)
-				duplicate = TRUE;
+				duplicate = true;
 
-		if (duplicate == FALSE)
+		if (duplicate == false)
 			room_list[room_count++] = plr->in_room;
 	}
 
@@ -1162,7 +1161,7 @@ void aggr_update(void)
 			    && ch->pcdata->squestobj == nullptr) {
 				/* look for quest mob */
 				for (mob = room->people; mob != nullptr; mob = mob->next_in_room) {
-					if (IS_NPC(mob) && mob == ch->pcdata->squestmob && can_see_char(mob, ch)) {
+					if (mob->is_npc() && mob == ch->pcdata->squestmob && can_see_char(mob, ch)) {
 						squestmob_found(ch, mob);
 						break;
 					}
@@ -1174,7 +1173,7 @@ void aggr_update(void)
 		   This has nothing to do with aggression but parasitizes on our
 		   list of player-inhabited rooms and the loop thereover. */
 		for (ch = room->people; ch != nullptr; ch = ch->next_in_room) {
-			if (IS_NPC(ch) && ch->mpact != nullptr) {
+			if (ch->is_npc() && ch->mpact != nullptr) {
 				// go through acts and handle them.  this could conceivably generate new
 				// acts attached to the character!  just start a new list for the char and
 				// we'll blow this one away
@@ -1321,12 +1320,12 @@ void age_update(void)
 		Game::quest_double++;
 
 	for (d = descriptor_list; d; d = d->next) {
-		if (!IS_PLAYING(d))
+		if (!d->is_playing())
 			continue;
 
 		wch = (d->original != nullptr) ? d->original : d->character;
 
-		if (!IS_NPC(wch))
+		if (!wch->is_npc())
 			wch->pcdata->played++;
 
 		/* Mud has crashed on the above line before - 8-28-98 */
@@ -1420,7 +1419,7 @@ void update_handler(void)
 				Descriptor *d;
 
 				for (d = descriptor_list; d != nullptr; d = d->next)
-					if (IS_PLAYING(d))
+					if (d->is_playing())
 						count++;
 
 				if (count == 0) {
@@ -1428,7 +1427,7 @@ void update_handler(void)
 					extern bool merc_down;
 					Logging::log("AUTO-REBOOT");
 //					do_sysinfo("The system is going down for auto-reboot NOW.\n");
-					merc_down = TRUE;
+					merc_down = true;
 
 					for (d = descriptor_list; d != nullptr; d = d_next) {
 						d_next = d->next;
@@ -1468,7 +1467,7 @@ void janitor_update()
 				continue;
 
 		for (rch = obj->in_room->people; rch; rch = rch->next_in_room)
-			if (!IS_NPC(rch))
+			if (!rch->is_npc())
 				break;
 
 		if (rch)        /* found a player in the room */
@@ -1488,7 +1487,7 @@ void janitor_update()
 			continue;
 		}
 
-		if (chance(10))
+		if (roll_chance(10))
 			obj->clean_timer = number_range(80, 240);       /* 1 to 3 hours */
 	}
 
@@ -1504,7 +1503,7 @@ void underwater_update(void)
 	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) && ch->in_room->flags().has(ROOM_UNDER_WATER)) {
+		if (!ch->is_npc() && ch->in_room->flags().has(ROOM_UNDER_WATER)) {
 			skill = get_skill_level(ch, skill::type::swimming);
 
 			if (skill == 100)
@@ -1522,15 +1521,15 @@ void underwater_update(void)
 
 					if (skill > 0) {
 						stc("{HYour skill helps slow your drowning.{x\n", ch);
-						check_improve(ch, skill::type::swimming, TRUE, 1);
+						check_improve(ch, skill::type::swimming, true, 1);
 					}
 
-					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::swimming, -1, DAM_WATER, FALSE, TRUE);
+					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::swimming, -1, DAM_WATER, false, true);
 				}
 				else {
 					stc("{PYou cannot hold your breath any more!{x\n", ch);
 					stc("{CYour lungs fill with water and you lose consciousness...{x\n", ch);
-					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::type::swimming, -1, DAM_WATER, FALSE, TRUE);
+					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::type::swimming, -1, DAM_WATER, false, true);
 				}
 			}
 		}
@@ -1543,10 +1542,10 @@ void quest_update(void)
 	Character *ch;
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
-		if (IS_PLAYING(d)) {
+		if (d->is_playing()) {
 			ch = d->character;
 
-			if (IS_NPC(ch))
+			if (ch->is_npc())
 				continue;
 
 			if (ch->pcdata->nextquest > 0) {

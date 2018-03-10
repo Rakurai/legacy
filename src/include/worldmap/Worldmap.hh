@@ -1,25 +1,19 @@
 #pragma once
 
 #include "Sector.hh"
-#include "Coordinate.hh"
+
+class MapColor;
 
 namespace worldmap {
+
+class Coordinate;
 
 class Worldmap {
 public:
 	Worldmap();
 	virtual ~Worldmap();
 
-	const Sector get_sector(const Coordinate& coord) const {
-		unsigned char ret = 0;
-
-		if (coord.is_valid()
-		 && (unsigned int)coord.x < width()
-		 && (unsigned int)coord.y < height())
-			ret = rows[coord.y][coord.x];
-
-		return static_cast<Sector>(ret);
-	}
+	const Sector get_sector(const Coordinate& coord) const;
 
 	unsigned int height() const { return _height; }
 	unsigned int width() const { return _width; }

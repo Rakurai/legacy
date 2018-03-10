@@ -6,7 +6,6 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobProg.hh"
@@ -15,6 +14,7 @@
 #include "Room.hh"
 #include "String.hh"
 #include "Tail.hh"
+#include "RoomPrototype.hh"
 
 void act_bug(const String& var, char letter, const String fmt) {
     // make sure $ is doubled here, or wiznet will cause a loop
@@ -166,7 +166,7 @@ void act_format(const String& format, Character *ch,
         buf += "{x";
 
     buf += '\n';
-	buf[0] = UPPER(buf[0]);
+	buf[0] = toupper(buf[0]);
 
 	if (to->desc)
 		stc(buf, to);
@@ -193,7 +193,7 @@ void act_parse(
     String format(fmt);
     Duel::Arena *arena = arena_table_head->next;
     Character *to;
-    bool SNEAKING = FALSE;
+    bool SNEAKING = false;
     Tail *td;
     char fake_message[MAX_INPUT_LENGTH];
     int vis = VIS_CHAR;
@@ -212,7 +212,7 @@ void act_parse(
 
     if (min_pos == POS_SNEAK) {
         min_pos = POS_RESTING;
-        SNEAKING = TRUE;
+        SNEAKING = true;
     }
 
     /* blah, special hack for channel visibility.  rewrite this crap someday, i don't
@@ -248,7 +248,7 @@ void act_parse(
 
     /*** first loop, for normal recipients of ACT */
     for (; to != nullptr; to = to->next_in_room) {
-        if (censor && IS_NPC(to))
+        if (censor && to->is_npc())
             continue;
 
         if (get_position(to) < min_pos)
@@ -284,7 +284,7 @@ void act_parse(
             continue;
 
         /**********************************************************************/
-        act_format(format, ch, vch, vch2, str1, str2, obj1, obj2, to, FALSE, vis);
+        act_format(format, ch, vch, vch2, str1, str2, obj1, obj2, to, false, vis);
         /**********************************************************************/
     }
 
@@ -307,7 +307,7 @@ void act_parse(
                     continue;
 
                 /**********************************************************************/
-                act_format(fake_message, ch, vch, vch2, str1, str2, obj1, obj2, to, FALSE, vis);
+                act_format(fake_message, ch, vch, vch2, str1, str2, obj1, obj2, to, false, vis);
                 /**********************************************************************/
             }
         }
@@ -354,14 +354,14 @@ void act_parse(
 
         /**********************************************************************/
         act_format(format, ch, vch, vch2, str1, str2, obj1, obj2,
-                   td->tailed_by, TRUE, vis);
+                   td->tailed_by, true, vis);
         /**********************************************************************/
     }
 
     /* Add this to turn Mob Programs Off
-                    MOBtrigger = FALSE;
+                    MOBtrigger = false;
     Add before the call to act */
-    MOBtrigger = TRUE;
+    MOBtrigger = true;
     return;
 
 }

@@ -144,84 +144,84 @@ const std::vector<race_type> race_table = {
 	                form,           parts
 	        },
 	*/
-	{       "unique",       FALSE, 0, 0, 0, 0, 0, 0, 0, 0 },
+	{       "unique",       false, 0, 0, 0, 0, 0, 0, 0, 0 },
 
 	/*** PC RACES ***/
 
 	{
-		"human",        TRUE,
+		"human",        true,
 		0,              0,              0,
 		0,              0,              0,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"elf",          TRUE,
+		"elf",          true,
 		0,              0,              0,
 		0,              RES_CHARM,      VULN_IRON,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"dwarf",        TRUE,
+		"dwarf",        true,
 		0,              AFF_NIGHT_VISION,  0,
 		0,              RES_POISON | RES_DISEASE, VULN_DROWNING,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"giant",        TRUE,
+		"giant",        true,
 		0,              0,              0,
 		0,              RES_FIRE | RES_COLD,      VULN_MENTAL | VULN_CHARM,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"feral",        TRUE,
+		"feral",        true,
 		0,              AFF_NIGHT_VISION,       OFF_DODGE,
 		0,              0,              VULN_DROWNING | VULN_ELECTRICITY,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"vampire",      TRUE,
+		"vampire",      true,
 		0,              AFF_FLYING,     0,
 		0,              RES_NEGATIVE | RES_CHARM, VULN_LIGHT | VULN_HOLY,
 		Flags::A|Flags::D|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::P
 	},
 	{
-		"irda",         TRUE,
+		"irda",         true,
 		0,              0,              0,
 		0,              0,              0,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J
 	},
 	{
-		"faerie",       TRUE,
+		"faerie",       true,
 		0,              AFF_FLYING | AFF_HASTE,           0,
 		0,              0,              0,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::P
 	},
 	{
-		"dragon",       TRUE,
+		"dragon",       true,
 		0,              AFF_FLYING,     0,
 		0,              RES_SLASH | RES_BASH,     VULN_PIERCE,
 		Flags::A|Flags::H|Flags::Z,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::P|Flags::Q|Flags::U|Flags::V|Flags::X
 	},
 	{
-		"wolf",         TRUE,
+		"wolf",         true,
 		0,              0,              0,
 		0,              RES_COLD,       VULN_FIRE,
 		Flags::A|Flags::D|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"seraph",       TRUE,
+		"seraph",       true,
 		0,              AFF_FLYING,     0,
 		0,              RES_HOLY | RES_LIGHT,     VULN_NEGATIVE,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::P
 	},
 	{
-		"superhuman",   TRUE,
+		"superhuman",   true,
 		0,              0,              0,
 		0,              0,              0,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J
 	},
 	{
-		"troll",        TRUE,
+		"troll",        true,
 		0,              AFF_REGENERATION,       0,
 		0,              RES_PIERCE | RES_POISON,  VULN_FIRE | VULN_ACID,
 		Flags::A|Flags::B|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::L|Flags::U|Flags::W|Flags::Y
@@ -230,43 +230,43 @@ const std::vector<race_type> race_table = {
 	/*** non-PC RACES ***/
 
 	{
-		"bat",          FALSE,
+		"bat",          false,
 		0,              AFF_FLYING,     OFF_DODGE | OFF_FAST,
 		0,              0,              VULN_LIGHT,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::P
 	},
 	{
-		"bear",         FALSE,
+		"bear",         false,
 		0,              0,              OFF_CRUSH | OFF_DISARM | OFF_BERSERK,
 		0,              RES_BASH | RES_COLD,      0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::U|Flags::V
 	},
 	{
-		"cat",          FALSE,
+		"cat",          false,
 		0,              0,              OFF_FAST | OFF_DODGE,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::U|Flags::V
 	},
 	{
-		"centipede",    FALSE,
+		"centipede",    false,
 		0,              0,              0,
 		0,              RES_PIERCE | RES_COLD,    VULN_BASH,
 		Flags::A|Flags::B|Flags::G|Flags::O,       Flags::A|Flags::C|Flags::K
 	},
 	{
-		"crystal",      FALSE,
+		"crystal",      false,
 		0,              AFF_REGENERATION,       0,
 		0,              0,              VULN_FIRE,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"dog",          FALSE,
+		"dog",          false,
 		0,              0,              OFF_FAST,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::U|Flags::V
 	},
 	{
-		"doll",         FALSE,
+		"doll",         false,
 		0,              0,              0,
 		IMM_COLD | IMM_POISON | IMM_HOLY | IMM_NEGATIVE | IMM_MENTAL | IMM_DISEASE | IMM_DROWNING,
 		RES_BASH | RES_LIGHT,
@@ -274,103 +274,103 @@ const std::vector<race_type> race_table = {
 		Flags::E|Flags::J|Flags::M|Flags::c,      Flags::A|Flags::B|Flags::C|Flags::G|Flags::H|Flags::K
 	},
 	{
-		"fido",         FALSE,
+		"fido",         false,
 		0,              0,              OFF_DODGE | ASSIST_RACE,
 		0,              0,              VULN_MAGIC,
 		Flags::A|Flags::B|Flags::G|Flags::V,       Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::V
 	},
 	{
-		"fox",          FALSE,
+		"fox",          false,
 		0,              0,              OFF_FAST | OFF_DODGE,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::V
 	},
 	{
-		"goblin",       FALSE,
+		"goblin",       false,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_DISEASE,    VULN_MAGIC,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"hobgoblin",    FALSE,
+		"hobgoblin",    false,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_DISEASE | RES_POISON, 0,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::Y
 	},
 	{
-		"horse",        FALSE,
+		"horse",        false,
 		0,              0,              0,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K
 	},
 	{
-		"kobold",       FALSE,
+		"kobold",       false,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_POISON,     VULN_MAGIC,
 		Flags::A|Flags::B|Flags::H|Flags::M|Flags::V,     Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K|Flags::Q
 	},
 	{
-		"lizard",       FALSE,
+		"lizard",       false,
 		0,              0,              0,
 		0,              RES_POISON,     VULN_COLD,
 		Flags::A|Flags::G|Flags::X|Flags::c,      Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::K|Flags::Q|Flags::V
 	},
 	{
-		"modron",       FALSE,
+		"modron",       false,
 		0,              AFF_NIGHT_VISION,   ASSIST_RACE | ASSIST_ALIGN,
 		IMM_CHARM | IMM_DISEASE | IMM_MENTAL | IMM_HOLY | IMM_NEGATIVE, RES_FIRE | RES_COLD | RES_ACID,     0,
 		Flags::H,             Flags::A|Flags::B|Flags::C|Flags::G|Flags::H|Flags::J|Flags::K
 	},
 	{
-		"orc",          FALSE,
+		"orc",          false,
 		0,              AFF_NIGHT_VISION,   0,
 		0,              RES_DISEASE,    VULN_LIGHT,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"pig",          FALSE,
+		"pig",          false,
 		0,              0,              0,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K
 	},
 	{
-		"rabbit",       FALSE,
+		"rabbit",       false,
 		0,              0,              OFF_DODGE | OFF_FAST,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::V,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K
 	},
 	{
-		"school monster",       FALSE,
+		"school monster",       false,
 		ACT_NOALIGN|ACT_NOSUMMON,            0,      0,
 		IMM_CHARM,   0,      VULN_MAGIC,
 		Flags::A|Flags::M|Flags::V,         Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::U
 	},
 	{
-		"snake",        FALSE,
+		"snake",        false,
 		0,              0,              0,
 		0,              RES_POISON,     VULN_COLD,
 		Flags::A|Flags::G|Flags::X|Flags::Y|Flags::c,    Flags::A|Flags::D|Flags::E|Flags::F|Flags::K|Flags::L|Flags::Q|Flags::V|Flags::X
 	},
 	{
-		"song bird",    FALSE,
+		"song bird",    false,
 		0,              AFF_FLYING,     OFF_FAST | OFF_DODGE,
 		0,              0,              0,
 		Flags::A|Flags::G|Flags::W,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::K|Flags::P
 	},
 	{
-		"teilysa",      FALSE,
+		"teilysa",      false,
 		0,              0,              0,
 		0,              RES_HOLY,       VULN_BASH | VULN_FIRE | VULN_ACID,
 		Flags::A|Flags::H|Flags::M|Flags::V,       Flags::A|Flags::B|Flags::C|Flags::D|Flags::E|Flags::F|Flags::G|Flags::H|Flags::I|Flags::J|Flags::K
 	},
 	{
-		"water fowl",   FALSE,
+		"water fowl",   false,
 		0,              AFF_FLYING,     0,
 		0,              RES_DROWNING,   0,
 		Flags::A|Flags::G|Flags::W,         Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::K|Flags::P
 	},
 	{
-		"wyvern",       FALSE,
+		"wyvern",       false,
 		0,              AFF_FLYING | AFF_DETECT_INVIS | AFF_DETECT_HIDDEN,  OFF_BASH | OFF_FAST | OFF_DODGE,
 		IMM_POISON,     0,      VULN_LIGHT,
 		Flags::A|Flags::B|Flags::G|Flags::Z,       Flags::A|Flags::C|Flags::D|Flags::E|Flags::F|Flags::H|Flags::J|Flags::K|Flags::Q|Flags::V|Flags::X

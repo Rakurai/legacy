@@ -1,8 +1,9 @@
 #pragma once
 
+#include <map>
+
 #include "skill/Type.hh"
 #include "String.hh"
-#include "declare.hh"
 #include "magic.hh"
 #include "Guild.hh"
 

@@ -7,6 +7,9 @@
 #include "Logging.hh"
 #include "file.hh"
 #include "Exit.hh"
+#include "ExitPrototype.hh"
+#include "RoomPrototype.hh"
+#include "Room.hh"
 
 World::
 World() :
@@ -163,7 +166,7 @@ get_minimap(Character *ch, std::vector<String>& vec) const {
 				}
 			}
 			else {
-				if (IS_NPC(enemy))
+				if (enemy->is_npc())
 					buf += "{R+";
 				else
 					buf += "{CP";
@@ -228,7 +231,7 @@ create_exits(void)
 			const auto& location = pair.first;
 			Room* room = pair.second;
 
-			bool found_exit = FALSE;
+			bool found_exit = false;
 
 			for (int door = 0; door <= 5; door++) {
 				if (room->prototype.exit[door] == nullptr)
@@ -256,10 +259,10 @@ create_exits(void)
 //							Logging::bugf("room %d, direction %d, no room", vnum, door);
 						continue; // no error, just no rooms in that direction
 					}
-Game::booting = FALSE;
+Game::booting = false;
 					room->exit[door] = new Exit(*room->prototype.exit[door], dest);
-Game::booting = TRUE;
-					found_exit = TRUE;
+Game::booting = true;
+					found_exit = true;
 					continue;
 				}
 
@@ -274,7 +277,7 @@ Game::booting = TRUE;
 				}
 
 				if (room->exit[door])
-					found_exit = TRUE;
+					found_exit = true;
 			}
 
 			if (!found_exit)

@@ -27,6 +27,7 @@
 
 #include <vector>
 #include <sstream>
+#include <algorithm> // min and max
 
 #include "act.hh"
 #include "argument.hh"
@@ -50,7 +51,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -72,6 +72,7 @@
 #include "World.hh"
 #include "gem/gem.hh"
 #include "Location.hh"
+#include "RoomPrototype.hh"
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 
@@ -124,7 +125,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 	}
 
 	/* Color additions by Lotus */
-	if (!IS_NPC(ch)
+	if (!ch->is_npc()
 	    && ((ch->pcdata->questobj > 0 && obj->pIndexData->vnum == ch->pcdata->questobj)
 	        || (ch->pcdata->squestobj != nullptr && ch->pcdata->squestobj == obj)))
 		buf += "{f{R[TARGET] {x";
@@ -177,7 +178,7 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	buf += "{x";
 
-	if (ch->act_flags.has(PLR_LOOKINPIT) && !IS_NPC(ch)) {
+	if (ch->act_flags.has(PLR_LOOKINPIT) && !ch->is_npc()) {
 		diff = get_usable_level(ch) - obj->level;
 
 		if (obj->level >= LEVEL_IMMORTAL)  buf += " {V(Immortal Item)";
@@ -266,7 +267,7 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 //	String output;
 	char buf[MAX_STRING_LENGTH];
 	int nShow = 0, iShow, count = 0;
-	bool fCombine, foundcont = FALSE;
+	bool fCombine, foundcont = false;
 
 	if (ch->desc == nullptr)
 		return;
@@ -291,19 +292,19 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 			continue;
 
 		if (insidecont && obj->contains)
-			foundcont = TRUE;
+			foundcont = true;
 
 		if (obj->wear_loc == WEAR_NONE) {
 			String pstrShow = format_obj_to_char(obj, ch, fShort);
-			fCombine = FALSE;
+			fCombine = false;
 
-			if (IS_NPC(ch) || ch->comm_flags.has(COMM_COMBINE)) {
+			if (ch->is_npc() || ch->comm_flags.has(COMM_COMBINE)) {
 				/* Look for duplicates, case sensitive.
 				   Matches tend to be near end so run loop backwords. */
 				for (iShow = nShow - 1; iShow >= 0; iShow--)
 					if (!strcmp(prgpstrShow[iShow], pstrShow)) {
 						prgnShow[iShow]++;
-						fCombine = TRUE;
+						fCombine = true;
 						break;
 					}
 			}
@@ -323,7 +324,7 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 			continue;
 		}
 
-		if (IS_NPC(ch) || ch->comm_flags.has(COMM_COMBINE)) {
+		if (ch->is_npc() || ch->comm_flags.has(COMM_COMBINE)) {
 			if (prgnShow[iShow] != 1) {
 				Format::sprintf(buf, "(%2d) ", prgnShow[iShow]);
 				output += buf;
@@ -346,7 +347,7 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 	}
 
 	if (fShowNothing && nShow == 0) {
-		if (IS_NPC(ch) || ch->comm_flags.has(COMM_COMBINE))
+		if (ch->is_npc() || ch->comm_flags.has(COMM_COMBINE))
 			stc("     ", ch);
 
 		stc("Nothing.\n", ch);
@@ -358,7 +359,7 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 		for (obj = list; obj != nullptr; obj = obj->next_content)
 			if (can_see_obj(ch, obj) && obj->contains) {
 				ptc(ch, "\n  Inside %s{x:\n", obj->short_descr);
-				show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
+				show_list_to_char(obj->contains, ch, true, true, false);
 			}
 } /* end show_list_to_char() */
 
@@ -455,9 +456,9 @@ void do_bonus(Character *ch, String argument) {
 void do_peek(Character *ch, String argument)
 {
 	Character *victim;
-	bool all = FALSE;
+	bool all = false;
 
-	if (IS_NPC(ch) || !get_skill_level(ch, skill::type::peek)) {
+	if (ch->is_npc() || !get_skill_level(ch, skill::type::peek)) {
 		stc("You are not skilled at peeking.\n", ch);
 		return;
 	}
@@ -489,7 +490,7 @@ void do_peek(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::peek))
 		return;
 
-	if (!chance(get_skill_level(ch, skill::type::peek))) {
+	if (!roll_chance(get_skill_level(ch, skill::type::peek))) {
 		stc("You can't seem to find a good angle...\n", ch);
 		return;
 	}
@@ -515,24 +516,24 @@ void do_peek(Character *ch, String argument)
 
 			WAIT_STATE(ch, skill::lookup(skill::type::lore).beats);
 
-			if (!IS_NPC(ch) && !chance(get_skill_level(ch, skill::type::lore)))
+			if (!ch->is_npc() && !roll_chance(get_skill_level(ch, skill::type::lore)))
 				act("You look at $p, but you can't find out any additional information.",
 				    ch, obj, nullptr, TO_CHAR);
 			else {
 				spell_identify(skill::type::lore, (4 * obj->level) / 3, ch, obj,
 				               TARGET_OBJ, get_evolution(ch, skill::type::lore));
-				check_improve(ch, skill::type::lore, TRUE, 4);
+				check_improve(ch, skill::type::lore, true, 4);
 			}
 
 			return;
 		}
 		else if (arg2 == "all" && get_evolution(ch, skill::type::peek) > 2)
-			all = TRUE;
+			all = true;
 	}
 
 	act("You peek at $S inventory:", ch, nullptr, victim, TO_CHAR);
-	show_list_to_char(victim->carrying, ch, TRUE, TRUE, all);
-	check_improve(ch, skill::type::peek, TRUE, 4);
+	show_list_to_char(victim->carrying, ch, true, true, all);
+	check_improve(ch, skill::type::peek, true, 4);
 }
 
 void show_char_to_char_0(Character *victim, Character *ch)
@@ -541,12 +542,12 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	char message[MAX_STRING_LENGTH];
 
 	/* Pretty little link dead by Demonfire */
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		if (victim->pcdata->plr_flags.has(PLR_LINK_DEAD))
 			buf += "{G(LinkDead) ";
 	}
 
-	if (IS_NPC(victim)
+	if (victim->is_npc()
 	    && ((ch->pcdata->questmob > 0 && victim->pIndexData->vnum == ch->pcdata->questmob)
 	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
@@ -569,7 +570,7 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	if (victim->lurk_level)
 		buf += "{H(Lurk) ";
 
-	if (!IS_NPC(victim) && !victim->pcdata->aura.empty()) {
+	if (!victim->is_npc() && !victim->pcdata->aura.empty()) {
 		char string[MAX_INPUT_LENGTH];
 		Format::sprintf(string, "{W(%s{W) ", victim->pcdata->aura);
 		buf += string;
@@ -591,14 +592,14 @@ void show_char_to_char_0(Character *victim, Character *ch)
 
 	if (affect::exists_on_char(victim, affect::type::sanctuary)) buf += "{W(White Aura) ";
 
-	if (!IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)) buf += "{R(KILLER) ";
+	if (!victim->is_npc() && victim->act_flags.has(PLR_KILLER)) buf += "{R(KILLER) ";
 
-	if (!IS_NPC(victim) && victim->act_flags.has(PLR_THIEF)) buf += "{B(THIEF) ";
+	if (!victim->is_npc() && victim->act_flags.has(PLR_THIEF)) buf += "{B(THIEF) ";
 
 	buf += "{x";
 
 	if (get_position(victim) == victim->start_pos && !victim->long_descr.empty()) {
-		if (IS_NPC(victim))
+		if (victim->is_npc())
 			new_color(ch, CSLOT_MISC_MOBILES);
 		else
 			new_color(ch, CSLOT_MISC_PLAYERS);
@@ -611,9 +612,9 @@ void show_char_to_char_0(Character *victim, Character *ch)
 
 	/* took PERS out of this line, with both show_char_to_char and PERS checking can_see,
 	   means that sometimes it shows players (and mobs) as 'someone' in the room list -- Montrey */
-	buf += (IS_NPC(victim) ? victim->short_descr : victim->name);
+	buf += (victim->is_npc() ? victim->short_descr : victim->name);
 
-	if (!IS_NPC(victim) && !ch->comm_flags.has(COMM_BRIEF)
+	if (!victim->is_npc() && !ch->comm_flags.has(COMM_BRIEF)
 	    &&   get_position(victim) >= POS_STANDING && ch->on == nullptr) {
 		new_color(ch, CSLOT_MISC_PLAYERS);
 		buf += victim->pcdata->title;
@@ -744,8 +745,8 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	}
 
 	buf += "\n";
-	buf[0] = UPPER(buf[0]);
-	new_color(ch, IS_NPC(victim) ? CSLOT_MISC_MOBILES : CSLOT_MISC_PLAYERS);
+	buf[0] = toupper(buf[0]);
+	new_color(ch, victim->is_npc() ? CSLOT_MISC_MOBILES : CSLOT_MISC_PLAYERS);
 	stc(buf, ch);
 	set_color(ch, WHITE, NOBOLD);
 	return;
@@ -805,13 +806,13 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	else
 		buf += " is in need of ***SERIOUS*** medical attention!!!\n";
 
-	buf[0] = UPPER(buf[0]);
+	buf[0] = toupper(buf[0]);
 	set_color(ch, CYAN, NOBOLD);
 	stc(buf, ch);
 	set_color(ch, WHITE, NOBOLD);
-	found = FALSE;
+	found = false;
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		set_color(ch, RED, BOLD);
 		Format::sprintf(buf, "%s has killed %d players and has been killed by %d players.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
@@ -820,7 +821,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 		set_color(ch, WHITE, NOBOLD);
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		set_color(ch, PURPLE, BOLD);
 		Format::sprintf(buf, "%s has killed %d players in the arena and has been defeated by %d players in the arena.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
@@ -829,7 +830,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 		set_color(ch, WHITE, NOBOLD);
 	}
 
-	if (!IS_NPC(victim) && !IS_IMMORTAL(victim)) {
+	if (!victim->is_npc() && !IS_IMMORTAL(victim)) {
 		Format::sprintf(buf, "%s is a devout follower of %s.\n", victim->name,
 		        !victim->pcdata->deity.empty() ? victim->pcdata->deity : "no one");
 		set_color(ch, CYAN, BOLD);
@@ -837,7 +838,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 		set_color(ch, WHITE, NOBOLD);
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		set_color(ch, BLUE, BOLD);
 		Format::sprintf(buf, "%s is about %d years old.\n",
 		        GET_ATTR_SEX(victim) == SEX_NEUTRAL ? "It" : GET_ATTR_SEX(victim) == SEX_MALE ? "He" : "She"
@@ -847,7 +848,7 @@ void show_char_to_char_1(Character *victim, Character *ch)
 	}
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-		if (!IS_NPC(victim) && !victim->pcdata->spouse.empty() && iWear == WEAR_WEDDINGRING
+		if (!victim->is_npc() && !victim->pcdata->spouse.empty() && iWear == WEAR_WEDDINGRING
 		    && !IS_IMMORTAL(ch)) /* so imms can see weddingrings on unmarried ppl */
 			continue;
 
@@ -858,25 +859,25 @@ void show_char_to_char_1(Character *victim, Character *ch)
 			if (!found) {
 				stc("\n", ch);
 				act("$N is using:", ch, nullptr, victim, TO_CHAR);
-				found = TRUE;
+				found = true;
 			}
 
 			stc(where_name[iWear], ch);
-			stc(format_obj_to_char(obj, ch, TRUE), ch);
+			stc(format_obj_to_char(obj, ch, true), ch);
 			stc("\n", ch);
 			set_color(ch, WHITE, NOBOLD);
 		}
 	}
 
 	if (victim != ch
-	    &&   !IS_NPC(ch)
+	    &&   !ch->is_npc()
 	    &&   ch->pcdata->plr_flags.has(PLR_AUTOPEEK)
 	    && (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
 	    &&   number_percent() < get_skill_level(ch, skill::type::peek)) {
 		set_color(ch, YELLOW, NOBOLD);
 		stc("\nYou peek at the inventory:\n", ch);
-		show_list_to_char(victim->carrying, ch, TRUE, TRUE, FALSE);
-		check_improve(ch, skill::type::peek, TRUE, 4);
+		show_list_to_char(victim->carrying, ch, true, true, false);
+		check_improve(ch, skill::type::peek, true, 4);
 		/* Don't forget to deduct stamina for peeking. -- Outsider */
 		deduct_stamina(ch, skill::type::peek);
 	}
@@ -905,14 +906,14 @@ void show_char_to_char(Character *list, Character *ch)
 bool check_blind(Character *ch)
 {
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	if (is_blinded(ch)) {
 		stc("You can't see a thing!\n", ch);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 /*
@@ -932,7 +933,7 @@ void set_color(Character *ch, int color, int bold)
 		stc(buf, ch);
 	}
 
-	if (!IS_NPC(ch)) {
+	if (!ch->is_npc()) {
 		ch->pcdata->lastcolor[0] = color;
 		ch->pcdata->lastcolor[1] = bold;
 	}
@@ -940,7 +941,7 @@ void set_color(Character *ch, int color, int bold)
 
 void new_color(Character *ch, int slot)
 {
-	if (!IS_NPC(ch) && ch->pcdata->color[slot] != 0)
+	if (!ch->is_npc() && ch->pcdata->color[slot] != 0)
 		set_color(ch, ch->pcdata->color[slot], ch->pcdata->bold[slot]);
 	else
 		set_color(ch, csetting_table[slot].color, csetting_table[slot].bold);
@@ -1141,7 +1142,7 @@ void do_clanlist(Character *ch, String argument)
 		clan_list[count].level  = db_get_column_int(3);
 		clan_list[count].remort = db_get_column_int(4);
 		clan_list[count].status = cgroup.has(GROUP_LEADER) ? 2 : cgroup.has(GROUP_DEPUTY) ? 1 : 0;
-		clan_list[count].printed       = FALSE;
+		clan_list[count].printed       = false;
 
 		if (clan_list[count].remort > highremort)
 			highremort = clan_list[count].remort;
@@ -1168,14 +1169,14 @@ void do_clanlist(Character *ch, String argument)
 				    r == 2 ? "{Y" : r == 1 ? "{B" : "{W",
 				    clan_list[i].name,
 				    clan_list[i].title);
-				clan_list[i].printed = TRUE;
+				clan_list[i].printed = true;
 			}
 		}
 	else
 		for (r = highremort; r > -1; r--) {
 			for (l = highlevel; l > 0; l--) {
 				for (i = 0; i < count; i++) {
-					if (clan_list[i].printed == TRUE
+					if (clan_list[i].printed == true
 					    || clan_list[i].level != l
 					    || (clan_list[i].remort != r
 					        && clan_list[i].level < LEVEL_IMMORTAL))
@@ -1201,7 +1202,7 @@ void do_clanlist(Character *ch, String argument)
 					    lblock,
 					    clan_list[i].name,
 					    clan_list[i].title);
-					clan_list[i].printed = TRUE;
+					clan_list[i].printed = true;
 				}
 			}
 		}
@@ -1221,7 +1222,7 @@ void do_clanlist(Character *ch, String argument)
 void do_autolist(Character *ch, String argument)
 {
 	/* lists most player flags */
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	stc("   action     status\n", ch);
@@ -1375,7 +1376,7 @@ void do_autolist(Character *ch, String argument)
 /* Color testing by Lotus */
 void do_ctest(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_COLOR)) {
@@ -1397,7 +1398,7 @@ void do_ctest(Character *ch, String argument)
 
 void do_autoassist(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_AUTOASSIST)) {
@@ -1412,7 +1413,7 @@ void do_autoassist(Character *ch, String argument)
 
 void do_defensive(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_DEFENSIVE)) {
@@ -1427,7 +1428,7 @@ void do_defensive(Character *ch, String argument)
 
 void do_autoexit(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_AUTOEXIT)) {
@@ -1442,7 +1443,7 @@ void do_autoexit(Character *ch, String argument)
 
 void do_autogold(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_AUTOGOLD)) {
@@ -1457,7 +1458,7 @@ void do_autogold(Character *ch, String argument)
 
 void do_autoloot(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_AUTOLOOT)) {
@@ -1472,7 +1473,7 @@ void do_autoloot(Character *ch, String argument)
 
 void do_autosac(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_AUTOSAC)) {
@@ -1487,7 +1488,7 @@ void do_autosac(Character *ch, String argument)
 
 void do_autosplit(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_AUTOSPLIT)) {
@@ -1538,20 +1539,20 @@ void do_showflags(Character *ch, String argument)
 	}
 
 	set_color(ch, YELLOW, NOBOLD);
-	Format::sprintf(buf, "Act  : %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
+	Format::sprintf(buf, "Act  : %s\n", act_bit_name(victim->act_flags, victim->is_npc()));
 	stc(buf, ch);
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		Format::sprintf(buf, "Plr  : %s\n", plr_bit_name(victim->pcdata->plr_flags));
 		stc(buf, ch);
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		Format::sprintf(buf, "Off  : %s\n", off_bit_name(victim->off_flags));
 		stc(buf, ch);
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		Format::sprintf(buf, "Wiz  : %s\n", wiz_bit_name(victim->wiznet_flags));
 		stc(buf, ch);
 	}
@@ -1638,7 +1639,7 @@ void do_combine(Character *ch, String argument)
 
 void do_showlost(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->pcdata->plr_flags.has(PLR_SHOWLOST)) {
@@ -1653,7 +1654,7 @@ void do_showlost(Character *ch, String argument)
 
 void do_noloot(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_CANLOOT)) {
@@ -1668,7 +1669,7 @@ void do_noloot(Character *ch, String argument)
 
 void do_nofollow(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (ch->act_flags.has(PLR_NOFOLLOW)) {
@@ -1763,12 +1764,12 @@ void do_look(Character *ch, String argument)
 		String text;
 
 		if (arg1.empty()
-		    || (!IS_NPC(ch) && !ch->comm_flags.has(COMM_BRIEF))) {
+		    || (!ch->is_npc() && !ch->comm_flags.has(COMM_BRIEF))) {
 			text = "  " + ch->in_room->description();
 		}
 
-		if (!IS_NPC(ch) && ch->act_flags.has(PLR_AUTOEXIT)) {
-			text += "\n" + list_exits(ch, TRUE);
+		if (!ch->is_npc() && ch->act_flags.has(PLR_AUTOEXIT)) {
+			text += "\n" + list_exits(ch, true);
 		}
 
 		std::istringstream textstream(text);
@@ -1786,7 +1787,7 @@ void do_look(Character *ch, String argument)
 			stc(minimap[map_line++] + "\n", ch);
 
 		new_color(ch, CSLOT_MISC_OBJECTS);
-		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE, FALSE);
+		show_list_to_char(ch->in_room->contents, ch, false, false, false);
 		set_color(ch, WHITE, NOBOLD);
 		show_char_to_char(ch->in_room->people,   ch);
 		return;
@@ -1842,11 +1843,11 @@ void do_look(Character *ch, String argument)
 		}
 
 		/* Stuff for Lockers */
-		if (arg2.is_prefix_of("locker") && !IS_NPC(ch)) {
+		if (arg2.is_prefix_of("locker") && !ch->is_npc()) {
 			if (ch->in_room->flags().has(ROOM_LOCKER)) {
 				stc("Your locker contains:\n", ch);
 				ch->act_flags += PLR_LOOKINPIT;
-				show_list_to_char(ch->pcdata->locker, ch, TRUE, TRUE, FALSE);
+				show_list_to_char(ch->pcdata->locker, ch, true, true, false);
 				ch->act_flags -= PLR_LOOKINPIT;
 			}
 			else
@@ -1856,7 +1857,7 @@ void do_look(Character *ch, String argument)
 		}
 
 		/* Stuff for strongboxes -- Elrac */
-		if (!IS_NPC(ch) && arg2.is_prefix_of("strongbox")) {
+		if (!ch->is_npc() && arg2.is_prefix_of("strongbox")) {
 			if (!IS_HEROIC(ch)) {
 				stc("Only heroes and former heroes have a strongbox.\n", ch);
 				return;
@@ -1865,7 +1866,7 @@ void do_look(Character *ch, String argument)
 			if (ch->in_room && ch->in_room->location == Location(Vnum(ROOM_VNUM_STRONGBOX))) {
 				stc("Your strongbox contains:\n", ch);
 				ch->act_flags += PLR_LOOKINPIT;
-				show_list_to_char(ch->pcdata->strongbox, ch, TRUE, TRUE, FALSE);
+				show_list_to_char(ch->pcdata->strongbox, ch, true, true, false);
 				ch->act_flags -= PLR_LOOKINPIT;
 			}
 			else
@@ -1921,7 +1922,7 @@ void do_look(Character *ch, String argument)
 
 			new_color(ch, CSLOT_MISC_OBJECTS);
 			act("$p holds:", ch, obj, nullptr, TO_CHAR);
-			show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
+			show_list_to_char(obj->contains, ch, true, true, false);
 			set_color(ch, WHITE, NOBOLD);
 
 			if (obj == Game::world().donation_pit)
@@ -1951,21 +1952,21 @@ void do_look(Character *ch, String argument)
 
 			stc("\n", ch);
 
-			if (!IS_NPC(ch) && !ch->comm_flags.has(COMM_BRIEF)) {
+			if (!ch->is_npc() && !ch->comm_flags.has(COMM_BRIEF)) {
 				stc("  ", ch);
 				stc(location->description(), ch);
 			}
 
 			stc("\n", ch);
 
-			if (!IS_NPC(ch) && ch->act_flags.has(PLR_AUTOEXIT)) {
+			if (!ch->is_npc() && ch->act_flags.has(PLR_AUTOEXIT)) {
 				char showexit[100];
 				Format::sprintf(showexit, "%s exits auto", location->location.to_string());
 				do_at(ch, showexit);
 			}
 
 			new_color(ch, CSLOT_MISC_OBJECTS);
-			show_list_to_char(location->contents, ch, FALSE, FALSE, FALSE);
+			show_list_to_char(location->contents, ch, false, false, false);
 			set_color(ch, WHITE, NOBOLD);
 			show_char_to_char(location->people, ch);
 			break;
@@ -1980,7 +1981,7 @@ void do_look(Character *ch, String argument)
 			else {
 				new_color(ch, CSLOT_MISC_OBJECTS);
 				act("$p holds:", ch, obj, nullptr, TO_CHAR);
-				show_list_to_char(obj->contains, ch, TRUE, TRUE, FALSE);
+				show_list_to_char(obj->contains, ch, true, true, false);
 				set_color(ch, WHITE, NOBOLD);
 			}
 		}
@@ -2191,7 +2192,7 @@ void exits_in(Character *ch)
 	Object *obj;
 	String output;
 	char buf[1024];
-	bool found = FALSE;
+	bool found = false;
 
 	if (ch->in_room == nullptr)
 		return;
@@ -2210,7 +2211,7 @@ void exits_in(Character *ch)
 					continue;
 
 				if (exit->to_room == ch->in_room) {   /* Does the exit lead to our room? */
-					found = TRUE;
+					found = true;
 					Format::sprintf(buf, "( %-6.6s ) from %s (%s) in (%s)\n",
 					        Exit::dir_name(i),
 					        room->name(),
@@ -2225,7 +2226,7 @@ void exits_in(Character *ch)
 	if (!found)
 		output += "No rooms lead into this one.\n";
 
-	found = FALSE;
+	found = false;
 
 	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
 		if (obj->item_type == ITEM_PORTAL) {
@@ -2233,7 +2234,7 @@ void exits_in(Character *ch)
 				continue;
 
 			if (Location((int)obj->value[3].value()) == ch->in_room->location) {
-				found = TRUE;
+				found = true;
 				Format::sprintf(buf, "( Portal ) %s in %s (%s) in (%s)\n",
 				        obj->name,
 				        obj->in_room->name(),
@@ -2260,7 +2261,7 @@ const String list_exits(Character *ch, bool fAuto) {
 	else
 		Format::sprintf(buf, "Obvious exits:\n");
 
-	bool found = FALSE;
+	bool found = false;
 
 	for (int door = 0; door <= 5; door++) {
 		const Exit *pexit;
@@ -2270,7 +2271,7 @@ const String list_exits(Character *ch, bool fAuto) {
 		    &&   can_see_room(ch, pexit->to_room)
 		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
 
-			found = TRUE;
+			found = true;
 
 			if (fAuto) {
 				buf += " ";
@@ -2324,7 +2325,7 @@ void do_exits(Character *ch, String argument)
 
 void do_worth(Character *ch, String argument)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		ptc(ch, "You have %ld gold and %ld silver.\n", ch->gold, ch->silver);
 		return;
 	}
@@ -2492,7 +2493,7 @@ char *count_players(Character *ch)
 	Descriptor *d;
 
 	for (d = descriptor_list; d != nullptr; d = d->next)
-		if (IS_PLAYING(d) && can_see_who(ch, d->character))
+		if (d->is_playing() && can_see_who(ch, d->character))
 			count++;
 
 	if (Game::record_players_since_boot == count)
@@ -2530,19 +2531,19 @@ void do_who(Character *ch, String argument)
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
 	bool rgfClass[Guild::size], rgfRace[pc_race_table.size()];
-	bool fClassRestrict = FALSE, fClanRestrict = FALSE, fRaceRestrict = FALSE, fImmortalOnly = FALSE;
-	bool fClan = FALSE;
-	bool fPK = FALSE;
+	bool fClassRestrict = false, fClanRestrict = false, fRaceRestrict = false, fImmortalOnly = false;
+	bool fClan = false;
+	bool fPK = false;
 	Character *wch;
 	Clan *cch = nullptr;
 	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
 	for (unsigned long i = 0; i < Guild::size; i++)
-		rgfClass[i] = FALSE;
+		rgfClass[i] = false;
 
 	for (unsigned long i = 0; i < pc_race_table.size(); i++)
-		rgfRace[i] = FALSE;
+		rgfRace[i] = false;
 
 	/* Parse arguments. */
 	for (; ;) {
@@ -2566,11 +2567,11 @@ void do_who(Character *ch, String argument)
 		else {
 			/* Look for classes to turn on. */
 			if (arg[0] == 'i')
-				fImmortalOnly = TRUE;
+				fImmortalOnly = true;
 			else if (arg.is_prefix_of("pk"))
-				fPK = TRUE;
+				fPK = true;
 			else if (arg == "clan")
-				fClanRestrict = TRUE;
+				fClanRestrict = true;
 			else {
 				Guild guild = guild_lookup(arg);
 
@@ -2579,20 +2580,20 @@ void do_who(Character *ch, String argument)
 
 					if (iRace == 0 || iRace >= pc_race_table.size()) {
 						if ((cch = clan_lookup(arg)) != nullptr)
-							fClan = TRUE;
+							fClan = true;
 						else {
 							stc("That's not a valid race, class, clan, or way to crash this mud.\n", ch);
 							return;
 						}
 					}
 					else {
-						fRaceRestrict = TRUE;
-						rgfRace[iRace] = TRUE;
+						fRaceRestrict = true;
+						rgfRace[iRace] = true;
 					}
 				}
 				else {
-					fClassRestrict = TRUE;
-					rgfClass[guild] = TRUE;
+					fClassRestrict = true;
+					rgfClass[guild] = true;
 				}
 			}
 		}
@@ -2609,7 +2610,7 @@ void do_who(Character *ch, String argument)
 
 	for (d = descriptor_list; d != nullptr; d = d->next) {
 		/* Check for match against restrictions. */
-		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+		if (!d->is_playing() || !can_see_who(ch, d->character))
 			continue;
 
 		wch = d->original ? d->original : d->character;
@@ -2781,7 +2782,7 @@ void do_swho(Character *ch, String argument)
 		Character *wch;
 		char const *position = "Drooling";
 
-		if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+		if (!d->is_playing() || !can_see_who(ch, d->character))
 			continue;
 
 		wch   = (d->original != nullptr) ? d->original : d->character;
@@ -2880,13 +2881,13 @@ void do_inventory(Character *ch, String argument)
 			}
 
 			new_color(ch, CSLOT_MISC_INV);
-			act("$N is carrying:", ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
+			act("$N is carrying:", ch, nullptr, victim, TO_CHAR, POS_SLEEPING, false);
 		}
 		else if (arg1 == "all") {
 			victim = ch;
 			new_color(ch, CSLOT_MISC_INV);
 			stc("You are carrying:\n", ch);
-			show_list_to_char(victim->carrying, ch, TRUE, TRUE, TRUE);
+			show_list_to_char(victim->carrying, ch, true, true, true);
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
@@ -2900,7 +2901,7 @@ void do_inventory(Character *ch, String argument)
 		}
 	}
 
-	show_list_to_char(victim->carrying, ch, TRUE, TRUE, FALSE);
+	show_list_to_char(victim->carrying, ch, true, true, false);
 	set_color(ch, WHITE, NOBOLD);
 }
 
@@ -2919,7 +2920,7 @@ void do_equipment(Character *ch, String argument)
 			}
 
 		set_color(ch, GREEN, NOBOLD);
-		act("$N is using:", ch, nullptr, victim, TO_CHAR, POS_SLEEPING, FALSE);
+		act("$N is using:", ch, nullptr, victim, TO_CHAR, POS_SLEEPING, false);
 	}
 	else {
 		victim = ch;
@@ -2958,7 +2959,7 @@ void do_equipment(Character *ch, String argument)
 			while (spaces-- > 0)
 				buf += " ";
 
-			buf += format_obj_to_char(obj, ch, TRUE);
+			buf += format_obj_to_char(obj, ch, true);
 		}
 		else
 			buf += "       (something)";
@@ -3058,7 +3059,7 @@ void do_where(Character *ch, String argument)
 	Duel::Arena *arena = arena_table_head->next;
 	Character *victim;
 	Descriptor *d;
-	bool found = FALSE;
+	bool found = false;
 
 	if (ch->in_room == nullptr)
 		return;
@@ -3078,7 +3079,7 @@ void do_where(Character *ch, String argument)
 			    && victim->in_room->prototype.vnum <= arena->maxvnum
 			    && !victim->in_room->flags().has(ROOM_NOWHERE)
 			    && can_see_char(ch, victim)) {
-				found = TRUE;
+				found = true;
 				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name());
 			}
 		}
@@ -3095,12 +3096,12 @@ void do_where(Character *ch, String argument)
 		for (d = descriptor_list; d; d = d->next) {
 			victim = d->character;
 
-			if (IS_PLAYING(d)
+			if (d->is_playing()
 			    && victim->in_room != nullptr
 			    && !victim->in_room->flags().has(ROOM_NOWHERE)
 			    && victim->in_room->area() == ch->in_room->area()
 			    && can_see_char(ch, victim)) {
-				found = TRUE;
+				found = true;
 				ptc(ch, "%-28s{x %s{x\n", victim->name, victim->in_room->name());
 			}
 		}
@@ -3118,7 +3119,7 @@ void do_where(Character *ch, String argument)
 			    && !affect::exists_on_char(victim, affect::type::hide)
 			    && can_see_char(ch, victim)
 			    && victim->name.has_words(arg)) {
-				found = TRUE;
+				found = true;
 				ptc(ch, "%-28s{x %s{x\n", PERS(victim, ch, VIS_CHAR), victim->in_room->name());
 				break;
 			}
@@ -3197,7 +3198,7 @@ void do_consider(Character *ch, String argument)
 		return;
 	}
 
-	String guild = IS_NPC(victim) ? "mobile" :
+	String guild = victim->is_npc() ? "mobile" :
 	               victim->guild == Guild::none ? "none" :
 	               guild_table[victim->guild].name;
 
@@ -3228,7 +3229,7 @@ void do_consider(Character *ch, String argument)
 		    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
 		    GET_ATTR_SAVES(victim), victim->alignment);
 
-		if (IS_NPC(victim)) {
+		if (victim->is_npc()) {
 			ptc(ch, "\t\t{WDamage    : %2dd%-2d     Message   : %s\n",
 			    victim->damage[DICE_NUMBER], victim->damage[DICE_TYPE],
 			    attack_table[victim->dam_type].noun);
@@ -3236,12 +3237,12 @@ void do_consider(Character *ch, String argument)
 			    victim->pIndexData->count, victim->pIndexData->killed);
 		}
 
-		ptc(ch, "\n{gAct: %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
+		ptc(ch, "\n{gAct: %s\n", act_bit_name(victim->act_flags, victim->is_npc()));
 
-		if (!IS_NPC(victim))
+		if (!victim->is_npc())
 			ptc(ch, "{gPlr: %s\n", plr_bit_name(victim->pcdata->plr_flags));
 
-		if (IS_NPC(victim) && !victim->off_flags.empty())
+		if (victim->is_npc() && !victim->off_flags.empty())
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
 		buf = print_defense_modifiers(victim, TO_ABSORB);
@@ -3262,7 +3263,7 @@ void do_consider(Character *ch, String argument)
 		    victim->leader ? victim->leader->name : "(none)",
 		    victim->pet   ? victim->pet->name   : "(none)");
 
-		if (IS_NPC(victim) && victim->spec_fun != 0)
+		if (victim->is_npc() && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
 		for (const affect::Affect *paf = affect::list_char(victim); paf != nullptr; paf = paf->next) {
@@ -3333,7 +3334,7 @@ void set_title(Character *ch, const String& title)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		Logging::bug("Set_title: NPC.", 0);
 		return;
 	}
@@ -3351,7 +3352,7 @@ void set_title(Character *ch, const String& title)
 
 void do_title(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (argument.empty()) {
@@ -3382,7 +3383,7 @@ void do_title(Character *ch, String argument)
 
 void do_immname(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	char buf[MIL];
@@ -3397,7 +3398,7 @@ void do_description(Character *ch, String argument)
 	if (!argument.empty()) {
 		if (argument[0] == '-') {
 			int len;
-			bool found = FALSE;
+			bool found = false;
 
 			if (ch->description.empty()) {
 				stc("No lines left to remove.\n", ch);
@@ -3412,7 +3413,7 @@ void do_description(Character *ch, String argument)
 						if (len > 0)
 							len--;
 
-						found = TRUE;
+						found = true;
 					}
 					else { /* found the second one */
 						buf.erase(len + 1);
@@ -3459,7 +3460,7 @@ void do_fingerinfo(Character *ch, String argument)
 {
 	String buf;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (!argument.empty()) {
@@ -3470,7 +3471,7 @@ void do_fingerinfo(Character *ch, String argument)
 		}
 		else if (argument[0] == '-') {
 			int len;
-			bool found = FALSE;
+			bool found = false;
 
 			if (ch->pcdata->fingerinfo.empty()) {
 				stc("No lines left to remove.\n", ch);
@@ -3485,7 +3486,7 @@ void do_fingerinfo(Character *ch, String argument)
 						if (len > 0)
 							len--;
 
-						found = TRUE;
+						found = true;
 					}
 					else { /* found the second one */
 						buf.erase(len + 1);
@@ -3603,7 +3604,7 @@ void prac_by_group(Character *ch, const String& argument)
 		if (!argument.empty() && !argument.is_prefix_of(gp->name))
 			continue;
 
-		group_first = TRUE;
+		group_first = true;
 
 		for (unsigned int js = 0; js < gp->spells.size(); js++) { /* loop thru skills/spells */
 			sn = skill::lookup(gp->spells[js]);
@@ -3628,7 +3629,7 @@ void prac_by_group(Character *ch, const String& argument)
 				output += "\n";
 				line.erase();
 				line_cols = 0;
-				group_first = FALSE;
+				group_first = false;
 			}
 
 			if (line_cols >= 3) {
@@ -3761,7 +3762,7 @@ void do_practice(Character *ch, String argument)
 	Character *mob;
 	int adept, increase;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You don't need to practice anything.\n", ch);
 		return;
 	}
@@ -3798,7 +3799,7 @@ void do_practice(Character *ch, String argument)
 	}
 
 	for (mob = ch->in_room->people; mob != nullptr; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && mob->act_flags.has(ACT_PRACTICE))
+		if (mob->is_npc() && mob->act_flags.has(ACT_PRACTICE))
 			break;
 	}
 
@@ -3816,7 +3817,7 @@ void do_practice(Character *ch, String argument)
 	const auto& entry = skill::lookup(sn);
 
 	if (sn == skill::type::unknown
-	    || (!IS_NPC(ch)
+	    || (!ch->is_npc()
 	        && (ch->level < get_usable_level(sn, ch->guild)
 	            ||    get_learned(ch, sn) < 1 /* skill is not known */
 	            ||    entry.rating[ch->guild] == 0))) {
@@ -3839,7 +3840,7 @@ void do_practice(Character *ch, String argument)
 			adept = 50;
 	}
 	else
-		adept = IS_NPC(ch) ? 100 : guild_table[ch->guild].skill_adept;
+		adept = ch->is_npc() ? 100 : guild_table[ch->guild].skill_adept;
 
 	if (get_learned(ch, sn) >= adept) {
 		Format::sprintf(buf, "You are already learned at %s.\n",
@@ -3906,7 +3907,7 @@ void do_wimpy(Character *ch, String argument)
 
 void do_password(Character *ch, String argument)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	/*
@@ -3943,12 +3944,12 @@ void do_invite(Character *ch, String argument)
 	Character *victim;
 	char buf[MAX_STRING_LENGTH];
 	Descriptor *d;
-	bool found = FALSE;
+	bool found = false;
 
 	if (argument.empty()) {
 		if (IS_IMMORTAL(ch)) {
 			for (d = descriptor_list; d != nullptr; d = d->next) {
-				if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+				if (!d->is_playing() || !can_see_who(ch, d->character))
 					continue;
 
 				victim = (d->original != nullptr) ? d->original : d->character;
@@ -3964,9 +3965,9 @@ void do_invite(Character *ch, String argument)
 
 					Format::sprintf(buf, "{M[{Y%-12s{M][{Y%-30s{M][{Y%-8s{M]{x\n", victim->name,
 					        victim->inviters->clanname,
-					        (victim->invitation_accepted == TRUE) ? "accepted" : "invited");
+					        (victim->invitation_accepted == true) ? "accepted" : "invited");
 					stc(buf, ch);
-					found = TRUE;
+					found = true;
 				}
 			}
 
@@ -3993,7 +3994,7 @@ void do_invite(Character *ch, String argument)
 			if ((ch->inviters != nullptr)) {
 				stc("You have terminated your invitation.\n", ch);
 				ch->inviters = nullptr;
-				ch->invitation_accepted = FALSE;
+				ch->invitation_accepted = false;
 				return;
 			}
 
@@ -4017,7 +4018,7 @@ void do_invite(Character *ch, String argument)
 				stc("You have terminated their invitation.\n", ch);
 				Format::sprintf(buf, "%s has terminated your invitation.\n", ch->name);
 				victim->inviters = nullptr;
-				victim->invitation_accepted = FALSE;
+				victim->invitation_accepted = false;
 				stc(buf, victim);
 			}
 			else
@@ -4038,7 +4039,7 @@ void do_invite(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->invitation_accepted == TRUE) {
+		if (ch->invitation_accepted == true) {
 			stc("You have already accepted the invitation!\n", ch);
 			return;
 		}
@@ -4049,12 +4050,12 @@ void do_invite(Character *ch, String argument)
 		}
 
 		stc("You have accepted their invitation.\n", ch);
-		ch->invitation_accepted = TRUE;
+		ch->invitation_accepted = true;
 
 		for (d = descriptor_list; d != nullptr; d = d->next) {
 			victim = d->original ? d->original : d->character;
 
-			if (IS_PLAYING(d)
+			if (d->is_playing()
 			    && d->character != ch
 			    && ((ch->inviters == d->character->clan)
 			        || IS_IMMORTAL(d->character))
@@ -4070,7 +4071,7 @@ void do_invite(Character *ch, String argument)
 
 				Format::sprintf(buf, "%s has accepted an invitation to enter the clan hall",
 				        ch->name);
-				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
+				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, false);
 				set_color(d->character, WHITE, NOBOLD);
 			}
 		}
@@ -4084,7 +4085,7 @@ void do_invite(Character *ch, String argument)
 			return;
 		}
 
-		if (ch->invitation_accepted == TRUE) {
+		if (ch->invitation_accepted == true) {
 			stc("You have already accepted the invitation!\n", ch);
 			return;
 		}
@@ -4094,7 +4095,7 @@ void do_invite(Character *ch, String argument)
 		for (d = descriptor_list; d != nullptr; d = d->next) {
 			victim = d->original ? d->original : d->character;
 
-			if (IS_PLAYING(d)
+			if (d->is_playing()
 			    && d->character != ch
 			    && ((ch->inviters == d->character->clan)
 			        || IS_IMMORTAL(d->character))
@@ -4110,13 +4111,13 @@ void do_invite(Character *ch, String argument)
 
 				Format::sprintf(buf, "%s has declined an invitation to enter the clan hall",
 				        ch->name);
-				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, FALSE);
+				act("Clan Notice: '$t{x'", ch, buf, d->character, TO_VICT, POS_DEAD, false);
 				set_color(d->character, WHITE, NOBOLD);
 			}
 		}
 
 		ch->inviters = nullptr;
-		ch->invitation_accepted = FALSE;
+		ch->invitation_accepted = false;
 		return;
 	}
 
@@ -4130,7 +4131,7 @@ void do_invite(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("You cannot invite mobiles to your clan hall.\n", ch);
 		return;
 	}
@@ -4155,7 +4156,7 @@ void do_invite(Character *ch, String argument)
 	}
 
 	victim->inviters = ch->clan;
-	victim->invitation_accepted = FALSE;
+	victim->invitation_accepted = false;
 	Format::sprintf(buf, "You have invited %s to enter your clan hall.\n", victim->name);
 	stc(buf, ch);
 	Format::sprintf(buf, "%s has invited you to enter the clan hall of %s.\n", ch->name,
@@ -4491,7 +4492,7 @@ void do_email(Character *ch, String argument)
 {
 	char buf[MIL];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -4519,7 +4520,7 @@ void gameinout(Character *ch, const String& mortal, const String& entryexit, cha
 	char buf[MAX_INPUT_LENGTH];
 	char *p;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobs don't have entry/exit messages!\n", ch);
 		return;
 	}
@@ -4597,7 +4598,7 @@ void do_pit(Character *ch, String argument)
 	Object *obj, *next_obj;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
-	bool flevel = FALSE, fexplevel = FALSE, fname = FALSE, fwear = FALSE, fweapon = FALSE;
+	bool flevel = false, fexplevel = false, fname = false, fwear = false, fweapon = false;
 	Flags wear_flag;
 	int weapon_type = -1;
 
@@ -4628,7 +4629,7 @@ void do_pit(Character *ch, String argument)
 		keywords = "";
 	else {
 		if (arg.is_number()) {
-			num1 = UMAX(atoi(arg), -1);
+			num1 = std::max(atoi(arg), -1);
 			keywords = argument;
 			argument = one_argument(argument, arg);
 
@@ -4636,7 +4637,7 @@ void do_pit(Character *ch, String argument)
 				keywords = "";
 			else {
 				if (arg.is_number()) {
-					num2 = UMAX(atoi(arg), -1);
+					num2 = std::max(atoi(arg), -1);
 					keywords = argument;
 					one_argument(argument, arg);
 
@@ -4652,33 +4653,33 @@ void do_pit(Character *ch, String argument)
 
 	if (num1 == -1 && !fname) {
 		/* no number, no keyword */
-		flevel = TRUE;
-		level1 = UMIN(ch->level - 7, 2 * ch->level / 3);
-		level1 = UMAX(level1, 0);
+		flevel = true;
+		level1 = std::min(ch->level - 7, 2 * ch->level / 3);
+		level1 = std::max(level1, 0);
 		level2 = get_holdable_level(ch);
 	}
 	else if (num1 == -1) {
 		/* keyword only */
-		flevel = FALSE;
+		flevel = false;
 	}
 	else if (num2 == -1) {
 		/* level 1 but no level 2, maybe keyword */
-		fexplevel = TRUE;
-		flevel = TRUE;
-		level1 = UMAX(num1 - 10, 0);
+		fexplevel = true;
+		flevel = true;
+		level1 = std::max(num1 - 10, 0);
 		level2 = num1 + 10;
 	}
 	else {
 		/* level 1 and level 2, maybe keyword */
-		fexplevel = TRUE;
-		flevel = TRUE;
-		level1 = UMAX(num1, 0);
-		level2 = UMAX(num2, level1);
+		fexplevel = true;
+		flevel = true;
+		level1 = std::max(num1, 0);
+		level2 = std::max(num2, level1);
 	}
 
 	if (keywords.has_prefix("wear")) {
-	 	fwear = TRUE;
-	 	fname = FALSE;
+	 	fwear = true;
+	 	fname = false;
 		keywords = one_argument(keywords, arg); // strip off the "wear "
 		keywords = one_argument(keywords, arg); // get the wear slot name
 
@@ -4700,8 +4701,8 @@ void do_pit(Character *ch, String argument)
 		}
 	}
 	else if (keywords.has_prefix("weapon")) {
-		fweapon = TRUE;
-	 	fname = FALSE;
+		fweapon = true;
+	 	fname = false;
 		keywords = one_argument(keywords, arg); // strip off the "weapon "
 		keywords = one_argument(keywords, arg); // get the weapon type name
 
@@ -4766,7 +4767,7 @@ void do_pit(Character *ch, String argument)
 		ch->act_flags += PLR_LOOKINPIT;
 		new_color(ch, CSLOT_MISC_OBJECTS);
 		act("In your selection from $p, you see:", ch, pit, nullptr, TO_CHAR);
-		show_list_to_char(sel_pit.contains, ch, TRUE, TRUE, FALSE);
+		show_list_to_char(sel_pit.contains, ch, true, true, false);
 		set_color(ch, WHITE, NOBOLD);
 		ch->act_flags -= PLR_LOOKINPIT;
 	}
@@ -4784,7 +4785,7 @@ void do_claninfo(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You just leave worrying about clans for players.\n", ch);
 		return;
 	}
@@ -4870,19 +4871,19 @@ void do_clanpower(Character *ch, String argument)
 		clist[count].qp         = clan->clanqp;
 		clist[count].gold       = clan->gold_balance;
 		clist[count].warpts     = clan->warcpmod;
-		clist[count].printed    = FALSE;
+		clist[count].printed    = false;
 		count++;
 	}
 
 	/* presorting, make each int a number between 1 and... eh, 10 */
 	for (i = 1, high = clist[0].tmembers; i < count; i++)
-		high = UMAX(clist[i].tmembers, high);
+		high = std::max(clist[i].tmembers, high);
 
 	for (i = 0; i < count; i++)
 		clist[i].members = high ? URANGE(1, ((9 * clist[i].tmembers) / high) + 1, 10) : 1;
 
 	for (i = 1, high = clist[0].qp; i < count; i++)
-		high = UMAX(clist[i].qp, high);
+		high = std::max(clist[i].qp, high);
 
 	for (i = 0; i < count; i++)
 		clist[i].qp = high ? URANGE(1, ((9 * clist[i].qp) / high) + 1, 10) : 1;
@@ -4892,8 +4893,8 @@ void do_clanpower(Character *ch, String argument)
 
 	/* war points can be negative! */
 	for (i = 1, high = clist[0].warpts, low = clist[0].warpts; i < count; i++) {
-		high = UMAX(clist[i].warpts, high);
-		low = UMIN(clist[i].warpts, low);
+		high = std::max(clist[i].warpts, high);
+		low = std::min(clist[i].warpts, low);
 	}
 
 	if (low < 0)
@@ -4914,7 +4915,7 @@ void do_clanpower(Character *ch, String argument)
 	for (i = 0; i < count; i++) {
 		for (x = 0, high = 0; x < count; x++)
 			if (!clist[x].printed) {
-				total = calc_cp(clist[x].clan, TRUE);
+				total = calc_cp(clist[x].clan, true);
 
 				if (total >= high) {
 					j = x;
@@ -4925,7 +4926,7 @@ void do_clanpower(Character *ch, String argument)
 		if (IS_IMMORTAL(ch))
 			output += Format::format("{G(%2d) ", high);
 
-		clist[j].printed = TRUE;
+		clist[j].printed = true;
 		output += Format::format("{W%d. %-30s{x%s %s %s %s\n",
 		    i + 1,
 		    clist[j].clan->clanname,
@@ -4944,7 +4945,7 @@ void print_new_affects(Character *ch)
 {
 	char torch[8], border[4], breakline[MSL];
 	String buffer;
-	bool found = FALSE;
+	bool found = false;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	Format::sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	Format::sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
@@ -5003,11 +5004,11 @@ void print_new_affects(Character *ch)
 				paf_last = paf;
 			}
 
-			found = TRUE;
+			found = true;
 		}
 	}
 
-	bool print = FALSE;
+	bool print = false;
 
 	for (int iWear = 0; iWear < MAX_WEAR; iWear++) {
 		Object *obj;
@@ -5024,8 +5025,8 @@ void print_new_affects(Character *ch)
 					buffer += Format::format(" %s {bYou are affected by the following equipment spells:            %s\n",
 					    torch, torch);
 					buffer += breakline;
-					print = TRUE;
-					found = TRUE;
+					print = true;
+					found = true;
 				}
 
 				String namebuf, eqbuf, timebuf;
@@ -5097,11 +5098,11 @@ void print_new_affects(Character *ch)
 				paf_last = paf;
 			}
 
-			found = TRUE;
+			found = true;
 		}
 	}
 
-	if (!IS_NPC(ch)
+	if (!ch->is_npc()
 	    && ch->pcdata->remort_count
 	    && ch->pcdata->raffect[0]
 	    && ch->pcdata->plr_flags.has(PLR_SHOWRAFF)) {
@@ -5119,7 +5120,7 @@ void print_new_affects(Character *ch)
 					buffer += Format::format(" %s {b%-62s %s\n",
 					    torch, raffects[i].description, torch);
 
-		found = TRUE;
+		found = true;
 	}
 
 	if (!found)
@@ -5142,7 +5143,7 @@ void score_new(Character *ch)
 //	line  2:  '`,                Kazander, Lover of Freyja's Soul                '`,
 	/* center the name and title */
 	new_color(ch, CSLOT_SCORE_TITLE);
-	Format::sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), IS_NPC(ch) ? ch->short_descr : ch->name, IS_NPC(ch) ? "" : ch->pcdata->title);
+	Format::sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), ch->is_npc() ? ch->short_descr : ch->name, ch->is_npc() ? "" : ch->pcdata->title);
 	ptc(ch, " %s'`,{x %s %s'`,{x\n", flame, buf.center(62), flame);
 //	line  3:  `,                                                                 `,
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
@@ -5158,7 +5159,7 @@ void score_new(Character *ch)
 	new_color(ch, CSLOT_SCORE_LEVEL);
 	Format::sprintf(buf, "Level{B:{x %d {B({xRemort %d{B){x     Age{B:{x %d {B({x%d Hours{B){x",
 	        ch->level,
-	        IS_NPC(ch) ? 0 : ch->pcdata->remort_count,
+	        ch->is_npc() ? 0 : ch->pcdata->remort_count,
 	        GET_ATTR_AGE(ch),
 	        get_play_hours(ch));
 	stc(buf.center(62), ch);
@@ -5241,7 +5242,7 @@ void score_new(Character *ch)
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x QuestPoints  ", torch);
 	new_color(ch, CSLOT_SCORE_POINTNUM);
-	ptc(ch, "%5d %s|{x", IS_NPC(ch) ? 0 : ch->pcdata->questpoints, border);
+	ptc(ch, "%5d %s|{x", ch->is_npc() ? 0 : ch->pcdata->questpoints, border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "     Slash    %6d  %s|{x", GET_AC(ch, AC_SLASH), border);
 	new_color(ch, CSLOT_SCORE_DICENAME);
@@ -5252,7 +5253,7 @@ void score_new(Character *ch)
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x SkillPoints  ", torch);
 	new_color(ch, CSLOT_SCORE_POINTNUM);
-	ptc(ch, "%5d %s|{x", IS_NPC(ch) ? 0 : ch->pcdata->skillpoints, border);
+	ptc(ch, "%5d %s|{x", ch->is_npc() ? 0 : ch->pcdata->skillpoints, border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "     Magic    %6d  %s|{x", GET_AC(ch, AC_EXOTIC), border);
 	new_color(ch, CSLOT_SCORE_DICENAME);
@@ -5264,7 +5265,7 @@ void score_new(Character *ch)
 	ptc(ch, " %s|#|{x    RPPoints  ", torch);
 	new_color(ch, CSLOT_SCORE_POINTNUM);
 	ptc(ch, "%5d %s|                      |                    %s|#|{x\n",
-	    IS_NPC(ch) ? 0 : ch->pcdata->rolepoints, border, torch);
+	    ch->is_npc() ? 0 : ch->pcdata->rolepoints, border, torch);
 //	line 17:  |#|      Trains      4 |  Alignment    -1000  | Experience         |#|
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x      Trains  ", torch);
@@ -5282,7 +5283,7 @@ void score_new(Character *ch)
 	ptc(ch, "%5d %s|----------------------|{x", ch->practice, border);
 	new_color(ch, CSLOT_SCORE_XPNUM);
 	ptc(ch, "    To Level %6ld %s|#|{x\n",
-	    IS_NPC(ch) ? 0 : UMIN((ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp, 999999), torch);
+	    ch->is_npc() ? 0 : (ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp, torch);
 //	line 19:  |#|                    |   You are standing   |       Total  42055 |#|
 	Format::sprintf(buf, "You are ");
 
@@ -5310,13 +5311,13 @@ void score_new(Character *ch)
 	new_color(ch, CSLOT_SCORE_POSITION);
 	ptc(ch, "%s%s|{x", buf.center(22), border);
 	new_color(ch, CSLOT_SCORE_XPNUM);
-	ptc(ch, "       Total %6d %s|#|{x\n", UMIN(ch->exp, 999999), torch);
+	ptc(ch, "       Total %6d %s|#|{x\n", std::min(ch->exp, 999999), torch);
 //	line 20:  |#|----------------------------------------------------------------|#|
 	ptc(ch, " %s|#|%s----------------------------------------------------------------%s|#|{x\n",
 	    torch, border, torch);
 //	line 21:  |#| PK: 000 Wins, 000 Losses  Rank: 0  Arena: 000 Wins, 000 Losses |#|
 
-	if (!IS_NPC(ch)) {
+	if (!ch->is_npc()) {
 		new_color(ch, CSLOT_SCORE_PKRECORD);
 		Format::sprintf(buf, "PK: %d Wins, %d Losses  %sRank: %d{x  Arena: %d Wins, %d Losses",
 		        ch->pcdata->pckills, ch->pcdata->pckilled,
@@ -5390,7 +5391,7 @@ void spell_scry(skill::type sn, int level, Character *ch, void *vo, int target, 
 	else {  /* we can see */
 		stc("You see...\n  ", ch);
 		stc(pet->in_room->description(), ch);
-		show_list_to_char(pet->in_room->contents, ch, FALSE, FALSE, FALSE);
+		show_list_to_char(pet->in_room->contents, ch, false, false, false);
 		show_char_to_char(pet->in_room->people, ch);
 		return;
 	}

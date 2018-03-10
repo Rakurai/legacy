@@ -1,5 +1,5 @@
 #include "Exit.hh"
-#include "merc.hh"
+#include "ExitPrototype.hh"
 
 Exit::
 Exit(const ExitPrototype& proto, Room *to_room) :
@@ -8,3 +8,19 @@ Exit(const ExitPrototype& proto, Room *to_room) :
 	to_room(to_room)
 {
 }
+
+int Exit::
+key() const {
+	return prototype.key;
+}
+
+const String& Exit::
+keyword() const {
+	return prototype.keyword;
+}
+
+const String& Exit::
+description() const {
+	return prototype.description;
+}
+

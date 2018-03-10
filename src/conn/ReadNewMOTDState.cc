@@ -9,6 +9,10 @@
 #include "channels.hh"
 #include "act.hh"
 #include "sql.hh"
+#include "file.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
+#include "merc.hh"
 
 namespace conn {
 
@@ -23,10 +27,10 @@ unsigned long update_records()
 	db_command("update_records", "UPDATE records SET logins=logins+1");
 
 	for (d = descriptor_list; d != nullptr; d = d->next)
-		if (IS_PLAYING(d))
+		if (d->is_playing())
 			count++;
 
-	Game::record_players_since_boot = UMAX(count, Game::record_players_since_boot);
+	Game::record_players_since_boot = std::max(count, Game::record_players_since_boot);
 
 	if (Game::record_players_since_boot > Game::record_players) {
 		Game::record_players = Game::record_players_since_boot;
@@ -102,7 +106,7 @@ handleInput(Descriptor *d, const String& argument) {
 	for (Descriptor *sd = descriptor_list; sd != nullptr; sd = sd->next) {
 		Character *victim = sd->original ? sd->original : sd->character;
 
-		if (IS_PLAYING(sd)
+		if (sd->is_playing()
 		    && sd->character != ch
 		    && can_see_who(victim, ch)
 		    && !victim->comm_flags.has(COMM_NOANNOUNCE)
@@ -156,7 +160,7 @@ handleInput(Descriptor *d, const String& argument) {
 	ch->pcdata->last_ltime = Game::current_time;
 	ch->pcdata->last_lsite = d->host;
 	ptc(ch, "\n{VYou are traveler [%lu] of Legacy!!!{x\n", update_records());
-	update_pc_index(ch, FALSE);
+	update_pc_index(ch, false);
 
 	/* VT100 Stuff */
 	if (ch->pcdata && ch->pcdata->video_flags.has(PLR_VT100)) {

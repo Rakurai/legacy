@@ -37,7 +37,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -46,6 +45,7 @@
 #include "Player.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
 
 
 /* A trivial rehack of do_mstat.  This doesnt show all the data, but just
@@ -71,7 +71,7 @@ void do_mpstat(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		stc("Only Mobiles can have Programs!\n", ch);
 		return;
 	}
@@ -119,7 +119,7 @@ void do_mpasound(Character *ch, String argument)
 	int              door;
 	bool save_mobtrigger;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -139,7 +139,7 @@ void do_mpasound(Character *ch, String argument)
 		    &&   pexit->to_room != was_in_room) {
 			ch->in_room = pexit->to_room;
 			save_mobtrigger = MOBtrigger;
-			MOBtrigger  = FALSE;
+			MOBtrigger  = false;
 			act(argument, ch, nullptr, nullptr, TO_ROOM);
 			MOBtrigger = save_mobtrigger;
 		}
@@ -155,7 +155,7 @@ void do_mpkill(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -206,7 +206,7 @@ void do_mpjunk(Character *ch, String argument)
 	Object *obj;
 	Object *obj_next;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -252,7 +252,7 @@ void do_mpechoaround(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -281,7 +281,7 @@ void do_mpechoat(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -309,7 +309,7 @@ void do_mpechoat(Character *ch, String argument)
 
 void do_mpecho(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -326,7 +326,7 @@ void do_mpecho(Character *ch, String argument)
 
 void do_mpclearmoney(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -345,7 +345,7 @@ void do_mpmload(Character *ch, String argument)
 	MobilePrototype *pMobIndex;
 	Character      *victim;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -379,7 +379,7 @@ void do_mpoload(Character *ch, String argument)
 	ObjectPrototype *pObjIndex;
 	Object       *obj;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}
@@ -424,7 +424,7 @@ void do_mppurge(Character *ch, String argument)
 	Character *victim;
 	Object  *obj;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -440,8 +440,8 @@ void do_mppurge(Character *ch, String argument)
 		for (victim = ch->in_room->people; victim != nullptr; victim = vnext) {
 			vnext = victim->next_in_room;
 
-			if (IS_NPC(victim) && victim != ch)
-				extract_char(victim, TRUE);
+			if (victim->is_npc() && victim != ch)
+				extract_char(victim, true);
 		}
 
 		for (obj = ch->in_room->contents; obj != nullptr; obj = obj_next) {
@@ -453,12 +453,12 @@ void do_mppurge(Character *ch, String argument)
 	}
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) != nullptr) {
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			Logging::bugf("Mppurge - Purging a PC: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
 
-		extract_char(victim, TRUE);
+		extract_char(victim, true);
 		return;
 	}
 	else if ((obj = get_obj_here(ch, arg)) != nullptr)
@@ -473,7 +473,7 @@ void do_mpgoto(Character *ch, String argument)
 {
 	Room *location;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -492,7 +492,7 @@ void do_mpgoto(Character *ch, String argument)
 	}
 
 	if (ch->fighting != nullptr)
-		stop_fighting(ch, TRUE);
+		stop_fighting(ch, true);
 
 	char_from_room(ch);
 	char_to_room(ch, location);
@@ -507,7 +507,7 @@ void do_mpat(Character *ch, String argument)
 	Room *original;
 	Character       *wch;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
 		return;
 	}
@@ -554,7 +554,7 @@ void do_mptransfer(Character *ch, String argument)
 //	Descriptor *d;
 	Character *victim;
 
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}
@@ -573,7 +573,7 @@ void do_mptransfer(Character *ch, String argument)
 	        {
 	                for (d = descriptor_list; d != nullptr; d = d->next)
 	                {
-	                        if (IS_PLAYING(d)
+	                        if (d->is_playing()
 	                         && d->character != ch
 	                         && d->character->in_room != nullptr
 	                         && can_see_char(ch, d->character))
@@ -617,7 +617,7 @@ void do_mptransfer(Character *ch, String argument)
 	}
 
 	if (victim->fighting != nullptr)
-		stop_fighting(victim, TRUE);
+		stop_fighting(victim, true);
 
 	char_from_room(victim);
 	char_to_room(victim, location);
@@ -628,7 +628,7 @@ void do_mptransfer(Character *ch, String argument)
    and the all argument only affects those in the room with the mobile */
 void do_mpforce(Character *ch, String argument)
 {
-	if (!IS_NPC(ch) || ch->act_flags.has(ACT_MORPH)) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		do_huh(ch);
 		return;
 	}

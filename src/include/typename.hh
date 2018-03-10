@@ -1,6 +1,10 @@
 #pragma once
 
-#include "declare.hh"
+#include "String.hh"
+
+class Character;
+class Object;
+class Flags;
 
 /* typename.c */
 String weapon_name     args(( int weapon_Type) );

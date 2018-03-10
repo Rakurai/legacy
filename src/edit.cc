@@ -61,7 +61,6 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "Note.hh"
 #include "Player.hh"
@@ -163,10 +162,10 @@ static void edit_list1(Character *ch, int fromline, int toline)
 	int jline;
 	char *cp;
 	String dbuf;
-	fromline = UMAX(fromline, 0);
-	fromline = UMIN(fromline, ed->edit_nlines);
-	toline   = UMAX(toline, fromline);
-	toline   = UMIN(toline, ed->edit_nlines + 1);
+	fromline = std::max(fromline, 0);
+	fromline = std::min(fromline, ed->edit_nlines);
+	toline   = std::max(toline, fromline);
+	toline   = std::min(toline, ed->edit_nlines + 1);
 
 	if (fromline == 0) {
 		listline(dbuf, 0, "");
@@ -197,8 +196,8 @@ static void list_window(Character *ch)
 		return;
 	}
 
-	fromline = UMAX(ed->edit_line - 2, 0);
-	toline   = UMIN(ed->edit_line + 2, ed->edit_nlines + 1);
+	fromline = std::max(ed->edit_line - 2, 0);
+	toline   = std::min(ed->edit_line + 2, ed->edit_nlines + 1);
 	edit_list1(ch, fromline, toline);
 } /* end list_window() */
 
@@ -286,10 +285,10 @@ static bool check_line(Character *ch, int line)
 	if (line < 0 || line > ed->edit_nlines) {
 		Format::sprintf(buf, "{PThere is no line number %d{x.\n", line);
 		stc(buf, ch);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 } /* end check_line() */
 
 static bool check_range(Character *ch, int *fromline, int *toline)
@@ -298,7 +297,7 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 
 	if (numeric_args.has(ARG_2)) {
 		if (!check_line(ch, num1) || !check_line(ch, num2))
-			return FALSE;
+			return false;
 
 		if (num2 > ed->edit_nlines) {
 			num2 = ed->edit_nlines;
@@ -307,7 +306,7 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 		}
 		else if (num2 < num1) {
 			stc("{PLine numbers out of sequence.{x\n", ch);
-			return FALSE;
+			return false;
 		}
 
 		*fromline = num1;
@@ -315,7 +314,7 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 	}
 	else if (numeric_args.has(ARG_1)) {
 		if (!check_line(ch, num1))
-			return FALSE;
+			return false;
 
 		*fromline = num1;
 		*toline = num1;
@@ -325,15 +324,15 @@ static bool check_range(Character *ch, int *fromline, int *toline)
 		*toline = ed->edit_line;
 	}
 
-	return TRUE;
+	return true;
 } /* end check_range() */
 
 static void edit_goto1(Character *ch, int lineno)
 {
 	if (lineno < 0 || lineno > ed->edit_nlines) {
 		/* Logging::bug( "edit_goto1(%d)", lineno ); */
-		lineno = UMAX(lineno, 0);
-		lineno = UMIN(lineno, ed->edit_nlines);
+		lineno = std::max(lineno, 0);
+		lineno = std::min(lineno, ed->edit_nlines);
 	}
 
 	ed->edit_line = lineno;
@@ -343,18 +342,18 @@ static bool is_blank_line(char *line)
 {
 	while (*line != 0 && *line != '\n') {
 		if (*line > ' ')
-			return FALSE;
+			return false;
 
 		line++;
 	}
 
-	return TRUE;
+	return true;
 } /* end is_blank_line() */
 
 static void backup(void)
 {
 	strcpy(ed->edit_backup, ed->edit_string);
-	ed->edit_undo_ok = TRUE;
+	ed->edit_undo_ok = true;
 } /* end backup() */
 
 /********** Main functions **********/
@@ -447,7 +446,7 @@ static void edit_delete(Character *ch, const String& argument)
 	}
 
 	ed->edit_nlines = count_lines();
-	ed->edit_line = UMAX(0, linefrom - 1);
+	ed->edit_line = std::max(0, linefrom - 1);
 } /* end edit_delete() */
 
 static void edit_desc(Character *ch, const String& argument)
@@ -726,7 +725,7 @@ static void edit_undo(Character *ch, const String& junk)
 
 	stc("{POK{x, your most recent change (if any) has been {Pundone{x.\n",
 	    ch);
-	ed->edit_undo_ok = FALSE;
+	ed->edit_undo_ok = false;
 } /* end edit_undo() */
 
 static void edit_wrap(Character *ch, const String& argument)
@@ -769,8 +768,8 @@ static void edit_wrap(Character *ch, const String& argument)
 		if (!check_range(ch, &linefrom, &lineto))
 			return;
 		else {
-			prev_blank_line = UMAX(linefrom - 1, 0);
-			foll_blank_line = UMIN(lineto + 1, ed->edit_nlines + 1);
+			prev_blank_line = std::max(linefrom - 1, 0);
+			foll_blank_line = std::min(lineto + 1, ed->edit_nlines + 1);
 		}
 	}
 
@@ -787,13 +786,13 @@ static void edit_wrap(Character *ch, const String& argument)
 	wp = word;
 	lp = line;
 	linelen = 0;
-	in_word = FALSE;
+	in_word = false;
 
 	for (cp = start; lineno < foll_blank_line; cp++) {
 		if (*cp > ' ') {
 			/* Found a printable character. Start or continue word. */
 			*wp++ = *cp;
-			in_word = TRUE;
+			in_word = true;
 		}
 		else {
 			if (*cp == '\n')
@@ -802,7 +801,7 @@ static void edit_wrap(Character *ch, const String& argument)
 			if (in_word) {
 				/* Found a nonprintable. Terminate word. */
 				*wp = '\0';
-				in_word = FALSE;
+				in_word = false;
 
 				if (strlen(word) == 0)
 					continue;

@@ -8,11 +8,13 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
+#include "constants.hh"
 #include "file.hh"
 
 #include "Flags.hh"
 #include "Logging.hh"
 #include "String.hh"
+#include "Game.hh"
 
 /* Read a letter from a file. */
 char fread_letter(FILE *fp)
@@ -31,7 +33,7 @@ char fread_letter(FILE *fp)
 int fread_number(FILE *fp)
 {
 	int number = 0;
-	bool sign = FALSE;
+	bool sign = false;
 	char c;
 
 	do {
@@ -42,7 +44,7 @@ int fread_number(FILE *fp)
 	if (c == '+')
 		c = getc(fp);
 	else if (c == '-') {
-		sign = TRUE;
+		sign = true;
 		c = getc(fp);
 	}
 
@@ -89,7 +91,7 @@ String fread_string(FILE *fp, char to_char)
 	String buf;
 	buf = c;
 
-	while (TRUE) {
+	while (true) {
 		c = getc(fp);
 
 		switch (c) {
@@ -187,3 +189,81 @@ void fappend(const String& file, const String& str)
 	else
 		Logging::bugf("fappend(): could not open %s", file);
 }
+
+
+/*
+ * This function works just like ctime() does on current Linux systems.
+ * I am only implementing it to make sure that dizzy_scantime(), which
+ * decodes the output from ctime() and dizzy_ctime(), will always work
+ * even if the system on which this code is run implements ctime()
+ * differently.
+ *
+ * The output format for dizzy_ctime() is like this:
+ *      Wed Jun 30 21:49:08 1993\n
+ *
+ * Like ctime(), dizzy_ctime() writes to a static string which will change
+ * with the next invocation of dizzy_ctime().
+ */
+
+static const String day_names[] =
+{ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+static const String month_names[] = {
+	"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+};
+
+const char *dizzy_ctime(time_t *timep)
+{
+	static char ctime_buf[40];
+	struct tm loc_tm;
+	loc_tm = *localtime(timep);
+	Format::sprintf(ctime_buf, "%s %s %02d %02d:%02d:%02d %04d\n",
+	        day_names[loc_tm.tm_wday],
+	        month_names[loc_tm.tm_mon],
+	        loc_tm.tm_mday,
+	        loc_tm.tm_hour, loc_tm.tm_min, loc_tm.tm_sec,
+	        1900 + loc_tm.tm_year);
+	return ctime_buf;
+} /* end dizzy_ctime() */
+
+/*
+ * decode a time string as produced by dizzy_ctime()
+ * Day of week is scanned in spite of not being needed so that the
+ * return value from Format::sprintf() will be significant.
+ */
+time_t dizzy_scantime(const String& ctime)
+{
+	char cdow[4], cmon[4];
+	int year, month, day, hour, minute, second;
+	char msg[MAX_INPUT_LENGTH];
+	struct tm loc_tm;
+	/* this helps initialize local-dependent stuff like TZ, etc. */
+	loc_tm = *localtime(&Game::current_time);
+
+	if (sscanf(ctime.c_str(), " %3s %3s %d %d:%d:%d %d",
+	           cdow, cmon, &day, &hour, &minute, &second, &year) < 7) {
+		Format::sprintf(msg, "dizzy_scantime(): Error scanning date/time: '%s'", ctime);
+		Logging::bug(msg, 0);
+		goto endoftime;
+	}
+
+	for (month = 0; month < 12; month++) {
+		if (month_names[month].is_prefix_of(ctime.substr(4)))
+			break;
+	}
+
+	if (month >= 12) {
+		Format::sprintf(msg, "dizzy_scantime(): Bad month in %s", ctime);
+		Logging::bug(msg, 0);
+		goto endoftime;
+	}
+
+	loc_tm.tm_mon  = month;
+	loc_tm.tm_mday = day;
+	loc_tm.tm_hour = hour;
+	loc_tm.tm_min  = minute;
+	loc_tm.tm_sec  = second;
+	loc_tm.tm_year = year - 1900;
+endoftime:
+	return mktime(&loc_tm);
+} /* end dizzy_scantime() */

@@ -41,7 +41,6 @@
 #include "Game.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -55,6 +54,7 @@
 #include "tables.hh"
 #include "typename.hh"
 #include "gem/gem.hh"
+#include "World.hh"
 
 /* RT set replaces sset, mset, oset, rset and cset */
 DECLARE_DO_FUN( do_mset );
@@ -164,7 +164,7 @@ void do_sset(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("I'm sorry, you cannot set a mobile's skills.\n", ch);
 		return;
 	}
@@ -240,7 +240,7 @@ void do_evoset(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("I'm sorry, you cannot set a mobile's skill evolution.\n", ch);
 		return;
 	}
@@ -364,7 +364,7 @@ void do_raffset(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Mobiles do not have remort affects.\n", ch);
 		return;
 	}
@@ -549,7 +549,7 @@ void do_extraset(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Mobiles do not have extraclass skills.\n", ch);
 		return;
 	}
@@ -702,7 +702,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && !IS_IMP(ch) && victim != ch) {
+	if (!victim->is_npc() && !IS_IMP(ch) && victim != ch) {
 		stc("You cannot set players at your level.\n", ch);
 		return;
 	}
@@ -797,7 +797,7 @@ void do_mset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("level")) {
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("You may not set a player's level.\n"
 			    "Use ADVANCE instead!\n", ch);
 			return;
@@ -875,7 +875,7 @@ void do_mset(Character *ch, String argument)
 	if (arg2 == "hunt") {
 		Character *hunted = 0;
 
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("You can't make a player hunt!\n", ch);
 			return;
 		}
@@ -898,13 +898,13 @@ void do_mset(Character *ch, String argument)
 	if (arg2.is_prefix_of("race")) {
 		unsigned int race = race_lookup(arg3);
 
-		if (race == 0 || (!IS_NPC(victim) && !race_table[race].pc_race)) {
-			ptc(ch, "%s is not a valid %s race.\n", arg3, !IS_NPC(victim) ? "PC" : "NPC");
+		if (race == 0 || (!victim->is_npc() && !race_table[race].pc_race)) {
+			ptc(ch, "%s is not a valid %s race.\n", arg3, !victim->is_npc() ? "PC" : "NPC");
 			stc("Valid races are :\n\n", ch);
 
 			for (const auto& entry : race_table) {
-				if ((!IS_NPC(victim) && !entry.pc_race)
-				    || (IS_NPC(victim) && entry.pc_race))
+				if ((!victim->is_npc() && !entry.pc_race)
+				    || (victim->is_npc() && entry.pc_race))
 					continue;
 
 				ptc(ch, "%-10.10s\n", entry.name);
@@ -920,7 +920,7 @@ void do_mset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("nectimer")) {
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("You can't set a player's necromancer timer!\n", ch);
 			return;
 		}
@@ -936,7 +936,7 @@ void do_mset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("damdice")) {
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("You cannot set a player's damage dice.\n", ch);
 			return;
 		}
@@ -952,7 +952,7 @@ void do_mset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("damsides")) {
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("You cannot set a player's damage dice type.\n", ch);
 			return;
 		}
@@ -970,7 +970,7 @@ void do_mset(Character *ch, String argument)
 	if (arg2.is_prefix_of("damtype")) {
 		unsigned int i;
 
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("You cannot set a player's damage type.\n", ch);
 			return;
 		}
@@ -990,7 +990,7 @@ void do_mset(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("You can't set that on mobiles.\n", ch);
 		do_mset(ch, "");
 		return;
@@ -1522,7 +1522,7 @@ void do_rset(Character *ch, String argument)
 /***** STAT COMMANDS *****/
 void format_mstat(Character *ch, Character *victim)
 {
-	if (IS_NPC(victim))
+	if (victim->is_npc())
 		ptc(ch, "Vnum: %d  Group: %s  Count: %d  Killed: %d\n",
 		    victim->pIndexData->vnum,
 		    victim->group_flags,
@@ -1531,21 +1531,21 @@ void format_mstat(Character *ch, Character *victim)
 	ptc(ch, "{WRoom: %s {CName: %s{x\n",
 	    victim->in_room == nullptr ? "0" : victim->in_room->location.to_string(), victim->name);
 
-	if (!IS_NPC(victim))
+	if (!victim->is_npc())
 		ptc(ch, "{CRemort %d, {x", victim->pcdata->remort_count);
 
 	ptc(ch, "{CLevel %d{x", victim->level);
 
-	if (!IS_NPC(victim))
+	if (!victim->is_npc())
 		ptc(ch, "{C Age: %d (%d hours){x", get_age(victim), get_play_hours(victim));
 
 	stc("\n", ch);
 	ptc(ch, "{MRace: %s  Sex: %s  Guild: %s  Size: %s{x\n",
 	    race_table[victim->race].name, sex_table[GET_ATTR_SEX(victim)].name,
-	    IS_NPC(victim) ? "mobile" : victim->guild == Guild::none ? "none" : guild_table[victim->guild].name,
+	    victim->is_npc() ? "mobile" : victim->guild == Guild::none ? "none" : guild_table[victim->guild].name,
 	    size_table[victim->size].name);
 
-	if (!IS_NPC(victim))
+	if (!victim->is_npc())
 		ptc(ch, "Killer: %d\tThief: %d\n",
 		    victim->pcdata->flag_killer, victim->pcdata->flag_thief);
 
@@ -1566,46 +1566,46 @@ void format_mstat(Character *ch, Character *victim)
 	    GET_AC(victim, AC_EXOTIC), get_carry_number(victim));
 	ptc(ch, "{PCon: %-2d(%-2d)\t{bPrac      : %-10d{HWeight    : %d\n",
 	    ATTR_BASE(victim, APPLY_CON), GET_ATTR_CON(victim),
-	    IS_NPC(victim) ? 0 : victim->practice, get_carry_weight(victim) / 10);
+	    victim->is_npc() ? 0 : victim->practice, get_carry_weight(victim) / 10);
 	ptc(ch, "{PChr: %-2d(%-2d)\t{bTrain     : %-10d{GHit Roll  : %d\n",
 	    ATTR_BASE(victim, APPLY_CHR), GET_ATTR_CHR(victim),
-	    IS_NPC(victim) ? 0 : victim->train , GET_ATTR_HITROLL(victim));
+	    victim->is_npc() ? 0 : victim->train , GET_ATTR_HITROLL(victim));
 	ptc(ch, "\t\t{YGold      : %-10ld{GDam Roll  : %d\n",
 	    victim->gold, GET_ATTR_DAMROLL(victim));
 	ptc(ch, "{CThirst: %-8d{YSilver    : %-10ld{WAlignment : %d\n",
-	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_THIRST] : -1),
+	    (!victim->is_npc() ? victim->pcdata->condition[COND_THIRST] : -1),
 	    victim->silver, victim->alignment);
 	ptc(ch, "{CHunger: %-8d{WSaves     : %-10dWimpy     : %d\n",
-	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_HUNGER] : -1),
+	    (!victim->is_npc() ? victim->pcdata->condition[COND_HUNGER] : -1),
 	    GET_ATTR_SAVES(victim), victim->wimpy);
 	ptc(ch, "{CFull  : %-8d{cLast Level: %-10dMobTimer  : %d\n",
-	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_FULL] : -1),
-	    (!IS_NPC(victim) ? victim->pcdata->last_level : -1),
-	    (!IS_NPC(victim) ? victim->timer : -1));
+	    (!victim->is_npc() ? victim->pcdata->condition[COND_FULL] : -1),
+	    (!victim->is_npc() ? victim->pcdata->last_level : -1),
+	    (!victim->is_npc() ? victim->timer : -1));
 	ptc(ch, "{CDrunk : %-8d{cExp       : %-10dPosition  : %s{x\n",
-	    (!IS_NPC(victim) ? victim->pcdata->condition[COND_DRUNK] : -1),
+	    (!victim->is_npc() ? victim->pcdata->condition[COND_DRUNK] : -1),
 	    victim->exp, position_table[victim->position].name);
 
-	if (IS_NPC(victim))
+	if (victim->is_npc())
 		ptc(ch, "Damage: %dd%d  Message:  %s\n",
 		    victim->damage[DICE_NUMBER], victim->damage[DICE_TYPE],
 		    attack_table[victim->dam_type].noun);
 
 	ptc(ch, "Fighting: %s\n", victim->fighting ? victim->fighting->name : "(none)");
 
-	if (IS_NPC(victim) && victim->hunting != nullptr)
+	if (victim->is_npc() && victim->hunting != nullptr)
 		ptc(ch, "Hunting victim: %s (%s)\n",
-		    IS_NPC(victim->hunting) ? victim->hunting->short_descr
+		    victim->hunting->is_npc() ? victim->hunting->short_descr
 		    : victim->hunting->name,
-		    IS_NPC(victim->hunting) ? "MOB" : "PLAYER");
+		    victim->hunting->is_npc() ? "MOB" : "PLAYER");
 
-	if (!IS_NPC(victim))
+	if (!victim->is_npc())
 		if (!victim->pcdata->email.empty())
 			ptc(ch, "Email: %s\n", victim->pcdata->email);
 
-	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act_flags, IS_NPC(victim)));
+	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act_flags, victim->is_npc()));
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		ptc(ch, "{WPlr: %s\n", plr_bit_name(victim->pcdata->plr_flags));
 
 		if (!victim->pcdata->cgroup_flags.empty() && IS_IMP(ch))
@@ -1621,7 +1621,7 @@ void format_mstat(Character *ch, Character *victim)
 	if (!victim->censor_flags.empty())
 		ptc(ch, "{WCensor: %s\n", censor_bit_name(victim->censor_flags));
 
-	if (IS_NPC(victim) && !victim->off_flags.empty())
+	if (victim->is_npc() && !victim->off_flags.empty())
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
 	{
@@ -1644,13 +1644,13 @@ void format_mstat(Character *ch, Character *victim)
 	    victim->leader  ? victim->leader->name  : "(none)",
 	    victim->pet     ? victim->pet->name     : "(none)");
 
-	if (!IS_NPC(victim) && victim->pcdata->mark_room.is_valid())
+	if (!victim->is_npc() && victim->pcdata->mark_room.is_valid())
 		ptc(ch, "MARKed room: %s\n", victim->pcdata->mark_room.to_string());
 
-	if (IS_NPC(victim) && victim->spec_fun != 0)
+	if (victim->is_npc() && victim->spec_fun != 0)
 		ptc(ch, "Mobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
-	if (!IS_NPC(victim) && victim->pcdata->raffect[0] != 0) {
+	if (!victim->is_npc() && victim->pcdata->raffect[0] != 0) {
 		String buf;
 		int raff, id;
 		stc("{VRemort affects{x:\n", ch);

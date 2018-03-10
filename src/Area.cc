@@ -9,7 +9,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
@@ -21,6 +20,7 @@
 #include "RoomPrototype.hh"
 #include "worldmap/Region.hh"
 #include "Shop.hh"
+#include "World.hh"
 
 Area::
 Area(World& w, const String& file_name) : world(w), file_name(file_name) {
@@ -391,7 +391,7 @@ reset() {
 	bool last;
 	int level;
 	mob         = nullptr;
-	last        = TRUE;
+	last        = true;
 	level       = 0;
 	bool empty = num_players() == 0;
 
@@ -417,12 +417,12 @@ reset() {
 			}
 
 			if (pMobIndex->count >= pReset->arg2) {
-				last = FALSE;
+				last = false;
 				break;
 			}
 
 			if (pReset->arg3 == 0) { /* random room */
-				if (!chance(pReset->arg4))
+				if (!roll_chance(pReset->arg4))
 					continue;
 
 				if ((room = get_random_reset_room(pMobIndex)) == nullptr) {
@@ -441,7 +441,7 @@ reset() {
 						count++;
 
 						if (count >= pReset->arg4) {
-							last = FALSE;
+							last = false;
 							break;
 						}
 					}
@@ -464,18 +464,18 @@ reset() {
 			/* set area */
 			char_to_room(mob, room);
 			level = URANGE(0, mob->level - 2, LEVEL_HERO - 1);
-			last  = TRUE;
+			last  = true;
 			break;
 
 		case 'O':
 			// might have loaded the pit from the copyover recovery file
 			if (pReset->arg1 == OBJ_VNUM_PIT && Game::world().donation_pit != nullptr) {
-				last = FALSE;
+				last = false;
 				break;
 			}
 
 			if (!empty && pReset->arg1 != OBJ_VNUM_PIT) {
-				last = FALSE;
+				last = false;
 				break;
 			}
 
@@ -490,11 +490,11 @@ reset() {
 			}
 
 			if (count_obj_list(pObjIndex, room->contents) > 0) {
-				last = FALSE;
+				last = false;
 				break;
 			}
 
-			obj = create_object(pObjIndex, UMIN(number_fuzzy(level), LEVEL_HERO - 1));
+			obj = create_object(pObjIndex, std::min(number_fuzzy(level), LEVEL_HERO - 1));
 			obj->reset = pReset;    /* keep track of what reset it -- Montrey */
 			obj_to_room(obj, room);
 
@@ -503,7 +503,7 @@ reset() {
 			else
 				unique_item(obj);
 
-			last = TRUE;
+			last = true;
 			break;
 
 		case 'P':
@@ -530,7 +530,7 @@ reset() {
 			    || (pObjIndex->count >= limit && number_range(0, 4) != 0)
 			    || (count = count_obj_list(pObjIndex, obj_to->contains))
 			    > pReset->arg4) {
-				last = FALSE;
+				last = false;
 				break;
 			}
 
@@ -547,7 +547,7 @@ reset() {
 
 			/* fix object lock state! */
 			obj_to->value[1] = obj_to->pIndexData->value[1];
-			last = TRUE;
+			last = true;
 			break;
 
 		case 'G':
@@ -563,7 +563,7 @@ reset() {
 			if (mob == nullptr) {
 				Logging::bugf("(%s) Reset_area: '%c': null mob for vnum %d.",
 				    file_name, pReset->command, pReset->arg1);
-				last = FALSE;
+				last = false;
 				break;
 			}
 
@@ -579,7 +579,7 @@ reset() {
 					limit = pReset->arg2;
 
 				if (pObjIndex->count < limit || number_range(0, 4) == 0) {
-					obj = create_object(pObjIndex, UMIN(number_fuzzy(level),
+					obj = create_object(pObjIndex, std::min(number_fuzzy(level),
 					                                    LEVEL_HERO - 1));
 
 					unique_item(obj);
@@ -600,7 +600,7 @@ reset() {
 			if (pReset->command == 'E')
 				equip_char(mob, obj, pReset->arg3);
 
-			last = TRUE;
+			last = true;
 			break;
 
 		case 'D':
@@ -633,7 +633,7 @@ reset() {
 				break;
 			}
 
-			last = TRUE;
+			last = true;
 			break;
 
 		case 'R':
@@ -823,7 +823,7 @@ scan_credits()
 	keywords += String(title).uncolor();
 
 	for (char &c: keywords)
-		c = LOWER(c);
+		c = tolower(c);
 
 	this->keywords = keywords;
 	return area_type;
@@ -857,7 +857,7 @@ create_rooms() {
 
 void Area::
 add_char(Character *ch) {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (IS_IMMORTAL(ch))
@@ -868,7 +868,7 @@ add_char(Character *ch) {
 
 void Area::
 remove_char(Character *ch) {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	// very slim chance of someone entering a room as a mortal
@@ -876,9 +876,9 @@ remove_char(Character *ch) {
 	// complicated extra logic, just limit the potential damage
 	// and fix it with a reboot.
 	if (IS_IMMORTAL(ch))
-		_num_imms = UMAX(0, _num_imms-1);
+		_num_imms = std::max(0, _num_imms-1);
 	else
-		_num_players = UMAX(0, _num_players-1);
+		_num_players = std::max(0, _num_players-1);
 }
 
 /* pick a random room to reset into -- Montrey */

@@ -4,6 +4,7 @@
 #include "merc.hh" // Game::world().get_room
 #include "Room.hh"
 #include "Game.hh"
+#include "World.hh"
 
 /* The Vnum of the quest start location -- hard coded! */
 #define QUEST_STARTROOM 12000

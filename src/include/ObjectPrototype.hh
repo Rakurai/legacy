@@ -1,11 +1,13 @@
 #pragma once
 
-#include "affect/Affect.hh"
-#include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
 #include "Vnum.hh"
+
+class Area;
+class ExtraDescr;
+namespace affect { class Affect; }
 
 class ObjectPrototype
 {

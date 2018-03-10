@@ -19,7 +19,6 @@
 #include "Game.hh"
 #include "interp.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Note.hh"
 #include "Player.hh"
@@ -327,7 +326,7 @@ void do_loadhelps(Character *ch, String argument)
 	db_commandf("do_loadhelps", "DELETE FROM " HTABLE " WHERE " HCOL_GROUP "=%d", helpfile_table[tablenum].group);
 
 	for (count = 0; temp_help[count].level >= -1; count++) {
-		bool foundspace = FALSE;
+		bool foundspace = false;
 		/* unfuck any weird spacing */
 		String buf;
 		auto p = temp_help[count].keywords.cbegin();
@@ -339,10 +338,10 @@ void do_loadhelps(Character *ch, String argument)
 					continue;
 				}
 
-				foundspace = TRUE;
+				foundspace = true;
 			}
 			else
-				foundspace = FALSE;
+				foundspace = false;
 
 			buf += *p++;
 		}

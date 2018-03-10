@@ -1,6 +1,7 @@
 #pragma once
 
-#include "declare.hh"
+#include "String.hh"
+#include "Flags.hh"
 #include "Format.hh"
 
 #define SQL_OK		0

@@ -37,7 +37,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "merc.hh"
 #include "Player.hh"
@@ -71,7 +70,7 @@ void fix_blank_raff(Character *ch, int start)
 	/* start is the starting point, most cases use 0 */
 	int i, x, last;
 
-	if (IS_NPC(ch) || !IS_REMORT(ch))
+	if (ch->is_npc() || !IS_REMORT(ch))
 		return;
 
 	last = ((ch->pcdata->remort_count / 10) + 1);
@@ -93,9 +92,9 @@ void rem_raff_affect(Character *ch, int index)
 {
 	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, FALSE);
+			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, false);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, FALSE);
+			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, false);
 	}
 
 	return;
@@ -106,32 +105,32 @@ bool HAS_RAFF(Character *ch, int flag)
 	int i;
 
 	if (flag <= 0)
-		return FALSE;
+		return false;
 
-	if (IS_NPC(ch))
-		return FALSE;
+	if (ch->is_npc())
+		return false;
 
 	for (i = 0; i < ((ch->pcdata->remort_count / 10) + 1); i++) {
 		if (ch->pcdata->raffect[i] == flag)
-			return TRUE;
+			return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool HAS_RAFF_GROUP(Character *ch, int flag)
 {
 	int i;
 
-	if (IS_NPC(ch))
-		return FALSE;
+	if (ch->is_npc())
+		return false;
 
 	for (i = 0; i < ((ch->pcdata->remort_count / 10) + 1); i++) {
 		if (raffects[raff_lookup(ch->pcdata->raffect[i])].group == flag)
-			return TRUE;
+			return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 void raff_add_to_char(Character *ch, int raff_id) {
@@ -148,16 +147,16 @@ void raff_add_to_char(Character *ch, int raff_id) {
 
 	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, TRUE);
+			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, true);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, TRUE);
+			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, true);
 	}
 }
 
 void roll_one_raff(Character *ch, Character *victim, int place)
 {
 	int test;
-	bool can_add = FALSE;
+	bool can_add = false;
 
 	do {
 		test = number_range(1, MAX_RAFFECTS);
@@ -171,27 +170,27 @@ void roll_one_raff(Character *ch, Character *victim, int place)
 		if ((raffects[test].id >= 1)
 		    && (raffects[test].id <= 99) /* if it's a good one... */
 		    && (number_percent() <= (raffects[test].chance + (victim->pcdata->remort_count / 10))))
-			can_add = TRUE;
+			can_add = true;
 		else if ((raffects[test].id >= 100)
 		         && (raffects[test].id <= 199) /* if it's a bad one... */
 		         && (number_percent() <= (raffects[test].chance - (victim->pcdata->remort_count / 10))))
-			can_add = TRUE;
+			can_add = true;
 		else if ((raffects[test].id >= 900)
 		         && (raffects[test].id <= 949) /* if it's a vuln... */
 		         && (number_percent() <= (raffects[test].chance - (victim->pcdata->remort_count / 10))))
-			can_add = TRUE;
+			can_add = true;
 		else if ((raffects[test].id >= 950)
 		         && (raffects[test].id <= 999) /* if it's a res... */
 		         && (number_percent() <= (raffects[test].chance + (victim->pcdata->remort_count / 10))))
-			can_add = TRUE;
+			can_add = true;
 
 		if (HAS_RAFF(victim, raffects[test].id))
-			can_add = FALSE;
+			can_add = false;
 
-		/* check if the group isn't 0, and then set can_add to FALSE if they have the group */
+		/* check if the group isn't 0, and then set can_add to false if they have the group */
 		if (raffects[test].group != 0)
 			if (HAS_RAFF_GROUP(victim, raffects[test].group))
-				can_add = FALSE;
+				can_add = false;
 	}
 	while (!can_add);
 
@@ -224,44 +223,44 @@ bool HAS_EXTRACLASS(Character *ch, skill::type sn)
 	int i;
 
 	if (sn == skill::type::unknown)
-		return FALSE;
+		return false;
 
-	if (IS_NPC(ch))
-		return FALSE;
+	if (ch->is_npc())
+		return false;
 
 	for (i = 0; i < ((ch->pcdata->remort_count / EXTRACLASS_SLOT_LEVELS) + 1); i++) {
 		if (ch->pcdata->extraclass[i] == sn)
-			return TRUE;
+			return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool CAN_USE_RSKILL(Character *ch, skill::type sn)
 {
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		if (skill::lookup(sn).spell_fun == spell_null)
-			return FALSE;
+			return false;
 
-		return TRUE;
+		return true;
 	}
 
 	if (IS_IMMORTAL(ch))
-		return TRUE;
+		return true;
 
 	if (!IS_REMORT(ch))
-		return FALSE;
+		return false;
 
 	if (ch->guild == Guild::none)
-		return FALSE;
+		return false;
 
 	if (!get_skill_level(ch, sn))
-		return FALSE;
+		return false;
 
 	if ((ch->guild != skill::lookup(sn).remort_guild) && (!HAS_EXTRACLASS(ch, sn)))
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 }
 
 void list_extraskill(Character *ch)
@@ -323,7 +322,7 @@ void do_eremort(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -506,8 +505,8 @@ void do_remort(Character *ch, String argument)
 		}
 	}
 
-	affect::remove_all_from_char(victim, TRUE); // racial and remort affect
-	affect::remove_all_from_char(victim, FALSE); // everything else
+	affect::remove_all_from_char(victim, true); // racial and remort affect
+	affect::remove_all_from_char(victim, false); // everything else
 
 	victim->race                    = race;
 
@@ -525,7 +524,7 @@ void do_remort(Character *ch, String argument)
 	/* make sure stats aren't above their new maximums */
 	for (int stat = 0; stat < MAX_STATS; stat++)
 		ATTR_BASE(victim, stat_to_attr(stat))
-		 = UMIN(ATTR_BASE(victim, stat_to_attr(stat)), get_max_train(victim, stat));
+		 = std::min(ATTR_BASE(victim, stat_to_attr(stat)), get_max_train(victim, stat));
 
 	if (!arg2.empty()) {
 		victim->pcdata->deity = arg3;
@@ -536,7 +535,7 @@ void do_remort(Character *ch, String argument)
 	victim->exp = exp_per_level(victim, victim->pcdata->points);
 
 	if (victim->pet != nullptr) {
-		affect::remove_all_from_char(victim->pet, FALSE);
+		affect::remove_all_from_char(victim->pet, false);
 
 		/* About the same stats as a Kitten */
 		victim->pet->level                      = 1;

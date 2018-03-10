@@ -41,7 +41,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "interp.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
@@ -49,6 +48,7 @@
 #include "Room.hh"
 #include "skill/skill.hh"
 #include "String.hh"
+#include "World.hh"
 
 /* *** GLOBAL VARIABLES *** */
 
@@ -188,7 +188,7 @@ void do_hunt(Character *ch, String argument)
 	bool same_area;
 	int steps;
 
-	if (!IS_NPC(ch) && !get_skill_level(ch, skill::type::hunt)) {
+	if (!ch->is_npc() && !get_skill_level(ch, skill::type::hunt)) {
 		stc("You are not able to hunt.\n", ch);
 		return;
 	}
@@ -200,11 +200,11 @@ void do_hunt(Character *ch, String argument)
 
 	/* only Imms can hunt to other areas */
 	if (IS_IMMORTAL(ch)) {
-		same_area = FALSE;
+		same_area = false;
 		steps = 500;
 	}
 	else {
-		same_area = TRUE;
+		same_area = true;
 		steps = 100;
 	}
 
@@ -234,7 +234,7 @@ void do_hunt(Character *ch, String argument)
 	cond.from_room  = ch->in_room;
 	cond.to_room    = victim->in_room;
 	cond.same_area  = same_area;
-	cond.thru_doors = TRUE;
+	cond.thru_doors = true;
 	cond.steps      = steps;
 	/* find path */
 	direction = find_path(&cond);
@@ -260,7 +260,7 @@ void do_hunt(Character *ch, String argument)
 
 	/* Give a random direction if the player misses the die roll. */
 	if (number_percent() > get_skill_level(ch, skill::type::hunt)) {
-		check_improve(ch, skill::type::hunt, FALSE, 4);
+		check_improve(ch, skill::type::hunt, false, 4);
 
 		do {
 			direction = number_door();
@@ -274,7 +274,7 @@ void do_hunt(Character *ch, String argument)
 			stc(buffer, ch);
 		}
 
-		check_improve(ch, skill::type::hunt, TRUE, 4);
+		check_improve(ch, skill::type::hunt, true, 4);
 	}
 
 	/* Display the results of the search. */
@@ -291,7 +291,7 @@ void hunt_victim(Character *ch)
 	Character     *tmp;
 	HUNT_CONDITIONS cond;
 
-	if (ch == nullptr || ch->hunting == nullptr || !IS_NPC(ch))
+	if (ch == nullptr || ch->hunting == nullptr || !ch->is_npc())
 		return;
 
 	/* Make sure the victim still exists. */
@@ -325,8 +325,8 @@ void hunt_victim(Character *ch)
 	cond.hunter     = ch;
 	cond.from_room  = ch->in_room;
 	cond.to_room    = ch->hunting->in_room;
-	cond.same_area  = TRUE;
-	cond.thru_doors = TRUE;
+	cond.same_area  = true;
+	cond.thru_doors = true;
 	/* find path */
 	dir = find_path(&cond);
 
@@ -353,7 +353,7 @@ void hunt_victim(Character *ch)
 		return;
 	}
 
-	move_char(ch, dir, FALSE);
+	move_char(ch, dir, false);
 	return;
 } /* end hunt_victim() */
 

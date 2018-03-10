@@ -215,13 +215,13 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	case 'V': paf->where = TO_DEFENSE; paf->modifier = -50; break;
 	default:
 		Logging::bugf("parse_flags: bad letter %c", letter);
-		return FALSE;
+		return false;
 	}
 
 	if (paf->where == TO_DEFENSE) {
 		if (paf->modifier == 0) {
 			Logging::bug("parse_flags: TO_DEFENSE with modifier of 0", 0);
-			return FALSE;
+			return false;
 		}
 
 		// weird case, defense flag Flags::A used to be *_SUMMON, changed to a ACT_NOSUMMON.
@@ -294,16 +294,16 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case Flags::none       : break; // type already set
 			default: {
 				Logging::bugf("parse_flags: TO_WEAPON with unknown defense bit %d", bit);
-				return FALSE;
+				return false;
 			}
 		}
 
 		if (paf->type == ::affect::type::none) {
 			Logging::bug("parse_flags: TO_WEAPON with no bits and no type", 0);
-			return FALSE;
+			return false;
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	if (paf->where == TO_DEFENSE) {
@@ -332,31 +332,31 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case Flags::none     : /* location already set */ break;
 			default: {
 				Logging::bugf("parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
-				return FALSE;
+				return false;
 			}
 		}
 
 		if (paf->location == 0) {
 			Logging::bug("parse_flags: TO_DEFENSE with location 0", 0);
-			return FALSE;
+			return false;
 		}
 
 		// modifier was already set or done above
 		paf->bitvector(0);
-		return TRUE;
+		return true;
 	} // done with TO_DEFENSE
 
 	if (paf->where == TO_AFFECTS && paf->type == ::affect::type::none) {
 		if (bit == Flags::none) {
 			Logging::bug("parse_flags: TO_AFFECTS with no type and no bit", 0);
-			return FALSE;
+			return false;
 		}
 
 		::affect::type type = bit_to_type(bit);
 
 		if (type == ::affect::type::none) {
 			Logging::bugf("parse_flags: TO_AFFECTS: sn not found for bit %d", bit);
-			return FALSE;
+			return false;
 		}
 
 		paf->type = type;
@@ -371,7 +371,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 
 	if (paf->location == -1) {
 		Logging::bugf("parse_flags: affect where=%d with bad location %d", paf->where, paf->location);
-		return FALSE;
+		return false;
 	}
 
 	if (paf->location == 0)
@@ -380,10 +380,10 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	// does nothing?
 	if (paf->where == TO_OBJECT && paf->bitvector().empty() && paf->location == 0) {
 		Logging::bug("parse_flags: TO_OBJECT with no modifiers", 0);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 } // namespace affect

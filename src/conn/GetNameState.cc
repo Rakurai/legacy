@@ -7,6 +7,9 @@
 #include "Logging.hh"
 #include "channels.hh"
 #include "Game.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
+#include "merc.hh"
 
 extern bool check_parse_name(const String& name);
 
@@ -31,7 +34,7 @@ bool check_player_exist(Descriptor *d, const String& name)
 			                "ask an Immortal for help if you need it.\n"
 			                "\n"
 			                "Name: ");
-			return TRUE;
+			return true;
 		}
 	}
 
@@ -53,26 +56,26 @@ bool check_player_exist(Descriptor *d, const String& name)
 		                "ask an Immortal for help if you need it.\n"
 		                "\n"
 		                "Name: ");
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool check_deny(const String& name)
 {
 	if (db_countf("check_deny", "SELECT COUNT(*) FROM denies WHERE name='%s'", name) <= 0)
-		return FALSE;
+		return false;
 
-	return TRUE;
+	return true;
 }
 
 bool check_ban(const String& site, int type)
 {
-	bool ban = FALSE;
+	bool ban = false;
 
 	if (db_queryf("check_ban", "SELECT flags, site FROM bans WHERE ((flags>>2)<<2)=%d", type) != SQL_OK)
-		return FALSE;
+		return false;
 
 	while (!ban && db_next_row() == SQL_OK) {
 		Flags flags = db_get_column_flags(0);
@@ -84,7 +87,7 @@ bool check_ban(const String& site, int type)
 		    || (prefix  && !suffix && str.is_suffix_of(site))
 		    || (!prefix &&  suffix && str.is_prefix_of(site))
 		    || (!prefix && !suffix && site == str))
-			ban = TRUE;
+			ban = true;
 	}
 
 	return ban;
@@ -96,15 +99,15 @@ bool check_ban(const String& site, int type)
 bool check_reconnect(Descriptor *d, const String& name)
 {
 	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
-		if (!IS_NPC(ch)
+		if (!ch->is_npc()
 		 && d->character != ch
 		 && d->character->name == ch->name) {
 			d->character->pcdata->pwd = ch->pcdata->pwd;
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 State * GetNameState::
@@ -116,16 +119,16 @@ handleInput(Descriptor *d, const String& args) {
 		return &State::closed;
 	}
 
-	bool logon_lurk = FALSE;
+	bool logon_lurk = false;
 
 	if (argument[0] == '-') { /* Lurk mode -- Elrac */
-		logon_lurk = TRUE;
+		logon_lurk = true;
 		argument.erase(0, 1);
 	}
 
 	char name[MIL];
 	strcpy(name, argument);
-	name[0] = UPPER(name[0]);
+	name[0] = toupper(name[0]);
 
 	/* Check valid name - Lotus */
 	if (!check_parse_name(name)) {
@@ -177,7 +180,7 @@ handleInput(Descriptor *d, const String& args) {
 	}
 
 	if (check_reconnect(d, name))
-		fOld = TRUE;
+		fOld = true;
 	else if (Game::wizlock && !IS_IMMORTAL(ch)) {
 		write_to_buffer(d, "Access has been limited to imms only at this time.\n");
 		close_socket(d);

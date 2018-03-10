@@ -39,7 +39,6 @@
 #include "GameTime.hh"
 #include "interp.hh"
 #include "lookup.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -127,7 +126,7 @@ const std::vector<spec_type> spec_table = {
 SPEC_FUN *spec_lookup(const String& name)
 {
 	for (const auto& entry : spec_table)
-		if (LOWER(name[0]) == LOWER(entry.name[0]) && name.is_prefix_of(entry.name))
+		if (tolower(name[0]) == tolower(entry.name[0]) && name.is_prefix_of(entry.name))
 			return entry.function;
 
 	return 0;
@@ -150,17 +149,17 @@ bool spec_troll_member(Character *ch)
 
 	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::type::calm) || ch->in_room == nullptr
 	    || affect::exists_on_char(ch, affect::type::charm_person) || ch->fighting != nullptr)
-		return FALSE;
+		return false;
 
 	/* find an ogre to beat up */
 	for (vch = ch->in_room->people;  vch != nullptr;  vch = vch->next_in_room) {
-		if (!IS_NPC(vch) || ch == vch)
+		if (!vch->is_npc() || ch == vch)
 			continue;
 
 		if (vch->pIndexData->vnum == MOB_VNUM_PATROLMAN)
-			return FALSE;
+			return false;
 
-		if (vch->pIndexData->group_flags.has(GROUP_VNUM_OGRES) &&  ch->level > vch->level - 2 && !is_safe(ch, vch, TRUE)) {
+		if (vch->pIndexData->group_flags.has(GROUP_VNUM_OGRES) &&  ch->level > vch->level - 2 && !is_safe(ch, vch, true)) {
 			if (number_range(0, count) == 0)
 				victim = vch;
 
@@ -169,7 +168,7 @@ bool spec_troll_member(Character *ch)
 	}
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	/* say something, then raise hell */
 	switch (number_range(0, 6)) {
@@ -197,7 +196,7 @@ bool spec_troll_member(Character *ch)
 
 	act(message, ch, nullptr, victim, TO_ALL);
 	multi_hit(ch, victim, skill::type::unknown);
-	return TRUE;
+	return true;
 }
 
 bool spec_ogre_member(Character *ch)
@@ -208,17 +207,17 @@ bool spec_ogre_member(Character *ch)
 
 	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::type::calm) || ch->in_room == nullptr
 	    ||  affect::exists_on_char(ch, affect::type::charm_person) || ch->fighting != nullptr)
-		return FALSE;
+		return false;
 
 	/* find an troll to beat up */
 	for (vch = ch->in_room->people;  vch != nullptr;  vch = vch->next_in_room) {
-		if (!IS_NPC(vch) || ch == vch)
+		if (!vch->is_npc() || ch == vch)
 			continue;
 
 		if (vch->pIndexData->vnum == MOB_VNUM_PATROLMAN)
-			return FALSE;
+			return false;
 
-		if (vch->pIndexData->group_flags.has(GROUP_VNUM_TROLLS) && ch->level > vch->level - 2 && !is_safe(ch, vch, TRUE)) {
+		if (vch->pIndexData->group_flags.has(GROUP_VNUM_TROLLS) && ch->level > vch->level - 2 && !is_safe(ch, vch, true)) {
 			if (number_range(0, count) == 0)
 				victim = vch;
 
@@ -227,7 +226,7 @@ bool spec_ogre_member(Character *ch)
 	}
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	/* say something, then raise hell */
 	switch (number_range(0, 6)) {
@@ -255,7 +254,7 @@ bool spec_ogre_member(Character *ch)
 
 	act(message, ch, nullptr, victim, TO_ALL);
 	multi_hit(ch, victim, skill::type::unknown);
-	return TRUE;
+	return true;
 }
 
 bool spec_patrolman(Character *ch)
@@ -267,7 +266,7 @@ bool spec_patrolman(Character *ch)
 
 	if (!IS_AWAKE(ch) || affect::exists_on_char(ch, affect::type::calm) || ch->in_room == nullptr
 	    ||  affect::exists_on_char(ch, affect::type::charm_person) || ch->fighting != nullptr)
-		return FALSE;
+		return false;
 
 	/* look for a fight in the room */
 	for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
@@ -283,8 +282,8 @@ bool spec_patrolman(Character *ch)
 		}
 	}
 
-	if (victim == nullptr || (IS_NPC(victim) && victim->spec_fun == ch->spec_fun))
-		return FALSE;
+	if (victim == nullptr || (victim->is_npc() && victim->spec_fun == ch->spec_fun))
+		return false;
 
 	if (((obj = get_eq_char(ch, WEAR_NECK_1)) != nullptr
 	     &&   obj->pIndexData->vnum == OBJ_VNUM_WHISTLE)
@@ -335,13 +334,13 @@ bool spec_patrolman(Character *ch)
 		act(message, ch, nullptr, nullptr, TO_ALL);
 
 	multi_hit(ch, victim, skill::type::unknown);
-	return TRUE;
+	return true;
 }
 bool spec_questmaster(Character *ch)
 {
 	if (ch->fighting != nullptr) return spec_cast_mage(ch);
 
-	return FALSE;
+	return false;
 }
 
 bool spec_squestmaster(Character *ch)
@@ -349,20 +348,20 @@ bool spec_squestmaster(Character *ch)
 	if (ch->fighting != nullptr)
 		return spec_cast_mage(ch);
 
-	return FALSE;
+	return false;
 }
 
 bool spec_blacksmith(Character *ch)
 {
 	if (ch->fighting != nullptr) return spec_cast_mage(ch);
 
-	return FALSE;
+	return false;
 }
 bool spec_sage(Character *ch)
 {
 	if (ch->fighting != nullptr) return spec_cast_mage(ch);
 
-	return FALSE;
+	return false;
 }
 
 bool spec_nasty(Character *ch)
@@ -371,13 +370,13 @@ bool spec_nasty(Character *ch)
 	long gold;
 
 	if (!IS_AWAKE(ch))
-		return FALSE;
+		return false;
 
 	if (!ch->fighting) {
 		for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 			v_next = victim->next_in_room;
 
-			if (!IS_NPC(victim)
+			if (!victim->is_npc()
 			    && (victim->level > ch->level)
 			    && (victim->level < ch->level + 10)) {
 				do_backstab(ch, victim->name);
@@ -386,16 +385,16 @@ bool spec_nasty(Character *ch)
 					do_kill(ch, victim->name);
 
 				/* should steal some coins right away? :) */
-				return TRUE;
+				return true;
 			}
 		}
 
-		return FALSE;    /*  No one to attack */
+		return false;    /*  No one to attack */
 	}
 
 	/* okay, we must be fighting.... steal some coins and flee */
 	if ((victim = ch->fighting) == nullptr)
-		return FALSE;   /* let's be paranoid.... */
+		return false;   /* let's be paranoid.... */
 
 	switch (number_bits(2)) {
 	case 0:  act("$n rips apart your coin purse, spilling your gold!",
@@ -407,12 +406,12 @@ bool spec_nasty(Character *ch)
 		gold = victim->gold / 10;  /* steal 10% of his gold */
 		victim->gold -= gold;
 		ch->gold     += gold;
-		return TRUE;
+		return true;
 
 	case 1:  do_flee(ch, "");
-		return TRUE;
+		return true;
 
-	default: return FALSE;
+	default: return false;
 	}
 }
 
@@ -422,7 +421,7 @@ bool dragon(Character *ch, skill::type sn)
 	Character *victim;
 
 	if (get_position(ch) != POS_FIGHTING)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch
@@ -431,15 +430,15 @@ bool dragon(Character *ch, skill::type sn)
 			break;
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	/* made it so mobs won't keep breathing after mana runs out, but just using the min mana -- Montrey */
 	if (ch->mana < skill::lookup(sn).min_mana)
-		return FALSE;
+		return false;
 
 	(*skill::lookup(sn).spell_fun)
 	(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
-	return TRUE;
+	return true;
 }
 
 /* Special procedures for mobiles. */
@@ -460,7 +459,7 @@ bool spec_breath_any(Character *ch)
 	case 7: return dragon(ch, skill::type::acid_breath);
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool spec_breath_acid(Character *ch)
@@ -494,18 +493,18 @@ bool spec_cast_adept(Character *ch)
 	Character *v_next;
 
 	if (!IS_AWAKE(ch))
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
 		if (victim != ch && can_see_char(ch, victim) && number_bits(1) == 0
-		    && !IS_NPC(victim) && victim->level < 11)
+		    && !victim->is_npc() && victim->level < 11)
 			break;
 	}
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	switch (number_bits(4)) {
 	case 0:
@@ -518,37 +517,37 @@ bool spec_cast_adept(Character *ch)
 		spell_armor(skill::type::armor, ch->level, ch, victim, TARGET_CHAR,
 		            get_evolution(ch, skill::type::armor));
 #endif
-		return TRUE;
+		return true;
 
 	case 1:
 		act("$n utters the word 'fido'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_bless(skill::type::bless, ch->level, ch, victim, TARGET_CHAR,
 		            get_evolution(ch, skill::type::bless));
-		return TRUE;
+		return true;
 
 	case 2:
 		act("$n utters the words 'judicandus noselacri'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_blindness(skill::type::cure_blindness,
 		                     ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_blindness));
-		return TRUE;
+		return true;
 
 	case 3:
 		act("$n utters the words 'judicandus dies'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_light(skill::type::cure_light,
 		                 ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_light));
-		return TRUE;
+		return true;
 
 	case 4:
 		act("$n utters the words 'judicandus sausabru'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_cure_poison(skill::type::cure_poison,
 		                  ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_poison));
-		return TRUE;
+		return true;
 
 	case 5:
 		act("$n utters the word 'candusima'.", ch, nullptr, nullptr, TO_ROOM);
 		spell_refresh(skill::type::refresh, ch->level, ch, victim, TARGET_CHAR,
 		              get_evolution(ch, skill::type::refresh));
-		return TRUE;
+		return true;
 
 	case 6:
 		act("$n utters the words 'judicandus eugzagz'.", ch, nullptr, nullptr, TO_ROOM);
@@ -556,7 +555,7 @@ bool spec_cast_adept(Character *ch)
 		                   ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::cure_disease));
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool spec_cast_judge(Character *ch)
@@ -567,7 +566,7 @@ bool spec_cast_judge(Character *ch)
 	skill::type sn;
 
 	if (get_position(ch) != POS_FIGHTING)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
@@ -577,15 +576,15 @@ bool spec_cast_judge(Character *ch)
 	}
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	spell = "high explosive";
 
 	if ((sn = skill::lookup(spell)) == skill::type::unknown)
-		return FALSE;
+		return false;
 
 	(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
-	return TRUE;
+	return true;
 }
 
 bool spec_cast_cleric(Character *ch)
@@ -595,18 +594,18 @@ bool spec_cast_cleric(Character *ch)
 	int i;
 
 	if (get_position(ch) != POS_FIGHTING)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	for (i = 0; ; i++) {
 		if (i == 10)
-			return FALSE;
+			return false;
 
 		switch (number_bits(4)) {
 		case  0:        sn = skill::type::blindness;     break;
@@ -642,7 +641,7 @@ bool spec_cast_cleric(Character *ch)
 	}
 
 	(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
-	return TRUE;
+	return true;
 }
 
 bool spec_cast_mage(Character *ch)
@@ -652,18 +651,18 @@ bool spec_cast_mage(Character *ch)
 	int i;
 
 	if (get_position(ch) != POS_FIGHTING)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	for (i = 0; ; i++) {
 		if (i == 10)
-			return FALSE;
+			return false;
 
 		switch (number_bits(4)) {
 		case  0:        sn = skill::type::blindness;     break;
@@ -698,7 +697,7 @@ bool spec_cast_mage(Character *ch)
 	}
 
 	(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
-	return TRUE;
+	return true;
 }
 
 bool spec_cast_undead(Character *ch)
@@ -708,18 +707,18 @@ bool spec_cast_undead(Character *ch)
 	int i;
 
 	if (get_position(ch) != POS_FIGHTING)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = victim->next_in_room)
 		if (victim->fighting == ch && number_bits(2) == 0)
 			break;
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	for (i = 0; ; i++) {
 		if (i == 10)
-			return FALSE;
+			return false;
 
 		switch (number_bits(4)) {
 		case  0:        sn = skill::type::curse;         break;
@@ -754,7 +753,7 @@ bool spec_cast_undead(Character *ch)
 	}
 
 	(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
-	return TRUE;
+	return true;
 }
 
 bool spec_executioner(Character *ch)
@@ -765,31 +764,31 @@ bool spec_executioner(Character *ch)
 	char *crime;
 
 	if (!IS_AWAKE(ch) || ch->fighting != nullptr)
-		return FALSE;
+		return false;
 
 	crime = "";
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (!IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)
+		if (!victim->is_npc() && victim->act_flags.has(PLR_KILLER)
 		    &&   can_see_char(ch, victim))
 		{ crime = "KILLER"; break; }
 
-		if (!IS_NPC(victim) && victim->act_flags.has(PLR_THIEF)
+		if (!victim->is_npc() && victim->act_flags.has(PLR_THIEF)
 		    &&   can_see_char(ch, victim))
 		{ crime = "THIEF"; break; }
 	}
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	Format::sprintf(buf, "%s is a %s!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
 	        victim->name, crime);
 	ch->comm_flags -= COMM_NOCHANNELS;
 	do_yell(ch, buf);
 	multi_hit(ch, victim, skill::type::unknown);
-	return TRUE;
+	return true;
 }
 
 bool spec_fido(Character *ch)
@@ -798,7 +797,7 @@ bool spec_fido(Character *ch)
 	Object *c_next;
 
 	if (!IS_AWAKE(ch))
-		return FALSE;
+		return false;
 
 	for (corpse = ch->in_room->contents; corpse != nullptr; corpse = c_next) {
 		c_next = corpse->next_content;
@@ -808,10 +807,10 @@ bool spec_fido(Character *ch)
 
 		act("$n savagely devours a corpse.", ch, nullptr, nullptr, TO_ROOM);
 		destroy_obj(corpse);
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool spec_guard(Character *ch)
@@ -824,7 +823,7 @@ bool spec_guard(Character *ch)
 	int max_evil;
 
 	if (!IS_AWAKE(ch) || ch->fighting != nullptr)
-		return FALSE;
+		return false;
 
 	max_evil = 300;
 	ech      = nullptr;
@@ -834,11 +833,11 @@ bool spec_guard(Character *ch)
 		v_next = victim->next_in_room;
 
 		/* REWORK PK - Lotus
-		        if ( !IS_NPC(victim) && victim->act_flags.has(PLR_KILLER)
+		        if ( !victim->is_npc() && victim->act_flags.has(PLR_KILLER)
 		        &&   can_see_char(ch,victim))
 		            { crime = "KILLER"; break; }
 
-		        if ( !IS_NPC(victim) && victim->act_flags.has(PLR_THIEF)
+		        if ( !victim->is_npc() && victim->act_flags.has(PLR_THIEF)
 		        &&   can_see_char(ch,victim))
 		            { crime = "THIEF"; break; }
 		*/
@@ -857,17 +856,17 @@ bool spec_guard(Character *ch)
 		ch->comm_flags -= COMM_NOCHANNELS;
 		do_yell(ch, buf);
 		multi_hit(ch, victim, skill::type::unknown);
-		return TRUE;
+		return true;
 	}
 
 	if (ech != nullptr) {
 		act("$n screams 'PROTECT THE INNOCENT!!  BANZAI!!",
 		    ch, nullptr, nullptr, TO_ROOM);
 		multi_hit(ch, ech, skill::type::unknown);
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool spec_janitor(Character *ch)
@@ -876,7 +875,7 @@ bool spec_janitor(Character *ch)
 	Object *trash_next;
 
 	if (!IS_AWAKE(ch))
-		return FALSE;
+		return false;
 
 	for (trash = ch->in_room->contents; trash != nullptr; trash = trash_next) {
 		trash_next = trash->next_content;
@@ -893,11 +892,11 @@ bool spec_janitor(Character *ch)
 			act("$n picks up some trash.", ch, nullptr, nullptr, TO_ROOM);
 			obj_from_room(trash);
 			obj_to_char(trash, ch);
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool spec_mayor(Character *ch)
@@ -913,13 +912,13 @@ bool spec_mayor(Character *ch)
 	if (!move) {
 		if (Game::world().time.hour ==  6) {
 			path = open_path;
-			move = TRUE;
+			move = true;
 			pos  = 0;
 		}
 
 		if (Game::world().time.hour == 20) {
 			path = close_path;
-			move = TRUE;
+			move = true;
 			pos  = 0;
 		}
 	}
@@ -928,14 +927,14 @@ bool spec_mayor(Character *ch)
 		return spec_cast_mage(ch);
 
 	if (!move || get_position(ch) < POS_SLEEPING)
-		return FALSE;
+		return false;
 
 	switch (path[pos]) {
 	case '0':
 	case '1':
 	case '2':
 	case '3':
-		move_char(ch, path[pos] - '0', FALSE);
+		move_char(ch, path[pos] - '0', false);
 		break;
 
 	case 'W':
@@ -987,12 +986,12 @@ bool spec_mayor(Character *ch)
 		break;
 
 	case '.' :
-		move = FALSE;
+		move = false;
 		break;
 	}
 
 	pos++;
-	return FALSE;
+	return false;
 }
 
 bool spec_poison(Character *ch)
@@ -1002,28 +1001,28 @@ bool spec_poison(Character *ch)
 	if (get_position(ch) != POS_FIGHTING
 	    || (victim = ch->fighting) == nullptr
 	    ||   number_percent() > 2 * ch->level)
-		return FALSE;
+		return false;
 
 	act("You bite $N!",  ch, nullptr, victim, TO_CHAR);
 	act("$n bites $N!",  ch, nullptr, victim, TO_NOTVICT);
 	act("$n bites you!", ch, nullptr, victim, TO_VICT);
 	spell_poison(skill::type::poison, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, skill::type::poison));
-	return TRUE;
+	return true;
 }
 
 bool spec_thief(Character *ch)
 {
 	Character *victim;
 	Character *v_next;
-	long gold, silver;
+	int gold, silver;
 
 	if (get_position(ch) < POS_STANDING)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
 
-		if (IS_NPC(victim)
+		if (victim->is_npc()
 		    ||   IS_IMMORTAL(victim)
 		    ||   number_bits(5) != 0
 		    ||   !can_see_char(ch, victim))
@@ -1034,22 +1033,22 @@ bool spec_thief(Character *ch)
 			    ch, nullptr, victim, TO_VICT);
 			act("$N discovers $n's hands in $S wallet!",
 			    ch, nullptr, victim, TO_NOTVICT);
-			return TRUE;
+			return true;
 		}
 		else {
-			gold = victim->gold * UMIN(number_range(1, 20), ch->level / 2) / 100;
-			gold = UMIN(gold, ch->level * ch->level * 10);
+			gold = victim->gold * std::min(number_range(1, 20), ch->level / 2) / 100;
+			gold = std::min(gold, ch->level * ch->level * 10);
 			ch->gold     += gold;
 			victim->gold -= gold;
-			silver = victim->silver * UMIN(number_range(1, 20), ch->level / 2) / 100;
-			silver = UMIN(silver, ch->level * ch->level * 25);
+			silver = victim->silver * std::min(number_range(1, 20), ch->level / 2) / 100;
+			silver = std::min(silver, ch->level * ch->level * 25);
 			ch->silver  += silver;
 			victim->silver -= silver;
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 void do_identify(Character *ch, String argument)
 {
@@ -1063,7 +1062,7 @@ void do_identify(Character *ch, String argument)
 	}
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room)
-		if (IS_NPC(rch) && rch->spec_fun == spec_lookup("spec_sage"))
+		if (rch->is_npc() && rch->spec_fun == spec_lookup("spec_sage"))
 			break;
 
 	if (!rch) {
@@ -1110,7 +1109,7 @@ bool spec_charm(Character *ch)
 			break;
 		};
 
-		return TRUE;
+		return true;
 	}
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
@@ -1121,7 +1120,7 @@ bool spec_charm(Character *ch)
 	}
 
 	if (victim == nullptr)
-		return FALSE;
+		return false;
 
 	act("$n begins playing a new, beautiful song.",
 	    ch, nullptr, nullptr, TO_ROOM);
@@ -1129,9 +1128,9 @@ bool spec_charm(Character *ch)
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, skill::type::charm_person));
 
 	if (affect::exists_on_char(victim, affect::type::charm_person))
-		stop_fighting(victim, TRUE);
+		stop_fighting(victim, true);
 
-	return TRUE;
+	return true;
 }
 void do_repair(Character *ch, String argument)
 {
@@ -1140,20 +1139,20 @@ void do_repair(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 
 	if (argument.empty()) {
-		bool etched = FALSE;
+		bool etched = false;
 		stc("{WItems you are wearing:\n", ch);
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 			if ((obj = get_eq_char(ch, iWear)) == nullptr)
 				continue;
 
-			etched = affect::exists_on_obj(obj, affect::type::acid_breath) ? TRUE : FALSE;
+			etched = affect::exists_on_obj(obj, affect::type::acid_breath) ? true : false;
 
 			Format::sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
 			        , condition_lookup(obj->condition),
 			        obj->short_descr, (etched) ? "{G({HEtched{G){x" : "");
 			stc(buf, ch);
-			etched = FALSE;
+			etched = false;
 		}
 
 		return;
@@ -1185,7 +1184,7 @@ void obj_repair(Character *ch, Object *obj)
 	int max = 100;
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room)
-		if (IS_NPC(rch) && rch->spec_fun == spec_lookup("spec_blacksmith"))
+		if (rch->is_npc() && rch->spec_fun == spec_lookup("spec_blacksmith"))
 			break;
 
 	if (obj->condition == -1) {
@@ -1211,7 +1210,7 @@ void obj_repair(Character *ch, Object *obj)
 
 			if (number_percent() > get_skill_level(ch, skill::type::repair)) {
 				stc("You accidentally damage it more!\n", ch);
-				check_improve(ch, skill::type::repair, FALSE, 8);
+				check_improve(ch, skill::type::repair, false, 8);
 				obj->condition -= number_range(10, 15);
 
 				if (obj->condition < 0)
@@ -1232,7 +1231,7 @@ void obj_repair(Character *ch, Object *obj)
 			Format::sprintf(buf, "You repair $p to %s condition.",
 			        condition_lookup(obj->condition));
 			act(buf, ch, obj, nullptr, TO_CHAR);
-			check_improve(ch, skill::type::repair, TRUE, 8);
+			check_improve(ch, skill::type::repair, true, 8);
 			return;
 		}
 
@@ -1260,27 +1259,27 @@ void obj_repair(Character *ch, Object *obj)
 
 bool spec_fight_clanguard(Character *ch)
 {
-	return TRUE;
+	return true;
 }
 
 bool spec_clanguard(Character *ch)
 {
 	Clan *clan;
 	Character *victim, *v_next;
-	bool found = FALSE;
+	bool found = false;
 
-	if (!IS_NPC(ch)
+	if (!ch->is_npc()
 	    || !IS_AWAKE(ch)
 	    || affect::exists_on_char(ch, affect::type::calm)
 	    || affect::exists_on_char(ch, affect::type::charm_person)
 	    || ch->in_room == nullptr)
-		return FALSE;
+		return false;
 
 	if ((clan = clan_vnum_lookup(ch->pIndexData->vnum)) == nullptr)
-		return FALSE;
+		return false;
 
 	if (ch->in_room->clan() != clan)
-		return FALSE;
+		return false;
 
 	for (victim = ch->in_room->people; victim != nullptr; victim = v_next) {
 		v_next = victim->next_in_room;
@@ -1300,7 +1299,7 @@ bool spec_clanguard(Character *ch)
 		}
 
 		multi_hit(ch, victim, skill::type::unknown);
-		found = TRUE;
+		found = true;
 	}
 
 	if (ch->fighting)
@@ -1313,8 +1312,8 @@ bool spec_clanguard(Character *ch)
  * This function determines whether or not a character
  * is "special". This function was written by Outsider
  * to replace the IS_SPECIAL macro (merc.h).
- * The function returns TRUE if the character is special
- * and FALSE if they are not.
+ * The function returns true if the character is special
+ * and false if they are not.
  *
  * Explanation:  this is a hack.  it is not a back door,
  * it is a means to get around the head and imp flags
@@ -1324,15 +1323,15 @@ bool spec_clanguard(Character *ch)
  */
 bool IS_SPECIAL(Character *ch)
 {
-	if (IS_NPC(ch))
-		return FALSE;
+	if (ch->is_npc())
+		return false;
 
 	if (ch->name == "Montrey"
 	    || ch->name == "Xenith"
             || ch->name == "Vegita")
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /*
@@ -1346,7 +1345,7 @@ highest in the pet.
 void do_familiar(Character *ch, String argument)
 {
 	/* first check to make sure this is a character */
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	/* make sure we have the skill */
@@ -1367,8 +1366,8 @@ void do_familiar(Character *ch, String argument)
 		return;
 	}
 
-	ch->pcdata->familiar = TRUE;
+	ch->pcdata->familiar = true;
 	stc("You feel at one with your pet.\n", ch);
-	check_improve(ch, skill::type::familiar, TRUE, 1);
+	check_improve(ch, skill::type::familiar, true, 1);
 	return;
 }

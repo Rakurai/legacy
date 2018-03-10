@@ -7,6 +7,7 @@
 #include "Logging.hh"
 #include "lookup.hh"
 #include "Room.hh"
+#include "ExitPrototype.hh"
 
 RoomPrototype::
 RoomPrototype(Area& a, const Vnum& v, FILE *fp) :

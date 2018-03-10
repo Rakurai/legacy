@@ -12,13 +12,13 @@
 #include "Flags.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "Player.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
 
 /* character finding functions */
 
@@ -34,6 +34,9 @@
    get_char_area        (Character *ch, const char *argument, int vis)
    get_char_world       (Character *ch, const char *argument, int vis)
 */
+
+#define CHARTYPE_TEST(chx)     (((chx)->is_npc()) ? ENTITY_M : ENTITY_P)
+#define CHARTYPE_MATCH(chx,ct) (((CHARTYPE_TEST(chx)) & ct) != 0)
 
 /* Find a mobile in the same room as ch */
 Character *get_mob_here(Character *ch, const String& argument, int vis)
@@ -54,11 +57,11 @@ Character *get_mob_here(Character *ch, const String& argument, int vis)
 		if (rch->in_room == nullptr)
 			continue;
 
-		if (!IS_NPC(rch))
+		if (!rch->is_npc())
 			continue;
 
 		if (etype == ENTITY_VM) {
-			if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
+			if (!rch->is_npc() || !rch->pIndexData || rch->pIndexData->vnum != vnum)
 				continue;
 		}
 		else {
@@ -99,7 +102,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 	int number = number_argument(arg, arg);
 
 	for (ach = Game::world().char_list; ach != nullptr; ach = ach->next) {
-		if (!IS_NPC(ach))
+		if (!ach->is_npc())
 			continue;
 
 		if (ach->in_room == nullptr)
@@ -145,14 +148,14 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 		vnum = atoi(arg);
 
 	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next) {
-		if (!IS_NPC(wch))
+		if (!wch->is_npc())
 			continue;
 
 		if (wch->in_room == nullptr)
 			continue;
 
 		if (etype == ENTITY_VM) {
-			if (!IS_NPC(wch) || !wch->pIndexData || wch->pIndexData->vnum != vnum)
+			if (!wch->is_npc() || !wch->pIndexData || wch->pIndexData->vnum != vnum)
 				continue;
 		}
 		else {
@@ -199,7 +202,7 @@ Character *get_char_here(Character *ch, const String& argument, int vis)
 			continue;
 
 		if (etype == ENTITY_VM) {
-			if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
+			if (!rch->is_npc() || !rch->pIndexData || rch->pIndexData->vnum != vnum)
 				continue;
 		}
 		else {
@@ -250,7 +253,7 @@ Character *get_char_room(Character *ch, Room *room, const String& argument, int 
 			continue;
 
 		if (etype == ENTITY_VM) {
-			if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
+			if (!rch->is_npc() || !rch->pIndexData || rch->pIndexData->vnum != vnum)
 				continue;
 		}
 		else {
@@ -338,7 +341,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 			continue;
 
 		if (etype == ENTITY_VM) {
-			if (!IS_NPC(wch) || !wch->pIndexData || wch->pIndexData->vnum != vnum)
+			if (!wch->is_npc() || !wch->pIndexData || wch->pIndexData->vnum != vnum)
 				continue;
 		}
 		else {
@@ -385,7 +388,7 @@ Character *get_player_here(Character *ch, const String& argument, int vis)
 		default:                                                        break;
 		}
 
-		if (!IS_NPC(rch)
+		if (!rch->is_npc()
 		    && rch->name.has_words(argument))
 			return rch;
 	}
@@ -413,7 +416,7 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 			continue;
 		}
 
-		if (IS_NPC(ach)) {
+		if (ach->is_npc()) {
 			Logging::bug("get_player_area: pc_data with mobile char_data", 0);
 			continue;
 		}
@@ -455,7 +458,7 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 			continue;
 		}
 
-		if (IS_NPC(wch)) {
+		if (wch->is_npc()) {
 			Logging::bug("get_player_world: pc_data with mobile char_data", 0);
 			continue;
 		}

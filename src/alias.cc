@@ -33,7 +33,6 @@
 #include "declare.hh"
 #include "Descriptor.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
@@ -63,7 +62,7 @@ void substitute_alias(Descriptor *d, String argument)
 	if (!ch->prefix.empty() && !argument.has_prefix("prefix"))
 		argument = ch->prefix + " " + argument;
 
-	if (IS_NPC(ch)
+	if (ch->is_npc()
 	    ||  argument.has_prefix("alias") || argument.has_prefix("una")
 	    ||  argument.has_prefix("prefix")) {
 		interpret(d->character, argument);
@@ -108,7 +107,7 @@ void do_alias(Character *ch, String argument)
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
 
-	if (IS_NPC(rch))
+	if (rch->is_npc())
 		return;
 
 	String arg;
@@ -168,7 +167,7 @@ void do_unalias(Character *ch, String argument)
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
 
-	if (IS_NPC(rch))
+	if (rch->is_npc())
 		return;
 
 	if (argument.empty()) {

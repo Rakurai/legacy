@@ -1,6 +1,5 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
 
 class War
@@ -14,7 +13,7 @@ public:
 
         String  name;
         String  clanname;
-        bool        inwar = FALSE;
+        bool        inwar = false;
         int      start_score = 0;
         int      final_score = 0;
 
@@ -51,7 +50,7 @@ public:
     War::Opponent *  def[4] = {nullptr};
     War::Event *    events = nullptr;
 
-    bool        ongoing = FALSE;
+    bool        ongoing = false;
 
     War *  previous = nullptr;
     War *  next = nullptr;

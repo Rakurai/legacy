@@ -4,10 +4,10 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "Game.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
 
 GameTime::
 GameTime(std::time_t system_time) {
@@ -124,7 +124,7 @@ update() {
 
 	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
 		/* why send it to mobs? */
-		if (!IS_NPC(ch)
+		if (!ch->is_npc()
 		 && IS_OUTSIDE(ch)
 		 && IS_AWAKE(ch)
 		 && ch->act_flags.has(PLR_TICKS))

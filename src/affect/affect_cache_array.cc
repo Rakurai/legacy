@@ -1,5 +1,6 @@
 #include <vector>
 
+#include "affect/Affect.hh"
 #include "Character.hh"
 #include "declare.hh"
 #include "Format.hh"

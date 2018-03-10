@@ -28,7 +28,6 @@
 #include "interp.hh"
 #include "Logging.hh"
 #include "lootv2.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -41,6 +40,8 @@
 #include "skill/skill.hh"
 #include "String.hh"
 #include "tables.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -102,32 +103,32 @@ void sq_cleanup(Character *ch)
 	if (ch->pcdata->squestmob != nullptr) {
 		for (mob = Game::world().char_list; mob != nullptr ; mob = mob->next)
 			if (mob == ch->pcdata->squestmob) {
-				extract_char(mob, TRUE);
+				extract_char(mob, true);
 				break;
 			}
 
 		ch->pcdata->squestmob = nullptr;
 	}
 
-	ch->pcdata->squestobjf = FALSE;
-	ch->pcdata->squestmobf = FALSE;
+	ch->pcdata->squestobjf = false;
+	ch->pcdata->squestmobf = false;
 }
 
 bool quest_level_diff(int clevel, int mlevel)
 {
-	if (clevel <= 5 && mlevel <= 5)                                    return TRUE;
-	else if (clevel >  5 && clevel <= 15 && mlevel >  5 && mlevel <= 15)    return TRUE;
-	else if (clevel > 15 && clevel <= 20 && mlevel > 15 && mlevel <= 20)    return TRUE;
-	else if (clevel > 20 && clevel <= 25 && mlevel > 20 && mlevel <= 25)    return TRUE;
-	else if (clevel > 25 && clevel <= 35 && mlevel > 25 && mlevel <= 35)    return TRUE;
-	else if (clevel > 35 && clevel <= 45 && mlevel > 35 && mlevel <= 45)    return TRUE;
-	else if (clevel > 45 && clevel <= 50 && mlevel > 45 && mlevel <= 50)    return TRUE;
-	else if (clevel > 50 && clevel <= 55 && mlevel > 50 && mlevel <= 55)    return TRUE;
-	else if (clevel > 55 && clevel <= 65 && mlevel > 55 && mlevel <= 65)    return TRUE;
-	else if (clevel > 65 && clevel <= 75 && mlevel > 65 && mlevel <= 75)    return TRUE;
-	else if (clevel > 75 && clevel <= 85 && mlevel > 75 && mlevel <= 85)    return TRUE;
-	else if (clevel > 85 && mlevel >  85)                                   return TRUE;
-	else                                                                    return FALSE;
+	if (clevel <= 5 && mlevel <= 5)                                    return true;
+	else if (clevel >  5 && clevel <= 15 && mlevel >  5 && mlevel <= 15)    return true;
+	else if (clevel > 15 && clevel <= 20 && mlevel > 15 && mlevel <= 20)    return true;
+	else if (clevel > 20 && clevel <= 25 && mlevel > 20 && mlevel <= 25)    return true;
+	else if (clevel > 25 && clevel <= 35 && mlevel > 25 && mlevel <= 35)    return true;
+	else if (clevel > 35 && clevel <= 45 && mlevel > 35 && mlevel <= 45)    return true;
+	else if (clevel > 45 && clevel <= 50 && mlevel > 45 && mlevel <= 50)    return true;
+	else if (clevel > 50 && clevel <= 55 && mlevel > 50 && mlevel <= 55)    return true;
+	else if (clevel > 55 && clevel <= 65 && mlevel > 55 && mlevel <= 65)    return true;
+	else if (clevel > 65 && clevel <= 75 && mlevel > 65 && mlevel <= 75)    return true;
+	else if (clevel > 75 && clevel <= 85 && mlevel > 75 && mlevel <= 85)    return true;
+	else if (clevel > 85 && mlevel >  85)                                   return true;
+	else                                                                    return false;
 }
 
 /* Checks for a character in the room with spec_questmaster set. This special
@@ -138,7 +139,7 @@ Character *find_questmaster(Character *ch)
 	Character *questman;
 
 	for (questman = ch->in_room->people; questman != nullptr; questman = questman->next_in_room) {
-		if (!IS_NPC(questman))
+		if (!questman->is_npc())
 			continue;
 
 		if (questman->spec_fun == spec_lookup("spec_questmaster"))
@@ -166,7 +167,7 @@ Character *find_squestmaster(Character *ch)
 	Character *questman;
 
 	for (questman = ch->in_room->people; questman != nullptr; questman = questman->next_in_room) {
-		if (!IS_NPC(questman))
+		if (!questman->is_npc())
 			continue;
 
 		if (questman->spec_fun == spec_lookup("spec_squestmaster"))
@@ -460,15 +461,15 @@ void squestobj_to_squestmob(Character *ch, Object *obj, Character *mob)
 	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 	buf = Format::format("{Y:SKILL QUEST: {x$N has returned %s to %s", obj->short_descr, mob->short_descr);
 	wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-	extract_char(mob, TRUE);
-	ch->pcdata->squestmobf = TRUE;
+	extract_char(mob, true);
+	ch->pcdata->squestmobf = true;
 }
 
 void squestmob_found(Character *ch, Character *mob)
 {
 	if (ch->pcdata->squestmobf) {
 		Logging::bug("At squestmob_found, player's squestmob already found.  Continuing...", 0);
-		ch->pcdata->squestmobf = FALSE;
+		ch->pcdata->squestmobf = false;
 	}
 
 	if (mob->act_flags.has(ACT_MAGE)) {
@@ -557,8 +558,8 @@ void squestmob_found(Character *ch, Character *mob)
 	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 	String buf = Format::format("{Y:SKILL QUEST: {x$N has spoken with %s", mob->short_descr);
 	wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-	extract_char(mob, TRUE);
-	ch->pcdata->squestmobf = TRUE;
+	extract_char(mob, true);
+	ch->pcdata->squestmobf = true;
 }
 
 Object *generate_skillquest_obj(Character *ch, int level)
@@ -808,7 +809,7 @@ void generate_skillquest(Character *ch, Character *questman)
 	ch->pcdata->squest_giver = questman->pIndexData->vnum;
 
 	/* 40% chance of an item quest */
-	if (chance(40)) {
+	if (roll_chance(40)) {
 		if ((questobj = generate_skillquest_obj(ch, level)) == nullptr) {
 			Logging::bug("Bad generate_skillquest_obj, from generate_skillquest", 0);
 			return;
@@ -829,7 +830,7 @@ void generate_skillquest(Character *ch, Character *questman)
 		return;
 	}
 	/* 40% chance of a mob quest */
-	else if (chance(66)) {
+	else if (roll_chance(66)) {
 		generate_skillquest_mob(ch, questman, level, 1);
 		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->location;
 	}
@@ -872,7 +873,7 @@ void generate_quest(Character *ch, Character *questman)
 		total = 0;
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (!IS_NPC(victim)
+			if (!victim->is_npc()
 			    || victim->pIndexData == nullptr
 			    || victim->in_room == nullptr
 			    || victim->pIndexData->pShop != nullptr
@@ -884,7 +885,7 @@ void generate_quest(Character *ch, Character *questman)
 			    || affect::exists_on_char(victim, affect::type::charm_person)
 			    || victim->in_room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
 			    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
-			    || quest_level_diff(ch->level, victim->level) != TRUE)
+			    || quest_level_diff(ch->level, victim->level) != true)
 				continue;
 
 			/* All conditions met. Increment counters. */
@@ -933,7 +934,7 @@ void generate_quest(Character *ch, Character *questman)
 	ch->pcdata->questloc = room->location;
 
 	/*  40% chance it will send the player on a 'recover item' quest. */
-	if (chance(40)) {
+	if (roll_chance(40)) {
 		int objvnum = 0;
 
 		switch (number_range(0, 4)) {
@@ -1019,7 +1020,7 @@ void do_quest(Character *ch, String argument)
 	Character *questman;
 	String buf;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_say(ch, "Don't be silly, mobs can't quest!");
 		return;
 	}
@@ -1068,7 +1069,7 @@ void do_quest(Character *ch, String argument)
 
 		if (player.has_prefix("allchars")) {
 			for (d = descriptor_list; d; d = d->next) {
-				if (IS_PLAYING(d) && !IS_IMMORTAL(d->character) && !IS_NPC(d->character)) {
+				if (d->is_playing() && !IS_IMMORTAL(d->character) && !d->character->is_npc()) {
 					d->character->pcdata->questpoints += number;
 					ptc(ch, "You award %s %d questpoints.\n", d->character->name, number);
 					ptc(d->character, "%s has awarded you %d questpoints.\n", ch->name, number);
@@ -1139,7 +1140,7 @@ void do_quest(Character *ch, String argument)
 				/* check to see if they dropped it on the way */
 				if (ch->pcdata->squestobjf && obj == nullptr) {
 					do_say(questman, "You must have lost the item on the way here.  Hurry and find it!");
-					ch->pcdata->squestobjf = FALSE;
+					ch->pcdata->squestobjf = false;
 					return;
 				}
 
@@ -1221,11 +1222,11 @@ void do_quest(Character *ch, String argument)
 
 			skill::type sn = get_random_skill(ch);
 
-			if (chance(20) && sn != skill::type::unknown) {
+			if (roll_chance(20) && sn != skill::type::unknown) {
 				buf = Format::format("I will also teach you some of the finer points of %s.", skill::lookup(sn).name);
 				do_say(questman, buf);
 				ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill::lookup(sn).name);
-				check_improve(ch, sn, TRUE, -1); /* always improve */
+				check_improve(ch, sn, true, -1); /* always improve */
 			}
 
 			sq_cleanup(ch);
@@ -1318,7 +1319,7 @@ void do_quest(Character *ch, String argument)
 			pointreward += number_range(0, GET_ATTR(ch, APPLY_QUESTPOINTS));
 
 			int pracreward = 0;
-			if (chance(5))
+			if (roll_chance(5))
 				pracreward = number_range(1, 3);
 
 			int goldreward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; /* +1 is for the off chance of a level 0 questor */
@@ -1385,7 +1386,7 @@ void do_quest(Character *ch, String argument)
 				Logging::bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
 			else {
 				for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-					if (!IS_NPC(victim) && victim->in_room != nullptr
+					if (!victim->is_npc() && victim->in_room != nullptr
 					    && victim->in_room->area() == Game::world().quest.area()) {
 						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);
 						stc("You are expelled from the quest area.\n", victim);
@@ -1401,7 +1402,7 @@ void do_quest(Character *ch, String argument)
 		stc("*** You have closed the quest area ***\n", ch);
 		buf = Format::format("%s has closed the quest area.\n", ch->name);
 		do_send_announce(ch, buf);
-		Game::world().quest.open = FALSE;
+		Game::world().quest.open = false;
 		return;
 	}
 
@@ -1560,12 +1561,12 @@ void do_quest(Character *ch, String argument)
 		for (d = descriptor_list; d != nullptr; d = d->next) {
 			Character *wch;
 
-			if (!IS_PLAYING(d) || !can_see_who(ch, d->character))
+			if (!d->is_playing() || !can_see_who(ch, d->character))
 				continue;
 
 			wch = (d->original != nullptr) ? d->original : d->character;
 
-			if (IS_NPC(wch) || !can_see_who(ch, wch))
+			if (wch->is_npc() || !can_see_who(ch, wch))
 				continue;
 
 			if (IS_QUESTOR(wch)) {
@@ -1689,7 +1690,7 @@ void do_quest(Character *ch, String argument)
 		buf = Format::format("%s has opened the quest area to levels %d through %d!\n", ch->name, Game::world().quest.min_level, Game::world().quest.max_level);
 		do_send_announce(ch, buf);
 		ptc(ch, "You open the quest area to levels %d through %d.\n", Game::world().quest.min_level, Game::world().quest.max_level);
-		Game::world().quest.open = TRUE;
+		Game::world().quest.open = true;
 		return;
 	}
 
@@ -1759,7 +1760,7 @@ void do_quest(Character *ch, String argument)
 			act("$n asks $N for a skill quest.", ch, nullptr, questman, TO_ROOM);
 			act("You ask $N for a skill quest.", ch, nullptr, questman, TO_CHAR);
 
-			if (IS_NPC(ch) && ch->act_flags.has(ACT_PET)) {
+			if (ch->is_npc() && ch->act_flags.has(ACT_PET)) {
 				check_social(questman, "rofl", ch->name);
 
 				buf = Format::format("Who ever heard of a pet questing for its %s?",
@@ -1801,7 +1802,7 @@ void do_quest(Character *ch, String argument)
 			act("$n asks $N for a quest.", ch, nullptr, questman, TO_ROOM);
 			act("You ask $N for a quest.", ch, nullptr, questman, TO_CHAR);
 
-			if (IS_NPC(ch) && ch->act_flags.has(ACT_PET)) {
+			if (ch->is_npc() && ch->act_flags.has(ACT_PET)) {
 				check_social(questman, "rofl", ch->name);
 
 				buf = Format::format("Who ever heard of a pet questing for its %s?",

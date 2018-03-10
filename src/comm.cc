@@ -66,9 +66,9 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
+#include "MobProg.hh"
 #include "MobilePrototype.hh"
 #include "Player.hh"
 #include "random.hh"
@@ -79,6 +79,7 @@
 #include "vt100.hh" /* VT100 Stuff */
 #include "comm.hh"
 #include "conn/State.hh"
+#include "World.hh"
 
 struct ka_struct;
 
@@ -274,7 +275,7 @@ int main(int argc, char **argv)
 	exe_file = argv[0];
 
 	struct timeval now_time;
-	bool fCopyOver = FALSE;
+	bool fCopyOver = false;
 	FILE *fpBoot = nullptr;
 	Character *tempchars;
 	struct sigaction sig_act;
@@ -336,7 +337,7 @@ int main(int argc, char **argv)
 			}
 
 			control = atoi(argv[4]);
-			fCopyOver = TRUE;
+			fCopyOver = true;
 		}
 	}
 
@@ -363,7 +364,7 @@ int main(int argc, char **argv)
 	unlink(BOOT_FILE);
 
 	for (tempchars = Game::world().char_list; tempchars; tempchars = tempchars->next) {
-		if (IS_NPC(tempchars))
+		if (tempchars->is_npc())
 			mprog_boot_trigger(tempchars);
 	}
 
@@ -525,7 +526,7 @@ void game_loop_unix(int control)
 		maxdesc = control;
 
 		for (d = descriptor_list; d; d = d->next) {
-			maxdesc = UMAX(maxdesc, d->descriptor);
+			maxdesc = std::max(maxdesc, d->descriptor);
 			FD_SET(d->descriptor, &in_set);
 			FD_SET(d->descriptor, &out_set);
 			FD_SET(d->descriptor, &exc_set);
@@ -573,7 +574,7 @@ void game_loop_unix(int control)
 		/* Process input. */
 		for (d = descriptor_list; d != nullptr; d = d_next) {
 			d_next = d->next;
-			d->fcommand = FALSE;
+			d->fcommand = false;
 
 			if (FD_ISSET(d->descriptor, &in_set)) {
 				if (d->character != nullptr) {
@@ -610,7 +611,7 @@ void game_loop_unix(int control)
 				read_from_buffer(d);
 
 			if (d->incomm[0] != '\0') {
-				d->fcommand = TRUE;
+				d->fcommand = true;
 				stop_idling(d->character);
 				String command2 = get_multi_command(d, d->incomm);
 				command2 = command2.lstrip();
@@ -631,7 +632,7 @@ void game_loop_unix(int control)
 
 			if ((d->fcommand || !d->outbuf.empty())
 			    && FD_ISSET(d->descriptor, &out_set)) {
-				if (!process_output(d, TRUE)) {
+				if (!process_output(d, true)) {
 					if (d->character != nullptr && d->character->level > 1)
 						save_char_obj(d->character);
 
@@ -821,7 +822,7 @@ void close_socket(Descriptor *dclose)
 	Descriptor *d;
 
 	if (!dclose->outbuf.empty())
-		process_output(dclose, FALSE);
+		process_output(dclose, false);
 
 	if (dclose->snoop_by != nullptr)
 		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n");
@@ -849,7 +850,7 @@ void close_socket(Descriptor *dclose)
 
 			wiznet("$N has lost link.", ch, nullptr, WIZ_LINKS, 0, 0);
 
-			if (!IS_NPC(ch))
+			if (!ch->is_npc())
 				ch->pcdata->plr_flags += PLR_LINK_DEAD;
 			else {
 				/* been having problems with this -- Montrey */
@@ -912,7 +913,7 @@ bool read_from_descriptor(Descriptor *d)
 
 	/* Hold horses if pending command already. */
 	if (d->incomm[0] != '\0')
-		return TRUE;
+		return true;
 
 	/* Check for overflow. */
 	iStart = strlen(d->inbuf);
@@ -921,7 +922,7 @@ bool read_from_descriptor(Descriptor *d)
 		Logging::logf("%s input overflow!", d->host);
 		write_to_descriptor(d->descriptor,
 		                    "\n*** PUT A LID ON IT!!! ***\n", 0);
-		return FALSE;
+		return false;
 	}
 
 	/* Snarf input. */
@@ -941,22 +942,22 @@ bool read_from_descriptor(Descriptor *d)
 			if (d->character && d->character->level > 0)
 				Logging::logf("EOF on read from char %s", d->character->name);
 			else if (!strcmp(d->host, "localhost"))
-				return FALSE;
+				return false;
 			else
 				Logging::logf("EOF on read from host %s", d->host);
 
-			return FALSE;
+			return false;
 		}
 		else if (errno == EWOULDBLOCK)
 			break;
 		else {
 			perror("Read_from_descriptor");
-			return FALSE;
+			return false;
 		}
 	}
 
 	d->inbuf[iStart] = '\0';
-	return TRUE;
+	return true;
 }
 
 /*
@@ -1082,7 +1083,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	extern bool merc_down;
 
 	/* VT100 Stuff */
-	if (IS_PLAYING(d)
+	if (d->is_playing()
 	    && d->character->pcdata
 	    && d->character->pcdata->video_flags.has(VIDEO_VT100)) {
 		write_to_buffer(d, VT_SAVECURSOR);
@@ -1094,7 +1095,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	 */
 	if (!merc_down && !d->showstr_head.empty())
 		write_to_buffer(d, "[Hit Enter to continue]\n");
-	else if (fPrompt && !merc_down && IS_PLAYING(d)) {
+	else if (fPrompt && !merc_down && d->is_playing()) {
 		Character *ch;
 		Character *victim;
 		ch = d->character;
@@ -1140,7 +1141,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 			if (can_see_char(ch, victim)) {
 				int percent;
 
-				if (IS_NPC(victim))
+				if (victim->is_npc())
 					atb += victim->short_descr;
 				else
 					atb += victim->name;
@@ -1180,7 +1181,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	 * Short-circuit if nothing to write.
 	 */
 	if (d->outbuf.empty())
-		return TRUE;
+		return true;
 
 	/*
 	 * Snoop-o-rama.
@@ -1194,7 +1195,7 @@ bool process_output(Descriptor *d, bool fPrompt)
 	}
 
 	/* VT100 Stuff */
-	if (IS_PLAYING(d)
+	if (d->is_playing()
 	    && d->character->pcdata
 	    && d->character->pcdata->video_flags.has(PLR_VT100)) {
 		goto_line(d->character, d->character->lines - 1, 1);
@@ -1208,11 +1209,11 @@ bool process_output(Descriptor *d, bool fPrompt)
 	 */
 	if (!write_to_descriptor(d->descriptor, d->outbuf, d->outbuf.size())) {
 		d->outbuf.clear();
-		return FALSE;
+		return false;
 	}
 	else {
 		d->outbuf.clear();
-		return TRUE;
+		return true;
 	}
 }
 
@@ -1263,7 +1264,7 @@ void bust_a_prompt(Character *ch)
 			break;
 
 		case 'e': {
-			bool found = FALSE;
+			bool found = false;
 
 			for (int door = 0; door < 6; door++) {
 				Exit *pexit;
@@ -1272,12 +1273,12 @@ void bust_a_prompt(Character *ch)
 				    && pexit ->to_room != nullptr
 				    && can_see_room(ch, pexit->to_room)
 				    && can_see_in_room(ch, pexit->to_room)) {
-					found = TRUE;
+					found = true;
 
 					if (!pexit->exit_flags.has(EX_CLOSED))
-						buf += UPPER(Exit::dir_name(door)[0]);
+						buf += toupper(Exit::dir_name(door)[0]);
 					else
-						buf += LOWER(Exit::dir_name(door)[0]);
+						buf += tolower(Exit::dir_name(door)[0]);
 				}
 			}
 
@@ -1295,7 +1296,7 @@ void bust_a_prompt(Character *ch)
 		case 'V':  buf += Format::format("%d", GET_MAX_STAM(ch)); break;
 		case 'x':  buf += Format::format("%d", ch->exp); break;
 		case 'X':
-			if (!IS_NPC(ch))
+			if (!ch->is_npc())
 				buf += Format::format("%ld",
 				        (ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp);
 
@@ -1371,12 +1372,12 @@ void bust_a_prompt(Character *ch)
 
 			break;
 		case 'p':
-			if (!IS_NPC(ch))
+			if (!ch->is_npc())
 				buf += Format::format("%d", ch->pcdata->questpoints);
 
 			break;
 		case 'j':
-			if (!IS_NPC(ch)) {
+			if (!ch->is_npc()) {
 				if (!IS_SQUESTOR(ch))
 					buf += Format::format("%d", ch->pcdata->nextsquest);
 				else
@@ -1418,12 +1419,12 @@ void bust_a_prompt(Character *ch)
 
 			break;
 		case 'k':
-			if (!IS_NPC(ch))
+			if (!ch->is_npc())
 				buf += Format::format("%d", ch->pcdata->skillpoints);
 
 			break;
 		case 'K':
-			if (!IS_NPC(ch))
+			if (!ch->is_npc())
 				buf += Format::format("%d", ch->pcdata->rolepoints);
 
 			break;
@@ -1512,7 +1513,7 @@ bool write_to_descriptor(int desc, const String& txt, int length)
 		length = strlen(txt);
 
 	for (iStart = 0; iStart < length; iStart += nWrite) {
-		nBlock = UMIN(length - iStart, 4096);
+		nBlock = std::min(length - iStart, 4096);
 
 		if ((nWrite = write(desc, txt.c_str() + iStart, nBlock)) < 0) {
 			perror("Write_to_descriptor");
@@ -1523,17 +1524,18 @@ bool write_to_descriptor(int desc, const String& txt, int length)
 				if (*nullptr != '\0') abort();
 			}
 */
-			return FALSE;
+			return false;
 		}
 	}
 
-	return TRUE;
+	return true;
 }
 
 void stop_idling(Character *ch)
 {
 	if (ch == nullptr
-	    ||   !IS_PLAYING(ch->desc)
+		|| ch->desc == nullptr
+	    ||   !ch->desc->is_playing()
 	    ||   ch->was_in_room == nullptr
 	    ||   ch->in_room != Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO))))
 		return;
@@ -1647,7 +1649,7 @@ void stc(const String& txt, Character *ch)
 	if (txt.empty() || ch->desc == nullptr)
 		return;
 
-	if (!IS_NPC(ch) && ch->pcdata->video_flags.has(VIDEO_CODES_SHOW))
+	if (!ch->is_npc() && ch->pcdata->video_flags.has(VIDEO_CODES_SHOW))
 		write_to_buffer(ch->desc, txt);
 	else if (ch->act_flags.has(PLR_COLOR2))
 		write_to_buffer(ch->desc, expand_color_codes(ch, txt));
@@ -1776,8 +1778,8 @@ void do_copyover(Character *ch, String argument)
 	for (d = descriptor_list; d; d = d->next) {
 		Format::printf("found socket %d, host %s\n", d->descriptor, d->host);
 
-		if (IS_PLAYING(d)) {
-			Character *och = CH(d);
+		if (d->is_playing()) {
+			Character *och = d->original ? d->original : d->character;
 			one_argument(och->name, buf);
 			Format::fprintf(fp, "%d %s %s\n", d->descriptor, buf, d->host);
 		}
@@ -1848,7 +1850,7 @@ void do_copyover(Character *ch, String argument)
 		}
 		else {
 			/* regular character -- save and notify */
-			och =  CH(d);
+			och = d->original ? d->original : d->character;
 			Format::printf("closing socket %d from char %s\n",
 			       d->descriptor, och->name);
 			save_char_obj(och);

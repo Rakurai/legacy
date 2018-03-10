@@ -1,4 +1,5 @@
 #include "ExitPrototype.hh"
+#include "constants.hh"
 #include "file.hh"
 
 ExitPrototype::

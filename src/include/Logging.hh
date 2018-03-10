@@ -1,8 +1,9 @@
 #pragma once
 
-#include "declare.hh"
 #include "Format.hh"
-#include "Vnum.hh"
+
+class String;
+class Vnum;
 
 namespace Logging {
 

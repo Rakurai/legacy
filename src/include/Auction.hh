@@ -1,6 +1,7 @@
 #pragma once
 
-#include "declare.hh"
+class Object;
+class Character;
 
 class Auction
 {

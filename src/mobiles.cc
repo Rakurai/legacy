@@ -31,7 +31,6 @@
 #include "declare.hh"
 #include "Flags.hh"
 #include "Format.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -52,7 +51,7 @@ void do_heal(Character *ch, String argument)
 
 	/* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && mob->act_flags.has(ACT_IS_HEALER)) break;
+		if (mob->is_npc() && mob->act_flags.has(ACT_IS_HEALER)) break;
 	}
 
 	if (mob == nullptr) {
@@ -158,20 +157,20 @@ void do_heal(Character *ch, String argument)
 		if (number_percent() < get_skill_level(rch, skill::type::languages)) {
 			Format::sprintf(buf, "$n utters the words '%s'.", arg);
 			act(buf, mob, nullptr, rch, TO_VICT);
-			check_improve(rch, skill::type::languages, TRUE, 8);
+			check_improve(rch, skill::type::languages, true, 8);
 		}
 		else {
 			Format::sprintf(buf, "$n utters the words '%s'.", words);
 			act(buf, mob, nullptr, rch, TO_VICT);
 
 			if (get_skill_level(rch, skill::type::languages))
-				check_improve(rch, skill::type::languages, FALSE, 8);
+				check_improve(rch, skill::type::languages, false, 8);
 		}
 	}
 
 	if (spell == nullptr) { /* restore mana trap...kinda hackish */
 		ch->mana += dice(9, 10) + mob->level / 2;
-		ch->mana = UMIN(ch->mana, GET_MAX_MANA(ch));
+		ch->mana = std::min(ch->mana, GET_MAX_MANA(ch));
 		stc("A warm glow passes through you.\n", ch);
 		return;
 	}

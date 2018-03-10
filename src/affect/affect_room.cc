@@ -17,7 +17,7 @@ const Affect *list_room(Room *room) {
 }
 
 bool exists_on_room(Room *room, ::affect::type type) {
-	return find_on_room(room, type) ? TRUE : FALSE;
+	return find_on_room(room, type) ? true : false;
 }
 
 const Affect *find_on_room(Room *room, ::affect::type type) {
@@ -29,7 +29,7 @@ const Affect *find_on_room(Room *room, ::affect::type type) {
 void copy_to_room(Room *room, const Affect *aff_template)
 {
 	copy_to_list(&room->affected, aff_template);
-	modify_room(room, aff_template, TRUE);
+	modify_room(room, aff_template, true);
 }
 
 void join_to_room(Room *room, Affect *paf) {
@@ -48,7 +48,7 @@ void join_to_room(Room *room, Affect *paf) {
 void remove_from_room(Room *room, Affect *paf)
 {
 	remove_from_list(&room->affected, paf);
-	modify_room(room, paf, FALSE);
+	modify_room(room, paf, false);
 	delete paf;
 }
 
@@ -64,7 +64,7 @@ void remove_matching_from_room(Room *room, comparator comp, const Affect *patter
 
 void remove_marked_from_room(Room *room) {
 	Affect pattern;
-	pattern.mark = TRUE;
+	pattern.mark = true;
 
 	remove_matching_from_room(room, comparator_mark, &pattern);
 }
@@ -116,7 +116,7 @@ void modify_flag_cache_room(Room *room, int where, const Flags& flags, bool fAdd
 		room->cached_room_flags.clear();
 
 		for (const Affect *paf = room->affected; paf; paf = paf->next)
-			modify_flag_cache_room(room, paf->where, paf->bitvector(), TRUE);
+			modify_flag_cache_room(room, paf->where, paf->bitvector(), true);
 	}
 	else {
 		room->cached_room_flags += flags;

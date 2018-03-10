@@ -1,6 +1,5 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
 
 /*

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
 #include "Pooled.hh"
 
@@ -25,5 +24,5 @@ private:
 };
 
 /* extra descr recycling */
-ExtraDescr	*new_extra_descr args( (void) );
-void	free_extra_descr args( (ExtraDescr *ed) );
+ExtraDescr	*new_extra_descr (void);
+void	free_extra_descr (ExtraDescr *ed);

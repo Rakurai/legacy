@@ -46,11 +46,11 @@
 #include "Flags.hh"
 #include "Format.hh"
 #include "Game.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
 #include "String.hh"
+#include "World.hh"
 
 void do_marry(Character *ch, String argument)
 {
@@ -155,7 +155,7 @@ void do_spousetalk(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -187,7 +187,7 @@ void do_spousetalk(Character *ch, String argument)
 
 		for (victim = Game::world().char_list; victim != nullptr ; victim = victim->next) {
 			if (victim->in_room != nullptr &&
-			    !IS_NPC(victim) &&
+			    !victim->is_npc() &&
 			    victim->name.has_words(ch->pcdata->spouse))
 				break;
 		}
@@ -216,7 +216,7 @@ void do_propose(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -241,7 +241,7 @@ void do_propose(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("That's just silly.\n", ch);
 		return;
 	}
@@ -274,7 +274,7 @@ void do_accept(Character *ch, String argument)
 	char buf[MSL];
 	Descriptor *d;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -299,7 +299,7 @@ void do_accept(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Now why would they propose to you?\n", ch);
 		return;
 	}
@@ -327,7 +327,7 @@ void do_accept(Character *ch, String argument)
 		Character *msgvict;
 		msgvict = d->original ? d->original : d->character;
 
-		if (IS_PLAYING(d) &&
+		if (d->is_playing() &&
 		    !msgvict->comm_flags.has(COMM_NOANNOUNCE) &&
 		    !msgvict->comm_flags.has(COMM_QUIET))
 			stc(buf, msgvict);
@@ -342,7 +342,7 @@ void do_reject(Character *ch, String argument)
 {
 	Character *victim;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -367,7 +367,7 @@ void do_reject(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Now why would they propose to you?\n", ch);
 		return;
 	}
@@ -398,7 +398,7 @@ void do_breakup(Character *ch, String argument)
 	char buf[MSL];
 	Descriptor *d;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}
@@ -428,7 +428,7 @@ void do_breakup(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Bad idea.\n", ch);
 		return;
 	}
@@ -451,7 +451,7 @@ void do_breakup(Character *ch, String argument)
 		Character *msgvict;
 		msgvict = d->original ? d->original : d->character;
 
-		if (IS_PLAYING(d) &&
+		if (d->is_playing() &&
 		    !msgvict->comm_flags.has(COMM_NOANNOUNCE) &&
 		    !msgvict->comm_flags.has(COMM_QUIET))
 			stc(buf, msgvict);

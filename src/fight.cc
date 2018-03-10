@@ -48,10 +48,10 @@
 #include "interp.hh"
 #include "Logging.hh"
 #include "lootv2.hh"
-#include "macros.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
+#include "MobProg.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "ObjectValue.hh"
@@ -104,8 +104,8 @@ void    do_lay_on_hands       args((Character *ch, const char *argument));
 int gxp;
 
 /* nasty global focus boolean -- Montrey */
-bool focus = TRUE;
-bool global_quick = FALSE;
+bool focus = true;
+bool global_quick = false;
 
 /* Control the fights going on.
    Called periodically by update_handler. */
@@ -132,7 +132,7 @@ void violence_update(void)
 		attribute_check(ch);
 
 		/* Hunting mobs */
-		if (IS_NPC(ch)
+		if (ch->is_npc()
 		    && ch->fighting == nullptr
 		    && IS_AWAKE(ch)
 		    && ch->hunting != nullptr) {
@@ -143,7 +143,7 @@ void violence_update(void)
 		if ((victim = ch->fighting) == nullptr) {
 			/* parasite pk timer off of violence_update.  don't forget it's 3 seconds -- Montrey */
 
-			if (!IS_NPC(ch)) {
+			if (!ch->is_npc()) {
 				if (ch->pcdata->pktimer
 				 && --ch->pcdata->pktimer == 0
 				 && affect::exists_on_char(ch, affect::type::shadow_form))
@@ -159,7 +159,7 @@ void violence_update(void)
 		}
 
 		// this is also set in multi_hit, to get the one-shot kills
-                if (!IS_NPC(ch))
+                if (!ch->is_npc())
                         ch->pcdata->combattimer = 5;
 
 		combat_regen(ch);
@@ -171,16 +171,16 @@ void violence_update(void)
 			act("$n clambers to $s feet.", ch, nullptr, nullptr, TO_ROOM);
 
 			/* prevent spam bashing -- Montrey */
-			if (IS_NPC(ch))
+			if (ch->is_npc())
 				ch->wait = 1;
 			else {
 				Character *rch;
 
 				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
-					if (IS_NPC(rch)
+					if (rch->is_npc()
 					    && rch->fighting == ch
 					    && get_position(rch) == POS_FIGHTING)
-						rch->wait = UMAX(rch->wait, 1);
+						rch->wait = std::max(rch->wait, 1);
 			}
 
 			ch->position = POS_STANDING;
@@ -192,7 +192,7 @@ void violence_update(void)
 		if (IS_AWAKE(ch) && ch->in_room == victim->in_room)
 			multi_hit(ch, victim, skill::type::unknown);
 		else
-			stop_fighting(ch, FALSE);
+			stop_fighting(ch, false);
 
 		if (ch == nullptr || ch->fighting == nullptr)
 			continue;
@@ -203,7 +203,7 @@ void violence_update(void)
 			continue;
 
 		/* Wimp out? */
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			if ((ch->act_flags.has(ACT_WIMPY)
 			     && number_bits(2) == 0
 			     && ch->hit < GET_MAX_HIT(ch) / 5)
@@ -225,19 +225,19 @@ void violence_update(void)
 			continue;
 
 		/* Mobs switch to master, no longer do multihits every round :P -- Montrey */
-		if (IS_NPC(ch)
-		    && IS_NPC(victim)
+		if (ch->is_npc()
+		    && victim->is_npc()
 		    && affect::exists_on_char(victim, affect::type::charm_person)
 		    && victim->master != nullptr
 		    && victim->master->in_room == ch->in_room
-		    && chance(15)) {
+		    && roll_chance(15)) {
 			if (!can_see_char(ch, victim->master)) {
-				if (chance(50))
+				if (roll_chance(50))
 					do_flee(ch, "");
 			}
 			else {
 				act("$n changes the focus of $s attacks.", ch, nullptr, nullptr, TO_ROOM);
-				stop_fighting(ch, FALSE);
+				stop_fighting(ch, false);
 				set_fighting(ch, victim->master);
 				continue;
 			}
@@ -259,9 +259,9 @@ void noncombat_regen(Character *ch) {
 	if (ch->hit < GET_MAX_HIT(ch)
 	 || ch->mana < GET_MAX_MANA(ch)
 	 || ch->stam < GET_MAX_STAM(ch)) {
-	    ch->hit = UMIN(GET_MAX_HIT(ch), ch->hit + hitgain);
-		ch->mana = UMIN(GET_MAX_MANA(ch), ch->mana + managain);
-		ch->stam = UMIN(GET_MAX_STAM(ch), ch->stam + stamgain);
+	    ch->hit = std::min(GET_MAX_HIT(ch), ch->hit + hitgain);
+		ch->mana = std::min(GET_MAX_MANA(ch), ch->mana + managain);
+		ch->stam = std::min(GET_MAX_STAM(ch), ch->stam + stamgain);
 	}
 
 	if (ch->hit == GET_MAX_HIT(ch)
@@ -278,7 +278,7 @@ void combat_regen(Character *ch)
 	int hitgain = 0, managain = 0, stamgain = 0;
 
 	/* for real vampires, regen or damage */
-	if (ch->race == 6 && !IS_NPC(ch)) {
+	if (ch->race == 6 && !ch->is_npc()) {
 		int sun_damage;
 		GameTime::Sun sun = ch->in_room->area().world.time.sunlight;
 		Weather::Sky sky = ch->in_room->area().world.weather.sky;
@@ -307,7 +307,7 @@ void combat_regen(Character *ch)
 			sun_damage -= sun_damage * GET_DEFENSE_MOD(ch, DAM_LIGHT) / 100;
 
 			if (sun_damage > 0) {
-				damage(ch->fighting, ch, sun_damage, skill::type::unknown, -1, DAM_NONE, FALSE, TRUE);
+				damage(ch->fighting, ch, sun_damage, skill::type::unknown, -1, DAM_NONE, false, true);
 
 				if (ch == nullptr)
 					return;
@@ -374,11 +374,11 @@ void combat_regen(Character *ch)
 		stamgain += gain;
 	}
 
-	if (ch->hit < GET_MAX_HIT(ch))      ch->hit = UMIN(GET_MAX_HIT(ch), ch->hit + hitgain);
+	if (ch->hit < GET_MAX_HIT(ch))      ch->hit = std::min(GET_MAX_HIT(ch), ch->hit + hitgain);
 
-	if (ch->mana < GET_MAX_MANA(ch))    ch->mana = UMIN(GET_MAX_MANA(ch), ch->mana + managain);
+	if (ch->mana < GET_MAX_MANA(ch))    ch->mana = std::min(GET_MAX_MANA(ch), ch->mana + managain);
 
-	if (ch->stam < GET_MAX_STAM(ch))    ch->stam = UMIN(GET_MAX_STAM(ch), ch->stam + stamgain);
+	if (ch->stam < GET_MAX_STAM(ch))    ch->stam = std::min(GET_MAX_STAM(ch), ch->stam + stamgain);
 }
 
 void check_all_cond(Character *ch)
@@ -386,7 +386,7 @@ void check_all_cond(Character *ch)
 	int iWear;
 	Object *obj;
 
-	if (IS_NPC(ch) || IS_IMMORTAL(ch))
+	if (ch->is_npc() || IS_IMMORTAL(ch))
 		return;
 
 	if (affect::exists_on_char(ch, affect::type::sheen))
@@ -456,8 +456,8 @@ void check_assist(Character *ch, Character *victim)
 
 		Character *target = nullptr;
 
-		if (IS_NPC(ch)) {
-			if (IS_NPC(rch)) {
+		if (ch->is_npc()) {
+			if (rch->is_npc()) {
 				// BOTH NPC
 
 				// NPC assisting NPC is ok if all are charmed (is this necessary?)
@@ -499,7 +499,7 @@ void check_assist(Character *ch, Character *victim)
 			}
 		}
 		else { // rch is a PC
-			if (IS_NPC(rch)) {
+			if (rch->is_npc()) {
 				if (rch->off_flags.has(ASSIST_PLAYERS)
 				 && rch->level + 6 > victim->level) {
 					target = victim;
@@ -520,10 +520,10 @@ void check_assist(Character *ch, Character *victim)
 		if (target == nullptr)
 			continue;
 
-		if (is_safe(rch, target, FALSE))
+		if (is_safe(rch, target, false))
 			continue;
 
-		if (IS_NPC(rch))
+		if (rch->is_npc())
 			do_emote(rch, "screams and attacks!");
 
 		multi_hit(rch, target, skill::type::unknown);
@@ -586,19 +586,19 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	// is this the best place to reset combat timer?  hanging it on the violence
 	// update alone sometimes didn't work for one-shot kills.  multi-hit appears to be
 	// called everywhere that initiates violence
-	if (!IS_NPC(ch))
+	if (!ch->is_npc())
 		ch->pcdata->combattimer = 5;
 
 	/* no attacks for stunnies -- just a check */
 	if (get_position(ch) < POS_RESTING)
 		return;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		mob_hit(ch, victim, attack_skill);
 		return;
 	}
 
-	one_hit(ch, victim, attack_skill, FALSE);
+	one_hit(ch, victim, attack_skill, false);
 
 	if (!ch->fighting)
 		return;
@@ -611,19 +611,19 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 		chance += ((get_evolution(ch, skill::type::dual_wield) - 1) * 5);
 
-		if (chance(chance)) {
-			one_hit(ch, victim, attack_skill, TRUE);
-			check_improve(ch, skill::type::dual_wield, TRUE, 6);
+		if (roll_chance(chance)) {
+			one_hit(ch, victim, attack_skill, true);
+			check_improve(ch, skill::type::dual_wield, true, 6);
 
 			if (!ch->fighting)
 				return;
 		}
 		else
-			check_improve(ch, skill::type::dual_wield, FALSE, 6);
+			check_improve(ch, skill::type::dual_wield, false, 6);
 	}
 
 	if (affect::exists_on_char(ch, affect::type::haste))
-		one_hit(ch, victim, attack_skill, FALSE);
+		one_hit(ch, victim, attack_skill, false);
 
 	if (!ch->fighting || attack_skill == skill::type::backstab)
 		return;
@@ -636,9 +636,9 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (affect::exists_on_char(ch, affect::type::slow))
 		chance /= 2;
 
-	if (chance(chance)) {
-		one_hit(ch, victim, attack_skill, FALSE);
-		check_improve(ch, skill::type::second_attack, TRUE, 5);
+	if (roll_chance(chance)) {
+		one_hit(ch, victim, attack_skill, false);
+		check_improve(ch, skill::type::second_attack, true, 5);
 
 		if (!ch->fighting)
 			return;
@@ -652,9 +652,9 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (affect::exists_on_char(ch, affect::type::slow))
 		chance = 0;
 
-	if (chance(chance)) {
-		one_hit(ch, victim, attack_skill, FALSE);
-		check_improve(ch, skill::type::third_attack, TRUE, 6);
+	if (roll_chance(chance)) {
+		one_hit(ch, victim, attack_skill, false);
+		check_improve(ch, skill::type::third_attack, true, 6);
 
 		if (!ch->fighting)
 			return;
@@ -665,9 +665,9 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (affect::exists_on_char(ch, affect::type::slow) || !CAN_USE_RSKILL(ch, skill::type::fourth_attack))
 		chance = 0;
 
-	if (chance(chance)) {
-		one_hit(ch, victim, attack_skill, FALSE);
-		check_improve(ch, skill::type::fourth_attack, TRUE, 6);
+	if (roll_chance(chance)) {
+		one_hit(ch, victim, attack_skill, false);
+		check_improve(ch, skill::type::fourth_attack, true, 6);
 
 		if (!ch->fighting)
 			return;
@@ -681,15 +681,15 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 		chance += ((get_evolution(ch, skill::type::dual_wield) - 1) * 5);
 
-		if (chance(chance)) {
-			one_hit(ch, victim, attack_skill, TRUE);
-			check_improve(ch, skill::type::dual_second, TRUE, 6);
+		if (roll_chance(chance)) {
+			one_hit(ch, victim, attack_skill, true);
+			check_improve(ch, skill::type::dual_second, true, 6);
 
 			if (!ch->fighting)
 				return;
 		}
 		else
-			check_improve(ch, skill::type::dual_second, FALSE, 6);
+			check_improve(ch, skill::type::dual_second, false, 6);
 	}
 
 	check_protection_aura(ch, victim);
@@ -750,13 +750,13 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 		return;
 	}
 
-	one_hit(ch, victim, attack_skill, FALSE);
+	one_hit(ch, victim, attack_skill, false);
 
 	if (!ch->fighting)
 		return;
 
 	if (get_eq_char(ch, WEAR_SECONDARY) && (number_percent() < (ch->level * 2))) {
-		one_hit(ch, victim, attack_skill, TRUE);
+		one_hit(ch, victim, attack_skill, true);
 
 		if (!ch->fighting)
 			return;
@@ -767,14 +767,14 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 		for (vch = ch->in_room->people; vch != nullptr; vch = vch_next) {
 			vch_next = vch->next;
 
-			if ((vch != victim && vch->fighting == ch && chance(33)))
-				one_hit(ch, vch, attack_skill, FALSE);
+			if ((vch != victim && vch->fighting == ch && roll_chance(33)))
+				one_hit(ch, vch, attack_skill, false);
 		}
 	}
 
 	if (affect::exists_on_char(ch, affect::type::haste)
 	    || (ch->off_flags.has(OFF_FAST) && !affect::exists_on_char(ch, affect::type::slow)))
-		one_hit(ch, victim, attack_skill, FALSE);
+		one_hit(ch, victim, attack_skill, false);
 
 	if (!ch->fighting || attack_skill == skill::type::backstab)
 		return;
@@ -784,8 +784,8 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (affect::exists_on_char(ch, affect::type::slow) && !ch->off_flags.has(OFF_FAST))
 		chance /= 2;
 
-	if (chance(chance)) {
-		one_hit(ch, victim, attack_skill, FALSE);
+	if (roll_chance(chance)) {
+		one_hit(ch, victim, attack_skill, false);
 
 		if (!ch->fighting)
 			return;
@@ -796,8 +796,8 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (affect::exists_on_char(ch, affect::type::slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
-	if (chance(chance)) {
-		one_hit(ch, victim, attack_skill, FALSE);
+	if (roll_chance(chance)) {
+		one_hit(ch, victim, attack_skill, false);
 
 		if (!ch->fighting)
 			return;
@@ -808,8 +808,8 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 	if (affect::exists_on_char(ch, affect::type::slow) && !ch->off_flags.has(OFF_FAST))
 		chance = 0;
 
-	if (chance(chance)) {
-		one_hit(ch, victim, attack_skill, FALSE);
+	if (roll_chance(chance)) {
+		one_hit(ch, victim, attack_skill, false);
 
 		if (!ch->fighting)
 			return;
@@ -838,7 +838,7 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	case (2) :
 		if (ch->off_flags.has(OFF_DISARM)
-		    || (get_weapon_skill(ch, FALSE) != skill::type::hand_to_hand
+		    || (get_weapon_skill(ch, false) != skill::type::hand_to_hand
 		        && (ch->act_flags.has(ACT_WARRIOR)
 		            ||  ch->act_flags.has(ACT_THIEF))))
 			do_disarm(ch, "");
@@ -884,9 +884,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 	int skill;
 	int bonus = 0;
 	bool result;
-	bool riposte = FALSE;
-	bool shadow = FALSE;
-	bool no_weapon = FALSE;
+	bool riposte = false;
+	bool shadow = false;
+	bool no_weapon = false;
 
 	/* just in case */
 	if (victim == ch || ch == nullptr || victim == nullptr)
@@ -897,10 +897,10 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		return;
 
 	if (attack_skill == skill::type::riposte)
-		riposte = TRUE;
+		riposte = true;
 
 	if (attack_skill == skill::type::shadow_form) {
-		shadow = TRUE;
+		shadow = true;
 		bonus = ((ch->level * 2) + (victim->level * 2));
 		attack_skill = skill::type::backstab;
 	}
@@ -924,7 +924,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		attack_type = wield->value[3];
 	else {
 		attack_type = ch->dam_type;
-		no_weapon = TRUE;     /* check if unarmed -- Outsider */
+		no_weapon = true;     /* check if unarmed -- Outsider */
 	}
 
 	// constrain to the table size
@@ -944,11 +944,11 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 	*/
 	if ((no_weapon) && (get_skill_level(ch, skill::type::unarmed) > 1)) {
 		skill += get_skill_level(ch, skill::type::unarmed);
-		check_improve(ch, skill::type::unarmed, TRUE, 1);
+		check_improve(ch, skill::type::unarmed, true, 1);
 	}
 
 	/* Calculate to-hit-armor-class-0 versus armor. */
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		thac0_00 = 20;
 		thac0_32 = -4;   /* as good as a thief */
 
@@ -1017,17 +1017,17 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 	if (!riposte && !shadow) {
 		if (diceroll == 0 || (diceroll != 19 && diceroll < thac0 - victim_ac)) {
 			/* Miss. */
-			damage(ch, victim, 0, attack_skill, attack_type, dam_type, TRUE, FALSE);
+			damage(ch, victim, 0, attack_skill, attack_type, dam_type, true, false);
 			return;
 		}
 	}
 
 	/* Hit.  Calc damage. */
-	if (IS_NPC(ch) && wield == nullptr)
+	if (ch->is_npc() && wield == nullptr)
 		dam = dice(ch->damage[DICE_NUMBER], ch->damage[DICE_TYPE]);
 	else {
 		if (sn != skill::type::unknown)
-			check_improve(ch, sn, TRUE, 5);
+			check_improve(ch, sn, true, 5);
 
 		if (wield != nullptr) {
 			dam = (1L * dice(wield->value[1], wield->value[2]) * skill) / 100L;
@@ -1050,7 +1050,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 	/* Bonuses. */
 	if (get_skill_level(ch, skill::type::enhanced_damage)
 	    && (diceroll = number_percent()) <= get_skill_level(ch, skill::type::enhanced_damage)) {
-		check_improve(ch, skill::type::enhanced_damage, TRUE, 6);
+		check_improve(ch, skill::type::enhanced_damage, true, 6);
 		dam += 2 * (dam * diceroll / 300);
 	}
 
@@ -1097,13 +1097,13 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			dam *= 2 + ((ch->level - 30) / 24);   /* swords and axes do more */
 	}
 
-	dam += GET_ATTR_DAMROLL(ch) * UMIN(100, skill) / 100;
+	dam += GET_ATTR_DAMROLL(ch) * std::min(100, skill) / 100;
 
 	if (dam <= 0)
 		dam = 1;
 
 	dam += bonus;  /* Shadow Form Bonus */
-	result = damage(ch, victim, dam, attack_skill, attack_type, dam_type, TRUE, FALSE);
+	result = damage(ch, victim, dam, attack_skill, attack_type, dam_type, true, false);
 
 	/* but do we have a funky weapon? */
 	if (result && wield != nullptr) {
@@ -1124,7 +1124,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 					level,
 					level / 2,
 					evolution,
-					FALSE
+					false
 				);
 			}
 
@@ -1157,11 +1157,11 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			    && ch->in_room->sector_type() != Sector::clanarena
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
 			    && ch->guild != Guild::paladin) /* Paladins */
-				ch->alignment = UMAX(-1000, ch->alignment - 1);
+				ch->alignment = std::max(-1000, ch->alignment - 1);
 
 			act("$p draws life from $n.", victim, wield, nullptr, TO_ROOM);
 			act("You feel $p drawing your life away.", victim, wield, nullptr, TO_CHAR);
-			damage(ch, victim, dam, skill::type::unknown, -1, DAM_NEGATIVE, FALSE, TRUE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_NEGATIVE, false, true);
 			
 			/*suffix
 			 * placeholder for Hexxing (HEXXING)
@@ -1179,7 +1179,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			dam = number_range(1, wield->level / 4 + 1);
 			act("$n is impaled by $p.", victim, wield, nullptr, TO_ROOM);
 			act("$p impales your body.", victim, wield, nullptr, TO_CHAR);
-			damage(ch, victim, dam, skill::type::unknown, -1, DAM_PIERCE, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_PIERCE, false, false);
 		}
 
 		if (ch->fighting == victim
@@ -1195,7 +1195,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				acid_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ACID, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ACID, false, false);
 		}
 
 		if (ch->fighting == victim
@@ -1211,7 +1211,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				fire_effect((void *) victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, skill::type::unknown, -1, DAM_FIRE, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_FIRE, false, false);
 		}
 
 		if (ch->fighting == victim
@@ -1227,7 +1227,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				cold_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, skill::type::unknown, -1, DAM_COLD, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_COLD, false, false);
 		}
 
 		if (ch->fighting == victim
@@ -1243,7 +1243,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			    && (ch->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk))
 				shock_effect(victim, wield->level / 2, dam, TARGET_CHAR, evolution);
 
-			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, FALSE, FALSE);
+			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, false, false);
 		}
 	}
 } /* end one_hit */
@@ -1251,7 +1251,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 // called on a hit from bone wall
 int affect_callback_weaken_bonewall(affect::Affect *node, void *null) {
 	if (node->type == affect::type::bone_wall) {
-		node->duration = UMAX(0, node->duration - 1);
+		node->duration = std::max(0, node->duration - 1);
 
 		if (node->level > 5)
 			node->level--;
@@ -1273,7 +1273,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	*/
 
 	if (get_position(victim) == POS_DEAD)
-		return FALSE;
+		return false;
 
 	/* Stop up any residual loopholes.
 	if (dam > 2400 && dt >= TYPE_HIT)
@@ -1335,13 +1335,13 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 	if (victim != ch) {
 		/* Certain attacks are forbidden.  Most other attacks are returned. */
-		if (is_safe(ch, victim, TRUE))
-			return FALSE;
+		if (is_safe(ch, victim, true))
+			return false;
 
 		check_killer(ch, victim);
 
 		if (get_position(victim) > POS_STUNNED) {
-			if (!IS_NPC(ch) && !IS_NPC(victim) && ch->fighting == nullptr) {
+			if (!ch->is_npc() && !victim->is_npc() && ch->fighting == nullptr) {
 				char buf[MAX_STRING_LENGTH];
 				victim->act_flags -= PLR_NOPK;
 				Format::sprintf(buf, "%s is out for blood - En guarde, %s!", ch->name, victim->name);
@@ -1386,7 +1386,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	}
 
 	/* Damage modifiers. */
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		if (dam > 1 && victim->pcdata->condition[COND_DRUNK] > 10)
 			dam = 9 * dam / 10;
 
@@ -1400,7 +1400,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	if (dam > 1 && affect::exists_on_char(victim, affect::type::barrier))
 		dam -= dam / 4;
 
-	sanc_immune = FALSE;
+	sanc_immune = false;
 
 	if (dam > 1 && affect::exists_on_char(victim, affect::type::sanctuary)) {
 		switch (get_affect_evolution(victim, affect::type::sanctuary)) {
@@ -1429,7 +1429,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				dam = (dam * 35) / 100;
 
 				if (dam % 10 == 0) {
-					sanc_immune = TRUE;
+					sanc_immune = true;
 					dam = 0;
 				}
 			}
@@ -1452,10 +1452,10 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	if (HAS_RAFF(ch, RAFF_LESSDAMAGE))
 		dam -= dam / 20;
 
-	immune = FALSE;
+	immune = false;
 
 	if (affect::exists_on_char(victim, affect::type::force_shield) && (dam % 4 == 0) && !sanc_immune) {
-		immune = TRUE;
+		immune = true;
 		dam = 0;
 	}
 
@@ -1465,19 +1465,19 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	if (attack_skill == skill::type::unknown && attack_type >= 0 && ch != victim) {
 		if (IS_AWAKE(victim) && !global_quick) {
 			if (check_dodge(ch, victim, attack_skill, attack_type))
-				return FALSE;
+				return false;
 
 			if (check_blur(ch, victim, attack_skill, attack_type))
-				return FALSE;
+				return false;
 
 			if (check_shblock(ch, victim, attack_skill, attack_type))
-				return FALSE;
+				return false;
 
 			if (check_parry(ch, victim, attack_skill, attack_type))
-				return FALSE;
+				return false;
 
 			if (check_dual_parry(ch, victim, attack_skill, attack_type))
-				return FALSE;
+				return false;
 		}
 
 		if (!spell) {
@@ -1485,20 +1485,20 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
 			if (affect::exists_on_char(victim, affect::type::flameshield) && !saves_spell(victim->level, ch, DAM_FIRE)) {
-				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, TRUE, TRUE);
+				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, true, true);
 			}
 
 			if (affect::exists_on_char(victim, affect::type::sanctuary)
 			    && get_affect_evolution(victim, affect::type::sanctuary) >= 3
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
-				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, TRUE, TRUE);
+				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, true, true);
 
 			const affect::Affect *paf;
 			if ((paf = affect::find_on_char(victim, affect::type::bone_wall)) != nullptr
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
-				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
-				       skill::type::bone_wall, -1, DAM_PIERCE, TRUE, TRUE);
+				       std::max(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
+				       skill::type::bone_wall, -1, DAM_PIERCE, true, true);
 
 				affect::iterate_over_char(ch, affect_callback_weaken_bonewall, nullptr);
 			}
@@ -1506,18 +1506,18 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 		// did the defense kill the attacker?
 		if (!ch->fighting)
-			return FALSE;
+			return false;
 	}
 
 	int def_mod = GET_DEFENSE_MOD(victim, dam_type);
 
 	if (def_mod >= 100)
-		immune = TRUE;
+		immune = true;
 
 	dam -= dam * def_mod / 100;
 
 	/* new damage modification by armor -- Elrac and Sharra */
-	if (!IS_NPC(victim) && dam > 0 && !spell) {
+	if (!victim->is_npc() && dam > 0 && !spell) {
 		int std_ac, vict_ac;
 		long factor, ldam = dam;
 
@@ -1564,7 +1564,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		dam_message(ch, victim, dam, attack_skill, attack_type, immune, sanc_immune);
 
 //	if (dam == 0)
-//		return FALSE;
+//		return false;
 
 	if (!spell)
 		check_all_cond(victim);
@@ -1581,25 +1581,25 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	/* are they dead yet? */
 	if (!check_pulse(victim)) {
 		kill_off(ch, victim);
-		return TRUE;
+		return true;
 	}
 
 	/* Sleep spells and extremely wounded folks. */
 	if (!IS_AWAKE(victim))
-		stop_fighting(victim, FALSE);
+		stop_fighting(victim, false);
 
 	if (victim == ch)
-		return TRUE;
+		return true;
 
 	/* Take care of link dead people. */
-	if (!IS_NPC(victim) && victim->desc == nullptr) {
+	if (!victim->is_npc() && victim->desc == nullptr) {
 		if (number_range(0, victim->wait) == 0) {
 			do_recall(victim, "");
-			return TRUE;
+			return true;
 		}
 	}
 
-	return TRUE;
+	return true;
 } /* end damage() */
 
 bool check_pulse(Character *victim)
@@ -1614,7 +1614,7 @@ bool check_pulse(Character *victim)
 	int die_hard_skill = get_skill_level(victim, skill::type::die_hard);
 
 	if (die_hard_skill >= 1 && victim->hit < 1) {
-		if (chance(die_hard_skill)) {
+		if (roll_chance(die_hard_skill)) {
 			/* they have to be dying for this to kick in */
 			victim->hit += (GET_ATTR_CON(victim) / 10) * (die_hard_skill / 10);
 
@@ -1623,10 +1623,10 @@ bool check_pulse(Character *victim)
 
 			stc("You make an effort to pull yourself together!\n", victim);
 			act("$n pulls themself together!\n", victim, nullptr, nullptr, TO_ROOM);
-			check_improve(victim, skill::type::die_hard, TRUE, 2);
+			check_improve(victim, skill::type::die_hard, true, 2);
 		}
 		else
-			check_improve(victim, skill::type::die_hard, FALSE, 2);
+			check_improve(victim, skill::type::die_hard, false, 2);
 	}  /* end of die hard */
 
 	update_pos(victim);
@@ -1635,17 +1635,17 @@ bool check_pulse(Character *victim)
 	case POS_MORTAL:
 		act("$n is mortally wounded, and will die soon, if not aided.", victim, nullptr, nullptr, TO_ROOM);
 		stc("You are mortally wounded, and will die soon, if not aided.\n", victim);
-		return TRUE;
+		return true;
 
 	case POS_INCAP:
 		act("$n is incapacitated and will slowly die, if not aided.", victim, nullptr, nullptr, TO_ROOM);
 		stc("You are incapacitated and will slowly die, if not aided.\n", victim);
-		return TRUE;
+		return true;
 
 	case POS_STUNNED:
 		act("$n is stunned, but will probably recover.", victim, nullptr, nullptr, TO_ROOM);
 		stc("You are stunned, but will probably recover.\n", victim);
-		return TRUE;
+		return true;
 
 	case POS_DEAD:
 		act("$n is DEAD!!", victim, nullptr, nullptr, TO_ROOM);
@@ -1654,10 +1654,10 @@ bool check_pulse(Character *victim)
 		if (victim->level < 50)
 			stc("Your corpse can be located in the Morgue, down from the pit.\n", victim);
 
-		return FALSE;
+		return false;
 
 	default:
-		return TRUE;
+		return true;
 	}
 } /* end check_pulse */
 
@@ -1666,20 +1666,20 @@ void kill_off(Character *ch, Character *victim)
 	char buf[MAX_STRING_LENGTH];
 
 	// announcements
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		Logging::logf("%s killed by %s at %s", victim->name,
-		        (IS_NPC(ch) ? ch->short_descr : ch->name), victim->in_room->location.to_string());
+		        (ch->is_npc() ? ch->short_descr : ch->name), victim->in_room->location.to_string());
 		String log_buf = Format::format("<PK> %s was slain by %s at [{W%s{x] [{W%d Exp{x]",
-		        victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name),
-		        ch->in_room->location.to_string(), IS_NPC(ch) ? 0 : gxp);
+		        victim->name, (ch->is_npc() ? ch->short_descr : ch->name),
+		        ch->in_room->location.to_string(), ch->is_npc() ? 0 : gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_DEATHS, 0, 0);
-		Format::sprintf(buf, "%s has been slain by %s.",  victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
+		Format::sprintf(buf, "%s has been slain by %s.",  victim->name, (ch->is_npc() ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
 	}
 	else {
 		String log_buf = Format::format("%s got ToAsTeD by %s at [{W%s{x] [{W%d Exp{x]",
-		        (IS_NPC(victim) ? victim->short_descr : victim->name),
-		        (IS_NPC(ch) ? ch->short_descr : ch->name), ch->in_room->location.to_string(), gxp);
+		        (victim->is_npc() ? victim->short_descr : victim->name),
+		        (ch->is_npc() ? ch->short_descr : ch->name), ch->in_room->location.to_string(), gxp);
 		wiznet(log_buf, nullptr, nullptr, WIZ_MOBDEATHS, 0, 0);
 	}
 
@@ -1688,7 +1688,7 @@ void kill_off(Character *ch, Character *victim)
 	
 
 	// raw_kill will extract an NPC, so don't refer to NPC victims after this point
-	bool was_NPC = IS_NPC(victim);
+	bool was_NPC = victim->is_npc();
 	bool is_suicide = (ch == victim);
 
 	// make them die
@@ -1702,14 +1702,14 @@ void kill_off(Character *ch, Character *victim)
 		deduct_cost(ch, -battle.fee);
 
 	// looting NPC corpse that was just made in raw_kill
-	if (!IS_NPC(ch) && was_NPC) {
+	if (!ch->is_npc() && was_NPC) {
 		Object *corpse, *obj, *obj_next;
 
 		if ((corpse = get_obj_list(ch, "corpse", ch->in_room->contents)) == nullptr
 		    || !can_see_obj(ch, corpse))
 			return;
 		
-		if (chance(30) 
+		if (roll_chance(30) 
 			&& least_exp_awarded > 0
 			&& ch->act_flags.has(PLR_AUTOLOOT)){ //loot system roll chance (30% right now)
 			obj = generate_eq(ch->level);
@@ -1756,7 +1756,7 @@ void kill_off(Character *ch, Character *victim)
 		gain_exp(victim,
 		         (2 * (exp_per_level(victim, victim->pcdata->points)*victim->level - victim->exp) / 3));
 
-	if (!IS_NPC(ch)) {
+	if (!ch->is_npc()) {
 
 		if (ch->in_room->sector_type() == Sector::arena
 		    || ch->in_room->sector_type() == Sector::clanarena
@@ -1798,18 +1798,18 @@ void kill_off(Character *ch, Character *victim)
 bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 {
 	if (IS_IMMORTAL(ch))
-		return FALSE;
+		return false;
 
 	if (victim->fighting == ch || victim == ch)
-		return FALSE;
+		return false;
 
 	/* killing mobiles */
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		if (victim->pIndexData->pShop != nullptr) {
 			if (showmsg)
 				stc("But then who would you buy supplies from?!\n", ch);
 
-			return TRUE;
+			return true;
 		}
 
 		/* no killing healers, trainers, etc */
@@ -1820,16 +1820,16 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 			if (showmsg)
 				stc("Have you no moral fibre whatsoever?!\n", ch);
 
-			return TRUE;
+			return true;
 		}
 
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			/* no pets */
 			if (victim->act_flags.has(ACT_PET) && affect::exists_on_char(victim, affect::type::charm_person)) {
 				if (showmsg)
 					act("But $N looks so cute and cuddly.", ch, nullptr, victim, TO_CHAR);
 
-				return TRUE;
+				return true;
 			}
 
 			/* no charmed creatures unless owner */
@@ -1837,96 +1837,96 @@ bool is_safe_char(Character *ch, Character *victim, bool showmsg)
 				if (showmsg)
 					stc("That is not your charmed creature!\n", ch);
 
-				return TRUE;
+				return true;
 			}
 		}
 		else {
 			/* mob killing mob */
 			if (affect::exists_on_char(victim, affect::type::charm_person)
 			    && ch->master != nullptr && victim->master != nullptr
-			    && !IS_NPC(ch->master) && !IS_NPC(victim->master)
+			    && !ch->master->is_npc() && !victim->master->is_npc()
 			    && ch->master != victim->master
-			    && is_safe_char(ch->master, victim->master, FALSE)) {
+			    && is_safe_char(ch->master, victim->master, false)) {
 				if (showmsg)
 					stc("Their master would consider that an unfriendly act.\n", ch);
 
-				return TRUE;
+				return true;
 			}
 		}
 	}
 	/* killing players */
 	else {
 		/* NPC doing the killing */
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			/* charmed mobs and pets cannot attack players while owned */
 			if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master != nullptr
 			    && ch->master->fighting != victim) {
 				if (showmsg)
 					stc("Players are your friends!\n", ch);
 
-				return TRUE;
+				return true;
 			}
 		}
 		/* player doing the killing */
 		else {
 			if (victim->act_flags.has(PLR_KILLER) || victim->act_flags.has(PLR_THIEF))
-				return FALSE;
+				return false;
 
 			if (victim->level > ch->level + 8 || ch->level > victim->level + 8) {
 				if (showmsg)
 					stc("Pick on someone your own size.\n", ch);
 
-				return TRUE;
+				return true;
 			}
 
 			if (char_opponents(ch, victim))
-				return FALSE;
+				return false;
 
 			if (!victim->pcdata->plr_flags.has(PLR_PK)) {
 				if (showmsg)
 					stc("They are not in the mood to PK right now.\n", ch);
 
-				return TRUE;
+				return true;
 			}
 
 			if (!ch->pcdata->plr_flags.has(PLR_PK)) {
 				if (showmsg)
 					stc("You are not in the mood to PK right now.\n", ch);
 
-				return TRUE;
+				return true;
 			}
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool is_safe(Character *ch, Character *victim, bool showmsg)
 {
 	if (victim->in_room == nullptr || ch->in_room == nullptr)
-		return TRUE;
+		return true;
 
 //	if (ch->on != nullptr && ch->on->pIndexData->item_type == ITEM_COACH)
-//		return TRUE;
+//		return true;
 
 	/* safe room? */
 	if (victim->in_room->flags().has(ROOM_SAFE)) {
 		if (showmsg)
 			stc("Oddly enough, in this room you feel peaceful.\n", ch);
 
-		return TRUE;
+		return true;
 	}
 
 	if (victim->in_room->sector_type() == Sector::arena
 	    || victim->in_room->sector_type() == Sector::clanarena
 	    || char_in_darena_room(victim))
-		return FALSE;
+		return false;
 
 	/* almost anything goes in the quest area if UPK is on */
 	if (Game::world().quest.pk
 	    && victim->in_room->area() == Game::world().quest.area()
 	    && ch->in_room->area() == Game::world().quest.area())
-		return FALSE;
+		return false;
 
 	return is_safe_char(ch, victim, showmsg);
 }
@@ -1934,123 +1934,123 @@ bool is_safe(Character *ch, Character *victim, bool showmsg)
 bool is_safe_spell(Character *ch, Character *victim, bool area)
 {
 	if (victim->in_room == nullptr || ch->in_room == nullptr)
-		return TRUE;
+		return true;
 
 //	if (ch->on != nullptr && ch->on->pIndexData->item_type == ITEM_COACH)
-//		return TRUE;
+//		return true;
 
 	if (IS_IMMORTAL(ch) && !area)
-		return FALSE;
+		return false;
 
 	if (ch->in_room->flags().has(ROOM_SAFE))
-		return TRUE;
+		return true;
 
 	if (victim == ch && area)
-		return TRUE;
+		return true;
 
 	if (victim->fighting == ch || victim == ch)
-		return FALSE;
+		return false;
 
 	if (!IS_IMMORTAL(ch) && IS_IMMORTAL(victim))
-		return TRUE;
+		return true;
 
 	if (!IS_IMMORTAL(ch) && victim->invis_level > ch->level)
-		return TRUE;
+		return true;
 
 	if ((victim->in_room->sector_type() == Sector::arena
 	     || victim->in_room->sector_type() == Sector::clanarena)
 	    && (battle.start))
-		return FALSE;
+		return false;
 
 	if (char_in_darena_room(victim))
-		return FALSE;
+		return false;
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim))
-		return TRUE;
+	if (ch->is_npc() && ch->act_flags.has(ACT_MORPH) && !victim->is_npc())
+		return true;
 
 	if (affect::exists_on_char(ch, affect::type::fear))
-		return TRUE;
+		return true;
 
 	/* killing mobiles */
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		/* safe room? */
 		if (victim->in_room->flags().has(ROOM_SAFE))
-			return TRUE;
+			return true;
 
 		if (victim->pIndexData->pShop != nullptr)
-			return TRUE;
+			return true;
 
 		/* no killing healers, trainers, etc */
 		if (victim->act_flags.has(ACT_TRAIN)
 		    || victim->act_flags.has(ACT_PRACTICE)
 		    || victim->act_flags.has(ACT_IS_HEALER)
 		    || victim->act_flags.has(ACT_IS_CHANGER))
-			return TRUE;
+			return true;
 
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			/* no pets */
 			if (victim->act_flags.has(ACT_PET))
-				return TRUE;
+				return true;
 
 			/* no charmed creatures unless owner */
 			if (affect::exists_on_char(victim, affect::type::charm_person) && (area || ch != victim->master))
-				return TRUE;
+				return true;
 
 			/* legal kill? -- cannot hit mob fighting non-group member */
 			if (victim->fighting != nullptr && !is_same_group(ch, victim->fighting))
-				return TRUE;
+				return true;
 		}
 		/* area effect spells do not hit other mobs */
 		else if (area && !is_same_group(victim, ch->fighting))
-			return TRUE;
+			return true;
 	}
 	/* killing players */
 	else {
 		if (area && IS_IMMORTAL(victim))
-			return TRUE;
+			return true;
 
 		/* NPC doing the killing */
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			/* charmed mobs and pets cannot attack players while owned */
 			if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master != nullptr
 			    && ch->master->fighting != victim)
-				return TRUE;
+				return true;
 
 			/* safe room? */
 			if (victim->in_room->flags().has(ROOM_SAFE))
-				return TRUE;
+				return true;
 
 			/* legal kill? -- mobs only hit players grouped with opponent*/
 			if (ch->fighting != nullptr && !is_same_group(ch->fighting, victim))
-				return TRUE;
+				return true;
 		}
 		/* player doing the killing */
 		else {
 			if (victim->in_room->flags().has(ROOM_SAFE))
-				return TRUE;
+				return true;
 
 			/* almost anything goes in questland if UPK is up */
 			if (Game::world().quest.pk
 			    && ch->in_room->area() == Game::world().quest.area()
 			    && victim->in_room->area() == Game::world().quest.area())
-				return FALSE;
+				return false;
 
 			if (victim->act_flags.has(PLR_KILLER) || victim->act_flags.has(PLR_THIEF))
-				return FALSE;
+				return false;
 
 			if (ch->level > victim->level + 8)
-				return TRUE;
+				return true;
 
 			if (char_opponents(ch, victim))
-				return FALSE;
+				return false;
 
 			if (!victim->pcdata->plr_flags.has(PLR_PK)
 			    || !ch->pcdata->plr_flags.has(PLR_PK))
-				return TRUE;
+				return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 } /* end is_safe_spell */
 
 /* See if an attack justifies a KILLER flag. */
@@ -2062,7 +2062,7 @@ void check_killer(Character *ch, Character *victim)
 		victim = victim->master;
 
 	/* NPC's are fair game.  So are killers and thieves. */
-	if (IS_NPC(victim)
+	if (victim->is_npc()
 	    || victim->act_flags.has(PLR_KILLER)
 	    || victim->act_flags.has(PLR_THIEF)
 	    || victim->in_room->sector_type() == Sector::arena
@@ -2086,7 +2086,7 @@ void check_killer(Character *ch, Character *victim)
 	if (affect::exists_on_char(ch, affect::type::charm_person)) {
 		if (ch->master == nullptr) {
 			char buf[MAX_STRING_LENGTH];
-			Format::sprintf(buf, "Check_killer: %s charmed with no master", IS_NPC(ch) ? ch->short_descr : ch->name);
+			Format::sprintf(buf, "Check_killer: %s charmed with no master", ch->is_npc() ? ch->short_descr : ch->name);
 			Logging::bug(buf, 0);
 			affect::remove_type_from_char(ch, affect::type::charm_person);
 			return;
@@ -2100,7 +2100,7 @@ void check_killer(Character *ch, Character *victim)
 	   Hitting yourself is cool too (bleeding).
 	   So is being immortal (Alander's idea).
 	   And current killers stay as they are. */
-	if (IS_NPC(ch)
+	if (ch->is_npc()
 	    || ch == victim
 	    || IS_IMMORTAL(ch)
 	    || ch->act_flags.has(PLR_KILLER)
@@ -2131,15 +2131,15 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	String attack;
 
 	if (!get_skill_level(victim, skill::type::parry))
-		return FALSE;
+		return false;
 
 	chance = get_skill_level(victim, skill::type::parry) * 2 / 3;
 
 	if (get_eq_char(victim, WEAR_WIELD) == nullptr) {
-		if (IS_NPC(victim))
+		if (victim->is_npc())
 			chance /= 2;
 		else
-			return FALSE;
+			return false;
 	}
 
 	/* skill with your opponent's weapon */
@@ -2165,7 +2165,7 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 
 		case WEAPON_BOW:        skill = get_skill_level(victim, skill::type::archery);     break;
 
-		default:                skill = UMIN(100, victim->level * 3);   break;
+		default:                skill = std::min(100, victim->level * 3);   break;
 		}
 
 		chance -= (100 - skill) / 4;
@@ -2184,8 +2184,8 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 #endif
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::type::parry, FALSE, 10);
-		return FALSE;
+		check_improve(victim, skill::type::parry, false, 10);
+		return false;
 	}
 
 	/* parry is good, let's figure out the damage message */
@@ -2213,13 +2213,13 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	if (get_eq_char(victim, WEAR_WIELD) != nullptr)
 		check_cond(victim, get_eq_char(victim, WEAR_WIELD));
 
-	check_improve(victim, skill::type::parry, TRUE, 6);
+	check_improve(victim, skill::type::parry, true, 6);
 
 	/* for remorts, do riposte */
 	if (CAN_USE_RSKILL(victim, skill::type::riposte))
 		do_riposte(victim, ch);
 
-	return TRUE;
+	return true;
 } /* end check_parry */
 
 /* Check for parry from the off hand. */
@@ -2235,7 +2235,7 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	    || !get_eq_char(victim, WEAR_SECONDARY)
 	    || get_evolution(victim, skill::type::dual_wield) < 2
 	    || (attack_skill == skill::type::riposte && get_evolution(victim, skill::type::dual_wield) < 3))
-		return FALSE;
+		return false;
 
 	chance = get_skill_level(victim, skill::type::dual_wield) / 3;
 
@@ -2262,7 +2262,7 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 
 		case WEAPON_BOW:        skill = get_skill_level(victim, skill::type::archery);     break;
 
-		default:                skill = UMIN(100, victim->level * 3);   break;
+		default:                skill = std::min(100, victim->level * 3);   break;
 		}
 
 		chance -= (100 - skill) / 5;
@@ -2280,9 +2280,9 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	ptc(victim, "(dlparry %d%%)", chance);
 #endif
 
-	if (!chance(chance)) {
-		check_improve(victim, skill::type::dual_wield, FALSE, 10);
-		return FALSE;
+	if (!roll_chance(chance)) {
+		check_improve(victim, skill::type::dual_wield, false, 10);
+		return false;
 	}
 
 	/* parry is good, let's figure out the damage message */
@@ -2308,20 +2308,20 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	}
 
 	check_cond(victim, get_eq_char(victim, WEAR_SECONDARY));
-	check_improve(victim, skill::type::dual_wield, TRUE, 10);
+	check_improve(victim, skill::type::dual_wield, true, 10);
 
 	/* hilt strike! */
 	if (get_evolution(victim, skill::type::dual_wield) < 3
 	    || (attack_skill == skill::type::riposte && get_evolution(victim, skill::type::dual_wield) < 4))
-		return TRUE;
+		return true;
 
 	chance = ((get_skill_level(victim, skill::type::dual_wield) + get_skill_level(victim, skill::type::hand_to_hand)) / 3);
 
 	if (!can_see_char(victim, ch))
 		chance /= 2;
 
-	if (!chance(chance + victim->level - ch->level))
-		return TRUE; /* for dual parry */
+	if (!roll_chance(chance + victim->level - ch->level))
+		return true; /* for dual parry */
 
 	// get our hilt strike type, probably at the end so go backwards
 	for (attack_type = attack_table.size() - 1; attack_type >= 0; attack_type--)
@@ -2330,23 +2330,23 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 
 	if (attack_type < 0) {
 		Logging::bug("check_dual_parry: unable to find hilt strike damage type", 0);
-		return TRUE;
+		return true;
 	}
 
 	/* gonna riposte, last check for dodging/blurring/shield blocking it */
 	if (check_dodge(victim, ch, skill::type::unknown, attack_type))
-		return TRUE;
+		return true;
 
 	if (check_blur(victim, ch, skill::type::unknown, attack_type))
-		return TRUE;
+		return true;
 
 	if (check_shblock(victim, ch, skill::type::unknown, attack_type))
-		return TRUE;
+		return true;
 
 	damage(victim, ch, (number_range(1, victim->level) + GET_ATTR_DAMROLL(victim)) / 2,
-	       skill::type::unknown, attack_type, DAM_BASH, TRUE, FALSE);
-	check_improve(victim, skill::type::hand_to_hand, TRUE, 8);
-	return TRUE;
+	       skill::type::unknown, attack_type, DAM_BASH, true, false);
+	check_improve(victim, skill::type::hand_to_hand, true, 8);
+	return true;
 } /* end check_dual_parry */
 
 /* Check for shield block. */
@@ -2360,10 +2360,10 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	String attack;
 
 	if (!get_skill_level(victim, skill::type::shield_block))
-		return FALSE;
+		return false;
 
 	if (get_eq_char(victim, WEAR_SHIELD) == nullptr)
-		return FALSE;
+		return false;
 
 	chance = get_skill_level(victim, skill::type::shield_block) * 2 / 5;
 
@@ -2377,8 +2377,8 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 #endif
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::type::shield_block, FALSE, 10);
-		return FALSE;
+		check_improve(victim, skill::type::shield_block, false, 10);
+		return false;
 	}
 
 	/* shield block is good, let's figure out the damage message */
@@ -2418,8 +2418,8 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	}
 
 	check_cond(victim, get_eq_char(victim, WEAR_SHIELD));
-	check_improve(victim, skill::type::shield_block, TRUE, 6);
-	return TRUE;
+	check_improve(victim, skill::type::shield_block, true, 6);
+	return true;
 } /* end check_shblock */
 
 /* Check for dodge. */
@@ -2430,7 +2430,7 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 	String attack;
 
 	if (!get_skill_level(victim, skill::type::dodge))
-		return FALSE;
+		return false;
 
 	chance = get_skill_level(victim, skill::type::dodge) / 2;
 	// size affects dodge rate - Montrey (2014)
@@ -2475,8 +2475,8 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 //for testing   chance = 0;
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::type::dodge, FALSE, 10);
-		return FALSE;
+		check_improve(victim, skill::type::dodge, false, 10);
+		return false;
 	}
 
 	/* dodge is good, let's figure out the damage message */
@@ -2502,8 +2502,8 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 	}
 
 //	}
-	check_improve(victim, skill::type::dodge, TRUE, 6);
-	return TRUE;
+	check_improve(victim, skill::type::dodge, true, 6);
+	return true;
 } /* end check_dodge */
 
 /* Check for Blur - Montrey */
@@ -2514,7 +2514,7 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 	String attack;
 
 	if (!CAN_USE_RSKILL(victim, skill::type::blur))
-		return FALSE;
+		return false;
 
 	chance = get_skill_level(victim, skill::type::blur) / 3;
 	// size affects dodge rate - Montrey (2014)
@@ -2557,8 +2557,8 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 	chance = URANGE(5, chance, 95);
 
 	if (number_percent() >= chance) {
-		check_improve(victim, skill::type::blur, FALSE, 10);
-		return FALSE;
+		check_improve(victim, skill::type::blur, false, 10);
+		return false;
 	}
 
 	/* blur is good, let's figure out the damage message */
@@ -2584,8 +2584,8 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 	}
 
 //	}
-	check_improve(victim, skill::type::blur, TRUE, 6);
-	return TRUE;
+	check_improve(victim, skill::type::blur, true, 6);
+	return true;
 }  /* end check_blur */
 
 /* Set position of a victim. */
@@ -2595,7 +2595,7 @@ void update_pos(Character *victim)
 		if (victim->position <= POS_STUNNED)
 			victim->position = POS_STANDING;
 	}
-	else if ((IS_NPC(victim) && victim->hit < 1)
+	else if ((victim->is_npc() && victim->hit < 1)
 	         || (victim->hit <= -11))
 		victim->position = POS_DEAD;
 	else if (victim->hit <= -6)
@@ -2635,7 +2635,7 @@ void stop_fighting(Character *ch, bool fBoth)
 	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
 		if (fch == ch || (fBoth && fch->fighting == ch)) {
 			fch->fighting = nullptr;
-			fch->position = IS_NPC(fch) ? fch->default_pos : fch->start_pos;
+			fch->position = fch->is_npc() ? fch->default_pos : fch->start_pos;
 			update_pos(fch);
 		}
 	}
@@ -2649,7 +2649,7 @@ void make_corpse(Character *ch)
 	Object *obj_next;
 	String name;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		name          = ch->short_descr;
 		corpse        = create_object(Game::world().get_obj_prototype(OBJ_VNUM_CORPSE_NPC), 0);
 
@@ -2666,7 +2666,7 @@ void make_corpse(Character *ch)
 			ch->silver = 0;
 		}
 
-		corpse->cost = UMAX(1, (ch->level * 3));
+		corpse->cost = std::max(1, (ch->level * 3));
 	}
 	else {
 		name            = ch->name;
@@ -2708,11 +2708,11 @@ void make_corpse(Character *ch)
 		unequip_char(ch, obj);
 
 	for (obj = ch->carrying; obj != nullptr; obj = obj_next) {
-		bool floating = FALSE;
+		bool floating = false;
 		obj_next = obj->next_content;
 
 		if (obj->wear_loc == WEAR_FLOAT)
-			floating = TRUE;
+			floating = true;
 
 		obj_from_char(obj);
 
@@ -2752,7 +2752,7 @@ void make_corpse(Character *ch)
 
 	if (char_at_war(ch))
 		obj_to_room(corpse, Game::world().get_room(ch->clan->recall));
-	else if (IS_NPC(ch) || ch->level >= 50)
+	else if (ch->is_npc() || ch->level >= 50)
 		obj_to_room(corpse, ch->in_room);
 	else
 		obj_to_room(corpse, Game::world().get_room(Location(Vnum(ROOM_VNUM_MORGUE))));
@@ -2830,7 +2830,7 @@ void death_cry(Character *ch)
 	if (vnum != 0) {
 		Object *obj;
 		String name;
-		name       = IS_NPC(ch) ? ch->short_descr : ch->name;
+		name       = ch->is_npc() ? ch->short_descr : ch->name;
 		obj        = create_object(Game::world().get_obj_prototype(vnum), 0);
 
 		if (! obj) {
@@ -2852,7 +2852,7 @@ void death_cry(Character *ch)
 		obj_to_room(obj, ch->in_room);
 	}
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		msg = "Nearby, you hear someone's death cry.";
 	else
 		msg = "You hear the death cry of a fellow player, maybe friend.";
@@ -2875,7 +2875,7 @@ void death_cry(Character *ch)
 
 void raw_kill(Character *victim)
 {
-	stop_fighting(victim, TRUE);
+	stop_fighting(victim, true);
 	mprog_death_trigger(victim);
 
 	if (victim->in_room->sector_type() != Sector::arena
@@ -2884,9 +2884,9 @@ void raw_kill(Character *victim)
 	    && !char_in_duel_room(victim))
 		make_corpse(victim);
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		victim->pIndexData->killed++;
-		extract_char(victim, TRUE);
+		extract_char(victim, true);
 		return;
 	}
 
@@ -2894,13 +2894,13 @@ void raw_kill(Character *victim)
 
 	victim->pcdata->pktimer = 0;
 
-	affect::remove_all_from_char(victim, FALSE);
+	affect::remove_all_from_char(victim, false);
 
 	if (victim->in_room->sector_type() != Sector::arena
 	    && victim->in_room->sector_type() != Sector::clanarena
 	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
 	    && !char_in_duel_room(victim)) {
-		extract_char(victim, FALSE);
+		extract_char(victim, false);
 
 		for (int i = 0; i < 4; i++) {
 			victim->armor_base[i] = 100;
@@ -2916,9 +2916,9 @@ void raw_kill(Character *victim)
 	}
 
 	victim->position    = POS_RESTING;
-	victim->hit         = UMAX(1, victim->hit);
-	victim->mana        = UMAX(1, victim->mana);
-	victim->stam        = UMAX(1, victim->stam);
+	victim->hit         = std::max(1, victim->hit);
+	victim->mana        = std::max(1, victim->mana);
+	victim->stam        = std::max(1, victim->stam);
 
 	save_char_obj(victim);
 
@@ -2962,7 +2962,7 @@ int group_gain(Character *ch, Character *victim)
 	for (gch = ch->in_room->people; gch != nullptr; gch = gch->next_in_room) {
 		if (is_same_group(gch, ch)) {
 			members++;
-			group_levels += IS_NPC(gch) ? gch->level / 2 : gch->level;
+			group_levels += gch->is_npc() ? gch->level / 2 : gch->level;
 
 			/* figure out how varied the group is -- Montrey */
 			if (gch->guild != Guild::none
@@ -2981,7 +2981,7 @@ int group_gain(Character *ch, Character *victim)
 
 	/* Determine the highest level of a present group member */
 	for (lch = ch->in_room->people; lch != nullptr; lch = lch->next_in_room) {
-		if (!is_same_group(lch, ch) || IS_NPC(lch))
+		if (!is_same_group(lch, ch) || lch->is_npc())
 			continue;
 
 		if (lch->level > highestlevel)
@@ -2993,7 +2993,7 @@ int group_gain(Character *ch, Character *victim)
 		Object *obj;
 		Object *obj_next;
 
-		if (!is_same_group(gch, ch) || IS_NPC(gch))
+		if (!is_same_group(gch, ch) || gch->is_npc())
 			continue;
 
 		if (gch->level - highestlevel <= -7) {
@@ -3042,7 +3042,7 @@ int group_gain(Character *ch, Character *victim)
 			}
 		}
 
-		if (IS_QUESTOR(gch) && IS_NPC(victim)) {
+		if (IS_QUESTOR(gch) && victim->is_npc()) {
 			if (gch->pcdata->questmob == victim->pIndexData->vnum) {
 				stc("{YYou have almost completed your QUEST!{x\n", gch);
 				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
@@ -3120,12 +3120,12 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 
 		if (align > 500) { /* monster is more good than slayer */
 			change = (align - 500) * base_exp / 500 * gch->level / total_levels;
-			change = UMAX(1, change);
+			change = std::max(1, change);
 			gch->alignment -= change;
 		}
 		else if (align < -500) { /* monster is more evil than slayer */
 			change = (-1 * align - 500) * base_exp / 500 * gch->level / total_levels;
-			change = UMAX(1, change);
+			change = std::max(1, change);
 			gch->alignment += change;
 		}
 		else { /* improve this someday */
@@ -3187,7 +3187,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	        time_per_level = URANGE(8,time_per_level,12);
 
 	        if (gch->level < 15)   make it a curve
-	                time_per_level = UMAX(time_per_level,(15 - gch->level));
+	                time_per_level = std::max(time_per_level,(15 - gch->level));
 
 	        xp = xp * time_per_level / 12;
 	} */
@@ -3197,15 +3197,15 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	xp = xp - (xp / 3) + ((xp / 3) * (URANGE(1, years, 50) / 50));
 
 	/* remort affect - favor of the gods */
-	if (HAS_RAFF(gch, RAFF_FAVORGOD) && chance(25)) {
+	if (HAS_RAFF(gch, RAFF_FAVORGOD) && roll_chance(25)) {
 		stc("The gods smile upon you.\n", gch);
-		xp = (chance(25) ? (chance(25) ? (xp * 4) : (xp * 3)) : (xp * 2));
+		xp = (roll_chance(25) ? (roll_chance(25) ? (xp * 4) : (xp * 3)) : (xp * 2));
 	}
 
 	/* remort affect - laughter of the gods */
-	if (HAS_RAFF(gch, RAFF_LAUGHTERGOD) && chance(25)) {
+	if (HAS_RAFF(gch, RAFF_LAUGHTERGOD) && roll_chance(25)) {
 		stc("The laughter of the gods falls upon your ears.\n", gch);
-		xp = (chance(25) ? (chance(25) ? (xp / 4) : (xp / 3)) : (xp / 2));
+		xp = (roll_chance(25) ? (roll_chance(25) ? (xp / 4) : (xp / 3)) : (xp / 2));
 	}
 
 	/* remort affect - more experience */
@@ -3220,7 +3220,7 @@ int xp_compute(Character *gch, Character *victim, int total_levels, int diff_cla
 	xp = number_range(xp * 3 / 4, xp * 5 / 4);
 	int xp90 = 90 * xp / 100; /* 90% limit for one grouped player   */
 	/* tried and true formula for group exp calc */
-	xp = xp * gch->level / (UMAX(1, total_levels - 1));
+	xp = xp * gch->level / (std::max(1, total_levels - 1));
 
 	/* modified for groups of more than 1 -- Elrac */
 	if (gch->level != total_levels) {
@@ -3371,23 +3371,23 @@ void do_berserk(Character *ch, String argument)
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		/* heal a little damage */
 		ch->hit += ch->level * 2;
-		ch->hit = UMIN(ch->hit, GET_MAX_HIT(ch));
+		ch->hit = std::min(ch->hit, GET_MAX_HIT(ch));
 		stc("Your pulse races as you are consumed by rage!\n", ch);
 		act("$n gets a wild look in $s eyes.", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::berserk, TRUE, 2);
+		check_improve(ch, skill::type::berserk, true, 2);
 
 		affect::add_type_to_char(ch,
 			affect::type::berserk,
 			ch->level,
 			number_fuzzy(ch->level / 8),
 			get_evolution(ch, skill::type::berserk),
-			FALSE
+			false
 		);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 		stc("Your pulse speeds up, but nothing happens.\n", ch);
-		check_improve(ch, skill::type::berserk, FALSE, 2);
+		check_improve(ch, skill::type::berserk, false, 2);
 	}
 } /* end do_berserk */
 
@@ -3434,12 +3434,12 @@ void do_bash(Character *ch, String argument)
 		return;
 	}
 
-	if (is_safe(ch, victim, TRUE)) {
+	if (is_safe(ch, victim, true)) {
 		act("It is not a safe target!", ch, victim, nullptr, TO_CHAR);
 		return;
 	}
 
-	if (IS_NPC(victim)
+	if (victim->is_npc()
 	    && victim->fighting != nullptr
 	    && !is_same_group(ch, victim->fighting)) {
 		stc("Kill stealing is not permitted.\n", ch);
@@ -3483,7 +3483,7 @@ void do_bash(Character *ch, String argument)
 		}
 
 		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats * 3 / 2);
-		check_improve(ch, skill::type::bash, FALSE, 1);
+		check_improve(ch, skill::type::bash, false, 1);
 		return;
 	}
 
@@ -3510,7 +3510,7 @@ void do_bash(Character *ch, String argument)
 	/*Change in chance based on STR and score and stamina*/
 	chance += 3 * (GET_ATTR_STR(ch) - GET_ATTR_STR(victim));
 	// stamina mod, scale by their remaining stamina
-	chance = chance * GET_MAX_STAM(victim) / UMAX(victim->stam, 1);
+	chance = chance * GET_MAX_STAM(victim) / std::max(victim->stam, 1);
 	/*Change in chance based on carried weight of both involved*/
 	// hard to balance this for mobs -- Montrey (2014)
 //	chance += (get_carry_weight(ch) - get_carry_weight(victim)) / 300;
@@ -3539,15 +3539,15 @@ void do_bash(Character *ch, String argument)
 		act("$n sends you sprawling with a powerful bash!", ch, nullptr, victim, TO_VICT);
 		act("You slam into $N, and send $M flying!", ch, nullptr, victim, TO_CHAR);
 		act("$n sends $N sprawling with a powerful bash.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::type::bash, TRUE, 1);
+		check_improve(ch, skill::type::bash, true, 1);
 		DAZE_STATE(victim, kdtime);
 		WAIT_STATE(victim, kdtime);
 		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats);
-		damage(ch, victim, number_range(ch->level * 2 / 3, (ch->level * 3 / 2) + chance / 10), skill::type::bash, -1, DAM_BASH, TRUE, FALSE);
+		damage(ch, victim, number_range(ch->level * 2 / 3, (ch->level * 3 / 2) + chance / 10), skill::type::bash, -1, DAM_BASH, true, false);
 		victim->position = POS_RESTING;
 
 		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, FALSE, 1);
+			check_improve(victim, skill::type::standfast, false, 1);
 	}
 	else {
 		if (ch->fighting == nullptr) set_fighting(ch, victim);
@@ -3555,12 +3555,12 @@ void do_bash(Character *ch, String argument)
 		act("$n crashes into you, but fails to accomplish anything!", ch, nullptr, victim, TO_VICT);
 		act("You throw yourself into $N, but fail to knock them down!", ch, nullptr, victim, TO_CHAR);
 		act("$n slams into $N, but neither of them loses their footing.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::type::bash, TRUE, 1);
+		check_improve(ch, skill::type::bash, true, 1);
 		DAZE_STATE(victim, PULSE_VIOLENCE);
 		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats);
 
 		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, TRUE, 1);
+			check_improve(victim, skill::type::standfast, true, 1);
 	}
 } /* end do_bash */
 
@@ -3606,12 +3606,12 @@ void do_dirt(Character *ch, String argument)
 		return;
 	}
 
-	if (is_safe(ch, victim, TRUE)) {
+	if (is_safe(ch, victim, true)) {
 		stc("That doesn't seem to work on this opponent.\n", ch);
 		return;
 	}
 
-	if (IS_NPC(victim)
+	if (victim->is_npc()
 	    && victim->fighting != nullptr
 	    && !is_same_group(ch, victim->fighting)) {
 		stc("Kill stealing is not permitted.\n", ch);
@@ -3675,7 +3675,7 @@ void do_dirt(Character *ch, String argument)
 		else {
 			act("$n is blinded by the dirt in $s eyes!", victim, nullptr, nullptr, TO_ROOM);
 			act("$n kicks dirt in your eyes!", ch, nullptr, victim, TO_VICT);
-			damage(ch, victim, number_range(2, 5), skill::type::dirt_kicking, -1, DAM_NONE, FALSE, FALSE);
+			damage(ch, victim, number_range(2, 5), skill::type::dirt_kicking, -1, DAM_NONE, false, false);
 			stc("You can't see a thing!\n", victim);
 
 			affect::add_type_to_char(victim,
@@ -3683,16 +3683,16 @@ void do_dirt(Character *ch, String argument)
 				ch->level,
 				0,
 				get_evolution(ch, skill::type::dirt_kicking),
-				FALSE
+				false
 			);
 		}
 
-		check_improve(ch, skill::type::dirt_kicking, TRUE, 2);
+		check_improve(ch, skill::type::dirt_kicking, true, 2);
 		WAIT_STATE(ch, skill::lookup(skill::type::dirt_kicking).beats);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, nullptr, victim, TO_CHAR);
-		check_improve(ch, skill::type::dirt_kicking, FALSE, 2);
+		check_improve(ch, skill::type::dirt_kicking, false, 2);
 		WAIT_STATE(ch, skill::lookup(skill::type::dirt_kicking).beats);
 	}
 } /* end do_dirt */
@@ -3731,20 +3731,20 @@ bool trip(Character *ch, Character *victim, int chance, skill::type attack_skill
 		DAZE_STATE(victim, 2 * PULSE_VIOLENCE);
 		WAIT_STATE(victim, 2 * PULSE_VIOLENCE);
 		victim->position = POS_RESTING;
-		damage(ch, victim, number_range(2, 2 +  2 * victim->size), attack_skill, -1, DAM_BASH, TRUE, FALSE);
+		damage(ch, victim, number_range(2, 2 +  2 * victim->size), attack_skill, -1, DAM_BASH, true, false);
 
 		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, FALSE, 1);
+			check_improve(victim, skill::type::standfast, false, 1);
 
-		return TRUE;
+		return true;
 	}
 	else {
-		damage(ch, victim, 0, attack_skill, -1, DAM_BASH, TRUE, FALSE);
+		damage(ch, victim, 0, attack_skill, -1, DAM_BASH, true, false);
 
 		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, TRUE, 1);
+			check_improve(victim, skill::type::standfast, true, 1);
 
-		return FALSE;
+		return false;
 	}
 }
 
@@ -3778,10 +3778,10 @@ void do_trip(Character *ch, String argument)
 		}
 	}
 
-	if (is_safe(ch, victim, TRUE))
+	if (is_safe(ch, victim, true))
 		return;
 
-	if (IS_NPC(victim)
+	if (victim->is_npc()
 	    && victim->fighting != nullptr
 	    && !is_same_group(ch, victim->fighting)) {
 		stc("Kill stealing is not permitted.\n", ch);
@@ -3817,11 +3817,11 @@ void do_trip(Character *ch, String argument)
 		act("$n trips you and you go down!", ch, nullptr, victim, TO_VICT);
 		act("You trip $N and $E goes down!", ch, nullptr, victim, TO_CHAR);
 		act("$n trips $N, sending $M to the ground.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::type::trip, TRUE, 1);
+		check_improve(ch, skill::type::trip, true, 1);
 		WAIT_STATE(ch, skill::lookup(skill::type::trip).beats);
 	}
 	else {
-		check_improve(ch, skill::type::trip, FALSE, 1);
+		check_improve(ch, skill::type::trip, false, 1);
 		WAIT_STATE(ch, skill::lookup(skill::type::trip).beats * 2 / 3);
 	}
 } /* end do_trip */
@@ -3829,46 +3829,46 @@ void do_trip(Character *ch, String argument)
 bool check_attack_ok(Character *ch, Character *victim) {
 	if ((ch->in_room->sector_type() == Sector::arena) && (!battle.start)) {
 		stc("Hold your horses, the battle hasn't begun yet!\n", ch);
-		return FALSE;
+		return false;
 	}
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim)) {
+	if (ch->is_npc() && ch->act_flags.has(ACT_MORPH) && !victim->is_npc()) {
 		stc("Morphed players cannot attack PC's.\n", ch);
 		wiznet("$N is attempting PK while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
-		return FALSE;
+		return false;
 	}
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
+	if (ch->is_npc() && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
 		stc("Morphed players cannot attack pets.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
-		return FALSE;
+		return false;
 	}
 
 	if (affect::exists_on_char(ch, affect::type::fear)) {
 		stc("But they would beat the stuffing out of you!!\n", ch);
-		return FALSE;
+		return false;
 	}
 
 	if (victim == ch) {
 		stc("I believe you are suffering from a mild case of schizophrenia.\n", ch);
-		return FALSE;
+		return false;
 	}
 
-	if (is_safe(ch, victim, TRUE))
-		return FALSE;
+	if (is_safe(ch, victim, true))
+		return false;
 
 	if (victim->fighting != nullptr
 	    && !is_same_group(ch, victim->fighting)) {
 		stc("Kill stealing is not permitted.\n", ch);
-		return FALSE;
+		return false;
 	}
 
 	if (affect::exists_on_char(ch, affect::type::charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, nullptr, victim, TO_CHAR);
-		return FALSE;
+		return false;
 	}
 
-	return TRUE;
+	return true;
 }
 
 void do_kill(Character *ch, String argument)
@@ -3921,7 +3921,7 @@ void do_battle(Character *ch, String argument)
 	Descriptor *d;
 	Character *ach;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if (IS_IMMORTAL(ch)) {
@@ -3933,9 +3933,9 @@ void do_battle(Character *ch, String argument)
 		if (!strcmp(arg1, "start")) {
 			if (battle.issued) {
 				stc("The battle begins!\n", ch);
-				battle.start = TRUE;
+				battle.start = true;
 				Format::sprintf(buf, "[FYI] $n has closed the arena and battle has begun.\n");
-				global_act(ch, buf, TRUE, RED, COMM_QUIET | COMM_NOANNOUNCE);
+				global_act(ch, buf, true, RED, COMM_QUIET | COMM_NOANNOUNCE);
 				return;
 			}
 			else {
@@ -3947,8 +3947,8 @@ void do_battle(Character *ch, String argument)
 		if (!strcmp(arg1, "stop")) {
 			if (battle.issued) {
 				stc("The battle ends.  Be sure to teleport the victor out of the arena.\n", ch);
-				battle.start  = FALSE;
-				battle.issued = FALSE;
+				battle.start  = false;
+				battle.issued = false;
 				battle.fee    = 0;
 				battle.low    = 0;
 				battle.high   = 0;
@@ -3981,8 +3981,8 @@ void do_battle(Character *ch, String argument)
 			for (d = descriptor_list; d; d = d->next) {
 				ach = d->character;
 
-				if (IS_PLAYING(d)
-				    && !IS_NPC(ach)
+				if (d->is_playing()
+				    && !ach->is_npc()
 				    && ach->in_room != nullptr
 				    && ach->in_room->sector_type() == Sector::arena
 				    && can_see_char(ch, ach))
@@ -4035,12 +4035,12 @@ void do_battle(Character *ch, String argument)
 		battle.low    = low;
 		battle.high   = high;
 		battle.fee    = fee;
-		battle.issued = TRUE;
+		battle.issued = true;
 		ptc(ch, "You open the arena to levels %d to %d, fee %d silver\n",
 		    battle.low, battle.high, battle.fee);
 		Format::sprintf(buf, "[FYI] $n has opened the arena to levels %d - %d for a %d silver fee.\n",
 		        battle.low, battle.high, battle.fee);
-		global_act(ch, buf, TRUE, RED, COMM_QUIET | COMM_NOANNOUNCE);
+		global_act(ch, buf, true, RED, COMM_QUIET | COMM_NOANNOUNCE);
 	}
 	else {
 		if (char_in_duel(ch)) {
@@ -4114,7 +4114,7 @@ void do_sing(Character *ch, String argument)
 		return;
 	}
 
-	if (is_safe(ch, victim, TRUE))
+	if (is_safe(ch, victim, true))
 		return;
 
 	if (victim->in_room->flags().has(ROOM_LAW)) {
@@ -4127,7 +4127,7 @@ void do_sing(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		stc("They ignore your singing.\n", ch);
 		return;
 	}
@@ -4160,7 +4160,7 @@ void do_sing(Character *ch, String argument)
 	singchance += (GET_ATTR_CHR(ch));
 	singchance -= (GET_ATTR_INT(victim) + GET_ATTR_WIS(victim)) / 2;
 
-	if (!IS_NPC(ch) && ch->guild == Guild::bard)      /* bards */
+	if (!ch->is_npc() && ch->guild == Guild::bard)      /* bards */
 		singchance += singchance / 3;
 
 	singchance -= singchance * GET_DEFENSE_MOD(victim, DAM_CHARM) / 100;
@@ -4169,13 +4169,13 @@ void do_sing(Character *ch, String argument)
 	singchance = URANGE(0, singchance, (101 - (victim->level / 2)));
 
 	/*Final calculation*/
-	if (!chance(singchance)) {
+	if (!roll_chance(singchance)) {
 		/*Chance for something bad in the future, based on victim level, ch's CHR*/
-		check_improve(ch, skill::type::sing, FALSE, 8);
+		check_improve(ch, skill::type::sing, false, 8);
 		return;
 	}
 
-	check_improve(ch, skill::type::sing, TRUE, 8);
+	check_improve(ch, skill::type::sing, true, 8);
 
 	/*End calculation, sing is successful, now check final legality and apply*/
 	if (victim->master)
@@ -4189,7 +4189,7 @@ void do_sing(Character *ch, String argument)
 		ch->level,
 		number_fuzzy(ch->level/4),
 		get_evolution(ch, skill::type::charm_person),
-		FALSE
+		false
 	);
 
 	act("Isn't $n's music beautiful?", ch, nullptr, victim, TO_VICT);
@@ -4233,10 +4233,10 @@ void do_backstab(Character *ch, String argument)
 		return;
 	}
 
-	if (is_safe(ch, victim, TRUE))
+	if (is_safe(ch, victim, true))
 		return;
 
-	if (IS_NPC(victim)
+	if (victim->is_npc()
 	    && victim->fighting != nullptr
 	    && !is_same_group(ch, victim->fighting)) {
 		stc("Kill stealing is not permitted.\n", ch);
@@ -4253,13 +4253,13 @@ void do_backstab(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && !IS_NPC(victim)) {
+	if (ch->is_npc() && ch->act_flags.has(ACT_MORPH) && !victim->is_npc()) {
 		stc("Morphed players cannot backstab PC's.\n", ch);
 		wiznet("$N is attempting PK while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
 	}
 
-	if (IS_NPC(ch) && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
+	if (ch->is_npc() && ch->act_flags.has(ACT_MORPH) && victim->act_flags.has(ACT_PET)) {
 		stc("Morphed players cannot backstab pets.\n", ch);
 		wiznet("$N is attempting to kill a pet while morphed.", ch, nullptr, WIZ_CHEAT, 0, GET_RANK(ch));
 		return;
@@ -4268,7 +4268,7 @@ void do_backstab(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::backstab))
 		return;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		mob_hit(ch, victim, skill::type::backstab);
 		return;
 	}
@@ -4278,9 +4278,9 @@ void do_backstab(Character *ch, String argument)
 
 	if (number_percent() < get_skill_level(ch, skill::type::backstab)
 	    || (get_skill_level(ch, skill::type::backstab) >= 2 && !IS_AWAKE(victim))) {
-		check_improve(ch, skill::type::backstab, TRUE, 4);
+		check_improve(ch, skill::type::backstab, true, 4);
 		multi_hit(ch, victim, skill::type::backstab);
-		if (evo >=3 && chance(50)) { /*vegita - 15% chance to put paralyze on target at evo 3*/
+		if (evo >=3 && roll_chance(50)) { /*vegita - 15% chance to put paralyze on target at evo 3*/
 			//multi_hit(ch, victim, skill::type::backstab);
 			stc("{YYour skillful blow strikes a nerve on your opponent!{x\n", ch);
 			int level = (ch->level);
@@ -4289,13 +4289,13 @@ void do_backstab(Character *ch, String argument)
 				level,
 				2,
 				1,
-				FALSE
+				false
 			);
 		}
 	}
 	else {
-		check_improve(ch, skill::type::backstab, FALSE, 4);
-		damage(ch, victim, 0, skill::type::backstab, -1, DAM_NONE, TRUE, FALSE);
+		check_improve(ch, skill::type::backstab, false, 4);
+		damage(ch, victim, 0, skill::type::backstab, -1, DAM_NONE, true, false);
 	}
 } /* end do_backstab */
 
@@ -4350,13 +4350,13 @@ void do_shadow(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::shadow_form).beats);
 
 	if (number_percent() < get_skill_level(ch, skill::type::shadow_form)) {
-		check_improve(ch, skill::type::shadow_form, TRUE, 1);
+		check_improve(ch, skill::type::shadow_form, true, 1);
 		multi_hit(ch, victim, skill::type::shadow_form);
 	}
 	else {
 		stc("You enter shadow form, but your target avoids your strike.\n", ch);
-		check_improve(ch, skill::type::shadow_form, FALSE, 1);
-		damage(ch, victim, 0, skill::type::shadow_form, -1, DAM_NONE, TRUE, FALSE);
+		check_improve(ch, skill::type::shadow_form, false, 1);
+		damage(ch, victim, 0, skill::type::shadow_form, -1, DAM_NONE, true, false);
 	}
 
 	affect::add_type_to_char(victim,
@@ -4364,7 +4364,7 @@ void do_shadow(Character *ch, String argument)
 		ch->level,
 		-1,
 		get_evolution(ch, skill::type::shadow_form),
-		FALSE
+		false
 	);
 } /* end do_shadow */
 
@@ -4413,13 +4413,13 @@ void do_circle(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::circle).beats);
 
 	if (number_percent() < get_skill_level(ch, skill::type::circle)) {
-		check_improve(ch, skill::type::circle, TRUE, 1);
+		check_improve(ch, skill::type::circle, true, 1);
 		multi_hit(ch, victim, skill::type::circle);
 	}
 	else {
 		stc("You circle your opponent, but your hasty strike misses.\n", ch);
-		check_improve(ch, skill::type::circle, FALSE, 1);
-		damage(ch, victim, 0, skill::type::circle, -1, DAM_NONE, TRUE, FALSE);
+		check_improve(ch, skill::type::circle, false, 1);
+		damage(ch, victim, 0, skill::type::circle, -1, DAM_NONE, true, false);
 	}
 } /* end do_circle */
 
@@ -4488,7 +4488,7 @@ void do_flee(Character *ch, String argument)
 		    || (pexit->exit_flags.has(EX_CLOSED)
 		        && (!affect::exists_on_char(ch, affect::type::pass_door)
 		            || pexit->exit_flags.has(EX_NOPASS)))
-		    || (IS_NPC(ch) && pexit->to_room->flags().has(ROOM_NO_MOB)))
+		    || (ch->is_npc() && pexit->to_room->flags().has(ROOM_NO_MOB)))
 			continue;
 
 		topp++;
@@ -4511,23 +4511,23 @@ void do_flee(Character *ch, String argument)
 		    || (pexit->exit_flags.has(EX_CLOSED)
 		        && (!affect::exists_on_char(ch, affect::type::pass_door)
 		            || pexit->exit_flags.has(EX_NOPASS)))
-		    || (IS_NPC(ch) && pexit->to_room->flags().has(ROOM_NO_MOB)))
+		    || (ch->is_npc() && pexit->to_room->flags().has(ROOM_NO_MOB)))
 			continue;
 
-		if (!chance(chance))
+		if (!roll_chance(chance))
 			continue;
 
-		move_char(ch, dir, FALSE);
+		move_char(ch, dir, false);
 
 		if ((now_in = ch->in_room) == was_in)
 			continue;
 
-		stop_fighting(ch, TRUE);
+		stop_fighting(ch, true);
 		ch->in_room = was_in;
 		act("$n has fled!", ch, nullptr, nullptr, TO_ROOM);
 		ch->in_room = now_in;
 
-		if (!IS_NPC(ch)) {
+		if (!ch->is_npc()) {
 			act("You flee $T from combat!", ch, nullptr, Exit::dir_name(dir), TO_CHAR);
 
 			if (ch->guild == Guild::thief)
@@ -4544,7 +4544,7 @@ void do_flee(Character *ch, String argument)
 			}
 		}
 
-		if (IS_NPC(victim) && (victim->act_flags.has(ACT_AGGRESSIVE))) {
+		if (victim->is_npc() && (victim->act_flags.has(ACT_AGGRESSIVE))) {
 			if ((hunted = get_char_area(victim, ch->name, VIS_CHAR)) != nullptr) {
 				victim->hunting = hunted;
 				WAIT_STATE(victim, 3 * PULSE_VIOLENCE);
@@ -4614,17 +4614,17 @@ void do_rescue(Character *ch, String argument)
 
 	if (number_percent() > get_skill_level(ch, skill::type::rescue)) {
 		stc("You fail the rescue.\n", ch);
-		check_improve(ch, skill::type::rescue, FALSE, 1);
+		check_improve(ch, skill::type::rescue, false, 1);
 		return;
 	}
 
 	act("You rescue $N!",  ch, nullptr, victim, TO_CHAR);
 	act("$n rescues you!", ch, nullptr, victim, TO_VICT);
 	act("$n rescues $N!",  ch, nullptr, victim, TO_NOTVICT);
-	check_improve(ch, skill::type::rescue, TRUE, 1);
-	stop_fighting(fch, FALSE);
-	stop_fighting(victim, FALSE);
-	stop_fighting(ch, FALSE);
+	check_improve(ch, skill::type::rescue, true, 1);
+	stop_fighting(fch, false);
+	stop_fighting(victim, false);
+	stop_fighting(ch, false);
 	check_killer(ch, fch);
 	set_fighting(ch, fch);
 	set_fighting(fch, ch);
@@ -4658,23 +4658,23 @@ void do_kick(Character *ch, String argument)
 		if (get_position(victim) < POS_FIGHTING)
 			amount = amount * 5 / 4;
 
-		damage(ch, victim, amount, skill::type::kick, -1, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::type::kick, TRUE, 1);
+		damage(ch, victim, amount, skill::type::kick, -1, DAM_BASH, true, false);
+		check_improve(ch, skill::type::kick, true, 1);
 		int evo = get_evolution(ch, skill::type::kick);
 
 		if (evo >= 2) {
 			if (get_position(victim) == POS_FIGHTING
-			    && chance((evo - 1) * 20 + 10)) { // evo 2: 30, evo 3, 50
+			    && roll_chance((evo - 1) * 20 + 10)) { // evo 2: 30, evo 3, 50
 				stc("You bring your foot around for a second hit.\n", ch);
-				damage(ch, victim, amount, skill::type::roundhouse, -1, DAM_BASH, TRUE, FALSE);
-				check_improve(ch, skill::type::kick, TRUE, 1);
+				damage(ch, victim, amount, skill::type::roundhouse, -1, DAM_BASH, true, false);
+				check_improve(ch, skill::type::kick, true, 1);
 			}
 		}
 
 		if (evo >= 3) {
 			if (get_position(victim) == POS_FIGHTING
 			    && !IS_FLYING(victim)
-			    && chance(30)) {
+			    && roll_chance(30)) {
 				if (trip(ch, victim, skill, skill::type::footsweep)) {
 					act("$n sweeps your feet out from under you!", ch, nullptr, victim, TO_VICT);
 					act("You sweep $N's feet and $E goes down!", ch, nullptr, victim, TO_CHAR);
@@ -4689,8 +4689,8 @@ void do_kick(Character *ch, String argument)
 	}
 	else {
 		// miss for 0
-		damage(ch, victim, 0, skill::type::kick, -1, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::type::kick, FALSE, 1);
+		damage(ch, victim, 0, skill::type::kick, -1, DAM_BASH, true, false);
+		check_improve(ch, skill::type::kick, false, 1);
 	}
 } /* end do_kick */
 
@@ -4711,12 +4711,12 @@ void do_crush(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::crush).beats);
 
 	if (get_skill_level(ch, skill::type::crush) > number_percent()) {
-		damage(ch, victim, number_range(3, 3 * ch->level), skill::type::crush, -1, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::type::crush, TRUE, 1);
+		damage(ch, victim, number_range(3, 3 * ch->level), skill::type::crush, -1, DAM_BASH, true, false);
+		check_improve(ch, skill::type::crush, true, 1);
 	}
 	else {
-		damage(ch, victim, 0, skill::type::crush, -1, DAM_BASH, TRUE, FALSE);
-		check_improve(ch, skill::type::crush, FALSE, 1);
+		damage(ch, victim, 0, skill::type::crush, -1, DAM_BASH, true, false);
+		check_improve(ch, skill::type::crush, false, 1);
 	}
 
 	check_killer(ch, victim);
@@ -4749,7 +4749,7 @@ void do_disarm(Character *ch, String argument)
 		}
 	}
 
-	if (is_safe(ch, victim, TRUE))
+	if (is_safe(ch, victim, true))
 		return;
 
 	int evo = get_evolution(ch, skill::type::disarm);
@@ -4812,7 +4812,7 @@ void do_disarm(Character *ch, String argument)
 	if (!deduct_stamina(ch, skill::type::disarm))
 		return;
 
-	damage(ch, victim, 0, skill::type::disarm, -1, DAM_BASH, FALSE, FALSE);
+	damage(ch, victim, 0, skill::type::disarm, -1, DAM_BASH, false, false);
 	WAIT_STATE(ch, skill::lookup(skill::type::disarm).beats);
 
 	/* evo 1 talon give 60% save, 70% at 2, 80% at 3, 90% at 4 */
@@ -4827,22 +4827,22 @@ void do_disarm(Character *ch, String argument)
 		default:                        break;
 		}
 
-		if (chance(talonchance)) {
+		if (roll_chance(talonchance)) {
 			act("$N's vice-like grip prevents you from disarming $M!", ch, nullptr, victim, TO_CHAR);
 			act("$N's vice-like grip prevents $M from being disarmed!", ch, nullptr, victim, TO_NOTVICT);
 			act("Your vice-like grip prevents $n from disarming you!", ch, nullptr, victim, TO_VICT);
-			check_improve(ch, skill::type::disarm, FALSE, 1);
+			check_improve(ch, skill::type::disarm, false, 1);
 			return;
 		}
 	}
 
 	/* noremove saves 100% at evo 1, 90% at 2, 80% at 3, 70% at 4 */
 	if (IS_OBJ_STAT(weapon, ITEM_NOREMOVE)) {
-		if (!chance(10 * (evo - 1))) {
+		if (!roll_chance(10 * (evo - 1))) {
 			act("$S weapon won't budge!", ch, nullptr, victim, TO_CHAR);
 			act("$n tries to disarm you, but your weapon won't budge!", ch, nullptr, victim, TO_VICT);
 			act("$n tries to disarm $N, but fails.", ch, nullptr, victim, TO_NOTVICT);
-			check_improve(ch, skill::type::disarm, FALSE, 1);
+			check_improve(ch, skill::type::disarm, false, 1);
 			return;
 		}
 	}
@@ -4851,9 +4851,9 @@ void do_disarm(Character *ch, String argument)
 	int chance = get_skill_level(ch, skill::type::disarm) * 7 / 10;
 
 	/* find weapon skills */
-	int ch_weapon_skill = get_weapon_learned(ch, get_weapon_skill(ch, FALSE)); // your skill with your weapon
-	int vict_weapon_skill = get_weapon_learned(victim, get_weapon_skill(victim, FALSE)); // victim's skill
-	int ch_vict_weapon_skill = get_weapon_learned(ch, get_weapon_skill(victim, FALSE)); // your skill with victim's weapon
+	int ch_weapon_skill = get_weapon_learned(ch, get_weapon_skill(ch, false)); // your skill with your weapon
+	int vict_weapon_skill = get_weapon_learned(victim, get_weapon_skill(victim, false)); // victim's skill
+	int ch_vict_weapon_skill = get_weapon_learned(ch, get_weapon_skill(victim, false)); // your skill with victim's weapon
 
 	/* skill */
 	if (get_eq_char(ch, WEAR_WIELD) == nullptr)
@@ -4877,7 +4877,7 @@ void do_disarm(Character *ch, String argument)
 	chance += sight_modifier / 5; // already passed vis check for connecting, only up to 20% penalty here
 
 	/* and now the attack */
-	if (chance(chance)) {
+	if (roll_chance(chance)) {
 		Room *next_room = nullptr;
 		Exit *pexit = nullptr;
 		char buf[MAX_STRING_LENGTH];
@@ -4918,9 +4918,9 @@ void do_disarm(Character *ch, String argument)
 			obj_to_char(weapon, victim);
 		else {
 			/* knock the weapon into the next room! */
-			if ((evo == 2 && chance(5))
-			    || (evo == 3 && chance(15))
-			    || (evo == 4 && chance(25))) {
+			if ((evo == 2 && roll_chance(5))
+			    || (evo == 3 && roll_chance(15))
+			    || (evo == 4 && roll_chance(25))) {
 				door = number_range(0, 5);
 
 				if ((pexit = victim->in_room->exit[door]) != 0
@@ -4977,24 +4977,24 @@ void do_disarm(Character *ch, String argument)
 				WAIT_STATE(victim, (12 + (evo * 6)));
 
 			/* If they pick it up, might as well wear it again too. -- Outsider */
-			if (IS_NPC(victim) && victim->wait == 0 && can_see_obj(victim, weapon)) {
+			if (victim->is_npc() && victim->wait == 0 && can_see_obj(victim, weapon)) {
 				get_obj(victim, weapon, nullptr);
-				wear_obj(victim, weapon, FALSE);   /* added here...will remove in mob_update */
+				wear_obj(victim, weapon, false);   /* added here...will remove in mob_update */
 			}
 		}
 
-		check_improve(ch, skill::type::disarm, TRUE, 1);
+		check_improve(ch, skill::type::disarm, true, 1);
 	}
 	else {
 		WAIT_STATE(ch, skill::lookup(skill::type::disarm).beats);
 		act("You fail to disarm $N.", ch, nullptr, victim, TO_CHAR);
 		act("$n tries to disarm you, but fails.", ch, nullptr, victim, TO_VICT);
 		act("$n tries to disarm $N, but fails.", ch, nullptr, victim, TO_NOTVICT);
-		check_improve(ch, skill::type::disarm, FALSE, 1);
+		check_improve(ch, skill::type::disarm, false, 1);
 	}
 
 	if (is_blinded(ch) && (blind_fight_skill > 0))
-		check_improve(ch, skill::type::blind_fight, FALSE, 1);
+		check_improve(ch, skill::type::blind_fight, false, 1);
 }
 
 void do_sla(Character *ch, String argument)
@@ -5037,8 +5037,8 @@ void do_slay(Character *ch, String argument)
 	act("$n slays $N in cold blood!",  ch, nullptr, victim, TO_NOTVICT);
 
 	/* Add this so it will announce it - Lotus */
-	if (!IS_NPC(victim)) {
-		Format::sprintf(buf, "%s has been slain by %s.", victim->name, (IS_NPC(ch) ? ch->short_descr : ch->name));
+	if (!victim->is_npc()) {
+		Format::sprintf(buf, "%s has been slain by %s.", victim->name, (ch->is_npc() ? ch->short_descr : ch->name));
 		do_send_announce(victim, buf);
 	}
 
@@ -5078,7 +5078,7 @@ void do_rotate(Character *ch, String argument)
 		return;
 	}
 
-	if (is_safe(ch, victim, TRUE))
+	if (is_safe(ch, victim, true))
 		return;
 
 	if (!deduct_stamina(ch, skill::type::rotate))
@@ -5089,11 +5089,11 @@ void do_rotate(Character *ch, String argument)
 
 	if (number_percent() < get_skill_level(ch, skill::type::rotate)) {
 		stc("You deftly shift the focus of your blows.\n", ch);
-		check_improve(ch, skill::type::rotate, TRUE, 4);
+		check_improve(ch, skill::type::rotate, true, 4);
 		ch->fighting = victim;
 	}
 	else {
-		check_improve(ch, skill::type::rotate, FALSE, 4);
+		check_improve(ch, skill::type::rotate, false, 4);
 		stc("You fail to switch dancing partners.\n", ch);
 	}
 } /* end do_rotate */
@@ -5119,21 +5119,21 @@ void do_hammerstrike(Character *ch, String argument)
 		ch->stam -= ch->stam / 3;
 		stc("The gods strike you with a lightning bolt of power!\n", ch);
 		act("$n is lit on fire by a blue bolt of godly power.", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::hammerstrike, TRUE, 2);
+		check_improve(ch, skill::type::hammerstrike, true, 2);
 
 		affect::add_type_to_char(ch,
 			affect::type::hammerstrike,
 			ch->level,
 			number_fuzzy(ch->level/15),
 			get_evolution(ch, skill::type::hammerstrike),
-			FALSE
+			false
 		);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
 		ch->stam = ch->stam / 3;
 		stc("You call for power from the gods, but you get no answer.\n", ch);
-		check_improve(ch, skill::type::hammerstrike, FALSE, 2);
+		check_improve(ch, skill::type::hammerstrike, false, 2);
 	}
 } /* end do_hammerstrike */
 
@@ -5162,13 +5162,13 @@ void do_critical_blow(Character *ch, String argument)
 
 	WAIT_STATE(ch, skill::lookup(skill::type::critical_blow).beats);
 
-	if (!IS_NPC(ch->fighting) && IS_IMMORTAL(ch->fighting)) {
+	if (!ch->fighting->is_npc() && IS_IMMORTAL(ch->fighting)) {
 		stc("You fail miserably.\n", ch);
 		return;
 	}
 
 	if (number_percent() > get_skill_level(ch, skill::type::critical_blow)) {
-		check_improve(ch, skill::type::critical_blow, FALSE, 2);
+		check_improve(ch, skill::type::critical_blow, false, 2);
 		stc("Your opponent spotted your move, and your strike misses.\n", ch);
 		WAIT_STATE(ch, skill::lookup(skill::type::critical_blow).beats);
 		return;
@@ -5183,12 +5183,12 @@ void do_critical_blow(Character *ch, String argument)
 		ptc(ch, "You thrust your weapon through %s's chest, killing them instantly!\n",
 		    ch->fighting->short_descr);
 		ch->fighting->hit = -10;
-		check_improve(ch, skill::type::critical_blow, TRUE, 2);
+		check_improve(ch, skill::type::critical_blow, true, 2);
 	}
 	else {
 		ptc(ch, "You try to give %s the blow of death, but you fail.\n",
 		    ch->fighting->short_descr);
-		check_improve(ch, skill::type::critical_blow, FALSE, 2);
+		check_improve(ch, skill::type::critical_blow, false, 2);
 
 		/* Crit Blow failed, let's damage their weapon */
 		if (weapon->condition != -1 && number_range(0, 10) == 5) {
@@ -5205,7 +5205,7 @@ void do_critical_blow(Character *ch, String argument)
 		}
 	}
 
-	one_hit(ch, ch->fighting, skill::type::critical_blow, FALSE);
+	one_hit(ch, ch->fighting, skill::type::critical_blow, false);
 } /* end do_critical_blow */
 
 /* Riposte, originally by Elrac */
@@ -5219,7 +5219,7 @@ void do_riposte(Character *victim, Character *ch)
 	chance += (victim->level - ch->level);
 
 	if (number_percent() > chance) {
-		check_improve(victim, skill::type::riposte, FALSE, 6);
+		check_improve(victim, skill::type::riposte, false, 6);
 		return;
 	}
 
@@ -5238,8 +5238,8 @@ void do_riposte(Character *victim, Character *ch)
 
 	/* success, do the riposte */
 	act("{GIn a brilliant riposte, you strike back at $n{G!{x", ch, nullptr, victim, TO_VICT);
-	one_hit(victim, ch, skill::type::riposte, FALSE);
-	check_improve(victim, skill::type::riposte, TRUE, 6);
+	one_hit(victim, ch, skill::type::riposte, false);
+	check_improve(victim, skill::type::riposte, true, 6);
 } /* end do_riposte */
 
 /* RAGE by Montrey */
@@ -5267,7 +5267,7 @@ void do_rage(Character *ch, String argument)
 	if (number_percent() > get_skill_level(ch, skill::type::rage)) {
 		stc("You scream a battlecry but fail to unleash your inner rage.\n", ch);
 		act("$n starts into a wild series of attacks, but $s timing is off.", ch, nullptr, nullptr, TO_ROOM);
-		check_improve(ch, skill::type::rage, FALSE, 2);
+		check_improve(ch, skill::type::rage, false, 2);
 		return;
 	}
 
@@ -5287,7 +5287,7 @@ void do_rage(Character *ch, String argument)
 		if (is_same_group(ch, vch))
 			continue;
 
-		if (is_safe_spell(ch, vch, TRUE))
+		if (is_safe_spell(ch, vch, true))
 			continue;
 
 		if (vch->in_room == ch->in_room) {
@@ -5299,7 +5299,7 @@ void do_rage(Character *ch, String argument)
 		}
 	}
 
-	check_improve(ch, skill::type::rage, TRUE, 2);
+	check_improve(ch, skill::type::rage, true, 2);
 }
 
 void do_lay_on_hands(Character *ch, String argument)
@@ -5307,7 +5307,7 @@ void do_lay_on_hands(Character *ch, String argument)
 	int heal, skill;
 	Character *victim;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	skill = get_skill_level(ch, skill::type::lay_on_hands);
@@ -5343,7 +5343,7 @@ void do_lay_on_hands(Character *ch, String argument)
 	}
 
 	/* Sure, why not let it work on mobs. -- Outsider
-	if ( IS_NPC(victim) )
+	if ( victim->is_npc() )
 	{
 	   stc("Lay on Hands doesn't work well for mobs.\n", ch);
 	   return;
@@ -5365,11 +5365,11 @@ void do_lay_on_hands(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::lay_on_hands).beats);
 	heal = ch->level;
 	heal = (heal * skill) / 100;
-	victim->hit = UMIN(victim->hit + heal, GET_MAX_HIT(victim));
+	victim->hit = std::min(victim->hit + heal, GET_MAX_HIT(victim));
 	update_pos(victim);
 	stc("You feel better.\n", victim);
 	stc("Your hands glow softly as a sense of divine power travels through you.\n", ch);
-	check_improve(ch, skill::type::lay_on_hands, TRUE, 1);
+	check_improve(ch, skill::type::lay_on_hands, true, 1);
 	return;
 }
 
@@ -5377,7 +5377,7 @@ void do_shoot(Character *ch, String argument)
 {
 	Character *victim = nullptr;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	/* make sure we are holding a bow */
@@ -5407,13 +5407,13 @@ void do_shoot(Character *ch, String argument)
 		String target_str = one_argument(argument, dir_arg);
 		Room *target_room = nullptr;
 		int distance = MAX_BOW_DISTANCE;
-		bool nearest = FALSE;
+		bool nearest = false;
 
 		// north = 1, north; 1.north = 1, north; 2.north = 2, north; etc
 		if (isdigit(dir_arg[0]))
-			distance = UMIN(number_argument(dir_arg, dir_str), MAX_BOW_DISTANCE);
+			distance = std::min(number_argument(dir_arg, dir_str), MAX_BOW_DISTANCE);
 		else {
-			nearest = TRUE;
+			nearest = true;
 			dir_str = dir_arg;
 		}
 
@@ -5521,7 +5521,7 @@ void do_shoot(Character *ch, String argument)
 	}
 
 	// do the hit
-	one_hit(ch, victim, skill::type::unknown, FALSE);
+	one_hit(ch, victim, skill::type::unknown, false);
 
 	// move them back
 	if (old_room != victim->in_room) {
@@ -5532,13 +5532,13 @@ void do_shoot(Character *ch, String argument)
 			ch->act_flags -= PLR_SUPERWIZ;
 
 		/* if the target is NPC, then make it hunt the shooter */
-		if (IS_NPC(victim)) {
+		if (victim->is_npc()) {
 			victim->hunting = ch;
 			hunt_victim(victim);
 		}
 	}
 
 	WAIT_STATE(ch, skill::lookup(skill::type::backstab).beats);
-	check_improve(ch, skill::type::archery, TRUE, 5); /* change added for gains on shooting now damnit leave it*/
+	check_improve(ch, skill::type::archery, true, 5); /* change added for gains on shooting now damnit leave it*/
 }   /* end of do bow */
 

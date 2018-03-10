@@ -1,6 +1,5 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
 #include "Vnum.hh"
 #include "Location.hh"
@@ -16,7 +15,7 @@ public:
     String  who_name;
     Vnum      area_minvnum = 0;
     Vnum      area_maxvnum = 0;
-    bool        independent = FALSE; /* true for loners and imm clans */
+    bool        independent = false; /* true for loners and imm clans */
     long        clanqp = 0;
     long        gold_balance = 0;
     String  clanname;

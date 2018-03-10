@@ -2,6 +2,7 @@
 #include "Descriptor.hh"
 #include "String.hh"
 #include "Character.hh"
+#include "merc.hh"
 
 namespace conn {
 
@@ -44,8 +45,8 @@ handleInput(Descriptor *d, const String& argument) {
 		return this;
 	}
 
-	group_add(ch, "rom basics", FALSE);
-	group_add(ch, guild_table[ch->guild].base_group, FALSE);
+	group_add(ch, "rom basics", false);
+	group_add(ch, guild_table[ch->guild].base_group, false);
 	set_learned(ch, skill::type::recall, 50);
 	set_learned(ch, skill::type::scan, 100);
 	String buf = "\nSelect a deity:\n";

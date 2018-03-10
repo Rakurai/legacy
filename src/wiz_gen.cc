@@ -32,7 +32,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -47,6 +46,8 @@
 #include "tables.hh"
 #include "typename.hh"
 #include "comm.hh"
+#include "conn/State.hh"
+#include "World.hh"
 
 
 extern bool    swearcheck              args((const String& argument));
@@ -72,7 +73,7 @@ void do_adjust(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Not on NPC's.\n", ch);
 		return;
 	}
@@ -148,7 +149,7 @@ void do_alternate(Character *ch, String argument)
 
 	if (arg1 == "site") {
 		char site[MSL];
-		bool prefix = FALSE, suffix = FALSE;
+		bool prefix = false, suffix = false;
 		strcpy(site, arg2);
 		p = site;
 		/* only get sites in the last year.  we don't delete them,
@@ -162,14 +163,14 @@ void do_alternate(Character *ch, String argument)
 		       "WHERE site LIKE '";
 
 		if (*p == '*') {
-			prefix = TRUE;
+			prefix = true;
 			p++;
 		}
 
 		for (q = p; * (q + 1); q++);
 
 		if (*q == '*') {
-			suffix = TRUE;
+			suffix = true;
 			*q = '\0';
 		}
 
@@ -212,7 +213,7 @@ void do_alternate(Character *ch, String argument)
 		}
 	}
 	else {
-		bool old_char = FALSE;
+		bool old_char = false;
 		struct sites {
 			char site[100];
 			char ssite[100];
@@ -237,7 +238,7 @@ void do_alternate(Character *ch, String argument)
 				if (!old_char && sitecount)
 					break;
 				else
-					old_char = TRUE;
+					old_char = true;
 			}
 
 			strcpy(sitelist[sitecount].site, db_get_column_str(0));
@@ -277,7 +278,7 @@ void do_alternate(Character *ch, String argument)
 					strcpy(results_sorted[sorted_count].name, name);
 					strcpy(results_sorted[sorted_count].site,
 						String(db_get_column_str(1)).replace(sitelist[i].ssite, colorsite));
-					results_sorted[sorted_count].printed = FALSE;
+					results_sorted[sorted_count].printed = false;
 					sorted_count++;
 				}
 				else {
@@ -289,7 +290,7 @@ void do_alternate(Character *ch, String argument)
 					strcpy(results_to_sort[to_sort_count].name, name);
 					strcpy(results_to_sort[to_sort_count].site,
 						String(db_get_column_str(1)).replace(sitelist[i].ssite, colorsite));
-					results_to_sort[to_sort_count].printed = FALSE;
+					results_to_sort[to_sort_count].printed = false;
 					to_sort_count++;
 				}
 			}
@@ -298,7 +299,7 @@ void do_alternate(Character *ch, String argument)
 		for (x = 'A'; x <= 'Z'; x++) {
 			for (; ;) {
 				int curname = -1;
-				bool lettermatch = FALSE;
+				bool lettermatch = false;
 
 				for (i = 0; i < to_sort_count; i++) {
 					if (results_to_sort[i].printed
@@ -313,8 +314,8 @@ void do_alternate(Character *ch, String argument)
 					strcpy(results_sorted[sorted_count].name, results_to_sort[i].name);
 					strcpy(results_sorted[sorted_count].site, results_to_sort[i].site);
 					sorted_count++;
-					results_to_sort[i].printed = TRUE;
-					lettermatch = TRUE;
+					results_to_sort[i].printed = true;
+					lettermatch = true;
 				}
 
 				if (!lettermatch)
@@ -392,7 +393,7 @@ void do_at(Character *ch, String argument)
 void do_check(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	bool SHOWIMM = FALSE;
+	bool SHOWIMM = false;
 	String buffer;
 	Character *victim;
 
@@ -400,12 +401,12 @@ void do_check(Character *ch, String argument)
 	argument = one_argument(argument, arg);
 
 	if (arg == "gods" || argument == "gods")
-		SHOWIMM = TRUE;
+		SHOWIMM = true;
 
 	if (arg.empty() || arg.is_prefix_of("gods")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see_char(ch, victim))
+			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -425,7 +426,7 @@ void do_check(Character *ch, String argument)
 	if (arg.is_prefix_of("stats")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see_char(ch, victim))
+			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -440,7 +441,7 @@ void do_check(Character *ch, String argument)
 			        ATTR_BASE(victim, APPLY_CHR),
 			        victim->gold + victim->silver / 100,
 			        victim->pcdata->questpoints,
-			        !IS_NPC(victim) ? victim->pcdata->skillpoints : 0);
+			        !victim->is_npc() ? victim->pcdata->skillpoints : 0);
 			buffer += buf;
 		}
 
@@ -451,7 +452,7 @@ void do_check(Character *ch, String argument)
 	if (arg.is_prefix_of("eq")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim)
+			if (victim->is_npc()
 			    || !can_see_char(ch, victim))
 				continue;
 
@@ -474,7 +475,7 @@ void do_check(Character *ch, String argument)
 	if (arg.is_prefix_of("absorb")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see_char(ch, victim))
+			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -493,7 +494,7 @@ void do_check(Character *ch, String argument)
 	if (arg.is_prefix_of("immune")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see_char(ch, victim))
+			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -513,7 +514,7 @@ void do_check(Character *ch, String argument)
 	if (arg.is_prefix_of("resistance")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see_char(ch, victim))
+			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -533,7 +534,7 @@ void do_check(Character *ch, String argument)
 	if (arg.is_prefix_of("vulnerable")) {
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim) || !can_see_char(ch, victim))
+			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -558,9 +559,9 @@ void do_check(Character *ch, String argument)
 
 
 		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (IS_NPC(victim)
+			if (victim->is_npc()
 			    || victim->desc == nullptr
-			    || !IS_PLAYING(victim->desc))
+			    || !victim->desc->is_playing())
 				continue;
 
 			if (!SHOWIMM && IS_IMMORTAL(victim))
@@ -736,7 +737,7 @@ void do_clone(Character *ch, String argument)
 		Object *new_obj;
 		char buf[MAX_STRING_LENGTH];
 
-		if (!IS_NPC(mob)) {
+		if (!mob->is_npc()) {
 			stc("You can only clone mobiles.\n", ch);
 			return;
 		}
@@ -1159,7 +1160,7 @@ void do_echo(Character *ch, String argument)
 	}
 
 	for (d = descriptor_list; d; d = d->next) {
-		if (IS_PLAYING(d)) {
+		if (d->is_playing()) {
 			if (IS_IMMORTAL(d->character))
 				stc("global> ", d->character);
 
@@ -1179,7 +1180,7 @@ void do_recho(Character *ch, String argument)
 	}
 
 	for (d = descriptor_list; d; d = d->next) {
-		if (IS_PLAYING(d)
+		if (d->is_playing()
 		    &&   d->character->in_room == ch->in_room) {
 			if (IS_IMMORTAL(d->character))
 				stc("local> ", d->character);
@@ -1202,7 +1203,7 @@ void do_zecho(Character *ch, String argument)
 	}
 
 	for (d = descriptor_list; d; d = d->next) {
-		if (IS_PLAYING(d)
+		if (d->is_playing()
 		    &&  d->character->in_room != nullptr && ch->in_room != nullptr
 		    &&  d->character->in_room->area() == ch->in_room->area()) {
 			if (IS_IMMORTAL(d->character))
@@ -1390,7 +1391,7 @@ const String name_expand(Character *ch)
 	int count = 1;
 	Character *rch;
 
-	if (!IS_NPC(ch))
+	if (!ch->is_npc())
 		return ch->name;
 
 	String name;
@@ -1411,7 +1412,7 @@ void do_for(Character *ch, String argument)
 {
 	Room *old_room = nullptr;
 	Character *p, *p_next;
-	bool fGods = FALSE, fMortals = FALSE, fRoom = FALSE, found;
+	bool fGods = false, fMortals = false, fRoom = false, found;
 
 	String range;
 	argument = one_argument(argument, range);
@@ -1436,15 +1437,15 @@ void do_for(Character *ch, String argument)
 	}
 
 	if (range.is_prefix_of("all")) {
-		fMortals = TRUE;
-		fGods = TRUE;
+		fMortals = true;
+		fGods = true;
 	}
 	else if (range.is_prefix_of("gods"))
-		fGods = TRUE;
+		fGods = true;
 	else if (range.is_prefix_of("mortals"))
-		fMortals = TRUE;
+		fMortals = true;
 	else if (range.is_prefix_of("room"))
-		fRoom = TRUE;
+		fRoom = true;
 	else {
 		stc("Syntax:\n"
 		    "  for all     <action>\n"
@@ -1457,18 +1458,18 @@ void do_for(Character *ch, String argument)
 	if (strchr(argument, '#')) { /* replace # ? */
 		for (p = Game::world().char_list; p; p = p_next) {
 			p_next = p->next;
-			found = FALSE;
+			found = false;
 
 			if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
 				continue;
-			else if (IS_NPC(p) && !fRoom)
+			else if (p->is_npc() && !fRoom)
 				continue;
 			else if (!IS_IMMORTAL(p) && fMortals)
-				found = TRUE;
+				found = true;
 			else if (IS_IMMORTAL(p) && fGods)
-				found = TRUE;
+				found = true;
 			else if (p->in_room == ch->in_room && fRoom)
-				found = TRUE;
+				found = true;
 
 			if (!found)
 				continue;
@@ -1505,7 +1506,7 @@ void do_for(Character *ch, String argument)
 			for (const auto& pair : from_area->rooms) {
 
 				Room *room = pair.second;
-				found = FALSE;
+				found = false;
 
 				/* Anyone in here at all? */
 				if (!room->people) /* Skip it if room is empty */
@@ -1515,12 +1516,12 @@ void do_for(Character *ch, String argument)
 				for (p = room->people; p; p = p->next_in_room) {
 					if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
 						continue;
-					else if (IS_NPC(p) && !fRoom)
+					else if (p->is_npc() && !fRoom)
 						continue;
 					else if (IS_IMMORTAL(p) && fGods)
-						found = TRUE;
+						found = true;
 					else if (!IS_IMMORTAL(p) && fMortals)
-						found = TRUE;
+						found = true;
 				}
 
 				if (found) {
@@ -1545,7 +1546,7 @@ void do_goto(Character *ch, String argument)
 	Character *rch;
 	Object *obj;
 	int count = 0;
-	bool goto_pet = FALSE;
+	bool goto_pet = false;
 
 	if (argument.empty()) {
 		stc("Syntax:\n"
@@ -1589,7 +1590,7 @@ void do_goto(Character *ch, String argument)
 	}
 
 	if (ch->fighting != nullptr)
-		stop_fighting(ch, TRUE);
+		stop_fighting(ch, true);
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (can_see_char(rch, ch)) {
@@ -1601,7 +1602,7 @@ void do_goto(Character *ch, String argument)
 	}
 
 	if (ch->pet != nullptr && ch->in_room == ch->pet->in_room && !ch->pet->act_flags.has(ACT_STAY))
-		goto_pet = TRUE;
+		goto_pet = true;
 
 	char_from_room(ch);
 	char_to_room(ch, location);
@@ -1657,11 +1658,11 @@ void do_grouplist(Character *ch, String argument)
 			continue;
 
 		/* check for duplicate, add only new leaders */
-		dupe = FALSE;
+		dupe = false;
 
 		for (curnode = leaders; curnode != nullptr; curnode = curnode->next) {
 			if (curnode->leader == victim->leader) {
-				dupe = TRUE;
+				dupe = true;
 				break;
 			}
 		}
@@ -1746,7 +1747,7 @@ void do_guild(Character *ch, String argument)
 
 		victim->clan = nullptr;
 
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			victim->pcdata->questpoints_donated = 0;
 			victim->pcdata->gold_donated = 0;
 		}
@@ -1776,7 +1777,7 @@ void do_guild(Character *ch, String argument)
 	victim->add_cgroup(GROUP_CLAN);
 	victim->clan = clan;
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		victim->pcdata->questpoints_donated = 0;
 		victim->pcdata->gold_donated = 0;
 	}
@@ -1866,7 +1867,7 @@ void do_heed(Character *ch, String argument)
 
 	/* send it to all other imms who are connected and listening */
 	for (d = descriptor_list; d; d = d->next) {
-		if (IS_PLAYING(d)) {
+		if (d->is_playing()) {
 			victim = d->character;
 			truevictim = d->original ? d->original : victim;
 
@@ -1908,7 +1909,7 @@ void do_linkload(Character *ch, String argument)
 	}
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) != nullptr) {
-		if (!IS_NPC(victim)) {
+		if (!victim->is_npc()) {
 			stc("They are already playing or loaded.\n", ch);
 			return;
 		}
@@ -1920,9 +1921,9 @@ void do_linkload(Character *ch, String argument)
 
 	char cname[MIL];
 	strcpy(cname, argument);
-	cname[0] = UPPER(cname[0]);
+	cname[0] = toupper(cname[0]);
 
-	if (load_char_obj(dnew, cname) == TRUE) {
+	if (load_char_obj(dnew, cname) == true) {
 		victim = dnew->character;
 		victim->next = Game::world().char_list;
 		Game::world().char_list    = victim;
@@ -1934,7 +1935,7 @@ void do_linkload(Character *ch, String argument)
 
 		if (OUTRANKS(victim, ch)) {
 			act("You're not high enough level to linkload $N.", ch, nullptr, victim, TO_CHAR);
-			extract_char(victim, TRUE);
+			extract_char(victim, true);
 		}
 		else {
 			Format::sprintf(buf, "You reach into the pfile and link-load %s from room %s.\n",
@@ -2084,25 +2085,25 @@ void do_lower(Character *ch, String argument)
 
 	if ((obj = get_obj_carry(ch, what)) == nullptr) {
 		act("You're not carrying a(n) $t.", ch, what, nullptr, TO_CHAR,
-		        POS_DEAD, FALSE);
+		        POS_DEAD, false);
 		return;
 	}
 
 	if (argument.empty()) {
 		act("Whom do you want to lower $t for?", ch,
-		        obj->short_descr, nullptr, TO_CHAR, POS_DEAD, FALSE);
+		        obj->short_descr, nullptr, TO_CHAR, POS_DEAD, false);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr) {
 		act("Sorry, no player called '$t' is in the game!", ch,
-		        argument, nullptr, TO_CHAR, POS_DEAD, FALSE);
+		        argument, nullptr, TO_CHAR, POS_DEAD, false);
 		return;
 	}
 
 	if (victim->level < LEVEL_HERO) {
 		act("Sorry, $t must be level 91 to have an item lowered.", ch,
-		        victim->name, nullptr, TO_CHAR, POS_DEAD, FALSE);
+		        victim->name, nullptr, TO_CHAR, POS_DEAD, false);
 		return;
 	}
 
@@ -2133,7 +2134,7 @@ void do_lower(Character *ch, String argument)
 
 	if (qp == 0) {
 		act("But $t is already lower than level 92.", ch,
-		        obj->short_descr, nullptr, TO_CHAR, POS_DEAD, FALSE);
+		        obj->short_descr, nullptr, TO_CHAR, POS_DEAD, false);
 		return;
 	}
 
@@ -2152,7 +2153,7 @@ void do_lower(Character *ch, String argument)
 
 	obj->level = LEVEL_HERO;
 	act("$t has been successfully lowered to level 91.", ch,
-	        obj->short_descr, nullptr, TO_CHAR, POS_DEAD, FALSE);
+	        obj->short_descr, nullptr, TO_CHAR, POS_DEAD, false);
 }
 
 void do_lurk(Character *ch, String argument)
@@ -2194,7 +2195,7 @@ void do_master(Character *ch, String argument)
 	}
 
 	/* Beware, if you do master->pet->master, it will loop the mud - Lotus */
-	if (IS_NPC(victim) || !IS_NPC(pet)) {
+	if (victim->is_npc() || !pet->is_npc()) {
 		stc("That is not allowed!\n", ch);
 		return;
 	}
@@ -2245,7 +2246,7 @@ void do_olevel(Character *ch, String argument)
 	blevel = atoi(arg1);
 	elevel = blevel;
 	Flags::Bit wear_loc = Flags::all;          /* standard: everything */
-	with_wear = FALSE;
+	with_wear = false;
 
 	/* Check for 2nd argument - optional ending level */
 	argument = one_argument(argument, arg2);
@@ -2253,11 +2254,11 @@ void do_olevel(Character *ch, String argument)
 	if (!arg2.empty()) {
 		if (!arg2.is_number()) {
 			//stc("Syntax: olevel [beg level] [end level]\n",ch);
-			with_wear = TRUE;
+			with_wear = true;
 		}
 		else {
 			elevel = atoi(arg2);
-			with_wear = FALSE;
+			with_wear = false;
 		}
 	}
 
@@ -2273,7 +2274,7 @@ void do_olevel(Character *ch, String argument)
 	else
 		argument = one_argument(argument, arg3);
 
-	bool specified_wear_loc = FALSE;
+	bool specified_wear_loc = false;
 
 	if (!arg3.empty()) {
 		if (arg3.is_prefix_of("take"))
@@ -2315,24 +2316,24 @@ void do_olevel(Character *ch, String argument)
 			return;
 		}
 
-		specified_wear_loc = TRUE;
+		specified_wear_loc = true;
 	}
 
-	found = FALSE;
+	found = false;
 	nMatch = 0;
 	matches = 0;
 
 	for (vnum = 0; nMatch < top_obj_index; vnum++) {
 		if ((pObjIndex = Game::world().get_obj_prototype(vnum)) != nullptr) {
 			nMatch++;
-			found = FALSE;
+			found = false;
 
 			if ((blevel <= pObjIndex->level) && (elevel >= pObjIndex->level)) {
 				if (!specified_wear_loc)
-					found = TRUE;
+					found = true;
 				else {
 					if (pObjIndex->wear_flags.has(wear_loc))
-						found = TRUE;
+						found = true;
 				}
 			}
 		}
@@ -2344,7 +2345,7 @@ void do_olevel(Character *ch, String argument)
 			        pObjIndex->short_descr, wear_bit_name(pObjIndex->wear_flags));
 			buffer += buf;
 			matches++;
-			found = FALSE;
+			found = false;
 		}
 	}
 
@@ -2404,7 +2405,7 @@ void do_mlevel(Character *ch, String argument)
 		return;
 	}
 
-	found = FALSE;
+	found = false;
 	nMatch = 0;
 
 	for (vnum = 0; nMatch < top_mob_index; vnum++) {
@@ -2412,7 +2413,7 @@ void do_mlevel(Character *ch, String argument)
 			nMatch++;
 
 			if ((blevel <= pMobIndex->level) && (elevel >= pMobIndex->level)) {
-				found = TRUE;
+				found = true;
 				Format::sprintf(tmpbuf, "[%%3d][%%5d] %%-%zus (Align: %%d)\n",
 				        40 + (strlen(pMobIndex->short_descr) - pMobIndex->short_descr.uncolor().size()));
 				Format::sprintf(buf, tmpbuf,
@@ -2444,7 +2445,7 @@ void do_motd(Character *ch, String argument)
 
 		if (argument[0] == '-') {
 			int len;
-			bool found = FALSE;
+			bool found = false;
 
 			if (Game::motd.empty()) {
 				stc("No lines left to remove.\n", ch);
@@ -2459,7 +2460,7 @@ void do_motd(Character *ch, String argument)
 						if (len > 0)
 							len--;
 
-						found = TRUE;
+						found = true;
 					}
 					else { /* found the second one */
 						buf[len + 1] = '\0';
@@ -2507,7 +2508,7 @@ void do_owhere(Character *ch, String argument)
 	String output;
 	Object *obj, *in_obj;
 	int count = 1, vnum = 0;
-	bool fGround = FALSE;
+	bool fGround = false;
 	Location place_last_found;   /* the vnum of the place where we last found an item */
 	Vnum item_last_found = 0;    /* the vnum of the last item displayed */
 
@@ -2525,7 +2526,7 @@ void do_owhere(Character *ch, String argument)
 		vnum = atoi(arg);
 
 	if (arg2.is_prefix_of("ground"))
-		fGround = TRUE;
+		fGround = true;
 
 	output += "{VCount {YRoom  {GObject{x\n";
 
@@ -2679,10 +2680,10 @@ void do_mwhere(Character *ch, String argument)
 		return;
 	}
 
-	found = FALSE;
+	found = false;
 
 	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-		if (!IS_NPC(victim) || victim->in_room == nullptr)
+		if (!victim->is_npc() || victim->in_room == nullptr)
 			continue;
 
 		if (arg.is_number()) {
@@ -2701,7 +2702,7 @@ void do_mwhere(Character *ch, String argument)
 				continue;
 		}
 
-		found = TRUE;
+		found = true;
 		Format::sprintf(buf, "[%5d] %s%*s[%9s] %s\n",
 		        victim->pIndexData->vnum,
 		        victim->short_descr,
@@ -2730,7 +2731,7 @@ void do_rwhere(Character *ch, String argument)
 	String dbuf, rbuf;
 	char buf[MAX_INPUT_LENGTH], fname[MAX_INPUT_LENGTH];
 	char *cp;
-	bool found = FALSE;
+	bool found = false;
 
 	if (argument.empty()) {
 		stc("rwhere which room?\n", ch);
@@ -2745,7 +2746,7 @@ void do_rwhere(Character *ch, String argument)
 			rbuf = room->name();
 
 			if (rbuf.uncolor().has_words(argument)) {
-				found = TRUE;
+				found = true;
 				strcpy(fname, room->area().file_name);
 				cp = strchr(fname, '.');
 
@@ -2783,8 +2784,8 @@ void do_mfind(Character *ch, String argument)
 		return;
 	}
 
-	fAll        = FALSE; /*  arg == "all" ; */
-	found       = FALSE;
+	fAll        = false; /*  arg == "all" ; */
+	found       = false;
 	nMatch      = 0;
 
 	/*
@@ -2798,7 +2799,7 @@ void do_mfind(Character *ch, String argument)
 			nMatch++;
 
 			if (fAll || pMobIndex->player_name.has_words(argument)) {
-				found = TRUE;
+				found = true;
 				Format::sprintf(buf, "M (%3d) [%5d] %s\n",
 				        pMobIndex->level, pMobIndex->vnum, pMobIndex->short_descr);
 				output += buf;
@@ -2834,8 +2835,8 @@ void do_ofind(Character *ch, String argument)
 	}
 
 
-	fAll        = FALSE; /*  arg == "all" ; */
-	found       = FALSE;
+	fAll        = false; /*  arg == "all" ; */
+	found       = false;
 	nMatch      = 0;
 
 	/*
@@ -2849,7 +2850,7 @@ void do_ofind(Character *ch, String argument)
 			nMatch++;
 
 			if (fAll || pObjIndex->name.has_words(argument)) {
-				found = TRUE;
+				found = true;
 				Format::sprintf(buf, "O (%3d) [%5d] %s\n",
 				        pObjIndex->level, pObjIndex->vnum, pObjIndex->short_descr);
 				output += buf;
@@ -2935,7 +2936,7 @@ void do_noreply(Character *ch, String argument)
 {
 	Character *wch;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
@@ -3010,7 +3011,7 @@ void do_owner(Character *ch, String argument)
 			}
 		}
 
-		act("OK, $t now belongs to no one in particular.", ch, item->short_descr, nullptr, TO_CHAR, POS_DEAD, FALSE);
+		act("OK, $t now belongs to no one in particular.", ch, item->short_descr, nullptr, TO_CHAR, POS_DEAD, false);
 		return;
 	}
 
@@ -3028,7 +3029,7 @@ void do_owner(Character *ch, String argument)
 		}
 	}
 
-	act("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, FALSE);
+	act("OK, $t now belongs to $N.", ch, item->short_descr, player, TO_CHAR, POS_DEAD, false);
 	ed = new ExtraDescr(KEYWD_OWNER, player->name);
 	ed->next                = item->extra_descr;
 	item->extra_descr       = ed;
@@ -3040,9 +3041,9 @@ void do_peace(Character *ch, String argument)
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (rch->fighting != nullptr)
-			stop_fighting(rch, TRUE);
+			stop_fighting(rch, true);
 
-		if (IS_NPC(rch) && rch->act_flags.has(ACT_AGGRESSIVE))
+		if (rch->is_npc() && rch->act_flags.has(ACT_AGGRESSIVE))
 			rch->act_flags -= ACT_AGGRESSIVE;
 	}
 
@@ -3067,10 +3068,10 @@ void do_purge(Character *ch, String argument)
 		for (victim = ch->in_room->people; victim != nullptr; victim = vnext) {
 			vnext = victim->next_in_room;
 
-			if (IS_NPC(victim)
+			if (victim->is_npc()
 			    && !victim->act_flags.has(ACT_NOPURGE)
 			    &&  victim != ch)
-				extract_char(victim, TRUE);
+				extract_char(victim, true);
 		}
 
 		for (obj = ch->in_room->contents; obj != nullptr; obj = obj_next) {
@@ -3092,7 +3093,7 @@ void do_purge(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		if (ch == victim) {
 			stc("'Quit' usually works better.\n", ch);
 			return;
@@ -3115,7 +3116,7 @@ void do_purge(Character *ch, String argument)
 			save_char_obj(victim);
 
 		d = victim->desc;
-		extract_char(victim, TRUE);
+		extract_char(victim, true);
 
 		if (d != nullptr)
 			close_socket(d);
@@ -3132,12 +3133,12 @@ void do_purge(Character *ch, String argument)
 	wiznet(buf, ch, nullptr, WIZ_PURGE, WIZ_SECURE, GET_RANK(ch));
 	act("$n disintegrates $N.", ch, nullptr, victim, TO_NOTVICT);
 	act("You disintegrate $N.", ch, nullptr, victim, TO_CHAR);
-	extract_char(victim, TRUE);
+	extract_char(victim, true);
 }
 
 int has_enough_qps(Character *ch, int number_of)
 {
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return 0;
 
 	if (ch->pcdata->questpoints >= number_of || IS_IMMORTAL(ch))
@@ -3167,7 +3168,7 @@ void do_qpconv(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Not on NPC's.\n", ch);
 		return;
 	}
@@ -3239,7 +3240,7 @@ void restore_char(Character *ch, Character *victim)
 	victim->mana    = GET_MAX_MANA(victim);
 	victim->stam    = GET_MAX_STAM(victim);
 	update_pos(victim);
-	act("$n has restored you.", ch, nullptr, victim, TO_VICT, POS_SLEEPING, FALSE);
+	act("$n has restored you.", ch, nullptr, victim, TO_VICT, POS_SLEEPING, false);
 }
 
 void do_restore(Character *ch, String argument)
@@ -3265,7 +3266,7 @@ void do_restore(Character *ch, String argument)
 	if (arg == "all") {
 		/* cure all */
 		for (d = descriptor_list; d != nullptr; d = d->next)
-			if (d->character != nullptr && !IS_NPC(d->character))
+			if (d->character != nullptr && !d->character->is_npc())
 				restore_char(ch, d->character);
 
 		stc("All players restored.\n", ch);
@@ -3279,7 +3280,7 @@ void do_restore(Character *ch, String argument)
 	}
 
 	restore_char(ch, victim);
-	Format::sprintf(buf, "$N has restored: %s", IS_NPC(victim) ? victim->short_descr : victim->name);
+	Format::sprintf(buf, "$N has restored: %s", victim->is_npc() ? victim->short_descr : victim->name);
 	wiznet(buf, ch, nullptr, WIZ_RESTORE, WIZ_SECURE, GET_RANK(ch));
 	stc("The player has been restored.\n", ch);
 }
@@ -3415,18 +3416,18 @@ do_smite(Character *ch, String argument)
 		stc("Who deserves to be smitten?.\n", ch);
 		return;
 	}
-	if ((victim = get_char_world(ch, argument, TRUE)) == nullptr) {
+	if ((victim = get_char_world(ch, argument, true)) == nullptr) {
 		stc("They are not here, *sigh*.\n", ch);
 		return;
 	}
 	/* smite is a joke with imm vs imm, no need for this level crap
-	if (!IS_NPC(victim) && (get_trust(victim) >= get_trust(ch)) && ch->level != IMPLEMENTOR) {
+	if (!victim->is_npc() && (get_trust(victim) >= get_trust(ch)) && ch->level != IMPLEMENTOR) {
 		stc("They wouldn't like that.\n", ch);
 		return;
 	}*/
 
 	if (victim->fighting != nullptr)
-		stop_fighting(victim, TRUE);
+		stop_fighting(victim, true);
 
 	act("$n smacks the crap out of $N.", ch, nullptr, victim, TO_NOTVICT);
 	act("$n smacks the crap out of you!", ch, nullptr, victim, TO_VICT);
@@ -3436,7 +3437,7 @@ do_smite(Character *ch, String argument)
 
 	victim->position = POS_RESTING;
 
-	String name = IS_NPC(victim) ? victim->short_descr : victim->name;
+	String name = victim->is_npc() ? victim->short_descr : victim->name;
 	Object *doo = create_object(Game::world().get_obj_prototype(OBJ_VNUM_DOO), 0);
 	doo->timer = number_range(8, 14);
 	doo->value[3] = 1;
@@ -3454,7 +3455,7 @@ void do_sockets(Character *ch, String argument)
 	Player *vpc, *vpc_next;
 	String buffer;
 	char s[100];
-	bool multiplay = FALSE;
+	bool multiplay = false;
 	int count = 0, ldcount = 0;
 
 	String arg;
@@ -3490,7 +3491,7 @@ void do_sockets(Character *ch, String argument)
 			buffer += Format::format("{P%3d{x|{Y%s{x|       |{C%2d{x |{G%-12s{x|{W%s{x\n",
 			    d->descriptor,
 			    status,
-			    UMAX(0, d->timer),
+			    std::max(0, d->timer),
 			    d->original  ? d->original->name  :
 			    d->character ? d->character->name : "(none)",
 			    d->host);
@@ -3501,7 +3502,7 @@ void do_sockets(Character *ch, String argument)
 		             || (d->original && d->original->name.has_words(arg)))) {
 			count++;
 			/* check for multiplayers -- Montrey */
-			multiplay = FALSE;
+			multiplay = false;
 
 			if (d->state == &conn::State::playing)
 				for (dmult = descriptor_list; dmult != nullptr; dmult = dmult->next) {
@@ -3509,7 +3510,7 @@ void do_sockets(Character *ch, String argument)
 						continue;
 
 					if (dmult->host == d->host)
-						multiplay = TRUE;
+						multiplay = true;
 				}
 
 			/* Format "login" value... */
@@ -3519,7 +3520,7 @@ void do_sockets(Character *ch, String argument)
 			    d->descriptor,
 			    status,
 			    s,
-			    UMAX(0, d->timer),
+			    std::max(0, d->timer),
 			    d->original ? d->original->name  :
 			    d->character ? d->character->name : "(none)",
 			    multiplay ? "|{P" : "|{W",
@@ -3541,7 +3542,7 @@ void do_sockets(Character *ch, String argument)
 			strftime(s, 100, "%I:%M%p", localtime(&vpc->ch->logon));
 			buffer += Format::format("{P---{x|{Y   Linkdead    {x|{B%7s{x|{C%-2d{x |{G%-12s{x|{W%s{x\n",
 			    s,
-			    UMAX(0, vpc->ch->desc == nullptr ? vpc->ch->timer : vpc->ch->desc->timer),
+			    std::max(0, vpc->ch->desc == nullptr ? vpc->ch->timer : vpc->ch->desc->timer),
 			    vpc->ch->name,
 			    vpc->last_lsite);
 			ldcount++;
@@ -3745,7 +3746,7 @@ void do_transfer(Character *ch, String argument)
 
 	if (arg1 == "all") {
 		for (d = descriptor_list; d != nullptr; d = d->next) {
-			if (IS_PLAYING(d)
+			if (d->is_playing()
 			    &&   d->character != ch
 			    &&   d->character->in_room != nullptr
 			    &&   can_see_char(ch, d->character)) {
@@ -3781,7 +3782,7 @@ void do_transfer(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim) && IS_IMMORTAL(victim) && !IS_IMP(ch)) {
+	if (!victim->is_npc() && IS_IMMORTAL(victim) && !IS_IMP(ch)) {
 		stc("They wouldn't like that.\n", ch);
 		return;
 	}
@@ -3792,7 +3793,7 @@ void do_transfer(Character *ch, String argument)
 	}
 
 	if (victim->fighting != nullptr)
-		stop_fighting(victim, TRUE);
+		stop_fighting(victim, true);
 
 	act("$n screams as $e is sucked off into the clouds.", victim, nullptr, nullptr, TO_ROOM);
 	char_from_room(victim);
@@ -3846,7 +3847,7 @@ void do_violate(Character *ch, String argument)
 	}
 
 	if (ch->fighting != nullptr)
-		stop_fighting(ch, TRUE);
+		stop_fighting(ch, true);
 
 	for (rch = ch->in_room->people; rch != nullptr; rch = rch->next_in_room) {
 		if (can_see_char(rch, ch)) {
@@ -3877,7 +3878,7 @@ void do_violate(Character *ch, String argument)
 void do_wizgroup(Character *ch, String argument)
 {
 	Character *victim;
-	bool add = FALSE, all = FALSE, found = FALSE;
+	bool add = false, all = false, found = false;
 
 	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
@@ -3898,9 +3899,9 @@ void do_wizgroup(Character *ch, String argument)
 	}
 
 	if (arg1.is_prefix_of("add"))
-		add = TRUE;
+		add = true;
 	else if (arg1.is_prefix_of("remove"))
-		add = FALSE;
+		add = false;
 	else {
 		do_wizgroup(ch, "");
 		return;
@@ -3914,7 +3915,7 @@ void do_wizgroup(Character *ch, String argument)
 	/* loops == good!  else ifs == bad! :) */
 	for (const auto& entry : cgroup_flags) {
 		if (arg3.is_prefix_of(entry.name) || all) {
-			found = TRUE;
+			found = true;
 
 			if (add)
 				victim->add_cgroup(entry.bit);
@@ -3953,7 +3954,7 @@ void do_wizify(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("This command can only be used on PC's.\n", ch);
 		return;
 	}
@@ -4009,7 +4010,7 @@ void do_aura(Character *ch, String argument)
 	String arg1;
 	argument = one_argument(argument, arg1);
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		do_huh(ch);
 		return;
 	}

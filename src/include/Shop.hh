@@ -1,5 +1,6 @@
 #pragma once
 
+#include "constants.hh"
 #include <cstdio>
 
 #define MAX_TRADE        5
@@ -9,6 +10,8 @@ class Shop
 public:
     Shop(FILE *fp);
     virtual ~Shop() {}
+
+    bool is_questshop() const { return buy_type[0] == ITEM_QUESTSHOP; }
 
     int      buy_type [MAX_TRADE] = {0};   /* Item types shop will buy     */
     int      profit_buy = 0;             /* Cost multiplier for buying   */

@@ -1,9 +1,10 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "ExitPrototype.hh"
+
+class ExitPrototype;
+class Room;
 
 class Exit
 {
@@ -18,9 +19,9 @@ public:
     static const String& dir_name(unsigned int dir, bool reverse = false);
     static unsigned int rev_dir(unsigned int dir);
 
-    int key() const { return prototype.key; }
-    const String& keyword() const { return prototype.keyword; }
-    const String& description() const { return prototype.description; }
+    int key() const;
+    const String& keyword() const;
+    const String& description() const;
 
 private:
 	Exit& operator=(const Exit&);

@@ -3,8 +3,8 @@
 #include "affect/affect_list.hh"
 #include "affect/Affect.hh"
 #include "ExtraDescr.hh"
-#include "macros.hh"
 #include "random.hh"
+#include "constants.hh"
 
 Object::~Object() {
 	// data wholly owned by this obj
@@ -22,7 +22,7 @@ Object::~Object() {
 
 void unique_item(Object *item)
 {
-	bool added = FALSE;
+	bool added = false;
 
 	if (number_range(1, 50) != 1)
 		return;
@@ -67,7 +67,7 @@ void unique_item(Object *item)
 		return;
 
 	/* random apply */
-	if (chance(40)) { /* 40% */
+	if (roll_chance(40)) { /* 40% */
 		int loc = 0, mod = 0;
 
 		switch (number_range(1, 14)) {
@@ -143,7 +143,7 @@ void unique_item(Object *item)
 		}
 
 		if (mod == 0) {
-			if (chance(50))
+			if (roll_chance(50))
 				mod = 1;
 			else
 				mod = -1;
@@ -160,12 +160,12 @@ void unique_item(Object *item)
 		af.evolution  = 1;
 		affect::join_to_obj(item, &af);
 
-		added = TRUE;
+		added = true;
 	}
 	/* value */
-	else if (chance(50)) { /* 30% */
+	else if (roll_chance(50)) { /* 30% */
 		int x;
-		added = TRUE;
+		added = true;
 
 		switch (item->item_type) {
 		/* don't mess with values on these types */
@@ -175,11 +175,11 @@ void unique_item(Object *item)
 		case ITEM_WARP_STONE:
 		case ITEM_GEM:
 		case ITEM_JEWELRY:
-			added = FALSE;
+			added = false;
 			break;
 
 		case ITEM_MONEY:
-			if (chance(50)) /* silver value */
+			if (roll_chance(50)) /* silver value */
 				item->value[0] = number_range(item->value[0] * 1 / 2, item->value[0] * 3 / 2);
 			else /* gold value */
 				item->value[1] = number_range(item->value[1] * 1 / 2, item->value[1] * 3 / 2);
@@ -187,7 +187,7 @@ void unique_item(Object *item)
 			break;
 
 		case ITEM_FURNITURE:
-			if (chance(50)) /* hp regen */
+			if (roll_chance(50)) /* hp regen */
 				item->value[3] = number_range(item->value[3] * 3 / 4, item->value[3] * 5 / 4);
 			else /* mana regen */
 				item->value[4] = number_range(item->value[4] * 3 / 4, item->value[4] * 5 / 4);
@@ -195,9 +195,9 @@ void unique_item(Object *item)
 			break;
 
 		case ITEM_CONTAINER:
-			if (chance(33)) /* max total weight */
+			if (roll_chance(33)) /* max total weight */
 				item->value[0] = number_range(item->value[0] * 3 / 4, item->value[0] * 5 / 4);
-			else if (chance(50)) /* max single weight */
+			else if (roll_chance(50)) /* max single weight */
 				item->value[3] = number_range(item->value[3] * 3 / 4, item->value[3] * 5 / 4);
 			else /* weight multiplier */
 				item->value[4] = number_range(item->value[4] * 3 / 4, item->value[4] * 5 / 4);
@@ -209,16 +209,16 @@ void unique_item(Object *item)
 			break;
 
 		case ITEM_MATERIAL:
-			if (chance(33)) /* skill modifier */
+			if (roll_chance(33)) /* skill modifier */
 				item->value[0] = number_range(item->value[0] * 3 / 4, item->value[0] * 5 / 4);
-			else if (chance(50)) { /* dice bonus */
-				if (chance(50))
+			else if (roll_chance(50)) { /* dice bonus */
+				if (roll_chance(50))
 					++item->value[1];
 				else
 					--item->value[1];
 			}
 			else { /* sides bonus */
-				if (chance(50))
+				if (roll_chance(50))
 					++item->value[2];
 				else
 					--item->value[2];
@@ -234,9 +234,9 @@ void unique_item(Object *item)
 
 		case ITEM_WAND:
 		case ITEM_STAFF:
-			if (chance(33)) /* spell level */
+			if (roll_chance(33)) /* spell level */
 				item->value[0] = number_range(item->value[0] * 9 / 10, item->value[0] * 11 / 10);
-			else if (chance(50)) /* max charges */
+			else if (roll_chance(50)) /* max charges */
 				item->value[1] = number_range(item->value[1] * 3 / 4, item->value[1] * 3 / 4);
 			else /* current charges */
 				item->value[2] = number_range(item->value[2] * 3 / 4, item->value[2] * 3 / 4);
@@ -252,14 +252,14 @@ void unique_item(Object *item)
 			break;
 
 		case ITEM_WEAPON:
-			if (chance(40)) { /* dice */
-				if (chance(50))
+			if (roll_chance(40)) { /* dice */
+				if (roll_chance(50))
 					++item->value[1];
 				else
 					--item->value[1];
 			}
-			else if (chance(66)) { /* sides */
-				if (chance(50))
+			else if (roll_chance(66)) { /* sides */
+				if (roll_chance(50))
 					++item->value[2];
 				else
 					--item->value[2];
@@ -297,44 +297,44 @@ void unique_item(Object *item)
 		}
 	}
 	/* condition, weight, cost */
-	else if (chance(66)) { /* 20% */
+	else if (roll_chance(66)) { /* 20% */
 		switch (number_range(1, 3)) {
 		case 1: /* cost */
-			if (chance(50)) { /* increase the value */
+			if (roll_chance(50)) { /* increase the value */
 				item->cost = number_range(item->cost, (item->cost * 2) + 1);
-				added = TRUE;
+				added = true;
 			}
 			else if (item->cost > 0) { /* lower the value */
 				item->cost = number_range(0, item->cost);
-				added = TRUE;
+				added = true;
 			}
 			else
-				added = FALSE;
+				added = false;
 
 			break;
 
 		case 2: /* weight */
-			if (chance(50)) { /* increase the weight */
+			if (roll_chance(50)) { /* increase the weight */
 				item->weight = number_range(item->weight, (item->weight * 2) + 1);
-				item->weight = UMIN(item->weight, 30000); /* don't let it go over 30k */
-				added = TRUE;
+				item->weight = std::min(item->weight, 30000); /* don't let it go over 30k */
+				added = true;
 			}
 			else if (item->weight > 0) { /* lower the weight */
 				item->weight = number_range(0, item->weight);
-				added = TRUE;
+				added = true;
 			}
 			else
-				added = FALSE;
+				added = false;
 
 			break;
 
 		case 3: /* condition */
-			if (chance(1)) /* make it indestructible */
+			if (roll_chance(1)) /* make it indestructible */
 				item->condition = -1;
 			else
 				item->condition = number_range(1, 100); /* random condition */
 
-			added = TRUE;
+			added = true;
 			break;
 		}
 	}
@@ -342,7 +342,7 @@ void unique_item(Object *item)
 	else { /* 10% */
 		/* not going to put in a higher level detriment, to simplify eq loading on mobs */
 		if (item->level > LEVEL_IMMORTAL) { /* lower it by one, maybe 2 levels, but not below 92 */
-			if (chance(75))
+			if (roll_chance(75))
 				item->level--;
 			else
 				item->level -= 2;
@@ -350,12 +350,12 @@ void unique_item(Object *item)
 			if (item->level < LEVEL_IMMORTAL)
 				item->level = LEVEL_IMMORTAL;
 
-			added = TRUE;
+			added = true;
 		}
 		else if (item->level < LEVEL_IMMORTAL && item->level > 0) {
-			if (chance(50))
+			if (roll_chance(50))
 				item->level --;
-			else if (chance(60))
+			else if (roll_chance(60))
 				item->level -= 2;
 			else
 				item->level -= 3;
@@ -363,10 +363,10 @@ void unique_item(Object *item)
 			if (item->level < 0)
 				item->level = 0;
 
-			added = TRUE;
+			added = true;
 		}
 		else
-			added = FALSE;
+			added = false;
 	}
 
 	if (added) {

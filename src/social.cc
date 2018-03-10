@@ -339,38 +339,38 @@ void do_sedit(Character *ch, String argument)
 	}
 	else if (cmd.is_prefix_of("find")) { /* Find a social */
 		Social *i;
-		bool fAll = FALSE;
+		bool fAll = false;
 
 		if (argument.empty())
-			fAll = TRUE;
+			fAll = true;
 
 		if (social == "unfinished") {
 			bool unfin;
 			int count = 0;
 
 			for (i = social_table_head->next; i != social_table_tail; i = i->next) {
-				unfin = FALSE;
+				unfin = false;
 
 				if (i->char_no_arg == ""   && (fAll || argument == "cnoarg"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (i->others_no_arg == "" && (fAll || argument == "onoarg"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (i->char_found == ""    && (fAll || argument == "cfound"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (i->others_found == ""  && (fAll || argument == "ofound"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (i->vict_found == ""    && (fAll || argument == "vfound"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (i->char_auto == ""     && (fAll || argument == "cself"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (i->others_auto == ""   && (fAll || argument == "oself"))
-					unfin = TRUE;
+					unfin = true;
 
 				if (unfin) {
 					ptc(ch, "%s\n", i->name);

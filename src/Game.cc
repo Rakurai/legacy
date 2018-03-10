@@ -8,6 +8,8 @@
 #include "MobProg.hh"
 #include "music.hh"
 #include "sql.hh"
+#include "World.hh"
+#include "affect/Affect.hh"
 
 // static data for global access through singleton Game
 int Game::port;
@@ -23,10 +25,17 @@ int Game::quest_double = false;
 bool Game::wizlock = false;
 bool Game::newlock = false;
 
+// makes Game a singleton holder of world
+World& Game::
+world() {
+	static World w;
+	return w;
+}
+
 /* Big mama top level function */
 void Game::
 boot() {
-	Game::booting = TRUE;
+	Game::booting = true;
 
 	/* Init random number generator */
 	extern void init_mm();
@@ -86,7 +95,7 @@ boot() {
 	load_arena_table();
 	Format::printf("survived load_arena_table\n");
 
-	booting = FALSE;
+	booting = false;
 
 	world().update();
 	Format::printf("survived area_update\n");
@@ -94,7 +103,7 @@ boot() {
 	Format::printf("survived load_notes\n");
 	load_disabled();
 	Format::printf("survived load_disabled\n");
-	MOBtrigger = TRUE;
+	MOBtrigger = true;
 	load_songs();
 	Format::printf("survived load_songs\n");
 	load_social_table();

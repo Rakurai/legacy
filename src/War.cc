@@ -18,7 +18,6 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Player.hh"
 #include "String.hh"
@@ -267,23 +266,23 @@ bool clan_in_war(Clan *clan, War *war, bool onlycurrent)
 		if (clan->name == war->chal[i]->name) {
 			if (onlycurrent) {
 				if (war->chal[i]->inwar)
-					return TRUE;
+					return true;
 			}
 			else
-				return TRUE;
+				return true;
 		}
 
 		if (clan->name == war->def[i]->name) {
 			if (onlycurrent) {
 				if (war->def[i]->inwar)
-					return TRUE;
+					return true;
 			}
 			else
-				return TRUE;
+				return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool clan_at_war(Clan *clan)
@@ -293,13 +292,13 @@ bool clan_at_war(Clan *clan)
 
 	while (war != war_table_tail) {
 		if (war->ongoing)
-			if (clan_in_war(clan, war, TRUE))
-				return TRUE;
+			if (clan_in_war(clan, war, true))
+				return true;
 
 		war = war->next;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool clan_is_challenger(Clan *clan, War *war)
@@ -308,13 +307,13 @@ bool clan_is_challenger(Clan *clan, War *war)
 
 	for (i = 0; i < 4; i++) {
 		if (clan->name == war->chal[i]->name && war->chal[i]->inwar)
-			return TRUE;
+			return true;
 		else if (clan->name == war->def[i]->name && war->def[i]->inwar)
-			return FALSE;
+			return false;
 	}
 
 	Logging::bug("clan_is_challenger: clan not in war", 0);
-	return FALSE;
+	return false;
 }
 
 bool clan_opponents(Clan *clanA, Clan *clanB)
@@ -323,35 +322,35 @@ bool clan_opponents(Clan *clanA, Clan *clanB)
 
 	if ((war = get_same_war(clanA, clanB)))
 		if (clan_is_challenger(clanA, war) != clan_is_challenger(clanB, war))
-			return TRUE;
+			return true;
 
-	return FALSE;
+	return false;
 }
 
 bool char_at_war(Character *ch)
 {
-	if (IS_NPC(ch))
-		return FALSE;
+	if (ch->is_npc())
+		return false;
 
 	if (!ch->clan)
-		return FALSE;
+		return false;
 
 	if (clan_at_war(ch->clan))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 bool char_opponents(Character *charA, Character *charB)
 {
 	/* checks npc, clan, clan at war */
 	if (!char_at_war(charA) || !char_at_war(charB))
-		return FALSE;
+		return false;
 
 	if (clan_opponents(charA->clan, charB->clan))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 bool war_is_full(War *war, bool challenger)
@@ -361,15 +360,15 @@ bool war_is_full(War *war, bool challenger)
 	for (i = 0; i < 4; i++) {
 		if (challenger) {
 			if (war->chal[i]->name.empty())
-				return FALSE;
+				return false;
 		}
 		else {
 			if (war->def[i]->name.empty())
-				return FALSE;
+				return false;
 		}
 	}
 
-	return TRUE;
+	return true;
 }
 
 int get_war_index(War *war)
@@ -412,7 +411,7 @@ War *get_war(Clan *clan)
 	war = war_table_head->next;
 
 	while (war != war_table_tail) {
-		if (war->ongoing && clan_in_war(clan, war, TRUE))
+		if (war->ongoing && clan_in_war(clan, war, true))
 			return war;
 
 		war = war->next;
@@ -431,8 +430,8 @@ War *get_same_war(Clan *clanA, Clan *clanB)
 
 	while (war != war_table_tail) {
 		if (war->ongoing)
-			if (clan_in_war(clanA, war, TRUE)
-			    && clan_in_war(clanB, war, TRUE))
+			if (clan_in_war(clanA, war, true)
+			    && clan_in_war(clanB, war, true))
 				return war;
 
 		war = war->next;
@@ -443,25 +442,25 @@ War *get_same_war(Clan *clanA, Clan *clanB)
 
 void defeat_clan(War *war, Character *ch, Character *victim)
 {
-	bool chal = FALSE, def = FALSE;
+	bool chal = false, def = false;
 	int i;
 
 	for (i = 0; i < 4; i++) {
 		if (victim->clan->name == war->chal[i]->name) {
-			war->chal[i]->inwar = FALSE;
+			war->chal[i]->inwar = false;
 			war->chal[i]->final_score = 0;
 		}
 
 		if (victim->clan->name == war->def[i]->name) {
-			war->def[i]->inwar = FALSE;
+			war->def[i]->inwar = false;
 			war->def[i]->final_score = 0;
 		}
 
 		if (!war->chal[i]->name.empty() && war->chal[i]->inwar)
-			chal = TRUE;
+			chal = true;
 
 		if (!war->def[i]->name.empty() && war->def[i]->inwar)
-			def = TRUE;
+			def = true;
 	}
 
 	rec_event(war, EVENT_CLAN_DEFEAT, victim->clan->clanname, ch->clan->clanname, 0);
@@ -514,11 +513,11 @@ void war_power_adjust(Clan *vclan, bool surrender)
 			if (event->bstr != vclan->clanname)
 				continue;
 
-			found = FALSE;
+			found = false;
 
 			/* adjusted in other clan's favor, find the clan (if still existing) */
 			for (tclan = clan_table_head->next; tclan != clan_table_tail; tclan = tclan->next) {
-				if (!clan_in_war(tclan, war, TRUE))
+				if (!clan_in_war(tclan, war, true))
 					continue;
 
 				if (event->astr == tclan->clanname) {
@@ -528,7 +527,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 					for (auto& entry : conqlist) {
 						if (entry.clanname == tclan->clanname) {
 							entry.scored += event->number;
-							found = TRUE;
+							found = true;
 							break;
 						}
 					}
@@ -552,9 +551,9 @@ void war_power_adjust(Clan *vclan, bool surrender)
 		return;
 
 	/* use real cp, not curved */
-	cp = calc_cp(vclan, FALSE);
+	cp = calc_cp(vclan, false);
 	/* calculate how much power the clan will lose */
-	loss = UMIN(3 + UMAX((cp / 5), 1), cp);         /* max loss */
+	loss = std::min(3 + std::max((cp / 5), 1), cp);         /* max loss */
 
 	if (!surrender)
 		loss = URANGE(1, cp - dealt, loss);
@@ -570,7 +569,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 		Character *victim;
 
 		for (war = war_table_head->next; war != war_table_tail; war = war->next)
-			if (war->ongoing && clan_in_war(vclan, war, TRUE))
+			if (war->ongoing && clan_in_war(vclan, war, true))
 				rec_event(war, EVENT_CLAN_WIPEOUT, vclan->clanname, "", 0);
 
 		Format::sprintf(buf, "[FYI] %s has been wiped out!", vclan->clanname);
@@ -578,7 +577,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 		for (d = descriptor_list; d != nullptr; d = d->next) {
 			victim = d->original ? d->original : d->character;
 
-			if (IS_PLAYING(d)
+			if (d->is_playing()
 			    && !victim->comm_flags.has(COMM_NOANNOUNCE)
 			    && !victim->comm_flags.has(COMM_QUIET)) {
 				new_color(victim, CSLOT_CHAN_ANNOUNCE);
@@ -621,7 +620,7 @@ void war_power_adjust(Clan *vclan, bool surrender)
 						break;
 
 				for (war = war_table_head->next; war != war_table_tail; war = war->next) {
-					if (!war->ongoing || !clan_in_war(vclan, war, TRUE))
+					if (!war->ongoing || !clan_in_war(vclan, war, true))
 						continue;
 
 					rec_event(war, EVENT_ADJUST_POWER, vclan->clanname,
@@ -660,10 +659,10 @@ void war_score_adjust(War *war, Character *ch, Character *victim, int amount)
 		        ch->clan->clanname, victim->clan->clanname);
 		do_send_announce(ch, buf);
 		ptc(ch, "You have defeated %s!\n", victim->clan->clanname);
-		war_power_adjust(victim->clan, FALSE);
+		war_power_adjust(victim->clan, false);
 
 		for (iter = war_table_head->next; iter != war_table_tail; iter = iter->next)
-			if (iter->ongoing && clan_in_war(victim->clan, iter, TRUE))
+			if (iter->ongoing && clan_in_war(victim->clan, iter, true))
 				defeat_clan(war, ch, victim);
 
 		victim->clan->score = 0;
@@ -722,22 +721,22 @@ War *war_start(Clan *chal, Clan *def)
 	War *war = new War();
 
 	if (chal->score <= 0)
-		chal->score = calc_cp(chal, TRUE);
+		chal->score = calc_cp(chal, true);
 
 	if (def->score <= 0)
-		def->score = calc_cp(def, TRUE);
+		def->score = calc_cp(def, true);
 
 	war->chal[0]->name              = chal->name;
 	war->chal[0]->clanname          = chal->clanname;
-	war->chal[0]->inwar             = TRUE;
+	war->chal[0]->inwar             = true;
 	war->chal[0]->start_score       = chal->score;
 	war->chal[0]->final_score       = 0;
 	war->def[0]->name               = def->name;
 	war->def[0]->clanname           = def->clanname;
-	war->def[0]->inwar              = TRUE;
+	war->def[0]->inwar              = true;
 	war->def[0]->start_score        = def->score;
 	war->def[0]->final_score        = 0;
-	war->ongoing                    = TRUE;
+	war->ongoing                    = true;
 	rec_event(war, EVENT_WAR_START, "", "", 0);
 	append_war(war);
 	return war;
@@ -747,7 +746,7 @@ void war_stop(War *war)
 {
 	int i;
 	Clan *clan;
-	war->ongoing = FALSE;
+	war->ongoing = false;
 
 	for (i = 0; i < 4; i++) {
 		if (!war->chal[i]->name.empty()) {
@@ -794,19 +793,19 @@ void war_join(Clan *clan, War *war, bool challenger)
 	}
 
 	if (clan->score <= 0)
-		clan->score = calc_cp(clan, TRUE);
+		clan->score = calc_cp(clan, true);
 
 	if (challenger) {
 		war->chal[i]->name      = clan->name;
 		war->chal[i]->clanname  = clan->clanname;
-		war->chal[i]->inwar     = TRUE;
+		war->chal[i]->inwar     = true;
 		war->chal[i]->start_score       = clan->score;
 		war->chal[i]->final_score       = 0;
 	}
 	else {
 		war->def[i]->name       = clan->name;
 		war->def[i]->clanname   = clan->clanname;
-		war->def[i]->inwar      = TRUE;
+		war->def[i]->inwar      = true;
 		war->def[i]->start_score        = clan->score;
 		war->def[i]->final_score        = 0;
 	}
@@ -826,7 +825,7 @@ void war_unjoin(Clan *clan, War *war, bool remove)
 			else
 				war->chal[i]->final_score       = clan->score;
 
-			war->chal[i]->inwar = FALSE;
+			war->chal[i]->inwar = false;
 			break;
 		}
 
@@ -839,7 +838,7 @@ void war_unjoin(Clan *clan, War *war, bool remove)
 			else
 				war->def[i]->final_score        = clan->score;
 
-			war->def[i]->inwar = FALSE;
+			war->def[i]->inwar = false;
 			break;
 		}
 	}
@@ -1055,7 +1054,7 @@ void do_war(Character *ch, String argument)
 	Clan *clanA, *clanB;
 	War *war = nullptr;
 	int count = 0, number = 0;
-	bool challenger = FALSE;
+	bool challenger = false;
 
 	String arg1, arg2, arg3;
 	argument = one_argument(argument, arg1);
@@ -1064,7 +1063,7 @@ void do_war(Character *ch, String argument)
 
 	/*** HISTORY ***/
 	if (arg1.is_prefix_of("history")) {
-		bool found = FALSE;
+		bool found = false;
 		war = war_table_head->next;
 
 		while (war != war_table_tail) {
@@ -1072,8 +1071,8 @@ void do_war(Character *ch, String argument)
 
 			if (!war->ongoing) {
 				ptc(ch, "{PWar %d:{x", count);
-				format_war_list(ch, war, FALSE);
-				found = TRUE;
+				format_war_list(ch, war, false);
+				found = true;
 			}
 
 			war = war->next;
@@ -1087,7 +1086,7 @@ void do_war(Character *ch, String argument)
 
 	/*** LIST ***/
 	if (arg1.is_prefix_of("list")) {
-		bool peace = TRUE;
+		bool peace = true;
 		war = war_table_head->next;
 
 		while (war != war_table_tail) {
@@ -1095,8 +1094,8 @@ void do_war(Character *ch, String argument)
 
 			if (war->ongoing) {
 				ptc(ch, "{PWar %d:{x", count);
-				format_war_list(ch, war, TRUE);
-				peace = FALSE;
+				format_war_list(ch, war, true);
+				peace = false;
 			}
 
 			war = war->next;
@@ -1158,12 +1157,12 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (calc_cp(clanA, FALSE) < 1) {
+		if (calc_cp(clanA, false) < 1) {
 			stc("The challenger is not strong enough to wage war.\n", ch);
 			return;
 		}
 
-		if (calc_cp(clanB, FALSE) < 1) {
+		if (calc_cp(clanB, false) < 1) {
 			stc("The defender is already defeated.\n", ch);
 			return;
 		}
@@ -1174,21 +1173,21 @@ void do_war(Character *ch, String argument)
 		}
 
 		if (clan_at_war(clanA) || clan_at_war(clanB)) {
-			bool war_found = FALSE;
+			bool war_found = false;
 
 			/* try to join the challenger to the defender's current war first */
 			for (war = war_table_head->next; war != war_table_tail; war = war->next) {
 				if (!war->ongoing)
 					continue;
 
-				if (!clan_in_war(clanB, war, TRUE))
+				if (!clan_in_war(clanB, war, true))
 					continue;
 
-				if (clan_in_war(clanA, war, FALSE)) /* if they used to be */
+				if (clan_in_war(clanA, war, false)) /* if they used to be */
 					continue;
 
 				war_join(clanA, war, !clan_is_challenger(clanB, war));
-				war_found = TRUE;
+				war_found = true;
 				break;
 			}
 
@@ -1198,14 +1197,14 @@ void do_war(Character *ch, String argument)
 					if (!war->ongoing)
 						continue;
 
-					if (!clan_in_war(clanB, war, TRUE))
+					if (!clan_in_war(clanB, war, true))
 						continue;
 
-					if (clan_in_war(clanA, war, FALSE)) /* if they used to be */
+					if (clan_in_war(clanA, war, false)) /* if they used to be */
 						continue;
 
 					war_join(clanA, war, !clan_is_challenger(clanB, war));
-					war_found = TRUE;
+					war_found = true;
 					break;
 				}
 
@@ -1252,9 +1251,9 @@ void do_war(Character *ch, String argument)
 		}
 
 		if (argument.is_prefix_of("challenger"))
-			challenger = TRUE;
+			challenger = true;
 		else if (argument.is_prefix_of("defender"))
-			challenger = FALSE;
+			challenger = false;
 		else {
 			stc("Use 'challenger' or 'defender' after the war number.\n", ch);
 			return;
@@ -1265,12 +1264,12 @@ void do_war(Character *ch, String argument)
 			return;
 		}
 
-		if (calc_cp(clanA, FALSE) < 1) {
+		if (calc_cp(clanA, false) < 1) {
 			stc("The clan is not strong enough to wage war.\n", ch);
 			return;
 		}
 
-		if (clan_in_war(clanA, war, FALSE)) {
+		if (clan_in_war(clanA, war, false)) {
 			stc("They are already part of that war.\n", ch);
 			return;
 		}
@@ -1294,7 +1293,7 @@ void do_war(Character *ch, String argument)
 
 	/*** UNJOIN ***/
 	if (arg1 == "unjoin" && IS_IMMORTAL(ch)) {
-		bool remove = FALSE;
+		bool remove = false;
 
 		if (arg2.empty() || arg3.empty() || argument.empty()) {
 			stc("Syntax: war unjoin <clan> <war number> <remove|stop>\n", ch);
@@ -1319,9 +1318,9 @@ void do_war(Character *ch, String argument)
 		}
 
 		if (argument.is_prefix_of("remove"))
-			remove = TRUE;
+			remove = true;
 		else if (argument.is_prefix_of("stop"))
-			remove = FALSE;
+			remove = false;
 		else {
 			stc("Use 'remove' or 'stop' after the war number.\n", ch);
 			return;

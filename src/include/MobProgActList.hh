@@ -1,6 +1,9 @@
 #pragma once
 
-#include "declare.hh"
+#include "String.hh"
+
+class Character;
+class Object;
 
 class MobProgActList
 {

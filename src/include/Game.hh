@@ -1,17 +1,14 @@
 #pragma once
 
-#include "declare.hh"
 #include "String.hh"
-#include "World.hh"
+
+class World;
 
 class Game
 {
 public:
 	virtual ~Game() {}
-	static World& world() {
-		static World w;
-		return w;
-	}
+	static World& world();
 
 	static void boot();
 

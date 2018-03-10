@@ -2,6 +2,8 @@
 #include "Descriptor.hh"
 #include "String.hh"
 #include "Character.hh"
+#include "Player.hh"
+#include "merc.hh"
 
 namespace conn {
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "declare.hh"
+#include "constants.hh"
 #include "String.hh"
 
 #define MAX_LINES	100 /* this boils down to about 1k per song */
@@ -17,5 +17,5 @@ struct song_data
 
 extern std::vector<struct song_data> song_table;
 
-void song_update args( (void) );
-void load_songs	args( (void) );
+void song_update(void);
+void load_songs(void);

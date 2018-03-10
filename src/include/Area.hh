@@ -2,7 +2,6 @@
 
 #include <vector>
 #include <map>
-#include "declare.hh"
 #include "String.hh"
 #include "Vnum.hh"
 #include "Location.hh"

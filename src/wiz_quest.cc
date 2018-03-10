@@ -30,7 +30,6 @@
 #include "Game.hh"
 #include "interp.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -40,6 +39,8 @@
 #include "random.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
 
 void do_addapply(Character *ch, String argument)
 {
@@ -196,7 +197,7 @@ void do_rppaward(Character *ch, String argument)
 		stc("--------------------\n", ch);
 
 		for (d = descriptor_list; d != nullptr; d = d->next) {
-			if (!IS_PLAYING(d) || !can_see_char(ch, d->character))
+			if (!d->is_playing() || !can_see_char(ch, d->character))
 				continue;
 
 			victim = (d->original != nullptr) ? d->original : d->character;
@@ -330,7 +331,7 @@ void do_scatter(Character *ch, String argument)
 {
 	Object *obj, *obj_next;
 	Room *room;
-	bool scattered = FALSE;
+	bool scattered = false;
 
 	if (ch->in_room == nullptr)
 		return;
@@ -344,7 +345,7 @@ void do_scatter(Character *ch, String argument)
 		room = get_scatter_room(ch);
 		obj_from_room(obj);
 		obj_to_room(obj, room);
-		scattered = TRUE;
+		scattered = true;
 	}
 
 	if (!scattered)
@@ -390,7 +391,7 @@ void do_string(Character *ch, String argument)
 		/* string something */
 
 		if (arg2.is_prefix_of("spouse")) {
-			if (IS_NPC(victim)) {
+			if (victim->is_npc()) {
 				stc("Not a good idea.\n", ch);
 				return;
 			}
@@ -408,7 +409,7 @@ void do_string(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("name")) {
-			if (!IS_NPC(victim)) {
+			if (!victim->is_npc()) {
 				stc("You can't change a player's name!\n", ch);
 				return;
 			}
@@ -442,7 +443,7 @@ void do_string(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("title")) {
-			if (IS_NPC(victim)) {
+			if (victim->is_npc()) {
 				stc("Mobiles don't have a title, silly!\n", ch);
 				return;
 			}
@@ -454,7 +455,7 @@ void do_string(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("spec")) {
-			if (!IS_NPC(victim)) {
+			if (!victim->is_npc()) {
 				stc("Players don't have specfuns, silly!\n", ch);
 				return;
 			}
@@ -471,7 +472,7 @@ void do_string(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("deity")) {
-			if (IS_NPC(victim)) {
+			if (victim->is_npc()) {
 				stc("Mobiles are all atheists!\n", ch);
 				return;
 			}
@@ -483,7 +484,7 @@ void do_string(Character *ch, String argument)
 		}
 
 		if (arg2.is_prefix_of("status")) {
-			if (IS_NPC(victim)) {
+			if (victim->is_npc()) {
 				stc("A mobile has no status to change!\n", ch);
 				return;
 			}
@@ -649,7 +650,7 @@ void do_switch(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	Character *victim;
 
-	if (IS_NPC(ch) || ch->desc == nullptr) {
+	if (ch->is_npc() || ch->desc == nullptr) {
 		stc("You're not a real live player, you cannot switch.\n", ch);
 		return;
 	}
@@ -672,7 +673,7 @@ void do_switch(Character *ch, String argument)
 		return;
 	}
 
-	if (!IS_NPC(victim)) {
+	if (!victim->is_npc()) {
 		stc("You can only switch into mobiles.\n", ch);
 		return;
 	}
@@ -740,14 +741,14 @@ void do_return(Character *ch, String argument)
 	ch->desc->original        = nullptr;
 	ch->desc->character->desc = ch->desc;
 
-	if (!IS_NPC(ch->desc->character))
+	if (!ch->desc->character->is_npc())
 		if (!ch->desc->character->pcdata->buffer.empty())
 			stc("You have messages: Type 'replay'\n", ch);
 
 	ch->desc                  = nullptr;
 
 	if (ch->act_flags.has(ACT_MORPH) && ch->in_room != nullptr)
-		extract_char(ch, TRUE);  /* Only if raw_kill didn't do it */
+		extract_char(ch, true);  /* Only if raw_kill didn't do it */
 
 	return;
 }
@@ -803,7 +804,7 @@ bool setup_obj(Character *ch, Object *obj, String argument)
 	                        {
 	                                stc("Valid token types are quest, hidden, trivia, and wild,\n"
 	                                    "or use without an argument for a generic token.\n", ch);
-	                                return FALSE;
+	                                return false;
 	                        }
 
 	                        obj->name = tdesc_table[type].keywords;
@@ -849,7 +850,7 @@ bool setup_obj(Character *ch, Object *obj, String argument)
 		break;
 	}
 
-	return TRUE;
+	return true;
 }
 
 void do_create(Character *ch, String argument)

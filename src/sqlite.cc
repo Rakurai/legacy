@@ -13,6 +13,7 @@
 #include "Logging.hh"
 #include "sql.hh"
 #include "String.hh"
+#include "constants.hh"
 
 sqlite3* _db = nullptr;
 sqlite3_stmt* _result = nullptr;

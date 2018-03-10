@@ -10,8 +10,8 @@
 
 #include <cstdlib>
 #include <time.h>
+#include <algorithm>
 
-#include "macros.hh"
 
 void init_mm()
 {
@@ -94,9 +94,12 @@ int number_fuzzy(int number)
 	case 3: number += 1;    break;
 	}
 
-	return UMAX(1, number);
+	return std::max(1, number);
 }
 
+int roll_chance(int percent) {
+	return number_range(1, 100) <= percent;
+}
 
 /* Pseudo-random distribution for percentage chance rolls obvious to the
    player, based on the DOTA2 system at:
@@ -239,7 +242,7 @@ const float prd_table[] = {
 };
 
 bool prd_chance(int *prev_fails, int p) {
-	p = URANGE(0, p, 100);
+	p = std::max(0, std::min(100, p));
 
 	// number_percent is [1,100], calculation is [0,100]
 	float cp = prd_table[p] * ((*prev_fails) + 1);

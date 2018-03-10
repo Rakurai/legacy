@@ -35,7 +35,6 @@
 #include "Descriptor.hh"
 #include "find.hh"
 #include "Flags.hh"
-#include "macros.hh"
 #include "Player.hh"
 #include "sql.hh"
 #include "String.hh"
@@ -47,23 +46,23 @@ bool is_ignoring(Character *ch, Character *victim)
 	Character *rch;
 
 	if (ch == nullptr || victim == nullptr)
-		return FALSE;
+		return false;
 
 	if (IS_IMMORTAL(victim))
-		return FALSE;
+		return false;
 
 	if (ch->desc == nullptr)
 		rch = ch;
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
 
-	if (IS_NPC(rch))
-		return FALSE;
+	if (rch->is_npc())
+		return false;
 
 	if (std::find(rch->pcdata->ignore.cbegin(), rch->pcdata->ignore.cend(), victim->name) != rch->pcdata->ignore.cend())
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /* Stripped from do_query basically - Lotus */
@@ -79,7 +78,7 @@ void do_ignore(Character *ch, String argument)
 	else
 		rch = ch->desc->original ? ch->desc->original : ch;
 
-	if (IS_NPC(rch))
+	if (rch->is_npc())
 		return;
 
 	if (IS_IMMORTAL(rch)) {
@@ -108,7 +107,7 @@ void do_ignore(Character *ch, String argument)
 		return;
 	}
 
-	if (IS_NPC(victim)) {
+	if (victim->is_npc()) {
 		stc("Ignore a mob?  I don't think so.\n", ch);
 		return;
 	}

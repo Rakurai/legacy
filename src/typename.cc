@@ -4,7 +4,6 @@
 #include "declare.hh"
 #include "Flags.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Object.hh"
 #include "Player.hh"
@@ -288,7 +287,7 @@ String get_custom_color_name(Character *ch, int slot)
 {
 	int color, bold;
 
-	if (!IS_NPC(ch) && ch->pcdata->color[slot] != 0) {
+	if (!ch->is_npc() && ch->pcdata->color[slot] != 0) {
 		color = ch->pcdata->color[slot];
 		bold  = ch->pcdata->bold [slot];
 	}
@@ -304,7 +303,7 @@ String get_custom_color_code(Character *ch, int slot)
 {
 	int color, bold;
 
-	if (!IS_NPC(ch) && ch->pcdata->color[slot] != 0) {
+	if (!ch->is_npc() && ch->pcdata->color[slot] != 0) {
 		color = ch->pcdata->color[slot];
 		bold  = ch->pcdata->bold [slot];
 	}

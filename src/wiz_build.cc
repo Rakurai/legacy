@@ -28,6 +28,7 @@
 #include "RoomPrototype.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
 
 /* The following locals are for the checkexit command - Lotus */
 const int opposite_dir [6] =
@@ -195,7 +196,7 @@ void do_pocket(Character *ch, String argument)
 void do_roomlist(Character *ch, String argument)
 {
 	int first, last, counter;
-	bool found = FALSE;
+	bool found = false;
 	Room *room;
 	String buffer;
 
@@ -231,7 +232,7 @@ void do_roomlist(Character *ch, String argument)
 			        room->prototype.vnum, room->area().name,
 			        room->name());
 			buffer += arg;
-			found = TRUE;
+			found = true;
 		}
 	}
 
@@ -251,10 +252,10 @@ void do_vlist(Character *ch, String argument)
 	int vnum, begvnum, endvnum;
 	MobilePrototype *mobile;
 	ObjectPrototype *object;
-	bool found = FALSE,
-	     printed = FALSE,
-	     foundmobile = FALSE,
-	     founddata = FALSE;
+	bool found = false,
+	     printed = false,
+	     foundmobile = false,
+	     founddata = false;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -290,8 +291,8 @@ void do_vlist(Character *ch, String argument)
 
 
 	for (vnum = begvnum; vnum <= endvnum; vnum++) {
-		found = FALSE;
-		foundmobile = FALSE;
+		found = false;
+		foundmobile = false;
 		totalbuf = Format::format("[%5d] ", vnum);
 
 		if ((mobile = Game::world().get_mob_prototype(vnum)) != nullptr) {
@@ -302,10 +303,10 @@ void do_vlist(Character *ch, String argument)
 			        30 - mobile->short_descr.uncolor().size(), " ");
 			/* Format::sprintf(buf, "%-30s ",mobile->short_descr); Color corrected -- Elrac */
 			totalbuf += buf;
-			found = TRUE;
-			foundmobile = TRUE;
-			printed = TRUE;
-			founddata = TRUE;
+			found = true;
+			foundmobile = true;
+			printed = true;
+			founddata = true;
 		}
 
 		if ((object = Game::world().get_obj_prototype(vnum)) != nullptr) {
@@ -318,9 +319,9 @@ void do_vlist(Character *ch, String argument)
 				Format::sprintf(buf, "NONE                          %s", object->short_descr);
 
 			totalbuf += buf;
-			found = TRUE;
-			printed = TRUE;
-			founddata = TRUE;
+			found = true;
+			printed = true;
+			founddata = true;
 		}
 		else if (foundmobile) {
 			Format::sprintf(buf, "NONE");

@@ -7,7 +7,6 @@
 #include "Edit.hh"
 #include "Exit.hh"
 #include "Game.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
@@ -15,6 +14,7 @@
 #include "random.hh"
 #include "Room.hh"
 #include "Tail.hh"
+#include "MobProg.hh"
 
 Character::Character() {
 	logon = Game::current_time;
@@ -54,13 +54,13 @@ Character::~Character() {
 	affect::clear_list(&affected);
 
 	/* stop active TAILs, if any -- Elrac */
-	if (!IS_NPC(this) && pcdata && pcdata->tailing)
+	if (!this->is_npc() && pcdata && pcdata->tailing)
 		set_tail(this, nullptr, TAIL_NONE);
 
 	/* stop all passive TAILs -- Elrac */
 	for (Tail *td = tail; td != nullptr; td = tail) {
 		tail = td->next;
-		act("You stop tailing $n", this, nullptr, td->tailed_by, TO_VICT, POS_SLEEPING, FALSE);
+		act("You stop tailing $n", this, nullptr, td->tailed_by, TO_VICT, POS_SLEEPING, false);
 		delete td;
 	}
 
@@ -84,7 +84,7 @@ Character::~Character() {
 void Character::update() {
 	Character *ch = this;
 
-	if (!IS_NPC(ch) || ch->in_room == nullptr || affect::exists_on_char(ch, affect::type::charm_person))
+	if (!ch->is_npc() || ch->in_room == nullptr || affect::exists_on_char(ch, affect::type::charm_person))
 		return;
 
 	if (get_position(ch) <= POS_SITTING)
@@ -140,11 +140,11 @@ void Character::update() {
 		int max = 1;
 
 		for (obj = ch->in_room->contents; obj; obj = obj->next_content) {
-			not_used = TRUE;
+			not_used = true;
 
 			for (gch = obj->in_room->people; gch != nullptr; gch = gch->next_in_room)
 				if (gch->on == obj)
-					not_used = FALSE;
+					not_used = false;
 
 			if (CAN_WEAR(obj, ITEM_TAKE) && can_loot(ch, obj) && obj->cost > max && not_used) {
 				obj_best = obj;
@@ -176,7 +176,7 @@ void Character::update() {
 	        ||   !pexit->to_room->flags().has(ROOM_INDOORS))
 	    && (!ch->act_flags.has(ACT_INDOORS)
 	        ||   pexit->to_room->flags().has(ROOM_INDOORS))) {
-		move_char(ch, door, FALSE);
+		move_char(ch, door, false);
 
 		/* If ch changes position due
 		to it's or someother mob's
@@ -185,5 +185,21 @@ void Character::update() {
 		if (get_position(ch) < POS_STANDING)
 			return;
 	}
+}
 
+bool Character::
+has_cgroup(const Flags& cg) const {
+	return this->is_npc() ? false : pcdata->cgroup_flags.has_any_of(cg);
+}
+
+void Character::
+add_cgroup(const Flags& cg) {
+	if (!this->is_npc())
+		pcdata->cgroup_flags += cg;
+}
+
+void Character::
+remove_cgroup(const Flags& cg) {
+	if (!this->is_npc())
+		pcdata->cgroup_flags -= cg;
 }

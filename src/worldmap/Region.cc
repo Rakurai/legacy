@@ -4,6 +4,7 @@
 #include "Room.hh"
 #include "Logging.hh"
 #include "World.hh"
+#include "RoomPrototype.hh"
 
 namespace worldmap {
 

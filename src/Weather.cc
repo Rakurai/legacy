@@ -6,10 +6,10 @@
 #include "Game.hh"
 #include "GameTime.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "random.hh"
 #include "Room.hh"
+#include "World.hh"
 
 Weather::
 Weather(const GameTime& t) :
@@ -69,11 +69,11 @@ update()
 		diff = mmhg > 1015 ? -2 : 2;
 
 	change    += diff * dice(1, 4) + dice(2, 6) - dice(2, 6);
-	change     = UMAX(change, -12);
-	change     = UMIN(change, 12);
+	change     = std::max(change, -12);
+	change     = std::min(change, 12);
 	mmhg      += change;
-	mmhg       = UMAX(mmhg, 960);
-	mmhg       = UMIN(mmhg, 1040);
+	mmhg       = std::max(mmhg, 960);
+	mmhg       = std::min(mmhg, 1040);
 
 	switch (sky) {
 	default:
@@ -136,7 +136,7 @@ update()
 	if (!buf.empty()) {
 		for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
 			/* why send it to mobs? */
-			if (!IS_NPC(ch)
+			if (!ch->is_npc()
 			 && IS_OUTSIDE(ch)
 			 && IS_AWAKE(ch)
 			 && ch->act_flags.has(PLR_TICKS))

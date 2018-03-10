@@ -4,12 +4,14 @@
 #include "Exit.hh"
 #include "file.hh"
 #include "Flags.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "ObjectPrototype.hh"
 #include "Room.hh"
 #include "Game.hh"
 #include "Logging.hh"
+#include "ExitPrototype.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
 
 Reset::
 Reset(FILE *fp) {

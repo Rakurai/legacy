@@ -18,9 +18,9 @@ bool check_disabled(const struct cmd_type *command)
 
 	for (p = disabled_first; p ; p = p->next)
 		if (p->command->do_fun == command->do_fun)
-			return TRUE;
+			return true;
 
-	return FALSE;
+	return false;
 }
 
 void load_disabled()

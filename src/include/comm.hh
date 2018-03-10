@@ -1,6 +1,7 @@
 #pragma once
 
 class Descriptor;
+class Character;
 class String;
 
 void    close_socket    args( ( Descriptor *dclose ) );

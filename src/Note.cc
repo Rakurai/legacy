@@ -39,10 +39,10 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
+#include "World.hh"
 
 
 /* local procedures */
@@ -87,15 +87,15 @@ int count_spool(Character *ch, Note *spool)
 void do_unread(Character *ch, String argument)
 {
 	int count;
-	bool found = FALSE;
+	bool found = false;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Sorry, only players can read notes!\n", ch);
 		return;
 	}
 
 	if ((count = count_spool(ch, immquest_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "There %s %d new {Bimmquest{x note%s waiting.\n",
 		    count > 1 ? "are" : "is",
 		    count,
@@ -103,7 +103,7 @@ void do_unread(Character *ch, String argument)
 	}
 
 	if ((count = count_spool(ch, changes_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "There %s %d {Gchange%s{x waiting to be read.\n",
 		    count > 1 ? "are" : "is",
 		    count,
@@ -111,35 +111,35 @@ void do_unread(Character *ch, String argument)
 	}
 
 	if ((count = count_spool(ch, note_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "You have %d new {Pnote%s{x waiting.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if ((count = count_spool(ch, idea_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "You have %d unread {Yidea%s{x to pursue.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if ((count = count_spool(ch, roleplay_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "%d {Vroleplay%s been added.\n",
 		    count,
 		    count > 1 ? "ing{x notes have" : "{x note has");
 	}
 
 	if ((count = count_spool(ch, personal_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "You have %d {Cpersonal{x message%s to read.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if ((count = count_spool(ch, trade_list)) > 0) {
-		found = TRUE;
+		found = true;
 		ptc(ch, "You have %d {btrade{x note%s to read.\n",
 		    count,
 		    count > 1 ? "s" : "");
@@ -426,42 +426,42 @@ bool is_note_to(Character *ch, Note *pnote)
 	Format::sprintf(buf, "FORWARD(%s)", ch->name);
 
 	if (std::strstr(buf, pnote->subject.uncolor().c_str()))
-		return FALSE;
+		return false;
 
 	/* note to followers */
 	if (pnote->to_list.has_words("followers")) {
 		int i = parse_deity(ch->pcdata->deity);
 
 		if (i >= 0 && pnote->sender == deity_table[i].name)
-			return TRUE;
+			return true;
 	}
 
 	if (ch->name == pnote->sender)
-		return TRUE;
+		return true;
 
 	if (pnote->to_list.has_words("spam")) {
 		if (ch->censor_flags.has(CENSOR_SPAM))
-			return FALSE;
+			return false;
 
-		return TRUE;
+		return true;
 	}
 
 	if (pnote->to_list.has_exact_words("all"))
-		return TRUE;
+		return true;
 
 	if (IS_IMP(ch) && pnote->to_list.has_words("imp"))
-		return TRUE;
+		return true;
 
 	if (IS_HEAD(ch) && pnote->to_list.has_words("head"))
-		return TRUE;
+		return true;
 
 	if (IS_IMMORTAL(ch)
 	    && (pnote->to_list.has_words("immortal")
 	        || pnote->to_list.has_words("imm")))
-		return TRUE;
+		return true;
 
 	if (pnote->to_list.has_exact_words(ch->name))
-		return TRUE;
+		return true;
 
 	/* note to clans -- Montrey */
 	if (ch->clan
@@ -469,18 +469,18 @@ bool is_note_to(Character *ch, Note *pnote)
 	        || pnote->to_list.has_words("clan"))) {                /* note to all clans */
 		if (pnote->to_list.has_words("leader"))          /* note to leaders */
 			if (!ch->has_cgroup(GROUP_LEADER))
-				return FALSE;
+				return false;
 
 		if (pnote->to_list.has_words("deputy")           /* note to deputies */
 		    || pnote->to_list.has_words("deputies"))
 			if (!ch->has_cgroup(GROUP_LEADER)
 			    && !ch->has_cgroup(GROUP_DEPUTY))
-				return FALSE;
+				return false;
 
-		return TRUE;
+		return true;
 	}
 
-	return FALSE;
+	return false;
 }
 
 void note_attach(Character *ch, int type)
@@ -491,7 +491,7 @@ void note_attach(Character *ch, int type)
 		return;
 
 	pnote = new Note();
-	pnote->sender       = IS_NPC(ch) ? ch->short_descr : ch->name;
+	pnote->sender       = ch->is_npc() ? ch->short_descr : ch->name;
 	pnote->type         = type;
 	ch->pnote           = pnote;
 	return;
@@ -587,12 +587,12 @@ bool hide_note(Character *ch, Note *pnote)
 	time_t last_read;
 
 	/* Mob notes
-	    if (IS_NPC(ch))
-	        return TRUE;
+	    if (ch->is_npc())
+	        return true;
 	*/
 	switch (pnote->type) {
 	default:
-		return TRUE;
+		return true;
 
 	case NOTE_NOTE:
 		last_read = ch->pcdata->last_note;
@@ -624,22 +624,22 @@ bool hide_note(Character *ch, Note *pnote)
 	}
 
 	if (pnote->date_stamp <= last_read)
-		return TRUE;
+		return true;
 
 	if (ch->name == pnote->sender)
-		return TRUE;
+		return true;
 
 	if (!is_note_to(ch, pnote))
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 void update_read(Character *ch, Note *pnote)
 {
 	time_t stamp;
 	/* Mob Notes
-	    if (IS_NPC(ch))
+	    if (ch->is_npc())
 	        return;
 	*/
 	stamp = pnote->date_stamp;
@@ -649,31 +649,31 @@ void update_read(Character *ch, Note *pnote)
 		return;
 
 	case NOTE_NOTE:
-		ch->pcdata->last_note = UMAX(ch->pcdata->last_note, stamp);
+		ch->pcdata->last_note = std::max(ch->pcdata->last_note, stamp);
 		break;
 
 	case NOTE_IDEA:
-		ch->pcdata->last_idea = UMAX(ch->pcdata->last_idea, stamp);
+		ch->pcdata->last_idea = std::max(ch->pcdata->last_idea, stamp);
 		break;
 
 	case NOTE_ROLEPLAY:
-		ch->pcdata->last_roleplay = UMAX(ch->pcdata->last_roleplay, stamp);
+		ch->pcdata->last_roleplay = std::max(ch->pcdata->last_roleplay, stamp);
 		break;
 
 	case NOTE_IMMQUEST:
-		ch->pcdata->last_immquest = UMAX(ch->pcdata->last_immquest, stamp);
+		ch->pcdata->last_immquest = std::max(ch->pcdata->last_immquest, stamp);
 		break;
 
 	case NOTE_CHANGES:
-		ch->pcdata->last_changes = UMAX(ch->pcdata->last_changes, stamp);
+		ch->pcdata->last_changes = std::max(ch->pcdata->last_changes, stamp);
 		break;
 
 	case NOTE_PERSONAL:
-		ch->pcdata->last_personal = UMAX(ch->pcdata->last_personal, stamp);
+		ch->pcdata->last_personal = std::max(ch->pcdata->last_personal, stamp);
 		break;
 
 	case NOTE_TRADE:
-		ch->pcdata->last_trade = UMAX(ch->pcdata->last_trade, stamp);
+		ch->pcdata->last_trade = std::max(ch->pcdata->last_trade, stamp);
 		break;
 	}
 }
@@ -685,7 +685,7 @@ void notify_note_post(Note *pnote, Character *vch, int type)
 	const String& list_name = board_index[type].board_long;
 
 	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
-		if (IS_NPC(ch))
+		if (ch->is_npc())
 			continue;
 
 		if (is_note_to(ch, pnote)) {
@@ -728,9 +728,9 @@ void parse_note(Character *ch, String argument, int type)
 	argument = one_argument(argument, arg);
 
 	if (arg.empty() || arg.is_prefix_of("read")) {
-		bool fAll = FALSE;
+		bool fAll = false;
 
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			stc("Sorry, mobiles can't read notes.\n", ch);
 			return;
 		}
@@ -763,7 +763,7 @@ void parse_note(Character *ch, String argument, int type)
 		else if (argument.is_number())
 			anum = atoi(argument);
 		else if (argument == "all")
-			fAll = TRUE;
+			fAll = true;
 		else {
 			stc("Read which number?\n", ch);
 			return;
@@ -792,19 +792,19 @@ void parse_note(Character *ch, String argument, int type)
 	}
 
 	if (arg.is_prefix_of("list")) {
-		bool search = FALSE, nw = FALSE, found = FALSE, all = FALSE;
+		bool search = false, nw = false, found = false, all = false;
 
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			stc("Sorry, mobiles can't read notes.\n", ch);
 			return;
 		}
 
 		if (argument == "new")
-			nw = TRUE;
+			nw = true;
 		else if (argument == "all")
-			all = TRUE;
+			all = true;
 		else if (!argument.empty())
-			search = TRUE;
+			search = true;
 
 
 		for (pnote = *list, vnum = -1; pnote != nullptr; pnote = pnote->next) {
@@ -828,7 +828,7 @@ void parse_note(Character *ch, String argument, int type)
 				else
 					buffer += buf;
 
-				found = TRUE;
+				found = true;
 			}
 		}
 
@@ -852,7 +852,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
-				note_remove(ch, pnote, FALSE);
+				note_remove(ch, pnote, false);
 				stc("Message removed.\n", ch);
 				return;
 			}
@@ -874,7 +874,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		for (pnote = *list; pnote != nullptr; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
-				note_remove(ch, pnote, TRUE);
+				note_remove(ch, pnote, true);
 				stc("Message deleted.\n", ch);
 				return;
 			}
@@ -888,7 +888,7 @@ void parse_note(Character *ch, String argument, int type)
 	if (arg.is_prefix_of("forward")) {
 		Note *newnote;
 
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			stc("Mobs can't forward notes.\n", ch);
 			return;
 		}
@@ -960,7 +960,7 @@ void parse_note(Character *ch, String argument, int type)
 				newnote->text     = pnote->text;
 				newnote->type     = pnote->type;
 				append_note(newnote);
-				note_remove(ch, pnote, TRUE);
+				note_remove(ch, pnote, true);
 				stc("Note Reposted.\n", ch);
 				notify_note_post(newnote, ch, type);
 				return;
@@ -1097,7 +1097,7 @@ void parse_note(Character *ch, String argument, int type)
 		newnote->text           = pnote->text;
 		newnote->type           = newtype;
 		append_note(newnote);
-		note_remove(ch, pnote, TRUE);
+		note_remove(ch, pnote, true);
 		ptc(ch, "OK, %s %d moved to %s.\n",
 		    board_index[type].board_short,
 		    anum,
@@ -1131,7 +1131,7 @@ void parse_note(Character *ch, String argument, int type)
 		if (strlen(ch->pnote->text) + strlen(argument) >= 4096) {
 			stc("Note too long.\n", ch);
 
-			if (!IS_NPC(ch)) ch->pcdata->plr_flags += PLR_STOPCRASH;
+			if (!ch->is_npc()) ch->pcdata->plr_flags += PLR_STOPCRASH;
 
 			return;
 		}
@@ -1201,14 +1201,14 @@ void parse_note(Character *ch, String argument, int type)
 			return;
 		}
 
-		if (!IS_NPC(ch) && ch->pcdata->plr_flags.has(PLR_STOPCRASH)) {
+		if (!ch->is_npc() && ch->pcdata->plr_flags.has(PLR_STOPCRASH)) {
 			stc("You cannot edit this note any further.\n", ch);
 			stc("Please either post or clear this note.\n", ch);
 			return;
 		}
 
 		strcpy(buf, ch->pnote->text);
-		bool found = FALSE;
+		bool found = false;
 
 		// find the last and second to last newlines, remove all after second to last
 		for (int len = strlen(buf); len > 0; len--) {
@@ -1220,7 +1220,7 @@ void parse_note(Character *ch, String argument, int type)
 					return;
 				}
 				else
-					found = TRUE;
+					found = true;
 			}
 		}
 
@@ -1295,7 +1295,7 @@ void parse_note(Character *ch, String argument, int type)
 
 		stc("Note cleared.\n", ch);
 
-		if (!IS_NPC(ch)) ch->pcdata->plr_flags -= PLR_STOPCRASH;
+		if (!ch->is_npc()) ch->pcdata->plr_flags -= PLR_STOPCRASH;
 
 		return;
 	}
@@ -1378,7 +1378,7 @@ void parse_note(Character *ch, String argument, int type)
 		Format::sprintf(buf2, "Your %s has been posted.\n", board_index[type].board_long);
 		stc(buf2, ch);
 
-		if (!IS_NPC(ch)) ch->pcdata->plr_flags -= PLR_STOPCRASH;
+		if (!ch->is_npc()) ch->pcdata->plr_flags -= PLR_STOPCRASH;
 
 		return;
 	}
@@ -1394,7 +1394,7 @@ void do_old_next(Character *ch)
 	Note **list;
 	int vnum;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Sorry, mobiles can't read notes.\n" , ch);
 		return;
 	}
@@ -1594,7 +1594,7 @@ void do_next(Character *ch, String argument)
 	Note **plist;
 	int nnum, onum = 0;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Sorry, mobiles can't read notes.\n", ch);
 		return;
 	}
@@ -1781,7 +1781,7 @@ String format_string_old(const String& oldstring)
 	char xbuf2[MAX_STRING_LENGTH];
 	char *rdesc;
 	int i = 0, j;
-	bool cap = TRUE, blankline = FALSE;
+	bool cap = true, blankline = false;
 	xbuf2[0] = '\0';
 
 	char oldbuf[MSL];
@@ -1794,7 +1794,7 @@ String format_string_old(const String& oldstring)
 		if (*rdesc == '\n') {
 			if (blankline) {
 				xbuf[i] = '\n';
-				cap = TRUE;     /* capitalize the first word after a blank line */
+				cap = true;     /* capitalize the first word after a blank line */
 				i++;
 			}
 			else if (xbuf[i - 1] != ' ') {
@@ -1802,7 +1802,7 @@ String format_string_old(const String& oldstring)
 				i++;
 			}
 
-			blankline = TRUE;
+			blankline = true;
 			continue;
 		}
 
@@ -1821,7 +1821,7 @@ String format_string_old(const String& oldstring)
 		}
 
 		/* safe to say this line isn't empty */
-		blankline = FALSE;
+		blankline = false;
 
 		/* after the end of a sentence, eliminate spaces before a close parentheses */
 		if (*rdesc == ')') {
@@ -1883,15 +1883,15 @@ String format_string_old(const String& oldstring)
 				}
 			}
 
-			cap = TRUE;
+			cap = true;
 		}
 		/* it's a letter, if it's the start of a new sentence, capitalize it */
 		else {
 			xbuf[i] = *rdesc;
 
 			if (cap) {
-				cap = FALSE;
-				xbuf[i] = UPPER(xbuf[i]);
+				cap = false;
+				xbuf[i] = toupper(xbuf[i]);
 			}
 
 			i++;
@@ -1903,7 +1903,7 @@ String format_string_old(const String& oldstring)
 	strcpy(xbuf2, xbuf);
 	rdesc = xbuf2;
 	xbuf.clear();
-	blankline = FALSE;
+	blankline = false;
 
 	for (; ;) {
 		/* we use 2 counters instead of the old way using one, because we want to
@@ -1933,7 +1933,7 @@ String format_string_old(const String& oldstring)
 				xbuf += "\n";
 
 			xbuf += "\n";
-			blankline = TRUE;
+			blankline = true;
 			rdesc += i + 1;
 
 			while (*rdesc == ' ')
@@ -1942,7 +1942,7 @@ String format_string_old(const String& oldstring)
 			continue;
 		}
 
-		blankline = FALSE;
+		blankline = false;
 
 		if (j < 77)
 			break;

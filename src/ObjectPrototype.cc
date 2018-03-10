@@ -134,7 +134,7 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 		af.level              = level;
 		af.duration           = -1;
 		af.evolution          = 1;
-		af.permanent          = TRUE;
+		af.permanent          = true;
 		af.location           = 0;
 		af.modifier           = 0;
 
@@ -213,7 +213,7 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 			af.modifier           = fread_number(fp);
 			af.evolution          = 1;
 			af.bitvector(0);
-			af.permanent          = TRUE;
+			af.permanent          = true;
 
 			Flags bitvector = 0;
 			if (affect::parse_flags('O', &af, bitvector)) {
@@ -226,7 +226,7 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 			af.level              = level;
 			af.duration           = -1;
 			af.evolution          = 1;
-			af.permanent          = TRUE;
+			af.permanent          = true;
 
 			letter          = fread_letter(fp);
 			af.location     = fread_number(fp);

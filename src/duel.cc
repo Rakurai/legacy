@@ -18,12 +18,13 @@
 #include "Game.hh"
 #include "interp.hh"
 #include "Logging.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Player.hh"
 #include "random.hh"
 #include "Room.hh"
 #include "String.hh"
+#include "World.hh"
+#include "RoomPrototype.hh"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"
@@ -151,7 +152,7 @@ void remove_duel(Duel *c)
 	c->next->previous       = c->previous;
 
 	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next)
-		if (!IS_NPC(ch) && ch->pcdata->duel == c)
+		if (!ch->is_npc() && ch->pcdata->duel == c)
 			ch->pcdata->duel = nullptr;
 
 	clear_arena(c->arena);
@@ -165,7 +166,7 @@ void duel_announce(char *buf, Duel *duel)
 	Format::sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n", buf);
 
 	for (d = descriptor_list; d != nullptr; d = d->next)
-		if (IS_PLAYING(d)
+		if (d->is_playing()
 		    && d->character != duel->challenger
 		    && d->character != duel->defender
 		    && !d->character->comm_flags.has(COMM_NOANNOUNCE)
@@ -178,17 +179,17 @@ bool char_in_darena_room(Character *ch)
 	Duel::Arena *arena = arena_table_head->next;
 
 	if (ch->in_room == nullptr)
-		return FALSE;
+		return false;
 
 	while (arena != arena_table_tail) {
 		if (ch->in_room->prototype.vnum >= arena->minvnum
 		    && ch->in_room->prototype.vnum <= arena->maxvnum)
-			return TRUE;
+			return true;
 
 		arena = arena->next;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool char_in_duel_room(Character *ch)
@@ -196,19 +197,19 @@ bool char_in_duel_room(Character *ch)
 	Duel::Arena *arena = arena_table_head->next;
 
 	if (ch->in_room == nullptr)
-		return FALSE;
+		return false;
 
 	while (arena != arena_table_tail) {
 		if (ch->in_room == arena->chalprep
 		    || ch->in_room == arena->defprep
 		    || (ch->in_room->prototype.vnum >= arena->minvnum
 		        && ch->in_room->prototype.vnum <= arena->maxvnum))
-			return TRUE;
+			return true;
 
 		arena = arena->next;
 	}
 
-	return FALSE;
+	return false;
 }
 
 bool char_in_darena(Character *ch)
@@ -216,12 +217,12 @@ bool char_in_darena(Character *ch)
 	Duel *duel;
 
 	if ((duel = get_duel(ch)) == nullptr)
-		return FALSE;
+		return false;
 
 	if (duel->accept_timer == 0 && duel->prep_timer == 0)
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 bool char_in_duel(Character *ch)
@@ -229,12 +230,12 @@ bool char_in_duel(Character *ch)
 	Duel *duel;
 
 	if ((duel = get_duel(ch)) == nullptr)
-		return FALSE;
+		return false;
 
 	if (duel->accept_timer == 0)
-		return TRUE;
+		return true;
 
-	return FALSE;
+	return false;
 }
 
 /* return a player's duel, massive debugging at lowest level */
@@ -242,15 +243,15 @@ Duel *get_duel(Character *ch)
 {
 	Duel *duel;
 	Character *opp = nullptr;
-	bool cgr = FALSE;
+	bool cgr = false;
 
-	if (IS_NPC(ch) || ch->in_room == nullptr || ch->pcdata == nullptr || ch->pcdata->duel == nullptr)
+	if (ch->is_npc() || ch->in_room == nullptr || ch->pcdata == nullptr || ch->pcdata->duel == nullptr)
 		return nullptr;
 
 	duel = ch->pcdata->duel;
 
 	if (duel->challenger == ch) {
-		cgr = TRUE;
+		cgr = true;
 
 		if ((opp = duel->defender) == nullptr) {
 			Logging::bug("get_duel: defender is nullptr", 0);
@@ -258,7 +259,7 @@ Duel *get_duel(Character *ch)
 		}
 	}
 	else if (duel->defender == ch) {
-		cgr = FALSE;
+		cgr = false;
 
 		if ((opp = duel->challenger) == nullptr) {
 			Logging::bug("get_duel: challenger is nullptr", 0);
@@ -456,17 +457,17 @@ void clear_arena(Duel::Arena *arena)
 		if ((room = Game::world().get_room(Location(Vnum(i)))) != nullptr && room->people)
 			for (wch = room->people; wch != nullptr; wch = wch->next_in_room)
 				if (!IS_IMMORTAL(wch))
-					extract_char(wch, !IS_NPC(wch));
+					extract_char(wch, !wch->is_npc());
 
 	if (arena->chalprep->people)
 		for (wch = arena->chalprep->people; wch != nullptr; wch = wch->next_in_room)
 			if (!IS_IMMORTAL(wch))
-				extract_char(wch, !IS_NPC(wch));
+				extract_char(wch, !wch->is_npc());
 
 	if (arena->defprep->people)
 		for (wch = arena->defprep->people; wch != nullptr; wch = wch->next_in_room)
 			if (!IS_IMMORTAL(wch))
-				extract_char(wch, !IS_NPC(wch));
+				extract_char(wch, !wch->is_npc());
 }
 
 void duel_kill(Character *victim)
@@ -541,7 +542,7 @@ void prepare_char(Character *ch, Duel *duel)
 		char_to_room(ch, duel->arena->defprep);
 
 	// strip spells
-	affect::remove_all_from_char(ch, FALSE);
+	affect::remove_all_from_char(ch, false);
 
 	ch->hit  = GET_MAX_HIT(ch);
 	ch->mana = GET_MAX_MANA(ch);
@@ -556,7 +557,7 @@ void do_duel(Character *ch, String argument)
 	Character *victim = nullptr;
 	Duel::Arena *arena;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("You have no need to challenge players.\n", ch);
 		return;
 	}

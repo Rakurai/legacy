@@ -8,7 +8,6 @@
 #include "find.hh"
 #include "Flags.hh"
 #include "Format.hh"
-#include "macros.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "Player.hh"
@@ -65,7 +64,7 @@ update() {
 			if (bet > 0) {
 				Format::sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n",
 				        item->short_descr, bet);
-				global_act(buyer, buf, TRUE,
+				global_act(buyer, buf, true,
 				           YELLOW, COMM_NOAUCTION | COMM_QUIET);
 				Format::sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
 				        item->short_descr, bet);
@@ -105,7 +104,7 @@ void do_auction(Character *ch, String argument)
 	int min = 0;
 
 	/* NPC can be extracted at any time and thus can't auction! */
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't auction!\n", ch);
 		return;
 	}
@@ -217,7 +216,7 @@ void do_auction(Character *ch, String argument)
 		                newbet = parsebet (auction.bet, argument);
 		*/
 		if (argument.empty())
-			newbet = auction.bet + UMAX(auction.bet / 10, 1);
+			newbet = auction.bet + std::max(auction.bet / 10, 1);
 		else {
 			if (!argument.is_number()) {
 				stc("Your bid must be numeric.\n", ch);
@@ -226,7 +225,7 @@ void do_auction(Character *ch, String argument)
 
 			newbet = atoi(argument);
 
-			if ((newbet - auction.bet) < UMAX(auction.bet / 10, 1)) {
+			if ((newbet - auction.bet) < std::max(auction.bet / 10, 1)) {
 				stc("You must bid at least 10% over the current bid.\n", ch);
 				return;
 			}

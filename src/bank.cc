@@ -14,7 +14,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "lookup.hh"
-#include "macros.hh"
 #include "memory.hh"
 #include "merc.hh"
 #include "Player.hh"
@@ -31,7 +30,7 @@ void do_deposit(Character *ch, String argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't deposit money!\n", ch);
 		return;
 	}
@@ -98,7 +97,7 @@ void do_clandeposit(Character *ch, String argument)
 	char buf[MAX_INPUT_LENGTH];
 	Clan *target;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles can't deposit money!\n", ch);
 		return;
 	}
@@ -119,7 +118,7 @@ void do_clandeposit(Character *ch, String argument)
 			return;
 		}
 
-		if (IS_NPC(ch)) {
+		if (ch->is_npc()) {
 			stc("You don't need to worry about clans.\n", ch);
 			return;
 		}
@@ -211,7 +210,7 @@ void find_money(Character *ch)
 	int j;
 	long max_gold, max_silver;
 
-	if (IS_NPC(ch))
+	if (ch->is_npc())
 		return;
 
 	if ((ch->last_bank - Game::current_time) > 86400) {
@@ -237,7 +236,7 @@ void do_balance(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles do not have bank accounts.\n", ch);
 		return;
 	}
@@ -257,7 +256,7 @@ void do_withdraw(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("NPC's can't get money..  dumbass!!!!\n", ch);
 		return;
 	}
@@ -328,7 +327,7 @@ void do_clanwithdraw(Character *ch, String argument)
 	char buf[MAX_INPUT_LENGTH];
 	Clan *target;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Mobiles don't need money.\n", ch);
 		return;
 	}

@@ -2,8 +2,8 @@
 
 #include <vector>
 
+#include "constants.hh"
 #include "affect/Type.hh"
-#include "declare.hh"
 #include "Flags.hh"
 #include "String.hh"
 #include "Sector.hh"

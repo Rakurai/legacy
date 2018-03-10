@@ -27,7 +27,6 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "interp.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "Object.hh"
 #include "Player.hh"
@@ -35,6 +34,7 @@
 #include "String.hh"
 #include "tables.hh"
 #include "Tail.hh"
+#include "World.hh"
 
 void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
 
@@ -47,7 +47,7 @@ void do_fod(Character *ch, String argument)
 	Object *on;
 
 	if (argument.empty()) {
-		global_act(ch, msg, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
+		global_act(ch, msg, true, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
 		stc("Your FOD reverberates through the world as a warning to all.\n", ch);
 		return;
 	}
@@ -68,7 +68,7 @@ void do_fod(Character *ch, String argument)
 	}
 
 	if (victim->fighting)
-		stop_fighting(victim, TRUE);
+		stop_fighting(victim, true);
 
 	/* go to victim so bystanders will get local ACT */
 	ch_room = ch->in_room;
@@ -81,12 +81,12 @@ void do_fod(Character *ch, String argument)
 	}
 
 	/* do it! */
-	global_act(ch, msg, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
+	global_act(ch, msg, true, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
 	act("You strike $N down with your {YFinger of {RDeath{x!", ch, nullptr, victim, TO_CHAR);
 	act("$n strikes $N down with a {YFinger of {RDeath{x!", ch, nullptr, victim, TO_NOTVICT);
 	act("$n strikes you down with a {YFinger of {RDeath{x!", ch, nullptr, victim, TO_VICT);
 	Format::sprintf(buf, "$n has struck down %s!", victim->name);
-	global_act(ch, buf, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
+	global_act(ch, buf, true, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
 	act("You fall to the ground, dazed.", ch, nullptr, victim, TO_VICT);
 	victim->position = POS_RESTING;
 	WAIT_STATE(victim, 15 * PULSE_PER_SECOND);
@@ -133,7 +133,7 @@ void do_force(Character *ch, String argument)
 	Format::sprintf(buf, "$n forces you to %s.", argument);
 
 	if (IS_IMP(ch)) {
-		bool found = FALSE;
+		bool found = false;
 
 		if (arg == "all") {
 			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
@@ -142,7 +142,7 @@ void do_force(Character *ch, String argument)
 				if (vpc->ch == ch)
 					continue;
 
-				found = TRUE;
+				found = true;
 				act(buf, ch, nullptr, vpc->ch, TO_VICT);
 				interpret(vpc->ch, argument);
 			}
@@ -157,7 +157,7 @@ void do_force(Character *ch, String argument)
 				vpc_next = vpc;
 
 				if (vpc->ch != ch && !IS_IMMORTAL(vpc->ch)) {
-					found = TRUE;
+					found = true;
 					act(buf, ch, nullptr, vpc->ch, TO_VICT);
 					interpret(vpc->ch, argument);
 				}
@@ -173,7 +173,7 @@ void do_force(Character *ch, String argument)
 				vpc_next = vpc;
 
 				if (vpc->ch != ch && IS_IMMORTAL(vpc->ch) && !IS_IMP(vpc->ch)) {
-					found = TRUE;
+					found = true;
 					vpc_next = vpc->next;
 					act(buf, ch, nullptr, vpc->ch, TO_VICT);
 					interpret(vpc->ch, argument);
@@ -293,7 +293,7 @@ void do_fry(Character *ch, String argument)
 	    TO_VICT);
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, victim->name.lowercase().capitalize());
 	do_echo(ch, "You hear the rumble of thunder in the distance.");
-	update_pc_index(victim, TRUE);
+	update_pc_index(victim, true);
 	do_fuckoff(victim, "");
 	unlink(strsave);
 }
@@ -319,7 +319,7 @@ void do_locker(Character *ch, String argument)
 
 	if (argument.empty()) {
 		ptc(ch, "%s's locker contains:\n", victim->name);
-		show_list_to_char(victim->pcdata->locker, ch, TRUE, TRUE, TRUE);
+		show_list_to_char(victim->pcdata->locker, ch, true, true, true);
 		return;
 	}
 
@@ -386,7 +386,7 @@ void do_strongbox(Character *ch, String argument)
 
 	if (argument.empty()) {
 		ptc(ch, "%s's strongbox contains:\n", victim->name);
-		show_list_to_char(victim->pcdata->strongbox, ch, TRUE, TRUE, TRUE);
+		show_list_to_char(victim->pcdata->strongbox, ch, true, true, true);
 		return;
 	}
 
@@ -645,7 +645,7 @@ void do_revoke(Character *ch, String argument)
 }
 
 /* like snoop, but better -- Elrac */
-int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
+int set_tail(Character *ch, Character *victim, Flags tail_flags)
 {
 	Character *wch;
 	Tail *td;
@@ -662,7 +662,7 @@ int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
 	}
 
 	/* start tailing someone */
-	if (tail_flag != TAIL_NONE) {
+	if (!tail_flags.has(TAIL_NONE)) {
 		/* find previous tail by same ch, if any */
 		for (td = victim->tail; td; td = td->next)
 			if (td->tailed_by == ch)
@@ -673,15 +673,15 @@ int set_tail(Character *ch, Character *victim, Flags::Bit tail_flag)
 			td = new Tail;
 			td->tailed_by = ch;
 			td->tailer_name = ch->name;
-			td->flags = 0;
+			td->flags.clear();
 			td->next = victim->tail;
 			victim->tail = td;
 		}
 
-		td->flags |= tail_flag;
+		td->flags += tail_flags;
 		ptc(ch, "You are now tailing %s:%s\n",
 		    PERS(victim, ch, VIS_PLR),
-		    (td->flags & TAIL_ACT) ? " ACT" : "");
+		    (td->flags.has(TAIL_ACT)) ? " ACT" : "");
 		return 1;
 	}
 
@@ -721,7 +721,7 @@ void do_tail(Character *ch, String argument)
 	char buf[MSL];
 	Character *victim = nullptr;
 
-	if (IS_NPC(ch)) {
+	if (ch->is_npc()) {
 		stc("Please return to your body before tailing.\n", ch);
 		return;
 	}
@@ -741,7 +741,7 @@ void do_tail(Character *ch, String argument)
 		if (!set_tail(ch, nullptr, TAIL_NONE))
 			stc("You weren't tailing anyone.\n", ch);
 
-		ch->pcdata->tailing = FALSE;
+		ch->pcdata->tailing = false;
 		return;
 	}
 
@@ -768,7 +768,7 @@ void do_tail(Character *ch, String argument)
 	}
 	else if (arg.is_prefix_of("actions")) {
 		set_tail(ch, victim, TAIL_ACT);
-		ch->pcdata->tailing = TRUE;
+		ch->pcdata->tailing = true;
 		Format::sprintf(buf, "$N has begun tailing %s.", PERS(victim, ch, VIS_PLR));
 		wiznet(buf, ch, nullptr, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 	}
@@ -858,7 +858,7 @@ void do_ban(Character *ch, String argument)
 	if (argument.empty()) {
 		String site;
 		String output;
-		bool found = FALSE;
+		bool found = false;
 
 		if (db_query("do_ban", "SELECT site, name, flags, reason FROM bans") != SQL_OK)
 			return;
@@ -867,7 +867,7 @@ void do_ban(Character *ch, String argument)
 		output += "{T------------------------------+---------------+-------+-----------------------------{x\n";
 
 		while (db_next_row() == SQL_OK) {
-			found = TRUE;
+			found = true;
 			Flags flags(db_get_column_int(2));
 
 			Format::sprintf(site, "%s%s%s",
@@ -991,7 +991,7 @@ void do_allow(Character *ch, String argument)
 void do_permit(Character *ch, String argument)
 {
 	Flags wildflags;
-	bool found = FALSE;
+	bool found = false;
 
 	String arg;
 	one_argument(argument, arg);
@@ -1064,7 +1064,7 @@ void do_permit(Character *ch, String argument)
 
 		db_commandf("do_permit", "UPDATE bans SET flags=%d WHERE site LIKE '%s' AND flags=%d",
 		            rowflags.to_ulong(), db_esc(db_get_column_str(1)), db_get_column_int(0));
-		found = TRUE;
+		found = true;
 	}
 
 	if (!found)
@@ -1077,7 +1077,7 @@ void do_deny(Character *ch, String argument)
 
 	if (argument.empty()) {
 		String output;
-		bool found = FALSE;
+		bool found = false;
 
 		if (db_query("do_deny", "SELECT name, denier, reason FROM denies") != SQL_OK)
 			return;
@@ -1086,7 +1086,7 @@ void do_deny(Character *ch, String argument)
 		output += "{T---------------+---------------+-------------------------------------------{x\n";
 
 		while (db_next_row() == SQL_OK) {
-			found = TRUE;
+			found = true;
 			output += Format::format("%-15s{T|{x%-15s{T|{x%s\n",
 			    db_get_column_str(0),
 			    db_get_column_str(1),
@@ -1136,7 +1136,7 @@ void do_deny(Character *ch, String argument)
 		wiznet(buf, ch, nullptr, WIZ_PENALTIES, WIZ_SECURE, 0);
 		ptc(ch, "%s has been denied access.\n", arg1);
 		save_char_obj(victim);
-		stop_fighting(victim, TRUE);
+		stop_fighting(victim, true);
 		do_quit(victim, "now");
 	}
 }

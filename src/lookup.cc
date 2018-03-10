@@ -29,7 +29,6 @@
 
 #include "Clan.hh"
 #include "declare.hh"
-#include "macros.hh"
 #include "merc.hh"
 #include "String.hh"
 #include "tables.hh"
@@ -70,7 +69,7 @@ int position_lookup(const String& name)
 	unsigned int pos;
 
 	for (pos = 0; pos < position_table.size(); pos++) {
-		if (LOWER(name[0]) == LOWER(position_table[pos].name[0])
+		if (tolower(name[0]) == tolower(position_table[pos].name[0])
 		    &&  name.is_prefix_of(position_table[pos].name))
 			return pos;
 	}
@@ -83,7 +82,7 @@ int sex_lookup(const String& name)
 	unsigned int sex;
 
 	for (sex = 0; sex < sex_table.size(); sex++) {
-		if (LOWER(name[0]) == LOWER(sex_table[sex].name[0])
+		if (tolower(name[0]) == tolower(sex_table[sex].name[0])
 		    &&  name.is_prefix_of(sex_table[sex].name))
 			return sex;
 	}
@@ -96,7 +95,7 @@ int size_lookup(const String& name)
 	unsigned int size;
 
 	for (size = 0; size < size_table.size(); size++) {
-		if (LOWER(name[0]) == LOWER(size_table[size].name[0])
+		if (tolower(name[0]) == tolower(size_table[size].name[0])
 		    &&  name.is_prefix_of(size_table[size].name))
 			return size;
 	}
@@ -143,7 +142,7 @@ int race_lookup(const String& name)
 	unsigned int race;
 
 	for (race = 0; race < race_table.size(); race++) {
-		if (LOWER(name[0]) == LOWER(race_table[race].name[0])
+		if (tolower(name[0]) == tolower(race_table[race].name[0])
 		    &&  name.is_prefix_of(race_table[race].name))
 			return race;
 	}
@@ -156,7 +155,7 @@ int weapon_lookup(const String& name)
 	unsigned int type;
 
 	for (type = 0; type < weapon_table.size(); type++) {
-		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
+		if (tolower(name[0]) == tolower(weapon_table[type].name[0])
 		    &&  name.is_prefix_of(weapon_table[type].name))
 			return type;
 	}
@@ -169,7 +168,7 @@ int get_weapon_type(const String& name)
 	unsigned int type;
 
 	for (type = 0; type < weapon_table.size(); type++) {
-		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
+		if (tolower(name[0]) == tolower(weapon_table[type].name[0])
 		    &&  name.is_prefix_of(weapon_table[type].name))
 			return weapon_table[type].type;
 	}
@@ -182,7 +181,7 @@ int item_lookup(const String& name)
 	unsigned int type;
 
 	for (type = 0; type < item_table.size(); type++) {
-		if (LOWER(name[0]) == LOWER(item_table[type].name[0])
+		if (tolower(name[0]) == tolower(item_table[type].name[0])
 		    &&  name.is_prefix_of(item_table[type].name))
 			return item_table[type].type;
 	}
@@ -195,7 +194,7 @@ int attack_lookup(const String& name)
 	unsigned int att;
 
 	for (att = 0; att < attack_table.size(); att++) {
-		if (LOWER(name[0]) == LOWER(attack_table[att].name[0])
+		if (tolower(name[0]) == tolower(attack_table[att].name[0])
 		    &&  name.is_prefix_of(attack_table[att].name))
 			return att;
 	}
@@ -219,7 +218,7 @@ int liq_lookup(const String& name)
 	unsigned int liq;
 
 	for (liq = 0; liq < liq_table.size(); liq++)
-		if (LOWER(name[0]) == LOWER(liq_table[liq].name[0])
+		if (tolower(name[0]) == tolower(liq_table[liq].name[0])
 		    && name.is_prefix_of(liq_table[liq].name))
 			return liq;
 
