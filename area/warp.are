@@ -906,6 +906,18 @@ E
 warp_loc~
 Monopoly~
 
+#2175
+aetheryte crystal~
+aetheryte crystal~
+A huge {Bb{Clu{We-white crys{Cta{Bl{x emerges from the ground here, glowing with power.~
+crystal~
+warp_crystal AGORSTY P
+0 0 0 0 0
+100 20000 0 P
+E
+warp_loc~
+The Abyss~
+
 #0
 
 #RESETS
@@ -983,6 +995,7 @@ O 0 2171 1  2801  * Troll Den
 O 0 2172 1  7805  * Valley of Elves
 O 0 2173 1  4201  * Rainbow Collimator
 O 0 2174 1  7644  * Monopoly
+O 0 2175 1  13100 * The Abyss
 S 
 
 #$

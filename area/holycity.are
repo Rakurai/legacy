@@ -1,8 +1,8 @@
 #AREA
 holycity.are~
 Holy City~
-{H{{1 91} {MLeveret {THoly City{x~
-14000 14299
+{H{{1 91} {YL{Re{cv{Ye{Rr{ce{Yt {THoly City~
+14000 14199
 
 
 #MOBILES
@@ -28,6 +28,9 @@ stand stand either 0
 >greet_prog 10~
      emote utters a blessing
 ~
+>death_prog 100~
+   mpoload 14007
+ ~
 |
 #14001
 Citizen~
@@ -272,9 +275,9 @@ The Orc Soldier patrols the area wishing his duty was over.
 A simple orcish soldier in the livery of Elvanshalee, almost totally
 black leather armour with a blue and a green dragon painted onto the front.
 The Orc is armed with a nasty-looking weapon and a small buckler which
-also has the dragons' images on it.  Recruited soon after the Demonesses 
-arrival, it is this soldier's desire simply to survive long enough to 
-retire with whatever reward Elvanshalee deems to give him.  For this 
+also has the dragons' images on it.  Recruited soon after the Demonesses
+arrival, it is this soldier's desire simply to survive long enough to
+retire with whatever reward Elvanshalee deems to give him.  For this
 soldier, life would be reward enough.
 ~
 orc~
@@ -287,9 +290,9 @@ stand stand male 30
 >rand_prog 3~
     emote checks his watch.
     sigh
-    emote shoulders his weapon, breaths in 
+    emote shoulders his weapon, breathes in.
     sigh
-   
+
 ~
 |
 #14014
@@ -314,7 +317,7 @@ Wolf~
 wolf~
 The wolf licks it`s lips at you.
 ~
-An Arctic wolf it looks a little uncomfortable in it's 
+An Arctic wolf it looks a little uncomfortable in it's
 surroundings and looks
 like it's been starved by the
 current regime. Maybe the only food it gets is the
@@ -432,7 +435,7 @@ stand stand either 10
 #14021
 Red Target~
 Red Practice Target~
-A man with a red ribbon round his arm stand here terrified.
+A man with a red ribbon round his arm stands here terrified.
 ~
 An almost naked man with a red ribbon on his arm, his
 hair shaved and his body covered in the scars of many
@@ -482,7 +485,7 @@ stand stand either 100
 >rand_prog 5~
      yawn
 ~
-|    
+|
 #14024
 Flower Picker~
 Flower Picker~
@@ -581,7 +584,7 @@ F 0 0 0
 stand stand male 400
 0 0 medium 0
 >greet_prog 40~
-    say can I have your telephone number?
+    say Can I have your telephone number?
     drool $n
 ~
 |
@@ -608,7 +611,7 @@ Tantro's Butler~
 A butler is here getting some fresh air.
 ~
 A butler complete with penguin suit and a bow tie. He
-is going bald, but has a little grey hair around the edges.
+is going bald but has a little grey hair round the edges.
 ~
 human~
 ABG 0 -200 S
@@ -631,7 +634,7 @@ ABCGHS J -250 S
 0 0 0 0
 F 0 0 S
 sit stand either 30
-0 0 medium 0 
+0 0 medium 0
 #14032
 Demon Soldier~
 Demon Soldier~
@@ -687,8 +690,8 @@ F 0 B Z
 stand stand male 50
 0 0 medium 0
 >greet_prog 25~
-     say  follow the Goddess.
-     say give generously to her church.
+     say  Follow the Goddess.
+     say Give generously to her church.
 ~
 |
 #14035
@@ -786,12 +789,12 @@ stand stand none 0
 #14040
 Orc Captain~
 Orc Captain~
-The Orc Captain stands here checking on his men.
+The orc captain stands here checking on his men.
 ~
-The Orc Captain is very impressive, looking for an orc
-and he seems very sure of himself.  He wears the standard
-livery of Elvenshalee; a leather jerkin with the painting
-of a blue and green dragon on it.
+The orc captain is very impressive looking for an orc
+and he seems very sure of himself, he wears the standard
+livery of Elvenshalee a leather jerkin with the paintings
+of a blue and a green dragon on it.
 ~
 orc~
 AGT 0 -400 S
@@ -806,7 +809,7 @@ Devil's Daughter~
 The Devils Daughter is punishing the civilians here.
 ~
 A beautiful humanoid form armed with a nasty looking
-sword, and dressed in a beautiful red lace dress. She has
+sword, dressed in a beautiful red lace dress. She has
 two small horns growing out the top of her head and a
 lovely set of fangs.
 ~
@@ -845,7 +848,7 @@ Vrock stands here resisting the urge to kill.
 ~
 A funny looking demon about 6 foot high with birds wings
 and beak, it doesn't look as if it likes its position
-in the city.  It looks as if it longs to destroy the city
+in the city, it looks as if it longs to destroy the city
 and the population with it.
 ~
 human~
@@ -1114,7 +1117,7 @@ in the world before starting up his own assassin school.
 It is said that Herbert answers directly to Elvanshalee
 about the progress his students are making.
 Herbert is simply dressed, clothing that allows him to
-mingle easily with the city's population. He is clean-shaven 
+mingle easily with the city's population. He is clean-shaven
 and short white hair which seems to be keep
 immaculately in place.
 ~
@@ -1179,10 +1182,10 @@ stand stand female 0
 >rand_prog 10~
     say My sword? Yes, it was left to me by my father. In his will.
     say I'm glad to say my sister got nothing.
-    say maybe if she had she'd be a better person now. 
+    say Maybe if she had she'd be a better person now.
 ~
 >rand_prog 15~
-     say must find a way into the palace, must kill my sister.
+     say Must find a way into the palace, must kill my sister.
 ~
 |
 #14060
@@ -1206,9 +1209,9 @@ EFHKN 0 B Z
 stand stand either 10
 0 0 medium 0
 #14061
-Merelith Demon~
-Merelith~
-A Merelith patrols the area here.
+Marilith Demon~
+Marilith~
+A Marilith patrols the area here.
 ~
 A large Demon with 5 arms and a snakelike tail, it seems
 indifferent to the population but has been killing without
@@ -1231,7 +1234,7 @@ Blossom The Barbarian~
 Blossom stands here looking lovely.
 ~
 Blossom is a dwarf of a reasonably good alignment and
-yet is a good friend of Elvanshalee's as they had 
+yet is a good friend of Elvanshalee's as they had
 adventured together before Elvanshalee's Alignment had
 gone irrevocably Evil. Her favourite weapon is the stump
 of a tree.
@@ -1287,7 +1290,6 @@ stand stand either 1500
     growl $n
 ~
 |
-
 #14065
 Daisy Thief~
 Daisy~
@@ -1353,12 +1355,12 @@ ACDFHIKNO BMQ CK EIN
 stand stand either 1000
 0 0 medium 0
 >greet_prog 40~
-   say Is it your time? 
+   say Is it your time?
    comf $n
    say death comes to all in time.
 ~
 |
-    
+
 #14068
 Tantro~
 Tantro~
@@ -1440,11 +1442,7 @@ stand stand male 3000
 >rand_prog 1~
     emote is steaming up the windows with Elvanshalee. *whistle*
 ~
->fight_prog 1~
-   emote gates in a Balor
-   MPMLOAD 14080
- ~
-|  
+|
 #14070
 Charinida~
 Charinida~
@@ -1467,11 +1465,11 @@ ACDEFHIJKN ABLQ CHJK NS
 stand stand female 5000
 0 0 medium 0
 >death_prog 15~
-   MPAT 14200 MPCAST 'undo' fire
-   MPAT 14200 MPMLOAD 14081
-   MPAT 14200 MPFORCE Ariana MPOLOAD 14110
-   MPAT 14200 MPFORCE Ariana MPOLOAD 14111
-   MPAT 14200 MPFORCE Ariana wear all
+   MPAT 3032 MPCAST 'undo' fire
+   MPAT 3032 MPMLOAD 14081
+   MPAT 3032 MPFORCE Ariana MPOLOAD 14110
+   MPAT 3032 MPFORCE Ariana MPOLOAD 14111
+   MPAT 3032 MPFORCE Ariana wear all
    MPTRANS Ariana
    MPECHO Sensing her sister's mortal danger, Ariana materializes and attacks!{x
 ~
@@ -1483,7 +1481,7 @@ Jhaniss~
 Jhaniss guards the Inner Sanctum.
 ~
 Jhaniss, the daughter of a pair of Sapphire dragons was
-adopted by Elvansalee after her parents were killed 
+adopted by Elvansalee after her parents were killed
 (by same). Although though she is truly a dragon she
 has spent most of her life in the drow form that
 currently stands before you.
@@ -1501,10 +1499,11 @@ ACDEFHIJKNO ABLQ CHJKO NS
 stand stand female 5000
 0 0 medium 0
 >death_prog 15~
-   MPAT 14200 MPMLOAD 14081
-   MPAT 14200 MPFORCE Ariana MPOLOAD 14110
-   MPAT 14200 MPFORCE Ariana MPOLOAD 14111
-   MPAT 14200 MPFORCE Ariana wear all
+   MPAT 3032 MPCAST 'undo' fire
+   MPAT 3032 MPMLOAD 14081
+   MPAT 3032 MPFORCE Ariana MPOLOAD 14110
+   MPAT 3032 MPFORCE Ariana MPOLOAD 14111
+   MPAT 3032 MPFORCE Ariana wear all
    MPTRANS Ariana
    MPECHO Sensing her sister's mortal danger, Ariana materializes and attacks!{x
 ~
@@ -1537,14 +1536,19 @@ ACDEFHIKNP AHJLQ BCDEFG NYZ
 sit sit female 6000
 0 0 medium 0
 >greet_prog 99~
-   say YOU !??!?!?
-   giggle $n  
+     say 'YOU??!!??!??
+     giggle
 ~
 >fight_prog 2~
-   emote gates in a Balor.
-   MPMload 14080
-~         
-|   
+     emote {Bsummons {Ga {PBalor!{x
+     MPMLOAD 14080
+~
+>death_prog 100~
+    MPECHO {CElvanshalee makes a last ditch attempt to escape!{x
+    MPECHO {PElvanshalee utters the words "{CPortal{P."{x
+    MPOLOAD 14112
+~
+|
 #14073
 
 emerald knight~
@@ -1624,10 +1628,10 @@ Colin Alkarrs~
 Colin Alkarrs~
 A sly looking man watches you carefully
 ~
-Not the sort of man you'd want you're daughter
-to marry, Colin has a perchant for getting into
-trouble, dealing with all sorts of illicit substances
-maybe he has just the thing for you
+Not the sort of man you'd want your daughter
+to marry, Colin has a penchant for getting into
+trouble, dealing with all sorts of illicit substances;
+maybe he has just the thing for you.
 ~
 human~
 ACG U 0 S
@@ -1709,7 +1713,7 @@ stand stand male 1
 #14080
 Balor~
 Balor~
-A Balor growls at you.
+A Balor patrols the area here.
 ~
 A large 10ft tall demon, two large feathered wings on
 it's back, a long vicious tail behind it, and a pair of horns
@@ -1719,247 +1723,319 @@ engulfed by flames though this seems to neither bother
 nor harm it.
 ~
 human~
-ABFGPT BIV -1000 S
-95 19 150d100+1200 100d20+100 20d5+40 pound
--65 -65 -65 -62
-CDEFIK AHLQ CJK N
-stand stand either 0
+AFGT BIV -1000 S
+95 19 130d100+1200 110d20+100 16d6+40 pound
+-55 -55 -55 -52
+CDEFIK HLQ CJK N
+stand stand either 1500
 0 0 large 0
+>greet_prog 25~
+    growl $n
+~
 >fight_prog 1~
-  emote gates in a Balor.
-  MPMLOAD 14080
+    emote {Bsummons {Ga {PBalor{x
+    MPMLOAD 14080
 ~
 |
-
 #14081
-Ariana Demon Dragon~
-Ariana~
-Ariana stands here, seeking vengeance.
+invading orc warrior~
+Invading Orc Warrior~
+This Orc Warrior is invading Thera for his mistress.
 ~
-Ariana is the third and youngest of the three dragons
-adopted by Elvanshalee, if far from the least powerful.
-She usually spends her time away from the throne room,
-but can sense trouble and usually comes to her sisters'
-aid.  She wears a long violet dress, and not much jewelry,
-but a mace is hung on a scabbard across her back.
+Mr C. Fodder here is wearing a simple leather coat and
+armed with a light shieldand a spear.
 ~
-drow~
-ABFGT DFHJV -1000 S
-125 27 1d1+29999 200d200+20 30d15+40 drain
--90 -90 -89 -86
-ACDEFHIJKNO ABLQ CHJKO 0
-stand stand female 10000
+human~
+0 0 -1000 S
+1 1 1d1+1 1d1+1 1d1+1 slash
+0 0 0 0
+0 0 0 0
+stand stand male 1
 0 0 medium 0
+>death_prog 100~
+  if Rand(60)
+     MPOLoad 17052
+     drop token
+     break
+  Endif
+  if rand(90)
+     MPOLOAD 17053
+     drop token
+     break
+   Endif
+  If Rand(95)
+     MPOLOAD 17054
+     drop token
+     break
+   endif
+  If Rand(97)
+     MPOLOAD 17055
+     drop token
+     Break
+   endif
+   if Rand(99)
+     MPOLOAD 17056
+     drop token
+     break
+   endif
+   if Rand(100)
+     MPOLOAD 1217
+    drop token
+    break
+   endif
+~
+|
 
 #14082
-demon invader~
-a Demon Invader~
-A Demon tries to sneak by you.
+invading Minor Demon~
+Invading demon~
+A Minor demon is invading Thera for his mistress.
 ~
-He must be part of Elvanshalee's invasion force!
+Not too happy that his leave was cut short, this demon will
+nevertheless do all he can to conquer Thera for his mistress
 ~
-unique~
-0 P -400 S
-1 0 1d1+9 1d1-1 1d1+1 beating
--1 -1 -1 -1
-0 AB 0 0
-stand stand either 0
-0 0 small 0
+human~
+0 0 -1000 S
+5 1 5d5+5 1d1+1 1d5+5 slash
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium 0
 >death_prog 100~
-if rand(40)
-  MPOLOAD 1201
-  break
-  endif
-if rand(50)
-  MPOLOAD 1202
-  break
-  endif
-if rand(66)
-  MPOLOAD 1203
-  break
-  endif
-if rand(90)
-  MPOLOAD 1205
-  break
-  endif
-if rand(100)
-  MPOLOAD 14112
-  break
-  endif
+  if Rand(40)
+     MPOLoad 17052
+     drop token
+     break
+  Endif
+  if rand(80)
+     MPOLOAD 17053
+     drop token
+     break
+   Endif
+  If Rand(90)
+     MPOLOAD 17054
+     drop token
+     break
+   endif
+  If Rand(95)
+     MPOLOAD 17055
+     drop token
+     Break
+   endif
+   if Rand(98)
+     MPOLOAD 17056
+     drop token
+     break
+   endif
+   if Rand(100)
+   MPOLOAD 1217
+   drop token
+   Break
+   endif
 ~
 |
-
 #14083
-vrock invader~
-a Vrock Invader~
-A Vrock tries to sneak by you.
+Assassin~
+Assassin~
+An Assassin is here, his eye on the mayor of midgaard.
 ~
-He must be part of Elvanshalee's invasion force!
+This character could pass for any normal Theran, except that you saw
+through him, it is really an assasin out to kill the Mayor of midgaard
+or the leader of any other town or city.
 ~
-unique~
-0 P -400 S
-1 0 1d1+9 1d1-1 1d1+1 beating
--1 -1 -1 -1
-0 AB 0 0
-stand stand either 0
-0 0 small 0
+human~
+0 0 -1000 S
+10 2 10d10+5 1d1+1 2d5+5 slash
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium 0
 >death_prog 100~
-if rand(40)
-  MPOLOAD 1201
-  break
-  endif
-if rand(50)
-  MPOLOAD 1202
-  break
-  endif
-if rand(66)
-  MPOLOAD 1203
-  break
-  endif
-if rand(90)
-  MPOLOAD 1205
-  break
-  endif
-if rand(100)
-  MPOLOAD 14112
-  break
-  endif
+  if Rand(30)
+     MPOLoad 17052
+     drop token
+     break
+  Endif
+  if rand(55)
+     MPOLOAD 17053
+     drop token
+     break
+   Endif
+  If Rand(78)
+     MPOLOAD 17054
+     drop token
+     break
+   endif
+  If Rand(90)
+     MPOLOAD 17055
+     drop token
+     Break
+   endif
+   if Rand(97)
+     MPOLOAD 17056
+     drop token
+     break
+   endif
+   if Rand(100)
+    MPOLOAD 1217
+    drop token
+    break
+   endif
 ~
 |
 
 #14084
-rutterkin invader~
-a Rutterkin Invader~
-A Rutterkin tries to sneak by you.
+mercenary~
+Mercenary~
+A Mercenary has been well paid to invade Thera.
 ~
-He must be part of Elvanshalee's invasion force!
+Bought and paid for by Elvanshalee, the mercenary is willing
+to fight to the death to achieve the goals set by his boss
 ~
-unique~
-0 P -400 S
-1 0 1d1+9 1d1-1 1d1+1 beating
--1 -1 -1 -1
-0 AB 0 0
-stand stand either 0
-0 0 small 0
+human~
+0 0 -1000 S
+15 2 15d15+1 1d1+1 3d5+5 slash
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 medium 0
 >death_prog 100~
-if rand(40)
-  MPOLOAD 1201
-  break
-  endif
-if rand(50)
-  MPOLOAD 1202
-  break
-  endif
-if rand(66)
-  MPOLOAD 1203
-  break
-  endif
-if rand(90)
-  MPOLOAD 1205
-  break
-  endif
-if rand(100)
-  MPOLOAD 14112
-  break
-  endif
+  if Rand(25)
+     MPOLoad 17052
+     drop token
+     break
+  Endif
+  if rand(48)
+     MPOLOAD 17053
+     drop token
+     break
+   Endif
+  If Rand(70)
+     MPOLOAD 17054
+     drop token
+     break
+   endif
+  If Rand(90)
+     MPOLOAD 17055
+     drop token
+     Break
+   endif
+   if Rand(96)
+     MPOLOAD 17056
+     drop token
+     break
+   endif
+   if Rand(100)
+    MPOLOAD 1217
+    drop token
+    break
+   endif
 ~
 |
-
 #14085
-nalfenshee invader~
-a Nalfenshee Invader~
-A Nalfenshee tries to sneak past you.
+drow warrior~
+Invading Drow Warrior~
+A Drow Warrior is here invading Thera.
 ~
-He must be part of Elvanshalee's invasion force!
+A drow warrior has come out of hiding to try and exact his revenge on
+the people that sent him into exile.
 ~
-unique~
-0 P -400 S
-1 0 1d1+9 1d1-1 1d1+1 beating
--1 -1 -1 -1
-0 AB 0 0
-stand stand either 0
-0 0 small 0
+human~
+0 0 -1000 S
+20 4 20d20+1 1d1+1 4d5+5 slash
+0 0 0 0
+0 0 0 0
+stand stand male 1
+0 0 medium 0
 >death_prog 100~
-if rand(40)
-  MPOLOAD 1201
-  break
-  endif
-if rand(50)
-  MPOLOAD 1202
-  break
-  endif
-if rand(66)
-  MPOLOAD 1203
-  break
-  endif
-if rand(90)
-  MPOLOAD 1205
-  break
-  endif
-if rand(100)
-  MPOLOAD 14112
-  break
-  endif
+  if Rand(20)
+     MPOLoad 17052
+     drop token
+     break
+  Endif
+  if rand(45)
+     MPOLOAD 17053
+     drop token
+     break
+   Endif
+  If Rand(70)
+     MPOLOAD 17054
+     drop token
+     break
+   endif
+  If Rand(88)
+     MPOLOAD 17055
+     drop token
+     Break
+   endif
+   if Rand(95)
+     MPOLOAD 17056
+     drop token
+     break
+   endif
+   if rand(100)
+     MPOLOAD 1217
+     drop token
+     break
+   endif
 ~
 |
-
-#14086
-demonloader~
-{x~
-{x~
-{x~
-unique~
-BG DFP 0 S
-120 0 1d1+5999 1d1-1 1d1+1 beating
--1 -1 -1 -1
-0 ABCD 0 0
-stand stand either 0
-0 0 small 0
->all_greet_prog 70~
-if rand(25)
-  MPMLOAD 14082
-  MPECHO Someone tries to sneak past you.
-  if rand(30)
-    MPGOTO 14200
-    MPPURGE $i
-    break
-  endif
-  break
-endif
-if rand(33)
-  MPMLOAD 14083
-  MPECHO Someone tries to sneak past you.
-  if rand(30)
-    MPGOTO 14200
-    MPPURGE $i
-    break
-  endif
-  break
-endif
-if rand(50)
-  MPMLOAD 14084
-  MPECHO Someone tries to sneak past you.
-  if rand(30)
-    MPGOTO 14200
-    MPPURGE $i
-    break
-  endif
-  break
-endif
-if rand(100)
-  MPMLOAD 14085
-  MPECHO Someone tries to sneak past you.
-  if rand(30)
-    MPGOTO 14200
-    MPPURGE $i
-    break
-  endif
-  break
-endif
+ #14086
+~
+~
+{x
+~
+questloader.
+~
+human~
+DF DF 0 S
+20 4 20d20+1 1d1+1 4d5+5 slash
+0 0 0 0
+0 0 0 0
+stand stand male 1
+0 0 medium 0
+>greet_prog 100~
+  if Rand(30)
+     MPMLoad 14081
+     MPECHO An Orc Warrior tries to sneak past you.
+     MPGOTO 14731
+     MPPURGE
+     break
+  Endif
+  if rand(55)
+     MPMLOAD 14082
+     MPECHO A Minor Demon tries to sneak past you.
+     MPGOTO 14731
+     MPPURGE
+     break
+   Endif
+  If Rand(70)
+     MPMLOAD 14083
+     MPECHO An Assassin tries to sneak past you.
+     MPGOTO 14731
+     MPPURGE
+     break
+   endif
+  If Rand(85)
+     MPMLOAD 14084
+     MPECHO A Mercenary tries to sneak past you.
+     MPGOTO 14731
+     MPPURGE
+     Break
+   endif
+   if Rand(100)
+     MPMLOAD 14085
+     MPECHO A Drow Warrior tries to creep past you.
+     MPGOTO 14731
+     MPPURGE
+     break
+   endif
 ~
 |
 
 #0
+
+
 
 #OBJECTS
 #14000
@@ -2040,7 +2116,7 @@ Elvanshalee's Longsword~
 Evil really eminates from a sword lying here.-~
 obsidian~
 weapon AEFGSTUY AN
-sword 14 10 slash CEH
+sword 15 9 slash CEH
 91 200 100000 P
 F
 V 0 0 CNQ
@@ -2254,9 +2330,9 @@ armor BFSTU AI
 35 35 35 35 0
 91 30 5000 P
 A
-19 14
+19 12
 A
-18 14
+18 12
 A
 4 3
 E
@@ -2298,9 +2374,9 @@ V 0 0 N
 F
 A 0 0 V
 A
-19 13
+19 15
 A
-18 8
+18 7
 A
 13 75
 A
@@ -2321,7 +2397,7 @@ Sapphire Ring~
 A beautiful golden ring with a sapphire stone sits here.~
 gold~
 armor EGQU AB
-40 40 40 40 0
+35 35 35 35 0
 91 5 15000 P
 F
 V 0 0 N
@@ -2330,7 +2406,7 @@ A 0 0 U
 A
 19 17
 A
-18 11
+18 10
 A
 12 75
 A
@@ -2529,7 +2605,7 @@ Cat O' Nine Tails~
 A nasty looking whip lies here.~
 kid leather~
 weapon BE AN
-whip 10 8 slash CH
+whip 10 10 slash CH
 80 10 8000 P
 A
 19 8
@@ -2648,8 +2724,8 @@ sword katana~
 Her Father's Katana~
 A beautiful looking blade glows here.~
 ebony~
-weapon AGY AN
-sword 8 9 cleave CEH
+weapon AGPY AN
+sword 8 12 cleave CEH
 60 110 6000 P
 A
 19 6
@@ -2868,16 +2944,18 @@ Pole Of Death~
 A large pole with metallic ends sits here.~
 wood~
 weapon SU AN
-polearm 10 9 pound G
+polearm 10 10 pound G
 75 120 750 P
+F
+A 0 0 V
 A
-19 6
+19 8
 A
-18 6
+18 8
 A
 14 -10
 A
-13 40
+13 70
 E
 pole~
 A large stick with two metallic ends it looks like it
@@ -2898,9 +2976,9 @@ A
 A
 12 75
 A
-19 9
+19 10
 A
-18 9
+18 10
 E
 bracelet~
 A small bracelet made lovingly from Emerald.
@@ -2918,9 +2996,9 @@ I 0 0 L
 F
 A 0 0 V
 A
-19 17
+19 15
 A
-18 14
+18 15
 A
 13 120
 A
@@ -2960,7 +3038,7 @@ trash S AF
 E
 pouch~
 A small piece of material just big enough to cover the
-previous owners embaressment.
+previous owners embarassment.
 ~
 E
 posing~
@@ -3004,19 +3082,19 @@ Rotting Cloak~
 A cloak seems to be growing fungus here.~
 cloth~
 armor SU AK
-25 25 25 35 0
+35 35 35 45 0
 90 100 9000 B
 A
-19 7
+19 10
 A
-18 9
+18 12
 A
-13 40
+13 80
 A
-12 60
+12 120
 E
 cloak~
-A large piece of black material which looks like it'll 
+A large piece of black material which looks like it'll
 fall apart if you cough wearing it, it really can't
 protect you that much from the weather or the weapons
 of others.
@@ -3271,7 +3349,7 @@ Bodyguard~
 A small pill lies here.~
 unknown~
 pill 0 AO
-15 'armor' 'shield' 'stone skin' ''
+50 'armor' 'shield' 'stone skin' ''
 10 1 330 P
 #14091
 holy pill~
@@ -3289,6 +3367,14 @@ unknown~
 pill 0 AO
 20 'create spring' '' '' ''
 10 1 230 P
+#14093
+romantic~
+Romantic~
+A small pill lies here.~
+unknown~
+pill 0 AO
+60 'create rose' '' '' ''
+5 1 55 P
 #14094
 adventurer~
 Adventurer~
@@ -3296,7 +3382,7 @@ A small pill lies here.~
 unknown~
 pill 0 AO
 30 'fly' 'giant strength' 'haste' 'bless'
-25 1 500 P
+15 1 500 P
 #14095
 trans~
 Trans~
@@ -3318,7 +3404,7 @@ corpse~
 Corpse~
 The {gr{y{go{yt{yt{gi{yn{gg{x corpse of shopkeeper is lying here.~
 unknown~
-npc_corpse C A
+npc_corpse 0 A
 0 0 0 0 0
 0 100 0 P
 #14098
@@ -3326,7 +3412,7 @@ crack~
 Crack~
 ~
 unknown~
-container 0 0
+container C 0
 10 0 0 1 0
 0 0 0 P
 #14099
@@ -3448,12 +3534,12 @@ A
 13 75
 
 #14112
-enchant token~
-{Yan {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Ytoken{x~
-A {Ytoken {xlies here.~
-nothing~
-treasure 0 A
-0 0 0 0 0
+portal to somewhere~
+portal to somewhere~
+A mystical portal sits here.~
+unknown~
+portal 0 0
+1 A A 13100 0
 0 0 0 P
 
 #0
@@ -3487,8 +3573,9 @@ There is a small area to the south through a gaudy looking archway
 ~
 ~
 0 -1 14001
-M 10 H 250
+H 250 M 10
 S
+
 #14001
 {GInner Sanctum{x~
 You have entered the inner sanctum of Elvanshalee`s
@@ -3519,6 +3606,7 @@ The way south leads to the outer sanctum.
 ~
 0 0 14002
 S
+
 #14002
 {GOuter Sanctum{x~
 The outer sanctum on the path to Elvanshalee`s throne
@@ -3594,7 +3682,7 @@ hungry and want to eat, there is often a guest of two
 here as there are no specific times set for the meals.
 A large table stretches from one side of the room to
 the other, with chairs positioned all around it, except
-at the head. That place in preserved for the demoness
+at the head. That place is reserved for the demoness
 herself and she never joins her guest for meals. The
 table is laid with the best cutlery and exquisite looking
 candle holders. The diners are watched over by portraits
@@ -4350,7 +4438,7 @@ The market continues west.
 0 0 14033
 S
 #14033
-{GNorthen Market - West{x~
+{GNorthern Market - West{x~
 You are standing in the middle of the market as
 Shoppers and Merchants do business all around you.
 There were shops to the north but these were put out
@@ -5368,7 +5456,7 @@ To the south is the main arena.
 ~
 ~
 1 0 14080
-M 120 H 120
+H 120 M 120
 S
 #14080
 {GThe Arena - North Wall{x~
@@ -5463,8 +5551,8 @@ S
 You are in a large arena, the sand is stained with the
 blood of many previous victims and it gets changed
 daily. There is a small plaque resting lightly on the
-ground, it reads 'In honourable memory of the slave 
-Derykk Panning, who defeated 4 opponents before he met 
+ground, it reads 'In honourable memory of the slave
+Derykk Panning, who defeated 4 opponents before he met
 his match.'
 ~
 0 0 1
@@ -5713,10 +5801,10 @@ S
 {GThe Arena - West Wall{x~
 You are in a large arena, the sand is stained with the
 blood of many previous victims and it gets changed
-daily. A banner seems to have been draped lightly 
+daily. A banner seems to have been draped lightly
 over the wall to advertise something or other, it
-isn't easy to make out what as the banner became 
-a favourite target to the sword slashes of the slaves 
+isn't easy to make out what as the banner became
+a favourite target to the sword slashes of the slaves
 who disliked it's appearence and decided they
 had nothing to lose.
 ~
@@ -6795,8 +6883,8 @@ in the city for the demons.
 ~
 0 0 1
 D0
-The main gates of the city's orc barrack lie to the ;north. Where the demons
-train has alway been a mystery, ;many have specualated they don't bother.
+The main gates of the city's orc barrack lie to the north. Where the demons
+train has alway been a mystery, many have specualated they don't bother.
 ~
 ~
 0 0 14146
@@ -7833,12 +7921,6 @@ D0
 ~
 0 0 14195
 S
-#14200
-Blank Room~
-This is a blank room, nothing more.
-~
-0 0 0
-S
 #0
 
 
@@ -7880,7 +7962,6 @@ M 14071 spec_cast_mage
 M 14072 spec_cast_mage
 M 14073 spec_cast_cleric
 M 14074 spec_cast_cleric
-M 14080 spec_cast_undead
 S
 
 
@@ -8038,7 +8119,8 @@ M 0 14003 10 14022 1
 M 0 14061 3 14022 1
 E 0 14025 7 16
 M 0 14064 2 14023 1
-E 0 14024 5 16
+E 0 14001 5 16
+E 0 14024 5 19
 M 0 14029 15 14023 1
 M 0 14001 30 14023 2
 M 0 14028 3 14023 1
@@ -8106,6 +8188,7 @@ M 0 14076 1 14038 1
 G 0 14090 0
 G 0 14091 0
 G 0 14092 0
+G 0 14093 0
 G 0 14094 0
 G 0 14095 0
 G 0 14096 0
@@ -8149,6 +8232,7 @@ E 0 14028 30 16
 M 0 14006 12 14058 2
 M 0 14064 2 14059 1
 E 0 14001 5 16
+E 0 14024 5 19
 M 0 14032 15 14060 1
 E 0 14028 30 16
 M 0 14041 3 14060 1
@@ -8351,12 +8435,9 @@ E 0 14026 100 16
 E 0 14027 100 11
 M 0 14023 20 14166 4
 E 0 14027 100 11
-E 0 14026 100 16
 M 0 14023 20 14167 4
-E 0 14026 100 16
 E 0 14027 100 11
 M 0 14023 20 14168 4
-E 0 14026 100 16
 E 0 14027 100 11
 M 0 14040 2 14169 2
 M 0 14000 12 14172 1

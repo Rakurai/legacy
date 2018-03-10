@@ -2907,6 +2907,7 @@ Room *get_random_room(Character *ch)
 				    || room->area().name == "Limbo"
 				    || room->area().name == "Eilyndrae"     /* hack to make eilyndrae and torayna cri unquestable */
 				    || room->area().name == "Torayna Cri"
+				    || room->area().name == "The Abyss"
 				    || room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
 				    || (IS_NPC(ch) && room->flags().has(ROOM_LAW) && ch->act_flags.has(ACT_AGGRESSIVE))
 				    || room->sector_type() == Sector::arena)

@@ -1,0 +1,4759 @@
+#AREA
+Abyss.are~
+The Abyss~
+{H{{90 91} {YL{Re{cv{Ye{Rr{ce{Yt {TThe Abyss~
+13100 13199
+
+#MOBILES
+#13100
+Dretch demon~
+Dretch~
+This Dretch is looking for a victim
+~
+Having spent a long time as a manes and only recently released from the fear
+of being another demons afternoon snack, The dretch far from being relieved
+is looking for victims to kill while it hunt manes to eat obvious to the feelings
+of it's recent kin.
+~
+unique~
+CFG DFJPQc -1000 S
+96 19 1d1+20999 1d1+9999 23d2+24 sting
+-100 -100 -100 -100
+BCDEFHIKN ABJQ 0 0
+stand stand either 0
+0 0 medium 0
+>fight_prog 10~
+     MPCAST heal
+~
+|
+#13101
+Manes Demon~
+Manes~
+This Manes doesn't look too much of a threat.
+~
+While the food of the gods is Nectar and Ambrosia
+The food of demons is the manes.
+A manes was once a humanoid who has lived an evil life and has been condemned
+to live his or her after life in the abyss. The manes is a small white blind
+worm which has the head of the man or woman it was in life. A manes has an
+excellant sense of smell which more than makes up for it's lack of sight.
+Where the spirit of a manes goes once it has been eaten is anybody's guess
+and some of them long to be eaten for an end to their suffering.
+All demons begin there lives as Manes except for a very few which gain their
+powers in other ways
+~
+unique~
+CFG 0 -1000 S
+92 18 1d1+19999 0d0+0 20d2+20 digestion
+-100 -100 -100 -100
+DEFIK ABJQ 0 0
+stand stand either 0
+0 0 small 0
+#13102
+Rutterkin Demon~
+Rutterkin~
+The Rutterkin stands here looking busy.
+~
+One of the workers of the Abyss, the rutterkin doesn't look too powerful
+to any real degree.
+The rutterkin looks like a small humanoid with boils growing out of it's skin.
+~
+unique~
+CFGT DFHJ -1000 S
+100 20 1d1+19999 1d1+9999 25d2+25 scratch
+-100 -100 -100 -100
+BCDEFHIKN ABJQ 0 0
+stand stand either 0
+0 0 medium 0
+>fight_prog 10~
+      MPCAST heal
+~
+|
+#13103
+Alu-Fiend Demon~
+Alu-Fiend~
+An Alu-fiend patrols this area.
+~
+The Alu-fiend is the unholy offspring of a humanoid and a demon (probably
+a Succubus or an Incubus). She loves her demonic heritage and considers
+herself truely one of their number although they most likely think otherwise.
+The Alu-fiend has a great pair of Gossamyr wings growing out of her back which
+can't possibly be powerful enough to carry her weight.
+~
+unique~
+CFG DFHJTZ -1000 S
+122 24 1d1+23999 1d1+10999 30d2+31 punch
+-122 -122 -122 -122
+ABCDEFHIKN ABJQ 0 0
+stand stand female 0
+0 0 medium 0
+>Fight_prog 20~
+     MPCAST heal
+~
+|
+#13104
+Bar-Lgura Demon~
+Bar-Lgura~
+A Bar-lgura gazes threateningly at your intervention.
+~
+A nasty looking creature.
+~
+unique~
+G DFHJ -1000 S
+120 24 1d1+23999 1d0+10999 30d2+30 pound
+-120 -120 -120 -120
+ABCDEFHIKNO ABJQ 0 0
+stand stand either 0
+0 0 medium 0
+>Fight_prog 20~
+   MPCAST heal
+~
+|
+#13105
+Cambion Demon~
+Cambion~
+A Cambion looks totally fed up.
+~
+The male offspring of an unholy union between a human and a demon
+(prolly a Succubus or an Incubus) His reptile like skin shows he is
+different from most humans and the demons likewise aren't exactly
+friendly to him, but demons aren't exactly friendly to anyone so at
+least they have an excuse to treat him the way they do.
+~
+unique~
+CFGT DFHJZ -1000 S
+120 24 1d1+23999 1d1+11999 24d2+24 beating
+-120 -120 -120 -120
+ABCDEFHIKN ABJQ 0 0
+stand stand male 0
+0 0 medium 0
+>Fight_prog 20~
+    MPCAST heal
+~
+|
+#13106
+Succubus Demon~
+Succubus~
+An Succubus stares seductively back at you.
+~
+Possibly the most beautiful woman you've ever seen, the Succubus is
+ never one to pass up an opportunity for another conquest and she
+doesn't care too much about what gender you are either.
+Though she has been known to react quite negatively towards those
+that refuse her.
+~
+unique~
+G DFHJZ -1000 S
+125 25 1d1+24999 1d1+11999 31d2+31 punch
+-125 -125 -125 -125
+ABCDEFHIKNO ABJQ 0 0
+stand stand female 0
+0 0 medium 0
+>Fight_Prog 25~
+   MPCAST heal
+~
+|
+#13107
+Incubus Demon~
+Incubus~
+An Incubus stares seductively back at you.
+~
+Most possibly the most handsome man you've ever seen, the Incubus is never
+one to pass up an opportunity for another conquest and he doesn't care too
+much about what gender you are either.
+Though he has been known to react quite negatively towards those thats refuse
+him.
+~
+unique~
+G DFHJZ -1000 S
+125 25 1d1+24999 1d1+11999 31d2+31 punch
+-125 -125 -125 -125
+ABCDEFHIKNO ABJQ 0 0
+stand stand male 0
+0 0 medium 0
+>fight_prog 25~
+    MPCAST heal
+~
+|
+#13108
+Chasme Demon~
+Chasme~
+A Chasme looks your way as you enter
+~
+Something akin to a large bug, complete with the gossamyr wings of such a
+creature only in relation to the size of the rest of it's body.
+It's about 5 feet long.
+~
+unique~
+CFGT DFHJTZ -1000 S
+130 26 1d1+29999 1d1+13999 32d2+33 sting
+-130 -130 -130 -130
+ABCDEFHIKNO ABJQ 0 0
+stand stand either 0
+0 0 medium 0
+>fight_prog 30~
+     MPCAST heal
+~
+|
+#13109
+Babau Demon~
+Babau~
+The Babau cowers as you enter.
+~
+At first glance this creature seems quite timid a light fur covering it's
+seeming mammalian body make it look a bit like a hedgehog on it's hind feet
+(but only a bit) When it sees who you are, it wastes no time in attacking.
+~
+unique~
+CFG DFHJ -1000 S
+132 26 1d1+19999 1d1+14999 33d2+33 pound
+-132 -132 -132 -132
+ABCDEFHIKNO ABJQ 0 0
+stand stand either 0
+0 0 medium 0
+>fight_prog 30~
+      MPCAST heal
+~
+|
+#13110
+Nabassu Demon~
+Nabassu~
+The Nabassu looks angry at being disturbed.
+~
+The Nabassu glances viciously at you as you disturb it, it growls at you with
+it's long canines drooling as it does so.
+~
+unique~
+CFGT DFHJZ -1000 S
+135 27 1d1+29999 1d1+15999 34d2+34 chill
+-135 -135 -135 -135
+ABCDEFHIKNO ABJQ 0 0
+stand stand either 0
+0 0 medium 0
+>Fight_Prog 30~
+   MPCAST heal
+~
+|
+#13111
+Balor Demon~
+Balor~
+A Balor stands here, looking for sport.
+~
+The Balor is a large demon, 12 foot tall and it's very body burns without consuming
+itself, a living fire. The Balor looks nasty with a large set of fangs and a very
+nasty whip in it's hands.
+Sprouting out of it's back are a pair of feathered wings. It snarls as it attack.
+~
+unique~
+CFGT DFHJTVZabe -1000 S
+160 32 1d1+28999 1d1+29999 40d2+40 flbite
+-160 -160 -160 -160
+ABCDEFHIJKN ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 large 0
+>Fight_prog 1~
+    emote utters the words "Summon Balor"
+    MPMLOAD 13111
+~
+>Fight_prog 1~
+    emote utters the words "Summon Marilith"
+    MPMLOAD 13114
+~
+>Fight_prog 1~
+    emote utters the words "Summon Nelfeshnee"
+    MPMLOAD 13116
+~
+>Fight_prog 1~
+    emote utters the words "Summon Glabrezu"
+    MPMLOAD  13113
+~
+>Fight_prog 1~
+    emote utters the words "Summon Hezrou"
+    MPMLOAD 13112
+~
+>Fight_prog 1~
+    emote utters the words "Summon Vrock"
+    MPMLOAD 13115
+~
+>Fight_prog 70~
+    MPCAST heal
+~
+>Fight_prog 10~
+    MPCAST 'Divine heal'
+~
+>greet_prog 100~
+   if ispc($n)
+    MPCAST wrath %n
+   else
+endif
+~
+|
+#13112
+Hezrou Demon~
+Hezrou~
+A vicious looking Hezrou waits for you here.
+~
+The Hezrou isn't the sort of demon you'd want to take home to meet your parents.
+Indeed I don't wanna give you nightmares so I'll go no further than to tell you,
+it's nasty.
+~
+unique~
+CFG DFHJVZab -1000 S
+142 28 1d1+29999 1d1+29999 36d2+36 slap
+-142 -142 -142 -142
+ABCDEFHIKNO ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 medium 0
+>Fight_prog 1~
+    emote utters the words "Summon Hezrou"
+    MPMLOAD 13112
+~
+>Fight_Prog 1~
+    emote utters the words "Summon Vrock"
+    MPMLOAD 13115
+~
+>Fight_Prog 40~
+    MPCAST heal
+~
+|
+#13113
+Glabrezu Demon~
+Glabrezu~
+A Glabrezu stands here.
+~
+A Huge reptilian like demon with a doglike head, The Glabrezu has four arms two
+of which seem to end in natural pincers with the other two carry it's weapons.
+Although apparently very well armed it doesn't look as if it wants to attack, but
+rather as if it would like to parley.
+~
+unique~
+CFG DFHJVZabe -1000 S
+145 29 1d1+29999 1d1+29999 36d2+36 sting
+-145 -145 -145 -145
+ABCDEFHIJKNO ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 medium 0
+>Fight_Prog 1~
+    emote utters the words "Summon Glavbrezu"
+    MPMLOAD 13113
+~
+>Fight_prog 1~
+    emote utters the words "Summon Hezrou"
+    MPMLOAD 13112
+~
+>Fight_prog 1~
+    emote utters the words "Summon Vrock"
+    MPMLOAD 13115
+~
+>Fight_prog 45~
+    MPCAST heal
+~
+>Fight_Prog 5~
+    MPCAST "divine heal"
+~
+|
+
+#13114
+Marilith Demon~
+Marilith~
+A Marilith is practising it's sword stroke's here
+~
+A nasty looking creature, looks like it was made out of the body of a worm on
+which somene has place a humanoid body and then given it an array of five arms.
+The Marilith is usually armed with a very nasty looking three-handed sword.
+~
+unique~
+CFGT DFHJVZabe -1000 S
+152 30 1d1+27499 1d1+29999 37d2+40 thwack
+-100 -100 -100 -100
+ABCDEFHIJKN ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 large 0
+>fight_prog 1~
+   emote utters the words "Summon Marlilith"
+   MPMLOAD 13114
+~
+>fight_Prog 1~
+   emote utters the words "Summon Nelfeshnee"
+   MPMLOAD 13116
+~
+>fight_Prog 1~
+   emote utters the words "Summon Glabrezu"
+   MPMLOAD 13113
+~
+>Fight_prog 1~
+   emote utters the words "Summon Hezrou"
+   MPMLOAD 13112
+~
+>Fight_prog 1~
+   emote utters the words "Summon Vrock"
+   MPMLOAD 13115
+~
+>Fight_Prog 70~
+   MPCAST Heal
+~
+>Fight_prog 8~
+   MPCAST 'divine heal'
+~
+>greet_prog 100~
+   if ispc($n)
+   MPCAST wrath %n
+   else
+  endif
+~
+|
+#13115
+Vrock Demon~
+Vrock~
+A Vrock is here looking for some sport
+~
+A vicious looking bird like demon standing 8 feet tall, The beast has nasty black
+eyes that you have trouble looking away from as they seem to almost mesmerise you.
+~
+song bird~
+CFG DFHJVZa -1000 S
+140 28 1d1+28999 1d1+29999 35d2+35 peck
+-140 -140 -140 -140
+ABCDEIKN ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 large 0
+>fight_prog 1~
+    emote utters the words "Summon Vrock"
+    MPMLOAD 13115
+~
+>fight_prog 50~
+     MPCAST heal
+~
+|
+#13116
+Nalfeshnee Demon~
+Nalfeshnee~
+A Nalfeshnee doesn't look too happy at your invasion
+~
+This evil looking creature is definitely not something you'd want to meet on
+a dark night.
+~
+unique~
+CFGT DFHJVZab -1000 S
+148 30 1d1+29999 1d1+29999 36d2+36 shbite
+-148 -148 -148 -148
+ABCDEFHIJKNO ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 medium 0
+>Fight_prog 1~
+    emote utters the words "Summon Nelfeshnee"
+    MPMLOAD 13116
+~
+>fight_prog 1~
+    emote utters the words "Summon Glabrezu"
+    MPMLOAD 13113
+~
+>fight_prog 1~
+    emote utters the words "Summon Hezrou"
+    MPMLOAD 13112
+~
+>fight_prog 1~
+    emote utters the words "Summon Vrock"
+    MPMLOAD 13115
+~
+>fight_prog 60~
+    MPCAST heal
+~
+>fight_prog 3~
+    MPCAST 'divine heal'
+~
+|
+#13117
+
+Molydeus Demon~
+Molydeus~
+A Molydeus is here, searching for a secret entrance.
+~
+The Molydeus looks like a rather nasty combination of three animals, a Goat,
+a Dragon and a lion. It has a head of each of these creatures and it's body
+appears to be little more than a messy amalgam of the three.
+The Molydeus is not something you really want to mess with. Fortunately it seems
+to be preoccupied with something.
+~
+unique~
+CG HJVZabe -1000 0
+200 40 1d1+30999 1d1+29999 50d4+50 drain
+-200 -200 -200 -200
+ABCDEFHIJKN ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 large 0
+>Fight_prog 100~
+    MPCAST heal
+~
+>fight_prog 25~
+    MPCAST 'divine heal'
+~
+>fight_prog 5~
+    MPCAST 'force shield'
+~
+|
+#13118
+Nightmare~
+Nightmare~
+A Nightmare is standing is this stall looking at you for food.
+~
+A large black horse which seems to be breathing flame as it watches you. The
+steam that emanates from it's feet threaten to catch fire to the straw that
+somehow feels out of place in the abyss
+This Nightmare has fairly obviously been tamed and is probably used as a steed
+for the owners of the nearby palace.
+~
+unique~
+BG TVZ -1000 S
+125 25 1d1+27999 1d1+29999 31d2+31 charge
+-125 -125 -125 -125
+ADFI AB 0 0
+stand stand either 0
+0 0 medium 0
+#13119
+Chaszmyr dragon grandson emerald~
+Chaszmyr~
+Chaszmyr, Elvanshalee's grandson in here.
+~
+A large emerald dragon gazes back at you growling. The grandson of
+Elvanashalee hasn't had too happy a childhood as his mother Charinida
+brought him up in the drow way, where the males have virtually no value
+and where all his immediate relatives are female. Chaszmyr likes to take
+every opportunity to take out his anger on lesser lifeforms such as yourself.
+~
+unique~
+CFGS DFHJPQTVZabe -1000 S
+170 34 1d1+28999 1d1+29999 50d2+50 claw
+-170 -170 -170 -170
+ABCDEFHIJKN ABHIJKLMQ CEDFGO N
+stand stand male 0
+0 0 large 0
+>fight_prog 2~
+    emote utters the words "Summon Balor"
+    MPMLOAD 13111
+~
+>Fight_prog 80~
+    MPCAST heal
+~
+>Fight_prog 20~
+   MPCAST 'divine heal'
+~
+>Fight_prog 3~
+   MPCAST 'force shield'
+~
+>greet_prog 100~
+   if ispc($n)
+   MPCAST wrath %n
+   else
+ endif
+~
+|
+#13120
+Faeryl dragon Sapphire granddaughter~
+Faeryl~
+Faeryl, Elvanshalee's grandaughter is here.
+~
+A large Sapphire dragon stands before you growling menacingly. The daughter of
+Jhaniss and some unknown male. The Grandaughter of Elvanshalee. Faeryl doesn't
+look like someone you really want to mess with.
+~
+unique~
+CFGS DFHJPQTVZab -1000 S
+185 37 1d1+29999 1d1+29999 60d2+60 claw
+-185 -185 -185 -185
+ABCDEFHIJKN ABHIJKLMQ CDEFGO N
+stand stand female 0
+0 0 large 0
+>fight_prog 2~
+    emote utters the words "Summon Balor"
+    MPMLOAD 13111
+~
+>Fight_prog 80~
+    MPCAST heal
+~
+>Fight_prog 20~
+    MPCAST 'divine heal'
+~
+>Fight_prog 3~
+   MPCAST 'force shield'
+~
+>greet_prog 100~
+    if ispc($n)
+    MPCAST wrath %n
+    else
+endif
+~
+|
+#13121
+Filfaere dragon granddaughter emerald~
+Filfaere~
+Filfaere, Elvanshalee's granddaughter is here
+~
+A large proud looking Emerald dragon gazes malevolently back at you through
+red eyes, showing you her sharp blood stained teeth. The daughter of
+Charinida, she was named after Elvanshalee's sister as a sort of salute to
+her bravery in trying to overthrow the tyrant. Elvanshalee's sister, Filfaere,
+has no knowledge that Charinida's daughter was named after her.
+~
+dragon~
+CFGR DFHJPQVZabe -1000 S
+175 35 1d1+29999 1d1+29999 55d2+55 claw
+-175 -175 -175 -175
+ABDEIJKN ABHIMLQ CEDFGO N
+stand stand female 0
+0 0 large 0
+>fight_prog 2~
+    emote utters the words "Summon Balor"
+    MPMLOAD 13111
+~
+>Fight_prog 80~
+    MPCAST heal
+~
+>Fight_prog 20~
+    MPCAST 'divine heal'
+~
+>Fight_prog 3~
+    MPCAST 'force shield'
+~
+>greet_prog 100~
+    if ispc($n)
+    MPCAST wrath %n
+      else
+ endif
+~
+|
+#13122
+Nightmare~
+Nightmare~
+A Nightmare wanders loose here.
+~
+A large black horse like creature, flame appears from it's nostrils
+everytime is breathes and steam is given off by the hooves of this
+beast with every step it take. There is a stong feeling of evil eminating
+from the creature.
+~
+dog~
+G DFHJPTVZab -1000 S
+110 22 1d1+24999 0d0+0 27d2+27 charge
+-110 -110 -110 -110
+ADFI AB 0 0
+stand stand either 0
+0 0 medium 0
+#13123
+Hell Hound~
+Hell Hound~
+A Hell Hound seems to be hunting for prey.
+~
+Little more than a large black dog, with flame coming from it's nostrils with
+every breath. The Hell Hound looks hungry.
+~
+fido~
+FG DFHJPTZ -1000 S
+100 20 1d1+19999 0d0+0 25d2+25 claw
+-100 -100 -100 -100
+ACDHIN AB 0 0
+stand stand either 0
+0 0 medium 0
+#13124
+Slaym Nightmare~
+Slaym~
+Slaym, Elvanshalee's loyal Nightmare stands here waiting.
+~
+The nightmare Slaym has been well taught and ignores you as he await the
+arrival of his mistress in order to take her home.
+Slayme is a large black nightmare, a horse like creature which breathes
+fire and often has flame from it's hooves.
+~
+unique~
+BG DFHJPTVZab -1000 S
+125 22 1d1+22999 0d0+0 27d2+27 chomp
+-110 -110 -110 -110
+ABCDEFHIKN ABHIJKLMQ CEDFGO N
+stand stand male 0
+0 0 large 0
+#13125
+Angel Prisoner~
+An Angel~
+An Angel is locked to the wall of this cell.
+~
+A Humanoid creature with large white feathered wings stands here locked to the
+walls of the prison hoping someone might come and save it. On it's forehead
+someone has cut a simple message which hasn't healed because of the angels
+restricted enviroment. The message is unclear but says something about fools and
+angels.
+~
+unique~
+BG DFHJTZ 1000 S
+100 20 1d1+19999 0d0+0 25d2+25 divine
+-100 -100 -100 -100
+ADEFHIK AB 0 0
+stand stand male 0
+0 0 medium 0
+>Death_prog 100~
+    MPGOTO 13158
+   MPMLOAD 13131
+   MPFORCE Elvanshalee MPOLOAD 13151
+   MPFORCE Elvanshalee MPOLOAD 13152
+   MPFORCE Elvanshalee MPOLOAD 13153
+   MPFORCE Elvanshalee wear all
+   MPFORCE Elvanshalee MPGOTO 13178
+   MPGOTO 13178
+   MPECHO {PThe Angel dies,the sacrifice restores Elvanshalee from dead.{x
+~
+|
+#13126
+Ostler Demon~
+Ostler~
+A Demonic Ostler looks up as you enter.
+~
+The Ostler is dressed as if he were a human counterpart. This is probably more
+to do with Elvanshalee's preferences that with nature (or unnature) He is armed
+with a pitchfork he has been using to move the straw about with.
+~
+unique~
+BCFG DFHJ -1000 S
+95 19 1d1+19999 10d1+990 25d2+25 scratch
+-100 -100 -100 -100
+ABCDEFHIJKN AB 0 0
+stand stand either 0
+0 0 medium 0
+>fight_prog 10~
+   MPCAST heal
+~
+|
+#13127
+Demon Guard~
+Demon~
+A small red creature seems to be guarding this spot.
+~
+This creature doesn't seem to belong to any of the main demon types, it does look
+quite vicious though, could it have been bred specially for the job of guarding
+the palace?
+~
+unique~
+CFGT DFHJPQ -1000 S
+105 21 1d1+19999 0d0+0 26d2+26 magic
+-105 -105 -105 -105
+ABCDEFHIKN AB 0 0
+stand stand either 0
+0 0 medium 0
+#13128
+Taslin~
+Taslin~
+Taslin, Elvanshalee's most trusted manservant is here
+~
+Taken from his mother at a very young age, Taslin was brought here, as many
+of Elvanshalee's victims, to be tortured and eventually killed, but he showed
+an amazing will to survive and impressed, Elvanshalee made him her butler and
+valet instead (rumours would say lover too) Taslin looks human and he also
+look like a butler in a black and white tuxedo and a small white cravat.
+~
+human~
+CFGT HVZ -1000 S
+110 22 1d1+22999 1d1+14999 27d2+27 punch
+-110 -110 -110 -110
+ABCDEFHIKN AB 0 0
+stand stand male 0
+0 0 medium 0
+>fight_prog 30~
+     MPCAST heal
+~
+|
+#13129
+Jeraxle Drow~
+Jeraxle~
+Jeraxle, Elvanshalee's father look at you pitifully
+~
+A male drow in nothing more than rags. He looks very old perhaps even kept
+alive artifically and seems to be in pain, as if he can feel every one of
+the years of his age.
+Death could be a blessed release for this man.
+His cell was purposely placed directly opposite that of his beloved wife, and
+designed such that no matter which way he looked he would see her. But he
+cannot touch her for leaving the cell he's in would result in all the years
+of his life catching up with him.
+~
+unique~
+BCGT HVZab -1000 S
+120 24 1d1+22999 0d0+0 30d2+30 punch
+-100 -100 -100 -100
+ACDEFHIKN AB 0 0
+stand stand male 0
+0 0 medium 0
+#13130
+Belarbreena drow~
+Belarbreena~
+Belarbreena, Elvanshalee's mother looks a bit of a mess.
+~
+A female drow in nothing more than rags. She looks very old perhaps even kept
+alive artifically and seems to be in pain, as if she can feel every one of
+the years of her age.
+Death could be a blessed release for this woman.
+Her cell was purposely placed directly opposite that of her beloved husband, and
+designed such that no matter which way she looked she would see him. But she
+cannot touch him for leaving the cell she's in would result in all the years
+of her life catching up with her.
+~
+unique~
+BCGT HVZab -1000 S
+120 24 1d1+22999 0d0+0 30d2+30 punch
+-100 -100 -100 -100
+ACDEFHIKN AB 0 0
+stand stand female 0
+0 0 medium 0
+#13131
+Elvanshalee~
+Elvanshalee~
+Elvanshalee is here.
+~
+Elvanshalee stands before you, only 4 and a half foot tall, yet her demeanor
+makes her seem a lot bigger. She is very drowlike in appearance and as naked
+as the day she was born.
+~
+unique~
+FGT DFHJPQVZab -1000 S
+250 50 1d1+29999 1d1+29999 200d2+100 chop
+-200 -200 -200 -200
+ABCDEFHIJKNO ABHIJKLMQ CDEFGO N
+stand stand female 0
+0 0 medium 0
+>rand_prog 100~
+  if name($n) / mob
+    MPOLOAD 13151
+    MPOLOAD 13152
+    MPOLOAD 13153
+    wear confidence
+    wear claws
+    wield blade
+    MPGOTO 13178
+    endif
+~
+>fight_prog 4~
+    emote utters the words "Summon Balor"
+    MPMLOAD 13111
+~
+>Fight_prog 100~
+    MPCAST heal
+~
+>Fight_prog  30~
+      MPCAST 'divine heal'
+~
+>Fight_prog 10~
+    MPCAST 'force shield'
+~
+|
+#13132
+Lolth spider queen demoness~
+Lolth~
+Lolth the spider queen looks hungrily at you.
+~
+A huge creature like a black widow spider with the face of a female drow
+stands manacingly before you.
+~
+unique~
+BFGT DFHJZ -1000 S
+190 38 1d1+29999 1d1+29999 50d2+50 sting
+-200 -200 -200 -200
+ABCDEFHIJKN ABHIJKLMQ CDEFGO N
+stand stand female 0
+0 0 medium 0
+>fight_prog 4~
+    emote utters the words "Summon Spider"
+    MPMLOAD 13133
+~
+>fight_prog 100~
+    MPCAST heal
+~
+>fight_prog 20~
+    MPCAST 'divine heal'
+~
+>fight_prog 4~
+    MPCAST 'force shield'
+~
+|
+#13133
+Huge spider demon~
+Huge Spider~
+A Huge spider demon stands before you.
+~
+A huge spider demon looks just like that, A giant spider with a slightly demonic
+feel about it.
+~
+unique~
+BFGT DFHJZ -1000 S
+120 24 1d1+25999 0d0+0 30d2+30 charge
+-120 -120 -120 -120
+ABCDEFHIJK ABHIJKLMQ CDEFGO N
+stand stand either 0
+0 0 medium 0
+
+#0
+
+
+#OBJECTS
+#13100
+Pitchfork~
+Pitchfork~
+A pitchfork stick in the ground here.~
+Brimstone~
+weapon T AN
+polearm 10 12 stab FGH
+92 15 0 P
+A
+18 10
+A
+19 10
+#13101
+Rack portrait torture~
+portal~
+~
+~
+portal 0 0
+10000 0 A 13171 0
+0 5 0 P
+#13102
+portal sofa painting~
+portal~
+~
+~
+portal 0 0
+10000 0 A 13182 0
+0 5 0 P
+#13103
+portal icon lolth statue~
+portal~
+~
+~
+portal 0 0
+10000 0 A 13187 0
+0 5 0 P
+#13104
+spirit jar~
+Spirit Jar~
+A small jar sits on a shelf.~
+~
+container 0 AO
+20 AC 0 20 100
+1 1 0 P
+#13105
+Tortured spirit~
+A Tortured Spirit~
+This spirit appears to be in pain.~
+spirit~
+armor ST AQ
+30 30 30 27 0
+90 0 0 P
+A
+12 45
+A
+13 20
+#13106
+chainmail shirt~
+Chainmail Shirt~
+A Chainmail shirt has been discarded here.~
+steel~
+armor 0 AD
+30 30 30 30 0
+92 15 0 P
+A
+5 3
+A
+2 3
+A
+18 10
+A
+19 10
+F
+A 0 0 A
+#13107
+Chainmail Skirt~
+Chainmail Skirt~
+A skirt of chain lies here.~
+steel~
+armor 0 AF
+30 30 30 30 0
+92 15 0 P
+A
+3 3
+A
+1 3
+A
+18 10
+A
+12 10
+#13108
+curved sword~
+A Curved Sword~
+A long curved blade lies neglected on the ground.~
+steel~
+weapon 0 AN
+sword 8 10 slash 0
+92 10 0 P
+A
+18 10
+A
+19 8
+A
+13 100
+#13109
+Plate Armour torso~
+Plate Armour~
+A torso plate lies here.~
+Steel~
+armor 0 AD
+30 30 30 30 0
+92 20 0 P
+A
+3 3
+A
+4 3
+A
+18 10
+A
+19 10
+#13110
+Plate Leggings~
+Plate Leggings~
+Someone left their plate mail leggings here.~
+steel~
+armor 0 AF
+30 30 30 30 0
+92 20 0 P
+A
+1 3
+A
+2 3
+A
+19 10
+A
+18 10
+#13111
+silk negligee~
+Silk Negligee~
+A flimsy silk night garment has been carefully folded here.~
+silk~
+armor 0 AD
+31 31 31 31 0
+93 2 0 P
+A
+12 100
+A
+13 100
+A
+18 10
+A
+19 10
+#13112
+silk cravat~
+Cravat~
+A Silk Cravat has been left here.~
+silk~
+armor 0 AC
+31 31 31 31 0
+93 2 0 P
+A
+19 10
+A
+18 10
+A
+13 60
+A
+12 140
+#13113
+Silk Jacket~
+A Silk Jacket~
+A Silk Jacket is resting here.~
+silk~
+armor 0 AD
+31 31 31 31 0
+93 10 0 P
+A
+12 60
+A
+13 140
+A
+19 10
+A
+18 10
+#13114
+whip cat o nine tails~
+Cat o' Nine tails~
+A nasty looking whip is alight here.~
+kid leather~
+weapon 0 AN
+whip 10 18 flame ECG
+95 3 0 P
+A
+18 50
+A
+19 42
+A
+12 120
+A
+13 120
+A
+26 4
+#13115
+short bladed dagger~
+Short-Blade Dagger~
+A fair sized dagger with a short blade lies here.~
+~
+weapon 0 AN
+dagger 10 16 pierce H
+95 5 0 P
+A
+19 50
+A
+18 42
+#13116
+three handed sword~
+Three Handed Sword~
+A very long sword with an extended hilt lies here. ~
+steel~
+weapon 0 AN
+sword 15 16 cleave AFH
+95 25 0 P
+A
+18 60
+A
+19 60
+A
+2 -12
+
+#13117
+Axehead polearm poleaxe~
+Poleaxe~
+A nasty looking polearm with a very dangerous looking axehead rests here.~
+obsidian~
+weapon 0 AN
+polearm 10 16 slash AF
+95 12 0 P
+A
+18 15
+A
+19 15
+A
+4 3
+#13118
+nightmare horseshoes~
+Horseshoes of the Nightmare~
+A small pile of horseshoes lie on the ground here.~
+steel~
+armor 0 AG
+30 30 30 30 0
+92 10 0 P
+A
+18 5
+A
+19 7
+A
+13 35
+A
+12 10
+A
+14 300
+F
+A 0 0 V
+#13119
+Horseshoes Nightmare Slaym~
+Slaym's Shoes~
+A pile of horseshoes lies piled on the ground here.~
+steel~
+armor 0 AG
+32 32 32 32 0
+95 5 0 P
+A
+18 12
+A
+19 15
+A
+13 50
+A
+12 100
+A
+14 500
+F
+A 0 0 V
+#13120
+saddlebags nightmare slayms~
+Saddlebags ~
+Someone left a saddlebag here.~
+leather~
+container 0 AD
+10000 AC 0 10 100
+93 5 0 P
+A
+17 -30
+A
+18 12
+A
+19 12
+#13124
+spear~
+spear~
+A nice spear sits here.~
+wood~
+weapon 0 AN
+polearm 9 15 pierce BF
+93 12 0 P
+A
+18 20
+A
+19 20
+#13125
+demon shield~
+Demon Shield~
+A Shield with a demon image on it's face.~
+steel~
+armor 0 AJ
+31 31 31 31 0
+93 15 0 P
+A
+17 10
+A
+18 7
+A
+19 7
+A
+5 4
+#13126
+Mace of Ruin~
+Mace of Ruin~
+A large nasty looking mace sits here.~
+steel~
+weapon 0 AN
+mace 10 16 bash EG
+95 10 0 P
+A
+18 42
+A
+19 50
+A
+12 100
+A
+13 100
+#13127
+Light of Darkness~
+Light of darkness~
+A light source rests here.~
+nothingness~
+light 0 A
+0 0 -1 0 0
+95 7 0 P
+A
+17 -20
+A
+12 240
+A
+13 240
+A
+18 35
+A
+19 35
+A
+19 0
+F
+A 0 0 Z
+#13128
+rutterkin's rut~
+A Rutterkin's Rut~
+A weird blob is lying on the floor at your feet.~
+nothingness~
+armor 0 AO
+35 35 35 17 0
+93 12 0 P
+A
+1 3
+A
+17 -10
+#13129
+shovel~
+A Demonic Shovel~
+A large shovel glows with an evil light.~
+nothingness~
+weapon E AN
+exotic 10 8 slash D
+93 23 0 P
+A
+5 3
+A
+18 12
+A
+19 10
+#13130
+pickaxe~
+A Demonic Pickaxe~
+A large pickaxe glows with an evil light.~
+nothingness~
+weapon E AN
+axe 10 8 pierce D
+93 23 0 P
+A
+5 3
+A
+18 12
+A
+19 10
+#13131
+manes net~
+A Manes Net~
+A Long net is lying discarded here.~
+intestines~
+weapon 0 AN
+whip 5 12 smash E
+91 35 0 P
+E
+manes net~
+This net has been strung together from the intestines of some creature
+or other and looks specifically designed for the catching of Manes.
+~
+A
+18 10
+A
+19 10
+#13132
+medallion despair golden~
+The Medallion Of Despair~
+A small golden medallion has been left on the ground.~
+gold~
+armor A AC
+35 35 35 32 0
+94 5 0 P
+A
+3 3
+A
+17 -15
+A
+18 20
+A
+19 20
+#13133
+wings Chasme~
+Wings of A Chasme~
+A pair of delicate gossamyr wings are lying here.~
+gossamyr~
+armor B AK
+35 35 35 35 0
+94 10 0 P
+A
+1 4
+A
+12 70
+A
+13 70
+A
+18 20
+A
+19 20
+F
+A 0 0 T
+#13134
+babau's claw~
+Babau's Claw~
+A nasty looking claw is lying on the floor.~
+bone~
+weapon 0 AN
+dagger 10 9 scratch B
+95 5 0 P
+A
+18 40
+A
+19 35
+A
+13 30
+A
+12 10
+#13135
+babau fur coat light~
+A Light Fur Coat~
+A lightly fur covered skin of an animal rests here.~
+fur~
+armor 0 AD
+35 35 35 28 0
+95 30 0 P
+A
+17 -10
+A
+2 3
+A
+19 10
+A
+18 18
+#13136
+demon teeth~
+Demon's Teeth~
+A large set of vicious looking teeth are resting here.~
+teeth~
+weapon 0 AN
+exotic 10 10 chomp DE
+95 5 0 P
+A
+19 32
+A
+18 32
+A
+12 150
+A
+13 150
+#13137
+lightning sword superior~
+Superior Lightning Sword~
+A superior looking Balor's Lightning sword is resting here.~
+Demonic metal~
+weapon ABEJU AN
+sword 12 16 slash CFG
+95 150 0 P
+A
+19 50
+A
+18 55
+A
+12 200
+A
+1 2
+F
+A 0 0 H
+#13138
+balor's flaming wings feathered~
+Burning Wings~
+A set of wings are lying on the ground burning.~
+feathers~
+armor ABEJU AK
+35 35 35 40 0
+95 52 0 P
+A
+19 30
+A
+18 30
+A
+26 2
+A
+12 120
+A
+13 120
+F
+A 0 0 T
+#13139
+balor's tail~
+Balor's Tail~
+The tail of a demon is lying in the dust, burning.~
+demon~
+armor ABEJU AF
+35 35 35 35 0
+95 20 0 P
+A
+19 24
+A
+18 24
+A
+12 120
+A
+13 120
+A
+2 2
+#13140
+Hezrou's Anger~
+Hezrou's Anger~
+A feeling of great wrath is in this area.~
+nothingness~
+armor EJ AQ
+35 35 35 32 0
+95 0 0 P
+A
+18 23
+A
+19 23
+A
+20 -10
+#13141
+demonic pincers~
+A Demon's Pincers~
+Some pincers have been dumped to the ground here.~
+demonskin~
+weapon E AN
+exotic 9 13 grep CE
+95 25 0 P
+A
+18 18
+A
+19 18
+A
+12 50
+A
+13 50
+A
+4 3
+#13142
+Vrock beak~
+Vrock's Beak~
+The large beak some vile bird thing is lying in the dirt.~
+demonskin~
+armor E AE
+35 35 35 35 0
+95 30 0 P
+A
+18 18
+A
+19 15
+A
+12 75
+A
+20 -10
+#13143
+Vrock's feathers~
+Vrock's feathers~
+A large feathered gown lies in the dirt.~
+feather~
+armor E AD
+35 35 35 35 0
+95 50 0 P
+A
+18 18
+A
+19 18
+A
+17 -10
+#13144
+wings vrock~
+The Wings Of A Vrock~
+A set of large demonic wings are lying on the ground.~
+feather~
+armor E AK
+35 35 35 35 0
+95 35 0 P
+A
+18 18
+A
+19 18
+F
+A 0 0 T
+#13145
+ring oblivion~
+Ring of Oblivion~
+A small shadow of a ring lies on the ground.~
+nothingness~
+armor E AB
+35 35 35 35 0
+95 2 0 P
+A
+18 32
+A
+19 32
+F
+A 0 0 Z
+#13146
+small ring dragon~
+Small Dragon Ring~
+A small cheap looking ring rests here.~
+gold~
+armor E AB
+35 35 35 35 0
+95 2 20000 P
+A
+18 35
+A
+19 35
+A
+17 -15
+A
+20 -15
+F
+A 0 0 He
+#13147
+beautiful necklace emerald~
+Beautiful Emerald Necklace~
+A lovely looking emerald necklace is lying here.~
+emerald~
+armor 0 AC
+35 35 35 35 0
+95 15 0 P
+A
+18 35
+A
+19 35
+A
+17 -10
+A
+12 50
+A
+13 50
+F
+A 0 0 V
+#13148
+angels halo loop~
+An Angels Halo~
+A loop of goodness lies here.~
+goodness~
+armor K AE
+35 35 35 33 0
+95 0 0 P
+A
+18 15
+A
+19 15
+F
+A 0 0 V
+#13149
+broken wings angel~
+The Broken Wings Of An Angel~
+A set of broken white wings rest here.~
+feathers~
+armor K AK
+35 35 35 25 0
+95 50 0 P
+A
+18 15
+A
+19 15
+F
+A 0 0 T
+#13150
+spider queen's crown gold~
+Spider Queen's Crown~
+A small gold crown lies here.~
+gold~
+armor EJU AE
+35 35 35 35 0
+95 20 0 P
+A
+18 35
+A
+19 35
+A
+12 250
+A
+13 250
+A
+20 -10
+A
+17 -15
+A
+26 3
+F
+A 0 0 Ze
+#13151
+bagh nagh spikes tigers claws~
+Tiger Claws~
+Some metal Tiger Claws are lying on the floor here.~
+steel~
+armor EJ AH
+40 40 40 40 0
+95 20 0 P
+A
+18 45
+A
+19 50
+A
+20 -5
+A
+17 -5
+F
+A 0 0 Oa
+#13152
+confidence~
+Strong Sense Of Confidence.~
+A Strong Feeling Of Confidence is lying here.~
+gold~
+armor EJ AQ
+35 35 35 35 0
+95 0 0 P
+A
+18 30
+A
+19 30
+A
+12 100
+A
+13 100
+F
+A 0 0 Y
+#13153
+blade of a demon~
+Blade Of A Demon~
+A thin murderous looking blade is resting here.~
+steel~
+weapon EJU AN
+dagger 10 16 shock DGE
+95 15 0 P
+A
+18 40
+A
+19 35
+A
+12 150
+A
+13 50
+#13154
+load stone~
+load stone~
+load stone~
+anything~
+armor 0 AO
+0 0 0 0 0
+1 20 0 P
+
+
+
+
+
+#0
+
+
+#ROOMS
+#13100
+The Abyss~
+You appear to be in some sort of cave, the walls are rocky and are tinted with
+a red which keeps moving as if reflecting the light from a fire, though no
+fire is to be seen.
+The only way on is to the south.
+
+{cBe warned, The abyss is no place for a novice to play in. Most mobs you'll
+find here are above level 100 and most of those will be aggro after all you're
+just about to invade their home.{x
+~
+0 AQD 0
+D2
+~
+~
+0 -1 13103
+S
+#13101
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13121
+D1
+~
+~
+0 -1 13102
+D2
+~
+~
+0 -1 13106
+D3
+~
+~
+0 -1 13105
+D4
+~
+~
+0 -1 13111
+D5
+~
+~
+0 -1 13116
+S
+#13102
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13122
+D1
+~
+~
+0 -1 13103
+D2
+~
+~
+0 -1 13107
+D3
+~
+~
+0 -1 13101
+D4
+~
+~
+0 -1 13112
+D5
+~
+~
+0 -1 13117
+S
+#13103
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13126
+D1
+~
+~
+0 -1 13104
+D2
+~
+~
+0 -1 13108
+D3
+~
+~
+0 -1 13102
+D4
+~
+~
+0 -1 13113
+D5
+~
+~
+0 -1 13118
+S
+#13104
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13124
+D1
+~
+~
+0 -1 13105
+D2
+~
+~
+0 -1 13109
+D3
+~
+~
+0 -1 13103
+D4
+~
+~
+0 -1 13114
+D5
+~
+~
+0 -1 13119
+S
+#13105
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13125
+D1
+~
+~
+0 -1 13101
+D2
+~
+~
+0 -1 13110
+D3
+~
+~
+0 -1 13104
+D4
+~
+~
+0 -1 13115
+D5
+~
+~
+0 -1 13120
+S
+#13106
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13101
+D1
+~
+~
+0 -1 13107
+D2
+~
+~
+0 -1 13111
+D3
+~
+~
+0 -1 13110
+D4
+~
+~
+0 -1 13116
+D5
+~
+~
+0 -1 13121
+S
+#13107
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13102
+D1
+~
+~
+0 -1 13108
+D2
+~
+~
+0 -1 13112
+D3
+~
+~
+0 -1 13106
+D4
+~
+~
+0 -1 13117
+D5
+~
+~
+0 -1 13122
+S
+#13108
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13103
+D1
+~
+~
+0 -1 13109
+D2
+~
+~
+0 -1 13113
+D3
+~
+~
+0 -1 13107
+D4
+~
+~
+0 -1 13118
+D5
+~
+~
+0 -1 13123
+S
+#13109
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13104
+D1
+~
+~
+0 -1 13110
+D2
+~
+~
+0 -1 13114
+D3
+~
+~
+0 -1 13108
+D4
+~
+~
+0 -1 13119
+D5
+~
+~
+0 -1 13124
+S
+#13110
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13105
+D1
+~
+~
+0 -1 13106
+D2
+~
+~
+0 -1 13115
+D3
+~
+~
+0 -1 13109
+D4
+~
+~
+0 -1 13120
+D5
+~
+~
+0 -1 13125
+S
+#13111
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13106
+D1
+~
+~
+0 -1 13112
+D2
+~
+~
+0 -1 13116
+D3
+~
+~
+0 -1 13115
+D4
+~
+~
+0 -1 13121
+D5
+~
+~
+0 -1 13101
+S
+#13112
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13107
+D1
+~
+~
+0 -1 13113
+D2
+~
+~
+0 -1 13117
+D3
+~
+~
+0 -1 13111
+D4
+~
+~
+0 -1 13122
+D5
+~
+~
+0 -1 13102
+S
+#13113
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13108
+D1
+~
+~
+0 -1 13114
+D2
+~
+~
+0 -1 13118
+D3
+~
+~
+0 -1 13112
+D4
+~
+~
+0 -1 13123
+D5
+~
+~
+0 -1 13103
+S
+#13114
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13109
+D1
+~
+~
+0 -1 13115
+D2
+~
+~
+0 -1 13119
+D3
+~
+~
+0 -1 13113
+D4
+~
+~
+0 -1 13124
+D5
+~
+~
+0 -1 13104
+S
+#13115
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13110
+D1
+~
+~
+0 -1 13111
+D2
+~
+~
+0 -1 13120
+D3
+~
+~
+0 -1 13114
+D4
+~
+~
+0 -1 13125
+D5
+~
+~
+0 -1 13105
+S
+#13116
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13111
+D1
+~
+~
+0 -1 13117
+D2
+~
+~
+0 -1 13121
+D3
+~
+~
+0 -1 13120
+D4
+~
+~
+0 -1 13101
+D5
+~
+~
+0 -1 13106
+S
+#13117
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13112
+D1
+~
+~
+0 -1 13118
+D2
+~
+~
+0 -1 13122
+D3
+~
+~
+0 -1 13116
+D4
+~
+~
+0 -1 13102
+D5
+~
+~
+0 -1 13107
+S
+#13118
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13113
+D1
+~
+~
+0 -1 13119
+D2
+~
+~
+0 -1 13123
+D3
+~
+~
+0 -1 13117
+D4
+~
+~
+0 -1 13103
+D5
+~
+~
+0 -1 13108
+S
+#13119
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13114
+D1
+~
+~
+0 -1 13120
+D2
+~
+~
+0 -1 13124
+D3
+~
+~
+0 -1 13118
+D4
+~
+~
+0 -1 13104
+D5
+~
+~
+0 -1 13109
+S
+#13120
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13115
+D1
+~
+~
+0 -1 13116
+D2
+~
+~
+0 -1 13125
+D3
+~
+~
+0 -1 13119
+D4
+~
+~
+0 -1 13105
+D5
+~
+~
+0 -1 13110
+S
+#13121
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13116
+D1
+~
+~
+0 -1 13122
+D2
+~
+~
+0 -1 13101
+D3
+~
+~
+0 -1 13125
+D4
+~
+~
+0 -1 13106
+D5
+~
+~
+0 -1 13111
+S
+#13122
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13117
+D1
+~
+~
+0 -1 13123
+D2
+~
+~
+0 -1 13102
+D3
+~
+~
+0 -1 13121
+D4
+~
+~
+0 -1 13107
+D5
+~
+~
+0 -1 13112
+S
+#13123
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13118
+D1
+~
+~
+0 -1 13124
+D2
+~
+~
+0 -1 13103
+D3
+~
+~
+0 -1 13122
+D4
+~
+~
+0 -1 13108
+D5
+~
+~
+0 -1 13113
+S
+#13124
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13119
+D1
+~
+~
+0 -1 13125
+D2
+~
+~
+0 -1 13104
+D3
+~
+~
+0 -1 13123
+D4
+~
+~
+0 -1 13109
+D5
+~
+~
+0 -1 13114
+S
+#13125
+The Eternal Abyss~
+The air is stuffy, the roof and floor are both rocky and tinted with a red that
+seems alive as if emulating the reflecting of a nearby fire, though no fire can
+be seen.
+The Abyss is infinite in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13120
+D1
+~
+~
+0 -1 13121
+D2
+~
+~
+0 -1 13105
+D3
+~
+~
+0 -1 13124
+D4
+~
+~
+0 -1 13110
+D5
+~
+~
+0 -1 13115
+S
+#13126
+Elvanshalee's Abyss~
+As you entered this room from the south you could feel a sort of magical field
+give way to allow you passage.
+This area obviously has some special significance, and yet it looks basically
+the same as the area you've just come from with the abyss heading forever in
+all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13127
+D1
+~
+~
+0 -1 13127
+D2
+~
+~
+0 -1 13127
+D3
+~
+~
+0 -1 13127
+D4
+~
+~
+0 -1 13127
+D5
+~
+~
+0 -1 13127
+S
+#13127
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13152
+D1
+~
+~
+0 -1 13128
+D2
+~
+~
+0 -1 13132
+D3
+~
+~
+0 -1 13131
+D4
+~
+~
+0 -1 13137
+D5
+~
+~
+0 -1 13142
+S
+#13128
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13148
+D1
+~
+~
+0 -1 13129
+D2
+~
+~
+0 -1 13133
+D3
+~
+~
+0 -1 13127
+D4
+~
+~
+0 -1 13138
+D5
+~
+~
+0 -1 13143
+S
+#13129
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13149
+D1
+~
+~
+0 -1 13130
+D2
+~
+~
+0 -1 13134
+D3
+~
+~
+0 -1 13128
+D4
+~
+~
+0 -1 13139
+D5
+~
+~
+0 -1 13144
+S
+#13130
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13150
+D1
+~
+~
+0 -1 13131
+D2
+~
+~
+0 -1 13135
+D3
+~
+~
+0 -1 13129
+D4
+~
+~
+0 -1 13140
+D5
+~
+~
+0 -1 13145
+S
+#13131
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13151
+D1
+~
+~
+0 -1 13127
+D2
+~
+~
+0 -1 13136
+D3
+~
+~
+0 -1 13130
+D4
+~
+~
+0 -1 13141
+D5
+~
+~
+0 -1 13146
+S
+#13132
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13127
+D1
+~
+~
+0 -1 13133
+D2
+~
+~
+0 -1 13137
+D3
+~
+~
+0 -1 13136
+D4
+~
+~
+0 -1 13142
+D5
+~
+~
+0 -1 13147
+S
+#13133
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13128
+D1
+~
+~
+0 -1 13134
+D2
+~
+~
+0 -1 13138
+D3
+~
+~
+0 -1 13132
+D4
+~
+~
+0 -1 13143
+D5
+~
+~
+0 -1 13148
+S
+#13134
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13129
+D1
+~
+~
+0 -1 13135
+D2
+~
+~
+0 -1 13139
+D3
+~
+~
+0 -1 13133
+D4
+~
+~
+0 -1 13144
+D5
+~
+~
+0 -1 13149
+S
+#13135
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13130
+D1
+~
+~
+0 -1 13136
+D2
+~
+~
+0 -1 13140
+D3
+~
+~
+0 -1 13134
+D4
+~
+~
+0 -1 13145
+D5
+~
+~
+0 -1 13150
+S
+#13136
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13131
+D1
+~
+~
+0 -1 13132
+D2
+~
+~
+0 -1 13141
+D3
+~
+~
+0 -1 13135
+D4
+~
+~
+0 -1 13146
+D5
+~
+~
+0 -1 13151
+S
+#13137
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13132
+D1
+~
+~
+0 -1 13138
+D2
+~
+~
+0 -1 13142
+D3
+~
+~
+0 -1 13141
+D4
+~
+~
+0 -1 13147
+D5
+~
+~
+0 -1 13127
+S
+#13138
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13133
+D1
+~
+~
+0 -1 13139
+D2
+~
+~
+0 -1 13143
+D3
+~
+~
+0 -1 13137
+D4
+~
+~
+0 -1 13148
+D5
+~
+~
+0 -1 13128
+S
+#13139
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13134
+D1
+~
+~
+0 -1 13140
+D2
+~
+~
+0 -1 13144
+D3
+~
+~
+0 -1 13138
+D4
+~
+~
+0 -1 13149
+D5
+~
+~
+0 -1 13129
+S
+#13140
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13135
+D1
+~
+~
+0 -1 13141
+D2
+~
+~
+0 -1 13145
+D3
+~
+~
+0 -1 13139
+D4
+~
+~
+0 -1 13150
+D5
+~
+~
+0 -1 13130
+S
+#13141
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13136
+D1
+~
+~
+0 -1 13137
+D2
+~
+~
+0 -1 13146
+D3
+~
+~
+0 -1 13140
+D4
+~
+~
+0 -1 13151
+D5
+~
+~
+0 -1 13131
+S
+#13142
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13137
+D1
+~
+~
+0 -1 13143
+D2
+~
+~
+0 -1 13147
+D3
+~
+~
+0 -1 13146
+D4
+~
+~
+0 -1 13127
+D5
+~
+~
+0 -1 13132
+S
+#13143
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13138
+D1
+~
+~
+0 -1 13144
+D2
+~
+~
+0 -1 13148
+D3
+~
+~
+0 -1 13142
+D4
+~
+~
+0 -1 13128
+D5
+~
+~
+0 -1 13133
+S
+#13144
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13139
+D1
+~
+~
+0 -1 13145
+D2
+~
+~
+0 -1 13149
+D3
+~
+~
+0 -1 13143
+D4
+~
+~
+0 -1 13129
+D5
+~
+~
+0 -1 13134
+S
+#13145
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13140
+D1
+~
+~
+0 -1 13146
+D2
+~
+~
+0 -1 13150
+D3
+~
+~
+0 -1 13144
+D4
+~
+~
+0 -1 13130
+D5
+~
+~
+0 -1 13135
+S
+#13146
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13141
+D1
+~
+~
+0 -1 13142
+D2
+~
+~
+0 -1 13151
+D3
+~
+~
+0 -1 13145
+D4
+~
+~
+0 -1 13131
+D5
+~
+~
+0 -1 13136
+S
+#13147
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13142
+D1
+~
+~
+0 -1 13148
+D2
+~
+~
+0 -1 13127
+D3
+~
+~
+0 -1 13151
+D4
+~
+~
+0 -1 13132
+D5
+~
+~
+0 -1 13137
+S
+#13148
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13143
+D1
+~
+~
+0 -1 13149
+D2
+~
+~
+0 -1 13128
+D3
+~
+~
+0 -1 13147
+D4
+~
+~
+0 -1 13133
+D5
+~
+~
+0 -1 13138
+S
+#13149
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13144
+D1
+~
+~
+0 -1 13150
+D2
+~
+~
+0 -1 13129
+D3
+~
+~
+0 -1 13148
+D4
+~
+~
+0 -1 13134
+D5
+~
+~
+0 -1 13139
+S
+#13150
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13145
+D1
+~
+~
+0 -1 13151
+D2
+~
+~
+0 -1 13130
+D3
+~
+~
+0 -1 13149
+D4
+~
+~
+0 -1 13135
+D5
+~
+~
+0 -1 13140
+S
+#13151
+Elvanshalee's Territory~
+Nothing really that special about this part of the landscape.
+It has the same rocky walls that the rest of the Abyss has complete
+with the glare of red light flickering off them like some living fire.
+The Abyss seems to continue endlessly in all directions.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13146
+D1
+~
+~
+0 -1 13147
+D2
+~
+~
+0 -1 13131
+D3
+~
+~
+0 -1 13150
+D4
+~
+~
+0 -1 13136
+D5
+~
+~
+0 -1 13141
+S
+#13152
+Palace Courtyard~
+You seem to have stumbled into the courtyard of a  large palace.
+There is no gate behind you for you to have come through.
+This place seems a little out of place in the Abyss. Though the palace
+itself is in darkness and still has the flickering of a flame like
+colour on it surface. The rock like structure of the realm is definitely
+missing, someone has worked hard to make this a real home from home.
+The is a small building to the east, the palace lies just to the north
+while the courtyard itself disappears off the the west.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13159
+D1
+~
+~
+1 -1 13153
+D3
+~
+~
+0 -1 13157
+S
+#13153
+The Stables~
+You have entered the stables, though made of a wood like substance the
+building still flickers both inside and out with the flame like colour
+that seems so prevalent here. The floor is covered with straw which some
+how isn't catching light. There are three stalls, one of which (to the north)
+is empty the others (east and south) seem to have horselike occupants.
+~
+0 AQD 0
+D0
+~
+~
+1 -1 13154
+D1
+~
+~
+1 -1 13155
+D2
+~
+~
+1 -1 13156
+D3
+~
+~
+1 -1 13152
+S
+#13154
+Slaym's Stall~
+You have entered the empty stall, straw covers the ground and is itself
+covered in scorch marks. There is a small bucket which contains the remains
+of something that might've once been a rodent. It's not the sort of thing most
+people would normally consider feeding to a horse.
+~
+0 AQD 0
+D2
+~
+~
+1 -1 13153
+S
+#13155
+A Stall~
+The first thing you notice when you enter this stall is the unwelcome
+look it's occupant gives you and the glare of it's sharp teeth as they
+lunge at you from the darkness.
+If you have time to glance around you'll see the stall has a simple
+layer of straw covering the floor like bedding, which has been charred
+by contact with the occupants feet. There is also an empty feeder bag
+on a nail in the stall.
+~
+0 AQD 0
+D3
+~
+~
+1 -1 13153
+S
+#13156
+A Stall~
+The first thing you notice when you enter this stall is the unwelcome look
+it's occupant gives you and the glare of it's sharp teeth as they lunge at
+you from the darkness.
+If you have time to glance around you'll see the stall has a simple layer
+of straw covering the floor like bedding, which has been charred by contact
+with the occupants feet. There is also an empty feeder bag on a nail in
+the stall.
+~
+0 AQD 0
+D0
+~
+~
+1 -1 13153
+S
+#13157
+Palace Courtyard~
+The courtyard doesn't look a lot like it belong in the abyss, although the area
+still flickers as if it's on fire. The courtyard continues to the north if you
+wish to follow it round.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13157
+D1
+~
+~
+0 -1 13152
+S
+#13158
+load room ~
+The courtyard doesn't look a lot like it belong in the abyss, although the area
+still flickers as if it's on fire. The courtyard continues to the north if you
+wish to follow it round, or you can head back to the south.
+~
+0 ACQD 0
+D0
+~
+~
+0 -1 13158
+D2
+~
+~
+0 -1 13158
+S
+#13159
+The Palace Doors~
+A large set of apparently oaken doors dwarf you.
+They are each held by 5 very black looking hinges  each one as big as a man,
+indeed the door is so high you cannot see the top of it. This however seems
+to be the only way in, there are no windows evident though there is a vast
+courtyard that goes all around the palace there could be another way in.
+Why don't you try the door?
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13160
+D2
+~
+~
+0 -1 13152
+S
+#13160
+Hallway~
+The hallway to the palace is quite unremarkable, there is a set of stairs
+going up, a small door to the east, a corridor to the north and a trapdoor
+in the middle of the floor. The room is decorated with many pictures and old
+suits of rusty looking armour this could be a castle anywhere in the realms.
+Even that irritated red flickering which was threatening to give you a headache
+is nowhere to be seen in here.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13161
+D1
+~
+~
+1 -1 13163
+D4
+~
+~
+0 -1 13167
+D5
+~
+~
+1 -1 13169
+S
+#13161
+Corridor~
+You are in a north-south corridor which seems somehow very familiar, This part
+reminds you exactly of Elvanshalee's palace in the Holy City.  At least one of
+her daughters isn't sitting here waiting to greet you.
+~
+0 ACQD 0
+D0
+~
+~
+0 -1 13162
+D2
+~
+~
+0 -1 13160
+S
+#13162
+Temple~
+Well, Where the throne room is, here is a temple.  A large icon of Elvanshalee
+herself dominates the  the center of the room but there is also the repeated
+image of a large spider with a woman's head, it seems old habits die hard as the
+inscriptions tell you this is the demoness Elvanshalee followed before she was
+herself elevated to that postion.
+~
+0 AQD 0
+D2
+~
+~
+0 -1 13161
+S
+#13163
+The Library~
+A vast array of book line every shelf in this place, Elvanshalee must own a
+copy of every book under the sun, it would take you several lifetimes to check
+every shelf just in case you should find something of interest. The Library
+continues to the north, south and east.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13164
+D1
+~
+~
+0 -1 13164
+D2
+~
+~
+0 -1 13164
+D3
+~
+~
+1 -1 13160
+S
+#13164
+The Library~
+A vast array of book line every shelf in this place, Elvanshalee must own a
+copy of every book under the sun, it would take you several lifetimes to check
+every shelf just in case you should find something of interest. The Library
+continues to the north, south east and west.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13164
+D1
+~
+~
+0 -1 13165
+D2
+~
+~
+0 -1 13164
+D3
+~
+~
+0 -1 13164
+S
+#13165
+The Library ~
+A vast array of book line every shelf in this place, Elvanshalee must own a
+copy of every book under the sun, it would take you several lifetimes to
+check every shelf just in case you should find something of interest. The
+Library continues to the north, south east and west.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13164
+D1
+~
+~
+0 -1 13164
+D2
+~
+~
+0 -1 13164
+D3
+~
+~
+0 -1 13166
+S
+#13166
+The Library ~
+A vast array of book line every shelf in this place, Elvanshalee must
+own a copy of every book under the sun, it would take you several lifetimes
+to check every shelf just in case you should find something of interest.
+The Library continues to the north, south and west.
+There is also a set of metal spiral stair leading up to more book on a sort
+of overhanging balcony above.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13164
+D1
+~
+~
+0 -1 13165
+D2
+~
+~
+0 -1 13164
+D3
+~
+~
+0 -1 13164
+D4
+~
+~
+0 -1 13181
+S
+#13167
+Top Landing~
+It was a arduous climb up more stairs than you remember seeing.
+But now you're here at the top There is a corridor that leads into
+the distance north, but you can see no sign of any rooms leading
+off of the corridor.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13168
+D5
+~
+~
+0 -1 13160
+S
+#13168
+Corridor~
+The walls of the corridor are covered liberally with works of art
+and suits of armor. They might have some serious value and yet they
+appear to be magically sealed to the walls.
+The corridor continues to run north and south.
+There is no sign of any room leading off of this
+corridor.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13168
+D2
+~
+~
+0 -1 13167
+S
+#13169
+Stairwell~
+You begin the descent of a long dark stairwell.
+Although you're in the abyss and the abyss is infinite, there is
+nevertheless a strong sense of heading underground as you go down.
+The stairwell is made out of stone.
+~
+0 AQD 0
+D4
+~
+~
+1 -1 13160
+D5
+~
+~
+0 -1 13170
+S
+#13170
+Stairwell~
+You continue to descend the stairwell.
+Although you're in the abyss and the abyss is infinite, there
+is nevertheless a strong sense of heading underground as you go down.
+The stairwell is made out of stone.
+~
+0 AQD 0
+D4
+~
+~
+0 -1 13169
+D5
+~
+~
+0 -1 13170
+S
+#13171
+Bottom Of The Stairwell~
+You're at the bottom of a large stair well. To your east heads a vast
+corridor, both seems to be made out of stone bricks.
+~
+0 AQD 0
+D1
+~
+~
+0 -1 13173
+D4
+~
+~
+0 -1 13169
+S
+#13173
+Torture Chamber~
+You have entered a large room with many instruments traditionally
+associated with torture. And many others which could be assumed to
+also be torture related but which have never been seen outside of
+Elvanshalee's little nightmare den.
+The walls of the chamber are tastfully decorated with the blood and
+entrails of some sort of animal, to get the effext all over she must've
+killed a lot of them and she appears to have taken great pleasure in
+tearing them apart.
+back to the west is a long corridor. To the east is another corridor
+which appears to have a number of small rooms leading off of it.
+~
+0 AQD 0
+D1
+~
+~
+0 -1 13174
+D3
+~
+~
+0 -1 13171
+S
+#13174
+Dungeon Rooms~
+You are in a short corridor on the far side of the torture chamber.
+There is a room to the north, another to the south each containing a
+drow prisoner. The prisoners aren't chained to the walls and by there
+movement they can see you, nor does there appear to be anything to
+prevent them leaving.
+It could be only fear that holds them.
+The corridor continues east.
+~
+0 ACQD 0
+D0
+~
+~
+0 -1 13175
+D1
+~
+~
+0 -1 13177
+D2
+~
+~
+0 -1 13176
+D3
+~
+~
+0 -1 13173
+S
+#13175
+A Cell~
+This is a very smelly dungeon cell. The single occupant, a male drow
+watches you terrified as you enter.
+The nightmares in the stables were looked after better than this man.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13174
+D1
+~
+~
+0 -1 13174
+D2
+~
+~
+0 -1 13174
+D3
+~
+~
+0 -1 13174
+D4
+~
+~
+0 -1 13174
+D5
+~
+~
+0 -1 13174
+S
+#13176
+A Cell~
+This is a very smelly dungeon cell. The single occupant, a female drow
+watches you terrified yet somehow arrogant as you enter.
+The nightmares in the stables were looked after better than this woman.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13174
+D1
+~
+~
+0 -1 13174
+D2
+~
+~
+0 -1 13174
+D3
+~
+~
+0 -1 13174
+D4
+~
+~
+0 -1 13174
+D5
+~
+~
+0 -1 13174
+S
+#13177
+Dungeon Rooms~
+You are in a short corridor on the far side of the torture chamber.
+There is a room to the north, another to the south and a third to the
+east. The room to the south looks empty, whereas there is a winged
+figure chained to the walls of the cell to the north.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13178
+D1
+~
+~
+0 -1 13180
+D2
+~
+~
+0 -1 13179
+D3
+~
+~
+0 -1 13174
+S
+#13178
+A Cell~
+The occupant of this cell is chained to the wall, yet he or she
+(it's hard to tell) still looks like a formidable enemy.
+Despite the appearance of the figure, the room is surprisingly
+clean, it's as if dirty just can't settle anywhere near this creature.
+~
+0 AQD 0
+D2
+~
+~
+0 -1 13177
+S
+#13179
+A Cell~
+You have entered an empty cell.
+The places still stinks as if it has had recent occupation but there
+is nothing alive here now.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13177
+S
+#13180
+A Cell~
+You have entered A cell.
+The smell here is abysmal.
+There seems to be no inmate here.
+I hope you enjoy your stay.
+~
+0 ACDQN 0
+S
+#13181
+Upper Balcony ~
+You are standing on the top balcony overlooking the main body of the library.
+There are a couple of suits of armor here. And there seem to be a couple of
+lovely pictures. One seems to be of a large rack like the sort found in a
+{Ctorture{x chamber. The other is of a comfortable looking {Csofa{x with a
+table on
+which sits a bowl of fruit next to it
+~
+0 AQD 0
+D5
+~
+~
+0 -1 13166
+S
+#13182
+Living Room~
+Elvanshalee's main place of relaxation, this room seems to be made out like
+a mansion, a wonderful looking sofa like the one in the picture, huge wide
+windows letting in plenty of daylight, though thats a mystery as you're
+still in the abyss.
+If you look out of the window you can see what appears to be a large fenced
+off swimming pool.
+~
+0 QD 0
+D0
+~
+~
+0 -1 13183
+D1
+~
+~
+0 -1 13185
+S
+#13183
+Bar~
+This part of the room contains a small bar though there don't seem to be
+any drinks available. to the west is a set of french windows that lead out
+to the swimming pool, possibly positioned here so she can get a drink from
+the bar before venturing out for a swim.
+~
+0 QD 0
+D1
+~
+~
+0 -1 13184
+D2
+~
+~
+0 -1 13182
+D3
+~
+~
+0 -1 13186
+S
+#13184
+Bed~
+A Demoness like Elvanshalee really doesn't need to sleep, nevertheless
+she has a bed here.
+~
+0 QD 0
+D2
+~
+~
+0 -1 13185
+D3
+~
+~
+0 -1 13183
+S
+#13185
+Weird Room~
+This room is an anomaly, there are things here which either don't exist,
+shouldn't exist or will never exist. A comfortable armchair is about the
+only thing that makes sense, but the little box placed opposite that
+looks like a window into the world doesn't. It might make sense if it
+was a scrying device, but no one on the world looks like the figures in that box.
+~
+0 QD 0
+D0
+~
+~
+0 -1 13184
+D3
+~
+~
+0 -1 13182
+S
+#13186
+Veranda~
+You are standing on the Veranda, there isn't a lot to look at here other
+than the fencing and the swimming pool. The sun feels natural and is too
+bright to look directly into.
+~
+0 QD 0
+D1
+~
+~
+0 -1 13183
+S
+#13187
+The Webbed Abyss~
+You find yourself in another part of the abyss. It seems to go on infinitely
+in all directions, but instead of the rocky ground cover with a red flickering
+fire like light, this part seems to be covered in a small Gossimyr, like a
+very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13193
+D1
+~
+~
+0 -1 13188
+D2
+~
+~
+0 -1 13190
+D3
+~
+~
+0 -1 13189
+D4
+~
+~
+0 -1 13195
+D5
+~
+~
+0 -1 13191
+S
+#13188
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13194
+D1
+~
+~
+0 -1 13189
+D2
+~
+~
+0 -1 13191
+D3
+~
+~
+0 -1 13187
+D4
+~
+~
+0 -1 13193
+D5
+~
+~
+0 -1 13192
+S
+#13189
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13195
+D1
+~
+~
+0 -1 13187
+D2
+~
+~
+0 -1 13192
+D3
+~
+~
+0 -1 13188
+D4
+~
+~
+0 -1 13194
+D5
+~
+~
+0 -1 13190
+S
+#13190
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 QAD 0
+D0
+~
+~
+0 -1 13187
+D1
+~
+~
+0 -1 13191
+D2
+~
+~
+0 -1 13193
+D3
+~
+~
+0 -1 13192
+D4
+~
+~
+0 -1 13189
+D5
+~
+~
+0 -1 13194
+S
+#13191
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13196
+D1
+~
+~
+0 -1 13192
+D2
+~
+~
+0 -1 13194
+D3
+~
+~
+0 -1 13190
+D4
+~
+~
+0 -1 13187
+D5
+~
+~
+0 -1 13195
+S
+#13192
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13189
+D1
+~
+~
+0 -1 13190
+D2
+~
+~
+0 -1 13195
+D3
+~
+~
+0 -1 13191
+D4
+~
+~
+0 -1 13188
+D5
+~
+~
+0 -1 13193
+S
+#13193
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13190
+D1
+~
+~
+0 -1 13194
+D2
+~
+~
+0 -1 13187
+D3
+~
+~
+0 -1 13195
+D4
+~
+~
+0 -1 13192
+D5
+~
+~
+0 -1 13188
+S
+#13194
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13191
+D1
+~
+~
+0 -1 13195
+D2
+~
+~
+0 -1 13188
+D3
+~
+~
+0 -1 13193
+D4
+~
+~
+0 -1 13190
+D5
+~
+~
+0 -1 13189
+S
+#13195
+The Webbed Abyss~
+It seems to go on infinitely in all directions, but instead of the rocky
+ground cover with a red flickering fire like light, this part seems to
+be covered in a small Gossimyr, like a very fine spider's web.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13192
+D1
+~
+~
+0 -1 13193
+D2
+~
+~
+0 -1 13189
+D3
+~
+~
+0 -1 13194
+D4
+~
+~
+0 -1 13191
+D5
+~
+~
+0 -1 13187
+S
+#13196
+The Web~
+You are standing on a gigantic web which seems to disappear into the
+distance in all directions. The possiblility of some huge spider owning
+this web seems quite high.
+~
+0 AYD 0
+D0
+~
+~
+0 -1 13197
+D1
+~
+~
+0 -1 13196
+D2
+~
+~
+0 -1 13197
+D3
+~
+~
+0 -1 13196
+D4
+~
+~
+0 -1 13198
+D5
+~
+~
+0 -1 13198
+S
+#13197
+The Web~
+You are standing on a gigantic web which seems to disappear into the
+distance in all directions. The possiblility of some huge spider owning
+this web seems quite high.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13199
+D1
+~
+~
+0 -1 13197
+D2
+~
+~
+0 -1 13198
+D3
+~
+~
+0 -1 13197
+D4
+~
+~
+0 -1 13196
+D5
+~
+~
+0 -1 13196
+S
+#13198
+The Web~
+You are standing on a gigantic web which seems to disappear into the
+distance in all directions. The possiblility of some huge spider owning
+this web seems quite high.
+~
+0 AQD 0
+D0
+~
+~
+0 -1 13196
+D1
+~
+~
+0 -1 13198
+D2
+~
+~
+0 -1 13196
+D3
+~
+~
+0 -1 13198
+D4
+~
+~
+0 -1 13197
+D5
+~
+~
+0 -1 13197
+S
+#13199
+Lolth's Home~
+This is a little bit of the gigantic web you've been walking across, except
+this bit is the bit occupied by the demoness Lolth.
+~
+0 ACQD 0
+S
+#0
+
+
+#RESETS
+M 0 13124 1 13100 1		*	Slaym to The Abyss
+E 0 13120 3 5
+E 0 13119 3 8
+M 0 13102 5 13102 1		*	Rutterkin to The Eternal Abyss
+E 0 13128 5 17
+E 0 13129 5 16
+M 0 13103 5 13102 1		*	Alu-Fiend to The Eternal Abyss
+E 0 13106 5 5
+E 0 13107 5 7
+E 0 13108 5 16
+M 0 13106 5 13102 1		*	Succubus to The Eternal Abyss
+E 0 13111 5 5
+M 0 13108 5 13103 1		*	Chasme to The Eternal Abyss
+E 0 13133 5 12
+M 0 13109 5 13103 1		*	Babau to The Eternal Abyss
+E 0 13134 5 16
+E 0 13135 5 5
+M 0 13122 5 13103 1		*	Nightmare to The Eternal Abyss
+M 0 13105 5 13104 1		*	Cambion  to The Eternal Abyss
+E 0 13109 5 5
+E 0 13110 5 7
+E 0 13108 5 16
+M 0 13100 5 13105 1		*	Dretch to The Eternal Abyss
+E 0 13131 5 16
+M 0 13102 5 13105 1		*	Rutterkin to The Eternal Abyss
+E 0 13128 5 17
+E 0 13130 5 16
+M 0 13106 5 13105 1		*	Succubus to The Eternal Abyss
+E 0 13111 5 5
+M 0 13106 5 13106 1		*	Succubus to The Eternal Abyss
+E 0 13111 5 5
+M 0 13104 5 13107 1		*	Bar-Lgura to The Eternal Abyss
+E 0 13132 5 3
+M 0 13107 5 13107 1		*	Incubus to The Eternal Abyss
+E 0 13112 5 3
+E 0 13113 5 5
+M 0 13109 5 13107 1		*	Babau to The Eternal Abyss
+E 0 13134 5 16
+E 0 13135 5 5
+M 0 13105 5 13108 1		*	Cambion  to The Eternal Abyss
+E 0 13109 5 5
+E 0 13110 5 7
+E 0 13108 5 16
+M 0 13103 5 13109 1		*	Alu-Fiend to The Eternal Abyss
+E 0 13106 5 5
+E 0 13107 5 7
+E 0 13108 5 16
+M 0 13104 5 13109 1		*	Bar-Lgura to The Eternal Abyss
+E 0 13132 5 3
+M 0 13110 5 13109 1		*	Nabassu to The Eternal Abyss
+E 0 13136 5 16
+M 0 13107 5 13110 1		*	Incubus to The Eternal Abyss
+E 0 13112 5 4
+E 0 13113 5 5
+M 0 13110 5 13111 1		*	Nabassu to The Eternal Abyss
+E 0 13136 5 16
+M 0 13122 5 13111 1		*	Nightmare to The Eternal Abyss
+M 0 13108 5 13113 1		*	Chasme to The Eternal Abyss
+E 0 13133 5 12
+M 0 13123 5 13113 1		*	Hell Hound to The Eternal Abyss
+M 0 13100 5 13115 1		*	Dretch to The Eternal Abyss
+E 0 13131 5 16
+M 0 13107 5 13115 1		*	Incubus to The Eternal Abyss
+E 0 13112 5 4
+E 0 13113 5 5
+M 0 13110 5 13115 1		*	Nabassu to The Eternal Abyss
+E 0 13136 5 16
+M 0 13101 5 13116 1		*	Manes to The Eternal Abyss
+M 0 13105 5 13116 1		*	Cambion  to The Eternal Abyss
+E 0 13109 5 5
+E 0 13110 5 7
+E 0 13108 5 16
+M 0 13101 5 13119 1		*	Manes to The Eternal Abyss
+M 0 13103 5 13120 1		*	Alu-Fiend to The Eternal Abyss
+E 0 13106 5 5
+E 0 13107 5 7
+E 0 13108 5 16
+M 0 13107 5 13120 1   	*	Incubus to The Eternal Abyss
+E 0 13113 5 5
+E 0 13112 5 4
+M 0 13101 10 13121 1		*	Manes to The Eternal Abyss
+M 0 13109 5 13121 1		*	Babau to The Eternal Abyss
+E 0 13134 5 16
+E 0 13135 5 5
+M 0 13123 5 13121 1		*	Hell Hound to The Eternal Abyss
+M 0 13102 5 13122 1		*	Rutterkin to The Eternal Abyss
+E 0 13128 5 17
+E 0 13129 5 16
+M 0 13103 5 13122 1		*	Alu-Fiend to The Eternal Abyss
+E 0 13106 5 5
+E 0 13107 5 7
+E 0 13108 5 16
+M 0 13122 5 13124 1		*	Nightmare to The Eternal Abyss
+M 0 13102 5 13125 1		*	Rutterkin to The Eternal Abyss
+E 0 13128 5 17
+E 0 13130 5 16
+M 0 13108 5 13125 1		*	Chasme to The Eternal Abyss
+E 0 13133 5 12
+M 0 13116 3 13101 1		*	Nalfeshnee to The Eternal Abyss
+E 0 13145 3 1
+M 0 13117 1 13123 1		*	Molydeus to The Eternal Abyss
+E 0 13117 3 16
+M 0 13110 5 13126 1		*	Nabassu to Elvanshalee's Abyss
+E 0 13136 5 16
+M 0 13114 3 13126 1		*	Marilith to Elvanshalee's Abyss
+E 0 13116 3 16
+M 0 13109 5 13127 1		*	Babau to Elvanshalee's Terriotory
+E 0 13134 5 16
+E 0 13135 5 5
+M 0 13113 3 13127 1		*	Glabrezu to Elvanshalee's
+E 0 13115 3 16
+E 0 13141 3 20
+M 0 13108 5 13128 1		*	Chasme to Elvanshalee's Terriotory
+E 0 13133 5 12
+M 0 13116 3 13128 1		*	Nalfeshnee to Elvanshalee's
+E 0 13145 3 1
+M 0 13108 5 13129 1		*	Chasme to Elvanshalee's Terriotory
+E 0 13133 5 12
+M 0 13100 5 13130 1		*	Dretch to Elvanshalee's Terriotory
+E 0 13131 5 16
+M 0 13107 5 13130 1		*	Incubus to Elvanshalee's
+E 0 13113 5 5
+E 0 13112 5 7
+M 0 13109 5 13130 1		*	Babau to Elvanshalee's Terriotory
+E 0 13134 5 16
+E 0 13135 5 5
+M 0 13112 3 13131 1		*	Hezrou to Elvanshalee's Terriotory
+E 0 13140 5 18
+M 0 13114 3 13131 1		*	Marilith to Elvanshalee's
+E 0 13116 3 16
+M 0 13101 10 13132 1		*	Manes to Elvanshalee's Terriotory
+M 0 13102 5 13133 1		*	Rutterkin to Elvanshalee's
+E 0 13128 5 17
+E 0 13129 5 16
+M 0 13116 3 13133 1		*	Nalfeshnee to Elvanshalee's
+E 0 13145 3 1
+M 0 13122 5 13138 1		*	Nightmare to Elvanshalee's
+M 0 13112 3 13138 1		*	Hezrou to Elvanshalee's Terriotory
+E 0 13140 5 18
+M 0 13110 5 13139 1		*	Nabassu to Elvanshalee's
+E 0 13136 5 16
+M 0 13111 3 13140 1		*	Balor to Elvanshalee's Terriotory
+E 0 13137 3 16
+E 0 13114 3 19
+E 0 13138 3 12
+E 0 13139 3 7
+M 0 13111 3 13142 1		*	Balor to Elvanshalee's Terriotory
+E 0 13137 3 16
+E 0 13114 3 19
+E 0 13138 3 12
+E 0 13139 3 7
+M 0 13103 5 13143 1		*	Alu-Fiend to Elvanshalee's
+E 0 13106 5 5
+E 0 13107 5 7
+E 0 13108 5 16
+M 0 13104 5 13144 1		*	Bar-Lgura to Elvanshalee's
+E 0 13132 5 13
+M 0 13112 3 13144 1		*	Hezrou to Elvanshalee's Terriotory
+E 0 13140 5 18
+M 0 13101 10 13147 1		*	Manes to Elvanshalee's Terriotory
+M 0 13106 5 13147 1		*	Succubus to Elvanshalee's
+E 0 13111 5 5
+M 0 13100 5 13148 1		*	Dretch to Elvanshalee's Terriotory
+E 0 13131 5 16
+M 0 13122 5 13148 1		*	Nightmare to Elvanshalee's
+M 0 13123 5 13149 1		*	Hell Hound to Elvanshalee's
+M 0 13104 5 13151 1		*	Bar-Lgura to Elvanshalee's
+E 0 13132 5 3
+M 0 13101 10 13118 1		*	Manes to The Eternal Abyss
+M 0 13113 3 13128 1		*Glabrezu to Elvanshalee's Terriotory
+E 0 13115 3 16
+E 0 13141 3 19
+M 0 13111 3 13133 1           *Balor to Elvanshalees' terriotory
+E 0 13137 3 16
+E 0 13114 3 19
+E 0 13138 3 12
+E 0 13138 3 7
+M 0 13115 5 13135 1		*Vrock to Elvanshalee's Terriotory
+E 0 13142 5 6
+E 0 13143 5 5
+E 0 13144 5 12
+M 0 13114 3 13137 1		*Marilith to Elvanshalee's Terriotory
+E 0 13116 3 16
+M 0 13115 5 13138 1		*Vrock to Elvanshalee's Terriotory
+E 0 13142 5 6
+E 0 13143 5 5
+E 0 13144 5 12
+M 0 13115 5 13140 1		*Vrock to Elvanshalee's Terriotory
+E 0 13142 5 6
+E 0 13143 5 5
+E 0 13144 5 12
+M 0 13113 3 13141 1	*Glabrezu to Elvanshalee's Terriotory
+E 0 13115 3 16
+E 0 13141 3 19
+M 0 13115 5 13144 1		*Vrock to Elvanshalee's Terriotory
+E 0 13142 5 6
+E 0 13143 5 5
+E 0 13144 5 12
+M 0 13115 5 13145 1		*Vrock to Elvanshalee's Terriotory
+E 0 13142 5 6
+E 0 13143 5 5
+E 0 13144 5 12
+M 0 13126 1 13153 1		*Ostler to The Stables
+E 0 13100 5 16
+M 0 13118 2 13155 1		*Nightmare to A Stall
+E 0 13118 5 8
+M 0 13118 2 13156 1		*Nightmare to A Stall
+E 0 13118 5 8
+M 0 13127 10 13159 2		*Demon to The Palace Doors
+E 0 13125 10 11
+E 0 13124 10 16
+M 0 13127 10 13159 1		*Demon to The Palace Doors
+E 0 13125 10 11
+E 0 13124 10 16
+M 0 13119 1 13165 1		*Chaszmyr to The Library
+E 0 13146 3 1
+E 0 13126 3 16
+M 0 13120 1 13171 1		*Faeryl to Bottom Of The Stairwell
+E 0 13127 3 0
+O 0 13104 1 13173 		*Spirit Jar to Torture Chamber
+P 0 13105 3 13104 1		* Tortured Spirit in spirit jar
+M 0 13130 1 13176 1		*Belarbreena to A Cell
+M 0 13129 1 13175 1		*Jeraxle to A Cell
+M 0 13125 1 13178 1		*An Angel to A Cell
+E 0 13148 3 6
+E 0 13149 3 12
+O 0 13102 1 13181 		*portal to Upper Balcony
+O 0 13101 1 13181 		*portal to Upper Balcony
+M 0 13128 1 13184 1		*Tamron to Bed
+M 0 13121 1 13182 1		*Filfaere to Living Room
+E 0 13147 3 3
+M 0 13133 12 13187 3		*Huge Spider to The Webbed Abyss
+M 0 13133 12 13189 1		*Huge Spider to The Webbed Abyss
+M 0 13133 12 13192 1		*Huge Spider to The Webbed Abyss
+M 0 13132 12 13199 1		*Lolth to Lolth's Home
+E 0 13150 1 6
+M 0 13133 12 13198 5		*Huge Spider to The Web
+O 0 13103 1 13162 		*portal to Temple
+M 0 13127 10 13162 1		*Demon to Temple
+E 0 13125 10 11
+E 0 13124 10 16
+M 0 13127 10 13163 1		*Demon to The Library
+E 0 13125 10 11
+E 0 13124 10 16
+M 0 13127 10 13165 2		*Demon to The Library
+E 0 13125 10 11
+E 0 13124 10 16
+M 0 13127 10 13173 2		*Demon to Torture Chamber
+E 0 13125 10 11
+E 0 13124 10 16
+S
+
+
+#SPECIALS
+M  13103 spec_cast_undead			*Alu-fiend
+M  13104 spec_cast_mage		            *Barl-garu
+M  13105 spec_nasty                       *Cambion
+M  13106 spec_cast_cleric			*succubus
+M  13107 spec_cast_cleric			*Incubus
+M  13108 spec_cast_undead			*Chasme
+M  13109 spec_cast_undead			*Babau
+M  13110 spec_cast_cleric			*Nabassu
+M  13111 spec_cast_undead			*Balor
+M  13112 spec_cast_undead			*Hezrou
+M  13113 spec_cast_undead			*Glabrezu
+M  13114 spec_cast_cleric			*Marilith
+M  13115 spec_breath_any			*Vrock
+M  13116 spec_cast_undead			*Nalfeshnee
+M  13117 spec_cast_undead			*Molydeus
+M  13118 spec_breath_fire			*Nightmare
+M  13119 spec_cast_cleric			*Chaszmyr
+M  13120 spec_cast_mage			      *Faeryl
+M  13121 spec_cast_mage			      *Filfaere
+M  13122 spec_breath_fire			*Nightmare
+M  13123 spec_breath_fire			*Hell Hound
+M  13124 spec_breath_fire			*Slaym
+M  13125 spec_cast_cleric			*An Angel
+M  13126 spec_cast_undead			*Ostler
+M  13127 spec_breath_fire			*Demon
+M  13128 spec_cast_cleric			*Tamron
+M  13129 spec_cast_cleric			*Jeraxle
+M  13130 spec_cast_mage			      *Belarbreena
+M  13131 spec_cast_mage			      *Elvanshalee
+M  13132 spec_cast_cleric			*Lolth
+M  13133 spec_breath_acid			*Huge Spider
+S
+
+
+#$
+
+
