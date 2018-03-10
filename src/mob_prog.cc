@@ -50,6 +50,7 @@
 #include "Room.hh"
 #include "String.hh"
 #include "World.hh"
+#include "find.hh"
 
 bool MOBtrigger;
 
@@ -271,6 +272,62 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		lhsvl = mob->in_room->area().world.time.hour;
 		rhsvl = atoi(val);
 		return mprog_veval(lhsvl, opr, rhsvl);
+	}
+
+	if (!strcmp(buf, "iscarrying")) {
+		String arg1, arg2;
+		arg2 = String(arg).lsplit(arg1, ",");
+		Character *target;
+
+		if (arg1.empty() || arg2.empty()) {
+			Logging::bugf("Mob: %d bad arguments to 'iscarrying'", mob->pIndexData->vnum);
+			return -1;
+		}
+
+		switch (arg1[1]) {/* arg should be "$*" so just get the letter */
+			case 'i': target = mob; break;
+			case 'n': target = actor; break;
+			case 't': target = vict; break;
+			case 'r': target = rndm; break;
+			default:
+				Logging::bugf("Mob: %d bad argument to 'iscarrying'", mob->pIndexData->vnum);
+				return -1;
+		}
+
+		if (target == nullptr) {
+			Logging::bugf("Mob: %d bad target for 'iscarrying'", mob->pIndexData->vnum);
+			return -1;
+		}
+
+		return (get_obj_carry(target, arg2) == nullptr) ? 0 : 1;
+	}
+
+	if (!strcmp(buf, "iswearing")) {
+		String arg1, arg2;
+		arg2 = String(arg).lsplit(arg1, ",");
+		Character *target;
+
+		if (arg1.empty() || arg2.empty()) {
+			Logging::bugf("Mob: %d bad arguments to 'iswearing'", mob->pIndexData->vnum);
+			return -1;
+		}
+
+		switch (arg1[1]) {/* arg should be "$*" so just get the letter */
+			case 'i': target = mob; break;
+			case 'n': target = actor; break;
+			case 't': target = vict; break;
+			case 'r': target = rndm; break;
+			default:
+				Logging::bugf("Mob: %d bad argument to 'iswearing'", mob->pIndexData->vnum);
+				return -1;
+		}
+
+		if (target == nullptr) {
+			Logging::bugf("Mob: %d bad target for 'iswearing'", mob->pIndexData->vnum);
+			return -1;
+		}
+
+		return (get_obj_wear(target, arg2) == nullptr) ? 0 : 1;
 	}
 
 	if (!strcmp(buf, "ispc")) {
