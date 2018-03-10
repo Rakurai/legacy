@@ -58,6 +58,7 @@ struct table_entry
 {
     String        name;                   /* Name of skill                */
     String        msg_off;                /* Wear off message             */
+    String        msg_room;              // wear off message to room
     String        msg_obj;                /* Wear off message for obects  */
 };
 

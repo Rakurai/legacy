@@ -23,55 +23,56 @@ struct dispel_type {
 // anything *NOT* in this table cannot be removed (only by time).  breath effects and dirt kicking, for example
 
 static const std::map<affect::type, const dispel_type> dispel_table = {
-	{ affect::type::age,                { TRUE,  FALSE, FALSE, "$n looks younger."                             }},
-	{ affect::type::armor,              { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::barrier,            { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::bless,              { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::blindness,          { FALSE, FALSE, FALSE, "$n is no longer blinded."                      }},
-	{ affect::type::blood_moon,         { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::bone_wall,          { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::calm,               { TRUE,  FALSE, TRUE,  "$n no longer looks so peaceful..."             }},
-	{ affect::type::change_sex,         { TRUE,  FALSE, FALSE, "$n looks more like $mself again."              }},
-	{ affect::type::charm_person,       { TRUE,  FALSE, TRUE,  "$n regains $s free will."                      }},
-	{ affect::type::change_sex,         { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::chill_touch,        { TRUE,  FALSE, FALSE, "$n looks warmer."                              }},
-	{ affect::type::curse,              { FALSE, FALSE, FALSE, "$n looks more relaxed."                        }},
-	{ affect::type::detect_evil,        { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::detect_good,        { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::detect_hidden,      { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::detect_invis,       { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::detect_magic,       { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::divine_regeneration,{ TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::faerie_fire,        { TRUE,  TRUE,  FALSE, "$n's outline fades."                           }},
-	{ affect::type::fear,               { TRUE,  FALSE, FALSE, "$n looks less panicked."                       }},
-	{ affect::type::flameshield,        { TRUE,  TRUE,  TRUE,  "The flames around $n fade away."               }},
-	{ affect::type::fly,                { TRUE,  TRUE,  TRUE,  "$n falls to the ground!"                       }},
-	{ affect::type::focus,              { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::force_shield,       { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::frenzy,             { TRUE,  TRUE,  TRUE,  "$n no longer looks so wild."                   }},
-	{ affect::type::giant_strength,     { TRUE,  TRUE,  TRUE,  "$n no longer looks so mighty."                 }},
-	{ affect::type::haste,              { TRUE,  TRUE,  TRUE,  "$n is no longer moving so quickly."            }},
-	{ affect::type::hex,                { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::night_vision,       { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::invis,              { TRUE,  TRUE,  TRUE,  "$n fades into existance."                      }},
-//	{ affect::type::ironskin,           { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::paralyze,           { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::pass_door,          { TRUE,  TRUE,  TRUE,  "$n becomes less translucent."                  }},
-	{ affect::type::plague,             { FALSE, FALSE, FALSE, "$n looks relieved as $s sores vanish."         }},
-	{ affect::type::poison,             { FALSE, FALSE, FALSE, "$n looks much better."                         }},
-	{ affect::type::protection_evil,    { TRUE,  TRUE,  TRUE,  "$n's holy aura fades."                         }},
-	{ affect::type::protection_good,    { TRUE,  TRUE,  TRUE,  "$n's unholy aura fades."                       }},
-    { affect::type::rayban,             { TRUE,  TRUE,  TRUE,  "$n blinks as $s eye protection fades."         }},
-	{ affect::type::sanctuary,          { TRUE,  TRUE,  TRUE,  "The white aura around $n's body vanishes."     }},
-	{ affect::type::sheen,              { TRUE,  FALSE, FALSE, ""                                              }},
-	{ affect::type::shield,             { TRUE,  TRUE,  TRUE,  "The shield protecting $n vanishes."            }},
-	{ affect::type::sleep,              { TRUE,  TRUE,  FALSE, ""                                              }},
-	{ affect::type::slow,               { TRUE,  FALSE, FALSE, "$n is no longer moving so slowly."             }},
-	{ affect::type::smokescreen,        { TRUE,  FALSE, TRUE,  ""                                              }},
-	{ affect::type::steel_mist,         { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::stone_skin,         { TRUE,  TRUE,  TRUE,  "$n's skin regains it's normal texture."        }},
-	{ affect::type::talon,              { TRUE,  TRUE,  TRUE,  ""                                              }},
-	{ affect::type::weaken,             { TRUE,  FALSE, FALSE, "$n looks stronger."                            }}
+	{ affect::type::age,                { TRUE,  FALSE, FALSE }},
+	{ affect::type::armor,              { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::barrier,            { TRUE,  FALSE, FALSE }},
+	{ affect::type::bless,              { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::blindness,          { FALSE, FALSE, FALSE }},
+	{ affect::type::blood_moon,         { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::bone_wall,          { TRUE,  FALSE, FALSE }},
+	{ affect::type::calm,               { TRUE,  FALSE, TRUE  }},
+	{ affect::type::change_sex,         { TRUE,  FALSE, FALSE }},
+	{ affect::type::charm_person,       { TRUE,  FALSE, TRUE  }},
+	{ affect::type::change_sex,         { TRUE,  FALSE, FALSE }},
+	{ affect::type::chill_touch,        { TRUE,  FALSE, FALSE }},
+	{ affect::type::curse,              { FALSE, FALSE, FALSE }},
+	{ affect::type::detect_evil,        { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::detect_good,        { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::detect_hidden,      { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::detect_invis,       { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::detect_magic,       { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::divine_regeneration,{ TRUE,  TRUE,  TRUE  }},
+	{ affect::type::faerie_fire,        { TRUE,  TRUE,  FALSE }},
+	{ affect::type::fear,               { TRUE,  FALSE, FALSE }},
+	{ affect::type::flameshield,        { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::fly,                { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::focus,              { TRUE,  FALSE, FALSE }},
+	{ affect::type::force_shield,       { TRUE,  FALSE, FALSE }},
+	{ affect::type::frenzy,             { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::giant_strength,     { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::haste,              { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::hex,                { TRUE,  FALSE, FALSE }},
+	{ affect::type::night_vision,       { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::invis,              { TRUE,  TRUE,  TRUE  }},
+//	{ affect::type::ironskin,           { TRUE,  FALSE, FALSE }},
+	{ affect::type::paralyze,           { TRUE,  FALSE, FALSE }},
+	{ affect::type::pass_door,          { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::plague,             { FALSE, FALSE, FALSE }},
+	{ affect::type::poison,             { FALSE, FALSE, FALSE }},
+	{ affect::type::protection_evil,    { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::protection_good,    { TRUE,  TRUE,  TRUE  }},
+    { affect::type::rayban,             { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::regeneration,       { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::sanctuary,          { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::sheen,              { TRUE,  FALSE, FALSE }},
+	{ affect::type::shield,             { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::sleep,              { TRUE,  TRUE,  FALSE }},
+	{ affect::type::slow,               { TRUE,  FALSE, FALSE }},
+	{ affect::type::smokescreen,        { TRUE,  FALSE, TRUE  }},
+	{ affect::type::steel_mist,         { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::stone_skin,         { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::talon,              { TRUE,  TRUE,  TRUE  }},
+	{ affect::type::weaken,             { TRUE,  FALSE, FALSE }}
 };
 
 /* saving throw based on level only */
@@ -205,15 +206,13 @@ bool check_dispel_char(int dis_level, Character *victim, affect::type type, bool
 	affect::remove_marked_from_char(victim);
 
 	if (!affect::exists_on_char(victim, type)) {
-		String message = dispel_table.find(type)->second.msg_to_room;
+		const auto& entry = affect::lookup(type);
 
-		if (!message.empty())
-			act(message, victim, nullptr, nullptr, TO_ROOM);
+		if (!entry.msg_room.empty())
+			act(entry.msg_room, victim, nullptr, nullptr, TO_ROOM);
 
-		message = affect::lookup(type).msg_off;
-
-		if (!message.empty())
-			ptc(victim, "%s\n", message);
+		if (!entry.msg_off.empty())
+			ptc(victim, "%s\n", entry.msg_off);
 	}
 
 	return TRUE;
@@ -221,7 +220,10 @@ bool check_dispel_char(int dis_level, Character *victim, affect::type type, bool
 
 // dispel a single spell with undo spell
 bool undo_spell(int dis_level, Character *victim, affect::type type, bool save) {
-	if (dispel_table.find(type)->second.can_undo)
+	const auto& pair = dispel_table.find(type);
+
+	if (pair != dispel_table.cend()
+	 && pair->second.can_undo)
 		return check_dispel_char(dis_level, victim, type, save);
 
 	return FALSE;
