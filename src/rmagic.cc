@@ -32,7 +32,10 @@ void spell_sheen(skill::type sn, int level, Character *ch, void *vo, int target,
 	Character *victim = (Character *) vo;
 
 	if (affect::exists_on_char(victim, affect::type::sheen)) {
-		stc("Your armor is already coated with magical steel.\n", ch);
+		if (victim == ch)
+			stc("Your armor is already coated with magical steel.\n", ch);
+		else
+			act("$N's armor is already coated with magical steel.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -125,7 +128,10 @@ void spell_barrier(skill::type sn, int level, Character *ch, void *vo, int targe
 	Character *victim = (Character *) vo;
 
 	if (affect::exists_on_char(victim, affect::type::barrier)) {
-		stc("You are already surrounded by a barrier.\n", ch);
+		if (victim == ch)
+			stc("You are already surrounded by a barrier.\n", ch);
+		else
+			act("$N is already surrounded by a barrier.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -260,7 +266,10 @@ void spell_midnight(skill::type sn, int level, Character *ch, void *vo, int targ
 	Character *victim = (Character *) vo;
 
 	if (affect::exists_on_char(victim, affect::type::midnight) && (victim == ch)) {
-		stc("You fail to invade the shadows further.\n", ch);
+		if (victim == ch)
+			stc("You fail to invade the shadows further.\n", ch);
+		else
+			act("You fail to cloak them.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 
@@ -270,7 +279,7 @@ void spell_midnight(skill::type sn, int level, Character *ch, void *vo, int targ
 	affect::add_type_to_char(victim,
 		affect::type::midnight,
 		level,
-		2,
+		12,
 		evolution,
 		false
 	);
@@ -382,7 +391,10 @@ void spell_force(skill::type sn, int level, Character *ch, void *vo, int target,
 	Character *victim = (Character *) vo;
 
 	if (affect::exists_on_char(victim, affect::type::force_shield)) {
-		stc("You are already protected by the force.\n", ch);
+		if (victim == ch)
+			stc("You are already protected by the force.\n", ch);
+		else
+			act("$N is already protected by the force.", ch, nullptr, victim, TO_CHAR);
 		return;
 	}
 

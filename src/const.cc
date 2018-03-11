@@ -1314,7 +1314,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::flameshield,               {
 		"flameshield",
 		{ 50, 65, 65, 70, 60, 55, 65, 55 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
-		spell_flameshield,      TAR_CHAR_SELF,          POS_STANDING,
+		spell_flameshield,      TAR_CHAR_DEFENSIVE,     POS_STANDING,
 		45,     12,	"flameshield",          Guild::none,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
@@ -1573,21 +1573,21 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::protection_evil,   {
 		"protection evil",
 		{ 12,  9, 17, 11, 12,  9, 17, 11 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
-		spell_protection_evil,  TAR_CHAR_SELF,          POS_STANDING,
+		spell_protection_evil,  TAR_CHAR_DEFENSIVE,      POS_STANDING,
 		5,      12,	"",                     Guild::none,
 		{ 0, 220, 0, 0, 0, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
 	}},
 	{	skill::type::protection_good,   {
 		"protection good",
 		{ 12,  9, 17, 11, 12,  9, 17, 11 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
-		spell_protection_good,  TAR_CHAR_SELF,          POS_STANDING,
+		spell_protection_good,  TAR_CHAR_DEFENSIVE,      POS_STANDING,
 		5,      12,	"",                     Guild::none,
 		{ 0, 220, 0, 0, 240, 260, 0, 0 },     { 0, 360, 0, 0, 0, 0, 0, 0 }
 	}},
 	{	skill::type::rayban,            {
 		"rayban",
 		{ 35, 30, 60, 60, 38, 40, 60, 60 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
-		spell_rayban,           TAR_CHAR_SELF,          POS_STANDING,
+		spell_rayban,           TAR_CHAR_DEFENSIVE,      POS_STANDING,
 		5,      12,	"",                     Guild::none,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
@@ -2247,7 +2247,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::sheen,             {
 		"sheen",
 		{ 10, 30, 50, 50, 20, 40, 50, 50 }, { 40, 55, 70, 70, 50, 60, 70, 70 },		
-		spell_sheen,            TAR_CHAR_SELF,          POS_STANDING,
+		spell_sheen,            TAR_CHAR_DEFENSIVE,     POS_STANDING,
 		80,     12,	"sheen",                Guild::mage,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
@@ -2278,7 +2278,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::barrier,           {
 		"barrier",
 		{ 55, 40, 70, 70, 60, 65, 70, 70 }, { 60, 50, 90, 90, 70, 80, 90, 90 },		
-		spell_barrier,          TAR_CHAR_SELF,          POS_STANDING,
+		spell_barrier,          TAR_CHAR_DEFENSIVE,     POS_STANDING,
 		150,     12,	"barrier",              Guild::cleric,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
@@ -2302,7 +2302,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::midnight,          {
 		"midnight",
 		{ 50, 50, 25, 50, 50, 50, 40, 40 }, { 80, 80, 50, 80, 80, 80, 70, 80 },		
-		spell_midnight,         TAR_CHAR_SELF,     POS_STANDING,
+		spell_midnight,         TAR_CHAR_DEFENSIVE,     POS_STANDING,
 		100,     12,	"midnight",             Guild::thief,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
@@ -2395,7 +2395,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::force_shield,      {
 		"force shield",
 		{ 70, 60, 80, 80, 70, 50, 80, 80 }, { 70, 60, 80, 80, 70, 50, 80, 80 },		
-		spell_force,            TAR_CHAR_SELF,          POS_FIGHTING,
+		spell_force,            TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
 		150,     12,	"force shield",         Guild::paladin,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
