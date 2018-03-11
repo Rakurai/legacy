@@ -78,7 +78,7 @@ static const std::map<affect::type, const dispel_type> dispel_table = {
 bool level_save(int dis_level, int save_level)
 {
 	int save;
-	save = 50 + ((save_level - dis_level) * 3);
+	save = 20 + ((save_level - dis_level) / 2);
 	save = URANGE(5, save, 95);
 	return roll_chance(save);
 }
@@ -86,18 +86,19 @@ bool level_save(int dis_level, int save_level)
 /* Compute a saving throw.  Negative apply's make saving throw better. */
 bool saves_spell(int level, Character *victim, int dam_type)
 {
-	int save;
-	save = (victim->level - level) * 3 - (GET_ATTR_SAVES(victim) * 4 / 3);
+	int save = 20; // base chance to save
+	save += (victim->level - level) / 2; // level difference
+	save -= GET_ATTR_SAVES(victim); // negative number, probably
 
 	if (affect::exists_on_char(victim, affect::type::berserk))
-		save += victim->level / 4;
+		save += save / 4; // + 25%
 
 	int def = GET_DEFENSE_MOD(victim, dam_type);
 
 	if (def >= 100)
 		return true;
 
-	save += 20 * def / 100; // could be negative, if vuln
+	save += 40 * def / 100; // could be negative, if vuln
 	save = URANGE(5, save, 95);
 
 	return roll_chance(save);
