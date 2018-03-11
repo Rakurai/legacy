@@ -2130,6 +2130,11 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	int chance;
 	String attack;
 
+	if (affect::exists_on_char(victim, affect::type::paralyze)) {
+		if (roll_chance(30))
+			return false; // don't even check improve
+	}
+
 	if (!get_skill_level(victim, skill::type::parry))
 		return false;
 
@@ -2172,9 +2177,6 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	}
 
 	if (!can_see_char(victim, ch))
-		chance /= 2;
-
-	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2230,6 +2232,11 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	int chance;
 	String attack;
 
+	if (affect::exists_on_char(victim, affect::type::paralyze)) {
+		if (roll_chance(30))
+			return false; // don't even check improve
+	}
+
 	if (!get_skill_level(victim, skill::type::dual_wield)
 	    || !get_skill_level(victim, skill::type::parry)
 	    || !get_eq_char(victim, WEAR_SECONDARY)
@@ -2269,9 +2276,6 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	}
 
 	if (!can_see_char(victim, ch))
-		chance /= 2;
-
-	if (affect::exists_on_char(victim, affect::type::paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2359,6 +2363,11 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	int chance;
 	String attack;
 
+	if (affect::exists_on_char(victim, affect::type::paralyze)) {
+		if (roll_chance(30))
+			return false; // don't even check improve
+	}
+
 	if (!get_skill_level(victim, skill::type::shield_block))
 		return false;
 
@@ -2366,9 +2375,6 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 		return false;
 
 	chance = get_skill_level(victim, skill::type::shield_block) * 2 / 5;
-
-	if (affect::exists_on_char(victim, affect::type::paralyze))
-		chance /= 2;
 
 	chance += (victim->level - ch->level);
 #ifdef DEBUG_CHANCE
@@ -2429,6 +2435,11 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 	int chance;
 	String attack;
 
+	if (affect::exists_on_char(victim, affect::type::paralyze)) {
+		if (roll_chance(30))
+			return false; // don't even check improve
+	}
+
 	if (!get_skill_level(victim, skill::type::dodge))
 		return false;
 
@@ -2461,9 +2472,6 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 //	if (!can_see_char(victim,ch))
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
-
-	if (affect::exists_on_char(victim, affect::type::paralyze))
-		chance /= 2;
 
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(dodge %d%%)", chance);
@@ -2513,6 +2521,11 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 	int chance;
 	String attack;
 
+	if (affect::exists_on_char(victim, affect::type::paralyze)) {
+		if (roll_chance(30))
+			return false; // don't even check improve
+	}
+
 	if (!CAN_USE_RSKILL(victim, skill::type::blur))
 		return false;
 
@@ -2545,9 +2558,6 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 //	if (!can_see_char(victim,ch))
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
-
-	if (affect::exists_on_char(victim, affect::type::paralyze))
-		chance /= 2;
 
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(blur %d%%)", chance);
