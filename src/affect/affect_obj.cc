@@ -1,8 +1,5 @@
-#include "affect/affect_int.hh"
 #include "affect/affect_list.hh"
 #include "affect/Affect.hh"
-#include "declare.hh"
-#include "Flags.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "constants.hh"

@@ -1,11 +1,8 @@
 #include <vector>
 
-#include "affect/affect_int.hh"
 #include "affect/affect_list.hh"
 #include "affect/Affect.hh"
 #include "Character.hh"
-#include "declare.hh"
-#include "Flags.hh"
 #include "Logging.hh"
 #include "merc.hh"
 #include "random.hh"

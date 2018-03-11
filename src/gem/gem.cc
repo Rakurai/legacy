@@ -3,14 +3,12 @@
 #include "act.hh"
 #include "affect/affect_list.hh"
 #include "argument.hh"
-#include "affect/Affect.hh"
 #include "Character.hh"
 #include "find.hh"
-#include "Flags.hh"
 #include "Logging.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
-#include "String.hh"
+#include "constants.hh"
 
 namespace gem {
 

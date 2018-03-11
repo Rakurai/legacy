@@ -1,7 +1,5 @@
 #include "affect/affect_list.hh"
 
-#include "Flags.hh"
-
 namespace affect {
 
 void remove_from_list(Affect **list_head, Affect *paf) {

@@ -2,11 +2,7 @@
 
 #include "affect/Affect.hh"
 #include "Character.hh"
-#include "declare.hh"
-#include "Format.hh"
 #include "Logging.hh"
-#include "merc.hh"
-#include "String.hh"
 
 namespace affect {
 

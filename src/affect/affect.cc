@@ -1,8 +1,5 @@
 #include "affect/Affect.hh"
-#include "declare.hh"
-#include "Flags.hh"
 #include "Logging.hh"
-#include "merc.hh"
 #include "random.hh"
 
 namespace affect {

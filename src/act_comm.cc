@@ -24,10 +24,8 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <string>
 #include <unistd.h>
 #include <vector>
-#include <sys/time.h>
 
 #include "act.hh"
 #include "argument.hh"
@@ -35,21 +33,15 @@
 #include "Auction.hh"
 #include "channels.hh"
 #include "Character.hh"
-#include "declare.hh"
 #include "Descriptor.hh"
 #include "file.hh"
 #include "find.hh"
-#include "Flags.hh"
-#include "Format.hh"
 #include "Game.hh"
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
-#include "memory.hh"
 #include "merc.hh"
 #include "Object.hh"
-#include "ObjectValue.hh"
-#include "Player.hh"
 #include "random.hh"
 #include "Room.hh"
 #include "String.hh"

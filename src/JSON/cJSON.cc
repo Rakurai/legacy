@@ -3,7 +3,6 @@
 #include "JSON/cJSON.hh"
 
 #include "Logging.hh"
-#include "String.hh"
 
 cJSON * JSON::read_file(const String& filename) {
 	FILE *cf;

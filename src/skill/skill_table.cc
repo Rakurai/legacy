@@ -1,6 +1,3 @@
-#include <map>
-
-#include "magic.hh"
 #include "skill/skill.hh"
 #include "Logging.hh"
 
