@@ -123,7 +123,7 @@ void act_format(const String& format, Character *ch,
 				i = "door";
             }
 			else
-				one_argument(*str2, i);
+                i = *str2;
 
 			break;
 
