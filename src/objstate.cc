@@ -68,6 +68,10 @@ bool is_worth_saving(Object *obj)
 		return false;
 	}
 
+	// don't save super powerful eq
+	if (obj->level >= LEVEL_IMMORTAL)
+		return false;
+
 	if ((obj->timer > 0 || obj->clean_timer > 0) && obj->item_type != ITEM_CORPSE_PC)
 		return false;
 

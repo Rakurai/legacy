@@ -982,6 +982,12 @@ void do_put(Character *ch, String argument)
 			return;
 		}
 
+		if (container == Game::world().donation_pit
+		 && obj->level >= LEVEL_IMMORTAL) {
+			stc("That item is too powerful for the donation pit.\n", ch);
+			return;
+		}
+
 		if (!can_drop_obj(ch, obj)) {
 			stc("You can't let go of it.\n", ch);
 			return;
@@ -1024,6 +1030,12 @@ void do_put(Character *ch, String argument)
 		    && obj != container
 		    && can_drop_obj(ch, obj)) {
 			found = true;
+
+			if (container == Game::world().donation_pit
+			 && obj->level >= LEVEL_IMMORTAL) {
+				stc("That item is too powerful for the donation pit.\n", ch);
+				continue;
+			}
 
 			if (!will_fit(obj, container))
 				continue;
@@ -2667,6 +2679,11 @@ void do_donate(Character *ch, String argument)
 
 	if ((item = get_obj_carry(ch, arg)) == nullptr) {
 		stc("You do not have that item.\n", ch);
+		return;
+	}
+
+	if (item->level >= LEVEL_IMMORTAL) {
+		stc("That item is too powerful for the donation pit.\n", ch);
 		return;
 	}
 
