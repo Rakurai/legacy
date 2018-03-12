@@ -190,6 +190,16 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	while (*point == ' ')
 		point++;
 
+	// ! does not apply to veval and seval!!
+	int true_ret = 1;
+	int false_ret = 0;
+
+	if (*point == '!') {
+		true_ret = 0;
+		false_ret = 1;
+		point++;
+	}
+
 	/* get whatever comes before the left paren.. ignore spaces */
 	while (*point != '(')
 		if (*point == '\0') {
@@ -266,7 +276,7 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	 */
 
 	if (!strcmp(buf, "rand"))
-		return (number_percent() <= atoi(arg)) ? 1 : 0;
+		return (number_percent() <= atoi(arg)) ? true_ret : false_ret;
 
 	if (!strcmp(buf, "mudtime")) {
 		lhsvl = mob->in_room->area().world.time.hour;
@@ -277,7 +287,7 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	if (!strcmp(buf, "get_state")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");
-		Character *target;
+		Character *target = nullptr;
 
 		if (arg1.empty() || arg2.empty()) {
 			Logging::bugf("Mob: %d bad argument to 'get_state'", mob->pIndexData->vnum);
@@ -289,12 +299,9 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			case 'n': target = actor; break;
 			case 't': target = vict; break;
 			case 'r': target = rndm; break;
-			default:
-				Logging::bugf("Mob: %d bad target for 'get_state'", mob->pIndexData->vnum);
-				return -1;
 		}
 
-		if (target == nullptr || !target->is_npc()) {
+		if (target == nullptr) {
 			Logging::bugf("Mob: %d bad target for 'get_state'", mob->pIndexData->vnum);
 			return -1;
 		}
@@ -312,7 +319,7 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	if (!strcmp(buf, "iscarrying")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");
-		Character *target;
+		Character *target = nullptr;
 
 		if (arg1.empty() || arg2.empty()) {
 			Logging::bugf("Mob: %d bad arguments to 'iscarrying'", mob->pIndexData->vnum);
@@ -324,9 +331,6 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			case 'n': target = actor; break;
 			case 't': target = vict; break;
 			case 'r': target = rndm; break;
-			default:
-				Logging::bugf("Mob: %d bad argument to 'iscarrying'", mob->pIndexData->vnum);
-				return -1;
 		}
 
 		if (target == nullptr) {
@@ -334,13 +338,13 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			return -1;
 		}
 
-		return (get_obj_carry(target, arg2) == nullptr) ? 0 : 1;
+		return (get_obj_carry(target, arg2) == nullptr) ? false_ret : true_ret;
 	}
 
 	if (!strcmp(buf, "iswearing")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");
-		Character *target;
+		Character *target = nullptr;
 
 		if (arg1.empty() || arg2.empty()) {
 			Logging::bugf("Mob: %d bad arguments to 'iswearing'", mob->pIndexData->vnum);
@@ -352,9 +356,6 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			case 'n': target = actor; break;
 			case 't': target = vict; break;
 			case 'r': target = rndm; break;
-			default:
-				Logging::bugf("Mob: %d bad argument to 'iswearing'", mob->pIndexData->vnum);
-				return -1;
 		}
 
 		if (target == nullptr) {
@@ -362,20 +363,20 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			return -1;
 		}
 
-		return (get_obj_wear(target, arg2) == nullptr) ? 0 : 1;
+		return (get_obj_wear(target, arg2) == nullptr) ? false_ret : true_ret;
 	}
 
 	if (!strcmp(buf, "ispc")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i': return 0;
+		case 'i': return false_ret;
 
-		case 'n': if (actor)                            return (!actor->is_npc()) ? 1 : 0;
+		case 'n': if (actor)                            return (!actor->is_npc()) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 't': if (vict)                             return (!vict->is_npc()) ? 1 : 0;
+		case 't': if (vict)                             return (!vict->is_npc()) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return (!rndm->is_npc()) ? 1 : 0;
+		case 'r': if (rndm)                             return (!rndm->is_npc()) ? true_ret : false_ret;
 			else                                  return -1;
 
 		default:
@@ -386,15 +387,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isnpc")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return 1;
+		case 'i':                                       return true_ret;
 
-		case 'n': if (actor)                            return (actor->is_npc()) ? 1 : 0;
+		case 'n': if (actor)                            return (actor->is_npc()) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 't': if (vict)                             return (vict->is_npc()) ? 1 : 0;
+		case 't': if (vict)                             return (vict->is_npc()) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return (rndm->is_npc()) ? 1 : 0;
+		case 'r': if (rndm)                             return (rndm->is_npc()) ? true_ret : false_ret;
 			else                                  return -1;
 
 		default:
@@ -405,15 +406,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isgood")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_GOOD(mob) ? 1 : 0;
+		case 'i':                                       return IS_GOOD(mob) ? true_ret : false_ret;
 
-		case 'n': if (actor)                            return IS_GOOD(actor) ? 1 : 0;
+		case 'n': if (actor)                            return IS_GOOD(actor) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 't': if (vict)                             return IS_GOOD(vict) ? 1 : 0;
+		case 't': if (vict)                             return IS_GOOD(vict) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return IS_GOOD(rndm) ? 1 : 0;
+		case 'r': if (rndm)                             return IS_GOOD(rndm) ? true_ret : false_ret;
 			else                                  return -1;
 
 		default:
@@ -424,15 +425,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isevil")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_EVIL(mob) ? 1 : 0;
+		case 'i':                                       return IS_EVIL(mob) ? true_ret : false_ret;
 
-		case 'n': if (actor)                            return IS_EVIL(actor) ? 1 : 0;
+		case 'n': if (actor)                            return IS_EVIL(actor) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 't': if (vict)                             return IS_EVIL(vict) ? 1 : 0;
+		case 't': if (vict)                             return IS_EVIL(vict) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return IS_EVIL(rndm) ? 1 : 0;
+		case 'r': if (rndm)                             return IS_EVIL(rndm) ? true_ret : false_ret;
 			else                                  return -1;
 
 		default:
@@ -443,15 +444,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isneutral")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_NEUTRAL(mob) ? 1 : 0;
+		case 'i':                                       return IS_NEUTRAL(mob) ? true_ret : false_ret;
 
-		case 'n': if (actor)                            return IS_NEUTRAL(actor) ? 1 : 0;
+		case 'n': if (actor)                            return IS_NEUTRAL(actor) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 't': if (vict)                             return IS_NEUTRAL(vict) ? 1 : 0;
+		case 't': if (vict)                             return IS_NEUTRAL(vict) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return IS_NEUTRAL(rndm) ? 1 : 0;
+		case 'r': if (rndm)                             return IS_NEUTRAL(rndm) ? true_ret : false_ret;
 			else                                  return -1;
 
 		default:
@@ -462,15 +463,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isfight")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return (mob->fighting)   ? 1 : 0;
+		case 'i':                                       return (mob->fighting)   ? true_ret : false_ret;
 
-		case 'n': if (actor)                            return (actor->fighting) ? 1 : 0;
+		case 'n': if (actor)                            return (actor->fighting) ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 't': if (vict)                             return (vict->fighting)  ? 1 : 0;
+		case 't': if (vict)                             return (vict->fighting)  ? true_ret : false_ret;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return (rndm->fighting)  ? 1 : 0;
+		case 'r': if (rndm)                             return (rndm->fighting)  ? true_ret : false_ret;
 			else                                  return -1;
 
 		default:
@@ -483,13 +484,13 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 //		case 'i':                       return IS_IMMORTAL(mob);  impossible
 
-		case 'n': if (actor)            return IS_IMMORTAL(actor) ? 1 : 0;
+		case 'n': if (actor)            return IS_IMMORTAL(actor) ? true_ret : false_ret;
 			else                  return -1;
 
-		case 't': if (vict)             return IS_IMMORTAL(vict) ? 1 : 0;
+		case 't': if (vict)             return IS_IMMORTAL(vict) ? true_ret : false_ret;
 			else                  return -1;
 
-		case 'r': if (rndm)             return IS_IMMORTAL(rndm) ? 1 : 0;
+		case 'r': if (rndm)             return IS_IMMORTAL(rndm) ? true_ret : false_ret;
 			else                  return -1;
 
 		default:
@@ -500,32 +501,32 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "iskiller")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return 0;
+		case 'i': return false_ret;
 			break;
 
 		case 'n': if (actor)
 				if (IS_KILLER(actor))
-					return 1;
+					return true_ret;
 				else
-					return 0;
+					return false_ret;
 			else return -1;
 
 			break;
 
 		case 't': if (vict)
 				if (IS_KILLER(vict))
-					return 1;
+					return true_ret;
 				else
-					return 0;
+					return false_ret;
 			else return -1;
 
 			break;
 
 		case 'r': if (rndm)
 				if (IS_KILLER(rndm))
-					return 1;
+					return true_ret;
 				else
-					return 0;
+					return false_ret;
 			else return -1;
 
 			break;
@@ -539,32 +540,32 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isthief")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return 0;
+		case 'i': return false_ret;
 			break;
 
 		case 'n': if (actor)
 				if (IS_THIEF(actor))
-					return 1;
+					return true_ret;
 				else
-					return 0;
+					return false_ret;
 			else return -1;
 
 			break;
 
 		case 't': if (vict)
 				if (IS_THIEF(vict))
-					return 1;
+					return true_ret;
 				else
-					return 0;
+					return false_ret;
 			else return -1;
 
 			break;
 
 		case 'r': if (rndm)
 				if (IS_THIEF(rndm))
-					return 1;
+					return true_ret;
 				else
-					return 0;
+					return false_ret;
 			else return -1;
 
 			break;
@@ -578,18 +579,18 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect::exists_on_char(mob, affect::type::charm_person) ? 1 : 0;
+		case 'i': return affect::exists_on_char(mob, affect::type::charm_person) ? true_ret : false_ret;
 
 		case 'n': if (actor)
-				return affect::exists_on_char(actor, affect::type::charm_person) ? 1 : 0;
+				return affect::exists_on_char(actor, affect::type::charm_person) ? true_ret : false_ret;
 			else return -1;
 
 		case 't': if (vict)
-				return affect::exists_on_char(vict, affect::type::charm_person) ? 1 : 0;
+				return affect::exists_on_char(vict, affect::type::charm_person) ? true_ret : false_ret;
 			else return -1;
 
 		case 'r': if (rndm)
-				return affect::exists_on_char(rndm, affect::type::charm_person) ? 1 : 0;
+				return affect::exists_on_char(rndm, affect::type::charm_person) ? true_ret : false_ret;
 			else return -1;
 
 		default:
@@ -601,23 +602,23 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isfollow")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':       return (mob->master != nullptr && mob->master->in_room == mob->in_room) ? 1 : 0;
+		case 'i':       return (mob->master != nullptr && mob->master->in_room == mob->in_room) ? true_ret : false_ret;
 
 		case 'n':       if (actor)
 				return (actor->master != nullptr
-				        && actor->master->in_room == actor->in_room) ? 1 : 0;
+				        && actor->master->in_room == actor->in_room) ? true_ret : false_ret;
 			else
 				return -1;
 
 		case 't':       if (vict)
 				return (vict->master != nullptr
-				        && vict->master->in_room == vict->in_room) ? 1 : 0;
+				        && vict->master->in_room == vict->in_room) ? true_ret : false_ret;
 			else
 				return -1;
 
 		case 'r':       if (rndm)
 				return (rndm->master != nullptr
-				        && rndm->master->in_room == rndm->in_room) ? 1 : 0;
+				        && rndm->master->in_room == rndm->in_room) ? true_ret : false_ret;
 			else
 				return -1;
 
@@ -632,17 +633,17 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		case 'i':       return -1;
 
 		case 'n':       if (actor)
-				return (mob->master == actor) ? 1 : 0;
+				return (mob->master == actor) ? true_ret : false_ret;
 			else
 				return -1;
 
 		case 't':       if (vict)
-				return (mob->master == vict) ? 1 : 0;
+				return (mob->master == vict) ? true_ret : false_ret;
 			else
 				return -1;
 
 		case 'r':       if (rndm)
-				return (mob->master == rndm) ? 1 : 0;
+				return (mob->master == rndm) ? true_ret : false_ret;
 			else
 				return -1;
 
@@ -657,17 +658,17 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		case 'i':       return -1;
 
 		case 'n':       if (actor)
-				return (mob->leader == actor) ? 1 : 0;
+				return (mob->leader == actor) ? true_ret : false_ret;
 			else
 				return -1;
 
 		case 't':       if (vict)
-				return (mob->leader == vict) ? 1 : 0;
+				return (mob->leader == vict) ? true_ret : false_ret;
 			else
 				return -1;
 
 		case 'r':       if (rndm)
-				return (mob->leader == rndm) ? 1 : 0;
+				return (mob->leader == rndm) ? true_ret : false_ret;
 			else
 				return -1;
 
@@ -684,18 +685,18 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
 		}
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect_flag_on_char(mob, atoi(arg)) ? 1 : 0;
+		case 'i': return affect_flag_on_char(mob, atoi(arg)) ? true_ret : false_ret;
 
 		case 'n': if (actor)
-				return affect_flag_on_char(actor, atoi(arg)) ? 1 : 0;
+				return affect_flag_on_char(actor, atoi(arg)) ? true_ret : false_ret;
 			else return -1;
 
 		case 't': if (vict)
-				return affect_flag_on_char(vict, atoi(arg)) ? 1 : 0;
+				return affect_flag_on_char(vict, atoi(arg)) ? true_ret : false_ret;
 			else return -1;
 
 		case 'r': if (rndm)
-				return affect_flag_on_char(rndm, atoi(arg)) ? 1 : 0;
+				return affect_flag_on_char(rndm, atoi(arg)) ? true_ret : false_ret;
 			else return -1;
 
 		default:
