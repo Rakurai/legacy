@@ -817,17 +817,6 @@ FGT DFHJPQVZab -1000 S
 ABCDEFHIJKNO ABHIJKLMQ CDEFGO N
 stand stand female 0
 0 0 medium 0
->rand_prog 100~
-  if name($n) / mob
-    MPOLOAD 13151
-    MPOLOAD 13152
-    MPOLOAD 13153
-    wear confidence
-    wear claws
-    wield blade
-    MPGOTO 13178
-    endif
-~
 >fight_prog 4~
     emote utters the words "Summon Balor"
     MPMLOAD 13111
@@ -1250,8 +1239,6 @@ A
 18 35
 A
 19 35
-A
-19 0
 F
 A 0 0 Z
 #13128
