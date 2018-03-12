@@ -59,9 +59,9 @@ bool MOBtrigger;
  */
 
 char *mprog_next_command  args((char *clist));
-bool    mprog_seval             args((const String& lhs, const String& opr, const String& rhs));
-bool    mprog_veval             args((int lhs, const String& opr, int rhs));
-bool    mprog_do_ifchck         args((const String& ifchck, Character *mob,
+int     mprog_seval             args((const String& lhs, const String& opr, const String& rhs));
+int     mprog_veval             args((int lhs, const String& opr, int rhs));
+int     mprog_do_ifchck         args((const String& ifchck, Character *mob,
                                       Character *actor, Object *obj,
                                       void *vo, Character *rndm));
 char *mprog_process_if  args((const String& ifchck, char *com_list,
@@ -106,52 +106,52 @@ char *mprog_next_command(char *clist)
  *  still have trailing spaces so be careful when editing since:
  *  "guard" and "guard " are not equal.
  */
-bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
+int mprog_seval(const String& lhs, const char *opr, const char *rhs)
 {
 	if (!strcmp(opr, "=="))
-		return (bool)(!strcmp(lhs, rhs));
+		return (bool)(!strcmp(lhs, rhs)) ? 1 : 0;
 
 	if (!strcmp(opr, "!="))
-		return (bool)(strcmp(lhs, rhs));
+		return (bool)(strcmp(lhs, rhs)) ? 1 : 0;
 
 	if (!strcmp(opr, "/"))
-		return lhs.has_infix(rhs);
+		return lhs.has_infix(rhs) ? 1 : 0;
 
 	if (!strcmp(opr, "!/"))
-		return !lhs.has_infix(rhs);
+		return !lhs.has_infix(rhs) ? 1 : 0;
 
 	Logging::bug("Improper MOBprog operator\n", 0);
-	return 0;
+	return -1;
 }
 
-bool mprog_veval(int lhs, const char *opr, int rhs)
+int mprog_veval(int lhs, const char *opr, int rhs)
 {
 	if (!strcmp(opr, "=="))
-		return (lhs == rhs);
+		return (lhs == rhs) ? 1 : 0;
 
 	if (!strcmp(opr, "!="))
-		return (lhs != rhs);
+		return (lhs != rhs) ? 1 : 0;
 
 	if (!strcmp(opr, ">"))
-		return (lhs > rhs);
+		return (lhs > rhs) ? 1 : 0;
 
 	if (!strcmp(opr, "<"))
-		return (lhs < rhs);
+		return (lhs < rhs) ? 1 : 0;
 
 	if (!strcmp(opr, "<="))
-		return (lhs <= rhs);
+		return (lhs <= rhs) ? 1 : 0;
 
 	if (!strcmp(opr, ">="))
-		return (lhs >= rhs);
+		return (lhs >= rhs) ? 1 : 0;
 
 	if (!strcmp(opr, "&"))
-		return (lhs & rhs);
+		return (lhs & rhs) ? 1 : 0;
 
 	if (!strcmp(opr, "|"))
-		return (lhs | rhs);
+		return (lhs | rhs) ? 1 : 0;
 
 	Logging::bug("Improper MOBprog operator\n", 0);
-	return 0;
+	return -1;
 }
 
 /* This function performs the evaluation of the if checks.  It is
@@ -164,7 +164,7 @@ bool mprog_veval(int lhs, const char *opr, int rhs)
  * to reduce the redundancy of the mammoth if statement list.
  * If there are errors, then return -1 otherwise return boolean 1,0
  */
-bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
+int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
                      Object *obj, void *vo, Character *rndm)
 {
 	char buf[ MAX_INPUT_LENGTH ];
@@ -266,7 +266,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	 */
 
 	if (!strcmp(buf, "rand"))
-		return (number_percent() <= atoi(arg));
+		return (number_percent() <= atoi(arg)) ? 1 : 0;
 
 	if (!strcmp(buf, "mudtime")) {
 		lhsvl = mob->in_room->area().world.time.hour;
@@ -369,13 +369,13 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i': return 0;
 
-		case 'n': if (actor)                            return (!actor->is_npc());
+		case 'n': if (actor)                            return (!actor->is_npc()) ? 1 : 0;
 			else                                  return -1;
 
-		case 't': if (vict)                             return (!vict->is_npc());
+		case 't': if (vict)                             return (!vict->is_npc()) ? 1 : 0;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return (!rndm->is_npc());
+		case 'r': if (rndm)                             return (!rndm->is_npc()) ? 1 : 0;
 			else                                  return -1;
 
 		default:
@@ -388,13 +388,13 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 		case 'i':                                       return 1;
 
-		case 'n': if (actor)                            return (actor->is_npc());
+		case 'n': if (actor)                            return (actor->is_npc()) ? 1 : 0;
 			else                                  return -1;
 
-		case 't': if (vict)                             return (vict->is_npc());
+		case 't': if (vict)                             return (vict->is_npc()) ? 1 : 0;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return (rndm->is_npc());
+		case 'r': if (rndm)                             return (rndm->is_npc()) ? 1 : 0;
 			else                                  return -1;
 
 		default:
@@ -405,15 +405,15 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isgood")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_GOOD(mob);
+		case 'i':                                       return IS_GOOD(mob) ? 1 : 0;
 
-		case 'n': if (actor)                            return IS_GOOD(actor);
+		case 'n': if (actor)                            return IS_GOOD(actor) ? 1 : 0;
 			else                                  return -1;
 
-		case 't': if (vict)                             return IS_GOOD(vict);
+		case 't': if (vict)                             return IS_GOOD(vict) ? 1 : 0;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return IS_GOOD(rndm);
+		case 'r': if (rndm)                             return IS_GOOD(rndm) ? 1 : 0;
 			else                                  return -1;
 
 		default:
@@ -424,15 +424,15 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isevil")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_EVIL(mob);
+		case 'i':                                       return IS_EVIL(mob) ? 1 : 0;
 
-		case 'n': if (actor)                            return IS_EVIL(actor);
+		case 'n': if (actor)                            return IS_EVIL(actor) ? 1 : 0;
 			else                                  return -1;
 
-		case 't': if (vict)                             return IS_EVIL(vict);
+		case 't': if (vict)                             return IS_EVIL(vict) ? 1 : 0;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return IS_EVIL(rndm);
+		case 'r': if (rndm)                             return IS_EVIL(rndm) ? 1 : 0;
 			else                                  return -1;
 
 		default:
@@ -443,15 +443,15 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isneutral")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_NEUTRAL(mob);
+		case 'i':                                       return IS_NEUTRAL(mob) ? 1 : 0;
 
-		case 'n': if (actor)                            return IS_NEUTRAL(actor);
+		case 'n': if (actor)                            return IS_NEUTRAL(actor) ? 1 : 0;
 			else                                  return -1;
 
-		case 't': if (vict)                             return IS_NEUTRAL(vict);
+		case 't': if (vict)                             return IS_NEUTRAL(vict) ? 1 : 0;
 			else                                  return -1;
 
-		case 'r': if (rndm)                             return IS_NEUTRAL(rndm);
+		case 'r': if (rndm)                             return IS_NEUTRAL(rndm) ? 1 : 0;
 			else                                  return -1;
 
 		default:
@@ -483,13 +483,13 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
 //		case 'i':                       return IS_IMMORTAL(mob);  impossible
 
-		case 'n': if (actor)            return IS_IMMORTAL(actor);
+		case 'n': if (actor)            return IS_IMMORTAL(actor) ? 1 : 0;
 			else                  return -1;
 
-		case 't': if (vict)             return IS_IMMORTAL(vict);
+		case 't': if (vict)             return IS_IMMORTAL(vict) ? 1 : 0;
 			else                  return -1;
 
-		case 'r': if (rndm)             return IS_IMMORTAL(rndm);
+		case 'r': if (rndm)             return IS_IMMORTAL(rndm) ? 1 : 0;
 			else                  return -1;
 
 		default:
@@ -601,23 +601,23 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 
 	if (!strcmp(buf, "isfollow")) {
 		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':       return (mob->master != nullptr && mob->master->in_room == mob->in_room);
+		case 'i':       return (mob->master != nullptr && mob->master->in_room == mob->in_room) ? 1 : 0;
 
 		case 'n':       if (actor)
 				return (actor->master != nullptr
-				        && actor->master->in_room == actor->in_room);
+				        && actor->master->in_room == actor->in_room) ? 1 : 0;
 			else
 				return -1;
 
 		case 't':       if (vict)
 				return (vict->master != nullptr
-				        && vict->master->in_room == vict->in_room);
+				        && vict->master->in_room == vict->in_room) ? 1 : 0;
 			else
 				return -1;
 
 		case 'r':       if (rndm)
 				return (rndm->master != nullptr
-				        && rndm->master->in_room == rndm->in_room);
+				        && rndm->master->in_room == rndm->in_room) ? 1 : 0;
 			else
 				return -1;
 
@@ -632,17 +632,17 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		case 'i':       return -1;
 
 		case 'n':       if (actor)
-				return (mob->master == actor);
+				return (mob->master == actor) ? 1 : 0;
 			else
 				return -1;
 
 		case 't':       if (vict)
-				return (mob->master == vict);
+				return (mob->master == vict) ? 1 : 0;
 			else
 				return -1;
 
 		case 'r':       if (rndm)
-				return (mob->master == rndm);
+				return (mob->master == rndm) ? 1 : 0;
 			else
 				return -1;
 
@@ -657,17 +657,17 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		case 'i':       return -1;
 
 		case 'n':       if (actor)
-				return (mob->leader == actor);
+				return (mob->leader == actor) ? 1 : 0;
 			else
 				return -1;
 
 		case 't':       if (vict)
-				return (mob->leader == vict);
+				return (mob->leader == vict) ? 1 : 0;
 			else
 				return -1;
 
 		case 'r':       if (rndm)
-				return (mob->leader == rndm);
+				return (mob->leader == rndm) ? 1 : 0;
 			else
 				return -1;
 
@@ -684,18 +684,18 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
 		}
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect_flag_on_char(mob, atoi(arg));
+		case 'i': return affect_flag_on_char(mob, atoi(arg)) ? 1 : 0;
 
 		case 'n': if (actor)
-				return affect_flag_on_char(actor, atoi(arg));
+				return affect_flag_on_char(actor, atoi(arg)) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return affect_flag_on_char(vict, atoi(arg));
+				return affect_flag_on_char(vict, atoi(arg)) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return affect_flag_on_char(rndm, atoi(arg));
+				return affect_flag_on_char(rndm, atoi(arg)) ? 1 : 0;
 			else return -1;
 
 		default:
