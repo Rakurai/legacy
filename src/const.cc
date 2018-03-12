@@ -2292,7 +2292,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	{	skill::type::full_heal,         {
 		"full heal",
 		{ 55, 30, 70, 70, 70, 50, 70, 70 }, { 80, 60, 100, 100, 100, 70, 100, 100 },		
-		spell_full_heal,        TAR_CHAR_DEFENSIVE,     POS_STANDING,
+		spell_full_heal,        TAR_CHAR_DEFENSIVE,     POS_FIGHTING,
 		100,     12,	"full heal",            Guild::cleric,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	}},
