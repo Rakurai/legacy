@@ -1,0 +1,470 @@
+#QUEST
+id        creation1~
+name      First Steps~
+step      Look for the secret entrance to the city!~
+step      Escape the Barracks.~
+reward     exp     0 100 100    0    100
+reward   silver    0 250 250    0    100
+end
+
+#QUEST
+id        creation2~
+name      Raiders of the Lost Pie~
+step      Find the Bakery.~
+step      Find Super Helga at the Temple of Mota.~
+step      Buy a fresh pot pie at the Bakery.~
+step      Deliver the pie to Helga.~
+step      Eat the pie.~
+reward    exp     0 150 150    0    100
+reward    gold    0   1   1    0    100
+end
+
+#PROGS
+
+M 4250  * Juniper outside the walls
+>rand_prog 3~
+if $self.in_room() != 4303
+	say Now where was that secret entrance...
+	emote flies about, inspecting the city wall.
+endif
+~
+>rand_prog 3~
+if $self.in_room() != 4303
+	say I just know it was around here somewhere!
+endif
+~
+>rand_prog 3~
+say You can't miss it, it's a huge cave!
+~
+>rand_prog 11~
+if $self.in_room() == 4310
+or $self.in_room() == 4300
+or $self.in_room() == 4301
+or $self.in_room() == 4311
+or $self.in_room() == 4307
+or $self.in_room() == 4308
+or $self.in_room() == 4309
+	say I think it was {Cnorth{x of here!
+	say Try going {Cnorth{x!
+endif
+~
+>rand_prog 13~
+if $self.in_room() == 4302
+	say I think it was {Ceast{x of here!
+	say Try going {Ceast{x!
+endif
+~
+>rand_prog 15~
+if $self.in_room() == 4304
+or $self.in_room() == 4305
+or $self.in_room() == 4306
+	say I think it was {Cwest{x of here!
+	say Try going {Cwest{x!
+endif
+~
+>rand_prog 20~
+if $self.in_room() == 4303
+	emote flies over to a clump of {Ggrass{x at the base of the wall.
+	say Here! Here!  {CLook{x behind this {Ggrass{x!
+endif
+~
+>entry_prog 100~
+if $self.in_room() == 4303
+	say This looks familiar!  {CLook{x around, find the big cave!
+endif
+~
+>act_prog p steps into the hole in the wall.~
+if $master != $actor
+	break
+endif
+MPGOTO 4312
+if $actor.quest_step(creation1) == 1
+	MPQUEST_PROGRESS $actor creation1
+endif
+MPINVIS
+MPMLOAD 4251
+MPCONTROL Juniper control1 $actor
+MPPURGE self
+~
+|
+
+M 4251  * Juniper inside the storage rooms
+>control_prog control1~
+MPINVIS
+MPMAKE_PET $actor
+MPVIS
+emote flies into the room.
+say Wow, are you ok?  You barely fit through that cave!
+say You'll be fine, the healer in the temple can fix broken ribs.  Probably.
+~
+>entry_prog 100~
+if !$master
+or $master.in_room() != $self.in_room()
+	break
+endif
+if $self.in_room() == 4313
+	MPSTATE $master creation1:first_door 4
+	if $master.state(creation1:played_dialog) == 0
+		MPMONEY 25 0
+		MPAT 4315 give 25 gold dialog
+		MPSTATE $master creation1:played_dialog 1
+	endif
+	break
+endif
+if $self.in_room() == 3261
+	MPINVIS
+	MPMLOAD 4252
+	MPCONTROL Juniper control1 $master
+	MPPURGE self
+endif
+~
+>rand_prog 20~
+if !$master
+or $master.in_room() != $self.in_room()
+	break
+endif
+if $master.is_carrying(torch)
+	say It's pretty dark.  You should {Cwear{x that {Gtorch{x you picked up.
+	break
+endif
+if $master.state(creation1:found_weapon) == 1
+and $master.state(creation1:wielded_weapon) == 0
+	say I saw that you picked up a little weapon.  You can see it in your {Cinventory{x.
+	say You should figure out what weapon you like best and {Cwield{x it.
+	say You know, just in case you need to protect me!
+    break
+endif
+if $self.in_room() == 4312
+	if $master.state(creation1:first_door) == 0
+		say This was open last time I was here...
+		say {CLook{x around, there must be a way out.
+		MPSTATE $master creation1:first_door 1
+		break
+	endif
+	if $master.state(creation1:first_door) == 1
+		emote flies over to the small wooden door in the south wall.
+		MPECHO She tugs on the handle, but nothing happens.
+		say Hey $master, how about this {bdoor{x right here?  Can you {Copen{x it?
+		MPSTATE $master creation1:first_door 2
+		break
+	endif
+	if $master.state(creation1:first_door) == 2
+		say Hey! I think we can get out of this room through that {Gdoor{x.
+		say The handle is too big for me, can you {Copen{x it?
+		break
+	endif
+	if $master.state(creation1:first_door) == 3
+		say Come on, let's go see what's in that big room {Csouth{x from here!
+		south
+		break
+	endif
+	break
+endif
+if $self.in_room() == 4313
+	if rand(30)
+		say Ugh, this place smells.  Can we hurry and get out of here please?
+		break
+	endif
+	if !$master.is_carrying(torch)
+	and !$master.is_wearing(torch)
+		say There's a {Gtorch{x right there.  Torches can help you see in the dark.
+		say You could {Cget{x the torch, unless you just really like not seeing.
+		break
+	endif
+	if $master.is_carrying(key)
+		say Oh, do they have keys in your village?
+		say You could try {Cunlocking{x the {Ggate{x with it.
+		break
+	endif
+	if $master.state(creation1:third_door) == 0
+		emote flies over to the {Giron gate{x and inspects it.
+		say I think this is locked... maybe there's a spare {Gkey{x around somewhere?
+		break
+	endif
+	break
+endif
+if $self.in_room() == 4314
+	if !$master.is_wearing(torch)
+		say Hey! It's too dark in here!
+		say Let's go back to the other room and try to find a {Glight{x.
+		break
+	endif
+	if $master.state(creation1:opened_chest) == 0
+		say Hey! Look at that {Gchest{x!  Maybe it has something we can use!
+		say The lid looks really heavy, can you {Copen{x it?
+		break
+	endif
+	if $master.state(creation1:opened_chest) == 1
+	and $master.state(creation1:got_key) == 0
+		emote looks impatient.
+		say Is there anything in that {Gchest{x? Did you even {Clook{x?
+		say If there's anything inside, you can {Cget{x it {Cfrom{x the chest.
+		break
+	endif
+	emote looks kind of bored.
+	say So that metal thing you picked up earlier is a key.
+	say Keys usually fit into {Gdoors{x, {Ggates{x, and stuff like that.
+	say Wasn't there a big {Giron gate{x in the room {Ceast{x of here?
+	break
+endif
+~
+>act_prog p opens the closet door.~
+if $master != $actor
+or $self.in_room() != 4312
+or $actor.state(creation1:first_door) > 2
+	break
+endif
+MPSTATE $actor creation1:first_door 3
+say Alright, let's get out of this closet!  Go {Csouth{x!
+~
+>act_prog p opens the door.~
+if $master != $actor
+or $self.in_room() != 4313
+or $actor.state(creation1:opened_second_door) == 1
+	break
+endif
+MPSTATE $actor creation1:opened_second_door 1
+if $actor.is_wearing(torch)
+	say Let's go see what's in there! Go {Cwest{x!
+	break
+endif
+if $actor.is_carrying(torch)
+	say It looks really dark in there...
+	say I think you should {Cwear{x that torch you picked up.
+	break
+endif
+say It looks really dark in there...
+say Do you have a light?  Maybe we should look around for one.
+~
+>act_prog p opens the chest.~
+if $master != $actor
+or $actor.state(creation1:opened_chest) == 1
+	break
+endif
+say Hey, nice lid lifting skills!
+emote flies over to the {Gchest{x and looks inside.
+say Maybe we can use something in here!  {CLook inside{x!
+MPSTATE $actor creation1:opened_chest 1
+~
+>act_prog p from the chest.~
+if $master != $actor
+	break
+endif
+if $obj.name() / key
+	MPSTATE $actor creation1:got_key 1
+	break
+endif
+if $obj.name() !/ key
+and $actor.state(creation1:found_weapon) == 0
+	MPSTATE $actor creation1:found_weapon 1
+	break
+endif
+~
+>act_prog p unlocks the iron gate.~
+if $master != $actor
+	break
+endif
+say Ok, good, now {Copen{x it and lets get out of this dump!
+MPSTATE $actor creation1:third_door 1
+~
+>act_prog p wields~
+if $master != $actor
+or $actor.state(creation1:wielded_weapon) == 1
+	break
+endif
+MPSTATE $actor creation1:wielded_weapon 1
+MPECHOAT $actor You give it a few test swings, imagining slaying monsters and finding golden triangles.
+MPECHOAT $actor You spin around and thrust the weapon skyward, singing "da da daa DAAA!!" quietly to yourself.
+roll $actor
+say What are you doing?  Haven't you ever held a weapon before?
+sigh
+say Let's just get out of here, I need to get my wand.
+break
+~
+|
+
+M 4252 * Juniper in the city
+>control_prog control1~
+MPINVIS
+MPMAKE_PET $actor
+MPVIS
+if $actor.quest_step(creation1) == 2
+	MPQUEST_PROGRESS $actor creation1
+endif
+MPECHOAT $actor You breathe in deeply, as the city air smells fresh compared to the
+MPECHOAT $actor {xdankness of the storage room.  Juniper flies over, struggling with a
+MPECHOAT $actor {xlarge rolled parchment.
+MPOLOAD 3162
+give map $actor
+say I found that on the ground over there, it looks like a city map.
+say You can {Clook{x at it anytime to figure out where you are.  You can read, right?
+emote looks around nervously.
+say If the guards see me, they'll lock me up for sure.  I'm going to hide in your sleeve.
+say I left my wand at the {YBakery{x!  Let's go there next!  {CLook{x at the map!
+MPINVIS
+MPQUEST_ASSIGN $actor creation2
+~
+>rand_prog 100~
+if !$master
+or $master.in_room() != $self.in_room()
+	break
+endif
+
+if $master.quest_step(creation2) == 1
+and $self.in_room() == 3009
+	MPSTATE $master creation2:arrived_bakery_timer ++
+
+	if $master.state(creation2:arrived_bakery_timer) == 2
+		MPVIS
+		MPECHOAT $master You have the sudden horrible feeling of something crawling up the inside
+		MPECHOAT $master {xof your sleeve, and $self.title() emerges at your collar to whisper in your ear.
+		say This is it!  When they grabbed me, my wand fell right inside that empty pie crust over th...
+		MPECHOAT $master $self.title() looks around in a panic.
+		say Oh NOOO!!  It's gone!!  Where did the pie crust go??
+		break
+		MPINVIS
+	endif
+
+	if $master.state(creation2:arrived_bakery_timer) == 4
+		MPECHOAT $master At that moment, a scruffy looking boy bursts through the front door.
+		MPECHOAT $master The scruffy looking boy says 'OK, I delivered that pie to Helga.'
+		MPECHOAT $master The scruffy looking boy says 'I'm going down to the dock, bye...'
+		MPECHOAT $master The scruffy looking boy leaves south.
+		break
+	endif
+
+	if $master.state(creation2:arrived_bakery_timer) == 6
+		MPVIS
+		say That must be it!  My wand is inside the pie he delivered!
+		say Helga is that lady with the big nose that guards the Temple.
+		say Quick, we need to get there before she eats my wand!  {CLook{x at your {Gmap{x!
+		MPQUEST_PROGRESS $master creation2
+		MPINVIS
+		break
+	endif
+
+	break
+endif
+
+if $master.quest_step(creation2) == 2
+and $self.in_room() == 3001
+	MPSTATE $master creation2:found_helga_timer ++
+
+	if $master.state(creation2:found_helga_timer) == 2
+		MPVIS
+		MPECHOAT $master $self.title() emerges from your shirt.
+		say There she is... Wow, that nose.  And she has the pie!
+		MPINVIS
+		break
+	endif
+
+	if $master.state(creation2:found_helga_timer) == 4
+		MPFORCE helga emote holds up a big pot pie to her nose and sniffs.
+		MPFORCE helga growl
+		MPFORCE helga say That dim wit!  I told him to get me a chicken pie.  This is duck!
+		MPFORCE helga emote puts the pie on a shelf to cool and goes back to standing guard.
+		break
+	endif
+
+	if $master.state(creation2:found_helga_timer) == 6
+		MPVIS
+		say Hmm...
+		say Maybe we can go get her another pie and trade for that one?
+		say Let's go back to the Bakery and {Cbuy{x a {Gpie{x.
+		MPQUEST_PROGRESS $master creation2
+		MPINVIS
+		break
+	endif
+
+	break
+endif
+
+if $master.quest_step(creation2) == 3
+and $self.in_room() == 3009
+	MPSTATE $master creation2:arrived_bakery_timer2 ++
+
+	if $master.state(creation2:arrived_bakery_timer2) == 2
+		MPVIS
+		emote emerges from your shirt and looks at the baker, who seems distracted by some dough.
+		say We don't have money where I come from, so I don't know how to buy things...
+		say Oh, {Clook{x at that {Gsign{x right there!  I think it tells you how!
+		say You do have some money, right?  You should check your {Cworth{x and see.
+		break
+		MPINVIS
+	endif
+
+	break
+endif
+
+if $master.quest_step(creation2) == 4
+and $master.state(creation2:got_pie_timer) > 0
+	* this timer counts down
+	MPSTATE $master creation2:got_pie_timer --
+
+	if $master.state(creation2:got_pie_timer) == 2
+		MPVIS
+		MPECHOAT $master You resist the sudden urge to squash the thing crawling up your shirt.
+		MPECHOAT $master $self.title() jumps out of your shirt and spins around happily.
+		say You got the pie!!  Now we just have to get my wand out...
+		think
+		break
+		MPINVIS
+	endif
+
+	if $master.state(creation2:got_pie_timer) == 0
+		MPVIS
+		say I know!  You can {Ceat{x the {Gpie{x!
+		say Be careful!  Don't chew up my wand, or your face might explode.
+		wait $master
+		MPQUEST_PROGRESS $master creation2
+		break
+	endif
+
+	break
+endif
+~
+
+>act_prog p buys a big pot pie.~
+if $master != $actor
+or $master.quest_step(creation2) != 3
+	break
+endif
+MPVIS
+say Yes!  Nice going!  That looks like a perfectly adequate pie.
+say Let's go take it to Helga!
+MPQUEST_PROGRESS $master creation2
+MPINVIS
+~
+
+>act_prog p eats a big pot pie.~
+if $self.master() != $actor
+or $actor.quest_step(creation2) != 5
+	break
+endif
+MPECHOAT $actor You gag, and then cough out what looks like a little silver toothpick.
+emote flies over and picks up the wand.
+say Ew!  You got gross drool all over it... it had better still work!
+MPQUEST_PROGRESS $actor creation2
+~
+|
+
+M 3011 * Helga
+>give_prog potpie pot pie~
+if $actor.quest_step(creation2) == 4
+	blink
+	say A fresh chicken pie?  For me?  How did you know I wanted one?
+	say Well, no matter, this is just what I wanted for lunch!
+	say Are you new around here?  You're a little shady looking...
+	peer $actor
+	say ... but I'll make sure the guards leave you be.  Just stay out of trouble!
+	say Here, take this duck pie, it's probably not too cold.
+	give pie $actor
+	emote eats a big pot pie in one giant bite.
+	MPSTATE $actor creation2:got_pie_timer 4
+endif
+~
+|
+
+S
+
+#$
