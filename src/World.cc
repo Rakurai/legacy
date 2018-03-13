@@ -10,6 +10,7 @@
 #include "ExitPrototype.hh"
 #include "RoomPrototype.hh"
 #include "Room.hh"
+#include "quest/Data.hh"
 
 World::
 World() :
@@ -220,6 +221,60 @@ load_areas() {
 		areas.emplace(VnumRange(area->min_vnum, area->max_vnum), area);
 
 		area->load();
+	}
+
+	fclose(fpList);
+}
+
+void World::
+load_quests() {
+	/* Read in all the quest files */
+	FILE *fpList = fopen(QUEST_LIST, "r");
+
+	if (fpList == nullptr) {
+		perror(QUEST_LIST);
+		exit(1);
+	}
+
+	for (; ;) {
+		String file_name = fread_word(fpList);
+
+		if (file_name[0] == '$')
+			break;
+
+		if (file_name[0] == '#')
+			continue;
+
+		FILE *fp = fopen(String(String(QUEST_DIR) + file_name).c_str(), "r");
+
+		if (fp == nullptr) {
+			Logging::file_bug(fpList, "Load_quests: can't open file", 0);
+			exit(1);
+		}
+
+		Format::printf("Now loading quests from file %s\n", file_name);
+
+		for (; ;) {
+			if (fread_letter(fp) != '#') {
+				Logging::file_bug(fp, "Load_quests: # not found.", 0);
+				exit(1);
+			}
+
+			String word = fread_word(fp);
+
+			if (word[0] == '$')  break;
+			else if (word == "QUEST") {
+				quest::Data quest(file_name, fp);
+				quests.emplace(quest.id, quest);
+			}
+			else if (word == "PROGS")  Area::load_progs(fp);
+			else {
+				Logging::file_bug(fp, "Load_quests: bad section name.", 0);
+				exit(1);
+			}
+		}
+
+		fclose(fp);
 	}
 
 	fclose(fpList);

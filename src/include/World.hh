@@ -10,6 +10,7 @@
 #include "worldmap/Worldmap.hh"
 #include "GarbageCollectingList.hh"
 #include "Vnum.hh"
+#include "quest/Data.hh"
 
 class Area;
 class Character;
@@ -46,6 +47,7 @@ public:
 	Object *donation_pit = nullptr;;
 
 	std::map<VnumRange, Area *> areas;
+	std::map<String, quest::Data> quests;
 
 	Area *get_area(const Vnum&) const;
 	bool valid() const {
@@ -71,6 +73,7 @@ public:
 	void load_areas();
 	void create_rooms();
 	void create_exits();
+	void load_quests();
 
 private:
 	World();
