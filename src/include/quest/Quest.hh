@@ -13,6 +13,8 @@ public:
 
 		const String type;
 		const String value;
+		// at some point after loading all quests we could pre-translate these
+		// value strings to pointers for faster lookups, especially in show_char
 	};
 
 	struct Step {
