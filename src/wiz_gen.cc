@@ -2215,7 +2215,11 @@ void do_master(Character *ch, String argument)
 		return;
 	}
 
-	make_pet(ch, pet);
+	make_pet(victim, pet);
+	// maybe temporary disabling of setting these
+//	affect::add_perm_to_char(pet, affect::type::charm_person);
+//	pet->comm_flags = COMM_NOCHANNELS;
+	stc("You may want to consider revoking the pet's channels!\n", ch);
 
 	stc("You have set the player with a pet.\n", ch);
 	stc("You have been set with a new pet.\n", victim);

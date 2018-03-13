@@ -3871,8 +3871,6 @@ int get_cost(Character *keeper, Object *obj, bool fBuy)
 
 void make_pet(Character *ch, Character *pet) {
 	pet->act_flags += ACT_PET;
-	affect::add_perm_to_char(pet, affect::type::charm_person);
-	pet->comm_flags = COMM_NOCHANNELS;
 	add_follower(pet, ch);
 	pet->leader = ch;
 	ch->pet = pet;
@@ -4034,6 +4032,8 @@ void do_buy(Character *ch, String argument)
 		char_to_room(pet, ch->in_room);
 
 		make_pet(ch, pet);
+		affect::add_perm_to_char(pet, affect::type::charm_person);
+		pet->comm_flags = COMM_NOCHANNELS;
 
 		stc("Enjoy your pet.  Watch out, they bite!\n", ch);
 		act("$n purchased $N as a pet.", ch, nullptr, pet, TO_ROOM);

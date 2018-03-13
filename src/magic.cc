@@ -901,6 +901,8 @@ void animate_mob(Character *ch, int level, const char *name, long vnum)
 	mob->nectimer = level / 10;
 
 	make_pet(ch, mob);
+	affect::add_perm_to_char(mob, affect::type::charm_person);
+	mob->comm_flags = COMM_NOCHANNELS;
 
 	Format::sprintf(buf, "%sSummoned from the darkside, this %s serves '%s'.\n",
 	        mob->description, name, ch->name);
@@ -5149,6 +5151,8 @@ void spell_resurrect(skill::type sn, int level, Character *ch, void *vo, int tar
 	extract_obj(obj);
 
 	make_pet(ch, mob);
+	affect::add_perm_to_char(mob, affect::type::charm_person);
+	mob->comm_flags = COMM_NOCHANNELS;
 
 	do_say(mob, "How may I serve you, master?");
 }
