@@ -160,6 +160,7 @@ Character *get_char_target(const String& fn, const String& var, Character *mob, 
 
 	switch (var[1]) {/* arg should be "$*" so just get the letter */
 		case 'i': return mob;
+		case 'b': return mob->master;
 		case 'n': return actor;
 		case 't': return vict;
 		case 'r': return rndm;
@@ -989,6 +990,34 @@ String mprog_translate(char ch, Character *mob, Character *actor,
 
 		break;
 
+	case 'b':
+		if (mob->master) {
+			if (can_see_char(mob, mob->master))
+				t = mob->master->name;
+
+			if (!mob->master->is_npc())
+				t[0] = toupper(t[0]);
+		}
+
+		break;
+
+	case 'B':
+		if (mob->master) {
+			if (can_see_char(mob, mob->master)) {
+				if (mob->master->is_npc())
+					t = mob->master->short_descr;
+				else {
+					t = mob->master->name;
+					t += " ";
+					t += mob->master->pcdata->title;
+				}
+			}
+			else
+				t = "someone";
+		}
+
+		break;
+
 	case 't':
 		if (vict) {
 			if (can_see_char(mob, vict))
@@ -1080,6 +1109,24 @@ String mprog_translate(char ch, Character *mob, Character *actor,
 	case 'S':
 		if (vict)
 			t = can_see_char(mob, vict) ? his_her[GET_ATTR_SEX(vict)] : "someone's";
+
+		break;
+
+	case 'f':
+		if (mob->master)
+			t = can_see_char(mob, mob->master) ? he_she[GET_ATTR_SEX(mob->master)] : "someone";
+
+		break;
+
+	case 'g':
+		if (mob->master)
+			t = can_see_char(mob, mob->master) ? him_her[GET_ATTR_SEX(mob->master)] : "someone";
+
+		break;
+
+	case 'h':
+		if (mob->master)
+			t = can_see_char(mob, mob->master) ? his_her[GET_ATTR_SEX(mob->master)] : "someone's";
 
 		break;
 
