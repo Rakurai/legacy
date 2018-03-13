@@ -1317,12 +1317,13 @@ String mprog_translate(char ch, Character *mob, Character *actor,
 		break;
 
 	case 'n':
-		if (actor)
+		if (actor) {
 			if (can_see_char(mob, actor))
 				t = actor->name;
 
-		if (!actor->is_npc())
-			t[0] = toupper(t[0]);
+			if (!actor->is_npc())
+				t[0] = toupper(t[0]);
+		}
 
 		break;
 
@@ -1347,10 +1348,10 @@ String mprog_translate(char ch, Character *mob, Character *actor,
 		if (vict) {
 			if (can_see_char(mob, vict))
 				t = vict->name;
-		}
 
-		if (!vict->is_npc())
-			t[0] = toupper(t[0]);
+			if (!vict->is_npc())
+				t[0] = toupper(t[0]);
+		}
 
 		break;
 
