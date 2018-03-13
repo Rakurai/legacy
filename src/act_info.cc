@@ -54,7 +54,6 @@
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
-#include "MobProg.hh"
 #include "MobilePrototype.hh"
 #include "Note.hh"
 #include "Object.hh"
@@ -571,9 +570,9 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	// highlight questgiver mobs if the player is eligible for one of their quests
 	if (!ch->is_npc()
 	 && victim->is_npc()
-	 && victim->pIndexData->progtype_flags.has(QUEST_REQUEST_PROG)) {
-		for (const auto mprg : victim->pIndexData->mobprogs) {
-			if (mprg->type != QUEST_REQUEST_PROG)
+	 && victim->pIndexData->progtypes.count(progs::Type::QUEST_REQUEST_PROG)) {
+		for (const auto mprg : victim->pIndexData->progs) {
+			if (mprg->type != progs::Type::QUEST_REQUEST_PROG)
 				continue;
 
 			String id;

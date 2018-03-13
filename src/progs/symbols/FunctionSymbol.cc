@@ -20,6 +20,7 @@
 #include "progs/symbols/function_helpers.hh"
 #include "argument.hh"
 #include "progs/triggers.hh"
+#include "quest/functions.hh"
 
 
 namespace progs {
@@ -80,6 +81,8 @@ const std::vector<fn_type> fn_table = {
 	{ "is_carrying", dt::Boolean,   dt::Character, { dt::String } },
 	{ "is_wearing",  dt::Boolean,   dt::Character, { dt::String } },
 	{ "master",      dt::Character, dt::Character, {} },
+	{ "can_start_quest", dt::Boolean, dt::Character, { dt::String } },
+	{ "quest_step",  dt::Integer,   dt::Character, { dt::String } },
 
 	// character actions
 	{ "load_obj",    dt::Object,    dt::Character, { dt::Integer } },
@@ -541,6 +544,18 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	if (name == "is_charmed")  return affect::exists_on_char(ch, affect::type::charm_person);
 	if (name == "is_carrying") return get_obj_carry(ch, deref<String>(arg_list[0].get(), context)) != nullptr;
 	if (name == "is_wearing")  return get_obj_wear(ch, deref<String>(arg_list[0].get(), context)) != nullptr;
+	if (name == "can_start_quest") {
+		if (ch->is_npc())
+			return false;
+
+		String id = deref<String>(arg_list[0].get(), context);
+		const quest::Quest *quest = quest::lookup(id);
+
+		if (quest == nullptr)
+			throw Format::format("unknown quest '%s' in can_start_quest", id);
+
+		return quest::can_start(ch->pcdata, quest); // can do it
+	}
 
 	throw Format::format("unhandled function '%s'", name);
 }
@@ -566,6 +581,24 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
 	if (name == "sex")        return GET_ATTR_SEX(ch);
 	if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
+	if (name == "quest_step") {
+		if (ch->is_npc())
+			return false;
+
+		String id = deref<String>(arg_list[0].get(), context);
+
+		const quest::Quest *quest = quest::lookup(id);
+
+		if (quest == nullptr)
+			throw Format::format("unknown quest '%s' in on_quest_step", id);
+
+		const quest::State *state = quest::get_state(ch->pcdata, quest);
+
+		if (state == nullptr)
+			return 0;
+
+		return state->step+1;
+	}
 
 	throw Format::format("unhandled function '%s'", name);
 }

@@ -1,4 +1,5 @@
 #include "String.hh"
+#include "Logging.hh"
 #include "Character.hh"
 #include "Object.hh"
 #include "Room.hh"
@@ -13,6 +14,7 @@
 #include "merc.hh"
 #include "Descriptor.hh"
 #include "Area.hh"
+#include "quest/functions.hh"
 
 namespace progs {
 
@@ -340,6 +342,52 @@ bool random_area_trigger(Character *mob)
 	return triggered;
 }
 
+bool questor_here_trigger(Character *mob) {
+	// run for all eligible questors in the room
+	if (!mob->pIndexData->progtypes.count(Type::QUESTOR_HERE_PROG))
+		return false;
+
+	bool triggered = false;
+
+	for (const auto mprg : mob->pIndexData->progs) {
+		if (mprg->type != Type::QUESTOR_HERE_PROG)
+			continue;
+
+		const quest::Quest *quest = nullptr; // save doing the lookup for finding our first PC
+
+		Character *next;
+		for (Character *ch = mob->in_room->people; ch; ch = next) {
+			next = ch->next_in_room; // in case questor dies/leaves/whatever
+
+			if (ch->is_npc())
+				continue;
+
+			if (quest == nullptr) {
+				String id;
+				one_argument(mprg->arglist, id); // only allow one
+
+				quest = quest::lookup(id);
+
+				if (quest == nullptr) {
+					Logging::bugf("mprog_questor_here_trigger: unknown quest id '%s' on mob %d",
+						id, mob->pIndexData->vnum);
+					break; // move on to next quest
+				}
+			}
+
+			if (quest::can_start(ch->pcdata, quest)) {
+				contexts::MobProgContext context(Type::QUESTOR_HERE_PROG, mob);
+				context.set_var("actor", data::Type::Character, ch);
+				mprg->execute(context);
+				triggered = true;
+				break; // only trigger once per available quest
+			}
+		}
+	}
+
+	return triggered;
+}
+
 void tick_trigger(Character *mob)    /* Montrey */
 {
 	if (mob->pIndexData->progtypes.count(Type::TICK_PROG)) {
@@ -398,15 +446,30 @@ void drop_trigger(Object *obj, Character *ch) {
 
 void quest_request_trigger(Character *ch)
 {
+	if (ch->is_npc()) // shouldn't be possible
+		return;
+
 	for (Character *mob = ch->in_room->people; mob != nullptr; mob = mob->next_in_room)
 		if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::QUEST_REQUEST_PROG)))
 			for (const auto mprg : mob->pIndexData->progs)
 				if (mprg->type == Type::QUEST_REQUEST_PROG) {
-					contexts::MobProgContext context(Type::QUEST_REQUEST_PROG, mob);
-					context.set_var("actor", data::Type::Character, ch);
-					mprg->execute(context);
-					// for now, only one request prog, should handle requirements in script
-					break;
+					String id;
+					one_argument(mprg->arglist, id); // only allow one
+
+					const auto *quest = quest::lookup(id);
+
+					if (quest == nullptr) {
+						Logging::bugf("progs::quest_request_trigger: unknown quest id '%s' on mob %d",
+							id, mob->pIndexData->vnum);
+						continue;
+					}
+
+					if (quest::can_start(ch->pcdata, quest)) {
+						contexts::MobProgContext context(Type::QUEST_REQUEST_PROG, mob);
+						context.set_var("actor", data::Type::Character, ch);
+						mprg->execute(context);
+						break; // only trigger one
+					}
 				}
 }
 
