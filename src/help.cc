@@ -64,6 +64,7 @@ const String stupidassline =
 #define	HELP_WIZGEN		Flags::P
 #define	HELP_WIZBUILD		Flags::Q
 #define	HELP_WIZHELP		Flags::R
+#define HELP_CREATION   Flags::S
 
 struct helpfile_table_type
 {
@@ -91,6 +92,7 @@ const std::vector<helpfile_table_type> helpfile_table = {
 	{       "info",         HELP_INFO       },
 	{       "combat",       HELP_COMBAT     },
 	{       "misc",         HELP_MISC       },
+	{       "creation",     HELP_CREATION   },
 };
 
 /*** UTILITY FUNCTIONS ***/

@@ -1,0 +1,102 @@
+0 creation_ask_race~
+{xThe journey from your home land has been long and uneventful.  Finally,
+after many long days of walking, the city walls of Midgaard loom above
+you.  The towering gates, the guards in gleaming armor, and the streets
+beyond are just as you pictured them.
+
+Midgaard, the legendary city of the gods.  Stories of the mighty heroes
+and wizards that call Midgaard their home have spread throughout the land,
+drawing many would-be adventurers like yourself.
+
+At the moment, though, it looks as if someone is not welcome in the city...
+
+{Y"{WOW!{Y"{x the pixie yelps as she is roughly tossed to the ground at your feet.
+
+{Y"{WAnd stay out, you thieving little bug!{Y"{x the guard yells, resuming his
+post in front of the city entrance.
+
+After a moment, the pixie stands and dusts herself off.  Only six inches
+tall, her wings sparkle and glow blue before she lifts herself into the
+air.
+
+{Y"{WMEANIES!  NINCOMPOOPS!{Y"{x  The pixie yells a few more insults before
+turning away from the guards.  She looks around, and notices you staring
+at her.
+
+{Y"{WYou big people all look the same to me.  Just what are you supposed to
+be, anyway?{Y"{x she asks.
+
+
+Here you may choose your race.  If you are unsure of what you would like
+to be, just type {Chelp{x for information on the races.
+
+The following races are available:
+~
+
+0 creation_get_new_name_1~
+{Y"{WWell, you're the strangest looking ~
+
+0 creation_get_new_name_2~
+. I've ever seen.{Y"{x  The pixie
+flits around, trailing sparkles and looking worried.  {Y"{WUgh, they caught
+me in the bakery again.  All those delicious pot pies... I just couldn't
+help myself!  But I left my wand in there when they caught me!{Y"{x
+
+You look around nervously, afraid of being associated with undesirables
+on your first day in the realm.
+
+{Y"{WMy name is {CJuniper{W,{Y"{x she says, oblivious to your attempts to slowly
+back away.  {Y"{WHeyyy... maybe you could help me!{Y"{x  She flies up close to
+your face.  {Y"{WI need to get my wand back.  I can't get back to the faerie
+realm without it!{Y"{x  Juniper sniffs sadly, and you almost feel sorry for
+her.
+
+{Y"{WBesides, I can help you too!  Those guards don't let just anyone into
+the city, especially someone really shady looking like you.  If you
+promise to help me get my wand back, I'll show you a secret way past the
+guards!{Y"{x
+
+She appears to interpret your look of doubt as an affirmative.
+
+{Y"{WGreat!{Y"{x she exclaims, dancing around in mid air.  {Y"{WBut I don't even know
+what to call you!  What's your name?{Y"{x
+~
+
+0 creation_confirm_new_name~
+She frowns.  {Y"{WThat's so weird, are you sure?{Y"{x
+~
+
+0 creation_confirm_new_name_goback~
+She seems annoyed.  {Y"{WStop messing around, what do you want me to call you?{Y"{x
+~
+
+0 creation_get_new_pass_1~
+{Y"{WWhatever, '~
+
+0 creation_get_new_pass_2~
+..'{Y"{x  She snickers softly after saying it.  {Y"{WOne more
+thing: you're so plain looking that if we got separated I'd never
+recognize you.  Tell me a code word so that I know you're not some
+imposter trying to trick me!{Y"{x
+~
+
+0 creation_get_new_pass_error~
+She sighs at you.  {Y"{WThat's way too short, anyone could guess that.
+Come up with a longer word!{Y"{x
+~
+
+0 creation_confirm_new_pass~
+{Y"{WReally?  The password is smurfberries?  No?  Tell me again then!{Y"{x
+~
+
+0 creation_confirm_new_pass_goback~
+Juniper looks as though her head may implode.  {Y"{WThat's not even close
+to the first word you said!  Let's try this again.  I say password,
+you say...{Y"{x
+~
+
+0 creation_all_done~
+{Y"{WWell, I guess that will do.  Alright, just a few more questions...{Y"{x
+~
+
+-2
