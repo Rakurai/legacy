@@ -341,6 +341,15 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddItemToObject(o,		"Quests",			item);
 	}
 
+	if (ch->pcdata->completed_quests.size() > 0) {
+		item = cJSON_CreateArray();
+
+		for (const auto& it: ch->pcdata->completed_quests)
+			cJSON_AddItemToArray(item, cJSON_CreateString(it.c_str()));
+
+		cJSON_AddItemToObject(o,	"QuestCom",		item);
+	}
+
 	if (!ch->pcdata->rank.empty())
 		JSON::addStringToObject(o,	"Rank",			ch->pcdata->rank);
 
@@ -1117,6 +1126,20 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "Query") {
 					for (cJSON *item = o->child; item != nullptr && count < MAX_QUERY; item = item->next)
 						ch->pcdata->query.push_back(item->valuestring);
+					fMatch = true; break;
+				}
+
+				if (key == "QuestCom") {
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
+						String id = item->valuestring;
+
+						if (quest::lookup(id) == nullptr) {
+							Logging::bugf("fread_player: unknown quest id '%s'", id);
+							continue;
+						}
+
+						ch->pcdata->completed_quests.insert(id);
+					}
 					fMatch = true; break;
 				}
 
