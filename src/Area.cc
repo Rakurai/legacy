@@ -68,6 +68,7 @@ load() {
 		else if (word == "ROOMS")  load_rooms(fpArea);
 		else if (word == "SHOPS")  load_shops(fpArea);
 		else if (word == "SPECIALS")  load_specials(fpArea);
+		else if (word == "PROGS")  Area::load_progs(fpArea); // static method
 //				else if (word == "TOURSTARTS")  load_tourstarts(fp);
 //				else if (word == "TOURROUTES")  load_tourroutes(fp);
 		else {
@@ -345,6 +346,60 @@ load_specials(FILE *fp)
 			}
 
 			break;
+		}
+
+		fread_to_eol(fp);
+	}
+}
+
+/* alternative way of attaching mobprogs:
+   #PROGS
+
+   M VNUM
+   > prog args~
+   script
+   ~
+   ...
+   |
+
+   M VNUM
+   ...
+
+   S
+
+   The purpose of this is to allow mobprogs to be read as an independent section,
+   which is useful for the data-driven quest functionality where we can attach
+   quest mobprogs to existing mobs without having the scripts scattered around 
+   the area files.  For that reason, we intentionally allow attaching to any
+   already loaded mob vnum, which obviously would cause ordering issues if used
+   in area files.
+
+   * this is a static function, it can be called from anywhere.  maybe should be in world?
+ */
+void Area::
+load_progs(FILE *fp) {
+	while (true) {
+		char letter = fread_letter(fp);
+
+		switch (letter) {
+		case 'S':
+			return;
+
+		case '*':
+			break;
+
+		case 'M': {
+			Vnum vnum(fread_number(fp));
+			MobilePrototype *proto = Game::world().get_mob_prototype(vnum);
+
+			if (!proto) {
+				Logging::file_bug(fp, "Load_progs: 'M': vnum %d not found.", vnum);
+				exit(1);
+			}
+
+			proto->read_mobprogs(fp);
+			break;
+		}
 		}
 
 		fread_to_eol(fp);

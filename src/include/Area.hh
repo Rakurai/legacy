@@ -73,6 +73,15 @@ public:
     void add_char(Character *ch);
     void remove_char(Character *ch);
 
+    // loading routines that could possibly be called externally (quests)
+    void load_rooms(FILE *fp);
+    void load_mobiles(FILE *fp);
+    void load_objects(FILE *fp);
+    void load_resets(FILE *fp);
+    void load_shops(FILE *fp);
+    void load_specials(FILE *fp);
+    static void load_progs(FILE *fp);
+
     friend bool operator==(const Area&, const Area&);
     friend bool operator!=(const Area&, const Area&);
 
@@ -81,13 +90,8 @@ private:
     Area(const Area&);
     Area& operator=(const Area&);
 
+    // loading routines that should *never* be called externally
     void load_header(FILE *fp);
-    void load_rooms(FILE *fp);
-    void load_mobiles(FILE *fp);
-    void load_objects(FILE *fp);
-    void load_resets(FILE *fp);
-    void load_shops(FILE *fp);
-    void load_specials(FILE *fp);
     void load_region(FILE *fp);// { region = new worldmap::Region(*this, fp); }
     int scan_credits();
 
