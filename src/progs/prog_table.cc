@@ -34,6 +34,7 @@ const std::map<Type, prog_table_t> prog_table = {
 	{ Type::CALL_PROG,      { "call_prog",      { c_self, w_orld, r_room, c_mast, c_rand, s_args                         }}},
 	{ Type::DROP_PROG,      { "drop_prog",      { o_self, w_orld, r_room,         c_rand, c_actr                         }}},
 	{ Type::QUEST_REQUEST_PROG, { "quest_request_prog", { c_self, w_orld, r_room, c_mast, c_rand, c_actr                 }}},
+	{ Type::QUESTOR_HERE_PROG, { "questor_here_prog", { c_self, w_orld, r_room, c_mast, c_rand, c_actr                   }}},
 };
 
 } // namespace progs

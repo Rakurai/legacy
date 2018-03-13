@@ -115,6 +115,8 @@ void Character::update() {
 		// we only want one random trigger to fire, prevent spam.  prioritize quests
 		bool triggered = false;
 
+		triggered = progs::questor_here_trigger(ch);
+
 		/* If ch dies or changes
 		position due to it's random
 		trigger, continue - Kahn */

@@ -47,7 +47,7 @@ void assign(Player *player, const Quest *quest) {
 
 // only called from quest::progress, error checking done
 void complete(Player *player, const Quest *quest) {
-	Character *ch = player->ch;
+	Character *ch = &player->ch;
 
 	ptc(ch, "{Y%s - QUEST COMPLETE!{x\n", quest->name);
 
@@ -70,28 +70,28 @@ void complete(Player *player, const Quest *quest) {
 		}
 		else if (params.type == "exp") {
 			if (!ch->revoke_flags.has(REVOKE_EXP)) {
-				ptc(player->ch, "You receive %d experience point%s.\n",
+				ptc(ch, "You receive %d experience point%s.\n",
 					amount, amount > 1 ? "s" : "");
 				gain_exp(ch, amount);
 			}
 		}
 		else if (params.type == "qp") {
-			ptc(player->ch, "You receive %d quest point%s.\n",
+			ptc(ch, "You receive %d quest point%s.\n",
 				amount, amount > 1 ? "s" : "");
 			player->questpoints += amount;
 		}
 		else if (params.type == "sp") {
-			ptc(player->ch, "You receive %d skill point%s.\n",
+			ptc(ch, "You receive %d skill point%s.\n",
 				amount, amount > 1 ? "s" : "");
 			player->skillpoints += amount;
 		}
 		else if (params.type == "prac") {
-			ptc(player->ch, "You receive %d practice%s.\n",
+			ptc(ch, "You receive %d practice%s.\n",
 				amount, amount > 1 ? "s" : "");
 			ch->practice += amount;
 		}
 		else if (params.type == "train") {
-			ptc(player->ch, "You receive %d train%s.\n",
+			ptc(ch, "You receive %d train%s.\n",
 				amount, amount > 1 ? "s" : "");
 			ch->train += amount;
 		}
@@ -111,11 +111,11 @@ void complete(Player *player, const Quest *quest) {
 					}
 
 					if (CAN_WEAR(obj, ITEM_TAKE)) {
-						ptc(player->ch, "You receive %s!\n", obj->short_descr);
+						ptc(ch, "You receive %s!\n", obj->short_descr);
 						obj_to_char(obj, ch);
 					}
 					else {
-						ptc(player->ch, "%s appears before you!\n", obj->short_descr);
+						ptc(ch, "%s appears before you!\n", obj->short_descr);
 						obj_to_room(obj, ch->in_room);
 					}
 				}
