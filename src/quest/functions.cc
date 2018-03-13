@@ -69,6 +69,7 @@ void complete(Player *player, const Quest *quest) {
 
 	// remove the quest
 	remove(player, quest);
+	player->completed_quests.insert(quest->id);
 }
 
 void progress(Player *player, const Quest *quest) {

@@ -127,6 +127,7 @@ public:
     std::set<String>    warp_locs;
 
     std::vector<quest::State> quests;
+    std::set<String> completed_quests;
 
 private:
 	Player(const Player&);
