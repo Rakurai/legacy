@@ -211,6 +211,34 @@ void quest_where(Character *ch, char *what)
 		ptc(ch, ",\nnear %s.\n", room->name());
 } /* end quest_where */
 
+void newquest_info(Character *ch) {
+	if (ch->is_npc() || ch->pcdata->quests.size() == 0)
+		return;
+
+	String buf = "{YYou have undertaken the following quests:{x\n";
+	int index = 1;
+
+	for (const auto state : ch->pcdata->quests) {
+		buf += Format::format("%2d) ", index++);
+
+		if (IS_IMMORTAL(ch))
+			buf += Format::format("(%8s) ", state.quest->id);
+
+		buf += Format::format("%s - %s",
+			state.quest->name,
+			state.quest->steps[state.step].description
+		);
+
+		if (IS_IMMORTAL(ch))
+			buf += Format::format(" (step %d/%d)", state.step+1, state.quest->steps.size());
+
+		buf += "\n";
+	}
+
+	buf += "\n";
+	ptc(ch, buf);
+}
+
 void squest_info(Character *ch)
 {
 	MobilePrototype *questman;
@@ -1509,15 +1537,13 @@ void do_quest(Character *ch, String argument)
 
 	/*** INFO ***/
 	if (arg1.is_prefix_of("info")) {
-		if (!ch->is_npc() && ch->pcdata->quests.size() > 0) {
-			ptc(ch, quest::list(ch->pcdata));
-		}
-
 		if (ch->in_room == nullptr) {
 			stc("You cannot recall your quest from this location.\n", ch);
 			return;
 		}
 
+		newquest_info(ch);
+		stc("\n", ch);
 		squest_info(ch);
 		stc("\n", ch);
 		quest_info(ch);

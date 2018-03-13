@@ -21,24 +21,6 @@ const Quest *lookup(const String& id) {
 	return &entry->second;
 }
 
-const String list(Player *player) {
-	String buf;
-	int index = 1;
-
-	for (const auto state : player->quests) {
-		buf += Format::format("%2d) (%8s) %-30s - %s (step %d)\n",
-			index++,
-			state.quest->id,
-			state.quest->name,
-			state.quest->steps[state.step].description,
-			state.step
-		);
-	}
-
-	buf += "\n";
-	return buf;
-}
-
 State *get_state(Player *player, const Quest *quest) {
 	for (auto& state : player->quests)
 		if (state.quest == quest)
