@@ -151,6 +151,24 @@ int mprog_veval(int lhs, const char *opr, int rhs)
 	return -1;
 }
 
+// tired of all this duplicate code
+Character *get_char_target(const String& fn, const String& var, Character *mob, Character *actor, Character *vict, Character *rndm) {
+	if (var.length() < 2) {
+		Logging::bugf("Mob: bad target '%s' for %s, vnum %d", var, fn, mob->pIndexData->vnum);
+		return nullptr;
+	}
+
+	switch (var[1]) {/* arg should be "$*" so just get the letter */
+		case 'i': return mob;
+		case 'n': return actor;
+		case 't': return vict;
+		case 'r': return rndm;
+	}
+
+	Logging::bugf("Mob: bad target '%s' for %s, vnum %d", var, fn, mob->pIndexData->vnum);
+	return nullptr;
+}
+
 /* This function performs the evaluation of the if checks.  It is
  * here that you can add any ifchecks which you so desire. Hopefully
  * it is clear from what follows how one would go about adding your
@@ -284,24 +302,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	if (!strcmp(buf, "get_state")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");
-		Character *target = nullptr;
 
 		if (arg1.empty() || arg2.empty()) {
 			Logging::bugf("Mob: %d bad argument to 'get_state'", mob->pIndexData->vnum);
 			return -1;
 		}		
 
-		switch (arg1[1]) {/* arg should be "$*" so just get the letter */
-			case 'i': target = mob; break;
-			case 'n': target = actor; break;
-			case 't': target = vict; break;
-			case 'r': target = rndm; break;
-		}
-
-		if (target == nullptr) {
-			Logging::bugf("Mob: %d bad target for 'get_state'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
 
 		const auto entry = target->mpstate.find(arg2);
 
@@ -316,24 +325,15 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	if (!strcmp(buf, "iscarrying")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");
-		Character *target = nullptr;
 
 		if (arg1.empty() || arg2.empty()) {
 			Logging::bugf("Mob: %d bad arguments to 'iscarrying'", mob->pIndexData->vnum);
 			return -1;
 		}
 
-		switch (arg1[1]) {/* arg should be "$*" so just get the letter */
-			case 'i': target = mob; break;
-			case 'n': target = actor; break;
-			case 't': target = vict; break;
-			case 'r': target = rndm; break;
-		}
-
-		if (target == nullptr) {
-			Logging::bugf("Mob: %d bad target for 'iscarrying'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
 
 		return (get_obj_carry(target, arg2) == nullptr) ? false_ret : true_ret;
 	}
@@ -341,338 +341,121 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	if (!strcmp(buf, "iswearing")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");
-		Character *target = nullptr;
 
 		if (arg1.empty() || arg2.empty()) {
 			Logging::bugf("Mob: %d bad arguments to 'iswearing'", mob->pIndexData->vnum);
 			return -1;
 		}
 
-		switch (arg1[1]) {/* arg should be "$*" so just get the letter */
-			case 'i': target = mob; break;
-			case 'n': target = actor; break;
-			case 't': target = vict; break;
-			case 'r': target = rndm; break;
-		}
-
-		if (target == nullptr) {
-			Logging::bugf("Mob: %d bad target for 'iswearing'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
 
 		return (get_obj_wear(target, arg2) == nullptr) ? false_ret : true_ret;
 	}
 
 	if (!strcmp(buf, "ispc")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i': return false_ret;
-
-		case 'n': if (actor)                            return (!actor->is_npc()) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 't': if (vict)                             return (!vict->is_npc()) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 'r': if (rndm)                             return (!rndm->is_npc()) ? true_ret : false_ret;
-			else                                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'ispc'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return !target->is_npc() ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isnpc")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return true_ret;
-
-		case 'n': if (actor)                            return (actor->is_npc()) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 't': if (vict)                             return (vict->is_npc()) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 'r': if (rndm)                             return (rndm->is_npc()) ? true_ret : false_ret;
-			else                                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isnpc'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return target->is_npc() ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isgood")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_GOOD(mob) ? true_ret : false_ret;
-
-		case 'n': if (actor)                            return IS_GOOD(actor) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 't': if (vict)                             return IS_GOOD(vict) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 'r': if (rndm)                             return IS_GOOD(rndm) ? true_ret : false_ret;
-			else                                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isgood'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return IS_GOOD(target) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isevil")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_EVIL(mob) ? true_ret : false_ret;
-
-		case 'n': if (actor)                            return IS_EVIL(actor) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 't': if (vict)                             return IS_EVIL(vict) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 'r': if (rndm)                             return IS_EVIL(rndm) ? true_ret : false_ret;
-			else                                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isevil'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return IS_EVIL(target) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isneutral")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return IS_NEUTRAL(mob) ? true_ret : false_ret;
-
-		case 'n': if (actor)                            return IS_NEUTRAL(actor) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 't': if (vict)                             return IS_NEUTRAL(vict) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 'r': if (rndm)                             return IS_NEUTRAL(rndm) ? true_ret : false_ret;
-			else                                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isneutral'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return IS_NEUTRAL(target) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isfight")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':                                       return (mob->fighting)   ? true_ret : false_ret;
-
-		case 'n': if (actor)                            return (actor->fighting) ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 't': if (vict)                             return (vict->fighting)  ? true_ret : false_ret;
-			else                                  return -1;
-
-		case 'r': if (rndm)                             return (rndm->fighting)  ? true_ret : false_ret;
-			else                                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isfight'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return target->fighting ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isimmort")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-//		case 'i':                       return IS_IMMORTAL(mob);  impossible
-
-		case 'n': if (actor)            return IS_IMMORTAL(actor) ? true_ret : false_ret;
-			else                  return -1;
-
-		case 't': if (vict)             return IS_IMMORTAL(vict) ? true_ret : false_ret;
-			else                  return -1;
-
-		case 'r': if (rndm)             return IS_IMMORTAL(rndm) ? true_ret : false_ret;
-			else                  return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isimmort'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return IS_IMMORTAL(target) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "iskiller")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return false_ret;
-			break;
-
-		case 'n': if (actor)
-				if (IS_KILLER(actor))
-					return true_ret;
-				else
-					return false_ret;
-			else return -1;
-
-			break;
-
-		case 't': if (vict)
-				if (IS_KILLER(vict))
-					return true_ret;
-				else
-					return false_ret;
-			else return -1;
-
-			break;
-
-		case 'r': if (rndm)
-				if (IS_KILLER(rndm))
-					return true_ret;
-				else
-					return false_ret;
-			else return -1;
-
-			break;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'iskiller'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-			break;
-		}
+
+		return IS_KILLER(target) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isthief")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return false_ret;
-			break;
-
-		case 'n': if (actor)
-				if (IS_THIEF(actor))
-					return true_ret;
-				else
-					return false_ret;
-			else return -1;
-
-			break;
-
-		case 't': if (vict)
-				if (IS_THIEF(vict))
-					return true_ret;
-				else
-					return false_ret;
-			else return -1;
-
-			break;
-
-		case 'r': if (rndm)
-				if (IS_THIEF(rndm))
-					return true_ret;
-				else
-					return false_ret;
-			else return -1;
-
-			break;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isthief'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-			break;
-		}
+
+		return IS_THIEF(target) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "ischarmed")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect::exists_on_char(mob, affect::type::charm_person) ? true_ret : false_ret;
-
-		case 'n': if (actor)
-				return affect::exists_on_char(actor, affect::type::charm_person) ? true_ret : false_ret;
-			else return -1;
-
-		case 't': if (vict)
-				return affect::exists_on_char(vict, affect::type::charm_person) ? true_ret : false_ret;
-			else return -1;
-
-		case 'r': if (rndm)
-				return affect::exists_on_char(rndm, affect::type::charm_person) ? true_ret : false_ret;
-			else return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'ischarmed'",
-			    mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return affect::exists_on_char(target, affect::type::charm_person) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isfollow")) {
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':       return (mob->master != nullptr && mob->master->in_room == mob->in_room) ? true_ret : false_ret;
-
-		case 'n':       if (actor)
-				return (actor->master != nullptr
-				        && actor->master->in_room == actor->in_room) ? true_ret : false_ret;
-			else
-				return -1;
-
-		case 't':       if (vict)
-				return (vict->master != nullptr
-				        && vict->master->in_room == vict->in_room) ? true_ret : false_ret;
-			else
-				return -1;
-
-		case 'r':       if (rndm)
-				return (rndm->master != nullptr
-				        && rndm->master->in_room == rndm->in_room) ? true_ret : false_ret;
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isfollow'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return (target->master && target->master->in_room == target->in_room) ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "ismaster")) { /* is $ their master? */
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':       return -1;
-
-		case 'n':       if (actor)
-				return (mob->master == actor) ? true_ret : false_ret;
-			else
-				return -1;
-
-		case 't':       if (vict)
-				return (mob->master == vict) ? true_ret : false_ret;
-			else
-				return -1;
-
-		case 'r':       if (rndm)
-				return (mob->master == rndm) ? true_ret : false_ret;
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'ismaster'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return mob->master == target ? true_ret : false_ret;
 	}
 
 	if (!strcmp(buf, "isleader")) { /* is $ their leader? */
-		switch (arg[1]) { /* arg should be "$*" so just get the letter */
-		case 'i':       return -1;
-
-		case 'n':       if (actor)
-				return (mob->leader == actor) ? true_ret : false_ret;
-			else
-				return -1;
-
-		case 't':       if (vict)
-				return (mob->leader == vict) ? true_ret : false_ret;
-			else
-				return -1;
-
-		case 'r':       if (rndm)
-				return (mob->leader == rndm) ? true_ret : false_ret;
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'isleader'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return mob->leader == target ? true_ret : false_ret;
 	}
 #if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
 	if (!strcmp(buf, "isaffected")) {
@@ -681,278 +464,82 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		if (sn <= 0) {
 			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
 		}
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return affect_flag_on_char(mob, atoi(arg)) ? true_ret : false_ret;
 
-		case 'n': if (actor)
-				return affect_flag_on_char(actor, atoi(arg)) ? true_ret : false_ret;
-			else return -1;
-
-		case 't': if (vict)
-				return affect_flag_on_char(vict, atoi(arg)) ? true_ret : false_ret;
-			else return -1;
-
-		case 'r': if (rndm)
-				return affect_flag_on_char(rndm, atoi(arg)) ? true_ret : false_ret;
-			else return -1;
-
-		default:
-			Logging::bug("Mob: %d bad argument '%s' to 'isaffected'",
-			    mob->pIndexData->vnum, );
+		Character *target;
+		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		return affect_flag_on_char(target, atoi(arg)) ? true_ret : false_ret;
 	}
 #endif // ifdef 0
 	if (!strcmp(buf, "hitprcnt")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->hit / GET_MAX_HIT(mob);
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = actor->hit / GET_MAX_HIT(actor);
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = vict->hit / GET_MAX_HIT(vict);
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = rndm->hit / GET_MAX_HIT(rndm);
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'hitprcnt'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = target->hit / GET_MAX_HIT(target);
+		rhsvl = atoi(val);
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "inroom")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->in_room->location.to_int();
-			rhsvl = Location(val).to_int();
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = actor->in_room->location.to_int();
-				rhsvl = Location(val).to_int();
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = vict->in_room->location.to_int();
-				rhsvl = Location(val).to_int();
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = rndm->in_room->location.to_int();
-				rhsvl = Location(val).to_int();
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'inroom'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = target->in_room->location.to_int();
+		rhsvl = Location(val).to_int();
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "sex")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = GET_ATTR_SEX(mob);
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = GET_ATTR_SEX(actor);
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = GET_ATTR_SEX(vict);
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = GET_ATTR_SEX(rndm);
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'sex'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = GET_ATTR_SEX(target);
+		rhsvl = atoi(val);
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "position")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->position;
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = actor->position;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = vict->position;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = rndm->position;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'position'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = target->position;
+		rhsvl = atoi(val);
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "level")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->level;
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = actor->level;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = vict->level;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = rndm->level;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'level'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = target->level;
+		rhsvl = atoi(val);
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "class")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->guild;
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = actor->guild;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = vict->guild;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = rndm->guild;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'class'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = target->guild;
+		rhsvl = atoi(val);
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "goldamt")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->gold;
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				lhsvl = actor->gold;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				lhsvl = vict->gold;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				lhsvl = rndm->gold;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'goldamt'", mob->pIndexData->vnum);
+		Character *target;
+		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
 			return -1;
-		}
+
+		lhsvl = target->gold;
+		rhsvl = atoi(val);
+		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
 	if (!strcmp(buf, "objtype")) {
