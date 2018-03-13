@@ -1835,7 +1835,6 @@ void mprog_greet_trigger(Character *ch)
 			mprog_percent_check(vmob, ch, nullptr, nullptr, GREET_PROG);
 		else if (vmob->is_npc()
 		         && ch != vmob
-		         && can_see_char(vmob, ch)
 		         && (vmob->fighting == nullptr)
 		         && IS_AWAKE(vmob)
 		         && (vmob->pIndexData->progtype_flags.has(ALL_GREET_PROG)))
