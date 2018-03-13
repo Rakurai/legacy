@@ -125,6 +125,7 @@ public:
     int              next_lay_countdown = 0;
     bool                familiar = false;
     std::set<String>    warp_locs;
+
     std::vector<quest::State> quests;
 
 private:
