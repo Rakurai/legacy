@@ -1080,7 +1080,7 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	/* Ok... all the ifchcks are done, so if we didnt find ours then something
 	 * odd happened.  So report the bug and abort the MOBprogram (return error)
 	 */
-	Logging::bugf("Mob: %d unknown ifchck", mob->pIndexData->vnum);
+	Logging::bugf("Mob: %d unknown ifchck '%s'", mob->pIndexData->vnum, buf);
 	return -1;
 }
 /* Quite a long and arduous function, this guy handles the control
