@@ -54,6 +54,7 @@
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
+#include "MobProg.hh"
 #include "MobilePrototype.hh"
 #include "Note.hh"
 #include "Object.hh"
@@ -73,6 +74,7 @@
 #include "gem/gem.hh"
 #include "Location.hh"
 #include "RoomPrototype.hh"
+#include "quest/functions.hh"
 
 extern void     email_file    args((Character *ch, const char *file, const char *str));
 
@@ -565,6 +567,27 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	    && ((ch->pcdata->questmob > 0 && victim->pIndexData->vnum == ch->pcdata->questmob)
 	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
+
+	// highlight questgiver mobs if the player is eligible for one of their quests
+	if (!ch->is_npc()
+	 && victim->is_npc()
+	 && victim->pIndexData->progtype_flags.has(QUEST_REQUEST_PROG)) {
+		for (const auto mprg : victim->pIndexData->mobprogs) {
+			if (mprg->type != QUEST_REQUEST_PROG)
+				continue;
+
+			String id;
+			one_argument(mprg->arglist, id); // only allow one
+
+			const auto *quest = quest::lookup(id);
+
+			if (quest != nullptr
+			 && quest::can_start(ch->pcdata, quest)) {
+			 	buf += "{Y(!) ";
+				break;
+			}
+		}
+	}
 
 	if (victim->comm_flags.has(COMM_AFK))
 		buf += "{b[AFK] ";
