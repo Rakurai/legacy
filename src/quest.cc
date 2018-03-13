@@ -42,6 +42,7 @@
 #include "tables.hh"
 #include "World.hh"
 #include "RoomPrototype.hh"
+#include "quest/Data.hh"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -1462,6 +1463,24 @@ void do_quest(Character *ch, String argument)
 
 	/*** FORFEIT ***/
 	if (arg1.is_prefix_of("forfeit")) {
+		if (!ch->is_npc() && ch->pcdata->quests.size() > 0 && !argument.empty()) {
+			if (!argument.is_number()) {
+				stc("Which quest do you want to forfeit?\n", ch);
+				return;
+			}
+
+			int num = atoi(argument)-1; // 0-index
+
+			if (num < 0 || (unsigned int)num >= ch->pcdata->quests.size()) {
+				stc("You haven't undertaken that many quests.\n", ch);
+				return;
+			}
+
+			stc("You abandon your quest.\n", ch);
+			ch->pcdata->quests.erase(ch->pcdata->quests.begin() + num);
+			return;
+		}
+
 		if (!IS_QUESTOR(ch) && !IS_SQUESTOR(ch)) {
 			stc("You aren't currently on a quest.\n", ch);
 			return;
@@ -1489,6 +1508,20 @@ void do_quest(Character *ch, String argument)
 
 	/*** INFO ***/
 	if (arg1.is_prefix_of("info")) {
+		if (!ch->is_npc() && ch->pcdata->quests.size() > 0) {
+			int index = 1;
+			for (const auto& state : ch->pcdata->quests) {
+				ptc(ch, "%2d) (%8s) %-30s - %s (step %d)\n",
+					index++,
+					state.quest->id,
+					state.quest->name,
+					state.quest->steps[state.step].description,
+					state.step
+				);
+			}
+			stc("\n", ch);
+		}
+
 		if (ch->in_room == nullptr) {
 			stc("You cannot recall your quest from this location.\n", ch);
 			return;
