@@ -396,4 +396,18 @@ void drop_trigger(Object *obj, Character *ch) {
 	}
 }
 
+void quest_request_trigger(Character *ch)
+{
+	for (Character *mob = ch->in_room->people; mob != nullptr; mob = mob->next_in_room)
+		if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::QUEST_REQUEST_PROG)))
+			for (const auto mprg : mob->pIndexData->progs)
+				if (mprg->type == Type::QUEST_REQUEST_PROG) {
+					contexts::MobProgContext context(Type::QUEST_REQUEST_PROG, mob);
+					context.set_var("actor", data::Type::Character, ch);
+					mprg->execute(context);
+					// for now, only one request prog, should handle requirements in script
+					break;
+				}
+}
+
 } // namespace progs

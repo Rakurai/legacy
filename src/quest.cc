@@ -43,6 +43,7 @@
 #include "World.hh"
 #include "RoomPrototype.hh"
 #include "quest/Data.hh"
+#include "progs/triggers.hh"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -1784,6 +1785,13 @@ void do_quest(Character *ch, String argument)
 		if (get_position(ch) < POS_RESTING) {
 			stc("You are too busy sleeping.\n", ch);
 			return;
+		}
+
+		if (!ch->is_npc()) {
+			unsigned int num_quests = ch->pcdata->quests.size();
+			progs::quest_request_trigger(ch);
+			if (num_quests < ch->pcdata->quests.size())
+				return;
 		}
 
 		if ((questman = find_squestmaster(ch)) != nullptr) {

@@ -32,6 +32,7 @@ void    tick_trigger     ( Character* mob );
 void 	boot_trigger( Character* mob	);
 void    speech_trigger   ( const String& txt, Character* mob );
 void    call_trigger   (Character *mob, const String& key, const String& argument);
+void    quest_request_trigger  (Character *ch);
 
 void drop_trigger(Object *obj, Character *ch);
 

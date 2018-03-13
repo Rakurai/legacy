@@ -21,6 +21,7 @@ enum class Type {
 	BOOT_PROG,
 	RAND_AREA_PROG,
 	CALL_PROG,
+	QUEST_REQUEST_PROG,
 
 	DROP_PROG,
 };
