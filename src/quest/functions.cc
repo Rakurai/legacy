@@ -4,6 +4,7 @@
 #include "Format.hh"
 #include "Game.hh"
 #include "Logging.hh"
+#include "Character.hh"
 #include "quest/functions.hh"
 #include "World.hh"
 
@@ -103,6 +104,40 @@ void remove(Player *player, const Quest *quest) {
 void remove(Player *player, int index) {
 	if (get_state(player, index) != nullptr)
 		player->quests.erase(player->quests.begin() + index);
+}
+
+bool can_start(Player *player, const Quest *quest) {
+	Character *ch = &player->ch;
+
+	if (get_state(player, quest) != nullptr)
+		return false;
+
+	for (const auto& req : quest->prereqs) {
+		// things that expect a non-integer value
+
+		if (req.type == "quest_com") {
+			if (player->completed_quests.count(req.value) == 0)
+				return false;
+		}
+
+		if (req.type == "quest_not") {
+			if (player->completed_quests.count(req.value) > 0)
+				return false;
+		}
+
+		// things that expect an integer value
+		int value = atoi(req.value);
+
+		if ((req.type == "minlevel" && ch->level < value)
+		 || (req.type == "maxlevel" && ch->level > value)
+		 || (req.type == "minremort" && player->remort_count < value)
+		 || (req.type == "maxremort" && player->remort_count > value))
+			return false;
+
+		// pass, on to next req
+	}
+
+	return true;
 }
 
 } // namespace quest

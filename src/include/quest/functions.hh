@@ -14,4 +14,6 @@ void progress(Player *, const Quest *);
 void remove(Player *, const Quest *);
 void remove(Player *, int index);
 
+bool can_start(Player *, const Quest *);
+
 } // namespace quest
