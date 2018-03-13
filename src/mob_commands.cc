@@ -783,3 +783,44 @@ void do_mpcontrol(Character *ch, String argument) {
 
 	mprog_control_trigger(mob, key, target);
 }
+
+void do_mpstate(Character *ch, String argument) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
+		do_huh(ch);
+		return;
+	}
+
+	String name, key, value;
+	argument = one_argument(argument, name);
+	argument = one_argument(argument, key);
+	argument = one_argument(argument, value);
+
+	if (name.empty()) {
+		Logging::bugf("Mpstate - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		return;
+	}
+
+	Character *target = get_char_here(ch, name, VIS_CHAR);
+
+	if (target == nullptr) {
+		Logging::bugf("MPstate: no such mob '%s': vnum %d.", name, ch->pIndexData->vnum);
+		return;
+	}
+
+	if (key == "clear") {
+		target->mpstate.clear();
+		return;
+	}
+
+	if (key.empty() || value.empty() || !value.is_number()) {
+		Logging::bugf("Mpstate - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		return;
+	}
+
+	if (value == "0") {
+		target->mpstate.erase(key);
+		return;
+	}
+
+	target->mpstate[key] = atoi(value);
+}

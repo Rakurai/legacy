@@ -274,6 +274,41 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 		return mprog_veval(lhsvl, opr, rhsvl);
 	}
 
+	if (!strcmp(buf, "get_state")) {
+		String arg1, arg2;
+		arg2 = String(arg).lsplit(arg1, ",");
+		Character *target;
+
+		if (arg1.empty() || arg2.empty()) {
+			Logging::bugf("Mob: %d bad argument to 'get_state'", mob->pIndexData->vnum);
+			return -1;
+		}		
+
+		switch (arg1[1]) {/* arg should be "$*" so just get the letter */
+			case 'i': target = mob; break;
+			case 'n': target = actor; break;
+			case 't': target = vict; break;
+			case 'r': target = rndm; break;
+			default:
+				Logging::bugf("Mob: %d bad target for 'get_state'", mob->pIndexData->vnum);
+				return -1;
+		}
+
+		if (target == nullptr || !target->is_npc()) {
+			Logging::bugf("Mob: %d bad target for 'get_state'", mob->pIndexData->vnum);
+			return -1;
+		}
+
+		const auto entry = target->mpstate.find(arg2);
+
+		int state = 0;
+
+		if (entry != target->mpstate.cend())
+			state = entry->second;
+
+		return mprog_veval(state, opr, atoi(val));
+	}
+
 	if (!strcmp(buf, "iscarrying")) {
 		String arg1, arg2;
 		arg2 = String(arg).lsplit(arg1, ",");

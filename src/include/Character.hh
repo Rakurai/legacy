@@ -129,6 +129,7 @@ public:
     int              secure_level = 0;
     MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
+    std::map<String, int> mpstate;
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */
 

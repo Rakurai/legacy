@@ -533,6 +533,7 @@ const std::vector<cmd_type> cmd_table = {
 	{ "mpvis",         do_mpvis,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpmake_pet",         do_mpmake_pet,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpcontrol",         do_mpcontrol,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
+	{ "mpstate",         do_mpstate,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 };
 
 /*

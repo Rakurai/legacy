@@ -502,3 +502,4 @@ DECLARE_DO_FUN( do_mpinvis);
 DECLARE_DO_FUN( do_mpvis);
 DECLARE_DO_FUN( do_mpmake_pet);
 DECLARE_DO_FUN( do_mpcontrol);
+DECLARE_DO_FUN( do_mpstate);
