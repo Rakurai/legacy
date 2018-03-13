@@ -27,6 +27,7 @@
  ***************************************************************************/
 
 #include <cstring>
+#include <stack>
 
 #include "argument.hh"
 #include "affect/Affect.hh"
@@ -64,10 +65,6 @@ int     mprog_veval             args((int lhs, const String& opr, int rhs));
 int     mprog_do_ifchck         args((const String& ifchck, Character *mob,
                                       Character *actor, Object *obj,
                                       void *vo, Character *rndm));
-char *mprog_process_if  args((const String& ifchck, char *com_list,
-                                      Character *mob, Character *actor,
-                                      Object *obj, void *vo,
-                                      Character *rndm));
 String  mprog_translate         args((char ch, Character *mob,
                                       Character *actor, Object *obj,
                                       void *vo, Character *rndm));
@@ -1195,197 +1192,157 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
  * Possibly all the return '\0's should be changed to return "".
  * -- Elrac
  */
-char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
-                       Character *actor, Object *obj, void *vo,
-                       Character *rndm)
-{
-	const char *morebuf = nullptr;
-	char    *cmnd = nullptr;
-	bool loopdone = false;
-	bool     flag = false;
-	int  legal;
 
-	/* check for trueness of the ifcheck */
-	if ((legal = mprog_do_ifchck(ifchck, mob, actor, obj, vo, rndm))) {
-		if (legal == 1)
-			flag = true;
-		else
-			return nullptr;
-	}
+/* I didn't like the complex recursive function that was part of the original mobprog code, so
+ * I rewrote it.  Run of the mill stack processor.  On encountering an 'if', we push the evaluation T/F onto
+ * the stack.  On encountering commands, we look at the latest entry to decide if we're currently
+ * executing those commands.  On encountering another 'if', we push its evaluation unless the parent
+ * is false, in which case we push false.  On encountering 'else', we pop and push the opposite,
+ * but again, if the parent is false we push false.  On encountering 'endif', we pop. -- Montrey */
+void mprog_process(String script, Character *mob, Character *actor, Object *obj, void *vo, Character *rndm) {
+	String line, word, last_word;
+	std::stack<bool> stack;
 
-	String buf;
+	while (!script.empty()) {
+		// grab the line, this will strip whitespace
+		script = script.lsplit(line, "\n");
 
-	while (loopdone == false) { /*scan over any existing or statements */
-		cmnd     = com_list;
-		com_list = mprog_next_command(com_list);
+		// new feature, allow blank lines!
+		if (line.empty())
+			continue;
 
-		while (*cmnd == ' ')
-			cmnd++;
+		// grab the first token, if it's some mud command we'll put it back
+		line = line.lsplit(word, " \t");
 
-		if (*cmnd == '\0') {
-			Logging::bugf("Mob: %d no commands after IF/OR", mob->pIndexData->vnum);
-			return nullptr;
-		}
+		if (word == "if") {
+			last_word = word;
 
-		morebuf = one_argument(cmnd, buf);
-
-		if (!strcmp(buf, "or")) {
-			if ((legal = mprog_do_ifchck(morebuf, mob, actor, obj, vo, rndm))) {
-				if (legal == 1)
-					flag = true;
-				else
-					return nullptr;
-			}
-		}
-		else
-			loopdone = true;
-	}
-
-	if (flag)
-		for (; ;) { /*ifcheck was true, do commands but ignore else to endif*/
-			if (!strcmp(buf, "if")) {
-				com_list = mprog_process_if(morebuf, com_list, mob, actor, obj, vo, rndm);
-
-				while (*cmnd == ' ')
-					cmnd++;
-
-				if (com_list == nullptr || *com_list == '\0')
-					return nullptr;
-
-				cmnd     = com_list;
-				com_list = mprog_next_command(com_list);
-				morebuf  = one_argument(cmnd, buf);
+			// if we're under a false evaluation, don't even bother evaluating the line, we'll stay false
+			if (!stack.empty() && stack.top() == false) {
+				stack.push(false);
 				continue;
 			}
 
-			if (!strcmp(buf, "break"))
-				return nullptr;
-
-			if (!strcmp(buf, "endif"))
-				return com_list;
-
-			if (!strcmp(buf, "else")) {
-				while (strcmp(buf, "endif")) {
-					cmnd     = com_list;
-					com_list = mprog_next_command(com_list);
-
-					while (*cmnd == ' ')
-						cmnd++;
-
-					if (*cmnd == '\0') {
-						Logging::bugf("Mob: %d missing endif after else",
-						    mob->pIndexData->vnum);
-						return nullptr;
-					}
-
-					morebuf = one_argument(cmnd, buf);
-				}
-
-				return com_list;
+			// otherwise push the evaluation
+			switch(mprog_do_ifchck(line.c_str(), mob, actor, obj, vo, rndm)) {
+				case 1: stack.push(true); break;
+				case 0: stack.push(false); break;
+				default: return;
+			}
+		}
+		else if (word == "or") {
+			// "or" can only follow "if" or "or"
+			if (last_word != "if" && last_word != "or") {
+				Logging::bugf("mprog_process: 'or' illegally following '%s', mob %d", last_word, mob->pIndexData->vnum);
+				return;
 			}
 
-			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
-
-			if (mob->is_garbage())
-				return nullptr;
-
-			cmnd     = com_list;
-			com_list = mprog_next_command(com_list);
-
-			while (*cmnd == ' ')
-				cmnd++;
-
-			if (*cmnd == '\0') {
-				Logging::bugf("Mob: %d missing else or endif", mob->pIndexData->vnum);
-				return nullptr;
+			if (stack.empty()) {
+				Logging::bugf("mprog_process: 'or' encountered without 'if', mob %d", mob->pIndexData->vnum);
+				return;
 			}
 
-			morebuf = one_argument(cmnd, buf);
-		}
-	else { /*false ifcheck, find else and do existing commands or quit at endif*/
-		while ((strcmp(buf, "else")) && (strcmp(buf, "endif"))) {
-			cmnd     = com_list;
-			com_list = mprog_next_command(com_list);
+			last_word = word;
 
-			while (*cmnd == ' ')
-				cmnd++;
+			// "or" won't change a true evaluation, don't bother evaluating
+			if (stack.top() == true)
+				continue;
 
-			if (*cmnd == '\0') {
-				Logging::bugf("Mob: %d missing an else or endif",
-				    mob->pIndexData->vnum);
-				return nullptr;
-			}
+			// "or" can change a false evaluation only if parent is not false, peek at the parent
+			stack.pop();
 
-			morebuf = one_argument(cmnd, buf);
-		}
-
-		/* found either an else or an endif.. act accordingly */
-		if (!strcmp(buf, "endif"))
-			return com_list;
-
-		cmnd     = com_list;
-		com_list = mprog_next_command(com_list);
-
-		while (*cmnd == ' ')
-			cmnd++;
-
-		if (*cmnd == '\0') {
-			Logging::bugf("Mob: %d missing endif", mob->pIndexData->vnum);
-			return nullptr;
-		}
-
-		morebuf = one_argument(cmnd, buf);
-
-		for (; ;) { /*process the post-else commands until an endif is found.*/
-			if (!strcmp(buf, "if")) {
-				com_list = mprog_process_if(morebuf, com_list, mob, actor,
-				                            obj, vo, rndm);
-
-				while (*cmnd == ' ')
-					cmnd++;
-
-				if (com_list == nullptr || *com_list == '\0')
-					return nullptr;
-
-				cmnd     = com_list;
-				com_list = mprog_next_command(com_list);
-				morebuf  = one_argument(cmnd, buf);
+			if (!stack.empty() && stack.top() == false) {
+				// put the false parent back
+				stack.push(false);
 				continue;
 			}
 
-			if (!strcmp(buf, "else")) {
-				Logging::bugf("Mob: %d found else in an else section",
-				    mob->pIndexData->vnum);
-				return nullptr;
+			// otherwise, the false parent is popped, we'll see if it changes
+			switch(mprog_do_ifchck(line.c_str(), mob, actor, obj, vo, rndm)) {
+				case 1: stack.push(true); break;
+				case 0: stack.push(false); break;
+				default: return;
+			}
+		}
+		else if (word == "and") {
+			// "and" can only follow "if" or "and"
+			if (last_word != "if" && last_word != "and") {
+				Logging::bugf("mprog_process: 'and' illegally following '%s', mob %d", last_word, mob->pIndexData->vnum);
+				return;
 			}
 
-			if (!strcmp(buf, "break"))
-				return nullptr;
-
-			if (!strcmp(buf, "endif"))
-				return com_list;
-
-			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
-
-			if (mob->is_garbage())
-				return nullptr;
-
-			cmnd     = com_list;
-			com_list = mprog_next_command(com_list);
-
-			while (*cmnd == ' ')
-				cmnd++;
-
-			if (*cmnd == '\0') {
-				Logging::bugf("Mob:%d missing endif in else section",
-				    mob->pIndexData->vnum);
-				return nullptr;
+			if (stack.empty()) {
+				Logging::bugf("mprog_process: 'and' encountered without 'if', mob %d", mob->pIndexData->vnum);
+				return;
 			}
 
-			morebuf = one_argument(cmnd, buf);
+			last_word = word;
+
+			// "and" won't change a false evaluation, don't bother evaluating
+			if (stack.top() == false)
+				continue;
+
+			// otherwise, pop the true parent and we'll see if it changes
+			stack.pop();
+
+			switch(mprog_do_ifchck(line.c_str(), mob, actor, obj, vo, rndm)) {
+				case 1: stack.push(true); break;
+				case 0: stack.push(false); break;
+				default: return;
+			}
+		}
+		else if (word == "else") {
+			// "else" can only follow "if" or "and" or "or"
+			if (last_word != "if" && last_word != "and" && last_word != "or") {
+				Logging::bugf("mprog_process: 'else' illegally following '%s', mob %d", last_word, mob->pIndexData->vnum);
+				return;
+			}
+
+			if (stack.empty()) {
+				Logging::bugf("mprog_process: 'else' encountered without 'if', mob %d", mob->pIndexData->vnum);
+				return;
+			}
+
+			last_word = word;
+
+			// switch evaluations now, unless the parent is false
+			bool opposite = !stack.top();
+			stack.pop();
+
+			if (!stack.empty() && stack.top() == false)
+				stack.push(false);
+			else
+				stack.push(opposite);
+		}
+		else if (word == "endif") {
+			if (stack.empty()) {
+				Logging::bugf("mprog_process: 'endif' encountered without 'if', mob %d", mob->pIndexData->vnum);
+				return;
+			}
+
+			last_word = word;
+			stack.pop();
+		}
+		else {
+			if (!stack.empty() && stack.top() == false)
+				continue;
+
+			// special command, get out immediately
+			if (word == "break")
+				return;
+
+			// mud commands
+			mprog_process_cmnd(word + " " + line, mob, actor, obj, vo, rndm);
+
+			if (mob->is_garbage()) // purged themselves or died or something
+				return;
 		}
 	}
+
+	if (!stack.empty())
+		Logging::bugf("mprog_process: reached end of script without closing 'if' statements, mob %d", mob->pIndexData->vnum);
 }
+
 
 /* This routine handles the variables for command expansion.
  * If you want to add any go right ahead, it should be fairly
@@ -1662,19 +1619,14 @@ void mprog_process_cmnd(const String& cmnd, Character *mob, Character *actor,
 void mprog_driver(const String& com_list, Character *mob, Character *actor,
                   Object *obj, void *vo)
 {
-	char tmpcmndlst[ MAX_STRING_LENGTH ];
-	const char *morebuf;
-	char *command_list;
-	char *cmnd;
 	Character *rndm  = nullptr;
-	Character *vch   = nullptr;
 	int        count = 0;
 
 	/*    if affect::exists_on_char( mob, affect::type::charm_person )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */
-	for (vch = mob->in_room->people; vch; vch = vch->next_in_room) {
+	for (Character *vch = mob->in_room->people; vch; vch = vch->next_in_room) {
 		if (!vch->is_npc()
 		    &&  !IS_IMMORTAL(vch)
 		    &&  can_see_char(mob, vch)) {
@@ -1685,33 +1637,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 		}
 	}
 
-	strcpy(tmpcmndlst, com_list);
-	command_list = tmpcmndlst;
-	cmnd         = command_list;
-	command_list = mprog_next_command(command_list);
-
-	char buf[MSL];
-
-	while (*cmnd != '\0') {
-		morebuf = one_argument(cmnd, buf);
-
-		if (!strcmp(buf, "if")) {
-			command_list = mprog_process_if(morebuf, command_list, mob,
-			                                actor, obj, vo, rndm);
-
-			if (command_list == nullptr)
-				break;
-		}
-		else {
-			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
-
-			if (mob->is_garbage())
-				return;
-		}
-
-		cmnd = command_list;
-		command_list = mprog_next_command(command_list);
-	}
+	mprog_process(com_list, mob, actor, obj, vo, rndm);
 } /* end mprog_driver() */
 
 /***************************************************************************

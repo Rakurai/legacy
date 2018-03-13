@@ -1353,7 +1353,7 @@ void act_update(void) {
 	std::list<ch_act> ch_acts;
 
 	// build a list of all characters with acts, set up their act lists for new content
-	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
+	for (auto ch : Game::world().char_list)
 		if (ch->is_npc() && ch->mpact != nullptr) {
 			ch_acts.push_back({ch, ch->mpact});
 			ch->mpact = nullptr; // take ownership of the list
@@ -1366,7 +1366,7 @@ void act_update(void) {
 
 		for (MobProgActList *tmp_act = start; tmp_act != nullptr; tmp_act = tmp_act->next) {
 			// did the mob get extracted?
-			if (ch->in_room == nullptr)
+			if (ch->is_garbage())
 				break;
 
 			mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
