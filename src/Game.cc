@@ -83,6 +83,7 @@ boot() {
 	Format::printf("survived create_exits\n");
 
 	/* initialize quest stuff after areas loaded, maybe areas are needed */
+	world().load_quests();
 	world().quest.init();
 
 	int itemsloaded = objstate_load_items();   /* load our list of items from disk, before resets! */
