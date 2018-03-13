@@ -110,8 +110,10 @@ void Character::update() {
 		}
 
 	/* MOBprogram random trigger */
-//	if (!ch->in_room->area().is_empty()) {
-		mprog_random_trigger(ch);
+	if (ch->in_room->area().num_players() > 0
+	 || ch->in_room->area().num_imms() > 0) {
+		// we only want one random trigger to fire, prevent spam.  prioritize quests
+		bool triggered = false;
 
 		/* If ch dies or changes
 		position due to it's random
@@ -119,11 +121,18 @@ void Character::update() {
 		if (ch->is_garbage())
 			return;
 
-		mprog_random_area_trigger(ch);
+		if (!triggered)
+			triggered = mprog_random_area_trigger(ch);
 
 		if (ch->is_garbage())
 			return;
-//	}
+
+		if (!triggered)
+			triggered = mprog_random_trigger(ch);
+
+		if (ch->is_garbage())
+			return;
+	}
 
 	/* That's all for sleeping / busy monster, and empty zones */
 	if (get_position(ch) != POS_STANDING)

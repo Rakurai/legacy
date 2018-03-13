@@ -1695,7 +1695,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 	return;
 }
 
-void mprog_percent_check(Character *mob, Character *actor, Object *obj,
+bool mprog_percent_check(Character *mob, Character *actor, Object *obj,
                          void *vo, Flags::Bit type)
 {
 	for (const auto mprg : mob->pIndexData->mobprogs) {
@@ -1707,11 +1707,11 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
 			mprog_driver(mprg->comlist, mob, actor, obj, vo);
 
 			if (type != GREET_PROG && type != ALL_GREET_PROG)
-				break;
+				return true;
 		}
 	}
 
-	return;
+	return false;
 }
 
 /* The triggers.. These are really basic, and since most appear only
@@ -1867,18 +1867,18 @@ void mprog_boot_trigger(Character *mob)
 	return;
 }
 
-void mprog_random_trigger(Character *mob)
+bool mprog_random_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtype_flags.has(RAND_PROG))
-		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_PROG);
+		return mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_PROG);
 
-	return;
+	return false;
 }
 
-void mprog_random_area_trigger(Character *mob)
+bool mprog_random_area_trigger(Character *mob)
 {
 	if (!mob->pIndexData->progtype_flags.has(RAND_AREA_PROG))
-		return;
+		return false;
 
 	// this is static to avoid creating the object every time, make sure to clear it below
 	static std::set<Room *> rooms;
@@ -1892,14 +1892,17 @@ void mprog_random_area_trigger(Character *mob)
 	}
 
 	if (rooms.empty())
-		return;
+		return false;
 
 	Room *orig_room = mob->in_room;
 	char_from_room(mob);
+	bool triggered = false;
 
 	for (Room *room : rooms) {
 		char_to_room(mob, room);
-		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_AREA_PROG);
+		if (mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_AREA_PROG))
+			triggered = true;
+
 		char_from_room(mob);
 
 		if (mob->is_garbage()) // got killed by something?
@@ -1910,6 +1913,7 @@ void mprog_random_area_trigger(Character *mob)
 		char_to_room(mob, orig_room);
 
 	rooms.clear();
+	return triggered;
 }
 
 void mprog_tick_trigger(Character *mob)    /* Montrey */

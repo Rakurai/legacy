@@ -48,7 +48,7 @@ extern bool    MOBtrigger;
 void    mprog_wordlist_check   ( const String& arg, Character *mob,
 										Character* actor, Object* object,
 										void* vo, Flags::Bit type );
-void    mprog_percent_check    ( Character *mob, Character* actor,
+bool    mprog_percent_check    ( Character *mob, Character* actor,
 										Object* object, void* vo,
 										Flags::Bit type );
 void    mprog_act_trigger      ( const char* buf, Character* mob,
@@ -64,8 +64,8 @@ void    mprog_fight_trigger    ( Character* mob, Character* ch );
 void    mprog_buy_trigger      ( Character* mob, Character* ch );
 void    mprog_hitprcnt_trigger ( Character* mob, Character* ch );
 void    mprog_death_trigger    ( Character* mob );
-void    mprog_random_trigger   ( Character* mob );
-void    mprog_random_area_trigger   ( Character* mob );
+bool    mprog_random_trigger   ( Character* mob );
+bool    mprog_random_area_trigger   ( Character* mob );
 void    mprog_tick_trigger     ( Character* mob );
 void 	mprog_boot_trigger( Character* mob	);
 void    mprog_speech_trigger   ( const String& txt, Character* mob );
