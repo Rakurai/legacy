@@ -66,7 +66,14 @@ void do_debug(Character *ch, String argument)
 		    "  objstate - save all objects lying on the ground\n"
 		    "  geneq    - generate a piece of eq\n"
 		    "  printimg - print an image file from the area dir\n"
+		    "  forget   - forget all completed quests\n"
 		    "  affcall  - iterate through affects\n", ch);
+		return;
+	}
+
+	if (subfunc == "forget") {
+		ch->pcdata->completed_quests.clear();
+		ch->pcdata->quests.clear();
 		return;
 	}
 
