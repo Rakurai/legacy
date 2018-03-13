@@ -498,3 +498,5 @@ DECLARE_DO_FUN( do_mppurge      );
 DECLARE_DO_FUN( do_mpstat       );
 DECLARE_DO_FUN( do_mptransfer   );
 
+DECLARE_DO_FUN( do_mpinvis);
+DECLARE_DO_FUN( do_mpvis);

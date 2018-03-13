@@ -638,6 +638,7 @@ const std::vector<flag_type> act_flags = {
 	{   "practice",             Flags::K,      true    },
 	{   "stay",                 Flags::L,      true    },
 	{   "undead",               Flags::O,      true    },
+	{	"supermob",				Flags::N,		true	},
 	{   "cleric",               Flags::Q,      true    },
 	{   "mage",                 Flags::R,      true    },
 	{   "thief",                Flags::S,      true    },

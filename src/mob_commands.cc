@@ -670,3 +670,21 @@ void do_mpforce(Character *ch, String argument)
 		interpret(victim, argument);
 	}
 }
+
+void do_mpinvis(Character *ch, String argument) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
+		do_huh(ch);
+		return;
+	}
+
+	ch->act_flags += ACT_SUPERMOB;
+}
+
+void do_mpvis(Character *ch, String argument) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
+		do_huh(ch);
+		return;
+	}
+
+	ch->act_flags -= ACT_SUPERMOB;
+}
