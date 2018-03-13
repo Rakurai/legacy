@@ -751,6 +751,10 @@ bool load_char_obj(Descriptor *d, const String& name)
 	ch->pcdata->last_logoff         = Game::current_time;
 	found = false;
 
+	if (name.empty()) {
+		return false; // creating a new character
+	}
+
 	Format::sprintf(strsave, "%s%s", PLAYER_DIR, name.lowercase().capitalize());
 
 	cJSON *root = JSON::read_file(strsave);

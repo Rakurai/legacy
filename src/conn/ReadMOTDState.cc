@@ -2,22 +2,20 @@
 #include "Descriptor.hh"
 #include "String.hh"
 #include "Character.hh"
-#include "Game.hh"
 
 namespace conn {
 
+void ReadMOTDState::
+transitionIn(Character *ch) {
+	ptc(ch, "\n");
+	set_color(ch, CYAN, NOBOLD);
+	help(ch, "automotd");
+	set_color(ch, WHITE, NOBOLD);
+}
+
 State * ReadMOTDState::
 handleInput(Descriptor *d, const String& argument) {
-	Character *ch = d->character;
-
-	set_color(ch, WHITE, BOLD);
-
-	if (!Game::motd.empty())
-		stc(Game::motd, ch);
-
-	stc("\n{x[Hit Enter to continue]", ch);
-	set_color(ch, WHITE, NOBOLD);
-
+	State::readNewMOTD.transitionIn(d->character);
 	return &State::readNewMOTD;
 }
 

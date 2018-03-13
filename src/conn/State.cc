@@ -4,6 +4,7 @@ namespace conn {
 
 ClosedState State::closed;
 GetNameState State::getName;
+GetNewNameState State::getNewName;
 ConfirmNewNameState State::confirmNewName;
 ConfirmNewPassState State::confirmNewPass;
 GetOldPassState State::getOldPass;

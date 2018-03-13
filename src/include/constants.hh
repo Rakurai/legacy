@@ -170,7 +170,7 @@
 #define MOB_VNUM_FIDO              3090
 #define MOB_VNUM_HELGA             3011
 #define MOB_VNUM_CITYGUARD         3060
-#define MOB_VNUM_VAMPIRE           3404
+#define MOB_VNUM_PIXIE             4250
 
 #define MOB_VNUM_PATROLMAN         2106
 #define GROUP_VNUM_TROLLS          (Flags::A) // 2100
@@ -830,6 +830,7 @@
 #define ROOM_VNUM_STRONGBOX        1269
 #define ROOM_VNUM_ARENATICKET      3368
 #define ROOM_VNUM_TICKETBACKROOM   3369
+#define ROOM_VNUM_WEST_GATE        4310
 
 
 /*

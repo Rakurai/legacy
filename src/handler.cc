@@ -900,25 +900,6 @@ void extract_char(Character *ch, bool fPull)
 }
 
 /*
- * Find out if a mob with a given name exists anywhere -- Elrac
- * This is for the mob name creation check in comm.c
- * and does not require a 'ch' argument.
-
-        old way of doing this was to loop through all mobiles, but
-        that takes too long.  loop through the mob index and we can
-        check all possible mobs, not just ones alive now -- Montrey
- */
-bool mob_exists(const char *name)
-{
-	for (const auto& area_pair : Game::world().areas)
-		for (const auto& pair : area_pair.second->mob_prototypes)
-			if (pair.second->player_name.has_exact_words(name))
-				return true;
-
-	return false;
-}
-
-/*
  * Find some object with a given index data.
  * Used by area-reset 'P' command.
  */

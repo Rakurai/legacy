@@ -11,56 +11,7 @@
 #include "RoomPrototype.hh"
 #include "merc.hh"
 
-extern bool check_parse_name(const String& name);
-
 namespace conn {
-
-bool check_player_exist(Descriptor *d, const String& name)
-{
-	Descriptor *dold;
-	StoredPlayer *exist = nullptr;    /* is character in storage */
-
-	for (dold = descriptor_list; dold; dold = dold->next) {
-		if (dold != d
-		    &&   dold->character != nullptr
-		    &&   dold->character->level < 1
-		    &&   dold->state != &conn::State::playing
-		    &&   name == (dold->original
-		                  ? dold->original->name : dold->character->name)) {
-			write_to_buffer(d,
-			                "A character by that name is currently being created.\n"
-			                "You cannot access that character.\n"
-			                "Please create a character with a different name, and\n"
-			                "ask an Immortal for help if you need it.\n"
-			                "\n"
-			                "Name: ");
-			return true;
-		}
-	}
-
-	/* make sure that we do not re-create a character currently
-	   in storage -- Outsider <slicer69@hotmail.com>
-	*/
-	/* first make sure we have the list of stored characters */
-	if (! storage_list_head)
-		load_storage_list();
-
-	/* search storage for character name */
-	exist = lookup_storage_data(name);
-
-	if (exist) {
-		write_to_buffer(d,
-		                "A character by that name is currently in storage.\n"
-		                "You cannot create a character by this name.\n"
-		                "Please create a character with a different name, and\n"
-		                "ask an Immortal for help if you need it.\n"
-		                "\n"
-		                "Name: ");
-		return true;
-	}
-
-	return false;
-}
 
 bool check_deny(const String& name)
 {
@@ -119,6 +70,33 @@ handleInput(Descriptor *d, const String& args) {
 		return &State::closed;
 	}
 
+	if (args == "new") {
+		if (Game::newlock) {
+			write_to_buffer(d, 
+				"Due to technical difficulties, we are not accepting new players\n"
+			    "at this time.  Please try again in a few hours.\n");
+			close_socket(d);
+			return &State::closed;
+		}
+
+		if (check_ban(d->host, BAN_NEWBIES)) {
+			String log_buf = Format::format("Disconnecting because NewbieBANned: %s", d->host);
+			Logging::log(log_buf);
+			wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
+			write_to_buffer(d, 
+				"New players are not allowed from your site.\n"
+			    "If you feel that your site has been banned in error, or would\n"
+			    "like to request special permission to play, please contact us at:\n"
+			    "   admin@ageoflegacy.com\n");
+			close_socket(d);
+			return &State::closed;
+		}
+
+		load_char_obj(d, ""); // makes a blank character with normal player stuff filled in
+		State::getRace.transitionIn(d->character);
+		return &State::getRace;
+	}
+
 	bool logon_lurk = false;
 
 	if (argument[0] == '-') { /* Lurk mode -- Elrac */
@@ -130,18 +108,6 @@ handleInput(Descriptor *d, const String& args) {
 	strcpy(name, argument);
 	name[0] = toupper(name[0]);
 
-	/* Check valid name - Lotus */
-	if (!check_parse_name(name)) {
-		write_to_buffer(d, "Sorry, that name cannot be used.\n"
-		                "Please choose another name!\n"
-		                "\n"
-		                "Name: ");
-		return this;
-	}
-
-	if (check_player_exist(d, name))
-		return this;
-
 	/* Below this point we have a character, we can use stc */
 	/********************************************************/
 	bool fOld = load_char_obj(d, name);
@@ -149,12 +115,11 @@ handleInput(Descriptor *d, const String& args) {
 
 	/********************************************************/
 
-	/* check for attempt to newly create with a mob name -- Elrac */
-	if (!fOld && mob_exists(name)) {
-		write_to_buffer(d, "Sorry, we already have a mobile by that name.\n"
-		                "Please choose another name!\n"
-		                "\n"
-		                "Name: ");
+	if (!fOld) {
+		write_to_buffer(d, "Sorry, no characters by that name were found.\n"
+			               "Try another name, or type 'new' to start a new character.\n"
+			               "\n"
+			               "Name: ");
 		delete ch;
 		d->character = nullptr;
 		return this;
@@ -187,39 +152,12 @@ handleInput(Descriptor *d, const String& args) {
 		return &State::closed;
 	}
 
-	if (fOld) { /* old player */
-		if (logon_lurk && IS_IMMORTAL(ch))
-			ch->lurk_level = LEVEL_IMMORTAL;
+	if (logon_lurk && IS_IMMORTAL(ch))
+		ch->lurk_level = LEVEL_IMMORTAL;
 
-		write_to_buffer(d, "What is your password? ");
-		echo_off(d);
-		return &State::getOldPass;
-	}
-
-	if (Game::newlock) {
-		write_to_buffer(d, "Due to technical difficulties, we are not accepting new players\n"
-		                "at this time.  Please try again in a few hours.\n");
-		close_socket(d);
-		return &State::closed;
-	}
-
-	if (check_ban(d->host, BAN_NEWBIES)) {
-		String log_buf = Format::format("Disconnecting because NewbieBANned: %s", d->host);
-		Logging::log(log_buf);
-		wiznet(log_buf, nullptr, nullptr, WIZ_LOGINS, 0, 0);
-		write_to_buffer(d, "New players are not allowed from your site.\n"
-		                "If you feel that your site has been banned in error, or would\n"
-		                "like to request special permission to play, please contact us at:\n"
-		                "   legacyimms@kyndig.com\n");
-		close_socket(d);
-		return &State::closed;
-	}
-
-	String buf;
-	Format::sprintf(buf, "You wish for history to remember you as %s (Y/N)? ", name);
-	write_to_buffer(d, buf);
-
-	return &State::confirmNewName;
+	write_to_buffer(d, "What is your password? ");
+	echo_off(d);
+	return &State::getOldPass;
 }
 
 } // namespace conn

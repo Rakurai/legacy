@@ -152,16 +152,11 @@ handleInput(Descriptor *d, const String& argument) {
 	update_site(ch);
 
 	if (IS_IMMORTAL(ch)) {
-		set_color(ch, RED, BOLD);
-		help(ch, "imotd");
-		set_color(ch, WHITE, NOBOLD);
+		State::readIMOTD.transitionIn(ch);
 		return &State::readIMOTD;
 	}
 
-	set_color(ch, CYAN, NOBOLD);
-	help(ch, "automotd");
-	set_color(ch, WHITE, NOBOLD);
-
+	State::readMOTD.transitionIn(ch);
 	return &State::readMOTD;
 }
 

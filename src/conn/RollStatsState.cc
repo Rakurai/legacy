@@ -27,6 +27,18 @@ int roll_stat(const Character *ch, int stat)
 	return temp;
 }
 
+void RollStatsState::
+transitionIn(Character *ch) {
+	help(ch, "creation_all_done");
+	ptc(ch, "\n");
+	ptc(ch, "Here are your default stats:\n");
+	ptc(ch, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
+	        ATTR_BASE(ch, APPLY_STR), ATTR_BASE(ch, APPLY_INT),
+	        ATTR_BASE(ch, APPLY_WIS), ATTR_BASE(ch, APPLY_DEX),
+	        ATTR_BASE(ch, APPLY_CON), ATTR_BASE(ch, APPLY_CHR));
+	ptc(ch, "Would you like to roll for new stats? [Y/N] ");
+}
+
 State * RollStatsState::
 handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;

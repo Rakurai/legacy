@@ -5,15 +5,16 @@
 
 namespace conn {
 
+void ReadIMOTDState::
+transitionIn(Character *ch) {
+	set_color(ch, RED, BOLD);
+	help(ch, "imotd");
+	set_color(ch, WHITE, NOBOLD);
+}
+
 State * ReadIMOTDState::
 handleInput(Descriptor *d, const String& argument) {
-	Character *ch = d->character;
-
-	ptc(ch, "\n");
-	set_color(ch, CYAN, NOBOLD);
-	help(ch, "automotd");
-	set_color(ch, WHITE, NOBOLD);
-
+	State::readMOTD.transitionIn(d->character);
 	return &State::readMOTD;
 }
 

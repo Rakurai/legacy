@@ -236,7 +236,6 @@ bool    can_see_room    args(( const Character *ch, const Room *room) );
 bool    can_see_in_room args(( const Character *ch, const Room *room));
 //const char *  first_arg       args(( const char *argument, char *arg_first, bool fCase ) );
 const char *  get_who_line    args(( Character *ch, Character *victim ) );
-bool    mob_exists      args(( const char *name ) );
 //int	round			args((float fNum, int iInc));	/* below is Montrey's list of */
 int	parse_deity		args((const String& dstring));		/* hacks!  Beware! :) */
 int	get_usable_level	args((Character *ch));
