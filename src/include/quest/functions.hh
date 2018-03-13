@@ -3,7 +3,6 @@
 namespace quest {
 
 const Quest *lookup(const String& id);
-const String list(Player *);
 
 State *get_state(Player *player, const Quest *quest);
 State *get_state(Player *player, int index);
