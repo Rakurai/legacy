@@ -57,6 +57,7 @@
 #include "gem/gem.hh"
 #include "sql.hh"
 #include "World.hh"
+#include "quest/functions.hh"
 
 
 int CURRENT_VERSION = 21;   /* version number for pfiles */
@@ -326,6 +327,19 @@ cJSON *fwrite_player(Character *ch)
 		cJSON_AddNumberToObject(o,	"QuestNext",	ch->pcdata->nextquest);
 	else if (ch->pcdata->countdown)
 		cJSON_AddNumberToObject(o,	"QuestNext",	12);
+
+	if (ch->pcdata->quests.size() > 0) {
+		item = cJSON_CreateArray();
+
+		for (const auto& it : ch->pcdata->quests) {
+			cJSON *p = cJSON_CreateObject();
+			JSON::addStringToObject(p, "id", it.quest->id);
+			cJSON_AddNumberToObject(p, "step", it.step);
+			cJSON_AddItemToArray(item, p);
+		}
+
+		cJSON_AddItemToObject(o,		"Quests",			item);
+	}
 
 	if (!ch->pcdata->rank.empty())
 		JSON::addStringToObject(o,	"Rank",			ch->pcdata->rank);
@@ -1103,6 +1117,28 @@ void fread_player(Character *ch, cJSON *json, int version) {
 				if (key == "Query") {
 					for (cJSON *item = o->child; item != nullptr && count < MAX_QUERY; item = item->next)
 						ch->pcdata->query.push_back(item->valuestring);
+					fMatch = true; break;
+				}
+
+				if (key == "Quests") { // array of dicts
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
+						String id = cJSON_GetObjectItem(item, "id")->valuestring;
+						const quest::Quest *quest = quest::lookup(id);
+
+						if (quest == nullptr) {
+							Logging::bugf("fread_player: unknown quest id '%s'", id);
+							continue;
+						}
+
+						int step = cJSON_GetObjectItem(item, "step")->valueint;
+
+						if (step < 0 || (unsigned int)step >= quest->steps.size()) {
+							Logging::bugf("fread_player: quest id '%s' has invalid steps %d", id, step);
+							continue;
+						}
+
+						ch->pcdata->quests.push_back(quest::State(*quest, step));
+					}
 					fMatch = true; break;
 				}
 
