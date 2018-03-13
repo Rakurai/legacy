@@ -1252,6 +1252,9 @@
 
 #define HELP_DIR	"../help/"			/* Help file temporary storage */
 
+#define QUEST_DIR       "../quests/"
+#define QUEST_LIST      QUEST_DIR "quest.lst"
+
 #define AREA_DIR        "../area/"
 #define AREA_LIST       "area.lst"  /* List of areas*/
 #define CHVNUM_FILE     AREA_DIR "chvnum.txt"	/* list of changed object vnums -- Montrey (in progress) */
