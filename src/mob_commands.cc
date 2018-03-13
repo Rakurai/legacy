@@ -688,3 +688,52 @@ void do_mpvis(Character *ch, String argument) {
 
 	ch->act_flags -= ACT_SUPERMOB;
 }
+
+// makes a mob a pet of a player.  doesn't set 'charm', add that if needed outside
+void do_mpmake_pet(Character *ch, String argument) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
+		do_huh(ch);
+		return;
+	}
+
+	String arg;
+	argument = one_argument(argument, arg);
+
+	if (arg.empty()) {
+		Logging::bugf("Mpmake_pet - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		return;
+	}
+
+	Character *master;
+
+	for (master = ch->in_room->people; master != nullptr; master = master->next_in_room)
+		if (!master->is_npc() && master->name.has_exact_words(arg))
+			break;
+
+	if (master == nullptr) {
+		Logging::bugf("MPmake_pet: no such master '%s': vnum %d.", arg, ch->pIndexData->vnum);
+		return;
+	}
+
+	Character *pet = ch; // default self
+
+	if (!argument.empty()) {
+		one_argument(argument, arg);
+
+		for (pet = ch->in_room->people; pet != nullptr; pet = pet->next_in_room)
+			if (pet->is_npc() && pet->name.has_exact_words(arg))
+				break;
+
+		if (pet == nullptr) {
+			Logging::bugf("MPmake_pet: no such mob '%s': vnum %d.", arg, ch->pIndexData->vnum);
+			return;
+		}
+	}
+
+	// fix up old pet if any
+	if (master->pet != nullptr) {
+		stop_follower(master->pet);
+	}
+
+	make_pet(master, pet);
+}

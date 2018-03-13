@@ -500,3 +500,4 @@ DECLARE_DO_FUN( do_mptransfer   );
 
 DECLARE_DO_FUN( do_mpinvis);
 DECLARE_DO_FUN( do_mpvis);
+DECLARE_DO_FUN( do_mpmake_pet);
