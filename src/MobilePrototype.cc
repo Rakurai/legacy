@@ -141,6 +141,11 @@ read_mobprogs(FILE *fp) {
 	while (true) {
 		char letter = fread_letter(fp);
 
+		if (letter == '*') {
+			fread_to_eol(fp);
+			continue;
+		}
+
 		if (letter != '>') {
 			if (letter != '|')
 				ungetc(letter, fp);
