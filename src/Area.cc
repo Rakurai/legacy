@@ -456,6 +456,10 @@ reset() {
 	level       = 0;
 	bool empty = num_players() == 0;
 
+	// always reset objects in newbie training areas
+	if (name == "Newbie Training")
+		empty = true;
+
 	for (const Reset *pReset: resets) {
 		Room *room;
 		MobilePrototype *pMobIndex;
