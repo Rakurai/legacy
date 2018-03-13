@@ -826,13 +826,13 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	}
 
 	if (name == "quest_assign") {
-		const String quest_id = deref<const String>(arg_list[0].get(), context);
+		const String quest_id = deref<String>(arg_list[0].get(), context);
 		fn_helper_quest_assign(ch, quest_id);
 		return;
 	}
 
 	if (name == "quest_progress") {
-		const String quest_id = deref<const String>(arg_list[0].get(), context);
+		const String quest_id = deref<String>(arg_list[0].get(), context);
 		fn_helper_quest_progress(ch, quest_id);
 		return;
 	}
