@@ -496,8 +496,9 @@ reset() {
 					continue;
 				}
 
-				for (mob = room->people, count = 0; mob != nullptr; mob = mob->next_in_room)
-					if (mob->pIndexData == pMobIndex) {
+				int count = 0;
+				for (Character *c = room->people; c != nullptr; c = c->next_in_room)
+					if (c->pIndexData == pMobIndex) {
 						count++;
 
 						if (count >= pReset->arg4) {
@@ -509,6 +510,10 @@ reset() {
 				if (count >= pReset->arg4)
 					break;
 			}
+
+			// trigger the load_prog of the last mob that reset, it has its E and G resets now
+//			if (mob != nullptr)
+//				mprog_spawn_trigger(mob);
 
 			mob = create_mobile(pMobIndex);
 			mob->reset = pReset;    /* keep track of what reset it -- Montrey */
