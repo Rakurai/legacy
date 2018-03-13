@@ -40,6 +40,7 @@ name_to_type(const String& name) {
 	if (name == "give_prog")      return GIVE_PROG;
 	if (name == "bribe_prog")     return BRIBE_PROG;
 	if (name == "tick_prog")      return TICK_PROG;
+	if (name == "control_prog")       return CONTROL_PROG;
 
 	return (ERROR_PROG);
 }
@@ -63,6 +64,7 @@ type_to_name(Flags::Bit type) {
 	case GIVE_PROG:             return "give_prog";
 	case BRIBE_PROG:            return "bribe_prog";
 	case TICK_PROG:             return "tick_prog";
+	case CONTROL_PROG:          return "control_prog";
 	default:                    return "ERROR_PROG";
 	}
 }

@@ -737,3 +737,40 @@ void do_mpmake_pet(Character *ch, String argument) {
 
 	make_pet(master, pet);
 }
+
+void do_mpcontrol(Character *ch, String argument) {
+	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
+		do_huh(ch);
+		return;
+	}
+
+	String key, mob_name, target_name;
+	argument = one_argument(argument, mob_name);
+	target_name = one_argument(argument, key);
+
+	if (mob_name.empty() || key.empty()) {
+		Logging::bugf("Mpcontrol - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		return;
+	}
+
+	Character *mob = get_char_here(ch, mob_name, VIS_CHAR);
+
+	if (mob == nullptr) {
+		Logging::bugf("MPcontrol: no such mob '%s': vnum %d.", mob_name, ch->pIndexData->vnum);
+		return;
+	}
+
+	Character *target = nullptr;
+
+	// allow target to be nullptr, but only if no name given
+	if (!target_name.empty()) {
+		target = get_char_here(ch, target_name, VIS_CHAR);
+
+		if (target == nullptr) {
+			Logging::bugf("MPcontrol: no such target '%s': vnum %d.", target_name, ch->pIndexData->vnum);
+			return;
+		}
+	}
+
+	mprog_control_trigger(mob, key, target);
+}

@@ -43,6 +43,7 @@ extern bool    MOBtrigger;
 #define TICK_PROG          Flags::N
 #define BOOT_PROG	       Flags::O
 #define RAND_AREA_PROG     Flags::P
+#define CONTROL_PROG          Flags::S
 
 /* mob_prog.c */
 void    mprog_wordlist_check   ( const String& arg, Character *mob,
@@ -69,3 +70,4 @@ bool    mprog_random_area_trigger   ( Character* mob );
 void    mprog_tick_trigger     ( Character* mob );
 void 	mprog_boot_trigger( Character* mob	);
 void    mprog_speech_trigger   ( const String& txt, Character* mob );
+void    mprog_control_trigger   (Character *mob, const String& key, Character *target);
