@@ -258,7 +258,7 @@ void do_loadhelps(Character *ch, String argument)
 
 	if (Game::port != DIZZYPORT) {
 		ptc(ch, "Please perform loading and printing commands on the port %d copy.\n", DIZZYPORT);
-		return;
+//		return;
 	}
 
 	String arg;
@@ -381,7 +381,7 @@ void do_printhelps(Character *ch, String argument)
 
 	if (Game::port != DIZZYPORT) {
 		stc("Please perform loading and printing commands on the port 3000 copy.\n", ch);
-		return;
+//		return;
 	}
 
 	String arg;
