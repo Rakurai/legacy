@@ -242,10 +242,8 @@ void copyover_recover()
 			d->character->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
 
 		/* Insert in the Game::world().char_list */
-		d->character->next = Game::world().char_list;
-		Game::world().char_list = d->character;
-		d->character->pcdata->next = Game::world().pc_list;
-		Game::world().pc_list = d->character->pcdata;
+		Game::world().add_char(d->character);
+		Game::world().add_player(d->character->pcdata);
 		write_to_descriptor(desc, msg2, 0);
 		char_to_room(d->character, d->character->in_room);
 		do_look(d->character, "auto");

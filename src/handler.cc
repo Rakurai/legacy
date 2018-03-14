@@ -894,43 +894,8 @@ void extract_char(Character *ch, bool fPull)
 		if (! strcasecmp(wch->reply, ch->name))
 			wch->reply.clear();
 
-	if (ch == Game::world().char_list)
-		Game::world().char_list = ch->next;
-	else {
-		Character *prev;
-
-		for (prev = Game::world().char_list; prev != nullptr; prev = prev->next) {
-			if (prev->next == ch) {
-				prev->next = ch->next;
-				break;
-			}
-		}
-
-		if (prev == nullptr) {
-			Logging::bug("extract_char: char not found in Game::world().char_list", 0);
-			return;
-		}
-	}
-
-	ch->invalidate();
-
-	if (ch->pcdata) {
-		if (ch->pcdata == Game::world().pc_list)
-			Game::world().pc_list = ch->pcdata->next;
-		else {
-			Player *prev;
-
-			for (prev = Game::world().pc_list; prev != nullptr; prev = prev->next) {
-				if (prev->next == ch->pcdata) {
-					prev->next = ch->pcdata->next;
-					break;
-				}
-			}
-
-			if (prev == nullptr)
-				Logging::bug("extract_char: pc_data not found in Game::world().pc_list", 0);
-		}
-	}
+	Game::world().remove_char(ch);
+	Game::world().remove_player(ch->pcdata);
 
 	if (ch->desc != nullptr)
 		ch->desc->character = nullptr;

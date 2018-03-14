@@ -31,6 +31,76 @@ update() {
 		area->update();
 }
 
+void World::
+add_char(Character *ch) {
+	if (ch == nullptr)
+		return;
+
+	ch->next = char_list;
+	char_list = ch;
+	ch->validate();
+}
+
+void World::
+remove_char(Character *ch) {
+	if (ch == nullptr)
+		return;
+
+	ch->invalidate();
+
+	if (ch == char_list)
+		char_list = ch->next;
+	else {
+		Character *prev;
+
+		for (prev = char_list; prev != nullptr; prev = prev->next) {
+			if (prev->next == ch) {
+				prev->next = ch->next;
+				break;
+			}
+		}
+
+		if (prev == nullptr) {
+			Logging::bug("World::remove_char: char not found in char_list", 0);
+			return;
+		}
+	}
+}
+
+void World::
+add_player(Player *plr) {
+	if (plr == nullptr)
+		return;
+
+	plr->next = pc_list;
+	pc_list = plr;
+	plr->validate();
+}
+
+void World::
+remove_player(Player *plr) {
+	if (plr == nullptr)
+		return;
+
+	plr->invalidate();
+
+	if (plr == Game::world().pc_list)
+		pc_list = plr->next;
+	else {
+		Player *prev;
+
+		for (prev = pc_list; prev != nullptr; prev = prev->next) {
+			if (prev->next == plr) {
+				prev->next = plr->next;
+				break;
+			}
+		}
+
+		if (prev == nullptr)
+			Logging::bug("World::remove_player: plr not found in pc_list", 0);
+	}
+}
+
 Area * World::
 get_area(const Vnum& vnum) const {
 	// it would be really nice if we could sort the areas on their vnum ranges

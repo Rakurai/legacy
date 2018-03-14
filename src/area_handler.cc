@@ -189,9 +189,9 @@ Character *create_mobile(MobilePrototype *pMobIndex)
 	mob->stam = GET_MAX_STAM(mob);
 
 	mob->position = mob->start_pos;
+
 	/* link the mob to the world list */
-	mob->next           = Game::world().char_list;
-	Game::world().char_list           = mob;
+	Game::world().add_char(mob);
 	pMobIndex->count++;
 	return mob;
 }

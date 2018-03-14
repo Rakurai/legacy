@@ -7,6 +7,7 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "Pooled.hh"
+#include "Valid.hh"
 #include "skill/skill.hh"
 #include "Vnum.hh"
 #include "Location.hh"
@@ -15,7 +16,8 @@
  * Data which only PC's have.
  */
 class Player :
-public Pooled<Player>
+public Pooled<Player>, // must be first inherited
+public Valid
 {
 public:
 	Player();

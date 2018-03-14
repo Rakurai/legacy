@@ -56,6 +56,11 @@ public:
     RoomPrototype *get_room_prototype(const Vnum&);
 	Room *get_room(const Location&);
 
+	void add_char(Character *);
+	void remove_char(Character *);
+	void add_player(Player *);
+	void remove_player(Player *);
+
 	void load_areas();
 	void create_rooms();
 	void create_exits();

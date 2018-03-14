@@ -148,11 +148,8 @@ void do_debug(Character *ch, String argument)
 			}
 
 			victim = d->character;
-			victim->next = Game::world().char_list;
-			Game::world().char_list    = victim;
-			victim->validate();
-			victim->pcdata->next = Game::world().pc_list;
-			Game::world().pc_list = victim->pcdata;
+			Game::world().add_char(victim);
+			Game::world().add_player(victim->pcdata);
 			victim->desc = nullptr;
 			free_descriptor(d);
 			char_to_room(victim, Game::world().get_room(ROOM_VNUM_ALTAR));

@@ -1925,12 +1925,8 @@ void do_linkload(Character *ch, String argument)
 
 	if (load_char_obj(dnew, cname) == true) {
 		victim = dnew->character;
-		victim->next = Game::world().char_list;
-		Game::world().char_list    = victim;
-		victim->validate();
-
-		victim->pcdata->next = Game::world().pc_list;
-		Game::world().pc_list = victim->pcdata;
+		Game::world().add_char(victim);
+		Game::world().add_player(victim->pcdata);
 		victim->desc = nullptr;
 
 		if (OUTRANKS(victim, ch)) {

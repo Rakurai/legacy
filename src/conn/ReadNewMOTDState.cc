@@ -52,12 +52,8 @@ handleInput(Descriptor *d, const String& argument) {
 		ptc(ch, "Type 'password null <new password>' to fix.\n");
 	}
 
-	ch->next                = Game::world().char_list;
-	Game::world().char_list               = ch;
-	ch->validate();
-	
-	ch->pcdata->next        = Game::world().pc_list;
-	Game::world().pc_list                 = ch->pcdata;
+	Game::world().add_char(ch);
+	Game::world().add_player(ch->pcdata);
 
 	if (ch->level == 0) {
 		Object *obj;   /* a generic object variable */
