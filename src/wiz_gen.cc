@@ -1790,8 +1790,7 @@ void do_guild(Character *ch, String argument)
 void do_heed(Character *ch, String argument)
 {
 	char buf[100 + MIL]; /* enough for pompous intro + text */
-	Character *victim, *truevictim;
-	Player *tpc;
+	Character *victim, *truevictim = nullptr;
 	Descriptor *d;
 
 	String arg1;
@@ -1811,15 +1810,17 @@ void do_heed(Character *ch, String argument)
 	}
 
 	/* find a player to talk to. Only REAL players are eligible. */
-	for (tpc = Game::world().pc_list; tpc; tpc = tpc->next) {
+	for (auto tpc : Game::world().pc_list) {
 		if (!tpc->valid() || !tpc->ch.valid())
 			continue;
 
-		if (tpc->ch.name.has_words(arg1))
+		if (tpc->ch.name.has_words(arg1)) {
+			truevictim = &tpc->ch;
 			break;
+		}
 	}
 
-	if (!tpc || (truevictim = &tpc->ch) == nullptr) {
+	if (truevictim == nullptr) {
 		ptc(ch, "No player called \"%s\" is in the game!\n", arg1);
 		return;
 	}
@@ -3533,7 +3534,7 @@ void do_sockets(Character *ch, String argument)
 	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	/* now list linkdead ppl */
-	for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+	for (auto vpc : Game::world().pc_list) {
 		if (!vpc->valid() || !vpc->ch.valid())
 			continue;
 

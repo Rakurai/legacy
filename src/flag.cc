@@ -394,7 +394,7 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 	Flags flag;
 	output += "{VCount {YRoom{x\n";
 
-	for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+	for (auto vpc : Game::world().pc_list) {
 		if (!vpc->valid() || !vpc->ch.valid())
 			continue;
 

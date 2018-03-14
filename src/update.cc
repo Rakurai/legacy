@@ -1365,8 +1365,7 @@ void wait_update(void)
  */
 void update_handler(void)
 {
-	static int      pulse_area,
-	       pulse_quest,
+	static int      pulse_quest,
 	       pulse_mobile,
 	       pulse_violence,
 	       pulse_point,
@@ -1379,8 +1378,7 @@ void update_handler(void)
 	       pulse_janitor;
 //	       pulse_mysql_upd;
 
-	if (--pulse_area        <= 0)   { pulse_area    = PULSE_AREA;          
-	 /*area_update();*/  Game::world().update(); }
+	Game::world().update();
 
 	if (--pulse_quest       <= 0)   { pulse_quest   = PULSE_QUEST;          quest_update(); }
 

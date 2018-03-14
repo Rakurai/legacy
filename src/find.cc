@@ -407,7 +407,7 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 		return nullptr;
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (Player *apc = Game::world().pc_list; apc != nullptr; apc = apc->next) {
+	for (auto apc : Game::world().pc_list) {
 		if (!apc->valid() || !apc->ch.valid())
 			continue;
 
@@ -446,7 +446,7 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 		return nullptr;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (Player *wpc = Game::world().pc_list; wpc != nullptr; wpc = wpc->next) {
+	for (auto wpc : Game::world().pc_list) {
 		if (!wpc->valid() || !wpc->ch.valid())
 			continue;
 

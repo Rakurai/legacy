@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <list>
 
 #include "GameTime.hh"
 #include "Weather.hh"
@@ -31,7 +32,7 @@ public:
 	Weather weather;
 	QuestArea quest;
 	Character *char_list = nullptr;
-	Player *pc_list = nullptr;
+	std::list<Player *> pc_list; // owned here
 	Object *object_list = nullptr;
 
 	Object *donation_pit = nullptr;;

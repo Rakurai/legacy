@@ -134,7 +134,7 @@ void do_force(Character *ch, String argument)
 		bool found = false;
 
 		if (arg == "all") {
-			for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+			for (auto vpc : Game::world().pc_list) {
 				if (!vpc->valid() || !vpc->ch.valid())
 					continue;
 
@@ -153,7 +153,7 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "players") {
-			for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+			for (auto vpc : Game::world().pc_list) {
 				if (!vpc->valid() || !vpc->ch.valid())
 					continue;
 
@@ -172,7 +172,7 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "gods") {
-			for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+			for (auto vpc : Game::world().pc_list) {
 				if (!vpc->valid() || !vpc->ch.valid())
 					continue;
 

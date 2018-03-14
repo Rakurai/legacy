@@ -23,7 +23,6 @@ public:
 
 	Character &	        ch;	/* i may be missing something, but this seems like a 'duh',
 				   make it point backwards to the character -- Montrey */
-	Player *            next = nullptr;
 
 	long				id = 0;
 	String              buffer;

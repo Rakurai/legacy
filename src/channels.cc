@@ -497,7 +497,7 @@ void send_to_query(Character *ch, const char *string)
 {
 	// really hate directly accessing the Game::world().pc_list, but I don't want multiple
 	// calls to get_player_world.
-	for (Player *pc = Game::world().pc_list; pc; pc = pc->next) {
+	for (auto pc : Game::world().pc_list) {
 		if (!pc->valid() || !pc->ch.valid())
 			continue;
 
