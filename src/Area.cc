@@ -604,6 +604,10 @@ reset() {
 			break;
 
 		case 'D':
+			// don't reset doors if the area is occupied (ignore imms)
+			if (num_players() > 0)
+				continue;
+
 			if ((room = Game::world().get_room(Location(pReset->arg1))) == nullptr) {
 				Logging::bugf("(%s) Reset_area: 'D': bad location %s.", file_name, Location(pReset->arg1));
 				continue;
