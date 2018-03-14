@@ -993,6 +993,11 @@ void fread_player(Character *ch, cJSON *json, int version) {
 							continue;
 						}
 
+						const auto entry = skill::lookup(sn);
+
+						if (entry.remort_guild == Guild::none)
+							continue;
+
 						ch->pcdata->extraclass[count++] = sn;
 					}
 					fMatch = true; break;
