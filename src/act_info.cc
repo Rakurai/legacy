@@ -1833,7 +1833,7 @@ void do_look(Character *ch, String argument)
 		}
 	}
 
-	if (arg1 == "i" || arg1 == "in" || arg1 == "on") {
+	if (arg1 == "i" || arg1 == "in" || arg1 == "inside" || arg1 == "on") {
 		Room *location;
 
 		/* 'look in' */
