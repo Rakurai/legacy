@@ -1811,11 +1811,15 @@ void do_heed(Character *ch, String argument)
 	}
 
 	/* find a player to talk to. Only REAL players are eligible. */
-	for (tpc = Game::world().pc_list; tpc; tpc = tpc->next)
-		if (tpc->ch->name.has_words(arg1))
-			break;
+	for (tpc = Game::world().pc_list; tpc; tpc = tpc->next) {
+		if (!tpc->valid() || !tpc->ch.valid())
+			continue;
 
-	if (!tpc || (truevictim = tpc->ch) == nullptr) {
+		if (tpc->ch.name.has_words(arg1))
+			break;
+	}
+
+	if (!tpc || (truevictim = &tpc->ch) == nullptr) {
 		ptc(ch, "No player called \"%s\" is in the game!\n", arg1);
 		return;
 	}
@@ -3451,8 +3455,6 @@ do_smite(Character *ch, String argument)
 void do_sockets(Character *ch, String argument)
 {
 	Descriptor *d, *dmult;
-	Character *vch;
-	Player *vpc, *vpc_next;
 	String buffer;
 	char s[100];
 	bool multiplay = false;
@@ -3514,7 +3516,7 @@ void do_sockets(Character *ch, String argument)
 				}
 
 			/* Format "login" value... */
-			vch = d->original ? d->original : d->character;
+			Character *vch = d->original ? d->original : d->character;
 			strftime(s, 100, "%I:%M%p", localtime(&vch->logon));
 			buffer += Format::format("{P%3d{x|{Y%s{x|{B%7s{x|{C%2d{x |{G%-12s{x%s%s{x\n",
 			    d->descriptor,
@@ -3531,19 +3533,22 @@ void do_sockets(Character *ch, String argument)
 	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	/* now list linkdead ppl */
-	for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
-		vpc_next = vpc->next;
+	for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+		if (!vpc->valid() || !vpc->ch.valid())
+			continue;
 
-		if (vpc->ch != ch
+		Character *victim = &vpc->ch;
+
+		if (victim != ch
 		    && vpc->plr_flags.has(PLR_LINK_DEAD)
-		    && can_see_char(ch, vpc->ch)
+		    && can_see_char(ch, victim)
 		    && (arg.empty()
-		        || vpc->ch->name.has_words(arg))) {
-			strftime(s, 100, "%I:%M%p", localtime(&vpc->ch->logon));
+		        || victim->name.has_words(arg))) {
+			strftime(s, 100, "%I:%M%p", localtime(&victim->logon));
 			buffer += Format::format("{P---{x|{Y   Linkdead    {x|{B%7s{x|{C%-2d{x |{G%-12s{x|{W%s{x\n",
 			    s,
-			    std::max(0, vpc->ch->desc == nullptr ? vpc->ch->timer : vpc->ch->desc->timer),
-			    vpc->ch->name,
+			    std::max(0, victim->desc == nullptr ? victim->timer : victim->desc->timer),
+			    victim->name,
 			    vpc->last_lsite);
 			ldcount++;
 		}

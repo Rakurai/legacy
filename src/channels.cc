@@ -498,16 +498,20 @@ void send_to_query(Character *ch, const char *string)
 	// really hate directly accessing the Game::world().pc_list, but I don't want multiple
 	// calls to get_player_world.
 	for (Player *pc = Game::world().pc_list; pc; pc = pc->next) {
-		if (!pc->ch
-		    || pc->ch->is_npc()
-		    || pc->ch->comm_flags.has(COMM_NOQUERY)
-		    || is_ignoring(pc->ch, ch))
+		if (!pc->valid() || !pc->ch.valid())
 			continue;
 
-		if (std::find(ch->pcdata->query.cbegin(), ch->pcdata->query.cend(), pc->ch->name) != ch->pcdata->query.cend()) {
-			new_color(pc->ch, CSLOT_CHAN_QTELL);
-			stc(string, pc->ch);
-			set_color(pc->ch, WHITE, NOBOLD);
+		Character *victim = &pc->ch;
+
+		if (victim->is_npc()
+		    || victim->comm_flags.has(COMM_NOQUERY)
+		    || is_ignoring(victim, ch))
+			continue;
+
+		if (std::find(ch->pcdata->query.cbegin(), ch->pcdata->query.cend(), victim->name) != ch->pcdata->query.cend()) {
+			new_color(victim, CSLOT_CHAN_QTELL);
+			stc(string, victim);
+			set_color(victim, WHITE, NOBOLD);
 		}
 	}
 }

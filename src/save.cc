@@ -686,7 +686,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 	Character *ch;
 	bool found;
 	ch = new Character();
-	ch->pcdata = new Player();
+	ch->pcdata = new Player(*ch);
 	d->character                        = ch;
 	ch->desc                            = d;
 	ch->name                            = name;
@@ -698,7 +698,6 @@ bool load_char_obj(Descriptor *d, const String& name)
 	ch->secure_level                    = RANK_IMM;
 	ch->censor_flags                          = CENSOR_CHAN;    /* default rating is PG */
 	ch->prompt                          = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
-	ch->pcdata->ch                      = ch;
 	ch->pcdata->deity                   = "Nobody";
 	ch->pcdata->mud_exp                 = MEXP_LEGACY_OLDBIE;
 //	ch->pcdata->plr_flags                     = PLR_NEWSCORE;

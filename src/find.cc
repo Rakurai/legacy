@@ -400,9 +400,6 @@ Character *get_player_here(Character *ch, const String& argument, int vis)
  * This does not find '2.Montrey'. Numbering is silly for players. */
 Character *get_player_area(Character *ch, const String& argument, int vis)
 {
-	Character *ach;
-	Player *apc;
-
 	if (argument == "self")
 		return ch;
 
@@ -410,11 +407,11 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 		return nullptr;
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (apc = Game::world().pc_list; apc != nullptr; apc = apc->next) {
-		if ((ach = apc->ch) == nullptr) {
-			Logging::bug("get_player_area: pc_data without char_data", 0);
+	for (Player *apc = Game::world().pc_list; apc != nullptr; apc = apc->next) {
+		if (!apc->valid() || !apc->ch.valid())
 			continue;
-		}
+
+		Character *ach = &apc->ch;
 
 		if (ach->is_npc()) {
 			Logging::bug("get_player_area: pc_data with mobile char_data", 0);
@@ -442,9 +439,6 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
  * This does not find '2.Elrac'. Numbering is silly for players. */
 Character *get_player_world(Character *ch, const String& argument, int vis)
 {
-	Character *wch;
-	Player *wpc;
-
 	if (argument == "self")
 		return ch;
 
@@ -452,11 +446,11 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 		return nullptr;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (wpc = Game::world().pc_list; wpc != nullptr; wpc = wpc->next) {
-		if ((wch = wpc->ch) == nullptr) {
-			Logging::bug("get_player_world: pc_data without char_data", 0);
+	for (Player *wpc = Game::world().pc_list; wpc != nullptr; wpc = wpc->next) {
+		if (!wpc->valid() || !wpc->ch.valid())
 			continue;
-		}
+
+		Character *wch = &wpc->ch;
 
 		if (wch->is_npc()) {
 			Logging::bug("get_player_world: pc_data with mobile char_data", 0);

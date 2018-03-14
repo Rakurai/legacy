@@ -390,15 +390,17 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
-	Character *victim;
-	Player *vpc;
 	int count = 0;
 	Flags flag;
 	output += "{VCount {YRoom{x\n";
 
-	for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
-		if ((victim = vpc->ch) == nullptr
-		    || victim->is_npc()
+	for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+		if (!vpc->valid() || !vpc->ch.valid())
+			continue;
+
+		Character *victim = &vpc->ch;
+
+		if (victim->is_npc()
 		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
 		    || !can_see_room(ch, victim->in_room))

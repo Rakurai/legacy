@@ -6,7 +6,6 @@
 #include "constants.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "Pooled.hh"
 #include "Valid.hh"
 #include "skill/skill.hh"
 #include "Vnum.hh"
@@ -16,16 +15,15 @@
  * Data which only PC's have.
  */
 class Player :
-public Pooled<Player>, // must be first inherited
 public Valid
 {
 public:
-	Player();
+	Player(Character &);
 	virtual ~Player() {}
 
-	Player *            next = nullptr;
-	Character *	        ch = nullptr;	/* i may be missing something, but this seems like a 'duh',
+	Character &	        ch;	/* i may be missing something, but this seems like a 'duh',
 				   make it point backwards to the character -- Montrey */
+	Player *            next = nullptr;
 
 	long				id = 0;
 	String              buffer;

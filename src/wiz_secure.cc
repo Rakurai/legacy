@@ -102,8 +102,6 @@ void do_fod(Character *ch, String argument)
 void do_force(Character *ch, String argument)
 {
 	char buf[MSL];
-	Player *vpc, *vpc_next;
-	Character *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -136,15 +134,17 @@ void do_force(Character *ch, String argument)
 		bool found = false;
 
 		if (arg == "all") {
-			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
-				vpc_next = vpc->next;
-
-				if (vpc->ch == ch)
+			for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+				if (!vpc->valid() || !vpc->ch.valid())
 					continue;
 
-				found = true;
-				act(buf, ch, nullptr, vpc->ch, TO_VICT);
-				interpret(vpc->ch, argument);
+				Character *victim = &vpc->ch;
+
+				if (victim != ch) {
+					found = true;
+					act(buf, ch, nullptr, victim, TO_VICT);
+					interpret(victim, argument);
+				}
 			}
 
 			if (!found)
@@ -153,13 +153,16 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "players") {
-			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
-				vpc_next = vpc;
+			for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+				if (!vpc->valid() || !vpc->ch.valid())
+					continue;
 
-				if (vpc->ch != ch && !IS_IMMORTAL(vpc->ch)) {
+				Character *victim = &vpc->ch;
+
+				if (victim != ch && !IS_IMMORTAL(victim)) {
 					found = true;
-					act(buf, ch, nullptr, vpc->ch, TO_VICT);
-					interpret(vpc->ch, argument);
+					act(buf, ch, nullptr, victim, TO_VICT);
+					interpret(victim, argument);
 				}
 			}
 
@@ -169,14 +172,16 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "gods") {
-			for (vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc_next) {
-				vpc_next = vpc;
+			for (Player *vpc = Game::world().pc_list; vpc != nullptr; vpc = vpc->next) {
+				if (!vpc->valid() || !vpc->ch.valid())
+					continue;
 
-				if (vpc->ch != ch && IS_IMMORTAL(vpc->ch) && !IS_IMP(vpc->ch)) {
+				Character *victim = &vpc->ch;
+
+				if (victim != ch && IS_IMMORTAL(victim) && !IS_IMP(victim)) {
 					found = true;
-					vpc_next = vpc->next;
-					act(buf, ch, nullptr, vpc->ch, TO_VICT);
-					interpret(vpc->ch, argument);
+					act(buf, ch, nullptr, victim, TO_VICT);
+					interpret(victim, argument);
 				}
 			}
 
@@ -186,6 +191,8 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 	}
+
+	Character *victim;
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr) {
 		stc("They are not playing.\n", ch);
