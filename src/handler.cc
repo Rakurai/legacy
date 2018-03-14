@@ -895,7 +895,9 @@ void extract_char(Character *ch, bool fPull)
 			wch->reply.clear();
 
 	Game::world().remove_char(ch);
-	Game::world().remove_player(ch->pcdata);
+
+	if (ch->pcdata)
+		Game::world().remove_player(ch->pcdata);
 
 	if (ch->desc != nullptr)
 		ch->desc->character = nullptr;
