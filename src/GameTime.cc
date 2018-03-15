@@ -59,14 +59,15 @@ month_name() const {
 const String GameTime::
 day_string() const {
 	String suffix;
+	int iday = day+1; // convert from 0-enumerated
 
-	if (day > 4 && day < 20) suffix = "th";
-	else if (day % 10 == 1)  suffix = "st";
-	else if (day % 10 == 2)  suffix = "nd";
-	else if (day % 10 == 3)  suffix = "rd";
-	else                     suffix = "th";
+	if (iday > 3 && iday < 20) suffix = "th";
+	else if (iday % 10 == 1)   suffix = "st";
+	else if (iday % 10 == 2)   suffix = "nd";
+	else if (iday % 10 == 3)   suffix = "rd";
+	else                       suffix = "th";
 
-	return Format::format("%d%s", day + 1, suffix);
+	return Format::format("%d%s", iday, suffix);
 }
 
 void GameTime::
