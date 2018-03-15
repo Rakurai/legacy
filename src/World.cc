@@ -49,7 +49,7 @@ update() {
 		if (ptr->valid())
 			++it;
 		else {
-			delete ptr;
+//			delete ptr;
 			it = pc_list.erase(it);
 		}
 	}
