@@ -840,7 +840,6 @@ void extract_obj(Object *obj)
  */
 void extract_char(Character *ch, bool fPull)
 {
-	Character *wch;
 	Object *obj;
 	Object *obj_next;
 
@@ -890,19 +889,14 @@ void extract_char(Character *ch, bool fPull)
 		ch->desc = nullptr;
 	}
 
-	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next)
+	for (auto wch : Game::world().char_list)
 		if (! strcasecmp(wch->reply, ch->name))
 			wch->reply.clear();
 
 	Game::world().remove_char(ch);
 
-	if (ch->pcdata)
-		Game::world().remove_player(ch->pcdata);
-
 	if (ch->desc != nullptr)
 		ch->desc->character = nullptr;
-
-	delete ch;
 }
 
 /*

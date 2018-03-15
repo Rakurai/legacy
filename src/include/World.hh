@@ -8,6 +8,7 @@
 #include "QuestArea.hh"
 #include "worldmap/Quadtree.hh"
 #include "worldmap/Worldmap.hh"
+#include "GarbageCollectingList.hh"
 
 class Area;
 class Character;
@@ -31,8 +32,7 @@ public:
 	GameTime time;
 	Weather weather;
 	QuestArea quest;
-	Character *char_list = nullptr;
-	std::list<Player *> pc_list; // owned here
+	GarbageCollectingList<Character *> char_list; // owned here
 	Object *object_list = nullptr;
 
 	Object *donation_pit = nullptr;;
@@ -59,8 +59,6 @@ public:
 
 	void add_char(Character *);
 	void remove_char(Character *);
-	void add_player(Player *);
-	void remove_player(Player *);
 
 	void load_areas();
 	void create_rooms();

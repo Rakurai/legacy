@@ -101,7 +101,7 @@ Character *get_mob_area(Character *ch, const String& argument, int vis)
 	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
-	for (ach = Game::world().char_list; ach != nullptr; ach = ach->next) {
+	for (auto ach : Game::world().char_list) {
 		if (!ach->is_npc())
 			continue;
 
@@ -147,7 +147,7 @@ Character *get_mob_world(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next) {
+	for (auto wch : Game::world().char_list) {
 		if (!wch->is_npc())
 			continue;
 
@@ -293,7 +293,7 @@ Character *get_char_area(Character *ch, const String& argument, int vis)
 	Flags::Bit etype = entity_argument(argument, arg);
 	int number = number_argument(arg, arg);
 
-	for (ach = Game::world().char_list; ach != nullptr; ach = ach->next) {
+	for (auto ach : Game::world().char_list) {
 		if (ach->in_room == nullptr)
 			continue;
 
@@ -336,7 +336,7 @@ Character *get_char_world(Character *ch, const String& argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next) {
+	for (auto wch : Game::world().char_list) {
 		if (wch->in_room == nullptr)
 			continue;
 
@@ -406,17 +406,9 @@ Character *get_player_area(Character *ch, const String& argument, int vis)
 	if (ch->in_room == nullptr)
 		return nullptr;
 
-	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (auto apc : Game::world().pc_list) {
-		if (!apc->valid() || !apc->ch.valid())
+	for (auto ach : Game::world().char_list) {
+		if (ach->is_npc())
 			continue;
-
-		Character *ach = &apc->ch;
-
-		if (ach->is_npc()) {
-			Logging::bug("get_player_area: pc_data with mobile char_data", 0);
-			continue;
-		}
 
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
@@ -445,17 +437,9 @@ Character *get_player_world(Character *ch, const String& argument, int vis)
 	if (argument.empty())
 		return nullptr;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
-	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (auto wpc : Game::world().pc_list) {
-		if (!wpc->valid() || !wpc->ch.valid())
+	for (auto wch : Game::world().char_list) {
+		if (wch->is_npc())
 			continue;
-
-		Character *wch = &wpc->ch;
-
-		if (wch->is_npc()) {
-			Logging::bug("get_player_world: pc_data with mobile char_data", 0);
-			continue;
-		}
 
 		switch (vis) {
 		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;

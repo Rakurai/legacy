@@ -134,11 +134,9 @@ void do_force(Character *ch, String argument)
 		bool found = false;
 
 		if (arg == "all") {
-			for (auto vpc : Game::world().pc_list) {
-				if (!vpc->valid() || !vpc->ch.valid())
+			for (auto victim : Game::world().char_list) {
+				if (victim->is_npc())
 					continue;
-
-				Character *victim = &vpc->ch;
 
 				if (victim != ch) {
 					found = true;
@@ -153,11 +151,9 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "players") {
-			for (auto vpc : Game::world().pc_list) {
-				if (!vpc->valid() || !vpc->ch.valid())
+			for (auto victim : Game::world().char_list) {
+				if (victim->is_npc())
 					continue;
-
-				Character *victim = &vpc->ch;
 
 				if (victim != ch && !IS_IMMORTAL(victim)) {
 					found = true;
@@ -172,11 +168,9 @@ void do_force(Character *ch, String argument)
 			return;
 		}
 		else if (arg == "gods") {
-			for (auto vpc : Game::world().pc_list) {
-				if (!vpc->valid() || !vpc->ch.valid())
+			for (auto victim : Game::world().char_list) {
+				if (victim->is_npc())
 					continue;
-
-				Character *victim = &vpc->ch;
 
 				if (victim != ch && IS_IMMORTAL(victim) && !IS_IMP(victim)) {
 					found = true;
@@ -654,14 +648,13 @@ void do_revoke(Character *ch, String argument)
 /* like snoop, but better -- Elrac */
 int set_tail(Character *ch, Character *victim, Flags tail_flags)
 {
-	Character *wch;
 	Tail *td;
 
 	/* if global untail, try specific untail on all chars having tail data */
 	if (victim == nullptr) {
 		int count = 0;
 
-		for (wch = Game::world().char_list; wch; wch = wch->next)
+		for (auto wch : Game::world().char_list)
 			if (wch->tail)
 				count += set_tail(ch, wch, TAIL_NONE);
 

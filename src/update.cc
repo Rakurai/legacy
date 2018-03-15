@@ -503,17 +503,9 @@ void gain_condition(Character *ch, int iCond, int value)
  */
 void mobile_update(void)
 {
-	Character *ch;
-	Character *ch_next;
-
 	/* Examine all mobs. */
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
-		ch_next = ch->next;
-
+	for (auto ch : Game::world().char_list)
 		ch->update();
-	}
-
-	return;
 }
 
 
@@ -577,8 +569,6 @@ void descrip_update(void)
 */
 void char_update(void)
 {
-	Character *ch;
-	Character *ch_next;
 	Character *ch_quit;
 	ch_quit     = nullptr;
 	/* update save counter */
@@ -587,9 +577,7 @@ void char_update(void)
 	if (save_number > 29)
 		save_number = 0;
 
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
-		ch_next = ch->next;
-
+	for (auto ch : Game::world().char_list) {
 		if (!IS_IMMORTAL(ch) && !char_in_duel_room(ch)) {
 			if (ch->desc != nullptr)
 				if (ch->desc->timer > 30)
@@ -836,9 +824,7 @@ void char_update(void)
 	 * Autosave and autoquit.
 	 * Check that these chars still exist.
 	 */
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
-		ch_next = ch->next;
-
+	for (auto ch : Game::world().char_list) {
 		if (ch->desc != nullptr && ch->desc->descriptor % 30 == save_number)
 			save_char_obj(ch);
 
@@ -1278,12 +1264,9 @@ void aggr_update(void)
 
 void tele_update(void)
 {
-	Character *ch, *ch_next;
 	Room *room;
 
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
-		ch_next = ch->next;
-
+	for (auto ch : Game::world().char_list) {
 		if (ch->in_room == nullptr)
 			continue;
 
@@ -1349,9 +1332,7 @@ void age_update(void)
                                                 -- Montrey */
 void wait_update(void)
 {
-	Character *ch;
-
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
+	for (auto ch : Game::world().char_list) {
 		if (ch->daze > 0)       --ch->daze;
 
 		if (ch->wait > 0)       --ch->wait;
@@ -1495,12 +1476,9 @@ void janitor_update()
 
 void underwater_update(void)
 {
-	Character *ch, *ch_next;
 	int skill, dam;
 
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch_next) {
-		ch_next = ch->next;
-
+	for (auto ch : Game::world().char_list) {
 		if (!ch->is_npc() && ch->in_room->flags().has(ROOM_UNDER_WATER)) {
 			skill = get_skill_level(ch, skill::type::swimming);
 

@@ -111,15 +111,14 @@ bool global_quick = false;
    Called periodically by update_handler. */
 void violence_update(void)
 {
-	Character *ch;
 	Character *victim;
 
 	// go through first and make sure everybody is fighting who should be fighting
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next)
+	for (auto ch : Game::world().char_list)
 		if (ch->fighting)
 			check_assist(ch, ch->fighting);
 
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
+	for (auto ch : Game::world().char_list) {
 		if (ch->in_room == nullptr)
 			continue;
 
@@ -2640,9 +2639,7 @@ void set_fighting(Character *ch, Character *victim)
 /* Stop fights. */
 void stop_fighting(Character *ch, bool fBoth)
 {
-	Character *fch;
-
-	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
+	for (auto fch : Game::world().char_list) {
 		if (fch == ch || (fBoth && fch->fighting == ch)) {
 			fch->fighting = nullptr;
 			fch->position = fch->is_npc() ? fch->default_pos : fch->start_pos;
@@ -5285,13 +5282,10 @@ void do_rage(Character *ch, String argument)
 	act("You scream a battle cry and unleash your rage!", ch, nullptr, nullptr, TO_CHAR);
 	act("$n screams a battle cry, and goes into a wild series of attacks!", ch, nullptr, nullptr, TO_ROOM);
 
-	for (vch = Game::world().char_list; vch != nullptr; vch = vch_next) {
-		vch_next = vch->next;
+	for (vch = ch->in_room->people; vch != nullptr; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
 		if (ch == vch)
-			continue;
-
-		if (vch->in_room == nullptr)
 			continue;
 
 		if (is_same_group(ch, vch))
@@ -5300,13 +5294,11 @@ void do_rage(Character *ch, String argument)
 		if (is_safe_spell(ch, vch, true))
 			continue;
 
-		if (vch->in_room == ch->in_room) {
-			check_killer(ch, vch);
-			multi_hit(ch, vch, skill::type::rage);
+		check_killer(ch, vch);
+		multi_hit(ch, vch, skill::type::rage);
 
-			if (++pplhit > 4)
-				break;
-		}
+		if (++pplhit > 4)
+			break;
 	}
 
 	check_improve(ch, skill::type::rage, true, 2);

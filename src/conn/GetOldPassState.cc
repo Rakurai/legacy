@@ -40,7 +40,7 @@ bool check_playing(Descriptor *d, const String& name)
  */
 bool attempt_reconnect(Descriptor *d, const String& name)
 {
-	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
+	for (auto ch : Game::world().char_list) {
 		if (!ch->is_npc()
 		 && d->character != ch
 		 && ch->desc == nullptr

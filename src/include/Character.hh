@@ -5,7 +5,7 @@
 #include "Actable.hh"
 #include "String.hh"
 #include "Format.hh" // ptc inline
-#include "Valid.hh"
+#include "Garbage.hh"
 #include "Guild.hh"
 #include "Player.hh" // only for the macros here, remove when we get rid of them
 
@@ -22,7 +22,7 @@ namespace affect { class Affect; }
 class Character :
 public Pooled<Character>, // must be first inherited
 public Actable,
-public Valid
+public Garbage
 {
 public:
     Character();
@@ -36,7 +36,6 @@ public:
 
     bool is_npc() const { return pcdata == nullptr; }
 
-    Character *         next = nullptr;
     Character *         next_in_room = nullptr;
     Character *         master = nullptr;
     Character *         leader = nullptr;

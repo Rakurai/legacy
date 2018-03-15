@@ -394,12 +394,7 @@ int fsearch_player(Character *ch, int fieldptr, const Flags& marked)
 	Flags flag;
 	output += "{VCount {YRoom{x\n";
 
-	for (auto vpc : Game::world().pc_list) {
-		if (!vpc->valid() || !vpc->ch.valid())
-			continue;
-
-		Character *victim = &vpc->ch;
-
+	for (auto victim : Game::world().char_list) {
 		if (victim->is_npc()
 		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)
@@ -448,12 +443,11 @@ int fsearch_mobile(Character *ch, int fieldptr, const Flags& marked)
 {
 	char buf[MSL];
 	String output;
-	Character *victim;
 	int count = 0;
 	Flags flag;
 	output += "{VCount  {YRoom   {GMob{x\n";
 
-	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+	for (auto victim : Game::world().char_list) {
 		if (!victim->is_npc()
 		    || victim->in_room == nullptr
 		    || !can_see_char(ch, victim)

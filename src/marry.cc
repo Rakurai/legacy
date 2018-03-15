@@ -181,15 +181,17 @@ void do_spousetalk(Character *ch, String argument)
 		return;
 	}
 	else { /* message sent */
-		Character *victim;
+		Character *victim = nullptr;
 
 		/* Us married folk wanna see our spouses - Lotus */
 
-		for (victim = Game::world().char_list; victim != nullptr ; victim = victim->next) {
-			if (victim->in_room != nullptr &&
-			    !victim->is_npc() &&
-			    victim->name.has_words(ch->pcdata->spouse))
+		for (auto vch : Game::world().char_list) {
+			if (vch->in_room != nullptr
+			 && !vch->is_npc()
+			 && vch->name.has_words(ch->pcdata->spouse)) {
+				victim = vch;
 				break;
+			}
 		}
 
 		if (victim != nullptr) {

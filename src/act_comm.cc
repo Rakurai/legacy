@@ -1410,8 +1410,6 @@ void nuke_pets(Character *ch)
 
 void die_follower(Character *ch)
 {
-	Character *fch;
-
 	if (ch->master != nullptr) {
 		if (ch->master->pet == ch)
 			ch->master->pet = nullptr;
@@ -1435,7 +1433,7 @@ void die_follower(Character *ch)
 
 	ch->leader = nullptr;
 
-	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
+	for (auto fch : Game::world().char_list) {
 		if (fch->master == ch)
 			stop_follower(fch);
 
@@ -1622,7 +1620,6 @@ void do_group(Character *ch, String argument)
 	one_argument(argument, arg);
 
 	if (arg.empty()) {
-		Character *gch;
 		Character *leader;
 		leader = (ch->leader != nullptr) ? ch->leader : ch;
 		Format::sprintf(buf, "%s's group:\n", PERS(leader, ch, VIS_PLR));
@@ -1630,7 +1627,7 @@ void do_group(Character *ch, String argument)
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
 
-		for (gch = Game::world().char_list; gch != nullptr; gch = gch->next) {
+		for (auto gch : Game::world().char_list) {
 			if (is_same_group(gch, ch)) {
 				String guild =
 					gch->is_npc() ? "Mob" :

@@ -134,12 +134,13 @@ update()
 	}
 
 	if (!buf.empty()) {
-		for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
+		for (auto ch : Game::world().char_list) {
 			/* why send it to mobs? */
 			if (!ch->is_npc()
 			 && IS_OUTSIDE(ch)
 			 && IS_AWAKE(ch)
 			 && ch->act_flags.has(PLR_TICKS))
 				stc(buf, ch);
+		}
 	}
 }

@@ -680,11 +680,10 @@ void update_read(Character *ch, Note *pnote)
 
 void notify_note_post(Note *pnote, Character *vch, int type)
 {
-	Character *ch;
 	String buf;
 	const String& list_name = board_index[type].board_long;
 
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next) {
+	for (auto ch : Game::world().char_list) {
 		if (ch->is_npc())
 			continue;
 

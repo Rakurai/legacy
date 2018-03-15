@@ -259,7 +259,7 @@ bool spec_ogre_member(Character *ch)
 
 bool spec_patrolman(Character *ch)
 {
-	Character *vch, *victim = nullptr;
+	Character *victim = nullptr;
 	Object *obj;
 	char *message;
 	int count = 0;
@@ -269,7 +269,7 @@ bool spec_patrolman(Character *ch)
 		return false;
 
 	/* look for a fight in the room */
-	for (vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
+	for (Character *vch = ch->in_room->people; vch != nullptr; vch = vch->next_in_room) {
 		if (vch == ch)
 			continue;
 
@@ -292,7 +292,7 @@ bool spec_patrolman(Character *ch)
 		act("You blow down hard on $p.", ch, obj, nullptr, TO_CHAR);
 		act("$n blows on $p, ***WHEEEEEEEEEEEET***", ch, obj, nullptr, TO_ROOM);
 
-		for (vch = Game::world().char_list; vch != nullptr; vch = vch->next) {
+		for (auto vch : Game::world().char_list) {
 			if (vch->in_room == nullptr)
 				continue;
 

@@ -84,7 +84,6 @@ void quest_cleanup(Character *ch) {
 
 void sq_cleanup(Character *ch)
 {
-	Character *mob;
 	Object *obj;
 	ch->pcdata->plr_flags -= PLR_SQUESTOR;
 	ch->pcdata->squest_giver = 0;
@@ -101,11 +100,8 @@ void sq_cleanup(Character *ch)
 	}
 
 	if (ch->pcdata->squestmob != nullptr) {
-		for (mob = Game::world().char_list; mob != nullptr ; mob = mob->next)
-			if (mob == ch->pcdata->squestmob) {
-				extract_char(mob, true);
-				break;
-			}
+		if (!ch->pcdata->squestmob->is_garbage())
+			extract_char(ch->pcdata->squestmob, true);
 
 		ch->pcdata->squestmob = nullptr;
 	}
@@ -872,21 +868,23 @@ void generate_quest(Character *ch, Character *questman)
 		aligned = 0;
 		total = 0;
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
-			if (!victim->is_npc()
-			    || victim->pIndexData == nullptr
-			    || victim->in_room == nullptr
-			    || victim->pIndexData->pShop != nullptr
-			    || victim->act_flags.has(ACT_NOSUMMON)
-			    || victim->act_flags.has(ACT_PET)
-			    || !strcmp(victim->in_room->area().name, "Playpen")
-			    || victim->in_room->area().region != nullptr // no region areas for now
-			    || victim->in_room->clan()
-			    || affect::exists_on_char(victim, affect::type::charm_person)
-			    || victim->in_room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
-			    || victim->in_room->flags().has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
-			    || quest_level_diff(ch->level, victim->level) != true)
+		for (auto vch : Game::world().char_list) {
+			if (!vch->is_npc()
+			    || vch->pIndexData == nullptr
+			    || vch->in_room == nullptr
+			    || vch->pIndexData->pShop != nullptr
+			    || vch->act_flags.has(ACT_NOSUMMON)
+			    || vch->act_flags.has(ACT_PET)
+			    || !strcmp(vch->in_room->area().name, "Playpen")
+			    || vch->in_room->area().region != nullptr // no region areas for now
+			    || vch->in_room->clan()
+			    || affect::exists_on_char(vch, affect::type::charm_person)
+			    || vch->in_room->flags().has_any_of(ROOM_PRIVATE | ROOM_SOLITARY)
+			    || vch->in_room->flags().has_any_of(ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
+			    || quest_level_diff(ch->level, vch->level) != true)
 				continue;
+
+			victim = vch;
 
 			/* All conditions met. Increment counters. */
 			total++;
@@ -1357,7 +1355,6 @@ void do_quest(Character *ch, String argument)
 	if (IS_IMMORTAL(ch) && arg1.is_prefix_of("close")) {
 		int num_in_area;
 		int num_to_oust = 0;
-		Character *victim;
 		Room *temple;
 
 		if (!Game::world().quest.open) {
@@ -1385,7 +1382,7 @@ void do_quest(Character *ch, String argument)
 			if (temple == nullptr)
 				Logging::bug("QUEST CLOSE: Temple location not found (%d)", ROOM_VNUM_TEMPLE);
 			else {
-				for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+				for (auto victim : Game::world().char_list) {
 					if (!victim->is_npc() && victim->in_room != nullptr
 					    && victim->in_room->area() == Game::world().quest.area()) {
 						act("You expel $N from the quest area.", ch, nullptr, victim, TO_CHAR);

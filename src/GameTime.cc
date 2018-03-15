@@ -122,7 +122,7 @@ update() {
 		break;
 	}
 
-	for (Character *ch = Game::world().char_list; ch != nullptr; ch = ch->next)
+	for (auto ch : Game::world().char_list)
 		/* why send it to mobs? */
 		if (!ch->is_npc()
 		 && IS_OUTSIDE(ch)

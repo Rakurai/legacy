@@ -287,17 +287,16 @@ void do_hunt(Character *ch, String argument)
 void hunt_victim(Character *ch)
 {
 	int           dir;
-	bool          found;
-	Character     *tmp;
 	HUNT_CONDITIONS cond;
 
 	if (ch == nullptr || ch->hunting == nullptr || !ch->is_npc())
 		return;
 
 	/* Make sure the victim still exists. */
-	for (found = 0, tmp = Game::world().char_list; tmp && !found; tmp = tmp->next) {
+	bool found = false;
+	for (auto tmp : Game::world().char_list) {
 		if (ch->hunting == tmp) {
-			found = 1;
+			found = true;
 			break;  /* -- Elrac */
 		}
 	}

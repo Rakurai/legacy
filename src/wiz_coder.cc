@@ -565,9 +565,7 @@ void do_memory(Character *ch, String argument)
 void do_dump(Character *ch, String argument)
 {
 	int count, num_pcs, aff_count;
-	Character *fch;
 	MobilePrototype *pMobIndex;
-	Player *pc;
 	Object *obj;
 	ObjectPrototype *pObjIndex;
 	Room *room;
@@ -586,7 +584,7 @@ void do_dump(Character *ch, String argument)
 	/* mobs */
 	count = 0;
 
-	for (fch = Game::world().char_list; fch != nullptr; fch = fch->next) {
+	for (auto fch : Game::world().char_list) {
 		count++;
 
 		if (fch->pcdata != nullptr)
@@ -597,11 +595,11 @@ void do_dump(Character *ch, String argument)
 	}
 
 	Format::fprintf(fp, "Mobs    %4d (%8ld bytes)\n",
-	        count, count * (sizeof(*fch)));
+	        count, count * (sizeof(Character)));
 	/* pcdata */
 
 	Format::fprintf(fp, "Pcdata  %4d (%8ld bytes)\n",
-	        num_pcs, num_pcs * (sizeof(*pc)));
+	        num_pcs, num_pcs * (sizeof(Player)));
 	/* descriptors */
 	count = 0;
 

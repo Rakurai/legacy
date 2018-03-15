@@ -322,7 +322,7 @@ void do_debug(Character *ch, String argument)
 		argument = one_argument(argument, arg);
 
 		if (arg == "all") {
-			for (questor = Game::world().char_list; questor; questor = questor->next)
+			for (auto questor : Game::world().char_list)
 				if (!questor->is_npc() && !IS_IMMORTAL(questor)) {
 					questor->pcdata->nextquest = 0;
 					questor->pcdata->nextsquest = 0;

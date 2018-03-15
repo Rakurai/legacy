@@ -3057,7 +3057,6 @@ void do_credits(Character *ch, String argument)
 void do_where(Character *ch, String argument)
 {
 	Duel::Arena *arena = arena_table_head->next;
-	Character *victim;
 	Descriptor *d;
 	bool found = false;
 
@@ -3073,7 +3072,7 @@ void do_where(Character *ch, String argument)
 	}
 
 	if (arena != arena_table_tail) {
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->in_room != nullptr
 			    && victim->in_room->prototype.vnum >= arena->minvnum
 			    && victim->in_room->prototype.vnum <= arena->maxvnum
@@ -3094,7 +3093,7 @@ void do_where(Character *ch, String argument)
 		stc("Nearby you see:\n", ch);
 
 		for (d = descriptor_list; d; d = d->next) {
-			victim = d->character;
+			Character *victim = d->character;
 
 			if (d->is_playing()
 			    && victim->in_room != nullptr
@@ -3113,7 +3112,7 @@ void do_where(Character *ch, String argument)
 		String arg;
 		one_argument(argument, arg);
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->in_room != nullptr
 			    && victim->in_room->area() == ch->in_room->area()
 			    && !affect::exists_on_char(victim, affect::type::hide)

@@ -53,7 +53,6 @@ handleInput(Descriptor *d, const String& argument) {
 	}
 
 	Game::world().add_char(ch);
-	Game::world().add_player(ch->pcdata);
 
 	if (ch->level == 0) {
 		Object *obj;   /* a generic object variable */

@@ -6,7 +6,6 @@
 #include "constants.hh"
 #include "String.hh"
 #include "Flags.hh"
-#include "Valid.hh"
 #include "skill/skill.hh"
 #include "Vnum.hh"
 #include "Location.hh"
@@ -14,8 +13,7 @@
 /*
  * Data which only PC's have.
  */
-class Player :
-public Valid
+class Player
 {
 public:
 	Player(Character &);

@@ -36,70 +36,17 @@ update() {
 			area->update();
 	}
 
-	// clean up things that have been destroyed
-	// it would be really nice to shove these into a clean_list method that just
-	// takes any list of things deriving from Valid, which would be fine because
-	// we use virtual destructors everywhere, except it would mean using a
-	// static cast to the derived type everywhere we iterate over the list.
-	// unless of course we templatized some sort of helper function, but this
-	// is fine for now.
-	// see: https://stackoverflow.com/questions/25355154/c11-range-based-for-loop-on-derived-objects
-	for (auto it = pc_list.begin(); it != pc_list.end(); ) {
-		auto ptr = *it;
-		if (ptr->valid())
-			++it;
-		else {
-//			delete ptr;
-			it = pc_list.erase(it);
-		}
-	}
+	char_list.delete_garbage();
 }
 
 void World::
 add_char(Character *ch) {
-	if (ch == nullptr)
-		return;
-
-	ch->next = char_list;
-	char_list = ch;
-	ch->validate();
+	char_list.add(ch);
 }
 
 void World::
 remove_char(Character *ch) {
-	if (ch == nullptr)
-		return;
-
-	ch->invalidate();
-
-	if (ch == char_list)
-		char_list = ch->next;
-	else {
-		Character *prev;
-
-		for (prev = char_list; prev != nullptr; prev = prev->next) {
-			if (prev->next == ch) {
-				prev->next = ch->next;
-				break;
-			}
-		}
-
-		if (prev == nullptr) {
-			Logging::bug("World::remove_char: char not found in char_list", 0);
-			return;
-		}
-	}
-}
-
-void World::
-add_player(Player *plr) {
-	plr->validate();
-	pc_list.push_front(plr); // taking ownership
-}
-
-void World::
-remove_player(Player *plr) {
-	plr->invalidate();
+	char_list.remove(ch);
 }
 
 Area * World::

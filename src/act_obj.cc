@@ -210,7 +210,7 @@ bool pers_eq_ok(Character *ch, Object *obj, const String& action)
 
 bool can_loot(Character *ch, Object *obj)
 {
-	Character *owner = nullptr, *wch;
+	Character *owner = nullptr;
 
 	if (IS_IMMORTAL(ch))
 		return true;
@@ -218,9 +218,11 @@ bool can_loot(Character *ch, Object *obj)
 	if (obj->owner.empty())
 		return true;
 
-	for (wch = Game::world().char_list; wch != nullptr ; wch = wch->next)
-		if (wch->name == obj->owner)
+	for (auto wch : Game::world().char_list)
+		if (wch->name == obj->owner) {
 			owner = wch;
+			break;
+		}
 
 	if (owner == nullptr)
 		return true;
@@ -2758,8 +2760,6 @@ void do_sacrifice(Character *ch, String argument)
 	Object *obj, *obj_next;
 	bool found = false;
 	int silver = 0;
-	Character *person;
-	bool being_used;
 	/* variables for AUTOSPLIT */
 	Character *gch;
 	int members;
@@ -2781,16 +2781,15 @@ void do_sacrifice(Character *ch, String argument)
 			if (!acceptable_sac(ch, obj))
 				continue;
 
-			/* Make sure no one is resting on the item. -- Outsider */
-			person = Game::world().char_list;
-			being_used = false;
-
-			while ((person) && (! being_used)) {
-				if (person->on == obj)
+			bool being_used = false;
+			for (auto person : Game::world().char_list)
+				if (person->on == obj) {
 					being_used = true;
-				else
-					person = person->next;
-			}
+					break;
+				}
+
+			if (being_used)
+				continue;
 
 			if (!ch->is_npc() || !IS_IMMORTAL(ch))
 				silver += URANGE(1, obj->cost, (obj->level * 3));
@@ -2832,16 +2831,16 @@ void do_sacrifice(Character *ch, String argument)
 		if (!acceptable_sac(ch, obj))
 			return;
 
-		/* Make sure no one is sleeping on/in the item. -- Outsider */
-		person = Game::world().char_list;
-
-		while (person) {
+		bool being_used = false;
+		for (auto person : Game::world().char_list)
 			if (person->on == obj) {
-				stc("Someone is using that.\n", ch);
-				return;
+				being_used = true;
+				break;
 			}
 
-			person = person->next;
+		if (being_used) {
+			stc("It looks like someone is using that.\n", ch);
+			return;
 		}
 
 		if (ch->is_npc() || IS_IMMORTAL(ch))

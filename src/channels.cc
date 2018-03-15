@@ -497,12 +497,7 @@ void send_to_query(Character *ch, const char *string)
 {
 	// really hate directly accessing the Game::world().pc_list, but I don't want multiple
 	// calls to get_player_world.
-	for (auto pc : Game::world().pc_list) {
-		if (!pc->valid() || !pc->ch.valid())
-			continue;
-
-		Character *victim = &pc->ch;
-
+	for (auto victim : Game::world().char_list) {
 		if (victim->is_npc()
 		    || victim->comm_flags.has(COMM_NOQUERY)
 		    || is_ignoring(victim, ch))
@@ -1208,10 +1203,8 @@ void do_tell(Character *ch, String argument)
 
 void do_reply(Character *ch, String argument)
 {
-	Character *victim;
 	char buf[MAX_STRING_LENGTH];
 	char *strtime;
-	bool found = false;
 
 	if (argument.empty()) {
 		new_color(ch, CSLOT_CHAN_TELL);
@@ -1235,13 +1228,14 @@ void do_reply(Character *ch, String argument)
 		return;
 	}
 
-	for (victim = Game::world().char_list; victim != nullptr ; victim = victim->next)
+	Character *victim = nullptr;
+	for (auto vch : Game::world().char_list)
 		if (! strcmp(ch->reply, victim->name)) {
-			found = true;
+			victim = vch;
 			break;
 		}
 
-	if (!found) {
+	if (victim == nullptr) {
 		new_color(ch, CSLOT_CHAN_TELL);
 		stc("They aren't here.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1716,7 +1710,6 @@ void do_qtell(Character *ch, String argument)
 void do_gtell(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	Character *gch;
 
 	if (argument.empty()) {
 		new_color(ch, CSLOT_CHAN_GTELL);
@@ -1732,7 +1725,7 @@ void do_gtell(Character *ch, String argument)
 
 	/* would be more efficient to find leader and step thru all his group members
 	-- Elrac */
-	for (gch = Game::world().char_list; gch != nullptr; gch = gch->next) {
+	for (auto gch : Game::world().char_list) {
 		if (is_same_group(gch, ch)) {
 			new_color(gch, CSLOT_CHAN_GTELL);
 			stc(buf, gch);

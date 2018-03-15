@@ -1458,8 +1458,6 @@ void spell_light_of_truth(skill::type sn, int level, Character *ch, void *vo, in
 
 void spell_call_lightning(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	Character *vch;
-	Character *vch_next;
 	int dam;
 
 	if (!IS_OUTSIDE(ch)) {
@@ -1476,9 +1474,7 @@ void spell_call_lightning(skill::type sn, int level, Character *ch, void *vo, in
 	stc("Heaven's lightning strikes your foes!\n", ch);
 	act("$n calls heaven's lightning to strike $s foes!", ch, nullptr, nullptr, TO_ROOM);
 
-	for (vch = Game::world().char_list; vch != nullptr; vch = vch_next) {
-		vch_next = vch->next;
-
+	for (auto vch : Game::world().char_list) {
 		if (vch->in_room == nullptr)
 			continue;
 
@@ -2606,14 +2602,10 @@ void spell_dispel_magic(skill::type sn, int level, Character *ch, void *vo, int 
 
 void spell_earthquake(skill::type sn, int level, Character *ch, void *vo, int target, int evolution)
 {
-	Character *vch;
-	Character *vch_next;
 	stc("The earth trembles beneath your feet!\n", ch);
 	act("$n makes the earth tremble and shiver.", ch, nullptr, nullptr, TO_ROOM);
 
-	for (vch = Game::world().char_list; vch != nullptr; vch = vch_next) {
-		vch_next = vch->next;
-
+	for (auto vch : Game::world().char_list) {
 		if (vch->in_room == nullptr)
 			continue;
 
@@ -4297,11 +4289,10 @@ void spell_locate_life(skill::type sn, int level, Character *ch, void *vo, int t
 {
 	char buf[MAX_STRING_LENGTH];
 	String buffer;
-	Character *victim;
 	bool found = false;
 	int number = 0, max_found = 2 * level;
 
-	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+	for (auto victim : Game::world().char_list) {
 		if (!can_see_char(ch , victim)        /* NOT can_see_who */
 		    || !victim->name.has_words(target_name)
 		    || victim->in_room == nullptr

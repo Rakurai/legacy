@@ -243,7 +243,6 @@ void copyover_recover()
 
 		/* Insert in the Game::world().char_list */
 		Game::world().add_char(d->character);
-		Game::world().add_player(d->character->pcdata);
 		write_to_descriptor(desc, msg2, 0);
 		char_to_room(d->character, d->character->in_room);
 		do_look(d->character, "auto");
@@ -275,7 +274,6 @@ int main(int argc, char **argv)
 	struct timeval now_time;
 	bool fCopyOver = false;
 	FILE *fpBoot = nullptr;
-	Character *tempchars;
 	struct sigaction sig_act;
 	/* our signal handler.  more signals can be caught with repeated calls to sigaction,
 	   using the same struct and different signals.  -- Montrey */
@@ -361,10 +359,9 @@ int main(int argc, char **argv)
 	/* At this point, boot was successful. */
 	unlink(BOOT_FILE);
 
-	for (tempchars = Game::world().char_list; tempchars; tempchars = tempchars->next) {
-		if (tempchars->is_npc())
-			mprog_boot_trigger(tempchars);
-	}
+	for (auto tch : Game::world().char_list)
+		if (tch->is_npc())
+			mprog_boot_trigger(tch);
 
 	if (Game::port == DIZZYPORT) {
 		FILE *pidfile;
@@ -878,8 +875,20 @@ void close_socket(Descriptor *dclose)
 
 			ch->desc = nullptr;
 		}
-		else
-			delete dclose->character;
+		else {
+			bool found = false;
+
+			for (auto wch : Game::world().char_list) {
+				if (wch == dclose->character) {
+					Game::world().char_list.remove(wch);
+					found = true;
+					break;
+				}
+			}
+
+			if (!found)
+				delete dclose->character;
+		}
 	}
 
 	if (d_next == dclose)

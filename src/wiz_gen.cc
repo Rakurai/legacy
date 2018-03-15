@@ -346,7 +346,6 @@ void do_at(Character *ch, String argument)
 	Room *location;
 	Room *original;
 	Object *on;
-	Character *wch;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -377,16 +376,12 @@ void do_at(Character *ch, String argument)
 	 * See if 'ch' still exists before continuing!
 	 * Handles 'at XXXX quit' case.
 	 */
-	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
-		if (wch == ch) {
-			char_from_room(ch);
-			char_to_room(ch, original);
-			ch->on = on;
-			break;
-		}
-	}
+	if (ch->is_garbage())
+		return;
 
-	return;
+	char_from_room(ch);
+	char_to_room(ch, original);
+	ch->on = on;
 }
 
 /* Check Command borrowed from a web site */
@@ -395,7 +390,6 @@ void do_check(Character *ch, String argument)
 	char buf[MAX_STRING_LENGTH];
 	bool SHOWIMM = false;
 	String buffer;
-	Character *victim;
 
 	String arg;
 	argument = one_argument(argument, arg);
@@ -405,7 +399,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.empty() || arg.is_prefix_of("gods")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
@@ -425,7 +419,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("stats")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
@@ -451,7 +445,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("eq")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc()
 			    || !can_see_char(ch, victim))
 				continue;
@@ -474,7 +468,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("absorb")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
@@ -493,7 +487,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("immune")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
@@ -513,7 +507,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("resistance")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
@@ -533,7 +527,7 @@ void do_check(Character *ch, String argument)
 
 	if (arg.is_prefix_of("vulnerable")) {
 
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc() || !can_see_char(ch, victim))
 				continue;
 
@@ -557,8 +551,7 @@ void do_check(Character *ch, String argument)
 			return;
 		}
 
-
-		for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+		for (auto victim : Game::world().char_list) {
 			if (victim->is_npc()
 			    || victim->desc == nullptr
 			    || !victim->desc->is_playing())
@@ -1411,7 +1404,6 @@ const String name_expand(Character *ch)
 void do_for(Character *ch, String argument)
 {
 	Room *old_room = nullptr;
-	Character *p, *p_next;
 	bool fGods = false, fMortals = false, fRoom = false, found;
 
 	String range;
@@ -1456,8 +1448,7 @@ void do_for(Character *ch, String argument)
 	}
 
 	if (strchr(argument, '#')) { /* replace # ? */
-		for (p = Game::world().char_list; p; p = p_next) {
-			p_next = p->next;
+		for (auto p : Game::world().char_list) {
 			found = false;
 
 			if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
@@ -1490,7 +1481,7 @@ void do_for(Character *ch, String argument)
 
 			interpret(ch, buf);
 
-			if (ch && !fRoom) {     /* make sure ch still exists! :P -- Montrey */
+			if (!ch->is_garbage() && !fRoom) {     /* make sure ch still exists! :P -- Montrey */
 				char_from_room(ch);
 				char_to_room(ch, old_room);
 			}
@@ -1513,7 +1504,7 @@ void do_for(Character *ch, String argument)
 					continue;
 
 				/* Check if there is anyone here of the requried type */
-				for (p = room->people; p; p = p->next_in_room) {
+				for (Character *p = room->people; p; p = p->next_in_room) {
 					if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
 						continue;
 					else if (p->is_npc() && !fRoom)
@@ -1530,7 +1521,7 @@ void do_for(Character *ch, String argument)
 					char_to_room(ch, room);
 					interpret(ch, argument);
 
-					if (ch) {
+					if (!ch->is_garbage()) {
 						char_from_room(ch);
 						char_to_room(ch, old_room);
 					}
@@ -1810,12 +1801,12 @@ void do_heed(Character *ch, String argument)
 	}
 
 	/* find a player to talk to. Only REAL players are eligible. */
-	for (auto tpc : Game::world().pc_list) {
-		if (!tpc->valid() || !tpc->ch.valid())
+	for (auto tpc : Game::world().char_list) {
+		if (tpc->is_npc())
 			continue;
 
-		if (tpc->ch.name.has_words(arg1)) {
-			truevictim = &tpc->ch;
+		if (tpc->name.has_words(arg1)) {
+			truevictim = tpc;
 			break;
 		}
 	}
@@ -1931,7 +1922,6 @@ void do_linkload(Character *ch, String argument)
 	if (load_char_obj(dnew, cname) == true) {
 		victim = dnew->character;
 		Game::world().add_char(victim);
-		Game::world().add_player(victim->pcdata);
 		victim->desc = nullptr;
 
 		if (OUTRANKS(victim, ch)) {
@@ -2673,7 +2663,6 @@ void do_mwhere(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	String output;
-	Character *victim;
 	bool found;
 
 	String arg, arg2;
@@ -2687,7 +2676,7 @@ void do_mwhere(Character *ch, String argument)
 
 	found = false;
 
-	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next) {
+	for (auto victim : Game::world().char_list) {
 		if (!victim->is_npc() || victim->in_room == nullptr)
 			continue;
 
@@ -2939,12 +2928,10 @@ void do_canmakebag(Character *ch, String argument)
 /* Noreply by Lotus */
 void do_noreply(Character *ch, String argument)
 {
-	Character *wch;
-
 	if (ch->is_npc())
 		return;
 
-	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
+	for (auto wch : Game::world().char_list) {
 		if (! strcasecmp(wch->reply, ch->name))
 			wch->reply.clear();
 	}
@@ -3534,14 +3521,10 @@ void do_sockets(Character *ch, String argument)
 	buffer += "---|---------------|-------|---|------------|-------------------------\n";
 
 	/* now list linkdead ppl */
-	for (auto vpc : Game::world().pc_list) {
-		if (!vpc->valid() || !vpc->ch.valid())
-			continue;
-
-		Character *victim = &vpc->ch;
-
-		if (victim != ch
-		    && vpc->plr_flags.has(PLR_LINK_DEAD)
+	for (auto victim : Game::world().char_list) {
+		if (!victim->is_npc()
+			&& victim != ch
+		    && victim->pcdata->plr_flags.has(PLR_LINK_DEAD)
 		    && can_see_char(ch, victim)
 		    && (arg.empty()
 		        || victim->name.has_words(arg))) {
@@ -3550,7 +3533,7 @@ void do_sockets(Character *ch, String argument)
 			    s,
 			    std::max(0, victim->desc == nullptr ? victim->timer : victim->desc->timer),
 			    victim->name,
-			    vpc->last_lsite);
+			    victim->pcdata->last_lsite);
 			ldcount++;
 		}
 	}

@@ -147,11 +147,10 @@ void append_duel(Duel *c)
 
 void remove_duel(Duel *c)
 {
-	Character *ch;
 	c->previous->next       = c->next;
 	c->next->previous       = c->previous;
 
-	for (ch = Game::world().char_list; ch != nullptr; ch = ch->next)
+	for (auto ch : Game::world().char_list)
 		if (!ch->is_npc() && ch->pcdata->duel == c)
 			ch->pcdata->duel = nullptr;
 

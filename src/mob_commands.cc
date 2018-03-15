@@ -505,7 +505,6 @@ void do_mpat(Character *ch, String argument)
 {
 	Room *location;
 	Room *original;
-	Character       *wch;
 
 	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		stc("Huh?\n", ch);
@@ -534,15 +533,11 @@ void do_mpat(Character *ch, String argument)
 	 * See if 'ch' still exists before continuing!
 	 * Handles 'at XXXX quit' case.
 	 */
-	for (wch = Game::world().char_list; wch != nullptr; wch = wch->next) {
-		if (wch == ch) {
-			char_from_room(ch);
-			char_to_room(ch, original);
-			break;
-		}
-	}
+	if (ch->is_garbage())
+		return;
 
-	return;
+	char_from_room(ch);
+	char_to_room(ch, original);
 }
 
 /* lets the mobile transfer people.  the all argument transfers
@@ -552,7 +547,6 @@ void do_mptransfer(Character *ch, String argument)
 {
 	Room *location;
 //	Descriptor *d;
-	Character *victim;
 
 	if (!ch->is_npc() || ch->act_flags.has(ACT_MORPH)) {
 		do_huh(ch);
@@ -602,9 +596,12 @@ void do_mptransfer(Character *ch, String argument)
 		}
 	}
 
-	for (victim = Game::world().char_list; victim != nullptr; victim = victim->next)
-		if (victim->name.has_words(arg1))
+	Character *victim = nullptr;
+	for (auto vch : Game::world().char_list)
+		if (vch->name.has_words(arg1)) {
+			victim = vch;
 			break;
+		}
 
 	if (victim == nullptr) {
 		Logging::bugf("Mptransfer - No such person: vnum %d.", ch->pIndexData->vnum);
