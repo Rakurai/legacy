@@ -512,7 +512,7 @@ void duel_kill(Character *victim)
 			Logging::bug("Error with Game::world().get_room() in duel_kill() in duel.c.", 0);
 
 		if (room->people)
-			for (wch = room->people; wch != nullptr; wch = wch->next)
+			for (wch = room->people; wch != nullptr; wch = wch->next_in_room)
 				if (wch->master == ch || wch->master == victim) {
 					char_from_room(wch);
 					char_to_room(wch, wch->master->in_room);

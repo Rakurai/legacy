@@ -480,7 +480,7 @@ void check_assist(Character *ch, Character *victim)
 						if (number_bits(1) == 0)
 							continue;
 
-						for (Character *vch = ch->in_room->people; vch; vch = vch->next) {
+						for (Character *vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 							if (can_see_char(rch, vch)
 							    && is_same_group(vch, victim)
 							    && number_range(0, number) == 0) {
@@ -765,7 +765,7 @@ void mob_hit(Character *ch, Character *victim, skill::type attack_skill)
 	/* Area attack -- BALLS nasty! */
 	if (ch->off_flags.has(OFF_AREA_ATTACK)) {
 		for (vch = ch->in_room->people; vch != nullptr; vch = vch_next) {
-			vch_next = vch->next;
+			vch_next = vch->next_in_room;
 
 			if ((vch != victim && vch->fighting == ch && roll_chance(33)))
 				one_hit(ch, vch, attack_skill, false);

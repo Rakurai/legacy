@@ -3205,7 +3205,7 @@ void spell_fireball(skill::type sn, int level, Character *ch, void *vo, int targ
 		int count = 0;
 
 		// count targets
-		for (victim = ch->in_room->people; victim; victim = victim->next)
+		for (victim = ch->in_room->people; victim; victim = victim->next_in_room)
 			if (ch != victim
 			 && !is_same_group(victim, ch)
 			 && !is_safe_spell(ch, victim, true))
