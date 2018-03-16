@@ -1822,7 +1822,7 @@ void mprog_greet_trigger(Character *ch)
 {
 	Character *vmob;
 
-	for (vmob = ch->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
+	for (vmob = ch->in_room->people; vmob != nullptr; vmob = vmob->next_in_room) {
 		if (ch->is_garbage())
 			break;
 
@@ -1840,6 +1840,7 @@ void mprog_greet_trigger(Character *ch)
 		         && IS_AWAKE(vmob)
 		         && (vmob->pIndexData->progtype_flags.has(ALL_GREET_PROG)))
 			mprog_percent_check(vmob, ch, nullptr, nullptr, ALL_GREET_PROG);
+	}
 
 	return;
 }
@@ -1923,12 +1924,13 @@ void mprog_speech_trigger(const String& txt, Character *mob)
 {
 	Character *vmob;
 
-	for (vmob = mob->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
+	for (vmob = mob->in_room->people; vmob != nullptr; vmob = vmob->next_in_room) {
 		if (mob->is_garbage())
 			break;
 
 		if (vmob->is_npc() && (vmob->pIndexData->progtype_flags.has(SPEECH_PROG)))
 			mprog_wordlist_check(txt.c_str(), vmob, mob, nullptr, nullptr, SPEECH_PROG);
+	}
 
 	return;
 }
