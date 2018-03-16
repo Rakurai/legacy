@@ -362,11 +362,6 @@ say You need to give this token to Healer Deirdre.
 say She is usually 1 step north of here.
 give $obj $actor
 ~
->give_prog all~
-smile $actor
-say Thank you, $actor, but you may need this more than I!
-give $obj $actor
-~
 |
 
 #3012
@@ -2915,42 +2910,46 @@ map 0 A
 0 10 500 P
 E
 map midgaard~
-.
-                        * * * MIDGAARD * * *
-                         = = ========== = =
-
-                                     Rainbow Bridge (Asgard and Valhalla)
-                                    /
-          North            Temple Altar   Mud School <--- ** NEWBIES **
-            |   /Up        (Healer, Pit)      |           ** GO HERE **
-            | /                  |       /Entrance to
-     West---+---East             |     /  Mud School----Questmaster's Lair
-          / |                 Temple of       |
-    Down/   |                   Mota        Arena
-          South               (Recall)
-                                 |
-                                 |   /In the Air   /City Bank & Locker Room
-                  Cleric         | /             /
-       Northern   Guild----Temple Square---Grunting---Bar    Northern
-       Midgaard              (Fountain)    Boar Inn          Midgaard
-     (Clan Road) Magic           |                          (Clan Road)
+.                       * * * MIDGAARD * * *               
+                         = = ========== = =                
+                                                           
+                               North
+         Wall-Road-------------Gate-----------------------Wall-Road
+           |                                                    |
+           |                                        Griswald's  |
+           |         Insane   Flaming               Repair Shop |
+           |         Asylum    Sword          Smithy/    |      |
+         Wall           |        |                       |     Wall
+         Road----Clan-Road----Great-------+-Clan-Road----+-----Road   {C    N  U {x
+           |      |           Square      |             /       |     {B    | /  {x
+           |    Money            |       Andy's      Kat's      |     {CW {B--{Y+{B-- {CE{x
+           |   Changer     Temple Altar   Pub      Klanhouse    |     {B  / |    {x
+           |               (Healer, Pit)                        |     {C D  S    {x
+           |                     |       /Overlook---Quest      |
+         Wall                    |      /            Master    Wall
+         Road              Temple of Mota                      Road
+           |                  (Recall)        /Bank & Locker    |
+           |      Cleric         |           /                  |
+           |      Guild----Temple Square---Grunting---Bar       |
+           |                (Fountain)     Boar Inn             |
+           |     Magic           |                              |
            |     Shop   Bakery   |    Grocer    Weaponsmith     |
-           |       |      |      |       |           |          |
-To    <---West---Main-Street---Market----Main-Street-+--------East--->Cross
-Shire,    Gate     |      |    Square    |           |        Gate    Roads
-Forest of  |     Mage  Armoury   |     Jeweler    Warrior       |
-Haon-Dor   |     Guild           |                 Guild     Wall Road
-          Wall                   |                              |
-          Road  Leather  Map     |    Grebe's  Pet   Apothecary |
+Forest   West      |      |      |       |           |         East
+ of  <---Gate----Main-Street---Market----Main-Street-+---------Gate---> To East
+Haon-Dor   |       |      |    Square    |           |          |     Miden'nir
+           |     Mage  Armoury   |     Jeweler    Warrior       |
+         Wall    Guild           |                 Guild       Wall
+         Road                    |                             Road
+           |    Leather  Map     |    Grebe's  Pet   Apothecary |
            |     Shop    Shop    |    Tavern   Shop  (Potions)  |
            |      |       |    Common   |       |       |       |
-          Wall---Poor-Alley----Square---Dark-Alley------+----Wall Road
-          Road    |       |      |      |       |       |       |
+         Wall----Poor-Alley----Square---+--Dark-Alley---+------Wall
+         Road     |       |      |      |       |       |      Road
            |   Temple   Grubby   |   Thieves  Levee   Warehouse |
-           |  Of Stupid  Inn     |    Guild   (Boats) (Sailor)  |
+           |  Of Stupid  Inn     |    Guild  (Boats)  (Sailor)  |
            |                    Dump            |               |
-          Wall  Mob      Sewers/ |              |             Wall
-          Road--Factory          |              |             Road
+         Wall   Mob      Sewers/ |              |              Wall
+         Road---Factory          |              |              Road
            |                   South         Midgaard           |         To the
          Bridge                Bridge         River---------> Bridge <--> Sands
            |                     |                              |           of
@@ -4452,9 +4451,11 @@ E
 sign~
 Free instructions provided by the store:
 
-   Buy  - Will buy you some bread or pastry.
-   List - The baker will kindly tell you the price and sort of the bread in
-          his bakery.
+   {CBuy{x  - Will buy you some bread or pastry.
+   {CList{x - The baker will kindly tell you the price and sort of the bread in
+          his bakery.  All prices are in silver pieces.
+
+Don't forget to check your {Cworth{x to make sure you have enough money!
 ~
 E
 danish pastry~
@@ -5582,11 +5583,12 @@ S
 #3058
 The Great Square~
 Great? Not yet it isn't. Mostly it is mud. With deep wagon ruts.
-It is very large, though.
+It is very large, though.  The Square continues to the north, where
+it intersects with Clan Road.
 ~
 0 0 1
 D0
-A high-rent section of Clan Road is to the north.
+The northern part of the Great Square intersects with Clan Road.
 ~
 ~
 0 -1 3314
@@ -6860,7 +6862,7 @@ D1
 You see the shops and clan halls of Clan Road.
 ~
 ~
- 0 -1 3301
+0 -1 3302
 D2
 Wall road continues alongside the western wall, heading towards the west gate.
 ~
@@ -6908,7 +6910,8 @@ S
 Wall Road~
 The city walls tower over you as walk down wall road, between the
 northwestern corner of the wall to the west, and the northern gate of
-Midgaard to the east.
+Midgaard to the east.  To the north is a small alcove and a heavy iron
+gate, the entrance to the long abandoned barracks for the city guard.
 ~
 0 S 1
 D1
@@ -6921,6 +6924,11 @@ You can see the northwest corner of the city wall to the west.
 ~
 ~
 0 -1 3260
+E
+iron gate barracks~
+The thick iron gate is shut and locked.  There is nothing in there but
+dirt and rats anyway.
+~
 S
  #3262
 Inside the North Gate of Midgaard~
@@ -7145,27 +7153,11 @@ You see Elm Street and the graveyard entrance.
 ~
 0 -1 3124
 S
-#3301
+#3302
 Clan Road~
 You are standing on the western end of Clan Road.  The traffic here is light.
 This is a quieter section of Midgaard. You can hear the sound of haggling coming
-from the east.
-~
-0 S 1
-D1
-Clan Road continues east.
-~
-~
-0 -1 3302
-D3
-Wall Road is to the west.
-~
-~
-0 -1 3258 S
-#3302
-Clan Road~
-You are walking along Clan Road.  To the south of you is the money changer.
-Clan Road continues on to the east and the west.
+from the south.
 ~
 0 S 1
 D1
@@ -7179,10 +7171,10 @@ The money changer is to the south.
 ~
 0 -1 3334
 D3
-Clan Road continues west.
+You can see Wall Road to the west.
 ~
 ~
-0 -1 3301
+0 -1 3258
 S
 #3303
 Clan Road~
@@ -7191,7 +7183,7 @@ Not much traffic passes through this part, as there is nothing to buy.
 ~
 0 S 1
 D1
-Clan Road continues to the east.
+Clan Road continues to the east, through the Great Square.
 ~
 ~
 0 -1 3314
@@ -7207,9 +7199,10 @@ The Thera Institution for the Insane is North.
 0 -1 8800
 S
 #3314
-Clan Road~
-Noise and light abound on this part of Clan Road.  Clan road continues
-off to the east and west. A shabby kind of booth is seen to the north.
+The Great Square~
+Great? Not yet it isn't. Mostly it is mud. With deep wagon ruts.
+It is very large, though.  The Square continues to the south, where
+it leads to the Temple of Mota.  Clan Road extends east and west of here.
 ~
 0 S 1
 D0
@@ -7228,7 +7221,7 @@ Clan Road continues to the west.
 ~
 0 -1 3303
 D2
-The Great Square.
+The Great Square continues to the south, toward the Temple of Mota.
 ~
 ~
 0 -1 3058
@@ -7252,7 +7245,7 @@ A busy pub is to the south.
 ~
 0 -1 3356
 D3
-Clan Road continues to the west.
+Clan Road continues to the west, through the Great Square.
 ~
 ~
 0 -1 3314
