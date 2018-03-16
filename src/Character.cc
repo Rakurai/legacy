@@ -116,12 +116,12 @@ void Character::update() {
 		/* If ch dies or changes
 		position due to it's random
 		trigger, continue - Kahn */
-		if (get_position(ch) < POS_STANDING)
+		if (ch->is_garbage())
 			return;
 
 		mprog_random_area_trigger(ch);
 
-		if (get_position(ch) < POS_STANDING)
+		if (ch->is_garbage())
 			return;
 //	}
 

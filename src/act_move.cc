@@ -293,7 +293,9 @@ void move_char(Character *ch, int door, bool follow)
 	}
 
 	mprog_entry_trigger(ch);
-	mprog_greet_trigger(ch);
+
+	if (!ch->is_garbage())
+		mprog_greet_trigger(ch);
 }
 
 void do_north(Character *ch, String argument)
@@ -2252,7 +2254,9 @@ void do_push(Character *ch, String argument)
 
 	do_look(victim, "auto");
 	mprog_entry_trigger(victim);
-	mprog_greet_trigger(victim);
+
+	if (victim->is_garbage())
+		mprog_greet_trigger(victim);
 }
 
 void do_drag(Character *ch, String argument)
@@ -2604,10 +2608,16 @@ void do_drag(Character *ch, String argument)
 		do_look(victim, "auto");
 
 	do_look(ch, "auto");
+
 	mprog_entry_trigger(ch);
-	mprog_greet_trigger(ch);
+
+	if (!ch->is_garbage())
+		mprog_greet_trigger(ch);
+
 	mprog_entry_trigger(victim);
-	mprog_greet_trigger(victim);
+
+	if (!victim->is_garbage())
+		mprog_greet_trigger(victim);
 }
 
 /* MARK: remember the current location for RELOCATE - Elrac */

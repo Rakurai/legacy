@@ -1406,6 +1406,9 @@ void do_give(Character *ch, String argument)
 		act(buf, ch, nullptr, victim, TO_CHAR);
 		mprog_bribe_trigger(victim, ch, silver ? amount : amount * 100);
 
+		if (victim->is_garbage() || ch->is_garbage())
+			return;
+
 		if (victim->is_npc() && victim->act_flags.has(ACT_IS_CHANGER)) {
 			int change;
 			change = (silver ? 95 * amount / 10000 : 95 * amount);
@@ -4215,6 +4218,9 @@ void do_buy(Character *ch, String argument)
 		}
 
 		mprog_buy_trigger(keeper, ch);
+
+		if (keeper->is_garbage() || ch->is_garbage())
+			return;
 
 		for (count = 0; count < number; count++) {
 			if (IS_OBJ_STAT(obj, ITEM_INVENTORY)) {

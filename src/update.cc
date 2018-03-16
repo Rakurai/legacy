@@ -775,7 +775,7 @@ void char_update(void)
 
 			/* If ch dies or changes position
 			   due to it's tick trigger, continue */
-			if (get_position(ch) <= POS_STUNNED)
+			if (ch->is_garbage())
 				continue;
 		}
 
@@ -785,7 +785,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != nullptr && affect::exists_on_char(ch, affect::type::plague)) {
+		if (affect::exists_on_char(ch, affect::type::plague)) {
 		 	const affect::Affect *plague = affect::find_on_char(ch, affect::type::plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
@@ -801,8 +801,10 @@ void char_update(void)
 			damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::plague, -1, DAM_DISEASE, false, true);
 		}
 
-		if (ch != nullptr
-		 && affect::exists_on_char(ch, affect::type::poison)
+		if (ch->is_garbage())
+			continue;
+
+		if (affect::exists_on_char(ch, affect::type::poison)
 		 && !affect::exists_on_char(ch, affect::type::slow)) {
 			const affect::Affect *poison = affect::find_on_char(ch, affect::type::poison);
 
@@ -814,9 +816,13 @@ void char_update(void)
 			}
 		}
 		
-		if (ch != nullptr && get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
+		if (ch->is_garbage())
+			continue;
+
+		// bleeding out?
+		if (get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, false, false);
-		else if (ch != nullptr && get_position(ch) == POS_MORTAL)
+		else if (get_position(ch) == POS_MORTAL)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, false, false);
 	}
 

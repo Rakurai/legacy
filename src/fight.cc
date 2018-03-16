@@ -246,6 +246,10 @@ void violence_update(void)
 			continue;
 
 		mprog_hitprcnt_trigger(ch, victim);
+
+		if (ch->is_garbage() || victim->is_garbage())
+			continue;
+
 		mprog_fight_trigger(ch, victim);
 	}
 } /* end violence_update */
@@ -308,7 +312,7 @@ void combat_regen(Character *ch)
 			if (sun_damage > 0) {
 				damage(ch->fighting, ch, sun_damage, skill::type::unknown, -1, DAM_NONE, false, true);
 
-				if (ch == nullptr)
+				if (ch->is_garbage())
 					return;
 			}
 		}
@@ -1466,19 +1470,36 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			if (check_dodge(ch, victim, attack_skill, attack_type))
 				return false;
 
+			// any of these checks could have side effects that kill ch or victim!
+			if (ch->is_garbage() || victim->is_garbage())
+				return false;
+
 			if (check_blur(ch, victim, attack_skill, attack_type))
+				return false;
+
+			if (ch->is_garbage() || victim->is_garbage())
 				return false;
 
 			if (check_shblock(ch, victim, attack_skill, attack_type))
 				return false;
 
+			if (ch->is_garbage() || victim->is_garbage())
+				return false;
+
 			if (check_parry(ch, victim, attack_skill, attack_type))
+				return false;
+
+			if (ch->is_garbage() || victim->is_garbage())
 				return false;
 
 			if (check_dual_parry(ch, victim, attack_skill, attack_type))
 				return false;
+
+			if (ch->is_garbage() || victim->is_garbage())
+				return false;
 		}
 
+		// defenses that could injure the attacker
 		if (!spell) {
 			if (get_eq_char(ch, WEAR_WIELD) != nullptr)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
@@ -1487,20 +1508,30 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, true, true);
 			}
 
+			if (ch->is_garbage())
+				return false;
+
 			if (affect::exists_on_char(victim, affect::type::sanctuary)
 			    && get_affect_evolution(victim, affect::type::sanctuary) >= 3
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, true, true);
 
+			if (ch->is_garbage())
+				return false;
+
 			const affect::Affect *paf;
 			if ((paf = affect::find_on_char(victim, affect::type::bone_wall)) != nullptr
-			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
+			    && !saves_spell(paf->level, ch, DAM_PIERCE)
+			 && !victim->is_garbage()) {
 				damage(victim, ch,
 				       std::max(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
 				       skill::type::bone_wall, -1, DAM_PIERCE, true, true);
 
 				affect::iterate_over_char(ch, affect_callback_weaken_bonewall, nullptr);
 			}
+
+			if (ch->is_garbage())
+				return false;
 		}
 
 		// did the defense kill the attacker?
@@ -2885,6 +2916,9 @@ void raw_kill(Character *victim)
 	stop_fighting(victim, true);
 	mprog_death_trigger(victim);
 
+	if (victim->is_garbage())
+		return;
+
 	if (victim->in_room->sector_type() != Sector::arena
 	    && victim->in_room->sector_type() != Sector::clanarena
 	    && (victim->in_room->area() != Game::world().quest.area() || !Game::world().quest.pk)
@@ -3551,10 +3585,13 @@ void do_bash(Character *ch, String argument)
 		WAIT_STATE(victim, kdtime);
 		WAIT_STATE(ch, skill::lookup(skill::type::bash).beats);
 		damage(ch, victim, number_range(ch->level * 2 / 3, (ch->level * 3 / 2) + chance / 10), skill::type::bash, -1, DAM_BASH, true, false);
-		victim->position = POS_RESTING;
 
-		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, false, 1);
+		if (!victim->is_garbage()) {
+			victim->position = POS_RESTING;
+
+			if (CAN_USE_RSKILL(victim, skill::type::standfast))
+				check_improve(victim, skill::type::standfast, false, 1);
+		}
 	}
 	else {
 		if (ch->fighting == nullptr) set_fighting(ch, victim);
@@ -3683,15 +3720,18 @@ void do_dirt(Character *ch, String argument)
 			act("$n is blinded by the dirt in $s eyes!", victim, nullptr, nullptr, TO_ROOM);
 			act("$n kicks dirt in your eyes!", ch, nullptr, victim, TO_VICT);
 			damage(ch, victim, number_range(2, 5), skill::type::dirt_kicking, -1, DAM_NONE, false, false);
-			stc("You can't see a thing!\n", victim);
 
-			affect::add_type_to_char(victim,
-				affect::type::dirt_kicking,
-				ch->level,
-				0,
-				get_evolution(ch, skill::type::dirt_kicking),
-				false
-			);
+			if (!victim->is_garbage()) {
+				stc("You can't see a thing!\n", victim);
+
+				affect::add_type_to_char(victim,
+					affect::type::dirt_kicking,
+					ch->level,
+					0,
+					get_evolution(ch, skill::type::dirt_kicking),
+					false
+				);
+			}
 		}
 
 		check_improve(ch, skill::type::dirt_kicking, true, 2);
@@ -3740,16 +3780,20 @@ bool trip(Character *ch, Character *victim, int chance, skill::type attack_skill
 		victim->position = POS_RESTING;
 		damage(ch, victim, number_range(2, 2 +  2 * victim->size), attack_skill, -1, DAM_BASH, true, false);
 
-		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, false, 1);
+		if (!victim->is_garbage()) {
+			if (CAN_USE_RSKILL(victim, skill::type::standfast))
+				check_improve(victim, skill::type::standfast, false, 1);
+		}
 
 		return true;
 	}
 	else {
 		damage(ch, victim, 0, attack_skill, -1, DAM_BASH, true, false);
 
-		if (CAN_USE_RSKILL(victim, skill::type::standfast))
-			check_improve(victim, skill::type::standfast, true, 1);
+		if (!victim->is_garbage()) {
+			if (CAN_USE_RSKILL(victim, skill::type::standfast))
+				check_improve(victim, skill::type::standfast, true, 1);
+		}
 
 		return false;
 	}
@@ -4666,6 +4710,10 @@ void do_kick(Character *ch, String argument)
 			amount = amount * 5 / 4;
 
 		damage(ch, victim, amount, skill::type::kick, -1, DAM_BASH, true, false);
+
+		if (victim->is_garbage())
+			return;
+
 		check_improve(ch, skill::type::kick, true, 1);
 		int evo = get_evolution(ch, skill::type::kick);
 
@@ -4677,6 +4725,9 @@ void do_kick(Character *ch, String argument)
 				check_improve(ch, skill::type::kick, true, 1);
 			}
 		}
+
+		if (victim->is_garbage())
+			return;
 
 		if (evo >= 3) {
 			if (get_position(victim) == POS_FIGHTING

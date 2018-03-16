@@ -1192,6 +1192,10 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 			}
 
 			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
+
+			if (mob->is_garbage())
+				return nullptr;
+
 			cmnd     = com_list;
 			com_list = mprog_next_command(com_list);
 
@@ -1269,6 +1273,10 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 				return com_list;
 
 			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
+
+			if (mob->is_garbage())
+				return nullptr;
+
 			cmnd     = com_list;
 			com_list = mprog_next_command(com_list);
 
@@ -1601,8 +1609,12 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 			if (command_list == nullptr)
 				break;
 		}
-		else
+		else {
 			mprog_process_cmnd(cmnd, mob, actor, obj, vo, rndm);
+
+			if (mob->is_garbage())
+				return;
+		}
 
 		cmnd = command_list;
 		command_list = mprog_next_command(command_list);
@@ -1630,6 +1642,9 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 	String word;
 
 	for (const auto mprg : mob->pIndexData->mobprogs) {
+		if (mob->is_garbage())
+			break;
+
 		if (mprg->type == type) {
 			strcpy(temp1, mprg->arglist);
 
@@ -1684,6 +1699,9 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
                          void *vo, Flags::Bit type)
 {
 	for (const auto mprg : mob->pIndexData->mobprogs) {
+		if (mob->is_garbage())
+			break;
+
 		if ((mprg->type == type)
 		    && (number_percent() < atoi(mprg->arglist))) {
 			mprog_driver(mprg->comlist, mob, actor, obj, vo);
@@ -1805,6 +1823,9 @@ void mprog_greet_trigger(Character *ch)
 	Character *vmob;
 
 	for (vmob = ch->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
+		if (ch->is_garbage())
+			break;
+
 		if (vmob->is_npc()
 		    && ch != vmob
 		    && can_see_char(vmob, ch)
@@ -1880,11 +1901,13 @@ void mprog_random_area_trigger(Character *mob)
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_AREA_PROG);
 		char_from_room(mob);
 
-		if (get_position(mob) <= POS_STUNNED) // got killed by something?
+		if (mob->is_garbage()) // got killed by something?
 			break;
 	}
 
-	char_to_room(mob, orig_room);
+	if (!mob->is_garbage())
+		char_to_room(mob, orig_room);
+
 	rooms.clear();
 }
 
@@ -1901,6 +1924,9 @@ void mprog_speech_trigger(const String& txt, Character *mob)
 	Character *vmob;
 
 	for (vmob = mob->in_room->people; vmob != nullptr; vmob = vmob->next_in_room)
+		if (mob->is_garbage())
+			break;
+
 		if (vmob->is_npc() && (vmob->pIndexData->progtype_flags.has(SPEECH_PROG)))
 			mprog_wordlist_check(txt.c_str(), vmob, mob, nullptr, nullptr, SPEECH_PROG);
 

@@ -1134,8 +1134,9 @@ void do_doas(Character *ch, String argument)
 	orig            = victim->desc;
 	victim->desc    = ch->desc;
 	interpret(victim, argument);
-	ch->desc        = victim->desc;
-	victim->desc    = orig;
+
+	if (!victim->is_garbage())
+		victim->desc    = orig;
 }
 
 void do_echo(Character *ch, String argument)
