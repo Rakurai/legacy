@@ -1400,18 +1400,20 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 	if (!mob->is_npc())
 		return;
 
+	// this object is used for messages in the prog, it doesn't actually go to the mob,
+	// they already have the cash
+	if ((obj = create_money(0, amount)) == nullptr)
+		return;
+
 	for (const auto mprg : mob->pIndexData->mobprogs)
 		if (mprg->type == BRIBE_PROG) {
-			if ((obj = create_money(0, amount)) == nullptr)
-				return;
-
-			deduct_cost(mob, amount);
-
-			if (amount >= atoi(mprg->arglist))
+			if (amount >= atoi(mprg->arglist)) {
 				mprog_driver(mprg->comlist, mob, ch, obj, nullptr);
-
-			break;
+				break;
+			}
 		}
+
+	extract_obj(obj);
 }
 
 void mprog_death_trigger(Character *mob)
