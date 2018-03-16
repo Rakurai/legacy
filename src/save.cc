@@ -526,6 +526,19 @@ cJSON *fwrite_char(Character *ch)
 	if (!ch->short_descr.empty())
 		JSON::addStringToObject(o,	"ShD",			ch->short_descr);
 
+	if (ch->mpstate.size() > 0) {
+		item = cJSON_CreateArray();
+
+		for (const auto& it : ch->mpstate) {
+			cJSON *p = cJSON_CreateObject();
+			JSON::addStringToObject(p, "key", it.first);
+			cJSON_AddNumberToObject(p, "val", it.second);
+			cJSON_AddItemToArray(item, p);
+		}
+
+		cJSON_AddItemToObject(o,		"State",			item);
+	}
+
 	cJSON_AddNumberToObject(o,		"Trai",			ch->train);
 	cJSON_AddNumberToObject(o,		"Wimp",			ch->wimpy);
 
@@ -1320,6 +1333,15 @@ void fread_char(Character *ch, cJSON *json, int version)
 				FLAGKEY("Revk",			ch->revoke_flags,					o->valuestring);
 				break;
 			case 'S':
+				if (key == "State") { // array of dicts
+					for (cJSON *item = o->child; item != nullptr; item = item->next) {
+						String key = cJSON_GetObjectItem(item, "key")->valuestring;
+						int value = cJSON_GetObjectItem(item, "val")->valueint;
+						ch->mpstate.emplace(key, value);
+					}
+					fMatch = true; break;
+				}
+
 				INTKEY("Save",			ATTR_BASE(ch, APPLY_SAVES),	o->valueint); // NPC
 				INTKEY("Scro",			ch->lines,					o->valueint);
 				INTKEY("Secu",			ch->secure_level,			o->valueint);
