@@ -1527,7 +1527,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				       std::max(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
 				       skill::type::bone_wall, -1, DAM_PIERCE, true, true);
 
-				affect::iterate_over_char(ch, affect_callback_weaken_bonewall, nullptr);
+				affect::iterate_over_char(victim, affect_callback_weaken_bonewall, nullptr);
 			}
 
 			if (ch->is_garbage())
