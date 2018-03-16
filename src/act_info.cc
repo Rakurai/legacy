@@ -2268,22 +2268,28 @@ const String list_exits(Character *ch, bool fAuto) {
 
 		if ((pexit = ch->in_room->exit[door]) != nullptr
 		    &&   pexit->to_room != nullptr
-		    &&   can_see_room(ch, pexit->to_room)
-		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
+		    &&   can_see_room(ch, pexit->to_room)) {
+//		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
 
 			found = true;
 
 			if (fAuto) {
 				buf += " ";
-				buf += Exit::dir_name(door);
+				if (pexit->exit_flags.has(EX_CLOSED))
+					buf += Format::format("{Y(%s){x", Exit::dir_name(door));
+				else
+					buf += Exit::dir_name(door);
 			}
 			else {
-				buf += Format::format("%-5s - %s",
-				        Exit::dir_name(door).capitalize(),
-				        (pexit->to_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision)) || pexit->to_room->is_very_dark()
-				        ?  "Too dark to tell"
-				        : pexit->to_room->name()
-				       );
+				buf += Format::format("%-5s - ", Exit::dir_name(door).capitalize());
+
+				if (pexit->exit_flags.has(EX_CLOSED))
+					buf += "{Y(closed){x";
+				else if ((pexit->to_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision))
+					  || pexit->to_room->is_very_dark())
+					buf += "{cToo dark to tell{x";
+				else
+					buf += pexit->to_room->name();
 
 				if (IS_IMMORTAL(ch))
 					buf += Format::format(" (room %s)\n", pexit->to_room->location.to_string());
