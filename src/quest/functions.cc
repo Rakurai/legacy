@@ -12,6 +12,8 @@
 
 namespace quest {
 
+const String divider_line("{Y======================================================================={x\n");
+
 const Quest *lookup(const String& id) {
 	const auto entry = Game::world().quests.find(id);
 
@@ -42,14 +44,21 @@ void assign(Player *player, const Quest *quest) {
 		return;
 	}
 
+	ptc(&player->ch, divider_line);
+	ptc(&player->ch, "\n  {YNew QUEST - %s{x\n\n", quest->name);
+	ptc(&player->ch, "\n  {Y%s{x\n\n", quest->steps[0].description);
+	ptc(&player->ch, divider_line);
+
 	player->quests.push_back(*quest);
 }
 
 // only called from quest::progress, error checking done
 void complete(Player *player, const Quest *quest) {
 	Character *ch = &player->ch;
+	int exp_gained = 0;
 
-	ptc(ch, "{Y%s - QUEST COMPLETE!{x\n", quest->name);
+	ptc(ch, divider_line);
+	ptc(ch, "\n  {Y%s - QUEST COMPLETE!\n\n", quest->name);
 
 	// roll some loot!
 	for (const auto& params : quest->rewards) {
@@ -59,39 +68,39 @@ void complete(Player *player, const Quest *quest) {
 		int amount = number_range(params.amount_min, params.amount_max);
 
 		if (params.type == "gold") {
-			ptc(ch, "You receive %d gold coin%s.\n",
+			ptc(ch, "  You receive %d gold coin%s.\n",
 				amount, amount > 1 ? "s" : "");
 			ch->gold += amount;
 		}
 		else if (params.type == "silver") {
-			ptc(ch, "You receive %d silver coin%s.\n",
+			ptc(ch, "  You receive %d silver coin%s.\n",
 				amount, amount > 1 ? "s" : "");
 			ch->silver += amount;
 		}
 		else if (params.type == "exp") {
 			if (!ch->revoke_flags.has(REVOKE_EXP)) {
-				ptc(ch, "You receive %d experience point%s.\n",
+				ptc(ch, "  You receive %d experience point%s.\n",
 					amount, amount > 1 ? "s" : "");
-				gain_exp(ch, amount);
+				exp_gained += amount;
 			}
 		}
 		else if (params.type == "qp") {
-			ptc(ch, "You receive %d quest point%s.\n",
+			ptc(ch, "  You receive %d quest point%s.\n",
 				amount, amount > 1 ? "s" : "");
 			player->questpoints += amount;
 		}
 		else if (params.type == "sp") {
-			ptc(ch, "You receive %d skill point%s.\n",
+			ptc(ch, "  You receive %d skill point%s.\n",
 				amount, amount > 1 ? "s" : "");
 			player->skillpoints += amount;
 		}
 		else if (params.type == "prac") {
-			ptc(ch, "You receive %d practice%s.\n",
+			ptc(ch, "  You receive %d practice%s.\n",
 				amount, amount > 1 ? "s" : "");
 			ch->practice += amount;
 		}
 		else if (params.type == "train") {
-			ptc(ch, "You receive %d train%s.\n",
+			ptc(ch, "  You receive %d train%s.\n",
 				amount, amount > 1 ? "s" : "");
 			ch->train += amount;
 		}
@@ -111,11 +120,11 @@ void complete(Player *player, const Quest *quest) {
 					}
 
 					if (CAN_WEAR(obj, ITEM_TAKE)) {
-						ptc(ch, "You receive %s!\n", obj->short_descr);
+						ptc(ch, "  You receive %s{Y!\n", obj->short_descr);
 						obj_to_char(obj, ch);
 					}
 					else {
-						ptc(ch, "%s appears before you!\n", obj->short_descr);
+						ptc(ch, "  %s {Yappears before you!\n", obj->short_descr);
 						obj_to_room(obj, ch->in_room);
 					}
 				}
@@ -127,7 +136,13 @@ void complete(Player *player, const Quest *quest) {
 			break;
 	}
 
-	ptc(ch, "{x");
+	ptc(ch, "\n");
+	ptc(ch, divider_line);
+
+	// delayed to here to not mess up the quest text block
+	if (exp_gained != 0)
+		gain_exp(ch, exp_gained);
+
 	// remove the quest
 	remove(player, quest);
 	player->completed_quests.insert(quest->id);
@@ -149,8 +164,15 @@ void progress(Player *player, const Quest *quest) {
 
 	state->step++;
 
-	if (state->step == quest->steps.size())
+	if (state->step == quest->steps.size()){
 		complete(player, quest);
+	}
+	else {
+		ptc(&player->ch, divider_line);
+		ptc(&player->ch, "\n  {Y%s: step complete!\n", quest->name);
+		ptc(&player->ch, "\n  Next step: %s\n\n", quest->steps[state->step].description);
+		ptc(&player->ch, divider_line);
+	}
 }
 
 void remove(Player *player, const Quest *quest) {
