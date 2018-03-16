@@ -48,6 +48,20 @@ add_char(Character *ch) {
 
 void Room::
 remove_char(Character *ch) {
+	// make sure they're actually in this room first.  The only place I can find
+	// where this might not happen is in do_load, but there's no sense in not
+	// checking in case someone does something dumb.  I want this light thing
+	// bulletproof. -- Montrey
+	for (auto rch = people; true; rch = rch->next_in_room) {
+		// weird looking loop will also handle the ch==nullptr case
+
+		if (rch == nullptr) // end of loop, not found
+			return;
+
+		if (rch == ch) // got em, move on down
+			break;
+	}
+
 	Object *obj;
 	if ((obj = get_eq_char(ch, WEAR_LIGHT)) != nullptr
 	    &&   obj->item_type == ITEM_LIGHT

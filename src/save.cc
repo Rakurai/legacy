@@ -748,7 +748,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 
 		// fix up character stuff here
 		if (ch->in_room == nullptr)
-			ch->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_LIMBO)));
+			ch->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
 
 		if (ch->secure_level > GET_RANK(ch))
 			ch->secure_level = GET_RANK(ch);

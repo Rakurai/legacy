@@ -237,10 +237,6 @@ void copyover_recover()
 			continue;
 		}
 
-		/* Just In Case */
-		if (!d->character->in_room)
-			d->character->in_room = Game::world().get_room(Location(Vnum(ROOM_VNUM_TEMPLE)));
-
 		/* Insert in the Game::world().char_list */
 		Game::world().add_char(d->character);
 		write_to_descriptor(desc, msg2, 0);
