@@ -48,7 +48,7 @@ void    scan_list       args((Room *scan_room, Character *ch, int depth, int doo
 void    scan_room       args((Room *room, Character *ch, int depth, int door, Exit *pexit));
 void    scan_char       args((Character *victim, Character *ch, int depth, int door));
 
-void do_scan2(Character *ch, String argument)
+void do_scan(Character *ch, String argument)
 {
 	char buf[MIL];
 	Room *room;
@@ -62,27 +62,14 @@ void do_scan2(Character *ch, String argument)
 		act("$n scans all around.", ch, nullptr, nullptr, TO_NOTVIEW);
 		stc("{PLooking around you see:{x\n", ch);
 		scan_room(ch->in_room, ch, 0, -1, nullptr);
-//		scan_list(ch->in_room, ch, 0, -1);
 
 		for (door = 0; door < 6; door++) {
 			if ((pExit = ch->in_room->exit[door]) == nullptr
 			    || (pExit->to_room) == nullptr
-			    || !can_see_room(ch, pExit->to_room)
-			    || !can_see_in_room(ch, pExit->to_room))
+			    || !can_see_room(ch, pExit->to_room))
 				continue;
 
 			scan_room(pExit->to_room, ch, 1, door, pExit);
-			/*
-			                        if (pExit->exit_flags.has(EX_CLOSED))
-			                        {
-			                                stc(ch, "{G(South) {Y(closed){x");
-			                                ptc(ch, "{YThere is a closed exit to the %s.{x\n",Exit::dir_name(door));
-			                                continue;
-			                        }
-
-			                        scan_room(pExit->to_room, ch, door);
-			                        scan_list(pExit->to_room, ch, 1, door);
-			*/
 		}
 
 		return;
@@ -107,24 +94,17 @@ void do_scan2(Character *ch, String argument)
 		if ((pExit = room->exit[door]) == nullptr
 		    || (pExit->to_room) == nullptr
 		    || !can_see_room(ch, pExit->to_room))
-			continue;
-
-		if (!can_see_in_room(ch, pExit->to_room)) {
-			stc("It is too dark to see any farther in that direction.\n", ch);
 			break;
-		}
-
-		if (pExit->exit_flags.has(EX_CLOSED)) {
-			ptc(ch, "{YThere is a closed exit to the %s.{x\n", Exit::dir_name(door));
-			break;
-		}
 
 		room = pExit->to_room;
-		scan_list(pExit->to_room, ch, depth, door);
+		scan_room(room, ch, depth, door, pExit);
+
+		if (pExit->exit_flags.has(EX_CLOSED))
+			break;
 	}
 }
 
-void do_scan(Character *ch, String argument)
+void do_oldscan(Character *ch, String argument)
 {
 	char buf[MIL];
 	Room *scan_room;
@@ -195,19 +175,22 @@ void do_scan(Character *ch, String argument)
 
 void scan_room(Room *room, Character *ch, int depth, int door, Exit *pexit)
 {
-	ptc(ch, "{G(%5s){x ",
+	ptc(ch, "{C(%5s){x ",
 	    door == -1 ? "here" : Exit::dir_name(door)
 	   );
 
 	if (pexit && pexit->exit_flags.has(EX_CLOSED))
 		stc("{Y(closed){x\n", ch);
-	else
+	else if (!can_see_in_room(ch, room))
+		stc("{c[too dark to tell]{x\n", ch);
+	else {
 		ptc(ch, "%s {B(%s){x\n",
 		    room->name(),
 		    sector_lookup(room->sector_type())
 		   );
 
-	scan_list(room, ch, depth, door);
+		scan_list(room, ch, depth, door);
+	}
 }
 
 void scan_list(Room *scan_room, Character *ch, int depth, int door)
@@ -222,11 +205,6 @@ void scan_list(Room *scan_room, Character *ch, int depth, int door)
 			continue;
 
 		if (can_see_char(ch, rch)) {
-			if (rch->is_npc())
-				new_color(ch, CSLOT_MISC_MOBILES);
-			else
-				new_color(ch, CSLOT_MISC_PLAYERS);
-
 			scan_char(rch, ch, depth, door);
 		}
 	}
@@ -235,13 +213,11 @@ void scan_list(Room *scan_room, Character *ch, int depth, int door)
 void scan_char(Character *victim, Character *ch, int depth, int door)
 {
 	extern char *const distance[];
-	ptc(ch, "  {C%s, %s%s.\n{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? Exit::dir_name(door) : "");
-	/*      buf[0] = '\0';
-	        strcat(buf, PERS(victim, ch));
-	        buf += ", ";
-	        Format::sprintf(buf2, distance[depth], Exit::dir_name(door));
-	        buf += buf2;
-	        buf += "\n";
-	        stc(buf, ch); */
+	if (victim->is_npc())
+		new_color(ch, CSLOT_MISC_MOBILES);
+	else
+		new_color(ch, CSLOT_MISC_PLAYERS);
+
+	ptc(ch, "   %s, %s%s.\n", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? Exit::dir_name(door) : "");
 	set_color(ch, WHITE, NOBOLD);
 }
