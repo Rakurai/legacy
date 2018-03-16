@@ -1593,7 +1593,11 @@ void mprog_speech_trigger(const String& txt, Character *mob)
 
 void mprog_control_trigger(Character *mob, const String& key, Character *target) {
 	if (mob->is_npc() && mob->pIndexData->progtype_flags.has(CONTROL_PROG))
-		for (const auto mprg : mob->pIndexData->mobprogs)
+		for (const auto mprg : mob->pIndexData->mobprogs) {
+			if (mob->is_garbage())
+				break;
+
 			if (mprg->type == CONTROL_PROG && key == mprg->arglist)
 				mprog_driver(mprg->comlist, mob, target, nullptr, nullptr);
+		}
 }
