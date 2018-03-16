@@ -139,7 +139,7 @@ void move_char(Character *ch, int door, bool follow)
 	}
 	*/
 
-	if (!is_room_owner(ch, to_room) && room_is_private(to_room)) {
+	if (!is_room_owner(ch, to_room) && to_room->is_private()) {
 		stc("Sorry, that room is private.\n", ch);
 		return;
 	}
@@ -2132,7 +2132,7 @@ void do_push(Character *ch, String argument)
 		return;
 	}
 
-	if (room_is_private(to_room)) {
+	if (to_room->is_private()) {
 		stc("That room is private right now.\n", ch);
 		return;
 	}
@@ -2345,7 +2345,7 @@ void do_drag(Character *ch, String argument)
 		return;
 	}
 
-	if (room_is_private(to_room)) {
+	if (to_room->is_private()) {
 		stc("Sorry, that room is private.\n", ch);
 		return;
 	}
@@ -2440,7 +2440,7 @@ void do_drag(Character *ch, String argument)
 		}
 	}
 
-	if (room_is_private(to_room)) {
+	if (to_room->is_private()) {
 		stc("That room is private right now.\n", ch);
 		return;
 	}
@@ -3004,7 +3004,7 @@ void do_enter(Character *ch, String argument)
 		if (location == nullptr
 		    || location == old_room
 		    || !can_see_room(ch, location)
-		    || (room_is_private(location) && !IS_IMP(ch))) {
+		    || (location->is_private() && !IS_IMP(ch))) {
 			act("$p opens into a solid looking brick wall.", ch, portal, nullptr, TO_CHAR);
 			return;
 		}

@@ -35,6 +35,7 @@
 #include "tables.hh"
 #include "Tail.hh"
 #include "World.hh"
+#include "Room.hh"
 
 void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
 
@@ -200,7 +201,7 @@ void do_force(Character *ch, String argument)
 
 	if (!is_room_owner(ch, victim->in_room)
 	    && ch->in_room != victim->in_room
-	    && room_is_private(victim->in_room)
+	    && victim->in_room->is_private()
 	    && !IS_IMP(ch)) {
 		stc("That character is in a private room.\n", ch);
 		return;
@@ -821,7 +822,7 @@ void do_snoop(Character *ch, String argument)
 
 	if (!is_room_owner(ch, victim->in_room)
 	    && ch->in_room != victim->in_room
-	    && room_is_private(victim->in_room)
+	    && victim->in_room->is_private()
 	    && !IS_IMP(ch)) {
 		stc("That character is in a private room.\n", ch);
 		return;

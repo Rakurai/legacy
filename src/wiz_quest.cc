@@ -679,7 +679,7 @@ void do_switch(Character *ch, String argument)
 	}
 
 	if (!is_room_owner(ch, victim->in_room) && ch->in_room != victim->in_room
-	    &&  room_is_private(victim->in_room) && !IS_IMP(ch)) {
+	    &&  victim->in_room->is_private() && !IS_IMP(ch)) {
 		stc("That character is in a private room.\n", ch);
 		return;
 	}

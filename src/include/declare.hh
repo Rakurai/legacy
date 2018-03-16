@@ -153,9 +153,6 @@ void    get_obj         args( ( Character *ch, Object *obj,
 Room *find_location      args( (Character *ch, const String& argument) );
 int  set_tail           args((Character *ch, Character *victim, Flags tail_flags));
 
-/* alias.c */
-void    substitute_alias args( (Descriptor *d, String input) );
-
 /* bank.c */
 void    find_money      args( ( Character *ch ) );
 
@@ -188,7 +185,6 @@ bool    is_safe         args( (Character *ch, Character *victim, bool showmsg ) 
 bool    is_safe_spell   args( (Character *ch, Character *victim, bool area ) );
 bool	is_safe_char	args((Character *ch, Character *victim, bool showmsg));		/* Montrey */
 void    multi_hit       args( ( Character *ch, Character *victim, skill::type ) );
-void    raw_kill        args( ( Character *victim ) );
 void    stop_fighting   args( ( Character *ch, bool fBoth ) );
 void    update_pos      args( ( Character *victim ) );
 void    violence_update args( ( void ) );
@@ -233,10 +229,7 @@ Object *    create_money    args(( int gold, int silver ) );
 int     get_obj_number  args(( Object *obj ) );
 int     get_obj_weight  args(( Object *obj ) );
 int     get_true_weight args(( Object *obj ) );
-bool    room_is_dark    args(( const Room *room));
-bool    room_is_very_dark args((const Room *room));
 bool    is_room_owner   args(( Character *ch, Room *room) );
-bool    room_is_private args(( Room *room ) );
 bool    is_blinded      args(( const Character *ch ));
 bool    can_see_char    args(( const Character *ch, const Character *victim ) );
 bool    can_see_who     args(( const Character *ch, const Character *victim ) );

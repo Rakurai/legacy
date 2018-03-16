@@ -1460,7 +1460,7 @@ void do_rset(Character *ch, String argument)
 	}
 
 	if (!is_room_owner(ch, location) && ch->in_room != location
-	    &&  room_is_private(location) && !IS_IMP(ch)) {
+	    &&  location->is_private() && !IS_IMP(ch)) {
 		Format::sprintf(buf, "I'm sorry, but %s is a private room.\n", location->name());
 		stc(buf, ch);
 		return;
@@ -2027,7 +2027,7 @@ void do_stat(Character *ch, String argument)
 
 		if (!is_room_owner(ch, room)
 		    && ch->in_room != room
-		    && room_is_private(room)
+		    && room->is_private()
 		    && !IS_IMP(ch)) {
 			stc("That room is private.\n", ch);
 			return;

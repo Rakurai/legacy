@@ -1156,75 +1156,12 @@ int get_true_weight(Object *obj)
 	return weight;
 }
 
-/*
- * True if room is dark.
- */
-bool room_is_dark(const Room *room)
-{
-	if (room == nullptr)
-		return true;
-
-	if (room_is_very_dark(room))
-		return true;
-
-	if (room->light > 0)
-		return false;
-
-	if (room->flags().has(ROOM_DARK))
-		return true;
-
-	if (room->sector_type() == Sector::inside
-	    || room->sector_type() == Sector::city)
-		return false;
-
-	if (Game::world().time.sunlight == GameTime::Night)
-		return true;
-
-	return false;
-}
-
-bool room_is_very_dark(const Room *room)
-{
-	if (room == nullptr)
-		return true;
-
-	if (room->flags().has(ROOM_NOLIGHT))
-		return true;
-
-	return false;
-}
-
 bool is_room_owner(Character *ch, Room *room)
 {
 	if (room->owner().empty())
 		return false;
 
 	return room->owner().has_words(ch->name);
-}
-
-/*
- * True if room is private.
- */
-bool room_is_private(Room *room)
-{
-	Character *rch;
-	int count;
-
-	if (!room->owner().empty())
-		return true;
-
-	count = 0;
-
-	for (rch = room->people; rch != nullptr; rch = rch->next_in_room)
-		count++;
-
-	if (room->flags().has(ROOM_PRIVATE)  && count >= 2)
-		return true;
-
-	if (room->flags().has(ROOM_SOLITARY) && count >= 1)
-		return true;
-
-	return false;
 }
 
 /* visibility on a room -- for entering and exits */
@@ -1334,8 +1271,8 @@ bool can_see_char(const Character *ch, const Character *victim)
 	if (is_blinded(ch))
 		return false;
 
-	if ((room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
-	 || room_is_very_dark(ch->in_room))
+	if ((ch->in_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision))
+	 || ch->in_room->is_very_dark())
 		return false;
 
 	if (affect::exists_on_char(victim, affect::type::invis)
@@ -1395,13 +1332,13 @@ bool can_see_in_room(const Character *ch, const Room *room)
 	if (IS_IMMORTAL(ch))
 		return true;
 
-	if (room_is_very_dark(room))
+	if (room->is_very_dark())
 		return false;
 
 	if (is_blinded(ch))
 		return false;
 
-	if (room_is_dark(room) && !affect::exists_on_char(ch, affect::type::night_vision))
+	if (room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision))
 		return false;
 
 	return true;
@@ -1415,7 +1352,7 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	if (IS_IMMORTAL(ch))
 		return true;
 
-	if (room_is_very_dark(ch->in_room))
+	if (ch->in_room->is_very_dark())
 		return false;
 
 	if (is_blinded(ch))
@@ -1446,7 +1383,7 @@ bool can_see_obj(const Character *ch, const Object *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return true;
 
-	if (room_is_dark(ch->in_room) && !affect::exists_on_char(ch, affect::type::night_vision))
+	if (ch->in_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision))
 		return false;
 
 	return true;

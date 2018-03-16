@@ -896,8 +896,8 @@ void show_char_to_char(Character *list, Character *ch)
 
 		if (can_see_char(ch, rch))
 			show_char_to_char_0(rch, ch);
-		else if (room_is_dark(ch->in_room)
-		         && !room_is_very_dark(ch->in_room)
+		else if (ch->in_room->is_dark()
+		         && !ch->in_room->is_very_dark()
 		         && affect::exists_on_char(rch, affect::type::night_vision))
 			stc("You see glowing eyes watching YOU!\n", ch);
 	}
@@ -2280,7 +2280,7 @@ const String list_exits(Character *ch, bool fAuto) {
 			else {
 				buf += Format::format("%-5s - %s",
 				        Exit::dir_name(door).capitalize(),
-				        (room_is_dark(pexit->to_room) && !affect::exists_on_char(ch, affect::type::night_vision)) || room_is_very_dark(pexit->to_room)
+				        (pexit->to_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision)) || pexit->to_room->is_very_dark()
 				        ?  "Too dark to tell"
 				        : pexit->to_room->name()
 				       );
@@ -5383,7 +5383,7 @@ void spell_scry(skill::type sn, int level, Character *ch, void *vo, int target, 
 	pet = ch->pet;
 
 	/* check to see if room is dark */
-	if (room_is_dark(pet->in_room)) {
+	if (pet->in_room->is_dark()) {
 		stc("The room your pet is in is dark.\n", ch);
 		return;
 	}

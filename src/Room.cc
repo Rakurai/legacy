@@ -4,6 +4,9 @@
 #include "Object.hh"
 #include "Logging.hh"
 #include "RoomPrototype.hh"
+#include "Game.hh"
+#include "GameTime.hh"
+#include "World.hh"
 
 Room::
 Room(RoomPrototype& p) : 
@@ -92,4 +95,52 @@ remove_char(Character *ch) {
 	ch->in_room      = nullptr;
 	ch->next_in_room = nullptr;
 	ch->on           = nullptr;  /* sanity check! */
+}
+
+bool Room::
+is_dark() const {
+	if (is_very_dark())
+		return true;
+
+	if (light > 0)
+		return false;
+
+	if (flags().has(ROOM_DARK))
+		return true;
+
+	if (sector_type() == Sector::inside
+	    || sector_type() == Sector::city)
+		return false;
+
+	if (Game::world().time.sunlight == GameTime::Night)
+		return true;
+
+	return false;
+}
+
+bool Room::
+is_very_dark() const {
+	if (flags().has(ROOM_NOLIGHT))
+		return true;
+
+	return false;
+}
+
+bool Room::
+is_private() const {
+	if (!owner().empty())
+		return true;
+
+	int count = 0;
+
+	for (Character *rch = people; rch != nullptr; rch = rch->next_in_room)
+		count++;
+
+	if (flags().has(ROOM_PRIVATE)  && count >= 2)
+		return true;
+
+	if (flags().has(ROOM_SOLITARY) && count >= 1)
+		return true;
+
+	return false;
 }

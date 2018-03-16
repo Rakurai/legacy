@@ -2168,7 +2168,7 @@ void spell_darkness(skill::type sn, int level, Character *ch, void *vo, int targ
 		return;
 	}
 
-	if (room_is_very_dark(ch->in_room)) {
+	if (ch->in_room->is_very_dark()) {
 		stc("The room could not possibly get any darker.\n", ch);
 		return;
 	}
@@ -2183,7 +2183,7 @@ void spell_darkness(skill::type sn, int level, Character *ch, void *vo, int targ
 		return;
 	}
 
-	if (room_is_dark(room))
+	if (room->is_dark())
 		stc("The darkness deepens.\n", ch);
 	else
 		stc("Inky black darkness surrounds you.\n", ch);

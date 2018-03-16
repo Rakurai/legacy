@@ -360,7 +360,7 @@ void do_at(Character *ch, String argument)
 		return;
 	}
 
-	if (!is_room_owner(ch, location) && room_is_private(location)
+	if (!is_room_owner(ch, location) && location->is_private()
 	    &&  !IS_IMP(ch)) {
 		stc("That room is private.\n", ch);
 		return;
@@ -1452,7 +1452,7 @@ void do_for(Character *ch, String argument)
 		for (auto p : Game::world().char_list) {
 			found = false;
 
-			if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
+			if (!(p->in_room) || (p == ch) || (p->in_room->is_private() && IS_IMMORTAL(p)))
 				continue;
 			else if (p->is_npc() && !fRoom)
 				continue;
@@ -1506,7 +1506,7 @@ void do_for(Character *ch, String argument)
 
 				/* Check if there is anyone here of the requried type */
 				for (Character *p = room->people; p; p = p->next_in_room) {
-					if (!(p->in_room) || (p == ch) || (room_is_private(p->in_room) && IS_IMMORTAL(p)))
+					if (!(p->in_room) || (p == ch) || (p->in_room->is_private() && IS_IMMORTAL(p)))
 						continue;
 					else if (p->is_npc() && !fRoom)
 						continue;
@@ -1575,7 +1575,7 @@ void do_goto(Character *ch, String argument)
 	for (rch = location->people; rch != nullptr; rch = rch->next_in_room)
 		count++;
 
-	if (!is_room_owner(ch, location) && room_is_private(location)
+	if (!is_room_owner(ch, location) && location->is_private()
 	    && (count > 1 || !IS_IMP(ch))) {
 		stc("That room is private.\n", ch);
 		return;
@@ -3760,7 +3760,7 @@ void do_transfer(Character *ch, String argument)
 			return;
 		}
 
-		if (!is_room_owner(ch, location) && room_is_private(location)
+		if (!is_room_owner(ch, location) && location->is_private()
 		    &&  !IS_IMP(ch)) {
 			stc("That room is private.\n", ch);
 			return;
@@ -3831,7 +3831,7 @@ void do_violate(Character *ch, String argument)
 		return;
 	}
 
-	if (!room_is_private(location)) {
+	if (!location->is_private()) {
 		stc("That room isn't private, use Goto.\n", ch);
 		return;
 	}

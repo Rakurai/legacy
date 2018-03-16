@@ -44,6 +44,9 @@ public:
 	const Location& tele_dest() const;
 
 	bool is_on_map() const;
+	bool is_dark() const;
+	bool is_very_dark() const;
+	bool is_private() const;
 
 	// modifiers
 	void add_char(Character *ch);

@@ -590,7 +590,7 @@ void do_mptransfer(Character *ch, String argument)
 			return;
 		}
 
-		if (room_is_private(location)) {
+		if (location->is_private()) {
 			Logging::bugf("Mptransfer - Private room: vnum %d.", ch->pIndexData->vnum);
 			return;
 		}
