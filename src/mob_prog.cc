@@ -1394,7 +1394,9 @@ void mprog_death_trigger(Character *mob)
 	    && (mob->pIndexData->progtypes.count(MobProg::Type::DEATH_PROG)))
 		mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::DEATH_PROG);
 
-	death_cry(mob);
+	if (!mob->is_garbage())
+		death_cry(mob);
+
 	return;
 }
 
