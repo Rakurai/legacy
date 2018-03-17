@@ -1,10 +1,40 @@
+#include <map>
 #include "MobProg.hh"
 #include "file.hh"
 #include "Logging.hh"
 
+// possible names for different variables, to build an allowed variable list for each prog type
+const String mobv = "iIjkl"; // the mob itself
+const String rndv = "rRJKL"; // random char in room
+const String mstv = "bBfgh"; // mob's master
+const String actv = "nNems"; // the actor
+const String dobv = "oOa";   // direct object
+const String iobv = "pPA";   // indirect object (act progs only)
+const String vicv = "tTEMS"; // victim (act progs only)
+
+const std::map<MobProg::Type, mobprog_data_t> mobprog_data = {
+	{ MobProg::Type::ACT_PROG,       { "act_prog",       mobv + mstv + rndv + actv + dobv + iobv + vicv }},
+	{ MobProg::Type::SPEECH_PROG,    { "speech_prog",    mobv + mstv + rndv + actv}},
+	{ MobProg::Type::RAND_PROG,      { "rand_prog",      mobv + mstv + rndv }},
+	{ MobProg::Type::FIGHT_PROG,     { "fight_prog",     mobv + mstv + rndv + actv }},
+	{ MobProg::Type::DEATH_PROG,     { "death_prog",     mobv + mstv + rndv }},
+	{ MobProg::Type::HITPRCNT_PROG,  { "hitprcnt_prog",  mobv + mstv + rndv + actv }},
+	{ MobProg::Type::ENTRY_PROG,     { "entry_prog",     mobv + mstv + rndv }},
+	{ MobProg::Type::GREET_PROG,     { "greet_prog",     mobv + mstv + rndv + actv }},
+	{ MobProg::Type::ALL_GREET_PROG, { "all_greet_prog", mobv + mstv + rndv + actv }},
+	{ MobProg::Type::GIVE_PROG,      { "give_prog",      mobv + mstv + rndv + actv + dobv }},
+	{ MobProg::Type::BRIBE_PROG,     { "bribe_prog",     mobv + mstv + rndv + actv + dobv }},
+	{ MobProg::Type::BUY_PROG,       { "buy_prog",       mobv + mstv + rndv + actv }},
+	{ MobProg::Type::TICK_PROG,      { "tick_prog",      mobv + mstv + rndv }},
+	{ MobProg::Type::BOOT_PROG,      { "boot_prog",      mobv + mstv + rndv }},
+	{ MobProg::Type::RAND_AREA_PROG, { "rand_area_prog", mobv + mstv + rndv }},
+	{ MobProg::Type::CONTROL_PROG,   { "control_prog",   mobv + mstv + rndv + actv }},
+};
+
 MobProg::
 MobProg(FILE *fp) {
-	type = name_to_type(fread_word(fp));
+	String name = fread_word(fp);
+	type = name_to_type(name);
 
 	switch (type) {
 	case Type::ERROR_PROG:
@@ -18,7 +48,7 @@ MobProg(FILE *fp) {
 		break;
 	}
 
-	if (original.empty())
+	if (type == Type::ERROR_PROG || original.empty())
 		return;
 
 	// parse the script into expressions and statements, pre-check for control
@@ -26,6 +56,7 @@ MobProg(FILE *fp) {
 
 	Line::Type last_control;
 	String script = original;
+	const String& allowed_vars = mobprog_data.find(type)->second.allowed_vars;
 
 	while (!script.empty()) {
 		// grab the first token, if it's some mud command we'll put it back
@@ -97,6 +128,23 @@ MobProg(FILE *fp) {
 			break;
 		}
 
+		// test the line for variable usage that doesn't make sense
+		std::size_t pos = 0;
+
+		while ((pos = line.find("$", pos)) != std::string::npos && pos < line.length()-1) {
+			char letter = line[pos+1];
+			pos += 2;
+
+			if (letter == '$')
+				continue; // skip a double $$
+
+			if (strchr(allowed_vars, letter) == nullptr) {
+				Logging::bugf("MobProg: variable $%c is undefined for prog type '%s'", letter, name);
+				this->type = Type::ERROR_PROG;
+				return;
+			}
+		}
+
 		lines.push_back({line_type, line});
 	}
 }
@@ -107,47 +155,19 @@ MobProg(FILE *fp) {
  */
 MobProg::Type MobProg::
 name_to_type(const String& name) {
-//	if (name == "in_file_prog")   return MobProg::Type::IN_FILE_PROG;
-	if (name == "act_prog")       return Type::ACT_PROG;
-	if (name == "speech_prog")    return Type::SPEECH_PROG;
-	if (name == "rand_prog")      return Type::RAND_PROG;
-	if (name == "rand_area_prog") return Type::RAND_AREA_PROG;
-	if (name == "boot_prog")      return Type::BOOT_PROG;
-	if (name == "fight_prog")     return Type::FIGHT_PROG;
-	if (name == "buy_prog")       return Type::BUY_PROG;
-	if (name == "hitprcnt_prog")  return Type::HITPRCNT_PROG;
-	if (name == "death_prog")     return Type::DEATH_PROG;
-	if (name == "entry_prog")     return Type::ENTRY_PROG;
-	if (name == "greet_prog")     return Type::GREET_PROG;
-	if (name == "all_greet_prog") return Type::ALL_GREET_PROG;
-	if (name == "give_prog")      return Type::GIVE_PROG;
-	if (name == "bribe_prog")     return Type::BRIBE_PROG;
-	if (name == "tick_prog")      return Type::TICK_PROG;
-	if (name == "control_prog")   return Type::CONTROL_PROG;
+	for (const auto& pair : mobprog_data)
+		if (pair.second.name == name)
+			return pair.first;
 
 	return Type::ERROR_PROG;
 }
 
 const String MobProg::
 type_to_name(MobProg::Type type) {
-	switch (type) {
-//	case Type::IN_FILE_PROG:          return "in_file_prog";
-	case Type::ACT_PROG:              return "act_prog";
-	case Type::SPEECH_PROG:           return "speech_prog";
-	case Type::RAND_PROG:             return "rand_prog";
-	case Type::RAND_AREA_PROG:        return "rand_area_prog";
-	case Type::BOOT_PROG:             return "boot_prog";
-	case Type::FIGHT_PROG:            return "fight_prog";
-	case Type::BUY_PROG:              return "buy_prog";
-	case Type::HITPRCNT_PROG:         return "hitprcnt_prog";
-	case Type::DEATH_PROG:            return "death_prog";
-	case Type::ENTRY_PROG:            return "entry_prog";
-	case Type::GREET_PROG:            return "greet_prog";
-	case Type::ALL_GREET_PROG:        return "all_greet_prog";
-	case Type::GIVE_PROG:             return "give_prog";
-	case Type::BRIBE_PROG:            return "bribe_prog";
-	case Type::TICK_PROG:             return "tick_prog";
-	case Type::CONTROL_PROG:          return "control_prog";
-	default:                          return "ERROR_PROG";
-	}
+	const auto pair = mobprog_data.find(type);
+
+	if (pair == mobprog_data.cend())
+		return "ERROR_PROG";
+
+	return pair->second.name;
 }

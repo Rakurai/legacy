@@ -145,7 +145,7 @@ CDEFHJKR BHIPQ EJKLQ N
 stand stand male 200
 0 0 large 0
 
->entry_prog 80~
+>greet_prog 80~
 egrin $n
 ~
 >give_prog icewing skull~

@@ -254,11 +254,11 @@ ABGJKQVZab AHZ 0 S
 stand stand none 0
 0 0 medium 0
 >rand_prog 10~
-if isimmort($n)
+if isimmort($r)
    nod
    say Welcome. As always, you are free to stay.
 else
-   eyebrow $n
+   eyebrow $r
    say Excuse me, can I help you ... out the door?
 endif
 ~

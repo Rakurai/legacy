@@ -7,6 +7,11 @@
 class Character;
 class Object;
 
+struct mobprog_data_t {
+	const String name;
+	const String allowed_vars;
+};
+
 class MobProg
 {
 public:

@@ -646,7 +646,7 @@ else
 endif
 ~
 >rand_prog 20~
-if isimmort($n)
+if isimmort($r)
    break
 endif
 if rand(50)
