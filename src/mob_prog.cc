@@ -71,7 +71,7 @@ String  mprog_translate         args((char ch, Character *mob,
 void    mprog_process_cmnd      args((const String& cmnd, Character *mob,
                                       Character *actor, Object *obj,
                                       void *vo, Character *rndm));
-void    mprog_driver            args((const String& com_list, Character *mob,
+void    mprog_driver            args((const MobProg *mprg, Character *mob,
                                       Character *actor, Object *obj,
                                       void *vo));
 
@@ -787,24 +787,13 @@ int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
  * executing those commands.  On encountering another 'if', we push its evaluation unless the parent
  * is false, in which case we push false.  On encountering 'else', we pop and push the opposite,
  * but again, if the parent is false we push false.  On encountering 'endif', we pop. -- Montrey */
-void mprog_process(String script, Character *mob, Character *actor, Object *obj, void *vo, Character *rndm) {
-	String line, word, last_word;
+void mprog_process(const MobProg *mprg, Character *mob, Character *actor, Object *obj, void *vo, Character *rndm) {
 	std::stack<bool> stack;
+	bool opposite;
 
-	while (!script.empty()) {
-		// grab the line, this will strip whitespace
-		script = script.lsplit(line, "\n");
-
-		// new feature, allow blank lines!
-		if (line.empty())
-			continue;
-
-		// grab the first token, if it's some mud command we'll put it back
-		line = line.lsplit(word, " \t");
-
-		if (word == "if") {
-			last_word = word;
-
+	for (const MobProg::Line& line : mprg->lines) {
+		switch (line.type) {
+		case MobProg::Line::Type::IF:
 			// if we're under a false evaluation, don't even bother evaluating the line, we'll stay false
 			if (!stack.empty() && stack.top() == false) {
 				stack.push(false);
@@ -812,25 +801,18 @@ void mprog_process(String script, Character *mob, Character *actor, Object *obj,
 			}
 
 			// otherwise push the evaluation
-			switch(mprog_do_ifchck(line.c_str(), mob, actor, obj, vo, rndm)) {
+			switch(mprog_do_ifchck(line.text.c_str(), mob, actor, obj, vo, rndm)) {
 				case 1: stack.push(true); break;
 				case 0: stack.push(false); break;
 				default: return;
 			}
-		}
-		else if (word == "or") {
-			// "or" can only follow "if" or "or"
-			if (last_word != "if" && last_word != "or") {
-				Logging::bugf("mprog_process: 'or' illegally following '%s', mob %d", last_word, mob->pIndexData->vnum);
-				return;
-			}
 
+			break;
+		case MobProg::Line::Type::OR:
 			if (stack.empty()) {
 				Logging::bugf("mprog_process: 'or' encountered without 'if', mob %d", mob->pIndexData->vnum);
 				return;
 			}
-
-			last_word = word;
 
 			// "or" won't change a true evaluation, don't bother evaluating
 			if (stack.top() == true)
@@ -846,25 +828,18 @@ void mprog_process(String script, Character *mob, Character *actor, Object *obj,
 			}
 
 			// otherwise, the false parent is popped, we'll see if it changes
-			switch(mprog_do_ifchck(line.c_str(), mob, actor, obj, vo, rndm)) {
+			switch(mprog_do_ifchck(line.text.c_str(), mob, actor, obj, vo, rndm)) {
 				case 1: stack.push(true); break;
 				case 0: stack.push(false); break;
 				default: return;
 			}
-		}
-		else if (word == "and") {
-			// "and" can only follow "if" or "and"
-			if (last_word != "if" && last_word != "and") {
-				Logging::bugf("mprog_process: 'and' illegally following '%s', mob %d", last_word, mob->pIndexData->vnum);
-				return;
-			}
 
+			break;
+		case MobProg::Line::Type::AND:
 			if (stack.empty()) {
 				Logging::bugf("mprog_process: 'and' encountered without 'if', mob %d", mob->pIndexData->vnum);
 				return;
 			}
-
-			last_word = word;
 
 			// "and" won't change a false evaluation, don't bother evaluating
 			if (stack.top() == false)
@@ -873,54 +848,51 @@ void mprog_process(String script, Character *mob, Character *actor, Object *obj,
 			// otherwise, pop the true parent and we'll see if it changes
 			stack.pop();
 
-			switch(mprog_do_ifchck(line.c_str(), mob, actor, obj, vo, rndm)) {
+			switch(mprog_do_ifchck(line.text.c_str(), mob, actor, obj, vo, rndm)) {
 				case 1: stack.push(true); break;
 				case 0: stack.push(false); break;
 				default: return;
 			}
-		}
-		else if (word == "else") {
-			// "else" can only follow "if" or "and" or "or"
-			if (last_word != "if" && last_word != "and" && last_word != "or") {
-				Logging::bugf("mprog_process: 'else' illegally following '%s', mob %d", last_word, mob->pIndexData->vnum);
-				return;
-			}
 
+			break;
+		case MobProg::Line::Type::ELSE:
 			if (stack.empty()) {
 				Logging::bugf("mprog_process: 'else' encountered without 'if', mob %d", mob->pIndexData->vnum);
 				return;
 			}
 
-			last_word = word;
-
 			// switch evaluations now, unless the parent is false
-			bool opposite = !stack.top();
+			opposite = !stack.top();
 			stack.pop();
 
 			if (!stack.empty() && stack.top() == false)
 				stack.push(false);
 			else
 				stack.push(opposite);
-		}
-		else if (word == "endif") {
+
+			break;
+		case MobProg::Line::Type::ENDIF:
 			if (stack.empty()) {
 				Logging::bugf("mprog_process: 'endif' encountered without 'if', mob %d", mob->pIndexData->vnum);
 				return;
 			}
 
-			last_word = word;
 			stack.pop();
-		}
-		else {
+			break;
+
+		case MobProg::Line::Type::BREAK:
 			if (!stack.empty() && stack.top() == false)
 				continue;
 
 			// special command, get out immediately
-			if (word == "break")
-				return;
+			return;
+
+		case MobProg::Line::Type::COMMAND:
+			if (!stack.empty() && stack.top() == false)
+				continue;
 
 			// mud commands
-			mprog_process_cmnd(word + " " + line, mob, actor, obj, vo, rndm);
+			mprog_process_cmnd(line.text, mob, actor, obj, vo, rndm);
 
 			if (mob->is_garbage()) // purged themselves or died or something
 				return;
@@ -1250,7 +1222,7 @@ void mprog_process_cmnd(const String& cmnd, Character *mob, Character *actor,
  *  the command list and figuring out what to do. However, like all
  *  complex procedures, everything is farmed out to the other guys.
  */
-void mprog_driver(const String& com_list, Character *mob, Character *actor,
+void mprog_driver(const MobProg *mprg, Character *mob, Character *actor,
                   Object *obj, void *vo)
 {
 	Character *rndm  = nullptr;
@@ -1271,7 +1243,7 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 		}
 	}
 
-	mprog_process(com_list, mob, actor, obj, vo, rndm);
+	mprog_process(mprg, mob, actor, obj, vo, rndm);
 } /* end mprog_driver() */
 
 /***************************************************************************
@@ -1320,7 +1292,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 					        || *end == '\n'
 					        || *end == '\r'
 					        || *end == '\0')) {
-						mprog_driver(mprg->comlist, mob, actor, obj, vo);
+						mprog_driver(mprg, mob, actor, obj, vo);
 						break;
 					}
 					else
@@ -1336,7 +1308,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 						        || *end == '\n'
 						        || *end == '\r'
 						        || *end == '\0')) {
-							mprog_driver(mprg->comlist, mob, actor, obj, vo);
+							mprog_driver(mprg, mob, actor, obj, vo);
 							break;
 						}
 						else
@@ -1357,7 +1329,7 @@ bool mprog_percent_check(Character *mob, Character *actor, Object *obj,
 
 		if ((mprg->type == type)
 		    && (number_percent() < atoi(mprg->arglist))) {
-			mprog_driver(mprg->comlist, mob, actor, obj, vo);
+			mprog_driver(mprg, mob, actor, obj, vo);
 
 			if (type != GREET_PROG && type != ALL_GREET_PROG)
 				return true;
@@ -1408,7 +1380,7 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 	for (const auto mprg : mob->pIndexData->mobprogs)
 		if (mprg->type == BRIBE_PROG) {
 			if (amount >= atoi(mprg->arglist)) {
-				mprog_driver(mprg->comlist, mob, ch, obj, nullptr);
+				mprog_driver(mprg, mob, ch, obj, nullptr);
 				break;
 			}
 		}
@@ -1465,7 +1437,7 @@ void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 			if ((mprg->type == GIVE_PROG)
 			    && ((!strcmp(obj->name, mprg->arglist))
 			        || (!strcmp("all", buf)))) {
-				mprog_driver(mprg->comlist, mob, ch, obj, nullptr);
+				mprog_driver(mprg, mob, ch, obj, nullptr);
 				break;
 			}
 		}
@@ -1506,7 +1478,7 @@ void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 		for (const auto mprg : mob->pIndexData->mobprogs)
 			if ((mprg->type == HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
-				mprog_driver(mprg->comlist, mob, ch, nullptr, nullptr);
+				mprog_driver(mprg, mob, ch, nullptr, nullptr);
 				break;
 			}
 
@@ -1600,6 +1572,6 @@ void mprog_control_trigger(Character *mob, const String& key, Character *target)
 				break;
 
 			if (mprg->type == CONTROL_PROG && key == mprg->arglist)
-				mprog_driver(mprg->comlist, mob, target, nullptr, nullptr);
+				mprog_driver(mprg, mob, target, nullptr, nullptr);
 		}
 }

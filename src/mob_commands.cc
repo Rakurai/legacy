@@ -104,7 +104,7 @@ void do_mpstat(Character *ch, String argument)
 		Format::sprintf(buf, ">%s %s\n%s\n",
 		        MobProg::type_to_name(mprg->type),
 		        mprg->arglist,
-		        mprg->comlist);
+		        mprg->original);
 		stc(buf, ch);
 	}
 

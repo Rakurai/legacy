@@ -1,5 +1,6 @@
 #include "MobProg.hh"
 #include "file.hh"
+#include "Logging.hh"
 
 MobProg::
 MobProg(FILE *fp) {
@@ -12,9 +13,91 @@ MobProg(FILE *fp) {
 	default:
 		arglist = fread_string(fp);
 		fread_to_eol(fp);
-		comlist = fread_string(fp);
+		original = fread_string(fp);
 		fread_to_eol(fp);
 		break;
+	}
+
+	if (original.empty())
+		return;
+
+	// parse the script into expressions and statements, pre-check for control
+	// flow and variable reference errors
+
+	Line::Type last_control;
+	String script = original;
+
+	while (!script.empty()) {
+		// grab the first token, if it's some mud command we'll put it back
+		// lsplit will strip both strings of leading and trailing whitespace
+		String word, line;
+		script = script.lsplit(word); // split on any whitespace, including newline
+
+		if (word.empty())
+			continue;
+
+		Line::Type line_type = Line::get_type(word);
+
+		switch(line_type) {
+		case Line::Type::IF:
+			last_control = line_type;
+			script = script.lsplit(line, "\n"); // take the rest of the line as an expression
+			break;
+
+		case Line::Type::OR:
+			// "or" can only follow "if" or "or"
+			if (last_control != Line::Type::IF
+			 && last_control != Line::Type::OR) {
+				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
+				this->type = ERROR_PROG;
+				return;
+			}
+
+			last_control = line_type;
+			script = script.lsplit(line, "\n"); // take the rest of the line as an expression
+			break;
+
+		case Line::Type::AND:
+			// "and" can only follow "if" or "and"
+			if (last_control != Line::Type::IF
+			 && last_control != Line::Type::AND) {
+				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
+				this->type = ERROR_PROG;
+				return;
+			}
+
+			last_control = line_type;
+			script = script.lsplit(line, "\n"); // take the rest of the line as an expression
+			break;
+
+		case Line::Type::ELSE:
+			// "else" can only follow "if" or "and" or "or"
+			if (last_control != Line::Type::IF
+			 && last_control != Line::Type::AND
+			 && last_control != Line::Type::OR) {
+				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
+				this->type = ERROR_PROG;
+				return;
+			}
+
+			last_control = line_type;
+			break;
+
+		case Line::Type::ENDIF:
+			last_control = line_type;
+			break;
+
+		case Line::Type::BREAK:
+			break;
+
+		case Line::Type::COMMAND:
+			// take the rest of the line, put it back together with the word
+			script = script.lsplit(line, "\n");
+			line = word + " " + line;
+			break;
+		}
+
+		lines.push_back({line_type, line});
 	}
 }
 
