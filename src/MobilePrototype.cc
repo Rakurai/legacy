@@ -153,7 +153,7 @@ read_mobprogs(FILE *fp) {
 			break;
 		}
 
-		MobProg *mprg = new MobProg(fp);
+		MobProg *mprg = new MobProg(fp, vnum);
 
 		if (mprg->type == MobProg::Type::ERROR_PROG) {
 			Logging::file_bug(fp, "Load_mobiles: vnum %d invalid MOBPROG type.", vnum);

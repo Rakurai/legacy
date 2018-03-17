@@ -283,8 +283,7 @@ stand stand either 0
 ~
 >greet_prog 100~
    if ispc($n)
-    MPCAST wrath %n
-   else
+    MPCAST wrath $n
 endif
 ~
 |
@@ -397,8 +396,7 @@ stand stand either 0
 ~
 >greet_prog 100~
    if ispc($n)
-   MPCAST wrath %n
-   else
+   MPCAST wrath $n
   endif
 ~
 |
@@ -543,8 +541,7 @@ stand stand male 0
 ~
 >greet_prog 100~
    if ispc($n)
-   MPCAST wrath %n
-   else
+   MPCAST wrath $n
  endif
 ~
 |
@@ -579,8 +576,7 @@ stand stand female 0
 ~
 >greet_prog 100~
     if ispc($n)
-    MPCAST wrath %n
-    else
+    MPCAST wrath $n
 endif
 ~
 |
@@ -617,8 +613,7 @@ stand stand female 0
 ~
 >greet_prog 100~
     if ispc($n)
-    MPCAST wrath %n
-      else
+    MPCAST wrath $n
  endif
 ~
 |

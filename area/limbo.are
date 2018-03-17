@@ -234,6 +234,8 @@ else
 if sex($n)==1
    mpechoat $n Lyana the waitress says 'Enjoy the party, Sir!'
 endif
+endif
+endif
 ~
 
 >give_prog wedding cake slice~
@@ -259,6 +261,9 @@ else
 if rand(20)
    say Oh! I love wedding parties!
    giggle
+endif
+endif
+endif
 endif
 ~ 
 |

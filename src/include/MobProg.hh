@@ -6,6 +6,7 @@
 
 class Character;
 class Object;
+class Vnum;
 
 struct mobprog_data_t {
 	const String name;
@@ -76,7 +77,7 @@ public:
 		}
 	};
 
-	MobProg(FILE *fp);
+	MobProg(FILE *fp, Vnum);
 	virtual ~MobProg() {}
 
     Type               type;

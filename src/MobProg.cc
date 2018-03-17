@@ -32,7 +32,7 @@ const std::map<MobProg::Type, mobprog_data_t> mobprog_data = {
 };
 
 MobProg::
-MobProg(FILE *fp) {
+MobProg(FILE *fp, Vnum vnum) {
 	String name = fread_word(fp);
 	type = name_to_type(name);
 
@@ -54,15 +54,19 @@ MobProg(FILE *fp) {
 	// parse the script into expressions and statements, pre-check for control
 	// flow and variable reference errors
 
-	Line::Type last_control;
+	Line::Type last_control, last_type;
 	String script = original;
 	const String& allowed_vars = mobprog_data.find(type)->second.allowed_vars;
+	int unclosed_ifs = 0;
 
 	while (!script.empty()) {
-		// grab the first token, if it's some mud command we'll put it back
-		// lsplit will strip both strings of leading and trailing whitespace
 		String word, line;
-		script = script.lsplit(word); // split on any whitespace, including newline
+
+		// grab the first token, if it's some mud command we'll put it back
+		// lsplit will left strip both strings of leading whitespace
+		// parse into the first word and the expression
+		script = script.lsplit(line, "\n");
+		line = line.strip(" \t\r").lsplit(word, " \t");
 
 		if (word.empty())
 			continue;
@@ -72,37 +76,35 @@ MobProg(FILE *fp) {
 		switch(line_type) {
 		case Line::Type::IF:
 			last_control = line_type;
-			script = script.lsplit(line, "\n"); // take the rest of the line as an expression
+			unclosed_ifs++;
 			break;
 
 		case Line::Type::OR:
-			// "or" can only follow "if" or "or"
-			if (last_control != Line::Type::IF
-			 && last_control != Line::Type::OR) {
+			// "or" can only follow "if" or "or", not statements or other controls
+			if (last_type != Line::Type::IF
+			 && last_type != Line::Type::OR) {
 				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
 				this->type = Type::ERROR_PROG;
 				return;
 			}
 
 			last_control = line_type;
-			script = script.lsplit(line, "\n"); // take the rest of the line as an expression
 			break;
 
 		case Line::Type::AND:
-			// "and" can only follow "if" or "and"
-			if (last_control != Line::Type::IF
-			 && last_control != Line::Type::AND) {
+			// "and" can only follow "if" or "and", not statements or other controls
+			if (last_type != Line::Type::IF
+			 && last_type != Line::Type::AND) {
 				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
 				this->type = Type::ERROR_PROG;
 				return;
 			}
 
 			last_control = line_type;
-			script = script.lsplit(line, "\n"); // take the rest of the line as an expression
 			break;
 
 		case Line::Type::ELSE:
-			// "else" can only follow "if" or "and" or "or"
+			// "else" can only follow "if" or "and" or "or" controls
 			if (last_control != Line::Type::IF
 			 && last_control != Line::Type::AND
 			 && last_control != Line::Type::OR) {
@@ -111,22 +113,48 @@ MobProg(FILE *fp) {
 				return;
 			}
 
+			// "else" must have statements or a nested control structure in the block
+			if (last_type != Line::Type::COMMAND
+			 && last_type != Line::Type::BREAK
+			 && last_type != Line::Type::ENDIF) {
+				Logging::bugf("MobProg: 'else' has no statements to follow");
+				this->type = Type::ERROR_PROG;
+				return;
+			}
+
+			// special case for 'else' followed by 'if' on the same line, put it back
+			if (line.has_prefix("if ")) {
+				script = line + "\n" + script;
+				line = "";
+			}
+
 			last_control = line_type;
 			break;
 
 		case Line::Type::ENDIF:
+			// "endif" must have statements or a nested control structure in the block
+			if (last_type != Line::Type::COMMAND
+			 && last_type != Line::Type::BREAK
+			 && last_type != Line::Type::ENDIF) {
+				Logging::bugf("MobProg: 'endif' has no statements to follow");
+				this->type = Type::ERROR_PROG;
+				return;
+			}
+
 			last_control = line_type;
+			unclosed_ifs--;
 			break;
 
 		case Line::Type::BREAK:
 			break;
 
 		case Line::Type::COMMAND:
-			// take the rest of the line, put it back together with the word
-			script = script.lsplit(line, "\n");
+			// put the line back together with the word
 			line = word + " " + line;
 			break;
 		}
+
+		last_type = line_type;
 
 		// test the line for variable usage that doesn't make sense
 		std::size_t pos = 0;
@@ -146,6 +174,11 @@ MobProg(FILE *fp) {
 		}
 
 		lines.push_back({line_type, line});
+	}
+
+	if (unclosed_ifs > 0) {
+		Logging::bugf("MobProg: warning: %s on mob %d has unclosed if statements, potentially ambiguous execution",
+			name, vnum);
 	}
 }
 
