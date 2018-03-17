@@ -1,11 +1,13 @@
 #pragma once
 
 #include <vector>
+#include <set>
 
 #include "declare.hh"
 #include "String.hh"
 #include "Flags.hh"
 #include "Vnum.hh"
+#include "MobProg.hh"
 
 /*
  * Prototype for a mob.
@@ -54,7 +56,7 @@ public:
     int              size = 0;
     String              material;
     std::vector<MobProg *> mobprogs;
-    Flags               progtype_flags;
+    std::set<MobProg::Type> progtypes;
 
     void read_mobprogs(FILE *fp);
 

@@ -76,7 +76,7 @@ void do_mpstat(Character *ch, String argument)
 		return;
 	}
 
-	if (victim->pIndexData->progtype_flags.empty()) {
+	if (victim->pIndexData->progtypes.empty()) {
 		stc("That Mobile has no Programs set.\n", ch);
 		return;
 	}

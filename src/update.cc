@@ -1370,7 +1370,7 @@ void act_update(void) {
 				break;
 
 			mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
-			                     tmp_act->obj, tmp_act->vo, ACT_PROG);
+			                     tmp_act->obj, tmp_act->vo, MobProg::Type::ACT_PROG);
 		}
 
 		// delete the list

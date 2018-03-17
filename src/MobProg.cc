@@ -7,7 +7,7 @@ MobProg(FILE *fp) {
 	type = name_to_type(fread_word(fp));
 
 	switch (type) {
-	case ERROR_PROG:
+	case Type::ERROR_PROG:
 		break;
 
 	default:
@@ -49,7 +49,7 @@ MobProg(FILE *fp) {
 			if (last_control != Line::Type::IF
 			 && last_control != Line::Type::OR) {
 				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
-				this->type = ERROR_PROG;
+				this->type = Type::ERROR_PROG;
 				return;
 			}
 
@@ -62,7 +62,7 @@ MobProg(FILE *fp) {
 			if (last_control != Line::Type::IF
 			 && last_control != Line::Type::AND) {
 				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
-				this->type = ERROR_PROG;
+				this->type = Type::ERROR_PROG;
 				return;
 			}
 
@@ -76,7 +76,7 @@ MobProg(FILE *fp) {
 			 && last_control != Line::Type::AND
 			 && last_control != Line::Type::OR) {
 				Logging::bugf("MobProg: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
-				this->type = ERROR_PROG;
+				this->type = Type::ERROR_PROG;
 				return;
 			}
 
@@ -105,49 +105,49 @@ MobProg(FILE *fp) {
  *  mob_prog bitvector types. This allows the use of the words in the
  *  mob/script files.
  */
-Flags::Bit MobProg::
+MobProg::Type MobProg::
 name_to_type(const String& name) {
-//	if (name == "in_file_prog")   return IN_FILE_PROG;
-	if (name == "act_prog")       return ACT_PROG;
-	if (name == "speech_prog")    return SPEECH_PROG;
-	if (name == "rand_prog")      return RAND_PROG;
-	if (name == "rand_area_prog") return RAND_AREA_PROG;
-	if (name == "boot_prog")      return BOOT_PROG;
-	if (name == "fight_prog")     return FIGHT_PROG;
-	if (name == "buy_prog")       return BUY_PROG;
-	if (name == "hitprcnt_prog")  return HITPRCNT_PROG;
-	if (name == "death_prog")     return DEATH_PROG;
-	if (name == "entry_prog")     return ENTRY_PROG;
-	if (name == "greet_prog")     return GREET_PROG;
-	if (name == "all_greet_prog") return ALL_GREET_PROG;
-	if (name == "give_prog")      return GIVE_PROG;
-	if (name == "bribe_prog")     return BRIBE_PROG;
-	if (name == "tick_prog")      return TICK_PROG;
-	if (name == "control_prog")       return CONTROL_PROG;
+//	if (name == "in_file_prog")   return MobProg::Type::IN_FILE_PROG;
+	if (name == "act_prog")       return Type::ACT_PROG;
+	if (name == "speech_prog")    return Type::SPEECH_PROG;
+	if (name == "rand_prog")      return Type::RAND_PROG;
+	if (name == "rand_area_prog") return Type::RAND_AREA_PROG;
+	if (name == "boot_prog")      return Type::BOOT_PROG;
+	if (name == "fight_prog")     return Type::FIGHT_PROG;
+	if (name == "buy_prog")       return Type::BUY_PROG;
+	if (name == "hitprcnt_prog")  return Type::HITPRCNT_PROG;
+	if (name == "death_prog")     return Type::DEATH_PROG;
+	if (name == "entry_prog")     return Type::ENTRY_PROG;
+	if (name == "greet_prog")     return Type::GREET_PROG;
+	if (name == "all_greet_prog") return Type::ALL_GREET_PROG;
+	if (name == "give_prog")      return Type::GIVE_PROG;
+	if (name == "bribe_prog")     return Type::BRIBE_PROG;
+	if (name == "tick_prog")      return Type::TICK_PROG;
+	if (name == "control_prog")   return Type::CONTROL_PROG;
 
-	return (ERROR_PROG);
+	return Type::ERROR_PROG;
 }
 
 const String MobProg::
-type_to_name(Flags::Bit type) {
+type_to_name(MobProg::Type type) {
 	switch (type) {
-//	case IN_FILE_PROG:          return "in_file_prog";
-	case ACT_PROG:              return "act_prog";
-	case SPEECH_PROG:           return "speech_prog";
-	case RAND_PROG:             return "rand_prog";
-	case RAND_AREA_PROG:        return "rand_area_prog";
-	case BOOT_PROG:             return "boot_prog";
-	case FIGHT_PROG:            return "fight_prog";
-	case BUY_PROG:              return "buy_prog";
-	case HITPRCNT_PROG:         return "hitprcnt_prog";
-	case DEATH_PROG:            return "death_prog";
-	case ENTRY_PROG:            return "entry_prog";
-	case GREET_PROG:            return "greet_prog";
-	case ALL_GREET_PROG:        return "all_greet_prog";
-	case GIVE_PROG:             return "give_prog";
-	case BRIBE_PROG:            return "bribe_prog";
-	case TICK_PROG:             return "tick_prog";
-	case CONTROL_PROG:          return "control_prog";
-	default:                    return "ERROR_PROG";
+//	case Type::IN_FILE_PROG:          return "in_file_prog";
+	case Type::ACT_PROG:              return "act_prog";
+	case Type::SPEECH_PROG:           return "speech_prog";
+	case Type::RAND_PROG:             return "rand_prog";
+	case Type::RAND_AREA_PROG:        return "rand_area_prog";
+	case Type::BOOT_PROG:             return "boot_prog";
+	case Type::FIGHT_PROG:            return "fight_prog";
+	case Type::BUY_PROG:              return "buy_prog";
+	case Type::HITPRCNT_PROG:         return "hitprcnt_prog";
+	case Type::DEATH_PROG:            return "death_prog";
+	case Type::ENTRY_PROG:            return "entry_prog";
+	case Type::GREET_PROG:            return "greet_prog";
+	case Type::ALL_GREET_PROG:        return "all_greet_prog";
+	case Type::GIVE_PROG:             return "give_prog";
+	case Type::BRIBE_PROG:            return "bribe_prog";
+	case Type::TICK_PROG:             return "tick_prog";
+	case Type::CONTROL_PROG:          return "control_prog";
+	default:                          return "ERROR_PROG";
 	}
 }

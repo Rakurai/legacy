@@ -1255,7 +1255,7 @@ void mprog_driver(const MobProg *mprg, Character *mob, Character *actor,
  *  To see how this works, look at the various trigger routines..
  */
 void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
-                          Object *obj, void *vo, Flags::Bit type)
+                          Object *obj, void *vo, MobProg::Type type)
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
@@ -1321,7 +1321,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 }
 
 bool mprog_percent_check(Character *mob, Character *actor, Object *obj,
-                         void *vo, Flags::Bit type)
+                         void *vo, MobProg::Type type)
 {
 	for (const auto mprg : mob->pIndexData->mobprogs) {
 		if (mob->is_garbage())
@@ -1331,7 +1331,7 @@ bool mprog_percent_check(Character *mob, Character *actor, Object *obj,
 		    && (number_percent() < atoi(mprg->arglist))) {
 			mprog_driver(mprg, mob, actor, obj, vo);
 
-			if (type != GREET_PROG && type != ALL_GREET_PROG)
+			if (type != MobProg::Type::GREET_PROG && type != MobProg::Type::ALL_GREET_PROG)
 				return true;
 		}
 	}
@@ -1351,7 +1351,7 @@ void mprog_act_trigger(const char *buf, Character *mob, Character *ch,
                        Object *obj, void *vo)
 {
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(ACT_PROG))) {
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::ACT_PROG))) {
 		MobProgActList *tmp_act = new MobProgActList;
 
 		tmp_act->next	= mob->mpact;
@@ -1378,7 +1378,7 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 		return;
 
 	for (const auto mprg : mob->pIndexData->mobprogs)
-		if (mprg->type == BRIBE_PROG) {
+		if (mprg->type == MobProg::Type::BRIBE_PROG) {
 			if (amount >= atoi(mprg->arglist)) {
 				mprog_driver(mprg, mob, ch, obj, nullptr);
 				break;
@@ -1391,8 +1391,8 @@ void mprog_bribe_trigger(Character *mob, Character *ch, int amount)
 void mprog_death_trigger(Character *mob)
 {
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(DEATH_PROG)))
-		mprog_percent_check(mob, nullptr, nullptr, nullptr, DEATH_PROG);
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::DEATH_PROG)))
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::DEATH_PROG);
 
 	death_cry(mob);
 	return;
@@ -1401,8 +1401,8 @@ void mprog_death_trigger(Character *mob)
 void mprog_entry_trigger(Character *mob)
 {
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(ENTRY_PROG)))
-		mprog_percent_check(mob, nullptr, nullptr, nullptr, ENTRY_PROG);
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::ENTRY_PROG)))
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::ENTRY_PROG);
 
 	return;
 }
@@ -1410,8 +1410,8 @@ void mprog_entry_trigger(Character *mob)
 void mprog_fight_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(FIGHT_PROG)))
-		mprog_percent_check(mob, ch, nullptr, nullptr, FIGHT_PROG);
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::FIGHT_PROG)))
+		mprog_percent_check(mob, ch, nullptr, nullptr, MobProg::Type::FIGHT_PROG);
 
 	return;
 }
@@ -1419,8 +1419,8 @@ void mprog_fight_trigger(Character *mob, Character *ch)
 void mprog_buy_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(BUY_PROG)))
-		mprog_percent_check(mob, ch, nullptr, nullptr, BUY_PROG);
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::BUY_PROG)))
+		mprog_percent_check(mob, ch, nullptr, nullptr, MobProg::Type::BUY_PROG);
 
 	return;
 }
@@ -1430,11 +1430,11 @@ void mprog_give_trigger(Character *mob, Character *ch, Object *obj)
 	String buf;
 
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(GIVE_PROG)))
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::GIVE_PROG)))
 		for (const auto mprg : mob->pIndexData->mobprogs) {
 			one_argument(mprg->arglist, buf);
 
-			if ((mprg->type == GIVE_PROG)
+			if ((mprg->type == MobProg::Type::GIVE_PROG)
 			    && ((!strcmp(obj->name, mprg->arglist))
 			        || (!strcmp("all", buf)))) {
 				mprog_driver(mprg, mob, ch, obj, nullptr);
@@ -1458,14 +1458,14 @@ void mprog_greet_trigger(Character *ch)
 		    && can_see_char(vmob, ch)
 		    && (vmob->fighting == nullptr)
 		    && IS_AWAKE(vmob)
-		    && (vmob->pIndexData->progtype_flags.has(GREET_PROG)))
-			mprog_percent_check(vmob, ch, nullptr, nullptr, GREET_PROG);
+		    && (vmob->pIndexData->progtypes.count(MobProg::Type::GREET_PROG)))
+			mprog_percent_check(vmob, ch, nullptr, nullptr, MobProg::Type::GREET_PROG);
 		else if (vmob->is_npc()
 		         && ch != vmob
 		         && (vmob->fighting == nullptr)
 		         && IS_AWAKE(vmob)
-		         && (vmob->pIndexData->progtype_flags.has(ALL_GREET_PROG)))
-			mprog_percent_check(vmob, ch, nullptr, nullptr, ALL_GREET_PROG);
+		         && (vmob->pIndexData->progtypes.count(MobProg::Type::ALL_GREET_PROG)))
+			mprog_percent_check(vmob, ch, nullptr, nullptr, MobProg::Type::ALL_GREET_PROG);
 	}
 
 	return;
@@ -1474,9 +1474,9 @@ void mprog_greet_trigger(Character *ch)
 void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc()
-	    && (mob->pIndexData->progtype_flags.has(HITPRCNT_PROG)))
+	    && (mob->pIndexData->progtypes.count(MobProg::Type::HITPRCNT_PROG)))
 		for (const auto mprg : mob->pIndexData->mobprogs)
-			if ((mprg->type == HITPRCNT_PROG)
+			if ((mprg->type == MobProg::Type::HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
 				mprog_driver(mprg, mob, ch, nullptr, nullptr);
 				break;
@@ -1487,23 +1487,23 @@ void mprog_hitprcnt_trigger(Character *mob, Character *ch)
 
 void mprog_boot_trigger(Character *mob)
 {
-	if (mob->pIndexData->progtype_flags.has(BOOT_PROG))
-		mprog_percent_check(mob, nullptr, nullptr, nullptr, BOOT_PROG);
+	if (mob->pIndexData->progtypes.count(MobProg::Type::BOOT_PROG))
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::BOOT_PROG);
 
 	return;
 }
 
 bool mprog_random_trigger(Character *mob)
 {
-	if (mob->pIndexData->progtype_flags.has(RAND_PROG))
-		return mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_PROG);
+	if (mob->pIndexData->progtypes.count(MobProg::Type::RAND_PROG))
+		return mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::RAND_PROG);
 
 	return false;
 }
 
 bool mprog_random_area_trigger(Character *mob)
 {
-	if (!mob->pIndexData->progtype_flags.has(RAND_AREA_PROG))
+	if (!mob->pIndexData->progtypes.count(MobProg::Type::RAND_AREA_PROG))
 		return false;
 
 	// this is static to avoid creating the object every time, make sure to clear it below
@@ -1526,7 +1526,7 @@ bool mprog_random_area_trigger(Character *mob)
 
 	for (Room *room : rooms) {
 		char_to_room(mob, room);
-		if (mprog_percent_check(mob, nullptr, nullptr, nullptr, RAND_AREA_PROG))
+		if (mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::RAND_AREA_PROG))
 			triggered = true;
 
 		char_from_room(mob);
@@ -1544,8 +1544,8 @@ bool mprog_random_area_trigger(Character *mob)
 
 void mprog_tick_trigger(Character *mob)    /* Montrey */
 {
-	if (mob->pIndexData->progtype_flags.has(TICK_PROG))
-		mprog_percent_check(mob, nullptr, nullptr, nullptr, TICK_PROG);
+	if (mob->pIndexData->progtypes.count(MobProg::Type::TICK_PROG))
+		mprog_percent_check(mob, nullptr, nullptr, nullptr, MobProg::Type::TICK_PROG);
 
 	return;
 }
@@ -1558,20 +1558,20 @@ void mprog_speech_trigger(const String& txt, Character *mob)
 		if (mob->is_garbage())
 			break;
 
-		if (vmob->is_npc() && (vmob->pIndexData->progtype_flags.has(SPEECH_PROG)))
-			mprog_wordlist_check(txt.c_str(), vmob, mob, nullptr, nullptr, SPEECH_PROG);
+		if (vmob->is_npc() && (vmob->pIndexData->progtypes.count(MobProg::Type::SPEECH_PROG)))
+			mprog_wordlist_check(txt.c_str(), vmob, mob, nullptr, nullptr, MobProg::Type::SPEECH_PROG);
 	}
 
 	return;
 }
 
 void mprog_control_trigger(Character *mob, const String& key, Character *target) {
-	if (mob->is_npc() && mob->pIndexData->progtype_flags.has(CONTROL_PROG))
+	if (mob->is_npc() && mob->pIndexData->progtypes.count(MobProg::Type::CONTROL_PROG))
 		for (const auto mprg : mob->pIndexData->mobprogs) {
 			if (mob->is_garbage())
 				break;
 
-			if (mprg->type == CONTROL_PROG && key == mprg->arglist)
+			if (mprg->type == MobProg::Type::CONTROL_PROG && key == mprg->arglist)
 				mprog_driver(mprg, mob, target, nullptr, nullptr);
 		}
 }
