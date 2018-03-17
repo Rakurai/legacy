@@ -812,13 +812,32 @@ void do_mpstate(Character *ch, String argument) {
 		return;
 	}
 
-	if (key.empty() || value.empty() || !value.is_number()) {
+	if (key.empty() || value.empty()) {
 		Logging::bugf("Mpstate - Bad syntax: vnum %d.", ch->pIndexData->vnum);
+		return;
+	}
+
+	if (value == "++") {
+		target->mpstate[key]++;
+		return;
+	}
+
+	if (value == "--") {
+		target->mpstate[key]--;
+
+		if (target->mpstate[key] <= 0)
+			target->mpstate.erase(key);
+
 		return;
 	}
 
 	if (value == "0") {
 		target->mpstate.erase(key);
+		return;
+	}
+
+	if (!value.is_number() || atoi(value) < 0) {
+		Logging::bugf("Mpstate - Bad syntax: vnum %d.", ch->pIndexData->vnum);
 		return;
 	}
 
