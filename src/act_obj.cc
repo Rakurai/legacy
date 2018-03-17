@@ -2545,6 +2545,18 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		if (sn == skill::type::hand_to_hand)
 			return;
 
+		// if this is their first time wielding a weapon, set the skill to 40
+		if (!ch->is_npc()
+		 && get_learned(ch, skill::type::sword) <= 1
+		 && get_learned(ch, skill::type::dagger) <= 1
+		 && get_learned(ch, skill::type::spear) <= 1
+		 && get_learned(ch, skill::type::mace) <= 1
+		 && get_learned(ch, skill::type::axe) <= 1
+		 && get_learned(ch, skill::type::flail) <= 1
+		 && get_learned(ch, skill::type::whip) <= 1
+		 && get_learned(ch, skill::type::polearm) <= 1)
+			set_learned(ch, sn, 40);
+
 		skill = get_weapon_learned(ch, sn);
 
 		if (skill >= 100)
