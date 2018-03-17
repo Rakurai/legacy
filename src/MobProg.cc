@@ -66,7 +66,13 @@ MobProg(FILE *fp, Vnum vnum) {
 		// lsplit will left strip both strings of leading whitespace
 		// parse into the first word and the expression
 		script = script.lsplit(line, "\n");
-		line = line.strip(" \t\r").lsplit(word, " \t");
+		line = line.strip(" \t\r");
+
+		// allow for commenting out a line
+		if (line[0] == '*')
+			continue;
+
+		line = line.lsplit(word, " \t");
 
 		if (word.empty())
 			continue;
