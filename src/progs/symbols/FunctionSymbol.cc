@@ -57,7 +57,7 @@ const std::vector<fn_type> fn_table = {
 	{ "state",       Symbol::Type::Integer,   Symbol::Type::Character, { Symbol::Type::String } },
 	{ "is_carrying", Symbol::Type::Boolean,   Symbol::Type::Character, { Symbol::Type::String } },
 	{ "is_wearing",  Symbol::Type::Boolean,   Symbol::Type::Character, { Symbol::Type::String } },
-
+	{ "master",      Symbol::Type::Character, Symbol::Type::Character, {} },
 
 	// object accessors
 	{ "name",        Symbol::Type::String,    Symbol::Type::Object,    {} },
@@ -94,6 +94,8 @@ try {
 
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+
+		if (name == "master") return ch->master;
 
 		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
 	}
