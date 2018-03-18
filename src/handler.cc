@@ -910,8 +910,8 @@ void extract_char(Character *ch, bool fPull)
  */
 bool mob_exists(const char *name)
 {
-	for (const auto area : Game::world().areas)
-		for (const auto& pair : area->mob_prototypes)
+	for (const auto& area_pair : Game::world().areas)
+		for (const auto& pair : area_pair.second->mob_prototypes)
 			if (pair.second->player_name.has_exact_words(name))
 				return true;
 

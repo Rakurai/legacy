@@ -480,7 +480,9 @@ void do_areas(Character *ch, String argument)
 	Area *ptrs[ptrs_size];
 
 	/* Gather pointers to all areas of interest */
-	for (Area *ap: Game::world().areas) {
+	for (auto& area_pair : Game::world().areas) {
+		Area *ap = area_pair.second;
+
 		if (!IS_IMMORTAL(ch) && ap->area_type == AREA_TYPE_XXX)
 			continue;
 

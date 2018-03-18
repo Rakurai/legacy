@@ -21,8 +21,8 @@ World() :
 
 World::
 ~World() {
-	for (Area *area: areas)
-		delete area;
+	for (auto& pair : areas)
+		delete pair.second;
 }
 
 void World::
@@ -32,8 +32,8 @@ update() {
 	if (--pulse_area <= 0) {
 		pulse_area = PULSE_AREA;
 
-		for (Area *area: areas)
-			area->update();
+		for (auto& pair : areas)
+			pair.second->update();
 	}
 
 	char_list.delete_garbage();
@@ -54,11 +54,12 @@ get_area(const Vnum& vnum) const {
 	// it would be really nice if we could sort the areas on their vnum ranges
 	// and then do a binary search here, but i have bigger fish to fry.  there
 	// should only be 100 or so areas anyway
-	for (Area * area : areas)
-		if (vnum >= area->min_vnum && vnum <= area->max_vnum)
-			return area;
+	auto pair = areas.find(VnumRange(vnum, vnum));
 
-	return nullptr;
+	if (pair == areas.end())
+		return nullptr;
+
+	return pair->second;
 }
 
 MobilePrototype * World::
@@ -119,8 +120,8 @@ get_room(const Location& location)
 
 	// it would be nice if we could figure out a way to quickly identify
 	// the area from location without an O(n) search
-	for (auto area : areas) {
-		Room *room = area->get_room(location.room_id);
+	for (auto& pair : areas) {
+		Room *room = pair.second->get_room(location.room_id);
 
 		if (room != nullptr)
 			return room;
@@ -216,7 +217,7 @@ load_areas() {
 			continue;
 
 		Area *area = new Area(*this, file_name);
-		areas.push_back(area);
+		areas.emplace(VnumRange(area->min_vnum, area->max_vnum), area);
 
 		area->load();
 	}
@@ -231,8 +232,8 @@ load_areas() {
 // up each prototype vnum)
 void World::
 create_rooms() {
-	for (Area *area : areas) {
-		area->create_rooms();
+	for (auto& pair : areas) {
+		pair.second->create_rooms();
 	}
 }
 
@@ -244,8 +245,8 @@ create_rooms() {
 void World::
 create_exits(void)
 {
-	for (const Area *area : areas) {
-		for (const auto& pair : area->rooms) {
+	for (const auto& area_pair : areas) {
+		for (const auto& pair : area_pair.second->rooms) {
 			const auto& location = pair.first;
 			Room* room = pair.second;
 
@@ -271,7 +272,7 @@ create_exits(void)
 							continue;
 					}
 
-					Room *dest = area->world.maptree.get(worldmap::Coordinate(to_x, to_y));
+					Room *dest = area_pair.second->world.maptree.get(worldmap::Coordinate(to_x, to_y));
 
 					if (dest == nullptr) {
 //							Logging::bugf("room %d, direction %d, no room", vnum, door);

@@ -107,8 +107,8 @@ void do_exlist(Character *ch, String argument)
 	const Area *to_area = &ch->in_room->area(); /* this is the area we want info on */
 
 	/* run through all the rooms on the MUD */
-	for (const auto from_area : Game::world().areas)
-		for (const auto& pair : from_area->rooms)
+	for (const auto& from_area : Game::world().areas)
+		for (const auto& pair : from_area.second->rooms)
 			stc(checkexits(pair.second, to_area), ch);
 }
 
@@ -155,8 +155,8 @@ void do_roomexits(Character *ch, String argument)
 {
 	Room *dest = ch->in_room; /* this is the room we want info on */
 
-	for (const auto from_area : Game::world().areas)
-		for (const auto& pair : from_area->rooms)
+	for (const auto& from_area : Game::world().areas)
+		for (const auto& pair : from_area.second->rooms)
 			stc(checkexitstoroom(pair.second, dest), ch);
 }
 
@@ -178,7 +178,9 @@ void do_pocket(Character *ch, String argument)
 
 	for (vnum = 1; vnum < 32600; vnum++) {
 		/* figure out if it's in an area's range */
-		for (auto area: Game::world().areas) {
+		for (const auto& area_pair: Game::world().areas) {
+			const auto area = area_pair.second;
+
 			if (area->min_vnum <= vnum && area->max_vnum >= vnum) { /* it is */
 				if (count >= size)
 					ptc(ch, "%5d to %5d, size %d\n", vnum - (count - 1), vnum - 1, count - 1);

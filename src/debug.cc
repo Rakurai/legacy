@@ -250,8 +250,8 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "aversion")) {
-		for (Area *area: Game::world().areas)
-			ptc(ch, "%-20s%d\n", area->file_name, area->version);
+		for (auto& pair : Game::world().areas)
+			ptc(ch, "%-20s%d\n", pair.second->file_name, pair.second->version);
 
 		return;
 	}
@@ -279,8 +279,8 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck")) {
-		for (const auto area : Game::world().areas) {
-			for (const auto& pair : area->rooms) {
+		for (const auto& area_pair : Game::world().areas) {
+			for (const auto& pair : area_pair.second->rooms) {
 				const auto& room_id = pair.first;
 				const Room *room = pair.second;
 
@@ -301,8 +301,8 @@ void do_debug(Character *ch, String argument)
 	}
 
 	if (!strcmp(subfunc, "rcheck2")) {
-		for (const auto area : Game::world().areas) {
-			for (const auto& pair : area->rooms) {
+		for (const auto& area_pair : Game::world().areas) {
+			for (const auto& pair : area_pair.second->rooms) {
 				const auto& room_id = pair.first;
 				const Room *room = pair.second;
 

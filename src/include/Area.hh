@@ -99,6 +99,7 @@ private:
     // only an imm is there.
     int _num_players = 0;
     int _num_imms = 0;
+    FILE *fpArea; // for loading split between constructor and load function
 };
 
 

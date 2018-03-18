@@ -1,7 +1,6 @@
 #pragma once
 
-#include <vector>
-#include <list>
+#include <map>
 
 #include "GameTime.hh"
 #include "Weather.hh"
@@ -9,6 +8,7 @@
 #include "worldmap/Quadtree.hh"
 #include "worldmap/Worldmap.hh"
 #include "GarbageCollectingList.hh"
+#include "Vnum.hh"
 
 class Area;
 class Character;
@@ -21,6 +21,13 @@ class RoomPrototype;
 class Game;
 class Vnum;
 class Location;
+
+// helps lookups in the areas map
+struct VnumRange {
+	VnumRange(Vnum mn, Vnum mx) : min(mn), max(mx) {}
+	inline friend bool operator<(const VnumRange& lhs, const VnumRange& rhs) { return lhs.max < rhs.min; }
+	Vnum min, max;
+};
 
 class World
 {
@@ -37,7 +44,7 @@ public:
 
 	Object *donation_pit = nullptr;;
 
-	std::vector<Area *> areas;
+	std::map<VnumRange, Area *> areas;
 
 	Area *get_area(const Vnum&) const;
 	bool valid() const {

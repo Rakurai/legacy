@@ -1494,8 +1494,8 @@ void do_for(Character *ch, String argument)
 			return;
 		}
 
-		for (const auto from_area : Game::world().areas) {
-			for (const auto& pair : from_area->rooms) {
+		for (const auto& from_area : Game::world().areas) {
+			for (const auto& pair : from_area.second->rooms) {
 
 				Room *room = pair.second;
 				found = false;
@@ -2733,8 +2733,8 @@ void do_rwhere(Character *ch, String argument)
 		return;
 	}
 
-	for (const auto area: Game::world().areas) {
-		for (const auto& pair : area->rooms) {
+	for (const auto& area_pair: Game::world().areas) {
+		for (const auto& pair : area_pair.second->rooms) {
 			const RoomID& location = pair.first;
 			const Room *room = pair.second;
 

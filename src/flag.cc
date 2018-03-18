@@ -539,8 +539,8 @@ void fsearch_room(Character *ch, int fieldptr, const Flags& marked)
 	Flags flag;
 	output += "{VCount {GVnum{x\n";
 
-	for (Area *area: Game::world().areas) {
-		for (const auto& pair : area->rooms) {
+	for (auto& area_pair : Game::world().areas) {
+		for (const auto& pair : area_pair.second->rooms) {
 			const RoomID& location = pair.first;
 			const Room* room = pair.second;
 

@@ -25,11 +25,8 @@
 Area::
 Area(World& w, const String& file_name) : world(w), file_name(file_name) {
 	// separated from loading so that the area is valid in the world, for error checking lookups
-}
-
-void Area::
-load() {
-	FILE *fpArea = fopen(String(String(AREA_DIR) + file_name).c_str(), "r");
+	// but, need the header for placing into the area map
+	fpArea = fopen(String(String(AREA_DIR) + file_name).c_str(), "r");
 
 	if (fpArea == nullptr) {
 		perror(file_name.c_str());
@@ -38,6 +35,23 @@ load() {
 
 	Format::printf("Now loading area: %s\n", file_name);
 
+	if (fread_letter(fpArea) != '#') {
+		Logging::file_bug(fpArea, "Load_area: # not found.", 0);
+		exit(1);
+	}
+
+	String word = fread_word(fpArea);
+
+	if (word != "AREA") {
+		Logging::file_bug(fpArea, "Load_area: AREA section not seen yet", 0);
+		exit(1);
+	}
+
+	load_header(fpArea);
+}
+
+void Area::
+load() {
 	for (; ;) {
 		if (fread_letter(fpArea) != '#') {
 			Logging::file_bug(fpArea, "Load_area: # not found.", 0);
@@ -45,16 +59,6 @@ load() {
 		}
 
 		String word = fread_word(fpArea);
-
-		if (name.empty()) {
-			if (word != "AREA") {
-				Logging::file_bug(fpArea, "Load_area: AREA section not seen yet", 0);
-				exit(1);
-			}
-
-			load_header(fpArea);
-			continue;
-		}
 
 		if (word[0] == '$')  break;
 		else if (word == "REGION")   load_region(fpArea);
@@ -114,13 +118,14 @@ load_header(FILE *fp) {
 	}
 
 	// test for overlapping vnum ranges with already-loaded areas
-	for (const auto area : Game::world().areas) {
-		if (area == this)
-			continue;
+	for (const auto& pair : Game::world().areas) {
+		const auto& range = pair.first;
 
-		if ((min_vnum >= area->min_vnum && min_vnum <= area->max_vnum)
-		 || (max_vnum >= area->min_vnum && max_vnum <= area->max_vnum)) {
-			Logging::file_bug(fp, Format::format("Load_area: vnum range overlaps with area file '%s'", area->file_name), 0);
+		if ((min_vnum >= range.min && min_vnum <= range.max) // if our start is within their range
+		 || (max_vnum >= range.min && max_vnum <= range.max) // or our end is within their range
+		 || (range.min >= min_vnum && range.min <= max_vnum) // or their start is within our range
+		 || (range.max >= min_vnum && range.max <= max_vnum)) { // or their end is within our range
+			Logging::file_bug(fp, Format::format("Load_area: vnum range overlaps with area file '%s'", pair.second->file_name), 0);
 			exit(1);
 		}
 	}

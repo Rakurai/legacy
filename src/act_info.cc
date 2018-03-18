@@ -2197,8 +2197,8 @@ void exits_in(Character *ch)
 	if (ch->in_room == nullptr)
 		return;
 
-	for (const auto area : Game::world().areas) {
-		for (const auto& pair : area->rooms) {
+	for (const auto& area_pair : Game::world().areas) {
+		for (const auto& pair : area_pair.second->rooms) {
 			const Room *room = pair.second;
 
 			for (int i = 0; i < 6; i++) { /* Every exit in the current room */

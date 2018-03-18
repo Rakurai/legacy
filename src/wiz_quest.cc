@@ -276,8 +276,8 @@ Room *get_scatter_room(Character *ch)
 	while (pass <= 2) {
 		int count = 0;
 
-		for (auto area : Game::world().areas) {
-			for (auto& entry : area->rooms) {
+		for (auto& area_pair : Game::world().areas) {
+			for (auto& entry : area_pair.second->rooms) {
 
 				Room *room = entry.second;
 

@@ -1004,8 +1004,8 @@ void obj_update(void)
 
 /* Update all rooms -- Montrey */
 void room_update(void) {
-	for (auto area : Game::world().areas) {
-		for (auto& pair : area->rooms) {
+	for (auto& area_pair : Game::world().areas) {
+		for (auto& pair : area_pair.second->rooms) {
 			Room *room = pair.second;
 
 			// print the affects that are wearing off.  this is complicated because
