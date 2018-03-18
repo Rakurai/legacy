@@ -52,6 +52,8 @@
 #include "String.hh"
 #include "World.hh"
 #include "find.hh"
+#include "Game.hh"
+#include "progs/Operator.hh"
 
 bool MOBtrigger;
 
@@ -59,12 +61,6 @@ bool MOBtrigger;
  * Local function prototypes
  */
 
-char *mprog_next_command  args((char *clist));
-int     mprog_seval             args((const String& lhs, const String& opr, const String& rhs));
-int     mprog_veval             args((int lhs, const String& opr, int rhs));
-int     mprog_do_ifchck         args((const String& ifchck, Character *mob,
-                                      Character *actor, Object *obj,
-                                      void *vo, Character *rndm));
 String  mprog_translate         args((char ch, Character *mob,
                                       Character *actor, Object *obj,
                                       void *vo, Character *rndm));
@@ -79,95 +75,482 @@ void    mprog_driver            args((const MobProg *mprg, Character *mob,
  * Local function code and brief comments.
  */
 
-/* Used to get sequential lines of a multi line string (separated by "\n")
- * Thus its like one_argument(), but a trifle different. It is destructive
- * to the multi line string argument, and thus clist must not be shared.
- */
-char *mprog_next_command(char *clist)
-{
-	char *pointer = clist;
-
-	while (*pointer != '\n' && *pointer != '\0')
-		pointer++;
-
-	if (*pointer == '\n')
-		*pointer++ = '\0';
-
-	return (pointer);
-}
-
-/* These two functions do the basic evaluation of ifcheck operators.
- *  It is important to note that the string operations are not what
- *  you probably expect.  Equality is exact and division is substring.
- *  remember that lhs has been stripped of leading space, but can
- *  still have trailing spaces so be careful when editing since:
- *  "guard" and "guard " are not equal.
- */
-int mprog_seval(const String& lhs, const char *opr, const char *rhs)
-{
-	if (!strcmp(opr, "=="))
-		return (bool)(!strcmp(lhs, rhs)) ? 1 : 0;
-
-	if (!strcmp(opr, "!="))
-		return (bool)(strcmp(lhs, rhs)) ? 1 : 0;
-
-	if (!strcmp(opr, "/"))
-		return lhs.has_infix(rhs) ? 1 : 0;
-
-	if (!strcmp(opr, "!/"))
-		return !lhs.has_infix(rhs) ? 1 : 0;
-
-	Logging::bug("Improper MOBprog operator\n", 0);
-	return -1;
-}
-
-int mprog_veval(int lhs, const char *opr, int rhs)
-{
-	if (!strcmp(opr, "=="))
-		return (lhs == rhs) ? 1 : 0;
-
-	if (!strcmp(opr, "!="))
-		return (lhs != rhs) ? 1 : 0;
-
-	if (!strcmp(opr, ">"))
-		return (lhs > rhs) ? 1 : 0;
-
-	if (!strcmp(opr, "<"))
-		return (lhs < rhs) ? 1 : 0;
-
-	if (!strcmp(opr, "<="))
-		return (lhs <= rhs) ? 1 : 0;
-
-	if (!strcmp(opr, ">="))
-		return (lhs >= rhs) ? 1 : 0;
-
-	if (!strcmp(opr, "&"))
-		return (lhs & rhs) ? 1 : 0;
-
-	if (!strcmp(opr, "|"))
-		return (lhs | rhs) ? 1 : 0;
-
-	Logging::bug("Improper MOBprog operator\n", 0);
-	return -1;
-}
-
 // tired of all this duplicate code
-Character *get_char_target(const String& fn, const String& var, Character *mob, Character *actor, Character *vict, Character *rndm) {
-	if (var.length() < 2) {
-		Logging::bugf("Mob: bad target '%s' for %s, vnum %d", var, fn, mob->pIndexData->vnum);
-		return nullptr;
+Character *get_char_target(const String& var, Character *mob, Character *actor, Character *vict, Character *rndm) {
+	if (var.length() == 2) {
+		switch (var[1]) {/* arg should be "$*" so just get the letter */
+			case 'i': return mob;
+			case 'b': return mob->master;
+			case 'n': return actor;
+			case 't': return vict;
+			case 'r': return rndm;
+		}
 	}
 
-	switch (var[1]) {/* arg should be "$*" so just get the letter */
-		case 'i': return mob;
-		case 'b': return mob->master;
-		case 'n': return actor;
-		case 't': return vict;
-		case 'r': return rndm;
+	throw Format::format("progs::get_char_target: bad target '%s'", var);
+}
+
+Object *get_obj_target(const String& var, Object *obj, Object *v_obj) {
+	if (var.length() == 2) {
+		switch (var[1]) {/* arg should be "$*" so just get the letter */
+			case 'o': return obj;
+			case 'p': return v_obj;
+		}
 	}
 
-	Logging::bugf("Mob: bad target '%s' for %s, vnum %d", var, fn, mob->pIndexData->vnum);
-	return nullptr;
+	throw Format::format("progs::get_obj_target: bad target '%s'", var);
+}
+
+const String dereference_variable(const String& var, Character *mob, Character *actor, Object *obj, void *vo, Character *rndm) {
+	// get the target
+	String target_name, member_name;
+	member_name = var.lsplit(target_name, ".").strip();
+	target_name = target_name.rstrip();
+
+	if (member_name.empty())
+		member_name = "name";
+
+	// try it as a character
+	try {
+		Character *target = get_char_target(target_name, mob, actor, (Character*)vo, rndm);
+
+		if (target == nullptr)
+			throw Format::format("progs::dereference_variable: variable '%s' is null", target_name);
+
+		if (member_name == "name") return target->name;
+
+		throw Format::format("progs::dereference_variable: unknown variable member '%s'", member_name);
+	}
+	catch (String e) {
+		throw;
+	}
+
+	// try it as an obj
+	try {
+		Object *target = get_obj_target(target_name, obj, (Object*)vo);
+
+		if (target == nullptr)
+			throw Format::format("progs::dereference_variable: variable '%s' is null", target_name);
+
+		if (member_name == "name") return target->short_descr;
+
+		throw Format::format("progs::dereference_variable: unknown variable member '%s'", member_name);
+	}
+	catch (String e) {
+		throw;
+	}
+}
+
+const String parse_variable(String& str) {
+	// split on whitespace or on snuggled operator
+	if (str.length() < 2 || str[0] != '$')
+		throw Format::format("progs::parse_variable: unable to parse variable from '%s'", str);
+
+	String var = str.substr(0, 2);
+	str.erase(0, 2);
+
+	// accesses a member?
+	if (str[0] == '.') {
+		if (str.length() < 2)
+			throw Format::format("progs::parse_variable: unable to parse variable member from '%s'", str);
+
+		var += '.';
+		str.erase(0, 1);
+
+		while(true) {
+			if (str.length() == 0)
+				break;
+
+			if (!isalpha(str[0])
+			 && !isdigit(str[0])
+			 && str[0] != '_')
+				break;
+
+			var += str[0];
+			str.erase(0, 1);
+		}
+	}
+
+	return var;
+}
+
+const String compute_function(const String& fn, String args, Character *mob, Character *actor, Object *obj, void *vo, Character *rndm) {
+	Character *vict = (Character *)vo;
+	Object *v_obj = (Object *)vo;
+
+	if (!strcmp(fn, "rand"))
+		return (number_percent() <= atoi(args)) ? "1" : "0";
+
+	if (!strcmp(fn, "mudtime"))
+		return Format::format("%d", Game::world().time.hour);
+
+	if (!strcmp(fn, "get_state")) {
+		String arg1, arg2;
+		arg2 = String(args).lsplit(arg1, ",");
+
+		if (arg1.empty() || arg2.empty())
+			throw Format::format("progs::compute_function: bad argument '%s' to '%s'", args, fn);
+
+		Character *target;
+		if ((target = get_char_target(arg1, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		const auto entry = target->mpstate.find(arg2);
+
+		int state = 0;
+
+		if (entry != target->mpstate.cend())
+			state = entry->second;
+
+		return Format::format("%d", state);
+	}
+
+	if (!strcmp(fn, "iscarrying")) {
+		String arg1, arg2;
+		arg2 = String(args).lsplit(arg1, ",");
+
+		if (arg1.empty() || arg2.empty())
+			throw Format::format("progs::compute_function: bad argument '%s' to '%s'", args, fn);
+
+		Character *target;
+		if ((target = get_char_target(arg1, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return (get_obj_carry(target, arg2) == nullptr) ? "0" : "1";
+	}
+
+	if (!strcmp(fn, "iswearing")) {
+		String arg1, arg2;
+		arg2 = String(args).lsplit(arg1, ",");
+
+		if (arg1.empty() || arg2.empty())
+			throw Format::format("progs::compute_function: bad argument '%s' to '%s'", args, fn);
+
+		Character *target;
+		if ((target = get_char_target(arg1, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return (get_obj_wear(target, arg2) == nullptr) ? "0" : "1";
+	}
+
+	if (!strcmp(fn, "ispc")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return !target->is_npc() ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isnpc")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return target->is_npc() ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isgood")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return IS_GOOD(target) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isevil")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return IS_EVIL(target) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isneutral")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return IS_NEUTRAL(target) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isfight")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return target->fighting ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isimmort")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return IS_IMMORTAL(target) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "iskiller")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return IS_KILLER(target) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isthief")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return IS_THIEF(target) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "ischarmed")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return affect::exists_on_char(target, affect::type::charm_person) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isfollow")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return (target->master && target->master->in_room == target->in_room) ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "ismaster")) { /* is $ their master? */
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return mob->master == target ? "1" : "0";
+	}
+
+	if (!strcmp(fn, "isleader")) { /* is $ their leader? */
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return mob->leader == target ? "1" : "0";
+	}
+	if (!strcmp(fn, "hitprcnt")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->hit / GET_MAX_HIT(target));
+	}
+
+	if (!strcmp(fn, "inroom")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return target->in_room->location.to_string();
+	}
+
+	if (!strcmp(fn, "sex")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", GET_ATTR_SEX(target));
+	}
+
+	if (!strcmp(fn, "position")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->position);
+	}
+
+	if (!strcmp(fn, "level")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->level);
+	}
+
+	if (!strcmp(fn, "class")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->guild);
+	}
+
+	if (!strcmp(fn, "goldamt")) {
+		Character *target;
+		if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->gold);
+	}
+
+	if (!strcmp(fn, "objtype")) {
+		Object *target;
+		if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->item_type);
+	}
+
+	if (!strcmp(fn, "objval0")) {
+		Object *target;
+		if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->value[0]);
+	}
+
+	if (!strcmp(fn, "objval1")) {
+		Object *target;
+		if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->value[1]);
+	}
+
+	if (!strcmp(fn, "objval2")) {
+		Object *target;
+		if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->value[2]);
+	}
+
+	if (!strcmp(fn, "objval3")) {
+		Object *target;
+		if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->value[3]);
+	}
+
+	if (!strcmp(fn, "objval4")) {
+		Object *target;
+		if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+			throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+		return Format::format("%d", target->value[4]);
+	}
+
+	if (!strcmp(fn, "number")) {
+		// try it as a character
+		try {
+			Character *target;
+			if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+				throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+			return Format::format("%d", target->pIndexData->vnum);
+		}
+		// try it as an obj
+		catch (String e) {
+			Object *target;
+			if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+				throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+			return Format::format("%d", target->pIndexData->vnum);
+		}
+	}
+
+	if (!strcmp(fn, "name")) {
+		// try it as a character
+		try {
+			Character *target;
+			if ((target = get_char_target(args, mob, actor, vict, rndm)) == nullptr)
+				throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+			return target->name;
+		}
+		// try it as an obj
+		catch (String e) {
+			Object *target;
+			if ((target = get_obj_target(args, obj, v_obj)) == nullptr)
+				throw Format::format("progs::compute_function: null target '%s' to '%s'", args, fn);
+
+			return target->name;
+		}
+	}
+
+	throw Format::format("progs::compute_function: unknown function name '%s'", fn);
+}
+
+const String parse_function(String& str, String& args) {
+	/* get whatever comes before the left paren.. ignore spaces */
+	String fn, buf;
+	String remainder = str.lsplit(fn, "(").lstrip();
+	fn = fn.rstrip();
+
+	if (fn.empty() || remainder.empty())
+		throw Format::format("progs::parse_function: unable to find function name in '%s'", str);
+
+	/* get whatever is in between the parens.. ignore spaces */
+	remainder = remainder.lsplit(buf, ")").strip();
+	buf = buf.strip();
+
+	if (buf.empty())
+		throw Format::format("progs::parse_function: unable to find arguments in '%s'", str);
+
+	str.assign(remainder.lstrip());
+	args.assign(buf);
+	return fn;
+}
+
+// take an operand from a string, dereference or compute the function, return the result
+const String parse_operand(String& str, Character *mob, Character *actor, Object *obj, void *vo, Character *rndm) {
+	str.assign(str.lstrip());
+
+	// if this is just a variable, dereference and return
+	if (str[0] == '$') {
+		String var = parse_variable(str);
+		return dereference_variable(var, mob, actor, obj, vo, rndm);
+	}
+
+	// otherwise interpret as a function(args)
+	String args;
+	String fn = parse_function(str, args);
+	return compute_function(fn, args, mob, actor, obj, vo, rndm);
+}
+
+// take an operator from the string, be careful of snuggling with rhs operand
+const Operator parse_operator(String& str) {
+	str.assign(str.lstrip());
+
+	if (str.empty())
+		throw Format::format("progs::parse_operator: empty string to parse");
+
+	int take_chars = 0;
+
+	if (str.has_prefix("==")
+	 || str.has_prefix("!=")
+	 || str.has_prefix("!/")
+	 || str.has_prefix("<=")
+	 || str.has_prefix(">="))
+	 	take_chars = 2;
+	else if (
+		str[0] == '/'
+	 || str[0] == '>'
+	 || str[0] == '<'
+	 || str[0] == '&'
+	 || str[0] == '|')
+		take_chars = 1;
+
+	if (take_chars == 0)
+		throw Format::format("progs::parse_operator: no valid operator found in '%s'", str);
+
+	Operator opr = str_to_operator(str.substr(0, take_chars));
+
+	if (opr == Operator::error)
+		throw Format::format("progs::parse_operator: no valid operator found in '%s'", str);
+
+	str.erase(0, take_chars);
+	return opr;
 }
 
 /* This function performs the evaluation of the if checks.  It is
@@ -180,587 +563,39 @@ Character *get_char_target(const String& fn, const String& var, Character *mob, 
  * to reduce the redundancy of the mammoth if statement list.
  * If there are errors, then return -1 otherwise return boolean 1,0
  */
-int  mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
+bool evaluate_expression(String expression, Character *mob, Character *actor,
                      Object *obj, void *vo, Character *rndm)
 {
-	char buf[ MAX_INPUT_LENGTH ];
-	char arg[ MAX_INPUT_LENGTH ];
-	char opr[ MAX_INPUT_LENGTH ];
-	char val[ MAX_INPUT_LENGTH ];
-	Character *vict = (Character *) vo;
-	Object *v_obj = (Object *) vo;
-	char     *bufpt = buf;
-	char     *argpt = arg;
-	char     *oprpt = opr;
-	char     *valpt = val;
-	const char     *point = ifchck;
-	int       lhsvl;
-	int       rhsvl;
+	// get rid of unneeded spaces
+	expression = expression.strip();
 
-	if (*point == '\0') {
-		Logging::bugf("Mob: %d null ifchck", mob->pIndexData->vnum);
-		return -1;
+	if (expression.empty())
+		throw Format::format("progs::evaluate_expression: empty expression");
+
+	bool invert = false;
+
+	if (expression[0] == '!') {
+		invert = true;
+		expression.erase(0, 1);
 	}
 
-	/* skip leading spaces */
-	while (*point == ' ')
-		point++;
+	const String lhs = parse_operand(expression, mob, actor, obj, vo, rndm);
 
-	// ! does not apply to veval and seval!!
-	int true_ret = 1;
-	int false_ret = 0;
+	// defaults, in case there is no operator and rhs
+	Operator opr = Operator::is_equal_to;
+	String rhs = invert ? "0" : "1";
 
-	if (*point == '!') {
-		true_ret = 0;
-		false_ret = 1;
-		point++;
+	if (!expression.empty()) {
+		if (invert)
+			throw Format::format("progs::evaluate_expression: unary '!' encountered in binary expression");
+
+		opr = parse_operator(expression);
+		rhs = parse_operand(expression, mob, actor, obj, vo, rndm);
 	}
 
-	/* get whatever comes before the left paren.. ignore spaces */
-	while (*point != '(')
-		if (*point == '\0') {
-			Logging::bugf("Mob: %d ifchck syntax error", mob->pIndexData->vnum);
-			return -1;
-		}
-		else if (*point == ' ')
-			point++;
-		else
-			*bufpt++ = *point++;
-
-	*bufpt = '\0';
-	point++;
-
-	/* get whatever is in between the parens.. ignore spaces */
-	while (*point != ')')
-		if (*point == '\0') {
-			Logging::bugf("Mob: %d ifchck syntax error", mob->pIndexData->vnum);
-			return -1;
-		}
-		else if (*point == ' ')
-			point++;
-		else
-			*argpt++ = *point++;
-
-	*argpt = '\0';
-	point++;
-
-	/* check to see if there is an operator */
-	while (*point == ' ')
-		point++;
-
-	if (*point == '\0') {
-		*opr = '\0';
-		*val = '\0';
-	}
-	else { /* there should be an operator and value, so get them */
-		while ((*point != ' ') && (!isalnum(*point)))
-			if (*point == '\0') {
-				Logging::bugf("Mob: %d ifchck operator without value",
-				    mob->pIndexData->vnum);
-				return -1;
-			}
-			else
-				*oprpt++ = *point++;
-
-		*oprpt = '\0';
-
-		/* finished with operator, skip spaces and then get the value */
-		while (*point == ' ')
-			point++;
-
-		for (; ;) {
-			if ((*point != ' ') && (*point == '\0'))
-				break;
-			else
-				*valpt++ = *point++;
-		}
-
-		*valpt = '\0';
-	}
-
-	bufpt = buf;
-	argpt = arg;
-	oprpt = opr;
-	valpt = val;
-
-	/* Ok... now buf contains the ifchck, arg contains the inside of the
-	 *  parentheses, opr contains an operator if one is present, and val
-	 *  has the value if an operator was present.
-	 *  So.. basically use if statements and run over all known ifchecks
-	 *  Once inside, use the argument and expand the lhs. Then if need be
-	 *  send the lhs,opr,rhs off to be evaluated.
-	 */
-
-	if (!strcmp(buf, "rand"))
-		return (number_percent() <= atoi(arg)) ? true_ret : false_ret;
-
-	if (!strcmp(buf, "mudtime")) {
-		lhsvl = mob->in_room->area().world.time.hour;
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "get_state")) {
-		String arg1, arg2;
-		arg2 = String(arg).lsplit(arg1, ",");
-
-		if (arg1.empty() || arg2.empty()) {
-			Logging::bugf("Mob: %d bad argument to 'get_state'", mob->pIndexData->vnum);
-			return -1;
-		}		
-
-		Character *target;
-		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		const auto entry = target->mpstate.find(arg2);
-
-		int state = 0;
-
-		if (entry != target->mpstate.cend())
-			state = entry->second;
-
-		return mprog_veval(state, opr, atoi(val));
-	}
-
-	if (!strcmp(buf, "iscarrying")) {
-		String arg1, arg2;
-		arg2 = String(arg).lsplit(arg1, ",");
-
-		if (arg1.empty() || arg2.empty()) {
-			Logging::bugf("Mob: %d bad arguments to 'iscarrying'", mob->pIndexData->vnum);
-			return -1;
-		}
-
-		Character *target;
-		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return (get_obj_carry(target, arg2) == nullptr) ? false_ret : true_ret;
-	}
-
-	if (!strcmp(buf, "iswearing")) {
-		String arg1, arg2;
-		arg2 = String(arg).lsplit(arg1, ",");
-
-		if (arg1.empty() || arg2.empty()) {
-			Logging::bugf("Mob: %d bad arguments to 'iswearing'", mob->pIndexData->vnum);
-			return -1;
-		}
-
-		Character *target;
-		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return (get_obj_wear(target, arg2) == nullptr) ? false_ret : true_ret;
-	}
-
-	if (!strcmp(buf, "ispc")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return !target->is_npc() ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isnpc")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return target->is_npc() ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isgood")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return IS_GOOD(target) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isevil")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return IS_EVIL(target) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isneutral")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return IS_NEUTRAL(target) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isfight")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return target->fighting ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isimmort")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return IS_IMMORTAL(target) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "iskiller")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return IS_KILLER(target) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isthief")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return IS_THIEF(target) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "ischarmed")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return affect::exists_on_char(target, affect::type::charm_person) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isfollow")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return (target->master && target->master->in_room == target->in_room) ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "ismaster")) { /* is $ their master? */
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return mob->master == target ? true_ret : false_ret;
-	}
-
-	if (!strcmp(buf, "isleader")) { /* is $ their leader? */
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return mob->leader == target ? true_ret : false_ret;
-	}
-#if 0 // TODO: removed affect bits, replace this with looking up sn, but have to do word parsing
-	if (!strcmp(buf, "isaffected")) {
-		skill::type sn = skill::lookup(arg);
-
-		if (sn <= 0) {
-			Logging::bugf("Mob: %d bad skill type '%s' to 'isaffected'", mob->pIndexData->vnum, arg);
-		}
-
-		Character *target;
-		if ((target = get_char_target(buf, arg1, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		return affect_flag_on_char(target, atoi(arg)) ? true_ret : false_ret;
-	}
-#endif // ifdef 0
-	if (!strcmp(buf, "hitprcnt")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = target->hit / GET_MAX_HIT(target);
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "inroom")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = target->in_room->location.to_int();
-		rhsvl = Location(val).to_int();
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "sex")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = GET_ATTR_SEX(target);
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "position")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = target->position;
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "level")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = target->level;
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "class")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = target->guild;
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "goldamt")) {
-		Character *target;
-		if ((target = get_char_target(buf, arg, mob, actor, vict, rndm)) == nullptr)
-			return -1;
-
-		lhsvl = target->gold;
-		rhsvl = atoi(val);
-		return mprog_veval(lhsvl, opr, rhsvl);
-	}
-
-	if (!strcmp(buf, "objtype")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'o': if (obj) {
-				lhsvl = obj->item_type;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'p': if (v_obj) {
-				lhsvl = v_obj->item_type;
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'objtype'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	if (!strcmp(buf, "objval0")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'o': if (obj) {
-				lhsvl = obj->value[0];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'p': if (v_obj) {
-				lhsvl = v_obj->value[0];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'objval0'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	if (!strcmp(buf, "objval1")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'o': if (obj) {
-				lhsvl = obj->value[1];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'p': if (v_obj) {
-				lhsvl = v_obj->value[1];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'objval1'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	if (!strcmp(buf, "objval2")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'o': if (obj) {
-				lhsvl = obj->value[2];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'p': if (v_obj) {
-				lhsvl = v_obj->value[2];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'objval2'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	if (!strcmp(buf, "objval3")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'o': if (obj) {
-				lhsvl = obj->value[3];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'p': if (v_obj) {
-				lhsvl = v_obj->value[3];
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'objval3'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	if (!strcmp(buf, "number")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': lhsvl = mob->gold;
-			rhsvl = atoi(val);
-			return mprog_veval(lhsvl, opr, rhsvl);
-
-		case 'n': if (actor) {
-				if (actor->is_npc()) {
-					lhsvl = actor->pIndexData->vnum.value();
-					rhsvl = atoi(val);
-					return mprog_veval(lhsvl, opr, rhsvl);
-				}
-			}
-			else
-				return -1;
-
-		case 't': if (vict) {
-				if (actor->is_npc()) {
-					lhsvl = vict->pIndexData->vnum.value();
-					rhsvl = atoi(val);
-					return mprog_veval(lhsvl, opr, rhsvl);
-				}
-			}
-			else
-				return -1;
-
-		case 'r': if (rndm) {
-				if (actor->is_npc()) {
-					lhsvl = rndm->pIndexData->vnum.value();
-					rhsvl = atoi(val);
-					return mprog_veval(lhsvl, opr, rhsvl);
-				}
-			}
-			else return -1;
-
-		case 'o': if (obj) {
-				lhsvl = obj->pIndexData->vnum.value();
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		case 'p': if (v_obj) {
-				lhsvl = v_obj->pIndexData->vnum.value();
-				rhsvl = atoi(val);
-				return mprog_veval(lhsvl, opr, rhsvl);
-			}
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'number'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	if (!strcmp(buf, "name")) {
-		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return mprog_seval(mob->name, opr, val);
-
-		case 'n': if (actor)
-				return mprog_seval(actor->name, opr, val);
-			else
-				return -1;
-
-		case 't': if (vict)
-				return mprog_seval(vict->name, opr, val);
-			else
-				return -1;
-
-		case 'r': if (rndm)
-				return mprog_seval(rndm->name, opr, val);
-			else
-				return -1;
-
-		case 'o': if (obj)
-				return mprog_seval(obj->name, opr, val);
-			else
-				return -1;
-
-		case 'p': if (v_obj)
-				return mprog_seval(v_obj->name, opr, val);
-			else
-				return -1;
-
-		default:
-			Logging::bugf("Mob: %d bad argument to 'name'", mob->pIndexData->vnum);
-			return -1;
-		}
-	}
-
-	/* Ok... all the ifchcks are done, so if we didnt find ours then something
-	 * odd happened.  So report the bug and abort the MOBprogram (return error)
-	 */
-	Logging::bugf("Mob: %d unknown ifchck '%s'", mob->pIndexData->vnum, buf);
-	return -1;
+	return evaluate(lhs, opr, rhs);
 }
+
 /* Quite a long and arduous function, this guy handles the control
  * flow part of MOBprograms.  Basicially once the driver sees an
  * 'if' attention shifts to here.  While many syntax errors are
@@ -801,7 +636,7 @@ void mprog_process(const MobProg *mprg, Character *mob, Character *actor, Object
 			}
 
 			// otherwise push the evaluation
-			switch(mprog_do_ifchck(line.text.c_str(), mob, actor, obj, vo, rndm)) {
+			switch(evaluate_expression(line.text, mob, actor, obj, vo, rndm)) {
 				case 1: stack.push(true); break;
 				case 0: stack.push(false); break;
 				default: return;
@@ -828,7 +663,7 @@ void mprog_process(const MobProg *mprg, Character *mob, Character *actor, Object
 			}
 
 			// otherwise, the false parent is popped, we'll see if it changes
-			switch(mprog_do_ifchck(line.text.c_str(), mob, actor, obj, vo, rndm)) {
+			switch(evaluate_expression(line.text, mob, actor, obj, vo, rndm)) {
 				case 1: stack.push(true); break;
 				case 0: stack.push(false); break;
 				default: return;
@@ -848,7 +683,7 @@ void mprog_process(const MobProg *mprg, Character *mob, Character *actor, Object
 			// otherwise, pop the true parent and we'll see if it changes
 			stack.pop();
 
-			switch(mprog_do_ifchck(line.text.c_str(), mob, actor, obj, vo, rndm)) {
+			switch(evaluate_expression(line.text, mob, actor, obj, vo, rndm)) {
 				case 1: stack.push(true); break;
 				case 0: stack.push(false); break;
 				default: return;
@@ -1243,7 +1078,13 @@ void mprog_driver(const MobProg *mprg, Character *mob, Character *actor,
 		}
 	}
 
-	mprog_process(mprg, mob, actor, obj, vo, rndm);
+	try {
+		mprog_process(mprg, mob, actor, obj, vo, rndm);
+	}
+	catch (String e) {
+		Logging::bugf("Exception caught in mobprog on mob %d:", mob->pIndexData->vnum);
+		Logging::bugf(e);
+	}
 } /* end mprog_driver() */
 
 /***************************************************************************

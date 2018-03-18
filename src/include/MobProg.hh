@@ -99,9 +99,6 @@ extern bool    MOBtrigger;
 void    mprog_wordlist_check   ( const String& arg, Character *mob,
 										Character* actor, Object* object,
 										void* vo, MobProg::Type type );
-bool    mprog_percent_check    ( Character *mob, Character* actor,
-										Object* object, void* vo,
-										MobProg::Type type );
 void    mprog_act_trigger      ( const char* buf, Character* mob,
 										Character* ch, Object* obj,
 										void* vo );
