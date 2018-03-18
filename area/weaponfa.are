@@ -2,10 +2,10 @@
 Weaponfa.are~
 ACME Weapon factory~
 {H{{60 80} {MElrac&Sharra {TACME Weapon Factory~
-7330 7390
+24750 24799
 
 #MOBILES
-#7330
+#24750
 worker~
 A weapon factory worker~
 A weapon factory worker rushes by you.
@@ -20,7 +20,7 @@ BGH Haa -800 S
 EFKU ABL M J
 stand stand male 800
 0 0 medium 0
-#7331
+#24751
 weaponsmith~
 A very strong looking weaponsmith~
 A very strong looking weaponsmith stands here, sweating heavily while working.
@@ -35,7 +35,7 @@ BCGT Haa -900 S
 EFJKU ABQ HI J
 stand stand male 1100
 0 0 large 0
-#7332
+#24752
 Security guard~
 The security guard~
 A security guard is here, ready to fight intruders.
@@ -50,7 +50,7 @@ FGZ QTVbb -900 S
 BCEFIKR ABL X C
 stand stand male 300
 0 0 medium 0
-#7333
+#24753
 Employee young man~
 A young man~
 A young man walks by. He is an employee of the factory.
@@ -65,7 +65,7 @@ GH H -400 S
 CFHJK ABK T Y
 stand stand male 1650
 0 0 medium 0
-#7334
+#24754
 Employee young woman~
 A young woman~
 A young woman sits behind a desk. She is an employee of the factory.
@@ -81,7 +81,7 @@ BGH HTaa 0 S
 CFHKN AB P K
 sit sit female 1800
 0 0 medium 0
-#7335
+#24755
 chief engineer man~
 The chief engineer~
 The chief engineer stands behind a very large desk.
@@ -97,7 +97,7 @@ BZ HNbbcc 800 S
 CEFKN ABQ I H
 stand stand male 3500
 0 0 medium 0
-#7336
+#24756
 manager man~
 The manager of the factory~
 The manager of the weapon factory sits here in a large chair.
@@ -112,7 +112,7 @@ BCHS HOaabb -1000 S
 EFJK L H I
 sit sit male 4360
 0 0 large 0
-#7337
+#24757
 secretary~
 The BOSS' secretary~
 The BOSS' secretary sits here at a large desk.
@@ -129,7 +129,7 @@ BHZ HTaabb -800 S
 CFJK AB E M
 sit sit female 2400
 0 0 medium 0
-#7338
+#24758
 boss~
 THE BOSS of the factory~
 THE BOSS of the factory,
@@ -146,7 +146,7 @@ FGHS DFaabb -1000 S
 CDEFIK ABJ P I
 stand stand male 5680
 0 0 large 0
-#7339
+#24759
 wannabe successor~
 The wannabe successor of THE BOSS~
 
@@ -167,7 +167,7 @@ stand stand male 4000
 #0
 
 #OBJECTS
-#7330
+#24750
 heavy leather belt~
 a heavy leather belt~
 A heavy leather belt lies on the ground.~
@@ -194,7 +194,7 @@ A
 19 1
 A
 24 -3
-#7331
+#24751
 pair golden sandals~
 a pair of golden sandals~
 A pair of golden sandals lies here.~
@@ -221,7 +221,7 @@ A
 19 1
 A
 24 -4
-#7332
+#24752
 silver ring~
 a silver ring with a big ruby~
 A silver ring with a big ruby is lying here.~
@@ -246,7 +246,7 @@ A
 18 2
 A
 19 2
-#7333
+#24753
 pin striped trousers~
 a pair of pin striped trousers~
 A pair of pin striped trousers lies here.~
@@ -269,7 +269,7 @@ A
 18 2
 A
 19 2
-#7334
+#24754
 dark black robe~
 a dark black robe~
 A dark black robe lies on the ground.~
@@ -288,7 +288,7 @@ A
 18 2
 A
 19 2
-#7335
+#24755
 white coat~
 a white coat with a small green crocodile~
 A white coat with a small green crocodile is lying here.~
@@ -307,7 +307,7 @@ A
 4 -2
 A
 12 60
-#7336
+#24756
 white sleeves~
 some white sleeves~
 A pair of white sleeves lies here.~
@@ -326,7 +326,7 @@ A
 26 1
 A
 12 20
-#7337
+#24757
 big hat~
 a BIG hat~
 A BIG hat lies here.~
@@ -345,7 +345,7 @@ A
 3 -2
 A
 13 40
-#7338
+#24758
 black gloves~
 a pair of black gloves~
 A pair of black gloves lie here.~
@@ -362,7 +362,7 @@ A
 18 3
 A
 19 3
-#7339
+#24759
 heavy axe~
 a heavy axe~
 A heavy axe is lying here.~
@@ -379,7 +379,7 @@ A
 18 4
 A
 19 4
-#7340
+#24760
 long golden spear~
 a long golden spear~
 A long golden spear is lying here.~
@@ -396,7 +396,7 @@ A
 18 4
 A
 19 4
-#7341
+#24761
 small silver dagger~
 a small silver dagger~
 A small silver dagger is lying here.~
@@ -413,7 +413,7 @@ A
 18 5
 A
 19 5
-#7342
+#24762
 golden fountain pen~
 a golden fountain pen~
 A golden fountain pen is lying here.~
@@ -430,7 +430,7 @@ A
 18 2
 A
 19 2
-#7343
+#24763
 siege halberd~
 a siege halberd~
 A sharp, fearsome siege halberd gleams wickedly at your feet.~
@@ -448,7 +448,7 @@ A
 18 5
 A
 19 5
-#7344
+#24764
 whip battlewhip~
 a battle whip~
 A vicious looking battlewhip lies coiled on the ground before you.~
@@ -465,7 +465,7 @@ A
 18 5
 A
 19 5
-#7345
+#24765
 black steel sword~
 a black steel sword~
 A black steel sword is lying here.~
@@ -482,7 +482,7 @@ A
 18 3
 A
 19 3
-#7346
+#24766
 old slide rule~
 an old fashioned slide rule~
 An old fashioned slide rule made of heavy wooden bars is lying here.~
@@ -501,7 +501,7 @@ A
 18 6
 A
 19 6
-#7347
+#24767
 diamond letter opener~
 a diamond letter opener~
 A diamond letter opener is lying here.~
@@ -518,7 +518,7 @@ A
 18 5
 A
 19 5
-#7348
+#24768
 power drill~
 a power drill~
 A power drill is lying here.~
@@ -540,7 +540,7 @@ A
 19 6
 A
 24 -5
-#7360
+#24780
 cup coffee~
 a cup of coffee~
 A cup of coffee is cooling down here.~
@@ -553,7 +553,7 @@ cup coffee~
 This is a simple coffee cup. Though chipped and stained in a few places, it
 will hold enough coffee for a night shift.
 ~
-#7349
+#24769
 bar ivory~
 a bar of {Wivory{x~
 A bar of {Wivory{x has been left here.~
@@ -561,7 +561,7 @@ ivory~
 material 0 AO
 0 -1 3 0 0
 60 6 1000 P
-#7350
+#24770
 bar steel~
 a bar of {cs{gt{ce{ge{cl{x~
 A bar of {cs{gt{ce{ge{cl{x has been left here.~
@@ -569,7 +569,7 @@ steel~
 material 0 AO
 -5 1 1 0 0
 50 6 1000 P
-#7351
+#24771
 bar iron~
 a bar of {ciron{x~
 A bar of {ciron{x has been left here.~
@@ -577,7 +577,7 @@ iron~
 material 0 AO
 -5 1 1 0 0
 50 6 1000 P
-#7352
+#24772
 bar tin~
 a bar of {Wt{gi{Wn{x~
 A bar of {Wt{gi{Wn{x has been left here.~
@@ -585,7 +585,7 @@ tin~
 material 0 AO
 -2 2 -1 0 0
 50 6 1000 P
-#7353
+#24773
 bar bronze~
 a bar of {bbronze{x~
 A bar of {bbronze{x has been left here.~
@@ -593,7 +593,7 @@ bronze~
 material 0 AO
 -3 -1 2 0 0
 50 6 1000 P
-#7354
+#24774
 bar diamond~
 a bar of {Wd{gi{Wa{gm{Wo{gn{Wd{x~
 A bar of {Wd{gi{Wa{gm{Wo{gn{Wd{x has been left here.~
@@ -601,7 +601,7 @@ diamond~
 material F AO
 -20 -1 3 0 0
 70 6 1000 P
-#7355
+#24775
 bar platinum~
 a bar of platinum~
 A bar of platinum has been left here.~
@@ -612,7 +612,7 @@ material 0 AO
 #0
 
 #ROOMS
-#7330
+#24750
 Road to the ACME WEAPON FACTORY~
 This is a wide, well-travelled road. Heavily loaded vehicles pass you heading
 east and west. The ones going west are heavily laden with raw materials while
@@ -631,14 +631,14 @@ D3
 To the west you see the end of the road.
 ~
 ~
-0 -1 7331
+0 -1 24751
 E
 sign~
 The sign reads: This is the way to the ACME WEAPON FACTORY.
 Only experienced adventurers should dare to explore it.
 ~
 S
-#7331
+#24751
 Before the ACME WEAPON FACTORY~
 The road ends here. To the north is a huge iron gate, obviously the gate of
 a factory. Behind it you can make out the roof of a large building.
@@ -649,19 +649,19 @@ D0
 There is a great iron factory gate to the north.
 ~
 gate~
-1 -1 7332
+1 -1 24752
 D1
 To the east you see a wide, well-travelled road.
 ~
 ~
-0 -1 7330
+0 -1 24750
 E
 building~
 You can only make out its roof. It is very large and you guess that it must
 be a factory.
 ~
 S
-#7332
+#24752
 Entrance to the ACME WEAPON FACTORY~
 You are standing in the entrance yard of the ACME WEAPON FACTORY.
 Litter covers the ground. Among all the rubbish you see some materials,
@@ -675,23 +675,23 @@ To the north you can make out the Work Hall.
 ~
 
 ~
-0 -1 7333
+0 -1 24753
 D2
 To the south is a great iron factory gate.
 ~
 ~
-1 -1 7331
+1 -1 24751
 D4
 Looking upward you see the door to the administration complex.
 ~
 ~
-1 -1 7341
+1 -1 24761
 E
 stairs~
 The stairs lead upward to the door of the administration complex.
 ~
 S
-#7333
+#24753
 Work Hall~
 This is the south part of a great work hall. Many men are working here,
 forging dangerous-looking weapons of all kinds. The noise in here is nearly
@@ -702,19 +702,19 @@ D0
 To the north, the Work Hall continues.
 ~
 ~
-0 -1 7334
+0 -1 24754
 D2
 To the south lies the entrance to the factory.
 ~
 ~
-0 -1 7332
+0 -1 24752
 D3
 To the west, the Work Hall continues.
 ~
 ~
-0 -1 7339
+0 -1 24759
 S
-#7334
+#24754
 Work Hall~
 This is the center part of a great work hall. Many men are working here,
 forging dangerous-looking weapons of all kinds. The noise in here is nearly
@@ -725,19 +725,19 @@ D0
 To the north, the Work Hall continues.
 ~
 ~
-0 -1 7335
+0 -1 24755
 D2
 To the south, the Work Hall continues.
 ~
 ~
-0 -1 7333
+0 -1 24753
 D3
 To the west, the Work Hall continues.
 ~
 ~
-0 -1 7338
+0 -1 24758
 S
-#7335
+#24755
 Work Hall~
 This is the north part of a great work hall. Many men are working here,
 forging dangerous-looking weapons of all kinds. The noise in here is nearly
@@ -748,19 +748,19 @@ D0
 To your north you see a door marked with the words: NO ENTRY.
 ~
 door~
-1 -1 7336
+1 -1 24756
 D2
 To the south, the Work Hall continues.
 ~
 ~
-0 -1 7334
+0 -1 24754
 D3
 To the west, the Work Hall continues.
 ~
 ~
-0 -1 7337
+0 -1 24757
 S
-#7336
+#24756
 Storage room~
 This is where the raw materials for forging weapons is stored. Many chests of
 different sizes cover the floor. It is quite dark in here and a thin layer
@@ -771,9 +771,9 @@ D2
 The Working Hall lies southward beyond the door.
 ~
 door~
-1 -1 7335
+1 -1 24755
 S
-#7337
+#24757
 Work Hall~
 This is the north part of a great work hall. Many men are working here,
 forging dangerous-looking weapons of all kinds. The noise in here is nearly
@@ -784,14 +784,14 @@ D1
 To the east, the Work Hall continues.
 ~
 ~
-0 -1 7335
+0 -1 24755
 D2
 To the south, the Work Hall continues.
 ~
 ~
-0 -1 7338
+0 -1 24758
 S
-#7338
+#24758
 Work Hall~
 This is the center part of a great work hall. Many men are working here,
 forging dangerous-looking weapons of all kinds. The noise in here is nearly
@@ -802,19 +802,19 @@ D0
 To the north, the Work Hall continues.
 ~
 ~
-0 -1 7337
+0 -1 24757
 D1
 To the east, the Work Hall continues.
 ~
 ~
-0 -1 7334
+0 -1 24754
 D2
 To the south, the Work Hall continues.
 ~
 ~
-0 -1 7339
+0 -1 24759
 S
-#7339
+#24759
 Work Hall~
 This is the south part of a great work hall. Many men are working here,
 forging dangerous-looking weapons of all kinds. The noise in here is nearly
@@ -825,19 +825,19 @@ D0
 To the north, the Work Hall continues.
 ~
 ~
-0 -1 7338
+0 -1 24758
 D1
 To the east, the Work Hall continues.
 ~
 ~
-0 -1 7333
+0 -1 24753
 D2
 To your south you see a door marked with the words: NO ENTRY.
 ~
 door~
-1 -1 7340
+1 -1 24760
 S
-#7340
+#24760
 Storage room~
 This is where the raw materials for forging weapons is stored. Many chests
 of different sizes cover the floor. It is quite dark in here and a thin
@@ -848,9 +848,9 @@ D0
 The Working Hall lies northward beyond the door.
 ~
 door~
-1 -1 7339
+1 -1 24759
 S
-#7341
+#24761
 Corridor~
 This long corridor leads to the Administration Complex. Pictures on the
 walls depict historical weapons. However, this weak attempt at
@@ -862,14 +862,14 @@ D0
 The corridor continues to the north.
 ~
 ~
-0 -1 7342
+0 -1 24762
 D5
 Uneven dark steps lead downward to the entrance of the weapon factory.
 ~
 steps~
-1 -1 7332
+1 -1 24752
 S
-#7342
+#24762
 Corridor~
 You are standing in the corridor of the Administration Complex. A door to
 the east is labelled: CHIEF ENGINEER. The corridor continues to the north
@@ -880,19 +880,19 @@ D0
 The corridor continues to the north.
 ~
 ~
-0 -1 7344
+0 -1 24764
 D1
 There is a door to the east labelled: CHIEF ENGINEER.
 ~
 door~
-1 -1 7343
+1 -1 24763
 D2
 The corridor continues to the south.
 ~
 ~
-0 -1 7341
+0 -1 24761
 S
-#7343
+#24763
 Office of the Chief Engineer~
 Someone obviously works a lot here. A large desk dominates the center of
 the room. It needs to be large, or it would not be visible under the pile
@@ -904,9 +904,9 @@ D3
 A dimly lit corridor may be accessed through a door to the west.
 ~
 door~
-1 -1 7342
+1 -1 24762
 S
-#7344
+#24764
 Corridor~
 You are standing at the end of the corridor. There are doors to the north,
 east and west, labelled with: PERSONNEL DIVISION, SECRETARY and MANAGER,
@@ -917,30 +917,30 @@ D0
 You are stopped short by a marble-sided door labelled: SECRETARY.
 ~
 ~
-1 -1 7347
+1 -1 24767
 D1
 You pause respectfully before a naugahyde-covered door labelled: MANAGER.
 ~
 ~
-1 -1 7345
+1 -1 24765
 D2
 The corridor continues to the south.
 ~
 ~
-0 -1 7342
+0 -1 24762
 D3
 You have second thoughts about entering a wooden door labelled:
 PERSONNEL DIVISION.
 ~
 ~
-1 -1 7346
+1 -1 24766
 E
 door~
 Now you know why they call it a corri-door. There are doors to the
 north, east and west, all bearing impressive and official-looking signs.
 ~
 S
-#7345
+#24765
 Manager's office~
 An impressively spacious room strikes you with unusual tidiness and
 luxurious furnishings intended to impress and coddle visitors. Dwarfing
@@ -954,9 +954,9 @@ D3
 A door to the west invites you... to leave.
 ~
 door~
-1 -1 7344
+1 -1 24764
 S
-#7346
+#24766
 Personnel Division~
 This typical office houses thin, pale-skinned clerks behind cluttered desks
 among walls lined with shelves mostly full of files. Your entrance causes
@@ -968,9 +968,9 @@ D1
 A door to the east leads to the dim quiet of a dusty corridor.
 ~
 door~
-1 -1 7344
+1 -1 24764
 S
-#7347
+#24767
 Secretary's office~
 As you enter the room, you notice the large, empty desk of the Secretary.
 If the presence of the visitor's chairs off to the side is not enough of a
@@ -984,15 +984,15 @@ Sporadic barked commands reach your ears through a door to the north,
 labelled: DO NOT DISTURB.
 ~
 door~
-1 -1 7348
+1 -1 24768
 D2
 Looking at the south door, you feel a sudden urge to leave and return to the
 corridor.
 ~
 ~
-1 -1 7344
+1 -1 24764
 S
-#7348
+#24768
 Office of THE BOSS~
 The amount of pretentious luxury assaulting a visitor here seems strangely
 out of place in a factory. Most of the furniture is dedicated to various
@@ -1008,7 +1008,7 @@ D2
 A door to the south promises to return you to the real world.
 ~
 door~
-1 -1 7347
+1 -1 24767
 E
 shadow~
 When you squint your eyes, you think you see a vague outline of a person's
@@ -1019,102 +1019,102 @@ S
 #0
 
 #RESETS
-M 0 7330 7 7333 2     *Load worker
-G 0 7339 20           *Load heavy axe (workers inventory)
-G 0 7349 1            *Load bar of ivory (workers inventory)
-E 0 7330 25 13        *Load heavy leather belt (workers equipment)
-M 0 7330 7 7333 2     *Load worker
-G 0 7340 20           *Load spear (workers inventory)
-M 0 7330 7 7334 1     *Load worker
-G 0 7339 20           *Load heavy axe (workers inventory)
-G 0 7349 1            *Load bar of ivory (workers inventory
-E 0 7330 25 13        *Load heavy leather belt (workers equipment)
-M 0 7331 5 7334 1     *Load weaponsmith
-E 9 7343 20 16        *Load siege halberd (weaponsmiths equipment)
-M 0 7330 7 7335 1     *Load worker
-G 0 7340 20           *Load spear (workers inventory)
-G 0 7349 1            *Load bar of ivory (workers inventory
-E 0 7330 25 13        *Load heavy leather belt (workers equipment)
-M 0 7331 5 7335 1     *Load weaponsmith
-E 9 7344 20 16        *Load battle whip (weaponsmiths equipment)
-M 0 7332 3 7336 2     *Load security guard
-E 0 7334 20 12        *Load dark black robe (guards equipment)
-E 0 7345 20 16        *Load black steel sword (guards equipment)
-M 0 7332 3 7336 2     *Load security guard
-E 0 7334 20 12        *Load dark black robe (guards equipment)
-E 0 7345 20 16        *Load black steel sword (guards equipment)
-M 0 7330 7 7337 1     *Load worker
-G 0 7339 20           *Load heavy axe (workers inventory)
-G 0 7349 1            *Load bar of ivory (workers inventory
-M 0 7331 5 7338 2     *Load weaponsmith
-M 0 7331 5 7338 2     *Load weaponsmith
-E 9 7344 20 16        *Load battle whip (weaponsmiths equipment)
-M 0 7330 7 7339 1     *Load worker
-G 0 7349 1            *Load bar of ivory (workers inventory
-M 0 7331 5 7339 1     *Load weaponsmith
-E 9 7343 20 16        *Load siege halberd (weaponsmiths equipment)
-M 0 7332 3 7340 1     *Load security guard
-E 0 7334 20 12        *Load dark black robe (guards equipment)
-E 0 7345 20 16        *Load black steel sword (guards equipment)
-M 0 7333 4 7341 1     *Load male employee
-E 0 7335 20 5         *Load white coat (empoyees equipment)
-M 0 7333 4 7342 2     *Load male employee
-M 0 7333 4 7342 2     *Load male employee
-E 0 7335 20 5         *Load white coat (empoyees equipment)
-M 0 7335 1 7343 1     *Load chief engineer
-E 0 7336 20 10        *Load white sleeves (engineers equipment)
-E 0 7346 20 16        *Load old slide rule (engineers equipment)
-M 0 7333 4 7344 1     *Load male employee
-M 0 7336 1 7345 1     *Load manager
-E 0 7333 25 7         *Load trousers (managers equipment)
-G 0 7360 20           *Load cup of coffee (managers inventory)
-E 0 7342 20 16        *Load golden fountain pen (managers equipment)
-M 0 7334 1 7346 1     *Load female employee
-E 0 7332 25 1         *Load silver ring (employees equipment)
-M 0 7337 1 7347 1     *Load secretary
-E 0 7331 25 8         *Load golden sandals (ecretarys equipment)
-E 0 7341 20 16        *Load silver dagger (secretarys equipment)
-M 0 7338 1 7348 1     *Load BOSS
-E 0 7337 20 6         *Load big hat (BOSSs equipment)
-E 0 7347 25 16        *Load diamond letter opener (BOSSs equipment)
-M 0 7339 1 7348 1     *Load wannabe successor
-E 0 7338 20 9         *Load black gloves (successors equipment)
-E 0 7348 25 16        *Load power drill (successors equipment)
-G 0 7355 1            *Load bar of platinum (successors inventory)
-O 0 7350 1 7336       *Load bar of steel (storage room)
-O 0 7350 1 7340       *Load bar of steel (work hall)
-O 0 7351 1 7336       *Load bar of iron (storage room)
-O 0 7351 1 7340       *Load bar of iron (work hall)
-O 0 7352 1 7336       *Load bar of tin (storage room)
-O 0 7352 1 7340       *Load bar of tin (work hall)
-O 0 7353 1 7336       *Load bar of bronze (storage room)
-O 0 7353 1 7340       *Load bar of bronze (work hall)
-O 0 7354 1 7332        *Load bar of diamond (entrance)
-D 0 7331 0 1          *entrance gate (norh of Before the weapon factory), closed
-D 0 7332 2 1          *entrance gate (south of Entrance to the w. f.), closed
-D 0 7335 0 1          *door to storage room (north from working hall), closed
-D 0 7336 2 1          *door out of storage room (south to working hall), closed
-D 0 7339 2 1          *door to storage room (south from working hall), closed
-D 0 7340 0 1          *door out of storage room (north to working hall), closed
-D 0 7332 4 1          *door up from entrance to corridor, closed
-D 0 7341 5 1          *door down from corridor to entrance, closed
-D 0 7342 1 1          *door east from corridor to office of the chief engineer, closed
-D 0 7343 3 1          *door west from office of the chief engineer to corridor, closed
-D 0 7344 0 1          *door north from corridor to secretarys office, closed
-D 0 7347 2 1          *door south from secretarys office to corridor, closed
-D 0 7344 1 1          *door east from corridor to managers office, closed
-D 0 7345 3 1          *door west from managers office to corridor, closed
-D 0 7344 3 1          *door west from corridor to personell division, closed
-D 0 7346 1 1          *door east from personell division to corridor, closed
-D 0 7347 0 1          *door north from secretarys office to office of THE BOSS, closed
-D 0 7348 2 1          *door south from office of THE BOSS to secretarys office, closed
+M 0 24750 7 24753 2     *Load worker
+G 0 24759 20           *Load heavy axe (workers inventory)
+G 0 24769 1            *Load bar of ivory (workers inventory)
+E 0 24750 25 13        *Load heavy leather belt (workers equipment)
+M 0 24750 7 24753 2     *Load worker
+G 0 24760 20           *Load spear (workers inventory)
+M 0 24750 7 24754 1     *Load worker
+G 0 24759 20           *Load heavy axe (workers inventory)
+G 0 24769 1            *Load bar of ivory (workers inventory
+E 0 24750 25 13        *Load heavy leather belt (workers equipment)
+M 0 24751 5 24754 1     *Load weaponsmith
+E 9 24763 20 16        *Load siege halberd (weaponsmiths equipment)
+M 0 24750 7 24755 1     *Load worker
+G 0 24760 20           *Load spear (workers inventory)
+G 0 24769 1            *Load bar of ivory (workers inventory
+E 0 24750 25 13        *Load heavy leather belt (workers equipment)
+M 0 24751 5 24755 1     *Load weaponsmith
+E 9 24764 20 16        *Load battle whip (weaponsmiths equipment)
+M 0 24752 3 24756 2     *Load security guard
+E 0 24754 20 12        *Load dark black robe (guards equipment)
+E 0 24765 20 16        *Load black steel sword (guards equipment)
+M 0 24752 3 24756 2     *Load security guard
+E 0 24754 20 12        *Load dark black robe (guards equipment)
+E 0 24765 20 16        *Load black steel sword (guards equipment)
+M 0 24750 7 24757 1     *Load worker
+G 0 24759 20           *Load heavy axe (workers inventory)
+G 0 24769 1            *Load bar of ivory (workers inventory
+M 0 24751 5 24758 2     *Load weaponsmith
+M 0 24751 5 24758 2     *Load weaponsmith
+E 9 24764 20 16        *Load battle whip (weaponsmiths equipment)
+M 0 24750 7 24759 1     *Load worker
+G 0 24769 1            *Load bar of ivory (workers inventory
+M 0 24751 5 24759 1     *Load weaponsmith
+E 9 24763 20 16        *Load siege halberd (weaponsmiths equipment)
+M 0 24752 3 24760 1     *Load security guard
+E 0 24754 20 12        *Load dark black robe (guards equipment)
+E 0 24765 20 16        *Load black steel sword (guards equipment)
+M 0 24753 4 24761 1     *Load male employee
+E 0 24755 20 5         *Load white coat (empoyees equipment)
+M 0 24753 4 24762 2     *Load male employee
+M 0 24753 4 24762 2     *Load male employee
+E 0 24755 20 5         *Load white coat (empoyees equipment)
+M 0 24755 1 24763 1     *Load chief engineer
+E 0 24756 20 10        *Load white sleeves (engineers equipment)
+E 0 24766 20 16        *Load old slide rule (engineers equipment)
+M 0 24753 4 24764 1     *Load male employee
+M 0 24756 1 24765 1     *Load manager
+E 0 24753 25 7         *Load trousers (managers equipment)
+G 0 24780 20           *Load cup of coffee (managers inventory)
+E 0 24762 20 16        *Load golden fountain pen (managers equipment)
+M 0 24754 1 24766 1     *Load female employee
+E 0 24752 25 1         *Load silver ring (employees equipment)
+M 0 24757 1 24767 1     *Load secretary
+E 0 24751 25 8         *Load golden sandals (ecretarys equipment)
+E 0 24761 20 16        *Load silver dagger (secretarys equipment)
+M 0 24758 1 24768 1     *Load BOSS
+E 0 24757 20 6         *Load big hat (BOSSs equipment)
+E 0 24767 25 16        *Load diamond letter opener (BOSSs equipment)
+M 0 24759 1 24768 1     *Load wannabe successor
+E 0 24758 20 9         *Load black gloves (successors equipment)
+E 0 24768 25 16        *Load power drill (successors equipment)
+G 0 24775 1            *Load bar of platinum (successors inventory)
+O 0 24770 1 24756       *Load bar of steel (storage room)
+O 0 24770 1 24760       *Load bar of steel (work hall)
+O 0 24771 1 24756       *Load bar of iron (storage room)
+O 0 24771 1 24760       *Load bar of iron (work hall)
+O 0 24772 1 24756       *Load bar of tin (storage room)
+O 0 24772 1 24760       *Load bar of tin (work hall)
+O 0 24773 1 24756       *Load bar of bronze (storage room)
+O 0 24773 1 24760       *Load bar of bronze (work hall)
+O 0 24774 1 24752        *Load bar of diamond (entrance)
+D 0 24751 0 1          *entrance gate (norh of Before the weapon factory), closed
+D 0 24752 2 1          *entrance gate (south of Entrance to the w. f.), closed
+D 0 24755 0 1          *door to storage room (north from working hall), closed
+D 0 24756 2 1          *door out of storage room (south to working hall), closed
+D 0 24759 2 1          *door to storage room (south from working hall), closed
+D 0 24760 0 1          *door out of storage room (north to working hall), closed
+D 0 24752 4 1          *door up from entrance to corridor, closed
+D 0 24761 5 1          *door down from corridor to entrance, closed
+D 0 24762 1 1          *door east from corridor to office of the chief engineer, closed
+D 0 24763 3 1          *door west from office of the chief engineer to corridor, closed
+D 0 24764 0 1          *door north from corridor to secretarys office, closed
+D 0 24767 2 1          *door south from secretarys office to corridor, closed
+D 0 24764 1 1          *door east from corridor to managers office, closed
+D 0 24765 3 1          *door west from managers office to corridor, closed
+D 0 24764 3 1          *door west from corridor to personell division, closed
+D 0 24766 1 1          *door east from personell division to corridor, closed
+D 0 24767 0 1          *door north from secretarys office to office of THE BOSS, closed
+D 0 24768 2 1          *door south from office of THE BOSS to secretarys office, closed
 
 S
 
 #SPECIALS
-M 7336 spec_thief
-M 7338 spec_thief
-M 7339 spec_poison
+M 24756 spec_thief
+M 24758 spec_thief
+M 24759 spec_poison
 S
 
 #$
