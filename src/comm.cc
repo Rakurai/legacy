@@ -68,7 +68,7 @@
 #include "Logging.hh"
 #include "memory.hh"
 #include "merc.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "MobilePrototype.hh"
 #include "Player.hh"
 #include "random.hh"
@@ -357,7 +357,7 @@ int main(int argc, char **argv)
 
 	for (auto tch : Game::world().char_list)
 		if (tch->is_npc())
-			mprog_boot_trigger(tch);
+			progs::boot_trigger(tch);
 
 	if (Game::port == DIZZYPORT) {
 		FILE *pidfile;

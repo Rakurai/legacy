@@ -1,23 +1,23 @@
 #pragma once
 
 #include "String.hh"
+#include "MobProgContext.hh"
 
-class Character;
-class Object;
+namespace progs {
 
 class MobProgActList
 {
 public:
-	MobProgActList() {}
+	MobProgActList(const String& s, const MobProgContext& c) : buf(s), context(c) {}
 	virtual ~MobProgActList() {}
 
     MobProgActList * next = nullptr;
     String           buf;
-    Character *      ch = nullptr;
-    Object *         obj = nullptr;
-    void *           vo = nullptr;
+    MobProgContext   context;
 
 private:
 	MobProgActList(const MobProgActList&);
 	MobProgActList& operator=(const MobProgActList&);
 };
+
+} // namespace progs

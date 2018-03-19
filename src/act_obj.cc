@@ -51,7 +51,7 @@
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
@@ -1404,7 +1404,7 @@ void do_give(Character *ch, String argument)
 			Format::sprintf(buf, "You give %d %s to $N.", amount, silver ? "silver" : "gold");
 
 		act(buf, ch, nullptr, victim, TO_CHAR);
-		mprog_bribe_trigger(victim, ch, silver ? amount : amount * 100);
+		progs::bribe_trigger(victim, ch, silver ? amount : amount * 100);
 
 		if (victim->is_garbage() || ch->is_garbage())
 			return;
@@ -1592,7 +1592,7 @@ void do_give(Character *ch, String argument)
 	/* This will trigger only once. We don't want anything to explode. */
 	/* If they want to achieve a given effect multiple times, they need */
 	/* to use the single form of give. */
-	mprog_give_trigger(victim, ch, obj);
+	progs::give_trigger(victim, ch, obj);
 }
 
 /* for poisoning weapons and food/drink */
@@ -4229,7 +4229,7 @@ void do_buy(Character *ch, String argument)
 			ch->pcdata->questpoints -= cost;
 		}
 
-		mprog_buy_trigger(keeper, ch);
+		progs::buy_trigger(keeper, ch);
 
 		if (keeper->is_garbage() || ch->is_garbage())
 			return;

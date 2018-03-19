@@ -5,7 +5,7 @@
 #include "Auction.hh"
 #include "Disabled.hh"
 #include "Note.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "music.hh"
 #include "sql.hh"
 #include "World.hh"
@@ -103,7 +103,7 @@ boot() {
 	Format::printf("survived load_notes\n");
 	load_disabled();
 	Format::printf("survived load_disabled\n");
-	MOBtrigger = true;
+	progs::MOBtrigger = true;
 	load_songs();
 	Format::printf("survived load_songs\n");
 	load_social_table();

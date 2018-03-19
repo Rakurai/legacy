@@ -14,7 +14,7 @@
 #include "random.hh"
 #include "Room.hh"
 #include "Tail.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 
 Character::Character() {
 	logon = Game::current_time;
@@ -122,13 +122,13 @@ void Character::update() {
 			return;
 
 		if (!triggered)
-			triggered = mprog_random_area_trigger(ch);
+			triggered = progs::random_area_trigger(ch);
 
 		if (ch->is_garbage())
 			return;
 
 		if (!triggered)
-			triggered = mprog_random_trigger(ch);
+			triggered = progs::random_trigger(ch);
 
 		if (ch->is_garbage())
 			return;

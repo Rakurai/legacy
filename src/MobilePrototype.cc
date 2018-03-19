@@ -5,7 +5,7 @@
 #include "lookup.hh"
 #include "Logging.hh"
 #include "merc.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 
 MobilePrototype::
 MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
@@ -153,9 +153,9 @@ read_mobprogs(FILE *fp) {
 			break;
 		}
 
-		MobProg *mprg = new MobProg(fp, vnum);
+		progs::Prog *mprg = new progs::Prog(fp, vnum);
 
-		if (mprg->type == MobProg::Type::ERROR_PROG) {
+		if (mprg->type == progs::Prog::Type::ERROR_PROG) {
 			Logging::file_bug(fp, "Load_mobiles: vnum %d invalid MOBPROG type.", vnum);
 			exit(1);
 		}

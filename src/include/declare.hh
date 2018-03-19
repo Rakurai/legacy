@@ -21,8 +21,6 @@ class Flags;
 class Game;
 class GameTime;
 class MobilePrototype;
-class MobProg;
-class MobProgActList;
 class Note;
 class Object;
 class ObjectPrototype;

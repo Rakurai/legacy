@@ -43,7 +43,7 @@
 #include "lookup.hh"
 #include "memory.hh"
 #include "merc.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "Object.hh"
 #include "Player.hh"
 #include "random.hh"
@@ -1092,7 +1092,7 @@ void do_say(Character *ch, String argument)
 		ptc(ch, "You say '%s'\n", argument);
 
 	set_color(ch, WHITE, NOBOLD);
-	mprog_speech_trigger(argument, ch);
+	progs::speech_trigger(argument, ch);
 }
 
 void do_tell(Character *ch, String argument)
@@ -1371,7 +1371,7 @@ void do_emote(Character *ch, String argument)
 
 	act("$n $T{x", ch, nullptr, argument, TO_ROOM);
 	act("$n $T{x", ch, nullptr, argument, TO_CHAR);
-	mprog_speech_trigger(argument, ch);
+	progs::speech_trigger(argument, ch);
 	return;
 }
 

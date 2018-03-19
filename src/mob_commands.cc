@@ -40,7 +40,7 @@
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "Object.hh"
 #include "Player.hh"
 #include "Room.hh"
@@ -102,7 +102,7 @@ void do_mpstat(Character *ch, String argument)
 
 	for (const auto mprg : victim->pIndexData->mobprogs) {
 		Format::sprintf(buf, ">%s %s\n%s\n",
-		        MobProg::type_to_name(mprg->type),
+		        progs::Prog::type_to_name(mprg->type),
 		        mprg->arglist,
 		        mprg->original);
 		stc(buf, ch);
@@ -138,10 +138,10 @@ void do_mpasound(Character *ch, String argument)
 		    &&   pexit->to_room != nullptr
 		    &&   pexit->to_room != was_in_room) {
 			ch->in_room = pexit->to_room;
-			save_mobtrigger = MOBtrigger;
-			MOBtrigger  = false;
+			save_mobtrigger = progs::MOBtrigger;
+			progs::MOBtrigger  = false;
 			act(argument, ch, nullptr, nullptr, TO_ROOM);
-			MOBtrigger = save_mobtrigger;
+			progs::MOBtrigger = save_mobtrigger;
 		}
 	}
 
@@ -781,7 +781,7 @@ void do_mpcontrol(Character *ch, String argument) {
 		}
 	}
 
-	mprog_control_trigger(mob, key, target);
+	progs::control_trigger(mob, key, target);
 }
 
 void do_mpstate(Character *ch, String argument) {

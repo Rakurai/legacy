@@ -7,7 +7,7 @@
 #include "String.hh"
 #include "Flags.hh"
 #include "Vnum.hh"
-#include "MobProg.hh"
+#include "progs/Prog.hh"
 
 /*
  * Prototype for a mob.
@@ -55,8 +55,8 @@ public:
     Flags               parts_flags;
     int              size = 0;
     String              material;
-    std::vector<MobProg *> mobprogs;
-    std::set<MobProg::Type> progtypes;
+    std::vector<progs::Prog *> mobprogs;
+    std::set<progs::Prog::Type> progtypes;
 
     void read_mobprogs(FILE *fp);
 

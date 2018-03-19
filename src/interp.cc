@@ -44,7 +44,7 @@
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "Player.hh"
 #include "random.hh"
 #include "Social.hh"
@@ -794,7 +794,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 		    &&   !affect::exists_on_char(victim, affect::type::charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == nullptr
-		    && (!victim->pIndexData->progtypes.count(MobProg::Type::ACT_PROG))) {
+		    && (!victim->pIndexData->progtypes.count(progs::Prog::Type::ACT_PROG))) {
 			switch (number_bits(4)) {
 			case 0:
 			case 1: case 2: case 3: case 4:

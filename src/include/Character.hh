@@ -9,6 +9,8 @@
 #include "Guild.hh"
 #include "Player.hh" // only for the macros here, remove when we get rid of them
 
+namespace progs { class MobProgActList; }
+
 namespace affect { class Affect; }
 
 /*
@@ -127,7 +129,7 @@ public:
     Character *         hunting = nullptr;
     int              nectimer = 0;
     int              secure_level = 0;
-    MobProgActList *    mpact = nullptr;
+    progs::MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
     std::map<String, int> mpstate;
     Tail *              tail = nullptr;         /* -- Elrac */

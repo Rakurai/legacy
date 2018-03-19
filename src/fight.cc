@@ -51,7 +51,7 @@
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "MobilePrototype.hh"
 #include "Object.hh"
 #include "ObjectValue.hh"
@@ -245,12 +245,12 @@ void violence_update(void)
 		if ((victim = ch->fighting) == nullptr)
 			continue;
 
-		mprog_hitprcnt_trigger(ch, victim);
+		progs::hitprcnt_trigger(ch, victim);
 
 		if (ch->is_garbage() || victim->is_garbage())
 			continue;
 
-		mprog_fight_trigger(ch, victim);
+		progs::fight_trigger(ch, victim);
 	}
 } /* end violence_update */
 
@@ -3024,7 +3024,7 @@ void death_cry(Character *ch)
 void raw_kill(Character *victim)
 {
 	stop_fighting(victim, true);
-	mprog_death_trigger(victim);
+	progs::death_trigger(victim);
 
 	if (victim->is_garbage())
 		return;

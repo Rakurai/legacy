@@ -3,7 +3,7 @@
 #include "Character.hh"
 #include "Duel.hh"
 #include "Logging.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "Object.hh"
 #include "Room.hh"
 #include "String.hh"
@@ -189,11 +189,11 @@ void act_format(const String& format, Character *actor,
 	if (observer->desc)
 		stc(buf, observer);
 
-	if (MOBtrigger)
+	if (progs::MOBtrigger)
         // removing const from things here, because i don't want to follow that rabbit
         // hole right now.  it does need to be fixed by making mprog stuff use const
         // object pointers, but at a later date.
-		mprog_act_trigger(buf.c_str(), observer, actor,
+		progs::act_trigger(buf, observer, actor,
             const_cast<Object *>(obj1),
             const_cast<Character *>(vch1));
 } /* end act_format() */
@@ -375,12 +375,8 @@ void act_parse(
 				   td->tailed_by, true, vis);
 		/**********************************************************************/
 	}
-
-	/* Add this to turn Mob Programs Off
-					Game::MOBtrigger = false;
-	Add before the call to act */
-	MOBtrigger = true;
-	return;
+    progs::MOBtrigger = true;
+    return;
 }
 
 void act(const String& format, Character *actor, const Actable* arg1, const Actable* arg2, int type, int min_pos, bool censor, Room *room) {

@@ -47,7 +47,7 @@
 #include "Logging.hh"
 #include "memory.hh"
 #include "merc.hh"
-#include "MobProg.hh"
+#include "progs/triggers.hh"
 #include "Object.hh"
 #include "ObjectPrototype.hh"
 #include "ObjectValue.hh"
@@ -292,10 +292,10 @@ void move_char(Character *ch, int door, bool follow)
 		}
 	}
 
-	mprog_entry_trigger(ch);
+	progs::entry_trigger(ch);
 
 	if (!ch->is_garbage())
-		mprog_greet_trigger(ch);
+		progs::greet_trigger(ch);
 }
 
 void do_north(Character *ch, String argument)
@@ -2253,10 +2253,10 @@ void do_push(Character *ch, String argument)
 	}
 
 	do_look(victim, "auto");
-	mprog_entry_trigger(victim);
+	progs::entry_trigger(victim);
 
 	if (victim->is_garbage())
-		mprog_greet_trigger(victim);
+		progs::greet_trigger(victim);
 }
 
 void do_drag(Character *ch, String argument)
@@ -2609,15 +2609,15 @@ void do_drag(Character *ch, String argument)
 
 	do_look(ch, "auto");
 
-	mprog_entry_trigger(ch);
+	progs::entry_trigger(ch);
 
 	if (!ch->is_garbage())
-		mprog_greet_trigger(ch);
+		progs::greet_trigger(ch);
 
-	mprog_entry_trigger(victim);
+	progs::entry_trigger(victim);
 
 	if (!victim->is_garbage())
-		mprog_greet_trigger(victim);
+		progs::greet_trigger(victim);
 }
 
 /* MARK: remember the current location for RELOCATE - Elrac */
@@ -3154,8 +3154,8 @@ void do_enter(Character *ch, String argument)
 			extract_obj(portal);
 		}
 
-		mprog_entry_trigger(ch);
-		mprog_greet_trigger(ch);
+		progs::entry_trigger(ch);
+		progs::greet_trigger(ch);
 		return;
 	}
 

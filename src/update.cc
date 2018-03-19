@@ -44,8 +44,9 @@
 #include "merc.hh"
 #include "music.hh"
 #include "MobilePrototype.hh"
-#include "MobProg.hh"
-#include "MobProgActList.hh"
+#include "progs/triggers.hh"
+#include "progs/MobProgActList.hh"
+#include "progs/MobProgContext.hh"
 #include "Object.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
@@ -773,7 +774,7 @@ void char_update(void)
 
 		/* MOBprogram tick trigger -- Montrey */
 		if (ch->is_npc()) {
-			mprog_tick_trigger(ch);
+			progs::tick_trigger(ch);
 
 			/* If ch dies or changes position
 			   due to it's tick trigger, continue */
@@ -1347,7 +1348,7 @@ void wait_update(void)
 void act_update(void) {
 	struct ch_act {
 		Character *ch;
-		MobProgActList *act_list;
+		progs::MobProgActList *act_list;
 	};
 
 	std::list<ch_act> ch_acts;
@@ -1362,20 +1363,24 @@ void act_update(void) {
 	// execute all acts
 	for (auto entry : ch_acts) {
 		Character *ch = entry.ch;
-		MobProgActList *start = entry.act_list;
+		progs::MobProgActList *start = entry.act_list;
 
-		for (MobProgActList *tmp_act = start; tmp_act != nullptr; tmp_act = tmp_act->next) {
+		for (progs::MobProgActList *tmp_act = start; tmp_act != nullptr; tmp_act = tmp_act->next) {
 			// did the mob get extracted?
 			if (ch->is_garbage())
 				break;
 
-			mprog_wordlist_check(tmp_act->buf, ch, tmp_act->ch,
-			                     tmp_act->obj, tmp_act->vo, MobProg::Type::ACT_PROG);
+			progs::wordlist_check(
+				tmp_act->buf,
+				ch->pIndexData->mobprogs,
+				tmp_act->context,
+				progs::Prog::Type::ACT_PROG
+			);
 		}
 
 		// delete the list
 		while (start != nullptr) {
-			MobProgActList *tmp_act = start->next;
+			progs::MobProgActList *tmp_act = start->next;
 			delete start;
 			start = tmp_act;
 		}
