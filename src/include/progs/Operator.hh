@@ -6,8 +6,8 @@ namespace progs {
 
 class Operator {
 public:
-	enum class Type {
-		is_equal_to,
+	enum Type {
+		is_equal_to = 0,
 		is_not_equal_to,
 		has_subset,
 		has_not_subset,
@@ -17,6 +17,9 @@ public:
 		is_greater_than_or_equal_to,
 		logical_and,
 		logical_or,
+
+		size,
+		first = 0
 	};
 
 	Operator(Type t) : type(t) {}
@@ -36,7 +39,7 @@ public:
 			case Type::has_subset:                   return lhs.has_infix(rhs);
 			case Type::has_not_subset:               return !lhs.has_infix(rhs);
 			default:
-				throw Format::format("progs::Operator::evaluate: invalid operator '%s' for String types", type_to_str(type));
+				throw Format::format("progs::Operator::evaluate: invalid operator '%s' for String types", to_string());
 		}
 	}
 
@@ -51,7 +54,7 @@ public:
 			case Type::logical_and:                  return lhs & rhs;
 			case Type::logical_or:                   return lhs | rhs;
 			default:
-				throw Format::format("progs::Operator::evaluate: invalid operator '%s' for int types", type_to_str(type));
+				throw Format::format("progs::Operator::evaluate: invalid operator '%s' for int types", to_string());
 		}
 	}
 
@@ -99,9 +102,24 @@ public:
 		return opr;
 	}
 
-private:
-	Type type;
+	const String to_string() const {
+		switch (type) {
+			case Type::is_equal_to: return "==";
+			case Type::is_not_equal_to: return "!=";
+			case Type::has_subset: return "/";
+			case Type::has_not_subset: return "!/";
+			case Type::is_greater_than: return ">";
+			case Type::is_less_than: return "<";
+			case Type::is_less_than_or_equal_to: return "<=";
+			case Type::is_greater_than_or_equal_to: return ">=";
+			case Type::logical_and: return "&";
+			case Type::logical_or: return "|";
+			default:
+				throw Format::format("progs::Operator::type_to_str: operator has invalid type '%d'", type);
+		}
+	}
 
+private:
 	static const Type str_to_type(const String& opr) {
 		if (opr == "==") return Type::is_equal_to;
 		else if (opr == "!=") return Type::is_not_equal_to;
@@ -117,20 +135,7 @@ private:
 		throw Format::format("progs::Operator::parse: unknown operator '%s'", opr);
 	}
 
-	static const String type_to_str(Type opr) {
-		switch (opr) {
-			case Type::is_equal_to: return "==";
-			case Type::is_not_equal_to: return "!=";
-			case Type::has_subset: return "/";
-			case Type::has_not_subset: return "!/";
-			case Type::is_greater_than: return ">";
-			case Type::is_less_than: return "<";
-			case Type::is_less_than_or_equal_to: return "<=";
-			case Type::is_greater_than_or_equal_to: return ">=";
-			case Type::logical_and: return "&";
-			case Type::logical_or: return "|";
-		}
-	}
+	Type type;
 };
 
 } // namespace progs

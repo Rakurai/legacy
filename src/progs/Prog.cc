@@ -250,21 +250,34 @@ bool evaluate_expression(String expression, Context& context) {
 		expression.erase(0, 1);
 	}
 
-	Symbol lhs(Symbol::parse(expression));
+	// search for a binary operator in the string.  if none found,
+	// treat the whole expression as a symbol and evaluate against == 1
+	for (int i = Operator::Type::first; i < Operator::Type::size; i++) {
+		Operator opr((Operator::Type)i);
+		std::size_t pos = expression.find(opr.to_string());
 
-	// defaults, in case there is no operator and rhs
-	Operator opr(Operator::Type::is_equal_to);
-	Symbol rhs = BooleanSymbol(!invert);
+		if (pos == std::string::npos)
+			continue;
 
-	if (!expression.empty()) {
+		if (expression.length() - pos - opr.to_string().length() <= 0)
+			throw Format::format("progs::evaluate_expression: empty expression after operator", opr.to_string());
+
 		if (invert)
 			throw Format::format("progs::evaluate_expression: unary '!' encountered in binary expression");
 
-		opr = Operator::parse(expression);
-		rhs = Symbol::parse(expression);
+		String lhs = expression.substr(0, pos);
+		String rhs = expression.substr(pos + opr.to_string().length());
+
+		return Operator((Operator::Type)i).evaluate(
+			Symbol::parse(lhs, "")->evaluate(context),
+			Symbol::parse(rhs, "")->evaluate(context)
+		);
 	}
 
-	return opr.evaluate(lhs.evaluate(context), rhs.evaluate(context));
+	return Operator(Operator::Type::is_equal_to).evaluate(
+		Symbol::parse(expression, "")->evaluate(context),
+		invert ? "0" : "1"
+	);
 }
 
 /* I didn't like the complex recursive function that was part of the original mobprog code, so

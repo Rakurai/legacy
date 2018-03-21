@@ -2,6 +2,8 @@
 
 #include "String.hh"
 
+namespace progs {
+
 struct Line {
 	enum class Type {
 		IF,
@@ -41,3 +43,5 @@ struct Line {
 		return "unknown";
 	}
 };
+
+} // namespace progs

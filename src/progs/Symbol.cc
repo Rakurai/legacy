@@ -3,183 +3,281 @@
 
 namespace progs {
 
-const Symbol Symbol::
-parse(String& str) {
-	str.assign(str.lstrip());
+std::unique_ptr<Symbol> Symbol::
+parse(String& orig, const String& until) {
+	String str, symbol_type;
+	Symbol *ptr;
 
-	String orig = str, buf;
+	try {
+		// attempt to construct, throwing exception just means it's not that type.
+		// constructors throw an integer if it doesn't look like that type of symbol, and
+		// throw a string message if it does look like that symbol and its in error
+		symbol_type = "Variable";
+		str = orig;
+		ptr = parseVariableSymbol(str);
 
-	// take everything before an operator or the end of the string (could be single operand)
-	while (true) {
-		if (str.empty()
-		 || Operator::has_operator_prefix(str)
-		 || str[0] == ',') // for parsing comma-separated args, this shouldn't exist in a regular symbol (maybe in quotes?)
-			break;
+		if (ptr != nullptr) {
+			orig.assign(str);
+			return std::unique_ptr<Symbol>(ptr);
+		}
 
+		symbol_type = "Function";
+		str = orig;
+		ptr = parseFunctionSymbol(str);
+
+		if (ptr != nullptr) {
+			orig.assign(str);
+			return std::unique_ptr<Symbol>(ptr);
+		}
+
+		symbol_type = "Integer";
+		str = orig;
+		ptr = parseIntegerSymbol(str);
+
+		if (ptr != nullptr) {
+			orig.assign(str);
+			return std::unique_ptr<Symbol>(ptr);
+		}
+
+		symbol_type = "Boolean";
+		str = orig;
+		ptr = parseBooleanSymbol(str);
+
+		if (ptr != nullptr) {
+			orig.assign(str);
+			return std::unique_ptr<Symbol>(ptr);
+		}
+
+		symbol_type = "String";
+		str = orig;
+		ptr = parseStringSymbol(str, until);
+
+		if (ptr != nullptr) {
+			orig.assign(str);
+			return std::unique_ptr<Symbol>(ptr);
+		}
+
+		throw String("unable to parse into a symbol");
+	}
+	catch (String e) {
+		throw Format::format("progs::%sSymbol::parse: %s\nstring = '%s'", symbol_type, e, orig);
+	}
+}
+
+// we parse leading whitespace, but in all cases encountering EOL is an error
+void parse_whitespace(String& str) {
+	while (!str.empty() && (str[0] == ' ' || str[0] == 't' || str[0] == '\r'))
+		str.erase(0, 1);
+
+	if (str.empty())
+		throw String("unexpected end of line encountered");
+}
+
+// parse a valid identifier
+const String parse_identifier(String& str) {
+	parse_whitespace(str);
+
+	String buf;
+
+	while (!str.empty() && (isalpha(str[0]) || isdigit(str[0]) || str[0] == '_')) {
 		buf += str[0];
 		str.erase(0, 1);
 	}
 
-	buf = buf.rstrip(); // buf is stripped now
-
-	if (buf.empty())
-		throw Format::format("progs::Symbol: empty symbol in string '%s'", orig);
-
-	// attempt to construct, throwing exception just means it's not that type
-	// constructors throw 0 if it doesn't look like that type ofsymbol, and
-	// throw 1 if it does look like that symbol and its in error
-	try {
-		return VariableSymbol(buf);
-	}
-	catch (int e) {
-		if (e == 1) // weird looking variable
-			throw Format::format("progs::Symbol: invalid variable in string '%s'", orig);
-	}
-
-	try {
-		return FunctionSymbol(buf);
-	}
-	catch (int e) {
-		if (e == 1) // weird looking function
-			throw Format::format("progs::Symbol: invalid function in string '%s'", orig);
-	}
-
-	try {
-		return IntegerSymbol(buf);
-	}
-	catch (...) {} // just is_number or not
-
-	try {
-		return BooleanSymbol(buf);
-	}
-	catch (...) {} // just true/false or not
-
-	return StringSymbol(buf); // just copies the string, no exceptions
+	return buf;
 }
 
-VariableSymbol::
-VariableSymbol(String str) {
+Symbol * Symbol::
+parseVariableSymbol(String& str) {
+	parse_whitespace(str);
+
 	if (str[0] != '$') // no '$', not a variable
-		throw 0;
+		return nullptr;
 
-	if (str.length() < 2) // must have a letter
-		throw 1;
+	str.erase(0, 1);
+	String var = "$";
+	var += parse_identifier(str);
 
-	var = str.substr(0, 2);
-	str.erase(0, 2);
-	str = str.lstrip();
+	if (var.length() == 1)
+		throw Format::format("illegal characters '%s' following variable symbol '$'", str);
 
-	if (str.empty()) // nothing left, we're done
+	String member_name;
+
+	if (var.length() == 2) {
+		// expand the convenience variable
+		switch (var[1]) {
+			case 'i':             member_name = "name";     break;
+			case 'n':             member_name = "name";     break;
+			case 'b':             member_name = "name";     break;
+			case 't':             member_name = "name";     break;
+			case 'r':             member_name = "name";     break;
+
+			case 'I': var = "$i"; member_name = "title";    break;
+			case 'N': var = "$n"; member_name = "title";    break;
+			case 'B': var = "$b"; member_name = "title";    break;
+			case 'T': var = "$t"; member_name = "title";    break;
+			case 'R': var = "$r"; member_name = "title";    break;
+
+			case 'j': var = "$i"; member_name = "he_she";   break;
+			case 'e': var = "$n"; member_name = "he_she";   break;
+			case 'f': var = "$b"; member_name = "he_she";   break;
+			case 'E': var = "$t"; member_name = "he_she";   break;
+			case 'J': var = "$r"; member_name = "he_she";   break;
+
+			case 'k': var = "$i"; member_name = "him_her";  break;
+			case 'm': var = "$n"; member_name = "him_her";  break;
+			case 'g': var = "$b"; member_name = "him_her";  break;
+			case 'M': var = "$t"; member_name = "him_her";  break;
+			case 'K': var = "$r"; member_name = "him_her";  break;
+
+			case 'l': var = "$i"; member_name = "his_her";  break;
+			case 's': var = "$n"; member_name = "his_her";  break;
+			case 'h': var = "$b"; member_name = "his_her";  break;
+			case 'S': var = "$t"; member_name = "his_her";  break;
+			case 'L': var = "$r"; member_name = "his_her";  break;
+
+			case 'o': var = "$o"; member_name = "name";     break;
+			case 'O': var = "$o"; member_name = "sdesc";    break;
+			case 'a': var = "$o"; member_name = "ind_art";  break;
+			case 'p': var = "$p"; member_name = "name";     break;
+			case 'P': var = "$p"; member_name = "sdesc";    break;
+			case 'A': var = "$p"; member_name = "ind_art";  break;
+
+			default: throw Format::format("unknown single character variable name '%s'", var);
+		}
+	}
+
+	return new VariableSymbol(var, member_name);
+/*
+	if (str.empty() || str[0] != '.')
 		return;
 
-	if (str[0] != '.' || str.length() < 2) // but could be followed by dereference operator '.' and a member name
-		throw 1;
+	str.erase(0, 1);
 
-	member_name = str.substr(1);
+	member_name = parse_identifier(str);
 
-	// make sure its a valid name
-	for (char c : member_name)
-		if (!isalpha(c) && !isdigit(c) && c != '_')
-			throw 1;
+	if (member_name.empty())
+		throw Format::format("illegal characters '%s' following dereference operator '.'", str);
+*/
 }
 
-FunctionSymbol::
-FunctionSymbol(String str) {
-	// count the parens
-	int lp = 0, rp = 0;
-	for (char c : str) {
-		if (c == '(') lp++;
-		if (c == ')') rp++;
-	}
-
-	if (lp == rp == 0) // no parens, not a function
-		throw 0;
-
-	if (lp != rp) // not enough parens, bad function
-		throw 1;
-
-	if (str[str.length()-1] != ')') // args must close with ')'
-		throw 1;
+Symbol * Symbol::
+parseFunctionSymbol(String& str) {
+	parse_whitespace(str);
 
 	// function name is everything leading up to '(', only valid chars are alphanumeric and _
-	str = str.lsplit(fn, "(");
-	fn = fn.rstrip();
+	String fn = parse_identifier(str);
 
 	if (fn.empty())
-		throw 1;
+		return nullptr;
 
-	for (char c : fn)
-		if (!isalpha(c) && !isdigit(c) && c != '_')
-			throw 1;
+	// no whitespace allowed between identifier and opening paren or dereference op
 
-	// function name looks ok, get the args
-	str.erase(str.length()-1); // remove trailing paren, leading paren already gone with split
+	if (str.empty() || str[0] != '(')
+		return nullptr;
+
+	// after this it looks like a function, throw errors if it doesn't comply
+	std::vector<std::unique_ptr<Symbol>> arg_list;
+
+	str.erase(0, 1); // left paren
 
 	while (true) {
-		str = str.lstrip();
+		parse_whitespace(str);
 
-		if (str.empty())
-			break;
+		if (str[0] != ')') {
+			arg_list.push_back(Symbol::parse(str, ",)"));
+			parse_whitespace(str);
 
-		args.push_back(Symbol::parse(str));
-		str = str.lstrip();
-
-		if (str[0] == ',') {
-			str.erase(0, 1);
-			continue;		
+			if (str[0] == ',') {
+				str.erase(0, 1);
+				continue;
+			}
 		}
 
-		throw 1; // encountered a weird char after parsing symbol
+		if (str[0] == ')')
+			break;
+
+		// encountered something other than , or ) after a symbol, bail out
+		throw Format::format("unexpected characters '%s' after argument", str);
 	}
+
+	str.erase(0, 1); // right paren
+	return new FunctionSymbol(fn, arg_list);
 }
 
-IntegerSymbol::
-IntegerSymbol(String str) {
-	if (!str.is_number())
-		throw 0;
+Symbol * Symbol::
+parseIntegerSymbol(String& str) {
+	parse_whitespace(str);
 
-	val = atoi(str);
+	String buf;
+	bool negative = false;
+
+	if (str[0] == '-') {
+		negative = true;
+		str.erase(0, 1);
+	}
+
+	while (!str.empty() && isdigit(str[0])) {
+		buf += str[0];
+		str.erase(0, 1);
+	}
+
+	if (buf.empty() || !buf.is_number())
+		return nullptr;
+
+	int val = atoi(buf);
+
+	if (negative)
+		val = 0 - val;
+
+	return new IntegerSymbol(val);
 }
 
-BooleanSymbol::
-BooleanSymbol(String str) {
-	if (str == "true")
-		val = true;
-	else if (str == "false")
-		val = false;
-	else
-		throw 0;
+Symbol * Symbol::
+parseBooleanSymbol(String& str) {
+	parse_whitespace(str);
+
+	if (str.has_prefix("true")) {
+		str.erase(0, 4);
+		return new BooleanSymbol(true);
+	}
+
+	if (str.has_prefix("false")) {
+		str.erase(0, 5);
+		return new BooleanSymbol(false);
+	}
+
+	return nullptr;
 }
 
-const String Symbol::
-evaluate(const Context& context) const {
-	throw "progs::Symbol::evaluate: base class evaluate called";
-}
+Symbol * Symbol::
+parseStringSymbol(String& str, const String& until) {
+	parse_whitespace(str);
 
-const String VariableSymbol::
-evaluate(const Context& context) const {
-	return context.dereference_variable(var, member_name);
-}
+	String val;
 
-const String FunctionSymbol::
-evaluate(const Context& context) const {
-	// expand the args
-	std::vector<String> str_args;
+	if (str[0] == '\'' || str[0] == '"') {
+		std::size_t pos = str.find(str.substr(0, 1));
 
-	for (Symbol arg : args)
-		str_args.push_back(arg.evaluate(context));
+		if (pos == std::string::npos)
+			throw String("unclosed opening quote");
 
-	return context.compute_function(fn, str_args);
-}
+		val = str.substr(1, pos);
+		str.erase(0, pos+1);
+	}
+	else {
+		while (!str.empty() && strchr(until, str[0]) == nullptr) {
+			val += str[0];
+			str.erase(0, 1);
+		}
+	}
 
-const String IntegerSymbol::
-evaluate(const Context& context) const {
-	return Format::format("%d", val);
-}
+	val = val.strip();
 
-const String BooleanSymbol::
-evaluate(const Context& context) const {
-	return val ? "1" : "0";
+	if (val.empty())
+		throw String("empty string");
+
+	return new StringSymbol(val);
 }
 
 } // namespace progs
