@@ -230,8 +230,8 @@ void do_roomlist(Character *ch, String argument)
 
 	for (counter = first; counter <= last; counter++) {
 		if ((room = Game::world().get_room(Location(Vnum(counter)))) != nullptr) {
-			Format::sprintf(arg, "[%5s] (%s{x) %s{X\n",
-			        room->prototype.vnum, room->area().name,
+			Format::sprintf(arg, "[%5d] (%s{x) %s{X\n",
+			        room->prototype.vnum.value(), room->area().name,
 			        room->name());
 			buffer += arg;
 			found = true;
