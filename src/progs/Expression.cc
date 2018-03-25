@@ -42,19 +42,22 @@ Expression(const String& orig) :
 
 		lhs = parse(lhstr, "");
 		rhs = parse(rhstr, "");
-		return;
+		break;
 	}
 
-	static std::unique_ptr<Symbol> true_sym((Symbol *)(new ValueSymbol<bool>(Symbol::Type::Boolean, true)));
-	static std::unique_ptr<Symbol> false_sym((Symbol *)(new ValueSymbol<bool>(Symbol::Type::Boolean, false)));
+	if (lhs == nullptr) {
+		static std::unique_ptr<Symbol> true_sym((Symbol *)(new ValueSymbol<bool>(Symbol::Type::Boolean, true)));
+		static std::unique_ptr<Symbol> false_sym((Symbol *)(new ValueSymbol<bool>(Symbol::Type::Boolean, false)));
 
-	lhs = parse(str, "");
-	opr = Operator(Operator::Type::is_equal_to);
+		lhs = parse(str, "");
 
-	if (invert)
+		if (invert)
+			opr = Operator(Operator::Type::is_equal_to);
+		else
+			opr = Operator(Operator::Type::is_not_equal_to);
+
 		rhs.reset(new ValueSymbol<bool>(Symbol::Type::Boolean, false));
-	else
-		rhs.reset(new ValueSymbol<bool>(Symbol::Type::Boolean, true));
+	}
 }
 
 bool Expression::
