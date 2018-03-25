@@ -29,13 +29,13 @@ DataWrapper *datawrapper_construct(T& data) {
 }
 
 template <typename T>
-void datawrapper_access(DataWrapper *wrapper, T* datap) {
+void datawrapper_access(DataWrapper *wrapper, T** datap) {
 	DataWrapperTemplate<T> *wrapperT = dynamic_cast<DataWrapperTemplate<T> *>(wrapper);
 
 	if (wrapperT == nullptr)
 		throw String("progs::contexts::DataWrapper: wrapper not of expected type");
 
-	datap = &wrapperT->data;
+	*datap = &wrapperT->data;
 }
 	
 } // namespace contexts

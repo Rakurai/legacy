@@ -13,9 +13,9 @@ template <typename T> struct VariableSymbol : public Symbol {
 	virtual ~VariableSymbol() {}
 	T evaluate(contexts::Context& context) {
 		contexts::DataWrapper *wrapper = context.get_var(name);
-		T temp;
+		T* temp;
 		contexts::datawrapper_access(wrapper, &temp);
-		return temp;
+		return *temp;
 	}
 
 	virtual const String to_string(contexts::Context& context) {
