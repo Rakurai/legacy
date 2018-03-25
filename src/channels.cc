@@ -1230,7 +1230,7 @@ void do_reply(Character *ch, String argument)
 
 	Character *victim = nullptr;
 	for (auto vch : Game::world().char_list)
-		if (! strcmp(ch->reply, victim->name)) {
+		if (! strcmp(ch->reply, vch->name)) {
 			victim = vch;
 			break;
 		}
