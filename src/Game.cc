@@ -24,6 +24,7 @@ int Game::record_players_since_boot = 0;
 int Game::quest_double = false;
 bool Game::wizlock = false;
 bool Game::newlock = false;
+bool Game::MOBtrigger = false;
 
 // makes Game a singleton holder of world
 World& Game::
@@ -103,7 +104,9 @@ boot() {
 	Format::printf("survived load_notes\n");
 	load_disabled();
 	Format::printf("survived load_disabled\n");
-	progs::MOBtrigger = true;
+
+	MOBtrigger = true;
+
 	load_songs();
 	Format::printf("survived load_songs\n");
 	load_social_table();

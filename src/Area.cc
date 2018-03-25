@@ -21,6 +21,7 @@
 #include "worldmap/Region.hh"
 #include "Shop.hh"
 #include "World.hh"
+#include "progs/declare.hh"
 
 Area::
 Area(World& w, const String& file_name) : world(w), file_name(file_name) {
@@ -397,7 +398,7 @@ load_progs(FILE *fp) {
 				exit(1);
 			}
 
-			proto->read_mobprogs(fp);
+			progs::read_from_file(fp, proto->vnum, proto->progs, proto->progtypes);
 			break;
 		}
 		}

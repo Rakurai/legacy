@@ -40,6 +40,7 @@
 #include "memory.hh"
 #include "merc.hh"
 #include "MobilePrototype.hh"
+#include "ObjectPrototype.hh"
 #include "progs/triggers.hh"
 #include "Object.hh"
 #include "Player.hh"
@@ -47,69 +48,6 @@
 #include "String.hh"
 #include "World.hh"
 
-
-/* A trivial rehack of do_mstat.  This doesnt show all the data, but just
- * enough to identify the mob and give its basic condition.  It does however,
- * show the MOBprograms which are set.
- */
-
-void do_mpstat(Character *ch, String argument)
-{
-	char        buf[ MAX_STRING_LENGTH ];
-	Character  *victim;
-
-	String arg;
-	one_argument(argument, arg);
-
-	if (arg.empty()) {
-		stc("MobProg stat whom?\n", ch);
-		return;
-	}
-
-	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == nullptr) {
-		stc("They aren't here.\n", ch);
-		return;
-	}
-
-	if (!victim->is_npc()) {
-		stc("Only Mobiles can have Programs!\n", ch);
-		return;
-	}
-
-	if (victim->pIndexData->progtypes.empty()) {
-		stc("That Mobile has no Programs set.\n", ch);
-		return;
-	}
-
-	Format::sprintf(buf, "Name: %s.  Vnum: %d.\n",
-	        victim->name, victim->pIndexData->vnum);
-	stc(buf, ch);
-	Format::sprintf(buf, "Short description: %s.\nLong  description: %s",
-	        victim->short_descr,
-	        !victim->long_descr.empty() ?
-	        victim->long_descr : "(none).\n");
-	stc(buf, ch);
-	Format::sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",
-	        victim->hit,         GET_MAX_HIT(victim),
-	        victim->mana,        GET_MAX_MANA(victim),
-	        victim->stam,        GET_MAX_STAM(victim));
-	stc(buf, ch);
-	Format::sprintf(buf,
-	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",
-	        victim->level,       victim->guild,        victim->alignment,
-	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
-	stc(buf, ch);
-
-	for (const auto mprg : victim->pIndexData->mobprogs) {
-		Format::sprintf(buf, ">%s %s\n%s\n",
-		        progs::Prog::type_to_name(mprg->type),
-		        mprg->arglist,
-		        mprg->original);
-		stc(buf, ch);
-	}
-
-	return;
-}
 
 /* prints the argument to all the rooms aroud the mobile */
 
@@ -138,10 +76,10 @@ void do_mpasound(Character *ch, String argument)
 		    &&   pexit->to_room != nullptr
 		    &&   pexit->to_room != was_in_room) {
 			ch->in_room = pexit->to_room;
-			save_mobtrigger = progs::MOBtrigger;
-			progs::MOBtrigger  = false;
+			save_mobtrigger = Game::MOBtrigger;
+			Game::MOBtrigger  = false;
 			act(argument, ch, nullptr, nullptr, TO_ROOM);
-			progs::MOBtrigger = save_mobtrigger;
+			Game::MOBtrigger = save_mobtrigger;
 		}
 	}
 

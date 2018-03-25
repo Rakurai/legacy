@@ -1,5 +1,6 @@
 #pragma once
 
+#include "progs/Expression.hh"
 #include "String.hh"
 
 namespace progs {
@@ -15,8 +16,11 @@ struct Line {
 		COMMAND,
 	};
 
+	Line(Type type, const String& text);
+
 	Type type;
 	String text;
+	std::unique_ptr<Expression> expression;
 
 	static Type get_type(const String& word) {
 		     if (word == "if")    return Type::IF;

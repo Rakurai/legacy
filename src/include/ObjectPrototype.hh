@@ -1,5 +1,8 @@
 #pragma once
 
+#include <set>
+#include "progs/Prog.hh"
+
 #include "String.hh"
 #include "Flags.hh"
 #include "ObjectValue.hh"
@@ -40,6 +43,9 @@ public:
     int                 num_settings = 0; // for socketed gems
 	Guild			guild = Guild::none;
 	//int					suffix[3];
+
+    std::vector<progs::Prog *> progs;
+    std::set<progs::Type> progtypes;
 	
 private:
     ObjectPrototype(const ObjectPrototype&);

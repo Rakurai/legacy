@@ -6,6 +6,7 @@
 #include "Logging.hh"
 #include "merc.hh"
 #include "progs/triggers.hh"
+#include "progs/declare.hh"
 
 MobilePrototype::
 MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
@@ -127,40 +128,11 @@ MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
 		}
 	}
 
-	read_mobprogs(fp);
+	progs::read_from_file(fp, vnum, progs, progtypes);
 }
 
 MobilePrototype::
 ~MobilePrototype() {
-	for (auto mobprog : mobprogs)
-		delete mobprog;
-}
-
-void MobilePrototype::
-read_mobprogs(FILE *fp) {
-	while (true) {
-		char letter = fread_letter(fp);
-
-		if (letter == '*') {
-			fread_to_eol(fp);
-			continue;
-		}
-
-		if (letter != '>') {
-			if (letter != '|')
-				ungetc(letter, fp);
-
-			break;
-		}
-
-		progs::Prog *mprg = new progs::Prog(fp, vnum);
-
-		if (mprg->type == progs::Prog::Type::ERROR_PROG) {
-			Logging::file_bug(fp, "Load_mobiles: vnum %d invalid MOBPROG type.", vnum);
-			exit(1);
-		}
-
-		mobprogs.push_back(mprg);
-		progtypes.insert(mprg->type);
-	}
+	for (auto prog : progs)
+		delete prog;
 }

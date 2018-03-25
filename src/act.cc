@@ -189,7 +189,7 @@ void act_format(const String& format, Character *actor,
 	if (observer->desc)
 		stc(buf, observer);
 
-	if (progs::MOBtrigger)
+	if (Game::MOBtrigger)
         // removing const from things here, because i don't want to follow that rabbit
         // hole right now.  it does need to be fixed by making mprog stuff use const
         // object pointers, but at a later date.
@@ -375,7 +375,7 @@ void act_parse(
 				   td->tailed_by, true, vis);
 		/**********************************************************************/
 	}
-    progs::MOBtrigger = true;
+    Game::MOBtrigger = true;
     return;
 }
 

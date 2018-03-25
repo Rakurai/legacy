@@ -46,7 +46,7 @@
 #include "MobilePrototype.hh"
 #include "progs/triggers.hh"
 #include "progs/MobProgActList.hh"
-#include "progs/MobProgContext.hh"
+#include "progs/contexts/MobProgContext.hh"
 #include "Object.hh"
 #include "ObjectValue.hh"
 #include "Player.hh"
@@ -1372,9 +1372,9 @@ void act_update(void) {
 
 			progs::wordlist_check(
 				tmp_act->buf,
-				ch->pIndexData->mobprogs,
+				ch->pIndexData->progs,
 				tmp_act->context,
-				progs::Prog::Type::ACT_PROG
+				progs::Type::ACT_PROG
 			);
 		}
 

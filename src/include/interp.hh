@@ -307,6 +307,7 @@ DECLARE_DO_FUN( do_prefi        );
 DECLARE_DO_FUN( do_prefix       );
 DECLARE_DO_FUN( do_printhelps	);
 DECLARE_DO_FUN( do_private      );
+DECLARE_DO_FUN( do_progstat       );
 DECLARE_DO_FUN( do_prompt       );
 DECLARE_DO_FUN( do_propose	);
 DECLARE_DO_FUN( do_protect      );
@@ -495,7 +496,6 @@ DECLARE_DO_FUN( do_mpkill       );
 DECLARE_DO_FUN( do_mpmload      );
 DECLARE_DO_FUN( do_mpoload      );
 DECLARE_DO_FUN( do_mppurge      );
-DECLARE_DO_FUN( do_mpstat       );
 DECLARE_DO_FUN( do_mptransfer   );
 
 DECLARE_DO_FUN( do_mpinvis);

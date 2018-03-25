@@ -1215,6 +1215,8 @@ void do_drop(Character *ch, String argument)
 			act("$p dissolves into smoke.", ch, obj, nullptr, TO_CHAR);
 			destroy_obj(obj);
 		}
+		else
+			progs::drop_trigger(obj, ch);
 
 		return;
 	}

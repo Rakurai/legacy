@@ -7,6 +7,7 @@
 #include "ExtraDescr.hh"
 #include "Location.hh"
 #include "Logging.hh"
+#include "progs/declare.hh"
 
 ObjectPrototype::
 ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
@@ -272,4 +273,5 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 	// affects are immutable, compute the checksum now
 	affect_checksum = affect::checksum_list(&affected);
 
+	progs::read_from_file(fp, vnum, progs, progtypes);
 }

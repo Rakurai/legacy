@@ -29,6 +29,8 @@
 #include "Room.hh"
 #include "String.hh"
 #include "World.hh"
+#include "find.hh"
+#include "Object.hh"
 
 /* The following locals are for the checkexit command - Lotus */
 const int opposite_dir [6] =
@@ -346,3 +348,59 @@ void do_vlist(Character *ch, String argument)
 
 }
 
+void do_progstat(Character *ch, String argument)
+{
+	String arg;
+	argument = one_argument(argument, arg);
+
+	if (arg.empty()) {
+		stc("syntax:\n"
+			"  progstat mob  <name>\n"
+			"  progstat obj  <name>\n", ch);
+		return;
+	}
+
+	std::vector<progs::Prog *> *progs = nullptr;
+
+	if (arg.has_prefix("mob") || arg.has_prefix("char")) {
+		Character *victim = get_char_world(ch, argument, VIS_CHAR);
+
+		if (victim == nullptr) {
+			stc("They aren't here.\n", ch);
+			return;
+		}
+
+		if (!victim->is_npc()) {
+			stc("Players don't have programs.\n", ch);
+			return;
+		}
+
+		progs = &victim->pIndexData->progs;
+	}
+	else if (arg.has_prefix("obj") || arg.has_prefix("item")) {
+		Object *obj = get_obj_world(ch, argument);
+
+		if (obj == nullptr) {
+			stc("You can't find it.\n", ch);
+			return;
+		}
+
+		progs = &obj->pIndexData->progs;
+	}
+	else {
+		do_progstat(ch, "");
+		return;
+	}
+
+	if (progs->empty()) {
+		stc("It doesn't have any programs set.\n", ch);
+		return;
+	}
+
+	for (const auto prog : *progs) {
+		ptc(ch, ">%s %s\n%s\n",
+		        progs::type_to_name(prog->type),
+		        prog->arglist,
+		        prog->original);
+	}
+}

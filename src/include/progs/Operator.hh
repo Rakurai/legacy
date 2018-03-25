@@ -1,5 +1,6 @@
 #pragma once
 
+#include "progs/symbols/Symbol.hh"
 #include "Format.hh"
 
 namespace progs {
@@ -7,16 +8,18 @@ namespace progs {
 class Operator {
 public:
 	enum Type {
-		is_equal_to = 0,
-		is_not_equal_to,
-		has_subset,
-		has_not_subset,
-		is_greater_than,
-		is_less_than,
-		is_less_than_or_equal_to,
-		is_greater_than_or_equal_to,
-		logical_and,
-		logical_or,
+		// important: expression cycles through these trying to split a string in two parts.
+		// the two-character operators must come first so it doesn't match on a single char
+		is_equal_to = 0,             // ==
+		is_not_equal_to,             // !=
+		is_less_than_or_equal_to,    // <=
+		is_greater_than_or_equal_to, // >=
+		has_not_subset,              // !/
+		has_subset,                  //  /
+		is_greater_than,             //  >
+		is_less_than,                //  <
+		logical_and,                 //  &
+		logical_or,                  //  |
 
 		size,
 		first = 0
@@ -43,7 +46,7 @@ public:
 		}
 	}
 
-	bool evaluate(int lhs, int rhs) {
+	bool evaluate(int lhs, int rhs) const {
 		switch (type) {
 			case Type::is_equal_to:                  return lhs == rhs;
 			case Type::is_not_equal_to:              return lhs != rhs;

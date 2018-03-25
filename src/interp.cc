@@ -354,6 +354,7 @@ const std::vector<cmd_type> cmd_table = {
 	{ "prefix",                     do_prefix,              POS_DEAD,               LOG_NORMAL,     6,      0                       },
 	{ "printhelps",         do_printhelps,  POS_DEAD,               LOG_ALWAYS,     5,      GD | GWG        },
 	{ "private",            do_private,             POS_DEAD,               LOG_NORMAL,     6,      0                       },
+	{ "progstat",                     do_progstat,              POS_DEAD,               LOG_NORMAL,     5,      GWB                     },
 	{ "prompt",                     do_prompt,              POS_DEAD,               LOG_NORMAL,     3,      0                       },
 	{ "propose",            do_propose,             POS_STANDING,   LOG_NORMAL,     8,      0                       },
 	{ "protect",            do_protect,             POS_DEAD,               LOG_ALWAYS,     5,      GWS                     },
@@ -527,7 +528,6 @@ const std::vector<cmd_type> cmd_table = {
 	{ "mpmload",            do_mpmload,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpoload",            do_mpoload,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mppurge",            do_mppurge,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpstat",                     do_mpstat,              POS_DEAD,               LOG_NORMAL,     5,      GWB                     },
 	{ "mptransfer",         do_mptransfer,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpinvis",         do_mpinvis,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "mpvis",         do_mpvis,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
@@ -794,7 +794,7 @@ bool check_social(Character *ch, const String& command, const String& argument)
 		    &&   !affect::exists_on_char(victim, affect::type::charm_person)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == nullptr
-		    && (!victim->pIndexData->progtypes.count(progs::Prog::Type::ACT_PROG))) {
+		    && (!victim->pIndexData->progtypes.count(progs::Type::ACT_PROG))) {
 			switch (number_bits(4)) {
 			case 0:
 			case 1: case 2: case 3: case 4:

@@ -1,18 +1,23 @@
-#include "progs/Context.hh"
-#include "merc.hh"
-#include "Character.hh"
-#include "Object.hh"
-#include "Room.hh"
-#include "random.hh"
-#include "Game.hh"
-#include "World.hh"
-#include "find.hh"
-#include "affect/Affect.hh"
-#include "MobilePrototype.hh"
-#include "ObjectPrototype.hh"
+#include "progs/contexts/Context.hh"
+#include "progs/symbols/Symbol.hh"
+#include "progs/symbols/declare.hh"
 
 namespace progs {
+namespace contexts {
 
+Context::
+~Context() {
+	for (auto& pair : vars)
+		delete pair.second;
+}
+
+Context::
+Context(const Context& rhs) {
+	for (auto& pair : rhs.vars)
+		vars.emplace(pair.first, pair.second->clone());
+}
+
+/*
 const String Context::
 access_member(const Character *ch, const String& member_name, bool can_see) const {
 	static const char *he_she        [] = { "it",  "he",  "she" };
@@ -72,7 +77,8 @@ access_member(const Object *obj, const String& member_name, bool can_see) const 
 
 	throw Format::format("progs::access_member: unknown Object member name '%s'", member_name);
 }
-
+*/
+/*
 const String Context::
 compute_function(const String& fn, const std::vector<std::unique_ptr<Symbol>>& arg_list) const {
 	// functions with no args
@@ -233,5 +239,32 @@ compute_function(const String& fn, const std::vector<std::unique_ptr<Symbol>>& a
 
 	throw Format::format("progs::compute_function: unknown function name '%s'", fn);
 }
+*/
 
+const String Context::
+expand_vars(const String& orig) {
+	String copy = orig, buf;
+
+	while (!copy.empty()) {
+		if (copy[0] == '$') {
+			std::unique_ptr<symbols::Symbol> ptr = symbols::parse(copy, "");
+
+			if (ptr->type == symbols::Symbol::Type::Character
+			 || ptr->type == symbols::Symbol::Type::Object) {
+				String fn = "name()";
+				ptr = symbols::parseFunctionSymbol(fn, ptr);
+			}
+
+			buf += ptr->to_string(*this);
+		}
+		else {
+			buf += copy[0];
+			copy.erase(0, 1);
+		}
+	}
+
+	return buf;
+}
+
+} // namespace contexts
 } // namespace progs

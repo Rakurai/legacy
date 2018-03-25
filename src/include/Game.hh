@@ -24,6 +24,7 @@ public:
 	static int quest_double;
 	static bool wizlock;
 	static bool newlock;
+	static bool MOBtrigger;
 
 private:
 	Game() {} // static class

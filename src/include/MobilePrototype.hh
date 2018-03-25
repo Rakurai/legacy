@@ -55,10 +55,9 @@ public:
     Flags               parts_flags;
     int              size = 0;
     String              material;
-    std::vector<progs::Prog *> mobprogs;
-    std::set<progs::Prog::Type> progtypes;
-
-    void read_mobprogs(FILE *fp);
+    
+    std::vector<progs::Prog *> progs;
+    std::set<progs::Type> progtypes;
 
 private:
     MobilePrototype();
