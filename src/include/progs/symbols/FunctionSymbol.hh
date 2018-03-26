@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "progs/symbols/Symbol.hh"
 #include "Format.hh"
 

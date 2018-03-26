@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "progs/symbols/declare.hh"
 #include "progs/contexts/declare.hh"
 #include "progs/Operator.hh"

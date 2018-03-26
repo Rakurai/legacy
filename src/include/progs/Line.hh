@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "progs/Expression.hh"
 #include "String.hh"
 

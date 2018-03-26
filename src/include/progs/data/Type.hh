@@ -25,6 +25,8 @@ inline const String type_to_string(Type type) {
 		case Type::Integer:   return "Integer";
 		case Type::Void:      return "Void";
 	}
+
+	return "unknown";
 }
 
 } // namespace data

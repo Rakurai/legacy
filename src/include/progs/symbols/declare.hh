@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 #include "progs/declare.hh"
 #include "progs/contexts/declare.hh"
