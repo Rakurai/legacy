@@ -291,10 +291,13 @@ try {
 		if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
 		if (name == "state") {
 			String key = deref<const String>(arg_list[0].get(), context);
-			const auto entry = ch->mpstate.find(key);
 
-			if (entry != ch->mpstate.cend())
-				return entry->second;
+			if (!key.empty()) {
+				const auto entry = ch->mpstate.find(key);
+
+				if (entry != ch->mpstate.cend())
+					return entry->second;
+			}
 
 			return 0;
 		}
