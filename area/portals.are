@@ -25,20 +25,20 @@ BEFHJK B 0 0
 stand stand male 300
 0 0 medium 0
 >greet_prog 80~
-if isnpc($n)
+if $n.is_npc()
    break
 endif
-if isimmort($n)
+if $n.is_immort()
    break
 endif
-if level($n) <= 65
+if $n.level() <= 65
    MPKILL $n
    chortle
 else
   if rand(20)
      emote leaves.
   else
-     if inroom($i) == 16534
+     if $i.in_room() == 16534
         MPECHO You hear a swish of cloth.
         MPGOTO 16526
      else
@@ -104,15 +104,15 @@ MPECHO The {Rd{be{Ym{bo{Rn{x is engulfed in {Pf{Yl{Pa{Ym{Pe{Ys{x.
 MPASOUND A pillar of {Pf{Yl{Pa{Ym{Pe{x bursts into existence in the next room.
 ~
 >greet_prog 99~
-if isnpc($n)
+if $n.is_npc()
    break
 endif
-if isimmort($n)
+if $n.is_immort()
    snarl $n
    say Be glad you are beyond my power, Ancient One.
    break
 endif
-if isgood($n)
+if $n.is_good()
    MPKILL $n
    snarl
    say Foul do-gooder! I'll have you on a spit for my dinner!!
@@ -223,10 +223,10 @@ if rand(50)
    howl
    emote ignores your presence and howls like a banshee.
 else
-   if isnpc($n)
+   if $n.is_npc()
       break
    endif
-   if isimmort($n)
+   if $n.is_immort()
       scream
       yell FREE ME!! LET ME LOOSE!!
       break
@@ -388,14 +388,14 @@ CFHK BG QLM 0
 stand stand male 50
 0 0 medium 0
 >greet_prog 70~
-if isnpc($n)
+if $n.is_npc()
    break
 endif
-if isimmort($n)
+if $n.is_immort()
    emote pointedly ignores your presence.
    break
 endif
-if isgood($n)
+if $n.is_good()
    say May the light of goodness guard your rest.
    bow $n
 else
@@ -440,10 +440,10 @@ say corners of existence. Even then only the death of his
 say faithful servants will reveal the secret portal to his chambers.
 ~
 >fight_prog 30~
-if hitprcnt($i) < 20
+if $i.hitprcnt() < 20
   MPECHO A {Y{fBLINDING{x flash explodes from the illusionist.
   MPECHO When your eyes clear, you are fighting....nothing.
-  if inroom($i) == 16505
+  if $i.in_room() == 16505
      MPGOTO 16514
   else
      MPGOTO 16505
@@ -471,15 +471,15 @@ ACFHKO BLQ HIJKDMN 0
 stand stand none 150
 0 0 large 0
 >greet_prog 50~
-if isnpc($n)
+if $n.is_npc()
    break
 endif
-if isimmort($n)
+if $n.is_immort()
    bow $n
    say Your servant, Ancient One.
    break
 endif
-if isgood($n)
+if $n.is_good()
    emote bestows its blessing upon you.
 else
    if rand(50)
@@ -646,7 +646,7 @@ else
 endif
 ~
 >rand_prog 20~
-if isimmort($r)
+if $r.is_immort()
    break
 endif
 if rand(50)
@@ -679,14 +679,14 @@ AFHKO BMNQL CD 0
 stand stand male 300
 0 0 medium 0
 >greet_prog 99~
-if isnpc($n)
+if $n.is_npc()
    break
 endif
-if isimmort($n)
+if $n.is_immort()
    say What now? You immortals, always mucking around in things you don't understand.
    break
 endif
-if level($n) <= 85
+if $n.level() <= 85
    MPECHO An e{W{fxp{Vlo{fs{xi{Yon{x of light blinds you.
    MPTRANSFER $n 3001
    MPAT $n say AND STAY OUT!!! Come back when you have grown up.

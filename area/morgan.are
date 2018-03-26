@@ -78,7 +78,7 @@ EFKU ABCDEFGHIJKLOQJ EGI CK
 stand stand male 300
 0 0 medium 0
 >all_greet_prog 99~
-if ispc($n)
+if $n.is_pc()
  say Hello {C$n{x, welcome to my shop.
  grin $n
 else

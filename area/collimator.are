@@ -23,7 +23,7 @@ AFQ ABCD 0 0
 stand stand male 1000
 0 0 medium 0
 >all_greet_prog 100~
-if level($n) <= 5
+if $n.level() <= 5
      MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner notices you, and says "Want to have a
      MPECHO look around? Well, just don't track any mud in there. Take
      MPECHO what you like... It all grows back. I can take your ticket
@@ -132,7 +132,7 @@ AFQ ABCD 0 0
 stand stand male 1000
 0 0 medium 0
 >all_greet_prog 100~
-if level($n) <= 5
+if $n.level() <= 5
      MPECHO The staff naturalist bows and says "Welcome to the Collimator!
      MPECHO Please get a {Pguide book{x from the rack, you should find it
      MPECHO most informative and helpful.

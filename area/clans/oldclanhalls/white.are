@@ -54,14 +54,14 @@ ABGTVZ DFHJW 0 S
 stand stand male 0
 0 0 medium 0
 >all_greet_prog 40~
-if isimmort($n)
+if $n.is_immort()
    kneel $n
    say Welcome, O great one!
 else
-   if isnpc($n)
+   if $n.is_npc()
       bow
    else
-      if isgood($n)
+      if $n.is_good()
 	 smile $n
 	 say Welcome, $n!
       else
@@ -124,7 +124,7 @@ ABGRVZ DFHJTV 0 S
 stand stand female 0
 0 0 large 0
 >all_greet_prog 100~
-if isimmort($n)
+if $n.is_immort()
    say "Welcome $n - I'm honored to have you here!
    emote dusts off the best bench.
    say Please sit here, if you please.
@@ -167,7 +167,7 @@ ABGTVZ DFHJV 0 S
 stand stand male 0
 0 0 huge 0
 >all_greet_prog 100~
-if isimmort($n)
+if $n.is_immort()
    emote tries his best to look humble as he bows deeply.
    say How may I help you, your Greatness!
    emote starts buffing his wares to look busy.
@@ -178,7 +178,7 @@ else
 endif
 ~
 >rand_prog 10~
-if ispc($r)
+if $r.is_pc()
    if rand(5)
       nudge $r
       say You want to have some fun later?

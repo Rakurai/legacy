@@ -105,8 +105,8 @@ GH J 1000 S
 stand stand either 10
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -132,8 +132,8 @@ GH J 1000 S
 stand stand either 10
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -159,8 +159,8 @@ GH J 1000 S
 stand stand either 10
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -186,8 +186,8 @@ GH J 1000 S
 stand stand either 10
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce
@@ -213,8 +213,8 @@ GH J 1000 S
 stand stand either 10
 0 0 small 0
 >greet_prog 50~
-if ispc($n)
-   if isimmort($n)
+if $n.is_pc()
+   if $n.is_immort()
       worship $n
    else
       pounce $n
@@ -256,8 +256,8 @@ N 0 I H
 stand stand either 25
 0 0 medium 0
 >greet_prog 15~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          say Hello, $n
@@ -408,7 +408,7 @@ stand stand male 25
    sigh
 ~
 >speech_prog p I got one!~
-      if ispc($n)
+      if $n.is_pc()
          say I'll get it, $n! Keep reeling in!
       endif
    endif

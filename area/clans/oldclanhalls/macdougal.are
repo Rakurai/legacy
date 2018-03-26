@@ -25,17 +25,17 @@ BTGVZd DEF 0 S
 stand stand female 100000
 0 0 small flesh
 >all_greet_prog 100~
-if sex($n)==0
+if $n.sex()==0
    eyebrow $n
    emote wonders to herself if you look more like a female or male.
    pinch $n
 else
-   if sex($n)==1
+   if $n.sex()==1
    bow $n
    say What be yer pleasure ta'day?
    pinch $n
 else
-   if sex($n)==2
+   if $n.sex()==2
    smile $n
    say Good day M'Lady. What may I do for you?
   endif

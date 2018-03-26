@@ -79,8 +79,8 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -106,8 +106,8 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -133,8 +133,8 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -160,8 +160,8 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          pounce $n
@@ -187,8 +187,8 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-if ispc($n)
-   if isimmort($n)
+if $n.is_pc()
+   if $n.is_immort()
       worship $n
    else
       pounce $n
@@ -230,8 +230,8 @@ N 0 0 0
 stand stand either 255
 0 0 medium 0
 >greet_prog 25~
-   if ispc($n)
-      if isimmort($n)
+   if $n.is_pc()
+      if $n.is_immort()
          worship $n
       else
          say Hello, $n
@@ -276,7 +276,7 @@ F 0 0 0
 stand rest male 550
 0 0 small 0
 >speech_prog p I got one!~
-      if ispc($n)
+      if $n.is_pc()
          say An excellent catch, $n!
          clap $n
 	else

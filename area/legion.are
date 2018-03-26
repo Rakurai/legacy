@@ -23,10 +23,10 @@ stand stand male 20
 0 0 medium 0
 
 >greet_prog 100~
-if isnpc($n)
+if $n.is_npc()
    break
 endif
-if isimmort($n)
+if $n.is_immort()
    growl
    break
 endif
@@ -62,10 +62,10 @@ stand stand male 60
 revel
 ~
 >greet_prog 100~
-if isnpc($n)
+if $n.is_npc()
   break
 endif
-if isimmort($n)
+if $n.is_immort()
   sa BEGONE IN THE NAME OF KOREG!!!
   break
 endif
@@ -79,12 +79,12 @@ else
 endif
 ~
 >rand_prog 50~
-if inroom($i) == 11903
-or inroom($i) == 11906
-or inroom($i) == 11907
-or inroom($i) == 11910
-or inroom($i) == 11911
-or inroom($i) == 11924
+if $i.in_room() == 11903
+or $i.in_room() == 11906
+or $i.in_room() == 11907
+or $i.in_room() == 11910
+or $i.in_room() == 11911
+or $i.in_room() == 11924
    emote wails and moans.
    pall
 endif
@@ -108,10 +108,10 @@ ABCDEFHKR BINQ HJKLME 0
 stand stand male 100
 0 0 large 0
 >greet_prog 99~
-if isimmort($n)
+if $n.is_immort()
   emote pants.
 else
-  if ispc($n)
+  if $n.is_pc()
      scream
      MPKILL $n
   endif
@@ -241,7 +241,7 @@ CEFHKR L BIQ M
 stand stand male 50
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
   if rand(80)
      mutter
      say What now? What NOW?! WHAT NOW!!?
@@ -270,7 +270,7 @@ stand stand male 100
 0 0 medium 0
 
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
   if rand(90)
    emote looks at his map.
    grumble
@@ -302,7 +302,7 @@ stand stand male 250
 0 0 large 0
 
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
   if rand(90)
    beam $n
    say The battle is going well. We have them in our grasp.

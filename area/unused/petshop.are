@@ -114,7 +114,7 @@ emote smiles happily and looks up with adoring eyes.
 ~
 
 >entry_prog 100~
-if inroom($i) == 3031
+if $i.in_room() == 3031
    emote grunts and jumps back into his waiting cage.
    mpat 3032 mpmload 3091
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
@@ -153,7 +153,7 @@ emote smiles happily and looks up with adoring eyes.
 ~
 
 >entry_prog 100~
-if inroom($i) == 3031
+if $i.in_room() == 3031
    emote smiles happily and jumps back into her waiting cage.
    mpat 3032 mpmload 3090
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
@@ -192,7 +192,7 @@ emote smiles happily and looks up with adoring eyes.
 ~
 
 >entry_prog 100~
-if inroom($i) == 3031
+if $i.in_room() == 3031
    emote barks happily and jumps back into his waiting cage.
    mpat 3032 mpmload 3091
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
@@ -225,8 +225,8 @@ stand stand male 0
 
 >all_greet_prog 0~
 emote glances up at the sound of the door.
-if ispc($n)
-   if isimmort($n)
+if $n.is_pc()
+   if $n.is_immort()
       stroke $n
       nod self
       break

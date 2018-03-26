@@ -129,7 +129,7 @@ say {GHi! Can I help you?{x!
 giggle
 ~
 >speech_prog p Full Service~
-if isimmort($n)
+if $n.is_immort()
    bounce
    beam $n
    say {GOh{x! {GWhat a wonderful choice{x!
@@ -170,7 +170,7 @@ endif
 ~
 
 >speech_prog p Small Service~
-if isimmort($n)
+if $n.is_immort()
    bounce
    hug $n
    say {GOh{x!
@@ -225,13 +225,13 @@ stand stand female 0
 0 0 small 0
 
 >all_greet_prog 100~
-if sex($n)==0
+if $n.sex()==0
    mpechoat $n Lyana the waitress says 'Enjoy the party, umm...'
 else
-if sex($n)==2
+if $n.sex()==2
    mpechoat $n Lyana the waitress says 'Enjoy the party, Ma`am!'
 else
-if sex($n)==1
+if $n.sex()==1
    mpechoat $n Lyana the waitress says 'Enjoy the party, Sir!'
 endif
 endif

@@ -87,7 +87,7 @@ EFU 0 0 0
 stand stand male 1400
 0 0 large 0
 >greet_prog 10~
-if ispc($n)
+if $n.is_pc()
 Say Intruder!!
 say I will kill you!
 MPKILL $n
@@ -162,7 +162,7 @@ BCEU AB 0 CEFG
 stand stand female 1000
 0 0 medium 0
 >bribe_prog 1~
-if ispc($n)
+if $n.is_pc()
 say My loyalty is NOT for sale!
 say {RGUARDS!! GUARDS!!{x
 else

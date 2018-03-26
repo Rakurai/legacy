@@ -282,7 +282,7 @@ stand stand either 0
     MPCAST 'Divine heal'
 ~
 >greet_prog 100~
-   if ispc($n)
+   if $n.is_pc()
     MPCAST wrath $n
 endif
 ~
@@ -395,7 +395,7 @@ stand stand either 0
    MPCAST 'divine heal'
 ~
 >greet_prog 100~
-   if ispc($n)
+   if $n.is_pc()
    MPCAST wrath $n
   endif
 ~
@@ -540,7 +540,7 @@ stand stand male 0
    MPCAST 'force shield'
 ~
 >greet_prog 100~
-   if ispc($n)
+   if $n.is_pc()
    MPCAST wrath $n
  endif
 ~
@@ -575,7 +575,7 @@ stand stand female 0
    MPCAST 'force shield'
 ~
 >greet_prog 100~
-    if ispc($n)
+    if $n.is_pc()
     MPCAST wrath $n
 endif
 ~
@@ -612,7 +612,7 @@ stand stand female 0
     MPCAST 'force shield'
 ~
 >greet_prog 100~
-    if ispc($n)
+    if $n.is_pc()
     MPCAST wrath $n
  endif
 ~

@@ -74,14 +74,14 @@ ACDEFIJKNO ABCD 0 0
 stand stand male 0
 0 0 giant 0
 >all_greet_prog 100~
-if isimmort($n)
+if $n.is_immort()
    bow
    say "Welcome, mighty one."
    emote drops to one knee and lowers his head.
    say "All is safe and secure, as ordered."
    emote stands at attention.
  else
-   if ispc($n)
+   if $n.is_pc()
    emote at once aware of your presence, draws his sword!
    emote snaps to attention and salutes you with his sword.
    say All is safe and secure.
@@ -254,7 +254,7 @@ ABGJKQVZab AHZ 0 S
 stand stand none 0
 0 0 medium 0
 >rand_prog 10~
-if isimmort($r)
+if $r.is_immort()
    nod
    say Welcome. As always, you are free to stay.
 else

@@ -21,8 +21,8 @@ FHIJU ACX EFG S
 stand rest female 5
 0 0 small 0
 >all_greet_prog 50~
-	if ispc($n)
-		if isimmort($n)
+	if $n.is_pc()
+		if $n.is_immort()
 			worship $n
 		else
 			bow $n
@@ -62,7 +62,7 @@ BCDEFHIJKN AC D Y
 stand stand female 500
 0 0 medium 0
 >all_greet_prog 99~
-	if ispc($n)
+	if $n.is_pc()
 		bow $n
 		say Welcome, I will train, gain, practice, or heal you as you wish.
 	else

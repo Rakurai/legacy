@@ -24,7 +24,7 @@ AF ABCD 0 0
 stand stand male 15000
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
   if rand(45)
      say How can I help you? Rings? Wands? Potions?
      grin
@@ -61,8 +61,8 @@ CDF ABCD 0 0
 stand stand male 500
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
-  if sex($n)==2
+if $n.is_pc()
+  if $n.sex()==2
     grin $n
     say Welcome, My Lady! How may I assist you?
   else
@@ -97,7 +97,7 @@ EFJ ABCD 0 0
 stand stand male 1300
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
   if rand(50)
      twiddle
      say Well, are you going to order something?
@@ -131,7 +131,7 @@ CEIK ABCD 0 0
 stand stand male 25000
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
    if rand(50)
       say Hello, how can I help you?
       grin $n
@@ -167,7 +167,7 @@ CEFJKN ABCD 0 0
 stand stand male 100000
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
    if rand(54)
       say All the best armor in Thera. Best prices anywhere! I will special order.
       grin
@@ -203,7 +203,7 @@ EFJN 0 0 0
 stand stand either 100
 0 0 medium 0
 >greet_prog 35~
-   if level($n)>=90
+   if $n.level()>=90
      innocent
    endif
 ~
@@ -231,7 +231,7 @@ CEI ABCD 0 0
 stand stand male 1300
 0 0 medium 0
 >greet_prog 50~
-if ispc($n)
+if $n.is_pc()
   if rand(45)
      say Welcome mate what be yer needs?
   else
@@ -328,7 +328,7 @@ ACDEFHIKLNO ABP CD 0
 stand stand female 0
 0 0 huge 0
 >all_greet_prog 50~
-if isgood($n)
+if $n.is_good()
     smile $n
     say Greetings traveler of {bL{Ye{Wga{Yc{by{W!!{x
 else
@@ -385,8 +385,8 @@ FHIK ABCD 0 0
 stand stand female 4000
 0 0 medium 0
 >all_greet_prog 99~
-if ispc($n)
-   if level($n)<6
+if $n.is_pc()
+   if $n.level()<6
       say If you have a Newbie token to give me, I will trade it in for you.
    endif
    mpmoney 0 0
@@ -394,8 +394,8 @@ endif
 ~
 >give_prog newbie token~
    mpjunk token
-if ispc($n)
-   if level($n)<11
+if $n.is_pc()
+   if $n.level()<11
       mpoload 72
       mpoload 73
       mpoload 74
@@ -754,12 +754,12 @@ AFGHU 0 -200 0
 stand stand either 0
 0 0 small 0
 >all_greet_prog 75~
-if isfollow($n)
+if $n.master()
         growl $n
 endif
 ~
 >all_greet_prog 10~
-if ispc($n)
+if $n.is_pc()
         bark $n
 endif
 ~
@@ -1325,7 +1325,7 @@ stand stand male 0
 >all_greet_prog 50~
 say Ohhhhmmmmmmmmmm.......
 grin $n
-if ispc($n)
+if $n.is_pc()
 say Are you interested in a worldly challenge, $n?
 else
 wink $n
@@ -1407,11 +1407,11 @@ FHK ABCD 0 0
 stand stand male 9000
 0 0 small 0
 >greet_prog 100~
-if isnpc($n)
+if $n.is_npc()
    wink $n
    break
 endif
-if level($n) < 10
+if $n.level() < 10
    laugh $n
    pmote tells $n, "Hey kid, are you lost or something?"
    pmote tells $n, "Get back home to your parents!"
@@ -1420,60 +1420,60 @@ if level($n) < 10
    break
 endif
 say Welcome, $n, to the Land of Flaming Sword!
-if level($n) >= 90
+if $n.level() >= 90
    pmote tells $n, "If you want to go there, give me 300 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 80
+if $n.level() >= 80
    pmote tells $n, "If you want to go there, give me 250 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 70
+if $n.level() >= 70
    pmote tells $n, "If you want to go there, give me 200 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 60
+if $n.level() >= 60
    pmote tells $n, "If you want to go there, give me 150 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 50
+if $n.level() >= 50
    pmote tells $n, "If you want to go there, give me 100 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 40
+if $n.level() >= 40
    pmote tells $n, "If you want to go there, give me 75 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 30
+if $n.level() >= 30
    pmote tells $n, "If you want to go there, give me 50 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 20
+if $n.level() >= 20
    pmote tells $n, "If you want to go there, give me 25 gold pieces."
    pmote expectantly holds out his hand to $n.
    break
 endif
-if level($n) >= 10
+if $n.level() >= 10
    pmote tells $n, "If you want to go there, give me 10 gold pieces."
    pmote expectantly holds out his hand to $n.
 endif
 ~
 >bribe_prog 30000~
-if level($n) > 0
+if $n.level() > 0
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
 endif
 ~
 >bribe_prog 25000~
-if level($n) < 90
+if $n.level() < 90
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1483,7 +1483,7 @@ else
 endif
 ~
 >bribe_prog 20000~
-if level($n) < 80
+if $n.level() < 80
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1493,7 +1493,7 @@ else
 endif
 ~
 >bribe_prog 15000~
-if level($n) < 70
+if $n.level() < 70
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1503,7 +1503,7 @@ else
 endif
 ~
 >bribe_prog 10000~
-if level($n) < 60
+if $n.level() < 60
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1513,7 +1513,7 @@ else
 endif
 ~
 >bribe_prog 7500~
-if level($n) < 50
+if $n.level() < 50
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1523,7 +1523,7 @@ else
 endif
 ~
 >bribe_prog 5000~
-if level($n) < 40
+if $n.level() < 40
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1533,7 +1533,7 @@ else
 endif
 ~
 >bribe_prog 2500~
-if level($n) < 30
+if $n.level() < 30
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1543,7 +1543,7 @@ else
 endif
 ~
 >bribe_prog 1000~
-if level($n) < 20
+if $n.level() < 20
    cheer $n
    mptransfer $n 3369
    mpat 3369 mpforce $n thank dispatcher
@@ -1750,7 +1750,7 @@ ADCEFHKN ABCD 0 0
 stand stand female 0
 0 0 medium 0
 >greet_prog 30~
-if ispc($n)
+if $n.is_pc()
 say You get into your seat right now and get ready to learn, $n!
 else
 glare $n 
