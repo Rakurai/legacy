@@ -26,18 +26,7 @@ const std::vector<fn_type> fn_table = {
 	// name          return type              context                  arg types
 	// global context
 	{ "mudtime",     Symbol::Type::String,    Symbol::Type::global,    {} },
-	{ "inroom",      Symbol::Type::String,    Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "ispc",        Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "isnpc",       Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "isgood",      Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "isevil",      Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "isneutral",   Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "isimmort",    Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
 	{ "rand",        Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Integer } },
-	{ "level",       Symbol::Type::Integer,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "hitprcnt",    Symbol::Type::Integer,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "sex",         Symbol::Type::Integer,   Symbol::Type::global,    { Symbol::Type::Character } },
-	{ "isfollow",    Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Character } },
 
 	// character accessors
 	{ "name",        Symbol::Type::String,    Symbol::Type::Character, {} },
@@ -45,12 +34,21 @@ const std::vector<fn_type> fn_table = {
 	{ "he_she",      Symbol::Type::String,    Symbol::Type::Character, {} },
 	{ "him_her",     Symbol::Type::String,    Symbol::Type::Character, {} },
 	{ "his_her",     Symbol::Type::String,    Symbol::Type::Character, {} },
+	{ "is_pc",       Symbol::Type::Boolean,   Symbol::Type::Character, {} },
+	{ "is_npc",      Symbol::Type::Boolean,   Symbol::Type::Character, {} },
+	{ "is_good",     Symbol::Type::Boolean,   Symbol::Type::Character, {} },
+	{ "is_evil",     Symbol::Type::Boolean,   Symbol::Type::Character, {} },
+	{ "is_neutral",  Symbol::Type::Boolean,   Symbol::Type::Character, {} },
+	{ "is_immort",   Symbol::Type::Boolean,   Symbol::Type::Character, {} },
 	{ "is_fighting", Symbol::Type::Boolean,   Symbol::Type::Character, {} },
 	{ "is_killer",   Symbol::Type::Boolean,   Symbol::Type::Character, {} },
 	{ "is_thief",    Symbol::Type::Boolean,   Symbol::Type::Character, {} },
 	{ "is_charmed",  Symbol::Type::Boolean,   Symbol::Type::Character, {} },
+	{ "in_room",     Symbol::Type::String,    Symbol::Type::Character, {} },
 	{ "position",    Symbol::Type::Integer,   Symbol::Type::Character, {} },
 	{ "level",       Symbol::Type::Integer,   Symbol::Type::Character, {} },
+	{ "hitprcnt",    Symbol::Type::Integer,   Symbol::Type::Character, {} },
+	{ "sex",         Symbol::Type::Integer,   Symbol::Type::Character, {} },
 	{ "guild",       Symbol::Type::Integer,   Symbol::Type::Character, {} },
 	{ "gold",        Symbol::Type::Integer,   Symbol::Type::Character, {} },
 	{ "vnum",        Symbol::Type::Integer,   Symbol::Type::Character, {} },
@@ -140,7 +138,6 @@ try {
 	if (parent == nullptr) { // global function
 
 		if (name == "mudtime")    return Format::format("%d", Game::world().time.hour);
-		if (name == "inroom")     return deref<Character *>(arg_list[0].get(), context)->in_room->location.to_string();
 
 		throw Format::format("unhandled global function '%s'", name);
 	}
@@ -182,6 +179,8 @@ try {
 			if (!can_see)     return "someone's";
 			                  return his_her[GET_ATTR_SEX(ch)];
 		}
+
+		if (name == "in_room") return ch->in_room->location.to_string();
 
 		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
 	}
@@ -230,18 +229,7 @@ try {
 
 	if (parent == nullptr) { // global function
 
-		if (name == "ispc")       return !deref<Character *>(arg_list[0].get(), context)->is_npc();
-		if (name == "isnpc")      return deref<Character *>(arg_list[0].get(), context)->is_npc();
-		if (name == "isgood")     return IS_GOOD(deref<Character *>(arg_list[0].get(), context));
-		if (name == "isevil")     return IS_EVIL(deref<Character *>(arg_list[0].get(), context));
-		if (name == "isneutral")  return IS_NEUTRAL(deref<Character *>(arg_list[0].get(), context));
-		if (name == "isimmort")   return IS_IMMORTAL(deref<Character *>(arg_list[0].get(), context));
 		if (name == "rand")       return number_percent() <= deref<int>(arg_list[0].get(), context);
-
-		if (name == "isfollow")   {
-			Character *target = deref<Character *>(arg_list[0].get(), context);
-			return target->master && target->master->in_room == target->in_room;
-		}
 
 		throw Format::format("unhandled global function '%s'", name);
 	}
@@ -252,6 +240,12 @@ try {
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
 
+		if (name == "is_pc")       return !ch->is_npc();
+		if (name == "is_npc")      return ch->is_npc();
+		if (name == "is_good")     return IS_GOOD(ch);
+		if (name == "is_evil")     return IS_EVIL(ch);
+		if (name == "is_neutral")  return IS_NEUTRAL(ch);
+		if (name == "is_immort")   return IS_IMMORTAL(ch);
 		if (name == "is_fighting") return ch->fighting != nullptr;
 		if (name == "is_killer")   return IS_KILLER(ch);
 		if (name == "is_thief")    return IS_THIEF(ch);
@@ -275,14 +269,6 @@ try {
 	const String& name = fn_table[fn_index].name;
 
 	if (parent == nullptr) { // global function
-
-		if (name == "level")      return deref<Character *>(arg_list[0].get(), context)->level;
-		if (name == "sex")        return GET_ATTR_SEX(deref<Character *>(arg_list[0].get(), context));
-		if (name == "hitprcnt")   {
-			Character *target = deref<Character *>(arg_list[0].get(), context);
-			return target->hit / GET_MAX_HIT(target);
-		}
-
 		throw Format::format("unhandled global function '%s'", name);
 	}
 
@@ -297,6 +283,8 @@ try {
 		if (name == "guild")      return ch->guild;
 		if (name == "gold")       return ch->gold;
 		if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
+		if (name == "sex")        return GET_ATTR_SEX(ch);
+		if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
 		if (name == "state") {
 			String key = deref<const String>(arg_list[0].get(), context);
 			const auto entry = ch->mpstate.find(key);

@@ -12,12 +12,11 @@ public:
 	MobProgContext(Character *mob);
 	virtual ~MobProgContext() {}
 
+	// overrides
 	virtual const String type() const { return "mob"; }
-	virtual const Vnum& vnum() const;;
+	virtual const Vnum vnum() const;
 	virtual bool can_see(Character *ch) const;
 	virtual bool can_see(Object *obj) const;
-
-	// overrides
 	virtual void process_command(const String& cmnd);
 	virtual bool self_is_garbage() const;
 

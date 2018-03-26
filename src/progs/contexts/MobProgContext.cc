@@ -7,7 +7,7 @@
 namespace progs {
 namespace contexts {
 
-const Vnum& MobProgContext::
+const Vnum MobProgContext::
 vnum() const {
 	return mob->pIndexData->vnum;
 }

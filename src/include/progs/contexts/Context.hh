@@ -19,7 +19,7 @@ public:
 
 	// must be overridden
 	virtual const String type() const = 0;
-	virtual const Vnum& vnum() const = 0;
+	virtual const Vnum vnum() const = 0;
 	virtual bool can_see(Character *ch) const = 0;
 	virtual bool can_see(Object *obj) const = 0;
 	virtual void process_command(const String& command) = 0;

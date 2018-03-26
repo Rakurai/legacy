@@ -85,14 +85,14 @@ parse(String& orig, const String& until) {
 void parse_whitespace(String& str) {
 	while (!str.empty() && (str[0] == ' ' || str[0] == '\t' || str[0] == '\r'))
 		str.erase(0, 1);
-
-	if (str.empty())
-		throw String("unexpected end of line encountered");
 }
 
 // parse a valid identifier
 const String parse_identifier(String& str) {
 	parse_whitespace(str);
+
+	if (str.empty())
+		throw String("unexpected end of line encountered");
 
 	String buf;
 
@@ -107,6 +107,9 @@ const String parse_identifier(String& str) {
 std::unique_ptr<Symbol>
 parseVariableSymbol(String& str) {
 	parse_whitespace(str);
+
+	if (str.empty())
+		return nullptr;
 
 	if (str[0] != '$') // no '$', not a variable
 		return nullptr;
@@ -183,10 +186,17 @@ parseVariableSymbol(String& str) {
 		throw Format::format("unknown variable binding for '%s'", var);
 	}
 
-	// if followed by function, wrap this variable in that accessor
+	// test if its followed by function, and wrap this variable in that accessor
 	if (!str.empty() && str[0] == '.') {
-		str.erase(0, 1);
-		return parseFunctionSymbol(str, sym);
+		String copy = str.substr(1);
+		auto fsym = parseFunctionSymbol(copy, sym); // success will take ownership of sym
+
+		if (fsym != nullptr) {
+			str.assign(copy);
+			return fsym;
+		}
+
+		// failure will not have modified str
 	}
 
 	// if it was a convenience variable name, wrap in the appropriate accessor
@@ -199,16 +209,17 @@ parseVariableSymbol(String& str) {
 
 std::unique_ptr<Symbol>
 parseFunctionSymbol(String& str, std::unique_ptr<Symbol>& parent) {
-std::cout << str.c_str() << std::endl;
 	parse_whitespace(str);
-std::cout << str.c_str() << std::endl;
+
+	if (str.empty())
+		return nullptr;
+
 	// function name is everything leading up to '(', only valid chars are alphanumeric and _
 	String name = parse_identifier(str);
-std::cout << str.c_str() << std::endl;
 
 	if (name.empty())
 		return nullptr;
-std::cout << name.c_str() << std::endl;
+
 	// no whitespace allowed between identifier and opening paren or dereference op
 
 	if (str.empty() || str[0] != '(')
@@ -222,9 +233,15 @@ std::cout << name.c_str() << std::endl;
 	while (true) {
 		parse_whitespace(str);
 
+		if (str.empty())
+			throw String("unexpected end of line encountered");
+
 		if (str[0] != ')') {
 			arg_list.push_back(parse(str, ",)"));
 			parse_whitespace(str);
+
+			if (str.empty())
+				throw String("unexpected end of line encountered");
 
 			if (str[0] == ',') {
 				str.erase(0, 1);
@@ -281,9 +298,17 @@ std::cout << name.c_str() << std::endl;
 		throw Format::format("unhandled function return type");
 	}
 
+	// test if its followed by function, and wrap this variable in that accessor
 	if (!str.empty() && str[0] == '.') {
-		str.erase(0, 1);
-		return parseFunctionSymbol(str, sym);
+		String copy = str.substr(1);
+		auto fsym = parseFunctionSymbol(copy, sym); // success will take ownership of sym
+
+		if (fsym != nullptr) {
+			str.assign(copy);
+			return fsym;
+		}
+
+		// failure will not have modified str
 	}
 
 	return sym;
@@ -292,6 +317,9 @@ std::cout << name.c_str() << std::endl;
 std::unique_ptr<Symbol>
 parseIntegerSymbol(String& str) {
 	parse_whitespace(str);
+
+	if (str.empty())
+		return nullptr;
 
 	String buf;
 	bool negative = false;
@@ -321,6 +349,9 @@ std::unique_ptr<Symbol>
 parseBooleanSymbol(String& str) {
 	parse_whitespace(str);
 
+	if (str.empty())
+		return nullptr;
+
 	if (str.has_prefix("true")) {
 		str.erase(0, 4);
 		return std::unique_ptr<Symbol>(new ValueSymbol<bool>(Symbol::Type::Boolean, true));
@@ -337,6 +368,9 @@ parseBooleanSymbol(String& str) {
 std::unique_ptr<Symbol>
 parseStringSymbol(String& str, const String& until) {
 	parse_whitespace(str);
+
+	if (str.empty())
+		return nullptr;
 
 	String val;
 
@@ -358,9 +392,6 @@ parseStringSymbol(String& str, const String& until) {
 	}
 
 	val = val.strip();
-
-	if (val.empty())
-		throw String("empty string");
 
 	return std::unique_ptr<Symbol>(new ValueSymbol<const String>(Symbol::Type::String, val));
 }

@@ -9,7 +9,7 @@
 namespace progs {
 namespace contexts {
 
-const Vnum& ObjProgContext::
+const Vnum ObjProgContext::
 vnum() const {
 	return obj->pIndexData->vnum;
 }
