@@ -314,100 +314,163 @@ A
 42 15
 
 #24100
-mage only test~
-mage only gear test~
-just testing mage only gear.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
+invoker robe set setgen~
+{x({GS{He{Gt{x){x {PI{Wn{Nv{Yo{Tk{Ve{Tr{Y'{Cs {WR{go{Wbe{x~
+the robe of the Vestments of the {PI{Wn{Nv{Yo{Tk{Ve{Tr set is here crumpled.~
+ethereal energy~
+armor ABGS AD
+8 8 8 8 0
+25 0 0 P
+E
+invoker robe~
+This robe shimmers with an ethereal glow. Its light as a feather
+and resizes to fit whoever is trying to wear it.
+~
+E
+set bonus~
+2pc: 10% bonus spell damage
+3pc: cast speed increased
+4pc: 45% mana cost reduction
+5pc: 10% chance on spell cast to cast a second time for free
+~
+A
+3 1
+A
+19 3
+A
+12 30
 A
 43 1
 G mage~
 
+
 #24101
-cleric only test~
-cleric only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
+invoker silver circlet set setgen~
+{x({GS{He{Gt{x){x {PI{Wn{Nv{Yo{Tk{Ve{Tr{Y'{Cs {WSi{glv{Wer {gCi{Trc{gle{Tt{x~
+a beautful circlet belonging to an {PI{Wn{Nv{Yo{Tk{Ve{Tr {xlays here.~
+silver~
+armor ABG AE
+13 13 13 15 0
+35 0 0 P
+E
+invoker circlet~
+This circlet appears to be made from the finest silver in the land.
+~
+E
+set bonus~
+2pc: 10% bonus spell damage
+3pc: cast speed increased
+4pc: 45% mana cost reduction
+5pc: 10% chance on spell cast to cast a second time for free
+~
+A
+3 2
+A
+4 2
+A
+18 4
+A
+19 4
+A
+12 40
 A
 43 1
-G cleric~
+G mage~
 
 #24102
-thief only test~
-thief only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
+invoker silk gloves set setgen~
+{x({GS{He{Gt{x){x {PI{Wn{Nv{Yo{Tk{Ve{Tr{Y'{Cs {WS{gil{Wk {xGloves~
+some silken gloves belonging to an {PI{Wn{Nv{Yo{Tk{Ve{Tr lay here.~
+silk~
+armor ABGS AH
+13 13 13 15 0
+35 0 0 P
+E
+invoker silk gloves~
+These gloves feel as if a cloud surrounds your hands.
+~
+E
+set bonus~
+2pc: 10% bonus spell damage
+3pc: cast speed increased
+4pc: 45% mana cost reduction
+5pc: 10% chance on spell cast to cast a second time for free
+~
+A
+3 2
+A
+4 2
+A
+18 4
+A
+19 4
+A
+12 40
 A
 43 1
-G thief~
+G mage~
+
 #24103
-warrior only test~
-warrior only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
+invoker clasped boots set setgen~
+{x({GS{He{Gt{x){x {PI{Wn{Nv{Yo{Tk{Ve{Tr{Y'{Cs {xClasped Boots{x~
+a pair of clasped boots belonging to an {PI{Wn{Nv{Yo{Tk{Ve{Tr is here.~
+ethereal energy~
+armor ABGS AG
+17 17 17 18 0
+45 0 0 P
+E
+invoker clasped boots~
+These boots are impossibly clean.
+~
+E
+set bonus~
+2pc: 10% bonus spell damage
+3pc: cast speed increased
+4pc: 45% mana cost reduction
+5pc: 10% chance on spell cast to cast a second time for free
+~
+A
+3 4
+A
+4 4
+A
+18 5
+A
+19 5
+A
+12 50
 A
 43 1
-G warrior~
+G mage~
 
 #24104
-necro only test~
-necro only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
+invoker crystal source set setgen~
+{x({GS{He{Gt{x){x {PI{Wn{Nv{Yo{Tk{Ve{Tr{Y'{Cs {WCr{Ty{gs{Tt{Wal {xSource{x~
+a floating ball of crystal belonging to an {PI{Wn{Nv{Yo{Tk{Ve{Tr is here.~
+crystal~
+armor ABGS AQ
+17 17 17 18 0
+45 0 0 P
+E
+invoker crystal source~
+This crystal ball can do way more than just tell your simple fortune.
+~
+E
+set bonus~
+2pc: 10% bonus spell damage
+3pc: cast speed increased
+4pc: 45% mana cost reduction
+5pc: 10% chance on spell cast to cast a second time for free
+~
+A
+18 5
+A
+19 5
+A
+12 50
 A
 43 1
-G necromancer~
-
-#24105
-pally only test~
-pally only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
-A
-43 1
-G paladin~
-
-#24106
-bard only test~
-bard only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
-A
-43 1
-G bard~
-
-#24107
-ranger only test~
-ranger only gear test~
-just testing.~
-testing~
-armor ABG AI
-0 0 0 0 0
-1 0 0 I
-A
-43 1
-G ranger~
-
+G mage~
 
 #24350
 elven bow~
