@@ -31,8 +31,8 @@ MobProgContext::
 MobProgContext(Character *mob) :
 	mob(mob) 
 {
-	add_var("i", mob);
-	add_var("b", mob->master);
+	add_var("self", data::Type::Character, mob);
+	add_var("master", data::Type::Character, mob->master);
 
 	int count = 0;
 	Character *rndm;
@@ -50,7 +50,7 @@ MobProgContext(Character *mob) :
 	}
 
 	if (rndm != nullptr)
-		add_var("r", rndm);
+		add_var("random", data::Type::Character, rndm);
 }
 
 /* This procedure simply copies the cmnd to a buffer while expanding

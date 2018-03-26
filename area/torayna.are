@@ -25,7 +25,7 @@ sit sit male 0
 0 0 medium 0
 
 >all_greet_prog 100~
-peer $n
+peer $actor
 say Were you raised in a barn?  Close the door when you come inside, it's cold out there!
 close east
 emote huddles close to the fire again.
@@ -87,8 +87,8 @@ stand stand male 0
 0 0 medium 0
 >all_greet_prog 10~
 MPECHO The bitter cold overtakes you...  you collapse on the ground, and know no more.
-MPFORCE $n sleep
-MPTRANS $n 2601
+MPFORCE $actor sleep
+MPTRANS $actor 2601
 ~
 |
 
@@ -108,8 +108,8 @@ stand stand male 0
 0 0 medium 0
 >all_greet_prog 10~
 MPECHO The bitter cold overtakes you...  you collapse on the ground, and know no more.
-MPFORCE $n sleep
-MPTRANS $n 2601
+MPFORCE $actor sleep
+MPTRANS $actor 2601
 ~
 |
 
@@ -148,7 +148,7 @@ endif
 ~
 
 >greet_prog 50~
-grin $n
+grin $actor
 say Welcome!  What sort of fine blades be ye looking for today?
 ~
 
@@ -175,13 +175,13 @@ stand stand male 100000
 0 0 medium 0
 
 >bribe_prog 5000~
-beam $n
+beam $actor
 say Excellent!  Right this way, please!  I'm sure you'll have a fine blade crafted in no time, maybe even as good as the ones ol' Phil makes!
 remove key
 unlock north
 open north
 emote guides you to the back room.
-MPFORCE $n north
+MPFORCE $actor north
 close north
 lock north
 wear key
@@ -189,9 +189,9 @@ smile
 ~
 
 >bribe_prog 1~
-eyebrow $n
+eyebrow $actor
 say I'm sorry, the charge is 50 gold to use the forge.
-pet $n
+pet $actor
 emote pockets the money and goes back to polishing the armor.
 ~
 
@@ -227,7 +227,7 @@ emote holds a spear up to the light and sights down it, checking for straightnes
 ~
 
 >greet_prog 25~
-bow $n
+bow $actor
 say Welcome!  Please look at the sign, it'll tell you what you can do here.  Be careful with my anvil!
 ~
 |

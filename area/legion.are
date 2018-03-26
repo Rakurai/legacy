@@ -23,10 +23,10 @@ stand stand male 20
 0 0 medium 0
 
 >greet_prog 100~
-if $n.is_npc()
+if $actor.is_npc()
    break
 endif
-if $n.is_immort()
+if $actor.is_immort()
    growl
    break
 endif
@@ -34,8 +34,8 @@ if rand (75)
    yell Koreg! Help my blows strike true.
    howl
 else
-   MPKILL $n
-   snarl $n
+   MPKILL $actor
+   snarl $actor
    say DIE, LEGION LOVER!!    
 endif
 ~
@@ -62,10 +62,10 @@ stand stand male 60
 revel
 ~
 >greet_prog 100~
-if $n.is_npc()
+if $actor.is_npc()
   break
 endif
-if $n.is_immort()
+if $actor.is_immort()
   sa BEGONE IN THE NAME OF KOREG!!!
   break
 endif
@@ -73,18 +73,18 @@ if rand (50)
   emote wipes his bloody mace on his robes.
   emote looks at you.
 else 
-  MPKILL $n
+  MPKILL $actor
   say Your time has come, infidel!
-  pmote swings his mace at $n's head.
+  pmote swings his mace at $actor's head.
 endif
 ~
 >rand_prog 50~
-if $i.in_room() == 11903
-or $i.in_room() == 11906
-or $i.in_room() == 11907
-or $i.in_room() == 11910
-or $i.in_room() == 11911
-or $i.in_room() == 11924
+if $self.in_room() == 11903
+or $self.in_room() == 11906
+or $self.in_room() == 11907
+or $self.in_room() == 11910
+or $self.in_room() == 11911
+or $self.in_room() == 11924
    emote wails and moans.
    pall
 endif
@@ -108,12 +108,12 @@ ABCDEFHKR BINQ HJKLME 0
 stand stand male 100
 0 0 large 0
 >greet_prog 99~
-if $n.is_immort()
+if $actor.is_immort()
   emote pants.
 else
-  if $n.is_pc()
+  if $actor.is_pc()
      scream
-     MPKILL $n
+     MPKILL $actor
   endif
 endif
 ~
@@ -146,7 +146,7 @@ stand stand male 200
 0 0 large 0
 
 >greet_prog 80~
-egrin $n
+egrin $actor
 ~
 >give_prog icewing skull~
 emote looks at you and studies it.
@@ -241,7 +241,7 @@ CEFHKR L BIQ M
 stand stand male 50
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
   if rand(80)
      mutter
      say What now? What NOW?! WHAT NOW!!?
@@ -270,7 +270,7 @@ stand stand male 100
 0 0 medium 0
 
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
   if rand(90)
    emote looks at his map.
    grumble
@@ -302,12 +302,12 @@ stand stand male 250
 0 0 large 0
 
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
   if rand(90)
-   beam $n
+   beam $actor
    say The battle is going well. We have them in our grasp.
   else
-   peer $n
+   peer $actor
    sigh
    say We are all going to die. 
   endif

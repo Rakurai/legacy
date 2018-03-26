@@ -401,8 +401,8 @@ DFJKO 0 G E
 stand stand male 2500
 0 0 large 0
 >greet_prog 99~
-if $n.is_pc()
-  egrin $n
+if $actor.is_pc()
+  egrin $actor
   say {P"Oh fool, I promise no pity upon your soul."{x
 endif
 ~

@@ -21,11 +21,11 @@ FHIJU ACX EFG S
 stand rest female 5
 0 0 small 0
 >all_greet_prog 50~
-	if $n.is_pc()
-		if $n.is_immort()
-			worship $n
+	if $actor.is_pc()
+		if $actor.is_immort()
+			worship $actor
 		else
-			bow $n
+			bow $actor
 		endif
 	endif
 ~
@@ -34,10 +34,10 @@ stand rest female 5
 	peer
 ~
 >give_prog carrot~
-	thank $n
+	thank $actor
 	eat carrot
 	mpoload 19902
-	give pill $n
+	give pill $actor
 ~
 >death_prog 99~
 	mpmload 19900
@@ -62,16 +62,16 @@ BCDEFHIJKN AC D Y
 stand stand female 500
 0 0 medium 0
 >all_greet_prog 99~
-	if $n.is_pc()
-		bow $n
+	if $actor.is_pc()
+		bow $actor
 		say Welcome, I will train, gain, practice, or heal you as you wish.
 	else
-		bow $n
+		bow $actor
 	endif
 ~
 >act_prog such location.~
 	say He is not connected right now, but thank you for your donation.
-	smile $n
+	smile $actor
 ~
 >death_prog 99~
 	mpmload 19901

@@ -41,7 +41,7 @@ stand stand female 0
 0 0 giant 0
 >bribe_prog 1~
 say I'm a wolf, what am I going to do with money?
-cackle $n
+cackle $actor
 say But you definately aren't getting your money back.
 snicker
 ~
@@ -74,14 +74,14 @@ ACDEFIJKNO ABCD 0 0
 stand stand male 0
 0 0 giant 0
 >all_greet_prog 100~
-if $n.is_immort()
+if $actor.is_immort()
    bow
    say "Welcome, mighty one."
    emote drops to one knee and lowers his head.
    say "All is safe and secure, as ordered."
    emote stands at attention.
  else
-   if $n.is_pc()
+   if $actor.is_pc()
    emote at once aware of your presence, draws his sword!
    emote snaps to attention and salutes you with his sword.
    say All is safe and secure.
@@ -100,11 +100,11 @@ emote turns and walks back to his post.
 emote stares at you mournfully.
 say You have violated the sanctity of this room.
 say Return when you have learned some respect!
-pmote makes a magical gesture at $n.
-mpechoat $n Your vision fades to black.
-mpechoaround $n $n disappears!
-mpechoat $n When next you open your eyes, you find yourself far away.
-mptransfer $n 5031
+pmote makes a magical gesture at $actor.
+mpechoat $actor Your vision fades to black.
+mpechoaround $actor $actor disappears!
+mpechoat $actor When next you open your eyes, you find yourself far away.
+mptransfer $actor 5031
 ~
 |
 
@@ -210,14 +210,14 @@ emote raises its wings up and flutters them softly in greeting.
 emote raises its wings up and flutters them softly in greeting.
 ~
 >act_prog p hugs you.~
-nuzzle $n
+nuzzle $actor
 stretch
 ~
 >act_prog p pets you (scratches behind your ears too).~
 emote nickers softly, basking in the attention happily.
 ~
 >act_prog p rudely awakes you from your peaceful slumber.~
-frown $n
+frown $actor
 stretch
 ~
 >act_prog p bonks you on the head for being so foolish.~
@@ -254,11 +254,11 @@ ABGJKQVZab AHZ 0 S
 stand stand none 0
 0 0 medium 0
 >rand_prog 10~
-if $r.is_immort()
+if $random.is_immort()
    nod
    say Welcome. As always, you are free to stay.
 else
-   eyebrow $r
+   eyebrow $random
    say Excuse me, can I help you ... out the door?
 endif
 ~

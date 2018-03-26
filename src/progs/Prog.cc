@@ -29,8 +29,10 @@ Prog(FILE *fp, Vnum vnum) {
 
 	Line::Type last_control, last_type;
 	String script = original;
-	const String& allowed_vars = prog_table.find(type)->second.allowed_vars;
 	int unclosed_ifs = 0;
+
+	// make a copy of the default bindings
+	std::map<String, data::Type> var_bindings(prog_table.find(type)->second.default_bindings);
 
 	while (!script.empty()) {
 		String word, line;
@@ -120,21 +122,29 @@ Prog(FILE *fp, Vnum vnum) {
 
 		last_type = line_type;
 
-		// test the line for variable usage that doesn't make sense
-		std::size_t pos = 0;
+		// test the line for variable and function usage that doesn't make sense
+		// make a copy of the string
+		String copy = line.lstrip();
 
-		while ((pos = line.find("$", pos)) != std::string::npos && pos < line.length()-1) {
-			char letter = line[pos+1];
-			pos += 2;
+		while (!copy.empty()) {
+			if (copy[0] == '$') {
+				// make sure the variable name is in the allowed list
+				String copy2 = copy.substr(1); // parsing will consume this copy
+				String var_name = symbols::parse_identifier(copy2);
 
-			if (letter == '$')
-				continue; // skip a double $$
+				if (var_bindings.find(var_name) == var_bindings.cend())
+					throw Format::format("progs::Prog: variable $%s is undefined for prog type '%s'", var_name, name);
 
-			if (strchr(allowed_vars, letter) == nullptr)
-				throw Format::format("progs::Prog: variable $%c is undefined for prog type '%s'", letter, name);
+				// go back to the working copy, done with copy2
+				// parse variable and function stack, throws errors if it breaks
+				symbols::parseVariableSymbol(copy, var_bindings);
+			}
+			else
+				// parse until a variable start
+				symbols::parseStringSymbol(copy, "$");
 		}
 
-		lines.push_back({line_type, line});
+		lines.push_back({line_type, line, var_bindings});
 	}
 
 	if (unclosed_ifs > 0) {
@@ -158,6 +168,31 @@ execute(contexts::Context& context) const {
 	int line_num = 0;
 
 try {
+	// make sure all bindings are correct
+	// same number of bindings
+	// each binding is of same type as default
+	// each binding has a data wrapper defined (could be nullptr?)
+	const auto& default_bindings = prog_table.find(type)->second.default_bindings;
+
+	if (context.bindings.size() != default_bindings.size())
+		throw Format::format("context has %d variables bound, default is %d",
+			context.bindings.size(), default_bindings.size());
+
+	for (const std::pair<String, data::Type>& context_pair : context.bindings) {
+		const String& name = context_pair.first;
+		const auto default_pair = default_bindings.find(name);
+
+		if (default_pair == default_bindings.cend())
+			throw Format::format("context variable '%s' not found in default bindings", name);
+
+		if (context_pair.second != default_pair->second)
+			throw Format::format("context variable '%s' is of type '%s', default is '%s'",
+				name, data::type_to_string(context_pair.second), data::type_to_string(default_pair->second));
+
+		if (context.vars.find(name) == context.vars.cend())
+			throw Format::format("context variable '%s' is uninitialized", name);
+	}
+
 	std::stack<bool> stack;
 	bool opposite;
 
@@ -178,7 +213,7 @@ try {
 
 		case Line::Type::OR:
 			if (stack.empty())
-				throw String("progs::execute: 'or' encountered without 'if'");
+				throw String("'or' encountered without 'if'");
 
 			// "or" won't change a true evaluation, don't bother evaluating
 			if (stack.top() == true)
@@ -199,7 +234,7 @@ try {
 
 		case Line::Type::AND:
 			if (stack.empty())
-				throw String("progs::execute: 'and' encountered without 'if'");
+				throw String("'and' encountered without 'if'");
 
 			// "and" won't change a false evaluation, don't bother evaluating
 			if (stack.top() == false)
@@ -213,7 +248,7 @@ try {
 
 		case Line::Type::ELSE:
 			if (stack.empty())
-				throw String("progs::execute: 'else' encountered without 'if'");
+				throw String("'else' encountered without 'if'");
 
 			// switch evaluations now, unless the parent is false
 			opposite = !stack.top();
@@ -228,7 +263,7 @@ try {
 
 		case Line::Type::ENDIF:
 			if (stack.empty())
-				throw String("progs::execute: 'endif' encountered without 'if'");
+				throw String("'endif' encountered without 'if'");
 
 			stack.pop();
 			break;
@@ -256,7 +291,7 @@ try {
 	if (!stack.empty())
 		throw String("progs::execute: reached end of script without closing 'if' statements");
 } catch (String e) {
-	Logging::bugf("Exception caught in execution of prog on %s %d, line %d:",
+	Logging::bugf("progs::execute: Exception caught in prog on %s %d, line %d:",
 		context.type(), context.vnum(), line_num);
 	Logging::bugf(e);
 	Logging::bugf(original);

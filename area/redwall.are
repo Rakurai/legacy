@@ -23,7 +23,7 @@ J 0 0 S
 stand stand male 277
 0 0 medium 0
 >greet_prog 50~
-   beam $n
+   beam $actor
 ~
 |
 
@@ -79,11 +79,11 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if $n.is_pc()
-      if $n.is_immort()
-         worship $n
+   if $actor.is_pc()
+      if $actor.is_immort()
+         worship $actor
       else
-         pounce $n
+         pounce $actor
    endif
 endif
 ~
@@ -106,11 +106,11 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if $n.is_pc()
-      if $n.is_immort()
-         worship $n
+   if $actor.is_pc()
+      if $actor.is_immort()
+         worship $actor
       else
-         pounce $n
+         pounce $actor
       endif
    endif
 ~
@@ -133,11 +133,11 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if $n.is_pc()
-      if $n.is_immort()
-         worship $n
+   if $actor.is_pc()
+      if $actor.is_immort()
+         worship $actor
       else
-         pounce $n
+         pounce $actor
       endif
    endif
 ~
@@ -160,11 +160,11 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-   if $n.is_pc()
-      if $n.is_immort()
-         worship $n
+   if $actor.is_pc()
+      if $actor.is_immort()
+         worship $actor
       else
-         pounce $n
+         pounce $actor
       endif
    endif
 ~
@@ -187,11 +187,11 @@ N 0 0 0
 stand stand male 32
 0 0 small 0
 >greet_prog 50~
-if $n.is_pc()
-   if $n.is_immort()
-      worship $n
+if $actor.is_pc()
+   if $actor.is_immort()
+      worship $actor
    else
-      pounce $n
+      pounce $actor
    endif
 endif
 ~
@@ -230,11 +230,11 @@ N 0 0 0
 stand stand either 255
 0 0 medium 0
 >greet_prog 25~
-   if $n.is_pc()
-      if $n.is_immort()
-         worship $n
+   if $actor.is_pc()
+      if $actor.is_immort()
+         worship $actor
       else
-         say Hello, $n
+         say Hello, $actor
       endif
    endif
 ~
@@ -276,9 +276,9 @@ F 0 0 0
 stand rest male 550
 0 0 small 0
 >speech_prog p I got one!~
-      if $n.is_pc()
-         say An excellent catch, $n!
-         clap $n
+      if $actor.is_pc()
+         say An excellent catch, $actor!
+         clap $actor
 	else
 	say Nice one!
       endif

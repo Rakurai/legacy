@@ -24,13 +24,13 @@ AF ABCD 0 0
 stand stand male 15000
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
   if rand(45)
      say How can I help you? Rings? Wands? Potions?
      grin
   else
-     smile $n
-     say Hello {V$n{x, what would you like today?
+     smile $actor
+     say Hello {V$actor{x, what would you like today?
   endif
 endif
 ~
@@ -61,12 +61,12 @@ CDF ABCD 0 0
 stand stand male 500
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
-  if $n.sex()==2
-    grin $n
+if $actor.is_pc()
+  if $actor.sex()==2
+    grin $actor
     say Welcome, My Lady! How may I assist you?
   else
-    smile $n
+    smile $actor
     say Welcome, how may I assist you?
   endif
 endif
@@ -97,13 +97,13 @@ EFJ ABCD 0 0
 stand stand male 1300
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
   if rand(50)
      twiddle
      say Well, are you going to order something?
   else
      say Is there anything I can help you with?
-     grin $n
+     grin $actor
   endif
 endif
 ~
@@ -131,13 +131,13 @@ CEIK ABCD 0 0
 stand stand male 25000
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
    if rand(50)
       say Hello, how can I help you?
-      grin $n
+      grin $actor
    else
       say Welcome, is there anything I can do for you?
-      bow $n
+      bow $actor
    endif
 endif
 ~
@@ -167,13 +167,13 @@ CEFJKN ABCD 0 0
 stand stand male 100000
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
    if rand(54)
       say All the best armor in Thera. Best prices anywhere! I will special order.
       grin
    else
       say From New Thalos and the Dragoon Sea to Mount Olympus. The best armor is in this shop... look around.
-      smile $n
+      smile $actor
    endif
 endif
 ~
@@ -203,7 +203,7 @@ EFJN 0 0 0
 stand stand either 100
 0 0 medium 0
 >greet_prog 35~
-   if $n.level()>=90
+   if $actor.level()>=90
      innocent
    endif
 ~
@@ -211,7 +211,7 @@ stand stand either 100
 if rand(45)
    say How dare you catch me picking your pocket!!!!
 else
-   egrin $n
+   egrin $actor
 endif
 ~
 |
@@ -231,7 +231,7 @@ CEI ABCD 0 0
 stand stand male 1300
 0 0 medium 0
 >greet_prog 50~
-if $n.is_pc()
+if $actor.is_pc()
   if rand(45)
      say Welcome mate what be yer needs?
   else
@@ -328,11 +328,11 @@ ACDEFHIKLNO ABP CD 0
 stand stand female 0
 0 0 huge 0
 >all_greet_prog 50~
-if $n.is_good()
-    smile $n
+if $actor.is_good()
+    smile $actor
     say Greetings traveler of {bL{Ye{Wga{Yc{by{W!!{x
 else
-    egrin $n
+    egrin $actor
 endif
 ~
 
@@ -356,16 +356,16 @@ if rand(10)
 endif
 ~
 >give_prog newbie token~
-smile $n
+smile $actor
 say Sorry, friend, but I'm the wrong person to give this to!
 say You need to give this token to Healer Deirdre.
 say She is usually 1 step north of here.
-give $o $n
+give $obj $actor
 ~
 >give_prog all~
-smile $n
-say Thank you, $n, but you may need this more than I!
-give $o $n
+smile $actor
+say Thank you, $actor, but you may need this more than I!
+give $obj $actor
 ~
 |
 
@@ -385,8 +385,8 @@ FHIK ABCD 0 0
 stand stand female 4000
 0 0 medium 0
 >all_greet_prog 99~
-if $n.is_pc()
-   if $n.level()<6
+if $actor.is_pc()
+   if $actor.level()<6
       say If you have a Newbie token to give me, I will trade it in for you.
    endif
    mpmoney 0 0
@@ -394,8 +394,8 @@ endif
 ~
 >give_prog newbie token~
    mpjunk token
-if $n.is_pc()
-   if $n.level()<11
+if $actor.is_pc()
+   if $actor.level()<11
       mpoload 72
       mpoload 73
       mpoload 74
@@ -409,12 +409,12 @@ if $n.is_pc()
       mpoload 82
       mpoload 83
       mpat 3032 put all.newbie kit
-      give kit $n
-      bow $n
+      give kit $actor
+      bow $actor
    else
       say You have no use for this at your level.
       mpecho The token disappears in a puff of smoke.
-      smile $n
+      smile $actor
    endif
 endif
 ~
@@ -436,26 +436,26 @@ FG ABCD 0 0
 stand stand female 0
 0 0 medium 0
 >all_greet_prog 99~
-if ispc($n)
-   if level($n)==1
+if $actor.is_pc()
+   if $actor.level()==1
       say Greetings adventurer!  Tell me, are you new to our fair city?
    endif
 endif
 ~
 >speech_prog p yes~
-smile $n
+smile $actor
 say Excellent!  You will no doubt be looking for gainful employment, then.
 say Here is a complimentary map, courtesy of the Midgaard Tourism Board.
 mpoload 3162
-give map $n
+give map $actor
 say Your first destination should be Grebe's tavern.  Good luck!
 ~
 >speech_prog p no~
-if isgood($n)
-    nod $n
+if $actor.is_good()
+    nod $actor
     say On your way then, young adventurer.
 else
-    frown $n
+    frown $actor
     say Be sure to stay out of trouble while you're in our city.
 endif
 ~
@@ -754,13 +754,13 @@ AFGHU 0 -200 0
 stand stand either 0
 0 0 small 0
 >all_greet_prog 75~
-if $n.master()
-        growl $n
+if $actor.master()
+        growl $actor
 endif
 ~
 >all_greet_prog 10~
-if $n.is_pc()
-        bark $n
+if $actor.is_pc()
+        bark $actor
 endif
 ~
 |
@@ -1324,15 +1324,15 @@ stand stand male 0
 0 0 huge 0
 >all_greet_prog 50~
 say Ohhhhmmmmmmmmmm.......
-grin $n
-if $n.is_pc()
-say Are you interested in a worldly challenge, $n?
+grin $actor
+if $actor.is_pc()
+say Are you interested in a worldly challenge, $actor?
 else
-wink $n
+wink $actor
 endif
 ~
 >speech_prog p yes~
-smile $n
+smile $actor
 if rand(25)
     say Very good!  Type: {YHELP QUEST{x for info on how to get started.
 else
@@ -1386,7 +1386,7 @@ shake
 say No no, that's not how I do business.
 say It's much simpler to just do REPAIR ALL.
 say You may want to read HELP REPAIR for details.
-give $o $n
+give $obj $actor
 ~
 |
 
@@ -1407,154 +1407,154 @@ FHK ABCD 0 0
 stand stand male 9000
 0 0 small 0
 >greet_prog 100~
-if $n.is_npc()
-   wink $n
+if $actor.is_npc()
+   wink $actor
    break
 endif
-if $n.level() < 10
-   laugh $n
-   pmote tells $n, "Hey kid, are you lost or something?"
-   pmote tells $n, "Get back home to your parents!"
-   pmote pushes $n gently but firmly out the door.
-   mpforce $n south
+if $actor.level() < 10
+   laugh $actor
+   pmote tells $actor, "Hey kid, are you lost or something?"
+   pmote tells $actor, "Get back home to your parents!"
+   pmote pushes $actor gently but firmly out the door.
+   mpforce $actor south
    break
 endif
-say Welcome, $n, to the Land of Flaming Sword!
-if $n.level() >= 90
-   pmote tells $n, "If you want to go there, give me 300 gold pieces."
-   pmote expectantly holds out his hand to $n.
+say Welcome, $actor, to the Land of Flaming Sword!
+if $actor.level() >= 90
+   pmote tells $actor, "If you want to go there, give me 300 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 80
-   pmote tells $n, "If you want to go there, give me 250 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 80
+   pmote tells $actor, "If you want to go there, give me 250 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 70
-   pmote tells $n, "If you want to go there, give me 200 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 70
+   pmote tells $actor, "If you want to go there, give me 200 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 60
-   pmote tells $n, "If you want to go there, give me 150 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 60
+   pmote tells $actor, "If you want to go there, give me 150 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 50
-   pmote tells $n, "If you want to go there, give me 100 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 50
+   pmote tells $actor, "If you want to go there, give me 100 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 40
-   pmote tells $n, "If you want to go there, give me 75 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 40
+   pmote tells $actor, "If you want to go there, give me 75 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 30
-   pmote tells $n, "If you want to go there, give me 50 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 30
+   pmote tells $actor, "If you want to go there, give me 50 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 20
-   pmote tells $n, "If you want to go there, give me 25 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 20
+   pmote tells $actor, "If you want to go there, give me 25 gold pieces."
+   pmote expectantly holds out his hand to $actor.
    break
 endif
-if $n.level() >= 10
-   pmote tells $n, "If you want to go there, give me 10 gold pieces."
-   pmote expectantly holds out his hand to $n.
+if $actor.level() >= 10
+   pmote tells $actor, "If you want to go there, give me 10 gold pieces."
+   pmote expectantly holds out his hand to $actor.
 endif
 ~
 >bribe_prog 30000~
-if $n.level() > 0
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() > 0
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 endif
 ~
 >bribe_prog 25000~
-if $n.level() < 90
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 90
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 20000~
-if $n.level() < 80
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 80
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 15000~
-if $n.level() < 70
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 70
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 10000~
-if $n.level() < 60
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 60
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 7500~
-if $n.level() < 50
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 50
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 5000~
-if $n.level() < 40
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 40
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 2500~
-if $n.level() < 30
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 30
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 1000~
-if $n.level() < 20
-   cheer $n
-   mptransfer $n 3369
-   mpat 3369 mpforce $n thank dispatcher
+if $actor.level() < 20
+   cheer $actor
+   mptransfer $actor 3369
+   mpat 3369 mpforce $actor thank dispatcher
 else
    say Sorry, but that's not enough!
-   emo grins as $j pockets the money.
+   emo grins as $self.he_she() pockets the money.
 endif
 ~
 >bribe_prog 1~
 say Sorry, but that's not enough!
-emo grins as $j pockets the money.
+emo grins as $self.he_she() pockets the money.
 ~
 |
 
@@ -1574,72 +1574,72 @@ FHK ABCD 0 0
 stand stand male 9000
 0 0 small 0
 >act_prog p thanks you heartily.~
-pmote makes a magical gesture at $n.
-mpechoaround $n $n disappears, perhaps forever!
-pray $n is entering the Land of Flaming Sword.
-mpechoat $n Your stomach lurches, then suddenly you are elsewhere...
+pmote makes a magical gesture at $actor.
+mpechoaround $actor $actor disappears, perhaps forever!
+pray $actor is entering the Land of Flaming Sword.
+mpechoat $actor Your stomach lurches, then suddenly you are elsewhere...
 if rand(8)
-   mptransfer $n 12068
-   mpat 12068 mpforce $n look auto
+   mptransfer $actor 12068
+   mpat 12068 mpforce $actor look auto
    break
 endif
 if rand(8)
-   mptransfer $n 12069
-   mpat 12069 mpforce $n look auto
+   mptransfer $actor 12069
+   mpat 12069 mpforce $actor look auto
    break
 endif
 if rand(9)
-   mptransfer $n 12070
-   mpat 12070 mpforce $n look auto
+   mptransfer $actor 12070
+   mpat 12070 mpforce $actor look auto
    break
 endif
 if rand(10)
-   mptransfer $n 12071
-   mpat 12071 mpforce $n look auto
+   mptransfer $actor 12071
+   mpat 12071 mpforce $actor look auto
    break
 endif
 if rand(11)
-   mptransfer $n 12072
-   mpat 12072 mpforce $n look auto
+   mptransfer $actor 12072
+   mpat 12072 mpforce $actor look auto
    break
 endif
 if rand(12)
-   mptransfer $n 12073
-   mpat 12073 mpforce $n look auto
+   mptransfer $actor 12073
+   mpat 12073 mpforce $actor look auto
    break
 endif
 if rand(14)
-   mptransfer $n 12074
-   mpat 12074 mpforce $n look auto
+   mptransfer $actor 12074
+   mpat 12074 mpforce $actor look auto
    break
 endif
 if rand(17)
-   mptransfer $n 12075
-   mpat 12075 mpforce $n look auto
+   mptransfer $actor 12075
+   mpat 12075 mpforce $actor look auto
    break
 endif
 if rand(20)
-   mptransfer $n 12076
-   mpat 12076 mpforce $n look auto
+   mptransfer $actor 12076
+   mpat 12076 mpforce $actor look auto
    break
 endif
 if rand(25)
-   mptransfer $n 12077
-   mpat 12077 mpforce $n look auto
+   mptransfer $actor 12077
+   mpat 12077 mpforce $actor look auto
    break
 endif
 if rand(33)
-   mptransfer $n 12078
-   mpat 12078 mpforce $n look auto
+   mptransfer $actor 12078
+   mpat 12078 mpforce $actor look auto
    break
 endif
 if rand(50)
-   mptransfer $n 12079
-   mpat 12079 mpforce $n look auto
+   mptransfer $actor 12079
+   mpat 12079 mpforce $actor look auto
    break
 endif
-mptransfer $n 12080
-mpat 12080 mpforce $n look auto
+mptransfer $actor 12080
+mpat 12080 mpforce $actor look auto
 ~
 |
 
@@ -1660,7 +1660,7 @@ stand stand male 15000
 0 0 medium 0
 >fight_prog 100~
   scream
-  yell Leave me alone, $n!
+  yell Leave me alone, $actor!
   emote vanishes in a puff of blue smoke.
   MPGOTO 300
 ~
@@ -1722,13 +1722,13 @@ stand stand male 15000
   say Such honesty!
   beam
   say I appreciate it, but let me reward such an honest person!  Please, keep the token.
-  give token $n
+  give token $actor
   bow
 ~
 >give_prog all~
-  grin $n
+  grin $actor
   say It's not quite what I'm looking for...  why don't you hang on to it?
-  give $o $n
+  give $obj $actor
 ~
 |
 
@@ -1750,10 +1750,10 @@ ADCEFHKN ABCD 0 0
 stand stand female 0
 0 0 medium 0
 >greet_prog 30~
-if $n.is_pc()
-say You get into your seat right now and get ready to learn, $n!
+if $actor.is_pc()
+say You get into your seat right now and get ready to learn, $actor!
 else
-glare $n 
+glare $actor 
 endif
 ~
 |

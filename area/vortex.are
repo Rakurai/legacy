@@ -49,7 +49,7 @@ stand stand either 30000
 say Find my pendant and I'll help you in your quest.
 ~
 >give_prog pendent elemental mastery~
-smile $n
+smile $actor
 mpjunk pendent
 say Very well done!  Here... I will give you entrance to the keep.
 say Good luck!
@@ -148,7 +148,7 @@ stand stand either 30000
 >greet_prog 100~
 say Good luck mastering the scorching heat of the {PF{RI{YR{PE{R!{x
 MPECHO Your world suddenly dissolves.
-MPTRANSFER $n 32042
+MPTRANSFER $actor 32042
 ~
 |
 
@@ -171,7 +171,7 @@ stand stand either 30000
 >greet_prog 100~
 say Good luck mastering the shifting gusts of the {WA{gI{cR{W!{x
 MPECHO Your world suddenly dissolves.
-MPTRANSFER $n 32051
+MPTRANSFER $actor 32051
 ~
 |
 
@@ -194,7 +194,7 @@ stand stand either 30000
 >greet_prog 100~
 say Good luck mastering the swirling currents of the {BW{NA{CT{TE{BR{N!{x
 MPECHO Your world dissolves.
-MPTRANSFER $n 32033
+MPTRANSFER $actor 32033
 ~
 |
 
@@ -217,7 +217,7 @@ stand stand either 30000
 >greet_prog 100~
 say Good luck mastering the swirling currents of the {GE{HA{bR{GT{HH{b!{x
 MPECHO Your world dissolves.
-MPTRANSFER $n 32024
+MPTRANSFER $actor 32024
 ~
 |
 

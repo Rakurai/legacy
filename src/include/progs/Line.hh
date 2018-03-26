@@ -17,7 +17,7 @@ struct Line {
 		COMMAND,
 	};
 
-	Line(Type type, const String& text);
+	Line(Type type, const String& text, const std::map<String, data::Type>& var_bindings);
 
 	Type type;
 	String text;

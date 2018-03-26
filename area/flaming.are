@@ -44,16 +44,16 @@ ABTZVUG 0 0 S
 stand stand male 0
 0 0 medium 0
 >act_prog p saunters in.~
-  if $n.is_immort()
-      worship $n
+  if $actor.is_immort()
+      worship $actor
   else
-    if $n.is_pc()
-        bow $n
+    if $actor.is_pc()
+        bow $actor
     endif
   endif
 ~
 >act_prog p has arrived from below.~
-say {YGreetings, $n.{x
+say {YGreetings, $actor.{x
 say {YYou have found the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
 say {RSay {Ythe answer to my {Griddle{x {Yand I will tell you{x
 say {Ywhich cave to enter.{x
@@ -64,10 +64,10 @@ say {Gwhat the miser spends{x
 say {Gand the spendthrift save,{x
 say {Gand all men carry to their graves?"{x
 egrin
-peer $n
+peer $actor
 ~
 >speech_prog nothing~
- say {YSplendid, $n. You have solved the riddle.{x
+ say {YSplendid, $actor. You have solved the riddle.{x
  say {YEnter the {Cwest {Yentrance,{x
  say {Ybut beware of the {cs{gh{ca{gd{co{gw{cs{x.
  cackle

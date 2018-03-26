@@ -23,7 +23,7 @@ AFQ ABCD 0 0
 stand stand male 1000
 0 0 medium 0
 >all_greet_prog 100~
-if $n.level() <= 5
+if $actor.level() <= 5
      MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner notices you, and says "Want to have a
      MPECHO look around? Well, just don't track any mud in there. Take
      MPECHO what you like... It all grows back. I can take your ticket
@@ -39,9 +39,9 @@ else
 endif
 ~
 >give_prog rainbow ticket~
-if level ($n) <= 5
+if level ($actor) <= 5
      MPOLOAD 4201
-     GIVE key $n
+     GIVE key $actor
      SAY Enjoy your tour!
 else
      MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says "I am sorry, but you are too
@@ -132,7 +132,7 @@ AFQ ABCD 0 0
 stand stand male 1000
 0 0 medium 0
 >all_greet_prog 100~
-if $n.level() <= 5
+if $actor.level() <= 5
      MPECHO The staff naturalist bows and says "Welcome to the Collimator!
      MPECHO Please get a {Pguide book{x from the rack, you should find it
      MPECHO most informative and helpful.
@@ -142,9 +142,9 @@ else
 endif
 ~
 >give_prog rainbow ticket~
-if level ($n) <= 5
+if level ($actor) <= 5
      MPOLOAD 4201
-     give key $n
+     give key $actor
      say Enjoy your tour!
 else
      MPECHO The naturalist says "I am sorry, but you are too experienced to be
@@ -183,8 +183,8 @@ AFQ ABCD 0 0
 stand stand female 1000
 0 0 medium 0
 >act_prog p goes to sleep.~
-wake $n
-say Wouldn't you like to buy some cookies, $n?
+wake $actor
+say Wouldn't you like to buy some cookies, $actor?
 ~
 >all_greet_prog 100~
 MPAT 3032 MPJUNK all.box

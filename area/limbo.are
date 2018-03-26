@@ -129,22 +129,22 @@ say {GHi! Can I help you?{x!
 giggle
 ~
 >speech_prog p Full Service~
-if $n.is_immort()
+if $actor.is_immort()
    bounce
-   beam $n
+   beam $actor
    say {GOh{x! {GWhat a wonderful choice{x!
    say {GOne moment, I'll be right back{x!
    MPECHO She pauses to look at the menu, then skips off to the back room.
    MPECHO A moment later she comes bursting back with a large {WWedding Cake{x.
-   smile $n
+   smile $actor
    say {GHere is the cake and the rest will be delivered to the chapel{x.
    MPAT 3032 MPOLOAD 56
-   give cake $n
+   give cake $actor
    say {GIt looks scrumptious{x!
    giggle
    say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
    say {GPlease{x?
-   puppy $n
+   puppy $actor
    MPAT 3032 MPOLOAD 49
    MPAT 3032 clone 39*cheese
    MPAT 7 drop all.chees
@@ -170,22 +170,22 @@ endif
 ~
 
 >speech_prog p Small Service~
-if $n.is_immort()
+if $actor.is_immort()
    bounce
-   hug $n
+   hug $actor
    say {GOh{x!
    giggle
    say {GSmall orders are nice{x!
    say {GOne second, I'll be right back{x!
    MPECHO She skips off to the back room while humming a song.
    MPECHO A moment later she comes bouncing back with a large {WWedding Cake{x.
-   smile $n
+   smile $actor
    say {GHere is the cake and the rest will be delivered to the chapel{x.
    MPAT 3032 MPOLOAD 56
-   give cake $n
+   give cake $actor
    say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
    say {GPlease{x?
-   puppy $n
+   puppy $actor
    MPAT 3032 MPOLOAD 49
    MPAT 3032 clone 19*cheese
    MPAT 7 drop all.chees
@@ -200,7 +200,7 @@ endif
 
 >speech_prog p yes~
 beam
-bearhug $n
+bearhug $actor
 say {GThank you so much{x!
 say {GI do so love weddings{x!
 giggle
@@ -225,14 +225,14 @@ stand stand female 0
 0 0 small 0
 
 >all_greet_prog 100~
-if $n.sex()==0
-   mpechoat $n Lyana the waitress says 'Enjoy the party, umm...'
+if $actor.sex()==0
+   mpechoat $actor Lyana the waitress says 'Enjoy the party, umm...'
 else
-if $n.sex()==2
-   mpechoat $n Lyana the waitress says 'Enjoy the party, Ma`am!'
+if $actor.sex()==2
+   mpechoat $actor Lyana the waitress says 'Enjoy the party, Ma`am!'
 else
-if $n.sex()==1
-   mpechoat $n Lyana the waitress says 'Enjoy the party, Sir!'
+if $actor.sex()==1
+   mpechoat $actor Lyana the waitress says 'Enjoy the party, Sir!'
 endif
 endif
 endif
@@ -243,7 +243,7 @@ mpat 3032 mpclone 40*cake
 ~
 
 >act_prog p asks for a slice of cake.~
-give cake $n
+give cake $actor
 ~
 
 >rand_prog 6~

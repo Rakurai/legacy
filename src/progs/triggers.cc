@@ -120,10 +120,10 @@ void act_trigger(const String& buf, Character *mob, Character *ch, Object *obj, 
 	if (mob->is_npc()
 	    && (mob->pIndexData->progtypes.count(Type::ACT_PROG))) {
 		contexts::MobProgContext context(mob);
-		context.add_var("n", ch);
-		context.add_var("t", (Character *)vo);
-		context.add_var("o", obj);
-		context.add_var("p", (Object *)vo);
+		context.add_var("n", data::Type::Character, ch);
+		context.add_var("t", data::Type::Character, (Character *)vo);
+		context.add_var("o", data::Type::Object, obj);
+		context.add_var("p", data::Type::Object, (Object *)vo);
 		MobProgActList *tmp_act = new MobProgActList(buf, context);
 
 		tmp_act->next	= mob->mpact;
@@ -149,8 +149,8 @@ void bribe_trigger(Character *mob, Character *ch, int amount)
 		if (mprg->type == Type::BRIBE_PROG) {
 			if (amount >= atoi(mprg->arglist)) {
 				contexts::MobProgContext context(mob);
-				context.add_var("n", ch);
-				context.add_var("o", obj);
+				context.add_var("n", data::Type::Character, ch);
+				context.add_var("o", data::Type::Object, obj);
 				mprg->execute(context);
 				break;
 			}
@@ -189,7 +189,7 @@ void fight_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::FIGHT_PROG))) {
 		contexts::MobProgContext context(mob);
-		context.add_var("n", ch);
+		context.add_var("n", data::Type::Character, ch);
 		percent_check(mob->pIndexData->progs, context, Type::FIGHT_PROG);
 	}
 
@@ -200,7 +200,7 @@ void buy_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::BUY_PROG))) {
 		contexts::MobProgContext context(mob);
-		context.add_var("n", ch);
+		context.add_var("n", data::Type::Character, ch);
 		percent_check(mob->pIndexData->progs, context, Type::BUY_PROG);
 	}
 
@@ -219,8 +219,8 @@ void give_trigger(Character *mob, Character *ch, Object *obj)
 			    && ((!strcmp(obj->name, mprg->arglist))
 			        || (!strcmp("all", buf)))) {
 				contexts::MobProgContext context(mob);
-				context.add_var("n", ch);
-				context.add_var("o", obj);
+				context.add_var("n", data::Type::Character, ch);
+				context.add_var("o", data::Type::Object, obj);
 				mprg->execute(context);
 				break;
 			}
@@ -238,7 +238,7 @@ void greet_trigger(Character *ch)
 			break;
 
 		contexts::MobProgContext context(vmob);
-		context.add_var("n", ch);
+		context.add_var("n", data::Type::Character, ch);
 
 		if (vmob->is_npc()
 		 && ch != vmob
@@ -268,7 +268,7 @@ void hitprcnt_trigger(Character *mob, Character *ch)
 			if ((mprg->type == Type::HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
 				contexts::MobProgContext context(mob);
-				context.add_var("n", ch);
+				context.add_var("n", data::Type::Character, ch);
 				mprg->execute(context);
 				break;
 			}
@@ -359,7 +359,7 @@ void speech_trigger(const String& txt, Character *mob)
 
 		if (vmob->is_npc() && (vmob->pIndexData->progtypes.count(Type::SPEECH_PROG))) {
 			contexts::MobProgContext context(vmob);
-			context.add_var("n", mob);
+			context.add_var("n", data::Type::Character, mob);
 
 			wordlist_check(
 				txt,
@@ -381,7 +381,7 @@ void control_trigger(Character *mob, const String& key, Character *target) {
 
 			if (mprg->type == Type::CONTROL_PROG && key == mprg->arglist) {
 				contexts::MobProgContext context(mob);
-				context.add_var("n", target);
+				context.add_var("n", data::Type::Character, target);
 				mprg->execute(context);
 			}
 		}
@@ -390,7 +390,7 @@ void control_trigger(Character *mob, const String& key, Character *target) {
 void drop_trigger(Object *obj, Character *ch) {
 	if (obj->pIndexData->progtypes.count(Type::DROP_PROG)) {
 		contexts::ObjProgContext context(obj);
-		context.add_var("n", ch);
+		context.add_var("n", data::Type::Character, ch);
 		percent_check(obj->pIndexData->progs, context, Type::DROP_PROG);
 	}
 }

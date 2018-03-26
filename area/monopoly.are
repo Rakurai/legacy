@@ -312,8 +312,8 @@ BG DF 0 S
 stand stand male 0
 0 0 medium 0
 >act_prog p slowly fades into existence.~
-	if $n.is_npc()
-		MPTRANS $n 7635
+	if $actor.is_npc()
+		MPTRANS $actor 7635
 	endif
 ~
 |

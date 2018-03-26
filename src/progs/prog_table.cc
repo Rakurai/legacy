@@ -2,33 +2,34 @@
 
 namespace progs {
 
-// possible names for different variables, to build an allowed variable list for each prog type
-const String mobv = "iIjkl"; // the mob itself
-const String rndv = "rRJKL"; // random char in room
-const String mstv = "bBfgh"; // mob's master
-const String actv = "nNems"; // the actor
-const String dobv = "oOa";   // direct object
-const String iobv = "pPA";   // indirect object (act progs only)
-const String vicv = "tTEMS"; // victim (act progs only)
+const std::pair<String, data::Type> c_self("self",    data::Type::Character); // mobprogs
+const std::pair<String, data::Type> o_self("self",    data::Type::Object);    // objprogs
+const std::pair<String, data::Type> c_rand("random",  data::Type::Character);
+const std::pair<String, data::Type> c_mast("master",  data::Type::Character);
+const std::pair<String, data::Type> c_actr("actor",   data::Type::Character);
+const std::pair<String, data::Type> o_dobj("obj",     data::Type::Character);
+const std::pair<String, data::Type> o_iobj("ind_obj", data::Type::Character);
+const std::pair<String, data::Type> c_vict("victim",  data::Type::Character);
+
 
 const std::map<Type, prog_table_t> prog_table = {
-	{ Type::ACT_PROG,       { "act_prog",       mobv + mstv + rndv + actv + dobv + iobv + vicv }},
-	{ Type::SPEECH_PROG,    { "speech_prog",    mobv + mstv + rndv + actv}},
-	{ Type::RAND_PROG,      { "rand_prog",      mobv + mstv + rndv }},
-	{ Type::FIGHT_PROG,     { "fight_prog",     mobv + mstv + rndv + actv }},
-	{ Type::DEATH_PROG,     { "death_prog",     mobv + mstv + rndv }},
-	{ Type::HITPRCNT_PROG,  { "hitprcnt_prog",  mobv + mstv + rndv + actv }},
-	{ Type::ENTRY_PROG,     { "entry_prog",     mobv + mstv + rndv }},
-	{ Type::GREET_PROG,     { "greet_prog",     mobv + mstv + rndv + actv }},
-	{ Type::ALL_GREET_PROG, { "all_greet_prog", mobv + mstv + rndv + actv }},
-	{ Type::GIVE_PROG,      { "give_prog",      mobv + mstv + rndv + actv + dobv }},
-	{ Type::BRIBE_PROG,     { "bribe_prog",     mobv + mstv + rndv + actv + dobv }},
-	{ Type::BUY_PROG,       { "buy_prog",       mobv + mstv + rndv + actv }},
-	{ Type::TICK_PROG,      { "tick_prog",      mobv + mstv + rndv }},
-	{ Type::BOOT_PROG,      { "boot_prog",      mobv + mstv + rndv }},
-	{ Type::RAND_AREA_PROG, { "rand_area_prog", mobv + mstv + rndv }},
-	{ Type::CONTROL_PROG,   { "control_prog",   mobv + mstv + rndv + actv }},
-	{ Type::DROP_PROG,      { "drop_prog",      dobv + rndv + actv }},
+	{ Type::ACT_PROG,       { "act_prog",       { c_self, c_mast, c_rand, c_actr, o_dobj, o_iobj, c_vict }}},
+	{ Type::SPEECH_PROG,    { "speech_prog",    { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::RAND_PROG,      { "rand_prog",      { c_self, c_mast, c_rand                                 }}},
+	{ Type::FIGHT_PROG,     { "fight_prog",     { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::DEATH_PROG,     { "death_prog",     { c_self, c_mast, c_rand                                 }}},
+	{ Type::HITPRCNT_PROG,  { "hitprcnt_prog",  { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::ENTRY_PROG,     { "entry_prog",     { c_self, c_mast, c_rand                                 }}},
+	{ Type::GREET_PROG,     { "greet_prog",     { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::ALL_GREET_PROG, { "all_greet_prog", { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::GIVE_PROG,      { "give_prog",      { c_self, c_mast, c_rand, c_actr, o_dobj                 }}},
+	{ Type::BRIBE_PROG,     { "bribe_prog",     { c_self, c_mast, c_rand, c_actr, o_dobj                 }}},
+	{ Type::BUY_PROG,       { "buy_prog",       { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::TICK_PROG,      { "tick_prog",      { c_self, c_mast, c_rand                                 }}},
+	{ Type::BOOT_PROG,      { "boot_prog",      { c_self, c_mast, c_rand                                 }}},
+	{ Type::RAND_AREA_PROG, { "rand_area_prog", { c_self, c_mast, c_rand                                 }}},
+	{ Type::CONTROL_PROG,   { "control_prog",   { c_self, c_mast, c_rand, c_actr                         }}},
+	{ Type::DROP_PROG,      { "drop_prog",      { o_self,         c_rand, c_actr                         }}},
 };
 
 } // namespace progs

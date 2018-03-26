@@ -96,7 +96,7 @@ MPJUNK piece
    Say It seems to be saying that there is a hidden container near where you found this
    Say And that this will act as a key!
     MPOLOAD 10174
-    give piece $n
+    give piece $actor
 semote Methusaleh's eyes twinkle merrily.
 ~
 |

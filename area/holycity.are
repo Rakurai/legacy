@@ -50,7 +50,7 @@ ACGH 0 -250 S
 stand stand either 10
 0 0 medium 0
 >greet_prog 25~
-   cower $n
+   cower $actor
 ~
 |
 #14002
@@ -92,7 +92,7 @@ ACGH 0 0 S
 stand stand either 0
 0 0 medium 0
 >greet_prog 75~
-   emote looks at $n hopefully for some food.
+   emote looks at $actor hopefully for some food.
 ~
 |
 #14004
@@ -365,7 +365,7 @@ F 0 B SZ
 stand stand either 10
 0 0 medium 0
 >greet_prog 25~
-     emote screams at $n 'OY I just cleaned that bit'
+     emote screams at $actor 'OY I just cleaned that bit'
 ~
 |
 #14018
@@ -387,7 +387,7 @@ FP 0 B SZ
 stand stand either 50
 0 0 medium 0
 >greet_prog 10~
-    emote watches every move $n is making.
+    emote watches every move $actor is making.
 ~
 |
 #14019
@@ -561,7 +561,7 @@ F 0 0 0
 stand stand female 400
 0 0 medium 0
 >greet_prog 40~
-    emote flutters her eyelashes lustily at $n
+    emote flutters her eyelashes lustily at $actor
 ~
 |
 #14028
@@ -585,7 +585,7 @@ stand stand male 400
 0 0 medium 0
 >greet_prog 40~
     say Can I have your telephone number?
-    drool $n
+    drool $actor
 ~
 |
 #14029
@@ -655,7 +655,7 @@ P 0 0 0
 stand stand either 0
 0 0 medium 0
 >greet_prog 50~
-    growl $n
+    growl $actor
 ~
 |
 #14033
@@ -859,7 +859,7 @@ EFK ALQ CHJ N
 stand stand either 2000
 0 0 large 0
 >greet_prog 10~
-   growl $n
+   growl $actor
 ~
 |
 #14044
@@ -881,7 +881,7 @@ CEFKP 0 0 0
 stand stand male 40
 0 0 medium 0
 >greet_prog 10~
-    growl $n
+    growl $actor
 ~
 |
 #14045
@@ -902,7 +902,7 @@ EKN 0 LQ R
 stand stand male 20
 0 0 medium 0
 >greet_prog 50~
-       salute $n
+       salute $actor
 ~
 |
 #14046
@@ -1068,7 +1068,7 @@ EF 0 0 S
 stand stand either 20
 0 0 medium 0
 >greet_prog 50~
-     emote notices $n watching and starts dusting.
+     emote notices $actor watching and starts dusting.
 ~
 |
 #14055
@@ -1225,7 +1225,7 @@ CDEFHIJKN BLQ CHJK N
 stand stand either 1000
 0 0 large 0
 >greet_prog 20~
-   growl $n
+   growl $actor
 ~
 |
 #14062
@@ -1287,7 +1287,7 @@ CDEFIK HLQ CJK N
 stand stand either 1500
 0 0 large 0
 >greet_prog 25~
-    growl $n
+    growl $actor
 ~
 |
 #14065
@@ -1356,7 +1356,7 @@ stand stand either 1000
 0 0 medium 0
 >greet_prog 40~
    say Is it your time?
-   comf $n
+   comf $actor
    say death comes to all in time.
 ~
 |
@@ -1405,7 +1405,7 @@ CDEIKNOP ABLQ HJ N
 stand stand male 3000
 0 0 large 0
 >greet_prog 25~
-   growl $n
+   growl $actor
 ~
 
 >rand_prog 2~
@@ -1730,7 +1730,7 @@ CDEFIK HLQ CJK N
 stand stand either 1500
 0 0 large 0
 >greet_prog 25~
-    growl $n
+    growl $actor
 ~
 >fight_prog 1~
     emote {Bsummons {Ga {PBalor{x

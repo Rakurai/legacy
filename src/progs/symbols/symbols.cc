@@ -26,7 +26,7 @@ bool evaluate(const Operator& opr, const std::unique_ptr<Symbol>& lhs, const std
 }
 
 std::unique_ptr<Symbol>
-parse(String& orig, const String& until) {
+parse(String& orig, const std::map<String, data::Type>& var_bindings, const String& until) {
 	String str, symbol_type;
 	std::unique_ptr<Symbol> ptr;
 
@@ -37,7 +37,7 @@ parse(String& orig, const String& until) {
 		symbol_type = "Variable";
 		str = orig;
 
-		if ((ptr = parseVariableSymbol(str)) != nullptr) {
+		if ((ptr = parseVariableSymbol(str, var_bindings)) != nullptr) {
 			orig.assign(str);
 			return ptr;
 		}
@@ -46,7 +46,7 @@ parse(String& orig, const String& until) {
 		str = orig;
 		std::unique_ptr<Symbol> parent;
 
-		if ((ptr = parseFunctionSymbol(str, parent)) != nullptr) {
+		if ((ptr = parseFunctionSymbol(str, var_bindings, parent)) != nullptr) {
 			orig.assign(str);
 			return ptr;
 		}
@@ -105,7 +105,7 @@ const String parse_identifier(String& str) {
 }
 
 std::unique_ptr<Symbol>
-parseVariableSymbol(String& str) {
+parseVariableSymbol(String& str, const std::map<String, data::Type>& bindings) {
 	parse_whitespace(str);
 
 	if (str.empty())
@@ -115,81 +115,32 @@ parseVariableSymbol(String& str) {
 		return nullptr;
 
 	str.erase(0, 1);
-	String var = parse_identifier(str);
+	String var_name = parse_identifier(str);
 
-	if (var.empty())
+	if (var_name.empty())
 		throw Format::format("illegal characters '%s' following variable symbol '$'", str);
 
-	String member_name;
+	const auto entry = bindings.find(var_name);
 
-	if (var.length() == 1) {
-		// expand the convenience variable
-		switch (var[0]) {
-			case 'i':
-			case 'n':
-			case 'b':
-			case 't':
-			case 'r':
-			case 'o':
-			case 'p': break;
+	if (entry == bindings.cend())
+		throw Format::format("variable name '%s' is not in known bindings for program type", var_name);
 
-			case 'I': var = "i"; member_name = "title()";    break;
-			case 'N': var = "n"; member_name = "title()";    break;
-			case 'B': var = "b"; member_name = "title()";    break;
-			case 'T': var = "t"; member_name = "title()";    break;
-			case 'R': var = "r"; member_name = "title()";    break;
-
-			case 'j': var = "i"; member_name = "he_she()";   break;
-			case 'e': var = "n"; member_name = "he_she()";   break;
-			case 'f': var = "b"; member_name = "he_she()";   break;
-			case 'E': var = "t"; member_name = "he_she()";   break;
-			case 'J': var = "r"; member_name = "he_she()";   break;
-
-			case 'k': var = "i"; member_name = "him_her()";  break;
-			case 'm': var = "n"; member_name = "him_her()";  break;
-			case 'g': var = "b"; member_name = "him_her()";  break;
-			case 'M': var = "t"; member_name = "him_her()";  break;
-			case 'K': var = "r"; member_name = "him_her()";  break;
-
-			case 'l': var = "i"; member_name = "his_her()";  break;
-			case 's': var = "n"; member_name = "his_her()";  break;
-			case 'h': var = "b"; member_name = "his_her()";  break;
-			case 'S': var = "t"; member_name = "his_her()";  break;
-			case 'L': var = "r"; member_name = "his_her()";  break;
-
-			case 'O': var = "o"; member_name = "sdesc()";    break;
-			case 'a': var = "o"; member_name = "ind_art()";  break;
-			case 'P': var = "p"; member_name = "sdesc()";    break;
-			case 'A': var = "p"; member_name = "ind_art()";  break;
-
-			default: throw Format::format("unknown single character variable name '%s'", var);
-		}
-	}
-
-	data::Type sym_class = data::Type::Void;
-
-	     if (var == "i") sym_class = data::Type::Character;
-	else if (var == "n") sym_class = data::Type::Character;
-	else if (var == "b") sym_class = data::Type::Character;
-	else if (var == "t") sym_class = data::Type::Character;
-	else if (var == "r") sym_class = data::Type::Character;
-	else if (var == "o") sym_class = data::Type::Object;
-	else if (var == "p") sym_class = data::Type::Object;
+	data::Type var_type = entry->second;
 
 	// create the variable symbol
 	std::unique_ptr<Symbol> sym;
 
-	switch(sym_class) {
-	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(sym_class, var)); break;
-	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(sym_class, var)); break;
+	switch(var_type) {
+	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(var_type, var_name)); break;
+	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(var_type, var_name)); break;
 	default:
-		throw Format::format("unknown variable binding for '%s'", var);
+		throw Format::format("unknown symbol type for variable '%s', binding '%s'", var_name, data::type_to_string(var_type));
 	}
 
 	// test if its followed by function, and wrap this variable in that accessor
 	if (!str.empty() && str[0] == '.') {
 		String copy = str.substr(1);
-		auto fsym = parseFunctionSymbol(copy, sym); // success will take ownership of sym
+		auto fsym = parseFunctionSymbol(copy, bindings, sym); // success will take ownership of sym
 
 		if (fsym != nullptr) {
 			str.assign(copy);
@@ -199,16 +150,11 @@ parseVariableSymbol(String& str) {
 		// failure will not have modified str
 	}
 
-	// if it was a convenience variable name, wrap in the appropriate accessor
-	if (!member_name.empty())
-		return parseFunctionSymbol(member_name, sym);
-
-	// otherwise return the variable
 	return sym;
 }
 
 std::unique_ptr<Symbol>
-parseFunctionSymbol(String& str, std::unique_ptr<Symbol>& parent) {
+parseFunctionSymbol(String& str, const std::map<String, data::Type>& var_bindings, std::unique_ptr<Symbol>& parent) {
 	parse_whitespace(str);
 
 	if (str.empty())
@@ -237,7 +183,7 @@ parseFunctionSymbol(String& str, std::unique_ptr<Symbol>& parent) {
 			throw String("unexpected end of line encountered");
 
 		if (str[0] != ')') {
-			arg_list.push_back(parse(str, ",)"));
+			arg_list.push_back(parse(str, var_bindings, ",)"));
 			parse_whitespace(str);
 
 			if (str.empty())
@@ -316,7 +262,7 @@ parseFunctionSymbol(String& str, std::unique_ptr<Symbol>& parent) {
 	// test if its followed by function, and wrap this variable in that accessor
 	if (!str.empty() && str[0] == '.') {
 		String copy = str.substr(1);
-		auto fsym = parseFunctionSymbol(copy, sym); // success will take ownership of sym
+		auto fsym = parseFunctionSymbol(copy, var_bindings, sym); // success will take ownership of sym
 
 		if (fsym != nullptr) {
 			str.assign(copy);

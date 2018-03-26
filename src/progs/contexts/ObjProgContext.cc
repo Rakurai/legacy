@@ -34,7 +34,7 @@ ObjProgContext::
 ObjProgContext(Object *obj) :
 	obj(obj) 
 {
-	add_var("o", obj);
+	add_var("self", data::Type::Object, obj);
 
 	int count = 0;
 
@@ -59,7 +59,7 @@ ObjProgContext(Object *obj) :
 		}
 
 		if (rndm != nullptr)
-			add_var("r", rndm);
+			add_var("random", data::Type::Character, rndm);
 	}
 }
 /* This procedure simply copies the cmnd to a buffer while expanding
@@ -69,7 +69,7 @@ ObjProgContext(Object *obj) :
 void ObjProgContext::
 process_command(const String& cmnd) {
 	String buf, copy = cmnd;
-	std::unique_ptr<symbols::Symbol> stack = symbols::parse(copy, "");
+	std::unique_ptr<symbols::Symbol> stack = symbols::parse(copy, bindings, "");
 
 	std::cout << stack->print_stack().c_str() << std::endl;
 

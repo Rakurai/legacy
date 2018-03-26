@@ -2,6 +2,7 @@
 
 #include <map>
 #include "progs/data/Wrapper.hh"
+#include "progs/data/Type.hh"
 #include "String.hh"
 #include "Format.hh"
 #include "Vnum.hh"
@@ -29,20 +30,25 @@ public:
 	const String expand_vars(const String& orig);
 
 	template <typename T>
-	void add_var(const String& key, T data) {
+	void add_var(const String& key, data::Type type, T data) {
+		if (bindings.find(key) != bindings.cend())
+			throw Format::format("progs::Context::add_var: variable '%s' is already bound", key);
+
+		bindings.emplace(key, type);
 		vars.emplace(key, data::construct_wrapper(data));
 	}
 
 	template <typename T>
-	void get_var(const String& str, T** datap) {
-		auto pair = vars.find(str);
+	void get_var(const String& key, T** datap) {
+		auto pair = vars.find(key);
 
 		if (pair == vars.end())
-			throw Format::format("progs::Context::get_var: variable '%s' is undefined", str);
+			throw Format::format("progs::Context::get_var: variable '%s' is undefined", key);
 
 		return data::access_wrapper(pair->second, datap);
 	}
 
+	std::map<String, data::Type> bindings;
 	std::map<String, data::Wrapper *> vars;
 
 private:

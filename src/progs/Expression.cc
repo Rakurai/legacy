@@ -7,7 +7,7 @@ namespace progs {
 using namespace symbols;
 
 Expression::
-Expression(const String& orig) :
+Expression(const String& orig, const std::map<String, data::Type>& var_bindings) :
 	opr(Operator(Operator::Type::is_equal_to)) {
 	// get rid of unneeded spaces
 	String str = orig.strip();
@@ -40,8 +40,8 @@ Expression(const String& orig) :
 		String lhstr = str.substr(0, pos);
 		String rhstr = str.substr(pos + opr.to_string().length());
 
-		lhs = parse(lhstr, "");
-		rhs = parse(rhstr, "");
+		lhs = parse(lhstr, var_bindings, "");
+		rhs = parse(rhstr, var_bindings, "");
 		break;
 	}
 
@@ -49,7 +49,7 @@ Expression(const String& orig) :
 		static std::unique_ptr<Symbol> true_sym((Symbol *)(new ValueSymbol<bool>(data::Type::Boolean, true)));
 		static std::unique_ptr<Symbol> false_sym((Symbol *)(new ValueSymbol<bool>(data::Type::Boolean, false)));
 
-		lhs = parse(str, "");
+		lhs = parse(str, var_bindings, "");
 
 		if (invert)
 			opr = Operator(Operator::Type::is_equal_to);

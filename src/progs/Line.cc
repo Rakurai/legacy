@@ -4,19 +4,10 @@
 namespace progs {
 
 Line::
-Line(Type type, const String& text) : type(type), text(text) {
+Line(Type type, const String& text, const std::map<String, data::Type>& var_bindings)
+ : type(type), text(text) {
 	if (type == Type::IF || type == Type::AND || type == Type::OR)
-		expression.reset(new Expression(text));
-	else if (type == Type::COMMAND) {
-		String copy = text.lstrip();
-
-		while (!copy.empty()) {
-			if (copy[0] == '$')
-				symbols::parseVariableSymbol(copy);
-			else
-				symbols::parseStringSymbol(copy, "$");
-		}
-	}
+		expression.reset(new Expression(text, var_bindings));
 }
 
 } // namespace progs

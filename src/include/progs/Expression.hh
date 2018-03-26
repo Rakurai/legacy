@@ -8,7 +8,7 @@
 namespace progs {
 
 struct Expression {
-	Expression(const String&);
+	Expression(const String&, const std::map<String, data::Type>& var_bindings);
 	virtual ~Expression() {}
 
 	bool evaluate(contexts::Context&) const;
