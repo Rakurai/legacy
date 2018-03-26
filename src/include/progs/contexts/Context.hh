@@ -1,8 +1,9 @@
 #pragma once
 
 #include <map>
-#include "progs/contexts/DataWrapper.hh"
+#include "progs/data/Wrapper.hh"
 #include "String.hh"
+#include "Format.hh"
 #include "Vnum.hh"
 
 class Character;
@@ -29,19 +30,20 @@ public:
 
 	template <typename T>
 	void add_var(const String& key, T data) {
-		vars.emplace(key, datawrapper_construct(data));
+		vars.emplace(key, data::construct_wrapper(data));
 	}
 
-	DataWrapper *get_var(const String& str) {
+	template <typename T>
+	void get_var(const String& str, T** datap) {
 		auto pair = vars.find(str);
 
 		if (pair == vars.end())
-			return nullptr;
+			throw Format::format("progs::Context::get_var: variable '%s' is undefined", str);
 
-		return pair->second;
+		return data::access_wrapper(pair->second, datap);
 	}
 
-	std::map<String, DataWrapper *> vars;
+	std::map<String, data::Wrapper *> vars;
 
 private:
 	Context& operator=(const Context&);

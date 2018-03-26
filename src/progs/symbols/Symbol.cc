@@ -6,15 +6,12 @@ namespace symbols {
 void Symbol::
 execute(contexts::Context& context) {
 	switch (type) {
-		case Symbol::Type::Character: deref<Character *>(this, context); break;
-		case Symbol::Type::Object:    deref<Object *>(this, context); break;
-		case Symbol::Type::String:    deref<const String>(this, context); break;
-		case Symbol::Type::Boolean:   deref<bool>(this, context); break;
-		case Symbol::Type::Integer:   deref<int>(this, context); break;
-		case Symbol::Type::Void:      deref<int>(this, context); break;
-		case Symbol::Type::global:
-		case Symbol::Type::unknown:
-			throw Format::format("progs::Symbol::execute: unable to execute symbol stack");
+		case data::Type::Character: deref<Character *>(this, context); break;
+		case data::Type::Object:    deref<Object *>(this, context); break;
+		case data::Type::String:    deref<const String>(this, context); break;
+		case data::Type::Boolean:   deref<bool>(this, context); break;
+		case data::Type::Integer:   deref<int>(this, context); break;
+		case data::Type::Void:      deref<int>(this, context); break;
 	}
 }
 

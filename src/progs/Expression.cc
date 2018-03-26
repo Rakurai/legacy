@@ -46,8 +46,8 @@ Expression(const String& orig) :
 	}
 
 	if (lhs == nullptr) {
-		static std::unique_ptr<Symbol> true_sym((Symbol *)(new ValueSymbol<bool>(Symbol::Type::Boolean, true)));
-		static std::unique_ptr<Symbol> false_sym((Symbol *)(new ValueSymbol<bool>(Symbol::Type::Boolean, false)));
+		static std::unique_ptr<Symbol> true_sym((Symbol *)(new ValueSymbol<bool>(data::Type::Boolean, true)));
+		static std::unique_ptr<Symbol> false_sym((Symbol *)(new ValueSymbol<bool>(data::Type::Boolean, false)));
 
 		lhs = parse(str, "");
 
@@ -56,7 +56,7 @@ Expression(const String& orig) :
 		else
 			opr = Operator(Operator::Type::is_not_equal_to);
 
-		rhs.reset(new ValueSymbol<bool>(Symbol::Type::Boolean, false));
+		rhs.reset(new ValueSymbol<bool>(data::Type::Boolean, false));
 	}
 }
 

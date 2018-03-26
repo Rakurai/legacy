@@ -166,22 +166,22 @@ parseVariableSymbol(String& str) {
 		}
 	}
 
-	Symbol::Type sym_class = Symbol::Type::unknown;
+	data::Type sym_class = data::Type::Void;
 
-	     if (var == "i") sym_class = Symbol::Type::Character;
-	else if (var == "n") sym_class = Symbol::Type::Character;
-	else if (var == "b") sym_class = Symbol::Type::Character;
-	else if (var == "t") sym_class = Symbol::Type::Character;
-	else if (var == "r") sym_class = Symbol::Type::Character;
-	else if (var == "o") sym_class = Symbol::Type::Object;
-	else if (var == "p") sym_class = Symbol::Type::Object;
+	     if (var == "i") sym_class = data::Type::Character;
+	else if (var == "n") sym_class = data::Type::Character;
+	else if (var == "b") sym_class = data::Type::Character;
+	else if (var == "t") sym_class = data::Type::Character;
+	else if (var == "r") sym_class = data::Type::Character;
+	else if (var == "o") sym_class = data::Type::Object;
+	else if (var == "p") sym_class = data::Type::Object;
 
 	// create the variable symbol
 	std::unique_ptr<Symbol> sym;
 
 	switch(sym_class) {
-	case Symbol::Type::Character: sym.reset(new VariableSymbol<Character *>(sym_class, var)); break;
-	case Symbol::Type::Object:    sym.reset(new VariableSymbol<Object *>(sym_class, var)); break;
+	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(sym_class, var)); break;
+	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(sym_class, var)); break;
 	default:
 		throw Format::format("unknown variable binding for '%s'", var);
 	}
@@ -259,41 +259,56 @@ parseFunctionSymbol(String& str, std::unique_ptr<Symbol>& parent) {
 	str.erase(0, 1); // right paren
 
 	unsigned int entry_index = 0;
-	Symbol::Type parent_class = parent ? parent->type : Symbol::Type::global;
+	data::Type parent_class = parent ? parent->type : data::Type::Void;
 
 	// find a defined function with the same signature
-	for (const auto& entry : fn_table) {
-		if (entry.parent_class == parent_class                              // same member accessor or global
-		 && entry.arg_list.size() == arg_list.size()                        // same number of args
-		 && (arg_list.size() < 1 || entry.arg_list[0] == arg_list[0]->type) // arg 0 same type
-		 && (arg_list.size() < 2 || entry.arg_list[1] == arg_list[1]->type) // arg 1 same type
-		 && (arg_list.size() < 3 || entry.arg_list[2] == arg_list[2]->type) // arg 2 same type
-		 && entry.name == name)                                             // same name
-			break;
+	for ( ; entry_index < fn_table.size(); entry_index++) {
+		const auto& entry = fn_table[entry_index];
 
-		entry_index++;
+		if (entry.parent_class != parent_class        // same member accessor or global
+		 || entry.arg_list.size() != arg_list.size()  // same number of args
+		 || entry.name != name)                       // same name
+			continue;
+
+		// make sure all args are same type
+		bool different_arg_types = false;
+		for (unsigned int i = 0; i < arg_list.size(); i++)
+			if (entry.arg_list[0] != arg_list[0]->type) {
+				different_arg_types = true;
+				break;
+			}
+
+		if (different_arg_types)
+			continue;
+
+		break; // found a matching entry
 	}
 
-	if (entry_index >= fn_table.size())
-		throw Format::format("no prog function '%s(%s%s%s)' in the %s context",
-			name,
-			arg_list.size() > 0 ? arg_list[0]->type_to_string() : "",
-			arg_list.size() > 1 ? Format::format(", %s", arg_list[1]->type_to_string()) : "",
-			arg_list.size() > 2 ? Format::format(", %s", arg_list[2]->type_to_string()) : "",
-			parent ? parent->type_to_string() : "global"
-		);
+	if (entry_index >= fn_table.size()) {
+		String buf = Format::format("no prog function '%s(", name);
+
+		for (unsigned int i = 0; i < arg_list.size(); i++)
+			buf += Format::format("%s%s",
+				i > 0 ? ", " : "",
+				type_to_string(arg_list[i]->type)
+			);
+
+		buf += Format::format(")' in the %s context", type_to_string(parent_class));
+
+		throw buf;
+	}
 
 	std::unique_ptr<Symbol> sym;
 
 //Logging::bugf("parsed %s function '%s' with %d args, entry index %d", sym_class_to_string(parent_class), name, arg_list.size(), entry_index);
 
 	switch(fn_table[entry_index].return_class) {
-	case Symbol::Type::Character: sym.reset(new FunctionSymbol<Character *>(parent, entry_index, arg_list)); break;
-	case Symbol::Type::Object:    sym.reset(new FunctionSymbol<Object *>(parent, entry_index, arg_list)); break;
-	case Symbol::Type::String:    sym.reset(new FunctionSymbol<const String>(parent, entry_index, arg_list)); break;
-	case Symbol::Type::Boolean:   sym.reset(new FunctionSymbol<bool>(parent, entry_index, arg_list)); break;
-	case Symbol::Type::Integer:   sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
-	case Symbol::Type::Void:      sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
+	case data::Type::Character: sym.reset(new FunctionSymbol<Character *>(parent, entry_index, arg_list)); break;
+	case data::Type::Object:    sym.reset(new FunctionSymbol<Object *>(parent, entry_index, arg_list)); break;
+	case data::Type::String:    sym.reset(new FunctionSymbol<const String>(parent, entry_index, arg_list)); break;
+	case data::Type::Boolean:   sym.reset(new FunctionSymbol<bool>(parent, entry_index, arg_list)); break;
+	case data::Type::Integer:   sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
+	case data::Type::Void:      sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
 	default:
 		throw Format::format("unhandled function return type");
 	}
@@ -342,7 +357,7 @@ parseIntegerSymbol(String& str) {
 	if (negative)
 		val = 0 - val;
 
-	return std::unique_ptr<Symbol>(new ValueSymbol<int>(Symbol::Type::Integer, val));
+	return std::unique_ptr<Symbol>(new ValueSymbol<int>(data::Type::Integer, val));
 }
 
 std::unique_ptr<Symbol>
@@ -354,12 +369,12 @@ parseBooleanSymbol(String& str) {
 
 	if (str.has_prefix("true")) {
 		str.erase(0, 4);
-		return std::unique_ptr<Symbol>(new ValueSymbol<bool>(Symbol::Type::Boolean, true));
+		return std::unique_ptr<Symbol>(new ValueSymbol<bool>(data::Type::Boolean, true));
 	}
 
 	if (str.has_prefix("false")) {
 		str.erase(0, 5);
-		return std::unique_ptr<Symbol>(new ValueSymbol<bool>(Symbol::Type::Boolean, false));
+		return std::unique_ptr<Symbol>(new ValueSymbol<bool>(data::Type::Boolean, false));
 	}
 
 	return nullptr;
@@ -393,7 +408,7 @@ parseStringSymbol(String& str, const String& until) {
 
 	val = val.strip();
 
-	return std::unique_ptr<Symbol>(new ValueSymbol<const String>(Symbol::Type::String, val));
+	return std::unique_ptr<Symbol>(new ValueSymbol<const String>(data::Type::String, val));
 }
 
 } // namespace symbols

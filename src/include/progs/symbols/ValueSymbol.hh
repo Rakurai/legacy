@@ -7,7 +7,7 @@ namespace progs {
 namespace symbols {
 
 template <typename T> struct ValueSymbol : public Symbol {
-	ValueSymbol(Symbol::Type c, T v) : Symbol(c), value(v) {}
+	ValueSymbol(data::Type c, T v) : Symbol(c), value(v) {}
 	virtual ~ValueSymbol() {}
 	
 	T evaluate(contexts::Context&) { return value; }
@@ -17,7 +17,7 @@ template <typename T> struct ValueSymbol : public Symbol {
 	}
 
 	virtual const String print_stack() const {
-		return Format::format("Value<%s>", type_to_string());
+		return Format::format("Value<%s>", type_to_string(type));
 	}
 
 	T value;

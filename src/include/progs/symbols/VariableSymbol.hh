@@ -9,12 +9,11 @@ namespace progs {
 namespace symbols {
 
 template <typename T> struct VariableSymbol : public Symbol {
-	VariableSymbol(Symbol::Type c, const String& n) : Symbol(c), name(n) {}
+	VariableSymbol(data::Type c, const String& n) : Symbol(c), name(n) {}
 	virtual ~VariableSymbol() {}
 	T evaluate(contexts::Context& context) {
-		contexts::DataWrapper *wrapper = context.get_var(name);
 		T* temp;
-		contexts::datawrapper_access(wrapper, &temp);
+		context.get_var(name, &temp);
 		return *temp;
 	}
 
@@ -23,7 +22,7 @@ template <typename T> struct VariableSymbol : public Symbol {
 	}
 
 	virtual const String print_stack() const {
-		return Format::format("Variable<%s>$%s", type_to_string(), name);
+		return Format::format("Variable<%s>$%s", type_to_string(type), name);
 	}
 
 	const String name;

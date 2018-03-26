@@ -22,60 +22,64 @@
 namespace progs {
 namespace symbols {
 
+#define dt data::Type
+
 const std::vector<fn_type> fn_table = {
-	// name          return type              context                  arg types
+	// name          return type    parent type    arg types
 	// global context
-	{ "mudtime",     Symbol::Type::String,    Symbol::Type::global,    {} },
-	{ "rand",        Symbol::Type::Boolean,   Symbol::Type::global,    { Symbol::Type::Integer } },
+	{ "mudtime",     dt::String,    dt::Void,      {} },
+	{ "rand",        dt::Boolean,   dt::Void,      { dt::Integer } },
 
 	// character accessors
-	{ "name",        Symbol::Type::String,    Symbol::Type::Character, {} },
-	{ "title",       Symbol::Type::String,    Symbol::Type::Character, {} },
-	{ "he_she",      Symbol::Type::String,    Symbol::Type::Character, {} },
-	{ "him_her",     Symbol::Type::String,    Symbol::Type::Character, {} },
-	{ "his_her",     Symbol::Type::String,    Symbol::Type::Character, {} },
-	{ "is_pc",       Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_npc",      Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_good",     Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_evil",     Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_neutral",  Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_immort",   Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_fighting", Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_killer",   Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_thief",    Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "is_charmed",  Symbol::Type::Boolean,   Symbol::Type::Character, {} },
-	{ "in_room",     Symbol::Type::String,    Symbol::Type::Character, {} },
-	{ "position",    Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "level",       Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "hitprcnt",    Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "sex",         Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "guild",       Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "gold",        Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "vnum",        Symbol::Type::Integer,   Symbol::Type::Character, {} },
-	{ "state",       Symbol::Type::Integer,   Symbol::Type::Character, { Symbol::Type::String } },
-	{ "is_carrying", Symbol::Type::Boolean,   Symbol::Type::Character, { Symbol::Type::String } },
-	{ "is_wearing",  Symbol::Type::Boolean,   Symbol::Type::Character, { Symbol::Type::String } },
-	{ "master",      Symbol::Type::Character, Symbol::Type::Character, {} },
+	{ "name",        dt::String,    dt::Character, {} },
+	{ "title",       dt::String,    dt::Character, {} },
+	{ "he_she",      dt::String,    dt::Character, {} },
+	{ "him_her",     dt::String,    dt::Character, {} },
+	{ "his_her",     dt::String,    dt::Character, {} },
+	{ "is_pc",       dt::Boolean,   dt::Character, {} },
+	{ "is_npc",      dt::Boolean,   dt::Character, {} },
+	{ "is_good",     dt::Boolean,   dt::Character, {} },
+	{ "is_evil",     dt::Boolean,   dt::Character, {} },
+	{ "is_neutral",  dt::Boolean,   dt::Character, {} },
+	{ "is_immort",   dt::Boolean,   dt::Character, {} },
+	{ "is_fighting", dt::Boolean,   dt::Character, {} },
+	{ "is_killer",   dt::Boolean,   dt::Character, {} },
+	{ "is_thief",    dt::Boolean,   dt::Character, {} },
+	{ "is_charmed",  dt::Boolean,   dt::Character, {} },
+	{ "in_room",     dt::String,    dt::Character, {} },
+	{ "position",    dt::Integer,   dt::Character, {} },
+	{ "level",       dt::Integer,   dt::Character, {} },
+	{ "hitprcnt",    dt::Integer,   dt::Character, {} },
+	{ "sex",         dt::Integer,   dt::Character, {} },
+	{ "guild",       dt::Integer,   dt::Character, {} },
+	{ "gold",        dt::Integer,   dt::Character, {} },
+	{ "vnum",        dt::Integer,   dt::Character, {} },
+	{ "state",       dt::Integer,   dt::Character, { dt::String } },
+	{ "is_carrying", dt::Boolean,   dt::Character, { dt::String } },
+	{ "is_wearing",  dt::Boolean,   dt::Character, { dt::String } },
+	{ "master",      dt::Character, dt::Character, {} },
 
 	// object accessors
-	{ "name",        Symbol::Type::String,    Symbol::Type::Object,    {} },
-	{ "sdesc",       Symbol::Type::String,    Symbol::Type::Object,    {} },
-	{ "ind_art",     Symbol::Type::String,    Symbol::Type::Object,    {} },
-	{ "echo",        Symbol::Type::Void,      Symbol::Type::Object,    { Symbol::Type::String } },
-	{ "from_room",   Symbol::Type::Void,      Symbol::Type::Object,    {} },
-	{ "to_char",     Symbol::Type::Void,      Symbol::Type::Object,    { Symbol::Type::Character } },
-	{ "type",        Symbol::Type::Integer,   Symbol::Type::Object,    {} },
-	{ "value0",      Symbol::Type::Integer,   Symbol::Type::Object,    {} },
-	{ "value1",      Symbol::Type::Integer,   Symbol::Type::Object,    {} },
-	{ "value2",      Symbol::Type::Integer,   Symbol::Type::Object,    {} },
-	{ "value3",      Symbol::Type::Integer,   Symbol::Type::Object,    {} },
-	{ "value4",      Symbol::Type::Integer,   Symbol::Type::Object,    {} },
-	{ "vnum",        Symbol::Type::Integer,   Symbol::Type::Object,    {} },
+	{ "name",        dt::String,    dt::Object,    {} },
+	{ "sdesc",       dt::String,    dt::Object,    {} },
+	{ "ind_art",     dt::String,    dt::Object,    {} },
+	{ "echo",        dt::Void,      dt::Object,    { dt::String } },
+	{ "from_room",   dt::Void,      dt::Object,    {} },
+	{ "to_char",     dt::Void,      dt::Object,    { dt::Character } },
+	{ "type",        dt::Integer,   dt::Object,    {} },
+	{ "value0",      dt::Integer,   dt::Object,    {} },
+	{ "value1",      dt::Integer,   dt::Object,    {} },
+	{ "value2",      dt::Integer,   dt::Object,    {} },
+	{ "value3",      dt::Integer,   dt::Object,    {} },
+	{ "value4",      dt::Integer,   dt::Object,    {} },
+	{ "vnum",        dt::Integer,   dt::Object,    {} },
 
 
 	// room accessors
 
 };
+
+#undef dt
 
 template <>
 Character * FunctionSymbol<Character *>::
@@ -87,18 +91,18 @@ try {
 		throw Format::format("unhandled global function '%s'", name);
 	}
 
-	if (parent->type == Symbol::Type::Character) {
+	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
 
 		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
 		if (name == "master") return ch->master;
 
-		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
-	throw Format::format("unhandled parent class '%s'", parent->type_to_string());
+	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Character *'", e);
 }
@@ -114,16 +118,16 @@ try {
 		throw Format::format("unhandled global function '%s'", name);
 	}
 
-	if (parent->type == Symbol::Type::Character) {
+	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
 
 		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
-	throw Format::format("unhandled parent class '%s'", parent->type_to_string());
+	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Object *'", e);
 }
@@ -142,11 +146,11 @@ try {
 		throw Format::format("unhandled global function '%s'", name);
 	}
 
-	if (parent->type == Symbol::Type::Character) {
+	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
 
 		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
 		bool can_see = context.can_see(ch);
 
@@ -182,14 +186,14 @@ try {
 
 		if (name == "in_room") return ch->in_room->location.to_string();
 
-		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
-	if (parent->type == Symbol::Type::Object) {
+	if (parent->type == data::Type::Object) {
 		Object *obj = deref<Object *>(parent.get(), context);
 
 		if (obj == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
 		bool can_see = context.can_see(obj);
 
@@ -212,10 +216,10 @@ try {
 			return "a";
 		}
 
-		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
-	throw Format::format("unhandled parent class '%s'", parent->type_to_string());
+	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'const String'", e);
 }
@@ -234,11 +238,11 @@ try {
 		throw Format::format("unhandled global function '%s'", name);
 	}
 
-	if (parent->type == Symbol::Type::Character) {
+	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
 
 		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
 		if (name == "is_pc")       return !ch->is_npc();
 		if (name == "is_npc")      return ch->is_npc();
@@ -253,10 +257,10 @@ try {
 		if (name == "is_carrying") return get_obj_carry(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
 		if (name == "is_wearing")  return get_obj_wear(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
 
-		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
-	throw Format::format("unhandled parent class '%s'", parent->type_to_string());
+	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'bool'", e);
 }
@@ -272,11 +276,11 @@ try {
 		throw Format::format("unhandled global function '%s'", name);
 	}
 
-	if (parent->type == Symbol::Type::Character) {
+	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
 
 		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
 		if (name == "position")   return ch->position;
 		if (name == "level")      return ch->level;
@@ -295,14 +299,14 @@ try {
 			return 0;
 		}
 
-		throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
-	if (parent->type == Symbol::Type::Object) {
+	if (parent->type == data::Type::Object) {
 		Object *obj = deref<Object *>(parent.get(), context);
 
 		if (obj == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", parent->type_to_string());
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
 		if (name == "echo") {
 			// uses act() to distribute the message, but act variables don't match up with prog
@@ -321,12 +325,12 @@ try {
 		else if (name == "value4")    return obj->value[4];
 		else if (name == "vnum")      return obj->pIndexData->vnum.value();
 		else
-			throw Format::format("unhandled %s function '%s'", parent->type_to_string(), name);
+			throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 
 		return 0;
 	}
 
-	throw Format::format("unhandled parent class '%s'", parent->type_to_string());
+	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'int'", e);
 }

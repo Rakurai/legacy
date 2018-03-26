@@ -249,8 +249,8 @@ expand_vars(const String& orig) {
 		if (copy[0] == '$') {
 			std::unique_ptr<symbols::Symbol> ptr = symbols::parse(copy, "");
 
-			if (ptr->type == symbols::Symbol::Type::Character
-			 || ptr->type == symbols::Symbol::Type::Object) {
+			if (ptr->type == data::Type::Character
+			 || ptr->type == data::Type::Object) {
 				String fn = "name()";
 				ptr = symbols::parseFunctionSymbol(fn, ptr);
 			}

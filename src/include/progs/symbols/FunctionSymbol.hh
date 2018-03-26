@@ -8,9 +8,9 @@ namespace symbols {
 
 struct fn_type {
 	String name;
-	Symbol::Type return_class;
-	Symbol::Type parent_class;
-	std::vector<Symbol::Type> arg_list;
+	data::Type return_class;
+	data::Type parent_class;
+	std::vector<data::Type> arg_list;
 };
 
 extern const std::vector<fn_type> fn_table;
@@ -28,13 +28,18 @@ template <typename Ret> struct FunctionSymbol : public Symbol {
 	virtual const String print_stack() const {
 		String buf = parent ? parent->print_stack() + "." : "";
 
-		buf += Format::format("Function<%s>%s(%s%s%s)",
-			parent ? parent->type_to_string() : "global",
-			fn_table[fn_index].name,
-			arg_list.size() > 0 ? arg_list[0]->type_to_string() : "",
-			arg_list.size() > 1 ? Format::format(", %s", arg_list[1]->type_to_string()) : "",
-			arg_list.size() > 2 ? Format::format(", %s", arg_list[2]->type_to_string()) : ""
+		buf += Format::format("Function<%s>%s(",
+			type_to_string(parent ? parent->type : data::Type::Void),
+			fn_table[fn_index].name
 		);
+
+		for (unsigned int i = 0; i < arg_list.size(); i++)
+			buf += Format::format("%s%s",
+				i > 0 ? ", " : "",
+				type_to_string(arg_list[i]->type)
+			);
+
+		buf += ")";
 
 		return buf;
 	}
