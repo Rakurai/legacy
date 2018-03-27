@@ -64,7 +64,7 @@ SAY Have you seen my Number 5 filter?
 MUTTER
 MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner scoops up a handfull of {Yyellow{x light
 MPECHO and holds it to his ear, concentrating...
-if rand(50)
+if $world.rand(50)
      MPECHO "Darn", he says, sometimes they know. I'll have to try harder."
      MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner puts his right foot in, he takes
      MPECHO his right foot out, he puts his right foot in, and he shakes it all
@@ -81,7 +81,7 @@ SAY Have you seen my bottle of glass cleaner?
 MUTTER
 MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner drinks from a beam of {Ggreen{x light,
 MPECHO slurping down mass quantities. Then he sneezes.
-if rand(50)
+if $world.rand(50)
      MPECHO "Rats", he snorts, still looking a bit green. "That usually works.
      MPECHO I'll have to call in a real expert."
      MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner performs the Rite of Ash' K'ente, and
@@ -98,7 +98,7 @@ MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks down.
 SAY Have you seen my lint brush?
 MUTTER
 meditate
-if rand(50)
+if $world.rand(50)
      curse
      say I hate it when that doesn't work. Oh, well, here goes plan B...
      MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner sneaks up on a {Rred{x photon and

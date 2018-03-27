@@ -4,6 +4,7 @@
 #include "MobilePrototype.hh"
 #include "Room.hh"
 #include "random.hh"
+#include "Game.hh"
 
 namespace progs {
 namespace contexts {
@@ -40,6 +41,7 @@ MobProgContext(progs::Type type, Character *mob) :
 {
 	// set variables
 	set_var("self", data::Type::Character, mob);
+	set_var("world", data::Type::World, &Game::world());
 	set_var("room", data::Type::Room, mob->in_room);
 	set_var("master", data::Type::Character, mob->master);
 

@@ -10,6 +10,7 @@
 namespace progs {
 namespace symbols {
 
+const String var_to_string(World * var) { return var ? "World" : "0"; }
 const String var_to_string(Character * var) { return var ? var->name : "0"; }
 const String var_to_string(Object * var) { return var ? var->name : "0"; }
 const String var_to_string(Room * var) { return var ? var->name() : "0"; }
@@ -123,12 +124,14 @@ parseVariableSymbol(String& str, const data::Bindings& bindings) {
 	std::unique_ptr<Symbol> sym;
 
 	switch(var_type) {
+	case data::Type::World:     sym.reset(new VariableSymbol<World *>(var_type, var_name)); break;
 	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(var_type, var_name)); break;
 	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(var_type, var_name)); break;
 	case data::Type::Room:      sym.reset(new VariableSymbol<Room *>(var_type, var_name)); break;
 	case data::Type::String:    sym.reset(new VariableSymbol<const String>(var_type, var_name)); break;
 	case data::Type::Boolean:   sym.reset(new VariableSymbol<bool>(var_type, var_name)); break;
 	case data::Type::Integer:   sym.reset(new VariableSymbol<int>(var_type, var_name)); break;
+	// no 'Void' variable type
 	default:
 		throw Format::format("unknown symbol type for variable '%s', binding '%s'", var_name, data::type_to_string(var_type));
 	}
@@ -168,6 +171,9 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 		return nullptr;
 
 	// after this it looks like a function, throw errors if it doesn't comply
+	if (parent == nullptr)
+		throw String("global functions not allowed, must be member of $world");
+
 	std::vector<std::unique_ptr<Symbol>> arg_list;
 
 	str.erase(0, 1); // left paren
@@ -245,6 +251,7 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 //Logging::bugf("parsed %s function '%s' with %d args, entry index %d", sym_class_to_string(parent_class), name, arg_list.size(), entry_index);
 
 	switch(fn_table[entry_index].return_class) {
+	// no 'World' function return type
 	case data::Type::Character: sym.reset(new FunctionSymbol<Character *>(parent, entry_index, arg_list)); break;
 	case data::Type::Object:    sym.reset(new FunctionSymbol<Object *>(parent, entry_index, arg_list)); break;
 	case data::Type::Room:      sym.reset(new FunctionSymbol<Room *>(parent, entry_index, arg_list)); break;

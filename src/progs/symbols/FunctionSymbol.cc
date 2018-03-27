@@ -27,8 +27,8 @@ namespace symbols {
 const std::vector<fn_type> fn_table = {
 	// name          return type    parent type    arg types
 	// global context
-	{ "mudtime",     dt::String,    dt::Void,      {} },
-	{ "rand",        dt::Boolean,   dt::Void,      { dt::Integer } },
+	{ "time",        dt::String,    dt::World,     {} },
+	{ "rand",        dt::Boolean,   dt::World,     { dt::Integer } },
 
 	// character accessors
 	{ "name",        dt::String,    dt::Character, {} },
@@ -87,8 +87,11 @@ evaluate(contexts::Context& context) {
 try {
 	const String& name = fn_table[fn_index].name;
 
-	if (parent == nullptr) { // global function
-		throw Format::format("unhandled global function '%s'", name);
+	if (parent == nullptr)
+		throw Format::format("function '%s' has null parent", name);
+
+	if (parent->type == data::Type::World) {
+
 	}
 
 	if (parent->type == data::Type::Character) {
@@ -114,9 +117,8 @@ evaluate(contexts::Context& context) {
 try {
 	const String& name = fn_table[fn_index].name;
 
-	if (parent == nullptr) { // global function
-		throw Format::format("unhandled global function '%s'", name);
-	}
+	if (parent == nullptr)
+		throw Format::format("function '%s' has null parent", name);
 
 	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
@@ -139,9 +141,8 @@ evaluate(contexts::Context& context) {
 try {
 	const String& name = fn_table[fn_index].name;
 
-	if (parent == nullptr) { // global function
-		throw Format::format("unhandled global function '%s'", name);
-	}
+	if (parent == nullptr)
+		throw Format::format("function '%s' has null parent", name);
 
 	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
@@ -164,11 +165,14 @@ evaluate(contexts::Context& context) {
 try {
 	const String& name = fn_table[fn_index].name;
 
-	if (parent == nullptr) { // global function
+	if (parent == nullptr)
+		throw Format::format("function '%s' has null parent", name);
 
-		if (name == "mudtime")    return Format::format("%d", Game::world().time.hour);
+	if (parent->type == data::Type::World) { // global function
 
-		throw Format::format("unhandled global function '%s'", name);
+		if (name == "time")    return Format::format("%d", Game::world().time.hour);
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
 	if (parent->type == data::Type::Character) {
@@ -272,11 +276,14 @@ evaluate(contexts::Context& context) {
 try {
 	const String& name = fn_table[fn_index].name;
 
-	if (parent == nullptr) { // global function
+	if (parent == nullptr)
+		throw Format::format("function '%s' has null parent", name);
 
-		if (name == "rand")       return number_percent() <= deref<int>(arg_list[0].get(), context);
+	if (parent->type == data::Type::World) { // global function
 
-		throw Format::format("unhandled global function '%s'", name);
+		if (name == "rand")    return number_percent() <= deref<int>(arg_list[0].get(), context);
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
 	if (parent->type == data::Type::Character) {
@@ -313,9 +320,8 @@ evaluate(contexts::Context& context) {
 try {
 	const String& name = fn_table[fn_index].name;
 
-	if (parent == nullptr) { // global function
-		throw Format::format("unhandled global function '%s'", name);
-	}
+	if (parent == nullptr)
+		throw Format::format("function '%s' has null parent", name);
 
 	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);

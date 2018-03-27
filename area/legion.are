@@ -119,7 +119,7 @@ endif
 ~
 >fight_prog 75~
 emote gibbers and slobbers.
-if rand(35)
+if $world.rand(35)
    howl
 else
    emote gibbers and spits at you.
@@ -186,7 +186,7 @@ ACDFHKO BHILQ DJKM N
 stand stand male 400
 0 0 giant 0
 >rand_prog 75~
-if rand(75)
+if $world.rand(75)
    wake
    emote rolls over, thrashing his tail.
    sleep
@@ -198,7 +198,7 @@ else
 endif
 ~
 >fight_prog 76~
-if rand(45)
+if $world.rand(45)
    emote open his mouth and lets loose a DEAFENING ROOOOOOAAAAR!!!
 else
    emote blinks his eyes sleepily.
@@ -242,7 +242,7 @@ stand stand male 50
 0 0 medium 0
 >greet_prog 50~
 if $actor.is_pc()
-  if rand(80)
+  if $world.rand(80)
      mutter
      say What now? What NOW?! WHAT NOW!!?
   else
@@ -271,7 +271,7 @@ stand stand male 100
 
 >greet_prog 50~
 if $actor.is_pc()
-  if rand(90)
+  if $world.rand(90)
    emote looks at his map.
    grumble
   else
@@ -303,7 +303,7 @@ stand stand male 250
 
 >greet_prog 50~
 if $actor.is_pc()
-  if rand(90)
+  if $world.rand(90)
    beam $actor
    say The battle is going well. We have them in our grasp.
   else

@@ -25,7 +25,7 @@ stand stand male 15000
 0 0 medium 0
 >greet_prog 50~
 if $actor.is_pc()
-  if rand(45)
+  if $world.rand(45)
      say How can I help you? Rings? Wands? Potions?
      grin
   else
@@ -35,7 +35,7 @@ if $actor.is_pc()
 endif
 ~
 >rand_prog 5~
-  if rand(51)
+  if $world.rand(51)
     say I know I put that bottle on the 53rd shelf.
     grumble
   else
@@ -72,7 +72,7 @@ if $actor.is_pc()
 endif
 ~
 >rand_prog 5~
-if rand(50)
+if $world.rand(50)
    peer
    say I hear they have some nice lamb at the butchery in New Thalos.
 else
@@ -98,7 +98,7 @@ stand stand male 1300
 0 0 medium 0
 >greet_prog 50~
 if $actor.is_pc()
-  if rand(50)
+  if $world.rand(50)
      twiddle
      say Well, are you going to order something?
   else
@@ -108,7 +108,7 @@ if $actor.is_pc()
 endif
 ~
 >rand_prog 5~
-if rand(25)
+if $world.rand(25)
    smile
 else
    grumble
@@ -132,7 +132,7 @@ stand stand male 25000
 0 0 medium 0
 >greet_prog 50~
 if $actor.is_pc()
-   if rand(50)
+   if $world.rand(50)
       say Hello, how can I help you?
       grin $actor
    else
@@ -142,7 +142,7 @@ if $actor.is_pc()
 endif
 ~
 >rand_prog 5~
-if rand(40)
+if $world.rand(40)
    say There is nothing better than a good sword.
    grin
 else
@@ -168,7 +168,7 @@ stand stand male 100000
 0 0 medium 0
 >greet_prog 50~
 if $actor.is_pc()
-   if rand(54)
+   if $world.rand(54)
       say All the best armor in Thera. Best prices anywhere! I will special order.
       grin
    else
@@ -178,7 +178,7 @@ if $actor.is_pc()
 endif
 ~
 >rand_prog 5~
-if rand(35)
+if $world.rand(35)
    say I remember once this guy came in and sold me some armour made of gold!
    smile
    say It weighed a ton. He had to use a wagon to carry it.
@@ -208,7 +208,7 @@ stand stand either 100
    endif
 ~
 >fight_prog 50~
-if rand(45)
+if $world.rand(45)
    say How dare you catch me picking your pocket!!!!
 else
    egrin $actor
@@ -232,7 +232,7 @@ stand stand male 1300
 0 0 medium 0
 >greet_prog 50~
 if $actor.is_pc()
-  if rand(45)
+  if $world.rand(45)
      say Welcome mate what be yer needs?
   else
      grin
@@ -241,7 +241,7 @@ if $actor.is_pc()
 endif
 ~
 >rand_prog 8~
-if rand(45)
+if $world.rand(45)
    emote sings a catchy tune.
    emote sings "Yo Ho Ho and a bottle of rum!"
 else
@@ -339,19 +339,19 @@ endif
 >fight_prog 40~
 cackle
 say You cannot defeat the power of the Almighty Zero!!!
-if rand(15)
+if $world.rand(15)
     cast wrath
 endif
 ~
 >speech_prog p hello helga~
 smile
-if rand(25)
+if $world.rand(25)
     say Helpful hint: Watch out for those pesky Vampires.  They are everywhere.
 endif
 ~
 >hitprcnt_prog 5~
 bleed
-if rand(10)
+if $world.rand(10)
     yell Help Me!!!!!
 endif
 ~
@@ -1333,7 +1333,7 @@ endif
 ~
 >speech_prog p yes~
 smile $actor
-if rand(25)
+if $world.rand(25)
     say Very good!  Type: {YHELP QUEST{x for info on how to get started.
 else
     say Excellent!  I am proud to associate with such brave adventurers.
@@ -1341,7 +1341,7 @@ endif
 ~
 >speech_prog p no~
 sigh
-if rand(25)
+if $world.rand(25)
     say 'Tis a shame, Thera is in need of brave adventurers.
 else
     say Then may your journeys be fruitful.
@@ -1578,62 +1578,62 @@ pmote makes a magical gesture at $actor.
 mpechoaround $actor $actor disappears, perhaps forever!
 pray $actor is entering the Land of Flaming Sword.
 mpechoat $actor Your stomach lurches, then suddenly you are elsewhere...
-if rand(8)
+if $world.rand(8)
    mptransfer $actor 12068
    mpat 12068 mpforce $actor look auto
    break
 endif
-if rand(8)
+if $world.rand(8)
    mptransfer $actor 12069
    mpat 12069 mpforce $actor look auto
    break
 endif
-if rand(9)
+if $world.rand(9)
    mptransfer $actor 12070
    mpat 12070 mpforce $actor look auto
    break
 endif
-if rand(10)
+if $world.rand(10)
    mptransfer $actor 12071
    mpat 12071 mpforce $actor look auto
    break
 endif
-if rand(11)
+if $world.rand(11)
    mptransfer $actor 12072
    mpat 12072 mpforce $actor look auto
    break
 endif
-if rand(12)
+if $world.rand(12)
    mptransfer $actor 12073
    mpat 12073 mpforce $actor look auto
    break
 endif
-if rand(14)
+if $world.rand(14)
    mptransfer $actor 12074
    mpat 12074 mpforce $actor look auto
    break
 endif
-if rand(17)
+if $world.rand(17)
    mptransfer $actor 12075
    mpat 12075 mpforce $actor look auto
    break
 endif
-if rand(20)
+if $world.rand(20)
    mptransfer $actor 12076
    mpat 12076 mpforce $actor look auto
    break
 endif
-if rand(25)
+if $world.rand(25)
    mptransfer $actor 12077
    mpat 12077 mpforce $actor look auto
    break
 endif
-if rand(33)
+if $world.rand(33)
    mptransfer $actor 12078
    mpat 12078 mpforce $actor look auto
    break
 endif
-if rand(50)
+if $world.rand(50)
    mptransfer $actor 12079
    mpat 12079 mpforce $actor look auto
    break
@@ -1665,7 +1665,7 @@ stand stand male 15000
   MPGOTO 300
 ~
 >rand_prog 1~
-  if rand(3)
+  if $world.rand(3)
      MPOLOAD 1201
      MPECHO You notice that the pouch at the old man's side has a hole in it...
      drop token
@@ -1682,38 +1682,38 @@ stand stand male 15000
   emote continues searching the ground.
 ~
 >rand_prog 10~
-  if rand(25)
+  if $world.rand(25)
      north
      break
   endif
-  if rand(33)
+  if $world.rand(33)
      east
      break
   endif
-  if rand(50)
+  if $world.rand(50)
      south
      break
   endif
-  if rand(100)
+  if $world.rand(100)
      west
      break
   endif
 ~
 >rand_prog 1~
   emote wanders off in search of his tokens...
-  if rand(25)
+  if $world.rand(25)
      MPGOTO 3001
      break
   endif
-  if rand(33)
+  if $world.rand(33)
      MPGOTO 6103
      break
   endif
-  if rand(50)
+  if $world.rand(50)
      MPGOTO 9506
      break
   endif
-  if rand(100)
+  if $world.rand(100)
      MPGOTO 3521
      break
   endif

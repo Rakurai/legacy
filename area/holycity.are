@@ -1753,32 +1753,32 @@ human~
 stand stand male 1
 0 0 medium 0
 >death_prog 100~
-  if Rand(60)
+  if $world.rand(60)
      MPOLoad 17052
      drop token
      break
   Endif
-  if rand(90)
+  if $world.rand(90)
      MPOLOAD 17053
      drop token
      break
    Endif
-  If Rand(95)
+  If $world.rand(95)
      MPOLOAD 17054
      drop token
      break
    endif
-  If Rand(97)
+  If $world.rand(97)
      MPOLOAD 17055
      drop token
      Break
    endif
-   if Rand(99)
+   if $world.rand(99)
      MPOLOAD 17056
      drop token
      break
    endif
-   if Rand(100)
+   if $world.rand(100)
      MPOLOAD 1217
     drop token
     break
@@ -1802,32 +1802,32 @@ human~
 stand stand male 0
 0 0 medium 0
 >death_prog 100~
-  if Rand(40)
+  if $world.rand(40)
      MPOLoad 17052
      drop token
      break
   Endif
-  if rand(80)
+  if $world.rand(80)
      MPOLOAD 17053
      drop token
      break
    Endif
-  If Rand(90)
+  If $world.rand(90)
      MPOLOAD 17054
      drop token
      break
    endif
-  If Rand(95)
+  If $world.rand(95)
      MPOLOAD 17055
      drop token
      Break
    endif
-   if Rand(98)
+   if $world.rand(98)
      MPOLOAD 17056
      drop token
      break
    endif
-   if Rand(100)
+   if $world.rand(100)
    MPOLOAD 1217
    drop token
    Break
@@ -1851,32 +1851,32 @@ human~
 stand stand male 0
 0 0 medium 0
 >death_prog 100~
-  if Rand(30)
+  if $world.rand(30)
      MPOLoad 17052
      drop token
      break
   Endif
-  if rand(55)
+  if $world.rand(55)
      MPOLOAD 17053
      drop token
      break
    Endif
-  If Rand(78)
+  If $world.rand(78)
      MPOLOAD 17054
      drop token
      break
    endif
-  If Rand(90)
+  If $world.rand(90)
      MPOLOAD 17055
      drop token
      Break
    endif
-   if Rand(97)
+   if $world.rand(97)
      MPOLOAD 17056
      drop token
      break
    endif
-   if Rand(100)
+   if $world.rand(100)
     MPOLOAD 1217
     drop token
     break
@@ -1900,32 +1900,32 @@ human~
 stand stand male 0
 0 0 medium 0
 >death_prog 100~
-  if Rand(25)
+  if $world.rand(25)
      MPOLoad 17052
      drop token
      break
   Endif
-  if rand(48)
+  if $world.rand(48)
      MPOLOAD 17053
      drop token
      break
    Endif
-  If Rand(70)
+  If $world.rand(70)
      MPOLOAD 17054
      drop token
      break
    endif
-  If Rand(90)
+  If $world.rand(90)
      MPOLOAD 17055
      drop token
      Break
    endif
-   if Rand(96)
+   if $world.rand(96)
      MPOLOAD 17056
      drop token
      break
    endif
-   if Rand(100)
+   if $world.rand(100)
     MPOLOAD 1217
     drop token
     break
@@ -1948,32 +1948,32 @@ human~
 stand stand male 1
 0 0 medium 0
 >death_prog 100~
-  if Rand(20)
+  if $world.rand(20)
      MPOLoad 17052
      drop token
      break
   Endif
-  if rand(45)
+  if $world.rand(45)
      MPOLOAD 17053
      drop token
      break
    Endif
-  If Rand(70)
+  If $world.rand(70)
      MPOLOAD 17054
      drop token
      break
    endif
-  If Rand(88)
+  If $world.rand(88)
      MPOLOAD 17055
      drop token
      Break
    endif
-   if Rand(95)
+   if $world.rand(95)
      MPOLOAD 17056
      drop token
      break
    endif
-   if rand(100)
+   if $world.rand(100)
      MPOLOAD 1217
      drop token
      break
@@ -1995,35 +1995,35 @@ DF DF 0 S
 stand stand male 1
 0 0 medium 0
 >greet_prog 100~
-  if Rand(30)
+  if $world.rand(30)
      MPMLoad 14081
      MPECHO An Orc Warrior tries to sneak past you.
      MPGOTO 14731
      MPPURGE
      break
   Endif
-  if rand(55)
+  if $world.rand(55)
      MPMLOAD 14082
      MPECHO A Minor Demon tries to sneak past you.
      MPGOTO 14731
      MPPURGE
      break
    Endif
-  If Rand(70)
+  If $world.rand(70)
      MPMLOAD 14083
      MPECHO An Assassin tries to sneak past you.
      MPGOTO 14731
      MPPURGE
      break
    endif
-  If Rand(85)
+  If $world.rand(85)
      MPMLOAD 14084
      MPECHO A Mercenary tries to sneak past you.
      MPGOTO 14731
      MPPURGE
      Break
    endif
-   if Rand(100)
+   if $world.rand(100)
      MPMLOAD 14085
      MPECHO A Drow Warrior tries to creep past you.
      MPGOTO 14731

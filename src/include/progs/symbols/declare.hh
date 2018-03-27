@@ -20,6 +20,7 @@ template <typename T> struct ValueSymbol;
 template <typename T> struct VariableSymbol;
 template <typename T> struct FunctionSymbol;
 
+const String var_to_string(World *);
 const String var_to_string(Character *);
 const String var_to_string(Object *);
 const String var_to_string(Room *);

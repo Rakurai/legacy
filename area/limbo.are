@@ -247,18 +247,18 @@ give cake $actor
 ~
 
 >rand_prog 6~
-if rand(50)
+if $world.rand(50)
    say Aren't they a lovely couple?
    emote gives a warm smile.
 else
-if rand(30)
+if $world.rand(30)
    say Would you like some cake?
 else
-if rand(25)
+if $world.rand(25)
    say What a beautiful bride!
    smile
 else
-if rand(20)
+if $world.rand(20)
    say Oh! I love wedding parties!
    giggle
 endif

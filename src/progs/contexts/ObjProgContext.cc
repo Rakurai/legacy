@@ -7,6 +7,7 @@
 #include "ObjectPrototype.hh"
 #include "Room.hh"
 #include "random.hh"
+#include "Game.hh"
 
 namespace progs {
 namespace contexts {
@@ -43,6 +44,7 @@ ObjProgContext(progs::Type type, Object *obj) :
 	obj(obj) 
 {
 	set_var("self", data::Type::Object, obj);
+	set_var("world", data::Type::World, &Game::world());
 
 	if (obj->carried_by)
 		set_var("room", data::Type::Room, obj->carried_by->in_room);

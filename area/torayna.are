@@ -130,14 +130,14 @@ stand stand male 30000
 0 0 medium 0
 
 >tick_prog 100~
-if mudtime() == 8
+if $world.time() == 8
    MPGOTO 2680
    MPOLOAD 2604
    unlock south
    MPJUNK masterkey
    break
 endif
-if mudtime() == 18
+if $world.time() == 18
    close south
    MPOLOAD 2604
    lock south

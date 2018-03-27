@@ -35,7 +35,7 @@ if $actor.level() <= 65
    MPKILL $actor
    chortle
 else
-  if rand(20)
+  if $world.rand(20)
      emote leaves.
   else
      if $self.in_room() == 16534
@@ -71,7 +71,7 @@ stand stand male 100
 MPASOUND A howling wail invades your mind and rattles your nerves
 ~
 >rand_prog 10~
-if rand(50)
+if $world.rand(50)
    MPECHO A shadow detaches itself from the night and flies at your head.
 else
    MPECHO {PRed gashes{x for {Peyes{x and a {byellow slit{x as a {bmouth{x screech your name.
@@ -124,7 +124,7 @@ else
 endif
 ~
 >fight_prog 90~
-if rand(80)
+if $world.rand(80)
    sa Taste the wrath of HELL!!!
    MPCAST 'demonfire'
 else
@@ -157,11 +157,11 @@ mpecho A sibilant hiss comes from the dark-robed figure before you.
 ~
 
 >fight_prog 20~
-if rand(75)
+if $world.rand(75)
    MPCAST 'dispel good'
 else
    emote mumbles an incantation.
-   if rand(50)
+   if $world.rand(50)
       MPCAST 'energy drain'
    else 
       MPCAST 'dispel magic'
@@ -188,7 +188,7 @@ OCFHKR BMQ HIJKLO 0
 stand stand male 0
 0 0 medium 0
 >rand_prog 5~
-if rand(10)
+if $world.rand(10)
    emote pads around the room silently.
 else
    emote watches you for a time.
@@ -219,7 +219,7 @@ ACFIK BC QL 0
 stand stand male 50
 0 0 medium 0
 >greet_prog 50~
-if rand(50)
+if $world.rand(50)
    howl
    emote ignores your presence and howls like a banshee.
 else
@@ -236,15 +236,15 @@ else
 endif
 ~
 >rand_prog 30~
-if rand(25)
+if $world.rand(25)
    howl
    MPASOUND You hear an insane screech from the next room.
 else
-   if rand(33)
+   if $world.rand(33)
      scream
      MPASOUND You hear an insane screech from the next room.
    else
-      if rand(75)
+      if $world.rand(75)
         boggle
       else
         scream
@@ -300,7 +300,7 @@ AEFKO BLQ OHIJKMN 0
 stand stand male 0
 0 0 huge 0
 >rand_prog 10~
-if rand(50)
+if $world.rand(50)
    MPECHO {WL{Yi{Wg{Yh{Wt{Yn{Wi{Yn{Wg{x flashes in the room.
    MPASOUND *{YCRACK{x*BOOM*
 else
@@ -336,7 +336,7 @@ emote murmurs a greeting to you and continues.
 
 >fight_prog 75~
 emote breathes deeply.
-if rand(50)
+if $world.rand(50)
    MPCAST 'frost breath'
 else
    MPCAST 'flame breath'
@@ -404,7 +404,7 @@ else
 endif
 ~
 >rand_prog 10~
-if rand(50)
+if $world.rand(50)
    emote touches his heart and head and utters a blessing.
 else
    emote drops to one knee and grasps his mace firmly.
@@ -482,7 +482,7 @@ endif
 if $actor.is_good()
    emote bestows its blessing upon you.
 else
-   if rand(50)
+   if $world.rand(50)
       emote watches your movements closely.
    else
       emote frowns at you.
@@ -490,7 +490,7 @@ else
 endif
 ~
 >hitprcnt_prog 20~
-if rand(50)
+if $world.rand(50)
    sa If I go, you come with me!!!
    MPCAST 'lightning breath'
 else
@@ -523,7 +523,7 @@ stand stand male 100
 emote bows and greets you with a humble prayer.
 ~
 >fight_prog 80~
-if rand(75)
+if $world.rand(75)
    MPCAST 'ray of truth'
 else
    MPCAST 'dispel magic'
@@ -627,15 +627,15 @@ ACFHKO BMNQL CD 0
 stand stand male 0
 0 0 giant 0
 >rand_prog 40~
-if rand(25)
+if $world.rand(25)
    emote lets loose a LOUD ROAR, shaking you to your boots.
    MPASOUND *ROAR*THUMP*
 else
-   if rand(33)
+   if $world.rand(33)
       emote snarls loudly and crashes into the wall.
       MPASOUND *SNARL*CRASH*
    else
-      if rand(66)
+      if $world.rand(66)
          emote peers around and lets loose a keening wail.
          MPASOUND *SCREAM*GROWL*
       else
@@ -649,7 +649,7 @@ endif
 if $random.is_immort()
    break
 endif
-if rand(50)
+if $world.rand(50)
    emote looks at you and growls.
 else
    scream
@@ -697,7 +697,7 @@ else
 endif
 ~
 >fight_prog 75~
-if rand(50)
+if $world.rand(50)
    emote claps his hands.
    MPCAST 'lightning breath'
 else
