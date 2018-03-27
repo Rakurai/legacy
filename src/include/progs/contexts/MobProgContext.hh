@@ -9,7 +9,7 @@ class MobProgContext :
 public Context 
 {
 public:
-	MobProgContext(Character *mob);
+	MobProgContext(progs::Type, Character *mob);
 	virtual ~MobProgContext() {}
 
 	// overrides

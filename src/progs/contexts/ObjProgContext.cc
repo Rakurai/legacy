@@ -1,5 +1,7 @@
 #include "progs/contexts/ObjProgContext.hh"
+#include "progs/symbols/declare.hh"
 #include "progs/symbols/Symbol.hh"
+#include "progs/prog_table.hh"
 #include "Object.hh"
 #include "Character.hh"
 #include "ObjectPrototype.hh"
@@ -31,10 +33,11 @@ self_is_garbage() const {
 }
 
 ObjProgContext::
-ObjProgContext(Object *obj) :
+ObjProgContext(progs::Type type, Object *obj) :
+	Context(prog_table.find(type)->second.default_bindings),
 	obj(obj) 
 {
-	add_var("self", data::Type::Object, obj);
+	set_var("self", data::Type::Object, obj);
 
 	int count = 0;
 
@@ -59,7 +62,7 @@ ObjProgContext(Object *obj) :
 		}
 
 		if (rndm != nullptr)
-			add_var("random", data::Type::Character, rndm);
+			set_var("random", data::Type::Character, rndm);
 	}
 }
 /* This procedure simply copies the cmnd to a buffer while expanding

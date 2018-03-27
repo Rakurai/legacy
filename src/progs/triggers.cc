@@ -119,11 +119,11 @@ void act_trigger(const String& buf, Character *mob, Character *ch, Object *obj, 
 {
 	if (mob->is_npc()
 	    && (mob->pIndexData->progtypes.count(Type::ACT_PROG))) {
-		contexts::MobProgContext context(mob);
-		context.add_var("n", data::Type::Character, ch);
-		context.add_var("t", data::Type::Character, (Character *)vo);
-		context.add_var("o", data::Type::Object, obj);
-		context.add_var("p", data::Type::Object, (Object *)vo);
+		contexts::MobProgContext context(Type::ACT_PROG, mob);
+		context.set_var("actor", data::Type::Character, ch);
+		context.set_var("victim", data::Type::Character, (Character *)vo);
+		context.set_var("obj", data::Type::Object, obj);
+		context.set_var("ind_obj", data::Type::Object, (Object *)vo);
 		MobProgActList *tmp_act = new MobProgActList(buf, context);
 
 		tmp_act->next	= mob->mpact;
@@ -148,9 +148,9 @@ void bribe_trigger(Character *mob, Character *ch, int amount)
 	for (const auto mprg : mob->pIndexData->progs)
 		if (mprg->type == Type::BRIBE_PROG) {
 			if (amount >= atoi(mprg->arglist)) {
-				contexts::MobProgContext context(mob);
-				context.add_var("n", data::Type::Character, ch);
-				context.add_var("o", data::Type::Object, obj);
+				contexts::MobProgContext context(Type::BRIBE_PROG, mob);
+				context.set_var("actor", data::Type::Character, ch);
+				context.set_var("obj", data::Type::Object, obj);
 				mprg->execute(context);
 				break;
 			}
@@ -165,7 +165,7 @@ void death_trigger(Character *mob)
 		return;
 
 	if (mob->pIndexData->progtypes.count(Type::DEATH_PROG)) {
-		contexts::MobProgContext context(mob);
+		contexts::MobProgContext context(Type::DEATH_PROG, mob);
 		percent_check(mob->pIndexData->progs, context, Type::DEATH_PROG);
 	}
 
@@ -178,7 +178,7 @@ void death_trigger(Character *mob)
 void entry_trigger(Character *mob)
 {
 	if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::ENTRY_PROG))) {
-		contexts::MobProgContext context(mob);
+		contexts::MobProgContext context(Type::ENTRY_PROG, mob);
 		percent_check(mob->pIndexData->progs, context, Type::ENTRY_PROG);
 	}
 
@@ -188,8 +188,8 @@ void entry_trigger(Character *mob)
 void fight_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::FIGHT_PROG))) {
-		contexts::MobProgContext context(mob);
-		context.add_var("n", data::Type::Character, ch);
+		contexts::MobProgContext context(Type::FIGHT_PROG, mob);
+		context.set_var("actor", data::Type::Character, ch);
 		percent_check(mob->pIndexData->progs, context, Type::FIGHT_PROG);
 	}
 
@@ -199,8 +199,8 @@ void fight_trigger(Character *mob, Character *ch)
 void buy_trigger(Character *mob, Character *ch)
 {
 	if (mob->is_npc() && (mob->pIndexData->progtypes.count(Type::BUY_PROG))) {
-		contexts::MobProgContext context(mob);
-		context.add_var("n", data::Type::Character, ch);
+		contexts::MobProgContext context(Type::BUY_PROG, mob);
+		context.set_var("actor", data::Type::Character, ch);
 		percent_check(mob->pIndexData->progs, context, Type::BUY_PROG);
 	}
 
@@ -218,9 +218,9 @@ void give_trigger(Character *mob, Character *ch, Object *obj)
 			if ((mprg->type == Type::GIVE_PROG)
 			    && ((!strcmp(obj->name, mprg->arglist))
 			        || (!strcmp("all", buf)))) {
-				contexts::MobProgContext context(mob);
-				context.add_var("n", data::Type::Character, ch);
-				context.add_var("o", data::Type::Object, obj);
+				contexts::MobProgContext context(Type::GIVE_PROG, mob);
+				context.set_var("actor", data::Type::Character, ch);
+				context.set_var("obj", data::Type::Object, obj);
 				mprg->execute(context);
 				break;
 			}
@@ -237,15 +237,14 @@ void greet_trigger(Character *ch)
 		if (ch->is_garbage())
 			break;
 
-		contexts::MobProgContext context(vmob);
-		context.add_var("n", data::Type::Character, ch);
-
 		if (vmob->is_npc()
 		 && ch != vmob
 		 && can_see_char(vmob, ch)
 		 && (vmob->fighting == nullptr)
 		 && IS_AWAKE(vmob)
 		 && (vmob->pIndexData->progtypes.count(Type::GREET_PROG))) {
+			contexts::MobProgContext context(Type::GREET_PROG, vmob);
+			context.set_var("actor", data::Type::Character, ch);
 			percent_check(vmob->pIndexData->progs, context, Type::GREET_PROG);
 		}
 		else if (vmob->is_npc()
@@ -253,6 +252,8 @@ void greet_trigger(Character *ch)
 		 && (vmob->fighting == nullptr)
 		 && IS_AWAKE(vmob)
 		 && (vmob->pIndexData->progtypes.count(Type::ALL_GREET_PROG))) {
+			contexts::MobProgContext context(Type::ALL_GREET_PROG, vmob);
+			context.set_var("actor", data::Type::Character, ch);
 			percent_check(vmob->pIndexData->progs, context, Type::ALL_GREET_PROG);
 		}
 	}
@@ -267,8 +268,8 @@ void hitprcnt_trigger(Character *mob, Character *ch)
 		for (const auto mprg : mob->pIndexData->progs)
 			if ((mprg->type == Type::HITPRCNT_PROG)
 			    && ((100 * mob->hit / GET_MAX_HIT(mob)) < atoi(mprg->arglist))) {
-				contexts::MobProgContext context(mob);
-				context.add_var("n", data::Type::Character, ch);
+				contexts::MobProgContext context(Type::HITPRCNT_PROG, mob);
+				context.set_var("actor", data::Type::Character, ch);
 				mprg->execute(context);
 				break;
 			}
@@ -279,7 +280,7 @@ void hitprcnt_trigger(Character *mob, Character *ch)
 void boot_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtypes.count(Type::BOOT_PROG)) {
-		contexts::MobProgContext context(mob);
+		contexts::MobProgContext context(Type::BOOT_PROG, mob);
 		percent_check(mob->pIndexData->progs, context, Type::BOOT_PROG);
 	}
 
@@ -289,7 +290,7 @@ void boot_trigger(Character *mob)
 bool random_trigger(Character *mob)
 {
 	if (mob->pIndexData->progtypes.count(Type::RAND_PROG)) {
-		contexts::MobProgContext context(mob);
+		contexts::MobProgContext context(Type::RAND_PROG, mob);
 		return percent_check(mob->pIndexData->progs, context, Type::RAND_PROG);
 	}
 
@@ -319,7 +320,7 @@ bool random_area_trigger(Character *mob)
 	char_from_room(mob);
 	bool triggered = false;
 
-	contexts::MobProgContext context(mob);
+	contexts::MobProgContext context(Type::RAND_AREA_PROG, mob);
 
 	for (Room *room : rooms) {
 		char_to_room(mob, room);
@@ -342,7 +343,7 @@ bool random_area_trigger(Character *mob)
 void tick_trigger(Character *mob)    /* Montrey */
 {
 	if (mob->pIndexData->progtypes.count(Type::TICK_PROG)) {
-		contexts::MobProgContext context(mob);
+		contexts::MobProgContext context(Type::TICK_PROG, mob);
 		percent_check(mob->pIndexData->progs, context, Type::TICK_PROG);
 	}
 
@@ -358,8 +359,8 @@ void speech_trigger(const String& txt, Character *mob)
 			break;
 
 		if (vmob->is_npc() && (vmob->pIndexData->progtypes.count(Type::SPEECH_PROG))) {
-			contexts::MobProgContext context(vmob);
-			context.add_var("n", data::Type::Character, mob);
+			contexts::MobProgContext context(Type::SPEECH_PROG, vmob);
+			context.set_var("actor", data::Type::Character, mob);
 
 			wordlist_check(
 				txt,
@@ -380,8 +381,8 @@ void control_trigger(Character *mob, const String& key, Character *target) {
 				break;
 
 			if (mprg->type == Type::CONTROL_PROG && key == mprg->arglist) {
-				contexts::MobProgContext context(mob);
-				context.add_var("n", data::Type::Character, target);
+				contexts::MobProgContext context(Type::CONTROL_PROG, mob);
+				context.set_var("actor", data::Type::Character, target);
 				mprg->execute(context);
 			}
 		}
@@ -389,8 +390,8 @@ void control_trigger(Character *mob, const String& key, Character *target) {
 
 void drop_trigger(Object *obj, Character *ch) {
 	if (obj->pIndexData->progtypes.count(Type::DROP_PROG)) {
-		contexts::ObjProgContext context(obj);
-		context.add_var("n", data::Type::Character, ch);
+		contexts::ObjProgContext context(Type::DROP_PROG, obj);
+		context.set_var("actor", data::Type::Character, ch);
 		percent_check(obj->pIndexData->progs, context, Type::DROP_PROG);
 	}
 }

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "progs/symbols/Symbol.hh"
 #include "Format.hh"
 
 namespace progs {
@@ -20,6 +19,9 @@ public:
 		is_less_than,                //  <
 		logical_and,                 //  &
 		logical_or,                  //  |
+
+		// assignment
+		set_equal_to,                //  =
 
 		size,
 		first = 0
@@ -60,7 +62,7 @@ public:
 				throw Format::format("progs::Operator::evaluate: invalid operator '%s' for int types", to_string());
 		}
 	}
-
+/*
 	static bool has_operator_prefix(String str) {
 		// str is a copy, we can mangle it
 		try {
@@ -104,7 +106,7 @@ public:
 		str.erase(0, take_chars);
 		return opr;
 	}
-
+*/
 	const String to_string() const {
 		switch (type) {
 			case Type::is_equal_to: return "==";
@@ -117,10 +119,13 @@ public:
 			case Type::is_greater_than_or_equal_to: return ">=";
 			case Type::logical_and: return "&";
 			case Type::logical_or: return "|";
+			case Type::set_equal_to: return "=";
 			default:
 				throw Format::format("progs::Operator::type_to_str: operator has invalid type '%d'", type);
 		}
 	}
+
+	Type type;
 
 private:
 	static const Type str_to_type(const String& opr) {
@@ -134,11 +139,10 @@ private:
 		else if (opr == ">=")  return Type::is_greater_than_or_equal_to;
 		else if (opr == "&")  return Type::logical_and;
 		else if (opr == "|")  return Type::logical_or;
+		else if (opr == "=")  return Type::set_equal_to;
 
 		throw Format::format("progs::Operator::parse: unknown operator '%s'", opr);
 	}
-
-	Type type;
 };
 
 } // namespace progs

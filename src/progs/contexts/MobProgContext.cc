@@ -1,4 +1,5 @@
 #include "progs/contexts/MobProgContext.hh"
+#include "progs/prog_table.hh"
 #include "Character.hh"
 #include "MobilePrototype.hh"
 #include "Room.hh"
@@ -28,11 +29,13 @@ self_is_garbage() const {
 }
 
 MobProgContext::
-MobProgContext(Character *mob) :
+MobProgContext(progs::Type type, Character *mob) :
+	Context(prog_table.find(type)->second.default_bindings),
 	mob(mob) 
 {
-	add_var("self", data::Type::Character, mob);
-	add_var("master", data::Type::Character, mob->master);
+	// set variables
+	set_var("self", data::Type::Character, mob);
+	set_var("master", data::Type::Character, mob->master);
 
 	int count = 0;
 	Character *rndm;
@@ -49,8 +52,7 @@ MobProgContext(Character *mob) :
 		}
 	}
 
-	if (rndm != nullptr)
-		add_var("random", data::Type::Character, rndm);
+	set_var("random", data::Type::Character, rndm);
 }
 
 /* This procedure simply copies the cmnd to a buffer while expanding

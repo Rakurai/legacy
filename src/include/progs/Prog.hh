@@ -1,15 +1,13 @@
 #pragma once
 
 #include <vector>
-#include "progs/Operator.hh"
 #include "String.hh"
 #include "Line.hh"
+#include "Type.hh"
 
 class Vnum;
 
 namespace progs {
-
-struct Line;
 
 class Prog
 {

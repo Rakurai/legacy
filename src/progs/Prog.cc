@@ -3,7 +3,7 @@
 #include "progs/Prog.hh"
 #include "progs/contexts/Context.hh"
 #include "progs/Operator.hh"
-#include "progs/symbols/Symbol.hh"
+#include "progs/symbols/declare.hh"
 #include "progs/prog_table.hh"
 #include "file.hh"
 #include "Logging.hh"
@@ -31,8 +31,8 @@ Prog(FILE *fp, Vnum vnum) {
 	String script = original;
 	int unclosed_ifs = 0;
 
-	// make a copy of the default bindings
-	std::map<String, data::Type> var_bindings(prog_table.find(type)->second.default_bindings);
+	// make a copy of the default bindings to track illegal variable calls
+	data::Bindings var_bindings(prog_table.find(type)->second.default_bindings);
 
 	while (!script.empty()) {
 		String word, line;
@@ -114,6 +114,9 @@ Prog(FILE *fp, Vnum vnum) {
 		case Line::Type::BREAK:
 			break;
 
+		case Line::Type::ASSIGN:
+			break;			
+
 		case Line::Type::COMMAND:
 			// put the line back together with the word
 			line = word + " " + line;
@@ -121,28 +124,6 @@ Prog(FILE *fp, Vnum vnum) {
 		}
 
 		last_type = line_type;
-
-		// test the line for variable and function usage that doesn't make sense
-		// make a copy of the string
-		String copy = line.lstrip();
-
-		while (!copy.empty()) {
-			if (copy[0] == '$') {
-				// make sure the variable name is in the allowed list
-				String copy2 = copy.substr(1); // parsing will consume this copy
-				String var_name = symbols::parse_identifier(copy2);
-
-				if (var_bindings.find(var_name) == var_bindings.cend())
-					throw Format::format("progs::Prog: variable $%s is undefined for prog type '%s'", var_name, name);
-
-				// go back to the working copy, done with copy2
-				// parse variable and function stack, throws errors if it breaks
-				symbols::parseVariableSymbol(copy, var_bindings);
-			}
-			else
-				// parse until a variable start
-				symbols::parseStringSymbol(copy, "$");
-		}
 
 		lines.push_back({line_type, line, var_bindings});
 	}
@@ -168,35 +149,28 @@ execute(contexts::Context& context) const {
 	int line_num = 0;
 
 try {
-	// make sure all bindings are correct
-	// same number of bindings
-	// each binding is of same type as default
-	// each binding has a data wrapper defined (could be nullptr?)
-	const auto& default_bindings = prog_table.find(type)->second.default_bindings;
-
-	if (context.bindings.size() != default_bindings.size())
-		throw Format::format("context has %d variables bound, default is %d",
-			context.bindings.size(), default_bindings.size());
+	// context will have default bindings for the prog type, now test that
+	// the variables are initialized
+	if (context.bindings.size() != context.vars.size())
+		throw Format::format("context has %d variables initialized, requires %d",
+			context.vars.size(), context.bindings.size());
 
 	for (const std::pair<String, data::Type>& context_pair : context.bindings) {
 		const String& name = context_pair.first;
-		const auto default_pair = default_bindings.find(name);
 
-		if (default_pair == default_bindings.cend())
-			throw Format::format("context variable '%s' not found in default bindings", name);
-
-		if (context_pair.second != default_pair->second)
-			throw Format::format("context variable '%s' is of type '%s', default is '%s'",
-				name, data::type_to_string(context_pair.second), data::type_to_string(default_pair->second));
-
-		if (context.vars.find(name) == context.vars.cend())
-			throw Format::format("context variable '%s' is uninitialized", name);
+		if (context.vars.count(name) == 0)
+			throw Format::format("context variable '%s' is bound but not initialized", name);
 	}
 
 	std::stack<bool> stack;
 	bool opposite;
 
 	for (const Line& line : lines) {
+
+		// did the mob extract itself?
+		if (context.self_is_garbage())
+			return;
+
 		line_num++;
 
 		switch (line.type) {
@@ -275,16 +249,20 @@ try {
 			// special command, get out immediately
 			return;
 
+		case Line::Type::ASSIGN:
+			if (!stack.empty() && stack.top() == false)
+				continue;
+
+			line.expression->evaluate(context);
+			break;
+
 		case Line::Type::COMMAND:
 			if (!stack.empty() && stack.top() == false)
 				continue;
 
 			// mud commands
 			context.process_command(line.text);
-
-			// did the mob extract itself?
-			if (context.self_is_garbage())
-				return;
+			break;
 		}
 	}
 

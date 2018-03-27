@@ -1,8 +1,8 @@
-#include "progs/Operator.hh"
 #include "progs/symbols/declare.hh"
 #include "progs/symbols/ValueSymbol.hh"
 #include "progs/symbols/VariableSymbol.hh"
 #include "progs/symbols/FunctionSymbol.hh"
+#include "progs/symbols/deref.hh" // has templates needed to instantiate symbols
 #include "Character.hh"
 #include "Object.hh"
 
@@ -15,18 +15,8 @@ const String var_to_string(bool var) { return var ? "1" : "0"; }
 const String var_to_string(int var) { return Format::format("%d", var); }
 const String var_to_string(const String& var) { return var; }
 
-bool evaluate(const Operator& opr, const std::unique_ptr<Symbol>& lhs, const std::unique_ptr<Symbol>&rhs, contexts::Context& context) {
-	String sl = lhs->to_string(context);
-	String sr = rhs->to_string(context);
-
-	if (sl.is_number() && sr.is_number())
-		return opr.evaluate(atoi(sl), atoi(sr));
-
-	return opr.evaluate(sl, sr);
-}
-
 std::unique_ptr<Symbol>
-parse(String& orig, const std::map<String, data::Type>& var_bindings, const String& until) {
+parse(String& orig, const data::Bindings& var_bindings, const String& until) {
 	String str, symbol_type;
 	std::unique_ptr<Symbol> ptr;
 
@@ -105,7 +95,7 @@ const String parse_identifier(String& str) {
 }
 
 std::unique_ptr<Symbol>
-parseVariableSymbol(String& str, const std::map<String, data::Type>& bindings) {
+parseVariableSymbol(String& str, const data::Bindings& bindings) {
 	parse_whitespace(str);
 
 	if (str.empty())
@@ -133,6 +123,9 @@ parseVariableSymbol(String& str, const std::map<String, data::Type>& bindings) {
 	switch(var_type) {
 	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(var_type, var_name)); break;
 	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(var_type, var_name)); break;
+	case data::Type::String:    sym.reset(new VariableSymbol<const String>(var_type, var_name)); break;
+	case data::Type::Boolean:   sym.reset(new VariableSymbol<bool>(var_type, var_name)); break;
+	case data::Type::Integer:   sym.reset(new VariableSymbol<int>(var_type, var_name)); break;
 	default:
 		throw Format::format("unknown symbol type for variable '%s', binding '%s'", var_name, data::type_to_string(var_type));
 	}
@@ -154,7 +147,7 @@ parseVariableSymbol(String& str, const std::map<String, data::Type>& bindings) {
 }
 
 std::unique_ptr<Symbol>
-parseFunctionSymbol(String& str, const std::map<String, data::Type>& var_bindings, std::unique_ptr<Symbol>& parent) {
+parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique_ptr<Symbol>& parent) {
 	parse_whitespace(str);
 
 	if (str.empty())

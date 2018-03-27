@@ -16,6 +16,10 @@ template <typename T> struct ValueSymbol : public Symbol {
 		return var_to_string(evaluate(context));
 	}
 
+	virtual void assign_to(const Symbol *target, contexts::Context& context) {
+		assign(target, context, type, evaluate(context));
+	}
+
 	virtual const String print_stack() const {
 		return Format::format("Value<%s>", type_to_string(type));
 	}

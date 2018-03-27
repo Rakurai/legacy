@@ -14,22 +14,24 @@ struct Line {
 		ELSE,
 		ENDIF,
 		BREAK,
+		ASSIGN,
 		COMMAND,
 	};
 
-	Line(Type type, const String& text, const std::map<String, data::Type>& var_bindings);
+	Line(Type type, const String& text, data::Bindings& var_bindings);
 
 	Type type;
 	String text;
 	std::unique_ptr<Expression> expression;
 
 	static Type get_type(const String& word) {
-		     if (word == "if")    return Type::IF;
-		else if (word == "and")   return Type::AND;
-		else if (word == "or")    return Type::OR;
-		else if (word == "else")  return Type::ELSE;
-		else if (word == "endif") return Type::ENDIF;
-		else if (word == "break") return Type::BREAK;
+		     if (word == "if")     return Type::IF;
+		else if (word == "and")    return Type::AND;
+		else if (word == "or")     return Type::OR;
+		else if (word == "else")   return Type::ELSE;
+		else if (word == "endif")  return Type::ENDIF;
+		else if (word == "break")  return Type::BREAK;
+		else if (word == "assign") return Type::ASSIGN;
 
 		return Type::COMMAND;
 	}
@@ -43,6 +45,7 @@ struct Line {
 			case Type::ENDIF:   return "endif";
 			case Type::BREAK:   return "break";
 			case Type::COMMAND: return "command";
+			case Type::ASSIGN:  return "assign";
 		}
 
 		return "unknown";

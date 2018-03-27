@@ -9,7 +9,7 @@ class ObjProgContext :
 public Context 
 {
 public:
-	ObjProgContext(Object *obj);
+	ObjProgContext(progs::Type, Object *obj);
 	virtual ~ObjProgContext() {}
 
 	// overrides

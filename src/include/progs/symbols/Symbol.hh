@@ -13,6 +13,7 @@ struct Symbol {
 
 	virtual const String to_string(contexts::Context&) = 0;
 	virtual const String print_stack() const = 0;
+	virtual void assign_to(const Symbol *target, contexts::Context&) = 0;
 
 	void execute(contexts::Context&);
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "progs/contexts/declare.hh"
-#include "progs/Prog.hh"
+#include "progs/declare.hh"
 #include "progs/Type.hh"
 
 class Character;

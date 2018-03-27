@@ -1,7 +1,6 @@
-#include "progs/symbols/deref.hh"
-
 #include "progs/symbols/declare.hh"
 #include "progs/symbols/FunctionSymbol.hh"
+#include "progs/symbols/deref.hh"
 #include "progs/contexts/Context.hh"
 #include "Character.hh"
 #include "Object.hh"

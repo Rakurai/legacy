@@ -1,8 +1,10 @@
 #pragma once
 
 #include <map>
+#include "progs/Type.hh"
 #include "progs/data/Wrapper.hh"
 #include "progs/data/Type.hh"
+#include "progs/data/Bindings.hh"
 #include "String.hh"
 #include "Format.hh"
 #include "Vnum.hh"
@@ -15,9 +17,9 @@ namespace contexts {
 
 class Context {
 public:
-	Context() {}
+	Context(const data::Bindings& b) : bindings(b) {}
 	virtual ~Context();
-	Context(const Context& rhs);
+	Context(const Context& rhs); // for delayed action in MobProgActList
 
 	// must be overridden
 	virtual const String type() const = 0;
@@ -30,11 +32,16 @@ public:
 	const String expand_vars(const String& orig);
 
 	template <typename T>
-	void add_var(const String& key, data::Type type, T data) {
-		if (bindings.find(key) != bindings.cend())
-			throw Format::format("progs::Context::add_var: variable '%s' is already bound", key);
+	void set_var(const String& key, data::Type type, T data) {
+		bindings.add(key, type);
 
-		bindings.emplace(key, type);
+		auto var = vars.find(key);
+
+		if (var != vars.end()) {
+			delete var->second;
+			vars.erase(key);
+		}
+
 		vars.emplace(key, data::construct_wrapper(data));
 	}
 
@@ -48,7 +55,7 @@ public:
 		return data::access_wrapper(pair->second, datap);
 	}
 
-	std::map<String, data::Type> bindings;
+	data::Bindings bindings;
 	std::map<String, data::Wrapper *> vars;
 
 private:

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "progs/symbols/Symbol.hh"
-#include "progs/symbols/declare.hh"
 #include "progs/contexts/Context.hh"
 #include "Format.hh"
 
@@ -19,6 +18,10 @@ template <typename T> struct VariableSymbol : public Symbol {
 
 	virtual const String to_string(contexts::Context& context) {
 		return var_to_string(evaluate(context)); 
+	}
+
+	virtual void assign_to(const Symbol *target, contexts::Context& context) {
+		assign(target, context, type, evaluate(context));
 	}
 
 	virtual const String print_stack() const {

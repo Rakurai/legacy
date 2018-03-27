@@ -1,3 +1,5 @@
+#include <set>
+#include <vector>
 #include "progs/Type.hh"
 #include "progs/Prog.hh"
 #include "Logging.hh"
