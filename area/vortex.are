@@ -26,7 +26,7 @@ stand stand male 7000
 >death_prog 100~
 MPGOTO 32007
 MPECHO A portal fades into existance before you as the gatekeeper dies.
-MPOLOAD 32006
+$room.load_obj(32006)
 ~
 |
 
@@ -55,7 +55,7 @@ say Very well done!  Here... I will give you entrance to the keep.
 say Good luck!
 emote utters the words, 'portal'.
 MPECHO A portal fades into existance before you.
-mpoload 32007
+$room.load_obj(32007)
 ~
 |
 
@@ -273,7 +273,7 @@ ca 'fireball'
 >death_prog 100~
 emote utters the words, 'portal'.
 MPECHO A portal fades into existance before you.
-MPOLOAD 32006
+$room.load_obj(32006)
 ~
 |
 
@@ -295,9 +295,9 @@ stand stand none 3500
 >death_prog 100~
 emote utters the words, 'portal'.
 MPECHO A portal fades into existance before you.
-MPOLOAD 32006
+$room.load_obj(32006)
 MPECHO A strange pendant appears.
-MPOLOAD 32000
+$self.load_obj(32000)
 ~
 |
 
@@ -325,7 +325,7 @@ disarm
 >death_prog 100~
 emote utters the words, 'portal'.
 MPECHO A portal fades into existance before you.
-MPOLOAD 32006
+$room.load_obj(32006)
 ~
 |
 
@@ -348,7 +348,7 @@ stand stand none 3500
 >death_prog 100~
 emote utters the words, 'portal'.
 MPECHO A portal fades into existance before you.
-MPOLOAD 32006
+$room.load_obj(32006)
 ~
 |
 

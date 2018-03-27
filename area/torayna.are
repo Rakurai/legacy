@@ -132,14 +132,14 @@ stand stand male 30000
 >tick_prog 100~
 if $world.time() == 8
    MPGOTO 2680
-   MPOLOAD 2604
+   $self.load_obj(2604)
    unlock south
    MPJUNK masterkey
    break
 endif
 if $world.time() == 18
    close south
-   MPOLOAD 2604
+   $self.load_obj(2604)
    lock south
    MPJUNK masterkey
    MPGOTO 2799

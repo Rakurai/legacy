@@ -29,7 +29,7 @@ emote pokes a stick in a small cage, and you hear the whimper of a frightened an
 >death_prog 100~
 mpecho A small cage falls to the floor and the door breaks open, leaving
 mpecho a frightened animal that looks helpless and lost.
-mpmload 21003
+$room.load_mob(21003)
 ~
 |
 
@@ -57,7 +57,7 @@ emote pokes a stick in a small cage, and you hear the whimper of a frightened an
 >death_prog 100~
 mpecho A small cage falls to the floor and the door breaks open, leaving
 mpecho a frightened animal that looks helpless and lost.
-mpmload 21004
+$room.load_mob(21004)
 ~
 |
 
@@ -85,7 +85,7 @@ emote pokes a stick in a small cage, and you hear the whimper of a frightened an
 >death_prog 100~
 mpecho A small cage falls to the floor and the door breaks open, leaving
 mpecho a frightened animal that looks helpless and lost.
-mpmload 21005
+$room.load_mob(21005)
 ~
 |
 
@@ -116,7 +116,7 @@ emote smiles happily and looks up with adoring eyes.
 >entry_prog 100~
 if $i.in_room() == 3031
    emote grunts and jumps back into his waiting cage.
-   mpat 3032 mpmload 3091
+   get_room(3032).load_mob(3091)
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
    MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
    MPFORCE owner mpoload 21003
@@ -155,7 +155,7 @@ emote smiles happily and looks up with adoring eyes.
 >entry_prog 100~
 if $i.in_room() == 3031
    emote smiles happily and jumps back into her waiting cage.
-   mpat 3032 mpmload 3090
+   get_room(3032).load_mob(3090)
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
    MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
    MPFORCE owner mpoload 21004
@@ -194,7 +194,7 @@ emote smiles happily and looks up with adoring eyes.
 >entry_prog 100~
 if $i.in_room() == 3031
    emote barks happily and jumps back into his waiting cage.
-   mpat 3032 mpmload 3091
+   get_room(3032).load_mob(3091)
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
    MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
    MPFORCE owner mpoload 21005

@@ -253,27 +253,27 @@ stand stand either 0
 0 0 large 0
 >Fight_prog 1~
     emote utters the words "Summon Balor"
-    MPMLOAD 13111
+    $room.load_mob(13111)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Marilith"
-    MPMLOAD 13114
+    $room.load_mob(13114)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Nelfeshnee"
-    MPMLOAD 13116
+    $room.load_mob(13116)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Glabrezu"
-    MPMLOAD  13113
+    $room.load_mob(13113)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Hezrou"
-    MPMLOAD 13112
+    $room.load_mob(13112)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Vrock"
-    MPMLOAD 13115
+    $room.load_mob(13115)
 ~
 >Fight_prog 70~
     MPCAST heal
@@ -305,11 +305,11 @@ stand stand either 0
 0 0 medium 0
 >Fight_prog 1~
     emote utters the words "Summon Hezrou"
-    MPMLOAD 13112
+    $room.load_mob(13112)
 ~
 >Fight_Prog 1~
     emote utters the words "Summon Vrock"
-    MPMLOAD 13115
+    $room.load_mob(13115)
 ~
 >Fight_Prog 40~
     MPCAST heal
@@ -334,15 +334,15 @@ stand stand either 0
 0 0 medium 0
 >Fight_Prog 1~
     emote utters the words "Summon Glavbrezu"
-    MPMLOAD 13113
+    $room.load_mob(13113)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Hezrou"
-    MPMLOAD 13112
+    $room.load_mob(13112)
 ~
 >Fight_prog 1~
     emote utters the words "Summon Vrock"
-    MPMLOAD 13115
+    $room.load_mob(13115)
 ~
 >Fight_prog 45~
     MPCAST heal
@@ -370,23 +370,23 @@ stand stand either 0
 0 0 large 0
 >fight_prog 1~
    emote utters the words "Summon Marlilith"
-   MPMLOAD 13114
+   $room.load_mob(13114)
 ~
 >fight_Prog 1~
    emote utters the words "Summon Nelfeshnee"
-   MPMLOAD 13116
+   $room.load_mob(13116)
 ~
 >fight_Prog 1~
    emote utters the words "Summon Glabrezu"
-   MPMLOAD 13113
+   $room.load_mob(13113)
 ~
 >Fight_prog 1~
    emote utters the words "Summon Hezrou"
-   MPMLOAD 13112
+   $room.load_mob(13112)
 ~
 >Fight_prog 1~
    emote utters the words "Summon Vrock"
-   MPMLOAD 13115
+   $room.load_mob(13115)
 ~
 >Fight_Prog 70~
    MPCAST Heal
@@ -417,7 +417,7 @@ stand stand either 0
 0 0 large 0
 >fight_prog 1~
     emote utters the words "Summon Vrock"
-    MPMLOAD 13115
+    $room.load_mob(13115)
 ~
 >fight_prog 50~
      MPCAST heal
@@ -440,19 +440,19 @@ stand stand either 0
 0 0 medium 0
 >Fight_prog 1~
     emote utters the words "Summon Nelfeshnee"
-    MPMLOAD 13116
+    $room.load_mob(13116)
 ~
 >fight_prog 1~
     emote utters the words "Summon Glabrezu"
-    MPMLOAD 13113
+    $room.load_mob(13113)
 ~
 >fight_prog 1~
     emote utters the words "Summon Hezrou"
-    MPMLOAD 13112
+    $room.load_mob(13112)
 ~
 >fight_prog 1~
     emote utters the words "Summon Vrock"
-    MPMLOAD 13115
+    $room.load_mob(13115)
 ~
 >fight_prog 60~
     MPCAST heal
@@ -528,7 +528,7 @@ stand stand male 0
 0 0 large 0
 >fight_prog 2~
     emote utters the words "Summon Balor"
-    MPMLOAD 13111
+    $room.load_mob(13111)
 ~
 >Fight_prog 80~
     MPCAST heal
@@ -563,7 +563,7 @@ stand stand female 0
 0 0 large 0
 >fight_prog 2~
     emote utters the words "Summon Balor"
-    MPMLOAD 13111
+    $room.load_mob(13111)
 ~
 >Fight_prog 80~
     MPCAST heal
@@ -600,7 +600,7 @@ stand stand female 0
 0 0 large 0
 >fight_prog 2~
     emote utters the words "Summon Balor"
-    MPMLOAD 13111
+    $room.load_mob(13111)
 ~
 >Fight_prog 80~
     MPCAST heal
@@ -685,15 +685,13 @@ ADEFHIK AB 0 0
 stand stand male 0
 0 0 medium 0
 >Death_prog 100~
-    MPGOTO 13158
-   MPMLOAD 13131
-   MPFORCE Elvanshalee MPOLOAD 13151
-   MPFORCE Elvanshalee MPOLOAD 13152
-   MPFORCE Elvanshalee MPOLOAD 13153
-   MPFORCE Elvanshalee wear all
-   MPFORCE Elvanshalee MPGOTO 13178
-   MPGOTO 13178
-   MPECHO {PThe Angel dies,the sacrifice restores Elvanshalee from dead.{x
+   assign $elvan = $world.get_room(13158).load_mob(13131)
+   $elvan.load_obj(13151)
+   $elvan.load_obj(13152)
+   $elvan.load_obj(13153)
+   $elvan.do("wear all")
+   $elvan.to_room($room)
+   $room.echo("{PThe Angel dies, and the sacrifice restores Elvanshalee from the dead.{x")
 ~
 |
 #13126
@@ -814,7 +812,7 @@ stand stand female 0
 0 0 medium 0
 >fight_prog 4~
     emote utters the words "Summon Balor"
-    MPMLOAD 13111
+    $room.load_mob(13111)
 ~
 >Fight_prog 100~
     MPCAST heal
@@ -843,7 +841,7 @@ stand stand female 0
 0 0 medium 0
 >fight_prog 4~
     emote utters the words "Summon Spider"
-    MPMLOAD 13133
+    $room.load_mob(13133)
 ~
 >fight_prog 100~
     MPCAST heal

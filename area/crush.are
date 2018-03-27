@@ -36,11 +36,11 @@ stand rest female 5
 >give_prog carrot~
 	thank $actor
 	eat carrot
-	mpoload 19902
+	$self.load_obj(19902)
 	give pill $actor
 ~
 >death_prog 99~
-	mpmload 19900
+	$room.load_mob(19900)
 	mpecho The bunny sits back down and smiles at you contentedly.
 	mpgoto 19920
 ~
@@ -74,7 +74,7 @@ stand stand female 500
 	smile $actor
 ~
 >death_prog 99~
-	mpmload 19901
+	$room.load_mob(19901)
 	mpecho The bunny sits back down and smiles at you contentedly.
 	mpgoto 19920
 ~
@@ -95,7 +95,7 @@ U E D G
 stand rest female 0
 0 0 tiny 0
 >death_prog 99~
-	mpmload 19902
+	$room.load_mob(19902)
 	mpecho A small butterfly has arrived.
 ~
 |

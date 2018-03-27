@@ -95,7 +95,7 @@ MPJUNK piece
    Say Interesting
    Say It seems to be saying that there is a hidden container near where you found this
    Say And that this will act as a key!
-    MPOLOAD 10174
+    $self.load_obj(10174)
     give piece $actor
 semote Methusaleh's eyes twinkle merrily.
 ~
@@ -285,7 +285,7 @@ CO 0 0 0
 stand stand male 5000
 0 0 huge 0
 >death_prog 100~
-   MPOLOAD 10172
+   $self.load_obj(10172)
  drop piece
 ~
 |

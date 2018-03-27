@@ -138,32 +138,32 @@ if $actor.is_immort()
    MPECHO A moment later she comes bursting back with a large {WWedding Cake{x.
    smile $actor
    say {GHere is the cake and the rest will be delivered to the chapel{x.
-   MPAT 3032 MPOLOAD 56
+   $self.load_obj(56)
    give cake $actor
    say {GIt looks scrumptious{x!
    giggle
    say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
    say {GPlease{x?
    puppy $actor
-   MPAT 3032 MPOLOAD 49
+   $self.load_obj(49)
    MPAT 3032 clone 39*cheese
    MPAT 7 drop all.chees
-   MPAT 3032 MPOLOAD 50
+   $self.load_obj(50)
    MPAT 3032 clone 39*crab
    MPAT 7 drop all.crab
-   MPAT 3032 MPOLOAD 51
+   $self.load_obj(51)
    MPAT 3032 clone 39*salad
    MPAT 7 drop all.salad
-   MPAT 3032 MPOLOAD 52
+   $self.load_obj(52)
    MPAT 3032 clone 39*round
    MPAT 7 drop all.round
-   MPAT 3032 MPOLOAD 53
+   $self.load_obj(53)
    MPAT 3032 clone 39*duck
    MPAT 7 drop all.duck
-   MPAT 3032 MPOLOAD 54
+   $self.load_obj(54)
    MPAT 3032 clone 39*lobster
    MPAT 7 drop all.lobster
-   MPAT 3032 MPOLOAD 55
+   $self.load_obj(55)
    MPAT 3032 clone 39*wine
    MPAT 7 drop all.wine
 endif
@@ -181,18 +181,18 @@ if $actor.is_immort()
    MPECHO A moment later she comes bouncing back with a large {WWedding Cake{x.
    smile $actor
    say {GHere is the cake and the rest will be delivered to the chapel{x.
-   MPAT 3032 MPOLOAD 56
+   $self.load_obj(56)
    give cake $actor
    say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
    say {GPlease{x?
    puppy $actor
-   MPAT 3032 MPOLOAD 49
+   $self.load_obj(49)
    MPAT 3032 clone 19*cheese
    MPAT 7 drop all.chees
-   MPAT 3032 MPOLOAD 50
+   $self.load_obj(50)
    MPAT 3032 clone 19*crab
    MPAT 7 drop all.crab
-   MPAT 3032 MPOLOAD 55
+   $self.load_obj(55)
    MPAT 3032 clone 19*wine
    MPAT 7 drop all.wine
 endif

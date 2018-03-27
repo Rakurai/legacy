@@ -600,7 +600,7 @@ stand stand male 0
 >death_prog 99~
 emote is consumed in flame.
 MPECHO A glowing soul springs from its mouth, opening a portal.
-MPOLOAD 16527
+$room.load_obj(16527)
 ~
 >greet_prog 99~
 MPPURGE soulgate

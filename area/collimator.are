@@ -40,7 +40,7 @@ endif
 ~
 >give_prog rainbow ticket~
 if level ($actor) <= 5
-     MPOLOAD 4201
+     $self.load_obj(4201)
      GIVE key $actor
      SAY Enjoy your tour!
 else
@@ -143,7 +143,7 @@ endif
 ~
 >give_prog rainbow ticket~
 if level ($actor) <= 5
-     MPOLOAD 4201
+     $self.load_obj(4201)
      give key $actor
      say Enjoy your tour!
 else
@@ -187,75 +187,81 @@ wake $actor
 say Wouldn't you like to buy some cookies, $actor?
 ~
 >all_greet_prog 100~
-MPAT 3032 MPJUNK all.box
-MPAT 3032 MPJUNK all.cookie
-MPAT 3032 MPOLOAD 4212
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 put all.cookie in box
-MPAT 3032 close box
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPJUNK all.survival
-MPAT 3032 MPJUNK all.tablet
-MPAT 3032 MPOLOAD 4215
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 put all.tablet survival
-MPAT 3032 close survival
-MPAT 3032 MPOLOAD 4214
+$self.to_room($world.get_room(3032))
+MPJUNK all.box
+MPJUNK all.cookie
+$self.load_obj(4212)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+put all.cookie in box
+close box
+$self.load_obj(4211)
+MPJUNK all.survival
+MPJUNK all.tablet
+$self.load_obj(4215)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+put all.tablet survival
+close survival
+$self.load_obj(4214)
+$self.to_room($room)
 ~
 >act_prog p buys a box of girl guides cookies.~
-MPAT 3032 MPJUNK all.cookie
-MPAT 3032 MPOLOAD 4212
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 MPOLOAD 4211
-MPAT 3032 put all.cookie in box
-MPAT 3032 MPOLOAD 4211
+$self.to_room($world.get_room(3032))
+MPJUNK all.cookie
+$self.load_obj(4212)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+$self.load_obj(4211)
+put all.cookie in box
+$self.load_obj(4211)
+$self.to_room($room)
 ~
 >act_prog p buys a hot weather survival pack.~
-MPAT 3032 MPJUNK all.survival
-MPAT 3032 MPJUNK all.tablet
-MPAT 3032 MPOLOAD 4215
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 MPOLOAD 4214
-MPAT 3032 put all.tablet survival
-MPAT 3032 MPOLOAD 4214
+$self.to_room($world.get_room(3032))
+MPJUNK all.survival
+MPJUNK all.tablet
+$self.load_obj(4215)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+$self.load_obj(4214)
+put all.tablet survival
+$self.load_obj(4214)
+$self.to_room($room)
 ~
 >rand_prog 5~
 emote gets a whetstone from her trailpack.

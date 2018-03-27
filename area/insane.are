@@ -135,7 +135,7 @@ HFCDK K Q B
 stand stand male 25
 0 0 small 0
 >death_prog 100~
-MPOLOAD 8833
+$self.load_obj(8833)
 MPECHO Paranoid dillusions escape the dying man, awaiting their next victim.
 ~
 |

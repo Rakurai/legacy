@@ -396,18 +396,18 @@ endif
    mpjunk token
 if $actor.is_pc()
    if $actor.level()<11
-      mpoload 72
-      mpoload 73
-      mpoload 74
-      mpoload 75
-      mpoload 76
-      mpoload 77
-      mpoload 78
-      mpoload 79
-      mpoload 80
-      mpoload 81
-      mpoload 82
-      mpoload 83
+      $self.load_obj(72)
+      $self.load_obj(73)
+      $self.load_obj(74)
+      $self.load_obj(75)
+      $self.load_obj(76)
+      $self.load_obj(77)
+      $self.load_obj(78)
+      $self.load_obj(79)
+      $self.load_obj(80)
+      $self.load_obj(81)
+      $self.load_obj(82)
+      $self.load_obj(83)
       mpat 3032 put all.newbie kit
       give kit $actor
       bow $actor
@@ -446,7 +446,7 @@ endif
 smile $actor
 say Excellent!  You will no doubt be looking for gainful employment, then.
 say Here is a complimentary map, courtesy of the Midgaard Tourism Board.
-mpoload 3162
+$self.load_obj(3162)
 give map $actor
 say Your first destination should be Grebe's tavern.  Good luck!
 ~
@@ -1666,7 +1666,7 @@ stand stand male 15000
 ~
 >rand_prog 1~
   if $world.rand(3)
-     MPOLOAD 1201
+     $self.load_obj(1201)
      MPECHO You notice that the pouch at the old man's side has a hole in it...
      drop token
      break

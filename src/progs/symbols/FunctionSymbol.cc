@@ -17,6 +17,7 @@
 #include "ObjectPrototype.hh"
 #include "RoomPrototype.hh"
 #include "find.hh"
+#include "interp.hh"
 
 
 namespace progs {
@@ -26,9 +27,12 @@ namespace symbols {
 
 const std::vector<fn_type> fn_table = {
 	// name          return type    parent type    arg types
-	// global context
+
+	// world accessors
 	{ "time",        dt::String,    dt::World,     {} },
 	{ "rand",        dt::Boolean,   dt::World,     { dt::Integer } },
+	{ "get_room",    dt::Room,      dt::World,     { dt::Integer } },
+	{ "get_room",    dt::Room,      dt::World,     { dt::String } },
 
 	// character accessors
 	{ "name",        dt::String,    dt::Character, {} },
@@ -59,13 +63,22 @@ const std::vector<fn_type> fn_table = {
 	{ "is_wearing",  dt::Boolean,   dt::Character, { dt::String } },
 	{ "master",      dt::Character, dt::Character, {} },
 
+	// character actions
+	{ "load_obj",    dt::Object,    dt::Character, { dt::Integer } },
+	{ "do",          dt::Void,      dt::Character, { dt::String } },
+	{ "to_room",     dt::Void,      dt::Character, { dt::Room } },
+	{ "to_room",     dt::Void,      dt::Character, { dt::Integer } },
+	{ "to_room",     dt::Void,      dt::Character, { dt::String } },
+	{ "echo",        dt::Void,      dt::Character, { dt::String } },
+	{ "cast",        dt::Void,      dt::Character, { dt::String } },
+	{ "at",          dt::Void,      dt::Character, { dt::Room, dt::Void } },
+	{ "at",          dt::Void,      dt::Character, { dt::String, dt::Void } },
+	{ "at",          dt::Void,      dt::Character, { dt::Integer, dt::Void } },
+
 	// object accessors
 	{ "name",        dt::String,    dt::Object,    {} },
 	{ "sdesc",       dt::String,    dt::Object,    {} },
 	{ "ind_art",     dt::String,    dt::Object,    {} },
-	{ "echo",        dt::Void,      dt::Object,    { dt::String } },
-	{ "from_room",   dt::Void,      dt::Object,    {} },
-	{ "to_char",     dt::Void,      dt::Object,    { dt::Character } },
 	{ "type",        dt::Integer,   dt::Object,    {} },
 	{ "value0",      dt::Integer,   dt::Object,    {} },
 	{ "value1",      dt::Integer,   dt::Object,    {} },
@@ -74,9 +87,19 @@ const std::vector<fn_type> fn_table = {
 	{ "value4",      dt::Integer,   dt::Object,    {} },
 	{ "vnum",        dt::Integer,   dt::Object,    {} },
 
+	// object actions
+	{ "from_room",   dt::Void,      dt::Object,    {} },
+	{ "to_char",     dt::Void,      dt::Object,    { dt::Character } },
+	{ "echo",        dt::Void,      dt::Object,    { dt::String } },
+
 	// room accessors
 	{ "name",        dt::String,    dt::Room,      {} },
 	{ "vnum",        dt::Integer,   dt::Room,      {} },
+
+	// room actions
+	{ "load_mob",    dt::Character, dt::Room,      { dt::Integer } },
+	{ "load_obj",    dt::Object,    dt::Room,      { dt::Integer } },
+	{ "echo",        dt::Void,      dt::Room,      { dt::String } },
 };
 
 #undef dt
@@ -105,6 +128,32 @@ try {
 		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
+	if (parent->type == data::Type::Room) {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		if (name == "load_mob") {
+			int vnum = deref<int>(arg_list[0].get(), context);
+			MobilePrototype *proto = Game::world().get_mob_prototype(vnum);
+
+			if (proto == nullptr) {
+				Logging::bugf("room.load_mob() - bad vnum %d", vnum);
+				return nullptr;
+			}
+
+			Character *mob = create_mobile(proto);
+
+			if (mob)
+				char_to_room(mob, room);
+
+			return mob;
+		}
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+	}
+
 	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Character *'", e);
@@ -126,6 +175,53 @@ try {
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
+		if (name == "load_obj") {
+			int vnum = deref<int>(arg_list[0].get(), context);
+			ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
+
+			if (proto == nullptr) {
+				Logging::bugf("character.load_obj() - bad vnum %d", vnum);
+				return nullptr;
+			}
+
+			Object *obj = create_object(proto, 0);
+
+			if (obj) {
+				if (CAN_WEAR(obj, ITEM_TAKE))
+					obj_to_char(obj, ch);
+				else
+					obj_to_room(obj, ch->in_room);
+			}
+
+			return obj;
+		}
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+	}
+
+	if (parent->type == data::Type::Room) {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		if (name == "load_obj") {
+			int vnum = deref<int>(arg_list[0].get(), context);
+			ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
+
+			if (proto == nullptr) {
+				Logging::bugf("room.load_obj() - bad vnum %d", vnum);
+				return nullptr;
+			}
+
+			Object *obj = create_object(proto, 0);
+
+			if (obj)
+				obj_to_room(obj, room);
+
+			return obj;
+		}
+
 		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 	}
 
@@ -143,6 +239,29 @@ try {
 
 	if (parent == nullptr)
 		throw Format::format("function '%s' has null parent", name);
+
+	if (parent->type == data::Type::World) { // global function
+		if (name == "get_room") {
+			Location location;
+
+			if (arg_list[0]->type == data::Type::String)
+				location = Location(deref<const String>(arg_list[0].get(), context));
+			else if (arg_list[0]->type == data::Type::Integer)
+				location = Location(deref<int>(arg_list[0].get(), context));
+
+			if (!location.is_valid())
+				throw Format::format("get_room(): bad location '%d'", location.to_string());
+
+			Room *room = Game::world().get_room(location);
+
+			if (room == nullptr)
+				throw Format::format("get_room(): bad location '%d'", location.to_string());
+
+			return room;
+		}
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+	}
 
 	if (parent->type == data::Type::Character) {
 		Character *ch = deref<Character *>(parent.get(), context);
@@ -329,14 +448,14 @@ try {
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		if (name == "position")   return ch->position;
-		if (name == "level")      return ch->level;
-		if (name == "guild")      return ch->guild;
-		if (name == "gold")       return ch->gold;
-		if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
-		if (name == "sex")        return GET_ATTR_SEX(ch);
-		if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
-		if (name == "state") {
+		     if (name == "position")   return ch->position;
+		else if (name == "level")      return ch->level;
+		else if (name == "guild")      return ch->guild;
+		else if (name == "gold")       return ch->gold;
+		else if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
+		else if (name == "sex")        return GET_ATTR_SEX(ch);
+		else if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
+		else if (name == "state") {
 			String key = deref<const String>(arg_list[0].get(), context);
 
 			if (!key.empty()) {
@@ -345,11 +464,70 @@ try {
 				if (entry != ch->mpstate.cend())
 					return entry->second;
 			}
-
-			return 0;
 		}
+		else if (name == "do") {
+			String argument = deref<const String>(arg_list[0].get(), context);
+			interpret(ch, argument);
+		}
+		else if (name == "to_room") {
+			Room *room = nullptr;
 
-		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+			if (arg_list[0]->type == data::Type::String)
+				room = Game::world().get_room(Location(deref<const String>(arg_list[0].get(), context)));
+			else if (arg_list[0]->type == data::Type::Integer)
+				room = Game::world().get_room(Location(deref<int>(arg_list[0].get(), context)));
+			else if (arg_list[0]->type == data::Type::Room)
+				room = deref<Room *>(arg_list[0].get(), context);
+
+			if (room == nullptr)
+				throw Format::format("char:to_room: room is null");
+
+			if (ch->fighting != nullptr)
+				stop_fighting(ch, true);
+
+			char_from_room(ch);
+			char_to_room(ch, room);
+		}
+		else if (name == "echo") {
+			// uses act() to distribute the message, but act variables don't match up with prog
+			// variables, so we need to do variable replacement in the string and pass a straight
+			// string to act.  maybe someday we can rework this and let act do the work.
+			String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+			act(buf, ch, nullptr, nullptr, TO_ROOM);
+		}
+		else if (name == "cast") {
+			String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+			do_mpcast(ch, buf);
+		}
+		else if (name == "at") {
+			Room *room = nullptr;
+
+			if (arg_list[0]->type == data::Type::String)
+				room = Game::world().get_room(Location(deref<const String>(arg_list[0].get(), context)));
+			else if (arg_list[0]->type == data::Type::Integer)
+				room = Game::world().get_room(Location(deref<int>(arg_list[0].get(), context)));
+			else if (arg_list[0]->type == data::Type::Room)
+				room = deref<Room *>(arg_list[0].get(), context);
+
+			if (room == nullptr)
+				throw Format::format("char:at: room is null");
+
+			Room *old_room = ch->in_room;
+
+			char_from_room(ch);
+			char_to_room(ch, room);
+
+			deref<int>(arg_list[0].get(), context); // execute
+
+			if (!ch->is_garbage()) {
+				char_from_room(ch);
+				char_to_room(ch, old_room);
+			}
+		}
+		else
+			throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+
+		return 0;
 	}
 
 	if (parent->type == data::Type::Object) {
@@ -389,6 +567,17 @@ try {
 //		bool can_see = context.can_see(room);
 
 		if (name == "vnum")      return room->prototype.vnum.value();
+		if (name == "echo") {
+			// uses act() to distribute the message, but act variables don't match up with prog
+			// variables, so we need to do variable replacement in the string and pass a straight
+			// string to act.  maybe someday we can rework this and let act do the work.
+
+			// someday we'll pass a room to act, for now just send to everyone
+			String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+
+			for (Character *ch = room->people; ch; ch = ch->next_in_room)
+				stc(buf + "\n", ch);
+		}
 		else
 			throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 
