@@ -10,9 +10,11 @@ namespace data {
 enum class Type {
 	Character,
 	Object,
+	Room,
 	String,
 	Boolean,
 	Integer,
+
 	Void,
 };
 
@@ -20,6 +22,7 @@ inline const String type_to_string(Type type) {
 	switch (type) {
 		case Type::Character: return "Character";
 		case Type::Object:    return "Object";
+		case Type::Room:      return "Room";
 		case Type::String:    return "String";
 		case Type::Boolean:   return "Boolean";
 		case Type::Integer:   return "Integer";

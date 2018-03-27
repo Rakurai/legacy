@@ -24,8 +24,9 @@ public:
 	// must be overridden
 	virtual const String type() const = 0;
 	virtual const Vnum vnum() const = 0;
-	virtual bool can_see(Character *ch) const = 0;
-	virtual bool can_see(Object *obj) const = 0;
+	virtual bool can_see(Character *) const = 0;
+	virtual bool can_see(Object *) const = 0;
+	virtual bool can_see(Room *) const = 0;
 	virtual void process_command(const String& command) = 0;
 	virtual bool self_is_garbage() const = 0;
 

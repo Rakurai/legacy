@@ -27,6 +27,11 @@ can_see(Object *obj) const {
 }
 
 bool ObjProgContext::
+can_see(Room *room) const {
+	return true;
+}
+
+bool ObjProgContext::
 self_is_garbage() const {
 	return false;
 //	return obj->is_garbage();
@@ -38,6 +43,13 @@ ObjProgContext(progs::Type type, Object *obj) :
 	obj(obj) 
 {
 	set_var("self", data::Type::Object, obj);
+
+	if (obj->carried_by)
+		set_var("room", data::Type::Room, obj->carried_by->in_room);
+	else if (obj->in_room)
+		set_var("room", data::Type::Room, obj->in_room);
+	else
+		throw String("object is not in a room or carried by a character");
 
 	int count = 0;
 

@@ -15,6 +15,7 @@
 #include "affect/Affect.hh"
 #include "MobilePrototype.hh"
 #include "ObjectPrototype.hh"
+#include "RoomPrototype.hh"
 #include "find.hh"
 
 
@@ -73,9 +74,9 @@ const std::vector<fn_type> fn_table = {
 	{ "value4",      dt::Integer,   dt::Object,    {} },
 	{ "vnum",        dt::Integer,   dt::Object,    {} },
 
-
 	// room accessors
-
+	{ "name",        dt::String,    dt::Room,      {} },
+	{ "vnum",        dt::Integer,   dt::Room,      {} },
 };
 
 #undef dt
@@ -129,6 +130,31 @@ try {
 	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
 } catch(String e) {
 	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Object *'", e);
+}
+}
+
+template <>
+Room * FunctionSymbol<Room *>::
+evaluate(contexts::Context& context) {
+try {
+	const String& name = fn_table[fn_index].name;
+
+	if (parent == nullptr) { // global function
+		throw Format::format("unhandled global function '%s'", name);
+	}
+
+	if (parent->type == data::Type::Character) {
+		Character *ch = deref<Character *>(parent.get(), context);
+
+		if (ch == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+	}
+
+	throw Format::format("unhandled parent class '%s'", type_to_string(parent->type));
+} catch(String e) {
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Room *'", e);
 }
 }
 
@@ -213,6 +239,22 @@ try {
 				return "an";
 
 			return "a";
+		}
+
+		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+	}
+
+	if (parent->type == data::Type::Room) {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		bool can_see = context.can_see(room);
+
+		if (name == "name") {
+			if (!can_see)     return "somewhere";
+			                  return room->name();
 		}
 
 		throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
@@ -326,6 +368,21 @@ try {
 		else if (name == "value3")    return obj->value[3];
 		else if (name == "value4")    return obj->value[4];
 		else if (name == "vnum")      return obj->pIndexData->vnum.value();
+		else
+			throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+
+		return 0;
+	}
+
+	if (parent->type == data::Type::Room) {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+//		bool can_see = context.can_see(room);
+
+		if (name == "vnum")      return room->prototype.vnum.value();
 		else
 			throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 

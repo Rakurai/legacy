@@ -26,7 +26,8 @@ expand_vars(const String& orig) {
 			std::unique_ptr<symbols::Symbol> ptr = symbols::parse(copy, bindings, "");
 
 			if (ptr->type == data::Type::Character
-			 || ptr->type == data::Type::Object) {
+			 || ptr->type == data::Type::Object
+			 || ptr->type == data::Type::Room) {
 				String fn = "name()";
 				ptr = symbols::parseFunctionSymbol(fn, bindings, ptr);
 			}

@@ -20,11 +20,12 @@ template <typename T> struct ValueSymbol;
 template <typename T> struct VariableSymbol;
 template <typename T> struct FunctionSymbol;
 
-const String var_to_string(Character * var);
-const String var_to_string(Object * var);
-const String var_to_string(bool var);
-const String var_to_string(int var);
-const String var_to_string(const String& var);
+const String var_to_string(Character *);
+const String var_to_string(Object *);
+const String var_to_string(Room *);
+const String var_to_string(bool);
+const String var_to_string(int);
+const String var_to_string(const String&);
 
 // factory method
 std::unique_ptr<Symbol> parse(String&, const data::Bindings&, const String& until);

@@ -24,6 +24,11 @@ can_see(Object *obj) const {
 }
 
 bool MobProgContext::
+can_see(Room *room) const {
+	return can_see_in_room(mob, room);
+}
+
+bool MobProgContext::
 self_is_garbage() const {
 	return mob->is_garbage();
 }
@@ -35,6 +40,7 @@ MobProgContext(progs::Type type, Character *mob) :
 {
 	// set variables
 	set_var("self", data::Type::Character, mob);
+	set_var("room", data::Type::Room, mob->in_room);
 	set_var("master", data::Type::Character, mob->master);
 
 	int count = 0;

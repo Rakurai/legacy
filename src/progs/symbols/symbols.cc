@@ -5,12 +5,14 @@
 #include "progs/symbols/deref.hh" // has templates needed to instantiate symbols
 #include "Character.hh"
 #include "Object.hh"
+#include "Room.hh"
 
 namespace progs {
 namespace symbols {
 
 const String var_to_string(Character * var) { return var ? var->name : "0"; }
 const String var_to_string(Object * var) { return var ? var->name : "0"; }
+const String var_to_string(Room * var) { return var ? var->name() : "0"; }
 const String var_to_string(bool var) { return var ? "1" : "0"; }
 const String var_to_string(int var) { return Format::format("%d", var); }
 const String var_to_string(const String& var) { return var; }
@@ -123,6 +125,7 @@ parseVariableSymbol(String& str, const data::Bindings& bindings) {
 	switch(var_type) {
 	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(var_type, var_name)); break;
 	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(var_type, var_name)); break;
+	case data::Type::Room:      sym.reset(new VariableSymbol<Room *>(var_type, var_name)); break;
 	case data::Type::String:    sym.reset(new VariableSymbol<const String>(var_type, var_name)); break;
 	case data::Type::Boolean:   sym.reset(new VariableSymbol<bool>(var_type, var_name)); break;
 	case data::Type::Integer:   sym.reset(new VariableSymbol<int>(var_type, var_name)); break;
@@ -244,6 +247,7 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 	switch(fn_table[entry_index].return_class) {
 	case data::Type::Character: sym.reset(new FunctionSymbol<Character *>(parent, entry_index, arg_list)); break;
 	case data::Type::Object:    sym.reset(new FunctionSymbol<Object *>(parent, entry_index, arg_list)); break;
+	case data::Type::Room:      sym.reset(new FunctionSymbol<Room *>(parent, entry_index, arg_list)); break;
 	case data::Type::String:    sym.reset(new FunctionSymbol<const String>(parent, entry_index, arg_list)); break;
 	case data::Type::Boolean:   sym.reset(new FunctionSymbol<bool>(parent, entry_index, arg_list)); break;
 	case data::Type::Integer:   sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
