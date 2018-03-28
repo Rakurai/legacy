@@ -1387,6 +1387,11 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		 *
 		 */
 		 dam += dam * GET_ATTR(ch, APPLY_SPELL_DAMAGE_PCT) / 100;
+		 
+		/* Invoker mage set 2pc bonus
+		 */
+		 if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 2)
+			 dam += dam * 10 / 100;
 	}
 
 	/* damage reduction */

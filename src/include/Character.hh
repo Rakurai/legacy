@@ -15,7 +15,7 @@ namespace affect { class Affect; }
  * One character (PC or NPC).
  */
 
-#define MAX_ATTR                     44 // last apply (that we want to have bonus modifiers for) + 1
+#define MAX_ATTR                     45 // last apply (that we want to have bonus modifiers for) + 1
 #define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 

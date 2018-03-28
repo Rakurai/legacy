@@ -465,6 +465,10 @@ void do_cast(Character *ch, String argument)
 	/* remort affect - slow casting */
 	if (HAS_RAFF(ch, RAFF_SLOWCAST))
 		wait += wait / 4;
+	
+	/* Invoker Mage Set 3pc bonus */
+	if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 3)
+		wait -= wait / 4;
 
 	WAIT_STATE(ch, wait);
 
@@ -483,10 +487,25 @@ void do_cast(Character *ch, String argument)
 		 *
 		 replace section between snips above with the following:
 		 */
+		/* Invoker mage set 4pc bonus */
+		if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 4)
+			mana -= mana * 45 / 100;
+		
 		ch->mana -= mana - mana * GET_ATTR(ch, APPLY_MANA_COST_PCT) / 100;
-
+		
 		(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
 		check_improve(ch, sn, true, 1);
+		
+		/* Invoker mage set 5pc bonus */
+		if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 5){
+			if ((number_percent() < 11) 
+				&& (skill::lookup(sn).target == TAR_CHAR_OFFENSIVE)){
+					stc("Your words echo, creating another casting of the spell!!!\n", ch);
+					stc("Your opponents words echo!\n", victim);
+					(*skill::lookup(sn).spell_fun)(sn, ch->level, ch, vo, target, get_evolution(ch, sn));
+			}
+		}
+				
 	}
 	
 

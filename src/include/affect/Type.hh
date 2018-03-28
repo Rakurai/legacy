@@ -132,6 +132,7 @@ enum class type {
 	obj_lidda_aura_unique,
 	
 	obj_set_mage_invoker,
+	obj_set_warrior_berserker,
 
     size, // don't touch
     first = 0 // don't touch

@@ -220,6 +220,7 @@ const std::map<::affect::type, const table_entry> affect_table = {
 	{ type::obj_necro_pierce_unique, { "Necromancer's Power", "", "", "" }},	//necro pierce unique dagger
 	{ type::obj_lidda_aura_unique, { "Lidda's Aura", "", "", "" }},
 	{ type::obj_set_mage_invoker, { "mage invoker set", "", "", "" }},
+	{ type::obj_set_warrior_berserker, { "warrior beserker set", "", "", "" }},
 
 };
 

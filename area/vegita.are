@@ -331,7 +331,7 @@ set bonus~
 2pc: 10% bonus spell damage
 3pc: cast speed increased
 4pc: 45% mana cost reduction
-5pc: 10% chance on spell cast to cast a second time for free
+5pc: 10% chance on casting an offensive for it echo and cast again for free
 ~
 A
 3 1
@@ -361,7 +361,7 @@ set bonus~
 2pc: 10% bonus spell damage
 3pc: cast speed increased
 4pc: 45% mana cost reduction
-5pc: 10% chance on spell cast to cast a second time for free
+5pc: 10% chance on casting an offensive for it to echo and cast again for free
 ~
 A
 3 2
@@ -394,7 +394,7 @@ set bonus~
 2pc: 10% bonus spell damage
 3pc: cast speed increased
 4pc: 45% mana cost reduction
-5pc: 10% chance on spell cast to cast a second time for free
+5pc: 10% chance on casting an offensive for it to echo and cast again for free
 ~
 A
 3 2
@@ -427,7 +427,7 @@ set bonus~
 2pc: 10% bonus spell damage
 3pc: cast speed increased
 4pc: 45% mana cost reduction
-5pc: 10% chance on spell cast to cast a second time for free
+5pc: 10% chance on casting an offensive for it to echo and cast again for free
 ~
 A
 3 4
@@ -460,7 +460,7 @@ set bonus~
 2pc: 10% bonus spell damage
 3pc: cast speed increased
 4pc: 45% mana cost reduction
-5pc: 10% chance on spell cast to cast a second time for free
+5pc: 10% chance on casting an offensive for it to echo and cast again for free
 ~
 A
 18 5
@@ -471,6 +471,80 @@ A
 A
 43 1
 G mage~
+
+#24105
+beserker untamed fury axe set setgen~
+{x({GS{He{Gt{x){x Beserker's Untamed Fury{x~
+These axes seem exude raw fury.~
+Fury~
+weapon ABY AN
+axe 6 4 cleave A
+15 1 0 P
+E
+beserker untamed fury axe~
+The blades on this double bladed axe appear to have been 
+magically sharpened. The blades seem to want to taste blood.
+~
+E
+set bonus~
+2pc: 10% bonus weapon damage
+3pc: skill speed increased
+4pc: 45% stamina cost reduction
+5pc: 10% chance on attack to unleash a non blockable furious strike.
+~
+A
+1 2
+A
+2 2
+A
+18 3
+A
+19 3
+A
+13 10
+A
+14 10
+A
+44 1
+G warrior~
+
+#24106
+beserker caged heart chest set setgen~
+{x({GS{He{Gt{x){x Beserker's Caged Heart{x~
+This chestplate contains the pure rage in a beserker's heart.~
+steel~
+armor ABY AD
+10 10 10 8 0
+20 0 0 P
+E
+beserker caged heart chest~
+This chestplate is sturdy and looks like it can take many hits.
+~
+E
+set bonus~
+2pc: 10% bonus weapon damage
+3pc: skill speed increased
+4pc: 45% stamina cost reduction
+5pc: 10% chance on attack to unleash a non blockable furious strike.
+~
+A
+1 1
+A
+5 2
+A
+18 5
+A
+19 5
+A
+13 20
+A
+14 20
+A
+44 1
+G warrior~
+
+
+
 
 #24350
 elven bow~

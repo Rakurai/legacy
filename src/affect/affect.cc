@@ -199,6 +199,7 @@ int attr_location_check(int location) {
 		case APPLY_LIDDA_AURA_UNIQUE	: return APPLY_LIDDA_AURA_UNIQUE;
 		//begin set gear
 		case SET_MAGE_INVOKER			: return SET_MAGE_INVOKER;
+		case SET_WARRIOR_BESERKER		: return SET_WARRIOR_BESERKER;
 	}
 
 	Logging::bugf("attr_location_check: bad location %d", location);
