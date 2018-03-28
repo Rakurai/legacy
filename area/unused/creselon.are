@@ -31,20 +31,20 @@ say Welcome, worthy adventurer!  Will you be journeying to Creselon today?
 ~
 >give_prog wand speed creseloneq~
 say Ah yes, a wand of speed.  I can give you a wand of lethargy for it in trade.
-MPOLOAD 12807
+$self.load_obj(12807)
 give lethargy $n
 MPJUNK creseloneq
 ~
 >give_prog potion talon creseloneq~
 say Excellent, I have a friend who buys potions of talon from me.  I will give you a scroll of frost breath for it.
-MPOLOAD 12810
+$self.load_obj(12810)
 give frost $n
 MPJUNK creseloneq
 ~
 >give_prog portal spire stars creseloneq~
 smile $n
 say You must have fought many battles to acquire the secret portal into the Spire!  I will give you a Mace of Disruption to assist in conquering your foes.
-MPOLOAD 12812
+$self.load_obj(12812)
 give disruption $n
 MPJUNK creseloneq
 ~
@@ -52,40 +52,40 @@ MPJUNK creseloneq
 sigh
 say Yes, many innocent people have suffered since the Spire was raised.  Some kings have literally taxed their citizens to death paying for their invading parties.
 say It's not much, but I can give you a Dagger of Treachery for your help in ending this long standoff.
-MPOLOAD 12814
+$self.load_obj(12814)
 give treachery $n
 MPJUNK creseloneq
 ~
 >give_prog wand healing creseloneq~
 say Ah... a wand of healing.  For healing items I can give you a Crusader Shield to help you on your quests.
-MPOLOAD 12816
+$self.load_obj(12816)
 give crusader $n
 MPJUNK creseloneq
 ~
 >give_prog cursed boots creseloneq~
 say I see that you don't relish the weakness imposed by the Cursed Boots.  I have an acquaintance who will buy them, so I'll give you a scroll of Fiery Doom in exchange.
-MPOLOAD 12818
+$self.load_obj(12818)
 give doom $n
 MPJUNK creseloneq
 ~
 >give_prog girdle giant strength creseloneq~
 nod
 say Girdles of Giant Strength have become a rarity nowadays.  In trade, I will give you a Nova Ring.  It should prove useful in battles to come.
-MPOLOAD 12820
+$self.load_obj(12820)
 give nova $n
 MPJUNK creseloneq
 ~
 >give_prog armor etherealness creseloneq~
 beam $n
 say Excellent!  I may retire early on the gold I can sell an Armor of Etherealness for.  I have a Gauntlets of the Titan I will give you for it.
-MPOLOAD 12822
+$self.load_obj(12822)
 give titan $n
 MPJUNK creseloneq
 ~
 >give_prog robe magi creseloneq~
 hop
 say Incredible!  Few adventurers have brought back a Robe of the Magi from that accursed island!  You shall receive my best armor for this!
-MPOLOAD 12824
+$self.load_obj(12824)
 give star $n
 MPJUNK creseloneq
 ~
@@ -96,7 +96,7 @@ high $n
 say For this, you shall receive something REALLY special.
 emote makes a magical gesture, and promptly vanishes.  When he reappears, he holds a brilliant white sword in his hands.
 say May you destroy great evils with this Holy Avenger!
-MPOLOAD 12826
+$self.load_obj(12826)
 give avenger $n
 MPJUNK creseloneq
 bow $n
@@ -146,7 +146,7 @@ stand stand male 0
 emote yells, 'Hold steady men!  We'll all go home once we take the Spire!'
 ~
 >death_prog 4~
-MPOLOAD 12809
+$self.load_obj(12809)
 ~
 |
 #12803
@@ -258,7 +258,7 @@ grumble
 MPECHO The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!
 ~
 >death_prog 25~
-MPOLOAD 12829
+$self.load_obj(12829)
 ~
 |
 #12808
@@ -292,7 +292,7 @@ MPCAST 'burning hands'
 MPCAST 'fireball'
 ~
 >death_prog 25~
-MPOLOAD 12811
+$self.load_obj(12811)
 ~
 |
 #12809
@@ -321,7 +321,7 @@ grumble
 MPECHO The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!
 ~
 >death_prog 25~
-MPOLOAD 12829
+$self.load_obj(12829)
 ~
 |
 #12810
@@ -357,7 +357,7 @@ say You can't use armor if it's too HOT!
 MPCAST 'heat metal'
 ~
 >death_prog 5~
-MPOLOAD 12818
+$self.load_obj(12818)
 ~
 |
 #12811
@@ -413,7 +413,7 @@ say This ought to cool your temper a little!
 MPCAST 'frost breath'
 ~
 >death_prog 6~
-MPOLOAD 12815
+$self.load_obj(12815)
 ~
 |
 #12813
@@ -472,7 +472,7 @@ say You might find this a bit SHOCKING!
 MPCAST 'lightning breath'
 ~
 >death_prog 3~
-MPOLOAD 12823
+$self.load_obj(12823)
 ~
 |
 #12815
@@ -498,7 +498,7 @@ say Tremble before me!
 MPCAST 'earthquake'
 ~
 >death_prog 4~
-MPOLOAD 12819
+$self.load_obj(12819)
 ~
 |
 #12816
@@ -534,7 +534,7 @@ MPCAST 'curse'
 MPCAST 'demonfire'
 ~
 >death_prog 3~
-MPOLOAD 12830
+$self.load_obj(12830)
 ~
 |
 #12817
@@ -567,7 +567,7 @@ say Your life force is MINE!
 MPCAST 'sap'
 ~
 >death_prog 5~
-MPOLOAD 12817
+$self.load_obj(12817)
 ~
 |
 #12818
@@ -597,7 +597,7 @@ say You can't fight if you can't see!
 MPCAST 'blind'
 ~
 >death_prog 10~
-MPOLOAD 12831
+$self.load_obj(12831)
 ~
 |
 #12819
@@ -644,7 +644,7 @@ MPECHO loses her concentration, and the illusion vanishes.
 laugh
 ~
 >death_prog 9~
-MPOLOAD 12821
+$self.load_obj(12821)
 ~
 |
 #0

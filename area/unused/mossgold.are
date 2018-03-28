@@ -25,7 +25,7 @@ stand rest male 250
       thank $n
    mpjunk fish
    emote throws a {Bbig {Cf{Wi{cs{Wh{x in a pan and starts frying it.
-   MPOLOAD 10131
+   $self.load_obj(10131)
    emote serves up the {cC{Ro{co{Rk{ce{Rd {cF{Ri{cs{Rh{x.
    give fish $n
    mpjunk all
@@ -415,7 +415,7 @@ stand stand male 25
    emote dives head-first into the pond!
    MPGOTO 10117
    MPECHO $i struggles to subdue the massive fish!
-   MPOLOAD 10130
+   $self.load_obj(10130)
    MPGOTO $n
    MPECHO $i surfaces!
    emote steps out of the water, totally drenched.

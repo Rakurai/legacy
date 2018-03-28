@@ -37,5 +37,8 @@ std::unique_ptr<Symbol> parseBooleanSymbol(String&);
 std::unique_ptr<Symbol> parseStringSymbol(String&, const String& until);
 const String parse_identifier(String&);
 
+bool can_convert(data::Type from, data::Type to);
+std::unique_ptr<Symbol> convert(std::unique_ptr<Symbol>& from, data::Type to_type, const data::Bindings& bindings);
+
 } // namespace symbols
 } // namespace progs

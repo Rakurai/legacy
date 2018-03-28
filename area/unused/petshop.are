@@ -119,7 +119,7 @@ if $i.in_room() == 3031
    get_room(3032).load_mob(3091)
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
    MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
-   MPFORCE owner mpoload 21003
+   MPFORCE owner $self.load_obj(21003)
    MPFORCE owner give note 2.
    MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.
    MPFORCE owner emote smiles and leaves to check on the monkey.
@@ -158,7 +158,7 @@ if $i.in_room() == 3031
    get_room(3032).load_mob(3090)
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
    MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
-   MPFORCE owner mpoload 21004
+   MPFORCE owner $self.load_obj(21004)
    MPFORCE owner give note 2.
    MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from her excitement.
    MPFORCE owner emote smiles and leaves to check on the kitten.
@@ -197,7 +197,7 @@ if $i.in_room() == 3031
    get_room(3032).load_mob(3091)
    MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
    MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
-   MPFORCE owner mpoload 21005
+   MPFORCE owner $self.load_obj(21005)
    MPFORCE owner give note 2.
    MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.
    MPFORCE owner emote smiles and leaves to check on the puppy.

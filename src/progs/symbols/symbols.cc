@@ -206,11 +206,11 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 
 	str.erase(0, 1); // right paren
 
-	unsigned int entry_index = 0;
 	data::Type parent_class = parent ? parent->type : data::Type::Void;
 
 	// find a defined function with the same signature
-	for ( ; entry_index < fn_table.size(); entry_index++) {
+	unsigned int entry_index;
+	for (entry_index = 0; entry_index < fn_table.size(); entry_index++) {
 		const auto& entry = fn_table[entry_index];
 
 		if (entry.parent_class != parent_class        // same member accessor or global
@@ -218,10 +218,11 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 		 || entry.name != name)                       // same name
 			continue;
 
-		// make sure all args are same type
+		// make sure all args are same type or convertible
 		bool different_arg_types = false;
 		for (unsigned int i = 0; i < arg_list.size(); i++)
-			if (entry.arg_list[0] != arg_list[0]->type) {
+			if (arg_list[i]->type != entry.arg_list[i]
+			 && !can_convert(arg_list[i]->type, entry.arg_list[i])) {
 				different_arg_types = true;
 				break;
 			}
@@ -246,11 +247,22 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 		throw buf;
 	}
 
+	const auto& entry = fn_table[entry_index];
+
+	// got a signature, convert arguments if needed
+	for (unsigned int i = 0; i < arg_list.size(); i++) {
+		if (arg_list[i]->type != entry.arg_list[i]) {
+			std::unique_ptr<Symbol> temp = std::move(arg_list[i]); // takes the pointer
+			temp = convert(temp, entry.arg_list[i], var_bindings);
+			arg_list[i] = std::move(temp); // puts the pointer back
+		}
+	}
+
 	std::unique_ptr<Symbol> sym;
 
 //Logging::bugf("parsed %s function '%s' with %d args, entry index %d", sym_class_to_string(parent_class), name, arg_list.size(), entry_index);
 
-	switch(fn_table[entry_index].return_class) {
+	switch(entry.return_class) {
 	// no 'World' function return type
 	case data::Type::Character: sym.reset(new FunctionSymbol<Character *>(parent, entry_index, arg_list)); break;
 	case data::Type::Object:    sym.reset(new FunctionSymbol<Object *>(parent, entry_index, arg_list)); break;

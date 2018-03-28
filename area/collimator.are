@@ -187,7 +187,7 @@ wake $actor
 say Wouldn't you like to buy some cookies, $actor?
 ~
 >all_greet_prog 100~
-$self.to_room($world.get_room(3032))
+$self.goto($world.get_room(3032))
 MPJUNK all.box
 MPJUNK all.cookie
 $self.load_obj(4212)
@@ -222,10 +222,10 @@ $self.load_obj(4214)
 put all.tablet survival
 close survival
 $self.load_obj(4214)
-$self.to_room($room)
+$self.goto($room)
 ~
 >act_prog p buys a box of girl guides cookies.~
-$self.to_room($world.get_room(3032))
+$self.goto($world.get_room(3032))
 MPJUNK all.cookie
 $self.load_obj(4212)
 $self.load_obj(4211)
@@ -242,10 +242,10 @@ $self.load_obj(4211)
 $self.load_obj(4211)
 put all.cookie in box
 $self.load_obj(4211)
-$self.to_room($room)
+$self.goto($room)
 ~
 >act_prog p buys a hot weather survival pack.~
-$self.to_room($world.get_room(3032))
+$self.goto($world.get_room(3032))
 MPJUNK all.survival
 MPJUNK all.tablet
 $self.load_obj(4215)
@@ -261,7 +261,7 @@ $self.load_obj(4214)
 $self.load_obj(4214)
 put all.tablet survival
 $self.load_obj(4214)
-$self.to_room($room)
+$self.goto($room)
 ~
 >rand_prog 5~
 emote gets a whetstone from her trailpack.

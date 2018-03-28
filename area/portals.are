@@ -68,7 +68,7 @@ ACFHK BQL HIM 0
 stand stand male 100
 0 0 large 0
 >rand_prog 10~
-MPASOUND A howling wail invades your mind and rattles your nerves
+$self.echo_near("A howling wail invades your mind and rattles your nerves")
 ~
 >rand_prog 10~
 if $world.rand(50)
@@ -101,7 +101,7 @@ stand stand male 200
 0 0 large 0
 >rand_prog 10~
 MPECHO The {Rd{be{Ym{bo{Rn{x is engulfed in {Pf{Yl{Pa{Ym{Pe{Ys{x.
-MPASOUND A pillar of {Pf{Yl{Pa{Ym{Pe{x bursts into existence in the next room.
+$self.echo_near("A pillar of {Pf{Yl{Pa{Ym{Pe{x bursts into existence in the next room.")
 ~
 >greet_prog 99~
 if $actor.is_npc()
@@ -238,18 +238,18 @@ endif
 >rand_prog 30~
 if $world.rand(25)
    howl
-   MPASOUND You hear an insane screech from the next room.
+   $self.echo_near("You hear an insane screech from the next room.")
 else
    if $world.rand(33)
      scream
-     MPASOUND You hear an insane screech from the next room.
+     $self.echo_near("You hear an insane screech from the next room.")
    else
       if $world.rand(75)
         boggle
       else
         scream
         howl
-        MPASOUND You hear an insane screech from the next room.
+        $self.echo_near("You hear an insane screech from the next room.")
       endif
    endif
 endif
@@ -302,10 +302,10 @@ stand stand male 0
 >rand_prog 10~
 if $world.rand(50)
    MPECHO {WL{Yi{Wg{Yh{Wt{Yn{Wi{Yn{Wg{x flashes in the room.
-   MPASOUND *{YCRACK{x*BOOM*
+   $self.echo_near("*{YCRACK{x*BOOM*")
 else
    MPECHO {TT{cH{TU{cN{TD{cE{TR{x crashes all around you.
-   MPASOUND *{TC{CR{TA{cS{TH{x*{YCRACK{x*{YCRACK{x*BOOM*
+   $self.echo_near("*{TC{CR{TA{cS{TH{x*{YCRACK{x*{YCRACK{x*BOOM*")
 endif
 ~
 >fight_prog 60~
@@ -364,7 +364,7 @@ stand stand male 0
 
 >rand_prog 10~
 MPECHO Screeching gears alert you to the presence of the {Ri{br{Ro{bn {Rg{bo{Rl{be{Rm{x.
-MPASOUND Tortured screaming metal makes you cover your ears.
+$self.echo_near("Tortured screaming metal makes you cover your ears.")
 ~
 >rand_prog 100~
 follow elementalist
@@ -629,18 +629,18 @@ stand stand male 0
 >rand_prog 40~
 if $world.rand(25)
    emote lets loose a LOUD ROAR, shaking you to your boots.
-   MPASOUND *ROAR*THUMP*
+   $self.echo_near("*ROAR*THUMP*")
 else
    if $world.rand(33)
       emote snarls loudly and crashes into the wall.
-      MPASOUND *SNARL*CRASH*
+      $self.echo_near("*SNARL*CRASH*")
    else
       if $world.rand(66)
          emote peers around and lets loose a keening wail.
-         MPASOUND *SCREAM*GROWL*
+         $self.echo_near("*SCREAM*GROWL*")
       else
          emote paws the ground and launches itself toward a wall.
-         MPASOUND *SCRATCH*SCRATCH*CRASH*RUMBLE*
+         $self.echo_near("*SCRATCH*SCRATCH*CRASH*RUMBLE*")
       endif
    endif
 endif

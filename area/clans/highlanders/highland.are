@@ -141,19 +141,19 @@ if $n.is_pc()
 endif
 ~
 >rand_prog 3~
-  MPASOUND You can hear a slight humming to the south.
+  $self.echo_near("You can hear a slight humming to the south.")
 ~
 >rand_prog 2~
-  MPASOUND The sounds of battle can be heard in the distance.
+  $self.echo_near("The sounds of battle can be heard in the distance.")
 ~
 >rand_prog 2~
-  MPASOUND The sound of many people can be heard to the south.
+  $self.echo_near("The sound of many people can be heard to the south.")
 ~
 >rand_prog 2~ 
-  MPASOUND A howl of rage and anguish echoes from the south.
+  $self.echo_near("A howl of rage and anguish echoes from the south.")
 ~
 >rand_prog 3~
-  MPASOUND You see a sudden and bright light flash to the south.
+  $self.echo_near("You see a sudden and bright light flash to the south.")
 ~
 |
 
@@ -203,19 +203,19 @@ say Now where be me tongs?
 say Ha! That be a fine weapon there!
 ~
 >rand_prog 3~
-  MPASOUND Piiinnng!!! Paaanng!!! Woosh!!!
+  $self.echo_near("Piiinnng!!! Paaanng!!! Woosh!!!")
 ~
 >rand_prog 3~
-  MPASOUND Woosh! Woosh!
+  $self.echo_near("Woosh! Woosh!")
 ~
 >rand_prog 3~
-  MPASOUND A small child with a topknot and a pair of tongs in his hands skips by you.
+  $self.echo_near("A small child with a topknot and a pair of tongs in his hands skips by you.")
 ~
 >rand_prog 1~
-  MPASOUND Check your pockets.
+  $self.echo_near("Check your pockets.")
 ~
 >rand_prog 3~
-  MPASOUND Shriinng!! Shriing!!
+  $self.echo_near("Shriinng!! Shriing!!")
 ~
 |
 
@@ -259,8 +259,8 @@ say I had it when that little boy last visited me.
 emote starts to meditate.
 ~
 >rand_prog 2~
-  MPASOUND Morton the sage yells 'Keep it down out there!'
-  MPASOUND Morton the sage yells 'I'm trying to concentrate!'
+  $self.echo_near("Morton the sage yells 'Keep it down out there!'")
+  $self.echo_near("Morton the sage yells 'I'm trying to concentrate!'")
 ~
 |
 

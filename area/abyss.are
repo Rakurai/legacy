@@ -690,7 +690,7 @@ stand stand male 0
    $elvan.load_obj(13152)
    $elvan.load_obj(13153)
    $elvan.do("wear all")
-   $elvan.to_room($room)
+   $elvan.goto($room)
    $room.echo("{PThe Angel dies, and the sacrifice restores Elvanshalee from the dead.{x")
 ~
 |

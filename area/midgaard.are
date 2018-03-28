@@ -80,6 +80,9 @@ else
    say I remember back in the old days we had to go for weeks without food.
 endif
 ~
+>speech_prog cheesy~
+say $world.get_room(3011).name()
+~
 |
 
 #3002

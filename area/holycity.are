@@ -1471,7 +1471,7 @@ stand stand female 5000
   $ariana.load_obj(14110)
   $ariana.load_obj(14111)
   $ariana.do("wear all")
-  $ariana.to_room($room)
+  $ariana.goto($room)
   $room.echo("Sensing her sister's mortal danger, Ariana materializes and attacks!")
 ~
 |
@@ -1506,7 +1506,7 @@ stand stand female 5000
   $ariana.load_obj(14110)
   $ariana.load_obj(14111)
   $ariana.do("wear all")
-  $ariana.to_room($room)
+  $ariana.goto($room)
   $room.echo("Sensing her sister's mortal danger, Ariana materializes and attacks!")
 ~
 |
