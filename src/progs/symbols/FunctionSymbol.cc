@@ -30,7 +30,8 @@ namespace symbols {
 const std::vector<fn_type> fn_table = {
 	// name          return type    parent type    arg types
 
-	// conversions, so we don't have to overload everything
+	// conversions, so we don't have to overload everything.  always upgrade,
+	// str->char is ok, ambiguous char->str is not.
 	{ "cv_to_room",  dt::Room,      dt::String,    {} }, // lookup a room by location (map/vnum)
 	{ "cv_to_room",  dt::Room,      dt::Integer,   {} }, // lookup a room by vnum
 	{ "cv_to_room",  dt::Room,      dt::Character, {} }, // lookup a room by character
@@ -82,8 +83,9 @@ const std::vector<fn_type> fn_table = {
 	{ "load_obj",    dt::Object,    dt::Character, { dt::Integer } },
 	{ "do",          dt::Void,      dt::Character, { dt::String } },
 	{ "goto",        dt::Void,      dt::Character, { dt::Room } },
-	{ "echo",        dt::Void,      dt::Character, { dt::String } },
-	{ "echo_near",   dt::Void,      dt::Character, { dt::String } },
+	{ "echo",        dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to all in room except self and 'except'
+	{ "echo_at",     dt::Void,      dt::Character, { dt::String } }, // send to the character
+	{ "echo_near",   dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to surrounding rooms except 'except'
 	{ "cast",        dt::Void,      dt::Character, { dt::String } },
 	{ "at",          dt::Void,      dt::Character, { dt::Room, dt::Void } },
 	{ "kill",        dt::Void,      dt::Character, { dt::Character } },
@@ -105,8 +107,8 @@ const std::vector<fn_type> fn_table = {
 	// object actions
 	{ "from_room",   dt::Void,      dt::Object,    {} },
 	{ "to_char",     dt::Void,      dt::Object,    { dt::Character } },
-	{ "echo",        dt::Void,      dt::Object,    { dt::String } },
-	{ "echo_near",   dt::Void,      dt::Object,    { dt::String } },
+	{ "echo",        dt::Void,      dt::Object,    { dt::String } }, // send to all in room
+	{ "echo_near",   dt::Void,      dt::Object,    { dt::String } }, // send to surrounding rooms
 
 	// room accessors
 	{ "name",        dt::String,    dt::Room,      {} },
@@ -123,33 +125,652 @@ const std::vector<fn_type> fn_table = {
 
 #undef dt
 
+/* pattern for handling a new parent type
+template <> template <>
+Character * FunctionSymbol<Character *>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	throw Format::format("unhandled function '%s'", name);
+}
+*/
+
+// *******************************
+// Functions that return Character
+// *******************************
+
+// functions that access World, return Character
+Character *
+eval_delegate_world_char(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "get_char") {
+		String str = deref<const String>(arg_list[0].get(), context);
+		String arg;
+		int count = 0, number = number_argument(str, arg);
+
+		if (arg.empty())
+			return nullptr;
+
+		for (auto ch : Game::world().char_list)
+			if (context.can_see(ch)
+			 && (ch->name.has_words(arg))
+			 && ++count == number)
+				return ch;
+
+		return nullptr;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return Character
+template <> template <>
+Character * FunctionSymbol<Character *>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "master") return ch->master;
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Room, return Character
+template <> template <>
+Character * FunctionSymbol<Character *>::
+eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "get_char") {
+		return fn_helper_get_char(deref<const String>(arg_list[0].get(), context), context, room);
+	}
+
+	if (name == "load_mob") {
+		int vnum = deref<int>(arg_list[0].get(), context);
+		MobilePrototype *proto = Game::world().get_mob_prototype(vnum);
+
+		if (proto == nullptr) {
+			Logging::bugf("room.load_mob() - bad vnum %d", vnum);
+			return nullptr;
+		}
+
+		Character *mob = create_mobile(proto);
+
+		if (mob)
+			char_to_room(mob, room);
+
+		return mob;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take String, return Character
+template <> template <>
+Character * FunctionSymbol<Character *>::
+eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "cv_to_char") {
+		Room *room;
+		context.get_var("room", &room);
+		return fn_helper_get_char(str, context, room);
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Functions that return Object
+// *******************************
+
+// functions that access World, return Object
+Object *
+eval_delegate_world_obj(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "get_obj") {
+		String str = deref<const String>(arg_list[0].get(), context);
+		String arg;
+		int count = 0, number = number_argument(str, arg);
+
+		if (arg.empty())
+			return nullptr;
+
+		for (Object *obj = Game::world().object_list; obj; obj = obj->next)
+			if (context.can_see(obj)
+			 && (obj->name.has_words(arg))
+			 && ++count == number)
+				return obj;
+
+		return nullptr;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return Object
+template <> template <>
+Object * FunctionSymbol<Object *>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "load_obj") {
+		int vnum = deref<int>(arg_list[0].get(), context);
+		ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
+
+		if (proto == nullptr) {
+			Logging::bugf("character.load_obj() - bad vnum %d", vnum);
+			return nullptr;
+		}
+
+		Object *obj = create_object(proto, 0);
+
+		if (obj) {
+			if (CAN_WEAR(obj, ITEM_TAKE))
+				obj_to_char(obj, ch);
+			else
+				obj_to_room(obj, ch->in_room);
+		}
+
+		return obj;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Room, return Object
+template <> template <>
+Object * FunctionSymbol<Object *>::
+eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "get_obj") {
+		String str = deref<const String>(arg_list[0].get(), context);
+		String arg;
+		int count = 0, number = number_argument(str, arg);
+
+		if (arg.empty())
+			return nullptr;
+
+		for (Object *obj = room->contents; obj; obj = obj->next_content)
+			if (context.can_see(obj)
+			 && (obj->name.has_words(arg))
+			 && ++count == number)
+				return obj;
+
+		return nullptr;
+	}
+
+	if (name == "load_obj") {
+		int vnum = deref<int>(arg_list[0].get(), context);
+		ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
+
+		if (proto == nullptr) {
+			Logging::bugf("room.load_obj() - bad vnum %d", vnum);
+			return nullptr;
+		}
+
+		Object *obj = create_object(proto, 0);
+
+		if (obj)
+			obj_to_room(obj, room);
+
+		return obj;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Functions that return Room
+// *******************************
+
+// functions that access World, return Room
+Room *
+eval_delegate_world_room(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "get_room") return deref<Room *>(arg_list[0].get(), context);
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return Room
+template <> template <>
+Room * FunctionSymbol<Room *>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "cv_to_room") return ch->in_room;
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take String, return Room
+template <> template <>
+Room * FunctionSymbol<Room *>::
+eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "cv_to_room") {
+		Location location(str);
+		Room *room;
+
+		if (!location.is_valid()
+		 || (room = Game::world().get_room(location)) == nullptr)
+			throw Format::format("get_room(): bad location '%s'", str);
+
+		return room;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Boolean, return Room
+template <> template <>
+Room * FunctionSymbol<Room *>::
+eval_delegate(bool val, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Integer, return Room
+template <> template <>
+Room * FunctionSymbol<Room *>::
+eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "cv_to_room") {
+		Location location((Vnum(num)));
+		Room *room;
+
+		if (!location.is_valid()
+		 || (room = Game::world().get_room(location)) == nullptr)
+			throw Format::format("get_room(): bad location '%d'", num);
+
+		return room;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Functions that return String
+// *******************************
+
+// functions that access World, return String
+const String
+eval_delegate_world_str(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "time")    return Format::format("%d", Game::world().time.hour);
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return String
+template <> template <>
+const String FunctionSymbol<const String>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	bool can_see = context.can_see(ch);
+
+	if (name == "name") {
+		if (!can_see)     return "someone";
+		if (ch->is_npc()) return ch->name.lsplit().capitalize();
+		                  return ch->name;
+	}
+
+	if (name == "title") {
+		if (!can_see)     return "someone";
+		if (ch->is_npc()) return ch->short_descr;
+		                  return ch->name + " " + ch->pcdata->title;
+	}
+
+	if (name == "he_she") {
+		static const char *he_she  [] = { "it", "he",  "she" };
+		if (!can_see)     return "someone";
+		                  return he_she[GET_ATTR_SEX(ch)];
+	}
+
+	if (name == "him_her") {
+		static const char *him_her [] = { "it", "him", "her" };
+		if (!can_see)     return "someone";
+		                  return him_her[GET_ATTR_SEX(ch)];
+	}
+
+	if (name == "his_her") {
+		static const char *his_her [] = { "its","his", "her" };
+		if (!can_see)     return "someone's";
+		                  return his_her[GET_ATTR_SEX(ch)];
+	}
+
+	if (name == "in_room") return ch->in_room->location.to_string();
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Object, return String
+template <> template <>
+const String FunctionSymbol<const String>::
+eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	bool can_see = context.can_see(obj);
+
+	if (name == "name") {
+		if (!can_see)     return "something";
+		                  return obj->name.lsplit();
+	}
+
+	if (name == "sdesc") {
+		if (!can_see)     return "something";
+		                  return obj->short_descr;
+	}
+
+	if (name == "ind_art") {
+		char c = tolower(obj->name[0]);
+
+		if (can_see && (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'))
+			return "an";
+
+		return "a";
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Room, return String
+template <> template <>
+const String FunctionSymbol<const String>::
+eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	bool can_see = context.can_see(room);
+
+	if (name == "name") {
+		if (!can_see)     return "somewhere";
+		                  return room->name();
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Integer, return String
+template <> template <>
+const String FunctionSymbol<const String>::
+eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "cv_to_str") return Format::format("%d", num);
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Functions that return Boolean
+// *******************************
+
+// functions that access World, return Boolean
+bool
+eval_delegate_world_bool(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "rand")    return number_percent() <= deref<int>(arg_list[0].get(), context);
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return Boolean
+template <> template <>
+bool FunctionSymbol<bool>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "is_pc")       return !ch->is_npc();
+	if (name == "is_npc")      return ch->is_npc();
+	if (name == "is_good")     return IS_GOOD(ch);
+	if (name == "is_evil")     return IS_EVIL(ch);
+	if (name == "is_neutral")  return IS_NEUTRAL(ch);
+	if (name == "is_immort")   return IS_IMMORTAL(ch);
+	if (name == "is_fighting") return ch->fighting != nullptr;
+	if (name == "is_killer")   return IS_KILLER(ch);
+	if (name == "is_thief")    return IS_THIEF(ch);
+	if (name == "is_charmed")  return affect::exists_on_char(ch, affect::type::charm_person);
+	if (name == "is_carrying") return get_obj_carry(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
+	if (name == "is_wearing")  return get_obj_wear(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Functions that return Integer
+// *******************************
+
+// functions that access World, return Integer
+int
+eval_delegate_world_int(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return Integer
+template <> template <>
+int FunctionSymbol<int>::
+eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "position")   return ch->position;
+	if (name == "level")      return ch->level;
+	if (name == "guild")      return ch->guild;
+	if (name == "gold")       return ch->gold;
+	if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
+	if (name == "sex")        return GET_ATTR_SEX(ch);
+	if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
+	if (name == "state") {
+		String key = deref<const String>(arg_list[0].get(), context);
+
+		if (!key.empty()) {
+			const auto entry = ch->mpstate.find(key);
+
+			if (entry != ch->mpstate.cend())
+				return entry->second;
+		}
+
+		return 0;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Object, return Integer
+template <> template <>
+int FunctionSymbol<int>::
+eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "type")      return obj->item_type;
+	if (name == "value0")    return obj->value[0];
+	if (name == "value1")    return obj->value[1];
+	if (name == "value2")    return obj->value[2];
+	if (name == "value3")    return obj->value[3];
+	if (name == "value4")    return obj->value[4];
+	if (name == "vnum")      return obj->pIndexData->vnum.value();
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Room, return Integer
+template <> template <>
+int FunctionSymbol<int>::
+eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "vnum")      return room->prototype.vnum.value();
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Functions that return Void
+// *******************************
+
+// functions that access World, return Void
+void
+eval_delegate_world_void(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// template class for void delegates
+template <typename T>
+void
+eval_delegate_void(T, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context&) {
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Character, return Void
+template <>
+void
+eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "do") {
+		String argument = deref<const String>(arg_list[0].get(), context);
+		interpret(ch, argument);
+		return;
+	}
+	
+	if (name == "to_room") {
+		Room *room = deref<Room *>(arg_list[0].get(), context);
+
+		if (room == nullptr)
+			throw Format::format("char:to_room: room is null");
+
+		if (ch->fighting != nullptr)
+			stop_fighting(ch, true);
+
+		char_from_room(ch);
+		char_to_room(ch, room);
+		return;
+	}
+	
+	if (name == "echo") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		fn_helper_echo(buf, nullptr, ch, nullptr);
+		return;
+	}
+	
+	if (name == "echo_near") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		fn_helper_echo_near(buf, ch->in_room);
+		return;
+	}
+	
+	if (name == "cast") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		do_mpcast(ch, buf);
+		return;
+	}
+	
+	if (name == "at") {
+		Room *room = deref<Room *>(arg_list[0].get(), context);
+
+		if (room == nullptr)
+			throw Format::format("char:at: room is null");
+
+		Room *old_room = ch->in_room;
+
+		char_from_room(ch);
+		char_to_room(ch, room);
+
+		deref<int>(arg_list[0].get(), context); // execute
+
+		if (!ch->is_garbage()) {
+			char_from_room(ch);
+			char_to_room(ch, old_room);
+		}
+
+		return;
+	}
+
+	if (name == "kill") {
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+
+		if (victim == nullptr)
+			throw Format::format("char::kill: victim is null");
+
+		if (ch->in_room != victim->in_room)
+			throw Format::format("char::kill: victim not in same room");
+
+		if (affect::exists_on_char(ch, affect::type::charm_person)
+		 && ch->master == victim)
+			throw Format::format("char::kill: charmed mob attacking master");
+
+		if (ch->fighting)
+			throw Format::format("char::kill: already fighting");
+
+		multi_hit(ch, victim, skill::type::unknown);
+		return;
+	}
+
+	if (name == "junk") {
+		// overloaded, could be Object or String
+		if (arg_list[0]->type == data::Type::Object) {
+			fn_helper_junk(ch, deref<Object *>(arg_list[0].get(), context));
+			return;
+		}
+
+		const String args = deref<const String>(arg_list[0].get(), context);
+		String arg = args.lsplit();
+
+		if (arg != "all" && !arg.has_prefix("all.")) {
+			Object *obj;
+
+			if ((obj = get_obj_wear(ch, arg)) != nullptr
+			 || (obj = get_obj_carry(ch, arg)) != nullptr)
+				fn_helper_junk(ch, obj);
+		}
+		else {
+			String word;
+			if (arg.length() > 4) // all.something
+				word = arg.substr(4);
+
+			Object *obj_next;
+			for (Object *obj = ch->carrying; obj; obj = obj_next) {
+				obj_next = obj->next_content;
+
+				if (word.empty() // all
+				 || obj->name.has_words(word))
+				 	fn_helper_junk(ch, obj);
+			}
+		}
+
+		return;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Object, return Void
+template <>
+void
+eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "echo") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		fn_helper_echo(buf, nullptr, nullptr, obj);
+		return;
+	}
+	
+	if (name == "echo_near") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
+
+		if (room)
+			fn_helper_echo_near(buf, room);
+
+		return;
+	}
+
+	if (name == "from_room") {
+		obj_from_room(obj);
+		return;
+	}
+
+	if (name == "to_char") {
+		obj_to_char(obj, deref<Character *>(arg_list[0].get(), context));
+		return;
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that take Room, return Void
+template <>
+void
+eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "echo") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		fn_helper_echo(buf, room, nullptr, nullptr);
+	}
+	
+	if (name == "echo_near") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		fn_helper_echo_near(buf, room);
+	}
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// *******************************
+// Boilerplate template code below
+// *******************************
+
 template <>
 Character * FunctionSymbol<Character *>::
 evaluate(contexts::Context& context) {
-try {
 	const String& name = fn_table[fn_index].name;
 
+try {
 	if (parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
+		throw Format::format("null parent symbol", name);
 
 	switch (parent->type) {
 	case data::Type::World: {
-		if (name == "get_char") {
-			String str = deref<const String>(arg_list[0].get(), context);
-			String arg;
-			int count = 0, number = number_argument(str, arg);
-
-			if (arg.empty())
-				return nullptr;
-
-			for (auto ch : Game::world().char_list)
-				if (context.can_see(ch)
-				 && (ch->name.has_words(arg))
-				 && ++count == number)
-					return ch;
-
-			return nullptr;
-		}
+		return eval_delegate_world_char(name, arg_list, context);
 	}
 	case data::Type::Character: {
 		Character *ch = deref<Character *>(parent.get(), context);
@@ -157,267 +778,7 @@ try {
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		if (name == "master") return ch->master;
-	}
-	case data::Type::Room: {
-		Room *room = deref<Room *>(parent.get(), context);
-
-		if (room == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
-
-		if (name == "get_char") {
-			return fn_helper_get_char(deref<const String>(arg_list[0].get(), context), context, room);
-		}
-
-		if (name == "load_mob") {
-			int vnum = deref<int>(arg_list[0].get(), context);
-			MobilePrototype *proto = Game::world().get_mob_prototype(vnum);
-
-			if (proto == nullptr) {
-				Logging::bugf("room.load_mob() - bad vnum %d", vnum);
-				return nullptr;
-			}
-
-			Character *mob = create_mobile(proto);
-
-			if (mob)
-				char_to_room(mob, room);
-
-			return mob;
-		}
-	}
-	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
-
-		if (name == "cv_to_char") {
-			Room *room;
-			context.get_var("room", &room);
-			return fn_helper_get_char(str, context, room);
-		}
-	}
-	default: break;
-	}
-
-	throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
-} catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Character *'", e);
-}
-}
-
-template <>
-Object * FunctionSymbol<Object *>::
-evaluate(contexts::Context& context) {
-try {
-	const String& name = fn_table[fn_index].name;
-
-	if (parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
-
-	switch (parent->type) {
-	case data::Type::World: {
-		if (name == "get_obj") {
-			String str = deref<const String>(arg_list[0].get(), context);
-			String arg;
-			int count = 0, number = number_argument(str, arg);
-
-			if (arg.empty())
-				return nullptr;
-
-			for (Object *obj = Game::world().object_list; obj; obj = obj->next)
-				if (context.can_see(obj)
-				 && (obj->name.has_words(arg))
-				 && ++count == number)
-					return obj;
-
-			return nullptr;
-		}
-	}
-	case data::Type::Character: {
-		Character *ch = deref<Character *>(parent.get(), context);
-
-		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
-
-		if (name == "load_obj") {
-			int vnum = deref<int>(arg_list[0].get(), context);
-			ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
-
-			if (proto == nullptr) {
-				Logging::bugf("character.load_obj() - bad vnum %d", vnum);
-				return nullptr;
-			}
-
-			Object *obj = create_object(proto, 0);
-
-			if (obj) {
-				if (CAN_WEAR(obj, ITEM_TAKE))
-					obj_to_char(obj, ch);
-				else
-					obj_to_room(obj, ch->in_room);
-			}
-
-			return obj;
-		}
-	}
-	case data::Type::Room: {
-		Room *room = deref<Room *>(parent.get(), context);
-
-		if (room == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
-
-		if (name == "get_obj") {
-			String str = deref<const String>(arg_list[0].get(), context);
-			String arg;
-			int count = 0, number = number_argument(str, arg);
-
-			if (arg.empty())
-				return nullptr;
-
-			for (Object *obj = room->contents; obj; obj = obj->next_content)
-				if (context.can_see(obj)
-				 && (obj->name.has_words(arg))
-				 && ++count == number)
-					return obj;
-
-			return nullptr;
-		}
-
-		if (name == "load_obj") {
-			int vnum = deref<int>(arg_list[0].get(), context);
-			ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
-
-			if (proto == nullptr) {
-				Logging::bugf("room.load_obj() - bad vnum %d", vnum);
-				return nullptr;
-			}
-
-			Object *obj = create_object(proto, 0);
-
-			if (obj)
-				obj_to_room(obj, room);
-
-			return obj;
-		}
-	}
-	default: break;
-	}
-
-	throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
-} catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Object *'", e);
-}
-}
-
-template <>
-Room * FunctionSymbol<Room *>::
-evaluate(contexts::Context& context) {
-try {
-	const String& name = fn_table[fn_index].name;
-
-	if (parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
-
-	switch (parent->type) {
-	case data::Type::World: {
-		if (name == "get_room") return deref<Room *>(arg_list[0].get(), context);
-	}
-	case data::Type::Character: {
-		Character *ch = deref<Character *>(parent.get(), context);
-
-		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
-
-		if (name == "cv_to_room") return ch->in_room;
-	}
-	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
-
-		if (name == "cv_to_room") {
-			Location location(str);
-			Room *room;
-
-			if (!location.is_valid()
-			 || (room = Game::world().get_room(location)) == nullptr)
-				throw Format::format("get_room(): bad location '%s'", str);
-
-			return room;
-		}
-	}
-	case data::Type::Integer: {
-		int num = deref<int>(parent.get(), context);
-
-		if (name == "cv_to_room") {
-			Location location((Vnum(num)));
-			Room *room;
-
-			if (!location.is_valid()
-			 || (room = Game::world().get_room(location)) == nullptr)
-				throw Format::format("get_room(): bad location '%d'", num);
-
-			return room;
-		}
-	}
-	default: break;
-	}
-
-	throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
-} catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'Room *'", e);
-}
-}
-
-template <>
-const String FunctionSymbol<const String>::
-evaluate(contexts::Context& context) {
-try {
-	const String& name = fn_table[fn_index].name;
-
-	if (parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
-
-	switch (parent->type) {
-	case data::Type::World: { // global function
-		if (name == "time")    return Format::format("%d", Game::world().time.hour);
-	}
-	case data::Type::Character: {
-		Character *ch = deref<Character *>(parent.get(), context);
-
-		if (ch == nullptr)
-			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
-
-		bool can_see = context.can_see(ch);
-
-		if (name == "name") {
-			if (!can_see)     return "someone";
-			if (ch->is_npc()) return ch->name.lsplit().capitalize();
-			                  return ch->name;
-		}
-
-		if (name == "title") {
-			if (!can_see)     return "someone";
-			if (ch->is_npc()) return ch->short_descr;
-			                  return ch->name + " " + ch->pcdata->title;
-		}
-
-		if (name == "he_she") {
-			static const char *he_she  [] = { "it", "he",  "she" };
-			if (!can_see)     return "someone";
-			                  return he_she[GET_ATTR_SEX(ch)];
-		}
-
-		if (name == "him_her") {
-			static const char *him_her [] = { "it", "him", "her" };
-			if (!can_see)     return "someone";
-			                  return him_her[GET_ATTR_SEX(ch)];
-		}
-
-		if (name == "his_her") {
-			static const char *his_her [] = { "its","his", "her" };
-			if (!can_see)     return "someone's";
-			                  return his_her[GET_ATTR_SEX(ch)];
-		}
-
-		if (name == "in_room") return ch->in_room->location.to_string();
+		return eval_delegate(ch, name, arg_list, context);
 	}
 	case data::Type::Object: {
 		Object *obj = deref<Object *>(parent.get(), context);
@@ -425,26 +786,7 @@ try {
 		if (obj == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		bool can_see = context.can_see(obj);
-
-		if (name == "name") {
-			if (!can_see)     return "something";
-			                  return obj->name.lsplit();
-		}
-
-		if (name == "sdesc") {
-			if (!can_see)     return "something";
-			                  return obj->short_descr;
-		}
-
-		if (name == "ind_art") {
-			char c = tolower(obj->name[0]);
-
-			if (can_see && (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'))
-				return "an";
-
-			return "a";
-		}
+		return eval_delegate(obj, name, arg_list, context);
 	}
 	case data::Type::Room: {
 		Room *room = deref<Room *>(parent.get(), context);
@@ -452,39 +794,41 @@ try {
 		if (room == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		bool can_see = context.can_see(room);
-
-		if (name == "name") {
-			if (!can_see)     return "somewhere";
-			                  return room->name();
-		}
+		return eval_delegate(room, name, arg_list, context);
+	}
+	case data::Type::String: {
+		const String str = deref<const String>(parent.get(), context);
+		return eval_delegate(str, name, arg_list, context);
+	}
+	case data::Type::Boolean: {
+		bool val = deref<bool>(parent.get(), context);
+		return eval_delegate(val, name, arg_list, context);
 	}
 	case data::Type::Integer: {
 		int num = deref<int>(parent.get(), context);
-
-		if (name == "cv_to_str") { std::cout << "converting\n"; return Format::format("%d", num); }
+		return eval_delegate(num, name, arg_list, context);
 	}
-	default: break;
+	case data::Type::Void:
+		throw String("member function of Void type called");
 	}
-
-	throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'const String'", e);
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Character",
+		e, name);
 }
 }
 
 template <>
-bool FunctionSymbol<bool>::
+Object * FunctionSymbol<Object *>::
 evaluate(contexts::Context& context) {
-try {
 	const String& name = fn_table[fn_index].name;
 
+try {
 	if (parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
+		throw Format::format("null parent symbol", name);
 
 	switch (parent->type) {
-	case data::Type::World: { // global function
-		if (name == "rand")    return number_percent() <= deref<int>(arg_list[0].get(), context);
+	case data::Type::World: {
+		return eval_delegate_world_obj(name, arg_list, context);
 	}
 	case data::Type::Character: {
 		Character *ch = deref<Character *>(parent.get(), context);
@@ -492,157 +836,240 @@ try {
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		if (name == "is_pc")       return !ch->is_npc();
-		if (name == "is_npc")      return ch->is_npc();
-		if (name == "is_good")     return IS_GOOD(ch);
-		if (name == "is_evil")     return IS_EVIL(ch);
-		if (name == "is_neutral")  return IS_NEUTRAL(ch);
-		if (name == "is_immort")   return IS_IMMORTAL(ch);
-		if (name == "is_fighting") return ch->fighting != nullptr;
-		if (name == "is_killer")   return IS_KILLER(ch);
-		if (name == "is_thief")    return IS_THIEF(ch);
-		if (name == "is_charmed")  return affect::exists_on_char(ch, affect::type::charm_person);
-		if (name == "is_carrying") return get_obj_carry(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
-		if (name == "is_wearing")  return get_obj_wear(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
+		return eval_delegate(ch, name, arg_list, context);
 	}
-	default: break;
-	}
+	case data::Type::Object: {
+		Object *obj = deref<Object *>(parent.get(), context);
 
-	throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+		if (obj == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(obj, name, arg_list, context);
+	}
+	case data::Type::Room: {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(room, name, arg_list, context);
+	}
+	case data::Type::String: {
+		const String str = deref<const String>(parent.get(), context);
+		return eval_delegate(str, name, arg_list, context);
+	}
+	case data::Type::Boolean: {
+		bool val = deref<bool>(parent.get(), context);
+		return eval_delegate(val, name, arg_list, context);
+	}
+	case data::Type::Integer: {
+		int num = deref<int>(parent.get(), context);
+		return eval_delegate(num, name, arg_list, context);
+	}
+	case data::Type::Void:
+		throw String("member function of Void type called");
+	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'bool'", e);
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Object",
+		e, name);
+}
+}
+
+template <>
+Room * FunctionSymbol<Room *>::
+evaluate(contexts::Context& context) {
+	const String& name = fn_table[fn_index].name;
+
+try {
+	if (parent == nullptr)
+		throw Format::format("null parent symbol", name);
+
+	switch (parent->type) {
+	case data::Type::World: {
+		return eval_delegate_world_room(name, arg_list, context);
+	}
+	case data::Type::Character: {
+		Character *ch = deref<Character *>(parent.get(), context);
+
+		if (ch == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(ch, name, arg_list, context);
+	}
+	case data::Type::Object: {
+		Object *obj = deref<Object *>(parent.get(), context);
+
+		if (obj == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(obj, name, arg_list, context);
+	}
+	case data::Type::Room: {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(room, name, arg_list, context);
+	}
+	case data::Type::String: {
+		const String str = deref<const String>(parent.get(), context);
+		return eval_delegate(str, name, arg_list, context);
+	}
+	case data::Type::Boolean: {
+		bool val = deref<bool>(parent.get(), context);
+		return eval_delegate(val, name, arg_list, context);
+	}
+	case data::Type::Integer: {
+		int num = deref<int>(parent.get(), context);
+		return eval_delegate(num, name, arg_list, context);
+	}
+	case data::Type::Void:
+		throw String("member function of Void type called");
+	}
+} catch(String e) {
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Room",
+		e, name);
+}
+}
+
+template <>
+const String FunctionSymbol<const String>::
+evaluate(contexts::Context& context) {
+	const String& name = fn_table[fn_index].name;
+
+try {
+	if (parent == nullptr)
+		throw Format::format("null parent symbol", name);
+
+	switch (parent->type) {
+	case data::Type::World: {
+		return eval_delegate_world_str(name, arg_list, context);
+	}
+	case data::Type::Character: {
+		Character *ch = deref<Character *>(parent.get(), context);
+
+		if (ch == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(ch, name, arg_list, context);
+	}
+	case data::Type::Object: {
+		Object *obj = deref<Object *>(parent.get(), context);
+
+		if (obj == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(obj, name, arg_list, context);
+	}
+	case data::Type::Room: {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(room, name, arg_list, context);
+	}
+	case data::Type::String: {
+		const String str = deref<const String>(parent.get(), context);
+		return eval_delegate(str, name, arg_list, context);
+	}
+	case data::Type::Boolean: {
+		bool val = deref<bool>(parent.get(), context);
+		return eval_delegate(val, name, arg_list, context);
+	}
+	case data::Type::Integer: {
+		int num = deref<int>(parent.get(), context);
+		return eval_delegate(num, name, arg_list, context);
+	}
+	case data::Type::Void:
+		throw String("member function of Void type called");
+	}
+} catch(String e) {
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type String",
+		e, name);
+}
+}
+
+template <>
+bool FunctionSymbol<bool>::
+evaluate(contexts::Context& context) {
+	const String& name = fn_table[fn_index].name;
+
+try {
+	if (parent == nullptr)
+		throw Format::format("null parent symbol", name);
+
+	switch (parent->type) {
+	case data::Type::World: {
+		return eval_delegate_world_bool(name, arg_list, context);
+	}
+	case data::Type::Character: {
+		Character *ch = deref<Character *>(parent.get(), context);
+
+		if (ch == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(ch, name, arg_list, context);
+	}
+	case data::Type::Object: {
+		Object *obj = deref<Object *>(parent.get(), context);
+
+		if (obj == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(obj, name, arg_list, context);
+	}
+	case data::Type::Room: {
+		Room *room = deref<Room *>(parent.get(), context);
+
+		if (room == nullptr)
+			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
+
+		return eval_delegate(room, name, arg_list, context);
+	}
+	case data::Type::String: {
+		const String str = deref<const String>(parent.get(), context);
+		return eval_delegate(str, name, arg_list, context);
+	}
+	case data::Type::Boolean: {
+		bool val = deref<bool>(parent.get(), context);
+		return eval_delegate(val, name, arg_list, context);
+	}
+	case data::Type::Integer: {
+		int num = deref<int>(parent.get(), context);
+		return eval_delegate(num, name, arg_list, context);
+	}
+	case data::Type::Void:
+		throw String("member function of Void type called");
+	}
+} catch(String e) {
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Boolean",
+		e, name);
 }
 }
 
 // this one isn't a template, it handles the 'Void' types that are an alias for
 // 'int' because you can't have a void template.  The int template will delegate here
-void evaluate_void(FunctionSymbol<int>& sym, contexts::Context& context) {
-try {
+void
+evaluate_void(FunctionSymbol<int>& sym, contexts::Context& context) {
 	const String& name = fn_table[sym.fn_index].name;
 
+try {
 	if (sym.parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
+		throw Format::format("null parent symbol", name);
 
 	switch (sym.parent->type) {
+	case data::Type::World: {
+		return eval_delegate_world_void(name, sym.arg_list, context);
+	}
 	case data::Type::Character: {
 		Character *ch = deref<Character *>(sym.parent.get(), context);
 
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(sym.parent->type));
 
-		if (name == "do") {
-			String argument = deref<const String>(sym.arg_list[0].get(), context);
-			interpret(ch, argument);
-			return;
-		}
-		
-		if (name == "to_room") {
-			Room *room = deref<Room *>(sym.arg_list[0].get(), context);
-
-			if (room == nullptr)
-				throw Format::format("char:to_room: room is null");
-
-			if (ch->fighting != nullptr)
-				stop_fighting(ch, true);
-
-			char_from_room(ch);
-			char_to_room(ch, room);
-			return;
-		}
-		
-		if (name == "echo") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			fn_helper_echo(buf, nullptr, ch, nullptr);
-			return;
-		}
-		
-		if (name == "echo_near") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			fn_helper_echo_near(buf, ch->in_room);
-			return;
-		}
-		
-		if (name == "cast") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			do_mpcast(ch, buf);
-			return;
-		}
-		
-		if (name == "at") {
-			Room *room = deref<Room *>(sym.arg_list[0].get(), context);
-
-			if (room == nullptr)
-				throw Format::format("char:at: room is null");
-
-			Room *old_room = ch->in_room;
-
-			char_from_room(ch);
-			char_to_room(ch, room);
-
-			deref<int>(sym.arg_list[0].get(), context); // execute
-
-			if (!ch->is_garbage()) {
-				char_from_room(ch);
-				char_to_room(ch, old_room);
-			}
-
-			return;
-		}
-
-		if (name == "kill") {
-			Character *victim = deref<Character *>(sym.arg_list[0].get(), context);
-
-			if (victim == nullptr)
-				throw Format::format("char::kill: victim is null");
-
-			if (ch->in_room != victim->in_room)
-				throw Format::format("char::kill: victim not in same room");
-
-			if (affect::exists_on_char(ch, affect::type::charm_person)
-			 && ch->master == victim)
-				throw Format::format("char::kill: charmed mob attacking master");
-
-			if (ch->fighting)
-				throw Format::format("char::kill: already fighting");
-
-			multi_hit(ch, victim, skill::type::unknown);
-			return;
-		}
-
-		if (name == "junk") {
-			// overloaded, could be Object or String
-			if (sym.arg_list[0]->type == data::Type::Object) {
-				fn_helper_junk(ch, deref<Object *>(sym.arg_list[0].get(), context));
-				return;
-			}
-
-			const String args = deref<const String>(sym.arg_list[0].get(), context);
-			String arg = args.lsplit();
-
-			if (arg != "all" && !arg.has_prefix("all.")) {
-				Object *obj;
-
-				if ((obj = get_obj_wear(ch, arg)) != nullptr
-				 || (obj = get_obj_carry(ch, arg)) != nullptr)
-					fn_helper_junk(ch, obj);
-			}
-			else {
-				String word;
-				if (arg.length() > 4) // all.something
-					word = arg.substr(4);
-
-				Object *obj_next;
-				for (Object *obj = ch->carrying; obj; obj = obj_next) {
-					obj_next = obj->next_content;
-
-					if (word.empty() // all
-					 || obj->name.has_words(word))
-					 	fn_helper_junk(ch, obj);
-				}
-			}
-
-			return;
-		}
+		return eval_delegate_void(ch, name, sym.arg_list, context);
 	}
 	case data::Type::Object: {
 		Object *obj = deref<Object *>(sym.parent.get(), context);
@@ -650,31 +1077,7 @@ try {
 		if (obj == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(sym.parent->type));
 
-		if (name == "echo") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			fn_helper_echo(buf, nullptr, nullptr, obj);
-			return;
-		}
-		
-		if (name == "echo_near") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-
-			if (room)
-				fn_helper_echo_near(buf, room);
-
-			return;
-		}
-
-		if (name == "from_room") {
-			obj_from_room(obj);
-			return;
-		}
-
-		if (name == "to_char") {
-			obj_to_char(obj, deref<Character *>(sym.arg_list[0].get(), context));
-			return;
-		}
+		return eval_delegate_void(obj, name, sym.arg_list, context);
 	}
 	case data::Type::Room: {
 		Room *room = deref<Room *>(sym.parent.get(), context);
@@ -682,24 +1085,26 @@ try {
 		if (room == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(sym.parent->type));
 
-//		bool can_see = context.can_see(room);
-
-		if (name == "echo") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			fn_helper_echo(buf, room, nullptr, nullptr);
-		}
-		
-		if (name == "echo_near") {
-			String buf = context.expand_vars(deref<const String>(sym.arg_list[0].get(), context));
-			fn_helper_echo_near(buf, room);
-		}
+		return eval_delegate_void(room, name, sym.arg_list, context);
 	}
-	default: break;
+	case data::Type::String: {
+		const String str = deref<const String>(sym.parent.get(), context);
+		return eval_delegate_void(str, name, sym.arg_list, context);
 	}
-
-	throw Format::format("unhandled %s function '%s'", type_to_string(sym.parent->type), name);
+	case data::Type::Boolean: {
+		bool val = deref<bool>(sym.parent.get(), context);
+		return eval_delegate_void(val, name, sym.arg_list, context);
+	}
+	case data::Type::Integer: {
+		int num = deref<int>(sym.parent.get(), context);
+		return eval_delegate_void(num, name, sym.arg_list, context);
+	}
+	case data::Type::Void:
+		throw String("member function of Void type called");
+	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'void'", e);
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Boolean",
+		e, name);
 }
 }
 
@@ -712,38 +1117,23 @@ evaluate(contexts::Context& context) {
 		return 1; // boolean true, I guess?
 	}
 
-try {
 	const String& name = fn_table[fn_index].name;
 
+try {
 	if (parent == nullptr)
-		throw Format::format("function '%s' has null parent", name);
+		throw Format::format("null parent symbol", name);
 
 	switch (parent->type) {
+	case data::Type::World: {
+		return eval_delegate_world_int(name, arg_list, context);
+	}
 	case data::Type::Character: {
 		Character *ch = deref<Character *>(parent.get(), context);
 
 		if (ch == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		if (name == "position")   return ch->position;
-		if (name == "level")      return ch->level;
-		if (name == "guild")      return ch->guild;
-		if (name == "gold")       return ch->gold;
-		if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
-		if (name == "sex")        return GET_ATTR_SEX(ch);
-		if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
-		if (name == "state") {
-			String key = deref<const String>(arg_list[0].get(), context);
-
-			if (!key.empty()) {
-				const auto entry = ch->mpstate.find(key);
-
-				if (entry != ch->mpstate.cend())
-					return entry->second;
-			}
-
-			return 0;
-		}
+		return eval_delegate(ch, name, arg_list, context);
 	}
 	case data::Type::Object: {
 		Object *obj = deref<Object *>(parent.get(), context);
@@ -751,13 +1141,7 @@ try {
 		if (obj == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-		if (name == "type")      return obj->item_type;
-		if (name == "value0")    return obj->value[0];
-		if (name == "value1")    return obj->value[1];
-		if (name == "value2")    return obj->value[2];
-		if (name == "value3")    return obj->value[3];
-		if (name == "value4")    return obj->value[4];
-		if (name == "vnum")      return obj->pIndexData->vnum.value();
+		return eval_delegate(obj, name, arg_list, context);
 	}
 	case data::Type::Room: {
 		Room *room = deref<Room *>(parent.get(), context);
@@ -765,16 +1149,26 @@ try {
 		if (room == nullptr)
 			throw Format::format("dereferenced %s parent pointer is null", type_to_string(parent->type));
 
-//		bool can_see = context.can_see(room);
-
-		if (name == "vnum")      return room->prototype.vnum.value();
+		return eval_delegate(room, name, arg_list, context);
 	}
-	default: break;
+	case data::Type::String: {
+		const String str = deref<const String>(parent.get(), context);
+		return eval_delegate(str, name, arg_list, context);
 	}
-
-	throw Format::format("unhandled %s function '%s'", type_to_string(parent->type), name);
+	case data::Type::Boolean: {
+		bool val = deref<bool>(parent.get(), context);
+		return eval_delegate(val, name, arg_list, context);
+	}
+	case data::Type::Integer: {
+		int num = deref<int>(parent.get(), context);
+		return eval_delegate(num, name, arg_list, context);
+	}
+	case data::Type::Void:
+		throw String("member function of Void type called");
+	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, return type 'int'", e);
+	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Integer",
+		e, name);
 }
 }
 

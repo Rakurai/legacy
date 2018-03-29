@@ -23,6 +23,11 @@ template <typename Ret> struct FunctionSymbol : public Symbol {
 	virtual ~FunctionSymbol() {}
 	Ret evaluate(contexts::Context&);
 
+	template <typename T>
+	Ret eval_delegate(T parent, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context&) {
+		throw Format::format("unhandled function '%s'", name);
+	}
+
 	virtual const String to_string(contexts::Context& context) {
 		return var_to_string(evaluate(context));
 	}
