@@ -10,28 +10,29 @@
 namespace progs {
 namespace symbols {
 
-void fn_helper_echo(const String& format, Room *room, Character *ch, Object *obj) {
-	if (ch != nullptr || obj != nullptr) {
-		// uses act() to distribute the message, but act variables don't match up with prog
-		// variables, so we need to do variable replacement in the string and pass a straight
-		// string to act.  maybe someday we can rework this and let act do the work.
-		act(format, ch, obj, nullptr, TO_ROOM);
-	}
-	else if (room != nullptr) {
-		for (Character *ch = room->people; ch; ch = ch->next_in_room)
-			stc(format + "\n", ch);
-	}
+void fn_helper_echo(const String& format, Character *actor, Actable *v1, Actable *v2, Room *room) {
+	act(format, actor, v1, v2, TO_ROOM, POS_RESTING, false, room);
 }
 
+void fn_helper_echo_at(const String& format, Character *actor, Actable *v1, Actable *v2, Room *room) {
+	act(format, actor, v1, v2, TO_VICT, POS_RESTING, false, room);
+}
 
-void fn_helper_echo_near(const String& format, Room *room) {
+void fn_helper_echo_other(const String& format, Character *actor, Actable *v1, Actable *v2, Room *room) {
+	act(format, actor, v1, v2, TO_NOTVICT, POS_RESTING, false, room);
+}
+
+void fn_helper_echo_near(const String& format, Character *actor, Actable *v1, Actable *v2, Room *room) {
+	if (room == nullptr)
+		return;
+
 	for (int door = 0; door <= 5; door++) {
 		Exit *pexit = room->exit[door];
 
 		if (pexit != nullptr
 		 && pexit->to_room != nullptr
 		 && pexit->to_room != room)
-			fn_helper_echo(format, room, nullptr, nullptr);
+			fn_helper_echo(format, actor, v1, v2, pexit->to_room);
 	}
 }
 

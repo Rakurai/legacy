@@ -83,9 +83,6 @@ const std::vector<fn_type> fn_table = {
 	{ "load_obj",    dt::Object,    dt::Character, { dt::Integer } },
 	{ "do",          dt::Void,      dt::Character, { dt::String } },
 	{ "goto",        dt::Void,      dt::Character, { dt::Room } },
-	{ "echo",        dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to all in room except self and 'except'
-	{ "echo_at",     dt::Void,      dt::Character, { dt::String } }, // send to the character
-	{ "echo_near",   dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to surrounding rooms except 'except'
 	{ "cast",        dt::Void,      dt::Character, { dt::String } },
 	{ "at",          dt::Void,      dt::Character, { dt::Room, dt::Void } },
 	{ "kill",        dt::Void,      dt::Character, { dt::Character } },
@@ -119,8 +116,20 @@ const std::vector<fn_type> fn_table = {
 	// room actions
 	{ "load_mob",    dt::Character, dt::Room,      { dt::Integer } },
 	{ "load_obj",    dt::Object,    dt::Room,      { dt::Integer } },
-	{ "echo",        dt::Void,      dt::Room,      { dt::String } },
-	{ "echo_near",   dt::Void,      dt::Room,      { dt::String } },
+
+	// echos
+	{ "echo",        dt::Void,      dt::Character, { dt::String } },                // send to room except self
+	{ "echo_at",     dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to victim
+	{ "echo_other",  dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to room except self and victim
+	{ "echo_near",   dt::Void,      dt::Character, { dt::String } },                // send to surrounding rooms
+	{ "echo",        dt::Void,      dt::Object,    { dt::String } },                // send to room
+	{ "echo_at",     dt::Void,      dt::Object,    { dt::String, dt::Character } }, // send to victim
+	{ "echo_other",  dt::Void,      dt::Object,    { dt::String, dt::Character } }, // send to room except victim
+	{ "echo_near",   dt::Void,      dt::Object,    { dt::String } },                // send to surrounding rooms
+	{ "echo",        dt::Void,      dt::Room,      { dt::String } },                // send to room
+	{ "echo_at",     dt::Void,      dt::Room,      { dt::String, dt::Character } }, // send to victim
+	{ "echo_other",  dt::Void,      dt::Room,      { dt::String, dt::Character } }, // send to room except victim
+	{ "echo_near",   dt::Void,      dt::Room,      { dt::String } },                // send to surrounding rooms
 };
 
 #undef dt
@@ -160,7 +169,7 @@ eval_delegate_world_char(const String& name, std::vector<std::unique_ptr<Symbol>
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return Character
+// functions that access Character, return Character
 template <> template <>
 Character * FunctionSymbol<Character *>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -169,7 +178,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Room, return Character
+// functions that access Room, return Character
 template <> template <>
 Character * FunctionSymbol<Character *>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -197,7 +206,7 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take String, return Character
+// functions that access String, return Character
 template <> template <>
 Character * FunctionSymbol<Character *>::
 eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -237,7 +246,7 @@ eval_delegate_world_obj(const String& name, std::vector<std::unique_ptr<Symbol>>
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return Object
+// functions that access Character, return Object
 template <> template <>
 Object * FunctionSymbol<Object *>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -265,7 +274,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Room, return Object
+// functions that access Room, return Object
 template <> template <>
 Object * FunctionSymbol<Object *>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -318,7 +327,7 @@ eval_delegate_world_room(const String& name, std::vector<std::unique_ptr<Symbol>
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return Room
+// functions that access Character, return Room
 template <> template <>
 Room * FunctionSymbol<Room *>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -327,7 +336,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take String, return Room
+// functions that access String, return Room
 template <> template <>
 Room * FunctionSymbol<Room *>::
 eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -345,14 +354,14 @@ eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Boolean, return Room
+// functions that access Boolean, return Room
 template <> template <>
 Room * FunctionSymbol<Room *>::
 eval_delegate(bool val, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Integer, return Room
+// functions that access Integer, return Room
 template <> template <>
 Room * FunctionSymbol<Room *>::
 eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -382,7 +391,7 @@ eval_delegate_world_str(const String& name, std::vector<std::unique_ptr<Symbol>>
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return String
+// functions that access Character, return String
 template <> template <>
 const String FunctionSymbol<const String>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -423,7 +432,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Object, return String
+// functions that access Object, return String
 template <> template <>
 const String FunctionSymbol<const String>::
 eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -451,7 +460,7 @@ eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbo
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Room, return String
+// functions that access Room, return String
 template <> template <>
 const String FunctionSymbol<const String>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -465,7 +474,7 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Integer, return String
+// functions that access Integer, return String
 template <> template <>
 const String FunctionSymbol<const String>::
 eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -486,7 +495,7 @@ eval_delegate_world_bool(const String& name, std::vector<std::unique_ptr<Symbol>
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return Boolean
+// functions that access Character, return Boolean
 template <> template <>
 bool FunctionSymbol<bool>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -516,7 +525,7 @@ eval_delegate_world_int(const String& name, std::vector<std::unique_ptr<Symbol>>
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return Integer
+// functions that access Character, return Integer
 template <> template <>
 int FunctionSymbol<int>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -543,7 +552,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Object, return Integer
+// functions that access Object, return Integer
 template <> template <>
 int FunctionSymbol<int>::
 eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -558,7 +567,7 @@ eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbo
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Room, return Integer
+// functions that access Room, return Integer
 template <> template <>
 int FunctionSymbol<int>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -584,7 +593,7 @@ eval_delegate_void(T, const String& name, std::vector<std::unique_ptr<Symbol>>& 
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Character, return Void
+// functions that access Character, return Void
 template <>
 void
 eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
@@ -610,13 +619,27 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	
 	if (name == "echo") {
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		fn_helper_echo(buf, nullptr, ch, nullptr);
+		fn_helper_echo(buf, ch, nullptr, nullptr, ch->in_room);
+		return;
+	}
+
+	if (name == "echo_at") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		fn_helper_echo_at(buf, ch, victim, nullptr, ch->in_room);
+		return;
+	}
+
+	if (name == "echo_other") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		fn_helper_echo_other(buf, ch, victim, nullptr, ch->in_room);
 		return;
 	}
 	
 	if (name == "echo_near") {
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		fn_helper_echo_near(buf, ch->in_room);
+		fn_helper_echo_near(buf, ch, nullptr, nullptr, ch->in_room);
 		return;
 	}
 	
@@ -705,23 +728,38 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Object, return Void
+// functions that access Object, return Void
 template <>
 void
 eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "echo") {
+		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		fn_helper_echo(buf, nullptr, nullptr, obj);
+		fn_helper_echo(buf, obj->carried_by, nullptr, obj, room);
+		act(buf, obj->carried_by, nullptr, obj, TO_ROOM, POS_RESTING, false, room);
+		return;
+	}
+
+	if (name == "echo_at") {
+		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		fn_helper_echo_at(buf, obj->carried_by, victim, obj, room);
+		return;
+	}
+
+	if (name == "echo_other") {
+		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		fn_helper_echo_other(buf, obj->carried_by, victim, obj, room);
 		return;
 	}
 	
 	if (name == "echo_near") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-
-		if (room)
-			fn_helper_echo_near(buf, room);
-
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		fn_helper_echo_near(buf, obj->carried_by, nullptr, obj, room);
 		return;
 	}
 
@@ -738,18 +776,34 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 	throw Format::format("unhandled function '%s'", name);
 }
 
-// functions that take Room, return Void
+// functions that access Room, return Void
 template <>
 void
 eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "echo") {
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		fn_helper_echo(buf, room, nullptr, nullptr);
+		fn_helper_echo(buf, nullptr, nullptr, nullptr, room);
+		return;
+	}
+
+	if (name == "echo_at") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		fn_helper_echo_at(buf, nullptr, victim, nullptr, room);
+		return;
+	}
+
+	if (name == "echo_other") {
+		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		fn_helper_echo_other(buf, nullptr, victim, nullptr, room);
+		return;
 	}
 	
 	if (name == "echo_near") {
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		fn_helper_echo_near(buf, room);
+		fn_helper_echo_near(buf, nullptr, nullptr, nullptr, room);
+		return;
 	}
 
 	throw Format::format("unhandled function '%s'", name);
