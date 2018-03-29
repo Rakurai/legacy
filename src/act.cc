@@ -9,35 +9,36 @@
 #include "String.hh"
 #include "Tail.hh"
 #include "RoomPrototype.hh"
+#include "Game.hh"
 
 void act_bug(const String& var, char letter, const String fmt) {
-    // make sure $ is doubled here, or wiznet will cause a loop
-    Logging::bugf("Missing %s for '$$%c' in format string '%s'",
-        var, letter, fmt.replace("$", "$$"));
+	// make sure $ is doubled here, or wiznet will cause a loop
+	Logging::bugf("Missing %s for '$$%c' in format string '%s'",
+		var, letter, fmt.replace("$", "$$"));
 }
 
 /* the guts of act, taken out to reduce complexity. */
-void act_format(const String& format, Character *ch,
-                const Character *vch, const Character *vch2,
-                const String *str1, const String *str2,
-                const Object *obj1, const Object *obj2,
-                Character *to, bool snooper, int vis)
+void act_format(const String& format, Character *actor,
+				const Character *vch1, const Character *vch2,
+				const String *str1, const String *str2,
+				const Object *obj1, const Object *obj2,
+				Character *observer, bool snooper, int vis)
 {
 	static char *const he_she  [] = { "it",  "he",  "she" };
 	static char *const him_her [] = { "it",  "him", "her" };
 	static char *const his_her [] = { "its", "his", "her" };
 
-    String buf, i;
+	String buf, i;
 
 	if (snooper) {
 		buf += "{n[T] ";
 	}
 
-    auto str = format.cbegin();
+	auto str = format.cbegin();
 
-    while (str != format.cend()) {
+	while (str != format.cend()) {
 		if (*str != '$') {
-            buf += *str++;
+			buf += *str++;
 			continue;
 		}
 
@@ -48,48 +49,71 @@ void act_format(const String& format, Character *ch,
 		switch (*str) {
 		default:                                                break;
 
-		/* The following codes need 'ch', which should always be OK */
+		/* The following codes need 'actor' */
 
-		case 'n': i = PERS(ch, to, vis);                  break;
+		case 'n':
+			if (actor == nullptr)
+				act_bug("actor", *str, format);
+			else
+				i = PERS(actor, observer, vis);
 
-		case 'e': i = he_she  [GET_ATTR_SEX(ch)];        break;
+			break;
 
-		case 'm': i = him_her [GET_ATTR_SEX(ch)];        break;
+		case 'e':
+			if (actor == nullptr)
+				act_bug("actor", *str, format);
+			else
+				i = he_she[GET_ATTR_SEX(actor)];
 
-		case 's': i = his_her [GET_ATTR_SEX(ch)];        break;
+			break;
 
-		/* The following codes need 'vch' */
+		case 'm': 
+			if (actor == nullptr)
+				act_bug("actor", *str, format);
+			else
+				i = him_her[GET_ATTR_SEX(actor)];
+
+			break;
+
+		case 's':
+			if (actor == nullptr)
+				act_bug("actor", *str, format);
+			else
+				i = his_her[GET_ATTR_SEX(actor)];
+
+			break;
+
+		/* The following codes need 'vch1' */
 
 		case 'N':
-			if (vch == nullptr) {
-				act_bug("vch", *str, format);
-			}
+			if (vch1 == nullptr)
+				act_bug("vch1", *str, format);
 			else
-				i = PERS(vch, to, vis);
+				i = PERS(vch1, observer, vis);
 
 			break;
 
 		case 'E':
-			if (vch == nullptr)
-                act_bug("vch", *str, format);
+			if (vch1 == nullptr)
+				act_bug("vch1", *str, format);
 			else
-				i = he_she[GET_ATTR_SEX(vch)];
+				i = he_she[GET_ATTR_SEX(vch1)];
 
 			break;
 
 		case 'M':
-			if (vch == nullptr)
-                act_bug("vch", *str, format);
+			if (vch1 == nullptr)
+				act_bug("vch1", *str, format);
 			else
-				i = him_her[GET_ATTR_SEX(vch)];
+				i = him_her[GET_ATTR_SEX(vch1)];
 
 			break;
 
 		case 'S':
-			if (vch == nullptr)
-                act_bug("vch", *str, format);
+			if (vch1 == nullptr)
+				act_bug("vch1", *str, format);
 			else
-				i = his_her[GET_ATTR_SEX(vch)];
+				i = his_her[GET_ATTR_SEX(vch1)];
 
 			break;
 
@@ -97,8 +121,8 @@ void act_format(const String& format, Character *ch,
 
 		case 'p':
 			if (obj1 == nullptr)
-                act_bug("obj1", *str, format);
-			else if (can_see_obj(to, obj1))
+				act_bug("obj1", *str, format);
+			else if (can_see_obj(observer, obj1))
 				i = obj1->short_descr;
 			else
 				i = "something";
@@ -107,8 +131,8 @@ void act_format(const String& format, Character *ch,
 
 		case 'P':
 			if (obj2 == nullptr)
-                act_bug("obj2", *str, format);
-			else if (can_see_obj(to, obj2))
+				act_bug("obj2", *str, format);
+			else if (can_see_obj(observer, obj2))
 				i = obj2->short_descr;
 			else
 				i = "something";
@@ -119,11 +143,11 @@ void act_format(const String& format, Character *ch,
 
 		case 'd':
 			if (str2 == nullptr) {
-                act_bug("str2", *str, format);
+				act_bug("str2", *str, format);
 				i = "door";
-            }
+			}
 			else
-                i = *str2;
+				i = *str2;
 
 			break;
 
@@ -131,7 +155,7 @@ void act_format(const String& format, Character *ch,
 
 		case 't':
 			if (str1 == nullptr)
-                act_bug("str1", *str, format);
+				act_bug("str1", *str, format);
 			else
 				i = *str1;
 
@@ -139,7 +163,7 @@ void act_format(const String& format, Character *ch,
 
 		case 'T':
 			if (str2 == nullptr)
-                act_bug("str2", *str, format);
+				act_bug("str2", *str, format);
 			else
 				i = *str2;
 
@@ -153,239 +177,238 @@ void act_format(const String& format, Character *ch,
 		}
 
 		++str;
-        buf += i;
+		buf += i;
 	}
 
 	if (snooper)
-        buf += "{x";
+		buf += "{x";
 
-    buf += '\n';
+	buf += '\n';
 	buf[0] = toupper(buf[0]);
 
-	if (to->desc)
-		stc(buf, to);
+	if (observer->desc)
+		stc(buf, observer);
 
 	if (MOBtrigger)
         // removing const from things here, because i don't want to follow that rabbit
         // hole right now.  it does need to be fixed by making mprog stuff use const
         // object pointers, but at a later date.
-		mprog_act_trigger(buf.c_str(), to, ch,
+		mprog_act_trigger(buf.c_str(), observer, actor,
             const_cast<Object *>(obj1),
-            const_cast<Character *>(vch));
+            const_cast<Character *>(vch1));
 } /* end act_format() */
 
 void act_parse(
-    const String& fmt,
-    Character *ch,
-    const Character *vch, const Character *vch2,
-    const String *str1, const String *str2,
-    const Object *obj1, const Object *obj2,
-    int type,
-    int min_pos,
-    bool censor
+	String format, // make a copy
+	Character *actor,
+	Room *room,
+	const Character *vch1, const Character *vch2,
+	const String *str1, const String *str2,
+	const Object *obj1, const Object *obj2,
+	int type,
+	int min_pos,
+	bool censor
 ) {
-    String format(fmt);
-    Duel::Arena *arena = arena_table_head->next;
-    Character *to;
-    bool SNEAKING = false;
-    Tail *td;
-    char fake_message[MAX_INPUT_LENGTH];
-    int vis = VIS_CHAR;
+	// Discard zero-length messages.
+	if (format.empty())
+		return;
 
-    /*
-     * Discard null and zero-length messages.
-     */
-    if (format.empty())
-        return;
+	// figure out the start of the char list that we'll act to
+	if (room == nullptr) {
+		// defaults, room could be specialized below
+		if (actor != nullptr)
+			room = actor->in_room;
+		else if (obj1 != nullptr)
+			room = obj1->in_room; // special case for objects as actors, obj1 will be valid but actor will not
+	}
 
-    /* discard null rooms and chars */
-    if (ch == nullptr || ch->in_room == nullptr)
-        return;
+	if (type == TO_VICT) {
+		if (vch1 == nullptr) {
+			Logging::bugf("Act: null vch1 with TO_VICT in format string '%s'", format.replace("$", "$$"));
+			return;
+		}
 
-    to = ch->in_room->people;
+		if (vch1->in_room == nullptr)
+			return;
 
-    if (min_pos == POS_SNEAK) {
-        min_pos = POS_RESTING;
-        SNEAKING = true;
-    }
+		room = vch1->in_room;
+	}
 
-    /* blah, special hack for channel visibility.  rewrite this crap someday, i don't
-       have time right now to give act the attention it needs.  -- Montrey */
-    if (type == TO_VICT_CHANNEL) {
-        type = TO_VICT;
-        vis = VIS_PLR;
-    }
+	if (type == TO_WORLD) {
+		if (vch2 == nullptr) {
+			Logging::bugf("Act: null vch2 with TO_WORLD in format string '%s'", format.replace("$", "$$"));
+			return;
+		}
 
-    if (type == TO_VICT) {
-        if (vch == nullptr) {
-            Logging::bugf("Act: null vch with TO_VICT in format string '%s'", format.replace("$", "$$"));
-            return;
-        }
+		if (vch2->in_room == nullptr && actor && actor->tail == nullptr)
+			return;
 
-        if (vch->in_room == nullptr)
-            return;
+		room = vch2->in_room;
+	}
 
-        to = vch->in_room->people;
-    }
+	// if no room to act in, just move on
+	if (room == nullptr)
+		return;
 
-    if (type == TO_WORLD) {
-        if (vch2 == nullptr) {
-            Logging::bugf("Act: null vch2 with TO_WORLD in format string '%s'", format.replace("$", "$$"));
-            return;
-        }
+	bool SNEAKING = false;
+	int vis = VIS_CHAR;
 
-        if (vch2->in_room == nullptr && ch->tail == nullptr)
-            return;
+	/* blah, special hack for channel visibility.  rewrite this crap someday, i don't
+	   have time right now to give act the attention it needs.  -- Montrey */
+	if (type == TO_VICT_CHANNEL) {
+		type = TO_VICT;
+		vis = VIS_PLR;
+	}
 
-        to = vch2->in_room->people;
-    }
+	if (min_pos == POS_SNEAK) {
+		min_pos = POS_RESTING;
+		SNEAKING = true;
+	}
 
-    /*** first loop, for normal recipients of ACT */
-    for (; to != nullptr; to = to->next_in_room) {
-        if (censor && to->is_npc())
-            continue;
+	/*** first loop, for normal recipients of ACT */
+	for (Character *observer = room->people; observer != nullptr; observer = observer->next_in_room) {
+		if (censor && observer->is_npc())
+			continue;
 
-        if (get_position(to) < min_pos)
-            continue;
+		if (get_position(observer) < min_pos)
+			continue;
 
-        if (SNEAKING) {
-            if (!IS_IMMORTAL(to)) /* eliminates mobs too */
-                continue;
+		if (SNEAKING) {
+			if (!IS_IMMORTAL(observer)) /* eliminates mobs too */
+				continue;
 
-            if (ch->act_flags.has(PLR_SUPERWIZ) && !IS_IMP(to))
-                continue;
-        }
+			if (actor && actor->act_flags.has(PLR_SUPERWIZ) && !IS_IMP(observer))
+				continue;
+		}
 
-        if ((type == TO_CHAR) && to != ch)
-            continue;
+		// if actor == nullptr, these checks should be safe since observer != nullptr
+		if (type == TO_CHAR && observer != actor)
+			continue;
 
-        if (type == TO_VICT && (to != vch || to == ch))
-            continue;
+		if (type == TO_VICT && (observer != vch1 || observer == actor))
+			continue;
 
-        if (type == TO_ROOM && to == ch)
-            continue;
+		if (type == TO_ROOM && observer == actor)
+			continue;
 
-        if (type == TO_NOTVICT && (to == ch || to == vch))
-            continue;
+		if (type == TO_NOTVICT && (observer == actor || observer == vch1))
+			continue;
 
-        if (type == TO_WORLD && (to == ch || to == vch || to != vch2))
-            continue;
+		if (type == TO_WORLD && (observer == actor || observer == vch1 || observer != vch2))
+			continue;
 
-        if (type == TO_NOTVIEW && to == ch) /* same as TO_ROOM */
-            continue;
+		if (type == TO_NOTVIEW && observer == actor) /* same as TO_ROOM */
+			continue;
 
-        if (type == TO_VIEW)
-            continue;
+		if (type == TO_VIEW)
+			continue;
 
-        /**********************************************************************/
-        act_format(format, ch, vch, vch2, str1, str2, obj1, obj2, to, false, vis);
-        /**********************************************************************/
-    }
+		/**********************************************************************/
+		act_format(format, actor, vch1, vch2, str1, str2, obj1, obj2, observer, false, vis);
+		/**********************************************************************/
+	}
 
-    /* viewing room stuff */
-    if (!censor && (type == TO_ROOM || type == TO_NOTVICT || type == TO_VIEW)) {
-        while (arena != arena_table_tail) {
-            if (ch->in_room->prototype.vnum >= arena->minvnum
-                && ch->in_room->prototype.vnum <= arena->maxvnum)
-                break;
+	/* viewing room stuff */
+	if (!censor && (type == TO_ROOM || type == TO_NOTVICT || type == TO_VIEW)) {
+		Duel::Arena *arena = arena_table_head->next;
 
-            arena = arena->next;
-        }
+		while (arena != arena_table_tail) {
+			if (room->prototype.vnum >= arena->minvnum
+			 && room->prototype.vnum <= arena->maxvnum)
+				break;
 
-        if (arena != arena_table_tail && arena->viewroom->people != nullptr) {
-            Format::sprintf(fake_message, "{Y[V]{x %s", format);
-            format = fake_message;
+			arena = arena->next;
+		}
 
-            for (to = arena->viewroom->people; to != nullptr; to = to->next_in_room) {
-                if (get_position(to) < min_pos)
-                    continue;
+		if (arena != arena_table_tail && arena->viewroom->people != nullptr) {
+			for (Character *observer = arena->viewroom->people; observer != nullptr; observer = observer->next_in_room) {
+				if (get_position(observer) < min_pos)
+					continue;
 
-                /**********************************************************************/
-                act_format(fake_message, ch, vch, vch2, str1, str2, obj1, obj2, to, false, vis);
-                /**********************************************************************/
-            }
-        }
-    }
+				/**********************************************************************/
+				act_format("{Y[V]{x " + format, actor, vch1, vch2, str1, str2, obj1, obj2, observer, false, vis);
+				/**********************************************************************/
+			}
+		}
+	}
 
-    /* TAIL stuff -- Elrac */
-    if (ch->tail == nullptr)
-        return;
+	/* TAIL stuff -- Elrac */
+	if (actor == nullptr || actor->tail == nullptr)
+		return;
 
-    if (type != TO_ROOM && type != TO_NOTVICT && type != TO_WORLD && type != TO_NOTVIEW)
-        return;
+	if (type != TO_ROOM && type != TO_NOTVICT && type != TO_WORLD && type != TO_NOTVIEW)
+		return;
 
-    if (format.has_prefix("$n says '")
-        || format.has_prefix("$n leaves "))
-        return;
+	if (format.has_prefix("$n says '")
+	 || format.has_prefix("$n leaves "))
+		return;
 
-    if (format.has_prefix("$n has arrived.")) {
-        Format::sprintf(fake_message, "$n has arrived at %s (%s).",
-                ch->in_room->name(), ch->in_room->area().file_name);
-        format = fake_message;
-    }
+	if (format.has_prefix("$n has arrived."))
+		format = Format::format("$n has arrived at %s (%s).",
+				actor->in_room->name(), actor->in_room->area().file_name);
 
-    /* check integrity of tailer. untail if bad. */
-    for (td = ch->tail; td;) {
-        if (td->tailer_name != td->tailed_by->name) {
-            set_tail(td->tailed_by, ch, TAIL_NONE);
-            td = ch->tail;
-            continue;
-        }
+	/* check integrity of tailer. untail if bad. */
+	for (Tail *td = actor->tail; td; /**/) {
+		if (td->tailer_name != td->tailed_by->name) {
+			set_tail(td->tailed_by, actor, TAIL_NONE);
+			td = actor->tail;
+			continue;
+		}
 
-        td = td->next;
-    }
+		td = td->next;
+	}
 
-    /*** second loop, for tailers ***/
-    for (td = ch->tail; td; td = td->next) {
-        /* check if tailer in room with actor */
-        for (to = ch->in_room->people; to; to = to->next_in_room) {
-            if (to == td->tailed_by)
-                break;
-        }
+	/*** second loop, for tailers ***/
+	for (Tail *td = actor->tail; td; td = td->next) {
+		Character *observer = nullptr;
+		/* check if tailer in room with actor */
+		for (observer = actor->in_room->people; observer; observer = observer->next_in_room) {
+			if (observer == td->tailed_by)
+				break;
+		}
 
-        if (to)
-            continue;
+		if (observer)
+			continue;
 
-        /**********************************************************************/
-        act_format(format, ch, vch, vch2, str1, str2, obj1, obj2,
-                   td->tailed_by, true, vis);
-        /**********************************************************************/
-    }
+		/**********************************************************************/
+		act_format(format, actor, vch1, vch2, str1, str2, obj1, obj2,
+				   td->tailed_by, true, vis);
+		/**********************************************************************/
+	}
 
-    /* Add this to turn Mob Programs Off
-                    MOBtrigger = false;
-    Add before the call to act */
-    MOBtrigger = true;
-    return;
-
+	/* Add this to turn Mob Programs Off
+					Game::MOBtrigger = false;
+	Add before the call to act */
+	MOBtrigger = true;
+	return;
 }
 
-void act(const String& format, Character *ch, const Actable* arg1, const Actable* arg2, int type, int min_pos, bool censor) {
-    act_parse(
-        format, ch,
-        (const Character *)arg2,
-        (const Character *)arg1,
-        (const String *)arg1,
-        (const String *)arg2,
-        (const Object *)arg1,
-        (const Object *)arg2,
-        type, min_pos, censor
-    );
+void act(const String& format, Character *actor, const Actable* arg1, const Actable* arg2, int type, int min_pos, bool censor, Room *room) {
+	act_parse(
+		format, actor, room,
+		(const Character *)arg2,
+		(const Character *)arg1,
+		(const String *)arg1,
+		(const String *)arg2,
+		(const Object *)arg1,
+		(const Object *)arg2,
+		type, min_pos, censor
+	);
 }
 
 // pointer and reference
-void act(const String& format, Character *ch, const Actable* arg1, const Actable& arg2, int type, int min_pos, bool censor) {
-    act(format, ch, arg1, &arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable* arg1, const Actable& arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, arg1, &arg2, type, min_pos, censor, room);
 }
 
 // reference and pointer
-void act(const String& format, Character *ch, const Actable& arg1, const Actable* arg2, int type, int min_pos, bool censor) {
-    act(format, ch, &arg1, arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable& arg1, const Actable* arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, &arg1, arg2, type, min_pos, censor, room);
 }
 
 // reference and reference
-void act(const String& format, Character *ch, const Actable& arg1, const Actable& arg2, int type, int min_pos, bool censor) {
-    act(format, ch, &arg1, &arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable& arg1, const Actable& arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, &arg1, &arg2, type, min_pos, censor, room);
 }
 
 /*
@@ -393,23 +416,23 @@ void act(const String& format, Character *ch, const Actable& arg1, const Actable
  */
 
 // arg and char*
-void act(const String& format, Character *ch, const Actable* arg1, const char *arg2, int type, int min_pos, bool censor) {
-    act(format, ch, arg1, String(arg2), type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable* arg1, const char *arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, arg1, String(arg2), type, min_pos, censor, room);
 }
 
 // arg and null
-void act(const String& format, Character *ch, const Actable* arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
-    act(format, ch, arg1, String(), type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable* arg1, std::nullptr_t arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, arg1, String(), type, min_pos, censor, room);
 }
 
 // char* and arg
-void act(const String& format, Character *ch, const char *arg1, const Actable* arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(arg1), arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, const char *arg1, const Actable* arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(arg1), arg2, type, min_pos, censor, room);
 }
 
 // null and arg
-void act(const String& format, Character *ch, std::nullptr_t arg1, const Actable* arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(), arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, std::nullptr_t arg1, const Actable* arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(), arg2, type, min_pos, censor, room);
 }
 
 /*
@@ -417,23 +440,23 @@ void act(const String& format, Character *ch, std::nullptr_t arg1, const Actable
  */
 
 // arg and char*
-void act(const String& format, Character *ch, const Actable& arg1, const char *arg2, int type, int min_pos, bool censor) {
-    act(format, ch, &arg1, String(arg2), type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable& arg1, const char *arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, &arg1, String(arg2), type, min_pos, censor, room);
 }
 
 // arg and null
-void act(const String& format, Character *ch, const Actable& arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
-    act(format, ch, &arg1, String(), type, min_pos, censor);
+void act(const String& format, Character *actor, const Actable& arg1, std::nullptr_t arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, &arg1, String(), type, min_pos, censor, room);
 }
 
 // char* and arg
-void act(const String& format, Character *ch, const char *arg1, const Actable& arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(arg1), &arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, const char *arg1, const Actable& arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(arg1), &arg2, type, min_pos, censor, room);
 }
 
 // null and arg
-void act(const String& format, Character *ch, std::nullptr_t arg1, const Actable& arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(), &arg2, type, min_pos, censor);
+void act(const String& format, Character *actor, std::nullptr_t arg1, const Actable& arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(), &arg2, type, min_pos, censor, room);
 }
 
 /*
@@ -441,21 +464,21 @@ void act(const String& format, Character *ch, std::nullptr_t arg1, const Actable
  */
 
 // char* and char*
-void act(const String& format, Character *ch, const char *arg1, const char *arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(arg1), String(arg2), type, min_pos, censor);
+void act(const String& format, Character *actor, const char *arg1, const char *arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(arg1), String(arg2), type, min_pos, censor, room);
 }
 
 // char* and null
-void act(const String& format, Character *ch, const char *arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(arg1), String(), type, min_pos, censor);
+void act(const String& format, Character *actor, const char *arg1, std::nullptr_t arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(arg1), String(), type, min_pos, censor, room);
 }
 
 // null and char*
-void act(const String& format, Character *ch, std::nullptr_t arg1, const char *arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(), String(arg2), type, min_pos, censor);
+void act(const String& format, Character *actor, std::nullptr_t arg1, const char *arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(), String(arg2), type, min_pos, censor, room);
 }
 
 // null and null
-void act(const String& format, Character *ch, std::nullptr_t arg1, std::nullptr_t arg2, int type, int min_pos, bool censor) {
-    act(format, ch, String(), String(), type, min_pos, censor);
+void act(const String& format, Character *actor, std::nullptr_t arg1, std::nullptr_t arg2, int type, int min_pos, bool censor, Room *room) {
+	act(format, actor, String(), String(), type, min_pos, censor, room);
 }
