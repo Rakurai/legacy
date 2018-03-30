@@ -482,24 +482,4 @@ DECLARE_DO_FUN( do_yell         );
 DECLARE_DO_FUN( do_zap          );
 DECLARE_DO_FUN( do_zecho        );
 
-DECLARE_DO_FUN( do_mpasound     );
-DECLARE_DO_FUN( do_mpat         );
 DECLARE_DO_FUN( do_mpcast       );
-DECLARE_DO_FUN( do_mpmoney );
-DECLARE_DO_FUN( do_mpecho       );
-DECLARE_DO_FUN( do_mpechoaround );
-DECLARE_DO_FUN( do_mpechoat     );
-DECLARE_DO_FUN( do_mpforce      );
-DECLARE_DO_FUN( do_mpgoto       );
-DECLARE_DO_FUN( do_mpjunk       );
-DECLARE_DO_FUN( do_mpkill       );
-DECLARE_DO_FUN( do_mpmload      );
-DECLARE_DO_FUN( do_mpoload      );
-DECLARE_DO_FUN( do_mppurge      );
-DECLARE_DO_FUN( do_mptransfer   );
-
-DECLARE_DO_FUN( do_mpinvis);
-DECLARE_DO_FUN( do_mpvis);
-DECLARE_DO_FUN( do_mpmake_pet);
-DECLARE_DO_FUN( do_mpcontrol);
-DECLARE_DO_FUN( do_mpstate);

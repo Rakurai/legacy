@@ -24,18 +24,18 @@ stand stand male 1000
 0 0 medium 0
 >all_greet_prog 100~
 if $actor.level() <= 5
-     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner notices you, and says "Want to have a
-     MPECHO look around? Well, just don't track any mud in there. Take
-     MPECHO what you like... It all grows back. I can take your ticket
-     MPECHO here, but if this is your first visit, you should get a
-     MPECHO {Pguide book{x from the souvenir shop."
+     $self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner notices you, and says 'Want to have a")
+     $self.echo("look around? Well, just don't track any mud in there. Take")
+     $self.echo("what you like... It all grows back. I can take your ticket")
+     $self.echo("here, but if this is your first visit, you should get a")
+     $self.echo("{Pguide book{x from the souvenir shop.'")
 else
-     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner, startled by your entrance, snarls
-     MPECHO some strands of light into a hopeless knot, which he then tries
-     MPECHO to slip into his pocket without your noticing it. "I'm sorry", he
-     MPECHO says, "but you are too dusty from all your adventuring to visit
-     MPECHO the prism itself. Feel free to visit the souvenir shop, but you
-     MPECHO will find you cannot fit through the filter any more."
+     $self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner, startled by your entrance, snarls")
+     $self.echo("some strands of light into a hopeless knot, which he then tries")
+     $self.echo("to slip into his pocket without your noticing it. 'I'm sorry', he")
+     $self.echo("says, 'but you are too dusty from all your adventuring to visit")
+     $self.echo("the prism itself. Feel free to visit the souvenir shop, but you")
+     $self.echo("will find you cannot fit through the filter any more.'")
 endif
 ~
 >give_prog rainbow ticket~
@@ -44,11 +44,11 @@ if level ($actor) <= 5
      GIVE key $actor
      SAY Enjoy your tour!
 else
-     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says "I am sorry, but you are too
-     MPECHO experienced to be impressed by anything we have here. But
-     MPECHO be sure to send your young friends!"
+     $self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says 'I am sorry, but you are too")
+     $self.echo("experienced to be impressed by anything we have here. But")
+     $self.echo("be sure to send your young friends!'")
 endif
-MPJUNK all
+$self.junk(all)
 ~
 >rand_prog 2~
 emote whines about how he never liked {Yyellow{x much in the first place.
@@ -57,60 +57,60 @@ emote whines about how he never liked {Yyellow{x much in the first place.
 emote washes his hands in a beam of {Bblue{x light.
 ~
 >rand_prog 3~
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.
-MPECHO First he checks his pockets, then he looks all around him and under things.
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks east.
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.")
+$self.echo("First he checks his pockets, then he looks all around him and under things.")
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks east.")
 SAY Have you seen my Number 5 filter?
 MUTTER
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner scoops up a handfull of {Yyellow{x light
-MPECHO and holds it to his ear, concentrating...
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner scoops up a handful of {Yyellow{x light")
+$self.echo("and holds it to his ear, concentrating...")
 if $world.rand(50)
-     MPECHO "Darn", he says, sometimes they know. I'll have to try harder."
-     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner puts his right foot in, he takes
-     MPECHO his right foot out, he puts his right foot in, and he shakes it all
-     MPECHO about. He does the hokey-pokey and he turns himself around.
+     $self.echo("'Darn', he says, sometimes they know. I'll have to try harder.'")
+     $self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner puts his right foot in, he takes")
+     $self.echo("his right foot out, he puts his right foot in, and he shakes it all")
+     $self.echo("about. He does the hokey-pokey and he turns himself around.")
 endif
-MPECHO Suddenly, he holds a small {Mmagenta disc{x in his hand!
+$self.echo("Suddenly, he holds a small {Mmagenta disc{x in his hand!")
 smile
 ~
 >rand_prog 3~
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.
-MPECHO First he checks his pockets, then he looks all around him and under things.
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks up.
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.")
+$self.echo("First he checks his pockets, then he looks all around him and under things.")
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks up.")
 SAY Have you seen my bottle of glass cleaner?
 MUTTER
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner drinks from a beam of {Ggreen{x light,
-MPECHO slurping down mass quantities. Then he sneezes.
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner drinks from a beam of {Ggreen{x light,")
+$self.echo("slurping down mass quantities. Then he sneezes.")
 if $world.rand(50)
-     MPECHO "Rats", he snorts, still looking a bit green. "That usually works.
-     MPECHO I'll have to call in a real expert."
-     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner performs the Rite of Ash' K'ente, and
-     MPECHO summons the {cSpirit of Death{x. He grabs it by the lapels and shakes
-     MPECHO it until it cries uncle and tells him what he wants to know...
+     $self.echo("'Rats', he snorts, still looking a bit green. 'That usually works.")
+     $self.echo("I'll have to call in a real expert.'")
+     $self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner performs the Rite of Ash' K'ente, and")
+     $self.echo("summons the {cSpirit of Death{x. He grabs it by the lapels and shakes")
+     $self.echo("it until it cries uncle and tells him what he wants to know...")
 endif
-MPECHO Suddenly, he holds a bottle of {Cbluish fluid{x in his hand!
+$self.echo("Suddenly, he holds a bottle of {Cbluish fluid{x in his hand!")
 smile
 ~
 >rand_prog 3~
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.
-MPECHO First he checks his pockets, then he looks all around him and under things.
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks down.
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.")
+$self.echo("First he checks his pockets, then he looks all around him and under things.")
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks down.")
 SAY Have you seen my lint brush?
 MUTTER
 meditate
 if $world.rand(50)
      curse
      say I hate it when that doesn't work. Oh, well, here goes plan B...
-     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner sneaks up on a {Rred{x photon and
-     MPECHO tackles it, sniffing its bottom with a look of distaste.
+     $self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner sneaks up on a {Rred{x photon and")
+     $self.echo("tackles it, sniffing its bottom with a look of distaste.")
 endif
-MPECHO Suddenly, he holds a small brush in his hand!
+$self.echo("Suddenly, he holds a small brush in his hand!")
 smile
 ~
 >speech_prog heart heart?~
-MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says "I call that the 'central refractor',
-MPECHO actually. You can find it in the nest of crystals just beyond
-MPECHO the portal, up there."
+$self.echo("The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says 'I call that the 'central refractor',")
+$self.echo("actually. You can find it in the nest of crystals just beyond")
+$self.echo("the portal, up there.'")
 ~
 |
 #4202
@@ -133,12 +133,12 @@ stand stand male 1000
 0 0 medium 0
 >all_greet_prog 100~
 if $actor.level() <= 5
-     MPECHO The staff naturalist bows and says "Welcome to the Collimator!
-     MPECHO Please get a {Pguide book{x from the rack, you should find it
-     MPECHO most informative and helpful.
+     $self.echo("The staff naturalist bows and says 'Welcome to the Collimator!")
+     $self.echo("Please get a {Pguide book{x from the rack, you should find it")
+     $self.echo("most informative and helpful.")
 else
-     MPECHO The staff naturalist bows and resumes contemplating some brightly
-     MPECHO colored lint of indeterminate origin.
+     $self.echo("The staff naturalist bows and resumes contemplating some brightly")
+     $self.echo("colored lint of indeterminate origin.")
 endif
 ~
 >give_prog rainbow ticket~
@@ -147,11 +147,11 @@ if level ($actor) <= 5
      give key $actor
      say Enjoy your tour!
 else
-     MPECHO The naturalist says "I am sorry, but you are too experienced to be
-     MPECHO impressed by anything we have here. But be sure to send your young
-     MPECHO friends!"
+     $self.echo("The naturalist says 'I am sorry, but you are too experienced to be")
+     $self.echo("impressed by anything we have here. But be sure to send your young")
+     $self.echo("friends!'")
 endif
-MPJUNK all
+$self.junk(all)
 ~
 >rand_prog 2~
 emote whines about how he never liked {Yyellow{x much in the first place.
@@ -160,12 +160,12 @@ emote whines about how he never liked {Yyellow{x much in the first place.
 emote washes his hands in a beam of {Bblue{x light.
 ~
 >speech_prog heart heart?~
-MPECHO The naturalist says "Ah, yes, '{Vrefractor centralis{x'.
-MPECHO You can find this wondrous thing in the living center of the
-MPECHO heart of the prism. Go out those doors, unlock the filter
-MPECHO and go up, then enter the prism and you will see it right
-MPECHO there! Be sure and admire it in its setting before you just
-MPECHO go grabbing at it."
+$self.echo("The naturalist says 'Ah, yes, '{Vrefractor centralis{x'.")
+$self.echo("You can find this wondrous thing in the living center of the")
+$self.echo("heart of the prism. Go out those doors, unlock the filter")
+$self.echo("and go up, then enter the prism and you will see it right")
+$self.echo("there! Be sure and admire it in its setting before you just")
+$self.echo("go grabbing at it.'")
 ~
 |
 #4203
@@ -187,9 +187,9 @@ wake $actor
 say Wouldn't you like to buy some cookies, $actor?
 ~
 >all_greet_prog 100~
-$self.goto($world.get_room(3032))
-MPJUNK all.box
-MPJUNK all.cookie
+$self.to_room($world.get_room(3032))
+$self.junk(all.box)
+$self.junk(all.cookie)
 $self.load_obj(4212)
 $self.load_obj(4211)
 $self.load_obj(4211)
@@ -206,8 +206,8 @@ $self.load_obj(4211)
 put all.cookie in box
 close box
 $self.load_obj(4211)
-MPJUNK all.survival
-MPJUNK all.tablet
+$self.junk(all.survival)
+$self.junk(all.tablet)
 $self.load_obj(4215)
 $self.load_obj(4214)
 $self.load_obj(4214)
@@ -222,11 +222,11 @@ $self.load_obj(4214)
 put all.tablet survival
 close survival
 $self.load_obj(4214)
-$self.goto($room)
+$self.to_room($room)
 ~
 >act_prog p buys a box of girl guides cookies.~
-$self.goto($world.get_room(3032))
-MPJUNK all.cookie
+$self.to_room($world.get_room(3032))
+$self.junk(all.cookie)
 $self.load_obj(4212)
 $self.load_obj(4211)
 $self.load_obj(4211)
@@ -242,12 +242,12 @@ $self.load_obj(4211)
 $self.load_obj(4211)
 put all.cookie in box
 $self.load_obj(4211)
-$self.goto($room)
+$self.to_room($room)
 ~
 >act_prog p buys a hot weather survival pack.~
-$self.goto($world.get_room(3032))
-MPJUNK all.survival
-MPJUNK all.tablet
+$self.to_room($world.get_room(3032))
+$self.junk(all.survival)
+$self.junk(all.tablet)
 $self.load_obj(4215)
 $self.load_obj(4214)
 $self.load_obj(4214)
@@ -261,7 +261,7 @@ $self.load_obj(4214)
 $self.load_obj(4214)
 put all.tablet survival
 $self.load_obj(4214)
-$self.goto($room)
+$self.to_room($room)
 ~
 >rand_prog 5~
 emote gets a whetstone from her trailpack.

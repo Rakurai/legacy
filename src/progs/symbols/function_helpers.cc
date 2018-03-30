@@ -14,7 +14,7 @@ void fn_helper_echo(const String& format, Character *actor, Actable *v1, Actable
 	act(format, actor, v1, v2, TO_ROOM, POS_RESTING, false, room);
 }
 
-void fn_helper_echo_at(const String& format, Character *actor, Actable *v1, Actable *v2, Room *room) {
+void fn_helper_echo_to(const String& format, Character *actor, Actable *v1, Actable *v2, Room *room) {
 	act(format, actor, v1, v2, TO_VICT, POS_RESTING, false, room);
 }
 
@@ -62,5 +62,59 @@ void fn_helper_junk(Character *ch, Object *obj) {
 	extract_obj(obj);
 }
 
+void fn_helper_purge_room(Room *room, Character *safe_ch, Object *safe_obj) {
+	if (room == nullptr)
+		return;
+
+	// no arg, purge whole room except mob
+	Character *vnext;
+	for (Character *victim = room->people; victim != nullptr; victim = vnext) {
+		vnext = victim->next_in_room;
+
+		if (victim->is_npc() && victim != safe_ch)
+			extract_char(victim, true);
+	}
+
+	Object *obj_next;
+	for (Object *obj = room->contents; obj != nullptr; obj = obj_next) {
+		obj_next = obj->next_content;
+
+		if (obj != safe_obj)
+			extract_obj(obj);
+	}
+}
+
+void fn_helper_purge_char(Character *victim) {
+	if (victim != nullptr) {
+		if (!victim->is_npc())
+			throw Format::format("attempting to purge PC '%s'", victim->name);
+
+		extract_char(victim, true);
+	}
+}
+
+void fn_helper_purge_obj(Object *obj) {
+	if (obj != nullptr)
+		extract_obj(obj);
+}
+
+void fn_helper_transfer(Character *victim, Room *location) {
+	if (victim == nullptr)
+		throw String("null victim");
+
+	if (location == nullptr)
+		throw String("null location");
+
+	if (location->is_private()) {
+		throw String("private room");
+		return;
+	}
+
+	if (victim->fighting != nullptr)
+		stop_fighting(victim, true);
+
+	char_from_room(victim);
+	char_to_room(victim, location);
+}
 } // namespace symbols
 } // namespace progs

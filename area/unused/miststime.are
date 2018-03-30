@@ -32,14 +32,14 @@ say After you have thought, speak your answer to me.
 >speech_prog p yes~
 growl $n
 say Then it is your intention to die!
-MPKILL $n
+$self.kill($n)
 ~
 >speech_prog p no~
 beam $n
 say Good, I shall let you pass then.
 bow $n
-MPTRANSFER $n 29301
-MPAT 29301 say Welcome to Where Time Stands Still.
+say Welcome to Where Time Stands Still.
+$self.transfer($n, 29301)
 ~
 |
 #0

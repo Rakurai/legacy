@@ -33,12 +33,12 @@ stand stand either 6000
 >fight_prog 50~
 if ( rand(50) )
    emote tries to attack your eyes~
-   MPCAST 'blindness' $n
+   $self.cast('blindness' $n)
    break
 endif
 if ( rand(10) )
    emote tries to stop the fight~
-   MPCAST 'dazzle'
+   $self.cast('dazzle')
    break
 endif
 ~
@@ -58,12 +58,12 @@ stand stand either 6300
 >fight_prog 70~
 if ( rand(46) )
     emote conjures up a fireball!
-    MPCAST 'fireball' $n
+    $self.cast('fireball' $n)
     break
 endif
 if ( rand(25) )
     emote smiles softly.
-    MPCAST 'blindness' $n
+    $self.cast('blindness' $n)
     break
 endif
 ~
@@ -88,74 +88,74 @@ stand stand female 500
 0 0 medium 0
 >fight_prog 75~
 if ( rand(40) )
-   MPCAST 'demonfire' $n
+   $self.cast('demonfire' $n)
    break
 endif
 if ( rand(35) )
-   MPCAST 'fireball' $n
-   MPCAST 'colour spray' $n
+   $self.cast('fireball' $n)
+   $self.cast('colour spray' $n)
    break
 endif
 if ( rand(10) )
-   MPCAST 'teleport' %n
+   $self.cast('teleport' %n)
    break
 endif
 ~
 >fight_prog 25~
 if ( rand(50) )
-   MPECHO Konia burps.
-   MPCAST 'fire breath' $n
-   MPCAST 'fire breath' $n
+   $self.echo("Konia burps.")
+   $self.cast('fire breath' $n)
+   $self.cast('fire breath' $n)
    break
 endif
 if ( rand(40) )
-   MPCAST 'wrath' $n
-   MPCAST 'blindness' $n
-   MPCAST 'slow' $n
-   MPCAST 'plague' $n
-   MPCAST 'curse' $n
-   MPCAST 'dispel magic' $n
+   $self.cast('wrath' $n)
+   $self.cast('blindness' $n)
+   $self.cast('slow' $n)
+   $self.cast('plague' $n)
+   $self.cast('curse' $n)
+   $self.cast('dispel magic' $n)
    break
 endif
 if ( rand(25) )
-   MPECHO Konia calls upon the Sphere of Fire.
-   MPCAST 'fireball' $n
-   MPCAST 'fireball' $n
-   MPCAST 'flamestrike' $n
-   MPCAST 'fire breath' $n
+   $self.echo("Konia calls upon the Sphere of Fire.")
+   $self.cast('fireball' $n)
+   $self.cast('fireball' $n)
+   $self.cast('flamestrike' $n)
+   $self.cast('fire breath' $n)
    break
 endif
 ~
 >fight_prog 39~
 if ( rand(30) )
-   MPECHO Konia raises her hand and a purple ball appears.
-   MPCAST 'blindness' $n
-   MPCAST 'heat metal' $n
-   MPCAST 'demonfire' $n
-   MPCAST 'sunray' $n
-   MPCAST 'ray of truth' $n
-   MPCAST 'slow' $n
-   MPCAST 'hex' $n
+   $self.echo("Konia raises her hand and a purple ball appears.")
+   $self.cast('blindness' $n)
+   $self.cast('heat metal' $n)
+   $self.cast('demonfire' $n)
+   $self.cast('sunray' $n)
+   $self.cast('ray of truth' $n)
+   $self.cast('slow' $n)
+   $self.cast('hex' $n)
    break
 endif
 ~
 >fight_prog 25~
 if ( rand(100) )
-   MPCAST 'force shield' $i
+   $self.cast('force shield' $i)
    break
 endif
 ~ 
 >death_prog 100~
  say You've deserved this.
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n       
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n
- MPCAST 'divine heal' $n
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n       )
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n)
+ $self.cast('divine heal' $n)
 ~
 |
 #0

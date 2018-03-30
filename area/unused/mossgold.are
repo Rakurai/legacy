@@ -23,12 +23,12 @@ stand rest male 250
 0 0 medium 0
 >give_prog fish meck~
       thank $n
-   mpjunk fish
+   $self.junk(fish)
    emote throws a {Bbig {Cf{Wi{cs{Wh{x in a pan and starts frying it.
    $self.load_obj(10131)
    emote serves up the {cC{Ro{co{Rk{ce{Rd {cF{Ri{cs{Rh{x.
    give fish $n
-   mpjunk all
+   $self.junk(all)
    grin $n
 ~
 |
@@ -413,14 +413,14 @@ stand stand male 25
       endif
    endif
    emote dives head-first into the pond!
-   MPGOTO 10117
-   MPECHO $i struggles to subdue the massive fish!
+   $self.to_room(10117)
+   $self.echo("$i struggles to subdue the massive fish!")
    $self.load_obj(10130)
-   MPGOTO $n
-   MPECHO $i surfaces!
+   $self.to_room($n.in_room())
+   $self.echo("$i surfaces!")
    emote steps out of the water, totally drenched.
    give fish $n
-   MPECHO An impish grin crosses Matthias' face.
+   $self.echo("An impish grin crosses Matthias' face.")
    say Got it!!!
    rest
 ~

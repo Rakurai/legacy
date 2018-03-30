@@ -27,8 +27,8 @@ emote pokes a stick in a small cage, and you hear the whimper of a frightened an
 ~
 
 >death_prog 100~
-mpecho A small cage falls to the floor and the door breaks open, leaving
-mpecho a frightened animal that looks helpless and lost.
+$self.echo("A small cage falls to the floor and the door breaks open, leaving")
+$self.echo("a frightened animal that looks helpless and lost.")
 $room.load_mob(21003)
 ~
 |
@@ -55,8 +55,8 @@ emote pokes a stick in a small cage, and you hear the whimper of a frightened an
 ~
 
 >death_prog 100~
-mpecho A small cage falls to the floor and the door breaks open, leaving
-mpecho a frightened animal that looks helpless and lost.
+$self.echo("A small cage falls to the floor and the door breaks open, leaving")
+$self.echo("a frightened animal that looks helpless and lost.")
 $room.load_mob(21004)
 ~
 |
@@ -83,8 +83,8 @@ emote pokes a stick in a small cage, and you hear the whimper of a frightened an
 ~
 
 >death_prog 100~
-mpecho A small cage falls to the floor and the door breaks open, leaving
-mpecho a frightened animal that looks helpless and lost.
+$self.echo("A small cage falls to the floor and the door breaks open, leaving")
+$self.echo("a frightened animal that looks helpless and lost.")
 $room.load_mob(21005)
 ~
 |
@@ -106,9 +106,9 @@ stand stand male 0
 0 0 medium 0 
 
 >give_prog unripe banana~
-mpecho The small primate lets out a sudden squeal of delight and 
-mpecho shoves the entire banana in his mouth, chewing happily.
-mpecho After a while he seems to have calmed down quite a bit. 
+$self.echo("The small primate lets out a sudden squeal of delight and ")
+$self.echo("shoves the entire banana in his mouth, chewing happily.")
+$self.echo("After a while he seems to have calmed down quite a bit. ")
 follow $n
 emote smiles happily and looks up with adoring eyes.
 ~
@@ -117,13 +117,14 @@ emote smiles happily and looks up with adoring eyes.
 if $i.in_room() == 3031
    emote grunts and jumps back into his waiting cage.
    get_room(3032).load_mob(3091)
-   MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
-   MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
-   MPFORCE owner $self.load_obj(21003)
-   MPFORCE owner give note 2.
-   MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.
-   MPFORCE owner emote smiles and leaves to check on the monkey.
-   mpgoto 1
+   assign $owner = $i.in_room().get_char(owner)
+   $owner.do("say It's such a relief to see one of our pets return safely! Thanks for the help!")
+   $owner.do("emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.")
+   $owner.load_obj(21003)
+   $owner.do("give note 2.")
+   $owner.do("say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.")
+   $owner.do("emote smiles and leaves to check on the monkey.")
+   $self.to_room(1)
 endif
 ~
 |
@@ -145,9 +146,9 @@ stand stand female 0
 0 0 small 0 
 
 >give_prog fish head~
-mpecho The little kitten purrs sofly and licks her lips, then 
-mpecho takes the fish head in her mouth and swallows it all in
-mpecho a few gulps.
+$self.echo("The little kitten purrs sofly and licks her lips, then ")
+$self.echo("takes the fish head in her mouth and swallows it all in")
+$self.echo("a few gulps.")
 follow $n
 emote smiles happily and looks up with adoring eyes.
 ~
@@ -156,13 +157,14 @@ emote smiles happily and looks up with adoring eyes.
 if $i.in_room() == 3031
    emote smiles happily and jumps back into her waiting cage.
    get_room(3032).load_mob(3090)
-   MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
-   MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
-   MPFORCE owner $self.load_obj(21004)
-   MPFORCE owner give note 2.
-   MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from her excitement.
-   MPFORCE owner emote smiles and leaves to check on the kitten.
-   mpgoto 1
+   assign $owner = $i.in_room().get_char(owner)
+   $owner.do("say It's such a relief to see one of our pets return safely! Thanks for the help!")
+   $owner.do("emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.")
+   $self.load_obj(21004)
+   $owner.do("give note 2.")
+   $owner.do("say Here's a note of appreciation. I'm going to go see how our little friend is recovering from her excitement.")
+   $owner.do("emote smiles and leaves to check on the kitten.")
+   $self.to_room(1)
 endif
 ~
 |
@@ -184,9 +186,9 @@ stand stand male 0
 0 0 small 0 
 
 >give_prog chew toy~
-mpecho The little puppy begins to hop up and down at the sight  
-mpecho of this squeaky chew toy. Letting out a friendly growl,
-mpecho he tosses it over to you and chases after it.
+$self.echo("The little puppy begins to hop up and down at the sight  ")
+$self.echo("of this squeaky chew toy. Letting out a friendly growl,")
+$self.echo("he tosses it over to you and chases after it.")
 follow $n
 emote smiles happily and looks up with adoring eyes.
 ~
@@ -195,13 +197,14 @@ emote smiles happily and looks up with adoring eyes.
 if $i.in_room() == 3031
    emote barks happily and jumps back into his waiting cage.
    get_room(3032).load_mob(3091)
-   MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
-   MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
-   MPFORCE owner $self.load_obj(21005)
-   MPFORCE owner give note 2.
-   MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.
-   MPFORCE owner emote smiles and leaves to check on the puppy.
-   mpgoto 1
+   assign $owner = $i.in_room().get_char(owner)
+   $owner.do("say It's such a relief to see one of our pets return safely! Thanks for the help!")
+   $owner.do("emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.")
+   $self.load_obj(21005)
+   $owner.do("give note 2.")
+   $owner.do("say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.")
+   $owner.do("emote smiles and leaves to check on the puppy.")
+   $self.to_room(1)
 endif
 ~
 |
@@ -271,8 +274,8 @@ stand stand male 0
 0 0 small 0
 
 >greet_prog 20~
-mpecho The Legacy Times Newsboy exclaims, "Extra! Extra! The Midgaard Pet shop has been broken into! 
-mpecho Reward offered for the safe return of pets."
+$self.echo("The Legacy Times Newsboy exclaims, "Extra! Extra! The Midgaard Pet shop has been broken into! ")
+$self.echo("Reward offered for the safe return of pets."")
 ~
 |
 

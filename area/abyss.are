@@ -23,7 +23,7 @@ BCDEFHIKN ABJQ 0 0
 stand stand either 0
 0 0 medium 0
 >fight_prog 10~
-     MPCAST heal
+     $self.cast(heal)
 ~
 |
 #13101
@@ -66,7 +66,7 @@ BCDEFHIKN ABJQ 0 0
 stand stand either 0
 0 0 medium 0
 >fight_prog 10~
-      MPCAST heal
+      $self.cast(heal)
 ~
 |
 #13103
@@ -88,7 +88,7 @@ ABCDEFHIKN ABJQ 0 0
 stand stand female 0
 0 0 medium 0
 >Fight_prog 20~
-     MPCAST heal
+     $self.cast(heal)
 ~
 |
 #13104
@@ -106,7 +106,7 @@ ABCDEFHIKNO ABJQ 0 0
 stand stand either 0
 0 0 medium 0
 >Fight_prog 20~
-   MPCAST heal
+   $self.cast(heal)
 ~
 |
 #13105
@@ -128,7 +128,7 @@ ABCDEFHIKN ABJQ 0 0
 stand stand male 0
 0 0 medium 0
 >Fight_prog 20~
-    MPCAST heal
+    $self.cast(heal)
 ~
 |
 #13106
@@ -150,7 +150,7 @@ ABCDEFHIKNO ABJQ 0 0
 stand stand female 0
 0 0 medium 0
 >Fight_Prog 25~
-   MPCAST heal
+   $self.cast(heal)
 ~
 |
 #13107
@@ -172,7 +172,7 @@ ABCDEFHIKNO ABJQ 0 0
 stand stand male 0
 0 0 medium 0
 >fight_prog 25~
-    MPCAST heal
+    $self.cast(heal)
 ~
 |
 #13108
@@ -192,7 +192,7 @@ ABCDEFHIKNO ABJQ 0 0
 stand stand either 0
 0 0 medium 0
 >fight_prog 30~
-     MPCAST heal
+     $self.cast(heal)
 ~
 |
 #13109
@@ -212,7 +212,7 @@ ABCDEFHIKNO ABJQ 0 0
 stand stand either 0
 0 0 medium 0
 >fight_prog 30~
-      MPCAST heal
+      $self.cast(heal)
 ~
 |
 #13110
@@ -231,7 +231,7 @@ ABCDEFHIKNO ABJQ 0 0
 stand stand either 0
 0 0 medium 0
 >Fight_Prog 30~
-   MPCAST heal
+   $self.cast(heal)
 ~
 |
 #13111
@@ -276,14 +276,14 @@ stand stand either 0
     $room.load_mob(13115)
 ~
 >Fight_prog 70~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >Fight_prog 10~
-    MPCAST 'Divine heal'
+    $self.cast('Divine heal')
 ~
 >greet_prog 100~
    if $actor.is_pc()
-    MPCAST wrath $actor
+    $self.cast(wrath $actor)
 endif
 ~
 |
@@ -312,7 +312,7 @@ stand stand either 0
     $room.load_mob(13115)
 ~
 >Fight_Prog 40~
-    MPCAST heal
+    $self.cast(heal)
 ~
 |
 #13113
@@ -345,10 +345,10 @@ stand stand either 0
     $room.load_mob(13115)
 ~
 >Fight_prog 45~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >Fight_Prog 5~
-    MPCAST "divine heal"
+    $self.cast("divine heal")
 ~
 |
 
@@ -389,14 +389,14 @@ stand stand either 0
    $room.load_mob(13115)
 ~
 >Fight_Prog 70~
-   MPCAST Heal
+   $self.cast(Heal)
 ~
 >Fight_prog 8~
-   MPCAST 'divine heal'
+   $self.cast('divine heal')
 ~
 >greet_prog 100~
    if $actor.is_pc()
-   MPCAST wrath $actor
+   $self.cast(wrath $actor)
   endif
 ~
 |
@@ -420,7 +420,7 @@ stand stand either 0
     $room.load_mob(13115)
 ~
 >fight_prog 50~
-     MPCAST heal
+     $self.cast(heal)
 ~
 |
 #13116
@@ -455,10 +455,10 @@ stand stand either 0
     $room.load_mob(13115)
 ~
 >fight_prog 60~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >fight_prog 3~
-    MPCAST 'divine heal'
+    $self.cast('divine heal')
 ~
 |
 #13117
@@ -481,13 +481,13 @@ ABCDEFHIJKN ABHIJKLMQ CDEFGO N
 stand stand either 0
 0 0 large 0
 >Fight_prog 100~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >fight_prog 25~
-    MPCAST 'divine heal'
+    $self.cast('divine heal')
 ~
 >fight_prog 5~
-    MPCAST 'force shield'
+    $self.cast('force shield')
 ~
 |
 #13118
@@ -531,17 +531,17 @@ stand stand male 0
     $room.load_mob(13111)
 ~
 >Fight_prog 80~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >Fight_prog 20~
-   MPCAST 'divine heal'
+   $self.cast('divine heal')
 ~
 >Fight_prog 3~
-   MPCAST 'force shield'
+   $self.cast('force shield')
 ~
 >greet_prog 100~
    if $actor.is_pc()
-   MPCAST wrath $actor
+   $self.cast(wrath $actor)
  endif
 ~
 |
@@ -566,17 +566,17 @@ stand stand female 0
     $room.load_mob(13111)
 ~
 >Fight_prog 80~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >Fight_prog 20~
-    MPCAST 'divine heal'
+    $self.cast('divine heal')
 ~
 >Fight_prog 3~
-   MPCAST 'force shield'
+   $self.cast('force shield')
 ~
 >greet_prog 100~
     if $actor.is_pc()
-    MPCAST wrath $actor
+    $self.cast(wrath $actor)
 endif
 ~
 |
@@ -603,17 +603,17 @@ stand stand female 0
     $room.load_mob(13111)
 ~
 >Fight_prog 80~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >Fight_prog 20~
-    MPCAST 'divine heal'
+    $self.cast('divine heal')
 ~
 >Fight_prog 3~
-    MPCAST 'force shield'
+    $self.cast('force shield')
 ~
 >greet_prog 100~
     if $actor.is_pc()
-    MPCAST wrath $actor
+    $self.cast(wrath $actor)
  endif
 ~
 |
@@ -690,7 +690,7 @@ stand stand male 0
    $elvan.load_obj(13152)
    $elvan.load_obj(13153)
    $elvan.do("wear all")
-   $elvan.goto($room)
+   $elvan.to_room($room)
    $room.echo("{PThe Angel dies, and the sacrifice restores Elvanshalee from the dead.{x")
 ~
 |
@@ -711,7 +711,7 @@ ABCDEFHIJKN AB 0 0
 stand stand either 0
 0 0 medium 0
 >fight_prog 10~
-   MPCAST heal
+   $self.cast(heal)
 ~
 |
 #13127
@@ -749,7 +749,7 @@ ABCDEFHIKN AB 0 0
 stand stand male 0
 0 0 medium 0
 >fight_prog 30~
-     MPCAST heal
+     $self.cast(heal)
 ~
 |
 #13129
@@ -815,13 +815,13 @@ stand stand female 0
     $room.load_mob(13111)
 ~
 >Fight_prog 100~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >Fight_prog  30~
-      MPCAST 'divine heal'
+      $self.cast('divine heal')
 ~
 >Fight_prog 10~
-    MPCAST 'force shield'
+    $self.cast('force shield')
 ~
 |
 #13132
@@ -844,13 +844,13 @@ stand stand female 0
     $room.load_mob(13133)
 ~
 >fight_prog 100~
-    MPCAST heal
+    $self.cast(heal)
 ~
 >fight_prog 20~
-    MPCAST 'divine heal'
+    $self.cast('divine heal')
 ~
 >fight_prog 4~
-    MPCAST 'force shield'
+    $self.cast('force shield')
 ~
 |
 #13133

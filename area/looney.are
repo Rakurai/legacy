@@ -248,7 +248,7 @@ stand stand male 1000
 >rand_prog 3~
 emote looks at Tweety thoughtfully.
 emote starts building a catapult out of some boards and an anvil.
-MPECHO (We can all see where this is going, right?)
+$self.echo("(We can all see where this is going, right?)")
 ~
 |
 #2911

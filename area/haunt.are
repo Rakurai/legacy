@@ -75,7 +75,7 @@ FH 0 E 0
 stand stand male 220
 0 0 medium 0
 >all_greet_prog 100~
-MPECHO A statue of a priest with the head of a horned fiend glares at you.
+$self.echo("A statue of a priest with the head of a horned fiend glares at you.")
 ~
 |
 

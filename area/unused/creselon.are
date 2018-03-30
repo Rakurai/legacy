@@ -33,20 +33,20 @@ say Welcome, worthy adventurer!  Will you be journeying to Creselon today?
 say Ah yes, a wand of speed.  I can give you a wand of lethargy for it in trade.
 $self.load_obj(12807)
 give lethargy $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog potion talon creseloneq~
 say Excellent, I have a friend who buys potions of talon from me.  I will give you a scroll of frost breath for it.
 $self.load_obj(12810)
 give frost $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog portal spire stars creseloneq~
 smile $n
 say You must have fought many battles to acquire the secret portal into the Spire!  I will give you a Mace of Disruption to assist in conquering your foes.
 $self.load_obj(12812)
 give disruption $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog suffering innocent creseloneq~
 sigh
@@ -54,40 +54,40 @@ say Yes, many innocent people have suffered since the Spire was raised.  Some ki
 say It's not much, but I can give you a Dagger of Treachery for your help in ending this long standoff.
 $self.load_obj(12814)
 give treachery $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog wand healing creseloneq~
 say Ah... a wand of healing.  For healing items I can give you a Crusader Shield to help you on your quests.
 $self.load_obj(12816)
 give crusader $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog cursed boots creseloneq~
 say I see that you don't relish the weakness imposed by the Cursed Boots.  I have an acquaintance who will buy them, so I'll give you a scroll of Fiery Doom in exchange.
 $self.load_obj(12818)
 give doom $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog girdle giant strength creseloneq~
 nod
 say Girdles of Giant Strength have become a rarity nowadays.  In trade, I will give you a Nova Ring.  It should prove useful in battles to come.
 $self.load_obj(12820)
 give nova $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog armor etherealness creseloneq~
 beam $n
 say Excellent!  I may retire early on the gold I can sell an Armor of Etherealness for.  I have a Gauntlets of the Titan I will give you for it.
 $self.load_obj(12822)
 give titan $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog robe magi creseloneq~
 hop
 say Incredible!  Few adventurers have brought back a Robe of the Magi from that accursed island!  You shall receive my best armor for this!
 $self.load_obj(12824)
 give star $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 ~
 >give_prog bracelet faith creseloneq~
 grovel $n
@@ -98,7 +98,7 @@ emote makes a magical gesture, and promptly vanishes.  When he reappears, he hol
 say May you destroy great evils with this Holy Avenger!
 $self.load_obj(12826)
 give avenger $n
-MPJUNK creseloneq
+$self.junk(creseloneq)
 bow $n
 ~
 >give_prog all~
@@ -251,11 +251,11 @@ GR 0 0 S
 stand stand either 0
 0 0 medium 0
 >rand_prog 3~
-MPECHO The mageling conjures a ball of fire in $m hand, but it vanishes almost as quickly as it was made.
+$self.echo("The mageling conjures a ball of fire in $m hand, but it vanishes almost as quickly as it was made.")
 grumble
 ~
 >fight_prog 4~
-MPECHO The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!
+$self.echo("The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!")
 ~
 >death_prog 25~
 $self.load_obj(12829)
@@ -281,15 +281,15 @@ stand stand male 200
 >rand_prog 2~
 emote looks at the mageling and says, 'Alright, now throw the powder and make the sign with your left hand.  No, wait!  Oh, sh-'
 duck
-MPECHO A tremendous blast of flame leaps from the mageling's hands, shooting through the place Relv's head was a moment ago.
+$self.echo("A tremendous blast of flame leaps from the mageling's hands, shooting through the place Relv's head was a moment ago.")
 emote glares at the mageling and says, 'You idiot!  Your other left!'
 emote bonks the mageling on the head for being such a moron.
 ~
 >fight_prog 25~
-MPCAST 'burning hands'
+$self.cast('burning hands')
 ~
 >fight_prog 25~
-MPCAST 'fireball'
+$self.cast('fireball')
 ~
 >death_prog 25~
 $self.load_obj(12811)
@@ -314,11 +314,11 @@ BGR 0 0 S
 stand stand either 0
 0 0 medium 0
 >rand_prog 3~
-MPECHO The mageling conjures a ball of fire in $m hand, but it vanishes almost as quickly as it was made.
+$self.echo("The mageling conjures a ball of fire in $m hand, but it vanishes almost as quickly as it was made.")
 grumble
 ~
 >fight_prog 4~
-MPECHO The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!
+$self.echo("The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!")
 ~
 >death_prog 25~
 $self.load_obj(12829)
@@ -346,15 +346,15 @@ say Where is that idiot Relv?  He was supposed to be back an hour ago!
 ~
 >fight_prog 33~
 say BURN!
-MPCAST 'fireball'
+$self.cast('fireball')
 ~
 >fight_prog 33~
 say I'll turn you to cinders!
-MPCAST 'flamestrike'
+$self.cast('flamestrike')
 ~
 >fight_prog 15~
 say You can't use armor if it's too HOT!
-MPCAST 'heat metal'
+$self.cast('heat metal')
 ~
 >death_prog 5~
 $self.load_obj(12818)
@@ -381,7 +381,7 @@ emote stops wandering around the room, and casts an angry glance toward you.
 say And what is it you want?!?
 ~
 >fight_prog 40~
-MPCAST 'chill touch'
+$self.cast('chill touch')
 ~
 |
 #12812
@@ -406,11 +406,11 @@ emote pulls a book from one of the shelves and starts reading it.
 ~
 >fight_prog 40~
 say Say, is it cold in here, or is it just you?
-MPCAST 'chill touch'
+$self.cast('chill touch')
 ~
 >fight_prog 25~
 say This ought to cool your temper a little!
-MPCAST 'frost breath'
+$self.cast('frost breath')
 ~
 >death_prog 6~
 $self.load_obj(12815)
@@ -437,10 +437,10 @@ say Tell me, have you ever felt the stimulation a little electricity can provide
 wink
 ~
 >fight_prog 25~
-MPCAST 'shocking grasp'
+$self.cast('shocking grasp')
 ~
 >fight_prog 25~
-MPCAST 'lightning bolt'
+$self.cast('lightning bolt')
 ~
 |
 #12814
@@ -461,15 +461,15 @@ BGR 0 0 S
 stand stand male 0
 0 0 medium 0
 >rand_prog 2~
-MPECHO As Treyv wanders around looking through the shelves, you catch a glimpse of electricity crackling between his fingertips.
+$self.echo("As Treyv wanders around looking through the shelves, you catch a glimpse of electricity crackling between his fingertips.")
 ~
 >fight_prog 40~
 say Funny, I've heard most people aren't fond of electrocution.
-MPCAST 'lightning bolt'
+$self.cast('lightning bolt')
 ~
 >fight_prog 20~
 say You might find this a bit SHOCKING!
-MPCAST 'lightning breath'
+$self.cast('lightning breath')
 ~
 >death_prog 3~
 $self.load_obj(12823)
@@ -495,7 +495,7 @@ snore
 ~
 >fight_prog 30~
 say Tremble before me!
-MPCAST 'earthquake'
+$self.cast('earthquake')
 ~
 >death_prog 4~
 $self.load_obj(12819)
@@ -521,17 +521,17 @@ stand stand female 0
 scream
 say What are you doing in here?  GET OUT!
 emote shoves you out of her room, and slams the door.
-MPFORCE $n north
+$n.do(north)
 close north
 ~
 >fight_prog 25~
-MPCAST 'slow'
+$self.cast('slow')
 ~
 >fight_prog 25~
-MPCAST 'curse'
+$self.cast('curse')
 ~
 >fight_prog 20~
-MPCAST 'demonfire'
+$self.cast('demonfire')
 ~
 >death_prog 3~
 $self.load_obj(12830)
@@ -560,11 +560,11 @@ laugh $r
 ~
 >fight_prog 40~
 say You'll never leave here alive!
-MPCAST 'curse'
+$self.cast('curse')
 ~
 >fight_prog 30~
 say Your life force is MINE!
-MPCAST 'sap'
+$self.cast('sap')
 ~
 >death_prog 5~
 $self.load_obj(12817)
@@ -586,15 +586,15 @@ DI 0 0 0
 stand stand male 0
 0 0 medium 0
 >rand_prog 2~
-MPECHO You feel something brush past you noiselessly.
+$self.echo("You feel something brush past you noiselessly.")
 ~
 >fight_prog 40~
 say Take THIS!
-MPCAST 'colour spray'
+$self.cast('colour spray')
 ~
 >fight_prog 20~
 say You can't fight if you can't see!
-MPCAST 'blind'
+$self.cast('blind')
 ~
 >death_prog 10~
 $self.load_obj(12831)
@@ -620,27 +620,27 @@ stand stand female 0
 vis
 say Oops!  Chameleon cloak ran out again!
 snicker
-MPCAST 'chameleon cloak'
+$self.cast('chameleon cloak')
 ~
 >rand_prog 8~
 emote tries to sneak around the room, but stubs her toe on the bed.
 curse
 ~
 >rand_prog 4~
-MPCAST 'ventriloquate' $r Isn't Malsina just soooo cool?
+$self.cast('ventriloquate' $r Isn't Malsina just soooo cool?)
 ~
 >rand_prog 3~
 vis
 ~
 >fight_prog 30~
 say You're not very nice, and I'm gonna punish you for it!
-MPCAST 'blind'
+$self.cast('blind')
 ~
 >fight_prog 7~
-MPECHO Malsina utters the words, 'animate dracolich'.
-MPECHO The Dracolich *ROARS* at you!
-MPECHO {YThe Dracolich's drain {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {Yyou! [17509]{x
-MPECHO loses her concentration, and the illusion vanishes.
+$self.echo("Malsina utters the words, 'animate dracolich'.")
+$self.echo("The Dracolich *ROARS* at you!")
+$self.echo("{YThe Dracolich's drain {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {Yyou! [17509]{x")
+$self.echo("loses her concentration, and the illusion vanishes.")
 laugh
 ~
 >death_prog 9~

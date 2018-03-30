@@ -129,14 +129,14 @@ OFEC ABCD 0 0
 stand stand either 150
 0 0 huge 0
 >all_greet_prog 100~
-MPAT 3032 wizi 100
+$self.invis(true)
 ~
 >all_greet_prog 10~
 if $n.is_pc()
  if rand(50)
-    MPECHO This area hums with power, the sound of many voices can be heard in the wind.
+    $self.echo("This area hums with power, the sound of many voices can be heard in the wind.")
  else
-    MPECHO One of the columns sparks and brightens.
+    $self.echo("One of the columns sparks and brightens.")
  endif
 endif
 ~
@@ -176,14 +176,14 @@ stand stand male 150
 0 0 small 0
 >all_greet_prog 100~
 if $n.sex()==0
-mpechoat $n Flint Fireforge gives you a strange look.
-mpechoat $n Flint Fireforge says 'Ye sure be a strange one.'
+$self.echo_to($n, "Flint Fireforge gives you a strange look.")
+$self.echo_to($n, "Flint Fireforge says 'Ye sure be a strange one.'")
 else
 if $n.sex()==2
-mpechoat $n Flint Fireforge says 'Hello me lass!'
+$self.echo_to($n, "Flint Fireforge says 'Hello me lass!'")
 else
 if $n.sex()==1
-mpechoat $n Flint Fireforge says 'Hello me lad!'
+$self.echo_to($n, "Flint Fireforge says 'Hello me lad!'")
 endif
 ~
 >rand_prog 2~
@@ -235,15 +235,15 @@ stand stand male 150
 0 0 medium 0
 >all_greet_prog 100~
 if $n.sex()==0
-mpechoat $n Morton the sage gives you a strange look.
-mpechoat $n Morton the sage says 'Hmmm.. Your an interesting find.'
+$self.echo_to($n, "Morton the sage gives you a strange look.")
+$self.echo_to($n, "Morton the sage says 'Hmmm.. Your an interesting find.'")
 else
 if $n.sex()==2
-mpechoat $n Morton the sage says 'Welcome {G$n{x!'
+$self.echo_to($n, "Morton the sage says 'Welcome {G$n{x!'")
 hand $n
 else
 if $n.sex()==1
-mpechoat $n Morton the sage says 'Welcome  {G$n{x!'
+$self.echo_to($n, "Morton the sage says 'Welcome  {G$n{x!'")
 nod $n
 endif
 ~
@@ -284,20 +284,20 @@ stand stand male 1000000
 hop
 skip
 if $n.sex()==0
-mpechoat $n Tasslehoff Burfoot gives you a strange look.
-mpechoat $n Tasslehoff Burfoot says 'Oh! wow are you really an it?'
-mpechoat $n Tasslehoff Burfoot says 'Oooh! what is that?'
+$self.echo_to($n, "Tasslehoff Burfoot gives you a strange look.")
+$self.echo_to($n, "Tasslehoff Burfoot says 'Oh! wow are you really an it?'")
+$self.echo_to($n, "Tasslehoff Burfoot says 'Oooh! what is that?'")
 look $n
 else
 if $n.sex()==2
-mpechoat $n Tasslehoff Burfoot says 'Hello There! You have such lovely eyes.'
-mpechoat $n Tasslehoff Burfoot says 'Ooh! Is that for me?'
+$self.echo_to($n, "Tasslehoff Burfoot says 'Hello There! You have such lovely eyes.'")
+$self.echo_to($n, "Tasslehoff Burfoot says 'Ooh! Is that for me?'")
 look $n 
 else
 if $n.sex()==1
-mpechoat $n Tasslehoff Burfoot says 'Hello There! Welcome to my shop!'
-mpechoat $n Tasslehoff Burfoot says 'Ooh! Is that a pouch you have?'
-mpechoat $n Tasslehoff Burfoot says 'Can I have a look?'
+$self.echo_to($n, "Tasslehoff Burfoot says 'Hello There! Welcome to my shop!'")
+$self.echo_to($n, "Tasslehoff Burfoot says 'Ooh! Is that a pouch you have?'")
+$self.echo_to($n, "Tasslehoff Burfoot says 'Can I have a look?'")
 look $n
 endif
 ~

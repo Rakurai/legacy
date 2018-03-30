@@ -134,38 +134,41 @@ if $actor.is_immort()
    beam $actor
    say {GOh{x! {GWhat a wonderful choice{x!
    say {GOne moment, I'll be right back{x!
-   MPECHO She pauses to look at the menu, then skips off to the back room.
-   MPECHO A moment later she comes bursting back with a large {WWedding Cake{x.
+   $self.echo("She pauses to look at the menu, then skips off to the back room.")
+   $self.echo("A moment later she comes bursting back with a large {WWedding Cake{x.")
    smile $actor
    say {GHere is the cake and the rest will be delivered to the chapel{x.
    $self.load_obj(56)
    give cake $actor
    say {GIt looks scrumptious{x!
    giggle
-   say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
+   say {GMy name is {CNelly{G, by the way. Can I come watch the wedding{x?
    say {GPlease{x?
    puppy $actor
+   $self.to_room(3032)
    $self.load_obj(49)
-   MPAT 3032 clone 39*cheese
-   MPAT 7 drop all.chees
+   clone 39*cheese
    $self.load_obj(50)
-   MPAT 3032 clone 39*crab
-   MPAT 7 drop all.crab
+   clone 39*crab
    $self.load_obj(51)
-   MPAT 3032 clone 39*salad
-   MPAT 7 drop all.salad
+   clone 39*salad
    $self.load_obj(52)
-   MPAT 3032 clone 39*round
-   MPAT 7 drop all.round
+   clone 39*round
    $self.load_obj(53)
-   MPAT 3032 clone 39*duck
-   MPAT 7 drop all.duck
+   clone 39*duck
    $self.load_obj(54)
-   MPAT 3032 clone 39*lobster
-   MPAT 7 drop all.lobster
+   clone 39*lobster
    $self.load_obj(55)
-   MPAT 3032 clone 39*wine
-   MPAT 7 drop all.wine
+   clone 39*wine
+   $self.to_room(7)
+   drop all.chees
+   drop all.crab
+   drop all.salad
+   drop all.round
+   drop all.duck
+   drop all.lobster
+   drop all.wine
+   $self.to_room($room)
 endif
 ~
 
@@ -177,24 +180,27 @@ if $actor.is_immort()
    giggle
    say {GSmall orders are nice{x!
    say {GOne second, I'll be right back{x!
-   MPECHO She skips off to the back room while humming a song.
-   MPECHO A moment later she comes bouncing back with a large {WWedding Cake{x.
+   $self.echo("She skips off to the back room while humming a song.")
+   $self.echo("A moment later she comes bouncing back with a large {WWedding Cake{x.")
    smile $actor
    say {GHere is the cake and the rest will be delivered to the chapel{x.
    $self.load_obj(56)
    give cake $actor
-   say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
+   say {GMy name is {CNelly{G, by the way. Can I come watch the wedding{x?
    say {GPlease{x?
    puppy $actor
    $self.load_obj(49)
-   MPAT 3032 clone 19*cheese
-   MPAT 7 drop all.chees
+   $self.to_room(3032)
+   clone 19*cheese
    $self.load_obj(50)
-   MPAT 3032 clone 19*crab
-   MPAT 7 drop all.crab
+   clone 19*crab
    $self.load_obj(55)
-   MPAT 3032 clone 19*wine
-   MPAT 7 drop all.wine
+   clone 19*wine
+   $self.to_room(7)
+   drop all.chees
+   drop all.crab
+   drop all.wine
+   $self.to_room($room)
 endif
 ~
 
@@ -226,20 +232,16 @@ stand stand female 0
 
 >all_greet_prog 100~
 if $actor.sex()==0
-   mpechoat $actor Lyana the waitress says 'Enjoy the party, umm...'
+   $self.echo_to($actor, "Lyana the waitress says 'Enjoy the party, umm...'")
 else
 if $actor.sex()==2
-   mpechoat $actor Lyana the waitress says 'Enjoy the party, Ma`am!'
+   $self.echo_to($actor, "Lyana the waitress says 'Enjoy the party, Ma`am!'")
 else
 if $actor.sex()==1
-   mpechoat $actor Lyana the waitress says 'Enjoy the party, Sir!'
+   $self.echo_to($actor, "Lyana the waitress says 'Enjoy the party, Sir!'")
 endif
 endif
 endif
-~
-
->give_prog wedding cake slice~
-mpat 3032 mpclone 40*cake
 ~
 
 >act_prog p asks for a slice of cake.~

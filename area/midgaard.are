@@ -392,11 +392,12 @@ if $actor.is_pc()
    if $actor.level()<6
       say If you have a Newbie token to give me, I will trade it in for you.
    endif
-   mpmoney 0 0
+   $self.set_gold(0)
+   $self.set_silver(0)
 endif
 ~
 >give_prog newbie token~
-   mpjunk token
+   $self.junk(token)
 if $actor.is_pc()
    if $actor.level()<11
       $self.load_obj(72)
@@ -411,12 +412,12 @@ if $actor.is_pc()
       $self.load_obj(81)
       $self.load_obj(82)
       $self.load_obj(83)
-      mpat 3032 put all.newbie kit
+      $self.at(3032, $self.do("put all.newbie kit"))
       give kit $actor
       bow $actor
    else
       say You have no use for this at your level.
-      mpecho The token disappears in a puff of smoke.
+      $self.echo("The token disappears in a puff of smoke.")
       smile $actor
    endif
 endif
@@ -1419,7 +1420,7 @@ if $actor.level() < 10
    pmote tells $actor, "Hey kid, are you lost or something?"
    pmote tells $actor, "Get back home to your parents!"
    pmote pushes $actor gently but firmly out the door.
-   mpforce $actor south
+   $actor.do(south)
    break
 endif
 say Welcome, $actor, to the Land of Flaming Sword!
@@ -1471,15 +1472,15 @@ endif
 >bribe_prog 30000~
 if $actor.level() > 0
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 endif
 ~
 >bribe_prog 25000~
 if $actor.level() < 90
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1488,8 +1489,8 @@ endif
 >bribe_prog 20000~
 if $actor.level() < 80
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1498,8 +1499,8 @@ endif
 >bribe_prog 15000~
 if $actor.level() < 70
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1508,8 +1509,8 @@ endif
 >bribe_prog 10000~
 if $actor.level() < 60
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1518,8 +1519,8 @@ endif
 >bribe_prog 7500~
 if $actor.level() < 50
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1528,8 +1529,8 @@ endif
 >bribe_prog 5000~
 if $actor.level() < 40
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1538,8 +1539,8 @@ endif
 >bribe_prog 2500~
 if $actor.level() < 30
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1548,8 +1549,8 @@ endif
 >bribe_prog 1000~
 if $actor.level() < 20
    cheer $actor
-   mptransfer $actor 3369
-   mpat 3369 mpforce $actor thank dispatcher
+   $self.transfer($actor, 3369)
+   $actor.do(thank dispatcher)
 else
    say Sorry, but that's not enough!
    emo grins as $self.he_she() pockets the money.
@@ -1578,71 +1579,71 @@ stand stand male 9000
 0 0 small 0
 >act_prog p thanks you heartily.~
 pmote makes a magical gesture at $actor.
-mpechoaround $actor $actor disappears, perhaps forever!
+$self.echo_other($actor, "$actor disappears, perhaps forever!")
 pray $actor is entering the Land of Flaming Sword.
-mpechoat $actor Your stomach lurches, then suddenly you are elsewhere...
+$self.echo_to($actor, "Your stomach lurches, then suddenly you are elsewhere...")
 if $world.rand(8)
-   mptransfer $actor 12068
-   mpat 12068 mpforce $actor look auto
+   $self.transfer($actor, 12068)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(8)
-   mptransfer $actor 12069
-   mpat 12069 mpforce $actor look auto
+   $self.transfer($actor, 12069)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(9)
-   mptransfer $actor 12070
-   mpat 12070 mpforce $actor look auto
+   $self.transfer($actor, 12070)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(10)
-   mptransfer $actor 12071
-   mpat 12071 mpforce $actor look auto
+   $self.transfer($actor, 12071)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(11)
-   mptransfer $actor 12072
-   mpat 12072 mpforce $actor look auto
+   $self.transfer($actor, 12072)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(12)
-   mptransfer $actor 12073
-   mpat 12073 mpforce $actor look auto
+   $self.transfer($actor, 12073)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(14)
-   mptransfer $actor 12074
-   mpat 12074 mpforce $actor look auto
+   $self.transfer($actor, 12074)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(17)
-   mptransfer $actor 12075
-   mpat 12075 mpforce $actor look auto
+   $self.transfer($actor, 12075)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(20)
-   mptransfer $actor 12076
-   mpat 12076 mpforce $actor look auto
+   $self.transfer($actor, 12076)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(25)
-   mptransfer $actor 12077
-   mpat 12077 mpforce $actor look auto
+   $self.transfer($actor, 12077)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(33)
-   mptransfer $actor 12078
-   mpat 12078 mpforce $actor look auto
+   $self.transfer($actor, 12078)
+   $actor.do(look auto)
    break
 endif
 if $world.rand(50)
-   mptransfer $actor 12079
-   mpat 12079 mpforce $actor look auto
+   $self.transfer($actor, 12079)
+   $actor.do(look auto)
    break
 endif
-mptransfer $actor 12080
-mpat 12080 mpforce $actor look auto
+$self.transfer($actor, 12080)
+$actor.do(look auto)
 ~
 |
 
@@ -1665,12 +1666,12 @@ stand stand male 15000
   scream
   yell Leave me alone, $actor!
   emote vanishes in a puff of blue smoke.
-  MPGOTO 300
+  $self.to_room(300)
 ~
 >rand_prog 1~
   if $world.rand(3)
      $self.load_obj(1201)
-     MPECHO You notice that the pouch at the old man's side has a hole in it...
+     $self.echo("You notice that the pouch at the old man's side has a hole in it...")
      drop token
      break
   endif
@@ -1705,19 +1706,19 @@ stand stand male 15000
 >rand_prog 1~
   emote wanders off in search of his tokens...
   if $world.rand(25)
-     MPGOTO 3001
+     $self.to_room(3001)
      break
   endif
   if $world.rand(33)
-     MPGOTO 6103
+     $self.to_room(6103)
      break
   endif
   if $world.rand(50)
-     MPGOTO 9506
+     $self.to_room(9506)
      break
   endif
   if $world.rand(100)
-     MPGOTO 3521
+     $self.to_room(3521)
      break
   endif
 ~

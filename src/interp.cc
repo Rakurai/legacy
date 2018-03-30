@@ -513,27 +513,6 @@ const std::vector<cmd_type> cmd_table = {
 	{ "yell",                       do_yell,                POS_RESTING,    LOG_NORMAL,     1,      0                       },
 	{ "zap",                        do_zap,                 POS_RESTING,    LOG_NORMAL,     7,      0                       },
 	{ "zecho",                      do_zecho,               POS_DEAD,               LOG_NORMAL,     5,      GWQ                     },
-
-	{ "mpasound",           do_mpasound,    POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpat",                       do_mpat,                POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpcast",                     do_mpcast,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpmoney",       do_mpmoney, POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpecho",                     do_mpecho,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpechoaround",       do_mpechoaround, POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpechoat",           do_mpechoat,    POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpforce",            do_mpforce,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpgoto",                     do_mpgoto,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpjunk",                     do_mpjunk,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpkill",                     do_mpkill,              POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpmload",            do_mpmload,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpoload",            do_mpoload,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mppurge",            do_mppurge,             POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mptransfer",         do_mptransfer,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpinvis",         do_mpinvis,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpvis",         do_mpvis,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpmake_pet",         do_mpmake_pet,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpcontrol",         do_mpcontrol,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
-	{ "mpstate",         do_mpstate,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 };
 
 /*

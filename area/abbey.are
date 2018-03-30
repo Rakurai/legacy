@@ -91,7 +91,7 @@ CJK 0 0 0
 stand stand male 3700
 0 0 medium 0
 >give_prog pieceofstatue statue~
-MPJUNK piece
+$self.junk(piece)
    Say Interesting
    Say It seems to be saying that there is a hidden container near where you found this
    Say And that this will act as a key!

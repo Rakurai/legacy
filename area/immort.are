@@ -101,10 +101,10 @@ emote stares at you mournfully.
 say You have violated the sanctity of this room.
 say Return when you have learned some respect!
 pmote makes a magical gesture at $actor.
-mpechoat $actor Your vision fades to black.
-mpechoaround $actor $actor disappears!
-mpechoat $actor When next you open your eyes, you find yourself far away.
-mptransfer $actor 5031
+$self.echo_to($actor, "Your vision fades to black.")
+$self.echo_other($actor, "$actor disappears!")
+$self.echo_to($actor, "When next you open your eyes, you find yourself far away.")
+$self.transfer($actor, 5031)
 ~
 |
 

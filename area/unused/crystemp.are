@@ -90,7 +90,7 @@ stand stand male 1400
 if $n.is_pc()
 Say Intruder!!
 say I will kill you!
-MPKILL $n
+$self.kill($n)
 else
 say Intruder!!
 endif

@@ -32,18 +32,18 @@ if $actor.is_immort()
    break
 endif
 if $actor.level() <= 65
-   MPKILL $actor
+   $self.kill($actor)
    chortle
 else
   if $world.rand(20)
      emote leaves.
   else
      if $self.in_room() == 16534
-        MPECHO You hear a swish of cloth.
-        MPGOTO 16526
+        $self.echo("You hear a swish of cloth.")
+        $self.to_room(16526)
      else
-        MPECHO You hear a swish of cloth.
-        MPGOTO 16534
+        $self.echo("You hear a swish of cloth.")
+        $self.to_room(16534)
     endif
   endif
 endif
@@ -72,14 +72,14 @@ $self.echo_near("A howling wail invades your mind and rattles your nerves")
 ~
 >rand_prog 10~
 if $world.rand(50)
-   MPECHO A shadow detaches itself from the night and flies at your head.
+   $self.echo("A shadow detaches itself from the night and flies at your head.")
 else
-   MPECHO {PRed gashes{x for {Peyes{x and a {byellow slit{x as a {bmouth{x screech your name.
+   $self.echo("{PRed gashes{x for {Peyes{x and a {byellow slit{x as a {bmouth{x screech your name.")
 endif
 ~
 >fight_prog 20~
 emote pierces your body with its arm chilling your heart.
-MPCAST 'energy drain'
+$self.cast('energy drain')
 ~
 |
 #16502
@@ -100,7 +100,7 @@ ACFIKO BHLQ IODM 0
 stand stand male 200
 0 0 large 0
 >rand_prog 10~
-MPECHO The {Rd{be{Ym{bo{Rn{x is engulfed in {Pf{Yl{Pa{Ym{Pe{Ys{x.
+$self.echo("The {Rd{be{Ym{bo{Rn{x is engulfed in {Pf{Yl{Pa{Ym{Pe{Ys{x.")
 $self.echo_near("A pillar of {Pf{Yl{Pa{Ym{Pe{x bursts into existence in the next room.")
 ~
 >greet_prog 99~
@@ -113,23 +113,23 @@ if $actor.is_immort()
    break
 endif
 if $actor.is_good()
-   MPKILL $actor
+   $self.kill($actor)
    snarl
    say Foul do-gooder! I'll have you on a spit for my dinner!!
 else
    cackle
    say I'm here to COLLECT YOUR SOUL!!!!!
    say Prepare to feel the fires of {VG{Pe{Vh{Pe{Vn{Pn{Va{x, foolish mortal!!
-   MPKILL $actor
+   $self.kill($actor)
 endif
 ~
 >fight_prog 90~
 if $world.rand(80)
    sa Taste the wrath of HELL!!!
-   MPCAST 'demonfire'
+   $self.cast('demonfire')
 else
    sa You won't need these....
-   MPCAST 'dispel magic'
+   $self.cast('dispel magic')
 endif
 ~
 |
@@ -153,18 +153,18 @@ EFJKN B QLMO 0
 stand stand male 200
 0 0 medium 0
 >greet_prog 50~
-mpecho A sibilant hiss comes from the dark-robed figure before you.
+$self.echo("A sibilant hiss comes from the dark-robed figure before you.")
 ~
 
 >fight_prog 20~
 if $world.rand(75)
-   MPCAST 'dispel good'
+   $self.cast('dispel good')
 else
    emote mumbles an incantation.
    if $world.rand(50)
-      MPCAST 'energy drain'
+      $self.cast('energy drain')
    else 
-      MPCAST 'dispel magic'
+      $self.cast('dispel magic')
    endif
 endif
 ~
@@ -232,7 +232,7 @@ else
       break
    endif
    emote runs at you insane and enraged at your intrusion.
-   MPKILL $actor
+   $self.kill($actor)
 endif
 ~
 >rand_prog 30~
@@ -274,10 +274,10 @@ CEFHK BMN HIJQL 0
 stand stand male 100
 0 0 medium 0
 >rand_prog 5~
-MPECHO The wall shifts and moves.
+$self.echo("The wall shifts and moves.")
 ~
 >fight_prog 50~
-MPCAST 'acid blast'
+$self.cast('acid blast')
 spit $random
 ~
 |
@@ -301,16 +301,16 @@ stand stand male 0
 0 0 huge 0
 >rand_prog 10~
 if $world.rand(50)
-   MPECHO {WL{Yi{Wg{Yh{Wt{Yn{Wi{Yn{Wg{x flashes in the room.
+   $self.echo("{WL{Yi{Wg{Yh{Wt{Yn{Wi{Yn{Wg{x flashes in the room.")
    $self.echo_near("*{YCRACK{x*BOOM*")
 else
-   MPECHO {TT{cH{TU{cN{TD{cE{TR{x crashes all around you.
+   $self.echo("{TT{cH{TU{cN{TD{cE{TR{x crashes all around you.")
    $self.echo_near("*{TC{CR{TA{cS{TH{x*{YCRACK{x*{YCRACK{x*BOOM*")
 endif
 ~
 >fight_prog 60~
-MPECHO The storm cloud envelopes you.
-MPCAST 'lightning breath'
+$self.echo("The storm cloud envelopes you.")
+$self.cast('lightning breath')
 ~
 |
 #16508
@@ -337,9 +337,9 @@ emote murmurs a greeting to you and continues.
 >fight_prog 75~
 emote breathes deeply.
 if $world.rand(50)
-   MPCAST 'frost breath'
+   $self.cast('frost breath')
 else
-   MPCAST 'flame breath'
+   $self.cast('flame breath')
 endif
 ~
 |
@@ -363,7 +363,7 @@ stand stand male 0
 0 0 huge 0
 
 >rand_prog 10~
-MPECHO Screeching gears alert you to the presence of the {Ri{br{Ro{bn {Rg{bo{Rl{be{Rm{x.
+$self.echo("Screeching gears alert you to the presence of the {Ri{br{Ro{bn {Rg{bo{Rl{be{Rm{x.")
 $self.echo_near("Tortured screaming metal makes you cover your ears.")
 ~
 >rand_prog 100~
@@ -400,7 +400,7 @@ if $actor.is_good()
    bow $actor
 else
    yell INFIDEL!!!!
-   MPKILL $actor
+   $self.kill($actor)
 endif
 ~
 >rand_prog 10~
@@ -441,12 +441,12 @@ say faithful servants will reveal the secret portal to his chambers.
 ~
 >fight_prog 30~
 if $self.hitprcnt() < 20
-  MPECHO A {Y{fBLINDING{x flash explodes from the illusionist.
-  MPECHO When your eyes clear, you are fighting....nothing.
+  $self.echo("A {Y{fBLINDING{x flash explodes from the illusionist.")
+  $self.echo("When your eyes clear, you are fighting....nothing.")
   if $self.in_room() == 16505
-     MPGOTO 16514
+     $self.to_room(16514)
   else
-     MPGOTO 16505
+     $self.to_room(16505)
   endif
 endif
 ~
@@ -492,9 +492,9 @@ endif
 >hitprcnt_prog 20~
 if $world.rand(50)
    sa If I go, you come with me!!!
-   MPCAST 'lightning breath'
+   $self.cast('lightning breath')
 else
-   MPCAST 'flame breath'
+   $self.cast('flame breath')
    sa Don't expect to leave without a SCAR!
 endif
 ~
@@ -524,9 +524,9 @@ emote bows and greets you with a humble prayer.
 ~
 >fight_prog 80~
 if $world.rand(75)
-   MPCAST 'ray of truth'
+   $self.cast('ray of truth')
 else
-   MPCAST 'dispel magic'
+   $self.cast('dispel magic')
 endif
 ~
 
@@ -550,7 +550,7 @@ CFHK BMNQL HIJO 0
 stand stand male 0
 0 0 large 0
 >rand_prog 10~
-MPECHO You remember the clay golem stands in the room.
+$self.echo("You remember the clay golem stands in the room.")
 ~
 >rand_prog 100~
 follow priest
@@ -577,7 +577,7 @@ stand stand male 0
 0 0 huge 0
 >death_prog 99~
 emote explodes violently.
-MPCAST 'chain lightning'
+$self.cast('chain lightning')
 ~
 |
 #16516
@@ -599,11 +599,11 @@ stand stand male 0
 0 0 large 0
 >death_prog 99~
 emote is consumed in flame.
-MPECHO A glowing soul springs from its mouth, opening a portal.
+$self.echo("A glowing soul springs from its mouth, opening a portal.")
 $room.load_obj(16527)
 ~
 >greet_prog 99~
-MPPURGE soulgate
+$self.purge(soulgate)
 ~
 |
 #16517
@@ -653,7 +653,7 @@ if $world.rand(50)
    emote looks at you and growls.
 else
    scream
-   MPKILL $random
+   $self.kill($random)
 endif
 ~
 |
@@ -687,22 +687,22 @@ if $actor.is_immort()
    break
 endif
 if $actor.level() <= 85
-   MPECHO An e{W{fxp{Vlo{fs{xi{Yon{x of light blinds you.
-   MPTRANSFER $actor 3001
-   MPAT $actor say AND STAY OUT!!! Come back when you have grown up.
+   $self.echo("An e{W{fxp{Vlo{fs{xi{Yon{x of light blinds you.")
+   $self.transfer($actor, 3001)
+   $self.at($actor.in_room(), $self.do("say AND STAY OUT!!! Come back when you have grown up."))
 else
    grumble
    say I *HATE* BEING INTERRUPTED!!
-   MPCAST 'wrath' $actor
+   $self.cast('wrath' $actor)
 endif
 ~
 >fight_prog 75~
 if $world.rand(50)
    emote claps his hands.
-   MPCAST 'lightning breath'
+   $self.cast('lightning breath')
 else
    snarl
-   MPCAST 'acid breath'
+   $self.cast('acid breath')
 endif
 ~
 |

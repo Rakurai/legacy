@@ -313,7 +313,7 @@ stand stand male 0
 0 0 medium 0
 >act_prog p slowly fades into existence.~
 	if $actor.is_npc()
-		MPTRANS $actor 7635
+		$self.transfer($actor, 7635)
 	endif
 ~
 |

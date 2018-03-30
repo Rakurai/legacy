@@ -34,7 +34,7 @@ if rand (75)
    yell Koreg! Help my blows strike true.
    howl
 else
-   MPKILL $actor
+   $self.kill($actor)
    snarl $actor
    say DIE, LEGION LOVER!!    
 endif
@@ -73,7 +73,7 @@ if rand (50)
   emote wipes his bloody mace on his robes.
   emote looks at you.
 else 
-  MPKILL $actor
+  $self.kill($actor)
   say Your time has come, infidel!
   pmote swings his mace at $actor's head.
 endif
@@ -113,7 +113,7 @@ if $actor.is_immort()
 else
   if $actor.is_pc()
      scream
-     MPKILL $actor
+     $self.kill($actor)
   endif
 endif
 ~
@@ -155,7 +155,7 @@ unlock chest
 open chest
 sob
 emote reaches into the chest to stroke a misty helm.
-MPJUNK skull
+$self.junk(skull)
 ~
 
 >give_prog all~

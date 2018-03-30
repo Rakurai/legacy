@@ -1471,7 +1471,7 @@ stand stand female 5000
   $ariana.load_obj(14110)
   $ariana.load_obj(14111)
   $ariana.do("wear all")
-  $ariana.goto($room)
+  $ariana.to_room($room)
   $room.echo("Sensing her sister's mortal danger, Ariana materializes and attacks!")
 ~
 |
@@ -1506,7 +1506,7 @@ stand stand female 5000
   $ariana.load_obj(14110)
   $ariana.load_obj(14111)
   $ariana.do("wear all")
-  $ariana.goto($room)
+  $ariana.to_room($room)
   $room.echo("Sensing her sister's mortal danger, Ariana materializes and attacks!")
 ~
 |
@@ -1546,8 +1546,8 @@ sit sit female 6000
      $room.load_mob(14080)
 ~
 >death_prog 100~
-    MPECHO {CElvanshalee makes a last ditch attempt to escape!{x
-    MPECHO {PElvanshalee utters the words "{CPortal{P."{x
+    $self.echo("{CElvanshalee makes a last ditch attempt to escape!{x")
+    $self.echo("{PElvanshalee utters the words '{CPortal{P.'{x")
     $room.load_obj(14112)
 ~
 |
@@ -1999,37 +1999,37 @@ stand stand male 1
 >greet_prog 100~
   if $world.rand(30)
      $room.load_mob(14081)
-     MPECHO An Orc Warrior tries to sneak past you.
-     MPGOTO 14731
-     MPPURGE
+     $self.echo("An Orc Warrior tries to sneak past you.")
+     $self.to_room(14731)
+     $self.purge()
      break
   Endif
   if $world.rand(55)
      $room.load_mob(14082)
-     MPECHO A Minor Demon tries to sneak past you.
-     MPGOTO 14731
-     MPPURGE
+     $self.echo("A Minor Demon tries to sneak past you.")
+     $self.to_room(14731)
+     $self.purge()
      break
    Endif
   If $world.rand(70)
      $room.load_mob(14083)
-     MPECHO An Assassin tries to sneak past you.
-     MPGOTO 14731
-     MPPURGE
+     $self.echo("An Assassin tries to sneak past you.")
+     $self.to_room(14731)
+     $self.purge()
      break
    endif
   If $world.rand(85)
      $room.load_mob(14084)
-     MPECHO A Mercenary tries to sneak past you.
-     MPGOTO 14731
-     MPPURGE
+     $self.echo("A Mercenary tries to sneak past you.")
+     $self.to_room(14731)
+     $self.purge()
      Break
    endif
    if $world.rand(100)
      $room.load_mob(14085)
-     MPECHO A Drow Warrior tries to creep past you.
-     MPGOTO 14731
-     MPPURGE
+     $self.echo("A Drow Warrior tries to creep past you.")
+     $self.to_room(14731)
+     $self.purge()
      break
    endif
 ~

@@ -7,7 +7,6 @@
 #include "Game.hh"
 #include "World.hh"
 #include "Room.hh"
-#include "Logging.hh"
 #include "random.hh"
 #include "merc.hh"
 #include "act.hh"
@@ -20,6 +19,7 @@
 #include "interp.hh"
 #include "progs/symbols/function_helpers.hh"
 #include "argument.hh"
+#include "progs/triggers.hh"
 
 
 namespace progs {
@@ -37,6 +37,7 @@ const std::vector<fn_type> fn_table = {
 	{ "cv_to_room",  dt::Room,      dt::Character, {} }, // lookup a room by character
 
 	{ "cv_to_char",  dt::Character, dt::String,    {} }, // find a character in the $room
+	{ "cv_to_obj",   dt::Object,    dt::String,    {} }, // find an object in the $room
 
 	{ "cv_to_str",   dt::String,    dt::Integer,   {} }, // simple string convert
 
@@ -81,13 +82,23 @@ const std::vector<fn_type> fn_table = {
 
 	// character actions
 	{ "load_obj",    dt::Object,    dt::Character, { dt::Integer } },
+	{ "set_gold",    dt::Void,      dt::Character, { dt::Integer } },
+	{ "set_silver",  dt::Void,      dt::Character, { dt::Integer } },
 	{ "do",          dt::Void,      dt::Character, { dt::String } },
-	{ "goto",        dt::Void,      dt::Character, { dt::Room } },
+	{ "to_room",     dt::Void,      dt::Character, { dt::Room } },
 	{ "cast",        dt::Void,      dt::Character, { dt::String } },
 	{ "at",          dt::Void,      dt::Character, { dt::Room, dt::Void } },
 	{ "kill",        dt::Void,      dt::Character, { dt::Character } },
 	{ "junk",        dt::Void,      dt::Character, { dt::String } }, // first, could be all.something
 	{ "junk",        dt::Void,      dt::Character, { dt::Object } }, // overloaded for specific obj
+	{ "purge",       dt::Void,      dt::Character, {} }, // first, purge room (except for mob)
+	{ "purge",       dt::Void,      dt::Character, { dt::Character } }, // overloaded for specific mob
+	{ "purge",       dt::Void,      dt::Character, { dt::Object } }, // overloaded for specific obj
+	{ "transfer",    dt::Void,      dt::Character, { dt::Character, dt::Room } },
+	{ "invis",       dt::Void,      dt::Character, { dt::Boolean } },
+	{ "become_pet",  dt::Void,      dt::Character, { dt::Character } },
+	{ "control",     dt::Void,      dt::Character, { dt::String, dt::Character } },
+	{ "state",       dt::Void,      dt::Character, { dt::String, dt::String } },
 
 	// object accessors
 	{ "name",        dt::String,    dt::Object,    {} },
@@ -102,10 +113,14 @@ const std::vector<fn_type> fn_table = {
 	{ "vnum",        dt::Integer,   dt::Object,    {} },
 
 	// object actions
-	{ "from_room",   dt::Void,      dt::Object,    {} },
+	{ "to_room",     dt::Void,      dt::Object,    { dt::Room } },
 	{ "to_char",     dt::Void,      dt::Object,    { dt::Character } },
 	{ "echo",        dt::Void,      dt::Object,    { dt::String } }, // send to all in room
 	{ "echo_near",   dt::Void,      dt::Object,    { dt::String } }, // send to surrounding rooms
+	{ "purge",       dt::Void,      dt::Object,    {} }, // first, purge room (except for obj)
+	{ "purge",       dt::Void,      dt::Object,    { dt::Character } }, // overloaded for specific mob
+	{ "purge",       dt::Void,      dt::Object,    { dt::Object } }, // overloaded for specific obj
+	{ "transfer",    dt::Void,      dt::Object,    { dt::Character, dt::Room } },
 
 	// room accessors
 	{ "name",        dt::String,    dt::Room,      {} },
@@ -116,19 +131,23 @@ const std::vector<fn_type> fn_table = {
 	// room actions
 	{ "load_mob",    dt::Character, dt::Room,      { dt::Integer } },
 	{ "load_obj",    dt::Object,    dt::Room,      { dt::Integer } },
+	{ "purge",       dt::Void,      dt::Room,      {} }, // first, purge room
+	{ "purge",       dt::Void,      dt::Room,      { dt::Character } }, // overloaded for specific mob
+	{ "purge",       dt::Void,      dt::Room,      { dt::Object } }, // overloaded for specific obj
+	{ "transfer",    dt::Void,      dt::Room,      { dt::Character, dt::Room } },
 
 	// echos
 	{ "echo",        dt::Void,      dt::Character, { dt::String } },                // send to room except self
-	{ "echo_at",     dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to victim
-	{ "echo_other",  dt::Void,      dt::Character, { dt::String, dt::Character } }, // send to room except self and victim
+	{ "echo_to",     dt::Void,      dt::Character, { dt::Character, dt::String } }, // send to victim
+	{ "echo_other",  dt::Void,      dt::Character, { dt::Character, dt::String } }, // send to room except self and victim
 	{ "echo_near",   dt::Void,      dt::Character, { dt::String } },                // send to surrounding rooms
 	{ "echo",        dt::Void,      dt::Object,    { dt::String } },                // send to room
-	{ "echo_at",     dt::Void,      dt::Object,    { dt::String, dt::Character } }, // send to victim
-	{ "echo_other",  dt::Void,      dt::Object,    { dt::String, dt::Character } }, // send to room except victim
+	{ "echo_to",     dt::Void,      dt::Object,    { dt::Character, dt::String } }, // send to victim
+	{ "echo_other",  dt::Void,      dt::Object,    { dt::Character, dt::String } }, // send to room except victim
 	{ "echo_near",   dt::Void,      dt::Object,    { dt::String } },                // send to surrounding rooms
 	{ "echo",        dt::Void,      dt::Room,      { dt::String } },                // send to room
-	{ "echo_at",     dt::Void,      dt::Room,      { dt::String, dt::Character } }, // send to victim
-	{ "echo_other",  dt::Void,      dt::Room,      { dt::String, dt::Character } }, // send to room except victim
+	{ "echo_to",     dt::Void,      dt::Room,      { dt::Character, dt::String } }, // send to victim
+	{ "echo_other",  dt::Void,      dt::Room,      { dt::Character, dt::String } }, // send to room except victim
 	{ "echo_near",   dt::Void,      dt::Room,      { dt::String } },                // send to surrounding rooms
 };
 
@@ -190,10 +209,8 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 		int vnum = deref<int>(arg_list[0].get(), context);
 		MobilePrototype *proto = Game::world().get_mob_prototype(vnum);
 
-		if (proto == nullptr) {
-			Logging::bugf("room.load_mob() - bad vnum %d", vnum);
-			return nullptr;
-		}
+		if (proto == nullptr)
+			throw Format::format("bad vnum %d", vnum);
 
 		Character *mob = create_mobile(proto);
 
@@ -254,10 +271,8 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 		int vnum = deref<int>(arg_list[0].get(), context);
 		ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
 
-		if (proto == nullptr) {
-			Logging::bugf("character.load_obj() - bad vnum %d", vnum);
-			return nullptr;
-		}
+		if (proto == nullptr)
+			throw Format::format("bad vnum %d", vnum);
 
 		Object *obj = create_object(proto, 0);
 
@@ -299,10 +314,8 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 		int vnum = deref<int>(arg_list[0].get(), context);
 		ObjectPrototype *proto = Game::world().get_obj_prototype(vnum);
 
-		if (proto == nullptr) {
-			Logging::bugf("room.load_obj() - bad vnum %d", vnum);
-			return nullptr;
-		}
+		if (proto == nullptr)
+			throw Format::format("bad vnum %d", vnum);
 
 		Object *obj = create_object(proto, 0);
 
@@ -371,7 +384,7 @@ eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>&
 
 		if (!location.is_valid()
 		 || (room = Game::world().get_room(location)) == nullptr)
-			throw Format::format("get_room(): bad location '%d'", num);
+			throw Format::format("bad location '%d'", num);
 
 		return room;
 	}
@@ -597,6 +610,16 @@ eval_delegate_void(T, const String& name, std::vector<std::unique_ptr<Symbol>>& 
 template <>
 void
 eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "set_gold") {
+		ch->gold = deref<int>(arg_list[0].get(), context);
+		return;
+	}
+
+	if (name == "set_silver") {
+		ch->silver = deref<int>(arg_list[0].get(), context);
+		return;
+	}
+
 	if (name == "do") {
 		String argument = deref<const String>(arg_list[0].get(), context);
 		interpret(ch, argument);
@@ -607,7 +630,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		Room *room = deref<Room *>(arg_list[0].get(), context);
 
 		if (room == nullptr)
-			throw Format::format("char:to_room: room is null");
+			throw Format::format("room is null");
 
 		if (ch->fighting != nullptr)
 			stop_fighting(ch, true);
@@ -623,16 +646,16 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		return;
 	}
 
-	if (name == "echo_at") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		Character *victim = deref<Character *>(arg_list[1].get(), context);
-		fn_helper_echo_at(buf, ch, victim, nullptr, ch->in_room);
+	if (name == "echo_to") {
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		fn_helper_echo_to(buf, ch, victim, nullptr, ch->in_room);
 		return;
 	}
 
 	if (name == "echo_other") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
 		fn_helper_echo_other(buf, ch, victim, nullptr, ch->in_room);
 		return;
 	}
@@ -653,7 +676,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		Room *room = deref<Room *>(arg_list[0].get(), context);
 
 		if (room == nullptr)
-			throw Format::format("char:at: room is null");
+			throw Format::format("room is null");
 
 		Room *old_room = ch->in_room;
 
@@ -674,17 +697,17 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 
 		if (victim == nullptr)
-			throw Format::format("char::kill: victim is null");
+			throw Format::format("victim is null");
 
 		if (ch->in_room != victim->in_room)
-			throw Format::format("char::kill: victim not in same room");
+			throw Format::format("victim not in same room");
 
 		if (affect::exists_on_char(ch, affect::type::charm_person)
 		 && ch->master == victim)
-			throw Format::format("char::kill: charmed mob attacking master");
+			throw Format::format("charmed mob attacking master");
 
 		if (ch->fighting)
-			throw Format::format("char::kill: already fighting");
+			throw Format::format("already fighting");
 
 		multi_hit(ch, victim, skill::type::unknown);
 		return;
@@ -725,6 +748,101 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		return;
 	}
 
+	if (name == "purge") {
+		if (arg_list.size() == 0)
+			fn_helper_purge_room(ch->in_room, ch, nullptr);
+		else if (arg_list[0]->type == data::Type::Character)
+			fn_helper_purge_char(deref<Character *>(arg_list[0].get(), context));
+		else if (arg_list[0]->type == data::Type::Object)
+			fn_helper_purge_obj(deref<Object *>(arg_list[0].get(), context));
+
+		return;
+	}
+
+	if (name == "transfer") {
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		Room *location = deref<Room *>(arg_list[1].get(), context);
+		fn_helper_transfer(victim, location);
+		return;
+	}
+
+	if (name == "invis") {
+		if (deref<bool>(arg_list[0].get(), context))
+			ch->act_flags += ACT_SUPERMOB;
+		else
+			ch->act_flags -= ACT_SUPERMOB;
+
+		return;
+	}
+
+	if (name == "become_pet") {
+		if (!ch->is_npc())
+			throw String("ch is not a mob");
+
+		Character *master = deref<Character *>(arg_list[0].get(), context);
+
+		if (master == nullptr)
+			throw String("master is null");
+
+		// fix up old pet if any
+		if (master->pet != nullptr)
+			stop_follower(master->pet);
+
+		make_pet(master, ch);
+		return;
+	}
+
+	if (name == "control") {
+		const String key = deref<const String>(arg_list[0].get(), context);
+		Character *target = deref<Character *>(arg_list[1].get(), context);
+
+		if (target == nullptr)
+			throw String("target is null");
+
+		progs::control_trigger(ch, key, target);
+		return;
+	}
+
+	if (name == "state") {
+		const String key = deref<const String>(arg_list[0].get(), context);
+		const String value = deref<const String>(arg_list[1].get(), context);
+
+		if (key.empty())
+			throw String("no key");
+
+		if (key == "clear") {
+			ch->mpstate.clear();
+			return;
+		}
+
+		if (value.empty())
+			throw String("no value");
+
+		if (value == "++") {
+			ch->mpstate[key]++;
+			return;
+		}
+
+		if (value == "--") {
+			ch->mpstate[key]--;
+
+			if (ch->mpstate[key] <= 0)
+				ch->mpstate.erase(key);
+
+			return;
+		}
+
+		if (value == "0") {
+			ch->mpstate.erase(key);
+			return;
+		}
+
+		if (!value.is_number() || atoi(value) < 0)
+			throw String("value is not a positive integer");
+
+		ch->mpstate[key] = atoi(value);
+	}
+
 	throw Format::format("unhandled function '%s'", name);
 }
 
@@ -732,6 +850,38 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 template <>
 void
 eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "to_char") {
+		Character *ch = deref<Character *>(arg_list[0].get(), context);
+
+		if (ch == nullptr)
+			return;
+
+		if (obj->in_room)               obj_from_room(obj);
+		else if (obj->carried_by)       obj_from_char(obj);
+		else if (obj->in_obj)           obj_from_obj(obj);
+		else if (obj->in_locker)        obj_from_locker(obj);
+		else if (obj->in_strongbox)     obj_from_strongbox(obj);
+
+		obj_to_char(obj, ch);
+		return;
+	}
+
+	if (name == "to_room") {
+		Room *room = deref<Room *>(arg_list[0].get(), context);
+
+		if (room == nullptr)
+			return;
+
+		if (obj->in_room)               obj_from_room(obj);
+		else if (obj->carried_by)       obj_from_char(obj);
+		else if (obj->in_obj)           obj_from_obj(obj);
+		else if (obj->in_locker)        obj_from_locker(obj);
+		else if (obj->in_strongbox)     obj_from_strongbox(obj);
+
+		obj_to_room(obj, room);
+		return;
+	}
+
 	if (name == "echo") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
@@ -740,18 +890,18 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 		return;
 	}
 
-	if (name == "echo_at") {
+	if (name == "echo_to") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		Character *victim = deref<Character *>(arg_list[1].get(), context);
-		fn_helper_echo_at(buf, obj->carried_by, victim, obj, room);
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		fn_helper_echo_to(buf, obj->carried_by, victim, obj, room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
 		fn_helper_echo_other(buf, obj->carried_by, victim, obj, room);
 		return;
 	}
@@ -768,8 +918,21 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 		return;
 	}
 
-	if (name == "to_char") {
-		obj_to_char(obj, deref<Character *>(arg_list[0].get(), context));
+	if (name == "purge") {
+		if (arg_list.size() == 0)
+			fn_helper_purge_room(obj->carried_by ? obj->carried_by->in_room : obj->in_room, obj->carried_by, obj);
+		else if (arg_list[0]->type == data::Type::Character)
+			fn_helper_purge_char(deref<Character *>(arg_list[0].get(), context));
+		else if (arg_list[0]->type == data::Type::Object)
+			fn_helper_purge_obj(deref<Object *>(arg_list[0].get(), context));
+
+		return;
+	}
+
+	if (name == "transfer") {
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		Room *location = deref<Room *>(arg_list[1].get(), context);
+		fn_helper_transfer(victim, location);
 		return;
 	}
 
@@ -786,16 +949,16 @@ eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<S
 		return;
 	}
 
-	if (name == "echo_at") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		Character *victim = deref<Character *>(arg_list[1].get(), context);
-		fn_helper_echo_at(buf, nullptr, victim, nullptr, room);
+	if (name == "echo_to") {
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		fn_helper_echo_to(buf, nullptr, victim, nullptr, room);
 		return;
 	}
 
 	if (name == "echo_other") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		Character *victim = deref<Character *>(arg_list[1].get(), context);
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
 		fn_helper_echo_other(buf, nullptr, victim, nullptr, room);
 		return;
 	}
@@ -803,6 +966,24 @@ eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<S
 	if (name == "echo_near") {
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
 		fn_helper_echo_near(buf, nullptr, nullptr, nullptr, room);
+		return;
+	}
+
+	if (name == "purge") {
+		if (arg_list.size() == 0)
+			fn_helper_purge_room(room, nullptr, nullptr);
+		else if (arg_list[0]->type == data::Type::Character)
+			fn_helper_purge_char(deref<Character *>(arg_list[0].get(), context));
+		else if (arg_list[0]->type == data::Type::Object)
+			fn_helper_purge_obj(deref<Object *>(arg_list[0].get(), context));
+
+		return;
+	}
+
+	if (name == "transfer") {
+		Character *victim = deref<Character *>(arg_list[0].get(), context);
+		Room *location = deref<Room *>(arg_list[1].get(), context);
+		fn_helper_transfer(victim, location);
 		return;
 	}
 
@@ -866,8 +1047,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Character",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(type), name, e);
 }
 }
 
@@ -924,8 +1104,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Object",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(type), name, e);
 }
 }
 
@@ -982,8 +1161,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Room",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(type), name, e);
 }
 }
 
@@ -1040,8 +1218,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type String",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(type), name, e);
 }
 }
 
@@ -1098,8 +1275,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Boolean",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(type), name, e);
 }
 }
 
@@ -1157,8 +1333,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Boolean",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(sym.type), name, e);
 }
 }
 
@@ -1221,8 +1396,7 @@ try {
 		throw String("member function of Void type called");
 	}
 } catch(String e) {
-	throw Format::format("progs::FunctionSymbol::evaluate: %s, function '%s', return type Integer",
-		e, name);
+	throw Format::format("progs::FunctionSymbol<%s>::evaluate::%s(): %s", type_to_string(type), name, e);
 }
 }
 

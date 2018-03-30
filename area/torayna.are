@@ -53,21 +53,21 @@ emote sighs, and goes back to his place by the fire.
 ~
 
 >rand_prog 1~
-MPAT 2602 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
-MPAT 2603 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
-MPAT 2604 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
-MPAT 2605 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
-MPAT 2606 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
-MPAT 2607 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+$world.get_room(2602).echo("You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.")
+$world.get_room(2603).echo("You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.")
+$world.get_room(2604).echo("You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.")
+$world.get_room(2605).echo("You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.")
+$world.get_room(2606).echo("You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.")
+$world.get_room(2607).echo("You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.")
 ~
 
 >rand_prog 1~
-MPAT 2602 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
-MPAT 2603 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
-MPAT 2604 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
-MPAT 2605 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
-MPAT 2606 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
-MPAT 2607 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+$world.get_room(2602).echo("You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?")
+$world.get_room(2603).echo("You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?")
+$world.get_room(2604).echo("You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?")
+$world.get_room(2605).echo("You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?")
+$world.get_room(2606).echo("You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?")
+$world.get_room(2607).echo("You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?")
 ~
 |
 
@@ -86,9 +86,9 @@ BGKZ DF 0 S
 stand stand male 0
 0 0 medium 0
 >all_greet_prog 10~
-MPECHO The bitter cold overtakes you...  you collapse on the ground, and know no more.
-MPFORCE $actor sleep
-MPTRANS $actor 2601
+$self.echo("The bitter cold overtakes you...  you collapse on the ground, and know no more.")
+$actor.do(sleep)
+$self.transfer($actor, 2601)
 ~
 |
 
@@ -107,9 +107,9 @@ BGKZ DF 0 S
 stand stand male 0
 0 0 medium 0
 >all_greet_prog 10~
-MPECHO The bitter cold overtakes you...  you collapse on the ground, and know no more.
-MPFORCE $actor sleep
-MPTRANS $actor 2601
+$self.echo("The bitter cold overtakes you...  you collapse on the ground, and know no more.")
+$actor.do(sleep)
+$self.transfer($actor, 2601)
 ~
 |
 
@@ -131,18 +131,18 @@ stand stand male 30000
 
 >tick_prog 100~
 if $world.time() == 8
-   MPGOTO 2680
+   $self.to_room(2680)
    $self.load_obj(2604)
    unlock south
-   MPJUNK masterkey
+   $self.junk(masterkey)
    break
 endif
 if $world.time() == 18
    close south
    $self.load_obj(2604)
    lock south
-   MPJUNK masterkey
-   MPGOTO 2799
+   $self.junk(masterkey)
+   $self.to_room(2799)
    break
 endif
 ~
@@ -181,7 +181,7 @@ remove key
 unlock north
 open north
 emote guides you to the back room.
-MPFORCE $actor north
+$actor.do(north)
 close north
 lock north
 wear key

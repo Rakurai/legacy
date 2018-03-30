@@ -29,7 +29,7 @@ if rand(70)
    nod
    emote offers you an empty cot on which you can rest.
 else
-   mpecho The infirmary is quiet and peaceful except for an occasional moan.
+   $self.echo("The infirmary is quiet and peaceful except for an occasional moan.")
    emote looks up and nods in greeting, then goes back to mixing a potion.
 endif
 ~
@@ -86,16 +86,16 @@ if rand(10)
    grumble
    say I see the pitcher is empty.
    emote squeezes juice from two lemons into a pitcher and adds sugar.
-   mpecho He holds it under the cascading waters of the fountain. Ah...FRESH lemonade!
+   $self.echo("He holds it under the cascading waters of the fountain. Ah...FRESH lemonade!")
 else
    if rand(10)
       emote sighs as he wanders to a bench and sits down.
    else
       if rand(10)
 	 emote smiles as he takes crumbs from a pocket and drops them into the pond.
-	 mpecho Small goldfish bob up to the surface to nibble at the crumbs.
+	 $self.echo("Small goldfish bob up to the surface to nibble at the crumbs.")
       else
-	 mpecho The sounds and the scents of the courtyard drift quietly around you.
+	 $self.echo("The sounds and the scents of the courtyard drift quietly around you.")
 	 emote pats a space next to him on the bench.
 	 say Sit here a spell, if you have any items you want identified, just say so.
       endif
@@ -142,8 +142,8 @@ else
       emote looks up and sees Falstaff standing at the door of his shop.
       emote blushes and blows a kiss to him.
    else
-      mpecho Laughter and talk drift from a nearby table of knights.
-      mpecho The rowdy bunch cheers as Hostess Quickly carries a tray of food toward them.
+      $self.echo("Laughter and talk drift from a nearby table of knights.")
+      $self.echo("The rowdy bunch cheers as Hostess Quickly carries a tray of food toward them.")
    endif
 endif
 ~
@@ -182,7 +182,7 @@ if $r.is_pc()
    if rand(5)
       nudge $r
       say You want to have some fun later?
-      mpecho  He sneaks his hand under a counter and brings up a set of Dominos.
+      $self.echo("He sneaks his hand under a counter and brings up a set of Dominos.")
    else
       if rand(5)
 	 say A might boring these days. I remember a time when Annabus gave me REAL quests.
@@ -361,11 +361,11 @@ stand stand male 0
 0 0 huge 0
 >all_greet_prog 50~
    emote glances up quietly, then continues with his work.
-   mpecho The roar of the fire increases as Davron works the bellows.
+   $self.echo("The roar of the fire increases as Davron works the bellows.")
 ~
 >rand_prog 10~
    if rand(4)
-   mpecho CLANG! PING! CLANG! The impact of the hammer on searing hot metal rings out!
+   $self.echo("CLANG! PING! CLANG! The impact of the hammer on searing hot metal rings out!")
       or rand(10)
 	 emote sighs as he looks over the order list for Falstaff's armor.
 	 say Will you be finished soon? I've got to rework this shield.
@@ -373,9 +373,9 @@ stand stand male 0
 	 emote looks over your pile of metals as he stops to wipe his brow.
 	 say You're welcome to leave your extras here for others to use.
       else rand(5)
-	 mpecho Sweat begins to pour off your forehead.
-	 mpecho TING! BANG! CLANG-PING!
-	 mpecho CHSSSSSssssss! Water sizzles as your finished weapon cools.
+	 $self.echo("Sweat begins to pour off your forehead.")
+	 $self.echo("TING! BANG! CLANG-PING!")
+	 $self.echo("CHSSSSSssssss! Water sizzles as your finished weapon cools.")
       endif
 ~
 |

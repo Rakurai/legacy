@@ -136,7 +136,7 @@ stand stand male 25
 0 0 small 0
 >death_prog 100~
 $self.load_obj(8833)
-MPECHO Paranoid dillusions escape the dying man, awaiting their next victim.
+$self.echo("Paranoid dillusions escape the dying man, awaiting their next victim.")
 ~
 |
 

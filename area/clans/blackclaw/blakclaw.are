@@ -65,10 +65,10 @@ IS ABCD 0 0
 stand stand male 0
 0 0 medium 0
 >greet_prog 100~
-mpecho {GA Warrior {RGo Sha'ma{x rushes to block your path.
+$self.echo("{GA Warrior {RGo Sha'ma{x rushes to block your path.")
 bow
 say You may pass
-mpecho {GA Warrior {RGo Sha'ma{x sheathes his sword.
+$self.echo("{GA Warrior {RGo Sha'ma{x sheathes his sword.")
 ~
 |
 
