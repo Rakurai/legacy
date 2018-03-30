@@ -9,8 +9,8 @@ const std::pair<String, data::Type> r_room("room",    data::Type::Room);
 const std::pair<String, data::Type> c_rand("random",  data::Type::Character);
 const std::pair<String, data::Type> c_mast("master",  data::Type::Character);
 const std::pair<String, data::Type> c_actr("actor",   data::Type::Character);
-const std::pair<String, data::Type> o_dobj("obj",     data::Type::Character);
-const std::pair<String, data::Type> o_iobj("ind_obj", data::Type::Character);
+const std::pair<String, data::Type> o_dobj("obj",     data::Type::Object);
+const std::pair<String, data::Type> o_iobj("ind_obj", data::Type::Object);
 const std::pair<String, data::Type> c_vict("victim",  data::Type::Character);
 
 
