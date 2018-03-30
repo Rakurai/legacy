@@ -37,39 +37,39 @@ endif
 say You can't miss it, it's a huge cave!
 ~
 >rand_prog 11~
-if $self.in_room() == 4310
-or $self.in_room() == 4300
-or $self.in_room() == 4301
-or $self.in_room() == 4311
-or $self.in_room() == 4307
-or $self.in_room() == 4308
-or $self.in_room() == 4309
+if $room.vnum() == 4310
+or $room.vnum() == 4300
+or $room.vnum() == 4301
+or $room.vnum() == 4311
+or $room.vnum() == 4307
+or $room.vnum() == 4308
+or $room.vnum() == 4309
 	say I think it was {Cnorth{x of here!
 	say Try going {Cnorth{x!
 endif
 ~
 >rand_prog 13~
-if $self.in_room() == 4302
+if $room.vnum() == 4302
 	say I think it was {Ceast{x of here!
 	say Try going {Ceast{x!
 endif
 ~
 >rand_prog 15~
-if $self.in_room() == 4304
-or $self.in_room() == 4305
-or $self.in_room() == 4306
+if $room.vnum() == 4304
+or $room.vnum() == 4305
+or $room.vnum() == 4306
 	say I think it was {Cwest{x of here!
 	say Try going {Cwest{x!
 endif
 ~
 >rand_prog 20~
-if $self.in_room() == 4303
+if $room.vnum() == 4303
 	emote flies over to a clump of {Ggrass{x at the base of the wall.
 	say Here! Here!  {CLook{x behind this {Ggrass{x!
 endif
 ~
 >entry_prog 100~
-if $self.in_room() == 4303
+if $room.vnum() == 4303
 	say This looks familiar!  {CLook{x around, find the big cave!
 endif
 ~
@@ -77,45 +77,47 @@ endif
 if $master != $actor
 	break
 endif
-MPGOTO 4312
 if $actor.quest_step(creation1) == 1
-	MPQUEST_PROGRESS $actor creation1
+	$actor.quest_progress(creation1)
 endif
-MPINVIS
-MPMLOAD 4251
-MPCONTROL Juniper control1 $actor
-MPPURGE self
+$self.invis(true)
+assign $juniper = $world.get_room(4312).load_mob(4251)
+$juniper.invis(true)
+$juniper.become_pet($actor)
+$juniper.invis(false)
+$juniper.control(control1, $actor)
+$self.purge(self)
 ~
 |
 
 M 4251  * Juniper inside the storage rooms
 >control_prog control1~
-MPINVIS
-MPMAKE_PET $actor
-MPVIS
 emote flies into the room.
 say Wow, are you ok?  You barely fit through that cave!
 say You'll be fine, the healer in the temple can fix broken ribs.  Probably.
 ~
 >entry_prog 100~
 if !$master
-or $master.in_room() != $self.in_room()
+or $master.in_room() != $room
 	break
 endif
-if $self.in_room() == 4313
-	MPSTATE $master creation1:first_door 4
+if $room.vnum() == 4313
+	$master.state(creation1:first_door, 4)
 	if $master.state(creation1:played_dialog) == 0
-		MPMONEY 25 0
-		MPAT 4315 give 25 gold dialog
-		MPSTATE $master creation1:played_dialog 1
+		$self.set_gold(25)
+		$self.at(4315, $self.do(give 25 gold dialog))
+		$master.state(creation1:played_dialog, 1)
 	endif
 	break
 endif
-if $self.in_room() == 3261
-	MPINVIS
-	MPMLOAD 4252
-	MPCONTROL Juniper control1 $master
-	MPPURGE self
+if $room.vnum() == 3261
+	$self.invis(true)
+	assign $juniper = $room.load_mob(4252)
+	$juniper.invis(true)
+	$juniper.become_pet($master)
+	$juniper.invis(false)
+	$juniper.control(control1, $master)
+	$self.purge(self)
 endif
 ~
 >rand_prog 20~
@@ -134,18 +136,18 @@ and $master.state(creation1:wielded_weapon) == 0
 	say You know, just in case you need to protect me!
     break
 endif
-if $self.in_room() == 4312
+if $room.vnum() == 4312
 	if $master.state(creation1:first_door) == 0
 		say This was open last time I was here...
 		say {CLook{x around, there must be a way out.
-		MPSTATE $master creation1:first_door 1
+		$master.state(creation1:first_door, 1)
 		break
 	endif
 	if $master.state(creation1:first_door) == 1
 		emote flies over to the small wooden door in the south wall.
-		MPECHO She tugs on the handle, but nothing happens.
+		$self.echo("She tugs on the handle, but nothing happens.")
 		say Hey $master, how about this {bdoor{x right here?  Can you {Copen{x it?
-		MPSTATE $master creation1:first_door 2
+		$master.state(creation1:first_door, 2)
 		break
 	endif
 	if $master.state(creation1:first_door) == 2
@@ -160,8 +162,8 @@ if $self.in_room() == 4312
 	endif
 	break
 endif
-if $self.in_room() == 4313
-	if rand(30)
+if $room.vnum() == 4313
+	if $world.rand(30)
 		say Ugh, this place smells.  Can we hurry and get out of here please?
 		break
 	endif
@@ -183,7 +185,7 @@ if $self.in_room() == 4313
 	endif
 	break
 endif
-if $self.in_room() == 4314
+if $room.vnum() == 4314
 	if !$master.is_wearing(torch)
 		say Hey! It's too dark in here!
 		say Let's go back to the other room and try to find a {Glight{x.
@@ -214,7 +216,7 @@ or $self.in_room() != 4312
 or $actor.state(creation1:first_door) > 2
 	break
 endif
-MPSTATE $actor creation1:first_door 3
+$actor.state(creation1:first_door, 3)
 say Alright, let's get out of this closet!  Go {Csouth{x!
 ~
 >act_prog p opens the door.~
@@ -223,7 +225,7 @@ or $self.in_room() != 4313
 or $actor.state(creation1:opened_second_door) == 1
 	break
 endif
-MPSTATE $actor creation1:opened_second_door 1
+$actor.state(creation1:opened_second_door, 1)
 if $actor.is_wearing(torch)
 	say Let's go see what's in there! Go {Cwest{x!
 	break
@@ -244,19 +246,19 @@ endif
 say Hey, nice lid lifting skills!
 emote flies over to the {Gchest{x and looks inside.
 say Maybe we can use something in here!  {CLook inside{x!
-MPSTATE $actor creation1:opened_chest 1
+$actor.state(creation1:opened_chest, 1)
 ~
 >act_prog p from the chest.~
 if $master != $actor
 	break
 endif
 if $obj.name() / key
-	MPSTATE $actor creation1:got_key 1
+	$actor.state(creation1:got_key, 1)
 	break
 endif
 if $obj.name() !/ key
 and $actor.state(creation1:found_weapon) == 0
-	MPSTATE $actor creation1:found_weapon 1
+	$actor.state(creation1:found_weapon, 1)
 	break
 endif
 ~
@@ -265,16 +267,16 @@ if $master != $actor
 	break
 endif
 say Ok, good, now {Copen{x it and lets get out of this dump!
-MPSTATE $actor creation1:third_door 1
+$actor.state(creation1:third_door, 1)
 ~
 >act_prog p wields~
 if $master != $actor
 or $actor.state(creation1:wielded_weapon) == 1
 	break
 endif
-MPSTATE $actor creation1:wielded_weapon 1
-MPECHOAT $actor You give it a few test swings, imagining slaying monsters and finding golden triangles.
-MPECHOAT $actor You spin around and thrust the weapon skyward, singing "da da daa DAAA!!" quietly to yourself.
+$actor.state(creation1:wielded_weapon, 1)
+$self.echo_to($actor, "You give it a few test swings, imagining slaying monsters and finding golden triangles.")
+$self.echo_to($actor, "You spin around and thrust the weapon skyward, singing 'da da daa DAAA!!' quietly to yourself.")
 roll $actor
 say What are you doing?  Haven't you ever held a weapon before?
 sigh
@@ -285,24 +287,21 @@ break
 
 M 4252 * Juniper in the city
 >control_prog control1~
-MPINVIS
-MPMAKE_PET $actor
-MPVIS
 if $actor.quest_step(creation1) == 2
-	MPQUEST_PROGRESS $actor creation1
+	$actor.quest_progress(creation1)
 endif
-MPECHOAT $actor You breathe in deeply, as the city air smells fresh compared to the
-MPECHOAT $actor {xdankness of the storage room.  Juniper flies over, struggling with a
-MPECHOAT $actor {xlarge rolled parchment.
-MPOLOAD 3162
+$self.echo_to($actor, "You breathe in deeply, as the city air smells fresh compared to the")
+$self.echo_to($actor, "{xdankness of the storage room.  Juniper flies over, struggling with a")
+$self.echo_to($actor, "{xlarge rolled parchment.")
+$self.load_obj(3162)
 give map $actor
 say I found that on the ground over there, it looks like a city map.
 say You can {Clook{x at it anytime to figure out where you are.  You can read, right?
 emote looks around nervously.
 say If the guards see me, they'll lock me up for sure.  I'm going to hide in your sleeve.
 say I left my wand at the {YBakery{x!  Let's go there next!  {CLook{x at the map!
-MPINVIS
-MPQUEST_ASSIGN $actor creation2
+$self.invis(true)
+$actor.quest_assign(creation2)
 ~
 >rand_prog 100~
 if !$master
@@ -311,35 +310,35 @@ or $master.in_room() != $self.in_room()
 endif
 
 if $master.quest_step(creation2) == 1
-and $self.in_room() == 3009
-	MPSTATE $master creation2:arrived_bakery_timer ++
+and $room.vnum() == 3009
+	$master.state(creation2:arrived_bakery_timer, ++)
 
 	if $master.state(creation2:arrived_bakery_timer) == 2
-		MPVIS
-		MPECHOAT $master You have the sudden horrible feeling of something crawling up the inside
-		MPECHOAT $master {xof your sleeve, and $self.title() emerges at your collar to whisper in your ear.
+		$self.invis(false)
+		$self.echo_to($master, "You have the sudden horrible feeling of something crawling up the inside")
+		$self.echo_to($master, "{xof your sleeve, and $self.title() emerges at your collar to whisper in your ear.")
 		say This is it!  When they grabbed me, my wand fell right inside that empty pie crust over th...
-		MPECHOAT $master $self.title() looks around in a panic.
+		$self.echo_to($master, "$self.title() looks around in a panic.")
 		say Oh NOOO!!  It's gone!!  Where did the pie crust go??
 		break
-		MPINVIS
+		$self.invis(true)
 	endif
 
 	if $master.state(creation2:arrived_bakery_timer) == 4
-		MPECHOAT $master At that moment, a scruffy looking boy bursts through the front door.
-		MPECHOAT $master The scruffy looking boy says 'OK, I delivered that pie to Helga.'
-		MPECHOAT $master The scruffy looking boy says 'I'm going down to the dock, bye...'
-		MPECHOAT $master The scruffy looking boy leaves south.
+		$self.echo_to($master, "At that moment, a scruffy looking boy bursts through the front door.")
+		$self.echo_to($master, "The scruffy looking boy says 'OK, I delivered that pie to Helga.'")
+		$self.echo_to($master, "The scruffy looking boy says 'I'm going down to the dock, bye...'")
+		$self.echo_to($master, "The scruffy looking boy leaves south.")
 		break
 	endif
 
 	if $master.state(creation2:arrived_bakery_timer) == 6
-		MPVIS
+		$self.invis(false)
 		say That must be it!  My wand is inside the pie he delivered!
 		say Helga is that lady with the big nose that guards the Temple.
 		say Quick, we need to get there before she eats my wand!  {CLook{x at your {Gmap{x!
-		MPQUEST_PROGRESS $master creation2
-		MPINVIS
+		$master.quest_progress(creation2)
+		$self.invis(true)
 		break
 	endif
 
@@ -347,32 +346,33 @@ and $self.in_room() == 3009
 endif
 
 if $master.quest_step(creation2) == 2
-and $self.in_room() == 3001
-	MPSTATE $master creation2:found_helga_timer ++
+and $room.vnum() == 3001
+	$master.state(creation2:found_helga_timer, ++)
 
 	if $master.state(creation2:found_helga_timer) == 2
-		MPVIS
-		MPECHOAT $master $self.title() emerges from your shirt.
+		$self.invis(false)
+		$self.echo_to($master, "$self.title() emerges from your shirt.")
 		say There she is... Wow, that nose.  And she has the pie!
-		MPINVIS
+		$self.invis(true)
 		break
 	endif
 
 	if $master.state(creation2:found_helga_timer) == 4
-		MPFORCE helga emote holds up a big pot pie to her nose and sniffs.
-		MPFORCE helga growl
-		MPFORCE helga say That dim wit!  I told him to get me a chicken pie.  This is duck!
-		MPFORCE helga emote puts the pie on a shelf to cool and goes back to standing guard.
+		assign $helga = $room.get_char(helga)
+		$helga.do("emote holds up a big pot pie to her nose and sniffs.")
+		$helga.do("growl")
+		$helga.do("say That dim wit!  I told him to get me a chicken pie.  This is duck!")
+		$helga.do("emote puts the pie on a shelf to cool and goes back to standing guard.")
 		break
 	endif
 
 	if $master.state(creation2:found_helga_timer) == 6
-		MPVIS
+		$self.invis(false)
 		say Hmm...
 		say Maybe we can go get her another pie and trade for that one?
 		say Let's go back to the Bakery and {Cbuy{x a {Gpie{x.
-		MPQUEST_PROGRESS $master creation2
-		MPINVIS
+		$master.quest_progress(creation2)
+		$self.invis(true)
 		break
 	endif
 
@@ -380,17 +380,17 @@ and $self.in_room() == 3001
 endif
 
 if $master.quest_step(creation2) == 3
-and $self.in_room() == 3009
-	MPSTATE $master creation2:arrived_bakery_timer2 ++
+and $room.vnum() == 3009
+	$master.state(creation2:arrived_bakery_timer2, ++)
 
 	if $master.state(creation2:arrived_bakery_timer2) == 2
-		MPVIS
+		$self.invis(false)
 		emote emerges from your shirt and looks at the baker, who seems distracted by some dough.
 		say We don't have money where I come from, so I don't know how to buy things...
 		say Oh, {Clook{x at that {Gsign{x right there!  I think it tells you how!
 		say You do have some money, right?  You should check your {Cworth{x and see.
 		break
-		MPINVIS
+		$self.invis(true)
 	endif
 
 	break
@@ -399,24 +399,24 @@ endif
 if $master.quest_step(creation2) == 4
 and $master.state(creation2:got_pie_timer) > 0
 	* this timer counts down
-	MPSTATE $master creation2:got_pie_timer --
+	$master.state(creation2:got_pie_timer, --)
 
 	if $master.state(creation2:got_pie_timer) == 2
-		MPVIS
-		MPECHOAT $master You resist the sudden urge to squash the thing crawling up your shirt.
-		MPECHOAT $master $self.title() jumps out of your shirt and spins around happily.
+		$self.invis(false)
+		$self.echo_to($master, "You resist the sudden urge to squash the thing crawling up your shirt.")
+		$self.echo_to($master, "$self.title() jumps out of your shirt and spins around happily.")
 		say You got the pie!!  Now we just have to get my wand out...
 		think
 		break
-		MPINVIS
+		$self.invis(true)
 	endif
 
 	if $master.state(creation2:got_pie_timer) == 0
-		MPVIS
+		$self.invis(false)
 		say I know!  You can {Ceat{x the {Gpie{x!
 		say Be careful!  Don't chew up my wand, or your face might explode.
 		wait $master
-		MPQUEST_PROGRESS $master creation2
+		$master.quest_progress(creation2)
 		break
 	endif
 
@@ -429,11 +429,11 @@ if $master != $actor
 or $master.quest_step(creation2) != 3
 	break
 endif
-MPVIS
+$self.invis(false)
 say Yes!  Nice going!  That looks like a perfectly adequate pie.
 say Let's go take it to Helga!
-MPQUEST_PROGRESS $master creation2
-MPINVIS
+$master.quest_progress(creation2)
+$self.invis(true)
 ~
 
 >act_prog p eats a big pot pie.~
@@ -441,10 +441,10 @@ if $self.master() != $actor
 or $actor.quest_step(creation2) != 5
 	break
 endif
-MPECHOAT $actor You gag, and then cough out what looks like a little silver toothpick.
+$self.echo_to($actor, "You gag, and then cough out what looks like a little silver toothpick.")
 emote flies over and picks up the wand.
 say Ew!  You got gross drool all over it... it had better still work!
-MPQUEST_PROGRESS $actor creation2
+$actor.quest_progress(creation2)
 ~
 |
 
@@ -460,7 +460,7 @@ if $actor.quest_step(creation2) == 4
 	say Here, take this duck pie, it's probably not too cold.
 	give pie $actor
 	emote eats a big pot pie in one giant bite.
-	MPSTATE $actor creation2:got_pie_timer 4
+	$actor.state(creation2:got_pie_timer, 4)
 endif
 ~
 |
