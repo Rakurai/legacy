@@ -86,64 +86,64 @@ if $self.gold() == 0
 endif
 say here1
 if $self.gold() == 20
-  MPAT 4313 MPECHO You hear voices from the other side of the gate...
+  $world.get_room(4313).echo("You hear voices from the other side of the gate...")
 endif
 if $self.gold() == 19
-  MPAT 4313 MPECHO "Morning Tom, how's guard duty today?"
+  $world.get_room(4313).echo("'Morning Tom, how's guard duty today?'")
 endif
 if $self.gold() == 18
-  MPAT 4313 MPECHO "Hey Bill, you know, same old.  I was just about to start my rounds."
+  $world.get_room(4313).echo("'Hey Bill, you know, same old.  I was just about to start my rounds.'")
 endif
 if $self.gold() == 17
-  MPAT 4313 MPECHO "Well, somebody has to keep the riffraff out.  Glad you're on it."
+  $world.get_room(4313).echo("'Well, somebody has to keep the riffraff out.  Glad you're on it.'")
 endif
 if $self.gold() == 16
-  MPAT 4313 MPECHO "What are you doing out so early?"
+  $world.get_room(4313).echo("'What are you doing out so early?'")
 endif
 if $self.gold() == 15
-  MPAT 4313 MPECHO "Headed over to the Mage Guild, I've got some new apprentices to train."
+  $world.get_room(4313).echo("'Headed over to the Mage Guild, I've got some new apprentices to train.'")
 endif
 if $self.gold() == 14
-  MPAT 4313 MPECHO "Did I see you leaving Grebe's last night with that girl from the temple?"
+  $world.get_room(4313).echo("'Did I see you leaving Grebe's last night with that girl from the temple?'")
 endif
 if $self.gold() == 13
-  MPAT 4313 MPECHO "Oh, yeah, she was cute, right?  We went back to my place."
+  $world.get_room(4313).echo("'Oh, yeah, she was cute, right?  We went back to my place.'")
 endif
 if $self.gold() == 12
-  MPAT 4313 MPECHO "No way!  How did that go?"
+  $world.get_room(4313).echo("'No way!  How did that go?'")
 endif
 if $self.gold() == 11
-  MPAT 4313 MPECHO "Well, I thought it was going well.  We sat and talked for a while."
+  $world.get_room(4313).echo("'Well, I thought it was going well.  We sat and talked for a while.'")
 endif
 if $self.gold() == 10
-  MPAT 4313 MPECHO "Yeah?"
+  $world.get_room(4313).echo("'Yeah?'")
 endif
 if $self.gold() == 9
-  MPAT 4313 MPECHO "Then she told said she wanted to get more comfortable..."
+  $world.get_room(4313).echo("'Then she told said she wanted to get more comfortable...'")
 endif
 if $self.gold() == 8
-  MPAT 4313 MPECHO "Go on..."
+  $world.get_room(4313).echo("'Go on...'")
 endif
 if $self.gold() == 7
-  MPAT 4313 MPECHO "Then she told ME to get more comfortable..."
+  $world.get_room(4313).echo("'Then she told ME to get more comfortable...'")
 endif
 if $self.gold() == 6
-  MPAT 4313 MPECHO "Yeah??"
+  $world.get_room(4313).echo("'Yeah??'")
 endif
 if $self.gold() == 5
-  MPAT 4313 MPECHO "So I put on my robe and wizard hat."
+  $world.get_room(4313).echo("'So I put on my robe and wizard hat.'")
 endif
 if $self.gold() == 4
-  MPAT 4313 MPECHO "Oh no, Bill!  Not again!"
+  $world.get_room(4313).echo("'Oh no, Bill!  Not again!'")
 endif
 if $self.gold() == 3
-  MPAT 4313 MPECHO "I know, I know, I don't know why I keep doing that!"
+  $world.get_room(4313).echo("'I know, I know, I don't know why I keep doing that!'")
 endif
 if $self.gold() == 2
-  MPAT 4313 MPECHO "You think she'll ever speak to you again?"
+  $world.get_room(4313).echo("'You think she'll ever speak to you again?'")
 endif
 if $self.gold() == 1
-  MPAT 4313 MPECHO You hear footsteps, and the voices fade into the distance.
+  $world.get_room(4313).echo("You hear footsteps, and the voices fade into the distance.")
 endif
 drop 1 gold
 sac gold
@@ -163,10 +163,10 @@ BGZ DF 0 S
 stand stand none 0
 0 0 medium 0
 >rand_prog 5~
-if rand(50)
-  MPAT 4312 MPECHO You catch a glimpse of a rat scurrying across the damp floor.
-  MPAT 4313 MPECHO You catch a glimpse of a rat scurrying across the damp floor.
-  MPAT 4314 MPECHO You catch a glimpse of a rat scurrying across the damp floor.
+if $world.rand(50)
+  $world.get_room(4312).echo("You catch a glimpse of a rat scurrying across the damp floor.")
+  $world.get_room(4313).echo("You catch a glimpse of a rat scurrying across the damp floor.")
+  $world.get_room(4314).echo("You catch a glimpse of a rat scurrying across the damp floor.")
   break
 endif
 ~
