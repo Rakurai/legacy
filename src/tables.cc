@@ -280,6 +280,7 @@ const std::vector<wiznet_type> wiznet_table = {
 	{    "resets",       WIZ_RESETS,     IMM, "You will be notified when an area resets." },
 	{    "mobdeaths",    WIZ_MOBDEATHS,  IMM, "You will be notified when an NPC dies." },
 	{    "saccing",      WIZ_SACCING,    IMM, "You will be notified of sacrifices." },
+	{    "progdebug",    WIZ_PROGDEBUG,  IMM, "You will see script debugging messages." },
 	{    "restores",     WIZ_RESTORE,    HED, "You will see restore commands." },
 	{    "purges",       WIZ_PURGE,      HED, "You will see purge commands." },
 	{    "loads",        WIZ_LOAD,       HED, "You will see load commands." },

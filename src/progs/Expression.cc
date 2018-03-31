@@ -83,11 +83,15 @@ evaluate(contexts::Context& context) const {
 
 	String sl = lhs->to_string(context);
 	String sr = rhs->to_string(context);
+	bool result;
 
 	if (sl.is_number() && sr.is_number())
-		return opr.evaluate(atoi(sl), atoi(sr));
+		result = opr.evaluate(atoi(sl), atoi(sr));
+	else
+		result = opr.evaluate(sl, sr);
 
-	return opr.evaluate(sl, sr);
+	debug(context, Format::format("evaluate: %s %s %s -> %s", sl, opr.to_string(), sr, result ? "true" : "false"));
+	return result;
 }
 
 } // namespace progs

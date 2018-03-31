@@ -58,6 +58,7 @@ public:
 
 	data::Bindings bindings;
 	std::map<String, data::Wrapper *> vars;
+	int current_line = 0;
 
 private:
 	Context& operator=(const Context&);

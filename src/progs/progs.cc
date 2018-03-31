@@ -2,8 +2,10 @@
 #include <vector>
 #include "progs/Type.hh"
 #include "progs/Prog.hh"
+#include "progs/contexts/Context.hh"
 #include "Logging.hh"
 #include "file.hh"
+#include "channels.hh"
 
 namespace progs {
 
@@ -34,6 +36,11 @@ void read_from_file(FILE *fp, Vnum vnum, std::vector<Prog *>& progs, std::set<Ty
 		}
 
 	}
+}
+
+void debug(contexts::Context& context, const String& message) {
+	String buf = Format::format("%3d) %s", context.current_line, message);
+	wiznet(buf, nullptr, nullptr, WIZ_PROGDEBUG, 0, 0);
 }
 
 } // namespace progs

@@ -87,9 +87,7 @@ void ObjProgContext::
 process_command(const String& cmnd) {
 	String buf, copy = cmnd;
 	std::unique_ptr<symbols::Symbol> stack = symbols::parse(copy, bindings, "");
-
-	std::cout << stack->print_stack().c_str() << std::endl;
-
+	debug(*this, Format::format("execute:   %s", stack->print_stack()));
 	stack->execute(*this);
 }
 

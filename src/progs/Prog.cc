@@ -146,8 +146,6 @@ Prog(FILE *fp, Vnum vnum) {
  * but again, if the parent is false we push false.  On encountering 'endif', we pop. -- Montrey */
 void Prog::
 execute(contexts::Context& context) const {
-	int line_num = 0;
-
 try {
 	// context will have default bindings for the prog type, now test that
 	// the variables are initialized
@@ -162,6 +160,9 @@ try {
 			throw Format::format("context variable '%s' is bound but not initialized", name);
 	}
 
+	debug(context, Format::format("running:   prog %s on %s vnum %d",
+		type_to_name(type), context.type(), context.vnum()));
+
 	std::stack<bool> stack;
 	bool opposite;
 
@@ -171,7 +172,7 @@ try {
 		if (context.self_is_garbage())
 			return;
 
-		line_num++;
+		context.current_line++;
 
 		switch (line.type) {
 		case Line::Type::IF:
@@ -270,9 +271,8 @@ try {
 		throw String("progs::execute: reached end of script without closing 'if' statements");
 } catch (String e) {
 	Logging::bugf("progs::execute: Exception caught in prog on %s %d, line %d:",
-		context.type(), context.vnum(), line_num);
+		context.type(), context.vnum(), context.current_line);
 	Logging::bugf(e);
-	Logging::bugf(original);
 }
 }
 

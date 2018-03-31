@@ -1125,7 +1125,10 @@
 #define WIZ_PREFIX              (Flags::S)
 #define WIZ_SPAM                (Flags::T)
 #define WIZ_MISC                (Flags::U)
-#define WIZ_BUGS                (Flags::V) /* W,X,Y open */
+#define WIZ_BUGS                (Flags::V)
+#define WIZ_PROGDEBUG           (Flags::W)
+// #define WIZ_OPEN                (Flags::X)
+// #define WIZ_OPEN                (Flags::Y)
 #define WIZ_CHEAT               (Flags::Z)
 #define WIZ_MAIL                (Flags::a)
 #define WIZ_AUCTION             (Flags::b)

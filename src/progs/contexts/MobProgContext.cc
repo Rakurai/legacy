@@ -78,10 +78,12 @@ process_command(const String& cmnd) {
 	if (buf[0] == '$') {
 		String copy = cmnd;
 		std::unique_ptr<symbols::Symbol> stack = symbols::parse(copy, bindings, "");
+		debug(*this, Format::format("execute:   %s", stack->print_stack()));
 		stack->execute(*this);
 	}
 	else {
 		buf = expand_vars(buf);
+		debug(*this, Format::format("interpret: %s", buf));
 		interpret(mob, buf);
 	}
 }
