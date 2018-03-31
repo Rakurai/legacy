@@ -16,16 +16,19 @@ struct Line {
 		BREAK,
 		ASSIGN,
 		COMMAND,
+		EMPTY,
 	};
 
-	Line(Type type, const String& text, data::Bindings& var_bindings);
+	Line(Type type, const String& text, const String& orig_text, data::Bindings& var_bindings);
 
 	Type type;
 	String text;
+	String orig_text;
 	std::unique_ptr<Expression> expression;
 
 	static Type get_type(const String& word) {
-		     if (word == "if")     return Type::IF;
+		if (word.empty() || word[0] == '*') return Type::EMPTY;
+		else if (word == "if")     return Type::IF;
 		else if (word == "and")    return Type::AND;
 		else if (word == "or")     return Type::OR;
 		else if (word == "else")   return Type::ELSE;
@@ -46,6 +49,7 @@ struct Line {
 			case Type::BREAK:   return "break";
 			case Type::COMMAND: return "command";
 			case Type::ASSIGN:  return "assign";
+			case Type::EMPTY:   return "empty";
 		}
 
 		return "unknown";

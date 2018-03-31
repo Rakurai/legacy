@@ -78,6 +78,10 @@ bool Expression::
 evaluate(contexts::Context& context) const {
 	if (opr.type == Operator::Type::set_equal_to) {
 		rhs->assign_to(lhs.get(), context);
+
+		// lhs should be a variable both before and after, to_string has no side effects
+		debug(context, Format::format("assign:    %s <- %s [%s]",
+			lhs->print_stack(), rhs->print_stack(), lhs->to_string(context)));
 		return true;
 	}
 
@@ -90,7 +94,8 @@ evaluate(contexts::Context& context) const {
 	else
 		result = opr.evaluate(sl, sr);
 
-	debug(context, Format::format("evaluate: %s %s %s -> %s", sl, opr.to_string(), sr, result ? "true" : "false"));
+	debug(context, Format::format("evaluate:  %s [%s] %s %s [%s] -> [%s]",
+		lhs->print_stack(), sl, opr.to_string(), rhs->print_stack(), sr, result ? "true" : "false"));
 	return result;
 }
 

@@ -21,7 +21,7 @@ template <typename T> struct ValueSymbol : public Symbol {
 	}
 
 	virtual const String print_stack() const {
-		return Format::format("Value<%s>", type_to_string(type));
+		return Format::format("<%s>", type_to_string(type));
 	}
 
 	T value;

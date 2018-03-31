@@ -5,9 +5,9 @@
 namespace progs {
 
 Line::
-Line(Type type, const String& text, data::Bindings& bindings)
- : type(type), text(text) {
- 	String copy = text;
+Line(Type type, const String& text, const String& orig_text, data::Bindings& bindings)
+ : type(type), text(text), orig_text(orig_text) {
+ 	String copy = text.lstrip();
 	if (type == Type::IF || type == Type::AND || type == Type::OR) {
 		expression.reset(new Expression(copy, bindings));
 

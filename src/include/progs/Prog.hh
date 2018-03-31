@@ -18,7 +18,6 @@ public:
     Type               type;
     String             arglist;
     std::vector<Line>  lines;
-    String             original; // just for showing in mpstat
 
 	void execute(contexts::Context& context) const;
 

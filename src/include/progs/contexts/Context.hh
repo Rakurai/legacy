@@ -66,7 +66,10 @@ public:
 	data::Bindings aliases;
 	data::Bindings bindings;
 	std::map<String, data::Wrapper *> variables;
+
+	// for debugging program execution
 	int current_line = 0;
+	int current_depth = 0;
 
 private:
 	Context& operator=(const Context&);

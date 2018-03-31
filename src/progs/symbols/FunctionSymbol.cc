@@ -805,10 +805,6 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	if (name == "control") {
 		const String key = deref<String>(arg_list[0].get(), context);
 		Character *target = deref<Character *>(arg_list[1].get(), context);
-
-		if (target == nullptr)
-			throw String("target is null");
-
 		progs::control_trigger(ch, key, target);
 		return;
 	}

@@ -398,9 +398,9 @@ void do_progstat(Character *ch, String argument)
 	}
 
 	for (const auto prog : *progs) {
-		ptc(ch, ">%s %s\n%s\n",
-		        progs::type_to_name(prog->type),
-		        prog->arglist,
-		        prog->original);
+		ptc(ch, ">%s %s\n", progs::type_to_name(prog->type), prog->arglist);
+
+		for (const auto& line : prog->lines)
+			ptc(ch, "%s\n", line.orig_text);
 	}
 }

@@ -39,7 +39,12 @@ void read_from_file(FILE *fp, Vnum vnum, std::vector<Prog *>& progs, std::set<Ty
 }
 
 void debug(contexts::Context& context, const String& message) {
-	String buf = Format::format("%3d) %s", context.current_line, message);
+	String indent = "";
+	for (int i = 0; i < context.current_depth; i++)
+		indent += "  ";
+
+	String buf = Format::format("%3d) %s%s%s{x",
+		context.current_line, context.current_line == 0 ? "{Y" : "", indent, message.replace("$", "$$"));
 	wiznet(buf, nullptr, nullptr, WIZ_PROGDEBUG, 0, 0);
 }
 

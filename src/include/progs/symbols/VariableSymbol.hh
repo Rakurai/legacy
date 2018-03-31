@@ -25,7 +25,7 @@ template <typename T> struct VariableSymbol : public Symbol {
 	}
 
 	virtual const String print_stack() const {
-		return Format::format("Variable<%s>$%s", type_to_string(type), name);
+		return Format::format("<%s>$%s", type_to_string(type), name);
 	}
 
 	const String name;

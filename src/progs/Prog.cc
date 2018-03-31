@@ -18,43 +18,36 @@ Prog(FILE *fp, Vnum vnum) {
 
 	arglist = fread_string(fp);
 	fread_to_eol(fp);
-	original = fread_string(fp);
+	String script = fread_string(fp);
 	fread_to_eol(fp);
 
-	if (original.empty())
+	if (script.empty())
 		return;
 
 	// parse the script into expressions and statements, pre-check for control
 	// flow and variable reference errors
 
 	Line::Type last_control, last_type;
-	String script = original;
 	int unclosed_ifs = 0;
 
 	// make a copy of the default bindings to track illegal variable calls
 	data::Bindings var_bindings(prog_table.find(type)->second.default_bindings);
 
 	while (!script.empty()) {
-		String word, line;
+		String word, orig_line;
 
 		// grab the first token, if it's some mud command we'll put it back
 		// lsplit will left strip both strings of leading whitespace
 		// parse into the first word and the expression
-		script = script.lsplit(line, "\n");
-		line = line.strip(" \t\r");
-
-		// allow for commenting out a line
-		if (line[0] == '*')
-			continue;
-
-		line = line.lsplit(word, " \t");
-
-		if (word.empty())
-			continue;
+		script = script.lsplit(orig_line, "\n");
+		String line = orig_line.strip(" \t\r").lsplit(word, " \t");
 
 		Line::Type line_type = Line::get_type(word);
 
 		switch(line_type) {
+		case Line::Type::EMPTY:
+			break;
+
 		case Line::Type::IF:
 			last_control = line_type;
 			unclosed_ifs++;
@@ -123,9 +116,10 @@ Prog(FILE *fp, Vnum vnum) {
 			break;
 		}
 
-		last_type = line_type;
+		if (line_type != Line::Type::EMPTY)
+			last_type = line_type;
 
-		lines.push_back({line_type, line, var_bindings});
+		lines.push_back({line_type, line, orig_line, var_bindings});
 	}
 
 	if (unclosed_ifs > 0) {
@@ -161,7 +155,7 @@ try {
 			throw Format::format("context variable '%s' is bound but not initialized", name);
 	}
 
-	debug(context, Format::format("running:   prog %s on %s vnum %d",
+	debug(context, Format::format("running:   %s on %s vnum %d",
 		type_to_name(type), context.type(), context.vnum()));
 
 	std::stack<bool> stack;
@@ -176,15 +170,20 @@ try {
 		context.current_line++;
 
 		switch (line.type) {
+		case Line::Type::EMPTY:
+			continue;
+
 		case Line::Type::IF:
 			// if we're under a false evaluation, don't even bother evaluating the line, we'll stay false
 			if (!stack.empty() && stack.top() == false) {
 				stack.push(false);
+				context.current_depth++; // for indenting debugging output
 				continue;
 			}
 
 			// otherwise push the evaluation
 			stack.push(line.expression->evaluate(context));
+			context.current_depth++; // for indenting debugging output
 			break;
 
 		case Line::Type::OR:
@@ -205,7 +204,9 @@ try {
 			}
 
 			// otherwise, the false parent is popped, we'll see if it changes
+			context.current_depth--; // for indenting debugging output
 			stack.push(line.expression->evaluate(context));
+			context.current_depth++; // for indenting debugging output
 			break;
 
 		case Line::Type::AND:
@@ -219,7 +220,9 @@ try {
 			// otherwise, pop the true parent and we'll see if it changes
 			stack.pop();
 
+			context.current_depth--; // for indenting debugging output
 			stack.push(line.expression->evaluate(context));
+			context.current_depth++; // for indenting debugging output
 			break;
 
 		case Line::Type::ELSE:
@@ -242,6 +245,7 @@ try {
 				throw String("'endif' encountered without 'if'");
 
 			stack.pop();
+			context.current_depth--; // for indenting debugging output
 			break;
 
 		case Line::Type::BREAK:
@@ -274,6 +278,14 @@ try {
 	Logging::bugf("progs::execute: Exception caught in %s on %s vnum %d, line %d:",
 		type_to_name(type), context.type(), context.vnum(), context.current_line);
 	Logging::bugf(e);
+
+	if (context.current_line > 0) {
+		// print the lines
+		int first = std::max(context.current_line - 2, 1);
+		int last  = std::min(context.current_line + 2, (int)lines.size());
+		for (int i = first; i <= last; i++)
+			Logging::bugf("%s%s{x", i == context.current_line ? "{Y" : "", lines[i-1].orig_text);
+	}
 }
 }
 

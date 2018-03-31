@@ -39,8 +39,8 @@ template <typename Ret> struct FunctionSymbol : public Symbol {
 	virtual const String print_stack() const {
 		String buf = parent ? parent->print_stack() + "." : "";
 
-		buf += Format::format("Function<%s>%s(",
-			type_to_string(parent ? parent->type : data::Type::Void),
+		buf += Format::format("<%s>%s(",
+			type_to_string(type),
 			fn_table[fn_index].name
 		);
 
