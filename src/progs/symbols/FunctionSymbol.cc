@@ -52,6 +52,7 @@ const std::vector<fn_type> fn_table = {
 	{ "get_obj",     dt::Object,    dt::World,     { dt::String } }, // lookup by name
 
 	// character accessors
+	{ "keywords",    dt::String,    dt::Character, {} },
 	{ "name",        dt::String,    dt::Character, {} },
 	{ "title",       dt::String,    dt::Character, {} },
 	{ "he_she",      dt::String,    dt::Character, {} },
@@ -101,6 +102,7 @@ const std::vector<fn_type> fn_table = {
 	{ "state",       dt::Void,      dt::Character, { dt::String, dt::String } },
 
 	// object accessors
+	{ "keywords",    dt::String,    dt::Object,    {} },
 	{ "name",        dt::String,    dt::Object,    {} },
 	{ "sdesc",       dt::String,    dt::Object,    {} },
 	{ "ind_art",     dt::String,    dt::Object,    {} },
@@ -410,6 +412,10 @@ const String FunctionSymbol<const String>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	bool can_see = context.can_see(ch);
 
+	if (name == "keywords") {
+		return ch->name;
+	}
+
 	if (name == "name") {
 		if (!can_see)     return "someone";
 		if (ch->is_npc()) return ch->name.lsplit().capitalize();
@@ -450,6 +456,10 @@ template <> template <>
 const String FunctionSymbol<const String>::
 eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	bool can_see = context.can_see(obj);
+
+	if (name == "keywords") {
+		return obj->name;
+	}
 
 	if (name == "name") {
 		if (!can_see)     return "something";
