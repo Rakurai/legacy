@@ -1,4 +1,4 @@
-#include "progs/symbols/deref.hh"
+#include "progs/symbols/templates.hh"
 
 namespace progs {
 namespace symbols {

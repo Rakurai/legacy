@@ -1,7 +1,7 @@
 #include "progs/Expression.hh"
 #include "progs/symbols/declare.hh"
 #include "progs/symbols/ValueSymbol.hh"
-#include "progs/symbols/deref.hh"
+#include "progs/symbols/templates.hh"
 
 namespace progs {
 

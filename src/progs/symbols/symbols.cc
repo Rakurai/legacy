@@ -2,7 +2,7 @@
 #include "progs/symbols/ValueSymbol.hh"
 #include "progs/symbols/VariableSymbol.hh"
 #include "progs/symbols/FunctionSymbol.hh"
-#include "progs/symbols/deref.hh" // has templates needed to instantiate symbols
+#include "progs/symbols/templates.hh" // has templates needed to instantiate symbols
 #include "Character.hh"
 #include "Object.hh"
 #include "Room.hh"
