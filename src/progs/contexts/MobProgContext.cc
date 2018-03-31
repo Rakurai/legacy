@@ -1,4 +1,5 @@
 #include "progs/contexts/MobProgContext.hh"
+#include "progs/symbols/declare.hh"
 #include "progs/prog_table.hh"
 #include "Character.hh"
 #include "MobilePrototype.hh"
@@ -69,9 +70,20 @@ MobProgContext(progs::Type type, Character *mob) :
  */
 void MobProgContext::
 process_command(const String& cmnd) {
-	String buf = expand_vars(cmnd);
-	interpret(mob, buf);
-	return;
+	String buf = cmnd.lstrip();
+
+	if (buf.empty())
+		return;
+
+	if (buf[0] == '$') {
+		String copy = cmnd;
+		std::unique_ptr<symbols::Symbol> stack = symbols::parse(copy, bindings, "");
+		stack->execute(*this);
+	}
+	else {
+		buf = expand_vars(buf);
+		interpret(mob, buf);
+	}
 }
 
 } // namespace contexts
