@@ -86,7 +86,7 @@ $juniper.invis(true)
 $juniper.become_pet($actor)
 $juniper.invis(false)
 $juniper.control(control1, $actor)
-$self.purge(self)
+$self.purge($self)
 ~
 |
 
@@ -252,11 +252,11 @@ $actor.state(creation1:opened_chest, 1)
 if $master != $actor
 	break
 endif
-if $obj.name() / key
+if $obj.keywords() / key
 	$actor.state(creation1:got_key, 1)
 	break
 endif
-if $obj.name() !/ key
+if $obj.keywords() !/ key
 and $actor.state(creation1:found_weapon) == 0
 	$actor.state(creation1:found_weapon, 1)
 	break
