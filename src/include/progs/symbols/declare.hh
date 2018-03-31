@@ -40,5 +40,7 @@ const String parse_identifier(String&);
 bool can_convert(data::Type from, data::Type to);
 std::unique_ptr<Symbol> convert(std::unique_ptr<Symbol>& from, data::Type to_type, const data::Bindings& bindings);
 
+const String expand(const String&, contexts::Context&);
+
 } // namespace symbols
 } // namespace progs

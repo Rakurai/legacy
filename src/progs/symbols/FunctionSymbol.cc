@@ -651,33 +651,33 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	}
 	
 	if (name == "echo") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		fn_helper_echo(buf, ch, nullptr, nullptr, ch->in_room);
 		return;
 	}
 
 	if (name == "echo_to") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
 		fn_helper_echo_to(buf, ch, nullptr, victim, ch->in_room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
 		fn_helper_echo_other(buf, ch, nullptr, victim, ch->in_room);
 		return;
 	}
 	
 	if (name == "echo_near") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		fn_helper_echo_near(buf, ch, nullptr, nullptr, ch->in_room);
 		return;
 	}
 	
 	if (name == "cast") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		do_mpcast(ch, buf);
 		return;
 	}
@@ -895,7 +895,7 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 
 	if (name == "echo") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		fn_helper_echo(buf, obj->carried_by, nullptr, obj, room);
 		act(buf, obj->carried_by, obj, nullptr, TO_ROOM, POS_RESTING, false, room);
 		return;
@@ -904,7 +904,7 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 	if (name == "echo_to") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
 		fn_helper_echo_to(buf, obj->carried_by, obj, victim, room);
 		return;
 	}
@@ -912,14 +912,14 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 	if (name == "echo_other") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
 		fn_helper_echo_other(buf, obj->carried_by, obj, victim, room);
 		return;
 	}
 	
 	if (name == "echo_near") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		fn_helper_echo_near(buf, obj->carried_by, obj, nullptr, room);
 		return;
 	}
@@ -955,27 +955,27 @@ template <>
 void
 eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "echo") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		fn_helper_echo(buf, nullptr, nullptr, nullptr, room);
 		return;
 	}
 
 	if (name == "echo_to") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
 		fn_helper_echo_to(buf, nullptr, nullptr, victim, room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
+		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
 		fn_helper_echo_other(buf, nullptr, nullptr, victim, room);
 		return;
 	}
 	
 	if (name == "echo_near") {
-		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
+		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
 		fn_helper_echo_near(buf, nullptr, nullptr, nullptr, room);
 		return;
 	}

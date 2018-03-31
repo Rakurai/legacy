@@ -82,7 +82,7 @@ process_command(const String& cmnd) {
 		stack->execute(*this);
 	}
 	else {
-		buf = expand_vars(buf);
+		buf = symbols::expand(buf, *this);
 		debug(*this, Format::format("interpret: %s", buf));
 		interpret(mob, buf);
 	}

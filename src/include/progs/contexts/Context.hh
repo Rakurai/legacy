@@ -30,8 +30,6 @@ public:
 	virtual void process_command(const String& command) = 0;
 	virtual bool self_is_garbage() const = 0;
 
-	const String expand_vars(const String& orig);
-
 	template <typename T>
 	void set_var(const String& key, data::Type type, T data) {
 		bindings.add(key, type);
