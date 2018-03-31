@@ -1,5 +1,6 @@
 #include "progs/contexts/MobProgContext.hh"
 #include "progs/contexts/ObjProgContext.hh"
+#include "Character.hh"
 #include "Game.hh"
 
 namespace progs {
@@ -14,6 +15,16 @@ void get_alias(Context& context, const String& key, Character** datap) {
 			throw Format::format("progs::contexts::get_alias: wrong context for Character * '%s'", key);
 
 		*datap = ctx->mob;
+		return;
+	}
+
+	if (key == "master") {
+		MobProgContext *ctx = dynamic_cast<MobProgContext *>(&context);
+
+		if (ctx == nullptr)
+			throw Format::format("progs::contexts::get_alias: wrong context for Character * '%s'", key);
+
+		*datap = ctx->mob->master;
 		return;
 	}
 

@@ -52,6 +52,7 @@ MobProgContext(progs::Type type, Character *mob) :
 	aliases.emplace("self", data::Type::Character);
 	aliases.emplace("room", data::Type::Room);
 	aliases.emplace("world", data::Type::World);
+	aliases.emplace("master", data::Type::Character);
 
 	int count = 0;
 	Character *rndm;
