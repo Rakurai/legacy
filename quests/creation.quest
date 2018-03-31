@@ -23,13 +23,13 @@ end
 
 M 4250  * Juniper outside the walls
 >rand_prog 3~
-if $self.in_room() != 4303
+if $room != 4303
 	say Now where was that secret entrance...
 	emote flies about, inspecting the city wall.
 endif
 ~
 >rand_prog 3~
-if $self.in_room() != 4303
+if $room != 4303
 	say I just know it was around here somewhere!
 endif
 ~
@@ -122,7 +122,7 @@ endif
 ~
 >rand_prog 20~
 if !$master
-or $master.in_room() != $self.in_room()
+or $master.in_room() != $room
 	break
 endif
 if $master.is_carrying(torch)
@@ -212,7 +212,7 @@ endif
 ~
 >act_prog p opens the closet door.~
 if $master != $actor
-or $self.in_room() != 4312
+or $room != 4312
 or $actor.state(creation1:first_door) > 2
 	break
 endif
@@ -221,7 +221,7 @@ say Alright, let's get out of this closet!  Go {Csouth{x!
 ~
 >act_prog p opens the door.~
 if $master != $actor
-or $self.in_room() != 4313
+or $room != 4313
 or $actor.state(creation1:opened_second_door) == 1
 	break
 endif
@@ -305,7 +305,7 @@ $actor.quest_assign(creation2)
 ~
 >rand_prog 100~
 if !$master
-or $master.in_room() != $self.in_room()
+or $master.in_room() != $room
 	break
 endif
 
@@ -437,7 +437,7 @@ $self.invis(true)
 ~
 
 >act_prog p eats a big pot pie.~
-if $self.master() != $actor
+if $master != $actor
 or $actor.quest_step(creation2) != 5
 	break
 endif
