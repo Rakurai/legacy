@@ -13,6 +13,9 @@ Context::
 
 Context::
 Context(const Context& rhs) {
+	for (auto& pair : rhs.bindings)
+		bindings.emplace(pair.first, pair.second);
+
 	for (auto& pair : rhs.vars)
 		vars.emplace(pair.first, pair.second->clone());
 }

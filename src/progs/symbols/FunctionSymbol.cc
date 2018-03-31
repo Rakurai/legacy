@@ -230,9 +230,9 @@ template <> template <>
 Character * FunctionSymbol<Character *>::
 eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "cv_to_char") {
-		Room *room;
+		Room **room;
 		context.get_var("room", &room);
-		return fn_helper_get_char(str, context, room);
+		return fn_helper_get_char(str, context, *room);
 	}
 
 	throw Format::format("unhandled function '%s'", name);
@@ -693,7 +693,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		char_from_room(ch);
 		char_to_room(ch, room);
 
-		deref<int>(arg_list[0].get(), context); // execute
+		deref<int>(arg_list[1].get(), context); // execute
 
 		if (!ch->is_garbage()) {
 			char_from_room(ch);
@@ -851,6 +851,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 			throw String("value is not a positive integer");
 
 		ch->mpstate[key] = atoi(value);
+		return;
 	}
 
 	throw Format::format("unhandled function '%s'", name);
