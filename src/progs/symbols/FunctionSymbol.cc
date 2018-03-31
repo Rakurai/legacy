@@ -659,14 +659,14 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	if (name == "echo_to") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
-		fn_helper_echo_to(buf, ch, victim, nullptr, ch->in_room);
+		fn_helper_echo_to(buf, ch, nullptr, victim, ch->in_room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
-		fn_helper_echo_other(buf, ch, victim, nullptr, ch->in_room);
+		fn_helper_echo_other(buf, ch, nullptr, victim, ch->in_room);
 		return;
 	}
 	
@@ -896,7 +896,7 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
 		fn_helper_echo(buf, obj->carried_by, nullptr, obj, room);
-		act(buf, obj->carried_by, nullptr, obj, TO_ROOM, POS_RESTING, false, room);
+		act(buf, obj->carried_by, obj, nullptr, TO_ROOM, POS_RESTING, false, room);
 		return;
 	}
 
@@ -904,7 +904,7 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
-		fn_helper_echo_to(buf, obj->carried_by, victim, obj, room);
+		fn_helper_echo_to(buf, obj->carried_by, obj, victim, room);
 		return;
 	}
 
@@ -912,14 +912,14 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
-		fn_helper_echo_other(buf, obj->carried_by, victim, obj, room);
+		fn_helper_echo_other(buf, obj->carried_by, obj, victim, room);
 		return;
 	}
 	
 	if (name == "echo_near") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		String buf = context.expand_vars(deref<const String>(arg_list[0].get(), context));
-		fn_helper_echo_near(buf, obj->carried_by, nullptr, obj, room);
+		fn_helper_echo_near(buf, obj->carried_by, obj, nullptr, room);
 		return;
 	}
 
@@ -962,14 +962,14 @@ eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<S
 	if (name == "echo_to") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
-		fn_helper_echo_to(buf, nullptr, victim, nullptr, room);
+		fn_helper_echo_to(buf, nullptr, nullptr, victim, room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
 		String buf = context.expand_vars(deref<const String>(arg_list[1].get(), context));
-		fn_helper_echo_other(buf, nullptr, victim, nullptr, room);
+		fn_helper_echo_other(buf, nullptr, nullptr, victim, room);
 		return;
 	}
 	
