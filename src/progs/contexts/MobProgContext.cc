@@ -35,16 +35,23 @@ self_is_garbage() const {
 	return mob->is_garbage();
 }
 
+Room * MobProgContext::
+in_room() const {
+	if (mob == nullptr)
+		return nullptr;
+
+	return mob->in_room;
+}
+
 MobProgContext::
 MobProgContext(progs::Type type, Character *mob) :
 	Context(prog_table.find(type)->second.default_bindings),
 	mob(mob) 
 {
-	// set variables
-	set_var("self", data::Type::Character, mob);
-	set_var("world", data::Type::World, &Game::world());
-	set_var("room", data::Type::Room, mob->in_room);
-	set_var("master", data::Type::Character, mob->master);
+	// bind aliases
+	aliases.emplace("self", data::Type::Character);
+	aliases.emplace("room", data::Type::Room);
+	aliases.emplace("world", data::Type::World);
 
 	int count = 0;
 	Character *rndm;
@@ -61,7 +68,7 @@ MobProgContext(progs::Type type, Character *mob) :
 		}
 	}
 
-	set_var("random", data::Type::Character, rndm);
+	set_var("random", data::Type::Character, rndm); // could be nullptr, that's ok
 }
 
 /* This procedure simply copies the cmnd to a buffer while expanding

@@ -18,6 +18,8 @@ public:
 	virtual bool can_see(Character *) const;
 	virtual bool can_see(Object *) const;
 	virtual bool can_see(Room *) const;
+	virtual Room *in_room() const;
+
 	virtual void process_command(const String& cmnd);
 	virtual bool self_is_garbage() const;
 

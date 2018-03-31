@@ -10,7 +10,7 @@ execute(contexts::Context& context) {
 		case data::Type::Character: deref<Character *>(this, context); break;
 		case data::Type::Object:    deref<Object *>(this, context); break;
 		case data::Type::Room:      deref<Room *>(this, context); break;
-		case data::Type::String:    deref<const String>(this, context); break;
+		case data::Type::String:    deref<String>(this, context); break;
 		case data::Type::Boolean:   deref<bool>(this, context); break;
 		case data::Type::Integer:   deref<int>(this, context); break;
 		case data::Type::Void:      deref<int>(this, context); break;

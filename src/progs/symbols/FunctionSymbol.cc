@@ -171,7 +171,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 Character *
 eval_delegate_world_char(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "get_char") {
-		String str = deref<const String>(arg_list[0].get(), context);
+		String str = deref<String>(arg_list[0].get(), context);
 		String arg;
 		int count = 0, number = number_argument(str, arg);
 
@@ -204,7 +204,7 @@ template <> template <>
 Character * FunctionSymbol<Character *>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "get_char") {
-		return fn_helper_get_char(deref<const String>(arg_list[0].get(), context), context, room);
+		return fn_helper_get_char(deref<String>(arg_list[0].get(), context), context, room);
 	}
 
 	if (name == "load_mob") {
@@ -230,9 +230,9 @@ template <> template <>
 Character * FunctionSymbol<Character *>::
 eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "cv_to_char") {
-		Room **room;
+		Room *room;
 		context.get_var("room", &room);
-		return fn_helper_get_char(str, context, *room);
+		return fn_helper_get_char(str, context, room);
 	}
 
 	throw Format::format("unhandled function '%s'", name);
@@ -246,7 +246,7 @@ eval_delegate(const String str, const String& name, std::vector<std::unique_ptr<
 Object *
 eval_delegate_world_obj(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "get_obj") {
-		String str = deref<const String>(arg_list[0].get(), context);
+		String str = deref<String>(arg_list[0].get(), context);
 		String arg;
 		int count = 0, number = number_argument(str, arg);
 
@@ -296,7 +296,7 @@ template <> template <>
 Object * FunctionSymbol<Object *>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "get_obj") {
-		String str = deref<const String>(arg_list[0].get(), context);
+		String str = deref<String>(arg_list[0].get(), context);
 		String arg;
 		int count = 0, number = number_argument(str, arg);
 
@@ -399,7 +399,7 @@ eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>&
 // *******************************
 
 // functions that access World, return String
-const String
+String
 eval_delegate_world_str(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "time")    return Format::format("%d", Game::world().time.hour);
 
@@ -408,7 +408,7 @@ eval_delegate_world_str(const String& name, std::vector<std::unique_ptr<Symbol>>
 
 // functions that access Character, return String
 template <> template <>
-const String FunctionSymbol<const String>::
+String FunctionSymbol<String>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	bool can_see = context.can_see(ch);
 
@@ -453,7 +453,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 
 // functions that access Object, return String
 template <> template <>
-const String FunctionSymbol<const String>::
+String FunctionSymbol<String>::
 eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	bool can_see = context.can_see(obj);
 
@@ -485,7 +485,7 @@ eval_delegate(Object *obj, const String& name, std::vector<std::unique_ptr<Symbo
 
 // functions that access Room, return String
 template <> template <>
-const String FunctionSymbol<const String>::
+String FunctionSymbol<String>::
 eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	bool can_see = context.can_see(room);
 
@@ -499,7 +499,7 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 
 // functions that access Integer, return String
 template <> template <>
-const String FunctionSymbol<const String>::
+String FunctionSymbol<String>::
 eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "cv_to_str") return Format::format("%d", num);
 
@@ -532,8 +532,8 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	if (name == "is_killer")   return IS_KILLER(ch);
 	if (name == "is_thief")    return IS_THIEF(ch);
 	if (name == "is_charmed")  return affect::exists_on_char(ch, affect::type::charm_person);
-	if (name == "is_carrying") return get_obj_carry(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
-	if (name == "is_wearing")  return get_obj_wear(ch, deref<const String>(arg_list[0].get(), context)) != nullptr;
+	if (name == "is_carrying") return get_obj_carry(ch, deref<String>(arg_list[0].get(), context)) != nullptr;
+	if (name == "is_wearing")  return get_obj_wear(ch, deref<String>(arg_list[0].get(), context)) != nullptr;
 
 	throw Format::format("unhandled function '%s'", name);
 }
@@ -560,7 +560,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	if (name == "sex")        return GET_ATTR_SEX(ch);
 	if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
 	if (name == "state") {
-		String key = deref<const String>(arg_list[0].get(), context);
+		String key = deref<String>(arg_list[0].get(), context);
 
 		if (!key.empty()) {
 			const auto entry = ch->mpstate.find(key);
@@ -631,7 +631,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	}
 
 	if (name == "do") {
-		String argument = deref<const String>(arg_list[0].get(), context);
+		String argument = deref<String>(arg_list[0].get(), context);
 		interpret(ch, argument);
 		return;
 	}
@@ -651,33 +651,33 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	}
 	
 	if (name == "echo") {
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		fn_helper_echo(buf, ch, nullptr, nullptr, ch->in_room);
 		return;
 	}
 
 	if (name == "echo_to") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
+		String buf = expand(deref<String>(arg_list[1].get(), context), context);
 		fn_helper_echo_to(buf, ch, nullptr, victim, ch->in_room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
+		String buf = expand(deref<String>(arg_list[1].get(), context), context);
 		fn_helper_echo_other(buf, ch, nullptr, victim, ch->in_room);
 		return;
 	}
 	
 	if (name == "echo_near") {
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		fn_helper_echo_near(buf, ch, nullptr, nullptr, ch->in_room);
 		return;
 	}
 	
 	if (name == "cast") {
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		do_mpcast(ch, buf);
 		return;
 	}
@@ -730,7 +730,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 			return;
 		}
 
-		const String args = deref<const String>(arg_list[0].get(), context);
+		const String args = deref<String>(arg_list[0].get(), context);
 		String arg = args.lsplit();
 
 		if (arg != "all" && !arg.has_prefix("all.")) {
@@ -803,7 +803,7 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	}
 
 	if (name == "control") {
-		const String key = deref<const String>(arg_list[0].get(), context);
+		const String key = deref<String>(arg_list[0].get(), context);
 		Character *target = deref<Character *>(arg_list[1].get(), context);
 
 		if (target == nullptr)
@@ -814,8 +814,8 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	}
 
 	if (name == "state") {
-		const String key = deref<const String>(arg_list[0].get(), context);
-		const String value = deref<const String>(arg_list[1].get(), context);
+		const String key = deref<String>(arg_list[0].get(), context);
+		const String value = deref<String>(arg_list[1].get(), context);
 
 		if (key.empty())
 			throw String("no key");
@@ -895,7 +895,7 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 
 	if (name == "echo") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		fn_helper_echo(buf, obj->carried_by, nullptr, obj, room);
 		act(buf, obj->carried_by, obj, nullptr, TO_ROOM, POS_RESTING, false, room);
 		return;
@@ -904,7 +904,7 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 	if (name == "echo_to") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
+		String buf = expand(deref<String>(arg_list[1].get(), context), context);
 		fn_helper_echo_to(buf, obj->carried_by, obj, victim, room);
 		return;
 	}
@@ -912,14 +912,14 @@ eval_delegate_void(Object *obj, const String& name, std::vector<std::unique_ptr<
 	if (name == "echo_other") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
+		String buf = expand(deref<String>(arg_list[1].get(), context), context);
 		fn_helper_echo_other(buf, obj->carried_by, obj, victim, room);
 		return;
 	}
 	
 	if (name == "echo_near") {
 		Room *room = obj->carried_by ? obj->carried_by->in_room : obj->in_room;
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		fn_helper_echo_near(buf, obj->carried_by, obj, nullptr, room);
 		return;
 	}
@@ -955,27 +955,27 @@ template <>
 void
 eval_delegate_void(Room *room, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "echo") {
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		fn_helper_echo(buf, nullptr, nullptr, nullptr, room);
 		return;
 	}
 
 	if (name == "echo_to") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
+		String buf = expand(deref<String>(arg_list[1].get(), context), context);
 		fn_helper_echo_to(buf, nullptr, nullptr, victim, room);
 		return;
 	}
 
 	if (name == "echo_other") {
 		Character *victim = deref<Character *>(arg_list[0].get(), context);
-		String buf = expand(deref<const String>(arg_list[1].get(), context), context);
+		String buf = expand(deref<String>(arg_list[1].get(), context), context);
 		fn_helper_echo_other(buf, nullptr, nullptr, victim, room);
 		return;
 	}
 	
 	if (name == "echo_near") {
-		String buf = expand(deref<const String>(arg_list[0].get(), context), context);
+		String buf = expand(deref<String>(arg_list[0].get(), context), context);
 		fn_helper_echo_near(buf, nullptr, nullptr, nullptr, room);
 		return;
 	}
@@ -1043,7 +1043,7 @@ try {
 		return eval_delegate(room, name, arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
+		const String str = deref<String>(parent.get(), context);
 		return eval_delegate(str, name, arg_list, context);
 	}
 	case data::Type::Boolean: {
@@ -1100,7 +1100,7 @@ try {
 		return eval_delegate(room, name, arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
+		const String str = deref<String>(parent.get(), context);
 		return eval_delegate(str, name, arg_list, context);
 	}
 	case data::Type::Boolean: {
@@ -1157,7 +1157,7 @@ try {
 		return eval_delegate(room, name, arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
+		const String str = deref<String>(parent.get(), context);
 		return eval_delegate(str, name, arg_list, context);
 	}
 	case data::Type::Boolean: {
@@ -1177,7 +1177,7 @@ try {
 }
 
 template <>
-const String FunctionSymbol<const String>::
+String FunctionSymbol<String>::
 evaluate(contexts::Context& context) {
 	const String& name = fn_table[fn_index].name;
 
@@ -1214,7 +1214,7 @@ try {
 		return eval_delegate(room, name, arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
+		const String str = deref<String>(parent.get(), context);
 		return eval_delegate(str, name, arg_list, context);
 	}
 	case data::Type::Boolean: {
@@ -1271,7 +1271,7 @@ try {
 		return eval_delegate(room, name, arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
+		const String str = deref<String>(parent.get(), context);
 		return eval_delegate(str, name, arg_list, context);
 	}
 	case data::Type::Boolean: {
@@ -1329,7 +1329,7 @@ try {
 		return eval_delegate_void(room, name, sym.arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(sym.parent.get(), context);
+		const String str = deref<String>(sym.parent.get(), context);
 		return eval_delegate_void(str, name, sym.arg_list, context);
 	}
 	case data::Type::Boolean: {
@@ -1392,7 +1392,7 @@ try {
 		return eval_delegate(room, name, arg_list, context);
 	}
 	case data::Type::String: {
-		const String str = deref<const String>(parent.get(), context);
+		const String str = deref<String>(parent.get(), context);
 		return eval_delegate(str, name, arg_list, context);
 	}
 	case data::Type::Boolean: {

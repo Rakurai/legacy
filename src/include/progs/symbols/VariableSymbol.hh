@@ -11,9 +11,9 @@ template <typename T> struct VariableSymbol : public Symbol {
 	VariableSymbol(data::Type c, const String& n) : Symbol(c), name(n) {}
 	virtual ~VariableSymbol() {}
 	T evaluate(contexts::Context& context) {
-		T* temp;
+		T temp;
 		context.get_var(name, &temp);
-		return *temp;
+		return temp;
 	}
 
 	virtual const String to_string(contexts::Context& context) {

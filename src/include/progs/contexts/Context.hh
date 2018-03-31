@@ -2,6 +2,7 @@
 
 #include <map>
 #include "progs/Type.hh"
+#include "progs/contexts/alias.hh"
 #include "progs/data/Wrapper.hh"
 #include "progs/data/Type.hh"
 #include "progs/data/Bindings.hh"
@@ -27,35 +28,44 @@ public:
 	virtual bool can_see(Character *) const = 0;
 	virtual bool can_see(Object *) const = 0;
 	virtual bool can_see(Room *) const = 0;
+	virtual Room *in_room() const = 0;
+
 	virtual void process_command(const String& command) = 0;
 	virtual bool self_is_garbage() const = 0;
 
 	template <typename T>
 	void set_var(const String& key, data::Type type, T data) {
+		if (aliases.count(key) != 0)
+			throw Format::format("progs::Context::set_var: attempt to rebind alias '%s'", key);
+
 		bindings.add(key, type);
 
-		auto var = vars.find(key);
+		auto var = variables.find(key);
 
-		if (var != vars.end()) {
+		if (var != variables.end()) {
 			delete var->second;
-			vars.erase(key);
+			variables.erase(key);
 		}
 
-		vars.emplace(key, data::construct_wrapper(data));
+		variables.emplace(key, data::construct_wrapper(data));
 	}
 
 	template <typename T>
-	void get_var(const String& key, T** datap) {
-		auto pair = vars.find(key);
+	void get_var(const String& key, T* datap) {
+		if (aliases.count(key) != 0)
+			return get_alias(*this, key, datap);
 
-		if (pair == vars.end())
+		auto pair = variables.find(key);
+
+		if (pair == variables.end())
 			throw Format::format("progs::Context::get_var: variable '%s' is undefined", key);
 
 		return data::access_wrapper(pair->second, datap);
 	}
 
+	data::Bindings aliases;
 	data::Bindings bindings;
-	std::map<String, data::Wrapper *> vars;
+	std::map<String, data::Wrapper *> variables;
 	int current_line = 0;
 
 private:

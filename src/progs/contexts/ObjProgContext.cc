@@ -38,46 +38,55 @@ self_is_garbage() const {
 //	return obj->is_garbage();
 }
 
+Room * ObjProgContext::
+in_room() const {
+	if (obj == nullptr)
+		return nullptr;
+
+	Room *room = nullptr;
+
+	if (obj->carried_by != nullptr)
+		room = obj->carried_by->in_room;
+	else
+		room = obj->in_room;
+
+	return room;
+}
+
 ObjProgContext::
 ObjProgContext(progs::Type type, Object *obj) :
 	Context(prog_table.find(type)->second.default_bindings),
 	obj(obj) 
 {
-	set_var("self", data::Type::Object, obj);
-	set_var("world", data::Type::World, &Game::world());
-
-	if (obj->carried_by)
-		set_var("room", data::Type::Room, obj->carried_by->in_room);
-	else if (obj->in_room)
-		set_var("room", data::Type::Room, obj->in_room);
-	else
-		throw String("object is not in a room or carried by a character");
-
-	int count = 0;
+	// bind aliases
+	aliases.emplace("self", data::Type::Object);
+	aliases.emplace("room", data::Type::Room);
+	aliases.emplace("world", data::Type::World);
 
 	Room *room = obj->in_room;
 
 	if (obj->carried_by)
 		room = obj->carried_by->in_room;
 
-	if (room != nullptr) {
-		Character *rndm;
+	if (room == nullptr)
+		throw String("object is not in a room and not carried by a character");
 
-		/* get a random visable mortal player who is in the room with the obj */
-		for (Character *vch = obj->in_room->people; vch; vch = vch->next_in_room) {
-			if (!vch->is_npc()
-			    &&  !IS_IMMORTAL(vch)) {
+	int count = 0;
+	Character *rndm;
+
+	/* get a random visable mortal player who is in the room with the obj */
+	for (Character *vch = obj->in_room->people; vch; vch = vch->next_in_room) {
+		if (!vch->is_npc()
+		    &&  !IS_IMMORTAL(vch)) {
 //			    &&  can_see_char(mob, vch)) {
-				if (number_range(0, count) == 0)
-					rndm = vch;
+			if (number_range(0, count) == 0)
+				rndm = vch;
 
-				count++;
-			}
+			count++;
 		}
-
-		if (rndm != nullptr)
-			set_var("random", data::Type::Character, rndm);
 	}
+
+	set_var("random", data::Type::Character, rndm); // could be nullptr, that's ok
 }
 /* This procedure simply copies the cmnd to a buffer while expanding
  * any variables by calling the translate procedure.  The observant

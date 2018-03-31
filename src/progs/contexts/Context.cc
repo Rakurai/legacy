@@ -5,17 +5,20 @@ namespace contexts {
 
 Context::
 ~Context() {
-	for (auto& pair : vars)
+	for (auto& pair : variables)
 		delete pair.second;
 }
 
 Context::
 Context(const Context& rhs) {
+	for (auto& pair : rhs.aliases)
+		aliases.emplace(pair.first, pair.second);
+
 	for (auto& pair : rhs.bindings)
 		bindings.emplace(pair.first, pair.second);
 
-	for (auto& pair : rhs.vars)
-		vars.emplace(pair.first, pair.second->clone());
+	for (auto& pair : rhs.variables)
+		variables.emplace(pair.first, pair.second->clone());
 }
 
 } // namespace contexts

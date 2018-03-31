@@ -13,7 +13,7 @@ struct Wrapper {
 };
 
 template <typename T> struct WrapperTemplate : public Wrapper {
-	WrapperTemplate(T d) : data(d) {}
+	WrapperTemplate(T& d) : data(d) {}
 	virtual ~WrapperTemplate() {}
 
 	virtual Wrapper *clone() const {
@@ -29,13 +29,13 @@ Wrapper *construct_wrapper(T& data) {
 }
 
 template <typename T>
-void access_wrapper(Wrapper *wrapper, T** datap) {
+void access_wrapper(Wrapper *wrapper, T* datap) {
 	WrapperTemplate<T> *wrapperT = dynamic_cast<WrapperTemplate<T> *>(wrapper);
 
 	if (wrapperT == nullptr)
 		throw String("progs::contexts::Wrapper: wrapper not of expected type");
 
-	*datap = &wrapperT->data;
+	*datap = wrapperT->data;
 }
 	
 } // namespace data

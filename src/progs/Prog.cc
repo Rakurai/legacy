@@ -149,14 +149,15 @@ execute(contexts::Context& context) const {
 try {
 	// context will have default bindings for the prog type, now test that
 	// the variables are initialized
-	if (context.bindings.size() != context.vars.size())
+	if (context.bindings.size() != (context.variables.size() + context.aliases.size()))
 		throw Format::format("context has %d variables initialized, requires %d",
-			context.vars.size(), context.bindings.size());
+			context.variables.size() + context.aliases.size(), context.bindings.size());
 
 	for (const std::pair<String, data::Type>& context_pair : context.bindings) {
 		const String& name = context_pair.first;
 
-		if (context.vars.count(name) == 0)
+		if (context.variables.count(name) == 0
+		 && context.aliases.count(name) == 0)
 			throw Format::format("context variable '%s' is bound but not initialized", name);
 	}
 
@@ -270,8 +271,8 @@ try {
 	if (!stack.empty())
 		throw String("progs::execute: reached end of script without closing 'if' statements");
 } catch (String e) {
-	Logging::bugf("progs::execute: Exception caught in prog on %s %d, line %d:",
-		context.type(), context.vnum(), context.current_line);
+	Logging::bugf("progs::execute: Exception caught in %s on %s vnum %d, line %d:",
+		type_to_name(type), context.type(), context.vnum(), context.current_line);
 	Logging::bugf(e);
 }
 }

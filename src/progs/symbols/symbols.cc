@@ -23,14 +23,6 @@ expand(const String& orig, contexts::Context& context) {
 	while (!copy.empty()) {
 		if (copy[0] == '$') {
 			std::unique_ptr<Symbol> ptr = parse(copy, context.bindings, "");
-
-			if (ptr->type == data::Type::Character
-			 || ptr->type == data::Type::Object
-			 || ptr->type == data::Type::Room) {
-				String fn = "name()";
-				ptr = parseFunctionSymbol(fn, context.bindings, ptr);
-			}
-
 			buf += ptr->to_string(context);
 		}
 		else {

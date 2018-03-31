@@ -117,7 +117,7 @@ parseVariableSymbol(String& str, const data::Bindings& bindings) {
 	case data::Type::Character: sym.reset(new VariableSymbol<Character *>(var_type, var_name)); break;
 	case data::Type::Object:    sym.reset(new VariableSymbol<Object *>(var_type, var_name)); break;
 	case data::Type::Room:      sym.reset(new VariableSymbol<Room *>(var_type, var_name)); break;
-	case data::Type::String:    sym.reset(new VariableSymbol<const String>(var_type, var_name)); break;
+	case data::Type::String:    sym.reset(new VariableSymbol<String>(var_type, var_name)); break;
 	case data::Type::Boolean:   sym.reset(new VariableSymbol<bool>(var_type, var_name)); break;
 	case data::Type::Integer:   sym.reset(new VariableSymbol<int>(var_type, var_name)); break;
 	// no 'Void' variable type
@@ -256,7 +256,7 @@ parseFunctionSymbol(String& str, const data::Bindings& var_bindings, std::unique
 	case data::Type::Character: sym.reset(new FunctionSymbol<Character *>(parent, entry_index, arg_list)); break;
 	case data::Type::Object:    sym.reset(new FunctionSymbol<Object *>(parent, entry_index, arg_list)); break;
 	case data::Type::Room:      sym.reset(new FunctionSymbol<Room *>(parent, entry_index, arg_list)); break;
-	case data::Type::String:    sym.reset(new FunctionSymbol<const String>(parent, entry_index, arg_list)); break;
+	case data::Type::String:    sym.reset(new FunctionSymbol<String>(parent, entry_index, arg_list)); break;
 	case data::Type::Boolean:   sym.reset(new FunctionSymbol<bool>(parent, entry_index, arg_list)); break;
 	case data::Type::Integer:   sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
 	case data::Type::Void:      sym.reset(new FunctionSymbol<int>(parent, entry_index, arg_list)); break;
@@ -359,7 +359,7 @@ parseStringSymbol(String& str, const String& until) {
 
 	val = val.strip();
 
-	return std::unique_ptr<Symbol>(new ValueSymbol<const String>(data::Type::String, val));
+	return std::unique_ptr<Symbol>(new ValueSymbol<String>(data::Type::String, val));
 }
 
 } // namespace symbols
