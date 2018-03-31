@@ -85,7 +85,7 @@ assign $juniper = $world.get_room(4312).load_mob(4251)
 $juniper.invis(true)
 $juniper.become_pet($actor)
 $juniper.invis(false)
-$juniper.control(control1, $actor)
+$juniper.control(control1, $master)
 $self.purge($self)
 ~
 |
@@ -174,7 +174,7 @@ if $room.vnum() == 4313
 		break
 	endif
 	if $master.is_carrying(key)
-		say Oh, do they have keys in your village?
+		say Oh, do they have {Gkeys{x in your village?
 		say You could try {Cunlocking{x the {Ggate{x with it.
 		break
 	endif
@@ -204,7 +204,7 @@ if $room.vnum() == 4314
 		break
 	endif
 	emote looks kind of bored.
-	say So that metal thing you picked up earlier is a key.
+	say So that metal thing you picked up earlier is a {Gkey{x.
 	say Keys usually fit into {Gdoors{x, {Ggates{x, and stuff like that.
 	say Wasn't there a big {Giron gate{x in the room {Ceast{x of here?
 	break
@@ -287,21 +287,25 @@ break
 
 M 4252 * Juniper in the city
 >control_prog control1~
-if $actor.quest_step(creation1) == 2
-	$actor.quest_progress(creation1)
+if !$master
+or $master.in_room() != $room
+	break
 endif
-$self.echo_to($actor, "You breathe in deeply, as the city air smells fresh compared to the")
-$self.echo_to($actor, "{xdankness of the storage room.  Juniper flies over, struggling with a")
-$self.echo_to($actor, "{xlarge rolled parchment.")
+if $master.quest_step(creation1) == 2
+	$master.quest_progress(creation1)
+endif
+$self.echo_to($master, "You breathe in deeply, as the city air smells fresh compared to the")
+$self.echo_to($master, "{xdankness of the storage room.  Juniper flies over, struggling with a")
+$self.echo_to($master, "{xlarge rolled parchment.")
 $self.load_obj(3162)
-give map $actor
+give map $master
 say I found that on the ground over there, it looks like a city map.
 say You can {Clook{x at it anytime to figure out where you are.  You can read, right?
 emote looks around nervously.
 say If the guards see me, they'll lock me up for sure.  I'm going to hide in your sleeve.
 say I left my wand at the {YBakery{x!  Let's go there next!  {CLook{x at the map!
 $self.invis(true)
-$actor.quest_assign(creation2)
+$master.quest_assign(creation2)
 ~
 >rand_prog 100~
 if !$master
@@ -397,26 +401,41 @@ and $room.vnum() == 3009
 endif
 
 if $master.quest_step(creation2) == 4
-and $master.state(creation2:got_pie_timer) > 0
-	* this timer counts down
-	$master.state(creation2:got_pie_timer, --)
 
-	if $master.state(creation2:got_pie_timer) == 2
-		$self.invis(false)
-		$self.echo_to($master, "You resist the sudden urge to squash the thing crawling up your shirt.")
-		$self.echo_to($master, "$self.title() jumps out of your shirt and spins around happily.")
-		say You got the pie!!  Now we just have to get my wand out...
-		think
-		break
-		$self.invis(true)
+	if $room.vnum() == 3001
+	and $master.state(creation2:arrived_with_pie_timer) > 0
+	    $master.state(creation2:arrived_with_pie_timer, --)
+
+	    if $master.state(creation2:arrived_with_pie_timer) == 0
+	    	$self.invis(false)
+	    	$self.echo_to($master, "$self.title() pokes her head out of your shirt.")
+	    	say OK, you have a pie, you have a Helga, now {Cgive{x the {Gpie{x to {GHelga{x!
+	    	$self.invis(true)
+	    endif
+	    break
 	endif
 
-	if $master.state(creation2:got_pie_timer) == 0
-		$self.invis(false)
-		say I know!  You can {Ceat{x the {Gpie{x!
-		say Be careful!  Don't chew up my wand, or your face might explode.
-		wait $master
-		$master.quest_progress(creation2)
+	if $master.state(creation2:got_pie_timer) > 0
+		$master.state(creation2:got_pie_timer, --)
+
+		if $master.state(creation2:got_pie_timer) == 2
+			$self.invis(false)
+			$self.echo_to($master, "You resist the sudden urge to squash the thing crawling up your shirt.")
+			$self.echo_to($master, "$self.title() jumps out of your shirt and spins around happily.")
+			say You got the pie!!  Now we just have to get my wand out...
+			think
+			$self.invis(true)
+			break
+		endif
+
+		if $master.state(creation2:got_pie_timer) == 0
+			$self.invis(false)
+			say I know!  You can {Ceat{x the {Gpie{x!
+			say Be careful!  Don't chew up my wand, or your face might explode.
+			wait $master
+			$master.quest_progress(creation2)
+			break
+		endif
 		break
 	endif
 
@@ -433,6 +452,7 @@ $self.invis(false)
 say Yes!  Nice going!  That looks like a perfectly adequate pie.
 say Let's go take it to Helga!
 $master.quest_progress(creation2)
+$master.state(creation2:arrived_with_pie_timer, 2)
 $self.invis(true)
 ~
 
@@ -460,6 +480,7 @@ if $actor.quest_step(creation2) == 4
 	say Here, take this duck pie, it's probably not too cold.
 	give pie $actor
 	emote eats a big pot pie in one giant bite.
+	$actor.state(creation2:arrived_with_pie_timer, 0)
 	$actor.state(creation2:got_pie_timer, 4)
 endif
 ~
