@@ -374,15 +374,15 @@ void speech_trigger(const String& txt, Character *mob)
 	return;
 }
 
-void control_trigger(Character *mob, const String& key, Character *target) {
-	if (mob->is_npc() && mob->pIndexData->progtypes.count(Type::CONTROL_PROG))
+void call_trigger(Character *mob, const String& key, const String& argument) {
+	if (mob->is_npc() && mob->pIndexData->progtypes.count(Type::CALL_PROG))
 		for (const auto mprg : mob->pIndexData->progs) {
 			if (mob->is_garbage())
 				break;
 
-			if (mprg->type == Type::CONTROL_PROG && key == mprg->arglist) {
-				contexts::MobProgContext context(Type::CONTROL_PROG, mob);
-				context.set_var("actor", data::Type::Character, target);
+			if (mprg->type == Type::CALL_PROG && key == mprg->arglist) {
+				contexts::MobProgContext context(Type::CALL_PROG, mob);
+				context.set_var("argument", data::Type::String, argument);
 				mprg->execute(context);
 			}
 		}

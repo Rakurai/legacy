@@ -12,6 +12,7 @@ const std::pair<String, data::Type> c_actr("actor",   data::Type::Character);
 const std::pair<String, data::Type> o_dobj("obj",     data::Type::Object);
 const std::pair<String, data::Type> o_iobj("ind_obj", data::Type::Object);
 const std::pair<String, data::Type> c_vict("victim",  data::Type::Character);
+const std::pair<String, data::Type> s_args("argument",data::Type::String);
 
 
 const std::map<Type, prog_table_t> prog_table = {
@@ -30,7 +31,7 @@ const std::map<Type, prog_table_t> prog_table = {
 	{ Type::TICK_PROG,      { "tick_prog",      { c_self, w_orld, r_room, c_mast, c_rand                                 }}},
 	{ Type::BOOT_PROG,      { "boot_prog",      { c_self, w_orld, r_room, c_mast, c_rand                                 }}},
 	{ Type::RAND_AREA_PROG, { "rand_area_prog", { c_self, w_orld, r_room, c_mast, c_rand                                 }}},
-	{ Type::CONTROL_PROG,   { "control_prog",   { c_self, w_orld, r_room, c_mast, c_rand, c_actr                         }}},
+	{ Type::CALL_PROG,      { "call_prog",      { c_self, w_orld, r_room, c_mast, c_rand, s_args                         }}},
 	{ Type::DROP_PROG,      { "drop_prog",      { o_self, w_orld, r_room,         c_rand, c_actr                         }}},
 };
 

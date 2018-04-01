@@ -20,7 +20,7 @@ enum class Type {
 	TICK_PROG,
 	BOOT_PROG,
 	RAND_AREA_PROG,
-	CONTROL_PROG,
+	CALL_PROG,
 
 	DROP_PROG,
 };

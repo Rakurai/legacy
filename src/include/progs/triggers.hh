@@ -31,7 +31,7 @@ bool    random_area_trigger   ( Character* mob );
 void    tick_trigger     ( Character* mob );
 void 	boot_trigger( Character* mob	);
 void    speech_trigger   ( const String& txt, Character* mob );
-void    control_trigger   (Character *mob, const String& key, Character *target);
+void    call_trigger   (Character *mob, const String& key, const String& argument);
 
 void drop_trigger(Object *obj, Character *ch);
 

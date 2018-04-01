@@ -98,7 +98,7 @@ const std::vector<fn_type> fn_table = {
 	{ "transfer",    dt::Void,      dt::Character, { dt::Character, dt::Room } },
 	{ "invis",       dt::Void,      dt::Character, { dt::Boolean } },
 	{ "become_pet",  dt::Void,      dt::Character, { dt::Character } },
-	{ "control",     dt::Void,      dt::Character, { dt::String, dt::Character } },
+	{ "call",        dt::Void,      dt::Character, { dt::String, dt::String } },
 	{ "state",       dt::Void,      dt::Character, { dt::String, dt::String } },
 
 	// object accessors
@@ -802,10 +802,10 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		return;
 	}
 
-	if (name == "control") {
+	if (name == "call") {
 		const String key = deref<String>(arg_list[0].get(), context);
-		Character *target = deref<Character *>(arg_list[1].get(), context);
-		progs::control_trigger(ch, key, target);
+		const String args = deref<String>(arg_list[1].get(), context);
+		progs::call_trigger(ch, key, args);
 		return;
 	}
 
