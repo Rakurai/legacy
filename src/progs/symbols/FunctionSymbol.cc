@@ -69,7 +69,7 @@ const std::vector<fn_type> fn_table = {
 	{ "is_killer",   dt::Boolean,   dt::Character, {} },
 	{ "is_thief",    dt::Boolean,   dt::Character, {} },
 	{ "is_charmed",  dt::Boolean,   dt::Character, {} },
-	{ "in_room",     dt::String,    dt::Character, {} },
+	{ "in_room",     dt::Room,      dt::Character, {} },
 	{ "position",    dt::Integer,   dt::Character, {} },
 	{ "level",       dt::Integer,   dt::Character, {} },
 	{ "hitprcnt",    dt::Integer,   dt::Character, {} },
@@ -77,7 +77,7 @@ const std::vector<fn_type> fn_table = {
 	{ "guild",       dt::Integer,   dt::Character, {} },
 	{ "gold",        dt::Integer,   dt::Character, {} },
 	{ "vnum",        dt::Integer,   dt::Character, {} },
-	{ "state",       dt::Integer,   dt::Character, { dt::String } },
+	{ "state",       dt::String,    dt::Character, { dt::String } },
 	{ "is_carrying", dt::Boolean,   dt::Character, { dt::String } },
 	{ "is_wearing",  dt::Boolean,   dt::Character, { dt::String } },
 	{ "master",      dt::Character, dt::Character, {} },
@@ -128,6 +128,7 @@ const std::vector<fn_type> fn_table = {
 	// room accessors
 	{ "name",        dt::String,    dt::Room,      {} },
 	{ "vnum",        dt::Integer,   dt::Room,      {} },
+	{ "location",    dt::String,    dt::Room,      {} },
 	{ "get_char",    dt::Character, dt::Room,      { dt::String } }, // lookup by name
 	{ "get_obj",     dt::Object,    dt::Room,      { dt::String } }, // lookup by name
 
@@ -349,6 +350,8 @@ Room * FunctionSymbol<Room *>::
 eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "cv_to_room") return ch->in_room;
 
+	if (name == "in_room") return ch->in_room;
+
 	throw Format::format("unhandled function '%s'", name);
 }
 
@@ -447,8 +450,6 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 		                  return his_her[GET_ATTR_SEX(ch)];
 	}
 
-	if (name == "in_room") return ch->in_room->location.to_string();
-
 	if (name == "state") {
 		String key = deref<String>(arg_list[0].get(), context);
 		return ch->state.get_str(key);
@@ -498,6 +499,10 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 	if (name == "name") {
 		if (!can_see)     return "somewhere";
 		                  return room->name();
+	}
+
+	if (name == "location") {
+		return room->location.to_string();
 	}
 
 	throw Format::format("unhandled function '%s'", name);
