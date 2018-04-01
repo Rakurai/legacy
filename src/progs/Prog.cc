@@ -28,10 +28,11 @@ Prog(FILE *fp, Vnum vnum) {
 	// flow and variable reference errors
 
 	Line::Type last_control, last_type;
-	int unclosed_ifs = 0;
+	int unclosed_ifs = 0, indent = 0;
 
 	// make a copy of the default bindings to track illegal variable calls
 	data::Bindings var_bindings(prog_table.find(type)->second.default_bindings);
+	bool increase_indent_next = false;
 
 	while (!script.empty()) {
 		String word, orig_line;
@@ -44,13 +45,22 @@ Prog(FILE *fp, Vnum vnum) {
 
 		Line::Type line_type = Line::get_type(word);
 
+		bool increase_indent_this = false;
+
+		if (increase_indent_next) {
+			increase_indent_this = true;
+			increase_indent_next = false;
+		}
+
 		switch(line_type) {
 		case Line::Type::EMPTY:
+			line = orig_line;
 			break;
 
 		case Line::Type::IF:
 			last_control = line_type;
 			unclosed_ifs++;
+			increase_indent_next = true;
 			break;
 
 		case Line::Type::OR:
@@ -59,6 +69,8 @@ Prog(FILE *fp, Vnum vnum) {
 			 && last_type != Line::Type::OR)
 				throw Format::format("progs::Prog: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
 
+			increase_indent_this = false;
+			increase_indent_next = true;
 			last_control = line_type;
 			break;
 
@@ -68,6 +80,8 @@ Prog(FILE *fp, Vnum vnum) {
 			 && last_type != Line::Type::AND)
 				throw Format::format("progs::Prog: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
 
+			increase_indent_this = false;
+			increase_indent_next = true;
 			last_control = line_type;
 			break;
 
@@ -84,12 +98,14 @@ Prog(FILE *fp, Vnum vnum) {
 			 && last_type != Line::Type::ENDIF)
 				throw Format::format("progs::Prog: 'else' has no statements to follow");
 
-			// special case for 'else' followed by 'if' on the same line, put it back
-			if (line.has_prefix("if ")) {
+			// if anything else on the line (such as in 'else if ...'), put it back and parse next time
+			if (!line.strip().empty()) {
 				script = line + "\n" + script;
 				line = "";
 			}
 
+			indent--;
+			increase_indent_next = true;
 			last_control = line_type;
 			break;
 
@@ -100,11 +116,24 @@ Prog(FILE *fp, Vnum vnum) {
 			 && last_type != Line::Type::ENDIF)
 				throw Format::format("progs::Prog: 'endif' has no statements to follow");
 
+			// if anything else on the line (such as in 'endif endif ...'), put it back and parse next time
+			if (!line.strip().empty()) {
+				script = line + "\n" + script;
+				line = "";
+			}
+
+			indent--;
 			last_control = line_type;
 			unclosed_ifs--;
 			break;
 
 		case Line::Type::BREAK:
+			// if anything else on the line (such as in 'endif endif ...'), put it back and parse next time
+			if (!line.strip().empty()) {
+				script = line + "\n" + script;
+				line = "";
+			}
+
 			break;
 
 		case Line::Type::ASSIGN:
@@ -116,10 +145,13 @@ Prog(FILE *fp, Vnum vnum) {
 			break;
 		}
 
+		if (increase_indent_this)
+			indent++;
+
 		if (line_type != Line::Type::EMPTY)
 			last_type = line_type;
 
-		lines.push_back({line_type, line, orig_line, var_bindings});
+		lines.push_back({line_type, line, indent, var_bindings});
 	}
 
 	if (unclosed_ifs > 0) {
@@ -168,6 +200,7 @@ try {
 			return;
 
 		context.current_line++;
+		context.current_depth = line.indent;
 
 		switch (line.type) {
 		case Line::Type::EMPTY:
@@ -177,13 +210,11 @@ try {
 			// if we're under a false evaluation, don't even bother evaluating the line, we'll stay false
 			if (!stack.empty() && stack.top() == false) {
 				stack.push(false);
-				context.current_depth++; // for indenting debugging output
 				continue;
 			}
 
 			// otherwise push the evaluation
 			stack.push(line.expression->evaluate(context));
-			context.current_depth++; // for indenting debugging output
 			break;
 
 		case Line::Type::OR:
@@ -204,9 +235,7 @@ try {
 			}
 
 			// otherwise, the false parent is popped, we'll see if it changes
-			context.current_depth--; // for indenting debugging output
 			stack.push(line.expression->evaluate(context));
-			context.current_depth++; // for indenting debugging output
 			break;
 
 		case Line::Type::AND:
@@ -220,9 +249,7 @@ try {
 			// otherwise, pop the true parent and we'll see if it changes
 			stack.pop();
 
-			context.current_depth--; // for indenting debugging output
 			stack.push(line.expression->evaluate(context));
-			context.current_depth++; // for indenting debugging output
 			break;
 
 		case Line::Type::ELSE:
@@ -245,7 +272,6 @@ try {
 				throw String("'endif' encountered without 'if'");
 
 			stack.pop();
-			context.current_depth--; // for indenting debugging output
 			break;
 
 		case Line::Type::BREAK:
@@ -283,8 +309,10 @@ try {
 		// print the lines
 		int first = std::max(context.current_line - 2, 1);
 		int last  = std::min(context.current_line + 2, (int)lines.size());
-		for (int i = first; i <= last; i++)
-			Logging::bugf("%s%s{x", i == context.current_line ? "{Y" : "", lines[i-1].orig_text);
+		for (int i = first; i <= last; i++) {
+			String buf = lines[i-1].pretty_print().replace("$", "$$");
+			Logging::bugf("%s%s{x", i == context.current_line ? "{Y" : "", buf);
+		}
 	}
 }
 }

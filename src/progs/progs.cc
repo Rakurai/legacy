@@ -38,13 +38,14 @@ void read_from_file(FILE *fp, Vnum vnum, std::vector<Prog *>& progs, std::set<Ty
 	}
 }
 
-void debug(contexts::Context& context, const String& message) {
-	String indent = "";
+void debug(const contexts::Context& context, const String& message) {
+	int line_no = context.current_line;
+	String indent;
 	for (int i = 0; i < context.current_depth; i++)
 		indent += "  ";
 
 	String buf = Format::format("%3d) %s%s%s{x",
-		context.current_line, context.current_line == 0 ? "{Y" : "", indent, message.replace("$", "$$"));
+		line_no, line_no == 0 ? "{Y" : "", indent, message.replace("$", "$$"));
 	wiznet(buf, nullptr, nullptr, WIZ_PROGDEBUG, 0, 0);
 }
 

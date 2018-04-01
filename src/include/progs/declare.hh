@@ -14,6 +14,6 @@ class Prog;
 
 extern void read_from_file(FILE *fp, Vnum vnum, std::vector<Prog *>& progs, std::set<Type>& types);
 
-void debug(contexts::Context&, const String& str);
+void debug(const contexts::Context&, const String& str);
 
 } // namespace progs

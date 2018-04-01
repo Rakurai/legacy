@@ -19,11 +19,11 @@ struct Line {
 		EMPTY,
 	};
 
-	Line(Type type, const String& text, const String& orig_text, data::Bindings& var_bindings);
+	Line(Type type, const String& text, int indent, data::Bindings& var_bindings);
 
 	Type type;
 	String text;
-	String orig_text;
+	int indent;
 	std::unique_ptr<Expression> expression;
 
 	static Type get_type(const String& word) {
@@ -54,6 +54,8 @@ struct Line {
 
 		return "unknown";
 	}
+
+	const String pretty_print() const;
 };
 
 } // namespace progs

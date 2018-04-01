@@ -5,8 +5,8 @@
 namespace progs {
 
 Line::
-Line(Type type, const String& text, const String& orig_text, data::Bindings& bindings)
- : type(type), text(text), orig_text(orig_text) {
+Line(Type type, const String& text, int indent, data::Bindings& bindings)
+ : type(type), text(text), indent(indent) {
  	String copy = text.lstrip();
 	if (type == Type::IF || type == Type::AND || type == Type::OR) {
 		expression.reset(new Expression(copy, bindings));
@@ -45,6 +45,19 @@ Line(Type type, const String& text, const String& orig_text, data::Bindings& bin
 				symbols::parseStringSymbol(copy, "$");
 		}
 	}
+}
+
+const String Line::
+pretty_print() const {
+	String prefix;
+
+	for (int i = 0; i < indent; i++)
+		prefix += "  ";
+
+	if (type != Type::EMPTY && type != Type::COMMAND)
+		prefix += "{P" + get_type(type) + "{x ";
+
+	return prefix + text;
 }
 
 } // namespace progs
