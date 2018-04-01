@@ -99,10 +99,12 @@ Prog(FILE *fp, Vnum vnum, int& line_no) {
 			break;
 
 		case Line::Type::ELSE:
-			// "else" can only follow "if" or "and" or "or" controls
-			if (last_control != Line::Type::IF
-			 && last_control != Line::Type::AND
-			 && last_control != Line::Type::OR)
+			// "else" cannot follow "else"
+			// could more accurately follow nesting levels, but not right now
+//			if (last_control != Line::Type::IF
+//			 && last_control != Line::Type::AND
+//			 && last_control != Line::Type::OR)
+			if (last_control == Line::Type::ELSE)
 				throw Format::format("progs::Prog: '%s' illegally following '%s'", Line::get_type(line_type), Line::get_type(last_control));
 
 			// "else" must have statements or a nested control structure in the block
