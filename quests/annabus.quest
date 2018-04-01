@@ -9,7 +9,7 @@ end
 
 #PROGS
 
-M 4250  * Annabus
+M 3001  * Annabus
 >quest_request_prog annabus~
 if !$actor.can_start_quest(annabus)
 	* can't start, why not?
