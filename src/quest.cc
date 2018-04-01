@@ -1492,7 +1492,7 @@ void do_quest(Character *ch, String argument)
 
 	/*** FORFEIT ***/
 	if (arg1.is_prefix_of("forfeit")) {
-		if (!ch->is_npc() && ch->pcdata->quests.size() > 0 && !argument.empty()) {
+		if (ch->pcdata->quests.size() > 0 && !argument.empty()) {
 			if (!argument.is_number()) {
 				stc("Which quest do you want to forfeit?\n", ch);
 				return;
@@ -1803,29 +1803,16 @@ void do_quest(Character *ch, String argument)
 			return;
 		}
 
-		if (!ch->is_npc()) {
-			unsigned int num_quests = ch->pcdata->quests.size();
-			progs::quest_request_trigger(ch);
-			if (num_quests < ch->pcdata->quests.size())
-				return;
-		}
+		unsigned int num_quests = ch->pcdata->quests.size();
+		progs::quest_request_trigger(ch);
+
+		// changed?
+		if (num_quests < ch->pcdata->quests.size())
+			return;
 
 		if ((questman = find_squestmaster(ch)) != nullptr) {
 			act("$n asks $N for a skill quest.", ch, nullptr, questman, TO_ROOM);
 			act("You ask $N for a skill quest.", ch, nullptr, questman, TO_CHAR);
-
-			if (ch->is_npc() && ch->act_flags.has(ACT_PET)) {
-				check_social(questman, "rofl", ch->name);
-
-				buf = Format::format("Who ever heard of a pet questing for its %s?",
-				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
-				do_say(questman, buf);
-
-				if (ch->leader != nullptr)
-					check_social(questman, "laugh", ch->leader->name);
-
-				return;
-			}
 
 			if (IS_SQUESTOR(ch)) {
 				do_say(questman, "But you're already on a quest!");
@@ -1855,19 +1842,6 @@ void do_quest(Character *ch, String argument)
 		if ((questman = find_questmaster(ch)) != nullptr) {
 			act("$n asks $N for a quest.", ch, nullptr, questman, TO_ROOM);
 			act("You ask $N for a quest.", ch, nullptr, questman, TO_CHAR);
-
-			if (ch->is_npc() && ch->act_flags.has(ACT_PET)) {
-				check_social(questman, "rofl", ch->name);
-
-				buf = Format::format("Who ever heard of a pet questing for its %s?",
-				        GET_ATTR_SEX(ch) == 2 ? "mistress" : "master");
-				do_say(questman, buf);
-
-				if (ch->leader != nullptr)
-					check_social(questman, "laugh", ch->leader->name);
-
-				return;
-			}
 
 			if (IS_QUESTOR(ch)) {
 				do_say(questman, "But you're already on a quest!");
