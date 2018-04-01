@@ -12,7 +12,7 @@
 namespace progs {
 
 Prog::
-Prog(FILE *fp, Vnum vnum) {
+Prog(FILE *fp, Vnum vnum, int& line_no) {
 	String name = fread_word(fp);
 	type = name_to_type(name);
 
@@ -35,15 +35,28 @@ Prog(FILE *fp, Vnum vnum) {
 	bool increase_indent_next = false;
 
 	while (!script.empty()) {
-		String word, orig_line;
+		// can't use 'lsplit' here because we want to preserve the original lines for
+		// debugging, and lsplit will strip excess newlines
+		std::size_t split_pos = script.find_first_of("\n", 0);
+		String orig_line;
+
+		if (split_pos == std::string::npos) {
+			orig_line.assign(script);
+			script.clear();
+		}
+		else {
+			orig_line.assign(script.substr(0, split_pos));
+			script.erase(0, split_pos+1);
+		}
 
 		// grab the first token, if it's some mud command we'll put it back
 		// lsplit will left strip both strings of leading whitespace
 		// parse into the first word and the expression
-		script = script.lsplit(orig_line, "\n");
+		String word;
 		String line = orig_line.strip(" \t\r").lsplit(word, " \t");
 
 		Line::Type line_type = Line::get_type(word);
+		line_no++;
 
 		bool increase_indent_this = false;
 
@@ -101,6 +114,7 @@ Prog(FILE *fp, Vnum vnum) {
 			// if anything else on the line (such as in 'else if ...'), put it back and parse next time
 			if (!line.strip().empty()) {
 				script = line + "\n" + script;
+				line_no--;
 				line = "";
 			}
 
@@ -119,6 +133,7 @@ Prog(FILE *fp, Vnum vnum) {
 			// if anything else on the line (such as in 'endif endif ...'), put it back and parse next time
 			if (!line.strip().empty()) {
 				script = line + "\n" + script;
+				line_no--;
 				line = "";
 			}
 
@@ -131,6 +146,7 @@ Prog(FILE *fp, Vnum vnum) {
 			// if anything else on the line (such as in 'endif endif ...'), put it back and parse next time
 			if (!line.strip().empty()) {
 				script = line + "\n" + script;
+				line_no--;
 				line = "";
 			}
 

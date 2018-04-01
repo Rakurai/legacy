@@ -25,13 +25,15 @@ void read_from_file(FILE *fp, Vnum vnum, std::vector<Prog *>& progs, std::set<Ty
 			break;
 		}
 
+		int line_no = 0;
+
 		try {
-			progs::Prog *prog = new progs::Prog(fp, vnum);
+			progs::Prog *prog = new progs::Prog(fp, vnum, line_no);
 			progs.push_back(prog);
 			types.insert(prog->type);
 		}
 		catch (String e) {
-			Logging::file_bug(fp, Format::format("progs::read_from_file: exception caught in reading prog on vnum %d:\n%s", vnum, e), 0);
+			Logging::file_bug(fp, Format::format("progs::read_from_file: exception caught in reading prog on vnum %d, line %d:\n%s", vnum, line_no, e), 0);
 			exit(1);
 		}
 

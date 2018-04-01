@@ -12,7 +12,7 @@ namespace progs {
 class Prog
 {
 public:
-	Prog(FILE *fp, Vnum);
+	Prog(FILE *fp, Vnum, int& line_no);
 	virtual ~Prog() {}
 
     Type               type;
