@@ -526,13 +526,13 @@ cJSON *fwrite_char(Character *ch)
 	if (!ch->short_descr.empty())
 		JSON::addStringToObject(o,	"ShD",			ch->short_descr);
 
-	if (ch->mpstate.size() > 0) {
+	if (ch->state.state.size() > 0) {
 		item = cJSON_CreateArray();
 
-		for (const auto& it : ch->mpstate) {
+		for (const auto& it : ch->state.state) {
 			cJSON *p = cJSON_CreateObject();
 			JSON::addStringToObject(p, "key", it.first);
-			cJSON_AddNumberToObject(p, "val", it.second);
+			JSON::addStringToObject(p, "val", it.second);
 			cJSON_AddItemToArray(item, p);
 		}
 
@@ -1336,8 +1336,8 @@ void fread_char(Character *ch, cJSON *json, int version)
 				if (key == "State") { // array of dicts
 					for (cJSON *item = o->child; item != nullptr; item = item->next) {
 						String key = cJSON_GetObjectItem(item, "key")->valuestring;
-						int value = cJSON_GetObjectItem(item, "val")->valueint;
-						ch->mpstate.emplace(key, value);
+						String value = cJSON_GetObjectItem(item, "val")->valuestring;
+						ch->state.set(key, value);
 					}
 					fMatch = true; break;
 				}

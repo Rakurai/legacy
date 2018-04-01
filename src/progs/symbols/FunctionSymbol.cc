@@ -448,6 +448,11 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 
 	if (name == "in_room") return ch->in_room->location.to_string();
 
+	if (name == "state") {
+		String key = deref<String>(arg_list[0].get(), context);
+		return ch->state.get_str(key);
+	}
+
 	throw Format::format("unhandled function '%s'", name);
 }
 
@@ -559,18 +564,6 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 	if (name == "vnum")       return ch->is_npc() ? ch->pIndexData->vnum.value() : 0;
 	if (name == "sex")        return GET_ATTR_SEX(ch);
 	if (name == "hitprcnt")   return ch->hit / GET_MAX_HIT(ch);
-	if (name == "state") {
-		String key = deref<String>(arg_list[0].get(), context);
-
-		if (!key.empty()) {
-			const auto entry = ch->mpstate.find(key);
-
-			if (entry != ch->mpstate.cend())
-				return entry->second;
-		}
-
-		return 0;
-	}
 
 	throw Format::format("unhandled function '%s'", name);
 }
@@ -813,40 +806,20 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 		const String key = deref<String>(arg_list[0].get(), context);
 		const String value = deref<String>(arg_list[1].get(), context);
 
-		if (key.empty())
-			throw String("no key");
-
-		if (key == "clear") {
-			ch->mpstate.clear();
-			return;
-		}
-
-		if (value.empty())
-			throw String("no value");
+		if (key.empty() || value.empty())
+			throw String("empty key or value");
 
 		if (value == "++") {
-			ch->mpstate[key]++;
+			ch->state.increment(key);
 			return;
 		}
 
 		if (value == "--") {
-			ch->mpstate[key]--;
-
-			if (ch->mpstate[key] <= 0)
-				ch->mpstate.erase(key);
-
+			ch->state.decrement(key);
 			return;
 		}
 
-		if (value == "0") {
-			ch->mpstate.erase(key);
-			return;
-		}
-
-		if (!value.is_number() || atoi(value) < 0)
-			throw String("value is not a positive integer");
-
-		ch->mpstate[key] = atoi(value);
+		ch->state.set(key, value);
 		return;
 	}
 
