@@ -23,6 +23,7 @@
 #include "progs/triggers.hh"
 #include "quest/functions.hh"
 
+extern Character *select_questmob(Character *ch);
 
 namespace progs {
 namespace symbols {
@@ -148,6 +149,9 @@ const std::vector<fn_type> fn_table = {
 	{ "purge",       dt::Void,      dt::Room,      { dt::Object } }, // overloaded for specific obj
 	{ "transfer",    dt::Void,      dt::Room,      { dt::Character, dt::Room } },
 
+	// special quest functions
+	{ "select_questmob", dt::Character, dt::World, { dt::Character } },
+
 	// echos
 	{ "echo",        dt::Void,      dt::Character, { dt::String } },                // send to room except self
 	{ "echo_to",     dt::Void,      dt::Character, { dt::Character, dt::String } }, // send to victim
@@ -195,6 +199,15 @@ eval_delegate_world_char(const String& name, std::vector<std::unique_ptr<Symbol>
 				return ch;
 
 		return nullptr;
+	}
+
+	if (name == "select_questmob") {
+		Character *ch = deref<Character *>(arg_list[0].get(), context);
+
+		if (ch == nullptr)
+			throw String("no character to select a questmob for");
+
+		return select_questmob(ch);
 	}
 
 	throw Format::format("unhandled function '%s'", name);

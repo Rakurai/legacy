@@ -868,11 +868,9 @@ void generate_skillquest(Character *ch, Character *questman)
 	}
 }
 
-void generate_quest(Character *ch, Character *questman)
-{
+Character *select_questmob(Character *ch) {
 	Character *victim;
-	Room *room;
-	Object *questitem;
+
 	/*  Randomly selects a mob from the world mob list. If you don't
 	want a mob to be selected, make sure it is immune to summon.
 	Or, you could add a new mob flag called ACT_NOQUEST. The mob
@@ -948,6 +946,16 @@ void generate_quest(Character *ch, Character *questman)
 			}
 		}
 	} /* end while */
+
+	return victim;
+}
+
+void generate_quest(Character *ch, Character *questman)
+{
+	Room *room;
+	Object *questitem;
+
+	Character *victim = select_questmob(ch);
 
 	if (victim == nullptr) {
 		do_say(questman, "I'm sorry, but I don't have any quests for you at this time.");
