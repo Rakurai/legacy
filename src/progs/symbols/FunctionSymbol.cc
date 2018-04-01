@@ -6,6 +6,7 @@
 #include "Object.hh"
 #include "Game.hh"
 #include "World.hh"
+#include "Area.hh"
 #include "Room.hh"
 #include "random.hh"
 #include "merc.hh"
@@ -47,6 +48,7 @@ const std::vector<fn_type> fn_table = {
 	// world accessors
 	{ "time",        dt::String,    dt::World,     {} },
 	{ "rand",        dt::Boolean,   dt::World,     { dt::Integer } },
+	{ "rand",        dt::Integer,   dt::World,     { dt::Integer, dt::Integer } },
 	{ "bug",         dt::Void,      dt::World,     { dt::String } },
 	{ "get_room",    dt::Room,      dt::World,     { dt::Room } }, // lookup by convertible type
 	{ "get_char",    dt::Character, dt::World,     { dt::String } }, // lookup by name
@@ -129,6 +131,7 @@ const std::vector<fn_type> fn_table = {
 	{ "name",        dt::String,    dt::Room,      {} },
 	{ "vnum",        dt::Integer,   dt::Room,      {} },
 	{ "location",    dt::String,    dt::Room,      {} },
+	{ "area_name",   dt::String,    dt::Room,      {} }, // probably temporary, dont want to add Area type now
 	{ "get_char",    dt::Character, dt::Room,      { dt::String } }, // lookup by name
 	{ "get_obj",     dt::Object,    dt::Room,      { dt::String } }, // lookup by name
 
@@ -505,6 +508,10 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 		return room->location.to_string();
 	}
 
+	if (name == "area_name") {
+		return room->area().name;
+	}
+
 	throw Format::format("unhandled function '%s'", name);
 }
 
@@ -556,6 +563,8 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 // functions that access World, return Integer
 int
 eval_delegate_world_int(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "rand") return number_range(deref<int>(arg_list[0].get(), context), deref<int>(arg_list[0].get(), context));
+
 	throw Format::format("unhandled function '%s'", name);
 }
 
