@@ -1,0 +1,91 @@
+#QUEST
+id        annabus~
+name      Hunting Quest~
+step      Slay the target!~
+step      Report to Annabus!~
+reward     exp     0 100 200    0    100
+reward      qp     0   1   5    0    100
+end
+
+#PROGS
+
+M 4250  * Annabus
+>quest_request_prog annabus~
+if !$actor.can_start_quest(annabus)
+	* can't start, why not?
+	if $actor.quest_step(annabus) > 0
+		say But you're already on a quest!
+		break
+	endif
+	if $actor.state(annabus_cooldown) > 0
+		say You're very brave, $actor, but let someone else have a chance.
+		break
+	endif
+
+	* shouldn't get here
+	$world.bug("quest_quest_prog: can't start quest")
+endif
+
+$self.echo_to($actor, "You ask $self.title() for a quest.")
+$self.echo_other($actor, "$actor asks $self.title() for a quest.")
+say Thank you, brave $actor!
+
+assign $questmob = $world.select_questmob($actor)
+assign $questloc = $questmob.in_room()
+$actor.state(annabus:location, $questloc.location())
+
+if $world.rand(40)
+	* mox quest, at the mob's location
+	if $world.rand(20)
+		assign $questobj = $self.load_obj(1283)
+	else if $world.rand(25)
+		assign $questobj = $self.load_obj(1284)
+	else if $world.rand(33)
+		assign $questobj = $self.load_obj(1285)
+	else if $world.rand(50)
+		assign $questobj = $self.load_obj(1286)
+	else
+		assign $questobj = $self.load_obj(1287)
+	endif endif endif endif
+
+	$questobj.to_room($questloc)
+	$actor.state(annabus:questobj, $questobj.vnum())
+
+	say Vile pilferers have stolen $questobj.sdesc() from the royal treasury!
+	say My court wizardess, with her magic mirror, has pinpointed its location.
+	say Look in the general area of $questloc.area().name() for $questloc.name()!
+else
+	* mob quest
+	if $world.rand(25)
+		say An enemy of mine, $questmob.title(), is making vile threats against the crown.
+		say This threat must be eliminated!
+	else if $world.rand(33)
+		say Thera's most heinous criminal, $questmob.title(), has escaped from the dungeon!
+		say Since the escape, $questmob.he_she() has murdered $world.rand(2, 20) civilians!
+		say The penalty for this crime is death, and you are to deliver the sentence!
+	else if $world.rand(50)
+		say The Mayor of Midgaard has recently been attacked by $questmob.title.  This is an act of war!
+		say $questmob.he_she() must be severly dealt with for this injustice.
+	else
+		say $questmob.title() has been stealing valuables from the citizens of Solace.
+		say Make sure that $questmob.he_she() never has the chance to steal again.
+	endif endif endif
+
+	say Seek $questmob.title() out somewhere in the vicinity of $questloc.name()!
+	say That location is in the general area of $questloc.area().name().
+
+	$actor.state(annabus:questmob, $questobj.target())
+endif
+
+$actor.state(annabus:countdown, $world.rand(10, 30))
+say You have $actor.state(annabus:countdown) minutes to complete this quest.
+say May the gods go with you!
+$world.wiznet_quest("{Y:QUEST:{x $actor has begun a quest")
+break
+
+~
+|
+
+S
+
+#$
