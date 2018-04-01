@@ -181,6 +181,9 @@ void remove(Player *player, const Quest *quest) {
 			it = player->quests.erase(it);
 		else
 			++it;
+
+	// wipe out any state associated with the quest, entries begin with "quest_name:"
+	player->ch.state.erase_prefix(quest->id + ":");
 }
 
 void remove(Player *player, int index) {
