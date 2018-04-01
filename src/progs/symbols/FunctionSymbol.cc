@@ -47,6 +47,7 @@ const std::vector<fn_type> fn_table = {
 	// world accessors
 	{ "time",        dt::String,    dt::World,     {} },
 	{ "rand",        dt::Boolean,   dt::World,     { dt::Integer } },
+	{ "bug",         dt::Void,      dt::World,     { dt::String } },
 	{ "get_room",    dt::Room,      dt::World,     { dt::Room } }, // lookup by convertible type
 	{ "get_char",    dt::Character, dt::World,     { dt::String } }, // lookup by name
 	{ "get_obj",     dt::Object,    dt::World,     { dt::String } }, // lookup by name
@@ -599,6 +600,11 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 // functions that access World, return Void
 void
 eval_delegate_world_void(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "bug") {
+		Logging::bugf(deref<String>(arg_list[0].get(), context));
+		return;
+	}
+
 	throw Format::format("unhandled function '%s'", name);
 }
 
