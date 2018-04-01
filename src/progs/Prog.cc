@@ -108,7 +108,8 @@ Prog(FILE *fp, Vnum vnum, int& line_no) {
 			// "else" must have statements or a nested control structure in the block
 			if (last_type != Line::Type::COMMAND
 			 && last_type != Line::Type::BREAK
-			 && last_type != Line::Type::ENDIF)
+			 && last_type != Line::Type::ENDIF
+			 && last_type != Line::Type::ASSIGN)
 				throw Format::format("progs::Prog: 'else' has no statements to follow");
 
 			// if anything else on the line (such as in 'else if ...'), put it back and parse next time
@@ -127,7 +128,8 @@ Prog(FILE *fp, Vnum vnum, int& line_no) {
 			// "endif" must have statements or a nested control structure in the block
 			if (last_type != Line::Type::COMMAND
 			 && last_type != Line::Type::BREAK
-			 && last_type != Line::Type::ENDIF)
+			 && last_type != Line::Type::ENDIF
+			 && last_type != Line::Type::ASSIGN)
 				throw Format::format("progs::Prog: 'endif' has no statements to follow");
 
 			// if anything else on the line (such as in 'endif endif ...'), put it back and parse next time
