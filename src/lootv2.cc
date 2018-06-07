@@ -339,45 +339,39 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 
 int gen_unique()
 {
-	//ObjectPrototype *pObjIndex;
-	//int total;
-	int pick = 0, pass = 0;
-	//int uniquevnum;
-	bool found;
-	//bool chosen;
+	int pick = 0;
 
-	found       = false;
-	//total 		= 0;
+	// two passes, the first will count the eligible vnums and select one, the second
+	// will count up to that choice and return the vnum
+	for (int pass = 1; pass <= 2; pass++) {
 
-	while (pass <= 2){
 		int count = 0;
-		
-		//for (const auto& area_pair : Game::world().areas) {
-		//	for (const auto& proto_pair : area_pair->second) {
+
+		// loop through all areas
 		for (const auto& area_pair : Game::world().areas){
+
+			// loop through all prototypes
 			for (const auto& proto_pair : area_pair.second->obj_prototypes){
 								
-				Vnum vnum = proto_pair.first;	//vnum
 				ObjectPrototype *proto = proto_pair.second; //ObjectPrototype
 			
-				if (proto->name.has_words("uniquegen")){ 	//does item have keywords?
-					found = true;							//it does so set found to true
-					count++;								//and increment total count
-				}
-				else
-					continue;								//doesn't have keyword continue on next loop
+				if (!proto->name.has_words("uniquegen"))
+					continue;
 
 				if (pass == 2 && count == pick)				//got our unique
-					return vnum.value();
+					return proto->vnum.value();              // return the vnum
+
+				count++;
 			}
 		}
-		
-		if (pass++ == 2 || count == 0)
+
+		if (count == 0)
 			break;
 
+		// only pass 1 should get here
 		pick = number_range(0, count);					//pick is range between 0 and count it found above
 	}
-	
+
 	return 0;
 }
 
