@@ -80,6 +80,7 @@
 #include "comm.hh"
 #include "conn/State.hh"
 #include "World.hh"
+#include "quest/functions.hh"
 
 struct ka_struct;
 
@@ -1341,39 +1342,64 @@ void bust_a_prompt(Character *ch)
 				buf += ' ';
 
 			break;
-		case 'q':
-			if (!IS_QUESTOR(ch))
-				buf += Format::format("%d", ch->pcdata->nextquest);
+		case 'q': {
+			if (ch->is_npc())
+				break;
+
+			quest::State *state = quest::get_state(ch->pcdata, "annabus_hunt");
+
+			if (state == nullptr)
+				state = quest::get_state(ch->pcdata, "annabus_item");
+
+			if (state == nullptr)
+				buf += ch->state.get_str("annabus:cooldown");
 			else
-				buf += Format::format("%d", ch->pcdata->countdown);
-
+				buf += state->map.get_str("countdown");
+		}
 			break;
-		case 'Q':
-			if (IS_QUESTOR(ch)) {
-//				ObjectPrototype *questinfoobj;
-				MobilePrototype *questinfo;
+		case 'Q': {
+			if (ch->is_npc())
+				break;
 
-				if (ch->pcdata->questmob == -1 || ch->pcdata->questobf == -1)
+			quest::State *state = quest::get_state(ch->pcdata, "annabus_hunt");
+
+			if (state != nullptr) {
+				if (state->current_step == 2)
 					buf += "*report!*";
-				else if (ch->pcdata->questobj > 0) {
-//					if ((questinfoobj = Game::world().get_obj_prototype(ch->questobj)) != nullptr)
-//						Format::sprintf(buf2, "%s", questinfoobj->name);
-					if (ch->pcdata->questloc.is_valid())
-						buf += Game::world().get_room(ch->pcdata->questloc)->name().uncolor();
+				else {
+					String s = quest::get_state_mapping(state, 1, "target");
+					MobilePrototype *proto = Game::world().get_mob_prototype(Vnum(atoi(s)));
+
+					if (proto != nullptr)
+						buf += proto->short_descr.uncolor();
 					else
 						buf += "Unknown";
 				}
-				else if (ch->pcdata->questmob > 0) {
-					if ((questinfo = Game::world().get_mob_prototype(ch->pcdata->questmob)) != nullptr)
-						buf += questinfo->short_descr.uncolor();
-					else
-						buf += "Unknown";
-				}
-				else
-					buf += "Unknown";
+
+				break;
 			}
 
+			state = quest::get_state(ch->pcdata, "annabus_item");
+
+			if (state != nullptr) {
+				if (state->current_step == 2)
+					buf += "*report!*";
+				else {
+					String s = quest::get_state_mapping(state, 1, "target");
+					Room *room = Game::world().get_room(Location(s));
+
+					if (room != nullptr)
+						buf += room->name().uncolor();
+					else
+						buf += "Unknown";
+				}
+
+				break;
+			}
+
+			buf += "Unknown";
 			break;
+		}
 		case 'p':
 			if (!ch->is_npc())
 				buf += Format::format("%d", ch->pcdata->questpoints);

@@ -39,7 +39,11 @@ Prereq(FILE *fp) :
 	 && type != "minremort"
 	 && type != "maxremort"
 	 && type != "quest_com"
-	 && type != "quest_not") {
+	 && type != "quest_not_com"
+	 && type != "quest_on"
+	 && type != "quest_not_on"
+	 && type != "state"
+	 && type != "state_not") {
 		Logging::bugf("Quests::Quest::Prereq: unknown prereq type '%s'.", type);
 		exit(1);
 	}

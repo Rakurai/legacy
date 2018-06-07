@@ -66,6 +66,7 @@
 #include "tables.hh"
 #include "World.hh"
 #include "RoomPrototype.hh"
+#include "quest/functions.hh"
 
 extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
@@ -402,16 +403,9 @@ void get_obj(Character *ch, Object *obj, Object *container)
 		obj_to_char(obj, ch);
 
 		if (!ch->is_npc()) {
-			/* Did they pick up their quest item? */
-			if (IS_QUESTOR(ch)) {
-				if (ch->pcdata->questobj == obj->pIndexData->vnum && ch->pcdata->questobf != -1) {
-					char buf[MAX_STRING_LENGTH];
-					stc("{YYou have almost completed your QUEST!{x\n", ch);
-					stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-					ch->pcdata->questobf = -1;
-					Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
-					wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
-				}
+			if (quest::test_progress_get(ch->pcdata, obj)) {
+				String buf = Format::format("{Y:QUEST: {x$N has found %s", obj->short_descr);
+				wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 			}
 
 			/* or skill quest item? */
@@ -3667,14 +3661,9 @@ void do_steal(Character *ch, String argument)
 	check_improve(ch, skill::type::steal, true, 2);
 	stc("Got it!\n", ch);
 
-	/* Did they pick up their quest item? */
-	if (IS_QUESTOR(ch)) {
-		if (ch->pcdata->questobj == obj->pIndexData->vnum && ch->pcdata->questobf != -1) {
-			char buf[MAX_STRING_LENGTH];
-			stc("{YYou have almost completed your QUEST!{x\n", ch);
-			stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
-			ch->pcdata->questobf = -1;
-			Format::sprintf(buf, "{Y:QUEST: {x$N has found %s", obj->short_descr);
+	if (!ch->is_npc()) {
+		if (quest::test_progress_get(ch->pcdata, obj)) {
+			String buf = Format::format("{Y:QUEST: {x$N has found %s", obj->short_descr);
 			wiznet(buf, ch, nullptr, WIZ_QUEST, 0, 0);
 		}
 	}

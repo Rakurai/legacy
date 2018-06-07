@@ -323,18 +323,49 @@ cJSON *fwrite_player(Character *ch)
 	if (ch->pcdata->questpoints)
 		cJSON_AddNumberToObject(o,	"QuestPnts",	ch->pcdata->questpoints);
 
-	if (ch->pcdata->nextquest)
-		cJSON_AddNumberToObject(o,	"QuestNext",	ch->pcdata->nextquest);
-	else if (ch->pcdata->countdown)
-		cJSON_AddNumberToObject(o,	"QuestNext",	12);
+//	if (ch->pcdata->nextquest)
+//		cJSON_AddNumberToObject(o,	"QuestNext",	ch->pcdata->nextquest);
+//	else if (ch->pcdata->countdown)
+//		cJSON_AddNumberToObject(o,	"QuestNext",	12);
 
 	if (ch->pcdata->quests.size() > 0) {
 		item = cJSON_CreateArray();
 
-		for (const auto& it : ch->pcdata->quests) {
+		for (const auto& state : ch->pcdata->quests) {
 			cJSON *p = cJSON_CreateObject();
-			JSON::addStringToObject(p, "id", it.quest->id);
-			cJSON_AddNumberToObject(p, "step", it.step);
+			JSON::addStringToObject(p, "id", state.quest->id);
+			cJSON_AddNumberToObject(p, "step", state.current_step);
+
+			if (state.map.state.size() > 0) {
+				cJSON *map = cJSON_CreateArray();
+
+				for (const auto& pair : state.map.state) {
+					cJSON *kv = cJSON_CreateObject();
+					JSON::addStringToObject(kv, "key", pair.first);
+					JSON::addStringToObject(kv, "val", pair.second);
+					cJSON_AddItemToArray(map, kv);
+				}
+
+				cJSON_AddItemToObject(p, "map", map);
+			}
+
+			cJSON *stepmaps = cJSON_CreateArray();
+
+			for (const auto& stepmap : state.stepmaps) {
+				cJSON *map = cJSON_CreateArray();
+
+				for (const auto& pair : stepmap.state) {
+					cJSON *kv = cJSON_CreateObject();
+					JSON::addStringToObject(kv, "key", pair.first);
+					JSON::addStringToObject(kv, "val", pair.second);
+					cJSON_AddItemToArray(map, kv);
+				}
+
+				cJSON_AddItemToArray(stepmaps, map);
+			}
+
+			cJSON_AddItemToObject(p, "stepmaps", stepmaps);
+
 			cJSON_AddItemToArray(item, p);
 		}
 
@@ -1160,14 +1191,38 @@ void fread_player(Character *ch, cJSON *json, int version) {
 							continue;
 						}
 
-						ch->pcdata->quests.push_back(quest::State(*quest, step));
+						quest::State state(*quest, step);
+
+						cJSON *map = cJSON_GetObjectItem(item, "map");
+
+						if (map != nullptr)
+							for (cJSON *kv = map->child; kv != nullptr; kv = kv->next) {
+								String key = cJSON_GetObjectItem(kv, "key")->valuestring;
+								String val = cJSON_GetObjectItem(kv, "val")->valuestring;
+								state.map.set(key, val);
+							}
+
+						cJSON *stepmaps = cJSON_GetObjectItem(item, "stepmaps");
+						step = 0;
+
+						if (stepmaps != nullptr) {
+							for (cJSON *map = stepmaps->child; map != nullptr; map = map->next) {
+								for (cJSON *kv = map->child; kv != nullptr; kv = kv->next) {
+									String key = cJSON_GetObjectItem(kv, "key")->valuestring;
+									String val = cJSON_GetObjectItem(kv, "val")->valuestring;
+									state.stepmaps[step].set(key, val);
+								}
+
+								step++;
+							} 
+						}
 					}
 					fMatch = true; break;
 				}
 
 				INTKEY("QuestPnts",		ch->pcdata->questpoints,			o->valueint);
 				INTKEY("QpDonated",		ch->pcdata->questpoints_donated,	o->valueint);
-				INTKEY("QuestNext",		ch->pcdata->nextquest,				o->valueint);
+//				INTKEY("QuestNext",		ch->pcdata->nextquest,				o->valueint);
 				break;
 			case 'R':
 				if (key == "Raff") {
@@ -1381,11 +1436,11 @@ void fread_char(Character *ch, cJSON *json, int version)
 					ch->pcdata->questpoints_donated = o->valueint;
 					fMatch = true; break;
 				}
-				if (key == "QuestNext" && !ch->is_npc()) { // moved to pcdata in version 21
+/*				if (key == "QuestNext" && !ch->is_npc()) { // moved to pcdata in version 21
 					ch->pcdata->nextquest = o->valueint;
 					fMatch = true; break;
 				}
-				break;
+*/				break;
 			case 'R':
 				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));
 				INTKEY("Room",			ch->in_room,				Game::world().get_room(Location(o->valueint)));

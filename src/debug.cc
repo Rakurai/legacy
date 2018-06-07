@@ -331,7 +331,7 @@ void do_debug(Character *ch, String argument)
 		if (arg == "all") {
 			for (auto questor : Game::world().char_list)
 				if (!questor->is_npc() && !IS_IMMORTAL(questor)) {
-					questor->pcdata->nextquest = 0;
+					questor->state.erase("annabus:cooldown");
 					questor->pcdata->nextsquest = 0;
 					stc("You may now quest again.\n", questor);
 				}
@@ -345,7 +345,7 @@ void do_debug(Character *ch, String argument)
 			return;
 		}
 
-		questor->pcdata->nextquest = 0;
+		questor->state.erase("annabus:cooldown");
 		questor->pcdata->nextsquest = 0;
 		ptc(ch, "OK, %s may quest again immediately.\n", questor->name);
 		return;

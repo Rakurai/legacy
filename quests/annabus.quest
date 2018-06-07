@@ -1,7 +1,26 @@
 #QUEST
-id        annabus~
+id        annabus_base~
+name      annabus base quest~
+require   quest_not_on annabus_hunt
+require   quest_not_on annabus_item
+require   state_not annabus:cooldown
+end
+
+#QUEST
+id        annabus_hunt~
 name      Hunting Quest~
-step      Slay the target!~
+step      Slay the dreaded $t!
+Rumor has it this fiend was last seen in the area known as $T.~
+step      Report to Annabus!~
+reward     exp     0 100 200    0    100
+reward      qp     0   1   5    0    100
+end
+
+#QUEST
+id        annabus_item~
+name      Mox Quest~
+step      Retrieve the fabled $t!
+Rumor has it this item was last seen in the area known as $T.~
 step      Report to Annabus!~
 reward     exp     0 100 200    0    100
 reward      qp     0   1   5    0    100
@@ -10,10 +29,10 @@ end
 #PROGS
 
 M 3001  * Annabus
->quest_request_prog annabus~
-if !$actor.can_start_quest(annabus)
+>quest_request_prog none~
+if !$actor.can_start_quest(annabus_base)
 	* can't start, why not?
-	if $actor.quest_step(annabus) > 0
+	if $actor.quest_step(annabus_hunt) > 0
 		say But you're already on a quest!
 		break
 	endif
@@ -32,7 +51,6 @@ say Thank you, brave $actor!
 
 assign $questmob = $world.select_questmob($actor)
 assign $questloc = $questmob.in_room()
-$actor.state(annabus:location, $questloc.location())
 
 if $world.rand(40)
 	* mox quest, at the mob's location
@@ -49,12 +67,22 @@ if $world.rand(40)
 	endif endif endif endif
 
 	$questobj.to_room($questloc)
-	$actor.state(annabus:questobj, $questobj.vnum())
+	assign $questid = annabus_item
+	$actor.quest_assign($questid)
+	$actor.quest_state($questid, 1, type, fetch)
+	$actor.quest_state($questid, 1, target, $questobj.vnum())
+	$actor.quest_state($questid, 1, amount, 1)
 
 	say Vile pilferers have stolen $questobj.sdesc() from the royal treasury!
 	say My court wizardess, with her magic mirror, has pinpointed its location.
-	say Look in the general area of $questloc.area().name() for $questloc.name()!
+	say Look in the general area of $questloc.area_name() for $questloc.name()!
 else
+	assign $questid = annabus_hunt
+	$actor.quest_assign($questid)
+	$actor.quest_state($questid, 1, type, slay)
+	$actor.quest_state($questid, 1, target, $questmob.vnum())
+	$actor.quest_state($questid, 1, amount, 1)
+
 	* mob quest
 	if $world.rand(25)
 		say An enemy of mine, $questmob.title(), is making vile threats against the crown.
@@ -72,17 +100,15 @@ else
 	endif endif endif
 
 	say Seek $questmob.title() out somewhere in the vicinity of $questloc.name()!
-	say That location is in the general area of $questloc.area().name().
-
-	$actor.state(annabus:questmob, $questobj.target())
+	say That location is in the general area of $questloc.area_name().
 endif
 
-$actor.state(annabus:countdown, $world.rand(10, 30))
-say You have $actor.state(annabus:countdown) minutes to complete this quest.
+$actor.quest_state($questid, 1, location, $questloc.location())
+assign $countdown = $world.rand(10, 30)
+$actor.quest_state($questid, 0, countdown, $countdown)
+say You have $countdown minutes to complete this quest.
 say May the gods go with you!
 $world.wiznet_quest("{Y:QUEST:{x $actor has begun a quest")
-break
-
 ~
 |
 

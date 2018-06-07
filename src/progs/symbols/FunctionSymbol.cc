@@ -22,6 +22,7 @@
 #include "argument.hh"
 #include "progs/triggers.hh"
 #include "quest/functions.hh"
+#include "channels.hh"
 
 extern Character *select_questmob(Character *ch);
 
@@ -46,6 +47,9 @@ const std::vector<fn_type> fn_table = {
 
 //	{ "cv_to_bool",  dt::Boolean,   dt::World,     {} },
 //	{ "cv_to_int",   dt::Integer,   dt::World,     {} },
+
+	// string operations
+	{ "plus",        dt::String,    dt::String,    { dt::String } },
 
 	// world accessors
 	{ "time",        dt::String,    dt::World,     {} },
@@ -151,6 +155,8 @@ const std::vector<fn_type> fn_table = {
 
 	// special quest functions
 	{ "select_questmob", dt::Character, dt::World, { dt::Character } },
+	{ "quest_state", dt::Void,      dt::Character, { dt::String, dt::Integer, dt::String, dt::String } },
+	{ "wiznet_quest", dt::Void,     dt::World,     { dt::String } },
 
 	// echos
 	{ "echo",        dt::Void,      dt::Character, { dt::String } },                // send to room except self
@@ -536,6 +542,15 @@ eval_delegate(Room *room, const String& name, std::vector<std::unique_ptr<Symbol
 // functions that access Integer, return String
 template <> template <>
 String FunctionSymbol<String>::
+eval_delegate(String str, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
+	if (name == "plus") return str + deref<String>(arg_list[0].get(), context);
+
+	throw Format::format("unhandled function '%s'", name);
+}
+
+// functions that access Integer, return String
+template <> template <>
+String FunctionSymbol<String>::
 eval_delegate(int num, const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "cv_to_str") return Format::format("%d", num);
 
@@ -625,7 +640,7 @@ eval_delegate(Character *ch, const String& name, std::vector<std::unique_ptr<Sym
 		if (state == nullptr)
 			return 0;
 
-		return state->step+1;
+		return state->current_step+1;
 	}
 
 	throw Format::format("unhandled function '%s'", name);
@@ -664,6 +679,11 @@ void
 eval_delegate_world_void(const String& name, std::vector<std::unique_ptr<Symbol>>& arg_list, contexts::Context& context) {
 	if (name == "bug") {
 		Logging::bugf(deref<String>(arg_list[0].get(), context));
+		return;
+	}
+
+	if (name == "wiznet_quest") {
+		wiznet("{Y:QUEST:{x $N has begun a quest", nullptr, nullptr, WIZ_QUEST, 0, 0);
 		return;
 	}
 
@@ -900,6 +920,15 @@ eval_delegate_void(Character *ch, const String& name, std::vector<std::unique_pt
 	if (name == "quest_progress") {
 		const String quest_id = deref<String>(arg_list[0].get(), context);
 		fn_helper_quest_progress(ch, quest_id);
+		return;
+	}
+
+	if (name == "quest_state") {
+		const String id = deref<String>(arg_list[0].get(), context);
+		int step = deref<int>(arg_list[1].get(), context);
+		const String key = deref<String>(arg_list[2].get(), context);
+		const String value = deref<String>(arg_list[3].get(), context);
+		fn_helper_quest_state(ch, id, step, key, value);
 		return;
 	}
 

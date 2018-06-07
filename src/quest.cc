@@ -73,7 +73,7 @@ void quest_usage(Character *ch)
 	stc("For more information, type 'HELP QUEST'.\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 } /* end quest_usage */
-
+/*
 void quest_cleanup(Character *ch) {
 	ch->pcdata->plr_flags -= PLR_QUESTOR;
 	ch->pcdata->quest_giver = 0;
@@ -83,7 +83,7 @@ void quest_cleanup(Character *ch) {
 	ch->pcdata->questobf = 0;
 	ch->pcdata->questloc = Location();
 }
-
+*/
 void sq_cleanup(Character *ch)
 {
 	Object *obj;
@@ -132,6 +132,7 @@ bool quest_level_diff(int clevel, int mlevel)
 /* Checks for a character in the room with spec_questmaster set. This special
    procedure must be defined in special.c. You could instead use an
    ACT_QUESTMASTER flag instead of a special procedure. */
+/*
 Character *find_questmaster(Character *ch)
 {
 	Character *questman;
@@ -158,7 +159,7 @@ Character *find_questmaster(Character *ch)
 	}
 
 	return questman;
-} /* end find_questmaster */
+} */ /* end find_questmaster */
 
 Character *find_squestmaster(Character *ch)
 {
@@ -189,6 +190,7 @@ Character *find_squestmaster(Character *ch)
 } /* end find_squestmaster */
 
 /* Obtain additional location information about sought item/mob */
+/*
 void quest_where(Character *ch, char *what)
 {
 	Room *room;
@@ -209,7 +211,7 @@ void quest_where(Character *ch, char *what)
 		ptc(ch, ".\n");
 	else
 		ptc(ch, ",\nnear %s.\n", room->name());
-} /* end quest_where */
+}*/ /* end quest_where */
 
 void newquest_info(Character *ch) {
 	if (ch->is_npc() || ch->pcdata->quests.size() == 0)
@@ -226,11 +228,11 @@ void newquest_info(Character *ch) {
 
 		buf += Format::format("%s - %s",
 			state.quest->name,
-			state.quest->steps[state.step].description
+			state.quest->steps[state.current_step].description
 		);
 
 		if (IS_IMMORTAL(ch))
-			buf += Format::format(" (step %d/%d)", state.step+1, state.quest->steps.size());
+			buf += Format::format(" (step %d/%d)", state.current_step+1, state.quest->steps.size());
 
 		buf += "\n";
 	}
@@ -358,7 +360,7 @@ void squest_info(Character *ch)
 		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area().name);
 	}
 }
-
+/*
 void quest_info(Character *ch)
 {
 	MobilePrototype *questman, *questinfo;
@@ -385,13 +387,13 @@ void quest_info(Character *ch)
 		return;
 	}
 
-	if (ch->pcdata->questmob == -1) { /* killed target mob */
+	if (ch->pcdata->questmob == -1) { // killed target mob 
 		stc("Your quest is ALMOST complete!\n", ch);
 		ptc(ch, "Get back to %s before your time runs out!\n",
 		    (questman->short_descr.empty() ? "your quest master" : questman->short_descr));
 		return;
 	}
-	else if (ch->pcdata->questobj > 0) { /* questing for an object */
+	else if (ch->pcdata->questobj > 0) { // questing for an object
 		questinfoobj = Game::world().get_obj_prototype(ch->pcdata->questobj);
 
 		if (questinfoobj != nullptr) {
@@ -401,12 +403,12 @@ void quest_info(Character *ch)
 			return;
 		}
 
-		/* quest object not found! */
+		// quest object not found!
 		Logging::bugf("No info for quest object %d", ch->pcdata->questobj);
 		quest_cleanup(ch);
-		/* no RETURN -- fall thru to 'no quest', below */
+		// no RETURN -- fall thru to 'no quest', below 
 	}
-	else if (ch->pcdata->questmob > 0) { /* questing for a mob */
+	else if (ch->pcdata->questmob > 0) { // questing for a mob 
 		questinfo = Game::world().get_mob_prototype(ch->pcdata->questmob);
 
 		if (questinfo != nullptr) {
@@ -415,17 +417,17 @@ void quest_info(Character *ch)
 			return;
 		}
 
-		/* quest mob not found! */
+		// quest mob not found! 
 		Logging::bugf("No info for quest mob %d", ch->pcdata->questmob);
 		quest_cleanup(ch);
-		/* no RETURN -- fall thru to 'no quest', below */
+		// no RETURN -- fall thru to 'no quest', below 
 	}
 
-	/* we shouldn't be here */
+	//we shouldn't be here 
 	Logging::bug("QUEST INFO: Questor with no kill, mob or obj", 0);
 	return;
 }
-
+*/
 skill::type get_random_skill(Character *ch)
 {
 	int count;
@@ -949,7 +951,7 @@ Character *select_questmob(Character *ch) {
 
 	return victim;
 }
-
+/*
 void generate_quest(Character *ch, Character *questman)
 {
 	Room *room;
@@ -964,12 +966,12 @@ void generate_quest(Character *ch, Character *questman)
 		return;
 	}
 
-	/* at this point the player is sure to get a quest */
+	// at this point the player is sure to get a quest 
 	room = victim->in_room;
 	ch->pcdata->quest_giver = questman->pIndexData->vnum;
 	ch->pcdata->questloc = room->location;
 
-	/*  40% chance it will send the player on a 'recover item' quest. */
+	//  40% chance it will send the player on a 'recover item' quest. 
 	if (roll_chance(40)) {
 		int objvnum = 0;
 
@@ -992,13 +994,13 @@ void generate_quest(Character *ch, Character *questman)
 			return;
 		}
 
-		/* Add player's name to mox name to prevent visibility by others */
+		// Add player's name to mox name to prevent visibility by others 
 		questitem->name = Format::format("%s %s", questitem->name, ch->name);
-		/* Mox timer added by Demonfire as a preventative measure against cheating.
+*/		/* Mox timer added by Demonfire as a preventative measure against cheating.
 		The countdown timer assignment was moved here so that it could be used
 		in the mox timer calculation, it was normally assigned after the return
 		of this function. */
-		ch->pcdata->countdown = number_range(10, 30);
+/*		ch->pcdata->countdown = number_range(10, 30);
 		questitem->timer = (4 * ch->pcdata->countdown + 10) / 3;
 		obj_to_room(questitem, room);
 		ch->pcdata->questobj = questitem->pIndexData->vnum;
@@ -1008,7 +1010,7 @@ void generate_quest(Character *ch, Character *questman)
 		return;
 	}
 	else {
-		/* Quest to kill a mob */
+		// Quest to kill a mob 
 		switch (number_range(0, 3)) {
 		case 0:
 			do_say(questman, Format::format("An enemy of mine, %s, is making vile threats against the crown.",
@@ -1048,7 +1050,7 @@ void generate_quest(Character *ch, Character *questman)
 		ch->pcdata->countdown = number_range(10, 30);
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 	}
-} /* end generate_quest() */
+}*/ /* end generate_quest() */
 
 /* The main quest function */
 void do_quest(Character *ch, String argument)
@@ -1271,7 +1273,7 @@ void do_quest(Character *ch, String argument)
 			wiznet("{Y:SKILL QUEST:{x $N has completed a skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
-		else if ((questman = find_questmaster(ch)) != nullptr) {
+/*		else if ((questman = find_questmaster(ch)) != nullptr) {
 			act("$n informs $N $e has completed $s quest.", ch, nullptr, questman, TO_ROOM);
 			act("You inform $N you have completed your quest.", ch, nullptr, questman, TO_CHAR);
 
@@ -1284,19 +1286,19 @@ void do_quest(Character *ch, String argument)
 				do_say(questman, "But you aren't on a quest at the moment!");
 				buf = Format::format("You have to REQUEST a quest first, %s.", ch->name);
 				do_say(questman, buf);
-				/* clean up, just in case */
+				// clean up, just in case 
 				quest_cleanup(ch);
 				return;
 			}
 
 			if (ch->pcdata->nextquest > 0 || ch->pcdata->countdown <= 0) {
 				do_say(questman, "But you didn't complete your quest in time!");
-				/* clean up, just in case */
+				// clean up, just in case 
 				quest_cleanup(ch);
 				return;
 			}
 
-			/* check if player has the quest object */
+			// check if player has the quest object 
 			if (ch->pcdata->questobj > 0) {
 				for (obj = ch->carrying; obj != nullptr; obj = obj->next_content) {
 					if (obj->pIndexData == nullptr) {
@@ -1309,21 +1311,21 @@ void do_quest(Character *ch, String argument)
 				}
 			}
 
-			/* Added this in cause they drop their quest item after finding it */
+			// Added this in cause they drop their quest item after finding it 
 			if (ch->pcdata->questobf < 0 && obj == nullptr) {
 				do_say(questman, "You must have lost your quest item on the way here.  Hurry and find it!");
 				ch->pcdata->questobf = 0;
 				return;
 			}
 
-			/* check for incomplete quest */
+			// check for incomplete quest 
 			if (ch->pcdata->questmob > 0 || (ch->pcdata->questobj > 0 && obj == nullptr)) {
 				do_say(questman, "You haven't completed the quest yet, but there is still time!");
 				return;
 			}
 
-			/* rewards are calculated in the separate cases for mob and obj, but the ceremony is left
-			   until after the endif to avoid duplicate code -- Elrac */
+			// rewards are calculated in the separate cases for mob and obj, but the ceremony is left
+			// until after the endif to avoid duplicate code -- Elrac 
 			if (ch->pcdata->questobj > 0 && obj != nullptr) {
 				act("You hand $p to $N.", ch, obj, questman, TO_CHAR);
 				act("$n hands $p to $N.", ch, obj, questman, TO_ROOM);
@@ -1331,7 +1333,7 @@ void do_quest(Character *ch, String argument)
 				obj = nullptr;
 			}
 			else if (ch->pcdata->questmob != -1) {
-				/* we shouldn't be here. */
+				// we shouldn't be here. 
 				Logging::bug("QUEST COMPLETE: at reward phase without kill or object", 0);
 				return;
 			}
@@ -1344,7 +1346,7 @@ void do_quest(Character *ch, String argument)
 			if (Game::quest_double)
 				pointreward += number_range(0, 5);
 
-			/*suffix
+*/			/*suffix
 			 *placeholder for skill quest suffixes
 			 * of The Initiate Questor 			+1 qp (2 if double on)
 			 * of The Adv. Questor 				+2 qp (4 if double on)
@@ -1352,15 +1354,15 @@ void do_quest(Character *ch, String argument)
 			 * 
 			 replace section between above snips with the following:
 			 */
-			pointreward += number_range(0, GET_ATTR(ch, APPLY_QUESTPOINTS));
+/*			pointreward += number_range(0, GET_ATTR(ch, APPLY_QUESTPOINTS));
 
 			int pracreward = 0;
 			if (roll_chance(5))
 				pracreward = number_range(1, 3);
 
-			int goldreward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; /* +1 is for the off chance of a level 0 questor */
+			int goldreward = number_range(ch->level / 2, ch->level * 5 / 2) + 1; // +1 is for the off chance of a level 0 questor 
 
-			/* Awards ceremony */
+			// Awards ceremony 
 			do_say(questman, "Congratulations on completing your quest!");
 			buf = Format::format("As a reward, I am giving you %d quest point%s and %d gold.",
 			        pointreward, (pointreward == 1 ? "" : "s"), goldreward);
@@ -1383,7 +1385,7 @@ void do_quest(Character *ch, String argument)
 			wiznet("{Y:QUEST:{x $N has completed a quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
-		else
+*/		else
 			stc("You can't do that here.\n", ch);
 
 		return;
@@ -1530,7 +1532,7 @@ void do_quest(Character *ch, String argument)
 			stc("You have forfeited your skill quest.\n", ch);
 			return;
 		}
-
+/*
 		if (IS_QUESTOR(ch) && find_questmaster(ch) != nullptr) {
 			quest_cleanup(ch);
 			ch->pcdata->nextquest = 6;
@@ -1538,7 +1540,7 @@ void do_quest(Character *ch, String argument)
 			stc("You have forfeited your quest.\n", ch);
 			return;
 		}
-
+*/
 		stc("You can't do that here.\n", ch);
 		return;
 	}
@@ -1553,8 +1555,8 @@ void do_quest(Character *ch, String argument)
 		newquest_info(ch);
 		stc("\n", ch);
 		squest_info(ch);
-		stc("\n", ch);
-		quest_info(ch);
+//		stc("\n", ch);
+//		quest_info(ch);
 		return;
 	}
 
@@ -1624,38 +1626,56 @@ void do_quest(Character *ch, String argument)
 			if (wch->is_npc() || !can_see_who(ch, wch))
 				continue;
 
-			if (IS_QUESTOR(wch)) {
-				if (wch->pcdata->questobj > 0) {                /* an item quest */
+			quest::State *state;
+			if ((state = quest::get_state(wch->pcdata, "annabus_item")) != nullptr
+			 || (state = quest::get_state(wch->pcdata, "annabus_hunt")) != nullptr) {
+//			if (IS_QUESTOR(wch)) {
+//				if (wch->pcdata->questobj > 0) {                /* an item quest */
+				if (state->quest->id == "annabus_item") {
 					mblock = Format::format("{Y<%5d>{x", 0);
 
-					if (wch->pcdata->questobf < 0) {        /* item has been found */
+//					if (wch->pcdata->questobf < 0) {        /* item has been found */
+					if (state->current_step == 2) {
 						oblock = Format::format("{C<{Yfound{C>{x");
 						lblock = Format::format("{C<{Yfound{C>{x");
 					}
 					else {                          /* item has not been found */
-						oblock = Format::format("{T<{Y%5d{T>{x", wch->pcdata->questobj);
-						lblock = Format::format("{T<{Y%5s{T>{x", wch->pcdata->questloc);
+//						oblock = Format::format("{T<{Y%5d{T>{x", wch->pcdata->questobj);
+//						lblock = Format::format("{T<{Y%5s{T>{x", wch->pcdata->questloc);
+						oblock = Format::format("{T<{Y%5d{T>{x",
+							state->stepmaps[state->current_step].get_int("target"));
+						lblock = Format::format("{T<{Y%5s{T>{x",
+							state->stepmaps[state->current_step].get_str("location"));
 					}
 				}
 				else {                                  /* a mob quest */
 					oblock = Format::format("{Y<%5d>{x", 0);
 
-					if (wch->pcdata->questmob == -1) {      /* mob has been killed */
+//					if (wch->pcdata->questmob == -1) {      /* mob has been killed */
+					if (state->current_step == 2) {
 						mblock = Format::format("{C<{Y dead{C>{x");
 						lblock = Format::format("{C<{Yfound{C>{x");
 					}
 					else {                          /* mob has not been killed */
-						mblock = Format::format("{T<{Y%5d{T>{x", wch->pcdata->questmob);
-						lblock = Format::format("{T<{Y%5s{T>{x", wch->pcdata->questloc);
+//						mblock = Format::format("{T<{Y%5d{T>{x", wch->pcdata->questmob);
+//						lblock = Format::format("{T<{Y%5s{T>{x", wch->pcdata->questloc);
+						mblock = Format::format("{T<{Y%5d{T>{x",
+							state->stepmaps[state->current_step].get_int("target"));
+						lblock = Format::format("{T<{Y%5s{T>{x",
+							state->stepmaps[state->current_step].get_str("location"));
 					}
 				}
 
 				qblock = Format::format("%s%s%s {Y[%2d][%4d]{x",
-				        mblock, oblock, lblock, wch->pcdata->countdown, wch->pcdata->questpoints);
+				        mblock, oblock, lblock,
+				        state->map.get_int("countdown"),
+				        wch->pcdata->questpoints);
 			}
 			else
 				qblock = Format::format("<%5d><%5d><%5d> [%2d][%4d]",
-				        0, 0, 0, wch->pcdata->nextquest, wch->pcdata->questpoints);
+				        0, 0, 0, 
+				        wch->state.get_int("annabus:cooldown"),
+				        wch->pcdata->questpoints);
 
 			if (IS_SQUESTOR(wch)) {
 				if (wch->pcdata->squestmob == nullptr      /* item quest */
@@ -1846,7 +1866,7 @@ void do_quest(Character *ch, String argument)
 			wiznet("{Y:SKILL QUEST:{x $N has begun a skill quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
-
+/*
 		if ((questman = find_questmaster(ch)) != nullptr) {
 			act("$n asks $N for a quest.", ch, nullptr, questman, TO_ROOM);
 			act("You ask $N for a quest.", ch, nullptr, questman, TO_CHAR);
@@ -1880,9 +1900,8 @@ void do_quest(Character *ch, String argument)
 			wiznet("{Y:QUEST:{x $N has begun a quest", ch, nullptr, WIZ_QUEST, 0, 0);
 			return;
 		}
-		else
-			stc("You can't do that here.\n", ch);
-
+*/
+		stc("You can't do that here.\n", ch);
 		return;
 	}
 
@@ -1903,17 +1922,22 @@ void do_quest(Character *ch, String argument)
 
 	/*** TIME ***/
 	if (arg1.is_prefix_of("time")) {
-		if (!IS_QUESTOR(ch)) {
+		quest::State *state;
+		if ((state = quest::get_state(ch->pcdata, "annabus_item")) == nullptr
+		 && (state = quest::get_state(ch->pcdata, "annabus_hunt")) == nullptr) {
 			stc("You aren't currently on a quest.\n", ch);
+			int cooldown = ch->state.get_int("annabus:cooldown");
 
-			if (ch->pcdata->nextquest > 1)
-				ptc(ch, "There are %d minutes remaining until you can quest again.\n",
-				    ch->pcdata->nextquest);
-			else if (ch->pcdata->nextquest == 1)
+			if (cooldown > 1)
+				ptc(ch, "There are %d minutes remaining until you can quest again.\n", cooldown);
+			else if (cooldown == 1)
 				stc("There is less than a minute remaining until you can quest again.\n", ch);
 		}
-		else if (ch->pcdata->countdown > 0)
-			ptc(ch, "You have %d minutes left to complete your current quest.\n", ch->pcdata->countdown);
+		else {
+			int countdown = state->map.get_int("countdown");
+			if (countdown > 0)
+				ptc(ch, "You have %d minutes left to complete your current quest.\n", countdown);
+		}
 
 		if (!IS_SQUESTOR(ch)) {
 			stc("You aren't currently on a skill quest.\n", ch);

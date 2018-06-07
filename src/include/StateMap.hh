@@ -4,7 +4,7 @@
 #include "String.hh"
 #include "Logging.hh"
 
-struct State {
+struct StateMap {
 	const String get_str(const String& key) const {
 		if (state.count(key) == 0)
 			return "0";

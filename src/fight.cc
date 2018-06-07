@@ -64,6 +64,7 @@
 #include "tables.hh"
 #include "Weather.hh"
 #include "World.hh"
+#include "quest/functions.hh"
 
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
 
@@ -3082,7 +3083,6 @@ void raw_kill(Character *victim)
 //void 
 int group_gain(Character *ch, Character *victim)
 {
-	char buf[MAX_STRING_LENGTH];
 	Character *gch;
 	Character *lch;
 	int xp;
@@ -3193,14 +3193,9 @@ int group_gain(Character *ch, Character *victim)
 			}
 		}
 
-		if (IS_QUESTOR(gch) && victim->is_npc()) {
-			if (gch->pcdata->questmob == victim->pIndexData->vnum) {
-				stc("{YYou have almost completed your QUEST!{x\n", gch);
-				stc("{YReturn to the questmaster before your time runs out!{x\n", gch);
-				gch->pcdata->questmob = -1;
-				Format::sprintf(buf, "{Y:QUEST: {x$N has slain %s", victim->short_descr);
-				wiznet(buf, gch, nullptr, WIZ_QUEST, 0, 0);
-			}
+		if (!ch->is_npc() && quest::test_progress_slay(ch->pcdata, victim)) {
+			String buf = Format::format("{Y:QUEST: {x$N has slain %s", victim->short_descr);
+			wiznet(buf, gch, nullptr, WIZ_QUEST, 0, 0);
 		}
 	}
 

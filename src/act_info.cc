@@ -127,8 +127,10 @@ String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 
 	/* Color additions by Lotus */
 	if (!ch->is_npc()
-	    && ((ch->pcdata->questobj > 0 && obj->pIndexData->vnum == ch->pcdata->questobj)
-	        || (ch->pcdata->squestobj != nullptr && ch->pcdata->squestobj == obj)))
+	 && quest::is_target(ch->pcdata, obj))
+//	if (!ch->is_npc()
+//	    && ((ch->pcdata->questobj > 0 && obj->pIndexData->vnum == ch->pcdata->questobj)
+//	        || (ch->pcdata->squestobj != nullptr && ch->pcdata->squestobj == obj)))
 		buf += "{f{R[TARGET] {x";
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
@@ -563,8 +565,9 @@ void show_char_to_char_0(Character *victim, Character *ch)
 	}
 
 	if (victim->is_npc() && !ch->is_npc()
-	    && ((ch->pcdata->questmob > 0 && victim->pIndexData->vnum == ch->pcdata->questmob)
-	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
+	 && quest::is_target(ch->pcdata, victim))
+//	    && ((ch->pcdata->questmob > 0 && victim->pIndexData->vnum == ch->pcdata->questmob)
+//	        || (!ch->desc->original && ch->pcdata->squestmob != nullptr && victim == ch->pcdata->squestmob)))
 		buf += "{f{R[TARGET] {x";
 
 	// highlight questgiver mobs if the player is eligible for one of their quests

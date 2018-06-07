@@ -1057,7 +1057,7 @@ void do_mset(Character *ch, String argument)
 			return;
 		}
 
-		victim->pcdata->nextquest = value;
+		victim->state.set("annabus:cooldown", value);
 		ptc(ch, "%s can now quest again in %d minutes.\n", victim->name, value);
 		return;
 	}

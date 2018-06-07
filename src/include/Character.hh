@@ -8,7 +8,7 @@
 #include "Garbage.hh"
 #include "Guild.hh"
 #include "Player.hh" // only for the macros here, remove when we get rid of them
-#include "State.hh"
+#include "StateMap.hh"
 
 namespace progs { class MobProgActList; }
 
@@ -132,7 +132,7 @@ public:
     int              secure_level = 0;
     progs::MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
-    State               state;
+    StateMap            state;
     Tail *              tail = nullptr;         /* -- Elrac */
     Edit *              edit = nullptr;         /* -- Elrac */
 

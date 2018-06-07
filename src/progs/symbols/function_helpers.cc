@@ -163,5 +163,23 @@ void fn_helper_quest_progress(Character *victim, const String& quest_id) {
     quest::progress(victim->pcdata, quest);
 }
 
+void fn_helper_quest_state(Character *victim, const String& quest_id, int step, const String& key, const String& value) {
+	if (victim == nullptr)
+		throw String("null victim");
+
+	if (victim->is_npc())
+		throw String("victim is NPC");
+
+	if (quest_id.empty())
+		throw String("empty quest ID");
+
+	const quest::Quest* quest = quest::lookup(quest_id);
+
+	if (quest == nullptr)
+		throw Format::format("no such quest ID '%s'", quest_id);
+
+	quest::set_state_mapping(victim->pcdata, quest::lookup(quest_id), step, key, value);
+}
+
 } // namespace symbols
 } // namespace progs

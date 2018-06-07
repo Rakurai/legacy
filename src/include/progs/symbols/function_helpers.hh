@@ -15,6 +15,6 @@ void fn_helper_purge_obj(Object *);
 void fn_helper_transfer(Character *victim, Room *location);
 void fn_helper_quest_assign(Character *victim, const String& quest_id);
 void fn_helper_quest_progress(Character *victim, const String& quest_id);
-
+void fn_helper_quest_state(Character *victim, const String& quest_id, int step, const String& key, const String& value);
 } // namespace symbols
 } // namespace progs

@@ -9,6 +9,8 @@
 #include "quest/functions.hh"
 #include "World.hh"
 #include "random.hh"
+#include "ObjectPrototype.hh"
+#include "MobilePrototype.hh"
 
 namespace quest {
 
@@ -34,6 +36,15 @@ State *get_state(Player *player, const Quest *quest) {
 State *get_state(Player *player, int index) {
 	if (index >= 0 && (unsigned int)index < player->quests.size())
 		return &player->quests[index];
+
+	return nullptr;
+}
+
+State *get_state(Player *player, const String& id) {
+	const Quest *quest = lookup(id);
+
+	if (quest != nullptr)
+		return get_state(player, quest);
 
 	return nullptr;
 }
@@ -156,21 +167,21 @@ void progress(Player *player, const Quest *quest) {
 		return;
 	}
 
-	if (state->step < 0 || state->step >= quest->steps.size()) {
+	if (state->current_step < 0 || state->current_step >= quest->steps.size()) {
 		Logging::bugf("quest::progress: player has quest at state %d out of %d",
-			state->step, quest->steps.size());
+			state->current_step, quest->steps.size());
 		return;
 	}
 
-	state->step++;
+	state->current_step++;
 
-	if (state->step == quest->steps.size()){
+	if (state->current_step == quest->steps.size()){
 		complete(player, quest);
 	}
 	else {
 		ptc(&player->ch, divider_line);
 		ptc(&player->ch, "\n  {Y%s: step complete!\n", quest->name);
-		ptc(&player->ch, "\n  Next step: %s\n\n", quest->steps[state->step].description);
+		ptc(&player->ch, "\n  Next step: %s\n\n", quest->steps[state->current_step].description);
 		ptc(&player->ch, divider_line);
 	}
 }
@@ -205,8 +216,30 @@ bool can_start(Player *player, const Quest *quest) {
 				return false;
 		}
 
-		if (req.type == "quest_not") {
+		if (req.type == "quest_not_com") {
 			if (player->completed_quests.count(req.value) > 0)
+				return false;
+		}
+
+		if (req.type == "quest_on") {
+			const Quest *test = lookup(req.value);
+			if (test != nullptr && get_state(player, test) == nullptr)
+				return false;
+		}
+
+		if (req.type == "quest_not_on") {
+			const Quest *test = lookup(req.value);
+			if (test != nullptr && get_state(player, test) != nullptr)
+				return false;
+		}
+
+		if (req.type == "state") {
+			if (ch->state.get_int(req.value) == 0)
+				return false;
+		}
+
+		if (req.type == "state_not") {
+			if (ch->state.get_int(req.value) != 0)
 				return false;
 		}
 
@@ -223,6 +256,127 @@ bool can_start(Player *player, const Quest *quest) {
 	}
 
 	return true;
+}
+
+// check if there is a ch.state entry for this object on this step
+const Quest *is_target(const Player *player, const Object *obj) {
+	for (const auto& state : player->quests) {
+		if (get_state_mapping(&state, state.current_step, "type") != "get")
+			continue;
+
+		String str = get_state_mapping(&state, state.current_step, "target");
+
+		if (atoi(str) == obj->pIndexData->vnum.value())
+			return state.quest;
+	}
+
+	return nullptr;
+}
+
+const Quest *is_target(const Player *player, const Character *mob) {
+	for (const auto& state : player->quests) {
+		if (get_state_mapping(&state, state.current_step, "type") != "slay")
+			continue;
+
+		String str = get_state_mapping(&state, state.current_step, "target");
+
+		if (atoi(str) == mob->pIndexData->vnum.value())
+			return state.quest;
+	}
+
+	return nullptr;
+}
+
+const String get_state_mapping(const State *state, int step, const String& key) {
+	if (state == nullptr || key.empty())
+		return "";
+
+	return state->stepmaps[step].get_str(key);
+}
+
+const String get_state_mapping(Player *player, const Quest *quest, int step, const String& key) {
+	if (player == nullptr || quest == nullptr)
+		return "";
+
+	return get_state_mapping(get_state(player, quest), step, key);
+}
+
+void set_state_mapping(State *state, int step, const String& key, const String& value) {
+	if (state == nullptr || key.empty())
+		return;
+
+	state->stepmaps[step].set(key, value);
+}
+
+void set_state_mapping(Player *player, const Quest *quest, int step, const String& key, const String& value) {
+	if (player == nullptr || quest == nullptr)
+		return;
+
+	set_state_mapping(get_state(player, quest), step, key, value);
+}
+
+bool test_progress_slay(Player *player, Character *victim) {
+	// at the moment, no npc victims
+	if (!victim->is_npc())
+		return false;
+
+	bool made_progress = false;
+
+	for (auto& state : player->quests) {
+		StateMap& map = state.stepmaps[state.current_step];
+
+		if (map.get_str("type") != "slay")
+			continue;
+
+		if (map.get_int("target") != victim->pIndexData->vnum.value())
+			continue;
+
+		int amount = map.get_int("amount");
+
+		if (amount <= 0) {
+			Logging::bugf("quest::test_progress_slay: amount is 0");
+			continue;
+		}
+		else if (amount > 1)
+			map.set("amount", amount-1);
+		else
+			progress(player, state.quest);
+
+		made_progress = true;
+		// it should be ok to continue, won't test the same quest twice
+	}
+
+	return made_progress;
+}
+
+bool test_progress_get(Player *player, Object *obj) {
+	bool made_progress = false;
+
+	for (auto& state : player->quests) {
+		StateMap& map = state.stepmaps[state.current_step];
+
+		if (map.get_str("type") != "get")
+			continue;
+
+		if (map.get_int("target") != obj->pIndexData->vnum.value())
+			continue;
+
+		int amount = map.get_int("amount");
+
+		if (amount <= 0) {
+			Logging::bugf("quest::test_progress_slay: amount is 0");
+			continue;
+		}
+		else if (amount > 1)
+			map.set("amount", amount-1);
+		else
+			progress(player, state.quest);
+
+		made_progress = true;
+		// it should be ok to continue, won't test the same quest twice
+	}
+
+	return made_progress;
 }
 
 } // namespace quest
