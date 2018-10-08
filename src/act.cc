@@ -213,6 +213,21 @@ void act_parse(
 	if (format.empty())
 		return;
 
+	bool SNEAKING = false;
+	int vis = VIS_CHAR;
+
+	/* blah, special hack for channel visibility.  rewrite this crap someday, i don't
+	   have time right now to give act the attention it needs.  -- Montrey */
+	if (type == TO_VICT_CHANNEL) {
+		type = TO_VICT;
+		vis = VIS_PLR;
+	}
+
+	if (min_pos == POS_SNEAK) {
+		min_pos = POS_RESTING;
+		SNEAKING = true;
+	}
+
 	// figure out the start of the char list that we'll act to
 	if (room == nullptr) {
 		// defaults, room could be specialized below
@@ -249,21 +264,6 @@ void act_parse(
 	// if no room to act in, just move on
 	if (room == nullptr)
 		return;
-
-	bool SNEAKING = false;
-	int vis = VIS_CHAR;
-
-	/* blah, special hack for channel visibility.  rewrite this crap someday, i don't
-	   have time right now to give act the attention it needs.  -- Montrey */
-	if (type == TO_VICT_CHANNEL) {
-		type = TO_VICT;
-		vis = VIS_PLR;
-	}
-
-	if (min_pos == POS_SNEAK) {
-		min_pos = POS_RESTING;
-		SNEAKING = true;
-	}
 
 	/*** first loop, for normal recipients of ACT */
 	for (Character *observer = room->people; observer != nullptr; observer = observer->next_in_room) {
