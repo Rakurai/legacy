@@ -203,3 +203,83 @@ remove_cgroup(const Flags& cg) {
 	if (!this->is_npc())
 		pcdata->cgroup_flags -= cg;
 }
+
+//changed macros for MAX_HIT, MAX_STAM, MAX_MANA , GET_ATTR_AC and GET_AC into functions
+int GET_MAX_HIT(Character *ch)
+{
+	int result = 0;
+	int base = (GET_ATTR(ch, APPLY_HIT));
+	
+	if (GET_ATTR(ch, APPLY_HIT) < 1){
+		result = 1;
+		return result;
+	}
+	if (GET_ATTR(ch, APPLY_HIT) > 30000){
+		result = 30000;
+		return result;
+	}
+	if (GET_ATTR(ch, SET_PALADIN_GRACE) >= 4){
+		result = (base + (base * 20 / 100));
+		if (result > 30000)
+			result = 30000;
+		return result;
+	}
+	
+	return base;
+}
+
+int GET_MAX_MANA(Character *ch)
+{
+	int result = 0;
+	int base = (GET_ATTR(ch, APPLY_MANA));
+	
+	if (GET_ATTR(ch, APPLY_MANA) < 1){
+		result = 1;
+		return result;
+	}
+	if (GET_ATTR(ch, APPLY_MANA) > 30000){
+		result = 30000;
+		return result;
+	}
+
+	return base;
+}
+
+int GET_MAX_STAM(Character *ch)
+{
+	int result = 0;
+	int base = (GET_ATTR(ch, APPLY_STAM));
+	
+	if (GET_ATTR(ch, APPLY_STAM) < 1){
+		result = 1;
+		return result;
+	}
+	if (GET_ATTR(ch, APPLY_STAM) > 30000){
+		result = 30000;
+		return result;
+	}
+
+	return base;
+}
+
+int GET_ATTR_AC(Character *ch)
+{
+	int base 	= GET_ATTR(ch, APPLY_AC);
+	int mod 	= 0;
+	
+	if (IS_AWAKE(ch))
+		base += dex_app[GET_ATTR_DEX(ch)].defensive;
+	if (!ch->is_npc() && ch->pcdata->remort_count > 0)
+		base -= (ch->pcdata->remort_count * ch->level / 50); //-1 per 10 levels, -1 per 5 remorts - Montrey
+	if (!ch->is_npc() && GET_ATTR(ch, SET_PALADIN_GRACE) >= 3)
+		base += (base * 20 / 100 );
+	
+	return base;
+}
+
+int GET_AC(Character *ch, int type)
+{
+	return ch->armor_base[type] + GET_ATTR_AC(ch);
+}
+	
+	

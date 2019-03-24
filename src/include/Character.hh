@@ -15,7 +15,7 @@ namespace affect { class Affect; }
  * One character (PC or NPC).
  */
 
-#define MAX_ATTR                     45 // last apply (that we want to have bonus modifiers for) + 1
+#define MAX_ATTR                     48 // last apply (that we want to have bonus modifiers for) + 1
 #define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
 #define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 
@@ -154,23 +154,23 @@ private:
 #define GET_ATTR_CHR(ch) (URANGE(3, GET_ATTR(ch, APPLY_CHR), get_max_stat(ch, STAT_CHR)))
 #define GET_ATTR_SEX(ch) (GET_ATTR((ch), APPLY_SEX) % 3) // gives range of 0-2
 #define GET_ATTR_AGE(ch) (get_age(ch))
-#define GET_ATTR_AC(ch)  (GET_ATTR(ch, APPLY_AC)                              \
-                        + ( IS_AWAKE(ch)                                      \
-                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           \
-                        - (( !(ch)->is_npc() && ch->pcdata->remort_count > 0 )    \
-                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 )) /* should give -1 per 10 levels,
-                                                                                   -1 per 5 remorts -- Montrey */
+//#define GET_ATTR_AC(ch)  (GET_ATTR(ch, APPLY_AC)                              
+//                        + ( IS_AWAKE(ch)                                      
+//                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           
+//                       - (( !(ch)->is_npc() && ch->pcdata->remort_count > 0 )    
+//                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 ))  should give -1 per 10 levels,
+//                                                                                   -1 per 5 remorts -- Montrey */
 #define GET_ATTR_HITROLL(ch) \
                 (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
 #define GET_ATTR_DAMROLL(ch) \
                 (GET_ATTR((ch), APPLY_DAMROLL) + str_app[GET_ATTR_STR((ch))].todam)
 #define GET_ATTR_SAVES(ch) (GET_ATTR((ch), APPLY_SAVES))
-#define GET_MAX_HIT(ch)    (URANGE(1, GET_ATTR((ch), APPLY_HIT), 30000))
-#define GET_MAX_MANA(ch)   (URANGE(1, GET_ATTR((ch), APPLY_MANA), 30000))
-#define GET_MAX_STAM(ch)   (URANGE(1, GET_ATTR((ch), APPLY_STAM), 30000))
+//#define GET_MAX_HIT(ch)    (URANGE(1, GET_ATTR((ch), APPLY_HIT), 30000))
+//#define GET_MAX_MANA(ch)   (URANGE(1, GET_ATTR((ch), APPLY_MANA), 30000))
+//#define GET_MAX_STAM(ch)   (URANGE(1, GET_ATTR((ch), APPLY_STAM), 30000))
 #define GET_DEFENSE_MOD(ch, dam_type) (dam_type == DAM_NONE ? 0 :             \
                           (ch)->defense_mod ? (ch)->defense_mod[dam_type] : 0)
-#define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
+//#define GET_AC(ch, type) ((ch)->armor_base[type] + GET_ATTR_AC((ch)))
 
 
 /* permission checking stuff */
@@ -229,6 +229,12 @@ bool    deduct_cost     args( (Character *ch, int cost) );
 
 void    stc    args( ( const String& txt, Character *ch ) );
 void    page_to_char    args( ( const String& txt, Character *ch ) );
+
+int 	GET_MAX_HIT		args (	(Character *ch )	);
+int 	GET_MAX_MANA	args (	(Character *ch )	);
+int 	GET_MAX_STAM	args (	(Character *ch )	);
+int		GET_ATTR_AC		args (	(Character *ch )	);
+int		GET_AC			args (	(Character *ch, int type)	);
 
 // printf to a character
 template<class... Params>

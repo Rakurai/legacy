@@ -1426,6 +1426,11 @@ bool deduct_stamina(Character *ch, skill::type type)
 	*/
 	stam_cost -= stam_cost * GET_ATTR(ch, APPLY_STAM_COST_PCT) / 100;
 
+	/* beserker warrior 4 pc bonus
+		45% stam cost reduction */
+	if (GET_ATTR(ch, SET_WARRIOR_BESERKER) >= 4)
+		stam_cost -= stam_cost * 45 / 100;
+
 	if (ch->stam < stam_cost) {
 		ptc(ch, "You are too tired to %s.\n", skill::lookup(type).name);
 		return false;

@@ -1854,11 +1854,11 @@ void format_ostat(Character *ch, Object *obj)
 	}
 
 	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
-/* debugging affects measure
+/* debugging affects measure */
 		ptc(ch, "wh: %d tp: %d lv: %d dr: %d lo: %d md: %d ev: %d bv: %d csum: %ld\n",
 			paf->where, paf->type, paf->level, paf->duration, paf->location,
 			paf->modifier, paf->evolution, paf->bitvector(), affect::checksum(paf));
-*/
+
 		show_affect_to_char(paf, ch);
 	}
 

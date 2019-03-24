@@ -339,4 +339,3 @@ bool    HAS_RAFF_GROUP  args( ( Character *ch, int flag ) );
 bool    HAS_EXTRACLASS	args( ( Character *ch, skill::type ) );
 bool    CAN_USE_RSKILL  args( ( Character *ch, skill::type ) );
 void    list_extraskill args( ( Character *ch ) );
-

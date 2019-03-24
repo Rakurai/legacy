@@ -92,3 +92,17 @@ struct mod_t {
 extern const std::multimap<int, affect::type> prefixes_allowed;
 extern const std::multimap<int, affect::type> suffixes_allowed;
 extern const std::map<affect::type, mod_t> mod_table;
+
+// set gear info
+
+struct set_gear {
+	int set_name;			//use exact set name (IE:SET_MAGE_INVOKER)
+	String display;			//what is displayed to player
+	String set1;			//1 pc bonus
+	String set2;			//2 pc bonus
+	String set3;			//3 pc bonus
+	String set4;			//4 pc bonus
+	String set5;			//5 pc bonus
+};
+
+extern const std::vector<set_gear> set_table;

@@ -51,6 +51,7 @@
 #include "interp.hh"
 #include "lookup.hh"
 #include "Logging.hh"
+#include "lootv2.hh"
 #include "magic.hh"
 #include "memory.hh"
 #include "merc.hh"
@@ -99,6 +100,7 @@ char   *const   where_name      [] = {
 	"<secondary weapon>  ",
 	"<wedding ring>      ",
 };
+
 
 /*
  * Local functions.
@@ -371,9 +373,9 @@ void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothi
 } /* end show_list_to_char() */
 
 void do_bonus(Character *ch, String argument) {
-	String outbuf, tempbuf;
+	String outbuf, tempbuf, blankbuff;
 	bool found;
-
+	
 	outbuf +=
 	"  ,                                                                  ,\n"
 	" '`,                                                                '`,\n"
@@ -431,6 +433,75 @@ void do_bonus(Character *ch, String argument) {
 		tempbuf = 
 		" |#|----------------------------------------------------------------|#|\n";
 
+	
+	found = false;
+	tempbuf =
+	" |#|----------------------------------------------------------------|#|\n"
+	" |#| You are affected by the following set bonuses:                 |#|\n"
+	" |#|----------------------------------------------------------------|#|\n";
+	
+	unsigned int found_set = 0;
+	Object *obj;
+	int iWear;
+	bool name_displayed, set2, set3, set4, set5 = false;
+	blankbuff = " ";
+  
+	for (iWear = 0; iWear < MAX_WEAR; iWear++) { //loop thru once for each piece worn
+		if ((obj = get_eq_char(ch, iWear)) != nullptr) {//if char is wearing something continue
+			for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
+				if (paf->location == 0) //check if obj has an attr
+					continue;			//doesn't so continue
+				
+				if (paf->location  >= 43 &&	//set gear is between 43 and 63
+					(paf->location <= 63)){	//so only worry about that range
+					
+					found_set = ( paf->location - 42 );			//save the slot found
+					found = true;
+				
+					if ((!name_displayed) && (GET_ATTR(ch, paf->location) >= 2)){
+						tempbuf += Format::format(
+						" |#| %-30s                          %6s", 
+						set_table[found_set - 1].display,
+						blankbuff);
+						name_displayed = true;
+						tempbuf += " |#|\n";
+					}
+					if (GET_ATTR(ch, paf->location) >= 2 && (!set2)){
+						tempbuf += Format::format(" |#| %-45s  		  %1s", set_table[found_set - 1].set2,
+																			blankbuff);
+						set2 = true;
+						tempbuf += " |#|\n";
+					}
+					if (GET_ATTR(ch, paf->location) >= 3 && (!set3)){
+						tempbuf += Format::format(" |#| %-45s  		%3s", set_table[found_set - 1].set3,
+																			blankbuff);
+						set3 = true;
+						tempbuf += " |#|\n";
+					}
+					if (GET_ATTR(ch, paf->location) >= 4 && (!set4)){
+						tempbuf += Format::format(" |#| %-45s  		%3s", set_table[found_set - 1].set4,
+																			blankbuff);
+						set4 = true;
+						tempbuf += " |#|\n";
+					}
+					if (GET_ATTR(ch, paf->location) >= 5 && (!set5)){
+						tempbuf += Format::format(" |#| %-45s  		%3s", set_table[found_set - 1].set5,
+																			blankbuff);
+						set5 = true;
+						tempbuf += " |#|\n";
+					}
+				}
+			}
+		}
+	}
+	
+	if (found)
+		outbuf += tempbuf;
+
+	if (found)
+		tempbuf = " |#|----------------------------------------------------------------|#|\n";
+	
+	
 	found = false;
 	tempbuf +=
 	" |#| Your defense against damage is modified by:                    |#|\n"
@@ -5417,4 +5488,6 @@ void spell_scry(skill::type sn, int level, Character *ch, void *vo, int target, 
 
 	return;
 }   /* spell_scry end */
+
+
 

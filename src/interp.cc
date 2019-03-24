@@ -95,6 +95,8 @@ const std::vector<cmd_type> cmd_table = {
 	{ "north",                      do_north,               POS_STANDING,   LOG_NEVER,      8,      0                       },
 	{ "south",                      do_south,               POS_STANDING,   LOG_NEVER,      8,      0                       },
 
+//	{ "songlist",                   list_songs,             POS_STANDING,   LOG_NORMAL,     4,      0                       },
+	
 	{ "accept",                     do_accept,              POS_RESTING,    LOG_NORMAL,     8,      0                       },
 	{ "addapply",           do_addapply,    POS_DEAD,               LOG_ALWAYS,     5,      GD | GWQ        },
 	{ "addexit",            do_addexit,             POS_DEAD,               LOG_ALWAYS,     5,      GWC                     },

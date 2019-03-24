@@ -470,6 +470,10 @@ void do_cast(Character *ch, String argument)
 	if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 3)
 		wait -= wait / 4;
 
+	/* Cleric Divine set 4pc bonus */
+	if (GET_ATTR(ch, SET_CLERIC_DIVINE) >= 4)
+		wait -= wait / 4;
+	
 	WAIT_STATE(ch, wait);
 
 	// use probability random distribution here, for limiting fail streaks
@@ -489,6 +493,10 @@ void do_cast(Character *ch, String argument)
 		 */
 		/* Invoker mage set 4pc bonus */
 		if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 4)
+			mana -= mana * 45 / 100;
+		
+		/* Cleric divine set 3 pcs bonus */
+		if (GET_ATTR(ch, SET_CLERIC_DIVINE) >= 3)
 			mana -= mana * 45 / 100;
 		
 		ch->mana -= mana - mana * GET_ATTR(ch, APPLY_MANA_COST_PCT) / 100;
@@ -2147,6 +2155,9 @@ void spell_cure_light(skill::type sn, int level, Character *ch, void *vo, int ta
 {
 	Character *victim = (Character *) vo;
 	int hit = std::min(victim->hit + (dice(1, 8) + level / 3), GET_MAX_HIT(victim));
+	/* cleric divine set 2 pc bonus 10% */
+	if (GET_ATTR(victim, SET_CLERIC_DIVINE) >= 2)
+		hit = hit + hit * 10/ 100;
 	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel better!\n", victim);
@@ -2159,6 +2170,9 @@ void spell_cure_serious(skill::type sn, int level, Character *ch, void *vo, int 
 {
 	Character *victim = (Character *) vo;
 	int hit = std::min(victim->hit + (dice(2, 8) + level / 2), GET_MAX_HIT(victim));
+	/* cleric divine set 2 pc bonus 10% */
+	if (GET_ATTR(victim, SET_CLERIC_DIVINE) >= 2)
+		hit = hit + hit * 10/ 100;
 	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel better!\n", victim);
@@ -2171,6 +2185,9 @@ void spell_cure_critical(skill::type sn, int level, Character *ch, void *vo, int
 {
 	Character *victim = (Character *) vo;
 	int hit = std::min(victim->hit + (dice(3, 8) + level - 6), GET_MAX_HIT(victim));
+	/* cleric divine set 2 pc bonus 10% */
+	if (GET_ATTR(victim, SET_CLERIC_DIVINE) >= 2)
+		hit = hit + hit * 10/ 100;
 	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel better!\n", victim);
@@ -2226,6 +2243,9 @@ void spell_divine_healing(skill::type sn, int level, Character *ch, void *vo, in
 {
 	Character *victim = (Character *) vo;
 	int hit = std::min(victim->hit + (dice(15, 15) + (level * 2)), GET_MAX_HIT(victim));
+	/* cleric divine set 2 pc bonus 10% */
+	if (GET_ATTR(victim, SET_CLERIC_DIVINE) >= 2)
+		hit = hit + hit * 10/ 100;
 	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("You feel much better!\n", victim);
@@ -3749,6 +3769,9 @@ void spell_heal(skill::type sn, int level, Character *ch, void *vo, int target, 
 {
 	Character *victim = (Character *) vo;
 	int hit = std::min(victim->hit + 100, GET_MAX_HIT(victim));
+	/* cleric divine set 2 pc bonus 10% */
+	if (GET_ATTR(victim, SET_CLERIC_DIVINE) >= 2)
+		hit = hit + hit * 10/ 100;
 	victim->hit = hit + hit * GET_ATTR(victim, APPLY_PRIESTESS_UNIQUE) / 100;
 	update_pos(victim);
 	stc("A warm feeling fills your body.\n", victim);

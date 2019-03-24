@@ -474,7 +474,7 @@ G mage~
 
 #24105
 beserker untamed fury axe set setgen~
-{x({GS{He{Gt{x){x Beserker's Untamed Fury{x~
+{x({GS{He{Gt{x){x {PBe{Rs{ber{Rk{Per{x's Untamed Fury{x~
 These axes seem exude raw fury.~
 Fury~
 weapon ABY AN
@@ -488,7 +488,7 @@ magically sharpened. The blades seem to want to taste blood.
 E
 set bonus~
 2pc: 10% bonus weapon damage
-3pc: skill speed increased
+3pc: 5% hp healed a round
 4pc: 45% stamina cost reduction
 5pc: 10% chance on attack to unleash a non blockable furious strike.
 ~
@@ -510,7 +510,7 @@ G warrior~
 
 #24106
 beserker caged heart chest set setgen~
-{x({GS{He{Gt{x){x Beserker's Caged Heart{x~
+{x({GS{He{Gt{x){x {PBe{Rs{ber{Rk{Per{x's Caged Heart{x~
 This chestplate contains the pure rage in a beserker's heart.~
 steel~
 armor ABY AD
@@ -523,7 +523,7 @@ This chestplate is sturdy and looks like it can take many hits.
 E
 set bonus~
 2pc: 10% bonus weapon damage
-3pc: skill speed increased
+3pc: 5% hp healed a round
 4pc: 45% stamina cost reduction
 5pc: 10% chance on attack to unleash a non blockable furious strike.
 ~
@@ -543,8 +543,546 @@ A
 44 1
 G warrior~
 
+#24107
+beserkers freed mind helm set setgen~
+{x({GS{He{Gt{x){x {PBe{Rs{ber{Rk{Per{x's Freed Mind{x~
+This helm has the ability to calm a wild mind~
+steel~
+armor ABY AE
+10 10 10 8 0
+25 0 0 P
+E
+beserker freed mind helm~
+This helmet exudes an aura of calmness.
+~
+E
+set bonus~
+2pc: 10% bonus weapon damage
+3pc: 5% hp healed a round
+4pc: 45% stamina cost reduction
+5pc: 10% chance on attack to unleash a non blockable furious strike.
+~
+A
+3 -1
+A
+5 1
+A
+18 5
+A
+19 5
+A
+13 30
+A
+44 1
+G warrior~
+
+#24108
+beserkers iron grip glove set setgen~
+{x({GS{He{Gt{x){x {PBe{Rs{ber{Rk{Per{x's Iron Grip{x~
+This gloves can't seem to let go of anything~
+steel~
+armor ABY AH
+15 15 15 13 0
+30 0 0 P
+E
+beserker iron grip gloves~
+These gloves have insane grasping abilities.
+~
+E
+set bonus~
+2pc: 10% bonus weapon damage
+3pc: 5% hp healed a round
+4pc: 45% stamina cost reduction
+5pc: 10% chance on attack to unleash a non blockable furious strike.
+~
+A
+18 6
+A
+19 6
+A
+13 30
+A
+14 30
+A
+44 1
+F
+A 0 0 e
+G warrior~
 
 
+#24109
+divine wrappings chest set setgen~
+{x({GS{He{Gt{x){x {WD{gi{Tvi{gn{We{x Wrappings{x~
+Whispy almost ethereal robes lay here~
+ethereal fabric~
+armor ABY AD
+5 5 5 4 0
+15 0 0 P
+E
+divine wrappings chest~
+The pulse with an almost angelic glow.
+~
+E
+set bonus~
+2pc bonus: 10% healing bous
+3pc bonus: 45% mana cost reduction
+4pc bonus: cast speed increase
+5pc bonus: chance on damage received to heal
+           For a portion of the damage.
+~
+A
+12 15
+A
+19 2
+A
+45 1
+G cleric~
+
+#24110
+cleric faith divine set helm setgen~
+{x({GS{He{Gt{x){x A Cleric's {WD{gi{Tvi{gn{We{x Faith{x~
+Is faith really all in the mind?~
+faith~
+armor ABY AE
+10 12 10 8 0
+20 0 0 P
+E
+cleric faith helm~
+A cleric's faith can protect the believer.
+~
+E
+set bonus~
+2pc bonus: 10% healing bous
+3pc bonus: 45% mana cost reduction
+4pc bonus: cast speed increase
+5pc bonus: chance on damage received to heal
+           For a portion of the damage.
+~
+A
+12 20
+A
+13 20
+A
+19 2
+A
+45 1
+G cleric~
+
+#24111
+loving touch divine set gloves setgen~
+{x({GS{He{Gt{x){x The {WD{gi{Tvi{gn{We{x's Loving Touch{x~
+These gloves seem to eminate love and caring~
+silk~
+armor ABY AH
+10 12 11 9 0
+20 0 0 P
+E
+loving touch gloves~
+A Cleric's faith can warm whever it touches.
+~
+E
+set bonus~
+2pc bonus: 10% healing bous
+3pc bonus: 45% mana cost reduction
+4pc bonus: cast speed increase
+5pc bonus: chance on damage received to heal
+           For a portion of the damage.
+~
+A
+12 25
+A
+13 25
+A
+19 2
+A
+45 1
+G cleric~
+
+#24112
+floating faith floater divine set setgen~
+{x({GS{He{Gt{x){x {WD{gi{Tvi{gn{We{x Floating Faith{x~
+A cleric's faith seems to have been left here~
+faith~
+armor ABY AQ
+12 9 10 10 0
+25 0 0 P
+E
+floating faith floater~
+A Cleric's faith can appear to float and envelope
+the cleric.
+~
+E
+set bonus~
+2pc bonus: 10% healing bous
+3pc bonus: 45% mana cost reduction
+4pc bonus: cast speed increase
+5pc bonus: chance on damage received to heal
+           For a portion of the damage.
+~
+A
+12 30
+A
+13 25
+A
+19 3
+A
+45 1
+F 
+A 0 0 T
+G cleric~
+
+#24113
+divine embrace sleeves set setgen~
+{x({GS{He{Gt{x){x {WD{gi{Tvi{gn{We{x's Embrace{x~
+These sleeves glow with a divine light~
+faith~
+armor ABY AI
+12 13 8 10 0
+25 0 0 P
+E
+divine embrace sleeves~
+A Divine's embrace is warming to the heart.
+~
+E
+set bonus~
+2pc bonus: 10% healing bous
+3pc bonus: 45% mana cost reduction
+4pc bonus: cast speed increase
+5pc bonus: chance on damage received to heal
+           For a portion of the damage.
+~
+A
+12 28
+A
+13 29
+A
+19 4
+A
+45 1
+G cleric~
+
+#24114
+cutpurse sharp dagger set setgen~
+{x({GS{He{Gt{x){x {GCu{Ht{bpu{Hr{Gse{x's Sharp Dagger{x~
+This small dagger looks extreamly sharp.~
+underdark steel~
+weapon AB AN
+dagger 3 4 pierce D
+15 0 0 P
+E
+cutpurse sharp dagger~
+Forged from the steel mined from the underdark,
+this dagger is suitable for an accomplished
+assassin.
+~
+E
+set bonus~
+2pc bonus: 10% weapon damage
+3pc bonus: 5% of max stam healed round
+4pc bonus: 45% stam cost reduction
+5pc bonus: backstab/circle/shadowform gain 20% bonus 
+			damage and can 	now randomly inflict a 
+			maladiction on each hit.
+~
+A
+18 3
+A
+19 3
+A
+46 1
+G thief~
+
+#24115
+cutpurse hidden blade set setgen~
+{x({GS{He{Gt{x){x {GCu{Ht{bpu{Hr{Gse{x's Hidden Blade{x~
+This small dagger can be easily hidden.~
+underdark steel~
+weapon AB AN
+dagger 3 4 stab D
+15 0 0 P
+E
+cutpurse hidden blade~
+This small blade is easily concealable, 
+perfect for sneak attacks.
+~
+E
+set bonus~
+2pc bonus: 10% weapon damage
+3pc bonus: 5% of max stam healed round
+4pc bonus: 45% stam cost reduction
+5pc bonus: backstab/circle/shadowform gain 20% bonus 
+			damage and can 	now randomly inflict a 
+			maladiction on each hit.
+~
+A
+18 3
+A
+19 4
+A
+46 1
+G thief~
+
+#24116
+cutpurse stealth gloves set setgen~
+{x({GS{He{Gt{x){x {GCu{Ht{bpu{Hr{Gse{x's Stealth Gloves{x~
+a pair of black gloves lay here~
+beholder leather~
+armor ABY AH
+12 12 12 14 0
+20 0 0 P
+E
+stealth gloves~
+these gloves muffle any sounds you may make.
+~
+E
+set bonus~
+2pc bonus: 10% weapon damage
+3pc bonus: 5% of max stam healed round
+4pc bonus: 45% stam cost reduction
+5pc bonus: backstab/circle/shadowform gain 20% bonus 
+			damage and can 	now randomly inflict a 
+			maladiction on each hit.
+~
+A
+2 1
+A
+13 25
+A
+18 2
+A
+19 2
+A
+46 1
+G thief~
+
+#24117
+cutpurse stealth boots set setgen~
+{x({GS{He{Gt{x){x {GCu{Ht{bpu{Hr{Gse{x's Stelth Boots{x~
+a pair of black boots lay here~
+beholder leather~
+armor ABY AG
+13 14 13 10 0
+25 0 0 P
+E
+stealth boots~
+these boots almost feel like they can hide you.
+~
+E
+set bonus~
+2pc bonus: 10% weapon damage
+3pc bonus: 5% of max stam healed round
+4pc bonus: 45% stam cost reduction
+5pc bonus: backstab/circle/shadowform gain 20% bonus 
+			damage and can 	now randomly inflict a 
+			maladiction on each hit.
+~
+A
+2 2
+A
+13 20
+A
+14 30
+A
+18 3
+A
+19 3
+A
+46 1
+F
+A 0 0 Q
+G thief~
+
+#24118
+cutpurse stealth sleeves set setgen~
+{x({GS{He{Gt{x){x {GCu{Ht{bpu{Hr{Gse{x's Stealth Sleeves{x~
+a pair of black gloves lay here~
+beholder leather~
+armor ABY AI
+15 13 15 10 0
+30 0 0 P
+E
+stealth sleeves~
+these sleeves allow for precise quiet movements.
+~
+E
+set bonus~
+2pc bonus: 10% weapon damage
+3pc bonus: 5% of max stam healed round
+4pc bonus: 45% stam cost reduction
+5pc bonus: backstab/circle/shadowform gain 20% bonus 
+			damage and can 	now randomly inflict a 
+			maladiction on each hit.
+~
+A
+2 1
+A
+13 30
+A
+14 35
+A
+18 4
+A
+19 4
+A
+46 1
+G thief~
+
+#24119
+montrey grace cuirass set setgen~
+{x({GS{He{Gt{x){x Cuirass of {CMo{Tn{Wt{Tr{Cey{x's {CG{Tra{Cce{x~
+a gleamin white cuirass is laying here.~
+holy steel~
+armor ABIY AD
+16 15 15 13 0
+30 0 0 P
+E
+cuirass~
+the steel used to forge this armor emits an almost 
+blinding white light.
+~
+E
+set bonus~
+2pc bonus: 10% damage reduction
+3pc bonus: 20% bonus to ac values.
+4pc bonus: 20% bonus to hp
+5pc bonus: on successful defense (dodge, block, parry)
+			chance to heal some hp/mana/stam
+~
+A 
+13 45
+A
+18 1
+A
+19 1
+A
+47 1
+G paladin~
+
+#24120
+montrey grace gauntlets set setgen~
+{x({GS{He{Gt{x){x Gauntlets of {CMo{Tn{Wt{Tr{Cey{x's {CG{Tra{Cce{x~
+gleaming white metal gauntlets are resting here.~
+holy steel~
+armor ABIY AH
+14 13 13 11 0
+25 0 0 P
+E
+gauntlets~
+the metal is of an unknown orgin, is pliable yet strong.
+~
+E
+set bonus~
+2pc bonus: 10% damage reduction
+3pc bonus: 20% bonus to ac values.
+4pc bonus: 20% bonus to hp
+5pc bonus: on successful defense (dodge, block, parry)
+			chance to heal some hp/mana/stam
+~
+A
+1 2
+A 
+13 35
+A
+18 1
+A
+19 1
+A
+47 1
+G paladin~
+
+#24121
+montrey grace sabaton boots set setgen~
+{x({GS{He{Gt{x){x Sabatons of {CMo{Tn{Wt{Tr{Cey{x's {CG{Tra{Cce{x~
+gleaming white metal sabatons are resting here.~
+holy steel~
+armor ABIY AG
+14 14 14 12 0
+25 0 0 P
+E
+sabaton boot~
+the metal is of an unknown orgin, is pliable yet strong.
+~
+E
+set bonus~
+2pc bonus: 10% damage reduction
+3pc bonus: 20% bonus to ac values.
+4pc bonus: 20% bonus to hp
+5pc bonus: on successful defense (dodge, block, parry)
+			chance to heal some hp/mana/stam
+~
+A
+1 2
+A 
+13 35
+A
+18 1
+A
+19 1
+A
+47 1
+G paladin~
+
+#24122
+montrey grace sword set setgen~
+{x({GS{He{Gt{x){x Sword of {CMo{Tn{Wt{Tr{Cey{x's {CG{Tra{Cce{x~
+This small dagger can be easily hidden.~
+holy steel~
+weapon AB AN
+sword 4 6 divine D
+15 0 0 P
+E
+grace sword~
+This sword radiates with a divine energy.
+~
+E
+set bonus~
+2pc bonus: 10% damage reduction
+3pc bonus: 20% bonus to ac values.
+4pc bonus: 20% bonus to hp
+5pc bonus: on successful defense (dodge, block, parry)
+			chance to heal some hp/mana/stam
+~
+A
+13 35
+A
+18 2
+A
+19 2
+A
+47 1
+G paladin~
+
+#24123
+montrey grace targe shield set setgen~
+{x({GS{He{Gt{x){x Targe of {CMo{Tn{Wt{Tr{Cey{x's {CG{Tra{Cce{x~
+a gleaming white metal shield is resting here.~
+holy steel~
+armor ABIY AJ
+8 9 9 8 0
+15 0 0 P
+E
+trage shield~
+this is a massive shield
+~
+E
+set bonus~
+2pc bonus: 10% damage reduction
+3pc bonus: 20% bonus to ac values.
+4pc bonus: 20% bonus to hp
+5pc bonus: on successful defense (dodge, block, parry)
+			chance to heal some hp/mana/stam
+~
+A
+1 1
+A 
+13 25
+A
+18 1
+A
+19 1
+A
+47 1
+G paladin~
 
 #24350
 elven bow~

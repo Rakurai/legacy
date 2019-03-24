@@ -46,6 +46,8 @@
 #include "util/Image.hh"
 #include "World.hh"
 
+//void	list_songs		args((Character *ch));
+
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(Character *ch, String argument)
 {
@@ -70,6 +72,11 @@ void do_debug(Character *ch, String argument)
 		return;
 	}
 
+/*	if (subfunc == "songlist"){
+		list_songs(ch);
+		return;
+	}
+*/	
 	if (subfunc == "printimg") {
 		if (argument.empty()) {
 			ptc(ch, "Need a filename.\n");

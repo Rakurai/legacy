@@ -212,6 +212,7 @@ const std::map<::affect::type, const table_entry> affect_table = {
     { type::obj_suffix_hexxing, { "hexxing", "", "", "" }},
 	{ type::obj_suffix_restorative, { "restorative", "", "", "" }}, //shield specific 
 	{ type::obj_suffix_mystic, { "mystic", "", "", "" }},			//shield specific
+	/* Uniques */
 	{ type::obj_forge_unique, { "expertise", "", "", "" }},			//forgemaster unique gloves
 	{ type::obj_priestess_unique, { "priestess", "", "", "" }},		//priestess unique helm
 	{ type::obj_brew_unique, { "brewmaster", "", "", "" }},			//brew unique floater
@@ -219,8 +220,12 @@ const std::map<::affect::type, const table_entry> affect_table = {
 	{ type::obj_tank_unique, { "Shield's Defense", "", "", "" }},	//damage reduction chest
 	{ type::obj_necro_pierce_unique, { "Necromancer's Power", "", "", "" }},	//necro pierce unique dagger
 	{ type::obj_lidda_aura_unique, { "Lidda's Aura", "", "", "" }},
-	{ type::obj_set_mage_invoker, { "mage invoker set", "", "", "" }},
-	{ type::obj_set_warrior_berserker, { "warrior beserker set", "", "", "" }},
+	/* Sets */
+	{ type::obj_set_mage_invoker, 		{ "mage invoker set", "", "", "" }},
+	{ type::obj_set_warrior_berserker, 	{ "warrior beserker set", "", "", "" }},
+	{ type::obj_set_cleric_divine, 		{ "cleric divine set", "", "", "" }},
+	{ type::obj_set_thief_cutpurse,		{ "thief cutpurse set", "", "", "" }},
+	{ type::obj_set_paladin_grace,		{ "paladin grace set", "", "", "" }},
 
 };
 

@@ -133,6 +133,9 @@ enum class type {
 	
 	obj_set_mage_invoker,
 	obj_set_warrior_berserker,
+	obj_set_cleric_divine,
+	obj_set_thief_cutpurse,
+	obj_set_paladin_grace,
 
     size, // don't touch
     first = 0 // don't touch

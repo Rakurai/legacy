@@ -497,4 +497,5 @@ DECLARE_DO_FUN( do_yell         );
 DECLARE_DO_FUN( do_zap          );
 DECLARE_DO_FUN( do_zecho        );
 
+//DECLARE_DO_FUN( list_songs		);
 

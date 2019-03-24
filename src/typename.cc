@@ -181,9 +181,12 @@ String affect_loc_name(int location)
 	case APPLY_SCRIBE_UNIQUE:		return "increased scribing success";
 	case APPLY_TANK_UNIQUE:			return "reduced damage recieved";
 	case APPLY_NECRO_PIERCE_UNIQUE:	return "on hit: chance to inflict maladiction";
-	case APPLY_LIDDA_AURA_UNIQUE: 	return "chance for elemental aura to retaliate";
+	case APPLY_LIDDA_AURA_UNIQUE: 	return "chance for aura to retaliate";
 	case SET_MAGE_INVOKER:			return "Pieces of Invoker Set worn";
 	case SET_WARRIOR_BESERKER:		return "Pieces of Beserker Set worn";
+	case SET_CLERIC_DIVINE:		    return "Pieces of Divine Garb Set worn";
+	case SET_THIEF_CUTPURSE:		return "Pieces of Cutpurse Set worn";
+	case SET_PALADIN_GRACE:			return "Pieces of Mont's Grace Set worn";
 	}
 
 	Logging::bug("Affect_location_name: unknown location %d.", location);

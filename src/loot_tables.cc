@@ -1240,3 +1240,69 @@ const std::map<affect::type, mod_t> mod_table = {
     }}
 
 };
+
+/* ignore, alignment references for set gear affects
+
+|#|----------------------------------------------------------------|#|
+   10% bonus spell damage                                          
+*/ 
+
+const std::vector<set_gear> set_table = {
+//
+//	{
+//		set_name;
+//		display;
+//		set1;
+//		set2;
+//		set3;
+//		set4;
+//		set5;
+//	},
+//
+	{
+		SET_MAGE_INVOKER,
+		"Vestments of The Invoker",
+		"none",
+		"10% bonus spell damage",
+		"cast speed increase",
+		"45% mana cost reduction",
+		"10% chance to double cast an offensive spell",
+	},
+	{
+		SET_WARRIOR_BESERKER,
+		"Beserker's Fury",
+		"none",
+		"10% bonus weapon damage",
+		"5% max hp healed per round",
+		"45% stamina cost reduction",
+		"10% chance to perform a furious strike",
+	},
+	{
+		SET_CLERIC_DIVINE,
+		"Garb of The Divine",
+		"none",
+		"10% healing bonus",
+		"45% mana cost reduction",
+		"cast speed increase",
+		"chance to heal some of recieved damage",
+	},
+	{
+		SET_THIEF_CUTPURSE,
+		"Cutpurse's Guile",
+		"none",
+		"10% bonus weapon damage",
+		"5% of max stamina healed per round",
+		"45% stamina cost reduction",
+		"thief combat skills gain bonus damage and abilities",
+	},
+	{
+		SET_PALADIN_GRACE,
+		"Montrey's Gace",
+		"none",
+		"10% damage reduction",
+		"20% bonus to armor",
+		"20% bonus to hp",
+		"successful defenses can heal you",
+	},
+	
+};

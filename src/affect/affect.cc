@@ -200,6 +200,9 @@ int attr_location_check(int location) {
 		//begin set gear
 		case SET_MAGE_INVOKER			: return SET_MAGE_INVOKER;
 		case SET_WARRIOR_BESERKER		: return SET_WARRIOR_BESERKER;
+		case SET_CLERIC_DIVINE			: return SET_CLERIC_DIVINE;
+		case SET_THIEF_CUTPURSE			: return SET_THIEF_CUTPURSE;
+		case SET_PALADIN_GRACE			: return SET_PALADIN_GRACE;
 	}
 
 	Logging::bugf("attr_location_check: bad location %d", location);

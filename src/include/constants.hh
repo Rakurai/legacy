@@ -796,8 +796,12 @@
 #define APPLY_TANK_UNIQUE			40
 #define APPLY_NECRO_PIERCE_UNIQUE	41
 #define APPLY_LIDDA_AURA_UNIQUE		42
-#define SET_MAGE_INVOKER			43
-#define SET_WARRIOR_BESERKER		44
+#define SET_MAGE_INVOKER			43 /*begin set defines*/
+#define SET_WARRIOR_BESERKER		44 /*setting aside 43-63 for sets*/
+#define SET_CLERIC_DIVINE			45
+#define SET_THIEF_CUTPURSE			46
+#define SET_PALADIN_GRACE			47
+/* do not put anything before 63, reserved for sets*/
 
 
 /*

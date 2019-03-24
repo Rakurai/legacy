@@ -99,6 +99,8 @@ void    set_fighting    args((Character *ch, Character *victim));
 void    combat_regen    args((Character *ch));
 void    noncombat_regen    args((Character *ch));
 void    do_lay_on_hands       args((Character *ch, const char *argument));
+bool 	defense_heal	args((Character *victim, int chance, int percent));
+
 
 /* Global XP */
 int gxp;
@@ -325,7 +327,17 @@ void combat_regen(Character *ch)
 	/* remort affect - vampire regen */
 	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < GET_MAX_HIT(ch))
 		hitgain += (ch->level / 20) + 1;
-
+	
+	/* beserker warrior 3pc bonus 
+		5% hp healed per round (pending balance) */
+	if (GET_ATTR(ch, SET_WARRIOR_BESERKER) >= 3)
+		hitgain += (GET_MAX_HIT(ch) * 5 / 100);
+	
+	/* Cutpurse thief 3pc bonus
+		5% stam healed per round (pending balance) */
+	if (GET_ATTR(ch, SET_THIEF_CUTPURSE) >= 3)
+		stamgain += (GET_MAX_STAM(ch) * 5 / 100);
+		
 	if (affect::exists_on_char(ch, affect::type::regeneration) && ch->stam < GET_MAX_STAM(ch))
 		switch (get_affect_evolution(ch, affect::type::regeneration)) {
 		case 2: stamgain += ch->level / 30 + 2;   break;
@@ -1083,6 +1095,9 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			default:
 				break;
 		}
+		/* 5 pc thief cutpurse bonus */
+		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
+			dam += dam * 20 / 100;
 	}
 
 	if (attack_skill == skill::type::circle && wield != nullptr) {
@@ -1090,6 +1105,10 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			dam *= 2 + ((ch->level - 30) / 30);
 		else
 			dam *= 2 + ((ch->level - 30) / 24);   /* daggers do more */
+		
+		/* 5 pc thief cutpurse bonus */
+		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
+			dam += dam * 20 / 100;
 	}
 
 	if (attack_skill == skill::type::rage && wield != nullptr) {
@@ -1105,6 +1124,10 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 	if (dam <= 0)
 		dam = 1;
 
+	/* 5 pc thief cutpurse shadowform bonus */
+	if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
+		bonus += bonus * 20 / 100;
+	
 	dam += bonus;  /* Shadow Form Bonus */
 	result = damage(ch, victim, dam, attack_skill, attack_type, dam_type, true, false);
 
@@ -1248,6 +1271,103 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 
 			damage(ch, victim, dam, skill::type::unknown, -1, DAM_ELECTRICITY, false, false);
 		}
+
+		if (ch->fighting == victim
+		 && GET_ATTR(ch, SET_THIEF_CUTPURSE) >= 5){
+			if (attack_skill == skill::type::circle) {
+				if (number_percent() > 90) {
+					switch(number_range (1,5)){
+						case 1:	//blindness
+							stc("You strike at your opponent's eyes!\n", ch);
+							stc("Your opponent strikes at your eyes!!\n", victim);
+							spell_blindness(skill::type::blindness,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 2:	//curse
+							stc("You strike at your opponents chakras!\n", ch);
+							stc("Your opponent strikes at your chakras!!\n", victim);
+							spell_curse(skill::type::curse,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 3:	//plague
+							stc("Your weapon glows with a green aura!\n", ch);
+							stc("Your opponents weapon glows green!\n", victim);
+							spell_plague(skill::type::plague,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 4: //slow
+							stc("You strike at your opponent's ankles!\n", ch);
+							stc("Your opponent strikes at your ankles!!\n", victim);
+							spell_slow(skill::type::slow,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 5:	//weaken
+							stc("You strike at your opponent's nervous system!\n", ch);
+							stc("Your opponent strikes at your nervous system!!\n", victim);
+							spell_weaken(skill::type::weaken,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					}
+				}
+			}
+			if (attack_skill == skill::type::backstab){
+				if (number_percent() > 75) {
+					switch(number_range (1,5)){
+						case 1:	//blindness
+							stc("You strike at your opponent's eyes!\n", ch);
+							stc("Your opponent strikes at your eyes!!\n", victim);
+							spell_blindness(skill::type::blindness,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 2:	//curse
+							stc("You strike at your opponents chakras!\n", ch);
+							stc("Your opponent strikes at your chakras!!\n", victim);
+							spell_curse(skill::type::curse,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 3:	//plague
+							stc("Your weapon glows with a green aura!\n", ch);
+							stc("Your opponents weapon glows green!\n", victim);
+							spell_plague(skill::type::plague,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 4: //slow
+							stc("You strike at your opponent's ankles!\n", ch);
+							stc("Your opponent strikes at your ankles!!\n", victim);
+							spell_slow(skill::type::slow,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 5:	//weaken
+							stc("You strike at your opponent's nervous system!\n", ch);
+							stc("Your opponent strikes at your nervous system!!\n", victim);
+							spell_weaken(skill::type::weaken,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					}
+				}
+			}
+			if (shadow){
+				if (number_percent() > 65) {
+					switch(number_range (1,5)){
+						case 1:	//blindness
+							stc("You strike at your opponent's eyes!\n", ch);
+							stc("Your opponent strikes at your eyes!!\n", victim);
+							spell_blindness(skill::type::blindness,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 2:	//curse
+							stc("You strike at your opponents chakras!\n", ch);
+							stc("Your opponent strikes at your chakras!!\n", victim);
+							spell_curse(skill::type::curse,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 3:	//plague
+							stc("Your weapon glows with a green aura!\n", ch);
+							stc("Your opponents weapon glows green!\n", victim);
+							spell_plague(skill::type::plague,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 4: //slow
+							stc("You strike at your opponent's ankles!\n", ch);
+							stc("Your opponent strikes at your ankles!!\n", victim);
+							spell_slow(skill::type::slow,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+						case 5:	//weaken
+							stc("You strike at your opponent's nervous system!\n", ch);
+							stc("Your opponent strikes at your nervous system!!\n", victim);
+							spell_weaken(skill::type::weaken,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					}
+				}
+			}
+		}
 	}
 	/* 	This section is for any on hit affects from unique items
 		Each will need to be coded individually per item.
@@ -1307,6 +1427,23 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 			}
 		}
 	}
+	
+	/*
+	 * Beserker warrior 5 pc bonus
+	 * Unblockable Furious strike
+	 * 10% chance on each hit to trigger.
+	 * damage will be currently figured out dam from the calculations above
+	 * halved and then half of the chars level flat added to it
+	 */
+	 if (GET_ATTR(ch, SET_WARRIOR_BESERKER) >= 5){
+		 if (number_percent() < 11){
+			 int fstrikedam = dam -= dam / 2;
+			 fstrikedam += (ch->level / 2);
+			 stc("{GYou lash out at your victim{x.\n", victim);
+			 damage(ch, victim, fstrikedam, skill::type::unknown, 46, DAM_SLASH, true, false);
+		 }
+	 }
+
 		
 	
 } /* end one_hit */
@@ -1471,6 +1608,10 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	/*Shield's Chestplate unique effect (25% damage reduction) */
 	if (dam > 1 && GET_ATTR(victim, APPLY_TANK_UNIQUE) != 0)
 		dam -= dam / 4;
+	
+	/* Paladin Montrey's Grace 2pc bonus  (10% damage reduction)*/
+	if (dam > 1 && GET_ATTR(victim, SET_PALADIN_GRACE) >= 2)
+		dam -= dam * 10 / 100;
 		
 	sanc_immune = false;
 
@@ -1523,6 +1664,14 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	/* remort affect - less damage */
 	if (HAS_RAFF(ch, RAFF_LESSDAMAGE))
 		dam -= dam / 20;
+	
+	/*Beserker warrior 2 pc bonus */
+	if (GET_ATTR(ch, SET_WARRIOR_BESERKER) >= 2)
+		dam += dam * 10 / 100;
+	
+	/*Cutpurse thief 2 pc bonus */
+	if (GET_ATTR(ch, SET_THIEF_CUTPURSE) >= 2)
+		dam += dam * 10 / 100;
 
 	immune = false;
 
@@ -1540,6 +1689,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 						&& attack_type != 43	//bypass
 						&& attack_type != 44
 						&& attack_type != 45
+						&& attack_type != 46	//berserker set 5pc furious strike
 						&& ch != victim) {
 		if (IS_AWAKE(victim) && !global_quick) {
 			if (check_dodge(ch, victim, attack_skill, attack_type))
@@ -1615,7 +1765,8 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				&& attack_type != 42 //ignores elemental aura
 				&& attack_type != 43 //attack_types as they shouldn't trigger
 				&& attack_type != 44 //flameshield
-				&& attack_type != 45) {
+				&& attack_type != 45
+				&& attack_type != 46){ //beserker 5pc furious strike
 				damage(victim, ch, 5, skill::type::flameshield, -1, DAM_FIRE, true, true);
 			}
 
@@ -1628,7 +1779,8 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 				&& attack_type != 42 //ignores elemental aura
 				&& attack_type != 43 //attack_types as they shouldn't trigger
 				&& attack_type != 44 //sanctuary
-				&& attack_type != 45)
+				&& attack_type != 45
+				&& attack_type != 46)//beserker 5pc furious strike
 				damage(victim, ch, 5, skill::type::sanctuary, -1, DAM_HOLY, true, true);
 
 			if (ch->is_garbage())
@@ -1707,7 +1859,7 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	
 	if (show)
 		dam_message(ch, victim, dam, attack_skill, attack_type, immune, sanc_immune);
-
+	
 //	if (dam == 0)
 //		return false;
 
@@ -1716,6 +1868,20 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 	/* Hurt the victim.  Inform the victim of his new state. */
 	victim->hit -= dam;
+	
+	/* Cleric Divine Set 5pc bonus
+	 * chance to heal for a portion of the damage recieved.
+	 * will be a lower heal amount due to it having the ability to
+	 * trigger on every damage recieved
+	 */
+	 if (GET_ATTR(victim, SET_CLERIC_DIVINE) >= 5){
+		 if (number_percent() < 15){
+			 int dsetheal = dam * 10 / 100;
+			 ptc(victim, "{BDivine powers convert some of the damage to healing!! {H[{Y%d{H]{x,\n", dsetheal);
+			 ptc(ch, "{BA divine aura flashes from {Y%s{x \n", ch->name);
+			 victim->hit += dsetheal;
+		}
+	}
 
 	if (dam > GET_MAX_HIT(victim) / 4)
 		stc("{PThat really did HURT!{x\n", victim);
@@ -2325,6 +2491,7 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 		chance /= 2;
 
 	chance += victim->level - ch->level;
+	
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(parry %d%%)", chance);
 	ptc(victim, "(parry %d%%)", chance);
@@ -2365,7 +2532,19 @@ bool check_parry(Character *ch, Character *victim, skill::type attack_skill, int
 	/* for remorts, do riposte */
 	if (CAN_USE_RSKILL(victim, skill::type::riposte))
 		do_riposte(victim, ch);
-
+	
+	/* Montrey's Grace 5pc Bonus */
+	if (GET_ATTR(victim, SET_PALADIN_GRACE) >= 5){
+		
+		if (!victim->act_flags.has(PLR_DEFENSIVE) && defense_heal(victim, 15, 20)) {
+			stc("{BMontrey's Grace heals you!!!!{x\n", victim);
+		
+			if (!ch->act_flags.has(PLR_DEFENSIVE)) {
+				stc("{BYour opponent glows with a {Wwhite ligh{Bt!!!!{x\n", ch);
+			}
+		}
+	}
+	
 	return true;
 } /* end check_parry */
 
@@ -2424,6 +2603,7 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 		chance /= 2;
 
 	chance += victim->level - ch->level;
+		
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(dlparry %d%%)", chance);
 	ptc(victim, "(dlparry %d%%)", chance);
@@ -2495,6 +2675,19 @@ bool check_dual_parry(Character *ch, Character *victim, skill::type attack_skill
 	damage(victim, ch, (number_range(1, victim->level) + GET_ATTR_DAMROLL(victim)) / 2,
 	       skill::type::unknown, attack_type, DAM_BASH, true, false);
 	check_improve(victim, skill::type::hand_to_hand, true, 8);
+	
+	/* Montrey's Grace 5pc Bonus */
+	if (GET_ATTR(victim, SET_PALADIN_GRACE) >= 5){
+		
+		if (!victim->act_flags.has(PLR_DEFENSIVE) && defense_heal(victim, 15, 20)) {
+			stc("{BMontrey's Grace heals you!!!!{x\n", victim);
+		
+			if (!ch->act_flags.has(PLR_DEFENSIVE)) {
+				stc("{BYour opponent glows with a {Wwhite ligh{Bt!!!!{x\n", ch);
+			}
+		}
+	}
+	
 	return true;
 } /* end check_dual_parry */
 
@@ -2522,6 +2715,8 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 	chance = get_skill_level(victim, skill::type::shield_block) * 2 / 5;
 
 	chance += (victim->level - ch->level);
+	
+		
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(shblock %d%%)", chance);
 	ptc(victim, "(shblock %d%%)", chance);
@@ -2570,6 +2765,19 @@ bool check_shblock(Character *ch, Character *victim, skill::type attack_skill, i
 
 	check_cond(victim, get_eq_char(victim, WEAR_SHIELD));
 	check_improve(victim, skill::type::shield_block, true, 6);
+	
+	/* Montrey's Grace 5pc Bonus */
+	if (GET_ATTR(victim, SET_PALADIN_GRACE) >= 5){
+		
+		if (!victim->act_flags.has(PLR_DEFENSIVE) && defense_heal(victim, 15, 20)) {
+			stc("{BMontrey's Grace heals you!!!!{x\n", victim);
+		
+			if (!ch->act_flags.has(PLR_DEFENSIVE)) {
+				stc("{BYour opponent glows with a {Wwhite ligh{Bt!!!!{x\n", ch);
+			}
+		}
+	}
+	
 	return true;
 } /* end check_shblock */
 
@@ -2617,6 +2825,8 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 //	if (!can_see_char(victim,ch))
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
+	
+		
 
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(dodge %d%%)", chance);
@@ -2656,6 +2866,19 @@ bool check_dodge(Character *ch, Character *victim, skill::type attack_skill, int
 
 //	}
 	check_improve(victim, skill::type::dodge, true, 6);
+	
+	/* Montrey's Grace 5pc Bonus */
+	if (GET_ATTR(victim, SET_PALADIN_GRACE) >= 5){
+		
+		if (!victim->act_flags.has(PLR_DEFENSIVE) && defense_heal(victim, 15, 20)) {
+			stc("{BMontrey's Grace heals you!!!!{x\n", victim);
+		
+			if (!ch->act_flags.has(PLR_DEFENSIVE)) {
+				stc("{BYour opponent glows with a {Wwhite ligh{Bt!!!!{x\n", ch);
+			}
+		}
+	}
+	
 	return true;
 } /* end check_dodge */
 
@@ -2703,6 +2926,8 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 //	if (!can_see_char(victim,ch))
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
+	
+		
 
 #ifdef DEBUG_CHANCE
 	ptc(ch, "(blur %d%%)", chance);
@@ -2740,8 +2965,58 @@ bool check_blur(Character *ch, Character *victim, skill::type attack_skill, int 
 
 //	}
 	check_improve(victim, skill::type::blur, true, 6);
+	
+	/* Montrey's Grace 5pc Bonus */
+	if (GET_ATTR(victim, SET_PALADIN_GRACE) >= 5){
+		
+		if (!victim->act_flags.has(PLR_DEFENSIVE) && defense_heal(victim, 15, 20)) {
+			stc("{BMontrey's Grace heals you!!!!{x\n", victim);
+		
+			if (!ch->act_flags.has(PLR_DEFENSIVE)) {
+				stc("{BYour opponent glows with a {Wwhite ligh{Bt!!!!{x\n", ch);
+			}
+		}
+	}
+	
 	return true;
 }  /* end check_blur */
+
+/* Defensive heal function. created mainly for
+   Montrey's Grace 5pc set bonus, could be used for other bonuses
+   chance is there for usability with other skills/bonuses
+   and percent is the percent you want to heal, again for usability
+*/
+bool defense_heal(Character *victim, int chance, int percent)
+{
+	int mod_hp 		= 0;
+	int mod_mana	= 0;
+	int mod_stam	= 0;
+	
+	//debug stuff
+	int d1 = (GET_MAX_HIT(victim));
+	int d2 = (GET_MAX_MANA(victim));
+	int d3 = (GET_MAX_STAM(victim));
+	
+	mod_hp 			+= (GET_MAX_HIT(victim) * percent / 100);
+	mod_mana		+= (GET_MAX_MANA(victim) * percent / 100);
+	mod_stam		+= (GET_MAX_STAM(victim) * percent / 100);
+	
+	if (roll_chance(chance)){
+		Logging::bug("Debug: mod_hp: %d ",mod_hp);
+		Logging::bug("MAX %d",d1);
+		Logging::bug("Debug: mod_mana: %d",mod_mana);
+		Logging::bug("MAX: %d",d2);
+		Logging::bug("Debug: mod_stam: %d",mod_stam);
+		Logging::bug("MAX %d",d3);
+		
+		victim->hit 	+= mod_hp;
+		victim->mana 	+= mod_mana;
+		victim->stam 	+= mod_stam;
+		
+		return true;
+	}
+	return false;
+}
 
 /* Set position of a victim. */
 void update_pos(Character *victim)
@@ -5709,4 +5984,3 @@ void do_shoot(Character *ch, String argument)
 	WAIT_STATE(ch, skill::lookup(skill::type::backstab).beats);
 	check_improve(ch, skill::type::archery, true, 5); /* change added for gains on shooting now damnit leave it*/
 }   /* end of do bow */
-

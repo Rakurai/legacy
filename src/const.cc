@@ -132,10 +132,11 @@ const std::vector<attack_type> attack_table = {
 	{   "chill",        "chill",        	DAM_COLD        },
 	{   "hstrike",      "hilt strike",  	DAM_BASH        },  /* 40 */ /* no skill for hilt strike */
 	{   "arrow",        "arrow",        	DAM_PIERCE      },  
-	{   "acold",        "{Ci{Wc{Cy {ga{Wur{ga",     	DAM_COLD	    }, //next 4 are for elemental auras
-	{   "afire",        "{Pf{Ri{be{Rr{Py {ga{Wur{ga",   	DAM_FIRE        }, //for use with elemental aura of 
-	{   "alight",       "{Yli{bgh{Tt{bni{Yng {ga{Wur{ga",   DAM_ELECTRICITY }, //the goddess lidda unique
-	{   "awater",       "{Nw{Bat{Ner {ga{Wur{ga",       DAM_WATER       },	/* 45 */
+	{   "acold",        "{Ci{Wc{Cy {ga{Wur{ga",     			DAM_COLD	    }, //next 4 are for elemental auras
+	{   "afire",        "{Pf{Ri{be{Rr{Py {ga{Wur{ga",   		DAM_FIRE        }, //for use with elemental aura of 
+	{   "alight",       "{Yli{bgh{Tt{bni{Yng {ga{Wur{ga",   	DAM_ELECTRICITY }, //the goddess lidda unique
+	{   "awater",       "{Nw{Bat{Ner {ga{Wur{ga",       		DAM_WATER       },	/* 45 */
+	{   "fstrike",      "{RF{bu{Pri{bou{Rs {WSt{gri{Wke{x",     DAM_SLASH      }, //beserker 5pc bonus furious strike
 };
 
 /* all races, make sure pc races are in the same order as the pc race table, below */
@@ -967,7 +968,7 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 	}},
 	{	skill::type::chain_lightning,   {
 		"chain lightning",
-		{ 33, 35, 39, 36, 33, 35, 39, 36 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
+		{ 10, 10, 39, 36, 10, 35, 39, 36 }, {  1,  1,  2,  2,  1,  1,  2,  2 },		
 		spell_chain_lightning,  TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
 		25,     12,	"lightning",            Guild::none,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
@@ -2241,6 +2242,38 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 		0, 4,	"", Guild::none,
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
 	}},
+	/*
+	/* Bard Sing new spells for use with revised sing skill 
+	//Carols (offensive single target)
+	{	skill::type::carolflame,         {
+		"Carol of Flame",
+		{ 0, 0, 0,  0, 0, 0, 0,  0 }, {  0,  0,  0,  0,  0,  0,  0,  0 },		
+		spell_null,             TAR_IGNORE,     POS_FIGHTING,
+		15,     12,	"Carol of Flame",                 Guild::bard,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	}},
+	{	skill::type::carolstream,         {
+		"Carol of the Stream",
+		{ 0, 0, 0,  0, 0, 0, 0,  0 }, {  0,  0,  0,  0,  0,  0,  0,  0 },		
+		spell_null,             TAR_IGNORE,     POS_FIGHTING,
+		15,     12,	"Carol of the Stream",                 Guild::bard,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	}},
+	{	skill::type::carolnun,         {
+		"Carol of the Nun,
+		{ 0, 0, 0,  0, 0, 0, 0,  0 }, {  0,  0,  0,  0,  0,  0,  0,  0 },		
+		spell_null,             TAR_IGNORE,     POS_FIGHTING,
+		15,     12,	"Carol of the Nun",                 Guild::bard,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	}},
+	{	skill::type::caroldevil,         {
+		"Carol of the Devil",
+		{ 0, 0, 0,  0, 0, 0, 0,  0 }, {  0,  0,  0,  0,  0,  0,  0,  0 },		
+		spell_null,             TAR_IGNORE,     POS_FIGHTING,
+		15,     12,	"Carol of the Devil",                 Guild::bard,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
+	}},*/
+	
 
 	/* Remort spells and skills, originally by Elrac */
 	/* Subdivided by Class */
@@ -2688,4 +2721,4 @@ const std::vector<group_type> group_table = {
 		{ "darkness", "change sex", "polymorph", "heat metal" }
 	},
 };
-
+	

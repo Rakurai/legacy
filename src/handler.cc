@@ -436,45 +436,46 @@ void obj_from_char(Object *obj)
  */
 int apply_ac(Object *obj, int iWear, int type)
 {
+	
 	if (obj->item_type != ITEM_ARMOR)
 		return 0;
 
 	switch (iWear) {
-	case WEAR_LIGHT:    return     0; /* cannot be armor */
+	case WEAR_LIGHT: 	return     0; /* cannot be armor */
 
-	case WEAR_FINGER_L: return     obj->value[type];
+	case WEAR_FINGER_L: return     obj->value[type];;
+	//original is obj->value[type];
+	case WEAR_FINGER_R: return     obj->value[type];;
 
-	case WEAR_FINGER_R: return     obj->value[type];
+	case WEAR_NECK_1:   return     obj->value[type];;
 
-	case WEAR_NECK_1:   return     obj->value[type];
+	case WEAR_NECK_2:   return     obj->value[type];;
 
-	case WEAR_NECK_2:   return     obj->value[type];
+	case WEAR_BODY:     return 3 * obj->value[type];;
 
-	case WEAR_BODY:     return 3 * obj->value[type];
+	case WEAR_HEAD:     return 2 * obj->value[type];;
 
-	case WEAR_HEAD:     return 2 * obj->value[type];
+	case WEAR_LEGS:     return 2 * obj->value[type];;
 
-	case WEAR_LEGS:     return 2 * obj->value[type];
+	case WEAR_FEET:     return     obj->value[type];;
 
-	case WEAR_FEET:     return     obj->value[type];
+	case WEAR_HANDS:    return     obj->value[type];;
 
-	case WEAR_HANDS:    return     obj->value[type];
+	case WEAR_ARMS:     return     obj->value[type];;
 
-	case WEAR_ARMS:     return     obj->value[type];
+	case WEAR_SHIELD:   return     obj->value[type];;
 
-	case WEAR_SHIELD:   return     obj->value[type];
+	case WEAR_ABOUT:    return 2 * obj->value[type];;
 
-	case WEAR_ABOUT:    return 2 * obj->value[type];
+	case WEAR_WAIST:    return     obj->value[type];;
 
-	case WEAR_WAIST:    return     obj->value[type];
+	case WEAR_WRIST_L:  return     obj->value[type];;
 
-	case WEAR_WRIST_L:  return     obj->value[type];
+	case WEAR_WRIST_R:  return     obj->value[type];;
 
-	case WEAR_WRIST_R:  return     obj->value[type];
+	case WEAR_HOLD:     return     obj->value[type];;
 
-	case WEAR_HOLD:     return     obj->value[type];
-
-	case WEAR_FLOAT:    return     obj->value[type];
+	case WEAR_FLOAT:    return     obj->value[type];;
 	}
 
 	return 0;
@@ -512,7 +513,7 @@ void equip_char(Character *ch, Object *obj, int iWear)
 		return;
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)		
 		ch->armor_base[i] -= apply_ac(obj, iWear, i);
 
 	obj->wear_loc = iWear;
@@ -534,9 +535,9 @@ void unequip_char(Character *ch, Object *obj)
 		return;
 	}
 
-	for (int i = 0; i < 4; i++)
-		ch->armor_base[i]    += apply_ac(obj, obj->wear_loc, i);
-
+	for (int i = 0; i < 4; i++)		
+		ch->armor_base[i] += apply_ac(obj, obj->wear_loc, i);
+		
 	obj->wear_loc        = -1;
 
 	for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next)
@@ -1446,7 +1447,8 @@ int get_usable_level(Character *ch)
 		return ch->level;
 
 	if (IS_REMORT(ch))
-		level = ch->level + std::min((ch->pcdata->remort_count / 3) + 6, 16);
+		//level = ch->level + std::min((ch->pcdata->remort_count / 3) + 6, 16);
+		level = ch->level + ((ch->pcdata->remort_count / 3) + 6);
 	else
 		level = ch->level + 5;
 
@@ -1464,7 +1466,8 @@ int get_holdable_level(Character *ch)
 		return ch->level;
 
 	if (IS_REMORT(ch))
-		level = ch->level + std::min((ch->pcdata->remort_count / 3) + 9, 19);
+		//level = ch->level + std::min((ch->pcdata->remort_count / 3) + 9, 19);
+		level = ch->level + ((ch->pcdata->remort_count / 3) + 6);
 	else
 		level = ch->level + 8;
 

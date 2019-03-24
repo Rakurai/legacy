@@ -43,16 +43,18 @@
 Object *generate_armor(int ilevel, int objlevel, int item_qual, int& eq_type);
 Object *generate_weapon(int ilevel, int objlevel, int item_qual, int& eq_type);
 int gen_unique args(());
+int gen_set args(());
 void add_base_stats(Object *obj, int ilevel, int item_qual);
 const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect::type>& mods_allowed);
 const String get_base_name(int eq_type, int ilevel);
 const String get_legendary_name(int eq_type);
 
-#define EQ_QUALITY_UNIQUE	 0
-#define EQ_QUALITY_LEGENDARY 1
-#define EQ_QUALITY_RARE      2
-#define EQ_QUALITY_UNCOMMON  3
-#define EQ_QUALITY_NORMAL    4
+#define EQ_QUALITY_SET		 0
+#define EQ_QUALITY_UNIQUE	 1
+#define EQ_QUALITY_LEGENDARY 2
+#define EQ_QUALITY_RARE      3
+#define EQ_QUALITY_UNCOMMON  4
+#define EQ_QUALITY_NORMAL    5
 
 struct eq_quality_t {
 	int chance;
@@ -64,6 +66,7 @@ struct eq_quality_t {
 // these are ordered by rarity, it will first roll for the first entry then
 // keep rolling as it fails to get each level.  leave bottom one at 100%
 const std::vector<eq_quality_t> eq_quality_table {
+	{   1, "{x({GS{He{Gt{x){x ",         	0,  0 },
 	{   3, "{x({YUn{biq{Yue{x){x ",         0,  0 }, // unique, to be handles specially, they have unique powers.
 	{   4, "{x({CLe{Tge{gn{Tda{Cry{x){x ",  3,  1 }, // legendary
 	{  10, "{x({BR{Nar{Be{x){x ",           2,  1 }, // rare
@@ -176,6 +179,14 @@ Object *generate_eq(int objlevel){
 			return nullptr;
 		}
 	}
+	
+	if (item_qual == EQ_QUALITY_SET){
+		vnum = gen_set();
+		if (vnum == 0){
+			Logging::bug("generate_eq: gen_set failed to pass vnum %d", vnum);
+			return nullptr;
+		}
+	}
 		
 	Object *obj = create_object(Game::world().get_obj_prototype(vnum), objlevel);
 
@@ -184,12 +195,12 @@ Object *generate_eq(int objlevel){
 		return nullptr;
 	}
 
-	if (item_qual != EQ_QUALITY_UNIQUE)
+	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
 		obj->level = objlevel;
 
 	
 	// roll a name for the object
-	if (item_qual != EQ_QUALITY_UNIQUE){
+	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET)){
 		if (item_qual == EQ_QUALITY_LEGENDARY)
 			obj->name = get_legendary_name(eq_type);
 		else
@@ -198,7 +209,7 @@ Object *generate_eq(int objlevel){
 
 
 	// add some common stats for all eq
-	if (item_qual != EQ_QUALITY_UNIQUE)
+	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
 		add_base_stats(obj, ilevel, item_qual);
 
 
@@ -221,17 +232,20 @@ Object *generate_eq(int objlevel){
 
 
 	// stick the rarity string on the front
-	if (item_qual != EQ_QUALITY_UNIQUE)
+	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
 		obj->name = eq_quality_table[item_qual].str + obj->name; // before prefixes
 
 	// finish up
-	if (item_qual != EQ_QUALITY_UNIQUE){
+	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET)){
 		obj->description = obj->name;
 		obj->short_descr = obj->name;
 	}
 
 	if (item_qual == EQ_QUALITY_UNIQUE) //strip uniquegen keyword from item 
 		obj->name = obj->name.replace("uniquegen", "").strip();
+	if (item_qual == EQ_QUALITY_SET)
+		obj->name = obj->name.replace("setgen", "").strip();
+	
 	obj->name = obj->name.uncolor().replace("(", "").replace(")", "");
 	return obj;
 }
@@ -366,6 +380,51 @@ int gen_unique()
 		}
 
 		if (count == 0)
+			break;
+
+		// only pass 1 should get here
+		pick = number_range(0, count);					//pick is range between 0 and count it found above
+	}
+
+	return 0;
+}
+
+int gen_set()
+{
+	//ObjectPrototype *pObjIndex;
+	//int total;
+	int pick = 0, pass = 0;
+	//int uniquevnum;
+	bool found;
+	//bool chosen;
+
+	found       = false;
+	//total 		= 0;
+
+	while (pass <= 5){
+		int count = 0;
+		
+		//for (const auto& area_pair : Game::world().areas) {
+		//	for (const auto& proto_pair : area_pair->second) {
+		for (const auto& area_pair : Game::world().areas){
+			for (const auto& proto_pair : area_pair.second->obj_prototypes){
+								
+				Vnum vnum = proto_pair.first;	//vnum
+				ObjectPrototype *proto = proto_pair.second; //ObjectPrototype
+			
+				if (proto->name.has_words("setgen")){ 	//does item have keywords?
+					found = true;							//it does so set found to true
+					count++;								//and increment total count
+				}
+				else
+					continue;								//doesn't have keyword continue on next loop
+
+				if (pass == 5 && count == pick)				//got our set piece
+					return vnum.value();
+			}
+		}
+		
+		if (pass++ == 5 || count == 0)
 			break;
 
 		// only pass 1 should get here
