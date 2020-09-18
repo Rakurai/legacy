@@ -42,8 +42,7 @@
 
 Object *generate_armor(int ilevel, int objlevel, int item_qual, int& eq_type);
 Object *generate_weapon(int ilevel, int objlevel, int item_qual, int& eq_type);
-int gen_unique args(());
-int gen_set args(());
+int random_prototype(String key);
 void add_base_stats(Object *obj, int ilevel, int item_qual);
 const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect::type>& mods_allowed);
 const String get_base_name(int eq_type, int ilevel);
@@ -173,7 +172,7 @@ Object *generate_eq(int objlevel){
 	
 	// create the object
 	if (item_qual == EQ_QUALITY_UNIQUE){
-		vnum = gen_unique();
+		vnum = random_prototype("uniquegen");
 		if (vnum == 0){
 			Logging::bug("generate_eq: gen_unique failed to pass vnum %d", vnum);
 			return nullptr;
@@ -181,7 +180,7 @@ Object *generate_eq(int objlevel){
 	}
 	
 	if (item_qual == EQ_QUALITY_SET){
-		vnum = gen_set();
+		vnum = random_prototype("setgen");
 		if (vnum == 0){
 			Logging::bug("generate_eq: gen_set failed to pass vnum %d", vnum);
 			return nullptr;
@@ -350,8 +349,7 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 	return mod.text;
 }
 
-
-int gen_unique()
+int random_prototype(String key)
 {
 	int pick = 0;
 
@@ -369,7 +367,7 @@ int gen_unique()
 								
 				ObjectPrototype *proto = proto_pair.second; //ObjectPrototype
 			
-				if (!proto->name.has_words("uniquegen"))
+				if (!proto->name.has_words(key))
 					continue;
 
 				if (pass == 2 && count == pick)				//got our unique
@@ -380,51 +378,6 @@ int gen_unique()
 		}
 
 		if (count == 0)
-			break;
-
-		// only pass 1 should get here
-		pick = number_range(0, count);					//pick is range between 0 and count it found above
-	}
-
-	return 0;
-}
-
-int gen_set()
-{
-	//ObjectPrototype *pObjIndex;
-	//int total;
-	int pick = 0, pass = 0;
-	//int uniquevnum;
-	bool found;
-	//bool chosen;
-
-	found       = false;
-	//total 		= 0;
-
-	while (pass <= 5){
-		int count = 0;
-		
-		//for (const auto& area_pair : Game::world().areas) {
-		//	for (const auto& proto_pair : area_pair->second) {
-		for (const auto& area_pair : Game::world().areas){
-			for (const auto& proto_pair : area_pair.second->obj_prototypes){
-								
-				Vnum vnum = proto_pair.first;	//vnum
-				ObjectPrototype *proto = proto_pair.second; //ObjectPrototype
-			
-				if (proto->name.has_words("setgen")){ 	//does item have keywords?
-					found = true;							//it does so set found to true
-					count++;								//and increment total count
-				}
-				else
-					continue;								//doesn't have keyword continue on next loop
-
-				if (pass == 5 && count == pick)				//got our set piece
-					return vnum.value();
-			}
-		}
-		
-		if (pass++ == 5 || count == 0)
 			break;
 
 		// only pass 1 should get here
