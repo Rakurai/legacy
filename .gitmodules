@@ -1,0 +1,3 @@
+[submodule "src/deps/msdp"]
+	path = src/deps/msdp
+	url = https://github.com/Rakurai/msdp_protocol_snippet_by_kavir.git
