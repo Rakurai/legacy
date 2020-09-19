@@ -1,0 +1,3 @@
+[submodule "src/deps/mth"]
+	path = src/deps/mth
+	url = https://github.com/Rakurai/mth.git
