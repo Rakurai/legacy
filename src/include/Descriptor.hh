@@ -3,6 +3,7 @@
 #include "String.hh"
 #include "memory.hh" // MAX_INPUT_LENGTH
 #include "Pooled.hh"
+#include "descriptor.h"
 
 class Character;
 namespace conn { struct State; }
@@ -19,6 +20,8 @@ public:
 
     bool is_playing() const;
 
+    struct descriptor_data data;
+
     Descriptor *        next = nullptr;
     Descriptor *        snoop_by = nullptr;
     Character *         character = nullptr;
@@ -26,7 +29,7 @@ public:
     long                hostaddr = 0;       /* numeric IP addr -- Elrac */
     String              host;           /* text addr */
     int              descriptor = 0;
-    bool                fcommand = false;
+//    bool                fcommand = false;
     char                inbuf           [4 * MAX_INPUT_LENGTH] = {0};
     char                incomm          [MAX_INPUT_LENGTH] = {0};
     char                inlast          [MAX_INPUT_LENGTH] = {0};

@@ -13,7 +13,7 @@ STD      = -std=c++14
 WARNING  = -Wall -Winline -Wno-write-strings -Wno-format-security -Wsign-compare
 DEBUG    = -ggdb
 DEFINE   = -Dunix -DSQL -DDEBUG -DIPV6
-INCLUDE  = -I$(INCDIR) -I/usr/include -I/usr/local/include -I/opt/local/include
+INCLUDE  = -I$(INCDIR) -I/usr/include -I/usr/local/include -I/opt/local/include -Ideps/msdp
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.Td
 CPPFLAGS = ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
 LIB      = -L/opt/local/lib
@@ -25,7 +25,7 @@ POSTCOMPILE = @mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d && touch $@
 
 DATE=`date +%Y-%m-%d`
 
-EXT_SOURCES = cJSON/cJSON.c
+EXT_SOURCES = cJSON/cJSON.c msdp/protocol.c
 EXT_OBJECTS = $(patsubst %,$(EXTDIR)/%.o,$(basename $(EXT_SOURCES)))
 
 CPP_SOURCES := $(shell find . -maxdepth 2 -name '*.cc' -print | sed 's|./||' | sort)

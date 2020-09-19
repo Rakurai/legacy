@@ -81,6 +81,8 @@
 #include "conn/State.hh"
 #include "World.hh"
 
+#include "Protocol.hh"
+
 struct ka_struct;
 
 /* EPKA structure */
@@ -565,7 +567,7 @@ void game_loop_unix(int control)
 		/* Process input. */
 		for (d = descriptor_list; d != nullptr; d = d_next) {
 			d_next = d->next;
-			d->fcommand = false;
+			d->data.fcommand = false;
 
 			if (FD_ISSET(d->descriptor, &in_set)) {
 				if (d->character != nullptr) {
@@ -602,7 +604,7 @@ void game_loop_unix(int control)
 				read_from_buffer(d);
 
 			if (d->incomm[0] != '\0') {
-				d->fcommand = true;
+				d->data.fcommand = true;
 				stop_idling(d->character);
 				String command2 = get_multi_command(d, d->incomm);
 				command2 = command2.lstrip();
@@ -621,7 +623,7 @@ void game_loop_unix(int control)
 		for (d = descriptor_list; d != nullptr; d = d_next) {
 			d_next = d->next;
 
-			if ((d->fcommand || !d->outbuf.empty())
+			if ((d->data.fcommand || !d->outbuf.empty())
 			    && FD_ISSET(d->descriptor, &out_set)) {
 				if (!process_output(d, true)) {
 					if (d->character != nullptr && d->character->level > 1)
@@ -1488,7 +1490,7 @@ void write_to_buffer(Descriptor *d, const String& txt)
 	/*
 	 * Initial \n if needed.
 	 */
-	if (d->outbuf.empty() && !d->fcommand) {
+	if (d->outbuf.empty() && !d->data.fcommand) {
 		d->outbuf += '\n';
 		d->outbuf += '\r';
 	}
