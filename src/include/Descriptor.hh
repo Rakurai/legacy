@@ -3,6 +3,7 @@
 #include "String.hh"
 #include "memory.hh" // MAX_INPUT_LENGTH
 #include "Pooled.hh"
+#include "protocol/mth.hh"
 
 class Character;
 namespace conn { struct State; }
@@ -18,6 +19,8 @@ public:
     virtual ~Descriptor() {}
 
     bool is_playing() const;
+
+    MTH_DATA *          mth = nullptr;
 
     Descriptor *        next = nullptr;
     Descriptor *        snoop_by = nullptr;
