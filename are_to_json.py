@@ -1,8 +1,13 @@
+#!/usr/bin/env python3
+
 import json
 import shlex
 
 text = ''
 last_str = ''
+
+def int_or_str(s):
+	return int(s) if s.isdigit() else s
 
 def read_char():
 	global text
@@ -32,15 +37,20 @@ def read_word():
 		text = text[1:]
 		c = text[0]
 	last_str = buf
-	return buf
+	last_str = last_str.replace('\r', '')
+	return last_str
 #	last_str, text = text.split(None, 1)
 #	print last_str
 #	return last_str.lstrip()
+
+def read_flags():
+	return int_or_str(read_word())
 
 def read_string():
 	global text
 	global last_str
 	last_str, text = text.split('~', 1)
+	last_str = last_str.replace('\r', '')
 	return last_str
 
 def read_int():
@@ -56,7 +66,8 @@ def read_int():
 		buf += text[0]
 		text = text[1:]
 	last_str = buf
-	return int(buf)
+	last_str = last_str.replace('\r', '')
+	return int(last_str)
 
 def read_dice():
 	global last_str
@@ -67,7 +78,8 @@ def read_dice():
 	buf += read_char()
 	buf += '%d'%read_int()
 	last_str = buf
-	return buf
+	last_str = last_str.replace('\r', '')
+	return last_str
 
 def read_eol():
 	global text
@@ -91,7 +103,7 @@ def read_mobile():
 	global text
 	text = text.lstrip()
 	if text[0] != '#':
-		print 'load_mobiles: # not found'
+		print('load_mobiles: # not found')
 		exit()
 
 	text = text[1:]
@@ -102,13 +114,13 @@ def read_mobile():
 
 	mobile = {}
 	mobile['vnum'] = vnum
-	mobile['keywords'] = read_string()
-	mobile['short_descr'] = read_string()
-	mobile['long_descr'] = read_string()
-	mobile['description'] = read_string()
-	mobile['race'] = read_string()
-	mobile['act_flags'] = read_word()
-	mobile['aff_flags'] = read_word()
+	mobile['keywords'] = read_string().strip()
+	mobile['short_descr'] = read_string().strip()
+	mobile['long_descr'] = read_string().lstrip()
+	mobile['description'] = read_string().lstrip()
+	mobile['race'] = read_string().strip()
+	mobile['act_flags'] = read_flags()
+	mobile['aff_flags'] = read_flags()
 	mobile['alignment'] = read_int()
 	mobile['group'] = read_word()
 	mobile['level'] = read_int()
@@ -121,16 +133,16 @@ def read_mobile():
 	mobile['ac_bash'] = read_int()
 	mobile['ac_slash'] = read_int()
 	mobile['ac_exotic'] = read_int()
-	mobile['off_flags'] = read_word()
-	mobile['imm_flags'] = read_word()
-	mobile['res_flags'] = read_word()
-	mobile['vuln_flags'] = read_word()
+	mobile['off_flags'] = read_flags()
+	mobile['imm_flags'] = read_flags()
+	mobile['res_flags'] = read_flags()
+	mobile['vuln_flags'] = read_flags()
 	mobile['start_pos'] = read_word()
 	mobile['default_pos'] = read_word()
 	mobile['sex'] = read_word()
 	mobile['wealth'] = read_int()
-	mobile['form_flags'] = read_word()
-	mobile['part_flags'] = read_word()
+	mobile['form_flags'] = read_flags()
+	mobile['part_flags'] = read_flags()
 	mobile['size'] = read_word()
 	mobile['material'] = read_word()
 
@@ -142,18 +154,18 @@ def read_mobile():
 				mobile['remove_flags'] = []
 			flag_mod = {}
 			flag_mod['type'] = read_word()
-			flag_mod['bit'] = read_word()
+			flag_mod['bit'] = read_flags()
 			mobile['remove_flags'].append(flag_mod)
 		elif text[0] == '>':
 			text = text[1:]
 			if 'mobprogs' not in mobile:
 				mobile['mobprogs'] = []
 			mobprog = {}
-			parts = read_string().split(None, 1)
+			parts = read_string().strip().split(None, 1)
 			mobprog['type'] = parts[0]
 			if len(parts) > 1:
 				mobprog['args'] = parts[1]
-			mobprog['commands'] = read_string()
+			mobprog['commands'] = read_string().strip()
 			mobile['mobprogs'].append(mobprog)
 		elif text[0] == '|':
 			text = text[1:]
@@ -161,7 +173,7 @@ def read_mobile():
 		elif text[0] == '#':
 			break
 		else:
-			print 'weird mob', vnum
+			print('weird mob', vnum)
 			exit()
 
 	return mobile
@@ -181,7 +193,7 @@ def read_object():
 	global text
 	text = text.lstrip()
 	if text[0] != '#':
-		print 'load_object: # not found'
+		print('load_object: # not found')
 		exit()
 
 	text = text[1:]
@@ -192,18 +204,14 @@ def read_object():
 
 	obj = {}
 	obj['vnum'] = vnum
-	obj['keywords'] = read_string()
-	obj['short_descr'] = read_string()
-	obj['description'] = read_string()
-	obj['material'] = read_string()
+	obj['keywords'] = read_string().strip()
+	obj['short_descr'] = read_string().strip()
+	obj['description'] = read_string().lstrip()
+	obj['material'] = read_string().strip()
 	obj['item_type'] = read_word()
-	obj['extra_flags'] = read_word()
-	obj['wear_flags'] = read_word()
-	obj['value0'] = read_word()
-	obj['value1'] = read_word()
-	obj['value2'] = read_word()
-	obj['value3'] = read_word()
-	obj['value4'] = read_word()
+	obj['extra_flags'] = read_flags()
+	obj['wear_flags'] = read_flags()
+	obj['values'] = [int_or_str(read_word().strip("'")) for _ in range(5)]
 	obj['level'] = read_int()
 	obj['weight'] = read_int()
 	obj['cost'] = read_int()
@@ -213,9 +221,9 @@ def read_object():
 		text = text.lstrip()
 		if text[0] == 'E':
 			text = text[1:]
-			if 'extra_descr' not in obj:
-				obj['extra_descr'] = {}
-			obj['extra_descr'][read_string()] = read_string()
+			kw = read_string().strip()
+			desc = read_string().lstrip()
+			obj.setdefault('extra_descr', {})[kw] = desc
 		elif text[0] == 'A':
 			text = text[1:]
 			if 'added_affects' not in obj:
@@ -236,10 +244,13 @@ def read_object():
 			add['modifier'] = read_int()
 			add['bitvector'] = read_word()
 			obj['added_flags'].append(add)
+		elif text[0] == 'G':
+			text = text[1:]
+			obj['guild'] = read_string().strip()
 		elif text[0] == '#':
 			break
 		else:
-			print 'weird obj', vnum
+			print('weird obj', vnum)
 			exit()
 
 	return obj
@@ -259,7 +270,7 @@ def read_room():
 	global text
 	text = text.lstrip()
 	if text[0] != '#':
-		print 'load_room: # not found'
+		print('load_room: # not found')
 		exit()
 
 	text = text[1:]
@@ -270,18 +281,18 @@ def read_room():
 
 	room = {}
 	room['vnum'] = vnum
-	room['name'] = read_string()
-	room['description'] = read_string()
+	room['name'] = read_string().strip()
+	room['description'] = read_string().lstrip()
 	room['tele_dest'] = read_int()
-	room['room_flags'] = read_word()
+	room['room_flags'] = read_flags()
 	room['sector_type'] = read_int()
 
 	while True:
 		c = read_char()
 		if c == 'E':
-			if 'extra_descr' not in room:
-				room['extra_descr'] = {}
-			room['extra_descr'][read_string()] = read_string()
+			kw = read_string().strip()
+			desc = read_string().lstrip()
+			room.setdefault('extra_descr', {})[kw] = desc
 		elif c == 'H':
 			room['heal_rate'] = read_int()
 		elif c == 'M':
@@ -291,14 +302,14 @@ def read_room():
 		elif c == 'G':
 			room['guild'] = read_word()
 		elif c == 'O':
-			room['owner'] = read_string()
+			room['owner'] = read_string().strip()
 		elif c == 'D':
 			if 'exits' not in room:
 				room['exits'] = {}
 			exit = {}
 			direction = read_int()
-			exit['description'] = read_string()
-			exit['keywords'] = read_string()
+			exit['description'] = read_string().lstrip()
+			exit['keywords'] = read_string().strip()
 			exit['locks'] = read_int()
 			exit['key'] = read_int()
 			exit['vnum'] = read_int()
@@ -306,7 +317,7 @@ def read_room():
 		elif c == 'S':
 			break
 		else:
-			print 'weird room', vnum
+			print('weird room', vnum)
 			exit()
 	return room
 
@@ -455,8 +466,8 @@ def to_json(f):
 			else:
 				pass
 	except:
-		print 'Last string:', last_str
-		print 'Remaining:', text
+		print('Last string:', last_str)
+		print('Remaining:', text)
 		raise
 
 #	return sections
@@ -471,7 +482,7 @@ if __name__ == "__main__":
 	try:
 		j = to_json(area)
 	except:
-		print sys.argv[1]
+		print(sys.argv[1])
 		raise
 	finally:
 		area.close()
