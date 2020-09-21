@@ -65,8 +65,8 @@ struct eq_quality_t {
 // these are ordered by rarity, it will first roll for the first entry then
 // keep rolling as it fails to get each level.  leave bottom one at 100%
 const std::vector<eq_quality_t> eq_quality_table {
-	{   1, "{x({GS{He{Gt{x){x ",         	0,  0 },
-	{   3, "{x({YUn{biq{Yue{x){x ",         0,  0 }, // unique, to be handles specially, they have unique powers.
+	{   100, "{x({GS{He{Gt{x){x ",         	0,  0 }, 
+	{   3, "{x({YUn{biq{Yue{x){x ",         0,  0 }, // orig 3 unique, to be handles specially, they have unique powers.
 	{   4, "{x({CLe{Tge{gn{Tda{Cry{x){x ",  3,  1 }, // legendary
 	{  10, "{x({BR{Nar{Be{x){x ",           2,  1 }, // rare
 	{  25, "{x({GUn{Hcomm{Gon{x){x ",       1,  0 }, // uncommon
@@ -174,7 +174,7 @@ Object *generate_eq(int objlevel){
 	if (item_qual == EQ_QUALITY_UNIQUE){
 		vnum = random_prototype("uniquegen");
 		if (vnum == 0){
-			Logging::bug("generate_eq: gen_unique failed to pass vnum %d", vnum);
+			Logging::bug("generate_eq: random_prototype failed to pass vnum %d", vnum);
 			return nullptr;
 		}
 	}
@@ -182,7 +182,7 @@ Object *generate_eq(int objlevel){
 	if (item_qual == EQ_QUALITY_SET){
 		vnum = random_prototype("setgen");
 		if (vnum == 0){
-			Logging::bug("generate_eq: gen_set failed to pass vnum %d", vnum);
+			Logging::bug("generate_eq: random_prototype failed to pass vnum %d", vnum);
 			return nullptr;
 		}
 	}
@@ -194,8 +194,9 @@ Object *generate_eq(int objlevel){
 		return nullptr;
 	}
 
-	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
-		obj->level = objlevel;
+	//if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
+		if (obj->level <= 91) 
+			obj->level = objlevel;
 
 	
 	// roll a name for the object
@@ -208,7 +209,8 @@ Object *generate_eq(int objlevel){
 
 
 	// add some common stats for all eq
-	if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
+	//if ((item_qual != EQ_QUALITY_UNIQUE) && (item_qual != EQ_QUALITY_SET))
+	if (obj->level <= 91)
 		add_base_stats(obj, ilevel, item_qual);
 
 
@@ -402,7 +404,26 @@ void add_base_stats(Object *obj, int ilevel, int item_qual) {
 			case 7:  ac_min = 24; ac_max = 35; break; // level 80-89
 			default: ac_min = 28; ac_max = 40; break; // level 90+
 		}
-
+		
+		// following makes additions to the rolls based on the quality.
+		// uniques get 10% bump
+		// set pieces get a 15% bump
+		switch (item_qual) {
+			case EQ_QUALITY_SET :
+				ac_min += (ac_min * 15 / 100);
+				ac_max += (ac_max * 15 / 100);
+				break;
+			
+			case EQ_QUALITY_UNIQUE :
+				ac_min += (ac_min * 10 / 100);
+				ac_max += (ac_max * 10 / 100);
+				break;
+				
+			default : 
+				//do nothing.
+				break;
+		}
+		
 		obj->value[0] = number_range(ac_min, ac_max);
 		obj->value[1] = number_range(ac_min, ac_max);
 		obj->value[2] = number_range(ac_min, ac_max);
@@ -410,6 +431,20 @@ void add_base_stats(Object *obj, int ilevel, int item_qual) {
 	}
 	else if (obj->item_type == ITEM_WEAPON) {
 		switch (item_qual) {
+			case EQ_QUALITY_SET :
+				// hero 14d14 (105) to 15d15 (120)
+				// lv50 10d10  (55) to 11d11 (66)
+				obj->value[1] = obj->level / 10 + number_range(5,6); 
+				obj->value[2] = obj->level / 10 + number_range(5,6);
+				break;
+			
+			case EQ_QUALITY_UNIQUE :
+				// hero 13d13 (91) to 15d15 (120)
+				// lv50 9d9    (45) to 11d11 (66)
+				obj->value[1] = obj->level / 10 + number_range(4,6); 
+				obj->value[2] = obj->level / 10 + number_range(4,6);
+				break;
+			
 			case EQ_QUALITY_LEGENDARY :
 				// hero 12d12 (78) to 14d14 (105)
 				// lv50  7d7  (28) to 10d10 (55)
@@ -468,34 +503,53 @@ void add_base_stats(Object *obj, int ilevel, int item_qual) {
 		{  60, 120,   60, 120,   60, 120,    5,  12,    5,  12 }, // level 80-89
 		{ 100, 200,  100, 200,  100, 200,   10,  25,   10,  25 }, // level 90+
 	};
+	
+	/*switch (item_qual) {
+			case EQ_QUALITY_SET :
+				
+				break;
+			
+			case EQ_QUALITY_UNIQUE :
+				
+				break;
 
+			default:
+				// do nothing
+				break;
+	}*/
+	
 	if (roll_chance(30)){
 		af.location   = APPLY_HIT;
 		af.modifier   = number_range(base_stats_table[ilevel].hp_min, base_stats_table[ilevel].hp_max);
 		affect::join_to_obj(obj, &af);
+		Logging::bug("generate_eq: apply hit %d", af.modifier);
 	}
 
 	if (roll_chance(20)){
 		af.location   = APPLY_MANA;
 		af.modifier   = number_range(base_stats_table[ilevel].mana_min, base_stats_table[ilevel].mana_max);
 		affect::join_to_obj(obj, &af);
+		Logging::bug("generate_eq: apply mana %d", af.modifier);
 	}
 
 	if (roll_chance(20)){
 		af.location   = APPLY_STAM;
 		af.modifier   = number_range(base_stats_table[ilevel].stam_min, base_stats_table[ilevel].stam_max);
 		affect::join_to_obj(obj, &af);
+		Logging::bug("generate_eq: apply stam %d", af.modifier);
 	}
 	
 	if (roll_chance(30)){
 		af.location   = APPLY_HITROLL;
 		af.modifier   = number_range(base_stats_table[ilevel].hitroll_min, base_stats_table[ilevel].hitroll_max);
 		affect::join_to_obj(obj, &af);
+		Logging::bug("generate_eq: apply hitroll %d", af.modifier);
 	}
 	
 	if (roll_chance(30)){
 		af.location   = APPLY_DAMROLL;
 		af.modifier   = number_range(base_stats_table[ilevel].damroll_min, base_stats_table[ilevel].damroll_max);
 		affect::join_to_obj(obj, &af);
+		Logging::bug("generate_eq: apply damroll %d", af.modifier);
 	}
 }
