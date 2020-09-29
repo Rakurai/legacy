@@ -101,6 +101,7 @@ const std::vector<eq_roll_t> accessory_eq_rolls {
 
 const std::vector<eq_roll_t> weapon_eq_rolls {
 	{ WIELD_AXE,     OBJ_VNUM_WIELD_AXE     },
+	{ WIELD_BOW,     OBJ_VNUM_WIELD_BOW     },
 	{ WIELD_DAGGER,  OBJ_VNUM_WIELD_DAGGER  },
 	{ WIELD_EXOTIC,  OBJ_VNUM_WIELD_EXOTIC  },
 	{ WIELD_FLAIL,   OBJ_VNUM_WIELD_FLAIL   },

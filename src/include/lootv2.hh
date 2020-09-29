@@ -36,6 +36,7 @@ Object *generate_eq(int level);
 #define OBJ_VNUM_WIELD_SPEAR			24376
 #define OBJ_VNUM_WIELD_SWORD			24377
 #define OBJ_VNUM_WIELD_WHIP				24378
+#define OBJ_VNUM_WIELD_BOW				24379
 
 
 //weapon and armor type defines 
@@ -64,6 +65,7 @@ Object *generate_eq(int level);
 #define WIELD_SPEAR			206
 #define WIELD_SWORD			207
 #define WIELD_WHIP			208
+#define WIELD_BOW			209
 
 
 /*
