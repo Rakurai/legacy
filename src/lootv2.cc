@@ -65,7 +65,7 @@ struct eq_quality_t {
 // these are ordered by rarity, it will first roll for the first entry then
 // keep rolling as it fails to get each level.  leave bottom one at 100%
 const std::vector<eq_quality_t> eq_quality_table {
-	{   100, "{x({GS{He{Gt{x){x ",         	0,  0 }, 
+	{   1, "{x({GS{He{Gt{x){x ",         	0,  0 }, 
 	{   3, "{x({YUn{biq{Yue{x){x ",         0,  0 }, // orig 3 unique, to be handles specially, they have unique powers.
 	{   4, "{x({CLe{Tge{gn{Tda{Cry{x){x ",  3,  1 }, // legendary
 	{  10, "{x({BR{Nar{Be{x){x ",           2,  1 }, // rare
@@ -523,34 +523,34 @@ void add_base_stats(Object *obj, int ilevel, int item_qual) {
 		af.location   = APPLY_HIT;
 		af.modifier   = number_range(base_stats_table[ilevel].hp_min, base_stats_table[ilevel].hp_max);
 		affect::join_to_obj(obj, &af);
-		Logging::bug("generate_eq: apply hit %d", af.modifier);
+//		Logging::bug("generate_eq: apply hit %d", af.modifier);
 	}
 
 	if (roll_chance(20)){
 		af.location   = APPLY_MANA;
 		af.modifier   = number_range(base_stats_table[ilevel].mana_min, base_stats_table[ilevel].mana_max);
 		affect::join_to_obj(obj, &af);
-		Logging::bug("generate_eq: apply mana %d", af.modifier);
+//		Logging::bug("generate_eq: apply mana %d", af.modifier);
 	}
 
 	if (roll_chance(20)){
 		af.location   = APPLY_STAM;
 		af.modifier   = number_range(base_stats_table[ilevel].stam_min, base_stats_table[ilevel].stam_max);
 		affect::join_to_obj(obj, &af);
-		Logging::bug("generate_eq: apply stam %d", af.modifier);
+//		Logging::bug("generate_eq: apply stam %d", af.modifier);
 	}
 	
 	if (roll_chance(30)){
 		af.location   = APPLY_HITROLL;
 		af.modifier   = number_range(base_stats_table[ilevel].hitroll_min, base_stats_table[ilevel].hitroll_max);
 		affect::join_to_obj(obj, &af);
-		Logging::bug("generate_eq: apply hitroll %d", af.modifier);
+//		Logging::bug("generate_eq: apply hitroll %d", af.modifier);
 	}
 	
 	if (roll_chance(30)){
 		af.location   = APPLY_DAMROLL;
 		af.modifier   = number_range(base_stats_table[ilevel].damroll_min, base_stats_table[ilevel].damroll_max);
 		affect::join_to_obj(obj, &af);
-		Logging::bug("generate_eq: apply damroll %d", af.modifier);
+//		Logging::bug("generate_eq: apply damroll %d", af.modifier);
 	}
 }
