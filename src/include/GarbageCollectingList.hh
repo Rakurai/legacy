@@ -8,7 +8,7 @@ template <typename T> class GarbageCollectingList
 public:
 	class iterator {
 	public:
-		iterator(typename std::list<T>::iterator it, GarbageCollectingList<T>& ls) : it(it), list(ls) {}
+		iterator(typename std::list<T>::iterator iter, GarbageCollectingList<T>& ls) : it(iter), list(ls) {}
 
 		iterator& operator=(const iterator& rhs) { it = rhs; return *this; }
 		iterator& operator++() {
@@ -41,7 +41,7 @@ public:
     iterator end() { return iterator(container.end(), *this); }
 
 	GarbageCollectingList() {
-		(void)static_cast<Garbage *>((T)0);
+		(void)static_cast<Garbage *>(static_cast<T>(0));
 	}
 	virtual ~GarbageCollectingList() {}
 
