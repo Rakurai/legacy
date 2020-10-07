@@ -185,14 +185,18 @@ const std::multimap<int, String> base_name_table = {
     { WIELD_DAGGER, "Stiletto" },
 
     { WIELD_EXOTIC, "Sharktooth Claw" },
-    { WIELD_EXOTIC, "Spine Bow" },
-    { WIELD_EXOTIC, "Imperial Bow" },
     { WIELD_EXOTIC, "Gemini Claw" },
     { WIELD_EXOTIC, "Sage Wand" },
     { WIELD_EXOTIC, "Reflex Bow" },
     { WIELD_EXOTIC, "Sniper Bow" },
     { WIELD_EXOTIC, "Twin Claw" },
     { WIELD_EXOTIC, "Crystal Source" },
+	
+	{ WIELD_BOW, "Spine Bow" },
+    { WIELD_BOW, "Imperial Bow" },
+    { WIELD_BOW, "Reflex Bow" },
+    { WIELD_BOW, "Sniper Bow" },
+    
 
     { WIELD_FLAIL, "Light Flail" },
     { WIELD_FLAIL, "Heavy Flail" },
@@ -253,6 +257,7 @@ const std::multimap<int, String> base_name_table = {
     { WIELD_WHIP, "Greysteel Whip" },
     { WIELD_WHIP, "Cat o Nine Tail" },
     { WIELD_WHIP, "Twilight Whip" },
+	
 };
 
 const std::vector<String> legendary_base_pool_table = {
