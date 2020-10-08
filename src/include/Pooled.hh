@@ -48,7 +48,7 @@ public:
 
 	inline void operator delete( void *p ) {
 //		std::cout << "Pooled: delete" << std::endl;
-		T::free_list().push_back(static_cast<T*>(p));
+		T::free_list().push_back((T*)p);
 	}
 
 	// call destroy() if the entire pool is to be freed, probably only
