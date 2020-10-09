@@ -1368,66 +1368,68 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 				}
 			}
 		}
-	}
-	/* 	This section is for any on hit affects from unique items
-		Each will need to be coded individually per item.
-		-- Vegita 2018
-	*/
-	//Pierce of necromancer unique dagger. 5% chance on hit to inflict random maladiction.
-	// 9 total maladictions (excluding energy drain)
-	if (result && (GET_ATTR(ch, APPLY_NECRO_PIERCE_UNIQUE)!= 0)) {
-		int unique_chance = GET_ATTR(ch, APPLY_NECRO_PIERCE_UNIQUE);
-		if ( number_percent() < unique_chance ){
-			switch(number_range (1,9)){
-				default:
-					act("$p glows dark towards $n {Rbut then brightens up{x.", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p {Rglow dark but then it subsides.{x", victim, wield, nullptr, TO_CHAR);
-					break;
-			
-				case 1:	//blindness
-					act("$p {Remits dark rays at $n{R's eyes.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p {Remit dark rays.{x", victim, wield, nullptr, TO_CHAR);
-					spell_blindness(skill::type::blindness,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 2: //weaken
-					act("$p {Rgrows dark tendrils that extend towards $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p grow dark tendrils that come after you.{x", victim, wield, nullptr, TO_CHAR);
-					spell_weaken(skill::type::weaken,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 3: //poison
-					act("$p {Rstarts emitting a greenish gas towards $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p {Rbecome covered in a greenish gas.{x", victim, wield, nullptr, TO_CHAR);
-					spell_poison(skill::type::poison,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 4: //curse
-					act("$p {Rstarts chanting ancient mutterings at $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou begin hearing dark chanting from $p.{x", victim, wield, nullptr, TO_CHAR);
-					spell_curse(skill::type::curse,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 5: //plague
-					act("$p {Rstarts spitting out black death at $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p {Rbegin to spew black death.{x", victim, wield, nullptr, TO_CHAR);
-					spell_plague(skill::type::plague,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 6: //slow
-					act("$p {Rdark glow forms a clock who's hands are slowing down while pointing at $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p's {Rglow form a clock who's hands are slowing down.{x", victim, wield, nullptr, TO_CHAR);
-					spell_slow(skill::type::slow,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 7: //starve
-					act("$p {Remits a high pitch towards $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou hear $p {Rhumming a high pitch.{x", victim, wield, nullptr, TO_CHAR);
-					spell_starve(skill::type::starve,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
-				case 8: //age
-					act("$p {Rforms a dark glowing clock, its hands speeding up while pointing at $n.{x", victim, wield, nullptr, TO_ROOM);
-					act("{RYou see $p {Rform a dark glowing clock, its hands speeding up.{x", victim, wield, nullptr, TO_CHAR);
-					spell_age(skill::type::age,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
-					break;
+
+		/* 	This section is for any on hit affects from unique items
+			Each will need to be coded individually per item.
+			-- Vegita 2018
+		*/
+		//Pierce of necromancer unique dagger. 5% chance on hit to inflict random maladiction.
+		// 9 total maladictions (excluding energy drain)
+		if (result && (GET_ATTR(ch, APPLY_NECRO_PIERCE_UNIQUE)!= 0)) {
+			int unique_chance = GET_ATTR(ch, APPLY_NECRO_PIERCE_UNIQUE);
+			if ( number_percent() < unique_chance ){
+				switch(number_range (1,9)){
+					default:
+						act("$p glows dark towards $n {Rbut then brightens up{x.", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p {Rglow dark but then it subsides.{x", victim, wield, nullptr, TO_CHAR);
+						break;
+				
+					case 1:	//blindness
+						act("$p {Remits dark rays at $n{R's eyes.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p {Remit dark rays.{x", victim, wield, nullptr, TO_CHAR);
+						spell_blindness(skill::type::blindness,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 2: //weaken
+						act("$p {Rgrows dark tendrils that extend towards $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p grow dark tendrils that come after you.{x", victim, wield, nullptr, TO_CHAR);
+						spell_weaken(skill::type::weaken,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 3: //poison
+						act("$p {Rstarts emitting a greenish gas towards $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p {Rbecome covered in a greenish gas.{x", victim, wield, nullptr, TO_CHAR);
+						spell_poison(skill::type::poison,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 4: //curse
+						act("$p {Rstarts chanting ancient mutterings at $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou begin hearing dark chanting from $p.{x", victim, wield, nullptr, TO_CHAR);
+						spell_curse(skill::type::curse,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 5: //plague
+						act("$p {Rstarts spitting out black death at $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p {Rbegin to spew black death.{x", victim, wield, nullptr, TO_CHAR);
+						spell_plague(skill::type::plague,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 6: //slow
+						act("$p {Rdark glow forms a clock who's hands are slowing down while pointing at $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p's {Rglow form a clock who's hands are slowing down.{x", victim, wield, nullptr, TO_CHAR);
+						spell_slow(skill::type::slow,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 7: //starve
+						act("$p {Remits a high pitch towards $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou hear $p {Rhumming a high pitch.{x", victim, wield, nullptr, TO_CHAR);
+						spell_starve(skill::type::starve,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+					case 8: //age
+						act("$p {Rforms a dark glowing clock, its hands speeding up while pointing at $n.{x", victim, wield, nullptr, TO_ROOM);
+						act("{RYou see $p {Rform a dark glowing clock, its hands speeding up.{x", victim, wield, nullptr, TO_CHAR);
+						spell_age(skill::type::age,   wield->level, ch, (void *) victim, TARGET_CHAR, get_evolution(ch, sn));
+						break;
+				}
 			}
 		}
-	}
-	
+
+	} // end funky weapon section
+
 	/*
 	 * Beserker warrior 5 pc bonus
 	 * Unblockable Furious strike
