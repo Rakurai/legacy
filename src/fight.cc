@@ -1097,7 +1097,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 		/* 5 pc thief cutpurse bonus */
 		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-			dam += dam * 20 / 100;
+			dam += (dam * 20 / 100;)
 	}
 
 	if (attack_skill == skill::type::circle && wield != nullptr) {
@@ -1108,7 +1108,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		
 		/* 5 pc thief cutpurse bonus */
 		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-			dam += dam * 20 / 100;
+			dam += (dam * 20 / 100);
 	}
 
 	if (attack_skill == skill::type::rage && wield != nullptr) {
@@ -1126,7 +1126,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 
 	/* 5 pc thief cutpurse shadowform bonus */
 	if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-		bonus += bonus * 20 / 100;
+		bonus += (bonus * 20 / 100);
 	
 	dam += bonus;  /* Shadow Form Bonus */
 	result = damage(ch, victim, dam, attack_skill, attack_type, dam_type, true, false);
