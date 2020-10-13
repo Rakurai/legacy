@@ -1097,7 +1097,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 		/* 5 pc thief cutpurse bonus */
 		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-			dam += (dam * 20 / 100;)
+			dam += (dam * 20 / 100);
 	}
 
 	if (attack_skill == skill::type::circle && wield != nullptr) {
