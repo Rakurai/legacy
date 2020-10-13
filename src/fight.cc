@@ -1097,7 +1097,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		}
 		/* 5 pc thief cutpurse bonus */
 		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-			dam += dam * 20 / 100;
+			dam += (dam * 20 / 100;)
 	}
 
 	if (attack_skill == skill::type::circle && wield != nullptr) {
@@ -1108,7 +1108,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 		
 		/* 5 pc thief cutpurse bonus */
 		if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-			dam += dam * 20 / 100;
+			dam += (dam * 20 / 100);
 	}
 
 	if (attack_skill == skill::type::rage && wield != nullptr) {
@@ -1126,7 +1126,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 
 	/* 5 pc thief cutpurse shadowform bonus */
 	if (GET_ATTR (ch, SET_THIEF_CUTPURSE) >= 5 )
-		bonus += bonus * 20 / 100;
+		bonus += (bonus * 20 / 100);
 	
 	dam += bonus;  /* Shadow Form Bonus */
 	result = damage(ch, victim, dam, attack_skill, attack_type, dam_type, true, false);
@@ -1466,14 +1466,17 @@ int affect_callback_weaken_bonewall(affect::Affect *node, void *null) {
    damage and damage consolidated, bool added to determine whether it's a magic spell or not -- Montrey */
 bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, int dam_type, bool show, bool spell)
 {
-	bool immune, sanc_immune;
-	/*
-	Object *wield; //vegita
-	wield = get_eq_char(ch, WEAR_WIELD);//vegita
-	Object *wield2;
-	wield2 = get_eq_char(ch, WEAR_SECONDARY);
+	
+	/*Note mainly to myself.
+	Remember if its outbound damage wise (player to mob) then CH is used.
+	If its inbound damage wise (mob to player) then VICTIM is used.
+	-- Vegita
 	*/
-
+	bool immune, sanc_immune;
+	
+	//ptc(ch, "{YBASE OUT DAM %d{x \n", dam);
+	//ptc(victim, "{YBASE DAM %d{x \n", dam);
+	
 	if (get_position(victim) == POS_DEAD)
 		return false;
 
@@ -1493,12 +1496,8 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	                        extract_obj(obj);
 	        }
 	} */
-
+	
 	if (spell) {
-		//Object *wield; //vegita
-		//wield = get_eq_char(ch, WEAR_WIELD);//vegita
-		//Object *wield2;
-		//wield2 = get_eq_char(ch, WEAR_SECONDARY);
 		
 		int damroll = get_unspelled_damroll(ch); // don't add berserk, frenzy, etc
 		
@@ -1525,20 +1524,64 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		 * MYSTICALPOWER is +10% bonus spell damage
 		 *
 		 */
-		 dam += dam * GET_ATTR(ch, APPLY_SPELL_DAMAGE_PCT) / 100;
+		 dam += (dam * GET_ATTR(ch, APPLY_SPELL_DAMAGE_PCT) / 100);
 		 
 		/* Invoker mage set 2pc bonus
 		 */
+		 
 		 if (GET_ATTR(ch, SET_MAGE_INVOKER) >= 2)
-			 dam += dam * 10 / 100;
+			 dam += (dam * 10 / 100);
 	}
 
 	/* damage reduction */
 	if (dam > 35)
 		dam = (dam - 35) / 2 + 35;
-
+	//ptc(victim, "{YDAM after >35 mod %d{x \n", dam);
+	//ptc(ch, "{YDAM OUT after >35 mod %d{x \n", dam);
+	
 	if (dam > 80)
 		dam = (dam - 80) / 2 + 80;
+	//ptc(victim, "{YDAM after >80 mod %d{x \n", dam);
+	//ptc(ch, "{YDAM OUT after >35 mod %d{x \n", dam);
+	
+	/* new damage modification by armor -- Elrac and Sharra */
+	if (!victim->is_npc() && dam > 0 && !spell) {
+		int std_ac, vict_ac;
+		long factor, ldam = dam;
+
+		switch (dam_type) {
+		case AC_PIERCE:
+			vict_ac = GET_AC(victim, AC_PIERCE);
+			std_ac = -5 * victim->level;
+			break;
+
+		case AC_BASH:
+			vict_ac = GET_AC(victim, AC_BASH);
+			std_ac = -5 * victim->level;
+			break;
+
+		case AC_SLASH:
+			vict_ac = GET_AC(victim, AC_SLASH);
+			std_ac = -5 * victim->level;
+			break;
+
+		default:
+			vict_ac = GET_AC(victim, AC_EXOTIC);
+			std_ac = (-9 * victim->level) / 2;
+			break;
+		}
+
+		if (vict_ac < 0) {
+			factor =  200L * (std_ac - 101) / (std_ac + vict_ac - 202);
+
+			if (factor == 0L) factor = 1L;
+
+			ldam = (ldam * factor * factor) / 10000L;
+			dam = ldam;
+		}
+	}
+	//ptc(ch, "{YDAM OUT after AC's %d{x \n", dam);
+	//ptc(victim, "{YDAM after AC's %d{x \n", dam);
 
 	if (victim != ch) {
 		/* Certain attacks are forbidden.  Most other attacks are returned. */
@@ -1598,23 +1641,32 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			dam = 9 * dam / 10;
 
 		if (dam > 1 && victim->guild == Guild::paladin) /* enhanced protection for paladins */
+		{	
 			if ((IS_GOOD(victim) && IS_EVIL(ch))
 			    || (IS_EVIL(victim) && IS_GOOD(ch)))
 				dam -= dam / 4;
+			//ptc(victim, "{YDAM after pally %d{x \n", dam);
+		}
 	}
 
 	/* BARRIER reduces damage by (currently) 25% -- Elrac */
 	if (dam > 1 && affect::exists_on_char(victim, affect::type::barrier))
 		dam -= dam / 4;
+	//ptc(ch, "{YDAM OUT after barrier %d{x \n", dam);
+	//ptc(victim, "{YDAM after barrier %d{x \n", dam);
 	
 	/*Shield's Chestplate unique effect (25% damage reduction) */
 	if (dam > 1 && GET_ATTR(victim, APPLY_TANK_UNIQUE) != 0)
 		dam -= dam / 4;
+	//ptc(ch, "{YDAM OUT after chestpiece %d{x \n", dam);
+	//ptc(victim, "{YDAM after chestpiece %d{x \n", dam);
 	
 	/* Paladin Montrey's Grace 2pc bonus  (10% damage reduction)*/
 	if (dam > 1 && GET_ATTR(victim, SET_PALADIN_GRACE) >= 2)
 		dam -= dam * 10 / 100;
-		
+	//ptc(ch, "{YDAM OUT after mont's %d{x \n", dam);
+	//ptc(victim, "{YDAM after mont's %d{x \n", dam);
+	
 	sanc_immune = false;
 
 	if (dam > 1 && affect::exists_on_char(victim, affect::type::sanctuary)) {
@@ -1654,11 +1706,15 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 			break;
 		}
 	}
-
+	//ptc(ch, "{YDAM OUT after sanc %d{x \n", dam);
+	//ptc(victim, "{YDAM after sanc %d{x \n", dam);
+	
 	if ((affect::exists_on_char(victim, affect::type::protection_evil) && IS_EVIL(ch))
 	    || (affect::exists_on_char(victim, affect::type::protection_good) && IS_GOOD(ch)))
 		dam -= dam / 4;
-
+	//ptc(ch, "{YDAM OUT after prots %d{x \n", dam);
+	//ptc(victim, "{YDAM after prots %d{x \n", dam);
+	
 	/* remort affect - more damage */
 	if (HAS_RAFF(ch, RAFF_MOREDAMAGE))
 		dam += dam / 20;
@@ -1669,12 +1725,16 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 	
 	/*Beserker warrior 2 pc bonus */
 	if (GET_ATTR(ch, SET_WARRIOR_BESERKER) >= 2)
-		dam += dam * 10 / 100;
+		dam += (dam * 10 / 100);
+	//ptc(ch, "{YDAM OUT after berserker %d{x \n", dam);
+	//ptc(victim, "{YDAM after berserker %d{x \n", dam);
 	
 	/*Cutpurse thief 2 pc bonus */
 	if (GET_ATTR(ch, SET_THIEF_CUTPURSE) >= 2)
-		dam += dam * 10 / 100;
-
+		dam += (dam * 10 / 100);
+	//ptc(ch, "{YDAM OUT after cutpurse %d{x \n", dam);
+	//ptc(victim, "{YDAM after cutpurse %d{x \n", dam);
+	
 	immune = false;
 
 	if (affect::exists_on_char(victim, affect::type::force_shield) && (dam % 4 == 0) && !sanc_immune) {
@@ -1814,50 +1874,18 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 		immune = true;
 
 	dam -= dam * def_mod / 100;
-
-	/* new damage modification by armor -- Elrac and Sharra */
-	if (!victim->is_npc() && dam > 0 && !spell) {
-		int std_ac, vict_ac;
-		long factor, ldam = dam;
-
-		switch (dam_type) {
-		case AC_PIERCE:
-			vict_ac = GET_AC(victim, AC_PIERCE);
-			std_ac = -5 * victim->level;
-			break;
-
-		case AC_BASH:
-			vict_ac = GET_AC(victim, AC_BASH);
-			std_ac = -5 * victim->level;
-			break;
-
-		case AC_SLASH:
-			vict_ac = GET_AC(victim, AC_SLASH);
-			std_ac = -5 * victim->level;
-			break;
-
-		default:
-			vict_ac = GET_AC(victim, AC_EXOTIC);
-			std_ac = (-9 * victim->level) / 2;
-			break;
-		}
-
-		if (vict_ac < 0) {
-			factor =  200L * (std_ac - 101) / (std_ac + vict_ac - 202);
-
-			if (factor == 0L) factor = 1L;
-
-			ldam = (ldam * factor * factor) / 10000L;
-			dam = ldam;
-		}
-	}
+  
+//original location AC mod
+  
 
 	/* suffix
 	 * placeholder for Devastation (DEVASTATION) and Annihilation (ANNIHILATION)
 	 * DEVASTATION is +5% bonus to damage.
 	 * ANNIHILATION is +10% bonus to damage.
 	 */
-	dam += dam * GET_ATTR(ch, APPLY_WPN_DAMAGE_PCT) / 100;
+	dam += (dam * GET_ATTR(ch, APPLY_WPN_DAMAGE_PCT) / 100);
+	//ptc(ch, "{YDAM OUT after dev/annih %d{x \n", dam);
+	//ptc(victim, "{YDAM after dev/annih %d{x \n", dam);
 	
 	if (show)
 		dam_message(ch, victim, dam, attack_skill, attack_type, immune, sanc_immune);
@@ -1870,6 +1898,8 @@ bool damage(Character *ch, Character *victim, int dam, skill::type attack_skill,
 
 	/* Hurt the victim.  Inform the victim of his new state. */
 	victim->hit -= dam;
+	//ptc(ch, "{YFINAL DAM OUT %d{x \n", dam);
+	//ptc(victim, "{YFINAL DAM %d{x \n", dam);
 	
 	/* Cleric Divine Set 5pc bonus
 	 * chance to heal for a portion of the damage recieved.
@@ -2994,23 +3024,12 @@ bool defense_heal(Character *victim, int chance, int percent)
 	int mod_mana	= 0;
 	int mod_stam	= 0;
 	
-	//debug stuff
-	int d1 = (GET_MAX_HIT(victim));
-	int d2 = (GET_MAX_MANA(victim));
-	int d3 = (GET_MAX_STAM(victim));
-	
 	mod_hp 			+= (GET_MAX_HIT(victim) * percent / 100);
 	mod_mana		+= (GET_MAX_MANA(victim) * percent / 100);
 	mod_stam		+= (GET_MAX_STAM(victim) * percent / 100);
 	
 	if (roll_chance(chance)){
-		Logging::bug("Debug: mod_hp: %d ",mod_hp);
-		Logging::bug("MAX %d",d1);
-		Logging::bug("Debug: mod_mana: %d",mod_mana);
-		Logging::bug("MAX: %d",d2);
-		Logging::bug("Debug: mod_stam: %d",mod_stam);
-		Logging::bug("MAX %d",d3);
-		
+			
 		victim->hit 	+= mod_hp;
 		victim->mana 	+= mod_mana;
 		victim->stam 	+= mod_stam;
