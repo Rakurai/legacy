@@ -114,6 +114,21 @@ struct item_type
 	String      name;
 };
 
+
+struct acc_req_type
+{
+	skill::type  skill;            // the skill that this accessory chain can be applied to
+	int    primary_type;          // primary acc type, dictates the allowed secondary type
+	int    primary_subtype;
+	int    secondary_type;
+	int    secondary_subtype;
+	String       msg_equip_pri;
+	String       msg_remove_pri;
+	String       msg_equip_sec;
+	String       msg_remove_sec;
+
+};
+
 struct weapon_table_t
 {
 	String      name;

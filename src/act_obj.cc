@@ -2279,6 +2279,9 @@ void wear_obj(Character *ch, Object *obj, bool fReplace)
 		}
 	}
 	
+	// check for prerequisite equipment in primary accessory slot
+	
+
 	/* check for class restricted equipment -- Vegita */
 	if (!IS_IMMORTAL(ch) 
 		&& obj->pIndexData->guild != Guild::none

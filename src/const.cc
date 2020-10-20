@@ -35,6 +35,20 @@
 #include "merc.hh"
 #include "skill/skill.hh"
 
+const std::vector<acc_req_type> acc_req_table = {
+	{ 
+		skill::type::archery, 
+		ITEM_WEAPON, 
+		WEAPON_BOW, 
+		ITEM_TRASH, 
+		0,
+		"You string $o and get it ready.",  // equipping primary
+		"You unstring $o and put it away.", // unequipping primary
+		"You strap $o across your back.",   // equipping secondary
+		"You remove $o."  // unequipping secondary
+	},
+};
+
 /* item type list */
 const std::vector<item_type> item_table = {
 	{       ITEM_LIGHT,     "light"         },
