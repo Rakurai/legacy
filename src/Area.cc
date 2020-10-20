@@ -923,16 +923,16 @@ get_random_reset_room(const MobilePrototype *mob)
 			           | ROOM_NORANDOMRESET))
 				continue;
 
-			count++;
-
 			if (pass == 2 && count == pick)
 				return room;
+
+			count++;
 		}
 
 		if (pass++ == 2 || count == 0)
 			break;
 
-		pick = number_range(0, count);
+		pick = number_range(0, count-1);
 	}
 
 	return nullptr;

@@ -436,7 +436,7 @@ skill::type get_random_skill(Character *ch)
 		}
 
 		if (pass != 0) {
-			target = number_range(0, count);
+			target = number_range(0, count-1);
 			pass = 2;
 		}
 	}
@@ -669,17 +669,17 @@ Room *generate_skillquest_room(Character *ch, int level)
 					if (prev->flags().has(ROOM_PET_SHOP))
 						continue;
 
-				count++;
-
 				if (pass == 2 && count == pick)
 					return room;
+
+				count++;
 			}
 		}
 
 		if (pass++ == 2 || count == 0)
 			break;
 
-		pick = number_range(0, count);
+		pick = number_range(0, count-1);
 	}
 
 	return nullptr;

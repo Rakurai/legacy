@@ -384,7 +384,7 @@ int random_prototype(String key)
 			break;
 
 		// only pass 1 should get here
-		pick = number_range(0, count);					//pick is range between 0 and count it found above
+		pick = number_range(0, count-1);					//pick is range between 0 and count it found above
 	}
 
 	return 0;

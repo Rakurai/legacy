@@ -25,7 +25,7 @@ long number_mm(void)
 }
 
 /* Generate a random number. */
-// not inclusive! [from, to)
+// inclusive! [from, to]
 int number_range(int from, int to)
 {
 	int power, number;

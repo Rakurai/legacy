@@ -2932,17 +2932,17 @@ Room *get_random_room(Character *ch)
 					if (prev->flags().has(ROOM_PET_SHOP))
 						continue;
 
-				count++;
-
 				if (pass == 2 && count == pick)
 					return room;
+
+				count++;
 			}
 		}
 
 		if (pass++ == 2 || count == 0)
 			break;
 
-		pick = number_range(0, count);
+		pick = number_range(0, count-1);
 	}
 
 	return nullptr;
