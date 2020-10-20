@@ -27,7 +27,7 @@ int fn_fade_spell(Affect *node, void *data) {
 	 && (type == ::affect::type::none || node->type == type)) {
 		node->duration--;
 
-		if (node->level > 0 && number_range(0, 4))
+		if (node->level > 0 && roll_chance(80))
 			node->level--;  /* spell strength fades with time */
 	}
 

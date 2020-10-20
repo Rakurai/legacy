@@ -532,7 +532,7 @@ reset() {
 			if (!empty
 			    || (obj_to = get_obj_type(pObjToIndex)) == nullptr
 			    || (obj_to->in_room == nullptr && !last)
-			    || (pObjIndex->count >= limit && number_range(0, 4) != 0)
+			    || (pObjIndex->count >= limit && roll_chance(80))
 			    || (count = count_obj_list(pObjIndex, obj_to->contains))
 			    > pReset->arg4) {
 				last = false;
@@ -583,7 +583,7 @@ reset() {
 				else
 					limit = pReset->arg2;
 
-				if (pObjIndex->count < limit || number_range(0, 4) == 0) {
+				if (pObjIndex->count < limit || roll_chance(20)) {
 					obj = create_object(pObjIndex, std::min(number_fuzzy(level),
 					                                    LEVEL_HERO - 1));
 

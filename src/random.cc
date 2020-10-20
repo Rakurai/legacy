@@ -61,6 +61,7 @@ int dice(int number, int size)
 }
 
 /* Generate a percentile roll. */
+// a number between 1 and 100 inclusive
 int number_percent(void)
 {
 	int percent;
@@ -98,7 +99,7 @@ int number_fuzzy(int number)
 }
 
 int roll_chance(int percent) {
-	return number_range(1, 100) <= percent;
+	return number_percent() <= percent;
 }
 
 /* Pseudo-random distribution for percentage chance rolls obvious to the

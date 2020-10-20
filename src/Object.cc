@@ -24,7 +24,7 @@ void unique_item(Object *item)
 {
 	bool added = false;
 
-	if (number_range(1, 50) != 1)
+	if (!roll_chance(2))
 		return;
 
 	/* types we won't even mess with, eliminate them now */

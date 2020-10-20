@@ -820,7 +820,7 @@ void char_update(void)
 			continue;
 
 		// bleeding out?
-		if (get_position(ch) == POS_INCAP && number_range(0, 1) == 0)
+		if (get_position(ch) == POS_INCAP && roll_chance(50))
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, false, false);
 		else if (get_position(ch) == POS_MORTAL)
 			damage(ch->fighting ? ch->fighting : ch, ch, 1, skill::type::unknown, -1, DAM_NONE, false, false);

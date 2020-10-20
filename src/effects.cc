@@ -80,7 +80,7 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		    ||  IS_OBJ_STAT(obj, ITEM_NOPURGE)
-		    ||  number_range(0, 4) == 0)
+		    ||  roll_chance(20))
 			return;
 
 		chance = level / 4 + dam / 10;
@@ -296,7 +296,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		    ||  IS_OBJ_STAT(obj, ITEM_NOPURGE)
-		    ||  number_range(0, 4) == 0)
+		    ||  roll_chance(20))
 			return;
 
 		chance = level / 4 + dam / 10;
@@ -471,7 +471,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		    ||  IS_OBJ_STAT(obj, ITEM_NOPURGE)
-		    ||  number_range(0, 4) == 0)
+		    ||  roll_chance(20))
 			return;
 
 		chance = level / 4 + dam / 10;
@@ -655,7 +655,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		    ||  IS_OBJ_STAT(obj, ITEM_BLESS)
-		    ||  number_range(0, 4) == 0)
+		    ||  roll_chance(20))
 			return;
 
 		chance = level / 4 + dam / 10;
@@ -740,7 +740,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 
 		if (IS_OBJ_STAT(obj, ITEM_BURN_PROOF)
 		    ||  IS_OBJ_STAT(obj, ITEM_NOPURGE)
-		    ||  number_range(0, 4) == 0)
+		    ||  roll_chance(20))
 			return;
 
 		chance = level / 4 + dam / 10;

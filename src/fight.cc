@@ -492,7 +492,7 @@ void check_assist(Character *ch, Character *victim)
 					  || (rch->off_flags.has(ASSIST_VNUM) && rch->pIndexData == ch->pIndexData)) {
 						int number = 0;
 
-						if (number_bits(1) == 0)
+						if (roll_chance(50))
 							continue;
 
 						for (Character *vch = ch->in_room->people; vch; vch = vch->next_in_room) {
@@ -557,7 +557,7 @@ void check_protection_aura(Character *ch, Character *victim) {
 
 		if (paf != nullptr) {
 			if (paf->evolution >= 2) {
-				if (number_range(1,100) <= paf->evolution * 3) {
+				if (roll_chance(paf->evolution * 3)) {
 					char buf[MSL];
 					DAZE_STATE(ch, 2 * PULSE_VIOLENCE);
 
@@ -574,7 +574,7 @@ void check_protection_aura(Character *ch, Character *victim) {
 			}
 
 			if (paf->evolution >= 3) {
-				if (number_range(1,100) <= paf->evolution) {
+				if (roll_chance(paf->evolution)) {
 					char buf[MSL];
 					WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
@@ -714,7 +714,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 
 	/* remort affect - clumsiness */
 	if (HAS_RAFF(ch, RAFF_CLUMSY) && get_position(ch) > POS_RESTING) {
-		if (number_range(1, 100) == 1) {
+		if (roll_chance(1)) {
 			act("In a spectacular display of clumsiness, $n falls down!", ch, nullptr, nullptr, TO_ROOM);
 			stc("You lose your footing avoiding the next strike, and fall down!  DOH!!\n", ch);
 			DAZE_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -728,7 +728,7 @@ void multi_hit(Character *ch, Character *victim, skill::type attack_skill)
 	    && !affect::exists_on_char(ch, affect::type::talon)
 	    && !IS_OBJ_STAT(obj, ITEM_NOREMOVE)
 	    && HAS_RAFF(ch, RAFF_WEAKGRIP)) {
-		if (number_range(1, 100) == 1) {
+		if (roll_chance(1)) {
 			act("$n goes to starts to attack, but $s weapon flies from $s grip!", ch, nullptr, nullptr, TO_ROOM);
 			stc("{PCurses!  You've dropped your weapon again!{x\n", ch);
 			obj_from_char(obj);
@@ -5390,7 +5390,7 @@ void do_disarm(Character *ch, String argument)
 			if ((evo == 2 && roll_chance(5))
 			    || (evo == 3 && roll_chance(15))
 			    || (evo == 4 && roll_chance(25))) {
-				door = number_range(0, 5);
+				door = number_door();
 
 				if ((pexit = victim->in_room->exit[door]) != 0
 				    && (next_room = pexit->to_room) != nullptr
@@ -5660,7 +5660,7 @@ void do_critical_blow(Character *ch, String argument)
 		check_improve(ch, skill::type::critical_blow, false, 2);
 
 		/* Crit Blow failed, let's damage their weapon */
-		if (weapon->condition != -1 && number_range(0, 10) == 5) {
+		if (weapon->condition != -1 && roll_chance(10)) {
 			weapon->condition -= number_range(1, 8);
 
 			if (weapon-> condition <= 0) {

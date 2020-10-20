@@ -763,7 +763,7 @@ void spill_contents(Object *obj, Object *contents) {
 		if (obj->in_obj)
 			obj_to_obj(t_obj, obj->in_obj);
 		else if (obj->carried_by) {
-			if (number_range(0, 3) != 0
+			if (roll_chance(75)
 			 || obj->carried_by->in_room == nullptr
 			 || obj->carried_by->in_room->sector_type() == Sector::arena
 			 || char_in_darena_room(obj->carried_by))
