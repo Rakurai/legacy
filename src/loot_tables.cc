@@ -370,6 +370,10 @@ const std::map<int, std::vector<String> > legendary_name_table = {
     { WIELD_WHIP, {
         "Razor", "Edge", "Whip", "Scratch", "Stinger", "Barb", "Arch", "Beak", "Blast",
         "Etcher", "Guide", "Rend", "Star", "Thresher", "Twine", "Wreck"
+    }},
+    { WIELD_BOW, {
+        "Beam", "Breeze","Hunger", "Mast", "Nock", "Guide", "Shatter", "Siege", 
+		"Weaver", "Volley", "Thunder"
     }}
 };
 
