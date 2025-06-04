@@ -46,20 +46,20 @@ public:
 } __attribute__((packed, aligned(1))); // no alignment padding, for checksums
 
 /* where definitions */
-#define TO_AFFECTS      0
-#define TO_OBJECT       1 // obj->extra_flags
-#define TO_DEFENSE      2
-#define TO_WEAPON       5
+constexpr int TO_AFFECTS    = 0;
+constexpr int TO_OBJECT     = 1; // obj->extra_flags
+constexpr int TO_DEFENSE    = 2;
+constexpr int TO_WEAPON     = 5;
 /* new definitions for room affects -- Montrey */
-#define TO_ROOMFLAGS	6
-#define TO_HPREGEN	7
-#define TO_MPREGEN	8
+constexpr int TO_ROOMFLAGS  = 6;
+constexpr int TO_HPREGEN    = 7;
+constexpr int TO_MPREGEN    = 8;
 
 // these aren't used by affects, just to communicate what kind of defense for printing things
-#define TO_ABSORB  20
-#define TO_IMMUNE  21
-#define TO_RESIST  22
-#define TO_VULN    23
+constexpr int TO_ABSORB     = 20;
+constexpr int TO_IMMUNE     = 21;
+constexpr int TO_RESIST     = 22;
+constexpr int TO_VULN       = 23;
 
 struct table_entry
 {

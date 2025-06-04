@@ -207,7 +207,7 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 		buf = Format::format("Effect '%s'", affect::lookup(paf->type).name);
 
 	if (paf->location != 0 && paf->modifier != 0) {
-		if (paf->where == TO_DEFENSE)
+		if (paf->where == affect::TO_DEFENSE)
 			buf += Format::format("%sodifies defense against %s by %d",
 				buf.empty() ? "M" : " m", dam_type_name(paf->location), paf->modifier);
 		else {
@@ -249,12 +249,12 @@ void show_affect_to_char(const affect::Affect *paf, Character *ch)
 				num_flags++;
 
 		switch (paf->where) {
-		case TO_OBJECT:
+		case affect::TO_OBJECT:
 			buf += Format::format(" Adds %s object flag%s.",
 				extra_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
 /*
-		case TO_WEAPON:
+		case affect::TO_WEAPON:
 			buf += Format::format(" Adds %s weapon flag%s.",
 				weapon_bit_name(paf->bitvector()), num_flags > 1 ? "s" : "");
 			break;
@@ -1643,10 +1643,10 @@ void do_showflags(Character *ch, String argument)
 	}
 
 	ptc(ch, "Aff  : %s\n", affect::print_cache(victim));
-	ptc(ch, "Drn  : %s\n", print_defense_modifiers(victim, TO_ABSORB));
-	ptc(ch, "Imm  : %s\n", print_defense_modifiers(victim, TO_IMMUNE));
-	ptc(ch, "Res  : %s\n", print_defense_modifiers(victim, TO_RESIST));
-	ptc(ch, "Vuln : %s\n", print_defense_modifiers(victim, TO_VULN));
+	ptc(ch, "Drn  : %s\n", print_defense_modifiers(victim, affect::TO_ABSORB));
+	ptc(ch, "Imm  : %s\n", print_defense_modifiers(victim, affect::TO_IMMUNE));
+	ptc(ch, "Res  : %s\n", print_defense_modifiers(victim, affect::TO_RESIST));
+	ptc(ch, "Vuln : %s\n", print_defense_modifiers(victim, affect::TO_VULN));
 	ptc(ch, "Form : %s\n", form_bit_name(victim->form_flags));
 	ptc(ch, "Parts: %s\n", part_bit_name(victim->parts_flags));
 	set_color(ch, WHITE, NOBOLD);
@@ -3254,13 +3254,13 @@ void do_scon(Character *ch, String argument)
 		    GET_AC(victim, AC_SLASH),  GET_AC(victim, AC_EXOTIC));
 
 		String buf;
-		buf = print_defense_modifiers(victim, TO_ABSORB);
+		buf = print_defense_modifiers(victim, affect::TO_ABSORB);
 		if (!buf.empty()) ptc(ch, " Drain:  %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_IMMUNE);
+		buf = print_defense_modifiers(victim, affect::TO_IMMUNE);
 		if (!buf.empty()) ptc(ch, " Immune: %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_RESIST);
+		buf = print_defense_modifiers(victim, affect::TO_RESIST);
 		if (!buf.empty()) ptc(ch, " Resist: %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_VULN);
+		buf = print_defense_modifiers(victim, affect::TO_VULN);
 		if (!buf.empty()) ptc(ch, " Vuln:   %s\n", buf);
 		buf = affect::print_cache(victim);
 		if (!buf.empty()) ptc(ch, " Affect:  %s\n", buf);
@@ -3335,13 +3335,13 @@ void do_consider(Character *ch, String argument)
 		if (victim->is_npc() && !victim->off_flags.empty())
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
-		buf = print_defense_modifiers(victim, TO_ABSORB);
+		buf = print_defense_modifiers(victim, affect::TO_ABSORB);
 		if (!buf.empty()) ptc(ch, "Drain:  %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_IMMUNE);
+		buf = print_defense_modifiers(victim, affect::TO_IMMUNE);
 		if (!buf.empty()) ptc(ch, "Immune: %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_RESIST);
+		buf = print_defense_modifiers(victim, affect::TO_RESIST);
 		if (!buf.empty()) ptc(ch, "Resist: %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_VULN);
+		buf = print_defense_modifiers(victim, affect::TO_VULN);
 		if (!buf.empty()) ptc(ch, "Vuln:   %s\n", buf);
 		buf = affect::print_cache(victim);
 		if (!buf.empty()) ptc(ch, "Affect: %s\n", buf);
@@ -3362,11 +3362,11 @@ void do_consider(Character *ch, String argument)
 
 			ptc(ch, "{bSpell: '%s'", affect::lookup(paf->type).name);
 
-			if (paf->where == TO_AFFECTS) {
+			if (paf->where == affect::TO_AFFECTS) {
 				if (paf->location != APPLY_NONE && paf->modifier != 0)
 					ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
 			}
-			else if (paf->where == TO_DEFENSE)
+			else if (paf->where == affect::TO_DEFENSE)
 				ptc(ch, " %s damage from %s by %d%%",
 					paf->modifier > 0 ? "reduces" : "increases",
 					dam_type_name(paf->location),
@@ -5048,7 +5048,7 @@ void print_new_affects(Character *ch)
 		int affcount = 0;
 
 		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
-			if (paf->where == TO_AFFECTS && !paf->permanent)
+			if (paf->where == affect::TO_AFFECTS && !paf->permanent)
 				affcount++;
 
 		if (affcount > 0) {
@@ -5058,7 +5058,7 @@ void print_new_affects(Character *ch)
 
 			const affect::Affect *paf_last = nullptr;
 			for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
-				if (paf->where != TO_AFFECTS || paf->permanent)
+				if (paf->where != affect::TO_AFFECTS || paf->permanent)
 					continue;
 
 				String namebuf, modbuf, timebuf;
@@ -5105,7 +5105,7 @@ void print_new_affects(Character *ch)
 
 		if ((obj = get_eq_char(ch, iWear)) != nullptr) {
 			for (const affect::Affect *paf = affect::list_obj(obj); paf; paf = paf->next) {
-				if (paf->where != TO_AFFECTS)
+				if (paf->where != affect::TO_AFFECTS)
 					continue;
 
 				if (!print) {
@@ -5144,7 +5144,7 @@ void print_new_affects(Character *ch)
 		int affcount = 0;
 
 		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
-			if (paf->where == TO_AFFECTS && paf->permanent)
+			if (paf->where == affect::TO_AFFECTS && paf->permanent)
 				affcount++;
 
 		if (affcount > 0) {
@@ -5157,7 +5157,7 @@ void print_new_affects(Character *ch)
 
 			const affect::Affect *paf_last = nullptr;
 			for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
-				if (paf->where != TO_AFFECTS || !paf->permanent)
+				if (paf->where != affect::TO_AFFECTS || !paf->permanent)
 					continue;
 
 				String namebuf, modbuf;

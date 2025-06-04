@@ -217,21 +217,21 @@ int attr_location_check(int location) {
 bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 	switch (letter) {
 	case  0 : break; // use the where that is set
-	case 'O': paf->where = TO_OBJECT; break; // location and modifier already set
-	case 'W': paf->where = TO_WEAPON; break; // location and modifier already set
-	case 'A': paf->where = TO_AFFECTS; break; // location and modifier already set
-	case 'D': paf->where = TO_DEFENSE; break; // modifier already set
-	case 'I': paf->where = TO_DEFENSE; paf->modifier = 100; break;
-	case 'R': paf->where = TO_DEFENSE; paf->modifier = 50; break;
-	case 'V': paf->where = TO_DEFENSE; paf->modifier = -50; break;
+	case 'O': paf->where = affect::TO_OBJECT; break; // location and modifier already set
+	case 'W': paf->where = affect::TO_WEAPON; break; // location and modifier already set
+	case 'A': paf->where = affect::TO_AFFECTS; break; // location and modifier already set
+	case 'D': paf->where = affect::TO_DEFENSE; break; // modifier already set
+	case 'I': paf->where = affect::TO_DEFENSE; paf->modifier = 100; break;
+	case 'R': paf->where = affect::TO_DEFENSE; paf->modifier = 50; break;
+	case 'V': paf->where = affect::TO_DEFENSE; paf->modifier = -50; break;
 	default:
 		Logging::bugf("parse_flags: bad letter %c", letter);
 		return false;
 	}
 
-	if (paf->where == TO_DEFENSE) {
+	if (paf->where == affect::TO_DEFENSE) {
 		if (paf->modifier == 0) {
-			Logging::bug("parse_flags: TO_DEFENSE with modifier of 0", 0);
+			Logging::bug("parse_flags: affect::TO_DEFENSE with modifier of 0", 0);
 			return false;
 		}
 
@@ -252,16 +252,16 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 		}
 	}
 
-	// if we're dealing with TO_OBJECT or TO_WEAPON, we leave the bitvector alone and return
+	// if we're dealing with affect::TO_OBJECT or affect::TO_WEAPON, we leave the bitvector alone and return
 	// the whole original affect, after passing through sanity checks.  set local bitvector = 0
 	// to fall through the bit conversions
 
-	if (paf->where == TO_AFFECTS && paf->type != ::affect::type::none) {
+	if (paf->where == affect::TO_AFFECTS && paf->type != ::affect::type::none) {
 		// if we passed an sn in, don't parse bits
 		bitvector.clear();
 		paf->bitvector(0);
 	}
-	else if (paf->where == TO_OBJECT) {
+	else if (paf->where == affect::TO_OBJECT) {
 	 	// or, just quit the outside loop and leave paf->bitvector alone
 	 	bitvector.clear();
 	}
@@ -288,10 +288,10 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 		}
 	}
 
-	// if the bit wasn't found, still continue for the TO_OBJECT.  the loop will
+	// if the bit wasn't found, still continue for the affect::TO_OBJECT.  the loop will
 	// stop when bitvector is 0
 
-	if (paf->where == TO_WEAPON) {
+	if (paf->where == affect::TO_WEAPON) {
 		switch (bit) {
 			case WEAPON_ACIDIC     : paf->type = ::affect::type::weapon_acidic; break;
 			case WEAPON_FLAMING    : paf->type = ::affect::type::weapon_flaming; break;
@@ -304,20 +304,20 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case WEAPON_TWO_HANDS  : paf->type = ::affect::type::weapon_two_hands; break;
 			case Flags::none       : break; // type already set
 			default: {
-				Logging::bugf("parse_flags: TO_WEAPON with unknown defense bit %d", bit);
+				Logging::bugf("parse_flags: affect::TO_WEAPON with unknown defense bit %d", bit);
 				return false;
 			}
 		}
 
 		if (paf->type == ::affect::type::none) {
-			Logging::bug("parse_flags: TO_WEAPON with no bits and no type", 0);
+			Logging::bug("parse_flags: affect::TO_WEAPON with no bits and no type", 0);
 			return false;
 		}
 
 		return true;
 	}
 
-	if (paf->where == TO_DEFENSE) {
+	if (paf->where == affect::TO_DEFENSE) {
 
 		switch (bit) {
 			case IMM_CHARM       : paf->location = DAM_CHARM; break;
@@ -342,31 +342,31 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 			case IMM_IRON        : paf->location = DAM_IRON; break;
 			case Flags::none     : /* location already set */ break;
 			default: {
-				Logging::bugf("parse_flags: TO_DEFENSE with unknown defense bit %d", bit);
+				Logging::bugf("parse_flags: affect::TO_DEFENSE with unknown defense bit %d", bit);
 				return false;
 			}
 		}
 
 		if (paf->location == 0) {
-			Logging::bug("parse_flags: TO_DEFENSE with location 0", 0);
+			Logging::bug("parse_flags: affect::TO_DEFENSE with location 0", 0);
 			return false;
 		}
 
 		// modifier was already set or done above
 		paf->bitvector(0);
 		return true;
-	} // done with TO_DEFENSE
+	} // done with affect::TO_DEFENSE
 
-	if (paf->where == TO_AFFECTS && paf->type == ::affect::type::none) {
+	if (paf->where == affect::TO_AFFECTS && paf->type == ::affect::type::none) {
 		if (bit == Flags::none) {
-			Logging::bug("parse_flags: TO_AFFECTS with no type and no bit", 0);
+			Logging::bug("parse_flags: affect::TO_AFFECTS with no type and no bit", 0);
 			return false;
 		}
 
 		::affect::type type = bit_to_type(bit);
 
 		if (type == ::affect::type::none) {
-			Logging::bugf("parse_flags: TO_AFFECTS: sn not found for bit %d", bit);
+			Logging::bugf("parse_flags: affect::TO_AFFECTS: sn not found for bit %d", bit);
 			return false;
 		}
 
@@ -375,7 +375,7 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 		// drop down to applies for possible location and modifier
 	}
 
-	// from here, we leave bitvector alone: TO_OBJECT and TO_WEAPON can
+	// from here, we leave bitvector alone: affect::TO_OBJECT and affect::TO_WEAPON can
 	// add flags to the object's extra bits
 
 	paf->location = attr_location_check(paf->location);
@@ -389,8 +389,8 @@ bool parse_flags(char letter, Affect *paf, Flags& bitvector) {
 		paf->modifier = 0; // ensure, so we don't mess up the counter
 
 	// does nothing?
-	if (paf->where == TO_OBJECT && paf->bitvector().empty() && paf->location == 0) {
-		Logging::bug("parse_flags: TO_OBJECT with no modifiers", 0);
+	if (paf->where == affect::TO_OBJECT && paf->bitvector().empty() && paf->location == 0) {
+		Logging::bug("parse_flags: affect::TO_OBJECT with no modifiers", 0);
 		return false;
 	}
 

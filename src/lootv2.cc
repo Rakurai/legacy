@@ -477,7 +477,7 @@ void add_base_stats(Object *obj, int ilevel, int item_qual) {
 
 	// everything gets a chance at base applies
 	affect::Affect af;
-	af.where      = TO_OBJECT;
+	af.where      = affect::TO_OBJECT;
 	af.type       = affect::type::none;
 	af.level      = obj->level;
 	af.duration   = -1;

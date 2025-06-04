@@ -114,7 +114,7 @@ void modify_flag_cache_obj(Object *obj, int where, const Flags& flags, bool fAdd
 	if (flags.empty())
 		return;
 
-	if (where != TO_OBJECT && where != TO_WEAPON)
+	if (where != affect::TO_OBJECT && where != affect::TO_WEAPON)
 		return;
 
 	// if we're removing a bit, the only way to know for sure whether the object
@@ -131,7 +131,7 @@ void modify_flag_cache_obj(Object *obj, int where, const Flags& flags, bool fAdd
 	}
 	else {
 		switch (where) {
-		case TO_OBJECT:
+		case affect::TO_OBJECT:
 			obj->cached_extra_flags += flags;
 			break;
 		}

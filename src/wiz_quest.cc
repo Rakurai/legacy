@@ -112,7 +112,7 @@ void do_addapply(Character *ch, String argument)
 	stc("Ok.\n", ch);
 
 	affect::Affect af;
-	af.where      = TO_OBJECT;
+	af.where      = affect::TO_OBJECT;
 	af.type       = affect::type::none;
 	af.level      = ch->level;
 	af.duration   = duration;

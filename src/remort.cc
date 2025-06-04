@@ -92,9 +92,9 @@ void rem_raff_affect(Character *ch, int index)
 {
 	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, false);
+			affect::remort_affect_modify_char(ch, affect::TO_VULN, raffects[index].add, false);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, false);
+			affect::remort_affect_modify_char(ch, affect::TO_RESIST, raffects[index].add, false);
 	}
 
 	return;
@@ -147,9 +147,9 @@ void raff_add_to_char(Character *ch, int raff_id) {
 
 	if (!raffects[index].add.empty()) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			affect::remort_affect_modify_char(ch, TO_VULN, raffects[index].add, true);
+			affect::remort_affect_modify_char(ch, affect::TO_VULN, raffects[index].add, true);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			affect::remort_affect_modify_char(ch, TO_RESIST, raffects[index].add, true);
+			affect::remort_affect_modify_char(ch, affect::TO_RESIST, raffects[index].add, true);
 	}
 }
 

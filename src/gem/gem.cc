@@ -112,7 +112,7 @@ void compile_effects(Object *eq) {
 
 	for (Object *gem = eq->gems; gem != nullptr; gem = gem->next_content) {
 		affect::Affect af;
-		af.where              = TO_OBJECT;
+		af.where              = affect::TO_OBJECT;
 		af.type               = affect::type::none;
 		af.level              = gem->level;
 		af.duration           = -1;

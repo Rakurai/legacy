@@ -1666,7 +1666,7 @@ void do_envenom(Character *ch, String argument)
 
 		if (percent < skill) {
 			affect::Affect af;
-			af.where     = TO_WEAPON;
+			af.where     = affect::TO_WEAPON;
 			af.type      = affect::type::poison;
 			af.level     = ch->level;
 			af.duration  = ch->level * 5;
@@ -4700,7 +4700,7 @@ void forge_flag(Character *ch, const String& argument, Object *anvil)
 		act("$n's weapon strikes sparks on the anvil, and smoke rises. It is... changed!", ch, nullptr, nullptr, TO_ROOM);
 
 		affect::Affect af;
-		af.where        = TO_WEAPON;
+		af.where        = affect::TO_WEAPON;
 		af.type         = type;
 		af.level        = ch->level;
 		af.duration     = -1;
@@ -4784,7 +4784,7 @@ void do_hone(Character *ch, String argument)
 	stc(buf, ch);
 
 	affect::Affect af;
-	af.where     = TO_WEAPON;
+	af.where     = affect::TO_WEAPON;
 	af.type      = affect::type::weapon_sharp;
 	af.level     = ch->level;
 	af.duration  = ch->level * 5;

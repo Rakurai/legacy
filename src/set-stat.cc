@@ -1626,13 +1626,13 @@ void format_mstat(Character *ch, Character *victim)
 
 	{
 		String buf;
-		buf = print_defense_modifiers(victim, TO_ABSORB);
+		buf = print_defense_modifiers(victim, affect::TO_ABSORB);
 		if (!buf.empty()) ptc(ch, "Abs : %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_IMMUNE);
+		buf = print_defense_modifiers(victim, affect::TO_IMMUNE);
 		if (!buf.empty()) ptc(ch, "Imm : %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_RESIST);
+		buf = print_defense_modifiers(victim, affect::TO_RESIST);
 		if (!buf.empty()) ptc(ch, "Res : %s\n", buf);
-		buf = print_defense_modifiers(victim, TO_VULN);
+		buf = print_defense_modifiers(victim, affect::TO_VULN);
 		if (!buf.empty()) ptc(ch, "Vuln: %s\n", buf);
 		buf = affect::print_cache(victim);
 		if (!buf.empty()) ptc(ch, "Aff : %s\n", buf);
@@ -1682,11 +1682,11 @@ void format_mstat(Character *ch, Character *victim)
 
 		ptc(ch, "{bSpell: '%s'", affect::lookup(paf->type).name);
 
-		if (paf->where == TO_AFFECTS) {
+		if (paf->where == affect::TO_AFFECTS) {
 			if (paf->location != APPLY_NONE && paf->modifier != 0)
 				ptc(ch, " modifies %s by %d", affect_loc_name(paf->location), paf->modifier);
 		}
-		else if (paf->where == TO_DEFENSE)
+		else if (paf->where == affect::TO_DEFENSE)
 			ptc(ch, " %s damage from %s by %d%%",
 				paf->modifier > 0 ? "reduces" : "increases",
 				dam_type_name(paf->location),

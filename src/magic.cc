@@ -1090,7 +1090,7 @@ void spell_bless(skill::type sn, int level, Character *ch, void *vo, int target,
 			return;
 		}
 
-		af.where        = TO_OBJECT;
+		af.where        = affect::TO_OBJECT;
 		af.type         = affect::type::bless;
 		af.level        = level;
 		af.duration     = 6 + level;
@@ -1392,7 +1392,7 @@ void spell_dazzling_light(skill::type sn, int level, Character *ch, void *vo, in
 	}
 
 	affect::Affect af;
-	af.where     = TO_OBJECT;
+	af.where     = affect::TO_OBJECT;
 	af.type      = affect::type::dazzling_light;
 	af.level     = level;
 	af.duration  = dur;
@@ -1442,7 +1442,7 @@ void spell_light_of_truth(skill::type sn, int level, Character *ch, void *vo, in
 	}
 
 	affect::Affect af;
-	af.where     = TO_AFFECTS;
+	af.where     = affect::TO_AFFECTS;
 	af.level     = level;
 	af.duration  = level;
 	af.location  = 0;
@@ -2227,7 +2227,7 @@ void spell_darkness(skill::type sn, int level, Character *ch, void *vo, int targ
 	else
 		stc("Inky black darkness surrounds you.\n", ch);
 
-	af.where     = TO_ROOMFLAGS;
+	af.where     = affect::TO_ROOMFLAGS;
 	af.type      = affect::type::darkness;
 	af.level     = level;
 	af.duration  = level / 20;
@@ -2321,7 +2321,7 @@ void spell_curse(skill::type sn, int level, Character *ch, void *vo, int target,
 			return;
 		}
 
-		af.where        = TO_OBJECT;
+		af.where        = affect::TO_OBJECT;
 		af.type         = affect::type::curse;
 		af.level        = level;
 		af.duration     = 2 * level;
@@ -2884,7 +2884,7 @@ void spell_enchant_armor(skill::type sn, int level, Character *ch, void *vo, int
 		obj->level = std::min(LEVEL_HERO - 1, obj->level + 1);
 
 	affect::Affect af;
-	af.where      = TO_OBJECT;
+	af.where      = affect::TO_OBJECT;
 	af.type       = affect::type::enchant_armor;
 	af.level      = level;
 	af.duration   = -1;
@@ -3047,7 +3047,7 @@ void spell_enchant_weapon(skill::type sn, int level, Character *ch, void *vo, in
 		obj->level = std::min(LEVEL_HERO - 1, obj->level + 1);
 
 	affect::Affect af;
-	af.where      = TO_OBJECT;
+	af.where      = affect::TO_OBJECT;
 	af.type       = affect::type::enchant_weapon;
 	af.level      = level;
 	af.duration   = -1;
@@ -3354,7 +3354,7 @@ void spell_fireproof(skill::type sn, int level, Character *ch, void *vo, int tar
 		return;
 	}
 
-	af.where     = TO_OBJECT;
+	af.where     = affect::TO_OBJECT;
 	af.type      = affect::type::fireproof;
 	af.level     = level;
 	af.duration  = number_fuzzy(level / 4);
@@ -3389,7 +3389,7 @@ bool enhance_blade(Character *ch, Object *obj, affect::type type, int level, int
 	}
 
 	affect::Affect af;
-	af.where        = TO_WEAPON;
+	af.where        = affect::TO_WEAPON;
 	af.type         = type;
 	af.level        = level;
 	af.duration     = (number_percent() + (level / 2));
@@ -4265,7 +4265,7 @@ void spell_invis(skill::type sn, int level, Character *ch, void *vo, int target,
 			return;
 		}
 
-		af.where        = TO_OBJECT;
+		af.where        = affect::TO_OBJECT;
 		af.type         = affect::type::invis;
 		af.level        = level;
 		af.duration     = level + 12;
@@ -4859,7 +4859,7 @@ void spell_poison(skill::type sn, int level, Character *ch, void *vo, int target
 				return;
 			}
 
-			af.where     = TO_WEAPON;
+			af.where     = affect::TO_WEAPON;
 			af.type      = affect::type::poison;
 			af.level     = level / 2;
 			af.duration  = level / 4;

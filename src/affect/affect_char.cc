@@ -220,7 +220,7 @@ void add_type_to_char(Character *ch, ::affect::type type, int level, int duratio
 	};
 
 	Affect af;
-	af.where = TO_AFFECTS;
+	af.where = affect::TO_AFFECTS;
 	af.type = type;
 	af.level = level;
 	af.duration = duration;
@@ -260,8 +260,8 @@ void remort_affect_modify_char(Character *ch, int where, Flags bitvector, bool f
 	// where, location and modifier will be filled by parse
 
 	char letter = 
-		where == TO_RESIST ? 'R' : 
-		where == TO_VULN ? 'V' : '?'; // let parse handle error
+		where == affect::TO_RESIST ? 'R' : 
+		where == affect::TO_VULN ? 'V' : '?'; // let parse handle error
 
 	while (!bitvector.empty()) {
 		if (parse_flags(letter, &af, bitvector))
@@ -271,9 +271,9 @@ void remort_affect_modify_char(Character *ch, int where, Flags bitvector, bool f
 
 /* hinges on af.where:
 	where        type       location  modifier
-	TO_OBJECT    ignore     attrmod   amount
-    TO_AFFECTS   sn,cache   attrmod   amount
-    TO_DEFENSE   ignore     defmod    amount
+	affect::TO_OBJECT    ignore     attrmod   amount
+    affect::TO_AFFECTS   sn,cache   attrmod   amount
+    affect::TO_DEFENSE   ignore     defmod    amount
 */
 
 // the modify function is called any time there is a potential change to the list of
@@ -285,12 +285,12 @@ void modify_char(void *owner, const Affect *paf, bool fAdd) {
 }
 
 void modify_char(Character *ch, const Affect *paf, bool fAdd) {
-	if (paf->where != TO_DEFENSE && paf->where != TO_AFFECTS && paf->where != TO_OBJECT)
+	if (paf->where != affect::TO_DEFENSE && paf->where != affect::TO_AFFECTS && paf->where != affect::TO_OBJECT)
 		return;
 
-	if (paf->where == TO_DEFENSE) {
+	if (paf->where == affect::TO_DEFENSE) {
 		if (paf->location < 1 || paf->location > 32) {
-			Logging::bugf("modify_char (%s): bad location %d in TO_DEFENSE", ch->name, paf->location);
+			Logging::bugf("modify_char (%s): bad location %d in affect::TO_DEFENSE", ch->name, paf->location);
 			return;
 		}
 
@@ -324,16 +324,16 @@ void modify_char(Character *ch, const Affect *paf, bool fAdd) {
 		return;
 	}
 
-	if (paf->where == TO_AFFECTS) {
+	if (paf->where == affect::TO_AFFECTS) {
 		if (paf->type == ::affect::type::none) {
-			Logging::bugf("modify_char (%s): bad type %d in TO_AFFECTS", ch->name, paf->type);
+			Logging::bugf("modify_char (%s): bad type %d in affect::TO_AFFECTS", ch->name, paf->type);
 			return;
 		}
 
 		update_cache(ch, paf->type, fAdd);
 	}
 
-	// both TO_OBJECT and TO_AFFECTS can set attribute mods
+	// both affect::TO_OBJECT and affect::TO_AFFECTS can set attribute mods
 
 	// affect makes no mods?  we're done
 	if (paf->modifier == 0)

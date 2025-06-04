@@ -103,7 +103,7 @@ void modify_flag_cache_room(Room *room, int where, const Flags& flags, bool fAdd
 	if (flags.empty())
 		return;
 
-	if (where != TO_ROOMFLAGS)
+	if (where != affect::TO_ROOMFLAGS)
 		return;
 
 	// if we're removing a bit, the only way to know for sure whether the object
@@ -130,7 +130,7 @@ void modify_room(void *owner, const Affect *paf, bool fAdd) {
 
 void modify_room(Room *room, const Affect *paf, bool fAdd) {
 	switch (paf->where) {
-	case TO_ROOMFLAGS:
+	case affect::TO_ROOMFLAGS:
 		modify_flag_cache_room(room, paf->where, paf->bitvector(), fAdd);
 		break;
 

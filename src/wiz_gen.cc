@@ -477,7 +477,7 @@ void do_check(Character *ch, String argument)
 
 			Format::sprintf(buf,
 			        "{W[%12s] {RABS: {P%s{x\n",
-			        victim->name, print_defense_modifiers(victim, TO_ABSORB));
+			        victim->name, print_defense_modifiers(victim, affect::TO_ABSORB));
 			buffer += buf;
 		}
 
@@ -497,7 +497,7 @@ void do_check(Character *ch, String argument)
 			Format::sprintf(buf,
 			        "{W[%12s] {RIMM: {P%s{x\n",
 			        victim->name,
-			        print_defense_modifiers(victim, TO_IMMUNE));
+			        print_defense_modifiers(victim, affect::TO_IMMUNE));
 			buffer += buf;
 		}
 
@@ -517,7 +517,7 @@ void do_check(Character *ch, String argument)
 			Format::sprintf(buf,
 			        "{W[%12s] {HRES: {G%s{x\n",
 			        victim->name,
-			        print_defense_modifiers(victim, TO_RESIST));
+			        print_defense_modifiers(victim, affect::TO_RESIST));
 			buffer += buf;
 		}
 
@@ -537,7 +537,7 @@ void do_check(Character *ch, String argument)
 			Format::sprintf(buf,
 			        "{W[%12s] {TVUL: {C%s{x\n",
 			        victim->name,
-			        print_defense_modifiers(victim, TO_VULN));
+			        print_defense_modifiers(victim, affect::TO_VULN));
 			buffer += buf;
 		}
 

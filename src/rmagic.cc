@@ -444,7 +444,7 @@ void spell_holy_sword(skill::type sn, int level, Character *ch, void *vo, int ta
 	sword->extra_flags += ITEM_INVENTORY;    /* so it vapes on death */
 
 	affect::Affect af;
-	af.where      = TO_WEAPON;
+	af.where      = affect::TO_WEAPON;
 	af.level      = level;
 	af.duration   = -1;
 	af.location   = 0;
@@ -466,7 +466,7 @@ void spell_holy_sword(skill::type sn, int level, Character *ch, void *vo, int ta
 		affect::copy_to_obj(sword, &af);
 	}
 
-	af.where      = TO_OBJECT;
+	af.where      = affect::TO_OBJECT;
 	af.type       = affect::type::enchant_weapon;
 	af.duration   = -1;
 	af.modifier   = level / 10 + 1;

@@ -1435,21 +1435,21 @@ Object * fread_obj(cJSON *json, int version) {
 						// under the old system could have bitvectors storing affects. clean up here,
 						// hopefully remove someday.
 						// obj name might not be read yet, use vnum
-						if (af.where == TO_AFFECTS && af.type == affect::type::none && af.bitvector().empty())
-							af.where = TO_OBJECT; // try making it an object apply
+						if (af.where == affect::TO_AFFECTS && af.type == affect::type::none && af.bitvector().empty())
+							af.where = affect::TO_OBJECT; // try making it an object apply
 
 						if (af.type == affect::type::unknown) {
 							Logging::bugf("Fread_obj: unknown affect type '%s'.", cJSON_GetObjectItem(item, "name")->valuestring);
 
 							// newish pfiles (>17?) don't save temp weapon flags to v4, but older
 							// ones might.  strip it just in case
-							if (af.where == TO_WEAPON)
+							if (af.where == affect::TO_WEAPON)
 								obj->value[4] -= Flags(af.bitvector());
 
 							continue;
 						}
 
-						// let the parsing handle TO_OBJECT with no modifiers
+						// let the parsing handle affect::TO_OBJECT with no modifiers
 
 						Flags bitvector(af.bitvector());
 
@@ -1464,7 +1464,7 @@ Object * fread_obj(cJSON *json, int version) {
 								af.modifier = 0;
 							}
 
-							af.type = affect::type::none; // reset, in case we're parsing multiple TO_AFFECTS bits
+							af.type = affect::type::none; // reset, in case we're parsing multiple affect::TO_AFFECTS bits
 						} while (!bitvector.empty());
 					}
 					fMatch = true; break;

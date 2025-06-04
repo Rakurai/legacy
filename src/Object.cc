@@ -150,7 +150,7 @@ void unique_item(Object *item)
 		}
 
 		affect::Affect af;
-		af.where      = TO_OBJECT;
+		af.where      = affect::TO_OBJECT;
 		af.type       = affect::type::none;
 		af.level      = item->level;
 		af.duration   = -1;
@@ -281,7 +281,7 @@ void unique_item(Object *item)
 
 				if (!affect::exists_on_obj(item, type)) {
 					affect::Affect af;
-					af.where        = TO_WEAPON;
+					af.where        = affect::TO_WEAPON;
 					af.type         = type;
 					af.level        = item->level;
 					af.duration     = -1;

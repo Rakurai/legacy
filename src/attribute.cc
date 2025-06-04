@@ -136,7 +136,7 @@ void attribute_check(Character *ch) {
 		// only do this if they have a strength reducing spell affect (not from EQ)
 		bool found = false;
 		for (const affect::Affect *paf = affect::list_char(ch); paf; paf = paf->next)
-			if (paf->where == TO_AFFECTS && paf->location == APPLY_STR && paf->modifier < 0) {
+			if (paf->where == affect::TO_AFFECTS && paf->location == APPLY_STR && paf->modifier < 0) {
 				found = true;
 				break;
 			}
@@ -160,11 +160,11 @@ String print_defense_modifiers(Character *ch, int where) {
 		bool print = false;
 
 		switch (where) {
-			case TO_ABSORB:  if (ch->defense_mod[i] > 100)  print = true; break;
-			case TO_IMMUNE:  if (ch->defense_mod[i] == 100) print = true; break;
-			case TO_RESIST:  if (ch->defense_mod[i] > 0 && ch->defense_mod[i] < 100)
+			case affect::TO_ABSORB:  if (ch->defense_mod[i] > 100)  print = true; break;
+			case affect::TO_IMMUNE:  if (ch->defense_mod[i] == 100) print = true; break;
+			case affect::TO_RESIST:  if (ch->defense_mod[i] > 0 && ch->defense_mod[i] < 100)
 			    print = true; break;
-			case TO_VULN:    if (ch->defense_mod[i] < 0)    print = true; break;
+			case affect::TO_VULN:    if (ch->defense_mod[i] < 0)    print = true; break;
 			default:
 				Logging::bugf("print_defense_modifiers: unknown where %d", where);
 		}
@@ -175,11 +175,11 @@ String print_defense_modifiers(Character *ch, int where) {
 
 			buf += dam_type_name(i);
 
-			if (where != TO_IMMUNE) {
+			if (where != affect::TO_IMMUNE) {
 				char mbuf[100];
 				Format::sprintf(mbuf, "(%+d%%)",
-					where == TO_ABSORB ?  ch->defense_mod[i]-100 : // percent beyond immune
-					where == TO_RESIST ? -ch->defense_mod[i] : // prints resist as a negative
+					where == affect::TO_ABSORB ?  ch->defense_mod[i]-100 : // percent beyond immune
+					where == affect::TO_RESIST ? -ch->defense_mod[i] : // prints resist as a negative
 					                    -ch->defense_mod[i] // prints vuln as a positive
 				);
 				buf += mbuf;
