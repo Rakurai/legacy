@@ -26,23 +26,23 @@ private:
 
 extern bool    MOBtrigger;
 
-#define ERROR_PROG         Flags::none
-#define IN_FILE_PROG       Flags::A
-#define ACT_PROG           Flags::B
-#define SPEECH_PROG        Flags::C
-#define RAND_PROG          Flags::D
-#define FIGHT_PROG         Flags::E
-#define DEATH_PROG         Flags::F
-#define HITPRCNT_PROG      Flags::G
-#define ENTRY_PROG         Flags::H
-#define GREET_PROG         Flags::I
-#define ALL_GREET_PROG     Flags::J
-#define GIVE_PROG          Flags::K
-#define BRIBE_PROG         Flags::L
-#define BUY_PROG           Flags::M
-#define TICK_PROG          Flags::N
-#define BOOT_PROG	       Flags::O
-#define RAND_AREA_PROG     Flags::P
+constexpr Flags::Bit ERROR_PROG         = Flags::none;
+constexpr Flags::Bit IN_FILE_PROG       = Flags::A;
+constexpr Flags::Bit ACT_PROG           = Flags::B;
+constexpr Flags::Bit SPEECH_PROG        = Flags::C;
+constexpr Flags::Bit RAND_PROG          = Flags::D;
+constexpr Flags::Bit FIGHT_PROG         = Flags::E;
+constexpr Flags::Bit DEATH_PROG         = Flags::F;
+constexpr Flags::Bit HITPRCNT_PROG      = Flags::G;
+constexpr Flags::Bit ENTRY_PROG         = Flags::H;
+constexpr Flags::Bit GREET_PROG         = Flags::I;
+constexpr Flags::Bit ALL_GREET_PROG     = Flags::J;
+constexpr Flags::Bit GIVE_PROG          = Flags::K;
+constexpr Flags::Bit BRIBE_PROG         = Flags::L;
+constexpr Flags::Bit BUY_PROG           = Flags::M;
+constexpr Flags::Bit TICK_PROG          = Flags::N;
+constexpr Flags::Bit BOOT_PROG	       = Flags::O;
+constexpr Flags::Bit RAND_AREA_PROG     = Flags::P;
 
 /* mob_prog.c */
 void    mprog_wordlist_check   ( const String& arg, Character *mob,

@@ -266,7 +266,7 @@ void do_loadhelps(Character *ch, String argument)
 		for (const auto& entry : helpfile_table)
 			do_loadhelps(ch, entry.name);
 
-		stc("All help files in the " HELP_DIR " directory loaded.\n", ch);
+		ptc(ch, "All help files in the %s directory loaded.\n", HELP_DIR);
 		stc("Please remember to clean up, remove the help files with rm *.help!\n", ch);
 		return;
 	}
@@ -285,7 +285,7 @@ void do_loadhelps(Character *ch, String argument)
 		return;
 	}
 
-	String buf = Format::format(HELP_DIR "%s.help", helpfile_table[tablenum].name);
+	String buf = Format::format("%s%s.help", HELP_DIR, helpfile_table[tablenum].name);
 
 	if ((fp = fopen(buf.c_str(), "r")) == nullptr) {
 		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n", ch);
@@ -355,7 +355,7 @@ void do_loadhelps(Character *ch, String argument)
 		);
 	}
 
-	ptc(ch, "File " HELP_DIR "%s.help: %d helps loaded.\n", helpfile_table[tablenum].name, count);
+	ptc(ch, "File %s%s.help: %d helps loaded.\n", HELP_DIR, helpfile_table[tablenum].name, count);
 }
 
 /* print all helps matching a group to file */
@@ -389,7 +389,7 @@ void do_printhelps(Character *ch, String argument)
 		for (const auto& entry : helpfile_table)
 			do_printhelps(ch, entry.name);
 
-		stc("All helps have been printed to file in the " HELP_DIR " directory.\n", ch);
+		ptc(ch, "All helps have been printed to file in the %s directory.\n", HELP_DIR);
 		return;
 	}
 
@@ -436,9 +436,9 @@ void do_printhelps(Character *ch, String argument)
 
 	Format::fprintf(fp, "-2\n");
 	fclose(fp);
-	Format::sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
+	Format::sprintf(buf, "%s%s.help", HELP_DIR, helpfile_table[tablenum].name);
 	rename(TEMP_FILE, buf.c_str());
-	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
+	ptc(ch, "File %s%s.help: %d helps printed.\n", HELP_DIR, helpfile_table[tablenum].name, count);
 }
 
 void do_help(Character *ch, String argument)

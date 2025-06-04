@@ -10,10 +10,10 @@
  * Credits defines stuff
  */
 
-#define RANGE_OK   0
-#define RANGE_ALL  1
-#define RANGE_CLAN 2
-#define RANGE_IMM  3
+constexpr int RANGE_OK   = 0;
+constexpr int RANGE_ALL  = 1;
+constexpr int RANGE_CLAN = 2;
+constexpr int RANGE_IMM  = 3;
 
 class Area
 {

@@ -3,13 +3,13 @@
 #include "String.hh"
 #include "Pooled.hh"
 
-#define NOTE_NOTE       0
-#define NOTE_IDEA       1
-#define NOTE_ROLEPLAY   2
-#define NOTE_IMMQUEST   3
-#define NOTE_CHANGES    4
-#define NOTE_PERSONAL   5
-#define NOTE_TRADE      6
+constexpr int NOTE_NOTE       = 0;
+constexpr int NOTE_IDEA       = 1;
+constexpr int NOTE_ROLEPLAY   = 2;
+constexpr int NOTE_IMMQUEST   = 3;
+constexpr int NOTE_CHANGES    = 4;
+constexpr int NOTE_PERSONAL   = 5;
+constexpr int NOTE_TRADE      = 6;
 
 class Note :
 public Pooled<Note>

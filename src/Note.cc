@@ -46,7 +46,7 @@
 
 
 /* local procedures */
-void load_thread(char *name, Note **list, int type, time_t free_time);
+void load_thread(const char *name, Note **list, int type, time_t free_time);
 void parse_note(Character *ch, String argument, int type);
 bool hide_note(Character *ch, Note *pnote);
 
@@ -191,7 +191,7 @@ void do_trade(Character *ch, String argument)
 void save_notes(int type)
 {
 	FILE *fp;
-	char *name;
+	const char *name;
 	Note *pnote;
 
 	switch (type) {
@@ -271,7 +271,7 @@ void load_notes(void)
 	load_thread(TRADE_FILE, &trade_list, NOTE_TRADE, 0);
 }
 
-void load_thread(char *name, Note **list, int type, time_t free_time)
+void load_thread(const char *name, Note **list, int type, time_t free_time)
 {
 	FILE *fp;
 	Note *pnote, *pnotelast;
@@ -353,7 +353,7 @@ void load_thread(char *name, Note **list, int type, time_t free_time)
 void append_note(Note *pnote)
 {
 	FILE *fp;
-	char *name;
+	const char *name;
 	Note **list;
 	Note *last;
 

@@ -47,13 +47,13 @@ int sprintf(char *buf, const String& fmt, Params&&... params) {
 }
 
 template<class... Params>
-int snprintf(char *buf, unsigned int len, const String& fmt, Params&&... params) {
-    return std::snprintf(buf, len, fmt.c_str(), to_c(params)...);
+int fprintf(FILE *fp, const String& fmt, Params&&... params) {
+    return std::fprintf(fp, fmt.c_str(), to_c(params)...);
 }
 
 template<class... Params>
-int fprintf(FILE *fp, const String& fmt, Params&&... params) {
-    return std::fprintf(fp, fmt.c_str(), to_c(params)...);
+int snprintf(char *buf, unsigned int len, const String& fmt, Params&&... params) {
+    return std::snprintf(buf, len, fmt.c_str(), to_c(params)...);
 }
 
 // versions of sprintf that replace the contents of a String

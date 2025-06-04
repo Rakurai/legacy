@@ -7,11 +7,11 @@ class Object;
 namespace gem {
 
 // constants
-#define MAX_GEM_SETTINGS            4
+constexpr int MAX_GEM_SETTINGS = 4;
 
 // obj value fields
-#define GEM_VALUE_TYPE              0
-#define GEM_VALUE_QUALITY           1
+constexpr int GEM_VALUE_TYPE = 0;
+constexpr int GEM_VALUE_QUALITY = 1;
 
 // gem qualities
 enum Quality : int {
@@ -26,8 +26,8 @@ enum Quality : int {
 };
 
 // gem object primitives
-#define OBJ_VNUM_GEM_RUBY           121
-#define OBJ_VNUM_GEM_EMERALD        122
+constexpr int OBJ_VNUM_GEM_RUBY   = 121;
+constexpr int OBJ_VNUM_GEM_EMERALD = 122;
 
 struct type_st
 {

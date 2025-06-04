@@ -21,8 +21,8 @@ private:
 	Edit& operator=(const Edit&);
 };
 
-#define EDIT_TYPE_NONE   0
-#define EDIT_TYPE_NOTE   1
-#define EDIT_TYPE_DESC   2
-#define EDIT_TYPE_ROOM   3
-#define EDIT_TYPE_HELP   4
+constexpr int EDIT_TYPE_NONE = 0;
+constexpr int EDIT_TYPE_NOTE = 1;
+constexpr int EDIT_TYPE_DESC = 2;
+constexpr int EDIT_TYPE_ROOM = 3;
+constexpr int EDIT_TYPE_HELP = 4;

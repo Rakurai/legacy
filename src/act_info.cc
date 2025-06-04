@@ -3043,9 +3043,9 @@ void do_equipment(Character *ch, String argument)
 			int spaces;
 
 			if (obj->num_settings == 0)
-				spaces = MAX_GEM_SETTINGS + 3;
+				spaces = gem::MAX_GEM_SETTINGS + 3;
 			else
-				spaces = (MAX_GEM_SETTINGS - obj->num_settings);
+				spaces = (gem::MAX_GEM_SETTINGS - obj->num_settings);
 
 			while (spaces-- > 0)
 				buf += " ";

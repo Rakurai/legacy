@@ -126,8 +126,7 @@ is_very_dark() const {
 	return false;
 }
 
-bool Room::
-is_private() const {
+bool Room::is_private() const {
 	if (!owner().empty())
 		return true;
 

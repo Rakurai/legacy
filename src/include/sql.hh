@@ -4,8 +4,8 @@
 #include "Flags.hh"
 #include "Format.hh"
 
-#define SQL_OK		0
-#define SQL_ERROR	1
+constexpr int SQL_OK    = 0;
+constexpr int SQL_ERROR = 1;
 
 /* db functions */
 void		db_open				(void);

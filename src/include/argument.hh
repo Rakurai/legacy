@@ -20,13 +20,13 @@ const char *one_argument(const String& argument, String& arg);
  * These represent players, mobiles, characters (either),
  * objects and rooms, respectively.
  */
-#define ENTITY_P (Flags::A)
-#define ENTITY_M (Flags::B)
-#define ENTITY_C (ENTITY_P|ENTITY_M)
-#define ENTITY_O (Flags::C)
-#define ENTITY_R (Flags::D)
+constexpr Flags::Bit ENTITY_P = Flags::A;
+constexpr Flags::Bit ENTITY_M = Flags::B;
+//constexpr Flags::Bit ENTITY_C = ENTITY_P | ENTITY_M;
+constexpr Flags::Bit ENTITY_O = Flags::C;
+constexpr Flags::Bit ENTITY_R = Flags::D;
 
 /* More entity types: Mobs, objects and rooms as Vnums */
-#define ENTITY_VM (Flags::E)   /* Mob Vnum */
-#define ENTITY_VO (Flags::F)   /* Obj Vnum */
-#define ENTITY_VR (Flags::G)   /* Room Vnum */
+constexpr Flags::Bit ENTITY_VM = Flags::E;   /* Mob Vnum */
+constexpr Flags::Bit ENTITY_VO = Flags::F;   /* Obj Vnum */
+constexpr Flags::Bit ENTITY_VR = Flags::G;   /* Room Vnum */

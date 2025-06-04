@@ -4,7 +4,7 @@
 
 class String;
 
-#define FLAGS_NBITS 32
+constexpr int FLAGS_NBITS = 32;
 
 class Flags
 {

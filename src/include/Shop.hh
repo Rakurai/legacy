@@ -3,7 +3,7 @@
 #include "constants.hh"
 #include <cstdio>
 
-#define MAX_TRADE        5
+constexpr int MAX_TRADE = 5;
 
 class Shop
 {

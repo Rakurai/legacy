@@ -14,14 +14,18 @@
 /*
  * String and memory management parameters.
  */
-#define MAX_KEY_HASH             1024
-#define MAX_STRING_LENGTH        4608
-#define MAX_INPUT_LENGTH          256
-#define PAGELEN                    22
+constexpr int MAX_KEY_HASH = 1024;
+// movved to constants.hh
+// constexpr int MAX_STRING_LENGTH = 4608;
+// constexpr int MAX_INPUT_LENGTH = 256;
+constexpr int PAGELEN = 22;
+
+// moved from Character.hh
+constexpr int MAX_ATTR = 48; // last apply (that we want to have bonus modifiers for) + 1
 
 // for character stats
-#define DEFENSE_MOD_MEM_SIZE (sizeof(int) * 32)
-#define APPLY_CACHE_MEM_SIZE (sizeof(int) * MAX_ATTR)
+constexpr size_t DEFENSE_MOD_MEM_SIZE = sizeof(int) * 32;
+constexpr size_t APPLY_CACHE_MEM_SIZE = sizeof(int) * MAX_ATTR;
 
 extern	int	top_exit;
 extern	int	top_mob_index;

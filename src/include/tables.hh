@@ -49,28 +49,28 @@ struct revoke_type
 	String message;
 };
 
-#define CAND_CHAR	0
-#define CAND_MOB	1
-#define CAND_PLAYER	2
-#define CAND_OBJ	3
-#define	CAND_ROOM	4
+constexpr int CAND_CHAR   = 0;
+constexpr int CAND_MOB    = 1;
+constexpr int CAND_PLAYER = 2;
+constexpr int CAND_OBJ    = 3;
+constexpr int CAND_ROOM   = 4;
 
-#define FIELD_PLAYER	0
-#define FIELD_PCDATA	1
-#define FIELD_CGROUP	2
-#define FIELD_WIZNET	3
-#define FIELD_REVOKE	4
-#define	FIELD_CENSOR	5
-#define	FIELD_COMM	6
-#define	FIELD_ACT	7
-#define	FIELD_OFF	8
-#define	FIELD_FORM	9
-#define	FIELD_PART	10
-#define FIELD_GROUP 11
-#define	FIELD_EXTRA	12
-#define	FIELD_WEAR	13
-#define	FIELD_WEAPON	14
-#define	FIELD_ROOM	15
+constexpr int FIELD_PLAYER   = 0;
+constexpr int FIELD_PCDATA   = 1;
+constexpr int FIELD_CGROUP   = 2;
+constexpr int FIELD_WIZNET   = 3;
+constexpr int FIELD_REVOKE   = 4;
+constexpr int FIELD_CENSOR   = 5;
+constexpr int FIELD_COMM     = 6;
+constexpr int FIELD_ACT      = 7;
+constexpr int FIELD_OFF      = 8;
+constexpr int FIELD_FORM     = 9;
+constexpr int FIELD_PART     = 10;
+constexpr int FIELD_GROUP    = 11;
+constexpr int FIELD_EXTRA    = 12;
+constexpr int FIELD_WEAR     = 13;
+constexpr int FIELD_WEAPON   = 14;
+constexpr int FIELD_ROOM     = 15;
 
 struct flag_type
 {

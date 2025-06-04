@@ -33,7 +33,7 @@ private:
 	GameTime& operator=(const GameTime&);
 };
 
-#define MUD_YEAR		17	/* months */
-#define MUD_MONTH		35	/* days */
-#define MUD_DAY			24	/* hours */
-#define MUD_HOUR		45	/* seconds */
+constexpr int MUD_YEAR  = 17;  // months
+constexpr int MUD_MONTH = 35;  // days
+constexpr int MUD_DAY   = 24;  // hours
+constexpr int MUD_HOUR  = 45;  // seconds

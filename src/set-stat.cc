@@ -1417,8 +1417,8 @@ void do_oset(Character *ch, String argument)
 	}
 
 	if (arg2.is_prefix_of("settings")) {
-		if (value < 0 || value > MAX_GEM_SETTINGS) {
-			ptc(ch, "A valid settings vaue is between 0 and %d.\n", MAX_GEM_SETTINGS);
+		if (value < 0 || value > gem::MAX_GEM_SETTINGS) {
+			ptc(ch, "A valid settings vaue is between 0 and %d.\n", gem::MAX_GEM_SETTINGS);
 			return;
 		}
 

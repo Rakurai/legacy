@@ -390,8 +390,7 @@ update() {
 	}
 }
 
-void Area::
-reset() {
+void Area::reset() {
 	Character *mob;
 	bool last;
 	int level;

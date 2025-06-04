@@ -133,6 +133,6 @@ private:
 long get_pc_id();
 
 /* mudding experience for newbies */
-#define MEXP_TOTAL_NEWBIE	0
-#define MEXP_LEGACY_NEWBIE	1
-#define MEXP_LEGACY_OLDBIE	2
+constexpr int MEXP_TOTAL_NEWBIE = 0;
+constexpr int MEXP_LEGACY_NEWBIE = 1;
+constexpr int MEXP_LEGACY_OLDBIE = 2;

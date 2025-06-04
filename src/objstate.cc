@@ -114,7 +114,9 @@ int objstate_save_items()
 	if ((fp = fopen(TEMP_FILE, "w")) != nullptr) {
 		fputs(JSONstring, fp);
 		fclose(fp);
-		rename(TEMP_FILE, COPYOVER_ITEMS ".json");
+		char filename[256];
+		sprintf(filename, "%s.json", COPYOVER_ITEMS);
+		rename(TEMP_FILE, filename);
 	}
 	else {
 		Logging::bugf("Could not write to copyover file: %s", COPYOVER_ITEMS);
@@ -134,7 +136,9 @@ int count_items(const Object *obj) {
 }
 
 int objstate_load_items() {
-	cJSON *root = JSON::read_file(COPYOVER_ITEMS ".json");
+	char filename[256];
+	sprintf(filename, "%s.json", COPYOVER_ITEMS);
+	cJSON *root = JSON::read_file(filename);
 
 	if (root == nullptr)
 		return 0;

@@ -24,6 +24,6 @@ private:
 /*
  * Tail (Snoop) flags
  */
-#define TAIL_NONE                        Flags::none
-#define TAIL_ACT                         Flags::A
-#define TAIL_ALL                         TAIL_ACT
+constexpr Flags::Bit TAIL_NONE = Flags::none;
+constexpr Flags::Bit TAIL_ACT  = Flags::A;
+constexpr Flags::Bit TAIL_ALL  = TAIL_ACT;

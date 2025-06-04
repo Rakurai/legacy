@@ -7,7 +7,8 @@
 
 /* this is a listing of all the commands and command related data */
 
-#define COM_INGORE      1
+constexpr int COM_INGORE = 1;
+
 
 
 /*
@@ -17,10 +18,10 @@ struct  cmd_type
 {
     String              name;
     DO_FUN *            do_fun;
-    int              position;
-    int              log;
-    int              show;
-    Flags group;
+    const int              position;
+    const int              log;
+    const int              show;
+    const Flags group;
 };
 
 /* the command table itself */

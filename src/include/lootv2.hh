@@ -10,62 +10,62 @@
 Object *generate_eq(int level);
 
 //blank object vnums for armor pieces (vnums in vegita.are)
-#define OBJ_VNUM_LIGHT				24356				
-#define OBJ_VNUM_FINGER				24357	
-#define OBJ_VNUM_NECK				24358
-#define OBJ_VNUM_TORSO				24359
-#define OBJ_VNUM_HEAD				24360
-#define OBJ_VNUM_LEGS				24361
-#define OBJ_VNUM_FEET				24362
-#define OBJ_VNUM_HANDS				24363
-#define OBJ_VNUM_ARMS				24364
-#define OBJ_VNUM_SHIELD				24365
-#define OBJ_VNUM_BODY				24366
-#define OBJ_VNUM_WAIST				24367
-#define OBJ_VNUM_WRIST				24368
-#define OBJ_VNUM_FLOATING			24355
-#define OBJ_VNUM_HOLD				24369 
+constexpr int OBJ_VNUM_LIGHT      = 24356;
+constexpr int OBJ_VNUM_FINGER     = 24357;
+constexpr int OBJ_VNUM_NECK       = 24358;
+constexpr int OBJ_VNUM_TORSO      = 24359;
+constexpr int OBJ_VNUM_HEAD       = 24360;
+constexpr int OBJ_VNUM_LEGS       = 24361;
+constexpr int OBJ_VNUM_FEET       = 24362;
+constexpr int OBJ_VNUM_HANDS      = 24363;
+constexpr int OBJ_VNUM_ARMS       = 24364;
+constexpr int OBJ_VNUM_SHIELD     = 24365;
+constexpr int OBJ_VNUM_BODY       = 24366;
+constexpr int OBJ_VNUM_WAIST      = 24367;
+constexpr int OBJ_VNUM_WRIST      = 24368;
+constexpr int OBJ_VNUM_FLOATING   = 24355;
+constexpr int OBJ_VNUM_HOLD       = 24369;
 
 //blank object vnums for weapon types (vnums in vegita.are)
-#define OBJ_VNUM_WIELD_AXE				24370
-#define OBJ_VNUM_WIELD_DAGGER			24371
-#define OBJ_VNUM_WIELD_EXOTIC			24372
-#define OBJ_VNUM_WIELD_FLAIL			24373
-#define OBJ_VNUM_WIELD_MACE				24374
-#define OBJ_VNUM_WIELD_POLEARM			24375
-#define OBJ_VNUM_WIELD_SPEAR			24376
-#define OBJ_VNUM_WIELD_SWORD			24377
-#define OBJ_VNUM_WIELD_WHIP				24378
-#define OBJ_VNUM_WIELD_BOW				24379
+constexpr int OBJ_VNUM_WIELD_AXE      = 24370;
+constexpr int OBJ_VNUM_WIELD_DAGGER   = 24371;
+constexpr int OBJ_VNUM_WIELD_EXOTIC   = 24372;
+constexpr int OBJ_VNUM_WIELD_FLAIL    = 24373;
+constexpr int OBJ_VNUM_WIELD_MACE     = 24374;
+constexpr int OBJ_VNUM_WIELD_POLEARM  = 24375;
+constexpr int OBJ_VNUM_WIELD_SPEAR    = 24376;
+constexpr int OBJ_VNUM_WIELD_SWORD    = 24377;
+constexpr int OBJ_VNUM_WIELD_WHIP     = 24378;
+constexpr int OBJ_VNUM_WIELD_BOW      = 24379;
 
 
 //weapon and armor type defines 
 //armor is 100-115, weapons 200-208
-#define ARMOR_LIGHT			100
-#define ARMOR_FINGER		101
-#define ARMOR_NECK			102
-#define ARMOR_TORSO			103
-#define ARMOR_HEAD			104
-#define ARMOR_LEGS			105
-#define ARMOR_FEET			106
-#define ARMOR_HANDS			107
-#define ARMOR_ARMS			108
-#define ARMOR_SHIELD		109
-#define ARMOR_BODY			110
-#define ARMOR_WAIST			111
-#define ARMOR_WRIST			112
-#define ARMOR_FLOATING		113
-#define ARMOR_HOLD			114
-#define WIELD_AXE			200
-#define WIELD_DAGGER		201
-#define WIELD_EXOTIC		202
-#define WIELD_FLAIL			203
-#define WIELD_MACE			204
-#define WIELD_POLEARM		205
-#define WIELD_SPEAR			206
-#define WIELD_SWORD			207
-#define WIELD_WHIP			208
-#define WIELD_BOW			209
+constexpr int ARMOR_LIGHT      = 100;
+constexpr int ARMOR_FINGER     = 101;
+constexpr int ARMOR_NECK       = 102;
+constexpr int ARMOR_TORSO      = 103;
+constexpr int ARMOR_HEAD       = 104;
+constexpr int ARMOR_LEGS       = 105;
+constexpr int ARMOR_FEET       = 106;
+constexpr int ARMOR_HANDS      = 107;
+constexpr int ARMOR_ARMS       = 108;
+constexpr int ARMOR_SHIELD     = 109;
+constexpr int ARMOR_BODY       = 110;
+constexpr int ARMOR_WAIST      = 111;
+constexpr int ARMOR_WRIST      = 112;
+constexpr int ARMOR_FLOATING   = 113;
+constexpr int ARMOR_HOLD       = 114;
+constexpr int WIELD_AXE        = 200;
+constexpr int WIELD_DAGGER     = 201;
+constexpr int WIELD_EXOTIC     = 202;
+constexpr int WIELD_FLAIL      = 203;
+constexpr int WIELD_MACE       = 204;
+constexpr int WIELD_POLEARM    = 205;
+constexpr int WIELD_SPEAR      = 206;
+constexpr int WIELD_SWORD      = 207;
+constexpr int WIELD_WHIP       = 208;
+constexpr int WIELD_BOW        = 209;
 
 
 /*
