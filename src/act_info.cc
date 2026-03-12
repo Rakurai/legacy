@@ -76,6 +76,9 @@
 #include "RoomPrototype.hh"
 
 
+extern char str_boot_time[MAX_INPUT_LENGTH];
+
+
 char   *const   where_name      [] = {
 	"<used as light>     ",
 	"<worn on finger>    ",
@@ -2463,8 +2466,6 @@ void do_time(Character *ch, String argument)
 		stc("{x\n", ch);
 	}
 
-	extern char str_boot_time[];
-
 	ptc(ch, "{gLegacy started up %s\nThe system time is: %s{x\n",
 		str_boot_time, (char *) ctime(&Game::current_time));
 }
@@ -2611,7 +2612,7 @@ void do_who(Character *ch, String argument)
 	int iLevelLower = 0, iLevelUpper = MAX_LEVEL;
 	int nNumber = 0, nMatch = 0, ndesc = 0;
 	int j1, j2;
-	bool rgfClass[Guild::size], rgfRace[pc_race_table.size()];
+	bool rgfClass[Guild::tsize], rgfRace[pc_race_table.size()];
 	bool fClassRestrict = false, fClanRestrict = false, fRaceRestrict = false, fImmortalOnly = false;
 	bool fClan = false;
 	bool fPK = false;
@@ -2620,7 +2621,7 @@ void do_who(Character *ch, String argument)
 	char *rank, *lbrk, *rbrk, *remort;
 
 	/* Set default arguments. */
-	for (unsigned long i = 0; i < Guild::size; i++)
+	for (unsigned long i = 0; i < Guild::tsize; i++)
 		rgfClass[i] = false;
 
 	for (unsigned long i = 0; i < pc_race_table.size(); i++)

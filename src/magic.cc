@@ -688,7 +688,7 @@ void obj_cast_spell(skill::type sn, int level, Character *ch, Character *victim,
 	void *vo;
 	int target = TARGET_NONE;
 
-	if (sn <= skill::type::unknown || sn >= skill::type::size)
+	if (sn <= skill::type::unknown || sn >= skill::type::tsize)
 		return;
 
 	const auto& entry = skill::lookup(sn);

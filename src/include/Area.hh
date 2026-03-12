@@ -6,15 +6,15 @@
 #include "Vnum.hh"
 #include "Location.hh"
 
-/**
+/*
  * @defgroup AreaLevelRanges Constants defining level ranges for areas
  * @{
  */
-constexpr int RANGE_OK   = 0;
-constexpr int RANGE_ALL  = 1;
-constexpr int RANGE_CLAN = 2;
-constexpr int RANGE_IMM  = 3;
-/** @} */
+// constexpr int RANGE_OK   = 0;
+// constexpr int RANGE_ALL  = 1;
+// constexpr int RANGE_CLAN = 2;
+// constexpr int RANGE_IMM  = 3;
+/* @} */
 
 class Area
 {

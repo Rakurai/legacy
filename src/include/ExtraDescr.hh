@@ -22,7 +22,3 @@ public:
 private:
 	ExtraDescr& operator=(const ExtraDescr&);
 };
-
-/* extra descr recycling */
-ExtraDescr	*new_extra_descr ();
-void	free_extra_descr (ExtraDescr *ed);

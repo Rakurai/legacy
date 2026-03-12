@@ -436,19 +436,19 @@ constexpr Flags::Bit ASSIST_GUARD     = Flags::T;
 constexpr Flags::Bit ASSIST_VNUM      = Flags::U;
 /** @} */
 
-/** 
+/*
  * @defgroup CheckImmReturnValues Check Imm Return Values
  * @brief Constants representing return values for the `check_imm` function.
  * 
  * These constants define the possible outcomes of immunity checks for characters or mobs.
  * @{
  */
-constexpr int IS_VULNERABLE = 0;
-constexpr int IS_NORMAL = 1;
-constexpr int IS_RESISTANT = 2;
-constexpr int IS_IMMUNE = 3;
-constexpr int IS_ABSORBING = 4;
-/** @} */
+// constexpr int IS_VULNERABLE = 0;
+// constexpr int IS_NORMAL = 1;
+// constexpr int IS_RESISTANT = 2;
+// constexpr int IS_IMMUNE = 3;
+// constexpr int IS_ABSORBING = 4;
+/* @} */
 
 /** 
  * @defgroup DamageTypeImmunityFlags Damage Type Immunity Flags

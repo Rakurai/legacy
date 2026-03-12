@@ -91,17 +91,17 @@ extern cJSON *cJSON_GetArrayItem(cJSON *array,int item);
 extern cJSON *cJSON_GetObjectItem(cJSON *object,const char *string);
 extern int cJSON_HasObjectItem(cJSON *object,const char *string);
 /** For analysing failed parses. This returns a pointer to the parse error. You'll probably need to look a few chars back to make sense of it. Defined when cJSON_Parse() returns 0. 0 when cJSON_Parse() succeeds. */
-extern const char *cJSON_GetErrorPtr(void);
+extern const char *cJSON_GetErrorPtr();
 	
 /** These calls create a cJSON item of the appropriate type. */
-extern cJSON *cJSON_CreateNull(void);
-extern cJSON *cJSON_CreateTrue(void);
-extern cJSON *cJSON_CreateFalse(void);
+extern cJSON *cJSON_CreateNull();
+extern cJSON *cJSON_CreateTrue();
+extern cJSON *cJSON_CreateFalse();
 extern cJSON *cJSON_CreateBool(int b);
 extern cJSON *cJSON_CreateNumber(double num);
 extern cJSON *cJSON_CreateString(const char *string);
-extern cJSON *cJSON_CreateArray(void);
-extern cJSON *cJSON_CreateObject(void);
+extern cJSON *cJSON_CreateArray();
+extern cJSON *cJSON_CreateObject();
 
 /** These utilities create an Array of count items. */
 extern cJSON *cJSON_CreateIntArray(const int *numbers,int count);

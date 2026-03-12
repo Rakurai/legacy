@@ -29,8 +29,8 @@ State * GetSexState::handleInput(Descriptor *d, const String& argument) {
 	ptc(ch, "\n");
 	String buf = "Select a class [";
 
-	for (int i = Guild::first; i < Guild::size; i++) {
-		if (i > Guild::first)
+	for (int i = Guild::tfirst; i < Guild::tsize; i++) {
+		if (i > Guild::tfirst)
 			buf += " ";
 
 		buf += guild_table[i].name;

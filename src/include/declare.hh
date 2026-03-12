@@ -192,9 +192,9 @@ void    violence_update();
 int stat_to_attr(int stat);
 int     get_max_stat(const Character *ch, int stat);
 int get_age(Character *ch);
-int get_max_hit(Character *ch);
-int get_max_mana(Character *ch);
-int get_max_stam(Character *ch);
+// int get_max_hit(Character *ch);
+// int get_max_mana(Character *ch);
+// int get_max_stam(Character *ch);
 String print_defense_modifiers(Character *ch, int where);
 int get_unspelled_hitroll(Character *ch);
 int get_unspelled_damroll(Character *ch);
@@ -207,7 +207,7 @@ bool    is_clan(Character *ch);
 bool    is_same_clan(Character *ch, Character *victim);
 skill::type     get_weapon_skill(Character *ch, bool secondary);
 int     get_weapon_learned(Character *ch, skill::type sn);
-void    reset_char(Character *ch);
+// void    reset_char(Character *ch);
 int     get_max_train(Character *ch, int stat);
 int     can_carry_n(Character *ch);
 int     can_carry_w(Character *ch);
@@ -236,7 +236,7 @@ bool    can_see_obj(const Character *ch, const Object *obj);
 bool    can_see_room(const Character *ch, const Room *room);
 bool    can_see_in_room(const Character *ch, const Room *room);
 //const char *  first_arg(const char *argument, char *arg_first, bool fCase);
-const char *  get_who_line(Character *ch, Character *victim);
+//const char *  get_who_line(Character *ch, Character *victim);
 bool    mob_exists(const char *name);
 //int	round(float fNum, int iInc);	/**< below is Montrey's list of */
 int	parse_deity(const String& dstring);		/**< hacks!  Beware! :) */
@@ -275,9 +275,6 @@ skill::type    find_spell(Character *ch, const String& name);
 void    obj_cast_spell(skill::type sn, int level, Character *ch, Character *victim, Object *obj);
 void spell_imprint(skill::type sn, int level, Character *ch, void *vo);
 
-// loot.c
-void generate_eq(Character *ch);
-
 /* quest.c */
 void    quest_cleanup(Character *ch);
 void    sq_cleanup(Character *ch);
@@ -311,7 +308,7 @@ String spec_name(SPEC_FUN *function);
 bool    IS_SPECIAL(Character *ch);
 
 /* teleport.c */
-Room *   room_by_name(const char *target, int level, bool error);
+//Room *   room_by_name(const char *target, int level, bool error);
 
 /* tour.c */
 //void    do_alight(Character *ch, const char *argument);

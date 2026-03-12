@@ -57,7 +57,9 @@
 
 extern void     squestmob_found (Character *ch, Character *mob);
 extern           time_t                  reboot_time;
+extern bool merc_down;
 extern void spread_plague(Room *room, const affect::Affect *plague, int chance);
+extern void restore_char(Character *ch, Character *victim);
 
 
 int     save_number = 0;
@@ -171,7 +173,6 @@ void gain_exp(Character *ch, int gain)
 			        "{CGG GGG  RRRRRR   AAAAAA    TTT     ZZZ  \n"
 			        "{BGG  GG  RR  RRR  AA  AA    TTT    ZZZZZZ\n"
 			        "{VGGGGGG  RR   RR  AA  AA    TTT    ZZZZZZ{x\n";
-			extern void restore_char(Character *, Character *);
 			stc("{MGratz from all the Immortals of Legacy!{x\n\n", ch);
 
 			for (d = descriptor_list; d; d = d->next)
@@ -735,7 +736,7 @@ void char_update()
 				if (paf->next == nullptr
 				 || paf->next->type != paf->type
 				 || paf->next->duration > 0) {
-					if (paf->type >= affect::type::first && !affect::lookup(paf->type).msg_off.empty())
+					if (paf->type >= affect::type::tfirst && !affect::lookup(paf->type).msg_off.empty())
 						ptc(ch, "%s\n", affect::lookup(paf->type).msg_off);
 				}
 			}
@@ -1531,7 +1532,6 @@ void update_handler()
 
 				if (count == 0) {
 					Descriptor *d_next;
-					extern bool merc_down;
 					Logging::log("AUTO-REBOOT");
 //					do_sysinfo("The system is going down for auto-reboot NOW.\n");
 					merc_down = true;

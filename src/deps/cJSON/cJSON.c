@@ -34,7 +34,7 @@
 
 static const char *global_ep;
 
-const char *cJSON_GetErrorPtr(void) {return global_ep;}
+const char *cJSON_GetErrorPtr() {return global_ep;}
 
 static int cJSON_strcasecmp(const char *s1,const char *s2)
 {
@@ -70,7 +70,7 @@ void cJSON_InitHooks(cJSON_Hooks* hooks)
 }
 
 /* Internal constructor. */
-static cJSON *cJSON_New_Item(void)
+static cJSON *cJSON_New_Item()
 {
 	cJSON* node = (cJSON*)cJSON_malloc(sizeof(cJSON));
 	if (node) memset(node,0,sizeof(cJSON));
@@ -709,14 +709,14 @@ void   cJSON_ReplaceItemInArray(cJSON *array,int which,cJSON *newitem)		{cJSON *
 void   cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem){int i=0;cJSON *c=object->child;while(c && cJSON_strcasecmp(c->string,string))i++,c=c->next;if(c){newitem->string=cJSON_strdup(string);cJSON_ReplaceItemInArray(object,i,newitem);}}
 
 /* Create basic types: */
-cJSON *cJSON_CreateNull(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_NULL;return item;}
-cJSON *cJSON_CreateTrue(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_True;return item;}
-cJSON *cJSON_CreateFalse(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_False;return item;}
+cJSON *cJSON_CreateNull()					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_NULL;return item;}
+cJSON *cJSON_CreateTrue()					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_True;return item;}
+cJSON *cJSON_CreateFalse()					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_False;return item;}
 cJSON *cJSON_CreateBool(int b)					{cJSON *item=cJSON_New_Item();if(item)item->type=b?cJSON_True:cJSON_False;return item;}
 cJSON *cJSON_CreateNumber(double num)			{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_Number;item->valuedouble=num;item->valueint=(int)num;}return item;}
 cJSON *cJSON_CreateString(const char *string)	{cJSON *item=cJSON_New_Item();if(item){item->type=cJSON_String;item->valuestring=cJSON_strdup(string);if(!item->valuestring){cJSON_Delete(item);return 0;}}return item;}
-cJSON *cJSON_CreateArray(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Array;return item;}
-cJSON *cJSON_CreateObject(void)					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Object;return item;}
+cJSON *cJSON_CreateArray()					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Array;return item;}
+cJSON *cJSON_CreateObject()					{cJSON *item=cJSON_New_Item();if(item)item->type=cJSON_Object;return item;}
 
 /* Create Arrays: */
 cJSON *cJSON_CreateIntArray(const int *numbers,int count)		{int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!n){cJSON_Delete(a);return 0;}if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}

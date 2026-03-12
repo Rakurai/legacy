@@ -130,7 +130,7 @@ private:
 	Player& operator=(const Player&);
 };
 
-long get_pc_id();
+//long get_pc_id();
 
 /**
  * @defgroup MuddingExperience Constants defining mudding experience levels for newbies

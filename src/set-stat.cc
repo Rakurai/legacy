@@ -59,6 +59,11 @@
 /* RT set replaces sset, mset, oset, rset and cset */
 
 extern void show_affect_to_char(const affect::Affect *paf, Character *ch);
+extern int can_evolve(Character * ch, skill::type type);
+extern void fix_blank_raff(Character * ch, int start);
+extern void roll_one_raff(Character * ch, Character * victim, int place);
+extern void roll_raffects(Character * ch, Character * victim);
+extern void rem_raff_affect(Character * ch, int index);
 
 void do_sset(Character *ch, String argument)
 {
@@ -175,7 +180,6 @@ void do_evoset(Character *ch, String argument)
 	}
 
 	if (arg2.empty()) {
-		extern int can_evolve(Character * ch, skill::type sn);
 		String buffer;
 		int can;
 		buffer += "They have the following skills and spells evolved:\n\n";
@@ -251,10 +255,6 @@ void do_evoset(Character *ch, String argument)
 
 void do_raffset(Character *ch, String argument)
 {
-	extern void fix_blank_raff(Character * ch, int start);
-	extern void roll_one_raff(Character * ch, Character * victim, int place);
-	extern void roll_raffects(Character * ch, Character * victim);
-	extern void rem_raff_affect(Character * ch, int index);
 	Character *victim;
 	int i, index;
 
@@ -413,7 +413,6 @@ void do_raffset(Character *ch, String argument)
 
 void do_extraset(Character *ch, String argument)
 {
-	extern void fix_blank_extraclass(Character * ch, int index);
 	char buf[MAX_STRING_LENGTH];
 	String output;
 	Character *victim;
@@ -439,7 +438,7 @@ void do_extraset(Character *ch, String argument)
 	if (arg1 == "list") {
 		output += "\n                      {BExtraclass Remort Skills{x\n";
 
-		for (cn = Guild::first; cn < Guild::size; cn++) {
+		for (cn = Guild::tfirst; cn < Guild::tsize; cn++) {
 			Format::sprintf(buf, "\n{W%s Skills{x\n    ", guild_table[cn].name.capitalize());
 			output += buf;
 			col = 0;
@@ -493,9 +492,6 @@ void do_extraset(Character *ch, String argument)
 		return;
 	}
 
-	/* before we even start, let's fix holes in their exsk array */
-	/*    fix_blank_extraclass(victim,0); */
-
 	if (arg2.empty()) {
 		if (victim->pcdata->extraclass[0] != skill::type::unknown
 		 || victim->pcdata->extraclass[1] != skill::type::unknown
@@ -548,7 +544,6 @@ void do_extraset(Character *ch, String argument)
 			if (victim->pcdata->extraclass[x] == sn) {
 				victim->pcdata->extraclass[x] = skill::type::unknown;
 				stc("Extraclass skill removed.\n", ch);
-				/*              fix_blank_extraclass(victim,0); */
 			}
 		}
 
@@ -930,8 +925,8 @@ void do_mset(Character *ch, String argument)
 		if (guild == Guild::none) {
 			Format::sprintf(buf, "Possible classes are: ");
 
-			for (int i = Guild::first; i < Guild::size; i++) {
-				if (i > Guild::first)
+			for (int i = Guild::tfirst; i < Guild::tsize; i++) {
+				if (i > Guild::tfirst)
 					buf += " ";
 
 				buf += guild_table[i].name;

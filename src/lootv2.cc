@@ -40,8 +40,8 @@
 #include "merc.hh"
 #include "ObjectPrototype.hh"
 
-Object *generate_armor(int ilevel, int objlevel, int item_qual, int& eq_type);
-Object *generate_weapon(int ilevel, int objlevel, int item_qual, int& eq_type);
+// Object *generate_armor(int ilevel, int objlevel, int item_qual, int& eq_type);
+// Object *generate_weapon(int ilevel, int objlevel, int item_qual, int& eq_type);
 int random_prototype(String key);
 void add_base_stats(Object *obj, int ilevel, int item_qual);
 const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect::type>& mods_allowed);

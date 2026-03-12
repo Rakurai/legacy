@@ -137,8 +137,8 @@ enum class type {
 	obj_set_thief_cutpurse,
 	obj_set_paladin_grace,
 
-    size, // don't touch
-    first = 0 // don't touch
+    tsize, // don't touch
+    tfirst = 0 // don't touch
 };
 
 } // namespace affect

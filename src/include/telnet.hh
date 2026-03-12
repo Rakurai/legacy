@@ -86,10 +86,8 @@ char *telopts[NTELOPTS] = {
 };
 #endif
 
-/**
- * @defgroup TelnetSubOptionQualifiers Definitions for TELNET sub-option qualifiers
- * @{
- */
-constexpr int TELQUAL_IS   = 0;  /**< option is... */
-constexpr int TELQUAL_SEND = 1;  /**< send option */
-/** @} */
+// @defgroup TelnetSubOptionQualifiers Definitions for TELNET sub-option qualifiers
+// @{
+// constexpr int TELQUAL_IS   = 0;  /**< option is... */
+// constexpr int TELQUAL_SEND = 1;  /**< send option */
+// @}

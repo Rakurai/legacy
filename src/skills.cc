@@ -571,7 +571,7 @@ void do_levels(Character *ch, String argument)
 
 				// if ungainable by any class, skip it
 				bool gainable = false;
-				for (int i = Guild::first; i < Guild::size; i++)
+				for (int i = Guild::tfirst; i < Guild::tsize; i++)
 					if (get_usable_level(type, (Guild)i) >= 0) {
 						gainable = true;
 						break;
@@ -583,7 +583,7 @@ void do_levels(Character *ch, String argument)
 				Format::sprintf(buf, "%-21s", entry.name);
 				buffer += buf;
 
-				for (x = Guild::first; x < Guild::size; x++) {
+				for (x = Guild::tfirst; x < Guild::tsize; x++) {
 					int level = get_usable_level(type, (Guild)x);
 					if (level < 0 || level > LEVEL_HERO)
 						Format::sprintf(buf, "{c  NA{x");
@@ -606,7 +606,7 @@ void do_levels(Character *ch, String argument)
 		stc("                                           Level/Trains\n", ch);
 		stc("                       Mag    Cle    Thi    War    Nec    Pdn    Bar    Ran\n", ch);
 
-		for (x = Guild::first; x < Guild::size; x++) {
+		for (x = Guild::tfirst; x < Guild::tsize; x++) {
 			Format::sprintf(buf, "{W%s Skills:{x\n", guild_table[x].name.capitalize());
 			buffer += buf;
 
@@ -623,7 +623,7 @@ void do_levels(Character *ch, String argument)
 				Format::sprintf(buf, "  {g%-19s{x", entry.name);
 				buffer += buf;
 
-				for (y = Guild::first; y < Guild::size; y++) {
+				for (y = Guild::tfirst; y < Guild::tsize; y++) {
 					int level = get_usable_level(type, (Guild)y);
 					if (level < 0 || level > LEVEL_HERO)
 						Format::sprintf(buf, " {TNA{c/{HNA {x");
@@ -1011,7 +1011,7 @@ int get_usable_level(skill::type sn, Guild guild) {
 		int highest = 0;
 
 		// return the highest level
-		for (int i = Guild::first; i < Guild::size; i++) {
+		for (int i = Guild::tfirst; i < Guild::tsize; i++) {
 			// if any guild cant use it, neither can unguilded
 			if (sk.skill_level[i] == -1)
 				return -1;

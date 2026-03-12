@@ -83,6 +83,7 @@ bool check_parse_name(const String& name);
 // external
 extern const Object *get_warp_crystal(const String& str);
 extern const String get_warp_loc_string(const Object *obj);
+extern void raff_add_to_char(Character *ch, int raff_id);
 
 /*
  * Save a character and inventory.
@@ -429,7 +430,7 @@ cJSON *fwrite_char(Character *ch)
 
 	item = nullptr;
 	for (const affect::Affect *paf = affect::list_char(ch); paf != nullptr; paf = paf->next) {
-		if (paf->type <= affect::type::unknown || paf->type >= affect::type::size)
+		if (paf->type <= affect::type::unknown || paf->type >= affect::type::tsize)
 			continue;
 
 		// don't write permanent affects, rebuild them from race and raffects on load
@@ -578,7 +579,7 @@ cJSON *fwrite_obj(Object *obj)
 		item = cJSON_CreateArray();
 
 		for (const affect::Affect *paf = affect::list_obj(obj); paf != nullptr; paf = paf->next) {
-			if (paf->type <= affect::type::unknown || paf->type >= affect::type::size)
+			if (paf->type <= affect::type::unknown || paf->type >= affect::type::tsize)
 				continue;
 
 			cJSON *aff = cJSON_CreateObject();
@@ -827,7 +828,6 @@ bool load_char_obj(Descriptor *d, const String& name)
 		// rebuild them now
 		affect::add_racial_to_char(ch);
 
-		extern void raff_add_to_char(Character *ch, int raff);
 		if (ch->pcdata->remort_count > 0)
 			for (int c = 0; c < ch->pcdata->remort_count / 10 + 1; c++)
 				raff_add_to_char(ch, ch->pcdata->raffect[c]);

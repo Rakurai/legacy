@@ -7,7 +7,7 @@
 namespace affect {
 
 #define GET_CACHE(ch) ((ch)->affect_cache == nullptr ? nullptr : (int *)(ch)->affect_cache)
-#define CACHE_SIZE (int)::affect::type::size
+#define CACHE_SIZE (int)::affect::type::tsize
 
 void free_cache(Character *ch) {
 	delete[] (int *)ch->affect_cache;

@@ -237,8 +237,8 @@ enum class type {
     mark,
     critical_blow,
 
-    size, // don't touch
-    first = 0 // don't touch
+    tsize, // don't touch
+    tfirst = 0 // don't touch
 };
 
 } // namespace skill

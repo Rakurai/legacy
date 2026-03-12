@@ -46,6 +46,9 @@
 #include "util/Image.hh"
 #include "World.hh"
 
+extern void     char_update     ();
+extern void     obj_update      ();
+extern void     room_update     ();
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
 void do_debug(Character *ch, String argument)
@@ -352,9 +355,6 @@ void do_debug(Character *ch, String argument)
 
 	if (!strcmp(subfunc, "tick")) {
 		int count, number = 1;
-		extern void     char_update     ();
-		extern void     obj_update      ();
-		extern void     room_update     ();
 
 		if (!argument.empty() && argument.is_number())
 			number = URANGE(1, atoi(argument), 100);

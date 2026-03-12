@@ -11,6 +11,6 @@ enum Guild {
 	bard,
 	ranger,
 
-	size,
-	first = 0
+	tsize,
+	tfirst = 0
 };

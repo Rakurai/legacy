@@ -48,6 +48,7 @@
 
 extern  time_t  reboot_time;
 extern  int     top_exit;
+extern bool merc_down;
 
 /* externals for counting purposes */
 //extern  Object        *obj_free;
@@ -238,7 +239,6 @@ void do_reboo(Character *ch, String argument)
 void do_reboot(Character *ch, String argument)
 {
 	char buf[MSL];
-	extern bool merc_down;
 	Descriptor *d, *d_next;
 
 	if (argument.empty()) {
@@ -269,7 +269,6 @@ void do_shutdown(Character *ch, String argument)
 {
 	char buf[MSL], buf2[MSL];
 	char *strtime;
-	extern bool merc_down;
 	Descriptor *d, *d_next;
 
 	if (Game::port == DIZZYPORT && !IS_IMP(ch)) {

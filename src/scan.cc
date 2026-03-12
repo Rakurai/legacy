@@ -37,6 +37,8 @@
 #include "Room.hh"
 #include "String.hh"
 
+//extern char *const distance[];
+
 char *const distance[4] = {
 	"right here",
 	"nearby to the ",
@@ -212,7 +214,6 @@ void scan_list(Room *scan_room, Character *ch, int depth, int door)
 
 void scan_char(Character *victim, Character *ch, int depth, int door)
 {
-	extern char *const distance[];
 	if (victim->is_npc())
 		new_color(ch, CSLOT_MISC_MOBILES);
 	else

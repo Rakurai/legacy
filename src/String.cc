@@ -36,7 +36,7 @@ bool operator!= (const String &lhs, const char *rhs) {
 }
 
 std::size_t String::find(const String& str, std::size_t start_pos) const {
-	if (start_pos > size() - str.size())
+	if (start_pos > this->size() - str.size())
 		return std::string::npos;
 
 	if (str.size() == 0)
@@ -71,10 +71,10 @@ bool String::has_prefix(const String& str, std::size_t min_chars) const {
 }
 
 bool String::is_prefix_of(const String& str, std::size_t min_chars) const {
-	if (size() < min_chars || str.size() < size())
+	if (this->size() < min_chars || str.size() < this->size())
 		return false;
 
-	return *this == str.substr(0, size());
+	return *this == str.substr(0, this->size());
 }
 
 bool String::has_infix(const String& str, std::size_t min_chars) const {
@@ -82,7 +82,7 @@ bool String::has_infix(const String& str, std::size_t min_chars) const {
 }
 
 bool String::is_infix_of(const String& str, std::size_t min_chars) const {
-	if (size() < min_chars || str.size() < size())
+	if (this->size() < min_chars || str.size() < this->size())
 		return false;
 
 	return str.find(*this) != std::string::npos;
@@ -93,10 +93,10 @@ bool String::has_suffix(const String& str, std::size_t min_chars) const {
 }
 
 bool String::is_suffix_of(const String& str, std::size_t min_chars) const {
-	if (size() < min_chars || str.size() < size())
+	if (this->size() < min_chars || str.size() < this->size())
 		return false;
 
-	return *this == str.substr(str.size() - size());
+	return *this == str.substr(str.size() - this->size());
 }
 
 bool String::has_words(const String& wordlist, bool exact) const {
@@ -306,8 +306,8 @@ const String String::replace(const String& what, const String& with, int times) 
 }
 
 const String String::insert(const String& what, std::size_t pos) const {
-	if (pos > size())
-		pos = size();
+	if (pos > this->size())
+		pos = this->size();
 
 	return substr(0, pos) + what + substr(pos);
 }

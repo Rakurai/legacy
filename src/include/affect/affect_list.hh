@@ -7,7 +7,7 @@ namespace affect {
 
 // internal list operations on affects, should not be exposed outside of affect_* compilation units
 
-void                add_to_list                ( Affect **list_head, Affect *paf );
+//void                add_to_list                ( Affect **list_head, Affect *paf );
 void                remove_from_list           ( Affect **list_head, Affect *paf );
 void                copy_to_list               ( Affect **list_head, const Affect *paf );
 void                dedup_in_list              ( Affect **list_head, Affect *paf, fn_params *params );

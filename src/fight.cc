@@ -68,6 +68,7 @@
 
 /* Maybe this will help me compile. -- Outsider */
 extern void    wear_obj         (Character *ch, Object *obj, bool fReplace);
+extern void attribute_check(Character *ch);
 
 /*
  * Local functions.
@@ -122,7 +123,6 @@ void violence_update()
 		// timing frequency.  can't go in the affect modifiers, because
 		// we don't want them to drop a weapon when only half of the affects
 		// have been loaded on the character
-		extern void attribute_check(Character *ch);
 		attribute_check(ch);
 
 		/* Hunting mobs */

@@ -81,6 +81,10 @@
 #include "conn/State.hh"
 #include "World.hh"
 
+
+extern bool merc_down;
+
+
 struct ka_struct;
 
 /* EPKA structure */
@@ -1082,8 +1086,6 @@ void read_from_buffer(Descriptor *d)
  */
 bool process_output(Descriptor *d, bool fPrompt)
 {
-	extern bool merc_down;
-
 	/* VT100 Stuff */
 	if (d->is_playing()
 	    && d->character->pcdata

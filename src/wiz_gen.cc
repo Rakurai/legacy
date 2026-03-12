@@ -52,6 +52,8 @@
 
 extern bool    swearcheck              (const String& argument);
 extern bool check_parse_name(const String& name);
+extern int top_mob_index;
+extern int top_obj_index;
 
 void do_adjust(Character *ch, String argument)
 {
@@ -2221,7 +2223,6 @@ void do_master(Character *ch, String argument)
 /* Olevel and Mlevel from ROM Newsgroup */
 void do_olevel(Character *ch, String argument)
 {
-	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        ///< Extra buffer, needed to fix mis-alignment. by Clerve
 	String buffer;
@@ -2365,7 +2366,6 @@ void do_olevel(Character *ch, String argument)
 
 void do_mlevel(Character *ch, String argument)
 {
-	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
 	char tmpbuf[80];        ///< needed to mix misalignment due to colorcodes.. Clerve
 	String buffer;
@@ -2762,7 +2762,6 @@ void do_rwhere(Character *ch, String argument)
 
 void do_mfind(Character *ch, String argument)
 {
-	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
 	String output;
 	MobilePrototype *pMobIndex;
@@ -2812,7 +2811,6 @@ void do_mfind(Character *ch, String argument)
 
 void do_ofind(Character *ch, String argument)
 {
-	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
 	ObjectPrototype *pObjIndex;
 	String output;

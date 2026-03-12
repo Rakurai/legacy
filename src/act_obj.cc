@@ -71,6 +71,8 @@
 /* Global for scrolls that want that extra oomph */
 extern String target_name;
 
+extern void squestobj_to_squestmob (Character * ch, Object * obj, Character * mob);
+
 
 /* Convert a number to an ordinal string -- Elrac
    The string may come from a static buffer, so it should be copied
@@ -1596,7 +1598,6 @@ void do_give(Character *ch, String argument)
 	if (IS_SQUESTOR(ch)
 	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {
 		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
-			extern void squestobj_to_squestmob (Character * ch, Object * obj, Character * mob);
 
 			if (!ch->pcdata->squestobjf) {
 				Logging::bug("At give sqobj to sqmob without sqobj found, continuing...", 0);

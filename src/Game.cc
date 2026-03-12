@@ -11,6 +11,8 @@
 #include "World.hh"
 #include "affect/Affect.hh"
 
+extern void init_mm();
+
 // static data for global access through singleton Game
 int Game::port;
 String Game::motd;
@@ -36,11 +38,10 @@ void Game::boot() {
 	Game::booting = true;
 
 	/* Init random number generator */
-	extern void init_mm();
 	init_mm();
 
 	// ensure our tables are in order
-	for (int i = (int)skill::type::first; i < (int)skill::type::size; i++) {
+	for (int i = (int)skill::type::tfirst; i < (int)skill::type::tsize; i++) {
 		const auto unknown = skill::lookup(skill::type::unknown);
 
 		if (skill::lookup((skill::type)i).name == unknown.name) {
@@ -49,7 +50,7 @@ void Game::boot() {
 		}
 	}
 
-	for (int i = (int)affect::type::first; i < (int)affect::type::size; i++) {
+	for (int i = (int)affect::type::tfirst; i < (int)affect::type::tsize; i++) {
 		const auto unknown = affect::lookup(affect::type::unknown);
 
 		if (affect::lookup((affect::type)i).name == unknown.name) {

@@ -271,7 +271,7 @@ void list_extraskill(Character *ch)
 	String output;
 	output += "\n                      {BExtraclass Remort Skills{x\n";
 
-	for (int cn = Guild::first; cn < Guild::size; cn++) {
+	for (int cn = Guild::tfirst; cn < Guild::tsize; cn++) {
 		if (!IS_IMMORTAL(ch))
 			if (cn == ch->guild)
 				continue;

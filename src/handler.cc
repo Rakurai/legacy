@@ -29,7 +29,6 @@
 #include <vector>
 
 #include "act.hh"
-#include "affect/affect_int.hh"
 #include "affect/Affect.hh"
 #include "Area.hh"
 #include "Character.hh"
