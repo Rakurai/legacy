@@ -14,9 +14,21 @@ WARNING  = -Wall -Winline -Wno-write-strings -Wno-format-security -Wsign-compare
 DEBUG    = -ggdb
 DEFINE   = -Dunix -DSQL -DDEBUG -DIPV6
 INCLUDE  = -I$(INCDIR) -I/usr/include -I/usr/local/include -I/opt/local/include
+LIB      = -L/opt/local/lib
+
+# Homebrew on macOS (Apple Silicon or Intel)
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+  HOMEBREW_PREFIX := $(shell brew --prefix 2>/dev/null)
+  ifneq ($(HOMEBREW_PREFIX),)
+    INCLUDE += -I$(HOMEBREW_PREFIX)/include
+    LIB     += -L$(HOMEBREW_PREFIX)/lib
+  endif
+  WARNING += -Wno-vla-cxx-extension
+endif
+
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.Td
 CPPFLAGS = ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
-LIB      = -L/opt/local/lib
 L_FLAGS  = ${LIB} -lsqlite3 -lm -lpng16
 
 COMPILE.c  = $(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c
